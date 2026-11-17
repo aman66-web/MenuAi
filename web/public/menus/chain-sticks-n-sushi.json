@@ -50,7 +50,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sticks-n-sushi/2f66fdeb4ef0.webp"
   },
   {
    "id": "edamame-beans-spicy-miso-and-sesame",
@@ -64,7 +65,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sticks-n-sushi/d3a50094d973.webp"
   },
   {
    "id": "edamame-beans-sea-salt-and-lemon",
@@ -78,7 +80,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sticks-n-sushi/f00b56c7505c.webp"
   },
   {
    "id": "shake-tataki",
@@ -121,7 +124,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sticks-n-sushi/0fe8e54c8245.webp"
   },
   {
    "id": "lobster-and-ikura-temaki",
@@ -206,8 +210,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "sticks-n-sushi/00561ce6cbdb.webp"
+   "modifiers": []
   },
   {
    "id": "gyoza",
@@ -389,8 +392,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "sticks-n-sushi/c8ffc563269c.webp"
+   "modifiers": []
   },
   {
    "id": "temaki-setto",
@@ -406,7 +408,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sticks-n-sushi/0bfc59f37c3c.webp"
   },
   {
    "id": "maguro-sashimi",
@@ -465,8 +468,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "sticks-n-sushi/304f205f9b70.webp"
+   "modifiers": []
   },
   {
    "id": "inari-ikura-nigiri-1-pc",
@@ -782,7 +784,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sticks-n-sushi/edc1920d34b6.webp"
   },
   {
    "id": "hiramasa-yaki-nigiri-1-pc",
@@ -839,7 +842,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sticks-n-sushi/c32047f55564.webp"
   },
   {
    "id": "inari-nigiri-1-pc",
@@ -987,8 +991,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "sticks-n-sushi/6ba927f07e63.webp"
+   "modifiers": []
   },
   {
    "id": "nanban",
@@ -1167,7 +1170,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sticks-n-sushi/e1aa78e94b71.webp"
   },
   {
    "id": "mini-maki-maki",
@@ -1358,7 +1362,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sticks-n-sushi/279a78dd578e.webp"
   },
   {
    "id": "hotate-bacon-1-pc",
@@ -1455,7 +1460,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sticks-n-sushi/4a08c9c737e9.webp"
   },
   {
    "id": "buta-yaki-1-pc",
@@ -1519,7 +1525,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sticks-n-sushi/2b7fa93a63eb.webp"
   },
   {
    "id": "gyu-habu-1-pc",
@@ -1551,7 +1558,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sticks-n-sushi/129d84ef04b4.webp"
   },
   {
    "id": "eringi-yaki-1-pc",
@@ -1636,7 +1644,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sticks-n-sushi/1ccd66363aae.webp"
   },
   {
    "id": "tsukune-1-pc",
@@ -1782,7 +1791,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sticks-n-sushi/547707db6298.webp"
   },
   {
    "id": "rice",
@@ -1796,7 +1806,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sticks-n-sushi/8bcd3e5de38c.webp"
   },
   {
    "id": "rice-with-crunchy-chilli",

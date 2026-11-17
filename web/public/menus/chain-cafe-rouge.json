@@ -10,15 +10,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Cafe Rouge Nutritional Values: Main, Desserts, Lunch, Kids, Breakfast and Drinks menus (page generated 2026-10-06)",
+  "title": "Cafe Rouge Nutritional Values: Main, Desserts, Lunch, Kids, Breakfast and Drinks menus (page generated 2026-11-17)",
   "url": "https://menus.tenkites.com/thebigtg/mobilemenuscaferouge",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Per portion as printed on the chain's menu pages. Wines, cocktails and most drinks print no numbers and are not listed; afternoon tea, Sunday roast (Centre Parcs only) and the Christmas Day menus are not listed. Extras and the side served with a grill dish are separate rows: add them yourself.",
  "allergenGuide": {
-  "title": "Cafe Rouge Dietary Information (allergens) on its online Main, Desserts, Lunch, Kids, Breakfast and Drinks menus (Ten Kites page generated 2026-10-06)",
+  "title": "Cafe Rouge Dietary Information (allergens) on its online Main, Desserts, Lunch, Kids, Breakfast and Drinks menus (Ten Kites page generated 2026-11-17)",
   "url": "https://menus.tenkites.com/thebigtg/mobilemenuscaferouge",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -4007,7 +4007,7 @@
    "category": "Drinks: Gin",
    "serving": "",
    "nutrients": {
-    "calories": 2,
+    "calories": 3,
     "protein": 0.1,
     "carbs": 0.1,
     "fat": 0,
@@ -4015,47 +4015,16 @@
     "sugar": 0.1,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "crustaceans",
-     "eggs",
-     "fish",
-     "lupin",
-     "milk",
-     "molluscs",
-     "mustard",
-     "nuts",
-     "peanuts",
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "oats",
-     "spelt",
-     "kamut"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
-    ]
+    "contains": [],
+    "mayContain": []
    }
   },
   {

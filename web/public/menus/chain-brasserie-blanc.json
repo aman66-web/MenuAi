@@ -11,15 +11,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Brasserie Blanc menus with nutrition and allergens (Ten Kites pages embedded on brasserieblanc.com/menu): À la carte Evening and Day, Sunday, Pre-theatre, Breakfast, Children and Drinks (accessed 2026-10-08, no date shown)",
+  "title": "Brasserie Blanc menus with nutrition and allergens (Ten Kites pages embedded on brasserieblanc.com/menu): À la carte Evening and Day, Sunday, Pre-theatre, Breakfast, Children and Drinks (accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/hwc/bbalacarte",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Figures are per portion from Brasserie Blanc's own menu pages (no fibre, kJ or weights printed). Only menus served at more than one brasserie are included: à la carte (some dishes only after 5pm and on Saturdays), Sunday, pre-theatre, breakfast, children's and drinks. Wine, room service, group and Christmas menus are not. Alcoholic drinks print calories that include the alcohol.",
  "allergenGuide": {
-  "title": "Brasserie Blanc menus with allergens (Ten Kites): per-dish 'Contains' and 'May contain' on the same pages (accessed 2026-10-08, no date shown)",
+  "title": "Brasserie Blanc menus with allergens (Ten Kites): per-dish 'Contains' and 'May contain' on the same pages (accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/hwc/bbalacarte",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -547,18 +547,18 @@
    }
   },
   {
-   "id": "soupe-de-courge-muscat-au-kirsch",
-   "name": "Soupe de Courge Muscat au Kirsch",
+   "id": "salade-de-betterave-et-de-chou-dhiver",
+   "name": "Salade de Betterave et de Chou d’Hiver",
    "category": "Starters",
    "serving": "",
    "nutrients": {
-    "calories": 137,
-    "protein": 1.8,
-    "carbs": 6.1,
-    "fat": 10.7,
-    "saturatedFat": 3,
-    "sugar": 5.2,
-    "salt": 1.6
+    "calories": 225,
+    "protein": 4.6,
+    "carbs": 18.8,
+    "fat": 15,
+    "saturatedFat": 1.7,
+    "sugar": 17.2,
+    "salt": 0.7
    },
    "tags": [
     "vegetarian"
@@ -569,13 +569,15 @@
    "modifiers": [],
    "allergens": {
     "contains": [
+     "celery",
+     "mustard",
      "nuts",
+     "peanuts",
+     "sesame",
      "sulphites"
     ],
     "mayContain": [
-     "gluten",
-     "sesame",
-     "soya"
+     "gluten"
     ],
     "nuts": [
      "almond",
@@ -590,53 +592,20 @@
    }
   },
   {
-   "id": "celeri-remoulade-starter",
-   "name": "Céleri Rémoulade (starter)",
+   "id": "croquette-de-brandade-de-cabillaud",
+   "name": "Croquette de Brandade de Cabillaud",
    "category": "Starters",
    "serving": "",
    "nutrients": {
-    "calories": 263,
-    "protein": 7.9,
-    "carbs": 3.7,
-    "fat": 24.6,
-    "saturatedFat": 3,
-    "sugar": 2.5,
-    "salt": 2.9
+    "calories": 406,
+    "protein": 9.4,
+    "carbs": 23.1,
+    "fat": 33.2,
+    "saturatedFat": 1.4,
+    "sugar": 4.6,
+    "salt": 2.5
    },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "eggs",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "gnocchis-poeles",
-   "name": "Gnocchis Poêlés",
-   "category": "Starters",
-   "serving": "",
-   "nutrients": {
-    "calories": 539,
-    "protein": 11.7,
-    "carbs": 34.8,
-    "fat": 38.7,
-    "saturatedFat": 15.8,
-    "sugar": 1.3,
-    "salt": 2.6
-   },
-   "tags": [
-    "vegetarian"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -644,11 +613,13 @@
    "allergens": {
     "contains": [
      "gluten",
-     "milk"
+     "eggs",
+     "fish",
+     "soya",
+     "sulphites"
     ],
     "mayContain": [
-     "mustard",
-     "soya"
+     "mustard"
     ],
     "cereals": [
      "wheat"
@@ -751,11 +722,11 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 907,
-    "protein": 61.1,
+    "calories": 877,
+    "protein": 55,
     "carbs": 20.2,
-    "fat": 78.6,
-    "saturatedFat": 33,
+    "fat": 78,
+    "saturatedFat": 32.8,
     "sugar": 7.4,
     "salt": 3.9
    },
@@ -1181,8 +1152,8 @@
    }
   },
   {
-   "id": "pithivier-aux-topinambours-chataignes-et-champignons",
-   "name": "Pithivier aux Topinambours, Châtaignes et Champignons",
+   "id": "pithivier-aux-topinambours-chataignes-et-champignons-main",
+   "name": "Pithivier aux Topinambours, Châtaignes et Champignons (main)",
    "category": "Mains",
    "serving": "",
    "nutrients": {
@@ -1263,18 +1234,45 @@
    }
   },
   {
-   "id": "longe-de-porc-confite",
-   "name": "Longe de Porc Confite",
+   "id": "poulet-fricasse-maman-blanc",
+   "name": "Poulet Fricassé “Maman Blanc”",
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1252,
-    "protein": 90.1,
-    "carbs": 22.3,
-    "fat": 89.7,
-    "saturatedFat": 40,
-    "sugar": 7.2,
-    "salt": 4.9
+    "calories": 558,
+    "protein": 29.3,
+    "carbs": 18.1,
+    "fat": 39,
+    "saturatedFat": 14.4,
+    "sugar": 4.6,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "filet-deglefin-poele",
+   "name": "Filet d’Églefin Poêlé",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 545,
+    "protein": 47,
+    "carbs": 40.4,
+    "fat": 14.1,
+    "saturatedFat": 1.5,
+    "sugar": 6.2,
+    "salt": 4.4
    },
    "tags": [
     "contains_pork"
@@ -1285,49 +1283,48 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk",
-     "mustard",
-     "peanuts",
-     "sulphites"
+     "celery",
+     "fish"
     ],
     "mayContain": []
    }
   },
   {
-   "id": "parmentier-de-poisson-au-haddock-fume-et-truite-de-chalkstream",
-   "name": "Parmentier de Poisson au Haddock Fumé et Truite de Chalkstream",
+   "id": "risotto-de-courge-muscat",
+   "name": "Risotto de Courge Muscat",
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 665,
-    "protein": 38,
-    "carbs": 37.3,
-    "fat": 42.1,
-    "saturatedFat": 19.1,
-    "sugar": 6.3,
-    "salt": 2.8
+    "calories": 777,
+    "protein": 7.9,
+    "carbs": 91.4,
+    "fat": 42,
+    "saturatedFat": 10.3,
+    "sugar": 12.9,
+    "salt": 4.3
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten",
-     "eggs",
-     "fish",
-     "milk",
-     "mustard",
-     "soya",
+     "nuts",
      "sulphites"
     ],
     "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "oats"
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
     ]
    }
   },
@@ -1444,8 +1441,8 @@
    }
   },
   {
-   "id": "celeri-remoulade-side",
-   "name": "Céleri Rémoulade (side)",
+   "id": "celeri-remoulade",
+   "name": "Céleri Rémoulade",
    "category": "Sides",
    "serving": "",
    "nutrients": {
@@ -1878,7 +1875,13 @@
     ],
     "nuts": [
      "almond",
-     "hazelnut"
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
     ]
    }
   },
@@ -2032,18 +2035,18 @@
    }
   },
   {
-   "id": "poitrine-de-porc-en-roulade-farce-aux-abricots",
-   "name": "Poitrine de Porc en Roulade, Farce aux Abricots",
+   "id": "roulade-de-poitrine-de-porc-farcie-aux-abricots",
+   "name": "Roulade de Poitrine de Porc Farcie aux Abricots",
    "category": "Sunday roasts",
    "serving": "",
    "nutrients": {
-    "calories": 1735,
-    "protein": 84,
-    "carbs": 119.4,
-    "fat": 111.5,
-    "saturatedFat": 37.9,
-    "sugar": 46.2,
-    "salt": 6.9
+    "calories": 2318,
+    "protein": 71.9,
+    "carbs": 106.2,
+    "fat": 181.2,
+    "saturatedFat": 56.7,
+    "sugar": 25.7,
+    "salt": 5.4
    },
    "tags": [
     "contains_pork"
@@ -2071,18 +2074,18 @@
    }
   },
   {
-   "id": "roti-de-boeuf",
-   "name": "Roti de Boeuf",
+   "id": "rumsteck-de-boeuf",
+   "name": "Rumsteck de Boeuf",
    "category": "Sunday roasts",
    "serving": "",
    "nutrients": {
-    "calories": 1161,
-    "protein": 60.9,
-    "carbs": 103.4,
-    "fat": 63.8,
-    "saturatedFat": 22.3,
-    "sugar": 36.5,
-    "salt": 7.2
+    "calories": 1037,
+    "protein": 64.7,
+    "carbs": 96.7,
+    "fat": 48.5,
+    "saturatedFat": 12,
+    "sugar": 20.9,
+    "salt": 5.9
    },
    "tags": [
     "contains_beef"
@@ -2111,18 +2114,55 @@
    }
   },
   {
-   "id": "feuillete-de-betterave-et-cheddar-fume",
-   "name": "Feuilleté de Betterave et Cheddar Fumé",
+   "id": "demi-poulet-roti",
+   "name": "Demi-Poulet Rôti",
    "category": "Sunday roasts",
    "serving": "",
    "nutrients": {
-    "calories": 1259,
-    "protein": 36.7,
-    "carbs": 128.5,
-    "fat": 74.2,
-    "saturatedFat": 26.4,
-    "sugar": 40.6,
-    "salt": 5.9
+    "calories": 1658,
+    "protein": 92,
+    "carbs": 116.1,
+    "fat": 97.9,
+    "saturatedFat": 22,
+    "sugar": 41.3,
+    "salt": 9.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "pithivier-aux-topinambours-chataignes-et-champignons-sunday-roast",
+   "name": "Pithivier aux Topinambours, Châtaignes et Champignons (Sunday roast)",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1357,
+    "protein": 23.7,
+    "carbs": 159.9,
+    "fat": 75.9,
+    "saturatedFat": 20,
+    "sugar": 34.6,
+    "salt": 6.3
    },
    "tags": [
     "vegetarian"
@@ -2135,8 +2175,6 @@
     "contains": [
      "celery",
      "gluten",
-     "eggs",
-     "milk",
      "soya",
      "sulphites"
     ],
@@ -2541,6 +2579,101 @@
      "sulphites"
     ],
     "mayContain": []
+   }
+  },
+  {
+   "id": "pigs-in-blankets-sunday-roast-add-on",
+   "name": "Pigs in blankets (Sunday roast add-on)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 428,
+    "protein": 31.4,
+    "carbs": 17,
+    "fat": 25.8,
+    "saturatedFat": 9.3,
+    "sugar": 3,
+    "salt": 3.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cauliflower-and-cheddar-cheese-gratin-sunday-roast-add-on",
+   "name": "Cauliflower & Cheddar cheese gratin (Sunday roast add-on)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 471,
+    "protein": 21.7,
+    "carbs": 28.8,
+    "fat": 31.9,
+    "saturatedFat": 20,
+    "sugar": 8.1,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "pork-sage-and-apricot-stuffing-sunday-roast-add-on",
+   "name": "Pork, sage & apricot stuffing (Sunday roast add-on)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 784,
+    "protein": 23,
+    "carbs": 48.1,
+    "fat": 57.7,
+    "saturatedFat": 15.2,
+    "sugar": 15.5,
+    "salt": 3.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
    }
   },
   {
@@ -3350,7 +3483,14 @@
     ],
     "mayContain": [],
     "nuts": [
-     "hazelnut"
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
     ]
    }
   },
@@ -3742,13 +3882,13 @@
    "category": "Kids: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 639,
-    "protein": 25.7,
-    "carbs": 52.3,
-    "fat": 36.4,
-    "saturatedFat": 8,
-    "sugar": 9.4,
-    "salt": 3
+    "calories": 668,
+    "protein": 26.5,
+    "carbs": 56.8,
+    "fat": 37.1,
+    "saturatedFat": 8.3,
+    "sugar": 9.9,
+    "salt": 3.1
    },
    "tags": [],
    "limitedTime": false,
@@ -3761,11 +3901,11 @@
      "eggs",
      "milk",
      "nuts",
-     "sesame",
      "soya"
     ],
     "mayContain": [
-     "mustard"
+     "mustard",
+     "sesame"
     ],
     "nuts": [
      "walnut"
@@ -4578,166 +4718,6 @@
    }
   },
   {
-   "id": "apricot-collins",
-   "name": "Apricot Collins",
-   "category": "Drinks: Cocktails",
-   "serving": "",
-   "nutrients": {
-    "calories": 198,
-    "protein": 0.2,
-    "carbs": 24.7,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 24.7,
-    "salt": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "hazelnut-espresso-martini",
-   "name": "Hazelnut Espresso Martini",
-   "category": "Drinks: Cocktails",
-   "serving": "",
-   "nutrients": {
-    "calories": 180,
-    "protein": 0.5,
-    "carbs": 11.5,
-    "fat": 1.5,
-    "saturatedFat": 1.1,
-    "sugar": 9.6,
-    "salt": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "nuts",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ],
-    "nuts": [
-     "hazelnut"
-    ]
-   }
-  },
-  {
-   "id": "lychee-margarita-on-the-rocks",
-   "name": "Lychee Margarita (on the rocks)",
-   "category": "Drinks: Cocktails",
-   "serving": "",
-   "nutrients": {
-    "calories": 214,
-    "protein": 0.3,
-    "carbs": 20.9,
-    "fat": 0.2,
-    "saturatedFat": 0,
-    "sugar": 18.7,
-    "salt": 2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "malfy-limone-g-and-t",
-   "name": "Malfy Limone G&T",
-   "category": "Drinks: Cocktails",
-   "serving": "",
-   "nutrients": {
-    "calories": 92,
-    "protein": 0.2,
-    "carbs": 9.1,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 8.5,
-    "salt": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "melon-and-cucumber-spritz",
-   "name": "Melon and Cucumber Spritz",
-   "category": "Drinks: Cocktails",
-   "serving": "",
-   "nutrients": {
-    "calories": 149,
-    "protein": 0.5,
-    "carbs": 18.6,
-    "fat": 0.2,
-    "saturatedFat": 0,
-    "sugar": 17.6,
-    "salt": 0.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "raspberry-mojito",
-   "name": "Raspberry Mojito",
-   "category": "Drinks: Cocktails",
-   "serving": "",
-   "nutrients": {
-    "calories": 183,
-    "protein": 1.4,
-    "carbs": 15.8,
-    "fat": 0.4,
-    "saturatedFat": 0.1,
-    "sugar": 15.1,
-    "salt": 0.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
    "id": "bombay-sapphire-mediterranean-tonic-lime-wedge",
    "name": "Bombay Sapphire - Mediterranean Tonic, lime wedge",
    "category": "Drinks: Gin",
@@ -4892,12 +4872,12 @@
    "category": "Drinks: Gin",
    "serving": "",
    "nutrients": {
-    "calories": 128,
+    "calories": 92,
     "protein": 0.2,
-    "carbs": 10.7,
+    "carbs": 1.9,
     "fat": 0.1,
     "saturatedFat": 0,
-    "sugar": 10.7,
+    "sugar": 1.9,
     "salt": 0
    },
    "tags": [],
@@ -4906,9 +4886,7 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "sulphites"
-    ],
+    "contains": [],
     "mayContain": []
    }
   },

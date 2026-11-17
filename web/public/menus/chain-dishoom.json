@@ -11,14 +11,14 @@
  "source": {
   "title": "Dishoom Allergen Menus with calories (all day, breakfast, kids and drinks; app.served-app.com, the allergen page Dishoom's own site links)",
   "url": "https://app.served-app.com/website/dishoom",
-  "checkedOn": "2026-10-10"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, per dish as printed in Dishoom's allergen menu (restaurant menus, not delivery, which print different figures); protein, carbs and fat are not published. Dishes with two sizes or only one restaurant's menu are left out, and the page does not state a drink's size unless it says so.",
  "allergenGuide": {
   "title": "Dishoom Allergen Menus (the dish panels list what each dish contains and may contain)",
   "url": "https://app.served-app.com/website/dishoom",
-  "checkedOn": "2026-10-10",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -645,10 +645,12 @@
      "milk"
     ],
     "mayContain": [
+     "celery",
      "mustard",
      "nuts",
      "peanuts",
      "sesame",
+     "soya",
      "sulphites"
     ],
     "cereals": [
@@ -674,8 +676,13 @@
      "milk"
     ],
     "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
      "nuts",
-     "peanuts"
+     "peanuts",
+     "sesame",
+     "soya"
     ]
    }
   },
@@ -894,9 +901,11 @@
      "sulphites"
     ],
     "cereals": [
-     "wheat"
+     "wheat",
+     "oats"
     ],
     "nuts": [
+     "almond",
      "cashew"
     ]
    }
@@ -2710,6 +2719,38 @@
    }
   },
   {
+   "id": "gluten-free-the-big-bombay",
+   "name": "Gluten Free - the Big Bombay",
+   "category": "Cooked breakfasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1050
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
    "id": "date-and-banana-porridge",
    "name": "Date & Banana Porridge",
    "category": "Fruits, grains and breads",
@@ -2770,59 +2811,6 @@
     ],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "fruit-and-yoghurt",
-   "name": "Fruit & Yoghurt",
-   "category": "Fruits, grains and breads",
-   "serving": "",
-   "nutrients": {
-    "calories": 181
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "house-granola",
-   "name": "House Granola",
-   "category": "Fruits, grains and breads",
-   "serving": "",
-   "nutrients": {
-    "calories": 514
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "nuts",
-     "sesame",
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "mustard",
-     "peanuts",
-     "soya"
     ]
    }
   },
@@ -3571,28 +3559,6 @@
    }
   },
   {
-   "id": "fruit-and-yoghurt-kids-portion",
-   "name": "Fruit & Yoghurt (kids' portion)",
-   "category": "Kids' breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 140
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "eggs-and-beans-on-toast",
    "name": "Eggs & Beans on Toast",
    "category": "Kids' breakfast",
@@ -4197,9 +4163,7 @@
    "nutrients": {
     "calories": 68
    },
-   "tags": [
-    "vegetarian"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],

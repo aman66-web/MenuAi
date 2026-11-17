@@ -11,16 +11,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Giraffe Dietary Information: Breakfast, Main, Dessert, Gluten Free, Kid's and Drinks menus on Ten Kites (accessed 2026-10-08, no date shown)",
+  "title": "Giraffe Dietary Information: Breakfast, Main, Dessert, Gluten Free, Kid's and Drinks menus on Ten Kites (accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/brg/giraffeadults",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Giraffe prints calories only, so protein, carbs and fat are not published. Figures use \"typical weights and measures\" and can vary a little. Drinks with no calorie figure on the page (most wines, some cocktails) are not listed, and a few rows that contradict the same page are held back.",
  "allergenGuide": {
-  "title": "Giraffe Dietary Information: allergens on the Ten Kites menus (accessed 2026-10-08, no date shown)",
+  "title": "Giraffe Dietary Information: allergens on the Ten Kites menus (accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/brg/giraffeadults",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -70,15 +70,12 @@
    "allergens": {
     "contains": [
      "gluten",
-     "soya"
+     "soya",
+     "sulphites"
     ],
     "mayContain": [
      "celery",
      "milk"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -99,15 +96,12 @@
     "contains": [
      "gluten",
      "eggs",
-     "soya"
+     "soya",
+     "sulphites"
     ],
     "mayContain": [
      "celery",
      "milk"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -129,14 +123,11 @@
      "gluten",
      "eggs",
      "milk",
-     "soya"
+     "soya",
+     "sulphites"
     ],
     "mayContain": [
      "celery"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -156,15 +147,12 @@
    "allergens": {
     "contains": [
      "gluten",
-     "soya"
+     "soya",
+     "sulphites"
     ],
     "mayContain": [
      "celery",
      "milk"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -185,15 +173,12 @@
     "contains": [
      "gluten",
      "eggs",
-     "soya"
+     "soya",
+     "sulphites"
     ],
     "mayContain": [
      "celery",
      "milk"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -215,14 +200,11 @@
      "gluten",
      "eggs",
      "milk",
-     "soya"
+     "soya",
+     "sulphites"
     ],
     "mayContain": [
      "celery"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -577,14 +559,12 @@
    "allergens": {
     "contains": [
      "gluten",
-     "soya"
+     "soya",
+     "sulphites"
     ],
     "mayContain": [
      "eggs",
      "milk"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -941,8 +921,14 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [],
-    "mayContain": []
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "soya"
+    ]
    }
   },
   {
@@ -1430,7 +1416,7 @@
    "category": "Small plates",
    "serving": "",
    "nutrients": {
-    "calories": 482
+    "calories": 550
    },
    "tags": [
     "vegetarian"
@@ -2181,7 +2167,7 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1107
+    "calories": 1085
    },
    "tags": [
     "vegetarian"
@@ -2194,12 +2180,12 @@
     "contains": [
      "celery",
      "gluten",
-     "milk",
      "mustard",
      "soya"
     ],
     "mayContain": [
      "eggs",
+     "milk",
      "sulphites"
     ]
    }
@@ -2235,8 +2221,8 @@
    }
   },
   {
-   "id": "vegan-giraffe-burger",
-   "name": "Vegan Giraffe Burger",
+   "id": "veggie-giraffe-burger",
+   "name": "Veggie Giraffe Burger",
    "category": "Burgers",
    "serving": "",
    "nutrients": {
@@ -2919,8 +2905,6 @@
     "mayContain": [
      "celery",
      "gluten",
-     "lupin",
-     "mustard",
      "nuts",
      "peanuts"
     ]
@@ -2950,8 +2934,6 @@
     "mayContain": [
      "celery",
      "gluten",
-     "lupin",
-     "mustard",
      "nuts",
      "peanuts",
      "sulphites"
@@ -2983,8 +2965,6 @@
     "mayContain": [
      "celery",
      "gluten",
-     "lupin",
-     "mustard",
      "nuts",
      "peanuts"
     ]
@@ -3015,8 +2995,6 @@
     "mayContain": [
      "celery",
      "gluten",
-     "lupin",
-     "mustard",
      "nuts",
      "peanuts"
     ]
@@ -3039,14 +3017,10 @@
     "contains": [
      "eggs",
      "fish",
-     "milk",
-     "soya"
+     "milk"
     ],
     "mayContain": [
-     "celery",
-     "lupin",
-     "mustard",
-     "sesame"
+     "celery"
     ]
    }
   },
@@ -3066,17 +3040,13 @@
    "allergens": {
     "contains": [
      "eggs",
-     "lupin",
      "milk",
      "sulphites"
     ],
     "mayContain": [
      "celery",
-     "mustard",
      "nuts",
-     "peanuts",
-     "sesame",
-     "soya"
+     "peanuts"
     ]
    }
   },
@@ -3096,15 +3066,9 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "eggs",
-     "lupin"
-    ],
+    "contains": [],
     "mayContain": [
-     "milk",
-     "mustard",
-     "sesame",
-     "soya"
+     "milk"
     ]
    }
   },
@@ -3123,14 +3087,10 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "eggs",
-     "soya"
+     "eggs"
     ],
     "mayContain": [
-     "lupin",
-     "milk",
-     "mustard",
-     "sesame"
+     "milk"
     ]
    }
   },
@@ -3150,14 +3110,9 @@
    "allergens": {
     "contains": [
      "eggs",
-     "milk",
-     "soya"
+     "milk"
     ],
-    "mayContain": [
-     "lupin",
-     "mustard",
-     "sesame"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -3180,13 +3135,10 @@
      "eggs",
      "milk",
      "sesame",
-     "soya",
      "sulphites"
     ],
     "mayContain": [
-     "celery",
-     "lupin",
-     "mustard"
+     "celery"
     ]
    }
   },
@@ -3248,14 +3200,11 @@
    "allergens": {
     "contains": [
      "eggs",
-     "lupin",
      "milk"
     ],
     "mayContain": [
      "celery",
-     "mustard",
-     "sesame",
-     "soya"
+     "mustard"
     ]
    }
   },
@@ -3275,15 +3224,11 @@
    "allergens": {
     "contains": [
      "eggs",
-     "lupin",
      "milk",
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "sesame",
-     "soya"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -3352,14 +3297,11 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "eggs",
-     "lupin"
+     "eggs"
     ],
     "mayContain": [
      "celery",
-     "mustard",
-     "sesame",
-     "soya"
+     "mustard"
     ]
    }
   },
@@ -3421,14 +3363,11 @@
    "allergens": {
     "contains": [
      "gluten",
-     "soya"
+     "soya",
+     "sulphites"
     ],
     "mayContain": [
      "milk"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -3449,14 +3388,11 @@
     "contains": [
      "gluten",
      "eggs",
-     "soya"
+     "soya",
+     "sulphites"
     ],
     "mayContain": [
      "milk"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -3478,13 +3414,10 @@
      "gluten",
      "eggs",
      "milk",
-     "soya"
+     "soya",
+     "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -3657,14 +3590,12 @@
    "allergens": {
     "contains": [
      "gluten",
-     "soya"
+     "soya",
+     "sulphites"
     ],
     "mayContain": [
      "eggs",
      "milk"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3761,9 +3692,13 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [],
+    "contains": [
+     "sulphites"
+    ],
     "mayContain": [
-     "gluten"
+     "gluten",
+     "milk",
+     "soya"
     ]
    }
   },

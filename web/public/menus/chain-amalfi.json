@@ -14,16 +14,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Amalfi menus with calories and allergens (Ten Kites pages linked from amalfi.co.uk/our-menus for Oxford Circus, St Paul's and Woburn Center Parcs): Main, Desserts, Kids, Drinks and Brunch (accessed 2026-10-09, no date shown)",
+  "title": "Amalfi menus with calories and allergens (Ten Kites pages linked from amalfi.co.uk/our-menus for Oxford Circus, St Paul's and Woburn Center Parcs): Main, Desserts, Kids, Drinks and Brunch (accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/thebigtg/amalfi02",
-  "checkedOn": "2026-10-09"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, as printed on Amalfi's own menu pages for the dish as sold (no protein, carbs or fat); identical on every open restaurant page that carries the menu. Sides, sauces and extras are separate rows: add them yourself. Spirits, wine, afternoon tea and breakfast-only dishes are not included.",
  "allergenGuide": {
-  "title": "Amalfi menus with allergens (Ten Kites, amalfi02): per-dish 'Contains' and 'May contain' on the same pages (accessed 2026-10-09, no date shown)",
+  "title": "Amalfi menus with allergens (Ten Kites, amalfi02): per-dish 'Contains' and 'May contain' on the same pages (accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/thebigtg/amalfi02",
-  "checkedOn": "2026-10-09",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -618,6 +618,94 @@
    "allergens": {
     "contains": [],
     "mayContain": []
+   }
+  },
+  {
+   "id": "crab-tian",
+   "name": "Crab Tian",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 332
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "crab-tian-gluten-free",
+   "name": "Crab Tian (Gluten-Free)",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "christmas-pizza",
+   "name": "Christmas Pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1174
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats",
+     "spelt",
+     "kamut"
+    ]
    }
   },
   {
@@ -1335,6 +1423,42 @@
    }
   },
   {
+   "id": "festive-pasta",
+   "name": "Festive Pasta",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 725
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "rigatoni-arrabbiata",
    "name": "Rigatoni Arrabbiata",
    "category": "Pasta & risotto",
@@ -1997,6 +2121,37 @@
    }
   },
   {
+   "id": "morello-cherry-and-chocolate-tarte",
+   "name": "Morello Cherry and Chocolate Tarte",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 531
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "italian-chocolate-fondant",
    "name": "Italian Chocolate Fondant",
    "category": "Desserts",
@@ -2290,37 +2445,6 @@
    }
   },
   {
-   "id": "morello-cherry-and-chocolate-tarte",
-   "name": "Morello Cherry and Chocolate Tarte",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 531
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "peanuts",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "nuts"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "cheesy-garlic-flat-bread",
    "name": "Cheesy Garlic Flat Bread",
    "category": "Kids: Starters",
@@ -2470,6 +2594,41 @@
    "allergens": {
     "contains": [],
     "mayContain": []
+   }
+  },
+  {
+   "id": "crispy-fish-goujons",
+   "name": "Crispy Fish Goujons",
+   "category": "Kids: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 538
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "molluscs"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
    }
   },
   {
@@ -3135,8 +3294,15 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [],
-    "mayContain": []
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
    }
   },
   {
@@ -3175,8 +3341,15 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [],
-    "mayContain": []
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
    }
   },
   {
@@ -3208,6 +3381,28 @@
    "serving": "",
    "nutrients": {
     "calories": 198
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sarti-spritz",
+   "name": "Sarti Spritz",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
    },
    "tags": [
     "vegetarian"

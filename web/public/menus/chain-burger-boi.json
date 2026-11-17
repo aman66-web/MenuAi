@@ -57,6 +57,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/9842fdfaf760.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -97,6 +98,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/60d9ac2d22a3.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -131,6 +133,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/5e4f7afeb9ec.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -165,6 +168,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/eb3a7b2701d5.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -199,6 +203,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/b5d317ec3a17.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -233,6 +238,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/1c75b3b7842d.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -270,6 +276,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/ccc35feb5f7e.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -304,6 +311,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/ab87164ecb4a.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -337,6 +345,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/6acc5193a015.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -373,6 +382,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/ce94022e816c.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -412,6 +422,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/28fae38e7d0f.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -450,6 +461,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/9dc8ea9f1157.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -477,6 +489,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/8ac18a4cdde3.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -513,6 +526,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/ec43a9243c33.webp",
    "allergens": {
     "contains": [],
     "mayContain": [
@@ -544,6 +558,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/8b92b93f0c37.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -582,6 +597,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/d4ec7d4bb7f9.webp",
    "allergens": {
     "contains": [
      "sulphites"
@@ -611,6 +627,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/00d0dfa50ed5.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -647,6 +664,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/c4ab3a7f1d0e.webp",
    "allergens": {
     "contains": [],
     "mayContain": [
@@ -678,6 +696,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/98573dfc784e.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -705,6 +724,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/69966a31b4a3.webp",
    "allergens": {
     "contains": [],
     "mayContain": [
@@ -734,6 +754,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/9a61d7f14923.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -768,6 +789,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/2ccab3d8b5d8.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -797,6 +819,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/8890c74db645.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -831,6 +854,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/aa04a408f939.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -860,6 +884,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "burger-boi/ac4a63271c3c.webp",
    "allergens": {
     "contains": [
      "milk"

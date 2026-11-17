@@ -11,12 +11,12 @@
  ],
  "sample": false,
  "source": {
-  "title": "Esquires Coffee Food & Drink menu page and Seasonal Specials page (accessed 2026-10-08, no date shown)",
+  "title": "Esquires Coffee Food & Drink menu page and Seasonal Specials page (accessed 2026-11-17, no date shown)",
   "url": "https://esquirescoffee.co.uk/food-drink/",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "Esquires prints calories only, as one figure per item; protein, carbs and fat are not published. Coffees, hot chocolates and lattes that print two unlabelled figures (no sizes stated) are not listed. Autumn specials come from its Seasonal Specials page. Its website publishes no allergen guide, so none is shown.",
+ "note": "Esquires prints calories only, as one figure per item; protein, carbs and fat are not published. Coffees, hot chocolates and lattes that print two unlabelled figures (no sizes stated) are not listed. Winter specials come from its Seasonal Specials page. Its website publishes no allergen guide, so none is shown.",
  "categories": [
   "Fresh food",
   "Drinks",
@@ -819,66 +819,18 @@
    "image": "esquires/b611a4a47764.webp"
   },
   {
-   "id": "buffalo-chicken-brioche",
-   "name": "Buffalo Chicken Brioche",
+   "id": "tiramisu-frappe",
+   "name": "Tiramisu Frappé",
    "category": "Seasonal specials",
    "serving": "",
    "nutrients": {
-    "calories": 948
+    "calories": 340
    },
    "tags": [],
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "esquires/60c28dc741cd.webp"
-  },
-  {
-   "id": "caramelised-beef-brioche",
-   "name": "Caramelised Beef Brioche",
-   "category": "Seasonal specials",
-   "serving": "",
-   "nutrients": {
-    "calories": 617
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "esquires/b4e6e04d4a4e.webp"
-  },
-  {
-   "id": "brie-and-chilli-jam-brioche",
-   "name": "Brie & Chilli Jam Brioche",
-   "category": "Seasonal specials",
-   "serving": "",
-   "nutrients": {
-    "calories": 820
-   },
-   "tags": [],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "esquires/8c38b335fc4b.webp"
-  },
-  {
-   "id": "cinnamon-swirl-shake",
-   "name": "Cinnamon Swirl Shake",
-   "category": "Seasonal specials",
-   "serving": "",
-   "nutrients": {
-    "calories": 281
-   },
-   "tags": [],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "esquires/71b5ab8dd6d0.webp"
+   "modifiers": []
   }
  ],
  "combinations": []

@@ -11,15 +11,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Flight Club online menu with nutrition and allergens (menus.tenkites.com/redengine/flightclub: Bar Snacks, Sharing Plates, Sides, Sharing Pizza Paddles, Sweet Treats, Breakfast and Drinks tabs; accessed 2026-10-08, no date shown)",
+  "title": "Flight Club online menu with nutrition and allergens (menus.tenkites.com/redengine/flightclub: Bar Snacks, Sharing Plates, Sides, Sharing Pizza Paddles, Sweet Treats, Breakfast and Drinks tabs; accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/redengine/flightclub",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Per serving as printed on Flight Club's online menu; only dishes printing calories, protein, carbs and fat are listed (most drinks, some breakfasts print none). Its page prints 0.0 g salt for over half the dishes, even sausage roll, so salt is not shown. Sharing dishes have no stated serving size. Flight Club warns that not all ingredients are listed and allergens can't be ruled out.",
  "allergenGuide": {
   "title": "Flight Club allergy and dietary information on its online menu (menus.tenkites.com/redengine/flightclub: Bar Snacks, Sharing Plates, Sides, Sharing Pizza Paddles, Sweet Treats, Breakfast and Drinks tabs; live page, no date shown)",
   "url": "https://menus.tenkites.com/redengine/flightclub",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -71,6 +71,9 @@
     ],
     "mayContain": [
      "milk"
+    ],
+    "cereals": [
+     "barley"
     ]
    }
   },
@@ -149,10 +152,10 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
+    "contains": [],
+    "mayContain": [
      "milk"
-    ],
-    "mayContain": []
+    ]
    }
   },
   {
@@ -209,24 +212,12 @@
      "eggs",
      "milk",
      "mustard",
-     "nuts",
-     "peanuts",
      "soya",
      "sulphites"
     ],
     "mayContain": [],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
     ]
    }
   },
@@ -252,13 +243,7 @@
    "modifiers": [],
    "allergens": {
     "contains": [],
-    "mayContain": [
-     "milk",
-     "nuts",
-     "peanuts",
-     "soya",
-     "sulphites"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -526,9 +511,7 @@
     ],
     "mayContain": [
      "crustaceans",
-     "molluscs",
-     "nuts",
-     "peanuts"
+     "molluscs"
     ]
    }
   },
@@ -618,8 +601,6 @@
     "contains": [],
     "mayContain": [
      "mustard",
-     "nuts",
-     "peanuts",
      "soya"
     ]
    }
@@ -685,8 +666,7 @@
     "contains": [
      "gluten",
      "eggs",
-     "milk",
-     "nuts"
+     "milk"
     ],
     "mayContain": [
      "mustard",
@@ -695,9 +675,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "cashew"
     ]
    }
   },
@@ -798,7 +775,11 @@
      "milk",
      "mustard"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya"
+    ],
     "cereals": [
      "wheat"
     ]
@@ -834,7 +815,9 @@
     "mayContain": [
      "crustaceans",
      "molluscs",
-     "sesame"
+     "nuts",
+     "sesame",
+     "soya"
     ],
     "cereals": [
      "wheat"
@@ -895,12 +878,7 @@
     "contains": [
      "sulphites"
     ],
-    "mayContain": [
-     "milk",
-     "nuts",
-     "peanuts",
-     "soya"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -993,9 +971,6 @@
      "celery",
      "eggs",
      "milk"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1169,15 +1144,11 @@
    "allergens": {
     "contains": [
      "gluten",
-     "milk",
-     "nuts"
+     "milk"
     ],
     "mayContain": [],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "cashew"
     ]
    }
   },
@@ -1455,15 +1426,11 @@
    "allergens": {
     "contains": [
      "gluten",
-     "milk",
-     "nuts"
+     "milk"
     ],
     "mayContain": [],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "cashew"
     ]
    }
   },
@@ -1516,9 +1483,7 @@
     "contains": [
      "milk"
     ],
-    "mayContain": [
-     "gluten"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1546,9 +1511,7 @@
      "milk",
      "sulphites"
     ],
-    "mayContain": [
-     "gluten"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1575,9 +1538,7 @@
     "contains": [
      "milk"
     ],
-    "mayContain": [
-     "gluten"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1601,15 +1562,9 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk",
-     "nuts"
+     "milk"
     ],
-    "mayContain": [
-     "gluten"
-    ],
-    "nuts": [
-     "cashew"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1741,13 +1696,9 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk",
-     "nuts"
+     "milk"
     ],
-    "mayContain": [],
-    "nuts": [
-     "cashew"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1788,9 +1739,7 @@
     "saturatedFat": 1.4,
     "sugar": 1.1
    },
-   "tags": [
-    "vegetarian"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -1877,8 +1826,10 @@
      "soya"
     ],
     "mayContain": [
+     "mustard",
      "nuts",
      "peanuts",
+     "sesame",
      "sulphites"
     ],
     "cereals": [
@@ -1997,12 +1948,9 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten"
+     "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -2055,8 +2003,6 @@
      "gluten",
      "eggs",
      "milk",
-     "nuts",
-     "peanuts",
      "sulphites"
     ],
     "mayContain": [
@@ -2066,16 +2012,6 @@
      "wheat",
      "barley",
      "oats"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
     ]
    }
   },
@@ -2169,8 +2105,6 @@
      "celery",
      "gluten",
      "eggs",
-     "nuts",
-     "peanuts",
      "sulphites"
     ],
     "mayContain": [
@@ -2181,16 +2115,6 @@
      "wheat",
      "barley",
      "oats"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
     ]
    }
   },
@@ -2216,25 +2140,13 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten",
-     "nuts",
-     "peanuts"
+     "gluten"
     ],
     "mayContain": [],
     "cereals": [
      "wheat",
      "barley",
      "oats"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
     ]
    }
   },

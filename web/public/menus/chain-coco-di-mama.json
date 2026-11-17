@@ -11,9 +11,9 @@
  ],
  "sample": false,
  "source": {
-  "title": "Coco di Mama menu pages with calories (cocodimama.co.uk/menus and each restaurant's and delivery kitchen's menu page), read 10 October 2026",
+  "title": "Coco di Mama menu pages with calories (cocodimama.co.uk/menus and each restaurant's and delivery kitchen's menu page), read 17 November 2026",
   "url": "https://www.cocodimama.co.uk/menus",
-  "checkedOn": "2026-10-10"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, as printed on Coco di Mama's menu pages; protein, carbs, fat and allergens are not published. Pasta is not listed because the page prints calories for the sauce only. Drinks with milk are based on whole dairy milk. Dishes under Delivery kitchen menu are on the delivery kitchens' menus only.",
@@ -27,7 +27,7 @@
   "Sweet Treats",
   "Iced Coffees",
   "Matcha",
-  "Hot & Hearty",
+  "Forno & Soups",
   "Sandwiches",
   "Mediterranean Power Bowls",
   "Sides",
@@ -462,6 +462,38 @@
    "image": "coco-di-mama/2c66a62a3b7d.webp"
   },
   {
+   "id": "toasted-gingerbread-latte-large",
+   "name": "Toasted Gingerbread Latte - Large",
+   "category": "Hot Coffees",
+   "serving": "",
+   "nutrients": {
+    "calories": 271
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toasted-gingerbread-latte-small",
+   "name": "Toasted Gingerbread Latte - Small",
+   "category": "Hot Coffees",
+   "serving": "",
+   "nutrients": {
+    "calories": 187
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "white-chocolate-and-hazelnut-latte-large",
    "name": "White Chocolate & Hazelnut Latte - Large",
    "category": "Hot Coffees",
@@ -737,7 +769,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/73f8f291127b.webp"
   },
   {
    "id": "pistachio-matcha-pot-v",
@@ -972,7 +1005,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/b0bd6f698ed0.webp"
   },
   {
    "id": "san-pellegrino-lemon",
@@ -988,7 +1022,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/b427072a20ad.webp"
   },
   {
    "id": "sprite-zero",
@@ -1004,8 +1039,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "coco-di-mama/491249d54fb3.webp"
+   "modifiers": []
   },
   {
    "id": "tenzing-raspberry-and-yuzu",
@@ -1681,7 +1715,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/6065d8b1d503.webp"
   },
   {
    "id": "biscoff-iced-latte-small",
@@ -1697,7 +1732,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/6065d8b1d503.webp"
   },
   {
    "id": "caramel-iced-latte-large",
@@ -1777,8 +1813,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "coco-di-mama/d82b2ff0d018.webp"
+   "modifiers": []
   },
   {
    "id": "iced-americano-small",
@@ -1794,8 +1829,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "coco-di-mama/d82b2ff0d018.webp"
+   "modifiers": []
   },
   {
    "id": "iced-latte-large",
@@ -1864,6 +1898,40 @@
    "components": [],
    "modifiers": [],
    "image": "coco-di-mama/810f94f3aa8e.webp"
+  },
+  {
+   "id": "toasted-gingerbread-iced-latte-large",
+   "name": "Toasted Gingerbread Iced Latte - Large",
+   "category": "Iced Coffees",
+   "serving": "",
+   "nutrients": {
+    "calories": 271
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "coco-di-mama/1084fe9ca8c1.webp"
+  },
+  {
+   "id": "toasted-gingerbread-iced-latte-small",
+   "name": "Toasted Gingerbread Iced Latte - Small",
+   "category": "Iced Coffees",
+   "serving": "",
+   "nutrients": {
+    "calories": 187
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "coco-di-mama/1084fe9ca8c1.webp"
   },
   {
    "id": "white-chocolate-and-hazelnut-iced-latte-large",
@@ -2100,6 +2168,40 @@
    "image": "coco-di-mama/5249b532e87c.webp"
   },
   {
+   "id": "iced-toasted-gingerbread-matcha-latte-large",
+   "name": "Iced Toasted Gingerbread Matcha Latte - Large",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 272
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "coco-di-mama/de7a91554e89.webp"
+  },
+  {
+   "id": "iced-toasted-gingerbread-matcha-latte-small",
+   "name": "Iced Toasted Gingerbread Matcha Latte - Small",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 189
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "coco-di-mama/de7a91554e89.webp"
+  },
+  {
    "id": "matcha-latte-large",
    "name": "Matcha Latte - Large",
    "category": "Matcha",
@@ -2134,9 +2236,43 @@
    "image": "coco-di-mama/4638c3f0dffa.webp"
   },
   {
+   "id": "toasted-gingerbread-matcha-latte-large",
+   "name": "Toasted Gingerbread Matcha Latte - Large",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 272
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "coco-di-mama/3941f239b570.webp"
+  },
+  {
+   "id": "toasted-gingerbread-matcha-latte-small",
+   "name": "Toasted Gingerbread Matcha Latte - Small",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 189
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "coco-di-mama/3941f239b570.webp"
+  },
+  {
    "id": "calabrian-chilli-pulled-pork-mac-and-cheese",
    "name": "Calabrian Chilli Pulled Pork Mac & Cheese",
-   "category": "Hot & Hearty",
+   "category": "Forno & Soups",
    "serving": "",
    "nutrients": {
     "calories": 741
@@ -2147,12 +2283,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/d93f16a49659.webp"
   },
   {
    "id": "cocos-mac-and-cheese-v",
    "name": "Coco's Mac & Cheese (V)",
-   "category": "Hot & Hearty",
+   "category": "Forno & Soups",
    "serving": "",
    "nutrients": {
     "calories": 803
@@ -2169,7 +2306,7 @@
   {
    "id": "lasagne-soup",
    "name": "Lasagne Soup",
-   "category": "Hot & Hearty",
+   "category": "Forno & Soups",
    "serving": "",
    "nutrients": {
     "calories": 460
@@ -2186,7 +2323,7 @@
   {
    "id": "signature-beef-lasagne",
    "name": "Signature Beef Lasagne",
-   "category": "Hot & Hearty",
+   "category": "Forno & Soups",
    "serving": "",
    "nutrients": {
     "calories": 691
@@ -2203,7 +2340,7 @@
   {
    "id": "spicy-pollo-lasagne",
    "name": "Spicy Pollo Lasagne",
-   "category": "Hot & Hearty",
+   "category": "Forno & Soups",
    "serving": "",
    "nutrients": {
     "calories": 678
@@ -2297,6 +2434,20 @@
    "image": "coco-di-mama/60ebf686472c.webp"
   },
   {
+   "id": "smoked-chicken-mozzarella-and-festive-slaw-on-sourdough",
+   "name": "Smoked Chicken, Mozzarella & Festive Slaw on Sourdough",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 697
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "spicy-milanese-and-mozzarella-on-sourdough",
    "name": "Spicy Milanese & Mozzarella on Sourdough",
    "category": "Sandwiches",
@@ -2369,8 +2520,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "coco-di-mama/df5868b6333c.webp"
+   "modifiers": []
   },
   {
    "id": "eat-real-hummus-chips-italian-cheese-and-black-pepper-ve",
@@ -2386,8 +2536,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "coco-di-mama/f6f4e6d88975.webp"
+   "modifiers": []
   },
   {
    "id": "herby-hash-bites-v",
@@ -2407,8 +2556,8 @@
    "image": "coco-di-mama/f78ca5fee8d3.webp"
   },
   {
-   "id": "loaded-caesar-dip-with-basil-crostini",
-   "name": "Loaded Caesar Dip with Basil Crostini",
+   "id": "loaded-chicken-caesar-dip-with-basil-crostini",
+   "name": "Loaded Chicken Caesar Dip with Basil Crostini",
    "category": "Sides",
    "serving": "",
    "nutrients": {
@@ -2420,7 +2569,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/09873edfaf55.webp"
   },
   {
    "id": "milanese-chicken-bites-and-hot-honey-mayo",
@@ -2434,7 +2584,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/d86b1b5edd34.webp"
   },
   {
    "id": "milanese-chicken-bites-and-pesto-mayo",
@@ -2448,7 +2599,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/db571666d7d4.webp"
   },
   {
    "id": "pipers-crisps-chorizo",
@@ -2685,7 +2837,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/cbc1162e8e45.webp"
   },
   {
    "id": "chocolate-brownie-bites-v",
@@ -2717,7 +2870,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/28cce2be0638.webp"
   },
   {
    "id": "mega-bomboloni-party-v-x9",
@@ -2733,7 +2887,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/ff5cead1efef.webp"
   },
   {
    "id": "pistachio-bomboloni-trio-v-x3",
@@ -2749,7 +2904,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/4c8b348e50f6.webp"
   },
   {
    "id": "ultimate-bomboloni-party-v",
@@ -2765,7 +2921,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/6c120e38c97a.webp"
   },
   {
    "id": "belu-water-sparkling",
@@ -2781,7 +2938,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/9fc18ef8c291.webp"
   },
   {
    "id": "belu-water-still",
@@ -2797,7 +2955,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/11960b744e64.webp"
   },
   {
    "id": "san-pellegrino-blood-orange-2",
@@ -2845,7 +3004,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/680f3b3f0a5a.webp"
   },
   {
    "id": "calamari",
@@ -2859,7 +3019,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/fcf15e4aa04b.webp"
   },
   {
    "id": "cheeky-caprese-side-salad-v",
@@ -2875,7 +3036,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/e4f2c785c73c.webp"
   },
   {
    "id": "coco-chunky-chips-v",
@@ -2891,7 +3053,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/97eb75b83356.webp"
   },
   {
    "id": "coco-fries",
@@ -2907,7 +3070,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/cf850cb48fd3.webp"
   },
   {
    "id": "double-up-coco-chunky-chips-v",
@@ -2923,7 +3087,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/481302f26d78.webp"
   },
   {
    "id": "double-up-tomato-basil-and-mozzarella-arancini-v-x6",
@@ -2939,7 +3104,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/59e68dd8c576.webp"
   },
   {
    "id": "mac-and-cheese-bites-v-x-5",
@@ -2955,7 +3121,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/f97e5887651e.webp"
   },
   {
    "id": "marinated-olives-ve",
@@ -2971,7 +3138,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/f4530bd83c15.webp"
   },
   {
    "id": "mixed-olives-ve",
@@ -2987,7 +3155,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/e089bdd6a7c0.webp"
   },
   {
    "id": "nduja-garlic-bread-dip",
@@ -3003,7 +3172,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/84c2f48d39c0.webp"
   },
   {
    "id": "rosemary-garlic-bread-ve",
@@ -3019,7 +3189,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/266d8b3fd2a1.webp"
   },
   {
    "id": "rosemary-garlic-pizza-bread-ve",
@@ -3035,7 +3206,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/266d8b3fd2a1.webp"
   },
   {
    "id": "tomato-basil-and-mozzarella-arancini-v-x3",
@@ -3051,7 +3223,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/0ec46d57fb68.webp"
   },
   {
    "id": "trio-of-dips-v",
@@ -3067,7 +3240,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/32ef2650b483.webp"
   },
   {
    "id": "salami-piccante-pinsa",
@@ -3083,7 +3257,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/31c38159412a.webp"
   },
   {
    "id": "spicy-pollo-pinsa",
@@ -3097,7 +3272,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/c67d6aa143cf.webp"
   }
  ],
  "combinations": []

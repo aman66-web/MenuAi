@@ -15,20 +15,20 @@
  ],
  "sample": false,
  "source": {
-  "title": "Baynes Nutritional Information (MASTER Nutritional.xlsx, version 108, date of issue 06.10.26, PDF created 6 October 2026)",
-  "url": "https://baynes.co.uk/wp-content/uploads/2026/10/Nutritional-Website-1.pdf",
-  "checkedOn": "2026-10-08"
+  "title": "Baynes Nutritional Information (MASTER Nutritional.xlsx, version 110, date of issue 04.11.26, PDF created 4 November 2026)",
+  "url": "https://baynes.co.uk/wp-content/uploads/2026/11/Nutritional-Website-1.pdf",
+  "checkedOn": "2026-11-17"
  },
  "note": "Baynes' own per-product figures, a guideline only (hand-crafted, so they vary). Loaves, large pies, gateaux and celebration cakes print very large totals, so check the size. No fibre or weights. Allergens are copied from Baynes' allergen guide; a product with no exact row in it isn't listed. The bakery can't guarantee separation of allergens.",
  "allergenGuide": {
-  "title": "Baynes Allergen Information (MASTER Allergens.xlsx, version 108, date of issue 06.10.26)",
+  "title": "Baynes Allergen Information (MASTER Allergens.xlsx, version 109, date of issue 04.11.26)",
   "url": "https://docs.baynes.co.uk/Allergens-Website.pdf",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
  "categories": [
-  "Halloween range 2026",
+  "Christmas range 2026",
   "Rolls & breads",
   "Freshly baked savouries",
   "Small cream cakes",
@@ -56,19 +56,221 @@
  "components": [],
  "items": [
   {
-   "id": "halloween-french-cake",
-   "name": "Halloween French Cake",
-   "category": "Halloween range 2026",
+   "id": "black-bun",
+   "name": "Black Bun",
+   "category": "Christmas range 2026",
    "serving": "",
    "nutrients": {
-    "calories": 306,
-    "protein": 2.3,
-    "carbs": 59.9,
-    "fat": 6.1,
+    "calories": 1478,
+    "protein": 26.4,
+    "carbs": 319.5,
+    "fat": 11.6,
+    "saturatedFat": 4.1,
+    "sugar": 181.4,
+    "salt": 1.4,
+    "energyKj": 6184
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "cherry-cake",
+   "name": "Cherry Cake",
+   "category": "Christmas range 2026",
+   "serving": "",
+   "nutrients": {
+    "calories": 1514,
+    "protein": 14.9,
+    "carbs": 222,
+    "fat": 63.6,
+    "saturatedFat": 7.5,
+    "sugar": 135.1,
+    "salt": 1.3,
+    "energyKj": 6334
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sultana-cake",
+   "name": "Sultana Cake",
+   "category": "Christmas range 2026",
+   "serving": "",
+   "nutrients": {
+    "calories": 1661,
+    "protein": 19.1,
+    "carbs": 244.3,
+    "fat": 69.6,
+    "saturatedFat": 8.3,
+    "sugar": 148.4,
+    "salt": 1.4,
+    "energyKj": 6949
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sultana-piece",
+   "name": "Sultana Piece",
+   "category": "Christmas range 2026",
+   "serving": "",
+   "nutrients": {
+    "calories": 504,
+    "protein": 5.5,
+    "carbs": 81.4,
+    "fat": 17.8,
     "saturatedFat": 2.3,
-    "sugar": 45.8,
-    "salt": 0.6,
-    "energyKj": 1280
+    "sugar": 63.1,
+    "salt": 0.3,
+    "energyKj": 2108
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "shortbread-round",
+   "name": "Shortbread Round",
+   "category": "Christmas range 2026",
+   "serving": "",
+   "nutrients": {
+    "calories": 1202,
+    "protein": 13.7,
+    "carbs": 147.5,
+    "fat": 60.8,
+    "saturatedFat": 37.9,
+    "sugar": 39.2,
+    "salt": 1.2,
+    "energyKj": 5029
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "madeira-cake",
+   "name": "Madeira Cake",
+   "category": "Christmas range 2026",
+   "serving": "",
+   "nutrients": {
+    "calories": 887,
+    "protein": 11.6,
+    "carbs": 138.7,
+    "fat": 31.4,
+    "saturatedFat": 13.3,
+    "sugar": 64.6,
+    "salt": 2.6,
+    "energyKj": 3712
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vanilla-christmas-sponge-5",
+   "name": "Vanilla Christmas Sponge 5\"",
+   "category": "Christmas range 2026",
+   "serving": "",
+   "nutrients": {
+    "calories": 2493,
+    "protein": 20.5,
+    "carbs": 442.5,
+    "fat": 69.7,
+    "saturatedFat": 29.9,
+    "sugar": 350.8,
+    "salt": 5.4,
+    "energyKj": 10430
    },
    "tags": [],
    "limitedTime": true,
@@ -89,19 +291,184 @@
    }
   },
   {
-   "id": "halloween-cupcake",
-   "name": "Halloween Cupcake",
-   "category": "Halloween range 2026",
+   "id": "highlanders",
+   "name": "Highlanders",
+   "category": "Christmas range 2026",
    "serving": "",
    "nutrients": {
-    "calories": 402,
-    "protein": 4,
-    "carbs": 50.2,
+    "calories": 138,
+    "protein": 1.5,
+    "carbs": 17.1,
+    "fat": 6.9,
+    "saturatedFat": 4.3,
+    "sugar": 5.4,
+    "salt": 0.2,
+    "energyKj": 576
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "puff-pastry-mincemeat-pie",
+   "name": "Puff Pastry Mincemeat Pie",
+   "category": "Christmas range 2026",
+   "serving": "",
+   "nutrients": {
+    "calories": 425,
+    "protein": 5.1,
+    "carbs": 52.6,
     "fat": 20.8,
+    "saturatedFat": 9.7,
+    "sugar": 21.4,
+    "salt": 1.1,
+    "energyKj": 1778
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "shortcrust-mincemeat-pie",
+   "name": "Shortcrust Mincemeat Pie",
+   "category": "Christmas range 2026",
+   "serving": "",
+   "nutrients": {
+    "calories": 358,
+    "protein": 3,
+    "carbs": 53.2,
+    "fat": 14,
     "saturatedFat": 5.5,
-    "sugar": 38.6,
+    "sugar": 29.3,
+    "salt": 0.3,
+    "energyKj": 1497
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "xmas-empire-with-gold-star",
+   "name": "Xmas Empire with Gold Star",
+   "category": "Christmas range 2026",
+   "serving": "",
+   "nutrients": {
+    "calories": 374,
+    "protein": 3.2,
+    "carbs": 53.8,
+    "fat": 16,
+    "saturatedFat": 5.9,
+    "sugar": 28,
+    "salt": 0.4,
+    "energyKj": 1564
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "xmas-french-cake-with-holly",
+   "name": "Xmas French Cake with Holly",
+   "category": "Christmas range 2026",
+   "serving": "",
+   "nutrients": {
+    "calories": 306,
+    "protein": 2.2,
+    "carbs": 60.5,
+    "fat": 6,
+    "saturatedFat": 2.2,
+    "sugar": 46.5,
+    "salt": 0.6,
+    "energyKj": 1282
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "xmas-kids-novelty-cupcake",
+   "name": "Xmas Kids Novelty Cupcake",
+   "category": "Christmas range 2026",
+   "serving": "",
+   "nutrients": {
+    "calories": 442,
+    "protein": 3.6,
+    "carbs": 64.8,
+    "fat": 18.5,
+    "saturatedFat": 4.6,
+    "sugar": 52.9,
     "salt": 0.7,
-    "energyKj": 1681
+    "energyKj": 1846
    },
    "tags": [],
    "limitedTime": true,
@@ -121,23 +488,56 @@
    }
   },
   {
-   "id": "alien-biscuit",
-   "name": "Alien Biscuit",
-   "category": "Halloween range 2026",
+   "id": "xmas-choc-mint-cupcake",
+   "name": "Xmas Choc Mint Cupcake",
+   "category": "Christmas range 2026",
    "serving": "",
    "nutrients": {
-    "calories": 306,
-    "protein": 2.5,
-    "carbs": 46.2,
-    "fat": 12.2,
-    "saturatedFat": 4.5,
-    "sugar": 27.3,
-    "salt": 0.3,
-    "energyKj": 1282
+    "calories": 369,
+    "protein": 3.6,
+    "carbs": 51.3,
+    "fat": 15.8,
+    "saturatedFat": 3.7,
+    "sugar": 40.3,
+    "salt": 0.6,
+    "energyKj": 1543
    },
    "tags": [
     "vegetarian"
    ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "xmas-snowman-biscuit",
+   "name": "Xmas Snowman Biscuit",
+   "category": "Christmas range 2026",
+   "serving": "",
+   "nutrients": {
+    "calories": 295,
+    "protein": 2.1,
+    "carbs": 47.3,
+    "fat": 10.7,
+    "saturatedFat": 4,
+    "sugar": 30.5,
+    "salt": 0.3,
+    "energyKj": 1236
+   },
+   "tags": [],
    "limitedTime": true,
    "rankable": false,
    "components": [],
@@ -155,32 +555,32 @@
    }
   },
   {
-   "id": "gingerbread-muffin",
-   "name": "Gingerbread Muffin",
-   "category": "Halloween range 2026",
+   "id": "festive-sausage-roll",
+   "name": "Festive Sausage Roll",
+   "category": "Christmas range 2026",
    "serving": "",
    "nutrients": {
-    "calories": 450,
-    "protein": 4.1,
-    "carbs": 62.7,
-    "fat": 20.2,
-    "saturatedFat": 6.4,
-    "sugar": 48.3,
-    "salt": 0.8,
-    "energyKj": 1881
+    "calories": 355,
+    "protein": 7.4,
+    "carbs": 34.9,
+    "fat": 20.4,
+    "saturatedFat": 9.3,
+    "sugar": 2.9,
+    "salt": 2.2,
+    "energyKj": 1487
    },
    "tags": [
-    "vegetarian"
+    "contains_pork"
    ],
    "limitedTime": true,
-   "rankable": false,
+   "rankable": true,
    "components": [],
    "modifiers": [],
    "allergens": {
     "contains": [
      "gluten",
-     "eggs",
-     "milk"
+     "milk",
+     "sulphites"
     ],
     "mayContain": [],
     "cereals": [
@@ -1685,7 +2085,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "baynes/8422ba799cb5.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2168,7 +2567,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "baynes/c98f1686a20e.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2779,33 +3177,6 @@
    }
   },
   {
-   "id": "burnt-orange-hot-chocolate-with-mallows-and-cream",
-   "name": "Burnt Orange Hot Chocolate with Mallows & Cream",
-   "category": "Tea & hot chocolate",
-   "serving": "",
-   "nutrients": {
-    "calories": 318,
-    "protein": 9,
-    "carbs": 47.1,
-    "fat": 9.4,
-    "saturatedFat": 6.2,
-    "sugar": 45.1,
-    "salt": 0.3,
-    "energyKj": 1332
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "tea-with-oat-drink",
    "name": "Tea with Oat Drink",
    "category": "Tea & hot chocolate",
@@ -3141,35 +3512,6 @@
    "components": [],
    "modifiers": [],
    "image": "baynes/5deb2c1e7ea5.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "gingerbread-latte-with-cream-and-sprinkles",
-   "name": "Gingerbread Latte with Cream & Sprinkles",
-   "category": "Freshly ground coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 273,
-    "protein": 9.2,
-    "carbs": 37,
-    "fat": 9.8,
-    "saturatedFat": 6.3,
-    "sugar": 36.2,
-    "salt": 0.3,
-    "energyKj": 1144
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
    "allergens": {
     "contains": [
      "milk"

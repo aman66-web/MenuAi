@@ -3041,6 +3041,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wenzels/b36789c2c856.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -3074,6 +3075,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wenzels/ec20e322cba1.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -3615,7 +3617,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "wenzels/a47b93b9e431.webp",
    "allergens": {
     "contains": [
      "milk",

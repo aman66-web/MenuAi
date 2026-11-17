@@ -76,7 +76,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/aa8fd4400eb6.webp"
   },
   {
    "id": "chorizo-carbonara",
@@ -92,7 +93,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/126e5f360652.webp"
   },
   {
    "id": "pesto-rosso",
@@ -106,7 +108,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/b6ee3a62ba82.webp"
   },
   {
    "id": "pollo-della-casa",
@@ -154,7 +157,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/7a2692b3b50f.webp"
   },
   {
    "id": "ravioli-di-capra",
@@ -204,7 +208,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/3c21d6e044dd.webp"
   },
   {
    "id": "vegan-pomodoro",
@@ -639,8 +644,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "zizzi/41dd9568c8be.webp"
+   "modifiers": []
   },
   {
    "id": "flawsome-sweet-apple",
@@ -656,8 +660,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "zizzi/a0c21d537dc8.webp"
+   "modifiers": []
   },
   {
    "id": "kids-apple-juice",
@@ -1287,7 +1290,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/8175026bcdaa.webp"
   },
   {
    "id": "burrata-caprese",
@@ -1350,7 +1354,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/00856f66efc9.webp"
   },
   {
    "id": "chicken-spiedini-with-calabrese-dip",
@@ -3157,8 +3162,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "zizzi/a5602ad130a8.webp"
+   "modifiers": []
   },
   {
    "id": "chocolate-gelato",

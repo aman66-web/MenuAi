@@ -49,7 +49,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/cce9aa032904.webp"
   },
   {
    "id": "chicken-sausage-and-egg-muffin",
@@ -64,7 +65,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/aa2cdc2166cf.webp"
   },
   {
    "id": "dbl-chicken-sausage-and-egg-muffin",
@@ -79,7 +81,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/e187bd8a4ae9.webp"
   },
   {
    "id": "turkey-bacon-and-egg-muffin",
@@ -94,7 +97,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/875c97bd59a6.webp"
   },
   {
    "id": "dbl-turkey-bacon-and-egg-muffin",
@@ -109,7 +113,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/1414bfd57427.webp"
   },
   {
    "id": "hashbrown-and-egg-muffin",
@@ -124,7 +129,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/03adb50df852.webp"
   },
   {
    "id": "hashbrown-and-orange-juice",
@@ -139,7 +145,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/c2b09e2abe40.webp"
   },
   {
    "id": "strawberry-pancakes",
@@ -154,7 +161,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/b6de6df25d46.webp"
   },
   {
    "id": "maple-syrup-pancakes",
@@ -169,7 +177,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/0b67994ff4f9.webp"
   },
   {
    "id": "amigo",
@@ -186,7 +195,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/abbb3ccd5454.webp"
   },
   {
    "id": "mexican",
@@ -201,7 +211,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/a45cd5f621ae.webp"
   },
   {
    "id": "breakie",
@@ -218,7 +229,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/e9e3bf990178.webp"
   },
   {
    "id": "jacob",
@@ -235,7 +247,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/c92d7a0c6557.webp"
   },
   {
    "id": "happynero",
@@ -250,7 +263,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/30dd5903f926.webp"
   },
   {
    "id": "cheese-burger",
@@ -265,7 +279,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/66cd8b6b17f6.webp"
   },
   {
    "id": "texan",
@@ -280,7 +295,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/54f2bc942898.webp"
   },
   {
    "id": "the-boss",
@@ -296,7 +312,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/92ae8b38052a.webp"
   },
   {
    "id": "dbl-cheese",
@@ -311,7 +328,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/6b0679420f23.webp"
   },
   {
    "id": "1-4-chicken",
@@ -326,7 +344,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/359b0d7dcace.webp"
   },
   {
    "id": "chickn-pitta",
@@ -341,7 +360,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/3ea64b5cb57b.webp"
   },
   {
    "id": "chick-burger",
@@ -356,7 +376,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/69d2c7d60952.webp"
   },
   {
    "id": "amigos-wrap",
@@ -371,7 +392,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/9df607834768.webp"
   },
   {
    "id": "1-2-chicken",
@@ -386,7 +408,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/d99bef1b2671.webp"
   },
   {
    "id": "supah-loaded-fries",
@@ -401,7 +424,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/1e6492ac92e3.webp"
   },
   {
    "id": "crispy-korean-wrap",
@@ -431,7 +455,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/bc0f197e03c7.webp"
   },
   {
    "id": "chick-n-rice",
@@ -445,7 +470,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/624e6acf24f1.webp"
   },
   {
    "id": "buttermilk-burger",
@@ -460,7 +486,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/8516199c9482.webp"
   },
   {
    "id": "the-fun-guy",
@@ -477,7 +504,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/57b24e0c258a.webp"
   },
   {
    "id": "lil-chicken-burger",
@@ -492,7 +520,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/454d94ac1ff1.webp"
   },
   {
    "id": "chicken-popcorn",
@@ -506,7 +535,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/19779cf06c75.webp"
   },
   {
    "id": "crispy-chickn-dippers",
@@ -520,7 +550,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/dde4a3533fc9.webp"
   },
   {
    "id": "hamburger",
@@ -535,7 +566,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "amigos-burgers-and-shakes/b4c3c5387247.webp"
   }
  ],
  "combinations": []

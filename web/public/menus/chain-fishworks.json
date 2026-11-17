@@ -11,16 +11,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Fishworks dietary information: A La Carte Menu on Ten Kites (accessed 2026-10-08, no date shown)",
+  "title": "Fishworks dietary information: A La Carte Menu on Ten Kites (accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/brg/fishworks",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, per dish as served, worked out by Fishworks from typical weights and measures; no protein, carbs or fat are published. The page both restaurants link has only the A La Carte menu (no desserts, set, lunch, kids' or drinks). Six dishes whose figures or allergen marks contradict each other are left out.",
  "allergenGuide": {
-  "title": "Fishworks allergy and dietary information: A La Carte Menu on Ten Kites (accessed 2026-10-08, no date shown)",
+  "title": "Fishworks allergy and dietary information: A La Carte Menu on Ten Kites (accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/brg/fishworks",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -368,6 +368,9 @@
      "peanuts",
      "sesame",
      "soya"
+    ],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -397,6 +400,9 @@
      "peanuts",
      "sesame",
      "soya"
+    ],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -673,6 +679,9 @@
      "peanuts",
      "sesame",
      "soya"
+    ],
+    "cereals": [
+     "wheat"
     ]
    }
   },

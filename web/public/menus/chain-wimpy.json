@@ -389,6 +389,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wimpy/bc3a6b197fd8.webp",
    "allergens": {
     "contains": [
      "eggs"
@@ -424,6 +425,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wimpy/2e9a4c75ed6d.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -463,6 +465,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wimpy/03fe0e713319.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2517,6 +2520,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wimpy/6b7e00b4dac0.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2887,6 +2891,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wimpy/332b23328dcd.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -3516,6 +3521,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wimpy/e032d2614c69.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3653,6 +3659,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wimpy/d469abdd4025.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -4153,7 +4160,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "wimpy/1aaafa44d51e.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -5430,6 +5436,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wimpy/32517c6606f0.webp",
    "allergens": {
     "contains": [
      "gluten",

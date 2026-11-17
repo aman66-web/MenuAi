@@ -11,15 +11,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Domino's UK Nutrition Information Guides: Pizzas, Bases & Toppings and Sides & Desserts (correct as of 7th September 2026)",
+  "title": "Domino's UK Nutrition Information Guides: Pizzas, Bases & Toppings and Sides & Desserts (correct as of 16th November 2026)",
   "url": "https://corporate.dominos.co.uk/about-us/our-food/allergens-and-nutrition",
-  "checkedOn": "2026-10-10"
+  "checkedOn": "2026-11-17"
  },
  "note": "Pizzas show the figures for one slice (the guide also prints the whole pizza; it does not state the slice count). Sides, dips, wraps and desserts show the product as sold. Pizza nutrition excludes dips. Menus and recipes can vary by store.",
  "allergenGuide": {
   "title": "Domino's allergens and nutrition (allergen leaflet and ingredients guide)",
   "url": "https://corporate.dominos.co.uk/about-us/our-food/allergens-and-nutrition",
-  "checkedOn": "2026-10-10",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": false,
   "complete": false
  },
@@ -6631,6 +6631,182 @@
    "modifiers": []
   },
   {
+   "id": "the-festive-one-classic-crust-large",
+   "name": "The Festive One, Classic Crust - Large",
+   "category": "Classic crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 226,
+    "protein": 12,
+    "carbs": 26.2,
+    "fat": 7.6,
+    "saturatedFat": 3.5,
+    "sugar": 5.6,
+    "fiber": 2.2,
+    "salt": 1.23,
+    "energyKj": 943
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-classic-crust-medium",
+   "name": "The Festive One, Classic Crust - Medium",
+   "category": "Classic crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 219,
+    "protein": 9.4,
+    "carbs": 26.4,
+    "fat": 8,
+    "saturatedFat": 3.9,
+    "sugar": 5.9,
+    "fiber": 1.8,
+    "salt": 1.01,
+    "energyKj": 921
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-classic-crust-small",
+   "name": "The Festive One, Classic Crust - Small",
+   "category": "Classic crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 196,
+    "protein": 8.9,
+    "carbs": 23.9,
+    "fat": 7,
+    "saturatedFat": 3.3,
+    "sugar": 4.1,
+    "fiber": 1.2,
+    "salt": 0.91,
+    "energyKj": 825
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-classic-crust-personal",
+   "name": "The Festive One, Classic Crust - Personal",
+   "category": "Classic crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 193,
+    "protein": 7.9,
+    "carbs": 25.6,
+    "fat": 6.3,
+    "saturatedFat": 2.9,
+    "sugar": 4.4,
+    "fiber": 1.3,
+    "salt": 0.91,
+    "energyKj": 812
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-classic-crust-large-reduced-fat-mozzarella",
+   "name": "The Festive One, Classic Crust - Large (reduced fat mozzarella)",
+   "category": "Classic crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 217,
+    "protein": 9.8,
+    "carbs": 30.6,
+    "fat": 5.4,
+    "saturatedFat": 2.1,
+    "sugar": 6.7,
+    "fiber": 3.3,
+    "salt": 1.11,
+    "energyKj": 913
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-classic-crust-medium-reduced-fat-mozzarella",
+   "name": "The Festive One, Classic Crust - Medium (reduced fat mozzarella)",
+   "category": "Classic crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 201,
+    "protein": 11.9,
+    "carbs": 24.3,
+    "fat": 5.6,
+    "saturatedFat": 2.3,
+    "sugar": 5.3,
+    "fiber": 3,
+    "salt": 1.03,
+    "energyKj": 846
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-classic-crust-small-reduced-fat-mozzarella",
+   "name": "The Festive One, Classic Crust - Small (reduced fat mozzarella)",
+   "category": "Classic crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 198,
+    "protein": 8.5,
+    "carbs": 26.1,
+    "fat": 6.2,
+    "saturatedFat": 2.5,
+    "sugar": 4.3,
+    "fiber": 1.9,
+    "salt": 0.95,
+    "energyKj": 832
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-classic-crust-personal-reduced-fat-mozzarella",
+   "name": "The Festive One, Classic Crust - Personal (reduced fat mozzarella)",
+   "category": "Classic crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 180,
+    "protein": 8.4,
+    "carbs": 23.8,
+    "fat": 5.3,
+    "saturatedFat": 2.2,
+    "sugar": 4.5,
+    "fiber": 1.6,
+    "salt": 0.95,
+    "energyKj": 756
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "the-meatfielder-classic-crust-large",
    "name": "The Meatfielder, Classic Crust - Large",
    "category": "Classic crust pizzas",
@@ -6977,6 +7153,198 @@
     "energyKj": 697
    },
    "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-classic-crust-large",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Classic Crust - Large",
+   "category": "Classic crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 217,
+    "protein": 10.6,
+    "carbs": 28.6,
+    "fat": 6.4,
+    "saturatedFat": 3.2,
+    "sugar": 6.9,
+    "fiber": 1.7,
+    "salt": 1.05,
+    "energyKj": 915
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-classic-crust-medium",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Classic Crust - Medium",
+   "category": "Classic crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 203,
+    "protein": 8.7,
+    "carbs": 27.4,
+    "fat": 6.2,
+    "saturatedFat": 3.2,
+    "sugar": 6.6,
+    "fiber": 1.7,
+    "salt": 0.92,
+    "energyKj": 854
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-classic-crust-small",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Classic Crust - Small",
+   "category": "Classic crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 172,
+    "protein": 7.8,
+    "carbs": 24,
+    "fat": 4.8,
+    "saturatedFat": 2.3,
+    "sugar": 4.8,
+    "fiber": 1,
+    "salt": 0.81,
+    "energyKj": 723
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-classic-crust-personal",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Classic Crust - Personal",
+   "category": "Classic crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 166,
+    "protein": 5.9,
+    "carbs": 26.1,
+    "fat": 4,
+    "saturatedFat": 2,
+    "sugar": 4.8,
+    "fiber": 1.2,
+    "salt": 0.72,
+    "energyKj": 699
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-classic-crust-large-reduced-fat-mozzarella",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Classic Crust - Large (reduced fat mozzarella)",
+   "category": "Classic crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 201,
+    "protein": 9,
+    "carbs": 31.4,
+    "fat": 3.7,
+    "saturatedFat": 1.4,
+    "sugar": 7.3,
+    "fiber": 3.3,
+    "salt": 1.03,
+    "energyKj": 848
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-classic-crust-medium-reduced-fat-mozzarella",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Classic Crust - Medium (reduced fat mozzarella)",
+   "category": "Classic crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 185,
+    "protein": 11.1,
+    "carbs": 25.3,
+    "fat": 3.8,
+    "saturatedFat": 1.6,
+    "sugar": 6,
+    "fiber": 2.9,
+    "salt": 0.95,
+    "energyKj": 780
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-classic-crust-small-reduced-fat-mozzarella",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Classic Crust - Small (reduced fat mozzarella)",
+   "category": "Classic crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 182,
+    "protein": 7.8,
+    "carbs": 27.4,
+    "fat": 4.1,
+    "saturatedFat": 1.7,
+    "sugar": 5.4,
+    "fiber": 1.9,
+    "salt": 0.88,
+    "energyKj": 764
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-classic-crust-personal-reduced-fat-mozzarella",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Classic Crust - Personal (reduced fat mozzarella)",
+   "category": "Classic crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 153,
+    "protein": 6.4,
+    "carbs": 24.2,
+    "fat": 3,
+    "saturatedFat": 1.2,
+    "sugar": 4.9,
+    "fiber": 1.5,
+    "salt": 0.76,
+    "energyKj": 643
+   },
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -12499,6 +12867,138 @@
    "modifiers": []
   },
   {
+   "id": "the-festive-one-italian-style-crust-large",
+   "name": "The Festive One, Italian Style Crust - Large",
+   "category": "Italian style crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 197,
+    "protein": 11.2,
+    "carbs": 20.2,
+    "fat": 7.5,
+    "saturatedFat": 3.7,
+    "sugar": 6.3,
+    "fiber": 1.6,
+    "salt": 1,
+    "energyKj": 826
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-italian-style-crust-medium",
+   "name": "The Festive One, Italian Style Crust - Medium",
+   "category": "Italian style crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 179,
+    "protein": 7.9,
+    "carbs": 21,
+    "fat": 6.7,
+    "saturatedFat": 3.3,
+    "sugar": 4.8,
+    "fiber": 1.4,
+    "salt": 0.84,
+    "energyKj": 752
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-italian-style-crust-small",
+   "name": "The Festive One, Italian Style Crust - Small",
+   "category": "Italian style crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 159,
+    "protein": 7.3,
+    "carbs": 18,
+    "fat": 6.3,
+    "saturatedFat": 3.1,
+    "sugar": 2.5,
+    "fiber": 1.1,
+    "salt": 0.77,
+    "energyKj": 669
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-italian-style-crust-large-reduced-fat-mozzarella",
+   "name": "The Festive One, Italian Style Crust - Large (reduced fat mozzarella)",
+   "category": "Italian style crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 181,
+    "protein": 10.1,
+    "carbs": 21.1,
+    "fat": 5.6,
+    "saturatedFat": 2.6,
+    "sugar": 5.5,
+    "fiber": 2.6,
+    "salt": 0.97,
+    "energyKj": 760
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-italian-style-crust-medium-reduced-fat-mozzarella",
+   "name": "The Festive One, Italian Style Crust - Medium (reduced fat mozzarella)",
+   "category": "Italian style crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 158,
+    "protein": 7.8,
+    "carbs": 18.5,
+    "fat": 5.4,
+    "saturatedFat": 2.4,
+    "sugar": 4.9,
+    "fiber": 2.1,
+    "salt": 1.05,
+    "energyKj": 664
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-italian-style-crust-small-reduced-fat-mozzarella",
+   "name": "The Festive One, Italian Style Crust - Small (reduced fat mozzarella)",
+   "category": "Italian style crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 145,
+    "protein": 7.8,
+    "carbs": 17.6,
+    "fat": 4.6,
+    "saturatedFat": 1.9,
+    "sugar": 2.5,
+    "fiber": 1.4,
+    "salt": 0.83,
+    "energyKj": 610
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "the-meatfielder-italian-style-crust-large",
    "name": "The Meatfielder, Italian Style Crust - Large",
    "category": "Italian style crust pizzas",
@@ -12757,6 +13257,150 @@
     "energyKj": 610
    },
    "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-italian-style-crust-large",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Italian Style Crust - Large",
+   "category": "Italian style crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 181,
+    "protein": 10.5,
+    "carbs": 21,
+    "fat": 5.8,
+    "saturatedFat": 3,
+    "sugar": 6.8,
+    "fiber": 1.5,
+    "salt": 0.92,
+    "energyKj": 762
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-italian-style-crust-medium",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Italian Style Crust - Medium",
+   "category": "Italian style crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 157,
+    "protein": 8.5,
+    "carbs": 19,
+    "fat": 4.9,
+    "saturatedFat": 2.5,
+    "sugar": 6,
+    "fiber": 1.4,
+    "salt": 0.8,
+    "energyKj": 658
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-italian-style-crust-small",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Italian Style Crust - Small",
+   "category": "Italian style crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 142,
+    "protein": 6.5,
+    "carbs": 19.1,
+    "fat": 4.2,
+    "saturatedFat": 2.3,
+    "sugar": 3.4,
+    "fiber": 1,
+    "salt": 0.7,
+    "energyKj": 597
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-italian-style-crust-large-reduced-fat-mozzarella",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Italian Style Crust - Large (reduced fat mozzarella)",
+   "category": "Italian style crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 165,
+    "protein": 9.4,
+    "carbs": 21.9,
+    "fat": 3.9,
+    "saturatedFat": 1.9,
+    "sugar": 6.1,
+    "fiber": 2.5,
+    "salt": 0.89,
+    "energyKj": 696
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-italian-style-crust-medium-reduced-fat-mozzarella",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Italian Style Crust - Medium (reduced fat mozzarella)",
+   "category": "Italian style crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 142,
+    "protein": 7,
+    "carbs": 19.5,
+    "fat": 3.6,
+    "saturatedFat": 1.7,
+    "sugar": 5.6,
+    "fiber": 2.1,
+    "salt": 0.97,
+    "energyKj": 598
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-italian-style-crust-small-reduced-fat-mozzarella",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Italian Style Crust - Small (reduced fat mozzarella)",
+   "category": "Italian style crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 128,
+    "protein": 7,
+    "carbs": 18.7,
+    "fat": 2.5,
+    "saturatedFat": 1.1,
+    "sugar": 3.4,
+    "fiber": 1.3,
+    "salt": 0.76,
+    "energyKj": 539
+   },
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -16639,6 +17283,94 @@
    "modifiers": []
   },
   {
+   "id": "the-festive-one-double-decadence-large",
+   "name": "The Festive One, Double Decadence - Large",
+   "category": "Double Decadence crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 304,
+    "protein": 12.1,
+    "carbs": 31.7,
+    "fat": 13.5,
+    "saturatedFat": 6.5,
+    "sugar": 6.9,
+    "fiber": 3.7,
+    "salt": 1.44,
+    "energyKj": 1275
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-double-decadence-medium",
+   "name": "The Festive One, Double Decadence - Medium",
+   "category": "Double Decadence crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 281,
+    "protein": 9.6,
+    "carbs": 32.2,
+    "fat": 12,
+    "saturatedFat": 5.5,
+    "sugar": 5.7,
+    "fiber": 2.7,
+    "salt": 1.3,
+    "energyKj": 1177
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-double-decadence-large-reduced-fat-mozzarella",
+   "name": "The Festive One, Double Decadence - Large (reduced fat mozzarella)",
+   "category": "Double Decadence crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 274,
+    "protein": 12.5,
+    "carbs": 31.5,
+    "fat": 10.1,
+    "saturatedFat": 4.3,
+    "sugar": 6,
+    "fiber": 3.6,
+    "salt": 1.4,
+    "energyKj": 1150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-double-decadence-medium-reduced-fat-mozzarella",
+   "name": "The Festive One, Double Decadence - Medium (reduced fat mozzarella)",
+   "category": "Double Decadence crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 251,
+    "protein": 14.5,
+    "carbs": 25.8,
+    "fat": 9.2,
+    "saturatedFat": 4.2,
+    "sugar": 6,
+    "fiber": 3.5,
+    "salt": 1.28,
+    "energyKj": 1055
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "the-meatfielder-double-decadence-large",
    "name": "The Meatfielder, Double Decadence - Large",
    "category": "Double Decadence crust pizzas",
@@ -16809,6 +17541,102 @@
     "energyKj": 1105
    },
    "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-double-decadence-large",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Double Decadence - Large",
+   "category": "Double Decadence crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 289,
+    "protein": 11.3,
+    "carbs": 32.5,
+    "fat": 11.8,
+    "saturatedFat": 5.8,
+    "sugar": 7.4,
+    "fiber": 3.7,
+    "salt": 1.36,
+    "energyKj": 1210
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-double-decadence-medium",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Double Decadence - Medium",
+   "category": "Double Decadence crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 265,
+    "protein": 8.9,
+    "carbs": 33.2,
+    "fat": 10.2,
+    "saturatedFat": 4.7,
+    "sugar": 6.4,
+    "fiber": 2.7,
+    "salt": 1.22,
+    "energyKj": 1111
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-double-decadence-large-reduced-fat-mozzarella",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Double Decadence - Large (reduced fat mozzarella)",
+   "category": "Double Decadence crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 258,
+    "protein": 11.7,
+    "carbs": 32.3,
+    "fat": 8.4,
+    "saturatedFat": 3.6,
+    "sugar": 6.5,
+    "fiber": 3.6,
+    "salt": 1.32,
+    "energyKj": 1085
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-double-decadence-medium-reduced-fat-mozzarella",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Double Decadence - Medium (reduced fat mozzarella)",
+   "category": "Double Decadence crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 235,
+    "protein": 13.8,
+    "carbs": 26.7,
+    "fat": 7.4,
+    "saturatedFat": 3.4,
+    "sugar": 6.7,
+    "fiber": 3.4,
+    "salt": 1.19,
+    "energyKj": 989
+   },
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -20287,6 +21115,94 @@
    "modifiers": []
   },
   {
+   "id": "the-festive-one-stuffed-crust-large",
+   "name": "The Festive One, Stuffed Crust - Large",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 254,
+    "protein": 12,
+    "carbs": 27.4,
+    "fat": 9.8,
+    "saturatedFat": 5.2,
+    "sugar": 7.6,
+    "fiber": 4,
+    "salt": 1.24,
+    "energyKj": 1066
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-stuffed-crust-medium",
+   "name": "The Festive One, Stuffed Crust - Medium",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 246,
+    "protein": 10.2,
+    "carbs": 26.6,
+    "fat": 10.2,
+    "saturatedFat": 5,
+    "sugar": 7.1,
+    "fiber": 3.6,
+    "salt": 1.2,
+    "energyKj": 1032
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-stuffed-crust-large-reduced-fat-mozzarella",
+   "name": "The Festive One, Stuffed Crust - Large (reduced fat mozzarella)",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 260,
+    "protein": 16,
+    "carbs": 27.6,
+    "fat": 9,
+    "saturatedFat": 4.5,
+    "sugar": 8,
+    "fiber": 2.8,
+    "salt": 1.47,
+    "energyKj": 1094
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-stuffed-crust-medium-reduced-fat-mozzarella",
+   "name": "The Festive One, Stuffed Crust - Medium (reduced fat mozzarella)",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 233,
+    "protein": 13.2,
+    "carbs": 25,
+    "fat": 8.2,
+    "saturatedFat": 4,
+    "sugar": 6.4,
+    "fiber": 3.1,
+    "salt": 1.29,
+    "energyKj": 976
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "the-meatfielder-stuffed-crust-large",
    "name": "The Meatfielder, Stuffed Crust - Large",
    "category": "Stuffed crust pizzas",
@@ -20457,6 +21373,102 @@
     "energyKj": 1051
    },
    "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-stuffed-crust-large",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Stuffed Crust - Large",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 239,
+    "protein": 11.3,
+    "carbs": 28.2,
+    "fat": 8.1,
+    "saturatedFat": 4.5,
+    "sugar": 8.2,
+    "fiber": 4,
+    "salt": 1.16,
+    "energyKj": 1001
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-stuffed-crust-medium",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Stuffed Crust - Medium",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 230,
+    "protein": 9.4,
+    "carbs": 27.6,
+    "fat": 8.4,
+    "saturatedFat": 4.3,
+    "sugar": 7.8,
+    "fiber": 3.6,
+    "salt": 1.12,
+    "energyKj": 965
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-stuffed-crust-large-reduced-fat-mozzarella",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Stuffed Crust - Large (reduced fat mozzarella)",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 245,
+    "protein": 15.2,
+    "carbs": 28.4,
+    "fat": 7.2,
+    "saturatedFat": 3.8,
+    "sugar": 8.6,
+    "fiber": 2.7,
+    "salt": 1.39,
+    "energyKj": 1029
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-stuffed-crust-medium-reduced-fat-mozzarella",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Stuffed Crust - Medium (reduced fat mozzarella)",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 217,
+    "protein": 12.5,
+    "carbs": 25.9,
+    "fat": 6.3,
+    "saturatedFat": 3.2,
+    "sugar": 7.1,
+    "fiber": 3,
+    "salt": 1.2,
+    "energyKj": 910
+   },
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -25179,6 +26191,94 @@
    "modifiers": []
   },
   {
+   "id": "the-festive-one-thin-and-crispy-crust-large",
+   "name": "The Festive One, Thin & Crispy Crust - Large",
+   "category": "Thin & crispy crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 176,
+    "protein": 7.6,
+    "carbs": 18.8,
+    "fat": 7.5,
+    "saturatedFat": 3.6,
+    "sugar": 4.4,
+    "fiber": 1.3,
+    "salt": 0.76,
+    "energyKj": 736
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-thin-and-crispy-crust-medium",
+   "name": "The Festive One, Thin & Crispy Crust - Medium",
+   "category": "Thin & crispy crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 173,
+    "protein": 8.2,
+    "carbs": 17.7,
+    "fat": 7.4,
+    "saturatedFat": 3.6,
+    "sugar": 4,
+    "fiber": 1.1,
+    "salt": 0.94,
+    "energyKj": 724
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-thin-and-crispy-crust-large-reduced-fat-mozzarella",
+   "name": "The Festive One, Thin & Crispy Crust - Large (reduced fat mozzarella)",
+   "category": "Thin & crispy crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 156,
+    "protein": 7.7,
+    "carbs": 18.6,
+    "fat": 5.4,
+    "saturatedFat": 2.3,
+    "sugar": 4.5,
+    "fiber": 1.1,
+    "salt": 0.85,
+    "energyKj": 655
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-festive-one-thin-and-crispy-crust-medium-reduced-fat-mozzarella",
+   "name": "The Festive One, Thin & Crispy Crust - Medium (reduced fat mozzarella)",
+   "category": "Thin & crispy crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 155,
+    "protein": 8.3,
+    "carbs": 17.7,
+    "fat": 5.4,
+    "saturatedFat": 2.3,
+    "sugar": 4.2,
+    "fiber": 1.4,
+    "salt": 0.86,
+    "energyKj": 651
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "the-meatfielder-thin-and-crispy-crust-large",
    "name": "The Meatfielder, Thin & Crispy Crust - Large",
    "category": "Thin & crispy crust pizzas",
@@ -25437,6 +26537,150 @@
     "energyKj": 412
    },
    "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-thin-and-crispy-crust-large",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Thin & Crispy Crust - Large",
+   "category": "Thin & crispy crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 160,
+    "protein": 6.8,
+    "carbs": 19.6,
+    "fat": 5.8,
+    "saturatedFat": 2.9,
+    "sugar": 5,
+    "fiber": 1.2,
+    "salt": 0.68,
+    "energyKj": 671
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-thin-and-crispy-crust-medium",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Thin & Crispy Crust - Medium",
+   "category": "Thin & crispy crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 157,
+    "protein": 7.4,
+    "carbs": 18.7,
+    "fat": 5.6,
+    "saturatedFat": 2.8,
+    "sugar": 4.7,
+    "fiber": 1,
+    "salt": 0.86,
+    "energyKj": 658
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-thin-and-crispy-crust-personal",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Thin & Crispy Crust - Personal",
+   "category": "Thin & crispy crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 81,
+    "protein": 4,
+    "carbs": 10,
+    "fat": 2.6,
+    "saturatedFat": 1.4,
+    "sugar": 2.2,
+    "fiber": 0.6,
+    "salt": 0.47,
+    "energyKj": 340
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-thin-and-crispy-crust-large-reduced-fat-mozzarella",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Thin & Crispy Crust - Large (reduced fat mozzarella)",
+   "category": "Thin & crispy crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 140,
+    "protein": 6.9,
+    "carbs": 19.4,
+    "fat": 3.7,
+    "saturatedFat": 1.6,
+    "sugar": 5,
+    "fiber": 1.1,
+    "salt": 0.77,
+    "energyKj": 590
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-thin-and-crispy-crust-medium-reduced-fat-mozzarella",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Thin & Crispy Crust - Medium (reduced fat mozzarella)",
+   "category": "Thin & crispy crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 139,
+    "protein": 7.5,
+    "carbs": 18.6,
+    "fat": 3.6,
+    "saturatedFat": 1.5,
+    "sugar": 4.9,
+    "fiber": 1.3,
+    "salt": 0.77,
+    "energyKj": 585
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-bourbon-glazed-pulled-pork-thin-and-crispy-crust-personal-reduced-fat-mozzarella",
+   "name": "The Ultimate Bourbon Glazed Pulled Pork, Thin & Crispy Crust - Personal (reduced fat mozzarella)",
+   "category": "Thin & crispy crust pizzas",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 77,
+    "protein": 4.4,
+    "carbs": 10.3,
+    "fat": 1.9,
+    "saturatedFat": 1,
+    "sugar": 2.2,
+    "fiber": 0.6,
+    "salt": 0.36,
+    "energyKj": 323
+   },
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -27114,7 +28358,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dominos/1ed16240c1b2.webp"
   },
   {
    "id": "garlic-dippers",
@@ -27158,6 +28403,31 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
+   "modifiers": [],
+   "image": "dominos/265a09136143.webp"
+  },
+  {
+   "id": "loaded-fries-bourbon-glazed-pulled-pork",
+   "name": "Loaded Fries - Bourbon Glazed Pulled Pork",
+   "category": "Sides",
+   "serving": "as sold, serves 2",
+   "nutrients": {
+    "calories": 713,
+    "protein": 22.4,
+    "carbs": 94.6,
+    "fat": 25.6,
+    "saturatedFat": 7,
+    "sugar": 17.1,
+    "fiber": 6.7,
+    "salt": 2.8,
+    "energyKj": 2983
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
    "modifiers": []
   },
   {
@@ -27197,6 +28467,28 @@
     "fiber": 5.2,
     "salt": 2.5,
     "energyKj": 2771
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-fries-festive",
+   "name": "Loaded Fries - Festive",
+   "category": "Sides",
+   "serving": "as sold, serves 2",
+   "nutrients": {
+    "calories": 724,
+    "protein": 21.4,
+    "carbs": 87.9,
+    "fat": 29.7,
+    "saturatedFat": 9.3,
+    "sugar": 9.6,
+    "fiber": 8.5,
+    "salt": 2.1,
+    "energyKj": 3027
    },
    "tags": [],
    "limitedTime": false,
@@ -27296,7 +28588,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dominos/6defff921411.webp"
   },
   {
    "id": "loaded-veg-chicken",
@@ -27516,7 +28809,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dominos/f0c87ee44be0.webp"
   },
   {
    "id": "twisted-dough-balls-cheese",
@@ -27559,6 +28853,28 @@
    "tags": [
     "contains_pork"
    ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "twisted-dough-balls-hot-and-cheesy-dip",
+   "name": "Twisted Dough Balls: Hot & Cheesy Dip",
+   "category": "Sides",
+   "serving": "as sold, serves 2",
+   "nutrients": {
+    "calories": 763,
+    "protein": 29.8,
+    "carbs": 98.1,
+    "fat": 27.9,
+    "saturatedFat": 10.7,
+    "sugar": 9.3,
+    "fiber": 6.1,
+    "salt": 2.6,
+    "energyKj": 3205
+   },
+   "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -27767,6 +29083,28 @@
    "modifiers": []
   },
   {
+   "id": "hot-and-cheesy-dip-90g",
+   "name": "Hot & Cheesy Dip 90g",
+   "category": "Dips",
+   "serving": "as sold, serves 1",
+   "nutrients": {
+    "calories": 98,
+    "protein": 4.7,
+    "carbs": 7.3,
+    "fat": 5.6,
+    "saturatedFat": 3.3,
+    "sugar": 2.2,
+    "fiber": 0.5,
+    "salt": 0.8,
+    "energyKj": 412
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "sweet-chilli-dip-25g",
    "name": "Sweet Chilli Dip 25g",
    "category": "Dips",
@@ -27876,7 +29214,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dominos/c5f1c746e529.webp"
   },
   {
    "id": "pepperoni-passion",
@@ -27900,7 +29239,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dominos/9b4a7bb6a103.webp"
   },
   {
    "id": "tandoori-chicken",
@@ -27944,7 +29284,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dominos/91ef0f23b558.webp"
   },
   {
    "id": "vegi",
@@ -28166,7 +29507,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dominos/56d83aa629bb.webp"
   },
   {
    "id": "twisted-dough-balls-biscoff-and-white-chocolate",

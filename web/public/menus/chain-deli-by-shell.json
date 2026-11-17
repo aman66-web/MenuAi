@@ -11,16 +11,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "deli by Shell Allergen Matrix, October 2026 (valid 1 October 2026 to 31 October 2026 only; page last updated 30 September 2026)",
+  "title": "deli by Shell Allergen Matrix, November 2026 (valid 1 November 2026 to 30 November 2026 only; page last updated 31 October 2026)",
   "url": "https://www.shell.co.uk/shell-service-stations/food-and-drink-offering/deli-by-shell/allergen-matrix.html",
-  "checkedOn": "2026-10-09"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "Calories only, per unit or portion as sold (unit size not stated). This table is valid for October 2026 only and Shell reissues it every month, so figures can change. The range varies by forecourt, and some lines are Co-op brand.",
+ "note": "Calories only, per unit or portion as sold (unit size not stated). This table is valid for November 2026 only and Shell reissues it every month, so figures can change. The range varies by forecourt.",
  "allergenGuide": {
-  "title": "deli by Shell Allergen Matrix, October 2026 (the page prints no key: Y read as contains, M as may contain)",
+  "title": "deli by Shell Allergen Matrix, November 2026 (the page prints no key: Y read as contains, M as may contain)",
   "url": "https://www.shell.co.uk/shell-service-stations/food-and-drink-offering/deli-by-shell/allergen-matrix.html",
-  "checkedOn": "2026-10-09",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -29,9 +29,7 @@
   "Baked Confectionery",
   "Bakery",
   "Hot Sandwich",
-  "Hot Savoury",
-  "Co-op Baked Confectionery",
-  "Co-op Bakery"
+  "Hot Savoury"
  ],
  "components": [],
  "items": [
@@ -953,10 +951,8 @@
      "soya"
     ],
     "mayContain": [
-     "nuts"
-    ],
-    "cereals": [
-     "wheat"
+     "nuts",
+     "sesame"
     ]
    }
   },
@@ -987,8 +983,8 @@
    }
   },
   {
-   "id": "hazlenut-and-milk-chocolate-cookie",
-   "name": "Hazlenut & Milk Chocolate Cookie",
+   "id": "hazelnut-and-milk-chocolate-cookie",
+   "name": "Hazelnut & Milk Chocolate Cookie",
    "category": "Baked Confectionery",
    "serving": "",
    "nutrients": {
@@ -1935,7 +1931,7 @@
    "category": "Hot Savoury",
    "serving": "",
    "nutrients": {
-    "calories": 600
+    "calories": 583
    },
    "tags": [
     "contains_pork"
@@ -1964,7 +1960,7 @@
    "category": "Hot Savoury",
    "serving": "",
    "nutrients": {
-    "calories": 462
+    "calories": 463
    },
    "tags": [
     "contains_pork"
@@ -1985,515 +1981,6 @@
      "nuts",
      "sesame",
      "soya"
-    ]
-   }
-  },
-  {
-   "id": "co-op-almond-croissant",
-   "name": "Co-op Almond Croissant",
-   "category": "Co-op Baked Confectionery",
-   "serving": "",
-   "nutrients": {
-    "calories": 344
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "nuts"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "almond"
-    ]
-   }
-  },
-  {
-   "id": "co-op-chocolate-twist",
-   "name": "Co-op Chocolate Twist",
-   "category": "Co-op Baked Confectionery",
-   "serving": "",
-   "nutrients": {
-    "calories": 285
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "co-op-pain-au-chocolate",
-   "name": "Co-op Pain Au Chocolate",
-   "category": "Co-op Baked Confectionery",
-   "serving": "",
-   "nutrients": {
-    "calories": 306
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "co-op-irresistable-butter-croissant",
-   "name": "Co-op Irresistable Butter Croissant",
-   "category": "Co-op Baked Confectionery",
-   "serving": "",
-   "nutrients": {
-    "calories": 294
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "co-op-cheese-twist",
-   "name": "Co-op Cheese Twist",
-   "category": "Co-op Baked Confectionery",
-   "serving": "",
-   "nutrients": {
-    "calories": 257
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "co-op-chocolate-hazelnut-croissant",
-   "name": "Co-op Chocolate Hazelnut Croissant",
-   "category": "Co-op Baked Confectionery",
-   "serving": "",
-   "nutrients": {
-    "calories": 325
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "nuts",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "hazelnut"
-    ]
-   }
-  },
-  {
-   "id": "co-op-apple-and-almond-danish-pastry",
-   "name": "Co-op Apple & Almond Danish Pastry",
-   "category": "Co-op Baked Confectionery",
-   "serving": "",
-   "nutrients": {
-    "calories": 322
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "nuts"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "almond"
-    ]
-   }
-  },
-  {
-   "id": "co-op-maple-pecan-plait",
-   "name": "Co-op Maple Pecan Plait",
-   "category": "Co-op Baked Confectionery",
-   "serving": "",
-   "nutrients": {
-    "calories": 348
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "nuts"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "pecan"
-    ]
-   }
-  },
-  {
-   "id": "co-op-pain-au-raisin",
-   "name": "Co-op Pain Au Raisin",
-   "category": "Co-op Baked Confectionery",
-   "serving": "",
-   "nutrients": {
-    "calories": 317
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "co-op-petit-pain",
-   "name": "Co-op Petit Pain",
-   "category": "Co-op Bakery",
-   "serving": "",
-   "nutrients": {
-    "calories": 165
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "co-op-white-rustic-roll",
-   "name": "Co-op White Rustic Roll",
-   "category": "Co-op Bakery",
-   "serving": "",
-   "nutrients": {
-    "calories": 204
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "co-op-white-batch-rolls",
-   "name": "Co-op White Batch Rolls",
-   "category": "Co-op Bakery",
-   "serving": "",
-   "nutrients": {
-    "calories": 181
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "co-op-baton",
-   "name": "Co-op Baton",
-   "category": "Co-op Bakery",
-   "serving": "1/2 baton",
-   "nutrients": {
-    "calories": 254
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "co-op-cinnamon-swirl",
-   "name": "Co-op Cinnamon Swirl",
-   "category": "Co-op Bakery",
-   "serving": "",
-   "nutrients": {
-    "calories": 316
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "co-op-mediterranean-focaccia",
-   "name": "Co-op Mediterranean Focaccia",
-   "category": "Co-op Bakery",
-   "serving": "",
-   "nutrients": {
-    "calories": 299
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "co-op-vanilla-and-nut-custard-crown",
-   "name": "Co-op Vanilla & Nut Custard Crown",
-   "category": "Co-op Bakery",
-   "serving": "",
-   "nutrients": {
-    "calories": 309
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "nuts"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut"
-    ]
-   }
-  },
-  {
-   "id": "co-op-portuguese-custard-tart",
-   "name": "Co-op Portuguese Custard Tart",
-   "category": "Co-op Bakery",
-   "serving": "",
-   "nutrients": {
-    "calories": 158
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "co-op-cheese-and-tomato-pizza-swirly",
-   "name": "Co-op Cheese & Tomato Pizza Swirly",
-   "category": "Co-op Bakery",
-   "serving": "",
-   "nutrients": {
-    "calories": 265
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "co-op-demi-baguette",
-   "name": "Co-op Demi Baguette",
-   "category": "Co-op Bakery",
-   "serving": "",
-   "nutrients": {
-    "calories": 280
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "co-op-ciabatta",
-   "name": "Co-op Ciabatta",
-   "category": "Co-op Bakery",
-   "serving": "",
-   "nutrients": {
-    "calories": 235
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
     ]
    }
   }

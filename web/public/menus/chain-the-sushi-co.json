@@ -58,7 +58,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/916f6b63d658.webp"
   },
   {
    "id": "avocado-maki",
@@ -74,7 +75,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/1a1cf013df00.webp"
   },
   {
    "id": "salmon-maki",
@@ -88,7 +90,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/1967be9b4e3e.webp"
   },
   {
    "id": "green-uramaki",
@@ -104,7 +107,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/018b27bcf11b.webp"
   },
   {
    "id": "crispy-ebi-uramaki",
@@ -118,7 +122,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/0e293d9bd0bc.webp"
   },
   {
    "id": "california-uramaki",
@@ -132,7 +137,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/495a40b95f2e.webp"
   },
   {
    "id": "salmon-avocado-uramaki",
@@ -146,7 +152,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/52f78e05980b.webp"
   },
   {
    "id": "spicy-salmon-uramaki",
@@ -160,7 +167,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/be9e2e25d078.webp"
   },
   {
    "id": "chicken-katsu-uramaki",
@@ -174,7 +182,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/a4c42e8ec78c.webp"
   },
   {
    "id": "spicy-tuna-uramaki",
@@ -188,7 +197,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/586f9d3a6bdf.webp"
   },
   {
    "id": "salmon-crunch",
@@ -202,7 +212,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/852ec4f3c5d0.webp"
   },
   {
    "id": "california-crunch",
@@ -216,7 +227,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/90f4892ed58e.webp"
   },
   {
    "id": "spicy-salmon-crunch",
@@ -230,7 +242,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/324c4bb024f8.webp"
   },
   {
    "id": "crispy-crunch",
@@ -258,7 +271,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/25d76c5b6217.webp"
   },
   {
    "id": "chicken-katsu-crunch",
@@ -272,7 +286,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/ec6a35a3cc00.webp"
   },
   {
    "id": "salmon-avocado-futomaki",
@@ -286,7 +301,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/964d17cdbd7c.webp"
   },
   {
    "id": "prawn-katsu-futomaki",
@@ -300,7 +316,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/514d0c0aff1d.webp"
   },
   {
    "id": "eel-futomaki",
@@ -314,7 +331,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/ca242a04ec34.webp"
   },
   {
    "id": "smoked-salmon-futomaki",
@@ -342,7 +360,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/49d6a44bbb08.webp"
   },
   {
    "id": "tuna-sashimi",
@@ -356,7 +375,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/8ba779dfc965.webp"
   },
   {
    "id": "sashimi-mix",
@@ -370,7 +390,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/2c0eb3321c7e.webp"
   },
   {
    "id": "inari-nigiri",
@@ -384,7 +405,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/e60f5c5a876c.webp"
   },
   {
    "id": "salmon-nigiri",
@@ -398,7 +420,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/013c5fd4d1e7.webp"
   },
   {
    "id": "shake-yaki-salmon-nigiri",
@@ -426,7 +449,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/542af40f6fe7.webp"
   },
   {
    "id": "eel-nigiri",
@@ -440,7 +464,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/b813356e5989.webp"
   },
   {
    "id": "torched-seabass-nigiri",
@@ -454,7 +479,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/eb0a6dfabc8d.webp"
   },
   {
    "id": "smoked-salmon-nigiri",
@@ -468,7 +494,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/934cc03684c9.webp"
   },
   {
    "id": "salmon-tataki",
@@ -482,7 +509,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/412b54507214.webp"
   },
   {
    "id": "tuna-tataki",
@@ -496,7 +524,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/ef520014ddfe.webp"
   },
   {
    "id": "shake-aburi-kaburi",
@@ -510,7 +539,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/3e21c4cba707.webp"
   },
   {
    "id": "ebi-panko-kaburi",
@@ -524,7 +554,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/eb15e3ac82ca.webp"
   },
   {
    "id": "new-york-subway-kaburi",
@@ -538,7 +569,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/5887ce8106b7.webp"
   },
   {
    "id": "salmon-avocado-and-eel-kaburi",
@@ -552,7 +584,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/80c49e8d9b3d.webp"
   },
   {
    "id": "truffle-seared-seabass-kaburi",
@@ -566,7 +599,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/618242fa7377.webp"
   },
   {
    "id": "red-dragon-kaburi",
@@ -580,7 +614,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/4b01f78aa13c.webp"
   },
   {
    "id": "vegetable-poke-bowl",
@@ -596,7 +631,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/b52b36fdeaca.webp"
   },
   {
    "id": "salmon-poke-bowl",
@@ -610,7 +646,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/726146b64cc8.webp"
   },
   {
    "id": "tuna-poke-bowl",
@@ -624,7 +661,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/7e752d9e528f.webp"
   },
   {
    "id": "chicken-katsu-poke-bowl",
@@ -638,7 +676,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/ca46f188c1c7.webp"
   },
   {
    "id": "maki-mix",
@@ -666,7 +705,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/ea6a81fda87d.webp"
   },
   {
    "id": "veggie-box",
@@ -682,7 +722,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/7a3b1e023c2f.webp"
   },
   {
    "id": "maki-3",
@@ -696,7 +737,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/de044afdd73b.webp"
   },
   {
    "id": "tasty-blend",
@@ -710,7 +752,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/78b55063aad6.webp"
   },
   {
    "id": "nigiri-and-sashimi-super-box",
@@ -738,7 +781,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/9808687f7652.webp"
   },
   {
    "id": "family-platter",
@@ -752,7 +796,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/30d76870ac12.webp"
   },
   {
    "id": "oishi-box",
@@ -766,7 +811,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/1de029291dcf.webp"
   },
   {
    "id": "premium-platter",
@@ -780,7 +826,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/0c466cd22395.webp"
   },
   {
    "id": "vegetable-tempura-bao-buns",
@@ -1028,7 +1075,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/3f2846814c18.webp"
   },
   {
    "id": "teriyaki-salmon-with-rice",
@@ -1042,7 +1090,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/dfb769fcbbc9.webp"
   },
   {
    "id": "miso-soup",
@@ -1056,7 +1105,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/9b145c09a261.webp"
   },
   {
    "id": "edamame",
@@ -1088,7 +1138,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/3f2118b1ee70.webp"
   },
   {
    "id": "seaweed-salad",
@@ -1134,7 +1185,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/986b0ea4e223.webp"
   },
   {
    "id": "chicken-katsu",
@@ -1148,7 +1200,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/2f092602d18c.webp"
   },
   {
    "id": "vegetable-gyoza",
@@ -1164,7 +1217,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/ce040060a9c9.webp"
   },
   {
    "id": "chicken-gyoza",
@@ -1178,7 +1232,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/af57bc4931a6.webp"
   },
   {
    "id": "shrimp-gyoza",
@@ -1192,7 +1247,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/e707fcb01225.webp"
   },
   {
    "id": "yasai-tempura",
@@ -1208,7 +1264,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/b9c291df906d.webp"
   },
   {
    "id": "chicken-karaage",
@@ -1222,7 +1279,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/18ba3ad8b32c.webp"
   },
   {
    "id": "takoyaki",
@@ -1236,7 +1294,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/aca28b8af25e.webp"
   },
   {
    "id": "yakitori",
@@ -1250,7 +1309,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/7f61da4a69af.webp"
   },
   {
    "id": "strawberry-cheesecake-mochi",
@@ -1264,7 +1324,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/2299bf070f92.webp"
   },
   {
    "id": "mango-cheesecake-mochi",
@@ -1278,7 +1339,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/52635eae0e28.webp"
   },
   {
    "id": "chocolate-ganache-mochi",
@@ -1292,7 +1354,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/a3ce0568e26f.webp"
   },
   {
    "id": "chocolate-dorayaki",
@@ -1306,7 +1369,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/a475f1bef6e9.webp"
   },
   {
    "id": "custard-cream-dorayaki",
@@ -1320,7 +1384,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-sushi-co/b978f6521aab.webp"
   }
  ],
  "combinations": []

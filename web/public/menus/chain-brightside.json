@@ -11,21 +11,22 @@
  ],
  "sample": false,
  "source": {
-  "title": "Brightside Allergen Matrix (nutrition and allergens) on Ten Kites: Food, Gluten Free, Vegan, Kids, Adds & Extras, Drinks and Kids Pizza Party (accessed 2026-10-09, no date shown)",
+  "title": "Brightside Allergen Matrix (nutrition and allergens) on Ten Kites: Food, Gluten Free, Vegan, Kids, Adds & Extras, Drinks and Kids Pizza Party (accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/loungers/brightside",
-  "checkedOn": "2026-10-09"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "Calories only: protein, carbs and fat are not published. Four sites per brightside.co.uk/locations, checked 2026-10-09 (Honiton, Exeter, Saltash, Ram Jam). Dishes whose calories differ by over 5% from the chain's own website menu are left out; cocktails print no calories.",
+ "note": "Calories only: protein, carbs and fat are not published. Four sites per brightside.co.uk/locations, checked 2026-11-17 (Honiton, Exeter, Saltash, Ram Jam). Dishes whose calories differ by over 5% from the chain's own website menu are left out; cocktails print no calories.",
  "allergenGuide": {
-  "title": "Brightside allergen matrix on the Ten Kites menu page linked from brightside.co.uk (accessed 2026-10-09, no date shown)",
+  "title": "Brightside allergen matrix on the Ten Kites menu page linked from brightside.co.uk (accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/loungers/brightside",
-  "checkedOn": "2026-10-09",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
  "categories": [
   "Breakfast & brunch",
+  "Egg free breakfast",
   "Burgers",
   "Mains",
   "Salads",
@@ -311,6 +312,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "brightside/fc80b9444e2c.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -436,6 +438,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "brightside/ec1a60c13b96.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -604,12 +607,179 @@
    }
   },
   {
+   "id": "ef-brightside-breakfast",
+   "name": "EF Brightside Breakfast",
+   "category": "Egg free breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1046
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "ef-early-riser",
+   "name": "EF Early Riser",
+   "category": "Egg free breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 784
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "ef-the-big-breakfast",
+   "name": "EF The Big Breakfast",
+   "category": "Egg free breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1615
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "ef-the-big-veggie-breakfast",
+   "name": "EF The Big Veggie Breakfast",
+   "category": "Egg free breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1564
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "ef-veggie-breakfast",
+   "name": "EF Veggie Breakfast",
+   "category": "Egg free breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 996
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "ef-veggie-early-riser",
+   "name": "EF Veggie Early Riser",
+   "category": "Egg free breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 685
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
    "id": "brightside-burger",
    "name": "Brightside Burger",
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1143
+    "calories": 1140
    },
    "tags": [
     "contains_beef"
@@ -638,7 +808,7 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1431
+    "calories": 1428
    },
    "tags": [
     "contains_beef",
@@ -700,7 +870,7 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1211
+    "calories": 1209
    },
    "tags": [],
    "limitedTime": false,
@@ -729,7 +899,7 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1433
+    "calories": 1430
    },
    "tags": [
     "contains_pork"
@@ -761,7 +931,7 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1129
+    "calories": 1126
    },
    "tags": [
     "vegetarian"
@@ -818,7 +988,7 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1590
+    "calories": 1587
    },
    "tags": [],
    "limitedTime": false,
@@ -1097,6 +1267,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "brightside/a517a1bbcec3.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1250,7 +1421,7 @@
    "category": "Sides",
    "serving": "",
    "nutrients": {
-    "calories": 430
+    "calories": 428
    },
    "tags": [
     "vegetarian"
@@ -1339,7 +1510,6 @@
     ],
     "mayContain": [
      "celery",
-     "eggs",
      "mustard",
      "sesame"
     ]
@@ -1394,8 +1564,6 @@
     ],
     "mayContain": [
      "fish",
-     "milk",
-     "mustard",
      "soya"
     ]
    }
@@ -2291,9 +2459,7 @@
      "soya"
     ],
     "mayContain": [
-     "fish",
-     "milk",
-     "mustard"
+     "fish"
     ]
    }
   },
@@ -2339,9 +2505,7 @@
     ],
     "mayContain": [
      "crustaceans",
-     "milk",
      "molluscs",
-     "mustard",
      "soya"
     ]
    }
@@ -3467,7 +3631,7 @@
    "category": "Add-ons: toasties",
    "serving": "",
    "nutrients": {
-    "calories": 430
+    "calories": 428
    },
    "tags": [
     "vegetarian"
@@ -4773,6 +4937,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "brightside/09085ff94f1a.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -6355,7 +6520,7 @@
    "category": "Vegan menu",
    "serving": "",
    "nutrients": {
-    "calories": 1129
+    "calories": 1126
    },
    "tags": [
     "vegetarian"
@@ -6397,7 +6562,9 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "milk"
+    ],
     "cereals": [
      "wheat",
      "rye"
@@ -6434,7 +6601,7 @@
    "category": "Vegan menu",
    "serving": "",
    "nutrients": {
-    "calories": 430
+    "calories": 428
    },
    "tags": [
     "vegetarian"
@@ -7175,7 +7342,7 @@
    "category": "Gluten free menu",
    "serving": "",
    "nutrients": {
-    "calories": 1196
+    "calories": 1194
    },
    "tags": [
     "contains_beef"
@@ -7201,7 +7368,7 @@
    "category": "Gluten free menu",
    "serving": "",
    "nutrients": {
-    "calories": 1484
+    "calories": 1481
    },
    "tags": [
     "contains_beef",
@@ -7257,7 +7424,7 @@
    "category": "Gluten free menu",
    "serving": "",
    "nutrients": {
-    "calories": 1264
+    "calories": 1262
    },
    "tags": [],
    "limitedTime": false,
@@ -7283,7 +7450,7 @@
    "category": "Gluten free menu",
    "serving": "",
    "nutrients": {
-    "calories": 1486
+    "calories": 1483
    },
    "tags": [
     "contains_pork"
@@ -7311,7 +7478,7 @@
    "category": "Gluten free menu",
    "serving": "",
    "nutrients": {
-    "calories": 1182
+    "calories": 1179
    },
    "tags": [
     "vegetarian"
@@ -7365,7 +7532,7 @@
    "category": "Gluten free menu",
    "serving": "",
    "nutrients": {
-    "calories": 1590
+    "calories": 1587
    },
    "tags": [],
    "limitedTime": false,
@@ -7524,7 +7691,7 @@
    "category": "Gluten free menu",
    "serving": "",
    "nutrients": {
-    "calories": 430
+    "calories": 428
    },
    "tags": [
     "vegetarian"
@@ -7613,7 +7780,6 @@
     ],
     "mayContain": [
      "celery",
-     "eggs",
      "mustard",
      "sesame"
     ]

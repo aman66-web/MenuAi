@@ -13,16 +13,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "GAIL's Beverages Nutrition & Allergen Guide, Autumn 2026 (file CoffeeMatrix_Autumn_26.pdf, PDF created 10 September 2026; no date printed in the guide)",
-  "url": "https://cdn.shopify.com/s/files/1/0717/9658/8827/files/CoffeeMatrix_Autumn_26.pdf",
-  "checkedOn": "2026-10-08"
+  "title": "GAIL's Beverages Nutrition & Allergen Guide, Christmas 2026 (file CoffeeMatrix_Christmas_26.pdf, PDF created 9 November 2026; no date printed in the guide)",
+  "url": "https://cdn.shopify.com/s/files/1/0717/9658/8827/files/CoffeeMatrix_Christmas_26.pdf",
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Hot and cold drinks only, from GAIL's drinks guide: calories per portion (the guide doesn't state portion sizes). GAIL's doesn't say whether the nutrition on its food pages is per portion or per 100 g, so no food is listed. Drinks with no figure (N/A) are left out.",
  "allergenGuide": {
-  "title": "GAIL's Beverages Nutrition & Allergen Guide, Autumn 2026 (file CoffeeMatrix_Autumn_26.pdf, PDF created 10 September 2026; no date printed in the guide)",
-  "url": "https://cdn.shopify.com/s/files/1/0717/9658/8827/files/CoffeeMatrix_Autumn_26.pdf",
-  "checkedOn": "2026-10-08",
+  "title": "GAIL's Beverages Nutrition & Allergen Guide, Christmas 2026 (file CoffeeMatrix_Christmas_26.pdf, PDF created 9 November 2026; no date printed in the guide)",
+  "url": "https://cdn.shopify.com/s/files/1/0717/9658/8827/files/CoffeeMatrix_Christmas_26.pdf",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": false,
   "complete": true
  },
@@ -31,7 +31,8 @@
   "Tea",
   "Matcha",
   "Hot and iced chocolate",
-  "Sproud drinks"
+  "Sproud drinks",
+  "Kids' drinks"
  ],
  "components": [],
  "items": [
@@ -3407,35 +3408,12 @@
    }
   },
   {
-   "id": "tiramisu-cold-brew",
-   "name": "Tiramisu Cold Brew",
+   "id": "spiced-cherry-black-forest-cold-brew",
+   "name": "Spiced Cherry Black Forest Cold Brew",
    "category": "Coffee",
    "serving": "",
    "nutrients": {
-    "calories": 234
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "gails/c7561f607209.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "tiramisu-cold-brew-decaf-cows-milk",
-   "name": "Tiramisu Cold Brew, decaf cow’s milk",
-   "category": "Coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 225
+    "calories": 265
    },
    "tags": [
     "vegetarian"
@@ -3445,195 +3423,7 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-spice-latte-cows-milk",
-   "name": "Pumpkin Spice Latte, cow’s milk",
-   "category": "Coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 201
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-spice-latte-semi-skimmed-milk",
-   "name": "Pumpkin Spice Latte, semi skimmed milk",
-   "category": "Coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 185
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-spice-latte-oat-drink",
-   "name": "Pumpkin Spice Latte, oat drink",
-   "category": "Coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 196
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-spice-latte-soya-drink",
-   "name": "Pumpkin Spice Latte, soya drink",
-   "category": "Coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 194
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-spice-latte-decaf-cows-milk",
-   "name": "Pumpkin Spice Latte, decaf cow’s milk",
-   "category": "Coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 201
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-spice-latte-decaf-semi-skimmed-milk",
-   "name": "Pumpkin Spice Latte, decaf semi skimmed milk",
-   "category": "Coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 185
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-spice-latte-decaf-oat-drink",
-   "name": "Pumpkin Spice Latte, decaf oat drink",
-   "category": "Coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 196
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-spice-latte-decaf-soya-drink",
-   "name": "Pumpkin Spice Latte, decaf soya drink",
-   "category": "Coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 194
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "soya"
-    ],
+    "contains": [],
     "mayContain": []
    }
   },
@@ -4378,7 +4168,7 @@
    "category": "Matcha",
    "serving": "",
    "nutrients": {
-    "calories": 176
+    "calories": 154
    },
    "tags": [
     "vegetarian"
@@ -4400,7 +4190,7 @@
    "category": "Matcha",
    "serving": "",
    "nutrients": {
-    "calories": 132
+    "calories": 115
    },
    "tags": [
     "vegetarian"
@@ -4422,7 +4212,7 @@
    "category": "Matcha",
    "serving": "",
    "nutrients": {
-    "calories": 162
+    "calories": 142
    },
    "tags": [
     "vegetarian"
@@ -4444,7 +4234,7 @@
    "category": "Matcha",
    "serving": "",
    "nutrients": {
-    "calories": 157
+    "calories": 137
    },
    "tags": [
     "vegetarian"
@@ -4614,6 +4404,278 @@
    "image": "gails/8bc1e7344e6d.webp",
    "allergens": {
     "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-chocolate-matcha-latte-cows-milk",
+   "name": "White Chocolate Matcha Latte, cow’s milk",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 325
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-chocolate-matcha-latte-semi-skimmed-milk",
+   "name": "White Chocolate Matcha Latte, semi skimmed milk",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 296
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-chocolate-matcha-latte-oat-drink",
+   "name": "White Chocolate Matcha Latte, oat drink",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 316
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-chocolate-matcha-latte-soya-drink",
+   "name": "White Chocolate Matcha Latte, soya drink",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 312
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-black-sesame-matcha-latte-cows-milk",
+   "name": "Small Black Sesame Matcha Latte, cow’s milk",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 211
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-black-sesame-matcha-latte-semi-skimmed-milk",
+   "name": "Small Black Sesame Matcha Latte, semi skimmed milk",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 184
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-black-sesame-matcha-latte-oat-drink",
+   "name": "Small Black Sesame Matcha Latte, oat drink",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 203
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-black-sesame-matcha-latte-soya-drink",
+   "name": "Small Black Sesame Matcha Latte, soya drink",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 199
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "black-sesame-matcha-latte-cows-milk",
+   "name": "Black Sesame Matcha Latte, cow’s milk",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 262
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "black-sesame-matcha-latte-semi-skimmed-milk",
+   "name": "Black Sesame Matcha Latte, semi skimmed milk",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "black-sesame-matcha-latte-oat-drink",
+   "name": "Black Sesame Matcha Latte, oat drink",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 249
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "black-sesame-matcha-latte-soya-drink",
+   "name": "Black Sesame Matcha Latte, soya drink",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 244
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
     "mayContain": []
    }
   },
@@ -5148,6 +5210,94 @@
    }
   },
   {
+   "id": "salted-white-chocolate-cows-milk",
+   "name": "Salted White Chocolate, cow’s milk",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 230
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salted-white-chocolate-semi-skimmed-milk",
+   "name": "Salted White Chocolate, semi skimmed milk",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 212
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salted-white-chocolate-oat-drink",
+   "name": "Salted White Chocolate, oat drink",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 224
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salted-white-chocolate-soya-drink",
+   "name": "Salted White Chocolate, soya drink",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
    "id": "cortado-sproud",
    "name": "Cortado, Sproud",
    "category": "Sproud drinks",
@@ -5570,26 +5720,6 @@
    }
   },
   {
-   "id": "70-dark-hot-chocolate-sproud",
-   "name": "70% Dark Hot Chocolate, Sproud",
-   "category": "Sproud drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 227
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
    "id": "small-iced-chocolate-sproud",
    "name": "Small Iced Chocolate, Sproud",
    "category": "Sproud drinks",
@@ -5735,7 +5865,7 @@
    "category": "Sproud drinks",
    "serving": "",
    "nutrients": {
-    "calories": 84
+    "calories": 74
    },
    "tags": [
     "vegetarian"
@@ -5772,12 +5902,72 @@
    }
   },
   {
-   "id": "pumpkin-spice-latte-sproud",
-   "name": "Pumpkin Spice Latte, Sproud",
+   "id": "salted-white-chocolate-sproud",
+   "name": "Salted White Chocolate, Sproud",
    "category": "Sproud drinks",
    "serving": "",
    "nutrients": {
-    "calories": 168
+    "calories": 192
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-chocolate-matcha-latte-sproud",
+   "name": "White Chocolate Matcha Latte, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 265
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-chocolate-mocha-sproud",
+   "name": "White Chocolate Mocha, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 260
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-black-sesame-matcha-latte-sproud",
+   "name": "Small Black Sesame Matcha Latte, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 155
    },
    "tags": [
     "vegetarian"
@@ -5788,9 +5978,246 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten",
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "black-sesame-matcha-latte-sproud",
+   "name": "Black Sesame Matcha Latte, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 179
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-white-chocolate-cows-milk",
+   "name": "Kids White Chocolate, cow’s milk",
+   "category": "Kids' drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 248
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
      "milk"
     ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-white-chocolate-semi-skimmed-milk",
+   "name": "Kids White Chocolate, semi skimmed milk",
+   "category": "Kids' drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 224
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-white-chocolate-oat-drink",
+   "name": "Kids White Chocolate, oat drink",
+   "category": "Kids' drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 241
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-white-chocolate-soya-drink",
+   "name": "Kids White Chocolate, soya drink",
+   "category": "Kids' drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 238
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-white-chocolate-sproud",
+   "name": "Kids White Chocolate, Sproud",
+   "category": "Kids' drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 199
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-hot-cocoa-cows-milk",
+   "name": "Kids Hot Cocoa, cow’s milk",
+   "category": "Kids' drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 173
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-hot-cocoa-semi-skimmed-milk",
+   "name": "Kids Hot Cocoa, semi skimmed milk",
+   "category": "Kids' drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 146
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-hot-cocoa-oat-drink",
+   "name": "Kids Hot Cocoa, oat drink",
+   "category": "Kids' drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-hot-cocoa-soya-drink",
+   "name": "Kids Hot Cocoa, soya drink",
+   "category": "Kids' drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 161
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-hot-cocoa-sproud",
+   "name": "Kids Hot Cocoa, Sproud",
+   "category": "Kids' drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 117
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
     "mayContain": []
    }
   }

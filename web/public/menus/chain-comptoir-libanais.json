@@ -10,16 +10,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Comptoir Libanais Allergen & Calorie Menu, Spring 2026, Version 07 (PDF created 21 August 2026)",
-  "url": "https://bunny-wp-pullzone-5vpjsfiiqi.b-cdn.net/wp-content/uploads/2026/08/Comptoir_AllergenMenu_Spring2026_v07.pdf",
-  "checkedOn": "2026-10-08"
+  "title": "Comptoir Libanais Allergen & Calorie Menu, Autumn 2026, Version 01 (PDF created 7 October 2026)",
+  "url": "https://bunny-wp-pullzone-5vpjsfiiqi.b-cdn.net/wp-content/uploads/2026/10/Comptoir_AllergenMenu_Autumn2026_v01.pdf",
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, as printed in the guide's kcals column (it gives no serving sizes), so protein, carbs and fat are not published. Dishes with no calorie figure in the guide (most alternative-milk coffees, cocktails, wine, beer, some lemonades) are not listed, and the guide's drinks pages carry no 'may contain' marks.",
  "allergenGuide": {
-  "title": "Comptoir Libanais Allergen & Calorie Menu, Spring 2026, Version 07",
-  "url": "https://bunny-wp-pullzone-5vpjsfiiqi.b-cdn.net/wp-content/uploads/2026/08/Comptoir_AllergenMenu_Spring2026_v07.pdf",
-  "checkedOn": "2026-10-08",
+  "title": "Comptoir Libanais Allergen & Calorie Menu, Autumn 2026, Version 01",
+  "url": "https://bunny-wp-pullzone-5vpjsfiiqi.b-cdn.net/wp-content/uploads/2026/10/Comptoir_AllergenMenu_Autumn2026_v01.pdf",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -97,8 +97,8 @@
    }
   },
   {
-   "id": "roasted-almonds",
-   "name": "Roasted Almonds",
+   "id": "rosemary-almonds",
+   "name": "Rosemary Almonds",
    "category": "Nibbles",
    "serving": "",
    "nutrients": {
@@ -240,18 +240,15 @@
    "image": "comptoir-libanais/3ef7c07bb0e9.webp",
    "allergens": {
     "contains": [
-     "gluten",
-     "eggs",
-     "milk",
      "sesame",
      "sulphites"
     ],
     "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
      "mustard",
      "nuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -366,16 +363,13 @@
    "image": "comptoir-libanais/2542da83be0f.webp",
    "allergens": {
     "contains": [
-     "gluten",
-     "eggs",
-     "milk",
      "sesame"
     ],
     "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
      "nuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -525,8 +519,8 @@
    }
   },
   {
-   "id": "warm-olive-oil-bread",
-   "name": "Warm Olive Oil Bread",
+   "id": "warm-flatbread-with-olive-oil",
+   "name": "Warm Flatbread with olive oil",
    "category": "Flatbreads",
    "serving": "",
    "nutrients": {
@@ -539,7 +533,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "comptoir-libanais/b37575f485af.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -659,6 +652,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "comptoir-libanais/1ac3d0c861b7.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -696,38 +690,6 @@
     "mayContain": [
      "mustard",
      "nuts"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "lamb-kofta-burger",
-   "name": "Lamb Kofta Burger",
-   "category": "Grills",
-   "serving": "",
-   "nutrients": {
-    "calories": 895
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "comptoir-libanais/393d8cacff58.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "sesame",
-     "sulphites"
-    ],
-    "mayContain": [
-     "mustard",
-     "nuts",
-     "soya"
     ],
     "cereals": [
      "wheat"
@@ -896,7 +858,7 @@
    "category": "House specialities",
    "serving": "",
    "nutrients": {
-    "calories": 827
+    "calories": 687
    },
    "tags": [],
    "limitedTime": false,
@@ -909,21 +871,21 @@
      "sesame"
     ],
     "mayContain": [
+     "gluten",
+     "milk",
      "nuts"
     ]
    }
   },
   {
-   "id": "spinach-and-feta-borek",
-   "name": "Spinach & Feta Borek",
+   "id": "honey-and-harissa-chicken",
+   "name": "Honey & Harissa Chicken",
    "category": "House specialities",
    "serving": "",
    "nutrients": {
-    "calories": 1002
+    "calories": 1213
    },
-   "tags": [
-    "vegetarian"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -933,9 +895,11 @@
      "gluten",
      "eggs",
      "milk",
-     "sesame"
+     "sesame",
+     "sulphites"
     ],
     "mayContain": [
+     "mustard",
      "nuts"
     ],
     "cereals": [
@@ -985,6 +949,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "comptoir-libanais/3e18019765a3.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1001,8 +966,8 @@
    }
   },
   {
-   "id": "aubergine-tagine",
-   "name": "Aubergine Tagine",
+   "id": "aubergine-and-chickpea-tagine",
+   "name": "Aubergine & Chickpea Tagine",
    "category": "Tagines",
    "serving": "",
    "nutrients": {
@@ -1015,7 +980,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "comptoir-libanais/eaa6991facd7.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -1030,19 +994,18 @@
    }
   },
   {
-   "id": "mama-zohra-salad",
-   "name": "Mama Zohra Salad",
+   "id": "grilled-chicken-taouk-salad",
+   "name": "Grilled Chicken Taouk Salad",
    "category": "Salads",
    "serving": "",
    "nutrients": {
-    "calories": 691
+    "calories": 660
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "comptoir-libanais/b8effdf5876b.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1065,7 +1028,7 @@
    "category": "Salads",
    "serving": "",
    "nutrients": {
-    "calories": 900
+    "calories": 1058
    },
    "tags": [
     "vegetarian"
@@ -1074,9 +1037,9 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "comptoir-libanais/3e171fedfa32.webp",
    "allergens": {
     "contains": [
-     "gluten",
      "milk",
      "sesame",
      "sulphites"
@@ -1084,9 +1047,6 @@
     "mayContain": [
      "nuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1197,19 +1157,16 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten",
-     "eggs",
-     "milk",
      "sesame",
      "sulphites"
     ],
     "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
      "mustard",
      "nuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1242,6 +1199,26 @@
     "cereals": [
      "wheat"
     ]
+   }
+  },
+  {
+   "id": "lebanese-crudites",
+   "name": "Lebanese Crudites",
+   "category": "Side dishes & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
    }
   },
   {
@@ -1601,7 +1578,6 @@
      "soya"
     ],
     "mayContain": [
-     "milk",
      "nuts",
      "sesame"
     ]
@@ -1693,8 +1669,8 @@
    }
   },
   {
-   "id": "cheesy-chicken-flatbread",
-   "name": "Cheesy Chicken Flatbread",
+   "id": "chicken-on-a-flatbread",
+   "name": "Chicken on a Flatbread",
    "category": "Kids menu",
    "serving": "",
    "nutrients": {
@@ -1715,6 +1691,7 @@
      "soya"
     ],
     "mayContain": [
+     "eggs",
      "nuts"
     ],
     "cereals": [
@@ -1747,6 +1724,7 @@
      "soya"
     ],
     "mayContain": [
+     "eggs",
      "nuts"
     ],
     "cereals": [
@@ -1770,11 +1748,11 @@
    "allergens": {
     "contains": [
      "gluten",
-     "eggs",
      "milk",
      "sesame"
     ],
     "mayContain": [
+     "eggs",
      "mustard",
      "nuts"
     ],
@@ -1801,11 +1779,11 @@
    "allergens": {
     "contains": [
      "gluten",
-     "eggs",
      "milk",
      "sesame"
     ],
     "mayContain": [
+     "eggs",
      "nuts"
     ],
     "cereals": [
@@ -1829,11 +1807,11 @@
    "allergens": {
     "contains": [
      "gluten",
-     "eggs",
      "milk",
      "sesame"
     ],
     "mayContain": [
+     "eggs",
      "mustard",
      "nuts"
     ],
@@ -1860,7 +1838,6 @@
    "allergens": {
     "contains": [
      "gluten",
-     "eggs",
      "lupin",
      "milk",
      "mustard",
@@ -1869,6 +1846,7 @@
      "sulphites"
     ],
     "mayContain": [
+     "eggs",
      "nuts"
     ],
     "cereals": [
@@ -1896,7 +1874,6 @@
      "soya"
     ],
     "mayContain": [
-     "milk",
      "nuts",
      "sesame"
     ]

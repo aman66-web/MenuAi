@@ -13,15 +13,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Côte Brasserie allergen and nutrition menus (June 2026 menus, menus.tenkites.com/cote/cote: weekday, weekend, brunch, prix fixe, treat yourself, breakfast, kids and drinks, with gluten free versions)",
+  "title": "Côte Brasserie allergen and nutrition menus (June 2026 menus, files dated 13 November 2026, menus.tenkites.com/cote/cote: weekday, weekend, brunch, prix fixe, treat yourself, breakfast, kids and drinks, with gluten free versions)",
   "url": "https://menus.tenkites.com/cote/cote",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Carbohydrate is the menu's 'Available Carb' column, and the menu prints salt for only some dishes. Dishes that differ on the gluten free, weekend or kids menus appear once per version. Where a dish contains one kind of tree nut or cereal the menu may also list other kinds as 'may contain'; the app shows only what the dish contains.",
  "allergenGuide": {
-  "title": "Côte Brasserie allergen and nutrition menus (June 2026 menus, menus.tenkites.com/cote/cote)",
+  "title": "Côte Brasserie allergen and nutrition menus (June 2026 menus, files dated 13 November 2026, menus.tenkites.com/cote/cote)",
   "url": "https://menus.tenkites.com/cote/cote",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -523,6 +523,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "cote-brasserie/b3e8177f540e.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -682,6 +683,8 @@
     ],
     "mayContain": [
      "celery",
+     "crustaceans",
+     "fish",
      "mustard"
     ]
    }
@@ -992,6 +995,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "cote-brasserie/43071dbca4bf.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -1917,6 +1921,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "cote-brasserie/c2b24f5ef71d.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -5150,37 +5155,6 @@
    }
   },
   {
-   "id": "cheesy-french-onion-fougasse-drinks-menu",
-   "name": "Cheesy French Onion Fougasse (drinks menu)",
-   "category": "Bar bites",
-   "serving": "",
-   "nutrients": {
-    "calories": 618,
-    "protein": 20.4,
-    "carbs": 64,
-    "fat": 25.3,
-    "saturatedFat": 8.6,
-    "sugar": 28.5,
-    "salt": 2.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "passionfruit-no-tini",
    "name": "Passionfruit No-tini",
    "category": "Drinks",
@@ -5203,6 +5177,138 @@
    "modifiers": [],
    "allergens": {
     "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "blood-orange-and-cranberry-spritz",
+   "name": "Blood Orange & Cranberry Spritz",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 50,
+    "protein": 0,
+    "carbs": 11,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 9.2,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "french-mule-zero",
+   "name": "French Mule Zero",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 73,
+    "protein": 0.1,
+    "carbs": 18,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 16.8,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "soda-water",
+   "name": "Soda Water",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "wild-strawberry-lemonade",
+   "name": "Wild Strawberry Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 77,
+    "protein": 0,
+    "carbs": 18,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 18,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "wild-strawberry-matcha-latte",
+   "name": "Wild Strawberry Matcha Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 187,
+    "protein": 1.7,
+    "carbs": 37,
+    "fat": 3.2,
+    "saturatedFat": 0.2,
+    "sugar": 28,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
     "mayContain": []
    }
   }

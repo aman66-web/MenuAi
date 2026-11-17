@@ -726,7 +726,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sbarro/6b5d3df78329.webp"
   },
   {
    "id": "ham-and-cheese-stromboli",
@@ -770,7 +771,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sbarro/67061a3d43cf.webp"
   },
   {
    "id": "pepperoni-and-cheese-stromboli",

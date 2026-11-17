@@ -9,16 +9,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Chaiiwala website menu pages with calories (accessed 2026-10-08, no date shown); allergens from Allergen Information V15, October 2026",
+  "title": "Chaiiwala website menu pages with calories (accessed 2026-11-17, no date shown); allergens from Allergen Information V15, November 2026",
   "url": "https://www.chaiiwala.co.uk/menu",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "Calories only: kcal on the menu pages (drinks Regular and Large), no protein, carbs or fat. Dishes with no kcal printed are not listed; some are sold in select stores only. The allergen matrix has no fish, crustacean or mollusc columns, so those read Not listed, not free from. Kebab Caesar Salad is not shown (Caesar dressing, no fish column).",
+ "note": "Calories only: kcal on the menu pages (drinks Regular and Large), no protein, carbs or fat. Dishes with no kcal printed are not listed; some are sold in select stores only. Kebab Caesar Salad is not shown: its Caesar dressing is classically made with anchovy, but the allergen matrix marks no fish for it.",
  "allergenGuide": {
-  "title": "Chaiiwala allergen matrix, Allergen Information V15 (October 2026)",
+  "title": "Chaiiwala allergen matrix, Allergen Information V15 (November 2026)",
   "url": "https://www.chaiiwala.co.uk/allergens",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -537,6 +537,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "chaiiwala/10d26d47e77b.webp",
    "allergens": {
     "contains": [],
     "mayContain": [
@@ -557,6 +558,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "chaiiwala/10d26d47e77b.webp",
    "allergens": {
     "contains": [],
     "mayContain": [
@@ -1552,7 +1554,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/8c836bd41fa3.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -1571,7 +1572,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/c48e629756f9.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -1590,7 +1590,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/184a88e2c5e2.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -1609,7 +1608,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/840baf496c3b.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -1628,7 +1626,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/ac0b818ee853.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -1776,7 +1773,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/e01415734f80.webp",
+   "image": "chaiiwala/271d159c7463.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2099,6 +2096,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "chaiiwala/30970dcdd1ec.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2130,6 +2128,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "chaiiwala/d58382c8fd54.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2162,6 +2161,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "chaiiwala/fa746c9240c8.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2193,6 +2193,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "chaiiwala/073fdffd9975.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2340,6 +2341,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "chaiiwala/7f608cc7f11a.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2407,6 +2409,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "chaiiwala/cbb05c98804e.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2470,6 +2473,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "chaiiwala/16d6c10eb1a9.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2538,6 +2542,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "chaiiwala/8a4c6b4ed1c0.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2569,6 +2574,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "chaiiwala/1aae8955ba5d.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2613,6 +2619,38 @@
     "cereals": [
      "wheat",
      "barley"
+    ]
+   }
+  },
+  {
+   "id": "bombay-fish-and-chips",
+   "name": "Bombay Fish and Chips",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 676
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/853f96365168.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats",
+     "spelt",
+     "kamut"
     ]
    }
   },
@@ -2707,6 +2745,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "chaiiwala/323031000d92.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -2762,7 +2801,7 @@
    "category": "Street food",
    "serving": "",
    "nutrients": {
-    "calories": 299
+    "calories": 315
    },
    "tags": [],
    "limitedTime": false,
@@ -2773,6 +2812,9 @@
    "allergens": {
     "contains": [
      "gluten",
+     "eggs",
+     "milk",
+     "mustard",
      "soya"
     ],
     "mayContain": []
@@ -2926,7 +2968,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/799acfe363ed.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -2959,7 +3000,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/3c8d4a29b7c2.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2990,7 +3030,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/c4088d9b7492.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -3023,7 +3062,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/799acfe363ed.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3225,6 +3263,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "chaiiwala/85f94c1b856b.webp",
    "allergens": {
     "contains": [
      "eggs",
@@ -3253,6 +3292,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "chaiiwala/0054f5afccfa.webp",
    "allergens": {
     "contains": [
      "eggs",
@@ -3281,6 +3321,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "chaiiwala/71a79d1f5d30.webp",
    "allergens": {
     "contains": [
      "eggs",

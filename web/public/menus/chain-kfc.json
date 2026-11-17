@@ -506,6 +506,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/6a0df72d2f3e.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -543,6 +544,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/c0045b477145.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -580,6 +582,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/0fb00c6894a3.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -873,6 +876,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "kfc/b0b86367852e.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1056,6 +1060,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "kfc/8208fbd5865a.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1166,6 +1171,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/522be6bdd8dc.webp",
    "allergens": {
     "contains": [],
     "mayContain": [
@@ -1328,6 +1334,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/51a170f20f9c.webp",
    "allergens": {
     "contains": [
      "eggs"
@@ -1448,6 +1455,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/b22372869e37.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -1488,6 +1496,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/0e19d0eaa6f2.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -1517,6 +1526,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/5ba634094a91.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -1780,6 +1790,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "kfc/e080a27c7ba2.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -1876,6 +1887,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "kfc/8a3be3ec8c62.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -1939,6 +1951,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "kfc/a9606b12f460.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -2184,6 +2197,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "kfc/58848cf9e3b1.webp",
    "allergens": {
     "contains": [
      "sulphites"

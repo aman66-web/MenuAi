@@ -11,15 +11,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Fat Hippo website nutrition panels: Food, Kids, Drinks and Special menu pages (accessed 2026-10-08, no date shown)",
+  "title": "Fat Hippo website nutrition panels: Food, Kids, Drinks and Special menu pages (accessed 2026-11-17, no date shown)",
   "url": "https://fathippo.co.uk/menus/food/",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Per serving from each dish's nutrition panel on fathippo.co.uk (no date shown), whole grams: salt often reads 0 g. Burgers come with a free side, listed separately. Dishes whose printed numbers contradict each other, or whose allergen list is incomplete, and drinks with no numbers are left out. Fat Hippo says all dishes may contain traces of nuts, as peanuts are on the premises.",
  "allergenGuide": {
-  "title": "Fat Hippo allergen information: Allergens page and each dish's allergen details on its online menus (accessed 2026-10-08, no date shown)",
+  "title": "Fat Hippo allergen information: Allergens page and each dish's allergen details on its online menus (accessed 2026-11-17, no date shown)",
   "url": "https://fathippo.co.uk/allergens/",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -33,7 +33,6 @@
   "Sides",
   "Sauces",
   "Desserts",
-  "Specials",
   "Kids mains",
   "Kids toppings & sauces",
   "Kids sides",
@@ -302,7 +301,6 @@
      "celery",
      "gluten",
      "eggs",
-     "fish",
      "milk",
      "mustard",
      "sesame",
@@ -460,7 +458,6 @@
      "celery",
      "gluten",
      "eggs",
-     "fish",
      "milk",
      "mustard",
      "sesame",
@@ -468,6 +465,7 @@
      "sulphites"
     ],
     "mayContain": [
+     "fish",
      "nuts",
      "peanuts"
     ]
@@ -1205,6 +1203,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "fat-hippo/ae1207649b57.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -1304,8 +1303,6 @@
    "allergens": {
     "contains": [
      "celery",
-     "gluten",
-     "fish",
      "mustard",
      "sulphites"
     ],
@@ -1449,7 +1446,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/d305461ae90f.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1460,86 +1456,6 @@
      "sulphites"
     ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "big-poppa-special-menu",
-   "name": "Big Poppa (special menu)",
-   "category": "Specials",
-   "serving": "",
-   "nutrients": {
-    "calories": 1020,
-    "protein": 47,
-    "carbs": 64,
-    "fat": 64,
-    "saturatedFat": 25,
-    "sugar": 20,
-    "fiber": 2,
-    "salt": 0
-   },
-   "tags": [
-    "contains_beef",
-    "contains_pork"
-   ],
-   "limitedTime": true,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "fat-hippo/8e77924b7efe.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "sesame"
-    ],
-    "mayContain": [
-     "celery",
-     "mustard",
-     "nuts",
-     "peanuts",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "hypnotize-fries-special-menu",
-   "name": "Hypnotize Fries (special menu)",
-   "category": "Specials",
-   "serving": "",
-   "nutrients": {
-    "calories": 620,
-    "protein": 9,
-    "carbs": 89,
-    "fat": 27,
-    "saturatedFat": 1,
-    "sugar": 15,
-    "fiber": 8,
-    "salt": 0
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": true,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "fat-hippo/ab24b00a992e.webp",
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard",
-     "sesame",
-     "sulphites"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts",
-     "soya"
-    ]
    }
   },
   {
@@ -1564,7 +1480,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/fb3445fd75b6.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1601,7 +1516,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/8a45723cc55a.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -1641,7 +1555,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/e1bb394995b8.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -1677,7 +1590,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/94d36b52a064.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1708,7 +1620,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/abd0d0f09156.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2830,7 +2741,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/5c51a5df215c.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2858,7 +2768,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/978c079f92a9.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2886,7 +2795,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/2745da95d650.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2914,7 +2822,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/e5b65a152076.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2942,7 +2849,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/fa1ea4a2a17c.webp",
    "allergens": {
     "contains": [],
     "mayContain": []

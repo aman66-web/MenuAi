@@ -11,12 +11,12 @@
  ],
  "sample": false,
  "source": {
-  "title": "Everyman Cinemas Calories Menu (PDF created 23 September 2026; linked from everymancinema.com/menu-details)",
-  "url": "https://cms-assets.webediamovies.pro/production/279/a04f49b720bb02d413dd28bb329147c6.pdf",
-  "checkedOn": "2026-10-08"
+  "title": "Everyman Cinemas Calories Menu (PDF created 23 October 2026; linked from everymancinema.com/menu-details)",
+  "url": "https://cms-assets.webediamovies.pro/production/279/7e679c77f5863b5417aa2c54bb4b5a0b.pdf",
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "One calorie menu for all Everyman venues; menus vary by venue and some have a reduced selection. Calories only: no protein, carbs or fat. Wine, beer, cider and cocktails print no calories and are not listed. Burgers are served with fries; the menu doesn't say whether the figure includes them.",
+ "note": "One calorie menu for all Everyman venues; menus vary by venue and some have a reduced selection. Calories only: no protein, carbs or fat. Wine, beer, cider and cocktails print no calories and are not listed. Burgers are listed with and without fries, as the menu prints them.",
  "categories": [
   "Sharing plates",
   "Burgers",
@@ -194,22 +194,24 @@
    "modifiers": []
   },
   {
-   "id": "frickles",
-   "name": "Frickles",
+   "id": "pigs-in-blankets",
+   "name": "Pigs in blankets",
    "category": "Sharing plates",
    "serving": "",
    "nutrients": {
-    "calories": 390
+    "calories": 560
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": []
   },
   {
-   "id": "korean-burger",
-   "name": "Korean Burger",
+   "id": "korean-burger-with-fries",
+   "name": "Korean Burger (with fries)",
    "category": "Burgers",
    "serving": "",
    "nutrients": {
@@ -222,16 +224,29 @@
    "modifiers": []
   },
   {
-   "id": "signature-smokehouse-bbq-burger",
-   "name": "Signature Smokehouse BBQ Burger",
+   "id": "korean-burger-without-fries",
+   "name": "Korean Burger (without fries)",
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1464
+    "calories": 824
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-nutcracker-with-fries",
+   "name": "The Nutcracker (with fries)",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1402
    },
    "tags": [
-    "contains_beef",
-    "contains_pork"
+    "contains_beef"
    ],
    "limitedTime": false,
    "rankable": false,
@@ -239,8 +254,24 @@
    "modifiers": []
   },
   {
-   "id": "double-smash-cheeseburger",
-   "name": "Double Smash Cheeseburger",
+   "id": "the-nutcracker-without-fries",
+   "name": "The Nutcracker (without fries)",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 895
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-smash-cheeseburger-with-fries",
+   "name": "Double Smash Cheeseburger (with fries)",
    "category": "Burgers",
    "serving": "",
    "nutrients": {
@@ -255,12 +286,44 @@
    "modifiers": []
   },
   {
-   "id": "the-spielburger",
-   "name": "The Spielburger",
+   "id": "double-smash-cheeseburger-without-fries",
+   "name": "Double Smash Cheeseburger (without fries)",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 918
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-spielburger-with-fries",
+   "name": "The Spielburger (with fries)",
    "category": "Burgers",
    "serving": "",
    "nutrients": {
     "calories": 1471
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-spielburger-without-fries",
+   "name": "The Spielburger (without fries)",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 767
    },
    "tags": [
     "contains_beef"
@@ -287,12 +350,12 @@
    "modifiers": []
   },
   {
-   "id": "piri-piri-chicken-burger",
-   "name": "Piri Piri Chicken Burger",
+   "id": "piri-piri-chicken-burger-with-fries",
+   "name": "Piri Piri Chicken Burger (with fries)",
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1079
+    "calories": 1078
    },
    "tags": [],
    "limitedTime": false,
@@ -301,12 +364,42 @@
    "modifiers": []
   },
   {
-   "id": "plant-based-cheeseburger",
-   "name": "Plant-based Cheeseburger",
+   "id": "piri-piri-chicken-burger-without-fries",
+   "name": "Piri Piri Chicken Burger (without fries)",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 572
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plant-based-cheeseburger-with-fries",
+   "name": "Plant-based Cheeseburger (with fries)",
    "category": "Burgers",
    "serving": "",
    "nutrients": {
     "calories": 1109
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plant-based-cheeseburger-without-fries",
+   "name": "Plant-based Cheeseburger (without fries)",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 602
    },
    "tags": [
     "vegetarian"
@@ -878,6 +971,20 @@
    "modifiers": []
   },
   {
+   "id": "rocher-around-the-christmas-tree",
+   "name": "Rocher Around the Christmas Tree",
+   "category": "Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 692
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "freshly-baked-double-chocolate-cookies",
    "name": "Freshly Baked Double Chocolate Cookies",
    "category": "Pastries, cakes and cookie dough",
@@ -946,21 +1053,6 @@
    "rankable": false,
    "components": [],
    "modifiers": []
-  },
-  {
-   "id": "burnt-basque-cheesecake",
-   "name": "Burnt Basque Cheesecake",
-   "category": "Pastries, cakes and cookie dough",
-   "serving": "",
-   "nutrients": {
-    "calories": 456
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "everyman/859a5ed24479.webp"
   },
   {
    "id": "add-a-scoop-of-vanilla-ice-cream",

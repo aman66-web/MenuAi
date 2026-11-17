@@ -12,20 +12,20 @@
  ],
  "sample": false,
  "source": {
-  "title": "Frankie & Benny's Nutritional Information: Main, Lunch, Desserts, Drinks, Evening and Kids menus (page generated 2026-10-06)",
+  "title": "Frankie & Benny's Nutritional Information: Main, Lunch, Desserts, Drinks, Evening and Kids menus (page generated 2026-11-17)",
   "url": "https://menus.tenkites.com/thebigtg/frankiebennys02",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Per portion as printed on the chain's menu pages; the Breakfast menu (selected sites only) is not listed. Wines, many cocktails and some drinks print no numbers and are not listed. Sauces, toppings, extras and upgrade sides are separate rows: add them to a dish yourself.",
  "allergenGuide": {
-  "title": "Frankie & Benny's Dietary Information (allergens) on its online Main, Lunch, Desserts, Drinks, Evening and Kids menus (Ten Kites page generated 2026-10-06)",
+  "title": "Frankie & Benny's Dietary Information (allergens) on its online Main, Lunch, Desserts, Drinks, Evening and Kids menus (Ten Kites page generated 2026-11-17)",
   "url": "https://menus.tenkites.com/thebigtg/frankiebennys02",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
  "categories": [
-  "Autumn specials",
+  "Festive specials",
   "Starters",
   "Burgers",
   "Pizza",
@@ -48,25 +48,69 @@
   "Drinks: Beers & ciders",
   "Drinks: Wine",
   "Drinks: Soft drinks",
+  "Drinks: Hot drinks",
   "Drinks: Spirits"
  ],
  "components": [],
  "items": [
   {
-   "id": "hot-honey-fried-chicken-burger",
-   "name": "Hot Honey Fried Chicken Burger",
-   "category": "Autumn specials",
+   "id": "loaded-crimbo-burger",
+   "name": "Loaded Crimbo Burger",
+   "category": "Festive specials",
    "serving": "",
    "nutrients": {
-    "calories": 1004,
-    "protein": 36.1,
-    "carbs": 86.2,
-    "fat": 48,
-    "saturatedFat": 15.1,
-    "sugar": 34.6,
-    "salt": 5.3
+    "calories": 1049,
+    "protein": 47.8,
+    "carbs": 107.7,
+    "fat": 45.6,
+    "saturatedFat": 18,
+    "sugar": 22.4,
+    "salt": 5.7
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "festive-fondue-melt-pizza",
+   "name": "Festive Fondue Melt Pizza",
+   "category": "Festive specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1553,
+    "protein": 62.2,
+    "carbs": 162,
+    "fat": 68.9,
+    "saturatedFat": 35.8,
+    "sugar": 26.7,
+    "salt": 7.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": true,
    "rankable": true,
    "components": [],
@@ -76,43 +120,110 @@
      "gluten",
      "eggs",
      "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
      "mustard",
      "nuts",
      "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "pigs-in-blankets",
+   "name": "Pigs In Blankets",
+   "category": "Festive specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 416,
+    "protein": 18.9,
+    "carbs": 22.6,
+    "fat": 29.8,
+    "saturatedFat": 10.9,
+    "sugar": 10.1,
+    "salt": 3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
      "sulphites"
     ],
     "mayContain": [
      "celery",
      "crustaceans",
+     "eggs",
      "fish",
+     "milk",
      "molluscs",
-     "soya"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
+     "mustard"
     ]
    }
   },
   {
-   "id": "pumpkin-and-ginger-sponge",
-   "name": "Pumpkin & Ginger Sponge",
-   "category": "Autumn specials",
+   "id": "festive-loaded-fries",
+   "name": "Festive Loaded Fries",
+   "category": "Festive specials",
    "serving": "",
    "nutrients": {
-    "calories": 434,
-    "protein": 4.4,
-    "carbs": 55,
-    "fat": 21.4,
-    "saturatedFat": 6.8,
-    "sugar": 41.4,
-    "salt": 0.5
+    "calories": 476,
+    "protein": 11.9,
+    "carbs": 60.6,
+    "fat": 20.2,
+    "saturatedFat": 4.8,
+    "sugar": 3.9,
+    "salt": 3.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "cinnamon-bun-cheesecake",
+   "name": "Cinnamon Bun Cheesecake",
+   "category": "Festive specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 685,
+    "protein": 8.1,
+    "carbs": 96.2,
+    "fat": 31.2,
+    "saturatedFat": 14.8,
+    "sugar": 65,
+    "salt": 0.6
    },
    "tags": [
     "vegetarian"
@@ -131,24 +242,23 @@
      "nuts"
     ],
     "cereals": [
-     "wheat",
-     "barley"
+     "wheat"
     ]
    }
   },
   {
-   "id": "spiced-pumpkin-latte",
-   "name": "Spiced Pumpkin Latte",
-   "category": "Autumn specials",
+   "id": "cherry-chocolate-sundae",
+   "name": "Cherry Chocolate Sundae",
+   "category": "Festive specials",
    "serving": "",
    "nutrients": {
-    "calories": 254,
-    "protein": 10.6,
-    "carbs": 35.1,
-    "fat": 7.8,
-    "saturatedFat": 4.4,
-    "sugar": 32.6,
-    "salt": 0.7
+    "calories": 845,
+    "protein": 11.6,
+    "carbs": 84.3,
+    "fat": 50.9,
+    "saturatedFat": 31.7,
+    "sugar": 74.4,
+    "salt": 0.5
    },
    "tags": [
     "vegetarian"
@@ -159,14 +269,44 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten",
+     "eggs",
      "milk",
-     "soya"
+     "soya",
+     "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
+    "mayContain": [
+     "nuts",
+     "peanuts"
     ]
+   }
+  },
+  {
+   "id": "merry-berry-float",
+   "name": "Merry Berry Float",
+   "category": "Festive specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 168,
+    "protein": 1.2,
+    "carbs": 31.9,
+    "fat": 3.7,
+    "saturatedFat": 2.6,
+    "sugar": 28.2,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
    }
   },
   {
@@ -1019,6 +1159,54 @@
    }
   },
   {
+   "id": "hot-honey-fried-chicken-burger",
+   "name": "Hot Honey Fried Chicken Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1004,
+    "protein": 36.1,
+    "carbs": 86.2,
+    "fat": 48,
+    "saturatedFat": 15.1,
+    "sugar": 34.6,
+    "salt": 5.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "soya"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
    "id": "classic-crispy-chicken-burger",
    "name": "Classic Crispy Chicken Burger",
    "category": "Burgers",
@@ -1075,6 +1263,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "frankie-and-bennys/26bc9c575532.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1181,6 +1370,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "frankie-and-bennys/e241aca04def.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1532,6 +1722,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "frankie-and-bennys/cf887af326fe.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1595,6 +1786,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "frankie-and-bennys/bcc91de08737.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1630,6 +1822,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "frankie-and-bennys/81f6e540787d.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1696,6 +1889,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "frankie-and-bennys/80ff08b242a4.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2098,13 +2292,13 @@
    "category": "Pasta",
    "serving": "",
    "nutrients": {
-    "calories": 920,
-    "protein": 39.2,
-    "carbs": 102.3,
-    "fat": 39.4,
-    "saturatedFat": 19.7,
-    "sugar": 13.7,
-    "salt": 5.4
+    "calories": 842,
+    "protein": 31.7,
+    "carbs": 98.6,
+    "fat": 35.7,
+    "saturatedFat": 12.3,
+    "sugar": 5.9,
+    "salt": 5.6
    },
    "tags": [
     "contains_pork"
@@ -4249,6 +4443,42 @@
     "mayContain": [],
     "cereals": [
      "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pumpkin-and-ginger-sponge",
+   "name": "Pumpkin & Ginger Sponge",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 434,
+    "protein": 4.4,
+    "carbs": 55,
+    "fat": 21.4,
+    "saturatedFat": 6.8,
+    "sugar": 41.4,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
     ]
    }
   },
@@ -6510,11 +6740,10 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "nuts"
-    ],
+    "contains": [],
     "mayContain": [
      "milk",
+     "nuts",
      "sulphites"
     ]
    }
@@ -7271,6 +7500,671 @@
     "fat": 1.4,
     "saturatedFat": 0.3,
     "sugar": 31.2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-regular",
+   "name": "Cappuccino (Regular)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 198,
+    "protein": 13.6,
+    "carbs": 20.2,
+    "fat": 6.8,
+    "saturatedFat": 4,
+    "sugar": 20.2,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-decaf",
+   "name": "Cappuccino (Decaf)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 201,
+    "protein": 13.7,
+    "carbs": 20.8,
+    "fat": 6.9,
+    "saturatedFat": 4,
+    "sugar": 20.7,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-regular-oat-milk",
+   "name": "Cappuccino (Regular Oat Milk)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 226,
+    "protein": 3.6,
+    "carbs": 27,
+    "fat": 10.8,
+    "saturatedFat": 1.2,
+    "sugar": 11.8,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-decaf-oat-milk",
+   "name": "Cappuccino (Decaf Oat Milk)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 226,
+    "protein": 3.6,
+    "carbs": 27,
+    "fat": 10.8,
+    "saturatedFat": 1.2,
+    "sugar": 11.8,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "latte-regular",
+   "name": "Latte (Regular)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 197,
+    "protein": 13.6,
+    "carbs": 20,
+    "fat": 6.8,
+    "saturatedFat": 4,
+    "sugar": 20,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-decaf",
+   "name": "Latte (Decaf)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 197,
+    "protein": 13.6,
+    "carbs": 20,
+    "fat": 6.8,
+    "saturatedFat": 4,
+    "sugar": 20,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-regular-oat-milk",
+   "name": "Latte (Regular Oat Milk)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 225,
+    "protein": 3.6,
+    "carbs": 26.8,
+    "fat": 10.8,
+    "saturatedFat": 1.2,
+    "sugar": 11.6,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "latte-decaf-oat-milk",
+   "name": "Latte (Decaf Oat Milk)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 224,
+    "protein": 3.6,
+    "carbs": 26.8,
+    "fat": 10.8,
+    "saturatedFat": 1.2,
+    "sugar": 11.6,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "flat-white-regular",
+   "name": "Flat White (Regular)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 75,
+    "protein": 5.1,
+    "carbs": 7.5,
+    "fat": 2.6,
+    "saturatedFat": 1.5,
+    "sugar": 7.5,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-decaf",
+   "name": "Flat White (Decaf)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 74,
+    "protein": 5.1,
+    "carbs": 7.5,
+    "fat": 2.6,
+    "saturatedFat": 1.5,
+    "sugar": 7.5,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-regular-oat-milk",
+   "name": "Flat White (Regular Oat Milk)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 85,
+    "protein": 1.4,
+    "carbs": 10.1,
+    "fat": 4.1,
+    "saturatedFat": 0.5,
+    "sugar": 4.4,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "flat-white-decaf-oat-milk",
+   "name": "Flat White (Decaf Oat Milk)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 84,
+    "protein": 1.4,
+    "carbs": 10.1,
+    "fat": 4,
+    "saturatedFat": 0.5,
+    "sugar": 4.3,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "americano-regular-with-milk",
+   "name": "Americano (Regular with Milk)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 26,
+    "protein": 1.7,
+    "carbs": 2.5,
+    "fat": 0.9,
+    "saturatedFat": 0.5,
+    "sugar": 2.5,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-decaf-with-milk",
+   "name": "Americano (Decaf with Milk)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 25,
+    "protein": 1.7,
+    "carbs": 2.5,
+    "fat": 0.9,
+    "saturatedFat": 0.5,
+    "sugar": 2.5,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-regular-with-oat-milk",
+   "name": "Americano (Regular with Oat Milk)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 29,
+    "protein": 0.5,
+    "carbs": 3.4,
+    "fat": 1.4,
+    "saturatedFat": 0.2,
+    "sugar": 1.5,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "americano-regular-no-milk",
+   "name": "Americano (Regular no Milk)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-regular",
+   "name": "Espresso (Regular)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-decaf",
+   "name": "Espresso (Decaf)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-espresso-regular",
+   "name": "Double Espresso (Regular)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-espresso-decaf",
+   "name": "Double Espresso (Decaf)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vanilla-syrup-add-on",
+   "name": "Vanilla Syrup (add-on)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 85,
+    "protein": 0,
+    "carbs": 21,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 21,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramel-syrup-add-on",
+   "name": "Caramel Syrup (add-on)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 82,
+    "protein": 0,
+    "carbs": 20.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 20,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cinnamon-syrup-add-on",
+   "name": "Cinnamon Syrup (add-on)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 82,
+    "protein": 0,
+    "carbs": 20.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 20,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gingerbread-syrup-add-on",
+   "name": "Gingerbread Syrup (add-on)",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 86,
+    "protein": 0,
+    "carbs": 20.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 20.9,
     "salt": 0
    },
    "tags": [],

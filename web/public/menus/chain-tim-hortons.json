@@ -1050,7 +1050,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/455f9600a8db.webp",
+   "image": "tim-hortons/efcce3c5b20d.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1089,7 +1089,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/58b49f23e973.webp",
+   "image": "tim-hortons/8d3fa99e96a6.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1128,7 +1128,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/dabfbc1dd82c.webp",
+   "image": "tim-hortons/5a6f9c628d4f.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1169,7 +1169,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/425283152cd2.webp",
+   "image": "tim-hortons/de250bb1f6e4.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1438,7 +1438,6 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/8ea697b89b85.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -1512,7 +1511,6 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/c760490097a1.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -1631,7 +1629,6 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/12abec554e76.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1960,7 +1957,6 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/9fc0ed02b555.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -1997,7 +1993,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/923f2b8b008a.webp",
+   "image": "tim-hortons/b84cc0b9ad91.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2215,7 +2211,6 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/feea2b4fdad9.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2288,7 +2283,6 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/68d4cf9a3c7f.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2322,7 +2316,6 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/7485f453f607.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2396,7 +2389,6 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/aa370f7698b6.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2762,7 +2754,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/8234c06da5a6.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2803,7 +2794,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/b1a9280123fd.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2886,7 +2876,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/8ee4f2eb53fd.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -4124,7 +4113,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/744b97a18939.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -4155,7 +4143,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/744b97a18939.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -4186,7 +4173,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/744b97a18939.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -4325,7 +4311,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d626cdc070fb.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -4356,7 +4341,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d626cdc070fb.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -4387,7 +4371,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d626cdc070fb.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -4511,7 +4494,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/77a6f47182e0.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -4542,7 +4524,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/77a6f47182e0.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -4573,7 +4554,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/77a6f47182e0.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -5278,7 +5258,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/412095275275.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -5309,7 +5288,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/412095275275.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -5340,7 +5318,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/412095275275.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -5981,7 +5958,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/c5a55302fba3.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -6012,7 +5988,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/c5a55302fba3.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -6043,7 +6018,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/c5a55302fba3.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -8137,7 +8111,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/2499cd9f3e5c.webp",
    "allergens": {
     "contains": [
      "mustard"
@@ -8169,7 +8142,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6d2048780788.webp",
    "allergens": {
     "contains": [
      "eggs",
@@ -8202,7 +8174,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/15d594b9b247.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -8232,7 +8203,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/491bbebdbf05.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -8262,7 +8232,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f637cb354502.webp",
    "allergens": {
     "contains": [],
     "mayContain": []

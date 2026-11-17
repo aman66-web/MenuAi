@@ -12,16 +12,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Bill's Allergen & Nutritional menus, all 12 menu tabs (Ten Kites pages linked from bills-website.co.uk/menus; accessed 2026-10-08, no date shown)",
+  "title": "Bill's Allergen & Nutritional menus, all 12 menu tabs (Ten Kites pages linked from bills-website.co.uk/menus; accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/bills/bills",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "Bill's prints calories only, per portion, so protein, carbs and fat are not published. Menu items may vary per location. Alcoholic drinks (and one juice) print no calories and are not listed; Sunday roasts and the Kids pancake parlour are on selected sites only and are left out.",
+ "note": "Bill's prints calories only, per portion, so protein, carbs and fat are not published. Menu items may vary per location. Alcoholic drinks (and one juice) print no calories and are not listed; the Kids pancake parlour is on selected sites only and is left out.",
  "allergenGuide": {
-  "title": "Bill's Allergen & Nutritional menus (Ten Kites): per-dish allergens and 'may contain' on the same pages (accessed 2026-10-08, no date shown)",
+  "title": "Bill's Allergen & Nutritional menus (Ten Kites): per-dish allergens and 'may contain' on the same pages (accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/bills/bills",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -34,11 +34,13 @@
   "Pancakes",
   "Vegan pancakes",
   "Extras",
+  "Brunch, lunch & dinner",
   "To start",
   "Kids mains",
   "Mains & salads",
   "Mains",
   "Sides",
+  "Salads",
   "Salad toppings",
   "Burgers",
   "Add toppings",
@@ -46,8 +48,6 @@
   "Loaded fries",
   "Dips",
   "Kids sides",
-  "Specials",
-  "Drink specials",
   "Gluten free options",
   "Desserts",
   "Soft drinks & milkshakes",
@@ -63,7 +63,6 @@
   "Mini desserts & a hot drink",
   "Kids drinks",
   "Kids desserts",
-  "Salads",
   "Starters"
  ],
  "components": [],
@@ -156,7 +155,6 @@
     ],
     "cereals": [
      "wheat",
-     "rye",
      "barley",
      "oats"
     ]
@@ -545,8 +543,7 @@
    "allergens": {
     "contains": [
      "gluten",
-     "eggs",
-     "sulphites"
+     "eggs"
     ],
     "mayContain": [],
     "cereals": [
@@ -572,13 +569,42 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "eggs",
-     "sulphites"
+     "eggs"
     ],
     "mayContain": [
      "celery",
      "milk",
      "mustard"
+    ]
+   }
+  },
+  {
+   "id": "beetroot-cured-salmon-crumpets",
+   "name": "Beetroot-Cured Salmon Crumpets",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 869
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -873,13 +899,11 @@
    "allergens": {
     "contains": [
      "gluten",
-     "milk",
-     "sulphites"
+     "milk"
     ],
     "mayContain": [],
     "cereals": [
      "wheat",
-     "rye",
      "barley"
     ]
    }
@@ -901,9 +925,7 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "eggs",
-     "milk",
-     "sulphites"
+     "milk"
     ],
     "mayContain": []
    }
@@ -932,7 +954,6 @@
     "mayContain": [],
     "cereals": [
      "wheat",
-     "rye",
      "barley"
     ]
    }
@@ -954,7 +975,6 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "eggs",
      "milk",
      "sulphites"
     ],
@@ -1000,8 +1020,7 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten",
-     "sulphites"
+     "gluten"
     ],
     "mayContain": [],
     "cereals": [
@@ -1026,9 +1045,7 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "sulphites"
-    ],
+    "contains": [],
     "mayContain": []
    }
   },
@@ -1095,7 +1112,6 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "eggs",
      "milk"
     ],
     "mayContain": []
@@ -1118,7 +1134,6 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "eggs",
      "milk",
      "sulphites"
     ],
@@ -1188,7 +1203,6 @@
     "contains": [
      "gluten",
      "eggs",
-     "milk",
      "sulphites"
     ],
     "mayContain": [],
@@ -1488,9 +1502,7 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "sulphites"
-    ],
+    "contains": [],
     "mayContain": []
    }
   },
@@ -1733,8 +1745,7 @@
     "contains": [
      "gluten",
      "eggs",
-     "milk",
-     "sulphites"
+     "milk"
     ],
     "mayContain": [],
     "cereals": [
@@ -1760,8 +1771,7 @@
    "allergens": {
     "contains": [
      "eggs",
-     "milk",
-     "sulphites"
+     "milk"
     ],
     "mayContain": []
    }
@@ -1795,8 +1805,8 @@
    }
   },
   {
-   "id": "scrambled-eggs-on-toast",
-   "name": "Scrambled Eggs on Toast",
+   "id": "scrambled-eggs-on-toast-with-smoked-salmon",
+   "name": "Scrambled Eggs on Toast with Smoked Salmon",
    "category": "Eggs",
    "serving": "",
    "nutrients": {
@@ -1935,8 +1945,7 @@
     "contains": [
      "gluten",
      "eggs",
-     "milk",
-     "sulphites"
+     "milk"
     ],
     "mayContain": [],
     "cereals": [
@@ -1963,8 +1972,7 @@
     "contains": [
      "gluten",
      "eggs",
-     "milk",
-     "sulphites"
+     "milk"
     ],
     "mayContain": [],
     "cereals": [
@@ -2273,6 +2281,62 @@
    }
   },
   {
+   "id": "choccy-orange-pancakes-3-stack",
+   "name": "Choccy Orange Pancakes (3 stack)",
+   "category": "Pancakes",
+   "serving": "3 stack",
+   "nutrients": {
+    "calories": 948
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "choccy-orange-pancakes-5-stack",
+   "name": "Choccy Orange Pancakes (5 stack)",
+   "category": "Pancakes",
+   "serving": "5 stack",
+   "nutrients": {
+    "calories": 1379
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "crispy-buttermilk-chicken-bacon-and-hot-maple-pancakes",
    "name": "Crispy Buttermilk Chicken, Bacon & Hot Maple Pancakes",
    "category": "Pancakes",
@@ -2338,6 +2402,30 @@
    },
    "tags": [
     "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "choccy-orange-pancakes-gluten-free",
+   "name": "Choccy Orange Pancakes (gluten-free)",
+   "category": "Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1633
+   },
+   "tags": [
+    "vegetarian"
    ],
    "limitedTime": false,
    "rankable": false,
@@ -2704,8 +2792,8 @@
    }
   },
   {
-   "id": "vegan-bacon",
-   "name": "Vegan Bacon",
+   "id": "add-vegan-bacon",
+   "name": "Add Vegan Bacon",
    "category": "Extras",
    "serving": "",
    "nutrients": {
@@ -2764,7 +2852,6 @@
     "contains": [],
     "mayContain": [
      "celery",
-     "milk",
      "mustard"
     ]
    }
@@ -2819,6 +2906,39 @@
     "mayContain": [
      "celery",
      "mustard"
+    ]
+   }
+  },
+  {
+   "id": "bills-signature-sharer",
+   "name": "Bill's Signature Sharer",
+   "category": "Brunch, lunch & dinner",
+   "serving": "",
+   "nutrients": {
+    "calories": 1803
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -2916,12 +3036,12 @@
    }
   },
   {
-   "id": "honey-mustard-mini-sausages",
-   "name": "Honey Mustard Mini Sausages",
+   "id": "pigs-in-blankets",
+   "name": "Pigs in Blankets",
    "category": "To start",
    "serving": "",
    "nutrients": {
-    "calories": 532
+    "calories": 671
    },
    "tags": [
     "contains_pork"
@@ -2932,8 +3052,30 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "mustard",
      "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "crispy-spouts",
+   "name": "Crispy Spouts",
+   "category": "To start",
+   "serving": "",
+   "nutrients": {
+    "calories": 336
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard"
     ],
     "mayContain": []
    }
@@ -3065,8 +3207,7 @@
     "contains": [
      "gluten",
      "eggs",
-     "molluscs",
-     "mustard"
+     "molluscs"
     ],
     "mayContain": [
      "crustaceans",
@@ -3095,8 +3236,7 @@
     "contains": [
      "gluten",
      "eggs",
-     "molluscs",
-     "mustard"
+     "molluscs"
     ],
     "mayContain": [
      "crustaceans",
@@ -3124,12 +3264,12 @@
    "allergens": {
     "contains": [
      "celery",
+     "gluten",
      "milk",
      "mustard",
      "sulphites"
     ],
     "mayContain": [
-     "gluten",
      "eggs",
      "sesame",
      "soya"
@@ -3153,23 +3293,23 @@
    "modifiers": [],
    "allergens": {
     "contains": [
+     "gluten",
      "mustard",
      "soya",
      "sulphites"
     ],
     "mayContain": [
-     "celery",
-     "gluten"
+     "celery"
     ]
    }
   },
   {
-   "id": "seasonal-soup",
-   "name": "Seasonal Soup",
+   "id": "parsnip-and-apple-soup",
+   "name": "Parsnip & Apple Soup",
    "category": "To start",
    "serving": "",
    "nutrients": {
-    "calories": 480
+    "calories": 179
    },
    "tags": [
     "vegetarian"
@@ -3181,42 +3321,7 @@
    "allergens": {
     "contains": [
      "celery",
-     "gluten",
-     "milk",
-     "mustard",
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "seasonal-soup-gluten-free",
-   "name": "Seasonal Soup (gluten-free)",
-   "category": "To start",
-   "serving": "",
-   "nutrients": {
-    "calories": 453
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "mustard",
-     "sesame",
-     "soya",
-     "sulphites"
+     "soya"
     ],
     "mayContain": []
    }
@@ -3300,8 +3405,7 @@
     "contains": [
      "gluten",
      "eggs",
-     "mustard",
-     "sulphites"
+     "mustard"
     ],
     "mayContain": [
      "celery",
@@ -3331,47 +3435,13 @@
     "contains": [
      "gluten",
      "eggs",
-     "mustard",
-     "sulphites"
+     "mustard"
     ],
     "mayContain": [
      "celery",
      "milk",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "bills-signature-sharer",
-   "name": "Bill's Signature Sharer",
-   "category": "To start",
-   "serving": "",
-   "nutrients": {
-    "calories": 1803
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "mustard",
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "eggs"
     ],
     "cereals": [
      "wheat"
@@ -3449,7 +3519,6 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "eggs",
      "milk"
     ],
     "mayContain": []
@@ -3472,10 +3541,35 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "eggs",
      "milk"
     ],
     "mayContain": []
+   }
+  },
+  {
+   "id": "roasted-turkey-breast-stuffed-with-apricot-and-rosemary-kids",
+   "name": "Roasted Turkey Breast Stuffed with Apricot & Rosemary (kids)",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 437
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
    }
   },
   {
@@ -3549,7 +3643,6 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "eggs",
      "sulphites"
     ],
     "mayContain": []
@@ -3572,7 +3665,6 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "eggs",
      "sulphites"
     ],
     "mayContain": []
@@ -3722,13 +3814,13 @@
    "allergens": {
     "contains": [
      "gluten",
+     "mustard",
      "soya"
     ],
     "mayContain": [],
     "cereals": [
      "wheat",
-     "barley",
-     "oats"
+     "barley"
     ]
    }
   },
@@ -3750,13 +3842,13 @@
    "allergens": {
     "contains": [
      "gluten",
+     "mustard",
      "soya"
     ],
     "mayContain": [],
     "cereals": [
      "wheat",
-     "barley",
-     "oats"
+     "barley"
     ]
    }
   },
@@ -3798,10 +3890,7 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "eggs",
-     "sulphites"
-    ],
+    "contains": [],
     "mayContain": []
    }
   },
@@ -3819,9 +3908,7 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "eggs"
-    ],
+    "contains": [],
     "mayContain": []
    }
   },
@@ -4181,6 +4268,7 @@
    "allergens": {
     "contains": [
      "gluten",
+     "mustard",
      "soya"
     ],
     "mayContain": [],
@@ -4209,6 +4297,7 @@
    "allergens": {
     "contains": [
      "gluten",
+     "mustard",
      "soya"
     ],
     "mayContain": [],
@@ -4321,6 +4410,31 @@
    }
   },
   {
+   "id": "large-tomato-and-vegan-cheese-pasta-kids-bigger-eater",
+   "name": "Large Tomato & Vegan Cheese Pasta (kids, bigger eater)",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 241
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "chicken-schnitzel",
    "name": "Chicken Schnitzel",
    "category": "Mains & salads",
@@ -4337,12 +4451,12 @@
     "contains": [
      "gluten",
      "eggs",
-     "milk",
      "mustard",
      "sulphites"
     ],
     "mayContain": [
      "celery",
+     "milk",
      "sesame",
      "soya"
     ],
@@ -4352,12 +4466,12 @@
    }
   },
   {
-   "id": "tortelloni-pasta",
-   "name": "Tortelloni Pasta",
+   "id": "roasted-butternut-squash",
+   "name": "Roasted Butternut Squash",
    "category": "Mains & salads",
    "serving": "",
    "nutrients": {
-    "calories": 754
+    "calories": 771
    },
    "tags": [
     "vegetarian"
@@ -4368,37 +4482,10 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "celery",
      "gluten",
      "milk",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "vegan-tortelloni-pasta",
-   "name": "Vegan Tortelloni Pasta",
-   "category": "Mains & salads",
-   "serving": "",
-   "nutrients": {
-    "calories": 749
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "soya"
+     "soya",
+     "sulphites"
     ],
     "mayContain": [],
     "cereals": [
@@ -4447,7 +4534,10 @@
     "contains": [
      "milk"
     ],
-    "mayContain": []
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
    }
   },
   {
@@ -4522,6 +4612,32 @@
    }
   },
   {
+   "id": "roasted-turkey-breast-stuffed-with-apricot-and-rosemary",
+   "name": "Roasted Turkey Breast Stuffed with Apricot & Rosemary",
+   "category": "Mains & salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 971
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
+  },
+  {
    "id": "roasted-half-chicken",
    "name": "Roasted Half Chicken",
    "category": "Mains & salads",
@@ -4538,7 +4654,10 @@
     "contains": [
      "mustard"
     ],
-    "mayContain": []
+    "mayContain": [
+     "celery",
+     "milk"
+    ]
    }
   },
   {
@@ -4566,7 +4685,8 @@
     "mayContain": [
      "crustaceans",
      "milk",
-     "molluscs"
+     "molluscs",
+     "mustard"
     ],
     "cereals": [
      "wheat"
@@ -4574,12 +4694,12 @@
    }
   },
   {
-   "id": "pan-fried-salmon-fillet",
-   "name": "Pan-Fried Salmon Fillet",
+   "id": "grilled-salmon-fillet",
+   "name": "Grilled Salmon Fillet",
    "category": "Mains & salads",
    "serving": "",
    "nutrients": {
-    "calories": 934
+    "calories": 841
    },
    "tags": [],
    "limitedTime": false,
@@ -4588,16 +4708,13 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten",
      "eggs",
      "fish",
      "milk",
-     "mustard"
+     "soya",
+     "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -4730,61 +4847,6 @@
    }
   },
   {
-   "id": "bills-mac-and-cheese-set-lunch",
-   "name": "Bill's Mac & Cheese (set lunch)",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 635
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "add-buffalo-chicken-set-lunch",
-   "name": "Add Buffalo Chicken (set lunch)",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 289
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "celery",
-     "gluten",
-     "mustard",
-     "sesame"
-    ]
-   }
-  },
-  {
    "id": "bills-classic-burger-gluten-free",
    "name": "Bill's Classic Burger (gluten-free)",
    "category": "Mains",
@@ -4802,7 +4864,6 @@
    "allergens": {
     "contains": [
      "gluten",
-     "eggs",
      "mustard",
      "sulphites"
     ],
@@ -4843,94 +4904,12 @@
    }
   },
   {
-   "id": "chicken-shawarma-gyros",
-   "name": "Chicken Shawarma Gyros",
+   "id": "dirty-vegan-burger-gluten-free",
+   "name": "Dirty Vegan Burger (gluten-free)",
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1372
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "add-bbq-brisket",
-   "name": "Add BBQ Brisket",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 342
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "mustard",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "chargrilled-minute-steak",
-   "name": "Chargrilled Minute Steak",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 795
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [
-     "celery",
-     "mustard"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "add-halloumi",
-   "name": "Add Halloumi",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 288
+    "calories": 1246
    },
    "tags": [
     "vegetarian"
@@ -4941,65 +4920,69 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "seasonal-soup-and-sandwich",
-   "name": "Seasonal Soup & Sandwich",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 758
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
      "gluten",
-     "milk",
      "mustard",
-     "sesame",
      "soya",
      "sulphites"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "celery",
+     "milk"
+    ],
     "cereals": [
-     "wheat"
+     "barley"
     ]
    }
   },
   {
-   "id": "roasted-turkey-breast-stuffed-with-apricot-and-rosemary",
-   "name": "Roasted Turkey Breast Stuffed with Apricot & Rosemary",
+   "id": "peppercorn-minute-steak",
+   "name": "Peppercorn Minute Steak",
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 971
+    "calories": 928
    },
    "tags": [
-    "contains_pork"
+    "contains_beef"
    ],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk",
-     "sulphites"
+     "milk"
     ],
     "mayContain": [
      "celery",
      "mustard"
+    ]
+   }
+  },
+  {
+   "id": "beetroot-and-caramelised-onion-tart",
+   "name": "Beetroot & Caramelised Onion Tart",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 906
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -5024,57 +5007,6 @@
      "gluten",
      "milk",
      "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "grilled-salmon-fillet",
-   "name": "Grilled Salmon Fillet",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 841
-   },
-   "tags": [],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "fish",
-     "milk",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "beetroot-and-caramelised-onion-tart",
-   "name": "Beetroot & Caramelised Onion Tart",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 906
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "mustard",
      "sulphites"
     ],
     "mayContain": [],
@@ -5206,12 +5138,12 @@
    }
   },
   {
-   "id": "caesar-salad",
-   "name": "Caesar Salad",
+   "id": "bills-roast-potatoes",
+   "name": "Bill's Roast Potatoes",
    "category": "Sides",
    "serving": "",
    "nutrients": {
-    "calories": 313
+    "calories": 288
    },
    "tags": [
     "vegetarian"
@@ -5221,42 +5153,10 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "mustard",
-     "soya"
-    ],
+    "contains": [],
     "mayContain": [
-     "celery"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "caesar-salad-gluten-free",
-   "name": "Caesar Salad (gluten-free)",
-   "category": "Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 224
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
+     "celery",
      "mustard"
-    ],
-    "mayContain": [
-     "celery"
     ]
    }
   },
@@ -5351,8 +5251,8 @@
    }
   },
   {
-   "id": "creamy-slaw-set-lunch",
-   "name": "Creamy Slaw (set lunch)",
+   "id": "creamy-slaw-seasonal-set-menu",
+   "name": "Creamy Slaw (seasonal set menu)",
    "category": "Sides",
    "serving": "",
    "nutrients": {
@@ -5373,12 +5273,12 @@
    }
   },
   {
-   "id": "creamed-spinach-and-kale",
-   "name": "Creamed Spinach & Kale",
+   "id": "buttered-seasonal-greens",
+   "name": "Buttered Seasonal Greens",
    "category": "Sides",
    "serving": "",
    "nutrients": {
-    "calories": 173
+    "calories": 126
    },
    "tags": [
     "vegetarian"
@@ -5388,11 +5288,7 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
+    "contains": [],
     "mayContain": []
    }
   },
@@ -5413,74 +5309,10 @@
    "modifiers": [],
    "allergens": {
     "contains": [
+     "celery",
      "milk",
      "mustard"
     ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "bills-roast-potatoes",
-   "name": "Bill's Roast Potatoes",
-   "category": "Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 288
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": [
-     "celery",
-     "mustard"
-    ]
-   }
-  },
-  {
-   "id": "pigs-in-blankets",
-   "name": "Pigs in Blankets",
-   "category": "Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 671
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "buttered-seasonal-greens",
-   "name": "Buttered Seasonal Greens",
-   "category": "Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 126
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
     "mayContain": []
    }
   },
@@ -5502,6 +5334,31 @@
    "allergens": {
     "contains": [],
     "mayContain": []
+   }
+  },
+  {
+   "id": "classic-caesar-salad-gluten-free",
+   "name": "Classic Caesar Salad (gluten-free)",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 470
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery"
+    ]
    }
   },
   {
@@ -5745,6 +5602,39 @@
    }
   },
   {
+   "id": "stilton-and-stuffing-burger",
+   "name": "Stilton & Stuffing Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1920
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
    "id": "cheese",
    "name": "Cheese",
    "category": "Add toppings",
@@ -5944,56 +5834,6 @@
    }
   },
   {
-   "id": "hot-maple-bacon-and-feta-loaded-fries",
-   "name": "Hot Maple, Bacon & Feta Loaded Fries",
-   "category": "Loaded fries",
-   "serving": "",
-   "nutrients": {
-    "calories": 827
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": [
-     "celery",
-     "mustard"
-    ]
-   }
-  },
-  {
-   "id": "vegan-hot-maple-bacon-and-feta",
-   "name": "Vegan Hot Maple, Bacon & Feta",
-   "category": "Loaded fries",
-   "serving": "",
-   "nutrients": {
-    "calories": 802
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "soya"
-    ],
-    "mayContain": [
-     "celery",
-     "mustard"
-    ]
-   }
-  },
-  {
    "id": "crispy-bbq-duck-fries",
    "name": "Crispy BBQ Duck Fries",
    "category": "Loaded fries",
@@ -6009,14 +5849,17 @@
    "allergens": {
     "contains": [
      "celery",
+     "gluten",
      "mustard",
      "soya"
     ],
     "mayContain": [
-     "gluten",
      "eggs",
      "milk",
      "sesame"
+    ],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -6415,17 +6258,18 @@
    }
   },
   {
-   "id": "the-onion-dunker-burger",
-   "name": "The Onion Dunker Burger",
-   "category": "Specials",
+   "id": "bacon-and-stiltion-burger",
+   "name": "Bacon & Stiltion Burger",
+   "category": "Gluten free options",
    "serving": "",
    "nutrients": {
-    "calories": 1838
+    "calories": 1924
    },
    "tags": [
-    "contains_beef"
+    "contains_beef",
+    "contains_pork"
    ],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
@@ -6441,61 +6285,61 @@
      "mustard"
     ],
     "cereals": [
-     "wheat",
      "barley"
     ]
    }
   },
   {
-   "id": "triple-cheese-and-chutney-flatbread",
-   "name": "Triple Cheese & Chutney Flatbread",
-   "category": "Specials",
+   "id": "mince-pies",
+   "name": "Mince Pies",
+   "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 745
+    "calories": 767
    },
    "tags": [
     "vegetarian"
    ],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
    "allergens": {
     "contains": [
      "gluten",
+     "eggs",
      "milk",
+     "soya",
      "sulphites"
     ],
-    "mayContain": [
-     "celery",
-     "mustard"
-    ],
+    "mayContain": [],
     "cereals": [
-     "wheat"
+     "wheat",
+     "oats"
     ]
    }
   },
   {
-   "id": "squash-chorizo-and-pesto-pasta",
-   "name": "Squash, Chorizo & Pesto Pasta",
-   "category": "Specials",
+   "id": "mini-cinnamon-doughnuts",
+   "name": "Mini Cinnamon Doughnuts",
+   "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 1181
+    "calories": 764
    },
    "tags": [
-    "contains_pork"
+    "vegetarian"
    ],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
    "allergens": {
     "contains": [
      "gluten",
+     "eggs",
      "milk",
-     "sulphites"
+     "soya"
     ],
     "mayContain": [],
     "cereals": [
@@ -6504,154 +6348,8 @@
    }
   },
   {
-   "id": "autumn-eton-mess",
-   "name": "Autumn Eton Mess",
-   "category": "Specials",
-   "serving": "",
-   "nutrients": {
-    "calories": 414
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "dark-and-stormy-non-alcoholic",
-   "name": "Dark & Stormy (Non Alcoholic)",
-   "category": "Drink specials",
-   "serving": "",
-   "nutrients": {
-    "calories": 73
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "chicken-shawarma-gyros-gluten-free",
-   "name": "Chicken Shawarma Gyros (gluten-free)",
-   "category": "Gluten free options",
-   "serving": "",
-   "nutrients": {
-    "calories": 1551
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "gf-tomato-and-lentil-soup-heritage-sept-26",
-   "name": "GF Tomato & Lentil Soup Heritage - Sept 26",
-   "category": "Gluten free options",
-   "serving": "",
-   "nutrients": {
-    "calories": 704
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "mustard",
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "chocolate-and-salted-caramel-tart-desserts",
-   "name": "Chocolate & Salted Caramel Tart (desserts)",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 600
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "chocolate-and-salted-caramel-tart-pre-theatre",
-   "name": "Chocolate & Salted Caramel Tart (pre-theatre)",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 607
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "soya"
-    ],
-    "mayContain": [
-     "milk"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "chocolate-and-salted-caramel-tart-christmas",
-   "name": "Chocolate & Salted Caramel Tart (Christmas)",
+   "id": "chocolate-and-salted-caramel-tart",
+   "name": "Chocolate & Salted Caramel Tart",
    "category": "Desserts",
    "serving": "",
    "nutrients": {
@@ -6660,7 +6358,7 @@
    "tags": [
     "vegetarian"
    ],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
@@ -6669,115 +6367,6 @@
      "soya"
     ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "triple-chocolate-brownie",
-   "name": "Triple Chocolate Brownie",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 959
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "bills-cinnamon-doughnuts",
-   "name": "Bill's Cinnamon Doughnuts",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 647
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "sticky-toffee-pudding",
-   "name": "Sticky Toffee Pudding",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 739
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "sticky-toffee-pudding-christmas",
-   "name": "Sticky Toffee Pudding (Christmas)",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 574
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
    }
   },
   {
@@ -7130,7 +6719,8 @@
    "allergens": {
     "contains": [
      "gluten",
-     "milk"
+     "milk",
+     "soya"
     ],
     "mayContain": [],
     "cereals": [
@@ -7333,12 +6923,12 @@
    }
   },
   {
-   "id": "watermelon-lemonade",
-   "name": "Watermelon Lemonade",
+   "id": "blackberry-and-lemon-cooler",
+   "name": "Blackberry & Lemon Cooler",
    "category": "Bill's fresh coolers",
    "serving": "",
    "nutrients": {
-    "calories": 111
+    "calories": 74
    },
    "tags": [
     "vegetarian"
@@ -7639,12 +7229,12 @@
    }
   },
   {
-   "id": "virgin-pi-a-colada-tall",
-   "name": "Virgin Piña Colada (Tall)",
+   "id": "winter-no-punch",
+   "name": "Winter No Punch",
    "category": "Mocktails",
    "serving": "",
    "nutrients": {
-    "calories": 257
+    "calories": 129
    },
    "tags": [
     "vegetarian"
@@ -8268,12 +7858,36 @@
    }
   },
   {
-   "id": "mini-cinnamon-doughnuts",
-   "name": "Mini Cinnamon Doughnuts",
+   "id": "triple-chocolate-brownie",
+   "name": "Triple Chocolate Brownie",
    "category": "Desserts & ice-cream",
    "serving": "",
    "nutrients": {
-    "calories": 764
+    "calories": 959
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sticky-toffee-pudding",
+   "name": "Sticky Toffee Pudding",
+   "category": "Desserts & ice-cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 574
    },
    "tags": [
     "vegetarian"
@@ -8287,7 +7901,7 @@
      "gluten",
      "eggs",
      "milk",
-     "soya"
+     "sulphites"
     ],
     "mayContain": [],
     "cereals": [
@@ -8296,12 +7910,12 @@
    }
   },
   {
-   "id": "bills-flowerpot",
-   "name": "Bill's Flowerpot",
+   "id": "bills-christmas-flowerpot",
+   "name": "Bill's Christmas Flowerpot",
    "category": "Desserts & ice-cream",
    "serving": "",
    "nutrients": {
-    "calories": 478
+    "calories": 516
    },
    "tags": [
     "vegetarian"
@@ -8367,12 +7981,16 @@
    "modifiers": [],
    "allergens": {
     "contains": [
+     "gluten",
      "eggs",
      "milk",
      "soya",
      "sulphites"
     ],
-    "mayContain": []
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
    }
   },
   {
@@ -8400,7 +8018,8 @@
     ],
     "mayContain": [],
     "cereals": [
-     "wheat"
+     "wheat",
+     "oats"
     ]
    }
   },
@@ -8411,6 +8030,33 @@
    "serving": "",
    "nutrients": {
     "calories": 418
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mince-pie-and-clotted-cream",
+   "name": "Mince Pie & Clotted Cream",
+   "category": "Mini desserts & a hot drink",
+   "serving": "",
+   "nutrients": {
+    "calories": 814
    },
    "tags": [
     "vegetarian"
@@ -8612,6 +8258,26 @@
     "contains": [
      "milk"
     ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "watermelon-lemonade",
+   "name": "Watermelon Lemonade",
+   "category": "Kids drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
     "mayContain": []
    }
   },
@@ -8913,8 +8579,8 @@
    }
   },
   {
-   "id": "ice-creams-1-scoop",
-   "name": "Ice Creams (1 scoop)",
+   "id": "ice-creams-1-scoop-no-wafer",
+   "name": "Ice Creams (1 scoop, no wafer)",
    "category": "Kids desserts",
    "serving": "1 scoop",
    "nutrients": {
@@ -8937,8 +8603,8 @@
    }
   },
   {
-   "id": "ice-creams-2-scoops",
-   "name": "Ice Creams (2 scoops)",
+   "id": "ice-creams-2-scoops-no-wafer",
+   "name": "Ice Creams (2 scoops, no wafer)",
    "category": "Kids desserts",
    "serving": "2 scoops",
    "nutrients": {
@@ -8956,28 +8622,6 @@
      "eggs",
      "milk",
      "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "classic-chicken-caesar",
-   "name": "Classic Chicken Caesar",
-   "category": "Salads",
-   "serving": "",
-   "nutrients": {
-    "calories": 899
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "mustard"
     ],
     "mayContain": []
    }
@@ -9048,7 +8692,9 @@
    "nutrients": {
     "calories": 361
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": true,
    "rankable": false,
    "components": [],
@@ -9113,29 +8759,6 @@
     "contains": [
      "milk",
      "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "parsnip-and-apple-soup",
-   "name": "Parsnip & Apple Soup",
-   "category": "Starters",
-   "serving": "",
-   "nutrients": {
-    "calories": 179
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "soya"
     ],
     "mayContain": []
    }

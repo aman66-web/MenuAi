@@ -15,16 +15,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Dunkin' UK allergens & nutrition pages: donuts, Munchkins, cookies, bakery, LTO donuts, hot drinks and cold drinks (dunkin.co.uk/allergens-*, (c) 2026 DD IP Holder LLC; accessed 2026-10-08, no date shown)",
+  "title": "Dunkin' UK allergens & nutrition pages: donuts, Munchkins, cookies, bakery, LTO donuts, hot drinks and cold drinks (dunkin.co.uk/allergens-*, (c) 2026 DD IP Holder LLC; accessed 2026-11-17, no date shown)",
   "url": "https://dunkin.co.uk/allergens",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only: no protein, carbs or fat. Drinks printed as a range (it depends on the milk) or without a size are left out; sizes as printed (no ml). Items with no allergen list, or whose calories or allergen lists differ between Dunkin's allergen page and product page, are not shown. Drinks list no traces, so those read Not listed, not free from.",
  "allergenGuide": {
   "title": "Dunkin' UK allergens pages: donuts, Munchkins, cookies, bakery, LTO donuts, hot and cold drinks (no date shown)",
   "url": "https://dunkin.co.uk/allergens",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -206,7 +206,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/a29625f3214e.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -538,19 +537,105 @@
    }
   },
   {
-   "id": "maple-praline",
-   "name": "Maple Praline",
+   "id": "custard-and-almond-bretzel",
+   "name": "Custard & Almond Bretzel",
+   "category": "Bakery",
+   "serving": "1 item",
+   "nutrients": {
+    "calories": 553
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "santa-belly",
+   "name": "Santa Belly",
    "category": "Limited time donuts",
    "serving": "1 donut",
    "nutrients": {
-    "calories": 285
+    "calories": 401
    },
    "tags": [],
    "limitedTime": true,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/de77630d5b30.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "rudolf",
+   "name": "Rudolf",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 357
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "elf-belly",
+   "name": "Elf Belly",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 415
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
    "allergens": {
     "contains": [
      "gluten",
@@ -567,12 +652,68 @@
    }
   },
   {
-   "id": "smores",
-   "name": "S’mores",
+   "id": "tiramisu",
+   "name": "Tiramisu",
    "category": "Limited time donuts",
    "serving": "1 donut",
    "nutrients": {
-    "calories": 404
+    "calories": 372
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "cr-me-br-l-e",
+   "name": "Crème Brûlée",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 337
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "wreath",
+   "name": "Wreath",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 261
    },
    "tags": [
     "vegetarian"
@@ -581,125 +722,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/7e3996038b85.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "milk",
-     "mustard",
-     "nuts",
-     "peanuts",
-     "sulphites"
-    ]
-   }
-  },
-  {
-   "id": "chocolate-pistachio",
-   "name": "Chocolate Pistachio",
-   "category": "Limited time donuts",
-   "serving": "1 donut",
-   "nutrients": {
-    "calories": 387
-   },
-   "tags": [],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/079fdb52d469.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "nuts",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "mustard",
-     "peanuts",
-     "sulphites"
-    ]
-   }
-  },
-  {
-   "id": "drac",
-   "name": "Drac",
-   "category": "Limited time donuts",
-   "serving": "1 donut",
-   "nutrients": {
-    "calories": 420
-   },
-   "tags": [],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/c61f5e5e6de9.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "mustard",
-     "nuts",
-     "peanuts",
-     "sulphites"
-    ]
-   }
-  },
-  {
-   "id": "frank",
-   "name": "Frank",
-   "category": "Limited time donuts",
-   "serving": "1 donut",
-   "nutrients": {
-    "calories": 402
-   },
-   "tags": [],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/eae5f69a3337.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "mustard",
-     "nuts",
-     "peanuts",
-     "sulphites"
-    ]
-   }
-  },
-  {
-   "id": "sid",
-   "name": "Sid",
-   "category": "Limited time donuts",
-   "serving": "1 donut",
-   "nutrients": {
-    "calories": 355
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/b52fa611e55f.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -855,132 +877,6 @@
    "components": [],
    "modifiers": [],
    "image": "dunkin/ac1a8f276f57.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-spiced-latte-hot-small",
-   "name": "Pumpkin Spiced Latte, hot (Small)",
-   "category": "Hot drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 195
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/b2b1e583c8da.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-spiced-latte-hot-medium",
-   "name": "Pumpkin Spiced Latte, hot (Medium)",
-   "category": "Hot drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 277
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/b2b1e583c8da.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-spiced-latte-hot-large",
-   "name": "Pumpkin Spiced Latte, hot (Large)",
-   "category": "Hot drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 360
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/b2b1e583c8da.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "dubai-chocolate-mocha-hot-small",
-   "name": "Dubai Chocolate Mocha, hot (Small)",
-   "category": "Hot drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 233
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/700d6b39c314.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "dubai-chocolate-mocha-hot-medium",
-   "name": "Dubai Chocolate Mocha, hot (Medium)",
-   "category": "Hot drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 337
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/700d6b39c314.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "dubai-chocolate-mocha-hot-large",
-   "name": "Dubai Chocolate Mocha, hot (Large)",
-   "category": "Hot drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 440
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/700d6b39c314.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -1248,198 +1144,6 @@
    "allergens": {
     "contains": [
      "gluten"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-spiced-latte-cold-small",
-   "name": "Pumpkin Spiced Latte, cold (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 267
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/d580afdfe745.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-spiced-latte-cold-medium",
-   "name": "Pumpkin Spiced Latte, cold (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 350
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/d580afdfe745.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-spiced-latte-cold-large",
-   "name": "Pumpkin Spiced Latte, cold (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 433
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/d580afdfe745.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "dubai-chocolate-mocha-cold-small",
-   "name": "Dubai Chocolate Mocha, cold (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 177
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/813e44743909.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "dubai-chocolate-mocha-cold-medium",
-   "name": "Dubai Chocolate Mocha, cold (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 280
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/813e44743909.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "dubai-chocolate-mocha-cold-large",
-   "name": "Dubai Chocolate Mocha, cold (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 383
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/813e44743909.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-matcha-oat-latte-small",
-   "name": "Pumpkin Matcha Oat Latte (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 113
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/46573c5f2b2f.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-matcha-oat-latte-medium",
-   "name": "Pumpkin Matcha Oat Latte (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 223
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/46573c5f2b2f.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-matcha-oat-latte-large",
-   "name": "Pumpkin Matcha Oat Latte (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 306
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/46573c5f2b2f.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
     ],
     "mayContain": []
    }
@@ -1920,384 +1624,6 @@
    "components": [],
    "modifiers": [],
    "image": "dunkin/8066faaaf6fd.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "toasted-marshmallow-iced-matcha-small",
-   "name": "Toasted Marshmallow Iced Matcha (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 129
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/1e32f15cbfa9.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "toasted-marshmallow-iced-matcha-medium",
-   "name": "Toasted Marshmallow Iced Matcha (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 171
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/1e32f15cbfa9.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "toasted-marshmallow-iced-matcha-large",
-   "name": "Toasted Marshmallow Iced Matcha (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 198
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/1e32f15cbfa9.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "toffee-apple-iced-matcha-small",
-   "name": "Toffee Apple Iced Matcha (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 124
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/61df77f5fbac.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "toffee-apple-iced-matcha-medium",
-   "name": "Toffee Apple Iced Matcha (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 167
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/61df77f5fbac.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "toffee-apple-iced-matcha-large",
-   "name": "Toffee Apple Iced Matcha (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 195
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/61df77f5fbac.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-patch-cloud-latte-small",
-   "name": "Pumpkin Patch Cloud Latte (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 177
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/934983c0879a.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-patch-cloud-latte-medium",
-   "name": "Pumpkin Patch Cloud Latte (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 275
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/934983c0879a.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pumpkin-patch-cloud-latte-large",
-   "name": "Pumpkin Patch Cloud Latte (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 392
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/934983c0879a.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "apple-sours-small",
-   "name": "Apple Sours (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 100
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/6939f5043082.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "apple-sours-medium",
-   "name": "Apple Sours (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 167
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/6939f5043082.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "apple-sours-large",
-   "name": "Apple Sours (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 219
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/6939f5043082.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "cherry-sours-small",
-   "name": "Cherry Sours (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 101
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/daf3e41de504.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "cherry-sours-medium",
-   "name": "Cherry Sours (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 168
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/daf3e41de504.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "cherry-sours-large",
-   "name": "Cherry Sours (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 220
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/daf3e41de504.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "orange-sours-small",
-   "name": "Orange Sours (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 94
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/da61f483e3b6.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "orange-sours-medium",
-   "name": "Orange Sours (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 142
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/da61f483e3b6.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "orange-sours-large",
-   "name": "Orange Sours (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 204
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/da61f483e3b6.webp",
    "allergens": {
     "contains": [
      "milk"

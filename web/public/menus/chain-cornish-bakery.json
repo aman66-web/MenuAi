@@ -10,16 +10,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "The Cornish Bakery Allergen Information matrix, Document V42, dated 26-02-2026 (PDF created 26 February 2026)",
-  "url": "https://cdn.shopify.com/s/files/1/0598/2512/7573/files/Allergen_Matrix_V42.pdf?v=1773755583",
-  "checkedOn": "2026-10-08"
+  "title": "The Cornish Bakery Allergen Information Booklet, Document V48, dated 01-09-2026 (PDF created 1 October 2026)",
+  "url": "https://cdn.shopify.com/s/files/1/0598/2512/7573/files/CB-AB-A4-A-1_Allergen_Book_V48_Proof.pdf?v=1791951635",
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "Calories only: the bakery's allergen matrix prints one calorie figure per item (\"Kcal each\") and no protein, carbs, fat or salt. Sizes are given only for hot drinks (oz). Milks print no calories and are not listed; the matrix sends soft drinks and pre-packed retail items to their packs. Matrix dated 26 February 2026.",
+ "note": "Calories only: the bakery's allergen booklet prints one calorie figure per item (\"Kcal each\") and no protein, carbs, fat or salt. Sizes are given only for some hot drinks (oz). Milks print no calories and are not listed; the booklet sends soft drinks and pre-packed retail items to their packs. Booklet dated 1 September 2026.",
  "allergenGuide": {
-  "title": "The Cornish Bakery Allergen Information matrix, Document V42 (26-02-2026)",
-  "url": "https://cdn.shopify.com/s/files/1/0598/2512/7573/files/Allergen_Matrix_V42.pdf?v=1773755583",
-  "checkedOn": "2026-10-08",
+  "title": "The Cornish Bakery Allergen Information Booklet, Document V48 (01-09-2026)",
+  "url": "https://cdn.shopify.com/s/files/1/0598/2512/7573/files/CB-AB-A4-A-1_Allergen_Book_V48_Proof.pdf?v=1791951635",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -30,9 +30,11 @@
   "Breakfast & Lunch",
   "Sauces, Jams, Chutney, Creams",
   "Hot Drinks",
+  "Milks",
   "Milk & Syrups",
   "Teas",
-  "Iced Drinks"
+  "Iced Drinks",
+  "Iced Drinks (Cold Brew)"
  ],
  "components": [],
  "items": [
@@ -67,30 +69,6 @@
    "serving": "",
    "nutrients": {
     "calories": 690
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "chicken-masala-pasty",
-   "name": "Chicken Masala Pasty",
-   "category": "Pasties",
-   "serving": "",
-   "nutrients": {
-    "calories": 756
    },
    "tags": [],
    "limitedTime": false,
@@ -202,7 +180,9 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "milk"
+    ],
     "cereals": [
      "wheat"
     ]
@@ -236,12 +216,12 @@
    }
   },
   {
-   "id": "cinnamon-bun",
-   "name": "Cinnamon Bun",
+   "id": "apple-and-rhubarb-pasty",
+   "name": "Apple and Rhubarb Pasty",
    "category": "Pastries",
    "serving": "",
    "nutrients": {
-    "calories": 361
+    "calories": 497
    },
    "tags": [],
    "limitedTime": false,
@@ -251,55 +231,21 @@
    "allergens": {
     "contains": [
      "gluten",
-     "eggs",
      "milk"
     ],
-    "mayContain": [
-     "nuts",
-     "sesame",
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
    }
   },
   {
-   "id": "croissant",
-   "name": "Croissant",
+   "id": "cherry-and-almond-croissant",
+   "name": "Cherry & Almond Croissant",
    "category": "Pastries",
    "serving": "",
    "nutrients": {
-    "calories": 303
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "nuts",
-     "sesame",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "pain-au-chocolat",
-   "name": "Pain au Chocolat",
-   "category": "Pastries",
-   "serving": "",
-   "nutrients": {
-    "calories": 306
+    "calories": 543
    },
    "tags": [],
    "limitedTime": false,
@@ -311,43 +257,12 @@
      "gluten",
      "eggs",
      "milk",
-     "soya"
+     "nuts"
     ],
     "mayContain": [
-     "nuts",
-     "sesame"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "pain-aux-raisins",
-   "name": "Pain aux Raisins",
-   "category": "Pastries",
-   "serving": "",
-   "nutrients": {
-    "calories": 317
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "nuts",
+     "peanuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -374,19 +289,68 @@
     "mayContain": [
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
   {
-   "id": "cherry-and-almond-croissant",
-   "name": "Cherry & Almond Croissant",
+   "id": "cinnamon-bun",
+   "name": "Cinnamon Bun",
    "category": "Pastries",
    "serving": "",
    "nutrients": {
-    "calories": 606
+    "calories": 361
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "croissant",
+   "name": "Croissant",
+   "category": "Pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 303
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "pain-au-chocolat",
+   "name": "Pain au Chocolat",
+   "category": "Pastries and Cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 306
    },
    "tags": [],
    "limitedTime": false,
@@ -398,12 +362,62 @@
      "gluten",
      "eggs",
      "milk",
-     "nuts"
+     "soya"
     ],
     "mayContain": [
-     "peanuts",
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "pain-aux-raisins",
+   "name": "Pain aux Raisins",
+   "category": "Pastries and Cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 317
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
      "sesame",
      "soya"
+    ]
+   }
+  },
+  {
+   "id": "pastel-de-nata",
+   "name": "Pastel De Nata",
+   "category": "Pastries and Cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 303
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
     ],
     "cereals": [
      "wheat"
@@ -413,7 +427,7 @@
   {
    "id": "vegan-raspberry-croissant",
    "name": "Vegan Raspberry Croissant",
-   "category": "Pastries",
+   "category": "Pastries and Cakes",
    "serving": "",
    "nutrients": {
     "calories": 301
@@ -435,73 +449,16 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
   {
-   "id": "pastel-de-nata",
-   "name": "Pastel De Nata",
-   "category": "Pastries",
-   "serving": "",
-   "nutrients": {
-    "calories": 303
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts",
-     "soya",
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "apple-rhubarb-and-custard",
-   "name": "Apple, Rhubarb & Custard",
+   "id": "banana-chocolate-and-cornish-peanut-butter-pastry",
+   "name": "Banana, Chocolate & Cornish Peanut Butter Pastry",
    "category": "Pastries and Cakes",
    "serving": "",
    "nutrients": {
-    "calories": 497
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "carrot-cake",
-   "name": "Carrot Cake",
-   "category": "Pastries and Cakes",
-   "serving": "",
-   "nutrients": {
-    "calories": 660
+    "calories": 662
    },
    "tags": [],
    "limitedTime": false,
@@ -513,15 +470,12 @@
      "gluten",
      "eggs",
      "milk",
-     "nuts"
+     "peanuts",
+     "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "almond",
-     "walnut"
+    "mayContain": [
+     "nuts",
+     "sesame"
     ]
    }
   },
@@ -544,21 +498,16 @@
      "eggs",
      "milk",
      "nuts",
-     "soya"
+     "peanuts",
+     "soya",
+     "sulphites"
     ],
     "mayContain": [
-     "peanuts",
      "sesame"
     ],
     "cereals": [
      "wheat",
      "oats"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "pecan",
-     "pistachio"
     ]
    }
   },
@@ -582,19 +531,16 @@
      "milk",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
-   "id": "apple-crumble-scone",
-   "name": "Apple Crumble Scone",
+   "id": "caramel-pear-and-miso-pastry",
+   "name": "Caramel Pear and Miso Pastry",
    "category": "Pastries and Cakes",
    "serving": "",
    "nutrients": {
-    "calories": 442
+    "calories": 398
    },
    "tags": [],
    "limitedTime": false,
@@ -603,33 +549,25 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "celery",
      "gluten",
+     "eggs",
      "milk",
      "nuts",
-     "soya",
-     "sulphites"
+     "soya"
     ],
     "mayContain": [
-     "eggs",
-     "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "oats"
-    ],
-    "nuts": [
-     "pecan"
+     "peanuts",
+     "sesame"
     ]
    }
   },
   {
-   "id": "lemon-and-berry-danish",
-   "name": "Lemon & Berry Danish",
+   "id": "orange-and-white-chocolate-chai-bun",
+   "name": "Orange & White Chocolate Chai Bun",
    "category": "Pastries and Cakes",
    "serving": "",
    "nutrients": {
-    "calories": 372
+    "calories": 445
    },
    "tags": [],
    "limitedTime": false,
@@ -640,15 +578,12 @@
     "contains": [
      "gluten",
      "eggs",
-     "milk"
+     "milk",
+     "soya"
     ],
     "mayContain": [
      "nuts",
-     "sesame",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
+     "peanuts"
     ]
    }
   },
@@ -677,24 +612,37 @@
      "peanuts",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "almond",
-     "pecan",
-     "pistachio"
     ]
    }
   },
   {
-   "id": "orange-creme-brulee",
-   "name": "Orange Crème Brûlée",
+   "id": "spiced-marmalade-cake",
+   "name": "Spiced Marmalade Cake",
    "category": "Pastries and Cakes",
    "serving": "",
    "nutrients": {
-    "calories": 505
+    "calories": 228
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "winter-bun",
+   "name": "Winter Bun",
+   "category": "Pastries and Cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 423
    },
    "tags": [],
    "limitedTime": false,
@@ -705,15 +653,12 @@
     "contains": [
      "gluten",
      "eggs",
-     "milk"
+     "milk",
+     "nuts"
     ],
     "mayContain": [
-     "nuts",
      "sesame",
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat"
+     "soya"
     ]
    }
   },
@@ -742,38 +687,6 @@
     "mayContain": [
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "shakshuka-croissant",
-   "name": "Shakshuka Croissant",
-   "category": "Breakfast & Lunch",
-   "serving": "",
-   "nutrients": {
-    "calories": 445
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "nuts",
-     "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -801,10 +714,9 @@
      "sulphites"
     ],
     "mayContain": [
+     "nuts",
+     "peanuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -832,15 +744,12 @@
      "mustard",
      "nuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
   {
-   "id": "cheese-straw",
-   "name": "Cheese Straw",
+   "id": "west-country-cheese-straw",
+   "name": "West Country Cheese Straw",
    "category": "Breakfast & Lunch",
    "serving": "",
    "nutrients": {
@@ -900,31 +809,6 @@
    }
   },
   {
-   "id": "spinach-pie",
-   "name": "Spinach Pie",
-   "category": "Breakfast & Lunch",
-   "serving": "",
-   "nutrients": {
-    "calories": 352
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "pea-and-feta-tortilla",
    "name": "Pea & Feta Tortilla",
    "category": "Breakfast & Lunch",
@@ -946,12 +830,12 @@
    }
   },
   {
-   "id": "smoked-cheddar-ploughman",
-   "name": "Smoked Cheddar Ploughman",
+   "id": "spinach-and-feta-pastry",
+   "name": "Spinach and Feta Pastry",
    "category": "Breakfast & Lunch",
    "serving": "",
    "nutrients": {
-    "calories": 466
+    "calories": 476
    },
    "tags": [],
    "limitedTime": false,
@@ -962,13 +846,12 @@
     "contains": [
      "gluten",
      "eggs",
-     "milk"
-    ],
-    "mayContain": [
+     "milk",
      "soya"
     ],
-    "cereals": [
-     "wheat"
+    "mayContain": [
+     "nuts",
+     "sesame"
     ]
    }
   },
@@ -1190,32 +1073,12 @@
    }
   },
   {
-   "id": "babycino-frothed-milk",
-   "name": "Babycino (frothed milk)",
+   "id": "babycino-cows-milk",
+   "name": "Babycino (cows milk)",
    "category": "Hot Drinks",
    "serving": "4oz",
    "nutrients": {
     "calories": 63
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "americano",
-   "name": "Americano",
-   "category": "Hot Drinks",
-   "serving": "8oz",
-   "nutrients": {
-    "calories": 3
    },
    "tags": [],
    "limitedTime": false,
@@ -1301,8 +1164,8 @@
    }
   },
   {
-   "id": "white-mocha-incl-cows-milk",
-   "name": "White Mocha (incl. cows milk)",
+   "id": "white-mocha-cows-milk",
+   "name": "White Mocha (cows milk)",
    "category": "Hot Drinks",
    "serving": "10oz",
    "nutrients": {
@@ -1321,12 +1184,12 @@
    }
   },
   {
-   "id": "chai-latte-cows-milk-topped-with-chocolate-powder-and-cinnamon",
-   "name": "Chai Latte (cows milk) topped with chocolate powder & cinnamon",
+   "id": "tall-white-cows-milk",
+   "name": "Tall White (cows milk)",
    "category": "Hot Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 241
+    "calories": 225
    },
    "tags": [],
    "limitedTime": false,
@@ -1337,16 +1200,76 @@
     "contains": [
      "milk"
     ],
-    "mayContain": [
-     "eggs",
-     "nuts",
-     "soya"
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salted-banana-chai-latte-oat-milk",
+   "name": "Salted Banana Chai Latte (oat Milk)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
     ]
    }
   },
   {
-   "id": "italian-hot-chocolate",
-   "name": "Italian Hot Chocolate",
+   "id": "matcha-latte-oat-milk",
+   "name": "Matcha Latte (oat milk)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 142
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "pure-matcha",
+   "name": "Pure Matcha",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "italian-hot-chocolate-cows-milk",
+   "name": "Italian Hot Chocolate (cows milk)",
    "category": "Hot Drinks",
    "serving": "",
    "nutrients": {
@@ -1369,8 +1292,8 @@
    }
   },
   {
-   "id": "regular-hot-chocolate",
-   "name": "Regular Hot Chocolate",
+   "id": "regular-hot-chocolate-cows-milk",
+   "name": "Regular Hot Chocolate (cows Milk)",
    "category": "Hot Drinks",
    "serving": "",
    "nutrients": {
@@ -1393,8 +1316,8 @@
    }
   },
   {
-   "id": "white-hot-chocolate",
-   "name": "White Hot Chocolate",
+   "id": "white-hot-chocolate-cows-milk",
+   "name": "White Hot Chocolate (cows Milk)",
    "category": "Hot Drinks",
    "serving": "",
    "nutrients": {
@@ -1413,12 +1336,120 @@
    }
   },
   {
+   "id": "cold-foam",
+   "name": "Cold Foam",
+   "category": "Milks",
+   "serving": "",
+   "nutrients": {
+    "calories": 189
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "almond-syrup",
+   "name": "Almond Syrup",
+   "category": "Milk & Syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 53
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "banana-puree",
+   "name": "Banana Puree",
+   "category": "Milk & Syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 48
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
    "id": "caramel-syrup",
    "name": "Caramel Syrup",
    "category": "Milk & Syrups",
    "serving": "",
    "nutrients": {
     "calories": 49
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cherry-syrup",
+   "name": "Cherry Syrup",
+   "category": "Milk & Syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 53
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "earl-grey-syrup",
+   "name": "Earl Grey Syrup",
+   "category": "Milk & Syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 33
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hazelnut-syrup",
+   "name": "Hazelnut Syrup",
+   "category": "Milk & Syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 54
    },
    "tags": [],
    "limitedTime": false,
@@ -1455,26 +1486,6 @@
    "serving": "",
    "nutrients": {
     "calories": 121
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "whipped-cream-with-maple-syrup",
-   "name": "Whipped Cream with Maple Syrup",
-   "category": "Milk & Syrups",
-   "serving": "",
-   "nutrients": {
-    "calories": 229
    },
    "tags": [],
    "limitedTime": false,
@@ -1665,56 +1676,12 @@
    }
   },
   {
-   "id": "iced-latte",
-   "name": "Iced Latte",
-   "category": "Iced Drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 120
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "iced-mocha",
-   "name": "Iced Mocha",
-   "category": "Iced Drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 190
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": [
-     "eggs",
-     "nuts",
-     "soya"
-    ]
-   }
-  },
-  {
    "id": "iced-chai",
    "name": "Iced Chai",
    "category": "Iced Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 213
+    "calories": 178
    },
    "tags": [],
    "limitedTime": false,
@@ -1729,12 +1696,12 @@
    }
   },
   {
-   "id": "iced-americano",
-   "name": "Iced Americano",
+   "id": "iced-dirty-chai",
+   "name": "Iced Dirty Chai",
    "category": "Iced Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 3
+    "calories": 185
    },
    "tags": [],
    "limitedTime": false,
@@ -1742,13 +1709,15 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [],
+    "contains": [
+     "milk"
+    ],
     "mayContain": []
    }
   },
   {
-   "id": "iced-chocolate",
-   "name": "Iced Chocolate",
+   "id": "iced-chocolate-cows-milk",
+   "name": "Iced Chocolate (cows milk)",
    "category": "Iced Drinks",
    "serving": "",
    "nutrients": {
@@ -1771,12 +1740,71 @@
    }
   },
   {
-   "id": "iced-dirty-chai",
-   "name": "Iced Dirty Chai",
+   "id": "peach-and-earl-grey-iced-tea",
+   "name": "Peach & Earl Grey Iced Tea",
    "category": "Iced Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 218
+    "calories": 117
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-matcha",
+   "name": "Iced Matcha",
+   "category": "Iced Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 94
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "iced-americano",
+   "name": "Iced Americano",
+   "category": "Iced Drinks (Cold Brew)",
+   "serving": "",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-flat-white",
+   "name": "Iced Flat White",
+   "category": "Iced Drinks (Cold Brew)",
+   "serving": "",
+   "nutrients": {
+    "calories": 94
    },
    "tags": [],
    "limitedTime": false,
@@ -1791,12 +1819,12 @@
    }
   },
   {
-   "id": "strawberry-coconut-matcha",
-   "name": "Strawberry Coconut Matcha",
-   "category": "Iced Drinks",
+   "id": "iced-latte",
+   "name": "Iced Latte",
+   "category": "Iced Drinks (Cold Brew)",
    "serving": "",
    "nutrients": {
-    "calories": 130
+    "calories": 125
    },
    "tags": [],
    "limitedTime": false,
@@ -1805,10 +1833,54 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "soya"
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-mocha",
+   "name": "Iced Mocha",
+   "category": "Iced Drinks (Cold Brew)",
+   "serving": "",
+   "nutrients": {
+    "calories": 199
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
     ],
     "mayContain": [
-     "sesame"
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "iced-cherry-almond-with-cold-foam",
+   "name": "Iced Cherry Almond with Cold Foam",
+   "category": "Iced Drinks (Cold Brew)",
+   "serving": "",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts"
     ]
    }
   }

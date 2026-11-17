@@ -13,14 +13,14 @@
  "source": {
   "title": "dim t main menu calorie information (14.08.2026 v1), checked against the August 2026 menu",
   "url": "https://dimt.co.uk/wp-content/uploads/dim-t-main-menu-calories-14.08.2026-v1.pdf",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "dim t prints calories only, one value per dish as served: no protein, carbs or fat. Not listed: drinks, kids and lunch menus, Thai spicy basil fried rice and Pad kee mao (its calorie list and menu disagree), and 26 dishes its allergen guide has no matching row for or contradicts. Crispy Thai fish is not on its August 2026 menu.",
  "allergenGuide": {
-  "title": "dim t main menu allergen information (V1, 14.08.2026, 25 pages)",
-  "url": "https://dimt.co.uk/wp-content/uploads/dim-t-main-menu-allergens-14.08.2026-v1.pdf",
-  "checkedOn": "2026-10-08",
+  "title": "dim t main menu allergen information (V1, 14.10.2026, 21 pages)",
+  "url": "https://dimt.co.uk/wp-content/uploads/Dimt-A-la-Carte-menu-Allergens-14.08.2026.pdf",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -50,6 +50,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "dim-t/23f65d0d78bc.webp",
    "allergens": {
     "contains": [
      "crustaceans"
@@ -140,13 +141,13 @@
    "image": "dim-t/68989d2f0604.webp",
    "allergens": {
     "contains": [
-     "celery",
      "gluten",
      "milk",
      "sesame",
      "soya"
     ],
     "mayContain": [
+     "celery",
      "crustaceans",
      "eggs",
      "fish",
@@ -295,6 +296,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "dim-t/29b07a97ee7f.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -331,6 +333,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "dim-t/11fe7953a4c5.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -365,6 +368,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "dim-t/0c01bfeda9b1.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -392,6 +396,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "dim-t/708aae7159dc.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -421,6 +426,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "dim-t/a752d13b36da.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -449,6 +455,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "dim-t/f29cc5be64f0.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -480,6 +487,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "dim-t/ac3570e8e86c.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -510,6 +518,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "dim-t/06e9ed4aa82a.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -536,6 +545,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "dim-t/cab478f1015f.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -562,6 +572,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "dim-t/2325ece036b2.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -588,6 +599,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "dim-t/7b34b514f05f.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -613,6 +625,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "dim-t/ab24c8cd2588.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -673,6 +686,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "dim-t/16713cbd5277.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -701,11 +715,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "dim-t/d15ba929485a.webp",
    "allergens": {
     "contains": [
+     "celery",
      "gluten",
      "eggs",
-     "soya"
+     "mustard",
+     "soya",
+     "sulphites"
     ],
     "mayContain": [],
     "cereals": [
@@ -1622,6 +1640,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "dim-t/494f16fa2fb3.webp",
    "allergens": {
     "contains": [
      "celery",

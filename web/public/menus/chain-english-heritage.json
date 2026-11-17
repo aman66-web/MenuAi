@@ -14,16 +14,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "English Heritage food and drink: allergen and nutritional information, all 36 menus of the Civica Food Data Hub portal (v2.16.0.25; accessed 2026-10-08, no date shown)",
+  "title": "English Heritage food and drink: allergen and nutritional information, all 38 menus of the Civica Food Data Hub portal (v2.16.0.25; accessed 2026-11-17, no date shown)",
   "url": "https://englishheritage.mysaffronportal.com/Menus",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "Read from all 36 site menus of English Heritage's food portal. Menus differ by site, so a dish is listed only if its figures and allergens are identical on every menu that prints it (28 differing dishes left out); it may not be sold at every site. Calories only, per portion: no protein or carbs. Named nuts and cereals a dish only may contain aren't listed.",
+ "note": "Read from all 38 site menus of English Heritage's food portal. Menus differ by site, so a dish is listed only if its figures and allergens are identical on every menu that prints it (28 differing dishes left out); it may not be sold at every site. Calories only, per portion: no protein or carbs. Named nuts and cereals a dish only may contain aren't listed.",
  "allergenGuide": {
-  "title": "English Heritage allergen and nutritional information, Civica Food Data Hub portal (v2.16.0.25; accessed 2026-10-08, no date shown)",
+  "title": "English Heritage allergen and nutritional information, Civica Food Data Hub portal (v2.16.0.25; accessed 2026-11-17, no date shown)",
   "url": "https://englishheritage.mysaffronportal.com/Menus",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -467,11 +467,11 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 398,
-    "saturatedFat": 2.3,
-    "sugar": 1.3,
-    "salt": 3.6,
-    "energyKj": 1666
+    "calories": 554,
+    "saturatedFat": 2.7,
+    "sugar": 1.5,
+    "salt": 4.4,
+    "energyKj": 2316
    },
    "tags": [
     "contains_pork"
@@ -503,11 +503,11 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 308,
-    "saturatedFat": 2.2,
-    "sugar": 1,
-    "salt": 3.3,
-    "energyKj": 1288
+    "calories": 404,
+    "saturatedFat": 2.7,
+    "sugar": 1.6,
+    "salt": 4,
+    "energyKj": 1689
    },
    "tags": [],
    "limitedTime": false,
@@ -760,7 +760,7 @@
     "saturatedFat": 23,
     "sugar": 4.5,
     "salt": 1.8,
-    "energyKj": 2970
+    "energyKj": 2971
    },
    "tags": [],
    "limitedTime": false,
@@ -807,7 +807,7 @@
    "category": "Light Bites",
    "serving": "",
    "nutrients": {
-    "calories": 527,
+    "calories": 528,
     "saturatedFat": 7.1,
     "sugar": 13,
     "salt": 1.5,
@@ -829,6 +829,99 @@
    }
   },
   {
+   "id": "red-tractor-chicken-shawarma-flatbread",
+   "name": "Red Tractor Chicken Shawarma Flatbread",
+   "category": "Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 537,
+    "saturatedFat": 3,
+    "sugar": 5.7,
+    "salt": 0.92,
+    "energyKj": 2246
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegetable-flatbread",
+   "name": "Vegetable Flatbread",
+   "category": "Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 383,
+    "saturatedFat": 5.6,
+    "sugar": 27,
+    "salt": 0.75,
+    "energyKj": 1604
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "red-tractor-beef-stuffed-flatbread",
+   "name": "Red Tractor Beef Stuffed Flatbread",
+   "category": "Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 554,
+    "saturatedFat": 11,
+    "sugar": 5.4,
+    "salt": 1.2,
+    "energyKj": 2318
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "msc-fish-finger-sandwich",
    "name": "MSC Fish Finger Sandwich",
    "category": "Light Bites",
@@ -837,8 +930,8 @@
     "calories": 722,
     "saturatedFat": 3.7,
     "sugar": 3.5,
-    "salt": 2.7,
-    "energyKj": 3022
+    "salt": 2.8,
+    "energyKj": 3020
    },
    "tags": [],
    "limitedTime": false,
@@ -869,11 +962,11 @@
    "category": "Light Bites",
    "serving": "",
    "nutrients": {
-    "calories": 644,
-    "saturatedFat": 9.9,
-    "sugar": 2.9,
-    "salt": 2.9,
-    "energyKj": 2693
+    "calories": 756,
+    "saturatedFat": 10,
+    "sugar": 3.5,
+    "salt": 3.6,
+    "energyKj": 3163
    },
    "tags": [],
    "limitedTime": false,
@@ -899,52 +992,16 @@
    }
   },
   {
-   "id": "red-tractor-bacon-brie-and-chilli-jam-toastie-with-crisps",
-   "name": "Red Tractor Bacon, Brie & Chilli Jam Toastie with Crisps",
+   "id": "door-stop-red-tractor-bacon-brie-and-chilli-jam-toastie-with-crisps",
+   "name": "Door Stop Red Tractor Bacon, Brie & Chilli Jam Toastie with Crisps",
    "category": "Light Bites",
    "serving": "",
    "nutrients": {
-    "calories": 606,
-    "saturatedFat": 13,
-    "sugar": 7.8,
-    "salt": 4.3,
-    "energyKj": 2536
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [
-     "eggs",
-     "nuts",
-     "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "red-tractor-ham-and-mature-cheddar-toastie-with-crisps",
-   "name": "Red Tractor Ham & Mature Cheddar Toastie with Crisps",
-   "category": "Light Bites",
-   "serving": "",
-   "nutrients": {
-    "calories": 614,
+    "calories": 745,
     "saturatedFat": 14,
-    "sugar": 2.3,
-    "salt": 3.4,
-    "energyKj": 2567
+    "sugar": 8.5,
+    "salt": 5,
+    "energyKj": 3117
    },
    "tags": [
     "contains_pork"
@@ -971,16 +1028,52 @@
    }
   },
   {
-   "id": "red-tractor-chicken-pesto-and-mozzarella-toastie-with-crisps",
-   "name": "Red Tractor Chicken, Pesto & Mozzarella Toastie with Crisps",
+   "id": "door-stop-red-tractor-ham-and-mozzarella-toastie-with-crisps",
+   "name": "Door Stop Red Tractor Ham & Mozzarella Toastie with Crisps",
    "category": "Light Bites",
    "serving": "",
    "nutrients": {
-    "calories": 565,
-    "saturatedFat": 4.6,
-    "sugar": 2.4,
-    "salt": 2.2,
-    "energyKj": 2365
+    "calories": 752,
+    "saturatedFat": 14,
+    "sugar": 3,
+    "salt": 4.1,
+    "energyKj": 3148
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "door-stop-red-tractor-chicken-pesto-and-mozzarella-toastie-with-crisps",
+   "name": "Door Stop Red Tractor Chicken, Pesto & Mozzarella Toastie with Crisps",
+   "category": "Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 876,
+    "saturatedFat": 13,
+    "sugar": 3.6,
+    "salt": 3.8,
+    "energyKj": 3664
    },
    "tags": [],
    "limitedTime": false,
@@ -1006,16 +1099,16 @@
    }
   },
   {
-   "id": "tomato-pesto-and-mozzarella-toastie-with-crisps",
-   "name": "Tomato, Pesto & Mozzarella Toastie with Crisps",
+   "id": "door-stop-tomato-pesto-and-mozzarella-toastie-with-crisps",
+   "name": "Door Stop Tomato, Pesto & Mozzarella Toastie with Crisps",
    "category": "Light Bites",
    "serving": "",
    "nutrients": {
-    "calories": 472,
-    "saturatedFat": 4.5,
-    "sugar": 4.2,
-    "salt": 2.1,
-    "energyKj": 1975
+    "calories": 868,
+    "saturatedFat": 16,
+    "sugar": 5.7,
+    "salt": 4,
+    "energyKj": 3633
    },
    "tags": [],
    "limitedTime": false,
@@ -1041,16 +1134,16 @@
    }
   },
   {
-   "id": "red-tractor-chicken-and-chorizo-toastie",
-   "name": "Red Tractor Chicken & Chorizo Toastie",
+   "id": "door-stop-chorizo-mozzarella-and-hot-honey-toastie-with-crisps",
+   "name": "Door Stop Chorizo, Mozzarella & Hot Honey Toastie with Crisps",
    "category": "Light Bites",
    "serving": "",
    "nutrients": {
-    "calories": 716,
+    "calories": 855,
     "saturatedFat": 17,
-    "sugar": 10,
-    "salt": 4.4,
-    "energyKj": 2997
+    "sugar": 11,
+    "salt": 5.1,
+    "energyKj": 3578
    },
    "tags": [
     "contains_pork"
@@ -1175,7 +1268,7 @@
     "calories": 987,
     "saturatedFat": 12,
     "sugar": 4.2,
-    "salt": 4.2,
+    "salt": 4.3,
     "energyKj": 4130
    },
    "tags": [],
@@ -1206,11 +1299,11 @@
    "category": "Light Bites",
    "serving": "",
    "nutrients": {
-    "calories": 606,
+    "calories": 601,
     "saturatedFat": 12,
-    "sugar": 6.7,
-    "salt": 2.9,
-    "energyKj": 2535
+    "sugar": 5.6,
+    "salt": 2.8,
+    "energyKj": 2514
    },
    "tags": [],
    "limitedTime": false,
@@ -1220,8 +1313,7 @@
    "allergens": {
     "contains": [
      "gluten",
-     "milk",
-     "sulphites"
+     "milk"
     ],
     "mayContain": [
      "mustard",
@@ -1273,11 +1365,11 @@
    "category": "Light Bites",
    "serving": "",
    "nutrients": {
-    "calories": 347,
-    "saturatedFat": 12,
-    "sugar": 1.1,
-    "salt": 2,
-    "energyKj": 1453
+    "calories": 289,
+    "saturatedFat": 9.1,
+    "sugar": 0.9,
+    "salt": 1.7,
+    "energyKj": 1210
    },
    "tags": [
     "contains_pork"
@@ -1335,16 +1427,16 @@
    }
   },
   {
-   "id": "tuna-melt-ciabatta-with-crisps",
-   "name": "Tuna Melt Ciabatta with Crisps",
+   "id": "msc-tuna-melt-ciabatta-with-crisps",
+   "name": "MSC Tuna Melt Ciabatta with Crisps",
    "category": "Light Bites",
    "serving": "",
    "nutrients": {
-    "calories": 750,
+    "calories": 717,
     "saturatedFat": 9.6,
     "sugar": 6.8,
     "salt": 3.4,
-    "energyKj": 3137
+    "energyKj": 3001
    },
    "tags": [],
    "limitedTime": false,
@@ -1359,6 +1451,133 @@
      "milk"
     ],
     "mayContain": [
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "red-tractor-turkey-and-stuffing-ciabatta-with-crisps",
+   "name": "Red Tractor Turkey & Stuffing Ciabatta with Crisps",
+   "category": "Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 843,
+    "saturatedFat": 6.7,
+    "sugar": 12,
+    "salt": 3.9,
+    "energyKj": 3527
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "jacket-potato-and-coleslaw-with-salad-and-slaw",
+   "name": "Jacket Potato & Coleslaw with Salad & Slaw",
+   "category": "Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 505,
+    "saturatedFat": 7.6,
+    "sugar": 5,
+    "salt": 0.47,
+    "energyKj": 2112
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-red-tractor-beef-dinner-ciabatta",
+   "name": "Hot Red Tractor Beef Dinner Ciabatta",
+   "category": "Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 746,
+    "saturatedFat": 8.4,
+    "sugar": 7,
+    "salt": 3,
+    "energyKj": 3121
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hot-turkey-dinner-ciabatta",
+   "name": "Hot Turkey Dinner Ciabatta",
+   "category": "Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 819,
+    "saturatedFat": 7,
+    "sugar": 10,
+    "salt": 4.2,
+    "energyKj": 3426
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
      "mustard",
      "sesame",
      "soya"
@@ -1392,8 +1611,7 @@
      "milk"
     ],
     "mayContain": [
-     "celery",
-     "sulphites"
+     "celery"
     ],
     "cereals": [
      "wheat"
@@ -1406,11 +1624,11 @@
    "category": "Light Bites",
    "serving": "",
    "nutrients": {
-    "calories": 464,
+    "calories": 479,
     "saturatedFat": 19,
-    "sugar": 2.8,
-    "salt": 1.4,
-    "energyKj": 1940
+    "sugar": 4.2,
+    "salt": 1.5,
+    "energyKj": 2003
    },
    "tags": [],
    "limitedTime": false,
@@ -1423,17 +1641,15 @@
      "eggs",
      "milk"
     ],
-    "mayContain": [
-     "sulphites"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
    }
   },
   {
-   "id": "chunky-pork-roll",
-   "name": "Chunky Pork Roll",
+   "id": "chunky-pork-sausage-roll",
+   "name": "Chunky Pork Sausage Roll",
    "category": "Light Bites",
    "serving": "",
    "nutrients": {
@@ -1548,7 +1764,9 @@
     "contains": [
      "milk"
     ],
-    "mayContain": []
+    "mayContain": [
+     "sulphites"
+    ]
    }
   },
   {
@@ -1561,7 +1779,7 @@
     "saturatedFat": 4.2,
     "sugar": 13,
     "salt": 1.3,
-    "energyKj": 2333
+    "energyKj": 2334
    },
    "tags": [],
    "limitedTime": false,
@@ -1573,7 +1791,9 @@
      "eggs",
      "milk"
     ],
-    "mayContain": []
+    "mayContain": [
+     "sulphites"
+    ]
    }
   },
   {
@@ -1582,11 +1802,11 @@
    "category": "Light Bites",
    "serving": "",
    "nutrients": {
-    "calories": 497,
+    "calories": 237,
     "saturatedFat": 11,
-    "sugar": 2.9,
-    "salt": 2.4,
-    "energyKj": 2081
+    "sugar": 1,
+    "salt": 1,
+    "energyKj": 993
    },
    "tags": [],
    "limitedTime": false,
@@ -1599,13 +1819,12 @@
      "sesame"
     ],
     "mayContain": [
-     "eggs",
-     "milk"
+     "milk",
+     "mustard",
+     "soya"
     ],
     "cereals": [
-     "wheat",
-     "rye",
-     "barley"
+     "wheat"
     ]
    }
   },
@@ -1739,47 +1958,16 @@
    }
   },
   {
-   "id": "garden-vegetable-quiche",
-   "name": "Garden Vegetable Quiche",
-   "category": "Light Bites",
-   "serving": "",
-   "nutrients": {
-    "calories": 455,
-    "saturatedFat": 18,
-    "sugar": 5.4,
-    "salt": 0.81,
-    "energyKj": 1902
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "msc-fish-finger-ciabatta-with-homemade-tartare-sauce-and-crisps",
    "name": "MSC Fish Finger Ciabatta with Homemade Tartare Sauce & Crisps",
    "category": "Light Bites",
    "serving": "",
    "nutrients": {
-    "calories": 428,
-    "saturatedFat": 2.4,
-    "sugar": 2.5,
-    "salt": 2.5,
-    "energyKj": 1789
+    "calories": 762,
+    "saturatedFat": 3,
+    "sugar": 7.5,
+    "salt": 4.4,
+    "energyKj": 3186
    },
    "tags": [],
    "limitedTime": false,
@@ -1897,51 +2085,16 @@
    }
   },
   {
-   "id": "british-rspca-assured-hot-pulled-pork-and-stuffing-bap",
-   "name": "British RSPCA Assured Hot Pulled Pork & Stuffing Bap",
+   "id": "bbq-pulled-pork-ciabatta-and-salad",
+   "name": "BBQ Pulled Pork Ciabatta & Salad",
    "category": "Light Bites",
    "serving": "",
    "nutrients": {
-    "calories": 863,
-    "saturatedFat": 9.5,
-    "sugar": 11,
-    "salt": 3.9,
-    "energyKj": 3610
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "sulphites"
-    ],
-    "mayContain": [
-     "milk",
-     "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
-    ]
-   }
-  },
-  {
-   "id": "smoked-pork-frankfurter-hot-dog",
-   "name": "Smoked Pork Frankfurter Hot Dog",
-   "category": "Light Bites",
-   "serving": "",
-   "nutrients": {
-    "calories": 449,
-    "saturatedFat": 3.1,
-    "sugar": 3.3,
-    "salt": 2.2,
-    "energyKj": 1877
+    "calories": 365,
+    "saturatedFat": 6.7,
+    "sugar": 19,
+    "salt": 1.8,
+    "energyKj": 1528
    },
    "tags": [
     "contains_pork"
@@ -1955,7 +2108,8 @@
      "gluten"
     ],
     "mayContain": [
-     "nuts",
+     "milk",
+     "mustard",
      "sesame",
      "soya"
     ],
@@ -2002,11 +2156,11 @@
    "category": "Light Bites",
    "serving": "",
    "nutrients": {
-    "calories": 447,
-    "saturatedFat": 0.6,
-    "sugar": 12,
+    "calories": 510,
+    "saturatedFat": 0.9,
+    "sugar": 14,
     "salt": 1.7,
-    "energyKj": 1872
+    "energyKj": 2135
    },
    "tags": [],
    "limitedTime": false,
@@ -2016,10 +2170,70 @@
    "allergens": {
     "contains": [
      "celery",
+     "eggs",
      "mustard"
     ],
     "mayContain": [
      "gluten"
+    ]
+   }
+  },
+  {
+   "id": "festive-pigs-in-blankets-slice",
+   "name": "Festive Pigs in Blankets Slice",
+   "category": "Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 418,
+    "saturatedFat": 11,
+    "sugar": 2.3,
+    "salt": 1.5,
+    "energyKj": 1750
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "festive-savoury-slice",
+   "name": "Festive Savoury Slice",
+   "category": "Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 522,
+    "saturatedFat": 18,
+    "sugar": 3.9,
+    "salt": 1.5,
+    "energyKj": 2182
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
     ]
    }
   },
@@ -2209,6 +2423,38 @@
    }
   },
   {
+   "id": "cheese-twist",
+   "name": "Cheese Twist",
+   "category": "Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 411,
+    "saturatedFat": 17,
+    "sugar": 3.3,
+    "salt": 0.72,
+    "energyKj": 1718
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "jacket-potato-with-houmous-and-olives-salad-and-slaw",
    "name": "Jacket Potato with Houmous & Olives, Salad & Slaw",
    "category": "Light Bites",
@@ -2234,8 +2480,34 @@
    }
   },
   {
-   "id": "red-tractor-chicken-and-bacon-club-baguette",
-   "name": "Red Tractor Chicken & Bacon Club Baguette",
+   "id": "jacket-potato-and-coronation-chicken-with-salad-and-slaw",
+   "name": "Jacket Potato & Coronation Chicken with Salad & Slaw",
+   "category": "Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 583,
+    "saturatedFat": 3,
+    "sugar": 10,
+    "salt": 1.8,
+    "energyKj": 2441
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-tractor-chicken-and-bacon-baguette",
+   "name": "Red Tractor Chicken & Bacon Baguette",
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
@@ -2303,11 +2575,11 @@
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
-    "calories": 544,
+    "calories": 543,
     "saturatedFat": 3.9,
-    "sugar": 8.1,
+    "sugar": 7.8,
     "salt": 3.6,
-    "energyKj": 2277
+    "energyKj": 2272
    },
    "tags": [],
    "limitedTime": false,
@@ -2571,8 +2843,8 @@
    }
   },
   {
-   "id": "mature-cheddar-and-red-onion-chutney-baguette",
-   "name": "Mature Cheddar & Red Onion Chutney Baguette",
+   "id": "mature-cheddar-and-old-spot-english-ale-chutney-baguette",
+   "name": "Mature Cheddar & Old Spot English Ale Chutney Baguette",
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
@@ -2704,8 +2976,38 @@
    }
   },
   {
-   "id": "free-range-egg-and-watercress-baguette",
-   "name": "Free Range Egg & Watercress Baguette",
+   "id": "cornish-brie-and-onion-relish-baguette",
+   "name": "Cornish Brie & Onion Relish Baguette",
+   "category": "Sandwiches & Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 538,
+    "saturatedFat": 8.3,
+    "sugar": 20,
+    "salt": 2.2,
+    "energyKj": 2250
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "free-range-egg-mayonnaise-and-watercress-baguette",
+   "name": "Free Range Egg Mayonnaise & Watercress Baguette",
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
@@ -2873,8 +3175,8 @@
    }
   },
   {
-   "id": "cheese-and-chilli-jam-baguette-with-salad-and-crisps",
-   "name": "Cheese & Chilli Jam Baguette with Salad & Crisps",
+   "id": "vegan-cheddar-and-chilli-jam-baguette-with-salad-and-crisps",
+   "name": "Vegan Cheddar & Chilli Jam Baguette with Salad & Crisps",
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
@@ -2906,19 +3208,19 @@
    }
   },
   {
-   "id": "open-caprese-sandwich-with-crisps",
-   "name": "Open Caprese Sandwich with Crisps",
+   "id": "red-tractor-gammon-ham-salad-sandwich",
+   "name": "Red Tractor Gammon Ham Salad Sandwich",
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
-    "calories": 491,
-    "saturatedFat": 15,
-    "sugar": 4,
-    "salt": 1.8,
-    "energyKj": 2053
+    "calories": 341,
+    "saturatedFat": 2.8,
+    "sugar": 5.5,
+    "salt": 1.4,
+    "energyKj": 1426
    },
    "tags": [
-    "vegetarian"
+    "contains_pork"
    ],
    "limitedTime": false,
    "rankable": false,
@@ -2928,10 +3230,127 @@
     "contains": [
      "gluten",
      "milk",
-     "sulphites"
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "free-range-egg-mayonnaise-and-watercress-sandwich",
+   "name": "Free Range Egg Mayonnaise & Watercress Sandwich",
+   "category": "Sandwiches & Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 377,
+    "saturatedFat": 2.3,
+    "sugar": 5,
+    "salt": 0.78,
+    "energyKj": 1576
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "red-tractor-bacon-lettuce-and-tomato-sandwich",
+   "name": "Red Tractor Bacon, Lettuce & Tomato Sandwich",
+   "category": "Sandwiches & Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 463,
+    "saturatedFat": 4,
+    "sugar": 6.3,
+    "salt": 3.1,
+    "energyKj": 1937
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegan-cheese-and-salad-with-vegan-mayonnaise-sandwich",
+   "name": "Vegan Cheese & Salad with Vegan Mayonnaise Sandwich",
+   "category": "Sandwiches & Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 516,
+    "saturatedFat": 17,
+    "sugar": 5.6,
+    "salt": 2.4,
+    "energyKj": 2160
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "roasted-peppers-olives-and-houmous-open-sandwich-with-crisps",
+   "name": "Roasted Peppers, Olives & Houmous Open Sandwich with Crisps",
+   "category": "Sandwiches & Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 510,
+    "saturatedFat": 3.3,
+    "sugar": 3.6,
+    "salt": 2.4,
+    "energyKj": 2133
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
     ],
     "mayContain": [
      "eggs",
+     "milk",
      "nuts",
      "soya"
     ],
@@ -2943,18 +3362,20 @@
    }
   },
   {
-   "id": "red-tractor-chicken-club-open-sandwich-with-crisps",
-   "name": "Red Tractor Chicken Club Open Sandwich with Crisps",
+   "id": "red-tractor-chicken-and-bacon-open-sandwich-with-crisps",
+   "name": "Red Tractor Chicken & Bacon Open Sandwich with Crisps",
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
-    "calories": 459,
-    "saturatedFat": 3.9,
-    "sugar": 2.3,
-    "salt": 2.6,
-    "energyKj": 1922
+    "calories": 529,
+    "saturatedFat": 4.1,
+    "sugar": 2.7,
+    "salt": 3,
+    "energyKj": 2212
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -2977,13 +3398,13 @@
    }
   },
   {
-   "id": "mature-cheddar-salad-and-chutney-baguette-with-salad",
-   "name": "Mature Cheddar Salad & Chutney Baguette with Salad",
+   "id": "mature-cheddar-salad-and-bloody-mary-chutney-baguette-with-salad",
+   "name": "Mature Cheddar Salad & Bloody Mary Chutney Baguette with Salad",
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
     "calories": 541,
-    "saturatedFat": 9.1,
+    "saturatedFat": 9,
     "sugar": 13,
     "salt": 1.9,
     "energyKj": 2262
@@ -3110,8 +3531,8 @@
    }
   },
   {
-   "id": "tuna-mayonnaise-sourdough-with-salad-and-crisps",
-   "name": "Tuna Mayonnaise Sourdough with Salad & Crisps",
+   "id": "tuna-mayonnaise-and-cucumber-sourdough-with-salad-and-crisps",
+   "name": "Tuna Mayonnaise & Cucumber Sourdough with Salad & Crisps",
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
@@ -3146,8 +3567,8 @@
    }
   },
   {
-   "id": "free-range-egg-mayo-sourdough-with-salad-and-crisps",
-   "name": "Free-range Egg Mayo Sourdough with Salad & Crisps",
+   "id": "free-range-egg-mayonnaise-and-cress-sourdough-with-salad-and-crisps",
+   "name": "Free-range Egg Mayonnaise & Cress Sourdough with Salad & Crisps",
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
@@ -3220,8 +3641,8 @@
    }
   },
   {
-   "id": "cheese-and-chilli-jam-sourdough-with-salad-and-crisps",
-   "name": "Cheese & Chilli Jam Sourdough with Salad & Crisps",
+   "id": "vegan-cheddar-and-chilli-jam-sourdough-with-salad-and-crisps",
+   "name": "Vegan Cheddar & Chilli Jam Sourdough with Salad & Crisps",
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
@@ -3260,11 +3681,11 @@
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
-    "calories": 627,
+    "calories": 629,
     "saturatedFat": 12,
     "sugar": 22,
-    "salt": 2,
-    "energyKj": 2623
+    "salt": 2.1,
+    "energyKj": 2630
    },
    "tags": [],
    "limitedTime": false,
@@ -3321,16 +3742,16 @@
    }
   },
   {
-   "id": "avocado-and-prawn-open-sandwich-with-crisps",
-   "name": "Avocado & Prawn Open Sandwich with Crisps",
+   "id": "msc-prawns-and-avocado-open-sandwich-with-crisps",
+   "name": "MSC Prawns & Avocado Open Sandwich with Crisps",
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
-    "calories": 419,
-    "saturatedFat": 4.4,
-    "sugar": 2,
-    "salt": 1.7,
-    "energyKj": 1751
+    "calories": 488,
+    "saturatedFat": 4.7,
+    "sugar": 2.3,
+    "salt": 2.1,
+    "energyKj": 2041
    },
    "tags": [],
    "limitedTime": false,
@@ -3356,137 +3777,16 @@
    }
   },
   {
-   "id": "roasted-red-peppers-pesto-and-rocket-baguette",
-   "name": "Roasted Red Peppers, Pesto & Rocket Baguette",
-   "category": "Sandwiches & Wraps",
-   "serving": "",
-   "nutrients": {
-    "calories": 682,
-    "saturatedFat": 4.7,
-    "sugar": 11,
-    "salt": 4.1,
-    "energyKj": 2852
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [
-     "sesame"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "red-tractor-roast-beef-red-onion-marmalade-and-rocket-baguette",
-   "name": "Red Tractor Roast Beef, Red Onion Marmalade & Rocket Baguette",
-   "category": "Sandwiches & Wraps",
-   "serving": "",
-   "nutrients": {
-    "calories": 519,
-    "saturatedFat": 1.5,
-    "sugar": 15,
-    "salt": 2.4,
-    "energyKj": 2172
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "mustard"
-    ],
-    "mayContain": [
-     "sesame"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "red-tractor-bacon-lettuce-and-tomato-sandwich",
-   "name": "Red Tractor Bacon, Lettuce & Tomato Sandwich",
-   "category": "Sandwiches & Wraps",
-   "serving": "",
-   "nutrients": {
-    "calories": 439,
-    "saturatedFat": 3.5,
-    "sugar": 6.2,
-    "salt": 2.7,
-    "energyKj": 1835
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "vegan-cheese-and-salad-with-vegan-mayonnaise-sandwich",
-   "name": "Vegan Cheese & Salad with Vegan Mayonnaise Sandwich",
-   "category": "Sandwiches & Wraps",
-   "serving": "",
-   "nutrients": {
-    "calories": 517,
-    "saturatedFat": 17,
-    "sugar": 5.7,
-    "salt": 2.4,
-    "energyKj": 2162
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "red-tractor-ham-and-mozzarella-toasted-ciabatta-with-salad-and-slaw",
    "name": "Red Tractor Ham & Mozzarella Toasted Ciabatta with Salad & Slaw",
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
-    "calories": 240,
+    "calories": 241,
     "saturatedFat": 6.4,
-    "sugar": 2.3,
+    "sugar": 2.4,
     "salt": 1.4,
-    "energyKj": 1006
+    "energyKj": 1007
    },
    "tags": [
     "contains_pork"
@@ -3521,7 +3821,7 @@
     "saturatedFat": 10,
     "sugar": 9.2,
     "salt": 3,
-    "energyKj": 2693
+    "energyKj": 2694
    },
    "tags": [],
    "limitedTime": false,
@@ -3551,11 +3851,11 @@
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
-    "calories": 729,
+    "calories": 725,
     "saturatedFat": 20,
-    "sugar": 8.6,
+    "sugar": 8.5,
     "salt": 4.3,
-    "energyKj": 3050
+    "energyKj": 3034
    },
    "tags": [],
    "limitedTime": false,
@@ -3579,8 +3879,8 @@
    }
   },
   {
-   "id": "chicken-and-bacon-mayo-baguette-with-salad-and-crisps",
-   "name": "Chicken & Bacon Mayo Baguette with Salad & Crisps",
+   "id": "chicken-and-bacon-mayonnaise-baguette-with-salad-and-crisps",
+   "name": "Chicken & Bacon Mayonnaise Baguette with Salad & Crisps",
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
@@ -3617,8 +3917,8 @@
    }
   },
   {
-   "id": "cheddar-spring-onion-and-mayo-baguette-with-salad-and-crisps",
-   "name": "Cheddar, Spring Onion & Mayo Baguette with Salad & Crisps",
+   "id": "cheddar-spring-onion-and-mayonnaise-baguette-with-salad-and-crisps",
+   "name": "Cheddar, Spring Onion & Mayonnaise Baguette with Salad & Crisps",
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
@@ -3719,27 +4019,26 @@
    }
   },
   {
-   "id": "red-tractor-assured-bacon-lettuce-and-tomato-baguette",
-   "name": "Red Tractor Assured Bacon, Lettuce & Tomato Baguette",
+   "id": "red-tractor-assured-blt-baguette",
+   "name": "Red Tractor Assured BLT Baguette",
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
-    "calories": 480,
-    "saturatedFat": 3.8,
-    "sugar": 5.1,
+    "calories": 540,
+    "saturatedFat": 4.3,
+    "sugar": 5.4,
     "salt": 4.1,
-    "energyKj": 2007
+    "energyKj": 2260
    },
-   "tags": [
-    "contains_pork"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten"
+     "gluten",
+     "eggs"
     ],
     "mayContain": [
      "mustard",
@@ -3788,16 +4087,16 @@
    }
   },
   {
-   "id": "free-range-egg-and-cress-baguette",
-   "name": "Free Range Egg & Cress Baguette",
+   "id": "free-range-egg-mayo-and-cress-baguette",
+   "name": "Free Range Egg Mayo & Cress Baguette",
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
-    "calories": 520,
-    "saturatedFat": 3.8,
-    "sugar": 4.2,
-    "salt": 3.1,
-    "energyKj": 2178
+    "calories": 546,
+    "saturatedFat": 2.9,
+    "sugar": 5.5,
+    "salt": 2.2,
+    "energyKj": 2285
    },
    "tags": [],
    "limitedTime": false,
@@ -3811,11 +4110,7 @@
      "mustard"
     ],
     "mayContain": [
-     "crustaceans",
-     "fish",
-     "milk",
-     "soya",
-     "sulphites"
+     "soya"
     ],
     "cereals": [
      "wheat",
@@ -3844,6 +4139,77 @@
     "contains": [
      "gluten",
      "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "chicken-and-bacon-baguette",
+   "name": "Chicken & Bacon Baguette",
+   "category": "Sandwiches & Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 594,
+    "saturatedFat": 4.7,
+    "sugar": 6.4,
+    "salt": 3.4,
+    "energyKj": 2486
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "tuna-mayo-and-cucumber-baguette",
+   "name": "Tuna Mayo & Cucumber Baguette",
+   "category": "Sandwiches & Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 689,
+    "saturatedFat": 2.4,
+    "sugar": 4.4,
+    "salt": 3.5,
+    "energyKj": 2881
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish"
     ],
     "mayContain": [
      "mustard",
@@ -3891,11 +4257,11 @@
    "category": "Sandwiches & Wraps",
    "serving": "",
    "nutrients": {
-    "calories": 528,
+    "calories": 521,
     "saturatedFat": 2.8,
-    "sugar": 6.4,
-    "salt": 2.4,
-    "energyKj": 2209
+    "sugar": 6.3,
+    "salt": 2.3,
+    "energyKj": 2181
    },
    "tags": [],
    "limitedTime": false,
@@ -3918,16 +4284,16 @@
    }
   },
   {
-   "id": "curried-carrot-soup-audley",
-   "name": "Curried Carrot Soup - Audley",
+   "id": "potato-and-leek-soup-with-roll-and-butter",
+   "name": "Potato & Leek Soup with Roll & Butter",
    "category": "Soups",
    "serving": "",
    "nutrients": {
-    "calories": 85,
-    "saturatedFat": 0.2,
-    "sugar": 14,
-    "salt": 0.64,
-    "energyKj": 357
+    "calories": 474,
+    "saturatedFat": 6.7,
+    "sugar": 7.6,
+    "salt": 2,
+    "energyKj": 1983
    },
    "tags": [],
    "limitedTime": false,
@@ -3937,18 +4303,15 @@
    "allergens": {
     "contains": [
      "gluten",
-     "mustard"
+     "milk"
     ],
     "mayContain": [
      "eggs",
-     "milk",
-     "nuts",
-     "soya"
+     "sesame"
     ],
     "cereals": [
      "wheat",
-     "rye",
-     "barley"
+     "rye"
     ]
    }
   },
@@ -4019,81 +4382,16 @@
    }
   },
   {
-   "id": "roasted-red-pepper-and-tomato-soup-with-roll-and-butter",
-   "name": "Roasted Red Pepper & Tomato Soup with Roll & Butter",
-   "category": "Soups",
-   "serving": "",
-   "nutrients": {
-    "calories": 482,
-    "saturatedFat": 7.3,
-    "sugar": 11,
-    "salt": 2.7,
-    "energyKj": 2015
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [
-     "eggs",
-     "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
-    ]
-   }
-  },
-  {
-   "id": "cauliflower-soup-with-roll-and-butter",
-   "name": "Cauliflower Soup with Roll & Butter",
-   "category": "Soups",
-   "serving": "",
-   "nutrients": {
-    "calories": 378,
-    "saturatedFat": 6.7,
-    "sugar": 4.1,
-    "salt": 3.1,
-    "energyKj": 1582
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [
-     "eggs",
-     "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
-    ]
-   }
-  },
-  {
    "id": "spiced-parsnip-soup-with-roll-and-butter",
    "name": "Spiced Parsnip Soup with Roll & Butter",
    "category": "Soups",
    "serving": "",
    "nutrients": {
-    "calories": 418,
+    "calories": 420,
     "saturatedFat": 3.7,
     "sugar": 14,
-    "salt": 2.6,
-    "energyKj": 1751
+    "salt": 3.8,
+    "energyKj": 1756
    },
    "tags": [],
    "limitedTime": false,
@@ -4117,16 +4415,16 @@
    }
   },
   {
-   "id": "roast-butternut-squash-soup-with-roll-and-butter",
-   "name": "Roast Butternut Squash Soup with Roll & Butter",
+   "id": "lentil-and-butternut-squash-soup-with-roll-and-butter",
+   "name": "Lentil & Butternut Squash Soup with Roll & Butter",
    "category": "Soups",
    "serving": "",
    "nutrients": {
-    "calories": 471,
-    "saturatedFat": 6.7,
-    "sugar": 14,
-    "salt": 2.6,
-    "energyKj": 1969
+    "calories": 556,
+    "saturatedFat": 6.8,
+    "sugar": 15,
+    "salt": 2.3,
+    "energyKj": 2324
    },
    "tags": [],
    "limitedTime": false,
@@ -4214,16 +4512,16 @@
    }
   },
   {
-   "id": "parsnip-and-apple-soup-with-bread-roll",
-   "name": "Parsnip and Apple soup with bread roll",
+   "id": "broccoli-and-stilton-soup-with-roll-and-butter",
+   "name": "Broccoli & Stilton Soup with Roll & Butter",
    "category": "Soups",
    "serving": "",
    "nutrients": {
-    "calories": 510,
-    "saturatedFat": 7.5,
-    "sugar": 19,
-    "salt": 4.1,
-    "energyKj": 2136
+    "calories": 355,
+    "saturatedFat": 6.6,
+    "sugar": 2.9,
+    "salt": 3,
+    "energyKj": 1484
    },
    "tags": [],
    "limitedTime": false,
@@ -4237,7 +4535,39 @@
     ],
     "mayContain": [
      "eggs",
-     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "parsnip-and-apple-soup-with-roll-and-butter",
+   "name": "Parsnip & Apple Soup with Roll & Butter",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 370,
+    "saturatedFat": 7.2,
+    "sugar": 14,
+    "salt": 1.9,
+    "energyKj": 1547
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
      "sesame"
     ],
     "cereals": [
@@ -4447,6 +4777,40 @@
    }
   },
   {
+   "id": "carrot-and-butternut-squash-soup-with-roll-and-butter",
+   "name": "Carrot & Butternut Squash Soup with Roll & Butter",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 394,
+    "saturatedFat": 1.1,
+    "sugar": 13,
+    "salt": 3.7,
+    "energyKj": 1648
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "oats"
+    ]
+   }
+  },
+  {
    "id": "roast-mushroom-and-cauliflower-soup-with-roll-and-butter",
    "name": "Roast Mushroom & Cauliflower Soup with Roll & Butter",
    "category": "Soups",
@@ -4642,6 +5006,38 @@
    }
   },
   {
+   "id": "spiced-parsnip-and-apple-soup-with-roll-and-butter",
+   "name": "Spiced Parsnip & Apple soup with Roll & Butter",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 396,
+    "saturatedFat": 5.6,
+    "sugar": 17.4,
+    "salt": 3.2,
+    "energyKj": 1657
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "spicy-tomato-and-red-pepper-soup-with-roll-and-butter",
    "name": "Spicy Tomato & Red Pepper Soup with Roll & Butter",
    "category": "Soups",
@@ -4675,16 +5071,16 @@
    }
   },
   {
-   "id": "roast-butternut-squash-and-chick-pea-salad",
-   "name": "Roast Butternut Squash & Chick Pea Salad",
-   "category": "Salads",
+   "id": "minted-pea-soup-with-roll-and-butter",
+   "name": "Minted Pea Soup with Roll & Butter",
+   "category": "Soups",
    "serving": "",
    "nutrients": {
-    "calories": 407,
-    "saturatedFat": 2.6,
-    "sugar": 12,
-    "salt": 1.6,
-    "energyKj": 1703
+    "calories": 358,
+    "saturatedFat": 3.6,
+    "sugar": 11,
+    "salt": 3.2,
+    "energyKj": 1498
    },
    "tags": [],
    "limitedTime": false,
@@ -4693,9 +5089,47 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "sesame"
+     "gluten",
+     "milk",
+     "sulphites"
     ],
-    "mayContain": []
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "garden-vegetable-quiche-and-salad",
+   "name": "Garden Vegetable Quiche & Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 464,
+    "saturatedFat": 18,
+    "sugar": 6.8,
+    "salt": 0.82,
+    "energyKj": 1942
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
    }
   },
   {
@@ -4704,11 +5138,11 @@
    "category": "Salads",
    "serving": "",
    "nutrients": {
-    "calories": 925,
-    "saturatedFat": 25,
-    "sugar": 23,
-    "salt": 4.5,
-    "energyKj": 3871
+    "calories": 851,
+    "saturatedFat": 24,
+    "sugar": 21,
+    "salt": 4.2,
+    "energyKj": 3560
    },
    "tags": [],
    "limitedTime": false,
@@ -4724,11 +5158,11 @@
      "sulphites"
     ],
     "mayContain": [
-     "sesame",
-     "soya"
+     "sesame"
     ],
     "cereals": [
      "wheat",
+     "rye",
      "barley"
     ]
    }
@@ -4739,11 +5173,11 @@
    "category": "Salads",
    "serving": "",
    "nutrients": {
-    "calories": 587,
+    "calories": 595,
     "saturatedFat": 6.8,
-    "sugar": 5.4,
+    "sugar": 6.4,
     "salt": 2,
-    "energyKj": 2457
+    "energyKj": 2490
    },
    "tags": [],
    "limitedTime": false,
@@ -4772,11 +5206,11 @@
    "category": "Salads",
    "serving": "",
    "nutrients": {
-    "calories": 768,
-    "saturatedFat": 25,
-    "sugar": 6,
-    "salt": 3.8,
-    "energyKj": 3212
+    "calories": 750,
+    "saturatedFat": 24,
+    "sugar": 7.8,
+    "salt": 4.3,
+    "energyKj": 3140
    },
    "tags": [],
    "limitedTime": false,
@@ -4800,199 +5234,16 @@
    }
   },
   {
-   "id": "traditional-ploughmans",
-   "name": "Traditional Ploughman's",
-   "category": "Salads",
-   "serving": "",
-   "nutrients": {
-    "calories": 1073,
-    "saturatedFat": 29,
-    "sugar": 22,
-    "salt": 6.8,
-    "energyKj": 4488
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [
-     "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "homemade-salmon-fishcakes-with-salad",
-   "name": "Homemade Salmon Fishcakes with Salad",
-   "category": "Salads",
-   "serving": "",
-   "nutrients": {
-    "calories": 715,
-    "saturatedFat": 4.7,
-    "sugar": 6.7,
-    "salt": 3.3,
-    "energyKj": 2994
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "fish",
-     "milk"
-    ],
-    "mayContain": [
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "kings-coronation-quiche",
-   "name": "King's Coronation Quiche",
-   "category": "Salads",
-   "serving": "",
-   "nutrients": {
-    "calories": 511,
-    "saturatedFat": 19,
-    "sugar": 4.4,
-    "salt": 1.1,
-    "energyKj": 2136
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "salmon-and-spinach-quiche",
-   "name": "Salmon & Spinach Quiche",
-   "category": "Salads",
-   "serving": "",
-   "nutrients": {
-    "calories": 479,
-    "saturatedFat": 19,
-    "sugar": 2.9,
-    "salt": 1.7,
-    "energyKj": 2004
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "fish",
-     "milk"
-    ],
-    "mayContain": [
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "pasta-pesto-and-peas-salad-side",
-   "name": "Pasta, Pesto & Peas Salad Side",
-   "category": "Salads",
-   "serving": "",
-   "nutrients": {
-    "calories": 466,
-    "saturatedFat": 1.3,
-    "sugar": 5,
-    "salt": 0.29,
-    "energyKj": 1948
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "greek-salad-side",
-   "name": "Greek Salad Side",
-   "category": "Salads",
-   "serving": "",
-   "nutrients": {
-    "calories": 67,
-    "saturatedFat": 2,
-    "sugar": 1.4,
-    "salt": 1.1,
-    "energyKj": 280
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "beetroot-and-feta-salad",
    "name": "Beetroot & Feta Salad",
    "category": "Salads",
    "serving": "",
    "nutrients": {
-    "calories": 178,
+    "calories": 224,
     "saturatedFat": 12,
-    "sugar": 5.3,
-    "salt": 0.92,
-    "energyKj": 743
+    "sugar": 5.7,
+    "salt": 0.94,
+    "energyKj": 937
    },
    "tags": [],
    "limitedTime": false,
@@ -5012,11 +5263,11 @@
    "category": "Salads",
    "serving": "",
    "nutrients": {
-    "calories": 888,
-    "saturatedFat": 23,
-    "sugar": 15,
-    "salt": 5.6,
-    "energyKj": 3714
+    "calories": 606,
+    "saturatedFat": 18,
+    "sugar": 7.8,
+    "salt": 4.2,
+    "energyKj": 2536
    },
    "tags": [],
    "limitedTime": false,
@@ -5040,20 +5291,18 @@
    }
   },
   {
-   "id": "pork-pie-and-wensleydale-platter",
-   "name": "Pork Pie & Wensleydale Platter",
+   "id": "tomato-mozzarella-and-pesto-salad",
+   "name": "Tomato, Mozzarella & Pesto Salad",
    "category": "Salads",
    "serving": "",
    "nutrients": {
-    "calories": 1088,
-    "saturatedFat": 22,
-    "sugar": 39,
+    "calories": 379,
+    "saturatedFat": 6,
+    "sugar": 4,
     "salt": 2.8,
-    "energyKj": 4551
+    "energyKj": 1587
    },
-   "tags": [
-    "contains_pork"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5061,21 +5310,13 @@
    "allergens": {
     "contains": [
      "gluten",
-     "eggs",
-     "milk",
-     "mustard",
-     "nuts",
-     "sulphites"
+     "milk"
     ],
     "mayContain": [
-     "peanuts",
-     "soya"
+     "mustard"
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -5109,6 +5350,89 @@
    }
   },
   {
+   "id": "tomato-mozzarella-and-pesto-pasta-salad",
+   "name": "Tomato, Mozzarella & Pesto Pasta Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 381,
+    "saturatedFat": 6,
+    "sugar": 4.6,
+    "salt": 2.8,
+    "energyKj": 1596
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mambonito-salad",
+   "name": "Mambonito Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 364,
+    "saturatedFat": 2.5,
+    "sugar": 5.9,
+    "salt": 2.8,
+    "energyKj": 1523
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "greek-inspired-rice-salad-with-feta-and-olives",
+   "name": "Greek Inspired Rice Salad with Feta & Olives",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 379,
+    "saturatedFat": 5.8,
+    "sugar": 2.6,
+    "salt": 1.7,
+    "energyKj": 1586
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "feta-salad-with-roll-and-butter",
    "name": "Feta Salad with Roll & Butter",
    "category": "Salads",
@@ -5116,9 +5440,9 @@
    "nutrients": {
     "calories": 577,
     "saturatedFat": 16,
-    "sugar": 7.6,
+    "sugar": 7.7,
     "salt": 3,
-    "energyKj": 2412
+    "energyKj": 2413
    },
    "tags": [],
    "limitedTime": false,
@@ -5150,7 +5474,7 @@
     "saturatedFat": 18,
     "sugar": 18,
     "salt": 3.4,
-    "energyKj": 3096
+    "energyKj": 3097
    },
    "tags": [],
    "limitedTime": false,
@@ -5195,9 +5519,7 @@
      "eggs",
      "milk"
     ],
-    "mayContain": [
-     "sulphites"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -5340,7 +5662,7 @@
     "saturatedFat": 9.3,
     "sugar": 19,
     "salt": 2,
-    "energyKj": 3565
+    "energyKj": 3566
    },
    "tags": [],
    "limitedTime": false,
@@ -5359,44 +5681,6 @@
     ],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "british-gammon-ham-hock-terrine",
-   "name": "British Gammon Ham Hock Terrine",
-   "category": "Starters",
-   "serving": "",
-   "nutrients": {
-    "calories": 384,
-    "saturatedFat": 3.3,
-    "sugar": 10,
-    "salt": 5.5,
-    "energyKj": 1605
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
     ]
    }
   },
@@ -5436,90 +5720,6 @@
    }
   },
   {
-   "id": "charcuterie-sharing-board-for-two",
-   "name": "Charcuterie Sharing Board for Two",
-   "category": "Starters",
-   "serving": "",
-   "nutrients": {
-    "calories": 608,
-    "saturatedFat": 16,
-    "sugar": 2.4,
-    "salt": 4.2,
-    "energyKj": 2545
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [
-     "eggs",
-     "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "roasted-heritage-beetroot-and-goats-cheese-salad",
-   "name": "Roasted Heritage Beetroot & Goat's Cheese Salad",
-   "category": "Starters",
-   "serving": "",
-   "nutrients": {
-    "calories": 460,
-    "saturatedFat": 15,
-    "sugar": 13,
-    "salt": 1.3,
-    "energyKj": 1926
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "heritage-tomato-and-goats-cheese-salad",
-   "name": "Heritage Tomato & Goats Cheese Salad",
-   "category": "Starters",
-   "serving": "",
-   "nutrients": {
-    "calories": 373,
-    "saturatedFat": 14,
-    "sugar": 6,
-    "salt": 1.1,
-    "energyKj": 1560
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "chunky-red-tractor-beef-chilli-with-wedges",
    "name": "Chunky Red Tractor Beef Chilli with Wedges",
    "category": "Main Meals",
@@ -5528,7 +5728,7 @@
     "calories": 411,
     "saturatedFat": 3.9,
     "sugar": 4.8,
-    "salt": 0.02,
+    "salt": 0.26,
     "energyKj": 1718
    },
    "tags": [
@@ -5578,16 +5778,43 @@
    }
   },
   {
-   "id": "roast-mushroom-and-spinach-frittata",
-   "name": "Roast Mushroom & Spinach Frittata",
+   "id": "honey-roasted-sausages-and-mediterranean-veg",
+   "name": "Honey Roasted Sausages & Mediterranean Veg",
    "category": "Main Meals",
    "serving": "",
    "nutrients": {
-    "calories": 212,
-    "saturatedFat": 5.2,
-    "sugar": 1.3,
-    "salt": 0.57,
-    "energyKj": 887
+    "calories": 465,
+    "saturatedFat": 1.1,
+    "sugar": 15,
+    "salt": 2.2,
+    "energyKj": 1945
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tomato-gnocchi",
+   "name": "Tomato Gnocchi",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 377,
+    "saturatedFat": 8.7,
+    "sugar": 8.6,
+    "salt": 0.93,
+    "energyKj": 1579
    },
    "tags": [],
    "limitedTime": false,
@@ -5596,10 +5823,17 @@
    "modifiers": [],
    "allergens": {
     "contains": [
+     "gluten",
      "eggs",
      "milk"
     ],
-    "mayContain": []
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
    }
   },
   {
@@ -5625,6 +5859,68 @@
      "milk"
     ],
     "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "red-tractor-bacon-and-leek-frittata",
+   "name": "Red Tractor Bacon & Leek Frittata",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 335,
+    "saturatedFat": 9.1,
+    "sugar": 3.3,
+    "salt": 2.1,
+    "energyKj": 1402
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-tractor-assured-beef-lasagne",
+   "name": "Red Tractor Assured Beef Lasagne",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 708,
+    "saturatedFat": 18,
+    "sugar": 11,
+    "salt": 0.7,
+    "energyKj": 2963
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ],
     "cereals": [
      "wheat"
     ]
@@ -5661,16 +5957,16 @@
    }
   },
   {
-   "id": "traditional-nachos",
-   "name": "Traditional Nachos",
+   "id": "loaded-nachos",
+   "name": "Loaded Nachos",
    "category": "Main Meals",
    "serving": "",
    "nutrients": {
-    "calories": 909,
-    "saturatedFat": 17,
-    "sugar": 7.2,
-    "salt": 2.4,
-    "energyKj": 3801
+    "calories": 1322,
+    "saturatedFat": 33,
+    "sugar": 12,
+    "salt": 4.6,
+    "energyKj": 5531
    },
    "tags": [],
    "limitedTime": false,
@@ -5679,22 +5975,23 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk"
+     "milk",
+     "soya"
     ],
     "mayContain": []
    }
   },
   {
-   "id": "jumbo-hot-dog-and-onions-with-salad",
-   "name": "Jumbo Hot Dog & Onions with Salad",
+   "id": "hot-dog-and-onions-with-salad",
+   "name": "Hot Dog & Onions with Salad",
    "category": "Main Meals",
    "serving": "",
    "nutrients": {
-    "calories": 526,
-    "saturatedFat": 1.3,
+    "calories": 554,
+    "saturatedFat": 2.3,
     "sugar": 4.7,
-    "salt": 2.3,
-    "energyKj": 2203
+    "salt": 2.6,
+    "energyKj": 2320
    },
    "tags": [],
    "limitedTime": false,
@@ -5707,7 +6004,8 @@
      "sulphites"
     ],
     "mayContain": [
-     "milk",
+     "nuts",
+     "sesame",
      "soya"
     ],
     "cereals": [
@@ -5773,7 +6071,7 @@
    "category": "Main Meals",
    "serving": "",
    "nutrients": {
-    "calories": 566,
+    "calories": 567,
     "saturatedFat": 1.5,
     "sugar": 11,
     "salt": 2,
@@ -5883,7 +6181,9 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "sulphites"
+    ],
     "cereals": [
      "wheat"
     ]
@@ -5947,31 +6247,6 @@
     "cereals": [
      "wheat"
     ]
-   }
-  },
-  {
-   "id": "jacket-potato-and-coleslaw-with-salad-and-slaw",
-   "name": "Jacket Potato & Coleslaw with Salad & Slaw",
-   "category": "Main Meals",
-   "serving": "",
-   "nutrients": {
-    "calories": 504,
-    "saturatedFat": 7.6,
-    "sugar": 4.9,
-    "salt": 0.47,
-    "energyKj": 2111
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk"
-    ],
-    "mayContain": []
    }
   },
   {
@@ -6148,11 +6423,11 @@
    "category": "Main Meals",
    "serving": "",
    "nutrients": {
-    "calories": 335,
+    "calories": 336,
     "saturatedFat": 7.2,
     "sugar": 2.8,
-    "salt": 0.93,
-    "energyKj": 1400
+    "salt": 1.1,
+    "energyKj": 1404
    },
    "tags": [
     "contains_beef"
@@ -6163,13 +6438,13 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten"
+     "gluten",
+     "milk"
     ],
     "mayContain": [
      "lupin",
      "mustard",
-     "soya",
-     "sulphites"
+     "soya"
     ],
     "cereals": [
      "wheat",
@@ -6178,42 +6453,16 @@
    }
   },
   {
-   "id": "jacket-potato-and-pulled-pork-with-salad-and-slaw",
-   "name": "Jacket Potato & Pulled Pork with Salad & Slaw",
+   "id": "red-tractor-roast-chicken-carvery",
+   "name": "Red Tractor Roast Chicken Carvery",
    "category": "Main Meals",
    "serving": "",
    "nutrients": {
-    "calories": 685,
-    "saturatedFat": 7.1,
-    "sugar": 27,
-    "salt": 2.2,
-    "energyKj": 2867
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "jacket-potato-and-coronation-chicken-with-salad-and-slaw",
-   "name": "Jacket Potato & Coronation Chicken with Salad & Slaw",
-   "category": "Main Meals",
-   "serving": "",
-   "nutrients": {
-    "calories": 583,
-    "saturatedFat": 3,
-    "sugar": 10,
-    "salt": 1.8,
-    "energyKj": 2441
+    "calories": 449,
+    "saturatedFat": 1.5,
+    "sugar": 7.1,
+    "salt": 2.3,
+    "energyKj": 1878
    },
    "tags": [],
    "limitedTime": false,
@@ -6222,11 +6471,39 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "eggs",
-     "milk",
-     "mustard"
+     "gluten"
     ],
-    "mayContain": []
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "falafel-carvery",
+   "name": "Falafel Carvery",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 640,
+    "saturatedFat": 2.3,
+    "sugar": 15,
+    "salt": 5.5,
+    "energyKj": 2678
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
    }
   },
   {
@@ -6253,7 +6530,9 @@
      "gluten",
      "milk"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "sulphites"
+    ],
     "cereals": [
      "wheat"
     ]
@@ -6283,25 +6562,29 @@
      "gluten",
      "soya"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "sulphites"
+    ],
     "cereals": [
      "wheat"
     ]
    }
   },
   {
-   "id": "sweet-potato-stew",
-   "name": "Sweet Potato Stew",
+   "id": "red-tractor-assure-beef-lasagne-with-salad",
+   "name": "Red Tractor Assure Beef Lasagne with Salad",
    "category": "Main Meals",
    "serving": "",
    "nutrients": {
-    "calories": 792,
-    "saturatedFat": 5.4,
-    "sugar": 18,
-    "salt": 1.5,
-    "energyKj": 3313
+    "calories": 1082,
+    "saturatedFat": 22,
+    "sugar": 21,
+    "salt": 1.2,
+    "energyKj": 4526
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -6309,55 +6592,31 @@
    "allergens": {
     "contains": [
      "gluten",
+     "eggs",
      "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "macaroni-cheese-with-salad",
-   "name": "Macaroni Cheese with Salad",
-   "category": "Main Meals",
-   "serving": "",
-   "nutrients": {
-    "calories": 546,
-    "saturatedFat": 12,
-    "sugar": 8.6,
-    "salt": 0.84,
-    "energyKj": 2285
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
+    "mayContain": [
+     "mustard",
      "soya",
      "sulphites"
     ],
-    "mayContain": [],
     "cereals": [
-     "wheat"
+     "wheat",
+     "barley"
     ]
    }
   },
   {
-   "id": "jacket-potato-with-rta-chicken-mayonnaise-salad-and-slaw",
-   "name": "Jacket Potato with RTA Chicken Mayonnaise, Salad & Slaw",
+   "id": "vegetable-lasagne-with-salad",
+   "name": "Vegetable Lasagne with Salad",
    "category": "Main Meals",
    "serving": "",
    "nutrients": {
-    "calories": 725,
-    "saturatedFat": 9,
-    "sugar": 7.6,
-    "salt": 2.7,
-    "energyKj": 3032
+    "calories": 311,
+    "saturatedFat": 4.2,
+    "sugar": 7.4,
+    "salt": 0.6,
+    "energyKj": 1300
    },
    "tags": [],
    "limitedTime": false,
@@ -6366,36 +6625,17 @@
    "modifiers": [],
    "allergens": {
     "contains": [
+     "gluten",
      "eggs",
      "milk",
-     "sulphites"
+     "soya"
     ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "jacket-potato-with-three-bean-chilli-salad-and-slaw",
-   "name": "Jacket Potato with Three Bean Chilli, Salad & Slaw",
-   "category": "Main Meals",
-   "serving": "",
-   "nutrients": {
-    "calories": 464,
-    "saturatedFat": 0.6,
-    "sugar": 11,
-    "salt": 0.15,
-    "energyKj": 1943
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "sulphites"
+    "mayContain": [
+     "mustard"
     ],
-    "mayContain": []
+    "cereals": [
+     "wheat"
+    ]
    }
   },
   {
@@ -6420,40 +6660,6 @@
      "gluten"
     ],
     "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "red-tractor-assured-beef-lasagne",
-   "name": "Red Tractor Assured Beef Lasagne",
-   "category": "Main Meals",
-   "serving": "",
-   "nutrients": {
-    "calories": 698,
-    "saturatedFat": 18,
-    "sugar": 10,
-    "salt": 0.67,
-    "energyKj": 2920
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [
-     "eggs",
-     "mustard",
-     "soya"
-    ],
     "cereals": [
      "wheat"
     ]
@@ -6553,6 +6759,62 @@
     "contains": [
      "gluten"
     ],
+    "mayContain": [
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "porchetta-roast",
+   "name": "Porchetta Roast",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 1257,
+    "saturatedFat": 23,
+    "sugar": 23,
+    "salt": 1.9,
+    "energyKj": 5259
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roast-english-turkey-with-all-the-trimmings",
+   "name": "Roast English Turkey with all the Trimmings",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 914,
+    "saturatedFat": 4.6,
+    "sugar": 37,
+    "salt": 3.1,
+    "energyKj": 3824
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
     "mayContain": [],
     "cereals": [
      "wheat"
@@ -6588,131 +6850,6 @@
    }
   },
   {
-   "id": "slow-cooked-brisket-goulash-with-dumplings-and-braised-red-cabbage",
-   "name": "Slow Cooked Brisket Goulash with Dumplings & Braised Red Cabbage",
-   "category": "Main Meals",
-   "serving": "",
-   "nutrients": {
-    "calories": 838,
-    "saturatedFat": 21,
-    "sugar": 9,
-    "salt": 1.4,
-    "energyKj": 3505
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "slow-cooked-brisket-goulash-with-polenta",
-   "name": "Slow Cooked Brisket Goulash with Polenta",
-   "category": "Main Meals",
-   "serving": "",
-   "nutrients": {
-    "calories": 710,
-    "saturatedFat": 18,
-    "sugar": 9.7,
-    "salt": 1.9,
-    "energyKj": 2970
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "red-tractor-assured-chicken-curry-pie-with-vegetables",
-   "name": "Red Tractor Assured Chicken Curry Pie with Vegetables",
-   "category": "Main Meals",
-   "serving": "",
-   "nutrients": {
-    "calories": 866,
-    "saturatedFat": 14,
-    "sugar": 12,
-    "salt": 3.2,
-    "energyKj": 3623
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "mustard"
-    ],
-    "mayContain": [
-     "soya",
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "msc-hake-gratin-with-seasonal-vegetables",
-   "name": "MSC Hake Gratin with Seasonal Vegetables",
-   "category": "Main Meals",
-   "serving": "",
-   "nutrients": {
-    "calories": 457,
-    "saturatedFat": 12,
-    "sugar": 2.3,
-    "salt": 2.4,
-    "energyKj": 1911
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "fish",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "jacket-potato-and-vegan-chilli-with-salad-and-slaw",
    "name": "Jacket Potato & Vegan Chilli with Salad & Slaw",
    "category": "Main Meals",
@@ -6738,16 +6875,42 @@
    }
   },
   {
+   "id": "jacket-potato-and-pulled-pork-with-salad-and-slaw",
+   "name": "Jacket Potato & Pulled Pork with Salad & Slaw",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 626,
+    "saturatedFat": 7.2,
+    "sugar": 7.8,
+    "salt": 3,
+    "energyKj": 2620
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
    "id": "rspca-assured-bbq-pulled-pork-loaded-chips",
    "name": "RSPCA Assured BBQ Pulled Pork Loaded Chips",
    "category": "Main Meals",
    "serving": "",
    "nutrients": {
-    "calories": 761,
-    "saturatedFat": 13,
-    "sugar": 4.9,
-    "salt": 0.98,
-    "energyKj": 3183
+    "calories": 926,
+    "saturatedFat": 22,
+    "sugar": 4.3,
+    "salt": 2.6,
+    "energyKj": 3872
    },
    "tags": [
     "contains_pork"
@@ -6818,7 +6981,8 @@
     ],
     "mayContain": [
      "eggs",
-     "sesame"
+     "sesame",
+     "sulphites"
     ],
     "cereals": [
      "wheat",
@@ -6827,8 +6991,36 @@
    }
   },
   {
-   "id": "red-tractor-chicken-texas-tots",
-   "name": "Red Tractor Chicken Texas Tots",
+   "id": "chicken-tikka-masala-and-naan",
+   "name": "Chicken Tikka Masala & Naan",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 546,
+    "saturatedFat": 5.4,
+    "sugar": 17,
+    "salt": 2.5,
+    "energyKj": 2283
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "red-tractor-chicken-texas-tater-tots",
+   "name": "Red Tractor Chicken Texas Tater Tots",
    "category": "Main Meals",
    "serving": "",
    "nutrients": {
@@ -6857,40 +7049,16 @@
    }
   },
   {
-   "id": "mambonito-salad",
-   "name": "Mambonito Salad",
+   "id": "jacket-potato-with-mature-cheddar-and-baked-beans",
+   "name": "Jacket Potato with Mature Cheddar & Baked Beans",
    "category": "Main Meals",
    "serving": "",
    "nutrients": {
-    "calories": 364,
-    "saturatedFat": 2.5,
-    "sugar": 5.9,
-    "salt": 2.8,
-    "energyKj": 1523
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "greek-inspired-rice-salad-with-feta-and-olives",
-   "name": "Greek-Inspired Rice Salad with Feta & Olives",
-   "category": "Main Meals",
-   "serving": "",
-   "nutrients": {
-    "calories": 379,
-    "saturatedFat": 5.8,
-    "sugar": 2.6,
-    "salt": 1.7,
-    "energyKj": 1586
+    "calories": 704,
+    "saturatedFat": 18,
+    "sugar": 12,
+    "salt": 2.7,
+    "energyKj": 2946
    },
    "tags": [],
    "limitedTime": false,
@@ -6900,8 +7068,7 @@
    "allergens": {
     "contains": [
      "gluten",
-     "milk",
-     "mustard"
+     "milk"
     ],
     "mayContain": [],
     "cereals": [
@@ -6932,7 +7099,9 @@
     "contains": [
      "milk"
     ],
-    "mayContain": []
+    "mayContain": [
+     "sulphites"
+    ]
    }
   },
   {
@@ -6977,11 +7146,11 @@
    "category": "Main Meals",
    "serving": "",
    "nutrients": {
-    "calories": 616,
+    "calories": 617,
     "saturatedFat": 11,
     "sugar": 16,
     "salt": 2.4,
-    "energyKj": 2578
+    "energyKj": 2580
    },
    "tags": [],
    "limitedTime": false,
@@ -7069,11 +7238,11 @@
    "category": "Main Meals",
    "serving": "",
    "nutrients": {
-    "calories": 927,
+    "calories": 926,
     "saturatedFat": 35,
     "sugar": 13,
     "salt": 2.2,
-    "energyKj": 3878
+    "energyKj": 3874
    },
    "tags": [],
    "limitedTime": false,
@@ -7087,9 +7256,7 @@
      "fish",
      "milk"
     ],
-    "mayContain": [
-     "sulphites"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -7101,11 +7268,11 @@
    "category": "Main Meals",
    "serving": "",
    "nutrients": {
-    "calories": 571,
-    "saturatedFat": 6.8,
-    "sugar": 9.8,
+    "calories": 570,
+    "saturatedFat": 6.6,
+    "sugar": 9.7,
     "salt": 1.7,
-    "energyKj": 2387
+    "energyKj": 2384
    },
    "tags": [],
    "limitedTime": false,
@@ -7119,7 +7286,6 @@
     ],
     "mayContain": [
      "celery",
-     "sesame",
      "soya"
     ],
     "cereals": [
@@ -7156,166 +7322,6 @@
     "cereals": [
      "wheat",
      "rye"
-    ]
-   }
-  },
-  {
-   "id": "extra-beef-patty",
-   "name": "Extra Beef Patty",
-   "category": "Specials",
-   "serving": "",
-   "nutrients": {
-    "calories": 338,
-    "saturatedFat": 10,
-    "sugar": 0,
-    "salt": 0.3,
-    "energyKj": 1412
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "red-tractor-beef-smash-burger-with-salad",
-   "name": "Red Tractor Beef Smash Burger with Salad",
-   "category": "Specials",
-   "serving": "",
-   "nutrients": {
-    "calories": 881,
-    "saturatedFat": 16,
-    "sugar": 15,
-    "salt": 6.1,
-    "energyKj": 3685
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "milk",
-     "mustard"
-    ],
-    "mayContain": [
-     "eggs",
-     "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
-    ]
-   }
-  },
-  {
-   "id": "falafel-and-houmous-burger",
-   "name": "Falafel & Houmous Burger",
-   "category": "Specials",
-   "serving": "",
-   "nutrients": {
-    "calories": 605,
-    "saturatedFat": 2.1,
-    "sugar": 9.2,
-    "salt": 1.7,
-    "energyKj": 2533
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sesame"
-    ],
-    "mayContain": [
-     "eggs",
-     "milk"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
-    ]
-   }
-  },
-  {
-   "id": "red-tractor-beef-lasagne-with-salad",
-   "name": "Red Tractor Beef Lasagne with Salad",
-   "category": "Specials",
-   "serving": "",
-   "nutrients": {
-    "calories": 684,
-    "saturatedFat": 9.1,
-    "sugar": 9.5,
-    "salt": 0.8,
-    "energyKj": 2861
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "mustard"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "pulled-ham-and-cheddar-quiche",
-   "name": "Pulled Ham & Cheddar Quiche",
-   "category": "Specials",
-   "serving": "",
-   "nutrients": {
-    "calories": 609,
-    "saturatedFat": 35,
-    "sugar": 4,
-    "salt": 1.3,
-    "energyKj": 2549
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -7387,11 +7393,11 @@
    "category": "Specials",
    "serving": "",
    "nutrients": {
-    "calories": 1253,
-    "saturatedFat": 43,
-    "sugar": 12,
-    "salt": 7.3,
-    "energyKj": 5243
+    "calories": 1000,
+    "saturatedFat": 23,
+    "sugar": 5.6,
+    "salt": 3.9,
+    "energyKj": 4182
    },
    "tags": [
     "vegetarian"
@@ -7405,9 +7411,8 @@
      "gluten"
     ],
     "mayContain": [
-     "milk",
-     "mustard",
-     "soya"
+     "eggs",
+     "milk"
     ],
     "cereals": [
      "wheat"
@@ -7573,6 +7578,32 @@
    }
   },
   {
+   "id": "pigs-in-blankets-side",
+   "name": "Pigs in Blankets Side",
+   "category": "Extra Portion",
+   "serving": "",
+   "nutrients": {
+    "calories": 288,
+    "saturatedFat": 7.4,
+    "sugar": 1.8,
+    "salt": 1.8,
+    "energyKj": 1205
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
    "id": "seasoned-potato-wedges-side",
    "name": "Seasoned Potato Wedges Side",
    "category": "Extra Portion",
@@ -7633,7 +7664,7 @@
    "nutrients": {
     "calories": 63,
     "saturatedFat": 0.4,
-    "sugar": 1.6,
+    "sugar": 1.7,
     "salt": 0.08,
     "energyKj": 263
    },
@@ -7657,9 +7688,9 @@
    "nutrients": {
     "calories": 106,
     "saturatedFat": 0.7,
-    "sugar": 0,
+    "sugar": 0.6,
     "salt": 0.14,
-    "energyKj": 443
+    "energyKj": 444
    },
    "tags": [],
    "limitedTime": false,
@@ -7755,11 +7786,11 @@
    "category": "Extra Portion",
    "serving": "",
    "nutrients": {
-    "calories": 141,
+    "calories": 144,
     "saturatedFat": 0.9,
-    "sugar": 10,
+    "sugar": 11,
     "salt": 2.1,
-    "energyKj": 589
+    "energyKj": 601
    },
    "tags": [],
    "limitedTime": false,
@@ -7970,11 +8001,11 @@
    "category": "Children's",
    "serving": "",
    "nutrients": {
-    "calories": 365,
+    "calories": 353,
     "saturatedFat": 12,
-    "sugar": 2.3,
+    "sugar": 4.6,
     "salt": 0.92,
-    "energyKj": 1529
+    "energyKj": 1478
    },
    "tags": [],
    "limitedTime": false,
@@ -7983,7 +8014,6 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "eggs",
      "milk"
     ],
     "mayContain": []
@@ -7995,11 +8025,11 @@
    "category": "Children's",
    "serving": "",
    "nutrients": {
-    "calories": 349,
-    "saturatedFat": 3.1,
-    "sugar": 2.9,
-    "salt": 0.45,
-    "energyKj": 1462
+    "calories": 217,
+    "saturatedFat": 2,
+    "sugar": 4.7,
+    "salt": 0.29,
+    "energyKj": 907
    },
    "tags": [],
    "limitedTime": false,
@@ -8021,11 +8051,11 @@
    "category": "Children's",
    "serving": "",
    "nutrients": {
-    "calories": 264,
-    "saturatedFat": 3.5,
-    "sugar": 6.5,
-    "salt": 0.73,
-    "energyKj": 1103
+    "calories": 252,
+    "saturatedFat": 3.4,
+    "sugar": 8.9,
+    "salt": 0.72,
+    "energyKj": 1053
    },
    "tags": [],
    "limitedTime": false,
@@ -8034,7 +8064,6 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "eggs",
      "milk"
     ],
     "mayContain": []
@@ -8167,35 +8196,6 @@
    }
   },
   {
-   "id": "childrens-cheddar-sandwich",
-   "name": "Children's Cheddar Sandwich",
-   "category": "Children's",
-   "serving": "",
-   "nutrients": {
-    "calories": 245,
-    "saturatedFat": 6.4,
-    "sugar": 1.2,
-    "salt": 0.95,
-    "energyKj": 1023
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "childrens-red-tractor-ham-sandwich",
    "name": "Children's Red Tractor Ham Sandwich",
    "category": "Children's",
@@ -8231,11 +8231,11 @@
    "category": "Children's",
    "serving": "",
    "nutrients": {
-    "calories": 382,
-    "saturatedFat": 16,
-    "sugar": 2.1,
-    "salt": 1.7,
-    "energyKj": 1598
+    "calories": 349,
+    "saturatedFat": 15,
+    "sugar": 4.6,
+    "salt": 1.6,
+    "energyKj": 1462
    },
    "tags": [],
    "limitedTime": false,
@@ -8329,6 +8329,60 @@
    }
   },
   {
+   "id": "red-tractor-roast-chicken-carvery-small",
+   "name": "Red Tractor Roast Chicken Carvery Small",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 280,
+    "saturatedFat": 0.7,
+    "sugar": 6,
+    "salt": 0.89,
+    "energyKj": 1171
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "falafel-carvery-small-dover-2026",
+   "name": "Falafel Carvery Small - Dover 2026",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "saturatedFat": 1.1,
+    "sugar": 9.5,
+    "salt": 1.8,
+    "energyKj": 1455
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "childrens-vegetable-soup-with-roll-and-butter",
    "name": "Children's Vegetable Soup with Roll & Butter",
    "category": "Children's",
@@ -8356,45 +8410,16 @@
    }
   },
   {
-   "id": "pesto-pasta-salad-side",
-   "name": "Pesto Pasta Salad Side",
-   "category": "Children's",
-   "serving": "",
-   "nutrients": {
-    "calories": 305,
-    "saturatedFat": 1.7,
-    "sugar": 2.6,
-    "salt": 0.39,
-    "energyKj": 1278
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "childrens-sausage-wedges-and-baked-beans",
    "name": "Children's Sausage, Wedges & Baked Beans",
    "category": "Children's",
    "serving": "",
    "nutrients": {
-    "calories": 515,
-    "saturatedFat": 1.3,
-    "sugar": 5.5,
-    "salt": 2.7,
-    "energyKj": 2154
+    "calories": 582,
+    "saturatedFat": 1.5,
+    "sugar": 5.7,
+    "salt": 3,
+    "energyKj": 2436
    },
    "tags": [
     "contains_pork"
@@ -8408,37 +8433,6 @@
      "sulphites"
     ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "childrens-mac-and-cheese",
-   "name": "Children's Mac & Cheese",
-   "category": "Children's",
-   "serving": "",
-   "nutrients": {
-    "calories": 535,
-    "saturatedFat": 10,
-    "sugar": 8.6,
-    "salt": 2.9,
-    "energyKj": 2239
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "mustard"
-    ],
-    "mayContain": [
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
    }
   },
   {
@@ -8549,11 +8543,11 @@
    "category": "Children's",
    "serving": "",
    "nutrients": {
-    "calories": 276,
-    "saturatedFat": 0.9,
-    "sugar": 2.6,
-    "salt": 0.98,
-    "energyKj": 1155
+    "calories": 344,
+    "saturatedFat": 1.1,
+    "sugar": 2.8,
+    "salt": 1.3,
+    "energyKj": 1437
    },
    "tags": [],
    "limitedTime": false,
@@ -8572,16 +8566,16 @@
    }
   },
   {
-   "id": "childrens-red-tractor-sausage-chips-and-peas",
-   "name": "Children's Red Tractor Sausage, Chips & Peas",
+   "id": "childrens-ham-sandwich",
+   "name": "Children's Ham Sandwich",
    "category": "Children's",
    "serving": "",
    "nutrients": {
-    "calories": 463,
-    "saturatedFat": 1.2,
-    "sugar": 2.4,
-    "salt": 1.5,
-    "energyKj": 1939
+    "calories": 191,
+    "saturatedFat": 2.3,
+    "sugar": 1.6,
+    "salt": 0.72,
+    "energyKj": 798
    },
    "tags": [
     "contains_pork"
@@ -8592,32 +8586,9 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "childrens-msc-fish-fingers-chips-and-peas",
-   "name": "Children's MSC Fish Fingers, Chips & Peas",
-   "category": "Children's",
-   "serving": "",
-   "nutrients": {
-    "calories": 320,
-    "saturatedFat": 1.1,
-    "sugar": 2.8,
-    "salt": 0.62,
-    "energyKj": 1340
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
      "gluten",
-     "fish"
+     "milk",
+     "soya"
     ],
     "mayContain": [],
     "cereals": [
@@ -8626,16 +8597,16 @@
    }
   },
   {
-   "id": "childrens-tomato-and-mozzarella-pizza",
-   "name": "Children's Tomato & Mozzarella Pizza",
+   "id": "santas-little-helper-hot-chocolate",
+   "name": "Santa's Little Helper Hot Chocolate",
    "category": "Children's",
    "serving": "",
    "nutrients": {
-    "calories": 116,
-    "saturatedFat": 4.6,
-    "sugar": 1.7,
-    "salt": 0.5,
-    "energyKj": 487
+    "calories": 214,
+    "saturatedFat": 3.2,
+    "sugar": 32,
+    "salt": 0.29,
+    "energyKj": 896
    },
    "tags": [],
    "limitedTime": false,
@@ -8644,53 +8615,23 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [
-     "mustard",
+     "milk",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "witchs-brew-hot-chocolate",
-   "name": "Witch's Brew Hot Chocolate",
-   "category": "Children's",
-   "serving": "",
-   "nutrients": {
-    "calories": 225,
-    "saturatedFat": 4.1,
-    "sugar": 31,
-    "salt": 0.32,
-    "energyKj": 943
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
     ],
     "mayContain": []
    }
   },
   {
-   "id": "witchs-brew-hot-chocolate-and-biscuit",
-   "name": "Witch's Brew Hot Chocolate & Biscuit",
+   "id": "santas-little-helper-hot-chocolate-and-christmas-biscuit",
+   "name": "Santa's Little Helper Hot Chocolate & Christmas Biscuit",
    "category": "Children's",
    "serving": "",
    "nutrients": {
-    "calories": 490,
-    "saturatedFat": 7.8,
-    "sugar": 49,
-    "salt": 0.57,
-    "energyKj": 2052
+    "calories": 531,
+    "saturatedFat": 7.3,
+    "sugar": 58,
+    "salt": 0.4,
+    "energyKj": 2222
    },
    "tags": [],
    "limitedTime": false,
@@ -8700,13 +8641,13 @@
    "allergens": {
     "contains": [
      "gluten",
-     "milk"
+     "milk",
+     "soya"
     ],
     "mayContain": [
      "eggs",
      "nuts",
-     "sesame",
-     "soya"
+     "sesame"
     ],
     "cereals": [
      "wheat"
@@ -8867,6 +8808,37 @@
     ],
     "mayContain": [
      "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "childrens-mac-and-cheese",
+   "name": "Children's Mac & Cheese",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 535,
+    "saturatedFat": 10,
+    "sugar": 8.6,
+    "salt": 2.2,
+    "energyKj": 2239
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "soya"
     ],
     "cereals": [
      "wheat"
@@ -9288,16 +9260,16 @@
    }
   },
   {
-   "id": "double-chocolate-muffin",
-   "name": "Double Chocolate Muffin",
+   "id": "dark-chocolate-and-cherry-muffin",
+   "name": "Dark Chocolate & Cherry Muffin",
    "category": "Cakes & Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 448,
-    "saturatedFat": 4.1,
-    "sugar": 28,
-    "salt": 0.1,
-    "energyKj": 1873
+    "calories": 403,
+    "saturatedFat": 3.8,
+    "sugar": 37,
+    "salt": 0.39,
+    "energyKj": 1684
    },
    "tags": [],
    "limitedTime": false,
@@ -9308,14 +9280,11 @@
     "contains": [
      "gluten",
      "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts",
+     "milk",
      "soya",
      "sulphites"
     ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -10090,8 +10059,8 @@
    }
   },
   {
-   "id": "homemade-castle-sugar-biscuits",
-   "name": "Homemade Castle Sugar Biscuits",
+   "id": "homemade-sugar-biscuit",
+   "name": "Homemade Sugar Biscuit",
    "category": "Cakes & Desserts",
    "serving": "",
    "nutrients": {
@@ -10187,10 +10156,10 @@
    "category": "Cakes & Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 344,
+    "calories": 343,
     "saturatedFat": 0.4,
-    "sugar": 50.9,
-    "salt": 0.3,
+    "sugar": 51,
+    "salt": 0.34,
     "energyKj": 1437
    },
    "tags": [],
@@ -10555,35 +10524,6 @@
    }
   },
   {
-   "id": "homemade-chocolate-cornflake-cake",
-   "name": "Homemade Chocolate Cornflake Cake",
-   "category": "Cakes & Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 204,
-    "saturatedFat": 6.5,
-    "sugar": 14,
-    "salt": 0.28,
-    "energyKj": 854
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "barley"
-    ]
-   }
-  },
-  {
    "id": "homemade-cherry-cake",
    "name": "Homemade Cherry Cake",
    "category": "Cakes & Desserts",
@@ -10617,69 +10557,6 @@
     ],
     "nuts": [
      "almond"
-    ]
-   }
-  },
-  {
-   "id": "homemade-cupcakes-with-buttercream-icing",
-   "name": "Homemade Cupcakes with Buttercream Icing",
-   "category": "Cakes & Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 253,
-    "saturatedFat": 8.7,
-    "sugar": 25,
-    "salt": 0.39,
-    "energyKj": 1058
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "homemade-ginger-cake",
-   "name": "Homemade Ginger Cake",
-   "category": "Cakes & Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 305,
-    "saturatedFat": 8.2,
-    "sugar": 27,
-    "salt": 0.83,
-    "energyKj": 1276
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -10845,11 +10722,11 @@
    "category": "Cakes & Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 468,
-    "saturatedFat": 9.8,
+    "calories": 466,
+    "saturatedFat": 9.7,
     "sugar": 15,
     "salt": 1.2,
-    "energyKj": 1956
+    "energyKj": 1948
    },
    "tags": [],
    "limitedTime": false,
@@ -10967,37 +10844,6 @@
    }
   },
   {
-   "id": "terrace-cream-tea",
-   "name": "Terrace Cream Tea",
-   "category": "Cakes & Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 877,
-    "saturatedFat": 27,
-    "sugar": 53,
-    "salt": 0.91,
-    "energyKj": 3670
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "terrace-savoury-tea",
    "name": "Terrace Savoury Tea",
    "category": "Cakes & Desserts",
@@ -11019,36 +10865,6 @@
      "gluten",
      "milk",
      "mustard"
-    ],
-    "mayContain": [
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "rhubarb-with-ginger-scone-and-butter",
-   "name": "Rhubarb with Ginger Scone & Butter",
-   "category": "Cakes & Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 440,
-    "saturatedFat": 9.1,
-    "sugar": 14,
-    "salt": 0.9,
-    "energyKj": 1840
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
     ],
     "mayContain": [
      "soya"
@@ -11093,6 +10909,93 @@
    }
   },
   {
+   "id": "homemade-cranberry-and-pumpkin-seed-flapjack",
+   "name": "Homemade Cranberry & Pumpkin Seed Flapjack",
+   "category": "Cakes & Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 504,
+    "saturatedFat": 7.7,
+    "sugar": 36,
+    "salt": 0.36,
+    "energyKj": 2108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "homemade-all-butter-shortbread",
+   "name": "Homemade All Butter Shortbread",
+   "category": "Cakes & Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 380,
+    "saturatedFat": 14,
+    "sugar": 14,
+    "salt": 0.52,
+    "energyKj": 1590
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rhubarb-with-ginger-scone-and-butter",
+   "name": "Rhubarb with Ginger Scone & Butter",
+   "category": "Cakes & Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 440,
+    "saturatedFat": 9.1,
+    "sugar": 14,
+    "salt": 0.9,
+    "energyKj": 1840
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "homemade-lemon-drizzle-cake",
    "name": "Homemade Lemon Drizzle Cake",
    "category": "Cakes & Desserts",
@@ -11120,33 +11023,6 @@
     ],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "homemade-cranberry-and-pumpkin-seed-flapjack",
-   "name": "Homemade Cranberry & Pumpkin Seed Flapjack",
-   "category": "Cakes & Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 504,
-    "saturatedFat": 7.7,
-    "sugar": 36,
-    "salt": 0.36,
-    "energyKj": 2108
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "oats"
     ]
    }
   },
@@ -11381,11 +11257,11 @@
    "category": "Cakes & Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 353,
-    "saturatedFat": 4,
+    "calories": 340,
+    "saturatedFat": 3.9,
     "sugar": 36,
     "salt": 0.58,
-    "energyKj": 1476
+    "energyKj": 1424
    },
    "tags": [],
    "limitedTime": false,
@@ -11625,16 +11501,16 @@
    }
   },
   {
-   "id": "halloween-ghost-shortcake-biscuit",
-   "name": "Halloween Ghost Shortcake Biscuit",
+   "id": "christmas-shortcake-biscuit",
+   "name": "Christmas Shortcake Biscuit",
    "category": "Cakes & Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 265,
+    "calories": 280,
     "saturatedFat": 3.7,
-    "sugar": 17,
-    "salt": 0.26,
-    "energyKj": 1109
+    "sugar": 23,
+    "salt": 0.1,
+    "energyKj": 1170
    },
    "tags": [
     "vegetarian"
@@ -11692,16 +11568,17 @@
    }
   },
   {
-   "id": "dark-chocolate-and-cherry-muffin",
-   "name": "Dark Chocolate & Cherry Muffin",
+   "id": "white-chocolate-millionaire-snowflake-traybake",
+   "name": "White Chocolate Millionaire Snowflake Traybake",
    "category": "Cakes & Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 403,
-    "saturatedFat": 3.8,
-    "sugar": 37,
-    "salt": 0.39,
-    "energyKj": 1684
+    "calories": 394,
+    "saturatedFat": 12,
+    "sugar": 30,
+    "salt": 0.24,
+    "energyKj": 1650,
+    "weight": 80
    },
    "tags": [],
    "limitedTime": false,
@@ -11713,10 +11590,114 @@
      "gluten",
      "eggs",
      "milk",
-     "soya",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mince-pie-slice-traybake",
+   "name": "Mince Pie Slice Traybake",
+   "category": "Cakes & Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 288,
+    "saturatedFat": 6.1,
+    "sugar": 32,
+    "salt": 0.22,
+    "energyKj": 1205
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
      "sulphites"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mince-pie",
+   "name": "Mince Pie",
+   "category": "Cakes & Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 310,
+    "saturatedFat": 3.1,
+    "sugar": 33,
+    "salt": 0.17,
+    "energyKj": 1295
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "viennese-mince-pie",
+   "name": "Viennese Mince Pie",
+   "category": "Cakes & Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 352,
+    "saturatedFat": 6.5,
+    "sugar": 21,
+    "salt": 0.33,
+    "energyKj": 1473
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
     "cereals": [
      "wheat"
     ]
@@ -12095,8 +12076,8 @@
    }
   },
   {
-   "id": "homemade-garden-apple-flapjack",
-   "name": "Homemade Garden Apple Flapjack",
+   "id": "homemade-fruit-and-honey-flapjack",
+   "name": "Homemade Fruit & Honey Flapjack",
    "category": "Cakes & Desserts",
    "serving": "",
    "nutrients": {
@@ -12535,9 +12516,9 @@
    "nutrients": {
     "calories": 548,
     "saturatedFat": 12,
-    "sugar": 45,
-    "salt": 0.8,
-    "energyKj": 2295
+    "sugar": 44,
+    "salt": 0.78,
+    "energyKj": 2293
    },
    "tags": [],
    "limitedTime": false,
@@ -12565,11 +12546,11 @@
    "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 611,
+    "calories": 616,
     "saturatedFat": 14,
     "sugar": 51,
-    "salt": 0.84,
-    "energyKj": 2556
+    "salt": 0.82,
+    "energyKj": 2579
    },
    "tags": [],
    "limitedTime": false,
@@ -12598,107 +12579,10 @@
    "serving": "",
    "nutrients": {
     "calories": 602,
-    "saturatedFat": 19,
-    "sugar": 60,
-    "salt": 0.4,
-    "energyKj": 2521
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "nuts"
-    ]
-   }
-  },
-  {
-   "id": "egg-custard-tart-with-apple-and-plum-compote",
-   "name": "Egg Custard Tart with Apple & Plum Compote",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 572,
-    "saturatedFat": 20.9,
-    "sugar": 29.8,
-    "salt": 0.5,
-    "energyKj": 2393
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "blueberry-bakewell-with-vanilla-ice-cream",
-   "name": "Blueberry Bakewell with Vanilla Ice Cream",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 462,
-    "saturatedFat": 11,
-    "sugar": 30,
-    "salt": 0.41,
-    "energyKj": 1934
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "nuts"
-    ],
-    "mayContain": [
-     "eggs",
-     "peanuts",
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "almond"
-    ]
-   }
-  },
-  {
-   "id": "lemon-posset",
-   "name": "Lemon Posset",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 618,
-    "saturatedFat": 36,
-    "sugar": 36,
+    "saturatedFat": 20,
+    "sugar": 59,
     "salt": 0.39,
-    "energyKj": 2586
+    "energyKj": 2519
    },
    "tags": [],
    "limitedTime": false,
@@ -12707,13 +12591,12 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten",
+     "eggs",
      "milk",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
+    "mayContain": [
+     "nuts"
     ]
    }
   },
@@ -12750,78 +12633,16 @@
    }
   },
   {
-   "id": "victorian-trifle",
-   "name": "Victorian Trifle",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 596,
-    "saturatedFat": 32,
-    "sugar": 33,
-    "salt": 0.38,
-    "energyKj": 2494
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "nuts",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "peanuts"
-    ],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "almond"
-    ]
-   }
-  },
-  {
-   "id": "rich-chocolate-pot-with-cherry-compote",
-   "name": "Rich Chocolate Pot with Cherry Compote",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 512,
-    "saturatedFat": 26,
-    "sugar": 34,
-    "salt": 0.17,
-    "energyKj": 2141
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "madagascan-vanilla-single-scoop-with-waffle-cone",
    "name": "Madagascan Vanilla Single Scoop with Waffle Cone",
    "category": "Ice Cream",
    "serving": "",
    "nutrients": {
-    "calories": 172,
-    "saturatedFat": 3.1,
-    "sugar": 16,
+    "calories": 181,
+    "saturatedFat": 3.4,
+    "sugar": 17,
     "salt": 0.06,
-    "energyKj": 720
+    "energyKj": 758
    },
    "tags": [],
    "limitedTime": false,
@@ -12846,11 +12667,11 @@
    "category": "Ice Cream",
    "serving": "",
    "nutrients": {
-    "calories": 272,
-    "saturatedFat": 6,
-    "sugar": 26,
+    "calories": 290,
+    "saturatedFat": 6.6,
+    "sugar": 28,
     "salt": 0.13,
-    "energyKj": 1137
+    "energyKj": 1213
    },
    "tags": [],
    "limitedTime": false,
@@ -12875,11 +12696,11 @@
    "category": "Ice Cream",
    "serving": "",
    "nutrients": {
-    "calories": 368,
-    "saturatedFat": 9,
-    "sugar": 36,
+    "calories": 395,
+    "saturatedFat": 9.8,
+    "sugar": 39,
     "salt": 0.18,
-    "energyKj": 1539
+    "energyKj": 1653
    },
    "tags": [],
    "limitedTime": false,
@@ -13513,11 +13334,11 @@
    "category": "Ice Cream",
    "serving": "",
    "nutrients": {
-    "calories": 181,
+    "calories": 191,
     "saturatedFat": 3.1,
-    "sugar": 19.2,
+    "sugar": 19.9,
     "salt": 0.1,
-    "energyKj": 755
+    "energyKj": 799
    },
    "tags": [],
    "limitedTime": false,
@@ -13544,11 +13365,11 @@
    "category": "Ice Cream",
    "serving": "",
    "nutrients": {
-    "calories": 285,
+    "calories": 306,
     "saturatedFat": 6,
-    "sugar": 31,
+    "sugar": 33,
     "salt": 0.13,
-    "energyKj": 1192
+    "energyKj": 1279
    },
    "tags": [],
    "limitedTime": false,
@@ -13575,11 +13396,11 @@
    "category": "Ice Cream",
    "serving": "",
    "nutrients": {
-    "calories": 393,
+    "calories": 424,
     "saturatedFat": 9,
-    "sugar": 44,
+    "sugar": 46,
     "salt": 0.2,
-    "energyKj": 1644
+    "energyKj": 1776
    },
    "tags": [],
    "limitedTime": false,
@@ -13606,11 +13427,11 @@
    "category": "Ice Cream",
    "serving": "",
    "nutrients": {
-    "calories": 164,
-    "saturatedFat": 2.4,
-    "sugar": 17,
+    "calories": 190,
+    "saturatedFat": 3.4,
+    "sugar": 20.4,
     "salt": 0.1,
-    "energyKj": 688
+    "energyKj": 796
    },
    "tags": [],
    "limitedTime": false,
@@ -13623,9 +13444,7 @@
      "milk",
      "soya"
     ],
-    "mayContain": [
-     "nuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -13637,11 +13456,11 @@
    "category": "Ice Cream",
    "serving": "",
    "nutrients": {
-    "calories": 253,
-    "saturatedFat": 4.6,
-    "sugar": 27.1,
+    "calories": 304,
+    "saturatedFat": 6.6,
+    "sugar": 33.8,
     "salt": 0.1,
-    "energyKj": 1057
+    "energyKj": 1274
    },
    "tags": [],
    "limitedTime": false,
@@ -13654,9 +13473,7 @@
      "milk",
      "soya"
     ],
-    "mayContain": [
-     "nuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -13668,11 +13485,11 @@
    "category": "Ice Cream",
    "serving": "",
    "nutrients": {
-    "calories": 345,
-    "saturatedFat": 6.9,
-    "sugar": 38,
+    "calories": 422,
+    "saturatedFat": 9.8,
+    "sugar": 48,
     "salt": 0.22,
-    "energyKj": 1442
+    "energyKj": 1767
    },
    "tags": [],
    "limitedTime": false,
@@ -13685,9 +13502,7 @@
      "milk",
      "soya"
     ],
-    "mayContain": [
-     "nuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -14648,11 +14463,11 @@
    "category": "Cold Beverages",
    "serving": "",
    "nutrients": {
-    "calories": 164,
+    "calories": 197,
     "saturatedFat": 0.2,
-    "sugar": 41,
-    "salt": 0.04,
-    "energyKj": 686
+    "sugar": 49,
+    "salt": 0.05,
+    "energyKj": 823
    },
    "tags": [],
    "limitedTime": false,
@@ -14694,11 +14509,11 @@
    "category": "Cold Beverages",
    "serving": "",
    "nutrients": {
-    "calories": 489,
-    "saturatedFat": 14.6,
-    "sugar": 47.1,
-    "salt": 0.8,
-    "energyKj": 2044
+    "calories": 482,
+    "saturatedFat": 14,
+    "sugar": 46,
+    "salt": 0.73,
+    "energyKj": 2018
    },
    "tags": [],
    "limitedTime": false,
@@ -14718,11 +14533,11 @@
    "category": "Cold Beverages",
    "serving": "",
    "nutrients": {
-    "calories": 300,
-    "saturatedFat": 8,
-    "sugar": 34,
+    "calories": 307,
+    "saturatedFat": 8.2,
+    "sugar": 35,
     "salt": 0.23,
-    "energyKj": 1254
+    "energyKj": 1286
    },
    "tags": [],
    "limitedTime": false,
@@ -14743,11 +14558,11 @@
    "category": "Cold Beverages",
    "serving": "",
    "nutrients": {
-    "calories": 313,
-    "saturatedFat": 8.3,
-    "sugar": 36,
+    "calories": 322,
+    "saturatedFat": 8.6,
+    "sugar": 37,
     "salt": 0.29,
-    "energyKj": 1309
+    "energyKj": 1347
    },
    "tags": [],
    "limitedTime": false,
@@ -14768,11 +14583,11 @@
    "category": "Cold Beverages",
    "serving": "",
    "nutrients": {
-    "calories": 313,
-    "saturatedFat": 8.3,
-    "sugar": 36,
+    "calories": 322,
+    "saturatedFat": 8.6,
+    "sugar": 37,
     "salt": 0.29,
-    "energyKj": 1311
+    "energyKj": 1349
    },
    "tags": [],
    "limitedTime": false,
@@ -14931,11 +14746,11 @@
    "category": "Cold Beverages",
    "serving": "",
    "nutrients": {
-    "calories": 83,
-    "saturatedFat": 2,
-    "sugar": 8.9,
-    "salt": 0.19,
-    "energyKj": 345
+    "calories": 94,
+    "saturatedFat": 2.3,
+    "sugar": 10,
+    "salt": 0.21,
+    "energyKj": 395
    },
    "tags": [],
    "limitedTime": false,
@@ -14950,16 +14765,16 @@
    }
   },
   {
-   "id": "chocolate-frappe",
-   "name": "Chocolate Frappe",
+   "id": "iced-matcha-frappe",
+   "name": "Iced Matcha Frappe",
    "category": "Cold Beverages",
    "serving": "",
    "nutrients": {
-    "calories": 223,
-    "saturatedFat": 3.1,
-    "sugar": 35,
-    "salt": 0.36,
-    "energyKj": 935
+    "calories": 82,
+    "saturatedFat": 2.1,
+    "sugar": 9,
+    "salt": 0.19,
+    "energyKj": 344
    },
    "tags": [],
    "limitedTime": false,
@@ -14968,8 +14783,7 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk",
-     "soya"
+     "milk"
     ],
     "mayContain": []
    }
@@ -14980,11 +14794,11 @@
    "category": "Cold Beverages",
    "serving": "",
    "nutrients": {
-    "calories": 235,
-    "saturatedFat": 3.3,
-    "sugar": 36,
-    "salt": 0.38,
-    "energyKj": 985
+    "calories": 176,
+    "saturatedFat": 2.4,
+    "sugar": 28,
+    "salt": 0.22,
+    "energyKj": 735
    },
    "tags": [],
    "limitedTime": false,

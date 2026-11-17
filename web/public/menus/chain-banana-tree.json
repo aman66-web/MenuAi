@@ -11,15 +11,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Banana Tree nutrition information (menus.tenkites.com/thebigtg/bananatree04: all day, express lunch, bottomless bowls, bottomless brunch, kids, desserts and drinks menus, \"Nutrition (per portion)\", pages dated 6 October 2026)",
+  "title": "Banana Tree nutrition information (menus.tenkites.com/thebigtg/bananatree04: all day, express lunch, bottomless bowls, bottomless brunch, kids, desserts and drinks menus, \"Nutrition (per portion)\", pages dated 17 November 2026)",
   "url": "https://menus.tenkites.com/thebigtg/bananatree04",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Values are per portion as printed. Options offered on top of a dish (rice, sauces, extra protein) are listed separately under Options & add-ons.",
  "allergenGuide": {
-  "title": "Banana Tree allergen and nutrition information (menus.tenkites.com/thebigtg/bananatree04, pages dated 6 October 2026)",
+  "title": "Banana Tree allergen and nutrition information (menus.tenkites.com/thebigtg/bananatree04, pages dated 17 November 2026)",
   "url": "https://menus.tenkites.com/thebigtg/bananatree04",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -543,6 +543,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "banana-tree/91b9087434db.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1072,12 +1073,11 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "nuts"
-    ],
+    "contains": [],
     "mayContain": [
      "gluten",
      "eggs",
+     "nuts",
      "peanuts",
      "sesame",
      "soya"
@@ -1307,6 +1307,47 @@
     "mayContain": [],
     "cereals": [
      "wheat"
+    ]
+   }
+  },
+  {
+   "id": "korean-crispy-chicken-noodles",
+   "name": "Korean Crispy Chicken Noodles",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1109,
+    "protein": 39.4,
+    "carbs": 132.9,
+    "fat": 45.2,
+    "saturatedFat": 10,
+    "sugar": 50.9,
+    "salt": 7.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "banana-tree/f4204dfcbe13.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "fish",
+     "milk",
+     "molluscs"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
     ]
    }
   },
@@ -2045,13 +2086,13 @@
    "category": "Regional curries",
    "serving": "",
    "nutrients": {
-    "calories": 696,
-    "protein": 48.6,
-    "carbs": 34.3,
-    "fat": 39.9,
-    "saturatedFat": 23.2,
-    "sugar": 13.5,
-    "salt": 4
+    "calories": 795,
+    "protein": 56.3,
+    "carbs": 37.4,
+    "fat": 46,
+    "saturatedFat": 27.1,
+    "sugar": 15,
+    "salt": 4.3
    },
    "tags": [
     "contains_beef"
@@ -2065,7 +2106,6 @@
      "gluten",
      "crustaceans",
      "milk",
-     "sesame",
      "soya",
      "sulphites"
     ],
@@ -2084,13 +2124,13 @@
    "category": "Regional curries",
    "serving": "",
    "nutrients": {
-    "calories": 595,
-    "protein": 45.9,
-    "carbs": 19.1,
-    "fat": 37.1,
-    "saturatedFat": 22.9,
-    "sugar": 9,
-    "salt": 2.2
+    "calories": 695,
+    "protein": 53.7,
+    "carbs": 22.1,
+    "fat": 43.3,
+    "saturatedFat": 26.8,
+    "sugar": 10.5,
+    "salt": 2.6
    },
    "tags": [
     "contains_beef"
@@ -2114,13 +2154,13 @@
    "category": "Regional curries",
    "serving": "",
    "nutrients": {
-    "calories": 581,
-    "protein": 53.9,
-    "carbs": 33.9,
-    "fat": 25,
-    "saturatedFat": 15.1,
-    "sugar": 15.8,
-    "salt": 4.2
+    "calories": 657,
+    "protein": 62.3,
+    "carbs": 37,
+    "fat": 28.3,
+    "saturatedFat": 17.5,
+    "sugar": 17.6,
+    "salt": 4.7
    },
    "tags": [],
    "limitedTime": false,
@@ -2134,7 +2174,6 @@
      "fish",
      "milk",
      "peanuts",
-     "sesame",
      "soya",
      "sulphites"
     ],
@@ -2153,13 +2192,13 @@
    "category": "Regional curries",
    "serving": "",
    "nutrients": {
-    "calories": 629,
-    "protein": 51.8,
-    "carbs": 19.8,
-    "fat": 37.6,
-    "saturatedFat": 15.9,
-    "sugar": 12.1,
-    "salt": 3.9
+    "calories": 706,
+    "protein": 60.3,
+    "carbs": 22.8,
+    "fat": 41,
+    "saturatedFat": 18.4,
+    "sugar": 14,
+    "salt": 4.3
    },
    "tags": [],
    "limitedTime": false,
@@ -2185,10 +2224,10 @@
    "category": "Regional curries",
    "serving": "",
    "nutrients": {
-    "calories": 833,
+    "calories": 832,
     "protein": 49.6,
     "carbs": 34.7,
-    "fat": 54.9,
+    "fat": 54.8,
     "saturatedFat": 22.2,
     "sugar": 16.4,
     "salt": 4.1
@@ -2207,14 +2246,14 @@
      "fish",
      "milk",
      "peanuts",
-     "sesame",
      "soya",
      "sulphites"
     ],
     "mayContain": [
      "eggs",
      "molluscs",
-     "nuts"
+     "nuts",
+     "sesame"
     ]
    }
   },
@@ -2258,12 +2297,12 @@
    "category": "Regional curries",
    "serving": "",
    "nutrients": {
-    "calories": 633,
+    "calories": 632,
     "protein": 44.9,
     "carbs": 33.2,
     "fat": 34.7,
     "saturatedFat": 21,
-    "sugar": 11.1,
+    "sugar": 11.2,
     "salt": 5.9
    },
    "tags": [],
@@ -2277,7 +2316,6 @@
      "crustaceans",
      "fish",
      "milk",
-     "sesame",
      "soya",
      "sulphites"
     ],
@@ -2328,10 +2366,10 @@
    "category": "Regional curries",
    "serving": "",
    "nutrients": {
-    "calories": 561,
+    "calories": 560,
     "protein": 30.6,
-    "carbs": 32.7,
-    "fat": 33.5,
+    "carbs": 32.8,
+    "fat": 33.4,
     "saturatedFat": 20.8,
     "sugar": 10.3,
     "salt": 6.6
@@ -2347,7 +2385,6 @@
      "crustaceans",
      "fish",
      "milk",
-     "sesame",
      "soya",
      "sulphites"
     ],
@@ -2399,12 +2436,12 @@
    "category": "Regional curries",
    "serving": "",
    "nutrients": {
-    "calories": 654,
-    "protein": 41.6,
+    "calories": 653,
+    "protein": 41.5,
     "carbs": 26.5,
-    "fat": 41.8,
+    "fat": 41.7,
     "saturatedFat": 14.7,
-    "sugar": 11.4,
+    "sugar": 11.5,
     "salt": 2.5
    },
    "tags": [],
@@ -2416,7 +2453,6 @@
     "contains": [
      "gluten",
      "crustaceans",
-     "sesame",
      "soya",
      "sulphites"
     ],
@@ -2426,7 +2462,8 @@
      "milk",
      "molluscs",
      "nuts",
-     "peanuts"
+     "peanuts",
+     "sesame"
     ]
    }
   },
@@ -2463,11 +2500,11 @@
    "serving": "",
    "nutrients": {
     "calories": 438,
-    "protein": 13.4,
+    "protein": 13.3,
     "carbs": 17,
-    "fat": 34.6,
+    "fat": 34.5,
     "saturatedFat": 14.3,
-    "sugar": 9.3,
+    "sugar": 9.4,
     "salt": 1.6
    },
    "tags": [
@@ -2480,14 +2517,14 @@
    "allergens": {
     "contains": [
      "gluten",
-     "sesame",
      "soya",
      "sulphites"
     ],
     "mayContain": [
      "eggs",
      "nuts",
-     "peanuts"
+     "peanuts",
+     "sesame"
     ]
    }
   },
@@ -2526,13 +2563,13 @@
    "category": "Regional curries",
    "serving": "",
    "nutrients": {
-    "calories": 582,
-    "protein": 27.3,
-    "carbs": 26,
-    "fat": 40.6,
-    "saturatedFat": 14.5,
+    "calories": 581,
+    "protein": 27.2,
+    "carbs": 26.1,
+    "fat": 40.5,
+    "saturatedFat": 14.4,
     "sugar": 10.6,
-    "salt": 3.2
+    "salt": 3.3
    },
    "tags": [],
    "limitedTime": false,
@@ -2543,7 +2580,6 @@
     "contains": [
      "gluten",
      "crustaceans",
-     "sesame",
      "soya",
      "sulphites"
     ],
@@ -2553,7 +2589,8 @@
      "milk",
      "molluscs",
      "nuts",
-     "peanuts"
+     "peanuts",
+     "sesame"
     ]
    }
   },
@@ -2640,6 +2677,39 @@
    }
   },
   {
+   "id": "sriracha-coconut-seabass",
+   "name": "Sriracha Coconut Seabass",
+   "category": "More to explore",
+   "serving": "",
+   "nutrients": {
+    "calories": 1268,
+    "protein": 47.9,
+    "carbs": 172.2,
+    "fat": 42.9,
+    "saturatedFat": 15.7,
+    "sugar": 20,
+    "salt": 4.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "banana-tree/c486ff66bebd.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "katsu-burger-chicken",
    "name": "Katsu Burger - Chicken",
    "category": "More to explore",
@@ -2722,12 +2792,12 @@
    "category": "More to explore",
    "serving": "",
    "nutrients": {
-    "calories": 889,
-    "protein": 32.7,
+    "calories": 888,
+    "protein": 32.6,
     "carbs": 76,
-    "fat": 48.9,
+    "fat": 48.8,
     "saturatedFat": 4.7,
-    "sugar": 31.4,
+    "sugar": 31.5,
     "salt": 3.9
    },
    "tags": [],
@@ -2762,12 +2832,12 @@
    "category": "More to explore",
    "serving": "",
    "nutrients": {
-    "calories": 611,
+    "calories": 610,
     "protein": 56.4,
     "carbs": 40.6,
-    "fat": 24.7,
+    "fat": 24.6,
     "saturatedFat": 3,
-    "sugar": 20.5,
+    "sugar": 20.6,
     "salt": 3.3
    },
    "tags": [],
@@ -2780,7 +2850,6 @@
      "gluten",
      "crustaceans",
      "mustard",
-     "sesame",
      "soya",
      "sulphites"
     ],
@@ -2865,10 +2934,10 @@
    "category": "Sides and extras",
    "serving": "",
    "nutrients": {
-    "calories": 173,
-    "protein": 1.2,
-    "carbs": 3.7,
-    "fat": 16.7,
+    "calories": 172,
+    "protein": 1.1,
+    "carbs": 3.8,
+    "fat": 16.6,
     "saturatedFat": 1.3,
     "sugar": 3.3,
     "salt": 1.3
@@ -2883,13 +2952,13 @@
    "allergens": {
     "contains": [
      "gluten",
-     "sesame",
      "soya"
     ],
     "mayContain": [
      "eggs",
      "nuts",
-     "peanuts"
+     "peanuts",
+     "sesame"
     ]
    }
   },
@@ -2941,12 +3010,11 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "nuts"
-    ],
+    "contains": [],
     "mayContain": [
      "gluten",
      "eggs",
+     "nuts",
      "peanuts",
      "sesame",
      "soya"
@@ -2978,11 +3046,11 @@
     "contains": [
      "celery",
      "gluten",
-     "mustard",
-     "nuts"
+     "mustard"
     ],
     "mayContain": [
      "eggs",
+     "nuts",
      "peanuts",
      "sesame",
      "soya"
@@ -3134,12 +3202,11 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "nuts"
-    ],
+    "contains": [],
     "mayContain": [
      "gluten",
      "eggs",
+     "nuts",
      "peanuts",
      "sesame",
      "soya"
@@ -3153,12 +3220,12 @@
    "serving": "",
    "nutrients": {
     "calories": 936,
-    "protein": 26.3,
+    "protein": 26.2,
     "carbs": 100.3,
     "fat": 46.5,
     "saturatedFat": 7.5,
     "sugar": 58.7,
-    "salt": 3.8
+    "salt": 3.9
    },
    "tags": [],
    "limitedTime": false,
@@ -3651,6 +3718,35 @@
    "modifiers": [],
    "allergens": {
     "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "virgin-chai-colada",
+   "name": "Virgin Chai Colada",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 101,
+    "protein": 0.2,
+    "carbs": 21.4,
+    "fat": 1.1,
+    "saturatedFat": 0.7,
+    "sugar": 21.2,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "banana-tree/cd278338a2cd.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
     "mayContain": []
    }
   },
@@ -4267,6 +4363,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "banana-tree/8aad0a08468f.webp",
    "allergens": {
     "contains": [
      "gluten",

@@ -18,15 +18,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Butlin's allergen and nutrition information, \"Nutrition (per portion)\" (viewthe.menu pages linked from butlins.com: Firehouse Grill, Beachcomber Inn, The Diner, Fish & Chips, Papa Johns, buffet breakfast and drinks menus, Summer 2026 menus; accessed 2026-10-08, no date shown)",
+  "title": "Butlin's allergen and nutrition information, \"Nutrition (per portion)\" (viewthe.menu pages linked from butlins.com: Firehouse Grill, Beachcomber Inn, The Diner, Fish & Chips, Papa Johns, buffet breakfast and drinks menus, Summer 2026 menus; accessed 2026-11-17, no date shown)",
   "url": "https://www.butlins.com/discover-butlins/food-and-drink/restaurants",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Per portion from Butlin's allergen pages for Firehouse Grill, Beachcomber Inn, The Diner (not its Minehead-only breakfast), Fish & Chips, Papa Johns, buffet breakfast and drinks. Each dish has the same figures wherever printed; not every venue is at every resort. Rock & Sole, Burger King and Chopstix are not listed. Dishes without protein, carbs and fat are left out.",
  "allergenGuide": {
   "title": "Butlin's allergen information (viewthe.menu pages linked from butlins.com: Contains / May contain per dish)",
   "url": "https://www.butlins.com/discover-butlins/food-and-drink/restaurants",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -116,15 +116,15 @@
    "category": "Firehouse Grill: Grazers",
    "serving": "",
    "nutrients": {
-    "calories": 549,
-    "protein": 17.7,
-    "carbs": 43,
-    "fat": 33.2,
-    "saturatedFat": 9.1,
-    "sugar": 5.6,
-    "fiber": 5,
-    "salt": 2,
-    "energyKj": 2293
+    "calories": 515,
+    "protein": 18.4,
+    "carbs": 38.9,
+    "fat": 30.3,
+    "saturatedFat": 8.8,
+    "sugar": 5.3,
+    "fiber": 8.9,
+    "salt": 2.3,
+    "energyKj": 2138
    },
    "tags": [
     "vegetarian"
@@ -185,7 +185,7 @@
     "sugar": 25.2,
     "fiber": 3,
     "salt": 1.5,
-    "energyKj": 1827
+    "energyKj": 1846
    },
    "tags": [],
    "limitedTime": false,
@@ -242,7 +242,7 @@
    "category": "Firehouse Grill: Grazers",
    "serving": "",
    "nutrients": {
-    "calories": 582,
+    "calories": 581,
     "protein": 13,
     "carbs": 59.1,
     "fat": 32.8,
@@ -898,15 +898,15 @@
    "category": "Firehouse Grill: Rice bowls",
    "serving": "",
    "nutrients": {
-    "calories": 941,
-    "protein": 21.2,
-    "carbs": 103.1,
-    "fat": 50.2,
-    "saturatedFat": 5.3,
-    "sugar": 13.8,
-    "fiber": 12.3,
-    "salt": 5.2,
-    "energyKj": 3992
+    "calories": 907,
+    "protein": 21.4,
+    "carbs": 98.3,
+    "fat": 47.8,
+    "saturatedFat": 5.4,
+    "sugar": 13.6,
+    "fiber": 16.4,
+    "salt": 5.4,
+    "energyKj": 3836
    },
    "tags": [
     "vegetarian"
@@ -933,15 +933,15 @@
    "category": "Firehouse Grill: Rice bowls",
    "serving": "",
    "nutrients": {
-    "calories": 812,
-    "protein": 23.3,
-    "carbs": 103.4,
-    "fat": 34.5,
+    "calories": 778,
+    "protein": 23.5,
+    "carbs": 98.7,
+    "fat": 32.1,
     "saturatedFat": 4,
-    "sugar": 10.2,
-    "fiber": 12.3,
-    "salt": 4.4,
-    "energyKj": 3451
+    "sugar": 10,
+    "fiber": 16.5,
+    "salt": 4.6,
+    "energyKj": 3295
    },
    "tags": [
     "vegetarian"
@@ -1129,7 +1129,7 @@
     "sugar": 1.5,
     "fiber": 2.2,
     "salt": 1.7,
-    "energyKj": 3077
+    "energyKj": 3091
    },
    "tags": [],
    "limitedTime": false,
@@ -1276,7 +1276,7 @@
     "sugar": 51,
     "fiber": 9.3,
     "salt": 16.4,
-    "energyKj": 20499
+    "energyKj": 20538
    },
    "tags": [],
    "limitedTime": false,
@@ -1307,7 +1307,7 @@
     "sugar": 52,
     "fiber": 8.9,
     "salt": 8.7,
-    "energyKj": 8495
+    "energyKj": 8534
    },
    "tags": [],
    "limitedTime": false,
@@ -1332,13 +1332,13 @@
    "nutrients": {
     "calories": 29,
     "protein": 0.5,
-    "carbs": 3.2,
+    "carbs": 3.3,
     "fat": 1,
     "saturatedFat": 0.1,
-    "sugar": 1,
+    "sugar": 0.8,
     "fiber": 1,
-    "salt": 2.9,
-    "energyKj": 119
+    "salt": 3.1,
+    "energyKj": 121
    },
    "tags": [
     "vegetarian"
@@ -1774,15 +1774,15 @@
    "category": "Firehouse Grill: Sides",
    "serving": "",
    "nutrients": {
-    "calories": 743,
-    "protein": 23.6,
-    "carbs": 84.7,
+    "calories": 745,
+    "protein": 23.8,
+    "carbs": 85,
     "fat": 34.3,
-    "saturatedFat": 16.1,
-    "sugar": 7.7,
+    "saturatedFat": 16.3,
+    "sugar": 8.3,
     "fiber": 3.9,
     "salt": 3.2,
-    "energyKj": 3125
+    "energyKj": 3127
    },
    "tags": [
     "vegetarian"
@@ -1886,7 +1886,7 @@
     "sugar": 8.1,
     "fiber": 15.5,
     "salt": 3.1,
-    "energyKj": 5091
+    "energyKj": 5092
    },
    "tags": [
     "vegetarian"
@@ -2340,7 +2340,7 @@
     "sugar": 0.7,
     "fiber": 2.1,
     "salt": 0.8,
-    "energyKj": 1794
+    "energyKj": 1813
    },
    "tags": [],
    "limitedTime": false,
@@ -2363,15 +2363,15 @@
    "category": "Firehouse Grill: Kids' mains",
    "serving": "",
    "nutrients": {
-    "calories": 493,
-    "protein": 16.3,
-    "carbs": 61.2,
+    "calories": 495,
+    "protein": 16.5,
+    "carbs": 61.4,
     "fat": 20.1,
-    "saturatedFat": 11.3,
-    "sugar": 4.7,
+    "saturatedFat": 11.4,
+    "sugar": 5.1,
     "fiber": 2.3,
     "salt": 1.4,
-    "energyKj": 2075
+    "energyKj": 2076
    },
    "tags": [
     "vegetarian"
@@ -2398,15 +2398,15 @@
    "category": "Firehouse Grill: Kids' mains",
    "serving": "",
    "nutrients": {
-    "calories": 578,
-    "protein": 17.1,
-    "carbs": 79,
+    "calories": 579,
+    "protein": 17.2,
+    "carbs": 79.1,
     "fat": 20.6,
-    "saturatedFat": 11.8,
-    "sugar": 1.9,
+    "saturatedFat": 11.9,
+    "sugar": 2.2,
     "fiber": 4.2,
     "salt": 2.3,
-    "energyKj": 2412
+    "energyKj": 2413
    },
    "tags": [
     "vegetarian"
@@ -2481,15 +2481,15 @@
    "category": "Firehouse Grill: Kids' mains",
    "serving": "",
    "nutrients": {
-    "calories": 658,
-    "protein": 21.8,
-    "carbs": 81.6,
+    "calories": 660,
+    "protein": 22,
+    "carbs": 81.9,
     "fat": 26.8,
-    "saturatedFat": 15.1,
-    "sugar": 6.2,
+    "saturatedFat": 15.3,
+    "sugar": 6.8,
     "fiber": 3.1,
     "salt": 1.8,
-    "energyKj": 2767
+    "energyKj": 2769
    },
    "tags": [
     "vegetarian"
@@ -2964,15 +2964,15 @@
    "category": "Beachcomber Inn: Starters",
    "serving": "",
    "nutrients": {
-    "calories": 421,
-    "protein": 8.9,
-    "carbs": 28.7,
-    "fat": 27.9,
+    "calories": 398,
+    "protein": 9.1,
+    "carbs": 25.5,
+    "fat": 26.3,
     "saturatedFat": 2.7,
-    "sugar": 11.9,
-    "fiber": 10.2,
-    "salt": 2,
-    "energyKj": 1845
+    "sugar": 11.7,
+    "fiber": 13,
+    "salt": 2.1,
+    "energyKj": 1741
    },
    "tags": [
     "vegetarian"
@@ -3060,7 +3060,7 @@
    "category": "Beachcomber Inn: Starters",
    "serving": "",
    "nutrients": {
-    "calories": 333,
+    "calories": 332,
     "protein": 11.6,
     "carbs": 16.5,
     "fat": 25.6,
@@ -3369,7 +3369,7 @@
    "category": "Beachcomber Inn: Pub classics",
    "serving": "",
    "nutrients": {
-    "calories": 881,
+    "calories": 880,
     "protein": 38.7,
     "carbs": 103.4,
     "fat": 33.9,
@@ -3406,13 +3406,13 @@
    "nutrients": {
     "calories": 780,
     "protein": 30,
-    "carbs": 83.6,
+    "carbs": 83.7,
     "fat": 35.3,
     "saturatedFat": 21.1,
-    "sugar": 3.6,
+    "sugar": 3.8,
     "fiber": 4,
     "salt": 4.4,
-    "energyKj": 3253
+    "energyKj": 3254
    },
    "tags": [
     "vegetarian"
@@ -3465,15 +3465,15 @@
    "category": "Beachcomber Inn: Pub classics",
    "serving": "",
    "nutrients": {
-    "calories": 983,
-    "protein": 51.5,
-    "carbs": 118.2,
-    "fat": 31.7,
+    "calories": 1112,
+    "protein": 81,
+    "carbs": 118.1,
+    "fat": 33.5,
     "saturatedFat": 3.1,
     "sugar": 13.6,
     "fiber": 12.3,
-    "salt": 4.2,
-    "energyKj": 4115
+    "salt": 4.5,
+    "energyKj": 4658
    },
    "tags": [],
    "limitedTime": false,
@@ -3613,7 +3613,7 @@
     "carbs": 142.2,
     "fat": 79,
     "saturatedFat": 30.2,
-    "sugar": 12.8,
+    "sugar": 12.9,
     "fiber": 8,
     "salt": 5.5,
     "energyKj": 6279
@@ -3651,7 +3651,7 @@
     "carbs": 58.7,
     "fat": 54.4,
     "saturatedFat": 26,
-    "sugar": 10.1,
+    "sugar": 10.2,
     "fiber": 4.8,
     "salt": 3.8,
     "energyKj": 3811
@@ -4099,7 +4099,7 @@
     "carbs": 5.2,
     "fat": 3,
     "saturatedFat": 0.2,
-    "sugar": 4.4,
+    "sugar": 4.5,
     "fiber": 2.3,
     "salt": 0.4,
     "energyKj": 247
@@ -4711,7 +4711,7 @@
    "category": "Beachcomber Inn: Burger extras",
    "serving": "",
    "nutrients": {
-    "calories": 1707,
+    "calories": 1706,
     "protein": 75.4,
     "carbs": 124.2,
     "fat": 101,
@@ -5629,7 +5629,7 @@
    "category": "Beachcomber Inn: Kids' mains",
    "serving": "",
    "nutrients": {
-    "calories": 441,
+    "calories": 440,
     "protein": 19.3,
     "carbs": 51.7,
     "fat": 17,
@@ -5666,13 +5666,13 @@
    "nutrients": {
     "calories": 390,
     "protein": 15,
-    "carbs": 41.8,
+    "carbs": 41.9,
     "fat": 17.6,
-    "saturatedFat": 10.5,
-    "sugar": 1.8,
+    "saturatedFat": 10.6,
+    "sugar": 1.9,
     "fiber": 2,
     "salt": 2.2,
-    "energyKj": 1626
+    "energyKj": 1627
    },
    "tags": [
     "vegetarian"
@@ -6480,14 +6480,14 @@
    "serving": "",
    "nutrients": {
     "calories": 626,
-    "protein": 24,
+    "protein": 23.9,
     "carbs": 53,
     "fat": 36.5,
     "saturatedFat": 7.7,
     "sugar": 2.3,
     "fiber": 4.3,
     "salt": 2.8,
-    "energyKj": 2605
+    "energyKj": 2608
    },
    "tags": [],
    "limitedTime": false,
@@ -6565,14 +6565,14 @@
    "serving": "",
    "nutrients": {
     "calories": 505,
-    "protein": 21.8,
+    "protein": 21.7,
     "carbs": 44.7,
     "fat": 26.6,
     "saturatedFat": 1.4,
     "sugar": 1.5,
     "fiber": 2.7,
     "salt": 2.3,
-    "energyKj": 2108
+    "energyKj": 2110
    },
    "tags": [],
    "limitedTime": false,
@@ -6743,14 +6743,14 @@
    "serving": "",
    "nutrients": {
     "calories": 950,
-    "protein": 39.1,
+    "protein": 39,
     "carbs": 106.9,
     "fat": 39.9,
     "saturatedFat": 7.8,
     "sugar": 2.1,
     "fiber": 6.5,
     "salt": 4.4,
-    "energyKj": 3968
+    "energyKj": 3971
    },
    "tags": [],
    "limitedTime": false,
@@ -6813,15 +6813,15 @@
    "category": "Beachcomber Inn: Light bites",
    "serving": "",
    "nutrients": {
-    "calories": 669,
-    "protein": 17.3,
-    "carbs": 91.5,
-    "fat": 24.6,
-    "saturatedFat": 2.5,
-    "sugar": 13.4,
-    "fiber": 11.9,
-    "salt": 2.2,
-    "energyKj": 2869
+    "calories": 646,
+    "protein": 17.4,
+    "carbs": 88.3,
+    "fat": 23,
+    "saturatedFat": 2.6,
+    "sugar": 13.2,
+    "fiber": 14.6,
+    "salt": 2.3,
+    "energyKj": 2765
    },
    "tags": [
     "vegetarian"
@@ -6884,10 +6884,10 @@
    "serving": "Per serving",
    "nutrients": {
     "calories": 181,
-    "protein": 35.9,
+    "protein": 33.3,
     "carbs": 0.4,
-    "fat": 3.9,
-    "saturatedFat": 0.6,
+    "fat": 5.1,
+    "saturatedFat": 0.9,
     "sugar": 0,
     "fiber": 0.2,
     "salt": 0.8,
@@ -7123,15 +7123,15 @@
    "category": "Beachcomber Inn: Carvery",
    "serving": "Per spoon",
    "nutrients": {
-    "calories": 162,
-    "protein": 3.8,
-    "carbs": 31.1,
-    "fat": 3.2,
+    "calories": 166,
+    "protein": 3.7,
+    "carbs": 30.7,
+    "fat": 2.9,
     "saturatedFat": 0.7,
-    "sugar": 1.1,
-    "fiber": 2.6,
+    "sugar": 1.4,
+    "fiber": 4.2,
     "salt": 0.8,
-    "energyKj": 679
+    "energyKj": 693
    },
    "tags": [
     "vegetarian"
@@ -7265,15 +7265,15 @@
    "category": "Beachcomber Inn: Carvery",
    "serving": "Per spoon",
    "nutrients": {
-    "calories": 287,
-    "protein": 14,
-    "carbs": 8.9,
+    "calories": 288,
+    "protein": 14.1,
+    "carbs": 9.1,
     "fat": 22.1,
-    "saturatedFat": 13,
-    "sugar": 3.3,
+    "saturatedFat": 13.1,
+    "sugar": 3.7,
     "fiber": 1.5,
     "salt": 2.1,
-    "energyKj": 1194
+    "energyKj": 1195
    },
    "tags": [
     "vegetarian"
@@ -7395,7 +7395,7 @@
     "sugar": 1.2,
     "fiber": 2.7,
     "salt": 0.7,
-    "energyKj": 187
+    "energyKj": 210
    },
    "tags": [
     "vegetarian"
@@ -7705,15 +7705,15 @@
    "category": "Buffet breakfast: Hot counter",
    "serving": "Per spoon",
    "nutrients": {
-    "calories": 32,
-    "protein": 3.9,
-    "carbs": 4.5,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 2.5,
-    "fiber": 1.5,
+    "calories": 13,
+    "protein": 1.4,
+    "carbs": 1.1,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 0.4,
+    "fiber": 1.2,
     "salt": 0.4,
-    "energyKj": 133
+    "energyKj": 54
    },
    "tags": [
     "vegetarian"
@@ -8673,15 +8673,15 @@
    "category": "Buffet breakfast: Bakery",
    "serving": "Per roll",
    "nutrients": {
-    "calories": 104,
-    "protein": 4,
-    "carbs": 19.9,
-    "fat": 0.5,
+    "calories": 105,
+    "protein": 3.9,
+    "carbs": 20.7,
+    "fat": 0.4,
     "saturatedFat": 0.1,
     "sugar": 0.9,
-    "fiber": 1.9,
+    "fiber": 1.6,
     "salt": 0.5,
-    "energyKj": 433
+    "energyKj": 445
    },
    "tags": [
     "vegetarian"
@@ -8710,15 +8710,15 @@
    "category": "Buffet breakfast: Bakery",
    "serving": "Per roll",
    "nutrients": {
-    "calories": 104,
+    "calories": 107,
     "protein": 3.4,
     "carbs": 21.1,
     "fat": 0.4,
     "saturatedFat": 0.1,
     "sugar": 0.8,
-    "fiber": 1.3,
+    "fiber": 1,
     "salt": 0.5,
-    "energyKj": 441
+    "energyKj": 455
    },
    "tags": [
     "vegetarian"
@@ -8812,15 +8812,15 @@
    "category": "Buffet breakfast: Bakery",
    "serving": "Per pastry",
    "nutrients": {
-    "calories": 107,
-    "protein": 2,
-    "carbs": 11.8,
+    "calories": 106,
+    "protein": 2.1,
+    "carbs": 11.5,
     "fat": 5.6,
     "saturatedFat": 3.6,
     "sugar": 3.6,
-    "fiber": 0.8,
-    "salt": 0.3,
-    "energyKj": 449
+    "fiber": 0.9,
+    "salt": 0.2,
+    "energyKj": 445
    },
    "tags": [
     "vegetarian"
@@ -8839,6 +8839,9 @@
     "mayContain": [
      "nuts",
      "sesame"
+    ],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -10247,7 +10250,7 @@
    "category": "The Diner: Classics",
    "serving": "",
    "nutrients": {
-    "calories": 881,
+    "calories": 880,
     "protein": 38.7,
     "carbs": 103.4,
     "fat": 33.9,
@@ -10956,7 +10959,7 @@
    "category": "The Diner: Signature burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1439,
+    "calories": 1438,
     "protein": 20.8,
     "carbs": 140.1,
     "fat": 87.2,
@@ -11501,7 +11504,7 @@
    "category": "The Diner: Lunch",
    "serving": "",
    "nutrients": {
-    "calories": 1103,
+    "calories": 1102,
     "protein": 48.8,
     "carbs": 110.3,
     "fat": 50,
@@ -11572,7 +11575,7 @@
    "category": "The Diner: Lunch",
    "serving": "",
    "nutrients": {
-    "calories": 1230,
+    "calories": 1229,
     "protein": 41.1,
     "carbs": 112.3,
     "fat": 66.4,
@@ -13766,7 +13769,7 @@
    "category": "The Diner: Bottomless brunch",
    "serving": "",
    "nutrients": {
-    "calories": 676,
+    "calories": 675,
     "protein": 25.3,
     "carbs": 84.9,
     "fat": 25.1,
@@ -14050,7 +14053,7 @@
     "sugar": 2.3,
     "fiber": 2.5,
     "salt": 2.1,
-    "energyKj": 2664
+    "energyKj": 2657
    },
    "tags": [
     "contains_beef"
@@ -14062,16 +14065,10 @@
    "allergens": {
     "contains": [
      "gluten",
-     "milk",
-     "soya"
+     "milk"
     ],
     "mayContain": [
-     "nuts",
-     "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
+     "soya"
     ]
    }
   },
@@ -14089,7 +14086,7 @@
     "sugar": 2.5,
     "fiber": 2.5,
     "salt": 2.3,
-    "energyKj": 2052
+    "energyKj": 2045
    },
    "tags": [],
    "limitedTime": false,
@@ -14098,14 +14095,11 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "celery",
      "gluten",
-     "milk",
-     "soya"
+     "milk"
     ],
     "mayContain": [
-     "nuts",
-     "peanuts"
+     "soya"
     ]
    }
   },
@@ -14122,8 +14116,8 @@
     "saturatedFat": 10.6,
     "sugar": 2.3,
     "fiber": 10.1,
-    "salt": 4.2,
-    "energyKj": 2117
+    "salt": 1.7,
+    "energyKj": 2111
    },
    "tags": [
     "contains_beef"
@@ -14135,16 +14129,10 @@
    "allergens": {
     "contains": [
      "gluten",
-     "milk",
-     "soya"
+     "milk"
     ],
     "mayContain": [
-     "celery",
-     "mustard"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
+     "soya"
     ]
    }
   },
@@ -15244,15 +15232,15 @@
    "category": "Papa Johns: Salad bar",
    "serving": "Per tong",
    "nutrients": {
-    "calories": 5,
-    "protein": 0.4,
-    "carbs": 0.3,
+    "calories": 4,
+    "protein": 0.2,
+    "carbs": 0.5,
     "fat": 0.1,
     "saturatedFat": 0,
-    "sugar": 0.1,
-    "fiber": 0.6,
+    "sugar": 0.5,
+    "fiber": 0.2,
     "salt": 0,
-    "energyKj": 19
+    "energyKj": 17
    },
    "tags": [
     "vegetarian"
@@ -15272,15 +15260,15 @@
    "category": "Papa Johns: Salad bar",
    "serving": "Per spoon",
    "nutrients": {
-    "calories": 140,
-    "protein": 1.7,
-    "carbs": 13.8,
-    "fat": 9,
+    "calories": 142,
+    "protein": 1.6,
+    "carbs": 13.7,
+    "fat": 8.8,
     "saturatedFat": 0.2,
-    "sugar": 0.7,
-    "fiber": 1.1,
+    "sugar": 0.8,
+    "fiber": 1.8,
     "salt": 0.4,
-    "energyKj": 586
+    "energyKj": 592
    },
    "tags": [
     "vegetarian"
@@ -15394,7 +15382,7 @@
     "carbs": 2.8,
     "fat": 3.8,
     "saturatedFat": 0.3,
-    "sugar": 2.5,
+    "sugar": 2.7,
     "fiber": 0.1,
     "salt": 0.5,
     "energyKj": 194
@@ -15607,15 +15595,15 @@
    "category": "Papa Johns: Pasta bar",
    "serving": "Per Spoon",
    "nutrients": {
-    "calories": 658,
-    "protein": 21.7,
-    "carbs": 81.6,
+    "calories": 660,
+    "protein": 21.9,
+    "carbs": 81.9,
     "fat": 26.8,
-    "saturatedFat": 15.1,
-    "sugar": 6.2,
+    "saturatedFat": 15.3,
+    "sugar": 6.8,
     "fiber": 3.1,
     "salt": 1.8,
-    "energyKj": 2766
+    "energyKj": 2768
    },
    "tags": [
     "vegetarian"
@@ -17913,10 +17901,10 @@
    "nutrients": {
     "calories": 42,
     "protein": 0,
-    "carbs": 9.8,
+    "carbs": 10,
     "fat": 0,
     "saturatedFat": 0,
-    "sugar": 9.8,
+    "sugar": 10,
     "fiber": 0,
     "salt": 0,
     "energyKj": 178

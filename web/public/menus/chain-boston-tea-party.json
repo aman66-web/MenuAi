@@ -10,12 +10,12 @@
  ],
  "sample": false,
  "source": {
-  "title": "Boston Tea Party autumn 2026 menu with calories (file autumn-2026-menu_1a.pdf, code 0926_1A, PDF created 9 September 2026) and kids' menu (kids-menu_0926_1.pdf, code 0926_1)",
-  "url": "https://bostonteaparty.co.uk/media/gizngioz/autumn-2026-menu_1a.pdf",
-  "checkedOn": "2026-10-08"
+  "title": "Boston Tea Party November 2026 menu with calories (file btp_november-2026-menu_1a.pdf, code 1126_1A) and kids' menu (kids-menu_0926_1.pdf, code 0926_1, PDF created 9 September 2026)",
+  "url": "https://bostonteaparty.co.uk/media/53dbullc/btp_november-2026-menu_1a.pdf",
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "Calories only, as printed beside each dish on the autumn 2026 menu (the version most cafes use: Bath Kingsmead Square, Worcester and Honiton print slightly shorter ones) and on the kids' menu. Teas, water, alcohol, cakes and the afternoon tea set menu are not listed. Drink sizes are not stated.",
+ "note": "Calories only, as printed beside each dish on the November 2026 menu (the version 14 of the 21 cafes use: Bath Kingsmead Square, Worcester and Honiton print slightly shorter ones, and five cafes trial other drinks) and on the kids' menu. Teas, water, alcohol, cakes and the afternoon tea set menus are not listed. Drink sizes are not stated.",
  "categories": [
   "All day brekky",
   "Lighter breakfasts",
@@ -23,17 +23,19 @@
   "Breakfast muffins",
   "Lunch",
   "Boston toasties",
+  "Festive specials",
   "Hash browns",
   "Sides & extras",
+  "Festive specials: drinks",
   "Smoothies & shakes",
-  "Coolers & juices",
+  "Cakes & treats",
   "Brunch tipples",
   "Craft beer & cider",
   "Softs",
-  "Cakes & treats",
-  "Matcha",
+  "Coolers & juices",
+  "Iced drinks",
   "Coffee",
-  "Other hotties",
+  "Matcha & more",
   "Kids: Build your own breakfast",
   "Kids: Mini meals",
   "Kids: Pancakes",
@@ -300,30 +302,16 @@
    "image": "boston-tea-party/c113a326301b.webp"
   },
   {
-   "id": "santa-fe-fritters",
-   "name": "Santa Fe Fritters",
+   "id": "add-free-range-chorizo-to-sweetcorn-hash",
+   "name": "Add free-range chorizo (to Sweetcorn Hash)",
    "category": "Brunch",
    "serving": "",
    "nutrients": {
-    "calories": 911
+    "calories": 129
    },
    "tags": [
     "contains_pork"
    ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "add-halloumi-to-santa-fe-fritters",
-   "name": "Add halloumi (to Santa Fe Fritters)",
-   "category": "Brunch",
-   "serving": "",
-   "nutrients": {
-    "calories": 219
-   },
-   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -883,6 +871,56 @@
    "modifiers": []
   },
   {
+   "id": "the-festive-full-monty",
+   "name": "The Festive Full Monty",
+   "category": "Festive specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1692
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "boston-tea-party/b7e38358e44c.webp"
+  },
+  {
+   "id": "bacon-brie-and-cranberry-toastie",
+   "name": "Bacon, Brie & Cranberry Toastie",
+   "category": "Festive specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 737
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "boston-tea-party/5efd29e826c2.webp"
+  },
+  {
+   "id": "bacon-brie-and-cranberry-toastie-with-spinach-instead-of-bacon",
+   "name": "Bacon, Brie & Cranberry Toastie with spinach instead of bacon",
+   "category": "Festive specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 681
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "two-hash-browns",
    "name": "Two Hash Browns",
    "category": "Hash browns",
@@ -1191,6 +1229,40 @@
    "modifiers": []
   },
   {
+   "id": "christmas-trifle-iced-matcha",
+   "name": "Christmas Trifle Iced Matcha",
+   "category": "Festive specials: drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 280
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "boston-tea-party/ff5345d77105.webp"
+  },
+  {
+   "id": "tiramisu-shake",
+   "name": "Tiramisu Shake",
+   "category": "Festive specials: drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 525
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "boston-tea-party/1bee042dde13.webp"
+  },
+  {
    "id": "berry-peachy-smoothie",
    "name": "Berry Peachy Smoothie",
    "category": "Smoothies & shakes",
@@ -1292,12 +1364,12 @@
    "image": "boston-tea-party/cfa483a7b888.webp"
   },
   {
-   "id": "lotus-biscoff-shake",
-   "name": "Lotus Biscoff Shake",
-   "category": "Smoothies & shakes",
+   "id": "christmas-cream-tea",
+   "name": "Christmas Cream Tea",
+   "category": "Cakes & treats",
    "serving": "",
    "nutrients": {
-    "calories": 525
+    "calories": 895
    },
    "tags": [
     "vegetarian"
@@ -1305,62 +1377,35 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "boston-tea-party/a3d0d23087e5.webp"
+   "modifiers": []
   },
   {
-   "id": "homemade-lemonade",
-   "name": "Homemade Lemonade",
-   "category": "Coolers & juices",
+   "id": "christmas-cream-tea-with-butter-instead-of-clotted-cream",
+   "name": "Christmas Cream Tea with butter instead of clotted cream",
+   "category": "Cakes & treats",
    "serving": "",
    "nutrients": {
-    "calories": 223
+    "calories": 764
    },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "boston-tea-party/59c9571538ee.webp"
-  },
-  {
-   "id": "orange-juice",
-   "name": "Orange Juice",
-   "category": "Coolers & juices",
-   "serving": "",
-   "nutrients": {
-    "calories": 109
-   },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": []
   },
   {
-   "id": "cloudy-apple-juice",
-   "name": "Cloudy Apple Juice",
-   "category": "Coolers & juices",
+   "id": "christmas-cream-tea-vegan-vegan-spread-instead-of-clotted-cream",
+   "name": "Christmas Cream Tea, vegan (vegan spread instead of clotted cream)",
+   "category": "Cakes & treats",
    "serving": "",
    "nutrients": {
-    "calories": 85
+    "calories": 708
    },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "boston-tea-party/d635abce68ab.webp"
-  },
-  {
-   "id": "homemade-iced-tea",
-   "name": "Homemade Iced Tea",
-   "category": "Coolers & juices",
-   "serving": "",
-   "nutrients": {
-    "calories": 68
-   },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -1408,8 +1453,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "boston-tea-party/de4ab5c67141.webp"
+   "modifiers": []
   },
   {
    "id": "diet-coke",
@@ -1423,8 +1467,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "boston-tea-party/93dc0f73dceb.webp"
+   "modifiers": []
   },
   {
    "id": "coke-zero",
@@ -1438,8 +1481,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "boston-tea-party/bb1c56b82868.webp"
+   "modifiers": []
   },
   {
    "id": "belvoir-farm-sparkling-elderflower",
@@ -1453,8 +1495,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "boston-tea-party/1d6b37047e85.webp"
+   "modifiers": []
   },
   {
    "id": "flawsome-lightly-sparkling-juice-apple-and-rhubarb",
@@ -1496,91 +1537,56 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "boston-tea-party/84dacc4c40c1.webp"
-  },
-  {
-   "id": "cream-tea",
-   "name": "Cream Tea",
-   "category": "Cakes & treats",
-   "serving": "",
-   "nutrients": {
-    "calories": 895
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
    "modifiers": []
   },
   {
-   "id": "cream-tea-with-butter-instead-of-clotted-cream",
-   "name": "Cream Tea with butter instead of clotted cream",
-   "category": "Cakes & treats",
+   "id": "homemade-lemonade",
+   "name": "Homemade Lemonade",
+   "category": "Coolers & juices",
    "serving": "",
    "nutrients": {
-    "calories": 764
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "cream-tea-vegan-vegan-spread-instead-of-clotted-cream",
-   "name": "Cream Tea, vegan (vegan spread instead of clotted cream)",
-   "category": "Cakes & treats",
-   "serving": "",
-   "nutrients": {
-    "calories": 708
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "matcha-latte",
-   "name": "Matcha Latte",
-   "category": "Matcha",
-   "serving": "",
-   "nutrients": {
-    "calories": 155
+    "calories": 223
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "boston-tea-party/01a27b5eafee.webp"
+   "image": "boston-tea-party/59c9571538ee.webp"
   },
   {
-   "id": "vanilla-matcha-latte",
-   "name": "Vanilla Matcha Latte",
-   "category": "Matcha",
+   "id": "orange-juice",
+   "name": "Orange Juice",
+   "category": "Coolers & juices",
    "serving": "",
    "nutrients": {
-    "calories": 220
+    "calories": 109
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cloudy-apple-juice",
+   "name": "Cloudy Apple Juice",
+   "category": "Coolers & juices",
+   "serving": "",
+   "nutrients": {
+    "calories": 85
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "boston-tea-party/01a27b5eafee.webp"
+   "image": "boston-tea-party/d635abce68ab.webp"
   },
   {
    "id": "iced-matcha-latte",
    "name": "Iced Matcha Latte",
-   "category": "Matcha",
+   "category": "Iced drinks",
    "serving": "",
    "nutrients": {
     "calories": 155
@@ -1593,9 +1599,9 @@
    "image": "boston-tea-party/efe5b5c31dd9.webp"
   },
   {
-   "id": "iced-vanilla-matcha-latte",
-   "name": "Iced Vanilla Matcha Latte",
-   "category": "Matcha",
+   "id": "flavoured-iced-matcha",
+   "name": "Flavoured Iced Matcha",
+   "category": "Iced drinks",
    "serving": "",
    "nutrients": {
     "calories": 220
@@ -1607,12 +1613,12 @@
    "modifiers": []
   },
   {
-   "id": "iced-strawberry-matcha-latte",
-   "name": "Iced Strawberry Matcha Latte",
-   "category": "Matcha",
+   "id": "iced-latte",
+   "name": "Iced Latte",
+   "category": "Iced drinks",
    "serving": "",
    "nutrients": {
-    "calories": 230
+    "calories": 155
    },
    "tags": [],
    "limitedTime": false,
@@ -1621,12 +1627,27 @@
    "modifiers": []
   },
   {
-   "id": "iced-peaches-and-cream-matcha-latte",
-   "name": "Iced Peaches & Cream Matcha Latte",
-   "category": "Matcha",
+   "id": "maple-blended-iced-coffee",
+   "name": "Maple Blended Iced Coffee",
+   "category": "Iced drinks",
    "serving": "",
    "nutrients": {
-    "calories": 220
+    "calories": 176
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "boston-tea-party/8e5fae8d1ea5.webp"
+  },
+  {
+   "id": "homemade-iced-tea",
+   "name": "Homemade Iced Tea",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 68
    },
    "tags": [],
    "limitedTime": false,
@@ -1733,13 +1754,12 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "boston-tea-party/165519728903.webp"
+   "modifiers": []
   },
   {
-   "id": "iced-latte",
-   "name": "Iced Latte",
-   "category": "Coffee",
+   "id": "matcha-latte",
+   "name": "Matcha Latte",
+   "category": "Matcha & more",
    "serving": "",
    "nutrients": {
     "calories": 155
@@ -1748,27 +1768,28 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "boston-tea-party/01a27b5eafee.webp"
   },
   {
-   "id": "maple-blended-iced-coffee",
-   "name": "Maple Blended Iced Coffee",
-   "category": "Coffee",
+   "id": "vanilla-matcha-latte",
+   "name": "Vanilla Matcha Latte",
+   "category": "Matcha & more",
    "serving": "",
    "nutrients": {
-    "calories": 176
+    "calories": 220
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "boston-tea-party/8e5fae8d1ea5.webp"
+   "image": "boston-tea-party/01a27b5eafee.webp"
   },
   {
    "id": "hot-chocolate",
    "name": "Hot Chocolate",
-   "category": "Other hotties",
+   "category": "Matcha & more",
    "serving": "",
    "nutrients": {
     "calories": 243
@@ -1783,7 +1804,7 @@
   {
    "id": "chai-latte",
    "name": "Chai Latte",
-   "category": "Other hotties",
+   "category": "Matcha & more",
    "serving": "",
    "nutrients": {
     "calories": 365

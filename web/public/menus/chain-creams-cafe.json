@@ -11,16 +11,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Creams Cafe Allergens & Calorie Declaration and Matrix, Version 02 Oct 2026 (PDF created 30 September 2026)",
-  "url": "https://www.creamscafe.com/brochures/Allergen-Matrix--02-Oct-26.pdf",
-  "checkedOn": "2026-10-08"
+  "title": "Creams Cafe Allergens & Calorie Declaration and Matrix, Version 03 Nov 2026 (PDF created 3 November 2026)",
+  "url": "https://www.creamscafe.com/brochures/Allergen-Matrix--03-Nov-26.pdf",
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only: one figure per dish as listed in Creams Cafe's own allergen matrix; portion sizes are not stated and protein, carbs, fat and salt are not published. Sauces, syrups, toppings and the parts of build-your-own shakes and desserts are left out (no portion given). Creams says slushies contain glycerol: not recommended for children aged 4 and under.",
  "allergenGuide": {
-  "title": "Creams Cafe Allergens & Calorie Declaration and Matrix, Version 02 Oct 2026",
-  "url": "https://www.creamscafe.com/brochures/Allergen-Matrix--02-Oct-26.pdf",
-  "checkedOn": "2026-10-08",
+  "title": "Creams Cafe Allergens & Calorie Declaration and Matrix, Version 03 Nov 2026",
+  "url": "https://www.creamscafe.com/brochures/Allergen-Matrix--03-Nov-26.pdf",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -74,7 +74,10 @@
   "Crave & Save",
   "Winter: goo bakes",
   "Winter: bites",
-  "Winter: hot chocolate"
+  "Winter: hot chocolate",
+  "Fro yo: frozen yoghurt",
+  "Fro yo: sorbet",
+  "Fro yo: gelato"
  ],
  "components": [],
  "items": [
@@ -349,6 +352,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/8895b774b728.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -375,6 +379,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/d92ccb58b3bf.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -404,6 +409,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/090e412fdf08.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -430,6 +436,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/45eb603eab73.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -456,6 +463,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/17839263c5f8.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -485,6 +493,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/8276886058b1.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -569,6 +578,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/18df43e62e11.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -595,6 +605,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/379e3c346c76.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -624,6 +635,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/8cca28297126.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -650,6 +662,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/7591397e9f1b.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -676,6 +689,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/7aa41413bb65.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -705,6 +719,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/9eef3a2c9d04.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -731,6 +746,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/d6b6c79d3d2e.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -835,6 +851,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/439866371d58.webp",
    "allergens": {
     "contains": [],
     "mayContain": [
@@ -2198,6 +2215,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/23a2aaa175f9.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2230,6 +2248,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/97f0c0edb5f8.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2262,6 +2281,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/a0780875b78a.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2332,6 +2352,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/2111e4c566de.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2439,6 +2460,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/0d6307c79b54.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2473,6 +2495,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/5ed00bfd7548.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2508,6 +2531,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/eb8fe1ee9e9f.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2543,6 +2567,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/ed0ddc07273b.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2578,6 +2603,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/513771c18d5b.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2618,6 +2644,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/e58486a12e5f.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2653,6 +2680,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/052b60de459b.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2688,6 +2716,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/07774b84893f.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2722,6 +2751,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/7ec44cd77540.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2759,6 +2789,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/fe4b3be5994d.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2797,6 +2828,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/ee6adc862a12.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2864,6 +2896,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/d5c421fbef45.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2896,6 +2929,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/9b1a9a85cf13.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2930,6 +2964,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/07a6f6c8f43a.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2964,6 +2999,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/f9b7f2ed4c39.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2998,6 +3034,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/8b40c1f7176f.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3037,6 +3074,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/dd41adf54ef4.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3071,6 +3109,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/bbfa47ac4753.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3104,6 +3143,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/8091cdeb497a.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3135,6 +3175,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/7aa277d96f63.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3171,6 +3212,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/7835fda354ed.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3208,6 +3250,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/a8b441c65fd4.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -6806,6 +6849,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/bdd2a1b5797b.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -6831,6 +6875,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/65b176b4332f.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -6856,6 +6901,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/8d2b32163e3d.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -6881,6 +6927,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/49f953f0394c.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -6899,6 +6946,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/c59bdd8175a7.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -7411,6 +7459,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/5be8b47e2aac.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -7469,6 +7518,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/4a28c61d4d1e.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -7498,6 +7548,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/78979a947d84.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -7559,7 +7610,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "creams-cafe/3bd94dd6b663.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -8021,6 +8071,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/e0309b24e747.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -8050,6 +8101,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "creams-cafe/9113095ea0ed.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -8228,6 +8280,190 @@
     ],
     "cereals": [
      "wheat"
+    ]
+   }
+  },
+  {
+   "id": "frozen-natural-yoghurt",
+   "name": "Frozen Natural Yoghurt",
+   "category": "Fro yo: frozen yoghurt",
+   "serving": "",
+   "nutrients": {
+    "calories": 209
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-vegan-sorbet-fro-yo",
+   "name": "Strawberry Vegan Sorbet (fro yo)",
+   "category": "Fro yo: sorbet",
+   "serving": "",
+   "nutrients": {
+    "calories": 136
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "mango-vegan-sorbet-fro-yo",
+   "name": "Mango Vegan Sorbet (fro yo)",
+   "category": "Fro yo: sorbet",
+   "serving": "",
+   "nutrients": {
+    "calories": 126
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "vanilla-gelato-fro-yo",
+   "name": "Vanilla Gelato (fro yo)",
+   "category": "Fro yo: gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-gelato-fro-yo",
+   "name": "Chocolate Gelato (fro yo)",
+   "category": "Fro yo: gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 185
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "salted-caramel-gelato-fro-yo",
+   "name": "Salted Caramel Gelato (fro yo)",
+   "category": "Fro yo: gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 189
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-gelato-fro-yo",
+   "name": "Pistachio Gelato (fro yo)",
+   "category": "Fro yo: gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 209
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts",
+     "soya"
     ]
    }
   }

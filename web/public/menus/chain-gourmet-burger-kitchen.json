@@ -11,9 +11,9 @@
  ],
  "sample": false,
  "source": {
-  "title": "Gourmet Burger Kitchen allergen and nutrition menus (menus.tenkites.com/brg/gourmetburgerkitchen: main, kids, drinks and no gluten menus; accessed 2026-10-08, no date shown)",
+  "title": "Gourmet Burger Kitchen allergen and nutrition menus (menus.tenkites.com/brg/gourmetburgerkitchen: main, kids, drinks and no gluten menus; accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/brg/gourmetburgerkitchen",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "GBK calculates these values using typical weights and measures. Dishes that differ on the no gluten, kids or drinks menus appear once per version.",
  "allergenGuide": {
@@ -4120,15 +4120,15 @@
    "category": "Sharers & sides",
    "serving": "",
    "nutrients": {
-    "calories": 783,
-    "protein": 23.6,
-    "carbs": 55.3,
-    "fat": 51.9,
-    "saturatedFat": 14.8,
-    "sugar": 3.8,
-    "fiber": 1,
-    "salt": 3.5,
-    "energyKj": 3257
+    "calories": 641,
+    "protein": 19.6,
+    "carbs": 28.5,
+    "fat": 49.5,
+    "saturatedFat": 14,
+    "sugar": 3.5,
+    "fiber": 1.6,
+    "salt": 3.4,
+    "energyKj": 2663
    },
    "tags": [
     "contains_pork"
@@ -4727,15 +4727,15 @@
    "category": "Sharers & sides",
    "serving": "",
    "nutrients": {
-    "calories": 424,
-    "protein": 16.3,
-    "carbs": 54.5,
-    "fat": 15.6,
-    "saturatedFat": 8.4,
-    "sugar": 3,
-    "fiber": 1,
-    "salt": 2.1,
-    "energyKj": 1777
+    "calories": 282,
+    "protein": 12.3,
+    "carbs": 27.7,
+    "fat": 13.2,
+    "saturatedFat": 7.6,
+    "sugar": 2.7,
+    "fiber": 1.6,
+    "salt": 2,
+    "energyKj": 1183
    },
    "tags": [
     "vegetarian"

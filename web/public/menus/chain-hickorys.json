@@ -12,15 +12,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Hickory's Smokehouse menu with nutrition: Main Menu, Brunch & Lunch, Desserts, Kids, Drinks and Non Gluten (live page, no date printed; read 2026-10-08)",
+  "title": "Hickory's Smokehouse menu with nutrition: Main Menu, Brunch & Lunch, Desserts, Kids, Drinks and Non Gluten (live page, no date printed; read 2026-11-17)",
   "url": "https://menus.tenkites.com/hickorys/hickorys03",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Figures are per portion from Hickory's own menu page (hosted by Ten Kites), which prints no date. Alcoholic drinks and the Smokin' Deals bundles are not included; the Non-Gluten menu only adds dishes whose numbers differ.",
  "allergenGuide": {
-  "title": "Hickory's Smokehouse menu Dietary Information (allergens): Main Menu, Brunch & Lunch, Desserts, Kids, Drinks and Non Gluten (Ten Kites page, no date printed; read 2026-10-08)",
+  "title": "Hickory's Smokehouse menu Dietary Information (allergens): Main Menu, Brunch & Lunch, Desserts, Kids, Drinks and Non Gluten (Ten Kites page, no date printed; read 2026-11-17)",
   "url": "https://menus.tenkites.com/hickorys/hickorys03",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": false,
   "complete": true
  },
@@ -115,6 +115,177 @@
    }
   },
   {
+   "id": "frickles",
+   "name": "Frickles",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 684,
+    "protein": 5.4,
+    "carbs": 59.5,
+    "fat": 47.3,
+    "saturatedFat": 3.7,
+    "sugar": 8,
+    "salt": 6.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "brisket-popcorn-bites",
+   "name": "Brisket Popcorn Bites",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 647,
+    "protein": 25.1,
+    "carbs": 45.6,
+    "fat": 40.2,
+    "saturatedFat": 12.4,
+    "sugar": 7.2,
+    "salt": 6.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "giant-garlic-buttered-pretzel-bites",
+   "name": "Giant Garlic Buttered Pretzel Bites",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 895,
+    "protein": 25.8,
+    "carbs": 87.8,
+    "fat": 47.2,
+    "saturatedFat": 24.3,
+    "sugar": 12.2,
+    "salt": 4.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "southern-fried-onion-blossom",
+   "name": "Southern Fried Onion Blossom",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1212,
+    "protein": 21.1,
+    "carbs": 136.2,
+    "fat": 63.9,
+    "saturatedFat": 6.1,
+    "sugar": 37.1,
+    "salt": 13.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "southern-fried-chicken-in-a-basket",
+   "name": "Southern Fried Chicken 'In a Basket'",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 813,
+    "protein": 36.7,
+    "carbs": 79.1,
+    "fat": 38.5,
+    "saturatedFat": 3.4,
+    "sugar": 8.1,
+    "salt": 8.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "smoked-wings-kansas-bbq",
    "name": "Smoked Wings (Kansas BBQ)",
    "category": "Appetisers",
@@ -200,177 +371,6 @@
      "mustard"
     ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "southern-fried-onion-blossom",
-   "name": "Southern Fried Onion Blossom",
-   "category": "Appetisers",
-   "serving": "",
-   "nutrients": {
-    "calories": 1212,
-    "protein": 21.1,
-    "carbs": 136.2,
-    "fat": 63.9,
-    "saturatedFat": 6.1,
-    "sugar": 37.1,
-    "salt": 13.5
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "frickles",
-   "name": "Frickles",
-   "category": "Appetisers",
-   "serving": "",
-   "nutrients": {
-    "calories": 684,
-    "protein": 5.4,
-    "carbs": 59.5,
-    "fat": 47.3,
-    "saturatedFat": 3.7,
-    "sugar": 8,
-    "salt": 6.5
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "giant-garlic-buttered-pretzel-bites",
-   "name": "Giant Garlic Buttered Pretzel Bites",
-   "category": "Appetisers",
-   "serving": "",
-   "nutrients": {
-    "calories": 895,
-    "protein": 25.8,
-    "carbs": 87.8,
-    "fat": 47.2,
-    "saturatedFat": 24.3,
-    "sugar": 12.2,
-    "salt": 4.4
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "milk",
-     "mustard",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "brisket-popcorn-bites",
-   "name": "Brisket Popcorn Bites",
-   "category": "Appetisers",
-   "serving": "",
-   "nutrients": {
-    "calories": 647,
-    "protein": 25.1,
-    "carbs": 45.6,
-    "fat": 40.2,
-    "saturatedFat": 12.4,
-    "sugar": 7.2,
-    "salt": 6.4
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "southern-fried-chicken-in-a-basket",
-   "name": "Southern Fried Chicken 'In a Basket'",
-   "category": "Appetisers",
-   "serving": "",
-   "nutrients": {
-    "calories": 813,
-    "protein": 36.7,
-    "carbs": 79.1,
-    "fat": 38.5,
-    "saturatedFat": 3.4,
-    "sugar": 8.1,
-    "salt": 8.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
    }
   },
   {
@@ -973,12 +973,12 @@
    "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 2630,
-    "protein": 123.4,
-    "carbs": 93.1,
-    "fat": 195.7,
-    "saturatedFat": 53.8,
-    "sugar": 27.8,
+    "calories": 2624,
+    "protein": 124.5,
+    "carbs": 91.2,
+    "fat": 195,
+    "saturatedFat": 57.7,
+    "sugar": 26.8,
     "salt": 13
    },
    "tags": [
@@ -1004,12 +1004,12 @@
    "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 2363,
-    "protein": 123.1,
-    "carbs": 61.4,
-    "fat": 181.2,
-    "saturatedFat": 52.6,
-    "sugar": 32.1,
+    "calories": 2357,
+    "protein": 124.2,
+    "carbs": 59.5,
+    "fat": 180.5,
+    "saturatedFat": 56.5,
+    "sugar": 31.1,
     "salt": 13.6
    },
    "tags": [
@@ -1035,12 +1035,12 @@
    "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 2768,
-    "protein": 109.2,
-    "carbs": 85.4,
-    "fat": 221.5,
-    "saturatedFat": 48.8,
-    "sugar": 26.9,
+    "calories": 2762,
+    "protein": 110.3,
+    "carbs": 83.4,
+    "fat": 220.8,
+    "saturatedFat": 52.8,
+    "sugar": 25.8,
     "salt": 15.7
    },
    "tags": [
@@ -1067,12 +1067,12 @@
    "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 2302,
-    "protein": 106.6,
-    "carbs": 60.3,
-    "fat": 182.8,
-    "saturatedFat": 45.1,
-    "sugar": 30.8,
+    "calories": 2296,
+    "protein": 107.7,
+    "carbs": 58.4,
+    "fat": 182.1,
+    "saturatedFat": 48.9,
+    "sugar": 29.8,
     "salt": 16
    },
    "tags": [
@@ -1099,12 +1099,12 @@
    "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 6113,
-    "protein": 318.3,
-    "carbs": 248.4,
-    "fat": 433.5,
-    "saturatedFat": 129.2,
-    "sugar": 99.4,
+    "calories": 6101,
+    "protein": 320.5,
+    "carbs": 244.6,
+    "fat": 432.2,
+    "saturatedFat": 136.9,
+    "sugar": 97.4,
     "salt": 30.6
    },
    "tags": [
@@ -1131,12 +1131,12 @@
    "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 5564,
-    "protein": 313.5,
-    "carbs": 171.8,
-    "fat": 410.9,
-    "saturatedFat": 127.1,
-    "sugar": 102.1,
+    "calories": 5552,
+    "protein": 315.7,
+    "carbs": 167.9,
+    "fat": 409.6,
+    "saturatedFat": 134.9,
+    "sugar": 100.1,
     "salt": 30.5
    },
    "tags": [
@@ -2006,12 +2006,12 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1152,
-    "protein": 48,
-    "carbs": 115,
-    "fat": 52.2,
-    "saturatedFat": 10.5,
-    "sugar": 15.5,
+    "calories": 1149,
+    "protein": 48.5,
+    "carbs": 114.1,
+    "fat": 51.9,
+    "saturatedFat": 12.4,
+    "sugar": 15,
     "salt": 7.2
    },
    "tags": [
@@ -2088,6 +2088,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "hickorys/567b0bfd1af2.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2552,12 +2553,12 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1017,
-    "protein": 37.7,
-    "carbs": 81.8,
-    "fat": 57,
-    "saturatedFat": 10.6,
-    "sugar": 12.2,
+    "calories": 1014,
+    "protein": 38.3,
+    "carbs": 80.8,
+    "fat": 56.7,
+    "saturatedFat": 12.6,
+    "sugar": 11.7,
     "salt": 6.8
    },
    "tags": [
@@ -2606,50 +2607,18 @@
    }
   },
   {
-   "id": "hickorys-cobb-salad-as-it-comes-gluten-free",
-   "name": "Hickory's Cobb Salad (As It Comes, gluten free)",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 1191,
-    "protein": 26.8,
-    "carbs": 28.4,
-    "fat": 106.3,
-    "saturatedFat": 23,
-    "sugar": 14.6,
-    "salt": 3.9
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "eggs",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "hickorys-cobb-salad-with-chargrilled-chicken-and-bourbon-bacon-gluten-free",
    "name": "Hickory's Cobb Salad with Chargrilled Chicken & Bourbon Bacon (gluten free)",
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1683,
-    "protein": 68,
-    "carbs": 42.1,
-    "fat": 136.7,
-    "saturatedFat": 28.7,
-    "sugar": 26.9,
-    "salt": 10.4
+    "calories": 1738,
+    "protein": 76.9,
+    "carbs": 38.6,
+    "fat": 140.5,
+    "saturatedFat": 35.5,
+    "sugar": 25.2,
+    "salt": 11
    },
    "tags": [
     "contains_pork"
@@ -3395,6 +3364,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "hickorys/e167e8c839c5.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -4261,12 +4231,12 @@
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 1128,
+    "calories": 1134,
     "protein": 14.8,
-    "carbs": 128.5,
+    "carbs": 129.9,
     "fat": 61.9,
     "saturatedFat": 33.2,
-    "sugar": 123.7,
+    "sugar": 125.1,
     "salt": 1.1
    },
    "tags": [
@@ -4296,12 +4266,12 @@
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 1169,
+    "calories": 1175,
     "protein": 15,
-    "carbs": 137.7,
+    "carbs": 139.1,
     "fat": 62.1,
     "saturatedFat": 33.3,
-    "sugar": 132.9,
+    "sugar": 134.3,
     "salt": 1.1
    },
    "tags": [
@@ -4331,12 +4301,12 @@
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 1151,
+    "calories": 1157,
     "protein": 15.5,
-    "carbs": 131.6,
-    "fat": 62.4,
+    "carbs": 133,
+    "fat": 62.5,
     "saturatedFat": 33.5,
-    "sugar": 125.6,
+    "sugar": 127.1,
     "salt": 1.2
    },
    "tags": [
@@ -4366,12 +4336,12 @@
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 1757,
-    "protein": 20.2,
-    "carbs": 241,
-    "fat": 78.2,
-    "saturatedFat": 38.2,
-    "sugar": 201.6,
+    "calories": 1747,
+    "protein": 20.7,
+    "carbs": 237.2,
+    "fat": 78.7,
+    "saturatedFat": 38.7,
+    "sugar": 190.3,
     "salt": 1.9
    },
    "tags": [],
@@ -4429,12 +4399,12 @@
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 1929,
-    "protein": 20.2,
-    "carbs": 236.9,
-    "fat": 99,
-    "saturatedFat": 44.9,
-    "sugar": 191.6,
+    "calories": 1902,
+    "protein": 20.4,
+    "carbs": 230.9,
+    "fat": 98.7,
+    "saturatedFat": 44.8,
+    "sugar": 180.7,
     "salt": 2.4
    },
    "tags": [],
@@ -4450,7 +4420,8 @@
     ],
     "mayContain": [],
     "cereals": [
-     "wheat"
+     "wheat",
+     "barley"
     ]
    }
   },
@@ -4460,12 +4431,12 @@
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 410,
+    "calories": 407,
     "protein": 1.2,
-    "carbs": 48.8,
+    "carbs": 48,
     "fat": 23.4,
     "saturatedFat": 15.3,
-    "sugar": 44.1,
+    "sugar": 42.7,
     "salt": 0.1
    },
    "tags": [],
@@ -4482,7 +4453,8 @@
     ],
     "mayContain": [],
     "cereals": [
-     "wheat"
+     "wheat",
+     "barley"
     ]
    }
   },
@@ -4492,12 +4464,12 @@
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 439,
+    "calories": 436,
     "protein": 1.2,
-    "carbs": 55.9,
-    "fat": 23.4,
+    "carbs": 55.2,
+    "fat": 23.3,
     "saturatedFat": 15.3,
-    "sugar": 51,
+    "sugar": 49.7,
     "salt": 0.1
    },
    "tags": [],
@@ -4514,7 +4486,8 @@
     ],
     "mayContain": [],
     "cereals": [
-     "wheat"
+     "wheat",
+     "barley"
     ]
    }
   },
@@ -4524,12 +4497,12 @@
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 364,
+    "calories": 361,
     "protein": 1.2,
-    "carbs": 37.2,
-    "fat": 23.4,
+    "carbs": 36.5,
+    "fat": 23.3,
     "saturatedFat": 15.3,
-    "sugar": 32.6,
+    "sugar": 31.2,
     "salt": 0.1
    },
    "tags": [],
@@ -4546,7 +4519,8 @@
     ],
     "mayContain": [],
     "cereals": [
-     "wheat"
+     "wheat",
+     "barley"
     ]
    }
   },
@@ -4556,12 +4530,12 @@
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 386,
+    "calories": 383,
     "protein": 1.2,
-    "carbs": 42.4,
-    "fat": 23.4,
+    "carbs": 41.6,
+    "fat": 23.3,
     "saturatedFat": 15.3,
-    "sugar": 37.6,
+    "sugar": 36.2,
     "salt": 0.1
    },
    "tags": [],
@@ -4578,7 +4552,8 @@
     ],
     "mayContain": [],
     "cereals": [
-     "wheat"
+     "wheat",
+     "barley"
     ]
    }
   },
@@ -4588,12 +4563,12 @@
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 524,
+    "calories": 521,
     "protein": 1.2,
-    "carbs": 75.8,
-    "fat": 23.4,
+    "carbs": 75.1,
+    "fat": 23.3,
     "saturatedFat": 15.3,
-    "sugar": 70.1,
+    "sugar": 68.8,
     "salt": 0.2
    },
    "tags": [],
@@ -4610,7 +4585,8 @@
     ],
     "mayContain": [],
     "cereals": [
-     "wheat"
+     "wheat",
+     "barley"
     ]
    }
   },
@@ -4620,12 +4596,12 @@
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 373,
+    "calories": 370,
     "protein": 1.2,
-    "carbs": 39.1,
-    "fat": 23.4,
+    "carbs": 38.4,
+    "fat": 23.3,
     "saturatedFat": 15.3,
-    "sugar": 34.4,
+    "sugar": 33,
     "salt": 0.1
    },
    "tags": [],
@@ -4642,7 +4618,8 @@
     ],
     "mayContain": [],
     "cereals": [
-     "wheat"
+     "wheat",
+     "barley"
     ]
    }
   },
@@ -4652,12 +4629,12 @@
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 359,
+    "calories": 356,
     "protein": 1.2,
-    "carbs": 36.2,
-    "fat": 23.4,
+    "carbs": 35.5,
+    "fat": 23.3,
     "saturatedFat": 15.3,
-    "sugar": 31.5,
+    "sugar": 30.2,
     "salt": 0.1
    },
    "tags": [],
@@ -4674,7 +4651,8 @@
     ],
     "mayContain": [],
     "cereals": [
-     "wheat"
+     "wheat",
+     "barley"
     ]
    }
   },
@@ -4684,12 +4662,12 @@
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 547,
+    "calories": 543,
     "protein": 1.9,
-    "carbs": 79.6,
+    "carbs": 78.8,
     "fat": 23.7,
     "saturatedFat": 15.4,
-    "sugar": 74.2,
+    "sugar": 72.9,
     "salt": 0.1
    },
    "tags": [],
@@ -4706,7 +4684,8 @@
     ],
     "mayContain": [],
     "cereals": [
-     "wheat"
+     "wheat",
+     "barley"
     ]
    }
   },
@@ -4912,13 +4891,13 @@
    "category": "Lunch",
    "serving": "",
    "nutrients": {
-    "calories": 784,
-    "protein": 41.7,
-    "carbs": 58.6,
-    "fat": 41.2,
-    "saturatedFat": 6.1,
-    "sugar": 10.6,
-    "salt": 4.8
+    "calories": 595,
+    "protein": 24.2,
+    "carbs": 55.3,
+    "fat": 28.8,
+    "saturatedFat": 6.6,
+    "sugar": 8.9,
+    "salt": 4.3
    },
    "tags": [
     "contains_pork"
@@ -5344,13 +5323,13 @@
    "category": "Lunch",
    "serving": "",
    "nutrients": {
-    "calories": 716,
-    "protein": 36.5,
-    "carbs": 42,
-    "fat": 43.5,
-    "saturatedFat": 6.1,
-    "sugar": 9,
-    "salt": 4.6
+    "calories": 527,
+    "protein": 19.1,
+    "carbs": 38.7,
+    "fat": 31.2,
+    "saturatedFat": 6.7,
+    "sugar": 7.2,
+    "salt": 4.1
    },
    "tags": [
     "contains_pork"
@@ -6612,12 +6591,12 @@
    "category": "Kids",
    "serving": "",
    "nutrients": {
-    "calories": 800,
+    "calories": 806,
     "protein": 10.5,
-    "carbs": 86.1,
+    "carbs": 87.5,
     "fat": 46.1,
     "saturatedFat": 25.5,
-    "sugar": 82.4,
+    "sugar": 83.8,
     "salt": 0.8
    },
    "tags": [
@@ -6647,12 +6626,12 @@
    "category": "Kids",
    "serving": "",
    "nutrients": {
-    "calories": 880,
+    "calories": 886,
     "protein": 10.7,
-    "carbs": 105.6,
+    "carbs": 107,
     "fat": 46.1,
     "saturatedFat": 25.5,
-    "sugar": 101.9,
+    "sugar": 103.4,
     "salt": 0.7
    },
    "tags": [
@@ -6682,12 +6661,12 @@
    "category": "Kids",
    "serving": "",
    "nutrients": {
-    "calories": 862,
+    "calories": 868,
     "protein": 11.3,
-    "carbs": 99.5,
+    "carbs": 100.9,
     "fat": 46.5,
     "saturatedFat": 25.7,
-    "sugar": 94.7,
+    "sugar": 96.1,
     "salt": 0.8
    },
    "tags": [
@@ -6717,12 +6696,12 @@
    "category": "Kids",
    "serving": "",
    "nutrients": {
-    "calories": 1195,
-    "protein": 15.7,
-    "carbs": 151.2,
-    "fat": 57.8,
-    "saturatedFat": 27.9,
-    "sugar": 116.6,
+    "calories": 1200,
+    "protein": 15.8,
+    "carbs": 151.5,
+    "fat": 58.2,
+    "saturatedFat": 28.2,
+    "sugar": 115,
     "salt": 1.5
    },
    "tags": [],

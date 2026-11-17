@@ -9,16 +9,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Benugo online ordering menus: Lunch, Breakfast, Cakes & Snacks (api.getspoonfed.com, accessed 2026-10-08, no date shown)",
+  "title": "Benugo online ordering menus: Lunch, Breakfast, Cakes & Snacks (api.getspoonfed.com, accessed 2026-11-17, no date shown)",
   "url": "https://api.getspoonfed.com/262/benugo",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Benugo prints calories only (no protein, carbs or fat), on its online ordering menus for delivery and catering, not for its cafes. Sharing boxes and whole cakes show calories for the whole box or cake, not per person. Items without a printed calorie value are not listed.",
  "allergenGuide": {
-  "title": "Benugo online ordering menus with an allergens line per item (api.getspoonfed.com, accessed 2026-10-08, no date shown)",
+  "title": "Benugo online ordering menus with an allergens line per item (api.getspoonfed.com, accessed 2026-11-17, no date shown)",
   "url": "https://api.getspoonfed.com/262/benugo",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": false,
   "complete": true
  },
@@ -40,6 +40,38 @@
  ],
  "components": [],
  "items": [
+  {
+   "id": "festive-box",
+   "name": "Festive Box",
+   "category": "Lunch sharing platters",
+   "serving": "1 box",
+   "nutrients": {
+    "calories": 3432
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/2b894f774e7c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
   {
    "id": "best-of-benugo-box",
    "name": "Best of Benugo Box",
@@ -110,7 +142,7 @@
    "category": "Lunch sharing platters",
    "serving": "1 box (suitable for 8 people)",
    "nutrients": {
-    "calories": 4947
+    "calories": 4995
    },
    "tags": [
     "contains_pork"
@@ -126,10 +158,7 @@
      "eggs",
      "fish",
      "milk",
-     "mustard",
-     "sesame",
-     "soya",
-     "sulphites"
+     "mustard"
     ],
     "mayContain": [],
     "cereals": [
@@ -263,7 +292,7 @@
    "category": "Lunch sharing platters",
    "serving": "1 box (suitable for 5-6 people)",
    "nutrients": {
-    "calories": 3027
+    "calories": 2934
    },
    "tags": [
     "vegetarian"
@@ -276,9 +305,7 @@
     "contains": [
      "gluten",
      "mustard",
-     "sesame",
-     "soya",
-     "sulphites"
+     "sesame"
     ],
     "mayContain": [],
     "cereals": [
@@ -852,6 +879,36 @@
    }
   },
   {
+   "id": "harissa-roasted-vegetables-and-tahini-bloomer",
+   "name": "Harissa Roasted Vegetables and Tahini Bloomer",
+   "category": "Lunch bag items",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 606
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/2af106222a7e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
    "id": "falafel-and-hummus-wrap-lunch-bag",
    "name": "Falafel & Hummus Wrap (lunch bag)",
    "category": "Lunch bag items",
@@ -876,6 +933,65 @@
     "mayContain": [],
     "cereals": [
      "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pulled-turkey-bacon-cheddar-and-cranberry-bloomer",
+   "name": "Pulled Turkey, Bacon, Cheddar & Cranberry Bloomer",
+   "category": "Individual bloomer sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 657
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "vegan-cream-cheese-and-grilled-veggies-bloomer",
+   "name": "Vegan Cream Cheese & Grilled Veggies Bloomer",
+   "category": "Individual bloomer sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 560
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
     ]
    }
   },
@@ -984,36 +1100,6 @@
      "gluten",
      "milk",
      "mustard"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "harissa-roasted-vegetables-and-tahini-bloomer",
-   "name": "Harissa Roasted Vegetables and Tahini Bloomer",
-   "category": "Individual bloomer sandwiches",
-   "serving": "1 portion",
-   "nutrients": {
-    "calories": 606
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "benugo/2af106222a7e.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "mustard",
-     "sesame",
-     "soya",
-     "sulphites"
     ],
     "mayContain": [],
     "cereals": [
@@ -1151,6 +1237,36 @@
    }
   },
   {
+   "id": "pulled-turkey-bacon-cheddar-and-cranberry-focaccia",
+   "name": "Pulled Turkey, Bacon, Cheddar and Cranberry Focaccia",
+   "category": "Individual focaccia",
+   "serving": "",
+   "nutrients": {
+    "calories": 666
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/ebab52d345c6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "vegan-cream-cheese-veduja-and-aubergine-focaccia",
    "name": "Vegan Cream Cheese, Ve'Duja & Aubergine Focaccia",
    "category": "Individual focaccia",
@@ -1230,12 +1346,12 @@
    }
   },
   {
-   "id": "mango-matcha-yoghurt-pot",
-   "name": "Mango Matcha Yoghurt Pot",
+   "id": "cherry-matcha-yoghurt-pot",
+   "name": "Cherry Matcha Yoghurt Pot",
    "category": "Fruit, yoghurt & porridge pots",
    "serving": "1 pot",
    "nutrients": {
-    "calories": 263
+    "calories": 146
    },
    "tags": [
     "vegetarian"
@@ -1244,7 +1360,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "benugo/dd8d6aa115c3.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -1320,7 +1435,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "benugo/739afe15ad6a.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1606,6 +1720,41 @@
    }
   },
   {
+   "id": "festive-treats-box",
+   "name": "Festive Treats Box",
+   "category": "Cake boxes & whole cakes",
+   "serving": "1 box",
+   "nutrients": {
+    "calories": 3837
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ],
+    "nuts": [
+     "almond",
+     "pecan"
+    ]
+   }
+  },
+  {
    "id": "seasonal-cake-box",
    "name": "Seasonal Cake Box",
    "category": "Cake boxes & whole cakes",
@@ -1770,7 +1919,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "benugo/f2903434b699.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1798,7 +1946,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "benugo/1a3e969b4a52.webp",
    "allergens": {
     "contains": [
      "gluten",

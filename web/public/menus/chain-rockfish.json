@@ -1480,6 +1480,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "rockfish/4ccc5a03b1dc.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -1501,6 +1502,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "rockfish/a480f384437f.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -1541,6 +1543,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "rockfish/bf2b361f9ead.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -1563,6 +1566,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "rockfish/cb61c09d7302.webp",
    "allergens": {
     "contains": [
      "nuts",
@@ -1588,6 +1592,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "rockfish/bc58f0053e93.webp",
    "allergens": {
     "contains": [
      "milk"

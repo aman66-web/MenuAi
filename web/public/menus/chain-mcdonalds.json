@@ -53,7 +53,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/5e194c57a1da.webp"
   },
   {
    "id": "big-arch",
@@ -75,7 +76,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/3af419a869ea.webp"
   },
   {
    "id": "big-arch-with-bacon",
@@ -99,7 +101,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/35440efff44d.webp"
   },
   {
    "id": "big-mac",
@@ -121,7 +124,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/0657687ae83b.webp"
   },
   {
    "id": "double-quarter-pounder-with-cheese",
@@ -143,7 +147,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/f7079c7f3548.webp"
   },
   {
    "id": "quarter-pounder-with-cheese",
@@ -165,7 +170,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/374bad5e0862.webp"
   },
   {
    "id": "double-cheeseburger",
@@ -187,7 +193,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/bc21ee41dcdf.webp"
   },
   {
    "id": "cheeseburger",
@@ -209,7 +216,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/f238e4fe63bf.webp"
   },
   {
    "id": "hamburger",
@@ -231,7 +239,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/a9953e7168d9.webp"
   },
   {
    "id": "double-filet-o-fish",
@@ -253,7 +262,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/cb004d6529da.webp"
   },
   {
    "id": "filet-o-fish",
@@ -275,7 +285,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/27f07df009eb.webp"
   },
   {
    "id": "mcplant",
@@ -297,7 +308,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/76e94898aa4d.webp"
   },
   {
    "id": "maple-and-cheddar-chicken",
@@ -319,7 +331,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/4c003665b181.webp"
   },
   {
    "id": "cheese-and-bacon-mccrispy",
@@ -343,7 +356,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/22e948db1b55.webp"
   },
   {
    "id": "mccrispy",
@@ -365,7 +379,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/de849394684c.webp"
   },
   {
    "id": "spicy-mccrispy",
@@ -387,7 +402,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/60718ece3ea3.webp"
   },
   {
    "id": "the-mcdonalds-chicken-sharebox",
@@ -409,7 +425,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/f8b13342d89c.webp"
   },
   {
    "id": "9-chicken-selects-sharebox",
@@ -431,7 +448,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/3eabf049b8a0.webp"
   },
   {
    "id": "chicken-selects-5-pieces",
@@ -453,7 +471,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/275f5c15897b.webp"
   },
   {
    "id": "chicken-selects-3-pieces",
@@ -475,7 +494,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/6bfdd8817211.webp"
   },
   {
    "id": "20-chicken-mcnuggets-sharebox",
@@ -497,7 +517,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/951787e3a899.webp"
   },
   {
    "id": "9-piece-chicken-mcnuggets",
@@ -519,7 +540,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/522cd854fdbe.webp"
   },
   {
    "id": "6-piece-chicken-mcnuggets",
@@ -541,7 +563,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/a93b078a6407.webp"
   },
   {
    "id": "crispy-tikka-chicken-wrap",
@@ -563,7 +586,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/943a0d7ade56.webp"
   },
   {
    "id": "crispy-sweet-chilli-chicken-wrap",
@@ -585,7 +609,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/05af65517c2c.webp"
   },
   {
    "id": "crispy-bbq-and-bacon-wrap",
@@ -609,7 +634,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/b152f998e981.webp"
   },
   {
    "id": "mcchicken-sandwich",
@@ -631,7 +657,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/1310651a9c72.webp"
   },
   {
    "id": "mayo-chicken",
@@ -653,7 +680,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/20307f8b2c8a.webp"
   },
   {
    "id": "crispy-chicken-salad",
@@ -675,7 +703,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/b3db8acddcc1.webp"
   },
   {
    "id": "crispy-chicken-and-bacon-salad",
@@ -699,7 +728,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/e26919ea9207.webp"
   },
   {
    "id": "paprika-mcshaker-fries-medium",
@@ -721,7 +751,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/66b9a0af00e3.webp"
   },
   {
    "id": "paprika-mcshaker-fries-large",
@@ -743,7 +774,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/62f10576f4e7.webp"
   },
   {
    "id": "mac-and-cheese-triangles",
@@ -765,7 +797,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/8e7cd4ff2bfa.webp"
   },
   {
    "id": "mac-and-cheese-triangles-sharebox",
@@ -787,7 +820,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/d8c9d2de7099.webp"
   },
   {
    "id": "mcdonalds-fries-small",
@@ -809,7 +843,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/8b3a4f41136b.webp"
   },
   {
    "id": "mcdonalds-fries-medium",
@@ -831,7 +866,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/4b3f826dd0eb.webp"
   },
   {
    "id": "mcdonalds-fries-large",
@@ -853,7 +889,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/ef4dd88c5ad2.webp"
   },
   {
    "id": "side-salad",
@@ -875,7 +912,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/b7f2a219b909.webp"
   },
   {
    "id": "carrot-sticks",
@@ -897,7 +935,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/76f5888a20f8.webp"
   },
   {
    "id": "apple-slices",
@@ -919,7 +958,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/540763f0606c.webp"
   },
   {
    "id": "smores-mcflurry",
@@ -941,7 +981,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/db45d0687254.webp"
   },
   {
    "id": "smores-mini-mcflurry",
@@ -963,7 +1004,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/8f221e41f94c.webp"
   },
   {
    "id": "oreo-mcflurry",
@@ -985,7 +1027,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/d4975044954c.webp"
   },
   {
    "id": "smarties-mcflurry",
@@ -1007,7 +1050,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/4f00c05d46e4.webp"
   },
   {
    "id": "chocolate-brownie",
@@ -1029,7 +1073,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/c32de08f3d0e.webp"
   },
   {
    "id": "mixed-berry-muffin",
@@ -1051,7 +1096,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/ffac9a1d5295.webp"
   },
   {
    "id": "sugar-donut",
@@ -1073,7 +1119,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/ab56c513b8e2.webp"
   },
   {
    "id": "apple-pie",
@@ -1095,7 +1142,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/078cc6fb84ca.webp"
   },
   {
    "id": "oreo-mcflurry-mini",
@@ -1117,7 +1165,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/cd8a8c9ce51d.webp"
   },
   {
    "id": "smarties-mcflurry-mini",
@@ -1139,7 +1188,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/799064c516d6.webp"
   },
   {
    "id": "szechuan-dip",
@@ -1161,7 +1211,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/77b1c0b620d9.webp"
   },
   {
    "id": "vanilla-syrup",
@@ -1183,7 +1234,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/cd66530dd35b.webp"
   },
   {
    "id": "caramel-syrup",
@@ -1205,7 +1257,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/a2f996067166.webp"
   },
   {
    "id": "spicy-mayo-dip-40g",
@@ -1228,7 +1281,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/27f86011e4fd.webp"
   },
   {
    "id": "sweet-chilli-dip",
@@ -1250,7 +1304,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/d88eb3ba5c28.webp"
   },
   {
    "id": "garlic-mayo-dip",
@@ -1272,7 +1327,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/d1345169b15c.webp"
   },
   {
    "id": "sweet-and-smoky-bbq-dip-40g",
@@ -1295,7 +1351,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/e423dc9efed7.webp"
   },
   {
    "id": "tomato-ketchup-25ml",
@@ -1317,7 +1374,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/6b7e68b25cb6.webp"
   },
   {
    "id": "sweet-curry-dip-25ml",
@@ -1339,7 +1397,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/cce8c530f347.webp"
   },
   {
    "id": "bbq-dip-25ml",
@@ -1361,7 +1420,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/edad6631affd.webp"
   },
   {
    "id": "sweet-and-sour-dip-25ml",
@@ -1383,7 +1443,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/cea05d2bc4e7.webp"
   },
   {
    "id": "milk-portion",
@@ -1449,7 +1510,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/56c15b38ef85.webp"
   },
   {
    "id": "strawberry-jam-15g",
@@ -1472,7 +1534,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/69d3b51d67f3.webp"
   },
   {
    "id": "lurpak-spreadable",
@@ -1494,7 +1557,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/fb66e30c672a.webp"
   },
   {
    "id": "lyles-golden-syrup",
@@ -1516,7 +1580,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/c599b6b82e1a.webp"
   },
   {
    "id": "pancake-syrup-40g",
@@ -1539,7 +1604,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/bca35f8a0234.webp"
   },
   {
    "id": "guava-x-sprite-zero",
@@ -1561,7 +1627,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/c92cf9c16905.webp"
   },
   {
    "id": "chocolate-milkshake-small",
@@ -1583,7 +1650,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/73314213f099.webp"
   },
   {
    "id": "chocolate-milkshake-medium",
@@ -1605,7 +1673,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/4ed72d85c3ee.webp"
   },
   {
    "id": "strawberry-milkshake-small",
@@ -1627,7 +1696,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/055db68d9cbf.webp"
   },
   {
    "id": "strawberry-milkshake-medium",
@@ -1649,7 +1719,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/9a4a0f24e921.webp"
   },
   {
    "id": "banana-milkshake-small",
@@ -1671,7 +1742,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/4334a325a765.webp"
   },
   {
    "id": "banana-milkshake-medium",
@@ -1693,7 +1765,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/de53bd412096.webp"
   },
   {
    "id": "vanilla-milkshake-small",
@@ -1715,7 +1788,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/7914d4cc78ca.webp"
   },
   {
    "id": "vanilla-milkshake-medium",
@@ -1737,7 +1811,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/9a8a205c89af.webp"
   },
   {
    "id": "coca-cola-zero-sugar-small",
@@ -2419,7 +2494,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/efb231a77f08.webp"
   },
   {
    "id": "green-apple-x-sprite-zero",
@@ -2441,7 +2517,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/ef5f51ed19d5.webp"
   },
   {
    "id": "frozen-strawberry-lemonade-large",
@@ -2463,7 +2540,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/f5c9191d04f9.webp"
   },
   {
    "id": "caramel-iced-frapp-regular",
@@ -2485,7 +2563,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/36393f821b6f.webp"
   },
   {
    "id": "caramel-iced-frapp-large",
@@ -2507,7 +2586,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/abf02297ff98.webp"
   },
   {
    "id": "mango-and-pineapple-smoothie-regular",
@@ -2529,7 +2609,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/fc5ae8b4fc78.webp"
   },
   {
    "id": "mango-and-pineapple-smoothie-large",
@@ -2551,7 +2632,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/63b63a082eed.webp"
   },
   {
    "id": "chicken-and-egg-mcmuffin",
@@ -2573,7 +2655,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/5f836abc783c.webp"
   },
   {
    "id": "chicken-and-bacon-mcmuffin",
@@ -2597,7 +2680,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/4ec25d74a64d.webp"
   },
   {
    "id": "double-sausage-sandwich-with-ketchup",
@@ -2619,7 +2703,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/fd502a789382.webp"
   },
   {
    "id": "double-sausage-sandwich-with-brown-sauce",
@@ -2641,7 +2726,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/8589c8c874e9.webp"
   },
   {
    "id": "breakfast-wrap-with-ketchup",
@@ -2663,7 +2749,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/028243b8ef18.webp"
   },
   {
    "id": "breakfast-wrap-with-brown-sauce",
@@ -2685,7 +2772,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/9482128263ef.webp"
   },
   {
    "id": "double-bacon-and-egg-mcmuffin",
@@ -2709,7 +2797,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/ab1a7c9acaa1.webp"
   },
   {
    "id": "double-sausage-and-egg-mcmuffin",
@@ -2731,7 +2820,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/519a2f13d04f.webp"
   },
   {
    "id": "sausage-and-egg-mcmuffin",
@@ -2753,7 +2843,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/4646a070d193.webp"
   },
   {
    "id": "bacon-and-egg-mcmuffin",
@@ -2777,7 +2868,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/657de2f225b7.webp"
   },
   {
    "id": "egg-and-cheese-mcmuffin",
@@ -2799,7 +2891,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/008853f8cfb9.webp"
   },
   {
    "id": "muffin-with-jam",
@@ -2821,7 +2914,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/6cd7dae55253.webp"
   },
   {
    "id": "sausage-sandwich-with-ketchup",
@@ -2843,7 +2937,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/8c1787211e46.webp"
   },
   {
    "id": "sausage-sandwich-with-brown-sauce",
@@ -2865,7 +2960,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/f4bae11eb8dc.webp"
   },
   {
    "id": "cheesy-bacon-flatbread",
@@ -2889,7 +2985,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/4068fcd0991b.webp"
   },
   {
    "id": "pancakes-and-syrup",
@@ -2911,7 +3008,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/3c4fc43c9f84.webp"
   },
   {
    "id": "hash-brown",
@@ -2933,7 +3031,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/54444cf3d07d.webp"
   },
   {
    "id": "porridge",
@@ -2955,7 +3054,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/1c66fb31cb26.webp"
   },
   {
    "id": "porridge-with-sugar",
@@ -2977,7 +3077,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/b74761003fc7.webp"
   },
   {
    "id": "porridge-with-strawberry-jam",
@@ -2999,7 +3100,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/7c9f07b85562.webp"
   },
   {
    "id": "porridge-with-lyles-golden-syrup",
@@ -3021,7 +3123,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/8d71671a1668.webp"
   },
   {
    "id": "flahavans-quick-oats",
@@ -3043,7 +3146,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/e8f7b5ef17a9.webp"
   },
   {
    "id": "mini-hash-browns-sharebox",
@@ -3065,7 +3169,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/c108690510e5.webp"
   },
   {
    "id": "snack-wrap",
@@ -3087,7 +3192,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/1d99d69ff561.webp"
   },
   {
    "id": "flat-white",
@@ -3109,7 +3215,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/647f7666c7cc.webp"
   },
   {
    "id": "latte-regular",
@@ -3131,7 +3238,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/c28ea07dd35f.webp"
   },
   {
    "id": "latte-large",
@@ -3153,7 +3261,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/d52cd39581ea.webp"
   },
   {
    "id": "white-coffee-regular",
@@ -3175,7 +3284,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/2b0aaa6ebcd3.webp"
   },
   {
    "id": "white-coffee-large",
@@ -3197,7 +3307,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/b89a125e5d12.webp"
   },
   {
    "id": "americano-regular",
@@ -3219,7 +3330,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/fc6c4fb71c34.webp"
   },
   {
    "id": "americano-large",
@@ -3241,7 +3353,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/27fb2f8e94fb.webp"
   },
   {
    "id": "double-espresso",
@@ -3263,7 +3376,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/fc1ce109d7cb.webp"
   },
   {
    "id": "espresso",
@@ -3285,7 +3399,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/5c386a4a00dd.webp"
   },
   {
    "id": "hot-chocolate-regular",
@@ -3307,7 +3422,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/2753a1a32633.webp"
   },
   {
    "id": "hot-chocolate-large",
@@ -3329,7 +3445,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/be41eaf304cd.webp"
   },
   {
    "id": "tea-regular",
@@ -3351,7 +3468,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/00a06054f549.webp"
   },
   {
    "id": "tea-large",
@@ -3373,7 +3491,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mcdonalds/bd77ba7c0896.webp"
   }
  ],
  "combinations": []

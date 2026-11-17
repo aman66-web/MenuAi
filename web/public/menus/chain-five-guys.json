@@ -11,15 +11,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Five Guys UK Allergen, Ingredient & Nutrition Guide, UK locations only (FGUK_20260805)",
-  "url": "https://www.fiveguys.co.uk/wp-content/uploads/sites/30/2026/08/FGUK_FOH_allergen_ingredient_nutrition_Myprotein_shake_DIGITAL_20260805.pdf",
-  "checkedOn": "2026-10-08"
+  "title": "Five Guys UK Allergen, Ingredient & Nutrition Guide, UK locations only (FGUK_20261013)",
+  "url": "https://www.fiveguys.co.uk/wp-content/uploads/sites/30/2026/10/FGUK_FOH_allergen_ingredient_nutrition_MM_shake_DIGITAL_20261013.pdf",
+  "checkedOn": "2026-11-17"
  },
  "note": "Milkshake mix-in values vary with how many you add and aren't added to the shake.",
  "allergenGuide": {
-  "title": "Five Guys UK Allergen, Ingredient & Nutrition Guide, UK locations only (FGUK_20260805)",
-  "url": "https://www.fiveguys.co.uk/wp-content/uploads/sites/30/2026/08/FGUK_FOH_allergen_ingredient_nutrition_Myprotein_shake_DIGITAL_20260805.pdf",
-  "checkedOn": "2026-10-08",
+  "title": "Five Guys UK Allergen, Ingredient & Nutrition Guide, UK locations only (FGUK_20261013)",
+  "url": "https://www.fiveguys.co.uk/wp-content/uploads/sites/30/2026/10/FGUK_FOH_allergen_ingredient_nutrition_MM_shake_DIGITAL_20261013.pdf",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -41,7 +41,7 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 666,
+    "calories": 678,
     "protein": 42,
     "carbs": 35,
     "fat": 39,
@@ -79,7 +79,7 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 457,
+    "calories": 464,
     "protein": 24,
     "carbs": 35,
     "fat": 24,
@@ -117,7 +117,7 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 801,
+    "calories": 811,
     "protein": 50,
     "carbs": 39,
     "fat": 49,
@@ -155,7 +155,7 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 506,
+    "calories": 512,
     "protein": 27,
     "carbs": 39,
     "fat": 27,
@@ -193,7 +193,7 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 734,
+    "calories": 761,
     "protein": 49,
     "carbs": 36,
     "fat": 43,
@@ -232,7 +232,7 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 870,
+    "calories": 904,
     "protein": 56,
     "carbs": 37,
     "fat": 55,
@@ -271,7 +271,7 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 566,
+    "calories": 588,
     "protein": 32,
     "carbs": 36,
     "fat": 32,
@@ -310,7 +310,7 @@
    "category": "Hot dogs",
    "serving": "",
    "nutrients": {
-    "calories": 477,
+    "calories": 483,
     "protein": 18,
     "carbs": 35,
     "fat": 29,
@@ -348,7 +348,7 @@
    "category": "Hot dogs",
    "serving": "",
    "nutrients": {
-    "calories": 549,
+    "calories": 531,
     "protein": 22,
     "carbs": 39,
     "fat": 34,
@@ -386,7 +386,7 @@
    "category": "Hot dogs",
    "serving": "",
    "nutrients": {
-    "calories": 559,
+    "calories": 574,
     "protein": 23,
     "carbs": 38,
     "fat": 35,
@@ -425,7 +425,7 @@
    "category": "Hot dogs",
    "serving": "",
    "nutrients": {
-    "calories": 603,
+    "calories": 606,
     "protein": 28,
     "carbs": 36,
     "fat": 38,
@@ -587,6 +587,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "five-guys/705e9721e2b4.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -876,6 +877,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "five-guys/437edf536297.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -890,8 +892,8 @@
    }
   },
   {
-   "id": "lotus-biscoff-mix-in",
-   "name": "Lotus Biscoff mix-in",
+   "id": "biscoff-crumb-mix-in",
+   "name": "Biscoff Crumb mix-in",
    "category": "Milkshake mix-ins",
    "serving": "",
    "nutrients": {
@@ -1008,6 +1010,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "five-guys/7250e348eee1.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -1074,6 +1077,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "five-guys/4eec583864fb.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -1107,6 +1111,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "five-guys/e90d9dff9cc1.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -1183,6 +1188,39 @@
      "nuts",
      "peanuts",
      "sesame"
+    ]
+   }
+  },
+  {
+   "id": "m-ms-mix-in",
+   "name": "M&Ms mix-in",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 251,
+    "protein": 2.1,
+    "carbs": 49,
+    "fat": 4.9,
+    "saturatedFat": 2.9,
+    "sugar": 50,
+    "fiber": 1.2,
+    "salt": 0.38
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
     ]
    }
   },
@@ -1286,8 +1324,8 @@
    }
   },
   {
-   "id": "lotus-biscoff-mix-in-little-shake",
-   "name": "Lotus Biscoff mix-in (little shake)",
+   "id": "biscoff-crumb-mix-in-little-shake",
+   "name": "Biscoff Crumb mix-in (little shake)",
    "category": "Milkshake mix-ins",
    "serving": "",
    "nutrients": {
@@ -1404,6 +1442,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "five-guys/7250e348eee1.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -1579,6 +1618,39 @@
      "nuts",
      "peanuts",
      "sesame"
+    ]
+   }
+  },
+  {
+   "id": "m-ms-mix-in-little-shake",
+   "name": "M&Ms mix-in (little shake)",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 126,
+    "protein": 1,
+    "carbs": 24,
+    "fat": 2.5,
+    "saturatedFat": 1.5,
+    "sugar": 25,
+    "fiber": 0.6,
+    "salt": 0.19
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
     ]
    }
   },

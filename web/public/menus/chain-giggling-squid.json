@@ -10,15 +10,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Giggling Squid allergens and nutrition guide (viewthe.menu/kawv; all day, kids, Big Squids, drinks, non gluten, click & collect and Deliveroo menus, files dated 6 October 2026)",
+  "title": "Giggling Squid allergens and nutrition guide (viewthe.menu/kawv; all day, kids, drinks, non gluten, click & collect and Deliveroo menus, read 17 November 2026; no date shown)",
   "url": "https://viewthe.menu/kawv",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Values are per dish as served. Dishes that differ on the non gluten, kids, click & collect or Deliveroo menus appear once per version; bundles for several people are not included.",
  "allergenGuide": {
-  "title": "Giggling Squid allergens guide (viewthe.menu/kawv, files dated 6 October 2026)",
+  "title": "Giggling Squid allergens guide (viewthe.menu/kawv, read 17 November 2026; no date shown)",
   "url": "https://viewthe.menu/kawv",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -36,8 +36,6 @@
   "Curries",
   "Rice & roti",
   "Desserts",
-  "Big Squids sides",
-  "Big Squids mains",
   "Lunch boxes",
   "Showstoppers"
  ],
@@ -62,6 +60,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/af578332d801.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -99,6 +98,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/dc1c4170b987.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -136,6 +136,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/9a31176eb613.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -172,6 +173,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/19e027120085.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -211,6 +213,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/aba5bf330249.webp",
    "allergens": {
     "contains": [
      "crustaceans",
@@ -238,6 +241,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/354ea28897be.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -280,6 +284,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/a1874fd38ee0.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -331,8 +336,8 @@
    }
   },
   {
-   "id": "spring-rolls-kids-set",
-   "name": "Spring Rolls (kids set)",
+   "id": "spring-rolls",
+   "name": "Spring Rolls",
    "category": "Kids set picks",
    "serving": "",
    "nutrients": {
@@ -354,7 +359,8 @@
    "allergens": {
     "contains": [
      "celery",
-     "gluten"
+     "gluten",
+     "soya"
     ],
     "mayContain": [],
     "cereals": [
@@ -1199,54 +1205,6 @@
    }
   },
   {
-   "id": "fresh-orange-juice",
-   "name": "Fresh Orange Juice",
-   "category": "Drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 95,
-    "protein": 1.6,
-    "carbs": 20,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 20,
-    "salt": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "cloudy-lemonade",
-   "name": "Cloudy Lemonade",
-   "category": "Drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 77,
-    "protein": 0.5,
-    "carbs": 18,
-    "fat": 0.5,
-    "saturatedFat": 0.3,
-    "sugar": 16,
-    "salt": 0.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
    "id": "applestina",
    "name": "Applestina",
    "category": "Drinks",
@@ -1801,6 +1759,30 @@
    }
   },
   {
+   "id": "fresh-orange-juice",
+   "name": "Fresh Orange Juice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 95,
+    "protein": 1.6,
+    "carbs": 20,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 20,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
    "id": "cranberry-juice-drinks-menu",
    "name": "Cranberry Juice (drinks menu)",
    "category": "Drinks",
@@ -1887,6 +1869,30 @@
     "saturatedFat": 0,
     "sugar": 0,
     "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cloudy-lemonade",
+   "name": "Cloudy Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 77,
+    "protein": 0.5,
+    "carbs": 18,
+    "fat": 0.5,
+    "saturatedFat": 0.3,
+    "sugar": 16,
+    "salt": 0.1
    },
    "tags": [],
    "limitedTime": false,
@@ -2019,6 +2025,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/c590993ce2f7.webp",
    "allergens": {
     "contains": [
      "crustaceans",
@@ -2048,6 +2055,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/4878d6ff370c.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2110,6 +2118,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/ffa55da14dac.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2145,6 +2154,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/bd26d3c8a63b.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2181,6 +2191,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/0f0bdce6e04a.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2367,6 +2378,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/c235dfb169a5.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2464,6 +2476,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/e5227b78df01.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2500,6 +2513,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/d84d949569f6.webp",
    "allergens": {
     "contains": [
      "crustaceans",
@@ -2530,6 +2544,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/f829a694c692.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2566,7 +2581,8 @@
    "allergens": {
     "contains": [
      "celery",
-     "gluten"
+     "gluten",
+     "soya"
     ],
     "mayContain": [
      "mustard"
@@ -2595,6 +2611,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/ecf94745b228.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2664,6 +2681,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/e18b9262ef86.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2798,6 +2816,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/d04bd1613bf5.webp",
    "allergens": {
     "contains": [
      "peanuts"
@@ -2826,6 +2845,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/64fd2a1b29f4.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2957,6 +2977,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/46bf74ea6518.webp",
    "allergens": {
     "contains": [
      "crustaceans",
@@ -3239,6 +3260,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/640406c2a7f5.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3597,6 +3619,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/3b5ce7525d76.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3630,6 +3653,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/c19341a3c03d.webp",
    "allergens": {
     "contains": [
      "soya"
@@ -3687,6 +3711,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/ab6def7a157c.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -3711,6 +3736,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/ae9c618792a7.webp",
    "allergens": {
     "contains": [
      "soya"
@@ -3739,6 +3765,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/8e9e5ba629ac.webp",
    "allergens": {
     "contains": [
      "soya"
@@ -3919,6 +3946,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/258c79e1474c.webp",
    "allergens": {
     "contains": [
      "crustaceans",
@@ -3953,6 +3981,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/3ec01563a03e.webp",
    "allergens": {
     "contains": [
      "fish",
@@ -4451,6 +4480,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/8fb2c353f183.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -4477,6 +4507,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/c0eb04e54d0c.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -4503,6 +4534,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/6f169b2ea05d.webp",
    "allergens": {
     "contains": [
      "eggs"
@@ -4531,6 +4563,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/ca98d3117b93.webp",
    "allergens": {
     "contains": [
      "sesame"
@@ -4559,6 +4592,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/295a36cd9eb7.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -4845,7 +4879,9 @@
    "modifiers": [],
    "allergens": {
     "contains": [],
-    "mayContain": []
+    "mayContain": [
+     "milk"
+    ]
    }
   },
   {
@@ -4910,8 +4946,8 @@
    }
   },
   {
-   "id": "cookies-and-cream-ice-cream-kids-menu-big-squids-menu",
-   "name": "Cookies & Cream Ice Cream (kids menu / Big Squids menu)",
+   "id": "cookies-and-cream-ice-cream-kids-menu",
+   "name": "Cookies & Cream Ice Cream (kids menu)",
    "category": "Desserts",
    "serving": "",
    "nutrients": {
@@ -4975,8 +5011,8 @@
    }
   },
   {
-   "id": "thai-salted-caramel-ice-cream-kids-menu-big-squids-menu",
-   "name": "Thai Salted Caramel Ice Cream (kids menu / Big Squids menu)",
+   "id": "thai-salted-caramel-ice-cream-kids-menu",
+   "name": "Thai Salted Caramel Ice Cream (kids menu)",
    "category": "Desserts",
    "serving": "",
    "nutrients": {
@@ -5005,486 +5041,6 @@
     "cereals": [
      "wheat"
     ]
-   }
-  },
-  {
-   "id": "caramel-and-chocolate-lollipop",
-   "name": "Caramel and Chocolate Lollipop",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 63,
-    "protein": 0.8,
-    "carbs": 5.8,
-    "fat": 4,
-    "saturatedFat": 2.6,
-    "sugar": 4.8,
-    "salt": 0.1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "nuts",
-     "soya"
-    ],
-    "mayContain": [
-     "celery",
-     "fish",
-     "lupin",
-     "mustard",
-     "peanuts",
-     "sesame",
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "hazelnut"
-    ]
-   }
-  },
-  {
-   "id": "black-sesame-ice-cream",
-   "name": "Black Sesame Ice Cream",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 219,
-    "protein": 4.8,
-    "carbs": 28,
-    "fat": 9.1,
-    "saturatedFat": 4.9,
-    "sugar": 28,
-    "salt": 0.1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "sesame"
-    ],
-    "mayContain": [
-     "eggs",
-     "mustard",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "jasmine-and-toasted-rice-ice-cream",
-   "name": "Jasmine & Toasted Rice Ice Cream",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 177,
-    "protein": 4.4,
-    "carbs": 23,
-    "fat": 7.6,
-    "saturatedFat": 4.4,
-    "sugar": 22,
-    "salt": 0.1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": [
-     "peanuts",
-     "sesame"
-    ]
-   }
-  },
-  {
-   "id": "spring-rolls",
-   "name": "Spring Rolls",
-   "category": "Big Squids sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 176,
-    "protein": 3.2,
-    "carbs": 34,
-    "fat": 3,
-    "saturatedFat": 0.5,
-    "sugar": 12,
-    "salt": 1.9
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "chicken-satay-big-squids-menu",
-   "name": "Chicken Satay (Big Squids menu)",
-   "category": "Big Squids sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 218,
-    "protein": 14,
-    "carbs": 16,
-    "fat": 10,
-    "saturatedFat": 4.1,
-    "sugar": 14,
-    "salt": 1.6
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "peanuts"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "chicken-thai-green-curry",
-   "name": "Chicken Thai Green Curry",
-   "category": "Big Squids mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 651,
-    "protein": 22,
-    "carbs": 77,
-    "fat": 26,
-    "saturatedFat": 21,
-    "sugar": 16,
-    "salt": 3.8
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "thai-green-curry-vegetable-big-squids-menu",
-   "name": "Thai Green Curry - Vegetable (Big Squids menu)",
-   "category": "Big Squids mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 667,
-    "protein": 17,
-    "carbs": 81,
-    "fat": 28,
-    "saturatedFat": 21,
-    "sugar": 20,
-    "salt": 3.8
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "thai-red-curry-chicken-big-squids-menu",
-   "name": "Thai Red Curry - Chicken (Big Squids menu)",
-   "category": "Big Squids mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 657,
-    "protein": 22,
-    "carbs": 77,
-    "fat": 27,
-    "saturatedFat": 21,
-    "sugar": 18,
-    "salt": 3.7
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "thai-red-curry-vegetable-big-squids-menu",
-   "name": "Thai Red Curry - Vegetable (Big Squids menu)",
-   "category": "Big Squids mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 716,
-    "protein": 18,
-    "carbs": 82,
-    "fat": 32,
-    "saturatedFat": 22,
-    "sugar": 21,
-    "salt": 3.6
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "mustard",
-     "soya"
-    ],
-    "mayContain": [
-     "crustaceans",
-     "eggs"
-    ]
-   }
-  },
-  {
-   "id": "massaman-curry-chicken-with-jasmine-rice",
-   "name": "Massaman Curry Chicken with Jasmine Rice",
-   "category": "Big Squids mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 1150,
-    "protein": 36,
-    "carbs": 132,
-    "fat": 50,
-    "saturatedFat": 34,
-    "sugar": 27,
-    "salt": 5.9
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "nuts"
-    ],
-    "mayContain": [],
-    "nuts": [
-     "cashew"
-    ]
-   }
-  },
-  {
-   "id": "massaman-curry-vegetable-with-jasmine-rice",
-   "name": "Massaman Curry Vegetable with Jasmine Rice",
-   "category": "Big Squids mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 1156,
-    "protein": 28,
-    "carbs": 135,
-    "fat": 52,
-    "saturatedFat": 34,
-    "sugar": 29,
-    "salt": 5.8
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "nuts",
-     "soya"
-    ],
-    "mayContain": [],
-    "nuts": [
-     "cashew"
-    ]
-   }
-  },
-  {
-   "id": "giggling-pad-thai-chicken",
-   "name": "Giggling Pad Thai - Chicken",
-   "category": "Big Squids mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 769,
-    "protein": 32,
-    "carbs": 60,
-    "fat": 44,
-    "saturatedFat": 4.9,
-    "sugar": 22,
-    "salt": 3.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "peanuts",
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "giggling-pad-thai-prawn",
-   "name": "Giggling Pad Thai - Prawn",
-   "category": "Big Squids mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 775,
-    "protein": 33,
-    "carbs": 60,
-    "fat": 44,
-    "saturatedFat": 4.9,
-    "sugar": 22,
-    "salt": 3.4
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "crustaceans",
-     "eggs",
-     "peanuts",
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "giggling-pad-thai-vegan",
-   "name": "Giggling Pad Thai - Vegan",
-   "category": "Big Squids mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 664,
-    "protein": 14,
-    "carbs": 62,
-    "fat": 39,
-    "saturatedFat": 3.4,
-    "sugar": 24,
-    "salt": 2.8
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "peanuts",
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "sizzle-and-tang-stir-fry-noodles",
-   "name": "Sizzle & Tang Stir Fry Noodles",
-   "category": "Big Squids mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 490,
-    "protein": 15,
-    "carbs": 86,
-    "fat": 8.3,
-    "saturatedFat": 0.6,
-    "sugar": 38,
-    "salt": 9.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "feisty-chicken-stir-fry",
-   "name": "Feisty Chicken Stir Fry",
-   "category": "Big Squids mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 511,
-    "protein": 33,
-    "carbs": 66,
-    "fat": 12,
-    "saturatedFat": 2.3,
-    "sugar": 4,
-    "salt": 5.7
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "soya"
-    ],
-    "mayContain": []
    }
   },
   {
@@ -5774,6 +5330,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/57a611e662ea.webp",
    "allergens": {
     "contains": [
      "nuts"
@@ -5781,6 +5338,36 @@
     "mayContain": [],
     "nuts": [
      "cashew"
+    ]
+   }
+  },
+  {
+   "id": "sizzle-and-tang-stir-fry-noodles",
+   "name": "Sizzle & Tang Stir Fry Noodles",
+   "category": "Lunch boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 490,
+    "protein": 15,
+    "carbs": 86,
+    "fat": 8.3,
+    "saturatedFat": 0.6,
+    "sugar": 38,
+    "salt": 9.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -5803,6 +5390,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/5b09d85cda2c.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -5905,6 +5493,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "giggling-squid/52169a49166d.webp",
    "allergens": {
     "contains": [
      "eggs",

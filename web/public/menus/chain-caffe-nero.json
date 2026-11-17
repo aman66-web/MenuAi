@@ -11,15 +11,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Caffè Nero UK website: product nutrition pages, GB menu (caffenero.com/uk/menu food, coffee, hot and iced drinks pages, retrieved 2026-10-06; the pages carry no date), cross-checked against the Allergen, Nutritional & Ingredient Guide (GB) issued 09/09/26",
+  "title": "Caffè Nero UK website: product nutrition pages, GB menu (caffenero.com/uk/menu food, coffee, hot and iced drinks pages, retrieved 2026-11-17; the pages carry no date), cross-checked against the Allergen, Nutritional & Ingredient Guide (GB) issued 29/10/26",
   "url": "https://www.caffenero.com/uk/menu",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-11-17"
  },
  "note": "Values are per product as the chain's website shows them. Drinks are listed by milk; where the chain prints one row with no cup size, none is shown. Plain Mocha and Hot Chocolate are without whipped cream, which is listed as an extra.",
  "allergenGuide": {
-  "title": "Caffè Nero UK website: allergens printed with each product, milk and size (caffenero.com/uk/menu pages, retrieved 2026-10-06), cross-checked against the Allergen, Nutritional & Ingredient Guide (GB) issued 09/09/26",
+  "title": "Caffè Nero UK website: allergens printed with each product, milk and size (caffenero.com/uk/menu pages, retrieved 2026-11-17), cross-checked against the Allergen, Nutritional & Ingredient Guide (GB) issued 29/10/26",
   "url": "https://www.caffenero.com/uk/menu",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": false,
   "complete": true
  },
@@ -186,15 +186,15 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 78,
+    "calories": 77,
     "protein": 0.8,
-    "carbs": 20.3,
+    "carbs": 19.8,
     "fat": 0.3,
     "saturatedFat": 0.1,
-    "sugar": 16.1,
-    "fiber": 2.7,
+    "sugar": 15.4,
+    "fiber": 2.9,
     "salt": 0.01,
-    "energyKj": 326
+    "energyKj": 322
    },
    "tags": [
     "vegetarian"
@@ -824,20 +824,91 @@
    }
   },
   {
-   "id": "butternut-squash-and-pesto-seeded-panini",
-   "name": "Butternut Squash & Pesto Seeded Panini",
+   "id": "festive-feast-panini",
+   "name": "Festive Feast Panini",
    "category": "Sandwiches, paninis & tostati",
    "serving": "",
    "nutrients": {
-    "calories": 429,
-    "protein": 13,
-    "carbs": 55,
-    "fat": 16,
-    "saturatedFat": 2.1,
+    "calories": 519,
+    "protein": 26,
+    "carbs": 64,
+    "fat": 17,
+    "saturatedFat": 2.7,
+    "sugar": 10,
+    "fiber": 3.2,
+    "salt": 2.1,
+    "energyKj": 2182
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "brie-bacon-and-cranberry-panini",
+   "name": "Brie, Bacon & Cranberry Panini",
+   "category": "Sandwiches, paninis & tostati",
+   "serving": "",
+   "nutrients": {
+    "calories": 523,
+    "protein": 25,
+    "carbs": 59,
+    "fat": 20,
+    "saturatedFat": 10,
+    "sugar": 9.4,
+    "fiber": 3.4,
+    "salt": 2.2,
+    "energyKj": 2196
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "veggie-feast-panini",
+   "name": "Veggie Feast Panini",
+   "category": "Sandwiches, paninis & tostati",
+   "serving": "",
+   "nutrients": {
+    "calories": 501,
+    "protein": 15,
+    "carbs": 62,
+    "fat": 20,
+    "saturatedFat": 2.2,
     "sugar": 11,
     "fiber": 5.7,
-    "salt": 1.4,
-    "energyKj": 1796
+    "salt": 1.6,
+    "energyKj": 2101
    },
    "tags": [
     "vegetarian"
@@ -846,7 +917,6 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ec06bbd606ec.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -882,41 +952,6 @@
    "components": [],
    "modifiers": [],
    "image": "caffe-nero/a12fb1fd479f.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "brie-and-bacon-panini",
-   "name": "Brie & Bacon Panini",
-   "category": "Sandwiches, paninis & tostati",
-   "serving": "",
-   "nutrients": {
-    "calories": 527,
-    "protein": 22.6,
-    "carbs": 61.2,
-    "fat": 20.4,
-    "saturatedFat": 10.3,
-    "sugar": 11.6,
-    "fiber": 4.9,
-    "salt": 2.75,
-    "energyKj": 2214
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/a2131d5a0d66.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1246,20 +1281,20 @@
    }
   },
   {
-   "id": "italian-prosciutto-and-yellow-datterini-tomato-flatbread",
-   "name": "Italian Prosciutto & Yellow Datterini Tomato Flatbread",
+   "id": "porchetta-and-balsamic-onion-chutney-flatbread",
+   "name": "Porchetta and Balsamic Onion Chutney Flatbread",
    "category": "Sandwiches, paninis & tostati",
    "serving": "",
    "nutrients": {
-    "calories": 449,
-    "protein": 25.8,
-    "carbs": 46,
-    "fat": 18.2,
-    "saturatedFat": 6.3,
-    "sugar": 3.1,
-    "fiber": 1.5,
-    "salt": 3.5,
-    "energyKj": 1879
+    "calories": 440,
+    "protein": 17,
+    "carbs": 59,
+    "fat": 15,
+    "saturatedFat": 4.9,
+    "sugar": 9.5,
+    "fiber": 3.6,
+    "salt": 2.2,
+    "energyKj": 1853
    },
    "tags": [
     "contains_pork"
@@ -1268,12 +1303,11 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/e237b404fdfa.webp",
    "allergens": {
     "contains": [
      "gluten",
      "milk",
-     "mustard"
+     "soya"
     ],
     "mayContain": [],
     "cereals": [
@@ -1318,42 +1352,6 @@
    }
   },
   {
-   "id": "nero-deli-italian-mozzarella-pesto-and-tomato-pizzetta",
-   "name": "Nero Deli Italian Mozzarella, Pesto & Tomato Pizzetta",
-   "category": "Sandwiches, paninis & tostati",
-   "serving": "",
-   "nutrients": {
-    "calories": 509,
-    "protein": 17.6,
-    "carbs": 49.6,
-    "fat": 25.6,
-    "saturatedFat": 8.2,
-    "sugar": 3.2,
-    "fiber": 2.1,
-    "salt": 2.72,
-    "energyKj": 2128
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/7ff9270d1793.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "chicken-and-bacon-caesar-wrap",
    "name": "Chicken & Bacon Caesar Wrap",
    "category": "Sandwiches, paninis & tostati",
@@ -1383,6 +1381,41 @@
      "eggs",
      "milk",
      "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "festive-pork-turkey-and-cranberry-sausage-roll",
+   "name": "Festive Pork, Turkey and Cranberry Sausage Roll",
+   "category": "Sandwiches, paninis & tostati",
+   "serving": "",
+   "nutrients": {
+    "calories": 503,
+    "protein": 18.5,
+    "carbs": 41.7,
+    "fat": 28.2,
+    "saturatedFat": 15.2,
+    "sugar": 16.2,
+    "fiber": 3.8,
+    "salt": 1.7,
+    "energyKj": 2099
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
     ],
     "mayContain": [],
     "cereals": [
@@ -1461,43 +1494,6 @@
    }
   },
   {
-   "id": "blt-sandwich",
-   "name": "BLT Sandwich",
-   "category": "Sandwiches, paninis & tostati",
-   "serving": "",
-   "nutrients": {
-    "calories": 428,
-    "protein": 18.8,
-    "carbs": 39.5,
-    "fat": 20.3,
-    "saturatedFat": 4.1,
-    "sugar": 5.3,
-    "fiber": 6.6,
-    "salt": 1.93,
-    "energyKj": 1798
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/3e69ce7418b3.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "mustard"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
    "id": "tuna-and-cucumber-sandwich",
    "name": "Tuna & Cucumber Sandwich",
    "category": "Sandwiches, paninis & tostati",
@@ -1572,24 +1568,22 @@
    }
   },
   {
-   "id": "feta-and-grain-salad",
-   "name": "Feta & Grain Salad",
-   "category": "Salads, soups & hot pots",
+   "id": "chicken-and-avocado-protein-roll",
+   "name": "Chicken & Avocado Protein Roll",
+   "category": "Sandwiches, paninis & tostati",
    "serving": "",
    "nutrients": {
-    "calories": 444,
-    "protein": 16.1,
-    "carbs": 27.2,
-    "fat": 27.2,
-    "saturatedFat": 6.4,
-    "sugar": 5.9,
-    "fiber": 13.5,
-    "salt": 1,
-    "energyKj": 1846
+    "calories": 398,
+    "protein": 35.2,
+    "carbs": 26.9,
+    "fat": 14.7,
+    "saturatedFat": 2.7,
+    "sugar": 1.3,
+    "fiber": 8.4,
+    "salt": 1.37,
+    "energyKj": 1665
    },
-   "tags": [
-    "vegetarian"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -1597,10 +1591,13 @@
    "allergens": {
     "contains": [
      "gluten",
-     "milk"
+     "milk",
+     "soya"
     ],
     "mayContain": [],
     "cereals": [
+     "wheat",
+     "rye",
      "barley"
     ]
    }
@@ -1632,41 +1629,6 @@
    "allergens": {
     "contains": [],
     "mayContain": []
-   }
-  },
-  {
-   "id": "arrabbiata-meatball-pasta",
-   "name": "Arrabbiata Meatball Pasta",
-   "category": "Salads, soups & hot pots",
-   "serving": "",
-   "nutrients": {
-    "calories": 372,
-    "protein": 13.2,
-    "carbs": 48,
-    "fat": 12.9,
-    "saturatedFat": 2.9,
-    "sugar": 0.8,
-    "fiber": 6.1,
-    "salt": 1,
-    "energyKj": 1568
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/67f29c225336.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
    }
   },
   {
@@ -1704,6 +1666,41 @@
    }
   },
   {
+   "id": "peppermint-cream-dark-chocolate-almonds",
+   "name": "Peppermint Cream Dark Chocolate Almonds",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 233,
+    "protein": 4.5,
+    "carbs": 15.5,
+    "fat": 16.8,
+    "saturatedFat": 6.1,
+    "sugar": 15.1,
+    "fiber": 1.9,
+    "salt": 0.04,
+    "energyKj": 977
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
    "id": "forest-feast-matcha-chocolate-almonds",
    "name": "Forest Feast Matcha Chocolate Almonds",
    "category": "Snacks",
@@ -1726,7 +1723,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/5a8b233a371d.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -1741,7 +1737,7 @@
   },
   {
    "id": "lindor-pistachio-bar",
-   "name": "Lindor Pistachio Bar",
+   "name": "Lindor Pistachio bar",
    "category": "Snacks",
    "serving": "",
    "nutrients": {
@@ -1760,7 +1756,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/200dbab6e9c2.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1799,7 +1794,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/458f5852fc59.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1834,7 +1828,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/02b3ba951578.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1870,7 +1863,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/6fa241ed30f4.webp",
    "allergens": {
     "contains": [
      "soya"
@@ -1901,7 +1893,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/417b2ca3bf5f.webp",
    "allergens": {
     "contains": [
      "sulphites"
@@ -1930,7 +1921,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/474fc33ea781.webp",
    "allergens": {
     "contains": [
      "nuts",
@@ -1965,7 +1955,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/f7cda8a750de.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2003,7 +1992,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/0822849887d9.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -2037,7 +2025,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/242d90eae942.webp",
    "allergens": {
     "contains": [
      "nuts"
@@ -2072,7 +2059,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/8fbf8af0c20a.webp",
    "allergens": {
     "contains": [
      "nuts"
@@ -2251,7 +2237,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/33448a928651.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2280,7 +2265,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/c4652c0cfd58.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2373,20 +2357,20 @@
    }
   },
   {
-   "id": "lemon-and-blueberry-cake",
-   "name": "Lemon and Blueberry Cake",
+   "id": "morello-cherry-and-pistachio-cake",
+   "name": "Morello Cherry and Pistachio Cake",
    "category": "Cakes & sweet treats",
    "serving": "",
    "nutrients": {
-    "calories": 493,
-    "protein": 5,
-    "carbs": 67.2,
-    "fat": 22.5,
-    "saturatedFat": 4.5,
-    "sugar": 47.7,
-    "fiber": 1.3,
-    "salt": 0.09,
-    "energyKj": 2070
+    "calories": 479,
+    "protein": 5.2,
+    "carbs": 56.7,
+    "fat": 24.8,
+    "saturatedFat": 6.1,
+    "sugar": 39.7,
+    "fiber": 0.8,
+    "salt": 0.17,
+    "energyKj": 2004
    },
    "tags": [
     "vegetarian"
@@ -2395,16 +2379,92 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/a6757e8b7f2d.webp",
    "allergens": {
     "contains": [
      "gluten",
      "eggs",
-     "milk"
+     "milk",
+     "nuts"
     ],
     "mayContain": [],
     "cereals": [
      "wheat"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "classic-mince-pie",
+   "name": "Classic Mince Pie",
+   "category": "Cakes & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 354,
+    "protein": 3.6,
+    "carbs": 60.5,
+    "fat": 9.9,
+    "saturatedFat": 3.5,
+    "sugar": 33.7,
+    "fiber": 4.1,
+    "salt": 0.19,
+    "energyKj": 1489
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "luxury-amaretto-mince-pie",
+   "name": "Luxury Amaretto Mince Pie",
+   "category": "Cakes & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 386,
+    "protein": 6.8,
+    "carbs": 58.1,
+    "fat": 13.1,
+    "saturatedFat": 4.7,
+    "sugar": 42.4,
+    "fiber": 3.9,
+    "salt": 0.18,
+    "energyKj": 1624
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "oats"
+    ],
+    "nuts": [
+     "almond"
     ]
    }
   },
@@ -2486,47 +2546,6 @@
    }
   },
   {
-   "id": "carrot-cake",
-   "name": "Carrot Cake",
-   "category": "Cakes & sweet treats",
-   "serving": "",
-   "nutrients": {
-    "calories": 470,
-    "protein": 4.1,
-    "carbs": 63.9,
-    "fat": 20.8,
-    "saturatedFat": 4.2,
-    "sugar": 38.8,
-    "fiber": 2.2,
-    "salt": 0.72,
-    "energyKj": 1972
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/970af37feb02.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "nuts"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "walnut",
-     "pistachio"
-    ]
-   }
-  },
-  {
    "id": "lemon-drizzle-loaf-cake",
    "name": "Lemon Drizzle Loaf Cake",
    "category": "Cakes & sweet treats",
@@ -2555,6 +2574,41 @@
      "gluten",
      "eggs",
      "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "billionaires-snowflake",
+   "name": "Billionaires Snowflake",
+   "category": "Cakes & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 341,
+    "protein": 3.7,
+    "carbs": 27.9,
+    "fat": 22.5,
+    "saturatedFat": 13.1,
+    "sugar": 10.7,
+    "fiber": 2.2,
+    "salt": 1.2,
+    "energyKj": 1420
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
     ],
     "mayContain": [],
     "cereals": [
@@ -2669,42 +2723,6 @@
    }
   },
   {
-   "id": "sicilian-lemon-meringue-cheesecake",
-   "name": "Sicilian Lemon Meringue Cheesecake",
-   "category": "Cakes & sweet treats",
-   "serving": "",
-   "nutrients": {
-    "calories": 379,
-    "protein": 7.2,
-    "carbs": 48.5,
-    "fat": 17.2,
-    "saturatedFat": 8.9,
-    "sugar": 35,
-    "fiber": 0.9,
-    "salt": 0.33,
-    "energyKj": 1591
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/9c1350876d5b.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "italian-tiramisu",
    "name": "Italian Tiramisu",
    "category": "Cakes & sweet treats",
@@ -2777,6 +2795,42 @@
     "nuts": [
      "hazelnut",
      "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "zesty-orange-and-chocolate-cheesecake",
+   "name": "Zesty Orange and Chocolate Cheesecake",
+   "category": "Cakes & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 389,
+    "protein": 4.5,
+    "carbs": 47.9,
+    "fat": 19.6,
+    "saturatedFat": 10.1,
+    "sugar": 31,
+    "fiber": 1.3,
+    "salt": 0.13,
+    "energyKj": 1625
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -2959,45 +3013,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "granola-flapjack",
-   "name": "Granola Flapjack",
-   "category": "Cakes & sweet treats",
-   "serving": "",
-   "nutrients": {
-    "calories": 293,
-    "protein": 5.7,
-    "carbs": 35.4,
-    "fat": 13.9,
-    "saturatedFat": 4.1,
-    "sugar": 17,
-    "fiber": 2,
-    "salt": 0.09,
-    "energyKj": 1227
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/6df342c1151b.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "nuts",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "oats"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -3244,51 +3259,20 @@
    }
   },
   {
-   "id": "cinnamon-roll-latte-semi-skimmed-milk",
-   "name": "Cinnamon Roll Latte (semi skimmed milk)",
+   "id": "gingerbread-latte-semi-skimmed-milk",
+   "name": "Gingerbread Latte (semi skimmed milk)",
    "category": "Coffee",
    "serving": "",
    "nutrients": {
-    "calories": 195,
-    "protein": 9.5,
-    "carbs": 28.5,
-    "fat": 4.6,
-    "saturatedFat": 2.6,
-    "sugar": 26.3,
-    "fiber": 0.9,
-    "salt": 0.3,
-    "energyKj": 822
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/3a019c8f46bf.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "cinnamon-roll-latte-skimmed-milk",
-   "name": "Cinnamon Roll Latte (skimmed milk)",
-   "category": "Coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 167,
-    "protein": 9.6,
-    "carbs": 28.7,
-    "fat": 1.3,
-    "saturatedFat": 0.4,
-    "sugar": 26.6,
-    "fiber": 0.9,
+    "calories": 361,
+    "protein": 10.3,
+    "carbs": 27.9,
+    "fat": 22.9,
+    "saturatedFat": 13.8,
+    "sugar": 25.9,
+    "fiber": 1,
     "salt": 0.31,
-    "energyKj": 705
+    "energyKj": 1505
    },
    "tags": [
     "vegetarian"
@@ -3297,7 +3281,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3a019c8f46bf.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -3306,20 +3289,20 @@
    }
   },
   {
-   "id": "cinnamon-roll-latte-whole-milk",
-   "name": "Cinnamon Roll Latte (whole milk)",
+   "id": "gingerbread-latte-skimmed-milk",
+   "name": "Gingerbread Latte (skimmed milk)",
    "category": "Coffee",
    "serving": "",
    "nutrients": {
-    "calories": 233,
-    "protein": 9.3,
+    "calories": 334,
+    "protein": 10.4,
     "carbs": 28.2,
-    "fat": 9,
-    "saturatedFat": 5.5,
-    "sugar": 26.1,
-    "fiber": 0.9,
-    "salt": 0.29,
-    "energyKj": 978
+    "fat": 19.6,
+    "saturatedFat": 11.7,
+    "sugar": 26.2,
+    "fiber": 1,
+    "salt": 0.31,
+    "energyKj": 1390
    },
    "tags": [
     "vegetarian"
@@ -3328,7 +3311,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3a019c8f46bf.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -3337,20 +3319,20 @@
    }
   },
   {
-   "id": "cinnamon-roll-latte-soya-milk",
-   "name": "Cinnamon Roll Latte (soya milk)",
+   "id": "gingerbread-latte-whole-milk",
+   "name": "Gingerbread Latte (whole milk)",
    "category": "Coffee",
    "serving": "",
    "nutrients": {
-    "calories": 181,
-    "protein": 9.1,
-    "carbs": 24,
-    "fat": 4.9,
-    "saturatedFat": 0.7,
-    "sugar": 21.4,
-    "fiber": 2.3,
-    "salt": 0.23,
-    "energyKj": 763
+    "calories": 398,
+    "protein": 10.1,
+    "carbs": 27.6,
+    "fat": 27.3,
+    "saturatedFat": 16.7,
+    "sugar": 25.6,
+    "fiber": 1,
+    "salt": 0.3,
+    "energyKj": 1658
    },
    "tags": [
     "vegetarian"
@@ -3359,29 +3341,59 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3a019c8f46bf.webp",
    "allergens": {
     "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gingerbread-latte-soya-milk",
+   "name": "Gingerbread Latte (soya milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 347,
+    "protein": 9.9,
+    "carbs": 23.5,
+    "fat": 23.2,
+    "saturatedFat": 12,
+    "sugar": 21.1,
+    "fiber": 2.3,
+    "salt": 0.24,
+    "energyKj": 1446
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
      "soya"
     ],
     "mayContain": []
    }
   },
   {
-   "id": "cinnamon-roll-latte-oat-milk",
-   "name": "Cinnamon Roll Latte (oat milk)",
+   "id": "gingerbread-latte-oat-milk",
+   "name": "Gingerbread Latte (oat milk)",
    "category": "Coffee",
    "serving": "",
    "nutrients": {
-    "calories": 220,
-    "protein": 3.3,
-    "carbs": 33.2,
-    "fat": 7.4,
-    "saturatedFat": 0.7,
-    "sugar": 23.3,
+    "calories": 385,
+    "protein": 4.2,
+    "carbs": 32.6,
+    "fat": 25.7,
+    "saturatedFat": 12,
+    "sugar": 22.9,
     "fiber": 3.2,
-    "salt": 0.34,
-    "energyKj": 924
+    "salt": 0.35,
+    "energyKj": 1604
    },
    "tags": [
     "vegetarian"
@@ -3390,10 +3402,10 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3a019c8f46bf.webp",
    "allergens": {
     "contains": [
-     "gluten"
+     "gluten",
+     "milk"
     ],
     "mayContain": [],
     "cereals": [
@@ -3402,20 +3414,20 @@
    }
   },
   {
-   "id": "cinnamon-roll-latte-coconut-milk",
-   "name": "Cinnamon Roll Latte (coconut milk)",
+   "id": "gingerbread-latte-coconut-milk",
+   "name": "Gingerbread Latte (coconut milk)",
    "category": "Coffee",
    "serving": "",
    "nutrients": {
-    "calories": 158,
-    "protein": 4.9,
-    "carbs": 25.4,
-    "fat": 3.8,
-    "saturatedFat": 1.7,
-    "sugar": 23.3,
+    "calories": 324,
+    "protein": 5.8,
+    "carbs": 24.9,
+    "fat": 22.1,
+    "saturatedFat": 12.9,
+    "sugar": 22.9,
     "fiber": 1.4,
-    "salt": 0.27,
-    "energyKj": 666
+    "salt": 0.28,
+    "energyKj": 1351
    },
    "tags": [
     "vegetarian"
@@ -3424,29 +3436,29 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3a019c8f46bf.webp",
    "allergens": {
     "contains": [
+     "milk",
      "soya"
     ],
     "mayContain": []
    }
   },
   {
-   "id": "cinnamon-roll-latte-almond-milk",
-   "name": "Cinnamon Roll Latte (almond milk)",
+   "id": "gingerbread-latte-almond-milk",
+   "name": "Gingerbread Latte (almond milk)",
    "category": "Coffee",
    "serving": "",
    "nutrients": {
-    "calories": 137,
-    "protein": 2.6,
-    "carbs": 23.6,
-    "fat": 3.3,
-    "saturatedFat": 0.4,
-    "sugar": 21.4,
+    "calories": 304,
+    "protein": 3.5,
+    "carbs": 23.1,
+    "fat": 21.6,
+    "saturatedFat": 11.6,
+    "sugar": 21.1,
     "fiber": 1.4,
-    "salt": 0.23,
-    "energyKj": 579
+    "salt": 0.24,
+    "energyKj": 1265
    },
    "tags": [
     "vegetarian"
@@ -3455,9 +3467,9 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3a019c8f46bf.webp",
    "allergens": {
     "contains": [
+     "milk",
      "nuts"
     ],
     "mayContain": [],
@@ -3467,20 +3479,20 @@
    }
   },
   {
-   "id": "spiced-pecan-latte-almond-milk",
-   "name": "Spiced Pecan Latte (almond milk)",
+   "id": "tiramisu-latte-semi-skimmed-milk",
+   "name": "Tiramisu Latte (semi skimmed milk)",
    "category": "Coffee",
    "serving": "",
    "nutrients": {
-    "calories": 144,
-    "protein": 2.6,
-    "carbs": 25.4,
-    "fat": 3.3,
-    "saturatedFat": 0.3,
-    "sugar": 23.5,
-    "fiber": 1.4,
-    "salt": 0.22,
-    "energyKj": 611
+    "calories": 244,
+    "protein": 10.9,
+    "carbs": 37.7,
+    "fat": 5.2,
+    "saturatedFat": 2.9,
+    "sugar": 31.8,
+    "fiber": 1,
+    "salt": 0.33,
+    "energyKj": 1027
    },
    "tags": [
     "vegetarian"
@@ -3489,7 +3501,254 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/a3410e6f902c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tiramisu-latte-skimmed-milk",
+   "name": "Tiramisu Latte (skimmed milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 214,
+    "protein": 10.9,
+    "carbs": 37.9,
+    "fat": 1.8,
+    "saturatedFat": 0.6,
+    "sugar": 32,
+    "fiber": 1,
+    "salt": 0.34,
+    "energyKj": 904
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tiramisu-latte-whole-milk",
+   "name": "Tiramisu Latte (whole milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 282,
+    "protein": 10.7,
+    "carbs": 37.4,
+    "fat": 9.8,
+    "saturatedFat": 5.8,
+    "sugar": 31.5,
+    "fiber": 1,
+    "salt": 0.32,
+    "energyKj": 1188
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tiramisu-latte-soya-milk",
+   "name": "Tiramisu Latte (soya milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 228,
+    "protein": 10.4,
+    "carbs": 33.1,
+    "fat": 5.5,
+    "saturatedFat": 1,
+    "sugar": 26.7,
+    "fiber": 2.5,
+    "salt": 0.26,
+    "energyKj": 964
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tiramisu-latte-oat-milk",
+   "name": "Tiramisu Latte (oat milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 268,
+    "protein": 4.5,
+    "carbs": 42.5,
+    "fat": 8.1,
+    "saturatedFat": 1,
+    "sugar": 28.6,
+    "fiber": 3.4,
+    "salt": 0.37,
+    "energyKj": 1129
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "tiramisu-latte-coconut-milk",
+   "name": "Tiramisu Latte (coconut milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 205,
+    "protein": 6.2,
+    "carbs": 34.5,
+    "fat": 4.4,
+    "saturatedFat": 1.9,
+    "sugar": 28.6,
+    "fiber": 1.5,
+    "salt": 0.3,
+    "energyKj": 864
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tiramisu-latte-almond-milk",
+   "name": "Tiramisu Latte (almond milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 183,
+    "protein": 3.8,
+    "carbs": 32.6,
+    "fat": 3.9,
+    "saturatedFat": 0.5,
+    "sugar": 26.7,
+    "fiber": 1.5,
+    "salt": 0.26,
+    "energyKj": 775
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "praline-flat-white-almond-milk",
+   "name": "Praline Flat White (almond milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 86,
+    "protein": 1.4,
+    "carbs": 15.4,
+    "fat": 2,
+    "saturatedFat": 0.2,
+    "sugar": 14.6,
+    "fiber": 0.5,
+    "salt": 0.13,
+    "energyKj": 365
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
    "allergens": {
     "contains": [
      "nuts"
@@ -3523,7 +3782,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/25c57520594a.webp",
+   "image": "caffe-nero/cfac26025afc.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -3554,7 +3813,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/25c57520594a.webp",
+   "image": "caffe-nero/cfac26025afc.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -3585,7 +3844,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/25c57520594a.webp",
+   "image": "caffe-nero/cfac26025afc.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -3616,7 +3875,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/25c57520594a.webp",
+   "image": "caffe-nero/cfac26025afc.webp",
    "allergens": {
     "contains": [
      "soya"
@@ -3647,7 +3906,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/25c57520594a.webp",
+   "image": "caffe-nero/cfac26025afc.webp",
    "allergens": {
     "contains": [
      "soya"
@@ -3678,7 +3937,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/25c57520594a.webp",
+   "image": "caffe-nero/cfac26025afc.webp",
    "allergens": {
     "contains": [
      "nuts"
@@ -6336,6 +6595,446 @@
    }
   },
   {
+   "id": "festive-spiced-hot-chocolate-semi-skimmed-milk",
+   "name": "Festive Spiced Hot Chocolate (semi skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 410,
+    "protein": 10.7,
+    "carbs": 38.9,
+    "fat": 22.9,
+    "saturatedFat": 14.3,
+    "sugar": 36,
+    "fiber": 2.3,
+    "salt": 0.31,
+    "energyKj": 1710
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "festive-spiced-hot-chocolate-skimmed-milk",
+   "name": "Festive Spiced Hot Chocolate (skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 380,
+    "protein": 10.7,
+    "carbs": 39,
+    "fat": 19.5,
+    "saturatedFat": 12,
+    "sugar": 36.1,
+    "fiber": 2.3,
+    "salt": 0.32,
+    "energyKj": 1585
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "festive-spiced-hot-chocolate-whole-milk",
+   "name": "Festive Spiced Hot Chocolate (whole milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 448,
+    "protein": 10.4,
+    "carbs": 38.6,
+    "fat": 27.5,
+    "saturatedFat": 17.3,
+    "sugar": 35.7,
+    "fiber": 2.3,
+    "salt": 0.31,
+    "energyKj": 1870
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "festive-spiced-hot-chocolate-soya-milk",
+   "name": "Festive Spiced Hot Chocolate (soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 394,
+    "protein": 10.2,
+    "carbs": 34.2,
+    "fat": 23.3,
+    "saturatedFat": 12.4,
+    "sugar": 30.8,
+    "fiber": 3.8,
+    "salt": 0.24,
+    "energyKj": 1645
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "festive-spiced-hot-chocolate-oat-milk",
+   "name": "Festive Spiced Hot Chocolate (oat milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 434,
+    "protein": 4.3,
+    "carbs": 43.7,
+    "fat": 25.9,
+    "saturatedFat": 12.4,
+    "sugar": 32.7,
+    "fiber": 4.7,
+    "salt": 0.36,
+    "energyKj": 1811
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "festive-spiced-hot-chocolate-coconut-milk",
+   "name": "Festive Spiced Hot Chocolate (coconut milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 370,
+    "protein": 5.9,
+    "carbs": 35.6,
+    "fat": 22.1,
+    "saturatedFat": 13.4,
+    "sugar": 32.7,
+    "fiber": 2.8,
+    "salt": 0.29,
+    "energyKj": 1546
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "festive-spiced-hot-chocolate-almond-milk",
+   "name": "Festive Spiced Hot Chocolate (almond milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 349,
+    "protein": 3.6,
+    "carbs": 33.8,
+    "fat": 21.6,
+    "saturatedFat": 12,
+    "sugar": 30.8,
+    "fiber": 2.8,
+    "salt": 0.24,
+    "energyKj": 1457
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "salted-caramel-and-orange-hot-chocolate-semi-skimmed-milk",
+   "name": "Salted Caramel and Orange Hot Chocolate (semi skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 425,
+    "protein": 10.7,
+    "carbs": 43.2,
+    "fat": 22.8,
+    "saturatedFat": 14.3,
+    "sugar": 40.1,
+    "fiber": 1.8,
+    "salt": 0.44,
+    "energyKj": 1776
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salted-caramel-and-orange-hot-chocolate-skimmed-milk",
+   "name": "Salted Caramel and Orange Hot Chocolate (skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 395,
+    "protein": 10.7,
+    "carbs": 43.4,
+    "fat": 19.4,
+    "saturatedFat": 12,
+    "sugar": 40.3,
+    "fiber": 1.8,
+    "salt": 0.45,
+    "energyKj": 1651
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salted-caramel-and-orange-hot-chocolate-whole-milk",
+   "name": "Salted Caramel and Orange Hot Chocolate (whole milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 464,
+    "protein": 10.4,
+    "carbs": 43,
+    "fat": 27.4,
+    "saturatedFat": 17.2,
+    "sugar": 39.9,
+    "fiber": 1.8,
+    "salt": 0.44,
+    "energyKj": 1937
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salted-caramel-and-orange-hot-chocolate-soya-milk",
+   "name": "Salted Caramel and Orange Hot Chocolate (soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 409,
+    "protein": 10.2,
+    "carbs": 38.6,
+    "fat": 23.2,
+    "saturatedFat": 12.4,
+    "sugar": 35,
+    "fiber": 3.3,
+    "salt": 0.37,
+    "energyKj": 1712
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salted-caramel-and-orange-hot-chocolate-oat-milk",
+   "name": "Salted Caramel and Orange Hot Chocolate (oat milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 449,
+    "protein": 4.3,
+    "carbs": 48,
+    "fat": 25.8,
+    "saturatedFat": 12.4,
+    "sugar": 36.9,
+    "fiber": 4.2,
+    "salt": 0.49,
+    "energyKj": 1877
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "salted-caramel-and-orange-hot-chocolate-coconut-milk",
+   "name": "Salted Caramel and Orange Hot Chocolate (coconut milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 386,
+    "protein": 5.9,
+    "carbs": 40,
+    "fat": 22,
+    "saturatedFat": 13.3,
+    "sugar": 36.9,
+    "fiber": 2.3,
+    "salt": 0.42,
+    "energyKj": 1613
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salted-caramel-and-orange-hot-chocolate-almond-milk",
+   "name": "Salted Caramel and Orange Hot Chocolate (almond milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 364,
+    "protein": 3.6,
+    "carbs": 38.1,
+    "fat": 21.5,
+    "saturatedFat": 11.9,
+    "sugar": 35,
+    "fiber": 2.3,
+    "salt": 0.37,
+    "energyKj": 1523
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
    "id": "matcha-latte-semi-skimmed-milk-regular",
    "name": "Matcha Latte (semi skimmed milk, regular)",
    "category": "Hot drinks",
@@ -7774,40 +8473,6 @@
    }
   },
   {
-   "id": "iced-spiced-pecan-latte-almond-milk",
-   "name": "Iced Spiced Pecan Latte (almond milk)",
-   "category": "Iced drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 121,
-    "protein": 1.9,
-    "carbs": 22.8,
-    "fat": 2.3,
-    "saturatedFat": 0.2,
-    "sugar": 21.5,
-    "fiber": 0.7,
-    "salt": 0.15,
-    "energyKj": 510
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/15e7f8b002d3.webp",
-   "allergens": {
-    "contains": [
-     "nuts"
-    ],
-    "mayContain": [],
-    "nuts": [
-     "almond"
-    ]
-   }
-  },
-  {
    "id": "iced-honey-foamed-americano",
    "name": "Iced Honey Foamed Americano",
    "category": "Iced drinks",
@@ -7859,7 +8524,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/636ddfcdf00f.webp",
+   "image": "caffe-nero/494083ba17dc.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -7890,7 +8555,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/636ddfcdf00f.webp",
+   "image": "caffe-nero/494083ba17dc.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -7921,7 +8586,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/636ddfcdf00f.webp",
+   "image": "caffe-nero/494083ba17dc.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -7952,7 +8617,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/636ddfcdf00f.webp",
+   "image": "caffe-nero/494083ba17dc.webp",
    "allergens": {
     "contains": [
      "soya"
@@ -7983,7 +8648,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/636ddfcdf00f.webp",
+   "image": "caffe-nero/494083ba17dc.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -8017,7 +8682,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/636ddfcdf00f.webp",
+   "image": "caffe-nero/494083ba17dc.webp",
    "allergens": {
     "contains": [
      "soya"
@@ -8048,7 +8713,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/636ddfcdf00f.webp",
+   "image": "caffe-nero/494083ba17dc.webp",
    "allergens": {
     "contains": [
      "nuts"
@@ -8952,6 +9617,192 @@
    }
   },
   {
+   "id": "iced-vanilla-protein-matcha-latte-semi-skimmed-milk",
+   "name": "Iced Vanilla Protein Matcha Latte (semi skimmed milk)",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 170,
+    "protein": 24.1,
+    "carbs": 10.3,
+    "fat": 3.3,
+    "saturatedFat": 2.1,
+    "sugar": 9,
+    "fiber": 1.1,
+    "salt": 0.29,
+    "energyKj": 716
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-vanilla-protein-matcha-latte-skimmed-milk",
+   "name": "Iced Vanilla Protein Matcha Latte (skimmed milk)",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 150,
+    "protein": 24.1,
+    "carbs": 10.5,
+    "fat": 1,
+    "saturatedFat": 0.6,
+    "sugar": 9.2,
+    "fiber": 1.1,
+    "salt": 0.29,
+    "energyKj": 635
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-vanilla-protein-matcha-latte-whole-milk",
+   "name": "Iced Vanilla Protein Matcha Latte (whole milk)",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 195,
+    "protein": 23.8,
+    "carbs": 10.1,
+    "fat": 6.4,
+    "saturatedFat": 4.1,
+    "sugar": 8.8,
+    "fiber": 1.1,
+    "salt": 0.28,
+    "energyKj": 824
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-vanilla-protein-matcha-latte-soya-milk",
+   "name": "Iced Vanilla Protein Matcha Latte (soya milk)",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 159,
+    "protein": 23.7,
+    "carbs": 7.2,
+    "fat": 3.6,
+    "saturatedFat": 0.8,
+    "sugar": 5.6,
+    "fiber": 2,
+    "salt": 0.24,
+    "energyKj": 674
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-vanilla-protein-matcha-latte-oat-milk",
+   "name": "Iced Vanilla Protein Matcha Latte (oat milk)",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 187,
+    "protein": 19.7,
+    "carbs": 13.6,
+    "fat": 5.3,
+    "saturatedFat": 0.8,
+    "sugar": 6.9,
+    "fiber": 2.7,
+    "salt": 0.32,
+    "energyKj": 786
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "iced-vanilla-protein-matcha-latte-coconut-milk",
+   "name": "Iced Vanilla Protein Matcha Latte (coconut milk)",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 143,
+    "protein": 20.9,
+    "carbs": 8.2,
+    "fat": 2.8,
+    "saturatedFat": 1.5,
+    "sugar": 6.9,
+    "fiber": 1.4,
+    "salt": 0.27,
+    "energyKj": 607
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
    "id": "strawberry-and-white-chocolate-luxury-frappe-semi-skimmed-milk",
    "name": "Strawberry & White Chocolate Luxury Frappe (semi skimmed milk)",
    "category": "Iced drinks",
@@ -9819,6 +10670,40 @@
     "contains": [
      "nuts",
      "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "iced-spiced-pecan-latte-almond-milk",
+   "name": "Iced Spiced Pecan Latte (almond milk)",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 121,
+    "protein": 1.9,
+    "carbs": 22.8,
+    "fat": 2.3,
+    "saturatedFat": 0.2,
+    "sugar": 21.5,
+    "fiber": 0.7,
+    "salt": 0.15,
+    "energyKj": 510
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "caffe-nero/15e7f8b002d3.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
     ],
     "mayContain": [],
     "nuts": [
@@ -10716,6 +11601,192 @@
     "nuts": [
      "almond"
     ]
+   }
+  },
+  {
+   "id": "iced-vanilla-protein-latte-semi-skimmed-milk",
+   "name": "Iced Vanilla Protein Latte (semi skimmed milk)",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 177,
+    "protein": 24.5,
+    "carbs": 11.3,
+    "fat": 3.6,
+    "saturatedFat": 2.1,
+    "sugar": 9.8,
+    "fiber": 0.5,
+    "salt": 0.3,
+    "energyKj": 745
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-vanilla-protein-latte-skimmed-milk",
+   "name": "Iced Vanilla Protein Latte (skimmed milk)",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 157,
+    "protein": 24.5,
+    "carbs": 11.5,
+    "fat": 1.3,
+    "saturatedFat": 0.6,
+    "sugar": 10,
+    "fiber": 0.5,
+    "salt": 0.3,
+    "energyKj": 665
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-vanilla-protein-latte-whole-milk",
+   "name": "Iced Vanilla Protein Latte (whole milk)",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 203,
+    "protein": 24.2,
+    "carbs": 11.1,
+    "fat": 6.7,
+    "saturatedFat": 4.1,
+    "sugar": 9.6,
+    "fiber": 0.5,
+    "salt": 0.29,
+    "energyKj": 853
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-vanilla-protein-latte-soya-milk",
+   "name": "Iced Vanilla Protein Latte (soya milk)",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 167,
+    "protein": 24.1,
+    "carbs": 8.2,
+    "fat": 3.9,
+    "saturatedFat": 0.8,
+    "sugar": 6.4,
+    "fiber": 1.4,
+    "salt": 0.25,
+    "energyKj": 704
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-vanilla-protein-latte-oat-milk",
+   "name": "Iced Vanilla Protein Latte (oat milk)",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 194,
+    "protein": 20.1,
+    "carbs": 14.6,
+    "fat": 5.6,
+    "saturatedFat": 0.8,
+    "sugar": 7.7,
+    "fiber": 2.1,
+    "salt": 0.33,
+    "energyKj": 816
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "iced-vanilla-protein-latte-coconut-milk",
+   "name": "Iced Vanilla Protein Latte (coconut milk)",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 151,
+    "protein": 21.3,
+    "carbs": 9.2,
+    "fat": 3.1,
+    "saturatedFat": 1.5,
+    "sugar": 7.7,
+    "fiber": 0.8,
+    "salt": 0.28,
+    "energyKj": 636
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
    }
   },
   {

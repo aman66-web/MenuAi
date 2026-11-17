@@ -11,16 +11,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Cosy Club menus on Ten Kites linked from each venue's menu page (menus.tenkites.com/loungers/cosyclubss26 and its sister pages cosyclubss2602, cosyclubss2604, cosyclubss2605, cosyclubss2606: Autumn/Winter 2026 Breakfast, Lunch, Dinner, Desserts, Kids, Gluten Free, Vegan and drinks menus; read 2026-10-11)",
+  "title": "Cosy Club menus on Ten Kites linked from each venue's menu page (menus.tenkites.com/loungers/cosyclubss26 and its sister pages cosyclubss2602, cosyclubss2604, cosyclubss2605, cosyclubss2606: Autumn/Winter 2026 Breakfast, Lunch, Dinner, Desserts, Kids, Gluten Free, Vegan and drinks menus; read 2026-11-17)",
   "url": "https://menus.tenkites.com/loungers/cosyclubss26",
-  "checkedOn": "2026-10-11"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, as Cosy Club's own menu pages print them (the page hides them until \"Hide Calories\" is set to No); protein, carbs and fat are not published. Menus differ a little between venues, so a dish is listed only where the venues' pages agree on its calories and allergens. Alcoholic drinks are not listed.",
  "allergenGuide": {
-  "title": "Cosy Club allergen information on its Ten Kites menus (Autumn/Winter 2026, read 2026-10-11)",
+  "title": "Cosy Club allergen information on its Ten Kites menus (Autumn/Winter 2026, read 2026-11-17)",
   "url": "https://menus.tenkites.com/loungers/cosyclubss26",
-  "checkedOn": "2026-10-11",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -1670,7 +1670,7 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 674
+    "calories": 705
    },
    "tags": [],
    "limitedTime": false,
@@ -2980,7 +2980,7 @@
    "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 359
+    "calories": 354
    },
    "tags": [
     "vegetarian"
@@ -4675,7 +4675,7 @@
    "category": "Gluten free menu",
    "serving": "",
    "nutrients": {
-    "calories": 674
+    "calories": 705
    },
    "tags": [],
    "limitedTime": false,
@@ -5196,31 +5196,6 @@
    }
   },
   {
-   "id": "gf-coconut-and-lime-panna-cotta",
-   "name": "GF Coconut and Lime Panna Cotta",
-   "category": "Gluten free menu",
-   "serving": "",
-   "nutrients": {
-    "calories": 359
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "mustard"
-    ]
-   }
-  },
-  {
    "id": "gf-sicilian-lemon-and-raspberry-sorbet",
    "name": "GF Sicilian Lemon and Raspberry Sorbet",
    "category": "Gluten free menu",
@@ -5271,6 +5246,153 @@
     "mayContain": [
      "nuts"
     ]
+   }
+  },
+  {
+   "id": "gf-charred-sweet-red-peppers",
+   "name": "GF Charred Sweet Red Peppers",
+   "category": "Gluten free menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 62
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "gf-sticky-asian-fried-chicken",
+   "name": "GF Sticky Asian Fried Chicken",
+   "category": "Gluten free menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 132
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "gf-smoked-salmon-bruschetta",
+   "name": "GF Smoked Salmon Bruschetta",
+   "category": "Gluten free menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 148
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gf-roasted-salmon-fillet",
+   "name": "GF Roasted Salmon Fillet",
+   "category": "Gluten free menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 753
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "gf-butter-roasted-chicken-breast",
+   "name": "GF Butter Roasted Chicken Breast",
+   "category": "Gluten free menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 620
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "gf-dark-chocolate-mousse",
+   "name": "GF Dark Chocolate Mousse",
+   "category": "Gluten free menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 335
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
    }
   },
   {
@@ -5653,12 +5775,66 @@
    }
   },
   {
-   "id": "vegan-coconut-and-lime-panna-cotta",
-   "name": "Vegan Coconut and Lime Panna Cotta",
+   "id": "vegan-forest-mushroom-arancini",
+   "name": "Vegan Forest Mushroom Arancini",
    "category": "Vegan menu",
    "serving": "",
    "nutrients": {
-    "calories": 359
+    "calories": 87
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "vegan-sticky-asian-cauliflower",
+   "name": "Vegan Sticky Asian Cauliflower",
+   "category": "Vegan menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 82
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "vegan-sun-dried-tomato-and-roasted-red-pepper-bruschetta",
+   "name": "Vegan Sun-dried Tomato and Roasted Red Pepper Bruschetta",
+   "category": "Vegan menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 107
    },
    "tags": [
     "vegetarian"
@@ -5674,6 +5850,35 @@
     "mayContain": [
      "celery",
      "mustard"
+    ]
+   }
+  },
+  {
+   "id": "vegan-maple-glazed-butternut-squash-wellington",
+   "name": "Vegan Maple Glazed Butternut Squash Wellington",
+   "category": "Vegan menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 801
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
     ]
    }
   }

@@ -12,9 +12,9 @@
  ],
  "sample": false,
  "source": {
-  "title": "Fireaway online menu with calories (fireaway.co.uk/menu, as shown to customers of 8 shops, October 2026)",
+  "title": "Fireaway online menu with calories (fireaway.co.uk/menu, as shown to customers of 8 shops, November 2026)",
   "url": "https://www.fireaway.co.uk/menu",
-  "checkedOn": "2026-10-10"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, as the Fireaway website prints them for each product. A pizza's figure is for the whole pizza at the size shown. Sauce flavours, mix-ins and extra toppings you choose are not counted. Other pizza sizes and crusts are not listed.",
@@ -54,7 +54,9 @@
    "nutrients": {
     "calories": 907
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -196,12 +198,46 @@
    "nutrients": {
     "calories": 999
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "fireaway/e2cd13c64cec.webp"
+  },
+  {
+   "id": "american-hot-pizza",
+   "name": "American Hot Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 1096
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "fireaway/a7736902d9e9.webp"
+  },
+  {
+   "id": "cheeseburger-pizza",
+   "name": "Cheeseburger Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 1118
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "fireaway/8158a9ceacdd.webp"
   },
   {
    "id": "fireaway-special-pizza",
@@ -277,7 +313,9 @@
    "nutrients": {
     "calories": 1225
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -292,7 +330,9 @@
    "nutrients": {
     "calories": 1131
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -324,7 +364,9 @@
    "nutrients": {
     "calories": 923
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -339,7 +381,9 @@
    "nutrients": {
     "calories": 844
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -347,51 +391,76 @@
    "image": "fireaway/f182afa37a3d.webp"
   },
   {
-   "id": "cheeseburger-pizza",
-   "name": "Cheeseburger Pizza",
+   "id": "hajin-k-bbq-pizza",
+   "name": "Hajin K-BBQ Pizza",
    "category": "Specials",
    "serving": "12\" Large Regular Crust",
    "nutrients": {
-    "calories": 1118
+    "calories": 1299
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "fireaway/8158a9ceacdd.webp"
+   "modifiers": []
   },
   {
-   "id": "american-hot-pizza",
-   "name": "American Hot Pizza",
+   "id": "red-dot-rose-pasta",
+   "name": "Red Dot Rosé Pasta",
    "category": "Specials",
-   "serving": "12\" Large Regular Crust",
+   "serving": "",
    "nutrients": {
-    "calories": 1096
+    "calories": 738
    },
    "tags": [
-    "contains_beef"
+    "vegetarian"
    ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "fireaway/a7736902d9e9.webp"
+   "modifiers": []
   },
   {
-   "id": "smores-pizza",
-   "name": "S'mores Pizza",
+   "id": "prestige-caesar-salad",
+   "name": "Prestige Caesar Salad",
    "category": "Specials",
    "serving": "",
    "nutrients": {
-    "calories": 880
+    "calories": 491
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "fireaway/fbacaef786d7.webp"
+   "modifiers": []
+  },
+  {
+   "id": "alpha-k-bbq-wings",
+   "name": "Alpha K-BBQ Wings",
+   "category": "Specials",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 730
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bravo-k-bbq-strips",
+   "name": "Bravo K-BBQ Strips",
+   "category": "Specials",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 637
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
   },
   {
    "id": "cheesy-garlic-bread",
@@ -401,7 +470,9 @@
    "nutrients": {
     "calories": 847
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -416,7 +487,9 @@
    "nutrients": {
     "calories": 704
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -431,7 +504,9 @@
    "nutrients": {
     "calories": 277
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -493,7 +568,9 @@
    "nutrients": {
     "calories": 328
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -508,7 +585,9 @@
    "nutrients": {
     "calories": 848
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -522,7 +601,9 @@
    "nutrients": {
     "calories": 719
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -566,7 +647,9 @@
    "nutrients": {
     "calories": 607
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -581,12 +664,14 @@
    "nutrients": {
     "calories": 595
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fireaway/751e91369bee.webp"
+   "image": "fireaway/18c75156e07b.webp"
   },
   {
    "id": "nutella-milkshake",
@@ -596,7 +681,9 @@
    "nutrients": {
     "calories": 607
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -611,7 +698,9 @@
    "nutrients": {
     "calories": 445
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -626,7 +715,9 @@
    "nutrients": {
     "calories": 598
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -641,7 +732,9 @@
    "nutrients": {
     "calories": 738
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -656,7 +749,9 @@
    "nutrients": {
     "calories": 598
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -671,7 +766,9 @@
    "nutrients": {
     "calories": 742
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -701,7 +798,9 @@
    "nutrients": {
     "calories": 583
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -716,27 +815,14 @@
    "nutrients": {
     "calories": 596
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "fireaway/807b01791488.webp"
-  },
-  {
-   "id": "crunchy-goblin",
-   "name": "Crunchy Goblin",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 1327
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "fireaway/0ae3ef2db876.webp"
   },
   {
    "id": "nutella-pizza",
@@ -746,7 +832,9 @@
    "nutrients": {
     "calories": 935
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -761,7 +849,9 @@
    "nutrients": {
     "calories": 533
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -776,7 +866,9 @@
    "nutrients": {
     "calories": 1013
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -840,8 +932,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "fireaway/9f6b26d75476.webp"
+   "modifiers": []
   },
   {
    "id": "fanta-orange-330ml",

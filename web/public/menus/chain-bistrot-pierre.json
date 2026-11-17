@@ -10,16 +10,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Bistrot Pierre allergen and nutrition pages: All Day, Breakfast, Afternoon Tea, Petit Pierre and Bar Pierre menus (viewthe.menu/hwyv, hwdv, hwuv, hw2v, hw7v, linked from bistrotpierre.co.uk/allergens; accessed 2026-10-08, no date shown)",
+  "title": "Bistrot Pierre allergen and nutrition pages: All Day, Breakfast, Afternoon Tea, Petit Pierre and Bar Pierre menus (viewthe.menu/hwyv, hwdv, hwuv, hw2v, hw7v, linked from bistrotpierre.co.uk/allergens; accessed 2026-11-17, no date shown)",
   "url": "https://www.bistrotpierre.co.uk/allergens/",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, per serving, from Bistrot Pierre's own allergen pages (shown with 'View nutrition information'): protein, carbs, fat and portion sizes are not published. Drinks and the one-off Soirée Gastronomique menu are not in the guide. The afternoon tea page is titled 'for two' and doesn't say whether its figure is for one or two people.",
  "allergenGuide": {
-  "title": "Bistrot Pierre allergen guide: All Day, Breakfast, Afternoon Tea, Petit Pierre and Bar Pierre menus (viewthe.menu pages linked from bistrotpierre.co.uk/allergens; accessed 2026-10-08, no date shown)",
+  "title": "Bistrot Pierre allergen guide: All Day, Breakfast, Afternoon Tea, Petit Pierre and Bar Pierre menus (viewthe.menu pages linked from bistrotpierre.co.uk/allergens; accessed 2026-11-17, no date shown)",
   "url": "https://www.bistrotpierre.co.uk/allergens/",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -30,6 +30,7 @@
   "Plats",
   "Accompagnements",
   "Desserts",
+  "Truffle Guys menu",
   "Breakfast: menu complet",
   "Breakfast: lighter options",
   "Breakfast: accompagnements",
@@ -230,6 +231,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "bistrot-pierre/4471ed7898f0.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -257,6 +259,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "bistrot-pierre/a6cfd3fa3df4.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -271,7 +274,7 @@
    "category": "Entrées",
    "serving": "",
    "nutrients": {
-    "calories": 505
+    "calories": 362
    },
    "tags": [
     "vegetarian"
@@ -283,7 +286,6 @@
    "allergens": {
     "contains": [
      "gluten",
-     "milk",
      "soya",
      "sulphites"
     ],
@@ -359,6 +361,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "bistrot-pierre/a76ac26dd3b7.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -462,6 +465,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "bistrot-pierre/72dd1e94fde1.webp",
    "allergens": {
     "contains": [
      "sulphites"
@@ -568,7 +572,7 @@
    "category": "Frites & steaks",
    "serving": "",
    "nutrients": {
-    "calories": 171
+    "calories": 177
    },
    "tags": [
     "vegetarian"
@@ -764,6 +768,10 @@
      "milk"
     ],
     "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
      "soya"
     ]
    }
@@ -774,7 +782,7 @@
    "category": "Plats",
    "serving": "",
    "nutrients": {
-    "calories": 1112
+    "calories": 1111
    },
    "tags": [
     "contains_pork"
@@ -801,7 +809,7 @@
    "category": "Plats",
    "serving": "",
    "nutrients": {
-    "calories": 736
+    "calories": 738
    },
    "tags": [
     "contains_pork"
@@ -888,7 +896,8 @@
    "allergens": {
     "contains": [
      "eggs",
-     "milk"
+     "milk",
+     "sulphites"
     ],
     "mayContain": []
    }
@@ -1354,11 +1363,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "bistrot-pierre/ac85a8426c55.webp",
    "allergens": {
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
     "cereals": [
      "wheat",
      "oats"
@@ -1587,6 +1601,186 @@
    }
   },
   {
+   "id": "smoked-ham-and-gruyere-croquette",
+   "name": "Smoked Ham & Gruyère Croquette",
+   "category": "Truffle Guys menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 402
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "baron-bigod",
+   "name": "Baron Bigod",
+   "category": "Truffle Guys menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 328
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "steak-frites-truffle-guys",
+   "name": "Steak Frites (Truffle Guys)",
+   "category": "Truffle Guys menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 798
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-supreme",
+   "name": "Chicken Supreme",
+   "category": "Truffle Guys menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 533
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smoked-salmon-rosti",
+   "name": "Smoked Salmon Rösti",
+   "category": "Truffle Guys menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 800
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish"
+    ],
+    "mayContain": [
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "twice-baked-gruyere-souffle",
+   "name": "Twice-Baked Gruyère Soufflé",
+   "category": "Truffle Guys menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 575
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "warm-baby-madeleines",
+   "name": "Warm Baby Madeleines",
+   "category": "Truffle Guys menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 403
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
    "id": "traditional-breakfast",
    "name": "Traditional Breakfast",
    "category": "Breakfast: menu complet",
@@ -1641,10 +1835,11 @@
      "milk",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
     ]
    }
   },
@@ -1670,11 +1865,11 @@
     ],
     "mayContain": [
      "eggs",
-     "milk"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
     ]
    }
   },
@@ -1769,7 +1964,7 @@
    "category": "Breakfast: menu complet",
    "serving": "",
    "nutrients": {
-    "calories": 815
+    "calories": 781
    },
    "tags": [
     "vegetarian"
@@ -2334,7 +2529,7 @@
    "category": "Breakfast: kids",
    "serving": "",
    "nutrients": {
-    "calories": 428
+    "calories": 411
    },
    "tags": [],
    "limitedTime": false,
@@ -2363,7 +2558,7 @@
    "category": "Afternoon tea",
    "serving": "",
    "nutrients": {
-    "calories": 2787
+    "calories": 2764
    },
    "tags": [
     "contains_pork"
@@ -2374,37 +2569,23 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "celery",
      "gluten",
-     "crustaceans",
      "eggs",
      "fish",
-     "lupin",
      "milk",
-     "molluscs",
-     "mustard",
-     "nuts",
-     "peanuts",
-     "sesame",
      "soya",
      "sulphites"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
     "cereals": [
      "wheat",
      "rye",
      "barley",
      "oats"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
     ]
    }
   },
@@ -2728,7 +2909,7 @@
    "category": "Bar Pierre: petit plats",
    "serving": "",
    "nutrients": {
-    "calories": 454
+    "calories": 453
    },
    "tags": [],
    "limitedTime": false,
@@ -2964,7 +3145,7 @@
    "category": "Bar Pierre: baguettes",
    "serving": "",
    "nutrients": {
-    "calories": 999
+    "calories": 973
    },
    "tags": [],
    "limitedTime": false,

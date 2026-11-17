@@ -12,16 +12,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Chef & Brewer pub menus with calories: each pub's own online menu (getmenus feed of 138 pubs, accessed 2026-10-11, no date shown)",
+  "title": "Chef & Brewer pub menus with calories: each pub's own online menu (getmenus feed of 134 pubs, accessed 2026-11-17, no date shown)",
   "url": "https://www.chefandbrewer.com/pubs/northamptonshire/green-man-inn/menu",
-  "checkedOn": "2026-10-11"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, as each Chef & Brewer pub's own online menu prints them (per portion as listed); protein, carbs and fat are not published. Pubs list different dishes, so a dish is shown only if 2 or more of the pubs read print it with the same calories and none differs. Alcoholic drinks are not listed.",
  "allergenGuide": {
-  "title": "Chef & Brewer allergens & nutrition: each pub's allergen menu (accessed 2026-10-11, no date shown)",
+  "title": "Chef & Brewer allergens & nutrition: each pub's allergen menu (accessed 2026-11-17, no date shown)",
   "url": "https://www.chefandbrewer.com/allergens-and-nutrition",
-  "checkedOn": "2026-10-11",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": false,
   "complete": false
  },
@@ -417,6 +417,23 @@
    "modifiers": []
   },
   {
+   "id": "lasagne",
+   "name": "Lasagne",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1157
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "gammon-steak",
    "name": "Gammon Steak",
    "category": "Mains",
@@ -575,23 +592,6 @@
     "calories": 503
    },
    "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "lasagne",
-   "name": "Lasagne",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 1157
-   },
-   "tags": [
-    "contains_beef",
-    "contains_pork"
-   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -790,7 +790,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chef-and-brewer/2042053b5f20.webp"
   },
   {
    "id": "mixed-grill-no-gluten-menu",
@@ -1790,7 +1791,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chef-and-brewer/4e1570c067d8.webp"
   },
   {
    "id": "skin-on-fries",
@@ -1806,7 +1808,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chef-and-brewer/e886eff65252.webp"
   },
   {
    "id": "truffle-and-parmesan-topped-fries",
@@ -1900,7 +1903,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chef-and-brewer/c65b103db568.webp"
   },
   {
    "id": "onion-rings",
@@ -1916,7 +1920,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chef-and-brewer/9de4c191440a.webp"
   },
   {
    "id": "bread-and-butter",
@@ -2100,7 +2105,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chef-and-brewer/c5acdd54be49.webp"
   },
   {
    "id": "sticky-toffee-pudding",
@@ -2162,7 +2168,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chef-and-brewer/3371db83009b.webp"
   },
   {
    "id": "bakewell-tart-puddings-menu",
@@ -2178,7 +2185,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chef-and-brewer/3371db83009b.webp"
   },
   {
    "id": "vegan-bakewell-tart",
@@ -3168,6 +3176,20 @@
    "serving": "",
    "nutrients": {
     "calories": 56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milk",
+   "name": "Milk",
+   "category": "Kids: drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 134
    },
    "tags": [],
    "limitedTime": false,

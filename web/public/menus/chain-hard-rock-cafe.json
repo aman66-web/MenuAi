@@ -490,7 +490,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "hard-rock-cafe/23a44616f3fa.webp"
   },
   {
    "id": "legendary-smashed-burger",
@@ -506,7 +507,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "hard-rock-cafe/6c124cf75203.webp"
   },
   {
    "id": "the-classic-smashed-burger",
@@ -520,7 +522,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "hard-rock-cafe/c03df8967304.webp"
   },
   {
    "id": "spicy-diablo-smashed-burger",
@@ -534,7 +537,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "hard-rock-cafe/26e6527894c2.webp"
   },
   {
    "id": "bbq-pulled-pork-sandwich",
@@ -581,7 +585,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "hard-rock-cafe/20c91c5b9cc3.webp"
   },
   {
    "id": "add-a-smashed-patty",
@@ -1352,7 +1357,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "hard-rock-cafe/8e0c5e80410a.webp"
   },
   {
    "id": "mango-tango",

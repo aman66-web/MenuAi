@@ -11,9 +11,9 @@
  ],
  "sample": false,
  "source": {
-  "title": "atis menu pages with nutrition (atis.life/bowls-plates-sides and atis.life/wraps: curated bowls, plates, wraps and side pots), read 11 October 2026",
+  "title": "atis menu pages with nutrition (atis.life/bowls-plates-sides and atis.life/wraps: curated bowls, plates, wraps and side pots), read 17 November 2026",
   "url": "https://atis.life/bowls-plates-sides",
-  "checkedOn": "2026-10-11"
+  "checkedOn": "2026-11-17"
  },
  "note": "Calories, protein, carbs and fat per dish as printed on atis's menu pages, including the dressing (a regular dressing pot). Only the curated dishes are listed: build-your-own bowls and drinks publish their figures in PDF guides only. Allergens are not shown here.",
  "categories": [
@@ -40,7 +40,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "atis/6f27a26791af.webp"
   },
   {
    "id": "blackened-chicken-avo",
@@ -57,7 +58,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "atis/7abd7355c796.webp"
   },
   {
    "id": "high-steaks",
@@ -76,7 +78,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "atis/c720c5e1843d.webp"
   },
   {
    "id": "chipotle-chilli-salmon",
@@ -93,7 +96,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "atis/4d548ff912be.webp"
   },
   {
    "id": "blackened-chicken-grains",
@@ -110,7 +114,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "atis/e5b347091242.webp"
   },
   {
    "id": "satay-tofu-slaw",
@@ -127,7 +132,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "atis/ce0ec1bed7cd.webp"
   },
   {
    "id": "seiza-caesar",
@@ -144,7 +150,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "atis/f72838dafb02.webp"
   },
   {
    "id": "green-goddess",
@@ -161,7 +168,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "atis/0773491d7bb9.webp"
   },
   {
    "id": "double-crunch-thai",
@@ -178,7 +186,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "atis/66673a99718c.webp"
   },
   {
    "id": "azteca",
@@ -195,11 +204,12 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "atis/0ce22f191ddd.webp"
   },
   {
-   "id": "blackened-chicken-ceasar",
-   "name": "Blackened Chicken Ceasar",
+   "id": "blackened-chicken-caesar",
+   "name": "Blackened Chicken Caesar",
    "category": "Wraps",
    "serving": "",
    "nutrients": {
@@ -212,7 +222,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "atis/f46b74424f99.webp"
   },
   {
    "id": "lemon-herb-chicken-avo",
@@ -229,7 +240,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "atis/24a96f221556.webp"
   },
   {
    "id": "tahini-sweet-potato-avo",
@@ -246,7 +258,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "atis/00d6d73f861f.webp"
   },
   {
    "id": "chicken-satay-crunch",
@@ -263,7 +276,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "atis/afc1f8027061.webp"
   },
   {
    "id": "herb-chicken-breast-pot",
@@ -280,7 +294,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "atis/b0d486076c72.webp"
   },
   {
    "id": "tahini-greens-chickpeas",
@@ -297,7 +312,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "atis/20a125f42a1c.webp"
   }
  ],
  "combinations": []

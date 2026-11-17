@@ -12,28 +12,89 @@
  ],
  "sample": false,
  "source": {
-  "title": "Apex Hotels restaurant menus in England: Chambers (Apex Temple Court), The Lampery (Apex City of London) and The Orange Artichoke (Apex City of Bath), spring/summer 2026 PDFs",
+  "title": "Apex Hotels restaurant menus in England: Chambers (Apex Temple Court), The Lampery (Apex City of London) and The Orange Artichoke (Apex City of Bath), autumn/winter 2026 PDFs (breakfast menus spring/summer 2026 and June 2025)",
   "url": "https://www.apexhotels.co.uk/dining/",
-  "checkedOn": "2026-10-12"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories as printed on the menus of Apex's restaurants in England (Chambers and The Lampery in London, The Orange Artichoke in Bath); its Scottish hotels' menus print none. Menus differ by restaurant: a dish is listed only where two or more of them print the same figure.",
  "categories": [
+  "Nibbles",
+  "Salads",
   "Sides",
+  "Desserts",
   "Continental Breakfast",
   "Cooked Classics",
   "Extras",
-  "Drinks"
+  "Drinks",
+  "Starters",
+  "Mains"
  ],
  "components": [],
  "items": [
   {
-   "id": "roasted-asparagus",
-   "name": "Roasted Asparagus",
+   "id": "marinated-olives",
+   "name": "Marinated Olives",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 175
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-nuts",
+   "name": "Mixed Nuts",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 657
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-potato-and-squash-salad",
+   "name": "Sweet Potato & Squash Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 524
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tenderstem-broccoli",
+   "name": "Tenderstem Broccoli",
    "category": "Sides",
    "serving": "",
    "nutrients": {
-    "calories": 83
+    "calories": 67
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cranberry-poached-pear",
+   "name": "Cranberry Poached Pear",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 883
    },
    "tags": [],
    "limitedTime": false,
@@ -104,20 +165,6 @@
    "serving": "",
    "nutrients": {
     "calories": 561
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "bircher-muesli",
-   "name": "Bircher Muesli",
-   "category": "Continental Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 354
    },
    "tags": [],
    "limitedTime": false,
@@ -494,6 +541,92 @@
     "calories": 73
    },
    "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-baked-cheese-souffl",
+   "name": "Double Baked Cheese Soufflé",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 557
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-octopus",
+   "name": "Grilled Octopus",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 221
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pickled-mackerel",
+   "name": "Pickled Mackerel",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 794
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "duck-breast",
+   "name": "Duck Breast",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 557
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halibut",
+   "name": "Halibut",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 633
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ribeye-10oz",
+   "name": "Ribeye 10oz",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 638
+   },
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],

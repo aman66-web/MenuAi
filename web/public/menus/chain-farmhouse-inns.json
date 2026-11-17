@@ -12,16 +12,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Farmhouse Inns pub menus with calories: each pub's own online menu (getmenus feed of 62 pubs, accessed 2026-10-12, no date shown)",
+  "title": "Farmhouse Inns pub menus with calories: each pub's own online menu (getmenus feed of 62 pubs, accessed 2026-11-17, no date shown)",
   "url": "https://www.farmhouseinns.co.uk/pubs/northumberland/willow-farm/menu",
-  "checkedOn": "2026-10-12"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, as each Farmhouse Inns pub's own online menu prints them (per portion as listed). Pubs list different dishes, so a dish is shown only if 2 or more of the pubs read print it with the same calories and none differs. Carvery plates and the buffet breakfast are not listed: the chain says each plate differs and gives their calories at the counter.",
  "allergenGuide": {
-  "title": "Farmhouse Inns allergens: each pub's allergen menu (accessed 2026-10-12, no date shown)",
+  "title": "Farmhouse Inns allergens: each pub's allergen menu (accessed 2026-11-17, no date shown)",
   "url": "https://www.farmhouseinns.co.uk/allergens",
-  "checkedOn": "2026-10-12",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": false,
   "complete": false
  },
@@ -72,7 +72,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/cee40bc37405.webp"
   },
   {
    "id": "chicken-wings",
@@ -86,7 +87,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/ff87c8d8b705.webp"
   },
   {
    "id": "cauliflower-wings",
@@ -148,7 +150,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/8c5c4fedefdd.webp"
   },
   {
    "id": "large-chicken-wings",
@@ -192,7 +195,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/f9cfc86cf38c.webp"
   },
   {
    "id": "katsu-load-it-up-fries",
@@ -240,7 +244,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/466373d81608.webp"
   },
   {
    "id": "gravy-and-cheese-load-it-up-fries",
@@ -346,7 +351,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/9f63a6014df6.webp"
   },
   {
    "id": "luxury-macaroni-cheese",
@@ -452,7 +458,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/6f871e987042.webp"
   },
   {
    "id": "beef-and-ale-pie",
@@ -704,7 +711,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/ec195cf2388e.webp"
   },
   {
    "id": "whole-farm-burger",
@@ -1086,7 +1094,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/54ab48856f93.webp"
   },
   {
    "id": "garlic-bread",
@@ -1134,7 +1143,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/07d0974991f6.webp"
   },
   {
    "id": "coleslaw",
@@ -1150,7 +1160,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/beb531a6efe9.webp"
   },
   {
    "id": "pigs-in-blankets",
@@ -1164,7 +1175,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/1dc500e0f13f.webp"
   },
   {
    "id": "pigs-in-blankets-no-gluten",
@@ -1258,7 +1270,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/01458466dffb.webp"
   },
   {
    "id": "lemon-drizzle-cake",
@@ -1306,7 +1319,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/7d92a77be59f.webp"
   },
   {
    "id": "chocolate-fudge-cake",
@@ -1322,7 +1336,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/60b9ae4f584f.webp"
   },
   {
    "id": "sticky-toffee-pudding",
@@ -1384,7 +1399,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/abd60b65d285.webp"
   },
   {
    "id": "giant-clair",
@@ -1400,7 +1416,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/c069a8b0afa9.webp"
   },
   {
    "id": "biscoff-slice",
@@ -1432,7 +1449,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "farmhouse-inns/4259b4ca71ee.webp"
   },
   {
    "id": "lemon-cheesecake",

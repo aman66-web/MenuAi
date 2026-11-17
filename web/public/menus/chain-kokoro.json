@@ -231,7 +231,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/ef2f44b40d65.webp"
   },
   {
    "id": "kimchi-fried-rice-regular",
@@ -245,7 +246,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/504ce240f448.webp"
   },
   {
    "id": "kimchi-fried-rice-large",
@@ -259,7 +261,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/504ce240f448.webp"
   },
   {
    "id": "chicken-katsu-curry-topping-regular",
@@ -537,7 +540,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/07566badbfd2.webp"
   },
   {
    "id": "soy-chicken-wings",
@@ -551,7 +555,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/113061644f73.webp"
   },
   {
    "id": "chicken-katsu-udon",
@@ -565,7 +570,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/97b66b566a66.webp"
   },
   {
    "id": "prawn-katsu-udon",
@@ -579,7 +585,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/0a35a1fcffb9.webp"
   },
   {
    "id": "kake-udon",
@@ -593,7 +600,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/dab3ae62d9f6.webp"
   },
   {
    "id": "egg-fried-rice-regular",
@@ -607,7 +615,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/b70e1121acee.webp"
   },
   {
    "id": "egg-fried-rice-large",
@@ -621,7 +630,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/b70e1121acee.webp"
   },
   {
    "id": "mini-salmon",
@@ -635,7 +645,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/1aef4cc31360.webp"
   },
   {
    "id": "tobiko-delight-pocket",
@@ -649,7 +660,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/4a92c86016c1.webp"
   },
   {
    "id": "salmon-and-avo-harmony-inari",
@@ -663,7 +675,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/120c222fa5ac.webp"
   },
   {
    "id": "chicken-katsu-salad",
@@ -677,7 +690,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/165c9b327860.webp"
   },
   {
    "id": "kimchi",
@@ -691,7 +705,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/3638eb3fa9ef.webp"
   },
   {
    "id": "seaweed-salad",
@@ -707,7 +722,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/ebd6fd63961e.webp"
   },
   {
    "id": "edamame",
@@ -723,7 +739,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/921eb0fd047e.webp"
   },
   {
    "id": "mochi",
@@ -793,7 +810,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/1daa94a02afe.webp"
   },
   {
    "id": "chilli-chicken-onigiri",
@@ -807,7 +825,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/02fd349a667b.webp"
   },
   {
    "id": "crabstick-tobiko-and-mayo-onigiri",
@@ -837,7 +856,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/6efbd00b84cd.webp"
   },
   {
    "id": "kimchi-jeon",
@@ -853,7 +873,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/8540446b05d1.webp"
   },
   {
    "id": "buchu-chive-jeon",
@@ -869,7 +890,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/cb309d09038e.webp"
   },
   {
    "id": "chicken-gyoza",
@@ -883,7 +905,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/f0b9abf75c0d.webp"
   },
   {
    "id": "shrimp-gyoza",
@@ -897,7 +920,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/86c09353f7b3.webp"
   },
   {
    "id": "vegetable-gyoza",
@@ -913,7 +937,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/997ca7649309.webp"
   },
   {
    "id": "fried-chicken-gyoza",
@@ -927,7 +952,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/9890647fa136.webp"
   },
   {
    "id": "vegetable-spring-roll",
@@ -943,7 +969,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/eae2d7f2abac.webp"
   },
   {
    "id": "prawn-katsu",
@@ -957,7 +984,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/62b8885386d2.webp"
   },
   {
    "id": "chicken-katsu",
@@ -971,7 +999,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/8faf448324e6.webp"
   },
   {
    "id": "pumpkin-korokke",
@@ -987,7 +1016,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/661c85b0ceba.webp"
   },
   {
    "id": "potato-korokke",
@@ -1003,7 +1033,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/4c77dc0a39b1.webp"
   },
   {
    "id": "katsu-bun",
@@ -1019,7 +1050,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/ce84808401be.webp"
   },
   {
    "id": "curry-sauce",
@@ -1035,7 +1067,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "kokoro/34d59d6227e2.webp"
   },
   {
    "id": "curry-sauce-large",

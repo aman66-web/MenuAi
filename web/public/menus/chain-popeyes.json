@@ -134,7 +134,6 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "popeyes/9a8969a15f10.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -173,7 +172,6 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "popeyes/2de5ab4c6cce.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2538,7 +2536,6 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "popeyes/bb484d276105.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3430,6 +3427,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "popeyes/d177184a24dc.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3505,6 +3503,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "popeyes/ceab1fe283de.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3803,6 +3802,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "popeyes/f6858c3f0a39.webp",
    "allergens": {
     "contains": [],
     "mayContain": [
@@ -3981,6 +3981,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "popeyes/4b08b127475b.webp",
    "allergens": {
     "contains": [],
     "mayContain": [
@@ -4526,7 +4527,6 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "popeyes/8ec37c76fcf5.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -4555,7 +4555,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "popeyes/da0b835ef765.webp",
+   "image": "popeyes/d0d73412e8af.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -5482,7 +5482,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "popeyes/f942fc45192e.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -5709,7 +5708,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "popeyes/792c1886a5fb.webp",
    "allergens": {
     "contains": [
      "milk"

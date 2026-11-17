@@ -1099,7 +1099,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "jollibee/b41e1df095a9.webp"
   },
   {
    "id": "asian-ginger-chili-sauce",
@@ -1113,7 +1114,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "jollibee/96c33ccfc847.webp"
   },
   {
    "id": "jollibee-chicken-sandwich-meal-deal",

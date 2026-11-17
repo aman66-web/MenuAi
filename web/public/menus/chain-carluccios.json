@@ -10,15 +10,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Carluccio's Allergen & Nutrition Information, All Day Menu (hub page, no date printed; read 2026-10-06)",
+  "title": "Carluccio's Allergen & Nutrition Information, All Day Menu (hub page, no date printed; read 2026-11-17)",
   "url": "https://menus.tenkites.com/brg/carluccios",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Figures are per menu item from Carluccio's All Day Menu, calculated by the chain from typical weights and measures. Its separate Pizza, Kids, Dessert and other menus are not included; dishes marked * are on the set menu.",
  "allergenGuide": {
-  "title": "Carluccio's Allergen & Nutrition Information, All Day Menu (Ten Kites hub page, no date printed; read 2026-10-06)",
+  "title": "Carluccio's Allergen & Nutrition Information, All Day Menu (Ten Kites hub page, no date printed; read 2026-11-17)",
   "url": "https://menus.tenkites.com/brg/carluccios",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -215,15 +215,15 @@
    "category": "Small plates & sharers",
    "serving": "",
    "nutrients": {
-    "calories": 856,
-    "protein": 20.2,
-    "carbs": 31.9,
+    "calories": 868,
+    "protein": 23.2,
+    "carbs": 31.8,
     "fat": 71.8,
-    "saturatedFat": 24.2,
-    "sugar": 7.2,
+    "saturatedFat": 23.2,
+    "sugar": 7.1,
     "fiber": 1.8,
-    "salt": 3.3,
-    "energyKj": 3579
+    "salt": 3.4,
+    "energyKj": 3628
    },
    "tags": [
     "contains_pork"
@@ -410,15 +410,15 @@
    "category": "Small plates & sharers",
    "serving": "",
    "nutrients": {
-    "calories": 1432,
-    "protein": 35.2,
+    "calories": 1435,
+    "protein": 35.8,
     "carbs": 92.9,
     "fat": 102.7,
-    "saturatedFat": 25.1,
+    "saturatedFat": 24.9,
     "sugar": 16.2,
     "fiber": 6.7,
-    "salt": 8,
-    "energyKj": 5996
+    "salt": 8.1,
+    "energyKj": 6006
    },
    "tags": [
     "contains_pork"
@@ -449,15 +449,15 @@
    "category": "Small plates & sharers",
    "serving": "",
    "nutrients": {
-    "calories": 716,
-    "protein": 17.6,
+    "calories": 717,
+    "protein": 17.9,
     "carbs": 46.5,
     "fat": 51.3,
-    "saturatedFat": 12.5,
+    "saturatedFat": 12.4,
     "sugar": 8.1,
     "fiber": 3.4,
     "salt": 4,
-    "energyKj": 2998
+    "energyKj": 3003
    },
    "tags": [
     "contains_pork"
@@ -775,15 +775,15 @@
    "category": "Pasta & risotto",
    "serving": "",
    "nutrients": {
-    "calories": 869,
-    "protein": 22.4,
+    "calories": 872,
+    "protein": 23.2,
     "carbs": 71.6,
     "fat": 53.7,
-    "saturatedFat": 21.7,
-    "sugar": 7.3,
+    "saturatedFat": 21.5,
+    "sugar": 7.2,
     "fiber": 0.5,
     "salt": 3.3,
-    "energyKj": 3610
+    "energyKj": 3623
    },
    "tags": [
     "contains_pork"
@@ -1398,7 +1398,6 @@
     "contains": [],
     "mayContain": [
      "celery",
-     "gluten",
      "crustaceans",
      "fish",
      "mustard",

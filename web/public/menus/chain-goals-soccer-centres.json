@@ -14,15 +14,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Goals food menu (table-talker PDF fb-dl-table-talker-designs-v4, created 12 January 2026)",
-  "url": "https://cdn.goalsfootball.co.uk/media/zyue2gmn/fb-dl-table-talker-designs-v4.pdf",
-  "checkedOn": "2026-10-11"
+  "title": "Goals food menu (picture Food_Menu.webp on the Goals website's Food Menu page, uploaded 14 October 2026; no date printed)",
+  "url": "https://www.goalsfootball.co.uk/about-us/food-menu/",
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "Goals prints calories only, on one menu for all its clubs, and says not every item is stocked at every club. Calories are for the whole dish as listed (each pizza is a whole 12-inch Chicago Town pizza). Drinks print no calories and are not listed.",
+ "note": "Goals prints calories only, on one menu for all its clubs. Calories are for the whole dish as listed (each pizza is a whole 12-inch Chicago Town pizza). The menu prints no drinks, so none are listed.",
  "categories": [
   "Burgers & hot dogs",
-  "Filled rolls",
+  "Breakfast rolls",
   "Chicken & wings",
   "Sides",
   "Pizza"
@@ -114,9 +114,9 @@
    "modifiers": []
   },
   {
-   "id": "sausage-filled-roll",
-   "name": "Sausage Filled Roll",
-   "category": "Filled rolls",
+   "id": "breakfast-sausage-roll",
+   "name": "Breakfast Sausage Roll",
+   "category": "Breakfast rolls",
    "serving": "",
    "nutrients": {
     "calories": 605
@@ -130,9 +130,9 @@
    "modifiers": []
   },
   {
-   "id": "bacon-filled-roll",
-   "name": "Bacon Filled Roll",
-   "category": "Filled rolls",
+   "id": "breakfast-bacon-roll",
+   "name": "Breakfast Bacon Roll",
+   "category": "Breakfast rolls",
    "serving": "",
    "nutrients": {
     "calories": 409
@@ -146,9 +146,9 @@
    "modifiers": []
   },
   {
-   "id": "sausage-and-bacon-filled-roll",
-   "name": "Sausage & Bacon Filled Roll",
-   "category": "Filled rolls",
+   "id": "breakfast-sausage-and-bacon-roll",
+   "name": "Breakfast Sausage & Bacon Roll",
+   "category": "Breakfast rolls",
    "serving": "",
    "nutrients": {
     "calories": 741
@@ -241,7 +241,9 @@
    "nutrients": {
     "calories": 792
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -253,21 +255,23 @@
    "category": "Sides",
    "serving": "",
    "nutrients": {
-    "calories": 679
+    "calories": 571
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": []
   },
   {
-   "id": "chicago-town-12-4-cheese-pizza",
-   "name": "Chicago Town 12\" 4 Cheese Pizza",
+   "id": "chicago-town-12-loaded-cheese-pizza",
+   "name": "Chicago Town 12\" Loaded Cheese Pizza",
    "category": "Pizza",
    "serving": "",
    "nutrients": {
-    "calories": 1437
+    "calories": 1677
    },
    "tags": [
     "vegetarian"
@@ -283,9 +287,10 @@
    "category": "Pizza",
    "serving": "",
    "nutrients": {
-    "calories": 1742
+    "calories": 1794
    },
    "tags": [
+    "contains_beef",
     "contains_pork"
    ],
    "limitedTime": false,
@@ -299,7 +304,7 @@
    "category": "Pizza",
    "serving": "",
    "nutrients": {
-    "calories": 1796
+    "calories": 1798
    },
    "tags": [
     "contains_beef",

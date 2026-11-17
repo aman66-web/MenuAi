@@ -9,15 +9,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Chiquito Nutrition (per portion) menus: Main, Lunch, Dessert, Kids and Drinks (page generated 2026-10-06)",
+  "title": "Chiquito Nutrition (per portion) menus: Main, Lunch, Dessert, Kids and Drinks (page generated 2026-11-17)",
   "url": "https://menus.tenkites.com/thebigtg/chiquito02",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Per portion as printed on the chain's menu pages. Each part of a meal is listed on its own: sides, sauces, tortillas, toppings and build-your-own parts are separate rows, so add the parts you order. Wines, cocktails and most drinks print no numbers and are not listed.",
  "allergenGuide": {
-  "title": "Chiquito Dietary Information (allergens) on its online Main, Lunch, Dessert, Kids and Drinks menus (Ten Kites page generated 2026-10-06)",
+  "title": "Chiquito Dietary Information (allergens) on its online Main, Lunch, Dessert, Kids and Drinks menus (Ten Kites page generated 2026-11-17)",
   "url": "https://menus.tenkites.com/thebigtg/chiquito02",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -81,11 +81,11 @@
    "category": "Nibbles",
    "serving": "",
    "nutrients": {
-    "calories": 291,
+    "calories": 30,
     "protein": 1,
     "carbs": 1.4,
-    "fat": 30.7,
-    "saturatedFat": 2.3,
+    "fat": 1.7,
+    "saturatedFat": 0.1,
     "sugar": 1.3,
     "salt": 3
    },
@@ -175,13 +175,13 @@
    "category": "Starters",
    "serving": "",
    "nutrients": {
-    "calories": 455,
-    "protein": 23.4,
-    "carbs": 32.4,
-    "fat": 25.3,
+    "calories": 450,
+    "protein": 23.2,
+    "carbs": 32,
+    "fat": 25.1,
     "saturatedFat": 14.6,
-    "sugar": 31.6,
-    "salt": 4.2
+    "sugar": 31.4,
+    "salt": 3.8
    },
    "tags": [
     "vegetarian"
@@ -193,12 +193,12 @@
    "allergens": {
     "contains": [
      "celery",
-     "milk",
-     "mustard"
+     "milk"
     ],
     "mayContain": [
      "gluten",
      "eggs",
+     "mustard",
      "sesame",
      "soya"
     ]
@@ -314,8 +314,8 @@
    "category": "Starters",
    "serving": "",
    "nutrients": {
-    "calories": 173,
-    "protein": 13.6,
+    "calories": 172,
+    "protein": 13.4,
     "carbs": 8.5,
     "fat": 8.8,
     "saturatedFat": 3.9,
@@ -344,9 +344,9 @@
    "category": "Starters",
    "serving": "",
    "nutrients": {
-    "calories": 122,
-    "protein": 6.6,
-    "carbs": 6.9,
+    "calories": 121,
+    "protein": 6.5,
+    "carbs": 6.8,
     "fat": 6.7,
     "saturatedFat": 3.4,
     "sugar": 3.5,
@@ -376,13 +376,13 @@
    "category": "Starters",
    "serving": "",
    "nutrients": {
-    "calories": 364,
-    "protein": 20.3,
+    "calories": 352,
+    "protein": 19.5,
     "carbs": 32.5,
-    "fat": 18.3,
-    "saturatedFat": 9.9,
+    "fat": 17.3,
+    "saturatedFat": 9.3,
     "sugar": 8.9,
-    "salt": 2.2
+    "salt": 2.1
    },
    "tags": [
     "vegetarian"
@@ -466,13 +466,13 @@
    "category": "Starters",
    "serving": "",
    "nutrients": {
-    "calories": 336,
+    "calories": 262,
     "protein": 10.9,
-    "carbs": 48.9,
-    "fat": 11.8,
-    "saturatedFat": 4.7,
-    "sugar": 12.9,
-    "salt": 3.1
+    "carbs": 36.2,
+    "fat": 8.4,
+    "saturatedFat": 4.5,
+    "sugar": 8.7,
+    "salt": 1.5
    },
    "tags": [
     "vegetarian"
@@ -566,18 +566,18 @@
    }
   },
   {
-   "id": "garlic-tortilla",
-   "name": "Garlic Tortilla",
+   "id": "garlic-tortilla-main-menu",
+   "name": "Garlic Tortilla (Main Menu)",
    "category": "Starters",
    "serving": "",
    "nutrients": {
-    "calories": 1105,
-    "protein": 17,
-    "carbs": 89.6,
-    "fat": 74.2,
-    "saturatedFat": 23.7,
-    "sugar": 6,
-    "salt": 2.5
+    "calories": 1282,
+    "protein": 16.6,
+    "carbs": 88.9,
+    "fat": 91.9,
+    "saturatedFat": 35.2,
+    "sugar": 6.1,
+    "salt": 3.2
    },
    "tags": [
     "vegetarian"
@@ -589,10 +589,10 @@
    "allergens": {
     "contains": [
      "celery",
-     "gluten"
+     "gluten",
+     "milk"
     ],
     "mayContain": [
-     "milk",
      "mustard",
      "sesame"
     ],
@@ -736,17 +736,83 @@
    }
   },
   {
-   "id": "grilled-chicken",
-   "name": "Grilled Chicken",
+   "id": "fajita-base-standard-tortilla",
+   "name": "Fajita base: Standard Tortilla",
    "category": "Fajita Fiesta",
    "serving": "",
    "nutrients": {
-    "calories": 290,
-    "protein": 36.9,
-    "carbs": 3.1,
-    "fat": 14.2,
+    "calories": 962,
+    "protein": 30,
+    "carbs": 83.8,
+    "fat": 47.3,
+    "saturatedFat": 21.8,
+    "sugar": 19.5,
+    "salt": 3.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "fajita-base-gluten-free-tortilla",
+   "name": "Fajita base: Gluten Free Tortilla",
+   "category": "Fajita Fiesta",
+   "serving": "",
+   "nutrients": {
+    "calories": 665,
+    "protein": 23.5,
+    "carbs": 56.6,
+    "fat": 38.7,
+    "saturatedFat": 17.8,
+    "sugar": 16.4,
+    "salt": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "classic-grilled-chicken",
+   "name": "Classic grilled chicken",
+   "category": "Fajita Fiesta",
+   "serving": "",
+   "nutrients": {
+    "calories": 296,
+    "protein": 37.5,
+    "carbs": 3.8,
+    "fat": 14.3,
     "saturatedFat": 1.9,
-    "sugar": 2,
+    "sugar": 2.6,
     "salt": 2.3
    },
    "tags": [],
@@ -770,12 +836,12 @@
    "category": "Fajita Fiesta",
    "serving": "",
    "nutrients": {
-    "calories": 660,
-    "protein": 53.8,
-    "carbs": 15,
-    "fat": 42.4,
+    "calories": 666,
+    "protein": 54.4,
+    "carbs": 15.7,
+    "fat": 42.5,
     "saturatedFat": 13,
-    "sugar": 11.4,
+    "sugar": 12,
     "salt": 3.8
    },
    "tags": [
@@ -802,12 +868,12 @@
    "category": "Fajita Fiesta",
    "serving": "",
    "nutrients": {
-    "calories": 406,
+    "calories": 409,
     "protein": 32.7,
-    "carbs": 5.1,
+    "carbs": 5.8,
     "fat": 28.2,
     "saturatedFat": 10.3,
-    "sugar": 3.4,
+    "sugar": 4,
     "salt": 6.3
    },
    "tags": [
@@ -845,12 +911,12 @@
    "category": "Fajita Fiesta",
    "serving": "",
    "nutrients": {
-    "calories": 918,
-    "protein": 79,
-    "carbs": 16.2,
-    "fat": 59.4,
+    "calories": 924,
+    "protein": 79.6,
+    "carbs": 16.9,
+    "fat": 59.5,
     "saturatedFat": 17.8,
-    "sugar": 12.3,
+    "sugar": 12.9,
     "salt": 5.9
    },
    "tags": [
@@ -889,12 +955,12 @@
    "category": "Fajita Fiesta",
    "serving": "",
    "nutrients": {
-    "calories": 661,
-    "protein": 40.9,
-    "carbs": 16.8,
+    "calories": 664,
+    "protein": 41,
+    "carbs": 17.5,
     "fat": 47.6,
     "saturatedFat": 25.2,
-    "sugar": 11.1,
+    "sugar": 11.7,
     "salt": 4.8
    },
    "tags": [
@@ -921,13 +987,13 @@
    "category": "Fajita Fiesta",
    "serving": "",
    "nutrients": {
-    "calories": 1071,
-    "protein": 28.9,
-    "carbs": 108,
-    "fat": 48.5,
-    "saturatedFat": 21.3,
-    "sugar": 26,
-    "salt": 5.3
+    "calories": 887,
+    "protein": 15.8,
+    "carbs": 99.6,
+    "fat": 38.4,
+    "saturatedFat": 17.6,
+    "sugar": 24.3,
+    "salt": 5
    },
    "tags": [
     "vegetarian"
@@ -939,11 +1005,43 @@
    "allergens": {
     "contains": [
      "celery",
-     "gluten",
+     "gluten"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "gluten-free-vegan-fajita",
+   "name": "Gluten Free Vegan Fajita",
+   "category": "Fajita Fiesta",
+   "serving": "",
+   "nutrients": {
+    "calories": 686,
+    "protein": 22,
+    "carbs": 76.4,
+    "fat": 32.4,
+    "saturatedFat": 13.8,
+    "sugar": 20.9,
+    "salt": 4.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
      "soya"
     ],
     "mayContain": [
      "mustard",
+     "nuts",
      "sesame"
     ]
    }
@@ -1491,13 +1589,13 @@
    "category": "Classics",
    "serving": "",
    "nutrients": {
-    "calories": 894,
-    "protein": 20.3,
-    "carbs": 108.9,
-    "fat": 34.2,
-    "saturatedFat": 15.9,
-    "sugar": 14.6,
-    "salt": 4.4
+    "calories": 823,
+    "protein": 16.6,
+    "carbs": 105,
+    "fat": 29.9,
+    "saturatedFat": 15.5,
+    "sugar": 12.6,
+    "salt": 4.1
    },
    "tags": [
     "vegetarian"
@@ -1525,13 +1623,13 @@
    "category": "Salads",
    "serving": "",
    "nutrients": {
-    "calories": 852,
-    "protein": 50.3,
-    "carbs": 81,
-    "fat": 34.8,
-    "saturatedFat": 10.1,
-    "sugar": 33.5,
-    "salt": 4
+    "calories": 848,
+    "protein": 50.7,
+    "carbs": 80.7,
+    "fat": 34.2,
+    "saturatedFat": 9.7,
+    "sugar": 33.3,
+    "salt": 4.1
    },
    "tags": [],
    "limitedTime": false,
@@ -1561,12 +1659,12 @@
    "category": "Salads",
    "serving": "",
    "nutrients": {
-    "calories": 521,
-    "protein": 13.7,
-    "carbs": 65.8,
-    "fat": 19.9,
+    "calories": 524,
+    "protein": 13.8,
+    "carbs": 66.2,
+    "fat": 20,
     "saturatedFat": 7.4,
-    "sugar": 25.4,
+    "sugar": 25.8,
     "salt": 1.9
    },
    "tags": [
@@ -1594,12 +1692,12 @@
    "category": "Salads",
    "serving": "",
    "nutrients": {
-    "calories": 340,
+    "calories": 342,
     "protein": 8.3,
-    "carbs": 33.9,
+    "carbs": 34.3,
     "fat": 17.2,
     "saturatedFat": 6.8,
-    "sugar": 24.7,
+    "sugar": 25.1,
     "salt": 1.9
    },
    "tags": [
@@ -1622,12 +1720,12 @@
    "category": "On the grill",
    "serving": "",
    "nutrients": {
-    "calories": 1279,
-    "protein": 42,
-    "carbs": 96.4,
-    "fat": 79,
-    "saturatedFat": 18.9,
-    "sugar": 25.4,
+    "calories": 1338,
+    "protein": 44,
+    "carbs": 106.5,
+    "fat": 80.1,
+    "saturatedFat": 19,
+    "sugar": 26.6,
     "salt": 4
    },
    "tags": [
@@ -2484,8 +2582,8 @@
    }
   },
   {
-   "id": "onion-rings-main-menu",
-   "name": "Onion Rings (Main Menu)",
+   "id": "onion-rings",
+   "name": "Onion Rings",
    "category": "Sides",
    "serving": "",
    "nutrients": {
@@ -2546,40 +2644,6 @@
      "mustard"
     ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "onion-rings-lunch",
-   "name": "Onion Rings (Lunch)",
-   "category": "Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 356,
-    "protein": 3.2,
-    "carbs": 26.9,
-    "fat": 25.2,
-    "saturatedFat": 2.5,
-    "sugar": 2.9,
-    "salt": 1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [
-     "mustard",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
    }
   },
   {
@@ -3446,12 +3510,12 @@
    "category": "Add-ons & extras",
    "serving": "",
    "nutrients": {
-    "calories": 199,
-    "protein": 3.5,
-    "carbs": 42.3,
-    "fat": 1.4,
-    "saturatedFat": 0.1,
-    "sugar": 4,
+    "calories": 162,
+    "protein": 3.2,
+    "carbs": 34.8,
+    "fat": 1.6,
+    "saturatedFat": 0.2,
+    "sugar": 0.4,
     "salt": 0.4
    },
    "tags": [
@@ -3463,7 +3527,9 @@
    "modifiers": [],
    "allergens": {
     "contains": [],
-    "mayContain": []
+    "mayContain": [
+     "nuts"
+    ]
    }
   },
   {
@@ -3472,13 +3538,13 @@
    "category": "Add-ons & extras",
    "serving": "",
    "nutrients": {
-    "calories": 609,
-    "protein": 42.4,
-    "carbs": 6.8,
-    "fat": 45.6,
-    "saturatedFat": 13.8,
-    "sugar": 4.5,
-    "salt": 4.2
+    "calories": 286,
+    "protein": 17.7,
+    "carbs": 2.7,
+    "fat": 22.6,
+    "saturatedFat": 7.5,
+    "sugar": 1.8,
+    "salt": 1.5
    },
    "tags": [
     "contains_pork"
@@ -3489,8 +3555,7 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "celery",
-     "milk"
+     "celery"
     ],
     "mayContain": [
      "mustard",
@@ -3674,13 +3739,13 @@
    "category": "Add-ons & extras",
    "serving": "",
    "nutrients": {
-    "calories": 225,
-    "protein": 11.7,
-    "carbs": 1.4,
-    "fat": 19.2,
-    "saturatedFat": 6.4,
-    "sugar": 0.5,
-    "salt": 1.5
+    "calories": 203,
+    "protein": 8,
+    "carbs": 0.6,
+    "fat": 18.8,
+    "saturatedFat": 6.9,
+    "sugar": 0.1,
+    "salt": 0.9
    },
    "tags": [
     "contains_pork"
@@ -3690,9 +3755,7 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "milk"
-    ],
+    "contains": [],
     "mayContain": []
    }
   },
@@ -3728,13 +3791,13 @@
    "category": "Add-ons & extras",
    "serving": "",
    "nutrients": {
-    "calories": 80,
-    "protein": 3.8,
-    "carbs": 3.5,
-    "fat": 5.6,
-    "saturatedFat": 1.8,
-    "sugar": 1.7,
-    "salt": 0.5
+    "calories": 74,
+    "protein": 2.8,
+    "carbs": 3.3,
+    "fat": 5.5,
+    "saturatedFat": 2,
+    "sugar": 1.6,
+    "salt": 0.4
    },
    "tags": [
     "contains_pork"
@@ -3744,9 +3807,7 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "milk"
-    ],
+    "contains": [],
     "mayContain": []
    }
   },
@@ -3904,8 +3965,8 @@
    "category": "Kids: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 625,
-    "protein": 33.3,
+    "calories": 626,
+    "protein": 33.6,
     "carbs": 67.4,
     "fat": 23.3,
     "saturatedFat": 9.1,
@@ -3938,13 +3999,13 @@
    "category": "Kids: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 667,
-    "protein": 42.8,
-    "carbs": 19.3,
-    "fat": 45.7,
-    "saturatedFat": 13.8,
-    "sugar": 15.9,
-    "salt": 4.2
+    "calories": 629,
+    "protein": 35.9,
+    "carbs": 17.8,
+    "fat": 45.3,
+    "saturatedFat": 15,
+    "sugar": 15.1,
+    "salt": 3
    },
    "tags": [
     "contains_pork"
@@ -3955,8 +4016,7 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "celery",
-     "milk"
+     "celery"
     ],
     "mayContain": [
      "mustard",
@@ -4032,10 +4092,10 @@
    "category": "Kids: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 511,
-    "protein": 26.4,
+    "calories": 513,
+    "protein": 26.7,
     "carbs": 56,
-    "fat": 19.2,
+    "fat": 19.3,
     "saturatedFat": 4,
     "sugar": 22.7,
     "salt": 2.6
@@ -4067,11 +4127,11 @@
    "category": "Kids: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 550,
+    "calories": 379,
     "protein": 22.9,
     "carbs": 39.4,
-    "fat": 33.2,
-    "saturatedFat": 3.9,
+    "fat": 14.2,
+    "saturatedFat": 2.5,
     "sugar": 11.4,
     "salt": 1
    },
@@ -4166,13 +4226,13 @@
    "category": "Kids: Sides",
    "serving": "",
    "nutrients": {
-    "calories": 170,
-    "protein": 1.5,
-    "carbs": 22,
-    "fat": 7.5,
-    "saturatedFat": 1.1,
-    "sugar": 7.1,
-    "salt": 0.4
+    "calories": 193,
+    "protein": 1.7,
+    "carbs": 24.9,
+    "fat": 8.5,
+    "saturatedFat": 1.2,
+    "sugar": 8,
+    "salt": 0.5
    },
    "tags": [
     "vegetarian"

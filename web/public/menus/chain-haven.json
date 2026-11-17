@@ -15,16 +15,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Haven menu allergy and nutritional information guide for the main restaurants (viewthe.menu/1afv; menus titled June 2026, festive 2026, Christmas Day 2026 and Halloween 2026; accessed 2026-10-08, no date shown)",
+  "title": "Haven menu allergy and nutritional information guide for the main restaurants (viewthe.menu/1afv; menus titled June 2026, festive 2026, Christmas Day 2026 and Halloween 2026; accessed 2026-11-17, no date shown)",
   "url": "https://viewthe.menu/1afv",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, per dish as served (Haven prints no protein, carbs or fat). Dishes and menus vary by park: Coast House-only lines, the two-park pizza deck, a pizza trial, owners' drinks and drinks with no stated size are left out. Gluten-free oats/barley labels are not shown.",
  "allergenGuide": {
   "title": "Haven menu allergy and nutritional information guide (viewthe.menu/1afv: Contains / May contain per dish, menus June 2026)",
   "url": "https://viewthe.menu/1afv",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -82,6 +82,7 @@
   "Drinks: Bottles: Cider",
   "Drinks: Packaged RTD",
   "Drinks: 0% cocktails & 0% Spirits",
+  "Drinks: Soft Drinks: Draught, Slush & Cordial",
   "Drinks: Soft Drinks: Packaged",
   "Drinks: Soft Drinks: Mixers & juices",
   "Drinks: Kids",
@@ -1016,7 +1017,7 @@
    "category": "Breakfast: Lighter",
    "serving": "",
    "nutrients": {
-    "calories": 182
+    "calories": 183
    },
    "tags": [
     "vegetarian"
@@ -1030,9 +1031,8 @@
      "gluten",
      "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "barley"
+    "mayContain": [
+     "soya"
     ]
    }
   },
@@ -1627,7 +1627,7 @@
    "category": "Main menu: Small Plates",
    "serving": "",
    "nutrients": {
-    "calories": 311
+    "calories": 220
    },
    "tags": [
     "vegetarian"
@@ -1649,7 +1649,7 @@
    "category": "Main menu: Small Plates",
    "serving": "",
    "nutrients": {
-    "calories": 568
+    "calories": 580
    },
    "tags": [
     "contains_beef"
@@ -1698,7 +1698,7 @@
    "category": "Main menu: Small Plates",
    "serving": "",
    "nutrients": {
-    "calories": 595
+    "calories": 594
    },
    "tags": [
     "contains_beef"
@@ -1912,7 +1912,7 @@
    "category": "Main menu: Small Plates",
    "serving": "",
    "nutrients": {
-    "calories": 778
+    "calories": 777
    },
    "tags": [],
    "limitedTime": false,
@@ -2198,7 +2198,7 @@
    "category": "Main menu: Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1252
+    "calories": 1260
    },
    "tags": [],
    "limitedTime": false,
@@ -2260,8 +2260,7 @@
     "contains": [
      "gluten",
      "milk",
-     "soya",
-     "sulphites"
+     "soya"
     ],
     "mayContain": [
      "eggs",
@@ -2276,7 +2275,7 @@
    "category": "Main menu: Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1185
+    "calories": 1184
    },
    "tags": [
     "contains_beef"
@@ -2307,7 +2306,7 @@
    "category": "Main menu: Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1262
+    "calories": 1275
    },
    "tags": [
     "contains_beef"
@@ -2482,8 +2481,7 @@
      "gluten",
      "crustaceans",
      "eggs",
-     "mustard",
-     "sulphites"
+     "mustard"
     ],
     "mayContain": [
      "fish",
@@ -2637,7 +2635,7 @@
    "category": "Main menu: Haven Favourites",
    "serving": "",
    "nutrients": {
-    "calories": 1539
+    "calories": 1499
    },
    "tags": [],
    "limitedTime": false,
@@ -2687,8 +2685,6 @@
      "milk"
     ],
     "mayContain": [
-     "celery",
-     "eggs",
      "soya"
     ]
    }
@@ -2699,7 +2695,7 @@
    "category": "Main menu: Haven Favourites",
    "serving": "",
    "nutrients": {
-    "calories": 297
+    "calories": 268
    },
    "tags": [
     "contains_pork"
@@ -2947,10 +2943,7 @@
      "mustard",
      "soya"
     ],
-    "mayContain": [
-     "celery",
-     "eggs"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -3232,7 +3225,7 @@
    "category": "Main menu: Haven Favourites",
    "serving": "",
    "nutrients": {
-    "calories": 1437
+    "calories": 1397
    },
    "tags": [
     "vegetarian"
@@ -3743,8 +3736,6 @@
      "gluten"
     ],
     "mayContain": [
-     "celery",
-     "eggs",
      "milk",
      "soya"
     ]
@@ -3836,8 +3827,6 @@
      "milk"
     ],
     "mayContain": [
-     "celery",
-     "eggs",
      "soya"
     ]
    }
@@ -4210,7 +4199,7 @@
    "category": "Main menu: Lite Bites",
    "serving": "",
    "nutrients": {
-    "calories": 760
+    "calories": 730
    },
    "tags": [
     "contains_pork"
@@ -4397,8 +4386,7 @@
    "allergens": {
     "contains": [
      "fish",
-     "mustard",
-     "sulphites"
+     "mustard"
     ],
     "mayContain": []
    }
@@ -4421,8 +4409,7 @@
    "allergens": {
     "contains": [
      "milk",
-     "mustard",
-     "sulphites"
+     "mustard"
     ],
     "mayContain": []
    }
@@ -4444,8 +4431,7 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "mustard",
-     "sulphites"
+     "mustard"
     ],
     "mayContain": []
    }
@@ -4468,8 +4454,7 @@
    "allergens": {
     "contains": [
      "milk",
-     "mustard",
-     "sulphites"
+     "mustard"
     ],
     "mayContain": []
    }
@@ -4559,8 +4544,7 @@
    "allergens": {
     "contains": [
      "gluten",
-     "mustard",
-     "sulphites"
+     "mustard"
     ],
     "mayContain": [],
     "cereals": [
@@ -4587,8 +4571,7 @@
     "contains": [
      "gluten",
      "milk",
-     "mustard",
-     "sulphites"
+     "mustard"
     ],
     "mayContain": [],
     "cereals": [
@@ -4616,8 +4599,6 @@
      "gluten"
     ],
     "mayContain": [
-     "celery",
-     "eggs",
      "milk",
      "soya"
     ]
@@ -4689,7 +4670,7 @@
    "category": "Kids menu: Kids Meal",
    "serving": "",
    "nutrients": {
-    "calories": 62
+    "calories": 42
    },
    "tags": [
     "vegetarian"
@@ -4766,7 +4747,7 @@
    "category": "Kids menu: Kids Meal",
    "serving": "",
    "nutrients": {
-    "calories": 149
+    "calories": 134
    },
    "tags": [
     "contains_pork"
@@ -4897,8 +4878,6 @@
      "soya"
     ],
     "mayContain": [
-     "celery",
-     "eggs",
      "nuts",
      "peanuts"
     ]
@@ -4981,8 +4960,6 @@
      "milk"
     ],
     "mayContain": [
-     "celery",
-     "eggs",
      "soya"
     ]
    }
@@ -5035,7 +5012,7 @@
    "category": "Kids menu: Kids Meal",
    "serving": "",
    "nutrients": {
-    "calories": 607
+    "calories": 604
    },
    "tags": [
     "vegetarian"
@@ -6323,7 +6300,7 @@
    "category": "Dark Kitchen: Loaded Fries",
    "serving": "",
    "nutrients": {
-    "calories": 1434
+    "calories": 1433
    },
    "tags": [],
    "limitedTime": false,
@@ -6353,7 +6330,7 @@
    "category": "Dark Kitchen: Loaded Fries",
    "serving": "",
    "nutrients": {
-    "calories": 1189
+    "calories": 1188
    },
    "tags": [
     "contains_beef"
@@ -6381,7 +6358,7 @@
    "category": "Dark Kitchen: Loaded Fries",
    "serving": "",
    "nutrients": {
-    "calories": 1222
+    "calories": 1221
    },
    "tags": [],
    "limitedTime": false,
@@ -6403,7 +6380,7 @@
    "category": "Dark Kitchen: Hot dogs",
    "serving": "",
    "nutrients": {
-    "calories": 684
+    "calories": 683
    },
    "tags": [],
    "limitedTime": false,
@@ -7067,6 +7044,58 @@
      "wheat",
      "spelt",
      "kamut"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-orange",
+   "name": "Chocolate Orange",
+   "category": "Ice cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 78
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "match-made-devon-mint-ice-cream",
+   "name": "Match Made Devon Mint Ice Cream",
+   "category": "Ice cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 78
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
     ]
    }
   },
@@ -9829,7 +9858,7 @@
    "category": "Pizza menu: Pizza",
    "serving": "",
    "nutrients": {
-    "calories": 1245
+    "calories": 1236
    },
    "tags": [
     "contains_pork"
@@ -10068,7 +10097,9 @@
     ],
     "mayContain": [],
     "cereals": [
-     "wheat"
+     "wheat",
+     "spelt",
+     "kamut"
     ]
    }
   },
@@ -10100,7 +10131,7 @@
    "category": "Festive menu: Small Plates",
    "serving": "",
    "nutrients": {
-    "calories": 789
+    "calories": 788
    },
    "tags": [
     "contains_pork"
@@ -10130,7 +10161,7 @@
    "category": "Festive menu: Small Plates",
    "serving": "",
    "nutrients": {
-    "calories": 718
+    "calories": 715
    },
    "tags": [
     "contains_pork"
@@ -10173,7 +10204,7 @@
    "category": "Festive menu: Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1179
+    "calories": 1160
    },
    "tags": [
     "contains_pork"
@@ -10235,7 +10266,7 @@
    "category": "Festive menu: Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1089
+    "calories": 1068
    },
    "tags": [
     "vegetarian"
@@ -10247,7 +10278,8 @@
    "allergens": {
     "contains": [
      "gluten",
-     "soya"
+     "soya",
+     "sulphites"
     ],
     "mayContain": [
      "eggs",
@@ -10263,7 +10295,7 @@
    "category": "Festive menu: Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1337
+    "calories": 1334
    },
    "tags": [
     "vegetarian"
@@ -10291,7 +10323,7 @@
    "category": "Festive menu: Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1330
+    "calories": 1338
    },
    "tags": [
     "contains_pork"
@@ -10332,8 +10364,7 @@
     "contains": [
      "gluten",
      "milk",
-     "soya",
-     "sulphites"
+     "soya"
     ],
     "mayContain": [
      "eggs",
@@ -10348,7 +10379,7 @@
    "category": "Festive menu: Hot dogs",
    "serving": "",
    "nutrients": {
-    "calories": 1206
+    "calories": 1167
    },
    "tags": [
     "contains_beef"
@@ -10382,7 +10413,7 @@
    "category": "Festive menu: Hot dogs",
    "serving": "",
    "nutrients": {
-    "calories": 986
+    "calories": 947
    },
    "tags": [],
    "limitedTime": true,
@@ -10412,7 +10443,7 @@
    "category": "Festive menu: Hot dogs",
    "serving": "",
    "nutrients": {
-    "calories": 1324
+    "calories": 1286
    },
    "tags": [],
    "limitedTime": true,
@@ -11472,7 +11503,7 @@
    "category": "Drinks: Bottles: Cider",
    "serving": "",
    "nutrients": {
-    "calories": 270
+    "calories": 125
    },
    "tags": [
     "vegetarian"
@@ -11696,6 +11727,26 @@
    "serving": "",
    "nutrients": {
     "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "oasis-citrus-punch-330ml-can",
+   "name": "Oasis Citrus Punch 330ml Can",
+   "category": "Drinks: Soft Drinks: Draught, Slush & Cordial",
+   "serving": "",
+   "nutrients": {
+    "calories": 59
    },
    "tags": [
     "vegetarian"
@@ -12289,7 +12340,7 @@
    "category": "Drinks: Soft Drinks: Packaged",
    "serving": "",
    "nutrients": {
-    "calories": 7
+    "calories": 40
    },
    "tags": [
     "vegetarian"
@@ -13184,6 +13235,26 @@
    }
   },
   {
+   "id": "bols-triple-sec-25ml",
+   "name": "BOLS TRIPLE SEC 25ml",
+   "category": "Drinks: Spirits: Liqueurs, Brandy & Schnapps",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
    "id": "bols-creme-de-menthe-25ml",
    "name": "BOLS Creme De Menthe 25ml",
    "category": "Drinks: Spirits: Liqueurs, Brandy & Schnapps",
@@ -13558,8 +13629,7 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten",
-     "sulphites"
+     "gluten"
     ],
     "mayContain": [
      "eggs",
@@ -13581,7 +13651,7 @@
    "category": "Christmas Day: Starters",
    "serving": "",
    "nutrients": {
-    "calories": 695
+    "calories": 707
    },
    "tags": [],
    "limitedTime": true,
@@ -13660,10 +13730,7 @@
      "crustaceans",
      "eggs"
     ],
-    "mayContain": [
-     "fish",
-     "molluscs"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -13705,7 +13772,7 @@
    "category": "Christmas Day: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1044
+    "calories": 1053
    },
    "tags": [
     "contains_pork"
@@ -13734,7 +13801,7 @@
    "category": "Christmas Day: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 982
+    "calories": 990
    },
    "tags": [
     "contains_beef",
@@ -13770,7 +13837,7 @@
    "category": "Christmas Day: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1778
+    "calories": 1787
    },
    "tags": [
     "contains_pork"
@@ -13799,7 +13866,7 @@
    "category": "Christmas Day: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 843
+    "calories": 818
    },
    "tags": [
     "vegetarian"
@@ -14050,10 +14117,7 @@
      "crustaceans",
      "eggs"
     ],
-    "mayContain": [
-     "fish",
-     "molluscs"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -14128,7 +14192,7 @@
    "category": "Christmas Day: Kids Mains",
    "serving": "",
    "nutrients": {
-    "calories": 684
+    "calories": 688
    },
    "tags": [
     "contains_pork"
@@ -14157,7 +14221,7 @@
    "category": "Christmas Day: Kids Mains",
    "serving": "",
    "nutrients": {
-    "calories": 684
+    "calories": 689
    },
    "tags": [
     "contains_beef",
@@ -14193,7 +14257,7 @@
    "category": "Christmas Day: Kids Mains",
    "serving": "",
    "nutrients": {
-    "calories": 795
+    "calories": 770
    },
    "tags": [
     "vegetarian"
@@ -14312,7 +14376,7 @@
    "category": "Christmas Day NGCI: Starters",
    "serving": "",
    "nutrients": {
-    "calories": 734
+    "calories": 746
    },
    "tags": [],
    "limitedTime": true,
@@ -14347,10 +14411,7 @@
      "crustaceans",
      "eggs"
     ],
-    "mayContain": [
-     "fish",
-     "molluscs"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -14379,7 +14440,7 @@
    "category": "Christmas Day NGCI: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 915
+    "calories": 911
    },
    "tags": [],
    "limitedTime": true,
@@ -14390,7 +14451,8 @@
     "contains": [
      "eggs",
      "milk",
-     "soya"
+     "soya",
+     "sulphites"
     ],
     "mayContain": []
    }
@@ -14401,7 +14463,7 @@
    "category": "Christmas Day NGCI: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1649
+    "calories": 1645
    },
    "tags": [
     "contains_pork"
@@ -14414,7 +14476,8 @@
     "contains": [
      "eggs",
      "milk",
-     "soya"
+     "soya",
+     "sulphites"
     ],
     "mayContain": []
    }
@@ -14512,10 +14575,7 @@
      "crustaceans",
      "eggs"
     ],
-    "mayContain": [
-     "fish",
-     "molluscs"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -14544,7 +14604,7 @@
    "category": "Christmas Day NGCI: Kids Mains",
    "serving": "",
    "nutrients": {
-    "calories": 454
+    "calories": 458
    },
    "tags": [],
    "limitedTime": true,
@@ -14555,7 +14615,8 @@
     "contains": [
      "eggs",
      "milk",
-     "soya"
+     "soya",
+     "sulphites"
     ],
     "mayContain": []
    }

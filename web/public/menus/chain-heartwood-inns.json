@@ -16,15 +16,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Heartwood Inns menus with nutrition and allergens (Ten Kites pages embedded on heartwoodinns.com/menu): à la carte, Weekday Lunch, Saturday, Sunday, Bar, Kids and Drinks (accessed 2026-10-08, no date shown)",
+  "title": "Heartwood Inns menus with nutrition and allergens (Ten Kites pages embedded on heartwoodinns.com/menu): à la carte, Weekday Lunch, Saturday, Sunday, Bar, Kids and Drinks (accessed 2026-11-17; the drinks menu is titled Autumn 2026, the food menus show no date)",
   "url": "https://menus.tenkites.com/hwc/hwialacarte",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Figures are per serving from Heartwood Inns' own menu pages (no fibre, kJ or weights printed). Weekday Lunch dishes are served Monday to Friday 12pm-5pm; the à la carte Monday to Friday from 5pm and all day Saturday. Wine, group dining and Christmas menus are not included. Alcoholic drinks print calories that include the alcohol.",
  "allergenGuide": {
-  "title": "Heartwood Inns menus with allergens (Ten Kites): per-dish 'Contains' and 'May contain' on the same pages (accessed 2026-10-08, no date shown)",
+  "title": "Heartwood Inns menus with allergens (Ten Kites): per-dish 'Contains' and 'May contain' on the same pages (accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/hwc/hwialacarte",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -699,18 +699,18 @@
    }
   },
   {
-   "id": "muscat-pumpkin-and-kirsch-soup",
-   "name": "Muscat pumpkin & kirsch soup",
+   "id": "beetroot-and-winter-coleslaw-salad",
+   "name": "Beetroot & winter coleslaw salad",
    "category": "Seasonal set starters",
    "serving": "",
    "nutrients": {
-    "calories": 137,
-    "protein": 1.8,
-    "carbs": 6.1,
-    "fat": 10.7,
-    "saturatedFat": 3,
-    "sugar": 5.2,
-    "salt": 1.6
+    "calories": 225,
+    "protein": 4.6,
+    "carbs": 18.8,
+    "fat": 15,
+    "saturatedFat": 1.7,
+    "sugar": 17.2,
+    "salt": 0.7
    },
    "tags": [
     "vegetarian"
@@ -721,13 +721,15 @@
    "modifiers": [],
    "allergens": {
     "contains": [
+     "celery",
+     "mustard",
      "nuts",
+     "peanuts",
+     "sesame",
      "sulphites"
     ],
     "mayContain": [
-     "gluten",
-     "sesame",
-     "soya"
+     "gluten"
     ],
     "nuts": [
      "almond",
@@ -742,53 +744,20 @@
    }
   },
   {
-   "id": "celeriac-remoulade",
-   "name": "Celeriac remoulade",
+   "id": "cod-brandade-croquette",
+   "name": "Cod brandade croquette",
    "category": "Seasonal set starters",
    "serving": "",
    "nutrients": {
-    "calories": 263,
-    "protein": 7.9,
-    "carbs": 3.7,
-    "fat": 24.6,
-    "saturatedFat": 3,
-    "sugar": 2.5,
-    "salt": 2.9
+    "calories": 406,
+    "protein": 9.4,
+    "carbs": 23.1,
+    "fat": 33.2,
+    "saturatedFat": 1.4,
+    "sugar": 4.6,
+    "salt": 2.5
    },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "eggs",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "pan-fried-gnocchi",
-   "name": "Pan-fried gnocchi",
-   "category": "Seasonal set starters",
-   "serving": "",
-   "nutrients": {
-    "calories": 539,
-    "protein": 11.7,
-    "carbs": 34.8,
-    "fat": 38.7,
-    "saturatedFat": 15.8,
-    "sugar": 1.3,
-    "salt": 2.6
-   },
-   "tags": [
-    "vegetarian"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -796,11 +765,13 @@
    "allergens": {
     "contains": [
      "gluten",
-     "milk"
+     "eggs",
+     "fish",
+     "soya",
+     "sulphites"
     ],
     "mayContain": [
-     "mustard",
-     "soya"
+     "mustard"
     ],
     "cereals": [
      "wheat"
@@ -813,11 +784,11 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 907,
-    "protein": 61.1,
+    "calories": 877,
+    "protein": 55,
     "carbs": 20.2,
-    "fat": 78.6,
-    "saturatedFat": 33,
+    "fat": 78,
+    "saturatedFat": 32.8,
     "sugar": 7.4,
     "salt": 3.9
    },
@@ -1368,18 +1339,45 @@
    }
   },
   {
-   "id": "pork-loin-confit",
-   "name": "Pork loin confit",
+   "id": "chicken-fricassee",
+   "name": "Chicken fricassée",
    "category": "Seasonal set mains",
    "serving": "",
    "nutrients": {
-    "calories": 1252,
-    "protein": 90.1,
-    "carbs": 22.3,
-    "fat": 89.7,
-    "saturatedFat": 40,
-    "sugar": 7.2,
-    "salt": 4.9
+    "calories": 558,
+    "protein": 29.3,
+    "carbs": 18.1,
+    "fat": 39,
+    "saturatedFat": 14.4,
+    "sugar": 4.6,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pan-fried-haddock-fillet",
+   "name": "Pan-fried haddock fillet",
+   "category": "Seasonal set mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 545,
+    "protein": 47,
+    "carbs": 40.4,
+    "fat": 14.1,
+    "saturatedFat": 1.5,
+    "sugar": 6.2,
+    "salt": 4.4
    },
    "tags": [
     "contains_pork"
@@ -1390,49 +1388,48 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk",
-     "mustard",
-     "peanuts",
-     "sulphites"
+     "celery",
+     "fish"
     ],
     "mayContain": []
    }
   },
   {
-   "id": "smoked-haddock-and-chalkstream-trout-fishcake",
-   "name": "Smoked haddock & ChalkStream trout fishcake",
+   "id": "muscat-pumpkin-risotto",
+   "name": "Muscat pumpkin risotto",
    "category": "Seasonal set mains",
    "serving": "",
    "nutrients": {
-    "calories": 665,
-    "protein": 38,
-    "carbs": 37.3,
-    "fat": 42.1,
-    "saturatedFat": 19.1,
-    "sugar": 6.3,
-    "salt": 2.8
+    "calories": 777,
+    "protein": 7.9,
+    "carbs": 91.4,
+    "fat": 42,
+    "saturatedFat": 10.3,
+    "sugar": 12.9,
+    "salt": 4.3
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten",
-     "eggs",
-     "fish",
-     "milk",
-     "mustard",
-     "soya",
+     "nuts",
      "sulphites"
     ],
     "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "oats"
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
     ]
    }
   },
@@ -1527,18 +1524,18 @@
    }
   },
   {
-   "id": "21-day-matured-british-beef-rump",
-   "name": "21-day matured British beef rump",
+   "id": "28-day-matured-grass-fed-beef-rump",
+   "name": "28-day matured grass-fed beef rump",
    "category": "Sunday roasts",
    "serving": "",
    "nutrients": {
-    "calories": 1161,
-    "protein": 60.9,
-    "carbs": 103.4,
-    "fat": 63.8,
-    "saturatedFat": 22.3,
-    "sugar": 36.5,
-    "salt": 7.2
+    "calories": 1037,
+    "protein": 64.7,
+    "carbs": 96.7,
+    "fat": 48.5,
+    "saturatedFat": 12,
+    "sugar": 20.9,
+    "salt": 5.9
    },
    "tags": [
     "contains_beef"
@@ -1567,18 +1564,55 @@
    }
   },
   {
-   "id": "outdoor-bred-british-pork-loin",
-   "name": "Outdoor-bred British pork loin",
+   "id": "half-a-roast-grain-fed-chicken",
+   "name": "Half a roast grain-fed chicken",
    "category": "Sunday roasts",
    "serving": "",
    "nutrients": {
-    "calories": 1747,
-    "protein": 98.7,
-    "carbs": 106.8,
-    "fat": 111.1,
-    "saturatedFat": 40.7,
-    "sugar": 39.8,
-    "salt": 8.5
+    "calories": 1658,
+    "protein": 92,
+    "carbs": 116.1,
+    "fat": 97.9,
+    "saturatedFat": 22,
+    "sugar": 41.3,
+    "salt": 9.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "apricot-stuffed-pork-belly-roulade",
+   "name": "Apricot-stuffed pork belly roulade",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 2318,
+    "protein": 71.9,
+    "carbs": 106.2,
+    "fat": 181.2,
+    "saturatedFat": 56.7,
+    "sugar": 25.7,
+    "salt": 5.4
    },
    "tags": [
     "contains_pork"
@@ -1593,7 +1627,6 @@
      "gluten",
      "eggs",
      "milk",
-     "mustard",
      "soya",
      "sulphites"
     ],
@@ -1607,18 +1640,18 @@
    }
   },
   {
-   "id": "beetroot-and-smoked-cheddar-pasty",
-   "name": "Beetroot and smoked cheddar pasty",
+   "id": "celeriac-artichoke-and-chestnut-mushroom-wellington-gravy",
+   "name": "Celeriac, artichoke & chestnut mushroom Wellington, gravy",
    "category": "Sunday roasts",
    "serving": "",
    "nutrients": {
-    "calories": 1259,
-    "protein": 36.7,
-    "carbs": 128.5,
-    "fat": 74.2,
-    "saturatedFat": 26.4,
-    "sugar": 40.6,
-    "salt": 5.9
+    "calories": 1342,
+    "protein": 23.3,
+    "carbs": 161.1,
+    "fat": 74.4,
+    "saturatedFat": 19.9,
+    "sugar": 34.7,
+    "salt": 6.1
    },
    "tags": [
     "vegetarian"
@@ -1631,8 +1664,6 @@
     "contains": [
      "celery",
      "gluten",
-     "eggs",
-     "milk",
      "soya",
      "sulphites"
     ],
@@ -1642,6 +1673,101 @@
      "rye",
      "barley",
      "oats"
+    ]
+   }
+  },
+  {
+   "id": "pigs-in-blankets",
+   "name": "Pigs in blankets",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 428,
+    "protein": 31.4,
+    "carbs": 17,
+    "fat": 25.8,
+    "saturatedFat": 9.3,
+    "sugar": 3,
+    "salt": 3.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cauliflower-and-cheddar-cheese-gratin",
+   "name": "Cauliflower & Cheddar cheese gratin",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 471,
+    "protein": 21.7,
+    "carbs": 28.8,
+    "fat": 31.9,
+    "saturatedFat": 20,
+    "sugar": 8.1,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "pork-sage-and-apricot-stuffing",
+   "name": "Pork, sage & apricot stuffing",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 784,
+    "protein": 23,
+    "carbs": 48.1,
+    "fat": 57.7,
+    "saturatedFat": 15.2,
+    "sugar": 15.5,
+    "salt": 3.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
     ]
    }
   },
@@ -2941,13 +3067,13 @@
    "category": "Kids: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 639,
-    "protein": 25.7,
-    "carbs": 52.3,
-    "fat": 36.4,
-    "saturatedFat": 8,
-    "sugar": 9.4,
-    "salt": 3
+    "calories": 668,
+    "protein": 26.5,
+    "carbs": 56.8,
+    "fat": 37.1,
+    "saturatedFat": 8.3,
+    "sugar": 9.9,
+    "salt": 3.1
    },
    "tags": [
     "contains_beef"
@@ -2962,11 +3088,11 @@
      "eggs",
      "milk",
      "nuts",
-     "sesame",
      "soya"
     ],
     "mayContain": [
-     "mustard"
+     "mustard",
+     "sesame"
     ],
     "nuts": [
      "walnut"
@@ -3852,12 +3978,12 @@
    "category": "Drinks: Gin",
    "serving": "",
    "nutrients": {
-    "calories": 128,
+    "calories": 92,
     "protein": 0.2,
-    "carbs": 10.7,
+    "carbs": 1.9,
     "fat": 0.1,
     "saturatedFat": 0,
-    "sugar": 10.7,
+    "sugar": 1.9,
     "salt": 0
    },
    "tags": [],
@@ -3866,9 +3992,7 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "sulphites"
-    ],
+    "contains": [],
     "mayContain": []
    }
   },

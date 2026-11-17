@@ -632,6 +632,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "tgi-fridays/860ca2f22028.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -666,6 +667,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "tgi-fridays/d949b8245781.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -1144,6 +1146,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "tgi-fridays/6f94bb608b0c.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -1169,6 +1172,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "tgi-fridays/c0a37bf5f155.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1306,6 +1310,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "tgi-fridays/9947c5697cc0.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1412,7 +1417,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tgi-fridays/ebc94f86aa73.webp",
+   "image": "tgi-fridays/bcd6249bf9d2.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -1920,6 +1925,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "tgi-fridays/f91870ab3b61.webp",
    "allergens": {
     "contains": [
      "celery"

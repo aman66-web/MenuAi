@@ -339,7 +339,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/5c56f9dd7148.webp"
   },
   {
    "id": "3-mozzarella-fritti-sticks",
@@ -901,8 +902,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "ask-italian/e9f22273e652.webp"
+   "modifiers": []
   },
   {
    "id": "belu-sparkling-water-330ml",
@@ -918,8 +918,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "ask-italian/73380e77a20e.webp"
+   "modifiers": []
   },
   {
    "id": "belu-sparkling-water-750ml",
@@ -935,8 +934,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "ask-italian/c5494ccdf5cb.webp"
+   "modifiers": []
   },
   {
    "id": "belu-still-water-330ml",
@@ -952,8 +950,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "ask-italian/4067d5c46e48.webp"
+   "modifiers": []
   },
   {
    "id": "belu-still-water-750ml",
@@ -969,8 +966,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "ask-italian/9e0a7c36d5d5.webp"
+   "modifiers": []
   },
   {
    "id": "coca-cola-330ml",
@@ -986,8 +982,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "ask-italian/68bb3a1542d5.webp"
+   "modifiers": []
   },
   {
    "id": "coke-zero",
@@ -1036,8 +1031,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "ask-italian/065605bfc44e.webp"
+   "modifiers": []
   },
   {
    "id": "ginger-and-yuzu-kombucha",
@@ -1053,8 +1047,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "ask-italian/d300fc559642.webp"
+   "modifiers": []
   },
   {
    "id": "ginger-beer",
@@ -1116,8 +1109,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "ask-italian/196296fdba69.webp"
+   "modifiers": []
   },
   {
    "id": "raspberry-craft-still-lemonade",
@@ -1150,8 +1142,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "ask-italian/50c24d252d6d.webp"
+   "modifiers": []
   },
   {
    "id": "san-pellegrino-limonata",
@@ -1167,8 +1158,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "ask-italian/6b38de271b02.webp"
+   "modifiers": []
   },
   {
    "id": "sprite-zero",
@@ -1184,8 +1174,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "ask-italian/c6d81932f91f.webp"
+   "modifiers": []
   },
   {
    "id": "baileys-tiramisu",
@@ -1864,8 +1853,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "ask-italian/1f89509e892b.webp"
+   "modifiers": []
   },
   {
    "id": "lime-no-jito",
@@ -2415,7 +2403,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/abb658695afe.webp"
   },
   {
    "id": "vegan-bruschetta-pizzetta-2",
@@ -2795,7 +2784,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/eefd3e152dcc.webp"
   },
   {
    "id": "cheesy-pesto-pinwheels",

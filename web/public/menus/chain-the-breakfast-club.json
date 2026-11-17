@@ -122,7 +122,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-breakfast-club/d377763a5271.webp"
   },
   {
    "id": "short-stack-pancakes",
@@ -292,7 +293,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-breakfast-club/6f103c41269d.webp"
   },
   {
    "id": "chicken-schnitzel-caesar",
@@ -482,7 +484,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-breakfast-club/3f2d9aeae327.webp"
   },
   {
    "id": "caesar-side-salad",
@@ -710,7 +713,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "the-breakfast-club/c6a88c508efe.webp"
   },
   {
    "id": "chorizo",

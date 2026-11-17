@@ -55,7 +55,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chopstix/2dd1140945b4.webp"
   },
   {
    "id": "vegetable-chow-mein-small",
@@ -77,7 +78,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chopstix/2dd1140945b4.webp"
   },
   {
    "id": "vegetable-chow-mein-regular",
@@ -99,7 +101,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chopstix/2dd1140945b4.webp"
   },
   {
    "id": "vegetable-chow-mein-large",
@@ -121,7 +124,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chopstix/2dd1140945b4.webp"
   },
   {
    "id": "egg-fried-rice-taster-base",
@@ -143,7 +147,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chopstix/157187514d2f.webp"
   },
   {
    "id": "egg-fried-rice-small",
@@ -165,7 +170,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chopstix/157187514d2f.webp"
   },
   {
    "id": "egg-fried-rice-regular",
@@ -187,7 +193,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chopstix/157187514d2f.webp"
   },
   {
    "id": "egg-fried-rice-large",
@@ -209,7 +216,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chopstix/157187514d2f.webp"
   },
   {
    "id": "cauli-rice-taster-base",
@@ -231,7 +239,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chopstix/b6621c3ea351.webp"
   },
   {
    "id": "cauli-rice-small",
@@ -253,7 +262,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chopstix/b6621c3ea351.webp"
   },
   {
    "id": "cauli-rice-regular",
@@ -275,7 +285,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chopstix/b6621c3ea351.webp"
   },
   {
    "id": "cauli-rice-large",
@@ -297,7 +308,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chopstix/b6621c3ea351.webp"
   },
   {
    "id": "savoury-one",
@@ -1089,7 +1101,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chopstix/315c3b55fcc3.webp"
   },
   {
    "id": "salt-and-pepper-chips-regular-large",
@@ -1111,7 +1124,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chopstix/315c3b55fcc3.webp"
   },
   {
    "id": "sweet-and-sour-chicken-taster-topping",
@@ -1573,7 +1587,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chopstix/315c3b55fcc3.webp"
   },
   {
    "id": "salt-and-pepper-chips-large-side",

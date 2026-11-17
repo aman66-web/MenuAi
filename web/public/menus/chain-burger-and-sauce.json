@@ -13,14 +13,14 @@
  "source": {
   "title": "Burger & Sauce Calorie Count (PDF created 12 March 2025, artwork ref A. 31.10.24; linked from the chain's menu page)",
   "url": "https://burgerandsauce.com/wp-content/uploads/2025/03/carlorie-count-12-03-25.pdf",
-  "checkedOn": "2026-10-09"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories and kJ only, per serving for one person, from the chain's Calorie Count sheet dated 12 March 2025 (the chain still links it). The menu may have changed since, and seasonal items (Festive Burger, Ferrero Rocher) may be off it.",
  "allergenGuide": {
-  "title": "Burger & Sauce Allergens & Intolerances sheet (last updated Dec 2025, 2 pages)",
-  "url": "https://burgerandsauce.com/wp-content/uploads/2025/12/Allergen-sheet-2025-1.pdf",
-  "checkedOn": "2026-10-09",
+  "title": "Burger & Sauce Allergens & Intolerances sheet (last updated July 2026, 2 pages)",
+  "url": "https://burgerandsauce.com/wp-content/uploads/2026/10/BS_Allergens_Intolerances_July_2026_Final.pdf",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": false
  },
@@ -222,7 +222,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-and-sauce/7d232cb17c7c.webp"
   },
   {
    "id": "beef-nacho",
@@ -254,7 +255,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-and-sauce/397c0170795b.webp"
   },
   {
    "id": "animal-fries",
@@ -701,7 +703,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-and-sauce/43707a6936fe.webp"
   }
  ],
  "combinations": []

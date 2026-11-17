@@ -10,16 +10,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Blank Street UK Allergen Guide, Autumn 2026 (PDF created 21 August 2026)",
-  "url": "https://www.blankstreet.com/en-GB/BlankStreetUKAllergenGuideAutumn26.pdf",
-  "checkedOn": "2026-10-08"
+  "title": "Blank Street UK Allergen Guide, Winter 2026 (PDF created 2 November 2026)",
+  "url": "https://www.blankstreet.com/en-GB/BlankStreetUKAllergenGuideWinter26.pdf",
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Blank Street prints calories only. Each drink has one figure per size and the guide does not say which milk (dairy or oat) it assumes. Pastries are listed by city because the guide gives each city its own range and figures. S and L are shown as Small and Large.",
  "allergenGuide": {
-  "title": "Blank Street UK Allergen Guide, Autumn 2026 (18 pages)",
-  "url": "https://www.blankstreet.com/en-GB/BlankStreetUKAllergenGuideAutumn26.pdf",
-  "checkedOn": "2026-10-08",
+  "title": "Blank Street UK Allergen Guide, Winter 2026 (21 pages)",
+  "url": "https://www.blankstreet.com/en-GB/BlankStreetUKAllergenGuideWinter26.pdf",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": false
  },
@@ -27,7 +27,7 @@
   "Coffee",
   "Not coffee & teas",
   "Cold brew",
-  "Matchas",
+  "Matchas & hojichas",
   "House lattes",
   "Signature ice cream",
   "Custom",
@@ -38,7 +38,8 @@
   "Pastries & sweets, Leeds",
   "Pastries & sweets, Cambridge",
   "Pastries & sweets, Bristol",
-  "Pastries & sweets, Brighton"
+  "Pastries & sweets, Brighton",
+  "Pastries & sweets, Liverpool"
  ],
  "components": [],
  "items": [
@@ -571,6 +572,22 @@
    "modifiers": []
   },
   {
+   "id": "hojicha-tea-hot-or-iced",
+   "name": "Hojicha Tea (hot or iced)",
+   "category": "Not coffee & teas",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "iced-lemon-tea-small",
    "name": "Iced Lemon Tea (small)",
    "category": "Not coffee & teas",
@@ -749,7 +766,7 @@
   {
    "id": "matcha-latte-hot-small",
    "name": "Matcha Latte (hot, small)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Small",
    "nutrients": {
     "calories": 117
@@ -766,7 +783,7 @@
   {
    "id": "matcha-latte-hot-large",
    "name": "Matcha Latte (hot, large)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Large",
    "nutrients": {
     "calories": 178
@@ -783,7 +800,7 @@
   {
    "id": "matcha-latte-iced-small",
    "name": "Matcha Latte (iced, small)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Small",
    "nutrients": {
     "calories": 77
@@ -800,7 +817,7 @@
   {
    "id": "matcha-latte-iced-large",
    "name": "Matcha Latte (iced, large)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Large",
    "nutrients": {
     "calories": 138
@@ -815,12 +832,60 @@
    "image": "blank-street-coffee/1daf5e953fe8.webp"
   },
   {
-   "id": "iced-matcha-cortado",
-   "name": "Iced Matcha Cortado",
-   "category": "Matchas",
-   "serving": "",
+   "id": "hojicha-latte-hot-small",
+   "name": "Hojicha Latte (hot, small)",
+   "category": "Matchas & hojichas",
+   "serving": "Small",
    "nutrients": {
-    "calories": 46
+    "calories": 129
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hojicha-latte-hot-large",
+   "name": "Hojicha Latte (hot, large)",
+   "category": "Matchas & hojichas",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 209
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hojicha-latte-iced-small",
+   "name": "Hojicha Latte (iced, small)",
+   "category": "Matchas & hojichas",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 109
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hojicha-latte-iced-large",
+   "name": "Hojicha Latte (iced, large)",
+   "category": "Matchas & hojichas",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 149
    },
    "tags": [
     "vegetarian"
@@ -833,7 +898,7 @@
   {
    "id": "iced-blueberry-matcha-small",
    "name": "Iced Blueberry Matcha (small)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Small",
    "nutrients": {
     "calories": 138
@@ -850,7 +915,7 @@
   {
    "id": "iced-blueberry-matcha-large",
    "name": "Iced Blueberry Matcha (large)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Large",
    "nutrients": {
     "calories": 190
@@ -867,7 +932,7 @@
   {
    "id": "hot-blueberry-matcha-small",
    "name": "Hot Blueberry Matcha (small)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Small",
    "nutrients": {
     "calories": 170
@@ -884,7 +949,7 @@
   {
    "id": "hot-blueberry-matcha-large",
    "name": "Hot Blueberry Matcha (large)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Large",
    "nutrients": {
     "calories": 250
@@ -901,7 +966,7 @@
   {
    "id": "white-chocolate-matcha-hot-small",
    "name": "White Chocolate Matcha (hot, small)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Small",
    "nutrients": {
     "calories": 124
@@ -918,7 +983,7 @@
   {
    "id": "white-chocolate-matcha-hot-large",
    "name": "White Chocolate Matcha (hot, large)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Large",
    "nutrients": {
     "calories": 152
@@ -935,7 +1000,7 @@
   {
    "id": "white-chocolate-matcha-iced-small",
    "name": "White Chocolate Matcha (iced, small)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Small",
    "nutrients": {
     "calories": 137
@@ -952,7 +1017,7 @@
   {
    "id": "white-chocolate-matcha-iced-large",
    "name": "White Chocolate Matcha (iced, large)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Large",
    "nutrients": {
     "calories": 152
@@ -969,7 +1034,7 @@
   {
    "id": "daydream-matcha-hot-small",
    "name": "DayDream Matcha (hot, small)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Small",
    "nutrients": {
     "calories": 154
@@ -986,7 +1051,7 @@
   {
    "id": "daydream-matcha-hot-large",
    "name": "DayDream Matcha (hot, large)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Large",
    "nutrients": {
     "calories": 227
@@ -1003,7 +1068,7 @@
   {
    "id": "daydream-matcha-iced-small",
    "name": "DayDream Matcha (iced, small)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Small",
    "nutrients": {
     "calories": 147
@@ -1020,7 +1085,7 @@
   {
    "id": "daydream-matcha-iced-large",
    "name": "DayDream Matcha (iced, large)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Large",
    "nutrients": {
     "calories": 188
@@ -1037,7 +1102,7 @@
   {
    "id": "iced-blondie-matcha-small",
    "name": "Iced Blondie Matcha (small)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Small",
    "nutrients": {
     "calories": 189
@@ -1054,7 +1119,7 @@
   {
    "id": "iced-blondie-matcha-large",
    "name": "Iced Blondie Matcha (large)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Large",
    "nutrients": {
     "calories": 209
@@ -1071,7 +1136,7 @@
   {
    "id": "hot-blondie-matcha-small",
    "name": "Hot Blondie Matcha (small)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Small",
    "nutrients": {
     "calories": 188
@@ -1082,13 +1147,12 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "blank-street-coffee/de91b5462ed1.webp"
+   "modifiers": []
   },
   {
    "id": "hot-blondie-matcha-large",
    "name": "Hot Blondie Matcha (large)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Large",
    "nutrients": {
     "calories": 262
@@ -1099,13 +1163,12 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "blank-street-coffee/de91b5462ed1.webp"
+   "modifiers": []
   },
   {
    "id": "shaken-vanilla-bean-matcha-small",
    "name": "Shaken Vanilla Bean Matcha (small)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Small",
    "nutrients": {
     "calories": 169
@@ -1122,7 +1185,7 @@
   {
    "id": "shaken-vanilla-bean-matcha-large",
    "name": "Shaken Vanilla Bean Matcha (large)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Large",
    "nutrients": {
     "calories": 184
@@ -1139,7 +1202,7 @@
   {
    "id": "strawberry-shortcake-matcha-small",
    "name": "Strawberry Shortcake Matcha (small)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Small",
    "nutrients": {
     "calories": 160
@@ -1156,7 +1219,7 @@
   {
    "id": "strawberry-shortcake-matcha-large",
    "name": "Strawberry Shortcake Matcha (large)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Large",
    "nutrients": {
     "calories": 191
@@ -1173,7 +1236,7 @@
   {
    "id": "hot-cinnamon-bun-matcha-small",
    "name": "Hot Cinnamon Bun Matcha (small)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Small",
    "nutrients": {
     "calories": 216
@@ -1184,13 +1247,12 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "blank-street-coffee/caf66ea97da3.webp"
+   "modifiers": []
   },
   {
    "id": "hot-cinnamon-bun-matcha-large",
    "name": "Hot Cinnamon Bun Matcha (large)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Large",
    "nutrients": {
     "calories": 316
@@ -1201,13 +1263,12 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "blank-street-coffee/caf66ea97da3.webp"
+   "modifiers": []
   },
   {
    "id": "iced-cinnamon-bun-matcha-small",
    "name": "Iced Cinnamon Bun Matcha (small)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Small",
    "nutrients": {
     "calories": 217
@@ -1224,7 +1285,7 @@
   {
    "id": "iced-cinnamon-bun-matcha-large",
    "name": "Iced Cinnamon Bun Matcha (large)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Large",
    "nutrients": {
     "calories": 317
@@ -1241,7 +1302,7 @@
   {
    "id": "hot-harvest-chai-matcha-small",
    "name": "Hot Harvest Chai Matcha (small)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Small",
    "nutrients": {
     "calories": 212
@@ -1252,13 +1313,12 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "blank-street-coffee/5d33d72792c3.webp"
+   "modifiers": []
   },
   {
    "id": "hot-harvest-chai-matcha-large",
    "name": "Hot Harvest Chai Matcha (large)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Large",
    "nutrients": {
     "calories": 307
@@ -1269,13 +1329,12 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "blank-street-coffee/5d33d72792c3.webp"
+   "modifiers": []
   },
   {
    "id": "iced-harvest-chai-matcha-small",
    "name": "Iced Harvest Chai Matcha (small)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Small",
    "nutrients": {
     "calories": 251
@@ -1292,7 +1351,7 @@
   {
    "id": "iced-harvest-chai-matcha-large",
    "name": "Iced Harvest Chai Matcha (large)",
-   "category": "Matchas",
+   "category": "Matchas & hojichas",
    "serving": "Large",
    "nutrients": {
     "calories": 345
@@ -1305,6 +1364,204 @@
    "components": [],
    "modifiers": [],
    "image": "blank-street-coffee/7727ad853a54.webp"
+  },
+  {
+   "id": "hot-toasted-smores-matcha-small",
+   "name": "Hot Toasted S'mores Matcha (small)",
+   "category": "Matchas & hojichas",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-toasted-smores-matcha-large",
+   "name": "Hot Toasted S'mores Matcha (large)",
+   "category": "Matchas & hojichas",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 297
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-toasted-smores-matcha-small",
+   "name": "Iced Toasted S'mores Matcha (small)",
+   "category": "Matchas & hojichas",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 234
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "blank-street-coffee/eb33e3598f8d.webp"
+  },
+  {
+   "id": "iced-toasted-smores-matcha-large",
+   "name": "Iced Toasted S'mores Matcha (large)",
+   "category": "Matchas & hojichas",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 274
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "blank-street-coffee/eb33e3598f8d.webp"
+  },
+  {
+   "id": "hot-toasted-smores-hojicha-small",
+   "name": "Hot Toasted S'mores Hojicha (small)",
+   "category": "Matchas & hojichas",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "blank-street-coffee/b9df97efc690.webp"
+  },
+  {
+   "id": "hot-toasted-smores-hojicha-large",
+   "name": "Hot Toasted S'mores Hojicha (large)",
+   "category": "Matchas & hojichas",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 297
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "blank-street-coffee/b9df97efc690.webp"
+  },
+  {
+   "id": "iced-toasted-smores-hojicha-small",
+   "name": "Iced Toasted S'mores Hojicha (small)",
+   "category": "Matchas & hojichas",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 234
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "blank-street-coffee/1220bf0f85c7.webp"
+  },
+  {
+   "id": "iced-toasted-smores-hojicha-large",
+   "name": "Iced Toasted S'mores Hojicha (large)",
+   "category": "Matchas & hojichas",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 274
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "blank-street-coffee/1220bf0f85c7.webp"
+  },
+  {
+   "id": "hot-sticky-toffee-matcha-small",
+   "name": "Hot Sticky Toffee Matcha (small)",
+   "category": "Matchas & hojichas",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 171
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-sticky-toffee-matcha-large",
+   "name": "Hot Sticky Toffee Matcha (large)",
+   "category": "Matchas & hojichas",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 260
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-sticky-toffee-matcha-small",
+   "name": "Iced Sticky Toffee Matcha (small)",
+   "category": "Matchas & hojichas",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 242
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-sticky-toffee-matcha-large",
+   "name": "Iced Sticky Toffee Matcha (large)",
+   "category": "Matchas & hojichas",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 297
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
   },
   {
    "id": "pistachio-latte-hot-small",
@@ -1584,8 +1841,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "blank-street-coffee/8391bb8fc1d1.webp"
+   "modifiers": []
   },
   {
    "id": "hot-harvest-chai-latte-large",
@@ -1601,8 +1857,7 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "blank-street-coffee/8391bb8fc1d1.webp"
+   "modifiers": []
   },
   {
    "id": "iced-harvest-chai-latte-small",
@@ -1637,6 +1892,136 @@
    "components": [],
    "modifiers": [],
    "image": "blank-street-coffee/650bb65525ba.webp"
+  },
+  {
+   "id": "hot-toasted-smores-latte-small",
+   "name": "Hot Toasted S'mores Latte (small)",
+   "category": "House lattes",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 190
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-toasted-smores-latte-large",
+   "name": "Hot Toasted S'mores Latte (large)",
+   "category": "House lattes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 287
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-toasted-smores-latte-small",
+   "name": "Iced Toasted S'mores Latte (small)",
+   "category": "House lattes",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 224
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "blank-street-coffee/e9cd3bd71844.webp"
+  },
+  {
+   "id": "iced-toasted-smores-latte-large",
+   "name": "Iced Toasted S'mores Latte (large)",
+   "category": "House lattes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 264
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "blank-street-coffee/e9cd3bd71844.webp"
+  },
+  {
+   "id": "hot-sticky-toffee-latte-small",
+   "name": "Hot Sticky Toffee Latte (small)",
+   "category": "House lattes",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 161
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-sticky-toffee-latte-large",
+   "name": "Hot Sticky Toffee Latte (large)",
+   "category": "House lattes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 250
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-sticky-toffee-latte-small",
+   "name": "Iced Sticky Toffee Latte (small)",
+   "category": "House lattes",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 232
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-sticky-toffee-latte-large",
+   "name": "Iced Sticky Toffee Latte (large)",
+   "category": "House lattes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 287
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
   },
   {
    "id": "vanilla-bean-affogato",
@@ -2922,6 +3307,132 @@
    "id": "vegan-chocolate-banana-bread-brighton",
    "name": "Vegan Chocolate Banana Bread (Brighton)",
    "category": "Pastries & sweets, Brighton",
+   "serving": "",
+   "nutrients": {
+    "calories": 476
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plain-croissant-liverpool",
+   "name": "Plain Croissant (Liverpool)",
+   "category": "Pastries & sweets, Liverpool",
+   "serving": "",
+   "nutrients": {
+    "calories": 354
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pain-au-chocolat-liverpool",
+   "name": "Pain au Chocolat (Liverpool)",
+   "category": "Pastries & sweets, Liverpool",
+   "serving": "",
+   "nutrients": {
+    "calories": 406
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "almond-croissant-liverpool",
+   "name": "Almond Croissant (Liverpool)",
+   "category": "Pastries & sweets, Liverpool",
+   "serving": "",
+   "nutrients": {
+    "calories": 767
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pain-suisse-liverpool",
+   "name": "Pain Suisse (Liverpool)",
+   "category": "Pastries & sweets, Liverpool",
+   "serving": "",
+   "nutrients": {
+    "calories": 443
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-liverpool",
+   "name": "Cinnamon Bun (Liverpool)",
+   "category": "Pastries & sweets, Liverpool",
+   "serving": "",
+   "nutrients": {
+    "calories": 366
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-cream-cookie-liverpool",
+   "name": "Pistachio Cream Cookie (Liverpool)",
+   "category": "Pastries & sweets, Liverpool",
+   "serving": "",
+   "nutrients": {
+    "calories": 471
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milk-chocolate-and-sea-salt-cookie-liverpool",
+   "name": "Milk Chocolate & Sea Salt Cookie (Liverpool)",
+   "category": "Pastries & sweets, Liverpool",
+   "serving": "",
+   "nutrients": {
+    "calories": 461
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-chocolate-banana-bread-liverpool",
+   "name": "Vegan Chocolate Banana Bread (Liverpool)",
+   "category": "Pastries & sweets, Liverpool",
    "serving": "",
    "nutrients": {
     "calories": 476

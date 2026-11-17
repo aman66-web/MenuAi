@@ -9,15 +9,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Bella Italia Nutritional Information: Main, Desserts, Drinks and Kids menus (page generated 2026-10-06)",
+  "title": "Bella Italia Nutritional Information: Main, Desserts, Drinks and Kids menus (Ten Kites page read 2026-11-17; the page prints no date)",
   "url": "https://menus.tenkites.com/thebigtg/mobilemenus04",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Per portion as printed on the chain's menu pages. Wines, many cocktails and some drinks print no numbers and are not listed; the build-your-own pasta is not listed because only its ingredients are given. Extras (toppings, dips, add-ons) and the sides served with a dish are separate rows: add them yourself.",
  "allergenGuide": {
-  "title": "Bella Italia Dietary Information (allergens) on its online Main, Desserts, Drinks and Kids menus (Ten Kites page generated 2026-10-06)",
+  "title": "Bella Italia Dietary Information (allergens) on its online Main, Desserts, Drinks and Kids menus (Ten Kites page read 2026-11-17; the page prints no date)",
   "url": "https://menus.tenkites.com/thebigtg/mobilemenus04",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -770,6 +770,88 @@
    }
   },
   {
+   "id": "christmas-carbonara",
+   "name": "Christmas Carbonara",
+   "category": "Pastas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1139,
+    "protein": 42.9,
+    "carbs": 100.9,
+    "fat": 63.1,
+    "saturatedFat": 19.9,
+    "sugar": 5.6,
+    "salt": 6.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "truffle-and-pumpkin-ravioli",
+   "name": "Truffle and Pumpkin Ravioli",
+   "category": "Pastas",
+   "serving": "",
+   "nutrients": {
+    "calories": 747,
+    "protein": 21,
+    "carbs": 37.7,
+    "fat": 56.4,
+    "saturatedFat": 19.8,
+    "sugar": 3.8,
+    "salt": 2.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "carbonara",
    "name": "Carbonara",
    "category": "Pastas",
@@ -838,9 +920,7 @@
      "soya"
     ],
     "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
+     "wheat"
     ]
    }
   },
@@ -865,6 +945,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "bella-italia/d3e0582d5cdb.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1063,9 +1144,7 @@
      "mustard"
     ],
     "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
+     "wheat"
     ]
    }
   },
@@ -1384,6 +1463,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "bella-italia/238696d92146.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2053,6 +2133,46 @@
    }
   },
   {
+   "id": "christmas-camembert",
+   "name": "Christmas Camembert",
+   "category": "Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1240,
+    "protein": 68.2,
+    "carbs": 111.1,
+    "fat": 57,
+    "saturatedFat": 27.5,
+    "sugar": 22.6,
+    "salt": 7.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
    "id": "margherita",
    "name": "Margherita",
    "category": "Pizzas",
@@ -2431,7 +2551,8 @@
    "allergens": {
     "contains": [
      "gluten",
-     "milk"
+     "milk",
+     "mustard"
     ],
     "mayContain": [
      "soya"
@@ -3095,6 +3216,7 @@
     "contains": [
      "gluten",
      "milk",
+     "mustard",
      "sulphites"
     ],
     "mayContain": [
@@ -3553,13 +3675,13 @@
    "category": "Sides",
    "serving": "",
    "nutrients": {
-    "calories": 247,
-    "protein": 3.5,
-    "carbs": 34.8,
-    "fat": 9.5,
+    "calories": 289,
+    "protein": 4.6,
+    "carbs": 46.3,
+    "fat": 8.3,
     "saturatedFat": 0.9,
-    "sugar": 0,
-    "salt": 1.4
+    "sugar": 1.7,
+    "salt": 2.2
    },
    "tags": [],
    "limitedTime": false,
@@ -3664,6 +3786,87 @@
     ],
     "cereals": [
      "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pigs-in-blankets",
+   "name": "Pigs in Blankets",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 420,
+    "protein": 19.1,
+    "carbs": 22.6,
+    "fat": 30,
+    "saturatedFat": 11,
+    "sugar": 9.9,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "christmas-loaded-fries",
+   "name": "Christmas Loaded Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 728,
+    "protein": 12.3,
+    "carbs": 64.6,
+    "fat": 46.1,
+    "saturatedFat": 6.8,
+    "sugar": 4.1,
+    "salt": 4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
     ]
    }
   },
@@ -4330,13 +4533,17 @@
     "sugar": 24.1,
     "salt": 2
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [],
+    "contains": [
+     "mustard"
+    ],
     "mayContain": []
    }
   },
@@ -4475,6 +4682,43 @@
    "allergens": {
     "contains": [],
     "mayContain": []
+   }
+  },
+  {
+   "id": "mince-pie-cheesecake",
+   "name": "Mince Pie Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 739,
+    "protein": 10.3,
+    "carbs": 84.1,
+    "fat": 40.3,
+    "saturatedFat": 23.1,
+    "sugar": 59.8,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
    }
   },
   {
@@ -8130,6 +8374,30 @@
     "mayContain": [
      "milk"
     ]
+   }
+  },
+  {
+   "id": "gingerbread-syrup",
+   "name": "Gingerbread Syrup",
+   "category": "Drinks: Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 86,
+    "protein": 0,
+    "carbs": 20.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 20.9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
    }
   },
   {

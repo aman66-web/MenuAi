@@ -53,7 +53,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/3facc765aa28.webp"
   },
   {
    "id": "fiery-wing-1-wing",
@@ -72,7 +73,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/8f5626ef2861.webp"
   },
   {
    "id": "chicken-strip-1-piece",
@@ -91,7 +93,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/b9ffeb36f0de.webp"
   },
   {
    "id": "chicken-nuggets-5-nuggets",
@@ -110,7 +113,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/a4ce1fcb7650.webp"
   },
   {
    "id": "poppers-10-poppers",
@@ -129,7 +133,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/24cf3f887bc6.webp"
   },
   {
    "id": "bbq-wing-1-wing",
@@ -167,7 +172,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/531226f341ca.webp"
   },
   {
    "id": "chicken-fillet-burger",
@@ -186,7 +192,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/79c413fe64fe.webp"
   },
   {
    "id": "blaze-burger",
@@ -205,7 +212,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/8963815c9f8a.webp"
   },
   {
    "id": "maxi-burger",
@@ -224,7 +232,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/d9c406bd8828.webp"
   },
   {
    "id": "the-mighty-burger",
@@ -243,7 +252,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/7ac661c78be2.webp"
   },
   {
    "id": "strips-burger",
@@ -262,7 +272,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/680dbbb1e8a3.webp"
   },
   {
    "id": "chicken-steak-burger",
@@ -281,7 +292,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/14b146df86ea.webp"
   },
   {
    "id": "veggie-burger",
@@ -300,7 +312,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/9fcf4695568b.webp"
   },
   {
    "id": "mexo-burger",
@@ -319,7 +332,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/08c9e8003734.webp"
   },
   {
    "id": "sams-combo-box",
@@ -338,7 +352,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/e31baf792616.webp"
   },
   {
    "id": "blaze-box",
@@ -357,7 +372,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/f126b6110d88.webp"
   },
   {
    "id": "club-max-box",
@@ -376,7 +392,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/c088331c5972.webp"
   },
   {
    "id": "chicken-wrap",
@@ -395,7 +412,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/d6ada5ebc8c7.webp"
   },
   {
    "id": "veggie-wrap",
@@ -414,7 +432,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/45d8f07fce0f.webp"
   },
   {
    "id": "mexo-wrap",
@@ -433,7 +452,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/798bc76840f2.webp"
   },
   {
    "id": "peri-wing-1-wing",
@@ -452,7 +472,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/c7ee7da0c9b4.webp"
   },
   {
    "id": "family-mini-mix",
@@ -509,7 +530,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/1f03afd17eb7.webp"
   },
   {
    "id": "variety-bucket",
@@ -528,7 +550,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/7207dbc4ed40.webp"
   },
   {
    "id": "boneless-bucket",
@@ -547,7 +570,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/9499331e7896.webp"
   },
   {
    "id": "fiery-bucket",
@@ -566,7 +590,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/855fa7c1dd1f.webp"
   },
   {
    "id": "whole-chicken-with-3-fries",
@@ -585,7 +610,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/6777f43c996a.webp"
   },
   {
    "id": "whole-chicken-with-3-rice",
@@ -604,7 +630,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/7b5054d160c8.webp"
   },
   {
    "id": "loaded-beans",
@@ -623,7 +650,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/678ec6f2537f.webp"
   },
   {
    "id": "loaded-beans-with-chicken",
@@ -642,7 +670,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/fb4f3574b4a7.webp"
   },
   {
    "id": "loaded-beans-with-poppers",
@@ -661,7 +690,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/a68352e99755.webp"
   },
   {
    "id": "loaded-cheese-fries",
@@ -680,7 +710,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/00e7503efd5b.webp"
   },
   {
    "id": "loaded-cheese-fries-with-chicken",
@@ -699,7 +730,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/51e59d882fc0.webp"
   },
   {
    "id": "loaded-cheese-fries-with-poppers",
@@ -718,7 +750,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/d5ca03dca053.webp"
   },
   {
    "id": "loaded-fries",
@@ -737,7 +770,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/6b85898c35fa.webp"
   },
   {
    "id": "loaded-fries-with-chicken",
@@ -756,7 +790,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/43b2f9c32c7d.webp"
   },
   {
    "id": "loaded-fries-with-poppers",
@@ -775,7 +810,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/c2810f377f4a.webp"
   },
   {
    "id": "loaded-rice",
@@ -794,7 +830,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/2d1be9789f0e.webp"
   },
   {
    "id": "loaded-rice-with-chicken",
@@ -813,7 +850,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/bf4151b6f231.webp"
   },
   {
    "id": "loaded-rice-with-poppers",
@@ -832,7 +870,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/92bacf40f1c3.webp"
   },
   {
    "id": "fries-150-g",
@@ -852,7 +891,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/aced16c4740d.webp"
   },
   {
    "id": "sweet-potato-fries-150-g",
@@ -872,7 +912,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/fa012bb0ba07.webp"
   },
   {
    "id": "wedges-150-g",
@@ -892,7 +933,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/f2a82415bd08.webp"
   },
   {
    "id": "spicy-rice-200-g",
@@ -912,7 +954,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/cae9bb98a82b.webp"
   },
   {
    "id": "corn-cobette-1-cobette",
@@ -931,7 +974,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/eeffb97b8f69.webp"
   },
   {
    "id": "coleslaw-75-g",
@@ -951,7 +995,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/c459f9289bbd.webp"
   },
   {
    "id": "mozzarella-sticks-5-sticks",
@@ -970,7 +1015,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/c7cdc6da4e40.webp"
   },
   {
    "id": "bbq-beans-100-g",
@@ -990,7 +1036,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/dd2a2ec1fdb5.webp"
   },
   {
    "id": "apple-pie",
@@ -1009,7 +1056,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/e3c95895ea55.webp"
   },
   {
    "id": "ben-and-jerrys-strawberry-cheesecake",
@@ -1147,7 +1195,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/06fa5e73ceb8.webp"
   },
   {
    "id": "algerian-sauce-25-g",
@@ -1167,7 +1216,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sams-chicken/d426b696a839.webp"
   }
  ],
  "combinations": []

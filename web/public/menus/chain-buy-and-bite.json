@@ -44,7 +44,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/dbaad327e6be.webp"
   },
   {
    "id": "katsu-chicken-curry-omurice",
@@ -61,7 +62,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/da193b2adac8.webp"
   },
   {
    "id": "green-curry-chicken-omurice",
@@ -78,7 +80,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/c5eb6f8011eb.webp"
   },
   {
    "id": "green-curry-chicken-rice-bowl",
@@ -95,7 +98,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/1d9cb8a96701.webp"
   },
   {
    "id": "katsu-chicken-curry-rice-bowl",
@@ -112,7 +116,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/c8cd775d99c9.webp"
   },
   {
    "id": "green-curry-tofu-rice-bowl",
@@ -129,7 +134,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/6ae0663d7673.webp"
   },
   {
    "id": "spicy-korean-chicken-rice-bowl",
@@ -146,7 +152,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/0b5d8ec4a5a0.webp"
   },
   {
    "id": "sweet-and-sour-chicken-rice-bowl",
@@ -163,7 +170,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/9d937a2495cb.webp"
   },
   {
    "id": "sweet-and-sour-tofu-rice-bowl",
@@ -180,7 +188,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/dcc19d265bfc.webp"
   },
   {
    "id": "katsu-tofu-curry-rice-bowl",
@@ -197,7 +206,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/3ff17ce2bb6e.webp"
   },
   {
    "id": "korean-spicy-chicken-noodle-bowl",
@@ -214,7 +224,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/e30b272862b8.webp"
   },
   {
    "id": "teriyaki-tofu-noodle-bowl",
@@ -231,7 +242,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/851af63ed960.webp"
   },
   {
    "id": "korean-spicy-tofu-noodle-bowl",
@@ -248,7 +260,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/3d6064dc50c1.webp"
   },
   {
    "id": "crispy-chicken-noodle-salad",
@@ -265,7 +278,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/962686347200.webp"
   },
   {
    "id": "crispy-tofu-noodle-salad",
@@ -282,7 +296,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/185186dad089.webp"
   },
   {
    "id": "miso-chicken-noodle-salad",
@@ -299,7 +314,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/d72c109e04b9.webp"
   },
   {
    "id": "korean-sauce-tofu-wrap",
@@ -571,7 +587,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/3aafe2998754.webp"
   },
   {
    "id": "crispy-shrimp-bao",
@@ -588,7 +605,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/059e598216e2.webp"
   },
   {
    "id": "roasted-chicken-bao",
@@ -605,7 +623,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/49fc557612f8.webp"
   },
   {
    "id": "gyozas-chicken-and-veg",
@@ -622,7 +641,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/8ab930aeab40.webp"
   },
   {
    "id": "chicken-karaage",
@@ -639,7 +659,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/c033e5334e25.webp"
   },
   {
    "id": "teriyaki-octopus-balls",
@@ -656,7 +677,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/185c3c975a85.webp"
   },
   {
    "id": "miso-mushroom",
@@ -673,7 +695,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/0966661142b4.webp"
   },
   {
    "id": "asian-slaw",
@@ -690,7 +713,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/37ca192b1126.webp"
   },
   {
    "id": "edamame-pot",
@@ -707,7 +731,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/659c4cbb7bd0.webp"
   },
   {
    "id": "sweet-potato-balls",
@@ -741,7 +766,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "buy-and-bite/4c7feb5d0483.webp"
   }
  ],
  "combinations": []

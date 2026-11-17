@@ -10,27 +10,26 @@
  ],
  "sample": false,
  "source": {
-  "title": "Drake & Morgan food and drink menus with calories and allergens on drakeandmorgan.co.uk, AW26 collection (PDFs: All Day v8, Reduced All Day v8, Brunch v6, Breakfast v7, Desserts v6, Reduced Desserts v6, Drinks v13, Kids v4, Otherist v6; bar menu pages accessed 2026-10-08, no date shown)",
+  "title": "Drake & Morgan food and drink menus with calories and allergens on drakeandmorgan.co.uk, AW26 collection (PDFs: All Day v8, Reduced All Day v8, Brunch v6, Breakfast v7, Desserts v6, Reduced Desserts v6, Drinks v13, Kids v4, Otherist v6; bar menu pages accessed 2026-11-17, no date shown)",
   "url": "https://www.drakeandmorgan.co.uk/sample-menus/",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, as printed on each bar's own menu page (protein, carbs and fat are not published). Menus differ by bar: a dish is listed only if every menu that prints it shows the same calories and allergens, so some are on only some bars' menus. Wines have no calories.",
  "allergenGuide": {
-  "title": "Drake & Morgan menu pages: Contains / May Contain allergen labels on every dish, AW26 collection (bar menu pages accessed 2026-10-08, no date shown)",
+  "title": "Drake & Morgan menu pages: Contains / May Contain allergen labels on every dish, AW26 collection (bar menu pages accessed 2026-11-17, no date shown)",
   "url": "https://www.drakeandmorgan.co.uk/sample-menus/",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
  "categories": [
   "Nibbles & small plates",
-  "Nibbles",
-  "All day breakfast",
   "Salads & flatbreads",
   "Large plates",
   "Steaks",
   "Sides & fries",
+  "All day breakfast",
   "Small plates",
   "Sunday roasts",
   "Fries",
@@ -70,6 +69,53 @@
    "allergens": {
     "contains": [],
     "mayContain": []
+   }
+  },
+  {
+   "id": "steamed-edamame-beans",
+   "name": "Steamed edamame beans",
+   "category": "Nibbles & small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 163
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "milk-bread",
+   "name": "Milk bread",
+   "category": "Nibbles & small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 898
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
    }
   },
   {
@@ -128,12 +174,12 @@
    }
   },
   {
-   "id": "hot-honey-popcorn-chicken",
-   "name": "Hot honey popcorn chicken",
+   "id": "hot-smoked-salmon-and-kimchi-salad",
+   "name": "Hot smoked salmon & kimchi salad",
    "category": "Nibbles & small plates",
    "serving": "",
    "nutrients": {
-    "calories": 633
+    "calories": 283
    },
    "tags": [],
    "limitedTime": false,
@@ -143,13 +189,17 @@
    "allergens": {
     "contains": [
      "gluten",
-     "milk",
+     "fish",
+     "mustard",
      "sesame",
-     "sulphites"
+     "soya"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "peanuts"
+    ],
     "cereals": [
-     "wheat"
+     "wheat",
+     "rye"
     ]
    }
   },
@@ -174,143 +224,6 @@
      "milk"
     ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "milk-bread",
-   "name": "Milk bread",
-   "category": "Nibbles",
-   "serving": "",
-   "nutrients": {
-    "calories": 506
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "avocado-on-toast",
-   "name": "Avocado on toast",
-   "category": "All day breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 526
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "smoked-salmon-and-scrambled-egg",
-   "name": "Smoked salmon & scrambled egg",
-   "category": "All day breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 873
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "fish",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "breakfast-burger",
-   "name": "Breakfast burger",
-   "category": "All day breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 1047
-   },
-   "tags": [
-    "contains_beef",
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "fried-chicken-and-malted-waffle",
-   "name": "Fried chicken & malted waffle",
-   "category": "All day breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 1622
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
    }
   },
   {
@@ -373,7 +286,7 @@
    "category": "Salads & flatbreads",
    "serving": "",
    "nutrients": {
-    "calories": 442
+    "calories": 940
    },
    "tags": [],
    "limitedTime": false,
@@ -393,7 +306,7 @@
    "category": "Salads & flatbreads",
    "serving": "",
    "nutrients": {
-    "calories": 1678
+    "calories": 1452
    },
    "tags": [
     "vegetarian"
@@ -1149,6 +1062,118 @@
    }
   },
   {
+   "id": "avocado-on-toast",
+   "name": "Avocado on toast",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 454
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "smoked-salmon-and-scrambled-egg",
+   "name": "Smoked salmon & scrambled egg",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 743
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-burger",
+   "name": "Breakfast burger",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1033
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fried-chicken-and-malted-waffle",
+   "name": "Fried chicken & malted waffle",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1622
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "sweet-duck-steamed-bao-buns",
    "name": "Sweet duck steamed bao buns",
    "category": "Small plates",
@@ -1490,6 +1515,58 @@
    }
   },
   {
+   "id": "pain-au-chocolate",
+   "name": "Pain au chocolate",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 408
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "croissant",
+   "name": "Croissant",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 569
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "breakfast-sarnie",
    "name": "Breakfast sarnie",
    "category": "Breakfast plates",
@@ -1527,7 +1604,7 @@
    "category": "Breakfast plates",
    "serving": "",
    "nutrients": {
-    "calories": 873
+    "calories": 743
    },
    "tags": [],
    "limitedTime": false,
@@ -1554,7 +1631,7 @@
    "category": "Breakfast plates",
    "serving": "",
    "nutrients": {
-    "calories": 1021
+    "calories": 1257
    },
    "tags": [
     "vegetarian"
@@ -1581,7 +1658,7 @@
    "category": "Breakfast plates",
    "serving": "",
    "nutrients": {
-    "calories": 1342
+    "calories": 1603
    },
    "tags": [
     "contains_pork"
@@ -1613,6 +1690,33 @@
    "serving": "",
    "nutrients": {
     "calories": 712
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "omelette",
+   "name": "Omelette",
+   "category": "Breakfast plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 642
    },
    "tags": [
     "vegetarian"

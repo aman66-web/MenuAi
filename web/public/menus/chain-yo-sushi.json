@@ -59,7 +59,6 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "yo-sushi/abdb3b83bc9f.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -739,6 +738,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/4908f7be797b.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -786,6 +786,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/b07bf333fd84.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1035,6 +1036,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/f1e85408e42a.webp",
    "allergens": {
     "contains": [
      "sesame"
@@ -1295,6 +1297,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/de0fd7f04699.webp",
    "allergens": {
     "contains": [
      "sesame",
@@ -1665,6 +1668,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/02dc343f543c.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1915,6 +1919,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/df37bb5e6e71.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2511,6 +2516,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/9251424ccce9.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2609,6 +2615,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/a41dd016f8ff.webp",
    "allergens": {
     "contains": [
      "mustard"
@@ -2677,6 +2684,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/3e5eac801c62.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2705,6 +2713,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/115e616e260b.webp",
    "allergens": {
     "contains": [
      "gluten",

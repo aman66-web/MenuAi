@@ -11,16 +11,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Franco Manca menu with calories, francomanca.co.uk/menu (accessed 2026-10-08, no date shown)",
+  "title": "Franco Manca menu with calories, francomanca.co.uk/menu (accessed 2026-11-17, no date shown)",
   "url": "https://www.francomanca.co.uk/menu/",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Franco Manca prints calories only, beside each dish, so protein, carbs and fat are not published. Drinks without calories (wine, most cocktails and beers) are not listed. Pizzerias can differ slightly. Its allergen-list FAQ says swapping to a gluten-free base adds 53 kcal.",
  "allergenGuide": {
-  "title": "Franco Manca allergen list, July 2026 v2 (FM-ALLERGEN-LIST-JULY-2026-v2.pdf, 18 pages)",
-  "url": "https://www.francomanca.co.uk/wp-content/uploads/2026/08/FM-ALLERGEN-LIST-JULY-2026-v2.pdf",
-  "checkedOn": "2026-10-08",
+  "title": "Franco Manca allergen list, November 2026 v1 (FM-ALLERGEN-LIST-NOVEMBER-2026-v1.pdf, 17 pages)",
+  "url": "https://www.francomanca.co.uk/wp-content/uploads/2026/11/FM-ALLERGEN-LIST-NOVEMBER-2026-v1.pdf",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": false
  },
@@ -491,7 +491,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "franco-manca/5ca0943841a6.webp"
   },
   {
    "id": "scotch-bonnet-chilli-dip",
@@ -523,7 +524,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "franco-manca/7c4b4cdb1c0e.webp"
   },
   {
    "id": "semi-dried-tomato-dip",
@@ -555,7 +557,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "franco-manca/55280510bb8e.webp"
   },
   {
    "id": "mediterranean-chicken-salad",
@@ -998,7 +1001,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "franco-manca/fcd1cd55c0ba.webp"
   },
   {
    "id": "apple-juice",
@@ -1012,7 +1016,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "franco-manca/44603400ced7.webp"
   },
   {
    "id": "san-pellegrino-limonata",

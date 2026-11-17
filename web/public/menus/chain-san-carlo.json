@@ -6612,6 +6612,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "san-carlo/0c778f925b99.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -6646,6 +6647,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "san-carlo/eafe80f2a091.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -6713,6 +6715,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "san-carlo/1569b4ef33d3.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -6742,6 +6745,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "san-carlo/0a14939826c3.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -6784,6 +6788,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "san-carlo/06afe5ef769a.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -6821,6 +6826,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "san-carlo/6f0659d6addc.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -7021,6 +7027,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "san-carlo/ebbe56dc893a.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -7129,6 +7136,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "san-carlo/879e2281bbd3.webp",
    "allergens": {
     "contains": [
      "fish"
@@ -7161,6 +7169,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "san-carlo/83d82a15f670.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -10238,6 +10247,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "san-carlo/c9abadf8c65a.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -10262,6 +10272,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "san-carlo/da28e1fbf7b1.webp",
    "allergens": {
     "contains": [
      "sulphites"
@@ -10288,6 +10299,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "san-carlo/2f1c0ae98f66.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -10312,6 +10324,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "san-carlo/611a54de657e.webp",
    "allergens": {
     "contains": [],
     "mayContain": [
