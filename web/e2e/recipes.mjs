@@ -603,97 +603,99 @@ await step("cuisine and occasion: two fields with counts, one tap to choose, AND
   await b.ctx.close();
 });
 
-await step("Your supermarkets beside the search: the chosen shops' logos, a tap opens the same list as Settings, every tick is saved at once, Done stays in view and shows a short working moment, Close keeps the ticks, recipes still say Sainsbury's, axe", async () => {
+await step("Shopping at (Recipes page): one shop beside the search with its logo and name, a tap opens a choice of one shop, a pick is saved at once as the person's first shop and shows a short working moment, the recipes change to that shop, axe", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/recipes");
   await page.getByText(/Every ingredient is a real product at Sainsbury's/).waitFor();
   const search = page.getByLabel("Search recipes");
-  const shops = page.getByRole("button", { name: /^Your supermarkets/ });
-  expect((await shops.getAttribute("aria-label")) === "Your supermarkets: Sainsbury's", "label: " + (await shops.getAttribute("aria-label")));
-  expect((await search.getAttribute("placeholder")) === "Search recipes", "placeholder: " + (await search.getAttribute("placeholder")));
+  const shop = page.getByRole("button", { name: /^Shopping at/ });
+  expect((await shop.getAttribute("aria-label")) === "Shopping at: Sainsbury's", "label: " + (await shop.getAttribute("aria-label")));
   const s = await search.boundingBox();
-  const b = await shops.boundingBox();
+  const b = await shop.boundingBox();
   expect(b.height >= 44 && b.width >= 44, `the button is ${b.width} x ${b.height}`);
   expect(b.x >= s.x + s.width && Math.abs(b.y + b.height / 2 - (s.y + s.height / 2)) < 4, "the button should sit right of the search, on the same line");
   expect(b.x + b.width <= 390, "the button runs off the screen");
-  await shops.click();
-  const sheet = page.getByRole("dialog", { name: "Your supermarkets" });
+  await shop.click();
+  const sheet = page.getByRole("dialog", { name: "Shopping at" });
   await sheet.waitFor();
   await page.waitForTimeout(500);
   await page.addScriptTag({ path: AXE });
   const v = await page.evaluate(async () => (await window.axe.run(document, { resultTypes: ["violations"] })).violations.map((x) => `${x.id} (${x.nodes.length})`));
   expect(v.length === 0, `the open sheet: ${v.join(", ")}`);
-  const tesco = sheet.getByRole("button", { name: /Tesco/ });
-  await tesco.click();
-  expect((await tesco.getAttribute("aria-pressed")) === "true", "Tesco was not chosen");
-  // founder 2026-11-17: the tick is saved at once, and Done is on the screen without scrolling
+  // one shop at a time: radios, Sainsbury's chosen; only shops whose labels we've read are offered (Tesco, Asda... are not)
+  expect((await sheet.getByRole("radio").count()) >= 2, "at least two shops can make recipes");
+  expect((await sheet.getByRole("radio", { name: /Sainsbury/ }).getAttribute("aria-checked")) === "true", "Sainsbury's is the chosen shop");
+  expect((await sheet.getByRole("radio", { name: /Tesco/ }).count()) === 0, "a shop we can't read isn't offered");
+  const mor = sheet.getByRole("radio", { name: /Morrisons/ });
+  await mor.click();
+  // saved at once as the first of the person's supermarkets, the others stay ticked for Groceries
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data.shops);
-  expect(JSON.stringify(saved) === JSON.stringify(["sainsburys", "tesco"]), "saved at once: " + JSON.stringify(saved));
-  const done = sheet.getByRole("button", { name: "Done" });
-  const db = await done.boundingBox();
-  expect(db && db.y + db.height <= 844 && db.height >= 44, `Done is in view without scrolling (at ${db && Math.round(db.y)})`);
-  await done.click();
-  await sheet.getByRole("status").filter({ hasText: /Saving your supermarkets/ }).waitFor({ timeout: 1500 });
-  await sheet.getByText("Working out each serving's price and nutrition…").waitFor();
+  expect(JSON.stringify(saved) === JSON.stringify(["morrisons", "sainsburys"]), "saved at once, Morrisons first: " + JSON.stringify(saved));
+  await sheet.getByRole("status").filter({ hasText: /Saving your shop/ }).waitFor({ timeout: 1500 });
   const t0 = Date.now();
   await sheet.waitFor({ state: "hidden", timeout: 6000 });
   expect(Date.now() - t0 < 4000, "the working moment lasted too long");
-  expect((await shops.getAttribute("aria-label")) === "Your supermarkets: Sainsbury's, Tesco", "after: " + (await shops.getAttribute("aria-label")));
-  await page.getByText(/Every ingredient is a real product at Sainsbury's/).waitFor();
-  const stored = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data.shops);
-  expect(JSON.stringify(stored) === JSON.stringify(["sainsburys", "tesco"]), "stored: " + JSON.stringify(stored));
+  expect((await shop.getAttribute("aria-label")) === "Shopping at: Morrisons", "after: " + (await shop.getAttribute("aria-label")));
+  await page.getByText(/Every ingredient is a real product at Morrisons/).waitFor();
+  // Morrisons makes fewer of the recipes than Sainsbury's (labels read so far): the page says so
+  await page.getByText(/more recipes? needs? something we haven't found at Morrisons yet\. Choose another shop/).waitFor();
   await page.reload();
-  await page.getByRole("button", { name: "Your supermarkets: Sainsbury's, Tesco" }).click();
-  await sheet.getByRole("button", { name: /Asda/ }).click();
-  await sheet.getByRole("button", { name: "Close" }).click();
-  await sheet.waitFor({ state: "hidden" });
-  expect((await shops.getAttribute("aria-label")) === "Your supermarkets: Sainsbury's, Tesco, Asda", "Close keeps what was ticked: " + (await shops.getAttribute("aria-label")));
+  await page.getByText(/Every ingredient is a real product at Morrisons/).waitFor();
   await ctx.close();
 });
 
-await step("a recipe's shops: one pill per shop with its logo and name, a 44 px + opens 'Where to buy the ingredients', each tick saved at once, a shop whose labels aren't read is named, Done closes, the recipe stays, axe", async () => {
+await step("Shopping at (a recipe): one shop in the header with its logo and name, a button that opens the choice, shops that can't make this recipe say so, switching changes every ingredient to that shop's; Swap can take one ingredient from another shop; axe", async () => {
   const { ctx, page } = await newPage();
-  await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
+  await page.goto(BASE + "/app/recipes/view?id=overnight-oats&r=sainsburys");
   await page.getByRole("heading", { name: "What to buy" }).waitFor();
-  // the shops sit in the line above the recipe's name: "RECIPE ·", a pill per shop (logo and plain-text name), then the +
+  // the shop sits in the line above the recipe's name: "RECIPE ·", then the shop as a button (logo, plain-text name, a small arrow)
   const header = page.locator("h1").locator("xpath=preceding-sibling::div[1]");
-  expect(/Sainsbury's/.test(await header.innerText()), "the header names Sainsbury's: " + (await header.innerText()));
-  const plus = header.getByRole("button", { name: "Change shops" });
-  const pb = await plus.boundingBox();
-  expect(pb && pb.width >= 44 && pb.height >= 44, `the + is ${pb?.width} x ${pb?.height}`);
-  await plus.click();
-  const sheet = page.getByRole("dialog", { name: "Where to buy the ingredients" });
+  const shopBtn = header.getByRole("button", { name: /^Shopping at: Sainsbury's/ });
+  const sb = await shopBtn.boundingBox();
+  expect(sb && sb.height >= 44, `the shop button is ${sb?.width} x ${sb?.height}`);
+  await shopBtn.click();
+  const sheet = page.getByRole("dialog", { name: "Shopping at" });
   await sheet.waitFor();
-  await sheet.getByText("Tick the shops you'll buy from. The first one you tick is used first; the others fill in anything it doesn't sell.").waitFor();
-  expect((await sheet.getByRole("button", { name: /Sainsbury/ }).getAttribute("aria-pressed")) === "true", "Sainsbury's is ticked");
-  const tesco = sheet.getByRole("button", { name: /Tesco/ });
-  await tesco.click();
-  expect((await tesco.getAttribute("aria-pressed")) === "true", "Tesco was not ticked");
-  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data.shops);
-  expect(JSON.stringify(saved) === JSON.stringify(["sainsburys", "tesco"]), "saved at once: " + JSON.stringify(saved));
-  // Tesco's product labels aren't read yet: it stays ticked and the sheet says recipes can't use it
-  await sheet.getByText("Recipes can't use Tesco yet: we haven't read enough of their products' labels.").waitFor();
-  await page.waitForTimeout(500);
+  // Morrisons has no read label for something this recipe needs, so it can't be chosen for it, and says so
+  await sheet.getByText("Can't make this recipe").waitFor();
+  expect(await sheet.getByRole("radio", { name: /Morrisons/ }).isDisabled(), "Morrisons can't be chosen for a recipe it can't make");
+  await page.waitForTimeout(400);
   await page.addScriptTag({ path: AXE });
   const v = await page.evaluate(async () => (await window.axe.run(document, { resultTypes: ["violations"] })).violations.map((x) => `${x.id} (${x.nodes.length})`));
   expect(v.length === 0, `the open sheet: ${v.join(", ")}`);
-  const done = sheet.getByRole("button", { name: "Done" });
-  const db = await done.boundingBox();
-  expect(db && db.y + db.height <= 844 && db.height >= 44, `Done is in view without scrolling (at ${db && Math.round(db.y)})`);
-  await done.click();
-  await sheet.waitFor({ state: "hidden" });
-  // only shops whose labels are read fill a recipe: still Sainsbury's alone, and the recipe is still there
-  await page.getByRole("heading", { name: "What to buy" }).waitFor();
-  expect(!/Tesco/.test(await header.innerText()), "Tesco can't fill a recipe yet: " + (await header.innerText()));
-  // unticking Sainsbury's leaves Tesco only: recipes then use the first shop whose labels are read, and say so in the sheet
-  await plus.click();
-  await sheet.getByRole("button", { name: /Sainsbury/ }).click();
-  const after = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data.shops);
-  expect(JSON.stringify(after) === JSON.stringify(["tesco"]), "Sainsbury's removed: " + JSON.stringify(after));
   await sheet.getByRole("button", { name: "Close" }).click();
   await sheet.waitFor({ state: "hidden" });
+  // a recipe both shops make: switching moves every ingredient to Morrisons' products and saves Morrisons as the first shop
+  await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
   await page.getByRole("heading", { name: "What to buy" }).waitFor();
-  expect(/Sainsbury's/.test(await header.innerText()), "falls back to the first shop that can fill a recipe");
+  const rows = page.getByRole("heading", { name: "What to buy" }).locator("xpath=..").locator("li");
+  expect((await rows.first().innerText()).includes("Sainsbury's"), "the first ingredient is Sainsbury's: " + (await rows.first().innerText()).replace(/\n/g, " | "));
+  await header.getByRole("button", { name: /^Shopping at: Sainsbury's/ }).click();
+  await sheet.waitFor();
+  const mor = sheet.getByRole("radio", { name: /Morrisons/ });
+  await mor.waitFor();
+  await page.waitForFunction(() => !document.body.innerText.includes("Checking which shops can make this recipe"), null, { timeout: 15000 });
+  expect(await mor.isEnabled(), "Morrisons can make chicken curry");
+  await mor.click();
+  await sheet.waitFor({ state: "hidden" });
+  await header.getByRole("button", { name: /^Shopping at: Morrisons/ }).waitFor();
+  await page.getByRole("heading", { name: "What to buy" }).waitFor();
+  const all = await rows.allInnerTexts();
+  expect(all.length > 3 && all.every((t) => t.includes("Morrisons") && !t.includes("Sainsbury")), "every ingredient is now Morrisons': " + all.map((t) => t.split("\n")[1] ?? "").join(" | "));
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data.shops);
+  expect(JSON.stringify(saved) === JSON.stringify(["morrisons", "sainsburys"]), "Morrisons saved first: " + JSON.stringify(saved));
+  // Swap: the sheet offers each shop; one ingredient can come from the other shop and says so
+  await page.getByRole("button", { name: /^Swap Chicken/ }).click();
+  const swap = page.getByRole("dialog");
+  await swap.getByRole("button", { name: "Sainsbury's", exact: true }).waitFor({ timeout: 15000 });
+  await swap.getByRole("button", { name: "Sainsbury's", exact: true }).click();
+  const first = swap.locator("ul").last().getByRole("button").first();
+  await first.click();
+  await swap.waitFor({ state: "hidden" });
+  const row = rows.first();
+  expect((await row.innerText()).includes("Sainsbury's"), "the swapped ingredient is Sainsbury's: " + (await row.innerText()).replace(/\n/g, " | "));
+  const rest = (await rows.allInnerTexts()).slice(1);
+  expect(rest.every((t) => !t.includes("Sainsbury")), "the other ingredients stay at Morrisons");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= 390), "nothing runs off the side");
   await ctx.close();
 });

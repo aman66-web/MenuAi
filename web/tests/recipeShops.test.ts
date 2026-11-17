@@ -3,11 +3,11 @@ import { describe, expect, it } from "vitest";
 import { LOCAL_SHOP_PRODUCTS } from "../lib/mm/localRange";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { candidates, fitRecipe, isMeatFree, recipeView, resolveRecipe, type IngredientSpec, type Recipe } from "../lib/mm/recipes";
-import { decodeShopProducts, productKey, recipeShopSet, tagShopProducts, type PricedProduct, type ShopManifest, type ShopNutrition, type ShopProduct } from "../lib/mm/shopProducts";
+import { decodeShopProducts, productKey, recipeShopSet, recipeShopsFrom, tagShopProducts, type PricedProduct, type ShopManifest, type ShopNutrition, type ShopProduct } from "../lib/mm/shopProducts";
 
-// Founder 2026-11-17: a recipe's ingredients can come from several of the person's shops ("add more stores that they want to source ingredients from, or ...
-// remove Sainsbury's. And if they did this, then the ingredients for the recipe would change"). The shop ticked first is used first; another shop fills in only
-// an ingredient the first doesn't sell with a usable label; two shops' product ids never mix; and with one shop nothing changes.
+// Founder 2026-11-17 (evening): a recipe is made for ONE shop ("every single recipe is tailored for a specific store ... we don't mix them"): recipeShopSet is a list
+// of one, the person's first ready shop (or the one a link asks for). The merging below (the first shop's product wins; another shop only fills a gap; two shops'
+// product ids never mix) is what a recipe page's Swap uses when an ingredient is moved to another shop, so it stays.
 
 const nut = (kcal: number, protein: number, carbs: number, fat: number, full = false): ShopNutrition =>
   ({ kcal, protein, carbs, fat, saturates: full ? 0.2 : null, sugars: full ? 0.1 : null, fibre: full ? 1 : null, salt: full ? 0 : null, kj: null, per: "g", state: "" }) as ShopNutrition;
@@ -26,12 +26,12 @@ const manifest = (ready: string[], other: string[] = []): ShopManifest => ({
 
 describe("which shops a recipe uses", () => {
   const m = manifest(["sainsburys", "tesco"], ["asda"]);
-  it("is the person's shops whose labels we've read, in the order they ticked them", () => {
-    expect(recipeShopSet(m, null, ["asda", "tesco", "sainsburys"])).toEqual(["tesco", "sainsburys"]);
+  it("is the first of the person's shops whose labels we've read", () => {
+    expect(recipeShopSet(m, null, ["asda", "tesco", "sainsburys"])).toEqual(["tesco"]);
     expect(recipeShopSet(m, null, ["sainsburys"])).toEqual(["sainsburys"]);
   });
-  it("puts a shop the link asks for first, when its labels are read", () => {
-    expect(recipeShopSet(m, "sainsburys", ["tesco", "sainsburys"])).toEqual(["sainsburys", "tesco"]);
+  it("is the shop the link asks for, when its labels are read", () => {
+    expect(recipeShopSet(m, "sainsburys", ["tesco", "sainsburys"])).toEqual(["sainsburys"]);
     expect(recipeShopSet(m, "asda", ["tesco"])).toEqual(["tesco"]);
   });
   it("falls back to the first ready shop when none of theirs is ready, and is empty with no ready shop", () => {
@@ -155,5 +155,16 @@ describe("one shop alone, against Sainsbury's published list", () => {
     expect(filled.picks[i]!.product.shop).toBe("tesco");
     expect(filled.picks[i]!.product.id).toBe("other-shop-1");
     expect(filled.picks.every((p, j) => j === i || !p || p.product.shop === "sainsburys")).toBe(true);
+  });
+});
+
+describe("every shop a recipe page can load, its own first", () => {
+  const m = manifest(["sainsburys", "tesco"], ["asda"]);
+  it("lists the ready shops with the recipe's shop first, in their own order otherwise", () => {
+    expect(recipeShopsFrom(m, "tesco")).toEqual(["tesco", "sainsburys"]);
+    expect(recipeShopsFrom(m, "sainsburys")).toEqual(["sainsburys", "tesco"]);
+    expect(recipeShopsFrom(m, "asda")).toEqual(["sainsburys", "tesco"]); // not ready: left out, the recipe's shop isn't forced in
+    expect(recipeShopsFrom(m, null)).toEqual(["sainsburys", "tesco"]);
+    expect(recipeShopsFrom(null, "tesco")).toEqual([]);
   });
 });

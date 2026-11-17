@@ -55,18 +55,25 @@ export const recipeShops = (m: ShopManifest | null): ShopManifest["retailers"] =
   m ? m.retailers.filter((r) => (r.nutrition ?? 0) > 0 && (RECIPE_COVERAGE[r.id] === undefined || RECIPE_COVERAGE[r.id]! >= MIN_RECIPE_COVERAGE)) : [];
 
 /**
- * The shops a recipe's ingredients come from (founder 2026-11-17: "add more stores that they want to source ingredients from"), first used first: the one asked
- * for (a link's ?r=) when its labels are read, then the person's own supermarkets in the order they ticked them, those whose labels we've read only; when none
- * of theirs is ready, the first shop that is. Empty while the manifest isn't known or no shop is ready.
+ * The shop a recipe is made for (founder 2026-11-17: "every single recipe is tailored for a specific store ... we don't mix them"): the one asked for (a link's ?r=)
+ * when its labels are read, else the first of the person's own supermarkets whose labels we've read, else the first shop that is ready. One shop, in a list of
+ * one so the screens that read "the shops" keep working; empty while the manifest isn't known or no shop is ready. Another shop's product comes into a recipe only
+ * when the person swaps one ingredient to it (RecipeDetail's Swap), never by default.
  */
 export function recipeShopSet(manifest: ShopManifest | null, asked: string | null, mine: readonly string[] | undefined): string[] {
   // Only shops whose product labels we have read: a list with names and prices alone can't make a recipe.
   const shops = recipeShops(manifest);
   if (shops.length === 0) return [];
   const has = (id: string | null | undefined): id is string => !!id && shops.some((r) => r.id === id);
-  const out: string[] = has(asked) ? [asked] : [];
-  for (const id of mine ?? []) if (has(id) && !out.includes(id)) out.push(id);
-  return out.length ? out : [shops[0]!.id];
+  if (has(asked)) return [asked];
+  for (const id of mine ?? []) if (has(id)) return [id];
+  return [shops[0]!.id];
+}
+
+/** Every shop recipes can use, the recipe's own shop first: the shops a recipe page loads (the first is its shop; the others offer a switch and a Swap). */
+export function recipeShopsFrom(manifest: ShopManifest | null, base: string | null): string[] {
+  const ids = recipeShops(manifest).map((r) => r.id);
+  return base && ids.includes(base) ? [base, ...ids.filter((id) => id !== base)] : ids;
 }
 
 /** Per 100 g or 100 ml, as the shop's own product page printed them ("<0.5" counted as 0). */

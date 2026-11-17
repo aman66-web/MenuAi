@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { addToList, formatPrice, withPhoto } from "@/lib/mm/groceries";
 import { formatDate, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
 import { tk, type T } from "@/lib/mm/i18n";
@@ -17,7 +17,7 @@ import { PANTRY } from "@/lib/mm/pantry";
 import { cupboardStore, savedRecipesStore, shoppingStore, toggleCupboard, toggleSavedRecipe } from "@/lib/mm/stores";
 import { site } from "@/site.config";
 import { CheckIcon, ChevronLeftIcon, ChevronRightIcon, HeartIcon, InfoIcon, LeafIcon, MinusIcon, PlusIcon, SwapIcon, TodayIcon } from "../_components/icons";
-import { Button, Sheet, radioKeyNav } from "../_components/ui";
+import { Button, Chip, Sheet, radioKeyNav } from "../_components/ui";
 import { backName, useBack } from "../_lib/backNav";
 import { useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
@@ -121,9 +121,11 @@ function MacroRow({ label, grams, dot }: { label: string; grams: number; dot: st
 }
 
 /** `photo`: the person's own photo of the dish (Make it at home), shown at the top in place of the drawing; it is on this phone only and never saved with the recipe.
- *  `files`: the shops the ingredients come from, first used first (one or more); `products` are theirs (tagged with their shop when there are several).
- *  `onChangeShops`: when given, a round "+" after the shops in the header opens the screen's own choice of shops. */
-export function RecipeDetail({ recipe, files, products, backHref, actions, photo, onChangeShops }: { recipe: Recipe; files: readonly ShopFile[]; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode; photo?: string; onChangeShops?: () => void }) {
+ *  `files`: the recipe's own shop first (founder 2026-11-17: a recipe is made for one shop), then any other shops loaded so one ingredient can be swapped to them;
+ *  `products` are theirs, tagged with their shop. Every ingredient comes from the first shop unless the person swaps it to another shop's product.
+ *  `onChangeShops`: when given, the shop in the header is a button that opens the screen's choice of shop. `onNeedOtherShops`: called when the Swap sheet opens,
+ *  so the screen loads the other shops (they're not loaded for a plain look at a recipe); `othersLoading` says they are on their way. */
+export function RecipeDetail({ recipe, files, products, backHref, actions, photo, onChangeShops, onNeedOtherShops, othersLoading }: { recipe: Recipe; files: readonly ShopFile[]; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode; photo?: string; onChangeShops?: () => void; onNeedOtherShops?: () => void; othersLoading?: boolean }) {
   const t = useT();
   const poss = usePossessive();
   const first = files[0]!;
@@ -147,6 +149,8 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   const [subs, setSubs] = useState<Record<string, string>>({});
   const [asWritten, setAsWritten] = useState(false);
   const [swapping, setSwapping] = useState<string | null>(null);
+  // which shop's products the Swap sheet lists (the shop of the product now in the recipe until another is chosen), for the ingredient being swapped
+  const [swapShopFor, setSwapShopFor] = useState<{ key: string; shop: string } | null>(null);
   const [added, setAdded] = useState<string | null>(null);
   const [tab, setTab] = useState<RecipeTab>("ingredients");
   const [detail, setDetail] = useState(false);
@@ -156,7 +160,15 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   // cooking for more or fewer people scales every amount with them (eggs, peppers and cloves stay whole), but a serving stays the same: its numbers
   // and price come from the recipe as written, with the substitutes and the fit to the meal chosen for it (recipeView, lib/mm/recipes.ts)
   const scaled = useMemo(() => scaleServings(recipe, servings), [recipe, servings]);
-  const view = useMemo(() => recipeView(recipe, products, { servings, subs, chosen, target: asWritten ? null : target }), [recipe, servings, subs, products, chosen, target, asWritten]);
+  // by default only the recipe's own shop's products can be picked; another shop's product is in only once the person has chosen it for an ingredient
+  const viewProducts = useMemo(() => {
+    if (files.length <= 1) return products;
+    const base = products.filter((p) => p.shop === first.retailer);
+    const keys = new Set(Object.values(chosen));
+    const extra = keys.size ? products.filter((p) => p.shop !== first.retailer && keys.has(productKey(p))) : [];
+    return extra.length ? [...base, ...extra] : base;
+  }, [products, files.length, first.retailer, chosen]);
+  const view = useMemo(() => recipeView(recipe, viewProducts, { servings, subs, chosen, target: asWritten ? null : target }), [recipe, servings, subs, viewProducts, chosen, target, asWritten]);
   // the basket leaves out the cupboard items the person has ticked; a serving's price and numbers never do
   const totals = useMemo(() => (view.totals ? recipeTotals(view.resolved, have) : null), [view, have]);
   const picks = view.resolved.picks;
@@ -168,7 +180,10 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   // offered (the one already in the recipe stays in the list)
   const current = picks[swapIndex]?.product;
   const currentKey = current ? productKey(current) : undefined;
-  const options = useMemo(() => (swapSpec ? candidates(products, swapSpec, meatFree).filter((c) => c.usedCost !== null || productKey(c.product) === currentKey) : []), [swapSpec, products, meatFree, currentKey]);
+  const swapShop = swapShopFor && swapShopFor.key === swapping ? swapShopFor.shop : (current ? fileOf(current).retailer : first.retailer);
+  // the Swap sheet loads the other shops (the screen does it once, and only now)
+  useEffect(() => { if (swapSpec) onNeedOtherShops?.(); }, [swapSpec, onNeedOtherShops]);
+  const options = useMemo(() => (swapSpec ? candidates(products, swapSpec, meatFree).filter((c) => (files.length <= 1 || fileOf(c.product).retailer === swapShop) && (c.usedCost !== null || productKey(c.product) === currentKey)) : []), [swapSpec, products, meatFree, currentKey, files.length, fileOf, swapShop]);
   // candidates() puts a product a typical small shop stocks before a cheaper one (lib/mm/localRange.ts), so the line above the list says so when it applies
   const localFirst = options.some((o) => fileOf(o.product).retailer === LOCAL_RANGE_SHOP && LOCAL_SHOP_PRODUCTS.has(o.product.id));
   // what a serving costs with each option: the amount the recipe as written uses (the same for any number of people) over the servings it makes
@@ -194,10 +209,10 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
     }
     // each with the product it would use (candidates are in pick order), whose photo the row shows
     return out.flatMap((o) => {
-      const pick = candidates(products, o.spec, meatFree)[0];
+      const pick = candidates(viewProducts, o.spec, meatFree)[0];
       return pick ? [{ ...o, pick }] : [];
     });
-  }, [swapSpec, scaled, products, meatFree]);
+  }, [swapSpec, scaled, viewProducts, meatFree]);
   const chooseInstead = (key: string, subKey: string | null) => {
     setSubs((c) => { const n = { ...c }; if (subKey) n[key] = subKey; else delete n[key]; return n; });
     setChosen((c) => { const n = { ...c }; delete n[key]; return n; });
@@ -288,21 +303,22 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
       <div className="relative -mx-5 -mt-9 rounded-t-[2rem] bg-background px-5 pt-3 shadow-[0_-12px_28px_-24px_rgba(0,0,0,0.45)]">
         <span aria-hidden className="mx-auto block h-1.5 w-12 rounded-full bg-[var(--ring-track)]" />
         <div className="mt-4 text-center">
-          {/* founder 2026-11-17: each shop's own logo in the header, its name written beside it (CLAUDE.md rule 2: the name is always plain text), then a
-              "+" to choose the shops the ingredients come from (the pills wrap onto more lines at large text) */}
+          {/* founder 2026-11-17: the recipe's shop in the header, its own logo with its name beside it (CLAUDE.md rule 2: the name is always plain text); where the
+              screen lets the person change shop, it is a button with a small arrow that opens the choice */}
           <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5">
             <span className="kicker">{recipe.ai ? t("Made by Pip") : t("Recipe")}</span>
             <span aria-hidden className="kicker">·</span>
-            {files.map((f) => (
-              <span key={f.retailer} className="inline-flex min-w-0 max-w-full items-center gap-2 rounded-full bg-white py-1 pe-3.5 ps-1 shadow-[0_1px_3px_rgba(17,24,20,0.12)]">
-                <ShopMark shopId={f.retailer} size="sm" />
-                <span className="min-w-0 text-[0.9375rem] font-bold leading-tight [overflow-wrap:anywhere]">{f.name}</span>
-              </span>
-            ))}
-            {onChangeShops && (
-              <button type="button" onClick={onChangeShops} aria-haspopup="dialog" aria-label={t("Change shops")} className="group grid h-11 w-11 shrink-0 place-items-center rounded-full transition active:scale-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-                <span className="grid h-9 w-9 place-items-center rounded-full bg-white shadow-[0_1px_3px_rgba(17,24,20,0.12)] transition-colors group-hover:bg-soft-strong"><PlusIcon className="h-[18px] w-[18px]" /></span>
+            {onChangeShops ? (
+              <button type="button" onClick={onChangeShops} aria-haspopup="dialog" aria-label={`${t("Shopping at")}: ${first.name}`} className="inline-flex min-h-11 min-w-0 max-w-full items-center gap-2 rounded-full bg-white py-1 pe-3.5 ps-1 shadow-[0_1px_3px_rgba(17,24,20,0.12)] transition active:scale-95 hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+                <ShopMark shopId={first.retailer} size="sm" />
+                <span className="min-w-0 text-[0.9375rem] font-bold leading-tight [overflow-wrap:anywhere]">{first.name}</span>
+                <span aria-hidden className="text-muted">▾</span>
               </button>
+            ) : (
+              <span className="inline-flex min-w-0 max-w-full items-center gap-2 rounded-full bg-white py-1 pe-3.5 ps-1 shadow-[0_1px_3px_rgba(17,24,20,0.12)]">
+                <ShopMark shopId={first.retailer} size="sm" />
+                <span className="min-w-0 text-[0.9375rem] font-bold leading-tight [overflow-wrap:anywhere]">{first.name}</span>
+              </span>
             )}
           </div>
           <h1 className="mt-1.5 text-[2rem] font-[800] leading-[1.08] tracking-[-0.02em] [overflow-wrap:anywhere]">{rt(recipe.name)}</h1>
@@ -373,7 +389,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
             </div>
           </div>
         ) : (
-          <p className={`${CARD} mt-5 p-4 text-center text-[0.9375rem] leading-snug`}>{several ? t("We couldn't find every ingredient at your shops yet, so there are no totals for this recipe.") : t("We couldn't find every ingredient at {shop} yet, so there are no totals for this recipe.", { shop: first.name })}</p>
+          <p className={`${CARD} mt-5 p-4 text-center text-[0.9375rem] leading-snug`}>{t("We couldn't find every ingredient at {shop} yet, so there are no totals for this recipe.", { shop: first.name })}</p>
         )}
 
         {totals && !target && recipe.meal === "snack" && mealTargetFor(settings) && (
@@ -445,7 +461,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                       </p>
                       {spec.note && <p className="text-[0.8125rem] text-muted">{noteText(t, spec.note)}</p>}
                       {spec.subFor && (
-                        <p className="mt-0.5 text-[0.8125rem] leading-snug text-muted">{written.original || written.subFor ? t("Instead of {name}.", { name: t(spec.subFor).toLowerCase() }) : several ? t("Your shops don't sell {name} that fits, so this uses {sub} instead.", { name: t(spec.subFor).toLowerCase(), sub: t(spec.label).toLowerCase() }) : t("{shop} doesn't sell {name} that fits, so this uses {sub} instead.", { shop: first.name, name: t(spec.subFor).toLowerCase(), sub: t(spec.label).toLowerCase() })}</p>
+                        <p className="mt-0.5 text-[0.8125rem] leading-snug text-muted">{written.original || written.subFor ? t("Instead of {name}.", { name: t(spec.subFor).toLowerCase() }) : t("{shop} doesn't sell {name} that fits, so this uses {sub} instead.", { shop: first.name, name: t(spec.subFor).toLowerCase(), sub: t(spec.label).toLowerCase() })}</p>
                       )}
                       {p ? (
                         <>
@@ -471,7 +487,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                           </div>
                         </>
                       ) : (
-                        <p className="mt-1 text-[0.8125rem] text-muted">{several ? t("Not found at your shops yet.") : t("Not found at {shop} yet.", { shop: first.name })}</p>
+                        <p className="mt-1 text-[0.8125rem] text-muted">{t("Not found at {shop} yet.", { shop: first.name })}</p>
                       )}
                     </div>
                   </div>
@@ -612,13 +628,16 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
               </section>
             )}
             <h3 className="text-base font-bold">{insteadOptions.length > 0 ? t("Or pick a different product") : t("Pick a different product")}</h3>
-            <p className="mb-3 mt-1 text-[0.8125rem] leading-snug text-muted">{several
-              ? localFirst
-                ? t("Products at your shops that fit this recipe, {shop} first. At each shop, those a small local shop usually sells come first, then the cheapest to buy. It uses {amount}.", { shop: poss(first.name), amount: amountText(swapSpec) })
-                : t("Products at your shops that fit this recipe, {shop} first, then the cheapest. It uses {amount}.", { shop: first.name, amount: amountText(swapSpec) })
-              : localFirst
-                ? t("Products at {shop} that fit this recipe: those a small local shop usually sells first, then the cheapest to buy. It uses {amount}.", { shop: first.name, amount: amountText(swapSpec) })
-                : t("Products at {shop} that fit this recipe, cheapest to buy first. It uses {amount}.", { shop: first.name, amount: amountText(swapSpec) })}</p>
+            {/* founder 2026-11-17: an ingredient can be bought at another shop: one chip per shop (this recipe's shop first); the list below is that shop's products */}
+            {(files.length > 1 || othersLoading) && (
+              <div role="group" aria-label={t("Shop")} className="mt-2.5 flex flex-wrap gap-2">
+                {files.map((f) => (<Chip key={f.retailer} selected={f.retailer === swapShop} onClick={() => setSwapShopFor({ key: swapSpec.key, shop: f.retailer })}>{f.name}</Chip>))}
+                {othersLoading && <span role="status" className="inline-flex min-h-11 items-center px-2 text-[0.9375rem] text-muted">{t("Loading other shops…")}</span>}
+              </div>
+            )}
+            <p className="mb-3 mt-2.5 text-[0.8125rem] leading-snug text-muted">{localFirst
+              ? t("Products at {shop} that fit this recipe: those a small local shop usually sells first, then the cheapest to buy. It uses {amount}.", { shop: (files.find((f) => f.retailer === swapShop) ?? first).name, amount: amountText(swapSpec) })
+              : t("Products at {shop} that fit this recipe, cheapest to buy first. It uses {amount}.", { shop: (files.find((f) => f.retailer === swapShop) ?? first).name, amount: amountText(swapSpec) })}</p>
             <ul className="space-y-2">
               {options.map((o) => {
                 const key = productKey(o.product);

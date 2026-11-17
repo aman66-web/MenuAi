@@ -28,7 +28,7 @@ describe("the shops a recipe screen uses", () => {
     // the person unticked Sainsbury's and ticked Tesco; a remembered recipe address still says &r=sainsburys
     expect(recipeShopSetFor(m, "sainsburys", ["tesco"])).toEqual(["tesco"]);
     // the address never reorders their own shops either
-    expect(recipeShopSetFor(m, "sainsburys", ["tesco", "sainsburys"])).toEqual(["tesco", "sainsburys"]);
+    expect(recipeShopSetFor(m, "sainsburys", ["tesco", "sainsburys"])).toEqual(["tesco"]);
     expect(recipeShop(m, "sainsburys", ["tesco"])).toBe("tesco");
   });
 
@@ -38,8 +38,8 @@ describe("the shops a recipe screen uses", () => {
     expect(recipeShopSetFor(m, "tesco", [])).toEqual(["tesco"]);
   });
 
-  it("otherwise follows the person's shops, in the order they ticked them", () => {
-    expect(recipeShopSetFor(m, null, ["asda", "tesco", "sainsburys"])).toEqual(["tesco", "sainsburys"]);
+  it("otherwise follows the first of the person's shops", () => {
+    expect(recipeShopSetFor(m, null, ["asda", "tesco", "sainsburys"])).toEqual(["tesco"]);
     expect(recipeShopSetFor(m, "asda", ["asda"])).toEqual(["sainsburys"]);
     expect(recipeShopSetFor(null, "tesco", ["tesco"])).toEqual([]);
   });

@@ -21,7 +21,7 @@ import { AllergenTiles, dietWords } from "../_components/DietPicker";
 import { ArrowRightIcon, BasketIcon, CameraIcon, CheckIcon, GridIcon, HeartIcon, InfoIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
-import { ShopPicker } from "../_components/ShopPicker";
+import { ShopChoice } from "./ShopChoice";
 import { useGate } from "../_components/Paywall";
 import { Button, EmptyState, ErrorBox, Segmented, Sheet, Spinner } from "../_components/ui";
 import { useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
@@ -102,35 +102,28 @@ function Tile({ label, Icon, pressed, onClick, more, expanded }: { label: string
   );
 }
 
-/** The supermarkets someone shops at, beside the search (founder 2026-11-16: "on the right of that should be the supermarket"): their own logos, up to three
- *  overlapping, and a tap opens the same list as onboarding and Settings. Recipes still come from a shop whose labels we've read; the sentence above names it. */
-function ShopsButton({ shops, onClick }: { shops: readonly string[]; onClick: () => void }) {
+/** Where the person is shopping, beside the search (founder 2026-11-17: one shop at a time): that shop's own logo and name with a small arrow; a tap opens the choice. */
+function ShopsButton({ shop, onClick }: { shop: string | null; onClick: () => void }) {
   const t = useT();
-  const names = shops.flatMap((id) => RETAILERS.find((r) => r.id === id)?.name ?? []);
-  const shown = shops.slice(0, 3);
+  const name = shop ? (RETAILERS.find((r) => r.id === shop)?.name ?? "") : "";
   return (
     <button
       type="button"
       onClick={onClick}
       aria-haspopup="dialog"
-      aria-label={names.length ? `${t("Your supermarkets")}: ${names.join(", ")}` : t("Your supermarkets")}
-      className="glass inline-flex min-h-[3.25rem] shrink-0 items-center gap-1 rounded-full px-2 transition hover:bg-soft-strong active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      aria-label={name ? `${t("Shopping at")}: ${name}` : t("Shopping at")}
+      className="glass inline-flex min-h-[3.25rem] max-w-[46%] shrink-0 items-center gap-2 rounded-full ps-2 pe-3 transition hover:bg-soft-strong active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
-      {shown.length ? (
-        <span aria-hidden className="flex items-center">
-          {shown.map((id, i) => <span key={id} className={`rounded-xl ring-2 ring-white ${i ? "-ms-3" : ""}`}><ShopMark shopId={id} size="sm" /></span>)}
-        </span>
-      ) : (
-        <span aria-hidden className="grid h-9 w-9 place-items-center rounded-xl bg-soft-strong"><BasketIcon className="h-5 w-5" /></span>
-      )}
-      {shops.length > 3 && <span aria-hidden className="app-numbers pe-1 text-sm font-bold">+{shops.length - 3}</span>}
+      {shop ? <span aria-hidden><ShopMark shopId={shop} size="sm" /></span> : <span aria-hidden className="grid h-9 w-9 place-items-center rounded-xl bg-soft-strong"><BasketIcon className="h-5 w-5" /></span>}
+      {name && <span aria-hidden className="min-w-0 truncate text-[0.9375rem] font-bold">{name}</span>}
+      <span aria-hidden className="text-muted">▾</span>
     </button>
   );
 }
 
 // What happens after Continue, said one line at a time (founder 2026-11-16: "a loading animation ... about 2 seconds ... showing that it's working"). Each line
 // is something the app really does once the shops are saved: the list below is worked out again for the person's diet and meal size.
-const WORKING_LINES = [tk("Saving your supermarkets…"), tk("Matching recipes to your diet…"), tk("Working out each serving's price and nutrition…")];
+const WORKING_LINES = [tk("Saving your shop…"), tk("Matching recipes to your diet…"), tk("Working out each serving's price and nutrition…")];
 const WORKING_STEP_MS = 650;
 
 function ShopsWorking({ onDone }: { onDone: () => void }) {
@@ -189,20 +182,15 @@ function RecipesScreen() {
   const [toggles, setToggles] = useState<ReadonlySet<Toggle>>(new Set());
   const [more, setMore] = useState(false);
   const [shopsOpen, setShopsOpen] = useState(false);
-  const [draftShops, setDraftShops] = useState<string[]>([]);
   const [working, setWorking] = useState(false);
-  // whether a shop was ticked or unticked since the sheet opened: Done then shows the short "working" moment
-  const [shopsChanged, setShopsChanged] = useState(false);
   const chosenShops = settings.shops ?? [];
   const closeShops = useCallback(() => { setShopsOpen(false); setWorking(false); }, []);
-  // founder 2026-11-17: "they'll tick it, but it doesn't save ... should we just like still tick it for them?" Every tick is saved at once, so closing the sheet any way keeps it.
-  const pickShops = (shops: string[]) => {
-    setDraftShops(shops);
-    setShopsChanged(true);
-    updateSettings({ shops: shops.length ? shops : undefined });
-    // founder 2026-11-17 ("If I choose to shop at Asda, it's still showing stuff from Sainsbury's"): the recipes follow the shops ticked here at once, even when
-    // the page was opened for another shop (a link's ?r=)
+  // founder 2026-11-17: one shop at a time. The chosen shop goes first among the person's supermarkets (the others stay ticked for Groceries), and the recipes follow
+  // it at once, even when the page was opened for another shop (a link's ?r=); a short "working" moment then closes the sheet.
+  const pickShop = (id: string) => {
+    if (id !== shop) updateSettings({ shops: [id, ...chosenShops.filter((x) => x !== id)] });
     setOwnShops(true);
+    if (id !== shop) setWorking(true); else closeShops();
   };
   const [query, setQuery] = useState("");
   const [limit, setLimit] = useState(PAGE);
@@ -293,22 +281,24 @@ function RecipesScreen() {
           <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); setLimit(PAGE); }} placeholder={t("Search recipes")} aria-label={t("Search recipes")} {...DONE_KEY} autoComplete="off" className={`glass min-h-[3.25rem] w-full rounded-full ps-12 pe-4 ${DONE_ROOM} text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent`} />
           <SearchDone />
         </div>
-        <ShopsButton shops={chosenShops} onClick={() => { setDraftShops([...chosenShops]); setShopsChanged(false); setWorking(false); setShopsOpen(true); }} />
+        <ShopsButton shop={shop} onClick={() => { setWorking(false); setShopsOpen(true); }} />
       </div>
-      {/* Each tick is saved at once (closing keeps it); Done stays in view at the foot of the sheet and, when something changed, shows a short "working" moment. */}
-      <Sheet open={shopsOpen} onClose={closeShops} title={t("Your supermarkets")}>
+      {/* One shop at a time; tapping a shop saves it at once and shows a short "working" moment. */}
+      <Sheet open={shopsOpen} onClose={closeShops} title={t("Shopping at")}>
         {working ? (
           <ShopsWorking onDone={closeShops} />
         ) : (
           <>
-            <p className="text-[0.9375rem] leading-snug text-muted">{t("Tap all that apply. Each tap is saved straight away.")}</p>
+            <p className="text-[0.9375rem] leading-snug text-muted">{t("Recipes are made for one shop at a time. Choose where you're shopping; you can change it any time.")}</p>
             <div className="mt-3">
-              <ShopPicker value={draftShops} onChange={pickShops} />
+              <ShopChoice shops={recipeShops(manifest).map((r) => ({ id: r.id, name: r.name }))} value={shop} onChange={pickShop} />
             </div>
-            {/* kept in view while the list scrolls under it, so nobody has to find it */}
-            <div className="sticky bottom-0 z-10 -mx-5 mt-2 bg-gradient-to-t from-white from-70% to-transparent px-5 pb-1 pt-5">
-              <Button size="lg" full onClick={() => (shopsChanged ? setWorking(true) : closeShops())}>{t("Done")}</Button>
-            </div>
+            {unreadShops.length > 0 && (
+              <p role="note" className="mt-3 flex gap-2.5 rounded-[1rem] bg-[var(--fill)] p-3.5 text-[0.9375rem] leading-snug">
+                <InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                <span>{t("Recipes can't use {shops} yet: we haven't read enough of their products' labels.", { shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(unreadShops) })}</span>
+              </p>
+            )}
           </>
         )}
       </Sheet>
@@ -467,8 +457,8 @@ function RecipesScreen() {
             {incomplete > 0 && shopNames.length > 0 && (
               <p className="mt-2 px-1 text-[0.9375rem] leading-snug text-muted">
                 {incomplete === 1
-                  ? t("1 more recipe needs something we haven't found at {shops} yet. Tick another shop to see it.", { shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) })
-                  : t("{n} more recipes need something we haven't found at {shops} yet. Tick another shop to see them.", { n: incomplete, shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) })}
+                  ? t("1 more recipe needs something we haven't found at {shops} yet. Choose another shop to see it.", { shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) })
+                  : t("{n} more recipes need something we haven't found at {shops} yet. Choose another shop to see them.", { n: incomplete, shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) })}
               </p>
             )}
           </>
