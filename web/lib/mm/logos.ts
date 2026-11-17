@@ -418,6 +418,7 @@ for (const id of new Set([...Object.keys(CHAIN_LOGOS), ...Object.keys(SQUARE_ICO
 export const SHOP_LOGOS: Readonly<Record<string, ChainLogo>> = {
   "aldi": { src: "/logos/shops/aldi.svg", square: { src: "/logos/shops/square/aldi.png" } },
   "asda": { src: "/logos/shops/asda.svg", square: { src: "/logos/shops/square/asda.png", full: true } },
+  "coop": { src: "/logos/shops/coop.svg" },
   "iceland": { src: "/logos/shops/iceland.png", square: { src: "/logos/shops/square/iceland.png", full: true } },
   "lidl": { src: "/logos/shops/lidl.svg", square: { src: "/logos/shops/square/lidl.png", full: true } },
   "marks-and-spencer": { src: "/logos/shops/marks-and-spencer.svg" },

@@ -1,5 +1,11 @@
-status: skipped-blocked
+status: installed
+file: coop.svg
+tile: light
+source_url: https://www.coop.co.uk/ (inline SVG in the page header, the link named "Co-op")
 page: https://www.coop.co.uk/
-why: Co-op's own sites (https://www.coop.co.uk/ and https://www.co-operative.coop/) answer with an Imperva 'Pardon Our Interruption' challenge page (robots.txt itself is fine), so we stopped; save the logo from the header of https://www.coop.co.uk/ (right-click the logo, Save Image) in your own browser.
-decision: founder, 2026-10-11 ("Add all logos for grocery stores too")
-retrieved: 2026-10-11
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-11 to use the supermarkets' own logos whatever their site terms say
+why: Co-op's own shopping site header (https://www.coop.co.uk/), the Co-op mark it draws as an inline SVG (title "Co-op", fill #00a1cc); the site serves no logo file, so the <svg> markup was copied unchanged (1,521 characters), as for Honest Burgers. Read in the founder's own Chrome on 2026-11-17 at his request ("We're missing the co-op logo in the app"): Co-op's sites challenge scripted requests (Imperva), which we never work round.
+decision: founder, 2026-10-11 ("Add all logos for grocery stores too"); 2026-11-17 ("We're missing the co-op logo in the app")
+retrieved: 2026-11-17
+sha256: f9d5da73bd63157e27b8a619a0470e51e0e3cc651cb3bf532e217701b1d46d8c
