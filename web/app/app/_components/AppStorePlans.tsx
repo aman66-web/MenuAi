@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { tk } from "@/lib/mm/i18n";
 import { formatDate } from "@/lib/mm/format";
 import { paidActive } from "@/lib/mm/paid";
@@ -49,6 +49,7 @@ export function AppStorePlans() {
   const trial = products && products !== "loading" ? products.find((p) => p.trialDays)?.trialDays ?? null : null;
   const [busy, setBusy] = useState<PlanId | "restore" | null>(null);
   const [note, setNote] = useState<string | null>(null);
+  const noteRef = useShowNote(note);
   const [chosen, setChosen] = useState<PlanId | null>(null);
   // the plan chosen, or the first (a plan with the free trial when this Apple ID can still have one)
   const selected = products && products !== "loading" ? (products.find((p) => p.plan === chosen) ?? products[0] ?? null) : null;
@@ -144,7 +145,7 @@ export function AppStorePlans() {
         </>
       )}
 
-      {note && <p role="status" className="mt-3 text-center text-base font-semibold">{note}</p>}
+      {note && <p ref={noteRef} role="status" className="mt-3 scroll-mb-32 text-center text-base font-semibold">{note}</p>}
 
       <button type="button" disabled={busy !== null} onClick={() => void restore()} className="mx-auto mt-3 flex min-h-11 items-center px-3 text-[0.9375rem] font-semibold underline underline-offset-4 disabled:opacity-60">
         {busy === "restore" ? t("Checking with the App Store…") : t("Restore purchases")}
@@ -169,6 +170,17 @@ export function AppStorePlans() {
   );
 }
 
+/** A purchase or restore message can land under the floating tab bar (founder 2026-11-17: "after I pressed it, nothing happened"), so it is scrolled into view when it appears. */
+function useShowNote(note: string | null) {
+  const ref = useRef<HTMLParagraphElement>(null);
+  useEffect(() => {
+    if (!note) return;
+    const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    ref.current?.scrollIntoView({ block: "center", behavior: calm ? "auto" : "smooth" });
+  }, [note]);
+  return ref;
+}
+
 /** Settings › Subscription in the In-App Purchase app: Restore purchases, and Apple's own Manage subscription screen while a subscription is running. */
 export function AppStoreAccountButtons() {
   const t = useT();
@@ -176,6 +188,7 @@ export function AppStoreAccountButtons() {
   const now = useNow();
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState<string | null>(null);
+  const noteRef = useShowNote(note);
   const subscribed = paidActive(paid, now.getTime()) && (paid.plan === "annual" || paid.plan === "monthly");
   const restore = async () => {
     setBusy(true);
@@ -188,7 +201,7 @@ export function AppStoreAccountButtons() {
     <div className="mt-3 space-y-2.5">
       {subscribed && <Button size="lg" full variant="secondary" onClick={() => void manageSubscriptions()}>{t("Manage subscription")}</Button>}
       <Button size="lg" full variant="secondary" disabled={busy} onClick={() => void restore()}>{busy ? t("Checking with the App Store…") : t("Restore purchases")}</Button>
-      {note && <p role="status" className="text-base font-semibold">{note}</p>}
+      {note && <p ref={noteRef} role="status" className="scroll-mb-32 text-base font-semibold">{note}</p>}
     </div>
   );
 }

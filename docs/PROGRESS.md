@@ -2718,6 +2718,12 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     `e2e/recipes.mjs` 17 of 17. **In the iPhone app on the simulator:** the new first screen, the camera (iOS asks "Allow Numbite to use your camera?" once; the Simulator's pretend camera showed live), the shutter, Scanning, the supermarket step, the loading screen and the finished recipe all worked.
   - **Not verified:** the real iPhone lens, light and focus (only the Simulator's pretend camera), the new screens on the founder's phone, and a real purchase on a real Apple ID (TestFlight or the App Store). The founder's iPhone connection over Wi-Fi was unreliable: a cable keeps it stable.
 
+- 2026-11-17 (evening, later) — **Make it at home is now the top card on Recipes, and the phone's test purchase fixed** (founder: "it can be easily missed ... move it to the top ... make it in one dark"; "I tried to get [a membership] ... nothing happened"). Mac branch `iap`, not pushed.
+  - **Recipes:** the Make it at home card moved from below the Cuisine and Occasion menus to directly under the search and the shop button, restyled as the page's one dark card (the tab bar's #1d2320), a lime-framed camera icon (the scanner's corner marks), white title, a lime "Premium" pill for a free person, and a lime arrow. Same words, same behaviour (opens the paywall for a free person). Not done yet (offered, waiting for the founder): new wording ("Snap any dish. Get the recipe.", "Try free for 7 days") and a second entry point on Home.
+  - **The phone's purchase:** Xcode signs test purchases with a test certificate made per device/session, so the phone's (made 16:22) differed from the simulator's (16:27) and the server answered `untrusted_root`. `APPLE_XCODE_TEST_CERT` now holds the phone's certificate and production was redeployed (dpl_Fz3Vy2Zu5NDiicjohkNFTSipYbbU, same code 5bb4b013). Restore purchases picks up the trial already bought. **Still test only: remove it when testing is finished.**
+  - **"Nothing happened":** the purchase result line appears under the buy button, where the floating tab bar can cover it; it is now scrolled into view when it appears (`AppStorePlans.tsx`, also Settings › Subscription). No new copy.
+  - Checked: tsc, eslint, e2e photorecipe 11, recipes 17, a11y 0 violations, largetext no overflow; looked at in the browser at 375 px.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

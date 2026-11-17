@@ -283,6 +283,28 @@ function RecipesScreen() {
         </div>
         <ShopsButton shop={shop} onClick={() => { setWorking(false); setShopsOpen(true); }} />
       </div>
+      {PHOTO_RECIPES_ENABLED && (
+        // Make it at home (Premium; app/app/recipes/photo/page.tsx). Founder 2026-11-17 ("it can be easily missed"): the one dark card on the page, at the top under the
+        // search, in the tab bar's near-black, with the scanner's lime corner marks round the camera. It opens the paywall for a free person.
+        <button type="button" onClick={() => gate("photoRecipe", () => router.push("/app/recipes/photo"))} className="group relative mt-4 flex min-h-[6rem] w-full items-center gap-3.5 overflow-hidden rounded-[1.5rem] bg-[#1d2320] p-4 text-start text-white shadow-[0_18px_40px_-20px_rgba(0,0,0,0.6)] transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+          <span aria-hidden className="relative grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-white/10 text-sun">
+            <span className="absolute start-1 top-1 h-3 w-3 rounded-ss-md border-s-2 border-t-2 border-[var(--sun)]" />
+            <span className="absolute end-1 top-1 h-3 w-3 rounded-se-md border-e-2 border-t-2 border-[var(--sun)]" />
+            <span className="absolute bottom-1 start-1 h-3 w-3 rounded-es-md border-b-2 border-s-2 border-[var(--sun)]" />
+            <span className="absolute bottom-1 end-1 h-3 w-3 rounded-ee-md border-b-2 border-e-2 border-[var(--sun)]" />
+            <CameraIcon className="h-7 w-7" />
+          </span>
+          <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
+            <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+              <span className="text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("Make it at home")}</span>
+              {!pro && <span className="inline-block rounded-full bg-sun px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--on-accent)]">{t("Premium")}</span>}
+            </span>
+            <span className="mt-1 block text-[0.9375rem] leading-snug text-white/80">{t("Snap a dish you've loved and get a recipe from your supermarket.")}</span>
+          </span>
+          <span aria-hidden className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)] transition-transform group-hover:translate-x-0.5 rtl:-scale-x-100"><ArrowRightIcon className="h-5 w-5" /></span>
+        </button>
+      )}
+
       {/* One shop at a time; tapping a shop saves it at once and shows a short "working" moment. */}
       <Sheet open={shopsOpen} onClose={closeShops} title={t("Shopping at")}>
         {working ? (
@@ -363,18 +385,6 @@ function RecipesScreen() {
           <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
             <span className="block text-[1.0625rem] font-bold leading-snug tracking-[-0.01em]">{t("Ask Pip to make a recipe")}{!pro && <span className="ms-2 inline-block rounded-full bg-accent-soft px-2 py-0.5 align-middle text-sm font-bold text-accent">Pro</span>}</span>
             <span className="block text-[0.9375rem] leading-snug text-muted">{shopName ? t("Say what you fancy and Pip writes one from {shop} products, fitted to your meal and diet.", { shop: poss(shopName) }) : t("Say what you fancy and Pip writes one from your shop's products, fitted to your meal and diet.")}</span>
-          </span>
-          <span aria-hidden className="icon-bubble-soft h-10 w-10 shrink-0 transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
-        </button>
-      )}
-
-      {PHOTO_RECIPES_ENABLED && (
-        // Make it at home (Premium; app/app/recipes/photo/page.tsx): the card is there for everyone on a build where Premium exists, and opens the paywall for a free person
-        <button type="button" onClick={() => gate("photoRecipe", () => router.push("/app/recipes/photo"))} className="glass lift group mt-4 flex min-h-[5.5rem] w-full items-center gap-3 rounded-[1.25rem] p-3 ps-3.5 text-start">
-          <span aria-hidden className="icon-bubble-soft h-12 w-12 shrink-0"><CameraIcon className="h-6 w-6" /></span>
-          <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-            <span className="block text-[1.0625rem] font-bold leading-snug tracking-[-0.01em]">{t("Make it at home")}{!pro && <span className="ms-2 inline-block rounded-full bg-accent-soft px-2 py-0.5 align-middle text-sm font-bold text-accent">{t("Premium")}</span>}</span>
-            <span className="block text-[0.9375rem] leading-snug text-muted">{t("Snap a dish you've loved and get a recipe from your supermarket.")}</span>
           </span>
           <span aria-hidden className="icon-bubble-soft h-10 w-10 shrink-0 transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
         </button>
