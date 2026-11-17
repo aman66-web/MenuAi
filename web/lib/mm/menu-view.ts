@@ -40,9 +40,14 @@ export function filterItems(items: readonly MenuItem[], prefs: Preferences): Men
 
 const VEGAN_WORDS = /\bvegan\b|plant[\s-]?based/i;
 
-/** The dish's own name or its menu section says vegan or plant-based (what the restaurant prints; nothing inferred). */
+/**
+ * The dish's own name or its menu section says vegan or plant-based (what the restaurant prints; nothing inferred). A section counts only when every part
+ * of its name does ("Plant-based burgers"), never when it mixes in other food ("Chicken & plant-based" holds the chicken wraps too).
+ */
 export function isNamedVegan(item: Pick<MenuItem, "name" | "category">): boolean {
-  return VEGAN_WORDS.test(item.name) || VEGAN_WORDS.test(item.category ?? "");
+  if (VEGAN_WORDS.test(item.name)) return true;
+  const parts = sectionParts(item.category ?? "");
+  return parts.length > 0 && parts.every((part) => VEGAN_WORDS.test(part));
 }
 
 /** True when an allergen filter is on and the guide lists none of those allergens for this dish ("may contain" counts too). */
@@ -84,26 +89,33 @@ export interface UncheckedDiet {
   vegan: boolean;
   /** An allergy is set and the restaurant publishes no allergen details we can read. */
   allergies: boolean;
+  /** The restaurant's vegetarian marks count (at least 1 dish in 20 is marked), so by its own marks an unmarked dish isn't vegetarian, and so isn't vegan. */
+  vegetarianMarks: boolean;
 }
 
 export function uncheckedDiet(items: readonly Pick<MenuItem, "tags" | "name" | "category" | "allergens">[], prefs: Preferences): UncheckedDiet {
+  // fewer than 1 dish in 20 marked vegetarian means the guide doesn't really mark them (Greggs marks 1 of 263): those marks are kept, the rest go by name
+  const vegetarianMarks = items.filter((i) => i.tags.includes("vegetarian")).length >= items.length / 20;
   return {
-    // fewer than 1 dish in 20 marked vegetarian means the guide doesn't really mark them (Greggs marks 1 of 263): those marks are kept, the rest go by name
-    vegetarian: (prefs.vegetarianOnly || Boolean(prefs.pescatarianOnly)) && items.filter((i) => i.tags.includes("vegetarian")).length < items.length / 20,
+    vegetarian: (prefs.vegetarianOnly || Boolean(prefs.pescatarianOnly)) && !vegetarianMarks,
     vegan: Boolean(prefs.veganOnly) && !items.some(isNamedVegan),
     allergies: Boolean(prefs.avoidAllergens?.length) && !items.some((i) => i.allergens),
+    vegetarianMarks,
   };
 }
 
 export const anyUnchecked = (u: UncheckedDiet): boolean => u.vegetarian || u.vegan || u.allergies;
 
+// Fish and roe named as a sushi menu names them ("Maguro Nigiri", "Hiramasa Ceviche", "Inari Ikura Nigiri"); "shake" and "sake" are salmon only before a
+// sushi word ("Shake Nigiri", "Shake Yaki Nigiri"), never a drink ("Vanilla Shake", "Tims® Shake Brownie"). Seafood words are in crustaceans and molluscs below.
+const JAPANESE_FISH = String.raw`\b(?:maguro|akami|toro|hamachi|hiramasa|unagi|anago|saba|ikura|tobiko|masago)\b|\b(?:shake|sake)(?=\s+(?:yaki|new york|nigiri|sashimi|tataki|maki|hosomaki|uramaki|futomaki|temaki|aburi|a[iï]oli|teriyaki|carpaccio|tartare|ceviche|poke|don|donburi|kaburi)\b)`;
 // A dish whose own name names a food from that allergen group (used only where the restaurant publishes no allergen details, and only to leave dishes out).
 const NAMED_ALLERGEN: Partial<Record<AllergenKey, RegExp>> = {
-  fish: /\b(?:fish|fishcakes?|salmon|tuna|cod|haddock|pollock|hake|plaice|sole|sea ?bass|bream|mackerel|sardines?|anchov(?:y|ies)|trout|kippers?|basa|swordfish|halibut|kedgeree)\b/i,
-  crustaceans: /\b(?:prawns?|shrimps?|crabs?|lobsters?|langoustines?|crayfish|scampi)\b/i,
-  molluscs: /\b(?:mussels?|squid|calamari|octopus|clams?|scallops?|cockles?|whelks?)\b|\boysters?\b(?!\s+mushrooms?)/i,
-  milk: /\b(?:milk|milkshakes?|cheese|cheesy|cheeseburgers?|cream|creamy|butter|buttery|buttermilk|yogh?urts?|mozzarella|cheddar|parmesan|halloumi|feta|paneer|lattes?|cappuccinos?|flat whites?|mochas?|custard|brie|camembert|mascarpone|ricotta|gouda|raita|macchiato)\b/i,
-  eggs: /\b(?:eggs?|omelett?es?|mayo|mayonnaise|meringues?|frittatas?|benedict|aioli|carbonara)\b/i,
+  fish: new RegExp(String.raw`\b(?:fish|fishcakes?|salmon|tuna|cod|haddock|pollock|hake|plaice|sole|sea ?bass|bream|mackerel|sardines?|anchov(?:y|ies)|trout|kippers?|basa|swordfish|halibut|kedgeree|eels?|yellowtail|surimi|crabsticks?)\b|${JAPANESE_FISH}`, "i"),
+  crustaceans: /\b(?:prawns?|shrimps?|crabs?|crabsticks?|lobsters?|langoustines?|crayfish|scampi|ebi|kani)\b/i,
+  molluscs: /\b(?:mussels?|squid|calamari|octopus|clams?|scallops?|cockles?|whelks?|hotate|ika|tako|takoyaki)\b|\boysters?\b(?!\s+mushrooms?)/i,
+  milk: /\b(?:milk|milkshakes?|cheese|cheesy|cheeseburgers?|cheesecakes?|cream|creamy|creamed|butter|buttery|buttered|buttermilk|yogh?urts?|mozzarella|cheddar|parmesan|halloumi|feta|paneer|lattes?|cappuccinos?|flat whites?|mochas?|custard|brie|camembert|mascarpone|ricotta|gouda|raita|macchiato)\b/i,
+  eggs: /\b(?:eggs?|omelett?es?|mayo|mayonnaise|meringues?|frittatas?|benedict|aioli|carbonara|tamago)\b/i,
   peanuts: /\b(?:peanuts?|satay)\b/i,
   nuts: /\b(?:almonds?|cashews?|hazelnuts?|walnuts?|pecans?|pistachios?|macadamias?|nuts?|praline|frangipane|marzipan|nutella|pesto)\b/i,
   sesame: /\b(?:sesame|tahini|houmous|hummus|humous)\b/i,
@@ -111,9 +123,25 @@ const NAMED_ALLERGEN: Partial<Record<AllergenKey, RegExp>> = {
   mustard: /\bmustard\b/i,
   celery: /\b(?:celery|celeriac)\b/i,
   lupin: /\blupin\b/i,
-  gluten: /\b(?:bread|breaded|buns?|baguettes?|paninis?|toasties?|toast|sandwich(?:es)?|wraps?|pasta|spaghetti|penne|lasagne|pizzas?|noodles?|ramen|udon|pies?|pastry|pastries|croissants?|muffins?|cakes?|cookies?|biscuits?|brownies?|doughnuts?|donuts?|bagels?|crumpets?|scones?|waffles?|pancakes?|batter|battered|tempura|croutons?|wheat|barley|rye|couscous|naan|pittas?|flatbreads?|crackers?|wafers?|crumble|subs?|burgers?|nuggets?|katsu|gyoza|dumplings?|churros?|tarts?|rolls?)\b/i,
+  gluten: /\b(?:bread|breaded|buns?|baguettes?|paninis?|toasties?|toast|sandwich(?:es)?|wraps?|pasta|spaghetti|penne|lasagne|pizzas?|noodles?|ramen|udon|pies?|pastry|pastries|croissants?|muffins?|cakes?|cheesecakes?|cookies?|biscuits?|brownies?|doughnuts?|donuts?|bagels?|crumpets?|scones?|waffles?|pancakes?|batter|battered|tempura|croutons?|wheat|barley|rye|couscous|naan|pittas?|flatbreads?|crackers?|wafers?|crumble|subs?|burgers?|nuggets?|katsu|gyoza|dumplings?|churros?|tarts?|rolls?|oats?|oaty|oatmeal|porridge|flapjacks?|granola|muesli)\b/i,
 };
-const FREE_OF = /\b(?:vegan|dairy[\s-]?free|milk[\s-]?free|egg[\s-]?free|gluten[\s-]?free|nut[\s-]?free|plant[\s-]?based|oat|soya[\s-]?milk|almond[\s-]?milk|coconut[\s-]?milk)\b/i;
+// The name says it is the free-from version of a food from ONE allergen group ("Vegan mayo" for eggs, "Gluten-free bun" for gluten).
+// Each word clears only its own group: an almond is still a nut in a "Vegan Almond Croissant", and oats are a gluten cereal.
+const FREE_FROM: Partial<Record<AllergenKey, RegExp>> = {
+  milk: /\b(?:vegan|plant[\s-]?based|dairy[\s-]?free|milk[\s-]?free)\b/i,
+  eggs: /\b(?:vegan|plant[\s-]?based|egg[\s-]?free)\b/i,
+  gluten: /\bgluten[\s-]?free\b/i,
+  nuts: /\bnut[\s-]?free\b/i,
+};
+// A plant milk named as the milk ("Oat milk latte", "Soya latte", "Coconut milk curry"). Hazelnut, almond or coconut before "latte" or "mocha" is a flavour,
+// so only oat and soya are read that way; "Hazelnut milk chocolate" is milk chocolate. Such a drink's milk words are then the plant milk's, but any other
+// dairy word in the name still counts ("Oat Milk Hot Chocolate with Whipped Cream").
+const PLANT_MILK = /\b(?:oat|soya|soy|almond|coconut|rice|cashew|hazelnut|pea)[\s-]?(?:milk|drink)\b(?!\s+choc)/gi;
+const MILK_DRINKS = "(?:chai lattes?|lattes?|flat whites?|cappuccinos?|mochas?|macchiatos?|hot chocolates?)";
+const PLANT_DRINK = new RegExp(`\\b(?:oat|soya|soy)\\s+${MILK_DRINKS}\\b`, "i");
+const MILK_DRINK_WORDS = new RegExp(`\\b${MILK_DRINKS}\\b`, "gi");
+const namesPlantMilk = (name: string): boolean => PLANT_DRINK.test(name) || new RegExp(PLANT_MILK.source, "i").test(name);
+const milkLeft = (text: string): string => text.replace(PLANT_MILK, " ").replace(MILK_DRINK_WORDS, " ");
 
 /** True when the dish's own name or section names a food from one of these allergen groups (never a promise the dish is free of anything). */
 export function namesAllergen(item: { name: string; category?: string | null }, avoid: readonly AllergenKey[]): boolean {
@@ -121,18 +149,23 @@ export function namesAllergen(item: { name: string; category?: string | null }, 
   return avoid.some((k) => {
     const re = NAMED_ALLERGEN[k];
     if (!re || !re.test(text)) return false;
-    // "Oat milk latte", "Vegan mayo", "Gluten-free bun": the name itself says it's the free-from version of that food
-    return !(FREE_OF.test(item.name) && (k === "milk" || k === "eggs" || k === "gluten" || k === "nuts"));
+    if (FREE_FROM[k]?.test(item.name)) return false;
+    if (k === "milk" && namesPlantMilk(item.name)) return re.test(milkLeft(text));
+    return true;
   });
 }
 
 /**
  * The restaurant page's menu rule: passesDiet, except that a choice the restaurant's own data can't check (uncheckedDiet) leaves out only the dishes whose
- * own name or menu section plainly says otherwise. Best for you keeps the strict rule (it recommends; it never suggests a dish it can't check).
+ * own name or menu section, or its own pork and beef tags, plainly say otherwise. Best for you never ranks such a restaurant's dishes for that choice
+ * (app/app/chain/ChainScreen.tsx shows "can't pick" instead): it recommends, so it never suggests a dish it can't check.
  */
 export function passesMenuDiet(item: MenuItem, prefs: Preferences, unchecked: UncheckedDiet): boolean {
   // the menu section ("Chicken", "Beef burgers") is read like a product type: its words count, "Vegetarian" or "Vegan" sections mark a meat-free dish
-  const named = { name: item.name, ...(item.category ? { type: item.category } : {}) };
+  // ("Chicken & plant-based" still says chicken: a meat-free word in a section clears its dishes only when the whole section is meat-free, and the
+  // section's meat words don't count against a dish whose own name says it is meat-free, the "Spicy Bean Burger" in that section)
+  const section = MEAT_FREE_DISH.test(item.name) ? "" : sectionForDiet(item.category ?? "");
+  const named = { name: nameForMeat(item.name), ...(section ? { type: section } : {}) };
   const strict: Preferences = {
     ...prefs,
     vegetarianOnly: prefs.vegetarianOnly && !unchecked.vegetarian,
@@ -141,12 +174,30 @@ export function passesMenuDiet(item: MenuItem, prefs: Preferences, unchecked: Un
     avoidAllergens: unchecked.allergies ? [] : prefs.avoidAllergens,
   };
   if (!passesDiet(item, strict)) return false;
+  // a restaurant that marks its vegetarian dishes but names none vegan: by its own marks an unmarked dish isn't vegetarian, so it isn't vegan either
+  if (unchecked.vegan && unchecked.vegetarianMarks && !item.tags.includes("vegetarian")) return false;
   if (unchecked.vegetarian && prefs.vegetarianOnly && foodDietProblem(named, { ...NO_DIET, vegetarianOnly: true })) return false;
   if (unchecked.vegetarian && prefs.pescatarianOnly && foodDietProblem(named, { ...NO_DIET, pescatarianOnly: true })) return false;
-  if ((unchecked.vegetarian || unchecked.vegan) && RESTAURANT_MEAT.test(item.name)) {
-    const sig = foodSignals(named);
-    // "Veggie Burger", "Plant-based Whopper" stay; for a pescatarian, so does a fish burger
-    if (!sig.vegNamed && !isNamedVegan(item) && !(prefs.pescatarianOnly && sig.fish)) return false;
+  if (unchecked.vegetarian || unchecked.vegan) {
+    // the restaurant's own data says pork or beef: never shown as fitting a vegetarian, pescatarian or vegan, whatever the name
+    if (item.tags.includes("contains_pork") || item.tags.includes("contains_beef")) return false;
+    // a dish the restaurant itself marks vegetarian has no meat, whatever its section or name ("Korean Fried Chick+n" in "Burgers"); not for a vegan at a
+    // menu that names no dish vegan: a vegetarian mark says nothing about dairy or eggs, so there the burger, wings or chick'n name still counts
+    const markedVegetarian = item.tags.includes("vegetarian") && !unchecked.vegan;
+    const category = item.category ?? "";
+    if (!markedVegetarian && (RESTAURANT_MEAT.test(nameForMeat(item.name)) || (meatSection(category) && !SECTION_EXTRAS.test(item.name)))) {
+      const sig = foodSignals({ name: item.name });
+      // "Veggie Burger", "Plant-based Whopper", "Spicy Bean" (in a "Burgers" section) stay; for a pescatarian, so does a fish burger
+      const meatFree = sig.vegNamed || isNamedVegan(item) || MEAT_FREE_DISH.test(item.name) || MEAT_FREE_NAME.test(item.name) || (!unchecked.vegan && VEGETARIAN_MARK.test(item.name))
+        || meatFreeSection(category) || (prefs.pescatarianOnly && sig.fish)
+        // "Chick'n" is how many menus spell a plant-based one: kept when the only meat word is that spelling and the section says vegan or plant-based
+        || (chicknOnly(item.name) && !meatSection(category) && VEGAN_SECTION_WORD.test(category));
+      if (!meatFree) return false;
+    }
+    // fish or seafood named in other words: a vegetarian (where the restaurant doesn't mark dishes) and a vegan leave it out; a pescatarian keeps it
+    const fishOut = (unchecked.vegetarian && prefs.vegetarianOnly) || unchecked.vegan;
+    if (fishOut && !markedVegetarian && RESTAURANT_FISH.test(item.name) && !(foodSignals({ name: item.name }).vegNamed || isNamedVegan(item) || MEAT_FREE_DISH.test(item.name))) return false;
+    if (unchecked.vegan && RESTAURANT_EGG.test(item.name) && !isNamedVegan(item)) return false;
   }
   if (unchecked.vegan && foodDietProblem(named, { ...NO_DIET, veganOnly: true })) return false;
   if (unchecked.allergies && namesAllergen(item, prefs.avoidAllergens ?? [])) return false;
@@ -154,8 +205,54 @@ export function passesMenuDiet(item: MenuItem, prefs: Preferences, unchecked: Un
 }
 
 const NO_DIET: Preferences = { vegetarianOnly: false, noPork: false, noBeef: false };
-// On a restaurant menu these dishes are meat unless their name says otherwise ("Cheeseburger", "Kids Nuggets", "Hot Dog"): used only to leave dishes out.
-const RESTAURANT_MEAT = /\b(?:burgers?|cheeseburgers?|hamburgers?|nuggets?|mcnuggets|hot ?dogs?|kebabs?|meatballs?|wings?|pepperoni)\b/i;
+// On a restaurant menu these dishes (or a menu section named after them: a Whopper sits in "Burgers") are meat unless their name says otherwise
+// ("Cheeseburger", "Kids Nuggets", "Hot Dog", "8oz Sirloin", "Tenders x 3"): used only to leave dishes out. A sweet "Mince Pie" is not mince.
+// "Boneless Bites", "Pretzel Dog", "Chicken Gyros", "Scotch Pie" and "Kids Meal – Strips" too; strips of a vegetable or bread ("Pepper & Cucumber Strips")
+// aren't, nor is a "Rock dog" (dogfish, a chip shop's rock salmon).
+// A burger or kebab inside a longer word ("Yumburger", "Burgersteak", "Just Kebabin'"), a bites dish named by its flavour ("BBQ Bites Meal Box"; "Garlic
+// Dough Bites" and "Spicy Cauliflower Bites" aren't), and chicken or pork as a Japanese or Chinese menu names it ("Karaage", "Yakitori", "Char siu"; a
+// "Tonkatsu BBQ" sauce or dressing isn't).
+// "Chick'n", "Chick n Rice", "Thic Chick", "Chickadee" are chicken; a chickpea, "No Chick'n", "Chickisn't" and an "Easter Chick" biscuit aren't.
+const CHICK_SPELLING = String.raw`(?<!\b(?:no|easter)[\s-])\bchick(?!en|pea|isn|less)(?![\s-]+peas?\b)\w*`;
+const RESTAURANT_MEAT_WORDS = String.raw`\b(?:\w*burgers?\w*|nuggets?|mcnuggets|hot ?dogs?|(?<!\brock\s)dogs?|\w*kebabs?\w*|(?:bbq|spicy|southern[\s-]fried)\s+bites|karaage|kara-age|yakitori|chashu|char siu|gyudon|tonkatsu(?!\s+(?:bbq|sauce|dressing))|meatballs?|wings?|pepperoni|tenders?(?!\s+stems?\b)|boneless|gyros?|scotch pies?|sirloin|rump|rib[\s-]?eye|(?<!\bcorn\s)ribs?|wagyu|t[\s-]?bone|tomahawk|chateaubriand|porterhouse|picanha|savoury mince|pigs?|pig's|cheesesteaks?|mixed grill|\w+chicken\w*|chi?kn|(?:traditional|cornish|christmas|dinner)\s+past(?:y|ies)|(?<!\b(?:onion|potato|veg|vegetable|sage|stuffing)\s)patt(?:y|ies)|(?<!\b(?:pepper|peppers|cucumber|carrot|potato|courgette|tomato|tortilla|pitta|onion|celery|apple|mango|fruit|liquorice|pastry)\s)strips?)\b|\bmince\b(?!\s+pies?\b)|\bmeat(?![\s-]?free|less)\w*|\bchicken(?!less)\w+`;
+const RESTAURANT_MEAT = new RegExp(`${RESTAURANT_MEAT_WORDS}|${CHICK_SPELLING}`, "i");
+const RESTAURANT_MEAT_BUT_CHICK = new RegExp(RESTAURANT_MEAT_WORDS, "i");
+const CHICK_RE = new RegExp(CHICK_SPELLING, "i");
+// the name's only meat word is a "Chick'n" spelling
+const chicknOnly = (name: string): boolean => CHICK_RE.test(name) && !RESTAURANT_MEAT_BUT_CHICK.test(name) && !foodSignals({ name }).meat;
+// "Tomato chutney (burger add-on)", "Curry Topping for Hot Dog", "Hot Dog Bun": the burger or hot dog is what the extra goes on, not the dish (read this way
+// by the name rule below and by the vegetarian word rules, foodDietProblem)
+const EXTRA_FOR = /\b(?:burger|hot ?dog)\s+(?:add[\s-]?ons?|toppings?|relish|sauces?|buns?|rolls?)\b|\btoppings?\s+for\s+(?:a\s+)?(?:burgers?|hot ?dogs?)\b/gi;
+const nameForMeat = (name: string): string => name.replace(EXTRA_FOR, " ");
+const VEGAN_SECTION_WORD = /\b(?:vegan|plant[\s-]?based|meat[\s-]?free|cluckless|vegetarian|veggie)\b/i;
+// A section is read as meat only when every part of its name is ("Burgers", "Wings and strips", "Hot dog combinations"), never when it lists other foods
+// too ("Pretzels, nuggets & stix", "Ciabattas, wraps & lunch burger") or holds the extras ("Burger add-ons").
+const SECTION_MEAT = /\b(?:\w*burgers?\w*|hot ?dogs?|\w*kebabs?\w*|wings?|tenders?|strips)\b/i;
+const SECTION_EXTRAS = /\b(?:add[\s-]?ons?|extras?|toppings?|sides?|sauces?|dips?|drinks?|parts)\b/i;
+const sectionParts = (category: string): string[] => category.split(/\s*(?:,|&|\band\b|\/)\s*/i).filter(Boolean);
+const meatSection = (category: string): boolean =>
+  !SECTION_EXTRAS.test(category) && sectionParts(category).every((part) => SECTION_MEAT.test(part));
+// Meat-free versions a menu names by their own words or brand ("Cluckless Tenders", "McPlant", "BBQ Beyond", "Spicy Bean", "Halloumi Burger", a "Vegetarian burgers" section).
+const MEAT_FREE_DISH = /\b(?:veggie|vegetarian|vegan|plant[\s-]?based|meat[\s-]?free|cluckless|mcplant|beyond|quorn|tofu|bean|vegetable|halloumi|paneer|falafel)\b/i;
+// For the burger, wings and chick'n name rule only (the section's own words still count): a "Plant Burger", Nando's "Beanie Patty", cauliflower wings,
+// and the restaurant's own "(VE)" or "(VG)" mark; its "(V)" mark too, except for a vegan (like its vegetarian tag, it says nothing about dairy or eggs).
+const MEAT_FREE_NAME = /\b(?:plant|beanie|cauliflower\s+(?:wings?|bites?|karaage)|(?:veggie|vegan|bean|plant|tofu|quorn|falafel)burgers?)\b|\((?:ve|vg)\)/i;
+// Fish, seafood and roe named in other words (a sushi menu's "Ebi Nigiri", "Kani Korokke"; "Eel", "Yellowtail", "Crabstick"): left out for a vegetarian or
+// vegan where the restaurant doesn't mark its dishes, never for a pescatarian. "Tamago" (egg) is left out for a vegan.
+const RESTAURANT_FISH = new RegExp(String.raw`\b(?:ebi|kani|hotate|ika|tako|takoyaki|eels?|yellowtail|surimi|crabsticks?)\b|${JAPANESE_FISH}`, "i");
+const RESTAURANT_EGG = /\btamago\b/i;
+const VEGETARIAN_MARK = /\(v\)/i;
+const meatFreeSection = (category: string): boolean => {
+  const parts = sectionParts(category);
+  return parts.length > 0 && parts.every((part) => MEAT_FREE_DISH.test(part));
+};
+// The section as the word rules should read it: whole if it is wholly meat-free ("Vegetarian burgers"), otherwise without its meat-free words.
+// In a section of extras ("Burger add-ons", "Burger & hot dog parts") the burger or hot dog is what the extras go on, so those two words are dropped too.
+const sectionForDiet = (category: string): string => {
+  if (meatFreeSection(category)) return category;
+  const words = category.replace(new RegExp(MEAT_FREE_DISH.source, "gi"), " ");
+  return (SECTION_EXTRAS.test(category) ? words.replace(/\b(?:\w*burgers?|hot ?dogs?)\b/gi, " ") : words).replace(/\s+/g, " ").trim();
+};
 
 export const anyDietFilter = (p: Preferences): boolean =>
   p.vegetarianOnly || p.noPork || p.noBeef || Boolean(p.veganOnly) || Boolean(p.pescatarianOnly) || Boolean(p.avoidAllergens?.length);
