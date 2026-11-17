@@ -45,9 +45,14 @@ def words(s: str) -> set[str]:
     return set(re.findall(r"[a-z0-9]+", s))
 
 
+def thousands(text: str) -> str:
+    """A thousands separator taken out ("1,222.9 kJ" -> "1222.9 kJ", as Aldi prints energy); a comma between other figures is left alone."""
+    return re.sub(r"(?<!\d)(\d{1,3}),(\d{3})(?!\d)", r"\1\2", text or "")
+
+
 def printed(cell: str) -> str | None:
     """The first number in a cell exactly as printed, with a leading "<" kept ("<0.5"); None when there is none."""
-    m = NUM.search(cell or "")
+    m = NUM.search(thousands(cell))
     if not m:
         return None
     return ("<" if m.group(1) else "") + m.group(2)
@@ -55,7 +60,7 @@ def printed(cell: str) -> str | None:
 
 def energy(cells: list[str], label: str) -> tuple[str | None, str | None]:
     """(kJ, kcal) from one energy cell ("99kJ/23kcal", "99 kJ 23 kcal") or a labelled row ("Energy (kcal)" -> kcal only)."""
-    text = " ".join(cells)
+    text = thousands(" ".join(cells))
     kj = re.search(r"(\d+(?:\.\d+)?)\s*kj", text, re.I)
     kc = re.search(r"(\d+(?:\.\d+)?)\s*kcal", text, re.I)
     if not kj and not kc:
