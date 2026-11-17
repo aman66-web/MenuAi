@@ -122,6 +122,10 @@ await step("Recipes shows the Make it at home card; a free person gets the paywa
   await heading(pro.page, "Make it at home").waitFor();
   await pro.page.getByLabel("Name of the dish").waitFor();
   await pro.page.getByLabel("A short description").waitFor();
+  // Next is in view without scrolling, just above the tab bar (founder: "you can't see the next button ... you have to scroll down")
+  const nextBox = await pro.page.getByRole("button", { name: "Next", exact: true }).boundingBox();
+  const barTop = await pro.page.evaluate(() => Math.min(...[...document.querySelectorAll("nav")].map((n) => n.getBoundingClientRect().top).filter((y) => y > 0)));
+  expect(nextBox && nextBox.y >= 0 && nextBox.y + nextBox.height <= barTop + 1, `Next isn't in view above the tab bar: ${JSON.stringify(nextBox)} / bar at ${barTop}`);
   expect((await pro.page.getByRole("button", { name: "Next", exact: true }).isDisabled()), "Next is on before the dish has a name");
   expect((await pro.page.getByRole("button", { name: "Take a photo" }).count()) === 0, "the photo buttons show before the dish is named");
   expect(pro.errors.length === 0, pro.errors.join(" | "));

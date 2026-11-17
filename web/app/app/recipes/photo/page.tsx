@@ -391,7 +391,11 @@ function PhotoScreen() {
             <p id="dish-nudge" role="alert" className="glass mt-3 rounded-[1.25rem] p-4 font-semibold">{t("Add a bit more, like the flavour or sauce, so the recipe matches your photo.")}</p>
           )}
 
-          <Button full className="mt-5 min-h-14 text-lg" disabled={!name.trim()} onClick={next}>{nudged && thin ? t("Carry on anyway") : t("Next")}</Button>
+          {/* founder 2026-11-17 ("you can't see the next button ... you have to scroll down"): Next stays in view just above the tab bar, like a recipe's
+              "Add all to my shopping list", on a strip of the page's grey that the form slides under */}
+          <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-4 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-3">
+            <Button full className="min-h-14 text-lg" disabled={!name.trim()} onClick={next}>{nudged && thin ? t("Carry on anyway") : t("Next")}</Button>
+          </div>
         </section>
       )}
 
@@ -423,10 +427,12 @@ function PhotoScreen() {
             <div className="mt-4"><ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>
           ) : (
             <>
-              <Button full className="mt-5 min-h-14 text-lg" disabled={pantry.length < 2 || !photo} onClick={generate}>{t("Next")}</Button>
-              <p className="mt-3 text-[0.8125rem] leading-snug text-muted">
+              <p className="mt-5 text-[0.8125rem] leading-snug text-muted">
                 {t("Pip uses AI from Anthropic (the company that makes Claude). To write your recipe we send your photo (made smaller on your phone first), your description, your diet choices and the list of {shop} products it may use. Nothing about you, and nothing is kept. The numbers you see are worked out from the products' own labels.", { shop: shopName })}
               </p>
+              <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-4 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-3">
+                <Button full className="min-h-14 text-lg" disabled={pantry.length < 2 || !photo} onClick={generate}>{t("Next")}</Button>
+              </div>
             </>
           )}
         </section>
