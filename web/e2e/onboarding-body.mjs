@@ -29,16 +29,18 @@ async function fresh(extra = {}, init) {
 const go = (page, name) => page.getByRole("button", { name, exact: true }).click();
 const cont = (page) => go(page, "Continue");
 const head = (page, name) => vis(page.getByRole("heading", { name }));
-/** The welcome screens and Pip's walk, to "What's your goal?". */
+/** The welcome screen, Pip's arrival and the text size, then "Skip tour" and "Set up my plan", to "What's your goal?". */
 async function toGoal(page, path = "/app/welcome") {
   await page.goto(BASE + path);
   await go(page, "Get started");
   await go(page, "Show me around");
-  for (let i = 0; i < 4; i++) { await page.waitForTimeout(150); await cont(page); }
-  await go(page, "Let's go!");
+  await head(page, "Easy to read");
+  await go(page, "Skip tour");
+  await head(page, "Let's make it yours");
+  await go(page, "Set up my plan");
   await head(page, "What's your goal?");
 }
-const status = (page, n) => vis(page.getByText(`Step ${n} of 10`));
+const status = (page, n) => vis(page.getByText(`Step ${n} of 9`));
 const num = (page, id) => page.locator(`#target-${id}`).inputValue();
 const targets = async (page) => ({ calories: await num(page, "calories"), protein: await num(page, "protein"), carbs: await num(page, "carbs"), fat: await num(page, "fat") });
 const settingsOf = (page) => page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings") ?? "null")?.data ?? {});
@@ -91,7 +93,7 @@ async function toTargets(page, p) {
   await head(page, "Your daily targets");
 }
 
-await step("(a) the screens come in the new order with the right headings and 'Step n of 10'", async () => {
+await step("(a) the screens come in the new order with the right headings and 'Step n of 9' (the text size is chosen at the start of the tour now)", async () => {
   const { ctx, page, errors } = await fresh();
   await toGoal(page);
   await status(page, 1);
@@ -114,13 +116,12 @@ await step("(a) the screens come in the new order with the right headings and 'S
   await cont(page);
   await head(page, "Where do you shop?"); await status(page, 7);
   await cont(page);
-  await head(page, "Easy to read"); await status(page, 8);
+  await head(page, "You're all set!"); await status(page, 8);
   await cont(page);
-  await head(page, "You're all set!"); await status(page, 9);
-  await cont(page);
-  await head(page, "Choose a recipe to start with"); await status(page, 10);
+  await head(page, "Choose a recipe to start with"); await status(page, 9);
+  expect((await page.getByRole("heading", { name: "Easy to read" }).count()) === 0, "the text size is no longer a question");
   const segments = await page.evaluate(() => [...document.querySelectorAll("div[aria-hidden='true']")].find((d) => d.className.includes("gap-1.5") && d.children.length > 5)?.children.length);
-  expect(segments === 10, "ten progress segments, got " + segments);
+  expect(segments === 9, "nine progress segments, got " + segments);
   expect(errors.length === 0, errors[0]);
   await ctx.close();
 });
@@ -147,7 +148,6 @@ await step("(b) person A (a vegan woman in stone and feet): the targets arrive f
   expect(s.dailyCalories === 1600 && s.dailyProtein === 115 && s.dailyCarbs === 165 && s.hasSetTargets === true, "saved: " + JSON.stringify(s));
   expect(!("dailyFat" in s) || s.dailyFat === undefined, "an emptied fat box stays unset: " + s.dailyFat);
   // on to the end, and Home shows the same numbers (typed ones first, the empty fat worked out from the calories: 30% of 1,600 at 9 kcal/g = 53 -> 55)
-  await page.getByRole("button", { name: "Skip", exact: true }).click();
   await page.getByRole("button", { name: "Skip", exact: true }).click();
   await head(page, "You're all set!");
   const plan = await page.locator("section").innerText();
@@ -487,7 +487,7 @@ await step("(h) PRIVACY: age, sex, height, weight and activity never reach stora
   await cont(page);
   await head(page, "Where do you shop?");
   await check("after the targets were saved");
-  await go(page, "Skip"); await go(page, "Skip");
+  await go(page, "Skip");
   await head(page, "You're all set!");
   await cont(page);
   await go(page, "Take me to Home");

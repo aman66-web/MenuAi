@@ -1,6 +1,5 @@
-import { Fragment } from "react";
 import { hasMacros } from "@/lib/mm/nutrients";
-import { formatCalories, formatFineGrams, formatGrams, formatInt, formatOptionalGrams, formatSalt, formatSodium, nutrientAriaLabel, nutrientsSpoken } from "@/lib/mm/format";
+import { formatFineGrams, formatGrams, formatInt, formatOptionalGrams, formatSalt, formatSodium, nutrientAriaLabel, nutrientsSpoken } from "@/lib/mm/format";
 import type { Nutrients } from "@/lib/mm/types";
 import { useT } from "../_lib/i18n";
 
@@ -50,33 +49,31 @@ export function MacroSummary({ nutrients: n, label, compact }: { nutrients: Nutr
   );
 }
 
-/** One-line numbers under an item name: "520 kcal · 32g protein · 55g carbs · 18g fat" (spoken in full words). Inline-safe inside links. */
+/**
+ * The numbers under an item name in a menu list: calories and protein as two grey badges (as on recipe cards and grocery rows), then
+ * "55g carbs · 18g fat" on a line of their own (spoken in full words). Each badge and each figure keeps its unit with it, so nothing
+ * splits or leaves a "·" hanging at the end of a line. Spans only, so it is valid inside the row's link.
+ */
 export function MacroLine({ nutrients }: { nutrients: Nutrients }) {
   const t = useT();
   if (!hasMacros(nutrients)) {
     // a calories-only chain: protein, carbs and fat are not published, and the chain page says so
-    return <span className="app-numbers mt-0.5 block text-[0.9375rem] font-semibold leading-snug text-foreground">{formatCalories(nutrients.calories)}</span>;
+    return (
+      <span className="app-numbers mt-0.5 block text-[0.9375rem] leading-snug text-muted">
+        <span className="mt-1 flex flex-wrap gap-1.5">
+          <span className="whitespace-nowrap rounded-lg bg-[var(--fill)] px-1.5 py-0.5"><span className="font-bold text-foreground">{formatInt(nutrients.calories)}</span> kcal</span>
+        </span>
+      </span>
+    );
   }
-  // Calories and protein first and darker (what most people look for), carbs and fat after them. Each figure keeps its unit on its
-  // line ("19g fat" never splits), and a line breaks after a "·", never before one.
-  const figures: Array<[string, boolean]> = [
-    [formatCalories(nutrients.calories), true],
-    [`${formatGrams(nutrients.protein!)} ${t("protein")}`, true],
-    [`${formatGrams(nutrients.carbs!)} ${t("carbs")}`, false],
-    [`${formatGrams(nutrients.fat!)} ${t("fat")}`, false],
-  ];
   return (
     <span className="app-numbers mt-0.5 block text-[0.9375rem] leading-snug text-muted">
-      <span aria-hidden>
-        {figures.map(([text, lead], i) => (
-          <Fragment key={i}>
-            <span className="whitespace-nowrap">
-              <span className={lead ? "font-semibold text-foreground" : undefined}>{text}</span>
-              {i < figures.length - 1 && " ·"}
-            </span>
-            {i < figures.length - 1 && " "}
-          </Fragment>
-        ))}
+      <span aria-hidden className="block">
+        <span className="mt-1 flex flex-wrap gap-1.5">
+          <span className="whitespace-nowrap rounded-lg bg-[var(--fill)] px-1.5 py-0.5"><span className="font-bold text-foreground">{formatInt(nutrients.calories)}</span> kcal</span>
+          <span className="whitespace-nowrap rounded-lg bg-[var(--fill)] px-1.5 py-0.5"><span className="font-bold text-foreground">{formatGrams(nutrients.protein!)}</span> {t("protein")}</span>
+        </span>
+        <span className="mt-1 block"><span className="whitespace-nowrap">{formatGrams(nutrients.carbs!)} {t("carbs")}</span> · <span className="whitespace-nowrap">{formatGrams(nutrients.fat!)} {t("fat")}</span></span>
       </span>
       <span className="sr-only">, {nutrientsSpoken(nutrients, t)}</span>
     </span>

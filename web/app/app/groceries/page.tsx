@@ -5,20 +5,24 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { barcodeQuery, RETAILERS } from "@/lib/mm/groceries";
 import { shoppingStore } from "@/lib/mm/stores";
-import { ChevronRightIcon, CompareIcon, ScanIcon, SearchIcon } from "../_components/icons";
+import { CoinIcon, CompareIcon, ScanIcon, SearchIcon } from "../_components/icons";
 import { ShopMark } from "../_components/ChainMark";
+import { chainGroupClass } from "../_components/ChainRow";
+import { Shortcut } from "../_components/Shortcut";
 import { Spinner } from "../_components/ui";
 import { useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { useShopManifest } from "../_lib/shopProducts";
-import { CARD, FootNote, HEADING, ListLink, ROUND, TITLE } from "./PageBits";
+import { CARD, FootNote, HEADING, ListLink, TITLE } from "./PageBits";
 import { Scanner } from "./Scanner";
 
-// Groceries starts with one plain question, "Which shop?" (founder 2026-10-11: simple enough for a 90-year-old). Each big tile opens that shop's own
-// list: every product its pages showed, with its own photo and price, and the numbers where we have them. The person's own shops (onboarding, Settings)
-// come first, each as a wide tile across the row with a small lime "Your shop" mark under its count, so the two-across tiles below all have the same
-// height (a tag in a half-width tile made its row taller than the rest, and no place beside the logo is wide enough for it in every language). Searching every shop at once, scanning a barcode and comparing are three rows of one card.
-// Looks follow Home (founder 2026-10-15): the compact title, a grey pill for "My list", white tiles two across, no chevrons on tiles.
+// Groceries puts its tools first, laid out like Eat out (founder 2026-11-17: the tools at the bottom were being ignored): the white "Search every shop
+// at once" pill, then one card of Eat out's shortcut rows (Scan a barcode in lime, the one highlighted thing; Cheapest protein; Compare products), so they
+// work at once even while the shop list loads. Then the unchanged plain question, "Which shop?" (founder 2026-10-11: simple enough for a 90-year-old).
+// Each big tile opens that shop's own list: every product its pages showed, with its own photo and price, and the numbers where we have them. The person's
+// own shops (onboarding, Settings) come first, each as a wide tile across the row with a small lime "Your shop" mark under its count, so the two-across
+// tiles below all have the same height (a tag in a half-width tile made its row taller than the rest, and no place beside the logo is wide enough for it
+// in every language). Looks follow Home (founder 2026-10-15): the compact title, a grey pill for "My list", white tiles two across, no chevrons on tiles.
 
 /** Two tiles side by side, one above the other when the text is large (the minimum width is in rem, so it grows with the text size). */
 const PAIR = "grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] gap-3.5";
@@ -34,7 +38,6 @@ export default function GroceriesPage() {
   const order = (id: string) => (mine.includes(id) ? mine.indexOf(id) : 100 + RETAILERS.findIndex((r) => r.id === id));
   const shops = lists ? [...lists.retailers].sort((a, b) => order(a.id) - order(b.id)) : null;
   const missing = lists ? RETAILERS.filter((r) => !lists.retailers.some((x) => x.id === r.id)).map((r) => r.name) : [];
-  const row = "flex min-h-14 w-full items-center gap-3.5 px-4 text-start text-base font-semibold transition hover:bg-[var(--fill)] active:bg-soft-strong first:rounded-t-[1.25rem] last:rounded-b-[1.25rem]";
 
   return (
     <div>
@@ -43,7 +46,19 @@ export default function GroceriesPage() {
         <h1 className={TITLE}>{t("Groceries")}</h1>
         <ListLink count={list.length} />
       </div>
-      <h2 className={`mt-7 ${HEADING}`}>{t("Which shop?")}</h2>
+
+      <Link href="/app/groceries/search" className="glass mt-5 flex min-h-[3.25rem] items-center gap-3 rounded-[1.625rem] px-5 text-muted transition hover:bg-soft-strong active:scale-[0.99]">
+        <SearchIcon className="h-5 w-5 shrink-0 text-foreground" />
+        <span className="min-w-0 flex-1 py-3 text-base leading-snug [overflow-wrap:anywhere]">{t("Search every shop at once")}</span>
+      </Link>
+
+      <div className={`mt-3.5 ${chainGroupClass}`}>
+        <Shortcut onClick={() => setScanning(true)} highlight icon={<ScanIcon />} title={t("Scan a barcode")} line={t("Look up a product you're holding")} />
+        <Shortcut href="/app/groceries/protein" icon={<CoinIcon />} title={t("Cheapest protein")} line={t("What 10 g of protein costs")} />
+        <Shortcut href="/app/compare?tab=food" icon={<CompareIcon />} title={t("Compare products")} line={t("Put products side by side, even from different shops")} />
+      </div>
+
+      <h2 className={`mt-8 ${HEADING}`}>{t("Which shop?")}</h2>
       <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Tap a shop to see its products, prices and photos.")}</p>
 
       {!shops ? (
@@ -69,29 +84,6 @@ export default function GroceriesPage() {
         </ul>
       )}
       {missing.length > 0 && <p className="mt-3.5 text-[0.9375rem] leading-snug text-muted">{t("Not here yet: {shops}.", { shops: missing.join(", ") })}</p>}
-
-      <div className={`${CARD} mt-6 divide-y divide-line`}>
-        <button type="button" className={row} onClick={() => setScanning(true)}>
-          <span aria-hidden className={ROUND}><ScanIcon className="h-[18px] w-[18px]" /></span>
-          <span className="min-w-0 flex-1">{t("Scan a barcode")}</span>
-          <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />
-        </button>
-        <Link href="/app/groceries/search" className={row}>
-          <span aria-hidden className={ROUND}><SearchIcon className="h-[18px] w-[18px]" /></span>
-          <span className="min-w-0 flex-1">{t("Search every shop at once")}</span>
-          <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />
-        </Link>
-        <Link href="/app/groceries/protein" className={row}>
-          <span aria-hidden className={ROUND}><CompareIcon className="h-[18px] w-[18px]" /></span>
-          <span className="min-w-0 flex-1">{t("Cheapest protein")}</span>
-          <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />
-        </Link>
-        <Link href="/app/compare?tab=food" className={row}>
-          <span aria-hidden className={ROUND}><CompareIcon className="h-[18px] w-[18px]" /></span>
-          <span className="min-w-0 flex-1">{t("Compare products")}</span>
-          <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />
-        </Link>
-      </div>
 
       <FootNote>{t("Prices appear only where we've read them from the supermarket's own website. Not affiliated with any supermarket.")}</FootNote>
 

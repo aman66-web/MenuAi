@@ -6,6 +6,8 @@ import { mkdirSync } from "node:fs";
 mkdirSync(SHOTS, { recursive: true });
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, colorScheme: "light" });
+// The welcome tour has been seen on this phone (e2e/tour.mjs covers the tour a first plain launch opens), so a plain /app here opens Home.
+await ctx.addInitScript(() => { if (!localStorage.getItem("mm.v1.tour")) localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 1 })); });
 const page = await ctx.newPage();
 
 const problems = [];
@@ -27,7 +29,7 @@ const text = (t) => page.getByText(t, { exact: false }).first();
 const shot = (n) => page.screenshot({ path: `${SHOTS}${n}.png`, fullPage: false });
 const visible = async (loc, timeout = 8000) => { await loc.waitFor({ state: "visible", timeout }); };
 
-await step("first visit goes straight to Home: no questionnaire first, and a quiet card offers to set a goal", async () => {
+await step("a visit after the welcome tour goes straight to Home: no questionnaire first, and a quiet card offers to set a goal", async () => {
   await page.goto(`${BASE}/app`);
   await visible(page.getByRole("heading", { level: 1, name: "Home" }));
   if (page.url().includes("welcome")) throw new Error("redirected to welcome");
@@ -35,7 +37,7 @@ await step("first visit goes straight to Home: no questionnaire first, and a qui
   await visible(page.getByRole("button", { name: "Set up" }));
   await shot("00-first-visit-home");
 });
-await step("the guided setup is still there at /app/welcome: welcome, Pip's arrival and walk, the first question", async () => {
+await step("the guided setup at /app/welcome: welcome, Pip's arrival, the text size, Pip's walk with what each tab does, 'Let's make it yours', the first question", async () => {
   await page.goto(`${BASE}/app/welcome`);
   await visible(page.getByRole("button", { name: "Get started" }));
   await shot("00-onboarding-welcome");
@@ -46,20 +48,29 @@ await step("the guided setup is still there at /app/welcome: welcome, Pip's arri
   await page.waitForTimeout(1800); // the arrival animation
   await shot("00-onboarding-pip");
   await page.getByRole("button", { name: "Show me around" }).click();
+  // the text size comes first now, saved on the tap
+  await visible(page.getByRole("heading", { name: "Easy to read" }));
+  await page.getByRole("radio", { name: "Large", exact: true }).click();
+  await page.getByRole("radio", { name: "Standard", exact: true }).click();
+  await visible(text("Perfect, that's easy on the eyes!"));
+  await page.getByRole("button", { name: "Continue" }).click();
   for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Community"]) {
     await visible(page.getByRole("heading", { level: 1, name: tab, exact: true }));
-    if (tab === "Home") await visible(text("The gear at the top opens Settings."));
-    if (tab === "Eat out") await visible(text("Every restaurant, café and pub"));
-    if (tab === "Community") await visible(text("Short articles on eating out, shopping and cooking."));
+    await visible(page.getByRole("heading", { level: 2, name: "What you can do" }));
+    if (tab === "Home") await visible(text("The gear at the top opens Settings: your goal, diet, text size, and this tour again."));
+    if (tab === "Eat out") await visible(text("Search for any restaurant or dish by name."));
+    if (tab === "Community") await visible(text("Food blogs are short, easy reads about eating out, shopping and cooking."));
     await page.waitForTimeout(900); // Pip's hop to this tab
     if (tab === "Recipes") await shot("00-onboarding-tour");
-    await page.getByRole("button", { name: tab === "Community" ? "Let's go!" : "Continue" }).click();
+    await page.getByRole("button", { name: "Continue" }).click();
   }
+  await visible(page.getByRole("heading", { name: "Let's make it yours" }));
+  await page.getByRole("button", { name: "Set up my plan" }).click();
   await visible(page.getByRole("heading", { name: "What's your goal?" }));
-  await visible(text("Step 1 of 10"));
+  await visible(text("Step 1 of 9"));
   await shot("01-onboarding-goal");
 });
-await step("onboarding: welcome → goal → targets → preferences → shops → text size → all set → Start", async () => {
+await step("onboarding: goal → preferences → about you → targets → shops → all set → a first recipe", async () => {
   await page.getByRole("radio", { name: "Build muscle" }).click();
   await page.getByRole("button", { name: "Continue" }).click();
   await visible(page.getByRole("heading", { name: "Anything you avoid?" }));
@@ -86,11 +97,6 @@ await step("onboarding: welcome → goal → targets → preferences → shops �
   await visible(page.getByRole("heading", { name: "Where do you shop?" }));
   await page.getByRole("button", { name: "Sainsbury's", exact: true }).click();
   await visible(text("Lovely! I'll show those shops first."));
-  await page.getByRole("button", { name: "Continue" }).click();
-  await visible(page.getByRole("heading", { name: "Easy to read" }));
-  await page.getByRole("radio", { name: "Large", exact: true }).click();
-  await page.getByRole("radio", { name: "Standard", exact: true }).click();
-  await visible(text("Perfect, that's easy on the eyes!"));
   await page.getByRole("button", { name: "Continue" }).click();
   await visible(page.getByRole("heading", { name: "You're all set!" }));
   await visible(text("Your plan"));
@@ -159,7 +165,9 @@ await step("chain page: free user sees blurred Best for you, menu rows with macr
   await page.goto(`${BASE}/app/chain?id=bowl-and-co`);
   await visible(page.getByRole("heading", { name: "Bowl & Co." }));
   await visible(page.getByRole("button", { name: /See your 5 best orders/ }));
-  await visible(text("655 kcal · 50g protein · 67g carbs · 21g fat"));
+  await visible(text("655 kcal"));
+  await visible(text("50g protein"));
+  await visible(text("67g carbs · 21g fat"));
   await visible(text("Not affiliated with Bowl & Co."));
   await visible(text("checked 1 Oct 2026"));
   // (The "New" badge lasts 30 days from a dish's addedOn, so it is covered by the unit tests, not by a date-dependent browser step.)

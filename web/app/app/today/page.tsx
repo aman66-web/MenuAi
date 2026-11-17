@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { dayHref, dayParam, parseDayParam, stepDay } from "@/lib/mm/day";
 import { localeInfo } from "@/lib/mm/i18n";
+import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
 import { entryMeal, loggedGaps, loggedToday, isSameLocalDay, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED } from "@/lib/mm/config";
 import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
@@ -12,9 +13,10 @@ import { itemImageUrl } from "@/lib/mm/images";
 import { deleteLogEntry, logStore, restoreLogEntry } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
 import type { Meal } from "@/lib/mm/types";
+import { AddFoodSheet } from "../_components/addfood/AddFoodSheet";
 import { useGate } from "../_components/Paywall";
 import Link from "next/link";
-import { ChevronLeftIcon, ChevronRightIcon, ForkIcon, TrashIcon } from "../_components/icons";
+import { ChevronLeftIcon, ChevronRightIcon, ForkIcon, PlusIcon, TrashIcon } from "../_components/icons";
 import { Gauge } from "../_components/Gauge";
 import { Pip } from "../_components/Mascot";
 import { Ring } from "../_components/Ring";
@@ -24,8 +26,6 @@ import { useChainIndexes, useHydrated, useIsPro, useNow, useSettings, useStore }
 import { useLanguage, useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 
-const timeFormat = new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit" });
-
 // SPEC §7.8, reached from Home's "today" card. Free: explainer + the paywall. Pro: totals against targets and today's entries.
 // Look (founder 2026-10-15, "the rest of the app should match [Home's] elegance"): one summary card in Home's voice (Home's calories dial,
 // the figures in a regular weight with the eaten one in the accent, then Home's protein, carbs and fat rows with their targets and thin
@@ -34,6 +34,9 @@ const timeFormat = new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "
 // Any day (founder 2026-10-16: "they can find any day and click on it and see their macros and what they ate on that day"): the page is a static shell that reads
 // ?d=YYYY-MM-DD (like /app/chain?id=), reached from Home's calendar and week circles; a missing, bad or future date is today. A past day shows that day's figures and
 // meals measured against the person's current targets (the app keeps no target history), with Previous day / Next day and a Today shortcut.
+// Adding from here (2026-11-17): on today all three meals are always shown, each with one "Add to …" control that opens Home's Add food sheet
+// (a wide button while the meal is empty, a round + beside its heading once something is in it), and an "Added … to Lunch." line with Undo at
+// the top, as on Home. Past days stay read-only: only meals with entries, no add controls. Times read on the app's own clock (en-GB "08:05").
 
 /** Home's macro row (app/app/page.tsx): "PROTEIN   144g / 150g" in small spaced capitals and DM Mono, the same grey, and a thin bar below. */
 function MacroRow({ label, eaten, target }: { label: string; eaten: number; target?: number }) {
@@ -64,6 +67,7 @@ function TodayScreen() {
   const hydrated = useHydrated();
   const t = useT();
   const htmlLang = localeInfo(useLanguage()).htmlLang;
+  const timeFormat = new Intl.DateTimeFormat(htmlLang, { hour: "2-digit", minute: "2-digit" });
   const pro = useIsPro();
   const { showPaywall } = useGate();
   const settings = useSettings();
@@ -74,6 +78,14 @@ function TodayScreen() {
   const [undo, setUndo] = useState<LogEntry | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
+  // Home's Add food sheet, opened for the meal tapped; what it adds is offered back with an Undo for a few seconds (as on Home).
+  const [addTo, setAddTo] = useState<Meal | null>(null);
+  const [added, setAdded] = useState<{ entry: LogEntry; meal: Meal } | null>(null);
+  useEffect(() => {
+    if (!added) return;
+    const hide = setTimeout(() => setAdded(null), 8000);
+    return () => clearTimeout(hide);
+  }, [added]);
   const todays = log.filter((e) => isSameLocalDay(new Date(e.loggedAt), day)).sort((a, b) => Date.parse(a.loggedAt) - Date.parse(b.loggedAt));
   const indexes = useChainIndexes(pro ? todays.filter((e) => e.source === "item").map((e) => e.chainId) : []);
 
@@ -154,50 +166,74 @@ function TodayScreen() {
         {!isToday && <p className="mt-4 text-sm leading-snug text-muted">{t("These totals use your current targets.")}</p>}
       </Card>
 
-      {todays.length === 0 ? (
+      {!isToday && todays.length === 0 ? (
         <div className="mt-5">
-          {isToday ? (
-            <EmptyState icon={<Pip mood="point" size={64} />} title={t("Nothing logged yet today")} body={t("Open an item or build an order, then tap Log.")} />
-          ) : (
-            <EmptyState icon={<Pip mood="point" size={64} />} title={t("Nothing was logged on this day.")} />
-          )}
+          <EmptyState icon={<Pip mood="point" size={64} />} title={t("Nothing was logged on this day.")} />
         </div>
       ) : (
         <div className="mt-5 space-y-3.5">
           {MEALS.map((meal) => {
             const entries = byMeal(meal);
-            if (entries.length === 0) return null;
+            // today shows every meal so each has its "Add to …"; a past day shows only the meals with something in them
+            if (!isToday && entries.length === 0) return null;
             const kcal = entries.reduce((s, e) => s + e.nutrients.calories, 0);
             return (
               <section key={meal} aria-labelledby={`today-${meal}`} className="glass overflow-hidden rounded-[1.25rem]">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 px-4 pb-1 pt-4">
-                  <h2 id={`today-${meal}`} className="text-lg font-[800] leading-snug tracking-[-0.01em]">{t(MEAL_LABEL[meal])}</h2>
-                  <span className="app-numbers shrink-0 font-mono text-[0.75rem] text-muted">{formatCalories(kcal)}</span>
+                <div className="flex items-center gap-3 px-4 pb-1 pt-3">
+                  <div className="flex min-w-0 flex-1 flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                    <h2 id={`today-${meal}`} className="text-lg font-[800] leading-snug tracking-[-0.01em]">{t(MEAL_LABEL[meal])}</h2>
+                    {entries.length > 0 && <span className="app-numbers shrink-0 font-mono text-[0.75rem] text-muted">{formatCalories(kcal)}</span>}
+                  </div>
+                  {/* each meal has exactly one "Add to …": this + once something is in it, the wide button below while it is empty */}
+                  {isToday && entries.length > 0 && (
+                    <button type="button" onClick={() => setAddTo(meal)} aria-label={t(ADD_TO[meal])} className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-soft-strong transition active:scale-95 hover:bg-accent-soft hover:text-accent">
+                      <PlusIcon className="h-5 w-5" />
+                    </button>
+                  )}
                 </div>
-                <ul className="divide-y divide-line">
-                  {entries.map((e) => (
-                    <li key={e.id} className="@container flex items-center gap-3.5 px-4 py-3">
-                      {/* the picture steps aside when the row is narrow (large text), so the name and figures keep their room */}
-                      <span className="hidden shrink-0 @[18rem]:block"><EatenThumb src={photoOf(e)} /></span>
-                      <div className="min-w-0 flex-1">
-                        <p className="text-base font-bold leading-snug [overflow-wrap:anywhere]">{e.name}</p>
-                        <p className="mt-0.5 text-[0.875rem] leading-snug text-muted">{timeFormat.format(new Date(e.loggedAt))}{e.chainName ? ` · ${e.chainName}` : ""}</p>
-                        {/* typed numbers may leave protein out: then only the calories are shown, never a 0 */}
-                        {e.nutrients.protein === undefined ? (
-                          <p className="app-numbers mt-1.5 font-mono text-[0.75rem] font-normal text-muted">{formatCalories(e.nutrients.calories)}</p>
-                        ) : (
-                          <p className="app-numbers mt-1.5 font-mono text-[0.75rem] font-normal text-muted" aria-label={t("{calories} calories, {protein} grams protein", { calories: Math.round(e.nutrients.calories), protein: Math.round(e.nutrients.protein) })}>{t("{kcal} · {protein} protein", { kcal: formatCalories(e.nutrients.calories), protein: formatGrams(e.nutrients.protein) })}</p>
-                        )}
-                      </div>
-                      <button type="button" aria-label={t("Delete {name}", { name: e.name })} onClick={() => remove(e)} className="group -me-1.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
-                        <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong text-foreground transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><TrashIcon className="h-[18px] w-[18px]" /></span>
-                      </button>
-                    </li>
-                  ))}
-                </ul>
+                {entries.length === 0 ? (
+                  <div className="px-4 pb-4 pt-2">
+                    <button type="button" onClick={() => setAddTo(meal)} className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-soft-strong px-4 text-base font-bold transition active:scale-[0.98] hover:bg-accent-soft hover:text-accent">
+                      <PlusIcon aria-hidden className="h-5 w-5" />
+                      {t(ADD_TO[meal])}
+                    </button>
+                  </div>
+                ) : (
+                  <ul className="divide-y divide-line">
+                    {entries.map((e) => (
+                      <li key={e.id} className="@container flex items-center gap-3.5 px-4 py-3">
+                        {/* the picture steps aside when the row is narrow (large text), so the name and figures keep their room */}
+                        <span className="hidden shrink-0 @[18rem]:block"><EatenThumb src={photoOf(e)} /></span>
+                        <div className="min-w-0 flex-1">
+                          <p className="text-base font-bold leading-snug [overflow-wrap:anywhere]">{e.name}</p>
+                          <p className="mt-0.5 text-[0.875rem] leading-snug text-muted">{timeFormat.format(new Date(e.loggedAt))}{e.chainName ? ` · ${e.chainName}` : ""}</p>
+                          {/* typed numbers may leave protein out: then only the calories are shown, never a 0 */}
+                          {e.nutrients.protein === undefined ? (
+                            <p className="app-numbers mt-1.5 font-mono text-[0.75rem] font-normal text-muted">{formatCalories(e.nutrients.calories)}</p>
+                          ) : (
+                            <p className="app-numbers mt-1.5 font-mono text-[0.75rem] font-normal text-muted" aria-label={t("{calories} calories, {protein} grams protein", { calories: Math.round(e.nutrients.calories), protein: Math.round(e.nutrients.protein) })}>{t("{kcal} · {protein} protein", { kcal: formatCalories(e.nutrients.calories), protein: formatGrams(e.nutrients.protein) })}</p>
+                          )}
+                        </div>
+                        <button type="button" aria-label={t("Delete {name}", { name: e.name })} onClick={() => remove(e)} className="group -me-1.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
+                          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong text-foreground transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><TrashIcon className="h-[18px] w-[18px]" /></span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </section>
             );
           })}
+        </div>
+      )}
+
+      <AddFoodSheet meal={addTo} onClose={() => setAddTo(null)} onAdded={(entry, meal) => { setAddTo(null); setAdded({ entry, meal }); }} />
+
+      {added && (
+        // At the top, clear of the meals and their + buttons, as on Home: a second tap on the same + must never land on Undo.
+        <div role="status" className="fixed inset-x-4 top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-[1.75rem] bg-foreground py-1.5 ps-5 pe-2 text-background shadow-lg">
+          <span className="min-w-0 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{t(ADDED_TO[added.meal], { name: added.entry.name })}</span>
+          <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-[var(--sun)] transition hover:bg-white/10" onClick={() => { deleteLogEntry(added.entry.id); setAdded(null); }}>{t("Undo")}</button>
         </div>
       )}
 

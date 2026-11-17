@@ -47,12 +47,29 @@ await step("Groceries asks \"Which shop?\" and offers only the shops that have a
   await a.page.getByText(/Not here yet: Tesco, Asda/).waitFor();
   await a.page.getByRole("link", { name: "Search every shop at once" }).waitFor();
   await a.page.getByRole("button", { name: "Scan a barcode" }).waitFor();
+  // tools first (founder 2026-11-17): the search pill and the three shortcut rows sit above "Which shop?", all on the first screen at 390 x 844,
+  // clear of the tab bar
+  const shopHeading = await a.page.getByRole("heading", { name: "Which shop?" }).boundingBox();
+  const tools = [
+    ["search pill", a.page.getByRole("link", { name: "Search every shop at once" })],
+    ["Scan a barcode", a.page.getByRole("button", { name: "Scan a barcode" })],
+    ["Cheapest protein", a.page.getByRole("link", { name: "Cheapest protein" })],
+    ["Compare products", a.page.getByRole("link", { name: "Compare products" })],
+  ];
+  for (const [label, el] of tools) {
+    const box = await el.boundingBox();
+    expect(box, `${label} has a box`);
+    expect(box.y < shopHeading.y, `${label} above "Which shop?" (${box.y} vs ${shopHeading.y})`);
+    expect(box.y + box.height <= 750, `${label} on the first screen, clear of the tab bar (bottom ${box.y + box.height})`);
+  }
+  expect((await a.page.getByRole("link", { name: "Search every shop at once" }).getAttribute("href")) === "/app/groceries/search", "the search pill opens Search every shop");
   await a.ctx.close();
   const b = await newPage({ allow: false });
   await b.page.goto(BASE + "/app/groceries");
   await b.page.getByText(/Not here yet: Tesco, Sainsbury's/).waitFor();
   expect((await b.page.getByRole("link", { name: /\d products?$/ }).count()) === 0, "no shop without a list");
   await b.page.getByRole("link", { name: "Compare products" }).waitFor();
+  await b.page.getByRole("button", { name: "Scan a barcode" }).waitFor();
   await b.ctx.close();
 });
 

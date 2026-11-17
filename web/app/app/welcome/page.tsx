@@ -1,7 +1,7 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { formatInt } from "@/lib/mm/format";
 import { retailerName } from "@/lib/mm/groceries";
 import { isAllHalal } from "@/lib/mm/halal";
@@ -12,19 +12,20 @@ import { LOGOS_ENABLED } from "@/lib/mm/config";
 import { tk } from "@/lib/mm/i18n";
 import { EMPTY_BODY, bodyProblems, planFromAnswers, readTargetFields, type BodyAnswers } from "@/lib/mm/onboardingPlan";
 import { macroTargets } from "@/lib/mm/targets";
-import { settingsStore, updateSettings } from "@/lib/mm/stores";
+import { settingsStore, tourStore, updateSettings } from "@/lib/mm/stores";
+import { TOUR_VERSION } from "@/lib/mm/tour";
 import type { Goal, Preferences, Profile } from "@/lib/mm/types";
 import { TEXT_SCALE, type TextSize, type UserSettings } from "@/lib/mm/user-data";
 import { ALLERGEN_SHORT, DietPicker } from "../_components/DietPicker";
 import {
-  BasketIcon, BoltIcon, CheckIcon, ChevronLeftIcon, DotsIcon, ForkIcon, GiftIcon, HomeIcon, LeafIcon,
-  PeopleIcon, PillIcon, PotIcon, ScaleIcon, ShieldIcon, TextSizeIcon, TrendDownIcon,
+  BoltIcon, CheckIcon, ChevronLeftIcon, DotsIcon, GiftIcon, LeafIcon,
+  PillIcon, PotIcon, ScaleIcon, ShieldIcon, TextSizeIcon, TrendDownIcon,
 } from "../_components/icons";
 import { LogoWall, type WallItem } from "../_components/LogoWall";
 import { logoFor } from "@/lib/mm/logos";
 import { RETAILERS } from "@/lib/mm/groceries";
 import { site } from "@/site.config";
-import { Pip, PipSays, type PipMood } from "../_components/Mascot";
+import { Pip, PipSays } from "../_components/Mascot";
 import { ShopPicker } from "../_components/ShopPicker";
 import { FRIENDS_APP_PATH } from "@/lib/community/friendCode";
 import { SHARED_APP_PATH } from "@/lib/mm/shareList";
@@ -32,22 +33,25 @@ import { ActivityStep, AboutYouStep, YourSizeStep } from "./BodySteps";
 import { CAPS, CARD, HEADLINE, PlateArt } from "./parts";
 import { RecipeChoice } from "./RecipeChoice";
 import { TargetsStep } from "./TargetsStep";
+import { PipTour, TOUR_STOPS, TourRows } from "./Tour";
 import { useTargetFields } from "./useTargetFields";
 import { SignInSheet } from "../_components/SignIn";
-import { radioKeyNav } from "../_components/ui";
+import { radioKeyNav, Spinner } from "../_components/ui";
+import { travelBack } from "../_lib/backNav";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useChain, useHydrated, useMenu, useSettings } from "../_lib/hooks";
 import { recipeShop } from "../_lib/recipes";
-import { loadShopFile, loadShopManifest } from "../_lib/shopProducts";
+import { loadShopFile, loadShopManifest, useShopManifest } from "../_lib/shopProducts";
+import { TABS } from "../_lib/tabs";
 import { applyTextSize } from "../_lib/textSize";
 import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 
 // SPEC §7.1 and §8, made friendlier at the founder's request (2026-10-10): Pip the mascot says what each step is for, buttons are big,
-// one question per screen, and a text-size step so everyone can read it. The SPEC's step headings are kept. Skip skips that step only
-// (defaults stay), except on the three questions about the person, where it skips all three. Step 2 asks about foods to leave out (the web app has
-// no location step); step 7 asks which supermarkets they use (founder 2026-10-10: the app is for eating out, shopping and cooking).
-// The numbers come last (founder 2026-10-16: "come to this screen later ... arrive on this screen with pre typed information which they can change"):
+// one question per screen. The SPEC's step headings are kept. Skip skips that step only (defaults stay), except on the three questions about the person,
+// where it skips all three. Step 2 asks about foods to leave out (the web app has no location step); step 7 asks which supermarkets they use (founder
+// 2026-10-10: the app is for eating out, shopping and cooking).
+// The numbers come late (founder 2026-10-16: "come to this screen later ... arrive on this screen with pre typed information which they can change"):
 // goal (1), foods to avoid (2), about you (3), your size (4), how active (5), then "Your daily targets" (6) arrive filled in from all of that
 // (lib/mm/onboardingPlan.ts, targets.ts), and every number can still be changed. What was typed about the person lives in this page's state only and
 // is gone when onboarding ends (CLAUDE.md rule 4).
@@ -56,8 +60,12 @@ import { Rich } from "../_lib/Rich";
 // button at the bottom (the words only: founder 2026-10-15, "get rid of those two circles ... it just looks weird"). No food photographs (CLAUDE.md rule 2): the pictures are Pip, the moving wall of the restaurants and
 // shops in the app, and our own plate.
 // Pip leads all of it (founder 2026-10-15, "Pip appears with a cool animation, then walks them through the app ... makes them excited,
-// like Duolingo"): Pip jumps in on the first screen, then hops along a little copy of the tab bar and says what each tab is for (the old
-// "Example" preview of Home, with made-up figures, is gone), and on every question Pip hops in, says a line and reacts to the answer.
+// like Duolingo"): Pip jumps in on the first screen, then hops along a copy of the tab bar and says what each tab is for, and on every question Pip hops in,
+// says a line and reacts to the answer.
+// The welcome tour (2026-11-17, lib/mm/tour.ts): a first plain launch comes here. The text size is chosen first (so the rest is already readable), each stop
+// of the walk shows "What you can do" on that tab (Tour.tsx), and the walk ends on a choice: "Set up my plan" (the questions) or "Look around first" (Home,
+// where the setup card waits). Reaching that choice, Skip on the welcome screen, "Look around first" and the end of the questions mark the tour as seen on this
+// phone (mm.v1.tour, never synced). ?tour=1 replays only the five stops (Settings › Help › "Show me around again"), writes nothing and returns to where it was opened.
 
 const GOALS: ReadonlyArray<{ value: Goal; label: string; hint: string; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode }> = [
   { value: "lose", label: tk("Lose weight"), hint: tk("Orders that fit a lower calorie target"), Icon: TrendDownIcon },
@@ -82,22 +90,12 @@ const SIZES: ReadonlyArray<{ value: TextSize; label: string }> = [
   { value: "xlarge", label: tk("Extra large") },
 ];
 
-// Eight questions, then "You're all set!" (9) and the choice of a first recipe (10).
-const STEPS = 10;
-// The questions in order. The three about the person (3-5) are skipped together.
-const AVOID = 2, ABOUT = 3, SIZE = 4, ACTIVE = 5, TARGETS = 6, SHOPS = 7, TEXT_SIZE = 8, ALL_SET = 9, RECIPE = 10;
-// Intro 1 is Pip's arrival, intro 2-6 are the five stops of Pip's walk along the tab bar (TOUR).
-const INTRO_SCREENS = 6;
-
-// Pip's walk through the app, one stop per tab in the order of the tab bar. The name and the sentence under it are the tab's own words
-// (the same as the bar and the app use); the line in Pip's bubble is the excited one. Nothing here shows a figure.
-const TOUR: ReadonlyArray<{ name: string; line: string; says: string; mood: PipMood; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode }> = [
-  { name: tk("Home"), line: tk("Today's numbers, your shopping list and what you've saved. The gear at the top opens Settings."), says: tk("This is Home. It keeps track of your day, so you can always see what's left!"), mood: "wave", Icon: HomeIcon },
-  { name: tk("Eat out"), line: tk("Every restaurant, café and pub, with the numbers for each dish."), says: tk("Going out to eat? Look the place up first and know the numbers before you order!"), mood: "point", Icon: ForkIcon },
-  { name: tk("Groceries"), line: tk("Supermarket products with their labels and prices."), says: tk("Shopping? I'll show you the calories, protein and price of what's on the shelf!"), mood: "think", Icon: BasketIcon },
-  { name: tk("Recipes"), line: tk("Meals made from your shop's products, with the cost per serving."), says: tk("Cooking at home? These recipes use real products, with the cost of each serving!"), mood: "point", Icon: PotIcon },
-  { name: tk("Community"), line: tk("Short articles on eating out, shopping and cooking."), says: tk("Short articles to read, all in one place!"), mood: "wave", Icon: PeopleIcon },
-];
+// Step 0's screens, in order: the welcome cover (0), Pip's arrival (1), the text size, the five stops of Pip's walk (one per tab) and the choice at the end.
+const COVER = 0, TEXT = 2, STOP0 = 3, FORK = STOP0 + TOUR_STOPS.length;
+const INTRO_SEGMENTS = FORK + 1;
+// Seven questions, then "You're all set!" (8) and the choice of a first recipe (9). The three about the person (3-5) are skipped together.
+const GOAL = 1, AVOID = 2, ABOUT = 3, SIZE = 4, ACTIVE = 5, TARGETS = 6, SHOPS = 7, ALL_SET = 8, RECIPE = 9;
+const STEPS = 9;
 // Logo files over about 60 KB: kept off the welcome wall so the first screen loads quickly (they still show everywhere else; a chain with
 // its own small square icon is shown by that instead).
 const HEAVY_LOGOS = new Set(["british-garden-centres", "daves-hot-chicken", "pubsmiths", "popeyes", "park-holidays-uk", "toby-carvery", "the-breakfast-club", "butcombe-inns", "parsons-bakery", "buzz-bingo", "greene-king", "giggling-squid", "joseph-holt", "castle-carvery"]);
@@ -107,6 +105,8 @@ const LIME = "bg-[var(--sun)]"; // the brand's flat lime: no gradients (founder 
 // A round grey button like Home's calendar button: a 36 px circle inside a 44 px tap area.
 const ROUND = "group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 const ROUND_IN = "inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]";
+// Every headline takes the focus when its screen appears (so a screen reader starts there); the app's no-focus-box rule (17 Nov) keeps it unboxed.
+const H1 = "outline-none";
 
 /**
  * Where onboarding ends: the page the visitor first opened if it is inside the app (`?next=`), else Home. A shared shopping list's code travels in
@@ -118,27 +118,41 @@ function afterOnboarding(): string {
   return target.includes("#") ? target : target + window.location.hash;
 }
 
+/** The welcome screens are a static shell (like the restaurant page): `?tour=1` is read once on the phone, with the loading line until then. */
 export default function WelcomePage() {
+  return (
+    <Suspense fallback={<Spinner />}>
+      <Welcome />
+    </Suspense>
+  );
+}
+
+function Welcome() {
   const router = useRouter();
+  const params = useSearchParams();
+  // ?tour=1: just the five stops again (Settings › Help, or the setup card's "Show me around"), "Step n of 5", with Close; nothing is saved.
+  const [replay] = useState(() => params.get("tour") === "1");
   const menu = useMenu();
   const initial = settingsStore.get();
-  // The app is English only (founder 2026-10-16), so there is no language screen. Step 0 is the welcome screen, then Pip's arrival
-  // and walk through the app (intro 1-6), then the eight questions (steps 1-8), "You're all set!" (9) and the first recipe (10).
+  // The app is English only (founder 2026-10-16), so there is no language screen. Step 0 is the welcome cover, then Pip's arrival, the text size,
+  // the walk through the app and the choice (intro 1-8), then the seven questions (steps 1-7), "You're all set!" (8) and the first recipe (9).
   const [step, setStep] = useState(0);
-  const [intro, setIntro] = useState(0);
+  const [intro, setIntro] = useState(replay ? STOP0 : COVER);
   const [signInOpen, setSignInOpen] = useState(false);
   const hydrated = useHydrated();
   // what has been saved so far: "You're all set!" shows this, so it is always what Home will show
   const settings = useSettings();
   const onboarded = settings.hasCompletedOnboarding;
-  const wasOnboarded = useRef(initial.hasCompletedOnboarding);
+  const [wasOnboarded] = useState(initial.hasCompletedOnboarding);
+  // the supermarkets that have a full list in the app (Groceries' "Which shop?"), for the welcome wall's label
+  const shopLists = useShopManifest();
 
   // Signed in from this screen (an account that has already been set up, on a new phone): the settings arrive with the sync during this
   // visit, so skip the questions. Someone who was already set up and opened this screen on purpose stays on it.
   useEffect(() => {
-    if (!hydrated || wasOnboarded.current || !onboarded || step > 0) return;
+    if (!hydrated || wasOnboarded || !onboarded || step > 0) return;
     router.replace(afterOnboarding());
-  }, [hydrated, onboarded, step, router]);
+  }, [hydrated, wasOnboarded, onboarded, step, router]);
   const t = useT();
   const [goal, setGoal] = useState<Goal>(initial.goal);
   const target = useTargetFields(initial);
@@ -161,25 +175,66 @@ export default function WelcomePage() {
 
   // Warm up the first recipe screen: by the last questions, start loading the full list of the shop its recipes come from (it is a few hundred KB).
   useEffect(() => {
-    if (step < TEXT_SIZE) return;
+    if (step < SHOPS) return;
     void loadShopManifest().then((m) => { const id = recipeShop(m, null, settingsStore.get().shops); return id ? loadShopFile(id) : undefined; }).catch(() => undefined);
   }, [step]);
+  // Every new screen starts at the top with its headline focused, so a screen reader reads it first (a headline drawn by another file gets tabindex -1 here).
+  // Done as the screen is put in place, before it is drawn, so it can never take the focus back from a box or a choice tapped straight after the screen appears.
+  // Not when the page first opens on the welcome cover: a screen reader then starts at the top as usual (Back or Skip, then "Welcome to Numbite" above the headline).
+  const firstScreen = useRef(true);
+  useLayoutEffect(() => {
+    const first = firstScreen.current;
+    firstScreen.current = false;
+    if (first && step === 0 && intro === COVER) return;
+    window.scrollTo({ top: 0 });
+    const h = document.querySelector<HTMLElement>("main h1");
+    if (!h) return;
+    if (!h.hasAttribute("tabindex")) h.setAttribute("tabindex", "-1");
+    h.focus({ preventScroll: true });
+  }, [step, intro]);
+  // Reaching the choice at the end of the walk marks the tour as seen on this phone, so it never starts again by itself, even if the app is closed during the
+  // questions. The replay writes nothing.
+  useEffect(() => {
+    if (!replay && step === 0 && intro === FORK) tourStore.set(TOUR_VERSION);
+  }, [replay, step, intro]);
+
   const next = () => {
-    if (step === 0 && intro < INTRO_SCREENS) setIntro((i) => i + 1);
+    if (step === 0) {
+      if (intro < FORK) setIntro((i) => i + 1);
+      else setStep(GOAL);
+    }
     // Someone who came to read a shopping list a friend sent, or to add a friend from an invite link, goes straight there after "You're all set!" (no recipe to choose
     // first: a recipe card would open the recipe and lose the list or the friend's code)
     else if (step === ALL_SET && [SHARED_APP_PATH, FRIENDS_APP_PATH].some((p) => (new URLSearchParams(window.location.search).get("next") ?? "").startsWith(p))) finish();
     else setStep((s) => s + 1);
     window.scrollTo({ top: 0 });
   };
-  // Back to the screen before (step 1 goes back to Pip's last intro screen); what was chosen is kept. The targets screen reached by a jump (skip, or an
-  // age under 18) goes back to the screen the person jumped from.
+  // Back to the screen before; what was chosen is kept. The first question goes back to the choice at the end of the walk. The targets screen reached by a
+  // jump (skip, or an age under 18) goes back to the screen the person jumped from. The replay's first stop leaves the tour.
   const back = () => {
-    if (step === 0 && intro > 0) setIntro((i) => i - 1);
-    else if (step === TARGETS && jumpedFrom !== null) {
+    if (step === 0) {
+      if (replay && intro <= STOP0) leave();
+      else if (intro > COVER) setIntro((i) => i - 1);
+    } else if (step === TARGETS && jumpedFrom !== null) {
       setStep(jumpedFrom);
       setJumpedFrom(null);
     } else setStep((s) => Math.max(0, s - 1));
+    window.scrollTo({ top: 0 });
+  };
+  // Out of the tour to the page it was opened from (Settings, or Home and Eat out for the setup card's "Show me around"); Settings when there is nothing before it.
+  const leave = () => {
+    if (!travelBack(router, "/app/settings")) router.replace("/app/settings");
+  };
+  // Skip on the welcome screen and "Look around first": straight to the app (the setup card waits on Home and Eat out); the tour counts as seen.
+  const lookAround = () => {
+    analytics.track({ name: "onboardingSkipped", step: 0 });
+    tourStore.set(TOUR_VERSION);
+    router.replace(afterOnboarding());
+  };
+  // "Skip tour": to the choice at the end of the walk.
+  const skipTour = () => {
+    analytics.track({ name: "onboardingSkipped", step: 0 });
+    setIntro(FORK);
     window.scrollTo({ top: 0 });
   };
   // On to "Your daily targets" with the plan for what was answered (null = nothing to fill in).
@@ -213,6 +268,7 @@ export default function WelcomePage() {
   // chosen, Home underneath and the recipe on top of it (so the recipe page's own Back button lands on Home, never on the welcome screens).
   const finish = (recipeHref?: string) => {
     updateSettings({ hasCompletedOnboarding: true });
+    tourStore.set(TOUR_VERSION);
     analytics.track({ name: "onboardingCompleted", goal: settingsStore.get().goal });
     if (recipeHref) {
       // Replace this page with Home first and open the recipe only once Home is showing: asked in the same moment, the second navigation
@@ -232,17 +288,12 @@ export default function WelcomePage() {
     analytics.track({ name: "onboardingSkipped", step });
     next();
   };
-  // Skip on Pip's intro screens goes straight to the first question.
-  const skipIntro = () => {
-    analytics.track({ name: "onboardingSkipped", step: 0 });
-    setIntro(0);
-    setStep(1);
-    window.scrollTo({ top: 0 });
-  };
+  // The text size is the first thing chosen (so the rest is already readable): applied and saved on the tap.
   const chooseSize = (s: TextSize) => {
     setSize(s);
     setSizeTouched(true);
-    applyTextSize(s); // preview straight away
+    applyTextSize(s);
+    updateSettings({ textSize: s });
   };
 
   const targetReading = readTargetFields(target.fields, goal === "glp1");
@@ -277,30 +328,105 @@ export default function WelcomePage() {
     return (byPopularity ?? pool[0])?.id ?? "";
   }, [real, prefs.halalOnly]);
 
-  // Pip arrives (intro 1), then walks along a little tab bar and says what each tab is for (intro 2-6); Skip goes straight to the questions.
-  if (step === 0 && intro > 0) {
-    const tour = intro - 2; // 0-4 on the walk, -1 on Pip's arrival
-    const stop = TOUR[tour];
-    return (
-      // one screen for the whole walk, so Pip glides from tab to tab instead of the page starting again at each stop
-      <div key={stop ? "tour" : "meet"} className={SCREEN}>
-        <TopBar onBack={back} end={<SkipButton onClick={skipIntro} />} segments={INTRO_SCREENS + 1} current={intro} />
-        {stop ? (
-          <>
-            <div aria-live="polite" key={tour} className="rise">
-              <h1 className={`mt-7 ${HEADLINE}`}>{t(stop.name)}<HeadPill Icon={stop.Icon} /></h1>
-              <p className="mt-3 text-[1.0625rem] leading-snug text-muted">{t(stop.line)}</p>
+  // Pip's arrival (intro 1), the text size (2), the walk along the tab bar (3-7) and the choice (8). "Skip tour" goes to the choice; the replay has Close.
+  if (step === 0 && intro > COVER) {
+    const stopIndex = intro - STOP0; // 0-4 on the walk
+    const stop = intro >= STOP0 && intro < FORK ? TOUR_STOPS[stopIndex] : undefined;
+    const tab = stop ? TABS[stopIndex] : undefined;
+    const top = replay ? (
+      <TopBar onBack={back} end={<TopButton onClick={leave}>{t("Close")}</TopButton>} segments={TOUR_STOPS.length} current={stopIndex} status={t("Step {step} of {total}", { step: stopIndex + 1, total: TOUR_STOPS.length })} />
+    ) : (
+      <TopBar onBack={back} end={intro === FORK ? undefined : <TopButton onClick={skipTour}>{t("Skip tour")}</TopButton>} segments={INTRO_SEGMENTS} current={intro} />
+    );
+
+    if (stop && tab) {
+      const last = stopIndex === TOUR_STOPS.length - 1;
+      return (
+        // one screen for the whole walk, so Pip glides from tab to tab instead of the page starting again at each stop
+        <div key="tour" className={SCREEN}>
+          {top}
+          <section data-tour-stop={stop.id}>
+            <h1 key={stopIndex} tabIndex={-1} className={`rise mt-7 ${HEADLINE} ${H1}`}>{t(tab.label)}<HeadPill Icon={tab.Icon} /></h1>
+            <PipTour stop={stopIndex} />
+            <TourRows rows={stop.rows} />
+          </section>
+          <Bottom>
+            {replay && last ? <BottomButton key={intro} onClick={leave}>{t("Done")}</BottomButton> : <BottomButton key={intro} onClick={next}>{t("Continue")}</BottomButton>}
+          </Bottom>
+        </div>
+      );
+    }
+
+    if (intro === TEXT) {
+      return (
+        <div key="text" className={SCREEN}>
+          {top}
+          <section className="mt-7 flex flex-1 flex-col">
+            <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}><Rich text={t("Easy to {read}")} values={{ read: t("read") }} /><HeadPill Icon={TextSizeIcon} /></h1>
+            <div aria-live="polite" className="mt-4">
+              <PipSays lively pulse={sizeTouched ? size : "ask"} size={56} mood={sizeTouched ? "cheer" : "point"}>
+                {sizeTouched ? t("Perfect, that's easy on the eyes!") : t("Pick the size that's comfortable to read. You can change it any time in Settings.")}
+              </PipSays>
             </div>
-            <PipTour stop={tour} />
-          </>
-        ) : (
-          <>
-            <h1 className={`mt-7 ${HEADLINE}`}>{t("Hi, I'm Pip!")}<HeadPill Icon={LeafIcon} /></h1>
-            <PipArrives />
-          </>
-        )}
+            <div role="radiogroup" aria-label={t("Text size")} className="mt-5 space-y-2.5">
+              {SIZES.map((s, i) => {
+                const on = size === s.value;
+                return (
+                  <button
+                    key={s.value}
+                    type="button"
+                    role="radio"
+                    aria-checked={on}
+                    tabIndex={on ? 0 : -1}
+                    onClick={() => chooseSize(s.value)}
+                    onKeyDown={(e) => radioKeyNav(e, i, SIZES.length, (n) => chooseSize(SIZES[n]!.value))}
+                    className={`${CARD} flex min-h-[4.5rem] w-full items-center gap-3.5 px-4 py-3 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "bg-foreground text-background" : "glass hover:bg-soft-strong"}`}
+                  >
+                    <span aria-hidden className={`inline-flex h-11 w-14 shrink-0 items-center justify-center rounded-full font-[700] leading-none ${on ? "bg-white/10 text-background" : "bg-soft-strong"}`} style={{ fontSize: `${(TEXT_SCALE[s.value] / 100) * 1.15}rem` }}>Aa</span>
+                    <span className="flex-1 text-[1.0625rem] font-[700] tracking-[-0.01em]">{t(s.label)}</span>
+                    <span aria-hidden className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${on ? `${LIME} text-on-accent` : "border border-line"}`}>
+                      {on && <CheckIcon className="h-4 w-4" strokeWidth={3} />}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+            <Bottom>
+              <BottomButton onClick={next}>{t("Continue")}</BottomButton>
+            </Bottom>
+          </section>
+        </div>
+      );
+    }
+
+    if (intro === FORK) {
+      return (
+        <div key="fork" className={SCREEN}>
+          {top}
+          <section className="mt-7 flex flex-1 flex-col">
+            <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{t("Let's make it yours")}<HeadPill Icon={CheckIcon} /></h1>
+            <div className="mt-4">
+              <PipSays size={64} mood="cheer">
+                {t("That's the tour! Now a few quick questions, and I'll work out your daily numbers and put the dishes that fit you first.")}
+              </PipSays>
+            </div>
+            <p className="mt-4 text-[15px] text-muted">{t("You can see this tour again any time in Settings.")}</p>
+            <Bottom>
+              <BottomButton onClick={() => setStep(GOAL)}>{t("Set up my plan")}</BottomButton>
+              <BottomButton light className="mt-2" onClick={lookAround}>{t("Look around first")}</BottomButton>
+            </Bottom>
+          </section>
+        </div>
+      );
+    }
+
+    return (
+      <div key="meet" className={SCREEN}>
+        {top}
+        <h1 tabIndex={-1} className={`mt-7 ${HEADLINE} ${H1}`}>{t("Hi, I'm Pip!")}<HeadPill Icon={LeafIcon} /></h1>
+        <PipArrives />
         <Bottom>
-          <BottomButton onClick={next}>{!stop ? t("Show me around") : tour === TOUR.length - 1 ? t("Let's go!") : t("Continue")}</BottomButton>
+          <BottomButton onClick={next}>{t("Show me around")}</BottomButton>
         </Bottom>
       </div>
     );
@@ -309,8 +435,11 @@ export default function WelcomePage() {
   if (step === 0) {
     return (
       <div className={SCREEN}>
+        {/* Someone already set up who opened this from Settings › Set up with Pip has a way back; a first-time visitor has Skip only. */}
         <TopBar
-          segments={INTRO_SCREENS + 1}
+          onBack={hydrated && wasOnboarded ? leave : undefined}
+          end={<TopButton onClick={lookAround}>{t("Skip")}</TopButton>}
+          segments={INTRO_SEGMENTS}
           current={0}
         />
         {/* the greeting comes first, then the line that sums the app up, then the picture (founder, 2026-10-15) */}
@@ -318,7 +447,7 @@ export default function WelcomePage() {
           <span aria-hidden className={`grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full ${LIME}`}><Pip mood="wave" size={40} className="translate-y-0.5" /></span>
           <span className="min-w-0">{t("Welcome to {app}", { app: site.name })}</span>
         </p>
-        <h1 className="mt-4 text-[2.65rem] font-[700] leading-[1.04] tracking-[-0.035em]">
+        <h1 tabIndex={-1} className={`mt-4 text-[2.65rem] font-[700] leading-[1.04] tracking-[-0.035em] ${H1}`}>
           {t("Eat out, shop and cook.")} {t("Know the numbers first.")}
         </h1>
         <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 text-sm font-semibold text-muted">
@@ -333,12 +462,9 @@ export default function WelcomePage() {
         {/* the picture: the restaurants and shops in the app drifting by, with two labels floating over it */}
         <div className="relative -mx-5 mt-2 flex-1">
           <LogoWall hero items={wallItems} namesOnly={!LOGOS_ENABLED} label={!LOGOS_ENABLED ? t("Names of restaurants and shops in the app") : t("Logos of restaurants and shops in the app")} />
-          {restaurants > 0 && (
-            <>
-              <span className="bob app-numbers absolute start-6 top-[22%] rounded-full bg-white px-3.5 py-2 text-sm font-bold text-foreground shadow-[0_10px_24px_-10px_rgba(0,0,0,0.45)]">{t("{n} UK restaurants", { n: restaurants })}</span>
-              <span className="bob-slow app-numbers absolute end-6 top-[48%] rounded-full bg-white px-3.5 py-2 text-sm font-bold text-foreground shadow-[0_10px_24px_-10px_rgba(0,0,0,0.45)]">{t("{n} supermarkets", { n: RETAILERS.length })}</span>
-            </>
-          )}
+          {restaurants > 0 && <span className="bob app-numbers absolute start-6 top-[22%] rounded-full bg-white px-3.5 py-2 text-sm font-bold text-foreground shadow-[0_10px_24px_-10px_rgba(0,0,0,0.45)]">{t("{n} UK restaurants", { n: restaurants })}</span>}
+          {/* the supermarkets whose products are in the app (Groceries' list), once that list has loaded: not every shop named on the wall */}
+          {shopLists && shopLists.retailers.length > 0 && <span className="bob-slow app-numbers absolute end-6 top-[48%] rounded-full bg-white px-3.5 py-2 text-sm font-bold text-foreground shadow-[0_10px_24px_-10px_rgba(0,0,0,0.45)]">{t("{n} supermarkets", { n: shopLists.retailers.length })}</span>}
         </div>
         <Bottom>
           <BottomButton light onClick={next}>{t("Get started")}</BottomButton>
@@ -372,23 +498,21 @@ export default function WelcomePage() {
   // screen are worked out from the same choices, so they must be the saved ones); the targets screen's Skip changes nothing, so Back finds it as it was left.
   const onSkip = step >= ABOUT && step <= ACTIVE
     ? skipBody
-    : step === 1
+    : step === GOAL
       ? () => { setGoal(settingsStore.get().goal); setGoalTouched(false); skip(); }
       : step === AVOID
         ? () => { setPrefs(settingsStore.get().preferences); skip(); }
-        : step === TEXT_SIZE
-          ? () => { chooseSize(initial.textSize ?? "standard"); skip(); }
-          : skip;
+        : skip;
   // The headline's key word, in the same ink as the rest (headings in one colour, like Home).
   const em = (word: string) => <>{word}</>;
 
   return (
     <div className={SCREEN}>
-      <TopBar onBack={back} end={step <= TEXT_SIZE ? <SkipButton onClick={onSkip} /> : undefined} segments={STEPS} current={step - 1} status={t("Step {step} of {total}", { step, total: STEPS })} />
+      <TopBar onBack={back} end={step <= SHOPS ? <TopButton onClick={onSkip}>{t("Skip")}</TopButton> : undefined} segments={STEPS} current={step - 1} status={t("Step {step} of {total}", { step, total: STEPS })} />
 
-      {step === 1 && (
+      {step === GOAL && (
         <section className="mt-5 flex flex-1 flex-col">
-          <h1 className={HEADLINE}><Rich text={t("What's your {goal}?")} values={{ goal: em(t("goal")) }} /></h1>
+          <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}><Rich text={t("What's your {goal}?")} values={{ goal: em(t("goal")) }} /></h1>
           <div aria-live="polite" className="mt-4">
             <PipSays lively pulse={goalTouched ? goal : "ask"} size={64} mood={goalTouched ? (goal === "buildMuscle" ? "cheer" : "wave") : "think"}>
               {goalTouched ? t(GOAL_REACTION[goal]) : <>{t("First, what are you aiming for? I'll use it to suggest orders for you.")}</>}
@@ -428,7 +552,7 @@ export default function WelcomePage() {
 
       {step === AVOID && (
         <section className="mt-5 flex flex-1 flex-col">
-          <h1 className={HEADLINE}><Rich text={t("Anything you {avoid}?")} values={{ avoid: em(t("avoid")) }} /></h1>
+          <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}><Rich text={t("Anything you {avoid}?")} values={{ avoid: em(t("avoid")) }} /></h1>
           <div aria-live="polite" className="mt-4">
             <PipSays lively pulse={avoidCount} size={56} mood={avoidCount > 0 ? "cheer" : "wave"}>
               {avoidCount > 0 ? t("Noted! I'll leave those out of your top picks.") : t("Tell me what you don't eat. I'll leave it out of your top picks.")}
@@ -490,7 +614,7 @@ export default function WelcomePage() {
 
       {step === SHOPS && (
         <section className="mt-5 flex flex-1 flex-col">
-          <h1 className={HEADLINE}><Rich text={t("Where do you {shop}?")} values={{ shop: em(t("shop")) }} /></h1>
+          <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}><Rich text={t("Where do you {shop}?")} values={{ shop: em(t("shop")) }} /></h1>
           <div aria-live="polite" className="mt-4">
             <PipSays lively pulse={shops.length} size={56} mood={shops.length > 0 ? "cheer" : "think"}>
               {shops.length > 0 ? t("Lovely! I'll show those shops first.") : t("Which supermarkets do you use? I'll show their products and recipes first.")}
@@ -504,47 +628,10 @@ export default function WelcomePage() {
         </section>
       )}
 
-      {step === TEXT_SIZE && (
-        <section className="mt-5 flex flex-1 flex-col">
-          <h1 className={HEADLINE}><Rich text={t("Easy to {read}")} values={{ read: em(t("read")) }} /><HeadPill Icon={TextSizeIcon} /></h1>
-          <div aria-live="polite" className="mt-4">
-            <PipSays lively pulse={sizeTouched ? size : "ask"} size={56} mood={sizeTouched ? "cheer" : "point"}>
-              {sizeTouched ? t("Perfect, that's easy on the eyes!") : t("Pick the size that's comfortable to read. You can change it any time in Settings.")}
-            </PipSays>
-          </div>
-          <div role="radiogroup" aria-label={t("Text size")} className="mt-5 space-y-2.5">
-            {SIZES.map((s, i) => {
-              const on = size === s.value;
-              return (
-                <button
-                  key={s.value}
-                  type="button"
-                  role="radio"
-                  aria-checked={on}
-                  tabIndex={on ? 0 : -1}
-                  onClick={() => chooseSize(s.value)}
-                  onKeyDown={(e) => radioKeyNav(e, i, SIZES.length, (n) => chooseSize(SIZES[n]!.value))}
-                  className={`${CARD} flex min-h-[4.5rem] w-full items-center gap-3.5 px-4 py-3 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "bg-foreground text-background" : "glass hover:bg-soft-strong"}`}
-                >
-                  <span aria-hidden className={`inline-flex h-11 w-14 shrink-0 items-center justify-center rounded-full font-[700] leading-none ${on ? "bg-white/10 text-background" : "bg-soft-strong"}`} style={{ fontSize: `${(TEXT_SCALE[s.value] / 100) * 1.15}rem` }}>Aa</span>
-                  <span className="flex-1 text-[1.0625rem] font-[700] tracking-[-0.01em]">{t(s.label)}</span>
-                  <span aria-hidden className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${on ? `${LIME} text-on-accent` : "border border-line"}`}>
-                    {on && <CheckIcon className="h-4 w-4" strokeWidth={3} />}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-          <Bottom>
-            <BottomButton onClick={() => { updateSettings({ textSize: size }); next(); }}>{t("Continue")}</BottomButton>
-          </Bottom>
-        </section>
-      )}
-
       {step === ALL_SET && (
         <section className="relative mt-5 flex flex-1 flex-col">
           <Confetti />
-          <h1 className={HEADLINE}>{t("You're all set!")}<HeadPill Icon={CheckIcon} /></h1>
+          <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{t("You're all set!")}<HeadPill Icon={CheckIcon} /></h1>
           <div aria-live="polite" className="mt-4">
             <PipSays lively size={64} mood="cheer">
               {teaserChainId ? (
@@ -567,7 +654,7 @@ export default function WelcomePage() {
 
       {step === RECIPE && (
         <section className="mt-5 flex flex-1 flex-col">
-          <h1 className={HEADLINE}>{t("Choose a recipe to start with")}<HeadPill Icon={PotIcon} /></h1>
+          <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{t("Choose a recipe to start with")}<HeadPill Icon={PotIcon} /></h1>
           <RecipeChoice onPick={(href) => finish(href)} />
           <Bottom>
             <BottomButton onClick={() => finish()}>{t("Take me to Home")}</BottomButton>
@@ -608,9 +695,9 @@ function TopBar({ onBack, end, segments, current = 0, status }: { onBack?: () =>
   );
 }
 
-function SkipButton({ onClick }: { onClick: () => void }) {
-  const t = useT();
-  return <button type="button" onClick={onClick} className="-me-1 inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full px-3 text-[15px] font-semibold text-muted transition hover:bg-soft-strong hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{t("Skip")}</button>;
+/** A quiet word at the top right: Skip, "Skip tour" or Close. */
+function TopButton({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
+  return <button type="button" onClick={onClick} className="-me-1 inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full px-3 text-[15px] font-semibold text-muted transition hover:bg-soft-strong hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{children}</button>;
 }
 
 /** A small round picture inside a headline (decorative). */
@@ -636,7 +723,7 @@ const SETTLE_MS = 600;
  * (the activity, the targets, the foods to avoid...). A tap or pen press on a button in its first 0.6 s on screen is therefore ignored. A mouse click, the
  * keyboard and a screen reader's activation are never held back (nobody double-clicks past a screen with those, and a screen reader takes longer anyway).
  */
-function BottomButton({ children, onClick, disabled, light }: { children: React.ReactNode; onClick: () => void; disabled?: boolean; light?: boolean }) {
+function BottomButton({ children, onClick, disabled, light, className = "" }: { children: React.ReactNode; onClick: () => void; disabled?: boolean; light?: boolean; className?: string }) {
   const shownAt = useRef(0);
   const pointer = useRef("");
   useEffect(() => { shownAt.current = performance.now(); }, []);
@@ -651,7 +738,7 @@ function BottomButton({ children, onClick, disabled, light }: { children: React.
         onClick();
       }}
       disabled={disabled}
-      className={`flex min-h-14 w-full items-center justify-center rounded-full px-6 py-3 text-center text-[1.0625rem] font-bold leading-snug transition active:scale-[0.98] disabled:cursor-not-allowed disabled:active:scale-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${light ? "bg-white text-foreground shadow-[0_14px_30px_-16px_rgba(0,0,0,0.5)] hover:bg-soft-strong disabled:text-muted" : "bg-foreground text-background hover:not-disabled:bg-[color-mix(in_srgb,var(--foreground)_86%,white)] disabled:bg-soft-strong disabled:text-muted"}`}
+      className={`${className} flex min-h-14 w-full items-center justify-center rounded-full px-6 py-3 text-center text-[1.0625rem] font-bold leading-snug transition active:scale-[0.98] disabled:cursor-not-allowed disabled:active:scale-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${light ? "bg-white text-foreground shadow-[0_14px_30px_-16px_rgba(0,0,0,0.5)] hover:bg-soft-strong disabled:text-muted" : "bg-foreground text-background hover:not-disabled:bg-[color-mix(in_srgb,var(--foreground)_86%,white)] disabled:bg-soft-strong disabled:text-muted"}`}
     >
       <span className="min-w-0 text-balance">{children}</span>
     </button>
@@ -694,40 +781,6 @@ function PipArrives() {
         ))}
         <span className="pip-jump relative pb-3"><Pip mood="wave" size={190} /></span>
         {landed && <Burst />}
-      </div>
-    </div>
-  );
-}
-
-/**
- * Pip's walk through the app: a small copy of the tab bar (decorative), Pip standing on the open tab, hopping to the next one at each stop,
- * and a bubble over Pip whose tail follows. Only the bubble's words and the headline above are for screen readers.
- */
-function PipTour({ stop }: { stop: number }) {
-  const t = useT();
-  const here = TOUR[stop]!;
-  // Where Pip stands: over the open tab, but never so near the edge that Pip's 108 px box leaves the screen (the bubble's tail follows).
-  const at = `clamp(54px, ${((stop + 0.5) / TOUR.length) * 100}%, calc(100% - 54px))`;
-  return (
-    <div className="flex flex-1 flex-col justify-center py-5">
-      <div className="mx-auto w-full max-w-[22rem]">
-        {/* the same height at every stop (room for three lines), so Pip and the bar stay where they are while the words change */}
-        <p className="speech-tour bubble-pop flex min-h-[6.5rem] items-center rounded-3xl px-5 py-4 text-[1.0625rem] font-medium leading-snug" style={{ "--tail": at } as React.CSSProperties}>
-          <span key={stop} className="rise block">{t(here.says)}</span>
-        </p>
-        <div aria-hidden className="relative mt-8 h-[120px]">
-          {/* Pip is 108 px wide (px, not rem: the drawing doesn't grow with the text size): -ms-[54px] puts the middle of Pip on the tab; inset-inline-start follows the reading direction */}
-          <span className="pip-walk absolute bottom-0 -ms-[54px] w-[108px]" style={{ insetInlineStart: at }}>
-            <span key={stop} className="pip-hop block"><Pip mood={here.mood} size={108} /></span>
-          </span>
-        </div>
-        <ul aria-hidden className="flex rounded-[2rem] bg-[#1d2320] p-[6px] shadow-[0_18px_40px_-16px_rgba(0,0,0,0.55)]">
-          {TOUR.map(({ Icon, name }, i) => (
-            <li key={name} className="flex min-h-14 min-w-0 flex-1 items-center justify-center">
-              <span className={`inline-flex h-9 w-12 items-center justify-center rounded-full transition-colors duration-500 ${i === stop ? "bg-[#d6efa0] text-[#0b1a12]" : "text-[#c2c9c4]"}`}><Icon className="h-5 w-5" /></span>
-            </li>
-          ))}
-        </ul>
       </div>
     </div>
   );

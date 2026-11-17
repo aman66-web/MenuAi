@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { site } from "@/site.config";
 import { tk } from "@/lib/mm/i18n";
@@ -14,7 +15,9 @@ import { Button, Card, Sheet } from "./ui";
 
 // Instant utility first (founder's brief, 13 Nov 2026): nobody is stopped at the door by a questionnaire any more. A first visit goes straight to
 // the app with sensible defaults (goal "Maintain", a 2,000 kcal day, no diet filters), and this quiet card offers to fit it to the person: one
-// sheet with the goal and what they avoid, nothing else. The longer guided setup (Pip, daily numbers from age and size) is still reachable from Settings.
+// sheet with the goal and what they avoid, nothing else. The longer guided setup (Pip, daily numbers from age and size) is reached through the welcome tour's
+// "Set up my plan" (a first plain launch opens the tour: lib/mm/tour.ts), and is reachable from Settings > Set up with Pip. Someone who arrived by a link and hasn't
+// had a plain launch yet can see the tour from here ("Show me around": just the five stops, nothing saved, back to this page).
 // Answering saves the goal and diet and counts as having set up, so the card goes away; "Not now" hides it too (the same flag the targets card uses).
 
 const GOALS: ReadonlyArray<{ value: Goal; label: string; hint: string }> = [
@@ -57,6 +60,7 @@ export function StartPrompt({ className = "" }: { className?: string }) {
           <Button size="lg" aria-haspopup="dialog" onClick={() => { setGoal(settings.goal); setPrefs(settings.preferences); setOpen(true); }}>{t("Set up")}</Button>
           <Button size="lg" variant="secondary" onClick={() => updateSettings({ dismissedTargetsCard: true })}>{t("Not now")}</Button>
         </div>
+        <Link href="/app/welcome?tour=1" className="inline-flex min-h-11 items-center self-start text-[15px] font-semibold text-accent underline-offset-2 hover:underline">{t("Show me around")}</Link>
       </Card>
       <Sheet open={open} onClose={() => setOpen(false)} title={t("Make {app} fit you", { app: site.name })}>
         <p className="text-base font-bold">{t("Your goal")}</p>

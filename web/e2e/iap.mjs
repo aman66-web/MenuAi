@@ -1,6 +1,7 @@
 // The iPhone app 1.1's Premium with Apple In-App Purchase, on the packed app (npm run build:app with NEXT_PUBLIC_IAP=1), with a pretend iPhone (the bridge, faked
 // like StoreKitPurchaseService would answer) and a pretend server for POST /api/v1/entitlement/apple (signing with a THROWAWAY key from e2e/paykey.mjs):
-// the free-trial offer once after setup, the paywall's free-trial banner, buying, restoring, a refund noticed at start-up, Settings, no Stripe or WhatsApp wording.
+// the free-trial offer once after setup (or after the welcome tour's "Look around first" and Skip), on Home only and never over another sheet, the paywall's
+// free-trial banner, buying, restoring, a refund noticed at start-up, Settings, no Stripe or WhatsApp wording.
 //   cd web && KEY=$(node e2e/paykey.mjs) && NEXT_PUBLIC_IAP=1 NEXT_PUBLIC_PHOTO_RECIPES=1 NEXT_PUBLIC_REMOTE_BASE=https://numbite.com NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK="$KEY" \
 //     NEXT_PUBLIC_SUPPORT_EMAIL=test@numbite.com npm run build:app && (PORT=3103 node e2e/serve-app.mjs .next-app &) && BASE=http://localhost:3103 node e2e/iap.mjs
 import { readFileSync } from "node:fs";
@@ -41,17 +42,19 @@ function fakeBridge(state) {
       : m.action === "iap.entitlements" ? { transactions: s.owned }
       : m.action === "iap.restore" ? { transactions: s.owned }
       : { done: true };
-    setTimeout(() => window.__menumathReply(m.id, reply), 50);
+    // StoreKit's products can be made to arrive late (productsDelay), so a sheet can be opened before the offer's timer starts
+    setTimeout(() => window.__menumathReply(m.id, reply), m.action === "iap.products" ? (s.productsDelay ?? 50) : 50);
   } } } };
 }
 
-async function newPage({ settings = onboarded, iap = {}, paid = null, offerShown = false } = {}) {
+async function newPage({ settings = onboarded, iap = {}, paid = null, offerShown = false, toured = false } = {}) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
-  await ctx.addInitScript(({ s, p, o }) => {
+  await ctx.addInitScript(({ s, p, o, w }) => {
     if (!localStorage.getItem("mm.v1.settings") && s) localStorage.setItem("mm.v1.settings", s);
     if (p && !localStorage.getItem("mm.v1.paid")) localStorage.setItem("mm.v1.paid", p);
     if (o) localStorage.setItem("mm.v1.trialOffer", JSON.stringify({ v: 1, data: true }));
-  }, { s: settings, p: paid, o: offerShown });
+    if (w && !localStorage.getItem("mm.v1.tour")) localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 1 }));
+  }, { s: settings, p: paid, o: offerShown, w: toured });
   await ctx.addInitScript(fakeBridge, { trial: true, purchase: { transactions: [JWS] }, owned: [], ...iap });
   const page = await ctx.newPage();
   const claims = [];
@@ -117,7 +120,7 @@ await step("after setup: the free-trial offer once, with the plans, the price af
   await ctx.close();
 });
 
-await step("no offer when this Apple ID has had its trial, before setup is finished, or when Premium is already on", async () => {
+await step("no offer when this Apple ID has had its trial, before setup is finished (a plain start goes to the welcome tour), or when Premium is already on", async () => {
   for (const [label, opts] of [
     ["trial used", { iap: { trial: false } }],
     ["setup not finished", { settings: JSON.stringify({ v: 1, data: { hasCompletedOnboarding: false } }) }],
@@ -127,10 +130,102 @@ await step("no offer when this Apple ID has had its trial, before setup is finis
     if (o.paid === "PAID") o.paid = JSON.stringify({ v: 1, data: { token: await token("annual", Date.now() + 30 * DAY), plan: "annual", until: Date.now() + 30 * DAY, unlockUntil: null } });
     const { ctx, page } = await newPage(o);
     await page.goto(BASE + "/app");
+    if (label === "setup not finished") {
+      await page.waitForURL(/\/app\/welcome/);
+      await page.getByRole("button", { name: "Get started" }).waitFor();
+    }
     await page.waitForTimeout(2500);
     expect((await page.getByRole("dialog").count()) === 0, `${label}: no offer`);
     await ctx.close();
   }
+});
+
+await step("after the welcome tour's 'Look around first', or Skip on its first screen, the offer rises once on Home about 1.2 s later", async () => {
+  for (const way of ["Look around first", "Skip"]) {
+    const { ctx, page } = await newPage({ settings: null });
+    await page.goto(BASE + "/app");
+    await page.waitForURL(/\/app\/welcome/);
+    if (way === "Skip") await page.getByRole("button", { name: "Skip", exact: true }).click();
+    else {
+      await page.getByRole("button", { name: "Get started" }).click();
+      await page.getByRole("button", { name: "Show me around" }).click();
+      await page.getByRole("button", { name: "Skip tour" }).click();
+      await page.getByRole("heading", { name: "Let's make it yours" }).waitFor();
+      expect((await page.getByRole("dialog").count()) === 0, `${way}: no offer on the welcome screens`);
+      await page.getByRole("button", { name: "Look around first" }).click();
+    }
+    await page.waitForURL(/\/app\/?$/);
+    const landed = Date.now();
+    const sheet = page.getByRole("dialog", { name: "Numbite Premium" });
+    await sheet.waitFor({ timeout: 6000 });
+    expect(Date.now() - landed >= 900, `${way}: the offer waited a moment after Home appeared (${Date.now() - landed} ms)`);
+    expect((await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.tour") ?? "null")?.data)) === 1, `${way}: the tour is marked seen`);
+    await sheet.getByRole("button", { name: "Not now" }).click();
+    await sheet.waitFor({ state: "hidden" });
+    await page.reload();
+    await page.waitForTimeout(2500);
+    expect((await page.getByRole("dialog", { name: "Numbite Premium" }).count()) === 0, `${way}: shown once on this phone`);
+    await ctx.close();
+  }
+});
+
+await step("after setup the offer appears on Home only: not on a recipe page", async () => {
+  const { ctx, page } = await newPage();
+  await page.goto(BASE + "/app/recipes");
+  await page.locator("a[href*='/app/recipes/view']").first().waitFor({ timeout: 20000 });
+  await page.waitForTimeout(2500);
+  expect((await page.getByRole("dialog").count()) === 0, "no offer on Recipes");
+  await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
+  await page.waitForTimeout(2500);
+  expect((await page.getByRole("dialog").count()) === 0, "no offer on a recipe page");
+  await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Home" }).click();
+  await page.getByRole("dialog", { name: "Numbite Premium" }).waitFor({ timeout: 6000 });
+  await ctx.close();
+});
+
+await step("the offer never rises over the setup card's sheet or Add food: it waits, then shows once that sheet is closed", async () => {
+  // the setup card's sheet (the tour was seen with "Look around first", so Home shows the card)
+  {
+    const { ctx, page } = await newPage({ settings: null, toured: true, iap: { productsDelay: 1500 } });
+    await page.goto(BASE + "/app");
+    await page.getByRole("button", { name: "Set up" }).click();
+    const setup = page.getByRole("dialog", { name: "Make Numbite fit you" });
+    await setup.waitFor();
+    await page.waitForTimeout(4000);
+    expect((await page.getByRole("dialog", { name: "Numbite Premium" }).count()) === 0, "the offer rose over the setup sheet");
+    expect((await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.trialOffer") ?? "null")?.data)) !== true, "marked shown while it waited");
+    await page.keyboard.press("Escape");
+    await setup.waitFor({ state: "hidden" });
+    await page.getByRole("dialog", { name: "Numbite Premium" }).waitFor({ timeout: 4000 });
+    await ctx.close();
+  }
+  // Add food, from the + next to Breakfast
+  {
+    const { ctx, page } = await newPage({ iap: { productsDelay: 1500 } });
+    await page.goto(BASE + "/app");
+    await page.getByRole("button", { name: "Add to Breakfast" }).click();
+    const add = page.getByRole("dialog").first();
+    await add.waitFor();
+    await page.waitForTimeout(4000);
+    expect((await page.getByRole("dialog", { name: "Numbite Premium" }).count()) === 0, "the offer rose over Add food");
+    await page.keyboard.press("Escape");
+    await page.getByRole("dialog", { name: "Numbite Premium" }).waitFor({ timeout: 4000 });
+    await ctx.close();
+  }
+});
+
+await step("the replay of the tour (Settings › Help › Show me around again) never shows the offer", async () => {
+  const { ctx, page } = await newPage();
+  await page.goto(BASE + "/app/settings");
+  await page.getByRole("link", { name: "Show me around again" }).click();
+  await page.getByText("Step 1 of 5").waitFor();
+  await page.waitForTimeout(2500);
+  expect((await page.getByRole("dialog").count()) === 0, "an offer during the replay");
+  await page.getByRole("button", { name: "Close", exact: true }).click();
+  await page.waitForURL(/\/app\/settings$/);
+  await page.waitForTimeout(2500);
+  expect((await page.getByRole("dialog").count()) === 0, "an offer on Settings after the replay");
+  await ctx.close();
 });
 
 await step("a Premium feature for a free person: the paywall pops up with the 7-day free trial banner", async () => {

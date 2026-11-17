@@ -4,15 +4,20 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
 let pass = 0, fail = 0;
 async function step(n, fn) { try { await fn(); pass++; console.log("PASS", n); } catch (e) { fail++; console.log("FAIL", n, "-", String(e.message).split("\n")[0]); } }
 const vis = (l) => l.waitFor({ state: "visible", timeout: 8000 });
-// The welcome screen, then Pip's arrival and walk along the tab bar (Home, Eat out, Groceries, Recipes, Community), to the first question.
+// The welcome screen, Pip's arrival, the text size, Pip's walk along the tab bar (Home, Eat out, Groceries, Recipes, Community) and "Let's make it yours",
+// then "Set up my plan" to the first question.
 async function pastIntro(page) {
   await page.getByRole("button", { name: "Get started" }).click();
   await vis(page.getByRole("heading", { name: "Hi, I'm Pip!" }));
   await page.getByRole("button", { name: "Show me around" }).click();
+  await vis(page.getByRole("heading", { name: "Easy to read" }));
+  await page.getByRole("button", { name: "Continue" }).click();
   for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Community"]) {
     await vis(page.getByRole("heading", { level: 1, name: tab, exact: true }));
-    await page.getByRole("button", { name: tab === "Community" ? "Let's go!" : "Continue" }).click();
+    await page.getByRole("button", { name: "Continue" }).click();
   }
+  await vis(page.getByRole("heading", { name: "Let's make it yours" }));
+  await page.getByRole("button", { name: "Set up my plan" }).click();
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
 }
 
@@ -68,14 +73,15 @@ await step("onboarding offers Other as a goal, Pip answers, and it's kept in Set
   await vis(page.getByText("No problem. I'll show you the numbers and keep your orders around your target."));
   await vis(page.getByRole("button", { name: "Continue" }));
   await page.getByRole("button", { name: "Continue" }).click();
-  for (let i = 0; i < 5; i++) await page.getByRole("button", { name: "Skip" }).click();
+  // foods to avoid, the questions about the person, the targets and the shops (text size is chosen at the start of the tour now)
+  for (let i = 0; i < 4; i++) await page.getByRole("button", { name: "Skip" }).click();
   await finishWithoutRecipe(page);
   await page.waitForURL(/\/app$/);
   await page.goto(BASE + "/app/settings");
   await vis(page.getByRole("radiogroup", { name: "Goal" }).getByRole("radio", { name: "Other", checked: true }));
   await ctx.close();
 });
-await step("onboarding back button returns to the previous step, keeping the choice; step 1 goes back to Pip's intro, then the welcome screen", async () => {
+await step("onboarding back button returns to the previous step, keeping the choice; step 1 goes back to 'Let's make it yours', then Pip's walk and the welcome screen", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/welcome");
@@ -87,10 +93,13 @@ await step("onboarding back button returns to the previous step, keeping the cho
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
   await vis(page.getByRole("radio", { name: "Build muscle", checked: true }));
   await page.getByRole("button", { name: "Back to the previous step" }).click();
+  await vis(page.getByRole("heading", { name: "Let's make it yours" }));
+  await page.getByRole("button", { name: "Back to the previous step" }).click();
   await vis(page.getByRole("heading", { level: 1, name: "Community", exact: true }));
   await page.getByRole("button", { name: "Back to the previous step" }).click();
   await vis(page.getByRole("heading", { level: 1, name: "Recipes", exact: true }));
-  for (let i = 0; i < 5; i++) await page.getByRole("button", { name: "Back to the previous step" }).click();
+  // Groceries, Eat out, Home, the text size, Pip's arrival, the welcome screen
+  for (let i = 0; i < 6; i++) await page.getByRole("button", { name: "Back to the previous step" }).click();
   await vis(page.getByRole("button", { name: "Get started" }));
   await ctx.close();
 });
@@ -260,6 +269,68 @@ await step("App Review 1.4.1: the sources of the suggested targets are one tap a
   await page.getByRole("link", { name: "Settings", exact: true }).click();
   await vis(page.getByRole("heading", { level: 1, name: "Settings", exact: true }));
   await ctx.close();
+});
+await step("Settings › Daily targets: an empty protein box says 'Worked out'; a typed change is 'Not saved yet' until 'Save targets'; 'Use these' says so too", async () => {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
+  await ctx.addInitScript(() => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "maintain", dailyCalories: 2000 } })); });
+  const page = await ctx.newPage();
+  await page.goto(BASE + "/app/settings");
+  const targets = page.locator("#targets");
+  const notSaved = page.getByText("Not saved yet. Tap \u201cSave targets\u201d to keep them.", { exact: true });
+  // the worked-out boxes (protein, carbs, fat) say so under the grey number; calories (a saved figure) and water (a default) don't
+  await vis(targets.locator("label", { hasText: "Protein (g)" }).getByText("Worked out", { exact: true }));
+  for (const name of ["Carbs (g)", "Fat (g)"]) await vis(targets.locator("label", { hasText: name }).getByText("Worked out", { exact: true }));
+  for (const name of ["Calories", "Water (ml)"]) if (await targets.locator("label", { hasText: name }).getByText("Worked out", { exact: true }).count()) throw new Error(`${name} is tagged`);
+  if (await notSaved.count()) throw new Error("'Not saved yet' before anything was typed");
+  // a typed change: not saved yet, said as a status line; Save targets keeps it and the line goes
+  await targets.locator("input").first().fill("2100"); // Calories, the first box
+  await vis(notSaved);
+  if ((await notSaved.getAttribute("role")) !== "status") throw new Error("the line is not a status");
+  await page.getByRole("button", { name: "Save targets" }).click();
+  await vis(page.getByText("Saved.", { exact: true }));
+  if (await notSaved.count()) throw new Error("'Not saved yet' still shown after saving");
+  const s = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data);
+  if (s.dailyCalories !== 2100) throw new Error("saved: " + s.dailyCalories);
+  // the suggestion's "Use these" fills the boxes, which are not saved yet either
+  await page.getByRole("button", { name: "Suggest targets", exact: true }).click();
+  const form = page.locator("form");
+  await form.getByRole("radio", { name: "Female", exact: true }).click();
+  await page.getByLabel("Age", { exact: true }).fill("34");
+  for (const [name, value] of [["Stone", "11"], ["Pounds", "0"], ["Feet", "5"], ["Inches", "10"]]) await page.getByRole("textbox", { name, exact: true }).fill(value);
+  await form.getByRole("button", { name: "Suggest targets", exact: true }).click();
+  await vis(form.getByRole("status"));
+  await form.getByRole("button", { name: "Use these", exact: true }).click();
+  await vis(notSaved);
+  await ctx.close();
+});
+await step("Settings › Set up with Pip opens the welcome screen with a way back to Settings; a first visit to the welcome screen has no such button", async () => {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
+  await ctx.addInitScript(() => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "maintain", dailyCalories: 2000 } })); });
+  const page = await ctx.newPage();
+  await page.goto(BASE + "/app/settings");
+  const pip = page.getByRole("link", { name: /Set up with Pip/ });
+  await vis(pip);
+  if ((await pip.getAttribute("href")) !== "/app/welcome") throw new Error("the card goes to " + (await pip.getAttribute("href")));
+  const box = await pip.boundingBox();
+  if (box.height < 44) throw new Error("tap area " + box.height);
+  await pip.click();
+  await page.waitForURL(/\/app\/welcome$/);
+  await vis(page.getByRole("button", { name: "Get started" }));
+  const back = page.getByRole("button", { name: "Back to the previous step" });
+  await vis(back);
+  await back.click();
+  await page.waitForURL(/\/app\/settings$/);
+  await vis(page.getByRole("heading", { level: 1, name: "Settings", exact: true }));
+  await ctx.close();
+  // someone who has never been set up opening the welcome screen: no Back on its first screen (Skip is the way out)
+  const first = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
+  const p2 = await first.newPage();
+  await p2.goto(BASE + "/app/welcome");
+  await vis(p2.getByRole("button", { name: "Get started" }));
+  await p2.waitForTimeout(600);
+  if (await p2.getByRole("button", { name: "Back to the previous step" }).count()) throw new Error("a first visit has a Back button on the welcome screen");
+  await vis(p2.getByRole("button", { name: "Skip", exact: true }));
+  await first.close();
 });
 console.log(`\n${pass} passed, ${fail} failed`);
 await browser.close();

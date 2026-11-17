@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { APP_BUILD } from "@/lib/mm/config";
-import { tk } from "@/lib/mm/i18n";
 import { chooseWarmChains } from "@/lib/mm/popular";
 import { favoritesStore, outbox, savedStore } from "@/lib/mm/stores";
 import { tabTarget } from "@/lib/mm/tabMemory";
@@ -18,7 +17,8 @@ import { bootAccount } from "../_lib/account";
 import { noteTabPage, useTabMemory } from "../_lib/tabMemoryStore";
 import { useReminderSync } from "../_lib/reminderSync";
 import { setLanguage, useT } from "../_lib/i18n";
-import { BasketIcon, ForkIcon, HomeIcon, PeopleIcon, PotIcon } from "./icons";
+import { TABS } from "../_lib/tabs";
+import { TabLabel } from "./TabLabel";
 import { CreatorKeys } from "../_lib/creator";
 import { RefCapture } from "../../components/RefCapture";
 import { recheckStoredToken } from "@/lib/payments/client";
@@ -29,16 +29,7 @@ import { CommunityBadge } from "./CommunityBadge";
 import { PaywallProvider } from "./Paywall";
 import { TrialOffer } from "./TrialOffer";
 
-// Five tabs, one job each (founder 2026-10-10): Home is today (your numbers and your own lists), then the three things the app does —
-// eat out, shop, cook — then Community (founder 2026-10-16: "The settings at the bottom right is now a community"). Settings has no tab of its
-// own any more: it is the gear at the top of Home, so Home's tab stays lit on the Settings pages. Pages inside a tab keep that tab lit.
-const TABS = [
-  { href: "/app", label: tk("Home"), Icon: HomeIcon, match: (p: string) => p === "/app" || p.startsWith("/app/today") || p.startsWith("/app/saved") || p.startsWith("/app/meals") || p.startsWith("/app/groceries/list") || p.startsWith("/app/recipes/saved") || p.startsWith("/app/settings") || p.startsWith("/app/reminders") },
-  { href: "/app/eat-out", label: tk("Eat out"), Icon: ForkIcon, match: (p: string) => p.startsWith("/app/eat-out") || p.startsWith("/app/map") || p.startsWith("/app/chain") || p.startsWith("/app/item") || p.startsWith("/app/search") || p.startsWith("/app/builder") },
-  { href: "/app/groceries", label: tk("Groceries"), Icon: BasketIcon, match: (p: string) => p.startsWith("/app/groceries") && !p.startsWith("/app/groceries/list") },
-  { href: "/app/recipes", label: tk("Recipes"), Icon: PotIcon, match: (p: string) => p.startsWith("/app/recipes") && !p.startsWith("/app/recipes/saved") },
-  { href: "/app/community", label: tk("Community"), Icon: PeopleIcon, match: (p: string) => p.startsWith("/app/community") },
-] as const;
+// The five tabs (and the measured word under each icon) live in _lib/tabs.ts and TabLabel.tsx, shared with the welcome tour's copy of the bar.
 
 export function AppShell({ children }: { children: ReactNode }) {
   const t = useT();
@@ -208,43 +199,4 @@ function useNavigatedOnce(pathname: string): boolean {
     if (pathname !== first) setNavigated(true); // eslint-disable-line react-hooks/set-state-in-effect -- latches once
   }, [pathname, first]);
   return navigated || pathname !== first;
-}
-
-/**
- * A tab's word under its icon, measured with the label's own font so it works in every language and script (a character count can't:
- * "Groceries" fits, "الإعدادات" at the same length may not): 13 px on one line; else 11 px if that keeps it on one line; else 13 px over two
- * lines, breaking only between words; else 11 px with the letters a touch closer if that saves the word (not in Arabic or Urdu, whose
- * letters join); else 11 px, hyphenated (broken anywhere only as a last resort), so the five tabs always fit.
- */
-function TabLabel({ text }: { text: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const [size, setSize] = useState<"" | "small" | "tight">("");
-  useLayoutEffect(() => {
-    const el = ref.current;
-    const tab = el?.parentElement;
-    const pen = document.createElement("canvas").getContext("2d");
-    if (!el || !tab || !pen) return;
-    const fit = () => {
-      const cs = getComputedStyle(el);
-      const room = tab.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - 1; // 1 px for rounding
-      const width = (px: number, s: string) => { pen.font = `${cs.fontWeight} ${px}px ${cs.fontFamily}`; return pen.measureText(s).width; };
-      const longest = (px: number) => Math.max(...text.split(/\s+/).map((word) => width(px, word)));
-      const TIGHT = 0.03; // em taken off each letter's spacing
-      const tightWidth = Math.max(...text.split(/\s+/).map((word) => width(11, word) - [...word].length * TIGHT * 11));
-      if (width(13, text) <= room || (width(11, text) > room && longest(13) <= room)) setSize("");
-      else if (width(11, text) <= room || longest(11) <= room || cs.direction === "rtl" || tightWidth > room) setSize("small");
-      else setSize("tight");
-    };
-    fit();
-    let live = true;
-    document.fonts?.ready.then(() => { if (live) fit(); });
-    const watch = new ResizeObserver(fit);
-    watch.observe(tab);
-    return () => { live = false; watch.disconnect(); };
-  }, [text]);
-  return (
-    <span ref={ref} className={`line-clamp-2 block max-w-full hyphens-auto [overflow-wrap:anywhere] ${size === "small" ? "text-[11px]" : size === "tight" ? "text-[11px] tracking-[-0.03em]" : ""}`}>
-      {text}
-    </span>
-  );
 }

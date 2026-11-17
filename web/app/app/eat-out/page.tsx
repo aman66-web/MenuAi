@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { favoritesStore, settingsStore } from "@/lib/mm/stores";
 import { HALAL_CAUTION, isAllHalal } from "@/lib/mm/halal";
@@ -10,6 +10,7 @@ import { chainsInGroup, cuisineGroups } from "@/lib/mm/cuisine";
 import { groupByInitial, splitChains } from "@/lib/mm/popular";
 import { ChainCard, ChainRow, chainGroupClass } from "../_components/ChainRow";
 import { ChevronRightIcon, CompareIcon, ForkIcon, GridIcon, PinIcon, ScaleIcon, SearchIcon, StarIcon } from "../_components/icons";
+import { Shortcut } from "../_components/Shortcut";
 import { RequestChainSheet } from "../_components/Submit";
 import { Button, Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../_components/ui";
 import { menuClient } from "../_lib/menu";
@@ -28,20 +29,6 @@ import { FinderResults, NumbersPanel, useFinderResults, useNumbersFinder } from 
 // pill, the three shortcuts as rows of one card (Near me's icon in the brand lime, the one highlighted thing), "More ways" as a row of
 // its own with a round grid icon, Popular as 20 px tiles, the A to Z jump as Home's grey day circles, and restaurants in grouped cards
 // under small spaced letter labels that line up with the names. Every word, role and name is as before.
-
-/** One of the three shortcuts at the top, a row of the same card: a round icon, the title and its line, a quiet chevron. */
-function Shortcut({ href, icon, title, line, highlight }: { href: string; icon: ReactNode; title: string; line: string; highlight?: boolean }) {
-  return (
-    <Link href={href} className="group flex min-h-[4.75rem] items-center gap-3.5 px-4 py-3 transition-colors hover:bg-[var(--fill)] active:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">
-      <span aria-hidden className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${highlight ? "bg-sun text-[var(--on-accent)]" : "bg-soft-strong text-foreground"} [&>svg]:h-5 [&>svg]:w-5`}>{icon}</span>
-      <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-        <span className="block text-base font-bold leading-snug">{title}</span>
-        <span className="mt-0.5 block text-sm leading-snug text-muted">{line}</span>
-      </span>
-      <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted transition-transform group-hover:translate-x-0.5" />
-    </Link>
-  );
-}
 
 export default function EatOutPage() {
   const t = useT();

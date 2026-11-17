@@ -3,19 +3,30 @@
 import { useState } from "react";
 import { itemImageUrl } from "@/lib/mm/images";
 import { useT } from "../_lib/i18n";
+import { ForkIcon } from "./icons";
 
 // The chain's own photo of an item, shown as published (resized only; see CLAUDE.md rule 2). It is decorative: the item's
 // name is always plain text beside it, so it has an empty alt and is hidden from screen readers. If the file can't load
-// the photo simply isn't there and the layout around it stays as it was.
+// the photo simply isn't there: the menu list shows its grey fork tile in its place (so the row lines up with the rows that have
+// a photo), and anywhere else the layout around it stays as it was.
 
 /**
  * The small square beside a name in the menu list: soft corners in proportion to its size (between the logo tiles' 14 and 20 px),
  * no outline or shadow, so a photo on a white background floats on the white row.
+ * `placeholder`: on a menu where some dishes have a photo, a dish without one (or whose file failed to load) gets a grey tile of the
+ * same size with our own fork icon (never a food picture: CLAUDE.md rule 2), so every row's name starts at the same place.
  */
-export function ItemThumb({ image }: { image: string | undefined }) {
+export function ItemThumb({ image, placeholder = false }: { image: string | undefined; placeholder?: boolean }) {
   const [failed, setFailed] = useState(false);
   const src = failed ? undefined : itemImageUrl(image);
-  if (!src) return null;
+  if (!src) {
+    if (!placeholder) return null;
+    return (
+      <span aria-hidden className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[var(--fill)] text-muted">
+        <ForkIcon className="h-6 w-6" />
+      </span>
+    );
+  }
   return (
     // eslint-disable-next-line @next/next/no-img-element -- already resized and WebP-encoded by tools/uk_extract/images_common.py
     <img src={src} alt="" width={56} height={56} loading="lazy" decoding="async" onError={() => setFailed(true)} className="h-14 w-14 shrink-0 rounded-2xl bg-white object-cover" />

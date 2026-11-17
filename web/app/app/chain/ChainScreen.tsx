@@ -6,6 +6,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { mealSlotFor, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
 import { formatDate } from "@/lib/mm/format";
+import { itemImageUrl } from "@/lib/mm/images";
 import { anyDietFilter, anyUnchecked, filterCaution, groupByCategory, namesAllergen, passesMenuDiet, uncheckedDiet, isNewItem, LARGE_MENU_ITEMS, searchItems, SECTION_PREVIEW_ITEMS, SORT_OPTIONS, sortItems, type SortKind } from "@/lib/mm/menu-view";
 import { indexChain } from "@/lib/mm/chain-index";
 import { allergensFromParams, fitsLimits, hasLimits, limitsFromParams, limitWords, type NumberLimits } from "@/lib/mm/numbers";
@@ -20,6 +21,7 @@ import { halalFor, HALAL_CAUTION } from "@/lib/mm/halal";
 import { ChainMark } from "../_components/ChainMark";
 import { ArrowUpIcon, ChevronLeftIcon, ChevronRightIcon, CloseIcon, InfoIcon, SearchIcon, StarIcon } from "../_components/icons";
 import { ItemThumb } from "../_components/ItemPhoto";
+import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { MacroLine, SMALL_LABEL } from "../_components/Nutrition";
 import { PresetPills } from "../_components/truth/PresetPills";
 import { ReportSheet } from "../_components/Submit";
@@ -149,6 +151,11 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   };
   const words = dietWords(t, prefs);
   const recentLog = useStore(recentStore);
+  // A menu where some dishes have the chain's photo gives the others a grey fork tile, so every row's name starts at the same place.
+  // itemImageUrl is undefined when photos are switched off or the chain's photos are taken down (hidden.json): no tiles then.
+  // The taken-down list can arrive after the page opens: re-check (and re-render the rows' photos) when it does.
+  const hiddenLogos = useHiddenLogos();
+  const menuPhotos = useMemo(() => chain.items.some((i) => itemImageUrl(i.image) !== undefined), [chain.items, hiddenLogos]); // eslint-disable-line react-hooks/exhaustive-deps -- itemImageUrl reads the taken-down list, which hiddenLogos tracks
   const recent = useMemo(() => recentFor(recentLog, chain.id, now).map((id) => index.items.get(id)).filter((i): i is MenuItem => !!i), [recentLog, chain.id, now, index]);
 
   const bestRef = useRef<HTMLElement>(null);
@@ -241,11 +248,11 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           </div>
         </div>
       )}
-      <PresetPills chain={chain} items={filtered} renderList={(list) => <ItemList items={list} chainId={chain.id} now={now} />} />
+      <PresetPills chain={chain} items={filtered} renderList={(list) => <ItemList items={list} chainId={chain.id} now={now} photos={menuPhotos} />} />
       {recent.length > 0 && (
         <section aria-labelledby="recent-heading" className="mt-7">
           <h2 id="recent-heading" className="mb-3 text-xl font-[800] tracking-[-0.01em]">{t("Recently viewed")}</h2>
-          <ItemList items={recent} chainId={chain.id} now={now} />
+          <ItemList items={recent} chainId={chain.id} now={now} photos={menuPhotos} />
         </section>
       )}
 
@@ -382,6 +389,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
                     items={shown}
                     chainId={chain.id}
                     now={now}
+                    photos={menuPhotos}
                     footer={shown.length < s.items.length && (
                       <button type="button" onClick={() => setExpanded((e) => new Set(e).add(s.category))} className={MORE_ROW}>
                         {t("Show all {n} in {section}", { n: s.items.length, section: s.category })}
@@ -399,6 +407,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
               items={visible.slice(0, flatLimit)}
               chainId={chain.id}
               now={now}
+              photos={menuPhotos}
               footer={visible.length > flatLimit && (
                 <button type="button" onClick={() => setFlatLimit((n) => n + FLAT_PAGE)} className={MORE_ROW}>
                   {t("Show {n} more", { n: Math.min(FLAT_PAGE, visible.length - flatLimit) })}
@@ -453,9 +462,10 @@ const smoothScroll = (): ScrollBehavior => (window.matchMedia("(prefers-reduced-
 
 /**
  * A section's dishes as one white card, the rows divided by fine lines that start where the text does (fewer boxes than a card per
- * dish). An optional footer row ("Show all …") closes the card.
+ * dish). An optional footer row ("Show all …") closes the card. `photos`: the chain has photos for some dishes, so a dish without
+ * one shows the grey fork tile and every row's name lines up.
  */
-function ItemList({ items, chainId, now, footer }: { items: readonly MenuItem[]; chainId: string; now: Date; footer?: React.ReactNode }) {
+function ItemList({ items, chainId, now, footer, photos }: { items: readonly MenuItem[]; chainId: string; now: Date; footer?: React.ReactNode; photos?: boolean }) {
   const t = useT();
   return (
     <div className="glass overflow-hidden rounded-[1.25rem]">
@@ -471,7 +481,7 @@ function ItemList({ items, chainId, now, footer }: { items: readonly MenuItem[];
                 onClick={() => analytics.track({ name: "itemOpened", chainId })}
                 className={`group flex items-center gap-3.5 px-4 transition hover:bg-[var(--fill)] active:bg-[var(--fill)] ${item.rankable ? "min-h-[4.75rem] py-3" : "min-h-16 py-2.5"}`}
               >
-                <ItemThumb image={item.image} />
+                <ItemThumb image={item.image} placeholder={photos} />
                 <span className="min-w-0 flex-1">
                   <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
                     <span className={`text-base leading-snug tracking-[-0.005em] ${item.rankable ? "font-bold" : "font-medium"}`}>{item.name}</span>

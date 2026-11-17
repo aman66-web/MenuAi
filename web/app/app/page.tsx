@@ -3,7 +3,7 @@
 import { StartPrompt } from "./_components/StartPrompt";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
 import { entryMeal, isSameLocalDay, loggedGaps, loggedToday, mealBudget, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
@@ -12,7 +12,7 @@ import { formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
 import { localeInfo } from "@/lib/mm/i18n";
 import { itemImageUrl } from "@/lib/mm/images";
-import { deleteLogEntry, logStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
+import { deleteLogEntry, logStore, myRecipesStore, savedRecipesStore, savedStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
 import type { Meal } from "@/lib/mm/types";
 import { AddFoodSheet } from "./_components/addfood/AddFoodSheet";
@@ -21,7 +21,7 @@ import { Gauge } from "./_components/Gauge";
 import { useGate } from "./_components/Paywall";
 import { RemindersSection } from "./_components/RemindersSection";
 import { WaterCard } from "./_components/WaterCard";
-import { CalendarIcon, FlameIcon, ForkIcon, GearIcon, PlusIcon } from "./_components/icons";
+import { BasketIcon, CalendarIcon, ChevronRightIcon, FlameIcon, GearIcon, HeartIcon, PlusIcon } from "./_components/icons";
 import { Card, Spinner } from "./_components/ui";
 import { useChainIndexes, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "./_lib/hooks";
 import { useLanguage, useT } from "./_lib/i18n";
@@ -69,28 +69,20 @@ function MacroRow({ label, eaten, target }: { label: string; eaten: number; targ
   );
 }
 
-/** "Shopping list / Your shopping list / Open", measured from the founder's picture's Workouts and Meals cards (2026-10-15, "exactly like
- * image 2"): a heavy title, a one-line 14 px subtitle right under it, then the black pill, about 140 px tall in all. */
-function ThingCard({ href, title, line }: { href: string; title: string; line: string }) {
+/** "Shopping list / 2 things to pick up / Open", measured from the founder's picture's Workouts and Meals cards (2026-10-15, "exactly like
+ * image 2"): a heavy title, a one-line 14 px subtitle right under it, then the black pill. A round icon in the meal rows' flame tint sits
+ * above the title, so the two cards aren't the plainest thing on the page. */
+function ThingCard({ href, title, line, icon }: { href: string; title: string; line: string; icon: ReactNode }) {
   const t = useT();
   return (
     <Link href={href} className="glass lift flex min-w-0 flex-col rounded-[1.25rem] p-4 [overflow-wrap:anywhere]">
+      <span aria-hidden className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-accent">{icon}</span>
       <span className="pb-3.5">
         <span className="block text-xl font-[800] leading-tight tracking-[-0.01em]">{title}</span>
         <span className="mt-1 block text-sm leading-snug text-muted">{line}</span>
       </span>
       <span aria-hidden className="mt-auto inline-flex min-h-11 w-full items-center justify-center rounded-full bg-foreground px-4 text-[0.9375rem] font-bold text-background">{t("Open")}</span>
     </Link>
-  );
-}
-
-/** A round picture of something eaten: the chain's own photo of the dish where we have one, otherwise a plain fork. */
-function EatenThumb({ src }: { src: string | undefined }) {
-  return src ? (
-    // eslint-disable-next-line @next/next/no-img-element -- already resized and WebP-encoded by tools/uk_extract/images_common.py
-    <img src={src} alt="" width={44} height={44} loading="lazy" decoding="async" className="h-11 w-11 rounded-full border-2 border-background bg-white object-cover" />
-  ) : (
-    <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-background bg-accent-soft text-accent"><ForkIcon className="h-5 w-5" /></span>
   );
 }
 
@@ -104,6 +96,8 @@ export default function HomePage() {
   const { gate, showPaywall } = useGate();
   const log = useStore(logStore);
   const shopping = useStore(shoppingStore);
+  // what "My meals" holds: the same three stores its page counts (saved recipes, Pip's recipes, saved restaurant orders)
+  const savedMeals = useStore(savedRecipesStore).length + useStore(myRecipesStore).length + useStore(savedStore).length;
   const now = useNow();
   // The + on a meal opens the Add food sheet for that meal; what it adds is offered back with an Undo for a few seconds.
   const router = useRouter();
@@ -131,7 +125,8 @@ export default function HomePage() {
   const loggedDays = new Set(log.map((e) => dayKey(new Date(e.loggedAt))));
 
   const toBuy = shopping.filter((i) => !i.done).length;
-  const groceriesLine = shopping.length === 0 ? t("Your shopping list") : toBuy === 0 ? t("All picked up") : toBuy === 1 ? t("1 thing to pick up") : t("{n} things to pick up", { n: toBuy });
+  const mealsLine = savedMeals === 0 ? t("Your favourite meals") : savedMeals === 1 ? t("1 saved meal") : t("{n} saved meals", { n: savedMeals });
+  const groceriesLine = shopping.length === 0 ? t("Nothing on it yet") : toBuy === 0 ? t("All picked up") : toBuy === 1 ? t("1 thing to pick up") : t("{n} things to pick up", { n: toBuy });
 
   const photoOf = (e: LogEntry): string | undefined => {
     const ix = e.source === "item" ? indexes.get(e.chainId) : undefined;
@@ -165,19 +160,23 @@ export default function HomePage() {
           const logged = loggedDays.has(dayKey(d));
           const name = longDay.format(d);
           const label = today ? t("{day} (today)", { day: name }) : future ? name : logged ? t("{day}: food logged", { day: name }) : t("{day}: nothing logged", { day: name });
-          // Like the picture: every day gone by is a dark circle, today is the brand colour, the days ahead are grey (whether food was
-          // logged is still said to screen readers).
+          // Like the picture: every day gone by is a dark circle, today is the brand colour, the days ahead are grey. A small dot at the foot
+          // of the circle shows a day with food logged (as in the calendar sheet); screen readers hear it in the day's name.
           const look = today ? "bg-sun text-[var(--on-accent)]" : future ? "bg-soft-strong text-foreground" : "bg-foreground text-background";
           const inner = (
             <>
               <span aria-hidden className="text-[0.6875rem] font-semibold uppercase text-muted">{narrow.format(d)}</span>
-              <span aria-hidden className={`app-numbers flex aspect-square w-full max-w-12 items-center justify-center rounded-full text-[0.8125rem] font-semibold ${look}`}>{d.getDate()}</span>
+              <span aria-hidden className={`app-numbers relative flex aspect-square w-full max-w-12 items-center justify-center rounded-full text-[0.8125rem] font-semibold ${look}`}>
+                {d.getDate()}
+                {logged && !future && <span aria-hidden className={`absolute bottom-1.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full ${today ? "bg-current" : "bg-[var(--bar)]"}`} />}
+              </span>
             </>
           );
           return (
             <li key={dayKey(d)} className="min-w-0">
               {future ? (
-                <span className="flex flex-col items-center gap-2.5">
+                // the same box as the links (their padding included), so all seven circles share one baseline
+                <span className="-mx-1 flex flex-col items-center gap-2.5 px-1 py-0.5">
                   {inner}
                   <span className="sr-only">{label}</span>
                 </span>
@@ -243,8 +242,8 @@ export default function HomePage() {
 
       <h2 className="sr-only">{t("Your things")}</h2>
       <div className={`mt-3.5 ${PAIR}`}>
-        <ThingCard href="/app/groceries/list" title={t("Shopping list")} line={groceriesLine} />
-        <ThingCard href="/app/meals" title={t("My meals")} line={t("Your favourite meals")} />
+        <ThingCard href="/app/groceries/list" title={t("Shopping list")} line={groceriesLine} icon={<BasketIcon className="h-5 w-5" />} />
+        <ThingCard href="/app/meals" title={t("My meals")} line={mealsLine} icon={<HeartIcon className="h-5 w-5" />} />
       </div>
 
       <h2 className="mt-7 text-xl font-extrabold tracking-tight">{t("Today's meals")}</h2>
@@ -254,22 +253,30 @@ export default function HomePage() {
           const kcal = entries.reduce((s, e) => s + e.nutrients.calories, 0);
           const { budget } = mealBudget(profile, 0, meal);
           const title = t(MEAL_LABEL[meal]);
+          // up to two different dish photos (the chain's own, where we have one), then what was eaten by the names the person logged
+          const photos = [...new Set(entries.map(photoOf).filter((s): s is string => !!s))].slice(0, 2);
           return (
-            <li key={meal} className="glass @container flex min-w-0 items-center gap-3 rounded-[1.75rem] p-4">
+            <li key={meal} className="glass flex min-w-0 items-center gap-3 rounded-[1.75rem] p-4">
               <Link href="/app/today" className="min-w-0 flex-1 break-words">
-                <span className="block text-lg font-extrabold leading-snug tracking-tight">{title}</span>
+                <span className="flex items-center gap-1 text-lg font-extrabold leading-snug tracking-tight">{title}<ChevronRightIcon aria-hidden className="h-4 w-4 shrink-0 text-muted" /></span>
                 <span className="mt-1.5 flex items-center gap-2">
                   <span aria-hidden className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent"><FlameIcon className="h-[18px] w-[18px]" /></span>
                   <span className="app-numbers text-lg font-bold"><span className="whitespace-nowrap">{formatInt(kcal)} / {formatInt(budget)}</span> <span className="text-sm font-semibold text-muted">kcal</span></span>
                 </span>
+                {entries.length > 0 && (
+                  <span className="mt-2.5 flex items-center gap-2.5">
+                    {photos.length > 0 && (
+                      <span aria-hidden className="flex shrink-0 -space-x-2.5">
+                        {photos.map((src) => (
+                          // eslint-disable-next-line @next/next/no-img-element -- already resized and WebP-encoded by tools/uk_extract/images_common.py
+                          <img key={src} src={src} alt="" width={36} height={36} loading="lazy" decoding="async" className="h-9 w-9 rounded-full border-2 border-background bg-white object-cover" />
+                        ))}
+                      </span>
+                    )}
+                    <span className="line-clamp-2 min-w-0 text-[0.9375rem] leading-snug text-muted [overflow-wrap:anywhere]">{entries.map((e) => e.name).join(", ")}</span>
+                  </span>
+                )}
               </Link>
-              {entries.length > 0 && (
-                // The pictures step aside when the row is too narrow for them (large text, small phones): the numbers matter more.
-                <span aria-hidden className="hidden shrink-0 -space-x-3 rtl:space-x-reverse @[17rem]:flex">
-                  {entries.slice(0, 2).map((e) => <EatenThumb key={e.id} src={photoOf(e)} />)}
-                  {entries.length > 2 && <span className="app-numbers inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-background bg-soft-strong text-sm font-extrabold">+{entries.length - 2}</span>}
-                </span>
-              )}
               <button type="button" onClick={() => gate("log", () => setAddTo(meal))} aria-label={t(ADD_TO[meal])} className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-strong transition active:scale-95 hover:bg-accent-soft hover:text-accent">
                 <PlusIcon className="h-6 w-6" />
               </button>

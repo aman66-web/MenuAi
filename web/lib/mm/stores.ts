@@ -5,6 +5,7 @@ import { sanitizeOutbox, OutboxSender, type OutboxItem } from "./outbox";
 import { indexedDbPhotos } from "./photo-store";
 import { recordView, sanitizeRecent, type RecentView } from "./recent";
 import { sanitizeCompare, type CompareItem } from "./compare";
+import { sanitizeComparePicks, type PickEntry } from "./comparePick";
 import { sanitizeHiddenLogos, setHiddenLogos } from "./logos";
 import { grantShareUnlock, localDay, NO_PAID, NO_TRUTH_DAY, openTruth, sanitizePaid, sanitizeTruthDay, withoutToken, withVerifiedToken, type PaidState, type TruthDay } from "./paid";
 import type { PlanId } from "../payments/plans";
@@ -29,6 +30,8 @@ export const paidStore = createStore<PaidState>("mm.v1.paid", NO_PAID, { sanitiz
 export const truthDayStore = createStore<TruthDay>("mm.v1.truthDay", NO_TRUTH_DAY, { sanitize: sanitizeTruthDay });
 /** The iPhone app has shown its one-time "try Premium free" offer after setup on this phone (founder 2026-11-16). Never synced: it belongs to the phone. */
 export const trialOfferStore = createStore<boolean>("mm.v1.trialOffer", false, { sanitize: (v) => v === true });
+/** The welcome tour's version this phone has seen (lib/mm/tour.ts TOUR_VERSION; 0 = not seen). On this device only: not synced, never sent anywhere. */
+export const tourStore = createStore<number>("mm.v1.tour", 0, { sanitize: (v) => (Number.isInteger(v) && (v as number) >= 0 && (v as number) < 100 ? (v as number) : 0) });
 export const favoritesStore = createStore<Favorite[]>("mm.v1.favorites", [], { sanitize: sanitizeFavorites });
 export const savedStore = createStore<SavedOrder[]>("mm.v1.saved", [], { sanitize: sanitizeSavedOrders });
 export const logStore = createStore<LogEntry[]>("mm.v1.log", [], { sanitize: sanitizeLog });
@@ -55,6 +58,8 @@ export const recentStore = createStore<RecentView[]>("mm.v1.recentItems", [], { 
 
 /** Products and dishes picked to compare side by side (lib/mm/compare.ts): copies of the figures shown. On this device only. */
 export const compareStore = createStore<CompareItem[]>("mm.v1.compare", [], { sanitize: sanitizeCompare });
+/** Pip's pick answers already made for a pair of products (lib/mm/comparePick.ts): a hash key, the pick, one sentence and reason keys, so the same pair is never asked twice. At most 200. On this device only, never synced. */
+export const comparePicksStore = createStore<PickEntry[]>("mm.v1.comparePicks", [], { sanitize: sanitizeComparePicks });
 
 /** The device's copy of the website's taken-down logos list (public/logos/hidden.json; lib/mm/logos.ts). Not personal data. */
 export const hiddenLogosStore = createStore<string[]>("mm.v1.hiddenLogos", [], { sanitize: sanitizeHiddenLogos });

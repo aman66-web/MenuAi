@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { addToList, customItem, CUSTOM_RETAILER, formatPrice, groupName, itemCode, listAsText, listTotals, setQty, toggleDone, withoutDone, type ShoppingItem } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
+import { tk } from "@/lib/mm/i18n";
 import { nextToBuy } from "@/lib/mm/listRecipes";
 import { decodePayload, encodeEntries, payloadFrom, SHARE_PROBLEM, SHARED_APP_PATH, shareUrl, toEntries } from "@/lib/mm/shareList";
 import { shoppingStore } from "@/lib/mm/stores";
@@ -39,6 +40,10 @@ export default function ShoppingListPage() {
   const [note, setNote] = useState<string | null>(null);
   const [typed, setTyped] = useState("");
   const [suggestNote, setSuggestNote] = useState<string | null>(null);
+  // Undo after Clear list, Remove ticked and the last − (each still takes effect at once, so no question first): the list as it was, what went, and the message
+  const [undo, setUndo] = useState<{ before: ShoppingItem[]; removed: ShoppingItem[]; key: string; values?: Record<string, string> } | null>(null);
+  const undoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => { if (undoTimer.current) clearTimeout(undoTimer.current); }, []);
   const { state, matches } = useListRecipes(list);
   const photosOf = useListPhotos(list);
   const lists = useShopManifest();
@@ -97,6 +102,30 @@ export default function ShoppingListPage() {
     shoppingStore.update((l) => addToList(l, item));
     setTyped("");
     setNote(t("Added “{name}”.", { name: item.name }));
+  };
+  /** The same item: the key the rows already use (its code and its shop). */
+  const sameItem = (a: ShoppingItem, b: ShoppingItem) => itemCode(a) === itemCode(b) && a.retailer === b.retailer;
+  /** Runs `apply` and, when it took items off the list, offers Undo for 8 seconds. */
+  const withUndo = (key: string, values: Record<string, string> | undefined, apply: () => void) => {
+    const before = shoppingStore.get();
+    apply();
+    const now = shoppingStore.get();
+    const removed = before.filter((b) => !now.some((n) => sameItem(n, b)));
+    if (removed.length === 0) return;
+    setUndo({ before, removed, key, values });
+    if (undoTimer.current) clearTimeout(undoTimer.current);
+    undoTimer.current = setTimeout(() => { undoTimer.current = null; setUndo(null); }, 8000);
+  };
+  /** Puts the removed items back where they were, keeping the current version of every item still on the list and anything added since. */
+  const undoRemove = () => {
+    if (!undo) return;
+    shoppingStore.update((now) => {
+      const back = undo.before.filter((b) => undo.removed.some((r) => sameItem(r, b)) || now.some((n) => sameItem(n, b))).map((b) => now.find((n) => sameItem(n, b)) ?? b);
+      return [...back, ...now.filter((n) => !undo.before.some((b) => sameItem(b, n)))];
+    });
+    if (undoTimer.current) clearTimeout(undoTimer.current);
+    undoTimer.current = null;
+    setUndo(null);
   };
   /** A round − or + : a 44 px tap area holding a 36 px grey circle, like Home's round actions. */
   const qtyButton = "group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95";
@@ -173,7 +202,7 @@ export default function ShoppingListPage() {
                           <div className="min-w-0 flex-1">
                             {href ? <Link href={href} className="block py-0.5">{body}</Link> : <div className="py-0.5">{body}</div>}
                             <div className="mt-1 flex items-center justify-end">
-                              <button type="button" aria-label={t("One fewer {name}", { name: i.name })} onClick={() => shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty - 1))} className={qtyButton}><span aria-hidden className={qtyCircle}><MinusIcon className="h-[18px] w-[18px]" /></span></button>
+                              <button type="button" aria-label={t("One fewer {name}", { name: i.name })} onClick={() => (i.qty <= 1 ? withUndo(tk("Removed “{name}” from your list."), { name: i.name }, () => shoppingStore.update((l) => setQty(l, code, i.retailer, 0))) : shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty - 1)))} className={qtyButton}><span aria-hidden className={qtyCircle}><MinusIcon className="h-[18px] w-[18px]" /></span></button>
                               <span className="app-numbers w-7 text-center font-mono text-base" aria-label={t("Quantity {n}", { n: i.qty })}>{i.qty}</span>
                               <button type="button" aria-label={t("One more {name}", { name: i.name })} onClick={() => shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty + 1))} className={qtyButton}><span aria-hidden className={qtyCircle}><PlusIcon className="h-[18px] w-[18px]" /></span></button>
                             </div>
@@ -216,8 +245,8 @@ export default function ShoppingListPage() {
             <Button variant="secondary" className="min-h-12" onClick={copy}><CopyIcon className="h-5 w-5" />{t("Copy")}</Button>
             {/* to a friend who has the app (Community, founder 2026-10-16): lands in their Shared with you; needs an account, the rest of this page does not */}
             <SendToFriend list={list} onSent={setNote} />
-            {ticked > 0 && <Button variant="secondary" className="min-h-12" onClick={() => { shoppingStore.update(withoutDone); setNote(null); }}>{t("Remove ticked ({n})", { n: ticked })}</Button>}
-            <Button variant="ghost" className={`min-h-12 ${ticked > 0 ? "" : "col-span-full"}`} onClick={() => { shoppingStore.set([]); setNote(null); }}>{t("Clear")}</Button>
+            {ticked > 0 && <Button variant="secondary" className="min-h-12" onClick={() => { withUndo(tk("Ticked items removed."), undefined, () => shoppingStore.update(withoutDone)); setNote(null); }}>{t("Remove ticked ({n})", { n: ticked })}</Button>}
+            <Button variant="ghost" className={`min-h-12 ${ticked > 0 ? "" : "col-span-full"}`} onClick={() => { withUndo(tk("List cleared."), undefined, () => shoppingStore.set([])); setNote(null); }}>{t("Clear list")}</Button>
           </div>
           <p className="mt-3 px-1 text-sm leading-snug text-muted">{t("Sharing sends a link that holds your list, so anyone who has it can see it.")}</p>
           {suggestion && state?.status === "ready" && (
@@ -240,6 +269,14 @@ export default function ShoppingListPage() {
           )}
 
         </>
+      )}
+
+      {undo && (
+        // Outside the empty-list branch (Clear list empties it), and at the top, clear of the rows' − and + and the tab bar, like Home's "Added" bar
+        <div role="status" className="fixed inset-x-4 top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-[1.75rem] bg-foreground py-1.5 ps-5 pe-2 text-background shadow-lg">
+          <span className="min-w-0 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{t(undo.key, undo.values)}</span>
+          <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-[var(--sun)] transition hover:bg-white/10" onClick={undoRemove}>{t("Undo")}</button>
+        </div>
       )}
 
       <Sheet open={opening} onClose={() => setOpening(false)} title={t("Open a shared list")}>

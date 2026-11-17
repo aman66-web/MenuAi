@@ -131,6 +131,71 @@ await step("an entry stays in the meal whose + was tapped, whatever the time, on
   await ctx.close();
 });
 
+await step("Today's meals: every meal on today has one Add to …, which adds to that meal with Undo at the top; a past day stays read-only; times read 08:05", async () => {
+  const { ctx, page, errors } = await open();
+  await page.goto(BASE + "/app/today");
+  const section = (meal) => page.locator("section", { has: page.getByRole("heading", { name: meal, exact: true }) });
+  await page.getByRole("heading", { name: "Breakfast", exact: true }).waitFor({ timeout: 90000 });
+  // with nothing logged, all three meals are there, each with exactly one wide "Add to …" (no empty state pointing elsewhere)
+  for (const meal of ["Breakfast", "Lunch", "Dinner"]) {
+    await page.getByRole("heading", { name: meal, exact: true }).waitFor({ timeout: 3000 });
+    const buttons = section(meal).getByRole("button", { name: `Add to ${meal}`, exact: true });
+    expect((await buttons.count()) === 1, `${meal} has ${await buttons.count()} "Add to ${meal}" controls`);
+    expect((await buttons.innerText()).trim() === `Add to ${meal}`, `${meal}'s empty-meal button reads "${await buttons.innerText()}"`);
+  }
+  expect((await page.getByText("Nothing logged yet today").count()) === 0, "the old empty state is still shown");
+  // the button opens Home's Add food sheet titled for that meal, without leaving the page
+  await section("Dinner").getByRole("button", { name: "Add to Dinner", exact: true }).tap();
+  await dlg(page).getByRole("heading", { name: "Add to Dinner", exact: true }).waitFor();
+  expect(new URL(page.url()).pathname === "/app/today", "left Today: " + page.url());
+  await page.waitForTimeout(700); // let slides and fades end before colours are judged
+  await page.addScriptTag({ path: AXE }).catch(() => {});
+  const res = await page.evaluate(() => globalThis.axe.run(document.querySelector("dialog[open]") ?? document, { runOnly: ["wcag2a", "wcag2aa"] }));
+  expect(res.violations.length === 0, "axe with the sheet open: " + res.violations.map((v) => v.id + " " + (v.nodes[0]?.html ?? "").slice(0, 90)).join(" | "));
+  await choose(page, "Type in your numbers");
+  await page.getByLabel("Name (optional)").fill("Soup");
+  await page.getByLabel("Calories (kcal)").fill("300");
+  await dlg(page).getByRole("button", { name: "Add to Dinner", exact: true }).tap();
+  await sheetTitle(page, "Type in your numbers").waitFor({ state: "hidden" });
+  const status = page.getByRole("status").filter({ hasText: "Added “Soup” to Dinner." });
+  await status.waitFor();
+  const undo = status.getByRole("button", { name: "Undo", exact: true });
+  await undo.waitFor();
+  const [e] = await log(page);
+  expect(e && e.meal === "dinner" && e.name === "Soup" && e.nutrients.calories === 300, "entry: " + JSON.stringify(e));
+  expect((await section("Dinner").innerText()).includes("Soup"), "Soup isn't in the Dinner section: " + (await section("Dinner").innerText()));
+  for (const other of ["Breakfast", "Lunch"]) expect(!(await section(other).innerText()).includes("Soup"), `Soup is also under ${other}`);
+  // Dinner now has the round + beside its heading (no words in it), and still exactly one "Add to Dinner"
+  const dinnerAdd = section("Dinner").getByRole("button", { name: "Add to Dinner", exact: true });
+  expect((await dinnerAdd.count()) === 1, `Dinner has ${await dinnerAdd.count()} "Add to Dinner" controls`);
+  expect((await dinnerAdd.innerText()).trim() === "", "the header + has words in it: " + (await dinnerAdd.innerText()));
+  // the "Added" line sits at the top, clear of the + buttons
+  const bar = await status.boundingBox();
+  expect(bar && bar.y < 120, "the Added line isn't at the top: " + JSON.stringify(bar));
+  for (const meal of ["Breakfast", "Lunch", "Dinner"]) {
+    const b = await section(meal).getByRole("button", { name: `Add to ${meal}`, exact: true }).boundingBox();
+    expect(!b || b.y >= bar.y + bar.height || b.y + b.height <= bar.y, `the Added line covers ${meal}'s add button`);
+  }
+  await undo.tap();
+  await status.waitFor({ state: "hidden" });
+  expect((await log(page)).length === 0, "Undo left the entry");
+  expect((await section("Dinner").getByRole("button", { name: "Add to Dinner", exact: true }).innerText()).trim() === "Add to Dinner", "Dinner didn't go back to its wide button");
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+
+  // a past day: only the meals with something in them, no add controls, and the time on the 24-hour clock
+  const past = [{ id: "p1", loggedAt: "2019-01-01T08:05:00.000Z", chainId: "", chainName: "", name: "Porridge", nutrients: { calories: 250 }, source: "custom", meal: "breakfast" }];
+  const p = await open({ timezoneId: "Europe/London" }, {}, { "mm.v1.log": past });
+  await p.page.goto(BASE + "/app/today?d=2019-01-01");
+  const breakfast = p.page.locator("section", { has: p.page.getByRole("heading", { name: "Breakfast", exact: true }) });
+  await breakfast.waitFor({ timeout: 90000 });
+  expect((await p.page.getByRole("button", { name: /^Add to / }).count()) === 0, "a past day has add controls");
+  expect((await p.page.getByRole("heading", { name: "Dinner", exact: true }).count()) === 0, "a past day shows an empty Dinner");
+  const text = await breakfast.innerText();
+  expect(text.includes("Porridge") && /\b08:05\b/.test(text) && !/\b(AM|PM)\b/i.test(text), "the time doesn't read 08:05: " + text);
+  await p.ctx.close();
+});
+
 await step("closing the sheet adds nothing, and it opens at the four choices again", async () => {
   const { ctx, page } = await open();
   await home(page);

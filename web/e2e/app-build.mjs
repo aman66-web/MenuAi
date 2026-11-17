@@ -68,6 +68,23 @@ await step("first launch with no signal: the welcome wall follows the appLogos s
   await ctx.close();
 });
 
+// The welcome tour (lib/mm/tour.ts): the layout's inline script sends a cold, plain start of the app's start page to the welcome screens (the scheme handler
+// serves welcome/index.html), before anything is drawn; a link the app opens instead of its start page (a shared list) opens as it is.
+await step("first launch: a cold plain start of /app opens the welcome tour; a start on a shared list's link opens the list, not the tour", async () => {
+  const { ctx, page } = await newPage({ settings: null });
+  await page.goto(BASE + "/app");
+  await page.waitForURL(/\/app\/welcome/, { timeout: 15000 });
+  await page.getByRole("button", { name: "Get started" }).waitFor({ timeout: 15000 });
+  expect((await page.getByRole("heading", { level: 1, name: "Home" }).count()) === 0, "Home on the welcome screens");
+  await ctx.close();
+  const two = await newPage({ settings: null });
+  await two.page.goto(BASE + "/app/groceries/list/shared#1AAAAAAA");
+  await two.page.getByRole("heading", { level: 1, name: "Shared shopping list" }).waitFor({ timeout: 15000 });
+  await two.page.waitForTimeout(800);
+  expect(!/welcome/.test(two.page.url()), "a shared list was sent to the tour: " + two.page.url());
+  await two.ctx.close();
+});
+
 await step("no signal: every restaurant comes from the menus packed in the app; no service worker; the live website was tried", async () => {
   const { ctx, page, live } = await newPage();
   await page.goto(BASE + "/app/eat-out");

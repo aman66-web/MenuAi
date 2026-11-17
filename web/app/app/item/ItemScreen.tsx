@@ -10,7 +10,7 @@ import { describeOrder, lineFromItem, orderName, orderNutrients } from "@/lib/mm
 import { builderHref, chainHref } from "@/lib/mm/routes";
 import { addLogEntry, addSavedOrder, countProAction, noteItemViewed } from "@/lib/mm/stores";
 import { useGate } from "../_components/Paywall";
-import { ChevronLeftIcon, ChevronRightIcon, InfoIcon } from "../_components/icons";
+import { BookmarkIcon, ChevronLeftIcon, ChevronRightIcon, InfoIcon, PlusIcon } from "../_components/icons";
 import { ItemPhotoHero } from "../_components/ItemPhoto";
 import { AllergenSection } from "../_components/Allergens";
 import { ItemHero, NutrientTable } from "../_components/Nutrition";
@@ -26,15 +26,11 @@ import { useT } from "../_lib/i18n";
 
 // SPEC §7.5: name, serving, big calories, then protein/carbs/fat, then the optional nutrients ("not published").
 // Kept plain for older users (founder 2026-10-11): calories and protein are the big numbers; the other nutrients open under "More detail".
-// Look (founder 2026-10-15, "the rest of the app should match that elegance"): Home's language. One white card for the dish (its
-// photo, name and numbers), the allergens, "More detail" opening inside its own card, the chain's note, then the actions: Customise as
-// the one black pill, Log, Save and Share as white pills side by side, and Compare under them.
-
-/**
- * Log, Save and Share: three to a row; at large text Log and Save side by side and Share under them, full width (ShareButton's button
- * sits in a `display: contents` wrapper, so it is the grid item).
- */
-const ACTIONS = "grid grid-cols-2 gap-2.5 [&>div:last-child>button]:col-span-2 @min-[22rem]:grid-cols-3 @min-[22rem]:[&>div:last-child>button]:col-span-1";
+// Look (founder 2026-10-15, "the rest of the app should match that elegance"): Home's language. Top to bottom: one white card for the
+// dish (its photo, name and numbers); "See the truth" (a row with a line under it, then the Smart Swap pill); the actions right under
+// the numbers, so logging a dish needs no long scroll: Customise as the one black pill, then Log, Save, Share and Compare as white pills,
+// two by two (ShareButton and CompareButton sit in `display: contents` wrappers, so their buttons are the grid's items and their notes
+// take a whole row after it); then the allergens, "More detail" opening inside its own card, and the chain's note.
 
 export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: string }) {
   const t = useT();
@@ -82,6 +78,66 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
 
       <div className="mt-3.5"><TruthButton chain={chain} item={item} /></div>
 
+      {/* The actions, right under the numbers: one black pill for the main one, the rest as white pills, two by two. */}
+      {hasMacros(item.nutrients) ? (
+        <div className="@container mt-5">
+          <Button
+            full
+            className="min-h-12 text-base"
+            onClick={() =>
+              gate("orderBuilder", () => {
+                analytics.track({ name: "builderOpened", origin: "item" });
+                router.push(builderHref({ chain: chain.id, item: item.id }));
+              })
+            }
+          >
+            {t("Customise")}
+          </Button>
+          <div className="mt-2.5 grid grid-cols-2 gap-2.5 @max-[14rem]:grid-cols-1">
+            <Button
+              variant="secondary"
+              full
+              onClick={() =>
+                gate("log", () => {
+                  addLogEntry({ chainId: chain.id, chainName: chain.name, name: item.name, nutrients: item.nutrients, source: "item" });
+                  analytics.track({ name: "mealLogged" });
+                  countProAction();
+                  setMessage(tk("Logged to Today."));
+                })
+              }
+            >
+              <PlusIcon aria-hidden className="h-5 w-5" />
+              {t("Log")}
+            </Button>
+            <Button
+              variant="secondary"
+              full
+              onClick={() =>
+                gate("saveLimit", () => {
+                  const total = orderNutrients(index, lines) ?? item.nutrients;
+                  addSavedOrder({ chainId: chain.id, chainName: chain.name, name: orderName(index, lines) || item.name, lines, nutrients: total, dataVersionAtSave: menu.dataVersion ?? 0 });
+                  analytics.track({ name: "orderSaved" });
+                  countProAction();
+                  setMessage(tk("Saved."));
+                })
+              }
+            >
+              <BookmarkIcon aria-hidden className="h-5 w-5" />
+              {t("Save")}
+            </Button>
+            <ShareButton full chainName={chain.name} orderName={item.name} description={description} nutrients={item.nutrients} />
+            <CompareButton full item={compareDish(chain, item)} />
+          </div>
+          {/* Empty (and no height) until something is logged or saved; it stays in the page so a screen reader hears it. */}
+          <p role="status" aria-live="polite" className="mt-2.5 text-center text-sm font-semibold text-accent empty:mt-0">{message && t(message)}</p>
+        </div>
+      ) : (
+        <>
+          <p className="mt-5 px-1 text-[0.9375rem] leading-snug text-muted">{t("{chain} publishes calories only, so ordering, saving, logging and sharing aren't available for this item (they need protein, carbs and fat).", { chain: chain.name })}</p>
+          <div className="mt-3"><CompareButton full item={compareDish(chain, item)} /></div>
+        </>
+      )}
+
       <div className="mt-3.5"><AllergenSection chain={chain} allergens={item.allergens} itemName={item.name} /></div>
 
       {/* "More detail" opens inside its own card: one box, not two. */}
@@ -103,64 +159,6 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
           <InfoIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
           <span>{chain.note}</span>
         </p>
-      )}
-
-      {/* The actions: one black pill for the main one, the rest as white pills. */}
-      {hasMacros(item.nutrients) ? (
-        <div className="@container mt-6">
-          <Button
-            full
-            className="min-h-12 text-base"
-            onClick={() =>
-              gate("orderBuilder", () => {
-                analytics.track({ name: "builderOpened", origin: "item" });
-                router.push(builderHref({ chain: chain.id, item: item.id }));
-              })
-            }
-          >
-            {t("Customise")}
-          </Button>
-          <div className={`mt-2.5 ${ACTIONS}`}>
-            <Button
-              variant="secondary"
-              full
-              onClick={() =>
-                gate("log", () => {
-                  addLogEntry({ chainId: chain.id, chainName: chain.name, name: item.name, nutrients: item.nutrients, source: "item" });
-                  analytics.track({ name: "mealLogged" });
-                  countProAction();
-                  setMessage(tk("Logged to Today."));
-                })
-              }
-            >
-              {t("Log")}
-            </Button>
-            <Button
-              variant="secondary"
-              full
-              onClick={() =>
-                gate("saveLimit", () => {
-                  const total = orderNutrients(index, lines) ?? item.nutrients;
-                  addSavedOrder({ chainId: chain.id, chainName: chain.name, name: orderName(index, lines) || item.name, lines, nutrients: total, dataVersionAtSave: menu.dataVersion ?? 0 });
-                  analytics.track({ name: "orderSaved" });
-                  countProAction();
-                  setMessage(tk("Saved."));
-                })
-              }
-            >
-              {t("Save")}
-            </Button>
-            <ShareButton full chainName={chain.name} orderName={item.name} description={description} nutrients={item.nutrients} />
-          </div>
-          {/* Empty (and no height) until something is logged or saved; it stays in the page so a screen reader hears it. */}
-          <p role="status" aria-live="polite" className="mt-2.5 text-center text-sm font-semibold text-accent empty:mt-0">{message && t(message)}</p>
-          <div className="mt-2.5"><CompareButton full item={compareDish(chain, item)} /></div>
-        </div>
-      ) : (
-        <>
-          <p className="mt-6 px-1 text-[0.9375rem] leading-snug text-muted">{t("{chain} publishes calories only, so ordering, saving, logging and sharing aren't available for this item (they need protein, carbs and fat).", { chain: chain.name })}</p>
-          <div className="mt-3"><CompareButton full item={compareDish(chain, item)} /></div>
-        </>
       )}
 
       <p className="mt-6 px-1 text-sm leading-snug text-muted">

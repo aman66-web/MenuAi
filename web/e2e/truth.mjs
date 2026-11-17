@@ -29,7 +29,7 @@ const axeCheck = async (page) => {
   expect(v.length === 0, v.map((x) => x.id + ": " + x.nodes.slice(0, 2).map((n) => n.target.join(" ")).join(" | ")).join("; "));
 };
 
-await step("a dish shows 'See the truth' and, where there is a lighter dish, 'Show a Smart Swap at {chain}': both 48 px tall", async () => {
+await step("a dish shows 'See the truth' (a row with a line under it) and, where there is a lighter dish, 'Show a Smart Swap at {chain}': both at least 48 px tall", async () => {
   const { ctx, page } = await open();
   await page.goto(BASE + SUBWAY);
   const truth = page.getByRole("button", { name: "See the truth" });

@@ -8,12 +8,13 @@ import type { Chain, MenuItem } from "@/lib/mm/types";
 import { useIsPro, useSettings } from "../../_lib/hooks";
 import { useGate } from "../Paywall";
 import { useT } from "../../_lib/i18n";
-import { Button } from "../ui";
+import { ChevronRightIcon, FlameIcon } from "../icons";
 import { TruthSheet } from "./TruthSheet";
 
 /**
- * The two big buttons on a dish: "See the truth" (the Truth card) and, when the same restaurant has a lighter dish with at least as much protein that fits
- * the person's diet and allergy settings, "Show a Smart Swap at {chain}" (the same card, scrolled to the swap). Both are 48 px tall.
+ * On a dish: "See the truth" as a white row with a line under it saying what it opens (the Truth card), so the page keeps one black pill
+ * (Customise); then, when the same restaurant has a lighter dish with at least as much protein that fits the person's diet and allergy
+ * settings, the green pill "Show a Smart Swap at {chain}" (the same card, scrolled to the swap), 48 px tall.
  */
 export function TruthButton({ chain, item }: { chain: Chain; item: MenuItem }) {
   const t = useT();
@@ -36,7 +37,19 @@ export function TruthButton({ chain, item }: { chain: Chain; item: MenuItem }) {
 
   return (
     <div className="space-y-2.5">
-      <Button size="lg" full aria-haspopup="dialog" onClick={() => request("truth")}>{t("See the truth")}</Button>
+      <button
+        type="button"
+        aria-haspopup="dialog"
+        onClick={() => request("truth")}
+        className="glass flex min-h-[4.75rem] w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-3 text-start transition-colors hover:bg-[var(--fill)] active:bg-soft-strong"
+      >
+        <span aria-hidden className="bg-sun inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[var(--on-accent)]"><FlameIcon className="h-5 w-5" /></span>
+        <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
+          <span className="block text-base font-bold leading-snug">{t("See the truth")}</span>
+          <span className="mt-0.5 block text-sm leading-snug text-muted">{t("Calories, protein score and traffic lights")}</span>
+        </span>
+        <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted" />
+      </button>
       {swap && (
         <button
           type="button"

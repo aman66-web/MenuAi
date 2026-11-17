@@ -118,6 +118,42 @@ await step("an empty list is unchanged (Browse groceries, See recipes), and tick
   await ctx.close();
 });
 
+await step("Clear list, and the last − on an item, can be undone: the items come back with their quantities, in the same order", async () => {
+  const beans = { gtin: "", shopId: "asda-undo-test", retailer: "asda", name: "Undo Test Baked Beans 400g", brand: "", size: "", qty: 1, addedAt: iso, price: 0.85, checkedOn: "2026-10-08" };
+  const { ctx, page, errors } = await open([{ ...asdaItem, qty: 2 }, beans]);
+  const shape = async () => (await stored(page)).map((i) => `${i.name}×${i.qty}`).join(" | ");
+  const want = `${asdaItem.name}×2 | ${beans.name}×1`;
+  const undo = page.getByRole("button", { name: "Undo", exact: true });
+  await page.goto(BASE + "/app/groceries/list");
+  await more(page, "Asda").waitFor({ timeout: 90000 });
+  expect((await page.getByRole("button", { name: "Clear", exact: true }).count()) === 0, "the button still reads just 'Clear'");
+  await page.getByRole("button", { name: "Clear list", exact: true }).tap();
+  await page.getByRole("link", { name: "Browse groceries" }).waitFor({ timeout: 15000 }); // the list is empty
+  expect((await stored(page)).length === 0, "the list is not empty: " + (await shape()));
+  await page.getByRole("status").filter({ hasText: "List cleared." }).waitFor({ timeout: 5000 });
+  // the bar shows over the empty list: check it once with axe
+  await page.addScriptTag({ path: AXE });
+  const res = await page.evaluate(() => globalThis.axe.run(document, { runOnly: ["wcag2a", "wcag2aa"] }));
+  expect(res.violations.length === 0, res.violations.map((v) => v.id + " " + (v.nodes[0]?.html ?? "").slice(0, 100)).join(" | "));
+  expect((await undo.boundingBox()).height >= 44, "Undo is a proper tap target");
+  await undo.tap();
+  await undo.waitFor({ state: "detached", timeout: 5000 });
+  await more(page, "Asda").waitFor({ timeout: 15000 });
+  expect((await shape()) === want, "after Undo: " + (await shape()));
+  expect((await page.getByRole("checkbox").count()) === 2, "two rows back");
+  // the last − on the quantity-1 item takes it off the list, with Undo
+  await page.getByRole("button", { name: `One fewer ${beans.name}`, exact: true }).tap();
+  await page.getByRole("status").filter({ hasText: `Removed “${beans.name}” from your list.` }).waitFor({ timeout: 5000 });
+  expect((await shape()) === `${asdaItem.name}×2`, "after the last −: " + (await shape()));
+  expect((await page.getByRole("checkbox").count()) === 1, "its row is gone");
+  await undo.tap();
+  await undo.waitFor({ state: "detached", timeout: 5000 });
+  expect((await shape()) === want, "after the second Undo: " + (await shape()));
+  expect((await page.getByRole("checkbox").count()) === 2, "both rows back");
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
 await step("nothing runs sideways at 360 px, at Extra large text or right to left, and the rows read in order (item, add more, total, another shop)", async () => {
   for (const [label, o] of [["360 px", { extra: { viewport: { width: 360, height: 780 } } }], ["Extra large", { st: { textSize: "xlarge" } }]]) {
     const { ctx, page } = await open([asdaItem, tescoItem, typedItem], o);

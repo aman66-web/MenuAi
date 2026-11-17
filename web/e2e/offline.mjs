@@ -46,7 +46,9 @@ await step("OFFLINE: reload an opened chain page → menu still shows", async ()
   serverDown(); await sleep(800); await ctx.setOffline(true);
   await page.goto(BASE + "/app/chain?id=bowl-and-co");
   await vis(page.getByRole("heading", { name: "Bowl & Co." }));
-  await vis(page.getByText("655 kcal · 50g protein · 67g carbs · 21g fat").first());
+  await vis(page.getByText("655 kcal").first());
+  await vis(page.getByText("50g protein").first());
+  await vis(page.getByText("67g carbs · 21g fat").first());
   await vis(page.getByText("You're offline.").first());
 });
 await step("OFFLINE: reload the opened item page", async () => {

@@ -156,6 +156,39 @@ await step("the week strip's circles open their day; today's circle opens plain 
   await ctx.close();
 });
 
+await step("Home: the seven week circles line up, a past day with food carries one small dot (an empty one none), and the Lunch row names what was eaten; no sideways scroll at 360 px", async () => {
+  // one entry today at 12:30 (always under Lunch: 10:30 to 16:00), plus the seeded days
+  const log = [entry("l1", at(0, 12, 30), "Cheese toastie", { calories: 420, protein: 18, carbs: 40, fat: 20 }), ...SEED_LOG];
+  for (const width of [390, 360]) {
+    const { ctx, page, errors } = await open({ viewport: { width, height: 844 } }, {}, log);
+    await home(page);
+    await page.waitForTimeout(500);
+    const strip = page.getByRole("list", { name: "This week" });
+    const circles = strip.locator(".aspect-square");
+    expect((await circles.count()) === 7, `${width} px: ${await circles.count()} week circles, expected 7`);
+    const tops = [];
+    for (let i = 0; i < 7; i++) tops.push((await circles.nth(i).boundingBox()).y);
+    expect(Math.max(...tops) - Math.min(...tops) <= 0.5, `${width} px: the week circles' tops differ: ${tops.map((y) => y.toFixed(2)).join(", ")}`);
+    const now = new Date();
+    const monday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - ((now.getDay() + 6) % 7));
+    const daysUpToToday = Math.round((new Date(now.getFullYear(), now.getMonth(), now.getDate()) - monday) / 86400000) + 1;
+    // skipped on a Monday: no day of this week has gone by yet
+    if (daysUpToToday >= 2) {
+      const dotsOf = (daysAgo) => strip.getByRole("link", { name: new RegExp("^" + longName(at(daysAgo, 12))) }).locator(".aspect-square span.absolute");
+      expect((await dotsOf(1).count()) === 1, `${width} px: yesterday has food but ${await dotsOf(1).count()} dots`);
+      if (daysUpToToday >= 3) expect((await dotsOf(2).count()) === 0, `${width} px: two days ago has no food but ${await dotsOf(2).count()} dots`);
+    }
+    const lunch = page.getByRole("link", { name: /^Lunch\b/ });
+    expect((await lunch.count()) === 1, `${width} px: ${await lunch.count()} Lunch row links`);
+    const lunchText = await lunch.innerText();
+    expect(lunchText.includes("Cheese toastie"), `${width} px: the Lunch row reads "${lunchText.replace(/\s+/g, " ")}"`);
+    const over = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    expect(over <= 0, `${width} px: Home scrolls sideways by ${over} px`);
+    expect(errors.length === 0, `${width} px: ` + errors.join(" | "));
+    await ctx.close();
+  }
+});
+
 await step("Previous day and Next day flip through days; Today comes back; Next day is greyed on today; an empty past day says so", async () => {
   const { ctx, page, errors } = await open();
   await page.goto(BASE + "/app/today", { timeout: 120000 });

@@ -1,6 +1,6 @@
-// Instant utility first (founder's brief, 13 Nov 2026): nobody is stopped at the door by a questionnaire. A first visit goes straight to the app with
-// defaults; Home and Eat out show a quiet "Make Numbite fit you" card that opens one sheet (goal + what you avoid); links to a restaurant, a dish or a
-// shared list open straight away; the guided setup is still at /app/welcome.
+// Instant utility first (founder's brief, 13 Nov 2026): nobody is stopped at the door by a questionnaire. Links to a restaurant, a dish or a shared list open
+// straight away with defaults; Home and Eat out show a quiet "Make Numbite fit you" card that opens one sheet (goal + what you avoid). Since 17 Nov 2026 a plain
+// first launch of /app opens the welcome tour (lib/mm/tour.ts; e2e/tour.mjs has the rest), so the steps about the card on Home start after the tour was seen.
 // Run against a production build: BASE=http://localhost:3101 node e2e/firstvisit.mjs
 import { chromium } from "playwright-core";
 import { createRequire } from "node:module";
@@ -14,9 +14,24 @@ const fresh = (extra = {}) => browser.newContext({ viewport: { width: 390, heigh
 const settingsOf = (page) => page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings") || "null")?.data ?? null);
 const card = (page) => page.getByRole("heading", { level: 2, name: "Make Numbite fit you" });
 const overflow = (page) => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+/** A browser where the welcome tour has been seen (it marks mm.v1.tour), so a plain /app opens Home. */
+const toured = async (extra = {}) => {
+  const ctx = await fresh(extra);
+  await ctx.addInitScript(() => { if (!localStorage.getItem("mm.v1.tour")) localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 1 })); });
+  return ctx;
+};
 
-await step("a first visit to Home shows Home and the card, and never leaves /app", async () => {
+await step("a plain first visit to /app opens the welcome tour instead of Home", async () => {
   const ctx = await fresh(); const page = await ctx.newPage();
+  await page.goto(BASE + "/app");
+  await page.waitForURL(/\/app\/welcome$/);
+  await page.getByRole("button", { name: "Get started" }).waitFor();
+  expect((await page.getByRole("heading", { level: 1, name: "Home" }).count()) === 0, "Home shows on the welcome screens");
+  await ctx.close();
+});
+
+await step("after the tour, Home shows the card and never leaves /app", async () => {
+  const ctx = await toured(); const page = await ctx.newPage();
   await page.goto(BASE + "/app");
   await page.getByRole("heading", { level: 1, name: "Home" }).waitFor();
   await card(page).waitFor();
@@ -49,7 +64,7 @@ await step("links straight to a restaurant, a dish and the search open at once",
 });
 
 await step("Set up opens one sheet: the goal, GLP-1's doctor line, what you avoid; Save keeps both and the card goes", async () => {
-  const ctx = await fresh(); const page = await ctx.newPage();
+  const ctx = await toured(); const page = await ctx.newPage();
   await page.goto(BASE + "/app");
   await page.getByRole("button", { name: "Set up" }).click();
   const sheet = page.getByRole("dialog");
@@ -71,7 +86,7 @@ await step("Set up opens one sheet: the goal, GLP-1's doctor line, what you avoi
 });
 
 await step("Not now hides the card on Home and on Eat out, and keeps the app on its defaults", async () => {
-  const ctx = await fresh(); const page = await ctx.newPage();
+  const ctx = await toured(); const page = await ctx.newPage();
   await page.goto(BASE + "/app");
   await page.getByRole("button", { name: "Not now" }).click();
   await card(page).waitFor({ state: "detached" });
@@ -94,15 +109,22 @@ await step("a returning person (set up already) never sees the card", async () =
   await ctx.close();
 });
 
-await step("the guided setup is still reachable at /app/welcome", async () => {
+await step("the guided setup at /app/welcome is entered through the tour's 'Set up my plan'", async () => {
   const ctx = await fresh(); const page = await ctx.newPage();
   await page.goto(BASE + "/app/welcome");
-  await page.getByRole("button", { name: "Get started" }).waitFor();
+  await page.getByRole("button", { name: "Get started" }).click();
+  await page.getByRole("button", { name: "Show me around" }).click();
+  await page.getByRole("heading", { name: "Easy to read" }).waitFor();
+  await page.getByRole("button", { name: "Skip tour" }).click();
+  await page.getByRole("heading", { name: "Let's make it yours" }).waitFor();
+  await page.getByRole("button", { name: "Set up my plan" }).click();
+  await page.getByRole("heading", { name: "What's your goal?" }).waitFor();
+  await page.getByText("Step 1 of 9").waitFor();
   await ctx.close();
 });
 
 await step("App Review 1.4.1: the first-visit card under Home's targets links their sources, and so does the GLP-1 note in its sheet", async () => {
-  const ctx = await fresh(); const page = await ctx.newPage();
+  const ctx = await toured(); const page = await ctx.newPage();
   await page.goto(BASE + "/app");
   await card(page).waitFor();
   const sources = page.getByRole("dialog", { name: "Where these numbers come from" });
@@ -125,7 +147,7 @@ await step("App Review 1.4.1: the first-visit card under Home's targets links th
 });
 
 await step("the card and sheet: 48 px buttons, no sideways scroll at 360 px and Extra large text, axe 0", async () => {
-  const ctx = await fresh({ viewport: { width: 360, height: 740 } });
+  const ctx = await toured({ viewport: { width: 360, height: 740 } });
   await ctx.addInitScript(() => localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { textSize: "xlarge" } })));
   const page = await ctx.newPage();
   await page.goto(BASE + "/app");

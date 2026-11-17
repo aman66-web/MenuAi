@@ -7,13 +7,14 @@ import { isPro } from "@/lib/mm/entitlements";
 import { dataVersionDate } from "@/lib/mm/menu-client";
 import { formatDate } from "@/lib/mm/format";
 import { mailtoFor } from "@/lib/mm/outbox";
-import { paidStore, compareStore, cupboardStore, favoritesStore, recentStore, logStore, myRecipesStore, outbox, outboxStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, updateSettings, waterStore, clearReminders } from "@/lib/mm/stores";
+import { paidStore, compareStore, comparePicksStore, cupboardStore, favoritesStore, recentStore, logStore, myRecipesStore, outbox, outboxStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, tourStore, updateSettings, waterStore, clearReminders } from "@/lib/mm/stores";
 import { DEFAULT_SETTINGS, type TextSize } from "@/lib/mm/user-data";
 import { CARB_FAT_NOTE, GLP1_NOTE, isLowCalories, LOW_CALORIES_NOTE, MAX_MACRO_TARGET, suggestCarbFat, suggestProtein, SUGGESTION_NOTE } from "@/lib/mm/targets";
 import type { Goal } from "@/lib/mm/types";
 import { DEFAULT_WATER_GOAL_ML, MAX_WATER_GOAL_ML, MIN_WATER_GOAL_ML } from "@/lib/mm/water";
 import { site } from "@/site.config";
 import { CheckIcon, ChevronRightIcon } from "../_components/icons";
+import { Pip } from "../_components/Mascot";
 import { AppStoreAccountButtons } from "../_components/AppStorePlans";
 import { trialDaysOf, useStoreProducts } from "../_lib/storeProducts";
 import { BackLink } from "../groceries/PageBits";
@@ -55,9 +56,11 @@ const GOAL_OPTIONS: ReadonlyArray<{ value: Goal; label: string }> = [
 /**
  * A target as a figure tile, like the figures on Home: a quiet label at the top and the number below it in a large regular weight, on the
  * light grey fill of anything that sits on a white card. The whole tile is the <label>, so a tap anywhere on it focuses the field, and the
- * ring goes round the tile. An empty carbs or fat field shows the suggestion in grey (the placeholder).
+ * ring goes round the tile. An empty carbs or fat field shows the suggestion in grey (the placeholder). `auto`: an empty box is worked out from the
+ * others (protein, carbs, fat), so a small "Worked out" tag under the grey number says it isn't a saved figure.
  */
-function TargetTile({ label, hint, value, placeholder, onChange, wide }: { label: string; hint?: string; value: string; placeholder?: string; onChange: (v: string) => void; wide?: boolean }) {
+function TargetTile({ label, hint, value, placeholder, onChange, wide, auto }: { label: string; hint?: string; value: string; placeholder?: string; onChange: (v: string) => void; wide?: boolean; auto?: boolean }) {
+  const t = useT();
   return (
     <label className={`block min-w-0 cursor-text rounded-[1rem] bg-[var(--fill)] px-4 pb-3 pt-3.5 transition-shadow focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-accent ${wide ? "col-span-full" : ""}`}>
       <span className="block text-[0.8125rem] font-semibold leading-snug text-muted [overflow-wrap:anywhere]">{label}</span>
@@ -68,6 +71,7 @@ function TargetTile({ label, hint, value, placeholder, onChange, wide }: { label
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
       />
+      {auto && value.trim() === "" && <span className="mt-1.5 inline-flex rounded-full bg-white px-2 py-0.5 text-[0.75rem] font-semibold text-muted">{t("Worked out")}</span>}
       {hint && <span className="mt-1.5 block text-[0.8125rem] leading-snug text-muted">{hint}</span>}
     </label>
   );
@@ -162,6 +166,11 @@ export default function SettingsPage() {
   const capText = mealCap ?? String(settings.glp1MealCap);
   const failed = outboxItems.filter((i) => i.status === "failed");
   const pending = outboxItems.filter((i) => i.status === "pending");
+  // Everything else on this page saves on the tap, but the targets save only with "Save targets": a typed change, or what "Use these" filled in, is said to be
+  // not saved yet until then (and would be lost on leaving the page).
+  const saved = { c: String(settings.dailyCalories), p: settings.dailyProtein ? String(settings.dailyProtein) : "", cb: settings.dailyCarbs ? String(settings.dailyCarbs) : "", f: settings.dailyFat ? String(settings.dailyFat) : "", w: settings.dailyWater ? String(settings.dailyWater) : "", cap: String(settings.glp1MealCap) };
+  const drafts: Array<[string | null, string]> = [[calories, saved.c], [protein, saved.p], [carbs, saved.cb], [fat, saved.f], [water, saved.w], ...(settings.goal === "glp1" ? [[mealCap, saved.cap] as [string | null, string]] : [])];
+  const dirty = drafts.some(([d, s]) => d !== null && d.trim() !== s);
 
   function saveTargets() {
     const c = Number(caloriesText);
@@ -191,12 +200,29 @@ export default function SettingsPage() {
       <BackLink href="/app" label={t("Back to home")} />
       <h1 className="mt-4 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{t("Settings")}</h1>
 
+      {/* The guided setup with Pip (the welcome screens: a short tour, then the questions), for anyone who skipped it or wants to go through it again. */}
+      <Link href="/app/welcome" className="glass mt-5 flex min-h-[4.75rem] items-center gap-3.5 rounded-[1.25rem] px-4 py-3 transition-colors hover:bg-[var(--fill)] active:bg-soft-strong">
+        <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-[var(--sun)]"><Pip mood="wave" size={40} className="translate-y-0.5" /></span>
+        <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
+          <span className="block text-base font-bold leading-snug">{t("Set up with Pip")}</span>
+          <span className="mt-0.5 block text-sm leading-snug text-muted">{t("A short tour of the app, then your goal, diet, daily numbers, shops and text size.")}</span>
+        </span>
+        <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted" />
+      </Link>
+
       <Section title={t("Account")} id="account">
         <AccountSection />
       </Section>
 
       <Section title={t("Text size")}>
         <Segmented label={t("Text size")} value={settings.textSize ?? "standard"} options={TEXT_OPTIONS.map((o) => ({ ...o, label: t(o.label) }))} onChange={(textSize) => { updateSettings({ textSize }); applyTextSize(textSize); }} />
+      </Section>
+
+      {/* Pip's walk through the five tabs again (the welcome tour's stops only): nothing is saved, and Close or Done comes back here. */}
+      <Section title={t("Help")}>
+        <div className="glass overflow-hidden rounded-[1.25rem]">
+          <LinkRow href="/app/welcome?tour=1">{t("Show me around again")}</LinkRow>
+        </div>
       </Section>
 
       <Section title={t("Goal")}>
@@ -211,9 +237,9 @@ export default function SettingsPage() {
           {/* Two tiles side by side, stacked when the text is large (the minimum width is in rem, so it grows with the text). */}
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,6.5rem),1fr))] gap-2.5">
             <TargetTile label={t("Calories")} value={caloriesText} onChange={(v) => { setCalories(v); setTargetsMessage(null); }} />
-            <TargetTile label={t("Protein (g)")} value={proteinText} placeholder={String(suggestProtein(Number.isFinite(draftCalories) ? draftCalories : settings.dailyCalories))} onChange={(v) => { setProtein(v); setTargetsMessage(null); }} />
-            <TargetTile label={t("Carbs (g)")} value={carbsText} placeholder={String(suggestedCarbFat.carbs)} onChange={(v) => { setCarbs(v); setTargetsMessage(null); }} />
-            <TargetTile label={t("Fat (g)")} value={fatText} placeholder={String(suggestedCarbFat.fat)} onChange={(v) => { setFat(v); setTargetsMessage(null); }} />
+            <TargetTile auto label={t("Protein (g)")} value={proteinText} placeholder={String(suggestProtein(Number.isFinite(draftCalories) ? draftCalories : settings.dailyCalories))} onChange={(v) => { setProtein(v); setTargetsMessage(null); }} />
+            <TargetTile auto label={t("Carbs (g)")} value={carbsText} placeholder={String(suggestedCarbFat.carbs)} onChange={(v) => { setCarbs(v); setTargetsMessage(null); }} />
+            <TargetTile auto label={t("Fat (g)")} value={fatText} placeholder={String(suggestedCarbFat.fat)} onChange={(v) => { setFat(v); setTargetsMessage(null); }} />
             <TargetTile wide label={t("Water (ml)")} hint={t("Your goal for the day on Home. Left empty it is 2,000 ml.")} value={waterText} placeholder={String(DEFAULT_WATER_GOAL_ML)} onChange={(v) => { setWater(v); setTargetsMessage(null); }} />
             {settings.goal === "glp1" && (
               <TargetTile wide label={t("Comfortable meal size (calories)")} hint={t("Best-for-you picks stay within this size. Default 450.")} value={capText} onChange={(v) => { setMealCap(v); setTargetsMessage(null); }} />
@@ -230,6 +256,7 @@ export default function SettingsPage() {
               <ChevronRightIcon aria-hidden className={`h-4 w-4 transition-transform ${suggest ? "rotate-90 rtl:-rotate-90" : ""}`} />
             </button>
           </div>
+          {dirty && !(targetsMessage && !targetsMessage.ok) && <p role="status" className={messageClass}>{t("Not saved yet. Tap “Save targets” to keep them.")}</p>}
           {targetsMessage && (targetsMessage.ok
             ? <p role="status" className="mt-3 text-[0.9375rem] font-semibold text-accent">{t(targetsMessage.text)}</p>
             : <p role="alert" className={messageClass}>{t(targetsMessage.text)}</p>)}
@@ -321,7 +348,7 @@ export default function SettingsPage() {
         <Section title={t("Testing tools")}>
           <Card className="space-y-2 p-3">
             {GATING_ENABLED && <Toggle label={t("Pro preview")} description={t("Unlock Pro features without paying (testing builds only)")} checked={settings.devProOverride} onChange={(v) => updateSettings({ devProOverride: v })} />}
-            <Button variant="secondary" full onClick={() => updateSettings({ hasCompletedOnboarding: false })}>{t("Reset onboarding")}</Button>
+            <Button variant="secondary" full onClick={() => { updateSettings({ hasCompletedOnboarding: false }); tourStore.reset(); }}>{t("Reset onboarding")}</Button>
             <Button variant="secondary" full onClick={() => logStore.reset()}>{t("Clear logs")}</Button>
           </Card>
         </Section>
@@ -342,7 +369,7 @@ export default function SettingsPage() {
         <p className="pt-1 text-base leading-snug">{APP_BUILD ? t("This removes your goal, targets, saved orders, log, water you added, reminders you set, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this phone. It can't be undone.") : t("This removes your goal, targets, saved orders, log, water you added, reminders you set, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this browser. It can't be undone.")}</p>
         {account && <p className="mt-2.5 text-base leading-snug">{t("This also signs you out of your account on this device. What is synced stays in your account.")}</p>}
         <div className="mt-5 space-y-2 pb-2">
-          <Button full className="min-h-12 text-base" onClick={async () => { await leaveForClearing(); settingsStore.set(DEFAULT_SETTINGS); savedStore.reset(); logStore.reset(); waterStore.reset(); clearReminders(); favoritesStore.reset(); shoppingStore.reset(); myRecipesStore.reset(); void clearRecipePhotos(); savedRecipesStore.reset(); cupboardStore.reset(); recentStore.reset(); compareStore.reset(); outbox().clear(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); sessionStorage.removeItem("mm.finder"); sessionStorage.removeItem("mm.sharedAdded"); localStorage.removeItem("mm.v1.mapArea"); } catch { /* storage blocked */ } setClearOpen(false); }}>{t("Clear everything")}</Button>
+          <Button full className="min-h-12 text-base" onClick={async () => { await leaveForClearing(); settingsStore.set(DEFAULT_SETTINGS); tourStore.reset(); savedStore.reset(); logStore.reset(); waterStore.reset(); clearReminders(); favoritesStore.reset(); shoppingStore.reset(); myRecipesStore.reset(); void clearRecipePhotos(); savedRecipesStore.reset(); cupboardStore.reset(); recentStore.reset(); compareStore.reset(); comparePicksStore.reset(); outbox().clear(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); sessionStorage.removeItem("mm.finder"); sessionStorage.removeItem("mm.sharedAdded"); localStorage.removeItem("mm.v1.mapArea"); } catch { /* storage blocked */ } setClearOpen(false); }}>{t("Clear everything")}</Button>
           <Button full variant="ghost" onClick={() => setClearOpen(false)}>{t("Cancel")}</Button>
         </div>
       </Sheet>
