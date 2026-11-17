@@ -230,7 +230,7 @@ function ReminderForm({ reminder, onSave, onDelete }: { reminder: Reminder | nul
               onChange={(e) => change({ startDate: e.target.value })}
               aria-invalid={problem === "start" || undefined}
               aria-describedby={[problem === "start" ? field.problem : startLong ? `${field.start}-long` : "", onPhone ? `${field.start}-rolls` : ""].filter(Boolean).join(" ") || undefined}
-              className={`${inputClass} ${invalidRing} app-numbers text-start [&::-webkit-date-and-time-value]:text-start`}
+              className={`${inputClass} ${invalidRing} app-numbers min-w-0 max-w-full text-start [-webkit-appearance:none] appearance-none [&::-webkit-date-and-time-value]:min-w-0 [&::-webkit-date-and-time-value]:text-start`}
             />
             {problem === "start" ? <p id={field.problem} role="alert" className={problemClass}>{say.start}</p> : startLong ? <p id={`${field.start}-long`} className={hintClass}>{t("Starting on {date}", { date: startLong })}</p> : null}
             {/* An "every few days" reminder is a run of one-off notifications (iOS can't repeat it), laid out again each time the app opens: said plainly, because for a medicine a reminder that stops by itself is the one thing that must not be a surprise. */}
@@ -241,6 +241,7 @@ function ReminderForm({ reminder, onSave, onDelete }: { reminder: Reminder | nul
 
       <div>
         <label htmlFor={field.time} className={labelClass}>{t("Time")}</label>
+        {/* founder 2026-11-17 (iPhone: "you can scroll from side to side"): iOS draws a time box wider than its sheet unless it may shrink (min-w-0, max-w-full, no native appearance) */}
         <input
           id={field.time}
           type="time"

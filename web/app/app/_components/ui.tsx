@@ -361,7 +361,7 @@ export function Sheet({ open, onClose, title, children, dark }: { open: boolean;
       {open && (
         <div
           style={sheetSurface}
-          className={`sheet-panel sheet-in ${dark ? "truth-dark " : ""}max-h-[92dvh] scroll-pt-24 overflow-y-auto overscroll-contain rounded-t-[1.75rem] bg-white px-5 pb-[max(1.75rem,env(safe-area-inset-bottom))] shadow-[0_-12px_40px_-20px_rgba(17,24,20,0.35)]`}
+          className={`sheet-panel sheet-in ${dark ? "truth-dark " : ""}max-h-[92dvh] scroll-pt-24 overflow-y-auto overflow-x-hidden overscroll-contain rounded-t-[1.75rem] bg-white px-5 pb-[max(1.75rem,env(safe-area-inset-bottom))] shadow-[0_-12px_40px_-20px_rgba(17,24,20,0.35)]`}
         >
           {/* The grab handle and the title stay at the top while a long sheet scrolls, so Close is always in reach. */}
           <div className="sheet-head sticky top-0 z-20 -mx-5 bg-white px-5 pb-4 pt-2.5">
