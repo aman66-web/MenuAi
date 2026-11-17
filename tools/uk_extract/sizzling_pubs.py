@@ -55,7 +55,8 @@ CHAIN = mb.Chain(
     # The live feed spelt this "Cappuccino" on 6 October and "Cappucino" on 8 October (a typo on the venue's menu); the id stays "cappuccino".
     rename={"Cappucino": "Cappuccino"},
     holdback={
-        "Scampi and Chips": "The feed prints 826 kcal; its own macros add up to about 672 kcal (and its kJ to about 607 kcal).",
+        # Re-checked on the 16 November 2026 feed (6 Oct: 826 kcal printed, about 672 from its macros, about 607 from its kJ).
+        "Scampi and Chips": "The feed prints 904 kcal; its own macros add up to about 725 kcal (and its kJ to about 655 kcal).",
     },
     note_txt=("From the menu of one Sizzling Pubs venue, used as published: other venues' menus and values may differ. Main menu only. "
               "A side, sauce, swap or topping you choose isn't added in, to the numbers or to the allergens. Weights in names (oz) are approximate uncooked weights."),

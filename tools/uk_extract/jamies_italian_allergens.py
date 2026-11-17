@@ -1,4 +1,4 @@
-"""Read the allergen grid of Jamie's Italian (UK)'s official "Allergen Menu" PDF (Sept V1, 8 September 2026).
+"""Read the allergen grid of Jamie's Italian (UK)'s official "Allergen Menu" PDF (Sept V1, 8 September 2026; Nov V3, 8 November 2026).
 
 Used by tools/uk_extract/jamies_italian.py. Requires `pdftotext` (poppler) only.
 
@@ -95,6 +95,11 @@ def read_matrix(pdf: Path) -> list[dict]:
     for page_no, words in enumerate(_words(pdf), start=1):
         if not words:
             continue
+        if not any(w[4] == "Item" for w in words) and not any(w[4] in CELL_VALUES for w in words):
+            # Nov 2026 file: its last page holds only the title and the footer (no table, no cell word): nothing to read
+            if {w[4] for w in words} - {"ALLERGEN", "MENU", "Jamie's", "Italian", "Allergen", "Menu", "Nov", "V3"}:
+                raise SystemExit(f"Allergen menu page {page_no}: words but no table header: the layout changed.")
+            continue
         centres = _header_centres(words, page_no)
         spacing = min(b - a for a, b in zip(centres, centres[1:]))
         label_words = sorted([w for w in words if w[2] <= LABEL_MAX_X], key=lambda w: (w[1], w[0]))
@@ -125,6 +130,15 @@ def read_matrix(pdf: Path) -> list[dict]:
                 continue
             cx = (w[0] + w[2]) / 2
             owners = [r for r in page_rows if abs(r["y"] - w[1]) < 3.5 and r["label"] != "Menu Item"]
+            if not owners and w[1] >= first_header_y - 2:
+                # Nov 2026 file: a table's last row can print its name about 10 pt above its cells (the name's own line holds no cell
+                # words). Such cells go to the nearest label line above within 12 pt that has no cell words on its own line, and only if
+                # no other label line lies between.
+                own_line = {id(r) for r in page_rows if any(abs(x[1] - r["y"]) < 3.5 and x[4] in CELL_VALUES and x[0] > LABEL_MAX_X - 1 for x in words)}
+                above = [r for r in page_rows if 3.5 <= w[1] - r["y"] <= 12.5 and r["label"] not in ("Menu Item", "Gluten", "Containing")
+                         and r["label"] not in SECTIONS]
+                if len(above) == 1 and id(above[0]) not in own_line:
+                    owners = above
             if not owners and w[1] < first_header_y - 2:
                 continue  # the legend box above the first table of page 1 ("MC" / "Contains"): no dish row beside it
             if len(owners) != 1:
@@ -144,7 +158,7 @@ def read_matrix(pdf: Path) -> list[dict]:
                 continue
             if r["y"] < first_header_y - 2 and not r["cells"]:
                 continue  # intro text above the first table
-            if r["label"].startswith("Jamie's Italian Allergen Menu") or r["label"] in ("Sept V1", "ALLERGEN MENU"):
+            if r["label"].startswith("Jamie's Italian Allergen Menu") or r["label"] in ("Sept V1", "Nov V3", "ALLERGEN MENU"):
                 continue  # page footer
             contains = {keys[HEADERS.index(h)] for h, v in r["cells"].items() if v == "contains"}
             may = {keys[HEADERS.index(h)] for h, v in r["cells"].items() if v == "may_contain"}

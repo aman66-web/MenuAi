@@ -90,7 +90,8 @@ KIDS_SECTIONS = {
 UNRANKABLE = {"Options & add-ons", "Drinks", "Desserts", "Small plates", "Kids: mains", "Kids: dessert", "Kids: Sunday roast"}
 
 # Rows the menu itself prints impossibly: left out of the published menu (never corrected), listed in the check report.
-# Names are the final published names (after tenkites_b.unique_names). From the accuracy check of 2026-10-11.
+# Names are the final published names (after tenkites_b.unique_names). From the accuracy check of 2026-10-11; the figures quoted were
+# updated on 2026-11-17, when the chain re-issued the September 2026 menus with recalculated figures (the contradictions remain).
 _BOTH = ("the page prints {k} kcal, but its own {kj:,} kJ (about {kjk} kcal) and its protein, carbs and fat (about {m} kcal) agree with "
          "each other and not with the kcal: its own figures contradict each other. Restore by deleting this line once the chain corrects "
          "the page.")
@@ -101,7 +102,7 @@ HOLDBACK: dict[str, str] = {
     "Chicken Wings": "the page prints 759 kcal, but 1,836 kJ (about 439 kcal) and protein, carbs and fat worth about 493 kcal: its own "
                      "figures contradict each other. Restore by deleting this line once the chain corrects the page.",
     "N'duja & Pork Sausage Roll": _BOTH.format(k=781, kj=2729, kjk=652, m=679),
-    "Ultimate Cheese Toastie (V)": _BOTH.format(k=1683, kj=5939, kjk=1419, m=1478),
+    "Ultimate Cheese Toastie (V)": _BOTH.format(k=1682, kj=5943, kjk=1420, m=1476),
     "Spicy Coated Chicken Burger": _BOTH.format(k=1348, kj=4847, kjk=1158, m=1188),
     "Crodino Spritz 0%": _KJ.format(k=31, kj=1289, kjk=308),
     "Hartridges Apple & Mango - 275ml": _KJ.format(k=52, kj=2332, kjk=557),
@@ -109,7 +110,7 @@ HOLDBACK: dict[str, str] = {
                                           "menu (the adult Beer-Battered Fish & Chips is marked with gluten)"),
     "Chickpea Hummus (VG)": _NAME.format(why="a hummus marked with celery only and no sesame (the chain's other houmous is marked with "
                                              "sesame)"),
-    "Chocolate Brownie (VG-M)": _NAME.format(why="a brownie with 41.6 g of carbohydrate marked with soya only and no gluten, and it is "
+    "Chocolate Brownie (VG-M)": _NAME.format(why="a brownie with 41.4 g of carbohydrate marked with soya only and no gluten, and it is "
                                                  "not on the chain's no-gluten menu"),
 }
 NOTES: dict[str, str] = {
@@ -118,7 +119,14 @@ NOTES: dict[str, str] = {
 }
 
 ALLERGEN_TITLE = ("The Chapter Collection allergen & nutritional data (tkmenus.com/thechaptercollection, September 2026 menus, "
-                  "read 11 October 2026)")
+                  "read {day})")
+
+
+def long_day(iso: str) -> str:
+    """'2026-11-17' -> '17 November 2026' (the day the pages were read, for the titles)."""
+    import datetime
+    d = datetime.date.fromisoformat(iso)
+    return f"{d.day} {d.strftime('%B')} {d.year}"
 ALLERGEN_WORDS = {"sulphur dioxide/ sulphites": ("sulphites", None)}  # as printed on these pages
 
 NOTE = ("One menu set for the six Chapter Collection pubs (London); not every pub serves every menu. A dish with different figures on two "
@@ -156,7 +164,7 @@ def read_menu_fixed(path):
 
 tk.read_menu = read_menu_fixed  # tenkites_b.collect_rows reads the pages through this name
 
-EXPECTED_ROWS = 846  # dish records on the eleven menus read (main 58, bar snacks 9, steak 79, lunch 6, Sunday 117, brunch 6, dessert 89, no-gluten 128, kids 22, kids Sunday 70, drinks 262)
+EXPECTED_ROWS = 845  # dish records on the eleven menus read (main 58, bar snacks 9, steak 79, lunch 6, Sunday 117, brunch 6, dessert 88, no-gluten 128, kids 22, kids Sunday 70, drinks 262; dessert was 89 until November 2026)
 
 
 def is_option(rec: dict) -> bool:
@@ -263,13 +271,13 @@ def main() -> int:
         chain_id=CHAIN_ID, name="The Chapter Collection", cuisine="Pub",
         source_title="The Chapter Collection allergen & nutritional data (tkmenus.com/thechaptercollection: Main, Bar Snacks, Steak, "
                      "Lunch, Sunday, Brunch, Dessert, Non Gluten Containing Ingredient, Kids, Kids Sunday and Drinks menus, all dated "
-                     "September 2026; read 11 October 2026)",
+                     f"September 2026; read {long_day(args.checked_on)})",
         source_url=BASE_URL, checked_on=args.checked_on,
         aliases=["the chapter collection", "chapter collection", "blue anchor hammersmith", "bonds mayfair", "rocket canary wharf",
                  "the duchess of duke street", "marquis of westminster", "lillie langtry"],
         items=items, out=args.out, holdback=[(slug(tk.fold(n)), why) for n, why in HOLDBACK.items()],
         note=NOTE,
-        allergen_guide={"title": ALLERGEN_TITLE, "url": BASE_URL, "checked_on": args.checked_on, "may_contain_published": True},
+        allergen_guide={"title": ALLERGEN_TITLE.format(day=long_day(args.checked_on)), "url": BASE_URL, "checked_on": args.checked_on, "may_contain_published": True},
     )
     for label in guids:
         print(f"{label:12} sha256 {sha256_file(paths[label])[:16]}  {tk.page_title(paths[label])}")

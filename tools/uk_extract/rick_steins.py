@@ -6,9 +6,11 @@
 Source: the menu PDFs that rickstein.com links from four restaurant pages (https://rickstein.com/restaurants/<page>/), all under
 https://rickstein.com/wp-content/uploads/2024/02/ (the table MENUS below has file name, venue and the PDF's own creation date):
     The Seafood Restaurant (page the-seafood-restaurant): sample menu, set lunch, signature menu, children's menu
-    St Petroc's Bistro (st-petrocs-bistro): lunch, dinner, dessert
-    Rick Stein's Cafe (rick-steins-cafe): lunch and dinner menu, children's menu
-    The Cornish Arms (the-cornish-arms): a la carte, Sunday roast, dessert, children's and teen's menu
+    St Petroc's Bistro (st-petrocs-bistro): a la carte (dinner) sample, dessert. Since November 2026 the page no longer links a lunch menu;
+        its breakfast, charity lunch and children's menus print no calories.
+    Rick Stein's Cafe (rick-steins-cafe): lunch and dinner menu ("SAMPLE MENU", the 25 October 2026 file), children's menu. The page also links
+        the older 3 October menu under the label "DRINKS LIST": not used.
+    The Cornish Arms (the-cornish-arms): pub menu, Sunday roast, dessert, children's menu (the October 2026 children's menu has no teen's section)
 `--fetch` downloads a missing file once (browser User-Agent, one request a second; robots.txt only disallows /cdn-cgi/). Needs poppler
 (`pdftotext`, `pdfinfo`). Pages are read by position: see rick_steins_pdf.py (zones = rectangles in PDF points).
 
@@ -19,10 +21,11 @@ What is and is not published
 - Only these four restaurants print calories. The pages of Sandbanks, Barnes, Winchester, Fistral and Stein's Fish & Chips link menus
   without calories (checked: 0 figures in each). A February 2025 calorie menu for Fistral is on the server but no page links it and the
   Fistral page now links a menu without calories: not used.
-- Not listed, because the PDF gives no figure or no clear basis: dishes without calories (Sunday roast pies, Chocolate fondant, Market fish,
-  Ruby orange sorbet); oysters (4 values) and caviar (3 values) on the sample menu, whose unit is not printed; the two dishes whose two figures
+- Not listed, because the PDF gives no figure or no clear basis: dishes without calories (Penny's pies and La Mouclade on the pub menu,
+  Chocolate fondant, Market fish); oysters (4 values) and caviar (3 values) on the sample menu, whose unit is not printed; the two dishes whose two figures
   are printed as "a/b kcal" with no labels (Dover sole, children's fish at the Cafe); "Add prawns (462 Kcal)" under the Pondicherry curry
-  (not stated whether that is the add-on or the whole dish). Drinks, wine and festive menus print no calories.
+  (not stated whether that is the add-on or the whole dish). Drinks and wine print no calories. The Cornish Arms festive menu (2026) prints calories, but it is a seasonal
+  set menu served 21 November to 30 December only, so it is not listed.
 - Held back (holdback.csv, nothing corrected): a dish printed with two figures on one page (Shakshuka 377 and 378), and the same dish at the
   same restaurant printed with different figures on two menus (listed in the check run's output).
 - Venue names are not part of the dish names, so a name used at several restaurants gets "(venue)" added, and a conflicting name on two
@@ -48,7 +51,7 @@ from common import ROOT, sha256_file, slug, write_chain_folder  # noqa: E402
 CHAIN_ID = "rick-steins"
 BASE = "https://rickstein.com/wp-content/uploads/2024/02/"
 SOURCE_URL = "https://rickstein.com/restaurants/"
-SOURCE_TITLE = "Rick Stein restaurant menus with calories (13 PDFs on rickstein.com, created 21 April to 4 October 2026; read 2026-10-08)"
+SOURCE_TITLE = "Rick Stein restaurant menus with calories (12 PDFs on rickstein.com, created 21 April to 27 October 2026; read 2026-11-17)"
 ALIASES = ["rick stein", "rick steins", "rick stein's", "rick stein's cafe", "rick steins cafe", "rick stein padstow", "st petrocs bistro",
            "the seafood restaurant padstow"]
 NOTE = ("Calories only, copied from each restaurant's own menu PDF: The Seafood Restaurant, St Petroc's Bistro and Rick Stein's Café "
@@ -60,21 +63,20 @@ SHORT = {CA: "Cornish Arms", BI: "St Petroc's Bistro", CF: "Rick Stein's Café",
 
 # key -> (venue, menu label, file name, the PDF's own creation date, SHA-256 of the file this script was written against: a different hash only prints a notice)
 MENUS = {
-    "ca-main": (CA, "a la carte menu", "alc-autumn-menu.pdf", "2026-09-23", "dcda14c69e963b59fb5bc83f7018fde804b8552a4e0757a87c25e6ac39e1d01e"),
-    "ca-roast": (CA, "Sunday roast menu", "sunday-roast-new-prices.pdf", "2026-10-04", "3e0ca43bbd825409290e663d45ae34e11866193f7ec4ac4790f2b92977499cd6"),
+    "ca-main": (CA, "pub menu", "alc-menu-14-10.pdf", "2026-10-14", "4c18b8019c6cb207855761d60274498eda4e0aed80744d840225a37be05712a2"),
+    "ca-roast": (CA, "Sunday roast menu", "sunday-roast-menu-11th-oct.pdf", "2026-10-11", "5332058ce2984c8d31b7eb8ed27f5d76e4be8af802c6f6c1959aec7776e040bb"),
     "ca-dessert": (CA, "dessert menu", "DESSERT-MENU.pdf", "2026-06-25", "6749f4cb424d28ba4d58aa4b8504655d0fb989cea7b67ef14399d10b4cee3d83"),
-    "ca-kids": (CA, "children's and teen's menu", "kids-menu-20.7.pdf", "2026-07-20", "e00621921b8c934a0f667fe5089c004ecaca50f5c87463165aa935c5a1efc2b0"),
-    "bi-lunch": (BI, "lunch menu", "21-09-26-LUNCH-SAMPLE.pdf", "2026-09-23", "85b515bb163ccd7d984b10a58de943bba26cc77bdefb4e5eb844321a2490f864"),
+    "ca-kids": (CA, "children's menu", "kids-menu-october-2026.pdf", "2026-10-14", "10dcf81d2ebfdede7398e5d56d544a037718f10a7ff36a0f3a470e9e1c63f335"),
     "bi-dinner": (BI, "dinner menu", "21-9-26-Dinner.pdf", "2026-09-23", "edcf79a4ea16bda1531be75c781b14aa667611bdef24ce98308a51e06b3b2079"),
     "bi-dessert": (BI, "dessert menu", "Dessert-Menu-23-9-26.pdf", "2026-09-23", "c2afb0de02b870c4269b389d5180cf2ed70e70ff3813ae0e6decdf389a64552d"),
-    "cf-main": (CF, "lunch and dinner menu", "Cafe-Sample-ALC-Menu-2026-lunchdinner-3.10.26.pdf", "2026-10-03", "0d191df36fd085a2aa09123294df4f09a968a1fdd7b59dd524b13362aaaa3e3e"),
+    "cf-main": (CF, "lunch and dinner menu", "Cafe-Sample-ALC-Menu-2026-lunchdinner-25.10.26.pdf", "2026-10-27", "1b96d96041cc282a7a89d5efe35a3a349ed556c7f33cf3ea774d1ec0231031e2"),
     "cf-kids": (CF, "children's menu", "kids-menu-17.7.26.pdf", "2026-07-17", "c5543f336659651fe2b5d2cfd2a5c417f78b00878625fce55eaf878de2d13214"),
     "sr-main": (SR, "sample menu", "S-A-M-P-L-E-M-E-N-U.pdf", "2026-09-21", "e8ccde706648f7cb96655df48b68f81333a1fc5f5da716fd4f05ebd0dc2eb8b7"),
-    "sr-set": (SR, "set lunch", "Set-lunch-sample-Sept.pdf", "2026-09-21", "a918e626ababafa21adf158901827b7042e61e5daf696cc98dbcd1d853655589"),
-    "sr-sig": (SR, "signature menu", "Signature-Menu-Sample-Sept.pdf", "2026-09-21", "d839cd10311e09be478880e311792622dfd21dc6e1fb8cd0412b096837bebe2a"),
+    "sr-set": (SR, "set lunch", "Set-lunch-081026.pdf", "2026-10-08", "acc44de89d5ec65ce632d6b48ed6ac8ec4204d3f9fe0328a7ec0108606b6c9a9"),
+    "sr-sig": (SR, "signature menu", "Signature-Menu-081026.pdf", "2026-10-08", "e20d3e6ede21af4eac9c2292a4d00792b203fe8d289d02fdefe9c1b2cc450e9c"),
     "sr-kids": (SR, "children's menu", "Kids-Menu.pdf", "2026-04-21", "20f8ed320b708d92b6c0aadf5120097379dcfcb36fe56bcb30d1f04d59836301"),
 }
-EXPECTED_PAGES = {"ca-roast": 70, "cf-main": 2}  # every other menu is one page; the Sunday roast file is the same page printed 70 times
+EXPECTED_PAGES = {"cf-main": 2}  # every other menu is one page (the October 2026 Sunday roast file is one page; the September one was one page printed 70 times)
 
 # A calorie figure as printed: "(350 Kcal)", "( 873 Kcal)", "1078kcal", "665/507 kcal". "around 2000 kcal a day" is the menus' footer.
 KCAL = re.compile(r"(?<!around )(?<![\d.])(\d+(?:\s*/\s*\d+)?)\s*[Kk][Cc]al")
@@ -123,67 +125,53 @@ HAMBURGER_ADDON = " (to the Cornish Arms hamburger)"
 SAUSAGE_NOTE = "same"
 
 ZONES = [
-    # ---------------- The Cornish Arms: a la carte (A3 page, three columns; sides in four)
-    Z("ca-main", 1, (0, 85, 290, 170), "Appetisers", E("WHITEBAIT", "Whitebait with tartare sauce"), E("PICKLED ANCHOVIES"),
-      E("DARREN BRAY", "Darren Bray’s pork belly bites")),
-    Z("ca-main", 1, (290, 85, 550, 170), "Appetisers", E("HALLOUMI SAGANAKI", "Halloumi saganaki with honey and sesame seeds"),
+    # ---------------- The Cornish Arms: pub menu (A3 page, three columns; sides in four). Dishes printed without a figure are listed with n=0 so
+    # that their words do not run into the dish above (they are reported as not listed).
+    Z("ca-main", 1, (0, 85, 290, 175), "Appetisers", E("WHITEBAIT", "Whitebait with tartare sauce"), E("PICKLED ANCHOVIES"),
+      E("CHORIZO CROQUETTES")),
+    Z("ca-main", 1, (290, 85, 550, 175), "Appetisers", E("HALLOUMI SAGANAKI", "Halloumi saganaki with honey and sesame seeds"),
       E("COOMBESHEAD SOURDOUGH", "Coombeshead sourdough with homemade flavoured butters")),
-    Z("ca-main", 1, (550, 85, 842, 170), "Appetisers", E("CHARCUTERIE BOARD", cat="Starters"), E("MARINATED OLIVES")),
-    Z("ca-main", 1, (0, 200, 290, 320), "Starters", E("SPICED BUTTERNUT SQUASH SOUP"), E("HOT SMOKED SALMON SALAD"), E("DEVILLED KIDNEYS")),
-    Z("ca-main", 1, (290, 200, 550, 320), "Starters", E("TOMATO BRUSCHETTA", "Tomato bruschetta with pickled anchovies and Parmesan"),
-      E("BAKED WHOLE CAMEMBERT FOR TWO", "Baked whole Camembert for two", serving="For two")),
-    Z("ca-main", 1, (550, 200, 842, 320), "Starters", E("CHICKEN WINGS", "Chicken wings, tamarind & chilli sambal"), E("SCALLOP SALAD"),
+    Z("ca-main", 1, (550, 85, 842, 175), "Appetisers", E("CHARCUTERIE BOARD", cat="Starters"), E("MARINATED OLIVES")),
+    Z("ca-main", 1, (0, 195, 290, 330), "Starters", E("SPICED BUTTERNUT SQUASH SOUP"), E("HOT SMOKED SALMON SALAD"), E("DEVILLED KIDNEYS")),
+    Z("ca-main", 1, (290, 195, 560, 330), "Starters", E("BAKED WHOLE CAMEMBERT FOR TWO", "Baked whole Camembert for two", serving="For two"),
+      E("LA MOUCLADE MUSSELS", n=0, skip="La Mouclade mussels on the pub menu (starter or main): no figure printed there")),
+    Z("ca-main", 1, (560, 195, 842, 330), "Starters", E("CHICKEN WINGS", "Chicken wings, tamarind & chilli sambal"), E("SCALLOP SALAD"),
       E("SALT AND PEPPER PRAWNS")),
-    Z("ca-main", 1, (0, 370, 290, 640), "Mains", E("PONDICHERRY", "Pondicherry fish curry"),
+    Z("ca-main", 1, (0, 380, 290, 660), "Mains", E("PONDICHERRY", "Pondicherry fish curry"),
       E("Vegetarian", "Pondicherry curry, vegetarian", veg=True),
       E("Add Prawns", skip="Add Prawns (462 Kcal), under the Pondicherry curry: the menu does not say whether that is the add-on or the whole dish"),
-      E("SALMON FILLET"), E("FENNEL RAVIOLI"), E("BACON CHOP")),
-    Z("ca-main", 1, (290, 370, 550, 640), "Mains", E("WHOLE PLAICE"), E("SOFT SHELL CRAB BURGER"), E("WALNUT CRUSTED GOATS CHEESE"),
-      E("10oz RUMP STEAK", "10oz rump steak"), E("8oz SIRLOIN STEAK", "8oz sirloin steak"), E("Peppercorn Sauce", "Peppercorn sauce (to the sirloin steak)")),
-    Z("ca-main", 1, (550, 400, 842, 640), "Classics", E("CORNISH ARMS HAMBURGER", "Cornish Arms hamburger"),
+      E("SALMON FILLET"), E("STEAK & ALE PIE", n=0, skip="Steak & ale pie from Penny's Pies: no figure printed"), E("BACON CHOP")),
+    Z("ca-main", 1, (290, 380, 560, 660), "Mains", E("WHOLE PLAICE"), E("SOFT SHELL CRAB BURGER"), E("WALNUT CRUSTED GOATS CHEESE"),
+      E("BROAD BEAN AND FETA PIE", n=0, skip="Broad bean and feta pie from Penny's Pies: no figure printed"),
+      E("12oz FULL FACE RUMP STEAK", "12oz full face rump steak"), E("8oz SIRLOIN STEAK", "8oz sirloin steak"),
+      E("Peppercorn Sauce", "Peppercorn sauce (to the steaks)")),
+    Z("ca-main", 1, (560, 380, 842, 660), "Classics", E("CORNISH ARMS HAMBURGER", "Cornish Arms hamburger"),
       E("BACON", "Add bacon" + HAMBURGER_ADDON), E("BLUE CHEESE", "Add blue cheese" + HAMBURGER_ADDON),
       E("JALAPEÑO PEPPERS", "Add jalapeño peppers" + HAMBURGER_ADDON), E("BATTERED FISH AND CHIPS"), E("SCAMPI IN THE BASKET")),
-    Z("ca-main", 1, (0, 685, 235, 750), "Sides", E("ONION RINGS"), E("THIN CUT CHIPS")),
-    Z("ca-main", 1, (235, 685, 428, 750), "Sides", E("BITTER LEAF SALAD", "Bitter leaf salad with honey and mustard dressing and radish")),
-    Z("ca-main", 1, (428, 685, 634, 750), "Sides", E("ROASTED CARROTS", "Roasted carrots with butter and tarragon")),
-    Z("ca-main", 1, (634, 685, 842, 750), "Sides", E("VINE TOMATOES", "Vine tomatoes with basil and balsamic"),
-      E("CRUSHED NEW POTATOES", "Crushed new potatoes with watercress")),
+    Z("ca-main", 1, (0, 685, 235, 760), "Sides", E("ONION RINGS"), E("CRUSHED NEW POTATOES", "Crushed new potatoes with watercress")),
+    Z("ca-main", 1, (235, 685, 428, 760), "Sides", E("BITTER LEAF SALAD", "Bitter leaf salad with honey and mustard dressing and pumpkin seeds")),
+    Z("ca-main", 1, (428, 685, 634, 760), "Sides", E("ROASTED CARROTS", "Roasted carrots with butter and tarragon")),
+    Z("ca-main", 1, (634, 685, 842, 760), "Sides", E("VINE TOMATOES", "Vine tomatoes with basil and balsamic"), E("THIN CUT CHIPS")),
     # ---------------- The Cornish Arms: Sunday roast (A4, two columns)
     Z("ca-roast", 1, (0, 140, 300, 265), "Starters", E("SPICED BUTTERNUT SQUASH SOUP"), E("DEVILLED KIDNEYS"), E("LA MOUCLADE", "La Mouclade mussels")),
-    Z("ca-roast", 1, (300, 140, 595, 270), "Starters", E("SCALLOP SALAD"), E("HOT SMOKED SALMON SALAD"), E("CHARCUTERIE BOARD")),
-    Z("ca-roast", 1, (0, 330, 300, 560), "Sunday roast", E("ROAST TOPSIDE OF BEEF"), E("ROAST PORK"), E("HALF ROAST CHICKEN"), E("CELERIAC ROSTI")),
-    Z("ca-roast", 1, (300, 360, 595, 560), "Mains", E("WHOLE PLAICE"), E("PONDICHERRY FISH CURRY", "Pondicherry fish curry"), E("WALNUT CRUSTED GOATS CHEESE")),
-    Z("ca-roast", 1, (0, 625, 300, 760), "Desserts", E("CARAMEL SUNDAE"),
+    Z("ca-roast", 1, (300, 140, 595, 265), "Starters", E("SCALLOP SALAD"), E("HOT SMOKED SALMON SALAD"), E("CHARCUTERIE BOARD")),
+    Z("ca-roast", 1, (0, 290, 300, 560), "Sunday roast", E("ROAST TOPSIDE OF BEEF"), E("ROAST PORK"), E("HALF ROAST CHICKEN"), E("CELERIAC ROSTI")),
+    Z("ca-roast", 1, (300, 290, 595, 560), "Mains",
+      E("BROAD BEAN & FETA PIE", n=0, skip="Broad bean & feta pie from Penny's Pies (Sunday roast menu): no figure printed"),
+      E("STEAK & ALE PIE", n=0, skip="Steak & ale pie from Penny's Pies (Sunday roast menu): no figure printed"),
+      E("WHOLE PLAICE"), E("PONDICHERRY FISH CURRY", "Pondicherry fish curry"), E("Vegetarian", "Pondicherry curry, vegetarian", veg=True)),
+    Z("ca-roast", 1, (0, 610, 300, 760), "Desserts", E("CARAMEL SUNDAE"),
       E("TRELEAVENS CORNISH ICE CREAMS", labels=ICE + [CAR]), E("TRELEAVENS CORNISH SORBETS", labels=SORBET)),
-    Z("ca-roast", 1, (300, 625, 595, 760), "Desserts", E("STICKY TOFFEE PUDDING"), E("CORNISH ARMS CHEESEBOARD", "Cornish Arms cheeseboard"), E("HAZELNUT PAVLOVA")),
+    Z("ca-roast", 1, (300, 610, 595, 760), "Desserts", E("STICKY TOFFEE PUDDING"), E("CORNISH ARMS CHEESEBOARD", "Cornish Arms cheeseboard"), E("HAZELNUT PAVLOVA")),
     # ---------------- The Cornish Arms: dessert menu
     Z("ca-dessert", 1, None, "Desserts", E("CARAMEL SUNDAE"), E("TREACLE TART"), E("HAZELNUT PAVLOVA"), E("STICKY TOFFEE PUDDING"),
       E("TRELEAVENS CORNISH ICE CREAMS", labels=ICE + [CAR]), E("TRELEAVENS CORNISH SORBETS", labels=SORBET),
       E("CORNISH ARMS CHEESE BOARD", "Cornish Arms cheeseboard")),
-    # ---------------- The Cornish Arms: children's and teen's menu
-    Z("ca-kids", 1, None, "Children's menu", E("Hummus, carrot", "Hummus, carrot, cucumber and grilled flat bread"),
-      E("Pasta in a tomato sauce", "Pasta in a tomato sauce with parmesan"), E("Cheeseburger", "Cheeseburger with lettuce & ketchup in a toasted bun with chips"),
-      E("Fish (grilled or battered)", "Fish (grilled or battered) with chips and mushy peas"), E("4oz rump steak", "4oz rump steak with chips and a cheesemaker salad"),
-      E("Chicken Wings", "Chicken wings, tamarind & chilli sambal", cat="Teen's menu"), E("Battered fish and chips", "Battered fish and chips", cat="Teen's menu"),
-      E("Cornish Arms Hamburger", "Cornish Arms hamburger", cat="Teen's menu"), E("Pondicherry Fish Curry", "Pondicherry fish curry", cat="Teen's menu")),
+    # ---------------- The Cornish Arms: children's menu (the October 2026 menu has no teen's section)
+    Z("ca-kids", 1, None, "Children's menu", E("Pasta in a tomato sauce", "Pasta in a tomato sauce with parmesan"),
+      E("Cheeseburger", "Cheeseburger with lettuce & ketchup in a toasted bun with chips"),
+      E("Fish (grilled or battered)", "Fish (grilled or battered) with chips and mushy peas"), E("Scampi", "Scampi with chips and tartare sauce")),
     # ---------------- St Petroc's Bistro
-    Z("bi-lunch", 1, None, "Appetisers",
-      E("SOURDOUGH, BUTTER & OLIVES", "Sourdough, butter & olives", same="bi-sourdough"),
-      E("WHIPPED COD ROE AND SOURDOUGH", "Whipped cod roe and sourdough", same="bi-codroe"),
-      E("PADRON PEPPERS", "Padron peppers with olive oil and sea salt"), E("CRAB & SAFFRON CROQUETAS", "Crab & saffron croquetas"),
-      E("SHAKSHUKA", "Shakshuka", cat="Lunch classics", n=2), E("SALAD OF MACKEREL FILLET", "Salad of mackerel fillet", cat="Lunch classics"),
-      E("BISTRO BRIOCHE BAP", cat="Lunch classics"), E("4OZ RUMP STEAK, FRIED EGGS & CHIPS", "4oz rump steak, fried eggs & chips", cat="Lunch classics"),
-      E("SCALLOPS", "Scallops with coriander and hazelnut butter", cat="Lunch classics"), E("BISTRO BEEF BURGER", cat="Lunch classics"),
-      E("KING PRAWN", "King prawn with basil and lime butter", cat="Lunch classics"),
-      E("CHICKEN PALLIARD", "Chicken paillard with soy butter sauce and spring onion mash", cat="Lunch classics"),
-      E("COD WITH SAUCE VERTE AND BUTTER BEANS", "Cod with sauce verte and butter beans, with new potatoes", cat="Lunch classics"),
-      E("GRILLED BREAM FILLET", "Grilled bream fillet with spinach, beurre blanc and new potatoes", cat="Lunch classics"),
-      E("8OZ BAVETTE STEAK", "8oz bavette steak with cheesemaker salad and thin cut chips", cat="Lunch classics"),
-      E("MIXED LEAF SALAD", "Mixed leaf salad", cat="Sides"), E("KALE WITH CONFIT SHALLOT", "Kale with confit shallot", cat="Sides"),
-      E("CHIPS", "Chips", cat="Sides"), E("BUTTERED POTATOES", "Buttered potatoes", cat="Sides"),
-      E("TENDERSTEM BROCCOLI", "Tenderstem broccoli with salsa verde", cat="Sides"),
-      E("SALAD OF MACKEREL FILLET", "Salad of mackerel fillet", cat="Set menu"), E("MOUNTAIN SAUSAGE PARPADELLE", "Mountain sausage parpadelle", cat="Set menu"),
-      E("CHOCOLATE PAVE", "Chocolate pavé with crystallised peanuts and salted caramel ice cream", cat="Set menu")),
     Z("bi-dinner", 1, None, "Appetisers",
       E("Coombshead sourdough, salted butter and kalamata olives", same="bi-sourdough"), E("Whipped smoked cod roe with sourdough", same="bi-codroe"),
       E("Patatas bravas with a spiced tomato sauce"), E("Padron peppers with olive oil and sea salt"), E("Crab and saffron Croquetas", "Crab & saffron croquetas"),
@@ -217,17 +205,17 @@ ZONES = [
     # ---------------- Rick Stein's Cafe (page 1 holds the food; page 2 is drinks)
     Z("cf-main", 1, (0, 150, 325, 270), "Small bites", E("KALAMATA OLIVES"), E("CHAPATTIS", "Chapattis with raita and mango chutney"),
       E("DHAL FRITTERS", "Dhal fritters with a spiced chutney")),
-    Z("cf-main", 1, (325, 150, 575, 270), "Small bites", E("SOURDOUGH BREAD", "Sourdough bread with Indian spiced butter"),
-      E("FRIED PANEER", "Fried paneer with honey and chat masala"), E("TANDOORI PRAWNS", "Tandoori prawns with chat masala")),
+    Z("cf-main", 1, (325, 150, 575, 270), "Small bites", E("FRIED PANEER", "Fried paneer with honey and chat masala"),
+      E("BEEF SATAY", "Beef satay with sweet soy and lime dressing")),
     Z("cf-main", 1, (0, 280, 575, 960), "Starters",
-      E("SPICED LENTIL SOUP"), E("BANG BANG CAULIFLOWER"), E("VIETNAMESE POACHED CHICKEN SALAD"), E("AMRITSARI FISH"), E("MUSSEL MASALA"),
-      E("SALT AND PEPPER PRAWNS"),
+      E("SPICED LENTIL SOUP"), E("BANG BANG CAULIFLOWER"), E("VIETNAMESE POACHED CHICKEN SALAD"), E("MUSSEL MASALA"), E("SALT AND PEPPER PRAWNS"),
       E("QUICK AS A SANDWICH STIR FRY", "Quick as a sandwich stir fry with tiger prawns", cat="Lunch specials"),
-      E("SCAMPI PO", "Scampi po’boy", cat="Lunch specials"),
-      E("BEETROOT CURRY", cat="Mains"), E("HANOI CHICKEN BROTH", cat="Mains"), E("MISO SALMON", cat="Mains"), E("NASI GORENG", cat="Mains"),
-      E("PONDICHERRY FISH CURRY", "Pondicherry fish curry", cat="Mains")),
+      E("SCAMPI PO", "Scampi po’boy baguette", cat="Lunch specials"),
+      E("AUBERGINE CURRY", cat="Mains"), E("MISO SALMON", cat="Mains"), E("NASI GORENG", cat="Mains"), E("FISH LAKSA", cat="Mains"),
+      E("PONDICHERRY FISH CURRY", "Pondicherry fish curry", cat="Mains"),
+      E("SEA BREAM", "Sea bream with hot and sour sauce, pak choi, crispy basil, cashew nuts and chilli", cat="Mains")),
     Z("cf-main", 1, (0, 970, 325, 1030), "Sides", E("POPPADOMS"), E("ASIAN COLESLAW"), E("THIN CUT CHIPS")),
-    Z("cf-main", 1, (325, 970, 575, 1030), "Sides", E("CHAT MASALA CHIPS"), E("CHILLI SPICED CABBAGE")),
+    Z("cf-main", 1, (325, 970, 575, 1030), "Sides", E("CHAT MASALA CHIPS"), E("BUTTERNUT SQUASH MASALA")),
     Z("cf-kids", 1, None, "Children's menu", E("Breaded Chicken Goujons", "Breaded chicken goujons with chips and garden peas"),
       E("Battered or grilled fish of the day", skip="Battered or grilled fish of the day: '665/507 kcal' is printed with no labels saying which figure is which"),
       E("Moules mariniere", "Moules marinière with chips"), E("Scampi", "Scampi with chips and garden peas"),
@@ -261,22 +249,26 @@ ZONES = [
     Z("sr-main", 1, (0, 1055, 400, 1115), "Sides", E("THIN CUT CHIPS"), E("BUTTERED POTATOES", "Buttered potatoes with parsley and mint"), E("GARDEN SALAD", "Garden salad with fines herbes")),
     Z("sr-main", 1, (400, 1055, 842, 1115), "Sides", E("GLAZED CHANTENAY CARROTS", "Glazed Chantenay carrots with tarragon"), E("KALE", "Kale with confit shallot"),
       E("SAUTÉED SPINACH", "Sautéed spinach with nutmeg")),
-    Z("sr-set", 1, None, "Set lunch", E("AMRITSARI FISH", "Amritsari fish with green chutney and kachumber salad"),
+    Z("sr-set", 1, None, "Set lunch", E("AMRITSARI FISH", "Amritsari fish with green chilli chutney and kachumber salad"),
       E("BUTTERNUT SQUASH SOUP", "Butternut squash soup with thyme and Gruyère cheese", same="sr-soup"),
       E("CORNISH CRAB WAKAME", "Cornish crab wakame and wasabi mayonnaise", same="sr-wakame"),
-      E("CHALK STREAM TROUT", "Chalk stream trout with warm tartare sauce"), E("CHICKEN", "Chicken paillard with watercress"),
+      E("CORNISH HAKE", "Cornish hake with cauliflower purée and savoy cabbage"),
+      E("DUROC AXE-HANDLE PORK CHOP", "Duroc axe-handle pork chop with walnuts and fig sauce"),
       E("ROASTED MONKFISH VINDALOO", "Roasted monkfish vindaloo with raita and poppadums"),
       E("LEMON AND LIME POSSET", "Lemon and lime posset with honeycomb, raspberry and mint"),
       E("CORNISH KERN", "Cornish kern: warm date and Mena Dhu stout loaf, grape and onion chutney")),
-    Z("sr-sig", 1, None, "Signature menu", E("COOMBESHEAD FARM SOURDOUGH", "Coombeshead Farm sourdough"), E("DEEP-FRIED CRYSTAL PRAWNS"), E("OCTOPUS CARPACCIO"),
-      E("DORSET OYSTER", labels=[("natural", "Dorset oyster, natural", ""), ("charentaise", "Dorset oyster, charentaise", "")]),
+    Z("sr-sig", 1, None, "Signature menu", E("COOMBESHEAD FARM SOURDOUGH", "Coombeshead Farm sourdough"), E("DEEP-FRIED CRYSTAL PRAWNS"),
+      E("BEETROOT CURED SALMON", "Beetroot cured salmon with horseradish cream"),
+      E("DORSET OYSTER", labels=[("natural", "Dorset oyster, natural", ""), ("kilpatrick", "Dorset oyster, kilpatrick", "")]),
       E("GRILLED MUSSELS", "Grilled mussels with romesco sauce"),
       E("BUTTERNUT SQUASH SOUP", "Butternut squash soup with thyme and Gruyère cheese", same="sr-soup"),
       E("CRAB WAKAME", "Crab wakame and wasabi mayonnaise", same="sr-wakame"),
-      E("CORNISH COD", "Cornish cod with an apple velouté"), E("PAN-FRIED LEMON SOLE", "Pan-fried lemon sole with lemongrass butter"),
-      E("POLENTA", "Polenta and wild mushrooms"), E("INDONESIAN SEAFOOD CURRY", "Indonesian seafood curry"),
-      E("LAMB RUMP", "Lamb rump, tomato, shallot salad and aioli"), E("PORK BELLY", "Pork belly, pickled carrot and cider sauce"),
-      E("PEA RISOTTO", "Pea risotto, pea purée, grilled artichoke and Parmesan"), E("BASQUE CHEESECAKE", "Basque cheesecake, spiced poached plums"),
+      E("CORNISH COD", "Cornish cod with cuttlefish bolognaise"), E("PAN-FRIED LEMON SOLE", "Pan-fried lemon sole with lemongrass butter"),
+      E("POLENTA", "Polenta and wild mushrooms"), E("BOUILLABAISSE"),
+      E("ROASTED CHICKEN BREAST", "Roasted chicken breast, braised chicory and Madeira sauce"),
+      E("VENISON", "Venison, braised red cabbage and morello cherries"),
+      E("ROASTED CAULIFLOWER", "Roasted cauliflower, caper and raisin purée, pomegranate, mint and coriander"),
+      E("BASQUE CHEESECAKE", "Basque cheesecake, spiced poached plums"),
       E("VANILLA CR", "Vanilla crème brûlée, dark chocolate and pistachios biscotti"), E("APPLE AND FRANGIPANE BAND", "Apple and frangipane band with caramel sauce"),
       E("CHEESE membrillo", "Cheese: membrillo and sourdough crackers")),
     Z("sr-kids", 1, None, "Children's menu", E("Crudit", "Crudités"), E("Pasta with tomato and basil"), E("Thai fish cakes", "Thai fish cakes with dipping sauce"),

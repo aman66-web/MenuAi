@@ -33,12 +33,12 @@ the-very-vegan,The Very Vegan,Wrap toasties,,429,9.8,52.2,21.5,4.2,,1.33,4.8,6.1
 chicken-new-yorker,Chicken New Yorker,Wrap toasties,,519,26.9,48.7,24.1,7.9,,2.46,5.4,2.6,2174,,,,,,,false,true,,,
 chicken-picante,Chicken Picante,Wrap toasties,,576,30.3,60.8,25.4,8.1,,2.1,8.2,6.3,2436,,,,,,,false,true,,,
 halloumi,Halloumi,Wrap toasties,,647,12.1,60.2,33.0,13.6,,4.23,13.2,6.6,2704,,,,,,vegetarian,false,true,,,
-korean-barbecue-beef,Korean Barbecue Beef,Wrap toasties,,523,25.1,62.6,19.8,9.5,,3.77,17.4,3.3,2199,,,,,,contains_beef,false,true,,,
+turkey-brie-and-bacon,"Turkey, Brie & Bacon",Wrap toasties,,586,30.4,57.2,25.2,12.1,,2.66,12.7,5.4,2456,,,,,,contains_pork,true,true,,,Listed under 'New this Season' on the menus page
 berry-delightful,Berry Delightful,Birchers & yoghurts,,287,7.4,35.6,15.8,7.3,,0.15,21.2,4.3,1201,,,,,,vegetarian,false,true,,,The Per 100g column does not fit the Per portion column here; per portion is used
 berry-overnight-oats,Berry Overnight Oats,Birchers & yoghurts,,316,10.4,37.8,11.4,4,,0.06,10.7,8.6,1324,,,,,,vegetarian,false,true,,,
 blossom-honey-yoghurt-and-granola,"Blossom Honey, Yoghurt & Granola",Birchers & yoghurts,,326,9.4,29.0,20.6,8.5,,0.23,14.5,4.3,1348,,,,,,vegetarian,false,true,,,
+festive-fruit-and-nut-overnight-oats,Festive Fruit & Nut Overnight Oats,Birchers & yoghurts,,461,13.7,58.7,17.2,4.9,,0.08,25.0,8.6,1938,,,,,,vegetarian,true,true,,,Listed under 'New this Season' on the menus page
 fibre-starter,Fibre Starter,Birchers & yoghurts,,674,23.2,33.8,50.3,13.7,,0.39,24.4,14.2,2777,,,,,,vegetarian,false,true,,,
-go-nuts-bircher,Go Nuts Bircher,Birchers & yoghurts,,413,13,51.3,17.0,4.3,,0.10,16.3,6.5,1728,,,,,,vegetarian,false,true,,,
 raspberry-and-peanut-butter,Raspberry & Peanut Butter,Birchers & yoghurts,,361,14.8,18.0,24.7,9.4,,0.36,14.2,4.9,1494,,,,,,vegetarian,false,true,,,
 rise-and-shine-bircher,Rise & Shine Bircher,Birchers & yoghurts,,298,8.6,45.8,7.9,3.2,,0.10,12.5,5.1,1253,,,,,,vegetarian,false,true,,,
 super-nut-overnight-oats,Super Nut Overnight Oats,Birchers & yoghurts,,438,13.9,52.6,18.9,4.5,,0.10,17.3,6.8,1832,,,,,,vegetarian,false,true,,,
@@ -55,31 +55,32 @@ cinnamon-bun,Cinnamon Bun,Bakery,,320,5.4,44,13,5.6,,0.8,17,2.1,1341,,,,,,vegeta
 croissant,Croissant,Bakery,,348,6.7,32.8,21.1,13.3,,0.78,5.6,1.8,1453,,,,,,vegetarian,false,false,,,
 pain-au-raisin,Pain au Raisin,Bakery,,322,5.5,44.0,13.2,8.7,,0.8,18.7,2.2,1351,,,,,,vegetarian,false,false,,,
 vegan-almond-croissant,Vegan Almond Croissant,Bakery,,486,7.5,48.3,28.8,8.5,,0.54,11.5,2.9,2029,,,,,,vegetarian,false,false,,,
+wildfarmed-mince-pie,Wildfarmed Mince Pie,Bakery,,386,4.1,49.5,19.8,12.6,,0.15,23.4,0.5,1616,,,,,,vegetarian,true,false,,,Listed under 'New this Season' on the menus page
 chocolate-croissant,Chocolate Croissant,Bakery,,409,6.6,43.1,22.7,8.4,,0.80,18.1,2.9,,,,,,,vegetarian,false,false,,,kJ printed as '1.707': left blank
-seoul-good-seoul-good,"Seoul Good, Seoul Good",Wraps,,441,21.1,53.2,15.9,4.7,,3.25,8.9,3.5,1853,,,,,,contains_beef,false,true,,,
+all-wrapped-up,All Wrapped Up,Wraps,,438,10.1,72.8,11.5,2.9,,2.01,19.4,9.4,1844,,,,,,vegetarian,true,true,,,Listed under 'New this Season' on the menus page
 so-cluckin-good,So Cluckin’ Good,Wraps,,503,9.7,55.7,20.8,5.8,,0.7,8.4,6.8,2113,,,,,,,false,true,,,kcal 503 differs from its macros (4P+4C+9F = 449) by 11%; printed as is; The Per 100g column does not fit the Per portion column here; per portion is used
+turkey-and-the-trimmings,Turkey & The Trimmings,Wraps,,517,20.9,70.2,16.1,3.7,,2.11,20.6,8.9,2177,,,,,,,true,true,,,Listed under 'New this Season' on the menus page
 fajita-chicken-and-smashed-avo,Fajita Chicken & Smashed Avo,Wraps,,576,26.7,54.7,28.7,9.3,,2.17,8,5.3,2408,,,,,,,false,true,,,
 hail-caesar,Hail Caesar,Wraps,,576,29.8,56.5,25.6,8.8,,2.43,6.1,3,2418,,,,,,,false,true,,,
 lock-stock-and-hot-smoked-salmon,"Lock, Stock & Hot Smoked Salmon",Wraps,,427,21.3,49.9,15.6,3.8,,2.27,6.4,3.8,1793,,,,,,,false,true,,,
 falafalo-soldier,Falafalo Soldier,Wraps,,702,17.2,72.5,38.0,5.9,,2.51,15.4,11.8,2930,,,,,,vegetarian,false,true,,,
-roasted-veg-and-sriracha-mayo,Roasted Veg & Sriracha Mayo,Pretzel subs,,336,7.7,46.9,13.9,1.4,,2.03,6.2,6.0,1405,,,,,,vegetarian,true,true,,,Listed under 'New this Season' on the menus page
 salmon-and-cream-cheese,Salmon & Cream Cheese,Pretzel subs,,339,19.8,41.5,9.8,2.9,,2.9,4.4,3.4,1425,,,,,,,false,true,,,
 salt-beef-mustard-and-pickles,"Salt Beef, Mustard & Pickles",Pretzel subs,,351,16.3,42.7,11.7,2.0,,4.12,5.1,3.2,1480,,,,,,contains_beef,false,true,,,
 british-chargrilled-chicken,British Chargrilled Chicken,Pretzel subs,,360,17.1,43.1,12.4,1.3,,2.06,5.9,3.3,1513,,,,,,,false,true,,,
-autumn-minestrone-regular,Autumn Minestrone (regular),Soups,Regular,275,12.5,29.3,24.6,0.7,,2.57,4.6,5.4,1150,,,,,,vegetarian,true,true,,,kcal 275 differs from its macros (4P+4C+9F = 389) by 41%; printed as is; Listed under 'New this Season' on the menus page
-autumn-minestrone-large,Autumn Minestrone (large),Soups,Large,372,16.9,39.6,33.3,1.0,,3.48,6.3,7.2,1555,,,,,,vegetarian,true,true,,,kcal 372 differs from its macros (4P+4C+9F = 526) by 41%; printed as is; Listed under 'New this Season' on the menus page
+autumn-minestrone-regular,Autumn Minestrone (regular),Soups,Regular,275,12.5,29.3,24.6,0.7,,2.57,4.6,5.4,1150,,,,,,vegetarian,false,true,,,kcal 275 differs from its macros (4P+4C+9F = 389) by 41%; printed as is
+autumn-minestrone-large,Autumn Minestrone (large),Soups,Large,372,16.9,39.6,33.3,1.0,,3.48,6.3,7.2,1555,,,,,,vegetarian,false,true,,,kcal 372 differs from its macros (4P+4C+9F = 526) by 41%; printed as is
 british-chicken-regular,British Chicken (regular),Soups,Regular,145,17.5,10.1,3.6,0.5,,2.96,3.7,1.1,609,,,,,,,false,true,,,The Per 100g column does not fit the Per portion column here; per portion is used
 british-chicken-large,British Chicken (large),Soups,Large,226,27.3,15.8,5.6,0.7,,4.62,5.8,1.8,951,,,,,,,false,true,,,The Per 100g column does not fit the Per portion column here; per portion is used
-chicken-laksa-soup-regular,Chicken Laksa Soup (regular),Soups,Regular,329,20.7,20,19.2,7.2,,1.75,8.6,3.6,1379,,,,,,,true,true,,,Listed under 'New this Season' on the menus page
-chicken-laksa-soup-large,Chicken Laksa Soup (large),Soups,Large,444,27.9,26.9,25.9,9.6,,2.36,11.5,4.9,1857,,,,,,,true,true,,,Listed under 'New this Season' on the menus page
 thai-green-lentil-regular,Thai Green Lentil (regular),Soups,Regular,207,6.0,13.0,13.0,11.0,,2.00,4.0,5.0,861,,,,,,vegetarian,false,true,,,
 thai-green-lentil-large,Thai Green Lentil (large),Soups,Large,326,9.0,20.0,21.0,17.0,,3.00,6.0,7.0,1358,,,,,,vegetarian,false,true,,,
+turkey-and-honey-roasted-veg-regular,Turkey & Honey Roasted Veg (regular),Soups,Regular,208,10.0,25.1,9.7,1.4,,3.71,7.1,0.0,878,,,,,,,true,true,,,Listed under 'New this Season' on the menus page
+turkey-and-honey-roasted-veg-large,Turkey & Honey Roasted Veg (large),Soups,Large,325,15.6,39.2,15.1,2.2,,5.79,11.1,0.0,1371,,,,,,,true,true,,,Listed under 'New this Season' on the menus page
 chicken-shawarma,Chicken Shawarma,Pure bowls,,651,39.8,67.3,26.6,3.3,,4.24,11.6,8.3,2707,,,,,,,false,true,,,
-high-protein-chilli-and-cheese,High Protein Chilli & Cheese,Pure bowls,,874,34.9,100.5,39.1,12.5,,1.75,7.5,14.3,3668,,,,,,contains_beef,true,true,,,Listed under 'New this Season' on the menus page
+high-protein-chilli-and-cheese,High Protein Chilli & Cheese,Pure bowls,,874,34.9,100.5,39.1,12.5,,1.75,7.5,14.3,3668,,,,,,contains_beef,false,true,,,
 protein-chicken-and-mushroom,Protein Chicken & Mushroom,Pure bowls,,597,34.1,65.7,23.1,8.1,,4.10,6.6,3.5,2505,,,,,,,false,true,,,
 protein-power,Protein Power,Pure bowls,,615,36.2,75.9,19.9,3.3,,2.64,16.0,4.9,2592,,,,,,,false,true,,,
 sweet-potato-and-coconut-curry,Sweet Potato & Coconut Curry,Pure bowls,,556,14.3,85.5,19.9,2.9,,2.50,19.1,2.1,2347,,,,,,vegetarian,false,true,,,
-feel-good-chicken,Feel Good Chicken,Pure bowls,,573,30.0,93.8,8.3,1.6,,4.11,13.2,7.7,2417,,,,,,contains_beef,true,true,,,Listed under 'New this Season' on the menus page
+feel-good-chicken,Feel Good Chicken,Pure bowls,,573,30.0,93.8,8.3,1.6,,4.11,13.2,7.7,2417,,,,,,contains_beef,false,true,,,
 pure-bibimbap-dressed,Pure Bibimbap (dressed),Salads,Dressed,426,27.1,24.9,23.0,4.9,,4.15,16.1,6.2,1778,,,,,,contains_beef,false,true,,,
 pure-bibimbap-undressed,Pure Bibimbap (undressed),Salads,Undressed,264,25.6,6.9,14.0,4.2,,2.65,4.7,6.1,1101,,,,,,contains_beef,false,true,,,fat printed as '`14.0': the page prints a stray backtick before the number; the digits are used as printed
 chicken-caesar-dressed,Chicken Caesar (dressed),Salads,Dressed,475,37.6,13.2,29.8,10.4,,1.69,6.1,1.6,1986,,,,,,,false,true,,,
@@ -107,23 +108,23 @@ mango-and-pineapple,Mango & Pineapple,Fruit pots,,83,1.3,15.8,0.3,,,,15.5,,347,,
 melon-and-blueberries,Melon & Blueberries,Fruit pots,,54,1.2,12.9,0.3,0.1,,0.21,11.9,1.5,222,,,,,,vegetarian,false,false,,,
 super-fruit-salad,Super Fruit Salad,Fruit pots,,118,1.3,29.8,0.4,0.1,,,25.6,0.0,491,,,,,,vegetarian,false,false,,,
 dark-chocolate-and-hazelnut-cookie,Dark Chocolate & Hazelnut Cookie,Sweet treats,,272,5.1,37.8,10.5,1.5,,0.27,36.4,2.2,1144,,,,,,vegetarian,false,false,,,
-double-chocolate-and-vanilla-cookie,Double Chocolate & Vanilla Cookie,Sweet treats,,468,5.5,57.7,23.9,12.1,,0.36,38.4,3.0,1958,,,,,,vegetarian,true,false,,,Listed under 'New this Season' on the menus page
+double-chocolate-and-vanilla-cookie,Double Chocolate & Vanilla Cookie,Sweet treats,,468,5.5,57.7,23.9,12.1,,0.36,38.4,3.0,1958,,,,,,vegetarian,false,false,,,
 oat-and-cranberry-cookie,Oat & Cranberry Cookie,Sweet treats,,246,3.2,37.1,9.1,5.0,,0.48,23.1,1.6,1036,,,,,,vegetarian,false,false,,,
 salted-caramel-brownie,Salted Caramel Brownie,Sweet treats,,270,1.9,30.5,15.2,9.1,,0.32,26.5,1.1,1127,,,,,,vegetarian,false,false,,,
 maple-flapjack,Maple Flapjack,Sweet treats,,239,6.0,62.2,18.7,9.5,,0.36,34.2,4.7,1010,,,,,,vegetarian,false,false,,,kcal 239 differs from its macros (4P+4C+9F = 441) by 85%; printed as is; The Per 100g column does not fit the Per portion column here; per portion is used
-boundless-chipotle-lime-chips,Boundless Chipotle Lime Chips,Snacks,,100,2.4,16.2,3.3,0.3,,0.23,0.5,2.5,419,,,,,,vegetarian,true,false,,,Listed under 'New this Season' on the menus page
-boundless-smoked-bacon-chips,Boundless Smoked Bacon Chips,Snacks,,96,2.2,16.3,2.7,0.3,,0.19,0.9,1.4,404,,,,,,vegetarian,true,false,,,Listed under 'New this Season' on the menus page
+boundless-chipotle-lime-chips,Boundless Chipotle Lime Chips,Snacks,,100,2.4,16.2,3.3,0.3,,0.23,0.5,2.5,419,,,,,,vegetarian,false,false,,,
+boundless-smoked-bacon-chips,Boundless Smoked Bacon Chips,Snacks,,96,2.2,16.3,2.7,0.3,,0.19,0.9,1.4,404,,,,,,vegetarian,false,false,,,
 brown-bag-crisps-cheddar-and-onion,Brown Bag Crisps – Cheddar & Onion,Snacks,,200,2.2,23.4,10.8,0.9,,0.68,0.7,1.0,834,,,,,,vegetarian,false,false,,,
 brown-bag-crisps-lightly-salted,Brown Bag Crisps – Lightly Salted,Snacks,,206,2.0,23.4,11.5,0.9,,0.48,0.1,1.0,860,,,,,,vegetarian,false,false,,,
 brown-bag-crisps-sea-salt-and-malt-vinegar,Brown Bag Crisps – Sea Salt & Malt Vinegar,Snacks,,196,1.9,23.3,10.6,0.9,,1.20,1.2,0.9,822,,,,,,vegetarian,false,false,,,
 brown-crisps-smoked-chilli,Brown Crisps – Smoked Chilli,Snacks,,199,2.1,23.6,10.7,0.9,,0.76,1.4,1.0,831,,,,,,vegetarian,false,false,,,
-forest-feast-belgian-dark-chocolate-sour-cherries,Forest Feast Belgian Dark Chocolate Sour Cherries,Snacks,,190,2.1,21.6,10,6,,0.04,18.8,3.0,794,,,,,,,true,false,,,Listed under 'New this Season' on the menus page
-forest-feast-salted-dark-chocolate-almonds,Forest Feast Salted Dark Chocolate Almonds,Snacks,,226,4.8,12.4,17.2,6.0,,0.29,11.2,3.0,942,,,,,,,true,false,,,"The Per 100g column does not fit the Per portion column here; per portion is used; Listed under 'New this Season' on the menus page; The page prints no ingredients list for this item, so its pork/beef tags could not be checked"
-forest-feast-sea-salt-and-black-peppercorn,Forest Feast Sea Salt & Black Peppercorn,Snacks,,200,7.2,8.4,16.4,1.8,,0.55,2.6,2.6,837,,,,,,,true,false,,,Listed under 'New this Season' on the menus page
-forest-feast-sea-salt-and-cider-vinegar-nut-mix,Forest Feast Sea Salt & Cider Vinegar Nut Mix,Snacks,,225,8.0,7.6,18.8,1.8,,0.52,1.8,3.0,942,,,,,,,true,false,,,Listed under 'New this Season' on the menus page
-pip-and-nut-protein-bar-dark-chocolate,Pip & Nut Protein Bar – Dark Chocolate,Snacks,,220,9.7,15.6,12.0,3.1,,0.63,10.6,2.3,912,,,,,,,true,false,,,Listed under 'New this Season' on the menus page
-pip-and-nut-protein-bar-peanut-butter,Pip & Nut Protein Bar – Peanut Butter,Snacks,,223,11.0,14.7,12.9,4.1,,0.45,8.7,2.3,931,,,,,,,true,false,,,Listed under 'New this Season' on the menus page
-pip-and-nut-stuffed-bar-almond,Pip & Nut Stuffed Bar – Almond,Snacks,,224,5.9,20.7,12.6,2.7,,0.05,9.9,3.0,932,,,,,,,true,false,,,Listed under 'New this Season' on the menus page
+forest-feast-belgian-dark-chocolate-sour-cherries,Forest Feast Belgian Dark Chocolate Sour Cherries,Snacks,,190,2.1,21.6,10,6,,0.04,18.8,3.0,794,,,,,,,false,false,,,
+forest-feast-salted-dark-chocolate-almonds,Forest Feast Salted Dark Chocolate Almonds,Snacks,,226,4.8,12.4,17.2,6.0,,0.29,11.2,3.0,942,,,,,,,false,false,,,"The Per 100g column does not fit the Per portion column here; per portion is used; The page prints no ingredients list for this item, so its pork/beef tags could not be checked"
+forest-feast-sea-salt-and-black-peppercorn,Forest Feast Sea Salt & Black Peppercorn,Snacks,,200,7.2,8.4,16.4,1.8,,0.55,2.6,2.6,837,,,,,,,false,false,,,
+forest-feast-sea-salt-and-cider-vinegar-nut-mix,Forest Feast Sea Salt & Cider Vinegar Nut Mix,Snacks,,225,8.0,7.6,18.8,1.8,,0.52,1.8,3.0,942,,,,,,,false,false,,,
+pip-and-nut-protein-bar-dark-chocolate,Pip & Nut Protein Bar – Dark Chocolate,Snacks,,220,9.7,15.6,12.0,3.1,,0.63,10.6,2.3,912,,,,,,,false,false,,,
+pip-and-nut-protein-bar-peanut-butter,Pip & Nut Protein Bar – Peanut Butter,Snacks,,223,11.0,14.7,12.9,4.1,,0.45,8.7,2.3,931,,,,,,,false,false,,,
+pip-and-nut-stuffed-bar-almond,Pip & Nut Stuffed Bar – Almond,Snacks,,224,5.9,20.7,12.6,2.7,,0.05,9.9,3.0,932,,,,,,,false,false,,,
 pip-and-nut-dark-chocolate-almond-butter-cups,Pip & Nut Dark Chocolate Almond Butter Cups,Snacks,,204,3.8,10.3,15.8,6.6,,0.07,8.9,2.3,845,,,,,,vegetarian,false,false,,,
 pip-and-nut-milk-chocolate-peanut-butter-cups,Pip & Nut Milk Chocolate Peanut Butter Cups,Snacks,,202,3.9,12.8,14.7,6.5,,0.1,11.9,1.4,839,,,,,,vegetarian,false,false,,,
 tonys-chocolonely-dark-almond-sea-salt,Tony’s Chocolonely Dark Almond Sea Salt,Snacks,,253,3.5,20.7,16.5,8.6,,0.24,19.5,0.0,,,,,,,vegetarian,false,false,,,kJ printed as '1.058': left blank
@@ -132,29 +133,35 @@ tonys-chocolonely-milk-chocolate,Tony’s Chocolonely Milk Chocolate,Snacks,,256
 cappuccino,Cappuccino,Coffee,,137,7.8,9.4,7.8,4.8,,0.22,9.4,,597,,,,,,vegetarian,false,false,,,
 cortado,Cortado,Coffee,,63,3.3,4.5,3.5,2.3,,0.1,4.5,,262,,,,,,vegetarian,false,false,,,
 flat-white,Flat White,Coffee,,107,5.9,7.4,5.9,3.7,,0.18,7.4,,464,,,,,,vegetarian,false,false,,,
+gingerbread-latte,Gingerbread Latte,Coffee,,308,9.0,44,9.5,7.1,,0.38,36.3,0.0,1295,,,,,,vegetarian,true,false,,,Listed under 'New this Season' on the menus page
 latte,Latte,Coffee,,169,9.6,11.8,9.6,6.1,,0.29,11.8,,734,,,,,,vegetarian,false,false,,,
 macchiato,Macchiato,Coffee,,33,1.8,2.3,1.8,1.2,,0.05,2.3,,141,,,,,,vegetarian,false,false,,,
 mocha,Mocha,Coffee,,256,11,16.6,15.9,10,,0.27,16.3,1.7,1096,,,,,,vegetarian,false,false,,,
 chai-latte,Chai Latte,Speciality drinks,,266,11,32.2,10.6,6.6,,0.4,22.9,,1149,,,,,,vegetarian,false,false,,,
 hot-chocolate,Hot Chocolate,Speciality drinks,,273,10,19.1,20.3,12.3,,0.23,18.3,3.5,1140,,,,,,vegetarian,false,false,,,The Per 100g column does not fit the Per portion column here; per portion is used
 matcha,Matcha,Speciality drinks,,147,3.0,16.0,7.1,0.7,,0.23,9.3,2.7,590,,,,,,vegetarian,false,false,,,
-pure-matcha,Pure Matcha,Iced drinks,,192,3.7,20.8,9.3,0.9,,0.4,12.3,2.7,768,,,,,,vegetarian,false,false,,,
-iced-latte,Iced Latte,Iced drinks,,228,9.8,13.1,9.8,6.3,,0.27,13.1,,729,,,,,,vegetarian,false,false,,,kcal 228 differs from its macros (4P+4C+9F = 180) by 21%; printed as is
-berry-berry-good-large,Berry Berry Good (large),Smoothies,Large,374,10.8,34.0,17.1,6.2,,0.15,28.7,12.8,1561,,,,,,vegetarian,true,false,,,kcal 374 differs from its macros (4P+4C+9F = 333) by 11%; printed as is; Listed under 'New this Season' on the menus page
-berry-berry-good-regular,Berry Berry Good (regular),Smoothies,Regular,187,5.4,17.0,8.5,3.1,,0.07,14.3,6.4,780,,,,,,vegetarian,true,false,,,kcal 187 differs from its macros (4P+4C+9F = 166) by 11%; printed as is; Listed under 'New this Season' on the menus page
+gingerbread-matcha,Gingerbread Matcha,Speciality drinks,,278,3.2,48.7,7.1,0.7,,0.34,31.4,2.7,1174,,,,,,vegetarian,true,false,,,Listed under 'New this Season' on the menus page
+berry-berry-good-large,Berry Berry Good (large),Smoothies,Large,374,10.8,34.0,17.1,6.2,,0.15,28.7,12.8,1561,,,,,,vegetarian,false,false,,,kcal 374 differs from its macros (4P+4C+9F = 333) by 11%; printed as is
+berry-berry-good-regular,Berry Berry Good (regular),Smoothies,Regular,187,5.4,17.0,8.5,3.1,,0.07,14.3,6.4,780,,,,,,vegetarian,false,false,,,kcal 187 differs from its macros (4P+4C+9F = 166) by 11%; printed as is
 brain-boost-large,Brain Boost (large),Smoothies,Large,535,11.5,72.0,20.5,5.0,,0.65,55.5,6.0,2235,,,,,,vegetarian,false,false,,,
 brain-boost-regular,Brain Boost (regular),Smoothies,Regular,268,5.8,36.0,10.3,2.5,,0.33,27.8,3.0,1118,,,,,,vegetarian,false,false,,,
 get-vit-large,Get Vit (large),Smoothies,Large,266,3.5,40.2,9.5,8.7,,0.20,35.8,1.0,1120,,,,,,vegetarian,false,false,,,
 get-vit-regular,Get Vit (regular),Smoothies,Regular,133,1.8,20.1,4.7,4.4,,0.10,17.9,0.5,560,,,,,,vegetarian,false,false,,,
-matcha-the-day-large,Matcha the Day (large),Smoothies,Large,447,12.7,53.4,20.7,2.5,,0.35,40.2,6.6,1867,,,,,,vegetarian,true,false,,,Listed under 'New this Season' on the menus page
-matcha-the-day-regular,Matcha the Day (regular),Smoothies,Regular,223,6.4,26.7,10.3,1.3,,0.17,20.1,3.3,934,,,,,,vegetarian,true,false,,,Listed under 'New this Season' on the menus page
+matcha-the-day-large,Matcha the Day (large),Smoothies,Large,447,12.7,53.4,20.7,2.5,,0.35,40.2,6.6,1867,,,,,,vegetarian,false,false,,,
+matcha-the-day-regular,Matcha the Day (regular),Smoothies,Regular,223,6.4,26.7,10.3,1.3,,0.17,20.1,3.3,934,,,,,,vegetarian,false,false,,,
 pure-protein-large,Pure Protein (large),Smoothies,Large,417,34.4,31.0,18.1,1.9,,1.07,15.9,5.3,1864,,,,,,vegetarian,false,false,,,
 pure-protein-regular,Pure Protein (regular),Smoothies,Regular,222,17.2,15.5,9.0,0.9,,0.54,7.9,2.7,932,,,,,,vegetarian,false,false,,,
+pure-matcha,Pure Matcha,Iced drinks,,192,3.7,20.8,9.3,0.9,,0.4,12.3,2.7,768,,,,,,vegetarian,false,false,,,
+iced-latte,Iced Latte,Iced drinks,,228,9.8,13.1,9.8,6.3,,0.27,13.1,,729,,,,,,vegetarian,false,false,,,kcal 228 differs from its macros (4P+4C+9F = 180) by 21%; printed as is
 apple-juice-250ml,Apple Juice 250ml,Juices & shots,250 ml,120,0.3,29.5,0.0,0.0,,0.00,27.8,0.0,505,,,,,,vegetarian,false,false,,,
 orange-juice-250ml,Orange Juice 250ml,Juices & shots,250 ml,120,1.5,27.3,0.3,,,,23.3,0.8,505,,,,,,vegetarian,false,false,,,
 the-immunity-shot,The Immunity Shot,Juices & shots,,34,0.3,7.9,0.1,,,0.07,4.3,,144,,,,,,vegetarian,false,false,,,
+dash-lime,Dash Lime,Branded drinks,,3,0,1.0,0,0,,0,0,0,20,,,,,,,false,false,,,
+dash-peach,Dash Peach,Branded drinks,,3,0,1.0,0,0,,0,0,0,20,,,,,,,false,false,,,
+dash-raspberry,Dash Raspberry,Branded drinks,,3,0,1.0,0,0,,0,0,0,20,,,,,,,false,false,,,"The page prints no ingredients list for this item, so its pork/beef tags could not be checked"
 ginger-lemon-kombucha,Ginger Lemon Kombucha,Branded drinks,,5,1.3,3.8,1.3,0.3,,0.03,0,1.3,18,,,,,,vegetarian,false,false,,,
 tenzing-pineapple-and-passion-fruit,Tenzing Pineapple & Passion Fruit,Branded drinks,,48,0,11.3,0,0,,0.25,11.3,0,200,,,,,,vegetarian,false,false,,,
 tenzing-raspberry-and-yuzu,Tenzing Raspberry & Yuzu,Branded drinks,,48,0,11.3,0,0,,0.25,11.3,0,200,,,,,,vegetarian,false,false,,,
 trip-elderflower-and-mint,Trip Elderflower & Mint,Branded drinks,,19,0.0,4.8,0.0,0.0,,0.00,3.8,0.0,80,,,,,,,false,false,,,
 trip-peach-and-ginger,Trip Peach & Ginger,Branded drinks,,21,0.0,5.3,0.0,50.0,,0.00,4.5,0.0,88,,,,,,,false,false,,,The Per 100g column does not fit the Per portion column here; per portion is used
+diet-coke,Diet Coke,Branded drinks,,1,0,0,0,0,,0,0,0,5,,,,,,,false,false,,,

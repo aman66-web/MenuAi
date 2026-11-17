@@ -39,7 +39,11 @@ Left out (each checked on every run, the script stops if the list changes):
   * Bottomless Soda: a refill drink with no size or flavour (no stated serving or basis);
   * Monster Mango Loco and the three alcoholic drinks: protein and/or fat (or all values) printed "-";
   * the 6 / 8 / 10 Crispy Wings: each size is listed twice under the same name with different figures (580 and 606 kcal for 6), so they
-    cannot be told apart.
+    cannot be told apart;
+  * Baileys Shake (page as read 2026-11-17): the chain's menu page calls it the "Baileys Hard Shake" (alcoholic), "Selected Restaurants only";
+  * the Lunch Fix course lists Slim's Wrap Meal and Buffalo Wrap Meal again: the same records as under SALAD & WRAPS (checked on every
+    run: same id, figures and allergens), so each is published once.
+Dishes the chain's menu page labels "Available for a limited time only!" or "Limited Edition" are limited_time (LIMITED).
 
 Allergens (docs/DATA.md "Allergens") are complete: every published dish has them. Plain dishes: the page's allergen table; build-your-own
 dishes: the labels of the recipe (Value yes = contains, maybe = may contain). For plain dishes the table is cross-checked against the
@@ -85,11 +89,11 @@ DIET_LABELS = {"Vegetarian", "Vegan"}
 # Course (as printed) -> category. Order in the file = order on the page.
 CATEGORY = {"CHICKEN TENDERS": "Chicken Tenders", "CRISPY WINGS": "Crispy Wings", "BONELESS BITES": "Boneless Bites",
             "TENDERS & WINGS MEALS": "Tenders & Wings Meals", "SANDWICHES": "Sandwiches", "SALAD & WRAPS": "Salad & Wraps",
-            "SIDES": "Sides", "HOUSE SAUCES": "House Sauces", "KIDS MEALS": "Kids Meals", "HANDSPUN SHAKES": "Handspun Shakes",
+            "Lunch Fix": "Lunch Fix", "SIDES": "Sides", "HOUSE SAUCES": "House Sauces", "KIDS MEALS": "Kids Meals", "HANDSPUN SHAKES": "Handspun Shakes",
             "Desserts": "Desserts", "SOFT DRINKS": "Soft Drinks", "ALCOHOLIC DRINKS": "Alcoholic Drinks", "HOT DRINKS": "Hot Drinks"}
 # Dishes the page lists per course (all of them, before exclusions): the run stops if this changes.
-EXPECTED_COUNTS = {"CHICKEN TENDERS": 9, "CRISPY WINGS": 18, "BONELESS BITES": 7, "TENDERS & WINGS MEALS": 3, "SANDWICHES": 10,
-                   "SALAD & WRAPS": 6, "SIDES": 16, "HOUSE SAUCES": 15, "KIDS MEALS": 3, "HANDSPUN SHAKES": 10, "Desserts": 1,
+EXPECTED_COUNTS = {"CHICKEN TENDERS": 9, "CRISPY WINGS": 18, "BONELESS BITES": 7, "TENDERS & WINGS MEALS": 3, "SANDWICHES": 12,
+                   "SALAD & WRAPS": 6, "Lunch Fix": 4, "SIDES": 18, "HOUSE SAUCES": 15, "KIDS MEALS": 3, "HANDSPUN SHAKES": 11, "Desserts": 1,
                    "SOFT DRINKS": 12, "ALCOHOLIC DRINKS": 3, "HOT DRINKS": 4}
 # (course, name) -> why it is left out (not in items.csv at all)
 EXCLUDED = {
@@ -100,7 +104,16 @@ EXCLUDED = {
     ("ALCOHOLIC DRINKS", "Lucky Saint 0% Beer"): "protein, carbs and fat printed '-' (not published)",
     ("ALCOHOLIC DRINKS", "Brixton Coldharbour"): "no nutrition values printed ('-')",
     ("ALCOHOLIC DRINKS", "Brixton Low Voltage"): "no nutrition values printed ('-')",
+    # added 2026-11-17 (the page as read that day)
+    ("HANDSPUN SHAKES", "Baileys Shake"): "alcoholic: the chain's menu page calls it the 'Baileys Hard Shake', 'Selected Restaurants only'",
+    ("Lunch Fix", "Slim's Wrap Meal"): "the same record (same id, same figures and allergens) as under SALAD & WRAPS: listed once",
+    ("Lunch Fix", "Buffalo Wrap Meal"): "the same record (same id, same figures and allergens) as under SALAD & WRAPS: listed once",
 }
+# Records the page lists under two courses: the second listing is left out only while both listings are the same record.
+SAME_RECORD = {("Lunch Fix", "Slim's Wrap Meal"): ("SALAD & WRAPS", "Slim's Wrap Meal"),
+               ("Lunch Fix", "Buffalo Wrap Meal"): ("SALAD & WRAPS", "Buffalo Wrap Meal")}
+# Dishes the chain's own menu page labels "Available for a limited time only!" or "Limited Edition" (2026-11-17): limited_time.
+LIMITED = {("SANDWICHES", "Big Sleigh Sandwich"), ("SANDWICHES", "Big Sleigh Sandwich Meal"), ("HANDSPUN SHAKES", "Biscoff & Banana")}
 # Names listed twice in one course with different figures (cannot be told apart): left out.
 EXPECTED_DUPLICATES = {("CRISPY WINGS", "6 Crispy Wings"), ("CRISPY WINGS", "8 Crispy Wings"), ("CRISPY WINGS", "10 Crispy Wings")}
 
@@ -120,7 +133,8 @@ SITE_MAP = {
                        ("10 Boneless Bites meal", ("BONELESS BITES", "10 Boneless Bites Meal"))],
     "Tenders & Wings Meals": [("3 & 3 Meal", ("TENDERS & WINGS MEALS", "3 Tender & 3 Crispy Wing")),
                               ("5 & 5 Meal", ("TENDERS & WINGS MEALS", "5 Tenders & 5 Crispy Wings"))],
-    "Sandwich Meals": [("Hot Buffalo Sandwich", ("SANDWICHES", "Buffalo Sandwich Meal")),
+    "Sandwich Meals": [("NEW The Big Sleigh Sandwich", ("SANDWICHES", "Big Sleigh Sandwich Meal")),
+                       ("Hot Buffalo Sandwich", ("SANDWICHES", "Buffalo Sandwich Meal")),
                        ("Honey BBQ Sandwich", ("SANDWICHES", "Honey BBQ Sandwich Meal")),
                        ("Classic Chicken Sandwich", ("SANDWICHES", "Classic Sandwich Meal")),
                        ("Plant-Based Buffalo Sandwich", ("SANDWICHES", "Plant Based Buffalo Sandwich Meal"))],
@@ -131,7 +145,8 @@ SITE_MAP = {
               ("3 Tenders", ("SIDES", "3 Tenders")), ("5 Tenders", ("CHICKEN TENDERS", "5 Tenders")),
               ("7 Tenders", ("CHICKEN TENDERS", "7 Tenders")), ("3 Wings", ("SIDES", "3 Crispy Wings")),
               ("Crispy Fried Onions", ("SIDES", "Crispy Fried Onions")),
-              ("Buffalo & Blue Cheese Loaded Fries", ("SIDES", "Buffalo Blue Loaded Fries")),
+              ("Buffalo & Blue Tender Loaded Fries", ("SIDES", "Buffalo Blue Loaded Fries")),
+              ("NEW BBQ Ranch Bacon & Tender Loaded Fries", ("SIDES", "BBQ Ranch & Bacon Tender Loaded Fries")),
               ("Texas Toast", ("SIDES", "Texas Toast")), ("The Big Ranch Pot", ("SIDES", "The Big Ranch Pot")),
               ("Slims Cookie", ("Desserts", "Slims Cookie"))],
     "Shakes": [("Vanilla", ("HANDSPUN SHAKES", "Vanilla")), ("Chocolate", ("HANDSPUN SHAKES", "Chocolate")),
@@ -139,7 +154,7 @@ SITE_MAP = {
                          ("Caramel", ("HANDSPUN SHAKES", "Caramel")), ("Mocha Shake", ("HANDSPUN SHAKES", "Mocha Shake")),
                          ("Oreo®", ("HANDSPUN SHAKES", "Oreo")), ("Biscoff®", ("HANDSPUN SHAKES", "Biscoff Shake")),
                          ("Cadbury Flake®", ("HANDSPUN SHAKES", "Flake Shake")),
-                         ("NEW Banana & Biscoff®", ("HANDSPUN SHAKES", "Biscoff & Banana"))],
+                         ("Banana & Biscoff®", ("HANDSPUN SHAKES", "Biscoff & Banana"))],
     "Kid's Meals": [("Tenders Meal", ("KIDS MEALS", "Kids Tenders Meal")), ("Boneless Bites Meal", ("KIDS MEALS", "Kids Boneless Bite Meal")),
                     ("Tender Mac & Cheese", ("KIDS MEALS", "Kids Tender Mac & Cheese"))],
 }
@@ -154,7 +169,6 @@ ADD_ON_MESSAGE = ("Double up your sandwich for", ("SANDWICHES", "Extra Chicken B
 SPECIAL_NOTES = {
     ("CRISPY WINGS", "8 Honey BBQ Wings"): "sugars 1.0 g beside 93.4 g carbs, while the 6 and 10 piece sizes print 29.4 g and 49.1 g: looks like a typo on the page",
     ("BONELESS BITES", "8 Boneless Bites Meal"): "protein 32.8 g is lower than the 6 piece meal's 40.1 g",
-    ("SALAD & WRAPS", "Slim's Salad Meal"): "lower than the Slim's Salad alone (542 vs 641 kcal) although it adds sauces and a drink",
 }
 
 
@@ -194,6 +208,10 @@ def read_site(page: str) -> dict:
             messages.append(msg.get("message_text", ""))
         for fi in menu.get("food_items") or []:
             text = re.sub(r"<[^>]+>", " ", htmllib.unescape(fi.get("food_description") or ""))
+            # an add-on offer printed inside a dish's description ("Add a pot of Gravy (70kcal) for £1.50") is not the dish's figure
+            for offer in re.findall(r"Add an? [^()]*?\(\d[\d,]*\s*kcals?\)(?:\s*for\s*£[\d.]+)?", text, flags=re.I):
+                messages.append(offer.strip())
+                text = text.replace(offer, " ")
             hits = re.findall(r"(\bfrom\s+)?(\d[\d,]*)\s*kcals?\b", text, flags=re.I)
             if not hits:
                 continue
@@ -400,7 +418,14 @@ def main() -> None:
             leftout[key] = EXCLUDED[key]
             continue
         entries[key] = e
+    by_key = {(e["course"], e["name"]): e for e in parsed}
+    for key, other in SAME_RECORD.items():
+        a, b = by_key.get(key), by_key.get(other)
+        if not a or not b or a.get("id") != b.get("id") or a["nutrients"] != b["nutrients"] or a.get("labels") != b.get("labels"):
+            raise SystemExit(f"{key} is no longer the same record as {other}: re-check and publish it on its own")
     missing = set(EXCLUDED) - {(e["course"], e["name"]) for e in parsed}
+    if set(LIMITED) - set(by_key):
+        raise SystemExit(f"limited-time dishes no longer on the page: {sorted(set(LIMITED) - set(by_key))}")
     if missing:
         raise SystemExit(f"Excluded dishes no longer on the page: {sorted(missing)}")
     # anything else with a missing number needed for a full chain is a change to look at
@@ -433,6 +458,7 @@ def main() -> None:
         if key in SPECIAL_NOTES:
             notes.append(SPECIAL_NOTES[key])
         items.append(dict(name=shown, category=CATEGORY[course], tags="|".join(tags), rankable=rankable(course, name),
+                          limited_time=key in LIMITED,
                           allergens=allergens_of(e), notes="; ".join(notes), **n))
         reasons = [r for r in (result["held"].get(key), energy_hold, HOLD_NAMED.get(key)) if r]
         if reasons:

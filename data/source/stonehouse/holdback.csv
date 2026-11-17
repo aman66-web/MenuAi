@@ -1,3 +1,4 @@
 item_id,reason
-wholetail-scampi,The feed prints 951 kcal; its own macros add up to about 774 kcal (and its kJ to about 679 kcal).
+crispy-calamari,"The feed prints 354 kcal; its own macros add up to about 219 kcal (and its kJ, 1046.75, to about 250 kcal)."
+wholetail-scampi,The feed prints 951 kcal; its own macros add up to about 770 kcal (and its kJ to about 679 kcal).
 chocolate-fudge-cake,"allergen row contradicts the dish name/ingredients: the feed marks eggs, milk and soya (tree nut may be present) but no gluten or cereal for a cake, and the item carries no gluten-free claim (noGlutenContainingIngs is false)."

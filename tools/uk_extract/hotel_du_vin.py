@@ -16,6 +16,10 @@ REFRESHED 2026-10-08 (second download the same day): the page renamed "FISH PIE 
 and Brie 178 -> 907, olive oil 84 -> 781 kcal). The printed bar menu prints 720, 907 and 793, so only the black truffle and Brie row now agrees
 and is published; the other two stay held back (any difference counts). The tab lists and dish counts were unchanged.
 
+REFRESHED 2026-11-17: the same 20 tabs and the same 8 printed PDFs (still linked from SITE_PAGE); only the Beverages tab changed (215 -> 191
+rows: nine cocktails gone, two new, several cocktail figures moved, all in the held-back cocktail section). The published set is the same 68
+dishes; one published figure moved: Fricassée de champignons (Taste du Vin Vegan) 91 -> 87 kcal, soya now "may contain" instead of "contains".
+
 WHAT IS PRINTED. Each dish prints ONE number, its calories in brackets beside the name ("(437 kcal)"). There is no nutrition table
 anywhere on the pages, not even a hidden one (the row's expander arrow reveals only the ingredient list and the "Dietary Information"
 allergen lines; the words protein, carbohydrate, saturates, sugars, fibre and kJ occur only inside ingredient text). So protein, carbs,
@@ -83,7 +87,7 @@ NOTE = ("Hotel du Vin prints calories only, per dish as served, with no portion 
 TABS = [
     (0, "Autumn Menu 2026", 88, True), (1, "Autumn Offers & NGCI Menus", 24, True), (2, "Breakfast Menu 2026", 44, True),
     (3, "NGCI Breakfast Options", 12, True), (4, "Spring Summer Specials", 53, False), (5, "Autumn/Winter Local Specials", 27, False),
-    (6, "Beverages - Including Cocktails", 215, True), (7, "Kids Menu", 14, True), (8, "Wood Fire and Vine Menus", 17, False),
+    (6, "Beverages - Including Cocktails", 191, True), (7, "Kids Menu", 14, True), (8, "Wood Fire and Vine Menus", 17, False),
     (9, "HDV Autumn Afternoon Tea 2026", 29, True), (10, "Christmas Day Menu 2026", 21, False),
     (11, "Festive Celebrations Menu 2026", 15, False), (12, "Festive Canapes Menu 2026", 8, False),
     (13, "Private Dining 2026", 89, False), (14, "Meetings & Events 2026", 54, False), (15, "Wedding Menus 2026", 30, False),

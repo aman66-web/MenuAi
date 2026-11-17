@@ -4,9 +4,12 @@
     python3 tools/uk_extract/showcase_cinemas.py path/to/kcal.pdf --checked-on 2026-10-08 [--fetch] [--allergen-pdf path/to/allergens.pdf] [--out DIR]
 
 Source (the file linked as "Nutritional Information" in the footer of the chain's own site):
-    https://www.showcasecinemas.co.uk/  ->  https://cms-assets.webediamovies.pro/production/4756/82a53ad3c68b1813f7f348e6cac71b71.pdf
+    https://www.showcasecinemas.co.uk/  ->  https://cms-assets.webediamovies.pro/production/4756/1029929f699c10fe81fa951aae6255da.pdf
     "SHOWCASE CINEMAS - KCAL INFORMATION", footer "September 2026", 9 A4 pages (Microsoft Excel export with a text layer), PDF created
-    2026-09-15 16:31 UTC, served Last-Modified 2026-09-15. robots.txt: www.showcasecinemas.co.uk only disallows /theaters/ and account
+    2026-10-14 15:00 BST, served Last-Modified 2026-10-14, SHA-256 ec1853343329ab1633f587751c3be0c917d3f73e7c76ba6a69aeb230d1701914 (this
+    reissue replaced the 15 September file, .../82a53ad3c68b1813f7f348e6cac71b71.pdf, on the footer link: the columns moved 22.7 pt right
+    and HOTDOGS gained two rows, The SausageMan and TSM CurryWurst hotdogs, printed per serving only; every figure published from the September file is unchanged).
+    robots.txt: www.showcasecinemas.co.uk only disallows /theaters/ and account
     pages; cms-assets.webediamovies.pro answers 404 for /robots.txt (no robots file, so no rules). The sheet is chain-wide (Showcase
     Cinemas, National Amusements); a few rows say they are for one venue and are left out (see below).
 `--fetch` downloads it first (one request, normal browser User-Agent). Needs `pdftotext` (poppler); read by position: showcase_cinemas_pdf.py.
@@ -41,7 +44,7 @@ What is published, and what is left out (every table of the sheet is listed in B
   and the Meat Feast pizza do not say what meat they hold ("meat type not stated").
 
 Allergens (docs/DATA.md "Allergens") are LINK ONLY. Showcase's own allergen matrix (https://cms-assets.webediamovies.pro/production/4756/
-b9d3bd163c467e64d5d300febbf9f405.pdf, "ALLERGEN INFORMATION MATRIX", reviewed 15 September 2026, 7 pages, same footer and same CDN) names the
+a148da3a082d3403aae21acc7cd8b313.pdf, "ALLERGEN INFORMATION MATRIX", V44, reviewed 15 September 2026, file dated 14 October 2026, 7 pages) names the
 kitchen's products, not the calorie sheet's: "Popcorn - Salt", "Popcorn- Sweet", "Nachos (no topping)", "Chicken & Bacon Pizza", "Margarita
 Pizza Twists", "Cookie dough - Original Milk Chocolate", gelato flavours without "Gelato", "Boneless Hot Wings" for "Crunchy Hot Wings";
 it has no row for the Coke Freestyle drinks, the ICEE sizes, the Costa drinks, the juices, the mocktails or the bar drinks. Allergens are
@@ -63,13 +66,14 @@ from common import sha256_file, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "showcase-cinemas"
 PAGE_URL = "https://www.showcasecinemas.co.uk/"
-SOURCE_URL = "https://cms-assets.webediamovies.pro/production/4756/82a53ad3c68b1813f7f348e6cac71b71.pdf"
+SOURCE_URL = "https://cms-assets.webediamovies.pro/production/4756/1029929f699c10fe81fa951aae6255da.pdf"
 SOURCE_TITLE = ("Showcase Cinemas - KCAL INFORMATION, September 2026 (the \"Nutritional Information\" PDF linked from the footer of "
-                "showcasecinemas.co.uk; 9 pages, created 15 September 2026)")
+                "showcasecinemas.co.uk; 9 pages, reissued 14 October 2026)")
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 ALIASES = ["showcase cinemas", "showcase cinema", "showcase cinema de lux", "showcase", "showcase cinemas uk"]
-ALLERGEN_GUIDE_TITLE = "Showcase Cinemas allergen information matrix (National Amusements, reviewed 15 September 2026, 7 pages)"
-ALLERGEN_GUIDE_URL = "https://cms-assets.webediamovies.pro/production/4756/b9d3bd163c467e64d5d300febbf9f405.pdf"
+ALLERGEN_GUIDE_TITLE = ("Showcase Cinemas allergen information matrix (National Amusements, Allergen Charts V44, reviewed 15 September 2026, "
+                        "7 pages, file dated 14 October 2026)")
+ALLERGEN_GUIDE_URL = "https://cms-assets.webediamovies.pro/production/4756/a148da3a082d3403aae21acc7cd8b313.pdf"
 MAY_CONTAIN_PUBLISHED = True  # the matrix prints "MAY CONTAIN" as well as "CONTAINS"
 NOTE = ("Calories only, per serving or size as printed (the per-100 g columns are not used). One chain-wide sheet, September 2026: "
         "not every cinema sells every item, and sizes (Small, Medium, Large) have no volume. Pick & Mix (per 100 g only) and rows for "
@@ -96,7 +100,7 @@ TOTS, KIDS, SMALL, MED, LARGE = (C("Totally Tots", "Totally Tots"), C("Kids Film
 BLOCKS = {
     "POPCORN": dict(cat="Popcorn", cols=dict(B=P100G, C=TOTS, D=KIDS, E=SMALL, F=MED, G=LARGE), rows=2),
     "GOURMET POPCORN": dict(cat="Gourmet Popcorn", cols=dict(B=P100G, C=PER_SERVING), rows=4),
-    "HOTDOGS": dict(cat="Hot Dogs", cols=dict(B=P100G, C=PER_SERVING), rows=3),
+    "HOTDOGS": dict(cat="Hot Dogs", cols=dict(B=P100G, C=PER_SERVING), rows=5),
     "NACHOS": dict(cat="Nachos", cols=dict(B=P100G, C=SMALL, D=MED, E=LARGE), rows=5),
     "ICEE": dict(cat="ICEE", cols=dict(B=P100G, C=KIDS, D=SMALL, E=MED, F=LARGE), rows=3),
     "DRINKS": dict(cols=dict(B=P100ML, C=KIDS, D=SMALL, E=MED, F=LARGE), rows=5, exclude="Derby cinema only (every row is named '... - Derby CDL only')"),

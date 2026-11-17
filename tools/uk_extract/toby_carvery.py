@@ -55,7 +55,8 @@ CHAIN = mb.Chain(
     # crumble, and the feed's own noGlutenContainingIngs claim is false for both. Not corrected, not chosen between: not published.
     holdback={
         "Chocolate Fudge Cake": "allergen row contradicts the dish name: a fudge cake with no cereal (gluten) marked and no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false).",
-        "Toffee Apple Crumble": "allergen row contradicts the dish name: a crumble with a crumble topping and no cereal (gluten) marked (and no milk marked for a toffee dish the menu lists as vegetarian, not vegan), with no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false).",
+        # Re-checked 2026-11-17 (feed last modified 2026-11-16): the row now marks gluten and oats, but still no milk.
+        "Toffee Apple Crumble": "allergen row contradicts the dish name: a toffee crumble the menu lists as vegetarian (V), not vegan, with no milk marked (the feed marks only gluten and oats, and tree nuts as may contain).",
     },
     note_txt=("Main menu and puddings only. Carvery meats and sandwich fillings are listed without the bread, roast potatoes, "
               "vegetables, Yorkshire pudding and gravy that come with them (Toby publishes those at the carvery deck), so a plate is "

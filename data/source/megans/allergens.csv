@@ -43,12 +43,12 @@ gluten-free-bread,,,,
 sourdough,gluten|sesame,eggs|milk|nuts|soya|sulphites,barley|rye|wheat,
 gluten-free-flatbread,,,,
 gingerbread-meg,eggs|gluten,nuts|peanuts,wheat,
-orange-and-almond-cake,eggs|gluten|nuts|soya,,wheat,almond
+orange-and-almond-cake,eggs|gluten|nuts|soya,,wheat,
 pumpkin-pineapple-and-coconut-loaf,gluten,,wheat,
 sticky-toffee-and-triple-ginger-loaf,eggs|gluten|milk|sulphites,,wheat,
-lemon-and-rosemary-cake,eggs|gluten|nuts|soya,,wheat,almond
+lemon-and-rosemary-cake,eggs|gluten|nuts|soya,,wheat,
 raspberry-and-coconut-loaf,gluten,nuts,oats|wheat,
-carrot-cake,eggs|gluten|milk|nuts,,wheat,walnut
+carrot-cake,eggs|gluten|milk|nuts,,wheat,
 chocolate-brownie,eggs|milk|soya,,,
 nutella-and-sea-salt-cookie,eggs|gluten|milk|nuts|soya,,wheat,hazelnut
 baklava-bite,eggs|gluten|milk|nuts|peanuts|soya,celery|mustard|sesame|sulphites,wheat,
@@ -58,7 +58,7 @@ nutella,milk|nuts|soya,,,hazelnut
 blueberry-compote,,,,
 whipped-feta-and-avo-dip,milk|sesame,celery|gluten|mustard|soya|sulphites,,
 labneh-dip,milk,,,
-smooth-hummus-dip,,sesame,,
+smooth-hummus-dip,sesame,,,
 bread-basket-with-zaatar-butter,gluten|milk|sesame,celery|eggs|mustard|nuts|soya|sulphites,barley|rye|wheat,
 3-dips-and-bread-basket,gluten|milk|sesame,celery|eggs|mustard|nuts|soya|sulphites,barley|rye|wheat,
 warm-pita,gluten,eggs|milk|nuts|sesame|soya|sulphites,rye|wheat,

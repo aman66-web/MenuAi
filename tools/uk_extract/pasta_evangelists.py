@@ -8,7 +8,7 @@ Source. The chain's own page https://pastaevangelists.com/pages/allergens (a Sho
 buttons that are Google Sheets PDF exports. The first, "Restaurants", is
     https://docs.google.com/spreadsheets/d/1I2wXH_PQNO21w4CvaETgOLM7OBJDQCY5b4vq0cK0rEo/export?format=pdf&gid=1206536742&portrait=false&attachment=false
 (gid 0 = Delivery/Takeaway, 776180697 = Events, 1919518239 = Manchester Airport, and Harrods has its own sheet: none of those is read). The file is
-"Pasta Evangelists Takeaway Allergens Chart - Restaurants Allergens Chart.pdf", 17 pages, Google Sheets PDF with a text layer, headed "Quality
+"Pasta Evangelists Takeaway Allergens Chart - Restaurants Allergens Chart.pdf", 20 pages (17 when first read on 2026-10-10), Google Sheets PDF with a text layer, headed "Quality
 Management System 5.3.1b- Restaurants Allergen Chart"; it carries NO date and the export has no Last-Modified, so the source title says "undated" and
 the day it was downloaded. robots.txt of docs.google.com (RFC 9309, robots_rfc.py): `Disallow: /` but `Allow: /spreadsheet`, the longest match wins, so
 /spreadsheets/d/... is allowed. Needs poppler's `pdftotext` (-bbox) and `pdfinfo`.
@@ -29,13 +29,19 @@ How the chart is read (it is a Google Sheets table whose cells are vertically ce
 word's position; the columns are fixed x ranges (COLUMNS, checked against the header words on every page); words in a column are grouped into lines and
 a block of lines is one cell (a line wrap is 7.2-7.3 pt, the smallest row pitch is 8.6 pt, so 7.8 pt separates cells); a row is the item cell plus the
 block in each other column whose centre is within 1.5 pt of it (every row must match exactly one block in every column). Category headings are the
-all-capital item cells with no calories. The script stops if the page count, the header positions, the number of rows (206), the category list or any
+all-capital item cells with no calories. The script stops if the page count, the header positions, the number of rows (234; 206 on 2026-10-10), the category list or any
 cell's shape changes.
 
 Rows with sizes (a row is published once per size, the size is in the name and in `serving`, exactly as printed):
 "2 scoops: 315 / 1 scoop: 158" (Hackney Gelato), "Approx. 125ml: 90 / 175ml: 132 / 250ml: 189" (wines; "Approx." is printed on the 125ml size only and is
 kept there), "Single- 57 / Double- 114" (spirits; the measure is not stated), "125ml- 389" (Limoncello). Birra Moretti (330ml) / (660ml) carry their size in
 the name.
+
+Re-read 2026-11-17 (same address, 20 pages, 234 rows, sha256 fe929aa3...): a KIDS section was added, many fresh-pasta dishes print about 113 kcal
+less, new seasonal dishes and drinks appeared and 11 rows went. Left out from that read (in EXCLUDED): five rows marked "(Camden)" (one restaurant only),
+"Fresh Whole Pomegranate" (3 kcal against a name that says a whole fruit), "Mascarpone Cream (current CPU raw material)" (an internal note in the name),
+and the alcoholic drinks new on the chart (no alcoholic drink is added since the founder's rule of 11 October 2026; the ones already published stay and
+are refreshed) plus Guinness Draught 0.0% (draught, no measure stated).
 
 LEFT OUT (EXCLUDED below; the script stops if this list changes):
  - no figure: Acqua Panna Still Water and San Pellegrino Sparkling Water print "N/A".
@@ -84,13 +90,13 @@ GUIDE_TITLE = "Pasta Evangelists Restaurants Allergen Chart (from the chain's Al
 NOTE = ("Calories only, per portion as the chart prints them (no weights); protein, carbs and fat are not published. Allergens and \"may contain\" are the chart's "
         "own columns, and the chart also says all dishes may contain traces of the 14 major allergens. Restaurants only: Harrods, delivery and events have separate charts.")
 
-EXPECTED_PAGES = 17
-EXPECTED_ROWS = 206
+EXPECTED_PAGES = 20
+EXPECTED_ROWS = 234
 EXPECTED_CATEGORIES = ["BREAD & FOCACCIA", "ANTIPASTI", "SIDES", "FRESH PASTA", "SEASONAL SPECIALS", "FILLED PASTA", "BAKED PASTA", "PASTA SHAPES ONLY",
-                       "ADD ONS / GARNISHES", "DESSERTS", "SOFT DRINKS", "ALCOHOL-FREE", "BEER & CIDERS", "WINES", "SPIRITS", "COCKTAILS", "HOT DRINKS"]
+                       "KIDS", "ADD ONS / GARNISHES", "DESSERTS", "SOFT DRINKS", "ALCOHOL-FREE", "BEER & CIDERS", "WINES", "SPIRITS", "COCKTAILS", "HOT DRINKS"]
 CATEGORY_NAMES = {"BREAD & FOCACCIA": "Bread & focaccia", "ANTIPASTI": "Antipasti", "SIDES": "Sides", "FRESH PASTA": "Fresh pasta",
                   "SEASONAL SPECIALS": "Seasonal specials", "FILLED PASTA": "Filled pasta", "BAKED PASTA": "Baked pasta",
-                  "PASTA SHAPES ONLY": "Pasta shapes only", "ADD ONS / GARNISHES": "Add-ons & garnishes", "DESSERTS": "Desserts",
+                  "PASTA SHAPES ONLY": "Pasta shapes only", "KIDS": "Kids", "ADD ONS / GARNISHES": "Add-ons & garnishes", "DESSERTS": "Desserts",
                   "SOFT DRINKS": "Soft drinks", "ALCOHOL-FREE": "Alcohol-free", "BEER & CIDERS": "Beer & ciders", "WINES": "Wines", "SPIRITS": "Spirits",
                   "COCKTAILS": "Cocktails", "HOT DRINKS": "Hot drinks"}
 
@@ -114,6 +120,21 @@ EXCLUDED = {
     "Pasta Evangelists Summer Truffle Sauce 180g": "retail product: the figure cannot be for the weight in the name",
     "Pasta Evangelists White Truffle Butter 175g": "retail product: the figure cannot be for the weight in the name",
     "Pasta Evangelists Summer Truffle Honey 400g": "retail product: the figure cannot be for the weight in the name",
+    # chart read 2026-11-17 (20 pages, 234 rows):
+    "Garlic Bread (Camden)": "marked (Camden): served at one restaurant only (playbook rule 4)",
+    "Cheesy Garlic Bread (Camden)": "marked (Camden): served at one restaurant only (playbook rule 4)",
+    "Italian-Style Meatballs (Camden)": "marked (Camden): served at one restaurant only (playbook rule 4)",
+    "Spaghetti Beef Meatballs Pomodoro (Camden)": "marked (Camden): served at one restaurant only (playbook rule 4)",
+    "Tagliatelle Beef & Chianti Ragù (Camden)": "marked (Camden): served at one restaurant only (playbook rule 4)",
+    "Fresh Whole Pomegranate": "the name says a whole pomegranate but the figure is 3 kcal and the ingredient cell says 'Pomegranate Seeds': name and figure disagree",
+    "Mascarpone Cream (current CPU raw material)": "the name carries an internal note ('current CPU raw material'): not clear that the figure is a portion as served",
+    "Heineken Beer (Draft) (5% ABV)": "draught beer with no measure stated; also an alcoholic drink new on the chart (no alcoholic drink is added since the founder's rule of 11 October 2026)",
+    "Brooklyn IPA": "alcoholic drink new on the chart: no alcoholic drink is added since the founder's rule of 11 October 2026 (and 39 kcal states no measure)",
+    "Camden Hells Lager": "alcoholic drink new on the chart: no alcoholic drink is added since the founder's rule of 11 October 2026",
+    "Guinness Draught 4.1% abv": "alcoholic drink new on the chart: no alcoholic drink is added since the founder's rule of 11 October 2026",
+    "Guinness Draught 0.0%": "draught beer with no measure stated",
+    "Mulled Wine": "alcoholic drink new on the chart: no alcoholic drink is added since the founder's rule of 11 October 2026",
+    "Festive Spiced Orange Cocktail": "alcoholic drink new on the chart (its ingredients name Hepple Vodka): no alcoholic drink is added since the founder's rule of 11 October 2026",
 }
 # Rows the chart contradicts itself on, found by the checks below and confirmed by reading the row in the rendered page (name -> reason).
 HELD_BACK: dict[str, str] = {
@@ -130,7 +151,7 @@ HELD_BACK: dict[str, str] = {
 }
 
 # The chart's own allergen spellings, added to common.allergen_words' table.
-ALLERGEN_WORDS = {"cereals containig gluten": ("gluten", None)}
+ALLERGEN_WORDS = {"cereals containig gluten": ("gluten", None), "cereal containig gluten": ("gluten", None), "cereal containing gluten": ("gluten", None)}
 # Printed capital-letter words in an ingredient list -> the allergen they name (the chart capitalises allergens in its ingredient lists).
 CAPS_ALLERGENS = {"WHEAT": "gluten", "BARLEY": "gluten", "OATS": "gluten", "OAT": "gluten", "RYE": "gluten", "SPELT": "gluten", "MILK": "milk", "EGG": "eggs",
                   "EGGS": "eggs", "SOYA": "soya", "SOY": "soya", "SULPHITES": "sulphites", "SULPHITE": "sulphites", "SULPHUR": "sulphites", "CRUSTACEANS": "crustaceans",

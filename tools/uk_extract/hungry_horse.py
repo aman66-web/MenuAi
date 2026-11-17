@@ -33,6 +33,11 @@ af9eae9f0dcecff9c1e07a5acff77465f38b8d16585665cfecbe2c14b1bd40e4; no calorie cha
 seven Main Menu items (a few pubs added or dropped a side). fetch() reads robots.txt with the same browser User-Agent as the data (the site
 answers Python's default agent with 403, which urllib.robotparser treats as "everything disallowed") and matches it with robots_rfc.py.
 
+REFRESHED 2026-11-17: Tail o' the Bank (pub 1776, Renfrewshire) has closed: its menu files answer 404 and its pub page sends you to the
+pub finder, so it was taken out of PUBS (40 pubs, 80 files now; 4 Scottish pubs). The only dish seen nowhere else, its "Kids' Glass of Milk"
+(134 kcal), is no longer published. getmenus listed the same menu versions as on 2026-10-07 except the Scottish breakfast (751814 -> 755292),
+and no calorie changed; the 80 files have a combined SHA-256 of e3bdf12ebf0b2932c02fac454a8488bd9bee4ce8ec5e7c4c6de292194851ccd2.
+
 Calories of the Drinks Menu (alcohol-free beers, ciders, mocktails): the feed carries them, but the pub page does NOT display a calorie figure for
 that menu (the other menus show "NNN kcal"), so these 10 items are the one place where the feed is ahead of the page. Delete the category
 "Drinks: Alcohol Free" in the output (or skip menu 35449) if the founder prefers only what the page displays.
@@ -94,7 +99,6 @@ PUBS = {
     "1764": ("west-midlands/cambridge", ("35271",)),
     "1765": ("warwickshire/signal-box", ("35271",)),
     "1772": ("greater-manchester/hornet", ("35271",)),
-    "1776": ("renfrewshire/tail-o-the-bank", ("35271", "35272", "35273", "35274", "35275", "35449")),
     "1792": ("lanarkshire/projectionist", ("35271", "35810")),
     "1796": ("lanarkshire/oystercatcher", ("35271", "35810")),
     "1797": ("north-lanarkshire/barrbridge", ("35271", "35273", "35274", "35275", "35449", "35810")),
@@ -123,8 +127,8 @@ PUBS = {
     "7812": ("hampshire/heron", ("35271", "35273", "35274", "35275", "35277", "35449")),
     "8003": ("cumbria/turf-tavern", ("35271",)),
 }
-EXPECTED_FILES = 86
-EXPECTED_ITEMS = 221  # items built from the 86 files read on 2026-10-07; the run stops if a re-run finds a different number
+EXPECTED_FILES = 80
+EXPECTED_ITEMS = 220  # items built from the 80 files read on 2026-11-17; the run stops if a re-run finds a different number
 
 # Category shown for (menu, printed category). Anything not listed is shown as "<menu label>: <printed category>".
 MAIN_CATEGORIES = ["Starters", "Sharers", "Wings & Things", "Signature Subs", "Classic Subs", "Classics", "Rice Bowls", "Signature Burgers",

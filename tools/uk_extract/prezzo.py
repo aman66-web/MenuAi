@@ -42,12 +42,12 @@ DATA_KEY = "this.menuCategoryData = "
 USER_AGENT = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) "
               "Chrome/124.0 Safari/537.36")
 
-EXPECTED_ROWS = 531
+EXPECTED_ROWS = 541
 EXPECTED_BY_PAGE_CATEGORY = {
     "Nibbles": 3, "Starters": 28, "Pasta": 28, "Pizza": 76, "Grills": 13, "Salads": 3, "Sides": 10, "Desserts": 17,
-    "Specials": 49, "Afternoon Tea": 8, "Lunch": 11, "Family sharers": 11, "Extras and Build Your Own": 37, "Dips": 7,
-    "Soft Drinks": 20, "Sicilian Lemonades & Coolers": 6, "Hot Drinks": 16, "Kids Starters": 12, "Kids Mains": 50,
-    "Kids Desserts": 24, "Kids Drinks": 12, "Gin & Tonics": 5, "Spirits": 14, "Cocktails": 15, "Beer and Cider": 11,
+    "Specials": 49, "Afternoon Tea": 8, "Christmas Specials": 14, "Lunch": 11, "Extras and Build Your Own": 37, "Dips": 7,
+    "Soft Drinks": 20, "Sicilian Lemonades & Coolers": 6, "Hot Drinks": 16, "Kids Starters": 12, "Kids Mains": 55,
+    "Kids Desserts": 24, "Kids Drinks": 12, "Gin & Tonics": 5, "Spirits": 14, "Cocktails": 17, "Beer and Cider": 11,
     "Wine": 11, "Breakfast": 14, "No/Low Alcohol": 9, "Delivery Specials": 11,
 }
 EXPECTED_ITEM_KEYS = {
@@ -84,6 +84,7 @@ CATEGORIES: dict[str, tuple[str, bool]] = {
     "Specials": ("Specials", True), "Lunch": ("Lunch", True), "Breakfast": ("Breakfast", True),
     "Afternoon Tea": ("Afternoon tea", False),               # one part of a tea stand, not an order
     "Family sharers": ("Family sharers", False),             # whole dish for 3-4 people
+    "Christmas Specials": ("Christmas specials", True),      # seasonal menu (added 2026-11-17): shown as limited time
     "Delivery Specials": ("Delivery specials", True),
     "Dips": ("Dips", False),
     "Kids Starters": ("Kids starters", False), "Kids Mains": ("Kids mains", False),   # children's portions: not suggested
@@ -95,7 +96,7 @@ CATEGORIES: dict[str, tuple[str, bool]] = {
     "Wine": ("Wine", False),
 }
 BYO, EXTRAS = "Build your own", "Extras and toppings"
-CATEGORY_ORDER = ["Nibbles", "Starters", "Pasta", "Pizza", "Grills", "Salads", "Sides", "Desserts", "Specials", "Lunch",
+CATEGORY_ORDER = ["Nibbles", "Starters", "Pasta", "Pizza", "Grills", "Salads", "Sides", "Desserts", "Specials", "Christmas specials", "Lunch",
                   "Breakfast", "Afternoon tea", "Family sharers", BYO, EXTRAS, "Dips", "Kids starters", "Kids mains",
                   "Kids desserts", "Kids drinks", "Soft drinks", "Lemonades and coolers", "Hot drinks", "Beer and cider",
                   "No and low alcohol", "Delivery specials", "Gin and tonics", "Spirits", "Cocktails", "Wine"]
@@ -107,7 +108,14 @@ NOT_RANKABLE = {
     "Kinder Bueno Calzone": "dessert-style calzone (name only; the page gives no description)",
     "Avocado": "breakfast add-on", "Baked Beans": "breakfast add-on", "Cooked Sausage": "breakfast add-on",
     "Crispy Bacon": "breakfast add-on", "Egg": "breakfast add-on", "Toasted Ciabatta": "breakfast add-on",
+    "Sharing Brie, Mozzarella & Cranberry Dough Bites": "meant for sharing", "Honey Glazed Pigs In Blankets": "a side",
+    "Cinnamon Swirl Cheesecake": "dessert",
 }
+# Christmas Specials rows that the page lists again, identically, under Kids Mains (children's portions): the first listing is
+# kept, so they are shown with the kids' mains and not suggested. Seasonal rows are marked limited time.
+SEASONAL = {"Christmas Specials"}
+CHRISTMAS_KIDS = {"Christmas Pizza Kids", "Pigs in Blankets with Mash and Peas", "Pigs in Blankets with Mash and Peas Big Kids",
+                  "Christmas Pizza with Salad Big Kids", "Christmas Pizza with Fries Big Kids"}
 
 # --- Rows the page prints that we do not publish (reason shown in the report) ---------------------------------------
 PER_100G = re.compile(r"per\s*100\s*g", re.I)
@@ -134,6 +142,9 @@ HOLDBACK: dict[tuple[str, int], str] = {
                                    "'sweet mascarpone, custard, fresh cream' (a tiramisu) but marks no egg, not even as may-contain "
                                    "(it marks only gluten and milk, may contain soya); the page names no egg-free custard, so the dish is "
                                    "not published rather than guessing; not corrected",
+    ("Warm Focaccia Bread", 1): "the page lists this bread three times (Nibbles, Starters, Sides) with the same nutrition but different "
+                                "allergens: Nibbles and Starters say it may contain eggs, milk, mustard and soya, Sides says only eggs and "
+                                "milk (2026-11-17); we can't tell which is right, so it is not published; not corrected",
     ("Margherita", 2): "the page lists two different rows named exactly 'Margherita' (985 kcal and 1145 kcal) with no size on either; "
                        "which size this one is is not stated, so it is not published (the first row is)",
     ("Meat Lovers", 2): "the page lists two different rows named exactly 'Meat Lovers' (1240 kcal and 740 kcal) with no size on either; "
@@ -152,7 +163,7 @@ ODD_CELLS: dict[tuple[str, str], str] = {
 # Duplicate titles that are different products and get a distinct name (page title, page category) -> shown name.
 RENAME = {("Vegan Pepperoni", "Extras and Build Your Own"): "Vegan Pepperoni (extra)"}
 
-PORK = re.compile(r"\b(bacon|ham|pepperoni|sausages?|pork|salami|chorizo|prosciutto|gammon|pancetta|n[’']?duja)\b", re.I)
+PORK = re.compile(r"\b(bacon|ham|pepperoni|sausages?|pork|salami|chorizo|prosciutto|gammon|pancetta|n[’']?duja|pigs? in blankets?)\b", re.I)
 BEEF = re.compile(r"\b(beef|steak)\b", re.I)
 MEAT_UNSTATED = re.compile(r"\b(meatballs?|bolognese|ragu|ragù|mince|minced|carbonara|meat|meaty)\b", re.I)
 
@@ -272,7 +283,7 @@ def classify(rows: list[dict]):
         if any(p["vals"] == c["vals"] for p in prior):
             same = next(p for p in prior if p["vals"] == c["vals"])
             where = f"{c['cat']} / {c['title']}"
-            if allergens_of(same["row"], where) != allergens_of(c["row"], where):
+            if allergens_of(same["row"], where) != allergens_of(c["row"], where) and (same["title"], same["occurrence"]) not in HOLDBACK:
                 raise SystemExit(f"{where}: listed again with the same nutrition as in {same['cat']} but different allergens: "
                                  "re-check by hand.")
             duplicates.append((c["cat"], c["title"]))
@@ -321,6 +332,8 @@ def build_items(cands: list[dict]):
             raise SystemExit(f"{name!r} is listed in EXPLAINED but no longer raises a flag: remove it from prezzo.py.")
         if c["cat"] == "Extras and Build Your Own":
             display, rankable = (BYO, True) if c["title"].endswith(" - BYO") else (EXTRAS, False)
+        elif c["cat"] == "Christmas Specials" and c["title"] in CHRISTMAS_KIDS:
+            display, rankable = CATEGORIES["Kids Mains"]
         else:
             display, rankable = CATEGORIES[c["cat"]]
         if c["title"] in NOT_RANKABLE:
@@ -349,7 +362,7 @@ def build_items(cands: list[dict]):
                 notes_log.append(("meat type not stated", name, MEAT_UNSTATED.search(text).group(0)))
         it = {
             "id": slug(name) if c["occurrence"] == 1 else f"{slug(name)}-{c['occurrence']}", "name": name, "category": display,
-            "serving": serving_from(r["description"]), "rankable": rankable, "limited_time": False,
+            "serving": serving_from(r["description"]), "rankable": rankable, "limited_time": c["cat"] in SEASONAL,
             "tags": "|".join(tags), "notes": "; ".join(notes),
         }
         for src, dst in NUTRIENT_FIELDS.items():

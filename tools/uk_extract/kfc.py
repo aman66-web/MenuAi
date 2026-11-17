@@ -82,6 +82,7 @@ ROWS: list[tuple | None] = [
     ("Cajun Dirty Rice", S, "", True, False, ""),
     ("Side Salad", S, "", True, False, ""),
     ("Dirty Loaded Fries", S, "", True, False, ""),
+    ("3 Mega Mozza Sticks", S, "3 sticks", True, False, "Listed under Sides in the November 2026 guide (was a limited time offer)"),
     # add-ons
     ("Cheese Slice (per slice)", A, "1 slice (average)", False, False, ""),
     ("Hash Brown (per piece)", A, "1 piece (average)", False, False, ""),
@@ -90,11 +91,13 @@ ROWS: list[tuple | None] = [
     ("MilkyBar Krushems Shake", D, "", False, False, ""),
     ("Aero Peppermint Krushem Shake", D, "", False, False, ""),
     ("Raspberry Ripple Krushem Shake", D, "", False, False, ""),
-    # limited time offers
-    ("3 Mega Mozza Sticks", S, "3 sticks", True, True, ""),
-    ("Mozzamelt Fillet Burger", B, "1 burger", True, True, ""),
-    ("Mozzamelt Zinger Burger", B, "1 burger", True, True, ""),
-    ("Kentucky Original Wrap", W, "1 wrap", True, True, ""),
+    # limited time offers (November 2026)
+    ("Doom Burger", B, "1 burger", True, True, ""),
+    ("Doom Drip'd Wings", C, "", True, True, ""),
+    ("Doom Dust Sachet", SA, "1 sachet", False, True, ""),
+    ("Doom Mint Shake", DR, "", False, True, ""),
+    ("Graymas Burger", B, "1 burger", True, True, ""),
+    ("Festive Loaded Fries", S, "", True, True, ""),
     # desserts and treats
     ("Mini Chocolate Sundae", D, "", False, False, ""),
     ("Oreo Sundae", D, "", False, False, ""),
@@ -124,6 +127,7 @@ ROWS: list[tuple | None] = [
     ("Caramel Krunch Shake", DR, "", False, False, ""),
     ("Chocolate Krunch Shake", DR, "", False, False, ""),
     ("Strawberry Shortcake Krunch Shake", DR, "", False, False, ""),
+    ("Dirty Millionaire Shake", DR, "", False, False, ""),
     # page 2, left: sauces
     ("Garlic Parm Dip Pot", SA, "1 pot", False, False, ""),
     ("Honey Mustard Dip Pot", SA, "1 pot", False, False, ""),
@@ -137,7 +141,7 @@ ROWS: list[tuple | None] = [
     ("Heinz Tomato Ketchup sachet", SA, "1 sachet", False, False, ""),
     ("Heinz Light Mayonnaise sachet", SA, "1 sachet", False, False, ""),
     # drinks
-    ("Bottle of Still Water", DR, "1 bottle", False, False, "Fat, carbs, sugars and protein are printed as 0.5 g although calories are 0"),
+    ("Bottle of Still Water", DR, "1 bottle", False, False, ""),
     ("Fruit Shoot Robinsons Blackcurrant & Apple", DR, "1 bottle", False, False, ""),
     ("Fruit Shoot Robinsons Orange", DR, "1 bottle", False, False, ""),
     ("Pepsi Max (regular)", DR, "Regular", False, False, ""),
@@ -193,7 +197,7 @@ HOLDBACK = {
 }
 # Printed as "<cereal> gluten" in the allergen cells.
 CEREALS = ("wheat", "barley", "oat", "rye", "spelt")
-ALLERGEN_TITLE = "KFC UK & Ireland Allergen & Nutrition Information (September 2026)"
+ALLERGEN_TITLE = "KFC UK & Ireland Allergen & Nutrition Information (November 2026)"
 
 
 def cell_allergens(words: list[str], where: str) -> tuple[set[str], set[str], set[str]]:
@@ -265,7 +269,7 @@ def main() -> int:
         w.writerows(items)
     (args.out / "chain.csv").write_text(
         "id,name,cuisine,builder_type,source_title,source_url,checked_on,aliases,sample\n"
-        f'{CHAIN_ID},KFC,Chicken,standard,"KFC UK & Ireland Allergen & Nutrition Information (September 2026)",{SOURCE_URL},{args.checked_on},kfc|kentucky fried chicken,\n',
+        f'{CHAIN_ID},KFC,Chicken,standard,"KFC UK & Ireland Allergen & Nutrition Information (November 2026)",{SOURCE_URL},{args.checked_on},kfc|kentucky fried chicken,\n',
         encoding="utf-8")
     (args.out / "components.csv").write_text(
         "id,group,name,portion,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,removable,allow_double\n", encoding="utf-8")

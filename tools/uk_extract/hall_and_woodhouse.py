@@ -83,14 +83,31 @@ CATEGORIES = {
     "vodka": "Spirits and cocktails", "rum": "Spirits and cocktails", "whisk(e)y": "Spirits and cocktails",
     "liqueur": "Spirits and cocktails", "brandy / cognac": "Spirits and cocktails",
     "white wines": "Wine", "red wines": "Wine", "rose wines": "Wine", "sparkling wines": "Wine", "fortified wines": "Wine",
+    # sections of the winter 2026 menus (read 2026-11-17)
+    "main courses": "Mains", "more main dishes": "Mains", "pub classics": "Mains", "great little plates": "Mains",
+    "pizzas": "Pizza", "cubs breakfast": "Kids", "winter serves": "Spirits and cocktails",
+    "add a little extra to your roast": "Sides",
+    "add a little extra to your burger": "Extras", "add a little extra to your pizza": "Extras",
+    "add a little extra to your nourish bowl": "Extras", "add a little extra to your winter salad": "Extras",
+    "add a little extra to your winter harvest salad": "Extras", "add a little extra to your winter salad or nourish bowl": "Extras",
+    "add a little extra to your winter harvest salad or nourish bowl": "Extras",
+    "add a little extra to your nourish bowl or winter harvest salad": "Extras",
 }
 # Dishes that stay in items.csv but are not published (holdback.csv; restore by deleting the line). Nothing is corrected.
-HOLDBACK: dict = {}
+HOLDBACK: dict = {
+    # winter 2026 menus: one sandwich printed under two spellings with two figures (916 kcal on the main menus, 896 on the gluten-friendly
+    # menus). Had the spelling been the same, the "identical wherever printed" rule would leave it out, so both are held back.
+    "roasted-mushroom-reuben-sandwich": "printed 916 kcal as 'Roasted Mushroom Reuben Sandwich' on the main menus and 896 kcal as 'Roasted Mushroom "
+                                        "Rueben Sandwich' on the gluten-friendly menus of the same pubs: one dish, two figures, so neither is published.",
+    "roasted-mushroom-rueben-sandwich": "printed 896 kcal as 'Roasted Mushroom Rueben Sandwich' on the gluten-friendly menus and 916 kcal as 'Roasted "
+                                        "Mushroom Reuben Sandwich' on the main menus of the same pubs: one dish, two figures, so neither is published.",
+}
 SOURCE_TITLE = ("Hall & Woodhouse allergy, nutrition and dietary information: the Ten Kites menu pages of 8 pubs (viewthe.menu), food and "
                 "drink menus (accessed {date}, no date shown)")
 ALLERGEN_TITLE = "Hall & Woodhouse Allergy Information: per-pub allergen matrix on Ten Kites (8 pubs read; accessed {date}, no date shown)"
 ALIASES = ["hall and woodhouse", "hall & woodhouse", "h&w", "hall woodhouse", "hall and woodhouse pubs"]
 CHRISTMAS = re.compile(r"christmas", re.I)
+CUBS = re.compile(r"\bcubs\b", re.I)   # the pubs' children's menus ("Cubs Main Menu", "Gluten-Friendly Cubs Sunday Menu" ...)
 
 
 def fold(text: str) -> str:
@@ -214,8 +231,11 @@ def build(instances: list):
             report.append(f"meat type not stated: {name}")
         menus = sorted({g["menu"] for g in group})
         limited = all(CHRISTMAS.search(g["menu"]) for g in group)
+        # a dish printed only on the children's (Cubs) menus is listed under Kids whatever its section is called there ("Mains" on the
+        # Cubs Sunday Menu holds child-sized roasts, e.g. Roast Beef 428 kcal)
+        category = "Kids" if all(CUBS.search(g["menu"]) for g in group) else first["category"]
         notes = f"Printed at {len(pubs)} of {len(hf.PUBS)} pubs read; menus: {'; '.join(menus)}"
-        items.append({"name": name, "id": slug(fold(name)), "category": first["category"], "serving": "", "calories": kcals[0],
+        items.append({"name": name, "id": slug(fold(name)), "category": category, "serving": "", "calories": kcals[0],
                       "tags": "|".join((["vegetarian"] if veg else []) + meat), "rankable": False, "limited_time": limited,
                       "notes": notes, "allergens": allergens})
     return items, report, left_out, no_calories

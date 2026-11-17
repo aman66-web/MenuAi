@@ -46,7 +46,7 @@ CHAIN_ID = "simmons-bakers"
 SOURCE_URL = sp.BASE + sp.LISTING
 ALIASES = ["simmons bakers", "simmons", "simmons bakery", "simmons the bakers"]
 PORK = re.compile(r"\b(pork|bacon|ham|sausages?|gammon|pepperoni|salami|chorizo)\b", re.I)
-BEEF = re.compile(r"\b(beef|steak)\b", re.I)
+BEEF = re.compile(r"\b(beef(?!\s+tomato)|steak)\b", re.I)  # "Beef Tomato" is a tomato (Croissant, Cheese & Tomato filling, 2026-11-17)
 MEAT = re.compile(r"\b(chicken|turkey|pastrami|lamb|meatball|mince|burger|duck)\b", re.I)
 
 # Option panels this script knows. Anything else stops the run.
@@ -77,6 +77,8 @@ EXTRA_WORDS = {"prawns": ("crustaceans", None), "salmon": ("fish", None), "tuna"
 NO_ALLERGENS = {"none", "this product has no allergens."}
 # Pages held back by hand after reading them against their own other column (page path -> reason). Never corrected.
 HAND_HOLDBACK = {
+    "nutritional-information-rm/10803": ("page prints 'Per serving' 3,936 kcal with 410 kcal per 100 g: that is a whole log of about 960 g, not a serving "
+                                         "(the label does not say what the figure covers; added 2026-11-17, same reading as 10804)"),
     "nutritional-information-rm/10804": ("page prints 'Per serving' 10,256 kcal with 518 kcal per 100 g: that is a 1.98 kg whole log, not a serving "
                                          "(the label does not say what the figure covers)"),
 }

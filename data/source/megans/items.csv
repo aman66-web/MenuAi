@@ -63,7 +63,7 @@ bread-basket-with-zaatar-butter,Bread Basket with Za'atar Butter,Bread & dips,,8
 3-dips-and-bread-basket,3 Dips & Bread Basket,Bread & dips,,1312,38.0,178.0,48.0,22.0,,9.1,23.0,,,,,,,,,false,false,,,
 warm-pita,Warm Pita,Bread & dips,,251,7.0,54.0,0.8,0.2,,1.2,2.9,,,,,,,,,false,false,,,also printed under: Breads
 flatbread,Flatbread,Bread & dips,,298,11.0,54.0,3.8,0.5,,1.7,3.0,,,,,,,,,false,false,,,also printed under: Breads
-sharing-platter,Sharing Platter,To start & share,,1452,45.0,173.0,63.0,24.0,,10.3,42.0,,,,,,,,,false,false,,,page note: Winter 2025
+sharing-platter,Sharing Platter,To start & share,,1451,45.0,172.0,63.0,24.0,,10.3,42.0,,,,,,,,,false,false,,,page note: Winter 2025
 calamari-regular,Calamari - Regular,To start & share,,466,17.0,22.0,34.0,5.2,,2.5,5.9,,,,,,,,,false,false,,,page note: Summer 2025
 calamari-large,Calamari - Large,To start & share,,647,26.0,33.0,45.0,6.6,,3.5,6.4,,,,,,,,,false,false,,,page note: Summer 2025
 buttermilk-fried-chicken-regular,Buttermilk Fried Chicken - Regular,To start & share,,529,34.0,39.0,26.0,3.2,,2.9,28.0,,,,,,,,,false,false,,,
@@ -74,36 +74,36 @@ falafel-and-hummus,Falafel & Hummus,To start & share,,381,9.3,20.0,27.0,3.2,,1.4
 muhlama-hot-honey-and-signature-sourdough,"Muhlama, Hot Honey & Signature Sourdough",To start & share,,1049,28.0,88.0,64.0,38.0,,4.3,21.0,,,,,,,,,false,false,,,page note: Summer 26
 spinach-and-feta-parcels,Spinach & Feta Parcels,To start & share,,578,8.8,49.0,38.0,6.4,,1.4,11.0,,,,,,,,,false,false,,,page note: Summer 2026
 fried-padron-peppers,Fried Padron Peppers,To start & share,,11,0.5,1.0,0.5,0.1,,0.5,0.9,,,,,,,,,false,false,,,
-spicy-lamb-and-beef-arayes-burger,Spicy Lamb & Beef Arayes Burger,"Arayes, pitas & grills",,1391,51.0,166.0,56.0,21.0,,12.1,29.0,,,,,,,,contains_beef,false,true,,,page note: Winter 2025
-mushroom-halloumi-and-feta-arayes,"Mushroom, Halloumi & Feta Arayes","Arayes, pitas & grills",,1285,30.0,143.0,64.0,21.0,,10.1,31.0,,,,,,,,,false,true,,,page note: Winter 2025
-chicken-halloumi-and-feta-arayes,"Chicken, Halloumi & Feta Arayes","Arayes, pitas & grills",,1311,55.0,142.0,56.0,21.0,,10.4,29.0,,,,,,,,,false,true,,,page note: Summer 2026
+spicy-lamb-and-beef-arayes-burger,Spicy Lamb & Beef Arayes Burger,"Arayes, pitas & grills",,1389,51.0,165.0,56.0,21.0,,12.1,29.0,,,,,,,,contains_beef,false,true,,,page note: Winter 2025
+mushroom-halloumi-and-feta-arayes,"Mushroom, Halloumi & Feta Arayes","Arayes, pitas & grills",,1283,30.0,142.0,64.0,21.0,,10.0,30.0,,,,,,,,,false,true,,,page note: Winter 2025
+chicken-halloumi-and-feta-arayes,"Chicken, Halloumi & Feta Arayes","Arayes, pitas & grills",,1309,55.0,142.0,56.0,21.0,,10.3,29.0,,,,,,,,,false,true,,,page note: Summer 2026
 chicken-schnitzel,Chicken Schnitzel,"Arayes, pitas & grills",,992,44.0,110.0,39.0,12.0,,7.4,9.4,,,,,,,,,false,true,,,page note: Summer 2026
 chicken-salad-pita,Chicken Salad Pita,"Arayes, pitas & grills",,495,33.0,60.0,13.0,2.3,,2.6,7.2,,,,,,,,,false,true,,,page note: Summer 2026
 halloumi-salad-pita,Halloumi Salad Pita,"Arayes, pitas & grills",,651,30.0,62.0,31.0,15.0,,3.4,9.1,,,,,,,,,false,true,,,page note: Summer 2026
 falafel-salad-pita,Falafel Salad Pita,"Arayes, pitas & grills",,549,15.0,74.0,20.0,4.6,,3.4,7.4,,,,,,,,,false,true,,,page note: Summer 2026
 cheese-stuffed-beef-and-lamb-kofte-pita,Cheese Stuffed Beef & Lamb Kofte Pita,"Arayes, pitas & grills",,1245,48.0,77.0,82.0,35.0,,9.3,11.0,,,,,,,,contains_beef,false,true,,,page note: Summer 2026
-harissa-chicken-grill-with-house-fries,Harissa Chicken Grill with House Fries,"Arayes, pitas & grills",,1242,81.0,76.0,65.0,15.0,,9.8,15.0,,,,,,,,,false,true,,,
-harissa-chicken-grill-with-tabbouleh,Harissa Chicken Grill with Tabbouleh,"Arayes, pitas & grills",,1160,82.0,61.0,62.0,9.5,,7.5,15.0,,,,,,,,,false,true,,,
-chargrilled-chicken-kebab,Chargrilled Chicken Kebab,Kebabs,,1027,66.0,74.0,50.0,7.4,,6.5,16.0,,,,,,,,,false,true,,,page note: Winter 2024
-grilled-halloumi-kebab,Grilled Halloumi Kebab,Kebabs,,1020,37.0,83.0,58.0,17.0,,6.0,25.0,,,,,,,,,false,true,,,page note: Winter 2024
+harissa-chicken-grill-with-house-fries,Harissa Chicken Grill with House Fries,"Arayes, pitas & grills",,1240,81.0,76.0,65.0,15.0,,9.7,15.0,,,,,,,,,false,true,,,
+harissa-chicken-grill-with-tabbouleh,Harissa Chicken Grill with Tabbouleh,"Arayes, pitas & grills",,1159,81.0,61.0,62.0,9.5,,7.4,15.0,,,,,,,,,false,true,,,
+chargrilled-chicken-kebab,Chargrilled Chicken Kebab,Kebabs,,1023,66.0,73.0,50.0,7.4,,6.4,15.0,,,,,,,,,false,true,,,page note: Winter 2024
+grilled-halloumi-kebab,Grilled Halloumi Kebab,Kebabs,,1016,37.0,82.0,58.0,17.0,,6.0,24.0,,,,,,,,,false,true,,,page note: Winter 2024
 spiced-oyster-mushroom-shawarma-kebab,Spiced Oyster Mushroom Shawarma Kebab,Kebabs,,853,19.0,74.0,51.0,7.4,,6.4,16.0,,,,,,,,,false,true,,,page note: Winter 2025
 chilli-chicken-shakshouka-kebab,Chilli Chicken Shakshouka Kebab,Kebabs,,969,80.0,77.0,36.0,6.1,,6.6,22.0,,,,,,,,,false,true,,,
-posh-lamb-doner-kebab,Posh Lamb Doner Kebab,Kebabs,,1245,70.0,73.0,73.0,22.0,,7.7,15.0,,,,,,,,,false,true,,,page note: Winter 2024
-chargrilled-chicken-and-halloumi-kebab,Chargrilled Chicken & Halloumi Kebab,Kebabs,,1259,84.0,75.0,67.0,19.0,,7.2,17.0,,,,,,,,,false,true,,,page note: Winter 2024
-double-chargrilled-chicken-kebab,Double Chargrilled Chicken Kebab,Kebabs,,1302,114.0,75.0,58.0,9.2,,7.7,16.0,,,,,,,,,false,true,,,page note: Winter 2024
+posh-lamb-doner-kebab,Posh Lamb Doner Kebab,Kebabs,,1241,70.0,73.0,73.0,22.0,,7.7,14.0,,,,,,,,,false,true,,,page note: Winter 2024
+chargrilled-chicken-and-halloumi-kebab,Chargrilled Chicken & Halloumi Kebab,Kebabs,,1255,84.0,74.0,67.0,19.0,,7.1,17.0,,,,,,,,,false,true,,,page note: Winter 2024
+double-chargrilled-chicken-kebab,Double Chargrilled Chicken Kebab,Kebabs,,1298,114.0,74.0,58.0,9.2,,7.6,16.0,,,,,,,,,false,true,,,page note: Winter 2024
 chicken-and-avocado-caesar,Chicken & Avocado Caesar,Bowls,,649,32.0,34.0,41.0,6.2,,3.3,8.3,,,,,,,,,false,true,,,page note: Winter 2025
-mezze-bowl,Mezze Bowl,Bowls,,1041,26.0,89.0,61.0,8.5,,5.6,21.0,,,,,,,,,false,true,,,page note: Winter 2025
+mezze-bowl,Mezze Bowl,Bowls,,1039,26.0,88.0,61.0,8.5,,5.6,20.0,,,,,,,,,false,true,,,page note: Winter 2025
 green-goddess,Green Goddess,Bowls,,298,6.5,20.0,20.0,3.6,,1.3,13.0,,,,,,,,,false,true,,,
 halloumi-green-goddess,Halloumi Green Goddess,Bowls,,830,27.0,23.0,69.0,18.0,,2.3,15.0,,,,,,,,,false,true,,,page note: Summer 2026
-harissa-chicken-bowl,Harissa Chicken Bowl,Bowls,,957,40.0,68.0,56.0,10.0,,6.5,13.0,,,,,,,,,false,true,,,page note: Winter 2025
-harissa-halloumi-bowl,Harissa Halloumi Bowl,Bowls,,939,35.0,70.0,56.0,20.0,,6.7,14.0,,,,,,,,,false,true,,,page note: Summer 2026
-harissa-salmon-bowl,Harissa Salmon Bowl,Bowls,,1274,50.0,68.0,87.0,16.0,,6.5,12.0,,,,,,,,,false,true,,,page note: Winter 2025
+harissa-chicken-bowl,Harissa Chicken Bowl,Bowls,,952,40.0,67.0,56.0,10.0,,6.4,12.0,,,,,,,,,false,true,,,page note: Winter 2025
+harissa-halloumi-bowl,Harissa Halloumi Bowl,Bowls,,934,34.0,69.0,56.0,20.0,,6.6,14.0,,,,,,,,,false,true,,,page note: Summer 2026
+harissa-salmon-bowl,Harissa Salmon Bowl,Bowls,,1270,50.0,67.0,87.0,16.0,,6.5,12.0,,,,,,,,,false,true,,,page note: Winter 2025
 greek-salad,Greek Salad,Bowls,,363,8.9,17.0,27.0,7.2,,2.7,16.0,,,,,,,,,false,true,,,page note: Summer 2026
 grilled-chicken-greek-salad,Grilled Chicken Greek Salad,Bowls,,501,33.0,18.0,32.0,8.1,,3.3,16.0,,,,,,,,,false,true,,,page note: Summer 2026
 lamb,+ Lamb,Protein extras,,334,43.0,0.6,18.0,8.5,,1.7,0.1,,,,,,,,,false,false,,,
 chicken,+ Chicken,Protein extras,,138,24.0,0.6,4.3,0.9,,0.6,0.5,,,,,,,,,false,false,,,
 falafel,+ Falafel,Protein extras,,226,5.3,17.0,14.0,1.7,,0.9,0.5,,,,,,,,,false,false,,,
-megans-mezze-feast-for-2,Megan's Mezze Feast (For 2),Sharing mains,,1807,102.0,166.0,78.0,25.0,,14.3,45.0,,,,,,,,contains_pork,false,false,,,page note: Winter 2025
+megans-mezze-feast-for-2,Megan's Mezze Feast (For 2),Sharing mains,,1805,102.0,166.0,78.0,26.0,,14.3,44.0,,,,,,,,contains_pork,false,false,,,page note: Winter 2025
 mixed-skewer-grill,Mixed Skewer Grill,Sharing mains,,1287,58.0,107.0,68.0,20.0,,8.6,24.0,,,,,,,,contains_pork,false,false,,,page note: Winter 2025
 the-best-of-megans-set-menu,The Best of Megan's Set Menu,Set menu,1 serving,1893,81.0,194.0,85.0,27.0,,11.2,54.0,,,,,,,,contains_beef,false,false,,,page note: Summer 2026
 lg-zaatar-chicken,LG Za'atar Chicken,Little grills & little arayes,,426,49.0,5.3,22.0,3.1,,2.7,3.0,,,,,,,,,false,false,,,page note: Summer 2026

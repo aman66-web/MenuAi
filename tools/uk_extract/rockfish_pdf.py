@@ -20,10 +20,16 @@ import html
 import re
 import subprocess
 import zlib
+from collections import Counter
 from pathlib import Path
 
 H_BLUE = (0.93, 0.0, 0.36, 0.0)      # "Contains" (teal)
 H_ORANGE = (0.0, 0.5, 1.0, 0.19)     # "May contain"
+# Two other blues used for a few "contains" icons in the 2026.11 restaurant menu (desserts: apple and caramel tart, chocolate bon bons).
+# The guide's key is "Contains = Blue ~ May Contain = Orange"; any icon in a colour that is neither blue nor orange stops the run
+# (check_icon_colours), so a new colour is never skipped silently.
+H_BLUE_ALSO = [(0.75, 0.09, 0.2, 0.0), (0.85, 0.0, 0.18, 0.0)]
+WHITE = (0.0, 0.0, 0.0, 0.0)
 ALLERGEN_ORDER = ["Celery", "Crustacean", "Egg", "Fish", "Gluten", "Milk", "Molluscs", "Mustard", "Nuts", "Peanuts", "Sesame", "Soya",
                   "Sulphites", "Lupin"]
 SHAPE_TOL = 0.03          # normalised units: two icon parts are the same shape if every point is this close
@@ -112,7 +118,7 @@ def _close(c, ref) -> bool:
 
 
 def filled_paths(content: str) -> list:
-    """Every filled path in the guide's two icon colours: {"pts": [(x, y)...] in page points (y up), "colour": "contains"|"may"}."""
+    """Every filled path: {"pts": [(x, y)...] in page points (y up), "colour": "contains"|"may"|"other"}; white paths are left out."""
     ctm, colour, stack, operands, path, out = (1.0, 0.0, 0.0, 1.0, 0.0, 0.0), None, [], [], [], []
     for t in _TOKEN.findall(content):
         if not _OPERATOR.match(t):
@@ -137,7 +143,8 @@ def filled_paths(content: str) -> list:
                 x, y, w, h = (float(v) for v in operands[-4:])
                 path += [(x, y), (x + w, y), (x + w, y + h), (x, y + h)]
             elif op in ("f", "F", "f*"):
-                kind = "contains" if _close(colour, H_BLUE) else "may" if _close(colour, H_ORANGE) else None
+                kind = ("contains" if _close(colour, H_BLUE) or any(_close(colour, c) for c in H_BLUE_ALSO) else "may" if _close(colour, H_ORANGE)
+                        else None if _close(colour, WHITE) else "other")
                 if kind and path:
                     out.append({"pts": [(ctm[0] * x + ctm[2] * y + ctm[4], ctm[1] * x + ctm[3] * y + ctm[5]) for x, y in path], "colour": kind})
                 path = []
@@ -169,6 +176,14 @@ class ShapeBook:
     def __init__(self):
         self.reps = []   # list of normalised point lists
 
+    def match(self, pts):
+        """The class of a path if its shape is already known, else None (nothing is added)."""
+        n = _normalised(pts)
+        for i, r in enumerate(self.reps):
+            if len(r) == len(n) and all(abs(a[0] - b[0]) < SHAPE_TOL and abs(a[1] - b[1]) < SHAPE_TOL for a, b in zip(r, n)):
+                return i
+        return None
+
     def classify(self, pts) -> int:
         n = _normalised(pts)
         for i, r in enumerate(self.reps):
@@ -195,12 +210,15 @@ def read_pdf(pdf: Path, book: ShapeBook) -> list:
     pages = []
     for number, obj in enumerate(_page_numbers(objs), 1):
         height, words = _words(pdf, number)
-        parts = []
+        parts, others = [], []
         for p in filled_paths(_page_content(objs, obj)):
+            if p["colour"] == "other":
+                others.append(p["pts"])
+                continue
             x0, y0, x1, y1 = _bbox(p["pts"])
             parts.append({"x0": x0, "y0": height - y1, "x1": x1, "y1": height - y0, "cx": (x0 + x1) / 2, "cy": height - (y0 + y1) / 2,
                           "colour": p["colour"], "cls": book.classify(p["pts"])})
-        pages.append({"height": height, "words": words, "parts": parts})
+        pages.append({"height": height, "words": words, "parts": parts, "others": others})
     return pages
 
 
@@ -227,11 +245,59 @@ def legend_classes(page: dict) -> dict:
     return mapping
 
 
-def build_marks(page: dict, mapping: dict) -> None:
+def check_icon_colours(pages: list, book: ShapeBook, mapping: dict) -> None:
+    """Stop when an allergen icon shape is drawn in a colour that is neither the key's blue nor its orange (it would otherwise be skipped)."""
+    for number, page in enumerate(pages, 1):
+        for pts in page["others"]:
+            x0, y0, x1, y1 = _bbox(pts)
+            if x1 - x0 > 16 or y1 - y0 > 16:
+                continue
+            cls = book.match(pts)
+            if cls is not None and mapping.get(cls):
+                raise PdfReadError(f"page {number}: a {mapping[cls]} icon at x={x0:.0f} is drawn in a colour that is neither the key's blue nor orange")
+
+
+def legend_templates(page: dict) -> dict:
+    """allergen -> Counter of the shape classes its ONE legend icon is drawn with (same legend as legend_classes)."""
+    out = {}
+    for w in page["words"]:
+        if w["text"] in ALLERGEN_ORDER and w["x0"] > 400:
+            cy = (w["y0"] + w["y1"]) / 2
+            out[w["text"]] = Counter(p["cls"] for p in page["parts"] if abs(p["cy"] - cy) < 8 and 0 < w["x0"] - p["x1"] < 24)
+    if sorted(out) != sorted(ALLERGEN_ORDER):
+        raise PdfReadError(f"legend labels found: {sorted(out)}; expected all 14 allergen names")
+    return out
+
+
+def _split_stack(parts: list, name: list, g: list, template: Counter) -> list:
+    """A group holding more shape parts than one legend icon has is icons of one allergen drawn touching each other on consecutive
+    lines (seen once: two stacked gluten marks in the 2026.11 restaurant menu). Split it top to bottom into whole icons: the parts sorted
+    by their top edge must come in runs that are each exactly one legend icon, each run below the previous one; anything else stops."""
+    size = sum(template.values())
+    known = sorted((i for i in g if name[i]), key=lambda i: (parts[i]["y0"], parts[i]["x0"]))
+    n = len(known) // size if size else 0
+    chunks = [known[k * size:(k + 1) * size] for k in range(n)]
+    if n < 2 or len(known) % size or any(Counter(parts[i]["cls"] for i in c) != template for c in chunks):
+        raise PdfReadError(f"icon parts at x={parts[g[0]]['x0']:.0f} y={parts[g[0]]['y0']:.0f} are more than one {name[known[0]]} icon and do not split into whole icons")
+    for a, b in zip(chunks, chunks[1:]):
+        if min(parts[i]["y0"] for i in b) < max(parts[i]["y0"] for i in a):
+            raise PdfReadError(f"icon parts at x={parts[g[0]]['x0']:.0f} y={parts[g[0]]['y0']:.0f}: touching {name[known[0]]} icons are not stacked one below the other")
+    for i in g:
+        if name[i]:
+            continue
+        host = [c for c in chunks if min(parts[j]["y0"] for j in c) - 0.1 <= parts[i]["y0"] and parts[i]["y1"] <= max(parts[j]["y1"] for j in c) + 0.1]
+        if len(host) != 1:
+            raise PdfReadError(f"icon part at x={parts[i]['x0']:.0f} y={parts[i]['y0']:.0f} cannot be given to one of the stacked icons")
+        host[0].append(i)
+    return chunks
+
+
+def build_marks(page: dict, mapping: dict, templates: dict | None = None) -> None:
     """Group a page's icon parts into marks (page["marks"]): one allergen icon is one to ten filled paths. Parts join when they are
     the same colour, the legend gives them the same allergen and their boxes touch (MARK_GAP); a part whose shape the legend does not
     show (the sulphites mark's tiny subscript 2 is its own path) joins the known part whose box contains it, and an unknown shape
-    that is inside no known part stops the run. Parts of different allergens are never merged, even when they touch.
+    that is inside no known part stops the run. Parts of different allergens are never merged, even when they touch. With `templates`
+    (legend_templates), a group with more parts than one legend icon is split into whole icons (_split_stack) or the run stops.
     Each mark: {"x0","y0","x1","y1","cx","cy","colour","allergen","classes"}."""
     parts = page["parts"]
     name = [mapping.get(p["cls"]) for p in parts]
@@ -265,8 +331,16 @@ def build_marks(page: dict, mapping: dict) -> None:
     groups = {}
     for i in range(len(parts)):
         groups.setdefault(find(i), []).append(i)
-    marks = []
+    final = []
     for g in groups.values():
+        allergen = next(name[i] for i in g if name[i])
+        counts = Counter(parts[i]["cls"] for i in g if name[i])
+        if templates and any(n > templates[allergen].get(c, 0) for c, n in counts.items()):
+            final += _split_stack(parts, name, g, templates[allergen])
+        else:
+            final.append(g)
+    marks = []
+    for g in final:
         gp = [parts[i] for i in g]
         x0, y0, x1, y1 = min(p["x0"] for p in gp), min(p["y0"] for p in gp), max(p["x1"] for p in gp), max(p["y1"] for p in gp)
         names = {name[i] for i in g if name[i]}
@@ -352,10 +426,11 @@ def paren_groups(sequence: list) -> list:
             last_icon = obj
         elif obj["text"].startswith("("):
             before, words, j = last_icon, [obj["text"]], i
-            while not words[-1].endswith(")") and j + 1 < len(sequence):
+            while not words[-1].rstrip(".,;:").endswith(")") and j + 1 < len(sequence):
                 j += 1
                 if sequence[j][0] == "word":
                     words.append(sequence[j][1]["text"])
+            words[-1] = words[-1].rstrip(".,;:")      # "(wheat)." as printed: the full stop after the bracket is not part of it
             out.append((" ".join(words), before))
             i = j
         i += 1

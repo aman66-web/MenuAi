@@ -7,6 +7,10 @@ description, or on its own line), so a dish is read as a BLOCK of lines: from th
 next dish starts. jw_lees.py lists every dish and heading it expects, in order, with the text its first line starts with; this reader
 walks the lines against that list and stops if anything differs (a dish added, removed, renamed or moved, a heading changed, a block
 with no energy or two energies), so a human re-checks the table when JW Lees publishes a new menu.
+
+The Main and Pub Lunch PDFs of 2 Nov 2026 use a second format: "Contains: ..." and "May contain: ..." lines (instead of "YES:" / "MAY
+CONTAIN:"), "None declared" for an empty list, "See server for allergen details" for a dish the guide does not cover, and a footer line on
+every page ("Pubs Main Menu Autumn 26 · Allergen & energy information Page 1 of 7"), which is dropped. Both formats are read.
 """
 from __future__ import annotations
 import re
@@ -15,7 +19,10 @@ from pathlib import Path
 
 ENERGY = re.compile(r"(?:\|\s*)?(?:Energy:\s*)?(\d[\d,]*)\s*kcal\b")
 ENERGY_NOT_SUPPLIED = "Energy not supplied"
-MARKER = re.compile(r"\b(YES:|MAY CONTAIN:|ALLERGENS:)")
+MARKER = re.compile(r"\b(YES:|MAY CONTAIN:|ALLERGENS:|Contains:|May contain:)")
+FOOTER = re.compile(r"^Pubs (?:Main|Lunch) Menu(?: Autumn 26)? · Allergen & energy information Page \d+ of \d+$")
+NONE_DECLARED = "None declared"
+SEE_SERVER = "See server for allergen details"
 DIET_CODES = {"V", "VG", "VGA", "NGCI"}  # printed in brackets after a dish; the PDFs do not define them
 
 
@@ -26,7 +33,7 @@ def read_lines(pdf: Path) -> list:
     for page in proc.stdout.decode("utf-8").split("\f"):
         for line in page.splitlines():
             line = " ".join(line.split())
-            if line:
+            if line and not FOOTER.match(line):
                 lines.append(line)
     return lines
 
@@ -70,7 +77,24 @@ def parse_block(lines: list, label: str) -> dict:
     printed = printed.replace(ENERGY_NOT_SUPPLIED, "").replace("Energy:", "")
     printed = " ".join(printed.replace(" | ", " ").replace("|", " ").split())
     yes, may, server = [], [], False
-    if tail:
+    if tail and tail.startswith(("Contains:", "May contain:")):
+        # second format (Main and Pub Lunch, 2 Nov 2026)
+        cm = re.search(r"Contains:\s*(.*?)(?=May contain:|$)", tail)
+        mm = re.search(r"May contain:\s*(.*)$", tail)
+        cells = [(cm.group(1).strip() if cm else ""), (mm.group(1).strip() if mm else "")]
+        if SEE_SERVER in cells:
+            if any(c not in (SEE_SERVER, "") for c in cells):
+                raise SystemExit(f"{label}: 'See server' next to a list of allergens: {tail!r}")
+            server = True
+        else:
+            for cell, dest in zip(cells, (yes, may)):
+                if cell and cell != NONE_DECLARED:
+                    dest.extend(w.strip() for w in cell.split(",") if w.strip())
+        leftover = re.sub(r"Contains:\s*.*?(?=May contain:|$)", "", tail)
+        leftover = re.sub(r"May contain:\s*.*$", "", leftover).strip()
+        if leftover:
+            raise SystemExit(f"{label}: unread text in the allergen lines: {leftover!r}")
+    elif tail:
         if "ALLERGENS:" in tail:
             server = "See server" in tail
             if not server:

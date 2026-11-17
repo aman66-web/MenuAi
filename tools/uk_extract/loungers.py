@@ -107,6 +107,9 @@ ONE_CATEGORY = {
     "MILK FREE": ("Milk free menu", {"Brunch", "Sarnies + Folded Flatbreads", "Burgers", "Mains", "Tapas", "Sides", "Puds"}),
 }
 LIMITED = {"CHRISTMAS"}
+# Alcoholic drinks are not listed (founder, 2026-10-11: no alcoholic drinks). Until 2026-11 none of these printed a figure; on
+# 2026-11-17 the SHOTS section's Baby Guinness printed 65 kcal. Mocktails (alcohol-free) stay.
+ALCOHOL_SECTIONS = {("DRINKS", "COCKTAILS"), ("DRINKS", "SHOTS")}
 NAME_FIXES = {"DAN DAN NOODLES WTH CRISPY CAULIFLOWER & SOY MUSHROOM": "DAN DAN NOODLES WITH CRISPY CAULIFLOWER & SOY MUSHROOM"}
 ACRONYMS = {"GF", "EF", "MF", "BLT", "PB&J", "AF", "BBQ", "UK"}
 SMALL = {"a", "an", "and", "of", "the", "with", "in", "on", "to", "for", "or"}
@@ -208,6 +211,9 @@ def build(pages: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]]:
         cat = category(r["menu"], r["section"], r["subsection"])
         if not kcal:
             report.append(f"not listed (no calories printed): {r['menu']} > {r['section']} > {r['name']}")
+            continue
+        if (r["menu"], r["section"]) in ALCOHOL_SECTIONS:
+            report.append(f"not listed (alcoholic drink, founder's rule of 2026-10-11): {r['menu']} > {r['section']} > {r['name']}")
             continue
         al = lp.allergens(r, where, EXTRA_ALLERGEN_WORDS)
         if al is None:

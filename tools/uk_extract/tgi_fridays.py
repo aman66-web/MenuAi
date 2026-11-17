@@ -40,8 +40,8 @@ from common import ROOT, sha256_file, slug, write_chain_folder  # noqa: E402
 CHAIN_ID = "tgi-fridays"
 BASE_URL = pages_reader.BASE_URL
 PAGES = {  # label -> (url, dishes expected on the page)
-    "main": (BASE_URL + "?mguid=f822d7d7-c64b-48d2-8bce-20ac752682ea", 96),
-    "kids": (BASE_URL + "?mguid=98ddf171-736b-4d26-bbda-4814e5cf3efa", 44),
+    "main": (BASE_URL + "?mguid=f822d7d7-c64b-48d2-8bce-20ac752682ea", 97),
+    "kids": (BASE_URL + "?mguid=98ddf171-736b-4d26-bbda-4814e5cf3efa", 39),
 }
 ALLERGEN_TITLE = "TGI Fridays allergen and intolerance guide with calories, Main Menu and Kids Menu (viewthe.menu/2alz, accessed {date}, no date shown)"
 SOURCE_TITLE = ("TGI Fridays allergen and calorie guide: Main Menu and Kids Menu (viewthe.menu/2alz, accessed {date}, no date shown)")
@@ -62,7 +62,8 @@ KIDS_SECTIONS = {
 # The options inside the kids tab's "choose your ..." blocks: the words added to their name so they can't be mistaken for the
 # main menu's dishes of the same name.
 KIDS_BYO = {"CHOOSE YOUR CHICKEN": "kids", "CHOOSE YOUR DIP": "kids", "CHOOSE FROM": "kids sundae",
-            "CHOOSE YOUR SAUCE": "kids sundae", "CHOOSE UP TO 3 TOPPINGS": "kids sundae"}
+            "CHOOSE YOUR SAUCE": "kids sundae", "CHOOSE UP TO 3 TOPPINGS": "kids sundae",
+            "DECORATE WITH THE FOLLOWING TOPPINGS": "kids sundae"}  # the toppings block's heading since November 2026
 SECTIONS = {"main": MAIN_SECTIONS, "kids": KIDS_SECTIONS}
 
 # (menu, printed section, printed name) -> the name shown, where the printed name alone would clash or mislead.
@@ -83,10 +84,11 @@ KEEP_SECTION = "SIDES"
 # Rows left out of the published menu (never corrected), keyed by the name shown; listed in the check report.
 HOLDBACK = {
     "Cajun Shrimp & Chicken Pasta": "printed 4,542 kcal for one pasta dish: not credible for a single serving (the next-highest pasta in the guide is 1,120)",
-    "Bruschetta Chicken Pasta": "printed 3,486 kcal for one pasta dish: not credible for a single serving (the next-highest pasta in the guide is 1,120)",
-    "Vegan Bruschetta Pasta": "printed 11,435 kcal for one pasta dish: not credible for a single serving",
+    "Bruschetta Chicken Pasta": "printed 3,488 kcal for one pasta dish: not credible for a single serving (the next-highest pasta in the guide is 1,120)",
+    "Vegan Bruschetta Pasta": ("printed 11,435 kcal in October 2026 and 581 kcal in November 2026, while the same guide still prints 3,488 "
+                               "for the Bruschetta Chicken Pasta: the guide contradicts itself, so it stays held back until the chain confirms"),
     "Fridays™ Signature Whiskey-Glazed Combo with Chicken & Ribs":
-        "printed 779 kcal for a full rack of ribs plus chicken, but the same guide prints 1,484 for the half rack of ribs alone and 2,260 for the full rack",
+        "printed 779 kcal for a full rack of ribs plus chicken, but the same guide prints 1,384 for the half rack of ribs alone and 2,059 for the full rack",
     "Boneless Wings with BBQ Sauce": "the guide prints this name twice with different calories (549 and 503) and nothing says which is meant",
     "Boneless Wings with BBQ Sauce (second listing, 503 kcal)":
         "the guide prints this name twice with different calories (549 and 503) and nothing says which is meant",
@@ -99,6 +101,8 @@ HOLDBACK = {
     "Add Cheese (kids)": "guide prints 37 kcal; the kids menu PDF prints +113 kcal for Add Cheese (on Tomato Tubes and the Hot Dog)",
     "Oreo® Pieces (kids sundae)": "guide prints 72 kcal; the kids menu PDF prints 67 kcal for Oreo Pieces",
     "Mini Marshmallows (kids sundae)": "guide prints 32 kcal; the kids menu PDF prints 41 kcal for Mini Marshmallows",
+    "Honey and Mustard Sauce (kids)": ("guide prints 119 kcal; the kids menu PDF prints 158 kcal for its Honey Mustard Mayo dip "
+                                       "(probably the same dip, names differ)"),
     "Berries (kids sundae)": "guide prints 15 kcal; the kids menu PDF prints 41 kcal for Seasonal Berries (probably the same topping, names differ)",
 }
 

@@ -31,7 +31,7 @@ CHAIN = mb.Chain(
     aliases=["harvester", "harvester restaurant", "the harvester"],
     source_url="https://api-production.mbplc.io/webappbff/api/v1/menus/dynamic?id=8d410232-9d61-500c-8e48-40e3e6d449c7&websitePageUrlPath=main-menu1&idType=Brand&salesChannel=DynamicWebMenus",
     source_title_prefix="Harvester online main menu with nutrition (live menu feed)",
-    expected_entries=134,
+    expected_entries=136,                  # 134 until the menu of 2026-11-16 added Hot Honey & Cranberry and the Smashed Beyond patty
     places={
         ("Starters & Small Plates", None): Place(STARTERS, "Starter"),
         ("Starters & Small Plates", "Shareables"): Place(SHARE, "Sharing platter", rankable=False),

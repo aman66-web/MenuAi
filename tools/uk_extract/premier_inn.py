@@ -1,20 +1,22 @@
 #!/usr/bin/env python3
 """Build data/source/premier-inn/ from Premier Inn's three official "Allergy and dietary information" PDFs.
 
-    python3 tools/uk_extract/premier_inn.py --restaurant allergy-nutrition-thyme-2.pdf \
-        --breakfast allergy-nutrition-breakfast.pdf --hub allergy-nutrition-hub.pdf --checked-on 2026-10-06
+    python3 tools/uk_extract/premier_inn.py --restaurant pi-2.pdf --breakfast breakfast.pdf --hub hub.pdf --checked-on 2026-11-17
     (add --list to print every row the script reads, with the decision taken, and write nothing)
 
-Sources (Great Britain editions; the -ROI-NI variants are not used), all under
-https://www.premierinn.com/content/dam/global/restaurants/allergy-nutrition-info/ :
-  allergy-nutrition-thyme-2.pdf    restaurant menus (5 menu blocks, see RESTAURANT_MENUS), published 8 April 2026
-  allergy-nutrition-breakfast.pdf  Unlimited Cooked Breakfast and buffet items, published 9 April 2026
-  allergy-nutrition-hub.pdf        Hub by Premier Inn, published 20 April 2026
+Sources (Great Britain editions, linked from https://www.premierinn.com/gb/en/why/food.html and .../why/food/breakfast.html; the
+breakfast-ireland.pdf guide is not used), all under https://www.premierinn.com/content/dam/global/restaurants/allergy-nutrition-info/ :
+  pi-2.pdf        restaurant menu of the Thyme and The Social restaurants (one menu block), published 15 September 2026
+  breakfast.pdf   Unlimited Continental and Unlimited Cooked Breakfast items, published 23 October 2026
+  hub.pdf         Hub by Premier Inn (breakfast pages published 23 October 2026, dinner pages 20 May 2026)
+(Until November 2026 the guides were allergy-nutrition-thyme-2.pdf, -breakfast.pdf and -hub.pdf of April 2026; those addresses now
+answer 404.)
 
 Numbers are copied from the PDFs as printed (kcal, fat, saturates, carbs, sugars, protein, salt; kJ is not used and the
 guides print no fibre or sodium). Everything is "Per Portion"; where the printed name gives the portion ("(per piece)",
-"(per 30g)") that is the serving. Only names (tidied capitalisation), categories, tags and the exclusions below are
-decided here. The script stops with a clear message if the guides' rows, headings or names change, so a human re-checks.
+"(per 30g)") that is the serving, otherwise the one its section heading gives ("Unlimited Continental - Drinks (per 150ml)").
+Only names (tidied capitalisation), categories, tags and the exclusions below are decided here. The script stops with a
+clear message if the guides' rows, headings or names change, so a human re-checks.
 
 Rules applied when the same dish is printed more than once:
   * same name, same numbers  -> one item (the repeats are dropped);
@@ -43,11 +45,11 @@ import premier_inn_pdf  # noqa: E402
 from common import ROOT, allergen_words, sha256_file, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "premier-inn"
-SOURCE_URL = "https://www.premierinn.com/content/dam/global/restaurants/allergy-nutrition-info/allergy-nutrition-thyme-2.pdf"
-SOURCE_TITLE = ("Premier Inn allergy and nutrition guides: restaurant menus (published 8 April 2026), Unlimited Cooked "
-                "Breakfast (9 April 2026) and Hub by Premier Inn (20 April 2026)")
-ALLERGEN_TITLE = ("Premier Inn Allergy and dietary information guides: restaurant menus (published 8 April 2026), Unlimited Cooked "
-                  "Breakfast (9 April 2026) and Hub by Premier Inn (20 April 2026)")
+SOURCE_URL = "https://www.premierinn.com/content/dam/global/restaurants/allergy-nutrition-info/pi-2.pdf"
+SOURCE_TITLE = ("Premier Inn allergy and nutrition guides: Thyme and The Social restaurant menu (published 15 September 2026), "
+                "Unlimited Breakfast (23 October 2026) and Hub by Premier Inn (20 May and 23 October 2026)")
+ALLERGEN_TITLE = ("Premier Inn Allergy Information Guides: Thyme and The Social restaurant menu (published 15 September 2026), "
+                  "Unlimited Breakfast (23 October 2026) and Hub by Premier Inn (20 May and 23 October 2026)")
 # Premier Inn's own printed spellings (common.allergen_words knows the rest). "Other Cereals containing (Oats)" is printed in the
 # May Contain column; "Brazil" inside "Tree Nuts (...)".
 ALLERGEN_EXTRA = {"other cereals containing": ("gluten", None), "brazil": ("nuts", "brazil nut")}
@@ -60,23 +62,10 @@ NOTE = ("Values are per portion from Premier Inn's own guides for its restaurant
 # Things a human noticed in the guides (kept out of the numbers, which are always entered as printed). Keyed by item id.
 KCAL_NOTE = "Printed kcal {dir} than the printed fat, carbs and protein add up to (about {approx}); kJ agrees with kcal; entered as printed"
 EXTRA_NOTES = {
-    "5-crispy-prawns-with-dip": KCAL_NOTE.format(dir="is higher", approx="243"),
-    "add-crispy-prawns-x-5": KCAL_NOTE.format(dir="is higher", approx="154"),
     "add-corn-ribs": KCAL_NOTE.format(dir="is lower", approx="90"),
-    "chipotle-beef-chilli-topped-chips-sharer-per-person": "Printed with the same numbers as the single portion above it",
-    "chipotle-beef-chilli-topped-baked-chips-sharer-per-portion": "Printed with the same numbers as the single portion below it",
-    "katsu-chicken-topped-chips-sharer-per-person": "Printed within 1 kcal of the single portion",
-    "katsu-chicken-topped-baked-chips-sharer-per-portion": "Printed within 1 kcal of the single portion",
-    "big-stack-burger-with-baked-chips-without-bun-non-gluten-containing-ingredients":
-        "Printed numbers match the standard version except salt (2.77 g here, 4.76 g standard)",
-    "chicken-caesar-bacon-sandwhich": "Name spelled as printed",
-    "grilled-mediterranean-sea-bas-with-veg": "Name spelled as printed",
-    "spinach-and-riccotta-fresh-pasta": "Name spelled as printed",
-    "add-jalapeos": "Name spelled as printed",
+    "house-caesar-salad-ngci": KCAL_NOTE.format(dir="is lower", approx="620"),
     "gluten-free-museli-per-50g": "Name spelled as printed",
     "museli-fruit-per-45g": "Name spelled as printed",
-    "demerra-brown-sugar-per-sachet": "Name spelled as printed",
-    "chicken-tikka-pizzette-bid": "Name as printed, including (BID)",
 }
 
 # ---- categories (display order) -------------------------------------------------------------------------------------
@@ -106,50 +95,54 @@ RESTAURANT_SECTIONS = {
     "Kids - Desserts": (KIDSD, False), "Kids Desserts": (KIDSD, False),
     "Condiments": (CONDI, False), "Condiments - V": (CONDI, False),
     "Upgrade": (ADDON, False), "Add Bun or Salad": (ADDON, False), "Add NGCI Bun or Salad": (ADDON, False),
+    "Special Prep": (ADDON, False),
 }
 BREAKFAST_SECTIONS = {
     "Unlimited Cooked Breakfast": (B_COOK, False), "Bakery": (B_BAKE, False), "Fruits": (B_FRUIT, False),
     "Cereals & Yoghurts": (B_CEREAL, False), "Porridge": (B_PORR, False), "Preserves, Spreads & Jam": (B_SPREAD, False),
     "Cold Drinks": (B_DRINK, False), "Milk": (B_DRINK, False), "Sugar": (B_SUGAR, False),
+    # the October 2026 guide's headings (a "(per ...)" in a heading is the serving of the rows under it)
+    "Unlimited Continental - Bakery (per item)": (B_BAKE, False), "Unlimited Continental - Cereals & Yoghurts": (B_CEREAL, False),
+    "Unlimited Continental - Drinks (per 150ml)": (B_DRINK, False), "Unlimited Continental - Fruits": (B_FRUIT, False),
+    "Unlimited Continental - Milk (per 100ml)": (B_DRINK, False), "Unlimited Continental - Porridge": (B_PORR, False),
+    "Unlimited Continental - Preserves, Spread & Jam": (B_SPREAD, False), "Unlimited Continental - Sugar (per sachet)": (B_SUGAR, False),
+    "Condiments": (CONDI, False), "Condiments - V": (CONDI, False),
 }
 HUB_SECTIONS = {  # the Hub guide's restaurant dishes (pages 15-16)
     "Hub Large - Light Bites": (HUB, True), "Hub Small - Light Bites": (HUB, True),
     "Hub Large - Mains": (HUB, True), "Hub Small - Mains": (HUB, True), "Desserts": (HUB, False),
 }
-HUB_BREAKFAST_REASON = ("Hub breakfast tables (guide pages 2-14) are not used: the first block lists ingredient contributions to a "
-                        "composite breakfast with no stated serving (e.g. Weetabix per 2 biscuits 1 kcal, Greek yoghurt per 125 g 0 kcal), "
-                        "and the rest repeat the Unlimited Cooked Breakfast guide's items, some with different numbers for the same name "
-                        "inside the Hub guide itself (e.g. Demerra sugar sachet 29 kJ vs 43 kJ, streaky bacon 91 vs 31 kcal)")
+HUB_BREAKFAST_REASON = ("Hub breakfast tables (guide pages 3-7) are not used: 39 of their 44 rows repeat the Unlimited Breakfast "
+                        "guide's items with the same figures and allergens (published from that guide), the other 5 are Hub Lounge "
+                        "versions (porridge per 40 g, two bloomer breads per slice, HP sauce and ketchup per 30 ml)")
 HUB_EXCLUDED = {h: HUB_BREAKFAST_REASON for h in (
     "Breakfast", "Hub Lounge and Proven Dough Breakfast", "HUB LOUNGE CONT BREAKFAST SS25", "HUB CONTINENTAL BREAKFAST- PRESERVES, SPREADS AND JAM (per item) - V",
     "HUB LOUNGE CONT - BAKERY (per item/ slice) - V", "HUB LOUNGE CONT - SUGAR - VE",
     "HUB LOUNGE CONTINENTAL - DRINKS (per serving) - VE", "HUB LOUNGE HOT BREAKFAST", "UNLIMITED CONTINENTAL - FRUITS",
     "Hub Lounge Continental - Cereal & Yoghurts", "Hub Lounge Continental - Fruits", "Unlimited Continental - Bakery",
     "Hub Lounge Continental - Preserve and Spreads", "Hub Lounge Continental - Sugar (per sachet)",
-    "Hub Lounge Continental - Drinks", "Hub Lounge Hot Breakfast (per item)")}
+    "Hub Lounge Continental - Drinks", "Hub Lounge Hot Breakfast (per item)", "Hub Lounge Hot Breakfast Selected Sites Only (per item)")}
 
-# Restaurant guide page ranges: menu label, first page, last page. Pages 1 and 52-60 carry no nutrition tables
-# (introduction; drinks menu with allergen ticks only).
-RESTAURANT_MENUS = [("menu 1", 2, 6), ("menu 2", 7, 22), ("menu 3", 23, 38), ("non-gluten menu (chips)", 40, 45),
-                    ("non-gluten menu (baked chips)", 46, 51)]
-NGCI_MENUS = {"non-gluten menu (chips)", "non-gluten menu (baked chips)"}
+# Restaurant guide page ranges: menu label, first page, last page. The September 2026 guide (pi-2.pdf) is one menu on pages 1-7
+# (no introduction or drinks pages).
+RESTAURANT_MENUS = [("menu", 1, 7)]
+NGCI_MENUS: set[str] = set()  # the September 2026 guide has no separate non-gluten menu: it prints "NGCI" in the dish names
 NGCI_SUFFIX = " (non-gluten containing ingredients)"
 
-# What the three PDFs contained when this script was written (April 2026 guides). Counts are rows per source/menu; the
-# hash covers every printed heading and item name in order (not the numbers, which may change month to month).
-EXPECTED_ROWS = {"restaurant/menu 1": 40, "restaurant/menu 2": 151, "restaurant/menu 3": 153,
-                 "restaurant/non-gluten menu (chips)": 52, "restaurant/non-gluten menu (baked chips)": 52,
-                 "breakfast/all": 57, "hub/all": 140}
-EXPECTED_NAMES_SHA256 = "218de75829518f9771347422849590d85b2a0ce8b44512f48cc98d8937f71194"
+# What the three PDFs contained when this script was last checked (guides of 15 September, 23 October and 20 May/23 October 2026;
+# written for the April 2026 guides). Counts are rows per source/menu; the hash covers every printed heading and item name in
+# order (not the numbers, which may change month to month).
+EXPECTED_ROWS = {"restaurant/menu": 58, "breakfast/all": 63, "hub/all": 59}
+EXPECTED_NAMES_SHA256 = "bbe66c1ad1d62125a9980789242f19256f2a1643908db2e9269deb90add96e07"
 
 # ---- item rules -----------------------------------------------------------------------------------------------------
-KEEP_UPPER = {"BBQ", "BLT", "HP", "BID"}
+KEEP_UPPER = {"BBQ", "BLT", "HP", "BID", "NGCI"}
 SMALL = {"with", "and", "of", "in", "the", "a", "on"}
 PORK = re.compile(r"\b(bacon|ham|gammon|pepperoni|sausages?|pork|salami|chorizo|blt)\b", re.I)
 BEEF = re.compile(r"\b(beef|sirloin)\b", re.I)
 RED_MEAT_UNSTATED = re.compile(r"\b(burger|bolognese|bologense|mixed grill|black pudding|mince)\b", re.I)
 UNIT_WORDS = {"piece": "1 piece", "spoon": "1 spoon", "slice": "1 slice", "half": "1 half", "fruit": "1 fruit", "each": "1 each",
-              "sachet": "1 sachet", "person": "1 person", "portion": "1 portion"}
+              "sachet": "1 sachet", "person": "1 person", "portion": "1 portion", "item": "1 item"}
 
 
 def tidy_name(raw: str) -> str:
@@ -183,8 +176,9 @@ def norm_key(base: str) -> str:
     return " ".join("bolognese" if t == "bologense" else t for t in toks if t != "a")
 
 
-def serving_of(base: str) -> str:
-    m = re.search(r"\(per ([^)]+)\)", base)
+def serving_of(base: str, heading: str = "") -> str:
+    """The serving the printed name gives ("(per 30g)"), else the one its section heading gives ("Drinks (per 150ml)")."""
+    m = re.search(r"\(per ([^)]+)\)", base) or re.search(r"\(per ([^)]+)\)", heading)
     if not m:
         return "1 portion"  # the guides print "Per Portion" for every table
     unit = m.group(1).strip()
@@ -311,6 +305,15 @@ AUDIT_HELD = {
 }
 
 
+# Items whose printed allergen row contradicts the dish's own name (found when the September 2026 guide was read on 2026-11-17).
+# Not corrected and not guessed: held back. Restoring one is deleting its entry here once the chain confirms its allergens.
+ALLERGEN_HELD = {
+    "paprika-cauliflower-and-butterbean-houmous": ("The guide marks this houmous as containing egg and milk but not sesame (houmous is usually "
+                                                   "made with tahini, a sesame paste), and names no other ingredients, so we can't tell "
+                                                   "whether sesame is missing from its allergen row"),
+}
+
+
 def build(cands):
     """Turn raw rows into (items, held_back, exclusions)."""
     exclusions: Counter = Counter()
@@ -385,7 +388,7 @@ def build(cands):
                                  + "; ".join(f"{c['source_label']} p{c['page']}: Contains {c['contains_text']!r} / May Contain {c['may_text']!r}"
                                              for c in prints.values()) + ". Decide by hand how to treat it before publishing.")
             kjs = {c["kj"] for c in cs}
-            item = dict(name=name, category=cat, serving=serving_of(split_diet(raw)[0]),
+            item = dict(name=name, category=cat, serving=serving_of(split_diet(raw)[0], c0["section"]),
                         calories=c0["kcal"], protein_g=c0["protein"], carbs_g=c0["carbs"], fat_g=c0["fat"], sat_fat_g=c0["sat"],
                         sugar_g=c0["sugars"], salt_g=c0["salt"], energy_kj=c0["kj"] if len(kjs) == 1 else "",
                         allergens=allergens_of(c0),
@@ -421,15 +424,21 @@ def build(cands):
             i["notes"] += "; HELD BACK: the guide's own figures contradict each other"
     missing = [k for k in AUDIT_HELD if k not in {i["id"] for i in items}]
     assert not missing, f"AUDIT_HELD names items that no longer exist: {missing}"
+    for i in items:
+        if i["id"] in ALLERGEN_HELD and "_held" not in i:
+            i["_held"] = ALLERGEN_HELD[i["id"]]
+            i["notes"] += "; HELD BACK: the allergen row contradicts the dish's name"
+    missing = [k for k in ALLERGEN_HELD if k not in {i["id"] for i in items}]
+    assert not missing, f"ALLERGEN_HELD names items that no longer exist: {missing}"
     held = [(i["id"], i["_held"]) for i in items if "_held" in i]
     return items, held, exclusions
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--restaurant", type=Path, required=True, help="allergy-nutrition-thyme-2.pdf (restaurant menus)")
-    ap.add_argument("--breakfast", type=Path, required=True, help="allergy-nutrition-breakfast.pdf")
-    ap.add_argument("--hub", type=Path, required=True, help="allergy-nutrition-hub.pdf")
+    ap.add_argument("--restaurant", type=Path, required=True, help="pi-2.pdf (Thyme and The Social restaurant menu)")
+    ap.add_argument("--breakfast", type=Path, required=True, help="breakfast.pdf")
+    ap.add_argument("--hub", type=Path, required=True, help="hub.pdf")
     ap.add_argument("--checked-on", required=True, help="YYYY-MM-DD, the day you extracted the PDFs")
     ap.add_argument("--out", type=Path, default=ROOT / "data" / "source" / CHAIN_ID)
     ap.add_argument("--list", action="store_true", help="print the decisions and write nothing")

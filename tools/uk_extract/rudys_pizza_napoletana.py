@@ -34,7 +34,7 @@ from common import allergen_words, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "rudys-pizza-napoletana"
 URL = "https://viewthe.menu/5zav"
-SOURCE_TITLE = ("Rudy's Pizza allergen and nutrition menu \"Food\" (viewthe.menu, Ten Kites; page generated 2026-10-08, "
+SOURCE_TITLE = ("Rudy's Pizza allergen and nutrition menu \"Food\" (viewthe.menu, Ten Kites; page generated 2026-11-17, "
                 "no other date shown; linked from rudyspizza.co.uk/allergen-info)")
 ALLERGEN_TITLE = "Rudy's Pizza allergen and dietary grid with Contains / May contain lines, \"Food\" menu (viewthe.menu, Ten Kites)"
 ALIASES = ["rudy's pizza", "rudys pizza", "rudy's pizza napoletana", "rudys pizza napoletana", "rudy's", "rudys"]
@@ -45,10 +45,10 @@ NOTE = ("Per serving as printed on Rudy's own allergen and nutrition page, which
 # (to share), side salads, extra toppings (parts of a pizza), dips and desserts are not suggested as an order on their own.
 SECTIONS = {
     "PIZZA": ("Pizza", True, False, 17),
-    "MONTHLY PIZZA SPECIALS": ("Monthly pizza specials", True, True, 3),
+    "MONTHLY PIZZA SPECIALS": ("Monthly pizza specials", True, True, 4),
     "STARTERS + SHARERS": ("Starters + sharers", False, False, 5),
     "STARTERS + SHARERS > Campana": ("Campana", False, False, 3),   # Small Campana prints two sizes (2 rows) + Campana
-    "SIDE SALADS": ("Side salads", False, False, 7),
+    "SIDE SALADS": ("Side salads", False, False, 9),   # 17 Nov 2026: includes three fries
     "DIPS": ("Dips", False, False, 6),
     "DOLCE": ("Dolce", False, False, 9),
     "EXTRA TOPPINGS > VEGGIES": ("Extra toppings: veggies", False, False, 9),
@@ -57,10 +57,13 @@ SECTIONS = {
 }
 CATEGORY_ORDER = ["Pizza", "Monthly pizza specials", "Starters + sharers", "Campana", "Side salads", "Dips", "Dolce",
                   "Extra toppings: veggies", "Extra toppings: meats", "Extra toppings: cheese + oils"]
-EXPECTED_ROWS = 74
+EXPECTED_ROWS = 77
 
 # Names tidied: a footnote asterisk is dropped ("***White pizzas come with no tomato base" is the page's own footnote).
-RENAME = {"Portobello - White*": "Portobello - White"}
+# The 17 Nov 2026 page adds three rows whose printed names end in " - RD" / "-RD" (the page does not say what it means): the suffix
+# is dropped and the capitalisation tidied; the printed name is kept in the item's notes.
+RENAME = {"Portobello - White*": "Portobello - White", "Pumpkin Halloween Special - RD": "Pumpkin Halloween Special",
+          "Chilli Fries - RD": "Chilli Fries", "truffle & parmesan fries-RD": "Truffle & Parmesan Fries"}
 
 # Rows that are not items (written down in the report). Both are swaps printed as the DIFFERENCE from a pizza, not a food.
 EXCLUDED = {
@@ -175,6 +178,8 @@ def build(page: Path):
         it = {"id": slug(name), "name": name, "category": category, "serving": r["size"], **nums, "fiber_g": "", "tags": "|".join(tags),
               "rankable": rankable, "limited_time": limited, "notes": "", "allergens": allergens}
         notes = tk.annotate(it)
+        if printed_name in RENAME and printed_name.replace("*", "") != RENAME[printed_name]:
+            notes.append(f"printed '{printed_name}'")
         if printed_name == "Wild Boar Salame":
             notes.append("Tagged contains_pork by the 'salame' rule: the page names it wild boar salame (Simonini Salami : Cinghiale)")
         if printed_name == VEGAN_NDUJA_DISH:

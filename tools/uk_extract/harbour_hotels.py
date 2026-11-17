@@ -68,9 +68,9 @@ BASE = f"https://{HOST}"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15"
 SOURCE_URL = f"{BASE}/our-hotels"
 SOURCE_TITLE = ("Harbour Hotels restaurant menus with calories (breakfast, light bites, a la carte, desserts, children's, Sunday and set menus; "
-                "PDFs linked from each hotel's restaurant page, file names dated 2024 to October 2026)")
+                "PDFs linked from each hotel's restaurant page, file names dated 2024 to November 2026)")
 MIN_ITEMS = 25
-EXPECTED_ITEMS = 28
+EXPECTED_ITEMS = 27   # 28 until 2026-11-17: Classic Crème Brûlée is now printed at Sidmouth only (Brighton and Richmond have new menus)
 EXCLUDE = re.compile(r"wine|drinks|xmas|christmas|newyear|boxing|privatedining|cruise|icedlattes|treasuresgems|after-dark|festive")
 LINK = re.compile(r"/media/([a-z0-9]+)/([^\"'<>\\ ]+\.pdf)")
 NOTE = ("Calories only, per dish as printed on the hotels' menus; protein, carbs, fat and allergens are not published. Each hotel has its own menus, so only "
@@ -107,7 +107,6 @@ DISHES = [
     D("Battered Haddock with chips", KIDS, "battered haddock with chips"),
     D("Buttermilk Chicken Strips, cajun spices", KIDS, "buttermilk chicken strips cajun spices"),
     D("Chickpea Falafel Wrap", LIGHT, "chickpea falafel wrap lettuce tomato red onion cucumber mint lemon tahini hot sauce"),
-    D("Classic Crème Brûlée", DESS, "classic crème brûlée madagascan vanilla infused cream"),
     D("Coconut & Oat French Toast", BKF, "coconut and oat french toast raspberry chia jam blueberries maple"),
     D("Crushed Avocado & Poached Hen’s Egg on Toast", BKF, "crushed avocado and poached hens egg on toast"),
     D("Fish Goujons, lemon mayonnaise, watercress", KIDS, "fish goujons lemon mayonnaise watercress"),
@@ -201,7 +200,9 @@ def created(path: Path) -> str:
     info = subprocess.run(["pdfinfo", str(path)], capture_output=True, text=True).stdout
     for line in info.splitlines():
         if line.startswith("CreationDate:"):
-            return datetime.strptime(line.split(":", 1)[1].strip().replace(" UTC", ""), "%a %b %d %H:%M:%S %Y").strftime("%Y-%m-%d")
+            # pdfinfo prints the date in the local time zone ("... 2026 UTC" on Linux, "... 2026 BST" on a Mac): the zone word is dropped
+            stamp = re.sub(r"\s+[A-Z]{2,5}$", "", line.split(":", 1)[1].strip())
+            return datetime.strptime(stamp, "%a %b %d %H:%M:%S %Y").strftime("%Y-%m-%d")
     return ""
 
 

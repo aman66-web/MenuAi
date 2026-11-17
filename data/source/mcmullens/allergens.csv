@@ -8,7 +8,7 @@ breaded-mozzarella-bites,milk|nuts|peanuts|sesame,,,almond|brazil nut|cashew|haz
 posh-cocktail-sausages,eggs|gluten|mustard|sulphites,,barley|oats|rye|wheat,
 duck-bon-bons,gluten|nuts|sesame|soya,,barley|oats|rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 cauli-bites,eggs|gluten|milk|mustard|soya,,barley|oats|rye|wheat,
-50-50-southern-fried-popcorn,eggs|gluten|milk,,barley|oats|rye|wheat,
+50-50-southern-fried-popcorn,celery|eggs|gluten|milk,,barley|oats|rye|wheat,
 panko-calamari-rings,crustaceans|eggs|fish|gluten|milk|molluscs|soya,,barley|oats|rye|wheat,
 beer-battered-fish-goujons,eggs|fish|gluten|milk|mustard|soya|sulphites,,barley|oats|rye|wheat,
 bbq-buttermilk-chicken-goujons,celery|eggs|gluten|milk|mustard,,barley|oats|rye|wheat,
@@ -33,9 +33,9 @@ loaded-nachos-with-bean-chilli,gluten|milk|nuts|peanuts|sesame|soya,,barley|oats
 loaded-bbq-beef-hash,gluten|milk|mustard|soya,,barley|oats|rye|wheat,
 gluten-free-loaded-bbq-beef-hash,milk|mustard|soya,,,
 all-day-breakfast,eggs|gluten|milk|soya|sulphites,,barley|oats|rye|wheat,
-pulled-chicken-rogan-josh,celery|mustard|nuts|sesame|soya,,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
-ultimate-pulled-chicken-rogan-josh,celery|gluten|milk|mustard|nuts|sesame|soya,,barley|oats|rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
-roasted-vegetable-rogan-josh,celery|mustard|nuts|sesame|soya,,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+pulled-chicken-rogan-josh,celery|mustard|nuts|sesame|soya,peanuts,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+ultimate-pulled-chicken-rogan-josh,celery|gluten|milk|mustard|nuts|sesame|soya,peanuts,barley|oats|rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+roasted-vegetable-rogan-josh,celery|mustard|nuts|sesame|soya,peanuts,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 freshly-battered-fish-and-chips,eggs|fish|gluten|milk|mustard|soya|sulphites,,barley|oats|rye|wheat,
 ultimate-fish-and-chips,eggs|fish|gluten|milk|mustard|soya|sulphites,,barley|oats|rye|wheat,
 old-english-sausage-and-mash,gluten|milk|sulphites,,barley|oats|rye|wheat,
@@ -198,9 +198,9 @@ parsnip-and-chestnut-soup-festive-menu,celery|gluten|soya,eggs|milk,barley|oats|
 gluten-free-parsnip-and-chestnut-soup-festive-menu,celery,,,
 prawn-cocktail-festive-menu,crustaceans|eggs|gluten|soya,milk,barley|oats|rye|wheat,
 gluten-free-prawn-cocktail-festive-menu,crustaceans|eggs,,,
-crispy-camembert-bites-festive-menu,gluten|milk|soya,,barley|oats|rye|wheat,
-chicken-liver-p-t-festive-menu,gluten|milk|mustard|soya,eggs,barley|oats|rye|wheat,
-gluten-free-chicken-liver-p-t-festive-menu,milk|mustard,,,
+crispy-camembert-bites-festive-menu,gluten|milk|soya,eggs,barley|oats|rye|wheat,
+chicken-liver-p-t-festive-menu,gluten|milk|mustard|soya,eggs|nuts,barley|oats|rye|wheat,
+gluten-free-chicken-liver-p-t-festive-menu,milk|mustard,nuts,,
 hot-honey-pigs-in-blankets-festive-menu,mustard|soya|sulphites,,,
 roast-turkey-festive-menu,gluten|soya|sulphites,,barley|oats|rye|wheat,
 gluten-free-roast-turkey-festive-menu,soya|sulphites,,,
@@ -208,8 +208,8 @@ festive-burger-festive-menu,eggs|gluten|milk|mustard|soya|sulphites,,barley|oats
 turkey-cranberry-and-chestnut-pie-festive-menu,gluten|milk|sulphites,,barley|oats|rye|wheat,
 baked-seabass-fillet-festive-menu,fish|milk|soya|sulphites,,,
 parsnip-and-cranberry-roast-festive-menu,sulphites,,,
-stronghart-christmas-pudding-festive-menu,gluten|milk|nuts|soya,,barley|oats|rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
-trillionaire-tart-festive-menu,milk|soya,eggs,,
+stronghart-christmas-pudding-festive-menu,gluten|milk|nuts,,barley|wheat,almond
+trillionaire-tart-festive-menu,milk|nuts|soya,eggs,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 new-york-cheesecake-festive-menu,eggs|milk|nuts,,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 black-cherry-pie-festive-menu,gluten|milk,,barley|oats|rye|wheat,
 apple-cinnamon-waffle-festive-menu,gluten|milk|soya|sulphites,,barley|oats|rye|wheat,
@@ -223,5 +223,5 @@ sweet-potato-and-chestnut-roast-festive-kids-menu,sulphites,,,
 sausage-and-mash-festive-kids-menu,gluten|milk|sulphites,,barley|oats|rye|wheat,
 ice-cream-bowl-festive-kids-menu,milk,,,
 chocolate-brownie-festive-kids-menu,eggs|milk|nuts|soya,,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
-christmas-pudding-festive-kids-menu,gluten|milk|nuts|soya,,barley|oats|rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+christmas-pudding-festive-kids-menu,gluten|milk|nuts|soya,,barley|wheat,almond
 hot-chocolate-and-smarties-festive-kids-menu,gluten|milk,,barley|oats|rye|wheat,

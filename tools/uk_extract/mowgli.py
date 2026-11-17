@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Build data/source/mowgli/ from Mowgli Street Food's own Food menu page (a CALORIES-ONLY chain).
 
-    python3 tools/uk_extract/mowgli.py path/to/food.html --allergen-pdf path/to/matrix.pdf --checked-on 2026-10-08 [--out DIR]
+    python3 tools/uk_extract/mowgli.py path/to/food.html --allergen-image path/to/matrix.jpg --checked-on 2026-11-17 [--out DIR]
+    (until 2026-10-08: --allergen-pdf path/to/matrix.pdf, the Brighton Rev 35 PDF the page then linked)
 
 Written first as a scratch copy (scratchpad/uk/x-mowgli/) because the founder's rule for that run was "if the page hides its
 nutrition from visitors (CSS display:none, hidden elements) do NOT publish". On this page every calorie figure is a
@@ -40,25 +41,26 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import mowgli_matrix  # noqa: E402
+import mowgli_matrix_image  # noqa: E402
 from common import allergen_words, sha256_file, slug as _slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "mowgli"
 SOURCE_URL = "https://mowglistreetfood.com/menus/food/"
 SOURCE_TITLE = "Mowgli Street Food website, Food menu with calorie information (accessed {day}, no date shown)"
-ALLERGEN_GUIDE_TITLE = "Mowgli allergen matrix, Brighton (Mowgli-Mv35 v3, Rev 35; PDF created 2 October 2026)"
-ALLERGEN_GUIDE_URL = "https://mowglistreetfood.com/wp-content/uploads/2026/10/Mowgli-Mv35_Allergen-Matrix_Brighton_v3.pdf"
+ALLERGEN_GUIDE_TITLE = "Mowgli allergen matrix on the Allergens page (Mv36 AW v2 Xmas, Rev 36; picture uploaded November 2026)"
+ALLERGEN_GUIDE_URL = "https://mowglistreetfood.com/allergens/"
 NOTE = ("Calories only, as printed beside each dish on Mowgli's Food menu page (the page shows them when you tick 'Calorie information'). "
         "No serving sizes, protein, carbs or fat are published. Drinks are not on that page.")
-EXPECTED_SECTIONS = ["The Light Kitchen", "Street Plates", "The House Kitchen", "Curry Companions", "Kids Menu", "Sweet"]
-EXPECTED_PRINTED = 50   # calorie figures on the page
-EXPECTED_ITEMS = 46     # after dropping the 4 Kids Menu ice cream cones that repeat the Sweet ones
+EXPECTED_SECTIONS = ["From The Grill", "Street Snacks", "Small Street Plates", "The House Kitchen Curries", "Companions", "Kids Menu", "Sweet"]
+EXPECTED_PRINTED = 53   # calorie figures on the page (2026-11-17; 50 on 2026-10-08)
+EXPECTED_ITEMS = 49     # after dropping the 4 Kids Menu ice cream cones that repeat the Sweet ones
 PORK = re.compile(r"\b(pork|bacon|ham|sausage|chorizo|salami|pepperoni)\b", re.I)
 BEEF = re.compile(r"\b(beef|steak)\b", re.I)
 PAGE_ALLERGEN_WORDS = {"sulphur": ("sulphites", None)}   # the page's filter calls sulphur dioxide and sulphites "sulphur"
 # page dish name -> the matrix's own row for it where the two name it differently (cross-check on the set of allergens only)
 ALIAS = {
-    "Maa’s Lamb Chops": "Maa’s Lamb Chops & Fries",
-    "Garlic Butter Paratha": "Garlic & Coriander Paratha",
+    "Chocolate & Sour Cherry Chat Bombs": "Chocolate & Cherry Chat Bombs",
+    "Kids Chocolate Chat Bombs": "Chocolate Chat Bombs",
     "Kids Mowgli Chocolate Brownie": "Kids Brownie",
     "Kids Mother Butter Chicken & Rice": "Mother Butter Chicken & Rice",
     "Kids House Chicken Curry & Rice": "House Chicken Curry & Rice",
@@ -205,12 +207,16 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("html", type=Path)
     ap.add_argument("--checked-on", required=True)
-    ap.add_argument("--allergen-pdf", type=Path, required=True, help="the 'View Allergens Matrix PDF' file (ALLERGEN_GUIDE_URL)")
+    g = ap.add_mutually_exclusive_group(required=True)
+    g.add_argument("--allergen-image", type=Path, help="the Allergens page's matrix picture (Rev 36 on 2026-11-17), read by mowgli_matrix_image")
+    g.add_argument("--allergen-pdf", type=Path, help="the old 'View Allergens Matrix PDF' file (Brighton Rev 35, until 2026-10-08)")
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
     print(f"page sha256 {sha256_file(args.html)}  {args.html}")
-    print(f"matrix sha256 {sha256_file(args.allergen_pdf)}  {args.allergen_pdf}")
-    items, holdback = build_items(read_dishes(args.html.read_text(encoding="utf-8")), mowgli_matrix.read_rows(args.allergen_pdf))
+    matrix = args.allergen_image or args.allergen_pdf
+    print(f"matrix sha256 {sha256_file(matrix)}  {matrix}")
+    rows = mowgli_matrix_image.read_rows(matrix) if args.allergen_image else mowgli_matrix.read_rows(matrix)
+    items, holdback = build_items(read_dishes(args.html.read_text(encoding="utf-8")), rows)
     # no per-dish "may contain" is printed anywhere (see the docstring), so the app is told the guide doesn't say
     guide = {"title": ALLERGEN_GUIDE_TITLE, "url": ALLERGEN_GUIDE_URL, "checked_on": args.checked_on, "may_contain_published": False}
     out = write_chain_folder(chain_id=CHAIN_ID, name="Mowgli Street Food", cuisine="Indian", source_title=SOURCE_TITLE.format(day=args.checked_on),

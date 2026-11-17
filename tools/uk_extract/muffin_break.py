@@ -4,7 +4,7 @@
     python3 tools/uk_extract/muffin_break.py --csv DIR/allergens_MBUK.csv --checked-on 2026-10-09 [--fetch]
 
 The chain's allergen app (https://allergens-muffinbreak.co.uk/, region "England, Scotland & Wales") loads one CSV,
-https://allergens-muffinbreak.co.uk/csv/allergens_MBUK.csv (591 rows on 2026-10-09, file dated 2 October 2026). --fetch downloads it
+https://allergens-muffinbreak.co.uk/csv/allergens_MBUK.csv (646 rows on 2026-11-17, file dated 13 November 2026; 591 rows on 2026-10-09, file dated 2 October 2026). --fetch downloads it
 first: robots.txt is read and matched with robots_rfc (a 404 means the host publishes no rules; anything else unexpected stops the run),
 then one request, a normal browser User-Agent. The other site muffinbreak.co.uk answers Cloudflare 403 and is NOT used.
 
@@ -13,6 +13,8 @@ What is published and what is not (each rule stops or reports, nothing is guesse
   * "Portion Code" starting with a letter (BREAD, INGREDIENT, Allergen, ALLERGEN): the chain's own site marks these rows "Ingredient used
     in the product recipe - listed for allergen purposes only" and hides their nutrition, so they are not published (45 rows).
   * "Brand" = [LEWISHAM HOSPITAL]: the site tags it "Only available in Muffin Break Lewisham Hospital" (single venue): left out.
+    Any row with a Brand is left out the same way: on 2026-11-17 that is [CARDIFF BUS INT.] (21 "RTG" grab-and-go rows and a fruit salad, one venue).
+  * [Xmas] in the name (the chain's own Christmas label, 2026-11-17 file) = limited_time, like the "Seasonal" / "Muffins Seasonal" categories.
   * tagged [Scotland] (Irn Bru): a Scotland-only drink, a regional product: left out.
   * founder's rule 2026-10-09: only COMPLETE nutrition. A row with a blank calories, protein, carbohydrate or fat cell is left out
     (43 rows: bottled drinks, tea, espresso, syrups). A blank is never read as 0.
@@ -42,9 +44,9 @@ HOST = "https://allergens-muffinbreak.co.uk"
 CSV_URL = HOST + "/csv/allergens_MBUK.csv"
 PAGE_URL = HOST + "/allergens/mbuk"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"
-EXPECTED_ROWS = 591
+EXPECTED_ROWS = 646
 SOURCE_TITLE = ("Muffin Break UK (England, Scotland & Wales) Allergens and Nutrition Information, data file allergens_MBUK.csv "
-                "(file dated 2 October 2026)")
+                "(file dated 13 November 2026)")
 ALLERGEN_TITLE = "Muffin Break Allergens and Nutrition Information (England, Scotland & Wales)"
 NOTE = ("Figures are per serving from Muffin Break's own England, Scotland & Wales data file. Drinks, tea, espresso and syrups where the "
         "file leaves protein, carbs or fat blank are not published, nor are its ingredient-only rows. Salt is left out: the chain's website "
@@ -63,14 +65,14 @@ ALLERGEN_COLUMNS = HEADER[HEADER.index("Gluten"):HEADER.index("Lupin") + 1]
 
 # chain's own "Recipe Description" -> (display order). Unknown categories stop the run.
 CATEGORIES = ["Breakfast", "Breads", "Savoury", "Made to Order", "Muffins", "Muffins (Very Low Gluten)", "Duffins", "Cake",
-              "Sweet Products", "Desserts", "Seasonal", "Coffee", "Hot Drinks", "Cold Drinks Made", "Cold Drinks",
+              "Sweet Products", "Desserts", "Seasonal", "Muffins Seasonal", "RTG", "Coffee", "Hot Drinks", "Cold Drinks Made", "Cold Drinks",
               "Hot Beverage Modifiers", "Ingredients"]
 # Recipe Notes (the chain's sub-group) that are whole meals/mains/sandwiches/savoury bakes: suggested by Best for you.
 # Everything else (muffins, cakes, cookies, sweet breakfast bakes, pancakes, "(Topper)" cheese toppings, drinks, add-ons) is not.
 RANKABLE_NOTES = {"Panini", "Italian Flatbread", "Sandwich", "Toastie", "Wrap", "Burrito", "Bagel", "Bap", "Egg Muffin", "Roll",
                   "Cannelloni", "Sausage Roll", "Hand Pie", "Quiche", "Savoury Croissant", "Soup", "Savoury Tart", "Tortilla Stack",
                   "Yorkshire Pudding", "Brunch From The Kitchen"}
-LIMITED_CATEGORIES = {"Seasonal"}
+LIMITED_CATEGORIES = {"Seasonal", "Muffins Seasonal"}
 
 NUM = re.compile(r"^\d+(\.\d+)?$")
 PORK = re.compile(r"(?<!turkey )(?<!turkey-)\b(bacon|ham|gammon)\b|\b(salami|chorizo|nduja|pork|pancetta)\b|"
@@ -192,7 +194,7 @@ def build(csv_path: Path):
                 report.append(f"meat type not stated: {name}")
         category = r["Recipe Description"]
         items.append({"name": name, "category": category, "serving": "", **nums, "tags": "|".join(tags),
-                      "limited_time": category in LIMITED_CATEGORIES, "rankable": r["Recipe Notes"] in RANKABLE_NOTES and "(Topper)" not in name,
+                      "limited_time": category in LIMITED_CATEGORIES or "[Xmas]" in raw, "rankable": r["Recipe Notes"] in RANKABLE_NOTES and "(Topper)" not in name,
                       "notes": "", "allergens": allergens_for(r, name, report), "_id": r["Recipe ID"]})
     # two published rows that clean to the same name: identical numbers = one dish; different numbers = held back, never chosen between
     by_name: dict[str, list[dict]] = {}
@@ -244,7 +246,7 @@ def main() -> int:
     if args.fetch:
         fetch(args.csv)
     items, holdback, skipped, report = build(args.csv)
-    guide = {"title": ALLERGEN_TITLE + ", data file allergens_MBUK.csv (2 October 2026)", "url": PAGE_URL,
+    guide = {"title": ALLERGEN_TITLE + ", data file allergens_MBUK.csv (13 November 2026)", "url": PAGE_URL,
              "checked_on": args.checked_on, "may_contain_published": True}
     out = write_chain_folder(chain_id=CHAIN_ID, name="Muffin Break", cuisine="Bakery", source_title=SOURCE_TITLE, source_url=PAGE_URL,
                              checked_on=args.checked_on, aliases=["muffin break", "muffinbreak"], items=items, out=args.out,

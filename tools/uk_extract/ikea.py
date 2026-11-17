@@ -22,6 +22,15 @@ items sold in fewer than MIN_GB_STORES Great Britain stores ("selected stores on
 Items whose printed numbers are impossible stay in items.csv but are listed in holdback.csv (see impossible_energy).
 The per-portion kJ (energy_kj) and the stated portion weight (weight_g) are copied as printed too.
 
+REFRESHED 2026-11-17 (203 listed ids, cache digest 1d9560be3479ba8fab26a48df2d6311ba243a2798fe21ef5dd922797cdea2d7f): IKEA's Christmas menu
+arrived and its curry promotion ended. 13 new items (the Festive Feasts, Cauliflower Cheese, Yorkshire Pudding, Pigs in Blankets, Festive Hot Dog
+Topping, a second Salmon Fillet with Hasselback potatoes, a Children's Breakfast with a meat sausage, Soft Ice Cream with a Chocolate Snowman); 18 gone
+(the Rice & Peshwari Sauce dishes, samosa, naan, mango chutney, curry topping, Shrimp & Egg Sandwich, Rice Mix, two desserts; the Chicken Meatball
+dishes are now listed for 2 London stores only, and two of their pages answer 404). A listed item whose own page answers 404 is now left out with
+that reason (NotFound) instead of stopping the run; a SPEC item that 404s still stops it as GONE. Some pages now mark allergens in bold with <b>
+rather than <strong> (and write "&amp;"), so both are read. Items IKEA itself calls "Festive" or files under its "Christmas" category are
+marked limited_time (is_seasonal).
+
 Allergens come from the same item pages: IKEA prints each item's allergens ("allergens") and what it "may contain traces of"
 ("allergensTracesOf") by name. The names are mapped with common.allergen_words (an unknown name stops the script). IKEA names
 no cereal there (only "cereals containing gluten"), so none is named; it does name some tree nuts (almonds, hazelnut), which are
@@ -33,6 +42,7 @@ decides. Bold words after a "may contain ..." marker are added to the item's may
 from __future__ import annotations
 import argparse
 import hashlib
+import html
 import json
 import re
 import sys
@@ -84,28 +94,25 @@ SPEC: list[tuple[str, str, str, str, bool]] = [
     ('PRF13807127', 'Meatballs', '8 Meatballs with Chips', MAIN, True),
     ('PRF13807130', 'Meatballs', '12 Meatballs with Mashed Potatoes', MAIN, True),
     ('PRF13807203', 'Meatballs', '12 Meatballs with Chips', MAIN, True),
-    ('PRF13832959', 'Chicken Meatballs', '8 Chicken Meatballs with Mashed Potatoes', MAIN, True),
-    ('PRF13832961', 'Chicken Meatballs', '8 Chicken Meatballs with Chips', MAIN, True),
-    ('PRF13832940', 'Chicken Meatballs', '8 Chicken Meatballs with Rice & Peshwari Sauce', MAIN, True),
-    ('PRF13832960', 'Chicken Meatballs', '12 Chicken Meatballs with Mashed Potatoes', MAIN, True),
-    ('PRF13832962', 'Chicken Meatballs', '12 Chicken Meatballs with Chips', MAIN, True),
-    ('PRF13832941', 'Chicken Meatballs', '12 Chicken Meatballs with Rice & Peshwari Sauce', MAIN, True),
+    ('PRF13796528', 'Meatball Festive Feast', '8 Meatball Festive Feast', MAIN, True),
+    ('PRF13837754', 'Meatball Festive Feast', '12 Meatball Festive Feast', MAIN, True),
     ('PRF12139665', 'Plant Balls', '8 Plant Balls with Mashed Potatoes', MAIN, True),
     ('PRF13807209', 'Plant Balls', '8 Plant Balls with Chips', MAIN, True),
-    ('PRF13832942', 'Plant balls', '8 Plant Balls with Rice & Peshwari Sauce', MAIN, True),
     ('PRF13807192', 'Plant Balls', '12 Plant Balls with Mashed Potatoes', MAIN, True),
     ('PRF13807211', 'Plant balls', '12 Plant Balls with Chips', MAIN, True),
-    ('PRF13832943', 'Plant balls', '12 Plant Balls with Rice & Peshwari Sauce', MAIN, True),
+    ('PRF13796541', 'Plant ball Festive Feast', '8 Plant Ball Festive Feast', MAIN, True),
+    ('PRF13837753', 'Plant Ball Festive Feast', '12 Plant Ball Festive Feast', MAIN, True),
     ('PRF13818309', 'Falafel', 'Falafel with Couscous', MAIN, True),
     ('PRF13839009', 'Salmon Fillet', 'Salmon Fillet', MAIN, True),
+    ('PRF13840107', 'Salmon Fillet', 'Salmon Fillet with Hasselback Potatoes', MAIN, True),
     ('PRF13764150', 'Pasta with tomato sauce', 'Pasta with Tomato Sauce', MAIN, True),
     ('PRF13837608', 'Vegetable Lasagne', 'Vegetable Lasagne', MAIN, True),
-    ('PRF13803136', 'Rice mix with vegetables', 'Rice Mix with Vegetables', MAIN, True),
     ('PRF13751074', 'Small Cooked Breakfast', 'Small Cooked Breakfast', BREAKFAST, True),
     ('PRF13774547', 'SMALL VEGETARIAN BREAKFAST', 'Small Vegetarian Breakfast', BREAKFAST, True),
     ('PRF13808492', 'Regular Cooked Breakfast', 'Regular Cooked Breakfast', BREAKFAST, True),
     ('PRF13808495', 'Regular Vegetarian Breakfast', 'Regular Vegetarian Breakfast', BREAKFAST, True),
     ('PRF13808496', "Children's breakfast", "Children's Breakfast", BREAKFAST, True),
+    ('PRF13839876', "Children's Breakfast", "Children's Breakfast with Meat Sausage", BREAKFAST, True),
     ('PRF13808833', 'Breakfast Roll', 'Breakfast Roll with Bacon', BREAKFAST, True),
     ('PRF13808834', 'Breakfast Roll', 'Breakfast Roll with Sausages', BREAKFAST, True),
     ('PRF13808836', 'Breakfast Roll Vegetarian', 'Breakfast Roll (Vegetarian)', BREAKFAST, True),
@@ -120,13 +127,15 @@ SPEC: list[tuple[str, str, str, str, bool]] = [
     ('PRF13798043', 'Swedish Special', 'Swedish Special Hot Dog', HOT, True),
     ('PRF13757513', 'Veggie hot dog', 'Veggie Hot Dog', HOT, True),
     ('PRF13839064', 'Fish Dog', 'Fish Dog', HOT, True),
+    ('PRF13823143', 'Festive Hot Dog Topping', 'Festive Hot Dog Topping', ADD, False),
     ('PRF13833081', 'Meatballs', '4 Meatballs with Mashed Potatoes', HOT, True),
     ('PRF13833082', 'Plant balls', '4 Plant Balls with Mashed Potatoes', HOT, True),
     ('PRF13789423', 'Pizza', 'Pizza', HOT, True),
     ('PRF12609050', 'Fries', 'Fries', HOT, True),
     ('PRF13751545', "Children's meatballs", "Children's Meatballs", KIDS, True),
-    ('PRF13832954', "Children's Chicken Meatballs", "Children's Chicken Meatballs", KIDS, True),
+    ('PRF13796543', "Children's Meatball Festive Feast", "Children's Meatball Festive Feast", KIDS, True),
     ('PRF12139676', "Children's plant balls", "Children's Plant Balls", KIDS, True),
+    ('PRF13798939', "Children's Plant ball Festive Feast", "Children's Plant Ball Festive Feast", KIDS, True),
     ('PRF13782263', "Children's Fish Finger", "Children's Fish Finger", KIDS, True),
     ('PRF13771286', "Children's Pasta & Tomato Sauce", "Children's Pasta & Tomato Sauce", KIDS, True),
     ('PRF13824697', 'Soup', 'Mushroom Soup', SOUP, True),
@@ -136,11 +145,11 @@ SPEC: list[tuple[str, str, str, str, bool]] = [
     ('PRF13751409', 'Gravadlax Plate', 'Gravadlax Plate', COLD, True),
     ('PRF13782220', 'Tomato & Mozzarella', 'Tomato & Mozzarella', COLD, True),
     ('PRF13760754', 'Marinated Salmon Wrap', 'Marinated Salmon Wrap', SAND, True),
-    ('PRF12608909', 'Shrimp & Egg Sandwich', 'Shrimp & Egg Sandwich', SAND, True),
     ('PRF13821248', 'Chips', 'Chips', SIDE, True),
     ('PRF13833084', 'Mashed potatoes', 'Mashed Potatoes (plant based)', SIDE, True),
     ('PRF13821245', 'Cous Cous', 'Cous Cous with Vegetables', SIDE, True),
     ('PRF13837612', 'Vegetable Medallion', 'Vegetable Medallion', SIDE, True),
+    ('PRF13747842', 'Cauliflower cheese', 'Cauliflower Cheese', SIDE, True),
     ('PRF12140743', 'Cinnamon bun', 'Cinnamon Bun', PASTRY, False),
     ('PRF13837220', 'Chocolate Bun', 'Chocolate Bun', PASTRY, False),
     ('PRF13790543', 'Doughnut', 'Sugar Ring Doughnut', PASTRY, False),
@@ -159,31 +168,27 @@ SPEC: list[tuple[str, str, str, str, bool]] = [
     ('PRF13821431', 'Swedish apple cake', 'Swedish Apple Cake', PASTRY, False),
     ('PRF13777802', 'Apple Pie', 'Apple Pie', PASTRY, False),
     ('PRF13809042', 'Tiramisu', 'Tiramisu', PASTRY, False),
-    ('PRF13833126', 'Cheesecake', 'Cheesecake with Berries & Meringue Pieces', PASTRY, False),
     ('PRF12139800', 'Cheesecake', 'Cheesecake with Blueberries & Raspberries', PASTRY, False),
     ('PRF13792438', 'Cheesecake', 'Cheesecake with Strawberries', PASTRY, False),
     ('PRF13751780', 'Ice cream', 'Soft Ice Cream', PASTRY, False),
-    ('PRF13836847', 'Ice Cream with KEXCHOKLAD', 'Soft Ice Cream with KEXCHOKLAD', PASTRY, False),
+    ('PRF13841529', 'Ice Cream with a Chocolate Snowman', 'Soft Ice Cream with a Chocolate Snowman', PASTRY, False),
     ('PRF13837613', 'Cinnamon Bun Soft Ice', 'Cinnamon Bun Soft Ice (plant based)', PASTRY, False),
     ('PRF13737804', 'Strawberry soft ice', 'Strawberry Soft Ice (plant based)', PASTRY, False),
     ('PRF13729374', 'Meatballs', '4 Extra Meatballs', ADD, False),
-    ('PRF13832945', 'Chicken Meatballs', '4 Extra Chicken Meatballs', ADD, False),
     ('PRF13729370', 'Plant Balls', '4 Extra Plant Balls', ADD, False),
     ('PRF13821142', 'Falafel', '4 Extra Falafel', ADD, False),
-    ('PRF13832992', 'Samosa', 'Vegetable Samosa', ADD, False),
-    ('PRF13834728', 'Naan Bread', 'Garlic & Coriander Naan Bread', ADD, False),
     ('PRF13782135', 'Bread Roll', 'Bread Roll with Seeds', ADD, False),
     ('PRF13782136', 'Bread Roll', 'Kaiser Bread Roll', ADD, False),
     ('PRF12139802', 'Garlic bread', 'Garlic Bread', ADD, False),
     ('PRF12915761', 'Onion Rings', 'Onion Rings (3)', ADD, False),
+    ('PRF13747846', 'Yorkshire pudding', 'Yorkshire Pudding', ADD, False),
+    ('PRF13748407', 'Pigs in Blankets', 'Pigs in Blankets (3)', ADD, False),
     ('PRF12127156', 'Peas', 'Peas', ADD, False),
     ('PRF12140682', 'Butter Portion', 'Butter Portion', ADD, False),
     ('PRF13760847', 'Sunflower Spread Portion', 'Sunflower Spread Portion', ADD, False),
     ('PRF12138611', 'Whipped cream', 'Whipped Cream', ADD, False),
     ('PRF12140741', 'Chocolate flake', 'Chocolate Flake', ADD, False),
-    ('PRF13833540', 'Mango Chutney', 'Mango Chutney', ADD, False),
     ('PRF13761922', 'Cream sauce portion & Condiments', 'Cream Sauce Portion & Condiments', ADD, False),
-    ('PRF13834870', 'Curry Topping', 'Curry Topping for Hot Dog', ADD, False),
     ('PRF13757452', 'Crispy Onions', 'Crispy Onions (hot dog topping)', ADD, False),
     ('PRF13757453', 'Pickled red cabbage', 'Pickled Red Cabbage (hot dog topping)', ADD, False),
     ('PRF13806669', 'Gherkins', 'Gherkins (hot dog topping)', ADD, False),
@@ -210,8 +215,8 @@ SPEC_BY_ID = {row[0]: row for row in SPEC}
 # Items whose own printed numbers cannot all be right (see impossible_energy): not published, listed in holdback.csv.
 # The script computes the set itself and stops if it differs from this one, so a human re-reads any change.
 EXPECTED_HELDBACK = {
-    "PRF12139665", "PRF13807192", "PRF12139676", "PRF13832942", "PRF13832943", "PRF13833082",  # plant-ball dishes: kcal below minimum
-    "PRF13808833", "PRF13832992",  # bacon roll, samosa: kcal far above what the printed protein/carbs/fat can supply
+    "PRF12139665", "PRF13807192", "PRF12139676", "PRF13833082",  # plant-ball dishes: kcal below minimum
+    "PRF13808833",  # bacon roll: kcal far above what the printed protein/carbs/fat can supply
 }
 
 MIN_GB_STORES = 10  # an item sold in fewer Great Britain stores than this is "selected stores only" (the data has a gap: 0-4 or 18-26)
@@ -224,6 +229,10 @@ class Blocked(Exception):
 
 class StructureChanged(Exception):
     pass
+
+
+class NotFound(Exception):
+    """A page that answers HTTP 404 (recorded in the cache as <name>.404 so an --offline re-run gives the same answer)."""
 
 
 # ---------------------------------------------------------------------------------------------------------------- fetching
@@ -244,6 +253,8 @@ def http_get(url: str) -> str:
             with urllib.request.urlopen(req, timeout=60) as resp:
                 return resp.read().decode("utf-8")
         except urllib.error.HTTPError as err:
+            if err.code == 404:
+                raise NotFound(url) from err
             if err.code in (401, 403, 429, 451):
                 raise Blocked(f"{url} answered HTTP {err.code}: IKEA is blocking this connection. Stop; the founder should "
                               "download the item pages from a normal browser instead.") from err
@@ -270,10 +281,18 @@ def next_data_text(html: str) -> str:
 def cached_json(cache: Path, name: str, url: str, offline: bool, stats: Counter) -> dict:
     """The page's __NEXT_DATA__ JSON, from the cache or (once) from the site; the raw text is what is stored."""
     path = cache / name
+    gone = cache / (name + ".404")
+    if gone.exists():
+        raise NotFound(url)
     if not path.exists():
         if offline:
             raise StructureChanged(f"{name} is not in the cache and --offline was given")
-        text = next_data_text(http_get(url))
+        try:
+            text = next_data_text(http_get(url))
+        except NotFound:
+            gone.write_text(url + "\n", encoding="utf-8")
+            stats["404"] += 1
+            raise
         path.write_text(text, encoding="utf-8")
         stats["fetched"] += 1
     else:
@@ -401,8 +420,8 @@ def _bold_words(statement: str) -> tuple[list[str], list[str]]:
     contained, traces = [], []
     for para in re.split(r"\n\s*\n", statement or ""):
         marker = TRACE_MARKER.search(para)
-        for tok in re.finditer(r"<strong>(.*?)</strong>", para, re.S):
-            words = [re.sub(r"[().:*]", "", w).strip() for w in re.split(r",|\band\b|&", re.sub(r"<[^>]+>", "", tok.group(1)))]
+        for tok in re.finditer(r"<(strong|b)>(.*?)</\1>", para, re.S):  # IKEA marks bold with <strong> and, on some pages, <b>
+            words = [re.sub(r"[().:*]", "", w).strip() for w in re.split(r",|\band\b|&", html.unescape(re.sub(r"<[^>]+>", "", tok.group(2))))]
             words = [w for w in words if w and not w.lower().startswith(IGNORED_BOLD)]
             (traces if marker and tok.start() > marker.start() else contained).extend(words)
     return contained, traces
@@ -539,6 +558,13 @@ def item_notes(it: dict, n: dict[str, str], held: bool) -> str:
     return "; ".join(notes)
 
 
+def is_seasonal(item: dict) -> bool:
+    """Shown as "Limited time" only where IKEA's own words say the dish is seasonal: "Festive" in its title, or IKEA files it under its
+    own "Christmas" category. Nothing else is inferred (a side such as Pigs in Blankets is not labelled unless IKEA's words say so)."""
+    cats = {c["name"].strip().lower() for a in item["salesAreas"] for c in a["categories"]}
+    return bool(re.search(r"\bfestive\b", item["title"], re.I)) or "christmas" in cats
+
+
 def build(items_by_id: dict[str, dict], keep: dict[str, dict], checked_on: str, out: Path):
     published_ids, spec_ids = set(keep), set(SPEC_BY_ID)
     if published_ids != spec_ids:
@@ -582,6 +608,7 @@ def build(items_by_id: dict[str, dict], keep: dict[str, dict], checked_on: str, 
             "energy_kj": kj_out, "weight_g": it["servingSizeDisplayValue"].split()[0],
             "allergens": item_allergens(it),
             "tags": "|".join(tags), "rankable": rankable, "notes": item_notes(it, n, bool(problem)),
+            "limited_time": is_seasonal(it),
         })
     if {h[0] for h in holdback} != EXPECTED_HELDBACK:
         raise StructureChanged("the set of items whose printed numbers are impossible changed.\n  now: "
@@ -623,8 +650,13 @@ def main() -> int:
                     rec["areas"].append(area)
         print(f"listings: {rows_seen} rows, {len(listed)} distinct item ids ({dict(stats)})", file=sys.stderr)
         items: dict[str, dict] = {}
+        not_found: list[tuple[str, str, str]] = []  # listed, but the item's own page answers 404: never published
         for n, (item_id, rec) in enumerate(listed.items(), 1):
-            items[item_id] = item_page(args.cache, item_id, rec["area"], args.offline, stats)
+            try:
+                items[item_id] = item_page(args.cache, item_id, rec["area"], args.offline, stats)
+            except NotFound:
+                not_found.append((item_id, rec["list"]["title"], clean(rec["list"]["shortDescription"])))
+                continue
             check_structure(items[item_id])
             if n % 50 == 0:
                 print(f"  {n}/{len(listed)} items ({dict(stats)})", file=sys.stderr)
@@ -634,8 +666,9 @@ def main() -> int:
         market = json.loads((args.cache / "listing-restaurant.json").read_text(encoding="utf-8"))["props"]["pageProps"]["products"]
         packaged = sum(1 for p in market if {a["slug"] for a in p["item"]["salesAreas"]} <= NOT_PUBLISHED_AREAS)
         keep, excluded = classify(listed, items)
+        excluded += [(i, t, f"listed ({d[:70]}), but the item's own page answers HTTP 404") for i, t, d in not_found]
         rows, holdback, not_stated, unflagged_veg, kj_not_published = build(items, keep, args.checked_on, args.out)
-    except (Blocked, StructureChanged) as err:
+    except (Blocked, StructureChanged, NotFound) as err:
         print(f"STOPPED: {err}", file=sys.stderr)
         return 1
 

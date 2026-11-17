@@ -20,7 +20,8 @@ A product offering sizes (rice bowls: Small, Regular, Go Large; baos: Single, ..
 ("Chicken Rice Bowl (Small)"): the page's block describes that size (checked against its weight in the data); the other sizes are printed only as
 "+NNN kcal" on top and are not listed (nothing is added up).
 Left out: the "Bundles" (meal deals) and "Alcohol" categories, products with no nutrition block or a block missing kcal, protein, carbohydrate or
-fat, and a product a restaurant prints twice with different blocks (High Wycombe's Chicken Bao).
+fat, and a product a restaurant prints twice with different blocks (High Wycombe's Chicken Bao on 12 October 2026; on 17 November 2026
+all three restaurants print one identical block for it, so it is published).
 Allergens: link to the chain's own allergen chart page (groundedkitchen.com/allergen-chart); the ordering site lists only the base dish's
 allergens, not those of the flavour chosen, so its lists are not copied. Tags: vegetarian where the chain's own data marks the product vegetarian or vegan; contains_beef /
 contains_pork only from the product's own name or description.
@@ -46,7 +47,7 @@ STORES = [("4d8659e5-2322-437e-aa13-205887c51b27", "Leamington Spa", QSR), ("0d9
 SKIP = r"^(bundles|alcohol|meal deals?)$"
 MIN_STORES = 2
 SOURCE_URL = ORIGIN + "/"
-SOURCE_TITLE = "Grounded Kitchen online ordering, Nutrition facts per serving (groundedkitchen.vmos.io, 3 restaurants, read 12 October 2026)"
+SOURCE_TITLE = "Grounded Kitchen online ordering, Nutrition facts per serving (groundedkitchen.vmos.io, 3 restaurants, read 17 November 2026)"
 ALLERGEN_URL = "https://www.groundedkitchen.com/allergen-chart"
 NOTE = ("Per serving, as Grounded Kitchen's ordering site prints each dish's nutrition once a restaurant is picked; 3 restaurants were read and only "
         "figures printed the same at 2 or more are shown. Figures are for the dish as listed (rice bowls and baos at the size named): the "

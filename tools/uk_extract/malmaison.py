@@ -64,9 +64,9 @@ G_BREAKFAST, G_KIDS, G_TEA = "163457f9-a282-438a-9729-d228aa7fb696", "5fb3e551-9
 # file -> (url, menu name the page must carry, number of dishes it must have)
 PAGES = {
     "main.html": (BASE, "Chez Mal Autumn/Winter 2026", 78),
-    "bar.html": (f"{BASE}?mguid={G_BAR}", "Chez Mal Bar Menu Autumn/Winter 2026", 15),
+    "bar.html": (f"{BASE}?mguid={G_BAR}", "Chez Mal Bar Menu Autumn/Winter 2026", 17),  # 15 until 2026-10-08; 17 on 2026-11-17 (NGCI section added)
     "sunday.html": (f"{BASE}?mguid={G_SUN}", "Chez Mal Sunday Roast Autumn/Winter 2026", 21),
-    "drinks.html": (f"{BASE}?mguid={G_DRINKS}", "Malmaison Beverage", 273),
+    "drinks.html": (f"{BASE}?mguid={G_DRINKS}", "Malmaison Beverage", 226),  # 273 until 2026-10-08 (cocktails removed since; hot drinks unchanged)
 }
 EXCLUDED_PAGES = {
     "breakfast.html": (f"{BASE}?mguid={G_BREAKFAST}", "Chez Mal Breakfast 2025", 78),
@@ -78,7 +78,7 @@ PDFS = {
     "bar": "https://www.malmaison.com/media/e4hjenda/32039_mal_autumn_bar_uk.pdf",
 }
 SOURCE_TITLE = ("Malmaison allergen and calorie pages on Ten Kites: Chez Mal Autumn/Winter 2026, Bar, Sunday Roast and Beverage menus "
-                "(accessed 2026-10-08, no date shown)")
+                "(accessed {checked}, no date shown)")
 ALLERGEN_TITLE = "Malmaison allergen matrix on Ten Kites (Contains / May contain, Chez Mal Autumn/Winter 2026 and related menus)"
 NOTE = ("Calories only, per dish as served, from Malmaison's allergen page; protein, carbs and fat are not published. A dish is left "
         "out where the page and Malmaison's printed menu give different calories. Breakfast, kids, afternoon tea and cocktails are not listed.")
@@ -92,7 +92,7 @@ MAIN_SECTIONS = {
     "Room Service + Night bites": "Room service & night bites",
     "818 Tacos": None,
 }
-BAR_SECTIONS = {"bar": "Bar menu", "Nights room service": "Room service & night bites"}
+BAR_SECTIONS = {"bar": "Bar menu", "NGCI": "Bar menu", "Nights room service": "Room service & night bites"}
 SUNDAY_SECTIONS = {"chefs table autumn 25": None, "Roasts": "Sunday roasts", "Desserts": "Desserts", "mains grill": "Mains", "Burgers": "Burgers"}
 DRINK_SECTIONS = {"Hot Beverages": "Hot drinks", "Mal Cocktails 2024": None,
                   "Sora Promo cocktails - ONLY AVAILABLE IN SORA": None, "Mal promo cocktails - NOT AVAILABLE IN ALL HOTELS": None,
@@ -132,6 +132,11 @@ ALLERGEN_CONTRADICTS = {
     "MAL DISH - Ice Cream 1 scoop": _ICE,
     "MAL DISH - Ice Cream 2 Scoop": _ICE,
     "MAL DISH - Ice Cream 3 Scoop": _ICE,
+    # 2026-11-17: the bar menu's new "NGCI" (no gluten-containing ingredients) section lists this burger, but its only sub-recipe is
+    # the regular "MAL BASICS fillet o fish Burger only" and the page marks it Contains gluten (wheat), as the old "fillet o fish burger ME"
+    "MAL DISH - NGCI fillet o fish burger":
+        ("allergen row contradicts the dish name: 'NGCI' (no gluten-containing ingredients) but the page marks it Contains gluten (wheat), "
+         "and its only sub-recipe is the regular fillet o fish burger; not published until Malmaison confirms"),
 }
 
 # page dish (exact name on the page) -> printed-menu checks [(pdf, heading text, option number)]. Names only: the calories
@@ -193,7 +198,7 @@ PDF_CHECKS = {
     "MAL DISH - sausage Muffins": [(B, "BREAKFAST MUFFINS", 2)],
     "MAL DISH - Brunch pastries": [(B, "MORNING PASTRIES", 0)],
     "MAL DISH - falafel wrap, tomato hummus, cucumber, sesame seeds": [(B, "SPINACH FALAFEL WRAP", 0)],
-    "MAL DISH - fillet o fish burger ME": [(B, "CHEZ MAL FILLET OF FISH BURGER", 0)],
+    "MAL DISH fillet of fish burger, coleslaw, veg crisps": [(B, "CHEZ MAL FILLET OF FISH BURGER", 0)],  # was "fillet o fish burger ME" until 2026-10-08
     "MAL DISH - Sourdough BLT Baguette": [(B, "B.L.T BAGUETTE", 0)],
     "MAL DISH - Sourdough Club Baguette, coleslaw and veg crisps": [(B, "CLUB SANDWICH", 0)],
     "MAL DISH - Sourdough, brisket pastrami toastie, relish, swiss cheese": [(B, "SOURDOUGH BRISKET", 0)],
@@ -340,7 +345,7 @@ def main() -> int:
         fetch_all(args.pages, args.pdfs)
     items, hold, report = build(args.pages, args.pdfs)
     guide = {"title": ALLERGEN_TITLE, "url": BASE, "checked_on": args.checked_on, "may_contain_published": True}
-    out = write_chain_folder(chain_id=CHAIN_ID, name="Malmaison", cuisine="Brasserie", source_title=SOURCE_TITLE, source_url=BASE,
+    out = write_chain_folder(chain_id=CHAIN_ID, name="Malmaison", cuisine="Brasserie", source_title=SOURCE_TITLE.format(checked=args.checked_on), source_url=BASE,
                              checked_on=args.checked_on, aliases=["malmaison", "malmaison hotel", "chez mal", "chez mal brasserie",
                                                                   "chez mal brasserie & bar", "mal brasserie"],
                              items=items, out=args.out, note=NOTE, holdback=hold, allergen_guide=guide, nutrition_level="calories")

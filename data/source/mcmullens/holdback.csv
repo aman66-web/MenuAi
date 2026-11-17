@@ -1,14 +1,8 @@
 item_id,reason
 breaded-mozzarella-bites,"The page prints 234 kcal, but its own protein, carbohydrate and fat add up to about 612 kcal."
 posh-cocktail-sausages,"The page prints 1184 kcal, but its own protein, carbohydrate and fat add up to about 4173 kcal. The page prints 23.8 g of salt for one portion, which cannot be right."
-roast-butternut-squash-and-red-chilli-soup,"The page prints 87.9 g of salt for one portion of soup, which cannot be right."
-gluten-free-roast-butternut-squash-and-red-chilli-soup,"The page prints 87.9 g of salt for one portion of soup, which cannot be right."
-parsnip-and-honey-soup,"The page prints 43.9 g of salt for one portion of soup, which cannot be right."
-gluten-free-parsnip-and-honey-soup,"The page prints 44.0 g of salt for one portion of soup, which cannot be right."
-broccoli-and-stilton-soup,"The page prints 340 kcal, but its own protein, carbohydrate and fat add up to about 433 kcal."
-gluten-free-broccoli-and-stilton-soup,"The page prints 346 kcal, but its own protein, carbohydrate and fat add up to about 440 kcal."
-leek-and-potato-soup,"The page prints 97.3 g of salt for one portion of soup, which cannot be right."
-gluten-free-leek-and-potato-soup,"The page prints 97.3 g of salt for one portion of soup, which cannot be right."
+broccoli-and-stilton-soup,"The page prints 300 kcal, but its own protein, carbohydrate and fat add up to about 393 kcal."
+gluten-free-broccoli-and-stilton-soup,"The page prints 306 kcal, but its own protein, carbohydrate and fat add up to about 400 kcal."
 scampi-and-chips,"The page prints 608 kcal, but its own protein, carbohydrate and fat add up to about 805 kcal."
 ultimate-scampi-and-chips,"The page prints 817 kcal, but its own protein, carbohydrate and fat add up to about 1013 kcal."
 grilled-chicken-kebab,"The page prints 688 kcal, but its own protein, carbohydrate and fat add up to about 1008 kcal."
@@ -31,14 +25,13 @@ tomato-penne-kids,"The page prints 57 kcal, but its own protein, carbohydrate an
 fish-fingers-kids,"The page prints 335 kcal, but its own protein, carbohydrate and fat add up to about 449 kcal."
 black-cherry-pie-festive-menu,"The page prints 411 kcal, but its own protein, carbohydrate and fat add up to about 935 kcal."
 apple-cinnamon-waffle-festive-menu,"The page prints 336 kcal, but its own protein, carbohydrate and fat add up to about 638 kcal."
-tomato-and-red-pepper-soup-festive-kids-menu,"The page prints 53.3 g of salt for one portion of soup, which cannot be right."
-gluten-free-tomato-and-red-pepper-soup-festive-kids-menu,"The page prints 52.9 g of salt for one portion of soup, which cannot be right."
 cauliflower-cheese,"The page prints 178.8 g of protein in a 1093 kcal portion of cauliflower cheese (65% of its energy, with only 33.4 g of fat), against 15.5 g of protein for its Mac 'n' Cheese side: not credible. Held back as a judgement call."
 gluten-free-bread-and-butter,"The page prints 0.1 g carbohydrate, 0.1 g protein and 15.8 g fat (the numbers of the butter alone, nothing of a gluten free bread) and no allergens, for a dish named Bread & Butter: the record looks unfinished, so its numbers and allergens are not published. Held back as a judgement call (independent re-read 2026-10-08)."
-grilled-seabass-fillet,"The page prints 12.1 g protein, 91.7 g carbohydrate and 46.3 g sugars for a fish fillet dish (a fillet alone has more protein than that) and its description says buttered new potatoes but no milk is marked: the record does not fit the dish. Held back as a judgement call (independent re-read 2026-10-08)."
+grilled-seabass-fillet,"The page prints 12.2 g protein, 91.8 g carbohydrate and 46.4 g sugars for a fish fillet dish (a fillet alone has more protein than that) and its description says buttered new potatoes but no milk is marked: the record does not fit the dish. Held back as a judgement call (independent re-read 2026-10-08)."
 grilled-seabass-fillet-add-on,"The page prints 3.1 g protein, 62.6 g carbohydrate and 41.6 g sugars for a seabass fillet add-on: the figures cannot be a fish fillet. Held back as a judgement call (independent re-read 2026-10-08)."
 baked-seabass-fillet-festive-menu,"The page prints 12.5 g protein, 112.9 g carbohydrate and 63.1 g sugars for a seabass dish, like the two other seabass rows (a fillet alone has more protein than that): the record does not fit the dish. Held back as a judgement call (independent re-read 2026-10-08)."
 duck-bon-bons,Allergen row contradicts the dish ingredients: the description names a smoky mayo but the page marks no egg. Held back (independent re-read 2026-10-08).
 roast-turkey-festive-menu,Allergen row contradicts the dish description: it names a buttery roast gravy but the page marks no milk. Held back (independent re-read 2026-10-08).
 roast-turkey-festive-kids-menu,Allergen row contradicts the dish description: it names a buttery roast gravy but the page marks no milk. Held back (independent re-read 2026-10-08).
+deep-filled-viennese-mince-pie-and-coffee-festive-menu,"The page prints 0 for every figure (energy, protein, carbohydrate, sugars, fat, saturates and salt) for a deep-filled mince pie served with a coffee (on 2026-10-08 it printed 351 kcal): the record looks unfinished, so nothing is published. Held back as a judgement call (re-read 2026-11-17)."
 beef-meatballs,"The page lists all 14 allergens for this beef meatball, tomato sauce and garlic ciabatta dish and prints 3.7 g of protein: the record looks unfinished. Held back as a judgement call."

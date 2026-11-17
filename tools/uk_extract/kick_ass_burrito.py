@@ -125,12 +125,12 @@ NOTE = ("A delivery-only brand cooked in Big Table Group restaurant kitchens and
         "printed on the menu page; sauces, extra fillings and sides are listed on their own, so add the parts you order.")
 
 ALLERGEN_TITLE = ("Kick Ass Burrito Dietary Information (allergens) on its online Kick Ass Burrito and Drinks menus "
-                  "(Ten Kites page generated 2026-10-11)")
+                  "(Ten Kites page generated 2026-11-17)")
 
 if __name__ == "__main__":
     sys.exit(t.run(
         chain_id="kick-ass-burrito", name="Kick Ass Burrito", cuisine="Mexican", aliases=["kick ass burrito", "kickass burrito"],
         url=URL,
-        source_title="Kick Ass Burrito Nutrition (per portion) menus: Kick Ass Burrito and Drinks (page generated 2026-10-11)",
+        source_title="Kick Ass Burrito Nutrition (per portion) menus: Kick Ass Burrito and Drinks (page generated 2026-11-17)",
         tabs=TABS, classify=classify, category_order=CATEGORY_ORDER, expected_rows=EXPECTED, note=NOTE, holdback=HOLDBACK,
         allergen_title=ALLERGEN_TITLE))

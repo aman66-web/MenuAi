@@ -1,5 +1,5 @@
 id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
-apple-crumble,Apple Crumble,Shakes,22 oz,347,27,34,10,,,,,,,,,,,,,true,false,,,"Ingredients as printed: Salted Caramel protein, apples, cinnamon, oats, almond milk; listed under the menu page's 'Limited Edition' heading"
+gingerbread,Gingerbread,Shakes,22 oz,379,23,42,13,,,,,,,,,,,,,true,false,,,"Ingredients as printed: Vanilla protein, Gingerbread syrup, Banana, Gingerbread biscuit, Almond milk; listed under the menu page's 'Limited Edition' heading"
 banana-bread,Banana Bread,Shakes,22 oz,393,23,55,7.9,,,,,,,,,,,,,false,false,,,"Ingredients as printed: Vanilla Protein, oat milk, banana, oats, date syrup, cinnamon"
 berry-blast,Berry Blast,Shakes,22 oz,176,22,11,4.6,,,,,,,,,,,,,false,false,,,"Ingredients as printed: Vanilla protein, almond milk, mixed berries"
 blueberry-almond,Blueberry Almond,Shakes,22 oz,294,26,11,15,,,,,,,,,,,,,false,false,,,"Ingredients as printed: Vanilla protein, almond milk, blueberries, almond butter"

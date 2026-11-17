@@ -7,10 +7,11 @@ complete allergens).
 DIR holds the four PDFs under the names the chain's own page links (one download each, robots.txt of jwlees.co.uk: `Disallow:` empty):
     https://www.jwlees.co.uk/pubs-main-spring-26  (page title "Pubs Menus - Autumn 26", heading "Autumn 2026 Allergen and Calorie Menu";
     buttons "Main Menu", "Pub Lunch", "Cosy Menu", "Children's Menu")
-    Pubs-main-menu-AKs-7-10-26.pdf      https://www.jwlees.co.uk/wp-content/uploads/2026/10/Pubs-main-menu-AKs-7-10-26.pdf   (7 pages, created 2026-10-07)
-    Pub-Lunch-AKs-7-10-26.pdf           https://www.jwlees.co.uk/wp-content/uploads/2026/10/Pub-Lunch-AKs-7-10-26.pdf        (2 pages, served 2026-10-07)
-    Pubs-Cosy-menu-AKs-110926-b.pdf     https://www.jwlees.co.uk/wp-content/uploads/2026/09/Pubs-Cosy-menu-AKs-110926-b.pdf  (2 pages, created 2026-09-11)
-    Pubs-Childrens-AKs-Autumn-26.pdf    https://www.jwlees.co.uk/wp-content/uploads/2026/09/Pubs-Childrens-AKs-Autumn-26.pdf (2 pages, created 2026-09-15)
+    Pubs_Main_Menu_As__Ks_021126.pdf    https://www.jwlees.co.uk/wp-content/uploads/2026/11/Pubs_Main_Menu_As__Ks_021126.pdf  (7 pages, created 2026-11-02)
+    Pubs_Lunch_Menu_As__ks_021126.pdf   https://www.jwlees.co.uk/wp-content/uploads/2026/11/Pubs_Lunch_Menu_As__ks_021126.pdf (2 pages, created 2026-11-02)
+    Pubs_Cosy_Menu_AKs_281026.pdf       https://www.jwlees.co.uk/wp-content/uploads/2026/10/Pubs_Cosy_Menu_AKs_281026.pdf     (2 pages, file dated 281026)
+    Pubs-Childrens-AKs-Autumn-26.pdf    https://www.jwlees.co.uk/wp-content/uploads/2026/09/Pubs-Childrens-AKs-Autumn-26.pdf  (2 pages, created 2026-09-15)
+    (Until 17 Nov 2026 the page linked Pubs-main-menu-AKs-7-10-26.pdf, Pub-Lunch-AKs-7-10-26.pdf and Pubs-Cosy-menu-AKs-110926-b.pdf.)
 Needs `pdftotext` (poppler). The PDFs are read as blocks of text lines: see jw_lees_pdf.py.
 
 The guides print ONE energy figure per dish ("Energy: 175 kcal") and, below it, "YES:" (contains) and "MAY CONTAIN:" allergen lists. No
@@ -21,13 +22,17 @@ from the tables (a dish added, removed, renamed or moved, a block with no or two
 publishes a new menu (the menus change every season, with new file names).
 
 What is published, what is not (each exclusion is written down here and counted in the run's output):
-- NOT listed: "Soup of the day" on the Main menu (the PDF prints "Energy: Energy not supplied" and "ALLERGENS: See server for details").
+- NOT listed: "Soup of the day" and the Sunday "Chefs roast of the day" on the Main menu (no energy printed, allergens "See server for
+  allergen details").
 - Options printed as "WITH ..." / "With children's ..." / "On White bread" carry their OWN figure and no price or total: each is an item of its
   own named "<option> (with <dish>)" or "(side option)" (the PDF does not say whether the dish's figure already includes it, so nothing is added).
 - The same dish printed on two menus (Chicken Caesar salad on Pub Lunch and Cosy; the apple crumble and the three scoops of ice cream on Main
   and Cosy) with identical energy and allergens is listed once, under the first menu it appears on (the script stops if the two prints differ).
 - HELD BACK (listed in items.csv and holdback.csv, never published): both portions of John Willies beer battered fish (the guide prints the same
   1316 kcal for "small" and "large"), and Cosy "Two scoops of ice cream" (44 kcal, while the same page prints 206 to 233 kcal for ONE scoop).
+  Since the guides of 2 Nov 2026: a dish printed word for word on two menus with a different energy (Chicken Caesar salad: Pub Lunch 501,
+  Cosy 662; Plant based sausage & mash: Main 688, Cosy 894) is held back, neither figure chosen (`conflict` in the tables); the Main menu's
+  "Cranberry & nut roast" marks no nut of any kind, so it is held back like the aioli below.
   Held back after the independent re-read of 8 Oct 2026 because the allergen row contradicts the dish name (never corrected): the baked apple
   crumble "with hot custard or pouring cream" (no milk marked), the cheese & red onion chutney and tuna mayonnaise sandwiches (no gluten and no
   NGCI label), and the whitebait with lemon & dill aioli (no egg, no VG label).
@@ -59,18 +64,18 @@ from common import allergen_words, sha256_file, slug, write_chain_folder  # noqa
 
 CHAIN_ID = "jw-lees"
 SOURCE_URL = "https://www.jwlees.co.uk/pubs-main-spring-26"
-SOURCE_TITLE = ("JW Lees Pubs Menus Autumn 2026, allergen and calorie guides (PDFs: Main and Pub Lunch 7 Oct 2026, Cosy 11 Sep 2026, "
+SOURCE_TITLE = ("JW Lees Pubs Menus Autumn 2026, allergen and calorie guides (PDFs: Main and Pub Lunch 2 Nov 2026, Cosy 28 Oct 2026, "
                 "Children's 15 Sep 2026)")
 ALIASES = ["jw lees", "j w lees", "j.w. lees", "jw lees pubs", "j w lees pubs"]
 GUIDE_TITLE = "JW Lees Pubs Menus Autumn 2026: allergen and calorie guides (Main, Pub Lunch, Cosy and Children's menus)"
 MAY_CONTAIN_PUBLISHED = True  # every menu prints "MAY CONTAIN:" lists; the Main legend: "MAY CONTAIN = possible cross-contact"
 NOTE = ("Calories only: one figure per dish, from JW Lees' Autumn 2026 pub menu guides; protein, carbs and fat are not published. Items shown "
         "as options (with ..., bread) carry their own figure. A dish with no allergen line there has none marked. The Main menu's soup of the "
-        "day has no figure and is not listed.")
+        "day and chef's roast of the day have no figure and are not listed.")
 FILES = {
-    "main": "Pubs-main-menu-AKs-7-10-26.pdf",
-    "lunch": "Pub-Lunch-AKs-7-10-26.pdf",
-    "cosy": "Pubs-Cosy-menu-AKs-110926-b.pdf",
+    "main": "Pubs_Main_Menu_As__Ks_021126.pdf",
+    "lunch": "Pubs_Lunch_Menu_As__ks_021126.pdf",
+    "cosy": "Pubs_Cosy_Menu_AKs_281026.pdf",
     "kids": "Pubs-Childrens-AKs-Autumn-26.pdf",
 }
 MENU_LABEL = {"main": "Main menu", "lunch": "Pub lunch", "cosy": "Cosy menu", "kids": "Children's menu"}
@@ -84,13 +89,17 @@ MEAT_NOT_STATED = {"Chilli cheese nachos", "Hot roast bap of the day", "Black pu
 
 HELD_FISH = ("The guide prints the same energy (1316 kcal) for the small and the large portion of John Willies beer battered fish, so at "
              "least one of the two figures is wrong: not published")
-HELD_CRUMBLE = ("Allergen row contradicts the dish name: the dish is served with hot custard or pouring cream, but the guide marks no milk for it "
-                "(it marks milk for the sponge pudding with custard and for the sticky toffee pudding with custard): not published")
+HELD_CRUMBLE = ("Allergen row contradicts the dish name: the dish is named 'with hot custard or pouring cream', but the guide marks no milk for it "
+                "(it marks milk for the sponge pudding with custard and for the sticky toffee pudding with custard). Since 2 Nov 2026 the Main menu "
+                "prints custard and pouring cream as separate options with their own figure and milk (listed on their own), but the crumble's name "
+                "still says it is served with them: not published")
 HELD_SANDWICH = ("Allergen row contradicts the dish name: a sandwich with no cereal (gluten) marked and no NGCI label. The guide lists 'On White bread' "
                  "and 'On Brown bread' as separate rows (Gluten, Soya) but does not say this row leaves the bread out: not published")
 HELD_AIOLI = ("Allergen row contradicts the dish name: aioli is an egg-yolk sauce, but the guide marks no egg (not even 'may contain') and gives the "
               "dish no VG/vegan label (its vegan-labelled mayonnaise dishes carry no egg, so an egg-free aioli is possible but not stated): "
               "not published")
+HELD_NUT_ROAST = ("Allergen row contradicts the dish name: a 'Cranberry & nut roast' with no tree nuts or peanuts marked, not even as 'may "
+                  "contain' (it marks only sulphur dioxide, and gluten as may contain): not published")
 HELD_SCOOPS = ("The Cosy menu prints 44 kcal for 'Two scoops of ice cream' but 206 to 233 kcal for ONE scoop of each flavour on the same page: "
                "the guide contradicts itself, not published")
 
@@ -119,11 +128,10 @@ class Table:
 
 def main_table() -> list:
     T = Table()
-    T.t("PUBS MAIN MENU | ALLERGENS & ENERGY")
-    T.t("Autumn 2026 • Compact reference menu")
-    T.t("YES = contains allergen | MAY CONTAIN = possible cross-contact")
-    T.h("STARTERS", "Main menu: Starters")
-    T.d("Chilli cheese nachos Chilli con carne", "Chilli cheese nachos", note="Printed 175 kcal: looks low for the dish, copied as printed; the same figure is printed for the garlic prawns add-on")
+    T.t("Pubs Main Menu Autumn 26")
+    T.t("Dish descriptions, energy and allergen declarations")
+    T.h("Starters", "Main menu: Starters")
+    T.d("Chilli Cheese Nachos, freshly fried nachos", "Chilli cheese nachos", note="Printed 175 kcal: looks low for the dish, copied as printed; the same figure is printed for the garlic prawns add-on")
     T.d("Warm pork pie, pickles", "Warm pork pie, pickles and apple & ale chutney")
     T.d("Crispy fried whitebait", "Crispy fried whitebait, lemon & dill aioli", hold=HELD_AIOLI)
     T.d("Sticky pork belly bites", "Sticky pork belly bites with stout BBQ glaze")
@@ -131,49 +139,52 @@ def main_table() -> list:
     T.d("Button mushrooms in a creamy Stilton sauce", "Button mushrooms in a creamy Stilton sauce")
     T.d("Salt & pepper chicken fries", "Salt & pepper chicken fries")
     T.d("Spiced cauliflower fritters", "Spiced cauliflower fritters")
-    T.d("Soup of the day", "Soup of the day", exclude="the guide prints 'Energy not supplied' and 'See server for allergens'")
+    T.d("Soup of the day", "Soup of the day", exclude="the guide prints no energy and 'See server for allergen details'")
     T.d("Honey baked camembert", "Honey baked camembert")
     T.d("Warm breads, houmous, beetroot relish", "Warm breads, houmous, beetroot relish, gooey cheese dipping sauce, pressed rapeseed and balsamic glaze")
-    T.h("PUB CLASSICS", "Main menu: Pub classics")
+    T.h("Pub classics", "Main menu: Pub classics")
     T.d("Our legendary cheese & onion pie", "Cheese & onion pie")
-    T.d("WITH Baked Beans", "Baked beans (with cheese & onion pie)", note="Option printed under the pie with its own figure")
+    T.d("With Baked Beans", "Baked beans (with cheese & onion pie)", note="Option printed under the pie with its own figure")
     T.d("With Garden peas", "Garden peas (with cheese & onion pie)", note="Option printed under the pie with its own figure")
-    T.d("WITH Mushy peas", "Mushy peas (with cheese & onion pie)", note="Option printed under the pie with its own figure")
-    T.d("WITH Gravy", "Gravy (with cheese & onion pie)", note="Option printed under the pie with its own figure")
+    T.d("With Mushy peas", "Mushy peas (with cheese & onion pie)", note="Option printed under the pie with its own figure")
+    T.d("With Gravy", "Gravy (with cheese & onion pie)", note="Option printed under the pie with its own figure")
     T.d("With Cheese and chive sauce", "Cheese & chive sauce (with cheese & onion pie)", note="Option printed under the pie with its own figure")
     T.d("Slow braised steak & JW Lees ale pie", "Slow braised steak & JW Lees ale pie")
     T.d("Fish pie with cheesy mash topping", "Fish pie with cheesy mash topping")
-    T.d("John Willies beer battered Fish, thick cut chips and mushy peas * (small)", "John Willies beer battered fish (small)", serving="Small", hold=HELD_FISH)
-    T.d("John Willies beer battered Fish, thick cut chips and mushy peas * (large)", "John Willies beer battered fish (large)", serving="Large", hold=HELD_FISH)
-    T.d("Northern Upgrade", "Northern Upgrade")
+    T.d("John Willies beer battered fish, thick cut chips and mushy peas * (small)", "John Willies beer battered fish (small)", serving="Small", hold=HELD_FISH)
+    T.d("John Willies beer battered fish, thick cut chips and mushy peas * (large)", "John Willies beer battered fish (large)", serving="Large", hold=HELD_FISH)
+    T.d("Northern Upgrade", "Northern Upgrade", note="Printed 162 kcal (the guide of 7 Oct 2026 printed 492): copied as printed")
     T.d("Chicken tikka curry", "Chicken tikka curry")
     T.d("Grilled fillet of seabass & garlic prawns", "Grilled fillet of seabass & garlic prawns")
     T.d("Philly cheesesteak sandwich", "Philly cheesesteak sandwich")
     T.d("Spiced Moroccan sweet potato", "Spiced Moroccan sweet potato & chick pea stew")
-    T.d("Nourish bowl", "Nourish bowl")
-    T.h("COMFORT FOOD", "Main menu: Comfort food")
+    T.h("Comfort food", "Main menu: Comfort food")
     T.d("Farmhouse sausage rings", "Farmhouse sausage rings")
-    T.d("Vegan sausage & mash", "Vegan sausage & mash")
-    T.d("Slow braised minted lamb Henry", "Slow braised minted lamb Henry")
+    T.d("Plant based sausage & mash", "Plant based sausage & mash")
+    T.d("Minted lamb Henry", "Minted lamb Henry")
     T.d("Honey glazed braised ham hock", "Honey glazed braised ham hock")
     T.d("Half roast chicken dinner", "Half roast chicken dinner")
-    T.h("BURGERS", "Main menu: Burgers")
-    T.d("Brewery Tower burger", "Brewery Tower burger")
-    T.d("Buttermilk chicken burger", "Buttermilk chicken burger")
-    T.d("Garden burger", "Garden burger")
-    T.h("GRILLS", "Main menu: Grills")
+    T.h("Nourish bowls", "Main menu: Nourish bowls")
+    T.d("Nourish bowl of rice, edamame beans", "Nourish bowl", expect="honey & soy dressing (V/NGCI)")
+    T.d("Nourish bowl of rice, edamame beans", "Nourish bowl with griddled halloumi", expect="dressing with griddled halloumi (V/NGCI)")
+    T.d("Nourish bowl of rice, edamame beans", "Nourish bowl with grilled chicken breast", expect="dressing with grilled chicken breast (NGCI)")
+    T.h("Grills", "Main menu: Grills")
     T.d("Brewers mixed grill", "Brewers mixed grill")
     T.d("Grilled 10oz half moon gammon steak", "Grilled 10oz half moon gammon steak")
-    T.d("WITH Fried Eggs", "Fried eggs (with gammon steak)", note="Option printed under the gammon steak with its own figure; 4 kcal looks low for fried eggs, copied as printed")
-    T.d("WITH Grilled pineapple", "Grilled pineapple (with gammon steak)", note="Option printed under the gammon steak with its own figure")
+    T.d("With Fried Eggs", "Fried eggs (with gammon steak)", note="Option printed under the gammon steak with its own figure (the guide of 7 Oct 2026 printed 4 kcal)")
+    T.d("With Grilled pineapple", "Grilled pineapple (with gammon steak)", note="Option printed under the gammon steak with its own figure")
     T.d("Grilled 8oz Black Angus Sirloin steak", "Grilled 8oz Black Angus Sirloin steak")
     T.d("Peppercorn sauce", "Peppercorn sauce")
     T.d("Surf your turf add garlic prawns", "Surf your turf add garlic prawns", note="Same printed figure (175) as the Chilli cheese nachos")
     T.d("Mushroom & Stilton cream sauce", "Mushroom & Stilton cream sauce")
-    T.h("SIDES", "Main menu: Sides")
+    T.h("Burgers", "Main menu: Burgers")
+    T.d("Brewery Tower burger", "Brewery Tower burger")
+    T.d("Buttermilk chicken burger", "Buttermilk chicken burger")
+    T.d("Garden burger", "Garden burger")
+    T.h("Sides", "Main menu: Sides")
     T.d("Ale battered onion rings", "Ale battered onion rings with BBQ dipping sauce")
     T.d("Buttered seasonal greens", "Buttered seasonal greens")
-    T.d("Honey roasted root vegetables", "Honey roasted root vegetables")
+    T.d("Honey roast root vegetables", "Honey roast root vegetables")
     T.d("Cheesy Garlic & Herb Ciabatta", "Cheesy Garlic & Herb Ciabatta")
     T.d("Garden salad with classic vinaigrette", "Garden salad with classic vinaigrette")
     T.d("Our famous Messy chips", "Messy chips")
@@ -183,10 +194,12 @@ def main_table() -> list:
     T.d("Pigs in Blankets", "Pigs in blankets")
     T.d("Ruffled roasties", "Ruffled roasties")
     T.d("Sage & onion stuffing", "Sage & onion stuffing")
-    T.h("PUDDINGS", "Main menu: Puddings")
+    T.h("Puddings", "Main menu: Puddings")
+    T.d("Baked apple crumble", "Baked apple crumble with hot custard or pouring cream", hold=HELD_CRUMBLE)
+    T.d("With Custard", "Custard (with baked apple crumble)", note="Option printed under the crumble with its own figure")
+    T.d("With Pouring cream", "Pouring cream (with baked apple crumble)", note="Option printed under the crumble with its own figure")
     T.d("Salted caramel & dark chocolate tart with clotted", "Salted caramel & dark chocolate tart with clotted cream ice cream")
     T.d("Vegan Salted caramel & dark chocolate tart", "Vegan salted caramel & dark chocolate tart with dairy free vanilla ice cream")
-    T.d("Baked apple crumble", "Baked apple crumble with hot custard or pouring cream", hold=HELD_CRUMBLE)
     T.d("Warm chocolate brownie", "Warm chocolate brownie, dark chocolate sauce and vanilla ice cream")
     T.d("Burnt Basque cheesecake, mulled berries", "Burnt Basque cheesecake, mulled berries and cream")
     T.d("Ginger & black pepper sponge pudding", "Ginger & black pepper sponge pudding with custard and raspberry sauce")
@@ -194,30 +207,35 @@ def main_table() -> list:
     T.d("Scoop of chocolate ice cream", "Scoop of chocolate ice cream")
     T.d("Scoop of vanilla Ice cream", "Scoop of vanilla ice cream")
     T.d("Scoop of strawberry ice cream", "Scoop of strawberry ice cream")
-    T.h("ROOM FOR A LITTLE ONE", "Main menu: Room for a little one")
+    T.h("Room for a little one", "Main menu: Room for a little one")
     T.d("RFALO Burnt Basque cheesecake", "Burnt Basque cheesecake (Room for a little one)")
     T.d("RFALO Chocolate brownie", "Chocolate brownie with chocolate sauce (Room for a little one)")
     T.d("RFALO Salted caramel & chocolate tart", "Salted caramel & chocolate tart with pouring cream (Room for a little one)")
+    T.h("Sunday roast", "Main menu: Sunday roast")
+    T.d("Roast topside of beef", "Roast topside of beef")
+    T.d("Chefs roast of the day", "Chefs roast of the day", exclude="the guide prints no energy and 'See server for allergen details'")
+    T.d("Cranberry & nut roast", "Cranberry & nut roast with vegan gravy", hold=HELD_NUT_ROAST)
+    T.d("Go Large Beef", "Go Large Beef with extra meat and pigs in blankets")
     return T.rows
 
 
 def lunch_table() -> list:
     T = Table()
-    T.t("Pubs Lunch Menu | Allergen & Calorie Guide")
-    T.t("Energy is displayed beside each dish, with YES and MAY CONTAIN allergens immediately below.")
-    T.h("MAINS", "Pub lunch: Mains")
+    T.t("Pubs Lunch Menu")
+    T.t("Dish descriptions, energy and allergen declarations")
+    T.h("Mains", "Pub lunch: Mains")
     T.d("Chicken New Yorker", "Chicken New Yorker")
     T.d("Honey baked ham, fried eggs", "Honey baked ham, fried eggs, thick cut chips & garden peas")
     T.d("Smoked haddock, mozzarella", "Smoked haddock, mozzarella & spring onion fishcakes")
     T.d("Chicken Caesar salad", "Chicken Caesar salad")
     T.d("Simple cheeseburger", "Simple cheeseburger")
     T.d("Spicy bean burger", "Spicy bean burger")
-    T.h("HOT SANDWICHES", "Pub lunch: Hot sandwiches")
+    T.h("Hot sandwiches", "Pub lunch: Hot sandwiches")
     T.d("Ale battered fish goujon bap", "Ale battered fish goujon bap")
     T.d("Ham, three cheese & apple chutney toastie", "Ham, three cheese & apple chutney toastie")
     T.d("Hot chicken tika wrap", "Hot chicken tika wrap")
     T.d("Hot roast bap of the day", "Hot roast bap of the day", note="The roast changes daily ('See server for todays roast')")
-    T.h("SANDWICHES", "Pub lunch: Sandwiches")
+    T.h("Sandwiches", "Pub lunch: Sandwiches")
     T.d("Cheese & red onion chutney sandwich", "Cheese & red onion chutney sandwich", hold=HELD_SANDWICH)
     T.d("Honey baked ham & mustard", "Honey baked ham & mustard sandwich", note="Printed 'Honey baked ham & mustard' under SANDWICHES; 'sandwich' added from the section title")
     T.d("Tuna Mayonnaise", "Tuna mayonnaise sandwich", note="Printed 'Tuna Mayonnaise' under SANDWICHES; 'sandwich' added from the section title", hold=HELD_SANDWICH)
@@ -240,8 +258,8 @@ def cosy_table() -> list:
     T.d("Grilled fillet of seabass, saute potatoes", "Grilled fillet of seabass, saute potatoes and buttered greens")
     T.d("Grilled 6oz sirloin steak", "Grilled 6oz sirloin steak, peppercorn sauce, onion rings and skinny fries")
     T.d("Wexford chicken", "Wexford chicken")
-    T.d("Plant based sausage & mash", "Plant based sausage & mash")
-    T.d("Chicken Caesar salad", "Chicken Caesar salad", dup="Chicken Caesar salad")
+    T.d("Plant based sausage & mash", "Plant based sausage & mash", dup="Plant based sausage & mash", conflict=True)
+    T.d("Chicken Caesar salad", "Chicken Caesar salad", dup="Chicken Caesar salad", conflict=True)
     T.h("PUDDINGS", "Cosy menu: Puddings")
     T.d("Baked apple crumble", "Baked apple crumble with hot custard or pouring cream", dup="Baked apple crumble with hot custard or pouring cream")
     T.d("Sticky toffee pudding", "Sticky toffee pudding with custard and toffee sauce")
@@ -285,7 +303,7 @@ def kids_table() -> list:
 
 
 TABLES = [("main", main_table), ("lunch", lunch_table), ("cosy", cosy_table), ("kids", kids_table)]
-EXPECTED = {"main": 68, "lunch": 15, "cosy": 18, "kids": 19}  # "D" entries per PDF (the dishes the PDF prints)
+EXPECTED = {"main": 76, "lunch": 15, "cosy": 18, "kids": 19}  # "D" entries per PDF (the dishes the PDF prints)
 
 
 def tags_for(printed: str) -> list:
@@ -326,11 +344,27 @@ def build(folder: Path) -> tuple:
             contains, cereals, nuts = allergen_words(p["yes"], f"{where} YES")
             may = allergen_words(p["may"], f"{where} MAY CONTAIN")[0]
             allergens = dict(contains=contains, may_contain=may, cereals=cereals, nuts=nuts)
+            if opts.get("expect") and opts["expect"] not in p["printed"]:
+                raise SystemExit(f"{where}: expected the printed text to contain {opts['expect']!r}, it reads {p['printed']!r}: update the table")
             if opts.get("dup"):
                 first = by_name.get(opts["dup"])
                 if first is None or first["name"] != name:
                     raise SystemExit(f"{where}: marked as a repeat of {opts['dup']!r} but that dish was not listed earlier")
-                if first["calories"] != p["kcal"] or first["allergens"] != allergens:
+                differs = first["calories"] != p["kcal"] or first["allergens"] != allergens
+                if opts.get("conflict"):
+                    # Printed word for word on two menus with different figures: the guide contradicts itself, neither print is chosen.
+                    if not differs:
+                        raise SystemExit(f"{where}: marked as a conflicting repeat but the two prints now agree: update the table")
+                    first_menu = first["category"].split(":")[0]
+                    first_menu += "" if first_menu.endswith("menu") else " menu"
+                    reason = (f"The {first_menu} prints {first['calories']} kcal and the {MENU_LABEL[key]} {p['kcal']} kcal for the same dish "
+                              f"(same printed description)" + ("" if first["allergens"] == allergens else ", with different allergens")
+                              + ": the guide contradicts itself, neither print is chosen, not published")
+                    first["hold"] = "; ".join(x for x in (first["hold"], reason) if x)
+                    first["notes"] += f"; the {MENU_LABEL[key]} prints {p['kcal']} kcal for the same dish"
+                    report.append(f"CONFLICTING REPEAT not listed again: {where} ({first['calories']} vs {p['kcal']} kcal)")
+                    continue
+                if differs:
                     raise SystemExit(f"{where}: printed twice with different energy or allergens ({first['calories']} vs {p['kcal']}): decide and update the table")
                 first["notes"] += f"; also printed on the {MENU_LABEL[key]} with the same energy and allergens"
                 report.append(f"REPEAT not listed again: {where}")

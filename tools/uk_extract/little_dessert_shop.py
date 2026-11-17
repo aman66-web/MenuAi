@@ -50,25 +50,26 @@ USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
 ALIASES = ["little dessert shop", "little dessert shop uk", "the little dessert shop"]
 # (store id, slug, short place name for note.txt, cards on the page, cards with a calorie figure): the numbers are checked on every run.
 # Reading (/menu/106/reading) was read too but not used: its page is an older, smaller menu that prints a calorie figure on only 3 dishes.
+# Doncaster (/menu/83/doncaster) was read until 2026-11-17, when its page showed no menu ("Sorry we are not taking online orders right now")
+# and the site's store list no longer named it, so it is no longer read. The card counts were updated on 2026-11-17 (menus 3-4 cards shorter).
 STORES = [
-    (1, "city-centre-wolverhampton", "Wolverhampton", 229, 132),
-    (10, "bullring-grand-central-birmingham", "Birmingham Bullring", 218, 134),
-    (8, "altrincham-greater-manchester", "Altrincham", 218, 132),
-    (35, "chorlton-manchester", "Chorlton", 215, 132),
-    (24, "balham-south-london", "Balham", 215, 132),
-    (65, "battersea-south-west-london", "Battersea", 221, 132),
-    (36, "southall-west-london", "Southall", 215, 132),
-    (93, "croydon", "Croydon", 215, 132),
-    (40, "glasgow-east-scotland", "Glasgow East", 220, 132),
-    (34, "cardiff-wales", "Cardiff", 219, 132),
-    (13, "isle-of-wight-sandown", "Sandown", 213, 132),
-    (59, "exeter-devon", "Exeter", 219, 132),
-    (84, "nottingham", "Nottingham", 216, 134),
-    (64, "leicester-central-leicestershire", "Leicester", 217, 133),
-    (105, "stockport", "Stockport", 225, 133),
-    (94, "wrexham", "Wrexham", 223, 132),
-    (83, "doncaster", "Doncaster", 216, 133),
-    (92, "huddersfield", "Huddersfield", 214, 133),
+    (1, "city-centre-wolverhampton", "Wolverhampton", 226, 132),
+    (10, "bullring-grand-central-birmingham", "Birmingham Bullring", 214, 134),
+    (8, "altrincham-greater-manchester", "Altrincham", 214, 132),
+    (35, "chorlton-manchester", "Chorlton", 211, 132),
+    (24, "balham-south-london", "Balham", 211, 132),
+    (65, "battersea-south-west-london", "Battersea", 217, 132),
+    (36, "southall-west-london", "Southall", 211, 132),
+    (93, "croydon", "Croydon", 211, 132),
+    (40, "glasgow-east-scotland", "Glasgow East", 216, 132),
+    (34, "cardiff-wales", "Cardiff", 215, 132),
+    (13, "isle-of-wight-sandown", "Sandown", 210, 132),
+    (59, "exeter-devon", "Exeter", 215, 132),
+    (84, "nottingham", "Nottingham", 212, 134),
+    (64, "leicester-central-leicestershire", "Leicester", 213, 133),
+    (105, "stockport", "Stockport", 221, 133),
+    (94, "wrexham", "Wrexham", 219, 132),
+    (92, "huddersfield", "Huddersfield", 210, 133),
 ]
 EXPECTED_ALLERGEN_ROWS = 207
 EXPECTED_ITEMS = 104

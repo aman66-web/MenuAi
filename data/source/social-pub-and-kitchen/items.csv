@@ -23,11 +23,11 @@ chicken-breast,Chicken Breast,Options & add-ons,,184,39.0,1.9,2.3,0.6,,1.8,0.6,,
 crispy-coated-chicken,Crispy Coated Chicken,Options & add-ons,,275,16.5,15.5,15.9,5.0,,1.4,0.2,,1147,,,,,,,false,false,,,On: main menu
 peas,Peas,Options & add-ons,,76,5.7,8.8,0.9,0.2,,0.0,2.5,,321,,,,,,,false,false,,,On: main menu
 mushy-peas,Mushy Peas,Options & add-ons,,88,5.4,13.8,0.4,0.1,,0.6,1.6,,366,,,,,,,false,false,,,On: main menu
-dirty-dough-ball-dipper-v,Dirty Dough Ball Dipper (V),Nibbles,,602,21.0,66.8,27.8,10.5,,3.4,15.7,,2535,,,,,,vegetarian,false,false,,,On: main menu
+dirty-dough-ball-dipper-v,Dirty Dough Ball Dipper (V),Nibbles,,601,20.8,66.8,27.8,10.4,,3.4,15.5,,2530,,,,,,vegetarian,false,false,,,On: main menu
 crispy-halloumi-fries,Crispy Halloumi Fries,Nibbles,,541,18.7,38.1,34.5,16.4,,3.8,18.9,,2255,,,,,,,false,false,,,On: main menu
 crispy-coated-chicken-tenders,Crispy Coated Chicken Tenders,Nibbles,,401,24.6,25.1,21.7,9.4,,1.7,0.0,,1674,,,,,,,false,false,,,On: main menu
 frickles-and-frilles-vg,Frickles & Frilles (VG),Nibbles,,546,2.1,38.5,42.1,7.9,,4.1,9.1,,2274,,,,,,vegetarian,false,false,,,"On: vegan menu, no-gluten containing menu, drinks menu"
-nachos-el-clasico-v,Nachos El Clasico (V),Sharers,,1129,26.3,106.0,65.5,19.2,,4.0,8.7,,4715,,,,,,vegetarian,false,false,,,"On: main menu, bottomless brunch menu"
+nachos-el-clasico-v,Nachos El Clasico (V),Sharers,,1128,26.1,106.0,65.5,19.1,,4.0,8.5,,4710,,,,,,vegetarian,false,false,,,"On: main menu, bottomless brunch menu"
 nachos-el-clasico-vg-m,Nachos El Clasico (VG-M),Sharers,,1341,11.5,122.6,87.6,22.8,,4.5,6.2,,5592,,,,,,,false,false,,,"On: main menu, vegan menu, bottomless brunch menu"
 the-social-sharer,The Social Sharer,Sharers,,3457,105.3,278.9,213.3,51.8,,18.6,58.7,,14418,,,,,,,false,false,,,On: main menu
 five-classic-chicken-wings,Five Classic Chicken Wings,Sharers,,196,23.1,2.2,10.4,3.0,,1.4,0.4,,821,,,,,,,false,false,,,On: main menu
@@ -46,14 +46,14 @@ easy-cheesy-detroit-style-v,Easy Cheesy Detroit Style (V),Pizza,,1870,95.7,236.8
 easy-cheezy-stone-baked-vg-m,Easy Cheezy Stone-Baked (VG-M),Pizza,,792,23.5,122.6,21.5,14.3,,4.3,5.2,,3339,,,,,,,false,true,,,"On: main menu, lunch menu, vegan menu, bottomless brunch menu"
 a-load-of-pepperoni-stone-baked,A Load Of Pepperoni Stone-Baked,Pizza,,1019,49.8,105.4,41.2,19.4,,5.5,6.1,,4279,,,,,,contains_pork,false,true,,,"On: main menu, lunch menu, bottomless brunch menu"
 a-load-of-pepperoni-detroit-style,A Load Of Pepperoni Detroit Style,Pizza,,2087,103.2,237.3,85.3,40.2,,9.4,13.6,,8781,,,,,,contains_pork,false,true,,,On: main menu
-the-mighty-meat-stone-baked,The Mighty Meat Stone-Baked,Pizza,,1180,82.1,110.4,43.1,20.2,,6.5,9.7,,4963,,,,,,contains_pork|contains_beef,false,true,,,"On: main menu, bottomless brunch menu"
-the-mighty-meat-detroit-style,The Mighty Meat Detroit Style,Pizza,,2248,135.4,242.3,87.2,41.0,,10.4,17.2,,9465,,,,,,contains_pork|contains_beef,false,true,,,On: main menu
+the-mighty-meat-stone-baked,The Mighty Meat Stone-Baked,Pizza,,1147,75.5,112.0,41.7,19.2,,6.2,10.3,,4814,,,,,,contains_pork|contains_beef,false,true,,,"On: main menu, bottomless brunch menu"
+the-mighty-meat-detroit-style,The Mighty Meat Detroit Style,Pizza,,2215,128.9,243.9,85.7,40.0,,10.1,17.8,,9316,,,,,,contains_pork|contains_beef,false,true,,,On: main menu
 feta-lly-delicious-stone-baked-v-m,Feta-lly Delicious Stone-Baked (V-M),Pizza,,947,43.2,114.9,33.4,17.7,,5.1,9.5,,3983,,,,,,,false,true,,,"On: main menu, bottomless brunch menu"
 feta-lly-delicious-detroit-style-v,Feta-lly Delicious Detroit Style (V),Pizza,,2015,96.6,246.8,77.5,38.5,,9.0,17.0,,8485,,,,,,vegetarian,false,true,,,On: main menu
 feta-lly-delicious-stone-baked-vg-m,Feta-lly Delicious Stone-Baked (VG-M),Pizza,,937,24.3,132.7,32.4,20.7,,5.3,8.9,,3940,,,,,,,false,true,,,"On: main menu, vegan menu, bottomless brunch menu"
 red-chillies-and-inferno-hot-sauce-vg,Red chillies and Inferno hot sauce (VG),Pizza extras,,66,0.6,6.8,0.3,0.1,,0.5,4.4,,148,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu"
 basil-vg,Basil (VG),Pizza extras,,1,0.1,0.0,0.0,0.0,,0.0,0.0,,2,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu"
-bbq-beef-burnt-ends,BBQ Beef Burnt Ends,Pizza extras,,147,14.7,4.3,7.5,3.5,,0.7,3.4,,613,,,,,,contains_beef,false,false,,,"On: main menu, no-gluten containing menu"
+bbq-beef-burnt-ends,BBQ Beef Burnt Ends,Pizza extras,,113,8.1,5.9,6.1,2.5,,0.4,4.0,,465,,,,,,contains_beef,false,false,,,"On: main menu, no-gluten containing menu"
 crispy-coated-chicken-fries,Crispy Coated Chicken Fries,Pizza extras,,206,12.4,11.6,11.9,3.8,,1.0,0.2,,860,,,,,,,false,false,,,On: main menu
 chorizo-slices,Chorizo Slices,Pizza extras,,96,4.9,0.8,8.1,3.2,,0.9,0.5,,399,,,,,,contains_pork,false,false,,,On: main menu
 grated-cheese-v,Grated Cheese (V),Pizza extras,,60,4.8,0.6,4.2,2.6,,0.3,0.2,,252,,,,,,vegetarian,false,false,,,On: main menu
@@ -82,15 +82,15 @@ garlic-and-herb-vg,Garlic & Herb (VG),Dips,,197,0.2,2.3,20.8,1.4,,0.6,1.8,,812,,
 inferno-hot-sauce-vg,Inferno Hot Sauce (VG),Dips,,32,0.4,6.4,0.2,0.1,,0.5,4.0,,136,,,,,,vegetarian,false,false,,,On: vegan menu
 sweet-chilli-sauce-vg,Sweet Chilli Sauce (VG),Dips,,86,0.2,20.7,0.1,0.0,,1.3,17.8,,364,,,,,,vegetarian,false,false,,,On: vegan menu
 saucy-buffalo-v,Saucy Buffalo (V),Topped fries,,1186,20.6,121.9,66.3,17.0,,4.7,2.5,,4970,,,,,,vegetarian,false,true,,,"On: main menu, no-gluten containing menu"
-sweet-chilli-coated-chicken,Sweet Chilli Coated Chicken,Topped fries,,1433,39.7,156.2,69.7,22.9,,5.7,17.1,,6007,,,,,,,false,true,,,On: main menu
+sweet-chilli-coated-chicken,Sweet Chilli Coated Chicken,Topped fries,,1432,39.6,156.2,69.7,22.9,,5.7,17.0,,6005,,,,,,,false,true,,,On: main menu
 sheesy-vg,Sheesy (VG),Topped fries,,1351,13.1,177.6,62.6,27.6,,5.7,30.1,,5670,,,,,,vegetarian,false,true,,,"On: main menu, vegan menu, no-gluten containing menu"
 spiced-frillie-fries-excluding-chicken-option-see-below,"Spiced Frillie Fries (Excluding Chicken Option, see below)",Topped fries,,872,10.2,96.6,47.3,8.7,,8.7,12.0,,3647,,,,,,,false,false,,,"Printed without the part named in its title (see Options & add-ons), so it is not suggested as a meal. On: main menu"
-fish-and-chips-excluding-pea-option-see-below,"Fish & Chips (Excluding Pea Option, see below)",Classics,,1407,47.0,106.9,86.2,22.2,,5.3,6.2,,5881,,,,,,,false,false,,,"Printed without the part named in its title (see Options & add-ons), so it is not suggested as a meal. On: main menu"
+fish-and-chips-excluding-pea-option-see-below,"Fish & Chips (Excluding Pea Option, see below)",Classics,,1298,41.5,101.4,79.1,20.1,,4.8,6.1,,5427,,,,,,,false,false,,,"Printed without the part named in its title (see Options & add-ons), so it is not suggested as a meal. On: main menu"
 classic-mac-v,Classic Mac (V),Classics,,1011,30.0,88.0,61.3,17.9,,3.9,16.3,,4239,,,,,,vegetarian,false,true,,,On: main menu
-dirty-classic-mac,Dirty Classic Mac,Classics,,1371,64.3,98.7,80.6,27.5,,5.7,24.4,,5747,,,,,,contains_beef,false,true,,,On: main menu
+dirty-classic-mac,Dirty Classic Mac,Classics,,1304,51.2,101.9,77.7,25.5,,5.1,25.6,,5450,,,,,,contains_beef,false,true,,,On: main menu
 classic-smash-melt,Classic Smash Melt,Burgers,,1337,58.0,111.3,72.2,25.6,,4.4,19.6,,5586,,,,,,contains_pork|contains_beef,false,true,,,"On: main menu, lunch menu, bottomless brunch menu"
 the-spicy-beef,The Spicy Beef,Burgers,,1406,56.6,123.4,74.9,26.0,,6.1,20.0,,5872,,,,,,contains_beef,false,true,,,On: main menu
-the-oklahoma-bbq-beef,The Oklahoma BBQ Beef,Burgers,,1538,66.8,103.8,94.0,26.5,,3.7,13.7,,6429,,,,,,contains_beef,false,true,,,"On: main menu, bottomless brunch menu"
+the-oklahoma-bbq-beef,The Oklahoma BBQ Beef,Burgers,,1504,60.2,105.4,92.5,25.5,,3.4,14.3,,6280,,,,,,contains_beef,false,true,,,"On: main menu, bottomless brunch menu"
 chicken-caesar,Chicken Caesar,Burgers,,1439,44.7,136.3,77.0,21.9,,5.2,20.7,,6008,,,,,,,false,true,,,"On: main menu, lunch menu, bottomless brunch menu"
 buffalo-chicken,Buffalo Chicken,Burgers,,1339,39.2,136.5,66.9,17.9,,7.0,19.8,,5599,,,,,,,false,true,,,On: main menu
 bbq-chicken-and-bacon-melt,BBQ Chicken & Bacon Melt,Burgers,,1297,42.7,145.4,57.7,19.7,,5.4,27.9,,5425,,,,,,contains_pork,false,true,,,On: main menu
@@ -98,7 +98,7 @@ classic-veggie-melt-v,Classic Veggie Melt (V),Burgers,,1335,51.8,121.8,66.4,20.6
 classic-vegan-melt-vg,Classic Vegan Melt (VG),Burgers,,1432,48.8,135.1,72.3,27.6,,5.9,19.8,,5994,,,,,,vegetarian,false,true,,,"On: main menu, lunch menu, vegan menu, bottomless brunch menu"
 classic-smash-melt-no-gluten-menu,Classic Smash Melt (no-gluten menu),Burgers,,1320,53.4,105.6,74.4,24.8,,4.3,16.3,,5519,,,,,,contains_pork|contains_beef,false,true,,,On: no-gluten containing menu
 the-spicy-beef-no-gluten-menu,The Spicy Beef (no-gluten menu),Burgers,,1389,52.0,117.7,77.1,25.2,,6.0,16.7,,5805,,,,,,contains_beef,false,true,,,On: no-gluten containing menu
-the-oklahoma-bbq-beef-no-gluten-menu,The Oklahoma BBQ Beef (no-gluten menu),Burgers,,1521,62.2,98.1,96.2,25.7,,3.7,10.4,,6362,,,,,,contains_beef,false,true,,,On: no-gluten containing menu
+the-oklahoma-bbq-beef-no-gluten-menu,The Oklahoma BBQ Beef (no-gluten menu),Burgers,,1488,55.6,99.7,94.7,24.7,,3.4,11.0,,6213,,,,,,contains_beef,false,true,,,On: no-gluten containing menu
 chicken-caesar-no-gluten-menu,Chicken Caesar (no-gluten menu),Burgers,,1183,53.4,105.3,58.8,11.8,,5.2,17.5,,4951,,,,,,,false,true,,,On: no-gluten containing menu
 buffalo-chicken-no-gluten-menu,Buffalo Chicken (no-gluten menu),Burgers,,1082,47.9,105.5,48.7,7.8,,6.9,16.7,,4541,,,,,,,false,true,,,On: no-gluten containing menu
 bbq-chicken-and-bacon-melt-no-gluten-menu,BBQ Chicken & Bacon Melt (no-gluten menu),Burgers,,1040,51.4,114.4,39.5,9.6,,5.3,24.7,,4368,,,,,,contains_pork,false,true,,,On: no-gluten containing menu

@@ -21,6 +21,9 @@ re-checks first.
 Checked by hand on 2026-10-08: the allergens page (94 product links; 92 PDFs fetched, 2 links answer HTTP 404), the report dates 19/12/2024 to
 06/10/2026, and the combined SHA-256 of the sorted "file sha256" lines of the 92 PDFs, printed by every run:
 c53e08e9d2fce43ce298c30c85528d0fd2ceebb6b5b5f1e5f58b146847256ea7 (per-file hashes are printed too).
+Re-run on 2026-11-17 (the page had been updated): 98 product links, 93 PDFs fetched, 5 links answer HTTP 404 (Split Tin Loaf, Novelty Cone
+Biscuits and Novelty Halloween Biscuit joined the two dead links), report dates 19/12/2024 to 16/11/2026, combined SHA-256
+79b614283cb33d97467789f232582be075271799e0443c3aeb28b4717773cced. The cocoa dusting powder's new report prints per 100 g only (not published).
 
 Name rule: the chain's own link text on the page, except TITLE_WINS (the PDF's title adds a qualifier the link omits).
 
@@ -58,11 +61,12 @@ SECTIONS = {
     "Tea & coffee Allergens": ("Tea and coffee", False),
     "Paninis": ("Paninis", True),
 }
-EXPECTED_LINKS = 94          # product links on the page on 2026-10-08 (the pay gap report, linked twice in the header, is not one)
-EXPECTED_ITEM_COUNT = 86     # items written (87 text reports less one exact duplicate)
+EXPECTED_LINKS = 98          # product links on the page on 2026-11-17 (94 on 2026-10-08) (the pay gap report, linked twice in the header, is not one)
+EXPECTED_ITEM_COUNT = 86     # items written on 2026-11-17 (87 text reports with per-item figures less one exact duplicate)
 
-# 404 on 2026-10-08: the page links these but the file is not there. Nothing is published for them.
-DEAD_LINKS = {"/s/Caramel-Jacks-Broken-Bits-180926.pdf", "/s/Bacon-and-Sausage-Baguette-231224.pdf"}
+# 404 on 2026-11-17 (the first two since 2026-10-08): the page links these but the file is not there. Nothing is published for them.
+DEAD_LINKS = {"/s/Caramel-Jacks-Broken-Bits-180926.pdf", "/s/Bacon-and-Sausage-Baguette-231224.pdf", "/s/Split-Tin-Loaf-260726.pdf",
+              "/s/Novelty-Cone-Biscuit-090426.pdf", "/s/Novelty-Halloween-Biscuits-211026.pdf"}
 # link path -> why it is not published
 NOT_PUBLISHED = {
     "/s/Tomato-Ketchup-70x26ml.pdf": "supplier (Heinz, via Erudus) specification of a 70 x 26 ml case: per 100 g only, no per-item figures",
@@ -70,6 +74,7 @@ NOT_PUBLISHED = {
     "/s/White-Chocolate-Raspberry-Muffin-200125.pdf": "image-only scan (report dated 20/01/2025), no text layer; OCR not reliable enough",
     "/s/Custard-Slice-200125.pdf": "image-only scan (report dated 20/01/2025), no text layer; OCR not reliable enough",
     "/s/Fruit-and-Nut-Flapjack-120325.pdf": "image-only scan (report dated 12/03/2025), no text layer; OCR not reliable enough",
+    "/s/Hot-Chocolate-Powder-dusting-081126.pdf": "the cocoa dusting powder's report (08/11/2026) prints per 100 g only, no per-item figures",
 }
 # Reports whose front-of-pack panel is laid out differently (spaced letters), so the cross-check cannot read it: checked by eye.
 NO_FOP = {"Pizza-Baguette-191224"}
@@ -81,7 +86,8 @@ TITLE_WINS = {
     "Apple Danish": "Apple and Sultana Danish",
     "Traditional Pasty": "Traditional Steak Pasty",
 }
-TIDY = {"Ham Salad sandwich (malted wheat bread)": "Ham Salad Sandwich (malted wheat bread)", "Tea, black": "Tea, Black"}
+TIDY = {"Ham Salad sandwich (malted wheat bread)": "Ham Salad Sandwich (malted wheat bread)", "Tea, black": "Tea, Black",
+        "Strawberry Ring doughnut": "Strawberry Ring Doughnut"}
 # Exact duplicates on the page: the same title, numbers and allergens twice (link path -> path it repeats).
 DUPLICATES = {"/s/Flat-White-Coffee-260326-8yna.pdf": "/s/Flat-White-Coffee-260326.pdf"}
 # Held back (item name -> reason). Never corrected, never chosen between.
@@ -97,7 +103,7 @@ PORK = re.compile(r"\b(bacon|ham|pork|sausages?|pepperoni|salami|chorizo|gammon)
 BEEF = re.compile(r"\b(beef|steak)\b", re.I)
 WORDS = re.compile(r"[a-z]+")
 
-NOTE = ("Figures are per item as sold, from Parsons Bakery's own one-page report for each product (report dates Dec 2024 to Oct 2026). "
+NOTE = ("Figures are per item as sold, from Parsons Bakery's own one-page report for each product (report dates Dec 2024 to Nov 2026). "
         "Bread values are for the whole loaf or roll the report names. Not included: three 2025 reports that are scanned images, "
         "and two sauce sachet files that give per 100 g only.")
 

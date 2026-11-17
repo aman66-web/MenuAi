@@ -85,11 +85,11 @@ _SUGAR = ("the page prints {s} g of sugars but only {c} g of carbohydrate: sugar
 _NOGLUTEN = ("Allergen row contradicts the dish name: {why}, but the guide marks {marks}. Restore by deleting this line once the chain "
              "confirms the allergens.")
 HOLDBACK: dict[str, str] = {
-    # accuracy check 2026-10-09: kJ and kcal that cannot both be right (kJ / 4.184 is far from the kcal printed beside it)
+    # accuracy check 2026-10-09 (figures re-read 2026-11-17): kJ and kcal that cannot both be right (kJ / 4.184 is far from the kcal printed beside it)
     "Crodino Italian Spritz 0% - 175ml": _KJ.format(k=30, kj=1285, kjk=307, more=""),
     "Hartridges Apple & Mango - 275ml": _KJ.format(k=52, kj=2332, kjk=557, more=""),
     "Italian Spritz 0%": _KJ.format(k=51, kj=1376, kjk=329, more=""),
-    "Yorkshire Wagyu Burger": _KJ.format(k=1421, kj=4720, kjk=1128, more=" while its protein, carbs and fat add up to about 1,405 kcal"),
+    "Yorkshire Wagyu Burger": _KJ.format(k=1381, kj=4548, kjk=1087, more=" while its protein, carbs and fat add up to about 1,365 kcal"),
     # sugars greater than carbohydrate
     "Peach Fizz 0%": _SUGAR.format(s="24.9", c="23.2"),
     "Peach Lemonade 0%": _SUGAR.format(s="28.0", c="26.3"),
@@ -112,7 +112,7 @@ NOTES: dict[str, str] = {
 # Each dish's info box prints "Contains:" / "Dish ingredients may also contain:" (naming the cereals and nuts) and the dish carries
 # label ids; tenkites_b.allergens_from_rec checks they agree.
 ALLERGEN_TITLE = ("Pubsmiths allergen & nutritional data (tkmenus.com/pubsmiths, June 2026 menus, "
-                  "data correct as of 9 October 2026)")
+                  "data correct as of 17 November 2026)")
 ALLERGEN_WORDS = {"sulphur dioxide/ sulphites": ("sulphites", None)}  # as printed on these pages
 
 NOTE = ("Not every pub serves every menu or dish. A dish with different figures on two menus appears once per menu, named after it. "
@@ -234,7 +234,7 @@ def main() -> int:
         chain_id=CHAIN_ID, name="Pubsmiths", cuisine="Pub",
         source_title="Pubsmiths allergen & nutritional data (tkmenus.com/pubsmiths: Main Menu June 2026 and the June 2026 lunch & drink, "
                      "no-gluten containing, pizza, dessert, young guests', breakfast, Sunday, bottomless brunch, afternoon tea and main "
-                     "drinks menus; data correct as of 9 October 2026)",
+                     "drinks menus; data correct as of 17 November 2026)",
         source_url=BASE_URL, checked_on=args.checked_on,
         aliases=["pubsmiths", "pubsmith", "the pubsmith", "pub smiths"],
         items=items, out=args.out, holdback=[(slug(tk.fold(n)), why) for n, why in HOLDBACK.items()],

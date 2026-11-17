@@ -98,3 +98,96 @@ def read_rows(pdf: Path) -> list[dict]:
 def norm(text: str) -> str:
     """Printed name/serving text with all whitespace removed, so wrap points ('Stromboli' / 'ni') don't matter."""
     return re.sub(r"\s+", "", text)
+
+
+# ---------------------------------------------------------------- November 2026 layout ("SBARRO UK | NUTRITION GUIDE")
+# From the November 2026 guide on, the PDF prints PER SERVING ONLY: Category, Item Name, Serving Size, Weight (g), then
+# Energy (kcal), Fat, Saturates, Carbs, Sugars, Protein, Salt per serving (no per-100 g columns), on pages 1-4, followed by an
+# allergen table (Category, Item Name, Contains, May Contain) on pages 5-7 that is not read here. Positions measured on the
+# November 2026 file (the same on every nutrition page); the reader stops if a header word has moved.
+V2_HEADERS = {"Weight": 360.4, "Energy": 408.9, "Fat": 476.5, "Saturates": 520.5, "Carbs": 581.7, "Sugars": 632.7,
+              "Protein": 686.0, "Salt": 743.3}
+V2_RIGHT = (457.0, 510.0, 567.0, 620.0, 673.0, 727.0, 776.0)   # right edges of the 7 per-serving columns (right-aligned numbers)
+V2_FIELDS = ("kcal", "fat", "sat", "carbs", "sugars", "protein", "salt")
+V2_CAT_X_MAX, V2_NAME_X_MAX, V2_SERVING_X_MAX, V2_WEIGHT_X_MAX = 112.0, 278.0, 355.0, 400.0
+V2_NUMBER = re.compile(r"^\d+(?:\.\d+)?$")
+V2_WEIGHT = re.compile(r"^\d+(?:\.\d+)?(?:ml|g)?$")
+
+
+def _join_lines(ws: list[dict]) -> str:
+    """Words of one cell, line by line (top to bottom), each line left to right."""
+    grouped: list[list[dict]] = []
+    for w in sorted(ws, key=lambda w: (w["y"], w["x"])):
+        if grouped and abs(w["y"] - grouped[-1][0]["y"]) < 1.2:
+            grouped[-1].append(w)
+        else:
+            grouped.append([w])
+    return " ".join(" ".join(w["t"] for w in sorted(g, key=lambda w: w["x"])) for g in grouped)
+
+
+def read_rows_v2(pdf: Path) -> list[dict]:
+    """Rows of the November 2026 layout in reading order: {page, category, name, serving, weight, kcal, fat, sat, carbs, sugars,
+    protein, salt}, every value the printed text (numbers exactly as printed, e.g. "894.71", "500ml")."""
+    words = _words(pdf)
+    rows: list[dict] = []
+    nutrition_pages = 0
+    for page in sorted({w["page"] for w in words}):
+        pw = [w for w in words if w["page"] == page]
+        energy = [w for w in pw if w["t"] == "Energy"]
+        if not energy:
+            if not any(w["t"] == "Contains" for w in pw):
+                raise PdfLayoutError(f"page {page} has neither the nutrition header (Energy) nor the allergen header (Contains)")
+            continue                                   # the allergen table: not read here
+        nutrition_pages += 1
+        if len(energy) != 1:
+            raise PdfLayoutError(f"page {page}: 'Energy' printed {len(energy)} times")
+        head_y = energy[0]["y"]
+        for label, x in V2_HEADERS.items():
+            hits = [w for w in pw if w["t"] == label and abs(w["y"] - head_y) < 6]
+            if len(hits) != 1 or abs(hits[0]["x"] - x) > 3:
+                raise PdfLayoutError(f"page {page}: header {label!r} not found at x={x} (found {[round(h['x'], 1) for h in hits]}): "
+                                     "the layout changed, re-measure V2_HEADERS / V2_RIGHT")
+        footer = [w for w in pw if w["t"] == "Page"]
+        bottom = min(w["y"] for w in footer) - 4 if footer else 10_000.0
+        body = [w for w in pw if head_y + 12 < w["y"] < bottom]
+        numeric = sorted((w for w in body if w["x"] >= V2_WEIGHT_X_MAX), key=lambda w: w["y"])
+        groups: list[list[dict]] = []
+        for w in numeric:
+            if groups and abs(w["y"] - statistics.mean(g["y"] for g in groups[-1])) <= 3:
+                groups[-1].append(w)
+            else:
+                groups.append([w])
+        page_rows = []
+        for g in groups:
+            y = statistics.mean(w["y"] for w in g)
+            cells: list[list[str]] = [[] for _ in V2_RIGHT]
+            for w in g:
+                right = 2 * w["cx"] - w["x"]
+                i = min(range(len(V2_RIGHT)), key=lambda i: abs(V2_RIGHT[i] - right))
+                if abs(V2_RIGHT[i] - right) > 6:
+                    raise PdfLayoutError(f"page {page}, y={y:.0f}: number {w['t']!r} ends at x={right:.0f}, not under a column")
+                cells[i].append(w["t"])
+            if not all(len(c) == 1 and V2_NUMBER.match(c[0]) for c in cells):
+                raise PdfLayoutError(f"page {page}, y={y:.0f}: a table row does not have one number in each of the 7 columns: {cells}")
+            weight = [w["t"] for w in body if V2_SERVING_X_MAX <= w["x"] < V2_WEIGHT_X_MAX and abs(w["y"] - y) <= 3]
+            if len(weight) != 1 or not V2_WEIGHT.match(weight[0]):
+                raise PdfLayoutError(f"page {page}, y={y:.0f}: the weight cell reads {weight}")
+            page_rows.append({"page": page, "y": y, "weight": weight[0], **{f: c[0] for f, c in zip(V2_FIELDS, cells)},
+                              "_words": {"category": [], "name": [], "serving": []}})
+        if not page_rows:
+            raise PdfLayoutError(f"page {page}: a nutrition header but no table rows")
+        for w in body:
+            if w["x"] >= V2_SERVING_X_MAX:
+                continue
+            nearest = min(page_rows, key=lambda r: abs(r["y"] - w["y"]))
+            if abs(nearest["y"] - w["y"]) > 10:
+                raise PdfLayoutError(f"page {page}: text {w['t']!r} at y={w['y']:.0f} is not beside any table row")
+            key = "category" if w["x"] < V2_CAT_X_MAX else "name" if w["x"] < V2_NAME_X_MAX else "serving"
+            nearest["_words"][key].append(w)
+        for r in page_rows:
+            for key, ws in r.pop("_words").items():
+                r[key] = _join_lines(ws)
+        rows += page_rows
+    if nutrition_pages == 0:
+        raise PdfLayoutError("no page has the November 2026 nutrition header: this is not that layout")
+    return rows

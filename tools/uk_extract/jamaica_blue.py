@@ -5,7 +5,8 @@
 
 The chain's allergen app (https://allergens-jamaicablue.co.uk/, region "England, Scotland & Wales"; linked from jamaicablue.co.uk/our-menu/)
 loads one CSV, https://allergens-jamaicablue.co.uk/csv/allergens_JBUK.csv (546 rows on 2026-10-09, served Last-Modified 1 October 2026
-19:45 GMT, which the app prints as "Last modified: 01/10/2026, 19:45"). --fetch downloads it first: robots.txt is read and matched with
+19:45 GMT, which the app prints as "Last modified: 01/10/2026, 19:45"; 589 rows on 2026-11-17, Last-Modified 9 November 2026 15:28 GMT,
+sha256 e6006b2c725f8a1587fcfb9b5db0135b03d6ae683fbb0c0f909ffa3f6351f9f8, with a new "Xmas" category). --fetch downloads it first: robots.txt is read and matched with
 robots_rfc (a 404 means the host publishes no rules; anything else unexpected stops the run), then one request, a normal browser User-Agent.
 The same app and file layout serve Muffin Break (tools/uk_extract/muffin_break.py); this script follows the decisions made there.
 
@@ -25,7 +26,8 @@ and rankable are typed here. What is published and what is not (each rule stops 
     (bottled water, black tea, long black and espresso, canned and bottled soft drinks...). A blank is never read as 0.
   * Salt is NOT published. The chain's own app (RecipesContext chunk) shows the file's "Salt per 100g" value in its per-serving table and the
     file's "Salt per serving" value in its per-100g table, labelled "Sodium", so the app and the file disagree on every row: salt stays blank.
-Meaning of name tags: [H] = halal ingredients (the chain's own variant label; only on site rows here), the other bracketed words are the
+Meaning of name tags: [H] = halal ingredients (the chain's own variant label; on site rows, and since the 9 November 2026 file also on some
+every-cafe Christmas rows), the other bracketed words are the
 chain's own variant labels (kept in parentheses); [BR nnnn] are internal recipe codes and are dropped.
 
 Allergens: the same file prints, per row, 26 columns (gluten + oats/wheat/barley/rye, tree nuts + 8 named nuts, peanuts, eggs, milk, fish,
@@ -53,9 +55,9 @@ HOST = "https://allergens-jamaicablue.co.uk"
 CSV_URL = HOST + "/csv/allergens_JBUK.csv"
 PAGE_URL = HOST + "/allergens/jbuk"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"
-EXPECTED_ROWS = 546
+EXPECTED_ROWS = 589
 SOURCE_TITLE = ("Jamaica Blue UK (England, Scotland & Wales) Allergens and Nutrition Information, data file allergens_JBUK.csv "
-                "(file dated 1 October 2026)")
+                "(file dated 9 November 2026)")
 ALLERGEN_TITLE = "Jamaica Blue Allergens and Nutrition Information (England, Scotland & Wales)"
 NOTE = ("Figures are per serving from Jamaica Blue's own England, Scotland & Wales data file. Dishes the file lists for named cafes only "
         "are left out. Drinks and other items where the file leaves protein, carbs or fat blank are not published, nor are its "
@@ -78,13 +80,16 @@ NUMBER_COLUMNS = (("calories", "Energy Kcal (kcal) per serving"), ("protein_g", 
 REQUIRED = ["Energy Kcal (kcal) per serving", "Protein (g) per serving", "Carbohydrate (g) per serving", "Fat (g) per serving"]
 
 # The chain's own "Recipe Description", in the order shown. Unknown categories stop the run.
-CATEGORIES = ["All Day Menu", "Breakfast", "Breads", "Savoury", "Seasonal", "Kids Corner", "Sides", "Pastries", "Muffins", "Cakes",
+CATEGORIES = ["All Day Menu", "Breakfast", "Breads", "Savoury", "Seasonal", "Xmas", "Kids Corner", "Sides", "Pastries", "Muffins", "Cakes",
               "Confectionery", "Hot Drinks", "Coffee", "Cold Drinks Made", "Cold Drinks", "Condiments", "Hot Beverage Modifiers",
               "Ingredients"]
 # Whole meals, mains, sandwiches and savoury bakes are suggested by Best for you; cakes, pastries, muffins, drinks, sides, add-ons,
 # condiments, loaves and the children's menu are not.
-RANKABLE_CATEGORIES = {"All Day Menu", "Breads", "Savoury", "Seasonal"}
-LIMITED_CATEGORIES = {"Seasonal"}
+RANKABLE_CATEGORIES = {"All Day Menu", "Breads", "Savoury", "Seasonal", "Xmas"}
+LIMITED_CATEGORIES = {"Seasonal", "Xmas"}
+# The file's Christmas range ("Xmas", new in the 9 November 2026 file) is bagels, ciabattas, Yorkshire puddings and a tart, plus one dessert:
+# its sub-group "Mince Tart" is not suggested by Best for you (like the cakes).
+NOT_RANKABLE_NOTES = {"Mince Tart"}
 
 # Dishes printed twice with different figures (blank-Brand row + a site row, or two blank rows), seen on 2026-10-09: the blank-Brand
 # rows are held back, nothing is chosen. name -> reason. Any other disagreement stops the run.
@@ -107,6 +112,9 @@ HOLD_ALLERGEN_NAME = {
     # such evidence in the file: no 'Caramelised Pistachio' syrup row exists, and no row says what is in the Key Lime Pie smoothie.
     "Latte Caramelised Pistachio Medium": "The file marks Milk only, but 'Pistachio' is in the name and the file has no 'Caramelised Pistachio' flavour-syrup row showing that this flavour holds no nuts (the Hazelnut and Salted Pistachio syrup rows do), so a nut-free mark cannot be confirmed; not published (all or nothing, neither is the dish).",
     "Latte Caramelised Pistachio Large": "The file marks Milk only, but 'Pistachio' is in the name and the file has no 'Caramelised Pistachio' flavour-syrup row showing that this flavour holds no nuts (the Hazelnut and Salted Pistachio syrup rows do), so a nut-free mark cannot be confirmed; not published (all or nothing, neither is the dish).",
+    # New in the 9 November 2026 file, held back for the same reason as the Caramelised Pistachio lattes above.
+    "Latte Toffee Nut Medium (Xmas)": "The file marks Milk only, but 'Nut' is in the name and the file has no 'Toffee Nut' flavour-syrup row showing that this flavour holds no nuts (the Hazelnut and Salted Pistachio syrup rows do), so a nut-free mark cannot be confirmed; not published (all or nothing, neither is the dish).",
+    "Latte Toffee Nut Large (Xmas)": "The file marks Milk only, but 'Nut' is in the name and the file has no 'Toffee Nut' flavour-syrup row showing that this flavour holds no nuts (the Hazelnut and Salted Pistachio syrup rows do), so a nut-free mark cannot be confirmed; not published (all or nothing, neither is the dish).",
     "Smoothie Key Lime Pie": "The file marks no gluten for a drink named after a pie and has no ingredient text or other row to show that it holds no biscuit or pastry, so the gluten-free mark cannot be confirmed; not published (all or nothing, neither is the dish).",
 }
 
@@ -268,7 +276,8 @@ def build(csv_path: Path):
         rid = r["Recipe ID"].strip()
         it = {"name": name, "category": category, "serving": "", **c["nums"], "tags": "|".join(tags),
               "limited_time": category in LIMITED_CATEGORIES,
-              "rankable": category in RANKABLE_CATEGORIES or (category == "Breakfast" and r["Recipe Notes"] != "Loaf"),
+              "rankable": (category in RANKABLE_CATEGORIES and r["Recipe Notes"].strip() not in NOT_RANKABLE_NOTES)
+                            or (category == "Breakfast" and r["Recipe Notes"] != "Loaf"),
               "notes": f"Recipe ID {rid}; Portion Code {r['Portion Code'].strip()}; sub-group {r['Recipe Notes'].strip()}",
               "allergens": allergens_for(r, name, report), "_rid": rid}
         items.append(it)
@@ -323,7 +332,7 @@ def main() -> int:
     if args.fetch:
         fetch(args.csv)
     items, holdback, skipped, report = build(args.csv)
-    guide = {"title": ALLERGEN_TITLE + ", data file allergens_JBUK.csv (1 October 2026)", "url": PAGE_URL,
+    guide = {"title": ALLERGEN_TITLE + ", data file allergens_JBUK.csv (9 November 2026)", "url": PAGE_URL,
              "checked_on": args.checked_on, "may_contain_published": True}
     out = write_chain_folder(chain_id=CHAIN_ID, name="Jamaica Blue", cuisine="Coffee", source_title=SOURCE_TITLE, source_url=PAGE_URL,
                              checked_on=args.checked_on, aliases=["jamaica blue", "jamaica blue uk", "jamaicablue"], items=items,

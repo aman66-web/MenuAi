@@ -40,7 +40,8 @@ def name_key(name: str) -> str:
 
 _HEADING = re.compile(r'<div class="menuitem cat(\d+) alert alert-primary"[^>]*>.*?<h4>(.*?)</h4>', re.S)
 _CARD = re.compile(r'<div class="col-md-4 col-xs-6 menuitem allprods prodid(\d+)\s+cat(\d+)\s*"')
-_NAME = re.compile(r'<a class="color-type-2 caption" href="(/product/\d+/[^"]*)"[^>]*>(.*?)</a>', re.S)
+# The site's HTML has printed the href without quotes since November 2026 (href=/product/7229/just-for-me-bundle-deal): both forms read.
+_NAME = re.compile(r'<a class="color-type-2 caption" href="?(/product/\d+/[^"\s>]*)"?[^>]*>(.*?)</a>', re.S)
 _LABEL = re.compile(r'<span class="label label-primary label-nutrition">([^<]*)</span>')
 _KCAL_TEXT = re.compile(r"^(\d+) kcal$")
 _DATA_KCAL = re.compile(r"data-prodkcal=(\S+)")

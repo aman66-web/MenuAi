@@ -18,14 +18,14 @@ the shake's own page prints exactly the same four values. Nothing else is printe
 What is NOT published, and why (the script checks the page still looks like this and stops if it does not):
 - "Protein" (4 powders: Chocolate/Vanilla Whey/Vegan) and "Liquids" (5 milks): the page prints no portion for them ("per scoop" and
   "per measure" appear nowhere), so there is no stated basis (UK data playbook rule 4). The milks also print calories only.
-- "Add ons" (Power Up+, protein scoop, creatine, electrolytes, nut butter, espresso shot, collagen, additional base): no numbers at all.
+- "Add ons" (Power Up (printed "Power Up+" until October 2026), protein scoop, creatine, electrolytes, nut butter, espresso shot, collagen, additional base): no numbers at all.
 - Shake pages that are in the site's sitemap but not on the live menu page (Oreo, Strawberry Pistachio, Volcanic Greens, Cinnamon Swirl,
   Mocha, Elite Greens, Salted Caramel, Biscoff, Beasted Oreo, Berry Beast, IM8): an earlier menu, not offered now as far as the menu
   page shows, so they are not read.
 - Allergens: the pages print only "Please talk to us if you have a food allergy ... traces of these may be found in our product."
   There is no allergen guide and no per-item table, so no allergen files are written.
 
-Reading rules: "Limited Edition" is a section heading on the menu page above one shake (Apple Crumble): it is limited_time. No tag is
+Reading rules: "Limited Edition" is a section heading on the menu page above one shake (Gingerbread since November 2026, Apple Crumble before): it is limited_time. No tag is
 set (the pages never mark an item vegetarian; the ingredient lists name no meat). Shakes are drinks, so rankable is false.
 """
 from __future__ import annotations
@@ -59,7 +59,7 @@ NOTE = ("Third Space's own Natural Fitness Food menu publishes calories, protein
 # The card order on the menu page: (section anchor, shake name, shake page slug). Names and slugs are what the page prints;
 # the run stops if the menu page differs (a new, renamed or removed shake).
 EXPECTED = [
-    ("limited", "Apple Crumble", "apple-crumble"),
+    ("limited", "Gingerbread", "apple-crumble"),  # November 2026: the page is titled Gingerbread, its address still says apple-crumble
     ("shakes", "Banana Bread", "banana-bread"),
     ("shakes", "Berry Blast", "berry-blast"),
     ("shakes", "Blueberry Almond", "blueberry-almond"),
@@ -75,7 +75,7 @@ EXPECTED = [
 NOT_PUBLISHED = {
     "protein": ["Chocolate Whey", "Chocolate vegan", "Vanilla Whey", "Vanilla Vegan"],
     "liquids": ["Almond milk", "Semi-skimmed milk", "Coconut milk", "whole milk", "oat milk"],
-    "addons": ["Power Up+", "Protein scoop", "creatine", "Electrolytes", "Nut butter", "Espresso shot", "Collagen", "Additional base"],
+    "addons": ["Power Up", "Protein scoop", "creatine", "Electrolytes", "Nut butter", "Espresso shot", "Collagen", "Additional base"],
 }
 ALLERGEN_SENTENCE = "Please talk to us if you have a food allergy, intolerance or coeliac disease."
 ANCHORS = ["limited", "shakes", "protein", "liquids", "addons"]

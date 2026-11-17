@@ -1,7 +1,6 @@
 id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
 sol-bowl,Sol Bowl,The Lunch Fix,,583,7.2,63,31.5,2.3,,3.4,15.2,8.1,,false,true,,,"*Adding Halloumi Sticks? Heads up, these contain milk. | This is a plant-based recipe, however, some of the PERi-ometer spices and sauces contain shellac and our new PERi-Plant Fillet contains soya, wheat and may contain celery and mustard. Check with the restaurant for more information."
 hearty-bowl,Hearty Bowl,The Lunch Fix,,432,9.3,44.3,22.9,2.2,,2.6,14.1,11.4,,false,true,,,"*Adding Halloumi Sticks? Heads up, these contain milk. | This is a plant-based recipe, however, some of the PERi-ometer spices and sauces contain shellac and our new PERi-Plant Fillet contains soya, wheat and may contain celery and mustard. Check with the restaurant for more information."
-hallooooooomi-sticks,HalloOoOoOomi Sticks,Starters,Serves 2,466,26.8,8.3,36.8,17.1,,3.3,6.1,1.3,vegetarian,true,false,,,
 chicken-chorizo,Chicken Chorizo,Starters,Serves 2,340,21.4,19,21.6,5.4,,3.1,16.2,1.8,,false,false,,,"Name says chorizo but the menu text says 'No pork', so no pork tag"
 halloumi-sticks-chilli-jam,Halloumi Sticks & Chilli Jam,Starters,Serves 2,458,26.7,15.9,32,16.6,,2.3,12.6,0.4,vegetarian,false,false,,,
 halloumi-sticks-peri-honey,Halloumi Sticks & PERi-Honey,Starters,Serves 2,526,26.2,35.6,32,16.6,,2.2,33.6,0,vegetarian,false,false,,,
@@ -15,9 +14,6 @@ chicken-butterfly,Chicken Butterfly,PERi-PERi Chicken,,332,59.4,0.2,10.1,2.3,,1.
 1-2-chicken,1/2 Chicken,PERi-PERi Chicken,,579,78.7,0.6,29.1,8,,1.7,0,1.4,,false,true,,,
 1-4-chicken,1/4 Chicken,PERi-PERi Chicken,,289,39.3,0.3,14.5,4,,0.9,0,0.7,,false,true,,,
 whole-chicken,Whole Chicken,PERi-PERi Chicken,Serves 2-3,1159,157.6,1.1,58,16.3,,3.5,0.6,3,,false,false,,,
-5-phantom-wings,5 Phantom Wings,PERi-PERi Chicken,,497,55.1,9.7,26.3,5.3,,5.9,6.4,2.9,,false,true,,,"Heads up, our Dark PERi-Chicken Salt contains malt vinegar that’s derived from barley but it’s been processed to remove any gluten."
-10-phantom-wings,10 Phantom Wings,PERi-PERi Chicken,Serves 2-3,959,109.1,13.1,52,10.6,,10.2,8,5.2,,false,false,,,"Heads up, our Dark PERi-Chicken Salt contains malt vinegar that’s derived from barley but it’s been processed to remove any gluten."
-3-phantom-wings,3 Phantom Wings,PERi-PERi Chicken,,295,33,5.1,15.7,3.2,,3.6,3.3,1.7,,false,true,,,"Heads up, our Dark PERi-Chicken Salt contains malt vinegar that’s derived from barley but it’s been processed to remove any gluten."
 5-chicken-wings,5 Chicken Wings,PERi-PERi Chicken,,393,53.2,0.4,19.7,4.7,,2.2,0.2,1.2,,false,true,,,
 10-chicken-wings,10 Chicken Wings,PERi-PERi Chicken,Serves 2-3,786,106.4,0.9,39.4,9.4,,4.4,0.4,2.5,,false,false,,,
 3-chicken-wings,3 Chicken Wings,PERi-PERi Chicken,,236,31.9,0.3,11.8,2.8,,1.3,0.1,0.7,,false,true,,,
@@ -61,7 +57,6 @@ loaded-peri-mac,Loaded PERi-Mac,Sides,,621,39.9,52.1,26.1,14.4,,2.3,6,3,,false,t
 peri-mac-cheese,PERi-Mac & Cheese,Sides,,494,21,46,25.5,14,,1.7,2.7,0.2,vegetarian,false,true,,,Available in regular size only.
 charred-corn,Charred Corn,Sides,,255,4.9,27.4,12.6,0.9,,0.8,11.7,0.8,vegetarian,false,true,,,Available in regular size only.
 portuguese-tomato-salad,Portuguese Tomato Salad,Sides,,136,3.4,13.4,7.7,0.8,,0.9,9.8,5,vegetarian,false,true,,,Available in regular size only.
-tombstone-chips,Tombstone Chips,Sides,,498,4.8,71.6,23.1,2.2,,3,0.3,7.9,vegetarian,false,false,,,"Printed 'Large serves 2' but only one set of values; size not stated | Printed 'Large serves 2' next to a single set of values, so it is unclear whether they are for a shared portion | Heads up, our Dark PERi-Chicken Salt contains malt vinegar that’s derived from barley but it’s been processed to remove any gluten."
 peri-salted-chips-regular,PERi-Salted Chips (regular),Sides,Regular,498,4.7,71.7,23,2.2,,2.7,0.7,7.9,vegetarian,false,true,,,
 peri-salted-chips-large,PERi-Salted Chips (large),Sides,Large (serves 2),1243,11.6,179.2,57.6,5.5,,6.6,0.8,19.6,vegetarian,false,false,,,
 chips-regular,Chips (regular),Sides,Regular,496,4.6,71.4,23,2.2,,2.2,0.2,7.8,vegetarian,false,true,,,
@@ -130,9 +125,9 @@ beavertown-lazer-crush-alcohol-free-ipa,Beavertown Lazer Crush Alcohol Free IPA,
 spier-sauvignon-blanc-south-africa,Spier Sauvignon Blanc (South Africa),Drinks,250ml,190,0,0.8,0,0,,0,0.8,0,,false,false,,,"Printed 190 kcal is not close to what the printed protein, carbohydrate and fat give (3 kcal); entered as printed | Contains alcohol (ABV 13%), which is not in the fat, carbohydrate or protein figures"
 spier-merlot-south-africa,Spier Merlot (South Africa),Drinks,250ml,203,0,2,0,0,,0,2,0,,false,false,,,"Printed 203 kcal is not close to what the printed protein, carbohydrate and fat give (8 kcal); entered as printed | Contains alcohol (ABV 13.5%), which is not in the fat, carbohydrate or protein figures"
 spier-rose-south-africa,Spier Rose (South Africa),Drinks,250ml,188,0,0.5,0,0,,0,0,0,,false,false,,,"Printed 188 kcal is not close to what the printed protein, carbohydrate and fat give (2 kcal); entered as printed | Contains alcohol (ABV 12.5%), which is not in the fat, carbohydrate or protein figures"
+ultimate-chocolate-brownie,Ultimate Chocolate Brownie,Desserts,,635,8.3,78,32.1,20,,0.3,63,1.8,vegetarian,false,false,,,"The vanilla gelado is 182 kcal and isn’t included in the nutritional information listed. If you’re ordering for Collect or Delivery, the brownie comes without gelado."
 toffee-apple-pastel-de-nata,Toffee Apple Pastel de Nata,Desserts,,228,2.6,30.1,10.6,7,,0.3,16,0.9,vegetarian,false,false,,,
 four-toffee-apple-pastel-de-natas,Four Toffee Apple Pastel de Natas,Desserts,,912,10.2,120.3,42.6,29,,1.3,63,3.5,vegetarian,false,false,,,
-ultimate-chocolate-brownie,Ultimate Chocolate Brownie,Desserts,,635,8.3,78,32.1,20,,0.3,63,1.8,vegetarian,false,false,,,"The vanilla gelado is 182 kcal and isn’t included in the nutritional information listed. If you’re ordering for Collect or Delivery, the brownie comes without gelado."
 bottomless-soft-swirl-tub,Bottomless Soft Swirl Tub,Desserts,Filled tub,189,5.3,21.3,8.9,2.3,,0,21.2,0,vegetarian,false,false,,,The nutritional info is per filled tub.
 choc-a-lot-cake,Choc-A-Lot Cake,Desserts,,425,4.6,59.8,24.8,10.2,,1.1,50,0.5,vegetarian,false,false,,,The cream that comes with it is single (47 kcal) and isn’t included in the nutritional information listed. | Printed kJ (2016) and kcal (425) do not agree (kJ is not used)
 gooey-caramel-cheesecake,Gooey Caramel Cheesecake,Desserts,,464,13.7,36.3,29.2,18.5,,4,28.1,1,vegetarian,false,false,,,The cream that comes with it is single (47 kcal) and isn’t included in the nutritional information listed.

@@ -4,7 +4,8 @@
     python3 tools/uk_extract/las_iguanas.py --checked-on 2026-10-06 [--report]
 
 https://menus.tenkites.com/thebigtg/lasiguanas202507 is the menu iguanas.co.uk links to (the sister page
-lasiguanas202502 was not used: the 202507 page is the newer one). Every dish has a "Nutrition (per portion)" table.
+lasiguanas202502 was not used: the 202507 page is the newer one; on 2026-11-17 iguanas.co.uk/our-menu still loaded
+lasiguanas202507, with a new Evening Eats tab and Festive Specials on the Main Menu and Cocktails tabs). Every dish has a "Nutrition (per portion)" table.
 The other tabs are the same address with ?mguid=<tab id>. Parser: tenkites_a.py. Numbers are copied as printed; only
 names, categories and the rules below are written by hand.
 """
@@ -41,13 +42,16 @@ TABS = {
     "Sunday Sharer": "a whole chicken to share: the number of people is not stated, so the portion is unclear",
     "Cocktails": "use",
     "Drinks": "use",
+    "Evening Eats": ("an evening set menu: its dishes are on the Main Menu, and the six rows that print other figures under the "
+                     "same names (the Bahian chicken, regular and gluten-free, and the four Classic burgers) can't be told "
+                     "apart from the Main Menu's by name"),
     "Bottomless Tapas": "use",
 }
-EXPECTED = {"Main Menu": 165, "Lunch": 13, "Bottomless Brunch": 55, "Kids": 36, "Cocktails": 53, "Drinks": 128,
+EXPECTED = {"Main Menu": 170, "Lunch": 13, "Bottomless Brunch": 58, "Kids": 36, "Cocktails": 59, "Drinks": 128,
             "Bottomless Tapas": 33}
 
 ADDONS = "Add-ons & extras"
-CATEGORY_ORDER = ["Sharing", "Tapas & starters", "Curries", "Mains", "Burgers", "Lunch", "Bottomless brunch", "Sides",
+CATEGORY_ORDER = ["Festive specials", "Sharing", "Tapas & starters", "Curries", "Mains", "Burgers", "Lunch", "Bottomless brunch", "Sides",
                   "Dips & sauces", "Desserts", ADDONS,
                   "Kids: Mains", "Kids: Sides", "Kids: Desserts", "Kids: Drinks",
                   "Drinks: Cocktails", "Drinks: Mocktails", "Drinks: Gin & tonic", "Drinks: Spirits", "Drinks: Shots",
@@ -60,14 +64,15 @@ TACO_BASES = {"Soft Taco", "Lettuce Taco"}
 CHURRO_DIPS = {"Chocolate Ganache", "Dulce de leche"}
 MAIN_CATEGORY = {"Sharing Section": "Sharing", "Tapas & Starters": "Tapas & starters", "Curries": "Curries", "Mains": "Mains",
                  "Burgers": "Burgers", "Sides": "Sides", "Dips": "Dips & sauces", "Desserts": "Desserts", "": "Lunch",
-                 "Brunch Plates": "Bottomless brunch", "Premium Brunch | From +5.50pp": "Bottomless brunch"}
+                 "Brunch Plates": "Bottomless brunch", "Premium Brunch | From +5.50pp": "Bottomless brunch", "Festive Specials": "Festive specials"}
 DRINK_CATEGORY = {"Gin & Tonic": "Drinks: Gin & tonic", "Tequila & Mezcal": "Drinks: Spirits", "Cachaca": "Drinks: Spirits",
                   "Sober-Curious": "Drinks: Mocktails", "Virgin Mocktails": "Drinks: Mocktails",
                   "Shots, Shorts & Sippers": "Drinks: Shots", "Sparkling": "Drinks: Wine", "White Wine": "Drinks: Wine",
                   "Rose Wine": "Drinks: Wine", "Red Wine": "Drinks: Wine", "Beer & Cider": "Drinks: Beer & cider",
                   "Soft Drinks": "Drinks: Soft drinks", "Cocktails": "Drinks: Cocktails", "Classics": "Drinks: Cocktails",
                   "Fiesta": "Drinks: Cocktails", "Carnival": "Drinks: Cocktails", "Signatures": "Drinks: Cocktails",
-                  "Sharing & Skulls": "Drinks: Cocktails", "Alcohol-Free Brunch": "Drinks: Mocktails"}
+                  "Sharing & Skulls": "Drinks: Cocktails", "Alcohol-Free Brunch": "Drinks: Mocktails",
+                  "Festive Specials": "Drinks: Cocktails"}
 ALCOHOL = {"Drinks: Cocktails", "Drinks: Gin & tonic", "Drinks: Spirits", "Drinks: Shots", "Drinks: Wine", "Drinks: Beer & cider"}
 
 
@@ -143,6 +148,8 @@ def classify(rec: dict):
         return {"category": ADDONS, "rankable": False, "name": f"{nm} (taco filling)"}
     if byo == "Churros" and nm in CHURRO_DIPS:
         return {"category": ADDONS, "rankable": False, "name": f"{nm} (churro dip)"}
+    if c1 == "Festive Specials" and nm == "Festive Burger Topper":
+        return {"category": ADDONS, "rankable": False, "name": f"{nm} (burger add-on)", "limited_time": True}
     if nm.startswith("Surf & Turf"):
         return {"category": ADDONS, "rankable": False, "tags_name_only": True}
     cat = MAIN_CATEGORY[c1]
@@ -162,7 +169,7 @@ def classify(rec: dict):
         spec["name"] = join(byo, nm)
     elif byo in ("Chilli Stack", "Gaucho Burger"):
         spec["name"] = join(byo, nm)
-    if c1 == "Burgers" and byo.startswith("Fajita Burgers"):
+    if (c1 == "Burgers" and byo.startswith("Fajita Burgers")) or c1 == "Festive Specials" or nm.startswith("Festive "):
         spec["limited_time"] = True
     if "Sharing" in cat or t.SHARING.search(nm):
         spec["rankable"] = False
@@ -176,6 +183,11 @@ HOLDBACK = {
     "Fruit Shoot: Orange (kids)": "The table prints 52 kcal with only 2.4 g of carbohydrate and no protein or fat.",
     "Juices: Orange": "The table prints 26.0 g of protein and 115 kcal for orange juice; its own macros add up to about 206 kcal.",
     "Iguana Bomb": "The page prints all 14 allergens, every cereal and every tree nut as 'Contains' for a 131 kcal shot: allergen row contradicts the dish name/ingredients.",
+    "Festive Fajita (Gluten-Free)": ("The page prints 437 kcal and 12.6 g of protein for the gluten-free Festive Fajita against 782 kcal "
+                                     "and 54.9 g for the Festive Fajita, and marks the gluten-free one vegetarian: the figures look like "
+                                     "the gluten-free wraps and sides without the festive filling (compare Sizzling Fajitas "
+                                     "(Gluten-Free), 441 kcal, printed for the base alone), so it is not published until the "
+                                     "chain says what it covers."),
     "Quesadilla: Pork & Cheese (Bottomless Tapas)": "The page prints no milk for a pork and cheese quesadilla, while the Main Menu and Bottomless Brunch rows for the same dish print Milk: allergen row contradicts the dish name/ingredients.",
 }
 NOTE = ("Per portion as printed on the chain's menu pages. Each part of a meal is listed on its own: the side served with a "
@@ -184,11 +196,11 @@ NOTE = ("Per portion as printed on the chain's menu pages. Each part of a meal i
 
 # The same pages print each dish's allergens ("Dietary Information": "Contains:" and "May contain:", naming the cereals
 # and tree nuts) and carry the label ids of the page's own allergen filter; tenkites_a cross-checks the two.
-ALLERGEN_TITLE = "Las Iguanas Dietary Information (allergens) on its online Main, Lunch, Bottomless Brunch, Kids, Cocktails, Drinks and Bottomless Tapas menus (Ten Kites page generated 2026-10-06)"
+ALLERGEN_TITLE = "Las Iguanas Dietary Information (allergens) on its online Main, Lunch, Bottomless Brunch, Kids, Cocktails, Drinks and Bottomless Tapas menus (Ten Kites page generated 2026-11-17)"
 
 if __name__ == "__main__":
     sys.exit(t.run(
         chain_id="las-iguanas", name="Las Iguanas", cuisine="Latin American", aliases=["las iguanas"], url=URL,
-        source_title="Las Iguanas Nutrition (per portion) menus, page lasiguanas202507: Main, Lunch, Bottomless Brunch, Kids, Cocktails, Drinks and Bottomless Tapas (page generated 2026-10-06)",
+        source_title="Las Iguanas Nutrition (per portion) menus, page lasiguanas202507: Main, Lunch, Bottomless Brunch, Kids, Cocktails, Drinks and Bottomless Tapas (page generated 2026-11-17)",
         tabs=TABS, classify=classify, category_order=CATEGORY_ORDER, expected_rows=EXPECTED, note=NOTE, holdback=HOLDBACK,
         allergen_title=ALLERGEN_TITLE))

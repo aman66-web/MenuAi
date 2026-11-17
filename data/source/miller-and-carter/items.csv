@@ -1,7 +1,7 @@
 id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
 cheesy-garlic-bread,Cheesy Garlic Bread,While you wait,For one,596,23.36,47.14,34.38,16.4,,2.0726,2.52,,,,,,,,vegetarian,false,true,,,
 cheesy-garlic-bread-to-share,Cheesy Garlic Bread To Share,While you wait,To share,1192,46.72,94.28,68.76,32.8,,4.1452,5.04,,,,,,,,vegetarian,false,false,,,
-butternut-squash-and-goats-cheese-arancini,Butternut Squash & Goat's Cheese Arancini,While you wait,,361.88,8.4145,32.5825,21.6235,5.0905,,1.0443,6.7105,,,,,,,,vegetarian,false,true,,,
+butternut-squash-and-goats-cheese-arancini,Butternut Squash & Goat's Cheese Arancini,While you wait,,361.88,8.7745,32.4925,21.8035,5.5405,,1.0713,6.8905,,,,,,,,vegetarian,false,true,,,
 halloumi-fries,Halloumi Fries,While you wait,,539.785,29.7745,35.342,30.9405,17.533,,4.0083,17.316,,,,,,,,vegetarian,false,true,,,
 nocellara-olives,Nocellara Olives,While you wait,,178.76,1.09,4.142,16.677,2.18,,3.27,0.545,,,,,,,,vegetarian,false,true,,,
 sourdough-and-butter,Sourdough & Butter,While you wait,,1120.64,11.338,70.918,86.828,34.978,,2.984,6.59,,,,,,,,vegetarian,false,true,,,
@@ -9,12 +9,12 @@ padr-n-peppers,Padrón Peppers,While you wait,,78.2,1.328,4.316,5.498,0.916,,0.2
 moroccan-inspired-houmous,Moroccan-inspired Houmous,While you wait,,659.08,17.1945,55.4975,38.9585,7.4845,,2.082,17.2935,,,,,,,,vegetarian,false,true,,,
 prawn-cocktail,Prawn Cocktail,Starters,,191.06,23.7295,8.062,6.7965,0.56,,1.8845,6.5,,,,,,,,,false,true,,,
 salt-and-pepper-calamari,Salt & Pepper Calamari,Starters,,339.798,9.222,20.9555,13.3757,1.2135,,2.1221,1.4833,,,,,,,,,false,true,,,
-sticky-chipotle-chicken,Sticky Chipotle Chicken,Starters,,529.6012,31.3659,50.5471,22.1075,5.4705,,0.6033,35.5851,,,,,,,,,false,true,,,
+sticky-chipotle-chicken,Sticky Chipotle Chicken,Starters,,529.6012,31.4322,50.6002,22.081,5.4705,,0.6031,35.6382,,,,,,,,,false,true,,,
 baked-cheddar-mushrooms,Baked Cheddar Mushrooms,Starters,,536.8251,20.5231,45.2441,29.34,12.3071,,1.8322,3.321,,,,,,,,vegetarian,false,true,,,
-soy-and-mirin-pork-belly,Soy & Mirin Pork Belly,Starters,,625.521,26.1929,24.4336,46.8237,13.4107,,2.5719,19.8541,,,,,,,,contains_pork,false,true,,,
-spiced-cauliflower-wings,Spiced Cauliflower Wings,Starters,,300.67,7.7685,40.511,11.068,0.879,,3.9888,11.0205,,,,,,,,vegetarian,false,true,,,
-pan-seared-scallops-starter,Pan-seared Scallops (Starter),Starters,,310.505,38.8305,9.934,12.1725,3.105,,2.4591,2.936,,,,,,,,contains_pork,false,true,,,
-bourbon-glazed-chicken-wings,Bourbon-glazed Chicken Wings,Starters,,644.5233,42.6962,37.0956,35.5854,10.0561,,2.8468,31.2598,,,,,,,,,false,true,,,
+soy-and-mirin-pork-belly,Soy & Mirin Pork Belly,Starters,,625.521,25.9192,25.1426,47.3492,14.1307,,3.2336,19.2831,,,,,,,,contains_pork,false,true,,,
+spiced-cauliflower-wings,Spiced Cauliflower Wings,Starters,,300.67,8.6435,39.986,11.418,1.754,,3.5513,11.0205,,,,,,,,vegetarian,false,true,,,
+pan-seared-scallops-starter,Pan-seared Scallops (Starter),Starters,,310.505,38.5645,9.402,11.6405,2.573,,1.8273,2.936,,,,,,,,contains_pork,false,true,,,
+bourbon-glazed-chicken-wings,Bourbon-glazed Chicken Wings,Starters,,644.5233,42.7623,37.1485,35.559,10.0561,,2.8465,31.3126,,,,,,,,,false,true,,,
 burrata,Burrata,Starters,,561.55,16.125,15.175,47.4765,20.355,,2.0644,13.053,,,,,,,,vegetarian,false,true,,,
 chargrilled-king-prawns,Chargrilled King Prawns,Starters,,465.0533,49.1103,3.602,28.1344,17.5,,1.9625,1.966,,,,,,,,,false,true,,,
 baked-camembert,Baked Camembert,Starters,Serves two,1204.8,59.84,108.575,58.01,46.245,,5.3955,40.835,,,,,,,,vegetarian,false,false,,,
@@ -30,19 +30,19 @@ angus-filet-mignon-10oz,Angus Filet Mignon 10oz,Steaks,,562.5188,58.693,22.3319,
 angus-ribeye-8oz,Angus Ribeye 8oz,Steaks,,688.4646,49.7686,22.3319,35.2414,13.3019,,0.7527,7.9921,,,,,,,,contains_beef,false,true,,,Menu choices not added in: Choose a steak sauce; Choose a wedge dressing; Choose your side; Choose a butter
 angus-sirloin-8oz,Angus Sirloin 8oz,Steaks,,763.2327,38.3267,22.3319,57.0657,21.6518,,0.3717,7.9921,,,,,,,,contains_beef,false,true,,,Menu choices not added in: Choose a steak sauce; Choose a wedge dressing; Choose your side; Choose a butter
 wagyu-sirloin-10oz,Wagyu Sirloin 10oz,Steaks,,722.522,59.9667,22.3319,42.886,15.4591,,4.1093,7.9921,,,,,,,,contains_beef,false,true,,,Menu choices not added in: Choose a steak sauce; Choose a wedge dressing; Choose your side; Choose a butter
-wagyu-ribeye-10oz,Wagyu Ribeye 10oz,Steaks,,813.3957,61.9812,22.3319,41.4764,16.4974,,5.1328,7.9921,,,,,,,,contains_beef,false,true,,,Menu choices not added in: Choose a steak sauce; Choose a wedge dressing; Choose your side; Choose a butter
+wagyu-ribeye-10oz,Wagyu Ribeye 10oz,Steaks,,813.3957,62.944,22.3319,41.4764,16.4974,,4.8006,7.9921,,,,,,,,contains_beef,false,true,,,Menu choices not added in: Choose a steak sauce; Choose a wedge dressing; Choose your side; Choose a butter
 butchers-block-25oz,Butcher's Block 25oz,Sharing steaks,Serves two,2259.5681,156.9056,59.6058,145.7179,58.1464,,4.1368,26.3852,,,,,,,,contains_beef,false,false,,,Menu choices not added in: Choose a steak sauce; Choose a butter
 chateaubriand-16oz,Chateaubriand 16oz,Sharing steaks,Serves two,966.9921,106.35,44.6638,29.291,3.5923,,1.4286,15.9842,,,,,,,,contains_beef,false,false,,,Menu choices not added in: Choose a steak sauce; Choose a wedge dressing; Choose a second wedge dressing; Choose your side; Choose a butter
 porterhouse-35oz,Porterhouse 35oz,Sharing steaks,,2181.337,229.1421,44.6638,96.9279,42.9122,,31.8234,15.9842,,,,,,,,contains_beef,false,false,,,Menu choices not added in: Choose a steak sauce; Choose a wedge dressing; Choose a second wedge dressing; Choose your side; Choose a butter
 grilled-lobster-tail,Grilled Lobster Tail,Add-ons,,315.454,24.0865,3.5489,22.729,7.193,,1.4136,1.666,,,,,,,,,false,false,,,
-pan-seared-scallops-add-on,Pan-seared Scallops (Add-on),Add-ons,,495.755,31.4905,5.958,38.3735,12.452,,1.1358,0.65,,,,,,,,,false,false,,,
-burger-add-on-beef-brisket-and-short-rib,Burger Add On: Beef Brisket & Short Rib,Add-ons,,201.625,11.9625,8.425,13.15,5.875,,0.9313,7.225,,,,,,,,contains_beef,false,false,,,
-crumbled-blue-cheese,Crumbled Blue Cheese,Add-ons,,123,7.11,0.03,10.5,6.9,,0.591,0.03,,,,,,,,vegetarian,false,false,,,
+pan-seared-scallops-add-on,Pan-seared Scallops (Add-on),Add-ons,,495.755,31.2245,5.426,37.8415,11.92,,0.504,0.65,,,,,,,,,false,false,,,
+barbers-mature-cheddar-cheese,Barber's Mature Cheddar Cheese,Add-ons,,83.8,5,0,7,4.4,,0.4,0,,,,,,,,vegetarian,false,false,,,
 maple-cured-streaky-bacon,Maple-Cured Streaky Bacon,Add-ons,,80.0391,11.7973,0,0.4019,0,,0.9675,0,,,,,,,,contains_pork,false,false,,,Feed kJ (581.1) does not match its kcal (80.0391); kJ is not used
 30-day-aged-beef-patty,30 Day Aged Beef Patty,Add-ons,,244.375,26.3492,13.503,6.6455,0.0948,,1.258,4.42,,,,,,,,contains_beef,false,false,,,Feed kJ (1764.6) does not match its kcal (244.375); kJ is not used
-barbers-mature-cheddar-cheese,Barber's Mature Cheddar Cheese,Add-ons,,83.8,5,0,7,4.4,,0.4,0,,,,,,,,vegetarian,false,false,,,
+crumbled-blue-cheese,Crumbled Blue Cheese,Add-ons,,123,7.11,0.03,10.5,6.9,,0.591,0.03,,,,,,,,vegetarian,false,false,,,
+burger-add-on-beef-brisket-and-short-rib,Burger Add On: Beef Brisket & Short Rib,Add-ons,,201.625,11.9625,8.425,13.15,5.875,,0.9313,7.225,,,,,,,,contains_beef,false,false,,,
 tender-fillet-steak-tails,Tender Fillet Steak Tails,Add-ons,,210,31.5,0,9,4.5,,0,0,,,,,,,,contains_beef,false,false,,,
-crispy-spiced-cauliflower,Crispy Spiced Cauliflower,Add-ons,,246.755,6.3895,29.0565,10.904,0.8755,,2.6882,3.754,,,,,,,,vegetarian,false,false,,,
+crispy-spiced-cauliflower,Crispy Spiced Cauliflower,Add-ons,,246.755,7.2645,28.5315,11.254,1.7505,,2.2507,3.754,,,,,,,,vegetarian,false,false,,,
 chargrilled-chicken-breast,Chargrilled Chicken Breast,Add-ons,,229.0573,50.024,0,3.1594,0.7899,,1.4463,0,,,,,,,,,false,false,,,
 king-prawns,King Prawns,Add-ons,,103.5,22.5,0,1.5,0.15,,1.35,0,,,,,,,,,false,false,,,
 grilled-salmon-fillet,Grilled Salmon Fillet,Add-ons,,395.514,42.232,0,24.543,3.786,,0.3089,0,,,,,,,,,false,false,,,
@@ -52,7 +52,7 @@ b-arnaise,Béarnaise,"Sauces, dressings & butters",,162.75,5.25,3,14.25,8.25,,0.
 rich-red-wine-sauce,Rich Red Wine Sauce,"Sauces, dressings & butters",,47.2,1.6,9.6,0,0,,1.6,6.4,,,,,,,,,false,false,,,
 three-peppercorn-sauce,Three Peppercorn Sauce,"Sauces, dressings & butters",,92,1.6,4,8,3.2,,0.8,1.6,,,,,,,,,false,false,,,
 caf-de-paris-butter-sauce,Café De Paris Butter Sauce,"Sauces, dressings & butters",,110.4,0.8,4.8,9.6,5.6,,1.6,2.4,,,,,,,,,false,false,,,
-chimichurri,Chimichurri,"Sauces, dressings & butters",,200,0.75,2.5,20.55,1.75,,0.9875,0.95,,,,,,,,,false,false,,,
+chimichurri,Chimichurri,"Sauces, dressings & butters",,200,1,2.5,20.5,2,,1,1,,,,,,,,,false,false,,,
 bacon-and-honey-mustard,Bacon & Honey Mustard,"Sauces, dressings & butters",,157.775,4.0075,5.83,12.93,0.9,,0.9241,5.38,,,,,,,,contains_pork,false,false,,,
 spicy-burnt-chilli-and-crispy-onions,Spicy Burnt Chilli & Crispy Onions,"Sauces, dressings & butters",,161.95,1.54,27.83,5.06,2.1,,0.5735,23.38,,,,,,,,vegetarian,false,false,,,
 long-clawson-stilton-and-blue-cheese,Long Clawson Stilton & Blue Cheese,"Sauces, dressings & butters",,177.05,4.945,4.945,15.36,4.35,,1.199,3.595,,,,,,,,vegetarian,false,false,,,
@@ -88,12 +88,12 @@ roasted-half-chicken,Roasted Half Chicken,Mains,,1096.2,118.645,12.48,62.43,24.1
 millers-deluxe-fish-pie,Miller's Deluxe Fish Pie,Mains,,991.3499,61.5377,50.61,59.5332,29.0225,,5.473,16.0791,,,,,,,,,false,true,,,
 chicken-caesar-salad,Chicken Caesar Salad,Salads,,1046.749,68.2338,15.7818,77.3858,16.6803,,9.3062,7.37,,,,,,,,,false,true,,,
 feta-and-pickled-watermelon-salad,Feta & Pickled Watermelon Salad,Salads,,817.607,32.157,69.91,41.903,13.335,,1.0912,27.777,,,,,,,,vegetarian,false,true,,,
-triple-chocolate-brownie,Triple Chocolate Brownie,Desserts,,662.5921,6.973,83.3241,33.2831,15.9765,,0.223,69.7471,,,,,,,,vegetarian,false,false,,,
+triple-chocolate-brownie,Triple Chocolate Brownie,Desserts,,656.8421,7.223,81.5741,33.3331,16.0015,,0.2205,69.4971,,,,,,,,vegetarian,false,false,,,
 sticky-toffee-pudding,Sticky Toffee Pudding,Desserts,,691.6609,4.9828,113.5661,23.0705,12.6473,,1.162,85.6572,,,,,,,,vegetarian,false,false,,,Menu choices not added in: With your choice of
 vanilla-cr-me-br-l-e,Vanilla Crème Brûlée,Desserts,,540.745,5.4397,86.3274,19.0185,7.4761,,0.2654,80.5948,,,,,,,,vegetarian,false,false,,,
 apple-crumble-tart,Apple Crumble Tart,Desserts,,656.655,6.524,89.696,29.1825,12.2505,,0.0057,52.9515,,,,,,,,vegetarian,false,false,,,Menu choices not added in: With your choice of
 strawberries-and-cream-cheesecake,Strawberries & Cream Cheesecake,Desserts,,849.4531,17.2235,108.5709,37.334,18.7424,,0.6297,87.1419,,,,,,,,vegetarian,false,false,,,
-caramelised-biscuit-torte,Caramelised Biscuit Torte,Desserts,,591.2345,5.6969,74.0904,28.9814,16.4193,,0.4868,48.8347,,,,,,,,vegetarian,false,false,,,
+caramelised-biscuit-torte,Caramelised Biscuit Torte,Desserts,,591.2345,5.2112,73.7261,29.4671,17.0264,,0.0314,49.4418,,,,,,,,vegetarian,false,false,,,
 new-york-style-baked-cheesecake,New York-Style Baked Cheesecake,Desserts,,855.5546,10.4719,83.2424,53.0371,30.3641,,0.7231,61.0573,,,,,,,,vegetarian,false,false,,,
 chocolate-orange-mousse-cake,Chocolate Orange Mousse Cake,Desserts,,357.765,5.179,45.257,16.5475,9.5055,,0.0086,35.3065,,,,,,,,vegetarian,false,false,,,
 ice-cream-and-sorbet,Ice Cream & Sorbet,Desserts,,39.975,0.33,4.635,2.22,1.335,,0.015,4.56,,,,,,,,vegetarian,false,false,,,Menu choices not added in: Choose your first flavour; Choose your second flavour; Choose your third flavour
@@ -101,7 +101,7 @@ lemon-tart,Lemon Tart,Desserts,,786.5147,6.7488,103.4299,37.6297,19.7978,,0.333,
 banoffee-pie,Banoffee Pie,Desserts,,1185.9609,9.1228,122.4011,72.4035,43.5973,,0.3713,102.9902,,,,,,,,vegetarian,false,false,,,
 strawberry-sling-torte,Strawberry Sling Torte,Desserts,,632.8112,3.2578,92.816,25.9779,15.7095,,0.0328,71.6115,,,,,,,,vegetarian,false,false,,,
 carters-signature-chocolate-bar-dessert,Carter's Signature Chocolate Bar Dessert,Desserts,For two to share,2346.13,17.677,251.3122,139.128,77.914,,2.1867,195.679,,,,,,,,vegetarian,false,false,,,Menu choices not added in: Choose your first flavour; Choose your second flavour
-mini-triple-chocolate-brownie-with-vanilla-ice-cream,Mini Triple Chocolate Brownie with Vanilla Ice Cream,Desserts,,543.5656,6.3645,60.5781,30.1082,16.161,,0.1718,51.9429,,,,,,,,vegetarian,false,false,,,
+mini-triple-chocolate-brownie-with-vanilla-ice-cream,Mini Triple Chocolate Brownie with Vanilla Ice Cream,Desserts,,541.2656,6.4645,59.8781,30.1282,16.171,,0.1708,51.8429,,,,,,,,vegetarian,false,false,,,
 mini-vanilla-cr-me-br-l-e,Mini Vanilla Crème Brûlée,Desserts,,255.145,2.6947,39.0724,9.6085,3.9761,,0.1322,35.3398,,,,,,,,vegetarian,false,false,,,
 mini-chocolate-orange-mousse-cake,Mini Chocolate Orange Mousse Cake,Desserts,,155.84,2.689,14.967,9.265,5.223,,0.0161,11.839,,,,,,,,vegetarian,false,false,,,
 salted-caramel-profiteroles,Salted Caramel Profiteroles,Desserts,,299.1,3.01,35.684,15.526,10.646,,0.5185,28.036,,,,,,,,vegetarian,false,false,,,

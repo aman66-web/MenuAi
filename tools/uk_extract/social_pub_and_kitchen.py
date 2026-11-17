@@ -64,6 +64,7 @@ TWINS = {"breakfast": "scottish_breakfast", "bottomless": "scottish_bottomless"}
 # Six Nations Sips, Sauce Shop Dishes (February 2026), MIXR Bakewell Specials and MIXR Paddy's drinks (one venue / past),
 # Set Menu, The Social Feast and Pizza Party Feast (group bookings), the 2025 Sunday Roasts menu and every January/March 2025,
 # 2023 and 2022 menu (superseded guides).
+# The Festive Main Menu (listed from November 2026) is a seasonal festive menu like the others above: left out too.
 
 SECTIONS = {
     "Bring on the Wings": "Wings", "Wings": "Wings", "Nibbles": "Nibbles", "Bar Snack": "Nibbles",
@@ -109,7 +110,7 @@ NOTES: dict[str, str] = {}
 # Each dish's info box prints "Contains:" / "Dish ingredients may also contain:" (naming the cereals and nuts) and the dish carries
 # label ids; tenkites_b.allergens_from_rec checks they agree.
 ALLERGEN_TITLE = ("Social Pub & Kitchen allergen & nutritional data (tkmenus.com/socialpubkitchen, April 2026 menus, "
-                  "data correct as of 8 October 2026)")
+                  "data correct as of 17 November 2026)")
 ALLERGEN_WORDS = {"sulphur dioxide/ sulphites": ("sulphites", None)}  # as printed on these pages
 
 NOTE = ("Not every pub serves every menu or dish; Scottish pubs have their own breakfast and brunch dishes (not included). A dish with "
@@ -117,7 +118,7 @@ NOTE = ("Not every pub serves every menu or dish; Scottish pubs have their own b
         "'Excluding ...' leave out the part named (see Options & add-ons). Alcoholic drinks print no figures, so none is listed (the 0% versions are).")
 assert len(NOTE) < 400
 
-EXPECTED_ROWS = 595  # dish records on the eight published menus (main 151, lunch 53, vegan 49, no-gluten 53, kids 17, breakfast 27, bottomless 76, drinks 169)
+EXPECTED_ROWS = 606  # dish records on the eight published menus (main 151, lunch 53, vegan 49, no-gluten 53, kids 17, breakfast 27, bottomless 76, drinks 180; drinks was 169 before 17 November 2026)
 
 
 def fix_records(recs: list[dict]) -> list[dict]:
@@ -312,7 +313,7 @@ def main() -> int:
         chain_id=CHAIN_ID, name="Social Pub & Kitchen", cuisine="Pub",
         source_title="Social Pub & Kitchen allergen & nutritional data (tkmenus.com/socialpubkitchen: Main Menu April 2026 and the April 2026 "
                      "lunch, vegan, no-gluten containing, kids mini, breakfast, bottomless brunch and drinks menus; data correct as of "
-                     "8 October 2026)",
+                     "17 November 2026)",
         source_url=BASE_URL, checked_on=args.checked_on,
         aliases=["social pub and kitchen", "social pub & kitchen", "the social pub and kitchen", "social pub kitchen"],
         items=items, out=args.out, holdback=[(slug(tk.fold(n)), why) for n, why in HOLDBACK.items()],

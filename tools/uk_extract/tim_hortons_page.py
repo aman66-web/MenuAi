@@ -26,7 +26,7 @@ USER_AGENT = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.3
 LABELS = ("Serving Size", "Energy", "Fat", "of which Saturates", "Carbohydrates", "of which Sugars", "Fibre", "Protein", "Salt")
 FIELDS = ("serving", "energy", "fat", "sat", "carbs", "sugars", "fibre", "protein", "salt")
 
-_NUM_G = re.compile(r"^(<?\d+(?:\.\d+)?)g$")
+_NUM_G = re.compile(r"^(<?(?:\d+(?:\.\d+)?|\.\d+))g$")   # ".23g" (no leading zero) is printed for one drink (Nov 2026): kept as printed
 _ENERGY = re.compile(r"^(\d+(?:\.\d+)?)kJ/(\d+(?:\.\d+)?)Kcal$")
 _SERVING = re.compile(r"^(\d+(?:\.\d+)?) ?(g|oz)(?: ?(?:g|oz))?$")
 _TAGS = re.compile(r"<[^>]+>")

@@ -7,9 +7,10 @@ Site: https://www.simmonsbakers.com/nutritional-information lists every product 
     adds the rows up. `lookup()` makes that same request (ONE request per product, with every option id of the product: the answer is
     one independent row per option), and `total()` adds the rows up exactly as the page does (same order, same rounding).
   * "From the bakery" (RM): pages /nutritional-information-rm/<id>: static tables "Per <unit>" and "Per 100g", allergens and dietary advice.
-Politeness: one request per page (a GET), plus one POST per made-in-store product; at least 1.1 s between requests; a normal browser
+Politeness: one request per page (a GET), plus one POST per made-in-store product; at least 2.5 s between requests; a normal browser
 User-Agent; robots.txt read with robots_rfc (the site serves none: /robots.txt redirects to its home page, so no rules apply). A block
-(401/403/429) stops the run; an HTTP 500 on one page is recorded and that product is left out.
+(401/403/429) stops the run; an HTTP 500 on one page is recorded and that product is left out. The site's own "An error has occurred" page
+(HTTP 200) or a dropped connection is retried once, 30 s later; a second failure stops the run (seen several times on 2026-11-17).
 """
 from __future__ import annotations
 import hashlib
@@ -27,7 +28,7 @@ import robots_rfc  # noqa: E402
 BASE = "https://www.simmonsbakers.com"
 LISTING = "/nutritional-information"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
-DELAY = 1.1
+DELAY = 2.5  # was 1.1; on 2026-11-17 the site was slow and answered some requests with its own error page
 # The page script's row fields -> our names (per serving, as the page sums them).
 FIELDS = [("energyKj", "energy_kj"), ("energyKcal", "calories"), ("fat", "fat_g"), ("saturates", "sat_fat_g"),
           ("carbohydrates", "carbs_g"), ("sugars", "sugar_g"), ("fibre", "fiber_g"), ("protein", "protein_g"), ("salt", "salt_g")]
@@ -44,12 +45,26 @@ def _wait() -> None:
     _last[0] = time.time()
 
 
+ERROR_PAGE = b"An error has occurred:"
+
+
 def _curl(args: list[str], dest: Path) -> tuple[int, str]:
-    """Run curl once; returns (HTTP status, final URL). Same-host redirects are followed (the site redirects a few made-in-store URLs)."""
-    _wait()
-    cmd = ["curl", "-sS", "-L", "--max-redirs", "2", "--compressed", "-A", UA, "-o", str(dest), "-w", "%{http_code} %{url_effective}", *args]
-    out = subprocess.run(cmd, capture_output=True, text=True, check=True).stdout.split(" ", 1)
-    return int(out[0]), out[1].strip()
+    """Run curl; returns (HTTP status, final URL). Same-host redirects are followed (the site redirects a few made-in-store URLs).
+    The site sometimes answers with its own "An error has occurred" page (HTTP 200) or drops the connection: that answer is retried ONCE,
+    30 s later; a second failure stops the run (nothing is left half-read)."""
+    for attempt in range(2):
+        _wait()
+        cmd = ["curl", "-sS", "-L", "--max-redirs", "2", "--compressed", "--max-time", "90", "-A", UA, "-o", str(dest), "-w", "%{http_code} %{url_effective}", *args]
+        proc = subprocess.run(cmd, capture_output=True, text=True)
+        bad = proc.returncode != 0 or (dest.exists() and ERROR_PAGE in dest.read_bytes()[:20000])
+        if not bad:
+            out = proc.stdout.split(" ", 1)
+            return int(out[0]), out[1].strip()
+        dest.unlink(missing_ok=True)
+        if attempt == 0:
+            print(f"  retrying once in 30 s: {args[-1]} (curl exit {proc.returncode})", flush=True)
+            time.sleep(30)
+    raise SystemExit(f"{args[-1]}: the site answered its error page or dropped the connection twice: stop, re-run later")
 
 
 def _check(status: int, url: str, body: Path) -> None:
@@ -158,8 +173,10 @@ def parse_product(text: str) -> dict:
             opts = [{"id": o.group(1), "label": clean(o.group(3))} for o in
                     re.finditer(r'<div class="ingredientOption" data-id="([^"]+)" data-next="([^"]+)" data-value="([^"]*)"', m.group(2))]
             panels.append({"header": head, "options": opts})
-        base = re.search(r'For allergens, see ingredients in <span class="bold">bold</span>\.</p>\s*<p class="textSummary">(.*?)</p>', text, re.S)
-        return {"kind": "mo", "title": title, "id": pid, "panels": panels, "base_html": base.group(1) if base else None}
+        # the filling's own ingredients: <p class="textSummary">...</p> until October 2026, <div class="textSummary"><p>...</p></div> by 17 November 2026
+        base = re.search(r'For allergens, see ingredients in <span class="bold">bold</span>\.</p>\s*'
+                         r'(?:<p class="textSummary">(.*?)</p>|<div class="textSummary">(.*?)</div>)', text, re.S)
+        return {"kind": "mo", "title": title, "id": pid, "panels": panels, "base_html": (base.group(1) or base.group(2)) if base else None}
     title = clean(re.search(r'<h2 class="biggerTitle--deep">(.*?)</h2>', text, re.S).group(1))
     unit = re.search(r'<th class="rightText"><span class="u-mobile-serving">(.*?)</span>', text, re.S)
     ser, hun = {}, {}
@@ -169,10 +186,11 @@ def parse_product(text: str) -> dict:
         ser[key], hun[key] = (clean(a.group(1)) if a else None), (clean(b.group(1)) if b else None)
     al = re.search(r'<p id="allergenList"[^>]*>(.*?)</p>', text, re.S)
     di = re.search(r'<p id="dietaryAdvice"[^>]*>(.*?)</p>', text, re.S)
-    ing = re.search(r'<p id="optionIngredients"[^>]*>(.*?)</p>', text, re.S)
+    # <p id="optionIngredients">...</p> until October 2026, <div id="optionIngredients"><p>...</p></div> by 17 November 2026
+    ing = re.search(r'<p id="optionIngredients"[^>]*>(.*?)</p>|<div id="optionIngredients"[^>]*>(.*?)</div>', text, re.S)
     return {"kind": "static", "title": title, "unit": clean(unit.group(1)) if unit else "", "serving": ser, "hundred": hun,
             "allergens": clean(al.group(1)) if al else None, "dietary": clean(di.group(1)) if di else None,
-            "ingredients_html": ing.group(1) if ing else None}
+            "ingredients_html": (ing.group(1) or ing.group(2)) if ing else None}
 
 
 def bold_words(fragment: str | None) -> list[str]:

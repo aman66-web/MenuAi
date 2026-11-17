@@ -43,6 +43,7 @@ MENUS = [
 # Left out on purpose: festive set / kids' festive / festive bottomless brunch / festive buffet menus, Halloween drinks, August Bank
 # Holiday special serve (seasonal or past), Buffet and Events menus (group catering), MIXR Bakewell specials (one venue),
 # Maliblue campaign (past), and every June 2025 / 2024 / 2022 menu (superseded guides).
+# Festive Flavours 2026 (listed from November 2026: a seasonal menu, like the other festive menus) is left out too.
 
 SECTIONS = {
     "Small Plates": "Small plates", "Sharers": "Sharers", "Sharer": "Sharers", "Mains": "Mains", "Burgers": "Burgers",
@@ -86,7 +87,7 @@ NOTES: dict[str, str] = {
 
 # Each dish's info box prints "Contains:" / "Dish ingredients may also contain:" (naming the cereals) and the dish carries label
 # ids; tenkites_b.allergens_from_rec checks they agree.
-ALLERGEN_TITLE = "Slug & Lettuce allergen & nutritional data (tkmenus.com/theslugandlettuce, July 2026 menus, data correct as of 6 October 2026)"
+ALLERGEN_TITLE = "Slug & Lettuce allergen & nutritional data (tkmenus.com/theslugandlettuce, July 2026 menus, data correct as of 17 November 2026)"
 ALLERGEN_WORDS = {"sulphur dioxide/ sulphites": ("sulphites", None)}  # as printed on these pages
 
 EXPECTED_ROWS = 841
@@ -169,7 +170,7 @@ def main() -> int:
         chain_id=CHAIN_ID, name="Slug & Lettuce", cuisine="Pub",
         source_title="Slug & Lettuce allergen & nutritional data (tkmenus.com/theslugandlettuce: Main Food Menu July 2026 and the July 2026 "
                      "lunch, brunch, bottomless brunch, midweek eats, kids', no-gluten, afternoon tea and drinks menus; data correct as of "
-                     "6 October 2026)",
+                     "17 November 2026)",
         source_url=BASE_URL, checked_on=args.checked_on,
         aliases=["slug and lettuce", "slug & lettuce", "the slug and lettuce", "slug n lettuce"], items=items, out=args.out,
         holdback=[(slug(tk.fold(n)), why) for n, why in HOLDBACK.items()],

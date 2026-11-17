@@ -27,8 +27,9 @@ from pathlib import Path
 
 WORD = re.compile(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(.*?)</word>')
 NUM = re.compile(r"^\d+(?:\.\d+)?$")
-# x centres (points) of the value columns B..G, measured from the PDF; A is the name column.
-COLS = {"B": 223.3, "C": 290.0, "D": 347.0, "E": 406.0, "F": 465.0, "G": 518.0}
+# x centres (points) of the value columns B..G, measured from the PDF (the 14 October 2026 reissue; the 15 September file had them 22.7 pt
+# further left); A is the name column.
+COLS = {"B": 245.8, "C": 312.6, "D": 369.8, "E": 428.8, "F": 488.0, "G": 541.0}
 COL_TOL = 16.0
 NAME_X = 190.0
 TOP, BOTTOM = 30.0, 790.0  # the first row of a page can sit at 54 pt (a different font puts its name higher than its cells)

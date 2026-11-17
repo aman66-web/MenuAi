@@ -48,13 +48,13 @@ SOURCE_TITLE = ("Pret A Manger UK website: product nutritional information, GB s
                 "(pret.co.uk product pages, retrieved {checked_on}; the pages carry no version date)")
 # The Allergen Guide the app links to (Pret's own PDF, linked from pret_feed.ALLERGEN_PAGE). Its title is the guide's own
 # printed name and version. If the saved Allergen Guide page links a different PDF, the script stops: update these two.
-ALLERGEN_GUIDE_URL = ("https://assets.ctfassets.net/4zu8gvmtwqss/11hMIULPpeCprPZIUG76L2/0b636725a4e1551ed7a9817c02c98f31/"
-                      "Allergen_Guide_8th_September_2026_V1.pdf")
-ALLERGEN_GUIDE_TITLE = "Pret's Allergen Guide, GB Pret shops (Allergen Guide 8th September 2026 V1)"
+ALLERGEN_GUIDE_URL = ("https://assets.ctfassets.net/4zu8gvmtwqss/11hMIULPpeCprPZIUG76L2/c8a1a62f4b7c3762a27d17d31a9f651e/"
+                      "Allergen_Guide_3rd_November_2026_V1.pdf")
+ALLERGEN_GUIDE_TITLE = "Pret's Allergen Guide, GB Pret shops (Allergen Guide 3rd November 2026 V1)"
 # Printed allergen labels that are not one of the 14 (the guide: "In addition we also declare Pine Nuts as an allergen.").
 NOT_OF_THE_14 = {"Pine Nuts"}
 PACK_ONLY = re.compile(r"please see (?:can|bottle)|see (?:can|bottle)|ingredient data not found", re.I)
-EXPECTED_MATRIX_ROWS = 475   # product rows of the 20 table pages of the 8 September 2026 guide (pret_allergen_pdf.read_matrix)
+EXPECTED_MATRIX_ROWS = 462   # product rows of the 19 table pages of the 3 November 2026 guide (pret_allergen_pdf.read_matrix)
 NOTE = ("Numbers and allergens are Pret's own (product pages and Allergen Guide). Left out because Pret gives no allergen row for them: "
         "decaf drinks, some milk choices of tea, filter coffee and iced Americano, branded bottles and cans, items with pine nuts.")
 # How the guide prints each milk choice after the drink's name (the guide's own wording; one or more spellings per choice). A drink in
@@ -69,7 +69,7 @@ MILK_LABELS = {
 # The site's drink name -> the name the guide prints for it, where they differ by a spelling slip only (checked: the guide has one such
 # drink and the site one; the default-milk row agrees with the product record, see guide_agrees).
 GUIDE_DRINK_NAME = {"Pumpkin Spice Latte": "Pumpkin Spiced Latte"}
-EXPECTED_ITEMS = 329  # set after the reviewed run of 2026-10-05; if the menu changes the script stops: re-check, then pass --expect N
+EXPECTED_ITEMS = 336  # set after the reviewed run of 2026-11-17 (329 on 2026-10-05); if the menu changes the script stops: re-check, then pass --expect N
 
 # Display categories, in display order.
 SW, BR, HF, SP, SN, FR, KD, HD, CD, AH = (

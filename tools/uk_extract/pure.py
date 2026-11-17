@@ -49,8 +49,8 @@ SOURCE_URL = "https://www.pure.co.uk/menus/"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 
 # tiles (= items with a details block) each page must show
-EXPECTED_TILES = {"hot-lunch": 21, "hot-drinks": 16, "salads-grain-bowls": 8, "cold-breakfast": 22, "hot-breakfast": 25,
-                  "breads": 24, "sides-desserts": 8, "snacks-treats": 30, "cold-drinks": 23}
+EXPECTED_TILES = {"hot-lunch": 21, "hot-drinks": 18, "salads-grain-bowls": 8, "cold-breakfast": 23, "hot-breakfast": 25,
+                  "breads": 21, "sides-desserts": 8, "snacks-treats": 31, "cold-drinks": 28}
 OUTPUT_PAGE_ORDER = ["hot-breakfast", "cold-breakfast", "breads", "hot-lunch", "salads-grain-bowls", "sides-desserts",
                      "snacks-treats", "hot-drinks", "cold-drinks"]
 
@@ -90,7 +90,7 @@ SECTION_SKIP_REASON = {
     ("hot-lunch", "Gatwick Specials"): "Gatwick (airport) only",
     ("breads", "Only available at selected stores"): "selected stores only",
 }
-SECTION_SKIP_COUNT = {("hot-lunch", "Gatwick Specials"): 7, ("breads", "Only available at selected stores"): 14}
+SECTION_SKIP_COUNT = {("hot-lunch", "Gatwick Specials"): 7, ("breads", "Only available at selected stores"): 11}
 
 # Categories whose items are an order on their own (everything else, such as drinks, bakery, snacks, desserts, is not).
 RANKABLE = {"Soups", "Wrap toasties", "Pure bowls", "Salads", "Grain bowls", "Birchers & yoghurts", "Porridge", "Super Eggs",
@@ -120,6 +120,7 @@ NO_MACROS = {
     ("hot-drinks", "Peppermint Tea"): "fat printed as '-'",
     ("cold-drinks", "Iced Americano"): "kcal and every other value printed as '-'",
     ("cold-drinks", "Wild Berry Kombucha"): "no nutrition table",
+    ("cold-drinks", "Coke Zero"): "no nutrition table",
     ("cold-drinks", "Ginger Shot"): "fat printed as '-'",
     ("snacks-treats", "Slow Dried Mango"): "no nutrition table",
     ("snacks-treats", "Propercorn Sweet & Salty"): "no nutrition table",
@@ -129,6 +130,7 @@ NO_MACROS = {
 # Items whose page prints no ingredients list (so the pork/beef tags cannot be checked): kept, with this note (checked by hand 2026-10-08).
 NO_INGREDIENTS_OK = {
     "Forest Feast Salted Dark Chocolate Almonds": "The page prints no ingredients list for this item, so its pork/beef tags could not be checked",
+    "Dash Raspberry": "The page prints no ingredients list for this item, so its pork/beef tags could not be checked",  # sparkling water (checked by hand 2026-11-17)
 }
 
 # A printed value that is not a plain number but whose digits are unambiguous: (page, name, table label, key) -> (printed, used, why).
@@ -338,8 +340,15 @@ def build_items(folder: Path):
     unpublished: list[tuple[str, str]] = []
     items: list[dict] = []
     seen_skips: dict[tuple, int] = {}
+    first_seen: dict[str, dict] = {}  # an item listed on two pages (Wildfarmed Mince Pie, 2026-11-17) is written once, if both read the same
     for page in OUTPUT_PAGE_ORDER:
         for it in pages[page]:
+            prev = first_seen.get(it["slug"])
+            if prev is not None:
+                if (prev["name"], prev["tables"], prev["ingredients_html"], prev["contains_lines"]) != (it["name"], it["tables"], it["ingredients_html"], it["contains_lines"]):
+                    sys.exit(f"{it['name']!r} is on {prev['page']} and {page} but reads differently there: check by hand")
+                continue
+            first_seen[it["slug"]] = it
             key = (page, it["section"])
             if key not in CATEGORY:
                 sys.exit(f"{page}: unknown section {it['section']!r} (item {it['name']!r}): add it to CATEGORY")

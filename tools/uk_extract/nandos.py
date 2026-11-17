@@ -45,15 +45,16 @@ CATEGORY_ORDER = [
     "Nandinos (Kids)", "Sides", "Dips & Extras", "Spice levels", "Drinks", "Desserts",
 ]
 
-# Every entry reviewed by a human on 2026-10-05, in feed order. New or removed entries stop the script (see docstring).
+# Every entry reviewed by a human on 2026-10-05, in feed order (2026-11-17: HalloOoOoOomi Sticks, the three Phantom Wings
+# and Tombstone Chips left the menu and were removed). New or removed entries stop the script (see docstring).
 REVIEWED = """
 sol-bowl:extra-hot-meal-deals hearty-bowl:extra-hot-meal-deals
-halloooooomi-sticks:starters chicken-chorizo:starters halloumi-sticks-dip:starters halloumi-sticks-honey:starters
+chicken-chorizo:starters halloumi-sticks-dip:starters halloumi-sticks-honey:starters
 houmous-with-pe-ri-pe-ri-drizzle:starters sweet-potato-wedges-with-garlic-pe-rinaise:starters cheesy-garlic-pitta:starters
 spicy-mixed-olives:starters pe-ri-pe-ri-nuts:starters
 4-boneless-chicken-thighs:pe-ri-pe-ri-chicken chicken-butterfly:pe-ri-pe-ri-chicken 1-2-chicken:pe-ri-pe-ri-chicken
-1-4-chicken:pe-ri-pe-ri-chicken whole-chicken:pe-ri-pe-ri-chicken 5-phantom-wings:pe-ri-pe-ri-chicken
-10-phantom-wings:pe-ri-pe-ri-chicken 3-phantom-wings:pe-ri-pe-ri-chicken 5-chicken-wings:pe-ri-pe-ri-chicken
+1-4-chicken:pe-ri-pe-ri-chicken whole-chicken:pe-ri-pe-ri-chicken 
+5-chicken-wings:pe-ri-pe-ri-chicken
 10-chicken-wings:pe-ri-pe-ri-chicken 3-chicken-wings:pe-ri-pe-ri-chicken 10-wing-roulette:pe-ri-pe-ri-chicken
 5-saucy-wings:pe-ri-pe-ri-chicken 10-saucy-wings:pe-ri-pe-ri-chicken 3-saucy-wings:pe-ri-pe-ri-chicken
 chicken-livers-portuguese-roll:pe-ri-pe-ri-chicken
@@ -69,7 +70,7 @@ nandino-burger:nandinos-kids nandinos-mac-and-cheese:nandinos-kids chicken-breas
 nandinos-3-chicken-wings:nandinos-kids little-pitta:nandinos-kids soft-swirl-tub:nandinos-kids cloudy-apple-juice:nandinos-kids
 pineapple-mango-smoothie:nandinos-kids
 fully-loaded-chips:sides loaded-pe-ri-mac:sides pe-ri-mac-and-cheese:sides charred-corn:sides portuguese-tomato-salad:sides
-tombstone-chips:sides pe-ri-salted-chips:sides chips:sides garlic-bread:sides spicy-rice:sides coleslaw:sides creamy-mash:sides
+pe-ri-salted-chips:sides chips:sides garlic-bread:sides spicy-rice:sides coleslaw:sides creamy-mash:sides
 corn-on-the-cob:sides long-stem-broccoli:sides macho-peas:sides rainbow-slaw:sides hearty-grains:sides
 grilled-halloumi-cheese:extras 2-chicken-thighs-extra:extras cheddar-cheese:extras chicken-breast-extra:extras pineapple:extras
 herby-pickles-extra:extras 1-2-avocado:extras pe-ri-pe-ri-drizzle:extras beanie-patty-extra:extras per-plant-strips-extra:extras

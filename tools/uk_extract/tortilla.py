@@ -1,24 +1,27 @@
 #!/usr/bin/env python3
 """Build data/source/tortilla/ from Tortilla's official "Nutrition & Allergen Information" PDF.
 
-    curl -A "Mozilla/5.0" -o tortilla-nutrition-guide.pdf https://a.storyblok.com/f/158888/x/192342b9c3/tortilla-nutrition-guide.pdf
-    python3 tools/uk_extract/tortilla.py tortilla-nutrition-guide.pdf --checked-on 2026-10-06
+    curl -A "Mozilla/5.0" -o tortilla-nutrition-guide-16-11-26.pdf https://a.storyblok.com/f/158888/x/a01b6b1b2c/tortilla-nutrition-guide-16-11-26.pdf
+    python3 tools/uk_extract/tortilla.py tortilla-nutrition-guide-16-11-26.pdf --checked-on 2026-11-17
 
-Source: the PDF linked from https://www.tortilla.co.uk/menu/nutrition-and-allergens ("Updated 17 September 2026", 24 pages).
+Source: the PDF linked from https://www.tortilla.co.uk/menu/nutrition-and-allergens ("Updated 16 November 2026", 19 pages;
+the page links a new file for each edition, so look the link up there first. The 17 September 2026 edition had 24 pages).
 Numbers are copied from the PDF as printed (kcal, fat, saturates, carbs, sugars, fibre, protein, salt; kJ is not used).
 Only categories, servings and rankable flags below are typed by hand; names come from the PDF.
 
 WHAT IS AND IS NOT PUBLISHED. Most of Tortilla's guide is one table per dish type that lists the INGREDIENTS (wrap, rice,
 beans, fillings, sauces, salsas) with a value each and NO total for the finished dish: Medium/Large Burrito/Bowl and Salad
-(pages 4-7), Tres Tacos, Nachos Queso, Quesadilla, Protein Pots, the three Fuel Bowls, the four Damn That's Hot dishes and
-the Kids tables (pages 8-17 and 20). Those are never added up here (a total the chain does not print would be a number we
-made), so none of them is an item. What the guide does print as whole items are the Sides (chips, dips, sauces, salsas),
-Desserts, the Breakfast items and one Drink. The script stops if the ingredient pages change shape (a new layout may mean
+(pages 4-7), Tres Tacos, Nachos Queso, Quesadilla, Protein Pots and the Kids tables (pages 8-11 and 15). Those are never
+added up here (a total the chain does not print would be a number we made), so none of them is an item. What the guide does
+print as whole items are the three Fuel Bowls (page 12: since the 16 November 2026 edition, one row per bowl; before that
+they were ingredient tables too), the Sides (chips, dips, sauces, salsas), Desserts, the Breakfast items and the Drinks. The script stops if the ingredient pages change shape (a new layout may mean
 Tortilla now prints whole dishes, which a human should look at), or if a whole-item name appears or disappears.
 
 Left out on purpose:
   "(Canary Wharf only)"  breakfast rows sold in one restaurant (the guide's own label); Great Britain menu only.
-  "(Belfast)"            Northern Ireland variant of the Hibiscus Lemonade.
+  "(Belfast)"            Northern Ireland variant of a drink (the 17 September 2026 edition's Hibiscus Lemonade).
+  Tipsy Horchata, Dirty/Tipsy Horchata (page 19)  'Tipsy' drinks are taken to contain alcohol (no alcoholic drinks are
+                         published, founder 2026-10-11); the guide does not say what is in them, so they are left out.
   Hot Drinks             the table prints calories only (no protein, carbs or fat), so it cannot be used.
   Ingredient tables      see above.
 
@@ -37,54 +40,64 @@ import tortilla_pdf  # noqa: E402
 from common import ROOT, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "tortilla"
-SOURCE_URL = "https://a.storyblok.com/f/158888/x/192342b9c3/tortilla-nutrition-guide.pdf"
-SOURCE_TITLE = "Tortilla Nutrition & Allergen Information (updated 17 September 2026)"
-PAGES = 24
+SOURCE_URL = "https://a.storyblok.com/f/158888/x/a01b6b1b2c/tortilla-nutrition-guide-16-11-26.pdf"
+SOURCE_TITLE = "Tortilla Nutrition & Allergen Information (updated 16 November 2026)"
+PAGES = 19
 
-BR, SI, DI, SA, DE, DR = "Breakfast", "Sides", "Dips & sauces", "Salsas", "Desserts", "Drinks"
-CATEGORY_ORDER = [BR, SI, DI, SA, DE, DR]
+BR, FB, SI, DI, SA, DE, DR = "Breakfast", "Fuel bowls", "Sides", "Dips & sauces", "Salsas", "Desserts", "Drinks"
+CATEGORY_ORDER = [BR, FB, SI, DI, SA, DE, DR]
 
-# Pages whose tables list ingredients (no dish totals) and how many rows each held when this script was written.
-# Page 24's Hot Drinks (kcal only) is checked separately.
-INGREDIENT_PAGE_ROWS = {4: 27, 5: 27, 6: 26, 7: 26, 8: 21, 9: 10, 10: 16, 11: 24, 12: 11, 13: 21, 14: 10, 15: 10, 16: 9, 17: 9, 20: 17}
+# Pages whose tables list ingredients (no dish totals) and how many rows each held in the 16 November 2026 edition.
+# Page 19's Hot Drinks (kcal only) is checked separately.
+INGREDIENT_PAGE_ROWS = {4: 27, 5: 27, 6: 25, 7: 25, 8: 21, 9: 10, 10: 16, 11: 23, 15: 17}
+WHOLE_ITEM_PAGES = (12, 13, 14, 16, 17, 18, 19)
+HOT_DRINKS_PAGE = 19
 HOT_DRINKS = ["Espresso Single / Double", "Americano", "English Breakfast Tea", "Peppermint Tea", "Cappuccino", "Iced Coffee", "Latte", "Mocha"]
 
 PORK = "contains_pork"
 ENERGY_KJ = "Printed kJ (2666) and kcal (729) do not agree (2666 kJ is about 637 kcal, and protein, carbs and fat add up to about 644 kcal). Entered as printed"
-QUESO = ("All nine printed numbers (kcal, kJ, fat, saturates, carbs, sugars, fibre, protein, salt) are identical to the Tortilla Chips "
-         "(bag) row on the same page, although this is a cheese dip whose only allergen is milk. Looks like a copy-paste error in the guide")
+# Queso Fundido (16 November 2026 edition): its numbers are now its own (the 17 September edition printed the Tortilla Chips (bag)
+# row's nine numbers for it), but its Contains and May Contain cells are both empty although it is a melted-cheese dip (the earlier
+# edition marked it milk). An allergen row that contradicts the dish's own name is not published (accuracy re-check rule).
+QUESO = ("Allergen row contradicts the dish name: Queso Fundido is a melted-cheese dip, but the guide prints nothing under Contains "
+         "Allergens or May Contain for it (no milk marked; the 17 September 2026 edition marked milk). Not corrected")
 SALSA_SALT = "Printed salt is 3 g for the large and 1 g for the medium (every other medium/large pair is about double)"
 
+DRINKS_NOTE = ("The guide's footnote '*Available at participating stores only.' sits under this table but no row carries an asterisk, "
+               "so it is not known whether it applies to this drink. Serving size is not stated")
 # printed name -> (category, serving, rankable, extra tags, note). Name, numbers and the vegetarian tag come from the PDF.
 SPEC: dict[str, tuple] = {
-    # page 21: breakfast burritos (the first four rows of the page are "Canary Wharf only" and are left out)
+    # page 16: breakfast burritos (the first four rows of the page are "Canary Wharf only" and are left out)
     "Medium Bacon Breakfast Burrito": (BR, "Medium", True, [PORK], ""),
     "Large Bacon Breakfast Burrito": (BR, "Large", True, [PORK], ""),
     "Medium Veggie Breakfast Burrito": (BR, "Medium", True, [], "A different 'Medium Veggie Breakfast Burrito (Canary Wharf only)' with other numbers is on the same page and is left out"),
     "Large Veggie Breakfast Burrito": (BR, "Large", True, [], ENERGY_KJ + ". A different 'Large Veggie Breakfast Burrito (Canary Wharf only)' is on the same page and is left out"),
-    # page 22: breakfast bowls
+    # page 17: breakfast bowls
     "Medium Bacon & Chorizo Bowl": (BR, "Medium", True, [PORK], ""),
     "Large Bacon & Chorizo Bowl": (BR, "Large", True, [PORK], ""),
     "Medium Veggie Bowl": (BR, "Medium", True, [], ""),
     "Large Veggie Bowl": (BR, "Large", True, [], ""),
-    # page 23: breakfast buns
+    # page 18: breakfast buns
     "Bacon Breakfast Bun": (BR, "", True, [PORK], ""),
     "Pork & Pico de Gallo Breakfast Bun": (BR, "", True, [PORK], ""),
     "Veggie Breakfast Bun": (BR, "", True, [], ""),
-    # page 18: sides
+    # page 12: fuel bowls (whole dishes since the 16 November 2026 edition; the names say Large)
+    "Protein Bowl (Large)": (FB, "Large", True, [], ""),
+    "Plant Bowl (Large)": (FB, "Large", True, [], ""),
+    "Balance Bowl (Large)": (FB, "Large", True, [], ""),
+    # page 13: sides
     "Tortilla Chips (bag)": (SI, "Bag", True, [], ""),
     "Tortilla Chips (side portion)": (SI, "Side portion", True, [], ""),
     "Medium Guacamole": (DI, "Medium", False, [], ""),
     "Large Guacamole": (DI, "Large", False, [], ""),
-    "Medium Ghost Chilli Ranch": (DI, "Medium", False, [], ""),
-    "Large Ghost Chilli Ranch": (DI, "Large", False, [], ""),
     "Medium Chipotle Cheese Sauce": (DI, "Medium", False, [], ""),
     "Large Chipotle Cheese Sauce": (DI, "Large", False, [], ""),
     "Medium Sour Cream": (DI, "Medium", False, [], ""),
     "Large Sour Cream": (DI, "Large", False, [], ""),
     "Medium Chipotle Mayo (Ve)": (DI, "Medium", False, [], ""),
     "Large Chipotle Mayo (Ve)": (DI, "Large", False, [], ""),
-    "Queso Fundido": (DI, "", False, [], QUESO),
+    "Birria Consume": (DI, "", False, [], ""),
+    "Queso Fundido": (DI, "", False, [], ""),
     "Pina Picante Hot Sauce": (DI, "", False, [], ""),
     "Valentina Hot Sauce": (DI, "", False, [], ""),
     "Medium Salsa de Pina": (SA, "Medium", False, [], ""),
@@ -99,15 +112,18 @@ SPEC: dict[str, tuple] = {
     "Large Salsa Verde (medium)": (SA, "Large", False, [], SALSA_SALT),
     "Medium Salsa Roja (hot)": (SA, "Medium", False, [], ""),
     "Large Salsa Roja (hot)": (SA, "Large", False, [], ""),
-    # page 19: desserts
+    # page 14: desserts
     "3 Churros & Chocolate Sauce": (DE, "3 churros", False, [], ""),
     "5 Churros & Chocolate Sauce": (DE, "5 churros", False, [], ""),
     "Dessert Quesadilla": (DE, "", False, [], ""),
-    # page 24: drinks
-    "Hibiscus Lemonade": (DR, "", False, [], "The guide's footnote '*Available at participating stores only.' sits under this table but no row carries an asterisk, so it is not known whether it applies to this drink. Serving size is not stated"),
+    # page 19: drinks
+    "Horchata": (DR, "", False, [], DRINKS_NOTE),
+    "Dirty Horchata": (DR, "", False, [], DRINKS_NOTE),
 }
 # Rows left out because the guide itself limits them to one restaurant or to Northern Ireland.
 EXCLUDED_SUFFIXES = ("(Canary Wharf only)", "(Belfast)")
+# Whole-item rows left out by name (see the module docstring).
+EXCLUDED_NAMES = {"Tipsy Horchata", "Dirty/Tipsy Horchata"}
 # Items whose printed numbers cannot be right: not published (docs/DATA.md holdback.csv). Never corrected.
 # Held back (accuracy re-check, 2026-10-08): the Large Veggie Breakfast Burrito prints 729 kcal, but its own kJ (2666, about 637 kcal)
 # and its own protein, carbs and fat (about 644 kcal) agree with each other and not with the kcal; we publish both kcal and kJ, so a
@@ -115,12 +131,15 @@ EXCLUDED_SUFFIXES = ("(Canary Wharf only)", "(Belfast)")
 VEGGIE_BURRITO = ("The guide prints 729 kcal but 2666 kJ (about 637 kcal), and its own protein, carbohydrate and fat add up to about "
                   "644 kcal: the kcal is contradicted by both. Not corrected, not chosen between")
 HOLDBACK = [("queso-fundido", QUESO), ("large-veggie-breakfast-burrito", VEGGIE_BURRITO)]
-NOTE = ("Tortilla publishes its burritos, bowls, salads, tacos, nachos, quesadillas and fuel bowls only as separate ingredients, "
+NOTE = ("Tortilla publishes its burritos, burrito bowls, salads, tacos, nachos and quesadillas only as separate ingredients, "
         "never as finished dishes, so those are not listed here. Breakfast items sold at Canary Wharf only are left out.")
 # Allergens come from the same PDF. Its own spellings that common.allergen_words doesn't know (printed in the Contains / May
-# Contain columns): "Soybean" (Ghost Chilli Ranch), "Soyabean" (churros, breakfast buns).
+# Contain columns): "Soybean" (Ghost Chilli Ranch, Plant Bowl), "Soyabean" (churros, breakfast buns), and in the Balance Bowl's
+# May Contain cell (16 November 2026 edition) "Cashew Nut", "Pecan Nut", "Queensland Nut" and "Pistachio and Walnut" (one phrase:
+# read as tree nuts, with no specific kind, since a may-contain cell carries no kinds).
 ALLERGEN_GUIDE = {"title": SOURCE_TITLE, "url": SOURCE_URL, "may_contain_published": True}
-ALLERGEN_SPELLINGS = {"soybean": ("soya", None), "soyabean": ("soya", None)}
+ALLERGEN_SPELLINGS = {"soybean": ("soya", None), "soyabean": ("soya", None), "cashew nut": ("nuts", "cashew"),
+                      "pecan nut": ("nuts", "pecan"), "queensland nut": ("nuts", "macadamia"), "pistachio and walnut": ("nuts", None)}
 
 
 def allergens_of(row: dict, where: str) -> dict:
@@ -147,14 +166,17 @@ def main() -> int:
         got = len(pages.get(page, []))
         if got != expected:
             problems.append(f"Page {page} (ingredient table) has {got} rows, not {expected}.")
-    hot = [r["name"] for r in pages.get(24, []) if "kj" not in r]
+    hot = [r["name"] for r in pages.get(HOT_DRINKS_PAGE, []) if "kj" not in r]
     if hot != HOT_DRINKS:
         problems.append(f"Hot Drinks rows changed: {hot}")
 
-    whole = [(n, r) for n in (18, 19, 21, 22, 23, 24) for r in pages.get(n, []) if "kj" in r]
+    whole = [(n, r) for n in WHOLE_ITEM_PAGES for r in pages.get(n, []) if "kj" in r]
     printed = [r["name"] for _, r in whole]
-    excluded = [r["name"] for _, r in whole if r["name"].endswith(EXCLUDED_SUFFIXES)]
-    kept = [r for _, r in whole if not r["name"].endswith(EXCLUDED_SUFFIXES)]
+    left_out = lambda name: name.endswith(EXCLUDED_SUFFIXES) or name in EXCLUDED_NAMES  # noqa: E731
+    excluded = [r["name"] for _, r in whole if left_out(r["name"])]
+    kept = [r for _, r in whole if not left_out(r["name"])]
+    if not EXCLUDED_NAMES <= set(excluded):
+        problems.append(f"Rows left out by name are no longer in the PDF: {sorted(EXCLUDED_NAMES - set(excluded))}")
     page_of = {r["name"]: n for n, r in whole}
     if len(set(printed)) != len(printed):
         problems.append("Two printed rows have the same name.")
@@ -203,7 +225,7 @@ def main() -> int:
         allergen_guide={**ALLERGEN_GUIDE, "checked_on": args.checked_on})
     print("\n".join(report))
     print(f"wrote {len(items)} items ({len(HOLDBACK)} of them held back) to {out} (PDF sha256 {hashlib.sha256(args.pdf.read_bytes()).hexdigest()})")
-    print(f"left out: {len(excluded)} rows labelled Canary Wharf only / Belfast, {len(HOT_DRINKS)} hot drinks (calories only), "
+    print(f"left out: {len(excluded)} rows (Canary Wharf only / Belfast, or by name: {sorted(EXCLUDED_NAMES)}), {len(HOT_DRINKS)} hot drinks (calories only), "
           f"{sum(INGREDIENT_PAGE_ROWS.values())} ingredient rows on {len(INGREDIENT_PAGE_ROWS)} pages")
     return 0
 

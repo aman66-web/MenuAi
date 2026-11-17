@@ -1,28 +1,28 @@
 id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
-carrot-and-coriander-soup-v,Carrot & Coriander Soup (V),Starters,,323,7.3,51.7,10.8,4.9,,2.3,5.1,,1339,,,,,,vegetarian,false,true,,,"On: main menu, Sunday menu"
+carrot-and-coriander-soup-v,Carrot & Coriander Soup (V),Starters,,323,7.3,51.7,10.7,4.9,,2.3,5.1,,1339,,,,,,vegetarian,false,true,,,"On: main menu, Sunday menu"
 carrot-and-coriander-soup-vg-m,Carrot & Coriander Soup (VG-M),Starters,,148,2.4,26.7,3.7,0.5,,1.7,7.4,,620,,,,,,,false,true,,,"On: main menu, Sunday menu, non gluten containing ingredients menu"
 buffalo-mozzarella-bruschetta,Buffalo Mozzarella Bruschetta,Starters,,419,16.0,51.6,17.6,9.5,,3.0,5.7,,1738,,,,,,,false,true,,,On: main menu
 vegan-feta-style-sheese-bruschetta-vg-m,Vegan Feta-Style Sheese® Bruschetta (VG-M),Starters,,417,7.5,61.0,16.7,10.5,,3.4,5.4,,1727,,,,,,,false,true,,,On: main menu
 smoked-haddock-croquettes,Smoked Haddock Croquettes,Starters,,773,28.8,29.7,59.7,21.5,,5.0,6.4,,3209,,,,,,,false,true,,,"On: main menu, Sunday menu"
-masala-and-pork-scotch-egg,Masala & Pork Scotch Egg,Starters,,478,21.2,19.8,34.7,13.4,,2.6,3.4,,1989,,,,,,contains_pork,false,true,,,"On: main menu, bar snacks menu, Sunday menu"
+masala-and-pork-scotch-egg,Masala & Pork Scotch Egg,Starters,,466,21.1,19.8,33.4,12.4,,2.6,3.4,,1938,,,,,,contains_pork,false,true,,,"On: main menu, bar snacks menu, Sunday menu"
 chicken-wings,Chicken Wings,Starters,,759,44.1,6.9,32.1,14.3,,6.7,3.3,,1836,,,,,,,false,true,,,"On: main menu, bar snacks menu, Sunday menu"
 malay-style-spiced-prawns,Malay-Style Spiced Prawns,Starters,,204,13.8,11.6,10.7,2.1,,1.5,3.7,,830,,,,,,,false,true,,,"On: main menu, Sunday menu"
 rosemary-and-sea-salt-focaccia-vg-m,Rosemary & Sea Salt Focaccia (VG-M),Starters,,469,7.1,47.0,28.3,4.1,,1.4,4.7,,1928,,,,,,,false,true,,,"On: main menu, bar snacks menu"
-whipped-feta-v,Whipped Feta (V),Starters,,416,15.0,38.1,23.1,10.4,,1.8,6.0,,1731,,,,,,vegetarian,false,true,,,"On: main menu, Sunday menu"
-butchers-bangers,Butchers Bangers,Mains,,935,44.5,74.8,50.1,22.0,,5.3,14.7,,3912,,,,,,contains_beef,false,true,,,"On: main menu, Sunday menu"
+whipped-feta-v,Whipped Feta (V),Starters,,413,15.6,38.5,22.1,9.8,,2.0,5.8,,1719,,,,,,vegetarian,false,true,,,"On: main menu, Sunday menu"
+butchers-bangers,Butchers Bangers,Mains,,934,44.5,74.8,49.9,21.6,,5.3,14.8,,3915,,,,,,contains_beef,false,true,,,"On: main menu, Sunday menu"
 plant-based-sausage-and-mash-vg,Plant Based Sausage & Mash (VG),Mains,,650,20.5,64.0,34.2,3.6,,3.4,15.0,,2721,,,,,,vegetarian,false,true,,,"On: main menu, Sunday menu"
 ribeye-steak-excluding-your-potato-and-sauce-option-see-below,"Ribeye Steak (Excluding Your Potato & Sauce Option, See Below)",Mains,,598,46.7,3.5,44.1,20.1,,1.0,1.2,,2500,,,,,,contains_beef,false,false,,,"Printed without the part named in its title (see Options & add-ons), so it is not suggested as a meal. On: main menu, steak menu"
 spicy-coated-chicken-burger,Spicy Coated Chicken Burger,Mains,,1348,42.1,118.7,60.5,23.0,,6.7,15.5,,4847,,,,,,,false,true,,,On: main menu
 malay-style-curry-vg,Malay-Style Curry (VG),Mains,,656,8.7,58.7,42.5,26.7,,3.5,24.3,,2708,,,,,,vegetarian,false,true,,,On: main menu
-beef-brisket-and-oyster-mushroom-pie,Beef Brisket & Oyster Mushroom Pie,Mains,,1287,32.8,112.4,76.7,34.8,,3.5,30.2,,5373,,,,,,contains_beef,false,true,,,"Oyster mushrooms are a mushroom, not a mollusc: the page marks no molluscs. Entered as printed.; On: main menu, Sunday menu"
+beef-brisket-and-oyster-mushroom-pie,Beef Brisket & Oyster Mushroom Pie,Mains,,1286,32.8,112.4,76.6,34.4,,3.4,30.2,,5377,,,,,,contains_beef,false,true,,,"Oyster mushrooms are a mushroom, not a mollusc: the page marks no molluscs. Entered as printed.; On: main menu, Sunday menu"
 smoky-bacon-cheeseburger,Smoky Bacon Cheeseburger,Mains,,1234,57.1,103.4,65.1,25.2,,7.6,13.3,,5163,,,,,,contains_pork,false,true,,,"On: main menu, Sunday menu"
 dressed-caesar-salad,Dressed Caesar Salad,Mains,,671,21.0,13.9,58.7,9.4,,5.0,5.3,,2802,,,,,,,false,true,,,"On: main menu, Sunday menu"
 dressed-caesar-salad-with-malay-style-curry-chicken-and-streaky-bacon,Dressed Caesar Salad With Malay-Style Curry Chicken & Streaky Bacon,Mains,,996,55.0,15.9,78.2,15.8,,7.1,6.1,,4161,,,,,,contains_pork,false,true,,,"On: main menu, Sunday menu"
 dressed-caesar-salad-with-malay-style-curry-salmon,Dressed Caesar Salad with Malay-Style Curry Salmon,Mains,,890,41.7,15.9,73.0,12.3,,5.4,6.1,,3717,,,,,,,false,true,,,"On: main menu, Sunday menu"
-crispy-coated-chicken-schnitzel,Crispy Coated Chicken Schnitzel,Mains,,1161,51.4,93.4,63.9,26.1,,3.2,3.8,,4862,,,,,,,false,true,,,On: main menu
+crispy-coated-chicken-schnitzel,Crispy Coated Chicken Schnitzel,Mains,,1160,51.4,93.5,63.6,25.3,,3.2,3.9,,4868,,,,,,,false,true,,,On: main menu
 dry-aged-pork-rib-eye,Dry Aged Pork Rib Eye,Mains,,931,75.6,46.9,47.7,13.1,,2.1,6.1,,3894,,,,,,contains_pork,false,true,,,On: main menu
-beer-battered-fish-and-chips,Beer-Battered Fish & Chips,Mains,,1106,51.5,80.0,63.1,16.0,,6.0,5.9,,4626,,,,,,,false,true,,,"On: main menu, Sunday menu"
-pan-fried-bream,Pan Fried Bream,Mains,,808,44.4,35.3,54.8,20.6,,4.0,5.2,,3381,,,,,,,false,true,,,On: main menu
+beer-battered-fish-and-chips,Beer-Battered Fish & Chips,Mains,,1060,48.3,77.7,60.4,15.2,,6.0,5.9,,4434,,,,,,,false,true,,,"On: main menu, Sunday menu"
+pan-fried-bream,Pan Fried Bream,Mains,,808,44.4,35.3,54.2,20.6,,4.1,5.2,,3381,,,,,,,false,true,,,On: main menu
 pumpkin-and-spinach-burger-vg-m,Pumpkin & Spinach Burger (VG-M),Mains,,955,13.5,134.9,38.5,6.5,,5.9,13.1,,4003,,,,,,,false,true,,,"On: main menu, Sunday menu"
 malay-style-spiced-prawns-the-middle,Malay-Style Spiced Prawns (The Middle),Mains,,290,26.5,15.9,12.7,2.7,,2.3,6.6,,1193,,,,,,,false,true,,,On: main menu
 smoky-bacon-cheeseburger-no-gluten-menu,Smoky Bacon Cheeseburger (no-gluten menu),Mains,,872,54.4,59.5,45.5,16.6,,6.8,15.5,,3645,,,,,,contains_pork,false,true,,,On: non gluten containing ingredients menu
@@ -34,9 +34,9 @@ chunky-chips-vg,Chunky Chips (VG),Options & add-ons,,283,4.2,40.1,10.8,2.7,,1.4,
 watercress-salad,Watercress Salad,Options & add-ons,,109,5.9,6.1,6.5,2.1,,0.2,4.2,,454,,,,,,,false,false,,,"On: main menu, steak menu, Sunday menu, non gluten containing ingredients menu"
 baby-gem-avocado-and-crispy-onion-salad-with-ranch-dressing-v,"Baby Gem, Avocado & Crispy Onion Salad with Ranch Dressing (V)",Options & add-ons,,168,2.8,13.2,12.1,2.4,,0.4,3.9,,703,,,,,,vegetarian,false,false,,,"On: main menu, steak menu"
 frites-with-truffle-oil-and-grana-padano,Frites with Truffle Oil & Grana Padano,Options & add-ons,,653,13.0,54.5,41.6,11.6,,2.2,0.4,,2735,,,,,,,false,false,,,"On: main menu, steak menu"
-garlic-and-herb-butter-roasted-potatoes-v,Garlic & Herb Butter Roasted Potatoes (V),Options & add-ons,,257,3.8,34.6,12.3,5.1,,1.1,1.4,,1076,,,,,,vegetarian,false,false,,,"On: main menu, steak menu"
+garlic-and-herb-butter-roasted-potatoes-v,Garlic & Herb Butter Roasted Potatoes (V),Options & add-ons,,256,3.9,34.6,12.2,4.8,,1.1,1.5,,1078,,,,,,vegetarian,false,false,,,"On: main menu, steak menu"
 blue-cheese-sauce-v,Blue Cheese Sauce (V),Options & add-ons,,130,6.5,1.7,10.8,7.0,,0.4,1.7,,539,,,,,,vegetarian,false,false,,,"On: main menu, steak menu, non gluten containing ingredients menu"
-garlic-and-herb-butter-v,Garlic & Herb Butter (V),Options & add-ons,,130,0.3,0.4,14.2,9.3,,0.1,0.1,,535,,,,,,vegetarian,false,false,,,"On: main menu, steak menu, non gluten containing ingredients menu"
+garlic-and-herb-butter-v,Garlic & Herb Butter (V),Options & add-ons,,129,0.3,0.5,14.0,8.9,,0.1,0.2,,539,,,,,,vegetarian,false,false,,,"On: main menu, steak menu, non gluten containing ingredients menu"
 creamy-peppercorn-sauce,Creamy Peppercorn Sauce,Options & add-ons,,49,1.8,3.3,3.1,1.9,,0.7,1.1,,203,,,,,,,false,false,,,"On: main menu, non gluten containing ingredients menu"
 hollandaise-sauce-v,Hollandaise Sauce (V),Options & add-ons,,140,0.9,2.9,13.8,5.2,,0.7,0.7,,580,,,,,,vegetarian,false,false,,,"On: main menu, steak menu, non gluten containing ingredients menu"
 add-a-fried-egg-v,Add a Fried Egg (V),Options & add-ons,,104,7.6,0.0,8.2,1.7,,0.2,0.0,,432,,,,,,vegetarian,false,false,,,On: main menu
@@ -71,7 +71,7 @@ maple-roasted-parsnips-vg-with-non-gluten-containing-kids-roast-beef-6-more,Mapl
 truffle-parmesan-frites,Truffle Parmesan Frites,Sides,,653,13.0,54.5,41.6,11.6,,2.2,0.4,,2735,,,,,,,false,true,,,"On: main menu, Sunday menu"
 seasonal-vegetables-vg,Seasonal Vegetables (VG),Sides,,53,0.5,8.0,1.7,0.2,,0.1,6.1,,221,,,,,,vegetarian,false,true,,,"On: main menu, Sunday menu"
 basil-pesto-vg,Basil Pesto (VG),Sides,,119,1.1,6.0,10.8,1.6,,0.7,0.4,,499,,,,,,vegetarian,false,true,,,"On: main menu, non gluten containing ingredients menu"
-flooded-mash,Flooded Mash,Sides,,586,16.5,39.8,40.9,24.1,,2.2,3.2,,2450,,,,,,,false,true,,,"On: main menu, Sunday menu"
+flooded-mash,Flooded Mash,Sides,,585,16.5,39.9,40.7,23.7,,2.2,3.3,,2453,,,,,,,false,true,,,"On: main menu, Sunday menu"
 ranch-side-salad-v,Ranch Side Salad (V),Sides,,184,3.0,14.0,13.6,2.6,,0.4,4.0,,770,,,,,,vegetarian,false,true,,,On: main menu
 crispy-roast-potatoes-vg,Crispy Roast Potatoes (VG),Sides,,373,7.3,64.8,11.3,1.0,,0.1,63.3,,1575,,,,,,vegetarian,false,true,,,On: Sunday menu
 pork-and-apricot-stuffing-balls,Pork & Apricot Stuffing Balls,Sides,,876,33.8,30.0,67.4,19.2,,3.3,16.8,,3641,,,,,,contains_pork,false,true,,,On: Sunday menu
@@ -92,10 +92,10 @@ dry-aged-rump-steak-excluding-your-sauce-option-see-below,"Dry Aged Rump Steak (
 bone-in-sirloin-steak-excluding-your-sauce-option-see-below,"Bone-In Sirloin Steak (Excluding Your Sauce Option, See below)",Steaks,,467,55.2,6.2,24.2,9.7,,0.6,4.2,,1949,,,,,,contains_beef,false,false,,,"Printed without the part named in its title (see Options & add-ons), so it is not suggested as a meal. On: steak menu, non gluten containing ingredients menu"
 ribeye-steak,Ribeye Steak,Steaks,,707,52.6,9.6,50.6,22.1,,1.2,5.3,,2954,,,,,,contains_beef,false,true,,,"On: steak menu, non gluten containing ingredients menu"
 greek-style-sheese-sandwich-vg-m,Greek-Style Sheese® Sandwich (VG-M),Lunch,,957,13.6,93.4,58.2,16.4,,4.1,2.1,,3984,,,,,,,false,true,,,On: lunch menu
-pastrami-beef-brisket-bagel,Pastrami Beef Brisket Bagel,Lunch,,983,32.5,122.9,40.7,17.1,,6.6,13.1,,4113,,,,,,contains_beef,false,true,,,On: lunch menu
-beer-battered-fish-finger-sandwich,Beer Battered Fish Finger Sandwich,Lunch,,1076,34.1,110.2,55.0,16.9,,3.1,9.4,,4503,,,,,,,false,true,,,On: lunch menu
+pastrami-beef-brisket-bagel,Pastrami Beef Brisket Bagel,Lunch,,981,32.5,123.0,40.5,16.5,,6.6,13.2,,4118,,,,,,contains_beef,false,true,,,On: lunch menu
+beer-battered-fish-finger-sandwich,Beer Battered Fish Finger Sandwich,Lunch,,1052,32.5,109.0,53.6,16.5,,3.1,9.4,,4407,,,,,,,false,true,,,On: lunch menu
 turner-and-george-steak-sandwich,Turner & George Steak Sandwich,Lunch,,1094,49.8,128.6,44.0,15.6,,5.3,4.4,,4581,,,,,,contains_beef,false,true,,,On: lunch menu
-ultimate-cheese-toastie-v,Ultimate Cheese Toastie (V),Lunch,,1683,47.0,129.6,85.7,46.4,,9.4,5.7,,5939,,,,,,vegetarian,false,true,,,On: lunch menu
+ultimate-cheese-toastie-v,Ultimate Cheese Toastie (V),Lunch,,1682,47.0,129.7,85.5,45.8,,9.4,5.8,,5943,,,,,,vegetarian,false,true,,,On: lunch menu
 club-sandwich,Club Sandwich,Lunch,,1356,62.8,100.6,77.6,14.7,,9.3,3.3,,5646,,,,,,contains_pork,false,true,,,On: lunch menu
 rump-of-dry-aged-beef-excluding-seasonal-veg-option-see-below,"Rump of Dry-Aged Beef (Excluding Seasonal Veg Option, See below)",Sunday roast,,840,57.5,72.5,35.1,11.4,,2.6,54.6,,3531,,,,,,contains_beef,false,false,,,"Printed without the part named in its title (see Options & add-ons), so it is not suggested as a meal. On: Sunday menu"
 slow-roasted-leg-of-spring-lamb-excluding-seasonal-veg-option-see-below,"Slow Roasted Leg Of Spring Lamb (Excluding Seasonal Veg Option, See below)",Sunday roast,,919,63.2,76.5,39.5,13.8,,2.9,59.1,,3854,,,,,,,false,false,,,"Printed without the part named in its title (see Options & add-ons), so it is not suggested as a meal. On: Sunday menu"
@@ -112,14 +112,14 @@ non-gluten-containing-slow-roasted-leg-of-spring-lamb-excluding-your-seasonal-ve
 non-gluten-containing-kids-roast-beef-excluding-your-seasonal-veg-see-below,"Non-Gluten Containing Kids' Roast Beef (Excluding Your Seasonal Veg, See below)",Sunday roast,,423,28.3,42.3,16.2,4.5,,0.9,37.5,,1781,,,,,,contains_beef,false,false,,,"Printed without the part named in its title (see Options & add-ons), so it is not suggested as a meal. On: non gluten containing ingredients menu"
 non-gluten-containing-kids-roast-chicken-excluding-your-seasonal-veg-see-below,"Non-Gluten Containing Kids' Roast Chicken (Excluding Your Seasonal Veg, See below)",Sunday roast,,316,28.8,34.2,8.1,1.2,,0.7,31.5,,1336,,,,,,,false,false,,,"Printed without the part named in its title (see Options & add-ons), so it is not suggested as a meal. On: non gluten containing ingredients menu"
 non-gluten-containing-kids-roast-pork-excluding-your-seasonal-veg-see-below,"Non-Gluten Containing Kids' Roast Pork (Excluding Your Seasonal Veg, See below)",Sunday roast,,510,27.0,42.2,26.4,7.4,,0.8,37.5,,2135,,,,,,contains_pork,false,false,,,"Printed without the part named in its title (see Options & add-ons), so it is not suggested as a meal. On: non gluten containing ingredients menu"
-the-full-english,The Full English,Brunch,,1021,52.5,65.8,61.9,25.7,,5.7,5.5,,4240,,,,,,contains_pork,false,true,,,On: brunch menu
+the-full-english,The Full English,Brunch,,1020,52.5,65.9,61.7,25.2,,5.7,5.6,,4245,,,,,,contains_pork,false,true,,,On: brunch menu
 the-vegan-story-vg-m,The Vegan Story (VG-M),Brunch,,562,15.0,88.4,17.9,1.6,,2.3,23.3,,2339,,,,,,,false,true,,,On: brunch menu
 eggs-benedict,Eggs Benedict,Brunch,,651,33.7,49.8,35.5,12.3,,4.6,3.1,,2722,,,,,,contains_pork,false,true,,,On: brunch menu
 eggs-fungi-v,Eggs Fungi (V),Brunch,,636,24.5,50.2,37.8,9.4,,3.0,3.5,,2657,,,,,,vegetarian,false,true,,,On: brunch menu
 eggs-royale,Eggs Royale,Brunch,,694,41.1,51.5,36.2,10.2,,6.4,4.1,,2905,,,,,,,false,true,,,On: brunch menu
 spicy-smashed-avocado-and-poached-eggs-v,Spicy Smashed Avocado & Poached Eggs (V),Brunch,,616,23.0,52.3,36.6,7.2,,1.8,1.4,,2525,,,,,,vegetarian,false,true,,,On: brunch menu
-sticky-toffee-pudding-v,Sticky Toffee Pudding (V),Desserts,,769,8.4,99.8,36.9,22.2,,1.9,73.0,,3223,,,,,,vegetarian,false,false,,,On: dessert menu
-ruby-blush-cheesecake,Ruby Blush Cheesecake,Desserts,,489,7.2,61.2,22.2,13.6,,0.6,48.5,,2055,,,,,,,false,false,,,On: dessert menu
+sticky-toffee-pudding-v,Sticky Toffee Pudding (V),Desserts,,769,8.4,99.8,36.8,21.9,,1.9,73.0,,3226,,,,,,vegetarian,false,false,,,On: dessert menu
+ruby-blush-cheesecake,Ruby Blush Cheesecake,Desserts,,489,7.2,61.2,22.2,13.4,,0.6,48.5,,2056,,,,,,,false,false,,,On: dessert menu
 chocolate-brownie-v,Chocolate Brownie (V),Desserts,,626,7.5,75.2,30.9,12.6,,0.1,53.8,,2624,,,,,,vegetarian,false,false,,,"No gluten marked; this brownie is also on the chain's non gluten containing ingredients menu. Entered as printed.; On: dessert menu, non gluten containing ingredients menu"
 peach-and-plum-crumble-v,Peach & Plum Crumble (V),Desserts,,525,7.2,84.5,16.7,6.8,,0.3,64.4,,2203,,,,,,vegetarian,false,false,,,On: dessert menu
 peach-and-plum-crumble-vg-m,Peach & Plum Crumble (VG-M),Desserts,,520,6.0,83.1,17.3,7.9,,0.3,63.2,,2184,,,,,,,false,false,,,On: dessert menu
@@ -140,16 +140,14 @@ blood-orange-sorbet-vg-m,Blood Orange Sorbet (VG-M),Desserts,,55,0.0,13.0,0.0,0.
 lemon-sorbet-vg-m,Lemon Sorbet (VG-M),Desserts,,47,0.0,11.0,0.0,0.0,,0.0,11.0,,200,,,,,,,false,false,,,"On: dessert menu, kids' menu, kids' Sunday menu"
 mango-sorbet-vg-m,Mango Sorbet (VG-M),Desserts,,56,0.0,13.8,0.1,0.1,,0.0,13.0,,235,,,,,,,false,false,,,On: dessert menu
 raspberry-sorbet-vg-m,Raspberry Sorbet (VG-M),Desserts,,56,0.0,13.5,0.0,0.0,,0.0,13.0,,236,,,,,,,false,false,,,On: dessert menu
-harry-specters-dark-chocolate-truffle,Harry Specters Dark Chocolate Truffle,Desserts,,107,1.2,15.1,5.1,2.7,,0.1,14.4,,451,,,,,,,false,false,,,On: dessert menu
-harry-specters-seasalt-caramel-chocolate,Harry Specters Seasalt Caramel Chocolate,Desserts,,107,1.2,15.1,5.1,2.7,,0.1,14.4,,451,,,,,,,false,false,,,On: dessert menu
 chickpea-hummus-vg,Chickpea Hummus (VG),Kids: mains,,196,6.8,11.5,12.6,0.9,,1.2,4.2,,814,,,,,,vegetarian,false,false,,,"On: kids' menu, kids' Sunday menu"
-mini-fish-and-chips,Mini Fish & Chips,Kids: mains,,522,27.0,47.5,24.3,6.9,,1.6,9.9,,2187,,,,,,,false,false,,,"On: kids' menu, kids' Sunday menu"
-sausage-and-mash,Sausage & Mash,Kids: mains,,361,17.7,30.4,19.3,10.0,,1.7,5.2,,1512,,,,,,contains_pork,false,false,,,"On: kids' menu, kids' Sunday menu"
+mini-fish-and-chips,Mini Fish & Chips,Kids: mains,,499,25.4,46.4,22.9,6.5,,1.6,9.9,,2091,,,,,,,false,false,,,"On: kids' menu, kids' Sunday menu"
+sausage-and-mash,Sausage & Mash,Kids: mains,,360,17.8,30.4,19.2,9.8,,1.7,5.3,,1513,,,,,,contains_pork,false,false,,,"On: kids' menu, kids' Sunday menu"
 chicken-goujons,Chicken Goujons,Kids: mains,,878,47.9,60.3,48.0,12.5,,4.2,8.9,,3680,,,,,,,false,false,,,"On: kids' menu, kids' Sunday menu"
 cheeseburger,Cheeseburger,Kids: mains,,776,35.8,73.9,37.5,17.7,,3.8,14.6,,3253,,,,,,,false,false,,,"On: kids' menu, kids' Sunday menu"
 pumpkin-and-spinach-burger-vg-m-kids-menu-kids-sunday-menu,Pumpkin & Spinach Burger (VG-M) (kids' menu / kids' Sunday menu),Kids: mains,,682,10.0,101.4,25.0,3.7,,4.0,10.0,,2857,,,,,,,false,false,,,"On: kids' menu, kids' Sunday menu"
-sticky-toffee-pudding-v-kids-menu-kids-sunday-menu,Sticky Toffee Pudding (V) (kids' menu / kids' Sunday menu),Kids: dessert,,430,5.0,53.1,21.9,13.7,,1.0,40.7,,1803,,,,,,vegetarian,false,false,,,"On: kids' menu, kids' Sunday menu"
-chocolate-brownie-vg-m,Chocolate Brownie (VG-M),Kids: dessert,,320,2.6,41.6,14.7,6.9,,0.0,31.0,,1342,,,,,,,false,false,,,"On: kids' menu, kids' Sunday menu"
+sticky-toffee-pudding-v-kids-menu-kids-sunday-menu,Sticky Toffee Pudding (V) (kids' menu / kids' Sunday menu),Kids: dessert,,430,5.0,53.2,21.8,13.6,,1.0,40.8,,1804,,,,,,vegetarian,false,false,,,"On: kids' menu, kids' Sunday menu"
+chocolate-brownie-vg-m,Chocolate Brownie (VG-M),Kids: dessert,,317,2.7,41.4,14.7,6.9,,0.0,30.7,,1332,,,,,,,false,false,,,"On: kids' menu, kids' Sunday menu"
 vegan-vanilla-flavour-ice-kream-vg-m,Vegan Vanilla Flavour Ice Kream (VG-M),Kids: dessert,,61,0.0,8.0,3.1,2.7,,0.0,7.0,,253,,,,,,,false,false,,,"On: kids' menu, kids' Sunday menu"
 kids-roast-chicken-excluding-seasonal-veg-see-below,"Kids' Roast Chicken (Excluding Seasonal Veg, See below)",Kids: Sunday roast,,470,32.5,54.1,14.6,3.9,,1.5,39.2,,1982,,,,,,,false,false,,,"Printed without the part named in its title (see Options & add-ons), so it is not suggested as a meal. On: kids' Sunday menu"
 kids-roast-beef-excluding-your-seasonal-veg-see-below,"Kids' Roast Beef (Excluding Your Seasonal Veg, See below)",Kids: Sunday roast,,525,31.5,54.2,21.1,6.9,,1.6,39.3,,2207,,,,,,contains_beef,false,false,,,"Printed without the part named in its title (see Options & add-ons), so it is not suggested as a meal. On: kids' Sunday menu"

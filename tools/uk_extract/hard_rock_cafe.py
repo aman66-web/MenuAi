@@ -7,12 +7,17 @@
 Sources (all linked from the chain's own London page https://cafe.hardrock.com/london/ , robots.txt allows everything):
   menu  "HARD ROCK CAFE MENU" (Drinks & Eats, footer "2/26 - London - ENG"; PDF created 13 Mar 2026, served Last-Modified 8 Apr 2026)
         https://cafe.hardrock.com/london/files/5330/USJ219878_-_HRC_EU_-DRINKS_&_EATS_MENU_-_FEB_26_-_B_-_LONDON_OPL_-_ENG.pdf
-  kids  "MESSI KIDS MENU" (footer "MAY 26 - London Piccadilly - ENG"; PDF created 25 Aug 2026, Last-Modified 2 Sep 2026)
-        https://cafe.hardrock.com/london/files/5330/Kids.pdf
+  kids  "MESSI KIDS MENU" (footer "OCT 26 - London OPL - ENG"; PDF created 19 Oct 2026, Last-Modified 27 Oct 2026; the page's "MESSI KIDS
+        MENU" button. Re-checked 2026-11-17: its calorie lines are the same as the earlier Kids.pdf, footer "MAY 26 - London Piccadilly",
+        which the page still links under "Messi Magic")
+        https://cafe.hardrock.com/london/files/5330/HRC00002-HRC-26_Messi_Kids_Menu_All_Kids_One_Place_OCT_26_-_London_OPL-HIGHER.pdf
   gf    "GLUTEN FREE MENU" (footer "GF AB - London - ENG - 1/26"; PDF created 12 Dec 2025): NOT published, only used as a cross-check
         (see GF_ROWS and the report this script prints).
-  allergen sheet (link only, see below): "FOOD & BEVERAGE ALLERGENS"
-        https://cafe.hardrock.com/london/files/5330/Food_menu_allergen_sheet_HardRockCafeLondon.pdf
+  allergen sheet (link only, see below): "FOOD & BEVERAGE ALLERGENS" (21 pages, created 2 Nov 2026; replaced the 7 October 2026 sheet
+        Food_menu_allergen_sheet_HardRockCafeLondon.pdf on the page)
+        https://cafe.hardrock.com/london/files/5330/Hard_Rock_Cafe_London__allergen_sheet_November_2026.pdf
+pdftotext 26.10 (poppler) drops some spaces on page 10 of the menu ("Ranch(GF) (198cal)", "HoneyMustard(GF)"): the number token and those
+four patterns accept the space or no space; everything else still has to be claimed exactly once.
 Needs `pdftotext` (poppler). Brunch, Spritz, Pinktober and catering PDFs on the same page print no calories.
 
 The menus print calories ONLY, as "(1947 cal)" after a dish's description and price: protein, carbs, fat, salt, kJ and weights are never
@@ -65,17 +70,17 @@ SITE = "https://cafe.hardrock.com/london/"
 BASE = "https://cafe.hardrock.com/london/files/5330/"
 URLS = {
     "menu": BASE + "USJ219878_-_HRC_EU_-DRINKS_&_EATS_MENU_-_FEB_26_-_B_-_LONDON_OPL_-_ENG.pdf",
-    "kids": BASE + "Kids.pdf",
+    "kids": BASE + "HRC00002-HRC-26_Messi_Kids_Menu_All_Kids_One_Place_OCT_26_-_London_OPL-HIGHER.pdf",
     "gf": BASE + "USJ219498_-_HRC_EU_-_GLUTEN_FREE_MENU_-_JAN_26_-_AB_UK_CAFES_-_LONDON_OPL_-_ENG.pdf",
-    "allergen": BASE + "Food_menu_allergen_sheet_HardRockCafeLondon.pdf",
+    "allergen": BASE + "Hard_Rock_Cafe_London__allergen_sheet_November_2026.pdf",
 }
 SOURCE_TITLE = ("Hard Rock Cafe London menu with calories (Drinks & Eats, footer 2/26 - London, Feb 2026) and Messi kids meal menu "
-                "(footer MAY 26), as linked from the cafe's own London page")
+                "(footer OCT 26), as linked from the cafe's own London page")
 ALLERGEN_GUIDE_TITLE = ("Hard Rock Cafe London Old Park Lane allergen list, 'Food & Beverage Allergens' PDF linked from "
-                        "cafe.hardrock.com/london (20 pages, file dated 7 October 2026)")
+                        "cafe.hardrock.com/london (21 pages, file dated 2 November 2026)")
 # The sheet prints a cross-contamination warning for deep-fried foods and marks cells "M/C" (no legend): traces information is published.
 MAY_CONTAIN_PUBLISHED = True
-NOTE = ("Hard Rock Cafe prints calories only, beside each dish, on its London menus (food and soft drinks 2/26, kids meal 5/26): no protein, "
+NOTE = ("Hard Rock Cafe prints calories only, beside each dish, on its London menus (food and soft drinks 2/26, kids meal 10/26): no protein, "
         "carbs, fat or salt. Cocktails, beer, wine and brunch print none and are not listed. Figures are for the London cafe; other UK cafes may "
         "differ. Chicken Dippers exclude their sauces.")
 EXPECTED_MENU_ITEMS = 95
@@ -154,14 +159,14 @@ ITEMS = [
     I([10], "BBQ PULLED PORK SANDWICH", r"Toasted Artisan Bun" + M + r" £16\.95", "BBQ Pulled Pork Sandwich", SAN),
     I([10], "GRILLED CHICKEN SANDWICH", r"Coleslaw" + M + r" £17\.95", "Grilled Chicken Sandwich", SAN),
     I([10], "MESSI CHICKEN SANDWICH", r"Toasted Artisan Bun £18\.95", "Messi Chicken Sandwich", SAN),
-    I([10], None, r"Add a Smashed Patty \(GF\) £2\.75", "Add a Smashed Patty", TUR, unstated=True),
-    I([10], None, r"Add Smoked Bacon \(GF\) £2\.25", "Add Smoked Bacon", TUR),
+    I([10], None, r"Add a Smashed Patty ?\(GF\) £2\.75", "Add a Smashed Patty", TUR, unstated=True),
+    I([10], None, r"Add Smoked Bacon ?\(GF\) £2\.25", "Add Smoked Bacon", TUR),
     I([10], None, r"Upgrade to Onion Rings £2\.95", "Upgrade to Onion Rings", TUR,
       note="Printed as given; the menu doesn't say whether it replaces the fries"),
     I([10], None, r"Upgrade to Loaded Cheese & Bacon Fries" + M + r" \(GF, V-A\) £2\.95", "Upgrade to Loaded Cheese & Bacon Fries", TUR,
       note="Same printed value (679) as the Loaded Cheese & Bacon Fries side"),
-    I([10], None, L("FRENCH FRY DIPS £1.00 Ranch (GF)"), "Ranch (French fry dip)", DIP, note="Same printed value (198) as Legendary Sauce, Herb Aioli, Spicy Mayo"),
-    I([10], None, r"^Honey Mustard \(GF\)", "Honey Mustard (French fry dip)", DIP),
+    I([10], None, L("FRENCH FRY DIPS £1.00") + r"\s+Ranch ?\(GF\)", "Ranch (French fry dip)", DIP, note="Same printed value (198) as Legendary Sauce, Herb Aioli, Spicy Mayo"),
+    I([10], None, r"^Honey ?Mustard ?\(GF\)", "Honey Mustard (French fry dip)", DIP),
     I([10], None, r"^Legendary Sauce \(GF\)", "Legendary Sauce (French fry dip)", DIP),
     I([10], None, r"^Buffalo \(GF\)", "Buffalo (French fry dip)", DIP),
     I([10], None, r"^Herb Aioli \(GF\)", "Herb Aioli (French fry dip)", DIP),
@@ -274,7 +279,7 @@ GF_ROWS = [
     ("HOT FUDGE BROWNIE", r"Cherry £11\.95", "2009", "Hot Fudge Brownie"),
 ]
 
-TOKEN = re.compile(r"\((\d+(?:\.\d+)?) cal([^)]*)\)")
+TOKEN = re.compile(r"\((\d+(?:\.\d+)?) ?cal([^)]*)\)")
 
 
 def norm(s: str) -> str:

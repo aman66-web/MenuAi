@@ -2,7 +2,7 @@
 """Build data/source/jamies-italian/ from Jamie's Italian (UK)'s official "Nutritional Information" PDF.
 
     python3 tools/uk_extract/jamies_italian.py path/to/jamies-italian-nutrition-menu-1506.pdf \
-        --allergen-pdf path/to/allergen-menu-080926.pdf --checked-on 2026-10-06 [--out DIR]
+        --allergen-pdf path/to/allergen-menu-081126-v2.pdf --checked-on 2026-11-17 [--out DIR]
 
 Numbers are copied by script from the PDF's "Label values per serving" block exactly as printed (kJ, kcal, fat, saturates,
 carbohydrate, sugars, fibre, protein, salt; the "per 100g" block is not used; salt stays salt; no serving weight is printed). Names and sections are
@@ -19,21 +19,24 @@ Pork/beef tags: from the item name (pepperoni, prosciutto, 'nduja, steak ...) or
 PDF (https://www.jamiesitalian.co.uk/media/lmkf2ucl/ji_july_main-1.pdf) describes the same dish with the meat in it, from that
 description (INGREDIENT_TAGS, each with the quoted words). Anything else is "meat type not stated" and gets no tag.
 
-Sources (the nutrition PDF is "June V1", created 2026-06-17; the allergen menu is "Sept V1", created 2026-09-08):
-  page   https://www.jamiesitalian.co.uk/allergens/
+Sources (the nutrition PDF is "June V1", created 2026-06-17; the allergen menu is "Nov V3", created 2026-11-08):
+  page   https://www.jamiesitalian.co.uk/allergens/ (on 2026-11-17 it still links the June nutrition PDF and the older September allergen menu)
+  page   https://www.jamiesitalian.co.uk/menus/ (on 2026-11-17 it links the newer November allergen menu below)
   file   https://www.jamiesitalian.co.uk/media/qmqjxvyt/jamies-italian-nutrition-menu-1506.pdf   (nutrition, used for every number)
-  file   https://www.jamiesitalian.co.uk/media/nu0n1orc/allergen-menu-080926.pdf               (vegetarian marks only)
+  file   https://www.jamiesitalian.co.uk/media/eo4pymwj/allergen-menu-081126-v2.pdf            (allergens and vegetarian marks)
+  (until 2026-11-17: https://www.jamiesitalian.co.uk/media/nu0n1orc/allergen-menu-080926.pdf, "Sept V1")
 Requires `pdftotext` (poppler). Nothing is converted, rounded or estimated here.
 
-Allergens (docs/DATA.md "Allergens", all or nothing): copied by script from the grid of the chain's own Allergen Menu PDF (Sept V1,
+Allergens (docs/DATA.md "Allergens", all or nothing): copied by script from the grid of the chain's own Allergen Menu PDF (Nov V3,
 `jamies_italian_allergens.py`): "Contains" = contains, "MC" = may contain (the guide's own find-and-replace of "may contain"; its
 fryer sentence reads "Foods cooked in our fryers MC traces of allergens"), blank = not listed; it names no cereal and no tree nut.
-A dish is tied to a row only when its printed name is EXACTLY the row's name: three June dishes are not on the September menu at all
-(Pork Milanese, Amalfi Coast Trout, Steak Tagliata), three are printed under another name or without a size (Antipasto Plank for 2 /
+A dish is tied to a row only when its printed name is EXACTLY the row's name: five June dishes are not on the November menu at all
+(Pork Milanese, Amalfi Coast Trout, Steak Tagliata, Mezze Maniche Pesto and its Non Gluten version), one is printed under another name
+that may be another dish (Burrata / Creamy Burrata), three are printed under another name or without a size (Antipasto Plank for 2 /
 Antipasto Plank, Giardiniera / Giardiniera Pickles, San Danielle Salad Large / San Danielle Salad), and one's row contradicts its own name
-(the 'Nduja hot honey mayo dip lists no egg): those seven are held back (ALLERGEN_HOLDBACK, holdback.csv), never matched by guess.
+(the 'Nduja hot honey mayo dip lists no egg): those ten are held back (ALLERGEN_HOLDBACK, ALLERGEN_CONTRADICTS, holdback.csv), never matched by guess.
 The two dishes the menu prints in two places (Garlic Bread, Garlic Bread with Nduja Hot Honey: starters and sides) must have identical rows
-or the run stops. The allergen menu is three months newer than the nutrition PDF: allergens are those of the September recipes.
+or the run stops. The allergen menu is five months newer than the nutrition PDF: allergens are those of the November recipes.
 """
 from __future__ import annotations
 import argparse
@@ -51,11 +54,11 @@ from common import sha256_file, slug, write_allergens, write_chain_folder  # noq
 CHAIN_ID = "jamies-italian"
 SOURCE_URL = "https://www.jamiesitalian.co.uk/media/qmqjxvyt/jamies-italian-nutrition-menu-1506.pdf"
 SOURCE_TITLE = ("Jamie's Italian Nutritional Information (June V1, PDF dated 17 June 2026); vegetarian marks and allergens from the "
-                "Allergen Menu (Sept V1, PDF dated 8 September 2026)")
-ALLERGEN_URL = "https://www.jamiesitalian.co.uk/media/nu0n1orc/allergen-menu-080926.pdf"
-ALLERGEN_TITLE = "Jamie's Italian Allergen Menu (Sept V1, PDF dated 8 September 2026)"
+                "Allergen Menu (Nov V3, PDF dated 8 November 2026)")
+ALLERGEN_URL = "https://www.jamiesitalian.co.uk/media/eo4pymwj/allergen-menu-081126-v2.pdf"
+ALLERGEN_TITLE = "Jamie's Italian Allergen Menu (Nov V3, PDF dated 8 November 2026)"
 NOTE = ("Values are per serving as printed in the chain's June 2026 guide; serving weights are not published. Allergens come from the "
-        "chain's September 2026 allergen menu, which lists a different set of dishes: a dish it does not list under the same name is left out.")
+        "chain's November 2026 allergen menu, which lists a different set of dishes: a dish it does not list under the same name is left out.")
 
 NUM = r"<?\d+(?:\.\d+)?"
 # A nutrition row is a name, a wide gap, then 18 numbers (9 per 100g, 9 per serving). The one row split by a page break has its
@@ -187,7 +190,7 @@ HOLDBACK: list[tuple[str, str]] = []
 # Dishes whose allergens cannot be published, so (all or nothing) neither can the dish: no allergen row of EXACTLY this name, or a row that
 # contradicts the dish's own name (docs/ACCURACY_AUDIT.md policy 3). name as printed -> reason. Checked on every run: a dish listed here that
 # now has an exact row, or a dish with no row that is not listed here, stops the run so a person decides.
-_NOROW = "The September 2026 allergen menu has no row named exactly '{name}'{why}, so its allergens cannot be published (and, all or nothing, neither is the dish)."
+_NOROW = "The November 2026 allergen menu has no row named exactly '{name}'{why}, so its allergens cannot be published (and, all or nothing, neither is the dish)."
 ALLERGEN_HOLDBACK = {
     "Antipasto Plank for 2": _NOROW.format(name="Antipasto Plank for 2", why=" (it prints 'Antipasto Plank', with no size)"),
     "Giardiniera": _NOROW.format(name="Giardiniera", why=" (it prints 'Giardiniera Pickles')"),
@@ -195,6 +198,10 @@ ALLERGEN_HOLDBACK = {
     "Pork Milanese": _NOROW.format(name="Pork Milanese", why=" (the dish is not on that menu)"),
     "Amalfi Coast Trout": _NOROW.format(name="Amalfi Coast Trout", why=" (the dish is not on that menu)"),
     "Steak Tagliata": _NOROW.format(name="Steak Tagliata", why=" (the dish is not on that menu)"),
+    # 2026-11-17, Nov V3 allergen menu: these three had exact rows on the September menu but not on November's.
+    "Burrata": _NOROW.format(name="Burrata", why=" (it prints 'Creamy Burrata', which may be a different dish)"),
+    "Mezze Maniche Pesto": _NOROW.format(name="Mezze Maniche Pesto", why=" (the dish is not on that menu)"),
+    "Mezze Maniche Pesto Non Gluten": _NOROW.format(name="Mezze Maniche Pesto Non Gluten", why=" (the dish is not on that menu)"),
 }
 # The row exists but contradicts the dish's own name (policy 3): held back, not shown with a "safe" row.
 ALLERGEN_CONTRADICTS = {
@@ -262,6 +269,8 @@ def read_vegetarian(pdf: Path) -> dict[str, set[str] | None]:
     for page in html_text.split("<page ")[1:]:
         words = [(float(a), float(b), float(c), html.unescape(t)) for a, b, c, t in
                  re.findall(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="[\d.]+">(.*?)</word>', page)]
+        if not any(t == "Item" for _, _, _, t in words) and not any(t in ("Yes", "Contains", "MC") for _, _, _, t in words):
+            continue  # Nov 2026 file: the last page holds only the title and footer (the grid reader checks this page's words)
         veg = [(a + c) / 2 for a, _, c, t in words if t == "Vegetarian"]
         vegan = [(a + c) / 2 for a, _, c, t in words if t == "Vegan"]
         if not veg or not vegan or max(veg) - min(veg) > 3 or max(vegan) - min(vegan) > 3:
@@ -280,11 +289,22 @@ def read_vegetarian(pdf: Path) -> dict[str, set[str] | None]:
         for w in yes:
             if min(abs((w[0] + w[2]) / 2 - vx), abs((w[0] + w[2]) / 2 - nx)) > 12:
                 raise SystemExit("A 'Yes' in the allergen menu is outside the Vegetarian / Vegan columns: the layout changed.")
-        for r in rows:
+        # Nov 2026 file: a table's last row prints its name about 10 pt above its cells; a "Yes" with no name row on its own line goes to
+        # the one name row 3.5-12.5 pt above it whose own line holds no cell word (the same rule as jamies_italian_allergens.read_matrix)
+        cells = [w for w in words if w[3] in ("Yes", "Contains", "MC") and w[0] > 267]
+        owner: dict[int, int] = {}
+        for i, w in enumerate(yes):
+            if any(abs(w[1] - r["y"]) < 3 for r in rows):
+                continue
+            above = [j for j, r in enumerate(rows) if 3.5 <= w[1] - r["y"] <= 12.5
+                     and not any(abs(c[1] - r["y"]) < 3.5 for c in cells)]
+            if len(above) == 1:
+                owner[i] = above[0]
+        for j, r in enumerate(rows):
             name = re.sub(r"\s+", " ", " ".join(x[3] for x in sorted(r["w"], key=lambda x: x[0]))).strip()
             marks = set()
-            for w in yes:
-                if abs(w[1] - r["y"]) < 3:
+            for i, w in enumerate(yes):
+                if abs(w[1] - r["y"]) < 3 or owner.get(i) == j:
                     centre = (w[0] + w[2]) / 2
                     marks.add("vegetarian" if abs(centre - vx) < abs(centre - nx) else "vegan")
             if name in out and out[name] != marks:
@@ -344,7 +364,7 @@ def main() -> int:
         notes = [NOTES[name]] if name in NOTES else []
         if m == "missing":
             no_mark.append(name)
-            notes.append("Not on the September 2026 allergen menu: no vegetarian mark available")
+            notes.append("Not on the November 2026 allergen menu: no vegetarian mark available")
         elif m is not None and m:  # 'vegetarian' and/or 'vegan' marked "Yes"
             tags.append("vegetarian")
         if PORK_WORDS.search(name):

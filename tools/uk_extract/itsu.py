@@ -11,6 +11,13 @@ grams); the page's own embedded copy of the data is only used to cross-check the
 script). Dish names come from the dish page (tidied: capitalised, itsu's joining apostrophe in "rice'bowl" shown as a space).
 Only the display categories, the rankable flags, the held-back list and the tag word lists below are typed by hand.
 
+REFRESHED 2026-11-17 (138 dish pages, combined SHA-256 4b952006d1260f881627a73b2d82e9643b741808e44b223279419e160ae75368): itsu's
+13 November menu. New: Korean BBQ Chicken (and Little), Strawberry & Matcha Mochi, The Festive Bento, Miso with Benefits (held back:
+its kcal can't hold against its own fat and carbs), Prosecco (not published: alcohol); the Vitality Glass Noodle Bowl page reads again.
+Gone: Spicy Miso Soup. Chicken Teriyaki, Spicy Chicken Teriyaki, The Best of itsu and The Spicy Tuna Dragon moved to new page addresses
+(same names). Katsu Curry Noodles, Korean Spicy Noodles, King Prawn Gyoza and Chicken Noodle Soup print new recipes. Salt of the
+November batch is not published (SALT_NOT_PUBLISHED, reason there).
+
 Allergens come from the same dish pages: each prints "contains: ..." and "may contain: ..." (the 14 allergens by name; no
 cereal or nut is named). The words are mapped with common.allergen_words (an unknown word stops the script) and must agree with
 the page's own embedded copy of the lists, or the script stops. A dish with neither line counts as "none" only when its
@@ -66,15 +73,71 @@ NOT_RANKABLE = {"/menu/breakfast/coconut-and-pineapple-twist/", "/menu/breakfast
 NAME_FIXES = {"Cappucino": "Cappuccino"}
 
 # Dishes held back: the page prints numbers that cannot be right (reason shown in the check report). Nothing is corrected.
-HOLDBACK: dict[str, str] = {}
+HOLDBACK: dict[str, str] = {
+    "miso-with-benefits": ("itsu's page prints 83 kcal, but its own fat (8 g) and carbohydrate (10.3 g) alone need about 113 kcal and with its "
+                           "protein (5.6 g) about 136: the figures cannot all be right"),
+}
+
+# Salt NOT published (left blank, never corrected or replaced) for the dishes itsu re-published on 13 and 16 November 2026. Every dish of that
+# batch that we had read before (2026-10-08) now prints a salt figure 2.5 times smaller (2.4 to 4 times for the three whose recipe also
+# changed), while every other figure stayed the same; 2.5 is the factor between salt and sodium, and the dishes itsu did not touch kept their
+# salt (e.g. miso soup 1.8 g). The new figures look like sodium printed under "salt (g)", but neither figure can be confirmed, so neither is
+# shown (as for Muffin Break's salt). The batch's new dishes are left blank too: they came from the same data. When itsu's salt figures move
+# again, re-compare and empty this list.
+SALT_WHY = "itsu's 13 November 2026 data prints salt 2.5 times lower than before (the salt/sodium factor): salt not published"
+SALT_NOT_PUBLISHED: dict[str, str] = {p: SALT_WHY for p in (
+    "/menu/soups/hot-miso-with-benefits-131126/",
+    "/menu/soups/chicken-noodle-soup/",
+    "/menu/soups/famous-coconut-chicken-soup/",
+    "/menu/soups/veggie-balls-and-coconut-soup/",
+    "/menu/steamed-gyoza/king-prawn-gyoza/",
+    "/menu/rice-bowls/korean-bbq-chicken/",
+    "/menu/rice-bowls/little-korean-bbq-chicken/",
+    "/menu/rice-bowls/double-chicken-teriyaki/",
+    "/menu/rice-bowls/hot-teriyaki-chicken-rice-bowl-131126/",
+    "/menu/rice-bowls/little-chicken-teriyaki/",
+    "/menu/rice-bowls/hot-spicy-teriyaki-chicken-rice-bowl-131126/",
+    "/menu/rice-bowls/little-spicy-chicken-teriyaki/",
+    "/menu/rice-bowls/veggie-balls-teriyaki/",
+    "/menu/rice-bowls/little-veggie-balls-teriyaki/",
+    "/menu/rice-bowls/thai-chicken-curry/",
+    "/menu/rice-bowls/little-thai-chicken-curry/",
+    "/menu/rice-bowls/thai-king-prawn-curry/",
+    "/menu/rice-bowls/thai-salmon-curry/",
+    "/menu/rice-bowls/thai-veggie-balls-curry/",
+    "/menu/rice-bowls/grilled-katsu-chicken-curry/",
+    "/menu/rice-bowls/little-grilled-katsu-chicken-curry/",
+    "/menu/rice-bowls/little-rice-and-greens/",
+    "/menu/noodles/korean-spicy-noodles/",
+    "/menu/noodles/katsu-curry-noodles/",
+    "/menu/noodles/thai-noodles/",
+    "/menu/noodles/vitality-glass-noodle-bowl/",
+    "/menu/noodles/chicken-gyoza-noodle-bowl/",
+    "/menu/noodles/chilli-chicken-gyoza-noodle-bowl/",
+    "/menu/noodles/veggie-gyoza-noodle-bowl/",
+    "/menu/sushi-and-salads/sushi-tuna-dragon-roll-131126/",
+    "/menu/sushi-and-salads/the-festive-bento/",
+    "/menu/sushi-and-salads/the-california-rolls/",
+    "/menu/sushi-and-salads/the-best-of-itsu-/",
+    "/menu/sushi-and-salads/the-chicken-bento-salad/",
+    "/menu/sushi-and-salads/tuna-salmon-bento-salad/",
+    "/menu/sushi-and-salads/the-salmon-bento-salad/",
+    "/menu/desserts-and-snacks/dessert-strawberry-and-matcha-mochi-131126/",
+    "/menu/breakfast/smoked-salmon-and-egg-bun/",
+    "/menu/breakfast/smoked-salmon-and-avo-egg-pot/",
+)}
 
 # Dishes whose own page cannot be read: left out (the menu card shows only kcal, never the macros). If the page starts working the
 # script publishes the dish normally and prints a reminder to remove it from this list.
-UNREADABLE: dict[str, str] = {
-    "/menu/noodles/vitality-glass-noodle-bowl/": "itsu's dish page returns HTTP 500 (the menu card prints only 458 kcal, no protein, carbs or fat)",
+UNREADABLE: dict[str, str] = {}
+
+# Dishes on the menu that are not published, with the reason. Alcoholic drinks are not added (founder's rule of 11 October 2026; Asahi
+# was published before that rule and is left as it was).
+NOT_PUBLISHED: dict[str, str] = {
+    "/menu/cold-drinks/alcohol-prosecco/": "an alcoholic drink: no alcoholic drinks are added (founder's rule of 11 October 2026)",
 }
 
-# The set of dishes this script was reviewed against (menu page, 2026-10-06). If itsu adds or removes a dish the script stops.
+# The set of dishes this script was reviewed against (menu page, 2026-10-06; re-reviewed 2026-11-17). If itsu adds or removes a dish the script stops.
 EXPECTED_PATHS: list[str] = [
     "/menu/breakfast/blueberry-porridge/",
     "/menu/breakfast/blueberry-seeds-porridge/",
@@ -93,6 +156,7 @@ EXPECTED_PATHS: list[str] = [
     "/menu/breakfast/the-egg-bun/",
     "/menu/breakfast/wild-berry-knot/",
     "/menu/cold-drinks/alcohol-asahi/",
+    "/menu/cold-drinks/alcohol-prosecco/",
     "/menu/cold-drinks/cocacolacanzero/",
     "/menu/cold-drinks/drinks-can-zen-cucumber-and-mint-2024/",
     "/menu/cold-drinks/drinks-can-zen-water-ginger-and-lime-2024/",
@@ -109,6 +173,7 @@ EXPECTED_PATHS: list[str] = [
     "/menu/desserts-and-snacks/angelic-almonds/",
     "/menu/desserts-and-snacks/chocolate-edamame/",
     "/menu/desserts-and-snacks/dark-chocolate-moons/",
+    "/menu/desserts-and-snacks/dessert-strawberry-and-matcha-mochi-131126/",
     "/menu/desserts-and-snacks/dessert-yuzu-cheesecake-mochi-110926/",
     "/menu/desserts-and-snacks/drinks-fiery-ginger-kombucha/",
     "/menu/desserts-and-snacks/drinks-raspberry-and-elderflower-kombucha/",
@@ -165,17 +230,19 @@ EXPECTED_PATHS: list[str] = [
     "/menu/noodles/thai-noodles/",
     "/menu/noodles/veggie-gyoza-noodle-bowl/",
     "/menu/noodles/vitality-glass-noodle-bowl/",
-    "/menu/rice-bowls/chicken-teriyaki/",
     "/menu/rice-bowls/double-chicken-teriyaki/",
     "/menu/rice-bowls/grilled-katsu-chicken-curry/",
+    "/menu/rice-bowls/hot-spicy-teriyaki-chicken-rice-bowl-131126/",
+    "/menu/rice-bowls/hot-teriyaki-chicken-rice-bowl-131126/",
+    "/menu/rice-bowls/korean-bbq-chicken/",
     "/menu/rice-bowls/little-chicken-teriyaki/",
     "/menu/rice-bowls/little-grilled-katsu-chicken-curry/",
+    "/menu/rice-bowls/little-korean-bbq-chicken/",
     "/menu/rice-bowls/little-rice-and-greens/",
     "/menu/rice-bowls/little-spicy-chicken-teriyaki/",
     "/menu/rice-bowls/little-thai-chicken-curry/",
     "/menu/rice-bowls/little-thai-veggie-balls-curry/",
     "/menu/rice-bowls/little-veggie-balls-teriyaki/",
-    "/menu/rice-bowls/spicy-chicken-teriyaki/",
     "/menu/rice-bowls/thai-chicken-curry/",
     "/menu/rice-bowls/thai-king-prawn-curry/",
     "/menu/rice-bowls/thai-salmon-curry/",
@@ -187,22 +254,23 @@ EXPECTED_PATHS: list[str] = [
     "/menu/soups/hot-detox-miso-noodle-soup-120925/",
     "/menu/soups/hot-king-prawn-miso-soup-120925/",
     "/menu/soups/hot-miso-soup-120925/",
-    "/menu/soups/hot-spicy-miso-soup-120925/",
+    "/menu/soups/hot-miso-with-benefits-131126/",
     "/menu/soups/veggie-balls-and-coconut-soup/",
     "/menu/steamed-gyoza/hot-side-chicken-gyoza/",
     "/menu/steamed-gyoza/hot-side-vegetable-gyoza/",
     "/menu/steamed-gyoza/king-prawn-gyoza/",
     "/menu/sushi-and-salads/side-edamame-cup/",
-    "/menu/sushi-and-salads/sushi-best-of-itsu/",
+    "/menu/sushi-and-salads/sushi-tuna-dragon-roll-131126/",
     "/menu/sushi-and-salads/the-avo-baby-rolls/",
+    "/menu/sushi-and-salads/the-best-of-itsu-/",
     "/menu/sushi-and-salads/the-california-rolls/",
     "/menu/sushi-and-salads/the-chicken-bento-salad/",
+    "/menu/sushi-and-salads/the-festive-bento/",
     "/menu/sushi-and-salads/the-salmon-and-avo-rolls/",
     "/menu/sushi-and-salads/the-salmon-baby-rolls/",
     "/menu/sushi-and-salads/the-salmon-bento-salad/",
     "/menu/sushi-and-salads/the-salmon-dragon/",
     "/menu/sushi-and-salads/the-salmon-full-house/",
-    "/menu/sushi-and-salads/the-spicy-tuna-dragon/",
     "/menu/sushi-and-salads/the-super-salmon-light/",
     "/menu/sushi-and-salads/the-sushi-festival/",
     "/menu/sushi-and-salads/the-tuna-and-salmon-sashimi/",
@@ -371,6 +439,9 @@ def main() -> int:
             continue
         if path in UNREADABLE:
             print(f"note: {path} can be read now; remove it from UNREADABLE.", file=sys.stderr)
+        if path in NOT_PUBLISHED:
+            excluded.append((tidy_name(card["title"]), path, NOT_PUBLISHED[path]))
+            continue
         page_text = page_file.read_text(encoding="utf-8", errors="replace")
         d = itsu_pages.read_item(page_text)
         name = tidy_name(d["name"])
@@ -422,10 +493,14 @@ def main() -> int:
         if serving:
             notes.append("itsu's own description says the milk's kcals are not included in these values")
         limited = bool(LIMITED.search(f"{d['name']} {d['description']}"))
+        salt = printed.get("salt", "")
+        if path in SALT_NOT_PUBLISHED:
+            notes.append(f"{SALT_NOT_PUBLISHED[path]} (printed {salt})")
+            salt = ""
         items.append({
             "id": item_id, "name": name, "category": category, "serving": serving,
             "calories": printed["kcal"], "protein_g": printed["protein"], "carbs_g": printed["carbs"], "fat_g": printed["fat"],
-            "sat_fat_g": printed.get("sat", ""), "sodium_mg": "", "salt_g": printed.get("salt", ""), "sugar_g": printed.get("sugars", ""),
+            "sat_fat_g": printed.get("sat", ""), "sodium_mg": "", "salt_g": salt, "sugar_g": printed.get("sugars", ""),
             "fiber_g": printed.get("fibre", ""), "tags": "|".join(tags), "limited_time": limited,
             "rankable": rankable and path not in NOT_RANKABLE, "notes": "; ".join(notes),
             "allergens": dish_allergens(d, page_text, name),
@@ -435,13 +510,14 @@ def main() -> int:
         for n, p, why in excluded:
             print(f"  {n} ({p}): {why}", file=sys.stderr)
     ids = [i["id"] for i in items]
-    stale = [h for h in HOLDBACK if h not in ids]
+    stale = [h for h in HOLDBACK if h not in ids] + [p for p in SALT_NOT_PUBLISHED if p not in paths]
     if stale:
-        raise SystemExit(f"HOLDBACK names dishes that are not on the menu any more: {stale}")
+        raise SystemExit(f"HOLDBACK or SALT_NOT_PUBLISHED names dishes that are not on the menu any more: {stale}")
     items.sort(key=lambda i: CATEGORY_ORDER.index(i["category"]))
 
     note = ("Per dish, as itsu prints it. Milky coffee, matcha and tea drinks are shown without the milk (itsu's values leave it out). "
-            "Sushi values leave out the bottle of soy sauce that comes with it, per itsu's own page copy.")
+            "Sushi values leave out the bottle of soy sauce that comes with it, per itsu's own page copy. "
+            "Salt isn't shown for dishes itsu updated in November 2026: their new figures are 2.5 times lower than before, which looks like sodium.")
     write_chain_folder(
         chain_id=CHAIN_ID, name="itsu", cuisine="Japanese", source_title=SOURCE_TITLE.format(checked_on=args.checked_on),
         source_url=SOURCE_URL, checked_on=args.checked_on, aliases=["itsu", "itsu uk"], items=items, out=args.out, note=note,

@@ -8,8 +8,9 @@ https://thesushico.com/wp-content/uploads/2026/02/21945_TSC_CounterMenu_No-Prici
 6 January 2026, text layer). Every dish line prints its pieces and calories ("KAPPA MAKI 8pc | 126kcal V"). The page is read from its
 word boxes (pdftotext -bbox-layout): section headings are the large lines, a dish belongs to the heading above it in the same column,
 and every "NNNkcal" on the page must be used or left out by a rule named below, so a new or moved figure stops the run.
-Only the names' capitalisation and the categories are written by hand. The chain's allergen matrix (29 January 2026) names dishes
-differently from the menu and adds dipping-sauce notes, so it is linked, not copied. Its "Nutritional Information" pictures (uploaded
+Only the names' capitalisation and the categories are written by hand. The chain's allergen matrix ("Allergen Updated 09/26",
+uploaded 28 October 2026; it replaced the 29 January 2026 matrix on the Nutrition & Allergens page) names dishes differently from
+the menu and adds dipping-sauce notes, so it is linked, not copied. Its "Nutritional Information" pictures (uploaded
 August 2024) are not used: no text layer.
 
 Found through the Food Standards Agency's hygiene-rating open data (38 GB outlets registered as "The Sushi Co", 12 October 2026).
@@ -28,8 +29,8 @@ from common import sha256_file, slug, write_chain_folder  # noqa: E402
 CHAIN_ID = "the-sushi-co"
 SOURCE_URL = "https://thesushico.com/wp-content/uploads/2026/02/21945_TSC_CounterMenu_No-Pricing_530x297mm.pdf"
 SOURCE_TITLE = "The Sushi Co counter menu (PDF created 6 January 2026, uploaded February 2026)"
-ALLERGEN_GUIDE = {"title": "The Sushi Co allergen matrix (TSC_Allergen_29JAN26V01, 29 January 2026)",
-                  "url": "https://thesushico.com/wp-content/uploads/2026/02/TSC_Allergen_29JAN26V01.pdf", "may_contain_published": False}
+ALLERGEN_GUIDE = {"title": "The Sushi Co allergen matrix (Allergen Updated 09/26, uploaded 28 October 2026)",
+                  "url": "https://thesushico.com/wp-content/uploads/2026/10/Allergen-Updated-09_26.xlsx-Table-1-2.pdf", "may_contain_published": False}
 NOTE = ("Calories per item as printed on The Sushi Co's counter menu (January 2026). The two chicken dishes offered 'with rice/noodles' "
         "print one figure for both and are left out.")
 EXPECTED_KCAL = 91          # "NNNkcal" figures on the page

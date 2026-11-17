@@ -21,6 +21,8 @@ What is not published (each checked on every run; the script stops if the page c
     they cannot be told apart, so none is used.
   * The Boneless Fix: described "(Delivery Only)"; Bottomless Soda: a refill drink with no size or amount.
   * Monster Mango Loco, Lucky Saint 0% Beer, Brixton Coldharbour, Brixton Low Voltage: protein and fat printed "-" or no table at all.
+  * Baileys Shake (on the page by November 2026): named after an alcoholic liqueur, and the page does not say whether it contains alcohol
+    (no alcoholic drinks are added: founder's rule of 11 October 2026).
   * Caffe Carluccio's 23 coffees, iced coffees, frappes and teas "with a milk choice": the figure printed for the drink is the drink
     without the milk (a latte shows 1 kcal; the milk is a second option with its own figures), so no figure for the drink as served exists.
   * Dishes printed on two tabs with the same name and numbers are published once; with the same name and different numbers they are
@@ -67,7 +69,7 @@ SUFFIX = {"ED'S": "Ed's", "MAIN MEALS": "Main Meals menu", "GBK": "GBK", "Slims 
           "Caffe Carluccios - Food": "Carluccio's", "Caffe Carluccios - Drinks": "Carluccio's"}
 ORDER = ["ED'S", "MAIN MEALS", "GBK", "Slims Main Menu", "Caffe Carluccios - Food", "Caffe Carluccios - Drinks"]
 # dishes the script expects per tab: (plain pop-ups, first-level options of build-your-own groups)
-EXPECTED = {"ED'S": (35, 0), "MAIN MEALS": (23, 0), "GBK": (2, 0), "Slims Main Menu": (64, 53),
+EXPECTED = {"ED'S": (35, 0), "MAIN MEALS": (23, 0), "GBK": (2, 0), "Slims Main Menu": (67, 59),   # Slims was (64, 53) until October 2026
             "Caffe Carluccios - Food": (37, 0), "Caffe Carluccios - Drinks": (26, 23)}
 
 # (tab, printed section) -> (category shown, rankable). Parts of a meal (sides, sauces, toppings, add-ons), sweet treats and drinks are
@@ -87,6 +89,7 @@ SECTIONS = {
     ("Slims Main Menu", "TENDERS & WINGS MEALS"): ("Slim Chickens: Tenders & wings meals", True),
     ("Slims Main Menu", "SANDWICHES"): ("Slim Chickens: Sandwiches", True),
     ("Slims Main Menu", "SALAD & WRAPS"): ("Slim Chickens: Salad & wraps", True),
+    ("Slims Main Menu", "Lunch Fix"): ("Slim Chickens: Lunch fix", True),   # new by November 2026; the page's sub-heading: "Lunch Fix 12-4 Only"
     ("Slims Main Menu", "SIDES"): ("Slim Chickens: Sides", False),
     ("Slims Main Menu", "HOUSE SAUCES"): ("Slim Chickens: House sauces", False),
     ("Slims Main Menu", "KIDS MEALS"): ("Slim Chickens: Kids meals", True),
@@ -118,6 +121,8 @@ LEFT_OUT = {
     ("Slims Main Menu", "ALCOHOLIC DRINKS", "Lucky Saint 0% Beer"): "protein, carbohydrate and fat printed '-' (not published)",
     ("Slims Main Menu", "ALCOHOLIC DRINKS", "Brixton Coldharbour"): "no nutrition table on the page",
     ("Slims Main Menu", "ALCOHOLIC DRINKS", "Brixton Low Voltage"): "no nutrition table on the page",
+    ("Slims Main Menu", "HANDSPUN SHAKES", "Baileys Shake"): "named after an alcoholic liqueur and the page does not say whether it contains alcohol "
+                                                             "(no alcoholic drinks are added: founder's rule of 11 October 2026)",
 }
 # Names listed twice in one section of a build-your-own group with different figures (cannot be told apart): left out.
 EXPECTED_DUPLICATES = {("Slims Main Menu", "CRISPY WINGS", "6 Crispy Wings"), ("Slims Main Menu", "CRISPY WINGS", "8 Crispy Wings"),
@@ -126,15 +131,13 @@ EXPECTED_DUPLICATES = {("Slims Main Menu", "CRISPY WINGS", "6 Crispy Wings"), ("
 ALLERGEN_EXTRA = {"sulphur dioxide/ sulphites": ("sulphites", None)}
 
 # Rows the page contradicts itself on (found by comparing the page's own rows; nothing is corrected or chosen between).
+# (Slim's Salad and Slim's Salad Meal were held here until November 2026: the page printed the meal at 542 kcal, below the salad's 641.
+# The page now prints 642 and 679 kcal, so that contradiction is gone and both are published.)
 HOLD_NAMED = {
-    "Slim's Salad": "The page prints the salad at 641 kcal but 'Slim's Salad Meal' (the same salad plus 2 house sauces and a drink) at 542 kcal, "
-                    "so one of the two rows is wrong and the page does not say which",
     "Sausage, Mash, Peas and Gravy": "Salt is printed as 13.0 g (more than twice the 6 g daily limit) for a 901 kcal dish, while the same page prints "
                                      "2.5 to 4.3 g for its other main meals and 1.3 g for the gravy: it looks like a misprint, and the page does not say",
     "Ultimate Brownie": "The dish is a brownie but the page marks no cereals with gluten, neither as contained nor as may contain (the blondie "
                         "beside it marks gluten) and does not call the brownie gluten free, so its allergen row cannot be trusted",
-    "Slim's Salad Meal": "The page prints this meal (the salad plus 2 house sauces and a drink) at 542 kcal, lower than the salad alone "
-                         "(641 kcal), so one of the two rows is wrong and the page does not say which",
 }
 
 

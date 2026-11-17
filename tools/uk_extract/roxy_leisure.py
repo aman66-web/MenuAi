@@ -48,14 +48,15 @@ VENUES = [
     ("sheffieldchartersquare02", "Sheffield Charter Square"), ("yorkthestonebow02", "York The Stonebow"),
 ]
 # dishes each venue's tabs print today (food, drinks, Kentucky); the run stops if a page changes so a human re-checks the rules
-EXPECTED = {
-    "birminghamdigbeth02": [74, 93, 2], "birminghamvictoriasquare02": [81, 93, 9], "bristolunionstreet02": [81, 93, 9],
-    "cardiffthefriary02": [81, 93, 9], "cheltenhamhighstreet": [81], "edinburghrosestreet02": [81, 93, 9],
-    "leedsboarlane02": [74, 93, 2], "leedsthelight02": [81, 93, 9], "leicesterhumberstonegate02": [81, 93, 9],
-    "liverpoolcavernquarter02": [81, 9], "liverpoolhanoverstreet02": [74, 93, 2], "londonholborn02": [81, 93],
-    "londonoldst02": [75], "londonstmaryaxe02": [81, 93, 9], "manchesterarndale02": [81, 93, 9],
-    "manchesterdeansgate02": [81, 93, 9], "nottinghambottlelane02": [73, 93, 9], "nottinghamthecornerhouse02": [81, 93, 9],
-    "sheffieldchartersquare02": [74, 93, 2], "yorkthestonebow02": [81, 93, 9],
+EXPECTED = {   # read 2026-11-17: new food menus (Side A "Fluorescent Lights" / "Take Me Out", Side B "Mr. Brightside" / "Chelsea Dagger");
+    # the Kentucky tab is left at three venues only
+    "birminghamdigbeth02": [87, 93], "birminghamvictoriasquare02": [94, 93], "bristolunionstreet02": [93, 93],
+    "cardiffthefriary02": [94, 93], "cheltenhamhighstreet": [93], "edinburghrosestreet02": [93, 93],
+    "leedsboarlane02": [87, 93], "leedsthelight02": [94, 93], "leicesterhumberstonegate02": [94, 93],
+    "liverpoolcavernquarter02": [94, 93], "liverpoolhanoverstreet02": [87, 93, 2], "londonholborn02": [94, 93],
+    "londonoldst02": [75], "londonstmaryaxe02": [93, 93], "manchesterarndale02": [93, 93],
+    "manchesterdeansgate02": [93, 93], "nottinghambottlelane02": [86, 93], "nottinghamthecornerhouse02": [94, 93, 9],
+    "sheffieldchartersquare02": [87, 93, 2], "yorkthestonebow02": [93, 93],
 }
 NUTRIENT_COLUMNS = ("Energy (kCal)", "Fat (g)", "of which saturates (g)", "Carbohydrate (g)", "of which sugars (g)", "Fibre (g)",
                     "Protein (g)", "Salt (g)")
@@ -214,7 +215,19 @@ SECTIONS = {
     "sides & dips": ("Sides & dips", True), "sides and dips": ("Sides & dips", True),
     "combos & platters": ("Combos & platters", True), "combo & platters": ("Combos & platters", True),
     "roxy feast": ("Roxy feast", False), "dietry options": ("Dietary options", True),   # "DIETRY" is the chain's own spelling
+    "festive specials": ("Festive specials", True),   # 17 Nov 2026: seasonal dishes (listed as limited time)
 }
+# 17 Nov 2026: the Festive Feast has its own section ("FESTIVE FEAST" / "ROXY FESTIVE FEAST") that prints the feast and, under it, the
+# portions it is made of (6 chicken tenders' worth of figures, a few cauliflower bites...). Only the feast itself and the Vegan Snack
+# Basket are dishes ordered on their own; the portions are left out before the venues are compared, so a portion that shares a name
+# with a dish on the menu ("Pigs In Blankets") cannot clash with it.
+FEAST_SECTIONS = {"festive feast", "roxy festive feast"}
+FEAST_DISH = re.compile(r"\b(feast|basket)\b", re.I)
+FEAST_PART = "a portion printed inside the Festive Feast's own section (part of the feast, not a dish ordered on its own)"
+
+
+def feast_part(rec: dict) -> bool:
+    return rec["kind"] == "food" and rec["section"].strip().lower() in FEAST_SECTIONS and not FEAST_DISH.search(rec["name"])
 KENTUCKY_SECTIONS = {"food": ("Roxy takes Kentucky", True), "untitled group": ("Roxy takes Kentucky", True), "drink": None}   # cocktails: left out
 # ("untitled group" is how the 2-dish Kentucky tab at the Side B venues prints its two food dishes)
 DRINKS_REASON = ("the chain's drinks table is not reliable enough to publish: it prints Pepsi Max with the same 88 kcal and 22 g sugars as "
@@ -277,6 +290,8 @@ def classify(rec: dict):
             raise SystemExit(f"{rec['venue']} > {rec['name']}: new Kentucky section {rec['section']!r}: add it to KENTUCKY_SECTIONS")
         spec = KENTUCKY_SECTIONS[section]
         return spec if spec else "a cocktail on the Kentucky tab: the chain's drinks figures are not published (see the drinks table)"
+    if section in FEAST_SECTIONS:
+        return FEAST_PART if feast_part(rec) else ("Roxy feast", False)
     if section not in SECTIONS:
         raise SystemExit(f"{rec['venue']} > {rec['name']}: new section {rec['section']!r}: add it to SECTIONS (category, rankable)")
     category, rankable = SECTIONS[section]
@@ -304,10 +319,14 @@ def vegetarian_contradiction(rec: dict) -> str:
 def build(records: list[dict]) -> tuple[list[dict], list[tuple[str, str]], list[str], dict]:
     for rec in records:   # every section on every page is classified up front, so a new one stops the run
         classify(rec)
-    table = consensus(records)
     report: list[str] = []
     stats: dict = collections.Counter()
     left_out = collections.Counter()
+    parts = {name_key(r["name"]) for r in records if feast_part(r)}
+    if parts:
+        left_out[FEAST_PART] += len(parts)
+    records = [r for r in records if not feast_part(r)]
+    table = consensus(records)
     conflicts, singles = [], []
     items: list[dict] = []
     seen = set()
@@ -351,7 +370,7 @@ def build(records: list[dict]) -> tuple[list[dict], list[tuple[str, str]], list[
         note = f"Same figures and allergens printed at {len(recs)} of {len(VENUES)} venues" + (f"; {others} venue(s) print other figures for this name" if others else "")
         items.append({"id": slug(name), "name": name, "category": category, "serving": "", **nums,
                       "tags": "|".join((["vegetarian"] if rep["veg"] else []) + meat), "rankable": rankable, "notes": note,
-                      "limited_time": bool(re.search(r"\bfestive\b", name, re.I)), "_rec": rep,
+                      "limited_time": bool(re.search(r"\bfestive\b", name, re.I)) or category == "Festive specials", "_rec": rep,
                       "allergens": a, "_problems": own_problems(vals) + ([f"the page marks it vegetarian but its own ingredient list names {veg_bad}"] if veg_bad else []),
                       "_venues": [r["venue"] for r in recs]})
     names = [i["name"] for i in items]
@@ -405,7 +424,7 @@ def main() -> int:
     items, holds, report, info = build(records)
     pub_items = [{k: v for k, v in it.items() if not k.startswith("_")} for it in items]
     title = ("Roxy Ball Room & Roxy Lanes allergen and nutrition menus, one Ten Kites page per venue (20 venues; Side A, Side B and "
-             f"Old Street food menus; pages read {args.checked_on}, each page names its own export as dated 2026-10-09)")
+             f"Old Street food menus; pages read {args.checked_on}, each page names its own export as dated {args.checked_on})")
     guide = {"title": "Roxy Ball Room & Roxy Lanes allergen information (each venue's menu page links its own Ten Kites allergen page)",
              "url": GUIDE_URL, "checked_on": args.checked_on, "may_contain_published": True}
     if not holds:

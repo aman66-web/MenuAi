@@ -165,7 +165,7 @@ ROWS = [
     I("Mild (10ml)", SF, "Mild flavour (10 ml)", serving="10 ml", rankable=False,
       note="Per 10 ml of flavour sauce; items list how much flavour is added in their 'Add Flavour' column"),
     I("Mozarella Sticks", ES, "Mozzarella Sticks", note="The page spells the name 'Mozarella Sticks'"),
-    I("Onion Rings", ES, note="HELD BACK: carbs 393.0 g with 305 kcal is impossible (Piri Piri Onion Rings prints 43.0 g); nothing corrected"),
+    I("Onion Rings", ES),
     I("Paneer Burrito", VT, tags="vegetarian", note=VEG),
     I("Paneer Cheese & Tomato Salsa Melt", CP, note=PROMO_PANEER),
     I("Paneer Loaded Fries", VT, tags="vegetarian", note=VEG),
@@ -239,9 +239,9 @@ PLATTER_FOR_ONE = {"Solo (Serves 1)"}
 # Hold back (never correct): the card's own numbers are impossible.
 WINGS_SALT = ("Salt is printed as 8.0 g for 18 wings but 1.3 g for 28 wings (more wings, less salt; 3 and 5 wings print 0.1 and "
               "0.2 g): the page's own figures contradict each other. Not corrected, neither wings platter is published.")
-HOLDBACK = {"Onion Rings": "Carbohydrates printed as 393.0 g with only 305 kcal (and 13.8 g fat, 5.9 g protein): impossible; "
-                           "Piri Piri Onion Rings prints 43.0 g. Not corrected.",
-            "Wings X 18 (Serves 2)": WINGS_SALT, "Wings X 28 (Serves 3)": WINGS_SALT}  # accuracy audit 2026-10-08
+# "Onion Rings" was held back on 2026-10-08 (the page then printed 393.0 g carbohydrates with 305 kcal); the page read on 2026-11-17
+# prints 281 kcal, 3.3 g protein, 40.5 g carbohydrates, 11.7 g fat (4P+4C+9F = 280.5 kcal), so the contradiction is gone and it is published.
+HOLDBACK = {"Wings X 18 (Serves 2)": WINGS_SALT, "Wings X 28 (Serves 3)": WINGS_SALT}  # accuracy audit 2026-10-08
 
 
 def norm(text: str) -> str:

@@ -2,7 +2,7 @@
 
 Used by tools/uk_extract/pret.py. Requires `pdftotext` and `pdftoppm` (poppler).
 
-The guide (https://www.pret.co.uk/en-GB/allergenguide links the current PDF) is a set of landscape pages 3 to 22, each a table: one
+The guide (https://www.pret.co.uk/en-GB/allergenguide links the current PDF) is a set of landscape pages 3 to 21, each a table: one
 row per product, one column per allergen (a tick glyph, U+F061 in the PDF's symbol font, means "Product Contains"; a "Y" in the
 two left-hand columns means suitable for vegetarians / vegan friendly and is not read). The guide prints no "may contain"
 information (its footer says it cannot guarantee any product is allergen-free). Page 1 is the cover, page 2 the introduction.
@@ -25,7 +25,7 @@ from pathlib import Path
 
 WORD = re.compile(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">([^<]*)</word>')
 TICK = ""
-FIRST_TABLE_PAGE, LAST_TABLE_PAGE = 3, 22
+FIRST_TABLE_PAGE, LAST_TABLE_PAGE = 3, 21
 
 # (first word of the printed column header, allergen word as printed on the guide, i.e. what common.allergen_words reads), in printed order.
 # "Pine Nuts" is declared by Pret ("In addition we also declare Pine Nuts as an allergen") but is not one of the 14: it is returned as the

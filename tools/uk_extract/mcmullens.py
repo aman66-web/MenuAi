@@ -108,14 +108,8 @@ def classify(rec: dict):
 HOLDBACK: dict = {
     'Breaded Mozzarella Bites': 'The page prints 234 kcal, but its own protein, carbohydrate and fat add up to about 612 kcal.',
     'Posh Cocktail Sausages': 'The page prints 1184 kcal, but its own protein, carbohydrate and fat add up to about 4173 kcal. The page prints 23.8 g of salt for one portion, which cannot be right.',
-    'Roast Butternut Squash & Red Chilli Soup': 'The page prints 87.9 g of salt for one portion of soup, which cannot be right.',
-    'Gluten Free Roast Butternut Squash & Red Chilli Soup': 'The page prints 87.9 g of salt for one portion of soup, which cannot be right.',
-    'Parsnip & Honey Soup': 'The page prints 43.9 g of salt for one portion of soup, which cannot be right.',
-    'Gluten Free Parsnip & Honey Soup': 'The page prints 44.0 g of salt for one portion of soup, which cannot be right.',
-    'Broccoli & Stilton Soup': 'The page prints 340 kcal, but its own protein, carbohydrate and fat add up to about 433 kcal.',
-    'Gluten Free Broccoli & Stilton Soup': 'The page prints 346 kcal, but its own protein, carbohydrate and fat add up to about 440 kcal.',
-    'Leek & Potato Soup': 'The page prints 97.3 g of salt for one portion of soup, which cannot be right.',
-    'Gluten Free Leek & Potato Soup': 'The page prints 97.3 g of salt for one portion of soup, which cannot be right.',
+    'Broccoli & Stilton Soup': 'The page prints 300 kcal, but its own protein, carbohydrate and fat add up to about 393 kcal.',
+    'Gluten Free Broccoli & Stilton Soup': 'The page prints 306 kcal, but its own protein, carbohydrate and fat add up to about 400 kcal.',
     'Scampi & Chips': 'The page prints 608 kcal, but its own protein, carbohydrate and fat add up to about 805 kcal.',
     'Ultimate Scampi & Chips': 'The page prints 817 kcal, but its own protein, carbohydrate and fat add up to about 1013 kcal.',
     'Grilled Chicken Kebab': 'The page prints 688 kcal, but its own protein, carbohydrate and fat add up to about 1008 kcal.',
@@ -138,16 +132,15 @@ HOLDBACK: dict = {
     'Fish Fingers (kids)': 'The page prints 335 kcal, but its own protein, carbohydrate and fat add up to about 449 kcal.',
     'Black Cherry Pie (festive menu)': 'The page prints 411 kcal, but its own protein, carbohydrate and fat add up to about 935 kcal.',
     'Apple Cinnamon Waffle (festive menu)': 'The page prints 336 kcal, but its own protein, carbohydrate and fat add up to about 638 kcal.',
-    'Tomato & Red Pepper Soup (festive kids menu)': 'The page prints 53.3 g of salt for one portion of soup, which cannot be right.',
-    'Gluten Free Tomato & Red Pepper Soup (festive kids menu)': 'The page prints 52.9 g of salt for one portion of soup, which cannot be right.',
     'Cauliflower Cheese': 'The page prints 178.8 g of protein in a 1093 kcal portion of cauliflower cheese (65% of its energy, with only 33.4 g of fat), against 15.5 g of protein for its Mac \'n\' Cheese side: not credible. Held back as a judgement call.',
     'Gluten Free Bread & Butter': 'The page prints 0.1 g carbohydrate, 0.1 g protein and 15.8 g fat (the numbers of the butter alone, nothing of a gluten free bread) and no allergens, for a dish named Bread & Butter: the record looks unfinished, so its numbers and allergens are not published. Held back as a judgement call (independent re-read 2026-10-08).',
-    'Grilled Seabass Fillet': 'The page prints 12.1 g protein, 91.7 g carbohydrate and 46.3 g sugars for a fish fillet dish (a fillet alone has more protein than that) and its description says buttered new potatoes but no milk is marked: the record does not fit the dish. Held back as a judgement call (independent re-read 2026-10-08).',
+    'Grilled Seabass Fillet': 'The page prints 12.2 g protein, 91.8 g carbohydrate and 46.4 g sugars for a fish fillet dish (a fillet alone has more protein than that) and its description says buttered new potatoes but no milk is marked: the record does not fit the dish. Held back as a judgement call (independent re-read 2026-10-08).',
     'Grilled Seabass Fillet (add-on)': 'The page prints 3.1 g protein, 62.6 g carbohydrate and 41.6 g sugars for a seabass fillet add-on: the figures cannot be a fish fillet. Held back as a judgement call (independent re-read 2026-10-08).',
     'Baked Seabass Fillet (festive menu)': 'The page prints 12.5 g protein, 112.9 g carbohydrate and 63.1 g sugars for a seabass dish, like the two other seabass rows (a fillet alone has more protein than that): the record does not fit the dish. Held back as a judgement call (independent re-read 2026-10-08).',
     'Duck Bon Bons': 'Allergen row contradicts the dish ingredients: the description names a smoky mayo but the page marks no egg. Held back (independent re-read 2026-10-08).',
     'Roast Turkey (festive menu)': 'Allergen row contradicts the dish description: it names a buttery roast gravy but the page marks no milk. Held back (independent re-read 2026-10-08).',
     'Roast Turkey (festive kids menu)': 'Allergen row contradicts the dish description: it names a buttery roast gravy but the page marks no milk. Held back (independent re-read 2026-10-08).',
+    'Deep-Filled Viennese Mince Pie & Coffee (festive menu)': 'The page prints 0 for every figure (energy, protein, carbohydrate, sugars, fat, saturates and salt) for a deep-filled mince pie served with a coffee (on 2026-10-08 it printed 351 kcal): the record looks unfinished, so nothing is published. Held back as a judgement call (re-read 2026-11-17).',
     'Beef Meatballs': 'The page lists all 14 allergens for this beef meatball, tomato sauce and garlic ciabatta dish and prints 3.7 g of protein: the record looks unfinished. Held back as a judgement call.',
 }
 
@@ -158,13 +151,13 @@ NOTE = ("Per portion from McMullen's Mac's Classic menu page (version 04, no dat
 # The same pages print each dish's allergens ("Dietary Information": "Contains:" and "May contain:", naming the cereals and
 # tree nuts) and carry the label ids of the page's own allergen filter; tenkites_a cross-checks the two.
 ALLERGEN_TITLE = ("McMullen & Sons Dietary Information (allergens) on its online Mac's Classic menu: Main, Sunday, Kids, Gluten "
-                  "Free, Gluten Free Sunday, Festive and Kid's tabs (Ten Kites page, no date shown; read 2026-10-08)")
+                  "Free, Gluten Free Sunday, Festive and Kid's tabs (Ten Kites page, no date shown; read 2026-11-17)")
 
 if __name__ == "__main__":
     sys.exit(t.run(
         chain_id="mcmullens", name="McMullen & Sons", cuisine="Pub",
         aliases=["mcmullens", "mcmullen & sons", "mcmullen and sons", "mcmullens pubs", "mcmullen's", "mac's", "macs"],
         url=URL,
-        source_title="McMullen & Sons Mac's Classic menu with Nutrition (per portion), page macsclassicmenu04: Main, Sunday, Kids, Gluten Free, Gluten Free Sunday, Festive and Kid's tabs (Ten Kites page, no date shown; read 2026-10-08)",
+        source_title="McMullen & Sons Mac's Classic menu with Nutrition (per portion), page macsclassicmenu04: Main, Sunday, Kids, Gluten Free, Gluten Free Sunday, Festive and Kid's tabs (Ten Kites page, no date shown; read 2026-11-17)",
         tabs=TABS, classify=classify, category_order=CATEGORY_ORDER, expected_rows=EXPECTED, note=NOTE, holdback=HOLDBACK,
         allergen_title=ALLERGEN_TITLE))

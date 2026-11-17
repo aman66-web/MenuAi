@@ -36,6 +36,11 @@ the items without an exact row (34% even if every size were assumed to share its
 and tying them would mean inferring that a size, a decaf, a pack or a missing "with cheese" does not change the allergens. The product pages
 on greggs.com/menu/product/ (146 in the sitemap, robots allow them) print a "Contains" list only ("Soya, Wheat") and point to this guide.
 So the app links to the guide (all or nothing); nothing was written.
+
+Refreshed 2026-11-17: the same PDF address now serves the guide dated "October 2026" (Last-Modified 3 Nov 2026, sha256 850eb2cb...);
+the allergen guide is Version 15, 27.10.26. 52 printed names were new (Christmas, Children in Need, Halloween ranges; renames such as
+"6 Hot Mini Sausage Rolls", "Mozzarella and Cheddar Bites", "Yum Yums (2 Pack)") and 40 had gone; GROUPS follows the new guide. The
+two 4-pack bun rows print the numbers of one bun and are excluded. greggs.com/nutrition no longer lists any "new recipe" updates.
 """
 from __future__ import annotations
 import argparse
@@ -82,41 +87,42 @@ GROUPS: list[tuple[str, bool, list[str]]] = [
         "Simply Creamy Porridge",
     ]),
     (SV, True, [
-        "6 Mini Sausage Rolls", "Sausage Roll(s)", "Chicken Bake", "Steak Bake", "Steak & Stilton® Bake",
-        "Cheese & Onion Bake", "Corned Beef Bake", "Vegetable Bake", "Vegan Roll Pork-Free", "Chicken Rolls",
-        "Scotch Pie", "Savoury Mince Pie", "Sausage, Bean & Cheese Melt", "Cheese Scones", "Bacon and Cheese Wrap",
+        "6 Hot Mini Sausage Rolls", "Sausage Roll(s)", "Chicken Bake", "Steak Bake", "Steak & Stilton® Bake",
+        "Cheese & Onion Bake", "Corned Beef Bake", "Vegetable Bake", "Vegan Roll Pork-Free", "Festive Bake",
+        "Salt & Chilli Chicken Roll", "Scotch Pie", "Haggis Pie", "Savoury Mince Pie", "Sausage, Bean & Cheese Melt",
+        "Cheese Scones", "Bacon and Cheese Wrap",
     ]),
     (SV, False, ["Sausage Roll 4 Pack"]),
     (PZ, True, [
-        "BBQ Chicken & Bacon Pizza", "Buffalo Chicken Pizza", "Margherita Pizza", "Pepperoni Pizza",
-        "Spicy Chicken Pizza", "Veggie Feast Pizza",
+        "Margherita Pizza", "Pepperoni Pizza", "Pepperoni Pizza with Hot Honey", "Spicy Chicken Pizza",
     ]),
     (PB, False, [
-        f"{p} Pizza Box {n} Pack" for p in ("BBQ Chicken & Bacon", "Buffalo Chicken", "Margherita", "Pepperoni",
-                                            "Spicy Chicken", "Veggie Feast") for n in (2, 4, 6)
+        f"{p} Box {n} Pack" for p in ("Margherita Pizza", "Pepperoni Pizza", "Pepperoni Pizza with Hot Honey",
+                                      "Spicy Chicken Pizza") for n in (2, 4, 6)
     ]),
     (HF, True, [
         "Mac & Cheese", "Tomato Soup", "Southern Fried Chicken Goujons", "Spicy BBQ Chicken Bites",
-        "Mozzarella & Cheddar Bites", "BBQ Bites Meal Box", "Cheese and Caramelised Onion Toastie",
-        "Chicken & Pepperoni Pizza Toastie", "Ham and Cheese Toastie",
+        "Mozzarella and Cheddar Bites", "Pigs in Blankets", "Cheese and Caramelised Onion Toastie",
+        "Ham and Cheese Toastie", "Pigs Under Blankets Toastie",
     ]),
     (SW, True, [
-        "BBQ Chicken and Bacon Melt Baguette", "BLT", "Cheese & Onion Stottie", "Cheese & Pickle", "Cheese & Tomato",
-        "Cheese Sandwich", "Egg Mayonnaise & Tomato", "Egg Mayonnaise Sandwich", "Free Range Egg Mayonnaise Baguette",
+        "BLT", "Cheese & Onion Stottie", "Cheese & Pickle", "Cheese & Tomato",
+        "Cheese Sandwich", "Egg Mayonnaise & Tomato", "Egg Mayonnaise Sandwich", "Festive Feast Baguette", "Festive Flatbread",
+        "Free Range Egg Mayonnaise Baguette",
         "Free Range Egg Mayonnaise Half Baguette", "Free Range Egg Mayonnaise", "Ham & Cheese Baguette",
         "Ham Sandwich", "Honey Roast Ham & Egg Salad", "Honey Roast Ham and Egg Salad Roll",
-        "Hot Buffalo Chicken Baguette", "Hot Ham & Cheese Baguette", "Hot Mexican Chicken Baguette",
+        "Hot Ham & Cheese Baguette", "Hot Mexican Chicken Baguette",
         "Mature Cheddar Cheese Ploughman's Oval Bite", "Mature Cheddar Cheese Salad Baguette",
         "Mexican Chicken Baguette", "Mexican Chicken Flatbread", "Mexican Chicken Oval Bite",
         "Mexican Chicken Sandwich", "Roast Chicken and Bacon Club Baguette",
         "Roast Chicken and Bacon Club Half Baguette", "Roast Chicken Mayonnaise Baguette", "Roast Chicken Salad",
         "Roast Chicken Salad Roll", "Roast Chicken with Honey Mustard Mayonnaise Oval Bite",
-        "Southern Fried Chicken Baguette", "Tandoori Chicken", "Tandoori Chicken Baguette",
+        "Southern Fried Chicken Baguette", "Tandoori Chicken Baguette",
         "Tandoori Chicken Half Baguette", "Tandoori Chicken Roll", "Tuna Crunch Baguette", "Tuna Crunch Roll",
         "Tuna Mayonnaise & Cucumber", "Tuna Mayonnaise Stottie",
     ]),
     (SP, True, [
-        "Chicken Caesar Salad with Egg", "Prawn Layered Pasta Salad", "BBQ Chicken and Bacon Pasta",
+        "Chicken Caesar Salad with Egg", "Chicken and Egg Salad", "Tuna Crunch Salad", "BBQ Chicken and Bacon Pasta",
         "Tomato and Mozzarella Pasta",
     ]),
     (SS, True, [
@@ -128,51 +134,53 @@ GROUPS: list[tuple[str, bool, list[str]]] = [
         "Greggs Thai Sweet Chilli Flavour Hand Cooked Crisps 40g",
     ]),
     (ST, False, [
-        "All Butter Croissant", "Apple Danish", "Bavarian Slice", "Belgian Buns", "Bonfire Toffee Muffin",
-        "Caramel Crispy", "Caramel Custard Doughnut", "Chocolate Brownie Bar", "Chocolate Cake Bar", "Cream Éclair",
-        "Cream Iced Finger", "Empire Biscuit", "Fruit Scones", "Fruity Flapjack", "Gingerbread Men",
-        "Glazed Ring Doughnuts", "Glazed Ring Doughnuts (2 pack)", "Hot Chocolate Brownies",
+        "All Butter Croissant", "Apple Danish", "Bavarian Slice", "BBC Children in Need Novelty Bun", "Belgian Buns",
+        "Bonfire Toffee Muffin", "Caramel Crispy", "Caramel Custard Doughnut", "Chocolate Brownie Bar", "Chocolate Cake Bar",
+        "Christmas Bun", "Christmas Cake Slice", "Christmas Mini Caramel Shortbread", "Christmas Mini Caramel Shortbread Offcuts",
+        "Cream Éclair", "Cream Iced Finger", "Double Chocolate Doughnut", "Empire Biscuit", "Fruit Scones", "Fruity Flapjack",
+        "Gingerbread Men", "Glazed Ring Doughnuts", "Glazed Ring Doughnuts (2 pack)", "Hot Chocolate Brownies",
         "Hot Milk Chocolate Cookies", "Hot Yum Yums", "Jam Doughnut(s)", "Jammy Heart Biscuit",
         "Milk Chocolate Caramel Shortbread Offcuts", "Milk Chocolate Caramel Shortbreads", "Milk Chocolate Cookies",
-        "Novelty Bun (pink)", "Novelty Bun (white)", "Pain au Chocolat", "Peach Melba", "Pineapple Cake",
-        "Pink Jammie Doughnut", "Pumpkin Spice Doughnut", "Star Biscuit", "Sugar Strand Doughnut", "Tottenham Cake",
-        "Triple Chocolate Cookies", "Triple Chocolate Doughnut", "Triple Chocolate Muffin",
-        "Vanilla Custard Cream Doughnut", "Vanilla Custard Slice", "White Chocolate Cookies", "Yum Yum",
-        "Yum Yums (2 pack)",
+        "Millionaire's Doughnut", "Pain au Chocolat", "Peach Melba", "Pineapple Cake", "Pink Jammie Doughnut",
+        "Pudsey Biscuit", "Pudsey Jammy Biscuit", "Pumpkin Biscuit", "Pumpkin Spice Doughnut",
+        "Spooky Bun (orange case, green fondant)", "Spooky Bun (purple case, orange fondant)", "Star Biscuit",
+        "Sugar Strand Doughnut", "Sweet Mince Pie Roll", "Sweet Mince Pies", "Tottenham Cake",
+        "Triple Chocolate Cookies", "Triple Chocolate Muffin", "Vanilla Custard Cream Doughnut", "Vanilla Custard Slice",
+        "White Chocolate Cookies", "White Chocolate Gingerbread Cookie", "Yum Yum", "Yum Yums (2 Pack)",
     ]),
     (HD, False, [
         "Americano Decaf Large", "Americano Decaf Regular", "Americano Large", "Americano Regular",
         "Cappuccino Large", "Cappuccino Large Decaf", "Cappuccino Regular", "Cappuccino Regular Decaf",
         "Caramel Latte Large", "Caramel Latte Large Decaf", "Caramel Latte Regular", "Caramel Latte Regular Decaf",
-        "Flat White Decaf", "Flat White Regular", "Green Tea Regular", "Hot Chocolate Large", "Hot Chocolate Regular",
+        "Candy Cane Mint Hot Chocolate Large", "Candy Cane Mint Hot Chocolate Regular",
+        "Flat White Decaf", "Flat White Regular", "Green Tea Regular",
+        "Hazelnut Crunch Latte Decaf Large", "Hazelnut Crunch Latte Decaf Regular", "Hazelnut Crunch Latte Large",
+        "Hazelnut Crunch Latte Regular", "Hot Chocolate Large", "Hot Chocolate Regular",
         "Latte Decaf Large", "Latte Decaf Regular", "Latte Large", "Latte Regular",
         "Mocha Decaf Large", "Mocha Decaf Regular", "Mocha Large", "Mocha Regular", "Peppermint Tea Regular",
-        "Pumpkin Spice Latte with Salted Caramel Drizzle Decaf Large",
-        "Pumpkin Spice Latte with Salted Caramel Drizzle Decaf Regular",
-        "Pumpkin Spice Latte with Salted Caramel Drizzle Large",
-        "Pumpkin Spice Latte with Salted Caramel Drizzle Regular",
+        "Salted Caramel Latte Large", "Salted Caramel Latte Large Decaf", "Salted Caramel Latte Regular",
+        "Salted Caramel Latte Regular Decaf",
         "Vanilla Latte Large", "Vanilla Latte Large Decaf", "Vanilla Latte Regular", "Vanilla Latte Regular Decaf",
         "White Coffee Decaf Large", "White Coffee Decaf Regular", "White Coffee Large", "White Coffee Regular",
         "White Tea Large", "White Tea Regular", "Espresso Shot", "Espresso Decaf Shot",
     ]),
     (CD, False, [
-        "Iced Americano", "Iced Americano Decaf", "Iced Caramel Chocolate", "Iced Caramel Latte Regular",
-        "Iced Caramel Latte Regular Decaf", "Iced Chocolate", "Iced Latte Regular", "Iced Latte Regular Decaf",
-        "Iced Matcha Latte", "Iced Mocha", "Iced Mocha Decaf", "Iced Pumpkin Spice Latte with Salted Caramel Drizzle",
-        "Iced Pumpkin Spice Latte with Salted Caramel Drizzle Decaf", "Iced Vanilla Latte Regular",
-        "Iced Vanilla Latte Regular Decaf", "Blueberry Iced Matcha Latte", "Strawberry Iced Matcha Latte",
-        "Vanilla Iced Matcha Latte", "Pumpkin Spice Iced Matcha Latte with Salted Caramel Drizzle",
-        "Cherry & Mango Cooler", "Mango and Strawberry Cooler", "Cherry Lemonade", "Cloudy Lemonade", "Mango Lemonade",
-        "Strawberry Lemonade", "Sparkling Raspberry Lemonade", "Greggs Natural Mineral Water 500ml",
+        "Iced Americano", "Iced Americano Decaf", "Iced Candy Cane Mint Chocolate", "Iced Caramel Latte Regular",
+        "Iced Caramel Latte Regular Decaf", "Iced Chocolate", "Iced Hazelnut Crunch Latte", "Iced Hazelnut Crunch Latte Decaf",
+        "Iced Latte Regular", "Iced Latte Regular Decaf", "Iced Matcha Latte", "Iced Mocha", "Iced Mocha Decaf",
+        "Iced Salted Caramel Latte Regular", "Iced Salted Caramel Latte Decaf", "Iced Vanilla Latte Regular",
+        "Iced Vanilla Latte Regular Decaf", "Candy Cane Mint Iced Matcha Latte", "Strawberry Iced Matcha Latte",
+        "Vanilla Iced Matcha Latte", "Cherry Lemonade", "Cloudy Lemonade", "Strawberry Lemonade", "Sparkling Raspberry Lemonade", "Greggs Natural Mineral Water 500ml",
         "Greggs Natural Mineral Water 750ml",
     ]),
     (AD, False, [
         "Extra Bacon", "Extra Breakfast Sausage", "Extra Caramel Syrup", "Extra Cream", "Extra Hot Chocolate Powder",
-        "Extra Lorne Sausage", "Extra Omelette with Cheese", "Extra Pumpkin Spice Syrup", "Extra Vanilla Syrup",
+        "Extra Lorne Sausage", "Extra Mint Syrup", "Extra Omelette with Cheese", "Extra Salted Caramel Syrup",
+        "Extra Vanilla Syrup",
         "Espresso Extra Shot", "Espresso Decaf Extra Shot", "Spread",
     ]),
     (DP, False, [
-        "Buffalo Sauce", "Garlic & Herb Dip", "Hot Honey", "Smoky BBQ Dip", "Milk Chocolate Dipping Sauce",
+        "Buffalo Sauce", "Garlic & Herb Dip", "Hot Sauce", "Milk Chocolate Dipping Sauce",
         "Salted Caramel Dipping Sauce",
     ]),
     (BD, False, [
@@ -186,27 +194,23 @@ EXCLUDED = {
     "Fairtrade Apple Juice from Concentrate": "per-portion numbers are for a 150 g/ml portion and the guide does not say the size sold",
     "Fairtrade Orange Juice from Concentrate 250ml": "name says 250ml but the numbers are for a 150 g/ml portion",
     "Fairtrade Orange Juice from Concentrate 500ml": "name says 500ml but the numbers are for a 150 g/ml portion (identical to the 250ml row)",
+    "Christmas Buns (4 pack)": "the numbers are for one bun (50.1 g portion, identical to the 'Christmas Bun' row), not for the pack of 4",
+    "Spooky Buns (4 pack)": "the numbers are for one bun (49.5 g portion, identical to the purple-case 'Spooky Bun' row), not for the pack of 4",
 }
 
-NEW_RECIPE = (
-    "greggs.com/nutrition lists this product under 'Latest updates: new recipe' (checked 5 Oct 2026); the guide is dated "
-    "September 2026, so re-check on the next refresh"
-)
 # Hand-written notes (not exported by the pipeline). Keyed by printed name.
 NOTES = {
-    "Southern Fried Potato Wedges": NEW_RECIPE,
-    "BBQ Bites Meal Box": NEW_RECIPE + "; contents not stated, so no meat tag",
-    "Pumpkin Spice Latte with Salted Caramel Drizzle Regular": NEW_RECIPE,
-    "Pumpkin Spice Latte with Salted Caramel Drizzle Large": NEW_RECIPE,
-    "Pumpkin Spice Latte with Salted Caramel Drizzle Decaf Regular": NEW_RECIPE,
-    "Pumpkin Spice Latte with Salted Caramel Drizzle Decaf Large": NEW_RECIPE,
-    "Iced Pumpkin Spice Latte with Salted Caramel Drizzle": NEW_RECIPE,
-    "Iced Pumpkin Spice Latte with Salted Caramel Drizzle Decaf": NEW_RECIPE,
     "Vegan Roll Pork-Free": "Vegetarian tag because the guide's own item name says Vegan; no vegetarian column in this guide",
     "BLT": "contains_pork inferred from the name (BLT = bacon, lettuce and tomato)",
+    "Pigs in Blankets": "contains_pork inferred from the name (pigs in blankets = sausages wrapped in bacon)",
+    "Pigs Under Blankets Toastie": "contains_pork inferred from the name (pigs in blankets = sausages wrapped in bacon)",
+    "Haggis Pie": "Meat type not stated",
+    "Festive Bake": "Contents not stated, so no meat tag",
+    "Festive Feast Baguette": "Contents not stated, so no meat tag",
+    "Festive Flatbread": "Contents not stated, so no meat tag",
     "Extra Lorne Sausage": "contains_pork because the name says sausage (the rule in the playbook); lorne sausage may not be pork",
-    "Hot Yum Yums": "Printed numbers are identical to 'Yum Yums (2 pack)'",
-    "Yum Yums (2 pack)": "Printed numbers are identical to 'Hot Yum Yums'",
+    "Hot Yum Yums": "Printed numbers are identical to 'Yum Yums (2 Pack)'",
+    "Yum Yums (2 Pack)": "Printed numbers are identical to 'Hot Yum Yums'",
     "Greggs Natural Mineral Water 500ml": "Portion column prints 100 for a 500ml bottle; every value is 0 either way",
     "Greggs Natural Mineral Water 750ml": "Portion column prints 100 for a 750ml bottle; every value is 0 either way",
     "Lorne Breakfast Roll": "Meat type of lorne not stated",
@@ -271,7 +275,7 @@ def tags_for(printed: str) -> str:
     if VEGAN_NAME.search(printed):
         tags.append("vegetarian")
     name = printed.replace("Pork-Free", "")
-    if PORK.search(name) or printed == "BLT":
+    if PORK.search(name) or printed in ("BLT", "Pigs in Blankets", "Pigs Under Blankets Toastie"):
         tags.append("contains_pork")
     if BEEF.search(name):
         tags.append("contains_beef")

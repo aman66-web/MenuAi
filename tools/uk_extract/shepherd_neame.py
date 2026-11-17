@@ -26,8 +26,8 @@ MENUS DIFFER BY PUB, and a dish with the same name sometimes has different figur
 pub, that prints it with nutrition, and it is printed at 2 or more pubs. When pubs print different figures for one name, nothing is chosen,
 averaged or corrected: the dish is left out and counted in the run's report. Children's-menu dishes are judged apart from adult ones.
 
-Left out on purpose (counted in the run's report): the Festive / Christmas, Buffet, Afternoon tea, Seafood Tower and Set menus tabs (seasonal, group or
-for-two menus); every "Hot Drinks" tab (the page gives an Americano, an espresso and a macchiato the same 139 kcal and every tea 0); rows that print no
+Left out on purpose (counted in the run's report): the Festive / Christmas, Buffet, Afternoon tea, Seafood Tower, Set menus and Rotary Club tabs (seasonal,
+group, club or for-two menus) and courses priced "for 8 guests"; every "Hot Drinks" tab (the page gives an Americano, an espresso and a macchiato the same 139 kcal and every tea 0); rows that print no
 nutrition; dishes printed at one pub only; dishes whose figures or allergens differ between pubs.
 
 Allergens (docs/DATA.md "Allergens") are complete for every published dish: the printed Contains / May contain lines and the label ids the page's own
@@ -36,7 +36,8 @@ Tags: vegetarian only from the pop-up's own "Suitable for:" line (Vegetarian / V
 confirm, or a mark that contradicts the allergens, leaves the dish out); contains_pork /
 contains_beef only when the dish name or description says so.
 
-Independent checks 2026-10-11: see data/audit/verified/shepherd-neame.json.
+Independent checks 2026-10-11: see data/audit/verified/shepherd-neame.json. Refreshed 2026-11-17 from 188 freshly saved pages (same 51 pubs): every
+published figure was compared with every pop-up that prints the dish (own regex reader), 0 differences.
 """
 from __future__ import annotations
 import re
@@ -111,7 +112,7 @@ PUBS = [
 ]
 SOURCE_URL = "https://pubs.shepherdneame.co.uk/"
 ALIASES = ["shepherd neame", "shepherd neame pubs", "shepherd neame pub", "sheps", "shepherd neame inns"]
-SKIP_TABS = re.compile(r"festive|christmas|boxing day|new years? eve|murder mystery|buffet|afternoon tea|seafood tower|set menu|function|hot drinks|coffee", re.I)
+SKIP_TABS = re.compile(r"festive|christmas|boxing day|new years? eve|murder mystery|buffet|afternoon tea|seafood tower|set menu|function|rotary club|hot drinks|coffee", re.I)
 LABELS_8 = ["Energy (kCal)", "Protein (g)", "Carb (g)", "of which Sugars (g)", "Fat (g)", "Sat Fat (g)", "Calories from Fat (kcal)", "Salt (g)"]
 CAPTION = "Nutrition (per portion)"
 NOT_ALLERGEN_LABELS = {"Less than 600kcal"}
@@ -155,11 +156,19 @@ def marks_of(name: str) -> set:
     return {m.lower() for m in re.findall(r"\(\s*(v|vg)\s*\)", name, re.I)}
 
 
+EMPTY_TAB = re.compile(r'class="(?:[^"]*\s)?k10-recipe(?:\s|")')
+
+
 def read_page(path: Path, where: str) -> list:
+    text = path.read_text(encoding="utf-8")
+    # a tab that lists no dish at all (no dish row, no pop-up, and its schema.org menu prints no calories): nothing to read. Seen 2026-11-17: The
+    # Bellhouse's 'Specials' tab printed only its course headings and "there is no menu currently available".
+    if ("k10-recipe-modal__recipe-name" not in text and not EMPTY_TAB.search(text)
+            and not any(c.replace(",", "").strip() for _, _, c in hp.json_ld_items(text))):
+        return []
     layout, recs = tb.read_menu(path)
     if layout != "modal":
         raise SystemExit(f"{where}: the page is laid out as {layout!r}, this script reads 'modal'")
-    text = path.read_text(encoding="utf-8")
     ld = Counter((re.sub(r"\s+", " ", n).strip(), c.replace(",", "") or "0") for _, n, c in hp.json_ld_items(text))
     out, seen_ld = [], Counter()
     # each pop-up's own "Suitable for:" line (tenkites_b does not keep it), in the same order as the records
@@ -242,7 +251,8 @@ CATEGORY_ORDER = ["Starters and small plates", "Bar snacks and sharing", "Sandwi
                   "Breakfast", "Sides", "Puddings", "Drinks", "Children's: Mains", "Children's: Puddings", "Children's: Drinks", "Children's: Breakfast"]
 RANKABLE = {"Starters and small plates", "Sandwiches", "Burgers", "Pizzas", "Mains", "Steaks", "Sunday roasts", "Breakfast"}
 KIDS = re.compile(r"child|kid", re.I)
-LEFT_OUT_COURSE = re.compile(r"coffee|hot chocolate|\btea\b|syrups|sundries", re.I)     # hot drinks: the same figure for different drinks
+LEFT_OUT_COURSE = re.compile(r"coffee|hot chocolate|\btea\b|syrups|sundries|for \d+ guests", re.I)  # hot drinks: the same figure for different drinks;
+# "Cheese course add on - for 8 guests" (Manor Farm Barn, 2026-11-17): one board for a group, not one person's portion
 
 
 def is_kids(tab: str, path: list) -> bool:
@@ -262,7 +272,7 @@ def course_category(top: str, kids: bool, where: str):
         if t == "drinks":
             return "Children's: Drinks"
         raise SystemExit(f"{where}: unmapped children's course {top!r}: add a rule to course_category")
-    if re.fullmatch(r"starters?|special starters|small plates|to begin|whilst you wait|grazing", t):
+    if re.fullmatch(r"starters?|special starters|small plates?|to begin|whilst you wait|grazing", t):
         return "Starters and small plates"
     if re.fullmatch(r"bar snacks|sharers|for the table|shares|sharing|great to share|sharing specials pre order only|sharing breakfast|loaded fries|loaded fatbreads|chips", t):
         return "Bar snacks and sharing"
@@ -275,13 +285,13 @@ def course_category(top: str, kids: bool, where: str):
     if t in ("steak", "steaks"):
         return "Steaks"
     if re.fullmatch(r"mains|specials mains|large plates|fajitas?|fajita|loaded flatbreads|flatbread|tacos|chicken|chippy friday|fish and chips|curry|lobsters?|mussels|oysters|"
-                    r"seafood broil|hot seafood tower|pie corner|seasonal|specials|mains toppings", t):
+                    r"seafood broil|hot seafood tower|pie corner|seasonal|specials|mains toppings|classics|game", t):
         return "Mains"
     if re.fullmatch(r"roasts|sunday roasts?", t):
         return "Sunday roasts"
-    if re.fullmatch(r"breakfast|breakfast baps|eggs benny|eggs your way|pancakes|eggs muffins and pancakes|full breakfast|brunch|brunch adventure", t):
+    if re.fullmatch(r"breakfast|breakfast baps|eggs benny|eggs benny and friends|eggs your way|pancakes|eggs muffins and pancakes|full breakfast|brunch|brunch adventure", t):
         return "Breakfast"
-    if t in ("sides", "enhance your breakfast", "extras", "cheese course add on"):
+    if t in ("sides", "enhance your breakfast", "extras", "cheese course add on", "burger toppings"):
         return "Sides"
     if re.fullmatch(r"desserts?|pudding|puddings|ice creams?|ice creams and sorbets|specials desserts|to finish|cakes and pastries", t):
         return "Puddings"
@@ -292,9 +302,8 @@ def course_category(top: str, kids: bool, where: str):
 
 # Dishes that stay in items.csv but are held back (holdback.csv; restore by deleting the entry). Key = (children's menu?, published name); never corrected.
 HOLD_TEXT = {
-    (False, "Tokyo after hours"): ("one figure (4406 kcal, 183.5 g protein, 261.2 g fat) for a feast the page itself describes as a crispy karaage chicken burger, a "
-                                   "double beef smash burger, vegetable gyoza, Sriracha-loaded fries and a Katsu curry dip; the page does not say how many people it "
-                                   "serves, so the figure cannot describe one person's order. Restore by deleting this entry once the chain says what a portion is."),
+    # (False, "Tokyo after hours") was held back here (one figure for a whole feast); on 2026-11-17 it is printed at one pub only, so it is not
+    # built at all and its entry was removed. Put it back if it returns at 2+ pubs.
     (False, "Vegan Coconut ice cream"): ("allergen row contradicts the dish name: named vegan, but the page marks milk (and gluten and soya) as contained. "
                                          "Restore by deleting this entry once the chain confirms the allergens."),
 }

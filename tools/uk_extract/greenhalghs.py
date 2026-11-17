@@ -16,6 +16,7 @@ blank because the pages print them per 100 g only. `serving` is the basis exactl
 
 Which pages are published (written down so a re-run keeps the same rules):
   Published   every product page with a per-unit / per-pie / per-portion calorie line (EXPECTED_PAGES below, 29 pages on 2026-10-08).
+              2026-11-17: 28 pages (Steak and Ale Pie left the product sitemap and its page answers 404).
   Left out    all other pages (cakes, platters, hampers, vouchers, gifts, subscriptions, bread loaves, most soups and pies): they print no calories or
               per-100 g figures only. "Small GI Seeded Loaf" and "Large GI Seeded Loaf" print "314 kcal per 100g" only. "Large Scotch Loaf" prints a
               kJ / kcal row of its per-100 g table only.
@@ -25,7 +26,8 @@ The script stops if the set of pages with a calorie line changes, or a page word
 Tags: `vegetarian` only where the page itself says "Suitable for vegetarians / vegans". `contains_beef` / `contains_pork` when the page's own ingredient
 list or the product name says so (Beef, Steak; Ham, Pork, Bacon, Sausage ...). Nothing is inferred beyond that. `rankable=false` (calories only).
 
-Allergens (docs/DATA.md "Allergens") are link-only. The shop's allergen matrix (Version 9, 16/06/2026, linked from /allergen-information/) is a table of
+Allergens (docs/DATA.md "Allergens") are link-only (2026-11-17: the page now links matrix Version 14, 22/10/2026, and a Christmas range
+list, Version 1, 06/11/2026; still link-only). The shop's allergen matrix (Version 9, 16/06/2026, linked from /allergen-information/) is a table of
 product CODES and shop names ("Butter Pies", "Potato & Meat Pie Large Baked") that are not the web shop's names and, for most published products, not its
 SKUs (Butter Pie sells as 12301-1000, the matrix has 10301-0001; the multi-portion pies have SKU "N/A"; the soups' SKUs 34511-3900 / 34531-3900 are not the matrix's 4510 / 4530 for "Tomato Soup" / "Pea and Ham Soup"). Each product page
 prints its ingredients with the allergens in bold, which is ingredient text rather than a list. Allergens are safety information: no name matching,
@@ -47,7 +49,8 @@ SOURCE_URL = "https://www.greenhalghs.com/bakery-shop/"
 SOURCE_TITLE = ("Greenhalgh's Craft Bakery online shop, product pages listed in product-sitemap.xml "
                 "(calories per unit, pie or portion as printed on each page; accessed {checked}, no date shown)")
 ALIASES = ["greenhalghs", "greenhalgh's", "greenhalgh's craft bakery", "greenhalghs craft bakery", "greenhalgh's bakery", "greenhalghs bakery"]
-ALLERGEN_GUIDE_TITLE = "Greenhalgh's allergen information page (links the shop allergen matrix, Version 9, 16/06/2026)"
+ALLERGEN_GUIDE_TITLE = ("Greenhalgh's allergen information page (links the shop allergen matrix, Version 14, 22/10/2026, "
+                        "and the Christmas range list, Version 1, 06/11/2026)")
 ALLERGEN_GUIDE_URL = "https://www.greenhalghs.com/allergen-information/"
 # The matrix marks Y (contains), N and MC (may contain) per product: traces information is published.
 MAY_CONTAIN_PUBLISHED = True
@@ -82,7 +85,6 @@ savouries/pies/party-pies/multi-portion-beef-steak-pie
 savouries/pies/party-pies/multiportion-lancashire-pie
 savouries/pies/party-pies/multiportion-potato-and-meat-pie
 savouries/pies/plate-meat-pie
-savouries/pies/steak-and-ale-pie
 savouries/pies/steak-pudding
 savouries/soup/500ml-pea-and-ham-soup
 savouries/soup/500ml-pot-soup/tomato-soup-500ml

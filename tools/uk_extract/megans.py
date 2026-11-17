@@ -44,12 +44,15 @@ from common import ROOT, sha256_file, slug, write_chain_folder  # noqa: E402
 CHAIN_ID = "megans"
 URL = "https://menus.tenkites.com/megans/megans"
 EXPECTED_ROWS = 321
-EXPECTED_TABS = 26   # tabs other than "All"
+EXPECTED_TABS = 30   # tabs other than "All"
 KEY_COLS = tk.KEY_COLS
 FOURTEEN_LABELS = 14
-# Tabs that are not the chain's standard menu: two sites' own lists and three party menus. Not fetched or published.
+# Tabs that are not the chain's standard menu: two sites' own lists, three party menus, the three Christmas party menus
+# (canapes, feasting, set menu: pre-booked group menus, added by 2026-11-17) and "Winter Menu Training" (a staff training tab,
+# not a menu customers order from). Not fetched or published.
 EXCLUDED_TABS = {"Dulwich & Parson's Green Pastries", "High Street Kensington Specials Menu", "Party Menu - Canapes",
-                 "Party Menu - Feasting", "Party Menu - Set Menu"}
+                 "Party Menu - Feasting", "Party Menu - Set Menu", "Christmas Canape Menu", "Christmas Feasting Menu",
+                 "Christmas Set Menu", "Winter Menu Training"}
 ALCOHOL_TOPS = {"Cocktails", "Beer & Cider", "Spirits, Shots & Mixers", "Wine"}
 
 # Printed section path -> (category shown, rankable). Parts of a meal (extras, sides, breads, sauces, dips), starters, treats,

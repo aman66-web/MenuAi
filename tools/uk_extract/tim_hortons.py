@@ -61,11 +61,10 @@ SPEC: list[tuple[str, str, str, bool]] = [
     ('3', 'Caramel Macchiato', HOT, False),
     ('8', 'Cappuccino', HOT, False),
     ('11', 'Flat White', HOT, False),
-    ('179', 'Pumpkin Spice Latte', HOT, False),
-    ('347', "Maple Caramel S'mores Latte", HOT, False),
-    ('613', 'Matcha Latte', HOT, False),
+    ('684', 'Hazelnut & White Chocolate Latte', HOT, False),
+    ('570', 'Gingerbread Latte', HOT, False),
     ('4', 'Latte', HOT, False),
-    ('658', 'Pumpkin Spice French Vanilla', HOT, False),
+    ('690', 'Gingerbread French Vanilla', HOT, False),
     ('6', 'French Vanilla Latte', HOT, False),
     ('10', 'French Vanilla', HOT, False),
     ('7', 'Mocha', HOT, False),
@@ -73,24 +72,23 @@ SPEC: list[tuple[str, str, str, bool]] = [
     ('14', 'Espresso', HOT, False),
     ('13', 'Breakfast Tea', HOT, False),
     ('336', 'Green Tea', HOT, False),
+    ('685', 'Hazelnut & White Hot Chocolate', HOT, False),
+    ('571', 'Gingerbread Hot Chocolate', HOT, False),
     ('337', 'Peppermint Tea', HOT, False),
     ('364', 'Oat Milk', AD, False),
     ('366', 'Coconut Milk', AD, False),
     ('367', 'Skimmed Milk', AD, False),
-    ('612', 'Matcha Iced Latte', COLD, False),
     ('24', 'Iced Latte', COLD, False),
     ('287', 'Iced Caramel Latte', COLD, False),
     ('288', 'Iced Vanilla Latte', COLD, False),
     ('22', 'Iced French Vanilla', COLD, False),
     ('292', 'Iced French Vanilla Latte', COLD, False),
     ('21', 'Iced Caramel Macchiato', COLD, False),
-    ('350', "Maple Caramel S'mores Frappé", COLD, False),
-    ('611', 'Matcha Frappé', COLD, False),
     ('310', 'Caramel Cream Frappé', COLD, False),
     ('309', 'Chocolate Cream Frappé', COLD, False),
-    ('349', "Maple Caramel S'mores Iced Capp®", COLD, False),
     ('311', 'Strawberries & Cream Frappé', COLD, False),
     ('312', 'Cookies & Cream Frappé', COLD, False),
+    ('688', 'Hazelnut & White Chocolate Iced Capp®', COLD, False),
     ('289', 'Caramel Iced Capp®', COLD, False),
     ('290', 'Cookies & Cream Iced Capp®', COLD, False),
     ('291', 'Mocha Iced Capp®', COLD, False),
@@ -111,7 +109,6 @@ SPEC: list[tuple[str, str, str, bool]] = [
     ('360', 'Fanta Orange Zero', SOFT, False),
     ('361', 'Sprite Zero', SOFT, False),
     ('362', 'Dr Pepper Zero', SOFT, False),
-    ('657', 'Breakfast Burrito', BR, True),
     ('620', 'Bacon Roll (Loin)', BR, True),
     ('37', 'Original Breakfast Wrap', BR, True),
     ('38', 'Big Breakfast Wrap', BR, True),
@@ -120,11 +117,9 @@ SPEC: list[tuple[str, str, str, bool]] = [
     ('655', 'Bacon, Egg and Cheese Muffin (Streaky Bacon)', BR, True),
     ('651', 'Bacon, Egg and Cheese Muffin Stack (Streaky Bacon)', BR, True),
     ('650', 'Double Bacon, Egg and Cheese Muffin (Streaky Bacon)', BR, True),
-    ('652', 'Double Bacon & Egg Muffin Stack (Streaky Bacon)', BR, True),
     ('45', 'Sausage & Egg with Cheese Muffin', BR, True),
     ('42', 'Sausage & Egg with Cheese Muffin Stack', BR, True),
     ('340', 'Double Sausage & Egg with Cheese Muffin', BR, True),
-    ('300', 'Double Sausage & Egg with Cheese Muffin Stack', BR, True),
     ('44', 'Veggie Egg with Cheese Muffin', BR, True),
     ('303', 'Veggie Egg with Cheese Muffin Stack', BR, True),
     ('40', 'Grilled Breakfast Bagel with Sausage', BR, True),
@@ -137,37 +132,32 @@ SPEC: list[tuple[str, str, str, bool]] = [
     ('106', 'Maple Syrup Pancakes', BR, True),
     ('107', 'Chocolate Hazelnut & Cookie Pancakes', BR, True),
     ('49', 'Hash Brown', BR, False),
+    ('680', 'The Festive Double Cheeseburger Stack', BS, True),
     ('401', 'Tims® Double Cheeseburger', BS, True),
-    ('226', 'Nacho Double Cheeseburger', BS, True),
     ('402', 'Tims® Bacon Double Cheeseburger', BS, True),
     ('403', 'Tims® Triple Cheeseburger', BS, True),
-    ('240', 'Nacho Chicken Sandwich', BS, True),
+    ('679', 'The Ultimate Festive Chicken Burger', BS, True),
     ('66', 'Tims® Crispy Chicken Sandwich', BS, True),
-    ('444', 'Nacho Chicken Stack', BS, True),
     ('65', 'Tims® Crispy Chicken Stack', BS, True),
     ('67', 'Crispy Meatless Sandwich', BS, True),
     ('556', 'BLT Chicken Wrap', WR, True),
     ('554', 'Maple BBQ Chicken Wrap', WR, True),
     ('553', 'Sweet Chilli Mayo Chicken Wrap', WR, True),
-    ('239', 'Nacho Chicken Wrap', WR, True),
     ('555', 'Smoky Chipotle Chicken Wrap', WR, True),
     ('557', 'VLT Vegan Wrap', WR, True),
     ('79', '5 Piece Tims® Chicken Tenders', TS, True),
     ('78', '3 Piece Tims® Chicken Tenders', TS, True),
-    ('522', 'Nacho Cheese Melt', BS, True),
-    ('558', 'Cheese and Herb Melt', BS, True),
+    ('681', 'Festive Cheese & Bacon Melt', BS, True),
+    ('558', 'Cheese & Herb Melt', BS, True),
     ('559', 'Ham Hock and Cheese Melt', BS, True),
     ('560', 'Maple BBQ Chicken Melt', BS, True),
     ('398', 'Tims® Savers - Hamburger', BS, True),
     ('399', 'Tims® Savers - Cheeseburger', BS, True),
     ('400', 'Tims® Savers - Crispy Chicken Snack Wrap', WR, True),
     ('397', 'Tims® Savers - 2 Chicken Tenders & Dip', TS, True),
-    ('521', 'Nacho Chicken Loaded Fries', TS, True),
     ('507', 'Maple BBQ Loaded Lattice Fries', TS, True),
-    ('532', '5 Fajita Spiced Chicken Tenders', TS, True),
-    ('531', '3 Fajita Spiced Chicken Tenders', TS, True),
-    ('525', 'Nacho Chilli Cheese Bites 8pc', TS, True),
-    ('524', 'Nacho Chilli Cheese Bites 4pc', TS, True),
+    ('682', 'Festive Cheese & Gravy Bites - 4 Pieces', TS, True),
+    ('683', 'Festive Cheese & Gravy Bites - 8 Pieces', TS, True),
     ('191', 'Lattice Fries', TS, True),
     ('396', 'Vegan Mayo', SA, False),
     ('356', 'Chipotle Mayonnaise', SA, False),
@@ -179,13 +169,13 @@ SPEC: list[tuple[str, str, str, bool]] = [
     ('98', 'Timmies Minis 2 Chicken Tenders', MN, True),
     ('451', 'Timmies Minis Cheese Melt', MN, True),
     ('338', 'Timmies Minis Lattice Fries', MN, True),
-    ('197', 'Stanley Spider Deluxe Donut', BK, False),
     ('274', 'Maple Syrup, Caramel and Fudge Pancakes', BK, False),
     ('109', 'Chocolate Hazelnut Pancakes made with Oreo®', BK, False),
-    ('632', 'Monty the Moose Deluxe Donut', BK, False),
-    ('345', "Maple Caramel S'mores Deluxe Donut", BK, False),
+    ('197', 'Stanley Spider Deluxe Donut', BK, False),
+    ('689', 'Mince Pie Deluxe Donut', BK, False),
+    ('573', 'Ho-Ho-Horton Deluxe Donut', BK, False),
     ('157', 'Chocolate Brownie Donut', BK, False),
-    ('561', 'Pumpkin Spice Deluxe Donut', BK, False),
+    ('575', 'Gingerbread Deluxe Donut', BK, False),
     ('158', 'Maple & Caramel Donut', BK, False),
     ('160', 'Caramel Apple Fritter', BK, False),
     ('120', 'Boston Cream Donut', BK, False),
@@ -196,10 +186,12 @@ SPEC: list[tuple[str, str, str, bool]] = [
     ('115', 'Old Fashioned Glazed Donut', BK, False),
     ('122', 'Apple Fritter Donut', BK, False),
     ('123', 'Honey Cruller', BK, False),
+    ('346', 'Marshmallow Timbits®', BK, False),
     ('278', 'Old Fashioned Glazed Timbits®', BK, False),
     ('305', 'Chocolate Glazed Timbits®', BK, False),
     ('304', 'Honey Dip Timbits®', BK, False),
     ('279', 'Apple Pie Timbits®', BK, False),
+    ('576', 'Gingerbread Timbits®', BK, False),
     ('283', 'Honey Cruller Timbits®', BK, False),
     ('281', 'White Birthday Cake Timbits®', BK, False),
     ('282', 'Apple Fritter Timbits®', BK, False),
@@ -243,27 +235,28 @@ EXCLUDED: dict[str, tuple[str, str]] = {
     "284": ("10 Box Timbits\u00ae", _BOX),
     "285": ("20 Box Timbits\u00ae", _BOX),
     "286": ("50 Box Timbits\u00ae", _BOX),
+    "693": ("Festive Donut Box", _BOX),
 }
 
 # Item ids (made from the name, see common.slug) that the script holds back on the rules in `impossible()`. If a refresh
 # changes this set the script stops: look at the rows, then update the set.
-EXPECTED_HELDBACK = {
-    "iced-latte-small", "iced-vanilla-latte-small", "mocha-iced-capp-small", "mocha-iced-capp-medium", "mocha-iced-capp-large",
-    "raspberry-timbits", "skimmed-milk", "strawberry-lemonade-refresher-large", "dark-roast-coffee-large",
-}
+# Re-checked 2026-11-17: the chain's pages now print consistent numbers for Dark Roast Coffee (large), the three Mocha Iced
+# Capp sizes, Raspberry Timbits and Strawberry Lemonade Refresher (large), so those are published again.
+EXPECTED_HELDBACK = {"iced-latte-small", "iced-vanilla-latte-small", "skimmed-milk",
+                     "lemonade-refresher-small", "lemonade-refresher-medium", "lemonade-refresher-large"}
 
 PORK_NAME = re.compile(r"\b(bacon|ham|sausage|blt)\b", re.I)  # name says pork (BLT = bacon, lettuce, tomato)
 NOT_PORK = re.compile(r"veggie sausage", re.I)
 # Items whose name does not say what meat they contain (burgers, breakfast wraps): listed in the run output.
 MEAT_NOT_STATED = re.compile(r"burger", re.I)
-MEAT_NOT_STATED_IDS = {"657", "37", "38"}  # Breakfast Burrito, Original Breakfast Wrap, Big Breakfast Wrap
+MEAT_NOT_STATED_IDS = {"37", "38"}  # Original Breakfast Wrap, Big Breakfast Wrap
 
 NOTE = ("Values are per serving as the chain prints them and do not include dips. Items sold only in Northern Ireland or "
         "selected stores, and boxes of donuts and Timbits (no values printed), are left out.")
 
 # Rows the chain prints that look odd but do not meet the hold-back rules: (page id, size label or "") -> note.
 MANUAL_NOTES: dict[tuple[str, str], str] = {
-    ("656", ""): "Prints 52 g fat and 623 kcal; the chain's other bacon muffins print about 18 g fat and 333-354 kcal. Consistent with its own macros, so published as printed.",
+    # (Until 2026-11-17 page 656 printed 52 g fat and 623 kcal; it now prints 14 g and 276 kcal, so its note was removed.)
 }
 
 
@@ -318,6 +311,25 @@ def impossible(r: dict) -> list[str]:
         if total > float(grams.group(1)) + 1:
             out.append(f"The page prints {total:g} g of fat, carbohydrate and protein in a {r['serving']} serving.")
     return out
+
+
+SIZE_ORDER = ("Small", "Medium", "Large")
+
+
+def size_order(r: dict, rows: list[dict]) -> list[str]:
+    """A drink whose smaller size prints more kcal than a larger size of the same product: the sizes contradict each other
+    and we can't tell which figure is wrong, so every size of that product is held back (never chosen between). Added
+    2026-11-17: the Lemonade Refresher pages and the PDF print Small 12 oz 79 kcal, Medium 16 oz 57 kcal, Large 20 oz 72 kcal."""
+    if not r["label"]:
+        return []
+    sizes = {x["label"]: num(x["kcal"]) for x in rows if x["page"] == r["page"] and x["label"]}
+    order = [s for s in SIZE_ORDER if s in sizes]
+    bad = [(a, b) for i, a in enumerate(order) for b in order[i + 1:] if sizes[a] > sizes[b]]
+    if not bad:
+        return []
+    shown = ", ".join(f"{s} {sizes[s]:g} kcal" for s in order)
+    return [f"The chain's pages print {shown} for the sizes of {r['base_name']}: a smaller size has more calories than a larger "
+            "one, so the sizes contradict each other and none is chosen."]
 
 
 def read_rows(raw: Path) -> tuple[list[dict], list[tuple[str, str]], str]:
@@ -492,6 +504,9 @@ def main() -> int:
 
     rows, exclusions, digest = read_rows(raw)
     version, matrix = tim_hortons_pdf.read_allergens(args.pdf)
+    if version == "unknown version":
+        # The 10 November 2026 PDF prints no version stamp: name it by its published file name (which carries the date).
+        version = f"{args.pdf.name} (no version stamp printed)"
     allergen_problems, allergen_checked = allergens_for(rows, matrix)
     notes_for(rows)
     rows.sort(key=lambda r: CATEGORY_ORDER.index(r["category"]))  # stable: keeps the menu's order inside a category
@@ -510,7 +525,7 @@ def main() -> int:
                 "weight_g": grams.group(1) if (grams := GRAMS.match(r["serving_printed"])) else "",
                 "allergens": None if allergen_problems else r["allergens"]}
         items.append(item)
-        reasons = impossible(r)
+        reasons = impossible(r) + size_order(r, rows)
         if reasons:
             holdback.append((r, " ".join(reasons)))
     ids_out = {}
