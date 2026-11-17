@@ -2501,7 +2501,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     pages for the products recipes can use (`data/groceries/recipe-candidates/<shop>.csv`, `tools/groceries/labels_<shop>.py`, written to `data/groceries/nutrition/<shop>.csv` like Sainsbury's,
     each re-read by a second agent): Iceland done (407 of 459), Morrisons running; **Asda (Cloudflare), Aldi and Tesco (Akamai) and Waitrose refuse scripted requests from the Mac**, so they stay out
     of recipes. Reading Asda and Aldi in the founder's own Chrome was tried (33 Asda labels read) and then paused: it means automating about 1,500 page visits on sites that block scripts (Aldi's terms
-    forbid automated collection), so it waits for the founder's explicit yes. `tools/groceries/labels_chrome.js` + `labels_chrome_next.py` + `labels_chrome_ingest.py` are ready if he says yes.
+    forbid automated collection), so it waits for the founder's explicit yes. `tools/groceries/labels_chrome.js` + `labels_chrome_next.py` + `labels_chrome_ingest.py` are ready if the founder says yes.
   - **Shop set:** recipes use the person's ticked shops that have read labels, in the order ticked (`recipeShopSet`); the first shop's usable product always wins, another ticked shop fills only an
     ingredient the first doesn't sell (`candidates()` sorts by `shopRank` after the "usable" keys; products are shop-tagged copies, keys `shop:id`). With one shop every result is byte-identical to before
     (165-recipe test). Until a ticked shop is ready the Recipes page says "These recipes use {shop} products for now. We haven't read the nutrition labels of {shops} products yet, so their recipes aren't ready."
