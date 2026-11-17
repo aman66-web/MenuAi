@@ -2737,6 +2737,35 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **Haiku 5.5 vs Sonnet 5.5 test** (founder: "do the 10 haiku versus sonnet comparison ... use the exact same input for both and the exact same image"): 10 dishes, same photos, words, Sainsbury's 142 kinds, 2 servings, 600 kcal, high effort, run with a 3-hour key the founder created and pasted himself (never seen by Claude). Both 10 of 10 passed the app's checks; Sonnet's recipes read more like a cook's (fuller spices, better order of work) at about 14 times the cost ($0.045 vs $0.003 a recipe, 25 s vs 15 s). Report: `docs/MODEL_COMPARISON_2026-11-17.md`. The model is still Haiku: **the founder to choose**. Total test cost $0.48.
   - **Make it at home now writes with Sonnet 5.5, with prompt caching** (founder: "Sonnet with caching"). `PHOTO_RECIPE_MODEL = "claude-sonnet-5-5"` (`web/lib/photoRecipeAi.ts`), high effort; the house rules and the shop's ingredient list (`photoPantryPrompt`, lib/mm/photoRecipe.ts) are two cached system blocks, then the photo and the person's words (which never break the cache). The food check stays on Haiku 5.5. Each call logs its token counts and cache reads and writes to Vercel's logs ("photo recipe: …", no content) so savings can be checked. Expected cost about $0.045 a recipe with no cache read and about $0.02 with one; the cache lasts about 5 minutes, so savings grow with traffic. Unit photoRecipe 12 (new: the ingredient list is its own part with nothing about the person in it). **Not yet tried with a real call after the change** (no key on the Mac): the first real use on numbite.com shows it in the logs.
 
+- 2026-11-17 (night, Mac) — **Recipes for more supermarkets: Asda (99 recipes) and Iceland (122), with community numbers** (founder: "Iceland plus Asda", then
+  "just do for every supermarket in the app"). Recipes need numbers for every ingredient, and only Sainsbury's and Morrisons had labels read from their own pages.
+  - **Community numbers by barcode:** a shop's product with no label read from its own page now takes the Open Food Facts record for exactly its barcode
+    (`tools/groceries/build_all_products.py` `catalogue_nutrition` / `fill_community_nutrition`: the barcode catalogue's checked records, plus 321 recipe-ingredient
+    barcodes looked up one at a time with `fetch_off_codes.py --codes data/groceries/nutrition/off-wanted.txt`, saved in `data/groceries/nutrition/raw-off/`,
+    put through the catalogue's own checks, and used only when the record's name shares a word with the shop's name). Never a shop-internal number, never
+    Tesco's own-page details. The row's nutrition ends with `"off"` (`ShopNutrition.community`); the manifest counts them (`community`). Now: Asda 6,767 products,
+    Iceland 1,023 more, Tesco 925, Morrisons 1,091 more, Waitrose 490, Sainsbury's 192 more.
+  - **Said wherever shown:** a shop product page with community numbers says "Numbers from Open Food Facts contributors (community data), not the supermarket."
+    (existing copy); the shop list's footnote shows; Compare marks them "community"; **a recipe names every ingredient whose numbers are community data** and its
+    full-nutrition note says so; Cheapest protein keeps to the shops' own labels. Recipes always prefer a product with the shop's own label (own labels first,
+    then community numbers, at each shop), so Sainsbury's and Morrisons recipes are as before.
+  - **Pinch-sized seasonings (decision, rule 8, flagged):** Open Food Facts' records for dried spices and pepper mostly print no protein, carbs or fat, and pepper
+    alone blocked 76 recipes at every shop but Sainsbury's and Morrisons. Salt, peppers, the dried herbs and the ground spices (19 kinds, like ground cinnamon since
+    11 October) may now be listed and priced without a label read: the recipe says "We haven't read the label for … yet, so it isn't counted" (existing copy), a read
+    label is always used first, and **uncounted salt leaves the serving's salt figure as "not on every label"** (never a total that leaves the salt out). Nothing is estimated.
+  - **Matching fixes:** "fine salt" is salt (Iceland's Saxa Fine Salt), "runny" honey is clear honey, "Oxo 24 Vegetable Stock Cubes 142g" is 24 cubes.
+  - **Result (`lib/mm/recipeCoverage.ts`):** Sainsbury's 165, Morrisons 161 (was 157), **Iceland 122** (was 31), **Asda 99** (was 0); all four are in "Shopping at".
+    **Not reachable this way:** Tesco 2 (its list covers only fresh, bakery and frozen: Tesco's bot check stopped the crawl), Waitrose 0 (618 barcodes in 9,726 products),
+    Aldi 0, Lidl and M&S (no barcodes and no nutrition in their lists). Those need each shop's own product pages read in the founder's Chrome (the "route 3" of the chat:
+    hours per shop, against Tesco's and Aldi's terms, and a risk of the founder's home connection being blocked), so not started. Asda's tinned new potatoes, kidney beans
+    and chickpeas stay out: a community record doesn't say whether its numbers are for the drained food.
+  - **New copy (rule 8, logged here):** "The numbers for {name} come from Open Food Facts contributors (community data) for that product's barcode, not from the supermarket's
+    own label. Check the pack.", the plural "…for those products' barcodes, not from the supermarket's own labels. Check the packs.", and "Added up from each product's numbers
+    for the amounts below, before cooking: its own label, or the community numbers named above. \"Not on every label\" means one of the products doesn't give that figure, so
+    we don't give a total for it."
+  - **Checked:** 2,095 unit tests, 232 Python, tsc, eslint; e2e recipes 17, groceries-all 8, protein 6, compare 4, shoppick 5, addfood 15, photorecipe 15, smoke 24; an Asda
+    recipe and an Asda product page looked at in the browser at 375 px. **Where it lives:** Mac branch `iap` only (not pushed, not on numbite.com, not in an App Store build).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

@@ -656,8 +656,8 @@ await step("Shopping at (a recipe): one shop in the header with its logo and nam
   await shopBtn.click();
   const sheet = page.getByRole("dialog", { name: "Shopping at" });
   await sheet.waitFor();
-  // Morrisons has no read label for something this recipe needs, so it can't be chosen for it, and says so
-  await sheet.getByText("Can't make this recipe").waitFor();
+  // Morrisons (and other shops) have no usable numbers for something this recipe needs, so they can't be chosen for it, and say so
+  await sheet.getByText("Can't make this recipe").first().waitFor();
   expect(await sheet.getByRole("radio", { name: /Morrisons/ }).isDisabled(), "Morrisons can't be chosen for a recipe it can't make");
   await page.waitForTimeout(400);
   await page.addScriptTag({ path: AXE });
