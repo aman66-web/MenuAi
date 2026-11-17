@@ -96,8 +96,10 @@ p { text-wrap: pretty; }
    box round "Your supermarkets" and other titles (founder 2026-11-17: "make sure the app doesn't have those boxes"). Buttons, links and boxes you type in keep
    their outline for keyboard users. */
 [tabindex="-1"]:focus, [tabindex="-1"]:focus-visible, dialog:focus, dialog:focus-visible, .sheet-panel:focus, .sheet-panel:focus-visible { outline: none; }
-/* Rings show only after a keyboard is used (app/app/_lib/inputModality.ts marks <html data-keys>): a tap on an iPhone never leaves a box. Text boxes keep theirs. */
-html:not([data-keys]) :focus-visible:not(input):not(textarea):not(select) { outline: none !important; }
+/* Rings show only after a keyboard is used (app/app/_lib/inputModality.ts marks <html data-keys>): a tap on an iPhone never leaves a box. Text boxes keep theirs.
+   Only on /app screens (AppShell's .app-surface), where that script always runs: the website (/, /chains, /privacy, /terms, /support, /l, /f) never loads it,
+   so there the browser's own :focus-visible decides and keyboard users always see a ring. */
+:root:has(.app-surface):not([data-keys]) :focus-visible:not(input):not(textarea):not(select) { outline: none !important; }
 
 /* Editorial accents */
 .serif-em { font-family: var(--font-serif); font-style: italic; font-weight: 500; letter-spacing: -0.01em; }

@@ -196,7 +196,7 @@ const looksLikeLoggedNutrients = (n: unknown): n is Nutrients =>
 
 /** A menu photo's "<chain id>/<file>.webp", the shape the menu files write (lib/mm/images.ts checks it again before showing it). */
 const LOG_IMAGE = /^[a-z0-9]+(?:-[a-z0-9]+)*\/[a-z0-9]+(?:-[a-z0-9]+)*\.webp$/;
-/** A recipe book id, as saved recipes are checked (sanitizeRecipeSaves). */
+/** A recipe book id, as saved recipes are checked (sanitizeRecipeSaves); a name every object already has ("constructor") is never one. */
 const RECIPE_ID = /^[a-z0-9-]{1,80}$/;
 
 export function sanitizeLog(raw: unknown): LogEntry[] {
@@ -216,7 +216,7 @@ export function sanitizeLog(raw: unknown): LogEntry[] {
         ...rest,
         ...(meal !== undefined && MEALS.includes(meal) ? { meal } : {}),
         ...(typeof image === "string" && image.length <= 200 && LOG_IMAGE.test(image) ? { image } : {}),
-        ...(typeof recipeId === "string" && RECIPE_ID.test(recipeId) ? { recipeId } : {}),
+        ...(typeof recipeId === "string" && RECIPE_ID.test(recipeId) && !(recipeId in Object.prototype) ? { recipeId } : {}),
         ...(kept ? { photo: kept } : {}),
       };
     });

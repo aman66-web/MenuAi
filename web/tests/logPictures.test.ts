@@ -34,7 +34,7 @@ describe("sanitizeLog: the picture references", () => {
   it("drops one that isn't valid and keeps the entry and everything else on it", () => {
     const bad: Array<Record<string, unknown>> = [
       { image: "../secret.webp" }, { image: "kfc/x.png" }, { image: "https://evil.example/kfc/x.webp" }, { image: "kfc/a/b.webp" }, { image: 42 }, { image: `kfc/${"a".repeat(300)}.webp` },
-      { recipeId: "Not An Id" }, { recipeId: "a/b" }, { recipeId: "x".repeat(81) }, { recipeId: 7 },
+      { recipeId: "Not An Id" }, { recipeId: "a/b" }, { recipeId: "constructor" }, { recipeId: "x".repeat(81) }, { recipeId: 7 },
       { photo: { ...TESCO, src: "https://evil.example/x.jpg" } }, { photo: { ...STORED, shop: "tesco" } }, { photo: { src: "javascript:alert(1)", from: "retailer", shop: "tesco" } }, { photo: "x" },
     ];
     for (const extra of bad) {
@@ -72,6 +72,10 @@ describe("the picture shown for an entry", () => {
   it("a recipe: its small copy, then its picture; an id the book doesn't have shows none", () => {
     expect(entryPicture(entry({ chainId: "", recipeId: RECIPE }))).toEqual({ key: `recipe:${RECIPE}`, kind: "recipe", srcs: [RECIPE_THUMBS[RECIPE], RECIPE_IMAGES[RECIPE]].filter(Boolean) });
     expect(entryPicture(entry({ chainId: "", recipeId: "no-such-recipe" }))).toBeUndefined();
+  });
+
+  it("a recipe id that names a built-in property of every object shows none (never a function as a picture address)", () => {
+    for (const recipeId of ["constructor", "tostring", "valueof"]) expect(entryPicture(entry({ chainId: "", recipeId }))).toBeUndefined();
   });
 
   it("a product: the supermarket's picture, none when the shop is on the taken-down list", () => {

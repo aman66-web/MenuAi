@@ -45,7 +45,7 @@ export function PremiumOffer({ trial }: { trial: number | null }) {
           <ol className="relative mt-5 space-y-0">
             {[
               { when: t("Today"), what: t("Premium unlocks. You pay nothing now.") },
-              { when: t("Day {days}", { days: trial }), what: t("Your plan starts, unless you cancel before then in your App Store settings.") },
+              { when: t("Day {days}", { days: trial }), what: t("Your plan starts, unless you cancel at least 24 hours before then in your App Store settings.") },
             ].map((s, i, all) => (
               <li key={s.when} className="relative flex gap-3 pb-4 last:pb-0">
                 {i < all.length - 1 && <span aria-hidden className="absolute start-[0.6875rem] top-6 h-[calc(100%-1rem)] w-0.5 rounded-full bg-white/20" />}

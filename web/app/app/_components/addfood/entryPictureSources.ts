@@ -43,7 +43,9 @@ export function entryPicture(e: LogEntry, fallbackImage?: string): EntryPicture 
   const image = e.image ?? fallbackImage;
   const dish = [itemThumbUrl(image), itemImageUrl(image)].filter((s): s is string => !!s);
   if (image && dish.length) return { key: `dish:${image}`, srcs: dish, kind: "dish" };
-  const recipe = e.recipeId ? [RECIPE_THUMBS[e.recipeId], RECIPE_IMAGES[e.recipeId]].filter((s): s is string => !!s).map(assetUrl) : [];
+  // Own keys only: the tables are plain objects, so "constructor" would otherwise find Object's function, not a file name.
+  const id = e.recipeId;
+  const recipe = id ? [RECIPE_THUMBS, RECIPE_IMAGES].map((t) => (Object.prototype.hasOwnProperty.call(t, id) ? t[id] : undefined)).filter((s): s is string => typeof s === "string" && s !== "").map(assetUrl) : [];
   if (recipe.length) return { key: `recipe:${e.recipeId}`, srcs: recipe, kind: "recipe" };
   const product = e.photo ? itemPhotoSources({ photo: e.photo }).map((p) => (p.src.startsWith("/") ? assetUrl(p.src) : p.src)) : []; // a shop on the taken-down list shows none
   if (product.length) return { key: `product:${product[0]}`, srcs: product, kind: "product" };
