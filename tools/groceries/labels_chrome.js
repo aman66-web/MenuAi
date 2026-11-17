@@ -22,5 +22,27 @@
     let el = tb.previousElementSibling;
     for (let i = 0; i < 3 && el; i++, el = el.previousElementSibling) above = clean(el.innerText).slice(0, 200) + " " + above;
   }
-  return JSON.stringify({ id, h1, blocked, above: above.trim(), nut, checked_on: new Date().toISOString().slice(0, 10) });
+  // the ingredients list as the page prints it (founder 2026-11-17: "make sure you get all ingredients and nutritional information"): the text after the first heading or
+  // label that is just "Ingredients", from the page's own text (folded sections included), at most 2,000 characters; "" when the page shows none
+  let ingredients = "";
+  const label = [...document.querySelectorAll("h2, h3, h4, dt, summary, button, strong, b, span, p, div")].find((el) => /^ingredients:?$/i.test((el.textContent || "").trim()));
+  if (label) {
+    let el = label.nextElementSibling || (label.parentElement && label.parentElement.nextElementSibling);
+    if (!el && label.parentElement) el = label.parentElement.querySelector(":scope > *:not(:first-child)");
+    ingredients = clean(el ? el.textContent : "").slice(0, 2000);
+  }
+  // the allergens as the shop marks them (founder 2026-11-17: "also the allergens"): the words it prints in bold inside the ingredients (UK labels emphasise the 14
+  // allergens), and the text of its own "Allergy information" / "Allergens" / "May contain" section, as printed (folded sections included); "" / [] when none
+  const bold = label ? (() => {
+    let el = label.nextElementSibling || (label.parentElement && label.parentElement.nextElementSibling);
+    return el ? [...new Set([...el.querySelectorAll("strong, b")].map((x) => clean(x.textContent)).filter((w) => w && w.length <= 40))] : [];
+  })() : [];
+  let allergy = "";
+  const alabel = [...document.querySelectorAll("h2, h3, h4, dt, summary, button, strong, b, span, p, div")].find((el) => /^(allergy information|allergen information|allergens|allergy advice|dietary information and allergens)$/i.test((el.textContent || "").trim()));
+  if (alabel) {
+    let el = alabel.nextElementSibling || (alabel.parentElement && alabel.parentElement.nextElementSibling);
+    allergy = clean(el ? el.textContent : "").slice(0, 1000);
+  }
+  const mayContain = (clean(document.body ? document.body.textContent : "").match(/(may contain[^.]{0,200}\.|not suitable for[^.]{0,200}\.|made in a (?:factory|site|kitchen)[^.]{0,200}\.)/gi) || []).slice(0, 4);
+  return JSON.stringify({ id, h1, blocked, above: above.trim(), nut, ingredients, bold, allergy, mayContain, checked_on: new Date().toISOString().slice(0, 10) });
 })()
