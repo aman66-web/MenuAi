@@ -12,6 +12,7 @@ import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 import { CheckIcon } from "./icons";
 import { ProPlans } from "./ProPlans";
+import { PremiumOffer } from "./PremiumOffer";
 import { trialDaysOf, useStoreProducts } from "../_lib/storeProducts";
 import { Button, Sheet } from "./ui";
 
@@ -73,7 +74,7 @@ export function PaywallProvider({ children }: { children: ReactNode }) {
   return (
     <PaywallContext.Provider value={value}>
       {children}
-      <Sheet open={trigger !== null} onClose={close} title={`${site.name} Pro`}>
+      <Sheet open={trigger !== null} onClose={close} title={IAP_ENABLED ? `${site.name} Premium` : `${site.name} Pro`}>
         <PaywallBody onDone={() => { triggerRef.current = null; setTrigger(null); }} />
       </Sheet>
     </PaywallContext.Provider>
@@ -89,22 +90,26 @@ function PaywallBody({ onDone }: { onDone: () => void }) {
   // the app (500). The Sheet turns every soft surface light grey, so the two cards below sit as grey blocks on its white panel.
   return (
     <div className="pb-1 font-medium">
-      {trial && (
-        <p className="mb-3 inline-flex min-h-9 items-center rounded-full bg-sun px-4 text-[0.9375rem] font-extrabold uppercase tracking-wide text-on-accent">{t("{days}-day free trial", { days: trial })}</p>
+      {IAP_ENABLED ? (
+        // the iPhone app (1.1): the dark Premium card with Pip, the free week when this Apple ID can still have it, and what Premium adds as tiles
+        <PremiumOffer trial={trial} />
+      ) : (
+        <>
+          <h3 className="text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">
+            {PAID_ACCESS_ENABLED ? t("Unlock everything") : TITLE_FITS ? <Rich text={t(TITLE_RICH)} values={{ accent: <span>{t(TITLE_ACCENT)}</span> }} /> : t(PAYWALL_TITLE)}
+          </h3>
+          <ul className={`mt-5 divide-y divide-line ${card}`}>
+            {(PAID_ACCESS_ENABLED ? PAID_BULLETS : PAYWALL_BULLETS).map((b) => (
+              <li key={b} className="flex items-center gap-3.5 px-4 py-3.5">
+                <span aria-hidden className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-foreground text-background"><CheckIcon className="h-4 w-4" strokeWidth={2.5} /></span>
+                <span className="text-base font-semibold leading-snug">{t(b)}</span>
+              </li>
+            ))}
+          </ul>
+        </>
       )}
-      <h3 className="text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">
-        {trial ? t("Try Premium free for {days} days", { days: trial }) : PAID_ACCESS_ENABLED ? t("Unlock everything") : TITLE_FITS ? <Rich text={t(TITLE_RICH)} values={{ accent: <span>{t(TITLE_ACCENT)}</span> }} /> : t(PAYWALL_TITLE)}
-      </h3>
-      <ul className={`mt-5 divide-y divide-line ${card}`}>
-        {(PAID_ACCESS_ENABLED ? PAID_BULLETS : PAYWALL_BULLETS).map((b) => (
-          <li key={b} className="flex items-center gap-3.5 px-4 py-3.5">
-            <span aria-hidden className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-foreground text-background"><CheckIcon className="h-4 w-4" strokeWidth={2.5} /></span>
-            <span className="text-base font-semibold leading-snug">{t(b)}</span>
-          </li>
-        ))}
-      </ul>
 
-      {PAID_ACCESS_ENABLED ? <div className="mt-4"><ProPlans /></div> : PAYMENTS_ENABLED ? null : (
+      {PAID_ACCESS_ENABLED ? <div className="mt-5"><ProPlans /></div> : PAYMENTS_ENABLED ? null : (
         <div className={`mt-3.5 p-4 ${card}`}>
           <p className="text-lg font-[800] leading-snug tracking-[-0.01em]">{t("Pro isn't on the web yet.")}</p>
           <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("Everything free stays free: every chain's full menu with calories and macros. Leave your email and we'll tell you once, when Pro is ready.")}</p>

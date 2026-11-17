@@ -2434,6 +2434,15 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **New copy (rule 8, logged here):** "Try Premium free for {days} days", "{days}-day free trial", "First {days} days free, then {price} {per}.", "Start {days}-day free trial", "Start your {days}-day free
     trial", "Everything that's free stays free. Premium adds:", "Not now" (existing), "You can start your free trial later from any Premium feature, or in Settings › Subscription.", "With the free trial
     you pay nothing for the first {days} days. If you don't cancel at least 24 hours before it ends, the subscription starts and you're charged. There is one free trial per Apple ID."
+  - **Redesign the same night** (founder: "the premium for free 7 days looks basic, make it look more interesting"): the offer and the in-app paywall now open with a dark card like the
+    tab bar (Pip cheering, a lime "7-day free trial" pill, "Try Premium free for 7 days", "Everything that's free stays free.", and a two-step timeline: "Today: Premium unlocks. You pay
+    nothing now." / "Day 7: Your plan starts, unless you cancel before then in your App Store settings."), then "What Premium adds" as six icon tiles, then the plans as one choice
+    (radio cards with StoreKit's price on the right, the free week in green) and one big button ("Start my 7-day free trial", "Subscribe for…" or "Buy for…") with the price line under it,
+    Restore purchases as a link, Apple's words and the links (`PremiumOffer.tsx`, `AppStorePlans.tsx`). Sheet title "Numbite Premium". New copy (rule 8): the tile titles and lines
+    ("Make it at home / Cook any dish from a photo", "Every Truth card / Not just three a day", "Every Smart Swap / And every Quick answer", "Top 5 picks / For your goal at every chain",
+    "Cheapest protein / The full list, every shop", "Saved orders / As many as you like"), "What Premium adds", "Everything that's free stays free.", "Today", "Day {days}", the two timeline lines,
+    "Choose a plan", "First {days} days free", "Start my {days}-day free trial", "{price}, one payment. It doesn't renew.", "{price} {per}. Renews until you cancel.", "{app} Premium".
+    e2e/iap.mjs 7 of 7 again (plan choice and arrow keys, the price line following the choice).
   - **App Store answer given to the founder:** changes to screens, features, wording or recipes need a new build and App Review (the app carries its own copy of the web app, and rule 2.5.2 forbids
     downloading new features); menu data and prices, the logo takedown list, the server's answers and the promotional text change without one.
 

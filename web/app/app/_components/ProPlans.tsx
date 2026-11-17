@@ -33,7 +33,7 @@ const IAP_APP = process.env.NEXT_PUBLIC_APP_BUILD === "1" && process.env.NEXT_PU
 
 export function ProPlans(props: { level?: "h2" | "h3" } = {}) {
   if (IN_APP) return null;
-  if (IAP_APP) return <AppStorePlans {...props} />;
+  if (IAP_APP) return <AppStorePlans />;
   return <PlansBody {...props} />;
 }
 

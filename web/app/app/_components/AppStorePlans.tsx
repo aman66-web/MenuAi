@@ -5,13 +5,14 @@ import { tk } from "@/lib/mm/i18n";
 import { formatDate } from "@/lib/mm/format";
 import { paidActive } from "@/lib/mm/paid";
 import { paidStore } from "@/lib/mm/stores";
-import { buyPlan, manageSubscriptions, restorePurchases } from "@/lib/payments/iap";
+import { buyPlan, manageSubscriptions, restorePurchases, type StoreProduct } from "@/lib/payments/iap";
 import { PLANS, type PlanId } from "@/lib/payments/plans";
 import { site } from "@/site.config";
 import { useNow, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { storeProducts, useStoreProducts } from "../_lib/storeProducts";
-import { Button } from "./ui";
+import { CheckIcon } from "./icons";
+import { Button, radioKeyNav } from "./ui";
 
 // The plans in the iPhone app (version 1.1), sold with Apple In-App Purchase (App Store rule 3.1.1). Names and prices come from StoreKit, never from our own table, so
 // the screen always shows what Apple will charge. Under the plans: Apple's required words about renewing and cancelling, and links to the Terms of Use and the Privacy
@@ -38,8 +39,7 @@ const RESTORE_NOTE = {
 
 const LINK = "inline-flex min-h-11 items-center underline underline-offset-4";
 
-export function AppStorePlans({ level = "h3" }: { level?: "h2" | "h3" }) {
-  const Heading = level;
+export function AppStorePlans() {
   const t = useT();
   const paid = useStore(paidStore);
   const now = useNow();
@@ -49,6 +49,10 @@ export function AppStorePlans({ level = "h3" }: { level?: "h2" | "h3" }) {
   const trial = products && products !== "loading" ? products.find((p) => p.trialDays)?.trialDays ?? null : null;
   const [busy, setBusy] = useState<PlanId | "restore" | null>(null);
   const [note, setNote] = useState<string | null>(null);
+  const [chosen, setChosen] = useState<PlanId | null>(null);
+  // the plan chosen, or the first (a plan with the free trial when this Apple ID can still have one)
+  const selected = products && products !== "loading" ? (products.find((p) => p.plan === chosen) ?? products[0] ?? null) : null;
+  const perOf = (p: StoreProduct) => (p.period === "year" ? t("a year") : p.period === "month" ? t("a month") : t("one payment"));
 
   const active = paidActive(paid, now.getTime());
   const subscribed = active && (paid.plan === "annual" || paid.plan === "monthly");
@@ -90,33 +94,61 @@ export function AppStorePlans({ level = "h3" }: { level?: "h2" | "h3" }) {
           <Button size="lg" full variant="secondary" className="mt-3" onClick={retry}>{t("Try again")}</Button>
         </div>
       ) : (
-        <ul className="space-y-3">
-          {products.map((p) => {
-            const plan = PLANS[p.plan];
-            const per = p.period === "year" ? t("a year") : p.period === "month" ? t("a month") : t("one payment");
-            return (
-              <li key={p.id} className={`rounded-[1.25rem] p-4 ${plan.badge === "Most popular" ? "bg-[var(--sun)] text-[var(--tl-ink)]" : "bg-soft"}`}>
-                {plan.badge && <p className="text-base font-bold uppercase tracking-wide">{t(plan.badge)}</p>}
-                <Heading className="mt-0.5 text-xl font-extrabold leading-snug tracking-tight">{p.name}</Heading>
-                <p className="app-numbers mt-1 text-4xl font-extrabold leading-none tracking-tight">{p.price} <span className="text-lg font-bold opacity-80">{per}</span></p>
-                {p.trialDays ? (
-                  <p className="mt-2 text-base font-bold leading-snug">{t("First {days} days free, then {price} {per}.", { days: p.trialDays, price: p.price, per })}</p>
-                ) : null}
-                <p className="mt-2 text-base leading-snug">{t(TAGLINE[p.plan])}</p>
-                <Button size="lg" full className="mt-3" disabled={busy !== null} onClick={() => void buy(p.plan)}>
-                  {busy === p.plan ? t("Waiting for the App Store…") : p.trialDays ? t("Start {days}-day free trial", { days: p.trialDays }) : p.period === "none" ? t("Buy for {price}", { price: p.price }) : t("Subscribe for {price} {per}", { price: p.price, per })}
-                </Button>
-              </li>
-            );
-          })}
-        </ul>
+        <>
+          {/* founder 2026-11-16 ("looks basic, make it look more interesting"): the plans as one choice and one big button, the price of each on the right */}
+          <div role="radiogroup" aria-label={t("Choose a plan")} className="space-y-2.5">
+            {products.map((p, i) => {
+              const plan = PLANS[p.plan];
+              const on = p.plan === selected?.plan;
+              const per = perOf(p);
+              const line = p.trialDays ? t("First {days} days free", { days: p.trialDays }) : t(TAGLINE[p.plan]);
+              return (
+                <button
+                  key={p.id}
+                  type="button"
+                  role="radio"
+                  aria-checked={on}
+                  tabIndex={on ? 0 : -1}
+                  onClick={() => setChosen(p.plan)}
+                  onKeyDown={(e) => radioKeyNav(e, i, products.length, (n) => setChosen(products[n]!.plan))}
+                  className={`flex min-h-[4.75rem] w-full items-center gap-3 rounded-[1.25rem] border-2 p-3.5 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "border-foreground bg-white shadow-sm" : "border-transparent bg-[var(--fill)]"}`}
+                >
+                  <span aria-hidden className={`grid h-6 w-6 shrink-0 place-items-center rounded-full border-2 ${on ? "border-foreground bg-foreground text-background" : "border-[color:var(--line)] bg-white"}`}>
+                    {on && <CheckIcon className="h-3.5 w-3.5" strokeWidth={3} />}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                      <span className="text-[1.0625rem] font-extrabold leading-snug">{p.name}</span>
+                      {plan.badge && <span className="rounded-full bg-[var(--sun)] px-2 py-0.5 text-[0.75rem] font-extrabold uppercase tracking-wide text-[var(--on-accent)]">{t(plan.badge)}</span>}
+                    </span>
+                    <span className={`mt-0.5 block text-[0.875rem] leading-snug ${p.trialDays ? "font-semibold text-accent" : "text-muted"}`}>{line}</span>
+                  </span>
+                  <span className="app-numbers shrink-0 text-end">
+                    <span className="block text-[1.375rem] font-extrabold leading-none tracking-tight">{p.price}</span>
+                    <span className="mt-1 block text-[0.8125rem] text-muted">{per}</span>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+          {selected && (
+            <>
+              <Button size="lg" full className="mt-4 min-h-14 text-[1.0625rem]" disabled={busy !== null} onClick={() => void buy(selected.plan)}>
+                {busy === selected.plan ? t("Waiting for the App Store…") : selected.trialDays ? t("Start my {days}-day free trial", { days: selected.trialDays }) : selected.period === "none" ? t("Buy for {price}", { price: selected.price }) : t("Subscribe for {price} {per}", { price: selected.price, per: perOf(selected) })}
+              </Button>
+              <p className="app-numbers mt-2 text-center text-[0.9375rem] font-semibold leading-snug">
+                {selected.trialDays ? t("First {days} days free, then {price} {per}.", { days: selected.trialDays, price: selected.price, per: perOf(selected) }) : selected.period === "none" ? t("{price}, one payment. It doesn't renew.", { price: selected.price }) : t("{price} {per}. Renews until you cancel.", { price: selected.price, per: perOf(selected) })}
+              </p>
+            </>
+          )}
+        </>
       )}
 
-      {note && <p role="status" className="mt-3 text-base font-semibold">{note}</p>}
+      {note && <p role="status" className="mt-3 text-center text-base font-semibold">{note}</p>}
 
-      <Button size="lg" full variant="secondary" className="mt-4" disabled={busy !== null} onClick={() => void restore()}>
+      <button type="button" disabled={busy !== null} onClick={() => void restore()} className="mx-auto mt-3 flex min-h-11 items-center px-3 text-[0.9375rem] font-semibold underline underline-offset-4 disabled:opacity-60">
         {busy === "restore" ? t("Checking with the App Store…") : t("Restore purchases")}
-      </Button>
+      </button>
 
       <p className="mt-4 text-[0.9375rem] leading-snug text-muted">
         {t("Annual and Monthly are subscriptions that renew automatically. Payment is charged to your Apple ID when you confirm the purchase. A subscription renews at the same price for the same length unless you cancel it at least 24 hours before the end of the current period, and the renewal is charged within the 24 hours before that. Manage or cancel it in your App Store account settings. The Founding Member 90-Day Pass is one payment and doesn't renew.")}
