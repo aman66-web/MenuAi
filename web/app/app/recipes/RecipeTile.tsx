@@ -14,7 +14,7 @@ import type { RecipeCard } from "../_lib/recipes";
 
 // One recipe in a list (Recipes, My meals). Founder 2026-10-14, from two reference pictures: a picture on top with a heart to save it, then the
 // name and, under it, calories and protein as two small chips; then the price of a serving at the shop and how long it takes. The picture is
-// the recipe's AI illustration once there is one (captioned, CLAUDE.md rule 2); until then a plate with a drawing of the kind of dish (below).
+// the recipe's AI illustration once there is one (no visible caption since 2026-11-17; screen readers hear "An illustration of …", CLAUDE.md rule 2); until then a plate with a drawing of the kind of dish (below).
 // Restyled 2026-10-15 to Home's language: a white card with 20 px corners and no outline, the name in the same weight as Home's meal rows,
 // grey figure chips with a bold number and a grey unit, and a quiet white heart opposite the meal's label.
 
@@ -80,14 +80,15 @@ function RecipeArt({ id, name, meal, wide }: { id: string; name: string; meal: M
           </span>
         </span>
       )}
-      {image && <span className={`${PICTURE_LABEL} bg-black/60 text-white`}>{own ? t("Your photo") : t("AI illustration")}</span>}
+      {/* founder 2026-11-17 ("Remove AI illustration please from on all the photos"): only a person's own photo is labelled */}
+      {own && <span className={`${PICTURE_LABEL} bg-black/60 text-white`}>{t("Your photo")}</span>}
     </span>
   );
 }
 
 /**
  * The top of a recipe's own page (founder 2026-10-14, from a reference picture: the food big at the top, the page's sheet over its foot):
- * the recipe's AI illustration with its caption, or the same plate and drawing as its card, larger. Never a photo of a product.
+ * the recipe's AI illustration (described to screen readers as an illustration), or the same plate and drawing as its card, larger. Never a photo of a product.
  */
 export function RecipeHeroArt({ id, name, label, meal }: { id: string; name: string; label: string; meal: MealType | undefined }) {
   const t = useT();
@@ -101,7 +102,7 @@ export function RecipeHeroArt({ id, name, label, meal }: { id: string; name: str
         <>
           {/* eslint-disable-next-line @next/next/no-img-element -- static file named by its hash; the service worker caches it */}
           <img src={image} alt={own ? t("Your photo") : t("An illustration of {name}", { name: label.toLowerCase() })} width={800} height={600} decoding="async" className="h-full w-full object-cover" />
-          <p className="absolute bottom-12 start-4 me-4 rounded-[1rem] bg-black/65 px-3 py-1.5 text-[0.8125rem] font-semibold leading-snug text-white">{own ? t("Your photo. The recipe is Pip's home version.") : t("Illustration made with AI, not a photo of the products below.")}</p>
+          {own && <p className="absolute bottom-12 start-4 me-4 rounded-[1rem] bg-black/65 px-3 py-1.5 text-[0.8125rem] font-semibold leading-snug text-white">{t("Your photo. The recipe is Pip's home version.")}</p>}
         </>
       ) : (
         <span aria-hidden className="absolute inset-0">

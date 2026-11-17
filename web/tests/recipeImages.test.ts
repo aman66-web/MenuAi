@@ -29,8 +29,8 @@ export function promptsDoc(): string {
   const out = [
     "# Recipe picture prompts (Midjourney, bird's-eye view)",
     "",
-    "One Midjourney prompt per recipe in the app's recipe book. Founder's decisions: 2026-10-10 (CLAUDE.md rule 2) our own recipes may show an illustration made with AI, which the app captions",
-    '"Illustration made with AI, not a photo of the products below." and never uses for a restaurant\'s or a supermarket\'s item; 2026-10-16 the pictures are made with Midjourney and every one is a bird\'s-eye view.',
+    "One Midjourney prompt per recipe in the app's recipe book. Founder's decisions: 2026-10-10 (CLAUDE.md rule 2) our own recipes may show an illustration made with AI, never for a restaurant's or a",
+    "supermarket's item (since 2026-11-17 it has no visible caption; screen readers hear \"An illustration of …\"); 2026-10-16 the pictures are made with Midjourney and every one is a bird's-eye view.",
     "",
     "Pictures that have been added are ticked. This file is rewritten from the recipe book by `WRITE_PROMPTS=1 npx vitest run tests/recipeImages.test.ts` (run in `web/`), so don't edit it by hand;",
     "each recipe's description of how it looks from above is in `web/lib/mm/recipeBook/looks.ts`, the shared style and settings are at the top of `web/tests/recipeImages.test.ts`.",

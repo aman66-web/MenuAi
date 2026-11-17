@@ -56,8 +56,8 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    the share card, the app icon or store screenshots; a chain's photos come down the day it asks (delete its folder + `images.csv`). Founder's decision (2026-10-06, "make sure to add
    them"): photos are installed for every chain even where its terms restrict reuse (the founder's accepted risk); the agent still
    reads the terms and quotes the clause in its report and `docs/IMAGE_TERMS.md`. Founder's decision (2026-10-10, "I'll use nano banana
-   later to make images for them"): **our own recipes only** (`web/lib/mm/recipeBook/`) may show an illustration made with AI, captioned
-   as AI-made (`tools/recipes/import_recipe_images.py`, prompts in `docs/RECIPE_IMAGE_PROMPTS.md`); never for a restaurant's or a
+   later to make images for them"): **our own recipes only** (`web/lib/mm/recipeBook/`) may show an illustration made with AI, (founder 2026-11-17: no visible caption; screen readers hear
+   "An illustration of …") (`tools/recipes/import_recipe_images.py`, prompts in `docs/RECIPE_IMAGE_PROMPTS.md`); never for a restaurant's or a
    supermarket's item, never with packaging, logos, brand names or writing in it, never presented as a photo of a product.
    Founder's decision (2026-10-10, "have all the logos of the restaurants and grocery stores moving at the top"): the onboarding
    welcome screen may show a moving wall of the official logo files of chains that are in the app (unmodified, on their plain tiles,

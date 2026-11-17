@@ -2456,6 +2456,9 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   `outline-none`); `globals.css` now never outlines `[tabindex="-1"]` targets, dialogs or the sheet panel (buttons, links and text boxes keep theirs). (2) "instead of writing Sainsbury's,
   you should have the Sainsbury's logo": a recipe page's header is now "RECIPE ·" and a white pill with the shop's own logo (`ShopMark`) and its name beside it (CLAUDE.md rule 2 keeps the
   name as plain text next to a logo; rule 2 amended to allow the recipe page's header). No new copy.
+  (3) "Remove AI illustration please from on all the photos": recipe cards no longer carry "AI illustration" and a recipe page no longer captions its picture "Illustration made
+  with AI, not a photo of the products below."; screen readers still hear "An illustration of …" (the picture's alt text); a person's own photo keeps "Your photo". CLAUDE.md rule 2
+  amended (no visible caption). The App Store What's New draft still says the pictures are made with AI.
 
 ## Known issues
 
