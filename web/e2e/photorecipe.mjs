@@ -49,8 +49,13 @@ async function open(settings = {}, viewport = { width: 390, height: 844 }) {
   return { ctx, page, errors, sent };
 }
 
-/** The pretend AI: a recipe (or whatever a step asks for). */
-async function pretend(page, sent, { recipe = { status: 200, body: { recipe: RECIPE } }, delay = 1500 } = {}) {
+/** The pretend AI: the photo check (food unless a step says otherwise) and a recipe (or whatever a step asks for). */
+async function pretend(page, sent, { recipe = { status: 200, body: { recipe: RECIPE } }, describe = { status: 200, body: { description: "peri-peri chicken with spicy rice" } }, delay = 1500 } = {}) {
+  sent.describe = [];
+  await page.route("**/api/v1/recipe/photo/describe", async (route) => {
+    sent.describe.push({ body: route.request().postDataJSON() });
+    await route.fulfill({ status: describe.status, contentType: "application/json", body: JSON.stringify(describe.body) });
+  });
   await page.route("**/api/v1/recipe/photo", async (route) => {
     sent.recipe.push({ body: route.request().postDataJSON(), headers: route.request().headers() });
     await new Promise((r) => setTimeout(r, delay));
@@ -161,10 +166,21 @@ await step("the live camera: the picture shows, the shutter takes a photo, then 
   await camera.waitFor({ timeout: 5000 });
   // Chromium's fake camera gives a picture; the shutter turns on once it is playing
   await page.waitForFunction(() => { const v = document.querySelector("dialog video"); return !!v && v.videoWidth > 0 && !v.paused; }, null, { timeout: 10000 });
-  const shutter = camera.getByRole("button", { name: "Take the photo" });
-  await page.waitForFunction(() => !document.querySelector('dialog button[aria-label="Take the photo"]')?.disabled, null, { timeout: 5000 });
+  const shutter = camera.getByRole("button", { name: "Hold to scan your food" });
+  await page.waitForFunction(() => !document.querySelector('dialog button[aria-label="Hold to scan your food"]')?.disabled, null, { timeout: 5000 });
   expect((await page.locator("dialog .scan-line").count()) === 1 && (await page.locator("dialog .scan-corner").count()) === 4, "the scanning frame isn't drawn on the camera");
+  // a quick tap takes nothing and says to keep holding
   await shutter.tap();
+  await camera.getByText("Keep holding the button until the ring fills.").waitFor({ timeout: 3000 });
+  expect((await page.locator("dialog[open]").count()) === 1, "a quick tap took the photo");
+  // pressed and held: the ring fills, then the photo is taken
+  const box = await shutter.boundingBox();
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+  await page.mouse.down();
+  await camera.getByText("Hold still…").waitFor({ timeout: 2000 });
+  expect((await page.locator("dialog .hold-ring").count()) === 1, "the ring isn't filling");
+  await page.waitForTimeout(1800);
+  await page.mouse.up();
   const label = page.getByText("Scanning", { exact: true }).first();
   await label.waitFor({ timeout: 5000 });
   const startedAt = Date.now();
@@ -218,26 +234,49 @@ await step("3. What to exclude: starts from Settings, the choices are sent with 
   await ctx.close();
 });
 
-await step("the camera has two options: Scan food (the shutter) and Camera roll at the bottom right, which opens the photo chooser and scans the chosen photo", async () => {
+await step("the camera has two options: Hold to scan (the shutter) and Camera roll at the bottom right, which opens the photo chooser and scans the chosen photo", async () => {
   const { ctx, page, errors } = await open();
   await toDescribe(page);
   await fillDish(page);
   await page.getByRole("button", { name: "Next", exact: true }).tap();
   const camera = page.locator("dialog[open]");
   await camera.waitFor({ timeout: 5000 });
-  await camera.getByText("Scan food", { exact: true }).waitFor();
+  await camera.getByText("Hold to scan", { exact: true }).waitFor();
   await camera.getByText("Camera roll", { exact: true }).waitFor();
   const upload = camera.getByRole("button", { name: "Upload a photo from your camera roll" });
   const box = await upload.boundingBox();
   const vp = page.viewportSize();
   expect(box && box.x > vp.width / 2 && box.y > vp.height * 0.7, `the upload button isn't at the bottom right: ${JSON.stringify(box)}`);
   expect(box.width >= 44 && box.height >= 44, "the upload button is smaller than 44 px");
-  const shutter = await camera.getByRole("button", { name: "Take the photo" }).boundingBox();
+  const shutter = await camera.getByRole("button", { name: "Hold to scan your food" }).boundingBox();
   expect(Math.abs(shutter.x + shutter.width / 2 - vp.width / 2) < 6, "the shutter isn't in the middle");
   const [chooser] = await Promise.all([page.waitForEvent("filechooser"), upload.tap()]);
   await chooser.setFiles(photoFile);
   await page.getByText("Scanning", { exact: true }).first().waitFor({ timeout: 8000 });
   await heading(page, "Where do you shop?").waitFor({ timeout: 8000 });
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
+await step("a photo that isn't of food goes back to the camera with 'please try again'; a photo of food goes on to the supermarket", async () => {
+  const { ctx, page, errors, sent } = await open();
+  await pretend(page, sent, { describe: { status: 422, body: { error: "not_food", message: "Pip couldn't see a dish in this photo. Try a clearer photo of the food." } } });
+  await toDescribe(page);
+  await fillDish(page);
+  await page.getByRole("button", { name: "Next", exact: true }).tap();
+  await page.locator("dialog[open]").waitFor({ timeout: 5000 });
+  await page.locator('input[type="file"]:not([capture])').setInputFiles(photoFile);
+  await page.getByText("Scanning", { exact: true }).first().waitFor({ timeout: 8000 });
+  const camera = page.locator("dialog[open]");
+  await camera.waitFor({ timeout: 10000 });
+  await camera.getByRole("alert").filter({ hasText: "That doesn't look like food. Please try again with a photo of the dish." }).waitFor({ timeout: 3000 });
+  expect((await heading(page, "Where do you shop?").count()) === 0, "it went on to the supermarket");
+  expect(sent.describe.length === 1 && /^\/9j\//.test(sent.describe[0].body.image) && Object.keys(sent.describe[0].body).join() === "image", "the check didn't send just the photo");
+  // the next photo is of food: on it goes, and the note is gone
+  await page.unroute("**/api/v1/recipe/photo/describe");
+  await page.route("**/api/v1/recipe/photo/describe", (route) => route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ description: "a bowl of pasta" }) }));
+  await page.locator('input[type="file"]:not([capture])').setInputFiles(photoFile);
+  await heading(page, "Where do you shop?").waitFor({ timeout: 10000 });
   expect(errors.length === 0, errors.join(" | "));
   await ctx.close();
 });

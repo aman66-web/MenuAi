@@ -35,6 +35,7 @@ import { PhotoCamera, ScanningPhoto } from "./PhotoCamera";
 // Premium only, and the whole page exists only while PHOTO_RECIPES_ENABLED (lib/mm/config.ts). The photo is made smaller on the phone first (_lib/photo.ts).
 
 type Step = "describe" | "camera" | "scanning" | "shops" | "working" | "done" | "error";
+type FoodCheck = "food" | "notFood" | "unknown";
 const SERVINGS = 2;
 /** The name and the description are joined into the one sentence the API takes (MAX_DESCRIPTION), so these two add up to less than that. */
 const MAX_NAME = 80;
@@ -135,6 +136,10 @@ function PhotoScreen() {
   const [step, setStep] = useState<Step>("describe");
   const [photo, setPhoto] = useState<ShrunkPhoto | null>(null);
   const [photoError, setPhotoError] = useState(false);
+  // While "Scanning", Pip checks the photo shows food (the describe route); a photo of anything else goes back to the camera with this note (founder 2026-11-17)
+  const [retryNote, setRetryNote] = useState<string | null>(null);
+  const foodCheck = useRef<Promise<FoodCheck> | null>(null);
+  const stepNow = useRef<Step>("describe");
   const [name, setName] = useState("");
   const [about, setAbout] = useState("");
   const [nudged, setNudged] = useState(false);
@@ -164,21 +169,49 @@ function PhotoScreen() {
   const text = dishText(name, about);
   const thin = needsMoreDetail(text);
 
+  stepNow.current = step; // eslint-disable-line react-hooks/refs -- which step is showing, read when the photo check comes back
   // each new step starts at the top with its heading focused (a screen reader hears where it is)
   useEffect(() => { window.scrollTo({ top: 0 }); heading.current?.focus(); }, [step]);
   useEffect(() => () => { if (photo) URL.revokeObjectURL(photo.url); }, [photo]);
 
   /** A photo taken with the camera, or picked from the phone: made smaller, then "scanned" for a couple of seconds. */
+  const headers = (): Record<string, string> => ({ "Content-Type": "application/json", ...(paid.token ? { Authorization: `Bearer ${paid.token}` } : {}) });
+
+  /** Does the photo show food? Only a clear "no" from Pip turns it down; if the check can't be made (no signal, too many tries) the flow carries on. */
+  const checkFood = async (image: string): Promise<FoodCheck> => {
+    try {
+      const res = await fetch(`${API_BASE}recipe/photo/describe`, { method: "POST", headers: headers(), body: JSON.stringify({ image }) });
+      if (res.ok) return "food";
+      const json = (await res.json().catch(() => ({}))) as { error?: string };
+      return res.status === 422 && json.error === "not_food" ? "notFood" : "unknown";
+    } catch {
+      return "unknown";
+    }
+  };
+
   const pick = async (file: Blob | undefined) => {
     if (!file) return;
     setPhotoError(false);
+    setRetryNote(null);
     const shrunk = await shrinkPhoto(file);
     if (!shrunk) { setPhotoError(true); setStep("describe"); return; }
     setPhoto(shrunk);
+    foodCheck.current = checkFood(shrunk.base64);
     setStep("scanning");
   };
 
-  const headers = (): Record<string, string> => ({ "Content-Type": "application/json", ...(paid.token ? { Authorization: `Bearer ${paid.token}` } : {}) });
+  /** "Scanning" has run its course: on to the supermarket, or back to the camera if the photo isn't of food. */
+  const afterScan = async () => {
+    const result = await (foodCheck.current ?? Promise.resolve<FoodCheck>("unknown"));
+    if (stepNow.current !== "scanning") return; // the person went Back meanwhile
+    if (result === "notFood") {
+      setPhoto(null);
+      setRetryNote(tk("That doesn't look like food. Please try again with a photo of the dish."));
+      setStep("camera");
+      return;
+    }
+    setStep("shops");
+  };
 
   const next = () => {
     if (thin && !nudged) { setNudged(true); return; }
@@ -360,13 +393,14 @@ function PhotoScreen() {
       {step === "camera" && (
         <PhotoCamera
           onCapture={(blob) => void pick(blob)}
-          onClose={() => setStep("describe")}
+          onClose={() => { setRetryNote(null); setStep("describe"); }}
+          notice={retryNote ? t(retryNote) : null}
           onPickPhoto={() => library.current?.click()}
           onPhonesCamera={() => phoneCamera.current?.click()}
         />
       )}
 
-      {step === "scanning" && photo && (<><Steps current={2} /><ScanningPhoto url={photo.url} onDone={() => setStep("shops")} /></>)}
+      {step === "scanning" && photo && (<><Steps current={2} /><ScanningPhoto url={photo.url} onDone={() => void afterScan()} /></>)}
 
       {(step === "shops" || step === "error") && (
         <section aria-labelledby="shops-q">
