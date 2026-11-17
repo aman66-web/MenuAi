@@ -27,8 +27,8 @@ import { useGate } from "../_components/Paywall";
 import { Button, EmptyState, ErrorBox, Segmented, Sheet, Spinner } from "../_components/ui";
 import { useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
-import { recipeShop, useRecipeCards, useRecipeMakerEnabled, type RecipeCard } from "../_lib/recipes";
-import { useShopManifest, useShopProducts } from "../_lib/shopProducts";
+import { recipeShopSet, useRecipeCards, useRecipeMakerEnabled, useRecipeShopSet, type RecipeCard } from "../_lib/recipes";
+import { useShopManifest } from "../_lib/shopProducts";
 import { MealPicker, targetSentence } from "./MealPicker";
 import { NicheFields } from "./NicheFields";
 import { MEAL_LOOK, RecipeTile } from "./RecipeTile";
@@ -167,11 +167,16 @@ function RecipesScreen() {
   const asked = useSearchParams().get("r");
   const settings = useSettings();
   const manifest = useShopManifest();
-  const [picked, setPicked] = useState<string | null>(null);
-  const shop = recipeShop(manifest, picked ?? asked, settings.shops);
+  // founder 2026-11-17: the ingredients come from the person's shops whose labels we've read, the first ticked first (a link's ?r= goes first until the shops are
+  // changed here); every card is worked out from those shops' products together (lib/mm/recipes.ts: another shop fills in only what the first doesn't sell)
+  const [ownShops, setOwnShops] = useState(false);
+  const shopIds = recipeShopSet(manifest, ownShops ? null : asked, settings.shops);
+  const shop = shopIds[0] ?? null;
   const [retry, setRetry] = useState(0);
-  const state = useShopProducts(shop, retry);
+  const state = useRecipeShopSet(shopIds, retry);
   const products = state.status === "ready" ? state.products : null;
+  // the first shop's own list, for "Cook with what's on your list" (its page, /app/groceries/list/recipes, works from that shop)
+  const firstList = state.status === "ready" ? state.lists[0] ?? null : null;
   const target = mealTargetFor(settings);
   const diet = settings.preferences;
   const { cards, leftOut } = useRecipeCards(null, products, diet, target);
@@ -197,8 +202,8 @@ function RecipesScreen() {
     setShopsChanged(true);
     updateSettings({ shops: shops.length ? shops : undefined });
     // founder 2026-11-17 ("If I choose to shop at Asda, it's still showing stuff from Sainsbury's"): the recipes follow the shops ticked here at once, even when
-    // the page was opened for another shop (a link's ?r=, or the switcher below)
-    setPicked(recipeShop(manifest, null, shops));
+    // the page was opened for another shop (a link's ?r=)
+    setOwnShops(true);
   };
   const [query, setQuery] = useState("");
   const [limit, setLimit] = useState(PAGE);
@@ -222,12 +227,14 @@ function RecipesScreen() {
   const filtering = toggles.size > 0 || meal !== null || query.trim() !== "" || nicheOn;
   const slot: MealType = mealSlotFor(now);
   const picks = useMemo(() => sortCards(cards.filter((c) => c.recipe.meal === slot), target ? "fit" : "protein").slice(0, PICKS), [cards, slot, target]);
-  const listRecipes = useMemo(() => (shop && products && shopping.length ? recipesFromList(shopping, cards.map((c) => c.recipe), products, shop).length : 0), [shopping, cards, products, shop]);
-  const shopName = manifest?.retailers.find((r) => r.id === shop)?.name ?? "";
-  const myRecipeShops = recipeShops(manifest).filter((r) => chosenShops.includes(r.id));
+  const listRecipes = useMemo(() => (shop && firstList && shopping.length ? recipesFromList(shopping, cards.map((c) => c.recipe), firstList, shop).length : 0), [shopping, cards, firstList, shop]);
+  const nameOf = (id: string) => manifest?.retailers.find((r) => r.id === id)?.name ?? "";
+  const shopName = shop ? nameOf(shop) : "";
+  const shopNames = shopIds.map(nameOf).filter(Boolean);
   // the person's shops whose product labels we haven't read: recipes can't be made from them yet, so say which shop they come from instead
   const unreadShops = (manifest?.retailers ?? []).filter((r) => chosenShops.includes(r.id) && !recipeShops(manifest).some((x) => x.id === r.id)).map((r) => r.name);
-  const notMine = chosenShops.length > 0 && !!shop && !chosenShops.includes(shop);
+  // none of the person's own shops can make recipes yet, so the recipes come from another shop
+  const notMine = chosenShops.length > 0 && !!shop && !shopIds.some((id) => chosenShops.includes(id));
   const otherShopNote = notMine && shopName && unreadShops.length
     ? t("These recipes use {shop} products for now. We haven't read the nutrition labels of {shops} products yet, so their recipes aren't ready.", { shop: shopName, shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(unreadShops.map((n) => poss(n))) })
     : "";
@@ -264,16 +271,11 @@ function RecipesScreen() {
 
       <h1 className="mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">{t("What's cooking today?")}</h1>
       <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">
-        {shopName ? t("Every ingredient is a real product at {shop}, with its price and the nutrition of each serving.", { shop: shopName }) : t("Every ingredient is a real product at your supermarket, with its price and the nutrition of each serving.")}
+        {shopNames.length ? t("Every ingredient is a real product at {shop}, with its price and the nutrition of each serving.", { shop: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) }) : t("Every ingredient is a real product at your supermarket, with its price and the nutrition of each serving.")}
       </p>
 
-      {/* Which supermarket the ingredients come from: only shops whose full product list, prices and labels we've read can fill a recipe. The switcher offers the
-          person's own shops that can (two or more); a person whose shops can't yet is told which shop the recipes use instead. */}
-      {myRecipeShops.length > 1 && shop && (
-        <div className="mt-4">
-          <Segmented label={t("Supermarket")} value={shop} options={myRecipeShops.map((r) => ({ value: r.id, label: r.name }))} onChange={(v) => setPicked(v)} />
-        </div>
-      )}
+      {/* Which supermarkets the ingredients come from: only shops whose full product list, prices and labels we've read can fill a recipe, and all of the
+          person's that can are used together (the line above names them); a person whose shops can't yet is told which shop the recipes use instead. */}
       {otherShopNote && (
         <p role="note" className="mt-3 flex gap-2.5 rounded-[1rem] bg-[var(--fill)] p-3.5 text-[0.9375rem] leading-snug">
           <InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
@@ -461,10 +463,12 @@ function RecipesScreen() {
 
       {state.status === "ready" && (
         <p className="mt-8 border-t border-line pt-4 text-[0.8125rem] leading-relaxed text-muted">
-          {state.file.nutritionCheckedOn
-            ? t("Prices from {shop} website, checked {date}; nutrition from each product's own page, checked {nutritionDate}.", { shop: poss(state.file.name), date: formatDate(state.file.checkedOn, t), nutritionDate: formatDate(state.file.nutritionCheckedOn, t) })
-            : t("Prices from {shop} website, checked {date}; nutrition from each product's own page.", { shop: poss(state.file.name), date: formatDate(state.file.checkedOn, t) })}{" "}
-          {t("\"Each\" prices only the amounts a serving uses, including the pinch of salt and the spoon of oil. Recipes are chosen for your diet by their ingredients; check each pack.")} {t("Not affiliated with {shop}.", { shop: state.file.name })}
+          {/* one sentence per shop the recipes use */}
+          {state.files.map((f) => (f.nutritionCheckedOn
+            ? t("Prices from {shop} website, checked {date}; nutrition from each product's own page, checked {nutritionDate}.", { shop: poss(f.name), date: formatDate(f.checkedOn, t), nutritionDate: formatDate(f.nutritionCheckedOn, t) })
+            : t("Prices from {shop} website, checked {date}; nutrition from each product's own page.", { shop: poss(f.name), date: formatDate(f.checkedOn, t) }))).join(" ")}{" "}
+          {t("\"Each\" prices only the amounts a serving uses, including the pinch of salt and the spoon of oil. Recipes are chosen for your diet by their ingredients; check each pack.")}{" "}
+          {state.files.length > 1 ? t("Not affiliated with {shops}.", { shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(state.files.map((f) => f.name)) }) : t("Not affiliated with {shop}.", { shop: state.files[0]!.name })}
         </p>
       )}
     </div>

@@ -45,6 +45,21 @@ export interface ShopManifest {
 /** The shops recipes can use: only those with products whose label we have read (recipes work out every figure from the labels). */
 export const recipeShops = (m: ShopManifest | null): ShopManifest["retailers"] => (m ? m.retailers.filter((r) => (r.nutrition ?? 0) > 0) : []);
 
+/**
+ * The shops a recipe's ingredients come from (founder 2026-11-17: "add more stores that they want to source ingredients from"), first used first: the one asked
+ * for (a link's ?r=) when its labels are read, then the person's own supermarkets in the order they ticked them, those whose labels we've read only; when none
+ * of theirs is ready, the first shop that is. Empty while the manifest isn't known or no shop is ready.
+ */
+export function recipeShopSet(manifest: ShopManifest | null, asked: string | null, mine: readonly string[] | undefined): string[] {
+  // Only shops whose product labels we have read: a list with names and prices alone can't make a recipe.
+  const shops = recipeShops(manifest);
+  if (shops.length === 0) return [];
+  const has = (id: string | null | undefined): id is string => !!id && shops.some((r) => r.id === id);
+  const out: string[] = has(asked) ? [asked] : [];
+  for (const id of mine ?? []) if (has(id) && !out.includes(id)) out.push(id);
+  return out.length ? out : [shops[0]!.id];
+}
+
 /** Per 100 g or 100 ml, as the shop's own product page printed them ("<0.5" counted as 0). */
 export interface ShopNutrition {
   kcal: number;
@@ -82,6 +97,23 @@ export interface ShopProduct {
   /** Only where the shop's listing showed no picture: the same product's photo from another supermarket's own website, or the Open Food Facts front photo
    *  of its exact barcode (founder 2026-10-11; tools/groceries/build_all_products.py fill_photos). `from` is that shop's id, or "off". */
   otherPhoto?: { src: string; from: string };
+  /** Set only on a recipe's products from several shops at once (tagShopProducts): the shop's id, and its place in the person's order of shops (0 =
+   *  the one ticked first, used first). Never in a shop's own file. */
+  shop?: string;
+  shopRank?: number;
+}
+
+/** A product's key that can't mix up two shops whose ids happen to be the same: "<shop>:<id>" on a product tagged with its shop, else its own id. */
+export const productKey = (p: Pick<ShopProduct, "id" | "shop">): string => (p.shop ? `${p.shop}:${p.id}` : p.id);
+
+/** Several shops' products as one list for recipes (founder 2026-11-17: "add more stores that they want to source ingredients from"): each product is a COPY
+ *  tagged with its shop and that shop's place in the order given (the decoded lists, which other screens share, are never changed). */
+export function tagShopProducts(lists: ReadonlyArray<{ shop: string; products: readonly ShopProduct[] }>): ShopProduct[] {
+  const out: ShopProduct[] = [];
+  lists.forEach(({ shop, products }, shopRank) => {
+    for (const p of products) out.push({ ...p, shop, shopRank });
+  });
+  return out;
 }
 
 /** A product with a shelf price: recipes and anything that adds up money use only these. */

@@ -1,8 +1,8 @@
 import { formatInt } from "./format";
 import { PANTRY, kindExcluded, kindForDiet, type DietPrefs, type IngredientMatch, type IngredientRole, type PantryKind } from "./pantry";
 import { normalizeForSearch } from "./search";
-import { hasPrice, type PricedProduct, type ShopProduct } from "./shopProducts";
-import { LOCAL_SHOP_PRODUCTS } from "./localRange";
+import { hasPrice, productKey, type PricedProduct, type ShopProduct } from "./shopProducts";
+import { LOCAL_RANGE_SHOP, LOCAL_SHOP_PRODUCTS } from "./localRange";
 
 export type { IngredientMatch } from "./pantry";
 
@@ -347,14 +347,20 @@ function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFr
   return list;
 }
 
+/** A product a typical small shop stocks (lib/mm/localRange.ts): the list names Sainsbury's products only, so a product tagged with another shop never is. */
+const isLocalRange = (p: ShopProduct): boolean => (p.shop === undefined || p.shop === LOCAL_RANGE_SHOP) && LOCAL_SHOP_PRODUCTS.has(p.id);
+
 export function candidates(products: readonly ShopProduct[], spec: IngredientSpec, meatFree = false): IngredientPick[] {
   const out = matching(products, spec, meatFree).map((p) => pickFor(spec, p));
-  // Products whose cost for the amount used can be worked out come first (a serving's price needs it), then labels we've read. Among those within
-  // 50p of the cheapest basket, a product named the way the kind prefers comes first (spaghetti for spaghetti), then the label that prints the most
-  // figures (so the full nutrition table isn't left blank for a few pence); then the cheapest basket.
-  const ok = out.filter((c) => c.usedCost !== null && c.product.nutrition);
-  const cheapest = ok.length ? Math.min(...ok.map((c) => c.basketCost)) : Infinity;
-  const inBand = (c: IngredientPick) => !!c.product.nutrition && c.usedCost !== null && c.basketCost <= cheapest + 0.5;
+  // Products whose cost for the amount used can be worked out come first (a serving's price needs it), then labels we've read. With several shops
+  // (founder 2026-11-17), the shop ticked first comes next: another shop is used only for an ingredient the first doesn't sell with a usable label.
+  // Among those within 50p of the cheapest basket at the same shop, a product named the way the kind prefers comes first (spaghetti for spaghetti), then
+  // the label that prints the most figures (so the full nutrition table isn't left blank for a few pence); then the cheapest basket. The band is per shop,
+  // so a shop's own products are ordered exactly as they would be on their own.
+  const rank = (c: IngredientPick) => c.product.shopRank ?? 0;
+  const cheapestAt = new Map<number, number>();
+  for (const c of out) if (c.usedCost !== null && c.product.nutrition) cheapestAt.set(rank(c), Math.min(cheapestAt.get(rank(c)) ?? Infinity, c.basketCost));
+  const inBand = (c: IngredientPick) => !!c.product.nutrition && c.usedCost !== null && c.basketCost <= (cheapestAt.get(rank(c)) ?? Infinity) + 0.5;
   const prefer = spec.match.prefer;
   const unpreferred = (c: IngredientPick) => Number(!!prefer && inBand(c) && !prefer.some((w) => has(hay(c.product), w)));
   const gaps = (c: IngredientPick) => {
@@ -364,8 +370,8 @@ export function candidates(products: readonly ShopProduct[], spec: IngredientSpe
   };
   // a product a typical small shop stocks comes before any other usable one, even when a big-store pack is a few pence cheaper (founder 2026-11-17: ingredients
   // a person can buy at a Sainsbury's Local or a Tesco Express; lib/mm/localRange.ts)
-  const notLocal = (c: IngredientPick) => Number(!LOCAL_SHOP_PRODUCTS.has(c.product.id));
-  return out.sort((a, b) => Number(a.usedCost === null) - Number(b.usedCost === null) || Number(!a.product.nutrition) - Number(!b.product.nutrition) || notLocal(a) - notLocal(b) || Number(!inBand(a)) - Number(!inBand(b)) || unpreferred(a) - unpreferred(b) || gaps(a) - gaps(b) || a.basketCost - b.basketCost || (a.product.unitPrice ?? Infinity) - (b.product.unitPrice ?? Infinity) || a.product.name.localeCompare(b.product.name, "en-GB"));
+  const notLocal = (c: IngredientPick) => Number(!isLocalRange(c.product));
+  return out.sort((a, b) => Number(a.usedCost === null) - Number(b.usedCost === null) || Number(!a.product.nutrition) - Number(!b.product.nutrition) || rank(a) - rank(b) || notLocal(a) - notLocal(b) || Number(!inBand(a)) - Number(!inBand(b)) || unpreferred(a) - unpreferred(b) || gaps(a) - gaps(b) || a.basketCost - b.basketCost || (a.product.unitPrice ?? Infinity) - (b.product.unitPrice ?? Infinity) || a.product.name.localeCompare(b.product.name, "en-GB"));
 }
 
 /** Whether this product, from the same shop's list, can stand for the ingredient (the very rules recipes use to pick products). */
@@ -407,7 +413,8 @@ function scaleResolved(base: ResolvedRecipe, scaled: Recipe): ResolvedRecipe {
   return { recipe: scaled, picks, complete: base.complete, basis: base };
 }
 
-/** The cheapest match for each ingredient, or a chosen product where the user swapped one (by product id). A recipe cooked for more or fewer people
+/** The cheapest match for each ingredient, or a chosen product where the user swapped one (by productKey: the product id, or "<shop>:<id>" for a product
+ *  tagged with its shop). With several shops' products (tagShopProducts) the first shop's usable product wins (candidates). A recipe cooked for more or fewer people
  *  (scaleServings) gets the products the recipe as written gets, so its numbers and its price a serving never move with the people. */
 export function resolveRecipe(recipe: Recipe, products: readonly ShopProduct[], chosen: Readonly<Record<string, string>> = {}): ResolvedRecipe {
   if (recipe.scaledFrom) return scaleResolved(resolveRecipe(recipe.scaledFrom, products, chosen), recipe);
@@ -420,7 +427,8 @@ export function resolveRecipe(recipe: Recipe, products: readonly ShopProduct[], 
       const l2 = s2 ? candidates(products, s2, meatFree) : [];
       if (l2.length) { list = l2; break; }
     }
-    return list.find((c) => c.product.id === chosen[spec.key]) ?? list[0] ?? null;
+    // a swapped product is named by its key ("<shop>:<id>" when several shops' products are in the list, so two shops' ids never mix)
+    return list.find((c) => productKey(c.product) === chosen[spec.key]) ?? list[0] ?? null;
   });
   return { recipe, picks, complete: picks.every(Boolean) };
 }
@@ -568,7 +576,7 @@ export function fitRecipe(recipe: Recipe, products: readonly ShopProduct[], chos
   const picks = base.picks as IngredientPick[];
   // the same products after fitting, even if a different pack size would be cheaper for the new amount
   const pinned: Record<string, string> = { ...chosen };
-  for (const p of picks) pinned[p.spec.key] = p.product.id;
+  for (const p of picks) pinned[p.spec.key] = productKey(p.product);
   const s = recipe.servings;
   // the picks' specs (a substitute in an ingredient's place) say how each one moves
   const factors = fitFactors(picks.map((p) => p.spec));

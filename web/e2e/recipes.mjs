@@ -183,6 +183,49 @@ await step("Shopping list: type an item, tick it off, see the recipes it makes, 
   await ctx.close();
 });
 
+await step("My meals: the heart takes a saved recipe out with an Undo at the top of the screen that puts it back where it was, with its date; the empty state says how to save one", async () => {
+  const { ctx, page } = await newPage();
+  const seed = (data) => page.evaluate((d) => localStorage.setItem("mm.v1.savedRecipes", JSON.stringify({ v: 1, data: d })), data);
+  const stored = () => page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.savedRecipes") ?? "null")?.data);
+  const curry = { id: "chicken-curry", savedAt: "2026-10-10T10:00:00.000Z" };
+  const chilli = { id: "beef-chilli", savedAt: "2026-10-09T10:00:00.000Z" };
+  await page.goto(BASE + "/app/meals?tab=recipes");
+  await page.getByRole("tab", { name: /^Recipes/, selected: true }).waitFor();
+  await seed([curry]);
+  await page.reload();
+  const card = page.locator("a[href*='/app/recipes/view?id=chicken-curry']");
+  await card.waitFor();
+  // the numbers sit on one strip of three under the name: protein, carbs, fat
+  const strip = await card.evaluate((a) => [...a.querySelectorAll(".grid-cols-3 > span")].map((s) => s.textContent));
+  expect(strip.length === 3 && /^\d+g protein$/.test(strip[0]) && /^\d+g carbs$/.test(strip[1]) && /^\d+g fat$/.test(strip[2]), "one strip of protein, carbs, fat: " + JSON.stringify(strip));
+  const heart = card.locator("xpath=..").getByRole("button", { name: "Saved to My meals", pressed: true });
+  await heart.click();
+  await card.waitFor({ state: "detached" });
+  const bar = page.getByRole("status").filter({ hasText: "Removed “Chicken curry with rice” from My meals." });
+  await bar.waitFor();
+  const box = await bar.boundingBox();
+  expect(box && box.y < 120, `the Undo bar sits at the top of the screen, y=${box?.y}`);
+  await page.getByText("No saved recipes yet").waitFor();
+  await page.getByText("Tap the heart on any recipe, or Save at the top of a recipe, and it will be here next time.").waitFor();
+  expect((await page.getByText("Save to My meals”").count()) === 0, "the empty state no longer names a button that doesn't exist");
+  expect(JSON.stringify(await stored()) === "[]", "taken out of the store: " + JSON.stringify(await stored()));
+  await bar.getByRole("button", { name: "Undo" }).click();
+  await card.waitFor();
+  await card.locator("xpath=..").getByRole("button", { name: "Saved to My meals", pressed: true }).waitFor();
+  await bar.waitFor({ state: "detached" });
+  expect(JSON.stringify(await stored()) === JSON.stringify([curry]), "put back with its date: " + JSON.stringify(await stored()));
+  // with two saved, taking out the first and undoing puts it back first, not at the end
+  await seed([curry, chilli]);
+  await page.reload();
+  await page.locator("a[href*='/app/recipes/view?id=beef-chilli']").waitFor();
+  await card.locator("xpath=..").getByRole("button", { name: "Saved to My meals", pressed: true }).click();
+  await card.waitFor({ state: "detached" });
+  await bar.getByRole("button", { name: "Undo" }).click();
+  await card.waitFor();
+  expect(JSON.stringify(await stored()) === JSON.stringify([curry, chilli]), "back in its old place: " + JSON.stringify(await stored()));
+  await ctx.close();
+});
+
 await step("a substitute: use Quorn or tofu instead of chicken, and back again", async () => {
   const { ctx, page } = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, recipeMeal: { size: "written", moreProtein: false } } }));
   await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
@@ -599,6 +642,53 @@ await step("Your supermarkets beside the search: the chosen shops' logos, a tap 
   await sheet.getByRole("button", { name: "Close" }).click();
   await sheet.waitFor({ state: "hidden" });
   expect((await shops.getAttribute("aria-label")) === "Your supermarkets: Sainsbury's, Tesco, Asda", "Close keeps what was ticked: " + (await shops.getAttribute("aria-label")));
+  await ctx.close();
+});
+
+await step("a recipe's shops: one pill per shop with its logo and name, a 44 px + opens 'Where to buy the ingredients', each tick saved at once, a shop whose labels aren't read is named, Done closes, the recipe stays, axe", async () => {
+  const { ctx, page } = await newPage();
+  await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
+  await page.getByRole("heading", { name: "What to buy" }).waitFor();
+  // the shops sit in the line above the recipe's name: "RECIPE ·", a pill per shop (logo and plain-text name), then the +
+  const header = page.locator("h1").locator("xpath=preceding-sibling::div[1]");
+  expect(/Sainsbury's/.test(await header.innerText()), "the header names Sainsbury's: " + (await header.innerText()));
+  const plus = header.getByRole("button", { name: "Change shops" });
+  const pb = await plus.boundingBox();
+  expect(pb && pb.width >= 44 && pb.height >= 44, `the + is ${pb?.width} x ${pb?.height}`);
+  await plus.click();
+  const sheet = page.getByRole("dialog", { name: "Where to buy the ingredients" });
+  await sheet.waitFor();
+  await sheet.getByText("Tick the shops you'll buy from. The first one you tick is used first; the others fill in anything it doesn't sell.").waitFor();
+  expect((await sheet.getByRole("button", { name: /Sainsbury/ }).getAttribute("aria-pressed")) === "true", "Sainsbury's is ticked");
+  const tesco = sheet.getByRole("button", { name: /Tesco/ });
+  await tesco.click();
+  expect((await tesco.getAttribute("aria-pressed")) === "true", "Tesco was not ticked");
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data.shops);
+  expect(JSON.stringify(saved) === JSON.stringify(["sainsburys", "tesco"]), "saved at once: " + JSON.stringify(saved));
+  // Tesco's product labels aren't read yet: it stays ticked and the sheet says recipes can't use it
+  await sheet.getByText("Recipes can't use Tesco yet: we haven't read their products' labels.").waitFor();
+  await page.waitForTimeout(500);
+  await page.addScriptTag({ path: AXE });
+  const v = await page.evaluate(async () => (await window.axe.run(document, { resultTypes: ["violations"] })).violations.map((x) => `${x.id} (${x.nodes.length})`));
+  expect(v.length === 0, `the open sheet: ${v.join(", ")}`);
+  const done = sheet.getByRole("button", { name: "Done" });
+  const db = await done.boundingBox();
+  expect(db && db.y + db.height <= 844 && db.height >= 44, `Done is in view without scrolling (at ${db && Math.round(db.y)})`);
+  await done.click();
+  await sheet.waitFor({ state: "hidden" });
+  // only shops whose labels are read fill a recipe: still Sainsbury's alone, and the recipe is still there
+  await page.getByRole("heading", { name: "What to buy" }).waitFor();
+  expect(!/Tesco/.test(await header.innerText()), "Tesco can't fill a recipe yet: " + (await header.innerText()));
+  // unticking Sainsbury's leaves Tesco only: recipes then use the first shop whose labels are read, and say so in the sheet
+  await plus.click();
+  await sheet.getByRole("button", { name: /Sainsbury/ }).click();
+  const after = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data.shops);
+  expect(JSON.stringify(after) === JSON.stringify(["tesco"]), "Sainsbury's removed: " + JSON.stringify(after));
+  await sheet.getByRole("button", { name: "Close" }).click();
+  await sheet.waitFor({ state: "hidden" });
+  await page.getByRole("heading", { name: "What to buy" }).waitFor();
+  expect(/Sainsbury's/.test(await header.innerText()), "falls back to the first shop that can fill a recipe");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= 390), "nothing runs off the side");
   await ctx.close();
 });
 

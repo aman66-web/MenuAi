@@ -145,7 +145,7 @@ function MakeScreen() {
       <div>
         <RecipeDetail
           recipe={recipe}
-          file={state.file}
+          files={[state.file]}
           products={state.products}
           backHref={recipesHref}
           actions={

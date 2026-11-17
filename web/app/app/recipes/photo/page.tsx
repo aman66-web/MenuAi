@@ -205,7 +205,7 @@ function PhotoScreen() {
     return (
       <RecipeDetail
         recipe={recipe}
-        file={ready.file}
+        files={[ready.file]}
         products={ready.products}
         backHref="/app/recipes"
         photo={photo?.url}
