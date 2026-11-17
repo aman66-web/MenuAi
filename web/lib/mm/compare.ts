@@ -122,7 +122,7 @@ export interface CompareRow {
   /** Indented under the row above ("of which sugars"). */
   sub?: boolean;
   values: Array<number | null>;
-  /** Positions of the highest and lowest value (only when at least two items have a figure and they differ). */
+  /** Positions of the highest and lowest value as the table prints them (shownFigure), only when at least two items have a figure and they read differently. */
   highest: number[];
   lowest: number[];
 }
@@ -147,6 +147,14 @@ function extremes(values: ReadonlyArray<number | null>): { highest: number[]; lo
   return { highest: known.filter((x) => x[0] === max).map((x) => x[1]), lowest: known.filter((x) => x[0] === min).map((x) => x[1]) };
 }
 
+/** A figure as the table prints it: kcal whole; grams and prices to at most 2 decimal places, as labels print them; "Protein for £1" as before
+ *  (whole from 10 g, else 1 decimal). Highest and Lowest are judged on these, so two figures that read the same are never marked apart. */
+export function shownFigure(row: Pick<CompareRow, "id" | "unit">, v: number): number {
+  if (row.unit === "kcal") return Math.round(v);
+  if (row.id === "proteinPound") return v >= 10 ? Math.round(v) : Math.round(v * 10) / 10;
+  return Math.round(v * 100) / 100;
+}
+
 /** Price per kg or litre, as the shop printed it, when it matches the label's basis (per kg for per 100 g, per litre for per 100 ml). */
 export function pricePerKgOrLitre(item: Pick<CompareItem, "basis" | "unitPrice" | "unit">): number | null {
   if (item.unitPrice === undefined) return null;
@@ -168,16 +176,19 @@ export function compareRows(items: readonly CompareItem[]): CompareRow[] {
   for (const r of NUTRIENT_ROWS) {
     const values = items.map((i) => i.numbers[r.id]);
     if (values.every((v) => v === null)) continue;
-    rows.push({ ...r, values, ...extremes(values) });
+    rows.push({ ...r, values, ...extremes(values.map((v) => (v === null ? null : shownFigure(r, v)))) });
   }
   if (items.some((i) => i.kind === "food")) {
     const perKg = items.map(pricePerKgOrLitre);
     if (perKg.some((v) => v !== null)) {
       const label = items.every((i) => i.basis === "ml") ? tk("Price per litre") : items.every((i) => i.basis === "g") ? tk("Price per kg") : tk("Price per kg or litre");
-      rows.push({ id: "perKg", label, unit: "£", values: perKg, ...extremes(perKg) });
+      rows.push({ id: "perKg", label, unit: "£", values: perKg, ...extremes(perKg.map((v) => (v === null ? null : shownFigure({ id: "perKg", unit: "£" }, v)))) });
     }
     const pound = items.map(proteinForAPound);
-    if (pound.some((v) => v !== null)) rows.push({ id: "proteinPound", label: tk("Protein for £1"), unit: "g", values: pound, ...extremes(pound) });
+    if (pound.some((v) => v !== null)) {
+      const shown = pound.map((v) => (v === null ? null : shownFigure({ id: "proteinPound", unit: "g" }, v)));
+      rows.push({ id: "proteinPound", label: tk("Protein for £1"), unit: "g", values: pound, ...extremes(shown) });
+    }
   }
   return rows;
 }

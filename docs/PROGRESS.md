@@ -2563,6 +2563,17 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   New copy (rule 8, logged here): "{n} more recipes need something we haven't found at {shops} yet. Tick another shop to see them." (and the one-recipe form), and the shop note now reads
   "These recipes use {shop} products for now. We haven't read enough of {shops} product labels yet, so their recipes aren't ready."
 
+- 2026-11-17 (night) — **Pip's pick on Compare, saved per product pair; product photos on the Compare table** (founder: "when the person compares two products, you should use the AI to say
+  what you think personally is better ... if someone compares the same two products, you should have saved what the AI thinks"; "an image of the product on the top of the table"). Built in its own
+  session ([Compare: Pip's pick](claude://claude.ai/epitaxy/local_9887c0b5-daa2-4174-905b-a7677829d0fe)).
+  - With two items compared, a "Pip's pick" card under the table: which one Pip would pick **for the person's goal**, one sentence in Pip's voice (checked: no digits, no health or medical words, at
+    most 25 words) and up to three reasons the app writes with figures worked out from the compared numbers (the AI only chooses from a fixed list of reasons). Rule 3 kept: never "healthier".
+  - Saved: the answer is keyed by a hash of the two products and their figures (either order) plus the goal and diet words, kept on the phone (`mm.v1.comparePicks`, device only, cleared by Clear data)
+    and on the server in a new table `compare_picks` (`supabase/migrations/20261117120000_compare_picks.sql`, **not applied: the founder pastes it in the Supabase SQL Editor**; the route works without it,
+    only without the shared cache). Claude Haiku 5.5, structured output, rate-limited, our pages and the app only (`POST /api/v1/compare/pick`, docs/BACKEND.md).
+  - **Off until the founder says:** `NEXT_PUBLIC_COMPARE_PICK=1` (Vercel and the app build). Privacy page paragraph shows only when on.
+  - The Compare table also shows each product's or dish's own photo at the top of its column, with its number on the corner.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

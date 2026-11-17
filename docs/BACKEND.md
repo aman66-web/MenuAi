@@ -100,6 +100,10 @@ this site.
 A `session` is `{ accessToken, refreshToken, expiresAt, user: { id, email } }`. Stores: `settings` (one value, newest write wins) and
 `favorites`, `saved`, `log`, `shopping`, `savedRecipes`, `myRecipes`, `cupboard`, `compare` (items by id with the time each was last changed,
 plus deletions kept 90 days). Limits: 2,000 items and about 900 KB per store, 16 KB per item; the log syncs only entries from the last two days.
+A log entry may also carry, since 17 November 2026, the references for the picture Home and Today show beside it: `image` (a menu photo's
+`"<chain id>/<file>.webp"`), `recipeId` (a recipe book id) and `photo` (a supermarket picture `{ src, from, shop }`, the same shape and check as a
+shopping list item's); all optional and checked when read back (`sanitizeLog` in `web/lib/mm/user-data.ts` drops one that isn't valid, never the
+entry). `user_data` holds JSON, so there is no migration; an older app ignores them.
 Rate limits are in memory per server instance (like Pip's recipe limiter): email codes 3 per address and 8 per caller per 10 minutes, code
 guesses 6 per address and 15 per caller, sign-in starts 30, sync 300 per person per 10 minutes. No new environment variables: the sealed code's
 key is derived from `SUPABASE_SECRET_KEY`.
@@ -253,6 +257,24 @@ Do **not** delete the person's account to remove them: that lets the same Apple,
   Cost: about 0.1p to 2p a recipe.
 - `POST /api/v1/recipe/photo/describe` — Make it at home's "Suggest from my photo": `{ image }` → 200 `{ description }` (≤24 words, what the dish looks like),
   422 no food in the photo, 502 no usable suggestion; same switch, Premium check, Origin and CORS rules; 10 per 10 minutes, 40 a day.
+
+- `POST /api/v1/compare/pick` — **Pip's pick** on the Compare screen (founder 17 November 2026). Off unless `NEXT_PUBLIC_COMPARE_PICK=1` (`web/lib/mm/comparePick.ts`); the route
+  answers 404 while off and needs `ANTHROPIC_API_KEY` to ask the AI (cached answers are returned without a key). Body: `{ items: [item, item], goal, diet[] }` where an item is
+  `{ key, kind: "food" | "dish", name, from, basis: "g" | "ml" | "serving", note?, numbers { kcal, protein, carbs, sugars, fat, saturates, fibre, salt (null where not
+  published) }, perKg (the shop's price per kg or litre when it matches the basis, else null) }`, `goal` is lose / maintain / buildMuscle / glp1 / other and `diet` holds
+  diet words only (halal, no beef, no pork, pescatarian, vegan, vegetarian; never allergies, never anything else about the person). → 200 `{ pick: { pick: 0 | 1 | "tie",
+  sentence, reasons[] } }` **in the canonical order of the two items** (sorted by their keys and figures, so A-versus-B and B-versus-A share one answer; the app flips it
+  back, `canonicalize` and `flipPick` in `web/lib/mm/comparePick.ts`). The AI never writes a number: it chooses, writes one sentence in Pip's voice (checked: at most 25
+  words, no digits, no good/bad/healthy or medical words, no positions, no links) and up to three reason KEYS from a fixed list; the app turns each key into a line with the
+  number worked out from the figures and drops any key the figures don't support, and a pick with none is refused. A bad answer is asked for once more, then 502 `no_pick`
+  (never kept). 400 bad body, 403 not from our pages or the iPhone app (Origin; CORS for `app://menumath`), 404 switched off, 422 the two count different things (a
+  per 100 g label against a per 100 ml one, or a cooked one against a raw one), 429 too many (8 new pairs per 10 minutes, 40 a day per caller, in memory per server
+  instance), 503 no key. **Kept answers:** the table `public.compare_picks` (`supabase/migrations/20261117120000_compare_picks.sql`, applied by the founder in the SQL
+  Editor, never by Claude): `key` is the SHA-256 of the two items (key, name, every figure, in canonical order), the goal and the diet words, so a changed figure is a new
+  question; no person's data is in it. A hit is returned before the rate limit, so only a new pair costs a call. The route works before the table exists (a missing table is
+  a miss, said once in the log). Delete rows any time: the next compare asks the AI again. The phone keeps its own copy (`mm.v1.comparePicks`, at most 200, not synced,
+  removed by Clear data) and asks the server only on a miss. Model: Claude Haiku 5.5 (`web/lib/comparePickAi.ts`), low effort, structured output. Cost: a fraction of a
+  penny per new pair; set a monthly spend limit in the Anthropic console. Not Premium-only (the founder hasn't asked for that); the rate limit and the cache are the cost control.
 
 ### Rate limits (per caller per hour)
 Reports 30 · chain requests 30 · support 5 · waitlist 5. Constants: `web/lib/handlers.ts`.

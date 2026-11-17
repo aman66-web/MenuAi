@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addToCompare, COMPARE_MAX, compareRows, inCompare, mixedBasis, proteinForAPound, removeFromCompare, sanitizeCompare, type CompareItem } from "../lib/mm/compare";
+import { addToCompare, COMPARE_MAX, compareRows, inCompare, mixedBasis, proteinForAPound, removeFromCompare, sanitizeCompare, shownFigure, type CompareItem } from "../lib/mm/compare";
 
 const food = (id: string, kcal: number, protein: number | null, extra: Partial<CompareItem> = {}): CompareItem => ({
   key: `food:sainsburys:${id}`, kind: "food", name: `Beans ${id}`, from: "Sainsbury's", fromId: "sainsburys", href: `/app/groceries/shop/item?r=sainsburys&id=${id}`,
@@ -69,6 +69,29 @@ describe("compare: the rows", () => {
     expect(rows.find((r) => r.id === "perKg")).toMatchObject({ label: "Price per kg", values: [2.05, 3.37, null], lowest: [0], highest: [1] });
     expect(rows.find((r) => r.id === "proteinPound")!.values).toEqual([22.9, 15.4, null]);
     expect(compareRows([dish("x", 463), dish("y", 500)]).some((r) => r.id === "perKg")).toBe(false);
+  });
+  it("marks Highest and Lowest on the figures as printed, so two that read the same are never marked apart", () => {
+    // Three Sainsbury's beans: salt 0.58, 0.6 and 0.6 (the table used to print all three as 0.6 and still mark one lowest, one highest).
+    const salt = (id: string, v: number) => food(id, 78, 4.7, { numbers: { ...food(id, 78, 4.7).numbers, salt: v } });
+    const saltRow = compareRows([salt("a", 0.58), salt("b", 0.6), salt("c", 0.6)]).find((r) => r.id === "salt")!;
+    expect(saltRow.values).toEqual([0.58, 0.6, 0.6]); // the stored figures are kept
+    expect(saltRow.lowest).toEqual([0]);
+    expect(saltRow.highest).toEqual([1, 2]);
+    // 91.4 and 91.2 kcal both print as 91: nothing marked
+    const kcal = compareRows([food("a", 91.4, 4.7), food("b", 91.2, 4.7)]).find((r) => r.id === "kcal")!;
+    expect(kcal.highest).toEqual([]);
+    expect(kcal.lowest).toEqual([]);
+    expect(kcal.values.map((v) => shownFigure(kcal, v!))).toEqual([91, 91]);
+  });
+  it("prints grams as the label does (at most 2 decimals) and protein for £1 as before", () => {
+    expect(shownFigure({ id: "carbs", unit: "g" }, 12.5)).toBe(12.5);
+    expect(shownFigure({ id: "salt", unit: "g" }, 0.58)).toBe(0.58);
+    expect(shownFigure({ id: "salt", unit: "g" }, 0.583)).toBe(0.58);
+    expect(shownFigure({ id: "perKg", unit: "£" }, 2.054)).toBe(2.05);
+    expect(shownFigure({ id: "proteinPound", unit: "g" }, 41.29)).toBe(41);
+    expect(shownFigure({ id: "proteinPound", unit: "g" }, 4.94)).toBe(4.9);
+    const protein = compareRows([{ ...dish("x", 463), numbers: { ...dish("x", 463).numbers, protein: 45.3 } }, dish("y", 500)]).find((r) => r.id === "protein")!;
+    expect(shownFigure(protein, protein.values[0]!)).toBe(45.3); // a dish's 45.3 g protein shows as 45.3, not 45
   });
   it("says when the foods don't share one basis", () => {
     expect(mixedBasis([food("a", 78, 4.7), food("b", 85, 5)])).toBe(false);

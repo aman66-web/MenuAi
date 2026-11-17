@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useDeferredValue, useId, useMemo, useState } from "react";
-import { addToCompare, COMPARE_MAX, compareRows, inCompare, mixedBasis, removeFromCompare, type CompareItem, type CompareKind, type CompareRow } from "@/lib/mm/compare";
+import { addToCompare, COMPARE_MAX, compareRows, inCompare, mixedBasis, removeFromCompare, shownFigure, type CompareItem, type CompareKind, type CompareRow } from "@/lib/mm/compare";
 import { formatPrice, photoSources, searchProducts, type ListedProduct } from "@/lib/mm/groceries";
+import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
 import { itemImageUrl } from "@/lib/mm/images";
 import { search } from "@/lib/mm/search";
 import { compareStore } from "@/lib/mm/stores";
-import { ChevronLeftIcon, CompareIcon, PlusIcon, SearchIcon } from "../_components/icons";
+import { BasketIcon, ChevronLeftIcon, CompareIcon, ForkIcon, PlusIcon, SearchIcon } from "../_components/icons";
 import { ItemThumb } from "../_components/ItemPhoto";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
 import { EmptyState, Spinner } from "../_components/ui";
@@ -18,7 +19,8 @@ import { useGroceryCatalogue } from "../_lib/groceries";
 import { useHydrated, useSearchIndex, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { menuClient } from "../_lib/menu";
-import { PhotoTile } from "../groceries/ProductPhoto";
+import { PhotoTile, usePhotoSource } from "../groceries/ProductPhoto";
+import { PipsPick } from "./PipsPick";
 
 // Compare (founder 2026-10-11: "compare various versions of products like beans to see the nutrient difference ... stuff like this too"): groceries per
 // 100 g or ml, restaurant dishes per serving, never mixed. "Highest" and "Lowest" are the only marks (CLAUDE.md rule 3: never good or bad).
@@ -38,11 +40,12 @@ const listClass = "glass divide-y divide-line overflow-hidden rounded-[1.25rem]"
 const rowClass = "@container flex min-h-20 items-center gap-3 px-3 py-3";
 const thumbClass = "hidden shrink-0 @[20rem]:block";
 
-/** A figure as its number and its unit, so the table can set the unit smaller ("91" "kcal", "4.9" "g", "£1.35" with none). */
+/** A figure as its number and its unit, so the table can set the unit smaller ("91" "kcal", "12.5" "g", "0.58" "g", "£1.35" with none).
+ *  Grams as the label prints them (at most 2 decimals), so the table agrees with the product's page; the marks are judged on the same figures. */
 function figureParts(row: CompareRow, v: number): { n: string; unit: string } {
-  if (row.unit === "kcal") return { n: Math.round(v).toLocaleString("en-GB"), unit: "kcal" };
+  if (row.unit === "kcal") return { n: shownFigure(row, v).toLocaleString("en-GB"), unit: "kcal" };
   if (row.unit === "£") return { n: formatPrice(v), unit: "" };
-  return { n: String(v >= 10 ? Math.round(v) : Math.round(v * 10) / 10), unit: "g" };
+  return { n: shownFigure(row, v).toLocaleString("en-GB", { maximumFractionDigits: 2 }), unit: "g" };
 }
 
 export function CompareScreen({ tab: asked }: { tab: CompareKind | null }) {
@@ -172,6 +175,23 @@ function pictureOf(item: CompareItem): string | undefined {
   return item.photo;
 }
 
+/** A column's picture: the shop's own photo of the product (on white, whole) or the restaurant's own photo of the dish; a quiet tile when there is none,
+ *  so the columns line up. Decorative: the name under it is the column's heading. */
+function HeaderPicture({ item }: { item: CompareItem }) {
+  const picture = pictureOf(item);
+  const food = usePhotoSource(item.kind === "food" && picture ? [{ src: picture, from: "retailer", shop: item.fromId }] : []);
+  const [dishFailed, setDishFailed] = useState(false);
+  const src = item.kind === "dish" ? (dishFailed ? undefined : itemImageUrl(picture)) : food.current?.src;
+  return (
+    <span aria-hidden className={`grid aspect-square w-full max-w-[7.5rem] place-items-center overflow-hidden rounded-[1rem] ${src ? "bg-white ring-1 ring-line" : "bg-[var(--fill)] text-muted"}`}>
+      {src ? (
+        // eslint-disable-next-line @next/next/no-img-element -- the shop's or restaurant's own photo, already a small file
+        <img src={src} alt="" width={120} height={120} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={item.kind === "dish" ? () => setDishFailed(true) : food.fail} className={`h-full w-full ${item.kind === "dish" ? "object-cover" : "object-contain p-1.5"}`} />
+      ) : item.kind === "dish" ? <ForkIcon className="h-7 w-7" /> : <BasketIcon className="h-7 w-7" />}
+    </span>
+  );
+}
+
 const Num = ({ n, small }: { n: number; small?: boolean }) => (
   <span aria-hidden className={`app-numbers grid shrink-0 place-items-center rounded-full bg-foreground font-[800] text-background ${small ? "h-6 w-6 text-[0.75rem]" : "h-7 w-7 text-[0.8125rem]"}`}>{n}</span>
 );
@@ -185,6 +205,7 @@ const Num = ({ n, small }: { n: number; small?: boolean }) => (
 function SideBySide({ items, kind }: { items: readonly CompareItem[]; kind: CompareKind }) {
   const t = useT();
   const rows = useMemo(() => compareRows(items), [items]);
+  const pictures = items.some((it) => pictureOf(it));
   const basis = kind === "dish" ? t("Per serving, as each restaurant publishes it.") : items.every((i) => i.basis === "ml") ? t("Per 100 ml, as each label prints it.") : t("Per 100 g, as each label prints it.");
   return (
     <section aria-labelledby="side-heading" className="mt-8">
@@ -200,7 +221,13 @@ function SideBySide({ items, kind }: { items: readonly CompareItem[]; kind: Comp
                 <th scope="col" className={`${labelCell} border-b-0 pb-3 pt-4`}><span className="sr-only">{t("Side by side")}</span></th>
                 {items.map((item, i) => (
                   <th key={item.key} scope="col" className="min-w-[6.5rem] px-2.5 pb-3 pt-4 text-start align-top font-normal">
-                    <Num n={i + 1} small />
+                    {/* founder 2026-11-17: the product's picture on top, so it's clear which is which without reading the name; its number sits on the corner */}
+                    {pictures ? (
+                      <span className="relative block">
+                        <HeaderPicture item={item} />
+                        <span className="absolute -start-1 -top-1"><Num n={i + 1} small /></span>
+                      </span>
+                    ) : <Num n={i + 1} small />}
                     <span className="mt-2 block text-[0.8125rem] font-bold leading-snug [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:4] overflow-hidden [overflow-wrap:anywhere]">{item.name}</span>
                     <span className="mt-0.5 block text-[0.75rem] leading-snug text-muted [overflow-wrap:anywhere]">{item.from}</span>
                   </th>
@@ -231,6 +258,7 @@ function SideBySide({ items, kind }: { items: readonly CompareItem[]; kind: Comp
           </table>
         </div>
       </div>
+      {COMPARE_PICK_ENABLED && <PipsPick items={items} picture={(i) => <HeaderPicture item={i} />} />}
       <p className="mt-5 text-[0.9375rem] leading-snug text-muted">
         {kind === "food"
           ? t("Numbers as each product's label or page showed them when you added it. Price per kg is the shop's own; “Protein for £1” is that price worked out for the protein. Always check the pack.")
