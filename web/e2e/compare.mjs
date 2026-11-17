@@ -56,6 +56,13 @@ await step("groceries: search, add three beans, see them side by side with Highe
   const names = await table.getByRole("rowheader").allInnerTexts();
   expect(names.indexOf("of which sugars") === names.indexOf("Carbohydrate") + 1, "sugars under carbohydrate: " + names.join(", "));
   expect((await page.getByText(/\b(good|bad|healthy)\b/i).count()) === 0, "never good, bad or healthy");
+  // founder 2026-11-17: an overview under the table, from the numbers (no AI): who leads on price, protein, protein for the money, calories, sugars
+  const ov = page.getByRole("heading", { name: "Overview" }).locator("xpath=..");
+  await ov.getByText("Best for price").waitFor();
+  const ovText = (await ov.innerText()).replace(/\s+/g, " ");
+  expect(/Best for protein/.test(ovText) && /Fewest calories .*65 kcal per 100 g/.test(ovText), "the overview names the leaders with their figures: " + ovText);
+  expect(/Best protein for the money .*g protein for £1/.test(ovText), "protein for the money: " + ovText);
+  expect(!/\b(better|healthier|worse|unhealthy)\b/i.test(ovText), "one figure at a time, never better or worse: " + ovText);
   await page.getByRole("button", { name: "Remove Heinz Baked Beanz Reduced Sugar" }).click();
   await page.reload();
   await page.getByRole("heading", { name: "Side by side" }).waitFor();

@@ -22,6 +22,7 @@ import { useHydrated, useSearchIndex, useSettings, useStore } from "../_lib/hook
 import { useT } from "../_lib/i18n";
 import { menuClient } from "../_lib/menu";
 import { PhotoTile, usePhotoSource } from "../groceries/ProductPhoto";
+import { compareOverview, type OverviewEntry } from "@/lib/mm/compareOverview";
 import { PipsPick } from "./PipsPick";
 
 // Compare (founder 2026-10-11: "compare various versions of products like beans to see the nutrient difference ... stuff like this too"): groceries per
@@ -115,7 +116,7 @@ export function CompareScreen({ tab: asked }: { tab: CompareKind | null }) {
                 />
               </div>
             )}
-            {items.length >= 2 && <SideBySide items={items} kind={tab} />}
+            {items.length >= 2 && (<><SideBySide items={items} kind={tab} /><Overview items={items} /></>)}
           </>
         )}
       </div>
@@ -292,6 +293,60 @@ function SideBySide({ items, kind }: { items: readonly CompareItem[]; kind: Comp
           ? t("Numbers as each product's label or page showed them when you added it. Price per kg is the shop's own; “Protein for £1” is that price worked out for the protein. Always check the pack.")
           : t("Numbers as each restaurant publishes them, per serving. Servings differ in size, so a bigger dish can have more of everything.")}
       </p>
+    </section>
+  );
+}
+
+/**
+ * The overview under the table (founder 2026-11-17: "best for price, best for protein, best for whatever"): which item leads on each figure, worked out from the
+ * numbers above with no AI (lib/mm/compareOverview.ts). One figure at a time and only the leader's name and figure: it never says food is good or bad (rule 3).
+ */
+function Overview({ items }: { items: readonly CompareItem[] }) {
+  const t = useT();
+  const { entries, mixed } = useMemo(() => compareOverview(items), [items]);
+  if (items.length < 2) return null;
+  const dishes = items.every((i) => i.kind === "dish");
+  const per = dishes ? t("per serving") : items.every((i) => i.basis === "ml") ? t("per 100 ml") : t("per 100 g");
+  const figure = (e: OverviewEntry): string => {
+    const n = e.value.toLocaleString("en-GB");
+    switch (e.id) {
+      case "price": return `${formatPrice(e.value)} ${items.every((i) => i.basis === "ml") ? t("per litre") : t("per kg")}`;
+      case "protein": return `${n} g ${per}`;
+      case "proteinMoney": return t("{n} g protein for £1", { n });
+      case "proteinCalories": return t("{n} g protein per 100 kcal", { n });
+      case "calories": return `${n} kcal ${per}`;
+      default: return `${n} g ${per}`;
+    }
+  };
+  return (
+    <section aria-labelledby="overview-heading" className="mt-8">
+      <h2 id="overview-heading" className="text-xl font-[800] tracking-[-0.01em]">{t("Overview")}</h2>
+      {mixed ? (
+        <p className="glass mt-3 rounded-[1.25rem] px-4 py-3 text-[0.9375rem] leading-snug">{t("These are measured differently (some per 100 g, some per 100 ml), so there's no overview. Compare products measured the same way.")}</p>
+      ) : entries.length === 0 ? (
+        <p className="glass mt-3 rounded-[1.25rem] px-4 py-3 text-[0.9375rem] leading-snug">{t("These match on every figure, or too few figures are published, so no one leads.")}</p>
+      ) : (
+        <>
+          <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Which one leads on each figure, worked out from the numbers above.")}</p>
+          <ul className="glass mt-3.5 divide-y divide-[var(--line)] overflow-hidden rounded-[1.25rem]">
+            {entries.map((e) => (
+              <li key={e.id} className="flex flex-wrap items-center gap-x-3 gap-y-1.5 px-4 py-3.5">
+                <span className="min-w-[8.5rem] flex-1 basis-[8.5rem] text-[0.9375rem] font-bold leading-snug">{t(e.label)}</span>
+                <span className="min-w-0 flex-[2] basis-[12rem]">
+                  {e.winners.map((i) => (
+                    <span key={items[i]!.key} className="flex items-start gap-2 py-0.5">
+                      <Num n={i + 1} small />
+                      <span className="min-w-0 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{items[i]!.name}</span>
+                    </span>
+                  ))}
+                  <span className="app-numbers mt-0.5 block text-[0.8125rem] leading-snug text-muted">{figure(e)}{e.winners.length > 1 ? ` · ${t("tied")}` : ""}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-3 text-[0.8125rem] leading-snug text-muted">{t("One figure at a time. What suits a person differs, and nothing here is advice.")}</p>
+        </>
+      )}
     </section>
   );
 }
