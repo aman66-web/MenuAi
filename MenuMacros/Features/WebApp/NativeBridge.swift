@@ -81,6 +81,10 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
         case .openNotificationSettings:
             notifications.openSettings()
             return BridgeReply(done: true)
+        case .hideKeyboard:
+            // resigns whatever has the focus inside the web view: the keyboard goes
+            webView?.endEditing(true)
+            return BridgeReply(done: true)
         case .iapProducts(_, let productIDs):
             guard let products = await purchases.products(ids: productIDs) else { return .failure("unavailable") }
             return BridgeReply(products: products)

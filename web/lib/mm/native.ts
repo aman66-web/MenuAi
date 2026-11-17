@@ -18,6 +18,7 @@ export type NativeAction =
   | "notifications.status"
   | "notifications.syncReminders"
   | "notifications.openSettings"
+  | "keyboard.hide"
   | "iap.products"
   | "iap.purchase"
   | "iap.entitlements"
@@ -190,6 +191,11 @@ export const native = {
   async syncReminders(plan: readonly PlanItem[]): Promise<void> {
     if (!hasNative()) return;
     await nativeCall("notifications.syncReminders", { items: JSON.parse(JSON.stringify(plan)) as unknown }, QUICK_TIMEOUT_MS);
+  },
+  /** Asks the iPhone app to put the keyboard away (nothing happens on the website: the page's own blur() does it there). */
+  async hideKeyboard(): Promise<void> {
+    if (!hasNative()) return;
+    await nativeCall("keyboard.hide", {}, 1_500);
   },
   /** Opens the iPhone's Settings page for this app's notifications (to turn them back on). */
   async openNotificationSettings(): Promise<void> {

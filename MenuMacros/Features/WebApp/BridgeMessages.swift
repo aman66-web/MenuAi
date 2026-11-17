@@ -13,6 +13,9 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
     case notificationStatus(id: String)
     case syncReminders(id: String, plan: ReminderPlanItem.Parsed)
     case openNotificationSettings(id: String)
+    /// Put the keyboard away: the page's own Done button (web/app/app/_components/SearchDone.tsx) asks, because on an iPhone a web page's `blur()` alone
+    /// does not always hide the keyboard (founder 2026-11-17: "When I press done, it doesn't close").
+    case hideKeyboard(id: String)
     /// Apple In-App Purchase (Services/PurchaseService.swift): only our three products (AppConfig.iapProductIDs) ever reach the App Store.
     case iapProducts(id: String, productIDs: [String])
     case iapPurchase(id: String, productID: String)
@@ -26,7 +29,7 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
     var id: String {
         switch self {
         case .scan(let id), .locate(let id, _), .share(let id, _), .appleSignIn(let id), .webAuth(let id, _),
-             .notificationPermission(let id), .notificationStatus(let id), .syncReminders(let id, _), .openNotificationSettings(let id),
+             .notificationPermission(let id), .notificationStatus(let id), .syncReminders(let id, _), .openNotificationSettings(let id), .hideKeyboard(let id),
              .iapProducts(let id, _), .iapPurchase(let id, _), .iapEntitlements(let id), .iapRestore(let id), .iapManage(let id): id
         }
     }
@@ -59,6 +62,8 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
             self = .syncReminders(id: id, plan: plan)
         case "notifications.openSettings":
             self = .openNotificationSettings(id: id)
+        case "keyboard.hide":
+            self = .hideKeyboard(id: id)
         case "iap.products":
             // A list of strings or nothing; ids that aren't ours are dropped (an empty list is a real question with an empty answer).
             guard let ids = payload["ids"] as? [String], ids.count <= Self.maxProductIDs else { return nil }

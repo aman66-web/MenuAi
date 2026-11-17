@@ -1,6 +1,7 @@
 "use client";
 
 import type { KeyboardEvent, ReactNode } from "react";
+import { native } from "@/lib/mm/native";
 import { useT } from "../_lib/i18n";
 
 // A "Done" button for the keyboard (founder 2026-10-15, on Compare's "Add a product" box with the keyboard up: "There needs to be like a done box
@@ -9,10 +10,19 @@ import { useT } from "../_lib/i18n";
 // `group/search`); the keyboard's own Return key says "Done" too and does the same. The number boxes of Eat out's "Your numbers" have no Return key at
 // all on an iPhone, so the group gets a Done at the card's corner (`NumberDone`).
 
-/** Hide the keyboard: whatever has the focus (the field, or the Done button when it was reached with Tab) lets go of it. */
+// The last text field that had the focus: on an iPhone, tapping a button can leave `document.activeElement` on the page body while the keyboard is still up for the
+// field, so a blur() on the active element alone does nothing (founder 2026-11-17, in the app: "When I press done, it doesn't close the menu").
+let lastField: HTMLElement | null = null;
+const isField = (el: EventTarget | Element | null): el is HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement => el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement || el instanceof HTMLSelectElement;
+if (typeof document !== "undefined") document.addEventListener("focusin", (e) => { if (isField(e.target)) lastField = e.target; });
+
+/** Hide the keyboard: whatever has the focus (the field, or the Done button when it was reached with Tab), and the last field that had it, let go; inside the iPhone
+ *  app the phone itself is asked too, because a web view's blur() alone does not always put the keyboard away. */
 export function dismissKeyboard() {
-  const el = document.activeElement;
-  if (el instanceof HTMLElement) el.blur();
+  const active = document.activeElement;
+  if (active instanceof HTMLElement) active.blur();
+  if (lastField && lastField !== active) lastField.blur();
+  void native.hideKeyboard();
 }
 
 /** On a search field's `onKeyDown`: the keyboard's Return key puts the keyboard away. Not while a word is still being composed. */

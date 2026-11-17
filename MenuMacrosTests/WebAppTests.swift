@@ -57,6 +57,7 @@ struct BridgeMessageTests {
     @Test func theRequestsTheWebAppSends() {
         #expect(BridgeRequest(body: msg(["id": "abc-1", "action": "scan", "payload": [String: Any]()])) == .scan(id: "abc-1"))
         #expect(BridgeRequest(body: msg(["id": "abc-2", "action": "locate", "payload": ["onlyIfAllowed": true]])) == .locate(id: "abc-2", onlyIfAllowed: true))
+        #expect(BridgeRequest(body: msg(["id": "abc-3", "action": "keyboard.hide", "payload": [String: Any]()])) == .hideKeyboard(id: "abc-3"))
         #expect(BridgeRequest(body: msg(["id": "abc-3", "action": "share", "payload": ["title": "Shopping list", "text": "Milk"]]))
                 == .share(id: "abc-3", content: ShareContent(title: "Shopping list", text: "Milk")))
     }
