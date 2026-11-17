@@ -2660,6 +2660,24 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **Noticed in the founder's screenshot (not asked):** scrolled content shows under the iPhone's clock and battery (the "What to buy" heading overlapped the time); a fixed backing behind the status bar would fix it.
   - **Disk:** about 2.4 GB free; the Claude app's background VM still holds about 8 GB of the deleted downloads until the Claude app is restarted.
 
+- 2026-11-17 (evening, Mac) — **Recipes are made for one shop (Part 1 of the founder's design), on the founder's iPhone; not pushed.** `eb572d07` and `1ecac22f` on branch `iap`.
+  - **Recipes page:** a "Shopping at" button beside the search (the chosen shop's logo and name, a small arrow) opens a choice of ONE shop among those whose labels we've read (Sainsbury's, Morrisons;
+    Iceland has too few); a pick is saved at once as the first of the person's supermarkets (the others stay ticked for Groceries) and shows the short working moment; the list is that shop's recipes
+    ("N more recipes need something we haven't found at {shop} yet. Choose another shop to see them.").
+  - **Recipe page:** the shop in the header is a button ("Shopping at: Sainsbury's ▾"); its sheet lists every ready shop, the ones that can't make THIS recipe greyed with "Can't make this recipe"; choosing one
+    works the whole recipe out again from that shop's products, prices and labels. The other shops load only when this sheet or Swap opens. **Swap** has a chip per shop: one ingredient can come from the other
+    shop's product (its logo and name show on the row; the list splits by shop). `recipeShopSet` is now a list of one; the earlier multi-shop header (logos and +) is gone.
+  - **New copy (rule 8, logged here; English only):** "Shopping at", "Recipes are made for one shop at a time. Choose where you're shopping; you can change it any time.", "Saving your shop…",
+    "Can't make this recipe", "This recipe is made for one shop. Choose another and every ingredient, price and number changes to that shop's.", "Checking which shops can make this recipe…",
+    "Loading other shops…", "Choose another shop to see it/them."; the Swap sentences now name the chosen shop. No longer used: "Where to buy the ingredients", "Tick the shops…", "Change shops", "Your supermarkets" on Recipes.
+  - **Checked:** unit tests 2,107, e2e recipes 17 (two new steps on real data: chicken curry at both shops, overnight oats only at Sainsbury's), smoke 24, extra 16, a11y 0 violations, largetext no overflow,
+    addfood 15, listadd 8, back 42, diet 7, browse 9. Two data tests fixed on the way (100 stale thumbnails taken out; the every-item test no longer hard-codes 36,842).
+  - **Part 2 finding (not built):** Morrisons can't make 77 of 165 recipes, and 66 of those miss exactly ONE ingredient kind with a read label: peppers (23), stock cubes (16), cucumber (13), berries (10), plus
+    turkey breast, gammon, nutmeg, mixed spice. So the fix is Morrisons labels for those kinds (or an honest substitute), not 77 new recipes and pictures: the existing Higgsfield pictures stay valid.
+  - **Crash report (founder, 17 Nov: opened McDonald's then a dish in the new app and it crashed):** not reproduced in Chromium (every McDonald's dish page under six diet and allergy settings, five ways of
+    choosing McDonald's: no errors) and the iPhone holds no crash log for Numbite, so it was most likely iOS ending the page's web process for memory (`WebAppView` then reloads it, which looks like a crash).
+    Needs the iPhone's own engine (the Simulator, which needs about 8 GB free: the Claude app's background VM still holds the deleted downloads) or the exact steps from the founder.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
