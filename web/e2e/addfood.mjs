@@ -308,8 +308,11 @@ await step("a restaurant meal: a dish is added as published; a saved meal sits a
   await dlg(page).getByText("My usual", { exact: true }).first().waitFor();
   const search = page.getByLabel("Search restaurants and items");
   await search.fill("chicken");
+  // the saved meals step aside once the search has results (a saved meal's own Add button could be found first, so wait for the heading to go)
+  const goneSaved = await page.getByRole("heading", { name: "Your saved meals" }).waitFor({ state: "detached", timeout: 60000 }).then(() => true, () => false);
   await dlg(page).getByRole("button", { name: /^Add / }).first().waitFor({ timeout: 60000 });
-  expect((await page.getByRole("heading", { name: "Your saved meals" }).count()) === 0, "saved meals stay under a search");
+  expect(goneSaved, "saved meals stay under a search");
+  await page.waitForTimeout(1000); // the results settle (the search runs on a deferred value) before a row is read and tapped
   const row = dlg(page).locator("li", { has: page.getByRole("button", { name: /^Add / }) }).first();
   const text = await row.innerText();
   const dish = text.split("\n")[0].replace(/\s*Add.*$/, "").trim();

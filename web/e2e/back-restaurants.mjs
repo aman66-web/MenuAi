@@ -154,7 +154,7 @@ await step("a modified click (new tab) is left to the link: it opens the fixed p
   const { ctx, page } = await open();
   await chainFromEatOut(page);
   const b = await backLink(page, "Back");
-  const [popup] = await Promise.all([ctx.waitForEvent("page", { timeout: 20000 }), b.click({ modifiers: ["Control"] })]);
+  const [popup] = await Promise.all([ctx.waitForEvent("page", { timeout: 20000 }), b.click({ modifiers: ["ControlOrMeta"] })]); // ControlOrMeta: Cmd on a Mac, Ctrl elsewhere
   await popup.waitForLoadState("domcontentloaded");
   expect(new URL(popup.url()).pathname === "/app/eat-out", "the new tab opened " + popup.url());
   expect(path(page) === "/app/chain?id=bowl-and-co", "this page moved to " + path(page));

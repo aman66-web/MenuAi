@@ -706,6 +706,7 @@ await step("(o) after the questions were skipped, 'Use these' keeps the suggesti
   for (const n of notes) await vis(page.getByText(n));
   await vis(page.getByText("I worked these out from your answers. They're only a starting point, so change any of them."));
   expect((await page.getByText("Not sure of your numbers?").count()) === 0, "Pip no longer points at the button he was pointing at");
+  await page.waitForFunction(() => document.activeElement?.id === "target-calories", undefined, { timeout: 2000 }).catch(() => {});
   const focused = await page.evaluate(() => document.activeElement?.id);
   expect(focused === "target-calories", "the focus is on the calories box, not at the top of the page: " + focused);
   expect((await page.getByText("That's lower than most adults need.", { exact: false }).count()) === 0, "one caution about the floor, not two");

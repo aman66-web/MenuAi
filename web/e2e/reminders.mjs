@@ -135,7 +135,10 @@ await step("Add a reminder: the sheet has the person's own fields and the cautio
   // nothing typed
   await saveBtn(page).tap();
   await sheet(page).getByText("Type a name for the reminder.", { exact: true }).waitFor();
-  expect((await page.evaluate(() => document.activeElement?.id)) === (await sheet(page).getByLabel("Name", { exact: true }).getAttribute("id")), "focus did not go to the name");
+  // the sheet moves focus one frame after the message appears
+  const nameId = await sheet(page).getByLabel("Name", { exact: true }).getAttribute("id");
+  await page.waitForFunction((id) => document.activeElement?.id === id, nameId, { timeout: 2000 }).catch(() => {});
+  expect((await page.evaluate(() => document.activeElement?.id)) === nameId, "focus did not go to the name");
   expect((await sheet(page).getByLabel("Name", { exact: true }).getAttribute("aria-invalid")) === "true", "the name is not marked invalid");
   // a name but no time
   await sheet(page).getByLabel("Name", { exact: true }).fill("Morning reminder");
@@ -570,6 +573,7 @@ await step("review fixes, the sheet: the name and the note boxes don't spell-che
   const days = sheet(page).getByText("Choose at least one day.", { exact: true });
   await days.waitFor();
   expect((await days.getAttribute("role")) === "alert", "days message");
+  await page.waitForFunction(() => !!document.activeElement?.getAttribute("aria-describedby"), undefined, { timeout: 2000 }).catch(() => {});
   const first = await page.evaluate(() => { const a = document.activeElement; return { id: a?.id, desc: a?.getAttribute("aria-describedby") }; });
   expect(first.desc && (await sheet(page).locator(`[id="${first.desc}"]`).innerText()) === "Choose at least one day.", "the focused Monday button isn't described by the message: " + JSON.stringify(first));
   await fill(page, { kind: "Every few days", every: "9", start: "" });

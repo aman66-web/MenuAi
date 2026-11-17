@@ -180,10 +180,11 @@ await step("Quick answers on a restaurant's page: five pills, a tap shows the to
   const section = page.locator("section[aria-labelledby='quick-heading']");
   const rows = section.locator("ul > li");
   expect((await rows.count()) === 5, "five rows");
-  for (const t of await rows.allInnerTexts()) { const m = t.match(/(\d[\d,]*) kcal/); expect(m && Number(m[1].replace(",", "")) <= 500, "a row over 500 kcal: " + t.replace(/\s+/g, " ")); }
+  // textContent, not innerText: menu rows use content-visibility: auto, so a row the browser hasn't drawn yet has no innerText
+  for (const t of await rows.allTextContents()) { const m = t.match(/(\d[\d,]*)\s*kcal/); expect(m && Number(m[1].replace(",", "")) <= 500, "a row over 500 kcal: " + t.replace(/\s+/g, " ")); }
   await group.getByRole("button", { name: "35 g+ protein" }).click();
   await page.waitForTimeout(200);
-  for (const t of await section.locator("ul > li").allInnerTexts()) { const m = t.match(/(\d+(?:\.\d)?)g protein/); expect(m && Number(m[1]) >= 35, "protein under 35 g: " + t.replace(/\s+/g, " ")); }
+  for (const t of await section.locator("ul > li").allTextContents()) { const m = t.match(/(\d+(?:\.\d)?)\s*g\s*protein/); expect(m && Number(m[1]) >= 35, "protein under 35 g: " + t.replace(/\s+/g, " ")); }
   await group.getByRole("button", { name: "35 g+ protein" }).click();
   expect((await section.locator("ul > li").count()) === 0, "the list should clear");
   await ctx.close();

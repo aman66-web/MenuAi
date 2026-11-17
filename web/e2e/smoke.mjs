@@ -111,7 +111,7 @@ await step("onboarding: goal → preferences → about you → targets → shops
   await shot("03-onboarding-recipes");
   await picks.first().click();
   await page.waitForURL(/\/app\/recipes\/view\?id=/);
-  await visible(text("Per serving"));
+  await visible(text("For 1 serving")); // a recipe opens for one person (founder 2026-11-16)
   await visible(page.getByRole("tab", { name: "Ingredients" }));
   await visible(page.getByRole("button", { name: /^Swap / }).first());
   await shot("03-onboarding-recipe-opened");

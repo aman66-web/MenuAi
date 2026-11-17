@@ -105,6 +105,7 @@ await step("a shop's full list: vegetarian keeps the bread and the meat-free bac
   await page.getByText("We haven't read allergens for these products, so your allergy settings can't hide any here. Always check the pack.").waitFor();
   await page.getByRole("button", { name: "Fits my diet" }).click();
   await page.getByText("3 products", { exact: true }).waitFor();
+  await page.waitForTimeout(800); // rows fade in: judge colours once they've settled (as e2e/a11y.mjs does)
   await page.addScriptTag({ path: AXE });
   const r = await page.evaluate(async () => (await window.axe.run(document, { runOnly: ["wcag2a", "wcag2aa"] })).violations.map((v) => v.id));
   expect(r.length === 0, "axe: " + r.join(", "));
