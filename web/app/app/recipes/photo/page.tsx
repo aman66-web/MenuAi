@@ -40,7 +40,8 @@ const SERVINGS = 2;
 /** The name and the description are joined into the one sentence the API takes (MAX_DESCRIPTION), so these two add up to less than that. */
 const MAX_NAME = 80;
 const MAX_ABOUT = 215;
-const WORKING_STEP_MS = 2200;
+/** The working lines tick off over about half a minute (the recipe is written at high effort, so it can take up to a minute); the last keeps spinning until it is back. */
+const WORKING_STEP_MS = 8000;
 
 const H1 = "mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]";
 const H2 = "text-[1.25rem] font-bold leading-tight tracking-[-0.01em]";
@@ -89,7 +90,7 @@ function Working({ shopName, finished, photoUrl }: { shopName: string; finished:
           </li>
         ))}
       </ul>
-      <p className="mt-5 text-center text-muted">{t("This usually takes 10 to 30 seconds.")}</p>
+      <p className="mt-5 text-center text-muted">{t("This can take up to a minute, so Pip can get every detail right.")}</p>
     </div>
   );
 }

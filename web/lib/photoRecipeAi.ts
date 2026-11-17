@@ -11,7 +11,8 @@ import type { AskPhotoRecipe, DescribePhoto } from "./photoRecipeHandler";
 // stored by us. Needs ANTHROPIC_API_KEY in the server environment.
 
 function client(apiKey: string): Anthropic {
-  return new Anthropic({ apiKey, timeout: 45_000, maxRetries: 0 });
+  // up to 75 s an answer: the recipe is asked for at high effort (founder 2026-11-17: "I don't mind how long this takes ... we need to ensure that the recipe is really good")
+  return new Anthropic({ apiKey, timeout: 75_000, maxRetries: 0 });
 }
 
 function logError(where: string, error: unknown): void {
@@ -38,7 +39,7 @@ export function anthropicPhotoRecipe(apiKey: string | undefined): AskPhotoRecipe
       const res = await c.messages.parse({
         model: RECIPE_MODEL,
         max_tokens: 16000,
-        output_config: { effort: "medium", format: zodOutputFormat(schema) },
+        output_config: { effort: "high", format: zodOutputFormat(schema) },
         system,
         messages: [{ role: "user", content: [photo(image), { type: "text", text: user }] }],
       });

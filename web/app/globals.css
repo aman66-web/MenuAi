@@ -345,7 +345,7 @@ html[data-i18n-pending] body {
 /* Make it at home's Scan food button: the lime ring fills while it is held (the photo is taken when it is full); full at once for reduced motion. */
 .hold-ring { animation: hold-fill var(--hold) linear forwards; }
 @keyframes hold-fill { from { stroke-dashoffset: var(--ring); } to { stroke-dashoffset: 0; } }
-.work-bar { animation: work-bar 30s cubic-bezier(0.2, 0.55, 0.3, 1) forwards; }
+.work-bar { animation: work-bar 50s cubic-bezier(0.2, 0.55, 0.3, 1) forwards; }
 @keyframes work-bar { from { width: 3%; } to { width: 94%; } }
 @media (prefers-reduced-motion: reduce) {
   .scan-line { animation: none; top: 50%; }

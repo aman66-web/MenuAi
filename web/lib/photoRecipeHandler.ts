@@ -88,7 +88,7 @@ export async function handlePhotoRecipe(body: unknown, ctx: PhotoCtx): Promise<R
     const answer = await ctx.ask(PHOTO_SYSTEM_PROMPT, user, req.image, keys);
     if (answer.status !== "ok") return say(502, "no_recipe", PHOTO_MESSAGES.noRecipe);
     if (photoRecipeFromAi(answer.value, req, "ai-check")) return { status: 200, body: { recipe: answer.value } };
-    if (ctx.timeLeft && ctx.timeLeft() < 30_000) break;
+    if (ctx.timeLeft && ctx.timeLeft() < 75_000) break; // not enough time left for another full answer
     // one more go, with a reminder of the rules it broke
     user = `${photoUserPrompt(req)}\n\nYour last answer couldn't be used. Use only the pantry keys above with amounts between 5 and 3000; write 4 to 11 steps, each "Short title: instruction." with at most 45 words after the title; say how to tell meat, fish and eggs are cooked; no nutrition figures, prices, health claims, or restaurant or brand names.`;
   }

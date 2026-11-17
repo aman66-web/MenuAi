@@ -7,7 +7,8 @@ import { fromUs, notFound, PHOTO_CORS, photoCtx } from "@/lib/photoRecipeRoute";
 // Make it at home: a photo of a dish and the person's description in, a home recipe from their supermarket's products out (lib/photoRecipeHandler.ts).
 // Premium only and off unless PHOTO_RECIPES_API_ENABLED (lib/mm/config.ts). Nothing is stored: the photo and words go to Anthropic and the recipe comes straight back.
 
-export const maxDuration = 60;
+// high effort can take 30 to 60 s an answer, with room for one more go when an answer breaks the rules
+export const maxDuration = 150;
 
 export function OPTIONS(request: Request) {
   return preflight(request, PHOTO_CORS);
