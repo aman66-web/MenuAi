@@ -2649,6 +2649,17 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     don't appear. To test them, make the key, then build with `NEXT_PUBLIC_IAP=1 NEXT_PUBLIC_PHOTO_RECIPES=1` (docs/APP_BUILD.md "Testing 1.1").
   - **Disk:** the Mac is down to about 3 GB free after the platform install (the Claude app's background VM still holds about 8 GB of the deleted downloads until the Claude app is restarted).
 
+- 2026-11-17 (afternoon, Mac) — **Recipes by one shop: the founder's design, and the first piece.** Mac branch `iap` and the founder's iPhone only (not pushed after `03e91c12`).
+  - **Done and on the iPhone:** each ingredient row shows the cost of the amount used in green beside the pack price ("£2.44  £1.14 used", `RecipeDetail.tsx`; it follows Serves, `e2e/recipes.mjs` checks it).
+    New copy: "{price} used". Numbite 1.1 (6) was rebuilt and installed with it.
+  - **Decided with the founder, NOT built yet (his words, 17 Nov):** (1) Recipes page: **one shop at a time** ("Shopping at" dropdown, easy to change); the list shows the recipes that shop can make; the logos row and
+    the + of last night's multi-shop header go. (2) A recipe page has a **shop button** ("Sainsbury's ▾") that switches the whole recipe to another shop where it can be made; a recipe only one shop can make says so.
+    (3) Every ingredient, price, photo, number and the shopping list come from that one shop; macros follow that shop's labels. (4) **Swap** may take one ingredient from another shop (products labelled with their
+    shop; the list splits by shop). (5) The existing Higgsfield recipe pictures stay for every shop. (6) **Later, only when the founder says:** shop-specific recipe versions and new pictures where a shop lacks an
+    ingredient (Morrisons makes 88 of 165 today); about 40 Higgsfield credits for 77 pictures. Not clear yet: what "Octavo" was (Ocado or Asda?).
+  - **Noticed in the founder's screenshot (not asked):** scrolled content shows under the iPhone's clock and battery (the "What to buy" heading overlapped the time); a fixed backing behind the status bar would fix it.
+  - **Disk:** about 2.4 GB free; the Claude app's background VM still holds about 8 GB of the deleted downloads until the Claude app is restarted.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
