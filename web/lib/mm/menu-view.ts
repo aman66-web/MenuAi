@@ -1,5 +1,5 @@
 import { NEW_ITEM_DAYS } from "./config";
-import { namedPescatarian } from "./foodDiet";
+import { foodDietProblem, foodSignals, namedPescatarian } from "./foodDiet";
 import { englishT, tk, type T } from "./i18n";
 import { proteinPer100Cal } from "./nutrients";
 import { passesPreferences } from "./ranking";
@@ -69,6 +69,93 @@ export function isPescatarianDish(item: Pick<MenuItem, "name" | "tags">): boolea
   if (item.tags.includes("vegetarian")) return true;
   return !item.tags.includes("contains_pork") && !item.tags.includes("contains_beef") && namedPescatarian(item.name);
 }
+
+/**
+ * Which of the person's choices a restaurant's own data can't check (founder 2026-11-17: "I've clicked on restaurants, but I can't see any of the actual
+ * food items"). The vegetarian, pescatarian and vegan filters follow what the restaurant marks; 39 restaurants mark no dish vegetarian and most name no
+ * dish vegan, so for them those filters left an empty menu. For such a restaurant (and, likewise, one with no allergen details at all) the menu is shown
+ * with only the dishes whose own name or menu section plainly says otherwise left out (lib/mm/foodDiet.ts word rules and NAMED_ALLERGEN below), and the
+ * page says the rest aren't checked. Nothing is ever inferred the other way: a dish left in is not promised to suit.
+ */
+export interface UncheckedDiet {
+  /** Vegetarian or pescatarian is on and the restaurant marks no dish vegetarian. */
+  vegetarian: boolean;
+  /** Vegan is on and the restaurant names no dish vegan or plant-based. */
+  vegan: boolean;
+  /** An allergy is set and the restaurant publishes no allergen details we can read. */
+  allergies: boolean;
+}
+
+export function uncheckedDiet(items: readonly Pick<MenuItem, "tags" | "name" | "category" | "allergens">[], prefs: Preferences): UncheckedDiet {
+  return {
+    // fewer than 1 dish in 20 marked vegetarian means the guide doesn't really mark them (Greggs marks 1 of 263): those marks are kept, the rest go by name
+    vegetarian: (prefs.vegetarianOnly || Boolean(prefs.pescatarianOnly)) && items.filter((i) => i.tags.includes("vegetarian")).length < items.length / 20,
+    vegan: Boolean(prefs.veganOnly) && !items.some(isNamedVegan),
+    allergies: Boolean(prefs.avoidAllergens?.length) && !items.some((i) => i.allergens),
+  };
+}
+
+export const anyUnchecked = (u: UncheckedDiet): boolean => u.vegetarian || u.vegan || u.allergies;
+
+// A dish whose own name names a food from that allergen group (used only where the restaurant publishes no allergen details, and only to leave dishes out).
+const NAMED_ALLERGEN: Partial<Record<AllergenKey, RegExp>> = {
+  fish: /\b(?:fish|fishcakes?|salmon|tuna|cod|haddock|pollock|hake|plaice|sole|sea ?bass|bream|mackerel|sardines?|anchov(?:y|ies)|trout|kippers?|basa|swordfish|halibut|kedgeree)\b/i,
+  crustaceans: /\b(?:prawns?|shrimps?|crabs?|lobsters?|langoustines?|crayfish|scampi)\b/i,
+  molluscs: /\b(?:mussels?|squid|calamari|octopus|clams?|scallops?|cockles?|whelks?)\b|\boysters?\b(?!\s+mushrooms?)/i,
+  milk: /\b(?:milk|milkshakes?|cheese|cheesy|cheeseburgers?|cream|creamy|butter|buttery|buttermilk|yogh?urts?|mozzarella|cheddar|parmesan|halloumi|feta|paneer|lattes?|cappuccinos?|flat whites?|mochas?|custard|brie|camembert|mascarpone|ricotta|gouda|raita|macchiato)\b/i,
+  eggs: /\b(?:eggs?|omelett?es?|mayo|mayonnaise|meringues?|frittatas?|benedict|aioli|carbonara)\b/i,
+  peanuts: /\b(?:peanuts?|satay)\b/i,
+  nuts: /\b(?:almonds?|cashews?|hazelnuts?|walnuts?|pecans?|pistachios?|macadamias?|nuts?|praline|frangipane|marzipan|nutella|pesto)\b/i,
+  sesame: /\b(?:sesame|tahini|houmous|hummus|humous)\b/i,
+  soya: /\b(?:soya|soy|tofu|edamame|miso|teriyaki|tempeh)\b/i,
+  mustard: /\bmustard\b/i,
+  celery: /\b(?:celery|celeriac)\b/i,
+  lupin: /\blupin\b/i,
+  gluten: /\b(?:bread|breaded|buns?|baguettes?|paninis?|toasties?|toast|sandwich(?:es)?|wraps?|pasta|spaghetti|penne|lasagne|pizzas?|noodles?|ramen|udon|pies?|pastry|pastries|croissants?|muffins?|cakes?|cookies?|biscuits?|brownies?|doughnuts?|donuts?|bagels?|crumpets?|scones?|waffles?|pancakes?|batter|battered|tempura|croutons?|wheat|barley|rye|couscous|naan|pittas?|flatbreads?|crackers?|wafers?|crumble|subs?|burgers?|nuggets?|katsu|gyoza|dumplings?|churros?|tarts?|rolls?)\b/i,
+};
+const FREE_OF = /\b(?:vegan|dairy[\s-]?free|milk[\s-]?free|egg[\s-]?free|gluten[\s-]?free|nut[\s-]?free|plant[\s-]?based|oat|soya[\s-]?milk|almond[\s-]?milk|coconut[\s-]?milk)\b/i;
+
+/** True when the dish's own name or section names a food from one of these allergen groups (never a promise the dish is free of anything). */
+export function namesAllergen(item: { name: string; category?: string | null }, avoid: readonly AllergenKey[]): boolean {
+  const text = `${item.name} ${item.category ?? ""}`;
+  return avoid.some((k) => {
+    const re = NAMED_ALLERGEN[k];
+    if (!re || !re.test(text)) return false;
+    // "Oat milk latte", "Vegan mayo", "Gluten-free bun": the name itself says it's the free-from version of that food
+    return !(FREE_OF.test(item.name) && (k === "milk" || k === "eggs" || k === "gluten" || k === "nuts"));
+  });
+}
+
+/**
+ * The restaurant page's menu rule: passesDiet, except that a choice the restaurant's own data can't check (uncheckedDiet) leaves out only the dishes whose
+ * own name or menu section plainly says otherwise. Best for you keeps the strict rule (it recommends; it never suggests a dish it can't check).
+ */
+export function passesMenuDiet(item: MenuItem, prefs: Preferences, unchecked: UncheckedDiet): boolean {
+  // the menu section ("Chicken", "Beef burgers") is read like a product type: its words count, "Vegetarian" or "Vegan" sections mark a meat-free dish
+  const named = { name: item.name, ...(item.category ? { type: item.category } : {}) };
+  const strict: Preferences = {
+    ...prefs,
+    vegetarianOnly: prefs.vegetarianOnly && !unchecked.vegetarian,
+    pescatarianOnly: Boolean(prefs.pescatarianOnly) && !unchecked.vegetarian,
+    veganOnly: Boolean(prefs.veganOnly) && !unchecked.vegan,
+    avoidAllergens: unchecked.allergies ? [] : prefs.avoidAllergens,
+  };
+  if (!passesDiet(item, strict)) return false;
+  if (unchecked.vegetarian && prefs.vegetarianOnly && foodDietProblem(named, { ...NO_DIET, vegetarianOnly: true })) return false;
+  if (unchecked.vegetarian && prefs.pescatarianOnly && foodDietProblem(named, { ...NO_DIET, pescatarianOnly: true })) return false;
+  if ((unchecked.vegetarian || unchecked.vegan) && RESTAURANT_MEAT.test(item.name)) {
+    const sig = foodSignals(named);
+    // "Veggie Burger", "Plant-based Whopper" stay; for a pescatarian, so does a fish burger
+    if (!sig.vegNamed && !isNamedVegan(item) && !(prefs.pescatarianOnly && sig.fish)) return false;
+  }
+  if (unchecked.vegan && foodDietProblem(named, { ...NO_DIET, veganOnly: true })) return false;
+  if (unchecked.allergies && namesAllergen(item, prefs.avoidAllergens ?? [])) return false;
+  return true;
+}
+
+const NO_DIET: Preferences = { vegetarianOnly: false, noPork: false, noBeef: false };
+// On a restaurant menu these dishes are meat unless their name says otherwise ("Cheeseburger", "Kids Nuggets", "Hot Dog"): used only to leave dishes out.
+const RESTAURANT_MEAT = /\b(?:burgers?|cheeseburgers?|hamburgers?|nuggets?|mcnuggets|hot ?dogs?|kebabs?|meatballs?|wings?|pepperoni)\b/i;
 
 export const anyDietFilter = (p: Preferences): boolean =>
   p.vegetarianOnly || p.noPork || p.noBeef || Boolean(p.veganOnly) || Boolean(p.pescatarianOnly) || Boolean(p.avoidAllergens?.length);

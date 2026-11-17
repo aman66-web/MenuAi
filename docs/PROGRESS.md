@@ -2466,6 +2466,18 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 - 2026-11-17 — **Restaurants show their dishes even when your allergies can't be checked, and recipe ingredients come from small shops** (founder, on McDonald's showing nothing:
   "when you click on a thingy, it should show ... the foods that there are for that specific restaurant"; and "all the ingredients should be able to be found [at a Sainsbury's Local or Tesco Express]").
+  - **Diet settings emptied menus too (the bigger cause):** the vegetarian, pescatarian and vegan filters follow what each restaurant marks, and 39 restaurants mark no dish
+    vegetarian (McDonald's, Burger King, Costa, Domino's...), a few more mark almost none (Greggs 1 of 263), and most name no dish vegan. Measured on all 241 menus: a vegetarian saw
+    35% of dishes with 39 restaurants empty, a vegan 2% with 104 empty. Now, where a restaurant marks fewer than 1 dish in 20 as vegetarian or names none vegan, its menu shows every
+    dish except those whose own name or menu section says meat or fish (or, for vegan, dairy or eggs; burgers, nuggets, hot dogs, kebabs, wings and pepperoni count as meat unless the
+    name says veggie, vegan or plant-based), under an amber note ("Not checked for your diet", "{chain} doesn't mark which dishes are vegetarian, so only dishes whose names say meat or
+    fish are left out.", "Check the rest with {chain} before you order."). Where allergens can't be checked, dishes whose names mention the allergy are left out too ("Filet-O-Fish" for fish).
+    Best for you keeps the strict rule there and says "Best for you can't pick for your diet here, because {chain} doesn't mark which dishes fit it. Its full menu is below." with
+    **See the full menu**. When the diet hides any dish, the full menu opens with "Showing {n} of {total} dishes" / "The others don't fit your diet settings, or {chain} doesn't say." and
+    **Show all {total}** (this visit only; "Showing all {total} dishes", "Some of them may not fit your diet settings.", **Show only what fits**). Now no restaurant is empty for a
+    vegetarian or a pescatarian (`tests/menuDiet.test.ts` checks every published menu). `lib/mm/menu-view.ts` (`uncheckedDiet`, `passesMenuDiet`, `namesAllergen`).
+    **Better still would be the restaurants' own vegetarian marks**: Costa prints "(V)" in names and McDonald's and Greggs mark vegetarian and vegan products on their own pages; reading
+    those into the data is a follow-up.
   - **The empty McDonald's:** with any allergy chosen, a restaurant whose allergens we can't read (98 of 241, McDonald's among them) hid every dish, because a dish with no allergen information is
     hidden while allergies are chosen. Now such a restaurant shows its menu (the other diet settings still apply) under an amber note: "Allergens aren't checked here" / "{chain} doesn't publish
     allergen details we can read, so these dishes aren't checked for {allergens}. Check with {chain} before you order." with its allergen guide link; Best for you follows the same rule. When the diet
@@ -2476,7 +2488,9 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     print cooked figures; small packs of spices, bacon, berries and the Christmas foods aren't on the list), the ingredient says what to buy instead ("In a small local shop, look for any bag of basmati
     or long-grain rice.", `web/lib/mm/localTips.ts`, 29 ingredients), and the Ingredients tab says the numbers are for the product shown. `tests/localRange.test.ts` fails any ingredient of any recipe that is
     neither a small-shop product nor has a tip. It's a judgement: no supermarket publishes its small-shop range.
-  - **New copy (rule 8, logged here; English only):** the two allergy sentences and the empty-state lines above, "Show every dish", "Change my diet", "In a small local shop, look for {tip}.", the 29 tips,
+  - **New copy (rule 8, logged here; English only):** the note, Best for you and full-menu lines quoted above, "Not checked for your diet or allergies", the two other diet lines
+    ("…so only dishes whose names say meat are left out." for pescatarian, "{chain} doesn't say which dishes are vegan, so only dishes whose names say meat, fish, dairy or eggs are left out."),
+    "{chain} doesn't publish allergen details we can read, so only dishes whose names mention {allergens} are left out." (replaces the first allergy sentence), the empty-state lines above, "Show every dish", "Change my diet", "In a small local shop, look for {tip}.", the 29 tips,
     and "Small local shops, such as a Sainsbury's Local or a Tesco Express, usually sell everything here. Where a small shop is likely to stock a different pack, we say what to look for; the numbers are for the product shown."
 
 ## Known issues

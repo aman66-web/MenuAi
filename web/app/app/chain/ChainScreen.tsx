@@ -6,7 +6,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { mealSlotFor, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
 import { formatDate } from "@/lib/mm/format";
-import { anyDietFilter, filterCaution, filterItems, groupByCategory, isNewItem, LARGE_MENU_ITEMS, searchItems, SECTION_PREVIEW_ITEMS, SORT_OPTIONS, sortItems, type SortKind } from "@/lib/mm/menu-view";
+import { anyDietFilter, anyUnchecked, filterCaution, groupByCategory, namesAllergen, passesMenuDiet, uncheckedDiet, isNewItem, LARGE_MENU_ITEMS, searchItems, SECTION_PREVIEW_ITEMS, SORT_OPTIONS, sortItems, type SortKind } from "@/lib/mm/menu-view";
 import { indexChain } from "@/lib/mm/chain-index";
 import { allergensFromParams, fitsLimits, hasLimits, limitsFromParams, limitWords, type NumberLimits } from "@/lib/mm/numbers";
 import { itemHref } from "@/lib/mm/routes";
@@ -106,24 +106,32 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const [reporting, setReporting] = useState<MenuItem | "any" | null>(null);
   const [dietOpen, setDietOpen] = useState(false);
   const halal = halalFor(chain.id);
-  const hasAllergenData = useMemo(() => chain.items.some((i) => i.allergens), [chain.items]);
-  const avoiding = prefs.avoidAllergens?.length ?? 0;
-  // founder 2026-11-17 ("I clicked on McDonald's, but I can't see anything ... it should show the foods"): 98 of 241 restaurants publish no allergen details we can read,
-  // and hiding every unchecked dish left their menus empty for anyone with an allergy set. Such a menu is now shown with the person's other diet choices applied and a
-  // warning at the top that nothing on it is checked for their allergies (the dish pages already say the allergens aren't published).
-  const allergiesUnchecked = avoiding > 0 && !hasAllergenData;
+  // founder 2026-11-17 ("I've clicked on restaurants, but I can't see any of the actual food items"): the vegetarian, pescatarian and vegan filters follow what
+  // each restaurant marks, and the allergy filter its allergen guide. Where a restaurant marks no dish vegetarian (39 of 241), names no dish vegan, or publishes
+  // no allergen details (98), those filters emptied the menu. Its menu is now shown with only the dishes whose own names say otherwise left out, under a note that
+  // the rest aren't checked (uncheckedDiet, passesMenuDiet). Best for you keeps the strict rule: it never recommends a dish it can't check.
+  const unchecked = useMemo(() => uncheckedDiet(chain.items, prefs), [chain.items, prefs]);
+  const allergiesUnchecked = unchecked.allergies;
   const menuPrefs = useMemo<Preferences>(() => (allergiesUnchecked ? { ...prefs, avoidAllergens: [] } : prefs), [allergiesUnchecked, prefs]);
-  const allergyNames = (prefs.avoidAllergens ?? []).map((a) => t(ALLERGEN_SHORT[a]).toLowerCase());
+  const allergyNames = new Intl.ListFormat("en-GB", { type: "conjunction" }).format((prefs.avoidAllergens ?? []).map((a) => t(ALLERGEN_SHORT[a]).toLowerCase()));
+  // "Show all dishes" in the full menu: the whole menu for this visit, the person's diet unchanged everywhere else (Best for you, Quick answers).
+  const [everyDish, setEveryDish] = useState(false);
 
   const searching = query.trim().length > 0;
-  const filtered = useMemo(() => filterItems(chain.items, menuPrefs), [chain.items, menuPrefs]);
-  const fitting = useMemo(() => (hasLimits(limits) ? filtered.filter((i) => fitsLimits(i, limits)) : filtered), [filtered, limits]);
+  const filtered = useMemo(() => chain.items.filter((i) => passesMenuDiet(i, prefs, unchecked)), [chain.items, prefs, unchecked]);
+  const hiddenByDiet = chain.items.length - filtered.length;
+  const menuBase = everyDish ? chain.items : filtered;
+  const fitting = useMemo(() => (hasLimits(limits) ? menuBase.filter((i) => fitsLimits(i, limits)) : menuBase), [menuBase, limits]);
   // Best for you picks from the dishes that fit the numbers typed on Eat out too (the ranking itself is untouched: its pool is just narrower),
-  // so the picks never contradict the "Your numbers" line above them.
-  const bestIndex = useMemo(
-    () => (hasLimits(limits) ? indexChain({ ...chain, items: chain.items.filter((i) => fitsLimits(i, limits)), combinations: chain.combinations.filter((c) => fitsLimits(c, limits)) }) : index),
-    [index, chain, limits],
-  );
+  // so the picks never contradict the "Your numbers" line above them. Where allergens can't be checked, dishes whose names mention an allergy are left out of its pool.
+  const bestIndex = useMemo(() => {
+    const avoid = prefs.avoidAllergens ?? [];
+    const keep = (i: MenuItem) => !allergiesUnchecked || !namesAllergen(i, avoid);
+    if (!hasLimits(limits) && !allergiesUnchecked) return index;
+    const items = chain.items.filter((i) => keep(i) && (!hasLimits(limits) || fitsLimits(i, limits)));
+    const kept = new Set(items.map((i) => i.id));
+    return indexChain({ ...chain, items, combinations: chain.combinations.filter((c) => (c.baseItemId === null || kept.has(c.baseItemId)) && (!hasLimits(limits) || fitsLimits(c, limits))) });
+  }, [index, chain, limits, allergiesUnchecked, prefs.avoidAllergens]);
   const visible = useMemo(() => sortItems(searchItems(fitting, query), sort), [fitting, query, sort]);
   const grouped = sort === "menu";
   const sections = useMemo(() => (grouped ? groupByCategory(chain, visible) : [{ category: "", items: visible }]), [chain, visible, grouped]);
@@ -137,6 +145,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const changeDiet = (next: Preferences) => {
     for (const key of ["vegetarianOnly", "veganOnly", "pescatarianOnly", "noPork", "noBeef"] as const) if (Boolean(next[key]) !== Boolean(prefs[key]) && next[key]) analytics.track({ name: "menuFiltered", kind: key });
     setPrefs(next);
+    setEveryDish(false);
   };
   const words = dietWords(t, prefs);
   const recentLog = useStore(recentStore);
@@ -218,13 +227,17 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         </div>
       </div>
 
-      {allergiesUnchecked && (
+      {anyUnchecked(unchecked) && (
         <div role="note" className="mt-3 flex gap-3 rounded-[1.25rem] border-2 border-[#d97706] bg-[#fffbeb] p-4 text-[0.9375rem] leading-snug text-[#3b2a06]">
           <InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-[#b45309]" />
           <div className="min-w-0">
-            <p className="font-bold">{t("Allergens aren't checked here")}</p>
-            <p className="mt-1">{t("{chain} doesn't publish allergen details we can read, so these dishes aren't checked for {allergens}. Check with {chain} before you order.", { chain: chain.name, allergens: allergyNames.join(", ") })}</p>
-            {chain.allergenGuide && <a href={chain.allergenGuide.url} target="_blank" rel="noopener noreferrer" className={`mt-1 inline-flex min-h-11 items-center font-semibold text-[#92400e] ${QUIET_LINK}`}>{t("See its own allergen information")}</a>}
+            <p className="font-bold">{allergiesUnchecked && (unchecked.vegetarian || unchecked.vegan) ? t("Not checked for your diet or allergies") : allergiesUnchecked ? t("Allergens aren't checked here") : t("Not checked for your diet")}</p>
+            {unchecked.vegetarian && prefs.vegetarianOnly && <p className="mt-1">{t("{chain} doesn't mark which dishes are vegetarian, so only dishes whose names say meat or fish are left out.", { chain: chain.name })}</p>}
+            {unchecked.vegetarian && prefs.pescatarianOnly && <p className="mt-1">{t("{chain} doesn't mark which dishes are vegetarian, so only dishes whose names say meat are left out.", { chain: chain.name })}</p>}
+            {unchecked.vegan && <p className="mt-1">{t("{chain} doesn't say which dishes are vegan, so only dishes whose names say meat, fish, dairy or eggs are left out.", { chain: chain.name })}</p>}
+            {allergiesUnchecked && <p className="mt-1">{t("{chain} doesn't publish allergen details we can read, so only dishes whose names mention {allergens} are left out.", { chain: chain.name, allergens: allergyNames })}</p>}
+            <p className="mt-1 font-semibold">{t("Check the rest with {chain} before you order.", { chain: chain.name })}</p>
+            {allergiesUnchecked && chain.allergenGuide && <a href={chain.allergenGuide.url} target="_blank" rel="noopener noreferrer" className={`mt-1 inline-flex min-h-11 items-center font-semibold text-[#92400e] ${QUIET_LINK}`}>{t("See its own allergen information")}</a>}
           </div>
         </div>
       )}
@@ -265,7 +278,13 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         )}
         {caution && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{caution}</p>}
         {prefs.halalOnly && !halal && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("{chain}'s website doesn't say its food is halal.", { chain: chain.name })} {t(HALAL_CAUTION)}</p>}
-        {!caloriesOnly && <div className="mt-5"><BestForYou bare index={bestIndex} meal={meal} preferences={menuPrefs} onClearFilters={clearFilters} /></div>}
+        {!caloriesOnly && (unchecked.vegetarian || unchecked.vegan ? (
+          // Best for you recommends, so it never picks a dish the restaurant doesn't mark as fitting the person's diet; the menu below still shows the dishes
+          <div className="mt-5 rounded-[1rem] bg-[var(--fill)] p-4 text-[0.9375rem] leading-snug">
+            <p>{t("Best for you can't pick for your diet here, because {chain} doesn't mark which dishes fit it. Its full menu is below.", { chain: chain.name })}</p>
+            <Button variant="secondary" className="mt-3" onClick={() => { const el = document.getElementById("full-menu"); if (el) scrollToElement(el); }}>{t("See the full menu")}</Button>
+          </div>
+        ) : <div className="mt-5"><BestForYou bare index={bestIndex} meal={meal} preferences={menuPrefs} onClearFilters={clearFilters} /></div>)}
       </section>
       <Sheet open={dietOpen} onClose={() => setDietOpen(false)} title={t("Your diet")}>
         <DietPicker value={prefs} onChange={changeDiet} halal={false} />
@@ -321,17 +340,27 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
 
       {/* Empty (and no height) until there's something to say; it stays in the page so a screen reader hears it change. */}
       <p role="status" aria-live="polite" className="app-numbers mt-1 px-1 text-sm text-muted empty:mt-0">
-        {searching ? (visible.length === 1 ? t("1 item matches") : t("{n} items match", { n: visible.length })) : anyFilter ? t("{n} of {total} items", { n: visible.length, total: chain.items.length }) : ""}
+        {searching ? (visible.length === 1 ? t("1 item matches") : t("{n} items match", { n: visible.length })) : hasLimits(limits) ? t("{n} of {total} items", { n: visible.length, total: chain.items.length }) : ""}
       </p>
+      {/* Never a menu that just looks short: how many dishes the diet settings hide, and one tap to see the whole menu (this visit only). */}
+      {!searching && hiddenByDiet > 0 && filtered.length > 0 && (
+        <div className="glass mt-3 flex flex-wrap items-center gap-x-4 gap-y-3 rounded-[1.25rem] p-4">
+          <div className="min-w-0 flex-1 basis-48 text-[0.9375rem] leading-snug">
+            <p className="app-numbers font-bold">{everyDish ? t("Showing all {total} dishes", { total: chain.items.length }) : t("Showing {n} of {total} dishes", { n: filtered.length, total: chain.items.length })}</p>
+            <p className="mt-0.5 text-muted">{everyDish ? t("Some of them may not fit your diet settings.") : t("The others don't fit your diet settings, or {chain} doesn't say.", { chain: chain.name })}</p>
+          </div>
+          <Button variant="secondary" onClick={() => setEveryDish((v) => !v)}>{everyDish ? t("Show only what fits") : t("Show all {total}", { total: chain.items.length })}</Button>
+        </div>
+      )}
 
       <div className="mt-3">
         {visible.length === 0 ? (
           <EmptyState
             title={searching ? t("Nothing on this menu matches “{query}”.", { query: query.trim() }) : anyFilter ? t("Your diet settings hide every dish here") : t("Nothing here matches your filters.")}
-            body={!searching && anyFilter ? t("None of {chain}'s {n} dishes fits your settings ({settings}). You can see them all for this visit, or change your diet.", { chain: chain.name, n: chain.items.length, settings: [...dietWords(t, menuPrefs), ...(hasLimits(limits) ? limitWords(limits, t) : [])].join(", ").toLowerCase() }) : undefined}
+            body={!searching && anyFilter ? t("None of {chain}'s {n} dishes fits your settings ({settings}). You can see them all for this visit, or change your diet.", { chain: chain.name, n: chain.items.length, settings: [...dietWords(t, prefs), ...(hasLimits(limits) ? limitWords(limits, t) : [])].join(", ").toLowerCase() }) : undefined}
             action={searching ? <Button variant="secondary" onClick={() => setQuery("")}>{t("Clear search")}</Button> : anyFilter ? (
               <div className="flex flex-wrap justify-center gap-2.5">
-                <Button onClick={clearFilters}>{t("Show every dish")}</Button>
+                <Button onClick={() => { setEveryDish(true); setLimits({}); }}>{t("Show every dish")}</Button>
                 <Button variant="secondary" aria-haspopup="dialog" onClick={() => setDietOpen(true)}>{t("Change my diet")}</Button>
               </div>
             ) : undefined}
