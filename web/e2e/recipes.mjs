@@ -667,7 +667,7 @@ await step("a recipe's shops: one pill per shop with its logo and name, a 44 px 
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data.shops);
   expect(JSON.stringify(saved) === JSON.stringify(["sainsburys", "tesco"]), "saved at once: " + JSON.stringify(saved));
   // Tesco's product labels aren't read yet: it stays ticked and the sheet says recipes can't use it
-  await sheet.getByText("Recipes can't use Tesco yet: we haven't read their products' labels.").waitFor();
+  await sheet.getByText("Recipes can't use Tesco yet: we haven't read enough of their products' labels.").waitFor();
   await page.waitForTimeout(500);
   await page.addScriptTag({ path: AXE });
   const v = await page.evaluate(async () => (await window.axe.run(document, { resultTypes: ["violations"] })).violations.map((x) => `${x.id} (${x.nodes.length})`));

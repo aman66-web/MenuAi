@@ -15,11 +15,12 @@ import { Button, ErrorBox, Sheet, Spinner } from "../../_components/ui";
 import { backName, useBack } from "../../_lib/backNav";
 import { useHydrated, useSettings, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
-import { recipeShopSet, useRecipeShopSet } from "../../_lib/recipes";
+import { recipeShopSetFor, useRecipeShopSet } from "../../_lib/recipes";
 import { useShopManifest } from "../../_lib/shopProducts";
 import { RecipeDetail } from "../RecipeDetail";
 
-// A recipe page: one of ours (?id=) or one Pip wrote that the person saved (?mine=), with the ingredients from the person's shops (the one asked for first).
+// A recipe page: one of ours (?id=) or one Pip wrote that the person saved (?mine=), with the ingredients from the person's shops (the one the address asks
+// for only while none of theirs can make recipes: recipeShopSetFor).
 // Founder 2026-11-17: the "+" after the shops in the header opens "Where to buy the ingredients": the same list as Settings, each tick saved at once to the
 // person's supermarkets, and the recipe is worked out again from the shops ticked (lib/mm/recipes.ts: the first ticked is used first, the others fill in what
 // it doesn't sell). Once the shops are changed here, the address's ?r= no longer decides which comes first.
@@ -32,7 +33,7 @@ export function RecipeScreen({ id, mine, shop: asked }: { id: string | null; min
   const savedOne = mine ? saved.find((s) => s.id === mine) : undefined;
   const manifest = useShopManifest();
   const [ownShops, setOwnShops] = useState(false);
-  const shopIds = recipeShopSet(manifest, ownShops ? null : (asked ?? savedOne?.shop ?? null), settings.shops);
+  const shopIds = recipeShopSetFor(manifest, ownShops ? null : (asked ?? savedOne?.shop ?? null), settings.shops);
   const shop = shopIds[0] ?? null;
   const [retry, setRetry] = useState(0);
   const state = useRecipeShopSet(shopIds, retry);
@@ -46,7 +47,7 @@ export function RecipeScreen({ id, mine, shop: asked }: { id: string | null; min
   }, [id, savedOne, dietKey]);
 
   const ticked = settings.shops ?? [];
-  // the person's shops whose product labels we haven't read: they stay tickable, and the sheet says recipes can't use them yet
+  // the person's shops recipes can't use yet (labels not read, or too few of them to make most recipes: recipeShops): they stay tickable, and the sheet says so
   const notReady = ticked.filter((s) => !recipeShops(manifest).some((r) => r.id === s)).map((s) => manifest?.retailers.find((r) => r.id === s)?.name ?? retailerName(s));
   const pickShops = (shops: string[]) => {
     updateSettings({ shops: shops.length ? shops : undefined });
@@ -61,7 +62,7 @@ export function RecipeScreen({ id, mine, shop: asked }: { id: string | null; min
       {notReady.length > 0 && (
         <p role="note" className="mt-3 flex gap-2.5 rounded-[1rem] bg-[var(--fill)] p-3.5 text-[0.9375rem] leading-snug">
           <InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-          <span>{t("Recipes can't use {shops} yet: we haven't read their products' labels.", { shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(notReady) })}</span>
+          <span>{t("Recipes can't use {shops} yet: we haven't read enough of their products' labels.", { shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(notReady) })}</span>
         </p>
       )}
       {/* kept in view while the list scrolls under it, like the Recipes list's supermarkets */}

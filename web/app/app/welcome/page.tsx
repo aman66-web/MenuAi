@@ -40,7 +40,7 @@ import { radioKeyNav, Spinner } from "../_components/ui";
 import { travelBack } from "../_lib/backNav";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useChain, useHydrated, useMenu, useSettings } from "../_lib/hooks";
-import { recipeShop } from "../_lib/recipes";
+import { recipeShopSetFor } from "../_lib/recipes";
 import { loadShopFile, loadShopManifest, useShopManifest } from "../_lib/shopProducts";
 import { TABS } from "../_lib/tabs";
 import { applyTextSize } from "../_lib/textSize";
@@ -173,10 +173,11 @@ function Welcome() {
     setGoalTouched(true);
   };
 
-  // Warm up the first recipe screen: by the last questions, start loading the full list of the shop its recipes come from (it is a few hundred KB).
+  // Warm up the first recipe screen: by the last questions, start loading the full lists of the shops its recipes come from (a few hundred KB to a few MB each;
+  // RecipeChoice loads the same set, recipeShopSetFor). Each is loaded once and cached, and a failure here only means the recipe screen loads it itself.
   useEffect(() => {
     if (step < SHOPS) return;
-    void loadShopManifest().then((m) => { const id = recipeShop(m, null, settingsStore.get().shops); return id ? loadShopFile(id) : undefined; }).catch(() => undefined);
+    void loadShopManifest().then((m) => Promise.all(recipeShopSetFor(m, null, settingsStore.get().shops).map((id) => loadShopFile(id).catch(() => undefined)))).catch(() => undefined);
   }, [step]);
   // Every new screen starts at the top with its headline focused, so a screen reader reads it first (a headline drawn by another file gets tabindex -1 here).
   // Done as the screen is put in place, before it is drawn, so it can never take the focus back from a box or a choice tapped straight after the screen appears.

@@ -17,7 +17,7 @@ import { Button, EmptyIcon, EmptyState, LinkButton, Sheet } from "../../_compone
 import { useHydrated, useStore } from "../../_lib/hooks";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { useListPhotos } from "../../_lib/listPhotos";
-import { addMissing, useListRecipes } from "../../_lib/listRecipes";
+import { addedNote, addMissing, useListRecipes } from "../../_lib/listRecipes";
 import { useShopManifest } from "../../_lib/shopProducts";
 import { Rich } from "../../_lib/Rich";
 import { hasNative, nativeCall } from "@/lib/mm/native";
@@ -277,7 +277,7 @@ export default function ShoppingListPage() {
                     : <li key={i} className="rounded-full border border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] px-3.5 py-1.5 text-sm font-medium">{t(label)}</li>;
                 })}
               </ul>
-              <Button variant="secondary" className="mt-4" onClick={() => { const n = addMissing(suggestion, state.file); setSuggestNote(n === 1 ? t("Added 1 product to your {shop} list.", { shop: state.file.name }) : t("Added {n} products to your {shop} list.", { n, shop: state.file.name })); }}>
+              <Button variant="secondary" className="mt-4" onClick={() => { const n = addMissing(suggestion, state.file); const { text, values } = addedNote(suggestion, n, state.file); setSuggestNote(t(text, values)); }}>
                 <PlusIcon className="h-5 w-5" />{suggestion.missing.length === 1 ? t("Add it to my list") : t("Add them to my list")}
               </Button>
               <p role="status" aria-live="polite" className="mt-2 text-sm font-medium text-accent empty:mt-0">{suggestNote}</p>

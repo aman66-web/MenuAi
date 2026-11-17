@@ -12,12 +12,12 @@ import { Pip } from "../_components/Mascot";
 import { EmptyState, ErrorBox, LinkButton, Spinner } from "../_components/ui";
 import { useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
-import { recipeShop, useRecipeCards } from "../_lib/recipes";
-import { useShopManifest, useShopProducts } from "../_lib/shopProducts";
+import { recipeShopSetFor, useRecipeCards, useRecipeShopSet } from "../_lib/recipes";
+import { useShopManifest } from "../_lib/shopProducts";
 import { RecipeTile } from "../recipes/RecipeTile";
 
 // "My meals" › Recipes: recipes from our book the person saved, newest first, and the ones Pip made for them.
-// Filled at the person's shop and fitted to their meal and diet, like every recipe list; the same two-column grid of cards as Recipes.
+// Filled from the person's shops (as on Recipes) and fitted to their meal and diet, like every recipe list; the same two-column grid of cards as Recipes.
 // Taking a saved recipe out with its heart offers an Undo for 6 seconds (like Restaurant meals beside it), in Home's "Added" bar at the top of the
 // screen, so it never sits under the next heart or the tab bar; Undo puts the save back where it was, with its date.
 export function MyRecipes() {
@@ -26,8 +26,10 @@ export function MyRecipes() {
   const saves = useStore(savedRecipesStore);
   const mine = useStore(myRecipesStore);
   const manifest = useShopManifest();
-  const shop = recipeShop(manifest, null, settings.shops);
-  const state = useShopProducts(shop);
+  // the same shops, together, as the Recipes page: a recipe saved there is filled here the same way, with the same figures
+  const shopIds = recipeShopSetFor(manifest, null, settings.shops);
+  const shop = shopIds[0] ?? null;
+  const state = useRecipeShopSet(shopIds);
   const products = state.status === "ready" ? state.products : null;
   const target = mealTargetFor(settings);
   const book = useMemo(() => saves.map((s) => RECIPES.find((r) => r.id === s.id)).filter((r): r is Recipe => !!r), [saves]);

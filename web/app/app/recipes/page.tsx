@@ -9,7 +9,6 @@ import { AI_RECIPES_ENABLED, PHOTO_RECIPES_ENABLED, SAMPLES_ENABLED } from "@/li
 import { formatDate } from "@/lib/mm/format";
 import { RETAILERS } from "@/lib/mm/groceries";
 import { tk, type T } from "@/lib/mm/i18n";
-import { recipesFromList } from "@/lib/mm/listRecipes";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { toggleAllergen } from "@/lib/mm/menu-view";
 import { RECIPES } from "@/lib/mm/recipeBook";
@@ -27,7 +26,8 @@ import { useGate } from "../_components/Paywall";
 import { Button, EmptyState, ErrorBox, Segmented, Sheet, Spinner } from "../_components/ui";
 import { useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
-import { recipeShopSet, useRecipeCards, useRecipeMakerEnabled, useRecipeShopSet, type RecipeCard } from "../_lib/recipes";
+import { recipeShopSetFor, useRecipeCards, useRecipeMakerEnabled, useRecipeShopSet, type RecipeCard } from "../_lib/recipes";
+import { useListRecipes } from "../_lib/listRecipes";
 import { useShopManifest } from "../_lib/shopProducts";
 import { MealPicker, targetSentence } from "./MealPicker";
 import { NicheFields } from "./NicheFields";
@@ -168,16 +168,14 @@ function RecipesScreen() {
   const asked = useSearchParams().get("r");
   const settings = useSettings();
   const manifest = useShopManifest();
-  // founder 2026-11-17: the ingredients come from the person's shops whose labels we've read, the first ticked first (a link's ?r= goes first until the shops are
-  // changed here); every card is worked out from those shops' products together (lib/mm/recipes.ts: another shop fills in only what the first doesn't sell)
+  // founder 2026-11-17: the ingredients come from the person's shops whose labels we've read, the first ticked first (a link's ?r= counts only while none of
+  // theirs can make recipes, and not once the shops are changed here); every card is worked out from those shops' products together (lib/mm/recipes.ts: another shop fills in only what the first doesn't sell)
   const [ownShops, setOwnShops] = useState(false);
-  const shopIds = recipeShopSet(manifest, ownShops ? null : asked, settings.shops);
+  const shopIds = recipeShopSetFor(manifest, ownShops ? null : asked, settings.shops);
   const shop = shopIds[0] ?? null;
   const [retry, setRetry] = useState(0);
   const state = useRecipeShopSet(shopIds, retry);
   const products = state.status === "ready" ? state.products : null;
-  // the first shop's own list, for "Cook with what's on your list" (its page, /app/groceries/list/recipes, works from that shop)
-  const firstList = state.status === "ready" ? state.lists[0] ?? null : null;
   const target = mealTargetFor(settings);
   const diet = settings.preferences;
   const { cards, leftOut, incomplete } = useRecipeCards(null, products, diet, target);
@@ -229,7 +227,9 @@ function RecipesScreen() {
   const slot: MealType = mealSlotFor(now);
   const picks = useMemo(() => sortCards(cards.filter((c) => c.recipe.meal === slot), target ? "fit" : "protein").slice(0, PICKS), [cards, slot, target]);
   // how many recipes the shopping list can help make, and the first three (their pictures go on the card)
-  const fromList = useMemo(() => (shop && firstList && shopping.length ? recipesFromList(shopping, cards.map((c) => c.recipe), firstList, shop) : []), [shopping, cards, firstList, shop]);
+  // worked out exactly as its page, /app/groceries/list/recipes, works them out (useListRecipes: the person's recipe shops, never this page's ?r=), so the
+  // count and the pictures are always what that page lists
+  const fromList = useListRecipes(shopping).matches ?? [];
   const listRecipes = fromList.length;
   const nameOf = (id: string) => manifest?.retailers.find((r) => r.id === id)?.name ?? "";
   const shopName = shop ? nameOf(shop) : "";

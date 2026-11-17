@@ -12,12 +12,12 @@ import { MinusIcon, PlusIcon } from "../icons";
 import { Button, ErrorBox, Spinner } from "../ui";
 import { useSettings } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
-import { recipeShop, useRecipeCards, type RecipeCard } from "../../_lib/recipes";
-import { useShopManifest, useShopProducts } from "../../_lib/shopProducts";
+import { recipeShopSetFor, useRecipeCards, useRecipeShopSet, type RecipeCard } from "../../_lib/recipes";
+import { useShopManifest } from "../../_lib/shopProducts";
 import { AddPill, PICK_LIST, PickRow, SheetSearch, type NewEntry } from "./parts";
 
 // "Choose a recipe": one of our recipes, a serving or more of it. The figures are exactly the ones the recipe's card and page show per serving
-// (fitted to the person's meal size, from the shop's own labels); the servings stepper only multiplies them. Recipes that don't suit the
+// (fitted to the person's meal size, from the labels of the person's shops, worked out together as on those screens); the servings stepper only multiplies them. Recipes that don't suit the
 // person's diet are left out, as everywhere else. Each row leads with the recipe's own picture (founder 2026-11-17, "use images please when
 // possible"; RecipeThumb: its small copy, the full picture, else the card's plate drawing), the size of a product's picture in this sheet; the
 // recipe's id is kept on the entry so Home and Today show the same picture.
@@ -39,8 +39,10 @@ export function RecipePick({ meal, onAdd }: { meal: Meal; onAdd: (entry: NewEntr
   const settings = useSettings();
   const [retry, setRetry] = useState(0);
   const manifest = useShopManifest(retry);
-  const shop = recipeShop(manifest, null, settings.shops);
-  const state = useShopProducts(shop, retry);
+  // the same shops, together, as the Recipes page and the recipe page, so a recipe logs with the figures its card and page show
+  const shopIds = recipeShopSetFor(manifest, null, settings.shops);
+  const shop = shopIds[0] ?? null;
+  const state = useRecipeShopSet(shopIds, retry);
   const products = state.status === "ready" ? state.products : null;
   const { cards } = useRecipeCards(null, products, settings.preferences, mealTargetFor(settings));
   const [servings, setServings] = useState(1);

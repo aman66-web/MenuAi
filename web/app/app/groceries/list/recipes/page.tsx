@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import type { ListRecipe } from "@/lib/mm/listRecipes";
-import { shopPhotoSources, type ShopFile } from "@/lib/mm/shopProducts";
+import { shopPhotoSources } from "@/lib/mm/shopProducts";
 import { shoppingStore } from "@/lib/mm/stores";
 import { CheckIcon, ChevronRightIcon, PlusIcon, PotIcon } from "../../../_components/icons";
 import { PipSays } from "../../../_components/Mascot";
@@ -11,24 +10,31 @@ import { Button, EmptyState, ErrorBox, LinkButton, Spinner } from "../../../_com
 import { useBack } from "../../../_lib/backNav";
 import { useHydrated, useStore } from "../../../_lib/hooks";
 import { useT } from "../../../_lib/i18n";
-import { addMissing, useListRecipes } from "../../../_lib/listRecipes";
+import { addedNote, addMissing, fileForProduct, useListRecipes, type ListMatch } from "../../../_lib/listRecipes";
 import { Rich } from "../../../_lib/Rich";
 import { BackLink, CARD, LABEL, NOTE } from "../../PageBits";
 import { ProductMini } from "../../ProductMini";
 import { RecipeThumb } from "../../../recipes/RecipeThumb";
 
 // "What can I cook with this?" (founder 2026-10-10): recipes that use something on the shopping list, the ones needing least else first.
-// Each says what the list already covers and what is still to buy, with one tap to add the rest (the recipe's own picks at the shop).
+// Each says what the list already covers and what is still to buy, with one tap to add the rest (the recipe's own picks, each at its own shop: the recipes come
+// from every one of the person's recipe shops, like the Recipes page).
 // Looks follow Home (founder 2026-10-15): white cards with 20 px corners, a thin lime bar for how much of the recipe the list covers, the
 // ingredients already on the list as lime chips with a tick (like a ticked item on the list) and the rest as outlined chips.
 
 const PAGE = 12;
 
-function MatchCard({ m, file }: { m: ListRecipe; file: ShopFile }) {
+function MatchCard({ m }: { m: ListMatch }) {
   const t = useT();
   const [added, setAdded] = useState<string | null>(null);
   const total = m.recipe.ingredients.length;
   const label = (i: number) => t(m.resolved.picks[i]?.spec.label ?? m.recipe.ingredients[i]!.label);
+  const file = m.files[0]!;
+  const add = () => {
+    const n = addMissing(m, file);
+    const { text, values } = addedNote(m, n, file); // from the match alone: the shops its products go under
+    setAdded(t(text, values));
+  };
   return (
     <li className={`${CARD} p-5`}>
       {/* the recipe's own picture beside its name (founder 2026-11-17: "Use images please when possible"); where the card is narrow (large text) it sits above the name */}
@@ -56,12 +62,13 @@ function MatchCard({ m, file }: { m: ListRecipe; file: ShopFile }) {
             {/* each with the photo of the product "Add the other n" puts on the list (the recipe's own pick at the shop); the words stay the label */}
             {m.missing.map((i) => {
               const pick = m.resolved.picks[i];
-              return pick
-                ? <li key={i} className="inline-flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] py-1 pe-3.5 ps-1.5 text-sm font-medium"><ProductMini sources={shopPhotoSources(file, pick.product)} />{label(i)}</li>
+              const own = pick ? fileForProduct(m.files, pick.product) : undefined;
+              return pick && own
+                ? <li key={i} className="inline-flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] py-1 pe-3.5 ps-1.5 text-sm font-medium"><ProductMini sources={shopPhotoSources(own, pick.product)} />{label(i)}</li>
                 : <li key={i} className="rounded-full border border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] px-3.5 py-1.5 text-sm font-medium">{label(i)}</li>;
             })}
           </ul>
-          <Button variant="secondary" className="mt-5" onClick={() => { const n = addMissing(m, file); setAdded(n === 1 ? t("Added 1 product to your {shop} list.", { shop: file.name }) : t("Added {n} products to your {shop} list.", { n, shop: file.name })); }}>
+          <Button variant="secondary" className="mt-5" onClick={add}>
             <PlusIcon className="h-5 w-5" />{m.missing.length === 1 ? t("Add the last one to my list") : t("Add the other {n} to my list", { n: m.missing.length })}
           </Button>
         </>
@@ -101,7 +108,7 @@ export default function ListRecipesPage() {
         <>
           <p role="status" className="app-numbers mt-7 ps-1 text-sm font-semibold text-muted">{matches.length === 1 ? t("1 recipe uses something on your list") : t("{n} recipes use something on your list", { n: matches.length })}</p>
           <ul className="mt-3 space-y-3.5">
-            {matches.slice(0, limit).map((m) => (<MatchCard key={m.recipe.id} m={m} file={state.file} />))}
+            {matches.slice(0, limit).map((m) => (<MatchCard key={m.recipe.id} m={m} />))}
           </ul>
           {matches.length > limit && <div className="mt-4"><Button full variant="secondary" className="min-h-12 text-[0.9375rem]" onClick={() => setLimit((n) => n + PAGE)}>{t("Show more recipes ({n} more)", { n: matches.length - limit })}</Button></div>}
           <p className={`mt-6 ${NOTE}`}>{t("Recipes are matched to your list by the products' names and chosen for your diet by their ingredients; check each pack.")}</p>

@@ -5,17 +5,27 @@ import { useEffect, useMemo, useState } from "react";
 import { fitDistance, fitRecipe, recipeForDiet, recipeTotals, resolveRecipe, type MealTarget, type Recipe, type RecipeTotals } from "@/lib/mm/recipes";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import type { DietPrefs } from "@/lib/mm/pantry";
-import { recipeShopSet, tagShopProducts, type ShopFile, type ShopManifest, type ShopProduct } from "@/lib/mm/shopProducts";
+import { recipeShops, recipeShopSet, tagShopProducts, type ShopFile, type ShopManifest, type ShopProduct } from "@/lib/mm/shopProducts";
 import { loadShopFile } from "./shopProducts";
 
 // Recipes filled with shops' own products (lib/mm/recipes.ts). Each shop's full list is loaded once and cached (_lib/shopProducts.ts).
 
-// The rule for which shops a recipe uses lives with the shop lists (pure and unit-tested): recipeShopSet in lib/mm/shopProducts.ts.
-export { recipeShopSet };
+/**
+ * The shops every recipe screen uses (Recipes, a recipe page, Add food, My meals, onboarding's first recipe), so a recipe has the same products and figures
+ * wherever it is shown. The rule lives with the shop lists (recipeShopSet in lib/mm/shopProducts.ts: the person's shops whose labels we've read, in the order
+ * they ticked them), with one more: a shop named by the address (a recipe card's &r=, a Back link's ?r=, a tab that remembers an old address, a saved
+ * recipe's own shop) counts only when none of the person's own shops can make recipes yet. Their own choice always wins, so a supermarket they have
+ * unticked never comes back first (founder 2026-11-17: "If I choose to shop at Asda, it's still showing stuff from Sainsbury's").
+ */
+export function recipeShopSetFor(manifest: ShopManifest | null, asked: string | null, mine: readonly string[] | undefined): string[] {
+  const ready = recipeShops(manifest);
+  const ownReady = (mine ?? []).some((id) => ready.some((r) => r.id === id));
+  return recipeShopSet(manifest, ownReady ? null : asked, mine);
+}
 
-/** The shop recipes open on: the first of recipeShopSet (the one asked for, else the first of the person's supermarkets that has a full list, else the first full list). */
+/** The shop recipes open on: the first of recipeShopSetFor. */
 export function recipeShop(manifest: ShopManifest | null, asked: string | null, mine: readonly string[] | undefined): string | null {
-  return recipeShopSet(manifest, asked, mine)[0] ?? null;
+  return recipeShopSetFor(manifest, asked, mine)[0] ?? null;
 }
 
 export type ShopSetState =

@@ -8,8 +8,8 @@ import { PipSays } from "../_components/Mascot";
 import { RecipeTile } from "../recipes/RecipeTile";
 import { useNow, useSettings } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
-import { recipeShop, useRecipeCards, type RecipeCard } from "../_lib/recipes";
-import { useShopManifest, useShopProducts } from "../_lib/shopProducts";
+import { recipeShopSetFor, useRecipeCards, useRecipeShopSet, type RecipeCard } from "../_lib/recipes";
+import { useShopManifest } from "../_lib/shopProducts";
 
 // The last onboarding screen (founder 2026-10-15: "choose a recipe to start with ... then it will show them the macros, where to buy it and the
 // substitutes"): two recipes picked for this person, side by side. Tapping one ends onboarding and opens that recipe's own page (the real one,
@@ -37,8 +37,10 @@ export function RecipeChoice({ onPick }: { onPick: (href: string) => void }) {
   const t = useT();
   const settings = useSettings();
   const manifest = useShopManifest();
-  const shop = recipeShop(manifest, null, settings.shops);
-  const state = useShopProducts(shop);
+  // the same shops, together, as the recipe page this opens, so the card and the page agree
+  const shopIds = recipeShopSetFor(manifest, null, settings.shops);
+  const shop = shopIds[0] ?? null;
+  const state = useRecipeShopSet(shopIds);
   const products = state.status === "ready" ? state.products : null;
   const target = mealTargetFor(settings);
   const { cards } = useRecipeCards(null, products, settings.preferences, target);
@@ -48,8 +50,9 @@ export function RecipeChoice({ onPick }: { onPick: (href: string) => void }) {
   const [opened, setOpened] = useState(false);
   // still working out which shop and which recipes: the manifest, then the shop's list
   const loading = manifest === null || (shop !== null && state.status === "loading");
-  // only a shop whose products and labels we have read can fill a recipe, so this may not be the shop the person picked: say which it is
-  const shopName = manifest?.retailers.find((r) => r.id === shop)?.name;
+  // only shops whose products and labels we have read can fill a recipe, so these may not be the shops the person picked: say which they are (as Recipes does)
+  const shopNames = shopIds.map((id) => manifest?.retailers.find((r) => r.id === id)?.name).filter((n): n is string => !!n);
+  const shopName = shopNames.length ? new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) : undefined;
 
   if (loading) {
     return (
