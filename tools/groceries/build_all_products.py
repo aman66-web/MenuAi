@@ -499,6 +499,57 @@ def fill_community_nutrition(docs: dict[str, dict], by_code: dict[str, tuple[lis
     return counts
 
 
+def own_label(nut) -> bool:
+    """A row's numbers were read from that shop's own product page (not community numbers, not borrowed from another shop)."""
+    return bool(nut) and not (len(nut) > 11 and isinstance(nut[11], str) and (nut[11] == "off" or nut[11].startswith("same:")))
+
+
+def fill_same_product_nutrition(docs: dict[str, dict]) -> dict[str, int]:
+    """A row with no label of its own takes the label read from ANOTHER supermarket's page for exactly the same product (founder 2026-11-17: "if it's the same
+    exact product on another supermarket ... you can literally just duplicate it"): the same barcode (never a shop-internal number), else the same branded name
+    and pack size (build_groceries.name_key: never a shop's own brand, whose recipe differs from shop to shop; exact, not the any-order match photos use). A
+    product two shops' labels disagree on lends nothing. Marked "same:<shop>" so the app says whose page the numbers are from. Runs before the community step,
+    so a shop's label always beats community numbers. Returns how many rows per shop."""
+    by_code: dict[str, tuple[str, list] | None] = {}
+    by_name: dict[str, tuple[str, list] | None] = {}
+
+    def put(table: dict, key: str, shop: str, nut: list) -> None:
+        if key in table:
+            seen = table[key]
+            if seen is not None and seen[1][:4] != nut[:4]:
+                table[key] = None  # two shops print different numbers for it: lend neither
+            return
+        table[key] = (shop, nut)
+
+    for shop, doc in docs.items():
+        for r in doc["products"]:
+            if not own_label(r[10]):
+                continue
+            nut = list(r[10][:11]) + [""] * (11 - len(r[10][:11]))
+            code = norm_code(r[9]) if r[9] else ""
+            if code and not restricted_code(code):
+                put(by_code, code, shop, nut)
+            key = name_key(r[1])
+            if key and (shop, r[0]) not in NAME_SKIP:
+                put(by_name, key, shop, nut)
+    counts: dict[str, int] = {}
+    for shop, doc in docs.items():
+        n = 0
+        for r in doc["products"]:
+            if r[10] is not None:
+                continue
+            code = norm_code(r[9]) if r[9] else ""
+            hit = by_code.get(code) if code and not restricted_code(code) else None
+            if not hit and (shop, r[0]) not in NAME_SKIP:
+                key = name_key(r[1])
+                hit = by_name.get(key) if key else None
+            if hit and hit[0] != shop:
+                r[10] = list(hit[1]) + ["same:" + hit[0]]
+                n += 1
+        counts[shop] = n
+    return counts
+
+
 def word_set(key: str) -> str:
     """The same words in any order ("hovis soft medium sliced white bread 800g" = "hovis soft white medium sliced bread 800g"): for photos only."""
     return "words:" + " ".join(sorted(set(key.split())))
@@ -581,6 +632,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"{a.only}: no listing to build from")
         return 1
     filled = fill_photos(docs, catalogue_photos(), read_off_images())
+    same = fill_same_product_nutrition(docs)
     community = fill_community_nutrition(docs, catalogue_nutrition())
     if not a.only:
         print(f"rows still without any photo whose barcode Open Food Facts may have: {write_wanted_off(docs)} (data/groceries/wanted-images/off.csv)")
@@ -593,9 +645,10 @@ def main(argv: list[str] | None = None) -> int:
         (OUT / f"{shop}.json").write_text(text)
         with_nutrition = sum(1 for p in doc["products"] if p[10])
         with_community = sum(1 for p in doc["products"] if p[10] and len(p[10]) > 11 and p[10][11] == "off")
+        with_same = sum(1 for p in doc["products"] if p[10] and len(p[10]) > 11 and str(p[10][11]).startswith("same:"))
         priced = sum(1 for p in doc["products"] if p[2] is not None)
         entry = {"id": shop, "name": doc["name"], "file": f"{shop}.json", "count": len(doc["products"]), "checkedOn": doc["checkedOn"],
-                 "nutrition": with_nutrition, **({"community": with_community} if with_community else {}), "priced": priced, "sha256": hashlib.sha256(text.encode()).hexdigest()}
+                 "nutrition": with_nutrition, **({"community": with_community} if with_community else {}), **({"sameProduct": with_same} if with_same else {}), "priced": priced, "sha256": hashlib.sha256(text.encode()).hexdigest()}
         if a.only:  # replace this shop's entry where it stands (or add it at the end), leave every other entry as it is
             at = next((i for i, r in enumerate(manifest["retailers"]) if r.get("id") == shop), None)
             if at is None:
@@ -605,7 +658,7 @@ def main(argv: list[str] | None = None) -> int:
         else:
             manifest["retailers"].append(entry)
         print(f"{shop}: {len(doc['products'])} products ({priced} with a price), {len(text) / 1e6:.1f} MB, {sum(1 for p in doc['products'] if p[8])} with the shop's photo, "
-              f"{sum(1 for p in doc['products'] if len(p) > 11 and p[11])} with a page address, {sum(1 for p in doc['products'] if p[9])} with a barcode, {with_nutrition} with nutrition ({community.get(shop, 0)} of them community numbers by barcode), {len(doc['categories'])} categories")
+              f"{sum(1 for p in doc['products'] if len(p) > 11 and p[11])} with a page address, {sum(1 for p in doc['products'] if p[9])} with a barcode, {with_nutrition} with nutrition ({same.get(shop, 0)} from the same product's page at another shop, {community.get(shop, 0)} community numbers by barcode), {len(doc['categories'])} categories")
     manifest_path.write_text(json.dumps(manifest, indent=1) + "\n")
     for p in problems[:20]:
         print("problem:", p)

@@ -1235,3 +1235,35 @@ class FibreEnergyTests(unittest.TestCase):
         self.assertIsNotNone(bg.implausible(243, 4.0, 27.5, 1.2, 1006))           # the same label without its fibre line can't be checked: left out
         self.assertIsNone(bg.implausible(255, 11, 65, 3, 1067, 27))               # fibre already inside carbohydrate: still fine
         self.assertIsNotNone(bg.implausible(400, 5, 10, 2, None, 5))              # fibre can't explain 400 kcal from 5 g protein, 10 g carbs, 2 g fat
+
+
+class SameProductNutritionTests(unittest.TestCase):
+    """build_all_products.fill_same_product_nutrition (founder 2026-11-17: the same exact product at another supermarket lends its label)."""
+
+    def test_barcode_and_branded_name_only(self):
+        label = [77, 4.7, 13.0, 0.2, None, 4.5, 3.8, 0.6, 327, "g", ""]
+        docs = {
+            "sainsburys": {"products": [
+                ["s1", "Heinz Baked Beans In Tomato Sauce 415g", 1.4, None, "", None, None, 0, "", "5000157062673", list(label)],
+                ["s2", "Sainsbury's Chopped Tomatoes 400g", 0.4, None, "", None, None, 0, "", "", [21, 1, 3, 0.1, None, None, None, None, None, "g", ""]],
+            ]},
+            "tesco": {"products": [
+                ["t1", "Heinz Beanz 415G", 1.5, None, "", None, None, 0, "", "05000157062673", None],         # same barcode (leading zero)
+                ["t2", "Heinz Baked Beans in Tomato Sauce 415g", 1.5, None, "", None, None, 0, "", "", None],  # same branded name and size
+                ["t3", "Tesco Chopped Tomatoes 400g", 0.4, None, "", None, None, 0, "", "", None],             # own brand: never
+            ]},
+        }
+        self.assertEqual(bap.fill_same_product_nutrition(docs), {"sainsburys": 0, "tesco": 2})
+        t1, t2, t3 = docs["tesco"]["products"]
+        self.assertEqual(t1[10][:4], [77, 4.7, 13.0, 0.2])
+        self.assertEqual(t1[10][11], "same:sainsburys")
+        self.assertEqual(t2[10][11], "same:sainsburys")
+        self.assertIsNone(t3[10])
+
+    def test_disagreeing_labels_lend_nothing(self):
+        docs = {
+            "a": {"products": [["a1", "Brand Oats 1kg", 1, None, "", None, None, 0, "", "5012345678900", [370, 11, 60, 8, None, None, None, None, None, "g", ""]]]},
+            "b": {"products": [["b1", "Brand Oats 1kg", 1, None, "", None, None, 0, "", "5012345678900", [380, 12, 61, 8, None, None, None, None, None, "g", ""]]]},
+            "c": {"products": [["c1", "Brand Oats 1kg", 1, None, "", None, None, 0, "", "5012345678900", None]]},
+        }
+        self.assertEqual(bap.fill_same_product_nutrition(docs)["c"], 0)

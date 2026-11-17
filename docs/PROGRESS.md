@@ -2843,6 +2843,16 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   ingredients and allergens into the app is still to build (the nutrition goes through `labels_chrome_ingest.py` as before; Tesco's address to be added there). Lidl prints no nutrition;
   Waitrose's list has no page addresses (to find); M&S's priced range is small.
 
+- 2026-11-17 (late night, Mac) — **The same product's label is shared across supermarkets** (founder: "if it's the same exact product on another supermarket ... you can literally just
+  duplicate it"). `build_all_products.fill_same_product_nutrition`: a product with no label of its own takes the label read from another supermarket's page for exactly the same
+  product: the same barcode (never a shop-internal number), else the same branded name and pack size (`build_groceries.name_key`, exact; never a shop's own brand, whose recipe
+  differs between shops); a product two shops' labels disagree on lends nothing; it runs before the community step, so a shop's label always beats community numbers. Marked
+  `same:<shop>`; the product page says "Read from the same product's page on {shop}'s website." (new copy, rule 8); recipes treat it as a label. Now: Asda 1,178, Morrisons 1,094,
+  Waitrose 624, Tesco 448, Iceland 396, Sainsbury's 3 products gain a shop's label this way (Aldi, Lidl, M&S none: almost all own brand); Asda's recipes 40 -> 51. Python tests added.
+  **Chrome reading in progress:** four helpers (Aldi, Tesco, Asda, M&S every product) in their own tabs; the reader now fits each result in the browser tool's 1,500-character limit
+  (the first Tesco round showed cut-off lines; nothing broken was stored), and Aldi prints no label for loose produce (packaged food yes). The full web suite timed out on 17 data-heavy
+  tests while the four helpers ran (load average 27); each passed when run alone.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

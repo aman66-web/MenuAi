@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { addToList, formatPrice, withPhoto } from "@/lib/mm/groceries";
+import { addToList, formatPrice, retailerName, withPhoto } from "@/lib/mm/groceries";
 import { shoppingStore } from "@/lib/mm/stores";
 import { formatDate } from "@/lib/mm/format";
 import { foodDietProblem } from "@/lib/mm/foodDiet";
@@ -116,7 +116,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
                 groupLabel={t("{name}, {kcal} calories, {protein} grams protein, {carbs} grams carbs, {fat} grams fat {per}", { name: product.name, kcal: Math.round(nutrition.kcal), protein: nutrition.protein, carbs: nutrition.carbs, fat: nutrition.fat, per: nutritionBasis(nutrition, t) })}
               />
             </div>
-            <p className={`mt-4 ${NOTE}`}>{nutrition.community ? t("Numbers from Open Food Facts contributors (community data), not the supermarket.") : file.nutritionCheckedOn ? t("Read from the product's own page on {shopPossessive} website, checked {date}.", { shopPossessive: poss(file.name), date: formatDate(file.nutritionCheckedOn, t) }) : t("Read from the product's own page on {shopPossessive} website.", { shopPossessive: poss(file.name) })} {t("Allergens aren't shown for this product yet: check the pack or the page.")}</p>
+            <p className={`mt-4 ${NOTE}`}>{nutrition.community ? t("Numbers from Open Food Facts contributors (community data), not the supermarket.") : nutrition.sameAs ? t("Read from the same product's page on {shopPossessive} website.", { shopPossessive: poss(retailerName(nutrition.sameAs)) }) : file.nutritionCheckedOn ? t("Read from the product's own page on {shopPossessive} website, checked {date}.", { shopPossessive: poss(file.name), date: formatDate(file.nutritionCheckedOn, t) }) : t("Read from the product's own page on {shopPossessive} website.", { shopPossessive: poss(file.name) })} {t("Allergens aren't shown for this product yet: check the pack or the page.")}</p>
           </>
         ) : inCatalogue ? (
           <>

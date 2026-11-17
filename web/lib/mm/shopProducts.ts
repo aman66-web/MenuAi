@@ -9,7 +9,7 @@ import { normalizeForSearch } from "./search";
 /** [id, name, price, unitPrice, unit, memberPrice, schemeIndex, categoryIndex, photoId, gtin, nutrition?, page?] where page is the product page's path after
  *  pageBase when it isn't pageBase + id (Aldi, Lidl: from the shop's own sitemap), and nutrition is
  *  [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kJ, "g" | "ml"] per 100 g or ml, copied from the product's own page, or null when that page has not been read. */
-export type ShopNutritionRow = [number, number, number, number, number | null, number | null, number | null, number | null, number | null, "g" | "ml", string?, "off"?];
+export type ShopNutritionRow = [number, number, number, number, number | null, number | null, number | null, number | null, number | null, "g" | "ml", string?, string?];
 export type ShopRow = [string, string, number | null, number | null, string, number | null, number | null, number, string, string, (ShopNutritionRow | null)?, string?, [string, string]?];
 
 import { RECIPE_COVERAGE } from "./recipeCoverage";
@@ -95,6 +95,10 @@ export interface ShopNutrition {
    *  the barcode catalogue; tools/groceries/build_all_products.py catalogue_nutrition). Every screen showing them says so (founder 2026-11-17: recipes for
    *  every supermarket in the app). */
   community?: true;
+  /** Set when the numbers were read from ANOTHER supermarket's page for exactly the same product (the same barcode, or the same branded name and pack size;
+   *  never a shop's own brand): that shop's id (tools/groceries/build_all_products.py fill_same_product_nutrition; founder 2026-11-17). A real label, so
+   *  recipes treat it like the shop's own; the product page says whose page it is from. */
+  sameAs?: string;
 }
 
 export interface ShopProduct {
@@ -172,7 +176,8 @@ function decodeNutrition(n: ShopNutritionRow | null | undefined): ShopNutrition 
   const [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kj, per, state, source] = n;
   if (![kcal, protein, carbs, fat].every((v) => typeof v === "number" && Number.isFinite(v)) || (per !== "g" && per !== "ml")) return null;
   const opt = (v: number | null) => (typeof v === "number" ? v : null);
-  return { kcal, protein, carbs, fat, saturates: opt(saturates), sugars: opt(sugars), fibre: opt(fibre), salt: opt(salt), kj: opt(kj), per, state: typeof state === "string" && /^[a-z][a-z ]{0,23}$/.test(state) ? state : "", ...(source === "off" ? { community: true as const } : {}) };
+  return { kcal, protein, carbs, fat, saturates: opt(saturates), sugars: opt(sugars), fibre: opt(fibre), salt: opt(salt), kj: opt(kj), per, state: typeof state === "string" && /^[a-z][a-z ]{0,23}$/.test(state) ? state : "",
+    ...(source === "off" ? { community: true as const } : {}), ...(typeof source === "string" && /^same:[a-z][a-z-]{1,30}$/.test(source) ? { sameAs: source.slice(5) } : {}) };
 }
 
 // Where a borrowed photo may come from: the supermarkets' own image servers and Open Food Facts' (https only, checked again here).
