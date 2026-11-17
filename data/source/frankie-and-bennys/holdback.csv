@@ -17,3 +17,6 @@ strathmore-water-still,"Allergen row contradicts the item's name: the page marks
 strathmore-water-still-large,"Allergen row contradicts the item's name: the page marks all 14 allergens, every cereal and every tree nut for bottled still water."
 strathmore-water-sparkling-regular,"Allergen row contradicts the item's name: the page marks all 14 allergens, every cereal and every tree nut for bottled sparkling water."
 strathmore-water-sparkling-large,"Allergen row contradicts the item's name: the page marks all 14 allergens, every cereal and every tree nut for bottled sparkling water."
+americano-decaf-with-oat-milk,"Allergen row contradicts the item's name: the page marks milk and not oats for an Americano with oat milk, and prints exactly the numbers of the Americano with dairy milk."
+yorkshire-tea-regular-with-milk,Allergen row contradicts the item's name: the page marks peanuts and every tree nut as 'Contains' for a cup of tea with milk.
+yorkshire-tea-regular-with-oat-milk,"Allergen row contradicts itself: the page marks the tea 'Gluten Free' and 'Vegan' but also 'Contains' every gluten cereal, peanuts and every tree nut."

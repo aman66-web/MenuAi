@@ -5,18 +5,18 @@
 
 Source: https://englishheritage.mysaffronportal.com/Menus  (Civica Food Data Hub, "v2.16.0.25" in the footer; linked from the
 food-and-drink pages of english-heritage.org.uk as "allergen and nutritional information"). The portal's robots.txt answers 404 (no
-rules) and the pages need no login. It lists 36 menus (8 per page, 5 pages): one per site cafe/tearoom/kiosk plus "Seasonal Menu" and
+rules) and the pages need no login. It lists 38 menus (8 per page, 5 pages; 36 until October 2026): one per site cafe/tearoom/kiosk plus "Seasonal Menu" and
 "Soft Scoop Ice Cream". Every menu page is server-rendered HTML (see english_heritage_pages.py) and shows each dish TWICE (a narrow
 list and a wide table); both renderings are parsed with different code and must agree on every figure and every allergen mark.
 --fetch downloads the list pages and every menu once into --cache (browser User-Agent, one request per second); without it the
-script reads --cache only. All 36 menus are read.
+script reads --cache only. All 38 menus are read.
 
 --products DIR (with --fetch it downloads the missing pages, about 500 requests at one per second, about 10-20 minutes) adds a third, independent
 check: every published dish's own product page (/Products/<id>) is read with different code and must repeat the menu's kcal, kJ, fat,
 saturates, sugars, salt and allergen words exactly; the page's per-100 g column must agree with the per-portion figures (implied portion
 weight from calories, fat and salt within a factor of 2 and under 1.5 kg), and a portion label that is a gram weight ("Each 283g
-contains") is published as weight_g. Without --products the run still works, but weight_g stays blank and the Cottage Pie hold-back (see
-PRODUCT_HOLDBACK) is kept without being re-derived.
+contains") is published as weight_g. Without --products the run still works, but weight_g stays blank and the hold-backs in
+PRODUCT_HOLDBACK (Cottage Pie until it left the menus in November 2026) are kept without being re-derived.
 
 What the portal prints per dish ("Each portion contains"): energy as "583kcal (2439kJ)", Fat, Saturates, Sugars, Salts (grams) and the
 allergen marks of the 14 UK allergens ("Contains X" / "May Contain X", with the named cereals and tree nuts nested under them) and
@@ -71,7 +71,7 @@ CHAIN_ID = "english-heritage"
 HOST = "https://englishheritage.mysaffronportal.com"
 SOURCE_URL = HOST + "/Menus"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
-SOURCE_TITLE = ("English Heritage food and drink: allergen and nutritional information, all 36 menus of the Civica Food Data Hub portal "
+SOURCE_TITLE = ("English Heritage food and drink: allergen and nutritional information, all 38 menus of the Civica Food Data Hub portal "
                 "(v2.16.0.25; accessed {checked_on}, no date shown)")
 ALLERGEN_GUIDE_TITLE = ("English Heritage allergen and nutritional information, Civica Food Data Hub portal (v2.16.0.25; accessed {checked_on}, "
                         "no date shown)")
@@ -83,15 +83,15 @@ NAME = "English Heritage Cafes"
 CUISINE = "Cafe"
 PUBLISH_FAT = False  # DATA.md: fat stays blank for a calories-only chain; the printed value goes in the notes column
 
-EXPECTED_MENUS = 36
+EXPECTED_MENUS = 38
 # The portal is edited live: between two reads on 2026-10-08 (morning, afternoon) 19 of the 36 menus changed (soups, baguettes and
-# toasties re-costed, some dishes swapped); the counts below are those of the afternoon read, independently re-checked.
-EXPECTED_DISH_ROWS = 2351        # dish blocks over all 36 menus (a dish is listed once per menu and course)
-EXPECTED_DISHES = 526            # distinct dishes (names compared as above)
+# toasties re-costed, some dishes swapped). Re-read 2026-11-17: the portal now lists 38 menus; the counts below are that read's.
+EXPECTED_DISH_ROWS = 2399        # dish blocks over all 38 menus (a dish is listed once per menu and course); 2351 on 2026-10-08
+EXPECTED_DISHES = 519            # distinct dishes (names compared as above); 526 on 2026-10-08
 EXPECTED_CONFLICTS = 28          # dishes whose figures differ between menus: left out
-EXPECTED_PUBLISHED = 498         # items in items.csv (of which HOLDBACK are not published)
+EXPECTED_PUBLISHED = 491         # items in items.csv (of which HOLDBACK are not published); 498 on 2026-10-08
 
-NOTE = ("Read from all 36 site menus of English Heritage's food portal. Menus differ by site, so a dish is listed only if its figures and "
+NOTE = ("Read from all 38 site menus of English Heritage's food portal. Menus differ by site, so a dish is listed only if its figures and "
         "allergens are identical on every menu that prints it (28 differing dishes left out); it may not be sold at every site. Calories "
         "only, per portion: no protein or carbs. Named nuts and cereals a dish only may contain aren't listed.")
 
@@ -112,13 +112,13 @@ HOLDBACK = {
     "Carrot & Sweet Potato Soup with Roll & Butter": "Printed 29551 kcal, 358 g sugars and 170.3 g salt for one portion (its own product page: 230 kcal per 100 g): impossible; left out until the portal is corrected",
     "Curried Parsnip Soup with Roll & Butter": "Printed 29059 kcal, 321 g sugars and 170.9 g salt for one portion: impossible; left out until the portal is corrected",
     "Garden Vegetable Soup with Roll & Butter": "Printed 7198.4 kcal, 1432.4 g sugars and 17.8 g salt for one portion: impossible; left out until the portal is corrected",
-    "Sticky Toffee Muffin": "Printed 6670 kcal, 352 g fat, 387 g sugars: its product page gives the portion as '1 x 16 x 110g' (a tray of 16), so not one muffin; left out until the portal is corrected",
+    # 2026-11-17: "Sticky Toffee Muffin" (printed 6670 kcal for a tray of 16) is no longer on any menu, so it left this list. New in that read:
+    "Roast Potatoes Side": "Printed 49262 kcal (206112 kJ) and 540 g sugars for one portion: impossible; left out until the portal is corrected",
 }
 # Dishes held back because the portal's own product page contradicts the menu's per-portion figures (found by check_products, so only
 # re-derived when --products is given).
-PRODUCT_HOLDBACK = {
-    "Cottage Pie": "Printed 879 kcal and 40 g fat per portion, but its own product page prints 24 kcal and 1.1 g fat per 100 g, which would make the portion 3.6 kg: the two cannot both be right; left out until the portal is corrected",
-}
+# 2026-11-17: "Cottage Pie" (879 kcal per portion against 24 kcal per 100 g on its product page) is no longer on any menu, so the list is empty.
+PRODUCT_HOLDBACK: dict = {}
 
 
 def norm(name: str) -> str:

@@ -33,7 +33,7 @@ Left out on purpose (counted in the run's report):
 - dishes printed at one pub only, and dishes whose figures or allergens differ between pubs.
 HOLD_TEXT and own_problems(): dishes that stay in items.csv but are held back (holdback.csv): figures the chain's own page makes impossible (a
 portion of 572,356 kcal, saturates above total fat, calories far from the dish's own protein, carbs and fat) and allergen rows that contradict the
-dish's name (a club sandwich, brownies and fusilli with no gluten). Never corrected.
+dish's name (brownies and fusilli with no gluten). Never corrected.
 
 Allergens (docs/DATA.md "Allergens") are complete for every published dish: the printed Contains / May contain lines and the label ids the page's own
 allergen filter reads must agree (tenkites_c.allergens_checked). "Garlic / Onion Products" is printed beside the allergens but is not one of the 14
@@ -42,6 +42,9 @@ allergens: it is left out of the allergen lists (the chain's own page still show
 name or its printed description says so.
 
 Independent checks 2026-10-10: see data/audit/verified/fullers.json.
+Refreshed 2026-11-17 (same 10 menu codes on the pub websites; 52 tab pages): the winter menus add the courses Roast, Nibbles & Starters,
+Sunday Roast Add Ons and a Set Menu tab (Starter / Main Course / Pudding / Steak Supplement), mapped in course_category; the Club sandwich is now
+printed at one pub only, so its hold is gone; "pork ribeye" / "pork steak" no longer count as beef in tags_for.
 """
 from __future__ import annotations
 import argparse
@@ -267,25 +270,25 @@ def course_category(top: str, kids: bool, where: str):
         raise SystemExit(f"{where}: unmapped children's course {top!r}: add a rule to course_category")
     if t in DAYS:
         return "Dish of the day"
-    if re.fullmatch(r"add ons?|add ons and extras|extra add ons|add on s", t):
+    if re.fullmatch(r"add ons?|add ons and extras|extra add ons|add on s|sunday roast add ons|steak supplement \d+", t):
         return "Add-ons and extras"
-    if re.fullmatch(r"starters|starters and small plates|small plates and starters|bar snacks and small plates|while you wait|nibbles|bar snacks", t):
+    if re.fullmatch(r"starters?|starters and small plates|small plates and starters|nibbles and starters|bar snacks and small plates|while you wait|nibbles|bar snacks", t):
         return "Starters and small plates" if "starters" in t else "Bar snacks and sharing"
     if re.fullmatch(r"sharers|sharing boards|wings|chicken wings|nachos", t):
         return "Bar snacks and sharing"
     if t == "sandwiches":
         return "Sandwiches"
-    if re.fullmatch(r"mains|brunch", t):
+    if re.fullmatch(r"mains|main course|brunch", t):
         return "Breakfast and brunch" if t == "brunch" else "Mains"
     if re.fullmatch(r"handcrafted pies|pies", t):
         return "Pies"
     if t == "pizzas":
         return "Pizzas"
-    if re.fullmatch(r"sunday roasts?", t):
+    if re.fullmatch(r"sunday roasts?|roasts?", t):
         return "Sunday roasts"
     if t == "sides":
         return "Sides"
-    if re.fullmatch(r"puddings|after dinner|cake of the day|miniature puddings|sweet", t):
+    if re.fullmatch(r"puddings?|after dinner|cake of the day|miniature puddings|sweet", t):
         return "Puddings"
     if re.fullmatch(r"breakfast|breakfast brunch|brunch and breakfast|breakfast baps and pastries|breakfast baps|st ewe eggs|bagels|takeaway bagels|breakfast buffet", t):
         return "Breakfast and brunch"
@@ -357,10 +360,12 @@ def own_problems(vals: dict) -> list:
 # corrected: the chain's own allergen row contradicts the dish's own name.
 _NO_G = "allergen row contradicts the dish name: %s but no gluten is marked (neither 'Contains' nor 'May contain'). Restore by deleting this entry once the chain confirms the allergens."
 HOLD_TEXT = {
-    (False, "Club sandwich"): _NO_G % "a sandwich (bread)",
     (False, "Miniature chocolate brownie"): _NO_G % "a brownie",
     (True, "Fusilli pesto pasta"): _NO_G % "fusilli pasta",
 }
+
+
+_PORK_CUT = re.compile(r"\bpork (?:rib-?eye|steaks?)\b", re.I)
 
 
 def tags_for(r: dict) -> tuple:
@@ -371,7 +376,7 @@ def tags_for(r: dict) -> tuple:
     tags = []
     if ta._PORK.search(text):
         tags.append("contains_pork")
-    if ta._BEEF.search(text):
+    if ta._BEEF.search(_PORK_CUT.sub("pork", text)):     # "pork ribeye" / "pork steak" are pork cuts, not beef
         tags.append("contains_beef")
     unstated = bool(ta._MEATY.search(text)) and not ta._ANIMAL.search(text) and not tags
     return tags, unstated

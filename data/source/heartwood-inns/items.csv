@@ -20,10 +20,10 @@ wild-mushroom-tartine-poached-egg,Wild mushroom tartine (poached egg),Starters,,
 wild-mushroom-tartine-without-egg,Wild mushroom tartine (without egg),Starters,,543,8.0,40.9,36.2,6.2,,1.9,2.2,,,,,,,,vegetarian,false,true,,,"Source: À la carte > Starters > Wild mushroom tartine; also on Bar menu, Saturday, Weekday Lunch"
 beetroot-terrine,Beetroot terrine,Starters,,192,3.8,24.0,9.1,1.3,,1.6,19.7,,,,,,,,vegetarian,false,true,,,"Source: À la carte > Starters; also on Saturday, Sunday, Weekday Lunch"
 potted-devon-crab,Potted Devon crab,Starters,,495,16.1,37.4,35.6,12.0,,4.3,2.1,,,,,,,,,false,true,,,"Source: À la carte > Starters; also on Bar menu, Saturday"
-muscat-pumpkin-and-kirsch-soup,Muscat pumpkin & kirsch soup,Seasonal set starters,,137,1.8,6.1,10.7,3.0,,1.6,5.2,,,,,,,,vegetarian,false,true,,,Source: Weekday Lunch > Seasonal set starters
-celeriac-remoulade,Celeriac remoulade,Seasonal set starters,,263,7.9,3.7,24.6,3.0,,2.9,2.5,,,,,,,,vegetarian,false,true,,,Source: Weekday Lunch > Seasonal set starters
-pan-fried-gnocchi,Pan-fried gnocchi,Seasonal set starters,,539,11.7,34.8,38.7,15.8,,2.6,1.3,,,,,,,,vegetarian,false,true,,,Source: Weekday Lunch > Seasonal set starters
-chicken-ballotine,Chicken ballotine,Mains,,907,61.1,20.2,78.6,33.0,,3.9,7.4,,,,,,,,,false,true,,,"Source: À la carte > Mains; also on Saturday, Sunday, Weekday Lunch"
+jerusalem-artichoke-soup,Jerusalem artichoke soup,Seasonal set starters,,243,3.8,29.0,23.3,6.2,,2.5,16.4,,,,,,,,vegetarian,false,true,,,Source: Weekday Lunch > Seasonal set starters
+beetroot-and-winter-coleslaw-salad,Beetroot & winter coleslaw salad,Seasonal set starters,,225,4.6,18.8,15.0,1.7,,0.7,17.2,,,,,,,,vegetarian,false,true,,,Source: Weekday Lunch > Seasonal set starters
+cod-brandade-croquette,Cod brandade croquette,Seasonal set starters,,406,9.4,23.1,33.2,1.4,,2.5,4.6,,,,,,,,,false,true,,,Source: Weekday Lunch > Seasonal set starters
+chicken-ballotine,Chicken ballotine,Mains,,877,55.0,20.2,78.0,32.8,,3.9,7.4,,,,,,,,,false,true,,,"Source: À la carte > Mains; also on Saturday, Sunday, Weekday Lunch"
 jerusalem-artichoke-and-roasted-garlic-ravioli,Jerusalem artichoke & roasted garlic ravioli,Mains,,676,17.8,18.2,29.3,4.0,,2.9,12.4,,,,,,,,vegetarian,false,true,,,"Source: À la carte > Mains; also on Saturday, Sunday, Weekday Lunch"
 grilled-cauliflower-steak,Grilled cauliflower steak,Mains,,902,8.5,65.4,68.7,8.2,,5.5,20.0,,,,,,,,vegetarian,false,true,,,"Source: À la carte > Mains; also on Saturday, Sunday"
 pork-tomahawk,Pork tomahawk,Mains,,1633,97.1,27.8,126.9,47.1,,5.8,10.6,,,,,,,,contains_pork,false,true,,,"Source: À la carte > Mains; also on Saturday, Sunday, Weekday Lunch"
@@ -39,16 +39,19 @@ malabar-fish-curry,Malabar fish curry,Mains,,542,40.1,46.3,21.5,10.5,,2.9,7.9,,,
 gordo-chickpeas-and-roasted-red-pepper-salad,Gordo chickpeas and roasted red pepper salad,Mains,,867,31.1,129.4,49.1,10.8,,5.4,26.4,,,,,,,,vegetarian,false,true,,,Source: À la carte > Mains; also on Saturday
 fish-and-chips,Fish and chips,Mains,,1027,15.3,94.0,65.3,5.4,,6.6,6.3,,,,,,,,,false,true,,,Source: Weekday Lunch > Mains
 grilled-minute-steak-and-triple-cooked-chips,Grilled minute-steak & triple-cooked chips,Seasonal set mains,,1004,34.8,47.8,75.1,24.1,,6.1,1.6,,,,,,,,contains_beef,false,true,,,Source: Weekday Lunch > Seasonal set mains
-pork-loin-confit,Pork loin confit,Seasonal set mains,,1252,90.1,22.3,89.7,40.0,,4.9,7.2,,,,,,,,contains_pork,false,true,,,Source: Weekday Lunch > Seasonal set mains
-smoked-haddock-and-chalkstream-trout-fishcake,Smoked haddock & ChalkStream trout fishcake,Seasonal set mains,,665,38.0,37.3,42.1,19.1,,2.8,6.3,,,,,,,,,false,true,,,Source: Weekday Lunch > Seasonal set mains
-cannellini-bean-cassoulet,Cannellini bean cassoulet,Seasonal set mains,,263,13.7,52.7,11.5,1.9,,5.6,7.2,,,,,,,,vegetarian,false,true,,,Source: Weekday Lunch > Seasonal set mains
+chicken-fricassee,Chicken fricassée,Seasonal set mains,,558,29.3,18.1,39.0,14.4,,2.5,4.6,,,,,,,,,false,true,,,Source: Weekday Lunch > Seasonal set mains
+pan-fried-haddock-fillet,Pan-fried haddock fillet,Seasonal set mains,,545,47.0,40.4,14.1,1.5,,4.4,6.2,,,,,,,,contains_pork,false,true,,,Source: Weekday Lunch > Seasonal set mains
+muscat-pumpkin-risotto,Muscat pumpkin risotto,Seasonal set mains,,777,7.9,91.4,42.0,10.3,,4.3,12.9,,,,,,,,vegetarian,false,true,,,Source: Weekday Lunch > Seasonal set mains
 8oz-sirloin,8oz sirloin,Steaks,,991,56.6,48.5,63.6,21.3,,7.3,2.4,,,,,,,,contains_beef,false,true,,,"Source: À la carte > Chargrilled grass-fed, dry-aged steaks; also on Saturday, Sunday, Weekday Lunch"
 7oz-fillet,7oz fillet,Steaks,,826,47.1,48.5,49.2,15.6,,7.2,2.4,,,,,,,,contains_beef,false,true,,,"Source: À la carte > Chargrilled grass-fed, dry-aged steaks; also on Saturday, Sunday, Weekday Lunch"
 14oz-chateaubriand-for-two,14oz chateaubriand for two,Steaks,for two,1591,94.2,96.9,91.6,26.1,,13.4,4.7,,,,,,,,contains_beef,false,false,,,"Source: À la carte > Chargrilled grass-fed, dry-aged steaks; also on Saturday, Sunday, Weekday Lunch"
-21-day-matured-british-beef-rump,21-day matured British beef rump,Sunday roasts,,1161,60.9,103.4,63.8,22.3,,7.2,36.5,,,,,,,,contains_beef,false,true,,,Source: Sunday > Our Roasts
-half-a-roast-grain-fed-chicken,Half a roast grain-fed chicken,Sunday roasts,,1756,87.9,123.9,109.7,29.9,,45.5,57.3,,,,,,,,,false,true,,,Source: Sunday > Our Roasts
-outdoor-bred-british-pork-loin,Outdoor-bred British pork loin,Sunday roasts,,1747,98.7,106.8,111.1,40.7,,8.5,39.8,,,,,,,,contains_pork,false,true,,,Source: Sunday > Our Roasts
-beetroot-and-smoked-cheddar-pasty,Beetroot and smoked cheddar pasty,Sunday roasts,,1259,36.7,128.5,74.2,26.4,,5.9,40.6,,,,,,,,vegetarian,false,true,,,Source: Sunday > Our Roasts
+28-day-matured-grass-fed-beef-rump,28-day matured grass-fed beef rump,Sunday roasts,,1037,64.7,96.7,48.5,12.0,,5.9,20.9,,,,,,,,contains_beef,false,true,,,Source: Sunday > Our Roasts
+half-a-roast-grain-fed-chicken,Half a roast grain-fed chicken,Sunday roasts,,1658,92.0,116.1,97.9,22.0,,9.9,41.3,,,,,,,,,false,true,,,Source: Sunday > Our Roasts
+apricot-stuffed-pork-belly-roulade,Apricot-stuffed pork belly roulade,Sunday roasts,,2318,71.9,106.2,181.2,56.7,,5.4,25.7,,,,,,,,contains_pork,false,true,,,Source: Sunday > Our Roasts
+celeriac-artichoke-and-chestnut-mushroom-wellington-gravy,"Celeriac, artichoke & chestnut mushroom Wellington, gravy",Sunday roasts,,1342,23.3,161.1,74.4,19.9,,6.1,34.7,,,,,,,,vegetarian,false,true,,,Source: Sunday > Our Roasts
+pigs-in-blankets,Pigs in blankets,Sunday roasts,,428,31.4,17.0,25.8,9.3,,3.9,3.0,,,,,,,,contains_pork,false,true,,,Source: Sunday > Our Roasts > A little extra?
+cauliflower-and-cheddar-cheese-gratin,Cauliflower & Cheddar cheese gratin,Sunday roasts,,471,21.7,28.8,31.9,20.0,,1.6,8.1,,,,,,,,,false,true,,,Source: Sunday > Our Roasts > A little extra?
+pork-sage-and-apricot-stuffing,"Pork, sage & apricot stuffing",Sunday roasts,,784,23.0,48.1,57.7,15.2,,3.3,15.5,,,,,,,,contains_pork,false,true,,,Source: Sunday > Our Roasts > A little extra?
 triple-cooked-chips,Triple-cooked chips,Sides,,425,5.1,50.6,21.9,2.4,,3.2,0.9,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Sides; also on Bar menu, Saturday, Sunday, Weekday Lunch"
 mash-potatoes,Mash potatoes,Sides,,278,3.5,20.0,19.7,12.5,,1.4,2.3,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Sides; also on Saturday, Sunday, Weekday Lunch"
 burnt-hispi-cabbage,Burnt hispi cabbage,Sides,,408,7.7,6.3,42.2,19.0,,4.2,4.9,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Sides; also on Saturday, Sunday, Weekday Lunch"
@@ -95,7 +98,7 @@ veggie-bolognese,Veggie bolognese,Kids: Mains,,466,18.3,61.1,17.6,5.7,,3.0,8.4,,
 grill-chalkstream-trout,Grill ChalkStream trout,Kids: Mains,,401,23.7,31.1,21.1,2.7,,2.5,6.3,,,,,,,,,false,false,,,Source: Kids > Marvellous mains
 sausage-and-mash,Sausage & mash,Kids: Mains,,672,22.5,29.3,52.3,21.7,,3.1,6.3,,,,,,,,contains_pork,false,false,,,Source: Kids > Marvellous mains
 chicken-roulade,Chicken roulade,Kids: Mains,,841,43.0,45.4,56.6,6.1,,2.9,5.6,,,,,,,,contains_pork,false,false,,,Source: Kids > Marvellous mains
-beef-burger,Beef burger,Kids: Mains,,639,25.7,52.3,36.4,8.0,,3.0,9.4,,,,,,,,contains_beef,false,false,,,Source: Kids > Marvellous mains
+beef-burger,Beef burger,Kids: Mains,,668,26.5,56.8,37.1,8.3,,3.1,9.9,,,,,,,,contains_beef,false,false,,,Source: Kids > Marvellous mains
 watermelon-and-pineapple-fruit-salad,Watermelon & pineapple fruit salad,Kids: Desserts,,124,1.5,28.6,0.9,0.0,,0.0,28.5,,,,,,,,vegetarian,false,false,,,Source: Kids > Sweet tweets
 judes-fruit-twist,Jude's fruit twist,Kids: Desserts,,47,0.1,10.0,0.3,0.3,,0.0,7.0,,,,,,,,vegetarian,false,false,,,Source: Kids > Sweet tweets
 strawberry-knickerbocker-glory,Strawberry knickerbocker glory,Kids: Desserts,,315,2.5,37.3,17.1,12.5,,0.1,29.2,,,,,,,,,false,false,,,Source: Kids > Sweet tweets
@@ -136,7 +139,7 @@ malfy-originale-mediterranean-tonic-lemon-wedge,"Malfy Originale - Mediterranean
 monkey-47-mediterranean-tonic-blackberries,"Monkey 47 - Mediterranean Tonic, blackberries",Drinks: Gin,,103,0.2,9.2,0.0,0.0,,0.0,9.2,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Classics; energy includes alcohol
 tanqueray-indian-tonic-lime-wedge,"Tanqueray - Indian Tonic, lime wedge",Drinks: Gin,,87,0.1,8.0,0.1,0.0,,0.0,8.0,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Classics; energy includes alcohol
 the-botanist-elderflower-tonic-lime-wedge,"The Botanist - Elderflower Tonic, lime wedge",Drinks: Gin,,103,0.1,9.2,0.1,0.0,,0.0,9.2,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Classics; energy includes alcohol
-warners-rhubarb-mediterranean-tonic-orange-slice,"Warner’s Rhubarb - Mediterranean tonic, orange slice",Drinks: Gin,,128,0.2,10.7,0.1,0.0,,0.0,10.7,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Fruits & Flavours; energy includes alcohol
+warners-rhubarb-mediterranean-tonic-orange-slice,"Warner’s Rhubarb - Mediterranean tonic, orange slice",Drinks: Gin,,92,0.2,1.9,0.1,0.0,,0.0,1.9,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Fruits & Flavours; energy includes alcohol
 tanqueray-0-0-indian-tonic-lime-wedge,"Tanqueray 0.0% - Indian Tonic, lime wedge",Drinks: Gin,,33,0.1,0.4,0.1,0.0,,0.0,6.2,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Alcohol Free
 tanqueray-flor-de-sevilla-0-0-mediterranean-tonic-orange-slice,"Tanqueray Flor de Sevilla 0.0% - Mediterranean Tonic, orange Slice",Drinks: Gin,,43,0.2,10.3,0.1,0.0,,0.0,10.3,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Alcohol Free
 warners-pink-berry-0-0-elderflower-tonic-blackberries,"Warner’s Pink Berry 0.0% - Elderflower tonic, blackberries",Drinks: Gin,,43,0.2,9.7,0.0,0.0,,0.0,9.7,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Alcohol Free

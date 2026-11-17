@@ -5,8 +5,9 @@
 
 Source (the file the chain's own page links as "View Calories Menu"):
     https://www.everymancinema.com/menu-details/  (also linked from https://www.everymancinema.com/everyman-food-and-drink/)
-    -> https://cms-assets.webediamovies.pro/production/279/a04f49b720bb02d413dd28bb329147c6.pdf
-    PDF created 2026-09-23 (Adobe InDesign), served Last-Modified 2026-09-28. ONE landscape page (1200 x 980 pt) with a text layer.
+    -> https://cms-assets.webediamovies.pro/production/279/7e679c77f5863b5417aa2c54bb4b5a0b.pdf
+    PDF created 2026-10-23 (Adobe InDesign, the Christmas menu), served Last-Modified 2026-11-03. ONE landscape page (1200 x 980 pt)
+    with a text layer. (It replaced .../a04f49b720bb02d413dd28bb329147c6.pdf, created 2026-09-23, re-checked 2026-11-17.)
 Needs `pdftotext` (poppler). The page is read by position: see everyman_pdf.py.
 
 The menu prints calories ONLY ("580kcal" at the right of a dish): protein, carbs and fat are never printed, so they stay blank
@@ -47,14 +48,14 @@ import everyman_pdf as pdf_reader  # noqa: E402
 from common import sha256_file, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "everyman"
-SOURCE_URL = "https://cms-assets.webediamovies.pro/production/279/a04f49b720bb02d413dd28bb329147c6.pdf"
-SOURCE_TITLE = "Everyman Cinemas Calories Menu (PDF created 23 September 2026; linked from everymancinema.com/menu-details)"
+SOURCE_URL = "https://cms-assets.webediamovies.pro/production/279/7e679c77f5863b5417aa2c54bb4b5a0b.pdf"
+SOURCE_TITLE = "Everyman Cinemas Calories Menu (PDF created 23 October 2026; linked from everymancinema.com/menu-details)"
 ALIASES = ["everyman", "everyman cinema", "everyman cinemas"]
 NOTE = ("One calorie menu for all Everyman venues; menus vary by venue and some have a reduced selection. Calories only: no protein, "
-        "carbs or fat. Wine, beer, cider and cocktails print no calories and are not listed. Burgers are served with fries; the menu "
-        "doesn't say whether the figure includes them.")
-EXPECTED_ENTRIES = 108   # value expressions printed on the page (115 values, 2 of them bun swaps that are not listed)
-EXPECTED_ITEMS = 113
+        "carbs or fat. Wine, beer, cider and cocktails print no calories and are not listed. Burgers are listed with and without fries, "
+        "as the menu prints them.")
+EXPECTED_ENTRIES = 114   # value expressions printed on the page (121 values, 2 of them bun swaps that are not listed)
+EXPECTED_ITEMS = 119
 
 CATEGORY = {
     "SHARING PLATES": "Sharing plates", "BURGERS": "Burgers", "DOGS & ROLLS": "Dogs & rolls", "FRIES": "Fries", "PIZZA": "Pizza",
@@ -77,7 +78,15 @@ def E(section, label, names, servings=None, note="", desc="", prev=None, skip=""
 
 SH, BU, DO, FR, PI, KI, PO, SU, PA, SW, SA, SK, SO, HO, NL = ("SHARING PLATES", "BURGERS", "DOGS & ROLLS", "FRIES", "PIZZA", "KIDS MENUS",
     "POPCORN", "SUNDAES", "PASTRIES, CAKES AND COOKIE DOUGH", "SWEET POTS", "SAVOURY POTS", "SHAKES & COOLERS", "SOFT", "HOT DRINKS", "NO & LOW")
-FRIES_NOTE = "All burgers are 'served in a brioche bun with hand-cut fries' on the page; it does not say whether the value includes the fries"
+FRIES_NOTE = "Printed as two values on the burger's row: 'with fries' and 'without fries'"
+
+
+def B(burger, desc):
+    """A burger row printed 'Name with fries NNNNkcal/ without fries NNNkcal' (menu created 2026-10-23): two value expressions, one item each."""
+    return [E(BU, f"{burger} with fries", f"{burger} (with fries)", note=FRIES_NOTE, desc=desc),
+            E(BU, "without fries", f"{burger} (without fries)", note=FRIES_NOTE, desc=desc)]
+
+
 BYO = "Build Your Own Sundae option (3 scoops, 1 sauce, 3 toppings): the page prints a value per option and does not say the amount it is for"
 ENTRIES = [
     E(SH, "Popcorn chicken", "Popcorn chicken"),
@@ -91,15 +100,15 @@ ENTRIES = [
     E(SH, "Honey & mustard glazed sausages", "Honey & mustard glazed sausages"),
     E(SH, "Trufffle & artichoke dip", "Truffle & artichoke dip", note="Printed 'Trufffle' (typo on the page); named Truffle"),
     E(SH, "Cheesy garlic flatbread", "Cheesy garlic flatbread"),
-    E(SH, "Frickles", "Frickles"),
-    E(BU, "Korean Burger", "Korean Burger", note=FRIES_NOTE, desc="Crispy fried chicken breast"),
-    E(BU, "Signature Smokehouse BBQ Burger", "Signature Smokehouse BBQ Burger", note=FRIES_NOTE, desc="Dry-aged British beef, cured bacon"),
-    E(BU, "Double Smash Cheeseburger", "Double Smash Cheeseburger", note=FRIES_NOTE, desc="Smashed dry-aged beef"),
-    E(BU, "The Spielburger", "The Spielburger", note=FRIES_NOTE, desc="Dry-aged British beef, cheddar, house sauce"),
+    E(SH, "Pigs in blankets", "Pigs in blankets"),
+    *B("Korean Burger", "Crispy fried chicken breast"),
+    *B("The Nutcracker", "Dry-aged British beef, gorgonzola"),
+    *B("Double Smash Cheeseburger", "Smashed dry-aged beef"),
+    *B("The Spielburger", "Dry-aged British beef, cheddar, house sauce"),
     E(BU, "Add cured streaky bacon", "Add cured streaky bacon",
       note="Printed under The Spielburger's description with its own value; the page does not say which burgers it can be added to"),
-    E(BU, "Piri Piri Chicken Burger", "Piri Piri Chicken Burger", note=FRIES_NOTE, desc="Grilled piri piri-marinated chicken"),
-    E(BU, "Plant-based Cheeseburger", "Plant-based Cheeseburger", note=FRIES_NOTE, desc="Plant-based patty"),
+    *B("Piri Piri Chicken Burger", "Grilled piri piri-marinated chicken"),
+    *B("Plant-based Cheeseburger", "Plant-based patty"),
     E(BU, "Swap bun for gluten free", [], skip="a difference from a burger (+9kcal), not a dish"),
     E(BU, "Swap bun for guac (naked)", [], skip="a difference from a burger (-30kcal), not a dish"),
     E(DO, "Classic Dog", "Classic Dog", desc="Beef hot dog served with crispy onions"),
@@ -140,11 +149,11 @@ ENTRIES = [
     E(SU, "chocolate buttons", "Build Your Own Sundae: chocolate buttons topping", note=BYO),
     E(SU, "Oreos", "Build Your Own Sundae: Oreos topping", note=BYO),
     E(SU, "Everything Sundae", "Everything Sundae"),
+    E(SU, "Rocher Around the Christmas Tree", "Rocher Around the Christmas Tree"),
     E(PA, "Freshly Baked Double Chocolate Cookies", "Freshly Baked Double Chocolate Cookies", note="Plural on the page; the number of cookies is not stated"),
     E(PA, "Pain au Chocolat / Croissant", ["Pain au Chocolat", "Croissant"], note="Printed 'Pain au Chocolat / Croissant 313/260kcal': values in the order named"),
     E(PA, "Carrot & orange cake", "Carrot & orange cake"),
     E(PA, "Ultimate brownie", "Ultimate brownie"),
-    E(PA, "Burnt Basque Cheesecake", "Burnt Basque Cheesecake"),
     E(PA, "Add a scoop of vanilla ice cream", "Add a scoop of vanilla ice cream", note="Printed 107kcal; the sundae's vanilla scoop prints 89kcal (different portions)"),
     E(SW, "Milk chocolate buttons", "Milk chocolate buttons", ["Pot"]),
     E(SW, "Chocolate fruit & nut mix", "Chocolate fruit & nut mix", ["Pot"]),
@@ -196,7 +205,7 @@ ENTRIES = [
     E(NL, "Botivo Mule", "Botivo Mule"),
 ]
 # Phrases the page must still print (the evidence for notes and tags, and the sections that print no calories).
-MUST_PRINT = ["Dry-aged British beef, cured bacon", "Smashed dry-aged beef", "Dry-aged British beef, cheddar, house sauce", "Beef hot dog served with crispy onions",
+MUST_PRINT = ["Dry-aged British beef, gorgonzola", "Smashed dry-aged beef", "Dry-aged British beef, cheddar, house sauce", "Beef hot dog served with crispy onions",
               "chorizo, nduja", "Plant-based patty", "Crispy fried chicken breast", "Grilled piri piri-marinated chicken", "Battered cod fillet",
               "Warm buttered brioche roll, lobster", "The Great British Cuppa, Sunny", "Sencha, Earl Grey or Rooibos (decaf)", "Lemon or raspberry",
               "Still or sparkling", "Trufffle", "3 scoops, 1 sauce, 3 toppings", "up to date allergy information is available upon request"]

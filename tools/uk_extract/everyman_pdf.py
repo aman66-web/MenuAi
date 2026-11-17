@@ -36,7 +36,9 @@ NUMBER = re.compile(r"[+-]?\d+")
 ROW_TOL = 3.5   # points between the vertical centres of two words on the same row
 
 # (key, heading text a line must start with, heading left edge, heading top, box x0, y0, x1, y1, holds values?)
-# The box is tested against each word's left edge and vertical centre. Measured from the PDF created 2026-09-23 (page 1200 x 980 pt).
+# The box is tested against each word's left edge and vertical centre. Measured from the PDF created 2026-09-23 (page 1200 x 980 pt);
+# the sweets column re-measured 2026-11-17 from the Christmas menu created 2026-10-23 (the sundae heading became
+# "HAVE YOURSELF A MERRY LITTLE SUNDAE" and a sundae was added, moving the pastries and pots down).
 SECTIONS = [
     ("SHARING PLATES", "SHARING PLATES", 24, 15, 20, 30, 400, 195, True),
     ("BURGERS", "BURGERS All served in a brioche bun", 24, 198, 20, 225, 400, 505, True),
@@ -46,10 +48,10 @@ SECTIONS = [
     ("KIDS MENUS", "KIDS MENUS", 24, 846, 20, 860, 400, 945, True),
     # "POPCORN" is drawn as outlines (not in the text layer), so the section is anchored on the "small / large" header under SWEETS.
     ("POPCORN", "small / large", 707, 58, 420, 75, 780, 130, True),
-    ("SUNDAES", "SUNDAES", 428, 139, 420, 165, 780, 300, True),
-    ("PASTRIES, CAKES AND COOKIE DOUGH", "PASTRIES, CAKES AND COOKIE DOUGH", 427, 308, 420, 325, 780, 400, True),
-    ("SWEET POTS", "SWEET POTS", 430, 410, 420, 425, 596, 500, True),
-    ("SAVOURY POTS", "SAVOURY POTS", 603, 410, 597, 425, 780, 500, True),
+    ("SUNDAES", "HAVE YOURSELF A MERRY LITTLE SUNDAE", 428, 132, 420, 150, 780, 333, True),
+    ("PASTRIES, CAKES AND COOKIE DOUGH", "PASTRIES, CAKES AND COOKIE DOUGH", 427, 333, 420, 350, 780, 420, True),
+    ("SWEET POTS", "SWEET POTS", 430, 417, 420, 435, 596, 505, True),
+    ("SAVOURY POTS", "SAVOURY POTS", 603, 417, 597, 435, 780, 505, True),
     ("SHAKES & COOLERS", "SHAKES & COOLERS", 429, 527, 420, 560, 780, 610, True),
     ("SOFT", "SOFT", 430, 617, 420, 640, 596, 815, True),
     ("HOT DRINKS", "HOT DRINKS", 603, 618, 597, 640, 780, 775, True),

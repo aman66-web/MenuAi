@@ -8,7 +8,7 @@ DIR holds the two saved pages (esquires_food_drink.html, esquires_seasonal.html)
 
 Sources (both are Esquires' own pages, linked from / listed by its own site; neither shows a date or version):
     https://esquirescoffee.co.uk/food-drink/      the "Our Menu" page: FRESH FOOD and DRINKS
-    https://esquirescoffee.co.uk/current-offers/  "Seasonal Specials - Autumn looks good on our seasonal favourites" (in the site's
+    https://esquirescoffee.co.uk/current-offers/  "Seasonal Specials - Winter is served, with a little extra indulgence." (re-read 2026-11-17; in the site's
                                                   page sitemap, same layout; not linked from the navigation, so it may go away)
 
 What the pages print: a name, a description and "514kcal" for each food item; for drinks only "72kcal". Nothing else: no protein,
@@ -53,7 +53,7 @@ SOURCE_TITLE = ("Esquires Coffee Food & Drink menu page and Seasonal Specials pa
 ALIASES = ["esquires", "esquires coffee", "esquires coffee uk"]
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 NOTE = ("Esquires prints calories only, as one figure per item; protein, carbs and fat are not published. Coffees, hot chocolates and "
-        "lattes that print two unlabelled figures (no sizes stated) are not listed. Autumn specials come from its Seasonal Specials "
+        "lattes that print two unlabelled figures (no sizes stated) are not listed. Winter specials come from its Seasonal Specials "
         "page. Its website publishes no allergen guide, so none is shown.")
 
 # Section heading on the page -> category shown. The seasonal page has no h2: its headline is "SEASONAL SPECIALS".
@@ -79,20 +79,22 @@ ONE_VALUE = {
         "Chocolate Milkshake", "Strawberry Milkshake", "Vanilla Matcha Protein Shake", "Mixed Berry Protein Shake",
         "Chocolate & Peanut Butter Protein Shake",
     ],
-    "SEASONAL SPECIALS": ["Buffalo Chicken Brioche", "Caramelised Beef Brioche", "Brie & Chilli Jam Brioche", "Cinnamon Swirl Shake"],
+    # Re-read 2026-11-17: the autumn specials (three brioches, Cinnamon Swirl Shake) were replaced by the winter Tiramisu drinks.
+    "SEASONAL SPECIALS": ["Tiramisu Frappé"],
 }
 # Printed with two unlabelled figures: not listed (see the docstring).
 TWO_VALUES = {
     "DRINKS": ["Espresso", "Americano", "Latte", "Cappuccino", "Mocha", "Hot Chocolate", "Iced Latte", "Iced Americano",
                "Vanilla Matcha Latte", "Chai Latte"],
-    "SEASONAL SPECIALS": ["Cinnamon & Vanilla Latte", "Cinnamon & Orange Hot Chocolate"],
+    "SEASONAL SPECIALS": ["Tiramisu Latte", "Tiramisu Hot Chocolate"],
 }
-# slug() turns the accented e of "Frappé" into a hyphen, so these two ids are given.
-IDS = {"Latte Frappé": "latte-frappe", "Mocha Frappé": "mocha-frappe"}
+# slug() turns the accented e of "Frappé" into a hyphen, so these ids are given.
+IDS = {"Latte Frappé": "latte-frappe", "Mocha Frappé": "mocha-frappe", "Tiramisu Frappé": "tiramisu-frappe"}
 
 MARK = re.compile(r"\s*\((VE|V)\)\s*$")
-ONE = re.compile(r"(?:^|[ .])(\d+)\s*kcal\s*$")
-TWO = re.compile(r"(?:^|[ .])(\d+)\s*(?:kcal)?\s*/\s*(\d+)\s*kcal\s*$")
+# re.I: the winter specials page prints "340Kcal" with a capital K.
+ONE = re.compile(r"(?:^|[ .])(\d+)\s*kcal\s*$", re.I)
+TWO = re.compile(r"(?:^|[ .])(\d+)\s*(?:kcal)?\s*/\s*(\d+)\s*kcal\s*$", re.I)
 # nduja: a pork salume (see docstring). Words are the chain's own, so nothing is inferred beyond the word list.
 PORK = re.compile(r"\b(pork|bacon|ham|sausages?|pepperoni|salami|chorizo|nduja)\b", re.I)
 BEEF = re.compile(r"\b(beef|steak)\b", re.I)

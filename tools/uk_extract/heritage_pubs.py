@@ -101,11 +101,13 @@ EXTRA_PORK = re.compile(r"\b(pigs? in blankets?|hog roast|crackling)\b", re.I)
 # label ids agree (tenkites_b.allergens_from_rec checks every form the page prints and stops on a disagreement).
 ALLERGEN_WORDS = {"sulphur dioxide/ sulphites": ("sulphites", None)}  # as printed on these pages
 ALLERGEN_TITLE = ("Heritage Pubs Allergen & Nutritional Data (menus.tenkites.com/heritage, February 2026 menus, data correct as of "
-                  "8 October 2026)")
+                  "{correct_as_of})")
 SOURCE_TITLE = ("Heritage Pubs Allergen & Nutritional Data (menus.tenkites.com/heritage: Main Menu February 2026 and the February 2026 "
                 "lunch, pie, pizza, breakfast, Scottish breakfast, Sunday, vegan & vegetarian, no gluten-containing ingredients, "
                 "Scottish specials, kids' and bottomless/boozy brunch menus, the drinks menu and Heritage Coffee Shop Offer 2026; "
-                "data correct as of 8 October 2026)")
+                "data correct as of {correct_as_of})")
+# the "Data correct as of: <date>" line every menu page prints (read from the saved pages; the run stops if the pages disagree)
+CORRECT_AS_OF = re.compile(r"Data correct as of:\s*(\d{1,2} [A-Z][a-z]+ \d{4})\s*<")
 NOTE = ("Values are per dish as served, with the standard garnishes and accompaniments on the menu. Dishes printed 'Excluding ...' "
         "leave out the side or choice named, which is listed under Options & add-ons. Menus are February 2026; not every dish is "
         "sold at every pub.")
@@ -302,11 +304,16 @@ def main() -> int:
         return 1
     for it in items:
         it["notes"] = it["notes"].strip()
+    dates = {d for label in labels for d in CORRECT_AS_OF.findall(paths[label].read_text(encoding="utf-8", errors="replace"))}
+    if len(dates) != 1:
+        print(f"the pages print {sorted(dates)} as 'Data correct as of' (expected one date)", file=sys.stderr)
+        return 1
+    correct_as_of = dates.pop()
     folder = write_chain_folder(
-        chain_id=CHAIN_ID, name="Heritage Pubs", cuisine="Pub", source_title=SOURCE_TITLE, source_url=BASE_URL,
+        chain_id=CHAIN_ID, name="Heritage Pubs", cuisine="Pub", source_title=SOURCE_TITLE.format(correct_as_of=correct_as_of), source_url=BASE_URL,
         checked_on=args.checked_on, aliases=["heritage pubs", "heritage pub", "heritage"], items=items, out=args.out, note=NOTE,
         holdback=holdback,
-        allergen_guide={"title": ALLERGEN_TITLE, "url": BASE_URL, "checked_on": args.checked_on, "may_contain_published": True})
+        allergen_guide={"title": ALLERGEN_TITLE.format(correct_as_of=correct_as_of), "url": BASE_URL, "checked_on": args.checked_on, "may_contain_published": True})
     for label in labels:
         print(f"{label:19} sha256 {sha256_file(paths[label])}  {tk.page_title(paths[label])}")
     by_menu: dict = {}

@@ -9,21 +9,28 @@ menus page on gordonramsayrestaurants.com (robots.txt allows /assets/ and these 
 
   Street Burger + Street Pizza  https://www.gordonramsayrestaurants.com/assets/1Calorie-Matrices/DUAL-STREET-CALORIE-MATRIX.pdf
       linked from https://www.gordonramsayrestaurants.com/en/uk/street-burger/menus/standard (and the street-pizza menus page)
-      as "our full menu with calories". PDF created 7 April 2026 (InDesign), served Last-Modified 8 May 2026. One page, two columns.
+      as "our full menu with calories". Current file (read 17 November 2026): created 14 October 2026 (InDesign), served
+      Last-Modified 15 October 2026, sha256 ebaadf8f...; it replaced the file of 7 April 2026 (read 8 October 2026). One page, two columns.
   Lucky Cat Manchester          https://www.gordonramsayrestaurants.com/assets/1Menus-With-Calories/Lucky-Cat/Manchester/Lucky-Cat-Manchester-KCAL.pdf
       linked from https://www.gordonramsayrestaurants.com/lucky-cat-manchester/menus/ ("To view our full menu with calories, click
-      here"). PDF created 24 June 2026, served Last-Modified 17 July 2026. One page, two columns. Its dishes match the restaurant's
-      A La Carte of 15 September 2026 (which prints a "scan to view calories" code and no calories itself).
+      here"). Current file (read 17 November 2026): created 14 October 2026, served Last-Modified 16 October 2026, sha256 0964144d...;
+      it replaced the file of 24 June 2026. One page, two columns; the restaurant's menus on the same page are dated 14 October 2026
+      (ALC-14102026.pdf and others), the same day as this file.
 
 NOT published, and why (every restaurant page on the site was searched for a calorie, kcal, nutrition or allergen link):
-  - Lucky Cat Mayfair: its calorie menu (Lucky-Cat-Mayfair-KCAL.pdf) is dated 17 October 2025 and no longer matches the restaurant's
+  - Lucky Cat Mayfair: its calorie menu (Lucky-Cat-Mayfair-KCAL.pdf) is dated 17 October 2025 (still the file served on 17 November
+    2026, Last-Modified 17 Oct 2025, while the restaurant's menus were re-issued on 14 October 2026) and no longer matches the restaurant's
     current A La Carte (15 September 2026), which prints calories beside each dish and differs from the old file (new dishes such as
     wagyu short rib bao and grilled madagascan prawn, and other values, e.g. salmon sashimi 125 now, 123 in the old file; tuna kinilaw
     138 now). Two official files that disagree are never chosen between, so Mayfair is left out until the chain re-issues its file.
   - Bread Street Kitchen (all sites), Restaurant Gordon Ramsay, High, Pétrus, 1890, Savoy Grill, River Restaurant, Heddon Street Kitchen,
     Bar & Grill Mayfair, Plane Food, Lucky Cat Bishopsgate: no calories published on the group's site. Pizza East and Gordon Ramsay at
     Sea Containers have their own websites (pizzaeast.com, seacontainerslondon.com) and were not read.
-  - "FULL SCOTTISH (Edinburgh only)" in the Street matrix: a single-venue dish (playbook rule 4), left out.
+  - "FULL SCOTTISH (Edinburgh only)" in the April 2026 Street matrix: a single-venue dish (playbook rule 4), left out (the October 2026
+    file no longer prints it).
+  - "sashimi selection 6 pieces | 10 pieces 476 | 450kcal" (October 2026 Lucky Cat file): the 10-piece selection is printed with FEWER
+    calories than the 6-piece selection on the same row (the April file printed 476 | 1092), so the file's own figures cannot both be
+    right; the 10-piece row is held back (holdback.csv), the 6-piece row (476, the same as the previous file) is published.
 
 The files print calories ONLY: protein, carbs and fat stay blank (docs/DATA.md "Calories-only chains"; every item is not rankable and
 the app shows "not published"). Calories are copied from the PDFs as printed (a row that prints two values for sashimi | nigiri
@@ -38,8 +45,11 @@ Allergens: neither restaurant publishes an allergen table or guide (the pages sa
 allergens.csv and no allergen_guide.csv.
 
 Names: as printed, with capitalisation tidied (all-caps names title-cased, lower-case names get a capital first letter). Spelling is not
-corrected ("Brocolli", "G.F.G" for G.F.C in Lucky Cat's tempura): the row notes say what the file prints. A lone stray opening quote
-(KIDS 'CHEESEBURGER) is dropped. Tags: vegetarian only where the printed name says vegan; contains_pork / contains_beef only where the
+corrected: the row notes say what the file prints. A lone stray opening quote is dropped. The October 2026 Street file marks some dips
+"(SB ONLY)", "(SP ONLY)" or "(SB & SP)": the name says "(Street Burger only)" / "(Street Pizza only)", and nothing for both. A few names
+are written out where the file's own heading gives the context (RENAME: "GORDON’S WELLINGTON" and "G.F.C" under BURGERS become
+"... Burger", the kids' "PLANT-BASED" and "BEEF" become "Kids ... Burger", "NEW CORN RIBS" is "Corn Ribs"); the row notes keep
+the printed name. Tags: vegetarian only where the printed name says vegan; contains_pork / contains_beef only where the
 printed name names the meat (ham, chorizo, pepperoni, bacon, pork; beef, ribeye, wagyu); the vegan sausage is not pork.
 Needs `pdftotext` (poppler). Runs on Python 3.9.
 """
@@ -69,26 +79,26 @@ STREET = "Street Burger & Pizza"
 LUCKY = "Lucky Cat Manchester"
 DOCS = {
     "street": dict(file="DUAL-STREET-CALORIE-MATRIX.pdf", path="/assets/1Calorie-Matrices/DUAL-STREET-CALORIE-MATRIX.pdf",
-                   restaurant=STREET, skip_above=0.0, rows=119, digest="9c7a7702ebf15b80ce1e1ad5ce9455834d09cf92ece36948064ce1a06e2a21b2"),
+                   restaurant=STREET, skip_above=0.0, skip_below=0.0, rows=98, digest="05cee0b1d75a1f38074d50328060f77b14d0716b3435a5514ec4c1c070857f0e"),
     "lucky": dict(file="Lucky-Cat-Manchester-KCAL.pdf", path="/assets/1Menus-With-Calories/Lucky-Cat/Manchester/Lucky-Cat-Manchester-KCAL.pdf",
-                  restaurant=LUCKY, skip_above=140.0, rows=92, digest="6c7db86faf46077fec8dc7016f4347b3a364ac1a701b43efe101c1de932d78bc"),
+                  restaurant=LUCKY, skip_above=300.0, skip_below=1280.0, rows=89, digest="81a262422ec67b148c2d9f566d4e242382273eabfa32ecdbedd2b6d27abfd5b1"),
 }
 SOURCE_URL = HOST + DOCS["street"]["path"]
-SOURCE_TITLE = ("Gordon Ramsay Restaurants calorie menus: Street Burger & Street Pizza (DUAL-STREET-CALORIE-MATRIX.pdf, created 7 April 2026) "
-                "and Lucky Cat Manchester (Lucky-Cat-Manchester-KCAL.pdf, created 24 June 2026)")
-NOTE = ("Calories only, from each restaurant's own calorie menu: Street Burger & Street Pizza (PDF of 7 Apr 2026) and Lucky Cat Manchester "
-        "(PDF of 24 Jun 2026). The group's other restaurants publish no calories; Lucky Cat Mayfair's calorie menu (Oct 2025) is out of "
+SOURCE_TITLE = ("Gordon Ramsay Restaurants calorie menus: Street Burger & Street Pizza (DUAL-STREET-CALORIE-MATRIX.pdf, created 14 October 2026) "
+                "and Lucky Cat Manchester (Lucky-Cat-Manchester-KCAL.pdf, created 14 October 2026)")
+NOTE = ("Calories only, from each restaurant's own calorie menu: Street Burger & Street Pizza (PDF of 14 Oct 2026) and Lucky Cat Manchester "
+        "(PDF of 14 Oct 2026). The group's other restaurants publish no calories; Lucky Cat Mayfair's calorie menu (Oct 2025) is out of "
         "date, so it is not listed.")
 
 # Section headings expected per document, in reading order (left column, then right), with the rows each prints. The script stops if
 # a heading or a count changes.
-SECTIONS = {
-    "street": [("PIZZAS PER SLICE", 8), ("PASTA", 2), ("BURGERS", 18), ("SUPERCHARGE YOUR MEAL", 5), ("RIBS", 2), ("SIDES & SHARERS", 12),
-               ("DIPS & SAUCES", 9), ("SALADS", 3), ("ADD TO YOUR SALAD", 4), ("DESSERTS", 6), ("VEGAN BITES", 16),
-               ("HOTTER THAN HELL WINGS", 20), ("MILKSHAKES", 4), ("NON-ALCOHOLIC DRINKS", 5), ("MOCKTAILS", 5)],
-    "lucky": [("SNACKS", 6), ("SALAD", 3), ("SASHIMI & NIGIRI", 7), ("RAW BAR", 4), ("MAKI", 6), ("TEMPURA", 3), ("DUMPLINGS & BAO", 4),
-              ("VEGETABLES, RICE & NOODLES", 4), ("FISH", 5), ("MEAT", 5), ("DESSERT", 10), ("LUNCH MENU", 6), ("AFTERNOON TEA", 7),
-              ("NON-ALCOHOLIC DRINKS", 6), ("COFFEE", 8), ("TEA", 8)],
+SECTIONS = {  # the files of 14 October 2026
+    "street": [("PIZZAS PER SLICE", 7), ("DIPS", 16), ("BURGERS", 15), ("SUPERCHARGE YOUR MEAL", 8), ("PASTA", 2), ("KIDS BURGERS", 4),
+               ("SIDES & SHARERS", 9), ("SALADS", 7), ("HOTTER THAN HELL SPICY WINGS OR VEGAN BITES", 12), ("DESSERTS", 4),
+               ("MILKSHAKES", 4), ("NON-ALCOHOLIC DRINKS", 5), ("MOCKTAILS", 5)],
+    "lucky": [("SNACKS", 6), ("RAW BAR", 4), ("SASHIMI & NIGIRI", 7), ("MAKI", 6), ("SALAD", 3), ("TEMPURA", 3), ("FISH", 4), ("MEAT", 5),
+              ("DUMPLINGS & BAO", 4), ("VEGETABLES & RICE", 3), ("DESSERT", 11), ("BRUNCH & LUNCH MENU", 3), ("AFTERNOON TEA", 7),
+              ("NON-ALCOHOLIC DRINKS", 7), ("COFFEE", 8), ("TEA", 8)],
 }
 # A row that prints two values ("123 | 301kcal") is two items; the names are written here (the numbers are copied).
 MULTI = {
@@ -96,8 +106,27 @@ MULTI = {
     "akami sashimi | nigiri": ["Akami sashimi", "Akami nigiri"],
     "toro sashimi | nigiri": ["Toro sashimi", "Toro nigiri"],
     "yellowtail sashimi | nigiri": ["Yellowtail sashimi", "Yellowtail nigiri"],
-    "nigiri selection 3 pieces I 5 pieces": ["Nigiri selection 3 pieces", "Nigiri selection 5 pieces"],
+    "nigiri selection 3 pieces | 5 pieces": ["Nigiri selection 3 pieces", "Nigiri selection 5 pieces"],
     "sashimi selection 6 pieces | 10 pieces": ["Sashimi selection 6 pieces", "Sashimi selection 10 pieces"],
+    "BBQ RIBS & FRIES HALF/FULL": ["BBQ Ribs & Fries Half Rack", "BBQ Ribs & Fries Full Rack"],  # the names of the April 2026 file's two rows
+}
+# Names written out where the file's own heading gives the context (the printed name stays in the row notes).
+RENAME = {
+    ("street", "BURGERS", "GORDON’S WELLINGTON"): "Gordon’s Wellington Burger",
+    ("street", "BURGERS", "G.F.C"): "G.F.C Burger",
+    ("street", "KIDS BURGERS", "PLANT-BASED"): "Kids Plant-Based Burger",
+    ("street", "KIDS BURGERS", "BEEF"): "Kids Beef Burger",
+    ("street", "SIDES & SHARERS", "NEW CORN RIBS"): "Corn Ribs",
+}
+# Where a Street dip is sold, as the file marks it (SB = Street Burger, SP = Street Pizza: the file covers those two restaurants).
+WHERE = re.compile(r"\s*\((SB ONLY|SP ONLY|SB & SP)\)$")
+WHERE_NAME = {"SB ONLY": " (Street Burger only)", "SP ONLY": " (Street Pizza only)", "SB & SP": ""}
+# Rows the file prints impossibly: left out of the published menu (never corrected), listed in the check report.
+HOLDBACK = {
+    ("lucky", "Sashimi selection 10 pieces"): ("The file prints 'sashimi selection 6 pieces | 10 pieces 476 | 450kcal': the 10-piece selection "
+                                               "with fewer calories than the 6-piece one on the same row, so the two figures cannot both be "
+                                               "right (the previous file printed 476 | 1092). Restore by deleting this line once the chain "
+                                               "corrects the file."),
 }
 EXCLUDED = {("street", "FULL SCOTTISH (Edinburgh only)"): "single-venue dish (Edinburgh only)"}
 KACL_OK = {("street", "G.F.C", "PIZZAS PER SLICE")}  # the one row whose unit the file misspells "kacl"
@@ -110,6 +139,7 @@ AMBIGUOUS = {
     ("lucky", "chocolate truffles (all)"): "printed '(all)': the file does not say how many pieces the value covers",
     ("lucky", "mochi (all)"): "printed '(all)': the file does not say how many pieces the value covers",
     ("lucky", "zenmai"): "printed 'zenmai'; the chef's selection (a shared dish): the file prints no description",
+    ("lucky", "lucky cat to share"): "printed 801kcal, the same figure as 'sobacha & honeycomb lucky cat' in the same section; entered as printed",
 }
 PORK = re.compile(r"\b(pork|ham|bacon|chorizo|pepperoni|sausage|salami)\b", re.I)
 BEEF = re.compile(r"\b(beef|ribeye|wagyu|steak|sirloin)\b", re.I)
@@ -135,6 +165,10 @@ def tidy_upper(name: str) -> str:
             out.append(w)  # 7UP
         elif w.startswith("(") and w.endswith(")"):
             out.append("(" + w[1:-1].capitalize() + ")")
+        elif w.startswith("("):
+            out.append("(" + w[1:].capitalize())
+        elif w.endswith(")"):
+            out.append(w[:-1].capitalize() + ")")
         else:
             out.append(w.capitalize())
     return " ".join(out)
@@ -163,7 +197,7 @@ def digest(rows: List[Dict]) -> str:
 
 def read_doc(key: str, pdf: Path) -> List[Dict]:
     doc = DOCS[key]
-    rows = pdf_reader.read_rows(pdf, doc["skip_above"])
+    rows = pdf_reader.read_rows(pdf, doc["skip_above"], doc["skip_below"])
     if len(rows) != doc["rows"]:
         raise SystemExit(f"{doc['file']}: {len(rows)} rows printed, this script expects {doc['rows']}: the file changed, re-check it and update DOCS/SECTIONS.")
     seen: List[Tuple[str, int]] = []
@@ -195,8 +229,12 @@ def build_items(key: str, rows: List[Dict]) -> List[Dict]:
             if r["name"] not in MULTI or len(MULTI[r["name"]]) != len(r["values"]):
                 raise SystemExit(f"{doc['file']}: {r['line']!r} prints {len(r['values'])} values and has no entry in MULTI.")
             names = MULTI[r["name"]]
+        elif (key, r["section"], r["name"]) in RENAME:
+            names = [RENAME[(key, r["section"], r["name"])]]
         else:
-            names = [tidy_upper(r["name"]) if upper else tidy_lower(r["name"])]
+            where = WHERE.search(r["name"]) if upper else None
+            base = WHERE.sub("", r["name"]) if where else r["name"]
+            names = [(tidy_upper(base) + WHERE_NAME[where.group(1)]) if where else (tidy_upper(base) if upper else tidy_lower(base))]
         notes = ["printed '%s'" % r["line"], "section '%s'" % r["section"]]
         if r["unit"] == "kacl":
             notes.append("the file prints the unit as 'kacl' (typo for kcal)")
@@ -282,9 +320,15 @@ def main() -> int:
         print(f"  {doc['restaurant']}: {len(rows)} printed rows -> {len(built)} items")
         items += built
     assign_ids(items)
+    held = []
+    for (key, name), why in HOLDBACK.items():
+        match = [it for it in items if it["_restaurant"] == DOCS[key]["restaurant"] and it["name"] == name]
+        if len(match) != 1:
+            raise SystemExit(f"HOLDBACK names {name!r}, which is not (exactly once) in the file any more: re-check it")
+        held.append((match[0]["id"], why))
     out = write_chain_folder(chain_id=CHAIN_ID, name="Gordon Ramsay Restaurants", cuisine=CUISINE, source_title=SOURCE_TITLE,
                              source_url=SOURCE_URL, checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out,
-                             note=NOTE, nutrition_level="calories")
+                             note=NOTE, nutrition_level="calories", holdback=held)
     print(f"wrote {len(items)} items to {out}")
     not_stated = [it["name"] for it in items if it["_meaty"] and not any(t in it["tags"] for t in ("contains_pork", "contains_beef", "vegetarian"))]
     print(f"meat type not stated ({len(not_stated)}): " + "; ".join(not_stated))

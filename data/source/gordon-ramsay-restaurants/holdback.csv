@@ -1,0 +1,2 @@
+item_id,reason
+sashimi-selection-10-pieces,"The file prints 'sashimi selection 6 pieces | 10 pieces 476 | 450kcal': the 10-piece selection with fewer calories than the 6-piece one on the same row, so the two figures cannot both be right (the previous file printed 476 | 1092). Restore by deleting this line once the chain corrects the file."

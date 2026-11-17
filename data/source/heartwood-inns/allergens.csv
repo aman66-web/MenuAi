@@ -20,9 +20,9 @@ wild-mushroom-tartine-poached-egg,eggs|gluten|nuts|soya|sulphites,sesame,,almond
 wild-mushroom-tartine-without-egg,gluten|nuts|soya|sulphites,eggs|sesame,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 beetroot-terrine,celery|lupin|soya|sulphites,mustard,,
 potted-devon-crab,crustaceans|gluten|milk|mustard|nuts|sulphites,celery|eggs|sesame|soya,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
-muscat-pumpkin-and-kirsch-soup,nuts|sulphites,gluten|sesame|soya,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
-celeriac-remoulade,celery|eggs|mustard|sulphites,,,
-pan-fried-gnocchi,gluten|milk,mustard|soya,wheat,
+jerusalem-artichoke-soup,nuts|peanuts,gluten|mustard|sesame|soya,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+beetroot-and-winter-coleslaw-salad,celery|mustard|nuts|peanuts|sesame|sulphites,gluten,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+cod-brandade-croquette,eggs|fish|gluten|soya|sulphites,mustard,wheat,
 chicken-ballotine,celery|eggs|milk|sulphites,,,
 jerusalem-artichoke-and-roasted-garlic-ravioli,gluten|soya,sulphites,wheat,
 grilled-cauliflower-steak,nuts|peanuts|sesame|sulphites,gluten,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
@@ -39,16 +39,19 @@ malabar-fish-curry,celery|crustaceans|fish|gluten|lupin|mustard,sesame|soya|sulp
 gordo-chickpeas-and-roasted-red-pepper-salad,celery|gluten|lupin|milk|nuts|peanuts|sesame|sulphites,eggs|mustard|soya,barley|oats|rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 fish-and-chips,crustaceans|eggs|fish|gluten|soya|sulphites,mustard,barley|oats|rye|wheat,
 grilled-minute-steak-and-triple-cooked-chips,milk|mustard|sulphites,,,
-pork-loin-confit,milk|mustard|peanuts|sulphites,,,
-smoked-haddock-and-chalkstream-trout-fishcake,eggs|fish|gluten|milk|mustard|soya|sulphites,,barley|oats|rye|wheat,
-cannellini-bean-cassoulet,celery|gluten|nuts|peanuts|sulphites,eggs|milk|sesame|soya,wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+chicken-fricassee,milk|sulphites,,,
+pan-fried-haddock-fillet,celery|fish,,,
+muscat-pumpkin-risotto,nuts|sulphites,,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 8oz-sirloin,milk|mustard|sulphites,,,
 7oz-fillet,milk|mustard|sulphites,,,
 14oz-chateaubriand-for-two,milk|mustard|sulphites,,,
-21-day-matured-british-beef-rump,celery|eggs|gluten|milk|mustard|soya|sulphites,,barley|oats|rye|wheat,
+28-day-matured-grass-fed-beef-rump,celery|eggs|gluten|milk|mustard|soya|sulphites,,barley|oats|rye|wheat,
 half-a-roast-grain-fed-chicken,celery|eggs|gluten|milk|soya|sulphites,,barley|oats|rye|wheat,
-outdoor-bred-british-pork-loin,celery|eggs|gluten|milk|mustard|soya|sulphites,,barley|oats|rye|wheat,
-beetroot-and-smoked-cheddar-pasty,celery|eggs|gluten|milk|soya|sulphites,,barley|oats|rye|wheat,
+apricot-stuffed-pork-belly-roulade,celery|eggs|gluten|milk|soya|sulphites,,barley|oats|rye|wheat,
+celeriac-artichoke-and-chestnut-mushroom-wellington-gravy,celery|gluten|soya|sulphites,,barley|oats|rye|wheat,
+pigs-in-blankets,sulphites,,,
+cauliflower-and-cheddar-cheese-gratin,gluten|milk|soya,,barley|oats|rye|wheat,
+pork-sage-and-apricot-stuffing,eggs|gluten|milk|sulphites,soya,,
 triple-cooked-chips,,,,
 mash-potatoes,milk,,,
 burnt-hispi-cabbage,milk,,,
@@ -95,7 +98,7 @@ veggie-bolognese,celery|gluten|lupin|milk|sulphites,soya,,
 grill-chalkstream-trout,celery|fish|lupin,,,
 sausage-and-mash,milk|sulphites,,,
 chicken-roulade,eggs|gluten|milk|soya,mustard,barley|oats|rye|wheat,
-beef-burger,eggs|gluten|milk|nuts|sesame|soya,mustard,,walnut
+beef-burger,eggs|gluten|milk|nuts|soya,mustard|sesame,,walnut
 watermelon-and-pineapple-fruit-salad,,,,
 judes-fruit-twist,nuts,eggs|milk,,
 strawberry-knickerbocker-glory,eggs|gluten|milk|nuts|soya,sulphites,,almond
@@ -136,7 +139,7 @@ malfy-originale-mediterranean-tonic-lemon-wedge,,,,
 monkey-47-mediterranean-tonic-blackberries,,,,
 tanqueray-indian-tonic-lime-wedge,,,,
 the-botanist-elderflower-tonic-lime-wedge,sulphites,,,
-warners-rhubarb-mediterranean-tonic-orange-slice,sulphites,,,
+warners-rhubarb-mediterranean-tonic-orange-slice,,,,
 tanqueray-0-0-indian-tonic-lime-wedge,,,,
 tanqueray-flor-de-sevilla-0-0-mediterranean-tonic-orange-slice,,,,
 warners-pink-berry-0-0-elderflower-tonic-blackberries,sulphites,,,

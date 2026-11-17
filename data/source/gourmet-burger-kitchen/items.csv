@@ -111,7 +111,7 @@ bbq-sauce,BBQ Sauce,Sauces,,101,0.7,18.5,1.8,0.3,,1.7,16.2,0.2,393,,,,,,vegetari
 firey-red-root-relish,Firey Red Root Relish,Sauces,,33,0.6,7.4,0.1,2.1,,0.2,6.6,0.5,141,,,,,,vegetarian,false,false,,,"On: main menu, no gluten menu"
 house-mayo,House Mayo,Sauces,,259,0.5,1.3,28.0,2.2,,0.8,0.9,0.0,1058,,,,,,vegetarian,false,false,,,On: main menu
 4-crispy-wings,4 Crispy Wings,Sharers & sides,,526,41.2,39.1,22.9,9.4,,2.7,1.3,1.3,2209,,,,,,,false,true,,,On: main menu
-truffle-mac,Truffle Mac,Sharers & sides,,783,23.6,55.3,51.9,14.8,,3.5,3.8,1.0,3257,,,,,,contains_pork,false,true,,,On: main menu
+truffle-mac,Truffle Mac,Sharers & sides,,641,19.6,28.5,49.5,14.0,,3.4,3.5,1.6,2663,,,,,,contains_pork,false,true,,,On: main menu
 loaded-fries-chunky,Loaded Fries - Chunky,Sharers & sides,,552,15.8,71.6,21.0,6.2,,4.4,12.0,5.8,2297,,,,,,contains_pork,false,true,,,On: main menu
 loaded-fries-skinny,Loaded Fries - Skinny,Sharers & sides,,449,13.5,49.2,20.7,6.2,,3.9,12.2,3.4,1857,,,,,,contains_pork,false,true,,,On: main menu
 chunky-fries,Chunky Fries,Sharers & sides,,345,5.5,57.8,9.2,1.0,,1.9,0.5,5.5,1451,,,,,,vegetarian,false,true,,,On: main menu
@@ -128,7 +128,7 @@ satay-chicken-salad,Satay Chicken Salad,Sharers & sides,,522,39.3,26.4,28.7,3.9,
 6-chicken-tenders,6 Chicken Tenders,Sharers & sides,,528,35.5,33.4,28.1,12.2,,2.2,0.5,1.2,2210,,,,,,,false,true,,,On: main menu
 hot-rub-onion-rings,Hot Rub Onion Rings,Sharers & sides,,339,6.2,33.0,19.6,2.7,,1.7,1.6,3.6,1420,,,,,,vegetarian,false,true,,,On: main menu
 chipotle-slaw,Chipotle Slaw,Sharers & sides,,203,1.6,9.1,17.9,1.6,,0.8,6.3,2.2,850,,,,,,vegetarian,false,true,,,On: main menu
-fiery-mac-and-cheese,Fiery Mac & Cheese,Sharers & sides,,424,16.3,54.5,15.6,8.4,,2.1,3.0,1.0,1777,,,,,,vegetarian,false,true,,,On: main menu
+fiery-mac-and-cheese,Fiery Mac & Cheese,Sharers & sides,,282,12.3,27.7,13.2,7.6,,2.0,2.7,1.6,1183,,,,,,vegetarian,false,true,,,On: main menu
 2-hot-honey-tenders,2 Hot Honey Tenders,Sharers & sides,,270,12.6,14.8,17.8,4.8,,1.0,3.2,0.8,1123,,,,,,,false,true,,,On: main menu
 2-bbq-wings-and-garlic-mayo,2 BBQ Wings and Garlic Mayo,Sharers & sides,,565,21.5,32.0,39.0,7.1,,2.5,10.9,0.9,2370,,,,,,,false,true,,,On: main menu
 2-buffalo-wings-and-blue-cheese,2 Buffalo Wings and Blue cheese,Sharers & sides,,540,22.8,20.8,40.0,8.4,,4.9,1.7,1.4,2265,,,,,,,false,true,,,On: main menu
@@ -173,11 +173,11 @@ flat-white,Flat White,Drinks,,112,5.8,8.2,6.1,4.0,,0.2,7.5,0.0,470,,,,,,vegetari
 iced-americano,Iced Americano,Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,1,,,,,,vegetarian,false,false,,,On: drinks menu
 iced-latte,Iced Latte,Drinks,,112,5.8,8.2,6.1,4.0,,0.2,7.5,0.0,470,,,,,,vegetarian,false,false,,,On: drinks menu
 hot-chocolate,Hot Chocolate,Drinks,,298,9.9,44.1,8.0,5.2,,0.2,40.9,5.2,1258,,,,,,vegetarian,false,false,,,On: drinks menu
-americano-oat-milk,Americano (Oat Milk),Drinks,,438,0.5,5.0,2.3,0.3,,0.0,2.4,0.8,183,,,,,,vegetarian,false,false,,,On: drinks menu
-latte-oat-milk,Latte (Oat Milk),Drinks,,1022,1.2,11.7,5.3,0.7,,0.0,5.6,1.8,426,,,,,,vegetarian,false,false,,,On: drinks menu
-cappuccino-oat-milk,Cappuccino (Oat Milk),Drinks,,1022,1.2,11.7,5.3,0.7,,0.0,5.6,1.8,426,,,,,,vegetarian,false,false,,,On: drinks menu
-flat-white-oat-milk,Flat White (Oat Milk),Drinks,,1022,1.2,11.7,5.3,0.7,,0.0,5.6,1.8,426,,,,,,vegetarian,false,false,,,On: drinks menu
-hot-chocolate-oat-milk,Hot Chocolate (Oat Milk),Drinks,,1208,5.3,47.6,7.1,1.9,,0.0,39.0,6.9,1214,,,,,,vegetarian,false,false,,,On: drinks menu
+americano-oat-milk,Americano (Oat Milk),Drinks,,44,0.5,5.0,2.3,0.3,,0.0,2.4,0.8,183,,,,,,vegetarian,false,false,,,On: drinks menu
+latte-oat-milk,Latte (Oat Milk),Drinks,,102,1.2,11.7,5.3,0.7,,0.0,5.6,1.8,426,,,,,,vegetarian,false,false,,,On: drinks menu
+cappuccino-oat-milk,Cappuccino (Oat Milk),Drinks,,102,1.2,11.7,5.3,0.7,,0.0,5.6,1.8,426,,,,,,vegetarian,false,false,,,On: drinks menu
+flat-white-oat-milk,Flat White (Oat Milk),Drinks,,102,1.2,11.7,5.3,0.7,,0.0,5.6,1.8,426,,,,,,vegetarian,false,false,,,On: drinks menu
+hot-chocolate-oat-milk,Hot Chocolate (Oat Milk),Drinks,,289,5.3,47.6,7.1,1.9,,0.0,39.0,6.9,1214,,,,,,vegetarian,false,false,,,On: drinks menu
 english-breakfast-tea,English Breakfast Tea,Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0,,,,,,vegetarian,false,false,,,On: drinks menu
 earl-grey-tea,Earl Grey Tea,Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0,,,,,,vegetarian,false,false,,,On: drinks menu
 peppermint-tea,Peppermint Tea,Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0,,,,,,vegetarian,false,false,,,On: drinks menu

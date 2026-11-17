@@ -29,6 +29,9 @@ Not published, and why:
     Sriracha Mayo Salmon 450 vs 659, Avocado & Mango 400 vs 542, Teriyaki Chicken 300 vs 507, Chicken Katsu Curry 500 vs 836.) Dish
     pages with an empty Cal field are not a contradiction. Dishes that appear only on the menu (Poke Burritos, sushi sets, gyoza,
     edamame, drinks, desserts) are not in the calculator and are not listed.
+  * Dishes the chain's own menu no longer lists: when a calculator dish's /menu/<dish> page answers 404 and no listing page shows it,
+    it is held back (holdback.csv) although the calculator still shows it. (Seen 2026-11-17: California and Tokyo Yuzu Salmon, whose
+    dish pages answer 404 and are gone from the site's sitemap; the calculator's figures for every dish were unchanged.)
 Allergens are LINK ONLY. The chain's allergen matrix (https://www.honipoke.com/allergens, "Review date: 05/08/2026") has no row under
 the calculator's name for several items: Chicken Teriyaki is "Teriyaki Chicken" and Tofu Teriyaki is "Teriyaki Tofu" there, the ramen
 carry "Ramen", Guacamole and Japanese Salad have no row of that name ("Guacamole with Tortilla Chips", "Japanese Cabbage Salad"), and
@@ -38,7 +41,10 @@ pages for several dishes (the Sriracha Mayo Salmon page lists no crustaceans, th
 matrix does not; the pages for Pacific Tuna and Seoul Fire Chicken list "No items found."). Allergens are safety information: no name
 matching, no choosing between the chain's two lists, so only the guide's link is published (the calculator itself links to it).
 Tags: `vegetarian` where the chain's own listing page marks the dish with its Vegetarian icon; `contains_beef` where the name or
-calculator description says beef/brisket. Nothing else is inferred.
+calculator description says beef/brisket. Nothing else is inferred. Since 2026-11-17 the Poke Salads listing page (/poke-salads) answers
+404 (the site's menu bar still links it; the sitemap no longer lists it), so the four poke salads, whose dish pages are still served, are
+on no listing page and get no vegetarian tag (the dish pages carry no Vegetarian icon); a 404 on a dish page is recorded as gone, never
+retried another way.
 """
 from __future__ import annotations
 import argparse
@@ -157,14 +163,29 @@ def build(pages: Path) -> Tuple[List[dict], List[Tuple[str, str]], List[str], st
         name = item_name(printed, category)
         tags = []
         notes = [f"Calculator row '{printed}' ({r['badge'] or category}); table row {' / '.join(r['cells'])}"]
-        if page_slug:
-            if page_slug not in listings:
-                raise SystemExit(f"{rid}: /menu/{page_slug} is not on any listing page any more")
-            if listings[page_slug]["vegetarian"]:
+        gone = bool(page_slug) and (pages / f"dish_{page_slug}.404").exists()
+        if gone:
+            if page_slug in listings:
+                raise SystemExit(f"{rid}: /menu/{page_slug} answers 404 but a listing page still shows it: read the site by hand")
+            reason = (f"The chain's own menu no longer lists '{page_name}': its dish page ({hp.HOST}/menu/{page_slug}) answers 404 and it is on none "
+                      f"of the menu listing pages, although the Nutritional Calculator still shows it. It may no longer be sold, so it "
+                      f"is not published.")
+            holdback.append((slug(name), reason))
+            report.append(f"held back: {name}: dish page gone (404), calculator still lists it")
+            notes.append("dish page gone (404)")
+        elif page_slug:
+            listed = page_slug in listings
+            if listed and listings[page_slug]["vegetarian"]:
                 tags.append("vegetarian")
+            if not listed:
+                # the Poke Salads listing page answers 404 (2026-11-17): the dish page is still served, but no page shows the
+                # chain's Vegetarian icon for it, so no vegetarian tag is set (nothing is inferred)
+                notes.append("on none of the chain's menu listing pages (its Poke Salads page answers 404), so no Vegetarian icon can be read")
+                report.append(f"not on a listing page: {name} (dish page still served; no vegetarian tag read)")
             dish = hp.read_dish_page((pages / f"dish_{page_slug}.html").read_text(encoding="utf-8"), page_slug)
-            if dish["name"] != page_name or listings[page_slug]["title"] != page_name:
-                raise SystemExit(f"{rid}: dish page names it {dish['name']!r} / listing {listings[page_slug]['title']!r}, expected {page_name!r}")
+            if dish["name"] != page_name or (listed and listings[page_slug]["title"] != page_name):
+                raise SystemExit(f"{rid}: dish page names it {dish['name']!r} / listing {listings[page_slug]['title'] if listed else None!r}, "
+                                 f"expected {page_name!r}")
             if page_name != name:
                 notes.append(f"the chain's menu calls it '{page_name}'")
             if dish["cal"]:

@@ -31,7 +31,9 @@ HOST = "https://www.honipoke.com"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 CALC_PATH = "/nutritional-calculator"
 ALLERGENS_PATH = "/allergens"
-LISTING_PATHS = ["/poke", "/poke-salads", "/warm-bowls", "/menu-ramen"]
+# /poke-salads was dropped on 2026-11-17: it answers 404 and is gone from the sitemap (the site's menu bar still links it); the four
+# poke salads' own dish pages are still served. A dish page that answers 404 is recorded as gone (dish_<slug>.404), not fetched again.
+LISTING_PATHS = ["/poke", "/warm-bowls", "/menu-ramen"]
 DEFAULT_PLAYWRIGHT_DIR = "/tmp/claude-0/-home-user-MenuAi/a431c667-67f2-527e-bd7d-6a276d3d71be/scratchpad/pw/node_modules"
 DEFAULT_CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 
@@ -86,6 +88,10 @@ def sha256_bytes(b: bytes) -> str:
     return hashlib.sha256(b).hexdigest()
 
 
+class _Gone(Exception):
+    """A dish page answered 404 (the dish is no longer on the chain's website)."""
+
+
 class Session:
     """robots.txt rules + polite GETs. `self.log` collects 'path sha256' lines for the report."""
 
@@ -98,7 +104,7 @@ class Session:
         self.rules = robots_rfc.parse(raw.decode("utf-8", "replace"))
         self.log.append(f"/robots.txt {sha256_bytes(raw)}")
 
-    def _get(self, url: str, check: bool = True) -> bytes:
+    def _get(self, url: str, check: bool = True, missing_ok: bool = False) -> bytes:
         path = url[len(HOST):] if url.startswith(HOST) else url
         if check and not robots_rfc.allowed(self.rules, path):
             raise SystemExit(f"robots.txt disallows {path}: not fetched. Send the page to the founder to save by hand instead.")
@@ -109,12 +115,24 @@ class Session:
                 if r.status != 200:
                     raise SystemExit(f"{url}: HTTP {r.status}")
         except urllib.error.HTTPError as e:
+            if missing_ok and e.code == 404:   # a page the site no longer has (not a refusal): the caller records it as gone
+                time.sleep(1.0)
+                raise _Gone(url) from e
             raise SystemExit(f"{url}: HTTP {e.code} (not worked round: stop and report this URL)")
         time.sleep(1.0)
         return body
 
-    def page(self, path: str, name: str) -> Path:
-        body = self._get(HOST + path)
+    def page(self, path: str, name: str, missing_ok: bool = False) -> Optional[Path]:
+        if missing_ok:
+            try:
+                body = self._get(HOST + path, missing_ok=True)
+            except _Gone:
+                marker = self.dest / (Path(name).stem + ".404")
+                marker.write_text(HOST + path + "\n", encoding="utf-8")
+                self.log.append(f"{path} 404 (gone)")
+                return None
+        else:
+            body = self._get(HOST + path)
         dest = self.dest / name
         dest.write_bytes(body)
         self.log.append(f"{path} {sha256_bytes(body)}")
@@ -140,7 +158,7 @@ def fetch_all(dest: Path, dish_slugs: List[str], playwright_dir: str = DEFAULT_P
     for p in LISTING_PATHS:
         s.page(p, "listing_" + p.strip("/") + ".html")
     for slug in dish_slugs:
-        s.page("/menu/" + slug, "dish_" + slug + ".html")
+        s.page("/menu/" + slug, "dish_" + slug + ".html", missing_ok=True)
     return s.log
 
 

@@ -6,6 +6,9 @@
 https://menus.tenkites.com/thebigtg/frankiebennys02 is the menu frankieandbennys.com embeds; every dish has a
 "Nutrition (per portion)" table. The Breakfast tab is "in selected sites only", so it is left out. Parser:
 tenkites_a.py. Numbers are copied as printed; only names, categories and the rules below are written by hand.
+Refreshed 2026-11-17: the page now carries a FESTIVE SPECIALS course (Main Menu and Drinks tabs; limited time, only the two main
+dishes are ranked) in place of AUTUMN SPECIALS, and a Hot Drinks course in the Drinks tab (the two rows printed with no drink name,
+only 'Regular' / 'Oat Milk', are skipped; the page's 'Deacaf' is spelt 'Decaf'; three rows whose allergens contradict the drink are held back).
 """
 from __future__ import annotations
 import re
@@ -25,25 +28,29 @@ TABS = {
     "Evening": "use",
     "Kids": "use",
 }
-EXPECTED = {"Main Menu": 126, "Lunch": 31, "Desserts": 28, "Drinks": 140, "Evening": 49, "Kids": 61}
+EXPECTED = {"Main Menu": 129, "Lunch": 31, "Desserts": 28, "Drinks": 172, "Evening": 49, "Kids": 61}
 
 ADDONS = "Add-ons & extras"
-CATEGORY_ORDER = ["Autumn specials", "Starters", "Burgers", "Pizza", "Calzones", "Pasta", "Signature grills & classics",
+CATEGORY_ORDER = ["Festive specials", "Starters", "Burgers", "Pizza", "Calzones", "Pasta", "Signature grills & classics",
                   "Salads", "Sides", "Lunch mains", ADDONS, "Desserts", "Shakes",
                   "Kids: Brunch", "Kids: Mains", "Kids: Sides", "Kids: Add-ons & extras", "Kids: Desserts", "Kids: Drinks",
                   "Drinks: Cocktails", "Drinks: Mocktails", "Drinks: Gin & tonics", "Drinks: Beers & ciders", "Drinks: Wine",
-                  "Drinks: Soft drinks", "Drinks: Spirits"]
-MAIN_CATEGORY = {"AUTUMN SPECIALS": "Autumn specials", "STARTERS": "Starters", "BURGERS": "Burgers", "PIZZA": "Pizza",
+                  "Drinks: Soft drinks", "Drinks: Hot drinks", "Drinks: Spirits"]
+MAIN_CATEGORY = {"FESTIVE SPECIALS": "Festive specials", "STARTERS": "Starters", "BURGERS": "Burgers", "PIZZA": "Pizza",
                  "CALZONES": "Calzones", "PASTA": "Pasta", "SIGNATURE GRILLS & CLASSICS": "Signature grills & classics",
                  "SALADS": "Salads", "SIDES": "Sides", "MAINS": "Lunch mains", "DESSERT": "Desserts", "DESSERTS": "Desserts"}
 KIDS_CATEGORY = {"BRUNCH": "Kids: Brunch", "MAINS": "Kids: Mains", "SIDES": "Kids: Sides", "DESSERTS": "Kids: Desserts",
                  "DRINKS": "Kids: Drinks"}
 DRINK_CATEGORY = {"COCKTAILS": "Drinks: Cocktails", "MOCKTAILS": "Drinks: Mocktails", "GIN & TONICS": "Drinks: Gin & tonics",
                   "BOTTLED BEERS & CIDERS": "Drinks: Beers & ciders", "DRAUGHT BEERS & CIDERS": "Drinks: Beers & ciders",
-                  "WINES": "Drinks: Wine", "SOFT DRINKS": "Drinks: Soft drinks", "SPIRITS": "Drinks: Spirits"}
+                  "WINES": "Drinks: Wine", "SOFT DRINKS": "Drinks: Soft drinks", "SPIRITS": "Drinks: Spirits",
+                  "Hot Drinks": "Drinks: Hot drinks"}
 ALCOHOL = {"Drinks: Cocktails", "Drinks: Gin & tonics", "Drinks: Beers & ciders", "Drinks: Wine", "Drinks: Spirits"}
 # the page's own typos in parent headings
 PARENT_FIX = {"Cola-Cola": "Coca-Cola", "Coke-Cola Zero Sugar": "Coca-Cola Zero Sugar"}
+NAME_FIX = {"Deacaf": "Decaf"}
+# the festive menu (Main Menu and Drinks tabs, from November 2026): limited time; only the two main dishes are ranked
+FESTIVE_MAINS = {"Loaded Crimbo Burger", "Festive Fondue Melt Pizza"}
 VARIANT = re.compile(r"^(\d+\s?(ml|cl)|\d+ piece|small|large|regular|single|double|bottle|half|pint|(shandy|top) (half|pint)|"
                      r"still( large)?|sparkling( regular| large)?|small eater|large eater|go gluten[- ]free|standard|"
                      r"gluten[- ]free|\d stack|whole rack|ribs - half rack|fried|poached|scrambled)$", re.I)
@@ -74,6 +81,15 @@ def classify(rec: dict):
         return spec
 
     if menu == "Drinks":
+        if c1 == "FESTIVE SPECIALS":
+            return {"category": "Festive specials", "rankable": False, "limited_time": True}
+        if c1 == "Hot Drinks":
+            if not byo:
+                return ("skip", "the page prints no name for this hot drink, only 'Regular' / 'Oat Milk'")
+            if byo.startswith("Add syrup"):
+                return {"category": "Drinks: Hot drinks", "rankable": False,
+                        "name": f"{nm} (add-on)" if "syrup" in nm.lower() else f"{nm} Syrup (add-on)"}
+            return {"category": "Drinks: Hot drinks", "rankable": False, "name": f"{byo} ({NAME_FIX.get(nm, nm)})"}
         cat = DRINK_CATEGORY[c1]
         spec = {"category": cat, "rankable": False, "alcohol": cat in ALCOHOL}
         if byo and VARIANT.match(nm):
@@ -115,9 +131,9 @@ def classify(rec: dict):
         label = "sauce" if re.match(r"^(get saucy|choose your sauce)", sec, re.I) or byo.lower().startswith("level up") else "add-on"
         return {"category": ADDONS, "rankable": False, "name": f"{nm} ({label})"}
     spec = {"category": cat, "rankable": not t.SHARING.search(nm)}
-    if c1 == "AUTUMN SPECIALS":
+    if c1 == "FESTIVE SPECIALS":
         spec["limited_time"] = True
-        spec["rankable"] = nm == "Hot Honey Fried Chicken Burger"
+        spec["rankable"] = nm in FESTIVE_MAINS
     return spec
 
 
@@ -142,6 +158,10 @@ HOLDBACK = {
     "Strathmore Water (Still Large)": "Allergen row contradicts the item's name: the page marks all 14 allergens, every cereal and every tree nut for bottled still water.",
     "Strathmore Water (Sparkling Regular)": "Allergen row contradicts the item's name: the page marks all 14 allergens, every cereal and every tree nut for bottled sparkling water.",
     "Strathmore Water (Sparkling Large)": "Allergen row contradicts the item's name: the page marks all 14 allergens, every cereal and every tree nut for bottled sparkling water.",
+    # refresh 2026-11-17 (new Hot Drinks section): allergen rows that contradict the drink's name, or the page's own "Suitable for" line
+    "Americano (Decaf with Oat Milk)": "Allergen row contradicts the item's name: the page marks milk and not oats for an Americano with oat milk, and prints exactly the numbers of the Americano with dairy milk.",
+    "Yorkshire Tea (Regular with Milk)": "Allergen row contradicts the item's name: the page marks peanuts and every tree nut as 'Contains' for a cup of tea with milk.",
+    "Yorkshire Tea (Regular with Oat Milk)": "Allergen row contradicts itself: the page marks the tea 'Gluten Free' and 'Vegan' but also 'Contains' every gluten cereal, peanuts and every tree nut.",
 }
 NOTE = ("Per portion as printed on the chain's menu pages; the Breakfast menu (selected sites only) is not listed. Wines, many "
         "cocktails and some drinks print no numbers and are not listed. Sauces, toppings, extras and upgrade sides are separate "
@@ -149,12 +169,12 @@ NOTE = ("Per portion as printed on the chain's menu pages; the Breakfast menu (s
 
 # The same pages print each dish's allergens ("Dietary Information": "Contains:" and "May contain:", naming the cereals
 # and tree nuts) and carry the label ids of the page's own allergen filter; tenkites_a cross-checks the two.
-ALLERGEN_TITLE = "Frankie & Benny's Dietary Information (allergens) on its online Main, Lunch, Desserts, Drinks, Evening and Kids menus (Ten Kites page generated 2026-10-06)"
+ALLERGEN_TITLE = "Frankie & Benny's Dietary Information (allergens) on its online Main, Lunch, Desserts, Drinks, Evening and Kids menus (Ten Kites page generated 2026-11-17)"
 
 if __name__ == "__main__":
     sys.exit(t.run(
         chain_id="frankie-and-bennys", name="Frankie & Benny's", cuisine="Italian American",
         aliases=["frankie & benny's", "frankie and bennys", "frankie & bennys", "frankie and benny's"], url=URL,
-        source_title="Frankie & Benny's Nutritional Information: Main, Lunch, Desserts, Drinks, Evening and Kids menus (page generated 2026-10-06)",
+        source_title="Frankie & Benny's Nutritional Information: Main, Lunch, Desserts, Drinks, Evening and Kids menus (page generated 2026-11-17)",
         tabs=TABS, classify=classify, category_order=CATEGORY_ORDER, expected_rows=EXPECTED, note=NOTE, holdback=HOLDBACK,
         allergen_title=ALLERGEN_TITLE))

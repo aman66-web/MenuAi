@@ -19,10 +19,12 @@ from common import slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "farmer-j"
 BASE = "https://menus.tenkites.com/farmerjuk/farmerjallergypages"
+# Re-checked 2026-11-17: the page now offers "Breakfast / Lunch & Dinner / All Day (2026 November)" under new menu ids (the
+# September ids now return the Breakfast menu), so the ids below are the November ones; All Day gained one dish (12 -> 13).
 PAGES = {  # file name -> (url, dishes expected on the page)
-    "farmerj_breakfast.html": (BASE, 22),
-    "farmerj_lunch.html": (BASE + "?mguid=6d41200b-d23a-43f8-a888-0cf03b6d0753", 42),
-    "farmerj_allday.html": (BASE + "?mguid=5d133f8d-c028-43a4-ae20-f32607011cc0", 12),
+    "farmerj_breakfast.html": (BASE + "?mguid=45115f1d-1fb2-46b7-9e1f-0bde79a2030e", 22),
+    "farmerj_lunch.html": (BASE + "?mguid=6c8394c3-ccf2-4111-b8de-3606422c737e", 42),
+    "farmerj_allday.html": (BASE + "?mguid=cf37c552-e6b3-4f5e-9d8e-3bd5c71bc60e", 13),
 }
 # printed section -> (category shown, rankable). Parts of a tray (mains, bases, sides, sauces, toppings), extras, treats
 # and drinks are not suggested as an order on their own.
@@ -40,9 +42,22 @@ SECTIONS = {
 PRINTED_AS = {"Seeded Sourdough + Salted Butter Nov'26": "Seeded Sourdough + Salted Butter"}
 # The same pages print each dish's 14 allergen columns, a "Contains:" line naming cereals and nuts, and "May contain traces of".
 ALLERGEN_TITLE = "Farmer J Allergen & Nutrition pages (Ten Kites)"
-SOURCE_TITLE = "Farmer J Allergen & Nutrition pages: Breakfast, Lunch & Dinner and All Day menus (September 2026)"
+SOURCE_TITLE = "Farmer J Allergen & Nutrition pages: Breakfast, Lunch & Dinner and All Day menus (2026 November)"
 NOTE = ("Figures are per serving from Farmer J's own nutrition pages, which say values and weights are averages and "
         "salad figures include the dressing. Mains, bases and sides are the parts of a tray, so they are not suggested on their own.")
+
+
+def allergens_from_row(row: dict, where: str) -> "dict | None":
+    """tk.allergens_from_row, plus the "Oats" column the November 2026 pages print next to "Cereals with Gluten" (their "Contains:" lines
+    now name "Oats" too). common.allergen_words reads oats as a cereal containing gluten (the UK rule), so the printed line "Contains: Oats"
+    gives gluten (oats); a dish with only the Oats column ticked (the oat-flour cookies, the oat-milk drinks) is therefore checked with that
+    column counted as a gluten column. The columns and the printed line must still agree, and the run stops if the Oats column goes away."""
+    labels = row.get("labels", {})
+    if labels.get("Oats") is None:
+        raise SystemExit(f"{where}: no 'Oats' column any more (added in the November 2026 pages): re-check allergens_from_row")
+    if labels["Oats"] and not labels.get("Cereals with Gluten"):
+        row = {**row, "labels": {**labels, "Cereals with Gluten": True}}
+    return tk.allergens_from_row(row, where)
 
 
 def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]]:
@@ -71,7 +86,7 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
                 report.append(f"meat type not stated: {r['name']}")
             items.append({"id": slug(r["name"]), "name": r["name"], "category": category, "serving": "", **nums,
                           "tags": "|".join(tags + meat), "rankable": rankable, "notes": "",
-                          "allergens": tk.allergens_from_row(r, f"{fname} {r['name']}")})
+                          "allergens": allergens_from_row(r, f"{fname} {r['name']}")})
     kept, dropped = tk.dedupe_items(items)
     report += [f"dropped exact duplicate: {n}" for n in dropped]
     for it in kept:

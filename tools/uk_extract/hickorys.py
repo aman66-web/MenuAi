@@ -69,8 +69,8 @@ NOTES = {"The Southern Sharer": "Described as a loaded tray to share",
 # The same pages print each dish's "Dietary Information" ("Contains: ..." naming the cereals and nuts, "May contain: ...")
 # and carry the label ids of the page's own allergen filter; tenkites_c.allergens_checked cross-checks the two.
 ALLERGEN_EXTRA = {"sulphur dioxide/ sulphites": ("sulphites", None)}   # printed with a space after the slash
-ALLERGEN_TITLE = "Hickory's Smokehouse menu Dietary Information (allergens): Main Menu, Brunch & Lunch, Desserts, Kids, Drinks and Non Gluten (Ten Kites page, no date printed; read 2026-10-08)"
-SOURCE_TITLE = "Hickory's Smokehouse menu with nutrition: Main Menu, Brunch & Lunch, Desserts, Kids, Drinks and Non Gluten (live page, no date printed; read 2026-10-08)"
+ALLERGEN_TITLE = "Hickory's Smokehouse menu Dietary Information (allergens): Main Menu, Brunch & Lunch, Desserts, Kids, Drinks and Non Gluten (Ten Kites page, no date printed; read {checked})"
+SOURCE_TITLE = "Hickory's Smokehouse menu with nutrition: Main Menu, Brunch & Lunch, Desserts, Kids, Drinks and Non Gluten (live page, no date printed; read {checked})"
 NOTE = ("Figures are per portion from Hickory's own menu page (hosted by Ten Kites), which prints no date. Alcoholic drinks and "
         "the Smokin' Deals bundles are not included; the Non-Gluten menu only adds dishes whose numbers differ.")
 
@@ -209,11 +209,11 @@ def main() -> int:
     if args.fetch:
         fetch_tabs(args.pages)
     items, holdback, report = build(args.pages)
-    out = write_chain_folder(chain_id=CHAIN_ID, name="Hickory's Smokehouse", cuisine="Barbecue", source_title=SOURCE_TITLE,
+    out = write_chain_folder(chain_id=CHAIN_ID, name="Hickory's Smokehouse", cuisine="Barbecue", source_title=SOURCE_TITLE.format(checked=args.checked_on),
                              source_url=BASE, checked_on=args.checked_on, aliases=["hickorys", "hickory's", "hickorys smokehouse",
                                                                                    "hickory's smokehouse"],
                              items=items, out=args.out, note=NOTE, holdback=holdback,
-                             allergen_guide={"title": ALLERGEN_TITLE, "url": BASE, "checked_on": args.checked_on,
+                             allergen_guide={"title": ALLERGEN_TITLE.format(checked=args.checked_on), "url": BASE, "checked_on": args.checked_on,
                                              "may_contain_published": MAY_CONTAIN_PUBLISHED})
     for fname, _, _ in PAGES.values():
         print(f"{fname} sha256 {tk.sha256_text_file(args.pages / fname)}")

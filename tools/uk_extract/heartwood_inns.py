@@ -55,16 +55,16 @@ MENUS = [
     ("hwialacarte_a_la_carte.html", BASE + "hwialacarte?mguid=" + ALACARTE_ID, "À la carte", 74),
     ("hwialacarte_weekday_lunch.html", BASE + "hwialacarte", "Weekday Lunch", 75),
     ("hwisaturday.html", BASE + "hwisaturday", "Saturday", 74),
-    ("hwisundaynew.html", BASE + "hwisundaynew", "Sunday", 66),
+    ("hwisundaynew.html", BASE + "hwisundaynew", "Sunday", 69),
     ("hwibarmenu.html", BASE + "hwibarmenu", "Bar menu", 26),
     ("hwikids.html", BASE + "hwikids", "Kids", 23),
     ("hwidrinks.html", BASE + "hwidrinks", "Drinks", 140),
 ]
 SOURCE_URL = BASE + "hwialacarte"
 SOURCE_TITLE = ("Heartwood Inns menus with nutrition and allergens (Ten Kites pages embedded on heartwoodinns.com/menu): "
-                "à la carte, Weekday Lunch, Saturday, Sunday, Bar, Kids and Drinks (accessed 2026-10-08, no date shown)")
+                "à la carte, Weekday Lunch, Saturday, Sunday, Bar, Kids and Drinks (accessed {checked}; the drinks menu is titled Autumn 2026, the food menus show no date)")
 ALLERGEN_TITLE = ("Heartwood Inns menus with allergens (Ten Kites): per-dish 'Contains' and 'May contain' on the same pages "
-                  "(accessed 2026-10-08, no date shown)")
+                  "(accessed {checked}, no date shown)")
 NOTE = ("Figures are per serving from Heartwood Inns' own menu pages (no fibre, kJ or weights printed). Weekday Lunch dishes are served "
         "Monday to Friday 12pm-5pm; the à la carte Monday to Friday from 5pm and all day Saturday. Wine, group dining and Christmas menus "
         "are not included. Alcoholic drinks print calories that include the alcohol.")
@@ -380,9 +380,9 @@ def main() -> int:
         public.append({k: v for k, v in it.items() if not k.startswith("_") and k != "menu"})
     if not holds:
         (Path(args.out) / "holdback.csv").unlink(missing_ok=True)
-    out = write_chain_folder(chain_id=CHAIN_ID, name="Heartwood Inns", cuisine="Pub", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
+    out = write_chain_folder(chain_id=CHAIN_ID, name="Heartwood Inns", cuisine="Pub", source_title=SOURCE_TITLE.format(checked=args.checked_on), source_url=SOURCE_URL,
                              checked_on=args.checked_on, aliases=ALIASES, items=public, out=args.out, note=NOTE, holdback=holds,
-                             allergen_guide={"title": ALLERGEN_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on,
+                             allergen_guide={"title": ALLERGEN_TITLE.format(checked=args.checked_on), "url": SOURCE_URL, "checked_on": args.checked_on,
                                              "may_contain_published": True})
     print(f"wrote {len(items)} items to {out} ({len(holds)} held back); {dict(stats)}")
     print("by category:", dict(Counter(i["category"] for i in items)))

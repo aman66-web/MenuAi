@@ -45,6 +45,9 @@ rule allows to hold back) have no exact row: Mixed olives (MIXED MARINATED OLIVE
 BREAD vs CARAMELISED ONION & GOAT'S CHEESE PIZZA BREAD W26 ...), Hot honey / semi-dried tomato / grana & truffle dips, Caprese, Yellowfin tuna salad,
 Cheesecake, Tiramisu, Cannolo, Macchiato, Latte/Flat white (one row for both, and a separate row per milk), the 4 kids pizzas and 6 kids drinks and
 scoops. Link-only stays.
+Re-checked 2026-11-17: the menu page is unchanged (same 76 items and figures); its "Allergens list" button now links the November 2026 v1
+list (17 pages, created 2026-10-30; its FAQ still gives the sourdough base as 518 kcal and the gluten-free swap as +53 kcal). 31 of the 76
+items still have no row of the same name in it, so link-only stays; only the guide's link and title changed.
 """
 from __future__ import annotations
 import argparse
@@ -63,8 +66,8 @@ CHAIN_ID = "franco-manca"
 SOURCE_URL = "https://www.francomanca.co.uk/menu/"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 ALIASES = ["franco manca", "franco manca pizza", "francomanca"]
-ALLERGEN_GUIDE_TITLE = "Franco Manca allergen list, July 2026 v2 (FM-ALLERGEN-LIST-JULY-2026-v2.pdf, 18 pages)"
-ALLERGEN_GUIDE_URL = "https://www.francomanca.co.uk/wp-content/uploads/2026/08/FM-ALLERGEN-LIST-JULY-2026-v2.pdf"
+ALLERGEN_GUIDE_TITLE = "Franco Manca allergen list, November 2026 v1 (FM-ALLERGEN-LIST-NOVEMBER-2026-v1.pdf, 17 pages)"
+ALLERGEN_GUIDE_URL = "https://www.francomanca.co.uk/wp-content/uploads/2026/11/FM-ALLERGEN-LIST-NOVEMBER-2026-v1.pdf"
 # The guide says dishes "may contain traces of other allergens not included on the main ingredients list" and that nuts are handled in
 # every pizzeria: traces information is published (as a general statement, not per dish).
 MAY_CONTAIN_PUBLISHED = True

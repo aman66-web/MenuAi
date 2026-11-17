@@ -3,20 +3,21 @@
 
     python3 tools/uk_extract/haven.py --pages DIR --checked-on 2026-10-08 [--fetch] [--out DIR]
 
-DIR holds the saved pages named 00.html ... 18.html (one per menu, in the order of the guide's menu picker). --fetch downloads them first:
+DIR holds the saved pages named 00.html ... 20.html (one per menu, in the order of the guide's menu picker). --fetch downloads them first:
 the guide page, then each other menu as <guide page>?mguid=<menu id> (the page shows one menu at a time), one request per second.
 
 Source (linked from https://www.haven.com/discover/food-and-drink as "menu allergy and nutritional information guide", which "highlights
 all of the key facts about our dishes served in each of our holiday parks' main restaurants"):
     https://viewthe.menu/1afv   (Ten Kites page; robots.txt disallows only /fonts/, /views/ and *.less)
-It holds 19 menus (see MENUS). Each dish prints its calories beside its name ("( 498 kcal )"), a column per allergen (tick = contains,
+It holds 21 menus (see MENUS; 19 until November 2026). Each dish prints its calories beside its name ("( 498 kcal )"), a column per allergen (tick = contains,
 M = may contain), Vegan / Vegetarian columns, and in the opened row the same facts in words. NOTHING else is published: no protein, carbs,
 fat, salt, kJ or weights. So `nutrition_level = calories`: protein, carbs and fat stay blank; every item is not rankable.
 
 Which menus and rows are published (written down so a monthly re-run keeps the same rules):
   Published   Breakfast, Main, Kids, Sunday, NGCI, Dark Kitchen, Perfect Match, Ice cream, Cake counter, Cakery, Pizza menu, Night menu
               (June 2026) and the Festive, Christmas Day, Christmas Day NGCI and Halloween Specials menus (limited time).
-  Left out    "Pizza deck (Hafan y Mor & Seashore)": two parks only. "Pizza Trial 2026": a trial. Sections for one venue type or group only:
+  Left out    "Pizza deck (Hafan y Mor & Seashore)": two parks only. "Pizza Trial 2026": a trial. "XMAS - OWNERS - 2026" and its NGCI
+              version: caravan owners only (like the "Owners Exclusive" drinks). Sections for one venue type or group only:
               "Rotisserie/CH ONLY", "Coast house only", "Coasthouse Only" (Coast House is one of the park venue types) and the "Owners Exclusive"
               drinks (caravan owners). "Prep Recipes" sections (kitchen sub-recipes, not sold). Rows with no calories printed (most alcoholic
               drinks, "Bubblegum" ice cream, the Costa notice). On the Master Drinks menu, every drink whose name does not state its size
@@ -67,7 +68,7 @@ MENUS = [
     (4, "MAIN RESTAURANT - JUNE - 2026 - NGCI", "NGCI menu", True, False),
     (5, "DARK KITCHEN - JUNE - 2026", "Dark Kitchen", True, False),
     (6, "MAIN RESTAURANT - THE PERFECT MATCH - JUNE - 2026", "Perfect Match", True, False),
-    (7, "MAIN RESTAURANT - ICE CREAM - JUNE - 2026", "Ice cream", True, False),
+    (7, "MAIN RESTAURANT - ICE CREAM - 2026", "Ice cream", True, False),   # "ICE CREAM - JUNE - 2026" until Nov 2026
     (8, "MAIN RESTAURANT - CAKE COUNTER - JUNE - 2026", "Cake counter", True, False),
     (9, "MAIN RESTAURANT - CAKERY - JUNE - 2026", "Cakery", True, False),
     (10, "MAIN RESTAURANT - PIZZA MENU - 2026", "Pizza menu", True, False),
@@ -78,14 +79,16 @@ MENUS = [
     (15, "HAVEN - MASTER DRINKS MENU - JUNE 2026", "Drinks", True, False),
     (16, "XMAS DAY - 2026", "Christmas Day", True, True),
     (17, "XMAS DAY - 2026 - NGCI", "Christmas Day NGCI", True, True),
-    (18, "Halloween Specials Food & Drink", "Halloween", True, True),
+    (18, "XMAS - OWNERS - 2026", "Christmas owners", False, True),   # caravan owners only (added Nov 2026), like the owners' drinks
+    (19, "XMAS - OWNERS - 2026 - NGCI", "Christmas owners NGCI", False, True),
+    (20, "Halloween Specials Food & Drink", "Halloween", True, True),
 ]
 # Where a dish printed on several menus is filed: the first of these menus that prints it (the shared menus first, the niche and
 # limited-time ones last).
-PRIORITY = [7, 8, 9, 0, 1, 2, 3, 10, 13, 4, 5, 6, 15, 11, 16, 17, 18]
+PRIORITY = [7, 8, 9, 0, 1, 2, 3, 10, 13, 4, 5, 6, 15, 11, 16, 17, 20]
 EXCLUDED_SECTIONS = re.compile(r"prep recipes|\bch only\b|coast ?house only|owners exclusive", re.I)
 DRINK_MENU = 15
-HALLOWEEN_MENU = 18
+HALLOWEEN_MENU = 20
 HALLOWEEN_DRINK_SECTIONS = {"Cocktails", "O.O% Cocktails", "Mocktail", "Cocktail Supreme", "Mocktail - Cocktail Supreme"}
 VOLUME = re.compile(r"\b\d+(?:\.\d+)?\s?(?:ml|cl)\b|\bpint\b", re.I)   # a drink's size, stated in its own name
 
@@ -109,7 +112,7 @@ VARIANT_NAMES = {
     ("sticky toffee pudding (v) (ngci)", "631"): ("Sticky Toffee pudding (V) (NGCI) with vanilla ice cream", None, "vanilla ice cream"),
     ("sticky toffee pudding (v) (ngci)", "365"): ("Sticky Toffee pudding (V) (NGCI) with vanilla pod ice cream", None, "vanilla pod ice cream"),
     ("baked beans", "432"): ("Baked Beans Jacket Potato", None, "jacket potato"),   # printed "Baked Beans" under Lite Bites, described as a jacket potato
-    ("hf26 core hot honey chicken burger", "1330"): ("Hot Honey Chicken Burger", None, "hot honey sauce"),   # drops the kitchen code "HF26 CORE"
+    ("hf26 core hot honey chicken burger", "1338"): ("Hot Honey Chicken Burger", None, "hot honey sauce"),   # drops the kitchen code "HF26 CORE" (printed 1330 kcal until Nov 2026)
 }
 # Printed with the same name as another row and a different figure, and nothing on the page tells them apart: not published.
 AMBIGUOUS = {
@@ -212,7 +215,7 @@ def collect(menus: dict) -> tuple:
         for pos, r in enumerate(m["rows"]):
             name = tidy(r["name"])
             if not published:
-                left["menu not published (pizza deck, pizza trial)"] += 1
+                left["menu not published (pizza deck, pizza trial, owners' Christmas menus)"] += 1
                 continue
             if EXCLUDED_SECTIONS.search(r["section"]):
                 left["venue-specific / owners / prep-recipe sections"] += 1
@@ -321,9 +324,9 @@ def build_items(kept: list) -> tuple:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--pages", type=Path, required=True, help="folder with 00.html ... 18.html (see the module doc)")
+    ap.add_argument("--pages", type=Path, required=True, help="folder with 00.html ... 20.html (see the module doc)")
     ap.add_argument("--checked-on", required=True, help="the day the pages were downloaded/read, YYYY-MM-DD")
-    ap.add_argument("--fetch", action="store_true", help="download the 19 pages into --pages first (one request per second)")
+    ap.add_argument("--fetch", action="store_true", help="download the 21 pages into --pages first (one request per second)")
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
     if len(NOTE) >= 400:

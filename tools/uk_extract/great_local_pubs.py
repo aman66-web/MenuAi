@@ -114,8 +114,23 @@ NOTES: dict[str, str] = {
 
 # Each dish's info box prints "Contains:" / "Dish ingredients may also contain:" (naming the cereals and nuts) and the dish carries
 # label ids; tenkites_b.allergens_from_rec checks they agree.
+# Each page prints "Data correct as of: <day>" under its title (read from the pages by correct_as_of(); 9 October 2026 on the first
+# read, 17 November 2026 on the refresh). It is copied into both titles as printed.
 ALLERGEN_TITLE = ("Great Local Pubs allergen & nutritional data (tkmenus.com/greattraditionalpubs, April 2026 menus, "
-                  "data correct as of 9 October 2026)")
+                  "data correct as of {as_of})")
+
+
+def correct_as_of(paths: dict[str, Path]) -> str:
+    """The date the pages print as "Data correct as of: <day>". Every published page must print one, and the same one."""
+    found = {}
+    for label, path in paths.items():
+        m = re.search(r"Data correct as of:\s*(\d{1,2} [A-Z][a-z]+ \d{4})", path.read_text(encoding="utf-8", errors="replace"))
+        if not m:
+            raise SystemExit(f"{label}: the page no longer prints 'Data correct as of: <date>': re-check it")
+        found[label] = m.group(1)
+    if len(set(found.values())) != 1:
+        raise SystemExit(f"the pages print different 'Data correct as of' dates: {found}")
+    return next(iter(found.values()))
 ALLERGEN_WORDS = {"sulphur dioxide/ sulphites": ("sulphites", None)}  # as printed on these pages
 
 NOTE = ("Not every pub serves every menu or dish; Scottish pubs have their own breakfast dishes (not included). A dish with different "
@@ -272,16 +287,17 @@ def main() -> int:
     if missing:
         print(f"HOLDBACK/NOTES names no longer on the menu (the pages changed): {missing}", file=sys.stderr)
         return 1
+    as_of = correct_as_of({label: paths[label] for label in labels})
     folder = write_chain_folder(
         chain_id=CHAIN_ID, name="Great Local Pubs", cuisine="Pub",
         source_title="Great Local Pubs allergen & nutritional data (tkmenus.com/greattraditionalpubs: Main Menu April 2026 and the April 2026 "
                      "lunch, veggie & vegan, no-gluten containing, kids', breakfast, brunch, Sunday, afternoon tea and drinks menus; data "
-                     "correct as of 9 October 2026)",
+                     f"correct as of {as_of})",
         source_url=BASE_URL, checked_on=args.checked_on,
         aliases=["great local pubs", "great local pub", "great traditional pubs", "peoples pubs", "people's pubs"],
         items=items, out=args.out, holdback=[(slug(tk.fold(n)), why) for n, why in HOLDBACK.items()],
         note=NOTE,
-        allergen_guide={"title": ALLERGEN_TITLE, "url": BASE_URL, "checked_on": args.checked_on, "may_contain_published": True},
+        allergen_guide={"title": ALLERGEN_TITLE.format(as_of=as_of), "url": BASE_URL, "checked_on": args.checked_on, "may_contain_published": True},
     )
     for label in guids:
         print(f"{label:20} sha256 {sha256_file(paths[label])[:16]}  {tk.page_title(paths[label])}")
