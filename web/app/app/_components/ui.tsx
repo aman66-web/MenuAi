@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useLayoutEffect, useRef, type ButtonHTMLAttributes, type CSSProperties, type MouseEvent, type ReactNode } from "react";
 import { useT } from "../_lib/i18n";
 import { CloseIcon } from "./icons";
+import "../_lib/inputModality"; // focus rings only after a keyboard is used (no box after a tap)
 
 const cx = (...c: Array<string | false | null | undefined>) => c.filter(Boolean).join(" ");
 
