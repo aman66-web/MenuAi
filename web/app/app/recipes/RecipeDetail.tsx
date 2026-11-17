@@ -21,6 +21,7 @@ import { usePossessive, useT } from "../_lib/i18n";
 import { PhotoTile } from "../groceries/ProductPhoto";
 import { targetSentence } from "./MealPicker";
 import { MEAL_LOOK, RecipeHeroArt } from "./RecipeTile";
+import { ShopMark } from "../_components/ChainMark";
 
 // One recipe filled with a shop's own products, fitted to the person's meal (Recipes › Your meal) unless they ask to see it as written.
 // They can swap any ingredient for another product that matches, or for one of the recipe's substitutes (also used on its own when the
@@ -210,7 +211,6 @@ export function RecipeDetail({ recipe, file, products, backHref, actions, photo 
   // which step first uses each ingredient, so its amount (for this many people) is shown under that step
   const stepUses = firstMentions(recipe.method, view.recipe.ingredients);
   const specByKey = new Map(view.recipe.ingredients.map((spec, i) => [spec.key, picks[i]?.spec ?? spec]));
-  const kicker = `${recipe.ai ? t("Made by Pip") : t("Recipe")} · ${file.name}`;
   const mealLabel = recipe.meal ? MEAL_TYPES.find((m) => m.value === recipe.meal)?.label : undefined;
   const MealIcon = MEAL_LOOK[recipe.meal ?? "dinner"]?.Icon ?? MEAL_LOOK.dinner.Icon;
 
@@ -251,7 +251,15 @@ export function RecipeDetail({ recipe, file, products, backHref, actions, photo 
       <div className="relative -mx-5 -mt-9 rounded-t-[2rem] bg-background px-5 pt-3 shadow-[0_-12px_28px_-24px_rgba(0,0,0,0.45)]">
         <span aria-hidden className="mx-auto block h-1.5 w-12 rounded-full bg-[var(--ring-track)]" />
         <div className="mt-4 text-center">
-          <p className="kicker">{kicker}</p>
+          {/* founder 2026-11-17: the shop's own logo in the header, its name written beside it (CLAUDE.md rule 2: the name is always plain text) */}
+          <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5">
+            <span className="kicker">{recipe.ai ? t("Made by Pip") : t("Recipe")}</span>
+            <span aria-hidden className="kicker">·</span>
+            <span className="inline-flex items-center gap-2 rounded-full bg-white py-1 pe-3.5 ps-1 shadow-[0_1px_3px_rgba(17,24,20,0.12)]">
+              <ShopMark shopId={file.retailer} size="sm" />
+              <span className="text-[0.9375rem] font-bold leading-tight">{file.name}</span>
+            </span>
+          </p>
           <h1 className="mt-1.5 text-[2rem] font-[800] leading-[1.08] tracking-[-0.02em] [overflow-wrap:anywhere]">{rt(recipe.name)}</h1>
           {recipe.blurb && <p className="mx-auto mt-2 max-w-[30rem] text-[0.9375rem] leading-snug text-muted">{rt(recipe.blurb)}</p>}
         </div>
