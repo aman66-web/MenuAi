@@ -4,6 +4,9 @@
 // size?"), and a product is listed here only when at least two said yes (110 of 732 judged on 17 November 2026). Recipes pick from these first
 // (lib/mm/recipes.ts candidates); an ingredient with none of them shows a small-shop tip instead (pantry.ts localTip). A product that leaves the shop's list simply
 // stops being picked.
+/** The shop whose product ids LOCAL_SHOP_PRODUCTS lists (the judges looked at Sainsbury's list only): the small-shop line and tips show only for its recipes. */
+export const LOCAL_RANGE_SHOP = "sainsburys";
+
 export const LOCAL_SHOP_PRODUCTS: ReadonlySet<string> = new Set([
   "alpro-1l-oat-original-chilled-dairy-free-drink",
   "amoy-soy-sauce-light-150ml",

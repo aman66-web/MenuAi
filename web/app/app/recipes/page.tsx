@@ -19,7 +19,7 @@ import { recipeShops } from "@/lib/mm/shopProducts";
 import { myRecipesStore, savedRecipesStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { ShopMark } from "../_components/ChainMark";
 import { AllergenTiles, dietWords } from "../_components/DietPicker";
-import { ArrowRightIcon, BasketIcon, CameraIcon, CheckIcon, GridIcon, HeartIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
+import { ArrowRightIcon, BasketIcon, CameraIcon, CheckIcon, GridIcon, HeartIcon, InfoIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
 import { ShopPicker } from "../_components/ShopPicker";
@@ -196,6 +196,9 @@ function RecipesScreen() {
     setDraftShops(shops);
     setShopsChanged(true);
     updateSettings({ shops: shops.length ? shops : undefined });
+    // founder 2026-11-17 ("If I choose to shop at Asda, it's still showing stuff from Sainsbury's"): the recipes follow the shops ticked here at once, even when
+    // the page was opened for another shop (a link's ?r=, or the switcher below)
+    setPicked(recipeShop(manifest, null, shops));
   };
   const [query, setQuery] = useState("");
   const [limit, setLimit] = useState(PAGE);
@@ -221,6 +224,13 @@ function RecipesScreen() {
   const picks = useMemo(() => sortCards(cards.filter((c) => c.recipe.meal === slot), target ? "fit" : "protein").slice(0, PICKS), [cards, slot, target]);
   const listRecipes = useMemo(() => (shop && products && shopping.length ? recipesFromList(shopping, cards.map((c) => c.recipe), products, shop).length : 0), [shopping, cards, products, shop]);
   const shopName = manifest?.retailers.find((r) => r.id === shop)?.name ?? "";
+  const myRecipeShops = recipeShops(manifest).filter((r) => chosenShops.includes(r.id));
+  // the person's shops whose product labels we haven't read: recipes can't be made from them yet, so say which shop they come from instead
+  const unreadShops = (manifest?.retailers ?? []).filter((r) => chosenShops.includes(r.id) && !recipeShops(manifest).some((x) => x.id === r.id)).map((r) => r.name);
+  const notMine = chosenShops.length > 0 && !!shop && !chosenShops.includes(shop);
+  const otherShopNote = notMine && shopName && unreadShops.length
+    ? t("These recipes use {shop} products for now. We haven't read the nutrition labels of {shops} products yet, so their recipes aren't ready.", { shop: shopName, shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(unreadShops.map((n) => poss(n))) })
+    : "";
   const makerOn = useRecipeMakerEnabled();
   const words = dietWords(t, diet);
   const pro = useIsPro();
@@ -257,11 +267,18 @@ function RecipesScreen() {
         {shopName ? t("Every ingredient is a real product at {shop}, with its price and the nutrition of each serving.", { shop: shopName }) : t("Every ingredient is a real product at your supermarket, with its price and the nutrition of each serving.")}
       </p>
 
-      {/* Which supermarket the ingredients come from: only shops whose full product list, prices and labels we've read can fill a recipe. */}
-      {recipeShops(manifest).length > 1 && shop && (
+      {/* Which supermarket the ingredients come from: only shops whose full product list, prices and labels we've read can fill a recipe. The switcher offers the
+          person's own shops that can (two or more); a person whose shops can't yet is told which shop the recipes use instead. */}
+      {myRecipeShops.length > 1 && shop && (
         <div className="mt-4">
-          <Segmented label={t("Supermarket")} value={shop} options={recipeShops(manifest).map((r) => ({ value: r.id, label: r.name }))} onChange={(v) => setPicked(v)} />
+          <Segmented label={t("Supermarket")} value={shop} options={myRecipeShops.map((r) => ({ value: r.id, label: r.name }))} onChange={(v) => setPicked(v)} />
         </div>
+      )}
+      {otherShopNote && (
+        <p role="note" className="mt-3 flex gap-2.5 rounded-[1rem] bg-[var(--fill)] p-3.5 text-[0.9375rem] leading-snug">
+          <InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+          <span>{otherShopNote}</span>
+        </p>
       )}
 
       <div className="mt-4 flex items-center gap-2.5">
