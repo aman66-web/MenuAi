@@ -4,9 +4,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useDeferredValue, useId, useMemo, useState } from "react";
 import { addToCompare, COMPARE_MAX, compareRows, inCompare, mixedBasis, removeFromCompare, shownFigure, type CompareItem, type CompareKind, type CompareRow } from "@/lib/mm/compare";
-import { formatPrice, photoSources, searchProducts, type ListedProduct } from "@/lib/mm/groceries";
+import { formatPrice, photoSources, searchProducts, type ListedProduct, type PhotoSource } from "@/lib/mm/groceries";
 import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
 import { itemImageUrl } from "@/lib/mm/images";
+import { isTakenDown } from "@/lib/mm/logos";
 import { search } from "@/lib/mm/search";
 import { compareStore } from "@/lib/mm/stores";
 import { BasketIcon, ChevronLeftIcon, CompareIcon, ForkIcon, PlusIcon, SearchIcon } from "../_components/icons";
@@ -15,6 +16,7 @@ import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
 import { EmptyState, Spinner } from "../_components/ui";
 import { compareDish, compareFoodFromListed } from "../_lib/compare";
 import { backName, useBack } from "../_lib/backNav";
+import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useGroceryCatalogue } from "../_lib/groceries";
 import { useHydrated, useSearchIndex, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
@@ -53,6 +55,7 @@ export function CompareScreen({ tab: asked }: { tab: CompareKind | null }) {
   const router = useRouter();
   const hydrated = useHydrated();
   const all = useStore(compareStore);
+  useHiddenLogos(); // the pictures below follow the taken-down list (public/logos/hidden.json), also when it arrives after the page opened
   const [picked, setPicked] = useState<CompareKind | null>(null);
   const foods = all.filter((i) => i.kind === "food");
   const dishes = all.filter((i) => i.kind === "dish");
@@ -137,7 +140,7 @@ function Chosen({ items }: { items: readonly CompareItem[] }) {
               {picture && (
                 <span className={thumbClass}>
                   <span className={`relative block ${item.kind === "dish" ? "h-14 w-14" : "h-16 w-16"}`}>
-                    {item.kind === "dish" ? <ItemThumb image={picture} /> : <PhotoTile sources={[{ src: picture, from: "retailer", shop: item.fromId }]} />}
+                    {item.kind === "dish" ? <ItemThumb image={picture} /> : <PhotoTile sources={foodPhotoSources(item)} />}
                     <span className="absolute -start-1.5 -top-1.5 rounded-full ring-2 ring-white"><Num n={i + 1} small /></span>
                   </span>
                 </span>
@@ -166,20 +169,45 @@ function Chosen({ items }: { items: readonly CompareItem[] }) {
   );
 }
 
-/** The picture a chosen item shows: a dish's photo path for ItemThumb (none if its chain's photos are off or taken down), or a product's. */
+/** The picture a chosen item shows: a dish's photo path for ItemThumb (none if its chain's photos are off or taken down), or a product's (none if the shop the
+ *  photo is from has been taken down: the item keeps the photo address from when it was added, so the taken-down list is checked here, every time it is shown). */
 function pictureOf(item: CompareItem): string | undefined {
   if (item.kind === "dish") {
     const image = item.photo?.replace(/^\/menu-images\//, "");
     return itemImageUrl(image) ? image : undefined;
   }
-  return item.photo;
+  return foodPhotoSources(item)[0]?.src;
+}
+
+/** Whose picture a stored product photo is: our copy of a shop's photo (/grocery-images/<shop>/...), or a supermarket's own image server, or Open Food Facts (no shop). */
+const PHOTO_HOST_SHOP: Readonly<Record<string, string>> = {
+  "assets.sainsburys-groceries.co.uk": "sainsburys", "asdagroceries.scene7.com": "asda", "dm.emea.cms.aldi.cx": "aldi", "imgproxy-retcat.assets.schwarz": "lidl",
+  "digitalcontent.api.tesco.com": "tesco", "ecom-su-static-prod.wtrecom.com": "waitrose", "groceries.morrisons.com": "morrisons", "assets.iceland.co.uk": "iceland",
+  "assets.digitalcontent.marksandspencer.app": "marks-and-spencer", "images.openfoodfacts.org": "",
+};
+function photoShop(src: string, fallback: string): string {
+  const stored = /^\/grocery-images\/([a-z0-9-]+)\//.exec(src);
+  if (stored) return stored[1]!;
+  try {
+    return PHOTO_HOST_SHOP[new URL(src).hostname] ?? fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+/** A product's picture as a photo source, or none when its shop (the one the photo is from, or the one it was added from) is on the taken-down list. */
+function foodPhotoSources(item: CompareItem): PhotoSource[] {
+  if (item.kind !== "food" || !item.photo) return [];
+  const shop = photoShop(item.photo, item.fromId);
+  if (isTakenDown(`shop:${item.fromId}`) || (shop && isTakenDown(`shop:${shop}`))) return [];
+  return [{ src: item.photo, from: item.photo.startsWith("/") ? "stored" : shop ? "retailer" : "off", shop }];
 }
 
 /** A column's picture: the shop's own photo of the product (on white, whole) or the restaurant's own photo of the dish; a quiet tile when there is none,
  *  so the columns line up. Decorative: the name under it is the column's heading. */
 function HeaderPicture({ item }: { item: CompareItem }) {
   const picture = pictureOf(item);
-  const food = usePhotoSource(item.kind === "food" && picture ? [{ src: picture, from: "retailer", shop: item.fromId }] : []);
+  const food = usePhotoSource(foodPhotoSources(item));
   const [dishFailed, setDishFailed] = useState(false);
   const src = item.kind === "dish" ? (dishFailed ? undefined : itemImageUrl(picture)) : food.current?.src;
   return (
