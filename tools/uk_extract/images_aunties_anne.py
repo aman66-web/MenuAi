@@ -3,6 +3,7 @@
 
     python3 tools/uk_extract/images_aunties_anne.py --cache <dir>            # fetch (cached), store photos, write images.csv
     python3 tools/uk_extract/images_aunties_anne.py --cache <dir> --survey   # only print what each page shows; writes nothing
+    python3 tools/uk_extract/images_aunties_anne.py --cache <dir> --dry-run  # the same as --survey
 
 Source: the chain's own menu item pages, https://www.auntieannes.co.uk/menu/<slug>/ (listed in its menu sitemap). They are the
 same pages the nutrition data came from (tools/uk_extract/aunties_anne.py). Each page is one product record: its featured photo
@@ -14,11 +15,21 @@ Match rule (nothing fuzzy): the page -> item-name table is the nutrition extract
 page's <h1> must still be that name (norm_name equality; the extractor's TITLE_DIFFERS pages are the only exception, and they are
 the very record the item's numbers came from), and for each option the page prints, the item id the extractor would make must
 be a published row of the CURRENT items.csv whose name is that name + option suffix (norm_name equality). A photo URL that more
-than one page uses is treated as a generic picture and attached to none of them. Photos checked by eye and found not to show the
+than one page uses is treated as a generic picture and attached to none of them, with one exception (added 2026-11-17): it stays on
+the one page whose name equals, by norm_name, the photo's own alt text (WordPress keeps one alt per media file, and the menu page
+/menu/ shows the same file with the same alt in that dish's card). On 2026-11-17 that is Chocolate_dip.webp (alt "Chocolate dip"),
+shown on the Chocolate Dip page and reused by the Nutella Dip page: it goes on Chocolate Dip only. The 16 gelato pages that all show
+AA-Menu-Coming-Soon.webp (a "coming soon" placeholder) match no alt and get no photo. Photos checked by eye and found not to show the
 item (placeholders, logos, a different product, printed nutrition claims) are listed in DROP with the reason.
 
-robots.txt (2026-10-06): "User-agent: * / Disallow:" (everything allowed). The site has no terms-of-use page; its footer reads
-"(c) Copyright 2008 - 2026 Freshly Baked Limited, trading as Auntie Anne's UK" and the privacy policy says nothing about images.
+robots.txt (read 2026-10-06 and 2026-11-17, unchanged): a Yoast block "User-agent: * / Disallow:" (everything allowed). The site has no
+terms-of-use page (none in its page sitemap or footer, re-checked 2026-11-17); its footer reads "(c) Copyright 2008 - 2026 Freshly Baked Limited,
+trading as Auntie Anne's UK" and the privacy policy (https://www.auntieannes.co.uk/privacy-policy/) says nothing about images or reuse of content:
+no express restriction found.
+Run of 2026-11-17: every page re-read; 108 of 130 published items have a photo (107 of the 111 kept from before, all re-checked by eye on
+contact sheets, plus Chocolate Dip). No photo: Choco Nuggets (its page has no featured photo), Nutella Dip (its page shows the Chocolate Dip photo),
+the 16 gelato "One Scoop" items (their pages show only the "coming soon" placeholder), and Vanilla and Stracciatella Milkshake, regular and
+large (dropped after looking: see DROP).
 Founder's decision 2026-10-06: the chain's own photos are installed (CLAUDE.md rule 2). A 401/403/429 or robots refusal stops
 the run (images_common.Blocked): never worked round.
 """
@@ -43,34 +54,41 @@ BASE = "https://www.auntieannes.co.uk"
 HTML = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
 
 # Photos looked at by eye and not used (by the photo URL's file name), with the reason. Filled after the visual check.
-DROP: dict[str, str] = {}
+DROP: dict[str, str] = {
+    "AA-Menu-Coming-Soon.webp": "the site's 'coming soon' placeholder (shown on 16 gelato pages), not a photo of the item",
+    # looked at 2026-11-17: these two files are the same picture byte for byte (one photo for two flavours), a plain white shake
+    # with banana slices beside it: it shows neither vanilla alone nor stracciatella's chocolate, and the banana suggests another flavour
+    "Milkshakes-Vanilla.webp": "the same picture as the Stracciatella page's, a white shake garnished with banana slices: not this flavour",
+    "Milkshakes-Stracciatella-milkshake.webp": "the same picture as the Vanilla page's, a white shake garnished with banana slices, no chocolate",
+}
 
 
 def page_record(text: str) -> dict:
-    """-> {title, photo, og, labels}. `photo` is the featured image inside the item's <article> (right after the breadcrumb)."""
+    """-> {title, photo, alt, og, labels}. `photo` is the featured image inside the item's <article> (right after the breadcrumb), `alt` its alt text."""
     t = re.search(r'<h1 class="entry-title">(.*?)</h1>', text, re.S)
     art = re.search(r'<article id="post-\d+" class="([^"]*)"', text)
-    photo = ""
+    photo = alt = ""
     if art and "has-post-thumbnail" in art.group(1):
         start = text.find("breadcrumb_last", art.end())
         stop = text.find('class="title-content-wrap"', art.end())
         if 0 <= start < stop:
-            m = re.search(r'<img src="([^"]+)"', text[start:stop])
+            m = re.search(r'<img src="([^"]+)"(?: alt="([^"]*)")?', text[start:stop])
             if m:
                 photo = html.unescape(m.group(1))
+                alt = html.unescape(m.group(2) or "")
     og = re.search(r'<meta property="og:image" content="([^"]+)"', text)
     labels = [""]
     v = re.search(r"var variantData = (\[.*?\]);\s*\n", text, re.S)
     if v:
         labels = [o.get("label", "") for o in json.loads(v.group(1))]
-    return {"title": html.unescape(t.group(1)).strip() if t else "", "photo": photo,
+    return {"title": html.unescape(t.group(1)).strip() if t else "", "photo": photo, "alt": alt,
             "og": html.unescape(og.group(1)) if og else "", "labels": labels}
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--cache", type=Path, required=True, help="cache directory (pages and photos are fetched once)")
-    ap.add_argument("--survey", action="store_true", help="print what each page shows and stop (writes nothing)")
+    ap.add_argument("--survey", "--dry-run", dest="survey", action="store_true", help="print what each page shows and stop (writes nothing)")
     args = ap.parse_args()
     cache: Path = args.cache
 
@@ -104,10 +122,11 @@ def main() -> int:
             why = f"page photo and og:image differ ({p['photo']} / {p['og']})"
         elif norm_name(p["title"]) != norm_name(name) and s not in AA.TITLE_DIFFERS:
             why = f"page title {p['title']!r} is not {name!r}"
-        elif len(photo_pages[p["photo"]]) > 1:
-            why = f"same photo on {len(photo_pages[p['photo']])} pages: {', '.join(photo_pages[p['photo']])}"
         elif p["photo"].rsplit("/", 1)[-1] in DROP:
             why = "dropped after looking: " + DROP[p["photo"].rsplit("/", 1)[-1]]
+        elif len(photo_pages[p["photo"]]) > 1 and not (p["alt"] and norm_name(p["alt"]) == norm_name(name)):
+            why = (f"same photo on {len(photo_pages[p['photo']])} pages ({', '.join(photo_pages[p['photo']])}) and its alt text "
+                   f"{p['alt']!r} does not name {name!r}")
         if why:
             skipped.append(f"{s}: {why}")
             continue

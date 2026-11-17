@@ -37,6 +37,13 @@ Terms and robots (read 2026-10-08):
 Installed on the founder's decision of 2026-10-06 (CLAUDE.md rule 2).
 
 A 401/403/429 or a robots refusal stops the script (exit 1) before anything is written.
+
+Rerun of 2026-11-17: robots.txt was read, then gails.com answered HTTP 429 to the first request
+(/collections/drinks/products.json?limit=250), so the run stopped there (not retried, not worked round) and the 16 photos of
+2026-10-08 were kept unchanged (re-checked by eye on a contact sheet the same day: each shows the drink named, no numbers,
+stickers or offers). Only 5 published drinks without a photo have a plain name that a shop product could match exactly (Iced
+Black, Cold Brew - Black, Chamomile Tea, Jasmine Tea, Darjeeling 2nd Flush Tea); the other 244 are the guide's milk, decaf or
+Sproud versions, which no product record names (see the match rule), so a later rerun can add at most those 5.
 """
 from __future__ import annotations
 

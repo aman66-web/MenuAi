@@ -1,226 +1,240 @@
 #!/usr/bin/env python3
-"""Banana Tree item photos (docs/UK_DATA_PLAYBOOK.md, Phase 4).
+"""Item photos for Banana Tree from its own website (docs/UK_DATA_PLAYBOOK.md, Phase 4; helpers in images_common.py).
 
-    python3 tools/uk_extract/images_banana_tree.py --cache DIR [--list]
+    python3 tools/uk_extract/images_banana_tree.py --cache DIR [--dry-run]
 
-Source: the chain's own menu, https://menus.tenkites.com/thebigtg/bananatree04 (the menu bananatree.co.uk/menu embeds; the
-same seven pages the nutrition numbers come from, see banana_tree.py). Each dish on those pages shows its photo from
-images.tenkites.com, the menu's own image host, with the dish's name as the photo's alt text.
+Source: the pages of bananatree.co.uk listed in its own sitemap (https://bananatree.co.uk/sitemap.xml: 118 addresses on 2026-11-17;
+policy, contact and careers pages are not read, see SKIP_PATHS; one request each, cached). www.bananatree.co.uk answers with a 301 to
+bananatree.co.uk. The site is a Nuxt 2 page whose pictures are files in the Big Table Group's Contentful space
+(images.ctfassets.net/hhagtzhy2px1, the asset host the pages use; nothing else is accepted). Each picture is rendered as an
+<img data-src="..."> (and <source data-srcset="..."> for the desktop file) with the asset's title or a caption as its alt/title
+attribute: that is how the page names a photo.
 
-Match rule (no guessing):
-* The script rebuilds the published rows exactly as banana_tree.py does (same pages, same naming), but remembers which
-  printed dish record(s) each row came from, so a row is tied to its own record on the page, never matched by a similar name.
-* A record gets a photo only from the dish container it sits in, and only when the photo's alt text names it:
-  - a dish card (k10-recipe / k10-byo-item) whose photo's alt equals the dish's printed name;
-  - a "build your own" block (k10-byo: one dish with its options, e.g. Pad Thai with Chicken / Prawns / Tofu) whose photo's
-    alt equals the block's printed name: the photo goes only to the block's own options ("Pad Thai - Tofu"), never to the
-    side options offered on top of it (rice, sauces, extra protein: level "sub"), which keep their own name and get no photo.
-* The row's item id must be in the CURRENT data/source/banana-tree/items.csv with the same name, or nothing is attached.
-* Photos listed in DROP were looked at and are not used (see the reason given there).
+Where the photos are NOT taken from:
+* the dish photos of the Ten Kites menu that /menu embeds (menus.tenkites.com/thebigtg/bananatree04, the menu banana_tree.py reads the
+  nutrition from) are files on images.tenkites.com, whose robots.txt (read 2026-11-17) says "User-agent: * / Allow:
+  /tenkitestest/menus.html / Disallow: /". We honour that and do not fetch them, and we do not look for "the same file" elsewhere
+  (that would be working round the rule). (An earlier version of this script matched those Ten Kites photos by their dish records;
+  it was never run, because every photo request is refused by that robots.txt.)
+* ordering and delivery: the site sends people to Deliveroo, Just Eat and Uber Eats (third parties: never used); the restaurant
+  pages (/restaurants/<town> and /restaurants/<town>/menu) carry only the same Ten Kites menu, banners and delivery logos.
 
-Pages and photos are fetched once each with images_common.polite_get (1 request/second, robots.txt honoured, cached in
---cache); a 401/403/429 stops the run. Rerunning maps to the current items.csv and prunes files no row uses.
+Match rule (exact, nothing fuzzy): a picture whose alt or title, the name the page gives it, has the same images_common.norm_name as
+exactly one published item, either as it stands or once one of the page's own fixed caption forms is taken off (CAPTION_FORMS):
+the chain's own name in front ("Banana Tree Banana Fudge Cake", "Banana Tree's Bang Bang Broccoli ..."), optionally followed by
+" from the Bottomless Bowls Menu" or " - a limited-time special for Christmas 2026". What is left must be a published item's whole name;
+no other word is dropped, reordered or approximated ("A delicious bowl of creamy Singapore Laksa", "Banana Tree's Firecracker Wings"
+(the item is "Wings - Firecracker"), "Banana Tree's Pad Thai" (our rows are "Pad Thai - Chicken" etc.) and "Sweetcorn Fritters" give
+nothing). A picture whose names point at two different published items gives no photo; an item that two different Contentful assets
+picture gets none (ambiguous). Photos looked at on contact sheets and left out go in DROP_ITEMS / SKIP_ASSETS so a rerun can't bring
+them back.
+
+robots.txt (https://bananatree.co.uk/robots.txt, read 2026-11-17): "User-agent: * / Allow: /" plus the sitemap line; no group names an
+AI crawler. images.ctfassets.net is checked by polite_get like every host (RFC 9309). A 401/403/429, a robots refusal or an unreadable
+robots.txt stops the script (exit 2) before anything is written.
+
+Terms (read 2026-11-17): https://bananatree.co.uk/terms-and-conditions, "Intellectual Property": "The contents of this site are protected
+by copyright however you may print off, link to or quote content for non-commercial use providing you do not remove any copyright and
+proprietary notices. Content for commercial use must be cleared by Banana Tree." The same page says "Photography used is indicative & may
+not show the current menu dishes & drinks." Photos are installed on the founder's decisions of 2026-10-06 (his accepted risk; taken
+down the day the chain asks).
+
+Run of 2026-11-17: 107 sitemap pages read (197 picture names). Exact names: "Sriracha Coconut Seabass" and "Korean Crispy Chicken
+Noodles" (/christmas, the "Golden Specials" tiles, each under a heading with the same name and a description that matches the photo:
+the seabass "served with Blistered Dragon Peppers", the noodles "Served with prawn crackers"); by the caption forms: "Banana Tree's Virgin
+Chai Colada - a limited-time special for Christmas 2026" (/christmas, the Virgin Chai Colada tile's own desktop file
+BT_VirginChaiColada_WebsiteDesktop.jpg; the Chai Colada tile beside it has its own desktop file), "Banana Tree's Bang Bang Broccoli from
+the Bottomless Bowls Menu" (/bottomless-bowls, battered broccoli florets; the same page's sweetcorn-fritter photo is a different picture)
+and "Banana Tree Banana Fudge Cake" (/travel-groups). 5 of 144 published items, every photo looked at on a contact sheet: real food
+photos, no lettering, figures, logos or stickers (two show a hand holding the fork or the glass); none left out, so DROP_ITEMS and
+SKIP_ASSETS are empty. The rest of the menu has no photo named after it on the chain's own pages (its per-dish photos are the Ten Kites
+ones above).
 """
 from __future__ import annotations
 
 import argparse
+import html as htmllib
+import re
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-import banana_tree as bt  # noqa: E402
-import tenkites_b as tk  # noqa: E402
-from common import slug  # noqa: E402
-from images_common import (Blocked, load_items, norm_name, polite_get, store_image,  # noqa: E402
-                           suspected_placeholders, write_images_csv)
+import images_common as ic  # noqa: E402
 
-CHAIN_ID = "banana-tree"
-IMAGE_HOST = "https://images.tenkites.com/"
-
-# photo URL -> why it is not used (filled in after looking at every photo; see the module docstring)
-DROP: dict[str, str] = {}
-
-# image class -> the class of the dish container that owns it
-OWNER = {"k10-recipe__image": "k10-recipe", "k10-byo-item__image": "k10-byo-item", "k10-byo__image": "k10-byo"}
-
-
-def page_url(guid: str) -> str:
-    return f"{bt.BASE_URL}?mguid={guid}"
-
-
-def fetch_pages(cache: Path) -> dict[str, Path]:
-    pages = cache / "pages"
-    pages.mkdir(parents=True, exist_ok=True)
-    out = {}
-    for label, guid, _, _ in bt.MENUS:
-        raw = polite_get(page_url(guid), cache, accept="text/html")
-        p = pages / f"{label}.html"
-        p.write_bytes(raw)
-        out[label] = p
-    return out
+CHAIN = "banana-tree"
+SITE = "https://bananatree.co.uk"
+SITEMAP = SITE + "/sitemap.xml"
+ASSET_PREFIX = "https://images.ctfassets.net/hhagtzhy2px1/"   # the Contentful space the chain's pages use
+HTML_ACCEPT = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+# Sitemap pages not read: policies, forms and job pages carry no food pictures.
+SKIP_PATHS = {"/cookie-policy", "/privacy-policy", "/modern-slavery-act-statement", "/ethical-trading-policy",
+              "/service-charge-policy", "/sign-up/thanks", "/feedback", "/get-in-touch", "/contact", "/careers", "/careers/benefits"}
+# The page's own fixed caption forms: the chain's name in front and, optionally, one of two fixed endings. The dish group must then be
+# a published item's whole name (norm_name equality); nothing else is taken off.
+CAPTION_FORMS = [
+    re.compile(r"Banana Tree(?:'s|’s)? (?P<dish>.+?)(?: from the Bottomless Bowls Menu| - a limited-time special for Christmas 2026)?"),
+]
+# Looked at on contact sheets and left without a photo (item id -> why); a rerun must not bring them back.
+DROP_ITEMS: dict[str, str] = {}
+# Contentful asset ids never used (asset id -> why), e.g. a picture with promotional lettering.
+SKIP_ASSETS: dict[str, str] = {}
 
 
-def photos_by_record(path: Path) -> list[tuple[str, str, str] | None]:
-    """For each dish pop-up on the page (in tk.read_menu order): (photo url, kind, alt) or None."""
-    root = tk.parse_html(path.read_text(encoding="utf-8", errors="replace"))
-    owners: dict[int, tuple[str, str, str]] = {}   # id(container) -> (src, kind, alt)
-    for img in root.find_all(tag="img"):
-        src = img.attrs.get("src", "")
-        kind = next((c for c in OWNER if img.has(c)), None)
-        if not kind or not src.startswith(IMAGE_HOST):
-            continue
-        cont = next((a for a in img.ancestors() if a.tag == "div" and a.has(OWNER[kind])), None)
-        if cont is None:
-            raise SystemExit(f"{path.name}: photo {src} outside its dish container: the page layout changed")
-        if id(cont) in owners and owners[id(cont)][0] != src:
-            raise SystemExit(f"{path.name}: two different photos in one dish container ({src}): the page layout changed")
-        owners[id(cont)] = (src, kind, tk._clean(img.attrs.get("alt", "")))
+def asset_url(url: str) -> str | None:
+    """https URL of a Contentful file in the chain's space, without resize parameters; None for anything else."""
+    url = htmllib.unescape(url).split("?", 1)[0]
+    if url.startswith("//"):
+        url = "https:" + url
+    return url if url.startswith(ASSET_PREFIX) else None
+
+
+def asset_id(url: str) -> str:
+    return url[len(ASSET_PREFIX):].split("/", 1)[0]
+
+
+def _tags(fragment: str) -> list[tuple[str, set[str], bool]]:
+    """(file url, {alt, title}, is a desktop <source media=...>) of each <img>/<source> in the fragment whose file is in the
+    chain's Contentful space."""
     out = []
-    for m in root.find_all("k10-recipe-modal", tag="section"):
-        hit = None
-        for a in m.ancestors():
-            if id(a) in owners:
-                hit = owners[id(a)]
-                break
-            if a.tag == "div" and a.has("k10-byo"):   # the block has no photo of its own: stop here
-                break
-        out.append(hit)
+    for tag in re.findall(r"<(?:img|source)\b[^>]*>", fragment, re.I):
+        src = re.search(r'\s(?:data-src|src|data-srcset|srcset)\s*=\s*"([^"\s,]+)', tag)
+        url = asset_url(src.group(1)) if src else None
+        if not url:
+            continue
+        names = set()
+        for attr in ("alt", "title"):
+            m = re.search(r"\s" + attr + r'\s*=\s*"([^"]*)"', tag)
+            if m and m.group(1).strip():
+                names.add(htmllib.unescape(m.group(1)).strip())
+        out.append((url, names, re.search(r"\smedia\s*=", tag) is not None))
     return out
 
 
-NUMBER_COLS = ("calories", "protein_g", "carbs_g", "fat_g", "sat_fat_g", "sugar_g", "fiber_g", "salt_g")
-
-
-def same_numbers(item: dict, vals: dict) -> bool:
-    """The published row and the printed dish carry the same numbers (as banana_tree.py copies them)."""
-    for col in NUMBER_COLS:
-        a, b = (item.get(col) or "").strip(), (vals.get(col) or "").strip()
-        if a == b:
+def page_pictures(page: str) -> list[tuple[str, set[str]]]:
+    """(photo url, names) for every picture on the page. A <picture> element is ONE picture: its file is the desktop <source>'s
+    file (else the <img>'s), and it is named only by the alt/title of the elements that carry that same file (the phone <img> of a
+    tile can be another tile's file: /christmas shows its Chai Colada tile with the Virgin Chai Colada phone picture). An <img>
+    outside a <picture> is a picture of its own."""
+    out = []
+    for pic in re.findall(r"<picture\b.*?</picture>", page, re.I | re.S):
+        tags = _tags(pic)
+        if not tags:
             continue
-        try:
-            if float(a) != float(b):
-                return False
-        except ValueError:
-            return False
-    return True
+        desktop = [t for t in tags if t[2]]
+        url = (desktop or tags)[0][0]
+        names = set().union(*(n for u, n, _ in tags if u == url))
+        out.append((url, names))
+    for url, names, _ in _tags(re.sub(r"<picture\b.*?</picture>", "", page, flags=re.I | re.S)):
+        out.append((url, names))
+    return out
+
+
+def name_keys(name: str) -> set[str]:
+    """The norm_name keys a picture name can stand for: the name itself, and the dish group of a fixed caption form."""
+    keys = {ic.norm_name(name)}
+    for form in CAPTION_FORMS:
+        m = form.fullmatch(name)
+        if m:
+            keys.add(ic.norm_name(m.group("dish")))
+    return keys
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--cache", type=Path, required=True, help="folder for downloaded pages and photos (reused on rerun)")
-    ap.add_argument("--list", action="store_true", help="print the mapping only; download no photos, write nothing")
+    ap.add_argument("--cache", required=True, type=Path, help="cache dir for pages and photos (reruns fetch nothing twice)")
+    ap.add_argument("--dry-run", action="store_true", help="print the matches; download no photo, write nothing")
     args = ap.parse_args()
 
+    items = ic.load_items(CHAIN)
+    by_name: dict[str, list[str]] = {}
+    for it in items:
+        by_name.setdefault(ic.norm_name(it["name"]), []).append(it["id"])
+
+    found: dict[str, dict[str, tuple[str, str]]] = {}   # item key -> {asset id: (photo url, page url)}
+    skipped: list[str] = []
+    seen_titles: set[str] = set()
     try:
-        paths = fetch_pages(args.cache)
-    except Blocked as e:
-        print(f"BLOCKED: {e}", file=sys.stderr)
+        sm = ic.polite_get(SITEMAP, args.cache, accept=HTML_ACCEPT).decode("utf-8", "replace")
+        paths = []
+        for loc in re.findall(r"<loc>\s*([^<]+?)\s*</loc>", sm):
+            if loc.startswith(SITE):
+                path = loc[len(SITE):] or "/"
+                if path not in SKIP_PATHS and path not in paths:
+                    paths.append(path)
+        if "/" not in paths:
+            paths.insert(0, "/")
+        if len(paths) < 2:
+            raise SystemExit("the sitemap lists no pages: it has changed shape")
+        print(f"{len(paths)} pages from {SITEMAP} (and the home page)")
+        for path in paths:
+            page_url = SITE + path
+            page = ic.polite_get(page_url, args.cache, accept=HTML_ACCEPT).decode("utf-8", "replace")
+            for url, names in page_pictures(page):
+                seen_titles |= names
+                keys = set().union(*(name_keys(n) for n in names)) & by_name.keys() if names else set()
+                if len(keys) > 1:
+                    skipped.append(f"{path}: picture {url.rsplit('/', 1)[-1]} is named as two different dishes ({', '.join(sorted(keys))})")
+                elif keys:
+                    key = keys.pop()
+                    if asset_id(url) not in found.get(key, {}):
+                        print(f"  match {key!r} on {path}: {url.rsplit('/', 1)[-1]}  (named {sorted(names)})")
+                    found.setdefault(key, {}).setdefault(asset_id(url), (url, page_url))
+    except ic.Blocked as e:
+        print(f"BLOCKED, stopping (nothing written): {e}", file=sys.stderr)
         return 2
-    guid = {m[0]: m[1] for m in bt.MENUS}
-    labels = [m[0] for m in bt.MENUS]
-    rank = {m[0]: i for i, m in enumerate(bt.MENUS)}
-    short = {m[0]: m[2] for m in bt.MENUS}
-    long = {m[0]: m[3] for m in bt.MENUS}
+    print(f"{len(seen_titles)} different picture names on the pages")
 
-    # Rebuild banana_tree.py's rows (tk.collect_rows) while keeping each row's source records.
-    rows: dict[tuple, dict] = {}
-    total = 0
-    for label in labels:
-        lay, recs = tk.read_menu(paths[label])
-        if lay != "modal":
-            raise SystemExit(f"{label}: layout {lay!r}, expected 'modal'")
-        photos = photos_by_record(paths[label])
-        if len(photos) != len(recs):
-            raise SystemExit(f"{label}: {len(recs)} dishes but {len(photos)} pop-ups")
-        total += len(recs)
-        for rec, photo in zip(recs, photos):
-            if bt.skip(label, rec):
-                continue
-            vals = tk.printed_values(rec)
-            if not tk.has_required(vals):
-                continue
-            name = bt.name_of(label, rec)
-            key = (tk.norm_name(bt.same_dish(label, rec, name)), tuple(vals.get(k, "") for k in tk.KEY_COLS))
-            src = {"label": label, "rec": rec, "name": name, "photo": photo}
-            if key in rows:
-                rows[key]["menus"].append(label)
-                rows[key]["srcs"].append(src)
-                continue
-            rows[key] = {"name": name, "menus": [label], "vals": vals, "where": rec["course"][-1] if rec["course"] else "", "wheres": [],
-                         "srcs": [src]}
-    if total != bt.EXPECTED_ROWS:
-        print(f"pages hold {total} dishes, banana_tree.py expects {bt.EXPECTED_ROWS}: rerun the nutrition script first",
-              file=sys.stderr)
-        return 1
-    rowlist = list(rows.values())
-    for r in rowlist:
-        r["base"] = r["name"]
-    tk.unique_names(rowlist, rank, short, long)
+    rows: dict[str, tuple[str, str]] = {}
+    for key, by_asset in sorted(found.items()):
+        ids = by_name[key]
+        if len(ids) > 1:
+            skipped.append(f"'{key}' is the name of {len(ids)} published items ({', '.join(ids)}): no photo")
+            continue
+        item_id = ids[0]
+        if item_id in DROP_ITEMS:
+            skipped.append(f"{item_id}: dropped after looking: {DROP_ITEMS[item_id]}")
+            continue
+        usable = {a: v for a, v in by_asset.items() if a not in SKIP_ASSETS}
+        for a in by_asset.keys() - usable.keys():
+            skipped.append(f"{item_id}: asset {a} not used: {SKIP_ASSETS[a]}")
+        if len(usable) > 1:
+            skipped.append(f"{item_id}: {len(usable)} different photos on the site ({', '.join(sorted(usable))}): ambiguous, no photo")
+            continue
+        if not usable:
+            continue
+        photo, page_url = next(iter(usable.values()))
+        if args.dry_run:
+            print(f"{item_id}: {photo}  <- {page_url}")
+            continue
+        try:
+            raw = ic.polite_get(photo, args.cache, referer=page_url)
+            rows[item_id] = (ic.store_image(CHAIN, raw), page_url)
+            print(f"{item_id}: {rows[item_id][0]}  <- {photo.rsplit('/', 1)[-1]} on {page_url}")
+        except ic.Blocked as e:
+            print(f"BLOCKED, stopping (nothing written): {e}", file=sys.stderr)
+            return 2
+        except ValueError as e:
+            skipped.append(f"{item_id}: {photo}: {e}")
 
-    items = {i["id"]: i for i in load_items(CHAIN_ID)}
-    chosen: dict[str, tuple[str, str]] = {}   # item_id -> (photo url, page url)
-    report: list[str] = []
-    for r in rowlist:
-        item_id = slug(tk.fold(r["name"]))
-        item = items.get(item_id)
-        if item is None or norm_name(item["name"]) != norm_name(r["name"]):
-            report.append(f"  not in items.csv: {r['name']!r}")
-            continue
-        if not same_numbers(item, r["vals"]):   # the page changed since items.csv was written: not the same row
-            report.append(f"  numbers differ from items.csv, no photo: {item_id}")
-            continue
-        picks = []
-        for s in r["srcs"]:
-            if s["photo"] is None:
-                continue
-            url, kind, alt = s["photo"]
-            rec = s["rec"]
-            named = norm_name(s["name"]) == norm_name(r["base"])
-            if kind == "k10-byo__image":
-                # the block's photo shows the block's dish: only for the dish's own options (never an add-on), and only
-                # when this record is named after that block (a record merged in from another block gets nothing)
-                ok = named and not bt.is_option_of_dish(rec) and norm_name(alt) == norm_name(bt.clean_group(rec["group"]))
-            else:
-                # a dish card's own photo, captioned with this record's printed name; the record is this row (same name
-                # and identical numbers, merged by banana_tree.py), e.g. "Korean BBQ" on the bottomless bowls menu
-                ok = norm_name(alt) == norm_name(rec["name"])
-            if ok:
-                picks.append((not named, url, page_url(guid[s["label"]]), kind, alt))
-        if not picks:
-            report.append(f"  no photo: {item_id}")
-            continue
-        picks = [p[1:] for p in sorted(picks, key=lambda p: p[0])]   # stable: records that named the row first
-        url, page, kind, alt = picks[0]
-        others = sorted({p[0] for p in picks[1:]} - {url})
-        if url in DROP:
-            report.append(f"  dropped: {item_id} ({DROP[url]})")
-            continue
-        chosen[item_id] = (url, page)
-        report.append(f"  {item_id:55} <- {kind[4:-7]:9} alt={alt!r} {url[len(IMAGE_HOST):]}"
-                      + (f"  [other menus show {others}]" if others else ""))
-    print("\n".join(report))
-    print(f"{len(chosen)} of {len(items)} published items have a photo; {len({u for u, _ in chosen.values()})} distinct photos")
-    if args.list:
+    for s in skipped:
+        print("skip:", s)
+    if args.dry_run:
+        print(f"{sum(1 for k in found if len(by_name[k]) == 1)} published items matched (before drop and ambiguity rules)")
         return 0
-
-    stored: dict[str, str] = {}
-    out: dict[str, tuple[str, str]] = {}
-    for item_id, (url, page) in sorted(chosen.items()):
-        if url not in stored:
-            try:
-                stored[url] = store_image(CHAIN_ID, polite_get(url, args.cache, referer=page))
-            except Blocked as e:
-                print(f"BLOCKED: {e}", file=sys.stderr)
-                return 2
-            except ValueError as e:
-                print(f"  skipped photo {url}: {e}")
-                stored[url] = ""
-        if stored[url]:
-            out[item_id] = (stored[url], page)
-    path = write_images_csv(CHAIN_ID, out)
-    print(f"wrote {path} ({len(out)} rows, {len(set(f for f, _ in out.values()))} files)")
-    for f, ids in suspected_placeholders(out).items():
-        print(f"  shared by {len(ids)} items, look at it: {f}: {ids}")
+    csv_path = ic.ROOT / "data" / "source" / CHAIN / "images.csv"
+    if rows:
+        ic.write_images_csv(CHAIN, rows)
+    else:   # no matches: leave no stale CSV or files behind
+        if csv_path.exists():
+            csv_path.unlink()
+        d = ic.IMAGES_ROOT / CHAIN
+        if d.is_dir():
+            for p in d.iterdir():
+                p.unlink()
+            d.rmdir()
+    print(f"{len(rows)} of {len(items)} published items have a photo")
+    for f, ids in ic.suspected_placeholders(rows).items():
+        print(f"LOOK: {f} is used by {len(ids)} items: {', '.join(ids)}")
     return 0
 
 

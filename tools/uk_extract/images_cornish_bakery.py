@@ -33,6 +33,22 @@ Terms and robots (read 2026-10-08):
     and /cdn/shop/files are allowed. cdn.shopify.com/robots.txt disallows only two script patterns.
 
 A 401/403/429 or a robots refusal stops the script (exit 1) before anything is written.
+
+Run of 2026-11-17 (nothing changed, nothing written): robots.txt (read 2026-11-17) still has one `User-agent: *` group with `Allow: /` and
+disallows only admin, cart, checkout, orders, account, /services, /sf_*, /cart.js, /recommendations/products and sort/filter traps; /products.json,
+/products/<handle> and /pages/ are not disallowed (its comment block points shopping agents to agents.md and a UCP endpoint; this script buys
+nothing and uses neither). The homepage answered, but /products.json then answered HTTP 429 ("Too Many Requests") on the first request:
+the run stopped there and the host was not asked again (not worked round). So the terms page could not be re-read on 2026-11-17 (the clauses
+quoted above are those read 2026-10-08), and the two photos kept from 2026-10-08 (Sausage Roll, Farmhouse Sausage Roll) were not re-matched;
+both were looked at again on a contact sheet and full size: a real photo of the roll named, no lettering, figures or other brand.
+Note for the next run: the homepage of 2026-11-17 lists only box products for these ("16 x Sausage Rolls", /products/classic-sausage-rolls;
+"10 x Farmhouse sausage rolls", /products/farmhouse-sausage-rolls; "10 x Traditional Cornish Pasties", "10 X Cornish Cheddar and Onion Pasties",
+"10 x Chorizo, Mozzarella & Cornish Sea Salt Pasties", "8 x Large Traditional Cornish Pasties", "10 x Vegan Spiced Cauliflower and Onion Bhaji
+Pasties"): none names a café item exactly, and a box is not the single item. If the single-item products "Sausage Roll" and "Farmhouse Sausage
+Roll" are gone from the feed, a rerun rebuilds images.csv without them (no page names those dishes any more), which is correct.
+Also checked 2026-11-17: the footer's "Allergens" link is now
+https://cdn.shopify.com/s/files/1/0598/2512/7573/files/CB-AB-A4-A-1_Allergen_Book_V48_Proof.pdf (20 pages, InDesign, created 1 October 2026):
+it holds no food photos (pdfimages: the 14 allergen icons of about 100 px on every table page, the logo and header strips, and a notice box).
 """
 from __future__ import annotations
 

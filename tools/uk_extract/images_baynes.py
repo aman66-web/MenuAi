@@ -22,6 +22,27 @@ installed on the founder's decision of 2026-10-06 (his accepted risk). robots.tx
 checks every URL (RFC 9309).
 
 A 401/403/429 or a robots refusal stops the script (exit 1) before anything is written.
+
+Run of 2026-11-17 (items from the November 2026 guide, 155 published). robots.txt re-read: unchanged (one group, `User-agent: *`,
+`Disallow: /wp-admin/`, `Allow: /wp-admin/admin-ajax.php`, sitemap line); the terms clause above re-read the same day, word for word unchanged.
+The sitemap lists 142 product pages: 66 show a real photo, 16 show the site's own "no image" placeholder, 60 show no picture at all (most
+filled rolls, the rye-roll range, combos, syrups, the large drinks, Pink Iced Doughring, Caramel Yum Yum, Chicken & Haggis Pie...).
+36 published items keep a photo (37 match; White Iced Doughring dropped after looking, see DROP_ITEMS). Lost since 2026-10-11: Belgian Milk Chocolate Cookies (its page, now post 15644, has no picture any more; the
+category page /bn-product-category/small-cakes/ shows it without a thumbnail too), so it has no photo until the page shows one again.
+Looked at and NOT matched, because the page's name is not the item's name (no fuzzy matching; listed so nobody adds them by hand):
+  - generic filled-roll pages "Cheese Salad", "Ham Salad", "Egg Mayonnaise", "Tuna Mayonnaise" (each says "served on our Traditional Morning
+    Roll"): the guide prints each name in several sections (filled morning rolls, rye rolls, dark fired rolls, the Simply range), and our items
+    carry the section in brackets, so the page doesn't say which of them it is;
+  - "Blobby Biscuit" (item "Mr Blobby Biscuit"), "Cupcake Original" (item "Original Cup Cake"), "Chocolate Cake – 8″ Square" / "Chocolate Cake
+    Round- 8″ Round" (items 'Chocolate 8" Square' / 'Chocolate 8" Round'), "Fresh Lentil Soup" (item "Lentil Soup"), "Cheese Ploughman's" (item
+    "Ploughmans"), "Ham & Cheddar" (item "Ham & Cheese (Filled Baguettes)"), "Chicken Mayonnaise – Baguette Roll" (item "Chicken Mayonnaise
+    (Filled Baguettes)"), "Sliced Sausage Roll" / "Bacon Roll" / "Black Pudding Roll" / "Pork Link Sausage Roll" (items are the fillings
+    "Sliced Sausage", "Bacon", "Black Pudding", "Pork Link Sausage", not the roll);
+  - the chain's own click & collect shop (https://baynes.co.uk/shop-online/product-category/click-collect, a WooCommerce shop on the same
+    host, same robots.txt) names its products "STRAWBERRY TORTEN" and "TRIFLE" (one picture for both the Medium and the Large size) and
+    "5″ CHRISTMAS VANILLA SPONGE": none is the guide's name ("Large Strawberry Torten", "Medium Trifle", 'Vanilla Christmas Sponge 5"'), and
+    the shop's Apple Flan and steak pies already have a photo from their product pages. The chain's app site (app.baynes.co.uk) only
+    redirects to the app stores (no menu feed).
 """
 from __future__ import annotations
 
@@ -45,6 +66,9 @@ DEFAULT_CACHE = Path("/tmp/menumacros-images-baynes")
 PLACEHOLDER = re.compile(r"no-image-placeholder", re.I)   # the site's own "no image yet" file (used by 13 product pages): not a photo of the product
 DROP_ITEMS: dict[str, str] = {   # item id -> why it was looked at after the first run and left without a photo
     "white-coffee-large": "the page named 'White Coffee Large' shows the file 'Baynes-White-Coffee-Reg-...jpg', the regular cup: a picture of a different size",
+    # looked at on a contact sheet 2026-11-17: the page named 'White Iced Doughring' (/our-products/iced-doughring/) shows a ring doughnut with
+    # PINK icing (file 'Baynes-Product-Doughnuts-Iced-Doughring-1500-...png'), and the guide sells a separate Pink Iced Doughring
+    "white-iced-doughring": "the page's picture shows a pink-iced doughring, not the white-iced one named (Pink Iced Doughring is a separate product)",
 }
 
 

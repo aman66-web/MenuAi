@@ -14,6 +14,12 @@ The chain's online-ordering shop (/collections/all, Irish menu, euro prices) was
 published UK item name, and several of its products share one photo between different products (e.g. "Vegan Mango & Passionfruit
 Muffin" shows the Pear & Almond muffin; "Tuna Mayonnaise Salad Bloomer" shows the Egg Mayo one), so it is not used.
 
+Rechecked 2026-11-17: /pages/whats-new still holds the same 12 blocks with the same photo files (this script's 42 rows are
+unchanged). The shop's product sitemap (sitemap_products_1.xml, 36 products, Irish menu, euro prices) was read again: its titles put the
+category first ("Panini | Sweet Chilli Chicken & Grated Cheese", "Matcha Latte - Banana Bread | DI"), so none has the same norm_name as
+a UK item; many show the shop's plain placeholders (Black.jpg, Grey.png, panini.jpg) and "Iced Latte - Pumpkin Spiced" shows the hot
+latte's photo (Pumpkin_Spiced_Latte_HOT.jpg). Not used. /products.json answered HTTP 429 that day, so nothing more was fetched from the host.
+
 Match rule (exact, nothing fuzzy). A photo is attached to a published item only when
   1. the block's caption has the same norm_name as the item's name, or as the item's name without the trailing
      "(<milk>, <size>)" that the UK guide appends to every drink (the page entry is the drink; the milk and the size are its variants), and

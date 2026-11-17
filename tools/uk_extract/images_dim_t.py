@@ -13,24 +13,39 @@ The photo URLs are on deliverect-resizer.imgix.net (the storefront's own image h
 to its Deliverect account). dimt.co.uk's own menu pages are PDFs and a few seasonal banners, not per-dish photos.
 
 Match rule (exact, nothing fuzzy): a photo is attached to a published item (data/source/dim-t/items.csv minus
-holdback.csv) only when the feed's `name` and the item's name are equal under images_common.norm_name (case, accents,
-punctuation, '&'/'and' and spacing ignored; words are never dropped, reordered or approximated). So the feed's promotional
-or section prefixes ("NEW - Thai Prawn crackers", "FISH - Prawn dim sum", "MEAT - Korean beef dim sum") are NOT removed:
-those dishes get no photo here. Further guards: a name printed twice in the feed, a name shared by two published items, a
-dish without a photo, "variant" entries (choice-of-protein dishes) and anything in EXCLUDE get none. Calories are printed for information only (a sanity check that the
-storefront's dish is the one our guide lists) and are never used to match.
+holdback.csv) only when the feed's `name` and the item's whole name are equal under images_common.norm_name (case, accents,
+punctuation, '&'/'and' and spacing ignored; words are never dropped, reordered or approximated), either as printed or after
+taking off ONE of the storefront's own fixed labels at the very start of the name, exactly as printed with its " - ":
+"NEW - ", "NEW SPECIALITY - " (promotional tags) and "FISH - ", "VEG - ", "MEAT - " (the dim sum menu's filling groups). These
+labels are the storefront's section and "new" markers, not part of the dish's name: "FISH - Prawn dim sum" is the record of
+"Prawn dim sum". Nothing else is taken off ("BUNS - Char siu pork" is not "Char siu pork buns": a reorder, so no photo), and
+"Yakisoba chicken" / "Bibimbap beef" / "Passion fruit ... cheesecake" / "Panang chicken curry" / "Rendang curry" /
+"Chicken teriyaki dim sum" are spelt, split or ordered differently from our dishes ("Yaki soba chicken", "Bi bim bap - beef",
+"Passionfruit ...", "Penang curry chicken", "Rendang beef", "Teriyaki chicken dim sum"), so they get none.
+Further guards: the storefront's printed `calories` must equal ours exactly (a veto only, never a way to match: a same-name dish
+whose calories differ may be a reworked recipe), a name printed twice in the feed (as printed or after the label), a name
+shared by two published items, a dish without a photo, "variant" entries (choice-of-protein dishes) and anything in EXCLUDE get
+none. Variants were checked on 2026-11-17: the page's own item record (GET /api/dbe-proxy/items/<id>, loaded when a variant
+dish is opened) lists its options ("Tom yum with rice noodles - Chicken", "- Prawn", "- Tofu") each with its own calories and
+NO photo of its own, so the family's one photo is never spread over our per-protein rows.
+Every kept photo is looked at on a contact sheet (photo_sheet.py); a bad one goes in EXCLUDE so a rerun can't bring it back.
 
-Terms (https://dimt.co.uk/terms-conditions/, read 2026-10-08): "This website contains material which is owned by or licensed
+Terms (https://dimt.co.uk/terms-conditions/, read 2026-10-08 and again 2026-11-17, unchanged): "This website contains material which is owned by or licensed
 to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is
 prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions." (No separate
 copyright notice is published; images are not named.) The ordering storefront shows no terms of its own. Installed on the
 founder's decision of 2026-10-06 (CLAUDE.md rule 2: the founder's accepted risk).
-robots.txt (read 2026-10-08): dimt.co.uk disallows only /wp-admin/ and a few old offer pages; dim-t.deliverectdirect.com
-disallows only /my-account, /orders and checkout-order-id query strings; deliverect-resizer.imgix.net allows everything.
+robots.txt (read 2026-10-08 and again 2026-11-17, unchanged): dimt.co.uk disallows only /wp-admin/ and a few old offer pages; dim-t.deliverectdirect.com
+disallows only /my-account, /orders and checkout-order-id query strings; deliverect-resizer.imgix.net allows everything
+("User-agent: * / Disallow:"). No group names an AI crawler. https://dimt.co.uk/take-away/ still links the three pickup storefronts
+(hampstead, whiteley, winchester) on 2026-11-17.
+
+Runs: 2026-10-08, 20 photos (exact names only). 2026-11-17, with the fixed labels above: see images.csv.
 """
 from __future__ import annotations
 
 import argparse
+import base64
 import json
 import sys
 from pathlib import Path
@@ -43,6 +58,29 @@ PAGE_URL = "https://dim-t.deliverectdirect.com/pickup/hampstead"
 FEED_URL = ("https://dim-t.deliverectdirect.com/api/dbe-proxy/outlets/9afeeb78-6793-4c1f-9195-cfefa188d9fb/menu"
             "?slug=68e4f394828a37ba9dfc691b&salesChannel=webordering")
 PHOTO_HOST = "https://deliverect-resizer.imgix.net/"
+# The storefront's own fixed labels at the start of a name (see the docstring). Longest first, so "NEW SPECIALITY - " wins over "NEW - ".
+LABELS = ("NEW SPECIALITY - ", "NEW - ", "FISH - ", "VEG - ", "MEAT - ")
+
+
+def keys_for(feed_name: str) -> list[str]:
+    """The name as printed, and (if it starts with one of LABELS, exactly) the name with that one label taken off."""
+    out = [ic.norm_name(feed_name)]
+    for label in LABELS:
+        if feed_name.startswith(label):
+            out.append(ic.norm_name(feed_name[len(label):]))
+            break
+    return out
+
+
+def source_file(photo: str) -> str:
+    """The file name the chain uploaded (the imgix path's last part is the original address, base64): printed for a look."""
+    try:
+        tail = photo.rsplit("/", 1)[1]
+        return base64.urlsafe_b64decode(tail + "=" * (-len(tail) % 4)).decode("utf-8", "replace").rsplit("/", 1)[-1]
+    except Exception:
+        return "?"
+
+
 # Left out so a rerun can't bring them back: the storefront's dish has the same name but its calories differ from the August
 # guide's (storefront 490 vs guide 439 kcal; 799 vs 617 kcal), so it may be a reworked recipe, not shown to be the same dish.
 EXCLUDE = {"crispy-duck-bao", "tofu-miso-ramen"}
@@ -69,21 +107,28 @@ def main() -> int:
     products = [p for c in feed.get("categories", []) for p in c.get("items", []) if p.get("type") == "product"]
     count: dict[str, int] = {}
     for p in products:
-        count[ic.norm_name(p["name"])] = count.get(ic.norm_name(p["name"]), 0) + 1
+        for k in set(keys_for(p["name"])):
+            count[k] = count.get(k, 0) + 1
 
     rows: dict[str, tuple[str, str]] = {}
-    matched: list[tuple[str, str, object, object]] = []
+    matched: list[tuple[str, str, object, object, str]] = []
     for p in products:
-        key = ic.norm_name(p["name"])
-        photo = p.get("photo") or ""
-        cands = by_norm.get(key, [])
-        if not cands:
+        hits = [(k, by_norm[k]) for k in keys_for(p["name"]) if k in by_norm]
+        if not hits:
             continue
+        if len(hits) > 1:
+            print(f"  name matches two of our dishes, no photo: {p['name']!r}")
+            continue
+        key, cands = hits[0]
+        photo = p.get("photo") or ""
         if count[key] > 1 or len(cands) > 1:
             print(f"  ambiguous name, no photo: {p['name']!r}")
             continue
         it = cands[0]
         if it["id"] in EXCLUDE or not photo.startswith(PHOTO_HOST):
+            continue
+        if str(it.get("calories")) != str(p.get("calories")):
+            print(f"  calories differ, no photo: {it['id']} ours {it.get('calories')} / storefront {p.get('calories')} ({p['name']!r})")
             continue
         try:
             raw = ic.polite_get(photo, args.cache, referer=PAGE_URL)
@@ -91,7 +136,7 @@ def main() -> int:
             print(f"BLOCKED: {e}")
             return 2
         if args.dry_run:
-            matched.append((it["id"], p["name"], it.get("calories"), p.get("calories")))
+            matched.append((it["id"], p["name"], it.get("calories"), p.get("calories"), source_file(photo)))
             continue
         try:
             fname = ic.store_image(CHAIN, raw)
@@ -99,11 +144,10 @@ def main() -> int:
             print(f"  skipped {it['id']}: {e}")
             continue
         rows[it["id"]] = (fname, PAGE_URL)
-        matched.append((it["id"], p["name"], it.get("calories"), p.get("calories")))
+        matched.append((it["id"], p["name"], it.get("calories"), p.get("calories"), source_file(photo)))
 
-    for item_id, name, ours, theirs in matched:
-        flag = "" if str(ours) == str(theirs) else "   <-- calories differ"
-        print(f"  {item_id:40s} {name:35s} ours {ours} / storefront {theirs}{flag}")
+    for item_id, name, ours, theirs, src in matched:
+        print(f"  {item_id:38s} {name:45s} {ours}/{theirs} kcal  {src}")
     print(f"feed: {len(products)} products; published items: {len(items)}; photos attached: {len(matched)}")
     if not args.dry_run:
         ic.write_images_csv(CHAIN, rows)

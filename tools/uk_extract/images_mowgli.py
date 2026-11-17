@@ -12,11 +12,31 @@ A photo is attached to a published item (data/source/mowgli/items.csv minus hold
 prints the item's exact name (norm_name equality). A name printed with two different photos, or two published items with the
 same name, gets no photo. The page prints the Kids ice cream cones and brownie again under "Sweet"; the repeats carry the same photo file.
 
+Photos kept from an earlier run (CARRY_OVER). A row already in images.csv whose item is still published but which today's page no longer
+prints at all (no tile and no menu line of that name: the chain changed its menu; the menu data still holds the dishes it was extracted
+from on 2026-10-08) keeps its photo and source page as verified on the day of that run: the photo was then that exact dish's tile on this
+page. An item today's page still prints never keeps an old photo: today's tile decides (its photo, or none). write_images_csv gives every
+row the run's date; the carried rows and their true retrieval date are printed by the run, and when every row written is exactly as before
+the earlier date is kept. Carried on 2026-11-17 (all retrieved and looked at 2026-10-08; the page no longer prints them): chicken-frankie-wrap,
+rainbow-frankie-wrap, mowgli-chicken-salad, mowgli-tenderstem-salad, mowgli-chicken-biryani, homestyle-cumin-rice, garlic-butter-paratha,
+mini-poppadoms. Set CARRY_OVER = False to drop them instead. The page now prints "Mowgli Cumin Rice", "Garlic & Coriander Butter Paratha" and
+"Poppadoms & Dips" (and new dishes such as "Mowgli Spice Bag" and "Lamb Kofta Kebabs"): different names, so they are not matched to the
+October items; the menu data needs a refresh by the chain's extraction script. "Kids Mowgli Paneer & Rice" is printed (394 kcal) but has no
+photo tile, so it has no photo.
+
+Terms (https://mowglistreetfood.com/our-business/terms-conditions/, read 2026-11-17, "02 Use of our website"): "The copyright and other
+intellectual property rights published on our 'website' are owned by us. These works are protected by copyright laws and all rights are
+reserved. our 'website' may not be used, reproduced or stored in any other website or included in any public or private electronic retrieval
+system or service, without the express written permission of Mowgli Street Food Ltd." Installed on the founder's decision of 2026-10-06
+(CLAUDE.md rule 2: the founder's accepted risk). robots.txt (read 2026-11-17) is as described above (plus a Yoast block "User-agent: * /
+Disallow:" that allows everything).
+
     python3 tools/uk_extract/images_mowgli.py --cache <dir> [--dry-run]
 """
 from __future__ import annotations
 
 import argparse
+import csv
 import html
 import re
 import sys
@@ -30,6 +50,21 @@ PAGE = "https://mowglistreetfood.com/menus/food/"
 UPLOADS = "https://mowglistreetfood.com/wp-content/uploads/"
 # Looked at after the first run and left out so a rerun can't bring them back (item id -> reason). Filled in below if needed.
 EXCLUDE: dict[str, str] = {}
+CARRY_OVER = True
+
+
+def printed_names(doc: str) -> set[str]:
+    """norm_name of every dish the page prints, with or without a photo: the menu lines (<h3>name<span class="calorie-info">)."""
+    return {ic.norm_name(_text(n)) for n in re.findall(r"<h3>(.*?)<span class=\"calorie-info", doc, flags=re.S)}
+
+
+def earlier_rows() -> tuple[dict[str, tuple[str, str]], dict[str, str]]:
+    path = ic.ROOT / "data" / "source" / CHAIN / "images.csv"
+    if not path.exists():
+        return {}, {}
+    with open(path, newline="", encoding="utf-8") as f:
+        rs = list(csv.DictReader(f))
+    return {r["item_id"]: (r["file"], r["source_url"]) for r in rs}, {r["item_id"]: r["retrieved_on"] for r in rs}
 
 
 def _text(fragment: str) -> str:
@@ -76,7 +111,8 @@ def main() -> int:
     except ic.Blocked as e:
         print(f"BLOCKED: {e}")
         return 2
-    entries = parse_page(raw.decode("utf-8", "replace"))
+    doc = raw.decode("utf-8", "replace")
+    entries = parse_page(doc)
     print(f"{len(entries)} tiles with a photo and a printed name on {PAGE}")
 
     photos_by_name: dict[str, set[str]] = {}
@@ -102,7 +138,24 @@ def main() -> int:
         print("ambiguous (no photo):", sorted(set(ambiguous)))
     for iid, (p, n) in sorted(matches.items()):
         print(f"  {iid:36s} <- '{n}'  {p.rsplit('/', 1)[-1]}")
-    print("published items with no photo:", sorted(it["id"] for it in items if it["id"] not in matches))
+    # Earlier rows whose dish today's page no longer prints at all (see the docstring): kept as verified on the day of that run.
+    on_page = printed_names(doc) | set(photos_by_name)
+    before, before_dates = earlier_rows()
+    carried: dict[str, tuple[str, str]] = {}
+    for iid, (fname, src) in sorted(before.items()):
+        it = next((x for x in items if x["id"] == iid), None)
+        if not CARRY_OVER or it is None or iid in matches or iid in EXCLUDE:
+            continue
+        if ic.norm_name(it["name"]) in on_page:
+            print(f"  not carried: {iid}: today's page prints it (today's page decides)")
+            continue
+        if not (ic.IMAGES_ROOT / CHAIN / fname).is_file():
+            print(f"  not carried: {iid}: earlier photo file {fname} is missing")
+            continue
+        carried[iid] = (fname, src)
+        print(f"  carried from an earlier run: {iid:36s} {fname} from {src} (retrieved {before_dates.get(iid, '?')}, not on today's page)")
+    print(f"{len(matches)} matched today, {len(carried)} carried from an earlier run")
+    print("published items with no photo:", sorted(it["id"] for it in items if it["id"] not in matches and it["id"] not in carried))
     print("printed names with no exact published item:", sorted({n for n, _ in entries if ic.norm_name(n) not in by_norm}))
     if args.dry_run:
         return 0
@@ -122,7 +175,13 @@ def main() -> int:
                 stored[p] = ""
         if stored[p]:
             rows[iid] = (stored[p], PAGE)
-    ic.write_images_csv(CHAIN, rows)
+    rows.update(carried)
+    # write_images_csv dates every row; when every row is exactly as before (same photo files, byte for byte, same pages) the
+    # earlier date is kept, so the carried rows are not re-dated
+    unchanged = bool(rows) and rows == before and len(set(before_dates.values())) == 1
+    ic.write_images_csv(CHAIN, rows, retrieved_on=next(iter(before_dates.values())) if unchanged else None)
+    if unchanged:
+        print("every row is exactly as before (same photos, byte for byte, same pages): the earlier retrieved_on date is kept")
     d = ic.IMAGES_ROOT / CHAIN
     total = sum(f.stat().st_size for f in d.glob("*.webp")) if d.is_dir() else 0
     print(f"\nstored {len(rows)} items with a photo, {len({f for f, _ in rows.values()})} files, {total / 1024:.0f} KB")

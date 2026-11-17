@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Item photos for Birds Bakery from its own website (docs/UK_DATA_PLAYBOOK.md, Phase 4; helpers: images_common.py).
 
-    python3 tools/uk_extract/images_birds_bakery.py [--cache DIR]             # match and report only (default)
-    python3 tools/uk_extract/images_birds_bakery.py [--cache DIR] --install   # download, store, write images.csv
+    python3 tools/uk_extract/images_birds_bakery.py --cache DIR [--dry-run]
 
-HELD (2026-10-06): the default run only reads the chain's pages and reports which items have a photo; it downloads no
-photo and writes nothing. Birds' terms (below) forbid commercial use of the site's content without a licence, and
-CLAUDE.md rule 2 (as committed) says such a chain's photos are installed only when the founder says so for that chain.
-Run with --install once the founder has confirmed Birds Bakery; then look at every stored file by eye (drop anything that
-is not a photo of that item, or that prints nutrition numbers or claims) and run check_chain.py.
+--dry-run reads the chain's pages and reports which items have a photo; it downloads no photo and writes nothing. Without it
+the matched photos are stored and images.csv is rewritten. Birds' terms (below) forbid commercial use of the site's content
+without a licence: the photos are installed on the founder's decisions of 2026-10-06 ("make sure to add them": photos for
+every chain even where its terms restrict reuse, his accepted risk). After a run, look at every stored file by eye
+(photo_sheet.py; drop anything that is not a photo of that item, or that prints nutrition numbers or claims, in DROP_ITEMS)
+and run check_chain.py.
 
 Source: the chain's own "Our food" pages, listed in https://birdsbakery.com/sitemap_metaobject_pages_1.xml as
 https://birdsbakery.com/pages/our-food/<slug>. Each such page is about ONE product: its <title> is
@@ -31,6 +31,21 @@ robots.txt (read 2026-10-06) disallows /policies/, /search, cart/checkout/accoun
 /pages/ or /cdn/shop/files/; polite_get checks it on every URL.
 
 A 401/403/429 or a robots refusal stops the script (exit 1) before anything is written.
+
+Run of 2026-11-17: robots.txt allowed every URL asked for (the sitemap, the "Our food" pages and /products.json). The sitemap
+listed 58 "Our food" pages and all 58 were read; they name the same 22 published items as on 2026-10-07 (no new match). The
+other 36 pages are products we don't publish or names that are not ours exactly: "small pork pies" (ours: "Small pork pie"),
+"sausage roll XL" (ours: "Sausage roll"), "chocolate mice (pack of 3)", "elephants foot" (ours: "Pink elephants foot"),
+"swiss bun", "steak slice" (no hero photo), breads, scones, tarts and doughnuts we don't list; none is matched. Then
+https://birdsbakery.com/products.json?limit=250 answered HTTP 429 (Too Many Requests): the run stopped there and nothing more
+was asked of birdsbakery.com (not retried, not worked round), so the shop feed could not be re-read for new matches and the
+terms page could not be re-read either (the clause above is from 2026-10-06). The 23 photos kept from 2026-10-07 were looked
+at again on contact sheets and enlarged; bacon-cob-white was removed with remove_photos.py (DROP_ITEMS below says why).
+Rerun this script later: it rebuilds images.csv from the pages and the feed, DROP_ITEMS applied.
+Found while checking (not a photo matter, for the data owner): some "Our food" pages print a nutrition table that differs from
+the nutrition-and-allergen-data page our items come from: Sausage cob (white) 676 kcal per portion there (ours 446), Roast
+pork cob (white) 523 kcal / 19.0 g protein (ours 457 / 54.08), Ham & cheese filled roll (white) 502 (ours 447), Ham little
+bites 137 per roll (ours 159), Tuna mayo little bites 154 per roll (ours 209); smaller gaps for the crumble and caramel doughnut.
 """
 from __future__ import annotations
 
@@ -52,6 +67,13 @@ SITEMAP_URL = f"{BASE}/sitemap_metaobject_pages_1.xml"
 PRODUCTS_URL = f"{BASE}/products.json?limit=250"
 HTML_ACCEPT = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
 DEFAULT_CACHE = Path("/tmp/menumacros-images-birds-bakery")
+# Looked at on contact sheets and left without a photo; a rerun must not bring them back.
+DROP_ITEMS: dict[str, str] = {
+    # 2026-11-17: the page's photo shows the roll filled with stuffing and diced apple sauce as well as bacon, but the same
+    # page says the bacon cob is bacon "and a choice of red or brown sauce" and its ingredients list only the roll and the
+    # bacon: the picture shows a different build from the item we publish.
+    "bacon-cob-white": "the photo shows stuffing and apple sauce, which the page's own description and ingredients say the bacon cob doesn't have",
+}
 
 OUR_FOOD = re.compile(r"<loc>(https://birdsbakery\.com/pages/our-food/[a-z0-9-]+)</loc>")
 TITLE = re.compile(r"<title>\s*(?P<name>.*?)\s+-\s+Nutrition &amp; Allergy Data\s*\|\s*Birds Bakery\s*</title>", re.S)
@@ -68,8 +90,7 @@ def page_text(url: str, cache: Path) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--cache", type=Path, default=DEFAULT_CACHE)
-    ap.add_argument("--install", action="store_true",
-                    help="download and store the matched photos and write images.csv (only once the founder has confirmed)")
+    ap.add_argument("--dry-run", action="store_true", help="match and report only; download no photo, store nothing, write no CSV")
     args = ap.parse_args()
 
     items = load_items(CHAIN_ID)
@@ -122,6 +143,9 @@ def main() -> int:
             if len({photo for _, photo in hits}) != 1:
                 skipped.append(f"{its[0]['id']}: {len(hits)} different pages/photos name {its[0]['name']!r}")
                 continue
+            if its[0]["id"] in DROP_ITEMS:
+                skipped.append(f"{its[0]['id']}: left out after looking: {DROP_ITEMS[its[0]['id']]}")
+                continue
             matched[its[0]["id"]] = hits[0]
 
         print(f"{len(matched)} of {len(items)} published items are named exactly by a page with one photo:")
@@ -129,8 +153,8 @@ def main() -> int:
             print(f"  {item_id:58} {photo}  ({page_url})")
         for s in notes + skipped:
             print(f"  note: {s}")
-        if not args.install:
-            print("Match-only run (photos held until the founder confirms Birds Bakery): nothing downloaded or written.")
+        if args.dry_run:
+            print("Dry run: nothing downloaded or written.")
             return 0
 
         rows: dict[str, tuple[str, str]] = {}

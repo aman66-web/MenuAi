@@ -25,10 +25,20 @@ reproduce, distribute or modify any content on the Website." That is an express 
 /wp-admin/ / Allow: /wp-admin/admin-ajax.php": the menu page and /wp-content/uploads/ are allowed (RFC 9309 matcher in polite_get).
 
 A 401/403/429 or a robots refusal stops the script (exit 1) before anything is written.
+
+Checked again 2026-11-17 (dry run only; images.csv left as written on 2026-10-11, 9 of 11 shakes). The page still has 11 cards, but the
+card at /food/apple-crumble/ is now titled "Gingerbread" (photo GB-Shake-09.jpg, 379 kcal / 23 g / 42 g / 13 g): the Apple Crumble card
+is gone, so no card names "Apple Crumble" any more. The Apple Crumble photo already stored (taken from the chain's own Apple Crumble card on
+2026-10-11; looked at again on a contact sheet: a shake with apple slices and cinnamon) is still the chain's photo of the published item, so
+CARRY_OVER keeps that row on a rerun instead of dropping it; nothing new is downloaded for it and Gingerbread is not a published item. Berry
+Blast and Superhuman still show each other's file names (/food/berry-blast/ itself shows Superman-7; the Superhuman card links to
+/food/superman/ and shows Berry-Blast-9): looked at again full size, a pink and a purple berry shake that can't be told apart, so both stay
+without a photo. robots.txt and the terms clause quoted above were re-read on 2026-11-17: unchanged.
 """
 from __future__ import annotations
 
 import argparse
+import csv
 import html
 import re
 import sys
@@ -51,6 +61,13 @@ DROP_ITEMS: dict[str, str] = {   # item id -> why it was looked at after the fir
                    "'Berry-Blast-9-scaled.webp' (the two file names look swapped); both shakes contain berries, so the pink and the purple "
                    "picture cannot be told apart by eye: ambiguous, no photo for either",
     "superhuman": "see berry-blast: its card shows 'Berry-Blast-9-scaled.webp' (the file names of the two cards look swapped)",
+}
+
+# item id -> why a photo already in images.csv is kept when no card on the page names the item any more (the row and its stored file are
+# carried over unchanged; never used to add a photo that was not taken from the chain's own card for that item)
+CARRY_OVER: dict[str, str] = {
+    "apple-crumble": "the Apple Crumble card was replaced by Gingerbread after 2026-10-11; the stored photo came from the chain's own Apple "
+                     "Crumble card and still shows the published item",
 }
 
 CARD = re.compile(r'<div class="Post__Grid-post[^"]*"[^>]*>\s*<a href="(https://www\.thirdspace\.london/food/([a-z0-9-]+)/)"(.*?)</a>\s*</div>', re.S)
@@ -96,12 +113,24 @@ def main() -> int:
         for c in cs:
             by_name.setdefault(norm_name(c["name"]), []).append(c)
 
+        previous: dict[str, tuple[str, str]] = {}
+        prev_csv = Path(__file__).resolve().parents[2] / "data" / "source" / CHAIN_ID / "images.csv"
+        if prev_csv.exists():
+            with open(prev_csv, newline="", encoding="utf-8") as f:
+                previous = {r["item_id"]: (r["file"], r["source_url"]) for r in csv.DictReader(f)}
+        images_dir = Path(__file__).resolve().parents[2] / "web" / "public" / "menu-images" / CHAIN_ID
+
         matched: dict[str, str] = {}
+        carried: dict[str, tuple[str, str]] = {}
         for it in items:
             if it["id"] in DROP_ITEMS:
                 skipped.append(f"{it['id']}: dropped after looking: {DROP_ITEMS[it['id']]}")
                 continue
             hits = by_name.get(norm_name(it["name"]), [])
+            if not hits and it["id"] in CARRY_OVER and it["id"] in previous and (images_dir / previous[it["id"]][0]).exists():
+                carried[it["id"]] = previous[it["id"]]
+                skipped.append(f"{it['id']}: no card names it any more; the stored photo is kept: {CARRY_OVER[it['id']]}")
+                continue
             if len(hits) != 1:
                 skipped.append(f"{it['id']}: {len(hits)} cards named {it['name']!r}")
                 continue
@@ -135,12 +164,15 @@ def main() -> int:
                 skipped.append(f"{item_id}: {url[len(PHOTO_PREFIX):]}: {e}")
                 continue
             rows[item_id] = (fname, PAGE_URL)
+        for item_id, row in carried.items():
+            if item_id not in rows:
+                rows[item_id] = row
     except Blocked as e:
         print(f"STOP (blocked, nothing written): {e}", file=sys.stderr)
         return 1
 
     if args.dry_run:
-        print(f"{len(matched)} of {len(items)} items would get a photo")
+        print(f"{len(matched) + len(carried)} of {len(items)} items would have a photo ({len(carried)} kept from the earlier run)")
     else:
         if not rows:
             print("no photo matched; nothing written")

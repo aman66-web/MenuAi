@@ -25,10 +25,24 @@ pages are allowed. We wait 31 s between requests to dunkin.co.uk (a full run wit
 pages, the product pages and the photos, so it takes more than an hour; reruns use the cache).
 
 A 401/403/429, a robots refusal or a URL with a query string stops the script (exit 1) before anything is written.
+
+Review of 2026-11-17: every stored photo was looked at again (contact sheets, each distinct picture at about 300 px). 18 pictures (41 rows: Apple, Cherry and
+Orange Sours, Banoffee Pie, Chocolate Pistachio, Drac, Frank, Sid, S'mores, Maple Praline, both Dubai Chocolate Mochas, Pumpkin Matcha Oat Latte, Pumpkin Patch
+Cloud Latte, both Pumpkin Spiced Lattes, Toasted Marshmallow and Toffee Apple Iced Matcha) carry the chain's round "NEW" badge: refused by file (NEW_BADGE_FILES).
+The four EXCLUDE products' pages were read again: Cookie Kreme Blast and Speculoos Sensation still show "NEW RECIPE", Strawberry Jelly and Cinnamon Roll still show
+the "Vegan Friendly" leaf. The green "Vegan Friendly" leaf on Chocolate Monster and Smiley is kept: the chain's own allergen page names those products
+"- Vegan Friendly" (dunkin.clean_name), so the leaf repeats the chain's own statement. The script was then rerun on the live pages the same day.
+Meanwhile the menu data had been re-extracted (data/source/dunkin/items.csv of 2026-11-17: the Christmas range; the Halloween, pumpkin and "Sours" products are gone
+from the allergen pages and no longer published), so the rerun found a photo for 35 records on the current pages: the 7 new Christmas products (Crème Brûlée, Custard &
+Almond Bretzel, Elf Belly, Rudolf, Santa Belly, Tiramisu, Wreath) all show the "NEW" badge and were added to NEW_BADGE_FILES after looking, as was Banoffee Pie's
+picture (unchanged bytes, still badged). Result: 53 of the 65 published items have a photo; every kept photo was looked at on a contact sheet. robots.txt was read
+again the same day (Crawl-delay 30, /terms-conditions still disallowed, so the terms were again not read).
 """
 from __future__ import annotations
 
 import argparse
+import csv
+import hashlib
 import html
 import re
 import sys
@@ -39,7 +53,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 import dunkin as dk  # noqa: E402  (page list, name rules, SLUG_FIX)
 import dunkin_pages as dp  # noqa: E402
 from images_common import (  # noqa: E402
-    Blocked, _robots_allow, load_items, norm_name, polite_get, store_image, suspected_placeholders, write_images_csv,
+    IMAGES_ROOT, ROOT, Blocked, _robots_allow, load_items, norm_name, polite_get, store_image, suspected_placeholders, write_images_csv,
 )
 
 CHAIN_ID = "dunkin"
@@ -55,6 +69,20 @@ EXCLUDE = {
     "Speculoos Sensation": "photo carries a 'NEW RECIPE' sticker",
     "Cinnamon Roll": "photo carries a 'Vegan Friendly' leaf, but the chain's allergen page does not call it Vegan Friendly",
     "Strawberry Jelly": "photo carries a 'Vegan Friendly' leaf, but the chain's allergen page does not call it Vegan Friendly",
+}
+# Looked at again 2026-11-17 on contact sheets (every stored photo at about 300 px): these pictures carry the chain's round "NEW" badge, a promotional sticker
+# that goes stale (CLAUDE.md rule 2 brief: no "NEW" stickers). Listed by the stored file's name, i.e. the first 12 hex digits of the SHA-256 of the photo's
+# bytes (store_image's naming), so exactly these pictures are refused and a later, sticker-free photo of the same product is not (look at it before keeping it).
+NEW_BADGE_FILES = {
+    "6939f5043082.webp": "Apple Sours", "a29625f3214e.webp": "Banoffee Pie", "daf3e41de504.webp": "Cherry Sours",
+    "079fdb52d469.webp": "Chocolate Pistachio", "c61f5e5e6de9.webp": "Drac", "813e44743909.webp": "Dubai Chocolate Mocha, cold",
+    "700d6b39c314.webp": "Dubai Chocolate Mocha, hot", "eae5f69a3337.webp": "Frank", "de77630d5b30.webp": "Maple Praline",
+    "da61f483e3b6.webp": "Orange Sours", "46573c5f2b2f.webp": "Pumpkin Matcha Oat Latte", "934983c0879a.webp": "Pumpkin Patch Cloud Latte",
+    "d580afdfe745.webp": "Pumpkin Spiced Latte, cold", "b2b1e583c8da.webp": "Pumpkin Spiced Latte, hot", "b52fa611e55f.webp": "Sid",
+    "7e3996038b85.webp": "S'mores", "1e32f15cbfa9.webp": "Toasted Marshmallow Iced Matcha", "61df77f5fbac.webp": "Toffee Apple Iced Matcha",
+    # the Christmas range on the pages of 2026-11-17, looked at the same day: every one carries the "NEW" badge
+    "8b48a0ced869.webp": "Crème Brûlée", "12d730edb950.webp": "Custard & Almond Bretzel", "cf71dc0b693a.webp": "Elf Belly",
+    "d93a8f19d948.webp": "Rudolf", "0056c41b435b.webp": "Santa Belly", "b1354b0e351e.webp": "Tiramisu", "73e4ec57cfb6.webp": "Wreath",
 }
 
 MAIN_PHOTO = re.compile(r'<img\s+alt="main product photo"\s+title="(?P<title>[^"]*)"[^>]*?\ssrc="(?P<src>[^"]+)"', re.S)
@@ -87,6 +115,15 @@ def fetch_html(url: str, cache: Path) -> str:
     return polite_get(url, cache, delay=DELAY, accept=HTML_ACCEPT).decode("utf-8", "replace")
 
 
+def previous_rows() -> dict[str, dict]:
+    """The rows of the images.csv an earlier run wrote (item id -> row), or {}."""
+    path = ROOT / "data" / "source" / CHAIN_ID / "images.csv"
+    if not path.exists():
+        return {}
+    with open(path, newline="", encoding="utf-8") as f:
+        return {r["item_id"]: r for r in csv.DictReader(f)}
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--cache", type=Path, default=DEFAULT_CACHE)
@@ -101,6 +138,8 @@ def main() -> int:
     rows: dict[str, tuple[str, str]] = {}
     skipped: list[str] = []
     claimed: set[str] = set()
+    covered: set[str] = set()   # published items that a record on today's allergen pages names (whatever the outcome for its photo)
+    before = previous_rows()
     try:
         for page, (category, _limited, _expected, is_drink) in dk.PAGES.items():
             text = fetch_html(f"{HOST}/{page}", args.cache)
@@ -113,6 +152,7 @@ def main() -> int:
                     continue
                 keys = [norm_name(f"{shown} ({s})") for s in SIZES] if is_drink else [norm_name(shown)]
                 mine = [it for k in keys for it in by_key.get((category, k), [])]
+                covered.update(it["id"] for it in mine)
                 if not mine:
                     skipped.append(f"{rec['name']} ({category}): no published item (held back or not listed): not fetched")
                     continue
@@ -151,6 +191,10 @@ def main() -> int:
                     claimed.update(it["id"] for it in mine)
                     continue
                 raw = polite_get(photo_url, args.cache, delay=DELAY, referer=product_url)
+                badge = NEW_BADGE_FILES.get(hashlib.sha256(raw).hexdigest()[:12] + ".webp")
+                if badge:
+                    skipped.append(f"{rec['name']}: the photo carries a 'NEW' badge (looked at 2026-11-17, {badge}): no photo")
+                    continue
                 try:
                     fname = store_image(CHAIN_ID, raw)
                 except ValueError as e:
@@ -169,8 +213,24 @@ def main() -> int:
     if args.dry_run:
         print(f"dry run: {len(claimed)} of {len(items)} published items would get a photo")
         return 0
+    # A product no longer on today's allergen pages (withdrawn) whose item is still published keeps the photo an earlier run matched to it on the
+    # chain's own product page (same name, looked at), with that page as its source, unless that photo is one of the NEW_BADGE_FILES.
+    for item_id, prev in sorted(before.items()):
+        if item_id in covered or item_id in rows or item_id not in {it["id"] for it in items}:
+            continue
+        if prev["file"] in NEW_BADGE_FILES or not (IMAGES_ROOT / CHAIN_ID / prev["file"]).exists():
+            print(f"  no photo: {item_id}: no longer on the allergen pages and its earlier photo carries a 'NEW' badge (or is gone)")
+            continue
+        rows[item_id] = (prev["file"], prev["source_url"])
+        print(f"  kept: {item_id}: no longer on the allergen pages: kept the photo matched on {prev['retrieved_on']} ({prev['file']})")
+    # A run that only confirms what an earlier run stored (every row the same file and page as before, rows only removed) keeps that run's date: the
+    # files are byte for byte the ones retrieved then (store_image names a file by the hash of the source bytes). Anything new or changed: today's date.
+    dates = {r["retrieved_on"] for r in before.values()}
+    same = bool(before) and len(dates) == 1 and all(i in before and (before[i]["file"], before[i]["source_url"]) == v for i, v in rows.items())
     if rows:
-        write_images_csv(CHAIN_ID, rows)
+        write_images_csv(CHAIN_ID, rows, retrieved_on=dates.pop() if same else None)
+    if same:
+        print("every photo is the same file as the earlier run's: its date is kept")
     print(f"{len(rows)} of {len(items)} published items have a photo")
     for f, ids in suspected_placeholders(rows).items():
         print(f"  CHECK BY EYE (used by {len(ids)} items): {f}: {', '.join(ids)}")

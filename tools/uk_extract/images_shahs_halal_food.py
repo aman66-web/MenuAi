@@ -10,13 +10,19 @@ the product page (the same page data/source/shahs-halal-food was built from) has
 square crops and are NOT used: we fetch the uncropped upload from the product page. store_image downsizes it to 640 px and converts to WebP, nothing
 else is changed.
 
-Matching (exact only): a published item gets the photo of the product page whose h1 (and menu card title) equals the item's name (norm_name).
+Matching (exact only): a published item gets the photo of the product page whose h1 (and menu card title) equals the item's name (norm_name),
+or of the very product page its figures were read from (the same product record): items.csv's notes start "Page /our-menu/<slug>/:", and
+tools/uk_extract/shahs_halal_food.py builds each item from exactly that page. This second route is needed for one item only: Philly Cheese Steak
+was read from /our-menu/philly-cheese-steak/, whose own card and h1 print "Philli Cheese Steak" (the extraction script uses the allergen page's and
+the URL's spelling "Philly"); the photo is that page's own product photo. A card whose name matches one item and whose page matches another is
+skipped. Rerun 2026-11-17: 10 of 10 published items matched.
 
-Politeness / robots: https://shahshalalfood.co.uk/robots.txt (read 2026-10-08): "User-agent: * Disallow: /wp-content/uploads/wc-logs/,
+Politeness / robots: https://shahshalalfood.co.uk/robots.txt (read 2026-10-08, re-read 2026-11-17, unchanged): "User-agent: * Disallow: /wp-content/uploads/wc-logs/,
 /wp-content/uploads/woocommerce_transient_files/, /wp-content/uploads/woocommerce_uploads/, /*?add-to-cart=, /*?*add-to-cart=, /wp-admin/ (Allow
 /wp-admin/admin-ajax.php)". Product pages and /wp-content/uploads/2025/03/ are allowed; no query strings are used.
 Terms: the site has no terms-of-use / terms-and-conditions page (its pages: about-us, contact-us, faq, franchise, our-locations, menu, allergen information,
-privacy-policy; the sitemap lists no terms page and /terms-and-conditions/ answers 404). Its footer says only "Copyright (c) 2026 Shah's Halal UK" (a generic
+privacy-policy, careers; the sitemap wp-sitemap-posts-page-1.xml lists no terms page and /terms-and-conditions/, /terms/ and /terms-of-use/ answer 404,
+re-checked 2026-11-17; the privacy policy says nothing about copying content). Its footer says only "Copyright (c) 2026 Shah's Halal UK" (a generic
 all-rights-reserved line, not an express prohibition on copying images). Installed on the founder's decision of 2026-10-06 (accepted risk, CLAUDE.md rule 2).
 """
 from __future__ import annotations
@@ -39,6 +45,7 @@ EXCLUDE: dict[str, str] = {}
 _CARD = re.compile(r'<h3 class="th-menu_title"><a href="(https://shahshalalfood\.co\.uk/our-menu/[^"]+/)">([^<]*)</a>')
 _H1 = re.compile(r'<h1[^>]*class="[^"]*product_title[^"]*"[^>]*>(.*?)</h1>', re.S)
 _PHOTO = re.compile(r'<img\b[^>]*\bclass="[^"]*wp-post-image[^"]*"[^>]*>')
+_SOURCE_PAGE = re.compile(r"^Page (/our-menu/[^/\s]+/):")       # items.csv notes: the product page the item's figures were read from
 
 
 def clean(s: str) -> str:
@@ -67,8 +74,12 @@ def main() -> None:
 
     items = ic.load_items(CHAIN_ID)
     by_name: dict[str, list[dict]] = {}
+    by_page: dict[str, list[dict]] = {}               # product page URL -> the items whose figures were read from it
     for it in items:
         by_name.setdefault(ic.norm_name(it["name"]), []).append(it)
+        src = _SOURCE_PAGE.match(it.get("notes") or "")
+        if src:
+            by_page.setdefault(HOST + src.group(1), []).append(it)
 
     menu = ic.polite_get(MENU_URL, args.cache, accept=html_accept).decode("utf-8", "replace")
     cards = [(u, clean(t)) for u, t in _CARD.findall(menu)]
@@ -79,18 +90,30 @@ def main() -> None:
     notes: list[str] = []
     for url, title in cards:
         hits = by_name.get(ic.norm_name(title), [])
-        if len(hits) != 1:
-            notes.append(f"{title}: {'no published item with exactly this name' if not hits else 'several published items share this name'} -> none")
+        same_page = by_page.get(url, [])
+        if len(hits) > 1 or len(same_page) > 1:
+            notes.append(f"{title}: several published items share this name or page -> none")
             continue
-        it = hits[0]
+        if hits and same_page and hits[0]["id"] != same_page[0]["id"]:
+            notes.append(f"{title}: the name names one item and the page another -> none")
+            continue
+        if not hits and not same_page:
+            notes.append(f"{title}: no published item with exactly this name or read from this page -> none")
+            continue
+        it = (hits or same_page)[0]
+        by_record = not hits                           # matched only because the item's figures were read from this very page
         if it["id"] in EXCLUDE:
             notes.append(f"{it['name']}: excluded ({EXCLUDE[it['id']]})")
             continue
         page = ic.polite_get(url, args.cache, delay=1.1, accept=html_accept).decode("utf-8", "replace")
         h1 = _H1.search(page)
-        if not h1 or ic.norm_name(clean(h1.group(1))) != ic.norm_name(it["name"]):
+        # name route: the page's own heading names the item; same-record route: the page's heading is the card's title (it is that product's page)
+        expect = ic.norm_name(title) if by_record else ic.norm_name(it["name"])
+        if not h1 or ic.norm_name(clean(h1.group(1))) != expect:
             notes.append(f"{title}: the product page's own heading differs -> none")
             continue
+        if by_record:
+            notes.append(f"{it['name']}: matched by its own product page {url} (the page titles it {clean(h1.group(1))!r})")
         photo = product_photo(page)
         if not photo:
             notes.append(f"{title}: the product page shows no photo -> none")
@@ -105,7 +128,7 @@ def main() -> None:
     print(f"{len(items)} published items; {len(cards)} products on the menu page; {len(wanted)} items matched to a photo")
     for item_id in sorted(wanted, key=order.index):
         print(f"  {by_id[item_id]['category']:<12} {by_id[item_id]['name']:<24} {wanted[item_id][0].rsplit('/', 1)[-1]}")
-    print("Menu entries without a published item (or without a usable photo):")
+    print("Notes (menu entries without a published item or a usable photo; items matched by their own page):")
     for n in notes:
         print("  -", n)
     print(f"  ({len(items) - len(wanted)} published items without a photo in total)")

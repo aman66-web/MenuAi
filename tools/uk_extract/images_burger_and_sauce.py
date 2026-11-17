@@ -4,18 +4,31 @@
     python3 tools/uk_extract/images_burger_and_sauce.py --cache DIR [--dry-run]
 
 Source: the chain's own product pages https://burgerandsauce.com/products/... (WordPress), found from the links on its menu page
-https://burgerandsauce.com/menu/ (the page that links the Calorie Count PDF data/source/burger-and-sauce/chain.csv cites). A
-product page carries the product's name (<title> "<Name> BURGER & SAUCE" and the heading text next to the picture) and its
-picture (og:image = the 1024 px PNG the page itself shows). Server-rendered HTML, no browser needed.
+https://burgerandsauce.com/menu/ (the page that links the Calorie Count PDF data/source/burger-and-sauce/chain.csv cites) and, since
+2026-11-17, from the chain's own product sitemap https://burgerandsauce.com/products-sitemap.xml (named in its robots.txt through
+sitemap_index.xml), which also lists product pages the menu page no longer links (e.g. /products/animal-nachos/, /products/mexican-nachos/,
+both marked "BACK SOON!" on the page while the dishes are on the Calorie Count PDF). A product page carries the product's name (<title>
+"<Name> BURGER & SAUCE" and the heading text printed next to the picture) and its picture (og:image = the 1024 px PNG the page itself
+shows). Server-rendered HTML, no browser needed.
 
 Match rule (exact, nothing fuzzy). A photo is attached to a published item only when
-  1. a product page's <title> name AND the name printed on the page beside the picture both have the same norm_name as the item's name,
+  1. the name printed on the product page right beside its picture (the product's heading) has the same norm_name as the item's name.
+     Usually the page's <title> carries the same name; where it doesn't, the printed heading is the product's name and the <title> is
+     the page's short name (the "Apple Refresher" page prints "When Apple Was Just A Fruit" beside its picture: that drink gets the photo;
+     the "Mango Refresher" page prints "Everything Goes Better with Mango", which is not the published "Everything's Better With Mango",
+     so it gets nothing),
   2. exactly one published item has that name and exactly one product page carries it, and
   3. the picture file is not used by product pages with different names. (The three wings pages all show one "Lemon Pepper Wings"
      banner picture, so none of the wings gets a photo; the four "The Wrap ..." pages share one picture and none of them is named
      "The Wrap".)
 Pages whose name differs from the published item's name ("Angus Beef Stack Burger" vs "Angus Stack", "The Original Veggi Burger" vs
-"The Original Veggie Burger", "Fererro Rocher" vs "Ferrero Rocher", "Chicken Strips" vs "Strips", ...) get nothing: we do not guess.
+"The Original Veggie Burger", "Fererro Rocher" vs "Ferrero Rocher", "Chicken Strips (3)" vs "Strips", "Club Range Beef Burger" vs
+"Club Beef", "The Fiery Legend Burger" vs "Fiery Legend", ...) get nothing: we do not guess.
+
+Run of 2026-11-17: robots.txt re-read (unchanged, as above; its Sitemap line names sitemap_index.xml); 34 product pages linked from /menu/
+plus 12 more from products-sitemap.xml; the footer clause quoted below re-read on /menu/ (same words, "BURGER & SAUCE(c) LTD"). 17 items
+matched (the 14 of 2026-10-09 plus Animal Nachos, Mexican Nachos and When Apple Was Just a Fruit); all 17 looked at on a contact sheet
+and kept (the drinks' cups print the chain's own "LET'S GET SAUCY" cup design, no figure or offer).
 
 Terms: the site has no terms-of-use page (/terms, /terms-and-conditions are 404; the privacy and refund policies say nothing about
 images). Its footer on every page reads (read 2026-10-10): "Copyright (c) 2026 All Rights Reserved. BURGER & SAUCE LTD ALL CONTENT IS
@@ -47,7 +60,9 @@ DEFAULT_CACHE = Path("/tmp/menumacros-images-burger-and-sauce")
 DROP_ITEMS: dict[str, str] = {}   # item id -> why it is left without a photo after looking (a rerun must not bring it back)
 SKIP_FILES: dict[str, str] = {}   # picture file name -> why it is not used
 
+SITEMAP_URL = BASE + "/products-sitemap.xml"
 PRODUCT_LINK = re.compile(r'href="(https://burgerandsauce\.com/products/[^"#?]+)"')
+SITEMAP_LOC = re.compile(r"<loc>(https://burgerandsauce\.com/products/[^<#?]+)</loc>")
 TITLE = re.compile(r"<title>(.*?)</title>", re.S)
 OG_IMAGE = re.compile(r'<meta property="og:image" content="([^"]+)"')
 
@@ -57,25 +72,25 @@ def clean(fragment: str) -> str:
 
 
 def product_page(page: str) -> dict | None:
-    """name (from <title>), picture URL (og:image) - only when that picture is an <img> of the page and the page prints the same
-    name as text right after it."""
+    """name = the heading the page prints as text right after its picture; picture URL = og:image, only when that picture is an
+    <img> of the page. `title` is the page's <title> name (usually the same words; kept for the report)."""
     t, og = TITLE.search(page), OG_IMAGE.search(page)
     if not (t and og):
         return None
-    name = clean(t.group(1))
-    name = re.sub(r"\s*BURGER (?:&amp;|&) SAUCE\s*$", "", name).strip()
+    title = clean(t.group(1))
+    title = re.sub(r"\s*BURGER (?:&amp;|&) SAUCE\s*$", "", title).strip()
     pic = html.unescape(og.group(1))
     file = pic.rsplit("/", 1)[-1]
     body = re.sub(r"<(script|style)\b.*?</\1>", "", page, flags=re.S)
     m = re.search(r'<img[^>]*src="' + re.escape(pic) + r'"[^>]*>(.{0,1500})', body, re.S)
     if not m:
         return None
-    # the first non-empty text after the picture is the product name
+    # the first non-empty text after the picture is the product name as the page prints it
     texts = [clean(x) for x in re.findall(r">([^<>]{2,120})<", m.group(1))]
     texts = [x for x in texts if x]
-    if not texts or norm_name(texts[0]) != norm_name(name):
+    if not texts:
         return None
-    return {"name": name, "pic": pic, "file": file}
+    return {"name": texts[0], "title": title, "pic": pic, "file": file}
 
 
 def main() -> int:
@@ -99,6 +114,10 @@ def main() -> int:
             if m.group(1) not in links:
                 links.append(m.group(1))
         print(f"{len(links)} product pages linked from {MENU_URL}")
+        sitemap = polite_get(SITEMAP_URL, args.cache, accept=HTML_ACCEPT).decode("utf-8", "replace")
+        extra = [u for u in SITEMAP_LOC.findall(sitemap) if u not in links and u.rstrip("/") != BASE + "/products"]
+        links += extra
+        print(f"{len(extra)} more product pages listed in {SITEMAP_URL}")
         pages: list[tuple[str, dict]] = []
         for url in links:
             page = polite_get(url, args.cache, accept=HTML_ACCEPT).decode("utf-8", "replace")
@@ -137,7 +156,7 @@ def main() -> int:
 
         for item_id, (info, url) in sorted(matched.items()):
             if args.dry_run:
-                print(f"  {item_id:36} {info['pic']}")
+                print(f"  {item_id:36} {info['pic']}" + (f"  (heading {info['name']!r}, page title {info['title']!r})" if info["title"] != info["name"] else ""))
                 continue
             raw = polite_get(info["pic"], args.cache, referer=url)
             try:
@@ -146,7 +165,7 @@ def main() -> int:
                 skipped.append(f"{item_id}: {info['pic']}: {e}")
                 continue
             rows[item_id] = (fname, url)
-            print(f"  {item_id:36} {fname}  <- {info['name']}")
+            print(f"  {item_id:36} {fname}  <- {info['name']}" + (f" (page title {info['title']!r})" if info["title"] != info["name"] else ""))
     except Blocked as e:
         print(f"BLOCKED, stopping (nothing written): {e}", file=sys.stderr)
         return 1

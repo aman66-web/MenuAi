@@ -28,7 +28,8 @@ section heading on the page equals the item's category in items.csv is the one u
 product, the item gets no photo. An item whose name is carried by tiles with different products or different photos, or that
 shares its name with another published item, gets no photo. Nothing is matched by slug, file name or similarity. Photo file names that look like a
 placeholder, banner, logo or icon are not used, and SKIP_FILES lists any photo looked at and rejected (nutrition claims on
-the photo, wrong subject). A photo that two or more DIFFERENT products show is not used either (it cannot be that item's photo).
+the photo, wrong subject). A photo that two or more DIFFERENT products show is not used either (it cannot be that item's photo): the same upload file, or (checked
+after the download) byte-identical files, except the SAME_PHOTO_OK groups looked at by eye.
 
 Terms (https://www.pure.co.uk/terms-conditions/, heading "Copyright", read 2026-10-07): "All copyright, trademarks and all
 other intellectual property rights in the Website and its content (including without limitation the Website design, text,
@@ -42,6 +43,18 @@ robots.txt (https://www.pure.co.uk/robots.txt, read 2026-10-07): "User-agent: * 
 so a full run takes about 10 s x (9 pages + number of photos), roughly 20 minutes. polite_get also checks robots.txt.
 
 A 401/403/429 or a robots refusal stops the script (exit 2) before anything is written.
+
+Rerun of 2026-11-17 (terms and robots.txt re-read that day, unchanged; robots.txt now also lists the Yoast sitemap): 127 of the 139 published
+items match a tile on today's pages. Every photo was looked at again on contact sheets (and zoomed where text was printed on it), under the
+stricter photo rules of that day: 45 more were left out (DROP_ITEMS (b)-(e): "NEW" corner stickers, the "Now made with Wildfarmed regenerative
+flour" roundel, bottles that print a protein figure, other companies' packs), and 4 by the byte-level rule below (Pure's Banana & Maple Syrup
+tile uses a byte-identical copy of its Banana & Honey photo), leaving 78 matched photos plus 1 carried row = 79 items with a photo.
+Five published items had a photo from the first run of 2026-10-07 although their tiles are no longer on any of Pure's menu pages (Pure's menu
+changed: they are not on the nine pages, on /menus/new-this-season/ or in its menu-item sitemap). Four of those photos carry a sticker and are
+dropped; the fifth (CARRIED below) is still the chain's own photo of that dish, matched by the rule above on 2026-10-07, so its row is carried
+over unchanged (same file, same source page) as long as the item is published and the file exists. images.csv holds one retrieved_on date per
+write, so that row shows the date of the latest run although its photo was retrieved on 2026-10-07 from the page named. When Pure's data is next
+re-extracted those discontinued items will probably go, and the row with them.
 """
 from __future__ import annotations
 
@@ -66,9 +79,37 @@ SKIP_FILES: dict[str, str] = {                    # upload file name -> why it i
     "2017-09-06_SH64_Hotchocolate-208-2.jpg": "the Latte tile shows a file that Pure itself names 'Hotchocolate' (its Hot "
                                               "Chocolate tile uses another file): not confirmed to show a latte, so no photo",
 }
-# Items looked at after the first run and left without a photo (a rerun must not bring them back): the photo carries a
-# baked-in "NEW RECIPE" sticker, which could contradict our own numbers or allergens.
-DROP_ITEMS = {"high-protein-chilli-and-cheese", "prime-protein", "salmon-lovin"}
+# Items looked at and left without a photo (a rerun must not bring them back), id -> why.
+DROP_ITEMS: dict[str, str] = {}
+# (a) first run, 2026-10-07: a baked-in "NEW RECIPE" sticker, which could contradict our own numbers or allergens (same files on 2026-11-17)
+DROP_ITEMS.update({i: "the photo carries a 'NEW RECIPE' sticker" for i in "high-protein-chilli-and-cheese prime-protein salmon-lovin".split()})
+# (b) 2026-11-17: a pink "NEW" corner sticker on the photo (a promotional sticker that goes stale)
+DROP_ITEMS.update({i: "the photo carries a 'NEW' corner sticker" for i in """berry-berry-good-large berry-berry-good-regular feel-good-chicken
+matcha-the-day-large matcha-the-day-regular chicken-laksa-soup-large chicken-laksa-soup-regular roasted-veg-and-sriracha-mayo""".split()})
+# (c) 2026-11-17: a green roundel printed on the photo, "Now made with WILDFARMED regenerative flour · No palm oil · Wholemeal"
+#     (promotional lettering about a recipe change, the same kind of sticker as "new recipe")
+DROP_ITEMS.update({i: "the photo carries a 'Now made with Wildfarmed regenerative flour · No palm oil · Wholemeal' sticker" for i in """
+bacon-and-egg bacon-egg-and-ketchup chicken-new-yorker chicken-picante falafalo-soldier full-english full-of-beans hail-caesar halloumi
+korean-barbecue-beef lock-stock-and-hot-smoked-salmon smoked-salmon super-start super-veg the-very-vegan""".split()})
+# (d) 2026-11-17: the bottle's label prints a protein figure ("34g Protein", "17g Protein", "8g Protein")
+DROP_ITEMS.update({i: "the bottle in the photo prints a protein figure" for i in
+                   "pure-protein-large pure-protein-regular brain-boost-large brain-boost-regular".split()})
+# (e) 2026-11-17: the photo is another company's pack, not Pure's food (PRESS juice bottles, Boundless, Brown Bag Crisps, Forest Feast,
+#     Pip & Nut, Tony's Chocolonely, Tenzing and Trip packs; several also carry a "NEW" sticker or print figures such as "10g protein")
+DROP_ITEMS.update({i: "the photo is a third-party brand's pack, not a photo of the food" for i in """apple-juice-250ml orange-juice-250ml
+boundless-chipotle-lime-chips boundless-smoked-bacon-chips brown-bag-crisps-cheddar-and-onion brown-bag-crisps-lightly-salted
+brown-bag-crisps-sea-salt-and-malt-vinegar brown-crisps-smoked-chilli forest-feast-belgian-dark-chocolate-sour-cherries
+forest-feast-salted-dark-chocolate-almonds forest-feast-sea-salt-and-black-peppercorn forest-feast-sea-salt-and-cider-vinegar-nut-mix
+pip-and-nut-dark-chocolate-almond-butter-cups pip-and-nut-milk-chocolate-peanut-butter-cups pip-and-nut-protein-bar-dark-chocolate
+pip-and-nut-protein-bar-peanut-butter pip-and-nut-stuffed-bar-almond tenzing-pineapple-and-passion-fruit tonys-chocolonely-dark-almond-sea-salt
+tonys-chocolonely-milk-caramel-sea-salt tonys-chocolonely-milk-chocolate trip-elderflower-and-mint""".split()})
+# Rows of the 2026-10-07 run whose tiles are gone from Pure's pages (see "Rerun of 2026-11-17" above): carried over unchanged.
+# (Chicken Laksa Soup, Korean Barbecue Beef and Roasted Veg & Sriracha Mayo were carried too until their photos were looked at again: see DROP_ITEMS.)
+CARRIED = {"go-nuts-bircher"}
+# Two different tiles whose photo files are byte for byte the same picture are treated like one photo shown for two products (not used),
+# except these groups, looked at on 2026-11-17: the same dish in two tiles that differ only by the milk ("Pure Porridge" with oat milk or
+# organic dairy milk, Pure's file "Pure-Porridge_Final" names neither), the split the pages make inside one tile for the other porridges.
+SAME_PHOTO_OK = [{"oat-milk-pure-porridge", "organic-dairy-milk-pure-porridge"}]
 # Files to look at by eye after the run (text overlays, design exports, odd names): printed, not excluded.
 LOOK_AT = re.compile(r"overlay|untitled|ezgif|credit|3rdparty|gif", re.I)
 SIZE_SUFFIX = re.compile(r"-(?:\d+x\d+|scaled)(?=\.[A-Za-z]+$)")
@@ -164,6 +205,12 @@ def main() -> int:
     args = ap.parse_args()
 
     items = ic.load_items(CHAIN)
+    csv_path = ic.ROOT / "data" / "source" / CHAIN / "images.csv"
+    previous: dict[str, tuple[str, str]] = {}
+    if csv_path.exists():
+        import csv
+        with open(csv_path, newline="", encoding="utf-8") as f:
+            previous = {r["item_id"]: (r["file"], r["source_url"]) for r in csv.DictReader(f)}
     by_key: dict[str, list[dict]] = {}
     for it in items:
         by_key.setdefault(ic.norm_name(it["name"]), []).append(it)
@@ -202,7 +249,7 @@ def main() -> int:
             t = found[0]
             fname = t["photo"].rsplit("/", 1)[-1]
             if item["id"] in DROP_ITEMS:
-                skipped.append(f"{item['id']}: dropped after looking: photo carries a 'NEW RECIPE' sticker")
+                skipped.append(f"{item['id']}: dropped after looking: {DROP_ITEMS[item['id']]}")
                 continue
             if fname in SKIP_FILES:
                 skipped.append(f"{item['id']}: {fname} skipped: {SKIP_FILES[fname]}")
@@ -223,8 +270,13 @@ def main() -> int:
                                f"({', '.join(sorted(users[t['photo']]))})")
                 del chosen[item_id]
 
+        carried: dict[str, tuple[str, str]] = {}
         for it in items:
             if it["id"] not in chosen and not any(x.startswith(it["id"] + ":") for x in skipped):
+                prev = previous.get(it["id"])
+                if it["id"] in CARRIED and it["id"] not in DROP_ITEMS and prev and (ic.IMAGES_ROOT / CHAIN / prev[0]).is_file():
+                    carried[it["id"]] = prev
+                    continue
                 skipped.append(f"{it['id']}: no tile on the menu pages carries this name")
         rows: dict[str, tuple[str, str]] = {}
         by_id = {it["id"]: it for it in items}
@@ -242,20 +294,38 @@ def main() -> int:
                 skipped.append(f"{item_id}: {photo_url}: {e}")
             except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as e:   # 401/403/429 are Blocked, above
                 skipped.append(f"{item_id}: {photo_url}: could not fetch ({e})")
+        # the same picture (identical bytes, so the same stored file) behind two different products' tiles is not "this item's photo"
+        products_by_file: dict[str, set[str]] = {}
+        for item_id, (fname, _) in rows.items():
+            products_by_file.setdefault(fname, set()).add(chosen[item_id]["slug"] + "@" + chosen[item_id]["page"])
+        for item_id in sorted(rows):
+            fname = rows[item_id][0]
+            if len(products_by_file[fname]) > 1:
+                sharers = {i for i, (f, _) in rows.items() if f == fname}
+                if any(sharers <= ok for ok in SAME_PHOTO_OK):
+                    continue
+                skipped.append(f"{item_id}: its photo is byte for byte the photo of {len(products_by_file[fname])} different products "
+                               f"({', '.join(sorted(products_by_file[fname]))})")
+        for x in skipped:
+            item_id = x.split(":", 1)[0]
+            if "byte for byte" in x:
+                rows.pop(item_id, None)
     except ic.Blocked as e:
         print(f"BLOCKED, stopping (nothing written): {e}", file=sys.stderr)
         return 2
 
+    for item_id, (fname, src) in sorted(carried.items()):
+        print(f"  {item_id}: {fname} carried over from the 2026-10-07 run (tile no longer on the pages) <- {src}")
+    rows.update(carried)
     for s in skipped:
         print("skip:", s)
     look = sorted({chosen[i]["photo"].rsplit("/", 1)[-1] + " (" + i + ")" for i in (chosen if args.dry_run else rows)
-                   if LOOK_AT.search(chosen[i]["photo"].rsplit("/", 1)[-1])})
+                   if i in chosen and LOOK_AT.search(chosen[i]["photo"].rsplit("/", 1)[-1])})
     for x in look:
         print("LOOK BY EYE (design export / overlay / odd name):", x)
     if args.dry_run:
-        print(f"{len(chosen)} of {len(items)} published items matched")
+        print(f"{len(chosen)} of {len(items)} published items matched, {len(carried)} carried over")
         return 0
-    csv_path = ic.ROOT / "data" / "source" / CHAIN / "images.csv"
     if rows:
         ic.write_images_csv(CHAIN, rows)
     else:   # no matches: leave no stale CSV or files behind

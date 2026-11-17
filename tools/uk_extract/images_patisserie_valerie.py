@@ -37,6 +37,29 @@ Terms and robots (read 2026-10-08):
     cdn.shopify.com (where the photos are hosted) disallows only */blog-article-remove-faq-utms-*.js and /wpm/*.js.
 Installed on the founder's decision of 2026-10-06 (CLAUDE.md rule 2).
 
+Run of 2026-11-17 (nothing new installed; the one photo from 2026-10-08 kept):
+  * robots.txt read again (it is served with bare CR line endings; robots_rfc.parse splits them correctly): the `User-agent: *`
+    group no longer disallows /policies/ or /search; it still disallows /cart/, /checkout, /orders, /account, /services, /sf_*,
+    /apps/, /*.atom, /*?page=, /*?q=*, /collections/*sort_by* and filter combinations, /cdn/wpm/*.js. /products/, /pages/ and the
+    sitemaps are allowed. No group names an AI crawler.
+  * sitemap.xml, sitemap_pages_1.xml, sitemap_collections_1.xml and sitemap_products_1.xml answered (222 products). The pages
+    sitemap has no cafe menu page (only stores, offers, FAQs, the nutrition page): the site still sells whole cakes, gifts,
+    macarons and slices for delivery, not the cafe menu.
+  * /products.json?limit=250 answered HTTP 429 (Too Many Requests); after a 10-minute pause, one request for
+    /products/slices-of-cake.json answered 429 again. polite_get treats 429 as a stop, so nothing more was asked of
+    patisserie-valerie.co.uk that day (no other headers, user agent, endpoint or browser tried). The terms page
+    (/policies/terms-of-service, now allowed by robots.txt) could therefore not be read either: no terms clause is quoted.
+  * From the cached product sitemap alone, the whole-cake rule above still finds only the same two candidates (8" Ultimate
+    Chocolate Layer Cake, kept; 8" Carrot Cake, its photo left out as before), so a rerun of this script would not add a photo.
+  * Where more photos could come from on a later run, IF the product records answer again and are checked first: the shop's
+    "Individual Cake Slices" (/products/slices-of-cake) and "Individual Macarons" (/products/individual-macarons) are one product
+    per piece with a flavour option. A cafe item could take a variant's photo only if (1) the item's name is exactly that flavour
+    plus "Slice"/"Macaron" by norm_name (e.g. "Carrot cake Slice" = flavour "Carrot Cake" + Slice; "Blackforest Slice" would NOT
+    match a "Black Forest" flavour), (2) the variant's own record points at its own photo (variant.image_id; never the product's
+    shared featured photo, which for the slices is a garden-table group shot), and (3) every photo is looked at by eye. The
+    afternoon-tea macarons ("Pistachio", "Vanilla", "Raspberry", "Blue Caramel Macaron") are different recipes (other Nutritics
+    codes) and should not take the shop's single-macaron photos. Not coded: the variant records could not be read to check.
+
 A 401/403/429 or a robots refusal stops the script (exit 1) before anything is written.
 """
 from __future__ import annotations

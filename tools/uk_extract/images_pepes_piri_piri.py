@@ -19,20 +19,44 @@ doesn't name (one "Tender Strips" photo is never pinned on the 3-piece or the 5-
 Cakes", "Ben & Jerry's Ice Cream") are group title graphics and name no single published item.
 A sanity check prints "CHECK" when the entry's kcal on the menu page differs from the item's published calories.
 
-Terms (read 2026-10-07): the site has no general website-terms page. The footer on every page says "(c) Copyright Pepe's
-Piri Piri"; /terms-and-conditions-promotions-competitions-and-loyalty-programs/ only covers promotions and entry material
-("The participant transfers all current and future intellectual property rights ... to the entry material ... to Pepe's");
-/privacy-policy/ and /customer-services/ say nothing about images. No express ban on copying images. Installed on the
-founder's decision of 2026-10-06 (the founder's accepted risk).
-robots.txt (read 2026-10-07): "User-agent: * / Disallow: /wp-admin/ / Allow: /wp-admin/admin-ajax.php"; nothing else.
-polite_get checks it on every URL, at 1 request/second.
+Full-size file (added 2026-11-17). Some entries show WordPress's 300 px "medium" copy of an upload (file name ends -300x133.png,
+-300x177.png ...); two of them (Corn on the Cob 300x133, Mozzarella Sticks 300x177) were too small for store_image and got no photo.
+For such a file the script asks the site's own WordPress media records, https://pepes.co.uk/wp-json/wp/v2/media?search=<file stem>
+(the REST API the site itself serves; robots.txt allows it), and uses the record's original upload (source_url, e.g. .../2024/12/
+595642072511cd93976b6a4e9a9efc3d.png, 800x354) ONLY when exactly one record lists the page's exact file name among its own sizes and
+the original sits in the same upload folder on pepes.co.uk. That is the same photo the menu page shows (WordPress's "medium" size is
+a proportional resize of the original, no crop), just not shrunk; otherwise the page's own file is used as before. images.csv still
+records the menu page as the source.
 
+Looked at and NOT used (2026-11-17):
+- https://pepes.co.uk/our-food/ shows one dish-named picture, alt "Pepe's Garlic Mayo" (themes/pepes-2026/images/pepes-garlic-mayo.webp):
+  a drawn pot lid printed "PEPE'S GARLIC MAYO" next to a yellow Pepe's logo heart, not a photo of the dip: left out. Its other pictures
+  ("Chick'n'Rice Fan Favourite", "Hot Honey Rice Box", "Flamingly Good Chicken") name no published item or are promo graphics.
+- The home page banner (2026/10/PepeOCOs-Melts-...-Banners-Static.jpg) is a promotional banner with lettering and no name: not used.
+- The WordPress "menu" posts (/wp-json/wp/v2/menu, 55 records) are the same entries as the menu page plus five platter posts titled
+  just "Solo", "Combo", "Family", "Mega" and "Wings" (not the nutrition page's "Solo (Serves 1)" etc.): no exact name, no photo.
+- News posts (post-sitemap.xml) carry no dish-named photos.
+- The chain's "Order Now" site https://pepes.3s-pos.com/ (its POS vendor's ordering app): its robots.txt (Cloudflare managed content,
+  read 2026-11-17) has groups "User-agent: ClaudeBot / Disallow: /", "User-agent: anthropic-ai / Disallow: /" and "User-agent: Claude-Web /
+  Disallow: /" and "Content-Signal: search=yes,ai-train=no,use=reference" for *: an operator that names Anthropic's crawlers with
+  Disallow: / is not used by us (as for other sources). Never fetched by this script.
+
+Terms (re-read 2026-11-17, unchanged since 2026-10-07): the site has no general website-terms page (page-sitemap.xml lists none). The
+footer on every page says "(c) Copyright Pepe's Piri Piri"; /terms-and-conditions-promotions-competitions-and-loyalty-programs/ only
+covers promotions and entry material ("The participant transfers all current and future intellectual property rights and other rights to
+the entry material explicitly and unconditionally to Pepe's"); /privacy-policy/ and /customer-services/ say nothing about images or
+content. No express ban on copying images was found. Installed on the founder's decision of 2026-10-06 (the founder's accepted risk).
+robots.txt (re-read 2026-11-17): "User-agent: * / Disallow: /wp-admin/ / Allow: /wp-admin/admin-ajax.php / Sitemap: .../sitemap_index.xml";
+no group names an AI crawler. polite_get checks it on every URL, at 1 request/second.
+
+--dry-run fetches the menu page and the media records (JSON), never a photo, and writes nothing.
 A 401/403/429 or a robots refusal stops the script (exit 1) before anything is written.
 """
 from __future__ import annotations
 
 import argparse
 import html
+import json
 import re
 import sys
 import urllib.error
@@ -55,10 +79,45 @@ IMG_SRC = re.compile(r'<img\b[^>]*?\bsrc="([^"]+)"', re.S)
 TITLE = re.compile(r'<h3 class="menu-item-title">(.*?)</h3>', re.S)
 KCAL = re.compile(r'<div class="kcal">\s*<strong>\s*([0-9]+)\s*kcal', re.S)
 WXH = re.compile(r"-(\d+)x(\d+)\.[a-z.]+$", re.I)   # WordPress size suffix, e.g. ...-300x133.png.webp
+UPLOADS = f"{SITE}/wp-content/uploads/"
+WEBP_EXPRESS = f"{SITE}/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/"
+SIZED = re.compile(r"^(?P<dir>\d{4}/\d{2})/(?P<stem>[^/]+?)-(?P<w>\d+)x(?P<h>\d+)\.(?P<ext>png|jpe?g|webp)$", re.I)
+MEDIA_SEARCH = f"{SITE}/wp-json/wp/v2/media?search={{stem}}&per_page=100"
 
 
 def clean(s: str) -> str:
     return " ".join(html.unescape(re.sub(r"<[^>]+>", " ", s)).replace("\xa0", " ").split())
+
+
+def upload_path(photo: str) -> str | None:
+    """'2024/12/<file>-300x133.png' for a page photo on the uploads folder (served as is, or as webp-express's .webp copy)."""
+    if photo.startswith(WEBP_EXPRESS) and photo.endswith(".webp"):
+        rest = photo[len(WEBP_EXPRESS):-len(".webp")]
+        return rest if re.search(r"\.(png|jpe?g)$", rest, re.I) else None
+    if photo.startswith(UPLOADS):
+        return photo[len(UPLOADS):]
+    return None
+
+
+def full_size(photo: str, cache) -> tuple[str, str]:
+    """(url to download, note). For a WordPress sized copy, the original upload of the SAME media record, found through the site's
+    own media API: exactly one record must list the page's exact file name among its sizes, and its original must be in the same
+    upload folder on pepes.co.uk. Anything else: the page's own file, unchanged."""
+    path = upload_path(photo)
+    m = SIZED.match(path or "")
+    if not m:
+        return photo, ""
+    page_file = path.rsplit("/", 1)[-1]
+    records = json.loads(ic.polite_get(MEDIA_SEARCH.format(stem=m.group("stem")), cache, accept="application/json"))
+    hits = [r for r in records if isinstance(r, dict)
+            and any(s.get("file") == page_file for s in ((r.get("media_details") or {}).get("sizes") or {}).values())]
+    if len(hits) != 1:
+        return photo, f"media API: {len(hits)} records list {page_file}; page file used"
+    src = hits[0].get("source_url") or ""
+    if not (src.startswith(UPLOADS + m.group("dir") + "/") and src.rsplit("/", 1)[-1].startswith(m.group("stem") + ".")):
+        return photo, f"media API original {src!r} is not {m.group('dir')}/{m.group('stem')}.*; page file used"
+    md = hits[0].get("media_details") or {}
+    return src, f"original of media record {hits[0].get('id')} ({md.get('width')}x{md.get('height')}) instead of {page_file}"
 
 
 def menu_entries(page: str) -> list[dict]:
@@ -140,17 +199,26 @@ def main() -> int:
         notes = []
         if e["kcal"] is not None and str(item.get("calories", "")).strip() != e["kcal"]:
             notes.append(f"CHECK menu page says {e['kcal']} kcal, nutrition page {item.get('calories')} kcal")
-        m = WXH.search(photo)
+        try:
+            url, why = full_size(photo, args.cache)
+        except ic.Blocked as ex:
+            print(f"BLOCKED, stopping (nothing written): {ex}", file=sys.stderr)
+            return 1
+        except (ValueError, urllib.error.URLError) as ex:   # unreadable media record: keep the page's own file
+            url, why = photo, f"media API lookup failed ({ex}); page file used"
+        if why:
+            notes.append(why)
+        m = WXH.search(url)
         if m and min(int(m.group(1)), int(m.group(2))) < ic.MIN_SIDE:
             notes.append(f"small file ({m.group(1)}x{m.group(2)}): store_image may reject it as too small")
         if args.dry_run:
-            print(f"{item_id}: {item['name']!r} <- menu entry {e['title']!r}\n    photo {photo}\n    page  {MENU_URL}"
+            print(f"{item_id}: {item['name']!r} <- menu entry {e['title']!r}\n    photo {url}\n    page  {MENU_URL}"
                   + "".join(f"\n    {n}" for n in notes))
             continue
         for n in notes:
             print(f"  {item_id}: {n}")
         try:
-            raw = ic.polite_get(photo, args.cache, referer=MENU_URL)
+            raw = ic.polite_get(url, args.cache, referer=MENU_URL)
             rows[item_id] = (ic.store_image(CHAIN, raw), MENU_URL)
         except ic.Blocked as ex:
             print(f"BLOCKED, stopping (nothing written): {ex}", file=sys.stderr)

@@ -19,13 +19,18 @@ dish name, or "<dish name> (<section>)" for the two names printed in two section
 Photo URL: the page's own srcset entry nearest 1024 px wide (a rendition the page serves to browsers), else its src. store_image then
 downsizes to 640 px and converts to WebP; nothing else is changed.
 
-Politeness / robots: afrikanakitchen.com/robots.txt is "User-agent: *  Allow: /" (2026-10-08). The photos are on framerusercontent.com,
-whose /robots.txt answers HTTP 403 (a CloudFront "MissingKey" XML error page: the CDN simply has no robots.txt at its root). polite_get
-treats a 403 on robots.txt as "do not fetch", so a real (non-dry) run stops with Blocked at the first photo. This script does NOT work
-round that: it is up to the founder/main session whether a 403 on a CDN's robots.txt counts like the S3 case images_common already
-exempts. Terms (https://www.afrikanakitchen.com/terms, City Restaurants Operations Limited): "You must not otherwise reproduce, modify,
-copy, distribute or use for commercial purposes any Content without the written permission of City Restaurants Operations Limited"
-(Content includes images); founder's decision 2026-10-06: installed anyway, his accepted risk.
+Politeness / robots: afrikanakitchen.com/robots.txt is "User-agent: *  Allow: /" (2026-10-08; read again 2026-11-17, the same, plus a
+Sitemap line). The photos are on framerusercontent.com, whose /robots.txt answers HTTP 403 (a CloudFront "MissingKey" XML error page: the
+CDN simply has no robots.txt at its root). RFC 9309 reads a 4xx for robots.txt, 403 included, as "no rules" (founder's decision of
+2026-10-12, "follow the standard"; images_common treats it so), so the photos are fetched; a photo file that itself answered 401/403/429
+would still stop the run. Terms (https://www.afrikanakitchen.com/terms, City Restaurants Operations Limited, read 2026-11-17): "You may, for
+your own personal, non-commercial use only, do the following: A. retrieve, display and view the Content on a computer screen You must not
+otherwise reproduce, modify, copy, distribute or use for commercial purposes any Content without the written permission of City Restaurants
+Operations Limited" (Content includes images); founder's decision 2026-10-06: installed anyway, his accepted risk.
+
+Run of 2026-11-17: the same 65 dishes matched as on 2026-10-08 (no card gained a photo). No other source was found: the menu page, home
+page and locations page link no ordering site of the chain's own (only Google Maps, social media and a jobs site), so the five cards
+without a photo and the two one-card/two-topping dishes stay without one.
 """
 from __future__ import annotations
 

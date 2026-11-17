@@ -31,6 +31,12 @@ STATUS 2026-10-11: NOT RUN. The dry run matches 3 of 23 items (Pork Belly & Brot
 Basket), but the photos' host a.storyblok.com answers its robots.txt with HTTP 403 AccessDenied (not a "MissingKey" object-store
 answer), which polite_get treats as "do not fetch". Not worked round. Same open question as Sbarro/Amigos/Kokoro/Tortilla
 (PROGRESS.md founder to-do (d)): if the founder rules that a 403 on an image host's robots.txt means "no rules", run it.
+
+STATUS 2026-11-17: STILL NOT RUN, for a different reason. The founder ruled on 2026-10-12 that a 403 on robots.txt means "no rules", so the
+storyblok host is no longer the obstacle; but the food page itself, https://thealchemistbars.com/food/, now answers HTTP 403 to polite_get
+(its robots.txt was read and allows /food/). That is a refusal of the page: the run stopped there with nothing written and no photo fetched,
+and no other route was tried (no other user agent, no headless browser, no storyblok content API in place of the page). Rerun this script
+when the page answers again; the 2026-10-11 dry run matched 3 dishes (see above).
 """
 from __future__ import annotations
 

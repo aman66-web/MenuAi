@@ -4,40 +4,58 @@
     python3 tools/uk_extract/images_five_guys.py --cache DIR [--dry-run]
 
 Source: the chain's own menu category pages on www.fiveguys.co.uk (the site that links the nutrition PDF the data came from):
-    /menu/burgers/  /menu/dogs/  /menu/sandwiches/  /menu/toppings/
+    /menu/burgers/  /menu/dogs/  /menu/sandwiches/  /menu/toppings/  /menu/shakes/
 Each page is a grid of cards: <div class="card-menu-item"> ... <h3>Name</h3> ... <div class="card-menu-item-thumb"><img src=...>.
 The photo is the card's own thumbnail, on the chain's own uploads folder (www.fiveguys.co.uk/wp-content/uploads/...).
+The shakes page's cards sit under its heading "Mix-ins make the shake" (the page: "start with our vanilla base, add as many free
+mix-ins as you like"): each card is one mix-in, and its photo shows that ingredient (pistachios, chocolate pieces, caramels, Lotus
+biscuits, peanut butter), not a finished shake.
 
 Match rule (exact, nothing fuzzy): a photo is attached to a published item only when
-  - the card's <h3> equals the published item's name (images_common.norm_name equality against the CURRENT items.csv),
+  - the card's <h3> equals (images_common.norm_name equality, against the CURRENT items.csv) either the published item's name or the
+    name the chain's own guide prints for that item in its nutrition table (five_guys.ROWS, the very row the item was extracted from;
+    footnote stars such as "Pistachio***" or "BLT**" are not letters, so norm_name ignores them). The guide's own names are what make
+    "BLT" (published as "BLT (Bacon, Lettuce and Tomato)", the guide's ingredient-listing spelling) and the mix-ins "Chocolate",
+    "Salted Caramel", "Lotus Biscoff", "Peanut Butter***" and "Pistachio***" (published with our "mix-in" suffix) match. The little-shake
+    mix-ins the guide prints as "Chocolate Little", "Salted Caramel Little", "Lotus Biscoff Little" and "Peanut Butter Little***" do not
+    equal the cards and get no photo; the guide prints "Pistachio***" in both shake sections, so both pistachio items match that card,
   - the item's category is one that page lists (burgers page -> Burgers, dogs -> Hot dogs, sandwiches -> Sandwiches,
-    toppings -> Toppings & sauces), so a name that only coincides across pages can never pull a photo from the wrong kind of
-    product,
+    toppings -> Toppings & sauces, shakes -> Milkshake mix-ins), so a name that only coincides across pages can never pull a photo
+    from the wrong kind of product (the guide's MEAT-section "Hot Dog", the sausage alone, can't take the dogs page's photo; the
+    shakes page's "Bacon" mix-in tile can't go on the burger bacon),
   - where the card has an "Order Now, <name>." button, that name equals the heading too,
   - the card's photo is on www.fiveguys.co.uk/wp-content/uploads/ and no other card on the page shows the same file
-    (a repeated file would be a placeholder or banner, not a photo of one item), and
-  - exactly one published item has that name, and every card that names it shows the same photo.
-Not matched, on purpose: the shakes page (its cards are mix-in tiles named "Bananas", "Oreo Cookies", "Bacon"...: not the
-published names "Banana mix-in", ..., and the exact-name collision "Bacon" is a bacon milkshake photo, not the bacon strip
-item); the fries page ("Five Guys Style" / "Cajun Style" / "Loaded ..." are not the published "Regular Fries" etc.); toppings
-the chain names differently ("Onions" vs "Fresh Onions", "Ketchup" vs "Tomato Ketchup", "HP Sauce" vs "HP Brown Sauce",
-"Heinz Mayo" vs "Mayonnaise"); and the page's "BLT" card (the published item is "BLT (Bacon, Lettuce and Tomato)").
-Photos are never matched by file name, alt text or position.
+    (a repeated file would be a placeholder or banner, not a photo of one item),
+  - a card naming more than one published item is used only when every one of them carries that exact name in the chain's own
+    guide (today only "Pistachio***", printed once for the shake and once for the little shake); otherwise it is ambiguous and skipped,
+  - every card that names an item shows the same photo.
+Not matched, on purpose: the fries page ("Five Guys Style" / "Cajun Style" / "Loaded ..." are not the guide's "Mini Fries", "Little
+Fries", "Reg Fries", "Large Fries"); the shakes page's "Bananas", "Strawberries", "Oreo Cookies", "REESE'S", "Iced Coffee made with
+Jimmy's" and "Vanilla" (the guide prints "Banana", "Strawberry", "Oreo Cookie Pieces", "Reese's Peanut Butter Cups", "Jimmy's Iced
+Coffee", and no vanilla mix-in); toppings the chain names differently on its page and in its guide ("Onions" vs "Fresh Onions", "Ketchup"
+vs "Tomato Ketchup", "HP Sauce" vs "HP Brown Sauce", "Heinz Mayo" vs "Mayonnaise"). Photos are never matched by file name, alt text or
+position.
 
-Terms (https://www.fiveguys.co.uk/legal/, read 2026-10-07), quoted:
+Not used: the chain's ordering site order.fiveguys.co.uk (nopCommerce; its robots.txt allows the product pages) answers every product
+address (e.g. /hamburger-14, /blt-17, /pistachio) with its "find your store" postcode page until a store has been chosen in a session,
+so it has no product page to read without going through the ordering flow (checked 2026-11-17); its product names also differ from the
+guide's ("Little Salted Fries", "Milkshake", "Ketchup Sachet").
+
+Terms (https://www.fiveguys.co.uk/legal/ and the same text at https://www.fiveguys.co.uk/terms-of-use-website/, "last updated on
+22 August 2013", read 2026-10-07 and again 2026-11-17, unchanged), quoted:
   3.1.1 "... the copyright and other intellectual property rights in this Website and in material published on it (including
         without limitation photographs and graphical images) are owned by Five Guys UK or Five Guys UK's licensors."
   3.1.2 "... you must not use any pictures, photographs or any other graphics, video or audio sequences separately from any
         accompanying text."
-  3.1.4 "You are not allowed to use or pass to any other party to use any of the materials on this Website or the Website
-        itself for commercial purposes without obtaining a licence from Five Guys UK to do so."
+  3.1.4 "You are not allowed to use or pass to any other party to use any of the materials on this Website or the Website itself
+        for commercial purposes without obtaining a licence from Five Guys UK to do so."
   3.2   "... no part of this Website may be reproduced or stored in any other website or included in any public or private
         electronic retrieval system or service without our prior written permission."
 Installed on the founder's decision of 2026-10-06 (CLAUDE.md rule 2; the founder's accepted risk). The photos are shown with
 the item's name and the caption "Photo from the Five Guys website"; take them down the day Five Guys asks.
 
-robots.txt (read 2026-10-07): "Crawl-delay: 10", then "User-agent: * / Disallow:" (nothing is disallowed) plus a sitemap.
-We honour the crawl delay: one request every 10 seconds to www.fiveguys.co.uk, pages and photos alike.
+robots.txt (read 2026-10-07 and 2026-11-17, unchanged): "Crawl-delay: 10", then "User-agent: * / Disallow:" (nothing is disallowed)
+plus a sitemap. We honour the crawl delay: one request every 10 seconds to www.fiveguys.co.uk, pages and photos alike.
 
 A 401/403/429 or a robots refusal stops the script (exit 1) before anything is written.
 """
@@ -50,6 +68,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+import five_guys  # noqa: E402  (ROWS: the name the chain's guide prints for every published item)
 import images_common as ic  # noqa: E402
 
 CHAIN = "five-guys"
@@ -63,10 +82,14 @@ PAGES: list[tuple[str, set[str]]] = [
     ("/menu/dogs/", {"Hot dogs"}),
     ("/menu/sandwiches/", {"Sandwiches"}),
     ("/menu/toppings/", {"Toppings & sauces"}),
+    ("/menu/shakes/", {"Milkshake mix-ins"}),
 ]
 SKIP_FILES: dict[str, str] = {}   # uploaded file name -> why it is not used (prints nutrition numbers/claims, placeholder...)
 # Items looked at after the first run and left without a photo (a rerun must not bring them back).
-DROP_ITEMS: dict[str, str] = {"lettuce-wrap": "the photo has printed numbers on it, which could contradict our own table"}
+DROP_ITEMS: dict[str, str] = {
+    # looked at 2026-10-07 and again 2026-11-17 (FIVE_GUYS_LW-scaled.jpg): prints "246 kcal 24g protein" on the photo
+    "lettuce-wrap": "the photo has printed numbers on it, which could contradict our own table",
+}
 
 CARD_SPLIT = re.compile(r'<div class="card-menu-item"')
 H3 = re.compile(r"<h3[^>]*>(.*?)</h3>", re.S)
@@ -103,9 +126,16 @@ def main() -> int:
     args = ap.parse_args()
 
     items = ic.load_items(CHAIN)
-    by_name: dict[str, list[dict]] = {}
+    printed = {r[1]: r[0] for r in five_guys.ROWS if r[1]}   # published name -> the name the chain's guide prints for it
+    missing = [it["name"] for it in items if it["name"] not in printed]
+    if missing:
+        print(f"five_guys.ROWS has no printed name for {missing}: rerun five_guys.py first", file=sys.stderr)
+        return 1
+    by_name: dict[str, list[dict]] = {}       # card key -> items whose own name or guide name has that key
+    guide_key = {it["id"]: ic.norm_name(printed[it["name"]]) for it in items}
     for it in items:
-        by_name.setdefault(ic.norm_name(it["name"]), []).append(it)
+        for key in {ic.norm_name(it["name"]), guide_key[it["id"]]}:
+            by_name.setdefault(key, []).append(it)
 
     found: dict[str, set[tuple[str, str]]] = {}   # item id -> {(photo url, page url)}
     skipped: list[str] = []
@@ -128,27 +158,27 @@ def main() -> int:
                 if not its:
                     unmatched_cards.append(f"{path}: card {c['name']!r} names no published item")
                     continue
-                if len(its) > 1:
+                if len(its) > 1 and any(guide_key[it["id"]] != key for it in its):
                     skipped.append(f"{path}: {c['name']!r} is the name of {len(its)} published items")
                     continue
-                item = its[0]
-                if item["id"] in DROP_ITEMS:
-                    skipped.append(f"{item['id']}: dropped after looking: {DROP_ITEMS[item['id']]}")
-                    continue
-                if c["label"] is not None and ic.norm_name(c["label"]) != key:
-                    skipped.append(f"{item['id']}: card heading {c['name']!r} but order button names {c['label']!r}")
-                    continue
-                if not c["photo"].startswith(UPLOADS):
-                    skipped.append(f"{item['id']}: photo is not on the chain's uploads folder: {c['photo']}")
-                    continue
-                if photo_use[c["photo"]] > 1:
-                    skipped.append(f"{item['id']}: {c['photo']} is shown on {photo_use[c['photo']]} cards of {path}")
-                    continue
-                fname = c["photo"].rsplit("/", 1)[-1]
-                if fname in SKIP_FILES:
-                    skipped.append(f"{item['id']}: {fname} skipped: {SKIP_FILES[fname]}")
-                    continue
-                found.setdefault(item["id"], set()).add((c["photo"], page_url))
+                for item in its:
+                    if item["id"] in DROP_ITEMS:
+                        skipped.append(f"{item['id']}: dropped after looking: {DROP_ITEMS[item['id']]}")
+                        continue
+                    if c["label"] is not None and ic.norm_name(c["label"]) != key:
+                        skipped.append(f"{item['id']}: card heading {c['name']!r} but order button names {c['label']!r}")
+                        continue
+                    if not c["photo"].startswith(UPLOADS):
+                        skipped.append(f"{item['id']}: photo is not on the chain's uploads folder: {c['photo']}")
+                        continue
+                    if photo_use[c["photo"]] > 1:
+                        skipped.append(f"{item['id']}: {c['photo']} is shown on {photo_use[c['photo']]} cards of {path}")
+                        continue
+                    fname = c["photo"].rsplit("/", 1)[-1]
+                    if fname in SKIP_FILES:
+                        skipped.append(f"{item['id']}: {fname} skipped: {SKIP_FILES[fname]}")
+                        continue
+                    found.setdefault(item["id"], set()).add((c["photo"], page_url))
     except ic.Blocked as e:
         print(f"BLOCKED, stopping (nothing written): {e}", file=sys.stderr)
         return 1

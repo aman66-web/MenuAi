@@ -20,6 +20,15 @@ to us. This material includes, but is not limited to, the design, layout, look, 
 other than in accordance with the copyright notice, which forms part of these terms and conditions." (no copyright notice text is
 given on the site; the footer says "(c) Mind Blowing Chicken Ltd 2026. All rights reserved."). Installed under the founder's decision
 of 2026-10-06 (accepted risk); the chain's photos come down the day it asks (delete the folder + images.csv).
+
+Checked 2026-11-17 (dry run plus a byte comparison; images.csv left as it was, nothing new to add): the page still serves the same file
+for all 43 matched items, and the six fountain drinks still get the one generic cup (still EXCLUDED). The page has renamed two items:
+"Dave's Sauce Pot (6oz)" is now "Large Dave's Sauce Pot (6oz)" and "Dave's Bites (Medium & Hot Spices)" is now "10pc Dave's Bites
+(Medium & Hot Spices)", same calories (819, 657) and byte-identical photo files (46ec6c312edf, 8cd3639231b4), so the two photos stored
+on 2026-10-08 are still right; but a rerun of this script would drop them, because the names no longer match exactly. Rerun only after
+daves_hot_chicken.py has re-read the page (it will carry the new names and the photos will match again).
+robots.txt (https://www.daveshotchicken.co.uk/robots.txt) and the images.weareopenr.com answer (no rules) were as described above on
+2026-11-17, and the terms clause quoted above was re-read the same day, unchanged.
 """
 from __future__ import annotations
 

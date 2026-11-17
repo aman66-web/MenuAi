@@ -41,6 +41,23 @@ Terms and robots (read 2026-10-07):
 Installed on the founder's decision of 2026-10-06 (CLAUDE.md rule 2).
 
 A 401/403/429 or a robots refusal stops the script (exit 1) before anything is written.
+
+Run of 2026-11-17 (nothing new matched; the 24 photos of 2026-10-07 kept): cooplands-bakery.co.uk is no longer the
+WordPress/WooCommerce site this script reads. It is now a Shopify store: the menu is under /collections/<handle>
+(sandwiches, savoury-and-bakes, breakfast, sweet-treats, autumn, bread-rolls, platters, celebration-cakes,
+personalised-cakes, all) and the products under /products/<handle>, with photos on the same host (/cdn/shop/files/...).
+Its new robots.txt (read 2026-11-17) has one "User-agent: *" group: "Allow: /", and disallows only /admin, /cart/,
+/checkout(s), /orders, /account (except /account/login), /services, /sf_*, /cart.js, /recommendations/products,
+/cdn/wpm/*.js and collection sort/filter "crawl trap" addresses; no Crawl-delay; no group names an AI crawler. (Its
+header is a block of comments addressed to shopping agents; nothing in it was acted on.) Four requests were made at
+one per 10 seconds (robots.txt, the home page, robots.txt again, /sitemap.xml); the fifth, /collections/all, answered
+HTTP 429 (Shopify's rate limit / bot defence): the host was stopped there, not retried and not worked round. So no
+product page was read and the new terms of service (/policies/terms-of-service) could not be read either. The 24 kept
+photos were looked at again on a contact sheet: each shows the item named, with no writing, figures or stickers;
+their source_url still names the old WordPress product page the photo was taken from (those pages have gone).
+To do when the store answers: rewrite this script for the Shopify pages (the collection pages' product cards and each
+product page's own schema.org Product name and image), keeping the same match rule, then run it. Until then this
+script refuses to write anything when the pages it reads give no product cards (so a rerun can't empty images.csv).
 """
 from __future__ import annotations
 
@@ -205,6 +222,11 @@ def main() -> int:
                 cards_by_key.setdefault(norm_name(c["title"]), []).append(c)
         n_cards = sum(len(v) for v in cards_by_key.values())
         print(f"{n_cards} product cards on {len(CATEGORIES)} category pages")
+        if n_cards == 0:
+            # the site moved to Shopify (2026-11-17): the old addresses give no WooCommerce cards, and writing an empty
+            # images.csv would delete every kept photo (write_images_csv prunes): stop instead
+            print("no product cards found: the site's pages have changed; nothing written", file=sys.stderr)
+            return 1
 
         for key, its in sorted(by_key.items()):
             found = cards_by_key.get(key, [])

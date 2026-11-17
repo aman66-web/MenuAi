@@ -17,17 +17,29 @@ Match rule (exact, nothing fuzzy). A photo is attached to a published item only 
   2. the card on /menu with href /menu/<slug> carries the same name in its <h3> and shows, as its picture, exactly the photo
      the record names (the card's src url= parameter equals record.image.url): the photo, name and size sit in one product
      record and one card on the chain's page, and
-  3. the photo is in the chain's own media store (host check). Records with no image (18 of 142) give no photo.
+  3. the photo is in the chain's own media store (host check).
+  Second route (added 2026-11-17), only for a dish whose record names no image (19 of 143 records on 2026-11-17): the card on /menu for
+  that slug, carrying the dish's name in its <h3>, shows exactly one picture, and that picture is the chain's own per-dish file
+  /images/menu/<the card's slug>.png on www.chaiiwala.co.uk (the file the dish's own page /menu/<slug> also gives as its og:image and
+  hero picture, alt = the dish's name). The file name is the card's own slug, so it is that dish's file, not a shared fallback. Records
+  with no image and a card with no picture (Arabic tea) give no photo.
 Regular and Large of one drink share the record's single photo (the same product record carries both); the photo is not a
-statement about the size.
+statement about the size. A photo whose file name or embedded metadata (XMP / C2PA) says it was made by an image generator is left out
+(CLAUDE.md rule 2: no generated food images); on 2026-11-17 no file carried such metadata (four carry Adobe Photoshop XMP only).
 
-Terms (https://www.chaiiwala.co.uk/terms, section "content & ip", read 2026-10-08): "All content on this site, including the
+Terms (https://www.chaiiwala.co.uk/terms, "last updated 14 May 2026", section "content & ip", read 2026-10-08 and again 2026-11-17,
+unchanged): "All content on this site, including the
 Chaiiwala name and wordmark, the teapot mark, the "chaiiwala" script wordmark, photography, illustrations, recipe descriptions and
 layout, is (c) Rowda Group Ltd or used under licence. You can share individual pages and screenshots in personal social posts.
-Anything beyond that (commercial reuse, framing, scraping, republication) needs written permission." That is an express
-restriction; installed on the founder's decision of 2026-10-06 (his accepted risk). robots.txt (https://www.chaiiwala.co.uk/
-robots.txt, read 2026-10-08): "User-Agent: * / Allow: / / Allow: /api/allergen-matrix.pdf / Disallow: /admin / Disallow: /api"
-(/menu is allowed; the photo host's robots.txt answers 404 = no rules; polite_get checks both on every URL, RFC 9309).
+Anything beyond that (commercial reuse, framing, scraping, republication) needs written permission." and, under "acceptable use",
+"Don't harvest data from the site for any commercial purpose without our written permission." That is an express restriction; installed on the founder's decision of 2026-10-06 (his accepted risk). robots.txt (https://www.chaiiwala.co.uk/
+robots.txt, read 2026-10-08 and 2026-11-17): "User-Agent: * / Allow: / / Allow: /api/allergen-matrix.pdf / Disallow: /admin / Disallow: /api";
+on 2026-11-17 the same rules are repeated in named groups for GPTBot, ClaudeBot, Claude-Web, anthropic-ai and other AI crawlers (all allowed
+outside /admin and /api) (/menu and /images/menu/ are allowed; the photo host's robots.txt answers 404 = no rules; polite_get checks both on every URL, RFC 9309).
+
+Run of 2026-11-17: 124 of 132 published items have a photo: 107 of the 112 kept from 2026-10-08 (Rasher & Egg Breakfast Wrap now with the
+chain's newer file) and 17 added by the second route above, all looked at by eye on contact sheets and full-size views. No photo: Arabic tea
+(no picture anywhere), Chicken Tikka Salad (the chain's file is named "ChatGPT Image ..."), and the five Red Bull cans (DROP_ITEMS).
 
 A 401/403/429 or a robots refusal stops the script (exit 1) before anything is written.
 """
@@ -49,9 +61,25 @@ from images_common import (  # noqa: E402
 CHAIN_ID = "chaiiwala"
 MENU_URL = "https://www.chaiiwala.co.uk/menu"
 PHOTO_HOST = "https://mj61re9kudtuw16h.public.blob.vercel-storage.com/"   # the chain's own media store, as named by the card's src
+SITE = "https://www.chaiiwala.co.uk"
+CARD_FILE = re.compile(r"^/images/menu/([a-z0-9-]+)\.png$")   # the chain's own per-dish file, shown by a card whose record names no image
+# Embedded marks of an image generator (XMP DigitalSourceType "trainedAlgorithmicMedia", a C2PA manifest chunk, tool names in metadata)
+GENERATED_META = re.compile(rb"trainedAlgorithmicMedia|c2pa\.|caBX|openai|chatgpt|dall-?e|midjourney|adobe firefly|stable.?diffusion")
 HTML_ACCEPT = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
 DEFAULT_CACHE = Path("/tmp/menumacros-images-chaiiwala")
 DROP_ITEMS: dict[str, str] = {}   # item id -> why it was looked at after the first run and left without a photo (a rerun must not bring it back)
+# Looked at 2026-11-17 on contact sheets and a full-size crop: the five Red Bull records show Red Bull's own can artwork (a third-party
+# brand's pack and logo, not a photo of food) printing "Vitalizes body and mind" (a health-style slogan) and, on the Sugarfree can,
+# "SUGARFREE" (a nutrition claim that could sit beside our own figures).
+DROP_ITEMS.update({i: "Red Bull's own can artwork (third-party brand pack/logo) printing 'Vitalizes body and mind' / 'SUGARFREE'" for i in (
+    "red-bull-energy-drink", "red-bull-sugarfree", "red-bull-summer-edition-citrus-zest", "red-bull-apple-edition",
+    "red-bull-coconut-edition")})
+# Looked at 2026-11-17 by an independent check: the five Wala kids photos are box shots (kids' box, crayons, a colouring sheet and a
+# third-party Simply Fruity bottle printing "NO ADDED SUGAR", a nutrition claim on another brand's pack that is not part of the dish
+# named); the Mini Veggie card's file shows the same chicken wrap as the Mini Chicken one (a different product).
+DROP_ITEMS["mini-veggie-wala-wrap-and-chips"] = "its file shows a chicken wrap (same scene as Mini Chicken), plus a Simply Fruity 'NO ADDED SUGAR' bottle"
+DROP_ITEMS.update({i: "kids' box shot with crayons and a third-party Simply Fruity bottle printing 'NO ADDED SUGAR' (not the dish named)" for i in (
+    "mini-chicken-wala-wrap-and-chips", "chicken-nuggets-and-chips", "veg-nuggets-and-chips", "cheese-and-masala-beans-toastie-and-chips")})
 
 NOTE_SLUG = re.compile(r"menu card /menu/([a-z0-9-]+)")
 CARD = re.compile(r'<a class="group block" href="/menu/([^"]+)">(.*?)</a>', re.S)
@@ -127,7 +155,16 @@ def main() -> int:
             img = rec.get("image")
             url = (img or {}).get("url")
             if not url:
-                skipped.append(f"{it['id']}: the chain's record has no photo")
+                # second route: the card's own per-dish file /images/menu/<slug>.png (see the docstring)
+                shown = card["photos"]
+                f = CARD_FILE.match(urllib.parse.unquote(shown[0])) if len(shown) == 1 else None
+                if not f:
+                    skipped.append(f"{it['id']}: the chain's record has no photo and the card shows {shown or 'no picture'}")
+                    continue
+                if f.group(1) != slug:
+                    skipped.append(f"{it['id']}: the card's picture {shown[0]} is named for another dish, not /menu/{slug}")
+                    continue
+                matched[it["id"]] = SITE + urllib.parse.unquote(shown[0])
                 continue
             if not url.startswith(PHOTO_HOST):
                 skipped.append(f"{it['id']}: photo {url} is not in the chain's media store")
@@ -143,17 +180,21 @@ def main() -> int:
 
         for item_id, url in sorted(matched.items()):
             slug = NOTE_SLUG.search(next(i for i in items if i["id"] == item_id)["notes"]).group(1)
+            shown = url[len(PHOTO_HOST):] if url.startswith(PHOTO_HOST) else url[len(SITE):]
             if args.dry_run:
-                print(f"  {item_id:50} {url[len(PHOTO_HOST):]}  <- /menu/{slug}")
+                print(f"  {item_id:50} {shown}  <- /menu/{slug}")
                 continue
             raw = polite_get(url, args.cache, referer=MENU_URL)
+            if GENERATED_META.search(raw):
+                skipped.append(f"{item_id}: {url}: the file's own metadata names an image generator (CLAUDE.md rule 2)")
+                continue
             try:
                 fname = store_image(CHAIN_ID, raw)
             except ValueError as e:
                 skipped.append(f"{item_id}: {url}: {e}")
                 continue
             rows[item_id] = (fname, MENU_URL)
-            print(f"  {item_id:50} {fname}  <- {url[len(PHOTO_HOST):]}")
+            print(f"  {item_id:50} {fname}  <- {shown}")
     except Blocked as e:
         print(f"BLOCKED, stopping (nothing written): {e}", file=sys.stderr)
         return 1

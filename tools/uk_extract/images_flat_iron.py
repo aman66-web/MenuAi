@@ -22,6 +22,11 @@ the accuracy or reliability of any of the information or content about any produ
 "Materials") contained on ... this website"), so no express restriction was found. robots.txt (https://flatironsteak.co.uk/robots.txt, read
 2026-10-11): a Yoast block "User-agent: * / Disallow:" (nothing disallowed); polite_get checks it on every URL (RFC 9309).
 
+Re-checked 2026-11-17: the menu page's gallery has the same nine captions (no new dish photos); the sitemaps (pages, 27 restaurant pages, press
+posts) hold no other menu or product page (restaurant pages show room photos captioned with the location only), and the site links no ordering
+site of its own ("Book a Table" is a table booking). robots.txt and the terms read again the same day: unchanged (no clause about images,
+copyright or reuse). The one photo was looked at again: still the sliced flat iron steak on its board. Still 1 of 19.
+
 A 401/403/429 or a robots refusal stops the script (exit 1) before anything is written.
 """
 from __future__ import annotations

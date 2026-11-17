@@ -13,12 +13,18 @@ so the photo, the dish name and its nutrition sit in ONE record. We fetch the or
 The menu-level `image` (a banner for the whole menu) is never used. Dishes whose record has no `image` get no photo.
 
 Match rule (exact, nothing fuzzy). A photo goes on a published item only when the feed record that carries it has a name whose
-norm_name (after tools/uk_extract/mb_feed.clean_name, i.e. without the (V)/(VE) label) equals the item's name, that name occurs once
-among the feed's dish records, and exactly one published item has that name. Renamed or de-duplicated items (names the script gave a
-" (Category)" suffix) therefore get no photo.
+norm_name (after tools/uk_extract/mb_feed.clean_name, i.e. without the (V)/(VE) label) equals the item's name and exactly one
+published item has that name, and either
+  (a) that name occurs once among the feed's dish records, or
+  (b) it occurs more than once (e.g. "Waffle Fries (V)" is both the side dish and a "swap your fries" upgrade line whose figures are a
+      difference), and the photo-carrying record is the ONLY one of them whose printed energyKcalPerPortion is, character for character,
+      the published item's calories: i.e. it is the very record the item was extracted from (2026-11-17).
+Renamed or de-duplicated items (names the script gave a " (Category)" suffix) therefore get no photo.
 
 Terms and robots. The chain's website sizzlingpubs.co.uk (and mbplc.com) answer this environment with HTTP 403 (a Cloudflare "Just a
 moment..." challenge, also on robots.txt), so the terms page could NOT be read and is not worked round (no other client, no proxy).
+Re-checked 2026-11-17 from the founder's Mac: www.sizzlingpubs.co.uk and www.mbplc.com still answer HTTP 403 (their robots.txt also
+answers 403, read as "no rules" by RFC 9309, but every page is refused), so the terms are still unread and no clause can be quoted.
 The feed host api-production.mbplc.io (robots.txt 404 = no rules) and the media host cdn.mbplc.io (robots.txt answers 400 = no rules,
 RFC 9309) answer normally; polite_get checks both on every URL. Nothing else on the chain's site is fetched. Founder's decision
 2026-10-06: photos are installed even where terms restrict reuse (accepted risk); here the terms are simply unknown.
@@ -44,8 +50,20 @@ FEED_URL = ("https://api-production.mbplc.io/webappbff/api/v1/menus/dynamic/?id=
             "&idType=TradingEntity&salesChannel=DynamicWebMenus")
 PHOTO_HOST = "https://cdn.mbplc.io/"   # the chain's media host, as named by the feed's own cdnUrl values
 DEFAULT_CACHE = Path("/tmp/menumacros-images-sizzling-pubs")
-DROP_ITEMS: dict[str, str] = {}   # item id -> why it was looked at after the first run and left without a photo (a rerun must not bring it back)
+DROP_ITEMS: dict[str, str] = {   # item id -> why it was looked at after the first run and left without a photo (a rerun must not bring it back)
+    "waffle-fries": "2026-11-17 contact sheet: the plain side's record points at a picture of LOADED waffle fries (cheese sauce, "
+                    "guacamole, salsa, jalapenos, spring onion, coriander), i.e. a topped variant such as Nacho Waffle Fries, not the "
+                    "546 kcal plain side",
+}
 GENERATED = re.compile(r"chatgpt|dall-?e|midjourney|gemini|firefly|stable.?diffusion", re.I)
+
+
+def printed_kcal(entry) -> str:
+    """The record's own energyKcalPerPortion exactly as the feed prints it ('' when it has none). Read only to tell two records
+    with the same name apart; never converted or used as a figure."""
+    portions = entry.item.get("portions") or []
+    nut = (portions[0].get("nutrition") or {}) if len(portions) == 1 else {}
+    return str(nut.get("energyKcalPerPortion", "")).strip()
 
 
 def main() -> int:
@@ -67,8 +85,11 @@ def main() -> int:
         if not ents:
             raise SystemExit("the feed holds no menu items: the page changed shape, re-check before running again")
         count: dict[str, int] = {}
+        same_name: dict[str, list] = {}   # norm name -> every feed record with that name (for rule (b) in the docstring)
         for e in ents:
-            count[norm_name(mb.clean_name(e.raw)[0])] = count.get(norm_name(mb.clean_name(e.raw)[0]), 0) + 1
+            k = norm_name(mb.clean_name(e.raw)[0])
+            count[k] = count.get(k, 0) + 1
+            same_name.setdefault(k, []).append(e)
         print(f"{len(ents)} dish records in feed '{feed.get('name', '').strip()}' (last modified {feed.get('lastModified')}); "
               f"{sum(1 for e in ents if e.item.get('image'))} carry a photo")
 
@@ -88,8 +109,11 @@ def main() -> int:
                 skipped.append(f"{it['id']}: dropped after looking: {DROP_ITEMS[it['id']]}")
                 continue
             if count[key] != 1:
-                skipped.append(f"{it['id']}: the name occurs {count[key]} times in the feed")
-                continue
+                same_kcal = [x for x in same_name[key] if printed_kcal(x) == it["calories"].strip()]
+                if len(same_kcal) != 1 or same_kcal[0] is not e:
+                    skipped.append(f"{it['id']}: the name occurs {count[key]} times in the feed and the photo's record is not the one "
+                                   f"printing the item's {it['calories']} kcal")
+                    continue
             if not url.startswith(PHOTO_HOST) or GENERATED.search(url):
                 skipped.append(f"{it['id']}: photo is not on the chain's media host or looks generated: {url}")
                 continue

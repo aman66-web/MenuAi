@@ -28,6 +28,20 @@ Reviewed exclusions are in SKIP (with the reason). After downloading, items whos
 a different variant (e.g. Coke vs Diet Coke) are dropped, and a "CHECK BY EYE" line names families of variants whose uploads
 share a file name (the chain clones product records, so a copy may still show the original product).
 
+Published items the site no longer lists (no category tile is titled with the item's name or its ALIASES / drink_title: e.g. the
+limited-time BBQ Bacon Melt burgers and the Strawberries & Cream Frosty, gone from the menu pages by 2026-11-17 while our data,
+from the September 2026 guide, still publishes them): the row an earlier run wrote for that item, from the product page that named
+it then, is kept as it is (same file, same source page), as long as the file is still in web/public/menu-images/wendys/ and the item
+is not in SKIP. An item whose page is still listed but now fails a check (title, energy, photo text) loses its photo. When every
+row written is exactly as before, the earlier retrieved_on date is kept.
+
+Run of 2026-11-17 (dry run only): the menu page, the 17 category pages and the matched product pages were read (robots.txt
+allowed every one); 74 of 137 published items matched, 70 of them the photos already installed. A direct request for the old
+BBQ Bacon Melt Double Cheeseburger product page (to see whether the gone pages still exist) answered HTTP 403, probably Drupal's
+"access denied" for an unpublished page, but a 403 stops the run: nothing more was fetched from www.wendys.com that day, no photo
+was downloaded and the terms page was not re-read (the clause below is the one read on 2026-10-07). images.csv was rewritten
+from the earlier rows without the Diet Coke photo (SKIP), no new photo added.
+
 Terms (https://www.wendys.com/en-gb/terms-and-conditions, text served through OneTrust, read 2026-10-07): "You may access
 and display Material and all other content displayed on this Site for non-commercial, personal, entertainment use on a
 single computer only. You may not use, copy, distribute, publish, disclose, upload, post or transmit the Materials in any
@@ -124,6 +138,12 @@ SKIP: dict[str, str] = {
                                       "and the base Avocado Salad page is the chicken version (574 kcal = the guide's 'w/ Classic Chicken')",
     "caesar-salad-w-halloumi-fries": "its photo is a copy of the base salad's upload (same file name, 1920x1080_Delivery-9522e58e...), "
                                      "and the base Caesar Salad page is the chicken version (493 kcal = the guide's 'w/ Classic Chicken')",
+    "diet-coke-regular-16-oz": "looked at on 2026-11-17: the photo (the category tile's Coca-Cola.png) is a glass printed 'Coca-Cola', the chain's "
+                               "picture of regular Coke, not Diet Coke (its Coke Zero glass says ZERO SUGAR); a different drink, no photo",
+    "diet-coke-small-12-oz": "its page shows Coca-Cola_1.png, an upload of the same 'Coca-Cola' glass family as the Diet Coke medium photo "
+                             "(regular Coke, see diet-coke-regular-16-oz); not used unless looked at and shown to be Diet Coke",
+    "diet-coke-large-20-oz": "its page shows Coca-Cola_3.png, an upload of the same 'Coca-Cola' glass family as the Diet Coke medium photo "
+                             "(regular Coke, see diet-coke-regular-16-oz); not used unless looked at and shown to be Diet Coke",
 }
 
 
@@ -236,6 +256,17 @@ def mixed_families(groups: dict[str, list[str]], titles: dict[str, str]) -> list
     return out
 
 
+def earlier_rows() -> tuple[dict[str, tuple[str, str]], set[str]]:
+    """The rows the last run wrote ({item_id: (file, source_url)}) and the retrieved_on dates in the file."""
+    path = ic.ROOT / "data" / "source" / CHAIN / "images.csv"
+    if not path.exists():
+        return {}, set()
+    import csv
+    with open(path, newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    return {r["item_id"]: (r["file"], r["source_url"]) for r in rows}, {r["retrieved_on"] for r in rows}
+
+
 # ---------------------------------------------------------------- main
 
 def main() -> int:
@@ -252,6 +283,7 @@ def main() -> int:
         by_name.setdefault(ic.norm_name(it["name"]), []).append(it)
 
     skipped: list[str] = []
+    gone: list[str] = []                                  # published items no category tile names (exact or alias)
     try:
         menu = ic.polite_get(SITE + MENU_PAGE, args.cache, accept=HTML_ACCEPT).decode("utf-8", "replace")
         linked = {h for h in re.findall(r'href="(/en-gb/[^"#?]*)"', menu) if CATEGORY_LINK.match(h)}
@@ -282,7 +314,10 @@ def main() -> int:
             want = key
             if key not in by_title:
                 alias = ALIASES.get(iid) or drink_title(name)
-                if not alias or args.exact_only:
+                if not alias:
+                    gone.append(iid)
+                    continue
+                if args.exact_only:
                     continue
                 tier, want = "alias", ic.norm_name(alias)
             hrefs = by_title.get(want, [])
@@ -291,6 +326,7 @@ def main() -> int:
                 continue
             if len(hrefs) != 1:
                 if tier == "alias" and not hrefs:
+                    gone.append(iid)
                     continue          # the page the alias expects is not on the site (any more)
                 skipped.append(f"{iid}: {len(hrefs)} product pages titled {want!r}")
                 continue
@@ -353,13 +389,19 @@ def main() -> int:
     for fam in mixed_families(stems, titles):
         print(f"  CHECK BY EYE: the chain gave these different variants uploads with the same file name: {', '.join(fam)}")
     exact = sum(1 for m in matches.values() if m["tier"] == "exact")
+    before, before_dates = earlier_rows()
+    kept_gone = {iid: before[iid] for iid in gone
+                 if iid in before and iid not in SKIP and (ic.IMAGES_ROOT / CHAIN / before[iid][0]).is_file()}
     mentioned = {s.split(":", 1)[0] for s in skipped}
-    unnamed = [it["id"] for it in items if it["id"] not in matches and it["id"] not in mentioned]
+    unnamed = [it["id"] for it in items if it["id"] not in matches and it["id"] not in mentioned and it["id"] not in kept_gone]
+    for iid, (fname, src) in sorted(kept_gone.items()):
+        print(f"  kept: {iid}: no page on the site names it any more; the earlier row is kept ({fname} from {src})")
     if args.dry_run:
         for s in skipped:
             print("  no photo:", s)
         print(f"  no product page on the site is titled like these {len(unnamed)} items: {', '.join(unnamed)}")
-        print(f"{len(matches)} of {len(items)} published items matched ({exact} exact, {len(matches) - exact} alias)")
+        print(f"{len(matches)} of {len(items)} published items matched ({exact} exact, {len(matches) - exact} alias), "
+              f"{len(kept_gone)} earlier rows kept")
         return 0
 
     rows: dict[str, tuple[str, str]] = {}
@@ -382,12 +424,17 @@ def main() -> int:
         for iid in fam:
             rows.pop(iid, None)
             skipped.append(f"{iid}: its photo is byte-identical to the photo of a different variant ({', '.join(fam)}), no photo")
+    for iid, row in kept_gone.items():
+        rows.setdefault(iid, row)
     for s in skipped:
         print("  no photo:", s)
     print(f"  no product page on the site is titled like these {len(unnamed)} items: {', '.join(unnamed)}")
     csv_path = ic.ROOT / "data" / "source" / CHAIN / "images.csv"
+    unchanged = len(before_dates) == 1 and all(before.get(k) == v for k, v in rows.items())
     if rows:
-        ic.write_images_csv(CHAIN, rows)
+        ic.write_images_csv(CHAIN, rows, retrieved_on=next(iter(before_dates)) if unchanged else None)
+        if unchanged:
+            print("every row written is exactly as before (rows may only have been left out): the earlier retrieved_on date is kept")
     else:   # nothing matched: leave no stale CSV or files behind
         if csv_path.exists():
             csv_path.unlink()

@@ -17,26 +17,36 @@ the only change (downsize to <= 640 px, WebP). Nothing is cropped.
 Match rule (exact, nothing fuzzy). A photo is attached to a published item only when
   1. a card's title (link title, image alt text and caption text all) has the same norm_name as the item's name in the CURRENT
      items.csv, exactly one published item has that name, and
-  2. the card states the item's own calories (data-prodkcal equals the item's calories), and
-  3. every card of that name shows the same photo file. A name the menu uses twice with two different photos (e.g. "Kunafa
-     Sushi Crepe", "Pistachio Kunafa Waffle", "Kunafa Cookie Dough") gets no photo.
+  2. the card states the item's own calories: data-prodkcal on its "Add to Bag" button, or, on a card the store shows as "out of
+     stock" (no button), the card's own "N kcal" label; where both are printed they must agree. The figure must equal the item's
+     calories in items.csv, and
+  3. every card of that name shows the same photo. The menu lists some dishes twice (in "Kunafa Kollection" and again under
+     Waffles, Crepes or Cookie Dough) and the site uploaded the same picture twice under two file names (8796/8798 for "Pistachio
+     Kunafa Waffle", 8797/8799 for "Kunafa Sushi Crepe", 8795/8802 for "Kunafa Cookie Dough"): photos are compared by their bytes
+     (sha256), so byte-identical uploads count as one photo; two different pictures for one name still give no photo.
 Cards without a kcal figure, names that are not published (drinks, boxes, CYO builders ...) are ignored.
 The site's footer says "All images are for visual purposes only."
 
-Terms (https://www.littledessertshop.co.uk/terms, read 2026-10-08): "Copyright and Intellectual Property Rights on OUR Website and
-its content are owned by US. This includes; logos, trade names, graphics/images, software, written information and any other
-material. YOU must not YOURSELF or give permission to anyone else to publish, copy, distribute or change any of the content on
-OUR Website. YOU must not make any copies of material used on OUR Website for any business associated use. (c) 2016 LITTLE
-DESSERT SHOP Holdings LTD. ... All Rights Reserved". Installed on the founder's decision of 2026-10-06 (CLAUDE.md rule 2: the
-founder's accepted risk). robots.txt (https://www.littledessertshop.co.uk/robots.txt, read 2026-10-08) disallows /admin/*, /auth/*,
-/login, /shoppingcart, /checkout, /website/updatecart, filtered /shop and /product*shop*cat=* URLs, /blog/tag|search/*, /*myid=*;
-neither /menu/... nor /site/assets/images/uploads/... is disallowed (polite_get checks every URL anyway).
+History: on 2026-10-08 "Double Chocolate Sea Salt Cookie Dough" was left out because its photo (upload 8657) shows a green pistachio
+topping and a strawberry. Re-read 2026-11-17: the dish's own product page (/product/6166/double-chocolate-sea-salt-cookie-dough) describes
+it as "Warm double chocolate chip cookie dough topped with crunchy pistachio kunafa, fresh strawberries & Vanilla Ice Cream, finished
+with a touch of sea salt", which is what the photo shows, so it is no longer dropped. Since November 2026 the page's minified HTML
+writes attribute values without spaces unquoted; both spellings are read.
+
+Terms (https://www.littledessertshop.co.uk/terms, read 2026-11-17, section 3): "The website's branding, text, images and other content
+belong to us or our licensors. You may browse the website and save or print information for personal use. Other copying or commercial
+use requires permission unless the law allows it." (The version read 2026-10-08 said "YOU must not make any copies of material used on
+OUR Website for any business associated use.") Installed on the founder's decision of 2026-10-06 (CLAUDE.md rule 2: the founder's
+accepted risk). robots.txt (https://www.littledessertshop.co.uk/robots.txt, read 2026-11-17, unchanged since 2026-10-08) disallows
+/admin/*, /auth/*, /login, /shoppingcart, /checkout, /website/updatecart, filtered /shop and /product*shop*cat=* URLs, /blog/tag|search/*,
+/*myid=*; neither /menu/..., /product/<id>/<slug> nor /site/assets/images/uploads/... is disallowed (polite_get checks every URL anyway).
 
 A 401/403/429 or a robots refusal stops the script (exit 1) before anything is written.
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import re
 import sys
@@ -53,16 +63,17 @@ PAGE_URL = BASE + "/menu/1/city-centre-wolverhampton"
 UPLOADS = BASE + "/site/assets/images/uploads/"
 HTML_ACCEPT = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
 DEFAULT_CACHE = Path("/tmp/menumacros-images-little-dessert-shop")
-DROP_ITEMS: dict[str, str] = {   # items looked at after the first run and left without a photo (a rerun must not bring them back)
-    "double-chocolate-sea-salt-cookie-dough": "the site's photo (upload 8657) shows a pistachio-spread topping and a strawberry, not what the name says",
-}
+DROP_ITEMS: dict[str, str] = {}   # item id -> why it was looked at and left without a photo (a rerun must not bring it back); see History
 SKIP_FILES: dict[str, str] = {}   # upload file name -> why it is not used (nutrition text, placeholder...)
 
 CARD_START = re.compile(r'<div class="col-md-4 col-xs-6 menuitem allprods prodid(\d+)\s+cat\d+\s*"')
-IMG = re.compile(r'<a href="(?P<href>/product/\d+/[^"]*)" title="(?P<title>[^"]*)">\s*<img src="/thumbs/400px/(?P<file>[A-Za-z0-9_]+\.(?:png|jpe?g|webp))" class=menuimage alt="(?P<alt>[^"]*)"', re.S)
-CAPTION = re.compile(r'<a class="color-type-2 caption" href="[^"]*"[^>]*>(?P<t>.*?)</a>', re.S)
+# The page's HTML is minified: since November 2026 attribute values without spaces are written unquoted (href=/product/...,
+# src=/thumbs/..., class=menuimage); values with spaces keep their quotes. Both spellings are accepted.
+IMG = re.compile(r'<a href="?(?P<href>/product/\d+/[^"\s>]*)"? title="(?P<title>[^"]*)">\s*<img src="?/thumbs/400px/(?P<file>[A-Za-z0-9_]+\.(?:png|jpe?g|webp))"? class="?menuimage"? alt="(?P<alt>[^"]*)"', re.S)
+CAPTION = re.compile(r'<a class="color-type-2 caption" href="?[^"\s>]*"?[^>]*>(?P<t>.*?)</a>', re.S)
 DATA_IMAGE = re.compile(r"data-prodimage=([A-Za-z0-9_.]+)")
 DATA_KCAL = re.compile(r"data-prodkcal=(\d+(?:\.\d+)?)")
+LABEL_KCAL = re.compile(r'<span class="?label label-primary label-nutrition"?>\s*(\d+(?:\.\d+)?) kcal\s*</span>')
 
 
 def clean(fragment: str) -> str:
@@ -76,23 +87,28 @@ def cards(page: str) -> list[dict]:
     out = []
     for a, b in zip(starts, starts[1:]):
         body = page[a:b]
-        im, cap, di, kc = IMG.search(body), CAPTION.search(body), DATA_IMAGE.search(body), DATA_KCAL.search(body)
-        if not (im and cap and di and kc):
+        im, cap = IMG.search(body), CAPTION.search(body)
+        di, kc, lk = DATA_IMAGE.search(body), DATA_KCAL.search(body), LABEL_KCAL.search(body)
+        if not (im and cap and (kc or lk)):
             continue
-        if di.group(1) != im.group("file"):
+        if di and di.group(1) != im.group("file"):
             continue                       # the card's two image references disagree: not trusted
+        if kc and lk and float(kc.group(1)) != float(lk.group(1)):
+            continue                       # the card's two calorie figures disagree: not trusted
+        if not kc and "btn-outofstock" not in body:
+            continue                       # a label without the basket button is used only on an "out of stock" card
         title, alt, caption = clean(im.group("title")), clean(im.group("alt")), clean(cap.group("t"))
         if not (norm_name(title) == norm_name(alt) == norm_name(caption)):
             continue
         out.append({"pid": CARD_START.match(body).group(1), "title": title, "file": im.group("file"),
-                    "kcal": float(kc.group(1)), "href": html.unescape(im.group("href"))})
+                    "kcal": float((kc or lk).group(1)), "href": html.unescape(im.group("href"))})
     return out
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--cache", type=Path, default=DEFAULT_CACHE)
-    ap.add_argument("--dry-run", action="store_true", help="match and report only; store nothing, write no CSV")
+    ap.add_argument("--dry-run", action="store_true", help="match and report only; store nothing, write no CSV (downloads only photos it must compare)")
     args = ap.parse_args()
 
     items = load_items(CHAIN_ID)
@@ -131,18 +147,25 @@ def main() -> int:
             found.setdefault(item["id"], {})[c["file"]] = c["href"]
 
         rows: dict[str, tuple[str, str]] = {}
+        matched = 0
         for item_id, files in sorted(found.items()):
-            if len(files) != 1:
-                skipped.append(f"{item_id}: {len(files)} different photos on the menu page ({', '.join(sorted(files))}); ambiguous")
+            # Byte-identical uploads under two file names are one photo; two different pictures for one name are not used.
+            # (A dry run downloads only the photos of names shown with more than one file name, to compare them.)
+            raws = {} if args.dry_run and len(files) == 1 else \
+                {f: polite_get(UPLOADS + f, args.cache, referer=PAGE_URL) for f in sorted(files)}
+            digests = {hashlib.sha256(r).hexdigest() for r in raws.values()} or {"one file"}
+            if len(digests) != 1:
+                skipped.append(f"{item_id}: {len(digests)} different photos on the menu page ({', '.join(sorted(files))}); ambiguous")
                 continue
-            (file, _href), = files.items()
+            file = sorted(files)[0]
             photo = UPLOADS + file
+            matched += 1
             if args.dry_run:
-                print(f"  {item_id:40} {photo}")
+                note = f"  (same bytes as {', '.join(sorted(files)[1:])})" if len(files) > 1 else ""
+                print(f"  {item_id:40} {photo}{note}")
                 continue
-            raw = polite_get(photo, args.cache, referer=PAGE_URL)
             try:
-                fname = store_image(CHAIN_ID, raw)
+                fname = store_image(CHAIN_ID, raws[file])
             except ValueError as e:
                 skipped.append(f"{item_id}: {photo}: {e}")
                 continue
@@ -155,8 +178,7 @@ def main() -> int:
     for s in skipped:
         print(f"  no photo: {s}")
     if args.dry_run:
-        n = sum(1 for p in found.values() if len(p) == 1)
-        print(f"{n} of {len(items)} published items matched")
+        print(f"{matched} of {len(items)} published items matched")
         return 0
     if rows:
         write_images_csv(CHAIN_ID, rows)

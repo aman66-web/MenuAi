@@ -13,14 +13,22 @@ upload WITHOUT the query string (the full original, 648x600 for the files checke
 store_image do the only change (downsize to <= 640 px, WebP).
 
 Match rule (exact, nothing fuzzy). A photo is attached to a published item only when
-  1. a card with a photo has a card-title whose norm_name equals the item's name in the CURRENT items.csv, and the
-     photo's own alt text ("<title> image") names the same dish, and
+  1. a card with a photo has a card-title whose norm_name equals EITHER the item's name in the CURRENT items.csv OR the dish name
+     the chain's own guide prints for that row (wimpy.SECTIONS, the label the item was extracted from) once the guide's own note
+     on the figures is taken off the end: "(Figures are for white toast)", "(Figures exclude choice of sauce)", "(Figures exclude
+     choice of cream or ice cream side)", "(excludes choice of sauce)" (FIGURE_NOTE). That note says what the numbers cover, it is
+     not part of the dish's name: the guide row "Crispy Chicken Stack (Figures exclude choice of sauce)" is the dish the site's card
+     "Crispy Chicken Stack" names ("656 Kcal" on both), published by us as "Crispy Chicken Stack (excl. sauce)". Only a trailing
+     figures note is removed; words are never dropped, added or reordered ("Loaded Churros (Sharer Basket)", "Hot Chocolate (without
+     Cream)" and "Quarterpounder Bacon & Cheese Burger" stay as printed and match no card). A key that would point at two published
+     items is not used. The photo's own alt text ("<title> image") must name the same dish as the card title, and
   2. the card's own text states the item's calories (the item's calories appear among the card's "<n> kcal" figures), so
      a same-named card for a different portion (e.g. kids chips, 178 kcal, against the adult 318 kcal) can never lend its
      photo, and
-  3. exactly one photo file qualifies for that item. A name shared by two published items, or an item that two cards
-     illustrate with different photos (All-Day Breakfast has one photo on /menus/breakfast and another on
-     /menus/anytime-meals), gets no photo.
+  3. exactly one photo qualifies for that item, compared by the bytes of the files (SHA-256), not by their addresses: All-Day
+     Breakfast's cards on /menus/breakfast and /menus/anytime-meals point at two upload names that hold the identical file, so it is
+     one photo (credited to /menus/breakfast, the first page that shows it); two cards with genuinely different pictures still give
+     no photo. A name shared by two published items gets no photo.
 The chain prints different names from its PDF guide for many dishes ("Bacon, Egg & Hash Brown Muffin" for the guide's
 "Bacon & Hash Brown Muffin", "Crispy Chicken" for "Crispy Chicken Fillet (excl. sauce)", "Fish, Chips & Peas" for "Battered
 Cod, Chips & Peas", "Strawberry" for "Thick Shake - Strawberry" ...). Those are NOT matched: that would be matching by
@@ -39,16 +47,34 @@ purposes without obtaining a licence to do so from us or our licensors." Install
 (nothing disallowed); polite_get checks it on every URL anyway.
 
 A 401/403/429 or a robots refusal stops the script (exit 1) before anything is written.
+
+Run of 2026-11-17: the five menu pages, /robots.txt (still "User-agent: * / Disallow:") and /pages/legal (the clause above, word for word
+unchanged) were read again. The site's other pages were checked for more per-dish photos: /pages/sitemap lists no other menu page;
+/promotions/new-menu and /promotions/wimpy-savers show promotional pictures under marketing headings ("Coffee Thick Shake", "SAVER
+CHEESEBURGER" ...), none of which names a published item exactly that the menu cards don't already cover, so they are not used;
+/pages/kids answers 404. Added by the guide-label rule (1) and the same-bytes rule (3): All-Day Breakfast, Big Brekkie (white toast),
+Sunrise (white toast), Crispy Chicken Stack (excl. sauce), Chicken Wrap (excl. sauce), Chocolate Brownie and Caramel Apple Pie (excl.
+cream or ice cream: each card prints the dish's kcal and the cream/ice-cream side's kcal separately) and Waffle & Ice Cream (excl.
+sauce topping). Still no photo, by name: the muffins ("Bacon, Egg & Hash Brown Muffin", "Sausage & Egg Muffin" ...), "Toasted
+Teacake", "Quarterpounder Bacon & Cheese", "Chicken Bacon Stack", "Crispy Chicken", "Fish, Chips & Peas", "Jacket Potato with 2
+Toppings", the "... Sundae" desserts, "Loaded Churros", "Waffle Stack & Ice Cream", the shakes ("Strawberry", "Kids Vanilla Thick
+Shake" ...), "Wimpy Float", "Lipton Ice Tea", "Ballygowan Mineral Water", "7UP Free", "Tango Orange Free", "Hot Chocolate",
+"Crispy Chicken Strips (2)", "Fruit Shoot". Berry Nice Cheesecake: its card says 415 kcal, the guide 439 (sources disagree, like Jelly &
+Ice Cream), so no photo. Every kept photo was looked at again on contact sheets: the Pepsi one (kept since 2026-10-07) is the Pepsi
+logo, not the drink, so it was taken out (DROP_ITEMS); Pepsi Max stays (a glass of the drink, the brand embossed on the glass). The
+Chicken Wrap, Chicken Salad Basket and Loaded Cheesy Chips photos show Wimpy's own printed food paper, not lettering laid over the photo.
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import re
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+import wimpy as wimpy_guide  # noqa: E402  (SECTIONS: the guide's printed label for every published row)
 from images_common import (  # noqa: E402
     Blocked, load_items, norm_name, polite_get, store_image, suspected_placeholders, write_images_csv,
 )
@@ -61,6 +87,7 @@ DEFAULT_CACHE = Path("/tmp/menumacros-images-wimpy")
 DROP_ITEMS: dict[str, str] = {   # items looked at after the first run and left without a photo (a rerun must not bring them back)
     "kids-pepsi-max": "the photo is the Pepsi Max logo, not the drink",
     "pepsi-max-cherry": "the photo is the Pepsi Max Cherry logo, not the drink",
+    "pepsi": "the photo is the Pepsi logo, not the drink (kept by the 2026-10-07 run; found on the contact sheet of 2026-11-17)",
 }
 SKIP_FILES: dict[str, str] = {}   # upload file name -> why it is not used (nutrition text, placeholder...)
 
@@ -70,6 +97,18 @@ IMAGE = re.compile(r'<div class="menu-card__image">\s*<img src="(?P<src>[^"]+)" 
 TEXT = re.compile(r'<p class="card-text">(?P<t>.*?)</p>', re.S)
 UPLOAD = re.compile(r"^(?P<base>https://wimpy\.uk\.com/img/uploads/(?P<file>[A-Za-z0-9]+\.(?:png|jpe?g|webp)))(?:\?[^\s]*)?$")
 KCAL = re.compile(r"(\d+(?:\.\d+)?)\s*kcal", re.I)
+# the guide's own note on what a row's figures cover, at the end of its printed label (match rule 1)
+FIGURE_NOTE = re.compile(r"\s*-?\s*\((?:figures?\s+(?:are|exclude)|excludes?)\b[^)]*\)\s*$", re.I)
+
+
+def guide_names() -> dict[str, str]:
+    """item name -> the dish name the guide prints for it, for rows whose printed label ends in a figures note (rule 1)."""
+    out = {}
+    for _heading, entries in wimpy_guide.SECTIONS:
+        for e in entries:
+            if e.get("name") and FIGURE_NOTE.search(e["label"]):
+                out[e["name"]] = FIGURE_NOTE.sub("", e["label"])
+    return out
 
 
 def clean(fragment: str) -> str:
@@ -110,9 +149,14 @@ def main() -> int:
     args = ap.parse_args()
 
     items = load_items(CHAIN_ID)
+    printed = guide_names()
     by_key: dict[str, list[dict]] = {}
     for it in items:
-        by_key.setdefault(norm_name(it["name"]), []).append(it)
+        keys = {norm_name(it["name"])}
+        if it["name"] in printed:
+            keys.add(norm_name(printed[it["name"]]))
+        for k in keys:
+            by_key.setdefault(k, []).append(it)
 
     found: dict[str, dict[str, str]] = {}      # item id -> {photo url: page url}
     skipped: list[str] = []
@@ -151,12 +195,18 @@ def main() -> int:
                 found.setdefault(item["id"], {})[c["photo"]] = page_url
 
         rows: dict[str, tuple[str, str]] = {}
+        matched = 0
         for item_id, photos in sorted(found.items()):
             if len(photos) != 1:
-                skipped.append(f"{item_id}: {len(photos)} different photos on the site ({', '.join(sorted(photos.values()))}); ambiguous")
-                continue
+                # several upload names: the same photo only if every file holds the same bytes (rule 3)
+                digests = {hashlib.sha256(polite_get(u, args.cache, referer=pg)).hexdigest() for u, pg in photos.items()}
+                if len(digests) != 1:
+                    skipped.append(f"{item_id}: {len(digests)} different photos on the site ({', '.join(sorted(set(photos.values())))}); ambiguous")
+                    continue
+                photos = dict([next(iter(photos.items()))])   # identical files: credit the first page that shows it
             (photo, page_url), = photos.items()
             if args.dry_run:
+                matched += 1
                 print(f"  {item_id:40} {photo}  <- {page_url}")
                 continue
             raw = polite_get(photo, args.cache, referer=page_url)
@@ -174,8 +224,7 @@ def main() -> int:
     for s in skipped:
         print(f"  no photo: {s}")
     if args.dry_run:
-        n = sum(1 for p in found.values() if len(p) == 1)
-        print(f"{n} of {len(items)} published items matched")
+        print(f"{matched} of {len(items)} published items matched")
         return 0
     if rows:
         write_images_csv(CHAIN_ID, rows)

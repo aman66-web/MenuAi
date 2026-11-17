@@ -10,11 +10,17 @@ that starts with the item's calories ("324 kcal*"). We read only that HTML page 
 robots.txt disallows) and download each photo once from the CDN host the page itself loads it from.
 
 Match rule (exact, nothing fuzzy): a photo is attached to a published item only when ALL of these hold:
-  1. the block's title equals the item's name after images_common.norm_name, with ONE spelling rule applied to both
-     sides: a count written "<n>pc" is read as "<n> piece" (the chart prints "1pc Chickenjoy", the page "1 Piece
-     Chickenjoy"). Nothing else is rewritten: "2pc Chickenjoy" (chart) is NOT matched to "2 Piece Chickenjoy with Gravy"
-     (page), "3pc Chicken Strips" is NOT matched to "3 Piece Jolli Tenders", the Spicy Chickenjoy items are NOT matched
-     to the page's "Available with Original or Spicy Chickenjoy" block (its photo shows one kind of chicken);
+  1. the block's title equals the item's name after images_common.norm_name, with TWO spelling rules applied to both
+     sides, each the same word written two ways: a count written "<n>pc" is read as "<n> piece" (the chart prints "1pc
+     Chickenjoy", the page "1 Piece Chickenjoy"), and "chili" is read as "chilli" (the chart prints "Sweet Chili Sauce",
+     the page "Sweet Chilli Sauce"; added 2026-11-17). Nothing else is rewritten, no word is dropped, added or moved:
+     "2pc Chickenjoy" (chart) is NOT matched to "2 Piece Chickenjoy with Gravy" (page), "3pc Chicken Strips" is NOT
+     matched to "3 Piece Jolli Tenders with dipping sauce", the Spicy Chickenjoy items get no photo (the page has no block
+     naming a spicy Chickenjoy item), and these page blocks, although their calories equal a chart item's, name the dish
+     differently and are NOT matched: "Double Jollibee Chicken Sandwich (Meal)" / "Jollibee Double Chicken Sandwich
+     (Meal)", "Yumburger with Cheese (Meal)" / "Cheesy Yumburger (Meal)", "Plain Rice" / "Rice", "Fries" / "Medium
+     Fries", "Sriracha Mayonnaise" / "Sriracha Mayo", "Gravy" / "Chickenjoy Gravy, small", "Big Bucket Gravy" /
+     "Chickenjoy Gravy, large";
   2. exactly one block and exactly one published item carry that name;
   3. the calories printed in the block's caption equal the item's published calories (the chart is dated March 2023, so a
      page whose number has moved on is a different version of the dish and gets no photo);
@@ -31,6 +37,21 @@ Terms and robots (read 2026-10-08):
     /static/ and the ?format=json style views; /menu is allowed. The photos are on images.squarespace-cdn.com, which answers
     404 for /robots.txt (RFC 9309: no rules). One request per second; polite_get checks robots on every URL.
 Installed on the founder's decision of 2026-10-06 (CLAUDE.md rule 2).
+
+Run of 2026-11-17 (terms and robots read again the same day):
+  * robots.txt is still the Squarespace default. It now lists AI crawler names (ClaudeBot, anthropic-ai, GPTBot, CCBot...)
+    in the SAME group as "User-agent: *", so they get the ordinary rules above (the Squarespace pattern noted in
+    docs/PROGRESS.md 2026-10-09); /menu, the policy pages and the sitemap pages read are allowed.
+  * Still no terms of use or copyright notice: privacy-notice, website-privacy-policy, faqs, cookie-policy,
+    termsandconditions (the Instagram competition rules), nutritional-info and menu were searched again for copyright,
+    intellectual property, reproduce, photograph, all rights, terms of use, trade mark, image and the (c) sign: none found.
+  * The menu page's caption markup changed (whitespace between the closing </div>s), so the old caption pattern read no
+    calories at all and every match failed rule 3; SUBTITLE now allows the whitespace. The page has 54 blocks.
+  * Other pages of the site were looked at and NOT used: /order only links to Uber Eats, Deliveroo and Just Eat
+    (third parties, never used); /menu-old shows category tiles in capitals with no calories ("JOLLY SPAGHETTI",
+    "SIDES", "BOWLS"...); /home-v2 (June 2023) is a carousel whose only names are file names in alt text
+    ("3pc Chickenjoy.jpg"), not a dish named by the page; /menu/chickenjoy, /original-chickenjoy and
+    /spicy-meal-deals have no item photos.
 
 A 401/403/429 or a robots refusal stops the script (exit 1) before anything is written.
 """
@@ -64,13 +85,14 @@ EXCLUDE: dict[str, str] = {
 FIGURE = re.compile(r"<figure.*?</figure>", re.S)
 IMG = re.compile(r'<img[^>]*\bdata-image="([^"]+)"')
 TITLE = re.compile(r"<h4[^>]*>(.*?)</h4>", re.S)
-SUBTITLE = re.compile(r"data-sqsp-image-classic-block-subtitle>(.*)</div></div>", re.S)
+SUBTITLE = re.compile(r"data-sqsp-image-classic-block-subtitle>(.*?)</div>\s*</div>", re.S)
 KCAL = re.compile(r"(\d[\d,]*)\s*kcal", re.I)
 
 
 def key(name: str) -> str:
-    """norm_name, plus '<n>pc' read as '<n> piece' (the only spelling rule; see the module docstring)."""
-    return re.sub(r"\b(\d+)\s*pc\b", r"\1 piece", norm_name(name))
+    """norm_name, plus '<n>pc' read as '<n> piece' and 'chili' as 'chilli' (the only spelling rules; see the module docstring)."""
+    k = re.sub(r"\b(\d+)\s*pc\b", r"\1 piece", norm_name(name))
+    return re.sub(r"\bchili\b", "chilli", k)
 
 
 def parse_blocks(page: str) -> list[dict]:

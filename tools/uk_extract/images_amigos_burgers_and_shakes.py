@@ -27,9 +27,17 @@ strings are used here). Terms (https://www.amigosburgersandshakes.com/legal, cla
 the website"; founder's decision 2026-10-06: installed anyway, his accepted risk.
 
 Photo host robots: static.wixstatic.com/robots.txt answers HTTP 403 with the 9-byte body "Forbidden" (the media router answers 403 to every
-non-media path), which images_common reads as "do not fetch": a real run therefore stops at the first photo with Blocked unless the main
-session passes --wix-media-has-no-robots (RFC 9309 reads a 4xx on robots.txt as "no rules"; the same call images_common already makes for S3 and
-CloudFront "MissingKey" answers). Photo GETs themselves return 200.
+non-media path). Until 2026-10-12 images_common read that as "do not fetch", so this script was written and not run. Founder's decision of
+2026-10-12 ("Yes, follow the standard"): RFC 9309 reads a 4xx on robots.txt, 403 included, as "no rules", and images_common now does so for
+every host; the --wix-media-has-no-robots flag below is therefore no longer needed (kept so older notes still work; it changes nothing).
+A photo GET that itself answers 401/403/429 still stops the run. Photo GETs return 200.
+
+Run of 2026-11-17 (first real run): robots.txt re-read (same rules as quoted above, plus groups for AdsBot-Google, PetalBot, dotbot and
+AhrefsBot that do not apply to us); the terms' clause 4 re-read on /legal (same words as quoted above). 32 of the 33 published items matched
+(Crispy Korean Wrap has no page that names it: its page's heading is "CRISPY KOREAN", and the /menu page does not mention it). All 32 photos
+looked at on a contact sheet and at a larger size: each shows the dish named on its page, on a plain background, with no printed figure,
+price, sticker or lettering; the kids' items (whose file names say "savers") show only the item, not a meal with fries and a drink. None
+left out, so EXCLUDE stays empty.
 """
 from __future__ import annotations
 
@@ -126,9 +134,9 @@ def main() -> None:
     ap.add_argument("--dry-run", action="store_true", help="list the matches; fetch only the item pages (never a photo)")
     ap.add_argument("--retrieved-on", default=None)
     ap.add_argument("--wix-media-has-no-robots", action="store_true",
-                    help="DECISION FOR THE FOUNDER/MAIN SESSION, off by default: static.wixstatic.com/robots.txt answers HTTP 403 'Forbidden' (the media "
-                         "router has no robots.txt: every non-media path is 403), which images_common reads as 'do not fetch'. With this flag the photo host "
-                         "is treated as having no robots.txt (RFC 9309: a 4xx means no rules). The chain's own site robots.txt (Allow: /) is always honoured.")
+                    help="No longer needed (founder's decision of 2026-10-12: images_common reads a 403 on robots.txt as 'no rules', RFC 9309): "
+                         "static.wixstatic.com/robots.txt answers HTTP 403 'Forbidden'. With or without this flag the photo host is treated as having no "
+                         "robots.txt rules. The chain's own site robots.txt (Allow: /) is always honoured.")
     args = ap.parse_args()
 
     items = ic.load_items(CHAIN_ID)

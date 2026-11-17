@@ -30,6 +30,17 @@ https://tb-menu-proxy.herokuapp.com/robots.txt answers 404 ("Cannot GET /robots.
 normal browser User-Agent is accepted.
 
 A 401/403/429 or a robots refusal stops the script (exit 1) before anything is written.
+
+Check of 2026-11-17 (no rerun, images.csv left as written on 2026-10-11): the feed was read for every restaurant the menu page's booking
+widget lists (41 slugs; brindley-place and manchester-nq answer 404). There are two Main Menu records: the Bath one (36 restaurants) and a
+second one for Camden, Ealing and Hammersmith; no dish has a different picture in the two, and none of the 28 published dishes without a photo
+has a picture in either (their records carry no image). The 31 photos the script still matches are byte-identical to the stored files. Rum BBQ
+Ribs is no longer in any feed (the dish has left the menu since the 2026-10-10 read): a rerun would drop its 2026-10-11 photo, so the CSV was
+not rewritten; once the menu data is re-read and the dish is gone, a rerun is right. The blog posts under /discover/food-drink/ show dishes in
+articles, not menu records, so they are not used. All 32 stored photos were looked at again on full-size sheets: each shows the dish named,
+with no lettering, figures or logos. Terms re-read 2026-11-17: the clauses quoted above are unchanged. robots.txt re-read 2026-11-17:
+turtlebay.co.uk now serves one (groups for `User-agent: *` disallowing /cpresources/, /assets/site-old/, /de/, one old PDF and
+/tt-late-night-eats: /menu/ and the sitemap are allowed); tb-menu-proxy.herokuapp.com and images.ctfassets.net still answer 404 (no rules).
 """
 from __future__ import annotations
 

@@ -23,17 +23,26 @@ Match rule (exact, nothing fuzzy; a wrong photo is worse than none):
      wording -> table wordings); nothing else is equated. This is the "same record carries photo and variant" case: the
      photo shows ONE filling, so a variant shares the product's picture (dry-run lines say "variant"; --exact-only turns
      rule 2 off). Variants the page does not list get no photo.
-  3. Nothing else: the site names some products differently from the table ("2 Crispy Chicken Tenders" vs "Crispy Chicken
-     Tenders (2)", "Mini Quesadilla" vs "Baby Quesadilla", "Seasoned Nachos" vs "Nacho Chips"), sells the sizes of one
-     product with one photo and no size list on the page ("Seasoned Fries", "Chicken Bites", "Salted Caramel Churro Bites"),
-     and shows meals/boxes where the table has single items ("Grilled Cheese Volcano Burrito Box"). Those items get no
-     photo; they are printed as "no photo". A product that shows different photos on different category pages, or whose
-     name two different products share, gets none.
-Tiles whose product page is not needed (rule 1) are not fetched; product pages are fetched only for rule 2.
+  3. product page (added 2026-11-17): a product that is on no category page we read (Churros) is still in the site's own
+     product sitemap (https://www.tacobell.co.uk/wp-sitemap-posts-products-1.xml, linked from robots.txt). For an item
+     that rules 1-2 left without a photo, the product page gives its photo only when the page's <h1> equals the item's
+     name exactly (norm_name, as rule 1), the item name is unique among published items, exactly one product page has
+     that <h1>, and the page shows its own product photo (the <img> in <div class="product-custom-image">: the
+     1370x650 product picture on www.tacobell.co.uk/wp-content/uploads/, used as served, only downsized by
+     store_image). Pages without that picture (Loaded XL Burrito, the sauces) give nothing. Only sitemap products
+     that no category tile covers are fetched (about 40 pages; most are meals and drinks, which hold no published item).
+  4. Nothing else: the site names some products differently from the table ("2 Crispy Chicken Tenders" vs "Crispy Chicken
+     Tenders (2)", "Mini Quesadilla" vs "Baby Quesadilla" (although the page address is /products/baby-quesadilla/, the
+     page names it "Mini Quesadilla"), "Seasoned Nachos" vs "Nacho Chips", "XL Fries" vs "Seasoned Fries (XL)", "Cali
+     Ranch" vs "Dip Pot - Cali Ranch Sauce"), sells the sizes of one product with one photo and no size list on the page
+     ("Seasoned Fries", "Chicken Bites", "Salted Caramel Churro Bites"), and shows meals/boxes where the table has single
+     items ("Grilled Cheese Volcano Burrito Box"). Those items get no photo; they are printed as "no photo". A product
+     that shows different photos on different category pages, or whose name two different products share, gets none.
+Tiles whose product page is not needed (rule 1) are not fetched; product pages are fetched only for rules 2 and 3.
 
 Not taken: the delivery apps and third-party sites linked from the pages, and the Instagram images on the home page.
 
-Terms (https://www.tacobell.co.uk/website-terms/, read 2026-10-07): "The graphic images, buttons and text contained in this
+Terms (https://www.tacobell.co.uk/website-terms/, read 2026-10-07 and again 2026-11-17, unchanged): "The graphic images, buttons and text contained in this
 Site (and the Site's 'look and feel') are the exclusive property of Taco Bell and, except for personal use, may not be
 copied, distributed, or reproduced or transmitted in any form or by any mean, electronic, mechanical, photocopying,
 recording or otherwise, without the prior written permission of Taco Bell." and "By visiting the Site the User does not
@@ -41,14 +50,21 @@ acquire or obtain by implication or otherwise, any license or right to use or ma
 information displayed on the Site." Installed on the founder's decision of 2026-10-06 (the founder's accepted risk);
 the photos come down the day the chain asks.
 
-robots.txt (https://www.tacobell.co.uk/robots.txt, read 2026-10-07): "User-agent: * / Disallow: /wp-admin/ / Allow:
-/wp-admin/admin-ajax.php / Crawl-delay: 10". Category pages, product pages and /wp-content/uploads/ are allowed. We honour
+robots.txt (https://www.tacobell.co.uk/robots.txt, read 2026-10-07 and again 2026-11-17, unchanged apart from the line
+"Sitemap: https://www.tacobell.co.uk/wp-sitemap.xml"): "User-agent: * / Disallow: /wp-admin/ / Allow:
+/wp-admin/admin-ajax.php / Crawl-delay: 10". Category pages, product pages, the sitemaps and /wp-content/uploads/ are allowed. We honour
 the Crawl-delay: every request to the host waits 10 seconds (CRAWL_DELAY), so a full first run takes about 8-10 minutes
 (10 category pages, 9 product pages, then each of the ~29 distinct photos once); reruns with the same --cache fetch nothing
 twice. The dry run (2026-10-07) matched 45 of 102 published items: 22 by exact name, 23 filling variants, 29 photos. The
-photos themselves were NOT looked at when this script was written (dry run fetches pages only): the checker must look for
-banner-style text/claims (the "CategoryImage" files: Loaded Protein Bowl) and for filling-variant pictures that show a
-different filling (tacos, chalupa, gordita), and drop them with SKIP_FILES or --exact-only.
+photos were then looked at: every tile shows the beef filling, so only the "- Beef" variants keep the product's photo (the
+black-bean and grilled-chicken variants get none; see rule 2's code). Run of 2026-11-17 (rule 3 added): 30 of 102
+published items have a photo (22 exact, 7 beef variants, 1 product page: Churros); each of the 30 looked at on a contact
+sheet: all show the dish named, no printed numbers, claims or stickers (Loaded Protein Bowl sits in Taco Bell's own box,
+whose only printing is the chain's logo; Fries Bell Grande and Fries Supreme are two different photos). SKIP_FILES is empty
+because nothing had to be left out. Without a photo: the 15 black-bean/chicken filling variants (the photo shows beef), the
+Grilled Cheese and Loaded XL items (sold on the site only in meals/boxes, or its page has no photo), the chicken
+tenders/bites, nacho chips, seasoned fries and churro-bites sizes, Baby Quesadilla and the dip pots/sauces/extras
+(different names or no photo on the site), and the Heinz sachets (no page).
 
 A 401/403/429 or a robots refusal stops the script (exit 2) before anything is written.
 """
@@ -78,6 +94,9 @@ FILLINGS = {
     "grilled chicken": {"grilled chicken"},
 }
 SKIP_FILES: dict[str, str] = {}   # photo file name -> why it is not used (nutrition text, claims, placeholder...)
+PRODUCT_SITEMAP = f"{SITE}/wp-sitemap-posts-products-1.xml"   # the site's own product list (rule 3)
+SITEMAP_LOC = re.compile(r"<loc>\s*(https://www\.tacobell\.co\.uk/products/[^<\s]+)\s*</loc>")
+PRODUCT_PHOTO = re.compile(r'<div class="product-custom-image">\s*<img\b[^>]*?\ssrc="(?P<src>[^"]+)"', re.S)
 
 TILE = re.compile(r'<li class="product-item">(.*?)</li>', re.S)
 TILE_IMG = re.compile(r'<a href="(?P<href>[^"]+)"[^>]*>\s*<img class="product-image-photo" src="(?P<src>[^"]+)"', re.S)
@@ -194,12 +213,12 @@ def main() -> int:
                 if it["id"] in matches or " - " not in it["name"]:
                     continue
                 base, filling = it["name"].rsplit(" - ", 1)
+                paths = by_name.get(ic.norm_name(base), [])
+                if len(paths) != 1:
+                    continue
                 if ic.norm_name(filling) != "beef":
                     # looked at after the first run: the product's photo shows the beef filling, so the other fillings get no photo
                     skipped.append(f"{it['id']}: the product photo shows the beef filling, not {filling!r}; no photo")
-                    continue
-                paths = by_name.get(ic.norm_name(base), [])
-                if len(paths) != 1:
                     continue
                 if len(by_key.get(ic.norm_name(it["name"]), [])) != 1:
                     skipped.append(f"{it['id']}: another published item has the same name; no photo")
@@ -221,6 +240,43 @@ def main() -> int:
                 u = usable(path)
                 if u:
                     matches[it["id"]] = dict(u, kind=f"variant ({filling} is listed on the {title} page)", product=path)
+
+        # ---- rule 3: a product page (from the site's product sitemap) whose <h1> is the item's exact name
+        if any(it["id"] not in matches for it in items):
+            sitemap = ic.polite_get(PRODUCT_SITEMAP, args.cache, delay=CRAWL_DELAY, accept=HTML_ACCEPT).decode("utf-8", "replace")
+            pages: dict[str, dict] = {}          # product path -> {title, photo, url}
+            for loc in dict.fromkeys(html.unescape(u) for u in SITEMAP_LOC.findall(sitemap)):
+                path = product_key(loc)
+                if path in products:
+                    continue                     # its tile was already used (or found not to match) by rules 1-2
+                page = strip_comments(ic.polite_get(loc, args.cache, delay=CRAWL_DELAY, accept=HTML_ACCEPT).decode("utf-8", "replace"))
+                title, _ = product_page_info(page)
+                m = PRODUCT_PHOTO.search(page)
+                photo = html.unescape(m.group("src")) if m else ""
+                pages[path] = {"title": title, "photo": photo if PHOTO_OK.match(photo) else "", "url": loc}
+            print(f"{len(pages)} product pages from the sitemap that no category tile covers")
+            page_by_name: dict[str, list[str]] = {}
+            for path, pg in pages.items():
+                if pg["title"]:
+                    page_by_name.setdefault(ic.norm_name(pg["title"]), []).append(path)
+            for it in items:
+                key = ic.norm_name(it["name"])
+                if it["id"] in matches or key not in page_by_name:
+                    continue
+                paths = page_by_name[key]
+                if len(by_key[key]) != 1 or len(paths) != 1 or key in by_name:
+                    skipped.append(f"{it['id']}: {len(paths)} product pages / {len(by_key[key])} items share the name; no photo")
+                    continue
+                pg = pages[paths[0]]
+                if not pg["photo"]:
+                    skipped.append(f"{it['id']}: its product page {pg['url']} shows no product photo; no photo")
+                    continue
+                fname = pg["photo"].rsplit("/", 1)[-1]
+                if fname in SKIP_FILES:
+                    skipped.append(f"{it['id']}: {fname} skipped: {SKIP_FILES[fname]}")
+                    continue
+                matches[it["id"]] = {"photo": pg["photo"], "page": pg["url"], "tile": pg["title"],
+                                     "kind": "product page", "product": paths[0]}
     except ic.Blocked as e:
         print(f"BLOCKED, stopping (nothing written): {e}", file=sys.stderr)
         return 2
@@ -249,7 +305,9 @@ def main() -> int:
         print("skip:", s)
     if args.dry_run:
         n_exact = sum(1 for m in matches.values() if m["kind"] == "exact")
-        print(f"{len(matches)} of {len(items)} published items matched ({n_exact} by exact name, {len(matches) - n_exact} filling variants)")
+        n_page = sum(1 for m in matches.values() if m["kind"] == "product page")
+        print(f"{len(matches)} of {len(items)} published items matched ({n_exact} by exact name, "
+              f"{len(matches) - n_exact - n_page} filling variants, {n_page} by product page)")
         files = {}
         for item_id, m in matches.items():
             files.setdefault(m["photo"], []).append(item_id)

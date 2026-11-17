@@ -31,6 +31,13 @@ allowed; no group names an AI crawler (subway_html.py refuses to run if one does
 (media.subway.com is NOT used: its robots.txt says `Disallow: /`.)
 
 A 401/403/429 or a robots refusal stops the script (exit 1) before anything is written.
+
+Run of 2026-11-17: www.subway.com answered /robots.txt at once (allowed), but every HTML page asked for (/en-gb/menu/category/436 and
+/en-gb/menunutrition/menu) sent no reply within 30 s, three tries each (polite_get's own retries), twice: no page, so no new photo could be
+matched and nothing was downloaded. Not worked round (no other headers, user agent or browser). The 146 photos kept from 2026-10-11 were looked
+at again on contact sheets and full-size crops; the ten under (d) and (e) below were removed with remove_photos.py. When the pages answer again,
+rerun this script: it rebuilds images.csv from the cards (the 'NEW' pictures under (b) may have lost their sticker by then: look before
+setting DROP_NEW_BADGE to False). The terms quoted above could not be re-read on 2026-11-17 for the same reason.
 """
 from __future__ import annotations
 
@@ -73,6 +80,17 @@ DROP_ITEMS.update({i: "one generic Subway paper cup is used for every hot drink:
 # looked at 2026-10-11: the "Saver Subs" pictures carry large promotional lettering over the photo (not a plain photograph)
 DROP_ITEMS.update({i: "the picture carries large 'SAVER SUBS' promotional lettering over the photo" for i in (
     "blt-saver-sub", "ham-and-cheese-saver-sub-toastie", "nacho-chicken-saver-sub", "triple-cheese-saver-sub-toastie")})
+# looked at again 2026-11-17 on full-size crops of every packaged product (the pack shot is the product, so packs stay, except these):
+# (d) the pack prints a legible calorie figure or nutrition claim (it could contradict our own table): Quavers "107 kcal", Snack a Jacks
+#     "94 kcal", Walkers Baked "50% less fat", Vital Water "36 CALS" (and "cognitive function"/"mental performance" wording)
+DROP_ITEMS.update({i: "the pack prints a calorie figure or nutrition claim ('107 kcal', '94 kcal', '50% less fat', '36 cals')" for i in (
+    "quavers-cheese", "snack-a-jacks-salt-and-vinegar", "walkers-oven-baked-cheese-and-onion",
+    "vital-water-mango-passionfruit-450ml", "vital-water-prickly-pear-450ml")})
+# (e) the pack prints a "NEW" flash (Monster Munch "NEW!", Sprite Zero "New" roundel) or "GREAT NEW TASTE" (the three Costa cans: a new-recipe flash)
+if DROP_NEW_BADGE:
+    DROP_ITEMS.update({i: "the pack prints a 'NEW' / 'GREAT NEW TASTE' flash" for i in (
+        "walkers-monster-munch-roast-beef", "sprite-zero-500ml",
+        "costa-caramel-latte-250ml", "costa-double-shot-flat-white-200ml", "costa-latte-250ml")})
 
 NOTE_PID = re.compile(r"product (\d+);")
 CARD = re.compile(r'<button data-testid="card-list-(\d+)"(.*?)</button>', re.S)

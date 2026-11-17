@@ -28,6 +28,14 @@ consent." Installed on the founder's decision of 2026-10-06 (CLAUDE.md rule 2; t
 robots.txt: www.benugo.com disallows only /wp/wp-admin/; api.getspoonfed.com "Crawl-delay: 2" and no Disallow; spoonimg.imgix.net
 "Disallow:" (nothing).
 
+Run of 2026-11-17 (after the same day's re-read of the menus, 73 published items): the three pages were fetched once each (5 s apart); robots.txt
+of all three hosts and the terms clause above were read again and are unchanged. 39 items have a photo (41 before: +2 Festive Box and Pulled
+Turkey Focaccia, -1 the October Mango Matcha pot, no longer on the menu, -3 dropped after looking, below). Left out after looking at full-size sheets: the new turkey and vegan bloomers (one
+picture for both), the Cherry Matcha pot (its record still carries the old Mango Matcha picture), the Festive Treats Box (one of its three
+treats), and, kept since October but now dropped, the Bio&Me pot ("GOOD FOR YOUR GUT" printed on the pack) and the two "Slice of ..." cakes
+(the picture is the whole loaf). The 22 records with no picture (wraps, rolls, bagel, focaccia, lemon drizzle) have none on any page;
+benugo.com itself has no product pages (its sitemap lists news, sites and venues only), so there is no other own source to read.
+
 A 401/403/429 or a robots refusal stops the script (exit 1) before anything is written.
 """
 from __future__ import annotations
@@ -72,6 +80,20 @@ EXCLUDE = {
     "smoked-salmon-and-creme-fraiche-quiche-box": _TWO_DISHES, "west-country-cheddar-and-smoked-bacon-quiche-box": _TWO_DISHES,
     "vegan-box": _TWO_DISHES, "veggie-box": _TWO_DISHES,
     "blueberry-and-pistachio-yoghurt-pot": _POT_BOARD, "vegan-raspberry-and-almond-bircher-pot": _POT_BOARD,
+    # looked at 2026-11-17 (the menu re-read of the same day added these records):
+    # the same picture (two uploads, identical bytes) is given to two DIFFERENT bloomers (turkey/bacon/Cheddar and vegan grilled veggies)
+    "pulled-turkey-bacon-cheddar-and-cranberry-bloomer": _TWO_DISHES, "vegan-cream-cheese-and-grilled-veggies-bloomer": _TWO_DISHES,
+    "cherry-matcha-yoghurt-pot": ("the record's picture is the earlier Mango Matcha pot (blueberries, coconut flakes, an orange coulis; the same file "
+                                  "that record carried in October): the page describes cherry compote and lime coulis, so it is not this pot"),
+    "festive-treats-box": ("the picture shows only mince pie Bakewell slices, one of the three treats in the box (7 slices, 5 malted chocolate "
+                           "loaf cakes, 6 fig and pecan cookies): not the box"),
+    # looked at again 2026-11-17 on full-size sheets (kept since 2026-10-08, now left out):
+    "bio-and-me-apple-and-cinnamon-porridge-pot": ("a third-party brand's pack shot (Bio&Me) that prints the claim 'GOOD FOR YOUR GUT': a health "
+                                                   "claim on the picture (CLAUDE.md rule 3), not a photo of the food"),
+    "slice-of-malted-chocolate-loaf-cake": ("the picture is the WHOLE loaf (the same file as the whole cake), shown against one slice's calories: "
+                                            "like a whole meal deal shown for one part of it, it would mislead about the serving"),
+    "slice-of-pumpkin-almond-and-pecan-struesel-loaf-cake": ("the picture is the WHOLE loaf, shown against one slice's calories: like a whole "
+                                                             "meal deal shown for one part of it, it would mislead about the serving"),
 }
 
 

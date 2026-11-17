@@ -12,14 +12,25 @@ then downsizes it to 640 px and converts to WebP, nothing else is changed. The c
 Matching (exact only): the h3 title, minus the chain's own trailing diet/heat marker "(v)", "(vg)", "(s)", "(n)" (legend markers, not part of
 the name), must be the published item's name (norm_name). Not matched, on purpose:
 - group tiles that show ONE photo for several published items: "Dips" (3 dips), "Gelato" (5 gelati/sorbetti), "Sicilian Cannoli (n)" (chocolate and
-  pistachio), "Wine", "Prosecco", "Beer", "Soft Drinks", "Coffee & Tea" (the tile names a group, not an item);
-- "Verdura (v)" and "Campagna": the page's photo files are swapped against the headings (the Verdura entry carries 3.-Campagna-768x512.jpg and the
-  Campagna entry 2.-Verdura-768x512.jpg), so the page contradicts itself about which photo is which: neither gets one (file_agrees below);
+  pistachio; its alt text names the pistachio one, but the heading is not "Cannoli Pistachio"), "Wine", "Prosecco", "Beer", "Soft Drinks"
+  (a Coke can), "Coffee & Tea" (the tile names a group, not an item; re-checked 2026-11-17, unchanged);
 - items the page does not list with a photo (toppings, Moretti beers, hot-drink items...).
 
-Politeness / robots: www.pizzaunion.com/robots.txt (read 2026-10-08) is a Yoast block: "User-agent: *  Disallow: /?s=  Disallow: /page/*/?s=
-Disallow: /search/" (nothing used here). Terms (https://www.pizzaunion.com/privacy-terms/): a privacy policy only; it says nothing about images,
-copyright or reuse (no express restriction found). Photo credits in file names: "Credit_Charlie-McKay" appears on the section banners, not on dish photos.
+"Verdura (v)" and "Campagna" (salads page): the UPLOAD FILE NAMES are swapped against the headings (the Verdura entry carries
+3.-Campagna-768x512.jpg and the Campagna entry 2.-Verdura-768x512.jpg), so the automatic file-name check (file_agrees) refuses both. Checked by eye
+on 2026-11-17 against the page's own ingredient lines: the photo shown under "Verdura" holds sliced mushrooms and black olives with leaves and
+parmesan, no chicken ("Mixed Leaves · Mushrooms · Black Olives · Parmesan"); the photo under "Campagna" holds chicken and red onion rings
+("Mixed Leaves · Chicken · Onions · Oregano · Parmesan"). So the page shows each photo under the right heading and only the upload names are
+wrong: these two pairs are allowed in FILE_NAME_CHECKED (item id -> the exact file the page shows for it). If the page ever serves another file
+for either heading, the override no longer applies and the file-name check decides again.
+
+Other pages checked (2026-11-17): the sitemaps (page, location, food_menu) list no per-dish pages; the home page, /cheap-eats/ and each venue page
+show venue and diner photos only; /food_menu/cocktails/ is alcohol (none published); /nutrition-allergen/ has no photos.
+
+Politeness / robots: www.pizzaunion.com/robots.txt (read 2026-10-08 and again 2026-11-17, unchanged) is a Yoast block: "User-agent: *
+Disallow: /?s=  Disallow: /page/*/?s=  Disallow: /search/" (nothing used here). Terms (https://www.pizzaunion.com/privacy-terms/, read 2026-10-08
+and 2026-11-17): "Privacy and Terms" is a privacy policy only; it says nothing about images, copyright or reuse (no clause on copying or reusing
+content found). Photo credits in file names: "Credit_Charlie-McKay" appears on the section banners, not on dish photos.
 """
 from __future__ import annotations
 
@@ -37,6 +48,12 @@ HOST = "https://www.pizzaunion.com"
 PAGES = ["superfast-pizza", "salads", "savoury", "sweet"]
 # Item ids never given a photo (checked by eye after a download), e.g. EXCLUDE = {"item-id": "why"}
 EXCLUDE: dict[str, str] = {}
+# Headings whose upload file name names another dish but whose photo was checked by eye against the page's own ingredient line (docstring):
+# item id -> the exact file name (size suffix and extension removed) the page shows under that heading.
+FILE_NAME_CHECKED: dict[str, str] = {
+    "verdura": "3.-Campagna",    # mushrooms + black olives, no chicken: the Verdura salad as the page describes it
+    "campagna": "2.-Verdura",    # chicken + red onion: the Campagna salad as the page describes it
+}
 
 _ITEM = re.compile(r'<div class="food-item">(.*?)</h3>', re.S)
 _MARKER = re.compile(r"\s*\((?:v|vg|s|n)\)\s*$", re.I)
@@ -56,12 +73,16 @@ def read_entries(page: str) -> list[dict]:
     return out
 
 
+def file_stem(fname: str) -> str:
+    """'3.-Campagna-768x512.jpg' -> '3.-Campagna' (the page's size suffix and the extension removed)."""
+    stem = re.sub(r"-\d+x\d+(?=\.\w+$)", "", fname.rsplit("/", 1)[-1])
+    return re.sub(r"\.\w+$", "", stem)
+
+
 def file_agrees(fname: str, title: str) -> bool:
     """The page's photo file name (e.g. '15.-Napoli-1-768x432.jpg') must contain the heading it sits under, letters only: if the file is named
-    after another dish the page contradicts itself about which photo is which (Verdura/Campagna) and neither is used."""
-    stem = re.sub(r"-\d+x\d+(?=\.\w+$)", "", fname.rsplit("/", 1)[-1])
-    stem = re.sub(r"\.\w+$", "", stem)
-    return re.sub(r"[^a-z]", "", ic.norm_name(title)) in re.sub(r"[^a-z]", "", ic.norm_name(stem))
+    after another dish the page may contradict itself about which photo is which, and it is used only if checked by eye (FILE_NAME_CHECKED)."""
+    return re.sub(r"[^a-z]", "", ic.norm_name(title)) in re.sub(r"[^a-z]", "", ic.norm_name(file_stem(fname)))
 
 
 def main() -> None:
@@ -89,10 +110,11 @@ def main() -> None:
         for e in entries:
             key = ic.norm_name(e["title"])
             fname = e["photo"].rsplit("/", 1)[-1]
-            if not file_agrees(fname, e["title"]):
+            hits = by_name.get(key, [])
+            checked = len(hits) == 1 and FILE_NAME_CHECKED.get(hits[0]["id"]) == file_stem(fname)
+            if not file_agrees(fname, e["title"]) and not checked:
                 notes.append(f"{e['raw']} ({p}): the photo file {fname} names a different dish than the heading -> none")
                 continue
-            hits = by_name.get(key, [])
             if len(hits) != 1:
                 notes.append(f"{e['raw']} ({p}): {'a group tile, no published item with exactly this name' if not hits else 'several published items share this name'} -> none")
                 continue
