@@ -3,7 +3,7 @@
 Used by tools/uk_extract/baynes.py. Needs `pdftotext` (poppler). Numbers are returned exactly as printed (strings such as "0.0",
 "259.0", "807.1"); nothing is converted, rounded or estimated here.
 
-NUTRITION PDF (https://baynes.co.uk/wp-content/uploads/2026/10/Nutritional-Website-1.pdf, 5 pages, "MASTER Nutritional.xlsx").
+NUTRITION PDF (https://baynes.co.uk/wp-content/uploads/2026/11/Nutritional-Website-1.pdf, 4 pages, "MASTER Nutritional.xlsx", version 110).
 One product per table row; two blocks of eight numbers side by side, all CENTRED in their column:
     PER 100g OF PRODUCT : energy kJ, energy kcal, fat, saturates, carbohydrate, total sugars, protein, salt   (NOT used: not a serving)
     PER PRODUCT         : the same eight columns, for the product as sold (a roll, a pie, a whole loaf, a drink in its size)
@@ -34,13 +34,14 @@ WORD = re.compile(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="
 PAGE = re.compile(r"<page ")
 NUMBER = re.compile(r"^\d+(?:\.\d+)?$")
 
-# Centres (points) of the numeric columns, measured from the column headers and the numbers. Most rows are centred in their cell,
-# but the last rows of page 3 (Filled Morning Rolls) are left-aligned, so a word is assigned to the cell its CENTRE falls in (cells are
+# Centres (points) of the numeric columns, measured from the centred numbers of pages 1-2 of the 04.11.26 PDF (version 110; the page is
+# laid out slightly narrower than the October one, so the centres moved by up to 5 pt). Most rows are centred in their cell,
+# but some rows of pages 3-4 (Large Cakes, Celebration Cakes, the rolls) are left-aligned, so a word is assigned to the cell its CENTRE falls in (cells are
 # bounded half way between neighbouring centres) and must lie inside that cell, whichever way it is aligned.
 COLUMNS = ("kj", "kcal", "fat", "sat", "carbs", "sugars", "protein", "salt")
-CENTRES_PER100 = (162.3, 184.0, 205.5, 227.0, 248.5, 270.0, 291.5, 313.0)
-CENTRES_PER = (348.5, 371.5, 394.0, 416.0, 437.5, 459.0, 480.5, 502.0)
-CELL_HALF_WIDTH = 10.8
+CENTRES_PER100 = (162.98, 184.10, 205.17, 226.29, 247.42, 268.53, 289.65, 310.77)
+CENTRES_PER = (346.22, 368.66, 391.17, 412.29, 433.41, 454.53, 475.65, 496.78)
+CELL_HALF_WIDTH = 10.5
 EDGE_SLACK = 1.5
 X_NAME_MAX = 148.0          # a word starting left of this is part of the name column; numbers start at 153 or later
 X_FLAG_MIN = 505.0          # allergen PDF: the "Suitable for Vegetarians" column
@@ -49,7 +50,7 @@ MAX_WORD_HEIGHT = 12.0      # rotated column labels come out as tall words
 
 # Section lines as printed (bold in the PDF). "top" = main heading, "sub" = heading under a main heading.
 HEADINGS = {
-    "HALLOWEEN RANGE 2026": "top", "Rolls & Breads": "top", "Freshly Baked Savouries": "top", "Fresh Cream Cakes": "top",
+    "HALLOWEEN RANGE 2026": "top", "CHRISTMAS RANGE 2026": "top", "Rolls & Breads": "top", "Freshly Baked Savouries": "top", "Fresh Cream Cakes": "top",
     "Small Cream Cakes": "sub", "Large Cream Cakes": "sub", "Tea Breads & Iced Tea Breads": "top", "Tea Breads": "sub",
     "Seasonal Tea Bread": "sub", "Iced Tea Breads": "sub", "Small Cakes & Large Cakes": "top", "Small Cakes": "sub",
     "Large Cakes": "sub", "Components Of Hot Filled Rolls": "top", "Rolls with Butter": "top", "Hot Rolls": "top", "Soup": "top",
@@ -57,6 +58,11 @@ HEADINGS = {
     "Filled Rolls": "top", "Filled Morning Rolls": "sub", "Filled Rye Rolls": "sub", "Simply Morning Roll Range": "sub",
     "Filled Dark Fired Rolls": "sub", "Filled Granary Rolls": "sub", "Filled Baguettes": "sub", "Filled Batons": "sub",
 }
+# A seasonal range (version 110, 04.11.26: "CHRISTMAS RANGE 2026") prints its own "Large Cakes", "Small Cakes" and "Freshly Baked Savouries"
+# under its title, before the everyday sections of the same names. Inside such a range those headings are read as the range's own sections,
+# keyed "CHRISTMAS RANGE 2026 / Large Cakes"; the next other top heading ("Rolls & Breads") ends the range.
+SEASONAL_TOPS = {"CHRISTMAS RANGE 2026"}
+SEASONAL_SUBS = {"Large Cakes", "Small Cakes", "Freshly Baked Savouries"}
 # Names printed on two lines: first line -> second line (either may sit on the row's own line). The allergen PDF breaks
 # "Tuna Mayonnaise, Red Onion & Tomato Chutney" one word later than the nutrition PDF, hence two entries.
 WRAPS = {
@@ -66,7 +72,7 @@ WRAPS = {
     "Tuna Mayonnaise, Red Onion & Tomato": "Chutney",
 }
 # Words that make up the column headers of the nutrition PDF (a line made only of these is skipped).
-NUTRITION_HEADER_WORDS = {"PER", "100g", "OF", "PRODUCT", "NUTRITIONAL", "INFORMATION", "DATE", "ISSUE", "06.10.26", "(g)", "(kj)", "(kcal)",
+NUTRITION_HEADER_WORDS = {"PER", "100g", "OF", "PRODUCT", "NUTRITIONAL", "INFORMATION", "DATE", "ISSUE", "04.11.26", "(g)", "(kj)", "(kcal)",
                           "ENERGY", "FAT", "SATURATES", "CARBOHYDRATE", "TOTAL", "SUGARS", "PROTEIN", "SALT"}
 FLAGS = {"YES", "NO", "YES*", "NO**", "NO*", "YES**"}
 
@@ -136,7 +142,9 @@ def _resolve(events: list[list], where: str) -> list[dict]:
                 continue  # consumed above, or a footnote ("**Contains colours which may cause hyperactivity in children")
             raise SystemExit(f"{where}: a text line that is neither a known heading nor a product name: {e[1]!r}. Check HEADINGS.")
         if e[0] == "H":
-            if HEADINGS[e[1]] == "top":
+            if top in SEASONAL_TOPS and e[1] in SEASONAL_SUBS:
+                sub = f"{top} / {e[1]}"   # a heading inside a seasonal range is that range's own section, not the everyday one
+            elif HEADINGS[e[1]] == "top":
                 top, sub = e[1], None
             else:
                 sub = e[1]

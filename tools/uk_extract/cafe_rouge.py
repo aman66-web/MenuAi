@@ -151,11 +151,11 @@ NOTE = ("Per portion as printed on the chain's menu pages. Wines, cocktails and 
 # "Nuts / Tree Nuts (Walnuts)"), and "Nuts" alone is printed only for the chestnut soups (Mushroom & Chestnut Soup:
 # "Contains: Nuts / Cereals (Wheat)", with "Tree Nuts (...)" under "May contain"). So the word is skipped, never read as tree nuts.
 ALLERGEN_IGNORE = {"nuts"}
-ALLERGEN_TITLE = "Cafe Rouge Dietary Information (allergens) on its online Main, Desserts, Lunch, Kids, Breakfast and Drinks menus (Ten Kites page generated 2026-10-06)"
+ALLERGEN_TITLE = "Cafe Rouge Dietary Information (allergens) on its online Main, Desserts, Lunch, Kids, Breakfast and Drinks menus (Ten Kites page generated 2026-11-17)"
 
 if __name__ == "__main__":
     sys.exit(t.run(
         chain_id="cafe-rouge", name="Cafe Rouge", cuisine="French", aliases=["cafe rouge", "café rouge"], url=URL,
-        source_title="Cafe Rouge Nutritional Values: Main, Desserts, Lunch, Kids, Breakfast and Drinks menus (page generated 2026-10-06)",
+        source_title="Cafe Rouge Nutritional Values: Main, Desserts, Lunch, Kids, Breakfast and Drinks menus (page generated 2026-11-17)",
         tabs=TABS, classify=classify, category_order=CATEGORY_ORDER, expected_rows=EXPECTED, note=NOTE, holdback=HOLDBACK,
         allergen_title=ALLERGEN_TITLE, allergen_ignore=ALLERGEN_IGNORE))

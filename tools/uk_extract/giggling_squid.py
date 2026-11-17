@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build data/source/giggling-squid/ from Giggling Squid's official allergen and nutrition guide.
 
-    python3 tools/uk_extract/giggling_squid.py --checked-on 2026-10-06 [--pages DIR] [--out DIR]
+    python3 tools/uk_extract/giggling_squid.py --checked-on 2026-11-17 [--pages DIR] [--out DIR]
 
 Source: https://viewthe.menu/kawv (the "allergens guide" linked from gigglingsquid.com/allergies; a 10kites page, one
 menu per ?mguid=<menu id>). Pages are saved once into --pages (default: a temp folder; delete it to refresh) at one request
@@ -26,7 +26,6 @@ BASE_URL = "https://viewthe.menu/kawv"
 MENUS = [
     ("allday", "11c21866-7868-4ec0-8c8a-e777ececea13", "all day menu", "all day menu"),
     ("kids", "20d2863a-54dc-4868-ada5-01afdfd34921", "kids menu", "kids menu"),
-    ("bigsquids", "ae80ad4c-19b9-4a36-b933-0c072bd023cf", "Big Squids menu", "Big Squids menu"),
     ("drinks", "9005ec07-1907-4e85-871d-ebbc27759c83", "drinks menu", "drinks menu"),
     ("nongluten", "f15460de-758a-4375-8b61-c4559ac7e0db", "non gluten menu", "non gluten menu"),
     ("clickcollect", "368298f3-1bd8-4a3d-802d-d689766481e4", "click & collect", "click & collect menu"),
@@ -35,7 +34,8 @@ MENUS = [
 ]
 FETCH = {m[0]: m[1] for m in MENUS if m[1]}
 # Left out on purpose: Billericay Menu (one restaurant), Festive Menu 2026 (seasonal, over before the app launches),
-# Barclays Premier Dining Experience, Travel Trade Lunch Menu, Group Set Menu, Private Dining (set menus for groups/offers).
+# Pre Theatre Menu, Group Set Menu, Private Dining (set menus for groups/offers). The Big Squids menu (ae80ad4c-...) was
+# no longer in the menu list on 2026-11-17 (its address served the All Day menu), so it was dropped.
 SKIPPED_SECTIONS = {"Giggling Bundles"}  # Deliveroo / click & collect bundles for 1, 2 or 4 people (combos of other dishes)
 
 TOP = {
@@ -65,9 +65,9 @@ HOLDBACK: dict[str, str] = {
 
 # The same pages print each dish's allergens three ways (the 14 yes/may/no columns, the card's "Contains:" / "May contain:"
 # lines naming the cereals and tree nuts, and the dish's label ids); tenkites_b.allergens_from_rec checks they agree.
-ALLERGEN_TITLE = "Giggling Squid allergens guide (viewthe.menu/kawv, files dated 6 October 2026)"
+ALLERGEN_TITLE = "Giggling Squid allergens guide (viewthe.menu/kawv, read 17 November 2026; no date shown)"
 
-EXPECTED_ROWS = 681
+EXPECTED_ROWS = 651  # 681 with the Big Squids menu (withdrawn by 2026-11-17)
 
 
 def is_kids_set(rec: dict) -> bool:
@@ -138,8 +138,8 @@ def main() -> int:
         return 1
     folder = write_chain_folder(
         chain_id=CHAIN_ID, name="Giggling Squid", cuisine="Thai",
-        source_title="Giggling Squid allergens and nutrition guide (viewthe.menu/kawv; all day, kids, Big Squids, drinks, non gluten, "
-                     "click & collect and Deliveroo menus, files dated 6 October 2026)",
+        source_title="Giggling Squid allergens and nutrition guide (viewthe.menu/kawv; all day, kids, drinks, non gluten, "
+                     "click & collect and Deliveroo menus, read 17 November 2026; no date shown)",
         source_url=BASE_URL, checked_on=args.checked_on,
         aliases=["giggling squid", "the giggling squid"], items=items, out=args.out,
         holdback=[(slug(tk.fold(n)), why) for n, why in HOLDBACK.items()],

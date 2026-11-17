@@ -1,8 +1,8 @@
-"""Read dim t's own "Main menu ALLERGEN INFORMATION" PDF (V1, 14.08.2026, 25 pages) into one row per dish. Python 3.9.
+"""Read dim t's own "Main menu ALLERGEN INFORMATION" PDF (V1, 14.10.2026, 21 pages; until October V1 14.08.2026, 25 pages) into one row per dish. Python 3.9.
 
-Used by tools/uk_extract/dim_t.py. Needs `pdftotext` and `pdftoppm` (poppler) and Pillow. Nothing is guessed. Pages 2-7 hold the
+Used by tools/uk_extract/dim_t.py. Needs `pdftotext` and `pdftoppm` (poppler) and Pillow. Nothing is guessed. Pages 2-6 hold the
 allergen matrix as tables (a title such as "Small eats", a header row, then one row per dish: the dish name in capitals and one
-column per allergen; "Y" marks an allergen, and the "Cereals With Gluten" and "Nuts" cells name the cereals / the nut). Pages 8-25
+column per allergen; "Y" marks an allergen, and the "Cereals With Gluten" and "Nuts" cells name the cereals / the nut). Pages 7-21
 are per-recipe ingredient lists (not a per-dish matrix) and are not read.
 
 How it is read (by position, never by counting rows):
@@ -37,7 +37,7 @@ COLUMN_KEYS = ["celery", "gluten", "crustaceans", "eggs", "fish", "lupin", "milk
                "soya", "sulphites"]
 HEADER_FIRST_WORDS = ["Celery", "Cereals", "Crust-", "Egg", "Fish", "Lupin", "Milk", "Molluscs", "Mustard", "Nuts", "Peanuts", "Sesame",
                       "Soybeans", "Sulphur"]
-PAGES = range(2, 8)             # the matrix pages
+PAGES = range(2, 7)             # the matrix pages
 FRYER = re.compile(r"the oil in our fryers will contain traces of allergens including (.*?)\.")
 F_LEGEND = "Items marked (F) – These items are fried as part of the preparation or cooking process."
 

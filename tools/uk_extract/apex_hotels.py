@@ -49,20 +49,20 @@ RESTAURANTS = [
 READ = ("breakfast", "brunch", "alc", "bar", "dessert")
 SKIP = ("ird", "night", "wine", "drinks", "afternoon", "kids", "set", "sunday-roast", "tasting", "festive", "christmas")
 SOURCE_TITLE = ("Apex Hotels restaurant menus in England: Chambers (Apex Temple Court), The Lampery (Apex City of London) and The Orange "
-                "Artichoke (Apex City of Bath), spring/summer 2026 PDFs")
+                "Artichoke (Apex City of Bath), autumn/winter 2026 PDFs (breakfast menus spring/summer 2026 and June 2025)")
 ALIASES = ["apex hotels", "apex hotel", "the lampery", "the orange artichoke"]
 NOTE = ("Calories as printed on the menus of Apex's restaurants in England (Chambers and The Lampery in London, The Orange Artichoke in "
         "Bath); its Scottish hotels' menus print none. Menus differ by restaurant: a dish is listed only where two or more of them print "
         "the same figure.")
 # Dishes that agree under one name in London but which The Orange Artichoke prints, under a slightly different name, with another figure:
 # held back (holdback.csv), never chosen between. Keyed by images_common.norm_name of the published name.
+# Re-read 2026-11-17 (autumn/winter 2026 menus): the October entries for "burrata" (now printed at The Orange Artichoke only) and
+# "truffle and parmesan fries" (now 311 kcal at Chambers but 318 kcal on two Lampery menus, so not published by the 2+ rule) no longer match a dish.
 HOLD = {
-    "cheese selection": "Chambers and The Lampery print 361 kcal, but The Orange Artichoke's dessert menu prints 423 kcal for its 'Artisan Cheese "
+    "cheese selection": "Chambers and The Lampery print 572 kcal, but The Orange Artichoke's dessert menu prints 428 kcal for its 'Artisan Cheese "
                         "Selection': possibly the same dish under a longer name, so not published",
-    "truffle and parmesan fries": "Chambers and The Lampery print 311 kcal, but The Orange Artichoke prints 573 kcal for 'Parmesan & Truffle Fries' "
-                                  "(the same words in another order): not published",
-    "burrata": "Chambers and The Lampery print 378 kcal, but The Orange Artichoke prints 518 kcal for its 'Burrata Salad': possibly the same "
-               "dish under a longer name, so not published",
+    "rosemary fries": "Chambers and The Lampery print 321 kcal, but The Orange Artichoke prints 481 kcal for its 'Rosemary Salted Fries': possibly "
+                      "the same dish under a longer name, so not published",
 }
 KCAL = re.compile(r"\((\d[\d,]*)\s*kcal\)", re.I)
 LIGATURE = re.compile(r"(?<=[a-z]) ?(ffi|ffl|ff|fi|fl) (?=[a-z])")

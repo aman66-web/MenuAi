@@ -47,8 +47,8 @@ NOTES = {"Sirloin 8oz": "The steak only: the side (fries or roasted potatoes, li
 # of the listed allergens"; the steak, its sides and sauces in the dish data the page embeds) and carries the label ids of
 # its own allergen filter; tenkites_c.allergens_checked cross-checks the two.
 ALLERGEN_EXTRA = {"sulphur dioxide/ sulphites": ("sulphites", None)}   # printed with a space after the slash
-ALLERGEN_TITLE = "Carluccio's Allergen & Nutrition Information, All Day Menu (Ten Kites hub page, no date printed; read 2026-10-06)"
-SOURCE_TITLE = "Carluccio's Allergen & Nutrition Information, All Day Menu (hub page, no date printed; read 2026-10-06)"
+ALLERGEN_TITLE = "Carluccio's Allergen & Nutrition Information, All Day Menu (Ten Kites hub page, no date printed; read 2026-11-17)"
+SOURCE_TITLE = "Carluccio's Allergen & Nutrition Information, All Day Menu (hub page, no date printed; read 2026-11-17)"
 NOTE = ("Figures are per menu item from Carluccio's All Day Menu, calculated by the chain from typical weights and measures. "
         "Its separate Pizza, Kids, Dessert and other menus are not included; dishes marked * are on the set menu.")
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Build data/source/coffee-1/ from Coffee #1's three official PDFs (food guide, core beverage guide, autumn beverage guide).
+"""Build data/source/coffee-1/ from Coffee #1's three official PDFs (food guide, core beverage guide, festive food & beverage guide).
 
-    python3 tools/uk_extract/coffee_1.py --food food.pdf --core-drinks core-beverages.pdf --autumn-drinks autumn-beverages.pdf \
-        --checked-on 2026-10-06
+    python3 tools/uk_extract/coffee_1.py --food food.pdf --core-drinks core-beverages.pdf --festive festive.pdf \
+        --checked-on 2026-11-17
 
 Numbers are copied from the PDFs exactly as printed, PER PORTION (food: the "per portion (g)" column; drinks: the "Per
 product" / "Per serving" block), including kJ (energy_kj) and the food's printed "Portion weight (g)" (weight_g). The
@@ -12,12 +12,16 @@ a product (food), adds or removes a drink or a size (beverages), or if a page no
 `coffee_1_pdf.py` reads, so a human re-checks the lists below.
 
 Sources (all linked from https://www.coffee1.co.uk/allergy-advice/; the file names change with every issue, so re-read that page):
-    food     https://www.coffee1.co.uk/wp-content/uploads/2026/09/C1-Core-Food-Sept-2026-Issue-Date-0409-V57.pdf
+    food     https://www.coffee1.co.uk/wp-content/uploads/2026/10/C1-Core-Food-Oct-2026-Issue-Date-1910.pdf   (version 59, issue date 16/10/26)
     core     https://www.coffee1.co.uk/wp-content/uploads/2026/04/C1-Core-Beverage-Allergen-Nutritional-Information-April-26-v1.pdf
-    autumn   https://www.coffee1.co.uk/wp-content/uploads/2026/08/C1-Autumn-Beverage-Allergen-Nutritional-Information-Sept-2026.pdf
+    festive  https://www.coffee1.co.uk/wp-content/uploads/2026/10/C1-Festive-Food-Beverage-Information-Nov-2026-Issue-Date-0511.pdf
+             (version 59, issue date 05/11/26: allergen matrix p4, food p6-7, drinks p9-12; p5 is the worked example)
+Until 17 Nov 2026 the food guide was version 57 (.../2026/09/C1-Core-Food-Sept-2026-Issue-Date-0409-V57.pdf) and the third
+file the Autumn beverage guide (.../2026/08/C1-Autumn-Beverage-Allergen-Nutritional-Information-Sept-2026.pdf).
 
 Left out on purpose (each is listed again in the final report):
-  * Food guide page 9: "Apricot Croissant" is the worked example in "How to use this guide", not a menu row.
+  * Food guide page 9 and festive guide page 5: "Apricot Croissant" is the worked example in "How to use this guide", not a
+    menu row (the food pages are read from page 10, the festive food from pages 6-7).
   * Core beverage guide page 32: "Milk & dairy alternatives" (per 100 ml only, no per-product values) and "Sweetbird syrups &
     sauces" (per 15 ml / per 22.5 ml measures, not a product serving).
   * The guides carry no Ireland / Northern Ireland / trial / selected-store markings, so nothing is dropped for region.
@@ -34,8 +38,8 @@ from common import ROOT, allergen_words, sha256_file, slug, write_chain_folder  
 
 CHAIN_ID = "coffee-1"
 SOURCE_PAGE = "https://www.coffee1.co.uk/allergy-advice/"
-SOURCE_TITLE = ("Coffee #1 Allergens, Ingredients and Nutrition Guide, version 57 (issue date 04/09/26); Core Beverage Allergen "
-                "Nutritional Information (issued 08.04.26); Autumn Beverage Allergen Nutritional Information (issued 02.09.26)")
+SOURCE_TITLE = ("Coffee #1 Allergens, Ingredients and Nutrition Guide, version 59 (issue date 16/10/26); Core Beverage Allergen "
+                "Nutritional Information (issued 08.04.26); Festive Food & Beverage Information, version 59 (issue date 05/11/26)")
 ALIASES = ["coffee 1", "coffee #1", "coffee#1", "coffee no 1", "coffee number one", "coffee one"]
 
 # ---------------------------------------------------------------------------------------------------------------- food
@@ -57,19 +61,16 @@ FOOD: list[tuple[str, str | None, str, bool]] = [
     ("Yogurt & Seeds with Blueberry & Honey", None, GY, True), ("Yogurt & Seeds with Banana & Honey", None, GY, True),
     ("Ginger Cake", None, CK, False), ("Banana & Chocolate Loaf Cake", None, CK, False), ("Lemon Drizzle Cake", None, CK, False),
     ("Welsh Cake", None, CK, False), ("Victoria Sponge Cake", None, CK, False), ("Coffee and Caramel Cake", None, CK, False),
-    ("Carrot Cake", None, CK, False), ("Speculoos Blondie", None, CK, False), ("Raspberry & Coconut Cake", None, CK, False),
-    ("Deluxe Dark Chocolate Cake", None, CK, False), ("Blueberry Muffin", None, CK, False),
+    ("Carrot Cake", None, CK, False), ("Speculoos Blondie", None, CK, False),
+    ("Blueberry Muffin", None, CK, False),
     ("Sicilian Lemon Curd Muffin", None, CK, False),
     ("Salted Caramel Brownie", None, TB, False), ("Caramel Shortbread", None, TB, False), ("Triple Chocolate Brownie", None, TB, False),
     ("Rocky Road", None, TB, False), ("Yoghurt Apple & Blackcurrant Flapjack", None, TB, False),
     ("Blackberry & Apple Crumble Jack", None, TB, False), ("Maple Syrup Flapjack", None, TB, False),
-    ("Mango & Passionfruit Tart", None, TP, False), ("Bakewell Tart", None, TP, False),
-    ("Lemon Merringue Pie", "Lemon Meringue Pie", TP, False),  # spelling fixed in the name only
     ("Portuguese Tarts", None, TP, False), ("Caramel Apple Crumble Pie", None, TP, False),
     ("Caramel Apple Crumble Pie with Whipped Cream", None, TP, False), ("Almond & Cherry Bakewell Tart", None, TP, False),
     ("Sticky Toffee Pudding with whipped cream", None, TP, False), ("Sticky Toffee Pudding", None, TP, False),
     ("Cookies & Cream Slice", None, TP, False), ("Salted Caramel Slice", None, TP, False),
-    ("Starwberries & Clotted Cream Slice", "Strawberries & Clotted Cream Slice", TP, False),  # spelling fixed in the name only
     ("Lotus Biscoff Cheesecake", None, TP, False),
     ("Triple Chocolate Cookie", None, BC, False), ("Milk Chocolate Cookie", None, BC, False), ("Gingerbread Man", None, BC, False),
     ("Pistachio Crème Cookie", None, BC, False), ("Lotus Biscuits", None, BC, False), ("Shortbread", None, BC, False),
@@ -88,12 +89,24 @@ FOOD: list[tuple[str, str | None, str, bool]] = [
     ("Chicken Tikka Flatbread", None, SW, True), ("Chicken & Pepper Focaccia", None, SW, True),
 ]
 
+# The festive guide's food (pages 6-7), in its reading order. All limited time (the guide is the Christmas range).
+FF = "Festive food"
+FESTIVE_FOOD: list[tuple[str, str | None, str, bool]] = [
+    ("Black Forest Slice", None, FF, False), ("Glazed Fruit Cake", None, FF, False),
+    ("Baked Cranberry & Orange Cheesecake", None, FF, False), ("Mince Pie", None, FF, False), ("Stollen Bites", None, FF, False),
+    ("Brie & Cranberry Ciabatta", None, FF, True), ("Pigs n Blankets Ciabatta", None, FF, True), ("Festive Focaccia", None, FF, True),
+    ("Festive Yorkshire Pudding Wrap", None, FF, True),
+]
+# Where the festive guide's product-name column ends on its pages (names end at x 132, ingredients start at 133: see
+# coffee_1_pdf._food_pages).
+FESTIVE_NAME_X1 = 132.5
+
 FOOD_FIELDS = {"Kcal": "calories", "Protein": "protein_g", "Carbs": "carbs_g", "Fat": "fat_g", "Sat": "sat_fat_g",
                "Sugar": "sugar_g", "Fibre": "fiber_g", "Salt": "salt_g"}
 REQUIRED = ("Kcal", "Protein", "Carbs", "Fat")
 NUMBER = re.compile(r"^<?\d+(?:\.\d+)?$")
 PORK = re.compile(r"\b(pork|bacon|ham|sausages?|salami|chorizo|pepperoni|gammon|prosciutto)\b", re.I)
-BEEF = re.compile(r"\b(beef|steak)\b", re.I)
+BEEF = re.compile(r"\b(beef|steak|bovine)\b", re.I)  # bovine: the festive Black Forest Slice prints "bovine gelatine"
 MEAT = re.compile(r"\b(ham|bacon|pork|sausages?|beef|chorizo|salami|pepperoni|gelatine?|lard|chicken|tuna|fish|turkey|lamb|steak|"
                   r"prawns?|anchov\w+|cured)\b", re.I)
 
@@ -118,12 +131,14 @@ def serving_label(printed: str) -> str:
     return re.sub(r"\.0+$", "", printed)  # '125.00' is shown as '125'; the nutrient numbers themselves are never touched
 
 
-def build_food(food_pdf: Path) -> tuple[list[dict], list[str], list[str], list[str]]:
+def build_food(food_pdf: Path, food: list | None = None, pages: tuple = (10, None), matrix_pages: tuple = (4, 8),
+               name_x1: float | None = None, limited: bool = False) -> tuple[list[dict], list[str], list[str], list[str]]:
     """(items, anomalies, meat_type_not_stated, allergen_report)"""
+    FOOD_LIST = FOOD if food is None else food
     unassigned: list = []
-    blocks = pdf.food_blocks(food_pdf, unassigned)
+    blocks = pdf.food_blocks(food_pdf, unassigned, first=pages[0], last=pages[1], name_x1=name_x1)
     printed = [clean_food_name(b["name_text"]) for b in blocks]
-    typed = [f[0] for f in FOOD]
+    typed = [f[0] for f in FOOD_LIST]
     if [p[0] for p in printed] != typed:
         only_pdf = [p[0] for p in printed if p[0] not in typed]
         only_script = [t for t in typed if t not in [p[0] for p in printed]]
@@ -135,10 +150,10 @@ def build_food(food_pdf: Path) -> tuple[list[dict], list[str], list[str], list[s
         caps = [t for t in CAPS_TOKEN.findall(text) if len(t) >= 2 and t.isupper() and is_allergen_word(t)]
         if caps:
             raise SystemExit(f"food guide p{pno}: allergen capitals {caps} in text that belongs to no product: {text!r}")
-    matrix = food_matrix_allergens(food_pdf, allergen_report)
-    for block, (pname, marked), (_, display, category, rankable) in zip(blocks, printed, FOOD):
+    matrix = food_matrix_allergens(food_pdf, allergen_report, *matrix_pages)
+    for block, (pname, marked), (_, display, category, rankable) in zip(blocks, printed, FOOD_LIST):
         row = block["rows"]
-        item = {"name": display or pname, "category": category, "rankable": rankable, "limited_time": False, "tags": []}
+        item = {"name": display or pname, "category": category, "rankable": rankable, "limited_time": limited, "tags": []}
         item["allergens"] = food_allergens(block, pname, display or pname, matrix, allergen_report)
         notes = []
         for label, field in FOOD_FIELDS.items():
@@ -159,8 +174,11 @@ def build_food(food_pdf: Path) -> tuple[list[dict], list[str], list[str], list[s
             raise SystemExit(f"{pname}: KJ has {len(row['KJ'])} numbers, expected per-100 g and per-portion")
         item["energy_kj"] = printed_number(row["KJ"][1], f"{pname} KJ")
         # tags: from the guide's own marks and ingredient lists only
-        text = pname + " " + block["ingredients"]
-        meat = sorted({m.group(0).lower() for m in MEAT.finditer(block["ingredients"])})
+        # the whole declaration (its paragraphs), not only the words level with the nutrition rows: a long declaration
+        # runs below them (Cookies & Cream Slice's "Beef Gelatine" and its PLEASE NOTE line were missed that way)
+        declaration = " ".join(t for t, _ in block["ingredient_lines"])
+        text = pname + " " + declaration
+        meat = sorted({m.group(0).lower() for m in MEAT.finditer(declaration)})
         if marked and meat:
             anomalies.append(f"{pname}: marked vegetarian ((V)) in the guide but its ingredients list {meat}; no vegetarian tag")
             notes.append(f"Guide marks this (V) but the ingredients list {', '.join(meat)}: not tagged vegetarian")
@@ -211,7 +229,7 @@ ALLERGEN_EXTRA = {
 }
 # Words the declarations print in capitals that are not allergens (checked by eye in the guide); any other capital word
 # stops the run.
-NOT_ALLERGENS = {"PLEASE", "NOTE", "RSPO", "SG", "MB"}
+NOT_ALLERGENS = {"PLEASE", "NOTE", "RSPO", "SG", "MB", "UHT", "GF"}  # UHT, GF: festive guide ("UHT whippable topping", "GF Vanilla Muffin Mix")
 # item id -> (the matrix row's printed name, why the product is not published): the food guide's two printed allergen
 # lists (the matrix on pages 4-8 and the bold capitals in the product's ingredient declaration) disagree, so neither can
 # be shown as the product's allergens. Found by the exact-name cross-check, and for products the matrix names differently
@@ -221,14 +239,6 @@ ALLERGEN_CONFLICTS: dict[str, tuple[str, str]] = {
     "pistachio-croissant": ("Pistachio Croissant",
                             "The guide's allergen matrix marks Egg but the product's ingredient declaration names no egg "
                             "(both otherwise agree: wheat, milk, soya, pistachio), so its allergens cannot be shown."),
-    "bakewell-tart": ("Bakewell Tart",
-                      "The product's ingredient declaration names SOYA (soya protein concentrate in the sponge) but the "
-                      "guide's allergen matrix does not mark Soya (both otherwise agree: wheat, sulphites, almond), so its "
-                      "allergens cannot be shown."),
-    "mango-and-passionfruit-tart": ("Passionfruit & Mango Tart",
-                                    "The product's ingredient declaration names EGG (dried egg white) but the guide's allergen "
-                                    "matrix row 'Passionfruit & Mango Tart' does not mark Egg (both otherwise agree: wheat, "
-                                    "milk, sulphites), so its allergens cannot be shown."),
 }
 CAPS_TOKEN = re.compile(r"[A-Z]+(?![a-z])|[A-Z]?[a-z]+")
 
@@ -247,6 +257,16 @@ def capital_allergens(text: str, mask: str, where: str) -> tuple[list[tuple[str,
     neither an allergen nor in NOT_ALLERGENS stops the run; so does any "may contain" / "traces" text."""
     if re.search(r"may contain|traces", text, re.I):
         raise SystemExit(f"{where}: the declaration prints may-contain information: read it, then set may_contain_published")
+    # the festive guide glues an allergen in capitals to the next word ("(WHEATflour, ...", "WHEATstarch"): split a capital run
+    # that is an allergen word from the lower-case letter that follows it, so the capitals are read as the word they are
+    i = 1
+    while i < len(text):
+        j = i
+        while j > 0 and text[j - 1].isupper():
+            j -= 1
+        if text[i].islower() and i - j >= 2 and is_allergen_word(text[j:i]):
+            text, mask = text[:i] + " " + text[i:], mask[:i] + "." + mask[i:]
+        i += 1
     toks = [(m.start(), m.end(), m.group(0)) for m in CAPS_TOKEN.finditer(text)]
     caps = [t for t in toks if len(t[2]) >= 2 and t[2].isupper()]
     phrases: list[list[tuple[int, int, str]]] = []
@@ -314,8 +334,8 @@ def matrix_key(name: str) -> str:
     return " ".join(re.sub(r"[^a-z0-9]+", " ", s).split())
 
 
-def food_matrix_allergens(food_pdf: Path, report: list[str]) -> dict[str, tuple]:
-    rows, problems = pdf.food_allergen_matrix(food_pdf)
+def food_matrix_allergens(food_pdf: Path, report: list[str], first: int = 4, last: int = 8) -> dict[str, tuple]:
+    rows, problems = pdf.food_allergen_matrix(food_pdf, first, last)
     report += problems
     out: dict[str, tuple] = {}
     for r in rows:
@@ -335,7 +355,7 @@ def drink_allergens(product: dict, where: str) -> dict:
 # -------------------------------------------------------------------------------------------------------------- drinks
 HC, HH, SD, IC, CF, IM, FR, MS, SQ, KD, AD, ADD = (
     "Hot coffee", "Hot chocolate", "Speciality drinks", "Iced coffee", "Cold foam", "Iced matcha", "Frappes", "Milkshakes",
-    "Smoothies & quenchers", "Kids' drinks", "Autumn drinks", "Add-ons")
+    "Smoothies & quenchers", "Kids' drinks", "Festive drinks", "Add-ons")
 
 # printed section heading (ALL CAPS, without 'NEW') -> (category, number of drink variants the script expects). A heading
 # that is not listed, or a different number, stops the script.
@@ -357,10 +377,10 @@ CORE_SECTIONS: dict[str, tuple[str, int]] = {
     "BABYCCINO": (KD, 5), "BABY HOT CHOCOLATE": (KD, 5), "VANILLA BABYSHAKE": (KD, 5), "CHOCOLATE BABYSHAKE": (KD, 5),
     "STRAWBERRY BABYSHAKE": (KD, 5),
 }
-AUTUMN_SECTIONS: dict[str, tuple[str, int]] = {
-    "CARAMEL PUMPKIN SPICE LATTE": (AD, 5), "CARAMEL PUMPKIN SPICE HOT CHOCOLATE": (AD, 5), "WHITE CHOCOLATE MATCHA": (AD, 10),
-    "TOASTED MARSHMALLOW ICED MATCHA": (AD, 5), "CINNAMON BUN ICED MATCHA": (AD, 5), "MATCHA CORTADO": (AD, 5),
-    "ICED MATCHA CORTADO": (AD, 5), "CORTADO": (AD, 5),
+FESTIVE_SECTIONS: dict[str, tuple[str, int]] = {
+    "BLACK FOREST HOT CHOCOLATE": (AD, 5), "PRALINE HOT CHOCOLATE": (AD, 5), "GINGERBREAD LATTE": (AD, 5),
+    "ESPRESSO MARTINI LATTE": (AD, 5), "ESPRESSO MARTINI ICED LATTE": (AD, 5), "ESPRESSO MARTINI ICED AMERICANO": (AD, 1),
+    "GINGERBREAD MATCHA": (AD, 5), "ICED GINGERBREAD MATCHA": (AD, 5),
 }
 # Core beverage guide, page 32: only "EXTRAS" is read (per 100 g / per serving, serving size not printed); the other two
 # tables on that page are left out (see the module docstring) but must still be there, so a change is noticed.
@@ -413,9 +433,10 @@ def section_key(section: str) -> str:
 
 
 def build_drinks(drinks_pdf: Path, sections: dict[str, tuple[str, int]], limited: bool, label: str,
-                 left_out: dict[str, int] | None = None, addons: dict[str, int] | None = None) -> tuple[list[dict], list[str], list[str]]:
+                 left_out: dict[str, int] | None = None, addons: dict[str, int] | None = None,
+                 pages: tuple = (None, None)) -> tuple[list[dict], list[str], list[str]]:
     """(items, anomalies, left_out_report)"""
-    products = pdf.drink_products(drinks_pdf)
+    products = pdf.drink_products(drinks_pdf, *pages)
     counts: dict[str, int] = {}
     for p in products:
         counts[section_key(p["section"])] = counts.get(section_key(p["section"]), 0) + 1
@@ -484,12 +505,16 @@ HOLDBACK: dict[str, str] = {
     "macchiato-whole-milk-double": "Double values are identical to Single in every column, while the other milks' Double is about twice Single; the row's per-100 ml would make it a 26 ml drink.",
     "hot-chocolate-deluxe-soya-milk-large": "Per-product values (529 kcal, 22 g protein) and per-100 ml values (82 kcal) imply a cup of about 640 ml, against about 370 ml for the other milks and 396 kcal for the Regular row.",
     "hot-chocolate-deluxe-coconut-milk-large": "Per-product values (505 kcal, 17 g protein) and per-100 ml values (77 kcal) imply a cup of about 650 ml, against about 370 ml for the other milks and 375 kcal for the Regular row.",
-    "iced-white-chocolate-matcha-soya-milk-regular": "The per-product block is a copy of the per-100 ml block (251 kJ, 59 kcal), so it is not the values for a regular cup (the Large row is 156 kcal).",
     # independent accuracy check, 8 Oct 2026: the printed kJ and kcal of the same row disagree (kJ/kcal = 4.50, kcal x 4.184 = 1,514 kJ),
     # and 4P+4C+9F = 395 kcal sides with the kJ, so the guide's own figures contradict each other and none can be trusted
     # independent accuracy check, 8 Oct 2026: the guide's key defines (GF) as tested below the legal gluten threshold and prints (V/GF)
     # on this bar, yet its allergen matrix (p7) and declaration (p21) mark OAT, a cereal containing gluten: two statements about gluten
     "gf-caramel-jewel-bar": "The guide labels this bar (V/GF), and its key says GF products are tested below the legal gluten threshold, but its allergen matrix and ingredient declaration mark OATS (a cereal containing gluten), so what it says about gluten conflicts with itself.",
+    # festive guide (5 Nov 2026), page 6: the printed numbers contradict each other
+    "baked-cranberry-and-orange-cheesecake": "The kJ and kcal rows are swapped or wrong: it prints 298 kJ but 1,195 kcal per 100 g (and 318 kJ, 1,278 kcal per 107 g portion), while its fat, carbohydrate and protein give about 300 kcal, so the energy figures contradict the rest of the row.",
+    "stollen-bites": "Per-portion kcal (394) is the per-100 g figure again, while every other per-portion number (823 kJ, 10.9 g fat, 22.8 g carbohydrate...) is half of per 100 g for the printed 50 g portion, so the row contradicts itself.",
+    **{f"espresso-martini-latte-{milk}-milk-{size}": "The guide's recipe line says the drink is 'Topped with Skimmed Milk Cold Foam', but its ALLERGENS column marks no milk for this milk (oat, soya and coconut print only OAT or SOYA; the iced version of the same drink marks MILK), so its allergens cannot be trusted."
+       for milk in ("oat", "soya", "coconut") for size in ("regular", "large")},
     "banana-and-chocolate-loaf-cake": "Printed energy contradicts itself: 1,629 kJ (1,662 kJ per 100 g) is about 389 kcal, but the same row prints 362 kcal (369 kcal per 100 g); the printed macros (4.7 g protein, 54.4 g carbs, 17.6 g fat) also give about 395 kcal.",
 }
 
@@ -503,6 +528,7 @@ NUT_NAMED_DRINKS: dict[str, tuple[int, str]] = {
     "dubai-style-mocha-frappe-": (10, "The guide's recipe line says 'blended with chocolate and pistachio' but its ALLERGENS column marks no tree nut (milk or soya only), so its allergens cannot be trusted."),
     "praline-iced-latte-": (10, "The guide's recipe line says 'praline syrup' (praline is a nut confection) but its ALLERGENS column marks no tree nut, so its allergens cannot be trusted."),
     "caramel-praline-milkshake-": (10, "The guide's recipe line says 'praline syrup' (praline is a nut confection) but its ALLERGENS column marks no tree nut, so its allergens cannot be trusted."),
+    "praline-hot-chocolate-": (10, "The festive guide's recipe line says 'Praline Syrup' (praline is a nut confection) but its ALLERGENS column marks no tree nut (milk, soya, oat only), so its allergens cannot be trusted."),
 }
 
 NOTE = ("Each milk and size is its own row, as the guide prints it. Extra syrups, shots and toppings aren't included. "
@@ -513,20 +539,23 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--food", type=Path, required=True)
     ap.add_argument("--core-drinks", type=Path, required=True)
-    ap.add_argument("--autumn-drinks", type=Path, required=True)
+    ap.add_argument("--festive", type=Path, required=True, help="the festive food & beverage guide (food and drinks in one PDF)")
     ap.add_argument("--checked-on", required=True, help="YYYY-MM-DD, the day you read the three PDFs")
     ap.add_argument("--out", type=Path, default=ROOT / "data" / "source" / CHAIN_ID)
     args = ap.parse_args()
 
     try:
         food, f_anom, meat_unstated, allergen_report = build_food(args.food)
+        ffood, ff_anom, ff_meat, ff_allergens = build_food(args.festive, FESTIVE_FOOD, (6, 7), (4, 4), FESTIVE_NAME_X1, True)
         core, c_anom, c_skipped = build_drinks(args.core_drinks, CORE_SECTIONS, False, "core beverages", CORE_LEFT_OUT, CORE_ADDONS)
-        autumn, a_anom, _ = build_drinks(args.autumn_drinks, AUTUMN_SECTIONS, True, "autumn beverages")
+        festive, a_anom, _ = build_drinks(args.festive, FESTIVE_SECTIONS, True, "festive beverages", pages=(9, 12))
     except pdf.LayoutChanged as e:
         print(f"A PDF no longer has the layout coffee_1_pdf.py reads: {e}\nRe-check the PDF by eye before changing the reader.",
               file=sys.stderr)
         return 1
-    items = food + core + autumn
+    food, f_anom, meat_unstated, allergen_report = (food + ffood, f_anom + ff_anom, meat_unstated + ff_meat,
+                                                     allergen_report + ff_allergens)
+    items = food + core + festive
 
     ids = [slug(i["name"]) for i in items]
     dupes = sorted({x for x in ids if ids.count(x) > 1})
@@ -546,9 +575,9 @@ def main() -> int:
                        checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE,
                        holdback=sorted({**HOLDBACK, **conflicts}.items()),
                        allergen_guide={**ALLERGEN_GUIDE, "checked_on": args.checked_on})
-    print(f"wrote {len(items)} items to {args.out}: {len(food)} food, {len(core)} core drinks and add-ons, {len(autumn)} autumn drinks; "
+    print(f"wrote {len(items)} items to {args.out}: {len(food)} food ({len(ffood)} festive), {len(core)} core drinks and add-ons, {len(festive)} festive drinks; "
           f"{len(HOLDBACK) + len(conflicts)} held back ({len(conflicts)} for contradictory or doubtful allergen lists)")
-    for name, path in (("food", args.food), ("core beverages", args.core_drinks), ("autumn beverages", args.autumn_drinks)):
+    for name, path in (("food", args.food), ("core beverages", args.core_drinks), ("festive food & beverages", args.festive)):
         print(f"  {name}: sha256 {sha256_file(path)}")
     print(f"left out of core beverages p32 (per 100 ml only / per 15 ml-22.5 ml measures): {len(c_skipped)} rows")
     print(f"meat type not stated: {meat_unstated or 'none'}")

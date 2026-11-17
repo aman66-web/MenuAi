@@ -87,6 +87,7 @@ CHRISTMAS = re.compile(r"christmas|festive|xmas", re.I)
 # Independent re-read of the rendered pages 2026-10-09 (see docs/UK_DATA_STATUS.md); every one of these is printed identically at every pub.
 _NO_G = "allergen row contradicts the dish name: %s but no gluten is marked (neither 'Contains' nor 'May contain')"
 _MAY_G = "allergen row contradicts the dish name: %s but gluten is only under 'May contain', never 'Contains'"
+# 2026-11-17: "Cinnamon churros, chocolate sauce (ve)" and "Sauces - Béarnaise / Peppercorn / Chimichurri" left the menus (printed at no pub).
 HOLD_TEXT = {
     (False, "Butcombe beer-battered onion rings (v)"): "allergen row contradicts the dish name: beer-battered onion rings with no allergen marked at all (no gluten)",
     (False, "Buttermilk pancakes, West Country strawberries, compote, honey and pouring cream (v)"): _NO_G % "pancakes",
@@ -94,17 +95,24 @@ HOLD_TEXT = {
     (True, "Kids - BUTTERMILK PANCAKES (v) | Fresh fruit, honey"): _NO_G % "pancakes",
     (False, "Brownie baked Alaska, coffee ice cream, raspberry (v)"): _NO_G % "a brownie base",
     (False, "Dark chocolate and pecan brownie, toffee popcorn, salted honey ice cream (v) (veo)"): _MAY_G % "a brownie",
-    (False, "Cinnamon churros, chocolate sauce (ve)"): _NO_G % "churros",
     (False, "Seasonal fruit, apple, almond and oat crumble, vanilla custard or ice cream (v) (veo)"): _NO_G % "an oat crumble",
     (True, "Seasonal fruit crumble, custard or ice cream (v) (veo)"): _NO_G % "a crumble",
     (False, "Classic sticky toffee pudding, Two Drifters Rum and raisin ice cream (v)"): _NO_G % "a sticky toffee pudding",
+    # 2026-11-17 (winter menus): same kind of contradiction, found by the accuracy audit and read on the pages (pancakes at 12 pubs, the brownie at
+    # 9: no gluten marked at all; the arancini at 2: aioli on a (v) dish, not (ve), with eggs neither contained nor may-contained).
+    (False, "Buttermilk pancakes, smoked streaky bacon, whipped maple brown butter"): _NO_G % "pancakes",
+    (False, "Triple chocolate brownie, salted caramel, chocolate ice cream, almond wafers (v)"): _NO_G % "a brownie with wafers",
+    (False, "Wild mushroom arancini, truffle aioli, Pecorino (v) (veo)"):
+        "allergen row contradicts the dish name: truffle aioli on a vegetarian (not vegan) dish but no eggs are marked (neither 'Contains' nor 'May contain')",
     (False, "Little Biscoff doughnuts, salted caramel sauce, vanilla ice cream (v)(veo)"):
         "allergen row contradicts the dish name: a (v) dish served with vanilla ice cream but milk is only under 'May contain', never 'Contains'",
     (False, "Somerset charcuterie, pickles, sourdough focaccia, oil and vinegar"):
         "allergen row marks all 14 allergens, every gluten cereal and every tree nut as contained: a catch-all row, not a description of this board",
-    (False, "Breakfast sausage"): "figure contradicts the chain's own other figures: 760 kcal for one breakfast sausage is more than its Full English breakfast (594 kcal)",
+    # 2026-11-17 (independent re-read of the winter menus): the same catch-all row at both pubs that print this dish.
+    (False, "Chicken skewers, harissa honey, garlic yoghurt, dukkah"):
+        "allergen row marks all 14 allergens, every gluten cereal and every tree nut as contained: a catch-all row, not a description of this dish",
+    (False, "Breakfast sausage"): "figure contradicts the chain's own other figures: 760 kcal for one breakfast sausage is more than its Full English breakfast (602 kcal on the November 2026 menus)",
     (False, "Add skin-on fries or garden salad"): "one figure (463 kcal) for two different foods, fries or salad",
-    (False, "Sauces - Béarnaise / Peppercorn / Chimichurri"): "one figure and one allergen line for three different sauces",
     (False, "Brixham market fish of the day - please ask for details (market price)"): "the fish changes daily, so one figure and one allergen row cannot describe the dish",
     (False, "Pie of the week, seasonal greens, proper gravy, your choice of mash or thick-cut chips"):
         "the pie changes weekly; the figure (1416 kcal) is the same as the Beef shin and Butcombe Ale pie's, so it cannot describe the dish",
@@ -269,7 +277,7 @@ def section_category(menu: str, sec: str, kids: bool):
         return "Puddings and cheese"
     if "breakfast" in m or re.fullmatch(r"(eggs|pancakes|staples|brunch|breakfast)", s):
         return "Breakfast and brunch"
-    if re.search(r"sandwich|salad|flatbread|flat bread|bar menu|burgers?|ploughman|light lunch", s):
+    if re.search(r"sandwich|salad|flatbread|flat bread|bar menu|^bar$|burgers?|ploughman|light lunch", s):  # "Bar": one pub's bar-food list (2026-11-17)
         return "Light bites and sandwiches"
     if re.search(r"for the table|starter|oyster|small plate|sharing|to share|nibble|bar snack|^snacks$|wings|loaded fries", s):
         return "Starters and sharing"

@@ -60,8 +60,10 @@ PAGES = {
 }
 # Set after the reviewed run of 2026-10-06; re-set on 2026-10-08 after the website dropped two products (Plant Based Mushroom
 # & Tomato Ragu Panini, Cappuccino Cake: 436 -> 434 tables; every other table was unchanged). If the website's products/options change, the script stops: re-check, then update.
-EXPECTED_ROWS = 434          # nutrition tables on the eight pages (including Northern Ireland rows and cross-page repeats)
-EXPECTED_FINGERPRINT = "d9d64694c9048ff8"  # first 16 hex of sha256 over the sorted page|product|option|size keys
+# Re-set on 2026-11-17 for the festive menu (434 -> 463 tables: 62 GB items added, 25 gone, Fruit Salad's numbers changed),
+# re-checked against the guide issued 29/10/26.
+EXPECTED_ROWS = 463          # nutrition tables on the eight pages (including Northern Ireland rows and cross-page repeats)
+EXPECTED_FINGERPRINT = "36305278db0ea9aa"  # first 16 hex of sha256 over the sorted page|product|option|size keys
 
 # --- display categories (display order) -------------------------------------------------------------------------
 BRK, PAS, SAN, SAL, SNK, CAK = ("Breakfast", "Pastries", "Sandwiches, paninis & tostati", "Salads, soups & hot pots",
@@ -126,11 +128,24 @@ HOLDBACK = {
 # Spiced Pecan Latte (hot and iced), every milk except almond (whose row already marks nuts): the name says pecan, neither the
 # website nor the Sept 2026 guide marks tree nuts for these rows, and neither says the pecan is only a flavouring (the guide does
 # say "Pistachio achieved by flavouring" for the pistachio lattes, which stay published). Not clear, so not published (2026-10-08).
-for _base in ("Spiced Pecan Latte", "Iced Spiced Pecan Latte"):
+for _base in ("Iced Spiced Pecan Latte",):   # the hot Spiced Pecan Latte left the website by 2026-11-17
     for _milk in ("semi skimmed milk", "skimmed milk", "whole milk", "soya milk", "oat milk", "coconut milk"):
         HOLDBACK[f"{_base} ({_milk})"] = (
             "The name says pecan but neither the website nor the Sept 2026 PDF guide marks tree nuts for this row, and neither says "
             "the pecan syrup is only a flavouring: not clear that the nut allergen is complete.")
+# Added 2026-11-17 (website festive menu, guide issued 29/10/26).
+HOLDBACK["Pigs Under Blankets Panini"] = (
+    "Website prints salt as -2 g per product (a negative amount; its per-100 g salt is 1.40 g); the 29/10/26 PDF guide prints 3.00 g.")
+for _base in ("Iced Vanilla Protein Latte", "Iced Vanilla Protein Matcha Latte"):
+    HOLDBACK[f"{_base} (almond milk)"] = (
+        "The website prints the allergens Nuts (almond) and Milk for this row, but the 29/10/26 PDF guide leaves its ALLERGENS cell "
+        "empty (it prints MILK for every other milk of this drink): the chain's own sources disagree on its allergens.")
+# Praline Flat White, every milk except almond (whose row marks nuts): the website and the 29/10/26 guide both say it is made with
+# hazelnut syrup, neither marks tree nuts for these rows and neither says the hazelnut is only a flavouring (as for the pecan lattes).
+for _milk in ("semi skimmed milk", "skimmed milk", "whole milk", "soya milk", "oat milk", "coconut milk"):
+    HOLDBACK[f"Praline Flat White ({_milk})"] = (
+        "Made with hazelnut syrup (website and the 29/10/26 PDF guide), but neither marks tree nuts for this row and neither says the "
+        "hazelnut is only a flavouring: not clear that the nut allergen is complete.")
 # Per-item notes (not exported): odd numbers that are published exactly as printed.
 NOTES = {
     "Mocha (whole milk, grande)":
@@ -470,13 +485,13 @@ def main() -> int:
     items, excluded_ni, repeats, conflicts = build(rows)
 
     held = [(slug(n), why) for n, why in HOLDBACK.items()]
-    source_title = ("Caffè Nero UK website: product nutrition pages, GB menu (caffenero.com/uk/menu food, coffee, hot and iced "
-                    f"drinks pages, retrieved {args.checked_on}; the pages carry no date), cross-checked against the Allergen, "
-                    "Nutritional & Ingredient Guide (GB) issued 09/09/26")
-    note = ("Values are per product as the chain's website shows them. Drinks are listed by milk; where the chain prints one "
-            "row with no cup size, none is shown. Plain Mocha and Hot Chocolate are without whipped cream, which is listed as an extra.")
     import caffe_nero_pdf
     issued = caffe_nero_pdf.issued(args.guide)
+    source_title = ("Caffè Nero UK website: product nutrition pages, GB menu (caffenero.com/uk/menu food, coffee, hot and iced "
+                    f"drinks pages, retrieved {args.checked_on}; the pages carry no date), cross-checked against the Allergen, "
+                    f"Nutritional & Ingredient Guide (GB) issued {issued}")
+    note = ("Values are per product as the chain's website shows them. Drinks are listed by milk; where the chain prints one "
+            "row with no cup size, none is shown. Plain Mocha and Hot Chocolate are without whipped cream, which is listed as an extra.")
     checked, problems = check_allergens(items, caffe_nero_pdf.read_allergens(args.guide))
     problems = conflicts + problems
     if problems:   # all or nothing: the website's lists are not published, the app links to the dated guide

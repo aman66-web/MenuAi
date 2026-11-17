@@ -69,8 +69,6 @@ baby-spice,Baby Spice,Desserts,,164,2,89,7,1,,0,14,0,,,,,,,,false,false,,,
 lamars-bar,Lamar's Bar,Desserts,,576,7,85,18,7,,0,66,0,,,,,,,,false,false,,,
 gimme-smore,Gimme S'more!,Desserts,,200,2,30,6,2,,0,23,1,,,,,,,,false,false,,,
 ice-cream-cookie-sandwich,Ice Cream Cookie Sandwich,Desserts,,529,0,59,15,9,,0,56,6,,,,,,,,false,false,,,
-big-poppa-special-menu,Big Poppa (special menu),Specials,,1020,47,64,64,25,,0,20,2,,,,,,,contains_pork|contains_beef,true,true,,,Special menu version: a double beef patty and a bacon crumb; not the Big Poppa of the main menu. The page says 'Grab yours now before it disappears!'
-hypnotize-fries-special-menu,Hypnotize Fries (special menu),Specials,,620,9,89,27,1,,0,15,8,,,,,,,contains_pork,true,true,,,Listed on the Special menu page.
 kids-beef-burger,Kids Beef Burger,Kids mains,,486,23,41,25,12,,0,4,1,,,,,,,contains_beef,false,false,,,"A patty in a brioche; toppings, sauce, garnish, side and drink are chosen separately (page text)."
 kids-chicken-burger,Kids Chicken Burger,Kids mains,,448,28,60,9,4,,2,6,2,,,,,,,,false,false,,,
 kids-vfc-burger,Kids VFC Burger,Kids mains,,387,19,41,12,0,,1,4,10,,,,,,,vegetarian,false,false,,,

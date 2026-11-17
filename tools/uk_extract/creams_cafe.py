@@ -2,11 +2,15 @@
 """Build data/source/creams-cafe/ from Creams Cafe's official "Allergens & Calorie Declaration and Matrix" (a CALORIES-ONLY chain,
 with a complete allergen matrix).
 
-    python3 tools/uk_extract/creams_cafe.py path/to/Allergen-Matrix--02-Oct-26.pdf --checked-on 2026-10-07 [--out DIR]
+    python3 tools/uk_extract/creams_cafe.py path/to/Allergen-Matrix--03-Nov-26.pdf --checked-on 2026-11-17 [--out DIR]
 
 Source (the file the chain's own menu page links as "ALLERGEN INFORMATION (PDF)"):
-    https://www.creamscafe.com/menu/  ->  https://www.creamscafe.com/brochures/Allergen-Matrix--02-Oct-26.pdf
-    "Version - 02 Oct 2026" on every page; PDF created 2026-09-30 (Word), served Last-Modified 2026-10-02. 30 pages, text layer.
+    https://www.creamscafe.com/menu/  ->  https://www.creamscafe.com/brochures/Allergen-Matrix--03-Nov-26.pdf
+    "Version - 03 Nov 2026" on every page; PDF created 2026-11-03 (Word), served Last-Modified 2026-11-04. 31 pages, text layer,
+    675,579 bytes, SHA-256 72c16636d46ebb97db998426c3fb83424b3762120ee7e42fa80c230b4f9883dd (read 2026-11-17).
+    (Earlier issue: Allergen-Matrix--02-Oct-26.pdf, "Version - 02 Oct 2026", 30 pages, read 2026-10-08.)
+    The 03 Nov 2026 issue adds page 31, "FRO YO" (a frozen yoghurt, two vegan sorbets and four gelatos); its gelatos share names with
+    the scoop gelatos of page 3 at other figures, so the page's rows get "(fro yo)" in their names and their own categories.
     robots.txt of creamscafe.com: Crawl-delay 3, no Disallow for /brochures/ (one page and one PDF were fetched, 3 s apart).
 Needs `pdftotext` and `pdftoppm` (poppler). The tables are read by position and by the drawn page: see creams_cafe_pdf.py.
 
@@ -48,16 +52,16 @@ import creams_cafe_pdf as pdf_reader  # noqa: E402
 from common import _A, sha256_file, slug, write_allergens, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "creams-cafe"
-SOURCE_URL = "https://www.creamscafe.com/brochures/Allergen-Matrix--02-Oct-26.pdf"
-SOURCE_TITLE = "Creams Cafe Allergens & Calorie Declaration and Matrix, Version 02 Oct 2026 (PDF created 30 September 2026)"
+SOURCE_URL = "https://www.creamscafe.com/brochures/Allergen-Matrix--03-Nov-26.pdf"
+SOURCE_TITLE = "Creams Cafe Allergens & Calorie Declaration and Matrix, Version 03 Nov 2026 (PDF created 3 November 2026)"
 ALIASES = ["creams cafe", "creams café", "creams"]
-GUIDE_TITLE = "Creams Cafe Allergens & Calorie Declaration and Matrix, Version 02 Oct 2026"
+GUIDE_TITLE = "Creams Cafe Allergens & Calorie Declaration and Matrix, Version 03 Nov 2026"
 # The guide prints "may contain" information from the suppliers in every row.
 MAY_CONTAIN_PUBLISHED = True
 NOTE = ("Calories only: one figure per dish as listed in Creams Cafe's own allergen matrix; portion sizes are not stated and protein, carbs, "
         "fat and salt are not published. Sauces, syrups, toppings and the parts of build-your-own shakes and desserts are left out (no portion "
         "given). Creams says slushies contain glycerol: not recommended for children aged 4 and under.")
-EXPECTED_ROWS = 402
+EXPECTED_ROWS = 409
 # Full-width notes printed inside the tables (checked on every run; anything else stops the script).
 EXPECTED_NOTES = {
     (12, "For matching scoops of gelato or sorbet used to create your own with the above bases please see the Gelato / Sorbet Sections."),
@@ -142,6 +146,10 @@ GROUPS = [
     G(key=(30, 1, "GOO BAKES", 3), show="Winter: goo bakes", suffix="Goo Bake"),
     G(key=(30, 1, "BITES", 2), show="Winter: bites"),
     G(key=(30, 1, "HOT CHOCOLATE", 3), show="Winter: hot chocolate", suffix="Hot Chocolate"),
+    # page 31 "FRO YO" (03 Nov 2026 issue): its gelatos share names with page 3's scoop gelatos at other figures, so "(fro yo)" is added
+    G(key=(31, 1, "Yoghurt", 1), show="Fro yo: frozen yoghurt"),
+    G(key=(31, 1, "Sorbet", 2), show="Fro yo: sorbet", qual="fro yo"),
+    G(key=(31, 1, "Gelato", 4), show="Fro yo: gelato", qual="fro yo"),
 ]
 # Single rows left out of an otherwise listed group: (page, printed name) -> reason
 EXCLUDE_ROWS = {
@@ -159,7 +167,7 @@ HOLD = {
     (4, "Trial Creams Soft Vanilla Ice Cream"): "The same page prints 'Creams Soft Vanilla Ice Cream' at 135 kcal for what is the same product: the guide contradicts itself",
 }
 RENAME = {(25, "Basque Cheesecake"): "Basque Cheesecake (cake upgrade)"}  # the Gelato list also has a "Basque Cheesecake"
-VEGETARIAN = {(6, "Vegan Belgian Chocolate Fudge Cake")}  # the guide's own item name says vegan
+VEGETARIAN = {(6, "Vegan Belgian Chocolate Fudge Cake"), (31, "Strawberry Vegan Sorbet"), (31, "Mango Vegan Sorbet")}  # the guide's own item name says vegan
 MEAT_NOT_STATED = {(7, "Mexican Nachos Small"), (7, "Mexican Nachos To Share")}
 
 

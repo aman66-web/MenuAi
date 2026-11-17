@@ -30,11 +30,11 @@ Crustaceans; Egg; Fish; Lupin; Milk; Molluscs; Mustard; Nuts with the nuts named
   "M" is "may contain". When a dish contains one cereal/nut and may contain others, common.write_allergens stores the generic allergen
   (the pipeline's rule since 2026-10-08).
 - Two rows print no calories (HP Brown Sauce, Heinz Ketchup, range "Sauce"): nothing to publish, they are left out.
-- Two rows are the same product twice under different Shell codes (Chicken Samosa 824716 and 993182, identical in every cell): one is
-  listed.
-- The table is the national list: the range varies by forecourt and some lines are Co-op or other brands (the Co-op ranges are
-  named "Co-op ..." in the table and kept). Great Britain only: Shell UK's page is the only one; nothing is region-specific.
-- Names are as printed (including the table's own spellings "Hazlenut & Milk Chocolate Cookie" and "Co-op Irresistable Butter Croissant").
+- October 2026 printed one product twice under different Shell codes (Chicken Samosa 824716 and 993182, identical in every cell): one was
+  listed. November 2026 prints 993182 only (EXPECTED_DUPLICATES is empty).
+- The table is the national list: the range varies by forecourt and some lines are other brands. October 2026 had two Co-op ranges
+  ("Co-op ..." names, kept); November 2026 has none. Great Britain only: Shell UK's page is the only one; nothing is region-specific.
+- Names are as printed (October 2026 printed "Hazlenut & Milk Chocolate Cookie"; November 2026 prints "Hazelnut ...").
 """
 from __future__ import annotations
 import argparse
@@ -75,20 +75,22 @@ EXTRA_WORDS = {"oatmeal": ("gluten", "oats")}  # the chain's own spelling in "Y 
 CATEGORY = {"Chilled Prepacked": "Chilled Prepacked", "Baked Confectionery": "Baked Confectionery", "Bakery": "Bakery",
             "Hot Sandwich": "Hot Sandwich", "Hot Savoury": "Hot Savoury", "Sauce": "Sauce",
             "CO-OP BAKED CONFECTIONERY": "Co-op Baked Confectionery", "CO-OP BAKERY": "Co-op Bakery"}
-# Rows per Product Range in the October 2026 table (93 in all). The run stops if any number changes: a human re-checks the change.
-EXPECTED_ROWS = {"Chilled Prepacked": 15, "Baked Confectionery": 21, "Bakery": 6, "Hot Sandwich": 12, "Hot Savoury": 17, "Sauce": 2,
-                 "CO-OP BAKED CONFECTIONERY": 9, "CO-OP BAKERY": 11}
+# Rows per Product Range in the November 2026 table (72 in all; the October table had 93: its 20 Co-op rows and the second Chicken Samosa
+# code 824716 are gone). The run stops if any number changes: a human re-checks the change.
+EXPECTED_ROWS = {"Chilled Prepacked": 15, "Baked Confectionery": 21, "Bakery": 6, "Hot Sandwich": 12, "Hot Savoury": 16, "Sauce": 2}
 # Rows that print no calories and so are not published (checked on every run).
 EXPECTED_WITHOUT_KCAL = {"82032": "HP Brown Sauce", "77878": "Heinz Ketchup"}
-# Rows identical to another row but for the Shell code: the second code is not listed.
-EXPECTED_DUPLICATES = {"993182": "824716"}
+# Rows identical to another row but for the Shell code: the second code is not listed. (October 2026: {"993182": "824716"}, Chicken Samosa;
+# the November table prints 993182 only.)
+EXPECTED_DUPLICATES: dict[str, str] = {}
 
 PORK = re.compile(r"\b(pork|bacon|blt|ham|sausage|pepperoni|chorizo|salami)\b", re.I)
 BEEF = re.compile(r"\b(beef|steak)\b", re.I)
 MEAT_UNSPECIFIED = re.compile(r"\b(pasty|breakfast|stuffing)\b", re.I)  # names a meat dish without saying which meat
 
 NOTE_TEMPLATE = ("Calories only, per unit or portion as sold (unit size not stated). This table is valid for {month} only and Shell reissues "
-                 "it every month, so figures can change. The range varies by forecourt, and some lines are Co-op brand.")
+                 "it every month, so figures can change. The range varies by forecourt{coop}.")
+NOTE_COOP = ", and some lines are Co-op brand"  # only while the table has a Co-op range (October 2026 did; November 2026 does not)
 
 
 class _Table(HTMLParser):
@@ -284,7 +286,7 @@ def main() -> int:
         guide["title"] = f"deli by Shell Allergen Matrix, {month}"
     out = write_chain_folder(chain_id=CHAIN_ID, name="Deli by Shell", cuisine="Sandwiches", source_title=source_title, source_url=HTML_URL,
                              checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out,
-                             note=NOTE_TEMPLATE.format(month=month), allergen_guide=guide, nutrition_level="calories")
+                             note=NOTE_TEMPLATE.format(month=month, coop=NOTE_COOP if any(r[0].upper().startswith("CO-OP") for r in rows[1:]) else ""), allergen_guide=guide, nutrition_level="calories")
     print(f"model sha256 {sha256_file(args.model)}  {args.model}")
     print(f"validity {facts['start']} to {facts['end']}; page last modified {facts['modified']}")
     print("\n".join(report))

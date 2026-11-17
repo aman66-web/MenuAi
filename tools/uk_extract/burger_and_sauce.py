@@ -7,9 +7,14 @@ Sources (both linked from the chain's own menu page https://burgerandsauce.com/m
 "ALLERGENS PDF"; robots.txt there only disallows /wp-admin/):
     calorie sheet : https://burgerandsauce.com/wp-content/uploads/2025/03/carlorie-count-12-03-25.pdf
                     one A4 page with a text layer, PDF created 12 March 2025 (artwork ref "A. 31.10.24"), server Last-Modified 29 Nov 2025
-    allergen sheet: https://burgerandsauce.com/wp-content/uploads/2025/12/Allergen-sheet-2025-1.pdf
-                    two pages, "LAST UPDATED: DEC - 2025"
-Needs `pdftotext` (poppler). Python 3.9 compatible.
+    allergen sheet: https://burgerandsauce.com/wp-content/uploads/2026/10/BS_Allergens_Intolerances_July_2026_Final.pdf
+                    two pages, "LAST UPDATED: JULY 2026" (linked from the menu page on 2026-11-17; it replaced the Dec 2025 sheet
+                    https://burgerandsauce.com/wp-content/uploads/2025/12/Allergen-sheet-2025-1.pdf)
+Needs `pdftotext` (poppler). Python 3.9 compatible. Poppler 26 prints `-raw` text without the spaces between words ("ANGUSNACHO",
+"1028kcal(4302kJ)perserving"), so names, footers and value lines are compared with whitespace removed; the printed name kept is the
+ITEMS key (the same text with its spaces).
+Re-checked 2026-11-17: the menu page still links the same calorie sheet (Last-Modified 29 Nov 2025, created 12 March 2025, sha256
+e64030ecd123724dbf3d47e5df862f87f823d0a9042d7954cad1840f9726338a); all 43 rows are as published.
 
 The calorie sheet prints, for each of 43 products, "NNN kcal (NNNN kJ) per serving" and nothing else (the footer says "All portion sizes
 listed are based on a serving for one person"): protein, carbs and fat are never printed, so they stay blank (docs/DATA.md "Calories-only
@@ -22,7 +27,7 @@ menu page shows them (Burgers, Wraps, Wings, Loaded sides, Bites & snacks, Desse
 Tags: contains_beef only where the printed NAME says beef (The Original Beef Burger, Beef Nacho, Club Beef); vegetarian is never tagged
 because the sheet marks nothing. Items whose meat is not in their name are listed in the run output as "meat type not stated".
 
-Allergens (docs/DATA.md "Allergens") are LINK-ONLY. The Dec 2025 allergen matrix names its rows differently from the calorie sheet and
+Allergens (docs/DATA.md "Allergens") are LINK-ONLY. The Dec 2025 allergen matrix (and its July 2026 replacement) names its rows differently from the calorie sheet and
 does not have a row for every product: "Beef Burger" / "Chicken Burger" / "Veggi Burger" for THE ORIGINAL ... BURGER, "Chicken Wings" for the
 four wing flavours, "Chicken Strips" for STRIPS, "Fries" for REGULAR FRIES, "The Beef Nacho Melt" for BEEF NACHO (and nothing for ANGUS NACHO),
 "Classic Sauce" and "Spicy Sauce" for the one CLASSIC/SPICY SAUCE value, "Chocolate Oreo Creamysu" for CHOCOLATE OREO, and no row at all for the
@@ -42,8 +47,8 @@ from common import sha256_file, write_chain_folder  # noqa: E402
 CHAIN_ID = "burger-and-sauce"
 SOURCE_URL = "https://burgerandsauce.com/wp-content/uploads/2025/03/carlorie-count-12-03-25.pdf"
 SOURCE_TITLE = "Burger & Sauce Calorie Count (PDF created 12 March 2025, artwork ref A. 31.10.24; linked from the chain's menu page)"
-ALLERGEN_GUIDE_TITLE = "Burger & Sauce Allergens & Intolerances sheet (last updated Dec 2025, 2 pages)"
-ALLERGEN_GUIDE_URL = "https://burgerandsauce.com/wp-content/uploads/2025/12/Allergen-sheet-2025-1.pdf"
+ALLERGEN_GUIDE_TITLE = "Burger & Sauce Allergens & Intolerances sheet (last updated July 2026, 2 pages)"
+ALLERGEN_GUIDE_URL = "https://burgerandsauce.com/wp-content/uploads/2026/10/BS_Allergens_Intolerances_July_2026_Final.pdf"
 # The allergen sheet marks "MAY CONTAIN" with its own dots and says some products may be cooked in the same oil.
 MAY_CONTAIN_PUBLISHED = True
 ALIASES = ["burger and sauce", "burger & sauce", "burger&sauce"]
@@ -105,9 +110,17 @@ PORK = re.compile(r"\b(pork|bacon|ham|sausage|pepperoni|salami|chorizo)\b", re.I
 # Items whose name does not say what meat they hold (composite dishes): listed for the report, never tagged.
 NAME_NO_MEAT = {"Angus Nacho", "Angus Stack", "Animal Fries", "Animal Nachos", "Festive Burger", "Fiery Legend", "Mexican Nachos",
                 "Signature Fries", "The Wrap", "Kids Chicken Bites Meal"}
-LINE = re.compile(r"^(\d+)\s*kcal\s*\((\d+)\s*kJ\)\s*per serving$")
+LINE = re.compile(r"^(\d+)\s*kcal\s*\((\d+)\s*kJ\)\s*per\s*serving$")
 FOOTER = {"CUSTOMER INFORMATION", "A.31.10.24", "CALORIE COUNT", "WWW.BURGERANDSAUCE.COM", "ALL PORTION SIZES LISTED",
           "ARE BASED ON A SERVING", "FOR ONE PERSON"}
+
+
+def _squash(text: str) -> str:
+    return re.sub(r"\s+", "", text)
+
+
+FOOTER_SQUASHED = {_squash(f) for f in FOOTER}
+PRINTED_BY_SQUASHED = {_squash(k): k for k in ITEMS}
 
 
 def read_sheet(pdf: Path) -> list:
@@ -116,7 +129,7 @@ def read_sheet(pdf: Path) -> list:
     lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
     out, name = [], None
     for ln in lines:
-        if ln in FOOTER:
+        if _squash(ln) in FOOTER_SQUASHED or set(ln.split()) <= FOOTER_SQUASHED:   # poppler 26 prints the footer twice on one line
             continue
         m = LINE.match(ln)
         if m:
@@ -127,7 +140,7 @@ def read_sheet(pdf: Path) -> list:
         else:
             if name is not None:
                 raise SystemExit(f"Product {name!r} has no 'NNN kcal (NNNN kJ) per serving' line (next text {ln!r}): the layout changed")
-            name = ln
+            name = PRINTED_BY_SQUASHED.get(_squash(ln), ln)
     if name is not None:
         raise SystemExit(f"Product {name!r} has no value line: the layout changed")
     return out

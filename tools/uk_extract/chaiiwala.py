@@ -6,7 +6,7 @@
 DIR holds three saved files (--fetch downloads them first, one request per second, robots.txt checked):
     menu.html              https://www.chaiiwala.co.uk/menu               (the menu page, server-rendered, every dish card)
     allergens.html         https://www.chaiiwala.co.uk/allergens          (the allergen matrix as an HTML table)
-    allergen-matrix.pdf    https://www.chaiiwala.co.uk/api/allergen-matrix.pdf  (the same matrix as a 13-page PDF, "V15 October 2026";
+    allergen-matrix.pdf    https://www.chaiiwala.co.uk/api/allergen-matrix.pdf  (the same matrix as a 13-page PDF, "V15 November 2026";
                                                                           robots.txt explicitly allows this one path under /api)
 The PDF is only used as a cross-check (needs `pdftotext` from poppler); without it the HTML matrix alone is used.
 
@@ -23,15 +23,14 @@ names are capitalised (Title Case); nothing else is changed. Categories are the 
 Select stores: 18 listed dishes carry the chain's own "in select stores" flag. The chain does not say which stores, so this is not a
 single-venue or regional-trial row: they are kept (set EXCLUDE_SELECT_STORES = True to drop them).
 
-Allergens (docs/DATA.md "Allergens"): the matrix has a row for every dish on the menu (142 rows, names identical to the cards) and
-24 columns: the six gluten cereals, eggs, peanuts, soya, milk, nine tree nuts, celery, mustard, sesame seeds, sulphur, lupin. A tick
-means contains, an asterisk means may contain traces. It has NO columns for fish, crustaceans or molluscs, so those three are never
-marked (the app shows them as "Not listed", which it explains is not "free from"); note.txt says so. "sulphur" is read as sulphites
+Allergens (docs/DATA.md "Allergens"): the matrix has a row for every dish on the menu (143 rows, names identical to the cards) and
+27 columns: the six gluten cereals, eggs, peanuts, soya, milk, nine tree nuts, celery, mustard, sesame seeds, sulphur, lupin, fish,
+crustaceans, molluscs. A tick means contains, an asterisk means may contain traces. (Until October 2026 the matrix had 24 columns and no
+fish, crustacean or mollusc columns; the November 2026 matrix added them with its first fish dish.) "sulphur" is read as sulphites
 (the column for sulphur dioxide and sulphites). "queensland nuts" is read as macadamia (the same nut, common._A). The HTML matrix,
 the PDF matrix and the allergen icons on the menu cards must all agree, or the run stops.
-Published since 2026-10-08 (PUBLISH_ALLERGENS = True): every one of the 132 published items has its own matrix row (the names are identical to
-the cards), copied exactly. Fish, crustaceans and molluscs are not matrix columns, so they read "Not listed" in the app, never "free from".
-Set PUBLISH_ALLERGENS = False to publish the guide link only.
+Published since 2026-10-08 (PUBLISH_ALLERGENS = True): every published item has its own matrix row (the names are identical to
+the cards), copied exactly. Set PUBLISH_ALLERGENS = False to publish the guide link only.
 
 Tags: vegetarian when the card shows the chain's Vegetarian or Vegan badge. contains_pork / contains_beef only when the dish name or its
 one-line summary on the card says pork / ham / bacon / beef / steak and so on ("lamb bacon" and "chicken sausage" are not pork; the
@@ -59,22 +58,22 @@ FILES = {  # file name -> url
     "allergen-matrix.pdf": BASE + "/api/allergen-matrix.pdf",
 }
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
-SOURCE_TITLE = "Chaiiwala website menu pages with calories (accessed 2026-10-08, no date shown); allergens from Allergen Information V15, October 2026"
-ALLERGEN_TITLE = "Chaiiwala allergen matrix, Allergen Information V15 (October 2026)"
+SOURCE_TITLE = "Chaiiwala website menu pages with calories (accessed 2026-11-17, no date shown); allergens from Allergen Information V15, November 2026"
+ALLERGEN_TITLE = "Chaiiwala allergen matrix, Allergen Information V15 (November 2026)"
 ALLERGEN_URL = BASE + "/allergens"
 MAY_CONTAIN_PUBLISHED = True  # the matrix prints "*" = may contain traces
-PUBLISH_ALLERGENS = True    # 2026-10-08: published. The matrix has no fish, crustacean or mollusc columns, so those three are never marked and the
-                            # app shows them as "Not listed" (it says that is not "free from"); the chain note says so too. False = link only.
+PUBLISH_ALLERGENS = True    # 2026-10-08: published (since November 2026 the matrix also has fish, crustacean and mollusc columns). False = link only.
 EXCLUDE_SELECT_STORES = False
-# Held back (docs/ACCURACY_AUDIT.md policy 3): the dish's own name or text implies an allergen that the matrix cannot mark (it has no fish column).
+# Held back (docs/ACCURACY_AUDIT.md policy 3): the dish's own name or text implies an allergen that the matrix does not mark.
 HOLDBACK = {
-    "kebab-caesar-salad": "Allergens would read 'fish: not listed' for a dish tossed in Caesar dressing (classically made with anchovy): the "
-                          "allergen matrix has no fish column, so it cannot say, and the dish's own text does not give the dressing's ingredients.",
+    "kebab-caesar-salad": "The allergen matrix (November 2026, which has a fish column) marks no fish, not even traces, for a dish tossed in Caesar "
+                          "dressing (classically made with anchovy), and the dish's own text does not give the dressing's ingredients. Left out "
+                          "until the chain confirms.",
 }
 ALIASES = ["chaiiwala"]
 NOTE = ("Calories only: kcal on the menu pages (drinks Regular and Large), no protein, carbs or fat. Dishes with no kcal printed are not "
-        "listed; some are sold in select stores only. The allergen matrix has no fish, crustacean or mollusc columns, so those read Not "
-        "listed, not free from. Kebab Caesar Salad is not shown (Caesar dressing, no fish column).")
+        "listed; some are sold in select stores only. Kebab Caesar Salad is not shown: its Caesar dressing is classically made with anchovy, "
+        "but the allergen matrix marks no fish for it.")
 assert len(NOTE) < 400
 
 # Menu section id (from the page) -> category shown. A new section stops the run.
@@ -91,8 +90,8 @@ SECTIONS = {
     "menu-section-signature-desserts": "Desserts",
     "menu-section-grabngo": "Grab & Go",
 }
-EXPECTED_CARDS = 142          # dish cards on /menu (and rows in the matrix)
-EXPECTED_WITH_KCAL = 103      # of which print a kcal figure
+EXPECTED_CARDS = 143          # dish cards on /menu (and rows in the matrix)
+EXPECTED_WITH_KCAL = 104      # of which print a kcal figure
 EXPECTED_WITH_LARGE = 29      # of which also print a Large figure
 EXPECTED_ITEMS = EXPECTED_WITH_KCAL + EXPECTED_WITH_LARGE
 EXPECTED_SELECT_STORES_WITH_KCAL = 18
@@ -108,7 +107,8 @@ BUNDLE_SERVING = {
 # The matrix columns in order, exactly as the page headings print them.
 GLUTEN_COLS = ["wheat", "rye", "barley", "oats", "spelt", "kamut"]
 NUT_COLS = ["almonds", "hazelnuts", "walnuts", "cashews", "pecan nuts", "brazil nuts", "pistachio nuts", "macadamia", "queensland nuts"]
-COLUMNS = GLUTEN_COLS + ["eggs", "peanuts", "soya", "milk"] + NUT_COLS + ["celery", "mustard", "sesame seeds", "sulphur", "lupin"]
+COLUMNS = GLUTEN_COLS + ["eggs", "peanuts", "soya", "milk"] + NUT_COLS + ["celery", "mustard", "sesame seeds", "sulphur", "lupin",
+                                                                         "fish", "crustaceans", "molluscs"]
 EXTRA_WORDS = {"sulphur": ("sulphites", None)}  # the column for sulphur dioxide and sulphites
 # Card allergen ids (menu data) -> matrix column heading
 CARD_ID_TO_COLUMN = {c.replace(" ", "-"): c for c in COLUMNS}
@@ -239,7 +239,7 @@ def read_matrix_html(text: str) -> dict[str, dict]:
         trs = re.findall(r"<tr\b.*?</tr>", table, flags=re.S)
         heads = [html.unescape(re.sub(r"<[^>]+>", "", x)).strip() for x in re.findall(r"<th\b[^>]*>(.*?)</th>", trs[0] + trs[1], flags=re.S)]
         if heads != ["item", "cereals containing gluten", "eggs", "peanuts", "soya", "milk", "tree nuts", "celery", "mustard", "sesame seeds",
-                     "sulphur", "lupin"] + COLUMNS[:6] + COLUMNS[10:19]:
+                     "sulphur", "lupin", "fish", "crustaceans", "molluscs"] + COLUMNS[:6] + COLUMNS[10:19]:
             raise SystemExit(f"allergens.html: column headings changed: {heads}")
         for tr in trs[2:]:
             ths = re.findall(r"<th\b[^>]*>(.*?)</th>", tr, flags=re.S)
@@ -271,7 +271,7 @@ def read_matrix_html(text: str) -> dict[str, dict]:
 def read_matrix_pdf(pdf: Path) -> dict[str, dict]:
     """name -> {column: "contains"|"may"} from the PDF, by the position of each mark under its column heading."""
     xml = subprocess.run(["pdftotext", "-bbox", str(pdf), "-"], capture_output=True, text=True, check=True).stdout
-    centres = [236.3 + 24.58 * i for i in range(len(COLUMNS))]  # column centres measured from the headings on page 2
+    centres = [234.9 + 21.845 * i for i in range(len(COLUMNS))]  # column centres measured from the headings on page 2 (November 2026 matrix)
     rows: dict[str, dict] = {}
     for page in xml.split("<page ")[1:]:
         words = [(float(a), float(b), float(c), float(d), html.unescape(w))

@@ -1,214 +1,318 @@
 #!/usr/bin/env python3
-"""Build data/source/chipotle/ from Chipotle UK's current official "14 allergens and nutrition facts" chart.
+"""Build data/source/chipotle/ from Chipotle UK's official "UK Restaurants Nutrition Guide" and "Allergen Guide" (one PDF).
 
-    python3 tools/uk_extract/chipotle.py path/to/Allergen-UK270726.pdf --checked-on 2026-10-08
+    curl -A "Mozilla/5.0" -o UK_Allergen_Guide_Nov2026.pdf "https://www.chipotle.co.uk/content/dam/chipotle/menu/nutrition/2026/eu/UK_Allergen_Guide_Nov2026%202-94.pdf"
+    python3 tools/uk_extract/chipotle.py UK_Allergen_Guide_Nov2026.pdf --checked-on 2026-11-17
 
-SOURCE: CHART_URL (linked as "NUTRITION" from https://www.chipotle.co.uk/allergens). A one-page PDF, footer code UK270726 (PDF created
-6 Aug 2026, Last-Modified 1 Sep 2026), titled on the page "14 ALLERGENS" and "NUTRITION FACTS (PER SERVING) TYPICAL VALUES". It prints,
-for every product: a grid of the 14 UK allergens (a red cross marks an allergen; "Allergens are marked as a cross including cereals
-containing gluten"), the serving as "Per Serving Portion" (e.g. "113 g", "3 Ea (75 g)", "59 ml"), and nutrition per serving (kJ, kcal,
-fat, saturates, carbohydrate, sugars, fibre, protein, salt) and per 100 g/ml. It prints no "may contain" per item, only a general
-warning that food is prepared in open-plan kitchens where multiple allergens are present.
+SOURCE: CHART_URL, linked as "NUTRITION" from https://www.chipotle.co.uk/allergens (read 2026-11-17; robots.txt of www.chipotle.co.uk
+disallows only /error-page). Two pages, each footed "Version 1.0 | Information correct at 3 November 2026" and headed "VALID FROM
+NOVEMBER 2026" (PDF created 13 Nov 2026, Last-Modified 13 Nov 2026, sha256 37afec5f...):
+  * page 1 "NUTRITION GUIDE": one table, in sections (TORTILLAS & CHIPS ... TRACTOR DRINKS). Each row: the ingredient's label, its
+    serving ("113 g", "450 ml"), then nine figures per serving (kJ, kcal, fat, saturates, carbohydrate, sugars, fibre, protein, salt)
+    and the same nine per 100 g (drinks per 100 ml). The page has a text layer, so the figures are COPIED by this script
+    (`pdftotext -layout`), exactly as printed ("<0.5" stays "<0.5": docs/DATA.md "Less than" values). Only names, ids, categories,
+    serving words and notes are written by hand (SPEC below).
+  * page 2 "ALLERGEN GUIDE": the same ingredients (one line per product, not per size), the dietary marks V and VG (text layer) and a
+    grid of the 14 allergens where a red tick marks "Contains" (drawn, not text). The ticks are read by this script from a 100 dpi render
+    (pdftoppm): each cell of the grid is measured for the tick's red; a cell that is neither clearly empty nor clearly ticked stops the run,
+    and so does any red mark in an ingredient's row outside a cell. Under the grid: "CEREALS CONTAINING GLUTEN / Contains wheat: Burrito
+    flour tortilla and Taco flour tortillas." (read from the text layer; the script stops unless exactly those rows carry the gluten tick)
+    and a general "MAY CONTAIN" paragraph that names no ingredient (so no item gets a may-contain; may_contain_published = no).
 
-WHY THIS SCRIPT TRANSCRIBES: the chart is drawn entirely as outlines (no text layer, no fonts), so no script can read it. It was read
-by eye from a 150-250 dpi render (pdftoppm), every number and every allergen cell checked against the image, and cross-checked by an
-independent per-cell OCR run (tesseract) and a pixel scan of the allergen grid (exactly six red cells on the whole chart: Milk x3, Cereals &
-Gluten x2, Soya x1). The table CHART_ROWS below is that transcription; each line says which printed row it is. Numbers are kept exactly
-as printed (strings such as "1.50"). To keep a re-run honest the script refuses any PDF other than the one transcribed (CHART_SHA256):
-if Chipotle re-issues the chart, re-read the table by eye and update CHART_ROWS and the hash together.
+CHECKS (the run stops on any of them): the two "Information correct at 3 November 2026" lines (a re-issued guide must be looked at by a
+human); the section names and the number of rows in each; 18 printed numbers per row; every per-serving figure agrees with the per-100 g
+figure times the serving within the printed rounding (catches a column read in the wrong place); every page-1 row has exactly one
+page-2 allergen line and every page-2 line is used; every product in SPEC is printed and vice versa.
 
-This replaces the earlier source, the AUG 2022 "nutrition facts" sheet (https://www.chipotle.co.uk/nutrition-calculator, a PDF with a
-text layer): the chart repeats 20 of that sheet's rows' figures and prints two rows differently (Flour Tortilla (taco) is printed for 3
-tortillas, not one; Chips (large) is 170 g, 627 kcal, not double the regular row), and three rows differ only in how a "<" is printed
-(see the notes below). Where the two documents differ, what the CURRENT chart prints is published. The 2022 sheet's page-2 allergen table
-(named by group, out of date) is no longer used.
+HISTORY: until 17 Nov 2026 the source was the image-only chart Allergen-UK270726.pdf (Aug 2026), transcribed by eye; it is no longer
+linked from the allergens page. This guide prints new figures for every product (e.g. coriander-lime white rice 185 -> 229 kcal) and
+adds the rows that chart's extraction had left out (crispy corn taco shells, kids' chips, queso, supergreens, the limited-time chickens
+and the drinks). Item ids of the products that were already published are kept.
 
-Only items the chart prints are published; rows the chart also prints that are not listed in ROWS (Hard Shell Taco (Crispy Corn Taco),
-Chips (Kids), Super Greens, Queso Blanco, the three limited-time chicken rows, the fountain and Tractor drinks) are not part of this
-extraction yet. Items stay in one "Ingredients" category and are not rankable: the chart publishes a value for each ingredient but none for a
-finished burrito, bowl, salad or taco, and building one would mean adding ingredients together (and guessing portions).
-
-Allergens are all or nothing (docs/DATA.md): this script stops unless every item in ROWS, including the held-back ones, has an allergen
-entry from the chart's grid.
+Items are not rankable: the guide publishes each ingredient but no finished burrito, bowl, salad or taco ("Add up the ingredients you
+choose"), and building one would mean adding ingredients together.
 """
 from __future__ import annotations
 import argparse
 import hashlib
 import re
+import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from common import ROOT, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "chipotle"
-CHART_URL = "https://www.chipotle.co.uk/content/dam/chipotle/menu/nutrition/2026/eu/Allergen-UK270726.pdf"
-CHART_SHA256 = "fc07272f8702c7c4c635feae3c4d444029695758d2330021d9921724245641fe"
-SOURCE_TITLE = "Chipotle UK 14 allergens and nutrition facts chart, per serving (UK270726, Aug 2026)"
-ALLERGEN_GUIDE = {"title": "Chipotle UK 14 allergens and nutrition facts chart (UK270726)", "url": CHART_URL,
+CHART_URL = "https://www.chipotle.co.uk/content/dam/chipotle/menu/nutrition/2026/eu/UK_Allergen_Guide_Nov2026%202-94.pdf"
+GUIDE_DATE = "3 November 2026"
+VERSION = "Version 1.0"
+SOURCE_TITLE = "Chipotle UK Restaurants Nutrition Guide and Allergen Guide, per serving (Version 1.0, information correct at 3 November 2026)"
+ALLERGEN_GUIDE = {"title": "Chipotle UK Restaurants Allergen Guide (Version 1.0, information correct at 3 November 2026)", "url": CHART_URL,
                   "may_contain_published": False}
 ALIASES = ["chipotle", "chipotle mexican grill"]
-ING = "Ingredients"
-BEEF = "contains_beef"
+BEEF, PORK, VEG = "contains_beef", "contains_pork", "vegetarian"
 
-# The chart's 14 allergen columns, left to right, as printed -> our allergen key (docs/DATA.md). "Shellfish" is the chart's word for
-# crustaceans (it has a separate "Mollusc" column); "Lupine" and "Sulfites" are its spellings; "Cereals & Gluten" has no cereal named.
-GRID = [("Milk", "milk"), ("Sulfites", "sulphites"), ("Cereals & Gluten", "gluten"), ("Mollusc", "molluscs"), ("Celery", "celery"),
-        ("Soya", "soya"), ("Eggs", "eggs"), ("Fish", "fish"), ("Lupine", "lupin"), ("Shellfish", "crustaceans"),
-        ("Mustard", "mustard"), ("Nut", "nuts"), ("Peanuts", "peanuts"), ("Sesame seeds", "sesame")]
-GRID_KEYS = dict(GRID)
+# The page-1 sections as printed, in order, with the number of rows each must have -> our category.
+SECTIONS = [("TORTILLAS & CHIPS", 6, "Tortillas & chips"), ("RICE & BEANS", 4, "Rice & beans"), ("PROTEINS & VEGGIES", 6, "Proteins & veggies"),
+            ("SALSAS", 4, "Salsas"), ("TOPPINGS & DRESSING", 11, "Toppings & dressing"), ("LIMITED TIME OFFERS", 3, "Limited time"),
+            ("FOUNTAIN DRINKS", 12, "Fountain drinks"), ("TRACTOR DRINKS", 8, "Tractor drinks")]
 
-# Each line = one printed row of the chart's table, in printed order (page 1 is the only page):
-#   (row, printed name, printed portion, kJ, kcal, fat, saturates, carbohydrate, sugars, fibre, protein, salt, allergen columns with a cross)
-# `row` counts the table's product lines from the top (1 = Flour Tortilla (Burrito)); the numbers missing from the sequence are rows the
-# chart prints that are not extracted yet (3 Hard Shell Taco, 26 Chips (Kids), 28 Super Greens, 29 Queso Blanco, then the limited-time and
-# drinks rows). The two Romaine lines (22, 23) are one product label ("Romaine Lettuce (salad/topping)") with two portions.
-CHART_ROWS = [
-    (1, "Flour Tortilla (Burrito)", "1 Ea (95 g)", "1243", "297", "8.8", "0.7", "49.2", "1.8", "4.4", "7.9", "1.50", ("Cereals & Gluten",)),
-    (2, "Flour Tortilla (Taco)", "3 Ea (75 g)", "1004", "240", "7.5", "0.5", "39.0", "1.0", "2.8", "6.0", "0.50", ("Cereals & Gluten",)),
-    (4, "Coriander-Lime White Rice", "113 g", "774", "185", "2.0", "0.5", "41.5", "0.1", "1.2", "4.1", "1.20", ()),
-    (5, "Coriander-Lime Brown Rice", "113 g", "774", "185", "1.7", "0.4", "32.8", "0.1", "2.3", "3.8", "1.10", ()),
-    (6, "Black Beans", "113 g", "397", "95", "2.4", "1.0", "4.9", "0.9", "8.6", "7.2", "0.50", ()),
-    (7, "Pinto Beans", "113 g", "397", "95", "0.6", "0.2", "6.2", "0.1", "11.2", "6.7", "0.50", ()),
-    (8, "Fajita Vegetables", "57 g", "88", "21", "1.1", "0.1", "2.1", "1.4", "0.6", "0.4", "0.40", ()),
-    (9, "Barbacoa", "113 g", "644", "154", "3.8", "1.3", "1.0", "0.1", "0.8", "29.7", "0.30", ()),
-    (10, "Chicken", "113 g", "774", "185", "8.4", "2.4", "1.0", "0.1", "1.0", "27.3", "2.20", ()),
-    (11, "Carnitas", "113 g", "879", "210", "11.9", "3.9", "1.0", "0.1", "1.0", "25.8", "2.00", ()),
-    (12, "Steak", "113 g", "690", "165", "5.5", "1.9", "1.0", "0.2", "1.0", "28.8", "2.10", ()),
-    (13, "Sofritas (braised tofu)", "113 g", "351", "84", "4.6", "0.7", "3.0", "2.2", "1.2", "7.0", "1.00", ("Soya",)),
-    (14, "Fresh Tomato Salsa", "113 g", "63", "15", "0.5", "0.1", "1.1", "1.5", "1.2", "0.8", "0.20", ()),
-    (15, "Chilli-Corn Salsa", "113 g", "159", "38", "0.8", "0.2", "5.9", "0.9", "1.3", "1.3", "0.40", ()),
-    (16, "Roasted Tomato Green-Chilli Salsa", "59 g", "25", "6", "0.1", "0.1", "1.0", "0.9", "0.4", "0.3", "0.30", ()),
-    (17, "Roasted Tomato Red-Chilli Salsa", "59 g", "38", "9", "0.3", "0.1", "1.4", "0.7", "0.2", "0.3", "0.70", ()),
-    (18, "Monterey Jack Cheese", "28 g", "393", "94", "7.8", "4.8", "0.1", "0", "0", "5.8", "0.50", ("Milk",)),
-    (19, "Sour Cream", "57 g", "188", "45", "3.9", "2.7", "1.4", "1.1", "0.5", "0.9", "0.10", ("Milk",)),
-    (20, "Guacamole (topping/side)", "113 g", "607", "145", "13.5", "2.8", "2.8", "0.8", "3.3", "1.5", "0.70", ()),
-    (21, "Guacamole (large)", "226 g", "1213", "290", "27", "5.6", "5.6", "1.6", "6.6", "3", "1.40", ()),
-    (22, "Romaine Lettuce (salad/topping)", "85 g", "63", "15", "0", "0", "0", "1.1", "0", "0", "0.00", ()),
-    (23, "Romaine Lettuce (salad/topping)", "28 g", "17", "4", "0", "0", "0", "0.3", "0", "0", "0.00", ()),
-    (24, "Chips (regular)", "113 g", "1745", "417", "21.6", "1.7", "54.1", "1.2", "0", "4.6", "1.30", ()),
-    (25, "Chips (large)", "170 g", "2623", "627", "32.5", "2.6", "81", "1.8", "0", "6.9", "1.96", ()),
-    (27, "Chipotle Honey Vinaigrette", "59 ml", "1084", "259", "22.9", "2.4", "13.1", "6.2", "0.5", "0.2", "2.90", ()),
-]
+# Page 2's 14 allergen columns as printed (header words) -> our key (docs/DATA.md).
+GRID = [("Cereals containing gluten", "gluten"), ("Crustaceans", "crustaceans"), ("Eggs", "eggs"), ("Fish", "fish"), ("Peanuts", "peanuts"),
+        ("Soya", "soya"), ("Milk", "milk"), ("Tree nuts", "nuts"), ("Celery", "celery"), ("Mustard", "mustard"), ("Sesame", "sesame"),
+        ("Sulphites", "sulphites"), ("Lupin", "lupin"), ("Molluscs", "molluscs")]
 
-# What we add by hand per chart row (row -> (our name, serving text, tags, note)); everything numeric comes from CHART_ROWS.
-# `serving` is only set where the portion is more than a plain weight (the item page shows the weight itself): a count, a size, a volume.
-# Tags: the chart has no vegetarian marking and names no meat type except "Steak" (beef), so only that one is tagged.
+# Page-1 label -> (item id, our name, serving words, extra tags, note). Ids of products published before 17 Nov 2026 are kept.
+# `serving` only where the portion is more than a plain weight or volume (the item page shows the weight itself).
 SPEC = {
-    1: ("Flour Tortilla (burrito)", "1 tortilla", [], "Printed per 1 tortilla (95 g). Chart marks Cereals & Gluten (no cereal named)"),
-    2: ("Flour Tortillas (taco, 3)", "3 tortillas", [], "Printed per 3 tortillas (75 g), not one: the AUG 2022 sheet printed 94 kcal for one, which is not what the "
-                                                         "chart prints. Chart marks Cereals & Gluten (no cereal named)"),
-    4: ("Coriander-Lime White Rice", "", [], ""),
-    5: ("Coriander-Lime Brown Rice", "", [], "Printed kcal (185) is higher than 4P + 4C + 9F gives (about 162); the chart's kJ (774) agrees with its kcal"),
-    6: ("Black Beans", "", [], "Printed kcal (95) is higher than 4P + 4C + 9F gives (about 70), which the check flags; fibre (8.6) is a separate column "
-                              "and higher than carbohydrate (4.9), and at 2 kcal/g it would add about 17 kcal. The chart's kJ (397) agrees with its kcal. "
-                              "Entered as printed"),
-    7: ("Pinto Beans", "", [], "Printed kcal (95) is higher than 4P + 4C + 9F gives (about 57), which the check flags; fibre (11.2) is a separate column "
-                              "and higher than carbohydrate (6.2), and at 2 kcal/g it would add about 22 kcal (still about 16 short). The Black Beans "
-                              "row prints the same 95 kcal. The chart's kJ (397) agrees with its kcal. Entered as printed"),
-    8: ("Fajita Vegetables", "", [], "Portion is 57 g (the other ingredients are 113 g)"),
-    9: ("Barbacoa", "", [], "Meat type not stated, so no meat tag; salt (0.30) is far lower than the other meats (2.0-2.2). The 2026 menu card lists "
-                            "Braised Beef, but the current chart still prints Barbacoa"),
-    10: ("Chicken", "", [], ""),
-    11: ("Carnitas", "", [], "Meat type not stated, so no meat tag"),
-    12: ("Steak", "", [BEEF], ""),
-    13: ("Sofritas (braised tofu)", "", [], "The chart has no vegetarian marking, so no vegetarian tag. Chart marks Soya"),
-    14: ("Fresh Tomato Salsa", "", [], "Sugars (1.5) are printed higher than carbohydrate (1.1)"),
-    15: ("Chilli-Corn Salsa", "", [], ""),
-    16: ("Roasted Tomato Green-Chilli Salsa", "", [], "Portion is 59 g. Saturates printed as 0.1 (the AUG 2022 sheet printed <0.1; per 100 g the chart prints 0.17)"),
-    17: ("Roasted Tomato Red-Chilli Salsa", "", [], "Portion is 59 g. Saturates printed as 0.1 (the AUG 2022 sheet printed <0.1; per 100 g the chart prints 0.17)"),
-    18: ("Monterey Jack Cheese", "", [], "Portion is 28 g. Chart marks Milk. Named just 'Cheese' in the AUG 2022 sheet"),
-    19: ("Sour Cream", "", [], "Portion is 57 g. Chart marks Milk. Fibre printed as 0.5 (the AUG 2022 sheet printed <0.5)"),
-    20: ("Guacamole (topping/side)", "", [], ""),
-    21: ("Guacamole (large)", "Large", [], "Every value is exactly double the topping/side row"),
-    22: ("Romaine Lettuce (85 g)", "", [], "First line of the chart's 'Romaine Lettuce (salad/topping)' row. Printed with 15 kcal but 0 g protein, carbohydrate "
-                                          "and fat, and sugars (1.1) higher than carbohydrate (0)"),
-    23: ("Romaine Lettuce (28 g)", "", [], "Second line of the chart's 'Romaine Lettuce (salad/topping)' row. Printed with 4 kcal but 0 g protein, "
-                                          "carbohydrate and fat, and sugars (0.3) higher than carbohydrate (0)"),
-    24: ("Chips (regular)", "Regular", [], "Fibre printed as 0"),
-    25: ("Chips (large)", "Large", [], "Portion is 170 g, 627 kcal: about 1.5 x the regular row, not double as the AUG 2022 sheet printed (834 kcal). Fibre printed as 0"),
-    27: ("Chipotle Honey Vinaigrette", "59 ml", [], "Portion is a volume (59 ml); the chart prints no weight"),
+    "Burrito flour tortilla": ("flour-tortilla-burrito", "Flour Tortilla (burrito)", "1 tortilla", [], ""),
+    "Taco flour tortillas (3)": ("flour-tortillas-taco-3", "Flour Tortillas (taco, 3)", "3 tortillas", [], ""),
+    "Crispy corn taco shells (3)": ("crispy-corn-taco-shells-3", "Crispy Corn Taco Shells (3)", "3 shells", [], ""),
+    "Tortilla chips Regular": ("chips-regular", "Chips (regular)", "Regular", [], ""),
+    "Tortilla chips Large": ("chips-large", "Chips (large)", "Large", [], ""),
+    "Tortilla chips Kids": ("chips-kids", "Chips (kids)", "Kids", [], ""),
+    "Coriander-lime white rice": ("coriander-lime-white-rice", "Coriander-Lime White Rice", "", [], ""),
+    "Coriander-lime brown rice": ("coriander-lime-brown-rice", "Coriander-Lime Brown Rice", "", [], ""),
+    "Black beans": ("black-beans", "Black Beans", "", [], ""),
+    "Pinto beans": ("pinto-beans", "Pinto Beans", "", [], ""),
+    "Chicken": ("chicken", "Chicken", "", [], ""),
+    "Steak": ("steak", "Steak", "", [BEEF], ""),
+    "Barbacoa": ("barbacoa", "Barbacoa", "", [], "The guide does not state the meat, so no meat tag"),
+    "Carnitas": ("carnitas", "Carnitas", "", [PORK], "Pork: Chipotle's allergens page (chipotle.co.uk/allergens) says 'Our carnitas are made with pork'"),
+    "Sofritas": ("sofritas-braised-tofu", "Sofritas (braised tofu)", "", [], ""),
+    "Fajita vegetables": ("fajita-vegetables", "Fajita Vegetables", "", [], ""),
+    "Fresh tomato salsa": ("fresh-tomato-salsa", "Fresh Tomato Salsa", "", [], ""),
+    "Chilli-corn salsa": ("chilli-corn-salsa", "Chilli-Corn Salsa", "", [], ""),
+    "Roasted tomato green-chilli salsa": ("roasted-tomato-green-chilli-salsa", "Roasted Tomato Green-Chilli Salsa", "", [], ""),
+    "Roasted tomato red-chilli salsa": ("roasted-tomato-red-chilli-salsa", "Roasted Tomato Red-Chilli Salsa", "", [], ""),
+    "Sour cream": ("sour-cream", "Sour Cream", "", [], ""),
+    "Monterey Jack cheese": ("monterey-jack-cheese", "Monterey Jack Cheese", "", [], ""),
+    "Queso Entree": ("queso-entree", "Queso (entree)", "Entree", [], "The guide's 'Entree' portion"),
+    "Queso Side": ("queso-side", "Queso (side)", "Side", [], ""),
+    "Queso Large": ("queso-large", "Queso (large)", "Large", [], ""),
+    "Guacamole Topping/side": ("guacamole-topping-side", "Guacamole (topping/side)", "", [], ""),
+    "Guacamole Large": ("guacamole-large", "Guacamole (large)", "Large", [], ""),
+    "Romaine lettuce Salad": ("romaine-lettuce-85-g", "Romaine Lettuce (salad)", "Salad", [], ""),
+    "Romaine lettuce Topping": ("romaine-lettuce-28-g", "Romaine Lettuce (topping)", "Topping", [], ""),
+    "Supergreens salad mix": ("supergreens-salad-mix", "Supergreens Salad Mix", "", [], ""),
+    "Chipotle-honey vinaigrette": ("chipotle-honey-vinaigrette", "Chipotle Honey Vinaigrette", "", [], ""),
+    "Chicken al pastor": ("chicken-al-pastor", "Chicken al Pastor", "", [], "Limited time offer"),
+    "Chipotle honey chicken": ("chipotle-honey-chicken", "Chipotle Honey Chicken", "", [], "Limited time offer"),
+    "Pollo asado": ("pollo-asado", "Pollo Asado", "", [], "Limited time offer"),
 }
+for _size, _ml in (("16 oz", "450 ml"), ("20 oz", "565 ml")):
+    for _drink in ("Coca Cola", "Diet Coke", "Coke Zero", "Sprite Zero", "Dr Pepper Zero", "Fanta Orange", "Watermelon Mint",
+                   "Mandarin & Cardamom", "Berry Patch", "Lemonade"):
+        _label = f"{_drink} {_size}"
+        SPEC[_label] = (re.sub(r"[^a-z0-9]+", "-", _label.lower()).strip("-"), f"{_drink} ({_size})", f"{_size} ({_ml})", [], "")
 
-# Rows the chart prints impossibly (a part larger than its whole): not published, never corrected. Restore by deleting the line once the
-# chart is re-issued with figures that hold together.
-HOLDBACK = [
-    ("fresh-tomato-salsa", "The chart (UK270726) prints sugars (1.5 g) higher than carbohydrate (1.1 g); sugars are part of carbohydrate."),
-    ("romaine-lettuce-85-g", "The chart (UK270726) prints 15 kcal with 0 g carbohydrate, protein and fat, and 1.1 g sugars (sugars are part of carbohydrate)."),
-    ("romaine-lettuce-28-g", "The chart (UK270726) prints 4 kcal with 0 g carbohydrate, protein and fat, and 0.3 g sugars (sugars are part of carbohydrate)."),
-]
+# Rows the guide prints impossibly (a part larger than its whole): not published, never corrected. None in Version 1.0.
+HOLDBACK: list[tuple[str, str]] = []
 
-NOTE = ("Chipotle UK publishes values for single ingredients only, not finished burritos or bowls, and we don't add them together. Its chart says "
-        "food is prepared in open-plan kitchens where multiple allergens are present, so it cannot guarantee any item is free from specific allergens.")
+NOTE = ("Chipotle UK publishes values for single ingredients only, not finished burritos or bowls, and we don't add them together. Its "
+        "guide says allergens are handled in its kitchens, some equipment is shared and some ingredients are made where gluten cereals "
+        "and soya are handled, so it cannot guarantee any item is free from any allergen.")
 
-WEIGHT = re.compile(r"(?:^|\()\s*(\d+(?:\.\d+)?)\s*g\s*\)?$")  # "113 g", "3 Ea (75 g)" -> grams of the whole serving; "59 ml" -> no match
-NUM = re.compile(r"^\d+(?:\.\d+)?$")
-
-
-def slug(name: str) -> str:
-    out = "".join(c.lower() if c.isalnum() else "-" for c in name.replace("'", ""))
-    return "-".join(p for p in out.split("-") if p)
+NUM = re.compile(r"^<?\d+(?:\.\d+)?$")
+ROW = re.compile(r"^\s*(\S.*?)\s{2,}(\d+(?:\.\d+)?) (g|ml)\s+(.*\S)\s*$")
+NUTRIENTS = ("energy_kj", "calories", "fat_g", "sat_fat_g", "carbs_g", "sugar_g", "fiber_g", "protein_g", "salt_g")
+WORD = re.compile(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(.*?)</word>')
+DPI = 100
 
 
-def check_table() -> None:
-    """Stops on anything that suggests a mis-transcribed line (it can only be re-read by eye, so these catch typos, not misreadings)."""
-    assert len(GRID) == 14 and len(GRID_KEYS) == 14 and len(set(GRID_KEYS.values())) == 14, "the allergen grid must map 14 distinct columns"
-    rows = [r[0] for r in CHART_ROWS]
-    assert len(set(rows)) == len(rows) and rows == sorted(rows), "chart rows must be unique and in printed order"
-    assert set(rows) == set(SPEC), f"every chart row needs a SPEC line and vice versa: {sorted(set(rows) ^ set(SPEC))}"
-    for row, printed, portion, kj, kcal, fat, sat, carbs, sugars, fibre, protein, salt, marks in CHART_ROWS:
-        for label, v in (("kJ", kj), ("kcal", kcal), ("fat", fat), ("saturates", sat), ("carbohydrate", carbs), ("sugars", sugars),
-                         ("fibre", fibre), ("protein", protein), ("salt", salt)):
-            assert NUM.match(v), f"row {row} {printed!r}: {label} {v!r} is not a printed number"
-        # kJ and kcal are printed side by side: a slip in one of them shows here (the chart rounds, so allow 2% or 2 kJ)
-        assert abs(float(kj) - 4.184 * float(kcal)) <= max(2.0, 0.02 * float(kj)), f"row {row} {printed!r}: {kj} kJ does not fit {kcal} kcal"
-        bad = [m for m in marks if m not in GRID_KEYS]
-        assert not bad, f"row {row} {printed!r}: unknown allergen column {bad}"
+def die(msg: str) -> int:
+    print(msg, file=sys.stderr)
+    return 1
+
+
+def pdftotext(pdf: Path, page: int, *opts: str) -> str:
+    return subprocess.run(["pdftotext", *opts, "-f", str(page), "-l", str(page), str(pdf), "-"], check=True, capture_output=True,
+                          text=True).stdout
+
+
+def unit(printed: str) -> float:
+    """The step of the last printed digit: '18' -> 1, '0.6' -> 0.1, '0.02' -> 0.01."""
+    p = printed.lstrip("<")
+    return 10 ** -len(p.split(".")[1]) if "." in p else 1.0
+
+
+def read_nutrition(pdf: Path) -> list[dict]:
+    """Page 1 -> [{"section", "label", "size", "uom", <NUTRIENTS> as printed}] in printed order."""
+    text = pdftotext(pdf, 1, "-layout")
+    if f"Information correct at {GUIDE_DATE}" not in text or f"{VERSION} | Information correct at {GUIDE_DATE}" not in text:
+        raise SystemExit(f"page 1 no longer says '{VERSION} | Information correct at {GUIDE_DATE}': a re-issued guide, look at it first")
+    names = [s for s, _, _ in SECTIONS]
+    rows, section = [], None
+    for line in text.splitlines():
+        if line.strip() in names:
+            section = line.strip()
+            continue
+        m = ROW.match(line)
+        if not m:
+            continue
+        label, size, uom, rest = m.group(1), m.group(2), m.group(3), m.group(4).split()
+        if section is None:
+            raise SystemExit(f"a row before the first section: {line!r}")
+        if len(rest) != 18 or not all(NUM.match(t) for t in rest):
+            raise SystemExit(f"{label!r}: expected 18 printed numbers, got {rest}")
+        per_serving, per_100 = rest[:9], rest[9:]
+        for key, a, b in zip(NUTRIENTS, per_serving, per_100):
+            if a.startswith("<") or b.startswith("<"):
+                continue
+            want = float(b) * float(size) / 100
+            tol = 0.5 * unit(b) * float(size) / 100 + 0.5 * unit(a) + 0.02 * float(a)
+            if abs(float(a) - want) > tol:
+                raise SystemExit(f"{label!r} {key}: per serving {a} does not fit per 100 {b} x {size} {uom} (= {want:.2f}): column misread?")
+        rows.append({"section": section, "label": label, "size": size, "uom": uom, **dict(zip(NUTRIENTS, per_serving))})
+    for name, count, _ in SECTIONS:
+        got = sum(1 for r in rows if r["section"] == name)
+        if got != count:
+            raise SystemExit(f"section {name!r} has {got} rows, this script expects {count}: the guide changed, re-check SPEC")
+    return rows
+
+
+def _words(xml: str) -> list[tuple[float, float, float, float, str]]:
+    import html
+    return [(float(a), float(b), float(c), float(d), html.unescape(e)) for a, b, c, d, e in WORD.findall(xml)]
+
+
+def read_allergens(pdf: Path) -> tuple[list[dict], set[str]]:
+    """Page 2 -> ([{"name", "V", "VG", "contains": set}], names the 'Contains wheat:' line lists)."""
+    from PIL import Image
+    text = pdftotext(pdf, 2, "-layout")
+    if f"{VERSION} | Information correct at {GUIDE_DATE}" not in text:
+        raise SystemExit(f"page 2 no longer says '{VERSION} | Information correct at {GUIDE_DATE}': look at it first")
+    m = re.search(r"Contains wheat:\s*(.+?)\.\s*$", text, re.M)
+    if not m:
+        raise SystemExit("the 'Contains wheat:' line under the grid is gone: re-check how the guide names cereals")
+    wheat = {n.strip().lower() for n in re.split(r",| and ", m.group(1)) if n.strip()}
+    words = _words(pdftotext(pdf, 2, "-bbox-layout"))
+    # column centres from the rotated header words (the header band sits between "INGREDIENT" and the first section bar)
+    head = [w for w in words if 395 < w[1] < 480 and w[0] > 390]
+    cols = []
+    for label, key in GRID:
+        parts = label.split()
+        ws = [w for w in head if w[4] in parts]
+        xs = sorted({round((w[0] + w[2]) / 2, 1) for w in ws})
+        group = [x for x in xs if abs(x - xs[0]) < 15] if xs else []
+        if not group or (len(parts) == 1 and len(ws) != 1):
+            raise SystemExit(f"allergen column {label!r} not found in the header")
+        cols.append((key, sum(group) / len(group) if label != "Cereals containing gluten" else (min(w[0] for w in ws) + max(w[2] for w in ws)) / 2))
+    xs = [c[1] for c in cols]
+    if xs != sorted(xs) or min(b - a for a, b in zip(xs, xs[1:])) < 40:
+        raise SystemExit(f"allergen columns out of order or too close: {cols}")
+    # ingredient lines: words at x=57 (the name column) between the header and the "CEREALS CONTAINING GLUTEN" box, not section bars
+    end_y = min(w[1] for w in words if w[4] == "CEREALS")
+    lines: dict[float, list] = {}
+    for w in words:
+        if w[0] < 300 and 480 < w[1] < end_y:
+            key = next((k for k in lines if abs(k - w[1]) < 3), w[1])
+            lines.setdefault(key, []).append(w)
+    rows = []
+    for y, ws in sorted(lines.items()):
+        name = " ".join(w[4] for w in sorted(ws, key=lambda w: w[0]))
+        if name.isupper():   # a section bar
+            continue
+        marks = {w[4] for w in words if 300 < w[0] < 390 and abs(w[1] - y - 0.5) < 3.5}
+        rows.append({"name": name, "y": (min(w[1] for w in ws) + max(w[3] for w in ws)) / 2, "V": "V" in marks, "VG": "VG" in marks})
+    with tempfile.TemporaryDirectory() as tmp:
+        subprocess.run(["pdftoppm", "-f", "2", "-l", "2", "-r", str(DPI), "-png", str(pdf), f"{tmp}/p"], check=True)
+        img = Image.open(next(Path(tmp).glob("p*.png"))).convert("RGB")
+    s = DPI / 72.0
+    px = img.load()
+
+    def red(x: int, y: int) -> bool:
+        r, g, b = px[x, y]
+        return r > 140 and g < 90 and b < 90 and r - g > 80
+
+    x_lo, x_hi = int((xs[0] - 27) * s), int((xs[-1] + 27) * s)
+    for row in rows:
+        row["contains"] = set()
+        cy = row["y"] * s
+        band = range(int(cy - 8 * s), int(cy + 8 * s) + 1)
+        claimed = set()
+        for key, cx in cols:
+            box = [(x, y) for x in range(int((cx - 8) * s), int((cx + 8) * s) + 1) for y in band]
+            frac = sum(red(x, y) for x, y in box) / len(box)
+            if frac > 0.25:
+                row["contains"].add(key)
+            elif frac > 0.02:
+                raise SystemExit(f"{row['name']!r} / {key}: the cell is neither clearly ticked nor clearly empty ({frac:.2f} red): look at it")
+            claimed.update(x for x, _ in box)
+        stray = [(x, y) for x in range(x_lo, x_hi) for y in band if x not in claimed and red(x, y)]
+        if stray:
+            raise SystemExit(f"{row['name']!r}: red marks in the row outside any allergen cell, e.g. {stray[:3]}: look at it")
+    return rows, wheat
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("pdf", type=Path, help="Allergen-UK270726.pdf, downloaded from CHART_URL")
-    ap.add_argument("--checked-on", required=True, help="YYYY-MM-DD, the day you read the chart")
+    ap.add_argument("pdf", type=Path, help="UK_Allergen_Guide_Nov2026 2-94.pdf, downloaded from CHART_URL")
+    ap.add_argument("--checked-on", required=True, help="YYYY-MM-DD, the day you read the guide")
     ap.add_argument("--out", type=Path, default=ROOT / "data" / "source" / CHAIN_ID)
     args = ap.parse_args()
-
     digest = hashlib.sha256(args.pdf.read_bytes()).hexdigest()
-    if digest != CHART_SHA256:
-        print(f"{args.pdf} is not the chart that CHART_ROWS was transcribed from (sha256 {digest}, expected {CHART_SHA256}). "
-              "Chipotle re-issued it: re-read the table by eye (render with `pdftoppm -r 150 -png`; it has no text layer), update "
-              "CHART_ROWS, SPEC, HOLDBACK and CHART_SHA256 together, then run again.", file=sys.stderr)
-        return 1
-    check_table()
 
+    nutrition = read_nutrition(args.pdf)
+    allergen_rows, wheat = read_allergens(args.pdf)
+    labels = [r["label"] for r in nutrition]
+    if sorted(labels) != sorted(SPEC):
+        return die(f"rows printed but not in SPEC: {sorted(set(labels) - set(SPEC))}; in SPEC but not printed: {sorted(set(SPEC) - set(labels))}")
+    by_name = {r["name"].lower(): r for r in allergen_rows}
+    if len(by_name) != len(allergen_rows):
+        return die("two allergen lines with the same name")
+    used = set()
     items = []
-    for row, printed, portion, kj, kcal, fat, sat, carbs, sugars, fibre, protein, salt, marks in CHART_ROWS:
-        name, serving, tags, note = SPEC[row]
-        m = WEIGHT.search(portion)
-        contains = {GRID_KEYS[x] for x in marks}
+    cats = {s: c for s, _, c in SECTIONS}
+    for r in nutrition:
+        lab = r["label"].lower()   # the allergen line is the product's name; a size or count may follow it on page 1
+        matches = [lab] if lab in by_name else [n for n in by_name if lab.startswith(n + " ")]
+        if len(matches) != 1:
+            return die(f"{r['label']!r}: expected one allergen line, found {matches}")
+        a = by_name[matches[0]]
+        used.add(matches[0])
+        iid, name, serving, tags, note = SPEC[r["label"]]
+        if a["V"]:
+            tags = tags + [VEG]
+        if a["VG"] and not a["V"]:
+            return die(f"{r['label']!r}: marked VG but not V")
+        if "gluten" in a["contains"] and matches[0] not in wheat:
+            return die(f"{r['label']!r}: gluten ticked but not named in 'Contains wheat:'")
         items.append({
-            "id": slug(name), "name": name, "category": ING, "serving": serving,
-            "calories": kcal, "protein_g": protein, "carbs_g": carbs, "fat_g": fat, "sat_fat_g": sat, "sodium_mg": "", "salt_g": salt,
-            "sugar_g": sugars, "fiber_g": fibre, "energy_kj": kj, "weight_g": m.group(1) if m else "",
-            "tags": "|".join(sorted(tags)), "limited_time": False, "rankable": False,
-            "notes": f"Chart UK270726 p1 row {row} '{printed}', portion '{portion}'. {note}".strip(),
-            # The chart prints no "may contain" and names no cereal or nut: only the 14 crosses.
-            "allergens": {"contains": contains, "may_contain": set(), "cereals": set(), "nuts": set()},
+            "id": iid, "name": name, "category": cats[r["section"]], "serving": serving,
+            "calories": r["calories"], "protein_g": r["protein_g"], "carbs_g": r["carbs_g"], "fat_g": r["fat_g"], "sat_fat_g": r["sat_fat_g"],
+            "sodium_mg": "", "salt_g": r["salt_g"], "sugar_g": r["sugar_g"], "fiber_g": r["fiber_g"], "energy_kj": r["energy_kj"],
+            "weight_g": r["size"] if r["uom"] == "g" else "",
+            "tags": "|".join(sorted(set(tags))), "limited_time": r["section"] == "LIMITED TIME OFFERS", "rankable": False,
+            "notes": "; ".join(x for x in (f"Nutrition Guide ({VERSION}, {GUIDE_DATE}) p1 '{r['label']}', serving {r['size']} {r['uom']}"
+                                           + (f"; allergens from the Allergen Guide line '{a['name']}'" if a["name"] != r["label"] else ""),
+                                           note) if x),
+            "allergens": {"contains": set(a["contains"]), "may_contain": set(),
+                          "cereals": {"wheat"} if "gluten" in a["contains"] else set(), "nuts": set()},
         })
+    unused = set(by_name) - used
+    if unused:
+        return die(f"allergen lines with no nutrition row: {sorted(unused)}")
+    ticked_gluten = {n for n, r in by_name.items() if "gluten" in r["contains"]}
+    if ticked_gluten != wheat:
+        return die(f"'Contains wheat:' names {sorted(wheat)} but the grid ticks gluten for {sorted(ticked_gluten)}")
     ids = [i["id"] for i in items]
     assert len(ids) == len(set(ids)), "duplicate ids"
     missing = [h for h, _ in HOLDBACK if h not in ids]
     assert not missing, f"holdback names items that no longer exist: {missing}"
-    lacking = [i["id"] for i in items if not isinstance(i.get("allergens"), dict)]
-    assert not lacking, f"every item needs its allergens from the chart: {lacking}"
 
+    if not HOLDBACK:   # write_chain_folder writes holdback.csv only when something is held back: drop a stale one
+        (Path(args.out) / "holdback.csv").unlink(missing_ok=True)
     out = write_chain_folder(chain_id=CHAIN_ID, name="Chipotle", cuisine="Mexican", source_title=SOURCE_TITLE, source_url=CHART_URL,
-                             checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE, holdback=HOLDBACK,
+                             checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE, holdback=HOLDBACK or None,
                              allergen_guide={**ALLERGEN_GUIDE, "checked_on": args.checked_on})
     if not (out / "allergens.csv").exists():
-        print("allergens.csv was not written: every item must have its allergens", file=sys.stderr)
-        return 1
-    print(f"wrote {len(items)} items ({len(HOLDBACK)} held back) to {out} (chart sha256 {digest})")
+        return die("allergens.csv was not written: every item must have its allergens")
+    ticks = sorted((r["name"], k) for r in allergen_rows for k in r["contains"])
+    print(f"allergen ticks read: {len(ticks)}: {ticks}")
+    print(f"wrote {len(items)} items ({len(HOLDBACK)} held back) to {out} (guide sha256 {digest})")
     return 0
 
 

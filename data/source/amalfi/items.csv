@@ -20,6 +20,11 @@ antipasti-platter,Antipasti Platter,Antipasti,,1032,,,,,,,,,,,,,,,,false,false,,
 antipasti-platter-gluten-free,Antipasti Platter Gluten-Free,Antipasti,,938,,,,,,,,,,,,,,,,false,false,,,Source: Main Menu > ANTIPASTI > ANTIPASTI PLATTER
 nduja-spiced-arancini,'Nduja Spiced Arancini,Antipasti,,372,,,,,,,,,,,,,,,contains_pork,false,false,,,Source: Main Menu > ANTIPASTI
 polpette,Polpette,Antipasti,,319,,,,,,,,,,,,,,,contains_pork,false,false,,,Source: Main Menu > ANTIPASTI
+roasted-veg-and-telaggio-bruschetta,Roasted Veg & Telaggio Bruschetta,Antipasti,,430,,,,,,,,,,,,,,,,false,false,,,Source: Main Menu > ANTIPASTI
+roasted-veg-and-telaggio-bruschetta-gluten-free,Roasted Veg & Telaggio Bruschetta (Gluten-Free),Antipasti,,433,,,,,,,,,,,,,,,,false,false,,,Source: Main Menu > ANTIPASTI
+crab-tian,Crab Tian,Antipasti,,332,,,,,,,,,,,,,,,,false,false,,,Source: Main Menu > ANTIPASTI
+crab-tian-gluten-free,Crab Tian (Gluten-Free),Antipasti,,380,,,,,,,,,,,,,,,,false,false,,,Source: Main Menu > ANTIPASTI
+christmas-pizza,Christmas Pizza,Pizza,,1174,,,,,,,,,,,,,,,contains_pork,true,true,,,Source: Main Menu > STONE BAKED SOURDOUGH PIZZA
 margherita,Margherita,Pizza,,864,,,,,,,,,,,,,,,vegetarian,false,true,,,Source: Main Menu > STONE BAKED SOURDOUGH PIZZA
 wild-mushroom-and-truffle,Wild Mushroom and Truffle,Pizza,,879,,,,,,,,,,,,,,,vegetarian,false,true,,,Source: Main Menu > STONE BAKED SOURDOUGH PIZZA
 pepperoni-nduja,Pepperoni 'Nduja,Pizza,,1228,,,,,,,,,,,,,,,contains_pork,false,true,,,Source: Main Menu > STONE BAKED SOURDOUGH PIZZA > PEPPERONI N'DUJA
@@ -52,6 +57,7 @@ chicken-kids-topping,Chicken (kids topping),Add-ons & extras,,45,,,,,,,,,,,,,,,,
 mushroom-kids-topping,Mushroom (kids topping),Add-ons & extras,,3,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Kids > MAIN COURSE > Add two toppings:
 pepperoni-kids-topping,Pepperoni (kids topping),Add-ons & extras,,179,,,,,,,,,,,,,,,contains_pork,false,false,,,Source: Kids > MAIN COURSE > Add two toppings:
 peppers-kids-topping,Peppers (kids topping),Add-ons & extras,,18,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Kids > MAIN COURSE > Add two toppings:
+festive-pasta,Festive Pasta,Pasta & risotto,,725,,,,,,,,,,,,,,,vegetarian,true,true,,,Source: Main Menu > PASTA & RISOTTO
 rigatoni-arrabbiata,Rigatoni Arrabbiata,Pasta & risotto,,647,,,,,,,,,,,,,,,vegetarian,false,true,,,Source: Main Menu > PASTA & RISOTTO > RIGATONI ARRABBIATA
 rigatoni-arrabbiata-gluten-free,Rigatoni Arrabbiata Gluten-Free,Pasta & risotto,,543,,,,,,,,,,,,,,,vegetarian,false,true,,,Source: Main Menu > PASTA & RISOTTO > RIGATONI ARRABBIATA
 spaghetti-carbonara,Spaghetti Carbonara,Pasta & risotto,,865,,,,,,,,,,,,,,,contains_pork,false,true,,,Source: Main Menu > PASTA & RISOTTO > SPAGHETTI CARBONARA
@@ -77,6 +83,7 @@ cheese-truffle-fries,Cheese Truffle Fries,Sides,,609,,,,,,,,,,,,,,,vegetarian,fa
 tomato-salad,Tomato Salad,Sides,,96,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Main Menu > SECONDI > Served with your choice of:
 garlic-ciabatta,Garlic Ciabatta,Sides,,366,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Main Menu > SIDE
 thyme-roasted-baby-potatoes,Thyme-Roasted Baby Potatoes,Sides,,376,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Main Menu > SIDE
+morello-cherry-and-chocolate-tarte,Morello Cherry and Chocolate Tarte,Desserts,,531,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Desserts > DESSERTS
 italian-chocolate-fondant,Italian Chocolate Fondant,Desserts,,682,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Desserts > DESSERTS
 mango-and-pistachio-budino,Mango and Pistachio Budino,Desserts,,410,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Desserts > DESSERTS
 amalfi-cheesecake,Amalfi Cheesecake,Desserts,,423,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Desserts > DESSERTS
@@ -88,13 +95,13 @@ gelato-sorbet-vanilla,Gelato / Sorbet: Vanilla,Desserts,,130,,,,,,,,,,,,,,,veget
 gelato-sorbet-mango,Gelato / Sorbet: Mango,Desserts,,64,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Desserts > DESSERTS
 gelato-sorbet-pistachio,Gelato / Sorbet: Pistachio,Desserts,,139,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Desserts > DESSERTS
 gelato-sorbet-honeycomb,Gelato / Sorbet: Honeycomb,Desserts,,90,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Desserts > DESSERTS
-morello-cherry-and-chocolate-tarte,Morello Cherry and Chocolate Tarte,Desserts,,531,,,,,,,,,,,,,,,vegetarian,true,false,,,Source: Desserts > Off the Menu
 cheesy-garlic-flat-bread,Cheesy Garlic Flat Bread,Kids: Starters,,379,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Kids > STARTERS
 gluten-free-cheesy-garlic-bread,Gluten Free Cheesy Garlic Bread,Kids: Starters,,397,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Kids > STARTERS
 garlic-dough-bites,Garlic Dough Bites,Kids: Starters,,138,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Kids > STARTERS
 crudites,Crudites,Kids: Starters,,38,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Kids > STARTERS
 pasta-pomodoro,Pasta Pomodoro,Kids: Mains,,240,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Kids > MAIN COURSE
 pasta-pomodoro-gluten-free,Pasta Pomodoro (Gluten-Free),Kids: Mains,,202,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Kids > MAIN COURSE
+crispy-fish-goujons,Crispy Fish Goujons,Kids: Mains,,538,,,,,,,,,,,,,,,,false,false,,,Source: Kids > MAIN COURSE
 spaghetti-bolognese,Spaghetti Bolognese,Kids: Mains,,321,,,,,,,,,,,,,,,,false,false,,,Source: Kids > MAIN COURSE
 spaghetti-bolognese-gluten-free,Spaghetti Bolognese (Gluten-Free),Kids: Mains,,357,,,,,,,,,,,,,,,,false,false,,,Source: Kids > MAIN COURSE
 macaroni-cheese,Macaroni Cheese,Kids: Mains,,509,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Kids > MAIN COURSE
@@ -129,7 +136,7 @@ campari-spritz,Campari Spritz,Drinks: Cocktails,,211,,,,,,,,,,,,,,,vegetarian,fa
 caramelised-biscuit-martini,Caramelised Biscuit Martini,Drinks: Cocktails,,102,,,,,,,,,,,,,,,,false,false,,,Source: DRINKS > Cocktails
 aperol-spritz,Aperol Spritz,Drinks: Cocktails,,180,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: DRINKS > Cocktails
 limoncello-spritz,Limoncello Spritz,Drinks: Cocktails,,198,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: DRINKS > Cocktails
-sarti-spritz,Sarti Spritz,Drinks: Cocktails,,60,,,,,,,,,,,,,,,,false,false,,,Source: DRINKS > Cocktails
+sarti-spritz,Sarti Spritz,Drinks: Cocktails,,125,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: DRINKS > Cocktails
 galanti-prosecco-extra-dry-125ml-glass,Galanti Prosecco Extra Dry (125ml Glass),Drinks: Sparkling & champagne,125ml Glass,75,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: DRINKS > Sparkling > GALANTI PROSECCO EXTRA DRY
 galanti-prosecco-extra-dry-bottle,Galanti Prosecco Extra Dry (Bottle),Drinks: Sparkling & champagne,Bottle,450,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: DRINKS > Sparkling > GALANTI PROSECCO EXTRA DRY
 aperol-spritz-bottomless-brunch,Aperol Spritz (Bottomless Brunch),Drinks: Sparkling & champagne,,154,,,,,,,,,,,,,,,vegetarian,false,false,,,Source: Brunch > PICK YOUR BOTTOMLESS BEVERAGE

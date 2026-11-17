@@ -26,7 +26,7 @@ label names 2 or more restaurants (Haggis Pau: Glasgow & Edinburgh; Irn Bru: Gla
 Glasgow, King's Cross & Manchester). One-restaurant dishes are left out.
 
 Published: a dish whose description has exactly one "NNN kcal" (decimals as printed: 67.1). Left out and listed with --report: no calories printed; two
-figures (Half/Full plate, "HALF - 481/KCAL - FULL - 349/KCAL", "Half : 245/ Full : 350"); "per 100ml"; dishes at one restaurant only; dishes whose name
+figures (Half/Full plate, "HALF - 481/KCAL - FULL - 349/KCAL", "Half : 245/ Full : 350", "(610/514kcal)"); "per 100ml"; dishes at one restaurant only; dishes whose name
 appears twice with different calories or allergens (Vegetable Samosas 415 / 218: the same name, different dishes, so neither is published: never chosen
 between); dishes whose panel shows no "Vegetarian"/"Vegan" mark and no allergen at all (Four rashers of bacon, Kids - tomato jam mayo): that cannot be told
 apart from a dish with no allergen record, and an allergen row must never be guessed.
@@ -140,7 +140,10 @@ def fetch(cache: Path) -> None:
 
 
 # ---------------------------------------------------------------------------------------------- reading
-KC = re.compile(r"(\d+(?:\.\d+)?)\s*kcal", re.I)
+# Every figure printed before "kcal", including figures joined by a slash ("(610/514kcal)": two versions of one dish, e.g. dairy or coconut
+# yoghurt): before 2026-11-17 only the last of such figures was read, so House Granola, Fruit & Yoghurt and the kids' Fruit & Yoghurt were
+# published with their second figure; now they count as two figures and are left out (never chosen between).
+KC = re.compile(r"(\d+(?:\.\d+)?)(?=(?:\s*/\s*\d+(?:\.\d+)?)*\s*kcal)", re.I)
 ML = re.compile(r"\b(\d{2,4})\s?ml\b", re.I)
 PORK = re.compile(r"\b(pork|bacon|ham|sausages?|salami|prosciutto|pepperoni|chorizo)\b", re.I)
 BEEF = re.compile(r"\b(beef|steaks?)\b", re.I)

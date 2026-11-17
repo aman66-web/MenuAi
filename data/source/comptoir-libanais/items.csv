@@ -1,50 +1,50 @@
 id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
 lebanese-pickles,Lebanese Pickles,Nibbles,,29,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '29'
 marinated-olives,Marinated Olives,Nibbles,,221,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '221'
-roasted-almonds,Roasted Almonds,Nibbles,,246,,,,,,,,,,,,,,,vegetarian,false,false,,,"printed kcals '246'; comment: May contain: Brazil Nut, Cashew Nut, Hazelnut, Macadamia/Queensland Nut, Peanuts, Pecan Nut, Pistachio and Walnut"
+rosemary-almonds,Rosemary Almonds,Nibbles,,246,,,,,,,,,,,,,,,vegetarian,false,false,,,"printed kcals '246'; comment: May contain: Brazil Nut, Cashew Nut, Hazelnut, Macadamia/Queensland Nut, Peanuts, Pecan Nut, Pistachio and Walnut"
 mezze-platter,Mezze Platter,Mezze,,793,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '793pp'
 lentil-soup,Lentil Soup,Mezze,,386,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '386'
 hommos,Hommos,Mezze,,277,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '277'; comment: *Hommos is stored in same open fridge same as other dairy products
 baba-ghanuj,Baba Ghanuj,Mezze,,283,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '283'; comment: *Baba Ghanuj is stored in same open fridge same as other dairy products
-falafel,Falafel,Mezze,,372,,,,,,,,,,,,,,,vegetarian,false,false,,,"printed kcals '372'; comment: *Falafel is fried in a fryer with potential cross-contact with Gluten (Barley, Wheat), Milk, Eggs; marked vegan although milk/egg are marked as contained (cross-contact comment): published as printed"
+falafel,Falafel,Mezze,,372,,,,,,,,,,,,,,,vegetarian,false,false,,,"printed kcals '372'; comment: *Falafel is fried in a fryer with potential cross-contact with Gluten (Barley, Wheat), Milk, Eggs"
 cheese-samboussek,Cheese Samboussek,Mezze,,476,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '476'
 chicken-samboussek,Chicken Samboussek,Mezze,,202,,,,,,,,,,,,,,,,false,false,,,printed kcals '202'
 feta-and-pepper-dip,Feta & Pepper Dip,Mezze,,256,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '256'
-batata-harra,Batata Harra,Mezze,,528,,,,,,,,,,,,,,,vegetarian,false,false,,,"printed kcals '528'; comment: *Batata Harra is fried in a fryer with potential cross-contact with Gluten (Barley, Wheat), Milk, Eggs; marked vegan although milk/egg are marked as contained (cross-contact comment): published as printed"
+batata-harra,Batata Harra,Mezze,,528,,,,,,,,,,,,,,,vegetarian,false,false,,,"printed kcals '528'; comment: *Batata Harra is fried in a fryer with potential cross-contact with Gluten (Barley, Wheat), Milk, Eggs"
 lebanese-wings,Lebanese Wings,Mezze,,456,,,,,,,,,,,,,,,,false,false,,,printed kcals '456'
 halloumi-steak,Halloumi Steak,Mezze,,565,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '565'
 lamb-kibbeh,Lamb Kibbeh,Mezze,,534,,,,,,,,,,,,,,,,false,false,,,printed kcals '534'
 tabbouleh,Tabbouleh,Mezze,,228,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '228'; comment: *Tabbouleh is stored in same open fridge same as other dairy products
 fattoush,Fattoush,Mezze,,145,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '145'
-warm-olive-oil-bread,Warm Olive Oil Bread,Flatbreads,,241,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '241'
+warm-flatbread-with-olive-oil,Warm Flatbread with olive oil,Flatbreads,,241,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '241'
 zaatar-and-garlic-bread,Za’atar & Garlic Bread,Flatbreads,,524,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '524'
 mixed-grill,Mixed Grill,Grills,,1135,,,,,,,,,,,,,,,,false,false,,,printed kcals '1135'
 lamb-kofta-grill,Lamb Kofta Grill,Grills,,761,,,,,,,,,,,,,,,,false,false,,,printed kcals '761'; printed name 'Lamb Kofta'
 chicken-taouk-grill,Chicken Taouk Grill,Grills,,683,,,,,,,,,,,,,,,,false,false,,,printed kcals '683'; printed name 'Chicken Taouk'
 chicken-kofta-grill,Chicken Kofta Grill,Grills,,769,,,,,,,,,,,,,,,,false,false,,,printed kcals '769'; printed name 'Chicken Kofta'
-lamb-kofta-burger,Lamb Kofta Burger,Grills,,895,,,,,,,,,,,,,,,,false,false,,,printed kcals '895'
 chicken-kofta-burger,Chicken Kofta Burger,Grills,,895,,,,,,,,,,,,,,,,false,false,,,printed kcals '895'
 mixed-grill-takeaway-with-flatbread,"Mixed Grill (takeaway, with flatbread)",Takeaway grills (with flatbread),,1376,,,,,,,,,,,,,,,,false,false,,,printed kcals '1376'; printed name 'Mixed Grill'
 mixed-grill-with-wings-takeaway-with-flatbread,"Mixed Grill with Wings (takeaway, with flatbread)",Takeaway grills (with flatbread),,1135,,,,,,,,,,,,,,,,false,false,,,printed kcals '1135'; printed name 'Mixed Grill with Wings'
 lamb-kofta-grill-takeaway-with-flatbread,"Lamb Kofta Grill (takeaway, with flatbread)",Takeaway grills (with flatbread),,1002,,,,,,,,,,,,,,,,false,false,,,printed kcals '1002'; printed name 'Lamb Kofta Grill'
 chicken-taouk-grill-takeaway-with-flatbread,"Chicken Taouk Grill (takeaway, with flatbread)",Takeaway grills (with flatbread),,924,,,,,,,,,,,,,,,,false,false,,,printed kcals '924'; printed name 'Chicken Taouk'
 chicken-kofta-grill-takeaway-with-flatbread,"Chicken Kofta Grill (takeaway, with flatbread)",Takeaway grills (with flatbread),,1010,,,,,,,,,,,,,,,,false,false,,,printed kcals '1010'; printed name 'Chicken Kofta'
-roasted-salmon,Roasted Salmon,House specialities,,827,,,,,,,,,,,,,,,,false,false,,,printed kcals '827'
-spinach-and-feta-borek,Spinach & Feta Borek,House specialities,,1002,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '1002'
+roasted-salmon,Roasted Salmon,House specialities,,687,,,,,,,,,,,,,,,,false,false,,,printed kcals '687'
+honey-and-harissa-chicken,Honey & Harissa Chicken,House specialities,,1213,,,,,,,,,,,,,,,,false,false,,,printed kcals '1213'
 chicken-shawarma-rice-bowl,Chicken Shawarma Rice Bowl,House specialities,,1098,,,,,,,,,,,,,,,,false,false,,,printed kcals '1098'
 chicken-and-green-olive-tagine,Chicken & Green Olive Tagine,Tagines,,382,,,,,,,,,,,,,,,,false,false,,,printed kcals '382'; printed name 'Chicken & Green Olive'
-aubergine-tagine,Aubergine Tagine,Tagines,,598,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '598'; printed name 'Aubergine'
-mama-zohra-salad,Mama Zohra Salad,Salads,,691,,,,,,,,,,,,,,,,false,false,,,printed kcals '691'; printed name 'Mama Zohra'
-grilled-halloumi-salad,Grilled Halloumi Salad,Salads,,900,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '900'; printed name 'Grilled Halloumi'
+aubergine-and-chickpea-tagine,Aubergine & Chickpea Tagine,Tagines,,598,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '598'; printed name 'Aubergine & Chickpea'
+grilled-chicken-taouk-salad,Grilled Chicken Taouk Salad,Salads,,660,,,,,,,,,,,,,,,,false,false,,,printed kcals '660'; printed name 'Grilled Chicken Taouk'
+grilled-halloumi-salad,Grilled Halloumi Salad,Salads,,1058,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '1058'; printed name 'Grilled Halloumi'
 chicken-taouk-wrap-platter,Chicken Taouk Wrap Platter,Wrap platters,,869,,,,,,,,,,,,,,,,false,false,,,printed kcals '869'; printed name 'Chicken Taouk'
 lamb-kofta-wrap-platter,Lamb Kofta Wrap Platter,Wrap platters,,973,,,,,,,,,,,,,,,,false,false,,,printed kcals '973'; printed name 'Lamb Kofta'
 halloumi-wrap-platter,Halloumi Wrap Platter,Wrap platters,,1206,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '1206'; printed name 'Halloumi'
-falafel-wrap-platter,Falafel Wrap Platter,Wrap platters,,1012,,,,,,,,,,,,,,,vegetarian,false,false,,,"printed kcals '1012'; comment: *Falafel is fried in a fryer with potential cross-contact with Gluten (Barley, Wheat), Milk, Eggs; printed name 'Falafel'; marked vegan although milk/egg are marked as contained (cross-contact comment): published as printed"
+falafel-wrap-platter,Falafel Wrap Platter,Wrap platters,,1012,,,,,,,,,,,,,,,vegetarian,false,false,,,"printed kcals '1012'; comment: *Falafel is fried in a fryer with potential cross-contact with Gluten (Barley, Wheat), Milk, Eggs; printed name 'Falafel'"
 chicken-taouk-single-wrap-takeaway,Chicken Taouk Single Wrap (takeaway),Single wraps (takeaway),,532,,,,,,,,,,,,,,,,false,false,,,printed kcals '532'; printed name 'Chicken Taouk'
 lamb-kofta-single-wrap-takeaway,Lamb Kofta Single Wrap (takeaway),Single wraps (takeaway),,556,,,,,,,,,,,,,,,,false,false,,,printed kcals '556'; printed name 'Lamb Kofta'
 halloumi-single-wrap-takeaway,Halloumi Single Wrap (takeaway),Single wraps (takeaway),,793,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '793'; printed name 'Halloumi'
-falafel-single-wrap-takeaway,Falafel Single Wrap (takeaway),Single wraps (takeaway),,712,,,,,,,,,,,,,,,vegetarian,false,false,,,"printed kcals '712'; comment: *Falafel is fried in a fryer with potential cross-contact with Gluten (Barley, Wheat), Milk, Eggs; printed name 'Falafel'; marked vegan although milk/egg are marked as contained (cross-contact comment): published as printed"
+falafel-single-wrap-takeaway,Falafel Single Wrap (takeaway),Single wraps (takeaway),,712,,,,,,,,,,,,,,,vegetarian,false,false,,,"printed kcals '712'; comment: *Falafel is fried in a fryer with potential cross-contact with Gluten (Barley, Wheat), Milk, Eggs; printed name 'Falafel'"
 fries-and-garlic-dip,Fries & Garlic Dip,Side dishes & sauces,,594,,,,,,,,,,,,,,,vegetarian,false,false,,,"printed kcals '594'; comment: *Fries is fried in a fryer with potential cross-contact with Gluten (Barley, Wheat), Milk, Eggs"
+lebanese-crudites,Lebanese Crudites,Side dishes & sauces,,35,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '35'
 quinoa,Quinoa,Side dishes & sauces,,266,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '266'
 vermicelli-rice,Vermicelli Rice,Side dishes & sauces,,364,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '364'
 couscous,Couscous,Side dishes & sauces,,365,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '365'
@@ -62,7 +62,7 @@ dairy-free-vanilla-ice-cream,Dairy Free Vanilla Ice Cream,Ice cream,1 scoop,55,,
 pistachio-ice-cream,Pistachio Ice Cream,Ice cream,1 scoop,43,,,,,,,,,,40,,,,,vegetarian,false,false,,,printed kcals '43'; printed name 'Pistachio'
 chocolate-ice-cream,Chocolate Ice Cream,Ice cream,1 scoop,35,,,,,,,,,,40,,,,,vegetarian,false,false,,,printed kcals '35'; printed name 'Chocolate'
 rose-ice-cream,Rose Ice Cream,Ice cream,1 scoop,36,,,,,,,,,,40,,,,,vegetarian,false,false,,,printed kcals '36'; printed name 'Rose'
-cheesy-chicken-flatbread,Cheesy Chicken Flatbread,Kids menu,,341,,,,,,,,,,,,,,,,false,false,,,printed kcals '341'
+chicken-on-a-flatbread,Chicken on a Flatbread,Kids menu,,341,,,,,,,,,,,,,,,,false,false,,,printed kcals '341'
 cheesy-tomato-flatbread,Cheesy Tomato Flatbread,Kids menu,,518,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '518'
 chicken-wrap,Chicken Wrap,Kids menu,,375,,,,,,,,,,,,,,,,false,false,,,printed kcals '375'
 halloumi-wrap,Halloumi Wrap,Kids menu,,152,,,,,,,,,,,,,,,vegetarian,false,false,,,printed kcals '152'

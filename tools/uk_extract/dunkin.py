@@ -55,6 +55,11 @@ same (contains and may-contain, as sets of the 14 allergens). Nothing is inferre
   (NAME_CONTRADICTS, docs/ACCURACY_AUDIT.md policy 3);
 - Hazelnut Pie and Glazed Munchkins stay held back for their calories (two figures on the chain's website).
 Self-checks: every published item has a row; both pages agree for every published product; an unknown allergen word stops the run.
+
+Re-read 2026-11-17 (Christmas menu): the eleven seasonal drinks' product pages print "Calories coming soon. Please ask in store." while the
+allergen pages print figures for them, so every size of those drinks is held back (COMING_SOON); the Pistachio Berry Burst Red Bull
+Infusion prints "please ask in store" instead of an allergen list (ASK_IN_STORE), so it is held back too. Page counts, BOTH_PAGES and
+EXPECTED_ITEMS follow the new pages; NAME_CONTRADICTS keeps its two autumn entries in case the drinks return.
 Set PUBLISH_ALLERGENS = False to go back to the link only (and drop the allergen hold-backs).
 """
 from __future__ import annotations
@@ -88,14 +93,14 @@ PAGES = {
     "allergens-donuts": ("Donuts", False, 12, False),
     "allergens-munchkins": ("Munchkins", False, 1, False),
     "allergens-cookies": ("Cookies", False, 3, False),
-    "allergens-bakery": ("Bakery", False, 3, False),
-    "allergens-lto-donuts": ("Limited time donuts", True, 9, False),
-    "allergens-hot-drinks": ("Hot drinks", False, 13, True),
-    "allergens-cold-drinks": ("Cold drinks", False, 35, True),
+    "allergens-bakery": ("Bakery", False, 4, False),
+    "allergens-lto-donuts": ("Limited time donuts", True, 6, False),
+    "allergens-hot-drinks": ("Hot drinks", False, 16, True),
+    "allergens-cold-drinks": ("Cold drinks", False, 31, True),
 }
-EXPECTED_ITEMS = 134  # published + held back, checked on every run
+EXPECTED_ITEMS = 133  # published + held back, checked on every run (134 on 2026-10-08)
 # Products listed on both drink pages with their own figures: the suffix says which page the row is from.
-BOTH_PAGES = {"Pumpkin Spiced Latte", "Maple Pecan Pie Latte", "Dubai Chocolate Mocha"}
+BOTH_PAGES = {"Cinnamon Roll Latte", "Tiramisu Macchiato", "Salted Caramel Latte", "Spanish Latte"}
 # Printed with nothing after "Nutrition:" (checked on every run; any other product without a calorie figure stops the script).
 NO_CALORIES = {"Filter Coffee"}
 # Allergen-page links that answer 404 -> the live page of the same product (its <title> must equal the product's name on the allergen page).
@@ -106,6 +111,11 @@ NAME_CONTRADICTS = {
     "Maple Pecan Pie Latte": "the name says pecan and pie but both pages print milk only (no nuts, no gluten)",
     "Churro Iced Matcha": "the name says churro but both pages print milk only (no gluten)",
 }
+# Printed in place of an allergen list (2026-11-17: Pistachio Berry Burst Red Bull Infusion): not a list, so the product is held back.
+ASK_IN_STORE = {"please ask in store"}
+# Printed on a product page in place of its calories (2026-11-17: the eleven Christmas drinks). The allergen page prints figures for these
+# drinks, but the chain's own product page says they are not available yet, so the figures can't be cross-checked: every size is held back.
+COMING_SOON = re.compile(r"calories coming soon", re.I)
 # Left out on purpose: printed without a size on both the allergen page and the product page.
 NO_SIZE_EVERYWHERE = {"Red Bull Strawberry Infusion"}
 
@@ -173,6 +183,8 @@ def page_allergens(r: dict) -> tuple[tuple | None, str]:
         return None, "the allergen page prints no allergen list for it"
     if text == "":
         return None, "the allergen page prints an empty 'Allergens:' line"
+    if text.strip().strip(".").lower() in ASK_IN_STORE:
+        return None, f"the allergen page prints {text!r} instead of an allergen list"
     may = r["may_contain"]
     m = _INLINE_MAY.match(text)
     if m:
@@ -284,7 +296,8 @@ def build(pages_dir: Path, products_dir: Path) -> tuple[list[dict], list[tuple[s
                 stats["no_product_page"].append(r["name"])
                 report.append(f"{r['name']}: no product page could be read (404 or not saved): not cross-checked")
             pfigs = dp.parse_product_figures(prod["nutrition"]) if prod and prod.get("nutrition") else []
-            if prod is not None and not pfigs:
+            coming_soon = bool(prod is not None and not pfigs and COMING_SOON.search(prod.get("nutrition") or ""))
+            if prod is not None and not pfigs and not coming_soon:
                 raise SystemExit(f"{r['name']!r}: the product page prints no calorie figure the script can read: {prod.get('nutrition')!r}")
             variant = None
             display = base
@@ -323,6 +336,8 @@ def build(pages_dir: Path, products_dir: Path) -> tuple[list[dict], list[tuple[s
                     items.append(item)
                     made.append((item, t))
                     _cross_check(item, t, pfigs, variant, prod, stats, holdback, report)
+                if coming_soon:
+                    _hold_coming_soon([m[0] for m in made], r, prod, holdback, report)
                 _check_sizes_agree(display, made, holdback, report)
                 _attach_allergens([m[0] for m in made], r, prod, holdback, report, stats)
             else:
@@ -335,6 +350,8 @@ def build(pages_dir: Path, products_dir: Path) -> tuple[list[dict], list[tuple[s
                 item = dict(name=display, category=category, serving=serving, calories=t["value"], tags="|".join(tags),
                             limited_time=limited, rankable=False, notes=printed_note + (f"; product page: {prod['nutrition']}" if prod else ""))
                 items.append(item)
+                if coming_soon:
+                    _hold_coming_soon([item], r, prod, holdback, report)
                 _cross_check(item, t, pfigs, None, prod, stats, holdback, report)
                 _attach_allergens([item], r, prod, holdback, report, stats)
     names = [i["name"] for i in items]
@@ -342,7 +359,19 @@ def build(pages_dir: Path, products_dir: Path) -> tuple[list[dict], list[tuple[s
         raise SystemExit("Item names are not unique: " + ", ".join(sorted({n for n in names if names.count(n) > 1})))
     if len(items) != EXPECTED_ITEMS:
         raise SystemExit(f"{len(items)} items built, expected {EXPECTED_ITEMS}: the menu changed; re-read the report and update EXPECTED_ITEMS")
+    merged: dict[str, list[str]] = {}
+    for iid, why in holdback:
+        if why not in merged.setdefault(iid, []):
+            merged[iid].append(why)
+    holdback[:] = [(iid, " ".join(whys)) for iid, whys in merged.items()]
     return items, holdback, report, stats
+
+
+def _hold_coming_soon(made: list[dict], r: dict, prod: dict, holdback: list[tuple[str, str]], report: list[str]) -> None:
+    for item in made:
+        holdback.append((slug(item["name"]), f"The allergen page prints {r['nutrition']!r} but the same product's own page prints "
+                                             f"{prod['nutrition']!r}: the chain's website does not yet stand behind a figure, so none is published."))
+    report.append(f"HELD BACK {r['name']} ({', '.join(i['name'] for i in made)}): the product page says {prod['nutrition']!r}")
 
 
 def _attach_allergens(made: list[dict], r: dict, prod: dict | None, holdback: list[tuple[str, str]], report: list[str], stats: dict) -> None:

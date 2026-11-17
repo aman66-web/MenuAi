@@ -11,6 +11,8 @@ Benugo's ordering site for office/event delivery (hosted by Spoonfed). Its three
 DIR holds the three saved pages (names in PAGES below); --fetch downloads them first. The pages show no date. robots.txt on
 api.getspoonfed.com prints "Crawl-delay: 2200" and no Disallow: fetch each page ONCE and not again (--fetch waits 5 s between pages;
 a run from saved pages makes no request at all).
+Re-run 2026-11-17 (robots.txt then printed "Crawl-delay: 2"): the festive menu added 6 products and dropped 1, so four SECTIONS counts
+were raised; nothing else changed.
 
 Benugo's own "Autumn Delivery menu" PDF (benugo.com/app/uploads/2026/09/Benugo_AW26_Delivery_Menu.pdf) says on its last page "This
 is a sample menu, visit benugo.com/order-online and click 'order now' for the latest menu including allergen and nutritional
@@ -66,7 +68,7 @@ PAGES = {
 # (menu title, section title) as printed -> (category shown, products on the page, products with a kcal line). Anything else stops the run.
 LB = "Lunch bag items"
 SECTIONS = {
-    ("Lunch - Sharing Platters", "Sandwiches, Wraps, Bagels, Focaccia, Sausage Rolls, Frittata, Quiche"): ("Lunch sharing platters", 14, 14),
+    ("Lunch - Sharing Platters", "Sandwiches, Wraps, Bagels, Focaccia, Sausage Rolls, Frittata, Quiche"): ("Lunch sharing platters", 15, 15),
     ("Lunch - Sharing Platters", "Fruit"): ("Fruit boxes", 2, 1),
     ("Salads - Sharing Boxes & Individual Bowls", "Salad Sharing Boxes - Serves 4-6"): ("Salad sharing boxes (serves 4-6)", 11, 11),
     ("Salads - Sharing Boxes & Individual Bowls", "Individual Salads - Serves 1"): ("Individual salads", 5, 5),
@@ -85,15 +87,15 @@ SECTIONS = {
     ("Wrap Lunch Bag", "3. Cake Slice"): (LB, 5, 4),
     ("Wrap Lunch Bag", "4. Crisps"): (LB, 3, 0),
     ("Wrap Lunch Bag", "5. Drink"): (LB, 4, 0),
-    ("Individual Sandwiches, Wraps & Rolls", "Individual Bloomer Sandwiches"): ("Individual bloomer sandwiches", 6, 6),
+    ("Individual Sandwiches, Wraps & Rolls", "Individual Bloomer Sandwiches"): ("Individual bloomer sandwiches", 7, 7),
     ("Individual Sandwiches, Wraps & Rolls", "Individual Wraps"): ("Individual wraps", 4, 4),
     ("Individual Sandwiches, Wraps & Rolls", "Golden Millet Rolls"): ("Golden millet rolls", 2, 2),
-    ("Individual Sandwiches, Wraps & Rolls", "Individual Focaccia's"): ("Individual focaccia", 3, 3),
+    ("Individual Sandwiches, Wraps & Rolls", "Individual Focaccia's"): ("Individual focaccia", 4, 4),
     ("Individual Sandwiches, Wraps & Rolls", "Individual Bagels"): ("Individual bagels", 1, 1),
     ("Individual Sandwiches, Wraps & Rolls", "Baguettes"): ("Baguettes", 1, 0),
     ("Breakfast - Individual Items", "Fruit, Yoghurt & Porridge Pots"): ("Fruit, yoghurt & porridge pots", 8, 8),
     ("Breakfast Boxes", "Breakfast Boxes"): ("Breakfast boxes", 9, 9),
-    ("Snacks, Treats & Sweets", "Cake Boxes & Whole Cakes"): ("Cake boxes & whole cakes", 11, 11),
+    ("Snacks, Treats & Sweets", "Cake Boxes & Whole Cakes"): ("Cake boxes & whole cakes", 12, 12),
     ("Snacks, Treats & Sweets", "Benugo Handmade Individual Cakes"): ("Individual cakes", 4, 4),
     ("Snacks, Treats & Sweets", "Crisps and popcorn"): ("Crisps & popcorn", 7, 1),
     ("Snacks, Treats & Sweets", "Snacks & Treats"): ("Snacks & treats", 8, 6),

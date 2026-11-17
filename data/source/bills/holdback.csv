@@ -1,7 +1,9 @@
 item_id,reason
 add-beef-brisket,"printed as an add-on to Bill's Mac & Cheese (809 kcal) but its number (1152 kcal) is larger than the dish itself, so it can't be the add-on alone (looks like the dish with the add-on); the page doesn't say"
-add-buffalo-chicken-brunch-lunch-and-dinner,"printed as an add-on to Bill's Mac & Cheese (809 kcal) but its number (1029 kcal) is larger than the dish itself, so it can't be the add-on alone (looks like the dish with the add-on); the page doesn't say"
+add-buffalo-chicken,"printed as an add-on to Bill's Mac & Cheese (809 kcal) but its number (1029 kcal) is larger than the dish itself, so it can't be the add-on alone (looks like the dish with the add-on); the page doesn't say"
 add-truffle-mushroom,"printed as an add-on to Bill's Mac & Cheese (809 kcal) but its number (1179 kcal) is larger than the dish itself, so it can't be the add-on alone (looks like the dish with the add-on); the page doesn't say"
+pigs-in-blanket-loaded-potatoes,"the page marks this dish 'Suitable for: Vegetarian' but its own description lists 'crumbled pigs in blankets' (Bill's Pigs in Blankets side is not marked vegetarian), so the vegetarian mark and the dish's text contradict each other"
 add-cheese,"printed as an add-on to Grilled Flatbread (624 kcal) but its number (811 kcal) is larger than the dish itself, so it can't be the add-on alone (looks like the dish with the add-on); the page doesn't say"
 add-cheese-gluten-free,"printed as an add-on to Grilled Flatbread (574 kcal) but its number (761 kcal) is larger than the dish itself, so it can't be the add-on alone (looks like the dish with the add-on); the page doesn't say"
+truffle-chicken-two-ways,"allergen row contradicts the dish's own text: the description names 'buttermilk chicken goujons' but the row marks no gluten (only 'may contain' wheat), while the same pages mark Bill's own Buttermilk Chicken Goujons as containing gluten (barley, wheat)"
 hazelnut-syrup,allergen row contradicts the dish name/ingredients: the page prints 'This dish contains none of the listed allergens' (no tree nuts) for a hazelnut-named syrup and nothing on the page says the name is only a flavour

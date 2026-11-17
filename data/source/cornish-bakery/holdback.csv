@@ -1,4 +1,10 @@
 item_id,reason
-chocolate-brownie,"Allergen row contradicts the dish name: a brownie is normally made with wheat flour, but the matrix marks no gluten for it (it marks eggs, milk, almonds and soya), prints no 'gluten free' label or ingredients, so its gluten status can't be confirmed. Not published."
-stokes-brown-sauce-sachet,"The matrix's 'No Allergens' cell for this row reads 'see pack': the allergen information is on the pack, so the row is not a complete allergen statement. Not published."
-double-espresso-decaf-coffee,"The matrix's 'No Allergens' cell for this row reads 'see pack': the allergen information is on the pack, so the row is not a complete allergen statement. Not published."
+stokes-brown-sauce-sachet,"The booklet's 'No Allergens' cell for this row reads 'see pack': the allergen information is on the pack, so the row is not a complete allergen statement. Not published."
+double-espresso-decaf-coffee,"The booklet's 'No Allergens' cell for this row reads 'see pack': the allergen information is on the pack, so the row is not a complete allergen statement. Not published."
+americano-black,Allergen row contradicts the drink's own name: it is printed '(black)' but the milk cell reads 'Contains'. Not published.
+chai-latte-cows-milk-topped-with-cinnamon,"Allergen row contradicts the drink's own name: it names cows milk, but the booklet marks no allergen at all for it (no milk) and its 'No Allergens' cell is empty. Not published."
+blueberry-syrup,"The booklet marks no allergen for this row and its 'No Allergens' cell is empty (not 'None'), so the row says nothing about its allergens. Not published."
+peach-iced-tea-syrup,"The booklet marks no allergen for this row and its 'No Allergens' cell is empty (not 'None'), so the row says nothing about its allergens. Not published."
+strawberry-smoothie-syrup,"The booklet marks no allergen for this row and its 'No Allergens' cell is empty (not 'None'), so the row says nothing about its allergens. Not published."
+yuzu-ginger-syrup,"The booklet marks no allergen for this row and its 'No Allergens' cell is empty (not 'None'), so the row says nothing about its allergens. Not published."
+cherry-berry-lemonade,"The booklet marks no allergen for this row and its 'No Allergens' cell is empty (not 'None'), so the row says nothing about its allergens. Not published."

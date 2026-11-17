@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build data/source/brasserie-blanc/ from Brasserie Blanc's own menus with nutrition and allergens (hosted by Ten Kites).
 
-    python3 tools/uk_extract/brasserie_blanc.py --pages DIR --checked-on 2026-10-08 [--fetch] [--report]
+    python3 tools/uk_extract/brasserie_blanc.py --pages DIR --checked-on 2026-11-17 [--fetch] [--report]
 
 DIR holds the saved menu pages (see MENUS and VARIANTS); --fetch downloads them first (one request per page, one second apart; the
 robots.txt of menus.tenkites.com disallows only /fonts/, /views/ and *.less, and brasserieblanc.com allows everything). The pages are the
@@ -9,14 +9,18 @@ menus brasserieblanc.com/brasseries/<site>/menu/<menu>/ embed, all on the same T
     https://menus.tenkites.com/hwc/bbalacarte          À la carte Evening  (Beaconsfield, Bournemouth, Cheltenham, Chichester, Leeds,
                                                        Milton Keynes, Oxford, Portsmouth, Winchester; Hale Barns and the three London
                                                        sites print the same dishes on bbalacarteb/hb02 and bbalacartepm02)
-    https://menus.tenkites.com/hwc/bbalacarte04        À la carte Day (the same sites; Bournemouth: bbalacartebournemouth02)
-    https://menus.tenkites.com/hwc/bbsunday            Sunday (also bbsunday02 Southbank, bbsundaybhb02 Bournemouth and Hale Barns)
-    https://menus.tenkites.com/hwc/bbpretheatresouthbank02   Pre-theatre (Southbank; Chichester's "Le Club Déjeuner" is bbleclubdejeuner)
+    https://menus.tenkites.com/hwc/bbalacarte04        À la carte Day (the same sites except Bournemouth; since November 2026 the page has a tab bar
+                                                       "à la carte day" | "à la carte Bournemouth" and shows the first tab: ALLOWED_TABS)
+    https://menus.tenkites.com/hwc/bbsunday            Sunday (also bbsunday02 Southbank, bbsundaybhb02 Bournemouth and Hale Barns; on 2026-11-17 no
+                                                       brasserie's menu tabs linked a Sunday menu, but brasserieblanc.com/sunday/ says the Sunday
+                                                       roast is served every Sunday and these pages carry its current roasts)
+    https://menus.tenkites.com/hwc/bbpretheatresouthbank02   Pre-theatre (Southbank; Chichester's "Le Club Déjeuner" is bbleclubdejeuner; not linked
+                                                       from the menu tabs on 2026-11-17 either, and every dish on it is also on the à la carte)
     https://menus.tenkites.com/hwc/bbbreakfast         Breakfast (Beaconsfield; Threadneedle Street: bbbreakfastthreadneedle02)
     https://menus.tenkites.com/hwc/bbbreakfastalcforhotels   Breakfast à la carte (Bournemouth and Hale Barns)
     https://menus.tenkites.com/hwc/bbchildren          Children (bbchildren02 at Chancery Lane, Hale Barns, Southbank, Threadneedle Street)
     https://menus.tenkites.com/hwc/bbdrinks123         Drinks list "Autumn 2026" (bbdrinks12302 is the "Summer 2026" list the London sites and Hale Barns print)
-The site codes come from the "menuMenu" field of each brasserie's menu pages (14 sites, read 2026-10-08). A variant page must print
+The site codes come from the "menuMenu" field of each brasserie's menu pages (14 sites read 2026-10-08; 13 sites read 2026-11-17). A variant page must print
 the same dishes, numbers and allergens as its main page or the run stops (VARIANTS): so the menu is one chain-wide menu, not one per site.
 
 Every dish, and every choice inside a "build your own" block (a bread, a bun, a sauce...), has an info pop-up with an allergen box
@@ -40,7 +44,9 @@ What is left out, and why (each counted in the run's report):
   than the Sunday menu of the other nine sites, and two different dishes; a single-site variant is not published.
 - Group dining (bbparty), Christmas Day / Christmas Party, party-night and charity-dinner events (bbevents, bbevents02), New Year's Eve
   (bbnewyears02) and the Cheltenham Festival menu: pre-booked or seasonal menus, not the everyday menu.
-- Fulham Reach: its menu pages exist but link no Ten Kites menu yet (menuMenu is empty).
+- bbalacartebournemouth02 (Bournemouth only, since November 2026): its day menu now prints six other prix-fixe dishes than bbalacarte04
+  (the autumn ones); a single-site variant is not published.
+- Fulham Reach: its menu pages exist but link no Ten Kites menu yet (menuMenu is empty; not listed on the site on 2026-11-17).
 - "Children's breakfast buffet" (hotel breakfast): listed on the page's embedded menu with no nutrition pop-up at all.
 - Rows whose own numbers are impossible or contradict each other are HELD BACK (holdback.csv), never corrected; the rules are in HOLD_RULES.
 """
@@ -66,30 +72,31 @@ BASE = "https://menus.tenkites.com/hwc/"
 MENUS = [
     ("bbalacarte.html", "bbalacarte", "À la carte Evening", "main", 73),
     ("bbalacarte04.html", "bbalacarte04", "À la carte Day", "main", 73),
-    ("bbsunday.html", "bbsunday", "Sunday", "main", 68),
-    ("bbpretheatresouthbank02.html", "bbpretheatresouthbank02", "Pre-theatre", "main", 25),
+    ("bbsunday.html", "bbsunday", "Sunday", "main", 71),
+    ("bbpretheatresouthbank02.html", "bbpretheatresouthbank02", "Pre-theatre", "main", 24),
     ("bbbreakfast.html", "bbbreakfast", "Breakfast", "breakfast", 25),
     ("bbbreakfastalcforhotels.html", "bbbreakfastalcforhotels", "Breakfast à la carte (hotels)", "breakfast", 11),
     ("bbchildren.html", "bbchildren", "Children", "kids", 23),
     ("bbdrinks123.html", "bbdrinks123", "Drinks (Autumn 2026)", "drinks", 138),
-    ("bbdrinks12302.html", "bbdrinks12302", "Drinks (Summer 2026)", "drinks", 139),
+    ("bbdrinks12302.html", "bbdrinks12302", "Drinks (Summer 2026)", "drinks", 138),
 ]
 # (file, code, main page it must equal, pop-ups, sites)
 VARIANTS = [
     ("bbalacarteb_hb02.html", "bbalacarteb/hb02", "bbalacarte.html", 73, "Hale Barns"),
     ("bbalacartepm02.html", "bbalacartepm02", "bbalacarte.html", 73, "Chancery Lane, Southbank, Threadneedle Street"),
-    ("bbalacartebournemouth02.html", "bbalacartebournemouth02", "bbalacarte04.html", 73, "Bournemouth"),
-    ("bbsunday02.html", "bbsunday02", "bbsunday.html", 68, "Southbank"),
-    ("bbsundaybhb02.html", "bbsundaybhb02", "bbsunday.html", 68, "Bournemouth, Hale Barns"),
-    ("bbleclubdejeuner.html", "bbleclubdejeuner", "bbpretheatresouthbank02.html", 25, "Chichester"),
+    ("bbsunday02.html", "bbsunday02", "bbsunday.html", 71, "Southbank"),
+    ("bbsundaybhb02.html", "bbsundaybhb02", "bbsunday.html", 71, "Bournemouth, Hale Barns"),
+    ("bbleclubdejeuner.html", "bbleclubdejeuner", "bbpretheatresouthbank02.html", 24, "Chichester"),
     ("bbbreakfastthreadneedle02.html", "bbbreakfastthreadneedle02", "bbbreakfast.html", 25, "Threadneedle Street"),
     ("bbchildren02.html", "bbchildren02", "bbchildren.html", 23, "Chancery Lane, Hale Barns, Southbank, Threadneedle Street"),
 ]
+# A page whose tab bar is known: the page shows (and the pop-ups are) its first tab only; any other bar stops the run.
+ALLOWED_TABS = {"bbalacarte04.html": ["à la carte day", "à la carte Bournemouth"]}
 SOURCE_URL = BASE + "bbalacarte"
 SOURCE_TITLE = ("Brasserie Blanc menus with nutrition and allergens (Ten Kites pages embedded on brasserieblanc.com/menu): À la carte "
-                "Evening and Day, Sunday, Pre-theatre, Breakfast, Children and Drinks (accessed 2026-10-08, no date shown)")
+                "Evening and Day, Sunday, Pre-theatre, Breakfast, Children and Drinks (accessed 2026-11-17, no date shown)")
 ALLERGEN_TITLE = ("Brasserie Blanc menus with allergens (Ten Kites): per-dish 'Contains' and 'May contain' on the same pages "
-                  "(accessed 2026-10-08, no date shown)")
+                  "(accessed 2026-11-17, no date shown)")
 NOTE = ("Figures are per portion from Brasserie Blanc's own menu pages (no fibre, kJ or weights printed). Only menus served at more than "
         "one brasserie are included: à la carte (some dishes only after 5pm and on Saturdays), Sunday, pre-theatre, breakfast, children's "
         "and drinks. Wine, room service, group and Christmas menus are not. Alcoholic drinks print calories that include the alcohol.")
@@ -254,6 +261,8 @@ def item_name(row: dict) -> str:
     if row["kind"] == "dish":
         if path[-1:] == ["Add"]:
             return f"{nm} (porridge add-on)"
+        if path == ["DIMANCHE", "ADD"]:
+            return f"{nm} (Sunday roast add-on)"   # "ADD" under the Sunday roasts: extras for a roast (Pigs in blankets...)
         return nm
     if sec == "Garnitures:" or sec == "choose two:":
         return f"{nm} (burger add-on)"          # the kids' burger's free toppings are the same foods as the adult add-ons
@@ -304,6 +313,8 @@ def classify(row: dict, kind: str):
     if course not in MAIN_COURSE:
         raise SystemExit(f"new section {course!r}: add it to MAIN_COURSE")
     cat, rank = MAIN_COURSE[course]
+    if path == ["DIMANCHE", "ADD"]:
+        return ADDONS, False
     if row["kind"] == "choice" and row["section"] in ("Garnitures:", "SAUCES", "Choice of dressing"):
         return ADDONS, False
     if "POUR DEUX" in path or SHARING_DISH.search(row["name"]) or ta.SHARING.search(row["name"]):
@@ -354,8 +365,9 @@ def read_one(pages_dir: Path, fname: str, code: str, expected: int) -> tuple:
     got = hp.read_menu(text)
     if len(got) != expected:
         raise SystemExit(f"{fname} ({code}) has {len(got)} pop-ups but this script expects {expected}: the menu changed, re-check the rules.")
-    if hp.menu_tabs(text):
-        raise SystemExit(f"{fname}: the page now has a tab bar {hp.menu_tabs(text)}: the layout changed")
+    tabs = [name for name, _ in hp.menu_tabs(text)]
+    if tabs and (tabs != ALLOWED_TABS.get(fname, [None]) or hp.active_tab(text) != tabs[0]):
+        raise SystemExit(f"{fname}: the page now has a tab bar {hp.menu_tabs(text)} (showing {hp.active_tab(text)!r}): the layout changed")
     # the embedded schema.org menu must agree with the pop-ups (names and calories); a zero is an empty field there
     html_side = Counter((r["name"], r["nutrients"]["Energy (kCal)"]) for r in got)
     ld_side = Counter((n, c.replace(",", "") or "0") for _, n, c in hp.json_ld_items(text))
@@ -441,7 +453,7 @@ def build(pages_dir: Path) -> tuple:
     for it in items:
         if not it.get("_held"):
             by_name.setdefault(norm(it["name"]), []).append(it)
-    suffix = {"Starters": "starter", "Sides": "side", "Mains": "main", "Desserts": "dessert"}
+    suffix = {"Starters": "starter", "Sides": "side", "Mains": "main", "Desserts": "dessert", "Sunday roasts": "Sunday roast"}
     for group in by_name.values():
         if len(group) > 1:
             for g in group:

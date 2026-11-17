@@ -3,7 +3,8 @@
 Used by tools/uk_extract/blank_street_coffee.py. Requires `pdftotext` (poppler). Numbers are returned exactly as printed (strings such
 as "199"); nothing is converted, rounded or estimated here.
 
-The file is 18 A4 pages with a text layer. Every page (except the ingredient-only page 8 and the index page 11) is a two-column list:
+The file is 21 A4 pages with a text layer (Winter 2026 guide; the Autumn one had 18). Every page (except the ingredient-only page 11 and
+the city index page 13) is a two-column list:
 
     LEFT column                      RIGHT column
     Latte                            With DAIRY: MILK, Grounded Coffee Bean, Water.
@@ -29,13 +30,13 @@ import re
 import subprocess
 from pathlib import Path
 
-PAGES = 18
-SKIP_PAGES = {8: "INGREDIENTS", 11: "Continue reading below"}     # ingredient-only page, city index page
+PAGES = 21
+SKIP_PAGES = {11: "INGREDIENTS", 13: "Continue reading below"}     # ingredient-only page, city index page
 # Section headings, exactly as printed (centred capitals). Anything else in capitals on a product page stops the run.
-SECTIONS = ["COFFEE", "NOT COFFEE & TEAS", "COLD BREW", "MATCHAS", "HOUSE LATTES", "SIGNATURE ICE CREAM", "CUSTOM",
+SECTIONS = ["COFFEE", "NOT COFFEE & TEAS", "COLD BREW", "MATCHAS / HOJICHAS", "HOUSE LATTES", "SIGNATURE ICE CREAM", "CUSTOM",
             "PASTRIES - LONDON STORES", "MANCHESTER PASTRIES & SAVOURIES", "BIRMINGHAM PASTRIES & SAVOURIES",
             "SCOTLAND PASTRIES & SWEETS", "LEEDS PASTRIES & SWEETS", "CAMBRIDGE PASTRIES & SWEETS",
-            "BRISTOL PASTRIES & SWEETS", "BRIGHTON PASTRIES & SWEETS"]
+            "BRISTOL PASTRIES & SWEETS", "BRIGHTON PASTRIES & SWEETS", "LIVERPOOL PASTRIES & SWEETS"]
 PAGE1_HEADER = {"INGREDIENT LIST", "PRODUCT NAME", "INGREDIENT & ALLERGEN DECLARATION", "kcal"}
 KCAL_LINE = re.compile(
     r"^(?:(?P<temp>Hot/Iced|Hot|Iced)\s*[|\-–]?\s*)?"
@@ -43,6 +44,9 @@ KCAL_LINE = re.compile(
 RIGHT_START = re.compile(r"^\s*(With (DAIRY|OAT):|May Contain)")
 # A block of ingredient text ends on a line carrying the guide's dietary words.
 BLOCK_END = re.compile(r"(Vegetarian|Vegan|Contains Caffeine)\s*$")
+# Lines that end a block although they carry no dietary words, exactly as printed, accepted only after the block's "May Contain" line.
+# Winter 2026 guide: the Liverpool Almond Croissant's block ends "... Barley, Oats and Rye." with no "| Vegetarian" (so it gets no tag).
+BLOCK_END_NO_MARK = {"Barley, Oats and Rye."}
 
 
 def _page_text(pdf: Path, page: int) -> list[str]:
@@ -95,11 +99,11 @@ def read_products(pdf: Path) -> list[dict]:
         if page in SKIP_PAGES:
             if SKIP_PAGES[page] not in " ".join(" ".join(lines).split()):
                 raise SystemExit(f"page {page} no longer starts as expected ({SKIP_PAGES[page]!r})")
-            if page == 11:
+            if page == 13:
                 text = " ".join(" ".join(lines).split())
-                for city in ("MANCHESTER", "BIRMINGHAM", "SCOTLAND", "LEEDS", "CAMBRIDGE", "BRISTOL", "BRIGHTON"):
+                for city in ("MANCHESTER", "BIRMINGHAM", "SCOTLAND", "LEEDS", "CAMBRIDGE", "BRISTOL", "BRIGHTON", "LIVERPOOL"):
                     if city not in text:
-                        raise SystemExit(f"page 11 no longer lists {city}")
+                        raise SystemExit(f"page 13 no longer lists {city}")
             continue
         left, right = _split_page(lines, page)
         left_all += left
@@ -137,7 +141,7 @@ def read_products(pdf: Path) -> list[dict]:
     buf: list[str] = []
     for item in right_all:
         buf.append(item)
-        if BLOCK_END.search(item):
+        if BLOCK_END.search(item) or (item in BLOCK_END_NO_MARK and any("May Contain" in b for b in buf)):
             variants.append(" ".join(buf))
             buf = []
     if buf:

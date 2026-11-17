@@ -1,6 +1,6 @@
 id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
 king-pepperoni-pizza,King Pepperoni Pizza,Pizzas,"12"" Large Regular Crust",1062,,,,,,,,,,,,,,,contains_beef,false,false,,,printed identically at 8 of 8 shops; product id 8
-margherita-pizza,Margherita Pizza,Pizzas,"12"" Large Regular Crust",907,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 6
+margherita-pizza,Margherita Pizza,Pizzas,"12"" Large Regular Crust",907,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 6
 meat-heaven-pizza,Meat Heaven Pizza,Pizzas,"12"" Large Regular Crust",1218,,,,,,,,,,,,,,,contains_beef,false,false,,,printed identically at 8 of 8 shops; product id 12
 meat-head-pizza,Meat Head Pizza,Pizzas,"12"" Large Regular Crust",1157,,,,,,,,,,,,,,,contains_beef,false,false,,,printed identically at 8 of 8 shops; product id 13
 bbq-boss-pizza,BBQ Boss Pizza,Pizzas,"12"" Large Regular Crust",1011,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 11
@@ -9,45 +9,48 @@ vegan-supreme-pizza,Vegan Supreme Pizza,Pizzas,"12"" Large Regular Crust",1028,,
 asian-fusion-pizza,Asian Fusion Pizza,Pizzas,"12"" Large Regular Crust",971,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 15
 twisted-hawaiian-pizza,Twisted Hawaiian Pizza,Pizzas,"12"" Large Regular Crust",964,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 16
 buffalo-chicken-pizza,Buffalo² Chicken Pizza,Pizzas,"12"" Large Regular Crust",1274,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 186
-amalfi-pizza,Amalfi Pizza,Pizzas,"12"" Large Regular Crust",999,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 19
+amalfi-pizza,Amalfi Pizza,Pizzas,"12"" Large Regular Crust",999,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 19
+american-hot-pizza,American Hot Pizza,Pizzas,"12"" Large Regular Crust",1096,,,,,,,,,,,,,,,contains_beef,false,false,,,printed identically at 8 of 8 shops; product id 251
+cheeseburger-pizza,Cheeseburger Pizza,Pizzas,"12"" Large Regular Crust",1118,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 246
 fireaway-special-pizza,Fireaway Special Pizza,Pizzas,"12"" Large Regular Crust",1270,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 7
 roma-pizza,Roma Pizza,Pizzas,"12"" Large Regular Crust",1066,,,,,,,,,,,,,,,contains_beef,false,false,,,printed identically at 8 of 8 shops; product id 9
 pestoroni,Pestoroni,Pizzas,"12"" Large Regular Crust",1254,,,,,,,,,,,,,,,contains_beef,false,false,,,printed identically at 8 of 8 shops; product id 205
 diavola-pizza,Diavola Pizza,Pizzas,"12"" Large Regular Crust",1058,,,,,,,,,,,,,,,contains_beef,false,false,,,printed identically at 8 of 8 shops; product id 234
-arrabbiata-pizza,Arrabbiata Pizza,Pizzas,"12"" Large Regular Crust",1225,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 236
-cheesy-pizza,Cheesy Pizza,Pizzas,"12"" Large Regular Crust",1131,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 232
+arrabbiata-pizza,Arrabbiata Pizza,Pizzas,"12"" Large Regular Crust",1225,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 236
+cheesy-pizza,Cheesy Pizza,Pizzas,"12"" Large Regular Crust",1131,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 232
 mexicano-pizza,Mexicano Pizza,Pizzas,"12"" Large Regular Crust",978,,,,,,,,,,,,,,,contains_beef,false,false,,,printed identically at 8 of 8 shops; product id 14
-burner-pizza,Burner Pizza,Pizzas,"12"" Large Regular Crust",923,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 233
-kids-margherita-pizza,Kids Margherita Pizza,Pizzas,,844,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 23
-cheeseburger-pizza,Cheeseburger Pizza,Specials,"12"" Large Regular Crust",1118,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 246
-american-hot-pizza,American Hot Pizza,Specials,"12"" Large Regular Crust",1096,,,,,,,,,,,,,,,contains_beef,false,false,,,printed identically at 8 of 8 shops; product id 251
-smores-pizza,S'mores Pizza,Specials,,880,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 249
-cheesy-garlic-bread,Cheesy Garlic Bread,Sides & Salads,,847,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 50
-garlic-bread,Garlic Bread,Sides & Salads,,704,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 48
-house-potato-wedges,House Potato Wedges,Sides & Salads,,277,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 49
+burner-pizza,Burner Pizza,Pizzas,"12"" Large Regular Crust",923,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 233
+kids-margherita-pizza,Kids Margherita Pizza,Pizzas,,844,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 23
+hajin-k-bbq-pizza,Hajin K-BBQ Pizza,Specials,"12"" Large Regular Crust",1299,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 265
+red-dot-rose-pasta,Red Dot Rosé Pasta,Specials,,738,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 268
+prestige-caesar-salad,Prestige Caesar Salad,Specials,,491,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 269
+alpha-k-bbq-wings,Alpha K-BBQ Wings,Specials,6 pieces,730,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 271
+bravo-k-bbq-strips,Bravo K-BBQ Strips,Specials,6 pieces,637,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 270
+cheesy-garlic-bread,Cheesy Garlic Bread,Sides & Salads,,847,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 50
+garlic-bread,Garlic Bread,Sides & Salads,,704,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 48
+house-potato-wedges,House Potato Wedges,Sides & Salads,,277,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 49
 crispy-chicken-strips,Crispy Chicken Strips,Sides & Salads,6 pieces,462,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 52
 chicken-wings,Chicken Wings,Sides & Salads,6 pieces,555,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 51
 vegan-strips,Vegan Strips,Sides & Salads,4 pieces,454,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 53
-caprese-salad,Caprese Salad,Sides & Salads,,328,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 244
-mac-and-cheese,Mac & Cheese,Pasta,,848,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 257
-pasta-rose,Pasta Rosé,Pasta,,719,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 252
+caprese-salad,Caprese Salad,Sides & Salads,,328,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 244
+mac-and-cheese,Mac & Cheese,Pasta,,848,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 257
+pasta-rose,Pasta Rosé,Pasta,,719,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 252
 chicken-pesto,Chicken Pesto,Pasta,,741,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 253
 pasta-diavola,Pasta Diavola,Pasta,,549,,,,,,,,,,,,,,,contains_beef,false,false,,,printed identically at 8 of 8 shops; product id 255
-oreo-milkshake,Oreo Milkshake,Milkshakes,,607,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 69
-lotus-biscoff-milkshake,Lotus Biscoff Milkshake,Milkshakes,,595,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 71
-nutella-milkshake,Nutella Milkshake,Milkshakes,,607,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 70
-vanilla-milkshake,Vanilla Milkshake,Milkshakes,,445,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 68
-strawberry-milkshake,Strawberry Milkshake,Milkshakes,,598,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 73
-chocolate-milkshake,Chocolate Milkshake,Milkshakes,,738,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 77
-bubble-gum-milkshake,Bubble-gum Milkshake,Milkshakes,,598,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 74
-pistachio-milkshake,Pistachio Milkshake,Milkshakes,,742,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 78
+oreo-milkshake,Oreo Milkshake,Milkshakes,,607,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 69
+lotus-biscoff-milkshake,Lotus Biscoff Milkshake,Milkshakes,,595,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 71
+nutella-milkshake,Nutella Milkshake,Milkshakes,,607,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 70
+vanilla-milkshake,Vanilla Milkshake,Milkshakes,,445,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 68
+strawberry-milkshake,Strawberry Milkshake,Milkshakes,,598,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 73
+chocolate-milkshake,Chocolate Milkshake,Milkshakes,,738,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 77
+bubble-gum-milkshake,Bubble-gum Milkshake,Milkshakes,,598,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 74
+pistachio-milkshake,Pistachio Milkshake,Milkshakes,,742,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 78
 custard-cream-milkshake,Custard Cream Milkshake,Milkshakes,,680,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 75
-mango-milkshake,Mango Milkshake,Milkshakes,,583,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 79
-raspberry-milkshake,Raspberry Milkshake,Milkshakes,,596,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 76
-crunchy-goblin,Crunchy Goblin,Desserts,,1327,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 215
-nutella-pizza,Nutella Pizza,Desserts,,935,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 61
-the-og-cookie,The OG Cookie,Desserts,,533,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 67
-cannoli-4-pcs,Cannoli (4 pcs),Desserts,4 pieces,1013,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 66
+mango-milkshake,Mango Milkshake,Milkshakes,,583,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 79
+raspberry-milkshake,Raspberry Milkshake,Milkshakes,,596,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 76
+nutella-pizza,Nutella Pizza,Desserts,,935,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 61
+the-og-cookie,The OG Cookie,Desserts,,533,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 67
+cannoli-4-pcs,Cannoli (4 pcs),Desserts,4 pieces,1013,,,,,,,,,,,,,,,vegetarian,false,false,,,printed identically at 8 of 8 shops; product id 66
 coca-cola-330ml,Coca-Cola 330ml,Drinks,330ml,139,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 100
 diet-coke-330ml,Diet Coke 330ml,Drinks,330ml,1,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 101
 coca-cola-zero-sugar-330ml,Coca-Cola Zero Sugar 330ml,Drinks,330ml,1,,,,,,,,,,,,,,,,false,false,,,printed identically at 8 of 8 shops; product id 102

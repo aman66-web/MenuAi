@@ -142,11 +142,18 @@ def parse_page(page: str, where: str) -> list:
         return []
     body = page[i:]
     dishes, section, seen_p = [], None, 0
-    for m in re.finditer(r"<h4[^>]*>(.*?)</h4>|<p class=\"([^\"]*)\">(.*?)</p>", body, flags=re.S):
+    for m in re.finditer(r"<h4[^>]*>(.*?)</h4>|<div class=\"pt-3\" id=\"([^\"]+)\"></div>|<p class=\"([^\"]*)\">(.*?)</p>", body, flags=re.S):
         if m.group(1) is not None:
             section = _text(m.group(1))
             continue
-        cls, inner = m.group(2), m.group(3)
+        if m.group(2) is not None:
+            # A block whose title the page hides. A "hidetitle-N<id>" block continues the section above it (as before). A block at the very
+            # top of the menu with no heading at all (mallard/desserts on 2026-11-17: id "themallardpuddingsandcheese") is named after its
+            # anchor id, so section_category still has to recognise it; anywhere else nothing changes.
+            if section is None and not m.group(2).startswith("hidetitle-"):
+                section = "(title hidden) " + m.group(2)
+            continue
+        cls, inner = m.group(3), m.group(4)
         if not re.search(r"\bdish\d+\b", cls):
             continue
         seen_p += 1

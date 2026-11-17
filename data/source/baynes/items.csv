@@ -1,8 +1,20 @@
 id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
-halloween-french-cake,Halloween French Cake,Halloween range 2026,,306,2.3,59.9,6.1,2.3,,0.6,45.8,,1280,,,,,,,true,false,,,Its per-100 g block (not used) does not add up: fat 3.8 g does not fit 340 kcal. The per-product block is consistent.
-halloween-cupcake,Halloween Cupcake,Halloween range 2026,,402,4,50.2,20.8,5.5,,0.7,38.6,,1681,,,,,,,true,false,,,
-alien-biscuit,Alien Biscuit,Halloween range 2026,,306,2.5,46.2,12.2,4.5,,0.3,27.3,,1282,,,,,,vegetarian,true,false,,,
-gingerbread-muffin,Gingerbread Muffin,Halloween range 2026,,450,4.1,62.7,20.2,6.4,,0.8,48.3,,1881,,,,,,vegetarian,true,false,,,
+black-bun,Black Bun,Christmas range 2026,,1478,26.4,319.5,11.6,4.1,,1.4,181.4,,6184,,,,,,vegetarian,true,false,,,
+cherry-cake,Cherry Cake,Christmas range 2026,,1514,14.9,222,63.6,7.5,,1.3,135.1,,6334,,,,,,vegetarian,true,false,,,
+sultana-cake,Sultana Cake,Christmas range 2026,,1661,19.1,244.3,69.6,8.3,,1.4,148.4,,6949,,,,,,vegetarian,true,false,,,
+sultana-piece,Sultana Piece,Christmas range 2026,,504,5.5,81.4,17.8,2.3,,0.3,63.1,,2108,,,,,,vegetarian,true,false,,,
+shortbread-round,Shortbread Round,Christmas range 2026,,1202,13.7,147.5,60.8,37.9,,1.2,39.2,,5029,,,,,,vegetarian,true,false,,,
+madeira-cake,Madeira Cake,Christmas range 2026,,887,11.6,138.7,31.4,13.3,,2.6,64.6,,3712,,,,,,vegetarian,true,false,,,
+vanilla-christmas-sponge-5,"Vanilla Christmas Sponge 5""",Christmas range 2026,,2493,20.5,442.5,69.7,29.9,,5.4,350.8,,10430,,,,,,,true,false,,,
+highlanders,Highlanders,Christmas range 2026,,138,1.5,17.1,6.9,4.3,,0.2,5.4,,576,,,,,,vegetarian,true,false,,,
+puff-pastry-mincemeat-pie,Puff Pastry Mincemeat Pie,Christmas range 2026,,425,5.1,52.6,20.8,9.7,,1.1,21.4,,1778,,,,,,vegetarian,true,false,,,Printed 'Puff Pastry Micemeat Pie' under 'CHRISTMAS RANGE 2026 / Small Cakes'
+shortcrust-mincemeat-pie,Shortcrust Mincemeat Pie,Christmas range 2026,,358,3,53.2,14,5.5,,0.3,29.3,,1497,,,,,,vegetarian,true,false,,,
+xmas-empire-with-gold-star,Xmas Empire with Gold Star,Christmas range 2026,,374,3.2,53.8,16,5.9,,0.4,28,,1564,,,,,,vegetarian,true,false,,,
+xmas-french-cake-with-holly,Xmas French Cake with Holly,Christmas range 2026,,306,2.2,60.5,6,2.2,,0.6,46.5,,1282,,,,,,,true,false,,,
+xmas-kids-novelty-cupcake,Xmas Kids Novelty Cupcake,Christmas range 2026,,442,3.6,64.8,18.5,4.6,,0.7,52.9,,1846,,,,,,,true,false,,,
+xmas-choc-mint-cupcake,Xmas Choc Mint Cupcake,Christmas range 2026,,369,3.6,51.3,15.8,3.7,,0.6,40.3,,1543,,,,,,vegetarian,true,false,,,
+xmas-snowman-biscuit,Xmas Snowman Biscuit,Christmas range 2026,,295,2.1,47.3,10.7,4,,0.3,30.5,,1236,,,,,,,true,false,,,
+festive-sausage-roll,Festive Sausage Roll,Christmas range 2026,,355,7.4,34.9,20.4,9.3,,2.2,2.9,,1487,,,,,,contains_pork,true,true,,,Meat not stated: tagged pork because of the word sausage.
 bran-roll,Bran Roll,Rolls & breads,,213,6.4,36.2,4.1,1.7,,0.6,3.3,,890,,,,,,vegetarian,false,false,,,
 cabin-roll,Cabin Roll,Rolls & breads,,280,8.3,50.9,4.4,2.1,,1.3,6.1,,1171,,,,,,vegetarian,false,false,,,
 dark-fired-morning-roll,Dark Fired Morning Roll,Rolls & breads,,207,7.1,38.8,2.2,0.9,,0.8,0.3,,865,,,,,,vegetarian,false,false,,,
@@ -87,7 +99,7 @@ tomato-soup,Tomato Soup,Soup,,123,1.8,15.5,4.8,0.5,,1.1,10.9,,515,,,,,,vegetaria
 hot-chocolate,Hot Chocolate,Tea & hot chocolate,,195,8.4,29.9,4,2.6,,0.3,28.3,,815,,,,,,,false,false,,,Per-product protein 8.4 g is about 16% above what the per-100 g protein (3.4 g) gives at the weight the other columns imply; published as printed.
 hot-chocolate-with-cream,Hot Chocolate with Cream,Tea & hot chocolate,,252,8.9,31.6,9.4,6.2,,0.3,29.9,,1054,,,,,,vegetarian,false,false,,,
 hazelnut-hot-chocolate-with-cream,Hazelnut Hot Chocolate with Cream,Tea & hot chocolate,,316,8.9,47.6,9.4,6.2,,0.3,45.3,,1323,,,,,,vegetarian,false,false,,,
-burnt-orange-hot-chocolate-with-mallows-and-cream,Burnt Orange Hot Chocolate with Mallows & Cream,Tea & hot chocolate,,318,9,47.1,9.4,6.2,,0.3,45.1,,1332,,,,,,,false,false,,,
+toffee-nut-hot-chocolate,Toffee Nut Hot Chocolate,Tea & hot chocolate,,311,8.9,46.3,9.4,6.2,,0.3,44.6,,1302,,,,,,vegetarian,false,false,,,
 tetley-tea-large-black,Tetley Tea Large (Black),Tea & hot chocolate,,0.1,0.0,0.0,0.0,0.0,,0.0,0.0,,0.2,,,,,,,false,false,,,
 tetley-tea-regular-black,Tetley Tea Regular (Black),Tea & hot chocolate,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,0.2,,,,,,,false,false,,,
 tea-with-oat-drink,Tea with Oat Drink,Tea & hot chocolate,,12,0.2,1.4,0.6,0.1,,0.0,0.7,,51,,,,,,vegetarian,false,false,,,The guide says its oat alternative hot drinks may contain traces of cow's milk (recorded as may contain milk)
@@ -108,7 +120,8 @@ flat-white-oat-drink,Flat White Oat Drink,Freshly ground coffee,,82,1.1,9.3,4.2,
 latte-large,Latte Large,Freshly ground coffee,,141,10.3,13.8,5.0,3.2,,0.3,13.8,,592,,,,,,vegetarian,false,false,,,
 latte-regular,Latte Regular,Freshly ground coffee,,91,6.6,8.9,3.2,2.1,,0.2,8.9,,381,,,,,,vegetarian,false,false,,,
 latte-regular-oat-drink,Latte Regular Oat Drink,Freshly ground coffee,,112,1.5,12.7,5.7,0.6,,0.3,6.3,,468,,,,,,,false,false,,,
-gingerbread-latte-with-cream-and-sprinkles,Gingerbread Latte with Cream & Sprinkles,Freshly ground coffee,,273,9.2,37.0,9.8,6.3,,0.3,36.2,,1144,,,,,,vegetarian,false,false,,,
+toffee-nut-latte-regular,Toffee Nut Latte Regular,Freshly ground coffee,,176,8.6,26.1,4.2,2.7,,0.3,26.1,,728,,,,,,vegetarian,false,false,,,
+toffee-nut-latte-large,Toffee Nut Latte Large,Freshly ground coffee,,242,11.2,37.0,5.4,3.5,,0.4,37.0,,1011,,,,,,vegetarian,false,false,,,
 mocha,Mocha,Freshly ground coffee,12 oz,231,10.8,34.1,5.1,3.3,,0.3,32.3,,967,,,,,,vegetarian,false,false,,,Printed 'Mocha (12oz)' under 'Freshly Ground Coffee'
 mocha-oat-drink,Mocha Oat Drink,Freshly ground coffee,,258,4.1,39.0,8.3,1.3,,0.4,28.8,,1081,,,,,,,false,false,,,
 white-coffee-large,White Coffee Large,Freshly ground coffee,,53,3.9,5.2,1.9,1.2,,0.1,5.2,,221,,,,,,vegetarian,false,false,,,

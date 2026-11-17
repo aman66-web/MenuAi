@@ -10,8 +10,12 @@ checked with Chromium on 2026-10-07: nothing is hidden by CSS):
         served Last-Modified 2026-08-18; PDF created 2026-08-14)
     MENU.pdf      "DOWNLOAD OUR MENU", the printed main menu, which prints "NNNkcal" after each dish and the chain's own dietary marks
         https://dimt.co.uk/wp-content/uploads/dim-t-main-menu-August-2026.pdf   (2 pages; Last-Modified 2026-08-14)
-    ALLERGENS.pdf  "Main menu ALLERGEN INFORMATION" (V1, 14.08.2026, 25 pages): its matrix (pages 2-7) is the allergen source, see below.
-        https://dimt.co.uk/wp-content/uploads/dim-t-main-menu-allergens-14.08.2026-v1.pdf
+    ALLERGENS.pdf  "Main menu ALLERGEN INFORMATION" (V1, 14.10.2026, 21 pages; served Last-Modified 2026-10-14): its matrix (pages 2-6) is the
+        allergen source, see below. The page now links it as
+        https://dimt.co.uk/wp-content/uploads/Dimt-A-la-Carte-menu-Allergens-14.08.2026.pdf   (the file name says 14.08.2026, page 1 prints 14.10.2026)
+        It replaced dim-t-main-menu-allergens-14.08.2026-v1.pdf (V1, 14.08.2026, 25 pages; that address answers 404 since). Re-read 2026-11-17:
+        the same 122 dish rows (titles now 12, not 8: the layout prints every table title outside its header block), and the only changes for
+        published dishes are Vegetable spring rolls (no celery now) and Spicy wagyu beef dim sum (celery, mustard, sulphites added).
 Needs `pdftotext` (poppler). See dim_t_pdf.py.
 
 The list prints calories ONLY: one "kcal" column per dish, as sold, with no portion size, no kJ, no protein, carbs, fat, salt or sugar. So
@@ -52,7 +56,7 @@ How the printed lists are read:
   the lunch menu (not read: a different PDF, not part of the main-menu calorie list), wine, cocktails, beer, spirits (no calories), the
   Fortune cookies and the Vegan Thai red curry (in the allergen guide only, no calories).
 
-ALLERGENS (docs/DATA.md "Allergens", published 2026-10-09; before that the chain was link-only). The guide's matrix (pages 2-7: one table per menu
+ALLERGENS (docs/DATA.md "Allergens", published 2026-10-09; before that the chain was link-only). The guide's matrix (pages 2-6: one table per menu
 section, one row per dish, the 14 allergens as columns, "Y" = present, the Cereals-with-gluten and Nuts cells also name the cereal / nut) is
 read by dim_t_allergen_pdf.py (grid lines + the text layer's word positions; every header label is checked to sit in its column). A published
 dish is tied to the ONE matrix row whose name has the same words as the dish's name (guide_key: case, punctuation, "&" = "and", "(F)" and
@@ -74,7 +78,7 @@ lupin, egg, mustard, sulphates and celery" (read from page 1 by read_fryer_words
 is the only one of the 14 the list would otherwise lack): so a dish whose row is marked (F) gets those 14 as "may contain" (those it
 contains stay "contains"), and a dish not marked (F) gets none. The guide also says any dish may contain a trace of other ingredients not
 noted: may_contain_published = yes, so the app says the guide gives traces information. The guide marks some siblings differently (e.g.
-Chow mein beef and tofu are (F), chicken and prawn are not): copied as printed, never harmonised. Pages 8-25 (per-recipe ingredient lists,
+Chow mein beef and tofu are (F), chicken and prawn are not): copied as printed, never harmonised. Pages 7-21 (per-recipe ingredient lists,
 not a per-dish matrix) are not read.
 """
 from __future__ import annotations
@@ -92,8 +96,8 @@ CHAIN_ID = "dim-t"
 SOURCE_URL = "https://dimt.co.uk/wp-content/uploads/dim-t-main-menu-calories-14.08.2026-v1.pdf"
 SOURCE_TITLE = "dim t main menu calorie information (14.08.2026 v1), checked against the August 2026 menu"
 ALIASES = ["dim t", "dim-t", "dimt"]
-ALLERGEN_GUIDE_TITLE = "dim t main menu allergen information (V1, 14.08.2026, 25 pages)"
-ALLERGEN_GUIDE_URL = "https://dimt.co.uk/wp-content/uploads/dim-t-main-menu-allergens-14.08.2026-v1.pdf"
+ALLERGEN_GUIDE_TITLE = "dim t main menu allergen information (V1, 14.10.2026, 21 pages)"
+ALLERGEN_GUIDE_URL = "https://dimt.co.uk/wp-content/uploads/Dimt-A-la-Carte-menu-Allergens-14.08.2026.pdf"
 MAY_CONTAIN_PUBLISHED = True
 NOTE = ("dim t prints calories only, one value per dish as served: no protein, carbs or fat. Not listed: drinks, kids and lunch menus, "
         "Thai spicy basil fried rice and Pad kee mao (its calorie list and menu disagree), and 26 dishes its allergen guide has no "
@@ -253,8 +257,8 @@ EXPECTED_CONFLICTS = {"Thai spicy basil fried rice - Chicken", "Thai spicy basil
 ALLERGEN_EXTRA = {"coconut": ("nuts", None), "sulphates": ("sulphites", None)}
 # Three words the calorie list spells differently from the guide (the only differences besides case, punctuation, "&", "(F)" and word order).
 SPELLING = {"penang": "panang", "mien": "mein", "passionfruit": "passion fruit", "prawns": "prawn"}
-GUIDE_ROWS_EXPECTED = 130      # rows read from pages 2-7, table titles included
-GUIDE_TITLES_EXPECTED = 8      # rows that are table titles (not upper case), none of which carries a mark
+GUIDE_ROWS_EXPECTED = 134      # rows read from pages 2-6, table titles included (V1 14.08.2026: 130 with 8 titles)
+GUIDE_TITLES_EXPECTED = 12      # rows that are table titles (not upper case), none of which carries a mark
 # Published dishes whose name has no row of the same words in the guide (found 2026-10-09, each looked at in the rendered guide): held back.
 # name -> the guide row the chain's calorie list or menu might mean (for the person who decides; NOT used to publish anything).
 NO_ALLERGEN_ROW = {

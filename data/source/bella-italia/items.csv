@@ -21,6 +21,8 @@ caramelised-onion-flatbread-gluten-free,Caramelised Onion Flatbread (Gluten-Free
 small-crispy-chicken-fries,Small Crispy Chicken Fries,Starters,,415,19.9,23.2,26.8,3.6,,2.0,3.1,,,,,,,,,false,true,,,Source: Main Menu > Starters
 large-crispy-chicken-fries,Large Crispy Chicken Fries,Starters,,644,29.8,35.1,42.5,5.5,,3.1,4.8,,,,,,,,,false,true,,,Source: Main Menu > Starters
 green-olives,Green Olives,Starters,,284,2.0,1.2,4.9,0.0,,5.1,0.0,,,,,,,,vegetarian,false,true,,,Source: Main Menu > Starters
+christmas-carbonara,Christmas Carbonara,Pastas,,1139,42.9,100.9,63.1,19.9,,6.2,5.6,,,,,,,,contains_pork,false,true,,,Source: Main Menu > Pastas
+truffle-and-pumpkin-ravioli,Truffle and Pumpkin Ravioli,Pastas,,747,21.0,37.7,56.4,19.8,,2.2,3.8,,,,,,,,vegetarian,false,true,,,Source: Main Menu > Pastas
 carbonara,Carbonara,Pastas,,883,32.0,84.8,46.2,13.9,,4.4,4.0,,,,,,,,contains_pork,false,true,,,Source: Main Menu > Pastas
 signature-carbonara,Signature Carbonara,Pastas,,1161,44.4,86.9,70.6,27.0,,4.7,5.6,,,,,,,,contains_pork,false,true,,,Source: Main Menu > Pastas
 pomodoro-mozzarella,Pomodoro Mozzarella,Pastas,,700,27.6,97.0,21.6,8.4,,1.9,14.8,,,,,,,,vegetarian,false,true,,,Source: Main Menu > Pastas
@@ -58,6 +60,7 @@ marco-polo-protein-enriched-pasta,Marco Polo (Protein Enriched Pasta),Pastas,,13
 gamberoni-protein-enriched-pasta,Gamberoni (Protein Enriched Pasta),Pastas,,1072,44.0,120.0,42.9,12.0,,2.8,10.3,,,,,,,,,false,true,,,Source: Main Menu > Pastas > Protein Enriched Pasta
 pasta-funghi-protein-enriched-pasta,Pasta Funghi (Protein Enriched Pasta),Pastas,,1119,40.4,122.5,50.5,19.7,,1.5,6.2,,,,,,,,,false,true,,,Source: Main Menu > Pastas > Protein Enriched Pasta
 spicy-sausage-protein-enriched-pasta,Spicy Sausage (Protein Enriched Pasta),Pastas,,1192,42.4,118.2,58.7,13.8,,4.8,5.6,,,,,,,,contains_pork,false,true,,,Source: Main Menu > Pastas > Protein Enriched Pasta
+christmas-camembert,Christmas Camembert,Pizzas,,1240,68.2,111.1,57.0,27.5,,7.1,22.6,,,,,,,,contains_pork,false,true,,,Source: Main Menu > Pizzas
 margherita,Margherita,Pizzas,,805,36.6,100.1,27.3,16.2,,5.0,11.5,,,,,,,,vegetarian,false,true,,,Source: Main Menu > Pizzas
 margherita-vegan,Margherita (Vegan),Pizzas,,763,18.9,113.6,24.5,10.4,,5.3,9.6,,,,,,,,vegetarian,false,true,,,Source: Main Menu > Pizzas
 margherita-gluten-free,Margherita (Gluten-Free),Pizzas,,744,24.6,88.9,30.6,17.9,,3.9,12.7,,,,,,,,vegetarian,false,true,,,Source: Main Menu > Pizzas
@@ -102,10 +105,12 @@ chicken-caesar-salad,Chicken Caesar Salad,House Specials,,681,48.8,22.4,43.8,6.8
 chicken-caesar-salad-gluten-free,Chicken Caesar Salad (Gluten-Free),House Specials,,566,45.8,5.8,39.9,6.4,,2.8,5.2,,,,,,,,,false,true,,,Source: Main Menu > House Specials
 seasonal-garden-salad,Seasonal Garden Salad,House Specials,,418,16.3,37.0,21.4,3.1,,0.7,17.7,,,,,,,,vegetarian,false,true,,,Source: Main Menu > House Specials
 fries,Fries,Sides,,532,4.6,46.3,35.4,3.0,,1.8,1.7,,,,,,,,,false,true,,,Source: Main Menu > House Specials
-fries-vegan-and-gluten-free,Fries (Vegan & Gluten-Free),Sides,,247,3.5,34.8,9.5,0.9,,1.4,0.0,,,,,,,,,false,true,,,Source: Main Menu > House Specials
+fries-vegan-and-gluten-free,Fries (Vegan & Gluten-Free),Sides,,289,4.6,46.3,8.3,0.9,,2.2,1.7,,,,,,,,,false,true,,,Source: Main Menu > House Specials
 mixed-salad,Mixed Salad,Sides,,143,1.3,5.0,10.8,1.6,,1.0,4.3,,,,,,,,vegetarian,false,true,,,Source: Main Menu > House Specials
 sweet-potato-fries,Sweet Potato Fries,Sides,,537,2.6,37.9,40.0,3.9,,1.3,12.2,,,,,,,,,false,true,,,Source: Main Menu > House Specials
 tomato-spaghetti,Tomato Spaghetti,Sides,,279,9.2,43.4,6.6,0.6,,1.1,6.2,,,,,,,,vegetarian,false,true,,,Source: Main Menu > House Specials
+pigs-in-blankets,Pigs in Blankets,Sides,,420,19.1,22.6,30.0,11.0,,2.9,9.9,,,,,,,,contains_pork,false,true,,,Source: Main Menu > Sides
+christmas-loaded-fries,Christmas Loaded Fries,Sides,,728,12.3,64.6,46.1,6.8,,4.0,4.1,,,,,,,,contains_pork,false,true,,,Source: Main Menu > Sides
 bella-house-fries,Bella House Fries,Sides,,523,9.0,46.8,31.7,10.0,,1.8,1.8,,,,,,,,,false,true,,,Source: Main Menu > Sides
 courgette-fries,Courgette Fries,Sides,,323,16.8,16.4,26.6,3.2,,1.5,6.8,,,,,,,,,false,true,,,Source: Main Menu > Sides
 mini-mac-and-cheese,Mini Mac & Cheese,Sides,,427,17.5,54.7,15.3,8.2,,0.8,5.1,,,,,,,,vegetarian,false,true,,,Source: Main Menu > Sides
@@ -129,12 +134,13 @@ chilli-pearls-add-on,Chilli Pearls (add-on),Add-ons & extras,,54,0.6,11.6,0.0,0.
 red-pepper-add-on,Red Pepper (add-on),Add-ons & extras,,53,0.4,2.7,4.3,0.7,,0.1,2.5,,,,,,,,,false,false,,,Source: Main Menu > Pizzas
 garlic-and-herb-crust-dip,Garlic & Herb (crust dip),Add-ons & extras,,187,0.2,0.8,20.4,1.6,,0.3,0.4,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Pizzas
 buffalo-hot-sauce-crust-dip,Buffalo Hot Sauce (crust dip),Add-ons & extras,,18,0.4,1.3,0.7,0.1,,3.9,0.9,,,,,,,,,false,false,,,Source: Main Menu > Pizzas
-hickory-bbq-crust-dip,Hickory BBQ (crust dip),Add-ons & extras,,116,0.8,26.8,0.3,0.0,,2.0,24.1,,,,,,,,,false,false,,,Source: Main Menu > Pizzas
+hickory-bbq-crust-dip,Hickory BBQ (crust dip),Add-ons & extras,,116,0.8,26.8,0.3,0.0,,2.0,24.1,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Pizzas
 blue-cheese-crust-dip,Blue Cheese (crust dip),Add-ons & extras,,230,0.8,10.7,20.4,1.6,,1.1,7.0,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Pizzas
 ranch-dressing-crust-dip,Ranch Dressing (crust dip),Add-ons & extras,,257,0.0,3.1,27.3,1.8,,0.7,2.5,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Pizzas
 extra-patty-add-on,Extra Patty (add-on),Add-ons & extras,,427,22.6,4.7,35.4,15.2,,0.4,0.0,,,,,,,,,false,false,,,Source: Main Menu > House Specials
 pulled-beef-add-on,Pulled Beef (add-on),Add-ons & extras,,77,5.6,3.6,4.4,1.8,,0.0,2.8,,,,,,,,contains_beef,false,false,,,Source: Main Menu > House Specials
 grilled-chicken-breast-add-on,Grilled Chicken Breast (add-on),Add-ons & extras,,277,36.9,0.9,13.9,1.9,,1.8,0.9,,,,,,,,,false,false,,,Source: Main Menu > House Specials
+mince-pie-cheesecake,Mince Pie Cheesecake,Desserts,,739,10.3,84.1,40.3,23.1,,0.6,59.8,,,,,,,,vegetarian,false,false,,,Source: Desserts > Desserts
 cookie-dough,Cookie Dough,Desserts,,235,2.7,27.2,12.8,8.6,,0.3,25.7,,,,,,,,vegetarian,false,false,,,Source: Desserts > Desserts
 sticky-toffee-pudding,Sticky Toffee Pudding,Desserts,,649,5.1,104.0,23.7,15.5,,0.4,90.3,,,,,,,,vegetarian,false,false,,,Source: Desserts > Desserts
 tiramisu,Tiramisu,Desserts,,318,2.7,29.8,20.5,12.7,,0.0,24.6,,,,,,,,vegetarian,false,false,,,Source: Desserts > Desserts
@@ -232,10 +238,12 @@ coca-cola-kids,Coca-Cola (kids),Kids: Drinks,,65,0.1,16.2,0.0,0.0,,0.0,16.2,,,,,
 diet-coke-kids,Diet Coke (kids),Kids: Drinks,,2,0.1,0.2,0.0,0.0,,0.0,0.2,,,,,,,,,false,false,,,Source: Kids > Extra Drinks
 fanta-orange-kids,Fanta Orange (kids),Kids: Drinks,,50,0.0,12.0,0.0,0.0,,0.0,12.0,,,,,,,,,false,false,,,Source: Kids > Extra Drinks
 schweppes-lemonade-kids,Schweppes Lemonade (kids),Kids: Drinks,,5,0.1,0.2,0.0,0.0,,0.1,0.2,,,,,,,,,false,false,,,Source: Kids > Extra Drinks
+mulled-spritz,Mulled Spritz,Drinks: Cocktails,,42,0.9,9.6,0.1,0.0,,0.1,9.2,,,,,,,,vegetarian,false,false,,,Source: Drinks > Cocktails
 tutti-frutti,Tutti Frutti,Drinks: Cocktails,,161,0.4,11.5,0.1,0.0,,0.0,11.5,,,,,,,,,false,false,,,"Source: Drinks > Cocktails; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
 basil-gin-smash,Basil Gin Smash,Drinks: Cocktails,,111,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,"Source: Drinks > Cocktails; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
 orange-spritz,Orange Spritz,Drinks: Cocktails,,65,0.2,11.5,0.2,0.0,,0.0,11.1,,,,,,,,,false,false,,,"Source: Drinks > Cocktails; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
 tropical-fruit-spritz,Tropical Fruit Spritz,Drinks: Cocktails,,106,0.5,24.5,0.1,0.0,,0.1,23.2,,,,,,,,vegetarian,false,false,,,Source: Drinks > Cocktails
+cinnamon-apple-cooler,Cinnamon Apple Cooler,Drinks: Mocktails,,141,0.1,37.8,0.1,0.0,,0.0,37.4,,,,,,,,vegetarian,false,false,,,Source: Drinks > Mocktails
 passion-fruit-soda,Passion Fruit Soda,Drinks: Mocktails,,12,0.2,2.6,0.0,0.0,,0.0,2.6,,,,,,,,,false,false,,,Source: Drinks > Mocktails
 garden-smash,Garden Smash,Drinks: Mocktails,,101,0.6,24.1,0.1,,,0.0,23.4,,,,,,,,vegetarian,false,false,,,Source: Drinks > Mocktails
 no-jito,No-Jito,Drinks: Mocktails,,43,0.3,10.0,0.1,0.0,,0.0,9.8,,,,,,,,,false,false,,,Source: Drinks > Mocktails
@@ -267,6 +275,7 @@ americano-regular,Americano (Regular),Drinks: Hot drinks,Regular,0,0.0,0.0,0.0,0
 macchiato-regular,Macchiato (Regular),Drinks: Hot drinks,Regular,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Hot Drinks
 cappuccino-regular,Cappuccino (Regular),Drinks: Hot drinks,Regular,8,0.2,1.5,0.1,0.1,,0.0,1.5,,,,,,,,vegetarian,false,false,,,Source: Drinks > Hot Drinks
 latte-regular,Latte (Regular),Drinks: Hot drinks,Regular,12,0.0,3.3,0.0,,,0.0,3.3,,,,,,,,vegetarian,false,false,,,Source: Drinks > Hot Drinks
+gingerbread-syrup,Gingerbread Syrup,Drinks: Hot drinks,,86,0.0,20.9,0.0,0.0,,0.0,20.9,,,,,,,,,false,false,,,Source: Drinks > Hot Drinks
 mochaccino-regular,Mochaccino (Regular),Drinks: Hot drinks,Regular,56,1.0,11.0,0.9,0.6,,0.1,10.6,,,,,,,,vegetarian,false,false,,,Source: Drinks > Hot Drinks
 fresh-mint-tea,Fresh Mint Tea,Drinks: Hot drinks,,5,0.4,0.3,0.2,0.0,,0.0,0.3,,,,,,,,,false,false,,,Source: Drinks > Hot Drinks
 tea-peppermint,Tea (Peppermint),Drinks: Hot drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Hot Drinks

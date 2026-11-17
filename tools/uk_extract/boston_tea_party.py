@@ -1,17 +1,21 @@
 #!/usr/bin/env python3
 """Build data/source/boston-tea-party/ from Boston Tea Party's official menus with calories (a CALORIES-ONLY chain).
 
-    python3 tools/uk_extract/boston_tea_party.py path/to/autumn-2026-menu_1a.pdf path/to/kids-menu_0926_1.pdf --checked-on 2026-10-08 [--out DIR]
+    python3 tools/uk_extract/boston_tea_party.py path/to/btp_november-2026-menu_1a.pdf path/to/kids-menu_0926_1.pdf --checked-on 2026-11-17 [--out DIR]
 
-Sources (the files the chain's own page https://bostonteaparty.co.uk/our-menus/ links; robots.txt allows /media/):
-    main menu   https://bostonteaparty.co.uk/media/gizngioz/autumn-2026-menu_1a.pdf   (the "See an example of our menu" file and the
-                menu linked for 19 of the 22 cafes; code 0926_1A; PDF created 2026-09-09, served Last-Modified 2026-09-11; 2 pages)
-    kids' menu  https://bostonteaparty.co.uk/media/nihjouoc/kids-menu_0926_1.pdf       (code 0926_1; PDF created 2026-09-09; 1 page)
-The other two menu files on that page (autumn-2026-menu_2a.pdf for Bath Kingsmead Square and Worcester, autumn-2026-menu_3a.pdf for
-Honiton) were compared line by line with 1a: every dish and calorie value they print is also printed in 1a, with the same numbers;
-1a additionally has Smoked Salmon Hash (not in 2a or 3a) and the Bacon Cheeseburger, The Aussie Veg Burger and Top your burger lines
-(not in 2a). So 1a is the full menu and is the one published. Needs `pdftotext` (poppler); the pages are read by position, see
-boston_tea_party_pdf.py.
+Sources (the files the chain's own page https://bostonteaparty.co.uk/our-menus/ links; robots.txt allows /media/; read 2026-11-17):
+    main menu   https://bostonteaparty.co.uk/media/53dbullc/btp_november-2026-menu_1a.pdf   (the "See an example of our menu" file, linked
+                for 6 of the 21 cafes; code 1126_1A; 2 pages; no creation date in the file). btp_november-2026-menu_1b.pdf (code 1126_1B,
+                8 cafes) prints the same dishes and calories with three other prices, so 1a and 1b are one menu at 14 cafes.
+    kids' menu  https://bostonteaparty.co.uk/media/nihjouoc/kids-menu_0926_1.pdf       (code 0926_1; PDF created 2026-09-09; 1 page;
+                unchanged since the autumn read)
+The other menu files on that page were compared with 1a (by calorie value and the dish text before it): menu_2b (Worcester) and
+menu_3b (Honiton) print only dishes and values 1a prints; 2b leaves out Smoked Salmon Hash and the burgers, 3b Smoked Salmon Hash.
+Five cafes have a trial menu (menu_trial_1a_t Harborne, menu_trial_1b_t Barnstaple, Birmingham Corporation Street and Bristol Park
+Street, menu_trial_2b_t Bath Kingsmead Square): page 1 as 1a/1b/2b, page 2 another drinks layout with four drinks 1a does not print
+(Cold Brew, Iced Flat White, Iced Mocha and a honeycomb oat-foam drink): a trial at five cafes, so not listed. (Until November 2026 the
+source was autumn-2026-menu_1a.pdf, code 0926_1A.) So 1a is the full menu and is the one published. Needs `pdftotext` (poppler); the
+pages are read by position, see boston_tea_party_pdf.py.
 
 The menus print calories ONLY ("847 kcal" at the end of a dish's description): protein, carbs and fat are never printed, so they stay
 blank (docs/DATA.md "Calories-only chains"; every item is then not rankable and the app shows "not published"). No kJ, salt, sugar,
@@ -34,14 +38,15 @@ How the menus' own wording is read:
 - Kids' menu items get " (kids)" so names stay unique (Scrambled Egg, Poached Egg, Hash Brown, Avocado, Milk... are on both menus).
 - No serving is stated, except 330ml for the Lucky Saint beer ("0.5% ABV 330ml 53 kcal"). Coffee / hot chocolate / chai sizes are not
   stated ("Large also available" is printed under the hot drinks and the star is not part of the text layer).
-- "New!" before a dish name is a menu marker, not a limited-time flag, so limited_time stays false.
+- "New!" before a dish name is a menu marker, not a limited-time flag. The two "FESTIVE SPECIALS" boxes (food on page 1, drinks on
+  page 2; the heading is a picture, read from the page) are seasonal by their own heading: their items get limited_time.
 - Tags: vegetarian when the menu's own V or VE mark stands straight before the number ("Hash Brown VE 94 kcal") or straight after
   "kcal" ("... 847 kcal V"), or the line says "Make it vegan". The menu's NGO mark (non-gluten option) is not a tag. contains_pork /
   contains_beef when the dish's printed name or description says so (bacon, ham, sausage, pork, chorizo; beef, burger patties that
   say beef), "vegan sausage" excluded. A few variants name an ingredient they REMOVE ("Remove the bacon"): their meat tags are set by
   hand below. Nothing else is inferred.
 
-Items not listed, because the menus print no calories for them: Bloody Mary, Prosecco, Buck's Fizz, Strawberry Mimosa, Lost and
+Items not listed, because the menus print no calories for them: the Festive Afternoon Tea (23.50pp), Bloody Mary, Prosecco, Buck's Fizz, Strawberry Mimosa, Lost and
 Grounded Keller / Wanna Go To The Sun, Thatchers Rascal Cider, Still/Sparkling Mineral Water, all teapots (Boston Breakfast, Decaf,
 Earl Grey, Berry & Hibiscus, Dragonwell Green tea, Japanese Cherry Blossom, Digestive, Activate), and the cakes and pastries "at the
 counter". Not read at all: the Afternoon Tea set menu (https://bostonteaparty.co.uk/media/lc5hyjzt/afternoon-tea-0326-all.pdf, two
@@ -63,14 +68,15 @@ import boston_tea_party_pdf as pdf_reader  # noqa: E402
 from common import sha256_file, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "boston-tea-party"
-SOURCE_URL = "https://bostonteaparty.co.uk/media/gizngioz/autumn-2026-menu_1a.pdf"
-SOURCE_TITLE = ("Boston Tea Party autumn 2026 menu with calories (file autumn-2026-menu_1a.pdf, code 0926_1A, PDF created 9 September 2026) "
-                "and kids' menu (kids-menu_0926_1.pdf, code 0926_1)")
+SOURCE_URL = "https://bostonteaparty.co.uk/media/53dbullc/btp_november-2026-menu_1a.pdf"
+SOURCE_TITLE = ("Boston Tea Party November 2026 menu with calories (file btp_november-2026-menu_1a.pdf, code 1126_1A) "
+                "and kids' menu (kids-menu_0926_1.pdf, code 0926_1, PDF created 9 September 2026)")
 ALIASES = ["boston tea party", "btp"]
-NOTE = ("Calories only, as printed beside each dish on the autumn 2026 menu (the version most cafes use: Bath Kingsmead Square, Worcester "
-        "and Honiton print slightly shorter ones) and on the kids' menu. Teas, water, alcohol, cakes and the afternoon tea set menu are "
-        "not listed. Drink sizes are not stated.")
-EXPECTED_ITEMS = 147
+NOTE = ("Calories only, as printed beside each dish on the November 2026 menu (the version 14 of the 21 cafes use: Bath Kingsmead Square, "
+        "Worcester and Honiton print slightly shorter ones, and five cafes trial other drinks) and on the kids' menu. Teas, water, alcohol, "
+        "cakes and the afternoon tea set menus are not listed. Drink sizes are not stated.")
+assert len(NOTE) < 400
+EXPECTED_ITEMS = 148
 
 PORK = re.compile(r"\b(pork|chorizo|bacon|ham|sausages?|pepperoni|salami)\b", re.I)
 BEEF = re.compile(r"\b(beef|steak)\b", re.I)
@@ -79,9 +85,10 @@ NO_PORK_PHRASES = re.compile(r"\bvegan sausage\b", re.I)
 # Menu section names (as the menus print them, sentence case) = categories, in reading order.
 BREKKY, LIGHT, BRUNCH, MUFFIN, LUNCH, TOASTIE, HASH, SIDES = ("All day brekky", "Lighter breakfasts", "Brunch", "Breakfast muffins", "Lunch",
                                                              "Boston toasties", "Hash browns", "Sides & extras")
-SMOOTHIE, COOLER, TIPPLE, BEER, SOFTS, CAKES, MATCHA, COFFEE, HOTTIES = ("Smoothies & shakes", "Coolers & juices", "Brunch tipples",
-                                                                        "Craft beer & cider", "Softs", "Cakes & treats", "Matcha", "Coffee",
-                                                                        "Other hotties")
+SMOOTHIE, COOLER, TIPPLE, BEER, SOFTS, CAKES, ICED, COFFEE, MATCHA = ("Smoothies & shakes", "Coolers & juices", "Brunch tipples",
+                                                                     "Craft beer & cider", "Softs", "Cakes & treats", "Iced drinks", "Coffee",
+                                                                     "Matcha & more")
+FESTIVE, FESTIVE_DRINKS = "Festive specials", "Festive specials: drinks"   # two boxes headed FESTIVE SPECIALS (food, drinks)
 K_BYO, K_MINI, K_PAN, K_MAIN, K_SWEET, K_SHAKE, K_DRINK = ("Kids: Build your own breakfast", "Kids: Mini meals", "Kids: Pancakes",
                                                            "Kids: Mains", "Kids: Sweet treats", "Kids: Shakes", "Kids: Drinks")
 
@@ -113,9 +120,8 @@ MAIN = {
     ],
     (1, 1): [
         E("Sweetcorn Hash", "Sweetcorn Hash", BRUNCH),
-        E("Santa Fe Fritters", "Santa Fe Fritters", BRUNCH),
-        E("Add halloumi +2.80", "Add halloumi (to Santa Fe Fritters)", BRUNCH),
-        E("Smoked Salmon Hash", "Smoked Salmon Hash", BRUNCH, note="Not on the Bath Kingsmead Square, Worcester and Honiton menus (2a, 3a)"),
+        E("Add free-range chorizo +3.95", "Add free-range chorizo (to Sweetcorn Hash)", BRUNCH),
+        E("Smoked Salmon Hash", "Smoked Salmon Hash", BRUNCH, note="Not on the Bath Kingsmead Square, Worcester and Honiton menus (2b, 3b)"),
         E("Add a poached egg +1.50", "Add a poached egg (to Smoked Salmon Hash)", BRUNCH),
         E("Shakshuka with Chorizo", "Shakshuka with Chorizo", BRUNCH),
         E("Make it veggie – remove the chorizo", "Shakshuka without chorizo (veggie)", BRUNCH, meat=(),
@@ -141,12 +147,12 @@ MAIN = {
         E("Add hot honey halloumi +2.80", "Add hot honey halloumi (to Roasted Vegetable Flatbread)", LUNCH),
         E("Roasted Vegetable Buddha Bowl", "Roasted Vegetable Buddha Bowl", LUNCH),
         E("Add hot honey halloumi +2.80", "Add hot honey halloumi (to Roasted Vegetable Buddha Bowl)", LUNCH),
-        E("Bacon Cheeseburger", "Bacon Cheeseburger", LUNCH, note="Not on the Bath Kingsmead Square and Worcester menus (2a)"),
-        E("Remove the bacon 13.95", "Bacon Cheeseburger without bacon", LUNCH, meat=("contains_beef",),
-          note="Printed 'Remove the bacon 13.95 1047 kcal': the dish's own reduced price, so the value is for the whole dish"),
-        E("The Aussie Veg Burger", "The Aussie Veg Burger", LUNCH, note="Not on the Bath Kingsmead Square and Worcester menus (2a)"),
-        E("Make it vegan – remove the halloumi 11.95", "The Aussie Veg Burger without halloumi (vegan)", LUNCH, veg=True,
-          note="Printed 'Make it vegan - remove the halloumi 11.95 1137 kcal': the dish's own reduced price, so the value is for the whole dish"),
+        E("Bacon Cheeseburger", "Bacon Cheeseburger", LUNCH, note="Not on the Bath Kingsmead Square and Worcester menus (2b)"),
+        E("Remove the bacon", "Bacon Cheeseburger without bacon", LUNCH, meat=("contains_beef",),
+          note="Printed 'Remove the bacon 14.25 1047 kcal' (13.95 on menu 1b): the dish's own reduced price, so the value is for the whole dish"),
+        E("The Aussie Veg Burger", "The Aussie Veg Burger", LUNCH, note="Not on the Bath Kingsmead Square and Worcester menus (2b)"),
+        E("Make it vegan – remove the halloumi", "The Aussie Veg Burger without halloumi (vegan)", LUNCH, veg=True,
+          note="Printed 'Make it vegan - remove the halloumi 12.25 1137 kcal' (11.95 on menu 1b): the dish's own reduced price, so the value is for the whole dish"),
         E("Hash brown +1.25", "Top your burger: Hash brown", LUNCH),
         E("Avo +2.50", "Top your burger: Avo", LUNCH),
         E("Fried egg +1.50", "Top your burger: Fried egg", LUNCH),
@@ -158,6 +164,10 @@ MAIN = {
           note="Printed '(NGO unavailable)': no non-gluten option for the vegan version"),
     ],
     (1, 3): [
+        E("The Festive Full Monty", "The Festive Full Monty", FESTIVE, limited=True),
+        E("Bacon, Brie & Cranberry Toastie", "Bacon, Brie & Cranberry Toastie", FESTIVE, limited=True),
+        E("Swap bacon for spinach", "Bacon, Brie & Cranberry Toastie with spinach instead of bacon", FESTIVE, limited=True, meat=(),
+          note="Printed 'Swap bacon for spinach 11.25 681 kcal V' (10.95 on menu 1b): the dish's own price, so the value is for the whole dish"),
         E("Two Hash Browns", "Two Hash Browns", HASH),
         E("Six Hash Browns", "Six Hash Browns", HASH),
         E("Add two dips to six hash browns Sriracha mayo", "Add two dips to six hash browns: Sriracha mayo", HASH),
@@ -179,17 +189,17 @@ MAIN = {
         E("or Creamy garlic & chive", "Dips: Creamy garlic & chive", SIDES),
     ],
     (2, 0): [
+        E("Christmas Trifle Iced Matcha", "Christmas Trifle Iced Matcha", FESTIVE_DRINKS, limited=True),
+        E("Tiramisu Shake", "Tiramisu Shake", FESTIVE_DRINKS, limited=True, note="Printed 'V (VE available)': the value is for the V version"),
         E("Berry Peachy Smoothie", "Berry Peachy Smoothie", SMOOTHIE),
         E("The Green One Smoothie", "The Green One Smoothie", SMOOTHIE),
         E("Pineapple Coco Smoothie", "Pineapple Coco Smoothie", SMOOTHIE),
         E("Raspberry & Mango Smoothie", "Raspberry & Mango Smoothie", SMOOTHIE),
         E("Strawberry Ripple Shake", "Strawberry Ripple Shake", SMOOTHIE, note="Printed 'V (VE available)': the value is for the V version"),
         E("Chocolate Oreo Shake", "Chocolate Oreo Shake", SMOOTHIE, note="Printed 'V (VE available)': the value is for the V version"),
-        E("Lotus Biscoff Shake", "Lotus Biscoff Shake", SMOOTHIE, note="Printed 'V (VE available)': the value is for the V version"),
-        E("Homemade Lemonade", "Homemade Lemonade", COOLER),
-        E("Orange Juice", "Orange Juice", COOLER),
-        E("Cloudy Apple Juice", "Cloudy Apple Juice", COOLER),
-        E("Homemade Iced Tea", "Homemade Iced Tea", COOLER),
+        E("Christmas Cream Tea", "Christmas Cream Tea", CAKES),
+        E("Swap clotted cream for butter", "Christmas Cream Tea with butter instead of clotted cream", CAKES),
+        E("Make it vegan – swap clotted cream for vegan spread", "Christmas Cream Tea, vegan (vegan spread instead of clotted cream)", CAKES),
     ],
     (2, 1): [
         E("Go virgin - ditch the vodka", "Bloody Mary, virgin (ditch the vodka)", TIPPLE,
@@ -202,17 +212,17 @@ MAIN = {
         E("Choose Apple & Rhubarb", "Flawsome Lightly Sparkling Juice, Apple & Rhubarb", SOFTS),
         E("or Apple & Sour Cherry", "Flawsome Lightly Sparkling Juice, Apple & Sour Cherry", SOFTS),
         E("Counter Culture Kombucha Soda", "Counter Culture Kombucha Soda", SOFTS),
-        E("Cream Tea", "Cream Tea", CAKES),
-        E("Swap clotted cream for butter", "Cream Tea with butter instead of clotted cream", CAKES),
-        E("Make it vegan – swap clotted cream for vegan spread", "Cream Tea, vegan (vegan spread instead of clotted cream)", CAKES),
+        E("Homemade Lemonade", "Homemade Lemonade", COOLER),
+        E("Orange Juice", "Orange Juice", COOLER),
+        E("Cloudy Apple Juice", "Cloudy Apple Juice", COOLER),
     ],
     (2, 2): [
-        E("Matcha Latte", "Matcha Latte", MATCHA),
-        E("Vanilla Matcha Latte", "Vanilla Matcha Latte", MATCHA),
-        E("Iced Matcha Latte", "Iced Matcha Latte", MATCHA),
-        E("Iced Vanilla Matcha Latte", "Iced Vanilla Matcha Latte", MATCHA),
-        E("Iced Strawberry Matcha Latte", "Iced Strawberry Matcha Latte", MATCHA),
-        E("Iced Peaches & Cream Matcha Latte", "Iced Peaches & Cream Matcha Latte", MATCHA),
+        E("Iced Matcha Latte", "Iced Matcha Latte", ICED),
+        E("Flavoured Iced Matcha", "Flavoured Iced Matcha", ICED,
+          note="Printed 'Choose from Strawberry, Vanilla, Ube, Cherry Blossom or Peaches & Cream 220 kcal': one value for every flavour"),
+        E("Iced Latte Espresso over milk", "Iced Latte", ICED),
+        E("Maple Blended Iced Coffee", "Maple Blended Iced Coffee", ICED),
+        E("Homemade Iced Tea", "Homemade Iced Tea", ICED),
         E("Espresso", "Espresso", COFFEE),
         E("Americano", "Americano", COFFEE),
         E("Flat White", "Flat White", COFFEE),
@@ -220,10 +230,10 @@ MAIN = {
         E("Latte", "Latte", COFFEE),
         E("Mocha", "Mocha", COFFEE),
         E("Piccolo", "Piccolo", COFFEE),
-        E("Iced Latte Espresso over milk", "Iced Latte", COFFEE),
-        E("Maple Blended Iced Coffee", "Maple Blended Iced Coffee", COFFEE),
-        E("Hot Chocolate", "Hot Chocolate", HOTTIES),
-        E("Chai Latte", "Chai Latte", HOTTIES),
+        E("Matcha Latte", "Matcha Latte", MATCHA),
+        E("Vanilla Matcha Latte", "Vanilla Matcha Latte", MATCHA),
+        E("Hot Chocolate", "Hot Chocolate", MATCHA),
+        E("Chai Latte", "Chai Latte", MATCHA),
     ],
 }
 
@@ -274,9 +284,10 @@ KIDS = {
 
 
 def _kcal_words(pdf: Path) -> int:
-    """Independent count of the word 'kcal' (pdftotext -raw reading order, no columns): every calorie value must be consumed."""
+    """Independent count of the word 'kcal' (pdftotext -raw reading order, no columns): every calorie value must be consumed. The
+    November 2026 file's raw text glues a following mark to the word ("804 kcalV NGO"), so a capital letter may follow it."""
     text = subprocess.run(["pdftotext", "-raw", str(pdf), "-"], check=True, capture_output=True, text=True).stdout
-    return len(re.findall(r"\bkcal\b", text))
+    return len(re.findall(r"\bkcal(?![a-z])", text))
 
 
 def build_items(pdf: Path, kind: str, table: dict) -> list[dict]:
@@ -317,6 +328,8 @@ def build_items(pdf: Path, kind: str, table: dict) -> list[dict]:
             item = dict(name=e["name"], category=e["cat"], calories=o["value"], tags="|".join(tags), rankable=False, notes=note)
             if e.get("serving"):
                 item["serving"] = e["serving"]
+            if e.get("limited"):
+                item["limited_time"] = True
             items.append(item)
             used += 1
     if used != _kcal_words(pdf):
@@ -326,7 +339,7 @@ def build_items(pdf: Path, kind: str, table: dict) -> list[dict]:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("main_pdf", type=Path, help="autumn-2026-menu_1a.pdf (SOURCE_URL)")
+    ap.add_argument("main_pdf", type=Path, help="btp_november-2026-menu_1a.pdf (SOURCE_URL)")
     ap.add_argument("kids_pdf", type=Path, help="kids-menu_0926_1.pdf")
     ap.add_argument("--checked-on", required=True, help="the day the PDFs were downloaded/read, YYYY-MM-DD")
     ap.add_argument("--out", type=Path, default=None)

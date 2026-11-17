@@ -69,8 +69,8 @@ MENUS = OrderedDict([
     ("17734", ("Otherist drinks menu", 33, "DM-AW26-Otherist-FoodDrink-v6-1.pdf")),
     ("18350", ("Wine Menu", 40, "DM-AW26-Collection-Wines-v8.pdf")),
 ])
-EXPECTED_PUBLISHED = 86
-EXPECTED_HELD = 47
+EXPECTED_PUBLISHED = 90  # 2026-11-17 re-read (was 86 / 47 on 2026-10-08)
+EXPECTED_HELD = 46
 # Held back after the independent accuracy check (2026-10-08): every figure and label below IS what the page prints (re-read afresh), but
 # the label contradicts the dish itself or the chain's own other labels, so we do not show it. normalised name -> reason. Nothing is corrected.
 CONTRADICTION_HOLDBACK = {
@@ -83,8 +83,8 @@ CONTRADICTION_HOLDBACK = {
     "stickey toffee pudding": "the page's own dietary filter marks this Children's dessert 'vegan' while its allergen labels mark Milk and Eggs (the adult "
                               "Sticky toffee pudding with the same labels is marked vegetarian only)",
     # Second accuracy re-check (2026-10-08, independent html.parser + Chromium re-read of every bar's menus): the labels below are exactly what the pages print.
-    "hot smoked salmon & kimchi salad": "allergen row contradicts the dish's own ingredient text: the page's description names 'sesame' but the page marks "
-                                        "no sesame (Contains Wheat, Rye, Fish, Soybeans only)",
+    # "hot smoked salmon & kimchi salad" was held here (its description named sesame, its labels didn't). The re-read of 2026-11-17 found the
+    # page now marks Contains Sesame (and Mustard, May Contain Peanuts) on both menus that print it, so the contradiction is gone and the entry removed.
     "roasted salmon": "allergen row contradicts the chain's own other labels: the page's description names 'beetroot aioli' but marks no egg (Contains "
                       "Fish, Milk, Sulphites only), while its other aioli dish (Chicken Milanese, truffle aioli) is marked Contains Eggs",
     "fable mushroom burger": "allergen row contradicts the dish name: a burger, but the page marks no gluten (Contains Soybeans, Mustard, Sulphites only) and "
@@ -93,9 +93,9 @@ CONTRADICTION_HOLDBACK = {
 }
 SOURCE_TITLE = ("Drake & Morgan food and drink menus with calories and allergens on drakeandmorgan.co.uk, AW26 collection "
                 "(PDFs: All Day v8, Reduced All Day v8, Brunch v6, Breakfast v7, Desserts v6, Reduced Desserts v6, Drinks v13, Kids v4, "
-                "Otherist v6; bar menu pages accessed 2026-10-08, no date shown)")
+                "Otherist v6; bar menu pages accessed 2026-11-17, no date shown)")
 ALLERGEN_TITLE = ("Drake & Morgan menu pages: Contains / May Contain allergen labels on every dish, AW26 collection "
-                  "(bar menu pages accessed 2026-10-08, no date shown)")
+                  "(bar menu pages accessed 2026-11-17, no date shown)")
 NOTE = ("Calories only, as printed on each bar's own menu page (protein, carbs and fat are not published). Menus differ by bar: a dish is "
         "listed only if every menu that prints it shows the same calories and allergens, so some are on only some bars' menus. Wines have no calories.")
 # Printed sub-headings that start a new group of dishes (section heading as carried, sub-heading) -> category; anything else uses the

@@ -2,47 +2,52 @@
 """Build data/source/avanti-west-coast/ from the onboard menu PDFs Avanti West Coast publishes (a CALORIES-ONLY chain: one train operator).
 
     python3 tools/uk_extract/avanti_west_coast.py CACHE_DIR --fetch                       # download the pages and PDFs politely
-    python3 tools/uk_extract/avanti_west_coast.py CACHE_DIR --checked-on 2026-10-10 [--out DIR] [--cross-check]
+    python3 tools/uk_extract/avanti_west_coast.py CACHE_DIR --checked-on 2026-11-17 [--out DIR] [--cross-check]
 
 Source (all on https://www.avantiwestcoast.co.uk, robots.txt: `User-agent: * / Disallow: /sitecore / Disallow: /beta`, checked with robots_rfc.py; one
 request per 1.1 seconds, a browser User-Agent, 10 PDFs and 3 pages in all):
-  * https://www.avantiwestcoast.co.uk/classes-of-travel/first-class/first-class-service lists the First Class menus: "Summer menu: From 1 July -
-    13 October 2026" for Weekdays Pendolino trains, Weekdays Evero trains and Weekends (Pendolino and Evero 807), each with a Menu, a Non-Gluten
-    Containing Menu and an Allergens (ingredients and allergens) PDF, plus two First Class lounge menus at stations (NOT onboard food: not used).
-    Files: /-/media/avanti-pdfs/avanti-menus/summer-2026/{weekdays/pendolino,weekdays/evero,weekend}/summer-fc-menu-*-digital-fa.pdf (PDFs created
-    30 June 2026).
-  * https://www.avantiwestcoast.co.uk/onboard/onboard-shop links "See the menu": /-/media/avanti-pdfs/avanti-menus/onboard-shop/avanti-onboard-shop---menu.pdf
-    ("Tuck in!", PDF created 12 May 2026; no date printed).
-SHA-256 of the files read on 10 Oct 2026: weekdays Pendolino menu 51849cb3..., weekdays Evero menu a4a6e547..., weekend menu 7fd58ad7..., non-gluten Pendolino
-d1ee625e..., non-gluten Evero 4760d8c3..., non-gluten weekend 3478a969..., onboard shop menu 7d73557b... (full digests: every run prints the first 16 characters
-of each; SHOP_SHA256 holds the shop's).
-THE FIRST CLASS SUMMER MENUS END ON 13 OCTOBER 2026 ("Summer menu: From 1 July - 13 October 2026" on the First Class page): the autumn menus will replace them, so this
-chain needs re-reading (re-run with --fetch in a fresh cache folder; the script warns when the page no longer says 13 October).
-The pages and PDFs have a text layer; every figure is read by the script (pdftotext) from "(NNN kcal)" beside a dish (First Class) or "NNN Kcal" before
-the price (shop). Names are as printed. The First Class menus print "Kcal information provided is per serving / portion"; the shop menu "Adults need around
-2000 Kcal a day". Protein, carbs and fat are never printed, so they stay blank (docs/DATA.md "Calories-only chains"; every item is then not rankable).
+  * https://www.avantiwestcoast.co.uk/classes-of-travel/first-class/first-class-service lists the First Class menus: "Autumn / Winter menu: From
+    14 October 2026 - 1 December 2026" for Weekdays Pendolino trains, Weekdays Evero trains and Weekend, each with a Menu, a Non-Gluten Containing Menus
+    and an Allergens (ingredients and allergens) PDF, plus two First Class lounge menus at stations (NOT onboard food: not used).
+    Files: /-/media/avanti-pdfs/avanti-menus/aw-menus-2026/{weekdays/pendolino,weekdays/evero,weekend}/winter-fc-menu-*.pdf (PDFs created 19 October
+    2026). The ingredients & allergens PDFs head themselves "from 14th October – 16th March 2027"; the page's own dates (to 1 December 2026) are quoted.
+  * https://www.avantiwestcoast.co.uk/onboard/onboard-shop links "See the menu": /-/media/avanti-pdfs/avanti-menus/onboard-shop/onboard-shop---menu-nov-2026.pdf
+    ("Tuck in!", PDF created 9 October 2026; no date printed). (The page's FAQ still links the older avanti-onboard-shop---menu.pdf: not used.)
+Earlier seasons: the First Class summer 2026 menus (1 July - 13 October 2026, "(NNN kcal)" beside each dish) and the May 2026 shop menu were read on
+10 Oct 2026 (git history has that reader).
+THE FIRST CLASS AUTUMN / WINTER MENUS END ON 1 DECEMBER 2026 by the First Class page: re-read this chain then (re-run with --fetch in a fresh cache folder;
+the script warns when the page no longer says "From 14 October 2026 - 1 December 2026").
+The pages and PDFs have a text layer; every figure is read by the script. First Class menus (autumn / winter 2026 layout): a grid of dishes, each a bold
+(Averta-Semibold) name, its description and an italic "NNN kcal" line, with V / VG marks as text after the figure; the script reads them with
+`pdftohtml -xml` (positions and fonts) and ties each figure to the name and description stacked directly above it in the same column. Shop: "NNN Kcal"
+before the price (pdftotext -layout). The First Class menus print "Kcal information is per serving or portion"; the shop menu "Adults need around 2000
+Kcal a day". Protein, carbs and fat are never printed, so they stay blank (docs/DATA.md "Calories-only chains"; every item is then not rankable).
 
 One operator, so the "2 or more sites" rule does not apply. The rules that do:
-  * a calorie RANGE ("Toast with Butter and Preserves (214 - 315 kcal)") is left out;
-  * a name printed with different calories on different menus is left out (never chosen): the First Class menus differ by train type (the Pendolino
-    weekday menu has other recipes for the bacon roll, porridge and smoked salmon), the non-gluten menus use other ingredients for the same names, and
-    the shop and First Class menus print different figures for Hot Chocolate and Decaf Coffee (CLASH lines in the output). A name that contains another
+  * a calorie RANGE ("Toast with Butter & Preserves 214–315 kcal") is left out;
+  * a name printed with different calories on different menus is left out (never chosen): the First Class menus differ by train type (the Evero weekday
+    menu has other recipes for the breakfast, bacon roll, porridge and smoked salmon), the non-gluten menus use other ingredients for the same names, and
+    the shop and First Class menus print different figures for the Bacon Roll and Hot Chocolate (CLASH lines in the output). A name that contains another
     name of the First Class menus (two words or more) with other calories is left out too;
-  * "Add a poached egg if you like. (417 kcal)" is left out: the menu does not say whether 417 is the egg or the dish with the egg;
-  * options printed with their own figure are listed under their own names: "banana and honey. (401 kcal)" (porridge with banana and honey),
-    "Vegetarian option (...)" and "or cheese & crackers (...)" (Ploughman's platter);
+  * the Breakfast Hash prints "293 kcal VG / 362 kcal V" ("Delicious as it comes, or add a free-range poached egg"): 293 is the hash as it comes; the
+    "/ 362 kcal" figure is left out (an add-on figure, as the summer menu's poached egg was);
+  * an option printed with its own figure is listed under its own name: "729 kcal. Or cheese and biscuits (470 kcal)." (Grazing Plate);
   * drinks that print no calories (spirits, beer, wine) are not listed; the First Class lounges' menus are not used.
-Tags: none for vegetarian on the First Class menus (they mark dishes with picture icons next to the name that have no text, so the script cannot read them);
-on the shop menu the dishes carrying a V or VG icon (SHOP_VEG, read by eye from the page image) get vegetarian;
-contains_pork / contains_beef only where the printed name or description says bacon, ham, sausage / beef, steak.
+  * a dish whose figure the matching ingredients & allergens PDF contradicts is held back (HOLDBACK -> holdback.csv): the Beef Stew (menus 228 kcal,
+    ingredients PDFs updated 16 November 2026: 240 kcal).
+Tags: vegetarian where the First Class menu prints V or VG after the figure (on every menu that prints the dish); on the shop menu the dishes carrying a
+V or VG icon (SHOP_VEG: the VG and GF marks are text, the V marks are pictures, read by eye from the page image); contains_pork / contains_beef only
+where the printed name or description says bacon, ham, sausage / beef, steak.
 Allergens: the three "ingredients and allergens" PDFs list each dish's ingredients with the allergens in capitals, but they are not a table of the 14 allergens
 (and the shop menu has none), so there is no allergens.csv and no allergen link. They are used for the cross-check: every published First Class food figure
-must also be printed as "Per serving N kcal" in the matching ingredients PDF (`--cross-check`; the PDFs have two columns, so the check looks for "N kcal").
+must also be printed as "Per serving N kcal" in the matching ingredients PDF (`--cross-check`; their text layer splits words and figures with stray spaces,
+"Pe r s er ving 55 3 kcal", so the check removes every space and looks for "Nkcal").
 """
 from __future__ import annotations
 
 import argparse
 import collections
+import html
 import re
 import subprocess
 import sys
@@ -51,52 +56,54 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import robots_rfc  # noqa: E402
-from common import sha256_file, write_chain_folder  # noqa: E402
+from common import sha256_file, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "avanti-west-coast"
 HOST = "www.avantiwestcoast.co.uk"
 BASE = f"https://{HOST}"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15"
 SOURCE_URL = f"{BASE}/classes-of-travel/first-class/first-class-service"
-SOURCE_TITLE = ("Avanti West Coast onboard menus with calories (First Class summer 2026 menus for Pendolino weekdays, Evero weekdays and weekends, "
-                "valid 1 July to 13 October 2026, and the onboard shop menu, May 2026)")
+SOURCE_TITLE = ("Avanti West Coast onboard menus with calories (First Class autumn / winter 2026 menus for Pendolino weekdays, Evero weekdays and "
+                "weekends, from 14 October to 1 December 2026, and the onboard shop menu, November 2026)")
 ALIASES = ["avanti west coast", "avanti", "avanti west coast first class", "avanti west coast onboard shop", "west coast main line"]
-NOTE = ("Calories only, for onboard food: First Class summer 2026 menus (Pendolino and Evero weekdays, weekends; valid 1 July - 13 October 2026) and the "
-        "onboard shop menu. Protein, carbs, fat and allergens are not published. Dishes printed with different calories on different menus, and ranges, "
-        "are left out.")
+NOTE = ("Calories only, for onboard food: First Class autumn / winter 2026 menus (Pendolino and Evero weekdays, weekends; 14 October - 1 December 2026) "
+        "and the November 2026 onboard shop menu. Protein, carbs, fat and allergens are not published. Dishes printed with different calories on different "
+        "menus, and ranges, are left out.")
 MIN_ITEMS = 25
 PAGES = ["classes-of-travel/first-class/first-class-service", "onboard/onboard-shop", "onboard/food-and-drink"]
 MEDIA = "/-/media/avanti-pdfs/avanti-menus/"
 FC_MENUS = {  # key: (published path under MEDIA, label, allergens/ingredients PDF that goes with it)
-    "pendolino": ("summer-2026/weekdays/pendolino/summer-fc-menu-pendolino-digital-fa.pdf", "First Class weekday menu, Pendolino trains",
-                  "summer-2026/weekdays/pendolino/pendolino-weekday-allergens-and-ingredients-summer-menu-2026.pdf"),
-    "evero": ("summer-2026/weekdays/evero/summer-fc-menu-evero-digital-fa.pdf", "First Class weekday menu, Evero trains",
-              "summer-2026/weekdays/evero/evero-weekday-allergens-and-ingredients-summer-menu-2026.pdf"),
-    "weekend": ("summer-2026/weekend/summer-fc-menu-weekend-digital-fa.pdf", "First Class weekend menu, Pendolino and Evero 807",
-                "summer-2026/weekend/pendolino-and-evero-807-weekend-allergens-and-ingredients-summer-menu-2026.pdf"),
-    "ng-pendolino": ("summer-2026/weekdays/pendolino/summer-fc-menu-non-gluten-pendolino-digital-fa.pdf", "First Class non-gluten weekday menu, Pendolino",
-                     "summer-2026/weekdays/pendolino/pendolino-weekday-allergens-and-ingredients-summer-menu-2026.pdf"),
-    "ng-evero": ("summer-2026/weekdays/evero/summer-fc-menu-non-gluten-evero-digital-fa.pdf", "First Class non-gluten weekday menu, Evero",
-                 "summer-2026/weekdays/evero/evero-weekday-allergens-and-ingredients-summer-menu-2026.pdf"),
-    "ng-weekend": ("summer-2026/weekend/summer-fc-menu-non-gluten-weekend-digital-fa.pdf", "First Class non-gluten weekend menu",
-                   "summer-2026/weekend/pendolino-and-evero-807-weekend-allergens-and-ingredients-summer-menu-2026.pdf"),
+    "pendolino": ("aw-menus-2026/weekdays/pendolino/winter-fc-menu-pendo-evero-weekday.pdf", "First Class weekday menu, Pendolino trains",
+                  "aw-menus-2026/weekdays/pendolino/pendolino-weekday-allergens-and-ingredients-october-menu-2026-v2.pdf"),
+    "evero": ("aw-menus-2026/weekdays/evero/winter-fc-menu-evero-weekday.pdf", "First Class weekday menu, Evero trains",
+              "aw-menus-2026/weekdays/evero/evero-weekday-allergens-and-ingredients-october-menu-2026-v2-.pdf"),
+    "weekend": ("aw-menus-2026/weekend/winter-fc-menu-pendo-evero-weekend.pdf", "First Class weekend menu",
+                "aw-menus-2026/weekend/pendolino-evero-weekend-allergens-and-ingredients-october-menu-2026.pdf"),
+    "ng-pendolino": ("aw-menus-2026/weekdays/pendolino/winter-fc-menu-non-gluten-pendo-evero-weekday.pdf", "First Class non-gluten weekday menu, Pendolino",
+                     "aw-menus-2026/weekdays/pendolino/pendolino-weekday-allergens-and-ingredients-october-menu-2026-v2.pdf"),
+    "ng-evero": ("aw-menus-2026/weekdays/evero/winter-fc-menu-non-gluten-evero-weekday.pdf", "First Class non-gluten weekday menu, Evero",
+                 "aw-menus-2026/weekdays/evero/evero-weekday-allergens-and-ingredients-october-menu-2026-v2-.pdf"),
+    "ng-weekend": ("aw-menus-2026/weekend/winter-fc-menu-non-gluten-pendo-evero-weekend.pdf", "First Class non-gluten weekend menu",
+                   "aw-menus-2026/weekend/pendolino-evero-weekend-allergens-and-ingredients-october-menu-2026.pdf"),
 }
-SHOP = ("onboard-shop/avanti-onboard-shop---menu.pdf", "Onboard shop menu (Tuck in!)")
+SHOP = ("onboard-shop/onboard-shop---menu-nov-2026.pdf", "Onboard shop menu (Tuck in!, November 2026)")
 
 FCB, FCS, FCL, FCH, FCD = ("First Class breakfast", "First Class snacks & treats", "First Class larger plates", "First Class hot drinks",
                            "First Class soft drinks")
 SF, SH = "Onboard shop food", "Onboard shop hot drinks"
 CATEGORY_ORDER = [FCB, FCL, FCS, FCH, FCD, SF, SH]
-HEADINGS = {"Breakfast": "breakfast", "Rest of the day": "rest", "Hot drinks": "hot", "Soft drinks": "soft", "Spirits": "bar", "Beers & Cider": "bar",
-            "Sparkling & Wine": "bar", "Something from the bar?": "bar"}
-SUB = {"Lighter choices": "snack", "Larger plates": "large", "Snacks & treats": "snack"}
-# printed option lines that carry their own figure -> display name relative to the dish above them; and lines left out
-VARIANTS = [(re.compile(r"(?:with\s+)?banana and honey\.?$", re.I), "{base} with banana and honey"),
-            (re.compile(r"vegetarian option$", re.I), "{base}, vegetarian option"),
-            (re.compile(r"cheese & crackers\.?$", re.I), "{base}, cheese & crackers")]
-IGNORED = {"Add a poached egg if you like.": "the menu does not say whether 417 kcal is the egg or the whole dish"}
-
-KC = re.compile(r"(?P<name>[^()]*?)\s*\((?P<lo>\d+)(?:\s*[–—-]\s*(?P<hi>\d+))?\s*kcal\)", re.I)
+# The side heading of each menu page (printed as a column of letters at the right edge) and the section headings under it -> our category
+# (None: a bar section, whose drinks print no calories). A heading not listed here stops the script: the menu changed, re-check.
+PAGE_SECTIONS = {"BREAKFAST": {"THECLASSICS": FCB, "BAKERY&FRUIT": FCB},
+                 "RESTOFDAY": {"LIGHTSNACKS": FCS, "TREATS": FCS, "LARGERPLATES": FCL},
+                 "DRINKS": {"SOMETHINGTOSIP": None, "WINE&SPARKLING": None, "BEER&CIDER": None, "LO&NO": None, "SPIRITS": None, "SOFTDRINKS": FCD, "HOTDRINKS": FCH}}
+KCAL_ONE = re.compile(r"^(\d+) kcal$")
+KCAL_RANGE = re.compile(r"^(\d+)\s*[–—-]\s*(\d+) kcal$")
+KCAL_OR = re.compile(r"^(\d+) kcal\. Or (.+?) \((\d+) kcal\)\.?$")
+LINE_GAP = 75  # lines of one dish are 50-55 apart (pdftohtml units); dishes are further apart
+# Dishes whose menu figure the chain's own ingredients & allergens PDF contradicts (never chosen between: not published; holdback.csv).
+HOLDBACK = {"beef-stew": ("The weekday menus print 228 kcal for the Beef Stew; the matching ingredients & allergens PDFs (Pendolino and Evero, "
+                          "updated 16 November 2026) print 'Per serving 240 kcal' for it.")}
 PORK_RX = re.compile(r"\b(pork|bacon|ham|sausages?|salami|pancetta|pepperoni|chorizo|prosciutto|gammon)\b", re.I)
 BEEF_RX = re.compile(r"\b(beef|steaks?|ribeye|sirloin|brisket|mince)\b", re.I)
 
@@ -147,8 +154,8 @@ def fetch(cache: Path) -> None:
         time.sleep(1.1)
     # the pages must still announce the menus' dates
     fc = (cache / "pages" / "classes-of-travel_first-class_first-class-service.html").read_text(encoding="utf-8")
-    if "From 1 July - 13 October 2026" not in re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", fc)):
-        print("WARNING: the First Class page no longer says 'From 1 July - 13 October 2026': new season? re-check the menus and NOTE")
+    if "From 14 October 2026 - 1 December 2026" not in re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", fc)):
+        print("WARNING: the First Class page no longer says 'From 14 October 2026 - 1 December 2026': new season? re-check the menus and NOTE")
 
 
 def pdf_path(cache: Path, rel: str) -> Path:
@@ -174,10 +181,6 @@ def contained(a: str, b: str) -> bool:
     return len(a.split()) >= 2 and len(b.split()) >= 2 and (f" {a} " in f" {b} " or f" {b} " in f" {a} ")
 
 
-def clean_name(raw: str) -> str:
-    return re.sub(r"^[\s,.]*(?:or\s+)?", "", raw.strip(), flags=re.I).strip()
-
-
 def meat_tags(text: str) -> list:
     tags = []
     if PORK_RX.search(text):
@@ -187,57 +190,98 @@ def meat_tags(text: str) -> list:
     return tags
 
 
+def pdf_elements(path: Path) -> list:
+    """Every text run of the PDF, per page, with its position and font (pdftohtml -xml): [[{top, left, right, size, fam, bold, ital, text}]]."""
+    x = subprocess.run(["pdftohtml", "-xml", "-i", "-q", "-nodrm", "-stdout", str(path)], capture_output=True, text=True).stdout
+    fonts = {m.group(1): (int(m.group(2)), m.group(3).split("+")[-1])
+             for m in re.finditer(r'<fontspec id="(\d+)" size="(\d+)" family="([^"]*)"', x)}
+    pages = []
+    for pg in re.finditer(r'<page number="(\d+)"(.*?)</page>', x, re.S):
+        els = []
+        for t in re.finditer(r'<text top="(\d+)" left="(\d+)" width="(\d+)" height="(\d+)" font="(\d+)">(.*?)</text>', pg.group(2), re.S):
+            top, left, w, _h, f, raw = t.groups()
+            size, fam = fonts[f]
+            txt = " ".join(html.unescape(re.sub(r"<[^>]+>", "", raw)).split())
+            if txt:
+                els.append(dict(top=int(top), left=int(left), right=int(left) + int(w), size=size, fam=fam, bold="<b>" in raw, ital="<i>" in raw,
+                                text=txt))
+        pages.append(els)
+    if not pages:
+        raise SystemExit(f"{path.name}: pdftohtml read nothing")
+    return pages
+
+
 def fc_records(path: Path) -> tuple:
-    """([(display name, kcal, category, description, dish it belongs to)], [left-out notes]) for one First Class menu."""
-    txt = subprocess.run(["pdftotext", str(path), "-"], capture_output=True, text=True).stdout
+    """([(display name, kcal, category, description, dish it belongs to, marks)], [left-out notes]) for one First Class menu (autumn / winter 2026 layout).
+    Each "NNN kcal" (italic) is tied to the lines stacked directly above it in the same column: the dish's description (regular) under its name (bold,
+    Averta-Semibold). Anything the script does not recognise stops it."""
     out, notes = [], []
-    section, sub = None, None
-    for para in re.split(r"\n\s*\n", txt):
-        lines = [l.strip() for l in para.splitlines() if l.strip()]
-        titles, desc, base = [], [], None
-        for line in lines:
-            if line in HEADINGS:
-                section, sub = HEADINGS[line], None
-                continue
-            if line in SUB:
-                sub = SUB[line]
-                continue
-            ms = list(KC.finditer(line))
-            if not ms:
-                desc.append(line)
-                continue
-            for m in ms:
-                name = clean_name(m.group("name"))
-                titles.append((name, m.group("lo"), m.group("hi")))
-        if section not in ("breakfast", "rest", "hot", "soft") or not titles:
+    for pno, els in enumerate(pdf_elements(path), 1):
+        side = "".join(e["text"].replace(" ", "") for e in sorted(els, key=lambda e: e["top"]) if e["left"] >= 1500 and e["fam"] == "Averta")
+        kcals = [e for e in els if e["ital"] and re.search(r"\bkcal\b", e["text"]) and e["fam"] == "Averta"]
+        if side not in PAGE_SECTIONS:
+            if kcals:
+                raise SystemExit(f"{path.name} p{pno}: calories on a page without a known side heading ({side!r}): the menu changed")
             continue
-        cat = {"breakfast": FCB, "hot": FCH, "soft": FCD}.get(section) or (FCS if sub == "snack" else FCL)
-        for name, lo, hi in titles:
-            if hi:
-                notes.append(f"{name}: a range ({lo} - {hi} kcal) is left out")
+        heads = sorted((e["top"], e["text"].replace(" ", "")) for e in els if e["bold"] and e["size"] >= 57 and e["fam"] == "Averta" and e["left"] < 1500)
+        for _t, h in heads:
+            if h not in PAGE_SECTIONS[side]:
+                raise SystemExit(f"{path.name} p{pno}: unknown section heading {h!r} under {side}: the menu changed, re-check PAGE_SECTIONS")
+        body = [e for e in els if e["fam"].startswith("Averta") and e["size"] >= 39 and e["left"] < 1500]
+        for k in kcals:
+            if k["text"].startswith("/"):
+                continue  # a second figure on the same line, handled with the first
+            above = sorted((e for e in body if e["top"] < k["top"] and e["left"] < k["right"] and e["right"] > k["left"]), key=lambda e: -e["top"])
+            run, cur = [], k["top"]
+            for e in above:
+                if cur - e["top"] > LINE_GAP or e["ital"] or e["size"] >= 57:
+                    break
+                run.append(e)
+                cur = e["top"]
+            run.reverse()
+            n = 0
+            while n < len(run) and run[n]["bold"] and run[n]["fam"].endswith("Semibold"):
+                n += 1
+            names, desc = run[:n], run[n:]
+            if not names or any(e["bold"] for e in desc):
+                raise SystemExit(f"{path.name} p{pno}: cannot tie {k['text']!r} (top {k['top']}) to a name above it: the layout changed")
+            name = " ".join(" ".join(e["text"] for e in names).split())
+            desc_text = " ".join(e["text"] for e in desc)
+            sec = [h for t, h in heads if t < names[0]["top"]]
+            if not sec:
+                raise SystemExit(f"{path.name} p{pno}: {name!r} sits above every section heading: the layout changed")
+            cat = PAGE_SECTIONS[side][sec[-1]]
+            if cat is None:
+                raise SystemExit(f"{path.name} p{pno}: {name!r} prints calories in a bar section ({sec[-1]}): re-check")
+            row = sorted((e for e in els if abs(e["top"] - k["top"]) <= 12 and e["left"] > k["left"]), key=lambda e: e["left"])
+            nxt = next((e["left"] for e in row if e["ital"] and e["text"].strip()), 10 ** 6)
+            marks = sorted({e["text"] for e in row if e["left"] < nxt and e["bold"] and e["size"] <= 30 and e["text"] in ("V", "VG")})
+            second = [e for e in row if e["ital"] and e["text"].startswith("/")]
+            m1, mr, mo = KCAL_ONE.match(k["text"]), KCAL_RANGE.match(k["text"]), KCAL_OR.match(k["text"])
+            if mr:
+                notes.append(f"{name}: a range ({mr.group(1)} - {mr.group(2)} kcal) is left out")
                 continue
-            if name in IGNORED:
-                notes.append(f"{name} ({lo} kcal): {IGNORED[name]}")
-                continue
-            hit = next((fmt for rx, fmt in VARIANTS if rx.search(name)), None)
-            if hit:
-                if base is None:
-                    raise SystemExit(f"{path.name}: option line {name!r} without a dish above it: the menu changed")
-                dish = base
-                name = hit.format(base=base)
+            if second:
+                if not m1 or len(second) != 1 or not re.fullmatch(r"/ (\d+) kcal", second[0]["text"]):
+                    raise SystemExit(f"{path.name} p{pno}: {name!r}: unexpected second figure {[e['text'] for e in second]}")
+                notes.append(f"{name}: the second figure '{second[0]['text']}' (with the add-on the description offers) is left out")
+            if m1:
+                out.append((name, m1.group(1), cat, desc_text, name, marks))
+            elif mo:
+                out.append((name, mo.group(1), cat, desc_text, name, marks))
+                out.append((f"{name}, {mo.group(2)}", mo.group(3), cat, "", name, []))  # an option does not inherit the dish's description
             else:
-                base = dish = name
-            out.append((name, lo, cat, "" if hit else " ".join(desc), dish))  # an option does not inherit the dish's description (no ham in "cheese & crackers")
+                raise SystemExit(f"{path.name} p{pno}: {name!r}: unrecognised calorie text {k['text']!r}")
     return out, notes
 
 
 SHOP_LINE = re.compile(r"^\s*(?P<name>[A-Za-z][A-Za-z&'’.\- ]*?)\*?\s+(?P<k>\d+)\s*Kcal\b(?P<marks>(?:\s+(?:VG|GF|V))*)\s+£", re.I)
-SHOP_RENAME = {("Bacon Roll", "315"): "Bacon Roll (gluten free)"}
-# The shop menu marks dishes with round V (vegetarian) / VG (vegan) / GF icons that are pictures, not text. The names carrying a V or VG icon on the
-# 12 May 2026 menu (looked at on the page image, 150 dpi); the script stops if the PDF is not the one this was read from.
-SHOP_SHA256 = "7d73557ba1768c5f59242c94251fcbf0f4b37f8e033553ecfb7a07dd457d2ac6"
-SHOP_VEG = {"Porridge Golden Syrup", "Porridge No Added Sugar", "Falafel Flatbread", "Free Range Egg & Tomato Sandwich",
-            "Cheddar Cheese Ploughman's Sandwich", "Coffee Syrups"}
+SHOP_RENAME: dict = {}  # the November 2026 menu prints "Gluten Free Bacon Roll" itself
+# The shop menu marks dishes with round V (vegetarian) / VG (vegan) / GF icons; on the November 2026 menu the VG and GF marks are text but the V marks
+# are pictures. The names carrying a V or VG icon (looked at on the page image, 110 dpi); the script stops if the PDF is not the one this was read from.
+SHOP_SHA256 = "cdac3d9b493bad1e88e146e738189a49fa9a32512897e78541b2b3e11ef40e46"
+SHOP_VEG = {"Cheddar Cheese Ploughman's Sandwich", "Falafel Flatbread", "Free Range Egg & Tomato Sandwich", "Porridge Golden Syrup",
+            "Porridge No Added Sugar", "Stone Baked Pizza"}
 
 
 def shop_records(path: Path) -> list:
@@ -263,10 +307,13 @@ def build(cache: Path) -> tuple:
             raise SystemExit(f"{path} missing: run --fetch")
         recs, nts = fc_records(path)
         notes += [f"{label}: {n}" for n in nts]
-        for name, k, cat, desc, dish in recs:
-            c = cands.setdefault((name, k), dict(name=name, kcal=k, cat=cat, menus=set(), desc="", service="fc", marks=[], dish=dish))
+        for name, k, cat, desc, dish, marks in recs:
+            c = cands.setdefault((name, k), dict(name=name, kcal=k, cat=cat, menus=set(), desc="", service="fc", marks=[], dish=dish, veg=[]))
             c["menus"].add(label)
             c["desc"] += " " + desc
+            c["veg"].append(bool(marks))
+    for c in cands.values():
+        c["marks"] = ["VG"] if c["veg"] and all(c["veg"]) else []  # V or VG printed on every menu that prints the dish
     spath = pdf_path(cache, SHOP[0])
     if not spath.exists():
         raise SystemExit(f"{spath} missing: run --fetch")
@@ -305,17 +352,17 @@ def cross_check(cache: Path, kept: list) -> None:
     for key, (rel, label, al) in FC_MENUS.items():
         p = pdf_path(cache, al)
         if p not in texts:
-            t = subprocess.run(["pdftotext", str(p), "-"], capture_output=True, text=True).stdout
-            texts[p] = " ".join(t.split())
+            t = subprocess.run(["pdftotext", "-raw", str(p), "-"], capture_output=True, text=True).stdout
+            texts[p] = "".join(t.split())  # the text layer splits words and figures with stray spaces ("55 3 kcal"): drop every space
     bad = 0
     for c in kept:
-        if c["service"] != "fc" or c["cat"] in (FCH, FCD) or c["name"] == "Banana":
+        if c["service"] != "fc" or c["cat"] in (FCH, FCD) or c["name"] in ("Banana", "Easy Peeler"):
             continue  # the ingredients PDFs cover food only (no drinks, no whole fruit)
         for key, (rel, label, al) in FC_MENUS.items():
             if label in c["menus"]:
                 t = texts[pdf_path(cache, al)]
                 # the PDFs are two columns, so "Per serving" is sometimes separated from its figure: look for the figure and "kcal"
-                if not re.search(r"(?<![\d.])" + c["kcal"] + r"\s*kcal|Per serving\s*" + c["kcal"] + r"\b", t):
+                if not re.search(r"(?<![\d.])" + c["kcal"] + r"kcal", t, re.I):
                     bad += 1
                     print(f"CROSS-CHECK {c['name']} {c['kcal']} kcal ({label}): no '{c['kcal']} kcal' in {al.rsplit('/', 1)[-1]}")
     print(f"cross-check against the ingredients & allergens PDFs: {bad} figures not found")
@@ -362,8 +409,12 @@ def main() -> int:
         items.append(dict(name=c["name"], category=c["cat"], calories=c["kcal"], tags="|".join(tags), rankable=False,
                           notes=f"printed {c['kcal']} kcal on: {', '.join(sorted(c['menus']))}"))
     assert len(NOTE) < 400
+    ids = {slug(i["name"]) for i in items}
+    if not set(HOLDBACK) <= ids:
+        raise SystemExit(f"HOLDBACK names dishes that are not on the menus any more: {sorted(set(HOLDBACK) - ids)}: re-check")
     out = write_chain_folder(chain_id=CHAIN_ID, name="Avanti West Coast", cuisine="Cafe", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
-                             checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE, nutrition_level="calories")
+                             checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE, nutrition_level="calories",
+                             holdback=sorted(HOLDBACK.items()))
     counts = collections.Counter(i["category"] for i in items)
     print(f"wrote {len(items)} items ({len(cands) - len(kept)} dishes left out) to {out}: " + ", ".join(f"{c} {n}" for c, n in counts.items()))
     return 0

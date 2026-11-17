@@ -56,9 +56,9 @@ NOTES = {
 
 # Each dish's pop-up prints "Contains:" / "May contain:" (naming the cereals and tree nuts) and the dish carries label ids;
 # tenkites_b.allergens_from_rec checks they agree.
-ALLERGEN_TITLE = "Banana Tree allergen and nutrition information (menus.tenkites.com/thebigtg/bananatree04, pages dated 6 October 2026)"
+ALLERGEN_TITLE = "Banana Tree allergen and nutrition information (menus.tenkites.com/thebigtg/bananatree04, pages dated 17 November 2026)"
 
-EXPECTED_ROWS = 281
+EXPECTED_ROWS = 286
 
 
 def clean_group(g: str) -> str:
@@ -191,7 +191,7 @@ def main() -> int:
     folder = write_chain_folder(
         chain_id=CHAIN_ID, name="Banana Tree", cuisine="Southeast Asian",
         source_title="Banana Tree nutrition information (menus.tenkites.com/thebigtg/bananatree04: all day, express lunch, bottomless "
-                     "bowls, bottomless brunch, kids, desserts and drinks menus, \"Nutrition (per portion)\", pages dated 6 October 2026)",
+                     "bowls, bottomless brunch, kids, desserts and drinks menus, \"Nutrition (per portion)\", pages dated 17 November 2026)",
         source_url=BASE_URL, checked_on=args.checked_on,
         aliases=["banana tree", "the banana tree", "banana tree restaurant"], items=items, out=args.out,
         holdback=[(slug(tk.fold(n)), why) for n, why in HOLDBACK.items()],

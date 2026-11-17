@@ -55,6 +55,11 @@ class LayoutChanged(Exception):
 
 def pages(pdf: Path, first: int | None = None, last: int | None = None) -> list[tuple[int, list[Word]]]:
     """[(page number, words)] for the given page range (1-based, inclusive)."""
+    return [(n, words) for n, _, words in page_words(pdf, first, last)]
+
+
+def page_words(pdf: Path, first: int | None = None, last: int | None = None) -> list[tuple[int, float, list[Word]]]:
+    """[(page number, page width, words)] for the given page range (1-based, inclusive)."""
     cmd = ["pdftotext", "-bbox"]
     if first:
         cmd += ["-f", str(first)]
@@ -66,8 +71,18 @@ def pages(pdf: Path, first: int | None = None, last: int | None = None) -> list[
     result = []
     for n, pg in enumerate(xml.split("<page ")[1:], first or 1):
         words = [(float(a), float(b), float(c), float(d), html.unescape(t)) for a, b, c, d, t in WORD.findall(pg)]
-        result.append((n, words))
+        width = float(re.match(r'\s*width="([\d.]+)"', pg).group(1))
+        result.append((n, width, words))
     return result
+
+
+def _scaled(words: list[Word], s: float, bx: float = 0.0) -> list[Word]:
+    """Every word's box times s (s = 1: unchanged). Version 59 of the food guide (October 2026) and the festive guide print the
+    same Excel tables as version 57 on A4 pages instead of 888 x 1257 pt ones, so their pages are drawn about 1.5 times smaller;
+    multiplying by s puts them back on the scale every position and tolerance in this reader was measured on."""
+    if s == 1 and bx == 0:
+        return words
+    return [(w[0] * s + bx, w[1] * s, w[2] * s + bx, w[3] * s, w[4]) for w in words]
 
 
 def _line_words(words: list[Word], y: float, tol: float = 4.0) -> list[Word]:
@@ -76,27 +91,100 @@ def _line_words(words: list[Word], y: float, tol: float = 4.0) -> list[Word]:
 
 # ------------------------------------------------------------------ food guide
 
-def food_blocks(pdf: Path, unassigned: list | None = None) -> list[dict]:
+# The right edge of the nutrition labels (KJ ... Salt) on the version-57 food guide's 888 pt wide pages. A page whose labels end
+# elsewhere is scaled so that they end here (see _scaled).
+FOOD_LABEL_X1 = 677.7
+
+
+def _food_pages(pdf: Path, first: int, last: int | None, name_x1: float | None = None) -> list[tuple[int, list[Word], list[tuple], float]]:
+    """[(page, words, html runs, body bottom)] for the nutrition pages, scaled (see _scaled). A page that starts with the end of
+    a product (a "Portion weight" row above its first block, as on version 59's page 25, where the Ham & Cheese Toastie row runs
+    over the page break) is joined to the page before: Excel prints the overflowing row on both pages, shifted by the height of
+    the page, so the shift is measured on the words both pages print (it must be the same for at least 20 of them), the words
+    and runs that sit at the same place on both pages (page heading and footer) and the page numbers are dropped, and each
+    word the second page repeats is kept once. The second page's own blocks below its first heading are read as usual.
+
+    name_x1: for a guide whose product-name column is narrower than version 57's (the festive guide), where its name column ends
+    on the page as printed: x is then mapped so that this edge lands on version 57's (199) and the labels' right edge on 677.7."""
+    out: list[dict] = []
+    for pno, width, raw in page_words(pdf, first, last):
+        raw_kjs = [w for w in raw if w[0] > 0.6 * width and w[4] == "KJ"]
+        bx = 0.0
+        if raw_kjs:
+            right = sorted(w[2] for w in raw_kjs)[len(raw_kjs) // 2]
+            if name_x1 is not None:
+                s = (FOOD_LABEL_X1 - INGREDIENT_X0) / (right - name_x1)
+                bx = INGREDIENT_X0 - s * name_x1
+            else:
+                s = 1.0 if abs(width - 888) < 1 else FOOD_LABEL_X1 / right
+        elif out and out[-1]["pno"] == pno - 1 and any(w[4] == "Portion" for w in raw):
+            s, bx = out[-1]["s"], out[-1]["bx"]  # a page with no block of its own can only be a continuation: as the page before
+        else:
+            continue
+        words = _scaled(raw, s, bx)
+        if raw_kjs and len([w for w in words if w[0] > 560 and w[4] == "KJ"]) != len(raw_kjs):
+            raise LayoutChanged(f"page {pno}: KJ labels moved when scaled by {s:.3f}")
+        runs = [(r[0] + bx, r[1], r[2] + bx, r[3], r[4], r[5]) for r in _html_pages(pdf, pno, pno, zoom=s).get(pno, [])]
+        out.append({"pno": pno, "s": s, "bx": bx, "words": words, "runs": runs,
+                    "body_y1": 0.0, "page_no": [w for w in words if w[4] == str(pno) and w[1] > 0.9 * max(x[3] for x in words)]})
+    pages_out: list[dict] = []
+    for pg in out:
+        words = pg["words"]
+        heads = sorted(w[1] for w in words if w[4] in ("per", "Per") and w[0] > 560)
+        ends = sorted(w[1] for w in words if w[4] in ("Portion", "Product") and w[0] > 560
+                      and any(x[4] in ("weight", "Weight:") and abs(x[1] - w[1]) < 2 for x in words))
+        if not ends or (heads and ends[0] > heads[0]):
+            pages_out.append(pg)
+            continue
+        prev = pages_out[-1] if pages_out else None
+        if prev is None or prev["pno"] != pg["pno"] - 1:
+            raise LayoutChanged(f"page {pg['pno']}: starts with the end of a product, but the page before was not read")
+        top = heads[0] - 3 if heads else 1e9
+        cont = [w for w in words if w[1] < top and w not in pg["page_no"]]
+        furniture = {(w[4], round(w[0]), round(w[1])) for w in prev["words"]} & {(w[4], round(w[0]), round(w[1])) for w in cont}
+        shifts = sorted(round(a[1] - b[1], 1) for a in prev["words"] for b in cont
+                        if a[4] == b[4] and abs(a[0] - b[0]) < 0.5 and a[1] - b[1] > 100)
+        best = max(set(shifts), key=lambda v: sum(1 for x in shifts if abs(x - v) <= 0.3), default=None)
+        if best is None or sum(1 for x in shifts if abs(x - best) <= 0.3) < 20:
+            raise LayoutChanged(f"page {pg['pno']}: cannot line it up with page {prev['pno']} (the product it ends)")
+        dy = sum(x for x in shifts if abs(x - best) <= 0.3) / sum(1 for x in shifts if abs(x - best) <= 0.3)
+        keep_prev = [w for w in prev["words"] if (w[4], round(w[0]), round(w[1])) not in furniture and w not in prev["page_no"]]
+        added = [(w[0], w[1] + dy, w[2], w[3] + dy, w[4]) for w in cont if (w[4], round(w[0]), round(w[1])) not in furniture]
+        added = [w for w in added if not any(x[4] == w[4] and abs(x[0] - w[0]) < 1 and abs(x[1] - w[1]) < 1 for x in keep_prev)]
+        prev["words"] = keep_prev + added
+        rfurn = {(r[4], round(r[0]), round(r[1])) for r in prev["runs"]} & {(r[4], round(r[0]), round(r[1])) for r in pg["runs"]}
+        prev_runs = [r for r in prev["runs"] if (r[4], round(r[0]), round(r[1])) not in rfurn]
+        new_runs = [(r[0], r[1] + dy, r[2], r[3] + dy, r[4], r[5]) for r in pg["runs"]
+                    if r[1] < top and (r[4], round(r[0]), round(r[1])) not in rfurn]
+        new_runs = [r for r in new_runs if not any(x[4] == r[4] and abs(x[0] - r[0]) <= 2.5 and abs(x[1] - r[1]) <= 2.5 for x in prev_runs)]
+        prev["runs"] = prev_runs + new_runs
+        prev["body_y1"] = max([BODY_Y1] + [w[3] for w in added]) + 1
+        rest = [w for w in words if w[1] >= top]
+        if any(w[0] > 560 and w[4] == "KJ" for w in rest):
+            pages_out.append({**pg, "words": rest, "runs": [r for r in pg["runs"] if r[1] >= top]})
+    return [(p["pno"], p["words"], p["runs"], p["body_y1"]) for p in pages_out]
+
+
+def food_blocks(pdf: Path, unassigned: list | None = None, first: int = 9, last: int | None = None,
+                name_x1: float | None = None) -> list[dict]:
     """One dict per product block, in reading order: printed name text, page, per-100g and per-portion numbers, and
     "ingredient_lines": the block's ingredient declaration as [(text, bold mask)] (mask: 'B' per bold character, '.'
     otherwise). Ingredient paragraphs that belong to no block (column and section headings) are appended to
     `unassigned` as (page, text, mask) so the caller can check them.
 
-    A block starts at a "KJ" label in the nutrition column (x > 560) and ends at its "Portion weight (g)" row.
+    A block starts at a "KJ" label in the nutrition column (x > 560) and ends at its "Portion weight (g)" row (the festive
+    guide: "Product Weight:"). Pages `first` to `last` are read.
     """
     blocks = []
-    html_pages = _html_pages(pdf, 9)
-    for pno, words in pages(pdf, 9):
+    for pno, words, html_runs, body_y1 in _food_pages(pdf, first, last, name_x1):
         page_blocks: list[tuple[dict, float, float]] = []
         kjs = sorted([w for w in words if w[0] > 560 and w[4] == "KJ"], key=lambda w: w[1])
-        if not kjs:
-            continue
         right = kjs[0][2]  # the labels are right-aligned: ingredient text that happens to say "Fat" or "Salt" ends elsewhere
         if any(abs(k[2] - right) > 3 for k in kjs):
             raise LayoutChanged(f"page {pno}: the KJ labels are not in one column")
         labels = sorted([w for w in words if abs(w[2] - right) < 3 and w[4] in FOOD_LABELS], key=lambda w: (w[1], w[0]))
-        portions = sorted([w for w in words if w[0] > 560 and w[4] == "Portion"
-                           and any(x[4] == "weight" and abs(x[1] - w[1]) < 2 for x in words)], key=lambda w: w[1])
+        portions = sorted([w for w in words if w[0] > 560 and any((w[4], x[4]) in (("Portion", "weight"), ("Product", "Weight:"))
+                                                                   and abs(x[1] - w[1]) < 2 for x in words)], key=lambda w: w[1])
         for k in kjs:
             end = min([p for p in portions if p[1] > k[1]], key=lambda p: p[1], default=None)
             if end is None:
@@ -124,14 +212,14 @@ def food_blocks(pdf: Path, unassigned: list | None = None) -> list[dict]:
                      "y": k[1], "ingredients": " ".join(w[4] for w in ing_words), "ingredient_lines": []}
             blocks.append(block)
             # the block's vertical extent: from its "per 100g" heading (just above KJ) to the bottom of "Portion weight"
-            heads = [w for w in words if w[4] == "per" and w[0] > 560 and 0 < k[1] - w[1] < 30]
+            heads = [w for w in words if w[4] in ("per", "Per") and w[0] > 560 and 0 < k[1] - w[1] < 30]
             if not heads:
                 raise LayoutChanged(f"page {pno}: block at y={k[1]:.0f} has no 'per 100g' heading")
             page_blocks.append((block, min(w[1] for w in heads), end[3]))
         for (_, _, b1), (nxt, a2, _) in zip(page_blocks, page_blocks[1:]):
             if a2 <= b1:
                 raise LayoutChanged(f"page {pno}: product blocks overlap at y={a2:.0f}")
-        for para in _ingredient_paragraphs(html_pages.get(pno, []), pno):
+        for para in _ingredient_paragraphs(html_runs, pno, body_y1):
             top, bottom = para[0][0], para[-1][1]
             letters = "".join(ch for _, _, t, _ in para for ch in t if ch.isalpha())
             if letters.isupper():  # a column or section heading (INGREDIENTS, BUNS, FLATBREAD...), not a declaration
@@ -156,13 +244,17 @@ def food_blocks(pdf: Path, unassigned: list | None = None) -> list[dict]:
 # (g)" and the "Portion weight (g)" label reach further left, so they are skipped by name; any other run that crosses an
 # edge stops the reader. The page body runs from y 100 to 1160 (page header and footer outside).
 INGREDIENT_X0, INGREDIENT_X1, BODY_Y0, BODY_Y1 = 199.0, 645.0, 100.0, 1160.0
-NUTRITION_HEADINGS = {"per 100g", "per portion (g)", "Portion weight (g)"}
+NUTRITION_HEADINGS = {"per 100g", "per portion (g)", "Portion weight (g)", "Per 100g", "Per portion (g)", "Product Weight:"}
+# Notes printed under a section heading (version 57 printed this one above the page body, version 59 mid-page).
+PAGE_NOTES = {"Porridge is made with Whole Milk as standard. Other milk variants are available upon request."}
+PAGE_FOOTERS = ("WE TAKE CARE TO LIST ALL INGREDIENTS IN OUR FOOD AND DRINKS.", "EQUIPMENT TO DISPLAY, PREPARE AND SERVE.",
+                "PRESENT, EVEN IF THOSE ALLERGENS ARE NOT IN THE PRODUCT")
 
 
-def _html_pages(pdf: Path, first: int | None = None, last: int | None = None) -> dict[int, list[tuple]]:
-    """{page: [(x0, y0, x1, y1, text, bold mask)]} from `pdftohtml -xml -zoom 1` (the same points as pdftotext -bbox).
-    A run's characters are bold where pdftohtml wraps them in <b>."""
-    cmd = ["pdftohtml", "-xml", "-i", "-q", "-zoom", "1", "-stdout"]
+def _html_pages(pdf: Path, first: int | None = None, last: int | None = None, zoom: float = 1.0) -> dict[int, list[tuple]]:
+    """{page: [(x0, y0, x1, y1, text, bold mask)]} from `pdftohtml -xml -zoom 1` (the same points as pdftotext -bbox; with
+    `zoom`, the same points times zoom, see _scaled). A run's characters are bold where pdftohtml wraps them in <b>."""
+    cmd = ["pdftohtml", "-xml", "-i", "-q", "-zoom", "1" if zoom == 1 else f"{zoom:.6f}", "-stdout"]
     if first:
         cmd += ["-f", str(first)]
     if last:
@@ -189,16 +281,20 @@ def _html_pages(pdf: Path, first: int | None = None, last: int | None = None) ->
     return out
 
 
-def _ingredient_paragraphs(runs: list[tuple], pno: int) -> list[list[tuple[float, float, str, str]]]:
+def _ingredient_paragraphs(runs: list[tuple], pno: int, body_y1: float = 0.0) -> list[list[tuple[float, float, str, str]]]:
     """The page's ingredient column as paragraphs of lines [(top, bottom, text, mask)]. Runs on one line are joined
     left to right; a space is added where two runs are separated by a visible gap (2 pt or more) and neither brings its
     own. A new paragraph starts after a vertical gap of more than 6 pt (lines are about 11 pt apart)."""
     col = []
     for r in runs:
-        if not (BODY_Y0 < r[1] < BODY_Y1) or r[2] <= INGREDIENT_X0 or r[0] >= INGREDIENT_X1:
+        if not (BODY_Y0 < r[1] < max(BODY_Y1, body_y1)) or r[2] <= INGREDIENT_X0 or r[0] >= INGREDIENT_X1:
             continue
         if r[4].strip() in NUTRITION_HEADINGS and r[0] > 540:
             continue
+        if r[4].strip() in PAGE_NOTES:
+            continue  # a note under a section heading, wider than the ingredient column (no allergen in capitals)
+        if r[4].strip().startswith(PAGE_FOOTERS):
+            continue  # the festive guide prints its page footer straight under the last product, inside the page body
         if r[0] < INGREDIENT_X0 or r[2] > INGREDIENT_X1 + 1:
             raise LayoutChanged(f"page {pno}: text {r[4]!r} crosses the edge of the ingredient column")
         col.append(r)
@@ -218,8 +314,10 @@ def _ingredient_paragraphs(runs: list[tuple], pno: int) -> list[list[tuple[float
             text, mask = text + r[4], mask + r[5]
         joined.append((min(r[1] for r in L), max(r[3] for r in L), text, mask))
     paras: list[list[tuple[float, float, str, str]]] = []
+    heading = re.compile(r"^[A-Z][A-Z &]+$")  # a section heading line (MUFFINS...): version 59 prints some just under a product
     for ln in joined:
-        if paras and ln[0] - paras[-1][-1][1] <= 6:
+        if paras and ln[0] - paras[-1][-1][1] <= 6 and not heading.match(ln[2].strip()) \
+                and not heading.match(paras[-1][-1][2].strip()):
             paras[-1].append(ln)
         else:
             paras.append([ln])
@@ -238,7 +336,9 @@ def food_allergen_matrix(pdf: Path, first: int = 4, last: int = 8) -> tuple[list
     Used only to cross-check the ingredient declarations, so rows that cannot be read cleanly are reported, not guessed."""
     rows: list[dict] = []
     problems: list[str] = []
-    for pno, words in pages(pdf, first, last):
+    for pno, width, raw in page_words(pdf, first, last):
+        # the version-57 matrix pages are 1220.35 pt wide; version 59 and the festive guide print them on A4 (see _scaled)
+        words = _scaled(raw, 1.0 if abs(width - 1220.35) < 1 else 1220.35 / width)
         labs: dict[str, float] = {}
         rotated = [w for w in words if (w[3] - w[1]) > (w[2] - w[0]) and 100 < w[1] < 260]
         for col in MATRIX_COLUMNS:
@@ -280,7 +380,8 @@ def food_allergen_matrix(pdf: Path, first: int = 4, last: int = 8) -> tuple[list
         for L in lines:
             text = " ".join(w[4] for w in sorted(L))
             y = L[0][1]
-            if text.isupper() and not any(ch.isdigit() for ch in text):  # section heading (PASTRIES, TOASTIES...)
+            if (text.isupper() and not any(ch.isdigit() for ch in text)) or text in ("Cakes", "Savoury"):
+                # section heading (PASTRIES, TOASTIES...; the festive guide's "Cakes" and "Savoury")
                 if pending:
                     problems.append(f"matrix page {pno}: no marks on the line of {' '.join(t for _, t in pending)!r} (row not read)")
                 pending = []
@@ -368,7 +469,7 @@ def _allergen_cells(words: list[Word], groups: list[list[dict]], acol: tuple[flo
     return [" ".join(w[4] for w in sorted(c, key=lambda w: (round(w[1] / 3), w[0]))) for c in cells]
 
 
-def drink_products(pdf: Path) -> list[dict]:
+def drink_products(pdf: Path, first: int | None = None, last: int | None = None) -> list[dict]:
     """One dict per drink variant (a name with its sizes), in reading order.
 
     Keys: page, section (the table's heading), description, basis (the printed column headings), name (printed text),
@@ -381,7 +482,7 @@ def drink_products(pdf: Path) -> list[dict]:
     """
     products: list[dict] = []
     last: dict | None = None  # the previous table's columns and headings
-    for pno, words in pages(pdf):
+    for pno, words in pages(pdf, first, last):
         rows_on_page = 0
         # one heading per table: the line of "Per 100ml ... Per product" words (a single-block table has only one "Per")
         per = sorted([w for w in words if w[4] == "Per"

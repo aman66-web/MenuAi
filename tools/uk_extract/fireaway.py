@@ -54,7 +54,7 @@ UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTM
 PLAYWRIGHT = "/home/user/MenuAi/web/e2e/node_modules/playwright-core"
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 SOURCE_URL = f"{BASE}/menu"
-SOURCE_TITLE = "Fireaway online menu with calories (fireaway.co.uk/menu, as shown to customers of 8 shops, October 2026)"
+SOURCE_TITLE = "Fireaway online menu with calories (fireaway.co.uk/menu, as shown to customers of 8 shops, November 2026)"
 NOTE = ("Calories only, as the Fireaway website prints them for each product. A pizza's figure is for the whole pizza at the size shown. Sauce flavours, "
         "mix-ins and extra toppings you choose are not counted. Other pizza sizes and crusts are not listed.")
 CATEGORIES = [("pizza", "Pizzas"), ("specials", "Specials"), ("sides", "Sides & Salads"), ("pasta", "Pasta"),
@@ -64,7 +64,8 @@ STORES = [(45, "Clapham", "London"), (5, "Aberdeen", "Scotland"), (41, "Cardiff"
           (116, "Nottingham", "East Midlands"), (122, "Plymouth", "South West"), (114, "Norwich", "East of England"),
           (80, "Harborne", "West Midlands")]
 MIN_STORES = 2
-EXPECTED_ITEMS = 62  # as read on 2026-10-10; a different count stops the run so a human looks at the change
+EXPECTED_ITEMS = 65  # as read on 2026-11-17 (62 on 2026-10-10: S'mores Pizza and Crunchy Goblin gone; Hajin K-BBQ Pizza, Alpha K-BBQ Wings,
+# Bravo K-BBQ Strips, Prestige Caesar Salad and Red Dot Rosé Pasta new); a different count stops the run so a human looks at the change
 EXCLUDE_NAMES = {"build your own - 4 toppings", "build your own - unlimited"}  # base-only figure, customer chooses the toppings
 
 CAPTURE_JS = r"""

@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Build data/source/blank-street-coffee/ from Blank Street's official UK allergen guide (a CALORIES-ONLY chain).
 
-    python3 tools/uk_extract/blank_street_coffee.py path/to/BlankStreetUKAllergenGuideAutumn26.pdf --checked-on 2026-10-08 [--out DIR]
+    python3 tools/uk_extract/blank_street_coffee.py path/to/BlankStreetUKAllergenGuideWinter26.pdf --checked-on 2026-11-17 [--out DIR]
 
 Source (the "Allergens" link of the chain's UK menu page https://www.blankstreet.com/en-GB/menu):
-    https://www.blankstreet.com/en-GB/BlankStreetUKAllergenGuideAutumn26.pdf
-    HTTP 200, 1,129,343 bytes, PDF created 2026-08-21 (served Last-Modified 2026-10-01), 18 A4 pages with a text layer.
+    https://www.blankstreet.com/en-GB/BlankStreetUKAllergenGuideWinter26.pdf
+    HTTP 200, 1,338,958 bytes, sha256 38940ac5a110fdb70eb61ca27eabafc42ffcef801e1df855bd61fc2221715eaa, PDF created 2026-11-02
+    (served Last-Modified 2026-11-16), 21 A4 pages with a text layer. It replaced the Autumn 2026 guide (18 pages, created 2026-08-21)
+    on the menu page's "Allergens" link; read 2026-11-17.
     robots.txt of www.blankstreet.com answers 404 (no restrictions). Needs `pdftotext` (poppler); the pages are read by
     column: see blank_street_coffee_pdf.py.
 The US site (/en-US) is a different menu and is not used.
@@ -22,10 +24,10 @@ How the guide's wording is read:
   Small and Large. A figure printed for "Hot/Iced" is one item "(hot or iced)". The guide prints ONE figure per drink and size
   and does not say which milk (dairy or oat drink) it assumes: both milks are listed under the same figure, so no milk is named.
 - Pastries differ by city: the guide has a London list and a list for Manchester, Birmingham, Scotland, Leeds, Cambridge, Bristol and
-  Brighton, with different recipes and figures for the same name (Plain Croissant 325 / 291 / 448 / 360 / 556 kcal ...). Each is its
+  Brighton (and, since the Winter 2026 guide, Liverpool), with different recipes and figures for the same name (Plain Croissant 325 / 291 / 448 / 360 / 556 kcal ...). Each is its
   own item with the city in its name and its own category; nothing is merged.
 - Custom: ice creams, shells and dustings for the build-your-own ice cream are listed as printed (each has its own figure).
-- Page 8 (sub-ingredients such as syrups, with no calories) is not read.
+- Page 11 (sub-ingredients such as syrups, with no calories) and page 13 (the city index) are not read.
 - "NEW" after Cinnamon Bun is a menu marker, not a limited-time flag, so limited_time stays false.
 - Tags: vegetarian when EVERY ingredient block of the product (dairy and oat version for drinks) carries the guide's own word
   "Vegetarian" or "Vegan". contains_pork / contains_beef when the name or the printed ingredients say so (none do: no meat is sold).
@@ -46,28 +48,28 @@ import blank_street_coffee_pdf as pdf_reader  # noqa: E402
 from common import sha256_file, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "blank-street-coffee"
-SOURCE_URL = "https://www.blankstreet.com/en-GB/BlankStreetUKAllergenGuideAutumn26.pdf"
-SOURCE_TITLE = "Blank Street UK Allergen Guide, Autumn 2026 (PDF created 21 August 2026)"
+SOURCE_URL = "https://www.blankstreet.com/en-GB/BlankStreetUKAllergenGuideWinter26.pdf"
+SOURCE_TITLE = "Blank Street UK Allergen Guide, Winter 2026 (PDF created 2 November 2026)"
 ALIASES = ["blank street", "blank street coffee"]
-ALLERGEN_GUIDE_TITLE = "Blank Street UK Allergen Guide, Autumn 2026 (18 pages)"
+ALLERGEN_GUIDE_TITLE = "Blank Street UK Allergen Guide, Winter 2026 (21 pages)"
 ALLERGEN_GUIDE_URL = SOURCE_URL
 MAY_CONTAIN_PUBLISHED = True  # every product has a "May Contain - ..." line
 NOTE = ("Blank Street prints calories only. Each drink has one figure per size and the guide does not say which milk (dairy or oat) "
         "it assumes. Pastries are listed by city because the guide gives each city its own range and figures. S and L are shown as "
         "Small and Large.")
 
-EXPECTED_PRODUCTS = 127
-EXPECTED_ITEMS = 178
+EXPECTED_PRODUCTS = 146
+EXPECTED_ITEMS = 210
 EXPECTED_PER_SECTION = {
-    "COFFEE": 9, "NOT COFFEE & TEAS": 11, "COLD BREW": 4, "MATCHAS": 14, "HOUSE LATTES": 8, "SIGNATURE ICE CREAM": 4, "CUSTOM": 12,
-    "PASTRIES - LONDON STORES": 8, "MANCHESTER PASTRIES & SAVOURIES": 7, "BIRMINGHAM PASTRIES & SAVOURIES": 9,
+    "COFFEE": 9, "NOT COFFEE & TEAS": 12, "COLD BREW": 4, "MATCHAS / HOJICHAS": 20, "HOUSE LATTES": 12, "SIGNATURE ICE CREAM": 4,
+    "CUSTOM": 12, "PASTRIES - LONDON STORES": 8, "MANCHESTER PASTRIES & SAVOURIES": 7, "BIRMINGHAM PASTRIES & SAVOURIES": 9,
     "SCOTLAND PASTRIES & SWEETS": 8, "LEEDS PASTRIES & SWEETS": 10, "CAMBRIDGE PASTRIES & SWEETS": 8,
-    "BRISTOL PASTRIES & SWEETS": 7, "BRIGHTON PASTRIES & SWEETS": 8,
+    "BRISTOL PASTRIES & SWEETS": 7, "BRIGHTON PASTRIES & SWEETS": 8, "LIVERPOOL PASTRIES & SWEETS": 8,
 }
 # Section heading as printed -> (category shown in the app, city for the pastry sections).
 CATEGORIES = {
     "COFFEE": ("Coffee", ""), "NOT COFFEE & TEAS": ("Not coffee & teas", ""), "COLD BREW": ("Cold brew", ""),
-    "MATCHAS": ("Matchas", ""), "HOUSE LATTES": ("House lattes", ""), "SIGNATURE ICE CREAM": ("Signature ice cream", ""),
+    "MATCHAS / HOJICHAS": ("Matchas & hojichas", ""), "HOUSE LATTES": ("House lattes", ""), "SIGNATURE ICE CREAM": ("Signature ice cream", ""),
     "CUSTOM": ("Custom", ""),
     "PASTRIES - LONDON STORES": ("Pastries, London", "London"),
     "MANCHESTER PASTRIES & SAVOURIES": ("Pastries & savouries, Manchester", "Manchester"),
@@ -77,6 +79,7 @@ CATEGORIES = {
     "CAMBRIDGE PASTRIES & SWEETS": ("Pastries & sweets, Cambridge", "Cambridge"),
     "BRISTOL PASTRIES & SWEETS": ("Pastries & sweets, Bristol", "Bristol"),
     "BRIGHTON PASTRIES & SWEETS": ("Pastries & sweets, Brighton", "Brighton"),
+    "LIVERPOOL PASTRIES & SWEETS": ("Pastries & sweets, Liverpool", "Liverpool"),
 }
 # Printed product name -> (name used, qualifiers shown in the brackets, temperature taken from the name, note).
 # Every other printed name is used as printed. Names with brackets, " - HOT" or "Hot/Iced" that are not listed stop the run.
@@ -104,7 +107,8 @@ ODD = re.compile(r"\(|\s-\s|Hot/Iced")
 EXTRA_NOTES = {
     ("HOUSE LATTES", "Iced Blondie Latte"): "The guide prints 'S - 207 | L - 227' without the unit kcal; read as kcal like every other line",
     ("HOUSE LATTES", "Pistachio Latte"): "Hot and iced are printed with identical figures (197 small, 256 large)",
-    ("MATCHAS", "White Chocolate Matcha"): "Hot and iced large are both printed 152",
+    ("MATCHAS / HOJICHAS", "White Chocolate Matcha"): "Hot and iced large are both printed 152",
+    ("LIVERPOOL PASTRIES & SWEETS", "Almond Croissant"): "Its ingredient block ends without the guide's dietary words, so it is not tagged vegetarian",
 }
 
 

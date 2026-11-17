@@ -65,6 +65,8 @@ MENUS = {
     "Kid's Menu": ("giraffe_kids.html", 37),
     "Drinks Menu": ("giraffe_drinks.html", 122),
 }
+# Seasonal set menus in the page's selector that are left out (as for other chains' festive menus): "Christmas Menu" appeared by 2026-11-17.
+SEASONAL_MENUS = {"Christmas Menu"}
 # Which row survives when the same dish is printed on several menus (standard menus first, the gluten free list last).
 PRIORITY = ["Breakfast Menu", "Main Menu", "Dessert Menu", "Kid's Menu", "Drinks Menu", "Gluten Free Menu"]
 GF = "Gluten free menu"
@@ -156,7 +158,7 @@ def tidy_name(printed: str) -> str:
 def fetch_pages(dest: Path) -> None:
     first = dest / MENUS["Breakfast Menu"][0]
     tk.fetch(BASE, first)
-    tabs = gp.menu_tabs(first.read_text(encoding="utf-8"))
+    tabs = [t for t in gp.menu_tabs(first.read_text(encoding="utf-8")) if t[0] not in SEASONAL_MENUS]
     if [t[0] for t in tabs] != list(MENUS):
         raise SystemExit(f"The page's menu selector changed: {[t[0] for t in tabs]}, expected {list(MENUS)}")
     for name, mid in tabs[1:]:

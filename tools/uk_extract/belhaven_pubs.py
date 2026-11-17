@@ -109,7 +109,9 @@ def tag_text(text: str) -> str:
     dish beef, and a plant-based sausage is not pork. Only the tag reading changes; nothing shown changes."""
     text = NOT_BEEF_STEAK.sub(lambda m: m.group(1), text)
     text = re.sub(r"\blamb\s+rump\b", "lamb", text, flags=re.I)   # a lamb rump is lamb, not a beef rump
-    return MEAT_FREE_SAUSAGE.sub(" ", text)
+    text = MEAT_FREE_SAUSAGE.sub(" ", text)
+    # "pigs in blankets" (sausages wrapped in bacon; the festive menus of November 2026) names pork without the word: read as pork
+    return re.sub(r"\bpigs?\s+in\s+(?:a\s+)?blankets?\b", "pork", text, flags=re.I)
 
 
 def norm(s: str) -> str:
@@ -355,7 +357,7 @@ def main() -> int:
                 p0 = grp[0]
                 if "Vegan" in d["diet"] and "Vegan" not in p0["diet"]:
                     name = f"{base} ({MENU_LABEL[d['menu']]}, vegan)" if d["menu"] != p0["menu"] else f"{base} (vegan)"
-                if norm(name) in used and d["menu"] != p0["menu"]:
+                if norm(name) in used and MENU_LABEL[d["menu"]] != MENU_LABEL[p0["menu"]]:   # two no-gluten menus share one label
                     name = f"{base} ({MENU_LABEL[d['menu']]})"
                 if norm(name) in used and d["cat"] != p0["cat"]:
                     name = f"{base} ({d['cat'].lower()})"

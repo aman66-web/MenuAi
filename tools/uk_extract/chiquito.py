@@ -33,7 +33,7 @@ t._Parser._captured = _captured_ignoring_none_line
 
 URL = "https://menus.tenkites.com/thebigtg/chiquito02"
 TABS = {"Main Menu": "use", "Lunch": "use", "Dessert": "use", "Kids": "use", "Drinks": "use"}
-EXPECTED = {"Main Menu": 112, "Lunch": 44, "Dessert": 14, "Kids": 42, "Drinks": 103}
+EXPECTED = {"Main Menu": 119, "Lunch": 44, "Dessert": 14, "Kids": 42, "Drinks": 108}
 
 ADDONS = "Add-ons & extras"
 BYO = "Build your own"
@@ -54,6 +54,10 @@ SAUCE = re.compile(r"sauce$", re.I)
 _STATE = {"parent": ""}      # the last main row seen: tells ice-cream flavours from churro sauces under "Choose from:"
 
 
+# 2026-11-17 refresh: the Main Menu tab now prints 119 tables (a "FESTIVE SPECIALS" section of 4 dishes, left out as seasonal, and the
+# Fajita Fiesta's two tortilla bases and a gluten-free vegan fajita) and Drinks 108 (5 festive specials, left out).
+
+
 def label(text: str) -> str:
     return t.tidy_name(text).rstrip(":")
 
@@ -67,6 +71,8 @@ def _classify(rec: dict):
         _STATE["parent"] = nm
     byo_t = label(byo) if byo else ""
 
+    if c1 == "FESTIVE SPECIALS":   # added to the Main Menu and Drinks tabs in November 2026; seasonal, so left out (as Chef & Brewer's festive menus)
+        return ("skip", "festive special (seasonal, Christmas 2026)")
     if menu == "Drinks":
         cat = DRINK_CATEGORY[c1]
         spec = {"category": cat, "rankable": False, "alcohol": cat in ALCOHOL}
@@ -111,6 +117,12 @@ def _classify(rec: dict):
     if sec.startswith(("Pick your sauce", "Choose a sauce")) or (byo == "RIBS" and sec == "Choose from:"):
         kind = {"Pick your sauce:": "wing sauce", "Choose a sauce:": "grill sauce"}.get(sec, "ribs sauce")
         return {"category": "Dips & sauces", "rankable": False, "name": f"{nm} ({kind})"}
+    if byo == "Fajita Feista" and not sec:
+        # Added November 2026: the fajita itself (the section's own words: "Sizzling peppers and onions, grated cheese, sour cream,
+        # salsa, guac and unlimited tortillas. How will you wrap yours?"), printed once per tortilla, before a topping is chosen
+        # ("Choose Your Topping" rows are their own items, as before). A part of the meal, so not ranked on its own.
+        return {"category": "Fajita Fiesta", "rankable": False, "name": f"Fajita base: {nm}",
+                "note": "the fajita's peppers and onions, grated cheese, sour cream, salsa, guac and tortillas, without a topping (each topping is listed on its own)"}
     if c1 == "BUILD YOUR OWN":
         if c2 == "Choose your tortilla":
             return {"category": BYO, "rankable": False, "name": f"Build Your Own: {nm}"}
@@ -161,6 +173,9 @@ def classify(rec: dict):
 # row is a placeholder that lists everything the page's filter knows.
 _ALL_14 = "The page prints all 14 allergens, every cereal and every tree nut as 'Contains' for a bottle of water: allergen row contradicts the dish name/ingredients."
 HOLDBACK: dict = {
+    # 2026-11-17: the Lunch tab prints Garlic Tortilla as 1,105 kcal under Starters but 1,282 kcal under Sides (the Main Menu prints
+    # 1,282 under both): the same dish with two figures on one tab, so the 1,105 row is not published (never chosen between).
+    "Garlic Tortilla (Lunch)": "The Lunch menu prints Garlic Tortilla as 1105 kcal under Starters and 1282 kcal under Sides (the Main Menu prints 1282 under both): the page contradicts itself.",
     "Bottled Water: Still": _ALL_14,
     "Bottled Water: Still Large": _ALL_14,
     "Bottled Water: Sparkling Regular": _ALL_14,
@@ -172,11 +187,11 @@ NOTE = ("Per portion as printed on the chain's menu pages. Each part of a meal i
 
 # The same pages print each dish's allergens ("Dietary Information": "Contains:" and "May contain:", naming the cereals
 # and tree nuts) and carry the label ids of the page's own allergen filter; tenkites_a cross-checks the two.
-ALLERGEN_TITLE = "Chiquito Dietary Information (allergens) on its online Main, Lunch, Dessert, Kids and Drinks menus (Ten Kites page generated 2026-10-06)"
+ALLERGEN_TITLE = "Chiquito Dietary Information (allergens) on its online Main, Lunch, Dessert, Kids and Drinks menus (Ten Kites page generated 2026-11-17)"
 
 if __name__ == "__main__":
     sys.exit(t.run(
         chain_id="chiquito", name="Chiquito", cuisine="Mexican", aliases=["chiquito"], url=URL,
-        source_title="Chiquito Nutrition (per portion) menus: Main, Lunch, Dessert, Kids and Drinks (page generated 2026-10-06)",
+        source_title="Chiquito Nutrition (per portion) menus: Main, Lunch, Dessert, Kids and Drinks (page generated 2026-11-17)",
         tabs=TABS, classify=classify, category_order=CATEGORY_ORDER, expected_rows=EXPECTED, note=NOTE, holdback=HOLDBACK,
         allergen_title=ALLERGEN_TITLE))

@@ -16,9 +16,9 @@ steak-tartare,celery|eggs|fish|gluten|mustard|nuts|sulphites,sesame|soya,,almond
 soupe-a-loignon,gluten|milk|nuts|peanuts|sulphites,celery|eggs|mustard|sesame|soya,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 feuillete-croustillant-au-fromage-de-chevre-et-olives-noires,eggs|gluten|milk|mustard|sulphites,soya,barley|oats|rye|wheat,
 plateau-de-charcuterie-saint-marcellin-au-four,gluten|milk|nuts|peanuts|sulphites,eggs|sesame|soya,wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
-soupe-de-courge-muscat-au-kirsch,nuts|sulphites,gluten|sesame|soya,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
-celeri-remoulade-starter,celery|eggs|mustard|sulphites,,,
-gnocchis-poeles,gluten|milk,mustard|soya,wheat,
+soupe-de-topinambours,nuts|peanuts,gluten|mustard|sesame|soya,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+salade-de-betterave-et-de-chou-dhiver,celery|mustard|nuts|peanuts|sesame|sulphites,gluten,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+croquette-de-brandade-de-cabillaud,eggs|fish|gluten|soya|sulphites,mustard,wheat,
 sirloin,milk|mustard|sulphites,,,
 filet-de-boeuf,milk|mustard|sulphites,,,
 chateaubriand-pour-deux,milk|mustard|sulphites,,,
@@ -34,16 +34,16 @@ crepes-franc-comtoise,eggs|gluten|milk|mustard|soya|sulphites,,barley|oats|rye|w
 salade-dendives-et-de-bleu-st-agur,celery|milk|nuts|peanuts|sesame|sulphites,gluten,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 darne-de-fletan-poelee,fish|gluten|milk|nuts|peanuts|sulphites,eggs|sesame|soya,wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 truite-de-chalkstream,fish|milk|sulphites,,,
-pithivier-aux-topinambours-chataignes-et-champignons,celery|gluten|nuts|peanuts|soya|sulphites,mustard|sesame,barley|oats|rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+pithivier-aux-topinambours-chataignes-et-champignons-main,celery|gluten|nuts|peanuts|soya|sulphites,mustard|sesame,barley|oats|rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 travers-de-boeuf-confits,celery|milk|sulphites,,,
-longe-de-porc-confite,milk|mustard|peanuts|sulphites,,,
-parmentier-de-poisson-au-haddock-fume-et-truite-de-chalkstream,eggs|fish|gluten|milk|mustard|soya|sulphites,,barley|oats|rye|wheat,
-cassoulet-de-haricots-cannellini,celery|gluten|nuts|peanuts|sulphites,eggs|milk|sesame|soya,wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+poulet-fricasse-maman-blanc,milk|sulphites,,,
+filet-deglefin-poele,celery|fish,,,
+risotto-de-courge-muscat,nuts|sulphites,,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 steak-frites-express,milk|mustard|sulphites,,,
 frites,,,,
 pomme-mousseline,milk,,,
 epinards,milk,,,
-celeri-remoulade-side,celery|mustard,,,
+celeri-remoulade,celery|mustard,,,
 haricots-verts,,,,
 salade-mixte,,,,
 souffle-a-la-pistache,eggs|gluten|milk|nuts|soya,,barley|oats|rye|wheat,pistachio
@@ -59,16 +59,16 @@ sorbet-raspberry,,,,
 sorbet-mango,,,,
 sorbet-blackcurrant,,,,
 sorbet-lemon,,,,
-feuilletine-au-chocolat,eggs|gluten|milk|nuts|soya,,barley|oats|rye|wheat,almond|hazelnut
+feuilletine-au-chocolat,eggs|gluten|milk|nuts|soya,,barley|oats|rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 baba-au-rhum,eggs|gluten|milk|sulphites,,barley|oats|rye|wheat,
 creme-brulee,eggs|milk,,,
 mousse-au-chocolat-noir,gluten|milk|soya|sulphites,,wheat,
 selection-de-fromages-crackers-and-accompaniments,gluten|milk|mustard|nuts|peanuts|sulphites,eggs|sesame|soya,barley|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 selection-de-fromages-gluten-free-bread-and-accompaniments,eggs|milk|mustard|sulphites,,,
-poitrine-de-porc-en-roulade-farce-aux-abricots,celery|eggs|gluten|milk|soya|sulphites,,barley|oats|rye|wheat,
-roti-de-boeuf,celery|eggs|gluten|milk|mustard|soya|sulphites,,barley|oats|rye|wheat,
+roulade-de-poitrine-de-porc-farcie-aux-abricots,celery|eggs|gluten|milk|soya|sulphites,,barley|oats|rye|wheat,
+rumsteck-de-boeuf,celery|eggs|gluten|milk|mustard|soya|sulphites,,barley|oats|rye|wheat,
 demi-poulet-roti,celery|eggs|gluten|milk|soya|sulphites,,barley|oats|rye|wheat,
-feuillete-de-betterave-et-cheddar-fume,celery|eggs|gluten|milk|soya|sulphites,,barley|oats|rye|wheat,
+pithivier-aux-topinambours-chataignes-et-champignons-sunday-roast,celery|gluten|soya|sulphites,,barley|oats|rye|wheat,
 cafe-de-paris-steak-sauce,eggs|fish|milk|mustard|sulphites,,,
 bearnaise-steak-sauce,eggs|milk|sulphites,,,
 roquefort-steak-sauce,gluten|milk|soya,,barley|oats|rye|wheat,
@@ -83,6 +83,9 @@ gorgonzola-burger-add-on,milk,,,
 lardon-sauce-burger-add-on,milk|sulphites,,,
 french-dressing,mustard|sulphites,,,
 balsamic-with-fig-leaf-oil-salad-dressing,sulphites,,,
+pigs-in-blankets-sunday-roast-add-on,sulphites,,,
+cauliflower-and-cheddar-cheese-gratin-sunday-roast-add-on,gluten|milk|soya,,barley|oats|rye|wheat,
+pork-sage-and-apricot-stuffing-sunday-roast-add-on,eggs|gluten|milk|sulphites,soya,,
 crunchy-pickles-burger-add-on,mustard,,,
 assiette-de-fruits,milk|sulphites,,,
 granola,gluten|milk|nuts,,barley|oats|wheat,
@@ -105,7 +108,7 @@ pain-perdu-a-la-cannelle,eggs|gluten|milk|mustard|nuts|peanuts|sesame|soya,,whea
 buffet,celery|eggs|gluten|lupin|milk|nuts|peanuts|sesame|soya|sulphites,,barley|oats|rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 petit-dejeuner-continental,eggs|gluten|milk|nuts|peanuts|soya|sulphites,sesame,barley|oats|rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 add-marmite,celery|gluten,,barley|oats|rye|wheat,
-add-nutella,milk|nuts|soya,,,hazelnut
+add-nutella,milk|nuts|soya,,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 extras-smoked-streaky-bacon,,,,
 extras-breakfast-sausages,milk|sulphites,,,
 extras-free-range-egg-st-ewes,eggs|sulphites,,,
@@ -119,7 +122,7 @@ breadsticks-and-houmous,gluten|milk|sesame|soya|sulphites,,barley|wheat,
 veggie-bolognese,celery|gluten|lupin|milk|sulphites,soya,,
 grilled-chalkstream-trout,celery|fish|lupin,,,
 chicken-roulade,eggs|gluten|milk|soya,mustard,barley|oats|rye|wheat,
-le-petit-burger,eggs|gluten|milk|nuts|sesame|soya,mustard,,walnut
+le-petit-burger,eggs|gluten|milk|nuts|soya,mustard|sesame,,walnut
 pork-sausage-mash-and-gravy,milk|sulphites,,,
 watermelon-and-pineapple-fruit-salad,,,,
 fruit-twist,nuts,eggs|milk,,
@@ -157,21 +160,13 @@ aperol-spritz,sulphites,,,
 citrus-spritz,sulphites,,,
 sarti-rosa-spritz,sulphites,,,
 signature-g-and-t,,,,
-apricot-collins,,,,
-hazelnut-espresso-martini,gluten|milk|nuts|soya,,barley|wheat,hazelnut
-lychee-margarita-on-the-rocks,sulphites,,,
-malfy-limone-g-and-t,,,,
-melon-and-cucumber-spritz,sulphites,,,
-pimms-and-lemonade-tankard,sulphites,,,
-raspberry-mojito,,,,
-tennessee-mule,,,,
 bombay-sapphire-mediterranean-tonic-lime-wedge,,,,
 hendricks-elderflower-tonic-lime-wedge,celery|lupin,,,
 malfy-originale-mediterranean-tonic-lemon-wedge,,,,
 monkey-47-mediterranean-tonic-blackberries,,,,
 tanqueray-indian-tonic-lime-wedge,,,,
 the-botanist-elderflower-tonic-lime-wedge,sulphites,,,
-warners-rhubarb-mediterranean-tonic-orange-slice,sulphites,,,
+warners-rhubarb-mediterranean-tonic-orange-slice,,,,
 tanqueray-0-0-indian-tonic-lime-wedge,,,,
 tanqueray-flor-de-sevilla-0-0-mediterranean-tonic-orange-slice,,,,
 warners-pink-berry-0-0-elderflower-tonic-blackberries,sulphites,,,

@@ -20,6 +20,11 @@ the data behind them holds one shared figure for both sizes, so no figure is the
 every alcoholic drink (none seen), and tiles printing no kcal.
 Held back (holdback.csv): two counts or sizes of one product printing the same kcal ("Boneless Chicken Wings (4)" and "(6)"), since one of the
 chain's own figures can't be right; and the two Northern Bloc flavours in HOLD (see there).
+Re-read 2026-11-17 (all 6 shops, 299 printed tiles checked against the page data): 61 published (was 65). New: Hand Battered Onion Rings
+(Horsham, Newmarket) and Mince Pies (a Christmas special, "Two delicious battered mince pies", 1107 kcal at all 6). Now printed at one shop only
+or differently, so left out: Sage & Onion Patty, Roll & Butter, Veggie Burger, Halloumi Burger, GLUTEN FREE Haddock (Large), GLUTEN FREE Jumbo
+Pork Sausage. On this Mac the headless browser paths in vita_mojo.py (cloud paths) were pointed at web/e2e's playwright-core and the local
+chrome-headless-shell by a wrapper, without changing the shared reader.
 No allergens are copied: the chain's allergen page links matrices filed in 2021 that don't name today's products exactly; the chain gets that
 page as a link. No vegetarian tags: the chain's locations page says fried food at the Yorkshire shops is cooked in beef dripping, and no
 item says what it is fried in. contains_pork / contains_beef only from the product's own name (pork, sausage, bacon, ham; beef, steak).
@@ -46,7 +51,7 @@ STORES = [("ce5ffed0-c9ee-11eb-903b-0676c9cc7839", "Market Weighton", NORTH), ("
 SKIP = r"^(bundles|promotions|meal deals?)$"
 MIN_STORES = 2
 SOURCE_URL = ORIGIN + "/"
-SOURCE_TITLE = "Deep Blue online ordering menus with calories (order.deepbluerestaurants.com, 6 shops, read 12 October 2026)"
+SOURCE_TITLE = "Deep Blue online ordering menus with calories (order.deepbluerestaurants.com, 6 shops, read 17 November 2026)"
 ALLERGEN_URL = "https://www.deepbluerestaurants.com/allergens"
 NOTE = ("Calories only, as Deep Blue's ordering site prints them once a shop is picked; 6 shops were read and only figures printed the same at 2 "
         "or more are shown, so most cod, haddock and chip portions (which differ between its Yorkshire and southern shops) are missing. Sauces and "

@@ -42,7 +42,7 @@ MENUS = [
     ("treat_gf", "88b40e78-d7cc-4380-9e8f-4b2c0f94acb2", "gluten free", "treat yourself gluten free"),
     ("breakfast_gf", "aaba5ab1-afd6-400a-a766-8052ef2f7904", "gluten free", "breakfast gluten free"),
     ("kids_breakfast_gf", "0648feb7-132d-49c3-9169-5ba7cfa340c4", "gluten free", "kids breakfast gluten free"),
-    ("drinks", "481ac505-ef3a-4bbb-bec8-bd31e92fadc6", "drinks menu", "drinks menu"),
+    ("drinks", "79cdbf31-a1c6-4e35-ba09-8fa0838fcc2f", "drinks menu", "drinks menu"),  # new menu id from 2026-11 (was 481ac505-...)
 ]
 # Menus left out on purpose (reasons are in the report): Digestif (every row is calories only), Canapes (events),
 # "Coffee Cart - KINGSTON ONLY" and "St Pauls Breakfast (St Pauls ONLY)" (single restaurants).
@@ -87,7 +87,7 @@ def category(menu: str, course: list[str], name: str) -> str:
         return {"Starters": "Kids starters", "Mains": "Kids mains", "Sides": "Kids sides", "Desserts": "Kids desserts",
                 "Build Your Own": "Kids desserts", "Drinks": "Drinks"}[leaf]
     if menu == "drinks":
-        return "Bar bites" if leaf == "Why WAIT?" else "Drinks"
+        return "Bar bites" if leaf in ("Why WAIT?", "BAR MENU") else "Drinks"  # the section was renamed "BAR MENU" by 2026-11-17
     raise ValueError(f"unmapped section {course!r} on menu {menu!r}: add it to category() after checking the page")
 
 
@@ -117,14 +117,19 @@ HOLDBACK = {
     "Botivo Elderflower Spritz": "The menu prints 10.6 g of sugars for 6 g of carbohydrate.",
     "Chocolate Mousse for One": "The menu prints 23.9 g of sugars for 22 g of carbohydrate.",
     "Poulet Grille": "The menu prints 6.2 g of sugars for 2 g of carbohydrate.",
+    # Added at the refresh of 2026-11-17 (November 2026 drinks menu; numbers exactly as printed):
+    "Côte Liberté G&T - Single": "The menu prints 69 kcal, but its own macros (0.1 g protein, 2 g carbohydrate, 0.1 g fat) add up to about 9 kcal, "
+                                 "and its own description says zero alcohol.",
+    "Côte Liberté G&T - Double": "The menu prints 74 kcal, but its own macros (0.1 g protein, 3 g carbohydrate, 0.1 g fat) add up to about 13 kcal, "
+                                 "and its own description says zero alcohol.",
 }
 
 # The same pages print each dish's allergens three ways (the 14 yes/may/no columns, the card's "Contains:" / "May contain:"
 # lines naming the cereals and tree nuts, and the dish's label ids); tenkites_b.allergens_from_rec checks they agree.
-ALLERGEN_TITLE = "Côte Brasserie allergen and nutrition menus (June 2026 menus, menus.tenkites.com/cote/cote)"
+ALLERGEN_TITLE = "Côte Brasserie allergen and nutrition menus (June 2026 menus, files dated 13 November 2026, menus.tenkites.com/cote/cote)"
 
 # row counts the pages had when this script was written (rows with the four required numbers / all rows)
-EXPECTED_ROWS = 541
+EXPECTED_ROWS = 570  # 541 until the November 2026 drinks menu (refresh of 2026-11-17)
 
 
 # A page that ticks "Vegetarian" for a dish whose own allergen marks say it contains fish, crustaceans or molluscs contradicts itself
@@ -190,7 +195,7 @@ def main() -> int:
         return 1
     folder = write_chain_folder(
         chain_id=CHAIN_ID, name="Côte Brasserie", cuisine="French",
-        source_title="Côte Brasserie allergen and nutrition menus (June 2026 menus, menus.tenkites.com/cote/cote: weekday, weekend, "
+        source_title="Côte Brasserie allergen and nutrition menus (June 2026 menus, files dated 13 November 2026, menus.tenkites.com/cote/cote: weekday, weekend, "
                      "brunch, prix fixe, treat yourself, breakfast, kids and drinks, with gluten free versions)",
         source_url=BASE_URL, checked_on=args.checked_on,
         aliases=["cote brasserie", "côte brasserie", "cote", "côte", "cote restaurant"], items=items, out=args.out,

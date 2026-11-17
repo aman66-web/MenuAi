@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build data/source/atis/ from atis's own HTML menu pages (a FULL-NUTRITION chain, 16 sites, all in London).
+"""Build data/source/atis/ from atis's own HTML menu pages (a FULL-NUTRITION chain, 17 sites, all in London).
 
     python3 tools/uk_extract/atis.py CACHE_DIR --fetch                          # download the pages politely (3 pages + 5 small feed pages)
     python3 tools/uk_extract/atis.py CACHE_DIR --checked-on 2026-10-11 [--out DIR] [--no-write]
@@ -8,7 +8,7 @@ Source (all on https://atis.life, whose robots.txt is `User-agent: *  Allow: /  
 robots_rfc.py before every request, one request a second, a normal browser User-Agent):
     /bowls-plates-sides   Essentials Edit, Power Plates, Salad Bowls, Side Pots: each dish card prints CALORIES, PROTEIN, CARBS and FAT
     /wraps                Wraps: the same four figures
-    /locations            the restaurant list (16 sites)
+    /locations            the restaurant list (16 sites on 2026-10-11, 17 on 2026-11-17: The Whiteley added)
     /api/en/products?collections=<id>&page=1   the feed behind each section's "Load more" button: read only to confirm that the page already
                           holds every dish of the section (its `meta.total` equals the number of dishes on the page; page 2 is empty)
 The figures sit in the page's own data (the Vue component `<our-menu :preloaded-collections="[...]">`, one `nutrients` list per dish) and are the
@@ -24,7 +24,8 @@ No kJ, saturates, sugars, fibre or salt are printed (blank).
 
 How a dish qualifies: all four numbers present, each a plain whole number once the trailing "G" is dropped. A dish whose figure is a range
 ("330 - 414") or that prints calories only is not published (listed in the run output). The script stops if the sections or dish counts change.
-Dish names are the cards' own capitals tidied to Title Case; the site's spelling is kept ("Ceasar" in the wraps section).
+Dish names are the cards' own capitals tidied to Title Case; the site's spelling is kept (the wraps section printed "Ceasar" until
+November 2026; on 2026-11-17 it prints "BLACKENED CHICKEN CAESAR", same figures, so the item id changed with the name).
 Tags: contains_beef / contains_pork only when the dish's name or description says so (steak, beef; bacon, ham, sausage, pork, chorizo). Nothing else is inferred.
 """
 from __future__ import annotations
@@ -47,8 +48,8 @@ PAGES = {"bowls-plates-sides": "/bowls-plates-sides", "wraps": "/wraps", "locati
 # Section id -> (name as the page prints it, number of dishes the page and the feed both hold on 2026-10-11)
 SECTIONS = {18: ("Essentials Edit", 2), 4: ("Power Plates", 4), 2: ("Salad Bowls", 4), 6: ("Side Pots", 5), 30: ("Wraps", 4)}
 CATEGORY_ORDER = ["Essentials Edit", "Power Plates", "Salad Bowls", "Wraps", "Side Pots"]
-EXPECTED_SITES = 16
-SOURCE_TITLE = "atis menu pages with nutrition (atis.life/bowls-plates-sides and atis.life/wraps: curated bowls, plates, wraps and side pots), read 11 October 2026"
+EXPECTED_SITES = 17
+SOURCE_TITLE = "atis menu pages with nutrition (atis.life/bowls-plates-sides and atis.life/wraps: curated bowls, plates, wraps and side pots), read 17 November 2026"
 SOURCE_URL = "https://atis.life/bowls-plates-sides"
 ALIASES = ["atis", "atis life", "atis london"]
 NOTE = ("Calories, protein, carbs and fat per dish as printed on atis's menu pages, including the dressing (a regular dressing pot). Only the curated "

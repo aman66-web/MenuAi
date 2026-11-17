@@ -23,13 +23,17 @@ cross-checks the two for every dish (and stops if they disagree). "This dish con
 empty contains list. "Vegetarian" / "Vegan" in the pop-up's own "Suitable for:" line is the vegetarian tag.
 
 What is left out, and why (each is counted in the run's report):
-- 84 pop-ups (58 names) print "-" (alcoholic drinks, wine, beer, one Cawston Press juice): not published, so no calories to copy.
-- Sunday roasts and the sides under them: the page says "Available in selected trial sites only" (two menus).
+- 89 pop-ups (59 names) print "-" (alcoholic drinks, wine, beer, one Cawston Press juice): not published, so no calories to copy.
+- Sunday roasts and the sides under them: the page said "Available in selected trial sites only" (gone from the pages by 2026-11-17).
 - Pancake Parlour (Kids menus): "Available at selected sites".
 - The Croissant: "(Available in Lewes only)".
-- One option whose name is "(VG Optiotn available)": not a dish name, so it can't be matched to a dish.
+- One option whose name is "(VG Optiotn available)": not a dish name, so it can't be matched to a dish (gone by 2026-11-17).
+- Gluten-free breakfast Choccy Orange Pancakes: printed twice with no stack size (EXCLUDE_ROW).
+Re-run 2026-11-17: Bill's replaced six tabs (new menu ids), the Set Heritage Lunch and Pre-Theatre menus went, a Seasonal Set Menu and a
+New Year's Eve menu came: MENUS, SCOPE, MENU_LABEL, LIMITED_MENUS and MENU_PRIORITY follow the new 12 tabs.
 Held back (holdback.csv): "Add ..." options whose value is larger than the dish they are added to, so the page's own number
-can't be the add-on alone (see HOLDBACK_NOTE); nothing is corrected.
+can't be the add-on alone (see HOLDBACK_NOTE), and the dishes in ALLERGEN_HOLDBACK whose allergen row or vegetarian mark
+contradicts their own text; nothing is corrected.
 """
 from __future__ import annotations
 import argparse
@@ -47,32 +51,37 @@ CHAIN_ID = "bills"
 BASE = "https://menus.tenkites.com/bills/bills"
 # (file, tab title, mguid or None for the page that opens by default, pop-ups the page holds incl. the "-" ones)
 MENUS = [
-    ("bills_m00.html", "Breakfast", None, 54),
-    ("bills_m01.html", "Brunch, Lunch & Dinner", "3a1c6ec8-1bbc-4c24-9bf4-f9933f0710c3", 129),
-    ("bills_m02.html", "Set Heritage Lunch Menu", "f0cad41b-b4a4-4d8f-a841-a1ad24f5a7e5", 48),
-    ("bills_m03.html", "Drinks Menu", "ccde1fc3-8911-40ea-ad7f-30459b52a142", 146),
-    ("bills_m04.html", "Desserts", "dcde345e-793a-41a6-beb6-b5f947a6f67b", 16),
-    ("bills_m05.html", "Kids Menu", "7e3fa419-444f-4efe-895e-6800131e853f", 85),
-    ("bills_m06.html", "Gluten-Free Kids Menu", "79c37770-b5b6-4a32-963f-fcf38f09c69b", 59),
-    ("bills_m07.html", "Gluten Free Breakfast Menu", "ba7b7183-8ecc-4d3d-a2eb-63b9f3df4def", 40),
-    ("bills_m08.html", "Gluten-Free Brunch, Lunch & Dinner", "1fbc5bf0-b7de-4f01-953a-a4a5a19234a7", 76),
-    ("bills_m09.html", "Pre-Theatre Menu", "aeb32af6-6ed8-482a-bc45-607683b05c6e", 45),
-    ("bills_m10.html", "Christmas Set Menu", "78616a1b-becb-46c2-a454-feccf348b346", 18),
-    ("bills_m11.html", "GF Christmas Set Menu", "9b5db779-bcbe-4a62-b033-d32a7768dae9", 14),
+    ("bills_m00.html", "Breakfast", None, 56),
+    ("bills_m01.html", "Brunch, Lunch & Dinner", "5b71d503-d61f-45c3-ab29-18fd61f87b8d", 117),
+    ("bills_m02.html", "Seasonal Set Menu", "827c42c0-a1bb-48bf-b67d-3987eb6df6e3", 25),
+    ("bills_m03.html", "Drinks Menu", "8fb9e01e-9802-4631-a4a4-85330334dc08", 148),
+    ("bills_m04.html", "Desserts", "52aa53e2-393c-49f6-9587-d124d430a57b", 18),
+    ("bills_m05.html", "Kids Menu", "7e3fa419-444f-4efe-895e-6800131e853f", 86),
+    ("bills_m06.html", "Gluten-Free Kids Menu", "79c37770-b5b6-4a32-963f-fcf38f09c69b", 60),
+    ("bills_m07.html", "Gluten Free Breakfast Menu", "415d249f-6dd6-4109-bdae-dd59c94072a8", 42),
+    ("bills_m08.html", "Gluten-Free Brunch, Lunch & Dinner", "447378e8-3c98-4f8c-8a29-af09c2323c27", 73),
+    ("bills_m09.html", "Christmas Set Menu", "78616a1b-becb-46c2-a454-feccf348b346", 18),
+    ("bills_m10.html", "GF Christmas Set Menu", "9b5db779-bcbe-4a62-b033-d32a7768dae9", 14),
+    ("bills_m11.html", "New Year's Eve", "9409865b-841a-4fb0-b420-72ed139c162c", 32),
 ]
 SOURCE_TITLE = ("Bill's Allergen & Nutritional menus, all 12 menu tabs (Ten Kites pages linked from bills-website.co.uk/menus; "
-                "accessed 2026-10-08, no date shown)")
+                "accessed 2026-11-17, no date shown)")
 ALLERGEN_TITLE = ("Bill's Allergen & Nutritional menus (Ten Kites): per-dish allergens and 'may contain' on the same pages "
-                  "(accessed 2026-10-08, no date shown)")
+                  "(accessed 2026-11-17, no date shown)")
 NOTE = ("Bill's prints calories only, per portion, so protein, carbs and fat are not published. Menu items may vary per location. "
-        "Alcoholic drinks (and one juice) print no calories and are not listed; Sunday roasts and the Kids pancake parlour are on "
-        "selected sites only and are left out.")
+        "Alcoholic drinks (and one juice) print no calories and are not listed; the Kids pancake parlour is on selected sites only "
+        "and is left out.")
 ALLERGEN_EXTRA = {"sulphur dioxide/ sulphites": ("sulphites", None)}   # printed with a space after the slash
 ENERGY = "Energy (kCal)"
 
 # ---------------------------------------------------------------- what is left out (checked on every run)
 EXCLUDE_PATH = {"SUNDAY ROASTS": "page says 'Available in selected trial sites only'",
                 "Pancake Parlour": "page says 'Available at selected sites'"}
+# (menu title, printed name, printed calories) -> why: single rows left out (checked on every run: the run stops if one is gone)
+EXCLUDE_ROW = {
+    ("Gluten Free Breakfast Menu", "CHOCCY ORANGE PANCAKES", "1110"): "the gluten-free breakfast menu prints this dish twice (1110 and 1633 kcal) with no stack size on either, so the serving isn't stated",
+    ("Gluten Free Breakfast Menu", "CHOCCY ORANGE PANCAKES", "1633"): "the gluten-free breakfast menu prints this dish twice (1110 and 1633 kcal) with no stack size on either, so the serving isn't stated",
+}
 EXCLUDE_NAME = {("CROISSANT", "Lewes"): "printed '(Available in Lewes only)'",
                 ("(VG Optiotn available)", ""): "not a dish name: an option label with no dish to attach it to"}
 LIMIT_WORDS = re.compile(r"\b(only|selected)\b", re.I)
@@ -81,6 +90,13 @@ LIMIT_WORDS = re.compile(r"\b(only|selected)\b", re.I)
 ALLERGEN_HOLDBACK = {
     "Hazelnut Syrup": ("allergen row contradicts the dish name/ingredients: the page prints 'This dish contains none of the listed "
                        "allergens' (no tree nuts) for a hazelnut-named syrup and nothing on the page says the name is only a flavour"),
+    # 2026-11-17 re-read (held back for the same reason: the page contradicts itself, nothing is corrected)
+    "Truffle Chicken Two Ways": ("allergen row contradicts the dish's own text: the description names 'buttermilk chicken goujons' but the row marks "
+                                 "no gluten (only 'may contain' wheat), while the same pages mark Bill's own Buttermilk Chicken Goujons as "
+                                 "containing gluten (barley, wheat)"),
+    "Pigs in Blanket Loaded Potatoes": ("the page marks this dish 'Suitable for: Vegetarian' but its own description lists 'crumbled pigs in "
+                                        "blankets' (Bill's Pigs in Blankets side is not marked vegetarian), so the vegetarian mark and the "
+                                        "dish's text contradict each other"),
 }
 
 # ---------------------------------------------------------------- names and categories
@@ -94,16 +110,20 @@ OVERRIDES = {
     ("SEMI-SKIMMED", "143"): "Iced Berry Matcha with Semi-Skimmed Milk", ("SKIMMED", "135"): "Iced Berry Matcha with Skimmed Milk",
     ("Coconut", "200"): "Iced Berry Matcha with Coconut Milk", ("OAT", "181"): "Iced Berry Matcha with Oat Milk",
     ("SOYA", "134"): "Iced Berry Matcha with Soya Milk", ("With Cream +40p", "331"): "Hot Chocolate with Cream",
+    ("BILL's MAC & CHEESE", "809"): "Bill's Mac & Cheese",  # 2026-11-17: printed with a lower-case "s" on the mains option only
+    # 2026-11-17: the gluten-free menus print this pancake dish with no stack size; it is not the 5-stack of the main menu (different recipe)
+    ("CHOCCY ORANGE PANCAKES", "1633"): "Choccy Orange Pancakes (gluten-free)",
     # (until 2026-10-07 the page printed "ICE CREAMS & SORBETS" twice, told apart here by the description line; since the 2026-10-08
     # re-read it prints "GLUTEN FREE ..." and "VEGAN & GLUTEN FREE ICE CREAMS & SORBETS (no wafer)", so no override is needed)
 }
 CATEGORY_NAMES = {"Mini Dessert & a Hot Drink £7.50": "Mini desserts & a hot drink", "BILL'S SHAWARMAS": "Shawarmas"}
 KIDS_MENUS = {5, 6}
-SCOPE = {5: "kids", 6: "gluten-free kids", 7: "gluten-free", 8: "gluten-free", 10: "Christmas", 11: "gluten-free Christmas"}
-MENU_LABEL = {0: "breakfast", 1: "brunch, lunch & dinner", 2: "set lunch", 3: "drinks", 4: "desserts", 7: "breakfast",
-              8: "brunch, lunch & dinner", 9: "pre-theatre"}
+SCOPE = {5: "kids", 6: "gluten-free kids", 7: "gluten-free", 8: "gluten-free", 9: "Christmas", 10: "gluten-free Christmas",
+         11: "New Year's Eve"}
+MENU_LABEL = {0: "breakfast", 1: "brunch, lunch & dinner", 2: "seasonal set menu", 3: "drinks", 4: "desserts", 7: "breakfast",
+              8: "brunch, lunch & dinner"}
 LIMITED_SECTIONS = {"SPECIALS", "DRINK SPECIALS"}
-LIMITED_MENUS = {10, 11}   # "Available 12th Nov - 30th Dec"
+LIMITED_MENUS = {9, 10, 11}   # Christmas menus: "Available 12th Nov - 30th Dec"; 11 is the New Year's Eve menu
 
 
 def _cap(part: str) -> str:
@@ -142,7 +162,7 @@ def category_of(r: dict) -> str:
     if r["menu"] in KIDS_MENUS:
         top = sentence(r["path"][0])
         return "Kids " + top[:1].lower() + top[1:]
-    inner = r["path"][-1]
+    inner = r["path"][-1] or MENUS[r["menu"]][1]   # a dish printed above the menu's first section (2026-11-17: the Signature Sharer)
     return CATEGORY_NAMES.get(inner, sentence(inner))
 
 
@@ -154,7 +174,7 @@ def serving_of(name_raw: str, desc: list) -> str:
         return f"{m.group(1)} stack"
     if re.match(r"^(Small|Large)\b", d0):
         return d0.split()[0]
-    m = re.search(r"\((\d+ scoops?)\)", name_raw, re.I)
+    m = re.search(r"\((\d+ scoops?)\b", name_raw, re.I)   # "(2 scoops)", and since 2026-11-17 "(2 scoops, no wafer)"
     if m:
         return m.group(1).lower()
     m = re.search(r"\b(\d+ ?ml)\b", name_raw) or re.match(r"^.*?\b(\d+ ?ml)\b", d0)
@@ -235,7 +255,7 @@ def meat_text(r: dict) -> str:
 def build(pages_dir: Path) -> tuple[list, list, list]:
     rows, report = read_all(pages_dir)
     group_names = Counter((r["group"], r["name"]) for r in rows if r["kind"] == "option")
-    skipped_dash, excluded = [], []
+    skipped_dash, excluded, excluded_rows = [], [], set()
     cands = []
     for r in rows:
         if set(r["nutrients"]) != {ENERGY}:
@@ -251,6 +271,11 @@ def build(pages_dir: Path) -> tuple[list, list, list]:
         why = next((w for p, w in EXCLUDE_PATH.items() if p in r["path"]), None)
         if why is None:
             why = next((w for (n, key), w in EXCLUDE_NAME.items() if r["name"] == n and (key in text or key == "")), None)
+        if why is None:
+            row_key = (MENUS[r["menu"]][1], r["name"], kcal)
+            why = EXCLUDE_ROW.get(row_key)
+            if why:
+                excluded_rows.add(row_key)
         if why:
             excluded.append(f"{tidy(r['name'])} (menu {r['menu']}, {' > '.join(r['path'])}): {why}")
             continue
@@ -264,6 +289,8 @@ def build(pages_dir: Path) -> tuple[list, list, list]:
                       "unspecified": unspecified, "serving": serving_of(r["name"], r["desc"]), "category": category_of(r),
                       "limited": r["menu"] in LIMITED_MENUS or any(p in LIMITED_SECTIONS for p in r["path"]),
                       "scope": scope_of(r)})
+    if excluded_rows != set(EXCLUDE_ROW):
+        raise SystemExit(f"EXCLUDE_ROW rows no longer on the pages: {sorted(set(EXCLUDE_ROW) - excluded_rows)}")
     # same dish printed on several menus with the same number and allergens is one item
     def akey(a):
         return None if a is None else (tuple(sorted(a["contains"])), tuple(sorted(a["may_contain"])), tuple(sorted(a["cereals"])), tuple(sorted(a["nuts"])))
@@ -318,7 +345,7 @@ def bp_title(menu: int) -> str:
     return MENUS[menu][1]
 
 
-MENU_PRIORITY = [0, 1, 4, 3, 2, 9, 7, 8, 5, 6, 10, 11]
+MENU_PRIORITY = [0, 1, 4, 3, 2, 7, 8, 5, 6, 9, 10, 11]
 
 
 def qualifiers(variants: list) -> list:
@@ -353,7 +380,7 @@ def hold_back_and_clean(items: list, rows: list, report: list) -> tuple:
     base_kcal = {}
     for r in rows:
         if r["kind"] == "option" and r["group"] not in base_kcal and not r["name"].upper().startswith("ADD ") and r["nutrients"][ENERGY] != "-" and tk.is_number(r["nutrients"][ENERGY]):
-            base_kcal[r["group"]] = (tidy(r["name"]), int(r["nutrients"][ENERGY].replace(",", "")))
+            base_kcal[r["group"]] = (OVERRIDES.get((r["name"], r["nutrients"][ENERGY]), tidy(r["name"])), int(r["nutrients"][ENERGY].replace(",", "")))
     holdback = []
     for it in items:
         r = it.pop("_row")
@@ -367,6 +394,9 @@ def hold_back_and_clean(items: list, rows: list, report: list) -> tuple:
                 holdback.append((slug(it["name"]),
                                  f"printed as an add-on to {b_name} ({b} kcal) but its number ({it['calories']} kcal) is larger than the dish itself, "
                                  "so it can't be the add-on alone (looks like the dish with the add-on); the page doesn't say"))
+    gone = sorted(set(ALLERGEN_HOLDBACK) - {it["name"] for it in items})
+    if gone:
+        raise SystemExit(f"ALLERGEN_HOLDBACK names no longer on the pages: {gone}")
     return items, holdback
 
 

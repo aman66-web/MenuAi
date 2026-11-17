@@ -30,6 +30,11 @@ tied to the published items, so only allergen_guide.csv is written (the app link
 The script reads the guide's issue and date from the PDF for the guide's title and prints how many items have an exact-name
 entry, so a later guide that lines up can be re-checked. Needs `pdftotext` (poppler).
 
+Re-read 2026-11-17: every bagel page prints the same names and numbers as on 2026-10-06; /menu/ was updated 2026-10-14 and the Ingredient
+List is now Issue 23 (14/09/2026). The /menu/ filter bar still shows "Seafood", but its page (/menu/seafood/) answers 404, so the five bagels
+read from that page on 2026-10-06 keep the category (SEAFOOD_GONE below, typed by hand from that run); the script stops if any other filter
+page fails, if the seafood page comes back, or if those five are in another filter or no longer on /menu/.
+
 Re-checked 2026-10-08 (allergen pass, data/audit/verified/bagel-factory-allergens.json): same answer, link-only stays. The Ingredient List
 (Issue 22, 17/08/2026) is per ingredient/component, not per dish: 31 of its entries (every full-size filled bagel, and the bagel pages on bagelfactory.co.uk, which
 repeat the text) start "BAGEL BUN OF CUSTOMER CHOICE", so the entry never names the bun's allergens (wheat, soya, sesame, milk ... differ by
@@ -48,6 +53,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -70,6 +76,8 @@ FILTERS = {
     "spread": "Spreads",
     "veggie": "Veggie & Vegan",
 }
+# /menu/seafood/ answers 404 since 2026-10-14 (the filter bar still links it): its members as read from that page on 2026-10-06.
+SEAFOOD_GONE = ["the-new-yorker", "tuna-melt-bagel", "the-classic", "salmon-avocado", "the-classic-mini-bagel"]
 VEGETARIAN_FILTER = "veggie"  # the chain's own "Veggie & Vegan" filter is its vegetarian/vegan marking
 
 STD = "1 bagel (plain bun)"      # the page says: "Nutritional values refer to a bagel prepared with a plain bagel bun"
@@ -261,7 +269,15 @@ def main() -> int:
         # categories and vegetarian marking from the chain's own filter pages
         category, vegetarian = {}, set()
         for f, cat in FILTERS.items():
-            members = listing_slugs(fetch.get(f"{BASE}/menu/{f}/", f"filters/{f}.html"))
+            try:
+                members = listing_slugs(fetch.get(f"{BASE}/menu/{f}/", f"filters/{f}.html"))
+            except urllib.error.HTTPError as e:
+                if not (f == "seafood" and e.code == 404):
+                    raise Stop(f"filter page /menu/{f}/ answered HTTP {e.code}: stop")
+                members = list(SEAFOOD_GONE)  # see SEAFOOD_GONE
+            else:
+                if f == "seafood":
+                    raise Stop("/menu/seafood/ answers again: read its members and remove SEAFOOD_GONE")
             for s in members:
                 if s not in ROWS:
                     raise Stop(f"filter {f!r} lists {s!r}, which is not in ROWS")

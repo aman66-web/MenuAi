@@ -5,7 +5,8 @@
 
 Source: the six menu pages https://www.bistrotpierre.co.uk/allergens/ links (hosted by Ten Kites on viewthe.menu, one page per menu):
     hwyv All Day Menu & Menu Pierre   hwdv Breakfast menu   hwuv French Afternoon Tea (for two)
-    hw2v Petit Pierre (the chain's "Menu Enfants")   hw7v Bar Pierre (the chain's "Bar Menu")   hw8v Soiree Gastronomique (22 Sept 2026)
+    hw2v Petit Pierre (the chain's "Menu Enfants")   hw7v Bar Pierre (the chain's "Bar Menu")   hw8v Soiree Gastronomique (27 Oct 2026 when
+    read on 2026-11-17; 22 Sept 2026 before)
 --fetch saves each page once into --pages (one request per second, a browser User-Agent; robots.txt of viewthe.menu disallows only
 /fonts/, /views/ and /*.less and is checked before every download); without --fetch the saved pages are read. The pages show no menu
 date (only the time the page was generated), so the title says "accessed <checked-on>, no date shown". Python 3.9 compatible; standard
@@ -23,10 +24,14 @@ allergens.csv is complete for every published item. The row's `data-calories` at
 equal the visible figure, and the card's "Suitable for:" line must agree with the ticked Vegan / Vegetarian columns.
 
 Scope (the run stops if a page's title, section list or row count changes):
-  published   the five menus above, 132 rows printed, 130 listed (see below).
-  not listed  Soiree Gastronomique (hw8v): a one-off event menu on 22 September 2026 whose page prints no nutrition at all (its
+  published   the five menus above: 147 rows printed on 2026-11-17 (the All Day page went from 66 to 81 rows: the 66 as before plus the
+              7-dish "TRUFFLE GUYS" section, the chain's "Trés Truffle" menu, published as "Truffle Guys menu", and the 8-dish
+              "LEICESTER RESTAURANT WEEK MENU" section, left out below).
+  not listed  Soiree Gastronomique (hw8v): a one-off event menu (27 October 2026 on 2026-11-17) whose page prints no nutrition at all (its
               `ShowNutrients` setting is false and it has no "View nutrition information" button): the run checks it stays that way.
-  left out    "Ice Cream & Sorbet (Allergens for Icecream and Sorbet flavours are listed below)": a heading row for the flavour rows
+  left out    the 8 rows of the All Day page's "LEICESTER RESTAURANT WEEK MENU" section: one restaurant's local event-week menu, not
+              the chain's menu (docs/UK_DATA_PLAYBOOK.md rule 4).
+              "Ice Cream & Sorbet (Allergens for Icecream and Sorbet flavours are listed below)": a heading row for the flavour rows
               under it (its 905 kcal matches no serving and no sum of the flavours), not a dish. The flavours are listed.
   held back   Cafe Gourmand (358 kcal): the same page prints its four parts as 121 + 115 + 282 + 82 = 600 kcal.
               Lemon Sorbet (0 kcal): the same page prints 68 and 82 kcal for two other sorbets.
@@ -63,14 +68,14 @@ USER_AGENT = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.3
 
 # label -> (page id, the page's own <title>, dish rows expected, short menu name). Page order = the order categories are shown.
 MENUS = {
-    "allday": ("hwyv", "All Day Menu & Menu Pierre", 66, "All Day"),
+    "allday": ("hwyv", "All Day Menu & Menu Pierre", 81, "All Day"),
     "breakfast": ("hwdv", "Breakfast menu", 28, "Breakfast"),
     "tea": ("hwuv", "French Afternoon Tea (for two)", 1, "Afternoon Tea"),
     "kids": ("hw2v", "Petit Pierre", 13, "Petit Pierre"),
     "bar": ("hw7v", "Bar Pierre", 24, "Bar Pierre"),
 }
 # Checked, never published: the page must still print no nutrition at all.
-NO_NUTRITION = {"soiree": ("hw8v", "Soirée Gastronomique - 22nd September 2026", 8)}
+NO_NUTRITION = {"soiree": ("hw8v", "Soirée Gastronomique - 27th October 2026", 8)}
 # Who keeps the plain name when two different rows share a name (adult menus first, the kids' menu last).
 MENU_RANK = {"allday": 0, "bar": 1, "breakfast": 2, "tea": 3, "kids": 4}
 LONG = {k: v[3] for k, v in MENUS.items()}
@@ -80,6 +85,8 @@ SHORT = dict(LONG)
 CATEGORY = {
     ("allday", "PETIT PLATS"): "Petit plats", ("allday", "ENTRÉES"): "Entrées", ("allday", "FRITES & STEAKS"): "Frites & steaks",
     ("allday", "PLATS"): "Plats", ("allday", "ACCOMPAGNEMENTS"): "Accompagnements", ("allday", "DESSERTS"): "Desserts",
+    ("allday", "TRUFFLE GUYS"): "Truffle Guys menu",
+    ("allday", "LEICESTER RESTAURANT WEEK MENU"): "(left out)",
     ("breakfast", "Menu Complet"): "Breakfast: menu complet", ("breakfast", "Lighter Options"): "Breakfast: lighter options",
     ("breakfast", "Accompagnements"): "Breakfast: accompagnements", ("breakfast", "Kids Breakfast"): "Breakfast: kids",
     ("tea", "Afternoon Tea"): "Afternoon tea",
@@ -91,11 +98,19 @@ CATEGORY = {
 NAME_OVERRIDES = {
     ("bar", "BAGUETTES", "HAM & CHEESE"): "Ham & Cheese Baguette",
     ("bar", "BAGUETTES", "SMOKED SALMON"): "Smoked Salmon Baguette",
+    # The Truffle Guys section's Steak Frites ("Périgueux sauce, minced truffle, triple-cooked frites") prints the same energy and allergens
+    # as the main menu's Steak Frites; the section name keeps it a separate dish instead of being merged into the main menu's row.
+    ("allday", "TRUFFLE GUYS", "STEAK FRITES"): "Steak Frites (Truffle Guys)",
 }
 # (menu, printed section, printed name) -> why it is not listed at all.
+LEICESTER_WEEK = ("on the 'LEICESTER RESTAURANT WEEK MENU' section of the All Day page: a menu for one restaurant's local event week, not the "
+                  "chain's menu (docs/UK_DATA_PLAYBOOK.md rule 4)")
 LEFT_OUT = {
     ("allday", "DESSERTS", "Ice Cream & Sorbet (Allergens for Icecream and Sorbet flavours are listed below)"):
         "a heading row for the flavour rows under it (905 kcal matches no serving or sum of the flavours), not a dish",
+    **{("allday", "LEICESTER RESTAURANT WEEK MENU", n): LEICESTER_WEEK for n in (
+        "CHICKEN LIVER PARFAIT", "TOMATO AND RED PEPPER CROQUETTE", "SMOKED SALMON RILLETTE", "MOULES MARINIÈRE - Menu Pierre",
+        "CHICKEN SCHNITZEL CORDON BLEU", "LAMB BOULANGÈRE", "SAINT MONT & ROASTED SQUASH CRÊPE FLORENTINE", "BURGUNDY HONEY CAKE")},
 }
 # (menu, printed section, printed name) -> why the printed row is held back (listed in items.csv, not published).
 HOLDBACK = {
@@ -106,11 +121,11 @@ HOLDBACK = {
     ("allday", "PETIT PLATS", "HOUMOUS"):
         "Allergen row contradicts the dish: the All Day / Bar Pierre menus describe it as 'Haricot blanc houmous, sourdough, harissa, toasted "
         "seeds' and mark no sesame (not even may contain), while the same chain's Petit Pierre page marks Sesame Seeds as contained in its "
-        "'Haricot blanc houmous' (re-read 2026-10-08)",
+        "'Haricot blanc houmous' (re-read 2026-10-08; unchanged 2026-11-17)",
     ("allday", "PLATS", "LAMB TAGINE"):
         "Allergen row contradicts the dish's own description: 'mint yoghurt' is named but the row marks no milk (not even may contain; "
         "it marks soya, so the yoghurt might be a soya one, but the page does not say). Not published until the chain's page says which "
-        "(re-read 2026-10-08)",
+        "(re-read 2026-10-08; unchanged 2026-11-17)",
 }
 NOTE = ("Calories only, per serving, from Bistrot Pierre's own allergen pages (shown with 'View nutrition information'): protein, carbs, fat "
         "and portion sizes are not published. Drinks and the one-off Soirée Gastronomique menu are not in the guide. The afternoon tea page is "

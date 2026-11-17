@@ -19,7 +19,8 @@ X_TITLE_MAX, X_PER100_MAX, X_PORTION_MAX, X_ALLERGEN_MAX = 200.0, 265.0, 352.0, 
 HEADER_Y_MAX = 63.0     # header words (TITLE, KCAL PER 100g ...) start at y 43-58 on every data page; the first row's first title line
                         # starts at y 69-75 (it was 69.2 on page 4, where a 70.0 cut-off lost "SMALL CAPPUCCINO" from the first row)
 FOOTER_Y_MIN = 775.0    # "Our food and drinks are made by hand ..." / "V Vegetarian VN Vegan" / "Adults need around 2000kcal a day."
-MAX_DY = 9.0            # a word further than this from every row's number line is an error, never guessed
+MAX_DY = 12.0   # a word further than this from every row's number line is an error, never guessed (9.0 until the Christmas 2026
+                # guide: its three-line titles, e.g. SMALL BLACK SESAME / MATCHA LATTE / COW’S MILK, put the outer lines 10.8 pt from the middle)
 
 
 def _words(pdf: Path, page: int) -> list[dict]:

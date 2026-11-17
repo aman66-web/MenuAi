@@ -37,12 +37,15 @@ TABS = {
     "Bar Snacks": ("bar", "Bar Snacks menu", 9, None),
     "Sharing Plates": ("sharing", "Sharing Plates menu", 25, None),
     "Sides": ("sides", "Sides menu", 10, None),
-    "Sharing Pizza Paddles": ("paddles", "Sharing Pizza Paddles menu", 18, None),
+    "Sharing Pizza Paddles": ("paddles", "Sharing Pizza Paddles menu", 19, None),
     "Sweet Treats": ("sweet", "Sweet Treats menu", 5, None),
     "Breakfast menu": ("breakfast", "Breakfast menu", 24, None),
     "Packages": ("packages", "Packages", 6,
                  "group packages (bundles of other dishes for a party; no serving per person): 4 of the 6 print no numbers and the other two print the same numbers"),
-    "Flight Club Drinks - Full Menu": ("drinks", "Drinks menu", 375, None),
+    "Flight Club Drinks - Full Menu": ("drinks", "Drinks menu", 374, None),
+    "Flight Club Christmas": ("christmas", "Christmas menu", 19,
+                              "seasonal Christmas tab (added by Nov 2026): 5 festive sharing dishes, 8 Christmas cocktails that print no numbers and 6 festive "
+                              "party packages; a limited-time party menu, not added (founder to decide)"),
 }
 RANK = {v[0]: i for i, v in enumerate(TABS.values())}
 SHORT = {v[0]: v[1] for v in TABS.values()}
@@ -97,7 +100,6 @@ assert len(NOTE) <= 400, len(NOTE)   # the pipeline's limit (tools/build_menus.p
 ITEM_NOTES = {
     "Honey-glazed chorizo": "the page prints 0.0 g saturates with 39.1 g fat",
     "Full Scottish Breakfast": "the page prints 0.0 g salt; the Full Scottish Roll (same bacon, sausage and black pudding) prints 0.8 g",
-    "Sausage roll": "the page lists as 'Contains' eggs, milk, mustard, soya, sulphites, peanuts, wheat and all eight tree nuts",
     "Bang bang cauliflower": "the page marks it Vegetarian but its own sub-recipe list includes 'Chorizo Stick'",
 }
 

@@ -45,6 +45,7 @@ CATEGORIES = {
     (R, ("SALADS",)): "Salads",
     (R, ("SANDWICHES",)): "Sandwiches",
     (R, ("HOT & HEARTY",)): "Hot & Hearty",
+    (R, ("FORNO & SOUPS",)): "Forno & Soups",  # November 2026: the same five dishes as Hot & Hearty, under the menu's new heading
     (R, ("SIDES",)): "Sides",
     (R, ("SWEET TREATS",)): "Sweet Treats",
     (R, ("BREAKFAST - SOURDOUGH BAGUETTES",)): "Breakfast",
@@ -84,10 +85,10 @@ def variant_fn(site: str, tab: str) -> str:
 
 COCO = A.Chain(
     id="coco-di-mama", name="Coco di Mama", host="www.cocodimama.co.uk", cuisine="Italian", aliases=["coco di mama", "cocodimama", "coco di mama italian"],
-    source_title="Coco di Mama menu pages with calories (cocodimama.co.uk/menus and each restaurant's and delivery kitchen's menu page), read 10 October 2026",
+    source_title="Coco di Mama menu pages with calories (cocodimama.co.uk/menus and each restaurant's and delivery kitchen's menu page), read 17 November 2026",
     venue_re=r"^/locations/(restaurant|delivery-kitchen)/.+/menus$", venue_path=lambda fp: f"/locations/{fp}/menus",
     variants=VARIANTS, categories=CATEGORIES, excluded_sections=EXCLUDED, note=NOTE, variant_fn=variant_fn, tab_titles=False,
-    expected_items=185, min_sites=5,
+    expected_items=194, min_sites=5,
 )
 
 if __name__ == "__main__":

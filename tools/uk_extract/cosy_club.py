@@ -69,9 +69,21 @@ TK_PREFIX = "https://menus.tenkites.com/loungers/"
 UA = tk.USER_AGENT
 DELAY = 1.1
 MIN_VENUES = 2
-EXPECTED_VENUES = 38
+EXPECTED_VENUES = 37  # 38 until Durham left the chain's own location list (refresh of 2026-11-17)
+# Menu records whose venue is no longer in the chain's own location list (a venue that has gone): skipped, said in the run's output.
+# Any other menu record without a venue still stops the run.
+RETIRED_MENU_RECORDS = {"durham"}
 
-MENU_ORDER = ["BREAKFAST", "LUNCH", "DINNER", "DESSERTS", "KIDS", "GLUTEN FREE", "VEGAN", "Sunday Roast", "COCKTAILS AND MIXED DRINKS", "WINE"]
+MENU_ORDER = ["BREAKFAST", "LUNCH", "DINNER", "DESSERTS", "KIDS", "GLUTEN FREE", "VEGAN", "Sunday Roast", "COCKTAILS AND MIXED DRINKS", "WINE",
+              "CHRISTMAS SET MENU"]
+# Menus fetched but not read (refresh of 2026-11-17): the seasonal Christmas set menu, new on every page in November 2026, holds an
+# element the reader does not know (a menu item with no recipe id): left out rather than read half-way. Said in the run's output.
+UNREAD_MENUS = {"CHRISTMAS SET MENU"}
+# Dishes whose own page contradicts itself (allergens vs the dish's own name): listed but held back, never corrected.
+HOLDBACK = {
+    "GF Maple Glazed Butternut Squash Wellington": "On the GLUTEN FREE menu, named 'GF', but its own allergen line says it contains cereals "
+                                                     "with gluten (barley). Not published (refresh of 2026-11-17).",
+}
 SKIP_MENUS = {"WINE"}   # every row is wine or fizz (alcohol)
 ALCOHOL_SECTIONS = re.compile(r"cocktail|spritz|wine|fizz|prosecco|champagne|beer|lager|cider|spirit|gin\b|vodka|rum\b|whisk|tequila|"
                               r"shot|bubbles|aperitivo|negroni|martini|margarita", re.I)
@@ -157,6 +169,9 @@ def venue_pages(pages: Path) -> dict[str, list[str]]:
     loc_slugs = {l["slug"] for l in locations}
     out: dict[str, list[str]] = {}
     for m in menus:
+        if m["slug"] in RETIRED_MENU_RECORDS and m["slug"] not in loc_slugs:
+            print(f"skipped menu record {m['slug']}: its venue is no longer in the chain's location list")
+            continue
         url = (m.get("acf") or {}).get("tenkites_menu") or ""
         if not url:
             raise SystemExit(f"venue {m['slug']}: its menu record names no Ten Kites page")
@@ -189,6 +204,8 @@ def read_page(pages: Path, url: str) -> list[dict]:
         raise SystemExit(f"{key}: the menu selector reads {[t[0] for t in tabs]}: a menu not in MENU_ORDER, decide how to read it")
     rows = []
     for name, mid in tabs:
+        if name in UNREAD_MENUS:
+            continue
         text = (pages / key / f"{slug(name)}.html").read_text(encoding="utf-8", errors="replace")
         if lp.page_title(text) != name:
             raise SystemExit(f"{key}/{slug(name)}.html is the page {lp.page_title(text)!r}, expected {name!r}")
@@ -251,6 +268,7 @@ def build(pages: Path) -> tuple[list[dict], list[tuple[str, str]], list[str], di
     printed: dict[tuple, dict[str, dict]] = {}
     order: list[tuple] = []
     skipped = []
+    twice: dict[tuple, set] = {}       # dishes a page prints twice with different figures: left out, never chosen between
     for url in vp:
         key = page_key(url)
         if key not in used:
@@ -284,7 +302,7 @@ def build(pages: Path) -> tuple[list[dict], list[tuple[str, str]], list[str], di
             pages_for = printed.setdefault(dkey, {})
             if key in pages_for:
                 if (pages_for[key]["kcal"], pages_for[key]["al"]) != (kcal, akey):
-                    raise SystemExit(f"{where}: printed twice on one page with different figures")
+                    twice.setdefault(dkey, set()).update({f"{key}: {pages_for[key]['kcal']} kcal", f"{key}: {kcal} kcal"})
                 continue
             pages_for[key] = val
             if dkey not in order:
@@ -295,6 +313,10 @@ def build(pages: Path) -> tuple[list[dict], list[tuple[str, str]], list[str], di
         variants = {(v["kcal"], v["al"], v["veg"]) for v in pv.values()}
         venues = sum(used[k] for k in pv)
         menu, section, base, group, name = dkey
+        if dkey in twice:
+            report.append(f"left out (printed twice on one page with different figures): {menu} > {section} > {name}: "
+                          + "; ".join(sorted(twice[dkey])))
+            continue
         if len(variants) > 1:
             detail = "; ".join(f"{k}: {v['kcal']} kcal" for k, v in sorted(pv.items()))
             report.append(f"left out (pages differ): {menu} > {section} > {name}: {detail}")
@@ -336,6 +358,17 @@ def build(pages: Path) -> tuple[list[dict], list[tuple[str, str]], list[str], di
                 e["tidy"] = f"{e['tidy']} ({suffix})"
                 report.append(f"same name on different dishes, renamed: {e['tidy']!r} ({e['kcal']} kcal)")
     names = [slug(e["tidy"]) for e in entries]
+    # One menu printing the same dish twice (names equal but for capitals) with different figures, in two of its sections: the
+    # menu contradicts itself, so both are left out, never chosen between (found at the refresh of 2026-11-17: the VEGAN menu's
+    # "Vg ..." / "VG Coconut and Lime Panna Cotta", 354 and 369 kcal).
+    for dup in sorted({n for n in names if names.count(n) > 1}):
+        group = [e for e in entries if slug(e["tidy"]) == dup]
+        if len({e["menu"] for e in group}) == 1 and len({" ".join(e["name"].lower().split()) for e in group}) == 1:
+            for e in group:
+                report.append(f"left out (the {e['menu']} menu prints this dish twice with different figures): {e['section']} > "
+                              f"{e['name']} {e['kcal']} kcal")
+            entries = [e for e in entries if slug(e["tidy"]) != dup]
+    names = [slug(e["tidy"]) for e in entries]
     if len(set(names)) != len(names):
         raise SystemExit(f"names still not unique: {sorted(n for n in names if names.count(n) > 1)}")
     items = []
@@ -362,6 +395,8 @@ def build(pages: Path) -> tuple[list[dict], list[tuple[str, str]], list[str], di
                       "allergens": e["al"]})
     from collections import Counter
     report.append(f"skipped printings: {dict(Counter(w for _, _, _, w in skipped))}")
+    if UNREAD_MENUS:
+        report.append(f"menus not read (UNREAD_MENUS): {sorted(UNREAD_MENUS)}")
     return items, [], report, used
 
 
@@ -403,6 +438,11 @@ def main() -> int:
         explore(args.pages)
         return 0
     items, holdback, report, used = build(args.pages)
+    names = {it["name"]: it["id"] for it in items}
+    missing = [n for n in HOLDBACK if n not in names]
+    if missing:
+        raise SystemExit(f"HOLDBACK names no longer on the menus (the pages changed): {missing}")
+    holdback = [(names[n], why) for n, why in HOLDBACK.items()]
     first = TK_PREFIX + "cosyclubss26"
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="Cosy Club", cuisine="Cafe",

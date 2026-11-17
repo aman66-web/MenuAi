@@ -3,9 +3,10 @@
 
     python3 tools/uk_extract/baynes.py NUTRITION.pdf --allergen-pdf ALLERGENS.pdf --checked-on 2026-10-08 [--out DIR]
 
-Sources (both linked from https://baynes.co.uk/allergen-nutrition/, both Excel exports "printed to PDF", issue date 06.10.26, version 108):
-    nutrition  https://baynes.co.uk/wp-content/uploads/2026/10/Nutritional-Website-1.pdf   (5 pages, Last-Modified 2026-10-06)
-    allergens  https://docs.baynes.co.uk/Allergens-Website.pdf                              (4 pages, Last-Modified 2026-10-06)
+Sources (both linked from https://baynes.co.uk/allergen-nutrition/, both Excel exports "printed to PDF", issue date 04.11.26; the
+nutrition PDF is version 110, the allergen PDF version 109; the October run used version 108 of both, issued 06.10.26):
+    nutrition  https://baynes.co.uk/wp-content/uploads/2026/11/Nutritional-Website-1.pdf   (4 pages, Last-Modified 2026-11-04, sha256 4eb54667...)
+    allergens  https://docs.baynes.co.uk/Allergens-Website.pdf                              (4 pages, Last-Modified 2026-11-10, sha256 ee466652...)
 Needs `pdftotext` (poppler). The pages are read by position: see baynes_pdf.py. robots.txt of baynes.co.uk allows everything.
 
 Numbers: the nutrition table has two blocks, "per 100g of product" and "per product". Only the PER PRODUCT block is published (a per-100g
@@ -29,11 +30,17 @@ fill is checked against its printed YES/NO on every row, which proves the height
 barley, wheat), "(Tree) Nuts" names no nut. A nutrition row gets the allergen row with the SAME section heading and the SAME printed name,
 no other matching: a name that differs in any way ("Apple Puff" / "Apple Turnover", "Flat White (8oz)" / "Flat White Regular", "Tetley Tea
 Large (Black)" / "Tetley Tea Large", the whole "Filled Dark Fired Rolls" section, which the allergen PDF does not have) has no exact row, so
-that item is NOT published (holdback.csv; 32 of 178 rows, one of them because its row contradicts its name). The one tolerance: a printed portion in brackets after a name in the nutrition
+that item is NOT published (holdback.csv; 35 of 191 rows in the 04.11.26 guide, four of them because the row contradicts or does not
+cover the name). The one tolerance: a printed portion in brackets after a name in the nutrition
 PDF ("Bacon (1 slice)", "Black Pudding (1 slice)", "Pork Link Sausage (1 sausage)", "Sliced Sausage (1 slice)") is ignored when looking up the
 allergen row ("Bacon", ...), because the portion is not a different product (listed as a judgement call in data/audit/verified/baynes-allergens.json).
 One row is held back because its cells contradict its own name (docs/ACCURACY_AUDIT.md policy 3): "Hazelnut Hot Chocolate with Cream" marks
-milk only, no tree nut (ALLERGEN_HOLDBACK). Nothing is corrected.
+milk only, no tree nut (ALLERGEN_HOLDBACK); since 04.11.26 the three "Toffee Nut" drinks, which also mark milk only, are held back the same way
+until Baynes confirms. Nothing is corrected.
+Seasonal range: the 04.11.26 guide opens with "CHRISTMAS RANGE 2026" and its own "Large Cakes", "Small Cakes" and "Freshly Baked Savouries"
+(baynes_pdf.SEASONAL_TOPS); they are keyed "CHRISTMAS RANGE 2026 / Large Cakes" etc. in both PDFs, shown as "Christmas range 2026" and
+marked limited time. "Puff Pastry Micemeat Pie" is printed so in both PDFs and shown as "Puff Pastry Mincemeat Pie" (TIDY; the allergen
+match uses the printed name).
 "May contain": the grid has no may-contain column. The PDF's own sentence says its oat alternative hot drinks "may contain traces of Cow's Milk",
 and a footnote "*May contain Milk" marks the five "... Oat Milk Drink" coffees; the only published row it covers is "Tea with Oat Drink"
 (an oat alternative hot drink by its own name), recorded as may contain milk. The script stops if any other published item names an oat
@@ -56,13 +63,14 @@ import baynes_pdf as pdf_reader  # noqa: E402
 from common import allergen_words, sha256_file, slug, write_allergens, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "baynes"
-NUTRITION_URL = "https://baynes.co.uk/wp-content/uploads/2026/10/Nutritional-Website-1.pdf"
+NUTRITION_URL = "https://baynes.co.uk/wp-content/uploads/2026/11/Nutritional-Website-1.pdf"
 ALLERGEN_URL = "https://docs.baynes.co.uk/Allergens-Website.pdf"
-EXPECTED_VERSION = "108"
-EXPECTED_ISSUE = "06.10.26"
-EXPECTED_ROWS = 178
-SOURCE_TITLE = "Baynes Nutritional Information (MASTER Nutritional.xlsx, version 108, date of issue 06.10.26, PDF created 6 October 2026)"
-ALLERGEN_TITLE = "Baynes Allergen Information (MASTER Allergens.xlsx, version 108, date of issue 06.10.26)"
+# The two PDFs carry their own version numbers (both 108 in October; since 04.11.26 the nutrition PDF is 110 and the allergen PDF 109).
+EXPECTED_VERSION = {"nutrition": "110", "allergen": "109"}
+EXPECTED_ISSUE = "04.11.26"
+EXPECTED_ROWS = 191
+SOURCE_TITLE = "Baynes Nutritional Information (MASTER Nutritional.xlsx, version 110, date of issue 04.11.26, PDF created 4 November 2026)"
+ALLERGEN_TITLE = "Baynes Allergen Information (MASTER Allergens.xlsx, version 109, date of issue 04.11.26)"
 # The allergen PDF prints one general warning (the bakery uses peanuts, nuts, gluten cereals, egg, soya, milk, fish, celery, mustard, sesame
 # and sulphites at more than 10 ppm and cannot guarantee separation) and "May contain Milk" for the oat drinks: traces information is printed.
 MAY_CONTAIN_PUBLISHED = True
@@ -73,11 +81,18 @@ HEADER_WORDS = {"(tree) nuts": ("nuts", None), "oats gluten": ("gluten", "oats")
 OAT_MAY_CONTAIN = {("Tea & Hot Chocolate", "Tea with Oat Drink"): {"milk"}}
 OAT_FOOTNOTE = "*May contain Milk"
 OAT_SENTENCE = "Oat alternative hot drink offerings"
+TOFFEE_NUT = ("The allergen guide's row for this drink marks milk only, although the drink's name says toffee nut and the guide marks no tree nuts or "
+              "peanuts: the name could name a nut that the row does not mark, so it is not published until Baynes confirms. Not corrected.")
 # Rows whose allergen cells contradict the product's own name: not published (docs/ACCURACY_AUDIT.md policy 3). Nothing is corrected.
 ALLERGEN_HOLDBACK = {
     ("Tea & Hot Chocolate", "Hazelnut Hot Chocolate with Cream"):
         "The allergen guide's row for this drink marks milk only, although the drink's name says hazelnut and the guide marks no tree nuts: "
         "the row contradicts the product's own name, so it is not published. Not corrected.",
+    # Since 04.11.26: three "Toffee Nut" drinks whose rows mark milk only. Their names name a nut, which the guide neither marks nor rules out,
+    # so they are held back like the hazelnut drink until Baynes confirms (restoring one = deleting its line here).
+    ("Tea & Hot Chocolate", "Toffee Nut Hot Chocolate"): TOFFEE_NUT,
+    ("Freshly Ground Coffee", "Toffee Nut Latte Regular"): TOFFEE_NUT,
+    ("Freshly Ground Coffee", "Toffee Nut Latte Large"): TOFFEE_NUT,
 }
 # A portion printed in brackets after a nutrition row's name is not part of the allergen row's name (see the module docstring).
 PORTION = re.compile(r"^(.*?)\s*\((1 slice|1 sausage)\)$")
@@ -88,6 +103,9 @@ NOTE = ("Baynes' own per-product figures, a guideline only (hand-crafted, so the
 # printed heading -> (category shown, rankable, limited_time). "Seasonal" / "Halloween range" are the guide's own labels.
 CATEGORIES = {
     "HALLOWEEN RANGE 2026": ("Halloween range 2026", False, True),
+    "CHRISTMAS RANGE 2026 / Large Cakes": ("Christmas range 2026", False, True),
+    "CHRISTMAS RANGE 2026 / Small Cakes": ("Christmas range 2026", False, True),
+    "CHRISTMAS RANGE 2026 / Freshly Baked Savouries": ("Christmas range 2026", True, True),
     "Rolls & Breads": ("Rolls & breads", False, False),
     "Freshly Baked Savouries": ("Freshly baked savouries", True, False),
     "Small Cream Cakes": ("Small cream cakes", False, False),
@@ -118,7 +136,8 @@ NOT_RANKABLE = {("Freshly Baked Savouries", "Large Steak Pie"), ("Freshly Baked 
 # Capitalisation / spacing tidied for display (the printed text is shown in the report and notes).
 TIDY = {"Empire Biscuit with jelly sweet": "Empire Biscuit with Jelly Sweet", 'Chocolate 8"Round': 'Chocolate 8" Round',
         'Chocolate 8"Square': 'Chocolate 8" Square', 'Sponge Sugar Paste 8"Round': 'Sponge Sugar Paste 8" Round',
-        'Sponge Sugar Paste 8"Square': 'Sponge Sugar Paste 8" Square'}
+        'Sponge Sugar Paste 8"Square': 'Sponge Sugar Paste 8" Square',
+        "Puff Pastry Micemeat Pie": "Puff Pastry Mincemeat Pie"}  # printed "Micemeat" in both PDFs (the Shortcrust one prints "Mincemeat")
 SERVING = re.compile(r"^(.*?)\s*\((1 slice|1 sausage|1 piece|8oz|12oz)\)$")
 SERVING_TEXT = {"8oz": "8 oz", "12oz": "12 oz"}
 ID_OVERRIDE = {"Chocolate Éclair": "chocolate-eclair"}  # slug() would turn the accented letter into a hyphen
@@ -139,23 +158,24 @@ HOLDBACK = {
 }
 # Facts about a published row worth knowing (items.csv notes; not exported). All concern the per-100 g block, which is not published.
 ROW_NOTES = {
-    ("HALLOWEEN RANGE 2026", "Halloween French Cake"): "Its per-100 g block (not used) does not add up: fat 3.8 g does not fit 340 kcal. The per-product block is consistent.",
     ("Small Cream Cakes", "Chocolate Éclair"): "Per-100 g fat is printed as 207 (not used); the per-product block is consistent.",
     ("Rolls with Butter", "Traditional Morning Roll with Butter"): "Per-100 g carbohydrate is printed as 551.8 (not used); the per-product block is consistent.",
     ("Iced Drinks", "Pineapple Twist"): "Per-100 g carbohydrate is printed as 47.0 with sugars 4.7 (not used); the per-product block is consistent.",
     ("Filled Rye Rolls", "Salad (no filling)"): "Per-100 g block prints 867 kJ with 507 kcal (not used); the per-product block is consistent.",
     ("Tea & Hot Chocolate", "Hot Chocolate"): "Per-product protein 8.4 g is about 16% above what the per-100 g protein (3.4 g) gives at the weight the other columns imply; published as printed.",
     ("Components Of Hot Filled Rolls", "Sliced Sausage (1 slice)"): "Meat not stated: tagged pork because of the word sausage.",
+    ("CHRISTMAS RANGE 2026 / Freshly Baked Savouries", "Festive Sausage Roll"): "Meat not stated: tagged pork because of the word sausage.",
     ("Freshly Baked Savouries", "Large Steak Pie"): "Very large total (3,123 kcal): not suggested as an order.",
     ("Freshly Baked Savouries", "Medium Steak Pie"): "Very large total (1,749 kcal): not suggested as an order.",
 }
 # Items whose name does not say what meat they contain (for the report; no tag is written, except the sausage rule above).
-MEAT_NOT_STATED = ["Mince & Onion Bridie", "Scotch Pie", "Black Pudding (1 slice)", "Chicken & Haggis Pie", "Sliced Sausage (1 slice)"]
+MEAT_NOT_STATED = ["Mince & Onion Bridie", "Scotch Pie", "Black Pudding (1 slice)", "Chicken & Haggis Pie", "Sliced Sausage (1 slice)", "Festive Sausage Roll"]
 # Per-heading row counts, so a changed table stops the run.
 EXPECTED_COUNTS = {
-    "HALLOWEEN RANGE 2026": 4, "Rolls & Breads": 8, "Freshly Baked Savouries": 15, "Small Cream Cakes": 7, "Large Cream Cakes": 6, "Tea Breads": 4,
+    "CHRISTMAS RANGE 2026 / Large Cakes": 7, "CHRISTMAS RANGE 2026 / Small Cakes": 8, "CHRISTMAS RANGE 2026 / Freshly Baked Savouries": 1,
+    "Rolls & Breads": 8, "Freshly Baked Savouries": 15, "Small Cream Cakes": 7, "Large Cream Cakes": 6, "Tea Breads": 4,
     "Seasonal Tea Bread": 1, "Iced Tea Breads": 7, "Small Cakes": 14, "Large Cakes": 2, "Components Of Hot Filled Rolls": 5, "Rolls with Butter": 6,
-    "Hot Rolls": 4, "Soup": 2, "Tea & Hot Chocolate": 12, "Freshly Ground Coffee": 18, "Iced Drinks": 7, "Celebration Cakes": 4,
+    "Hot Rolls": 4, "Soup": 2, "Tea & Hot Chocolate": 12, "Freshly Ground Coffee": 19, "Iced Drinks": 7, "Celebration Cakes": 4,
     "Filled Morning Rolls": 9, "Filled Rye Rolls": 13, "Simply Morning Roll Range": 6, "Filled Dark Fired Rolls": 12, "Filled Granary Rolls": 4,
     "Filled Baguettes": 3, "Filled Batons": 5,
 }
@@ -298,11 +318,11 @@ def main() -> int:
     meta, rows = pdf_reader.read_nutrition(args.pdf)
     vmeta, vegetarian = pdf_reader.read_vegetarian(args.allergen_pdf)
     for label, m in (("nutrition", meta), ("allergen", vmeta)):
-        if m.get("version") != EXPECTED_VERSION or m.get("issue_date") != EXPECTED_ISSUE:
+        if m.get("version") != EXPECTED_VERSION[label] or m.get("issue_date") != EXPECTED_ISSUE:
             raise SystemExit(f"The {label} PDF is version {m.get('version')} issued {m.get('issue_date')}, this script was written for version "
-                             f"{EXPECTED_VERSION} issued {EXPECTED_ISSUE}: re-check the tables, then update EXPECTED_VERSION / EXPECTED_ISSUE.")
+                             f"{EXPECTED_VERSION[label]} issued {EXPECTED_ISSUE}: re-check the tables, then update EXPECTED_VERSION / EXPECTED_ISSUE.")
     gmeta, grid = pdf_reader.read_allergens(args.allergen_pdf)
-    if gmeta.get("version") != EXPECTED_VERSION or gmeta.get("issue_date") != EXPECTED_ISSUE:
+    if gmeta.get("version") != EXPECTED_VERSION["allergen"] or gmeta.get("issue_date") != EXPECTED_ISSUE:
         raise SystemExit(f"The allergen grid is version {gmeta.get('version')} issued {gmeta.get('issue_date')}: re-check the script")
     if {k: v["flag"] for k, v in grid.items()} != vegetarian:
         raise SystemExit("The vegetarian column read by read_vegetarian and by read_allergens differs: the PDF's layout changed")

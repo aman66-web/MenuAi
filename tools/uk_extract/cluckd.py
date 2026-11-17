@@ -61,7 +61,10 @@ from common import sha256_file, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "cluckd"
 MENU_URL = "https://cluckd.co.uk/wp-content/uploads/2026/09/Asset-2-1-scaled.png"
-MENU_SHA256 = "baa1bde85757b1752468f01cf5611cf56f7c065bb030dc34bb6c8e77ac5e91cc"
+# 17 Nov 2026: the same URL (Last-Modified 9 Sep 2026, ETag "6aa15382-a9df6", 695,798 bytes, 8-bit colour-map PNG) now hashes
+# differently from the copy read on 9 Oct (baa1bde8...). Every one of the 75 dishes was re-read from it with macOS Vision OCR
+# (each calorie figure paired with its own dish line; the only other figures are the excluded ice cream 181/209/182): same menu.
+MENU_SHA256 = "dfb7e2bb8d2936778ad31b2da6da7c3a1f9a883b530c9a0fdde30a5e84ff5caf"
 SOURCE_TITLE = "Cluck'd menu with calories (picture 'Asset-2-1-scaled.png' on cluckd.co.uk/menu, uploaded September 2026, file dated 9 Sep 2026)"
 ALIASES = ["cluckd", "cluck'd", "cluck d", "cluckd uk", "cluck'd grilled chicken"]
 ALLERGEN_GUIDE_TITLE = "Cluck'd allergen matrix (PDF created 7 April 2026; 'Maybe' = may contain)"

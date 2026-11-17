@@ -20,11 +20,11 @@ this allergen sufferer due to manufacturing and preparation methods" (-> may con
 is); the digit 2 ("Due to cooking methods used not suitable ... during Breakfast operation hours") is in the legend but no row uses it,
 and the run stops if one ever does. The matrix names no cereal or tree-nut kinds, so none are published. Every published item is tied by
 ALLERGEN_ROW to ONE matrix row of the same printed name (a few names differ only by a qualifier, each with its reason there); an item whose
-name matches no matrix row is held back, never guessed. Self-checks: the matrix has the expected 76 rows, every mapped row exists exactly
+name matches no matrix row is held back, never guessed. Self-checks: the matrix has the expected 77 rows, every mapped row exists exactly
 once, the rows nobody maps are the ones expected, and every allergen the guide's own ingredient listing prints in bold for a product is a
 red dot in the matrix row of that product (the guide may not contradict itself).
 
-Source: https://www.fiveguys.co.uk/wp-content/uploads/sites/30/2026/08/FGUK_FOH_allergen_ingredient_nutrition_Myprotein_shake_DIGITAL_20260805.pdf
+Source: https://www.fiveguys.co.uk/wp-content/uploads/sites/30/2026/10/FGUK_FOH_allergen_ingredient_nutrition_MM_shake_DIGITAL_20261013.pdf
 (linked as "UK Nutrition & Allergen Guide" on https://www.fiveguys.co.uk/nutritional-allergy-information/; re-published every few months).
 """
 from __future__ import annotations
@@ -42,9 +42,9 @@ import five_guys_pdf  # noqa: E402
 from common import allergen_words, write_allergens  # noqa: E402
 
 CHAIN_ID = "five-guys"
-SOURCE_URL = ("https://www.fiveguys.co.uk/wp-content/uploads/sites/30/2026/08/"
-              "FGUK_FOH_allergen_ingredient_nutrition_Myprotein_shake_DIGITAL_20260805.pdf")
-SOURCE_TITLE = "Five Guys UK Allergen, Ingredient & Nutrition Guide, UK locations only (FGUK_20260805)"
+SOURCE_URL = ("https://www.fiveguys.co.uk/wp-content/uploads/sites/30/2026/10/"
+              "FGUK_FOH_allergen_ingredient_nutrition_MM_shake_DIGITAL_20261013.pdf")
+SOURCE_TITLE = "Five Guys UK Allergen, Ingredient & Nutrition Guide, UK locations only (FGUK_20261013)"
 ALIASES = "five guys|fiveguys|five guys burgers and fries"
 
 BU, HD, SA, FR, MS, MX, TP, PT = ("Burgers", "Hot dogs", "Sandwiches", "Fries", "Milkshakes", "Milkshake mix-ins",
@@ -103,7 +103,7 @@ ROWS: list[tuple] = [
     ("Banana", "Banana mix-in", MX, "", False, [],
      "Calories (194) are higher than 4P+4C+9F (144) allows; kJ and kcal agree with each other. Fat 0 here but 2.5 in the little shake. " + MIXIN_NOTE),
     ("Chocolate", "Chocolate mix-in", MX, "", False, [], MIXIN_NOTE),
-    ("Lotus Biscoff", "Lotus Biscoff mix-in", MX, "", False, [], MIXIN_NOTE),
+    ("Biscoff® Crumb", "Biscoff Crumb mix-in", MX, "", False, [], "Printed 'Biscoff® Crumb' (was 'Lotus Biscoff' until the 13 Oct 2026 guide). " + MIXIN_NOTE),
     ("Oreo Cookie Pieces", "Oreo Cookie Pieces mix-in", MX, "", False, [], MIXIN_NOTE),
     ("Jimmy’s Iced Coffee", "Jimmy’s Iced Coffee mix-in", MX, "", False, [], MIXIN_NOTE),
     ("Pistachio***", "Pistachio mix-in", MX, "", False, [], "Marked *** (not at Heathrow Airport). " + MIXIN_NOTE),
@@ -113,6 +113,7 @@ ROWS: list[tuple] = [
     ("Strawberry", "Strawberry mix-in", MX, "", False, [], MIXIN_NOTE),
     ("Watermelon*", None, "", "", False, [], "marked * " + EXC_PART),
     ("Myprotein (12g)", "Myprotein mix-in (12 g)", MX, "12 g", False, [], MIXIN_NOTE),
+    ("M&Ms®", "M&Ms mix-in", MX, "", False, [], "New in the 13 Oct 2026 guide. " + MIXIN_NOTE),
     # LITTLE MILKSHAKES + (MIX-INS)
     ("Five Guys Milkshake Base Little", "Five Guys Milkshake Base (little)", MS, "Little", False, [], ""),
     ("Whipped Cream Little", "Whipped Cream (little shake)", MX, "", False, [], MIXIN_NOTE),
@@ -120,7 +121,7 @@ ROWS: list[tuple] = [
      "Identical to the regular-shake row, although every other little-shake mix-in is smaller. Fat printed as 18 g but 43 kcal: looks like a typo for 1.8; entered as printed. " + MIXIN_NOTE),
     ("Banana Little", "Banana mix-in (little shake)", MX, "", False, [], "Fat 2.5 here but 0 in the regular shake. " + MIXIN_NOTE),
     ("Chocolate Little", "Chocolate mix-in (little shake)", MX, "", False, [], MIXIN_NOTE),
-    ("Lotus Biscoff Little", "Lotus Biscoff mix-in (little shake)", MX, "", False, [], MIXIN_NOTE),
+    ("Biscoff® Crumb Little", "Biscoff Crumb mix-in (little shake)", MX, "", False, [], "Printed 'Biscoff® Crumb Little' (was 'Lotus Biscoff Little' until the 13 Oct 2026 guide). " + MIXIN_NOTE),
     ("Oreo Cookie Pieces Little", "Oreo Cookie Pieces mix-in (little shake)", MX, "", False, [], MIXIN_NOTE),
     ("Jimmy’s Iced Coffee", "Jimmy’s Iced Coffee mix-in (little shake)", MX, "", False, [], MIXIN_NOTE),
     ("Pistachio***", "Pistachio mix-in (little shake)", MX, "", False, [], "Marked *** (not at Heathrow Airport). " + MIXIN_NOTE),
@@ -130,6 +131,7 @@ ROWS: list[tuple] = [
     ("Strawberry Little", "Strawberry mix-in (little shake)", MX, "", False, [], MIXIN_NOTE),
     ("Watermelon Little*", None, "", "", False, [], "marked * " + EXC_PART),
     ("Myprotein (6g)", "Myprotein mix-in (6 g, little shake)", MX, "6 g", False, [], MIXIN_NOTE),
+    ("M&Ms® Little", "M&Ms mix-in (little shake)", MX, "", False, [], "New in the 13 Oct 2026 guide. " + MIXIN_NOTE),
     # BURGERS (the ingredient list names a beef patty and, for bacon burgers, bacon)
     ("Hamburger", "Hamburger", BU, "", True, [BEEF], ""),
     ("Little Hamburger", "Little Hamburger", BU, "", True, [BEEF], ""),
@@ -182,7 +184,7 @@ CATEGORY_ORDER = [BU, HD, SA, FR, MS, MX, TP, PT]
 # Rows whose printed numbers contradict each other: not published, never corrected (data/source/five-guys/holdback.csv).
 # Item ids are the ids this script gives (slug of the name).
 HOLDBACK = [
-    ("little-bacon-burger", "The guide prints 367 g of carbohydrate (and 510 kcal) for this burger."),
+    ("little-bacon-burger", "The guide prints 367 g of carbohydrate (and 537 kcal) for this burger."),
     ("flake-milkshake", "The guide prints 18 g of fat with only 43 kcal."),
     ("flake-little-shake", "The guide prints 18 g of fat with only 43 kcal."),
     ("banana-mix-in", "The guide prints 194 kcal (814 kJ) with 36 g carbohydrate, 0 g fat and 0 g protein (about 144 kcal), "
@@ -236,7 +238,8 @@ ALLERGEN_ROW.update({
     "Pistachio mix-in": ("MILKSHAKES", "Pistachio", "our 'mix-in' suffix"),
     "Peanut Butter mix-in": ("MILKSHAKES", "Peanut Butter", "our 'mix-in' suffix"),
     "Reese's Peanut Butter Cups mix-in": ("MILKSHAKES", "Reese's Peanut Butter Cups", "our 'mix-in' suffix"),
-    "Lotus Biscoff mix-in": ("MILKSHAKES", "Lotus Biscoff", "our 'mix-in' suffix"),
+    "Biscoff Crumb mix-in": ("MILKSHAKES", "Biscoff® Crumb", "our 'mix-in' suffix"),
+    "M&Ms mix-in": ("MILKSHAKES", "M&Ms®", "our 'mix-in' suffix"),
     "Oreo Cookie Pieces mix-in": ("MILKSHAKES", "Oreo Cookie Pieces", "our 'mix-in' suffix"),
     "Banana mix-in": ("MILKSHAKES", "Banana", "our 'mix-in' suffix"),
     "Flake (milkshake)": ("MILKSHAKES", "Flake", "our '(milkshake)' suffix"),
@@ -247,7 +250,8 @@ ALLERGEN_ROW.update({
     "Flake (little shake)": ("MILKSHAKES", "Flake", "heading says the rows include the little shake"),
     "Banana mix-in (little shake)": ("MILKSHAKES", "Banana", "heading says the rows include the little shake"),
     "Chocolate mix-in (little shake)": ("MILKSHAKES", "Chocolate", "heading says the rows include the little shake"),
-    "Lotus Biscoff mix-in (little shake)": ("MILKSHAKES", "Lotus Biscoff", "heading says the rows include the little shake"),
+    "Biscoff Crumb mix-in (little shake)": ("MILKSHAKES", "Biscoff® Crumb", "heading says the rows include the little shake"),
+    "M&Ms mix-in (little shake)": ("MILKSHAKES", "M&Ms®", "heading says the rows include the little shake"),
     "Oreo Cookie Pieces mix-in (little shake)": ("MILKSHAKES", "Oreo Cookie Pieces", "heading says the rows include the little shake"),
     "Jimmy’s Iced Coffee mix-in (little shake)": ("MILKSHAKES", "Jimmy’s Iced Coffee", "heading says the rows include the little shake"),
     "Pistachio mix-in (little shake)": ("MILKSHAKES", "Pistachio", "heading says the rows include the little shake"),
@@ -299,7 +303,7 @@ EXPECTED_UNUSED = {
     ("OTHER ITEMS", "Bulk Peanuts Without Shell ***"): "per-serving numbers not printed, left out of the menu",
     ("OTHER ITEMS", "Egg*"): "participating locations only, left out of the menu",
 }
-EXPECTED_MATRIX_ROWS = 76
+EXPECTED_MATRIX_ROWS = 77
 # The ingredient listing's label for a matrix label that is spelled differently (norm() form -> norm() form).
 INGREDIENT_ALIAS = {"fries": "fiveguysstyle", "crispyonions": "crispyfriedonions", "bulkpeanutswithoutshell": "bulkpeanuts",
                     "oreocookiepieces": "oreocookie"}

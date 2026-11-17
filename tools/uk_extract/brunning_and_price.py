@@ -16,6 +16,9 @@ is 1,278 kcal at 74 pubs and 1,266 at one). There is no group-wide guide. So a d
   (2) at every pub where it is printed, the calories, the "Contains" list, the "May contain" list and the vegetarian mark (v / vg)
       are IDENTICAL (a pub that prints the dish without calories does not contradict the figure, but its allergens must still agree).
 Everything else is left out and counted in the run's report (dishes that differ at some pub; dishes printed at fewer than three).
+Since 2026-11-17 a published dish must also agree with its spelling variants at other pubs (the same text once accents, apostrophes and other
+punctuation are removed: "purée"/"puree", "goats' cheese"/"goats cheese"); when one prints other calories or allergens the dish is left out
+as differing (the November re-read found three: Rosary goats' cheese 79 vs 66 kcal, Fourme d Ambert 87 vs 72, Venison loin ... 662 vs 645).
 Because every pub was read, "identical" means identical at every pub that prints the dish in the menus read, not at a sample.
 
 What each line prints: calories only (no protein, carbs, fat, kJ, salt or weight anywhere), so nutrition_level = calories and every item is
@@ -38,6 +41,8 @@ What is left out on purpose (counted in the run's report):
 - Price lines "One scoop / Two scoops / Three scoops" (no flavour is named, so the figure cannot be tied to a dish).
 - Lines with no calories printed (used only to compare allergens), one-off event menus (curry week, pie week, buffets, murder-mystery nights,
   Christmas Day, afternoon tea...: not read), and everything printed at fewer than three pubs or differently at any pub.
+- Event sections printed inside a daily menu (any section named "... week", e.g. "Sausage Week") and "Seasonal Special" (a mulled-wine offer
+  on 2026-11-17), like the event menus.
 - HOLD_TEXT: one dish whose own allergen row contradicts its name is held back (holdback.csv), never corrected.
 Tags: vegetarian from the chain's own (v) / (vg) mark; contains_pork / contains_beef only from the printed name (tenkites_a regexes, with
 the exceptions in NOT_PORK / NOT_BEEF).
@@ -64,7 +69,7 @@ EXTRA_WORDS = {"milk / lactose": ("milk", None), "sulphur dioxide / sulphites": 
 
 # Sections left out (see the module docstring). Alcohol first: the serving is in the heading only.
 ALCOHOL_SECTION = re.compile(r"\b(ports?|sherry|brandy|cognac|armagnac|liqueurs?|whisk(e)?y|scotch|malt of the month|night ?caps?|digestif'?s?|"
-                             r"after dinner drinks|wines?|rum|dessert drinks?|liquid dessert|cocktails?)\b", re.I)
+                             r"after dinner drinks|wines?|rum|dessert drinks?|liquid dessert|cocktails?|boozy)\b", re.I)
 BUNDLE_SECTION = re.compile(r"(small|mini)\s*pud|pud\w*.*(hot drink|coffee)|(hot drink|coffee).*(pud|mini)|mini dessert|"
                             r"served with a gluten free flapjack|hot drink and small", re.I)
 
@@ -90,6 +95,10 @@ def section_category(sec: str, slug_: str, kids: bool, breakfast: bool):
     plain = re.sub(r"\(.*?\)", " ", s)      # "Breakfast (... please see sides for extras)" is not a sides section
     if ALCOHOL_SECTION.search(s) or BUNDLE_SECTION.search(s):
         return None
+    # one-off events printed as a section of the daily menu ("Sausage Week", whitehartcadnam, 2026-11-17) are left out like the event menus;
+    # "Seasonal Special" (queensarms, 2026-11-17) holds only a mulled-wine offer (alcohol, no calories)
+    if re.search(r"\bweek\b", s) or re.fullmatch(r"seasonal specials?", s.strip()):
+        return None
     if kids:
         if re.search(r"ice cream|sorbet|ice creams", s):
             return "Children's: Ice cream and sorbet"
@@ -105,6 +114,8 @@ def section_category(sec: str, slug_: str, kids: bool, breakfast: bool):
             return "Children's: Breakfast" if breakfast else "Children's: Other"
         raise SystemExit(f"unmapped children's section {sec!r} on menu {slug_!r}: add a rule to section_category")
     if re.search(r"^(sunday |roast )?sides?\b|side orders|sides for", plain.strip()):
+        return "Sides"
+    if re.fullmatch(r"other favourites", plain.strip()):   # innatshipley/sunday-menu (2026-11-17): chips, fries, onion rings, salad, vegetables
         return "Sides"
     if re.search(r"ice cream|sorbet", s):
         return "Ice cream and sorbet"
@@ -126,9 +137,11 @@ def section_category(sec: str, slug_: str, kids: bool, breakfast: bool):
         return "Puddings and cheese"      # the chain's own heading is mostly "Puddings and Cheese"; single cheeses are listed under it
     if re.search(r"roast", s):
         return "Sunday roasts"
+    if re.search(r"when it'?s gone", s):   # "When it's gone, it's gone" (The Wharf, 2026-11-17): a short list of main dishes
+        return "Mains"
     if re.search(r"\bmain|grill", s):
         return "Mains"
-    if re.search(r"light bite|lite bite|lighter bite|sandwich|sarnie", s):
+    if re.search(r"light bite|lite bite|lighter bite|lighter things|sandwich|sarnie", s):
         return "Light bites"
     if re.search(r"starter|nibble|sharer|sharing|while you wait|whilst you wait|small plate", s):
         return "Starters and nibbles"
@@ -201,6 +214,10 @@ def read_pages(pages: Path, fetch: bool) -> tuple:
             raise SystemExit(f"{pub}: no daily-menu page")
         links = bp.menu_links(daily, pub)
         wanted = [m for m in bp.READ_SLUGS if m in links]
+        if "daily-menu" not in links:
+            # the pub's own navigation names its everyday menu differently (2026-11-17: armoury "october-daily-menu", highdown
+            # "autumn-daily-menu"): read that one instead, so the pub's main menu is still compared
+            wanted = [m for m in links if re.fullmatch(r"[a-z]+-daily-menu", m)] + wanted
         stats["menu pages read"] += len(wanted)
         for menu in wanted:
             text = page(pub, menu)
@@ -230,6 +247,12 @@ def read_pages(pages: Path, fetch: bool) -> tuple:
     return occ, stats, pubs, hashes
 
 
+def _fold(text: str) -> str:
+    """The dish text with case, accents, apostrophes, hyphens and all other punctuation and spacing removed (only for the spelling-variant check)."""
+    t = unicodedata.normalize("NFKD", text.lower())
+    return re.sub(r"[^a-z0-9]+", "", "".join(c for c in t if not unicodedata.combining(c)))
+
+
 def _verdict(rs: list) -> str:
     """'ok' when the dish is printed with calories at MIN_PUBS or more pubs and every printed copy agrees; else 'differs' or 'few'."""
     with_kcal = [r for r in rs if r["kcal"] is not None]
@@ -244,15 +267,23 @@ def choose(occ: list) -> tuple:
     """Apply the agreement rule. -> (published, differs, few), each a list of (is_children_only, occurrences).
     A dish printed on the adult and the children's menus under the same text is one dish when every copy agrees; when the copies disagree
     the adult copies and the children's copies are judged on their own (the children's one is then named '... (children's)')."""
-    by_text = defaultdict(list)
+    by_text, by_fold = defaultdict(list), defaultdict(list)
     for o in occ:
         by_text[o["text"].lower()].append(o)
+        by_fold[_fold(o["text"])].append(o)
     published, differs, few = [], [], []
     bucket = {"ok": published, "differs": differs, "few": few}
     for rs in by_text.values():
         adult, kids = [r for r in rs if not r["kids"]], [r for r in rs if r["kids"]]
         v = _verdict(rs)
         if v == "ok":
+            # The same dish spelt slightly differently at another pub ("purée"/"puree", "goats' cheese"/"goats cheese") must agree too
+            # (added 2026-11-17 after an independent spot check found three such dishes printed with other calories): otherwise left out.
+            kinds = {r["kids"] for r in rs}
+            variants = [o for o in by_fold[_fold(rs[0]["text"])] if o["text"].lower() != rs[0]["text"].lower() and o["kids"] in kinds]
+            if variants and _verdict(rs + variants) == "differs":
+                differs.append((not adult, rs + variants))
+                continue
             published.append((not adult, rs))
         elif v == "differs" and adult and kids:
             for part, is_kids in ((adult, False), (kids, True)):
@@ -303,8 +334,10 @@ def build(pages: Path, fetch: bool) -> tuple:
     order = {c: i for i, c in enumerate(CATEGORY_ORDER)}
     items.sort(key=lambda it: (order[it["category"]], it["name"].lower()))
     stale = [k for k in HOLD_TEXT if k not in {it["_key"] for it in items}]
-    if stale:
-        raise SystemExit(f"HOLD_TEXT names a dish that is no longer published: {stale}: re-check the table")
+    # A held dish that would not be published anyway (2026-11-17: the kewpie-mayo wings are printed only at Tally Ho now) is reported, not
+    # fatal: the entry stays so that the hold applies again if the dish comes back to three or more pubs.
+    for k in stale:
+        print(f"HOLD_TEXT dish not published this run (printed at fewer than {MIN_PUBS} pubs, or differently): {k!r}")
     stats["rows held back (allergen row contradicts the dish name)"] = sum(1 for it in items if it["_key"] in HOLD_TEXT)
     return items, stats, pubs, hashes, differs, few
 

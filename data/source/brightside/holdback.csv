@@ -7,6 +7,7 @@ roasted-garlic-mayo-dip,"The allergen matrix prints 178 kcal but the chain's own
 chipotle-mayo-dip,"The allergen matrix prints 264 kcal but the chain's own website menu (https://brightside.co.uk/menu/, 'Dips: chipotle mayo') prints 231 kcal: 12% apart, so neither is published."
 smoky-bbq-dip,"The allergen matrix prints 95 kcal but the chain's own website menu (https://brightside.co.uk/menu/, 'Dips: smoky bbq') prints 89 kcal: 6% apart, so neither is published."
 berry-waffle-whip,"The allergen matrix prints 259 kcal but the chain's own website menu (https://brightside.co.uk/menu/, 'Berry Waffle Whip 6.95') prints 512 kcal: 49% apart, so neither is published."
+passion-fruit-semifreddo,"The allergen matrix marks it Vegan and also 'Contains Milk': the row contradicts itself, so it is not published."
 grilled-herby-chicken,"The allergen matrix prints 232 kcal but the chain's own website menu (https://brightside.co.uk/menu/, 'Grilled Herby Chicken') prints 211 kcal: 9% apart, so neither is published."
 salted-caramel-sauce,"The allergen matrix prints 30 kcal but the chain's own website menu (https://brightside.co.uk/menu/, 'Sauces: salted caramel') prints 54 kcal: 44% apart, so neither is published."
 add-waffle,"Printed 1766 kcal for one waffle add-on, more than the whole Hot Honey Fried Chicken Waffle (833 kcal in the same matrix) that contains a Belgian waffle: not a plausible figure for the item."
@@ -18,3 +19,5 @@ lemonade-large,"The allergen matrix prints 77 kcal but the chain's own website m
 pure-orange-juice-small,"The allergen matrix prints 118 kcal but the chain's own website menu (https://brightside.co.uk/menu/, 'Pure Orange Juice 3.60 / 5.75') prints 153 kcal: 23% apart, so neither is published."
 pure-orange-juice-large,"The allergen matrix prints 195 kcal but the chain's own website menu (https://brightside.co.uk/menu/, 'Pure Orange Juice 3.60 / 5.75') prints 294 kcal: 34% apart, so neither is published."
 watermelon-and-rose-bloom,"The allergen matrix prints 94 kcal but the chain's own website menu (https://brightside.co.uk/menu/, 'Watermelon & Rose Bloom 6.00') prints 177 kcal: 47% apart, so neither is published."
+vegan-passion-fruit-semifreddo,"Named vegan and marked Vegan, but the allergen matrix also prints 'Contains Milk': the row contradicts itself, so it is not published."
+gf-passion-fruit-semifreddo,"The allergen matrix marks it Vegan and also 'Contains Milk': the row contradicts itself, so it is not published."

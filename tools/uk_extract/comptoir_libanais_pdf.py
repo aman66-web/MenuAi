@@ -3,7 +3,7 @@
 Used by tools/uk_extract/comptoir_libanais.py. Requires poppler (`pdftotext`, `pdftocairo`) and nothing else. Nothing is
 converted, rounded or estimated here: calories are returned as the printed text ("29", "793pp", "xxx", "").
 
-The guide (9 A4 pages, Spring 2026, Version 07) is a set of grid tables, one dish per row. Page 1 is the cover with the
+The guide (9 A4 pages in Spring 2026 Version 07, 10 in Autumn 2026 Version 01) is a set of grid tables, one dish per row. Page 1 is the cover with the
 legend text; pages 2-9 hold the tables, each under an orange banner naming the section (NIBBLES, MEZZE, GRILLS...). The
 columns, left to right, are: Menu Item Name; 14 allergen columns (CRUSTACEANS, MILK, PEANUTS, SESAME SEEDS, EGG, FISH, NUTS,
 MOLLUSCS, MUSTARD, CELERY, SULPHITES & SULPHUR DIOXIDE, LUPIN, SOYA, CEREALS THAT CONTAIN GLUTEN); SUITABLE FOR VEGETARIAN;
@@ -39,8 +39,8 @@ COLUMNS = [
 ]
 ALLERGEN_COLUMNS = [c for c, _ in COLUMNS[1:15]]
 TABLE_STROKE = "rgb(11.372375%, 11.372375%, 10.588074%)"  # the grid lines
-BANNER_FILL = "rgb(100%, 33.724976%, 8.627319%)"  # the orange section banners
-DOT_SIZE = (5.0, 5.6)  # a mark in a table cell is a circle about 5.3 pt across (legend circles are 6.3 pt)
+BANNER_FILLS = ("rgb(100%, 33.724976%, 8.627319%)", "rgb(88.235474%, 27.450562%, 5.097961%)")  # the orange section banners (Spring 2026 v07, Autumn 2026 v01)
+DOT_SIZE = (4.5, 5.6)  # a mark in a table cell is a circle about 5.3 pt across, 4.7 pt in a few rows of Autumn 2026 (legend circles are 6.3 pt)
 LEGEND_SIZE = (6.0, 6.6)
 ROW_TOLERANCE = 0.4
 
@@ -166,7 +166,7 @@ def read_page(pdf: Path, page: int) -> dict:
     # ---- banners ----
     banners = []
     for s in shapes:
-        if s["fill"] == BANNER_FILL and (s["x1"] - s["x0"]) > 100 and (s["y1"] - s["y0"]) > 15:
+        if s["fill"] in BANNER_FILLS and (s["x1"] - s["x0"]) > 100 and (s["y1"] - s["y0"]) > 15:
             inside = [w for w in words if s["x0"] <= (w[0] + w[2]) / 2 <= s["x1"] and s["y0"] - 3 <= (w[1] + w[3]) / 2 <= s["y1"] + 3]
             banners.append({"label": _text(inside), "y0": s["y0"], "y1": s["y1"], "x0": s["x0"], "x1": s["x1"]})
     banners.sort(key=lambda b: b["y0"])

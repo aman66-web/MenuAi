@@ -1,2 +1,2 @@
 item_id,reason
-kebab-caesar-salad,"Allergens would read 'fish: not listed' for a dish tossed in Caesar dressing (classically made with anchovy): the allergen matrix has no fish column, so it cannot say, and the dish's own text does not give the dressing's ingredients."
+kebab-caesar-salad,"The allergen matrix (November 2026, which has a fish column) marks no fish, not even traces, for a dish tossed in Caesar dressing (classically made with anchovy), and the dish's own text does not give the dressing's ingredients. Left out until the chain confirms."

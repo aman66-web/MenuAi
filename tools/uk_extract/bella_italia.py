@@ -23,7 +23,8 @@ TABS = {
     "Drinks": "use",
     "Kids": "use",
 }
-EXPECTED = {"Main Menu": 157, "Desserts": 20, "Drinks": 106, "Kids": 107}
+# Re-read 2026-11-17 (the Christmas dishes and drinks were added; it was 157 / 20 / 106 / 107 on 2026-10-06)
+EXPECTED = {"Main Menu": 162, "Desserts": 21, "Drinks": 111, "Kids": 107}
 
 ADDONS = "Add-ons & extras"
 CATEGORY_ORDER = ["Starters", "Pastas", "Pizzas", "Go Lighter", "House Specials", "Sides", ADDONS, "Desserts",
@@ -107,6 +108,9 @@ HOLDBACK = {
     "Macchiato (Regular)": "Printed as 0 kcal and 0 g of everything, no allergens, and 'Suitable for: Vegan', although a macchiato is espresso with milk and the same page marks its decaf version 'May contain: Milk' (12 kcal); its menu card shows no figure at all.",
     "Gelato: Hazelnut": "The page prints 'Contains: Tree Nuts (Hazelnuts)' and 'May contain: Tree Nuts (Pistachios)'; the allergen file cannot hold tree nuts as both contains and may contain, so the pistachio warning would be lost.",
     "Gelato: Pistachio": "The page prints 'Contains: Tree Nuts (Pistachios)' and 'May contain: Peanuts, Tree Nuts (Hazelnuts)'; the allergen file cannot hold tree nuts as both contains and may contain, so the hazelnut warning would be lost.",
+    # re-read 2026-11-17 (the Christmas menu)
+    "Mulled Spritz": "An alcoholic cocktail (its own description: Malfy con Arancia Gin, Aperol, Prosecco and soda); its printed 42 kcal is only what its protein, carbs and fat give, so the energy of the alcohol is not in the figure. Alcoholic drinks are not added (founder, 11 October 2026).",
+    "Cinnamon Apple Cooler": "The page marks this apple-juice mocktail 'Suitable for: Vegan' but also 'Contains: Crustaceans', so what it says about the drink contradicts itself.",
 }
 NOTE = ("Per portion as printed on the chain's menu pages. Wines, many cocktails and some drinks print no numbers and are not "
         "listed; the build-your-own pasta is not listed because only its ingredients are given. Extras (toppings, dips, "
@@ -114,11 +118,11 @@ NOTE = ("Per portion as printed on the chain's menu pages. Wines, many cocktails
 
 # The same pages print each dish's allergens ("Dietary Information": "Contains:" and "May contain:", naming the cereals
 # and tree nuts) and carry the label ids of the page's own allergen filter; tenkites_a cross-checks the two.
-ALLERGEN_TITLE = "Bella Italia Dietary Information (allergens) on its online Main, Desserts, Drinks and Kids menus (Ten Kites page generated 2026-10-06)"
+ALLERGEN_TITLE = "Bella Italia Dietary Information (allergens) on its online Main, Desserts, Drinks and Kids menus (Ten Kites page read 2026-11-17; the page prints no date)"
 
 if __name__ == "__main__":
     sys.exit(t.run(
         chain_id="bella-italia", name="Bella Italia", cuisine="Italian", aliases=["bella italia"], url=URL,
-        source_title="Bella Italia Nutritional Information: Main, Desserts, Drinks and Kids menus (page generated 2026-10-06)",
+        source_title="Bella Italia Nutritional Information: Main, Desserts, Drinks and Kids menus (Ten Kites page read 2026-11-17; the page prints no date)",
         tabs=TABS, classify=classify, category_order=CATEGORY_ORDER, expected_rows=EXPECTED, note=NOTE, holdback=HOLDBACK,
         allergen_title=ALLERGEN_TITLE))

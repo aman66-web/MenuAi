@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 """Build data/source/caravan/ from Caravan's own "Nutritional + Allergen Info" menus (a CALORIES-ONLY chain, complete allergens).
 
-    python3 -I tools/uk_extract/caravan.py --pages DIR --checked-on 2026-10-08 [--fetch] [--out DIR]
+    python3 -I tools/uk_extract/caravan.py --pages DIR --checked-on 2026-11-17 [--fetch] [--out DIR]
 
 Source: https://caravanandco.com/pages/nutrition (the chain's own page; robots.txt of caravanandco.com and of menus.tenkites.com
 allow it) has three cards, London / Manchester / VARDO, each a page that embeds a Ten Kites menu:
-    https://menus.tenkites.com/caravan/caravanlondon05      (10 menus: ALL DAY, BREAKFAST + BRUNCH, DRINKS, PRIX FIXE, SET,
-                                                             FEASTING, VEGETARIAN FEASTING, CANAPE + PIZZA, SET BRUNCH, STANDING BRUNCH)
-    https://menus.tenkites.com/caravan/caravanmanchester05  (9 menus: the same without STANDING BRUNCH; CANAPES + PIZZA)
-    https://menus.tenkites.com/caravan/vardo04              (3 menus: BREAKFAST, ALL DAY, DRINKS)
-Each menu is the same URL with ?mguid=<menu id> (ids are listed in PAGES and checked against each page's own tab bar). All 22 menus are
-read. The page shows no date ("accessed <date>, no date shown"). The chain's page also links two old Flipsnack allergy matrices (Euston
+    https://menus.tenkites.com/caravan/caravanlondon07      (5 menus: ALL DAY, DESSERTS, DRINKS, BREAKFAST + BRUNCH, PRIX FIXE)
+    https://menus.tenkites.com/caravan/caravanmanchester07  (4 menus: ALL DAY, DESSERTS, DRINKS, BRUNCH)
+    https://menus.tenkites.com/caravan/vardo07              (4 menus: ALL DAY, DESSERTS, DRINKS AW26, BREAKFAST)
+(November 2026; until October 2026 the pages were caravanlondon05, caravanmanchester05 and vardo04, with 22 menus including the set,
+feasting, canape and brunch-party menus.) Each menu is the same URL with ?mguid=<menu id> (ids are listed in MENUS and checked against each
+page's own tab bar). All 13 menus are read.
+The page shows no date ("accessed <date>, no date shown"). The chain's page also links two old Flipsnack allergy matrices (Euston
 Road, 4 Dec 2023; Lambworks / Brew Bar, 22 Feb 2024); they are not used.
 
 What each dish prints: its calories in brackets beside the name ("(236 kcal)"; "-" when none), 14 allergen columns marked contains / may
@@ -56,33 +57,24 @@ from common import slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "caravan"
 HUB_URL = "https://caravanandco.com/pages/nutrition"
-BASES = {"london": "https://menus.tenkites.com/caravan/caravanlondon05",
-         "manchester": "https://menus.tenkites.com/caravan/caravanmanchester05",
-         "vardo": "https://menus.tenkites.com/caravan/vardo04"}
+BASES = {"london": "https://menus.tenkites.com/caravan/caravanlondon07",
+         "manchester": "https://menus.tenkites.com/caravan/caravanmanchester07",
+         "vardo": "https://menus.tenkites.com/caravan/vardo07"}
 # (site, menu slug, tab name as printed, menu id, dishes the page must hold). Order = who gives a dish its category and name.
 MENUS = [
-    ("london", "all-day", "ALL DAY", "78ddd66d-956d-4037-aef8-02ee94d0a6e2", 50),
-    ("manchester", "all-day", "ALL DAY", "8030821b-4940-4324-bc09-c6e016c7bbc5", 50),
-    ("vardo", "all-day", "ALL DAY", "bd85955c-220d-43b2-bb42-aaf50335f53c", 48),
-    ("london", "breakfast-brunch", "BREAKFAST + BRUNCH", "aef73cfb-64d7-483d-ab4b-2fbee628d852", 59),
-    ("manchester", "breakfast-brunch", "BREAKFAST + BRUNCH", "fdfae50e-5685-4201-9f28-14d2b3bdbff6", 57),
-    ("vardo", "breakfast", "BREAKFAST", "9c9b39d4-f105-42e9-9748-2c0d7cd6b1c1", 35),
-    ("london", "drinks", "DRINKS", "62a31be3-fccf-44fe-b17d-d5f4fb33cf45", 196),
-    ("manchester", "drinks", "DRINKS", "4cb11637-464a-4793-9603-fb723759ef0b", 202),
-    ("vardo", "drinks", "DRINKS", "35fab049-8b55-4f6d-9272-eaa0c03080ec", 193),
-    ("london", "canape-pizza", "CANAPE + PIZZA", "74051286-0a84-4b44-afcb-2e2ee78aac71", 22),
-    ("manchester", "canapes-pizza", "CANAPES + PIZZA", "a6e31f4f-6ed8-4361-8c2a-250b79a13ffb", 20),
-    ("london", "prix-fixe", "PRIX FIXE", "2c3ff418-aeac-415c-ae42-12b8391c78e1", 16),
-    ("manchester", "prix-fixe", "PRIX FIXE", "e6f2a93f-b4f0-4a66-b12e-764bd76fbf63", 13),
-    ("london", "set", "SET", "7b7662ec-c799-429c-a6a9-38b5e0d47c44", 17),
-    ("manchester", "set", "SET", "bd50056f-0c78-4b6c-8daa-c355e87cd4a7", 17),
-    ("london", "feasting", "FEASTING", "b012535c-4e02-4103-9f86-0b0495ba1fe1", 13),
-    ("manchester", "feasting", "FEASTING", "49076b48-d09d-40ca-9c7f-f7c532852194", 13),
-    ("london", "vegetarian-feasting", "VEGETARIAN FEASTING", "f24a1057-f66d-4fa0-b6fa-3005ce3691bd", 13),
-    ("manchester", "vegetarian-feasting", "VEGETARIAN FEASTING", "a836e404-7063-4a15-bd87-35494c3b366a", 13),
-    ("london", "set-brunch", "SET BRUNCH", "e5cba108-ca61-49fb-9ea7-ccb9da92a681", 16),
-    ("manchester", "set-brunch", "SET BRUNCH", "f1dc4792-b8af-413a-aecc-daf4a9d10ea0", 16),
-    ("london", "standing-brunch", "STANDING BRUNCH", "4fb01df7-2363-4b01-83cb-a1ec7440d496", 7),
+    ("london", "all-day", "ALL DAY", "d6a89b4c-900d-44d3-8485-1d3062391ea6", 49),
+    ("manchester", "all-day", "ALL DAY", "607b52ac-f6c1-4f5a-bf43-dffff775c871", 46),
+    ("vardo", "all-day", "ALL DAY", "040e1066-2b5b-4622-a498-67a501529b4c", 46),
+    ("london", "breakfast-brunch", "BREAKFAST + BRUNCH", "230be5b9-0b0b-4c77-91c7-d9ee599b13c5", 55),
+    ("manchester", "brunch", "BRUNCH", "eb3a9323-6f31-4a7a-b918-f19de3e85b71", 56),
+    ("vardo", "breakfast", "BREAKFAST", "b9e5c1b9-b708-4960-a10f-ec1452d10aac", 35),
+    ("london", "drinks", "DRINKS", "a89fd6a5-91bf-4ecb-8722-5729d4791887", 239),
+    ("manchester", "drinks", "DRINKS", "adb80d4e-5dc3-41f2-8dee-e8281ef52f63", 241),
+    ("vardo", "drinks-aw26", "DRINKS AW26", "1841f334-1a65-46a2-bd9f-0e0ee6299c0e", 221),
+    ("london", "desserts", "DESSERTS", "ad271873-8b09-4a28-a0c6-d5f9a3888439", 7),
+    ("manchester", "desserts", "DESSERTS", "f5a720bc-12a0-4dfd-907c-914422b5b6dd", 6),
+    ("vardo", "desserts", "DESSERTS", "fd974314-4fc4-4e1c-8e50-0cb1a6ed6d89", 7),
+    ("london", "prix-fixe", "PRIX FIXE", "7eb9cfc1-128a-4468-ae63-ae34b59b79c9", 13),
 ]
 TABS = {site: [(tab, guid) for s, _, tab, guid, _ in MENUS if s == site] for site in BASES}
 # printed section (lower case, "&" -> "and") -> category shown. An unlisted section stops the run so a human places it.
@@ -100,15 +92,20 @@ CATEGORIES = {
     "cocktail - classics": "Cocktails", "beers + ciders": "Beer and cider", "beer + cider 0.0%": "Beer and cider 0.0%",
     "wine - sparkling": "Wine", "wine - white": "Wine", "wine - rose + orange": "Wine", "wine - red": "Wine",
     "wines - sweet + fortified": "Wine", "sparkling 0.0%": "Sparkling 0.0%", "digestif": "Digestifs", "whisky": "Whisky",
-    "mixers, cordials + syrups": "Mixers, cordials and syrups",
+    "mixers, cordials + syrups": "Mixers, cordials and syrups", "tequila": "Spirits", "mezcal": "Spirits", "gin": "Spirits",
+    "vodka": "Spirits", "bourbon": "Spirits", "rye whisky": "Spirits", "scotch whisky": "Spirits", "japanese whisky": "Spirits",
 }
+# printed sections (as CATEGORIES keys) whose dishes are not read at all, with the reason printed in the run's output.
+SKIP_SECTIONS = {
+    "xmas specials": "a seasonal Christmas drinks section (mulled wine, negroni 'tipples', French 75 ...); its two rows with calories, 'Apple "
+                     "spiced brew [cold]' / '[hot]', print no description, so whether they contain alcohol can't be told, and no "
+                     "alcoholic drinks are added (founder, 11 October 2026)",
+}
+SKIP_SECTIONS["xm,as specials"] = SKIP_SECTIONS["xmas specials"]   # Manchester prints the heading as "XM,AS SPECIALS"
 # Dishes that stay in items.csv but are not published (holdback.csv; restore by deleting the line). Nothing is corrected.
-HOLDBACK = {
-    "anz-2026-bacon-and-egg-pie": ("The page marks no gluten for a pie (its sibling 'ANZ - Lamb and Mint Kumara Tart' is marked gluten, "
-                                   "and the pipeline's accuracy audit flags 'Pie' without gluten): probably an omission in the chain's "
-                                   "allergen marks, and allergens are safety information. Left out until the chain confirms."),
-}
-SOURCE_TITLE = ("Caravan Nutritional + Allergen Info: the London (caravanlondon05), Manchester (caravanmanchester05) and Vardo (vardo04) "
+HOLDBACK: dict[str, str] = {}
+# (Until October 2026: "anz-2026-bacon-and-egg-pie", a pie the page marked without gluten. The November 2026 menus no longer list it.)
+SOURCE_TITLE = ("Caravan Nutritional + Allergen Info: the London (caravanlondon07), Manchester (caravanmanchester07) and Vardo (vardo07) "
                 "menus on Ten Kites, all menu tabs (accessed {date}, no date shown)")
 ALLERGEN_TITLE = ("Caravan Nutritional + Allergen Info (London, Manchester and Vardo menus on Ten Kites; accessed {date}, no date shown)")
 ALIASES = ["caravan", "caravan restaurants", "caravan coffee roasters", "caravan restaurants & coffee roasters"]
@@ -160,6 +157,9 @@ def load(pages_dir: Path, fetch: bool) -> tuple[list[dict], list[str]]:
             raise SystemExit(f"{where}: {len(rows)} dishes but this script expects {expected}: the menu changed, re-check before running again.")
         for r in rows:
             sec = r["section"].lower().replace("&", "and")
+            if sec in SKIP_SECTIONS:
+                print(f"section left out: {where} / {r['section']}: {r['name']!r} ({r['kcal'] or '-'} kcal)")
+                continue
             if sec not in CATEGORIES:
                 raise SystemExit(f"{where}: new section {r['section']!r}: add it to CATEGORIES.")
             instances.append({"site": site, "menu": tab, "category": CATEGORIES[sec], "printed_section": r["section"], **r})
@@ -258,6 +258,7 @@ def main() -> int:
     if not HOLDBACK:
         (out / "holdback.csv").unlink(missing_ok=True)
     combined = hashlib.sha256("\n".join(sorted(h.split()[0] for h in hashes)).encode()).hexdigest()
+    print("\n".join(f"sections left out ({k!r}): {v}" for k, v in SKIP_SECTIONS.items()))
     print("\n".join(hashes))
     print(f"combined sha256 of the {len(hashes)} page hashes (sorted): {combined}")
     print(f"{len(instances)} printed dishes -> {len({key_of(i['name']) for i in instances})} distinct names -> {len(items)} built, {len(HOLDBACK)} held back, "

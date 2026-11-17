@@ -165,11 +165,9 @@ ROWS: dict[str, list[dict]] = {
         it("Desserts", "Gimme S'more!", "Gimme S'more!", DE, False),
         it("Desserts", "Ice Cream Cookie Sandwich", "Ice Cream Cookie Sandwich", DE, False),
     ],
-    "special": [
-        it("", "BIG POPPA", "Big Poppa (special menu)", SP, True, True,
-           note="Special menu version: a double beef patty and a bacon crumb; not the Big Poppa of the main menu. The page says 'Grab yours now before it disappears!'"),
-        it("", "HYPNOTIZE FRIES", "Hypnotize Fries (special menu)", SP, True, True, note="Listed on the Special menu page."),
-    ],
+    # 17 Nov 2026: the Special menu page lists no dishes any more (and the site's menu links no longer name it), so its two limited dishes
+    # (Big Poppa (special menu), Hypnotize Fries (special menu)) are gone. If the page lists dishes again, this script stops so a human names them.
+    "special": [],
     "kids": [
         it("Choose A Burger", "Kids Beef Burger", "Kids Beef Burger", KM, False,
            note="A patty in a brioche; toppings, sauce, garnish, side and drink are chosen separately (page text)."),
@@ -333,6 +331,12 @@ def text_of(fragment: str) -> str:
     return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", fragment))).strip()
 
 
+def same_text(text: str) -> str:
+    """For comparing a repeated card with its first listing only: a description the page prints twice in a row (17 Nov 2026, the Veggie /
+    Vegan Starters TRASH BROWNS prints 'Tater tots, ... crumbTater tots, ... crumb') counts as printed once. Nothing written changes."""
+    return re.sub(r"(.{20,}?)\1", r"\1", text)
+
+
 def number(cell: str, unit: str, where: str) -> str:
     m = re.fullmatch(r"(\d[\d,]*(?:\.\d+)?)\s*" + unit, cell.strip())
     if not m:
@@ -486,7 +490,7 @@ def main() -> int:
                 continue
             if spec["kind"] == "dup":
                 original = first[(page,) + spec["of"]]
-                if (original["_panel"] != card["table"] or original["_text"] != card["text"]
+                if (original["_panel"] != card["table"] or same_text(original["_text"]) != same_text(card["text"])
                         or original["_allergens"]["words"] != card["allergens"]["words"]):
                     print(f"{page} page: '{spec['title']}' appears twice with DIFFERENT numbers or text: keep both and name them.", file=sys.stderr)
                     return 1

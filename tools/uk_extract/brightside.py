@@ -37,6 +37,9 @@ CHOICES (all logged in the report; none touches a number):
   The printed "Draugths" section is "Draught beer" (typo fixed). The "Old Drinks" section is not published: the chain's own heading says the
   drinks are old (two of its four drinks print calories) and the website menu no longer lists them.
 - "(Ram Jam Only)": the Heineken 0.0% draught is sold at one of the four sites, so it is left out (single-site rule).
+- Refresh of 17 Nov 2026: FOOD gained an "Egg Free Breakfast" section (its own category); dishes named "... - Halloween" are left out
+  (SEASON_OVER: the season the chain's own name gives ended on 31 October); the three Passion Fruit Semifreddo rows are held back
+  (marked Vegan and "Contains Milk").
 - Tags: vegetarian when the Vegetarian (or Vegan) column is marked. contains_pork / contains_beef only from the dish's name and the page's
   own description under it (bacon, sausage, ham, pepperoni, chorizo, pork belly; beef, brisket); black pudding and the unspecified
   "Chicken", "patty" lines carry none.
@@ -71,12 +74,12 @@ NOTE = ("Calories only: protein, carbs and fat are not published. Four sites per
         "cocktails print no calories.")
 # menu name -> (saved file name, dishes the page must print)
 MENUS = {
-    "FOOD": ("brightside_standard.html", 76),
-    "GLUTEN FREE": ("brightside_glutenfree.html", 48),
-    "VEGAN": ("brightside_vegan.html", 16),
-    "KIDS": ("brightside_kids.html", 38),
+    "FOOD": ("brightside_standard.html", 84),
+    "GLUTEN FREE": ("brightside_glutenfree.html", 49),
+    "VEGAN": ("brightside_vegan.html", 17),
+    "KIDS": ("brightside_kids.html", 39),
     "ADDS & EXTRAS": ("brightside_adds.html", 59),
-    "DRINKS": ("brightside_drinks.html", 119),
+    "DRINKS": ("brightside_drinks.html", 120),
     "KIDS PIZZA PARTY": ("brightside_kidspizza.html", 23),
 }
 WEB_FILE, WEB_POSITIONS = "brightside_webmenu.html", 219
@@ -85,7 +88,8 @@ GF_SECTIONS = {"Breakfast", "Toasties", "Burgers", "Mains", "Salads", "Sides", "
 VEGAN_SECTIONS = {"Breakfast", "Mains", "Sides", "Puddings & Cakes"}
 CATEGORIES = {   # menu -> printed section -> category shown
     "FOOD": {"Breakfast & Brunch": "Breakfast & brunch", "Burgers": "Burgers", "Mains": "Mains", "Salads": "Salads",
-             "Toasties": "Toasties", "Pizza": "Pizza", "Sides": "Sides", "Puddings & Cakes": "Puddings & cakes"},
+             "Toasties": "Toasties", "Pizza": "Pizza", "Sides": "Sides", "Puddings & Cakes": "Puddings & cakes",
+             "Egg Free Breakfast": "Egg free breakfast"},
     "GLUTEN FREE": {s: "Gluten free menu" for s in GF_SECTIONS},
     "VEGAN": {s: "Vegan menu" for s in VEGAN_SECTIONS},
     "KIDS": {"Healthy Snack Pot": "Kids snack pot", "Bright Sparks Classics": "Kids classics",
@@ -99,12 +103,19 @@ CATEGORIES = {   # menu -> printed section -> category shown
     "KIDS PIZZA PARTY": {"Kids Pizza": "Kids pizza party", "Kids Sundae": "Kids pizza party"},
 }
 SINGLE_SITE = re.compile(r"\(Ram Jam Only\)", re.I)
+# A dish the chain's own name marks as a Halloween special ("Spooky Sundae - Halloween"): the season it names ended on 31 October, so it
+# is left out rather than shown as on sale (found still on the page 17 Nov 2026; nothing about its numbers is changed).
+SEASON_OVER = re.compile(r"\s-\s*Halloween$", re.I)
 NAME_FIXES = {"Vegan Buttered Sourdough Toast with marmite": "Vegan Buttered Sourdough Toast with Marmite",
               "BiscoffTM Thick Shake": "Biscoff™ Thick Shake", "Kids BiscoffTM Extra Thick Milkshake": "Kids Biscoff™ Extra Thick Milkshake"}
 # Rows held back for a reason of their own (never corrected). key = final item name.
 MANUAL_HOLDBACK = {
     "Add Waffle": "Printed 1766 kcal for one waffle add-on, more than the whole Hot Honey Fried Chicken Waffle (833 kcal in the same matrix) "
                   "that contains a Belgian waffle: not a plausible figure for the item.",
+    # 17 Nov 2026: each of the three semifreddo rows marks the Vegan (and Vegetarian) column AND "Contains Milk".
+    "Passion Fruit Semifreddo": "The allergen matrix marks it Vegan and also 'Contains Milk': the row contradicts itself, so it is not published.",
+    "GF Passion Fruit Semifreddo": "The allergen matrix marks it Vegan and also 'Contains Milk': the row contradicts itself, so it is not published.",
+    "Vegan Passion Fruit Semifreddo": "Named vegan and marked Vegan, but the allergen matrix also prints 'Contains Milk': the row contradicts itself, so it is not published.",
     "Pizza Dips": "Printed as one 'Pizza Dips' dish of 582 kcal, which is exactly the sum of the four dips printed separately (178 + 264 + 45 + 95); "
                   "the chain sells one dip, so the row is not a serving.",
 }
@@ -260,6 +271,9 @@ def build(pages: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]]:
             continue
         if SINGLE_SITE.search(r["name"]):
             report.append(f"left out (one site only): {where} ({r['kcal']} kcal)")
+            continue
+        if SEASON_OVER.search(r["name"]):
+            report.append(f"left out (Halloween special, season over): {where} ({r['kcal']} kcal)")
             continue
         if r["kcal"] is None:
             report.append(f"not listed (no calories printed): {where}")

@@ -5,7 +5,8 @@
 
 Amalfi (Amalfi Ristorante, part of The Big Table Group) lists its restaurants at https://www.amalfi.co.uk/locations: "Explore our four
 beautiful locations": Oxford Circus (25 Argyll Street, W1F 7TU), St Paul's (5-14 St. Paul's Churchyard, EC4M 8AY), Woburn Center Parcs
-(Woburn Forest, MK45 2HZ) and St Katharine Docks ("Coming Soon"). So three restaurants are open in Great Britain. https://www.amalfi.co.uk/our-menus
+(Woburn Forest, MK45 2HZ) and St Katharine Docks (4 St Katharine's Way, E1W 1BA; "Coming Soon" on 2026-10-09; on 2026-11-17 its menu button on
+/our-menus opens the St Paul's page, amalfi10, so it adds no page of its own). https://www.amalfi.co.uk/our-menus
 links one Ten Kites page to each open restaurant:
     Oxford Circus  https://menus.tenkites.com/thebigtg/amalfi02   (the page's own unit name: "Agryll Street")
     St Paul's      https://menus.tenkites.com/thebigtg/amalfi10   ("St Pauls")
@@ -19,11 +20,13 @@ drink's size is given only when its name says so).
 Allergens (docs/DATA.md "Allergens"): complete. Each dish's pop-up prints "Contains:" and "May contain:" (cereals and tree nuts named in
 brackets) and tenkites_c.allergens_checked stops the run unless they agree with the label ids the page's own allergen filter reads. The older
 pop-over template prints no "contains none" message: a dish without a "Contains" line is a dish the page's filter also shows no allergen id for
-(Cafe Rouge's pages, read the same way, are published like this). One dish whose printed lines and filter ids disagree is left out (EXPECTED_UNREADABLE).
+(Cafe Rouge's pages, read the same way, are published like this). A dish whose printed lines and filter ids disagree is left out only if it is
+listed in EXPECTED_UNREADABLE (Crispy Fish Goujons was, on 2026-10-09; on 2026-11-17 its lines agree with the filter, so the list is empty).
 
 Three venues, one rule: a menu tab is used only if at least two venue pages carry it, and a dish is published only if its section, name,
 calories and allergen lines are identical on every venue page that carries the tab (anything else is listed in the run's report and left
-out; nothing is chosen between). On 2026-10-09 the three pages were identical on every shared tab (Main Menu 76 dishes, Desserts 13, Kids 32,
+out; nothing is chosen between). On 2026-11-17 (festive menu) the pages held Main Menu 82 dishes, Desserts 14, Kids 32, Drinks 166, Brunch 46.
+On 2026-10-09 the three pages were identical on every shared tab (Main Menu 76 dishes, Desserts 13, Kids 32,
 Drinks 166, Brunch 46 on Oxford Circus and St Paul's). The Main Menu also agrees, dish by dish, with the schema.org menu the same pages embed.
 
 What is left out, and why (each is counted in the run's report):
@@ -67,15 +70,20 @@ TABS = OrderedDict([
     ("Children’s Christmas Day Menu", "Woburn only, Christmas Day only (seasonal pre-booked menu)"),
 ])
 # dishes each tab must hold on every venue page that carries it: the script stops if the menu changes
-EXPECTED = {"Main Menu": 76, "Desserts": 13, "Kids": 32, "DRINKS": 166, "Brunch": 46}
+EXPECTED = {"Main Menu": 82, "Desserts": 14, "Kids": 32, "DRINKS": 166, "Brunch": 46}   # 2026-11-17 (was 76 and 13 on 2026-10-09)
 # the only dish whose printed allergen lines disagree with the page's own allergen filter (it is left out, never repaired)
-EXPECTED_UNREADABLE = {"CRISPY FISH GOUJONS"}
+EXPECTED_UNREADABLE: set = set()   # was {"CRISPY FISH GOUJONS"} on 2026-10-09; read correctly on 2026-11-17
+# A choice the page prints with no dish name of its own, inside a dish's block: (printed choice name, printed name of the row right
+# before it in the same section) -> our name. Checked on every run: if the row before it is another dish, the run stops.
+CHOICE_NAMES = {("Go Gluten Free", "CRAB TIAN"): "Crab Tian (Gluten-Free)"}
+# A dish whose own printed name says it is seasonal is marked limited time (like the drinks' "Christmas Specials" section).
+SEASONAL_NAME = re.compile(r"\b(christmas|festive)\b", re.I)
 
 SOURCE_URL = ap.BASE + "amalfi02"
 SOURCE_TITLE = ("Amalfi menus with calories and allergens (Ten Kites pages linked from amalfi.co.uk/our-menus for Oxford Circus, St Paul's and "
-                "Woburn Center Parcs): Main, Desserts, Kids, Drinks and Brunch (accessed 2026-10-09, no date shown)")
+                "Woburn Center Parcs): Main, Desserts, Kids, Drinks and Brunch (accessed 2026-11-17, no date shown)")
 ALLERGEN_TITLE = ("Amalfi menus with allergens (Ten Kites, amalfi02): per-dish 'Contains' and 'May contain' on the same pages "
-                  "(accessed 2026-10-09, no date shown)")
+                  "(accessed 2026-11-17, no date shown)")
 NOTE = ("Calories only, as printed on Amalfi's own menu pages for the dish as sold (no protein, carbs or fat); identical on every open "
         "restaurant page that carries the menu. Sides, sauces and extras are separate rows: add them yourself. Spirits, wine, afternoon "
         "tea and breakfast-only dishes are not included.")
@@ -121,6 +129,9 @@ HOLD_NAMES = {
     "Aperol Spritz (Bottomless Brunch)": "The same page prints Aperol Spritz at 180 kcal (Cocktails) and at 154 kcal (bottomless brunch): the chain's own page disagrees with itself, so neither is published.",
     "Fever-Tree Tonic: Light": "The same page prints the Light tonic at 36 kcal (Soft Drinks) and at 30 kcal (the tonic choices for a gin and tonic): the chain's own page disagrees with itself.",
     "Birre Amalfi (Pint)": "The brunch menu prints 1977 kcal for a pint of beer, which cannot be right (the same page prints 139 kcal for a bottled Birra Moretti); not corrected.",
+    # 2026-11-17 festive menu: allergen rows that contradict the dish's own description (docs/ACCURACY_AUDIT.md policy 3), never corrected
+    "Roasted Veg & Telaggio Bruschetta": "The page describes this bruschetta as topped with 'tangy Taleggio cheese', but its allergen pop-up lists milk only under 'May contain' (Contains: Sulphites / Cereals): the allergen row contradicts the dish's own description, so it is not published.",
+    "Roasted Veg & Telaggio Bruschetta (Gluten-Free)": "The page sells this as the gluten-free bruschetta (marked 'Gluten Free'), but its allergen pop-up prints 'Contains: Cereals (Barley, Kamut, Oats, Rye, Spelt, Wheat)', and it lists no milk for the Taleggio cheese: the allergen row contradicts the dish, so it is not published.",
 }
 
 
@@ -195,12 +206,24 @@ def classify(tab: str, row: dict):
 
 def build_items(rows_by_tab: "dict[str, list[dict]]", stats: Counter, report: list) -> list:
     items = []
+    used_choice_names = set()
     for tab, rows in rows_by_tab.items():
+        prev = None
         for r in rows:
+            before, prev = prev, r
             spec = classify(tab, r)
             if isinstance(spec, tuple):
                 stats["left out: " + spec[1]] += 1
                 continue
+            keys = [k for k in CHOICE_NAMES if k[0] == r["name"]]
+            if keys:
+                key = keys[0]
+                if before is None or before["name"] != key[1] or before["section"] != r["section"]:
+                    raise SystemExit("%s: %r no longer follows %r in its section: re-check CHOICE_NAMES" % (tab, r["name"], key[1]))
+                spec["name"] = CHOICE_NAMES[key]
+                used_choice_names.add(key)
+            if SEASONAL_NAME.search(r["name"]):
+                spec["limited_time"] = True
             kcal, problem = ap.calories(r)
             if problem:
                 raise SystemExit(problem)
@@ -226,6 +249,8 @@ def build_items(rows_by_tab: "dict[str, list[dict]]", stats: Counter, report: li
             items.append({"name": spec["name"], "category": spec["category"], "serving": spec["serving"], "calories": kcal,
                           "tags": "|".join(tags), "limited_time": spec["limited_time"], "rankable": spec["rankable"], "notes": note,
                           "allergens": alg, "_unstated": unspecified, "_row": r, "_tab": tab})
+    if set(CHOICE_NAMES) - used_choice_names:
+        raise SystemExit("CHOICE_NAMES names choices the page no longer prints: %s" % sorted(set(CHOICE_NAMES) - used_choice_names))
     return items
 
 

@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
-"""Build data/source/dominos/ from Domino's UK "Nutrition Information Guide" PDFs (founder downloaded 2026-10-10, both "Correct as of 7th September 2026").
+"""Build data/source/dominos/ from Domino's UK "Nutrition Information Guide" PDFs.
 
-    python3 tools/uk_extract/dominos.py data/held-downloads/dominos --checked-on 2026-10-10
+    python3 tools/uk_extract/dominos.py data/held-downloads/dominos --checked-on 2026-10-10     # "Correct as of 7th September 2026" (A4)
+    python3 tools/uk_extract/dominos.py FOLDER --checked-on 2026-11-17                          # "Correct as of 16th November 2026" (US Letter)
+
+The founder downloaded the September 2026 guides on 2026-10-10. On 2026-11-17 both were fetched once each from the addresses below
+(dominos.a.bigcontent.io's robots.txt holds no rules; the page that links them, GUIDE_URL, answered normally): the November guides add two
+pizzas and four sides/dips and reprint every earlier row with the same figures, on US Letter pages (see dominos_pdf.LAYOUTS). The
+"Correct as of" date is read from each guide's first page and must be the same in both.
 
 Inputs (in the folder): nutrition_pizzas.pdf and nutrition_sides-and-desserts.pdf. Numbers are copied from the PDFs as printed
 (strings such as "17.1375" or "<0.5" are kept); only names, categories and grouping are assembled from the table cells.
@@ -51,6 +57,9 @@ def tidy(s: str) -> str:
 
 
 def pizza_items(pdf: Path, checked_on: str) -> list[dict]:
+    lay = dp.layout(pdf)                                        # A4 (September 2026) or US Letter (November 2026): see dominos_pdf.LAYOUTS
+    lx0, lx1 = lay["line_x"]
+    mx0, mx1 = lay["mozz_x"]
     words = dp._words(pdf)
     rows = dp.read_rows(pdf)
     if any(r["n"] != 20 for r in rows):
@@ -59,7 +68,7 @@ def pizza_items(pdf: Path, checked_on: str) -> list[dict]:
     prev = None
     for r in rows:
         c = r["cells"]
-        mozz_text = c.get(91, "")
+        mozz_text = c.get(lay["mozz"], "")
         if "Reduced" in mozz_text:
             mozz = "reduced"
         elif "Standard" in mozz_text:
@@ -68,10 +77,10 @@ def pizza_items(pdf: Path, checked_on: str) -> list[dict]:
             mozz = None
         else:
             raise SystemExit(f"unknown cheese cell {mozz_text!r} on page {r['page']}")
-        left = tidy(c.get(51, ""))
-        mid = tidy(c.get(105, ""))
+        left = tidy(c.get(lay["left"], ""))
+        mid = tidy(c.get(lay["mid"], ""))
         line_words = " ".join(w[4] for w in sorted(words[r["page"] - 1], key=lambda w: w[0])
-                              if abs((w[1] + w[3]) / 2 - r["y"]) <= 3.0 and 104.5 <= w[0] <= 206 and w[4] not in dp.SIZES)
+                              if abs((w[1] + w[3]) / 2 - r["y"]) <= 3.0 and lx0 <= w[0] <= lx1 and w[4] not in dp.SIZES)
         line_words = tidy(line_words)
         if mid in CRUSTS:                                       # the big blocks: pizza name | cheese | crust | size
             name, crust, category = left, CRUSTS[mid], CATEGORY_BY_CRUST[CRUSTS[mid]]
@@ -97,8 +106,8 @@ def pizza_items(pdf: Path, checked_on: str) -> list[dict]:
             if prev is None or r["page"] == prev["page"]:
                 raise SystemExit(f"cannot place row on page {r['page']} y={r['y']}: cells {c}")
             name, crust, category, mozz = prev["name"], prev["crust"], prev["category"], prev["mozz"]
-            label = tidy(" ".join(w[4] for w in words[r["page"] - 1] if abs((w[1] + w[3]) / 2 - r["y"]) <= 12 and 104.5 <= w[0] <= 206 and w[4] not in dp.SIZES))
-            top_mozz = tidy(" ".join(w[4] for w in words[r["page"] - 1] if abs((w[1] + w[3]) / 2 - r["y"]) <= 12 and 89 <= w[0] <= 104.5))
+            label = tidy(" ".join(w[4] for w in words[r["page"] - 1] if abs((w[1] + w[3]) / 2 - r["y"]) <= 12 and lx0 <= w[0] <= lx1 and w[4] not in dp.SIZES))
+            top_mozz = tidy(" ".join(w[4] for w in words[r["page"] - 1] if abs((w[1] + w[3]) / 2 - r["y"]) <= 12 and mx0 <= w[0] <= mx1))
             if mozz == "reduced" and "Reduced" not in top_mozz and "Fat" not in top_mozz and top_mozz:
                 raise SystemExit(f"continuation row on page {r['page']} has cheese label {top_mozz!r}")
             if CRUSTS.get(label) != crust:
@@ -241,9 +250,20 @@ def main() -> None:
         raise SystemExit(f"duplicate item names across the guide: {[n for n, c in names.items() if c > 1][:5]}")
 
     sha = hashlib.sha256(pizzas_pdf.read_bytes()).hexdigest()[:16] + "/" + hashlib.sha256(sides_pdf.read_bytes()).hexdigest()[:16]
+    # the date each guide prints on its first page ("Correct as of 16th November 2026"): both must print the same date
+    dates = set()
+    for pdf in (pizzas_pdf, sides_pdf):
+        first = subprocess.run(["pdftotext", "-f", "1", "-l", "1", str(pdf), "-"], check=True, capture_output=True, text=True).stdout
+        found = re.findall(r"Correct as of (\d{1,2}(?:st|nd|rd|th) [A-Z][a-z]+ \d{4})", first)
+        if len(found) != 1:
+            raise SystemExit(f"{pdf.name}: expected one 'Correct as of <date>' on page 1, found {found}")
+        dates.add(found[0])
+    if len(dates) != 1:
+        raise SystemExit(f"the two guides print different dates: {sorted(dates)}")
+    correct_as_of = dates.pop()
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="Domino's", cuisine="Pizza",
-        source_title="Domino's UK Nutrition Information Guides: Pizzas, Bases & Toppings and Sides & Desserts (correct as of 7th September 2026)",
+        source_title=f"Domino's UK Nutrition Information Guides: Pizzas, Bases & Toppings and Sides & Desserts (correct as of {correct_as_of})",
         source_url=GUIDE_URL, checked_on=args.checked_on, aliases=["dominos", "domino's pizza", "dominos pizza"], items=items,
         out=Path(args.out) if args.out else None,
         note=("Pizzas show the figures for one slice (the guide also prints the whole pizza; it does not state the slice count). Sides, dips, wraps and "

@@ -23,8 +23,8 @@ LABELS = ("KJ", "Kcal", "Fat", "Sat", "Carbs", "Sugar", "Fibre", "Protein", "Sal
 _LABEL_ROW = re.compile(r"\b(KJ|Kcal|Fat|Sat|Carbs|Sugar|Fibre|Protein|Salt)\s+(" + NUM + r"|-|Tr)\s+(" + NUM + r"|-|Tr)\s*$")
 _WEIGHT_ROW = re.compile(r"Portion\s+weight\s+\(g\)\s+(" + NUM + r")\s*$")
 _DRINK_ROW = re.compile(r"((?:" + NUM + r"\s+){17}" + NUM + r")\s*$")
-FOOD_PAGES = range(5, 22)
-DRINK_PAGES = range(22, 45)
+FOOD_PAGES = range(5, 23)    # guide issued 29/10/26 (47 pages); the 09/09/26 issue had food 5-21, drinks 22-44
+DRINK_PAGES = range(23, 48)
 
 
 def _page(pdf: Path, page: int) -> list[str]:
@@ -148,7 +148,9 @@ def _drinks(page: list) -> list[tuple[str, str]]:
         top, bottom = h[3], (heads[i + 1][1] if i + 1 < len(heads) else 1e9)
         diet_h = [w for w in page if w[4] == "DIETARY" and abs(w[1] - h[1]) < 3]
         prod_h = [w for w in page if w[4] == "PRODUCT" and abs(w[1] - h[1]) < 3]
-        if len(prod_h) != 1 or len(diet_h) > 1:
+        # The 29/10/26 issue prints its first table (Gingerbread Latte, p24) without the PRODUCT header word: a table with its
+        # ALLERGENS and DIETARY headers is still read (names are found left of DIETARY, not from the PRODUCT header).
+        if len(prod_h) > 1 or len(diet_h) > 1 or (not prod_h and not diet_h):
             raise SystemExit(f"guide drinks table at y={h[1]:.0f}: no PRODUCT/DIETARY header; the layout changed.")
         if not diet_h:
             continue   # the sample table on the drinks intro page (no DIETARY column); every drink is printed again later
