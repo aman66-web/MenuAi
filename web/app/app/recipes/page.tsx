@@ -246,15 +246,21 @@ function RecipesScreen() {
 
   return (
     <div>
-      {/* founder 2026-11-17: no Pip and "Recipes" label at the top, so everything sits higher; the title shares its row with the heart (My meals) */}
-      <div className="flex items-start justify-between gap-3">
-        <h1 className="min-w-0 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">{t("What's cooking today?")}</h1>
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex min-w-0 items-center gap-2.5">
+          <span aria-hidden className="grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-full bg-soft-strong">
+            <Pip mood="wave" size={34} className="translate-y-0.5" />
+          </span>
+          <span className="truncate text-base font-semibold">{t("Recipes")}</span>
+        </div>
         {/* a small grey circle like Home's calendar button, inside a full 44 px tap area; the count sits on its edge */}
-        <Link href="/app/meals?tab=recipes" aria-label={savedCount > 0 ? `${t("My meals")} · ${savedCount}` : t("My meals")} className="group relative -me-1 -mt-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
+        <Link href="/app/meals?tab=recipes" aria-label={savedCount > 0 ? `${t("My meals")} · ${savedCount}` : t("My meals")} className="group relative -me-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
           <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><HeartIcon className="h-[18px] w-[18px]" /></span>
           {savedCount > 0 && <span aria-hidden className="app-numbers absolute end-0 top-0 grid h-5 min-w-5 place-items-center rounded-full bg-foreground px-1 text-[0.6875rem] font-bold leading-none text-background">{savedCount}</span>}
         </Link>
       </div>
+
+      <h1 className="mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">{t("What's cooking today?")}</h1>
       <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">
         {shopNames.length ? t("Every ingredient is a real product at {shop}, with its price and the nutrition of each serving.", { shop: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) }) : t("Every ingredient is a real product at your supermarket, with its price and the nutrition of each serving.")}
       </p>
