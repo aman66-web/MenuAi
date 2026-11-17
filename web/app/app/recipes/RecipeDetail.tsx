@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { Preferences } from "@/lib/mm/types";
 import { useEffect, useMemo, useState } from "react";
-import { addToList, formatPrice, withPhoto } from "@/lib/mm/groceries";
+import { addToList, formatPrice, formatUsedPrice, withPhoto } from "@/lib/mm/groceries";
 import { formatDate, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
 import { tk, type T } from "@/lib/mm/i18n";
 import { firstMentions } from "@/lib/mm/stepIngredients";
@@ -490,7 +490,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                             <span className="app-numbers text-[0.9375rem] font-semibold">{formatPrice(p.product.price)}{p.packs > 1 ? ` · ${t("buy {n}", { n: p.packs })}` : ""}</span>
                             {/* founder 2026-11-17 ("the cost of each ingredient as relative to how much is used"): what the amount listed above costs at the shop's own price per kg or litre,
                                 in the green of "a serving"; it follows Serves, and is left out where the shop prints no such price (the serving's price is then "–" too) */}
-                            {p.usedCost !== null && <span className="app-numbers text-[0.9375rem] font-semibold text-accent">{t("{price} used", { price: formatPrice(p.usedCost) })}</span>}
+                            {p.usedCost !== null && <span className="app-numbers text-[0.9375rem] font-semibold text-accent">{t("{price} used", { price: formatUsedPrice(p.usedCost) })}</span>}
                             <button type="button" onClick={() => setSwapping(spec.key)} aria-label={t("Swap {name}", { name: t(spec.label) })} className="ms-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-soft-strong">
                               <SwapIcon className="h-4 w-4" />{t("Swap")}
                             </button>

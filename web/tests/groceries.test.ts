@@ -90,3 +90,15 @@ describe("groceries", () => {
     expect(sanitizeShoppingList("nope")).toEqual([]);
   });
 });
+
+describe("the cost of the amount a recipe uses", () => {
+  it("is never £0.00 for something that costs a little, and otherwise to the penny", async () => {
+    const { formatUsedPrice } = await import("../lib/mm/groceries");
+    expect(formatUsedPrice(0.0009)).toBe("£0.01");
+    expect(formatUsedPrice(0.004)).toBe("£0.01");
+    expect(formatUsedPrice(0.006)).toBe("£0.01");
+    expect(formatUsedPrice(0.06)).toBe("£0.06");
+    expect(formatUsedPrice(0.874)).toBe("£0.87");
+    expect(formatUsedPrice(0)).toBe("£0.00");
+  });
+});

@@ -215,6 +215,8 @@ export function searchProducts(products: readonly ListedProduct[], f: GroceryFil
 
 /** "£1.25". */
 export const formatPrice = (amount: number): string => `£${amount.toFixed(2)}`;
+/** The cost of the amount a recipe uses: never "£0.00" for something that costs a little (founder 2026-11-17: "there's no such thing as £0 used ... round it to 1p"). */
+export const formatUsedPrice = (amount: number): string => (amount > 0 && amount < 0.005 ? "£0.01" : formatPrice(amount));
 
 /** "per 100 g" / "per 100 ml". */
 export const perLabel = (p: Pick<GroceryProduct, "per">, t: T = englishT): string => t("per 100 {unit}", { unit: p.per });
