@@ -2,6 +2,6 @@
 // with read labels. Don't edit by hand.
 export const RECIPE_COVERAGE: Readonly<Record<string, number>> = {
   "sainsburys": 165,
-  "morrisons": 88,
-  "iceland": 14,
+  "morrisons": 157,
+  "iceland": 31,
 };

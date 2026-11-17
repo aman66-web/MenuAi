@@ -4,6 +4,7 @@
 // nothing is worked out except the plain arithmetic shown (price per kg as the shop prints it, grams of protein for £1). Words are neutral: "Highest" and
 // "Lowest", never good or bad (CLAUDE.md rule 3).
 import { tk } from "./i18n";
+import { bandPer100g, type FsaKey, type Light } from "./truth/fsaLights";
 
 export type CompareKind = "food" | "dish";
 export const COMPARE_MAX = 6;
@@ -197,4 +198,19 @@ export function compareRows(items: readonly CompareItem[]): CompareRow[] {
 export function mixedBasis(items: readonly CompareItem[]): boolean {
   const foods = items.filter((i) => i.kind === "food");
   return new Set(foods.map((i) => i.basis)).size > 1 || (foods.some((i) => i.note) && foods.some((i) => !i.note));
+}
+
+const LIGHT_ROWS: Record<string, FsaKey> = { fat: "fat", saturates: "saturatedFat", sugars: "sugar", salt: "salt" };
+
+/**
+ * The UK Food Standards Agency's traffic-light colour for one figure of a food compared per 100 g (founder 2026-11-17, on the Compare table: "colours green, amber,
+ * red"). Only fat, saturates, sugars and salt are coloured (the scheme's own rule: calories, protein and fibre never are), only foods measured per 100 g and as
+ * sold (the guidance's Table 2; a label for the cooked food is not coloured), and only where the label prints the figure. Products measured per 100 ml aren't
+ * coloured: the guidance has a separate table for drinks and we can't tell a drink from a soup or a sauce sold by volume. "Colours do not represent claims."
+ */
+export function trafficLightFor(item: Pick<CompareItem, "kind" | "basis" | "note" | "numbers">, rowId: string): Light | null {
+  const key = LIGHT_ROWS[rowId];
+  if (!key || item.kind !== "food" || item.basis !== "g" || item.note) return null;
+  const v = item.numbers[rowId as keyof CompareNumbers];
+  return v === null || v === undefined ? null : bandPer100g(key, v);
 }

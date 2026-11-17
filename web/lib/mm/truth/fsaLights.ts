@@ -56,7 +56,8 @@ const fsaValue = (n: Partial<Nutrients>, key: FsaKey): number | undefined => {
   return v === undefined || !Number.isFinite(v) || v < 0 ? undefined : v;
 };
 
-function bandPer100g(key: FsaKey, per100: number): Light {
+/** The guidance's colour for a figure per 100 g of food (Table 2): green ≤ low, amber up to high, red above. */
+export function bandPer100g(key: FsaKey, per100: number): Light {
   const { low, high } = FSA_PER_100G[key];
   if (per100 > high) return "red";
   if (per100 > low) return "amber";

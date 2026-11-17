@@ -50,6 +50,11 @@ await step("groceries: search, add three beans, see them side by side with Highe
   const kcal = rowOf("Calories");
   expect((await kcal.innerText()).replace(/\s+/g, " ").includes("65 kcal") && (await kcal.getByText("Lowest").count()) === 1 && (await kcal.getByText("Highest").count()) === 1, "calories marked once each: " + (await kcal.innerText()));
   expect((await kcal.getByRole("cell").count()) === 3, "three figures in the calories row");
+  // founder 2026-11-17: the UK traffic-light words on fat, saturates, sugars and salt only (foods per 100 g); calories, protein, fibre and price never
+  const lightsIn = (name) => rowOf(name).getByText(/^(Low|Medium|High)$/).count();
+  expect((await lightsIn("Calories")) === 0 && (await lightsIn("Protein")) === 0 && (await lightsIn("Fibre")) === 0 && (await lightsIn("Price per kg")) === 0, "no colour on calories, protein, fibre or price");
+  expect((await lightsIn("Fat")) + (await lightsIn("of which sugars")) + (await lightsIn("of which saturates")) + (await lightsIn("Salt")) >= 6, "the four coloured rows carry a Low, Medium or High word for each figure");
+  await page.getByText(/traffic-light bands for fat, saturates, sugars and salt per 100 g/).waitFor();
   const pound = rowOf("Protein for £1");
   expect(/53\s?g/.test(await pound.innerText()), `Corale: 4.9 g x 10 / £0.92 per kg = 53 g for £1, got ${await pound.innerText()}`);
   // "of which" rows sit under their nutrient, in order

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addToCompare, COMPARE_MAX, compareRows, inCompare, mixedBasis, proteinForAPound, removeFromCompare, sanitizeCompare, shownFigure, type CompareItem } from "../lib/mm/compare";
+import { addToCompare, COMPARE_MAX, compareRows, inCompare, mixedBasis, proteinForAPound, removeFromCompare, sanitizeCompare, shownFigure, trafficLightFor, type CompareItem } from "../lib/mm/compare";
 
 const food = (id: string, kcal: number, protein: number | null, extra: Partial<CompareItem> = {}): CompareItem => ({
   key: `food:sainsburys:${id}`, kind: "food", name: `Beans ${id}`, from: "Sainsbury's", fromId: "sainsburys", href: `/app/groceries/shop/item?r=sainsburys&id=${id}`,
@@ -97,5 +97,28 @@ describe("compare: the rows", () => {
     expect(mixedBasis([food("a", 78, 4.7), food("b", 85, 5)])).toBe(false);
     expect(mixedBasis([food("a", 78, 4.7), food("b", 45, 3.4, { basis: "ml" })])).toBe(true);
     expect(mixedBasis([food("a", 78, 4.7), food("b", 140, 4, { note: "cooked" })])).toBe(true);
+  });
+});
+
+describe("traffic lights on Compare (FSA colours, foods per 100 g only)", () => {
+  const food = (n: Partial<CompareItem["numbers"]>, over: Partial<CompareItem> = {}): CompareItem => ({
+    key: "food:t:a", kind: "food", name: "A", from: "Tesco", fromId: "tesco", href: "/x", basis: "g", source: "label", addedAt: "2026-11-17",
+    numbers: { kcal: 100, protein: 10, carbs: 10, sugars: 3, fat: 2, saturates: 1, fibre: 1, salt: 0.2, ...n }, ...over,
+  });
+  it("colours fat, saturates, sugars and salt by the official per 100 g limits (low at or under, high over)", () => {
+    const low = food({ fat: 3, saturates: 1.5, sugars: 5, salt: 0.3 });
+    expect(["fat", "saturates", "sugars", "salt"].map((r) => trafficLightFor(low, r))).toEqual(["green", "green", "green", "green"]);
+    const mid = food({ fat: 17.5, saturates: 5, sugars: 22.5, salt: 1.5 });
+    expect(["fat", "saturates", "sugars", "salt"].map((r) => trafficLightFor(mid, r))).toEqual(["amber", "amber", "amber", "amber"]);
+    const high = food({ fat: 17.6, saturates: 5.1, sugars: 22.6, salt: 1.6 });
+    expect(["fat", "saturates", "sugars", "salt"].map((r) => trafficLightFor(high, r))).toEqual(["red", "red", "red", "red"]);
+  });
+  it("never colours calories, protein, carbohydrate or fibre, a missing figure, a per 100 ml product, a dish or a label for the cooked food", () => {
+    const f = food({});
+    for (const r of ["kcal", "protein", "carbs", "fibre", "perKg", "proteinPound"]) expect(trafficLightFor(f, r)).toBeNull();
+    expect(trafficLightFor(food({ sugars: null }), "sugars")).toBeNull();
+    expect(trafficLightFor(food({ sugars: 30 }, { basis: "ml" }), "sugars")).toBeNull();
+    expect(trafficLightFor(food({ sugars: 30 }, { kind: "dish", basis: "serving" }), "sugars")).toBeNull();
+    expect(trafficLightFor(food({ sugars: 30 }, { note: "cooked" }), "sugars")).toBeNull();
   });
 });

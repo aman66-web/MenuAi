@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useDeferredValue, useId, useMemo, useState } from "react";
-import { addToCompare, COMPARE_MAX, compareRows, inCompare, mixedBasis, removeFromCompare, shownFigure, type CompareItem, type CompareKind, type CompareRow } from "@/lib/mm/compare";
+import { addToCompare, COMPARE_MAX, compareRows, inCompare, mixedBasis, removeFromCompare, shownFigure, trafficLightFor, type CompareItem, type CompareKind, type CompareRow } from "@/lib/mm/compare";
 import { formatPrice, photoSources, searchProducts, type ListedProduct, type PhotoSource } from "@/lib/mm/groceries";
 import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
 import { itemImageUrl } from "@/lib/mm/images";
@@ -234,6 +234,7 @@ const Num = ({ n, small }: { n: number; small?: boolean }) => (
 function SideBySide({ items, kind }: { items: readonly CompareItem[]; kind: CompareKind }) {
   const t = useT();
   const rows = useMemo(() => compareRows(items), [items]);
+  const lights = useMemo(() => rows.some((r) => items.some((it, i) => r.values[i] !== null && trafficLightFor(it, r.id) !== null)), [rows, items]);
   const pictures = items.some((it) => pictureOf(it));
   const basis = kind === "dish" ? t("Per serving, as each restaurant publishes it.") : items.every((i) => i.basis === "ml") ? t("Per 100 ml, as each label prints it.") : t("Per 100 g, as each label prints it.");
   return (
@@ -277,6 +278,8 @@ function SideBySide({ items, kind }: { items: readonly CompareItem[]; kind: Comp
                         ) : (
                           <span className="block text-[0.75rem] leading-snug text-muted">{items[i]!.kind === "dish" ? t("not published") : t("not on the label")}</span>
                         )}
+                        {/* founder 2026-11-17: the UK traffic-light colour of fat, saturates, sugars and salt (foods per 100 g only; the word as well as the colour) */}
+                        {(() => { const light = f ? trafficLightFor(items[i]!, row.id) : null; return light ? <span className="mt-1.5 block"><span className="inline-flex rounded-full px-2 py-0.5 text-[0.6875rem] font-bold leading-tight text-[var(--tl-ink)]" style={{ background: `var(--tl-${light})` }}>{t(LIGHT_WORD[light])}</span></span> : null; })()}
                         {tag && <span className="mt-1.5 block text-[0.6875rem] font-semibold uppercase leading-tight tracking-[0.1em] text-muted">{tag}</span>}
                       </td>
                     );
@@ -290,7 +293,7 @@ function SideBySide({ items, kind }: { items: readonly CompareItem[]; kind: Comp
       {COMPARE_PICK_ENABLED && <PipsPick items={items} picture={(i) => <HeaderPicture item={i} />} />}
       <p className="mt-5 text-[0.9375rem] leading-snug text-muted">
         {kind === "food"
-          ? t("Numbers as each product's label or page showed them when you added it. Price per kg is the shop's own; “Protein for £1” is that price worked out for the protein. Always check the pack.")
+          ? t("Numbers as each product's label or page showed them when you added it. Price per kg is the shop's own; “Protein for £1” is that price worked out for the protein. Always check the pack.") + (lights ? " " + t("The colours are the UK Food Standards Agency's traffic-light bands for fat, saturates, sugars and salt per 100 g. Calories and protein have no colour, and products measured per 100 ml aren't coloured.") : "")
           : t("Numbers as each restaurant publishes them, per serving. Servings differ in size, so a bigger dish can have more of everything.")}
       </p>
     </section>
@@ -350,6 +353,8 @@ function Overview({ items }: { items: readonly CompareItem[] }) {
     </section>
   );
 }
+
+const LIGHT_WORD = { green: "Low", amber: "Medium", red: "High" } as const;
 
 /** The nutrient names column: stays at the start while the item columns scroll under it. */
 const labelCell = "sticky start-0 z-10 w-[7.25rem] min-w-[7.25rem] max-w-[7.25rem] border-e border-line bg-white px-2.5 py-3 text-start align-top text-[0.8125rem] leading-snug [overflow-wrap:break-word]";

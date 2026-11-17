@@ -283,7 +283,11 @@ export function pieceWeight(name: string): number | null {
   if (each) return Number(each[2]) * (each[3] === "kg" ? 1000 : 1);
   const count = itemCount(name);
   const size = packSize(name, "g");
-  return count > 1 && size ? Math.round((size / count) * 10) / 10 : null;
+  if (count > 1 && size) return Math.round((size / count) * 10) / 10;
+  // "Oxo Vegetable Stock Cubes 24s 142g", "12's 120g": the count written as 24s or 12's
+  const s = /\b(\d{1,2})['’]?s\b/.exec(n);
+  const c = s ? Number(s[1]) : 0;
+  return c > 1 && c <= 96 && size ? Math.round((size / c) * 10) / 10 : null;
 }
 
 export function pickFor(spec: IngredientSpec, product: PricedProduct): IngredientPick {

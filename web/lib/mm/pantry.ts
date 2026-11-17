@@ -493,6 +493,10 @@ const SUBS: Record<string, Array<string | [string, number]>> = {
   "onion": ["red-onion"],
   "red-onion": ["onion"],
   "spring-onions": [["onion", 1]],
+  // a shop with no read label for these (Morrisons prints none for fresh peppers, cucumber or frozen berries) uses a stand-in the recipe page names
+  "peppers": ["tomatoes"],
+  "cucumber": ["lettuce", "tomatoes"],
+  "berries": ["banana"],
   "cherry-tomatoes": ["tomatoes"],
   "tomatoes": ["cherry-tomatoes"],
   "lettuce": ["salad-leaves"],

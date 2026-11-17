@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { LOCAL_SHOP_PRODUCTS } from "../lib/mm/localRange";
 import { RECIPES } from "../lib/mm/recipeBook";
-import { candidates, fitRecipe, isMeatFree, recipeView, resolveRecipe, type IngredientSpec, type Recipe } from "../lib/mm/recipes";
+import { candidates, fitRecipe, isMeatFree, pieceWeight, recipeView, resolveRecipe, type IngredientSpec, type Recipe } from "../lib/mm/recipes";
 import { decodeShopProducts, productKey, recipeShopSet, recipeShopsFrom, tagShopProducts, type PricedProduct, type ShopManifest, type ShopNutrition, type ShopProduct } from "../lib/mm/shopProducts";
 
 // Founder 2026-11-17 (evening): a recipe is made for ONE shop ("every single recipe is tailored for a specific store ... we don't mix them"): recipeShopSet is a list
@@ -166,5 +166,14 @@ describe("every shop a recipe page can load, its own first", () => {
     expect(recipeShopsFrom(m, "asda")).toEqual(["sainsburys", "tesco"]); // not ready: left out, the recipe's shop isn't forced in
     expect(recipeShopsFrom(m, null)).toEqual(["sainsburys", "tesco"]);
     expect(recipeShopsFrom(null, "tesco")).toEqual([]);
+  });
+});
+
+describe("pieces written as 24s or 12's", () => {
+  it("gives the weight of one piece for a pack count written that way, and nothing without a weight", () => {
+    expect(pieceWeight("Oxo Vegetable Stock Cubes 24s 142g")).toBe(5.9);
+    expect(pieceWeight("Morrisons Vegetable Stock Cubes 12's 120g")).toBe(10);
+    expect(pieceWeight("Knorr Stock Cubes 8 x 10g Vegetable")).toBe(10);
+    expect(pieceWeight("Vegetable Stock Cubes")).toBeNull();
   });
 });

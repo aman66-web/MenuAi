@@ -36,6 +36,7 @@ import { TargetsStep } from "./TargetsStep";
 import { PipTour, TOUR_STOPS, TourRows } from "./Tour";
 import { useTargetFields } from "./useTargetFields";
 import { SignInSheet } from "../_components/SignIn";
+import { useAccountUser } from "../_lib/account";
 import { radioKeyNav, Spinner } from "../_components/ui";
 import { travelBack } from "../_lib/backNav";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
@@ -129,6 +130,7 @@ export default function WelcomePage() {
 
 function Welcome() {
   const router = useRouter();
+  const accountUser = useAccountUser();
   const params = useSearchParams();
   // ?tour=1: just the five stops again (Settings › Help, or the setup card's "Show me around"), "Step n of 5", with Close; nothing is saved.
   const [replay] = useState(() => params.get("tour") === "1");
@@ -652,6 +654,15 @@ function Welcome() {
             </PipSays>
           </div>
           <Plan goal={settings.goal} settings={settings} prefs={settings.preferences} shops={settings.shops ?? []} />
+          {/* founder 2026-11-17: ask for an account once, right after the tour and the questions, and never insist: Continue is the way to skip (rule 4: optional) */}
+          {!accountUser && (
+            <div className="mt-4 rounded-[1.25rem] bg-white p-4 shadow-[0_2px_14px_-6px_rgba(17,24,20,0.22)]">
+              <p className="text-base font-bold leading-snug">{t("Keep your plan on every device")}</p>
+              <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Sign in with Apple, Google or an email code to save your plan, meals and lists and use them on another phone. It's optional: tap Continue to skip.")}</p>
+              <button type="button" onClick={() => setSignInOpen(true)} className="mt-3 inline-flex min-h-11 items-center rounded-full bg-[var(--sun)] px-5 text-[0.9375rem] font-bold text-[var(--on-accent)] transition active:scale-95">{t("Sign in")}</button>
+              <SignInSheet open={signInOpen} onClose={() => setSignInOpen(false)} />
+            </div>
+          )}
           <Bottom>
             <BottomButton onClick={next}>{t("Continue")}</BottomButton>
           </Bottom>

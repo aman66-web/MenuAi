@@ -400,3 +400,15 @@ html[data-creator] main { padding-bottom: 2rem; }
 html[data-keys] .water-slider:focus .water-handle { box-shadow: 0 0 0 2px #fff, 0 0 0 4.5px var(--foreground); }
 html[data-keys] .water-slider:focus .water-tip { opacity: 1; }
 /* ---- end of water bottle ---- */
+
+/* The strip behind the status bar once the page has scrolled (app/app/_lib/statusBar.ts): page-coloured, as tall as the phone's top safe area (0 elsewhere), under every sheet. */
+:root:has(.app-surface)[data-scrolled]::before {
+  content: "";
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  height: env(safe-area-inset-top);
+  background: var(--background);
+  z-index: 45;
+  pointer-events: none;
+}

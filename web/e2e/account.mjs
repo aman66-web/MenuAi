@@ -207,7 +207,9 @@ await step("sign out keeps the data on the phone; deleting the account deletes t
   const sheet = page.getByRole("dialog");
   await sheet.getByText("This can't be undone.").waitFor();
   await sheet.getByRole("button", { name: "Delete my account" }).click();
-  await page.getByText("Your account has been deleted. Your data stays on this device.").waitFor();
+  // founder 2026-11-17: deleting the account takes the person back to the starting (welcome) screen; what is on this phone stays
+  await page.waitForURL(/\/app\/welcome/);
+  await page.getByRole("button", { name: "Get started" }).waitFor();
   expect(server.deleted.includes(uid) && !server.rows.has(uid), "the account and its synced rows are gone from the server");
   await page.goto(BASE + "/app/groceries/list");
   await page.getByText("Bread", { exact: true }).first().waitFor(); // still on this phone, as plain device data

@@ -5,6 +5,7 @@ import { useEffect, useLayoutEffect, useRef, type ButtonHTMLAttributes, type CSS
 import { useT } from "../_lib/i18n";
 import { CloseIcon } from "./icons";
 import "../_lib/inputModality"; // focus rings only after a keyboard is used (no box after a tap)
+import "../_lib/statusBar"; // a page-coloured strip behind the clock once the page has scrolled (iPhone)
 
 const cx = (...c: Array<string | false | null | undefined>) => c.filter(Boolean).join(" ");
 

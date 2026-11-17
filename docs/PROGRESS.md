@@ -2678,6 +2678,23 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     choosing McDonald's: no errors) and the iPhone holds no crash log for Numbite, so it was most likely iOS ending the page's web process for memory (`WebAppView` then reloads it, which looks like a crash).
     Needs the iPhone's own engine (the Simulator, which needs about 8 GB free: the Claude app's background VM still holds the deleted downloads) or the exact steps from the founder.
 
+- 2026-11-17 (afternoon, Mac) — **A run of the founder's smaller asks, all on the iPhone; not pushed after `03e91c12`** (commits `dedec5c2` to the one after this note).
+  - **Reminder sheet:** the Time box could be drawn wider than the sheet on iPhone, so the sheet slid sideways: it may shrink now, and every sheet ignores sideways movement.
+  - **Light-green icons** on every Eat out and Groceries shortcut row and the two "More ways" rows (closed).
+  - **Done puts the keyboard away on iPhone:** the page remembers the last field and also sends the app a new bridge request `keyboard.hide` (`webView.endEditing(true)`; Swift parse test added).
+  - **Compare overview** under the table (no AI; `lib/mm/compareOverview.ts`): Best for price, Best for protein, Best protein for the money, Fewest calories, Lowest sugars, Lowest salt; dishes also Most protein for the calories;
+    ties named; per 100 g never compared with per 100 ml. **Compare traffic lights** (FSA, `trafficLightFor`): Low/Medium/High pills on fat, saturates, sugars and salt for foods per 100 g only, from the
+    guidance's Table 2 (opened and read again today; its Table 3 for drinks has salt high at 0.75 g, not 1.5, which is one reason ml products stay uncoloured: a drink can't be told from a soup).
+  - **Welcome screen:** the logo wall on top, the writing below, no Skip (the way to Home without the tour: Show me around > Skip tour > Look around first). The wall takes the space the text leaves.
+  - **Status bar strip:** once a screen has scrolled 24 px, `<html data-scrolled>` paints a page-coloured strip as tall as the status bar (`app/app/_lib/statusBar.ts`, `globals.css`), so headings no longer slide under the clock.
+  - **Morrisons recipes 88 → 157 of 165** (Sainsbury's still 165): peppers, cucumber and berries have no label at Morrisons (never estimated), so they now have stand-ins (peppers → tomatoes, cucumber → lettuce or tomatoes,
+    berries → bananas; the recipe page says "{shop} doesn't sell {x} that fits, so this uses {y} instead."), and stock cubes are found by "24s 142g"-style counts (`pieceWeight`). The 8 left need turkey breast, gammon, nutmeg or mixed spice.
+  - **Accounts (founder: "Every user is required to sign up ... when an account's deleted, they go back to the starting screen"):** sign-in stays OPTIONAL (CLAUDE.md rule 4; App Review 5.1.1(v) risk of forcing it, explained to the founder).
+    "You're all set!" has a card "Keep your plan on every device" with Sign in (Continue skips it), and deleting an account now takes the person to the welcome screen (the tour counts as unseen; data on the phone is kept).
+  - **New copy (rule 8, logged here; English only):** the Compare overview lines ("Overview", "Best for price", "Best for protein", "Best protein for the money", "Fewest calories", "Lowest sugars", "Lowest salt",
+    "Most protein for the calories", "{n} g protein for £1", "{n} g protein per 100 kcal", "tied", the two notes), the traffic-light sentence under the table, "Keep your plan on every device" and its line.
+  - **Not done / waiting:** "Make it at home" is built but hidden (Premium and the payment key: see the to-do); the McDonald's crash is not reproduced; Pip's pick stays off.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

@@ -1,10 +1,12 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { site } from "@/site.config";
 import { AccountError } from "@/lib/mm/account";
 import { hasNative, nativeCall } from "@/lib/mm/native";
 import { tk } from "@/lib/mm/i18n";
+import { tourStore } from "@/lib/mm/stores";
 import { deleteAccount, signOut, syncEngine, useAccountUser, useSyncState } from "../_lib/account";
 import { communityCacheStore } from "../_lib/communityCache";
 import { useStore } from "../_lib/hooks";
@@ -28,6 +30,7 @@ const noteClass = "mt-3.5 rounded-[0.875rem] bg-soft-strong px-3.5 py-3 text-[0.
 
 export function AccountSection() {
   const t = useT();
+  const router = useRouter();
   const user = useAccountUser();
   const community = useStore(communityCacheStore);
   const { status, lastSyncAt } = useSyncState();
@@ -87,6 +90,10 @@ export function AccountSection() {
       await deleteAccount(appleCode);
       setDeleteOpen(false);
       setMessage(t("Your account has been deleted. Your data stays on this device."));
+      // founder 2026-11-17: "when an account's deleted, they go back to the starting screen of my app": the welcome screen again (the tour counts as unseen); what is on this
+      // device is kept, as the message says
+      tourStore.reset();
+      router.replace("/app/welcome");
     } catch (e) {
       setMessage(e instanceof AccountError && e.offline ? t("You're offline. Connect to the internet and try again.") : t("Something went wrong. Please try again."));
       setDeleteOpen(false);
