@@ -8,7 +8,7 @@ import { hasNative, nativeCall } from "@/lib/mm/native";
 import { tk } from "@/lib/mm/i18n";
 import { APP_PREMIUM, IAP_ENABLED, SIGN_IN_REQUIRED } from "@/lib/mm/config";
 import { manageSubscriptions } from "@/lib/payments/iap";
-import { tourStore } from "@/lib/mm/stores";
+import { tourStore, updateSettings } from "@/lib/mm/stores";
 import { deleteAccount, signOut, syncEngine, useAccountUser, useSyncState } from "../_lib/account";
 import { communityCacheStore } from "../_lib/communityCache";
 import { useStore } from "../_lib/hooks";
@@ -78,6 +78,8 @@ export function AccountSection() {
     try {
       await signOut();
       setMessage(t("Signed out. Your data stays on this device."));
+      // founder 2026-11-17: signing out goes back to the welcome screen too, keeping the account; signing in again from there goes straight to the app
+      router.replace("/app/welcome");
     } finally {
       setBusy(false);
     }
@@ -96,6 +98,8 @@ export function AccountSection() {
       // founder 2026-11-17: "when an account's deleted, they go back to the starting screen of my app": the welcome screen again (the tour counts as unseen); what is on this
       // device is kept, as the message says
       tourStore.reset();
+      // ...and a new account starts the setup from the beginning (the data on the phone stays)
+      updateSettings({ hasCompletedOnboarding: false });
       router.replace("/app/welcome");
     } catch (e) {
       setMessage(e instanceof AccountError && e.offline ? t("You're offline. Connect to the internet and try again.") : t("Something went wrong. Please try again."));

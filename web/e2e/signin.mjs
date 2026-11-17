@@ -118,7 +118,7 @@ await step("from the welcome cover: Get started, sign in, then the tour goes on"
   await ctx.close();
 });
 
-await step("Settings › Account: Delete my account is a full-size button of its own; signing out or deleting the account brings the sign-in screen or the welcome cover back", async () => {
+await step("Settings › Account: Delete my account is a full-size button of its own; signing out goes to the welcome screen and signing in again goes straight to Home; deleting the account goes to the welcome screen and a new account starts the tour", async () => {
   const { ctx, page } = await newPhone({ settings: onboarded });
   await page.goto(BASE + "/app/settings");
   await gate(page).waitFor();
@@ -128,9 +128,16 @@ await step("Settings › Account: Delete my account is a full-size button of its
   await del.scrollIntoViewIfNeeded();
   const box = await del.boundingBox();
   expect(box && box.height >= 44 && box.width >= 280, `the delete button is ${box?.width} x ${box?.height}`);
+  // signing out goes back to the welcome screen, keeping the account; signing in again from there goes straight to the app (no tour)
   await page.getByRole("button", { name: "Sign out" }).click();
+  await page.getByRole("button", { name: "Get started" }).waitFor();
+  expect(new URL(page.url()).pathname.startsWith("/app/welcome"), "signed out onto the welcome screen: " + page.url());
+  await page.getByRole("button", { name: "Get started" }).click();
   await gate(page).waitFor();
   await emailSignIn(page, "del@example.com");
+  await page.waitForURL((u) => /^\/app\/?$/.test(new URL(u).pathname));
+  expect(!(await page.getByRole("heading", { name: "Hi, I'm Pip!" }).count()), "no tour for someone signing back in");
+  await page.goto(BASE + "/app/settings");
   await page.getByRole("heading", { name: "Account" }).waitFor();
   await page.getByRole("button", { name: "Delete my account" }).click();
   const sheet = page.getByRole("dialog");
@@ -144,6 +151,11 @@ await step("Settings › Account: Delete my account is a full-size button of its
   await sheet.getByRole("button", { name: "Delete my account" }).click();
   await page.getByRole("button", { name: "Get started" }).waitFor();
   expect(new URL(page.url()).pathname.startsWith("/app/welcome"), "back on the welcome cover: " + page.url());
+  // a new account after the deletion starts the setup from the beginning
+  await page.getByRole("button", { name: "Get started" }).click();
+  await gate(page).waitFor();
+  await emailSignIn(page, "fresh@example.com");
+  await page.getByRole("heading", { name: "Hi, I'm Pip!" }).waitFor();
   await ctx.close();
 });
 

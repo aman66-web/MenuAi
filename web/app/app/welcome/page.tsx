@@ -348,6 +348,11 @@ function Welcome() {
         onDone={() => {
           if (!signingUp) return;
           setSigningUp(false);
+          // someone who signed out and signs in again (already set up on this phone) goes straight to the app; a new account carries on to the tour
+          if (settingsStore.get().hasCompletedOnboarding) {
+            router.replace(afterOnboarding());
+            return;
+          }
           setIntro(COVER + 1);
           window.scrollTo({ top: 0 });
         }}

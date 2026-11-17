@@ -2785,6 +2785,10 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     account doesn't cancel an App Store subscription. To stop being charged, cancel it in your App Store settings." with **Manage subscription** (Apple's own screen in the iPhone
     app; apps.apple.com/account/subscriptions on the website). New copy (rule 8): that sentence. Checked: `signin.mjs` 6 on a build with `NEXT_PUBLIC_APP_PREMIUM=1`.
     Apple's sign-in revoke on deletion has its three keys in Vercel (APPLE_TEAM_ID, APPLE_KEY_ID, APPLE_PRIVATE_KEY, checked by name); a real deletion has not been tried yet.
+    **Sign out and delete both go back to the welcome screen** (founder: "They have an option to sign out which also goes back to the onboarding screen too but it keeps their
+    account"): Sign out now goes to the welcome screen as Delete already did; signing in again from there goes straight to the app (someone already set up on this phone skips
+    the tour); after a deletion the setup starts again from the beginning for the new account (`hasCompletedOnboarding` is cleared; the data on the phone stays). Checked:
+    `signin.mjs` 6, `account.mjs` 8, `community-friends.mjs` 26.
   - **Legal and store text** (shown according to the switch): privacy page (intro, "Your account and syncing", the shopping-list and Community lines; last updated 17 November 2026),
     terms ("Accounts"), support ("Your data"), the website's front page, docs/STORE.md (App Review note and App Privacy line, drafts), docs/ACCOUNTS_SYNC.md untouched (history).
   - **New copy (rule 8, logged here; English only):** "Create your free account", "Already have one? Sign in the same way as before.", "Your free account keeps your meals, shopping

@@ -195,8 +195,9 @@ await step("sign out keeps the data on the phone; deleting the account deletes t
 
   await page.goto(BASE + "/app/settings");
   await page.getByRole("button", { name: "Sign out" }).click();
-  await page.getByText("Signed out. Your data stays on this device.").waitFor();
-  await page.getByRole("button", { name: "Sign in", exact: true }).waitFor();
+  // founder 2026-11-17: signing out goes back to the welcome screen too, keeping the account
+  await page.waitForURL(/\/app\/welcome/);
+  await page.getByRole("button", { name: "Get started" }).waitFor();
   expect(device.user === null && server.signedOut >= 1, "the server was told");
   await page.goto(BASE + "/app/groceries/list");
   await page.getByText("Bread", { exact: true }).first().waitFor();
