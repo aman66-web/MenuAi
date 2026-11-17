@@ -71,9 +71,12 @@ def main() -> int:
     ap.add_argument("--cache", type=Path, required=True)
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--delay", type=float, default=0.8)
+    ap.add_argument("--codes", type=Path, help="ask only these barcodes (one a line) instead of every list barcode the catalogue lacks: the products recipes "
+                    "could use, data/groceries/nutrition/off-wanted.txt)")
     a = ap.parse_args()
     a.cache.mkdir(parents=True, exist_ok=True)
-    codes = [c for c in wanted() if not (a.cache / f"{c}.json").exists()]
+    asked = [c.strip() for c in a.codes.read_text().split() if bg.gtin_ok(c.strip()) and not bg.restricted_code(c.strip())] if a.codes else wanted()
+    codes = [c for c in asked if not (a.cache / f"{c}.json").exists()]
     if a.limit:
         codes = codes[: a.limit]
     print(f"{len(codes)} barcodes to look up", flush=True)

@@ -362,9 +362,13 @@ export function candidates(products: readonly ShopProduct[], spec: IngredientSpe
   // the label that prints the most figures (so the full nutrition table isn't left blank for a few pence); then the cheapest basket. The band is per shop,
   // so a shop's own products are ordered exactly as they would be on their own.
   const rank = (c: IngredientPick) => c.product.shopRank ?? 0;
+  // At each shop, products with the shop's own label come before those with community numbers for their barcode (founder 2026-11-17), and each group is
+  // ordered on its own, so a shop's own-label picks are exactly what they were before community numbers were added.
+  const community = (c: IngredientPick) => Number(!!c.product.nutrition?.community);
+  const tier = (c: IngredientPick) => rank(c) * 2 + community(c);
   const cheapestAt = new Map<number, number>();
-  for (const c of out) if (c.usedCost !== null && c.product.nutrition) cheapestAt.set(rank(c), Math.min(cheapestAt.get(rank(c)) ?? Infinity, c.basketCost));
-  const inBand = (c: IngredientPick) => !!c.product.nutrition && c.usedCost !== null && c.basketCost <= (cheapestAt.get(rank(c)) ?? Infinity) + 0.5;
+  for (const c of out) if (c.usedCost !== null && c.product.nutrition) cheapestAt.set(tier(c), Math.min(cheapestAt.get(tier(c)) ?? Infinity, c.basketCost));
+  const inBand = (c: IngredientPick) => !!c.product.nutrition && c.usedCost !== null && c.basketCost <= (cheapestAt.get(tier(c)) ?? Infinity) + 0.5;
   const prefer = spec.match.prefer;
   const unpreferred = (c: IngredientPick) => Number(!!prefer && inBand(c) && !prefer.some((w) => has(hay(c.product), w)));
   const gaps = (c: IngredientPick) => {
@@ -375,7 +379,7 @@ export function candidates(products: readonly ShopProduct[], spec: IngredientSpe
   // a product a typical small shop stocks comes before any other usable one, even when a big-store pack is a few pence cheaper (founder 2026-11-17: ingredients
   // a person can buy at a Sainsbury's Local or a Tesco Express; lib/mm/localRange.ts)
   const notLocal = (c: IngredientPick) => Number(!isLocalRange(c.product));
-  return out.sort((a, b) => Number(a.usedCost === null) - Number(b.usedCost === null) || Number(!a.product.nutrition) - Number(!b.product.nutrition) || rank(a) - rank(b) || notLocal(a) - notLocal(b) || Number(!inBand(a)) - Number(!inBand(b)) || unpreferred(a) - unpreferred(b) || gaps(a) - gaps(b) || a.basketCost - b.basketCost || (a.product.unitPrice ?? Infinity) - (b.product.unitPrice ?? Infinity) || a.product.name.localeCompare(b.product.name, "en-GB"));
+  return out.sort((a, b) => Number(a.usedCost === null) - Number(b.usedCost === null) || Number(!a.product.nutrition) - Number(!b.product.nutrition) || rank(a) - rank(b) || community(a) - community(b) || notLocal(a) - notLocal(b) || Number(!inBand(a)) - Number(!inBand(b)) || unpreferred(a) - unpreferred(b) || gaps(a) - gaps(b) || a.basketCost - b.basketCost || (a.product.unitPrice ?? Infinity) - (b.product.unitPrice ?? Infinity) || a.product.name.localeCompare(b.product.name, "en-GB"));
 }
 
 /** Whether this product, from the same shop's list, can stand for the ingredient (the very rules recipes use to pick products). */
@@ -447,6 +451,9 @@ export interface RecipeTotals {
   basket: number;
   /** Ingredients whose label we haven't read: listed and priced, not counted in the nutrition (their labels, in recipe order). */
   notCounted: string[];
+  /** Ingredients counted from community numbers for their product's barcode, not the shop's own label (ShopNutrition.community; their labels, in recipe
+   *  order): the recipe page names them (founder 2026-11-17: recipes for every supermarket in the app). */
+  community: string[];
 }
 
 /** Plain arithmetic on the labels: per-100 figure × amount / 100, summed, divided by servings. Only for a complete recipe. `have` = pantry kinds the
@@ -456,6 +463,7 @@ export interface RecipeTotals {
 export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new Set()): RecipeTotals | null {
   if (!r.complete) return null;
   const notCounted: string[] = [];
+  const community: string[] = [];
   const sum = { kcal: 0, protein: 0, carbs: 0, fat: 0 };
   const more: Record<"kj" | "saturates" | "sugars" | "fibre" | "salt", number | null> = { kj: 0, saturates: 0, sugars: 0, fibre: 0, salt: 0 };
   let used = 0;
@@ -469,6 +477,7 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
     if (!r.basis && kept(p)) basket += p.basketCost;
     const n = p.product.nutrition;
     if (!n) { notCounted.push(p.spec.label); continue; }
+    if (n.community && !community.includes(p.spec.label)) community.push(p.spec.label);
     const f = p.spec.amount / 100;
     sum.kcal += n.kcal * f;
     sum.protein += n.protein * f;
@@ -488,6 +497,7 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
     costPerServing: usedKnown ? Math.round((used / s) * 100) / 100 : null,
     basket: Math.round(basket * 100) / 100,
     notCounted,
+    community,
   };
 }
 

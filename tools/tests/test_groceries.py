@@ -1174,3 +1174,53 @@ class MsFoodRangeTests(unittest.TestCase):
                     bap.main(["--only", "co-op"])
                 (out / "all-manifest.json").unlink()
                 self.assertEqual(bap.main(["--only", "lidl"]), 1)
+
+
+class CommunityNutritionTests(unittest.TestCase):
+    """build_all_products.catalogue_nutrition / fill_community_nutrition (founder 2026-11-17: recipes for every supermarket, with community numbers
+    for a product's exact barcode where we haven't read the shop's own label, marked "off")."""
+
+    def _catalogue(self, d: Path, products: list) -> Path:
+        base = d / "groceries"
+        base.mkdir()
+        (base / "asda.json").write_text(json.dumps({"products": products}))
+        return base
+
+    def test_exact_barcode_only_and_marked(self):
+        with tempfile.TemporaryDirectory() as t:
+            d = Path(t)
+            base = self._catalogue(d, [
+                {"gtin": "05000232844231", "per": "g", "kcal": 100, "protein": 7, "carbs": 13, "fat": 0.5, "salt": 0.02, "kj": 420},
+                {"gtin": "2012345678909", "per": "g", "kcal": 100, "protein": 7, "carbs": 13, "fat": 0.5},   # shop-internal number: never used
+                {"gtin": "5012345678900", "per": "g", "kcal": 900, "protein": 50, "carbs": 50, "fat": 50},   # implausible: never used
+            ])
+            by_code = bap.catalogue_nutrition(base, d / "no-details", d / "no-lookups")
+            self.assertEqual(set(by_code), {"5000232844231"})
+            row, name = by_code["5000232844231"]
+            self.assertIsNone(name)
+            self.assertEqual(row[:4], [100, 7, 13, 0.5])
+            self.assertEqual(row[9:], ["g", "", "off"])
+            own = [["1", "Napolina Red Kidney Beans 400g", 1.0, None, "", None, None, 0, "", "5000232844231", [90, 6, 12, 0.4, None, None, None, None, None, "g", ""]]]
+            empty = [["2", "Napolina Red Kidney Beans 400g", 1.0, None, "", None, None, 0, "", "5000232844231", None],
+                     ["3", "Something Else 400g", 1.0, None, "", None, None, 0, "", "5099999999994", None]]
+            docs = {"asda": {"products": own + empty}}
+            self.assertEqual(bap.fill_community_nutrition(docs, by_code), {"asda": 1})
+            self.assertEqual(docs["asda"]["products"][0][10][:4], [90, 6, 12, 0.4])   # the shop's own label is kept
+            self.assertEqual(docs["asda"]["products"][1][10][-1], "off")
+            self.assertIsNone(docs["asda"]["products"][2][10])
+
+    def test_looked_up_record_needs_a_shared_word(self):
+        with tempfile.TemporaryDirectory() as t:
+            d = Path(t)
+            base = self._catalogue(d, [])
+            looked = d / "raw-off"
+            looked.mkdir()
+            rec = {"code": "5010024103644", "product_name": "Ground Black Pepper", "quantity": "25 g",
+                   "nutriments": {"energy-kcal_100g": 296, "proteins_100g": 10.4, "carbohydrates_100g": 38.7, "fat_100g": 3.3}}
+            (looked / "5010024103644.json").write_text(json.dumps({"status": 1, "product": rec}))
+            by_code = bap.catalogue_nutrition(base, d / "no-details", looked)
+            self.assertEqual(by_code["5010024103644"][1], "Ground Black Pepper")
+            agree = {"asda": {"products": [["1", "Saxa Ground Black Pepper 25g", 1.0, None, "", None, None, 0, "", "5010024103644", None]]}}
+            differ = {"asda": {"products": [["1", "Saxa Table Salt 750g", 1.0, None, "", None, None, 0, "", "5010024103644", None]]}}
+            self.assertEqual(bap.fill_community_nutrition(agree, by_code), {"asda": 1})
+            self.assertEqual(bap.fill_community_nutrition(differ, by_code), {"asda": 0})

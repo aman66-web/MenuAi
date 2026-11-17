@@ -19,6 +19,8 @@ Output per shop (compact, one array per product so 17,000 products stay about 3 
 range (tools/groceries/mns_food_listing.py: M&S's aisle pages list no price for it); the app says "Price in store".
 `nutrition` is [kcal, protein, carbs, fat, saturates|null, sugars|null, fibre|null, salt|null, kJ|null, "g"|"ml", state] per 100 g/ml, state "" or the word the page's own heading adds ("grilled", "cooked bacon", "prepared"), copied from the product's own page by
 tools/groceries/t2_sainsburys.py (data/groceries/nutrition/<shop>.csv); a "<0.5" row counts as 0 (docs/DATA.md); null when that page has not been read.
+Where the page hasn't been read but the row's barcode is in the barcode catalogue, it is those COMMUNITY numbers (Open Food Facts contributors) with a 12th
+element "off" (catalogue_nutrition), so the app names their source; the manifest's `community` counts them.
 `id` is the shop's own product id (Sainsbury's: its page slug, so the page is pageBase + id). `photoId` is the shop's own picture id: for Sainsbury's the number
 in photoBase + id + "/image.jpg"; a shop with "photoTemplate" has it put in place of "{photo}". Shops whose page address isn't pageBase + id carry it as a 12th
 element (the path after pageBase, from the shop's own sitemap: tools/groceries/shop_pages.py); "pageSearch": true means pageBase + the product's name is the
@@ -44,7 +46,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build_groceries import is_alcohol, name_key, norm_code  # noqa: E402  (shared with the barcode catalogue)
+from build_groceries import implausible, is_alcohol, name_key, norm_code, restricted_code  # noqa: E402  (shared with the barcode catalogue)
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "web" / "public" / "groceries" / "all"
@@ -423,6 +425,79 @@ def catalogue_photos(base: Path | None = None) -> dict[str, tuple[str, str]]:
     return out
 
 
+def catalogue_nutrition(base: Path | None = None, details: Path | None = None, looked_up: Path | None = None) -> dict[str, tuple[list, str | None]]:
+    """Barcode -> the barcode catalogue's per-100 g or ml numbers (web/public/groceries/<shop>.json: Open Food Facts contributors, community data, already
+    through the catalogue's checks), as a nutrition row ending "off" so every screen can say where they come from (founder 2026-11-17: recipes for every
+    supermarket in the app, with community numbers where we haven't read the shop's own label). Shop-internal numbers (restricted_code) are never used,
+    nor the few records whose numbers came from Tesco's own product pages (data/groceries/details: they aren't community data).
+    Also the records looked up by exact barcode for products recipes could use (tools/groceries/fetch_off_codes.py --codes, saved in
+    data/groceries/nutrition/raw-off/<barcode>.json), through the catalogue's own checks (build_groceries.convert); for those the record's name comes back
+    too, and fill_community_nutrition uses one only when it shares a word with the shop's own name for the product."""
+    base = base or ROOT / "web" / "public" / "groceries"
+    details = details or ROOT / "data" / "groceries" / "details"
+    own: set[str] = set()
+    for path in sorted(details.glob("*.csv")) if details.exists() else []:
+        with open(path, newline="", encoding="utf-8-sig") as f:
+            own |= {norm_code(r.get("gtin") or "") for r in csv.DictReader(f)}
+    out: dict[str, tuple[list, str | None]] = {}
+    for shop in SHOPS:
+        path = base / f"{shop}.json"
+        if not path.exists():
+            continue
+        for c in json.loads(path.read_text()).get("products", []):
+            code = norm_code(c.get("gtin") or "")
+            if not code or code in out or code in own or restricted_code(code) or c.get("per") not in ("g", "ml"):
+                continue
+            main = [c.get(k) for k in ("kcal", "protein", "carbs", "fat")]
+            if not all(isinstance(v, (int, float)) for v in main) or implausible(*main, c.get("kj") if isinstance(c.get("kj"), (int, float)) else None):
+                continue
+            out[code] = (community_row(c), None)
+    looked_up = looked_up or ROOT / "data" / "groceries" / "nutrition" / "raw-off"
+    import build_groceries as bg  # noqa: E402  (the catalogue's own checks for an Open Food Facts record)
+
+    for path in sorted(looked_up.glob("*.json")) if looked_up.exists() else []:
+        try:
+            ans = json.loads(path.read_text())
+        except ValueError:
+            continue
+        rec = bg.convert(ans["product"], {}) if ans.get("status") == 1 and isinstance(ans.get("product"), dict) else None
+        code = norm_code(rec["gtin"]) if rec else ""
+        if rec and code and code not in out and code not in own and not restricted_code(code):
+            out[code] = (community_row(rec), rec["name"])
+    return out
+
+
+def community_row(c: dict) -> list:
+    """A catalogue record's numbers as a list row's nutrition, marked "off" (community data)."""
+    def opt(k):
+        v = c.get(k)
+        return round(v, 2) if isinstance(v, (int, float)) and v >= 0 else None
+
+    return [round(c["kcal"], 1), round(c["protein"], 1), round(c["carbs"], 1), round(c["fat"], 1), opt("saturates"), opt("sugars"), opt("fibre"), opt("salt"),
+            opt("kj"), c["per"], "", "off"]
+
+
+def fill_community_nutrition(docs: dict[str, dict], by_code: dict[str, tuple[list, str | None]]) -> dict[str, int]:
+    """A row with no numbers from its own page takes the community numbers of exactly its barcode (catalogue_nutrition); a record looked up by barcode
+    only when its name shares a word with the shop's own name (build_groceries.names_agree), as for the catalogue. Returns how many per shop."""
+    from build_groceries import names_agree  # noqa: E402
+
+    counts: dict[str, int] = {}
+    for shop, doc in docs.items():
+        n = 0
+        for r in doc["products"]:
+            code = norm_code(r[9]) if r[9] else ""
+            if r[10] is not None or not code or restricted_code(code) or code not in by_code:
+                continue
+            row, their_name = by_code[code]
+            if their_name is not None and names_agree(r[1], their_name) is not True:
+                continue
+            r[10] = list(row)
+            n += 1
+        counts[shop] = n
+    return counts
+
+
 def word_set(key: str) -> str:
     """The same words in any order ("hovis soft medium sliced white bread 800g" = "hovis soft white medium sliced bread 800g"): for photos only."""
     return "words:" + " ".join(sorted(set(key.split())))
@@ -505,6 +580,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"{a.only}: no listing to build from")
         return 1
     filled = fill_photos(docs, catalogue_photos(), read_off_images())
+    community = fill_community_nutrition(docs, catalogue_nutrition())
     if not a.only:
         print(f"rows still without any photo whose barcode Open Food Facts may have: {write_wanted_off(docs)} (data/groceries/wanted-images/off.csv)")
     for shop, doc in docs.items():
@@ -515,9 +591,10 @@ def main(argv: list[str] | None = None) -> int:
         text = json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n"
         (OUT / f"{shop}.json").write_text(text)
         with_nutrition = sum(1 for p in doc["products"] if p[10])
+        with_community = sum(1 for p in doc["products"] if p[10] and len(p[10]) > 11 and p[10][11] == "off")
         priced = sum(1 for p in doc["products"] if p[2] is not None)
         entry = {"id": shop, "name": doc["name"], "file": f"{shop}.json", "count": len(doc["products"]), "checkedOn": doc["checkedOn"],
-                 "nutrition": with_nutrition, "priced": priced, "sha256": hashlib.sha256(text.encode()).hexdigest()}
+                 "nutrition": with_nutrition, **({"community": with_community} if with_community else {}), "priced": priced, "sha256": hashlib.sha256(text.encode()).hexdigest()}
         if a.only:  # replace this shop's entry where it stands (or add it at the end), leave every other entry as it is
             at = next((i for i, r in enumerate(manifest["retailers"]) if r.get("id") == shop), None)
             if at is None:
@@ -527,7 +604,7 @@ def main(argv: list[str] | None = None) -> int:
         else:
             manifest["retailers"].append(entry)
         print(f"{shop}: {len(doc['products'])} products ({priced} with a price), {len(text) / 1e6:.1f} MB, {sum(1 for p in doc['products'] if p[8])} with the shop's photo, "
-              f"{sum(1 for p in doc['products'] if len(p) > 11 and p[11])} with a page address, {sum(1 for p in doc['products'] if p[9])} with a barcode, {with_nutrition} with nutrition, {len(doc['categories'])} categories")
+              f"{sum(1 for p in doc['products'] if len(p) > 11 and p[11])} with a page address, {sum(1 for p in doc['products'] if p[9])} with a barcode, {with_nutrition} with nutrition ({community.get(shop, 0)} of them community numbers by barcode), {len(doc['categories'])} categories")
     manifest_path.write_text(json.dumps(manifest, indent=1) + "\n")
     for p in problems[:20]:
         print("problem:", p)

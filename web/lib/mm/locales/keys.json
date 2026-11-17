@@ -3042,6 +3042,8 @@
  "The map shows the nearest {n} branches; narrow the distance or type to see the rest.",
  "The most-requested chains get added first.",
  "The name and the note you type show on your lock screen.",
+ "The numbers for {names} come from Open Food Facts contributors (community data) for those products' barcodes, not from the shops' own labels. Check the packs.",
+ "The numbers for {name} come from Open Food Facts contributors (community data) for that product's barcode, not from the shop's own label. Check the pack.",
  "The order builder is part of Pro.",
  "The others don't fit your diet settings, or {chain} doesn't say.",
  "The purchase didn't go through. Please try again.",

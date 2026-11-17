@@ -19,7 +19,8 @@ import { ShopProductRow } from "./ShopProductRow";
 
 // A supermarket's own list (founder 2026-10-09, docs/GROCERIES_PLAN.md; since 2026-10-11 the main Groceries list, opened from "Which shop?"): name, price,
 // price per kg or litre, card price and the shop's own picture, exactly as its category pages print them. The numbers come from the product's own page where
-// we've read it, else from the catalogue's community record for the same barcode (matched exactly, never guessed); the product's page says which.
+// we've read it, else from the community record for the same barcode (matched exactly, never guessed: added when the list is built, ShopNutrition.community,
+// and here from the catalogue for any row the build didn't fill); the product's page says which.
 // Looks follow Home (founder 2026-10-15): the shop's logo beside a compact title, a white pill search box, outlined chips, the aisle and the sort as
 // white fields with their label in small capitals inside, white rows with 20 px corners.
 const PAGE = 60;
@@ -63,10 +64,10 @@ export function ShopListScreen({ shop }: { shop: string }) {
   const deferred = useDeferredValue(query);
   const listed = state.status === "ready" ? state.products : NONE;
   const catalogue = useCatalogueByBarcode(shop);
-  // a product without its own page's numbers shows the catalogue's numbers for the same barcode (a copy: recipes keep using only the shop's own labels)
+  // a product without numbers shows the catalogue's numbers for the same barcode (a copy, marked as community numbers)
   const products = useMemo(() => (catalogue.size === 0 ? listed : listed.map((p) => {
     const c = !p.nutrition && p.gtin ? catalogue.get(noZeros(p.gtin)) : undefined;
-    return c ? { ...p, nutrition: asNutrition(c) } : p;
+    return c ? { ...p, nutrition: { ...asNutrition(c), community: true as const } } : p;
   })), [listed, catalogue]);
   // Diet settings: the shop's own name and category, plus the catalogue's ingredients and allergens where the barcode matches, can leave a product out.
   const unsuited = useMemo(() => (anyFoodDiet(prefs) ? new Set(products.filter((p) => {
@@ -80,6 +81,7 @@ export function ShopListScreen({ shop }: { shop: string }) {
   }, [products, deferred, category, card, nutrition, sort, diet, unsuited]);
   const hasCard = useMemo(() => products.some((p) => p.member), [products]);
   const nutritionCount = useMemo(() => products.reduce((n, p) => n + (p.nutrition ? 1 : 0), 0), [products]);
+  const hasCommunity = useMemo(() => products.some((p) => p.nutrition?.community), [products]);
   const pricedCount = useMemo(() => products.reduce((n, p) => n + (p.price !== null ? 1 : 0), 0), [products]);
   const reset = () => setShown(PAGE);
   const back = <BackLink href="/app/groceries" label={t("Back to groceries")} />;
@@ -149,7 +151,7 @@ export function ShopListScreen({ shop }: { shop: string }) {
 
       <FootNote>
         {t("From {shopPossessive} website, checked {date}.", { shopPossessive: poss(file.name), date: formatDate(file.checkedOn, t) })} {t("Prices and offers vary by store and by loyalty card.")}{" "}
-        {catalogue.size > 0 && t("Where we haven't read a product's own page, its numbers come from Open Food Facts contributors (community data) for the same barcode.")}{" "}
+        {(catalogue.size > 0 || hasCommunity) && t("Where we haven't read a product's own page, its numbers come from Open Food Facts contributors (community data) for the same barcode.")}{" "}
         {t("Not affiliated with {shop}.", { shop: file.name })}
       </FootNote>
     </div>

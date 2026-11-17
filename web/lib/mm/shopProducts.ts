@@ -9,7 +9,7 @@ import { normalizeForSearch } from "./search";
 /** [id, name, price, unitPrice, unit, memberPrice, schemeIndex, categoryIndex, photoId, gtin, nutrition?, page?] where page is the product page's path after
  *  pageBase when it isn't pageBase + id (Aldi, Lidl: from the shop's own sitemap), and nutrition is
  *  [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kJ, "g" | "ml"] per 100 g or ml, copied from the product's own page, or null when that page has not been read. */
-export type ShopNutritionRow = [number, number, number, number, number | null, number | null, number | null, number | null, number | null, "g" | "ml", string?];
+export type ShopNutritionRow = [number, number, number, number, number | null, number | null, number | null, number | null, number | null, "g" | "ml", string?, "off"?];
 export type ShopRow = [string, string, number | null, number | null, string, number | null, number | null, number, string, string, (ShopNutritionRow | null)?, string?, [string, string]?];
 
 import { RECIPE_COVERAGE } from "./recipeCoverage";
@@ -41,7 +41,8 @@ export interface ShopManifest {
   v: 1;
   /** `nutrition`: how many products have numbers read from their own page (recipes need them; absent = none). */
   /** `priced`: how many show a price (absent = all of them; fewer only for Lidl and M&S, whose everyday ranges are listed with no price). */
-  retailers: Array<{ id: string; name: string; file: string; count: number; checkedOn: string; sha256: string; nutrition?: number; priced?: number }>;
+  /** `community`: how many of the `nutrition` products have community numbers for their barcode instead (ShopNutrition.community). */
+  retailers: Array<{ id: string; name: string; file: string; count: number; checkedOn: string; sha256: string; nutrition?: number; community?: number; priced?: number }>;
 }
 
 /** The shops recipes can use: only those with products whose label we have read (recipes work out every figure from the labels). */
@@ -90,6 +91,10 @@ export interface ShopNutrition {
   per: "g" | "ml";
   /** "" when the numbers are for the food as sold; otherwise the word the page's own heading adds ("grilled", "cooked bacon", "prepared"), which the app shows next to them. */
   state: string;
+  /** Set when we haven't read the product's own page and the numbers are Open Food Facts contributors' record for exactly its barcode (community data, from
+   *  the barcode catalogue; tools/groceries/build_all_products.py catalogue_nutrition). Every screen showing them says so (founder 2026-11-17: recipes for
+   *  every supermarket in the app). */
+  community?: true;
 }
 
 export interface ShopProduct {
@@ -164,10 +169,10 @@ export const nutritionBasis = (n: Pick<ShopNutrition, "per" | "state">, t: T = e
 
 function decodeNutrition(n: ShopNutritionRow | null | undefined): ShopNutrition | null {
   if (!Array.isArray(n) || n.length < 10) return null;
-  const [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kj, per, state] = n;
+  const [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kj, per, state, source] = n;
   if (![kcal, protein, carbs, fat].every((v) => typeof v === "number" && Number.isFinite(v)) || (per !== "g" && per !== "ml")) return null;
   const opt = (v: number | null) => (typeof v === "number" ? v : null);
-  return { kcal, protein, carbs, fat, saturates: opt(saturates), sugars: opt(sugars), fibre: opt(fibre), salt: opt(salt), kj: opt(kj), per, state: typeof state === "string" && /^[a-z][a-z ]{0,23}$/.test(state) ? state : "" };
+  return { kcal, protein, carbs, fat, saturates: opt(saturates), sugars: opt(sugars), fibre: opt(fibre), salt: opt(salt), kj: opt(kj), per, state: typeof state === "string" && /^[a-z][a-z ]{0,23}$/.test(state) ? state : "", ...(source === "off" ? { community: true as const } : {}) };
 }
 
 // Where a borrowed photo may come from: the supermarkets' own image servers and Open Food Facts' (https only, checked again here).

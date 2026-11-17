@@ -35,7 +35,7 @@ export function compareFoodFromListed(p: ListedProduct, prefer?: string | null):
   };
 }
 
-/** A product from a shop's full list whose own page we have read (its label's numbers). Null when there are no numbers to compare. */
+/** A product from a shop's full list with numbers: its own page's label, or community numbers for its barcode (said so). Null when there are none. */
 export function compareFoodFromShop(f: ShopFile, p: ShopProduct): CompareItem | null {
   const n = p.nutrition;
   if (!n) return null;
@@ -49,7 +49,7 @@ export function compareFoodFromShop(f: ShopFile, p: ShopProduct): CompareItem | 
     href: `/app/groceries/shop/item?r=${f.retailer}&id=${encodeURIComponent(p.id)}`,
     basis: n.per,
     numbers: { kcal: n.kcal, protein: n.protein, carbs: n.carbs, sugars: n.sugars, fat: n.fat, saturates: n.saturates, fibre: n.fibre, salt: n.salt },
-    source: "label",
+    source: n.community ? "community" : "label",
     addedAt: now(),
     ...(n.state ? { note: n.state } : {}),
     ...(photo ? { photo } : {}),

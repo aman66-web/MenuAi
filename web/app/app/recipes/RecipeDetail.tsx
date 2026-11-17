@@ -371,6 +371,9 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
             {totals.notCounted.length > 0 && (
               <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{totals.notCounted.length === 1 ? t("We haven't read the label for {name} yet, so it isn't counted in these numbers.", { name: t(totals.notCounted[0]!).toLowerCase() }) : t("We haven't read the labels for {names} yet, so they aren't counted in these numbers.", { names: totals.notCounted.map((n) => t(n).toLowerCase()).join(", ") })}</p>
             )}
+            {totals.community.length > 0 && (
+              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{totals.community.length === 1 ? t("The numbers for {name} come from Open Food Facts contributors (community data) for that product's barcode, not from the shop's own label. Check the pack.", { name: t(totals.community[0]!).toLowerCase() }) : t("The numbers for {names} come from Open Food Facts contributors (community data) for those products' barcodes, not from the shops' own labels. Check the packs.", { names: totals.community.map((n) => t(n).toLowerCase()).join(", ") })}</p>
+            )}
             {roundedAmountsMatter(view.resolved, totals) && (
               <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("Eggs, wraps and stock cubes are counted whole and other amounts are rounded, so a serving made from these amounts can differ from the numbers shown.")}</p>
             )}
