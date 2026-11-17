@@ -2443,6 +2443,11 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     "Cheapest protein / The full list, every shop", "Saved orders / As many as you like"), "What Premium adds", "Everything that's free stays free.", "Today", "Day {days}", the two timeline lines,
     "Choose a plan", "First {days} days free", "Start my {days}-day free trial", "{price}, one payment. It doesn't renew.", "{price} {per}. Renews until you cancel.", "{app} Premium".
     e2e/iap.mjs 7 of 7 again (plan choice and arrow keys, the price line following the choice).
+  - **Cheapest protein redesigned** (founder: "it looks all scrambled ... too tight ... you need images"): each pair is two tiles side by side with the shop's own photo of each product,
+    its name, the pence for 10 g of protein and the label line; the cheaper side has a green ring and a "Cheaper" chip on its photo (price only, rule 3); the saving is a lime banner with "100 g of
+    protein costs {a} in one and {b} in the other." under it (replaces the long sentence naming both products); the list rows have a rank circle (top 3 in lime), the shop's photo, the name in two
+    lines and the price as a pill. Data and wording otherwise unchanged. New copy (rule 8): "Cheaper", "100 g of protein costs {a} in one and {b} in the other." e2e protein.mjs 6 of 6 (incl. 360 px,
+    Extra large text, axe).
   - **App Store answer given to the founder:** changes to screens, features, wording or recipes need a new build and App Review (the app carries its own copy of the web app, and rule 2.5.2 forbids
     downloading new features); menu data and prices, the logo takedown list, the server's answers and the promotional text change without one.
 
