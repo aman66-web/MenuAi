@@ -184,6 +184,30 @@ await step("the live camera: the picture shows, the shutter takes a photo, then 
   await ctx.close();
 });
 
+await step("the camera has two options: Scan food (the shutter) and Camera roll at the bottom right, which opens the photo chooser and scans the chosen photo", async () => {
+  const { ctx, page, errors } = await open();
+  await toDescribe(page);
+  await fillDish(page);
+  await page.getByRole("button", { name: "Next", exact: true }).tap();
+  const camera = page.locator("dialog[open]");
+  await camera.waitFor({ timeout: 5000 });
+  await camera.getByText("Scan food", { exact: true }).waitFor();
+  await camera.getByText("Camera roll", { exact: true }).waitFor();
+  const upload = camera.getByRole("button", { name: "Upload a photo from your camera roll" });
+  const box = await upload.boundingBox();
+  const vp = page.viewportSize();
+  expect(box && box.x > vp.width / 2 && box.y > vp.height * 0.7, `the upload button isn't at the bottom right: ${JSON.stringify(box)}`);
+  expect(box.width >= 44 && box.height >= 44, "the upload button is smaller than 44 px");
+  const shutter = await camera.getByRole("button", { name: "Take the photo" }).boundingBox();
+  expect(Math.abs(shutter.x + shutter.width / 2 - vp.width / 2) < 6, "the shutter isn't in the middle");
+  const [chooser] = await Promise.all([page.waitForEvent("filechooser"), upload.tap()]);
+  await chooser.setFiles(photoFile);
+  await page.getByText("Scanning", { exact: true }).first().waitFor({ timeout: 8000 });
+  await heading(page, "Where do you shop?").waitFor({ timeout: 8000 });
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
 await step("a photo picked from the phone is scanned the same way; Next shows the loading screen, then the recipe with titled steps; only the dish, diet and products are sent", async () => {
   const { ctx, page, errors, sent } = await open();
   await pretend(page, sent);

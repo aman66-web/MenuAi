@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { CameraIcon, CloseIcon, GridIcon } from "../../_components/icons";
+import { CameraIcon, CloseIcon, PhotoIcon } from "../../_components/icons";
 import { Pip } from "../../_components/Mascot";
 import { useT } from "../../_lib/i18n";
 
@@ -111,20 +111,27 @@ export function PhotoCamera({ onCapture, onClose, onPickPhoto, onPhonesCamera }:
             <CameraIcon className="h-6 w-6" />{t("Take a photo")}
           </button>
           <button type="button" onClick={onPickPhoto} className="inline-flex min-h-14 w-full max-w-sm items-center justify-center gap-2 rounded-full bg-white/20 px-6 text-lg font-bold transition active:scale-[0.97] hover:bg-white/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-            <GridIcon className="h-6 w-6" />{t("Choose from your photos")}
+            <PhotoIcon className="h-6 w-6" />{t("Choose from your photos")}
           </button>
         </div>
       ) : (
         <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-4 px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
           <p role="status" className="max-w-sm text-center text-base font-semibold leading-snug [text-shadow:0_1px_8px_rgba(0,0,0,0.7)]">{t("Point the camera at your food")}</p>
-          <div className="flex w-full max-w-sm items-center justify-between">
-            <button type="button" onClick={onPickPhoto} aria-label={t("Choose from your photos")} className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white/20 transition active:scale-95 hover:bg-white/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-              <GridIcon className="h-6 w-6" />
-            </button>
-            <button type="button" onClick={shoot} disabled={!ready} aria-label={t("Take the photo")} className="grid h-[4.75rem] w-[4.75rem] place-items-center rounded-full border-4 border-white transition active:scale-95 disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-              <span className="h-14 w-14 rounded-full bg-white" />
-            </button>
-            <span aria-hidden className="h-14 w-14" />
+          {/* two ways in: scan the food with the camera (the shutter), or upload a photo from the camera roll (bottom right) */}
+          <div className="grid w-full max-w-sm grid-cols-3 items-end">
+            <span aria-hidden />
+            <div className="flex flex-col items-center gap-2">
+              <button type="button" onClick={shoot} disabled={!ready} aria-label={t("Take the photo")} className="grid h-[4.75rem] w-[4.75rem] place-items-center rounded-full border-4 border-white transition active:scale-95 disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+                <span className="h-14 w-14 rounded-full bg-white" />
+              </button>
+              <span aria-hidden className="text-[0.8125rem] font-bold leading-none [text-shadow:0_1px_6px_rgba(0,0,0,0.7)]">{t("Scan food")}</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 justify-self-end">
+              <button type="button" onClick={onPickPhoto} aria-label={t("Upload a photo from your camera roll")} className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white/25 transition active:scale-95 hover:bg-white/35 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                <PhotoIcon className="h-6 w-6" />
+              </button>
+              <span aria-hidden className="text-[0.8125rem] font-bold leading-none [text-shadow:0_1px_6px_rgba(0,0,0,0.7)]">{t("Camera roll")}</span>
+            </div>
           </div>
         </div>
       )}

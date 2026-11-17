@@ -54,6 +54,7 @@ export const OatsGlyph = (p: P) => (<svg {...base(p)}><path d={BOWL} /><path d="
 export const RiceBowlGlyph = (p: P) => (<svg {...base(p)}><path d={BOWL} /><path d="M5.5 12c.3-3.1 3-5 6.5-5s6.2 1.9 6.5 5" /><path d="M9 9.6h.01M12 8.6h.01M15 9.6h.01" strokeWidth={2.4} /></svg>);
 export const TrayGlyph = (p: P) => (<svg {...base(p)}><path d="M3.5 10.5h17v5.5a3 3 0 01-3 3h-11a3 3 0 01-3-3z" /><path d="M1.5 11.5h2M20.5 11.5h2" /><path d="M9 3.5c-1 1.4 1 2.4 0 4M13 3.5c-1 1.4 1 2.4 0 4M17 3.5c-1 1.4 1 2.4 0 4" /></svg>);
 export const HeartIcon =({ filled, ...p }: P & { filled?: boolean }) => (<svg {...base(p)} fill={filled ? "currentColor" : "none"}><path d="M12 20s-7.5-4.6-9.2-9.4C1.6 7.2 3.9 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.1 0 5.4 2.7 4.2 6.1C19.5 15.4 12 20 12 20z" /></svg>);
+export const PhotoIcon = (p: P) => (<svg {...base(p)}><rect x="3.5" y="4.5" width="17" height="15" rx="3" /><circle cx="9" cy="10" r="1.6" /><path d="M20.5 15.5l-4.2-4.2a1.5 1.5 0 00-2.1 0L7 18.5" /></svg>);
 export const GridIcon = (p: P) => (<svg {...base(p)}><rect x="4" y="4" width="6.5" height="6.5" rx="2" /><rect x="13.5" y="4" width="6.5" height="6.5" rx="2" /><rect x="4" y="13.5" width="6.5" height="6.5" rx="2" /><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="2" /></svg>);
 export const SproutIcon = (p: P) => (<svg {...base(p)}><path d="M12 21v-9" /><path d="M12 12C12 8 9.5 5.5 5 5.5c0 4.5 2.5 6.5 7 6.5z" /><path d="M12 10c0-3.5 2.2-6 6.5-6 0 4-2.2 6-6.5 6z" /></svg>);
 // A drop of water (our own simple drawing).
