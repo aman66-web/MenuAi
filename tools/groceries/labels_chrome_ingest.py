@@ -127,6 +127,9 @@ def main() -> int:
     rows = []
     for pid, name in want.items():
         rec = reads.get(pid)
+        if rec is not None and rec.get("unreadable"):
+            counts["unreadable in Chrome"] = counts.get("unreadable in Chrome", 0) + 1
+            continue
         if rec is None:
             counts["not read"] = counts.get("not read", 0) + 1
             continue
@@ -134,7 +137,7 @@ def main() -> int:
             counts["blocked page"] = counts.get("blocked page", 0) + 1
             continue
         lw, hw = words(name), words(rec.get("h1", ""))
-        if not lw or len(lw & hw) / len(lw) < 0.75:
+        if not lw or len(lw & hw) / len(lw) < 0.5:  # the id is the product asked for; the shop may have renamed it since the list was read ("Sweet & Earthy Parsnips" -> "British Parsnips")
             counts["title differs"] = counts.get("title differs", 0) + 1
             continue
         t, why = read_table(rec)

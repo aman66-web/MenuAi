@@ -57,9 +57,9 @@
    "file": "morrisons.json",
    "count": 16373,
    "checkedOn": "2026-10-08",
-   "nutrition": 0,
+   "nutrition": 1201,
    "priced": 16373,
-   "sha256": "88561ff0e31079f839fb6e36f41cd019230a86de4ea4b732948d817463974c4f"
+   "sha256": "ae6965460543b935dbd2eba99088ae5a657695ed070b49930888e0c5fc148029"
   },
   {
    "id": "waitrose",
@@ -77,9 +77,9 @@
    "file": "iceland.json",
    "count": 5976,
    "checkedOn": "2026-10-09",
-   "nutrition": 0,
+   "nutrition": 407,
    "priced": 5976,
-   "sha256": "c933a126839f273de1a1c2952def8c5bfcb2d1dfe0a9c9990a4c509097ebabeb"
+   "sha256": "ad3628553ff6b324fb3050e3e785bc11c54b660af2466a6e1131f3140799b814"
   },
   {
    "id": "marks-and-spencer",

@@ -3,6 +3,8 @@
 
     python3 tools/groceries/labels_chrome_next.py <shop> [N]      # prints "id<TAB>url" lines, N (default 70) at most
     python3 tools/groceries/labels_chrome_next.py <shop> --add 'JSON'  # appends one extractor line (validated) to the raw file
+    python3 tools/groceries/labels_chrome_next.py <shop> N --batch TAB  # the next N pages as a browser_batch action list (navigate + extractor each)
+    python3 tools/groceries/labels_chrome_next.py <shop> --add-file F   # appends every extractor line found in file F (one JSON object per line)
 """
 import csv
 import json
@@ -17,6 +19,21 @@ def main() -> int:
     shop = sys.argv[1]
     raw = ROOT / "data" / "groceries" / "nutrition" / f"raw-{shop}" / "chrome.jsonl"
     raw.parent.mkdir(parents=True, exist_ok=True)
+    if len(sys.argv) > 3 and sys.argv[2] == "--add-file":
+        added = 0
+        with open(raw, "a", encoding="utf-8") as out:
+            for line in Path(sys.argv[3]).read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if not line.startswith("{"):
+                    continue
+                rec = json.loads(line)
+                if isinstance(rec, dict) and str(rec.get("id", "")).strip() and "nut" in rec:
+                    out.write(json.dumps(rec, ensure_ascii=False) + "\n")
+                    added += 1
+                    if rec.get("blocked"):
+                        print("BLOCKED PAGE:", rec["id"])
+        print("added", added)
+        return 0
     if len(sys.argv) > 3 and sys.argv[2] == "--add":
         rec = json.loads(sys.argv[3])
         assert isinstance(rec, dict) and str(rec.get("id", "")).strip(), "not an extractor line"
@@ -25,6 +42,12 @@ def main() -> int:
         print("added", rec["id"], "blocked" if rec.get("blocked") else "")
         return 0
     n = int(sys.argv[2]) if len(sys.argv) > 2 else 70
+    tab = int(sys.argv[4]) if len(sys.argv) > 4 and sys.argv[3] == "--batch" else None
+    code = None
+    if tab is not None:
+        js = (Path(__file__).resolve().parent / "labels_chrome.js").read_text(encoding="utf-8")
+        code = js[js.index("(() => {"):].strip()
+    actions = []
     done = set()
     if raw.exists():
         for line in raw.read_text(encoding="utf-8").splitlines():
@@ -36,10 +59,16 @@ def main() -> int:
             key = r["product_id"] if shop != "aldi" else (r["page"] or r["product_id"]).rstrip("/").split("/")[-1]
             if r["product_id"] in done or key in done:
                 continue
-            print(f"{r['product_id']}\t{BASE[shop].format(id=r['product_id'], page=r['page'] or r['product_id'])}")
+            url = BASE[shop].format(id=r["product_id"], page=r["page"] or r["product_id"])
+            if tab is None:
+                print(f"{r['product_id']}\t{url}")
+            else:
+                actions += [{"name": "navigate", "input": {"url": url, "tabId": tab}}, {"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": code}}]
             out += 1
             if out >= n:
                 break
+    if tab is not None:
+        print(json.dumps(actions, ensure_ascii=False))
     return 0
 
 
