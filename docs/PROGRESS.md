@@ -2574,6 +2574,43 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **Off until the founder says:** `NEXT_PUBLIC_COMPARE_PICK=1` (Vercel and the app build). Privacy page paragraph shows only when on.
   - The Compare table also shows each product's or dish's own photo at the top of its column, with its number on the corner.
 
+- 2026-11-17 (early morning, Mac) — **Overnight: more dish photos, menus refreshed from the official sources, an independent review of the night's code, fixes**
+  (founder, before bed: "work hard on everything and make the app the best ... make sure all the features are working ... any restaurants that had updates ... update them too").
+  Everything below is on the Mac's branch `iap` only: **not pushed, not on numbite.com, not in an App Store build.**
+  - **Dish photos: 4,329 → 5,441, on 129 restaurants (was 80).** Helpers went through every restaurant again under rule 2 (the chain's own pages or feeds, robots.txt honoured,
+    no block worked round, exact name or product record). A second agent looked at every new photo on contact sheets: 39 taken out (other companies' packs such as McDonald's
+    Coca-Cola cups and branded waters, printed figures, the wrong dish). Biggest additions: Wagamama 125, McDonald's 119 (from its own Scene7 image account; mcdonalds.com answers 403
+    to scripts, so the page-to-photo link rests on the founder's 9 Oct Chrome read), Grounded Kitchen 73, The Sushi Co 65, Riva Blu 64, Sam's Chicken 50, Creams 50, Deep Blue 40.
+    Small copies for lists (`menu-images/thumbs/`, 4,669 files, 168 px short side, resized only, 24 MB) are now made and committed, so list tiles no longer ask for a missing file first.
+  - **Menu refresh (still running at the time of writing, alphabetical):** each restaurant's official source checked for a newer version; where it changed, the chain's own script re-read
+    it and a second agent re-read 20 random rows plus every added dish against the source (never typed). 68 restaurants A to H refreshed and committed so far (e.g. Caffè Nero, Domino's,
+    Gail's, Dishoom, Five Guys, Frankie & Benny's); Dave's Hot Chicken put back as it was; Butcombe Inns and Coffee#1 put right in their scripts. Photos of 36 dishes that left the
+    menus were taken out. Blocked or needing the founder's own browser: All Bar One, ASK Italian, Browns, Blue Diamond, Daisy Green, Ember Inns (blocked); Afrikana, British Garden
+    Centres, Burger & Lobster, Burger King, Costa, Cooplands (need a file from the founder).
+  - **Independent review of the night's code** (`2f9d3b2b..` = what numbite.com runs): 7 reviewers, each finding checked by two skeptics; 21 confirmed, all fixed in two rounds, each fix
+    checked again by an independent agent:
+    - restaurants that don't mark vegetarian or vegan dishes showed dishes their own data tags pork or beef ("8oz Sirloin", Burger King "The Wagyu", "Pig's Head on Toast") to vegetarians,
+      and "vegan", "gluten free", "oat" or "almond milk" in a name cleared every allergen at once: both fixed and checked against every published menu (meat words such as boneless,
+      chick'n, gyros, Scotch pie, Cornish/traditional pasty; oats count as a gluten cereal); for a vegan, a restaurant's vegetarian tag no longer clears a burger or wings;
+      **Best for you now shows its "can't pick" card wherever the diet or allergies can't be checked** (this reverses the earlier "Best for you follows the same rule" for allergies:
+      at the 98 restaurants with no readable allergen data a person with an allergy gets no ranked picks, only the full menu under the amber note);
+    - recipes: the whole amount was written after "half the …" or "two thirds of the …" (now "(50 g in all)"), oil in a step didn't follow Serves, a pinch got a measured spoon bracket;
+      Add food, My meals, onboarding's first recipe and "What can I cook with this?" used only the first shop;
+    - the website's pages had lost their keyboard focus rings (WCAG 2.4.7); the trial timeline didn't give Apple's 24-hour rule; a synced log entry named "constructor" could break Home;
+    - Pip's pick (still off) could carry a figure in words, and Compare's photos ignored the taken-down list.
+  - **New or changed copy (rule 8, logged here; English only):** "Best for you can't pick for your allergies here, because {chain} doesn't publish allergen details we can read. Its full menu is below."
+    and "... for your diet or allergies here, because {chain} doesn't mark which dishes fit them. ..."; the amber notes now say "whose names, menu sections or labels say meat or fish"
+    (and "meat" / "meat, fish, dairy or eggs"), a vegan variant "{chain} doesn't say which dishes are vegan, so only dishes it marks vegetarian are shown, and of those, dishes whose names,
+    menu sections or labels say meat, fish, dairy or eggs are left out.", and "whose names or menu sections mention {allergens}"; "Recipes can't use {shops} yet: we haven't read enough of their
+    products' labels."; the Swap sheet's "Products at {shop} that fit this recipe: those a small local shop usually sells first, then the cheapest to buy. It uses {amount}." and "Products at your
+    shops that fit this recipe, {shop} first. At each shop, those a small local shop usually sells come first, then the cheapest to buy. It uses {amount}."; method brackets end "in all" after
+    words that use part of an ingredient; the trial timeline's "Your plan starts, unless you cancel at least 24 hours before then in your App Store settings."
+  - **iPhone app checks:** the packed app is 62 MB (photos load from numbite.com); `app-build.mjs` 10 of 10 and the 1.1 purchase test `iap.mjs` 11 of 11 on the packed copy; the app's 24 Swift
+    files type-check against the iPhone SDK with no error. **A full Xcode build is blocked:** Xcode 26.6 now wants its "iOS 26.5" component downloaded (Xcode › Settings › Components,
+    about 8 GB) even to build for a phone, and the Mac has about 12 GB free: founder step below.
+  - **Checked:** 2,082 unit tests, tsc, eslint (0 errors); browser suites on a fresh test build: smoke 24, extra 16, a11y 0 violations, largetext no overflow at 200%, browse 9, recipes 17,
+    diet 7, compare 4, firstvisit 10, truth 14, numbers 12, addfood 15, listadd 8, listphotos 11 (the rest in the morning summary).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -2582,6 +2619,9 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 ## Founder to-do (things Claude can't do)
 
+- [ ] **To build the app for your iPhone again: Xcode › Settings › Components › download "iOS 26.5"** (about 8 GB; Xcode 26.6 refuses to build without it). Free about 10 GB first (Downloads is the big one)
+- [ ] **Fix `ENTITLEMENT_PRIVATE_JWK` in Vercel:** it holds a value starting "sk-ant-" (an Anthropic key, pasted by mistake). Run `node tools/payments/make_entitlement_key.mjs` in Terminal in the repo folder and paste what it puts on the clipboard (it starts `{"kty":"EC"`) in its place; then tell Claude so the public key can be committed
+- [ ] **If you want Pip's pick on Compare:** paste `supabase/migrations/20261117120000_compare_picks.sql` in the Supabase SQL Editor and say "switch on Pip's pick" (`NEXT_PUBLIC_COMPARE_PICK=1`); it works without the table, only without the shared cache
 - [x] **Decide: should logging meals be free?** No, it stays Pro (2026-10-11).
 - [x] ~~Before launch: switch off `ALL_FREE_FOR_TESTING`~~ replaced 2026-10-12: the free launch ships with Pro off (`PRO_ENABLED`); turn Pro on in a later update with payments
 - [ ] **Sign-in and sync (live; real tests still to do): the founder's remaining steps are in docs/ACCOUNTS_SYNC.md "Founder steps" 1, 5 and 6**: check the Google secret, test a real sign-in on the website and the iPhone (the Sign in with Apple capability is already added: `Config/MenuMacros.entitlements`), confirm the App Privacy answers
