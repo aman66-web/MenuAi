@@ -455,6 +455,8 @@ export interface RecipeTotals {
   /** Ingredients counted from community numbers for their product's barcode, not the shop's own label (ShopNutrition.community; their labels, in recipe
    *  order): the recipe page names them (founder 2026-11-17: recipes for every supermarket in the app). */
   community: string[];
+  /** Ingredients counted from the UK government's figures for loose fruit and vegetables that print no label (ShopNutrition.govFood; their labels, in recipe order). */
+  govFood: string[];
 }
 
 /** Plain arithmetic on the labels: per-100 figure × amount / 100, summed, divided by servings. Only for a complete recipe. `have` = pantry kinds the
@@ -465,6 +467,7 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
   if (!r.complete) return null;
   const notCounted: string[] = [];
   const community: string[] = [];
+  const govFood: string[] = [];
   const sum = { kcal: 0, protein: 0, carbs: 0, fat: 0 };
   const more: Record<"kj" | "saturates" | "sugars" | "fibre" | "salt", number | null> = { kj: 0, saturates: 0, sugars: 0, fibre: 0, salt: 0 };
   let used = 0;
@@ -483,6 +486,7 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
       continue;
     }
     if (n.community && !community.includes(p.spec.label)) community.push(p.spec.label);
+    if (n.govFood && !govFood.includes(p.spec.label)) govFood.push(p.spec.label);
     const f = p.spec.amount / 100;
     sum.kcal += n.kcal * f;
     sum.protein += n.protein * f;
@@ -503,6 +507,7 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
     basket: Math.round(basket * 100) / 100,
     notCounted,
     community,
+    govFood,
   };
 }
 

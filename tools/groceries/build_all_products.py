@@ -550,6 +550,30 @@ def fill_same_product_nutrition(docs: dict[str, dict]) -> dict[str, int]:
     return counts
 
 
+def fill_produce_nutrition(docs: dict[str, dict]) -> dict[str, int]:
+    """Loose fresh fruit and vegetables with no label of any kind take the UK government's figures for that food, raw (McCance and Widdowson's Composition of Foods
+    Integrated Dataset 2021, Open Government Licence; tools/groceries/cofid.py; founder 2026-11-17: "you can use the government food data for loose fruits and
+    vegetables. If it doesn't, of course, have it on the website of the supermarket"). Marked "cofid" with the food's own name, so the app says so. Runs last."""
+    import cofid  # noqa: E402
+
+    try:
+        table = cofid.cofid_rows()
+    except (OSError, KeyError, StopIteration):
+        return {}
+    counts: dict[str, int] = {}
+    for shop, doc in docs.items():
+        n = 0
+        for r in doc["products"]:
+            if r[10] is not None:
+                continue
+            code = cofid.produce_code(r[1])
+            if code and code in table:
+                r[10] = list(table[code])
+                n += 1
+        counts[shop] = n
+    return counts
+
+
 def word_set(key: str) -> str:
     """The same words in any order ("hovis soft medium sliced white bread 800g" = "hovis soft white medium sliced bread 800g"): for photos only."""
     return "words:" + " ".join(sorted(set(key.split())))
@@ -634,6 +658,7 @@ def main(argv: list[str] | None = None) -> int:
     filled = fill_photos(docs, catalogue_photos(), read_off_images())
     same = fill_same_product_nutrition(docs)
     community = fill_community_nutrition(docs, catalogue_nutrition())
+    produce = fill_produce_nutrition(docs)
     if not a.only:
         print(f"rows still without any photo whose barcode Open Food Facts may have: {write_wanted_off(docs)} (data/groceries/wanted-images/off.csv)")
     for shop, doc in docs.items():
@@ -658,7 +683,7 @@ def main(argv: list[str] | None = None) -> int:
         else:
             manifest["retailers"].append(entry)
         print(f"{shop}: {len(doc['products'])} products ({priced} with a price), {len(text) / 1e6:.1f} MB, {sum(1 for p in doc['products'] if p[8])} with the shop's photo, "
-              f"{sum(1 for p in doc['products'] if len(p) > 11 and p[11])} with a page address, {sum(1 for p in doc['products'] if p[9])} with a barcode, {with_nutrition} with nutrition ({same.get(shop, 0)} from the same product's page at another shop, {community.get(shop, 0)} community numbers by barcode), {len(doc['categories'])} categories")
+              f"{sum(1 for p in doc['products'] if len(p) > 11 and p[11])} with a page address, {sum(1 for p in doc['products'] if p[9])} with a barcode, {with_nutrition} with nutrition ({same.get(shop, 0)} same product at another shop, {community.get(shop, 0)} community, {produce.get(shop, 0)} government produce data), {len(doc['categories'])} categories")
     manifest_path.write_text(json.dumps(manifest, indent=1) + "\n")
     for p in problems[:20]:
         print("problem:", p)

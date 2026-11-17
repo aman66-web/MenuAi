@@ -51,7 +51,7 @@ export function compareFoodFromShop(f: ShopFile, p: ShopProduct): CompareItem | 
     numbers: { kcal: n.kcal, protein: n.protein, carbs: n.carbs, sugars: n.sugars, fat: n.fat, saturates: n.saturates, fibre: n.fibre, salt: n.salt },
     source: n.community ? "community" : "label",
     addedAt: now(),
-    ...(n.state ? { note: n.state } : {}),
+    ...(n.govFood ? { note: "UK government food data" } : n.state ? { note: n.state } : {}),
     ...(photo ? { photo } : {}),
     ...(p.price !== null ? { price: p.price } : {}),
     ...(p.price !== null && p.unitPrice !== null && p.unit ? { unitPrice: p.unitPrice, unit: p.unit } : {}),

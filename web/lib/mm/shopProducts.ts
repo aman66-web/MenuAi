@@ -9,7 +9,7 @@ import { normalizeForSearch } from "./search";
 /** [id, name, price, unitPrice, unit, memberPrice, schemeIndex, categoryIndex, photoId, gtin, nutrition?, page?] where page is the product page's path after
  *  pageBase when it isn't pageBase + id (Aldi, Lidl: from the shop's own sitemap), and nutrition is
  *  [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kJ, "g" | "ml"] per 100 g or ml, copied from the product's own page, or null when that page has not been read. */
-export type ShopNutritionRow = [number, number, number, number, number | null, number | null, number | null, number | null, number | null, "g" | "ml", string?, string?];
+export type ShopNutritionRow = [number, number, number, number, number | null, number | null, number | null, number | null, number | null, "g" | "ml", string?, string?, string?];
 export type ShopRow = [string, string, number | null, number | null, string, number | null, number | null, number, string, string, (ShopNutritionRow | null)?, string?, [string, string]?];
 
 import { RECIPE_COVERAGE } from "./recipeCoverage";
@@ -99,6 +99,9 @@ export interface ShopNutrition {
    *  never a shop's own brand): that shop's id (tools/groceries/build_all_products.py fill_same_product_nutrition; founder 2026-11-17). A real label, so
    *  recipes treat it like the shop's own; the product page says whose page it is from. */
   sameAs?: string;
+  /** Set for loose fresh fruit and vegetables with no label of any kind: the UK government's figures for that food, raw (McCance and Widdowson's Composition of
+   *  Foods Integrated Dataset 2021; tools/groceries/cofid.py; founder 2026-11-17), and this is the dataset's own name for the food ("Onions, raw"). */
+  govFood?: string;
 }
 
 export interface ShopProduct {
@@ -173,11 +176,12 @@ export const nutritionBasis = (n: Pick<ShopNutrition, "per" | "state">, t: T = e
 
 function decodeNutrition(n: ShopNutritionRow | null | undefined): ShopNutrition | null {
   if (!Array.isArray(n) || n.length < 10) return null;
-  const [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kj, per, state, source] = n;
+  const [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kj, per, state, source, food] = n;
   if (![kcal, protein, carbs, fat].every((v) => typeof v === "number" && Number.isFinite(v)) || (per !== "g" && per !== "ml")) return null;
   const opt = (v: number | null) => (typeof v === "number" ? v : null);
   return { kcal, protein, carbs, fat, saturates: opt(saturates), sugars: opt(sugars), fibre: opt(fibre), salt: opt(salt), kj: opt(kj), per, state: typeof state === "string" && /^[a-z][a-z ]{0,23}$/.test(state) ? state : "",
-    ...(source === "off" ? { community: true as const } : {}), ...(typeof source === "string" && /^same:[a-z][a-z-]{1,30}$/.test(source) ? { sameAs: source.slice(5) } : {}) };
+    ...(source === "off" ? { community: true as const } : {}), ...(typeof source === "string" && /^same:[a-z][a-z-]{1,30}$/.test(source) ? { sameAs: source.slice(5) } : {}),
+    ...(source === "cofid" && typeof food === "string" && food.length > 0 && food.length <= 80 ? { govFood: food } : {}) };
 }
 
 // Where a borrowed photo may come from: the supermarkets' own image servers and Open Food Facts' (https only, checked again here).

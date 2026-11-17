@@ -1267,3 +1267,16 @@ class SameProductNutritionTests(unittest.TestCase):
             "c": {"products": [["c1", "Brand Oats 1kg", 1, None, "", None, None, 0, "", "5012345678900", None]]},
         }
         self.assertEqual(bap.fill_same_product_nutrition(docs)["c"], 0)
+
+
+class ProduceDataTests(unittest.TestCase):
+    """cofid.produce_code (founder 2026-11-17: UK government food data only for loose fruit and vegetables without any label)."""
+
+    def test_plain_produce_only(self):
+        import cofid
+        self.assertEqual(cofid.produce_code("Tesco Organic Bunched Carrots 400G"), "13-496")
+        self.assertEqual(cofid.produce_code("NATURE'S PICK Bananas 5 Each"), "14-318")
+        self.assertEqual(cofid.produce_code("Loose Red Pepper"), "13-524")
+        for not_plain in ["Morrisons Heart Raspberry Swirl Buns 2 Pack", "Tango Orange Original Can 8x330ml", "Tesco Breaded 4 Garlic Chicken Kievs 500g",
+                          "Cirio Pelati Peeled Plum Tomatoes 400g", "Frozen Mixed Peppers", "Banana Chips 200g", "Waitrose Strawberry and Grape 115g"]:
+            self.assertIsNone(cofid.produce_code(not_plain), not_plain)

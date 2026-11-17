@@ -2853,6 +2853,19 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   (the first Tesco round showed cut-off lines; nothing broken was stored), and Aldi prints no label for loose produce (packaged food yes). The full web suite timed out on 17 data-heavy
   tests while the four helpers ran (load average 27); each passed when run alone.
 
+- 2026-11-17 (night, Mac) — **UK government food data for loose fruit and vegetables** (founder: "you can use the government food data for loose fruits and vegetables. If it doesn't,
+  of course, have it on the website of the supermarket"). McCance and Widdowson's Composition of Foods Integrated Dataset 2021 (GOV.UK, Open Government Licence v3.0), saved unchanged
+  as `data/groceries/cofid/CoFID_2021.xlsx` (4.6 MB) and read without a spreadsheet library (`tools/groceries/cofid.py`). UK law doesn't require a nutrition label on loose single-ingredient
+  produce, which is why Aldi's and others' produce pages print none. Only a product with **no label of any kind** (its own page, the same product at another shop, community numbers)
+  whose name is the fruit or vegetable itself and nothing else (shop, origin, size and pack words allowed: `PLAIN_WORDS`; a first version matched any name mentioning a fruit, such as
+  raspberry buns and garlic kievs, and was fixed before committing) takes the raw entry for that food (48 foods, e.g. "Onions, raw", "Bananas, flesh only"); "Tr" counts as 0, "N" stays
+  empty, and salt stays empty (the dataset gives sodium; we never convert). Marked `cofid` with the food's name; the product page and recipes say "the UK government's figures for {food}
+  (McCance and Widdowson's Composition of Foods)" (new copy, rule 8). Now 598 products in all (M&S 127, Waitrose 103, Morrisons 95, Tesco 81, Aldi 60, Lidl 42, Asda 42, Sainsbury's 26,
+  Iceland 22); a random sample of 40 checked by eye: all plain produce. Python test added.
+  **Chrome reading so far:** Asda 110 labels and 88 ingredient lists, Aldi 96 labels (it prints no ingredients), M&S 65 and 29, Tesco 57 and 17 (paused: Tesco began showing error
+  pages after about 60 pages). **Cost:** a helper uses about 3,000 tokens a page (the M&S helper: about 440,000 for 137 pages), so "every product" at the remaining shops (tens of thousands
+  of pages) is not affordable this way; the recipe products first.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
