@@ -2780,6 +2780,11 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     started signs in too). Sign out, the server ending the session, or deleting the account all bring the sign-in screen or the welcome cover back.
   - **Delete my account:** it was a small grey link at the foot of Settings › Account, shown only when signed in; now a full-width button with a bin icon and "Deletes your
     account and everything synced for it." under it. Its sheet now says "To use {app} again, you'll need to create a new account."
+    **Subscriptions (founder: "If someone deletes their account their subscription will cancel and they won't get charged again"):** that can't be done: an App Store
+    subscription is between the person and Apple, and no app can cancel it. So wherever Premium is sold through Apple (`APP_PREMIUM`), the delete sheet now says "Deleting your
+    account doesn't cancel an App Store subscription. To stop being charged, cancel it in your App Store settings." with **Manage subscription** (Apple's own screen in the iPhone
+    app; apps.apple.com/account/subscriptions on the website). New copy (rule 8): that sentence. Checked: `signin.mjs` 6 on a build with `NEXT_PUBLIC_APP_PREMIUM=1`.
+    Apple's sign-in revoke on deletion has its three keys in Vercel (APPLE_TEAM_ID, APPLE_KEY_ID, APPLE_PRIVATE_KEY, checked by name); a real deletion has not been tried yet.
   - **Legal and store text** (shown according to the switch): privacy page (intro, "Your account and syncing", the shopping-list and Community lines; last updated 17 November 2026),
     terms ("Accounts"), support ("Your data"), the website's front page, docs/STORE.md (App Review note and App Privacy line, drafts), docs/ACCOUNTS_SYNC.md untouched (history).
   - **New copy (rule 8, logged here; English only):** "Create your free account", "Already have one? Sign in the same way as before.", "Your free account keeps your meals, shopping

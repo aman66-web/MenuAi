@@ -136,6 +136,11 @@ await step("Settings › Account: Delete my account is a full-size button of its
   const sheet = page.getByRole("dialog");
   const text = await sheet.innerText();
   expect(text.includes("you'll need to create a new account") && !text.includes("without an account"), "the sheet says a new account is needed: " + text.replace(/\n/g, " | "));
+  // a build that sells Premium through Apple (NEXT_PUBLIC_APP_PREMIUM=1 on the website): deleting the account can't cancel an App Store subscription, and the sheet says so
+  if (process.env.NEXT_PUBLIC_APP_PREMIUM === "1") {
+    expect(text.includes("Deleting your account doesn't cancel an App Store subscription"), "the sheet warns about App Store subscriptions");
+    expect((await sheet.getByRole("link", { name: "Manage subscription" }).getAttribute("href")) === "https://apps.apple.com/account/subscriptions", "Manage subscription opens Apple's subscriptions page");
+  }
   await sheet.getByRole("button", { name: "Delete my account" }).click();
   await page.getByRole("button", { name: "Get started" }).waitFor();
   expect(new URL(page.url()).pathname.startsWith("/app/welcome"), "back on the welcome cover: " + page.url());
