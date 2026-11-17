@@ -10,7 +10,7 @@ import { CheckIcon } from "./icons";
 
 // Diet and allergy choices as big, plain buttons (onboarding, Settings and the restaurant page all use this one picker).
 
-const DIETS: ReadonlyArray<{ key: DietKey; label: string }> = [
+export const DIETS: ReadonlyArray<{ key: DietKey; label: string }> = [
   { key: "vegetarianOnly", label: tk("Vegetarian") },
   { key: "veganOnly", label: tk("Vegan") },
   { key: "pescatarianOnly", label: tk("Pescatarian") },

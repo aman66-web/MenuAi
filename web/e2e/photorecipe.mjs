@@ -184,6 +184,40 @@ await step("the live camera: the picture shows, the shutter takes a photo, then 
   await ctx.close();
 });
 
+await step("3. What to exclude: starts from Settings, the choices are sent with the recipe and cut the pantry, and Settings stays as it was", async () => {
+  const { ctx, page, errors, sent } = await open({ preferences: { vegetarianOnly: false, noPork: true, noBeef: false } });
+  await pretend(page, sent, { recipe: { status: 502, body: { error: "no_recipe", message: "Pip couldn't make a recipe from this photo. Please try again, maybe with more detail about the dish." } }, delay: 100 });
+  await toDescribe(page);
+  for (const n of ["1", "2", "3"]) expect((await page.locator("span[aria-hidden]").filter({ hasText: new RegExp(`^${n}$`) }).count()) >= 1, `no number ${n}`);
+  const group = page.getByRole("group", { name: "What to exclude" });
+  await group.waitFor();
+  expect((await group.getByRole("button", { name: "No pork" }).getAttribute("aria-pressed")) === "true", "No pork from Settings isn't ticked");
+  await group.getByRole("button", { name: "Vegan" }).tap();
+  expect((await group.getByRole("button", { name: "Vegan" }).getAttribute("aria-pressed")) === "true", "Vegan didn't tick");
+  const allergies = group.getByRole("button", { name: /Allergies to avoid/ });
+  expect((await allergies.getAttribute("aria-expanded")) === "false", "the allergies are open with none chosen");
+  await allergies.tap();
+  await group.getByRole("button", { name: "Peanuts" }).tap();
+  await group.getByText("1 chosen").waitFor();
+  await group.getByText("check each pack before you buy", { exact: false }).waitFor();
+  await page.getByLabel("Name of the dish").fill("Peanut noodle stir-fry");
+  await page.getByLabel("A short description").fill("Noodles with vegetables in a peanut and soy sauce");
+  await page.getByRole("button", { name: "Next", exact: true }).tap();
+  await page.locator("dialog[open]").waitFor({ timeout: 5000 });
+  await page.locator('input[type="file"]:not([capture])').setInputFiles(photoFile);
+  await heading(page, "Where do you shop?").waitFor({ timeout: 10000 });
+  await page.waitForFunction(() => ![...document.querySelectorAll("button")].find((b) => b.textContent?.trim() === "Next")?.disabled, null, { timeout: 30000 });
+  await page.getByRole("button", { name: "Next", exact: true }).tap();
+  await page.getByText("Pip couldn't make a recipe from this photo.", { exact: false }).waitFor({ timeout: 10000 });
+  const body = sent.recipe[0].body;
+  expect(body.diet.veganOnly === true && body.diet.noPork === true && JSON.stringify(body.diet.avoidAllergens) === '["peanuts"]', "diet sent: " + JSON.stringify(body.diet));
+  expect(!body.pantry.some((p) => ["chicken", "eggs", "cheddar", "milk"].includes(p.key)), "the pantry still has animal foods for a vegan");
+  const kept = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings") ?? "null")?.data?.preferences);
+  expect(!kept.veganOnly && !(kept.avoidAllergens ?? []).length, "the choices changed Settings: " + JSON.stringify(kept));
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
 await step("the camera has two options: Scan food (the shutter) and Camera roll at the bottom right, which opens the photo chooser and scans the chosen photo", async () => {
   const { ctx, page, errors } = await open();
   await toDescribe(page);

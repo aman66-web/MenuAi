@@ -10,7 +10,10 @@ import { MAX_DESCRIPTION, PHOTO_WORKING_LINES, needsMoreDetail, photoRecipeFromA
 import { pantryLines, recipeToSaved } from "@/lib/mm/aiRecipe";
 import { mealSizes, type Recipe } from "@/lib/mm/recipes";
 import { myRecipesStore, paidStore, updateSettings } from "@/lib/mm/stores";
-import { CheckIcon, ChevronLeftIcon, PencilIcon, TacoGlyph } from "../../_components/icons";
+import { CheckIcon, ChevronLeftIcon, ChevronRightIcon } from "../../_components/icons";
+import { AllergenTiles, DIETS, PickTile } from "../../_components/DietPicker";
+import { toggleAllergen, toggleDiet } from "@/lib/mm/menu-view";
+import type { Preferences } from "@/lib/mm/types";
 import { Pip, PipSays } from "../../_components/Mascot";
 import { useGate } from "../../_components/Paywall";
 import { ShopPicker } from "../../_components/ShopPicker";
@@ -40,6 +43,10 @@ const WORKING_STEP_MS = 2200;
 
 const H1 = "mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]";
 const H2 = "text-[1.25rem] font-bold leading-tight tracking-[-0.01em]";
+/** The lime circle with the part's number (1 name, 2 description, 3 what to exclude). */
+const STEP_NUMBER = "app-numbers grid h-11 w-11 shrink-0 place-items-center rounded-full bg-sun text-[1.25rem] font-[800] text-[var(--on-accent)]";
+const PICK_GRID = "grid grid-cols-[repeat(auto-fit,minmax(min(100%,8.5rem),1fr))] gap-2";
+const PICK_LABEL = "text-[0.9375rem] font-semibold leading-snug";
 
 /** The loading screen while Pip works: the person's photo with a light sliding over it, a bar that fills, and the lines that tick off in turn (the last keeps spinning until the recipe is back). */
 function Working({ shopName, finished, photoUrl }: { shopName: string; finished: boolean; photoUrl: string | null }) {
@@ -153,7 +160,10 @@ function PhotoScreen() {
   const shopName = manifest?.retailers.find((r) => r.id === shop)?.name ?? t("your shop");
   const [retry, setRetry] = useState(0);
   const products = useShopProducts(shop, retry);
-  const diet = settings.preferences;
+  // What to exclude (founder 2026-11-17): starts with the diet in Settings; a change here is for this recipe only and is what the pantry, the request and the checks use
+  const [ownDiet, setOwnDiet] = useState<Preferences | null>(null);
+  const diet = ownDiet ?? settings.preferences;
+  const [allergiesOpen, setAllergiesOpen] = useState<boolean | null>(null);
   const dietKey = JSON.stringify(diet);
   const ready = products.status === "ready" ? products : null;
   const pantry = useMemo(() => (ready ? pantryLines(ready.products, JSON.parse(dietKey)) : []), [ready, dietKey]);
@@ -242,6 +252,7 @@ function PhotoScreen() {
         products={ready.products}
         backHref="/app/recipes"
         photo={photo?.url}
+        diet={diet}
         actions={
           <>
             {savedId ? (
@@ -254,7 +265,7 @@ function PhotoScreen() {
                 if (photo) void recipeThumbnail(photo.url).then((thumb) => thumb && keepRecipePhoto(recipe.id, thumb));
               }}>{t("Save this recipe")}</Button>
             )}
-            <Button full variant="secondary" className="min-h-14 text-base" onClick={() => { setRecipe(null); setPhoto(null); setName(""); setAbout(""); setNudged(false); setStep("describe"); }}>{t("Make another")}</Button>
+            <Button full variant="secondary" className="min-h-14 text-base" onClick={() => { setRecipe(null); setPhoto(null); setName(""); setAbout(""); setOwnDiet(null); setAllergiesOpen(null); setNudged(false); setStep("describe"); }}>{t("Make another")}</Button>
           </>
         }
       />
@@ -273,7 +284,7 @@ function PhotoScreen() {
 
           <div className="glass mt-5 rounded-[1.5rem] p-5 shadow-[0_14px_34px_-22px_rgba(17,24,20,0.4)]">
             <div className="flex items-center gap-3">
-              <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)]"><TacoGlyph className="h-6 w-6" /></span>
+              <span aria-hidden className={STEP_NUMBER}>1</span>
               <label htmlFor="dish-name" className="min-w-0 flex-1 text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("Name of the dish")}</label>
             </div>
             <input
@@ -291,7 +302,7 @@ function PhotoScreen() {
             <div className="my-5 h-px bg-[color:var(--line)]" aria-hidden />
 
             <div className="flex items-center gap-3">
-              <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)]"><PencilIcon className="h-5 w-5" /></span>
+              <span aria-hidden className={STEP_NUMBER}>2</span>
               <div className="min-w-0 flex-1">
                 <label htmlFor="dish-about" className="block text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("A short description")}</label>
                 <span className="mt-1.5 inline-block rounded-full bg-sun px-2.5 py-1 text-[0.75rem] font-bold uppercase leading-none tracking-[0.08em] text-[var(--on-accent)]">{t("Recommended for accuracy")}</span>
@@ -307,6 +318,42 @@ function PhotoScreen() {
               placeholder={t("For example: honey-glazed chicken tacos with sweet corn salsa and lime crema")}
             />
             <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("It helps Pip choose the right ingredients, so the recipe matches your dish more closely.")}</p>
+
+            <div className="my-5 h-px bg-[color:var(--line)]" aria-hidden />
+
+            <div role="group" aria-labelledby="exclude-title" aria-describedby="exclude-help">
+              <div className="flex items-center gap-3">
+                <span aria-hidden className={STEP_NUMBER}>3</span>
+                <p id="exclude-title" className="min-w-0 flex-1 text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("What to exclude")}</p>
+              </div>
+              <p id="exclude-help" className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Tick anything you don't eat, and Pip leaves it out. It starts with your diet from Settings; changes here are for this recipe only.")}</p>
+              <div role="group" aria-label={t("Your diet")} className={`mt-3 ${PICK_GRID}`}>
+                {DIETS.map((d) => {
+                  const on = Boolean(diet[d.key]);
+                  return (
+                    <PickTile key={d.key} on={on} aria-pressed={on} onClick={() => setOwnDiet(toggleDiet(diet, d.key))} className={PICK_LABEL}>
+                      {t(d.label)}
+                    </PickTile>
+                  );
+                })}
+              </div>
+              {(() => {
+                const chosen = diet.avoidAllergens ?? [];
+                const open = allergiesOpen ?? chosen.length > 0;
+                return (
+                  <>
+                    <button type="button" aria-expanded={open} aria-controls="exclude-allergies" onClick={() => setAllergiesOpen(!open)} className="mt-3 flex min-h-12 w-full items-center justify-between gap-3 rounded-[1.25rem] bg-[var(--fill)] px-4 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+                      <span className="text-[0.9375rem] font-bold">{t("Allergies to avoid")}{chosen.length > 0 && <span className="ms-2 font-semibold text-muted">{t("{n} chosen", { n: chosen.length })}</span>}</span>
+                      <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-muted transition-transform ${open ? "rotate-90" : "rtl:rotate-180"}`} />
+                    </button>
+                    {open && <div id="exclude-allergies" className="mt-2"><AllergenTiles chosen={chosen} label={t("Allergies to avoid")} onToggle={(k) => setOwnDiet(toggleAllergen(diet, k))} /></div>}
+                  </>
+                );
+              })()}
+              {(diet.vegetarianOnly || diet.veganOnly || diet.pescatarianOnly || diet.halalOnly || (diet.avoidAllergens?.length ?? 0) > 0) && (
+                <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{diet.halalOnly ? t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen or halal labels, so check each pack before you buy.") : t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen labels, so check each pack before you buy.")}</p>
+              )}
+            </div>
           </div>
 
           {photoError && <p role="alert" className="glass mt-3 rounded-[1.25rem] p-4 font-semibold">{t("That photo couldn't be opened. Please try another one.")}</p>}
