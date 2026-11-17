@@ -292,8 +292,10 @@ function PhotoScreen() {
 
             <div className="flex items-center gap-3">
               <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)]"><PencilIcon className="h-5 w-5" /></span>
-              <label htmlFor="dish-about" className="min-w-0 flex-1 text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("A short description")}</label>
-              <span className="shrink-0 rounded-full bg-[var(--fill)] px-2.5 py-1 text-[0.75rem] font-bold uppercase tracking-[0.08em] text-muted">{t("Optional")}</span>
+              <div className="min-w-0 flex-1">
+                <label htmlFor="dish-about" className="block text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("A short description")}</label>
+                <span className="mt-1.5 inline-block rounded-full bg-sun px-2.5 py-1 text-[0.75rem] font-bold uppercase leading-none tracking-[0.08em] text-[var(--on-accent)]">{t("Recommended for accuracy")}</span>
+              </div>
             </div>
             <textarea
               id="dish-about"
@@ -304,7 +306,7 @@ function PhotoScreen() {
               onChange={(e) => setAbout(e.target.value)}
               placeholder={t("For example: honey-glazed chicken tacos with sweet corn salsa and lime crema")}
             />
-            <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Optional, but it helps Pip choose the right ingredients.")}</p>
+            <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("It helps Pip choose the right ingredients, so the recipe matches your dish more closely.")}</p>
           </div>
 
           {photoError && <p role="alert" className="glass mt-3 rounded-[1.25rem] p-4 font-semibold">{t("That photo couldn't be opened. Please try another one.")}</p>}
