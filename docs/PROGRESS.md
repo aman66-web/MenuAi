@@ -2451,6 +2451,12 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **App Store answer given to the founder:** changes to screens, features, wording or recipes need a new build and App Review (the app carries its own copy of the web app, and rule 2.5.2 forbids
     downloading new features); menu data and prices, the logo takedown list, the server's answers and the promotional text change without one.
 
+- 2026-11-17 — **Two small fixes from the founder's screenshots.** (1) "make sure the app doesn't have those boxes": a green focus box showed round sheet titles ("Your supermarkets")
+  and other titles the app focuses itself so screen readers read them out (on an iPhone that focus counts as "visible", and the app-wide `:focus-visible` rule beat the titles'
+  `outline-none`); `globals.css` now never outlines `[tabindex="-1"]` targets, dialogs or the sheet panel (buttons, links and text boxes keep theirs). (2) "instead of writing Sainsbury's,
+  you should have the Sainsbury's logo": a recipe page's header is now "RECIPE ·" and a white pill with the shop's own logo (`ShopMark`) and its name beside it (CLAUDE.md rule 2 keeps the
+  name as plain text next to a logo; rule 2 amended to allow the recipe page's header). No new copy.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

@@ -64,7 +64,7 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    `web/app/app/_components/LogoWall.tsx`) with the line "Not affiliated with any restaurant or shop shown."; a supermarket whose logo
    file we don't hold appears by plain-text name. Never on the website, marketing, store screenshots or the app icon. Founder's decision
    (2026-10-11, "Add all logos for grocery stores too"): each supermarket's own official logo file (and its own square icon) may sit next
-   to its name in the app's grocery screens, the shopping list, the shop picker and the welcome wall, under exactly the same rules as the
+   to its name in the app's grocery screens, the shopping list, the shop picker, the welcome wall and (founder 2026-11-17) a recipe page's header, under exactly the same rules as the
    restaurant logos (from the company's own website or press page, unmodified, `web/public/logos/shops/` + `SOURCES.md`, taken down the
    day its owner asks). Founder's decision (2026-10-12, free App Store launch, "Keep, with safeguards"): a logo (and, since 2026-10-14, that chain's item photos or that shop's product photos) can be taken
    down without an app update by listing its chain id (or `shop:<id>`) in `web/public/logos/hidden.json` and deploying the website; the iPhone
