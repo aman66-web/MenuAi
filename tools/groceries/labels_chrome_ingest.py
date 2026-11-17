@@ -1,0 +1,169 @@
+#!/usr/bin/env python3
+"""Turn the stored reads of tools/groceries/labels_chrome.js into data/groceries/nutrition/<shop>.csv (the same columns and rules as sainsburys.csv).
+
+    python3 tools/groceries/labels_chrome_ingest.py <shop> [--page-base URL]
+
+Reads data/groceries/nutrition/raw-<shop>/chrome.jsonl (one JSON line per product page, as the extractor returned it) and
+data/groceries/recipe-candidates/<shop>.csv (the products asked for). A row is written only when:
+  - the page is the product asked for (its id, and its title naming the same product as the shop's list: most of the list's words appear in it);
+  - the table has a per 100 g or per 100 ml column (its heading says so), copied exactly as printed ("<0.5" kept as printed; nothing computed);
+  - a heading that says the figures are for the food cooked, prepared, drained... puts that word in `state`;
+  - energy, fat, carbohydrate and protein are all printed, kJ and kcal agree within 7%, and build_groceries.implausible() accepts the numbers.
+Everything else is left out and counted in the summary (the product then shows no numbers in the app, never guessed ones).
+"""
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import re
+import sys
+import unicodedata
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import build_groceries as bg  # noqa: E402
+
+PAGE_BASE = {"asda": "https://www.asda.com/groceries/product/", "aldi": "https://www.aldi.co.uk/product/"}
+STATE = re.compile(r"\b(cooked|prepared|drained|grilled|baked|fried|roasted|oven baked|microwaved|as consumed|as served|reconstituted|made up|boiled|steamed|heated)\b", re.I)
+NUM = re.compile(r"(<\s*)?(\d+(?:\.\d+)?)")
+
+
+def words(s: str) -> set[str]:
+    s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower().replace("&", " and ")
+    return set(re.findall(r"[a-z0-9]+", s))
+
+
+def printed(cell: str) -> str | None:
+    """The first number in a cell exactly as printed, with a leading "<" kept ("<0.5"); None when there is none."""
+    m = NUM.search(cell or "")
+    if not m:
+        return None
+    return ("<" if m.group(1) else "") + m.group(2)
+
+
+def energy(cells: list[str], label: str) -> tuple[str | None, str | None]:
+    """(kJ, kcal) from one energy cell ("99kJ/23kcal", "99 kJ 23 kcal") or a labelled row ("Energy (kcal)" -> kcal only)."""
+    text = " ".join(cells)
+    kj = re.search(r"(\d+(?:\.\d+)?)\s*kj", text, re.I)
+    kc = re.search(r"(\d+(?:\.\d+)?)\s*kcal", text, re.I)
+    if not kj and not kc:
+        v = printed(text)
+        if re.search(r"kcal", label, re.I):
+            return None, v
+        if re.search(r"kj", label, re.I):
+            return v, None
+        return None, None
+    return (kj.group(1) if kj else None), (kc.group(1) if kc else None)
+
+
+def read_table(rec: dict) -> tuple[dict | None, str]:
+    rows = rec.get("nut") or []
+    if not rows:
+        return None, "no table"
+    header = rows[0]
+    col, per = None, None
+    for i, h in enumerate(header):
+        m = re.search(r"100\s*(g|ml)\b", h, re.I)
+        if m and not re.search(r"%|\bri\b|reference", h, re.I):
+            col, per = i, m.group(1).lower()
+            break
+    if col is None:
+        m = re.search(r"per\s*100\s*(g|ml)\b", rec.get("above", ""), re.I)
+        if m and len(header) >= 2:
+            col, per = 1, m.group(1).lower()
+    if col is None:
+        return None, "no per-100 column"
+    heading = header[col] + " " + (rec.get("above") or "")
+    st = STATE.search(header[col])
+    state = st.group(1).lower() if st else ""
+    out = {"per": per, "state": state, "kj": None, "kcal": None}
+    keys = [("saturates_g", r"saturate"), ("sugars_g", r"sugar"), ("fat_g", r"^\W*fat"), ("carbs_g", r"carbohydrate"), ("fibre_g", r"fibre|fiber"), ("protein_g", r"protein"), ("salt_g", r"^\W*salt")]
+    last_energy = False
+    for r in rows[1:]:
+        if len(r) <= col:
+            continue
+        label, cell = r[0], r[col]
+        if re.search(r"energy", label, re.I) or (last_energy and not label.strip() and re.search(r"kcal|kj", cell, re.I)):
+            kj, kc = energy([cell], label)
+            out["kj"] = out["kj"] or kj
+            out["kcal"] = out["kcal"] or kc
+            last_energy = True
+            continue
+        last_energy = False
+        for k, pat in keys:
+            if re.search(pat, label, re.I) and out.get(k) is None:
+                out[k] = printed(cell)
+                break
+    return out, ""
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("shop")
+    ap.add_argument("--page-base")
+    a = ap.parse_args()
+    base = a.page_base or PAGE_BASE[a.shop]
+    want, pages = {}, {}
+    with open(ROOT / "data" / "groceries" / "recipe-candidates" / f"{a.shop}.csv", newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            want[r["product_id"]] = r["name"]
+            pages[r["product_id"]] = r.get("page") or r["product_id"]
+    raw = ROOT / "data" / "groceries" / "nutrition" / f"raw-{a.shop}" / "chrome.jsonl"
+    reads: dict[str, dict] = {}
+    with open(raw, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            rec = json.loads(line)
+            rid = str(rec.get("id"))
+            reads[rid] = rec  # the last read of a page wins
+            m = re.search(r"-0*(\d+)$", rid)  # Aldi's page address ends with the zero-padded product id
+            if m:
+                reads[m.group(1)] = rec
+    counts: dict[str, int] = {}
+    rows = []
+    for pid, name in want.items():
+        rec = reads.get(pid)
+        if rec is None:
+            counts["not read"] = counts.get("not read", 0) + 1
+            continue
+        if rec.get("blocked"):
+            counts["blocked page"] = counts.get("blocked page", 0) + 1
+            continue
+        lw, hw = words(name), words(rec.get("h1", ""))
+        if not lw or len(lw & hw) / len(lw) < 0.75:
+            counts["title differs"] = counts.get("title differs", 0) + 1
+            continue
+        t, why = read_table(rec)
+        if t is None:
+            counts[why] = counts.get(why, 0) + 1
+            continue
+        main_ = [bg.printed_num(t.get(k)) for k in ("kcal", "protein_g", "carbs_g", "fat_g")]
+        if None in main_:
+            counts["a main figure missing"] = counts.get("a main figure missing", 0) + 1
+            continue
+        kj = bg.printed_num(t.get("kj"))
+        if kj is not None and main_[0] and abs(kj / (main_[0] * 4.184) - 1) > 0.07:
+            counts["kJ and kcal disagree"] = counts.get("kJ and kcal disagree", 0) + 1
+            continue
+        if bg.implausible(*main_):
+            counts["implausible"] = counts.get("implausible", 0) + 1
+            continue
+        rows.append({"product_id": pid, "per": t["per"], "state": t["state"], "kj": t.get("kj") or "", "kcal": t["kcal"], "fat_g": t["fat_g"], "saturates_g": t.get("saturates_g") or "",
+                     "carbs_g": t["carbs_g"], "sugars_g": t.get("sugars_g") or "", "fibre_g": t.get("fibre_g") or "", "protein_g": t["protein_g"], "salt_g": t.get("salt_g") or "",
+                     "checked_on": rec.get("checked_on", ""), "page_url": base + pages[pid]})
+    out = ROOT / "data" / "groceries" / "nutrition" / f"{a.shop}.csv"
+    cols = ["product_id", "per", "state", "kj", "kcal", "fat_g", "saturates_g", "carbs_g", "sugars_g", "fibre_g", "protein_g", "salt_g", "checked_on", "page_url"]
+    with open(out, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=cols)
+        w.writeheader()
+        w.writerows(sorted(rows, key=lambda r: r["product_id"]))
+    print(f"{a.shop}: {len(rows)} rows written of {len(want)} asked; left out: {counts}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
