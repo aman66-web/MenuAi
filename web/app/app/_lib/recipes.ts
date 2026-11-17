@@ -75,15 +75,16 @@ export interface RecipeCard {
 }
 
 /** Every recipe that suits the diet, fitted to the target when there is one (else as written; snacks always as written). Recipes not complete at this shop are left out. */
-export function useRecipeCards(recipes: readonly Recipe[] | null, products: readonly ShopProduct[] | null, diet: DietPrefs, target: MealTarget | null): { cards: RecipeCard[]; leftOut: number } {
+export function useRecipeCards(recipes: readonly Recipe[] | null, products: readonly ShopProduct[] | null, diet: DietPrefs, target: MealTarget | null): { cards: RecipeCard[]; leftOut: number; incomplete: number } {
   const dietKey = JSON.stringify(diet);
   const targetKey = JSON.stringify(target);
   return useMemo(() => {
-    if (!products) return { cards: [], leftOut: 0 };
+    if (!products) return { cards: [], leftOut: 0, incomplete: 0 };
     const all = recipes ?? RECIPES;
     const d = JSON.parse(dietKey) as DietPrefs;
     const t = JSON.parse(targetKey) as MealTarget | null;
     let leftOut = 0;
+    let incomplete = 0; // recipes the shops can't fill (an ingredient they don't sell with a read label)
     const cards: RecipeCard[] = [];
     for (const base of all) {
       const recipe = recipeForDiet(base, d);
@@ -91,10 +92,10 @@ export function useRecipeCards(recipes: readonly Recipe[] | null, products: read
       // snacks are shown as written: a meal-sized target would double them
       const fitTo = recipe.meal === "snack" ? null : t;
       const totals = fitTo ? fitRecipe(recipe, products, {}, fitTo)?.totals : recipeTotals(resolveRecipe(recipe, products));
-      if (!totals) continue;
+      if (!totals) { incomplete++; continue; }
       cards.push({ recipe, totals, distance: t ? fitDistance(totals.perServing, t) : 0 });
     }
-    return { cards, leftOut };
+    return { cards, leftOut, incomplete };
   }, [recipes, products, dietKey, targetKey]);
 }
 

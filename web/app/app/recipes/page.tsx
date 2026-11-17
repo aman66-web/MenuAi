@@ -180,7 +180,7 @@ function RecipesScreen() {
   const firstList = state.status === "ready" ? state.lists[0] ?? null : null;
   const target = mealTargetFor(settings);
   const diet = settings.preferences;
-  const { cards, leftOut } = useRecipeCards(null, products, diet, target);
+  const { cards, leftOut, incomplete } = useRecipeCards(null, products, diet, target);
   const saved = useStore(myRecipesStore);
   const savedCount = useStore(savedRecipesStore).length + saved.length;
   const shopping = useStore(shoppingStore);
@@ -239,7 +239,7 @@ function RecipesScreen() {
   // none of the person's own shops can make recipes yet, so the recipes come from another shop
   const notMine = chosenShops.length > 0 && !!shop && !shopIds.some((id) => chosenShops.includes(id));
   const otherShopNote = notMine && shopName && unreadShops.length
-    ? t("These recipes use {shop} products for now. We haven't read the nutrition labels of {shops} products yet, so their recipes aren't ready.", { shop: shopName, shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(unreadShops.map((n) => poss(n))) })
+    ? t("These recipes use {shop} products for now. We haven't read enough of {shops} product labels yet, so their recipes aren't ready.", { shop: shopName, shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(unreadShops.map((n) => poss(n))) })
     : "";
   const makerOn = useRecipeMakerEnabled();
   const words = dietWords(t, diet);
@@ -463,6 +463,14 @@ function RecipesScreen() {
               <div className="mt-4"><Button full variant="secondary" className="min-h-12" onClick={() => setLimit((n) => n + PAGE)}>{t("Show more recipes ({n} more)", { n: shown.length - limit })}</Button></div>
             )}
             {leftOut > 0 && <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{leftOut === 1 ? t("1 recipe is left out for your diet.") : t("{n} recipes are left out for your diet.", { n: leftOut })}</p>}
+            {/* founder 2026-11-17: recipes come from the shops the person picks; one they can't fill there isn't shown, and the page says how many */}
+            {incomplete > 0 && shopNames.length > 0 && (
+              <p className="mt-2 px-1 text-[0.9375rem] leading-snug text-muted">
+                {incomplete === 1
+                  ? t("1 more recipe needs something we haven't found at {shops} yet. Tick another shop to see it.", { shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) })
+                  : t("{n} more recipes need something we haven't found at {shops} yet. Tick another shop to see them.", { n: incomplete, shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) })}
+              </p>
+            )}
           </>
         )}
       </section>
