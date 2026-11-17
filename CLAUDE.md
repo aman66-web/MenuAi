@@ -19,7 +19,7 @@ item at popular restaurant chains (free), plus "Best for you" ranked orders and 
 | The iPhone app as shipped first (the web app packed inside it), free launch, logo safeguards | `docs/APP_BUILD.md`; code in `MenuMacros/Features/WebApp/`, `MenuMacros/Services/`, `scripts/build_app_web.sh` |
 | Business context (rarely needed) | `docs/MenuMacros_App_Blueprint.pdf` — where it differs from SPEC, SPEC wins |
 
-Current state of the build (always loaded):
+Current state of the build (always loaded; the full history of decisions is `docs/PROGRESS_LOG.md`, not loaded: search it when a task touches an earlier decision):
 @docs/PROGRESS.md
 
 ## Commands
@@ -94,7 +94,7 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
 6. **No new third-party dependencies** without asking the founder (TelemetryDeck in M9 and MapLibre GL for the web Nearby map, approved 2026-10-06, are pre-approved).
 7. Use the exact user-facing copy from `docs/SPEC.md` §8, §9, §12 when it's given.
 8. Don't change ranking constants, prices, limits or copy without asking; if the spec is unclear or
-   wrong, ask, then log the decision in `docs/PROGRESS.md`.
+   wrong, ask, then log the decision in `docs/PROGRESS_LOG.md`.
 
 ## Code conventions
 
@@ -119,6 +119,6 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
 - After each step: `./scripts/test.sh --unit`. Before saying a milestone is done: `./scripts/test.sh`,
   run the app in the simulator, check the screens you changed (light appearance, large text), and use `/verify`.
 - Ask the `spec-reviewer` agent to compare your work with the spec at the end of each milestone.
-- End every milestone by updating `docs/PROGRESS.md` and proposing a commit message. Don't push.
+- End every milestone by updating `docs/PROGRESS.md` (current state) and `docs/PROGRESS_LOG.md` (the dated entry), and proposing a commit message. Don't push.
 - Things only the founder can do (signing, App Store Connect, capabilities that need an Apple account,
   real data, icons): add them to "Founder to-do" in `docs/PROGRESS.md` and tell them.

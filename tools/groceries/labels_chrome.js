@@ -2,7 +2,7 @@
 // (Asda: Cloudflare; Aldi: Akamai). It only reads what the open page shows: no clicks, no requests, no cookies. Run with javascript_tool on the product page
 // after it has loaded; it returns one JSON line for tools/groceries/labels_chrome_ingest.py. Nothing here works round a block: a bot check or "access denied"
 // page sets blocked=true and the reader must stop.
-(() => {
+((mode, want) => {
   // "&", "?" and "=" are written as words or spaces: the Chrome extension hides any result that looks like web-address data ("Broccoli, Carrots & Sugar Snap Peas")
   const clean = (s) => (s || "").replace(/&/g, " and ").replace(/[?=]/g, " ").replace(/\s+/g, " ").trim();
   const head = clean(document.body ? document.body.innerText.slice(0, 4000) : "");
@@ -35,7 +35,7 @@
     ingredients = clean(el ? el.textContent : "");
     // text that is really the nutrition table (some shops put both under one heading) is not an ingredients list
     if (/energy|kcal|typical values/i.test(ingredients.slice(0, 200))) ingredients = "";
-    ingredients = ingredients.slice(0, 500);
+    ingredients = ingredients.slice(0, 1500);
   }
   // the allergens as the shop marks them (founder 2026-11-17: "also the allergens"): the words it prints in bold inside the ingredients (UK labels emphasise the 14
   // allergens), and the text of its own "Allergy information" / "Allergens" / "May contain" section, as printed (folded sections included); "" / [] when none
@@ -50,6 +50,9 @@
     allergy = clean(el ? el.textContent : "").slice(0, 150);
   }
   const mayContain = (clean(document.body ? document.body.textContent : "").match(/(may contain[^.{]{0,100}\.|not suitable for[^.{]{0,100}\.|made in a (?:factory|site|kitchen)[^.{]{0,100}\.)/gi) || []).slice(0, 1);
-  // the nutrition first and the words last, so that if anything is still cut off it is the end of a sentence, never a figure
-  return JSON.stringify({ id, h1: h1.slice(0, 90), blocked, nut, above: above.trim().slice(0, 120), bold: bold.slice(0, 14), allergy, mayContain, ingredients, checked_on: new Date().toISOString().slice(0, 10) });
-})()
+  // the ingredients come back in a call of their own ("ing"), so a long list is never cut off with the table; every result names the product asked
+  // for ("want") and the site, so it can be copied from the transcript byte for byte
+  const host = location.hostname.replace(/^www\./, "");
+  if (mode === "ing") return JSON.stringify({ want, host, part: "ing", ingredients });
+  return JSON.stringify({ want, host, part: "main", id, h1: h1.slice(0, 90), blocked, nut, above: above.trim().slice(0, 120), bold: bold.slice(0, 14), allergy, mayContain, ingLen: ingredients.length, checked_on: new Date().toISOString().slice(0, 10) });
+})
