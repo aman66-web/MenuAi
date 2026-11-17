@@ -7,6 +7,7 @@
     python3 tools/groceries/labels_chrome_next.py <shop> --add-file F   # appends every extractor line found in file F (one JSON object per line)
     python3 tools/groceries/labels_chrome_next.py <shop> --install         # the line that stores the reader in the open tab (window.name; kept while the tab
                                                                           # stays on that shop's site), to run once with javascript_tool before --short batches
+    python3 tools/groceries/labels_chrome_next.py <shop> N --short TAB [--all]  # --all: every product in the shop's list without its own label, not only recipe ones
     python3 tools/groceries/labels_chrome_next.py <shop> N --short TAB    # the next N pages as navigate + a one-line call of the stored reader (about 200 bytes
                                                                           # a page instead of 2.9 KB); a page where the reader isn't stored answers needInstall
 """
@@ -18,6 +19,20 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 BASE = {"asda": "https://www.asda.com/groceries/product/{id}", "aldi": "https://www.aldi.co.uk/product/{page}",
         "tesco": "https://www.tesco.com/groceries/en-GB/products/{id}", "marks-and-spencer": "https://www.marksandspencer.com/food/{page}"}
+
+
+def all_products(shop: str):
+    """Every product in the shop's published list (web/public/groceries/all/<shop>.json) that has its own product page and no label read from it yet (founder 2026-11-17:
+    "we need nutrients for every single product"), as rows shaped like recipe-candidates (product_id, page). Rows whose only address is the shop's search are skipped."""
+    doc = json.loads((ROOT / "web" / "public" / "groceries" / "all" / f"{shop}.json").read_text(encoding="utf-8"))
+    for row in doc["products"]:
+        nut = row[10] if len(row) > 10 else None
+        if nut and not (len(nut) > 11 and nut[11] == "off"):
+            continue  # the shop's own label is already read
+        page = row[11] if len(row) > 11 and isinstance(row[11], str) else ""
+        if shop in ("aldi", "marks-and-spencer") and not page:
+            continue
+        yield {"product_id": row[0], "page": page}
 
 
 def main() -> int:
@@ -73,8 +88,9 @@ def main() -> int:
             if line.strip():
                 done.add(str(json.loads(line).get("id")))
     out = 0
-    with open(ROOT / "data" / "groceries" / "recipe-candidates" / f"{shop}.csv", newline="", encoding="utf-8") as f:
-        for r in csv.DictReader(f):
+    every = "--all" in sys.argv
+    for r in (all_products(shop) if every else csv.DictReader(open(ROOT / "data" / "groceries" / "recipe-candidates" / f"{shop}.csv", newline="", encoding="utf-8"))):
+        if True:
             key = r["product_id"] if shop != "aldi" else (r["page"] or r["product_id"]).rstrip("/").split("/")[-1]
             if r["product_id"] in done or key in done:
                 continue
