@@ -25,9 +25,19 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import build_groceries as bg  # noqa: E402
 
-PAGE_BASE = {"asda": "https://www.asda.com/groceries/product/", "aldi": "https://www.aldi.co.uk/product/"}
+PAGE_BASE = {"asda": "https://www.asda.com/groceries/product/", "aldi": "https://www.aldi.co.uk/product/",
+             "tesco": "https://www.tesco.com/groceries/en-GB/products/", "marks-and-spencer": "https://www.marksandspencer.com/food/"}
 STATE = re.compile(r"\b(cooked|prepared|drained|grilled|baked|fried|roasted|oven baked|microwaved|as consumed|as served|reconstituted|made up|boiled|steamed|heated)\b", re.I)
 NUM = re.compile(r"(<\s*)?(\d+(?:\.\d+)?)")
+
+
+def same_product(list_name: str, page_title: str) -> bool:
+    """The page is the product the list names: most of the list's words appear in the page's title, or (shops whose titles leave out the brand and the size,
+    like Aldi: "NATURE'S PICK Bananas 5 Each" -> "Bananas") every word of the page's title appears in the list's name."""
+    lw, hw = words(list_name), words(page_title)
+    if not lw or not hw:
+        return False
+    return len(lw & hw) / len(lw) >= 0.5 or (len(hw) >= 1 and hw <= lw)
 
 
 def words(s: str) -> set[str]:
@@ -106,10 +116,16 @@ def main() -> int:
     a = ap.parse_args()
     base = a.page_base or PAGE_BASE[a.shop]
     want, pages = {}, {}
+    # every product in the shop's published list (founder 2026-11-17: nutrition for every product), and the recipe candidates (same ids)
+    listing = ROOT / "web" / "public" / "groceries" / "all" / f"{a.shop}.json"
+    if listing.exists():
+        for row in json.loads(listing.read_text(encoding="utf-8"))["products"]:
+            want[row[0]] = row[1]
+            pages[row[0]] = (row[11] if len(row) > 11 and isinstance(row[11], str) and row[11] else row[0])
     with open(ROOT / "data" / "groceries" / "recipe-candidates" / f"{a.shop}.csv", newline="", encoding="utf-8") as f:
         for r in csv.DictReader(f):
-            want[r["product_id"]] = r["name"]
-            pages[r["product_id"]] = r.get("page") or r["product_id"]
+            want.setdefault(r["product_id"], r["name"])
+            pages.setdefault(r["product_id"], r.get("page") or r["product_id"])
     raw = ROOT / "data" / "groceries" / "nutrition" / f"raw-{a.shop}" / "chrome.jsonl"
     reads: dict[str, dict] = {}
     with open(raw, encoding="utf-8") as f:
@@ -125,8 +141,16 @@ def main() -> int:
                 reads[m.group(1)] = rec
     counts: dict[str, int] = {}
     rows = []
+    facts = []  # the ingredients and allergens as each page printed them (data/groceries/ingredients/<shop>.csv)
     for pid, name in want.items():
         rec = reads.get(pid)
+        if rec is not None and not rec.get("blocked") and (rec.get("ingredients") or rec.get("bold") or rec.get("allergy")):
+            if same_product(name, rec.get("h1", "")):
+                may = [m for m in (rec.get("mayContain") or []) if "{" not in m and len(m) < 240]
+                facts.append({"product_id": pid, "ingredients": rec.get("ingredients", ""), "allergens_bold": "; ".join(rec.get("bold") or []),
+                              "allergy_info": rec.get("allergy", ""), "may_contain": " | ".join(may), "checked_on": rec.get("checked_on", ""), "page_url": base + pages[pid]})
+        if rec is None and pid not in reads:
+            continue  # not read yet (every product in the list is asked for; only the read ones count)
         if rec is not None and rec.get("unreadable"):
             counts["unreadable in Chrome"] = counts.get("unreadable in Chrome", 0) + 1
             continue
@@ -136,8 +160,7 @@ def main() -> int:
         if rec.get("blocked"):
             counts["blocked page"] = counts.get("blocked page", 0) + 1
             continue
-        lw, hw = words(name), words(rec.get("h1", ""))
-        if not lw or len(lw & hw) / len(lw) < 0.5:  # the id is the product asked for; the shop may have renamed it since the list was read ("Sweet & Earthy Parsnips" -> "British Parsnips")
+        if not same_product(name, rec.get("h1", "")):  # the id is the product asked for; the shop may have renamed it since the list was read ("Sweet & Earthy Parsnips" -> "British Parsnips")
             counts["title differs"] = counts.get("title differs", 0) + 1
             continue
         t, why = read_table(rec)
@@ -152,7 +175,7 @@ def main() -> int:
         if kj is not None and main_[0] and abs(kj / (main_[0] * 4.184) - 1) > 0.07:
             counts["kJ and kcal disagree"] = counts.get("kJ and kcal disagree", 0) + 1
             continue
-        if bg.implausible(*main_):
+        if bg.implausible(*main_, None, bg.printed_num(t.get("fibre_g"))):
             counts["implausible"] = counts.get("implausible", 0) + 1
             continue
         rows.append({"product_id": pid, "per": t["per"], "state": t["state"], "kj": t.get("kj") or "", "kcal": t["kcal"], "fat_g": t["fat_g"], "saturates_g": t.get("saturates_g") or "",
@@ -164,7 +187,13 @@ def main() -> int:
         w = csv.DictWriter(f, fieldnames=cols)
         w.writeheader()
         w.writerows(sorted(rows, key=lambda r: r["product_id"]))
-    print(f"{a.shop}: {len(rows)} rows written of {len(want)} asked; left out: {counts}")
+    fdir = ROOT / "data" / "groceries" / "ingredients"
+    fdir.mkdir(parents=True, exist_ok=True)
+    with open(fdir / f"{a.shop}.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=["product_id", "ingredients", "allergens_bold", "allergy_info", "may_contain", "checked_on", "page_url"])
+        w.writeheader()
+        w.writerows(sorted(facts, key=lambda r: r["product_id"]))
+    print(f"{a.shop}: {len(rows)} nutrition rows and {len(facts)} ingredient lists written from {sum(1 for k in want if k in reads)} pages read; left out: {counts}")
     return 0
 
 
