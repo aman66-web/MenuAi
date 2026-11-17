@@ -5,6 +5,10 @@
     python3 tools/groceries/labels_chrome_next.py <shop> --add 'JSON'  # appends one extractor line (validated) to the raw file
     python3 tools/groceries/labels_chrome_next.py <shop> N --batch TAB  # the next N pages as a browser_batch action list (navigate + extractor each)
     python3 tools/groceries/labels_chrome_next.py <shop> --add-file F   # appends every extractor line found in file F (one JSON object per line)
+    python3 tools/groceries/labels_chrome_next.py <shop> --install         # the line that stores the reader in the open tab (window.name; kept while the tab
+                                                                          # stays on that shop's site), to run once with javascript_tool before --short batches
+    python3 tools/groceries/labels_chrome_next.py <shop> N --short TAB    # the next N pages as navigate + a one-line call of the stored reader (about 200 bytes
+                                                                          # a page instead of 2.9 KB); a page where the reader isn't stored answers needInstall
 """
 import csv
 import json
@@ -12,7 +16,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-BASE = {"asda": "https://www.asda.com/groceries/product/{id}", "aldi": "https://www.aldi.co.uk/product/{page}"}
+BASE = {"asda": "https://www.asda.com/groceries/product/{id}", "aldi": "https://www.aldi.co.uk/product/{page}",
+        "tesco": "https://www.tesco.com/groceries/en-GB/products/{id}", "marks-and-spencer": "https://www.marksandspencer.com/food/{page}"}
 
 
 def main() -> int:
@@ -41,12 +46,26 @@ def main() -> int:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
         print("added", rec["id"], "blocked" if rec.get("blocked") else "")
         return 0
+    reader = (Path(__file__).resolve().parent / "labels_chrome.js").read_text(encoding="utf-8")
+    reader = " ".join(line.strip() for line in reader[reader.index("(() => {"):].splitlines() if line.strip() and not line.strip().startswith("//"))
+    if len(sys.argv) > 2 and sys.argv[2] == "--install":
+        print("window.name = " + json.dumps(reader) + "; 'installed'")
+        return 0
     n = int(sys.argv[2]) if len(sys.argv) > 2 else 70
-    tab = int(sys.argv[4]) if len(sys.argv) > 4 and sys.argv[3] == "--batch" else None
+    short = len(sys.argv) > 4 and sys.argv[3] == "--short"
+    tab = int(sys.argv[4]) if len(sys.argv) > 4 and sys.argv[3] in ("--batch", "--short") else None
     code = None
-    if tab is not None:
+    if short:
+        # the site allows inline scripts but not eval: the stored reader runs as a script element and leaves its JSON line on window.__lbl
+        code = ("await new Promise((r) => setTimeout(r, 2500)); if (!window.name.startsWith('(() => {')) JSON.stringify({ id: location.pathname.split('/').filter(Boolean).pop(), needInstall: true }); "
+                "else { const s = document.createElement('script'); s.textContent = 'window.__lbl = ' + window.name; document.head.appendChild(s); s.remove(); window.__lbl }")
+    elif tab is not None:
         js = (Path(__file__).resolve().parent / "labels_chrome.js").read_text(encoding="utf-8")
-        code = js[js.index("(() => {"):].strip()
+        # a moment for the page to draw its folded sections before reading
+        body = js[js.index("(() => {"):]
+        # comments and indentation out (it is sent once per page): the same code, smaller
+        body = " ".join(line.strip() for line in body.splitlines() if line.strip() and not line.strip().startswith("//"))
+        code = "await new Promise((r) => setTimeout(r, 2500)); " + body
     actions = []
     done = set()
     if raw.exists():
