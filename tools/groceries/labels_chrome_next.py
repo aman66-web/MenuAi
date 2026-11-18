@@ -44,7 +44,7 @@ COOP_BOTTLE = _re.compile(r"\b(75cl|70cl|35cl|50cl|37 5cl|20cl|1 litre)\b")
 # groceries only: pet food and household goods are left out first, whatever else the name says
 COOP_NOT_FOOD = _re.compile(r"\b(whiskas|felix|pedigree|dreamies|sheba|cesar|winalot|purina|go cat|cat|cats|dog|dogs|kitten|puppy|washing up|laundry|detergent|"
                             r"toilet|bin bags|bleach|kitchen roll|tissues|nappies|wipes|fabric|dishwasher|shampoo|toothpaste|deodorant|batteries)\b")
-READER = 3  # the reader's version, stored on each page read (3: every "Ingredients" heading tried, 18 November 2026)
+READER = 4  # the reader's version (it sends it as "v"): 3 tried every "Ingredients" heading, 4 skips a box holding the nutrition table too (18 November 2026)
 
 
 def slug(name: str) -> str:
@@ -140,6 +140,8 @@ def done_ids(shop: str) -> set[str]:
         for line in raw.read_text(encoding="utf-8").splitlines():
             if line.strip():
                 r = json.loads(line)
+                # Tesco pages read before reader 4 without ingredients are read once more (earlier readers missed Tesco's list); before 4, "reader" was
+                # stamped by this script whatever the tab ran, so only a page the tab itself said was read by 4 counts
                 if shop == "tesco" and (r.get("reader") or 0) < READER and r.get("nut") and not r.get("ingredients"):
                     continue
                 done.add(str(r.get("id")))
@@ -200,8 +202,8 @@ def harvest(days: float = 4) -> str:
             continue  # its ingredients didn't come back whole: offered again (at most three times)
         if shop == "iceland" and "ice" not in got and tries < 3:
             continue  # Iceland's embedded record didn't come back whole: offered again
-        rec = {k: v for k, v in main.items() if k not in ("part", "want", "host", "ingLen")}
-        rec["pageId"], rec["id"], rec["reader"] = main.get("id"), want, READER
+        rec = {k: v for k, v in main.items() if k not in ("part", "want", "host", "ingLen", "v")}
+        rec["pageId"], rec["id"], rec["reader"] = main.get("id"), want, main.get("v") or 2
         rec["ingredients"] = text
         if (main.get("ingLen") or 0) > len(text):
             rec["ingredientsCut"] = True

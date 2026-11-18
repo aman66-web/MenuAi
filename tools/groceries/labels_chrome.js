@@ -11,7 +11,7 @@
   const h1text = clean(document.querySelector("h1") && document.querySelector("h1").innerText);
   // "Oops" alone is not a block: Morrisons heads a product it no longer sells "Oops"; Tesco's security page says "Oops" and "failed some security checks"
   const blocked = /verify you are human|you have been blocked|pardon our interruption|are you a robot|checking your browser|unusual traffic|access denied|just a moment|something is not right/i.test(h1text + " " + document.title)
-    || (/oops/i.test(h1text + " " + document.title) && /security check|failed some security|something is not right/i.test(head))
+    || (/\boops\b/i.test(h1text + " " + document.title) && /security check|failed some security|something is not right/i.test(head))
     || (!h1text && /captcha|access denied|verify you are human/i.test(head));
   const id = location.pathname.split("/").filter(Boolean).pop() || "";
   const h1 = clean(document.querySelector("h1") && document.querySelector("h1").innerText);
@@ -44,8 +44,11 @@
   for (const el of labels) {
     const n = after(el);
     let t = clean(n ? n.textContent : "").replace(/^ingredients:?\s*/i, "");
-    // text that is really the nutrition table (some shops put both under one heading) is not an ingredients list
-    if (!t || /energy|kcal|typical values/i.test(t.slice(0, 200))) continue;
+    // a box that holds the nutrition table too (Tesco puts the list and the table under one heading, with a smaller "Ingredients" heading inside) is not the list
+    if (!t || /typical values|nutrition(al)? information|\bkcal\b|\d\s*kj\b/i.test(t)) continue;
+    // the list ends where the page's next section starts ("Allergy Advice", "Lifestyle", "Storage" on Waitrose)
+    // (capitalised section headings only, so "Pork (UK origin)" or "pasteurised for storage" inside a list never cut it)
+    t = t.replace(/\s*(Allergy Advice|ALLERGY ADVICE|Allergy Information|ALLERGY INFORMATION|Allergen Information|Lifestyle|Storage|Dietary Information|Preparation and Usage)(?=[A-Z:\s]|$).*$/, "");
     ingredients = t.slice(0, 1600);
     label = el;
     break;
@@ -95,5 +98,5 @@
   if (mode === "ing2") return JSON.stringify({ want, host, part: "ing2", ingredients: ingredients.slice(800, 1600) });
   // Iceland's record comes back in a third call ("ice"), so the main result stays short enough never to be cut off
   if (mode === "ice") return JSON.stringify({ want, host, part: "ice", iceland });
-  return JSON.stringify({ want, host, part: "main", id, h1: h1.slice(0, 90), blocked, nut, above: above.trim().slice(0, 120), bold: bold.slice(0, 14), allergy, mayContain, ingLen: ingredients.length, coop, checked_on: new Date().toISOString().slice(0, 10) });
+  return JSON.stringify({ want, host, part: "main", v: 4, id, h1: h1.slice(0, 90), blocked, nut, above: above.trim().slice(0, 120), bold: bold.slice(0, 14), allergy, mayContain, ingLen: ingredients.length, coop, checked_on: new Date().toISOString().slice(0, 10) });
 })
