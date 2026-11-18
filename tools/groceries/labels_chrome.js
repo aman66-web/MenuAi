@@ -9,7 +9,10 @@
   // a bot check names itself in the page's title or heading ("Pardon Our Interruption", "Sorry, you have been blocked", "Access Denied"); a product page
   // that only mentions "captcha" in its small print is not one
   const h1text = clean(document.querySelector("h1") && document.querySelector("h1").innerText);
-  const blocked = /verify you are human|you have been blocked|pardon our interruption|are you a robot|checking your browser|unusual traffic|access denied|just a moment|oops|something is not right/i.test(h1text + " " + document.title) || (!h1text && /captcha|access denied|verify you are human/i.test(head));
+  // "Oops" alone is not a block: Morrisons heads a product it no longer sells "Oops"; Tesco's security page says "Oops" and "failed some security checks"
+  const blocked = /verify you are human|you have been blocked|pardon our interruption|are you a robot|checking your browser|unusual traffic|access denied|just a moment|something is not right/i.test(h1text + " " + document.title)
+    || (/oops/i.test(h1text + " " + document.title) && /security check|failed some security|something is not right/i.test(head))
+    || (!h1text && /captcha|access denied|verify you are human/i.test(head));
   const id = location.pathname.split("/").filter(Boolean).pop() || "";
   const h1 = clean(document.querySelector("h1") && document.querySelector("h1").innerText);
   // textContent, not innerText: some shops keep the table in a folded "Nutritional Information" section (Aldi), where innerText is empty
