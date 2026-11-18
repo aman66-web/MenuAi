@@ -235,7 +235,8 @@ Constants live in `RankingConfig` (tunable later). **The Python reference
    candidates with protein ≥ 10 g, sorted by calories ↑, protein ↓, name ↑. Banner:
    "You've used today's calories. Lowest-calorie options:". If none qualify (fixture case H):
    "You've used today's calories, and nothing here has 10g+ protein." with no cards.
-4. **Fit:** keep candidates with calories ≤ mealBudget. If none → mode `nothingFits`: the 3
+4. **Fit:** keep candidates with calories ≤ mealBudget, and of those only the ones with at least 100 kcal (`minPickCalories`; founder
+   2026-11-18: an espresso was #1 for building muscle) unless none has 100 kcal, when all that fit are kept. If none fit → mode `nothingFits`: the 3
    lowest-calorie candidates (calories ↑, name ↑), each labelled "Over by N kcal".
 5. **Score:** d = protein ÷ calories × 100.
    - lose, GLP-1: `d + 2.0 × (1 − calories ÷ mealBudget)`

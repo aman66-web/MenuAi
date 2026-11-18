@@ -2968,3 +2968,9 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   four" beside Serves 1 ("A batch-cook classic that keeps well for the week."). **Waiting on the founder (rule 8):** Best for you at McDonald's ranks espressos
   first for building muscle (1 kcal, so protein per 100 kcal is high): a minimum size for a pick changes the ranking and its golden cases. **Note:** the app pack
   keeps leaderboards.json whole; if some supermarkets are left out of the App Store version, its rows for those shops would still show their logos.
+
+- 2026-11-18 (night) — **Best for you skips tiny items** (founder, "Yes, skip them", after the review found McDonald's ranking Americanos and espressos first for building
+  muscle: 1 kcal makes protein per 100 kcal look high). SPEC §6.4 step 4, `RANKING_CONFIG.minPickCalories = 100` (web/lib/mm/ranking.ts) and
+  `MIN_PICK_CALORIES` in the oracle (tools/reference_ranking.py): a ranked pick has at least 100 kcal, unless nothing that big fits the meal (then all that fit are
+  kept). Out-of-budget mode (protein ≥ 10 g, lowest calories) is unchanged. Golden cases regenerated: one case loses its 60 kcal fruit cup. McDonald's, lunch,
+  build muscle now starts Double Quarter Pounder with Cheese, Chicken Selects (5), Double Sausage & Egg McMuffin.
