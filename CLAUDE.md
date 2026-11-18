@@ -39,7 +39,10 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
 
 1. **Never invent or estimate nutrition numbers.** Menu data comes only from the pipeline JSON.
    Missing optional nutrients display "not published". Don't hand-edit files in `Resources/Menus/`;
-   change `data/source/` and rerun the pipeline.
+   change `data/source/` and rerun the pipeline. Founder's decision (2026-11-18, "Yes, build it"): the one exception is **Scan your food**
+   (Premium, `web/lib/mm/foodScan.ts`), where Pip estimates a photographed plate's calories, protein, carbs and fat using real dishes with
+   published figures as its yardstick; the screen always says "Estimate from your photo", the estimate is never shown as a label or stored as one
+   (it is logged as "{name} (estimate)"), and nothing else in the app may show an AI-made number.
 2. **No restaurant brand colours, mascots, or logos/pictures we make ourselves** (no drawn, redrawn, generated or edited
    food images). The chain's name is always plain text. Founder's decision (2026-10-05, nominative use): a chain's **official logo file, unmodified**, may appear small next
    to its name in lists and headers purely to identify the restaurant (`web/lib/mm/logos.ts`, `web/public/logos/`). Never
