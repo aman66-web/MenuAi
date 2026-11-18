@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { BETTER, SHOP_FIT_SLACK, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS } from "../lib/mm/mealPlan";
+import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS } from "../lib/mm/mealPlan";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { isVegan } from "../lib/mm/recipes";
 import { decodeShopProducts } from "../lib/mm/shopProducts";
@@ -198,5 +198,57 @@ describe("the budget slider (founder 2026-11-18: lowest fits the goal, the green
   it("keeps which recipes use better products when the plan is saved", () => {
     const ids = Array.from({ length: PLAN_DAYS }, () => ["a", "b", "c"]);
     expect(sanitizePlan({ shops: ["sainsburys"], ids, start: "2026-11-18", better: ["dinner:beef-chilli", "nope", 3] })?.better).toEqual(["dinner:beef-chilli"]);
+  });
+});
+
+describe("meals and snacks a day (founder 2026-11-18: \"how many meals and how many snacks they want a day ... full personalization\")", () => {
+  const daily = { kcal: 2000, protein: 120 };
+
+  it("sizes each slot from the day's numbers: snacks a tenth, a smaller breakfast and a bigger dinner, the day adding up", () => {
+    const shape = { meals: ["breakfast", "lunch", "dinner"] as const, snacks: 2 };
+    const t = slotTargets({ meals: [...shape.meals], snacks: 2 }, daily);
+    expect(t.snack!.kcal).toBe(200);
+    expect(t.breakfast!.kcal).toBeLessThan(t.lunch!.kcal);
+    expect(t.lunch!.kcal).toBeLessThan(t.dinner!.kcal);
+    const total = t.breakfast!.kcal + t.lunch!.kcal + t.dinner!.kcal + 2 * t.snack!.kcal;
+    expect(Math.abs(total - 2000)).toBeLessThanOrEqual(30);
+    expect(t.dinner!.protein! + t.lunch!.protein! + t.breakfast!.protein! + 2 * t.snack!.protein!).toBeGreaterThan(110);
+    // two meals: each bigger, never past 1,200 kcal; a GLP-1 cap keeps them smaller
+    const two = slotTargets({ meals: ["lunch", "dinner"], snacks: 0 }, daily);
+    expect(two.lunch!.kcal).toBeGreaterThan(t.lunch!.kcal);
+    expect(two.dinner!.kcal).toBeLessThanOrEqual(1200);
+    expect(two.breakfast).toBeUndefined();
+    const capped = slotTargets({ meals: ["lunch", "dinner"], snacks: 1 }, daily, 450);
+    expect(capped.dinner!.kcal).toBe(450);
+  });
+
+  it("puts the slots in order: the meals, then the snacks", () => {
+    expect(planSlots({ meals: ["dinner", "breakfast"], snacks: 2 })).toEqual(["breakfast", "dinner", "snack", "snack"]);
+    expect(planSlots(DEFAULT_SHAPE)).toEqual(["breakfast", "lunch", "dinner"]);
+    expect(shapeOf(["breakfast", "dinner", "snack", "snack"])).toEqual({ meals: ["breakfast", "dinner"], snacks: 2 });
+  });
+
+  it("plans a week of breakfast, dinner and two snacks: the day's two snacks differ, each slot fitted to its own size", () => {
+    const shape = { meals: ["breakfast", "dinner"] as ("breakfast" | "dinner")[], snacks: 2 };
+    const slots = planSlots(shape);
+    const t = slotTargets(shape, daily);
+    const cands = planCandidates(RECIPES, products, none, t, [], "sainsburys");
+    expect(cands.get("lunch")).toBeUndefined();
+    expect(cands.get("snack")!.length).toBeGreaterThan(3);
+    const plan = makePlan(cands, null, slots)!;
+    expect(plan.ids.every((d) => d.length === 4)).toBe(true);
+    for (const d of plan.ids) expect(d[2]).not.toBe(d[3]);
+    for (const day of plan.week.days) {
+      expect(day.meals.map((m) => m.meal)).toEqual(slots);
+      const snack = day.meals[2]!.candidate;
+      expect(Math.abs(snack.perServing.kcal - t.snack!.kcal)).toBeLessThan(t.snack!.kcal * 0.6);
+    }
+    // swapping a snack never offers the day's other snack
+    const choices = swapChoices(plan.ids, 0, 2, cands, 10, slots);
+    expect(choices.some((c) => c.recipe.id === plan.ids[0]![3])).toBe(false);
+    // and the plan is kept with its slots
+    const saved = sanitizePlan({ shops: ["sainsburys"], ids: plan.ids, slots, start: "2026-11-18" })!;
+    expect(saved.slots).toEqual(slots);
+    expect(sanitizePlan({ shops: ["sainsburys"], ids: plan.ids, slots: ["snack", "breakfast", "dinner", "snack"], start: "2026-11-18" })).toBeNull();
   });
 });

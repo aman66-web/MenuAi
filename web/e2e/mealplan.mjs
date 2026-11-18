@@ -35,10 +35,21 @@ await step("Home's third card is the meal plan, the whole width under the two", 
   await page.waitForURL((u) => u.pathname.startsWith("/app/plan"));
 });
 
-await step("Pip asks one thing a screen: numbers, diet, foods, budget, shops (two chosen)", async () => {
-  await page.getByText("Step 1 of 5").waitFor({ timeout: 60000 });
+await step("Pip asks one thing a screen: numbers, meals and snacks, diet, foods, shops (two chosen)", async () => {
+  await page.getByText("Step 1 of 6").waitFor({ timeout: 60000 });
   await page.getByRole("heading", { level: 1, name: "Your daily numbers" }).waitFor();
   expect(await page.evaluate(() => document.activeElement?.tagName === "H1"), "the headline has the focus");
+  await page.getByRole("button", { name: "Continue" }).click();
+  // meals and snacks (founder 2026-11-18: "how many meals and how many snacks they want a day as well")
+  await page.getByRole("heading", { level: 1, name: "Your meals and snacks" }).waitFor();
+  for (const m of ["Breakfast", "Lunch", "Dinner"]) expect((await page.getByRole("button", { name: m, exact: true }).getAttribute("aria-pressed")) === "true", `${m} starts chosen`);
+  for (const m of ["Breakfast", "Lunch", "Dinner"]) await page.getByRole("button", { name: m, exact: true }).click();
+  await page.getByText("Pick at least one meal.").waitFor();
+  expect(await page.getByRole("button", { name: "Continue" }).isDisabled(), "no meals: can't go on");
+  for (const m of ["Breakfast", "Lunch", "Dinner"]) await page.getByRole("button", { name: m, exact: true }).click();
+  await page.getByRole("radio", { name: "2", exact: true }).click();
+  await page.getByText(/^2 snacks$/).waitFor();
+  await page.getByText(/^about \d+ kcal each$/).waitFor();
   await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("heading", { level: 1, name: "Your diet and allergies" }).waitFor();
   await page.getByRole("button", { name: "Continue" }).click();
@@ -46,7 +57,7 @@ await step("Pip asks one thing a screen: numbers, diet, foods, budget, shops (tw
   await page.getByRole("button", { name: "Mushrooms", exact: true }).click();
   expect((await page.getByRole("button", { name: "Mushrooms", exact: true }).getAttribute("aria-pressed")) === "true", "Mushrooms chosen");
   // Pip says what's left as they tap, and won't go on with a meal that has none (founder 2026-11-18: "we won't be able to give them a plan if they are so picky?")
-  await page.getByRole("status").filter({ hasText: /I can choose from \d+ breakfasts, \d+ lunches and \d+ dinners/ }).waitFor();
+  await page.getByRole("status").filter({ hasText: /I can choose from \d+ breakfasts, \d+ lunches, \d+ dinners and \d+ snacks/ }).waitFor();
   for (const w of ["avocado", "oats", "bread", "yoghurt", "milk", "banana", "toast", "porridge", "granola", "berries", "pancake", "muffin"]) {
     await page.getByRole("textbox", { name: "Another food to leave out" }).fill(w);
     await page.getByRole("button", { name: "Add", exact: true }).click();
@@ -99,13 +110,16 @@ await step("the week: 21 meals from the two shops, a shop on each meal, the shop
   const days = page.getByRole("radiogroup", { name: "Day" }).getByRole("radio");
   expect((await days.count()) === 7, "seven days");
   const meals = page.locator("section[aria-labelledby='day-h'] li");
-  expect((await meals.count()) === 3, "three meals a day");
+  expect((await meals.count()) === 5, "three meals and two snacks a day");
+  const labels = await page.locator("section[aria-labelledby='day-h'] li > p").allInnerTexts();
+  expect(labels.map((x) => x.toLowerCase()).join() === "breakfast,lunch,dinner,snack 1,snack 2", `slots: ${labels.join(", ")}`);
   const buy = page.locator("section[aria-labelledby='buy-h'] h3");
   const shops = await buy.allInnerTexts();
   expect(shops.length >= 1 && shops.every((s) => /Sainsbury|Morrisons/.test(s)), `shops: ${shops.join(", ")}`);
   expect(await page.getByText(/ total$/).count() === shops.length, "a total for each shop");
   const stored = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.mealPlan")).data);
   expect(stored.shops.join() === "sainsburys,morrisons" && typeof stored.budget === "number" && stored.leaveOut.join() === "mushrooms", JSON.stringify(stored).slice(0, 200));
+  expect(JSON.stringify(stored.slots) === JSON.stringify(["breakfast", "lunch", "dinner", "snack", "snack"]), `slots kept: ${JSON.stringify(stored.slots)}`);
 });
 
 await step("swap a meal: a list of other recipes for that meal, the one tapped takes its place", async () => {
@@ -135,8 +149,8 @@ await step("the plan opens again as it was; Make a new plan starts Pip's questio
   await page.reload();
   await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 120000 });
   await page.getByRole("button", { name: "Make a new plan" }).click();
-  await page.getByText("Step 1 of 5").waitFor();
-  for (let i = 0; i < 2; i++) await page.getByRole("button", { name: "Continue" }).click();
+  await page.getByText("Step 1 of 6").waitFor();
+  for (let i = 0; i < 3; i++) await page.getByRole("button", { name: "Continue" }).click();
   expect((await page.getByRole("button", { name: "Mushrooms", exact: true }).getAttribute("aria-pressed")) === "true", "foods kept");
   await page.getByRole("button", { name: "Keep my plan" }).click();
   await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor();

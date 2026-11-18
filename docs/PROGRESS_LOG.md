@@ -3077,3 +3077,23 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
 - Home: no My meals where the scanner is ("I don't want My Meals anymore"); the Shopping list and Scan cards' icons in the light green.
 - Tests: 2184 unit tests pass; e2e lists 9/9, mealplan 6/6, listadd 8/8, sharelist 11/11, coach 4/4. More mixed packs held back (Waitrose 978402, 989516,
   951401; Morrisons 110867182).
+
+### 18 November 2026 (late night): sign-in kept in the Keychain; the meal plan's budget slider, recipe count, meals and snacks
+- **Signed out after every new build** (founder: "It always goes to this screen whenever you do the new build"): the page kept its session only in the web
+  view's local storage, which can lose its newest writes when iOS ends the app at once (an install, an update, a crash); Supabase renews and rotates the
+  refresh token, so the renewed one was lost and the old one refused. Now the iPhone app also keeps the page's session text in the Keychain
+  (`MenuMacros/Services/SessionStore.swift`, bridge `session.load` / `session.save`, this iPhone only, after first unlock, never iCloud); the page restores it
+  first on start (`restoreKeychainSession`, `web/lib/mm/persist.ts` `withCopy`). Signing out and Delete my account clear it. The first start of the build that
+  brings this may still ask once. Commit 984daef4, Mac branch `iap`.
+- **Budget slider** (founder: "an arrow from a to z ... a green spot based on what to choose to be perfect, higher ... better produce, lower ... lower value
+  produce but still to fit what they want, they can't go lower"): the budget step is a slider from the cheapest week that still meets the numbers to the week
+  with "better" products (the shop's own premium lines: Taste the Difference, Finest, Extra Special, organic, free range...), with a green stretch at the best
+  fit. Below the best fit the plan picks cheaper fits; above it, meals are upgraded cheapest-extra-first while the week stays within the budget, tagged "Better
+  products". Pip says how many recipes are left as foods are left out (no cap; a warning under 4, Continue blocked when a meal has none). Recipes' top line
+  shortened; the Meal plan card on Home fits two lines. Commit 8ee6d902.
+- **Meals and snacks** (founder: "should also specify how many meals and how many snacks they want a day as well ... full personalization"): a new step 2,
+  "Your meals and snacks": any of breakfast, lunch and dinner (at least one) and 0-3 snacks. Sizing (`slotTargets`, `lib/mm/mealPlan.ts`): a snack is a tenth
+  of the day, kept between 100 and 250 kcal; the meals share the rest 0.8 : 1 : 1.2 (dinner the largest), each kept between 200 and 1,200 kcal and under the
+  GLP-1 meal cap when that mode is on; protein follows each slot's share of the calories. The step shows each slot's kcal. A day with two snacks of the same
+  kind gets two different ones; swaps never repeat a recipe already on that day. Saved plans keep their slots (`SavedPlan.slots`; plans saved before open as
+  breakfast, lunch and dinner). Six steps now. Tests: 2193 unit tests pass, e2e mealplan 7/7. Mac branch `iap` and the phone only; not on numbite.com.

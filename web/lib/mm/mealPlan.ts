@@ -17,6 +17,41 @@ export const PLAN_DAYS = 7;
 export const PLAN_MEALS: readonly MealType[] = ["breakfast", "lunch", "dinner"];
 /** How many different recipes each meal of the day rotates through in a week: four, so each comes round at most twice (variety, and packs shared). */
 export const PER_MEAL_RECIPES = 4;
+/**
+ * What a day of the plan is made of (founder 2026-11-18: "should also specify how many meals and how many snacks they want a day ... full personalization"):
+ * any of breakfast, lunch and dinner, and up to three snacks. The slots are the day's meals in that order, then the snacks.
+ */
+export interface DayShape { meals: MealType[]; snacks: number }
+export const MAX_SNACKS = 3;
+export const DEFAULT_SHAPE: DayShape = { meals: ["breakfast", "lunch", "dinner"], snacks: 0 };
+export const planSlots = (shape: DayShape): MealType[] => [...PLAN_MEALS.filter((m) => shape.meals.includes(m)), ...Array.from({ length: shape.snacks }, () => "snack" as const)];
+export const shapeOf = (slots: readonly MealType[]): DayShape => ({ meals: PLAN_MEALS.filter((m) => slots.includes(m)), snacks: slots.filter((m) => m === "snack").length });
+
+/** How the day's meals share what isn't eaten as snacks: a smaller breakfast, a bigger dinner. */
+const MEAL_WEIGHT: Record<string, number> = { breakfast: 0.8, lunch: 1, dinner: 1.2 };
+
+/**
+ * Each slot's size from the person's own daily numbers, so the day adds up to them: a snack is a tenth of the day (100-250 kcal), the meals share the rest
+ * by MEAL_WEIGHT, each kept between 200 and 1,200 kcal (and under the GLP-1 meal cap when the person has one); protein follows each slot's share of the day.
+ * Recipes are then fitted to these sizes exactly as the Recipes tab fits them.
+ */
+export function slotTargets(shape: DayShape, daily: { kcal: number; protein: number }, cap?: number | null): Partial<Record<MealType, MealTarget>> {
+  const out: Partial<Record<MealType, MealTarget>> = {};
+  const round10 = (v: number) => Math.round(v / 10) * 10;
+  const snackKcal = shape.snacks ? Math.min(250, Math.max(100, round10(daily.kcal * 0.1))) : 0;
+  const meals = PLAN_MEALS.filter((m) => shape.meals.includes(m));
+  const rest = daily.kcal - shape.snacks * snackKcal;
+  const weights = meals.reduce((t, m) => t + MEAL_WEIGHT[m]!, 0);
+  const share = (kcal: number) => Math.max(5, Math.round((daily.protein * kcal) / Math.max(1, daily.kcal)));
+  for (const m of meals) {
+    let kcal = Math.min(1200, Math.max(200, round10((rest * MEAL_WEIGHT[m]!) / weights)));
+    if (cap) kcal = Math.min(kcal, cap);
+    out[m] = { kcal, protein: share(kcal) };
+  }
+  if (shape.snacks) out.snack = { kcal: snackKcal, protein: share(snackKcal) };
+  return out;
+}
+
 /** A budget never swaps a meal for one this far from the meal size (fitDistance; 0.3 is about 30% off on calories): a cheap 200 kcal soup doesn't make a lunch. */
 export const MAX_SWAP_DISTANCE = 0.3;
 
@@ -82,10 +117,22 @@ export interface PlanCandidate {
 }
 
 /** Every recipe that can go in the plan, for each meal, closest to the meal size first (then cheapest, then name). */
-export function planCandidates(recipes: readonly Recipe[], products: readonly ShopProduct[], diet: DietPrefs, target: MealTarget | null, leaveOut: readonly string[], shop = ""): Map<MealType, PlanCandidate[]> {
-  const out = new Map<MealType, PlanCandidate[]>(PLAN_MEALS.map((m) => [m, []]));
+export function planCandidates(
+  recipes: readonly Recipe[],
+  products: readonly ShopProduct[],
+  diet: DietPrefs,
+  targets: MealTarget | Partial<Record<MealType, MealTarget>> | null,
+  leaveOut: readonly string[],
+  shop = "",
+): Map<MealType, PlanCandidate[]> {
+  // one size for breakfast, lunch and dinner (the Recipes tab's), or a size for each slot the day has (slotTargets)
+  const single = !targets || "kcal" in targets;
+  const wanted: MealType[] = single ? [...PLAN_MEALS] : (Object.keys(targets) as MealType[]);
+  const targetFor = (m: MealType): MealTarget | null => (single ? ((targets as MealTarget | null) ?? null) : ((targets as Partial<Record<MealType, MealTarget>>)[m] ?? null));
+  const out = new Map<MealType, PlanCandidate[]>(wanted.map((m) => [m, []]));
   for (const base of recipes) {
-    if (!base.meal || !PLAN_MEALS.includes(base.meal)) continue;
+    if (!base.meal || !wanted.includes(base.meal)) continue;
+    const target = targetFor(base.meal);
     const recipe = recipeForDiet(base, diet);
     if (!recipe || leavesOut(recipe, leaveOut)) continue;
     const fitted = target ? fitRecipe(recipe, products, {}, target) : null;
@@ -120,7 +167,7 @@ export function planCandidatesAcross(
   recipes: readonly Recipe[],
   shops: ReadonlyArray<{ id: string; products: readonly ShopProduct[] }>,
   diet: DietPrefs,
-  target: MealTarget | null,
+  target: MealTarget | Partial<Record<MealType, MealTarget>> | null,
   leaveOut: readonly string[],
 ): Map<MealType, PlanCandidate[]> {
   return mergeCandidates(shops.map((sh) => planCandidates(recipes, sh.products, diet, target, leaveOut, sh.id)));
@@ -128,8 +175,9 @@ export function planCandidatesAcross(
 
 /** planCandidatesAcross's second half, for a screen that works out one shop at a time: each recipe from the shop where it fits best (see above). */
 export function mergeCandidates(each: ReadonlyArray<Map<MealType, PlanCandidate[]>>): Map<MealType, PlanCandidate[]> {
-  const out = new Map<MealType, PlanCandidate[]>(PLAN_MEALS.map((m) => [m, []]));
-  for (const meal of PLAN_MEALS) {
+  const meals = [...new Set(each.flatMap((m) => [...m.keys()]))];
+  const out = new Map<MealType, PlanCandidate[]>(meals.map((m) => [m, []]));
+  for (const meal of meals) {
     const byRecipe = new Map<string, PlanCandidate[]>();
     for (const cands of each) for (const c of cands.get(meal) ?? []) byRecipe.set(c.recipe.id, [...(byRecipe.get(c.recipe.id) ?? []), c]);
     for (const options of byRecipe.values()) {
@@ -186,27 +234,27 @@ export interface BudgetPlan { ids: PlanIds; week: WeekPlan; better: string[] }
  * want"): under the best fit's bill, makePlan swaps in cheaper recipes (never one far from the meal size); at or over it, the best fit's recipes are made with
  * better products, the one that adds least to the bill first, while the bill stays within the budget. Null budget: the best fit.
  */
-export function planForBudget(cands: Map<MealType, PlanCandidate[]>, budget: number | null, betterOf: (c: PlanCandidate) => PlanCandidate | null): BudgetPlan | null {
-  const best = makePlan(cands, null);
+export function planForBudget(cands: Map<MealType, PlanCandidate[]>, budget: number | null, betterOf: (c: PlanCandidate) => PlanCandidate | null, slots: readonly MealType[] = PLAN_MEALS): BudgetPlan | null {
+  const best = makePlan(cands, null, slots);
   if (!best) return null;
   if (budget === null) return { ...best, better: [] };
   if (best.week.shoppingCost > budget) {
-    const cheaper = makePlan(cands, budget);
+    const cheaper = makePlan(cands, budget, slots);
     return cheaper ? { ...cheaper, better: [] } : null;
   }
   const byKey = new Map<string, PlanCandidate>();
   for (const [meal, list] of cands) for (const c of list) byKey.set(`${meal}:${c.recipe.id}`, c);
-  const inPlan = [...new Set(best.ids.flatMap((d) => d.map((id, i) => `${PLAN_MEALS[i]}:${id}`)))];
+  const inPlan = [...new Set(best.ids.flatMap((d) => d.map((id, i) => `${slots[i]}:${id}`)))];
   const options = inPlan.map((key) => ({ key, b: byKey.get(key) ? betterOf(byKey.get(key)!) : null })).filter((o): o is { key: string; b: PlanCandidate } => !!o.b);
   const chosen = new Map<string, PlanCandidate>();
   let week = best.week;
   // cheapest additions first
   const added = options
-    .map((o) => ({ ...o, extra: (buildWeek(best.ids, withBetter(cands, new Map([[o.key, o.b]])), budget)?.shoppingCost ?? Infinity) - best.week.shoppingCost }))
+    .map((o) => ({ ...o, extra: (buildWeek(best.ids, withBetter(cands, new Map([[o.key, o.b]])), budget, slots)?.shoppingCost ?? Infinity) - best.week.shoppingCost }))
     .sort((a, b) => a.extra - b.extra || a.key.localeCompare(b.key));
   for (const o of added) {
     const trial = new Map(chosen).set(o.key, o.b);
-    const w = buildWeek(best.ids, withBetter(cands, trial), budget);
+    const w = buildWeek(best.ids, withBetter(cands, trial), budget, slots);
     if (w && w.shoppingCost <= budget + 0.005) {
       chosen.set(o.key, o.b);
       week = w;
@@ -216,11 +264,11 @@ export function planForBudget(cands: Map<MealType, PlanCandidate[]>, budget: num
 }
 
 /** The slider's range for these candidates (see BudgetRange); null when no week can be made. */
-export function budgetRange(cands: Map<MealType, PlanCandidate[]>, betterOf: (c: PlanCandidate) => PlanCandidate | null): BudgetRange | null {
-  const best = makePlan(cands, null);
-  const cheapest = makePlan(cands, 0.01);
+export function budgetRange(cands: Map<MealType, PlanCandidate[]>, betterOf: (c: PlanCandidate) => PlanCandidate | null, slots: readonly MealType[] = PLAN_MEALS): BudgetRange | null {
+  const best = makePlan(cands, null, slots);
+  const cheapest = makePlan(cands, 0.01, slots);
   if (!best || !cheapest) return null;
-  const all = planForBudget(cands, Number.MAX_SAFE_INTEGER, betterOf);
+  const all = planForBudget(cands, Number.MAX_SAFE_INTEGER, betterOf, slots);
   const min = Math.min(cheapest.week.shoppingCost, best.week.shoppingCost);
   return { min, best: best.week.shoppingCost, max: Math.max(best.week.shoppingCost, all?.week.shoppingCost ?? 0) };
 }
@@ -259,7 +307,7 @@ export interface WeekPlan {
 const money = (v: number) => Math.round(v * 100) / 100;
 
 /** The week from the chosen ids: each day's meals and totals, and the shopping list for all of them. */
-export function buildWeek(ids: PlanIds, candidates: Map<MealType, PlanCandidate[]>, budget: number | null): WeekPlan | null {
+export function buildWeek(ids: PlanIds, candidates: Map<MealType, PlanCandidate[]>, budget: number | null, slots: readonly MealType[] = PLAN_MEALS): WeekPlan | null {
   const byId = new Map<string, PlanCandidate>();
   for (const list of candidates.values()) for (const c of list) byId.set(`${c.meal}:${c.recipe.id}`, c);
   const days: PlanDay[] = [];
@@ -267,7 +315,7 @@ export function buildWeek(ids: PlanIds, candidates: Map<MealType, PlanCandidate[
   for (const dayIds of ids) {
     const meals: PlanMeal[] = [];
     dayIds.forEach((id, i) => {
-      const meal = PLAN_MEALS[i]!;
+      const meal = slots[i]!;
       const c = byId.get(`${meal}:${id}`);
       if (!c) return;
       meals.push({ meal, candidate: c });
@@ -279,7 +327,7 @@ export function buildWeek(ids: PlanIds, candidates: Map<MealType, PlanCandidate[
         else need.set(key, { shop: c.shop, product: p.product, spec: p.spec, amount });
       }
     });
-    if (meals.length !== PLAN_MEALS.length) return null;
+    if (meals.length !== slots.length) return null;
     days.push({
       meals,
       kcal: Math.round(meals.reduce((s, m) => s + m.candidate.perServing.kcal, 0)),
@@ -300,9 +348,9 @@ export function buildWeek(ids: PlanIds, candidates: Map<MealType, PlanCandidate[
 }
 
 /** Each meal's recipes for the week: the first `n` of its list in turn (A, B, C, D, A, B, C), so each comes round at most twice. */
-function rotate(list: readonly PlanCandidate[], n: number): string[] {
+function rotate(list: readonly PlanCandidate[], n: number, offset = 0): string[] {
   const pool = list.slice(0, Math.max(1, Math.min(n, list.length)));
-  return Array.from({ length: PLAN_DAYS }, (_, d) => pool[d % pool.length]!.recipe.id);
+  return Array.from({ length: PLAN_DAYS }, (_, d) => pool[(d + offset) % pool.length]!.recipe.id);
 }
 
 const idsFrom = (cols: string[][]): PlanIds => Array.from({ length: PLAN_DAYS }, (_, d) => cols.map((col) => col[d]!));
@@ -312,16 +360,23 @@ const idsFrom = (cols: string[][]): PlanIds => Array.from({ length: PLAN_DAYS },
  * the dearest recipe still in the plan is swapped for the cheapest one of that meal not yet used (and, failing that, a meal rotates through fewer recipes, so
  * more packs are shared); it stops when the bill fits or nothing makes it cheaper. Null when a meal has no recipe at all for these choices.
  */
-export function makePlan(candidates: Map<MealType, PlanCandidate[]>, budget: number | null): { ids: PlanIds; week: WeekPlan } | null {
-  if (PLAN_MEALS.some((m) => !(candidates.get(m)?.length))) return null;
-  const chosen = new Map<MealType, PlanCandidate[]>(PLAN_MEALS.map((m) => [m, candidates.get(m)!.slice(0, PER_MEAL_RECIPES)]));
-  const counts = new Map<MealType, number>(PLAN_MEALS.map((m) => [m, PER_MEAL_RECIPES]));
-  const ids = () => idsFrom(PLAN_MEALS.map((m) => rotate(chosen.get(m)!, counts.get(m)!)));
-  let best = buildWeek(ids(), candidates, budget)!;
+export function makePlan(candidates: Map<MealType, PlanCandidate[]>, budget: number | null, slots: readonly MealType[] = PLAN_MEALS): { ids: PlanIds; week: WeekPlan } | null {
+  const types = [...new Set(slots)];
+  if (!slots.length || types.some((m) => !(candidates.get(m)?.length))) return null;
+  // a meal that comes more than once a day (two snacks) rotates through more recipes, so the day's two are different
+  const per = new Map<MealType, number>(types.map((m) => [m, slots.filter((x) => x === m).length]));
+  const chosen = new Map<MealType, PlanCandidate[]>(types.map((m) => [m, candidates.get(m)!.slice(0, PER_MEAL_RECIPES * per.get(m)!)]));
+  const counts = new Map<MealType, number>(types.map((m) => [m, PER_MEAL_RECIPES * per.get(m)!]));
+  const nth = slots.map((m, i) => slots.slice(0, i).filter((x) => x === m).length);
+  const ids = () => idsFrom(slots.map((m, i) => {
+    const pool = Math.max(1, Math.min(counts.get(m)!, chosen.get(m)!.length));
+    return rotate(chosen.get(m)!, counts.get(m)!, nth[i]! * Math.floor(pool / per.get(m)!));
+  }));
+  let best = buildWeek(ids(), candidates, budget, slots)!;
   for (let round = 0; budget !== null && best.shoppingCost > budget && round < 40; round++) {
     let improved = false;
-    // the dearest recipe in use, across the three meals
-    const inUse = PLAN_MEALS.flatMap((m) => chosen.get(m)!.slice(0, counts.get(m)!).map((c, i) => ({ m, c, i }))).sort((a, b) => b.c.cost - a.c.cost);
+    // the dearest recipe in use, across the day's meals
+    const inUse = types.flatMap((m) => chosen.get(m)!.slice(0, counts.get(m)!).map((c, i) => ({ m, c, i }))).sort((a, b) => b.c.cost - a.c.cost);
     for (const { m, c, i } of inUse) {
       const used = new Set(chosen.get(m)!.map((x) => x.recipe.id));
       const cheaper = candidates.get(m)!.filter((x) => !used.has(x.recipe.id) && x.cost < c.cost && x.distance <= Math.max(MAX_SWAP_DISTANCE, c.distance)).sort((a, b) => a.cost - b.cost || a.distance - b.distance)[0];
@@ -330,34 +385,35 @@ export function makePlan(candidates: Map<MealType, PlanCandidate[]>, budget: num
       trial[i] = cheaper;
       const before = chosen.get(m)!;
       chosen.set(m, trial);
-      const week = buildWeek(ids(), candidates, budget)!;
+      const week = buildWeek(ids(), candidates, budget, slots)!;
       if (week.shoppingCost < best.shoppingCost) { best = week; improved = true; break; }
       chosen.set(m, before);
     }
     if (improved) continue;
     // fewer recipes for the meal whose recipes cost most, so packs are shared
-    const m = PLAN_MEALS.filter((x) => counts.get(x)! > 2).sort((a, b) => chosen.get(b)![0]!.cost - chosen.get(a)![0]!.cost)[0];
+    const m = types.filter((x) => counts.get(x)! > 2 * per.get(x)!).sort((a, b) => chosen.get(b)![0]!.cost - chosen.get(a)![0]!.cost)[0];
     if (!m) break;
     const list = chosen.get(m)!.slice(0, counts.get(m)!).sort((a, b) => a.cost - b.cost);
     chosen.set(m, list);
     counts.set(m, counts.get(m)! - 1);
-    const week = buildWeek(ids(), candidates, budget)!;
+    const week = buildWeek(ids(), candidates, budget, slots)!;
     if (week.shoppingCost < best.shoppingCost) best = week;
     else { counts.set(m, counts.get(m)! + 1); break; }
   }
   const finalIds = ids();
-  return { ids: finalIds, week: buildWeek(finalIds, candidates, budget)! };
+  return { ids: finalIds, week: buildWeek(finalIds, candidates, budget, slots)! };
 }
 
 /**
  * The recipes a meal could be swapped for (founder 2026-11-18: "if they don't like any of the options, they're able to swap them out for other meals"): that
  * meal's recipes closest to the meal size first, leaving out the one there now and any already used twice that week. At most `limit`.
  */
-export function swapChoices(ids: PlanIds, day: number, mealIndex: number, candidates: Map<MealType, PlanCandidate[]>, limit = 10): PlanCandidate[] {
-  const meal = PLAN_MEALS[mealIndex]!;
-  const current = ids[day]?.[mealIndex];
-  const uses = (id: string) => ids.reduce((n, d) => n + (d[mealIndex] === id ? 1 : 0), 0);
-  return (candidates.get(meal) ?? []).filter((c) => c.recipe.id !== current && uses(c.recipe.id) < 2).slice(0, limit);
+export function swapChoices(ids: PlanIds, day: number, mealIndex: number, candidates: Map<MealType, PlanCandidate[]>, limit = 10, slots: readonly MealType[] = PLAN_MEALS): PlanCandidate[] {
+  const meal = slots[mealIndex]!;
+  const today = new Set(ids[day] ?? []);
+  const uses = (id: string) => ids.reduce((n, d) => n + d.filter((x, i) => slots[i] === meal && x === id).length, 0);
+  // never one already on that day (two snacks stay different), and none used twice a week in that kind of meal
+  return (candidates.get(meal) ?? []).filter((c) => !today.has(c.recipe.id) && uses(c.recipe.id) < 2 * slots.filter((x) => x === meal).length).slice(0, limit);
 }
 
 /** The plan with one meal set to a chosen recipe. */
@@ -366,8 +422,8 @@ export function setMeal(ids: PlanIds, day: number, mealIndex: number, recipeId: 
 }
 
 /** One meal swapped for the next recipe of that meal (closest first) that isn't already on that day or used twice in the week. */
-export function swapMeal(ids: PlanIds, day: number, mealIndex: number, candidates: Map<MealType, PlanCandidate[]>): PlanIds {
-  const meal = PLAN_MEALS[mealIndex]!;
+export function swapMeal(ids: PlanIds, day: number, mealIndex: number, candidates: Map<MealType, PlanCandidate[]>, slots: readonly MealType[] = PLAN_MEALS): PlanIds {
+  const meal = slots[mealIndex]!;
   const list = candidates.get(meal) ?? [];
   const current = ids[day]![mealIndex]!;
   const uses = (id: string) => ids.reduce((n, d) => n + (d[mealIndex] === id ? 1 : 0), 0);
@@ -384,6 +440,8 @@ export function swapMeal(ids: PlanIds, day: number, mealIndex: number, candidate
 export interface SavedPlan {
   /** The shops chosen (a plan from before 18 November had one: `shop`). */
   shops: string[];
+  /** The day's meals and snacks in order (planSlots); absent = breakfast, lunch and dinner, as plans were before 18 November. */
+  slots?: MealType[];
   ids: PlanIds;
   leaveOut: string[];
   budget: number | null;
@@ -396,12 +454,15 @@ export interface SavedPlan {
 export function sanitizePlan(raw: unknown): SavedPlan | null {
   if (!raw || typeof raw !== "object") return null;
   const r = raw as Record<string, unknown>;
-  const ids = Array.isArray(r.ids) && r.ids.length === PLAN_DAYS && r.ids.every((d) => Array.isArray(d) && d.length === PLAN_MEALS.length && d.every((x) => typeof x === "string" && /^[a-z0-9-]{1,80}$/.test(x))) ? (r.ids as PlanIds) : null;
+  const slotsOk = Array.isArray(r.slots) && r.slots.length >= 1 && r.slots.length <= 6 && r.slots.every((x) => x === "breakfast" || x === "lunch" || x === "dinner" || x === "snack")
+    && JSON.stringify(r.slots) === JSON.stringify(planSlots(shapeOf(r.slots as MealType[]))) && (r.slots as MealType[]).filter((x) => x === "snack").length <= MAX_SNACKS;
+  const slots: MealType[] = slotsOk ? [...(r.slots as MealType[])] : [...PLAN_MEALS];
+  const ids = Array.isArray(r.ids) && r.ids.length === PLAN_DAYS && r.ids.every((d) => Array.isArray(d) && d.length === slots.length && d.every((x) => typeof x === "string" && /^[a-z0-9-]{1,80}$/.test(x))) ? (r.ids as PlanIds) : null;
   const shopId = (x: unknown): x is string => typeof x === "string" && /^[a-z0-9-]{2,40}$/.test(x);
   const shops = Array.isArray(r.shops) ? [...new Set((r.shops as unknown[]).filter(shopId))].slice(0, 12) : shopId(r.shop) ? [r.shop] : [];
   if (!ids || !shops.length || typeof r.start !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(r.start)) return null;
   const leaveOut = Array.isArray(r.leaveOut) ? (r.leaveOut as unknown[]).filter((x): x is string => typeof x === "string" && x.length <= 40).slice(0, 30) : [];
   const budget = typeof r.budget === "number" && Number.isFinite(r.budget) && r.budget > 0 && r.budget < 10000 ? r.budget : null;
-  const better = Array.isArray(r.better) ? (r.better as unknown[]).filter((x): x is string => typeof x === "string" && /^(breakfast|lunch|dinner):[a-z0-9-]{1,80}$/.test(x)).slice(0, 21) : [];
-  return { shops, ids, leaveOut, budget, start: r.start, ...(better.length ? { better } : {}) };
+  const better = Array.isArray(r.better) ? (r.better as unknown[]).filter((x): x is string => typeof x === "string" && /^(breakfast|lunch|dinner|snack):[a-z0-9-]{1,80}$/.test(x)).slice(0, 42) : [];
+  return { shops, ids, leaveOut, budget, start: r.start, ...(slotsOk ? { slots } : {}), ...(better.length ? { better } : {}) };
 }
