@@ -50,7 +50,7 @@ def section_cut(text: str) -> str:
     return t
 
 
-NOT_A_LIST = re.compile(r"(?:handling raw meat safely|warnings|asda product information|nutritional values|typical values|for try me love me)(?=[A-Z:\s]|$)|contains [a-z ,&]+\.?\s*$", re.I)
+NOT_A_LIST = re.compile(r"(?:handling raw meat safely|warnings|asda product information|nutritional values|typical values|for try me love me|features|storage)(?=[A-Z0-9:\s\u200b]|$)|contains [a-z ,&]+\.?\s*$", re.I)
 
 
 def page_address(base: str, page: str) -> str:

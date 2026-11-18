@@ -1344,3 +1344,11 @@ class ChromeIngestReadingTests(unittest.TestCase):
         self.assertEqual((t["kj"], t["kcal"]), ("1176", "283"))
         t, _ = I.read_table({"nut": [["", "per 100 ml"], ["Energy kJ", "3378"], ["kcal", "822"], ["Fat of which: g", "91.3"]], "above": ""})
         self.assertEqual((t["kj"], t["kcal"], t["fat_g"]), ("3378", "822", "91.3"))
+
+    def test_a_features_section_is_not_an_ingredients_list(self):
+        import labels_chrome_ingest as I
+        self.assertEqual(I.section_cut("FeaturesChosen with Care. Quality Checked. Perfect with Lamb"), "")
+        self.assertEqual(I.section_cut("StorageKeep refrigerated"), "")
+        self.assertEqual(I.section_cut("Features\u200bDried oregano with warm, lemony notes"), "")
+        self.assertEqual(I.section_cut("Features1 of your 5 a day per 80g"), "")
+        self.assertEqual(I.section_cut("Pork (97%), Salt, Storage-stable spices"), "Pork (97%), Salt, Storage-stable spices")
