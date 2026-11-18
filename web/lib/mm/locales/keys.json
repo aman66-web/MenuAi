@@ -311,6 +311,7 @@
  "Added up from each product's numbers for the amounts below, before cooking: its own label, or the community numbers named above. \"Not on every label\" means one of the products doesn't give that figure, so we don't give a total for it.",
  "Added up from each product's own label for the amounts below, before cooking. \"Not on every label\" means one of the products doesn't print that figure, so we don't give a total for it.",
  "Added {n} products to your shopping list.",
+ "Added {n} products to your shopping lists.",
  "Added {n} products to your {shop} list.",
  "Added “{name}” to Breakfast.",
  "Added “{name}” to Dinner.",

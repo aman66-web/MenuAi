@@ -5,7 +5,7 @@ import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 
 import { MEAL_LABEL } from "@/lib/mm/budget";
 import { GATING_ENABLED } from "@/lib/mm/config";
 import { formatInt } from "@/lib/mm/format";
-import { addToList, formatPrice, withPhoto } from "@/lib/mm/groceries";
+import { addToList, formatPrice, listForShop, withPhoto } from "@/lib/mm/groceries";
 import { localeInfo } from "@/lib/mm/i18n";
 import { LEAVE_OUT, PLAN_MEALS, buildWeek, makePlan, mergeCandidates, planCandidates, setMeal, swapChoices, type PlanCandidate, type PlanIds, type SavedPlan } from "@/lib/mm/mealPlan";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
@@ -369,12 +369,16 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
   };
   const addAll = () => {
     const files = new Map(loaded.map((l) => [l.id, l.file]));
+    // each shop's packs go on that shop's own list if the person has made one (the newest), else on the main shopping list
+    let ownLists = 0;
     shoppingStore.update((list) => week.shopping.reduce((l, line) => {
       const file = files.get(line.shop);
       if (!file) return l;
-      return addToList(l, { gtin: line.product.gtin, shopId: line.product.id, retailer: file.retailer, name: line.product.name, brand: "", size: "", price: line.product.price, checkedOn: file.checkedOn, ...withPhoto(shopPhotoSources(file, line.product)) }, new Date(), line.packs);
+      const onList = listForShop(settings, file.retailer);
+      if (onList) ownLists++;
+      return addToList(l, { gtin: line.product.gtin, shopId: line.product.id, retailer: file.retailer, name: line.product.name, brand: "", size: "", price: line.product.price, checkedOn: file.checkedOn, ...withPhoto(shopPhotoSources(file, line.product)), ...(onList ? { list: onList } : {}) }, new Date(), line.packs);
     }, list));
-    setAdded(t("Added {n} products to your shopping list.", { n: week.shopping.length }));
+    setAdded(ownLists ? t("Added {n} products to your shopping lists.", { n: week.shopping.length }) : t("Added {n} products to your shopping list.", { n: week.shopping.length }));
   };
 
   return (

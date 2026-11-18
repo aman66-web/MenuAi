@@ -86,11 +86,11 @@ function CoachRun({ screen }: { screen: CoachScreen }) {
     if (!steps) return;
     const el = document.querySelector(steps[at]!.at);
     if (!drawn(el)) {
-      if (at < steps.length - 1) setAt(at + 1);
+      if (at < steps.length - 1) setAt(at + 1); // eslint-disable-line react-hooks/set-state-in-effect -- a control that has gone from the page is skipped
       else finish();
       return;
     }
-    setSettled(false);
+    setSettled(false); // eslint-disable-line react-hooks/set-state-in-effect -- each tip waits for the page to stop moving
     bring(el);
     let frame = 0;
     let last = "";
