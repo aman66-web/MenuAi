@@ -2150,5 +2150,9 @@
  "{total} for the {priced} of {count} items with a price, at {shopPossessive} prices. Prices change: check in store.": "{count} ਵਿੱਚੋਂ ਕੀਮਤ ਵਾਲੀਆਂ {priced} ਆਈਟਮਾਂ ਲਈ {total}, {shopPossessive} ਕੀਮਤਾਂ 'ਤੇ। ਕੀਮਤਾਂ ਬਦਲਦੀਆਂ ਹਨ: ਸਟੋਰ ਵਿੱਚ ਜਾਂਚੋ।",
  "{used} of {limit} free saved orders used.": "{limit} ਵਿੱਚੋਂ {used} ਮੁਫ਼ਤ ਸੰਭਾਲੇ ਆਰਡਰ ਵਰਤੇ ਗਏ।",
  "“Not listed” means nothing is recorded, not that the product is free from it.": "“ਸੂਚੀ ਵਿੱਚ ਨਹੀਂ” ਦਾ ਮਤਲਬ ਹੈ ਕਿ ਕੁਝ ਦਰਜ ਨਹੀਂ ਹੈ, ਇਹ ਨਹੀਂ ਕਿ ਉਤਪਾਦ ਇਸ ਤੋਂ ਮੁਕਤ ਹੈ।",
- "…": "…"
+ "…": "…",
+ "My recipes": "ਮੇਰੀਆਂ ਰੈਸਿਪੀਆਂ",
+ "Only show": "ਸਿਰਫ਼ ਦਿਖਾਓ",
+ "Show {n} recipes": "{n} ਰੈਸਿਪੀਆਂ ਦਿਖਾਓ",
+ "Show 1 recipe": "1 ਰੈਸਿਪੀ ਦਿਖਾਓ"
 }

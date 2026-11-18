@@ -2150,5 +2150,9 @@
  "{total} for the {priced} of {count} items with a price, at {shopPossessive} prices. Prices change: check in store.": "{total} pentru cele {priced} din {count} produse care au preț, la prețurile {shopPossessive}. Prețurile se schimbă: verifică în magazin.",
  "{used} of {limit} free saved orders used.": "Ai folosit {used} din {limit} comenzi salvate gratuite.",
  "“Not listed” means nothing is recorded, not that the product is free from it.": "„Nu e menționat” înseamnă că nu e înregistrat nimic, nu că produsul nu îl conține.",
- "…": "…"
+ "…": "…",
+ "My recipes": "Rețetele mele",
+ "Only show": "Arată doar",
+ "Show {n} recipes": "Arată {n} rețete",
+ "Show 1 recipe": "Arată 1 rețetă"
 }

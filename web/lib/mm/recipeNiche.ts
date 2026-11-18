@@ -36,19 +36,28 @@ export function occasionOptions(recipeIds: readonly string[], now: Date): Occasi
   return OCCASIONS.filter((o) => ("season" in o ? inSeason(o.season, now) : true) && count(recipeIds, (id) => nicheOf(id).occasions?.includes(o.id) === true) >= MIN_NICHE_RECIPES).map((o) => ({ id: o.id, label: o.label }));
 }
 
-/** An address value as one of the offered choices: anything else (missing, a list, an unknown or hidden or out-of-season name, another case) is no choice at all. */
+/** One address word as one of the offered choices: anything else (missing, an unknown or hidden or out-of-season name, another type) is no choice at all. */
 function parse<Id extends string>(value: unknown, options: ReadonlyArray<{ readonly id: Id }>): Id | null {
   if (typeof value !== "string") return null;
   const v = value.trim().toLowerCase();
   return options.find((o) => o.id === v)?.id ?? null;
 }
-export const parseCuisine = (value: unknown, options: readonly CuisineOption[]): CuisineId | null => parse(value, options);
-export const parseOccasion = (value: unknown, options: readonly OccasionOption[]): OccasionId | null => parse(value, options);
 
-/** Whether a recipe is in the chosen cuisine and occasion (a choice of null means any). */
-export function matchesNiche(recipeId: string, cuisine: CuisineId | null, occasion: OccasionId | null): boolean {
+/** An address value ("chinese,indian") as the offered choices it names, in the catalogue's order, each once; a name that is not on offer is left out. Since
+ *  founder 2026-11-18 ("they can select more filters multiple as many as they want") a person may choose several cuisines and several occasions. */
+function parseList<Id extends string>(value: unknown, options: ReadonlyArray<{ readonly id: Id }>): Id[] {
+  if (typeof value !== "string") return [];
+  const asked = new Set(value.split(",").map((w) => parse(w, options)).filter((id): id is Id => id !== null));
+  return options.filter((o) => asked.has(o.id)).map((o) => o.id);
+}
+export const parseCuisines = (value: unknown, options: readonly CuisineOption[]): CuisineId[] => parseList(value, options);
+export const parseOccasions = (value: unknown, options: readonly OccasionOption[]): OccasionId[] => parseList(value, options);
+
+/** Whether a recipe is in one of the chosen cuisines and suits one of the chosen occasions (none chosen in a field means any). Within a field the choices are
+ *  alternatives (Chinese or Indian); the two fields together both apply (a Chinese or Indian recipe for a picnic). */
+export function matchesNiche(recipeId: string, cuisines: readonly CuisineId[], occasions: readonly OccasionId[]): boolean {
   const n = nicheOf(recipeId);
-  return (cuisine === null || n.cuisine === cuisine) && (occasion === null || n.occasions?.includes(occasion) === true);
+  return (cuisines.length === 0 || (!!n.cuisine && cuisines.includes(n.cuisine))) && (occasions.length === 0 || (n.occasions ?? []).some((o) => occasions.includes(o)));
 }
 
 export interface NicheCounts {
@@ -57,19 +66,19 @@ export interface NicheCounts {
 }
 
 /**
- * How many of these recipes (already narrowed by everything else: the meal, the toggles, the search and the diet) each choice would show. A cuisine's count
- * honours the chosen occasion and an occasion's count honours the chosen cuisine, but neither honours its own field, so the numbers say what choosing
- * that option would give.
+ * How many of these recipes (already narrowed by everything else: the meals, the toggles, the search and the diet) are of each cuisine and suit each occasion.
+ * A cuisine's count honours the chosen occasions and an occasion's count honours the chosen cuisines, but neither honours its own field, so the number beside a
+ * choice is how many recipes of that kind there are with everything else as it is (0: choosing it would add nothing).
  */
-export function nicheCounts(recipeIds: readonly string[], cuisine: CuisineId | null, occasion: OccasionId | null): NicheCounts {
-  const cuisines = new Map<CuisineId, number>();
-  const occasions = new Map<OccasionId, number>();
+export function nicheCounts(recipeIds: readonly string[], cuisines: readonly CuisineId[], occasions: readonly OccasionId[]): NicheCounts {
+  const byCuisine = new Map<CuisineId, number>();
+  const byOccasion = new Map<OccasionId, number>();
   for (const id of recipeIds) {
     const n = nicheOf(id);
-    if (n.cuisine && (occasion === null || n.occasions?.includes(occasion))) cuisines.set(n.cuisine, (cuisines.get(n.cuisine) ?? 0) + 1);
-    if (cuisine === null || n.cuisine === cuisine) for (const o of n.occasions ?? []) occasions.set(o, (occasions.get(o) ?? 0) + 1);
+    if (n.cuisine && matchesNiche(id, [], occasions)) byCuisine.set(n.cuisine, (byCuisine.get(n.cuisine) ?? 0) + 1);
+    if (matchesNiche(id, cuisines, [])) for (const o of n.occasions ?? []) byOccasion.set(o, (byOccasion.get(o) ?? 0) + 1);
   }
-  return { cuisine: cuisines, occasion: occasions };
+  return { cuisine: byCuisine, occasion: byOccasion };
 }
 
 /**

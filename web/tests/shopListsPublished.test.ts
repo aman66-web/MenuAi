@@ -48,22 +48,29 @@ describe("M&S: the everyday food range, whose aisle lists show no price (founder
     expect(f.photoTemplate).toBe("https://assets.digitalcontent.marksandspencer.app/image/upload/w_400,q_auto,f_jpg/{photo}");
   });
 
-  it("an unpriced row has no unit, card price, barcode or nutrition (nothing is invented), and always has its own page", () => {
-    expect(unpriced.length).toBeGreaterThan(1000);
+  // Founder 2026-11-18 ("Yes for M&S do that for me"): the everyday range is priced at one store chosen on M&S's own site (M&S Marble Arch,
+  // tools/groceries/mns_prices_chrome.py); a product that store doesn't sell keeps no price. Labels read from M&S's own product pages may be on either kind.
+  it("a row the chosen store doesn't price has no price, unit or card price and no barcode (nothing is invented), and always has its own page", () => {
+    expect(unpriced.length).toBeGreaterThan(100);
     for (const p of unpriced) {
       expect(p.slice(2, 4).concat([p[5], p[6]]), p[0]).toEqual([null, null, null, null]);
       expect(p[9], p[0]).toBe("");
-      expect(p[10] ?? null, p[0]).toBeNull();
       expect(p[11], `${p[0]} has its own page`).toMatch(/^[a-z0-9\-_.%]+\/p\/fdp\d+$/);
       expect(p[11]!.endsWith(`/${p[0]}`), p[0]).toBe(true);
       expect(p[0]).toMatch(/^fdp\d{6,10}$/);
     }
   });
 
-  it("the priced rows (food to order, gifts, Christmas) keep their price and their search link", () => {
-    expect(priced.length).toBe(194);
-    const ps = decodeShopProducts({ ...f, products: priced });
-    for (const p of ps) {
+  it("the store-priced range opens its own page; the food to order, gifts and Christmas rows keep their price and their search link", () => {
+    const own = priced.filter((p) => p[11]);
+    const ordered = priced.filter((p) => !p[11]);
+    expect(own.length).toBeGreaterThan(4000);
+    expect(ordered.length).toBe(194);
+    for (const p of decodeShopProducts({ ...f, products: own })) {
+      expect(p.price).toBeGreaterThan(0);
+      expect(shopPageUrl(f, p), p.id).toMatch(/^https:\/\/www\.marksandspencer\.com\/food\/.+\/p\/fdp\d+$/);
+    }
+    for (const p of decodeShopProducts({ ...f, products: ordered })) {
       expect(p.price).toBeGreaterThan(0);
       expect(p.page, p.id).toBe("");
       expect(shopPageUrl(f, p)).toMatch(/^https:\/\/www\.marksandspencer\.com\/search\?searchTerm=/);

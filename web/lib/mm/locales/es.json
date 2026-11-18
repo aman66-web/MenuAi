@@ -2150,5 +2150,9 @@
  "{total} for the {priced} of {count} items with a price, at {shopPossessive} prices. Prices change: check in store.": "{total} por los {priced} de {count} productos que tienen precio, a precios de {shopPossessive}. Los precios cambian: compruébalos en la tienda.",
  "{used} of {limit} free saved orders used.": "Has usado {used} de {limit} pedidos guardados gratis.",
  "“Not listed” means nothing is recorded, not that the product is free from it.": "«No figura» significa que no consta nada, no que el producto esté libre de él.",
- "…": "…"
+ "…": "…",
+ "My recipes": "Mis recetas",
+ "Only show": "Mostrar solo",
+ "Show {n} recipes": "Mostrar {n} recetas",
+ "Show 1 recipe": "Mostrar 1 receta"
 }

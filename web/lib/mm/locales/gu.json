@@ -2150,5 +2150,9 @@
  "{total} for the {priced} of {count} items with a price, at {shopPossessive} prices. Prices change: check in store.": "{count} માંથી ભાવવાળી {priced} વસ્તુઓ માટે {total}, {shopPossessive} ભાવે. ભાવ બદલાય છે: દુકાનમાં તપાસો.",
  "{used} of {limit} free saved orders used.": "{limit} માંથી {used} મફત સાચવેલા ઓર્ડર વપરાયા.",
  "“Not listed” means nothing is recorded, not that the product is free from it.": "“યાદીમાં નથી” એટલે કંઈ નોંધાયેલું નથી; તેનો અર્થ એ નથી કે પ્રોડક્ટમાં તે નથી.",
- "…": "…"
+ "…": "…",
+ "My recipes": "મારી રેસીપી",
+ "Only show": "ફક્ત બતાવો",
+ "Show {n} recipes": "{n} રેસીપી બતાવો",
+ "Show 1 recipe": "1 રેસીપી બતાવો"
 }

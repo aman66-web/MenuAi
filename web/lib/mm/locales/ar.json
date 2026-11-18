@@ -2150,5 +2150,9 @@
  "{total} for the {priced} of {count} items with a price, at {shopPossessive} prices. Prices change: check in store.": "{total} لـ {priced} من {count} أصناف لها سعر، بأسعار {shopPossessive}. الأسعار تتغير: تحقّق في المتجر.",
  "{used} of {limit} free saved orders used.": "استخدمت {used} من {limit} طلبات محفوظة مجانية.",
  "“Not listed” means nothing is recorded, not that the product is free from it.": "«غير مُدرج» يعني أنه لا يوجد شيء مسجّل، وليس أن المنتج خالٍ منه.",
- "…": "…"
+ "…": "…",
+ "My recipes": "وصفاتي",
+ "Only show": "اعرض فقط",
+ "Show {n} recipes": "اعرض {n} وصفات",
+ "Show 1 recipe": "اعرض وصفة واحدة"
 }

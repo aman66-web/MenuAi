@@ -69,7 +69,10 @@ await step("recipes list: picked for you, 165 recipes priced at Sainsbury's, 24 
   await tiles.getByRole("button", { name: "Snacks" }).click();
   await page.getByRole("status").filter({ hasText: /^17 recipes match$/ }).waitFor();
   expect((await page.getByRole("region", { name: "Picked for you" }).count()) === 0, "picks hide while filtering");
+  // founder 2026-11-18: several meals at once show any of them (17 snacks and 31 breakfasts)
   await tiles.getByRole("button", { name: "Breakfast" }).click();
+  await page.getByRole("status").filter({ hasText: /^48 recipes match$/ }).waitFor();
+  await tiles.getByRole("button", { name: "Snacks" }).click();
   await page.getByRole("status").filter({ hasText: /^31 recipes match$/ }).waitFor();
   await tiles.getByRole("button", { name: "Quick" }).click();
   const quick = Number(/^(\d+) recipes? match$/.exec((await page.getByRole("status").filter({ hasText: /match$/ }).innerText()).trim())?.[1]);
@@ -95,6 +98,7 @@ await step("recipes list: picked for you, 165 recipes priced at Sainsbury's, 24 
   await page.getByRole("status").filter({ hasText: /^165 recipes$/ }).waitFor();
   await tiles.getByRole("button", { name: "More" }).click();
   await page.getByRole("radio", { name: "Lowest price" }).click();
+  await page.getByRole("dialog", { name: "Filters" }).getByRole("button", { name: "Show 165 recipes" }).click();
   await page.waitForTimeout(200);
   const prices = [];
   for (let i = 0; i < 3; i++) prices.push(money((await cards.nth(i).innerText()).replace(/\n/g, " ")));
@@ -104,7 +108,7 @@ await step("recipes list: picked for you, 165 recipes priced at Sainsbury's, 24 
   const first = cards.first().locator("xpath=..");
   await first.getByRole("button", { name: "Save to My meals", pressed: false }).click();
   await first.getByRole("button", { name: "Saved to My meals", pressed: true }).waitFor();
-  await page.getByRole("link", { name: "My meals · 1" }).waitFor();
+  await page.getByRole("link", { name: "My recipes · 1" }).waitFor();
   await ctx.close();
 });
 
@@ -466,132 +470,169 @@ await step("Pip's recipe maker is off: no card even when the server says it's on
 });
 
 // founder 2026-10-16: "a way to customise by niche, for example for Christmas, or like Chinese cuisine or Indian": a Cuisine and an Occasion field under the
-// meal tiles. Every choice says how many recipes it would show; one that would show none is greyed out; the choice lives in the address; Clear resets it.
-await step("cuisine and occasion: two fields with counts, one tap to choose, AND with the tiles and the diet, kept in the address and by Back, bad addresses ignored, Clear", async () => {
+// meal tiles. Founder 2026-11-18: side by side, and any number of choices in each ("they can select more filters multiple as many as they want"), so each field
+// opens the Filters sheet at its choices. Every choice says how many recipes it has with everything else as it is; one with none is greyed out unless chosen;
+// within a field the choices are alternatives, the two fields together both apply; the choice lives in the address; Clear all resets it.
+await step("cuisine and occasion: side by side, each opens the Filters sheet at its choices, several at once with counts, AND with the tiles and the diet, kept in the address and by Back, bad addresses ignored, Clear all", async () => {
   const { ctx, page } = await newPage();
   const status = () => page.getByRole("status").filter({ hasText: /recipes? match$/ });
   const matchCount = async () => Number(/^(\d+) recipes? match$/.exec((await status().innerText()).trim())?.[1]);
-  const options = (name) => page.getByRole("combobox", { name }).locator("option");
-  const optionTexts = async (name) => (await options(name).allInnerTexts()).map((x) => x.trim());
-  const countOf = async (name, word) => Number(new RegExp(`^${word} · (\\d+)$`).exec((await optionTexts(name)).find((x) => x.startsWith(word)) ?? "")?.[1]);
+  const sheet = page.getByRole("dialog", { name: "Filters" });
+  const chips = (group) => sheet.getByRole("group", { name: group, exact: true }).getByRole("button");
+  const chipTexts = async (group) => (await chips(group).allInnerTexts()).map((x) => x.trim());
+  const countOf = async (group, word) => Number(new RegExp(`^${word} · (\\d+)$`).exec((await chipTexts(group)).find((x) => x.startsWith(word)) ?? "")?.[1]);
+  const chip = (group, word) => chips(group).filter({ hasText: new RegExp(`^${word}( · \\d+)?$`) });
+  const showButton = () => sheet.getByRole("button", { name: /^Show \d+ recipes?$|^No recipes match\.$/ });
   const noSideways = async (where) => expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), `${where}: no sideways scroll`);
   await page.goto(BASE + "/app/recipes");
   await page.getByRole("heading", { name: /All recipes · 165/ }).waitFor();
-  const cuisine = page.getByRole("combobox", { name: "Cuisine" });
-  const occasion = page.getByRole("combobox", { name: "Occasion" });
+  const cuisine = page.getByRole("button", { name: /^Cuisine/ });
+  const occasion = page.getByRole("button", { name: /^Occasion/ });
   await cuisine.waitFor();
   await occasion.waitFor();
-  // the fields sit under the meal tiles, above "Picked for you", and are full width
-  const boxes = await Promise.all([page.getByRole("group", { name: "Filters" }).boundingBox(), cuisine.locator("xpath=..").boundingBox(), occasion.locator("xpath=..").boundingBox(), page.getByRole("region", { name: "Picked for you" }).boundingBox()]);
-  expect(boxes.every(Boolean) && boxes[0].y + boxes[0].height <= boxes[1].y && boxes[1].y + boxes[1].height <= boxes[2].y && boxes[2].y + boxes[2].height <= boxes[3].y, `order: tiles, Cuisine, Occasion, Picked for you ${JSON.stringify(boxes.map((b) => b && Math.round(b.y)))}`);
-  expect(boxes[1].width > 300 && boxes[2].width > 300, "full-width fields");
+  // the two fields sit side by side under the meal tiles, above "Picked for you"
+  const boxes = await Promise.all([page.getByRole("group", { name: "Filters" }).boundingBox(), cuisine.boundingBox(), occasion.boundingBox(), page.getByRole("region", { name: "Picked for you" }).boundingBox()]);
+  expect(boxes.every(Boolean) && boxes[0].y + boxes[0].height <= boxes[1].y && Math.abs(boxes[1].y - boxes[2].y) < 2 && boxes[1].x + boxes[1].width <= boxes[2].x && boxes[1].y + boxes[1].height <= boxes[3].y, `order: tiles, Cuisine beside Occasion, Picked for you ${JSON.stringify(boxes.map((x) => x && [Math.round(x.x), Math.round(x.y)]))}`);
+  expect(boxes[1].height >= 44 && boxes[2].height >= 44, "44 pt fields");
+  expect((await cuisine.innerText()).includes("Any cuisine") && (await occasion.innerText()).includes("Any occasion"), "nothing chosen at first");
   await noSideways("fields");
-  const cuisines = await optionTexts("Cuisine");
-  expect(cuisines[0] === "Any cuisine", `first option Any cuisine, got ${cuisines[0]}`);
+  // the Cuisine field opens the sheet with every filter: the meals, the three others, then the cuisines and occasions with counts
+  await cuisine.click();
+  await sheet.waitFor();
+  expect((await chipTexts("Meal")).join("|") === "Breakfast|Lunch|Dinner|Snacks", "the four meals: " + (await chipTexts("Meal")).join("|"));
+  expect((await chipTexts("Only show")).join("|") === "Quick|No meat or fish|Vegan", "the three others: " + (await chipTexts("Only show")).join("|"));
+  const cuisines = await chipTexts("Cuisine");
   for (const w of ["British", "Chinese", "Indian", "Italian", "Mexican", "Middle Eastern"]) expect(cuisines.some((x) => new RegExp(`^${w} · \\d+$`).test(x)), `${w} with a count: ${cuisines.join(" | ")}`);
-  expect(cuisines.length === 7, `six cuisines and Any: ${cuisines.join(" | ")}`);
-  expect(cuisines.every((x) => !/Thai|Japanese|Greek|American|Christmas/.test(x)), "only the cuisines on offer");
-  const occasions = await optionTexts("Occasion");
-  expect(occasions[0] === "Any occasion", `first option Any occasion, got ${occasions[0]}`);
+  expect(cuisines.length === 6, `six cuisines: ${cuisines.join(" | ")}`);
+  const occasions = await chipTexts("Occasion");
   for (const w of ["Lunchbox", "Party food", "Picnic", "Summer barbecue"]) expect(occasions.some((x) => new RegExp(`^${w} · \\d+$`).test(x)), `${w} with a count: ${occasions.join(" | ")}`);
   expect(occasions.every((x) => !/Easter|Pancake|Sunday|Date night/.test(x)), "no Easter, Pancake Day...");
-  // Bonfire Night is offered from 15 October to 10 November only
+  // Bonfire Night is offered from 15 October to 10 November only; Christmas from 1 November to 6 January
   const nowD = new Date();
   const bonfire = (nowD.getMonth() === 9 && nowD.getDate() >= 15) || (nowD.getMonth() === 10 && nowD.getDate() <= 10);
   expect(occasions.some((x) => x.startsWith("Bonfire Night")) === bonfire, `Bonfire Night ${bonfire ? "is" : "is not"} offered today: ${occasions.join(" | ")}`);
-  // Christmas is offered from 1 November to 6 January only
-  const christmas = nowD.getMonth() >= 10 || nowD.getMonth() === 11 || (nowD.getMonth() === 0 && nowD.getDate() <= 6);
+  const christmas = nowD.getMonth() >= 10 || (nowD.getMonth() === 0 && nowD.getDate() <= 6);
   expect(occasions.some((x) => /^Christmas · \d+$/.test(x)) === christmas, `Christmas ${christmas ? "is" : "is not"} offered today: ${occasions.join(" | ")}`);
   const chinese = await countOf("Cuisine", "Chinese");
-  expect(chinese >= 8, `Chinese has plenty: ${chinese}`);
+  const indianAll = await countOf("Cuisine", "Indian");
+  expect(chinese >= 8 && indianAll >= 8, `Chinese and Indian have plenty: ${chinese}, ${indianAll}`);
   const historyBefore = await page.evaluate(() => history.length);
-  // choose Chinese: the count line says the same number, the picks go, the address says so, and no history entry is added
-  await cuisine.selectOption("chinese");
+  // choose Chinese: the count line says the same number, the address says so, no history entry is added, the button says how many
+  await chip("Cuisine", "Chinese").click();
   await status().waitFor();
+  expect((await chip("Cuisine", "Chinese").getAttribute("aria-pressed")) === "true", "Chinese is chosen");
   expect((await matchCount()) === chinese, `${chinese} Chinese recipes, the count line says ${await matchCount()}`);
-  expect((await page.getByRole("region", { name: "Picked for you" }).count()) === 0, "picks hide while a cuisine is chosen");
   await page.waitForURL((u) => u.searchParams.get("cuisine") === "chinese" && u.searchParams.get("r") === null);
   expect((await page.evaluate(() => history.length)) === historyBefore, "choosing adds no history entry");
-  expect((await page.getByRole("link", { name: /Egg chow mein with vegetables/ }).count()) === 1, "a new Chinese recipe is in the list");
-  await noSideways("a cuisine chosen");
-  expect((await cuisine.evaluate((el) => el.options[el.selectedIndex].text.trim())) === `Chinese · ${chinese}`, "the field shows the choice and its count");
-  // the tiles narrow it further, and the counts follow: Dinner, then Snacks (no Chinese snack)
+  expect((await showButton().innerText()).trim() === `Show ${chinese} recipes`, "the button says how many: " + (await showButton().innerText()));
+  // and Indian as well: a recipe of either cuisine
+  await chip("Cuisine", "Indian").click();
+  await page.waitForURL((u) => u.search.includes("cuisine=chinese,indian"));
+  expect((await matchCount()) === chinese + indianAll, `Chinese or Indian: ${chinese} + ${indianAll}, the count line says ${await matchCount()}`);
+  await showButton().click();
+  await sheet.waitFor({ state: "hidden" });
+  expect((await cuisine.innerText()).includes("Chinese, Indian"), "the field shows both: " + (await cuisine.innerText()));
+  expect((await page.getByRole("region", { name: "Picked for you" }).count()) === 0, "picks hide while a cuisine is chosen");
+  expect((await page.getByRole("link", { name: /Egg chow mein with vegetables/ }).count()) === 1, "a Chinese recipe is in the list");
+  await noSideways("two cuisines chosen");
+  // the tiles narrow it further and the sheet shows the same choice: Dinner, then Snacks as well (dinners or snacks)
   const tiles = page.getByRole("group", { name: "Filters" });
   await tiles.getByRole("button", { name: "Dinner" }).click();
   const dinner = await matchCount();
-  expect(dinner >= 4 && dinner < chinese, `Chinese dinners ${dinner} of ${chinese}`);
-  expect((await countOf("Cuisine", "Chinese")) === dinner, "the Chinese option follows the Dinner tile");
-  expect((await countOf("Cuisine", "Indian")) !== dinner, "other cuisines count the Dinner tile too");
+  expect(dinner >= 4 && dinner < chinese + indianAll, `Chinese or Indian dinners ${dinner}`);
   await tiles.getByRole("button", { name: "Snacks" }).click();
+  expect((await tiles.getByRole("button", { name: "Dinner" }).getAttribute("aria-pressed")) === "true" && (await tiles.getByRole("button", { name: "Snacks" }).getAttribute("aria-pressed")) === "true", "two meal tiles at once");
+  const dinnerOrSnack = await matchCount();
+  expect(dinnerOrSnack >= dinner, `dinners or snacks ${dinnerOrSnack} >= dinners ${dinner}`);
+  await tiles.getByRole("button", { name: "More" }).click();
+  await sheet.waitFor();
+  expect((await chip("Meal", "Dinner").getAttribute("aria-pressed")) === "true" && (await chip("Meal", "Snacks").getAttribute("aria-pressed")) === "true", "the sheet shows the tiles' choice");
+  expect((await countOf("Cuisine", "Chinese")) + (await countOf("Cuisine", "Indian")) === dinnerOrSnack, "the two counts add up to what is shown");
+  // only snacks: nothing Chinese or Indian; every choice with nothing left is greyed out, a chosen one never is
+  await chip("Meal", "Dinner").click();
   await page.getByText("No recipes match.").last().waitFor();
-  await page.getByText("Try another cuisine, occasion, word or meal.").waitFor();
-  expect(!(await options("Cuisine").filter({ hasText: /^Chinese/ }).evaluate((el) => el.disabled)), "the chosen cuisine stays enabled so it can be undone");
-  expect(await options("Cuisine").filter({ hasText: /^Chinese/ }).evaluate((el) => el.selected), "and chosen");
-  expect(await options("Cuisine").filter({ hasText: /^Indian/ }).evaluate((el) => el.disabled), "a cuisine with no snack is greyed out");
-  expect((await options("Cuisine").filter({ hasText: /^Indian · 0$/ }).count()) === 1, "and says 0");
-  expect(await options("Occasion").filter({ hasText: /^Picnic · 0$/ }).evaluate((el) => el.disabled), "no Chinese recipe suits a picnic: greyed out");
-  await page.getByRole("button", { name: "Show all recipes" }).click();
+  for (const group of ["Cuisine", "Occasion"]) {
+    const n = await chips(group).count();
+    for (let i = 0; i < n; i++) {
+      const c = chips(group).nth(i);
+      const text = (await c.innerText()).trim();
+      const pressed = (await c.getAttribute("aria-pressed")) === "true";
+      expect((await c.isDisabled()) === (/ · 0$/.test(text) && !pressed), `${group} ${text}: greyed out only when it has none and is not chosen`);
+    }
+  }
+  await sheet.getByRole("button", { name: "Clear all" }).click();
   await page.getByRole("status").filter({ hasText: /^165 recipes$/ }).waitFor();
   await page.waitForURL((u) => u.search === "");
-  expect((await cuisine.inputValue()) === "", "Show all recipes clears the cuisine and the address");
-  // a bad address is read as no choice: an unknown name, a cuisine with too few recipes, an occasion that does not exist
-  for (const q of ["?cuisine=klingon&occasion=nope", "?cuisine=japanese", "?cuisine=thai&occasion=easter", "?cuisine=chinese,indian"]) {
+  for (const group of ["Meal", "Only show", "Cuisine", "Occasion"]) expect((await sheet.getByRole("group", { name: group, exact: true }).locator("[aria-pressed=true]").count()) === 0, `Clear all takes off every ${group} choice`);
+  await sheet.getByRole("button", { name: "Close" }).click();
+  // a bad address is read as no choice: an unknown name, a cuisine with too few recipes, an occasion that does not exist, another separator
+  for (const q of ["?cuisine=klingon&occasion=nope", "?cuisine=japanese", "?cuisine=thai&occasion=easter", "?cuisine=chinese;indian"]) {
     await page.goto(BASE + "/app/recipes" + q);
     await page.getByRole("heading", { name: /All recipes · 165/ }).waitFor();
     await page.getByRole("status").filter({ hasText: /^165 recipes$/ }).waitFor();
-    expect((await page.getByRole("combobox", { name: "Cuisine" }).inputValue()) === "" && (await page.getByRole("combobox", { name: "Occasion" }).inputValue()) === "", `${q}: no choice`);
+    expect((await cuisine.innerText()).includes("Any cuisine") && (await occasion.innerText()).includes("Any occasion"), `${q}: no choice`);
   }
-  // a link and a reload keep the choice; Back from a recipe comes back to the same choice
+  // a link with two cuisines, a reload and Back from a recipe keep the choice
+  await page.goto(BASE + "/app/recipes?cuisine=indian,chinese");
+  await page.getByRole("heading", { name: /All recipes · 165/ }).waitFor();
+  await status().waitFor();
+  expect((await matchCount()) === chinese + indianAll && (await cuisine.innerText()).includes("Chinese, Indian"), "?cuisine=indian,chinese: both chosen, in the catalogue's order");
   await page.goto(BASE + "/app/recipes?cuisine=indian");
   await page.getByRole("heading", { name: /All recipes · 165/ }).waitFor();
   await status().waitFor();
   const indian = await matchCount();
-  expect(indian >= 8 && (await cuisine.inputValue()) === "indian", `?cuisine=indian: ${indian} Indian recipes chosen`);
-  expect((await countOf("Cuisine", "Indian")) === indian, "the option and the count line agree");
+  expect(indian === indianAll && (await cuisine.innerText()).includes("Indian"), `?cuisine=indian: ${indian} Indian recipes chosen`);
   await page.reload();
   await status().waitFor();
-  expect((await matchCount()) === indian && (await cuisine.inputValue()) === "indian", "kept after a reload");
+  expect((await matchCount()) === indian && (await cuisine.innerText()).includes("Indian"), "kept after a reload");
   const first = page.getByRole("region", { name: /All recipes/ }).locator("a[href*='/app/recipes/view']").first();
   await first.click();
   await page.waitForURL((u) => u.pathname.startsWith("/app/recipes/view"));
   await page.getByRole("button", { name: /^Save to My meals/ }).waitFor();
   await page.goBack();
   await status().waitFor();
-  expect((await cuisine.inputValue()) === "indian" && (await matchCount()) === indian, "Back from a recipe finds Indian still chosen");
-  // the diet applies: for a vegan the Indian option counts fewer, and says what choosing it shows
+  expect((await cuisine.innerText()).includes("Indian") && (await matchCount()) === indian, "Back from a recipe finds Indian still chosen");
   await ctx.close();
+  // the diet applies: for a vegan the Indian choice counts fewer, and says what choosing it shows
   const vegan = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, preferences: { ...baseSettings.preferences, veganOnly: true } } }));
+  const vSheet = vegan.page.getByRole("dialog", { name: "Filters" });
   await vegan.page.goto(BASE + "/app/recipes");
   await vegan.page.getByRole("heading", { name: /All recipes · \d+/ }).waitFor();
-  const veganIndian = Number(new RegExp("^Indian · (\\d+)$").exec((await vegan.page.getByRole("combobox", { name: "Cuisine" }).locator("option").allInnerTexts()).map((x) => x.trim()).find((x) => x.startsWith("Indian")) ?? "")?.[1]);
+  await vegan.page.getByRole("button", { name: /^Cuisine/ }).click();
+  const vIndian = vSheet.getByRole("group", { name: "Cuisine", exact: true }).getByRole("button").filter({ hasText: /^Indian · \d+$/ });
+  const veganIndian = Number(/· (\d+)$/.exec((await vIndian.innerText()).trim())?.[1]);
   expect(veganIndian >= 1 && veganIndian < indian, `vegan: fewer Indian recipes (${veganIndian} of ${indian})`);
-  await vegan.page.getByRole("combobox", { name: "Cuisine" }).selectOption("indian");
+  await vIndian.click();
   await vegan.page.getByRole("status").filter({ hasText: /recipes? match$/ }).waitFor();
-  expect(Number(/^(\d+)/.exec(await vegan.page.getByRole("status").filter({ hasText: /recipes? match$/ }).innerText())?.[1]) === veganIndian, "the vegan count line equals the option");
+  expect(Number(/^(\d+)/.exec(await vegan.page.getByRole("status").filter({ hasText: /recipes? match$/ }).innerText())?.[1]) === veganIndian, "the vegan count line equals the choice");
   await vegan.ctx.close();
-  // an occasion, with the cuisine: AND, and Clear resets both
+  // an occasion with a cuisine: both apply, and Clear resets both
   const b = await newPage();
   const bp = b.page;
+  const bSheet = bp.getByRole("dialog", { name: "Filters" });
+  const bChip = (group, word) => bSheet.getByRole("group", { name: group, exact: true }).getByRole("button").filter({ hasText: new RegExp(`^${word} · \\d+$`) });
+  const bCount = async (group, word) => Number(/· (\d+)$/.exec((await bChip(group, word).innerText()).trim())?.[1]);
   const bStatus = () => bp.getByRole("status").filter({ hasText: /recipes? match$/ });
   await bp.goto(BASE + "/app/recipes");
   await bp.getByRole("heading", { name: /All recipes · 165/ }).waitFor();
-  const occ = (await bp.getByRole("combobox", { name: "Occasion" }).locator("option").allInnerTexts()).map((x) => x.trim());
-  const picnic = Number(/^Picnic · (\d+)$/.exec(occ.find((x) => x.startsWith("Picnic")) ?? "")?.[1]);
+  await bp.getByRole("button", { name: /^Occasion/ }).click();
+  const picnic = await bCount("Occasion", "Picnic");
   expect(picnic >= 8, `Picnic has plenty: ${picnic}`);
-  await bp.getByRole("combobox", { name: "Occasion" }).selectOption("picnic");
+  await bChip("Occasion", "Picnic").click();
   await bStatus().waitFor();
-  expect(Number(/^(\d+)/.exec(await bStatus().innerText())?.[1]) === picnic, "the Picnic count line equals the option");
+  expect(Number(/^(\d+)/.exec(await bStatus().innerText())?.[1]) === picnic, "the Picnic count line equals the choice");
   await bp.waitForURL((u) => u.searchParams.get("occasion") === "picnic");
-  // Picnic recipes of one cuisine: the option text of that cuisine now counts only the picnic ones, and choosing it gives exactly that
-  const me = Number(/^Middle Eastern · (\d+)$/.exec((await bp.getByRole("combobox", { name: "Cuisine" }).locator("option").allInnerTexts()).map((x) => x.trim()).find((x) => x.startsWith("Middle Eastern")) ?? "")?.[1]);
+  // the Middle Eastern count now counts only picnic recipes, and choosing it gives exactly that
+  const me = await bCount("Cuisine", "Middle Eastern");
   expect(me >= 1 && me < picnic, `Middle Eastern picnics ${me} of ${picnic}`);
-  await bp.getByRole("combobox", { name: "Cuisine" }).selectOption("middle-eastern");
+  await bChip("Cuisine", "Middle Eastern").click();
   await bp.waitForURL((u) => u.searchParams.get("occasion") === "picnic" && u.searchParams.get("cuisine") === "middle-eastern");
   expect(Number(/^(\d+)/.exec(await bStatus().innerText())?.[1]) === me, "both together: the Middle Eastern picnics");
+  await bSheet.getByRole("button", { name: /^Show \d+ recipes?$/ }).click();
   await bp.getByRole("link", { name: /Houmous with vegetable sticks/ }).waitFor();
   await bp.getByRole("button", { name: "Clear" }).click();
   await bp.getByRole("status").filter({ hasText: /^165 recipes$/ }).waitFor();
-  expect((await bp.getByRole("combobox", { name: "Cuisine" }).inputValue()) === "" && (await bp.getByRole("combobox", { name: "Occasion" }).inputValue()) === "", "Clear resets both fields");
+  expect((await bp.getByRole("button", { name: /^Cuisine/ }).innerText()).includes("Any cuisine") && (await bp.getByRole("button", { name: /^Occasion/ }).innerText()).includes("Any occasion"), "Clear resets both fields");
   // the search finds a recipe by its cuisine or occasion word
   await bp.getByLabel("Search recipes").fill("chinese");
   await bStatus().waitFor();

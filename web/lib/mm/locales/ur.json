@@ -2150,5 +2150,9 @@
  "{total} for the {priced} of {count} items with a price, at {shopPossessive} prices. Prices change: check in store.": "{count} میں سے قیمت والی {priced} آئٹمز کا کل {total}، {shopPossessive} کی قیمتوں پر۔ قیمتیں بدلتی رہتی ہیں: اسٹور میں دیکھ لیں۔",
  "{used} of {limit} free saved orders used.": "{limit} میں سے {used} مفت محفوظ آرڈر استعمال ہو چکے۔",
  "“Not listed” means nothing is recorded, not that the product is free from it.": "“درج نہیں” کا مطلب ہے کہ کچھ ریکارڈ نہیں، یہ نہیں کہ پروڈکٹ اس سے پاک ہے۔",
- "…": "…"
+ "…": "…",
+ "My recipes": "میری ترکیبیں",
+ "Only show": "صرف دکھائیں",
+ "Show {n} recipes": "{n} ترکیبیں دکھائیں",
+ "Show 1 recipe": "1 ترکیب دکھائیں"
 }

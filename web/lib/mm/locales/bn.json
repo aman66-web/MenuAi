@@ -2150,5 +2150,9 @@
  "{total} for the {priced} of {count} items with a price, at {shopPossessive} prices. Prices change: check in store.": "{count}টি আইটেমের মধ্যে দাম আছে এমন {priced}টির জন্য {total}, {shopPossessive} দামে। দাম বদলায়: দোকানে দেখে নিন।",
  "{used} of {limit} free saved orders used.": "{limit}টি ফ্রি সংরক্ষিত অর্ডারের মধ্যে {used}টি ব্যবহার হয়েছে।",
  "“Not listed” means nothing is recorded, not that the product is free from it.": "“তালিকায় নেই” মানে কিছুই রেকর্ড করা নেই, এর মানে এই নয় যে পণ্যটিতে এটি নেই।",
- "…": "…"
+ "…": "…",
+ "My recipes": "আমার রেসিপি",
+ "Only show": "শুধু দেখান",
+ "Show {n} recipes": "{n}টি রেসিপি দেখান",
+ "Show 1 recipe": "1টি রেসিপি দেখান"
 }

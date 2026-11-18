@@ -2907,3 +2907,17 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   chilli shows the spice line for ground cumin. Recipe counts unchanged (Asda 115, Iceland 123).
 
 - 2026-11-18 (evening) — **Apple's agreement is accepted.** Checked read-only in the founder's Chrome after they signed in: developer.apple.com › Account lists the Apple Developer Program License Agreement (issued 29 October 2026) as accepted on 18 November 2026; App Store Connect › Business shows the Paid Apps Agreement (16 Oct 2026 – 4 Jul 2027) and the Free Apps Agreement (17 Nov 2026 – 4 Jul 2027) Active, the bank account and both tax forms Active. The only notices on the Apps page are Apple's China mainland declarations (not a UK concern). Nothing uploaded or submitted: the founder wants the grocery label work finished first. Build 6 (1.1) still predates the 17-18 November grocery changes, so re-pack and archive again before uploading.
+
+- 2026-11-18 (evening) — **Recipes screen: several filters at once, one Filters sheet, side-by-side Cuisine and Occasion, "My recipes", a shorter Make it at home card** (founder, from a
+  screenshot: "people should be able to select multiple like breakfast lunch dinner quick no meat etc ... when they select more it opens all of them including the 7 there and
+  they can select more filters multiple as many as they want"; "if they select breakfast lunch dinner and no meat or fish and vegan, it will show breakfasts that are no meat or fish
+  and vegan, lunches that are ... and dinners that are ..."; "could it be worth putting [cuisine and occasion] side by side"; "instead of the love heart ... maybe its better having
+  'my recipes'"; the Make it at home sentence "takes up 3 lines maybe have it take up 2"). **Rules:** the meal tiles are alternatives (Breakfast + Lunch shows either); Quick, No
+  meat or fish and Vegan all apply to every meal chosen; several cuisines or several occasions are alternatives within their field, and the two fields together both apply
+  (`matchesNiche`, `nicheCounts` in lib/mm/recipeNiche.ts take lists; the address carries `?cuisine=chinese,indian`). "More" opens a Filters sheet with the four meals, the three
+  others, every cuisine and occasion with how many recipes each has (0 greyed out unless chosen), then the sort, meal size, allergies and diet as before, and a bottom bar with
+  Clear all and "Show n recipes". Cuisine and Occasion sit side by side (one above the other with large text) and each opens the sheet at its own choices; the field shows what
+  is chosen with commas ("Chinese, Indian"), not "and". The heart at the top right is now a pill "♡ My recipes" with the saved count, opening My meals' Recipes tab. The Make it at
+  home card is tighter (48 pt camera square, 36 pt arrow, 14 px sentence): two lines from a 393 pt wide iPhone up (iPhone 16 and 16 Pro), still three on 375 pt phones (SE, mini).
+  **New copy (rule 8, from the founder's request):** "My recipes", "Only show" (heading over Quick, No meat or fish, Vegan in the sheet), "Show {n} recipes", "Show 1 recipe"; in
+  the 10 languages by AI, for the native-speaker check. Tests: tests/recipeNiche.test.ts (17), e2e/recipes.mjs cuisine step rewritten for the sheet and several choices.

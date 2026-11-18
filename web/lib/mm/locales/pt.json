@@ -2150,5 +2150,9 @@
  "{total} for the {priced} of {count} items with a price, at {shopPossessive} prices. Prices change: check in store.": "{total} pelos {priced} de {count} artigos com preço, aos preços do {shopPossessive}. Os preços mudam: confirma na loja.",
  "{used} of {limit} free saved orders used.": "Usaste {used} de {limit} pedidos guardados grátis.",
  "“Not listed” means nothing is recorded, not that the product is free from it.": "“Não indicado” quer dizer que não há nada registado, não que o produto não o contenha.",
- "…": "…"
+ "…": "…",
+ "My recipes": "As minhas receitas",
+ "Only show": "Mostrar só",
+ "Show {n} recipes": "Mostrar {n} receitas",
+ "Show 1 recipe": "Mostrar 1 receita"
 }
