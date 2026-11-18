@@ -113,12 +113,20 @@ def read_table(rec: dict) -> tuple[dict | None, str]:
     st = STATE.search(header[col])
     state = st.group(1).lower() if st else ""
     out = {"per": per, "state": state, "kj": None, "kcal": None}
-    keys = [("saturates_g", r"saturate"), ("sugars_g", r"sugar"), ("fat_g", r"^\W*fat"), ("carbs_g", r"carbohydrate"), ("fibre_g", r"fibre|fiber"), ("protein_g", r"protein"), ("salt_g", r"^\W*salt")]
+    keys = [("saturates_g", r"saturate"), ("sugars_g", r"sugar"), ("fat_g", r"^\W*fat"), ("carbs_g", r"carbohydrate"), ("fibre_g", r"fibre|fiber"), ("protein_g", r"protein|protien"), ("salt_g", r"^\W*salt")]
     last_energy = False
     for r in rows[1:]:
         if len(r) <= col:
             continue
         label, cell = r[0], r[col]
+        # the row under "Energy" when that label spans two rows (Sainsbury's): its cells sit one column to the left, so the per-100 figure is in the label's place
+        # ("473kcal", "227kcal", "11%"); the kJ/kcal check below still has to agree
+        if last_energy and col >= 1 and re.fullmatch(r"\s*<?\s*\d[\d,.]*\s*(kcal|kj)\s*", label, re.I):
+            kj, kc = energy([r[col - 1]], "")
+            out["kj"] = out["kj"] or kj
+            out["kcal"] = out["kcal"] or kc
+            last_energy = False
+            continue
         if re.search(r"energy", label, re.I) or (last_energy and not label.strip() and re.search(r"kcal|kj", cell, re.I)):
             kj, kc = energy([cell], label)
             out["kj"] = out["kj"] or kj

@@ -82,7 +82,10 @@ def all_products(shop: str):
             continue
         (then if nut else first).append({"product_id": row[0], "page": page, "name": row[1]})
     yield from first
-    yield from then
+    # founder 2026-11-18: "I just want every food product to have nutritional information": products that already show numbers (their own label, the same product's label
+    # from another shop, community numbers or the government's produce figures) are read only when asked for (--with-labelled), for their ingredients
+    if "--with-labelled" in sys.argv:
+        yield from then
 
 
 TRANSCRIPTS = Path.home() / ".claude" / "projects" / ("-" + str(ROOT).strip("/").replace("/", "-"))
