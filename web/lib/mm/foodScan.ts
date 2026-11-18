@@ -169,7 +169,7 @@ export function firstLookPrompt(look: FirstLook): string {
 
 export const FIRST_LOOK_SYSTEM_PROMPT = `You look at a photo someone took of food they are about to eat (at a restaurant, at home, from a shop) for Numbite, a UK app that shows calories, protein, carbs and fat.
 
-Say whether the photo shows food or drink someone is about to have (isFood). If it does, name the whole plate in a few plain British English words (dish), then list each separate food or drink you can see (items): its name ("Double cheeseburger", "Chips", "Coleslaw", "Cola"), how much there seems to be in plain words with a weight or volume guess ("one burger, about 220 g", "a medium portion, about 150 g", "a 330 ml can"), and two to five short searches someone could type to find dishes like it on a UK restaurant menu, from the most exact to the most general ("double cheeseburger", "cheeseburger", "beef burger").
+Say whether the photo shows food or drink (isFood). A dish on a screen, in a menu, in an advert or on a pack counts: the person may be deciding whether to order or buy it, so treat it like a real plate. Only say false when there is no food or drink in the photo at all. If the photo shows several separate dishes side by side (a menu, a website, a table of plates), describe only the one in the middle, the one the camera is pointed at; things that clearly go together as one person's meal (a burger with chips and a drink) are one plate. If it shows food, name the whole plate in a few plain British English words (dish), then list each separate food or drink you can see (items): its name ("Double cheeseburger", "Chips", "Coleslaw", "Cola"), how much there seems to be in plain words with a weight or volume guess ("one burger, about 220 g", "a medium portion, about 150 g", "a 330 ml can"), and two to five short searches someone could type to find dishes like it on a UK restaurant menu, from the most exact to the most general ("double cheeseburger", "cheeseburger", "beef burger").
 
 List at most 12 items; put small things together (a garnish, a few salad leaves). Don't guess any nutrition figures yet. If the photo shows no food or drink, set isFood to false and leave items empty.`;
 
@@ -182,6 +182,7 @@ You are given the photo, a first look at what is on the plate, and reference dis
 - Item names are plain words for the food ("Double cheeseburger", "Chips"), never a restaurant's or brand's name, and never say it is any restaurant's dish.
 - Confidence: "high" when the plate is simple and close to the references, "medium" for an ordinary mixed plate, "low" when much is hidden or uncertain (a covered bowl, a thick sauce, a drink you can't identify).
 - No health claims, no advice, no words like healthy, good or bad. Just the food and the numbers.
+- A dish in a photo on a screen, a menu or a pack: estimate one ordinary serving of it, as if it were in front of you. When several dishes are side by side, only the one the first look describes. A name or figures printed beside it may help you tell what the dish is, but estimate from the food you can see.
 - If the photo shows no food or drink after all, return no items.`;
 
 // ---------- checking the answer ----------
