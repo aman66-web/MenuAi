@@ -68,7 +68,7 @@ await step("the guided setup at /app/welcome: welcome, Pip's arrival, the text s
   for (const tab of ["Home", "Eat out", "Groceries", "Recipes"]) {
     await visible(page.getByRole("heading", { level: 1, name: tab, exact: true }));
     await visible(page.getByRole("heading", { level: 2, name: "What you can do" }));
-    if (tab === "Home") await visible(text("The gear at the top opens Settings: your goal, diet, text size, and this tour again."));
+    if (tab === "Home") await visible(text("Settings, at the top, has your goal, diet, text size, and this tour again."));
     if (tab === "Eat out") await visible(text("Search for any restaurant or dish by name."));
     if (tab === "Community") await visible(text("Food blogs are short, easy reads about eating out, shopping and cooking."));
     await page.waitForTimeout(900); // Pip's hop to this tab
