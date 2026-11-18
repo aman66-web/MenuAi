@@ -40,14 +40,17 @@ SECTION = re.compile(r"\s*(Allergy Advice|ALLERGY ADVICE|Allergy Information|ALL
                      r"Preparation and Usage)(?=[A-Z:\s]|$).*$")
 
 
+def spaces(text: str) -> str:
+    """A space the page wrote as an HTML entity ("&nbsp;", which the reader's "&" -> " and " turned into " and nbsp;") and zero-width spaces are spaces."""
+    t = re.sub(r"\s*\band (?:nbsp|#160);\s*", " ", text or "").replace("\u200b", "")
+    return re.sub(r"[ \t]{2,}", " ", re.sub(r"\band amp;", "and", t)).strip()
+
+
 def section_cut(text: str) -> str:
     """The ingredients list as printed, cut at the page's next section; text that isn't an ingredients list at all is dropped (""): the nutrition table read under
     an "Ingredients" heading by an earlier reader, a shop's own notices (M&S "Handling raw meat safely...", Waitrose "Warnings: Wash before use", Asda's
     "Product Information" terms) and a bare allergen line ("Contains Milk.", which belongs with the allergens, not the list)."""
-    # a space the page wrote as an HTML entity ("&nbsp;", which the reader's "&" -> " and " turned into " and nbsp;") and zero-width spaces are spaces
-    t = re.sub(r"\s*\band (?:nbsp|#160);\s*", " ", text or "").replace("\u200b", "")
-    t = re.sub(r"\band amp;", "and", t)
-    t = SECTION.sub("", re.sub(r"[ \t]{2,}", " ", t)).strip()
+    t = SECTION.sub("", spaces(text)).strip()
     if NOT_A_LIST.match(t) or re.search(r"typical values|nutrition(?:al)? (?:information|values)|\bkcal\b|\d\s*kj\b", t, re.I):
         return ""
     return t
@@ -208,8 +211,8 @@ def main() -> int:
         if rec is not None and not rec.get("blocked") and (rec.get("ingredients") or rec.get("bold") or rec.get("allergy")):
             if same_product(name, rec.get("h1", "")):
                 may = [m for m in (rec.get("mayContain") or []) if "{" not in m and len(m) < 240]
-                facts.append({"product_id": pid, "ingredients": section_cut(rec.get("ingredients", "")), "allergens_bold": "; ".join(rec.get("bold") or []),
-                              "allergy_info": rec.get("allergy", ""), "may_contain": " | ".join(may), "checked_on": rec.get("checked_on", ""), "page_url": page_address(base, pages[pid])})
+                facts.append({"product_id": pid, "ingredients": section_cut(rec.get("ingredients", "")), "allergens_bold": "; ".join(spaces(b) for b in (rec.get("bold") or [])),
+                              "allergy_info": spaces(rec.get("allergy", "")), "may_contain": " | ".join(spaces(m) for m in may), "checked_on": rec.get("checked_on", ""), "page_url": page_address(base, pages[pid])})
         if rec is None and pid not in reads:
             continue  # not read yet (every product in the list is asked for; only the read ones count)
         if rec is not None and rec.get("unreadable"):
