@@ -45,8 +45,11 @@ export interface IngredientSpec {
   original?: IngredientSpec;
   /** A store-cupboard item (spices, oil, salt): the recipe page offers "You may have this already". */
   cupboard?: boolean;
-  /** Its label may be one we haven't read: then it is listed and priced but not counted in the nutrition (and named as such). */
+  /** Salt, pepper or a dried spice (no nutrition label is required on them): a product with no label may be listed and priced but not counted in the
+   *  nutrition (and named as such), when its name is just that seasoning (plainSeasoning). */
   labelOptional?: boolean;
+  /** For labelOptional: a product with no label must also name one of these words (ground turmeric, not the fresh root). */
+  unlabelledNeeds?: string[];
 }
 
 export interface Recipe {
@@ -115,6 +118,7 @@ export function specFromKind(k: PantryKind, amount: number, opts: IngOpts = {}):
     ...(k.drained ? { drained: true } : {}),
     ...(k.cupboard ? { cupboard: true } : {}),
     ...(k.labelOptional ? { labelOptional: true } : {}),
+    ...(k.unlabelledNeeds ? { unlabelledNeeds: k.unlabelledNeeds } : {}),
     ...(note ? { note } : {}),
   };
 }
@@ -318,10 +322,27 @@ export function pickFor(spec: IngredientSpec, product: PricedProduct): Ingredien
 // the whole list hundreds of times).
 const matchCache = new WeakMap<readonly ShopProduct[], Map<string, PricedProduct[]>>();
 
+// A seasoning with no nutrition label (UK law requires none on herbs, spices or salt; founder 2026-11-18) stands for the ingredient only when its name is just
+// that seasoning: any brand or range words first, then the seasoning's own words and a few plain ones ("Saxa Fine Salt 750g", "COOK by ASDA Cook Ground Cumin
+// 41g", "Rajah Jeera Cumin Ground Spices 100g"), never a food that merely names it ("Sea Salt Crackers", "Pretzels With Sea Salt", "Basil & Oregano Passata").
+const SEASONING_PLAIN = new Set(["ground", "dried", "fine", "coarse", "table", "sea", "cooking", "mild", "medium", "hot", "extra", "jar", "drum", "tub", "bag",
+  "refill", "value", "pack", "spice", "spices", "seasoning", "seasonings", "mix", "powder", "jeera", "haldi", "mirch", "kashmiri", "italian", "organic", "x", "g",
+  "kg", "ml"]);
+const NOT_A_BRAND = new Set(["with", "and", "in", "of", "flavour", "flavoured", "style", "topped", "free"]);
+export function plainSeasoning(name: string, m: IngredientMatch, needs?: readonly string[]): boolean {
+  const words = normalizeForSearch(name).split(/\s+/).filter((w) => w && !/^\d/.test(w));
+  const own = new Set([...m.all, ...(m.any ?? [])].flatMap((x) => normalizeForSearch(x).split(/\s+/)));
+  if (needs && !needs.some((w) => words.includes(normalizeForSearch(w)))) return false;
+  const first = words.findIndex((w) => own.has(w));
+  if (first < 0) return false;
+  const before = words.slice(0, first);
+  return before.length <= 5 && !before.some((w) => NOT_A_BRAND.has(w)) && words.slice(first).every((w) => own.has(w) || SEASONING_PLAIN.has(w));
+}
+
 function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFree: boolean): PricedProduct[] {
   let byRule = matchCache.get(products);
   if (!byRule) { byRule = new Map(); matchCache.set(products, byRule); }
-  const rule = JSON.stringify([spec.match, spec.unit, !!spec.drained, meatFree]);
+  const rule = JSON.stringify([spec.match, spec.unit, !!spec.drained, meatFree, !!spec.labelOptional, spec.unlabelledNeeds ?? null]);
   const cached = byRule.get(rule);
   if (cached) return cached;
   const m = spec.match;
@@ -334,7 +355,7 @@ function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFr
       if (n.per !== spec.unit) continue;
       // the label must be for the food as the recipe weighs it: as sold, or (for a drained amount) per 100 g drained or a product sold ready-drained
       if (!(n.state === "" ? !spec.drained || has(h, "drained") || has(h, "no drain") : spec.drained && n.state === "drained")) continue;
-    } else if (!spec.labelOptional) continue; // a pinch of a spice whose label we haven't read may still be listed and priced (not counted)
+    } else if (!spec.labelOptional || !plainSeasoning(p.name, m, spec.unlabelledNeeds)) continue; // salt, pepper or a dried spice with no label: listed and priced, not counted
     if (!m.all.every((w) => has(h, w))) continue;
     if (m.any && !m.any.some((w) => has(h, w))) continue;
     if ([...GLOBAL_NONE, ...(m.none ?? [])].some((w) => has(h, w))) continue;

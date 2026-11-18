@@ -122,12 +122,12 @@ def read_table(rec: dict) -> tuple[dict | None, str]:
         # the first column holds the row names, even when its heading says "Typical values per 100g" (Sainsbury's fruit)
         if i == 0 and len(header) > 1:
             continue
-        m = re.search(r"100\s*(g|ml)\b", h, re.I)
+        m = re.search(r"100\s*(g|ml)(?:ms|rams)?\b", h, re.I)  # "Per 100g", "Per 100gms", "Per 100 grams"
         if m and not re.search(r"%|\bri\b|reference", h, re.I):
             col, per = i, m.group(1).lower()
             break
     if col is None:
-        m = re.search(r"per\s*100\s*(g|ml)\b", rec.get("above", ""), re.I)
+        m = re.search(r"per\s*100\s*(g|ml)(?:ms|rams)?\b", rec.get("above", ""), re.I)
         if m and len(header) >= 2:
             col, per = 1, m.group(1).lower()
     if col is None:

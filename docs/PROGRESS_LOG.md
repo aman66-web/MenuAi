@@ -2879,3 +2879,21 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
     not counted (the 17 November rule says no product without numbers in any recipe), Asda would go from 47 to 118 recipes, Iceland 33 -> 123, Morrisons 145 -> 161,
     Waitrose 111 -> 123, M&S 10 -> 22. **Open for the founder.** Next blockers after that: Asda new potatoes in water (its pages print "hob-heated and drained"
     figures, not as sold) and carrots (Asda prints boiled figures only); Waitrose and M&S sell no tinned new potatoes.
+- 2026-11-18 (late morning, Mac) — **Salt, pepper and dried spices without a label may be in recipes** (founder: "Ok Yes: Asda goes from 47 to 118 recipes and Iceland
+  from 33 to 123", choosing spices and salt over spices only, after the 17 November rule "products that have no nutritional information shouldn't be used for
+  recipes in general"). UK law requires no nutrition label on herbs, spices or salt, and Asda, Iceland, M&S and others print none; no other source has figures
+  for them (Open Food Facts empty; CoFID gives no energy for pepper or most spices and has no table salt).
+  - **Which:** the pantry kinds salt, black and white pepper, cumin, paprika, smoked paprika, chilli powder, chilli flakes, cinnamon, turmeric, curry powder, mixed
+    herbs, oregano, mixed spice, nutmeg and fajita seasoning (`labelOptional`). Not dried thyme, rosemary, dill, chives or mint (fresh packs share their names),
+    sesame seeds, mustard, garlic or ginger (labelled foods).
+  - **How:** a product of the kind with numbers always comes first. One with no numbers is used only when its name is just that seasoning: brand or range words
+    first, then the seasoning's own words and plain ones (ground, fine, sea, table, jar, spices...): "Saxa Fine Salt 750g", "COOK by ASDA Cook Ground Cumin 41g",
+    never "Sea Salt Crackers", "Pretzels With Sea Salt" or "Basil & Oregano Passata" (`plainSeasoning`, tests `recipeSeasonings.test.ts`); turmeric must say ground,
+    haldi or powder (not the fresh root). It is listed and priced, not counted; uncounted salt leaves the salt figure blank (never too low). The match cache now
+    keys on `labelOptional` too.
+  - **New copy (rule 8; the founder approved "Asda doesn't print a nutrition label for black pepper, so it isn't counted in these numbers"; changed so it is true
+    for every product, including one whose page we haven't read or whose table failed a check):** "Herbs, spices and salt don't have to carry a nutrition label,
+    and we have none for {name}, so it isn't counted in these numbers." (and the plural), replacing "We haven't read the label for {name} yet...". Translated by AI
+    into the ten languages (native-speaker check still on the founder's list).
+  - **Result:** recipes Asda 47 -> 115, Iceland 33 -> 123, Morrisons 145 -> 161, Waitrose 111 -> 123, M&S 10 -> 22, Aldi 30 -> 31. Asda and Iceland now pass the
+    80-recipe mark for Recipes. Also: "Per 100gms" headings read (Asda's Laila black pepper now has its own label).

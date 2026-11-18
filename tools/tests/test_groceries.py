@@ -1361,3 +1361,8 @@ class ChromeIngestReadingTests(unittest.TestCase):
         import labels_chrome_ingest as I
         self.assertEqual(I.section_cut("Water, Sugar and nbsp; Salt\u200b"), "Water, Sugar Salt")
         self.assertEqual(I.section_cut("Fish and amp; Chips"), "Fish and Chips")
+
+    def test_per_100_gms_heading(self):
+        import labels_chrome_ingest as I
+        t, why = I.read_table({"nut": [["Typical values", "Per 100gms"], ["Energy", "1201kJ / 286kcal"], ["Fat", "3.3g"], ["Carbohydrate", "38.7g"], ["Protein", "10.4g"]], "above": ""})
+        self.assertEqual((why, t["per"], t["kcal"]), ("", "g", "286"))

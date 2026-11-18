@@ -63,8 +63,11 @@ export interface PantryKind {
   fit?: [number, number];
   /** A store-cupboard item (seasoning, oil, dried herbs): the recipe page says "You may have this already" and lets the person leave it off the basket. */
   cupboard?: boolean;
-  /** A pinch of something whose label we haven't read (ground cinnamon): still listed and priced, and named as not counted in the nutrition (never filled in). */
+  /** Salt, pepper or a dried spice (UK law requires no nutrition label on them; founder 2026-11-18): a product with no label may still be listed and priced, and
+   *  is named as not counted in the nutrition (never filled in). */
   labelOptional?: boolean;
+  /** For labelOptional: a product with no label must also name one of these (ground turmeric, not the fresh root). */
+  unlabelledNeeds?: string[];
 }
 
 const PULSE_FIT: [number, number] = [0.5, 1.5];
@@ -320,7 +323,7 @@ const KINDS: PantryKind[] = [
   // A stock cube, counted by the cube: a cube's own label is for the dry cube, and cubes of about 6 g (12 in a 71 g pack) are the ones whose label is
   // printed that way (10 g cubes print the made-up stock). Pots are left out: a method crumbles or dissolves "the stock cube".
   { key: "stock-cube", label: "Vegetable stock cube", unit: "g", role: "other", contains: ["celery"], pieceGrams: 6, pieceName: ["stock cube", "stock cubes"], match: { all: ["vegetable"], any: ["stock cube"], none: ["chicken", "beef", "fish", "lamb", "gravy", "pot", "pots", "reduced"], kcal: [100, 400], pieceWeight: [5, 7] } },
-  { key: "fajita-seasoning", label: "Fajita seasoning", unit: "g", role: "other", contains: [], match: { all: ["fajita"], any: ["seasoning", "spice mix"], none: ["kit", "chicken", "wraps", "strips", "sauce", "cooking", "meal"] } },
+  { key: "fajita-seasoning", label: "Fajita seasoning", unit: "g", role: "other", labelOptional: true, contains: [], match: { all: ["fajita"], any: ["seasoning", "spice mix"], none: ["kit", "chicken", "wraps", "strips", "sauce", "cooking", "meal"] } },
   { key: "oat-drink", label: "Oat drink", unit: "ml", role: "other", contains: ["gluten"], match: { all: ["oat"], any: ["drink", "milk"], none: ["chocolate", "barista", "coffee", "protein", "vanilla", "chilled latte", "mini", "kids", "bar", "biscuit", "cookie", "porridge"], kcal: [30, 70] } },
   { key: "almonds", label: "Whole almonds", unit: "g", role: "other", contains: ["nuts"], match: { all: ["almonds"], none: ["chocolate", "yogurt", "coated", "flaked", "ground", "salted", "smoked", "roasted salted", "milk", "drink", "butter", "mix", "honey", "biscuits", "cake", "croissant", "marzipan", "fruit", "cocoa", "dusted", "flaxseed", "milled"], kcal: [550, 680] } },
   { key: "mixed-seeds", label: "Mixed seeds", unit: "g", role: "other", contains: ["sesame"], match: { all: ["seeds"], any: ["mixed seeds", "seed mix", "omega seed"], none: ["bread", "loaf", "bagel", "crackers", "bar", "granola", "cereal", "oil", "bird"], kcal: [450, 650] } },
@@ -328,21 +331,23 @@ const KINDS: PantryKind[] = [
   { key: "peanut-butter", label: "Peanut butter", unit: "g", role: "other", contains: ["peanuts"], match: { all: ["peanut", "butter"], none: ["cups", "chocolate", "cookies", "bar", "biscuit", "bites", "powder", "jelly", "protein", "honey", "spread with"], kcal: [550, 700] } },
   { key: "houmous", label: "Houmous", unit: "g", role: "other", contains: ["sesame"], match: { all: ["houmous"], none: ["pepper", "chilli", "caramelised", "lemon", "garlic", "pine", "beetroot", "snack", "dippers", "pot", "x4", "4x", "olive", "harissa", "smoked", "jalapeno", "basil", "coriander", "edamame", "moroccan", "aromatic", "style", "topped", "spiced", "sweet", "falafel"], kcal: [150, 340] } },
   // ---- seasonings, dried herbs and oils (founder 2026-10-11: every recipe lists, prices and counts everything it uses, down to the pinch of salt)
-  { key: "salt", label: "Salt", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["salt"], any: ["table salt", "fine sea salt", "cooking salt", "sea salt", "fine salt"], none: ["crisps", "seaweed", "rice", "caramel", "vinegar", "pepper", "onion", "celery", "garlic", "smoked", "flakes", "grinder"], kcal: [0, 10] } },
-  { key: "black-pepper", label: "Ground black pepper", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["ground", "black", "pepper"], none: ["tuna", "croutons", "butter", "crackers"], kcal: [200, 350] } },
-  { key: "white-pepper", label: "Ground white pepper", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["ground", "white", "pepper"], kcal: [200, 350] } },
-  { key: "cumin", label: "Ground cumin", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["ground", "cumin"], kcal: [300, 500] } },
-  { key: "paprika", label: "Paprika", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["paprika"], none: ["smoked", "hot", "crisps", "chips", "cassava", "lentil", "seasoning", "rice", "crunchers", "chickpeas", "bites", "almonds"], kcal: [250, 400] } },
-  { key: "smoked-paprika", label: "Smoked paprika", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["smoked", "paprika"], none: ["chickpeas", "bites", "crisps", "almonds", "houmous"], kcal: [250, 400] } },
-  { key: "chilli-powder", label: "Chilli powder", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["chilli", "powder"], none: ["con carne", "mix", "noodles"], kcal: [250, 500] } },
-  { key: "chilli-flakes", label: "Crushed chilli flakes", unit: "g", role: "other", cupboard: true, contains: [], match: { all: [], any: ["crushed chillies", "chilli flakes"], none: ["ancho", "chipotle", "oil"], kcal: [300, 450] } },
-  // Every ingredient needs a product with numbers, down to the pinch of salt (founder 2026-11-17: "products that have no nutritional information shouldn't be used
-  // for recipes in general"): no kind may be listed without a label any more (`labelOptional` stays in the types, unused).
-  { key: "cinnamon", label: "Ground cinnamon", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["ground", "cinnamon"], none: ["sweet", "dusting"] } },
-  { key: "turmeric", label: "Ground turmeric", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["turmeric"], none: ["granola", "paneer", "juice", "kombucha", "latte", "tea", "shot", "vinegar", "zinger", "raw"], kcal: [250, 450] } },
-  { key: "curry-powder", label: "Curry powder", unit: "g", role: "other", cupboard: true, contains: ["mustard"], match: { all: ["curry", "powder"], none: ["madras", "tikka", "caribbean"], kcal: [250, 450] } },
-  { key: "mixed-herbs", label: "Dried mixed herbs", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["mixed", "herbs"], kcal: [150, 350] } },
-  { key: "oregano", label: "Dried oregano", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["oregano"], none: ["fresh", "tomatoes", "crostini", "tofu", "focaccia", "pizza"], kcal: [200, 400] } },
+  { key: "salt", label: "Salt", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["salt"], any: ["table salt", "fine sea salt", "cooking salt", "sea salt", "fine salt"], none: ["crisps", "seaweed", "rice", "caramel", "vinegar", "pepper", "onion", "celery", "garlic", "smoked", "flakes", "grinder"], kcal: [0, 10] } },
+  { key: "black-pepper", label: "Ground black pepper", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["ground", "black", "pepper"], none: ["tuna", "croutons", "butter", "crackers"], kcal: [200, 350] } },
+  { key: "white-pepper", label: "Ground white pepper", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["ground", "white", "pepper"], kcal: [200, 350] } },
+  { key: "cumin", label: "Ground cumin", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["ground", "cumin"], kcal: [300, 500] } },
+  { key: "paprika", label: "Paprika", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["paprika"], none: ["smoked", "hot", "crisps", "chips", "cassava", "lentil", "seasoning", "rice", "crunchers", "chickpeas", "bites", "almonds"], kcal: [250, 400] } },
+  { key: "smoked-paprika", label: "Smoked paprika", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["smoked", "paprika"], none: ["chickpeas", "bites", "crisps", "almonds", "houmous"], kcal: [250, 400] } },
+  { key: "chilli-powder", label: "Chilli powder", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["chilli", "powder"], none: ["con carne", "mix", "noodles"], kcal: [250, 500] } },
+  { key: "chilli-flakes", label: "Crushed chilli flakes", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: [], any: ["crushed chillies", "chilli flakes"], none: ["ancho", "chipotle", "oil"], kcal: [300, 450] } },
+  // Every ingredient needs a product with numbers (founder 2026-11-17: "products that have no nutritional information shouldn't be used for recipes in general"),
+  // except salt, pepper and dried spices (`labelOptional`; founder 2026-11-18, "Yes: Asda goes from 47 to 118 recipes and Iceland from 33 to 123"): UK law doesn't
+  // require a nutrition label on herbs, spices or salt, and many shops print none. Such a product is listed and priced but not counted (the page says so), and only
+  // when its name is just that seasoning (recipes.ts plainSeasoning); a product of the kind with numbers always comes first.
+  { key: "cinnamon", label: "Ground cinnamon", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["ground", "cinnamon"], none: ["sweet", "dusting"] } },
+  { key: "turmeric", label: "Ground turmeric", unit: "g", role: "other", labelOptional: true, unlabelledNeeds: ["ground", "haldi", "powder"], cupboard: true, contains: [], match: { all: ["turmeric"], none: ["granola", "paneer", "juice", "kombucha", "latte", "tea", "shot", "vinegar", "zinger", "raw"], kcal: [250, 450] } },
+  { key: "curry-powder", label: "Curry powder", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: ["mustard"], match: { all: ["curry", "powder"], none: ["madras", "tikka", "caribbean"], kcal: [250, 450] } },
+  { key: "mixed-herbs", label: "Dried mixed herbs", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["mixed", "herbs"], kcal: [150, 350] } },
+  { key: "oregano", label: "Dried oregano", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["oregano"], none: ["fresh", "tomatoes", "crostini", "tofu", "focaccia", "pizza"], kcal: [200, 400] } },
   { key: "thyme", label: "Dried thyme", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["thyme"], none: ["fresh", "bunched", "living", "tofu", "carrots", "stuffing", "lemon", "crisps", "chicken"], kcal: [200, 500] } },
   { key: "rosemary", label: "Dried rosemary", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["rosemary"], none: ["fresh", "living", "stock", "bites", "sausages", "pie", "crisps", "focaccia", "bread", "pinsa", "biltong", "bloomer", "sourdough"], kcal: [250, 400] } },
   { key: "dill", label: "Dried dill", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["dill"], none: ["sauerkraut", "pickle", "gherkin", "sauce", "salmon"], kcal: [250, 400] } },
@@ -403,8 +408,8 @@ const KINDS: PantryKind[] = [
   { key: "apple-sauce", label: "Apple sauce", unit: "g", role: "other", contains: [], match: { all: ["apple", "sauce"], none: ["pineapple", "sweet", "bens", "pork", "chicken"], kcal: [90, 190] } },
   { key: "mincemeat", label: "Mincemeat", unit: "g", role: "other", contains: [], match: { all: ["mincemeat"], none: ["pie", "tart", "cake", "brandy", "amaretto", "cherry"], kcal: [250, 340] } },
   { key: "dried-cranberries", label: "Dried cranberries", unit: "g", role: "other", contains: [], match: { all: ["cranberries"], any: ["dried", "whole cranberries"], none: ["cheese", "cheddar", "wensleydale", "flakes", "sauce", "juice", "clusters"], kcal: [300, 380] } },
-  { key: "mixed-spice", label: "Ground mixed spice", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["ground", "mixed", "spice"], none: ["juice"], kcal: [250, 350] } },
-  { key: "nutmeg", label: "Ground nutmeg", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["ground", "nutmeg"], none: ["dauphinoise", "tea", "potatoes"], kcal: [450, 550] } },
+  { key: "mixed-spice", label: "Ground mixed spice", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["ground", "mixed", "spice"], none: ["juice"], kcal: [250, 350] } },
+  { key: "nutmeg", label: "Ground nutmeg", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["ground", "nutmeg"], none: ["dauphinoise", "tea", "potatoes"], kcal: [450, 550] } },
   { key: "apple", label: "Apples", unit: "g", role: "other", contains: [], cut: true, pieceGrams: 150, pieceName: ["apple", "apples"], match: { all: [], any: ["apple single", "single apple", "apples single", "royal gala apples", "braeburn apples", "british apples", "granny smith apples"], none: ["mini", "juice", "pie", "sauce", "grape", "pineapple", "strawberry", "porridge", "organic"], kcal: [40, 70] } },
 ];
 

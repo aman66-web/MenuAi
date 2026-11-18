@@ -52,7 +52,9 @@ touches an earlier decision, and add new entries there, dated, at the end).
 
 **Rules decided recently (details and dates in the log)**
 - Everyone signs in (`SIGN_IN_REQUIRED`; fallback `NEXT_PUBLIC_SIGN_IN_REQUIRED=0` if App Review objects under 5.1.1(v)); CLAUDE.md rule 4.
-- No recipe uses a product without numbers. A shop is offered in Recipes from 80 recipes (`MIN_RECIPE_COVERAGE`): Sainsbury's 165 and Morrisons 145 today.
+- No recipe uses a product without numbers, except salt, pepper and dried spices (founder 18 Nov): UK law requires no label on them, so one with none is listed and
+  priced but not counted, and the recipe page says so; only a product whose name is just that seasoning. A shop is offered in Recipes from 80 recipes
+  (`MIN_RECIPE_COVERAGE`): Sainsbury's 165, Morrisons 161, Waitrose 123, Iceland 123, Asda 115 today (M&S 22, Aldi 31, Tesco 3, Lidl 0).
 - A product with no label of its own takes, in order: the same product's label read at another supermarket (same barcode, or the same branded name and pack
   size; never a shop's own brand), community numbers for its exact barcode (Open Food Facts, always said so), or, for plain loose fruit and vegetables only,
   the UK government's figures (McCance and Widdowson's CoFID 2021). Each is marked and named on screen.

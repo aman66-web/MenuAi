@@ -103,6 +103,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 304031003,g,,1742.67,413.4,10.8,5.04,73.47,<30.13,1.57,4.8,0.21,2026-11-18,https://www.aldi.co.uk/product/harvest-morn-marshmallow-crispy-chunks-4-pack-000000000304031003
 304484001,g,,1795.58,426.25,10.92,5.06,73.23,22.5,4.69,6.42,0.23,2026-11-18,https://www.aldi.co.uk/product/harvest-morn-cinnamon-chips-cereal-000000000304484001
 304484002,g,,1615.3,382.3,4.1,2.1,71,15.9,8.7,11,0.14,2026-11-18,https://www.aldi.co.uk/product/harvest-morn-chocolate-chip-crispy-bites-wheat-bisks-cereal-000000000304484002
+304786001,g,,1395.94,337.78,31.35,21.58,3.8,2.37,0.87,9.67,1.06,2026-11-18,https://www.aldi.co.uk/product/specially-selected-garlic-herbs-mini-roule-cheese-000000000304786001
 304786003,g,,1509.18,363.65,28.15,17.16,17.13,17.11,2.3,9.3,0.54,2026-11-18,https://www.aldi.co.uk/product/specially-selected-pineapple-almond-mini-roule-cheese-000000000304786003
 304786004,g,,1370.62,331.64,30.62,21.08,4.2,2.1,1.18,9.23,1.04,2026-11-17,https://www.aldi.co.uk/product/specially-selected-black-pepper-paprika-mini-roule-cheese-000000000304786004
 305740,g,,1535.61,363.62,2.9,0.6,68.9,16.9,12.3,9.33,0.5,2026-11-18,https://www.aldi.co.uk/product/harvest-morn-multigrain-hoops-cereal-000000000000305740
@@ -426,6 +427,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 371255,g,,925.4,220.77,9.43,1.16,29.93,0.3,2.13,2.97,0.72,2026-11-18,https://www.aldi.co.uk/product/four-seasons-potato-waffles-12-pack-000000000000371255
 371256,g,,453.33,107.2,0.47,0.2,21.7,2.8,3.37,2.37,0.01,2026-11-18,https://www.aldi.co.uk/product/four-seasons-ready-baked-jacket-potatoes-4-pack-000000000000371256
 371287,g,,1027.25,244.03,6.93,2.08,36.23,2,2.4,7.97,0.55,2026-11-18,https://www.aldi.co.uk/product/specially-selected-large-beef-dripping-yorkshire-puddings-6-pack-000000000000371287
+371320001,g,,1591.77,378.6,12.93,5.93,60.17,22.23,2.23,4.27,0.53,2026-11-18,https://www.aldi.co.uk/product/dessert-menu-jam-roly-poly-000000000371320001
 371320002,g,,1202.87,285.3,6.97,2.8,50.07,24.53,1.9,4.63,0.6,2026-11-18,https://www.aldi.co.uk/product/dessert-menu-sticky-toffee-pudding-000000000371320002
 371333001,g,,844.3,201.73,10.43,3.92,3.09,0.63,0,23.87,1.04,2026-11-18,https://www.aldi.co.uk/product/oakhurst-salt-pepper-pork-crackling-leg-joint-000000000371333001
 371336,g,,979.3,234.27,11.2,1.57,28.53,0.47,4.67,2.5,1.12,2026-11-18,https://www.aldi.co.uk/product/oakhurst-breakfast-hash-browns-10-pack-000000000000371336
@@ -701,6 +703,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 399529001,g,,2158.26,515.91,27.48,16.26,61.58,61.58,0,5.57,0.32,2026-11-18,https://www.aldi.co.uk/product/everyday-essentials-white-chocolate-100g-000000000399529001
 399529002,g,,2239.19,536.6,31.1,19.14,54.64,47.41,4.93,7.06,0,2026-11-18,https://www.aldi.co.uk/product/everyday-essentials-dark-chocolate-100g-000000000399529002
 399552,ml,,187.26,44.27,0.5,0.1,9.03,8.06,0.5,0.66,0.02,2026-11-18,https://www.aldi.co.uk/product/the-juice-company-smooth-orange-juice-from-concentrate-000000000000399552
+399553,ml,,83.3,19.6,0,0,4.9,4.8,0,0,0,2026-11-18,https://www.aldi.co.uk/product/the-juice-company-cranberry-juice-drink-000000000000399553
 399710,ml,,56.5,13.27,0,0,3.06,2.7,0,0,0,2026-11-18,https://www.aldi.co.uk/product/the-juice-company-summer-fruits-flavoured-juice-drink-000000000000399710
 399739,g,,1755.5,421.97,29.43,11.49,28.43,1.9,2.13,9.77,0.97,2026-11-18,https://www.aldi.co.uk/product/crestwood-mini-melton-pork-pies-6-pack-000000000000399739
 399760002,g,,1022.97,244.37,11.43,5.47,26.03,1.33,2.6,8.03,0.43,2026-11-18,https://www.aldi.co.uk/product/crestwood-puff-pastry-cheese-onion-pasty-000000000399760002
@@ -754,6 +757,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 402132001,g,,1009.65,244.61,23.77,7.7,5.4,2.23,0.49,2.03,0.83,2026-11-18,https://www.aldi.co.uk/product/the-deli-sour-cream-chive-dip-000000000402132001
 402132005,g,,202.74,48.29,1.63,0.27,6.9,5,0.93,1.03,0.62,2026-11-17,https://www.aldi.co.uk/product/the-deli-chunky-salsa-dip-000000000402132005
 402132006,g,,516.57,124.8,10.2,2.47,5.77,1.77,2.17,1.4,0.59,2026-11-18,https://www.aldi.co.uk/product/the-deli-chunky-guacamole-dip-000000000402132006
+402135,g,,1079.9,257.23,9.5,3.73,29.87,3.13,2.93,11.6,1.31,2026-11-18,https://www.aldi.co.uk/product/specially-selected-spicy-italian-salami-nduja-wood-fired-sourdough-pizza-000000000000402135
 402137,g,,1002.8,238.77,8.5,3.97,28.6,3.3,2.67,10.63,1.05,2026-11-18,https://www.aldi.co.uk/product/specially-selected-italian-ham-portobello-mushroom-mascapone-wood-fired-pizza-000000000000402137
 402183001,g,,697.33,166.33,7.67,2.83,4.37,4.17,0,19.97,1.46,2026-11-17,https://www.aldi.co.uk/product/ashfields-british-honey-roast-ham-family-pack-14-slices-000000000402183001
 402183002,g,,651.62,155.75,8.22,3.04,0.73,0.73,0.1,19.67,1.33,2026-11-17,https://www.aldi.co.uk/product/ashfields-british-pork-smoked-ham-family-pack-14-slices-000000000402183002
@@ -771,6 +775,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 403439001,g,,538.7,128.67,6,3.57,10.27,1.2,1.27,7.77,0.82,2026-11-18,https://www.aldi.co.uk/product/specially-selected-cottage-pie-000000000403439001
 403439003,g,,452.68,107.83,4.2,2.24,10.1,1.13,0.67,7.07,0.64,2026-11-18,https://www.aldi.co.uk/product/specially-selected-dine-in-fish-pie-000000000403439003
 403535,g,,1205,287.43,12.9,2.27,35.87,13.93,0.93,6.5,1.02,2026-11-18,https://www.aldi.co.uk/product/dessert-menu-american-pancakes-6-pack-000000000000403535
+403782,g,,1121.67,270.5,22.37,8.73,3.97,0.4,0,13.33,1.77,2026-11-18,https://www.aldi.co.uk/product/the-deli-classic-frankfurters-10-pack-000000000000403782
 403790009,g,,1375.96,329.25,17.97,9.73,33.8,6.5,1.77,7.2,0.71,2026-11-18,https://www.aldi.co.uk/product/specially-selected-cheese-caramelised-onion-rolls-4-pack-000000000403790009
 403790021,g,,1370.01,329.06,22.17,10.71,21.8,1.4,1.57,9.81,0.99,2026-11-18,https://www.aldi.co.uk/product/specially-selected-premium-pork-sausage-rolls-2-pack-000000000403790021
 403841,g,,439.47,104.13,2.4,0.79,0.43,0.43,0.2,20.1,1.59,2026-11-17,https://www.aldi.co.uk/product/the-deli-french-torchon-ham-4-slices-000000000000403841
@@ -941,7 +946,9 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 417009,g,,547.2,131.4,9,2.52,0,0,0,12.6,0.38,2026-11-17,https://www.aldi.co.uk/product/merevale-british-large-free-range-eggs-12-pack-000000000000417009
 417019001,ml,,272.6,65.2,3.6,2.4,4.7,4.7,0,3.5,0.11,2026-11-18,https://www.aldi.co.uk/product/cowbelle-british-whole-milk-3-7-fat-000000000417019001
 417030,g,,1617.3,383.3,7.97,4.33,73.17,51,3.23,2.77,0.22,2026-11-18,https://www.aldi.co.uk/product/perfect-christmas-matured-christmas-pudding-000000000000417030
+417031,g,,1617.3,383.3,7.97,4.33,73.17,51,3.23,2.77,0.22,2026-11-18,https://www.aldi.co.uk/product/perfect-christmas-6-month-matured-christmas-pudding-000000000000417031
 417032,g,,1617.3,383.3,7.97,4.33,73.17,51,3.23,2.77,0.22,2026-11-18,https://www.aldi.co.uk/product/perfect-christmas-matured-christmas-pudding-000000000000417032
+417075,g,,2179.59,521.11,27.3,15.71,61.23,43,2.03,6.6,0.36,2026-11-18,https://www.aldi.co.uk/product/belmont-extremely-chocolatey-biscuit-selection-000000000000417075
 417200002,g,,1581.2,381.4,31.8,19.7,0.1,0.1,0,23.7,1.1,2026-11-18,https://www.aldi.co.uk/product/emporium-belton-farm-crumbly-wensleydale-cheese-000000000417200002
 417493001,ml,,272.6,65.2,3.6,2.4,4.7,4.7,0,3.5,0.11,2026-11-18,https://www.aldi.co.uk/product/cowbelle-british-whole-milk-3-7-fat-000000000417493001
 417494001,ml,,205.7,48.9,1.7,1.1,4.8,4.8,0,3.6,0.11,2026-11-17,https://www.aldi.co.uk/product/cowbelle-british-semi-skimmed-milk-1-7-fat-000000000417494001
@@ -1022,6 +1029,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 423797013,g,,506.35,120.99,6.1,4.06,13.57,12.27,0.5,2.7,0.07,2026-11-18,https://www.aldi.co.uk/product/specially-selected-strawberry-cream-luxury-yogurt-000000000423797013
 423797015,g,,512.6,122.43,5.97,3.99,14.42,12.9,0.5,2.5,0.08,2026-11-18,https://www.aldi.co.uk/product/specially-selected-mango-passion-fruit-luxury-yogurt-000000000423797015
 423810,g,,2164.45,517.79,28.1,17.54,59.07,14.2,2.1,6.11,0.44,2026-11-18,https://www.aldi.co.uk/product/belmont-shortbread-petticoat-tail-000000000000423810
+423839003,g,,1753.9,417.5,15.97,10.83,64.47,45.93,1.03,3.47,0.27,2026-11-18,https://www.aldi.co.uk/product/specially-selected-bally-castle-mince-pies-000000000423839003
 423841,g,,2913.19,708.46,78,35.2,0.9,0.53,0.53,0.45,1,2026-11-18,https://www.aldi.co.uk/product/nordpak-slightly-salted-spreadable-butter-000000000000423841
 423842,g,,2134.76,519.12,57,23.74,0.68,0.1,0.5,0.6,0.9,2026-11-18,https://www.aldi.co.uk/product/nordpak-lighter-spreadable-butter-000000000000423842
 423873007,g,,371.4,87.4,0,0,13.73,10.83,0.1,8.07,0.1,2026-11-18,https://www.aldi.co.uk/product/brooklea-honey-authentic-greek-yogurt-000000000423873007
@@ -1238,6 +1246,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 525416002,g,,769.09,183.08,6.81,0.78,13.9,0.51,0.98,16.07,0.78,2026-11-18,https://www.aldi.co.uk/product/roosters-battered-chicken-balls-in-a-light-crispy-batter-000000000525416002
 525810,g,,837.03,200.4,11.73,1.55,0,0,0,23.7,0.06,2026-11-17,https://www.aldi.co.uk/product/the-fishmonger-boneless-salmon-fillets-4-pack-000000000000525810
 525815,g,,857.57,205.7,13.17,2.3,0.1,0.13,0.4,21.5,0.4,2026-11-18,https://www.aldi.co.uk/product/everyday-essentials-salmon-pieces-000000000000525815
+527263001,g,,1197.93,285.73,12.8,7.07,36.33,25.53,0.87,5.87,0.23,2026-11-18,https://www.aldi.co.uk/product/dessert-menu-new-york-cheesecake-000000000527263001
 527263002,g,,1339.86,319.9,15.43,5.93,40.07,23.63,0.83,4.77,0.24,2026-11-18,https://www.aldi.co.uk/product/dessert-menu-salted-caramel-cheesecake-000000000527263002
 528365001,g,,813.53,191.7,0.5,0.17,45.93,38.37,1.13,0.3,0.04,2026-11-17,https://www.aldi.co.uk/product/specially-selected-port-cranberry-sauce-000000000528365001
 528365002,g,,963.17,226.97,0.5,0.13,54.47,46.77,1.63,0.33,0.03,2026-11-17,https://www.aldi.co.uk/product/specially-selected-cranberry-sauce-000000000528365002
@@ -1320,6 +1329,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 552301005,g,,1194.57,286.3,16.97,6.43,24.27,1.6,2,8.13,0.74,2026-11-18,https://www.aldi.co.uk/product/crestwood-katsu-bakes-2-pack-000000000552301005
 552469001,g,,496.22,118.6,6.2,3.83,13.2,11.7,0.17,2.42,0.08,2026-11-18,https://www.aldi.co.uk/product/brooklea-strawberry-greek-style-yoghurts-4-pack-000000000552469001
 552469004,g,,506.08,121.1,6.5,3.93,12.57,11.87,0.93,2.62,0.08,2026-11-18,https://www.aldi.co.uk/product/brooklea-peach-greek-style-layered-yoghurt-000000000552469004
+554341,g,,1076.33,256.97,11.7,5.6,24.8,5.5,2.3,11.97,1.19,2026-11-18,https://www.aldi.co.uk/product/carlos-takeaway-stuffed-crust-double-pepperoni-pizza-000000000000554341
 554681,g,,459.1,108.3,0.7,0.21,0,0,0.6,25.2,0.16,2026-11-18,https://www.aldi.co.uk/product/specially-selected-wild-caught-yellowfin-tuna-steak-000000000000554681
 555736001,g,,1419.2,338.7,15.9,9.93,44.2,24.9,0.8,4.3,0.2,2026-11-18,https://www.aldi.co.uk/product/specially-selected-sicilian-lemon-summer-tart-000000000555736001
 556194,g,,400.57,95.33,2.8,1.83,14.83,0.67,2.2,1.6,0.3,2026-11-18,https://www.aldi.co.uk/product/inspired-cuisine-mashed-potato-000000000000556194
@@ -1408,6 +1418,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 581161001,g,,1230.33,296.2,22.2,8.2,11.3,0.2,1.53,12.03,0.89,2026-11-18,https://www.aldi.co.uk/product/roosters-garlic-herb-chicken-kievs-2-pack-000000000581161001
 581399001,g,,832,198.37,8.57,0.57,12.9,0.63,0.7,17.07,0.65,2026-11-18,https://www.aldi.co.uk/product/roosters-tempura-chicken-tenders-000000000581399001
 582227001,g,,134.47,31.7,0.17,0.1,5.2,4.53,0.1,2.3,0.09,2026-11-18,https://www.aldi.co.uk/product/barissimo-cappuccino-capsules-000000000582227001
+582544002,g,,928.69,221.78,10.7,1.82,26.53,1.87,1.03,4.32,0.96,2026-11-18,https://www.aldi.co.uk/product/let-s-party-vegetable-gyoza-000000000582544002
 582695001,g,,570.14,134.63,1.51,0.5,9.5,8.17,0.32,20.6,0.96,2026-11-18,https://www.aldi.co.uk/product/let-s-party-sticky-chicken-skewers-000000000582695001
 582695002,g,,656.36,155.42,3.06,1.28,12.8,9.5,0.69,18.83,1.07,2026-11-18,https://www.aldi.co.uk/product/let-s-party-satay-chicken-skewers-000000000582695002
 582764,g,,2019.28,481.53,20.63,10.08,66.63,22.77,2.83,5.91,0.79,2026-11-18,https://www.aldi.co.uk/product/belmont-sweet-biscuit-assortment-000000000000582764
@@ -1426,6 +1437,9 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 585700002,g,,871.63,207.87,9.13,0.7,12.1,1.43,0.77,18.93,0.6,2026-11-18,https://www.aldi.co.uk/product/roosters-hot-spicy-chicken-fillets-2-pack-000000000585700002
 585700003,g,,846.33,201.7,8.3,0.6,12.27,0.27,1.03,18.97,0.64,2026-11-18,https://www.aldi.co.uk/product/roosters-buttermilk-chicken-fillets-2-pack-000000000585700003
 586535003,g,,2365.8,568.9,39.9,3.8,30.13,22.43,4.3,20.17,0.42,2026-11-18,https://www.aldi.co.uk/product/perfect-christmas-chilli-maple-peanuts-and-cashews-000000000586535003
+586884001,g,,1308.73,313.57,18.57,8.26,24.63,2.6,1.43,11.27,1.33,2026-11-18,https://www.aldi.co.uk/product/let-s-party-pizza-bites-000000000586884001
+586884002,g,,934.01,222.36,8.27,2.71,29.93,1.3,1.37,6.37,0.76,2026-11-18,https://www.aldi.co.uk/product/let-s-party-aranchini-bites-000000000586884002
+586884003,g,,1289.21,308.56,17.27,7.65,27.8,2.83,1.17,9.91,1.2,2026-11-18,https://www.aldi.co.uk/product/let-s-party-brie-cranberry-bites-000000000586884003
 586967,g,,765.8,183.6,11.6,4.73,0,0,0,19.8,0.15,2026-11-18,https://www.aldi.co.uk/product/ashfields-british-pork-mince-12-fat-000000000000586967
 587985001,g,,1035.93,246.8,9.33,1.1,28.97,3.03,2.6,10.43,1.27,2026-11-18,https://www.aldi.co.uk/product/quicksters-southern-fried-chicken-sandwich-000000000587985001
 587985002,g,,1137.9,271.3,11.57,4.43,28.87,4.67,1.33,12.27,1.02,2026-11-18,https://www.aldi.co.uk/product/quicksters-flame-grilled-beef-burger-000000000587985002
@@ -1486,6 +1500,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 600040,g,,857.6,205.1,10.5,3.87,17.97,0.5,1.9,8.73,1.53,2026-11-18,https://www.aldi.co.uk/product/ashfields-irish-style-pork-sausages-000000000000600040
 600380001,g,,551.7,131.23,4.83,1.85,0.3,0.3,0,21.63,0.1,2026-11-17,https://www.aldi.co.uk/product/specially-selected-100-british-beef-lean-aberdeen-angus-steak-mince-5-fat-000000000600380001
 600380002,g,,551.7,131.23,4.83,1.85,0.3,0.3,0,21.63,0.1,2026-11-17,https://www.aldi.co.uk/product/specially-selected-100-scotch-beef-lean-aberdeen-angus-steak-mince-5-fat-000000000600380002
+600388001,g,,670.1,160.2,8.6,3.8,0,0,0,20.7,0.15,2026-11-18,https://www.aldi.co.uk/product/ashfields-british-beef-braising-steaks-000000000600388001
 600581001,g,,489.3,116.4,3.2,0.63,11.97,2.97,2.8,8.53,0.45,2026-11-18,https://www.aldi.co.uk/product/branded-protein-meatball-pasta-000000000600581001
 600581002,g,,491.35,116.36,1.93,0.51,16.33,5.33,1.53,7.64,0.36,2026-11-18,https://www.aldi.co.uk/product/branded-protein-bbq-pulled-pork-rice-000000000600581002
 600739001,g,,926.6,220.83,9.03,3.77,28.23,2.07,1.3,6,0.67,2026-11-18,https://www.aldi.co.uk/product/bramwells-express-classic-soba-noodles-pot-000000000600739001
@@ -1595,6 +1610,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 663607002,g,,1373.96,329.46,20.49,3.65,21.13,2.35,1.27,14.5,1.27,2026-11-17,https://www.aldi.co.uk/product/roosters-paprika-chicken-shakerz-000000000663607002
 664373001,g,,641.65,152.8,5.53,1.99,19.53,2.07,1.67,5.38,0.46,2026-11-17,https://www.aldi.co.uk/product/specially-selected-dine-in-creamy-roasted-mushroom-tortiglioni-000000000664373001
 664373002,g,,516.24,122.84,4.2,1.12,13.57,1.87,1.17,7.11,0.39,2026-11-18,https://www.aldi.co.uk/product/specially-selected-dine-in-beef-brisket-pappardelle-000000000664373002
+667391001,g,,1785.53,426.47,20.93,10.75,52.73,29.47,1.57,6,0.34,2026-11-18,https://www.aldi.co.uk/product/wintertraum-marzipan-stollen-bites-000000000667391001
+667391002,g,,1656.03,395.13,17.67,10.02,53.83,32.5,2.4,4,0.37,2026-11-18,https://www.aldi.co.uk/product/wintertraum-baked-apple-stollen-bites-000000000667391002
 668970001,g,,2174.03,519.56,26.6,14.95,64.2,39.17,1.7,4.99,0.26,2026-11-17,https://www.aldi.co.uk/product/belmont-mint-seal-bars-000000000668970001
 668970002,g,,2140.6,512.4,28.6,17.1,57.2,39.3,2.7,5.2,0.25,2026-11-18,https://www.aldi.co.uk/product/belmont-seal-bars-000000000668970002
 670216001,g,,830.3,199.6,14.4,9.8,4.47,4.37,0,13.03,2.31,2026-11-18,https://www.aldi.co.uk/product/emporium-squeezy-cheese-000000000670216001
