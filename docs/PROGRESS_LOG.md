@@ -2981,3 +2981,8 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   or whether the tab could be closed and opened again to keep going: no, both get round the site's protection against automated reading, so a security page
   stops a shop's reader and it doesn't continue after a check is cleared. Tesco stays stopped; its nutrition grows only from the same product read at other shops
   and community numbers. Also held back: two Waitrose mixed packs whose page prints one item's table (a breadstick selection, Peter's Yard crackers selection).
+
+- 2026-11-18 (night) — **Today's version on the founder's iPhone 16.** Packed the web app in the shipped form (63.8 MB; photos from numbite.com; no purchase flags, so
+  Premium, Make it at home and Scan your food don't show), built Numbite 1.1 (6) with development signing (BUILD SUCCEEDED, 67 MB) and installed and launched it
+  with `devicectl` over the cable (data kept). Tesco: a third try at the founder's request was turned away by the security page on its first round; the reader
+  stopped and left its tab open, as the founder asked; Tesco stays stopped for the day.
