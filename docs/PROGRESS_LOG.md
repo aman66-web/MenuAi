@@ -2974,3 +2974,10 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   `MIN_PICK_CALORIES` in the oracle (tools/reference_ranking.py): a ranked pick has at least 100 kcal, unless nothing that big fits the meal (then all that fit are
   kept). Out-of-budget mode (protein ≥ 10 g, lowest calories) is unchanged. Golden cases regenerated: one case loses its 60 kcal fruit cup. McDonald's, lunch,
   build muscle now starts Double Quarter Pounder with Cheese, Chicken Selects (5), Double Sausage & Egg McMuffin.
+
+- 2026-11-18 (night) — **Tesco tried once more, at the founder's request, and stopped again.** The founder opened Tesco in their own Chrome (no security page) and
+  asked for Tesco today; one reader at 8 seconds a page read about 53 product pages, then Tesco's security page ("Oops... It looks like something is not right")
+  came back on six pages in a row in round 6, and the reader stopped there. The founder had asked whether they could clear the check and let the readers go on,
+  or whether the tab could be closed and opened again to keep going: no, both get round the site's protection against automated reading, so a security page
+  stops a shop's reader and it doesn't continue after a check is cleared. Tesco stays stopped; its nutrition grows only from the same product read at other shops
+  and community numbers. Also held back: two Waitrose mixed packs whose page prints one item's table (a breadstick selection, Peter's Yard crackers selection).
