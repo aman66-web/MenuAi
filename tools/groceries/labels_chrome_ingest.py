@@ -34,6 +34,16 @@ PAGE_BASE = {"asda": "https://www.asda.com/groceries/product/", "aldi": "https:/
 OUT_NAME = {"sainsburys": "sainsburys-chrome", "morrisons": "morrisons-chrome", "iceland": "iceland-chrome"}
 
 
+# an ingredients list ends where the page's next section starts: reads made before reader 4 ran on into it ("...ascorbic acid)Allergy AdviceMay contain
+# nuts...LifestyleThis product is suitable for Vegetarians" on Waitrose); the same cut reader 4 makes, capitalised headings only
+SECTION = re.compile(r"\s*(Allergy Advice|ALLERGY ADVICE|Allergy Information|ALLERGY INFORMATION|Allergen Information|Lifestyle|Storage|Dietary Information|"
+                     r"Preparation and Usage)(?=[A-Z:\s]|$).*$")
+
+
+def section_cut(text: str) -> str:
+    return SECTION.sub("", text or "").strip()
+
+
 def page_address(base: str, page: str) -> str:
     return base.format(id=page) if "{id}" in base else base + page
 STATE = re.compile(r"\b(cooked|prepared|drained|grilled|baked|fried|roasted|oven baked|microwaved|as consumed|as served|reconstituted|made up|boiled|steamed|heated)\b", re.I)
@@ -163,7 +173,7 @@ def main() -> int:
         if rec is not None and not rec.get("blocked") and (rec.get("ingredients") or rec.get("bold") or rec.get("allergy")):
             if same_product(name, rec.get("h1", "")):
                 may = [m for m in (rec.get("mayContain") or []) if "{" not in m and len(m) < 240]
-                facts.append({"product_id": pid, "ingredients": rec.get("ingredients", ""), "allergens_bold": "; ".join(rec.get("bold") or []),
+                facts.append({"product_id": pid, "ingredients": section_cut(rec.get("ingredients", "")), "allergens_bold": "; ".join(rec.get("bold") or []),
                               "allergy_info": rec.get("allergy", ""), "may_contain": " | ".join(may), "checked_on": rec.get("checked_on", ""), "page_url": page_address(base, pages[pid])})
         if rec is None and pid not in reads:
             continue  # not read yet (every product in the list is asked for; only the read ones count)
