@@ -43,8 +43,8 @@ touches an earlier decision, and add new entries there, dated, at the end).
 **Where things live**
 - **App Store:** Numbite 1.0 (build 4) is live in the UK store since 12 November 2026. **1.1 (build 6)** (Premium through Apple In-App Purchase with a
   7-day free trial, Make it at home, everyone signs in, the rating question) is archived on the Mac (`build/Numbite-1.1-build6.xcarchive`), not uploaded. The
-  archive predates the 17 November grocery data changes: re-pack the web app and archive again before uploading. As of 16 November App Store Connect refused
-  uploads until the team's Account Holder (Aayush Dwivedi) accepts Apple's updated agreement.
+  archive predates the 17 November grocery data changes: re-pack the web app and archive again before uploading. Apple's updated Developer Program License Agreement
+  was accepted on 18 November 2026 (developer.apple.com › Account); Paid and Free Apps agreements, bank and tax all Active, so uploads are open again (none made yet).
 - **numbite.com** runs `main` at aafea749 (17 November). Branch `iap` on the Mac is ahead with: everyone signs in, sign-out and Delete my account go to the
   welcome screen, the rating question, the grocery label work below. Not live until the founder says so.
 - **Vercel:** `APPLE_XCODE_TEST_CERT` is test-only (remove after Premium testing). `ANTHROPIC_API_KEY` is set (Make it at home: Sonnet 5.5 with prompt caching;
@@ -112,7 +112,7 @@ Moved to docs/PROGRESS_LOG.md (see above).
 - [ ] **Free about 10 GB on the Mac** (Downloads is 14 GB): the disk filled up on 16 Nov and Xcode needs room to build 1.1 for your phone
 - [ ] **Make the paid-access key**: `node tools/payments/make_entitlement_key.mjs` in Terminal, paste the clipboard into Vercel as `ENTITLEMENT_PRIVATE_JWK` (Sensitive); then test 1.1 on your phone (docs/APP_BUILD.md "Testing 1.1")
 - [ ] **In-App Purchase products** in App Store Connect (after the Paid Apps agreement, banking and tax): the three in docs/STORE.md "Version 1.1", each with a review screenshot of the plans screen
-- [ ] **Ask Aayush Dwivedi (the Apple team's Account Holder) to accept the updated Apple Developer Program License Agreement** at developer.apple.com/account; then Claude uploads build 5 and submits 1.0.1
+- [x] **Aayush Dwivedi accepted the updated Apple Developer Program License Agreement** (18 Nov, checked on developer.apple.com › Account). Next, when the founder says so: re-pack, archive, upload and submit
 - [x] **`ANTHROPIC_API_KEY` in Vercel** (founder, 16 Nov: key `numbite-website`, never expires, MoneySave organisation; Sensitive, Production). Spend limit already $20 a month for that organisation. Not used until Make it at home is switched on with Premium
 - [ ] **Choose the Stripe account** and write its exact name into `STRIPE_ACCOUNT` at the top of docs/CHROME_PROMPT_PAID_ACCESS.md before pasting it
 - [ ] hello@numbite.com mailbox: follow docs/MAILBOX_SETUP.md (free forwarding to Hotmail; you add the records in Vercel), then Claude changes `NEXT_PUBLIC_SUPPORT_EMAIL` and redeploys
