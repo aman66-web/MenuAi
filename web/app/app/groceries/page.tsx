@@ -21,9 +21,8 @@ import { Scanner } from "./Scanner";
 // at once" pill, then one card of Eat out's shortcut rows (every icon in lime: Scan a barcode; Cheapest protein; Compare products), so they
 // work at once even while the shop list loads. Then the unchanged plain question, "Which shop?" (founder 2026-10-11: simple enough for a 90-year-old).
 // Each big tile opens that shop's own list: every product its pages showed, with its own photo and price, and the numbers where we have them. The person's
-// own shops (onboarding, Settings) come first, each as a wide tile across the row with a small lime "Your shop" mark under its count, so the two-across
-// tiles below all have the same height (a tag in a half-width tile made its row taller than the rest, and no place beside the logo is wide enough for it
-// in every language). Looks follow Home (founder 2026-10-15): the compact title, a grey pill for "My list", white tiles two across, no chevrons on tiles.
+// own shops (onboarding, Settings) come first, in the same two-across tiles as the rest (founder 2026-11-18: "there's no point having like your shop. You can
+// just get rid of that thing": no "Your shop" tag, so no wide tile for it either). Looks follow Home (founder 2026-10-15): the compact title, a grey pill for "My list", white tiles two across, no chevrons on tiles.
 
 /** Two tiles side by side, one above the other when the text is large (the minimum width is in rem, so it grows with the text size). */
 const PICK_KEY = "mm.groceryPick";
@@ -77,17 +76,14 @@ export default function GroceriesPage() {
       ) : (
         <ul className={`mt-4 ${PAIR}`}>
           {shops.map((r) => (
-            <li key={r.id} className={`@container relative flex ${mine.includes(r.id) ? "col-span-full" : ""}`}>
-              {/* the shop's name comes first in the tile's text, then its count, then a small lime "Your shop" tag. When a tile has the whole
-                  row the logo sits beside the words instead of above them, so the tiles stay short; when that row is also wide for its text size
-                  (a wide "Your shop" tile at the standard size), the tag moves to the tile's end, level with the words (a three-column grid; the
-                  words' wrapper steps aside with `contents`, so the reading order stays name, count, tag) */}
-              <Link href={`/app/groceries/shop?r=${r.id}`} prefetch={false} className={`${CARD} lift flex w-full flex-col items-start p-4 pb-[4.25rem] [overflow-wrap:anywhere] @[300px]:flex-row @[300px]:items-center @[300px]:gap-4 @[20rem]:grid @[20rem]:grid-cols-[auto_minmax(0,1fr)_auto] @[20rem]:gap-y-0!`}>
-                <span className="contents @[20rem]:row-span-2 @[20rem]:flex"><ShopMark shopId={r.id} size="md" /></span>
-                <span className="mt-4 block min-w-0 @[300px]:mt-0 @[20rem]:contents">
-                  <span className="block text-lg font-[800] leading-snug tracking-[-0.01em] @[20rem]:col-start-2">{r.name}</span>
-                  <span className="app-numbers mt-0.5 block text-[0.9375rem] leading-snug text-muted @[20rem]:col-start-2">{r.count === 1 ? t("1 product") : t("{n} products", { n: r.count.toLocaleString("en-GB") })}</span>
-                  {mine.includes(r.id) && <span className="bg-sun mt-3 inline-flex items-center justify-self-end whitespace-nowrap rounded-full px-2.5 py-1 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-on-accent @[300px]:mt-2 @[20rem]:col-start-3 @[20rem]:row-span-2 @[20rem]:row-start-1 @[20rem]:mt-0!">{t("Your shop")}</span>}
+            <li key={r.id} className="@container relative flex">
+              {/* the shop's name, then its count. When a tile has the whole row (large text: one tile a row) the logo sits beside the words instead of
+                  above them, so the tiles stay short */}
+              <Link href={`/app/groceries/shop?r=${r.id}`} prefetch={false} className={`${CARD} lift flex w-full flex-col items-start p-4 pb-[4.25rem] [overflow-wrap:anywhere] @[300px]:flex-row @[300px]:items-center @[300px]:gap-4`}>
+                <ShopMark shopId={r.id} size="md" />
+                <span className="mt-4 block min-w-0 @[300px]:mt-0">
+                  <span className="block text-lg font-[800] leading-snug tracking-[-0.01em]">{r.name}</span>
+                  <span className="app-numbers mt-0.5 block text-[0.9375rem] leading-snug text-muted">{r.count === 1 ? t("1 product") : t("{n} products", { n: r.count.toLocaleString("en-GB") })}</span>
                 </span>
               </Link>
               {/* "Select" at the tile's bottom right (a separate button beside the link, never inside it): ticks the shop for the button at the foot of the screen. Its words are
