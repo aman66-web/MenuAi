@@ -1,6 +1,6 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { BOARDS, boardValue, buildBoard, buildLeaderboards, isLeaderboardsFile, sameProductKey } from "../lib/mm/leaderboards";
+import { BOARDS, boardValue, brandedNameKey, buildBoard, buildLeaderboards, isLeaderboardsFile, sameProductGroups, sameProductKey } from "../lib/mm/leaderboards";
 import { decodeShopProducts, type ShopFile, type ShopManifest, type ShopNutrition, type ShopProduct } from "../lib/mm/shopProducts";
 
 // Nutrition leaderboards (founder 2026-11-18). The published file is worked out from the published shop lists; regenerate after the lists are rebuilt:
@@ -87,6 +87,45 @@ describe("a board", () => {
     const board = buildBoard("cheapestProtein", lists);
     expect(board.every((e, i) => i === 0 || board[i - 1]!.value <= e.value)).toBe(true);
     expect(buildBoard("protein", lists, 2)).toHaveLength(2);
+  });
+});
+
+describe("the same product at several shops (founder 2026-11-18: \"have the logo of the other store that also sells them\")", () => {
+  const bites = (id: string, name: string, over: Partial<ShopProduct> = {}, n: Partial<ShopNutrition> | null = { protein: 59, kcal: 520, carbs: 2, fat: 30 }) => product(id, name, over, n);
+
+  it("reads a branded name with its size as the shop lists do, never a shop's own brand", () => {
+    expect(brandedNameKey("Brown & Polson 500g Cornflour")).toBe("brown and polson 500g cornflour");
+    expect(brandedNameKey("Kellogg's Rice Krispies 430 Grams")).toBe("kelloggs rice krispies 430g");
+    expect(brandedNameKey("Tesco Chia Seeds 150G")).toBeNull();
+    expect(brandedNameKey("Sainsbury's Chia Seeds 150g")).toBeNull();
+    expect(brandedNameKey("Fudco Chia Seeds")).toBeNull(); // no size: can't tell which pack
+  });
+
+  it("joins the same branded product whatever the order of its words or a plural, and puts the shops that sell it with no label last", () => {
+    const lists = [
+      { shop: "sainsburys", products: [bites("s1", "Mr. Porky Sharing Bag Crispy Strips 55g")] },
+      { shop: "waitrose", products: [bites("w1", "Mr. Porky Crispy Strip Sharing Bag 55g", {}, { protein: 58, kcal: 520, carbs: 2, fat: 30 })] },
+      { shop: "asda", products: [bites("a1", "Mr Porky Crispy Strips Sharing Bag 55g", {}, null)] },
+      { shop: "tesco", products: [bites("t1", "Tesco Crispy Pork Strips 55g")] },
+    ];
+    const board = buildBoard("protein", lists);
+    const porky = board.find((e) => /Porky/.test(e.name))!;
+    expect(porky.shops.map((s) => s.shop)).toEqual(["sainsburys", "waitrose", "asda"]);
+    expect(porky.value).toBe(59);
+    // the shop's own brand stays its own row
+    expect(board.find((e) => /Tesco/.test(e.name))!.shops.map((s) => s.shop)).toEqual(["tesco"]);
+  });
+
+  it("never joins by a name M&S gives its own range, or by a name two different barcodes share", () => {
+    const groups = sameProductGroups([
+      { shop: "marks-and-spencer", products: [bites("m1", "Chia Seeds 200 g")] },
+      { shop: "waitrose", products: [bites("w1", "Chia Seeds 200g"), bites("w2", "Brand Bar 40g", { gtin: "5000000000011" })] },
+      { shop: "asda", products: [bites("a2", "Brand Bar 40g", { gtin: "5000000000028" })] },
+      { shop: "sainsburys", products: [bites("s2", "Brand Bar 40g")] },
+    ]);
+    expect(groups.get("marks-and-spencer|m1")).not.toBe(groups.get("waitrose|w1"));
+    expect(groups.get("waitrose|w2")).not.toBe(groups.get("asda|a2"));
+    expect(groups.get("sainsburys|s2")).not.toBe(groups.get("waitrose|w2"));
   });
 });
 

@@ -105,16 +105,77 @@ export function boardValue(board: BoardId, p: ShopProduct): number | null {
 /** The same product at several shops: the same barcode, or exactly the same name (own-brand names carry the shop's name, so they never meet another shop's). */
 export const sameProductKey = (p: ShopProduct): string => (p.gtin ? `b:${p.gtin}` : `n:${normalizeForSearch(p.name)}`);
 
+// The rule the shop lists use to lend one shop's label or photo to another's same product (tools/groceries/build_groceries.py OWN_BRAND, SIZED, name_key):
+// a branded name with its pack size, never a shop's own brand, whose recipe differs from shop to shop.
+const OWN_BRAND = /\b(?:tesco|sainsbury s?|sainsburys|asda|waitrose|morrisons|iceland|m and s|marks and spencer|aldi|lidl|co op|ocado|stamford street|hearty food co|ms molly|plant chef|by sainsbury s|taste the difference|so organic|just essentials|extra special|essential waitrose|no 1|the best|savers|market street|nutmeg|specially selected|everyday essentials|natures? pick|nature s pick|harvest morn|brooklea|mamia|milbona|deluxe|vemondo|chef select|crownfield|cien|snack day|nightingale farms|world deli|plant kitchen|collection|irresistible|honest value|luxury|finest|exceptional)\b/;
+const SIZED = /\b\d+(?:\.\d+)?(?:kg|g|ml|cl|l)\b|\b\d+x\d/;
+const UNIT: Record<string, string> = { kgs: "kg", gm: "g", gram: "g", grams: "g", millilitre: "ml", millilitres: "ml", ltr: "l", litre: "l", litres: "l", liter: "l", liters: "l" };
+
+/** A branded product's name and pack size as one comparable key, or null (no size, or a shop's own brand): build_groceries.py name_key. */
+export function brandedNameKey(name: string): string | null {
+  let n = (name ?? "").toLowerCase().replace(/&/g, " and ").replace(/\u2019/g, "'").replace(/'/g, "");
+  n = n.replace(/(\d+(?:\.\d+)?)\s*(kg|kgs|g|gm|grams?|ml|millilitres?|cl|l|ltr|litres?|liters?)\b/g, (_, num: string, unit: string) => num + (UNIT[unit] ?? unit));
+  n = n.replace(/(\d)\s*[x×]\s*(\d)/g, "$1x$2");
+  n = n.replace(/[^a-z0-9. ]+/g, " ").replace(/ \./g, " ").split(/\s+/).filter(Boolean).join(" ");
+  return !SIZED.test(n) || OWN_BRAND.test(n) ? null : n;
+}
+
+/** The same branded name and size whatever the order of its words, a plural s or a full stop ("The Chia Co Black Chia Seed 453g" = "The Chia Co Black Chia Seeds 453G", "Mr. Porky" = "Mr Porky"). */
+const looseKey = (key: string): string => `w:${[...new Set(key.split(" ").map((w) => w.replace(/\.+$/, "")).filter(Boolean).map((w) => (w.length > 3 && w.endsWith("s") && !w.endsWith("ss") ? w.slice(0, -1) : w)))].sort().join(" ")}`;
+
+/** Shops whose own range is listed without the shop's name ("Chia Seeds 200 g" at M&S): a name there proves nothing, so only a barcode joins them up. */
+const NAME_PROVES_NOTHING = new Set(["marks-and-spencer"]);
+
+/**
+ * Which products at different shops are the same one (founder 2026-11-18: "If some of these products are sold by multiple stores, like have the logo of the
+ * other store that also sells them"): joined by the same barcode, or by the same branded name and pack size (brandedNameKey, any word order, a plural s
+ * aside), never by a shop's own brand or a name that proves nothing, and never by a name that two different barcodes share. Gives each "<shop>|<id>" a group.
+ */
+export function sameProductGroups(lists: ReadonlyArray<{ shop: string; products: readonly ShopProduct[] }>): Map<string, string> {
+  const parent = new Map<string, string>();
+  const find = (x: string): string => {
+    let r = x;
+    while ((parent.get(r) ?? r) !== r) r = parent.get(r)!;
+    let y = x;
+    while ((parent.get(y) ?? y) !== r) { const next = parent.get(y)!; parent.set(y, r); y = next; }
+    return r;
+  };
+  const join = (a: string, b: string) => { const ra = find(a); const rb = find(b); if (ra !== rb) parent.set(ra, rb); };
+  const names = new Map<string, string | null>();
+  const nameOf = (shop: string, p: ShopProduct) => {
+    if (NAME_PROVES_NOTHING.has(shop)) return null;
+    if (!names.has(p.name)) { const k = brandedNameKey(p.name); names.set(p.name, k ? looseKey(k) : null); }
+    return names.get(p.name)!;
+  };
+  const codes = new Map<string, Set<string>>();
+  for (const { shop, products } of lists) for (const p of products) {
+    const k = nameOf(shop, p);
+    if (k && p.gtin) codes.set(k, (codes.get(k) ?? new Set()).add(p.gtin));
+  }
+  const out = new Map<string, string>();
+  for (const { shop, products } of lists) for (const p of products) {
+    const node = `p:${shop}|${p.id}`;
+    if (p.gtin) join(node, `b:${p.gtin}`);
+    const k = nameOf(shop, p);
+    if (k && (codes.get(k)?.size ?? 0) <= 1) join(node, k);
+  }
+  for (const { shop, products } of lists) for (const p of products) out.set(`${shop}|${p.id}`, find(`p:${shop}|${p.id}`));
+  return out;
+}
+
 const lowerIsBetter = (board: BoardId) => board === "cheapestProtein" || board === "fewestKcal";
 
-/** One board from every shop's list: the products grouped across shops, best first (ties by name so the order never changes between rebuilds). */
-export function buildBoard(board: BoardId, lists: ReadonlyArray<{ shop: string; products: readonly ShopProduct[] }>, size = BOARD_SIZE): BoardEntry[] {
+/**
+ * One board from every shop's list: the products grouped across shops (sameProductGroups), best first (ties by name so the order never changes between
+ * rebuilds). Every shop that sells a row's product is on it: those whose own label gives the figure first, best first, then those that sell it with no label.
+ */
+export function buildBoard(board: BoardId, lists: ReadonlyArray<{ shop: string; products: readonly ShopProduct[] }>, size = BOARD_SIZE, groupsOf: Map<string, string> = sameProductGroups(lists)): BoardEntry[] {
   const groups = new Map<string, { best: number; name: string; gtin: string; shops: Array<BoardShop & { value: number }> }>();
   for (const { shop, products } of lists) {
     for (const p of products) {
       const value = boardValue(board, p);
       if (value === null) continue;
-      const key = sameProductKey(p);
+      const key = groupsOf.get(`${shop}|${p.id}`) ?? sameProductKey(p);
       const g = groups.get(key) ?? { best: value, name: p.name, gtin: p.gtin, shops: [] };
       if (g.shops.some((s) => s.shop === shop)) continue; // one row a shop
       g.shops.push({ shop, id: p.id, photoId: p.photoId, price: p.price, value });
@@ -125,21 +186,34 @@ export function buildBoard(board: BoardId, lists: ReadonlyArray<{ shop: string; 
     }
   }
   const sign = lowerIsBetter(board) ? 1 : -1;
-  return [...groups.values()]
-    .sort((a, b) => sign * (a.best - b.best) || a.name.localeCompare(b.name, "en-GB"))
-    .slice(0, size)
-    .map((g) => ({
+  const top = [...groups.entries()].sort(([, a], [, b]) => sign * (a.best - b.best) || a.name.localeCompare(b.name, "en-GB")).slice(0, size);
+  // the shops that sell a top row's product without a label of their own (or with one the board can't use)
+  const wanted = new Set(top.map(([key]) => key));
+  const more = new Map<string, Array<BoardShop & { gtin: string }>>();
+  for (const { shop, products } of lists) for (const p of products) {
+    const key = groupsOf.get(`${shop}|${p.id}`);
+    if (!key || !wanted.has(key)) continue;
+    const list = more.get(key) ?? [];
+    if (!list.some((s) => s.shop === shop)) list.push({ shop, id: p.id, photoId: p.photoId, price: p.price, gtin: p.gtin });
+    more.set(key, list);
+  }
+  return top.map(([key, g]) => {
+    const labelled = [...g.shops].sort((a, b) => sign * (a.value - b.value) || a.shop.localeCompare(b.shop)).map(({ shop, id, photoId, price }) => ({ shop, id, photoId, price }));
+    const unlabelled = (more.get(key) ?? []).filter((s) => !labelled.some((x) => x.shop === s.shop)).sort((a, b) => a.shop.localeCompare(b.shop));
+    return {
       name: g.name,
       value: g.best,
-      gtin: g.gtin,
-      // the shop the figure comes from first, then the others best first
-      shops: [...g.shops].sort((a, b) => sign * (a.value - b.value) || a.shop.localeCompare(b.shop)).map(({ shop, id, photoId, price }) => ({ shop, id, photoId, price })),
-    }));
+      gtin: g.gtin || unlabelled.find((s) => s.gtin)?.gtin || "",
+      // the shop the figure comes from first, then the others best first, then the shops that sell it with no label
+      shops: [...labelled, ...unlabelled.map(({ shop, id, photoId, price }) => ({ shop, id, photoId, price }))],
+    };
+  });
 }
 
 export function buildLeaderboards(lists: ReadonlyArray<{ file: ShopFile; products: readonly ShopProduct[] }>, size = BOARD_SIZE): LeaderboardsFile {
   const plain = lists.map((l) => ({ shop: l.file.retailer, products: l.products }));
-  const boards = Object.fromEntries(BOARDS.map((b) => [b.id, buildBoard(b.id, plain, size)])) as Record<BoardId, BoardEntry[]>;
+  const groupsOf = sameProductGroups(plain);
+  const boards = Object.fromEntries(BOARDS.map((b) => [b.id, buildBoard(b.id, plain, size, groupsOf)])) as Record<BoardId, BoardEntry[]>;
   const shops = Object.fromEntries(lists.map((l) => [l.file.retailer, { name: l.file.name, photoBase: l.file.photoBase, ...(l.file.photoTemplate !== undefined ? { photoTemplate: l.file.photoTemplate } : {}) }]));
   const checkedOn = lists.map((l) => l.file.checkedOn).sort().at(-1) ?? "";
   return { v: 1, checkedOn, shops, boards };

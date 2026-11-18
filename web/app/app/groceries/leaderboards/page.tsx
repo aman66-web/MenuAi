@@ -65,7 +65,8 @@ function Row({ file, board, entry, rank, unit }: { file: LeaderboardsFile; board
           {/* every supermarket that sells it, by its own logo (the names are read out) */}
           <span className="mt-1.5 flex flex-wrap items-center gap-1.5">
             <span className="sr-only">{t("Sold at {shops}", { shops: sold })}</span>
-            {entry.shops.map((s) => <span key={s.shop} aria-hidden><ShopMark shopId={s.shop} size="xs" /></span>)}
+            {/* side by side like dominoes, each logo whole (founder 2026-11-18: "you can see the logo from each store that has them"; never one over another) */}
+            <span aria-hidden className="inline-flex flex-wrap items-center gap-1">{entry.shops.map((s) => <ShopMark key={s.shop} shopId={s.shop} size="xs" />)}</span>
             {board === "cheapestProtein" && first.price !== null && <span className="app-numbers text-[0.8125rem] text-muted">{formatPrice(first.price)}</span>}
           </span>
         </span>

@@ -3132,3 +3132,13 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   (`app/app/_components/PhotoViewer.tsx`, a native modal dialog): the picture uncropped on black, pinch or double-tap to zoom up to 4x, drag to move round,
   "Zoom in"/"Zoom out" for anyone who can't pinch, Close or Escape. The recipe pictures are stored 800 px wide, so close zoom is a little soft on a phone.
   e2e photoviewer 4/4 (axe clean).
+- **Every shop that sells a board's product** (founder: "If some of these products are sold by multiple stores ... have the logo of the other store that also
+  sells them next to the logo which is already there ... like a domino"): the boards already showed each shop in a row's group, but grouped only by barcode
+  or exactly the same name, and only shops with a label. Now `sameProductGroups` (`lib/mm/leaderboards.ts`) joins the same product by barcode or by
+  `brandedNameKey` (the shop lists' own name_key rule: a branded name with its pack size, never a shop's own brand), with the words in any order, a plural s
+  or a final full stop aside; never by an M&S name (its own range is listed without "M&S") or a name two barcodes share. Shops that sell it with no label
+  of their own come after those whose label gives the figure. Rows with several shops: 16 before, 21 now (Mr. Porky at Asda, Sainsbury's and Waitrose;
+  Brown & Polson cornflour at three shops; Ember biltong, Kallo veggie cakes, The Curators pork puffs, Rice Krispies). The logos sit side by side, each whole,
+  never one over another (CLAUDE.md rule 2). Own-brand products (Tesco Chia Seeds, ASDA Chia Seeds) are different products with their own labels and stay
+  their own rows; The Chia Co seeds are sold only at Sainsbury's in our lists. 12 leaderboard unit tests pass; e2e leaderboards 3/3.
+- Held back: Morrisons 111611373 (protein printed "5, g"); Waitrose: 2 mixed boxes with one item's table, 13 teas whose per-100 g table is the brewed drink.
