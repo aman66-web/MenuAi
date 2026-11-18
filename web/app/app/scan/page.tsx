@@ -7,7 +7,7 @@ import { ADDED_TO } from "@/lib/mm/addFood";
 import { analytics } from "@/lib/mm/analytics";
 import { MEAL_LABEL, MEALS, mealSlotFor } from "@/lib/mm/budget";
 import { API_BASE, FOOD_SCAN_ENABLED, PAID_ACCESS_ENABLED } from "@/lib/mm/config";
-import { ESTIMATE_LOG_NAME, SCAN_WORKING_LINES, type FoodScan } from "@/lib/mm/foodScan";
+import { ESTIMATE_LOG_NAME, MAX_DESCRIPTION, SCAN_WORKING_LINES, type FoodScan } from "@/lib/mm/foodScan";
 import { formatInt } from "@/lib/mm/format";
 import { tk } from "@/lib/mm/i18n";
 import { addLogEntry, countProAction, paidStore } from "@/lib/mm/stores";
@@ -103,6 +103,12 @@ function ScanScreen() {
   const [error, setError] = useState<string | null>(null);
   const [meal, setMeal] = useState<Meal>(() => mealSlotFor(new Date()));
   const [logged, setLogged] = useState<Meal | null>(null);
+  // what the food is, typed before the photo (founder 2026-11-18: "before they take a photo, they have to type in what the food is ... that brief description will
+  // also help the AI"); sent with the photo, never kept
+  const [what, setWhat] = useState("");
+  const [whatMissing, setWhatMissing] = useState(false);
+  const whatBox = useRef<HTMLInputElement>(null);
+  const described = what.trim().length >= 2;
   const answer = useRef<Promise<{ scan?: FoodScan; error?: string; message?: string; status: number }> | null>(null);
   const abort = useRef<AbortController | null>(null);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -119,7 +125,7 @@ function ScanScreen() {
       const res = await fetch(`${API_BASE}scan`, {
         method: "POST",
         headers: { "Content-Type": "application/json", ...(paid.token ? { Authorization: `Bearer ${paid.token}` } : {}) },
-        body: JSON.stringify({ image }),
+        body: JSON.stringify({ image, description: what.trim() }),
         signal: abort.current.signal,
       });
       const json = (await res.json().catch(() => ({}))) as { scan?: FoodScan; error?: string; message?: string };
@@ -165,6 +171,7 @@ function ScanScreen() {
 
   const start = (how: "camera" | "library") => {
     if (!access) { showPaywall("foodScan"); return; }
+    if (!described) { setWhatMissing(true); whatBox.current?.focus(); return; }
     if (how === "camera") setStep("camera");
     else library.current?.click();
   };
@@ -194,7 +201,26 @@ function ScanScreen() {
           <h1 id="scan-h" ref={heading} tabIndex={-1} className={H1}>{t("Scan your food")}</h1>
           <p className="mt-2 text-[1.0625rem] leading-snug text-muted">{t("Take a photo of your plate and Pip estimates its calories, protein, carbs and fat.")}</p>
           <div className="mt-5 flex justify-center"><Pip mood="wave" size={96} /></div>
-          <div className="mt-5 space-y-3">
+          {/* first, in a few words, what the food is: Pip reads it with the photo */}
+          <label htmlFor="scan-what" className="mt-5 block text-lg font-[800] leading-snug">{t("What are you eating?")}</label>
+          <p id="scan-what-help" className="mt-0.5 text-[0.9375rem] leading-snug text-muted">{t("A few words help Pip tell what's on the plate.")}</p>
+          <input
+            ref={whatBox}
+            id="scan-what"
+            type="text"
+            value={what}
+            maxLength={MAX_DESCRIPTION}
+            enterKeyHint="done"
+            autoComplete="off"
+            aria-describedby={whatMissing && !described ? "scan-what-help scan-what-missing" : "scan-what-help"}
+            aria-invalid={whatMissing && !described ? true : undefined}
+            placeholder={t("For example: chicken pasta in a creamy sauce")}
+            onChange={(e) => { setWhat(e.target.value); if (e.target.value.trim().length >= 2) setWhatMissing(false); }}
+            onKeyDown={(e) => { if (e.key === "Enter") e.currentTarget.blur(); }}
+            className="glass mt-2 block min-h-14 w-full rounded-[1.25rem] px-4 text-[1.0625rem] outline-none placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent"
+          />
+          {whatMissing && !described && <p id="scan-what-missing" role="alert" className="mt-2 text-[0.9375rem] font-semibold text-[var(--danger,#b42318)]">{t("Type what the food is first, then take the photo.")}</p>}
+          <div className="mt-4 space-y-3">
             <Button full className="min-h-14 gap-2.5 text-lg" onClick={() => start("camera")}><CameraIcon className="h-6 w-6" />{t("Take a photo")}</Button>
             <Button full variant="secondary" className="min-h-14 gap-2.5 text-lg" onClick={() => start("library")}><PhotoIcon className="h-6 w-6" />{t("Choose a photo")}</Button>
           </div>

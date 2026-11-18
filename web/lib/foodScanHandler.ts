@@ -1,7 +1,7 @@
 import { z } from "zod";
 import type { Result } from "./handlers";
 import {
-  ESTIMATE_SYSTEM_PROMPT, FIRST_LOOK_SYSTEM_PROMPT, SCAN_MESSAGES, firstLookFromAi, firstLookPrompt, refsForPlate, refsPrompt, scanFromAi,
+  ESTIMATE_SYSTEM_PROMPT, FIRST_LOOK_SYSTEM_PROMPT, SCAN_MESSAGES, cleanDescription, describedPrompt, firstLookFromAi, firstLookPrompt, refsForPlate, refsPrompt, scanFromAi,
   type RefIndexEntry,
 } from "./mm/foodScan";
 import { MAX_PHOTO_BASE64 } from "./mm/photoRecipe";
@@ -12,11 +12,12 @@ import { isJpeg } from "./photoRecipeHandler";
 // the first look must find food; the estimate must pass scanFromAi (numbers in range, calories that fit the macros), with one more go if it doesn't.
 
 const image = z.string().min(200).max(MAX_PHOTO_BASE64).regex(/^[A-Za-z0-9+/]+={0,2}$/);
-export const scanRequestSchema = z.object({ image }).strict();
+// what the person typed the food is (optional, so an app from before 18 November still works); cut to MAX_DESCRIPTION after it is cleaned
+export const scanRequestSchema = z.object({ image, description: z.string().max(400).optional() }).strict();
 
 type Answer = { status: "ok"; value: unknown } | { status: "refused" } | { status: "error" };
-/** The quick first look: what is on the plate, how much, and searches for dishes like each food. */
-export type FirstLookAi = (system: string, image: string) => Promise<Answer>;
+/** The quick first look: what is on the plate, how much, and searches for dishes like each food (`note`: what the person typed it is, as a prompt line). */
+export type FirstLookAi = (system: string, image: string, note?: string) => Promise<Answer>;
 /** The estimate: the photo, then the first look and the reference dishes as text. */
 export type EstimateAi = (system: string, image: string, user: string) => Promise<Answer>;
 
@@ -39,8 +40,9 @@ export async function handleFoodScan(body: unknown, ctx: ScanCtx): Promise<Resul
   if (!(await ctx.premium())) return say(402, "premium", SCAN_MESSAGES.premium);
   if (!ctx.allow()) return say(429, "rate_limited", SCAN_MESSAGES.rateLimited);
   const photo = parsed.data.image;
+  const note = describedPrompt(cleanDescription(parsed.data.description));
 
-  const first = await ctx.look(FIRST_LOOK_SYSTEM_PROMPT, photo);
+  const first = await ctx.look(FIRST_LOOK_SYSTEM_PROMPT, photo, note || undefined);
   const look = first.status === "ok" ? firstLookFromAi(first.value) : null;
   if (!look) return say(502, "no_estimate", SCAN_MESSAGES.noEstimate);
   if (!look.isFood) return say(422, "not_food", SCAN_MESSAGES.notFood);
@@ -51,7 +53,7 @@ export async function handleFoodScan(body: unknown, ctx: ScanCtx): Promise<Resul
   } catch {
     index = [];
   }
-  const base = `${firstLookPrompt(look)}\n\n${refsPrompt(refsForPlate(index, look.items))}\n\nEstimate this plate.`;
+  const base = `${note ? `${note}\n\n` : ""}${firstLookPrompt(look)}\n\n${refsPrompt(refsForPlate(index, look.items))}\n\nEstimate this plate.`;
   let user = base;
   for (let attempt = 0; attempt < 2; attempt++) {
     const answer = await ctx.estimate(ESTIMATE_SYSTEM_PROMPT, photo, user);
