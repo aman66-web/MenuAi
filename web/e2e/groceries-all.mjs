@@ -53,7 +53,7 @@ await step("Groceries asks \"Which shop?\" and offers only the shops that have a
   const tools = [
     ["search pill", a.page.getByRole("link", { name: "Search every shop at once" })],
     ["Scan a barcode", a.page.getByRole("button", { name: "Scan a barcode" })],
-    ["Cheapest protein", a.page.getByRole("link", { name: "Cheapest protein" })],
+    ["Nutrition leaderboards", a.page.getByRole("link", { name: /^Nutrition leaderboards/ })],
     ["Compare products", a.page.getByRole("link", { name: "Compare products" })],
   ];
   for (const [label, el] of tools) {

@@ -94,6 +94,8 @@ export const CopyIcon = (p: P) => (<svg {...base(p)}><rect x="8.5" y="8.5" width
 /** Two bars of different heights with a divider: "compare side by side". */
 export const CompareIcon = (p: P) => (<svg {...base(p)}><path d="M12 3v18" /><rect x="4" y="9" width="5" height="10" rx="1.2" /><rect x="15" y="5" width="5" height="14" rx="1.2" /></svg>);
 // a pound coin: Groceries' Cheapest protein
+/** A podium: three steps of different heights (Nutrition leaderboards). */
+export const PodiumIcon = (p: P) => (<svg {...base(p)}><path d="M9 20V8h6v12M3 20v-7h6M15 20v-4h6v4M2 20h20" /><path d="M12 3.2l.9 1.8 2 .3-1.45 1.4.35 2-1.8-.95-1.8.95.35-2L9.1 5.3l2-.3z" /></svg>);
 export const CoinIcon = (p: P) => (<svg {...base(p)}><circle cx="12" cy="12" r="9" /><path d="M14.6 8.6a2.6 2.6 0 0 0-4.6 1.6V16M8.6 12.6h4.2M8.4 16h7.2" /></svg>);
 /** Four corner brackets pointing out: "full screen" (the Nearby map's button). Shrink is the same corners pointing in: "leave full screen". */
 export const ExpandIcon = (p: P) => (<svg {...base(p)}><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" /></svg>);

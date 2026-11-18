@@ -2940,3 +2940,19 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   founder asked for the feature; English only while languages are off): the screen's lines, the paywall bullet "Photograph your food for an estimate of its
   calories, protein, carbs and fat", the Home card "Scan your food / Snap your plate to see its calories". **Not yet done:** a real photo through the live AI
   (costs a few pence a scan; waits on the founder's yes), the App Privacy answers in App Store Connect for the new use of photos.
+
+- 2026-11-18 (night) — **Nutrition leaderboards replace Groceries' "Cheapest protein" shortcut** (founder: "have something called nutritional leaderboards ... rank the top
+  20 products for each thing ... include the logo of the shop that they can buy it from, and also if the same product is sold by multiple shops, include all the logos").
+  lib/mm/leaderboards.ts, app/app/groceries/leaderboards/page.tsx, public/groceries/all/leaderboards.json (written by `WRITE_LEADERBOARDS=1 npx vitest run
+  tests/leaderboards.test.ts`; **add it to the rebuild cycle after build_all_products.py**; the test fails when the file is stale). Six boards, top 20 each, across
+  every shop: Most protein for the calories (g per 100 kcal, protein foods only), Most protein (per 100 g), Cheapest protein (pence for 10 g, as before but every
+  shop), Most fibre, Most carbs (starchy foods: sugar at most a quarter of the carbs), Fewest calories (per 100 g, from 5 kcal). Only the shop's own label or the
+  same product's label read at another shop; never community numbers, government produce figures or cooked labels; per-100 g boards compare foods by weight.
+  **Left off by name** (the first build was twenty protein powders, twenty herbs and spices, twenty bags of sugar): powders, supplements, herbs, spices and
+  cupboard extras (salt, vinegar, baking powder) on every board but Cheapest protein, sugar, sweeteners and sweets on Most carbs and Fewest calories; the page says
+  so. The same product at several shops (same barcode, or exactly the same name) is one row with every shop's logo, the best shop first; a row opens the
+  every-shop product page when it has a barcode and several shops, else that shop's product. The old Cheapest protein page (with its pairs) stays, linked from its
+  board. Free tier when paid access exists: the first five rows, as before. **Not done:** a vegan board (founder: "top 20 for vegans"): we hold no vegan marking we
+  can trust for supermarket products yet. **New copy:** the six boards' names and lines, the page's lines, the shortcut "Nutrition leaderboards / The top 20
+  products for protein, fibre and more". Also today, from the founder's screenshots: Groceries' chosen-shops button moved to the foot of the screen and named
+  ("See Lidl's products" / "See products from {shops}" / "See products from {n} shops"); no "Your shop" tag; "My list" renamed "Shopping list".
