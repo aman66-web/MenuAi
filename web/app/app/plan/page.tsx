@@ -7,7 +7,7 @@ import { GATING_ENABLED } from "@/lib/mm/config";
 import { formatInt } from "@/lib/mm/format";
 import { addToList, formatPrice, listForShop, withPhoto } from "@/lib/mm/groceries";
 import { localeInfo, tk } from "@/lib/mm/i18n";
-import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_MEALS, PER_MEAL_RECIPES, betterCandidate, budgetRange, buildWeek, leavesOut, mergeCandidates, planCandidates, planForBudget, planSlots, setMeal, shapeOf, slotTargets, swapChoices, withBetter, type BudgetRange, type DayShape, type PlanCandidate, type PlanIds, type SavedPlan } from "@/lib/mm/mealPlan";
+import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterCandidate, budgetRange, buildWeek, leavesOut, mergeCandidates, planCandidates, planForBudget, planSlots, setMeal, shapeOf, slotTargets, swapChoices, withBetter, type BudgetRange, type DayShape, type PlanCandidate, type PlanIds, type SavedPlan, type Variety } from "@/lib/mm/mealPlan";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { recipeForDiet, type MealTarget, type MealType } from "@/lib/mm/recipes";
 import { recipeShops, shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
@@ -24,6 +24,7 @@ import { useHydrated, useIsPro, useSettings, useStore } from "../_lib/hooks";
 import { useLanguage, useT } from "../_lib/i18n";
 import { loadShopFile, useShopManifest } from "../_lib/shopProducts";
 import { BackLink, CARD, CHIP, CHIP_ON, HEADING, TITLE } from "../groceries/PageBits";
+import { PhotoTile } from "../groceries/ProductPhoto";
 import { RecipeThumb } from "../recipes/RecipeThumb";
 
 // The meal plan (founder 2026-11-18; lib/mm/mealPlan.ts has the rules). Premium ("a third icon, which has meal plan, and that has pro on it"). Pip asks one thing
@@ -142,6 +143,10 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
   const [shape, setShape] = useState<DayShape>(saved?.slots ? shapeOf(saved.slots) : DEFAULT_SHAPE);
   const slots = useMemo(() => planSlots(shape), [shape]);
   const targets = useSlotTargets(shape);
+  // how often a meal may come round (founder 2026-11-18: "they can choose if they want any foods repeated")
+  const [variety, setVariety] = useState<Variety>(saved?.variety ?? PER_MEAL_RECIPES);
+  // "Make my plan": the plan is made, then Pip shows the work step by step before the week opens
+  const [making, setMaking] = useState<{ steps: string[]; plan: SavedPlan } | null>(null);
   const [leaveOut, setLeaveOut] = useState<string[]>(saved?.leaveOut ?? []);
   const [typed, setTyped] = useState("");
   const [shops, setShops] = useState<string[] | null>(saved?.shops ?? null);
@@ -177,11 +182,11 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
     n: RECIPES.filter((r) => { if (r.meal !== meal) return false; const fit = recipeForDiet(r, prefs); return !!fit && !leavesOut(fit, leaveOut); }).length,
   })), [prefs, leaveOut, slots]);
   const noneFor = left.find((l) => l.n === 0);
-  const fewFor = left.filter((l) => l.n > 0 && l.n < PER_MEAL_RECIPES);
+  const fewFor = left.filter((l) => l.n > 0 && l.n < variety * slots.filter((x) => x === l.meal).length);
   const mealWord = (m: MealType) => (m === "snack" ? t("snack") : t(MEAL_LABEL[m as "breakfast" | "lunch" | "dinner"]).toLowerCase());
 
   // the prices for the budget step: worked out when it opens (and again if the shops, the diet or the foods changed)
-  const prepKey = workKey(chosen, settings.preferences, targets, leaveOut) + slots.join("|");
+  const prepKey = workKey(chosen, settings.preferences, targets, leaveOut) + slots.join("|") + `|${variety}`;
   const prepping = useRef<string | null>(null);
   useEffect(() => {
     if (step !== 6 || !chosen.length || prep?.key === prepKey || prepping.current === prepKey) return;
@@ -198,7 +203,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
         return;
       }
       const cands = await workOut(loaded, settings.preferences, targets, leaveOut, (on, done) => { if (live) setPreparing({ on, done }); });
-      const range = budgetRange(cands, betterFor(loaded, targets), slots);
+      const range = budgetRange(cands, betterFor(loaded, targets), slots, variety);
       if (!live) return;
       setPrep({ key: prepKey, loaded, cands, range });
       setPreparing(null);
@@ -213,9 +218,29 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
   const ready = !!prep && prep.key === prepKey && !!prep.range && pick !== null;
   const make = () => {
     if (!ready || !prep || pick === null) return;
-    const plan = planForBudget(prep.cands, pick, betterFor(prep.loaded, targets), slots);
+    const plan = planForBudget(prep.cands, pick, betterFor(prep.loaded, targets), slots, variety);
     if (!plan) { setProblem("noPlan"); setStep(4); return; }
-    mealPlanStore.set({ shops: chosen, ids: plan.ids, slots, leaveOut, budget: pick, start: today(), ...(plan.better.length ? { better: plan.better } : {}) } satisfies SavedPlan);
+    // what Pip did, each with its real figure (founder 2026-11-18: "show them what you're doing ... so you're showing them that you're properly working")
+    const w = plan.week;
+    const recipes = new Set([...prep.cands.values()].flat().map((c) => c.recipe.id)).size;
+    const products = prep.loaded.reduce((n, l) => n + l.products.length, 0);
+    const meals = slots.filter((m) => m !== "snack").length * PLAN_DAYS;
+    const snacks = slots.filter((m) => m === "snack").length * PLAN_DAYS;
+    const eaten = w.fresh.bought > 0 ? Math.round((100 * w.fresh.eaten) / w.fresh.bought) : 100;
+    const steps = [
+      t("Reading {n} recipes that suit your diet", { n: formatInt(recipes) }),
+      t("Looking through {n} products at {shops}", { n: formatInt(products), shops: names(shopsAll, chosen) }),
+      t("Sizing every meal to your {kcal} kcal and {protein} g protein a day", { kcal: formatInt(settings.dailyCalories), protein: formatInt(daily.protein) }),
+      snacks ? t("Choosing {meals} meals and {snacks} snacks for your week", { meals, snacks }) : t("Choosing {meals} meals for your week", { meals }),
+      t("Planning the packs so {pct}% of the fresh food gets eaten", { pct: eaten }),
+      w.overBudget ? t("Finding the cheapest week your choices allow: {cost}", { cost: formatPrice(w.shoppingCost) }) : t("Keeping the week to {cost}, within your {budget}", { cost: formatPrice(w.shoppingCost), budget: formatPrice(pick) }),
+      t("Writing your shopping list: {n} products", { n: w.shopping.length }),
+    ];
+    setMaking({ steps, plan: { shops: chosen, ids: plan.ids, slots, leaveOut, budget: pick, start: today(), variety, ...(plan.better.length ? { better: plan.better } : {}) } });
+  };
+  const finish = () => {
+    if (!making) return;
+    mealPlanStore.set(making.plan);
     onDone();
   };
 
@@ -247,12 +272,13 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
       : t("Where do you shop? Pick one shop to buy everything there, or several and I'll share the meals between them.");
   const says = [
     t("Hi! Let's plan your week. First, your daily numbers: I'll size every meal to them."),
-    t("How do you like to eat? Pick your meals and how many snacks, and I'll size each one so your day adds up."),
+    t("How do you like to eat? Pick your meals and snacks, and how often a meal can come round. I'll size each one so your day adds up."),
     t("Do you follow a diet, or have any allergies? I'll leave out any recipe that doesn't fit."),
     t("Any foods you don't like? Tap them, or type your own, and I'll leave them out."),
     shopsSay,
     t("Slide to choose your budget. The green spot is the best week for your goal: left is cheaper, right buys better products."),
   ][step - 1]!;
+  if (making) return <Making steps={making.steps} onDone={finish} />;
   const canGo = !(step === 2 && !shape.meals.length) && !(step === 4 && noneFor) && !(step === 5 && !chosen.length) && !(step === 6 && !ready);
 
   return (
@@ -283,7 +309,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
           </div>
         )}
 
-        {step === 2 && <MealsAndSnacks shape={shape} onChange={setShape} targets={targets} />}
+        {step === 2 && <MealsAndSnacks shape={shape} onChange={setShape} targets={targets} variety={variety} onVariety={setVariety} />}
 
         {step === 3 && <DietPicker value={settings.preferences} onChange={(p) => updateSettings({ preferences: p })} />}
 
@@ -392,7 +418,7 @@ function ShopsNote({ names }: { names: string[] }) {
 }
 
 /** Which meals the person eats (at least one) and how many snacks (none to three), with each one's size as the plan will make it. */
-function MealsAndSnacks({ shape, onChange, targets }: { shape: DayShape; onChange: (s: DayShape) => void; targets: Targets }) {
+function MealsAndSnacks({ shape, onChange, targets, variety, onVariety }: { shape: DayShape; onChange: (s: DayShape) => void; targets: Targets; variety: Variety; onVariety: (v: Variety) => void }) {
   const t = useT();
   const flip = (m: MealType) => onChange({ ...shape, meals: shape.meals.includes(m) ? shape.meals.filter((x) => x !== m) : PLAN_MEALS.filter((x) => x === m || shape.meals.includes(x)) });
   return (
@@ -431,6 +457,69 @@ function MealsAndSnacks({ shape, onChange, targets }: { shape: DayShape; onChang
           </ul>
         </div>
       )}
+      <h2 className="mt-6 text-lg font-[800]">{t("How often can a meal come round?")}</h2>
+      <div role="radiogroup" aria-label={t("How often can a meal come round?")} className="mt-2 space-y-2">
+        {VARIETIES.map((v) => {
+          const on = variety === v;
+          const [title, line] = v === 7 ? [t("A different meal every day"), t("The most variety, with a little more left in the packs.")]
+            : v === 4 ? [t("Some repeats"), t("Each recipe comes round twice at most.")]
+            : [t("Meal prep"), t("Two recipes for each meal, cooked in batches: the least left over.")];
+          return (
+            <button key={v} type="button" role="radio" aria-checked={on} onClick={() => onVariety(v)}
+              className={`flex min-h-[3.75rem] w-full items-center gap-3 rounded-[1.25rem] px-4 py-3 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "bg-sun text-on-accent" : "glass hover:bg-soft-strong"}`}>
+              <span className="min-w-0 flex-1">
+                <span className="block text-[1.0625rem] font-bold leading-snug">{title}</span>
+                <span className={`mt-0.5 block text-[0.875rem] leading-snug ${on ? "" : "text-muted"}`}>{line}</span>
+              </span>
+              <span aria-hidden className={`grid h-7 w-7 shrink-0 place-items-center rounded-full ${on ? "bg-foreground text-background" : "border border-line"}`}>{on && <CheckIcon className="h-4 w-4" />}</span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+/** How long each of Pip's steps shows on "Making your plan" (seven steps: about ten seconds, as the founder asked on 18 November 2026). */
+const MAKING_STEP_MS = 1400;
+
+/**
+ * "Making your plan" (founder 2026-11-18: "it should take about maybe 10 seconds ... make sure you show them what you're doing, analysing this, analysing
+ * blah blah blah ... so you're showing them that you're properly working"): Pip goes through what was worked out for this plan, one step at a time, each
+ * with its real figure (the recipes and products looked at, the sizes, the packs, the bill, the list), then the week opens. Nothing here is made up.
+ */
+function Making({ steps, onDone }: { steps: string[]; onDone: () => void }) {
+  const t = useT();
+  const [at, setAt] = useState(0);
+  const done = useRef(onDone);
+  useEffect(() => { done.current = onDone; }, [onDone]);
+  useLayoutEffect(() => { window.scrollTo({ top: 0 }); }, []);
+  useEffect(() => {
+    const id = setTimeout(() => (at >= steps.length ? done.current() : setAt(at + 1)), at >= steps.length ? 600 : MAKING_STEP_MS);
+    return () => clearTimeout(id);
+  }, [at, steps.length]);
+  const shown = Math.min(at, steps.length - 1);
+  return (
+    <div className="pb-6">
+      <h1 className={`mt-11 ${TITLE}`}>{t("Making your plan")}</h1>
+      <div className="mt-4"><PipSays mood="think" size={64} lively pulse={shown}>{t("Give me a moment: I'm working out your best week.")}</PipSays></div>
+      <div aria-hidden className="mt-5 h-2 overflow-hidden rounded-full bg-[var(--ring-track)]">
+        <span className="block h-full rounded-full bg-[var(--sun)] transition-[width] duration-700 ease-out motion-reduce:transition-none" style={{ width: `${Math.round((100 * Math.min(at + 1, steps.length)) / steps.length)}%` }} />
+      </div>
+      <p role="status" aria-live="polite" className="sr-only">{steps[shown]}</p>
+      <ul className={`${CARD} mt-5 space-y-3.5 p-4`}>
+        {/* each step appears as Pip reaches it */}
+        {steps.slice(0, shown + 1).map((s, i) => {
+          const on = i === at;
+          return (
+            <li key={s} className="bubble-pop flex items-start gap-3 text-[1.0625rem] leading-snug">
+              {on ? <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-[rgba(17,24,20,0.1)] border-t-[var(--bar)] motion-reduce:animate-none" />
+                : <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)]"><CheckIcon className="h-4 w-4" /></span>}
+              <span className={`app-numbers pt-0.5 ${on ? "font-bold" : "font-semibold"}`}>{s}{on ? "…" : ""}</span>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
@@ -579,8 +668,8 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
     setSwapping(null);
     setAdded(null);
   };
+  const files = new Map(loaded.map((l) => [l.id, l.file]));
   const addAll = () => {
-    const files = new Map(loaded.map((l) => [l.id, l.file]));
     // each shop's packs go on that shop's own list if the person has made one (the newest), else on the main shopping list
     let ownLists = 0;
     shoppingStore.update((list) => week.shopping.reduce((l, line) => {
@@ -616,7 +705,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
             : week.overBudget ? t("That's {over} over your {budget} budget: it's the cheapest week our recipes allow with your choices.", { over: formatPrice(week.shoppingCost - week.budget), budget: formatPrice(week.budget) })
             : t("Within your {budget} budget.", { budget: formatPrice(week.budget) })}
         </p>
-        <p className="app-numbers mt-2 text-[0.9375rem] leading-snug text-muted">{t("The week's food uses {meals} of it; the rest is food left over in the packs.", { meals: formatPrice(week.mealsCost) })}</p>
+        {week.fresh.bought > 0 && <p className="app-numbers mt-2 text-[0.9375rem] leading-snug text-muted">{t("{pct}% of the fresh food you buy is eaten this week. Oil, spices, dry goods like rice and pasta, jars and frozen food keep for longer.", { pct: Math.round((100 * week.fresh.eaten) / week.fresh.bought) })}</p>}
         <p className="app-numbers mt-2 text-[0.9375rem] leading-snug text-muted">{t("About {kcal} kcal and {protein} g protein a day (your target is {target} kcal).", { kcal: formatInt(avg("kcal")), protein: formatInt(avg("protein")), target: formatInt(settings.dailyCalories) })}</p>
       </div>
 
@@ -664,15 +753,27 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
             <div key={sh} className="mt-4">
               <h3 className="flex items-center gap-2 px-1 text-lg font-[800]"><ShopMark shopId={sh} size="xs" />{shopName(sh)}</h3>
               <ul className={`${CARD} mt-2 divide-y divide-line overflow-hidden`}>
-                {lines.map((l) => (
-                  <li key={l.product.id} className="flex items-center justify-between gap-3 px-4 py-3">
-                    <span className="min-w-0 [overflow-wrap:anywhere]">
-                      <span className="block font-semibold leading-snug">{l.packs > 1 ? `${l.packs} × ` : ""}{l.product.name}</span>
-                      {l.cupboard && <span className="mt-0.5 block text-[0.8125rem] text-muted">{t("You may have this already")}</span>}
-                    </span>
-                    <span className="app-numbers shrink-0 font-bold">{formatPrice(l.cost)}</span>
-                  </li>
-                ))}
+                {lines.map((l) => {
+                  const file = files.get(l.shop);
+                  const left = !l.keeps && l.cost > 0 ? Math.round((10 * (l.cost - l.used)) / l.cost) * 10 : 0;
+                  const row = (
+                    <>
+                      <PhotoTile sources={file ? shopPhotoSources(file, l.product) : []} />
+                      <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
+                        <span className="block font-semibold leading-snug">{l.packs > 1 ? `${l.packs} × ` : ""}{l.product.name}</span>
+                        {l.cupboard && <span className="mt-0.5 block text-[0.8125rem] text-muted">{t("You may have this already")}</span>}
+                        {left >= 30 && <span className="app-numbers mt-0.5 block text-[0.8125rem] text-muted">{t("About {pct}% left at the end of the week", { pct: left })}</span>}
+                      </span>
+                      <span className="app-numbers shrink-0 font-bold">{formatPrice(l.cost)}</span>
+                    </>
+                  );
+                  return (
+                    <li key={l.product.id}>
+                      {file ? <Link href={`/app/groceries/shop/item?r=${file.retailer}&id=${encodeURIComponent(l.product.id)}`} className="flex min-h-[5rem] items-center gap-3 px-3 py-2.5 transition hover:bg-[var(--fill)] active:bg-soft-strong">{row}</Link>
+                        : <div className="flex min-h-[5rem] items-center gap-3 px-3 py-2.5">{row}</div>}
+                    </li>
+                  );
+                })}
                 <li className="flex items-center justify-between gap-3 bg-[var(--fill)] px-4 py-3 font-[800]"><span>{t("{shop} total", { shop: shopName(sh) })}</span><span className="app-numbers">{formatPrice(sum)}</span></li>
               </ul>
             </div>

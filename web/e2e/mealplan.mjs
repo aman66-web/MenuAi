@@ -50,6 +50,10 @@ await step("Pip asks one thing a screen: numbers, meals and snacks, diet, foods,
   await page.getByRole("radio", { name: "2", exact: true }).click();
   await page.getByText(/^2 snacks$/).waitFor();
   await page.getByText(/^about \d+ kcal each$/).waitFor();
+  // how often a meal comes round (founder 2026-11-18: "they can choose if they want any foods repeated")
+  expect((await page.getByRole("radio", { name: /^Some repeats/ }).getAttribute("aria-checked")) === "true", "some repeats to start with");
+  await page.getByRole("radio", { name: /^Meal prep/ }).click();
+  expect((await page.getByRole("radio", { name: /^Meal prep/ }).getAttribute("aria-checked")) === "true", "meal prep chosen");
   await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("heading", { level: 1, name: "Your diet and allergies" }).waitFor();
   await page.getByRole("button", { name: "Continue" }).click();
@@ -108,6 +112,18 @@ await step("the budget slider: from the cheapest week for the goal to better pro
   await page.getByRole("button", { name: "Make my plan" }).click();
 });
 
+await step("making the plan: Pip shows each step with its real figure for about ten seconds, then the week opens", async () => {
+  const began = Date.now();
+  await page.getByRole("heading", { level: 1, name: "Making your plan" }).waitFor({ timeout: 30000 });
+  await page.locator("li").filter({ hasText: /^Reading \d+ recipes that suit your diet/ }).waitFor();
+  await page.locator("li").filter({ hasText: /^Looking through [\d,]+ products at Sainsbury's and Morrisons/ }).waitFor();
+  await page.locator("li").filter({ hasText: /^Planning the packs so \d+% of the fresh food gets eaten/ }).waitFor();
+  await page.locator("li").filter({ hasText: /^Writing your shopping list: \d+ products/ }).waitFor();
+  await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 30000 });
+  const took = Date.now() - began;
+  expect(took >= 8000 && took <= 20000, `took ${took} ms`);
+});
+
 await step("the week: 21 meals from the two shops, a shop on each meal, the shopping per shop with totals", async () => {
   await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 120000 });
   await page.getByText(/for the week's shopping/).waitFor();
@@ -124,6 +140,17 @@ await step("the week: 21 meals from the two shops, a shop on each meal, the shop
   const stored = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.mealPlan")).data);
   expect(stored.shops.join() === "sainsburys,morrisons" && typeof stored.budget === "number" && stored.leaveOut.join() === "mushrooms", JSON.stringify(stored).slice(0, 200));
   expect(JSON.stringify(stored.slots) === JSON.stringify(["breakfast", "lunch", "dinner", "snack", "snack"]), `slots kept: ${JSON.stringify(stored.slots)}`);
+  expect(stored.variety === 2, `variety kept: ${stored.variety}`);
+  // meal prep: two recipes for each meal over the week
+  const breakfasts = new Set(stored.ids.map((d) => d[0]));
+  expect(breakfasts.size === 2, `breakfast recipes: ${breakfasts.size}`);
+  await page.getByText(/^\d+% of the fresh food you buy is eaten this week\./).waitFor();
+  // every product to buy has its picture (or the quiet "no photo" tile) and opens the product
+  const rows = page.locator("section[aria-labelledby='buy-h'] ul > li > a");
+  const pictures = page.locator("section[aria-labelledby='buy-h'] ul > li > a img");
+  await pictures.first().waitFor({ timeout: 30000 });
+  expect((await rows.count()) > 5 && (await pictures.count()) > 0, `rows ${await rows.count()}, pictures ${await pictures.count()}`);
+  expect(/\/app\/groceries\/shop\/item\?r=/.test(await rows.first().getAttribute("href")), "a row opens the product");
 });
 
 await step("swap a meal: a list of other recipes for that meal, the one tapped takes its place", async () => {

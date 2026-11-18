@@ -40,6 +40,8 @@ import { SwapSheet } from "./SwapSheet";
 // main "Shopping list" is every item with no list of its own, for any shop, exactly as before; "+ New list" asks which shop and makes a list for it ("M&S",
 // "M&S 2"). With any extra list, big chips at the top pick the list shown (kept in the address, ?l=<id>). A list for one shop shows its items, its total and
 // "Add more from {shop}", and can be deleted. Each product row has "Swap" (founder 2026-11-18: swap something you can't find at the supermarket).
+// "Select" (founder 2026-11-18: "a way to select all the products in your shopping basket and remove them all together"): the rows' ticks become select boxes,
+// with "Select all" and "Remove", which takes the chosen items off this list at once (Undo for 8 seconds, like Clear list).
 
 export default function ShoppingListPage() {
   // the list shown comes from ?l=, so one cached page opens any of them
@@ -87,6 +89,14 @@ function ShoppingListScreen() {
     groups.set(key, [...(groups.get(key) ?? []), i]);
   }
   const ticked = list.filter((i) => i.done).length;
+  // Select: which items are chosen (by code, shop), only ever among the ones on the list shown
+  const [selecting, setSelecting] = useState(false);
+  const [picked, setPicked] = useState<ReadonlySet<string>>(new Set());
+  const pickKey = (i: ShoppingItem) => `${itemCode(i)}|${i.retailer}`;
+  const pickedNow = list.filter((i) => picked.has(pickKey(i)));
+  const allPicked = list.length > 0 && pickedNow.length === list.length;
+  const flipPick = (i: ShoppingItem) => setPicked((p) => { const n = new Set(p); if (n.has(pickKey(i))) n.delete(pickKey(i)); else n.add(pickKey(i)); return n; });
+  const stopSelecting = () => { setSelecting(false); setPicked(new Set()); };
   const suggestion = matches && !current ? nextToBuy(matches) : null;
 
   /**
@@ -192,6 +202,14 @@ function ShoppingListScreen() {
     undoTimer.current = null;
     setUndo(null);
   };
+  /** Select › Remove: the chosen items off this list at once, with Undo. */
+  const removePicked = () => {
+    const keys = new Set(pickedNow.map(pickKey));
+    if (!keys.size) return;
+    withUndo(keys.size === 1 ? tk("Removed 1 item from your list.") : tk("Removed {n} items from your list."), { n: String(keys.size) }, () => shoppingStore.update((l) => l.filter((x) => listOf(x) !== listId || !keys.has(pickKey(x)))));
+    stopSelecting();
+    setNote(null);
+  };
   /** A round − or + : a 44 px tap area holding a 36 px grey circle, like Home's round actions. */
   const qtyButton = "group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95";
   const qtyCircle = "inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]";
@@ -258,6 +276,26 @@ function ShoppingListScreen() {
             <span aria-hidden className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-foreground text-background transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
           </Link>
 
+          {/* Select, then Select all / Done; the count is said as it changes */}
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-2">
+            {selecting ? (
+              <>
+                <button type="button" onClick={() => setPicked(allPicked ? new Set() : new Set(list.map(pickKey)))} className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong">
+                  <CheckIcon aria-hidden className="h-4 w-4" />{allPicked ? t("Deselect all") : t("Select all")}
+                </button>
+                <span role="status" aria-live="polite" className="app-numbers text-[0.9375rem] font-semibold text-muted">{t("{n} selected", { n: pickedNow.length })}</span>
+                <button type="button" onClick={stopSelecting} className="inline-flex min-h-11 items-center rounded-full px-4 text-[0.9375rem] font-bold text-accent transition active:scale-95">{t("Done")}</button>
+              </>
+            ) : (
+              <>
+                <span className="app-numbers ps-1 text-[0.9375rem] font-semibold text-muted">{list.length === 1 ? t("1 item") : t("{n} items", { n: list.length })}</span>
+                <button type="button" onClick={() => { setSelecting(true); setPicked(new Set()); }} className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong">
+                  <CheckIcon aria-hidden className="h-4 w-4" />{t("Select")}
+                </button>
+              </>
+            )}
+          </div>
+
           {[...groups.entries()].map(([retailer, items]) => {
             const totals = listTotals(items);
             const sorted = [...items.filter((i) => !i.done), ...items.filter((i) => i.done)];
@@ -279,16 +317,29 @@ function ShoppingListScreen() {
                     const thumb = <ListThumb sources={photosOf(i)} />;
                     return (
                       <li key={`${code}|${i.retailer}`} className="relative flex min-h-[4.5rem] items-start gap-x-1.5 px-2 py-2 pe-2.5 before:pointer-events-none before:absolute before:end-0 before:start-[3.25rem] before:top-0 before:h-px before:bg-[var(--line)] first:before:hidden">
-                        <button
-                          type="button"
-                          role="checkbox"
-                          aria-checked={!!i.done}
-                          aria-label={i.done ? t("{name}: in the basket", { name: i.name }) : t("{name}: still to get", { name: i.name })}
-                          onClick={() => shoppingStore.update((l) => toggleDone(l, code, i.retailer, listId))}
-                          className="mt-2.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95"
-                        >
-                          <span aria-hidden className={`inline-flex h-[1.625rem] w-[1.625rem] items-center justify-center rounded-full border-2 transition ${i.done ? "bg-sun border-transparent text-on-accent" : "border-[color-mix(in_srgb,var(--foreground)_28%,transparent)]"}`}>{i.done && <CheckIcon className="h-[15px] w-[15px]" strokeWidth={3} />}</span>
-                        </button>
+                        {selecting ? (
+                          <button
+                            type="button"
+                            role="checkbox"
+                            aria-checked={picked.has(pickKey(i))}
+                            aria-label={t("Select {name}", { name: i.name })}
+                            onClick={() => flipPick(i)}
+                            className="mt-2.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95"
+                          >
+                            <span aria-hidden className={`inline-flex h-[1.625rem] w-[1.625rem] items-center justify-center rounded-[0.5rem] border-2 transition ${picked.has(pickKey(i)) ? "border-transparent bg-foreground text-background" : "border-[color-mix(in_srgb,var(--foreground)_40%,transparent)]"}`}>{picked.has(pickKey(i)) && <CheckIcon className="h-[15px] w-[15px]" strokeWidth={3} />}</span>
+                          </button>
+                        ) : (
+                          <button
+                            type="button"
+                            role="checkbox"
+                            aria-checked={!!i.done}
+                            aria-label={i.done ? t("{name}: in the basket", { name: i.name }) : t("{name}: still to get", { name: i.name })}
+                            onClick={() => shoppingStore.update((l) => toggleDone(l, code, i.retailer, listId))}
+                            className="mt-2.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95"
+                          >
+                            <span aria-hidden className={`inline-flex h-[1.625rem] w-[1.625rem] items-center justify-center rounded-full border-2 transition ${i.done ? "bg-sun border-transparent text-on-accent" : "border-[color-mix(in_srgb,var(--foreground)_28%,transparent)]"}`}>{i.done && <CheckIcon className="h-[15px] w-[15px]" strokeWidth={3} />}</span>
+                          </button>
+                        )}
                         {/* the picture sits beside the name; what's left of the row under it is the quantity (a long name no longer squeezes against − and +) */}
                         <div className="flex min-w-0 flex-1 items-start gap-3 py-1">
                           {/* the picture opens the product too; the name beside it is the link a screen reader and the keyboard use */}
@@ -296,7 +347,7 @@ function ShoppingListScreen() {
                           <div className="min-w-0 flex-1">
                             {href ? <Link href={href} className="block py-0.5">{body}</Link> : <div className="py-0.5">{body}</div>}
                             {/* "Swap" (a shop's product only: something similar at the same shop takes its place) at the start, − and + at the end; at large text they wrap */}
-                            <div className="mt-1 flex flex-wrap items-center justify-end gap-x-1 gap-y-1">
+                            <div className={`mt-1 flex-wrap items-center justify-end gap-x-1 gap-y-1 ${selecting ? "hidden" : "flex"}`}>
                               {canSwap(i) && (
                                 <button type="button" onClick={() => setSwapping(i)} aria-label={t("Swap {name}", { name: i.name })} className="me-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-[var(--fill)] px-3.5 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-soft-strong">
                                   <SwapIcon className="h-4 w-4" />{t("Swap")}
@@ -340,6 +391,14 @@ function ShoppingListScreen() {
               </section>
             );
           })}
+          {/* while selecting, Remove stays in view above the tab bar */}
+          {selecting && (
+            <div className="sticky bottom-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.25rem)] z-10 mt-4">
+              <Button full className="min-h-14 text-lg shadow-lg" disabled={!pickedNow.length} onClick={removePicked}>
+                <TrashIcon className="h-5 w-5" />{pickedNow.length === 1 ? t("Remove 1 item") : t("Remove {n} items", { n: pickedNow.length })}
+              </Button>
+            </div>
+          )}
           {/* and a way to another shop: the page that asks "Which shop?" (not on a list for one shop) */}
           {!current && <LinkButton href="/app/groceries" variant="secondary" full className="mt-8 min-h-12"><BasketIcon className="h-5 w-5" />{[...groups.keys()].some((r) => r !== CUSTOM_RETAILER) ? t("Add from another shop") : t("Add products from a shop")}</LinkButton>}
           <div className={`${current ? "mt-8" : "mt-3"} grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.5rem),1fr))] gap-2.5`}>

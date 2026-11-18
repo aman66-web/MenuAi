@@ -3103,3 +3103,27 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   under the list says how ("With 2 shops": each meal comes from the shop whose products fit your numbers best, the cheaper one when as close, all its
   ingredients bought there; the list split by shop; more shops, more recipes). It replaces the grey line that sat under the Continue button. The intro card
   now says "Your meals and snacks for seven days". e2e mealplan 7/7.
+
+### 19 November 2026 (early hours): the meal plan uses up its packs; Pip shows the work; pictures in the week's shopping; Select on the shopping list
+- **Packs used up** (founder: "by the end of the week, all the ingredients shall be basically almost complete. Except for like the oil and the herb"):
+  measured first on Sainsbury's, Asda and Morrisons (2,000 kcal, 120 g protein): a week ate about half of what it bought. Now `makePlan`
+  (`lib/mm/mealPlan.ts`) ends with a search (`usePacks`): a recipe is changed for another close to the meal size (within PACK_FIT_LIMIT 0.1, or the plan's own
+  furthest), or two swap which comes round more often, whenever that leaves less fresh food in the packs, weighed with the bill (0.3) and the fit (3 a meal);
+  never dearer than the budget, or with no budget than before. Fresh food = everything except KEEPS_WELL (dry goods, jars and bottles, oils, frozen food) and
+  cupboard items. Result with "Some repeats": 80-87% of the fresh food eaten (Sainsbury's best-fit week also fell from £100.82 to £79.95, the meals as
+  close to size as before); "Meal prep" 88-92%; "A different meal every day" 72-78%. The week says "{pct}% of the fresh food you buy is eaten this week",
+  and a fresh product with 30% or more left says "About {pct}% left at the end of the week".
+- **How often a meal comes round** (founder: "they can choose if they want any foods repeated"): on the meals and snacks step, "A different meal every day"
+  (7 recipes for each meal), "Some repeats" (4, the default and the plan as before), "Meal prep" (2, cooked in batches). Kept as `SavedPlan.variety`.
+- **Making your plan** (founder: "it should take about maybe 10 seconds ... show them what you're doing ... so you're showing them that you're properly
+  working"): after "Make my plan", Pip shows seven steps one at a time, 1.4 s each (about 10 s), each with its real figure: the recipes that suit the diet,
+  the products looked through at the shops, the daily numbers, the meals and snacks chosen, the share of fresh food eaten, the bill against the budget, the
+  products on the list. Nothing on it is made up; the work itself takes well under a second.
+- **Pictures in "What to buy for the week"** (founder: "include images of all the products"): each product shows the shop's own photo (the same sources as
+  the shopping list; the quiet "no photo" tile when none loads) and opens the product.
+- **Select on the shopping list** (founder: "a way to select all the products in your shopping basket and remove them all together"): "Select" above the
+  items turns the ticks into select boxes, with "Select all"/"Deselect all", "{n} selected", "Done" and a "Remove {n} items" bar that stays in view; it takes
+  the chosen items off the list shown only, with Undo for 8 seconds. "Remove ticked" and "Clear list" stay at the foot.
+- Tests: 2199 unit tests pass (6 new for the packs and variety); e2e mealplan 8/8, lists 10/10, listadd 8/8, sharelist 11/11. Mac branch `iap` and the phone.
+- Labels: M&S is fully read. Held back: 12 M&S squashes and a pressé with figures that can't be right, 6 Waitrose mixed boxes with one flavour's table,
+  6 Iceland pages (water mineral tables, wine with only energy, a kJ/kcal clash, garbled rows).

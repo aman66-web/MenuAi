@@ -201,6 +201,36 @@ await step("Delete this list asks first, says how many items go, then deletes th
   await ctx.close();
 });
 
+await step("Select: Select all ticks every item, Remove takes them all off this list at once, Undo puts them back; another list is left alone", async () => {
+  const onMns = { ...yogurt, list: MNS.id };
+  const { ctx, page, errors } = await open([asdaItem, typedItem, { ...yogurt, qty: 1 }, onMns], { st: { shoppingLists: [MNS] } });
+  await page.goto(BASE + "/app/groceries/list");
+  const select = page.getByRole("button", { name: "Select", exact: true });
+  await select.waitFor({ timeout: 90000 });
+  await page.getByText(/^3 items$/).waitFor();
+  await select.tap();
+  await page.getByText("0 selected").waitFor();
+  const remove = page.getByRole("button", { name: /^Remove \d+ items?$/ });
+  expect(await remove.isDisabled(), "nothing chosen: Remove is off");
+  await page.getByRole("checkbox", { name: "Select Milk" }).tap();
+  await page.getByText("1 selected").waitFor();
+  await page.getByRole("button", { name: "Select all" }).tap();
+  await page.getByText("3 selected").waitFor();
+  expect((await page.getByRole("button", { name: /^Swap / }).count()) === 0, "Swap hidden while selecting");
+  const box = await remove.boundingBox();
+  expect(box && box.y + box.height <= 844, "Remove is in view");
+  await page.getByRole("button", { name: "Remove 3 items" }).tap();
+  await page.getByText("Removed 3 items from your list.").waitFor();
+  let left = await stored(page);
+  expect(left.length === 1 && left[0].list === MNS.id, `only the M&S list's item is left: ${JSON.stringify(left.map((x) => x.name))}`);
+  await page.getByRole("button", { name: "Undo" }).tap();
+  await page.getByText(/^3 items$/).waitFor();
+  left = await stored(page);
+  expect(left.length === 4, `Undo put them back: ${left.length}`);
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
 await step("nothing runs sideways at 390 px with Extra large text: the chips, the rows with Swap, the New list and Swap sheets", async () => {
   const lists = [MNS, MNS2, { id: "sains001", shop: "sainsburys", name: "Sainsbury's" }, { id: "sains002", shop: "sainsburys", name: "Sainsbury's 2" }];
   const { ctx, page } = await open([{ ...yogurt, list: MNS.id }, { ...typedItem, list: MNS.id }, asdaItem], { st: { textSize: "xlarge", shoppingLists: lists } });

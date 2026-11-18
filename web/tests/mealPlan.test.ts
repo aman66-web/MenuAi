@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS } from "../lib/mm/mealPlan";
+import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS, KEEPS_WELL, keepsWell, VARIETIES } from "../lib/mm/mealPlan";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { isVegan } from "../lib/mm/recipes";
 import { decodeShopProducts } from "../lib/mm/shopProducts";
@@ -250,5 +250,70 @@ describe("meals and snacks a day (founder 2026-11-18: \"how many meals and how m
     const saved = sanitizePlan({ shops: ["sainsburys"], ids: plan.ids, slots, start: "2026-11-18" })!;
     expect(saved.slots).toEqual(slots);
     expect(sanitizePlan({ shops: ["sainsburys"], ids: plan.ids, slots: ["snack", "breakfast", "dinner", "snack"], start: "2026-11-18" })).toBeNull();
+  });
+});
+
+describe("using up the packs (founder 2026-11-18: \"by the end of the week, all the ingredients shall be basically almost complete\")", () => {
+  const shape = { ...DEFAULT_SHAPE, snacks: 0 };
+  const slots = planSlots(shape);
+  const cands = planCandidates(RECIPES, products, none, slotTargets(shape, { kcal: 2000, protein: 120 }), []);
+
+  it("counts oil, spices, dry goods, jars and frozen food as keeping past the week, and fresh food as not", () => {
+    const spec = (key: string, cupboard = false) => ({ key, label: key, amount: 100, unit: "g" as const, match: { all: [] }, ...(cupboard ? { cupboard } : {}) });
+    expect(keepsWell(spec("rice"), { name: "Basmati Rice 1kg" })).toBe(true);
+    expect(keepsWell(spec("salt", true), { name: "Table Salt 750g" })).toBe(true);
+    expect(keepsWell(spec("chicken"), { name: "Chicken Breast Fillets 320g" })).toBe(false);
+    expect(keepsWell(spec("spinach"), { name: "Baby Leaf Spinach 120g" })).toBe(false);
+    expect(keepsWell(spec("sweetcorn"), { name: "Frozen Sweetcorn 1kg" })).toBe(true);
+    expect(KEEPS_WELL.has("milk")).toBe(false);
+  });
+
+  it("says what of the fresh food the week eats, from the lines' own sums", () => {
+    const week = makePlan(cands, null, slots)!.week;
+    const fresh = week.shopping.filter((l) => !l.keeps);
+    expect(week.fresh.bought).toBeCloseTo(fresh.reduce((s, l) => s + l.cost, 0), 1);
+    expect(week.fresh.eaten).toBeCloseTo(fresh.reduce((s, l) => s + l.used, 0), 1);
+    for (const l of week.shopping) expect(l.used).toBeLessThanOrEqual(l.cost + 1e-9);
+    expect(week.fresh.eaten).toBeLessThanOrEqual(week.fresh.bought);
+  });
+
+  it("leaves much less fresh food in the packs than the closest recipes in turn would, with every meal still close to its size", () => {
+    // the plan as it was before 19 November: the four closest recipes for each meal in turn
+    const plain = Array.from({ length: PLAN_DAYS }, (_, d) => slots.map((m) => cands.get(m)![d % 4]!.recipe.id));
+    const before = buildWeek(plain, cands, null, slots)!;
+    const after = makePlan(cands, null, slots)!.week;
+    const share = (w: typeof after) => w.fresh.eaten / w.fresh.bought;
+    expect(share(after)).toBeGreaterThan(share(before) + 0.1);
+    expect(share(after)).toBeGreaterThan(0.75);
+    expect(after.shoppingCost).toBeLessThanOrEqual(before.shoppingCost + 0.01);
+    for (const d of after.days) for (const m of d.meals) expect(m.candidate.distance, m.candidate.recipe.id).toBeLessThanOrEqual(0.1);
+  });
+
+  it("keeps to the budget while it uses up packs", () => {
+    const range = budgetRange(cands, () => null, slots)!;
+    const budget = Math.round((range.min + range.best) / 2);
+    const plan = planForBudget(cands, budget, () => null, slots)!;
+    expect(plan.week.shoppingCost).toBeLessThanOrEqual(budget + 0.01);
+  });
+
+  it("rotates through as many recipes as the variety asks: a different one every day, some repeats, or meal prep", () => {
+    const distinct = (v: number) => {
+      const ids = makePlan(cands, null, slots, v)!.ids;
+      return slots.map((_, i) => new Set(ids.map((d) => d[i])).size);
+    };
+    expect(distinct(7)).toEqual([7, 7, 7]);
+    expect(distinct(4)).toEqual([4, 4, 4]);
+    expect(distinct(2)).toEqual([2, 2, 2]);
+    expect([...VARIETIES]).toEqual([7, 4, 2]);
+    // meal prep leaves the least in the packs
+    const share = (v: number) => { const w = makePlan(cands, null, slots, v)!.week; return w.fresh.eaten / w.fresh.bought; };
+    expect(share(2)).toBeGreaterThan(share(7));
+  });
+
+  it("keeps the variety in the saved plan, and plans from before it open as some repeats", () => {
+    const plan = makePlan(cands, null, slots, 2)!;
+    expect(sanitizePlan({ shops: ["sainsburys"], ids: plan.ids, start: "2026-11-19", variety: 2 })!.variety).toBe(2);
+    expect(sanitizePlan({ shops: ["sainsburys"], ids: plan.ids, start: "2026-11-19", variety: 5 })!.variety).toBeUndefined();
+    expect(sanitizePlan({ shops: ["sainsburys"], ids: plan.ids, start: "2026-11-19" })!.variety).toBeUndefined();
   });
 });
