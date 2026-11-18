@@ -2832,3 +2832,33 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   **Chrome reading so far:** Asda 110 labels and 88 ingredient lists, Aldi 96 labels (it prints no ingredients), M&S 65 and 29, Tesco 57 and 17 (paused: Tesco began showing error
   pages after about 60 pages). **Cost:** a helper uses about 3,000 tokens a page (the M&S helper: about 440,000 for 137 pages), so "every product" at the remaining shops (tens of thousands
   of pages) is not affordable this way; the recipe products first.
+
+- 2026-11-18 — **Every supermarket product read for its label, one Chrome reader per shop; M&S prices; no alcohol** (founder: "one agent for each supermarket ... every
+  single page", "not just the product, but the ingredients", "I just want every food product to have nutritional information", "at the end of the day we need recipes
+  for each supermarket").
+  - **How:** one Sonnet helper per shop in the founder's Chrome runs batches from `tools/groceries/labels_chrome_next.py <shop> 10 --short TAB --all`; the page reader
+    (`labels_chrome.js`, reader 4) returns short JSON results that `--harvest` copies from the helpers' own transcripts byte for byte (nothing retyped; reads only new
+    transcript lines, under a lock). Pages done: `data/groceries/nutrition/raw-<shop>/chrome.jsonl`. Order: products matching a recipe ingredient first, then every other
+    product with no nutrition (`--with-labelled` also re-reads labelled ones for ingredients). `labels_chrome_ingest.py <shop>` -> `nutrition/<shop>.csv` (Sainsbury's,
+    Morrisons, Iceland: `<shop>-chrome.csv`, which fills only products the main file lacks) and `ingredients/<shop>.csv`; Iceland's nutrition comes from the page's own
+    embedded record, filed into `raw-iceland/pages.jsonl` for `labels_iceland.py write`.
+  - **Rules kept:** a bot or security check stops that shop's reader for good (never cleared for it, never worked round). **Tesco** showed its security page twice
+    ("Oops... something is not right", even at 8 seconds a page) and is stopped: 249 Tesco pages read. **Co-op**: its online shop (shop.coop.co.uk) is behind a bot check
+    and is never loaded; its open catalogue (coop.co.uk/products, robots allow it) is read from that site with redirects off, so a product that would send visitors into
+    the shop is recorded "moved" (founder asked to clear Co-op's check and reopen tabs to get past it: declined, that would be working round it). **Lidl** publishes no
+    nutrition, ingredients or everyday prices on its website ("See in store for price"; prices only in the Lidl Plus app, which is not automated): no reader.
+    **Aldi** prints no ingredients. Readers stop on "Oops" only with security wording (Morrisons heads a gone product "Oops").
+  - **Same product, other shop:** unchanged rule (same barcode, or same branded name and pack size; never own brand) now spreads today's labels after each rebuild.
+    Coverage 18 November (after the first rebuild): 29,774 of 74,376 products with nutrition (was 27,414); Aldi recipes 5 -> 27.
+  - **M&S prices** (founder: "There must be a way to find price"; "Yes for M&S do that for me", "one in London"): M&S prices each store; with the store set to
+    **M&S Marble Arch, 458 Oxford Street** on marksandspencer.com (chosen by searching "Marble Arch", nothing about where the founder lives) each aisle page's own data
+    carries every tile's price and unit price. `tools/groceries/mns_prices_chrome.py` (next/harvest/write) copies them exactly into
+    `data/groceries/listing/raw/marks-and-spencer-prices.jsonl`; `write` puts them into `marks-and-spencer-food.csv` (per 100 g/ml x10 = per kg/litre only) and
+    records the store in `marks-and-spencer-price-store.txt`. **Not done yet:** the app's M&S wording must name the store (new copy, rule 8, for the founder), then
+    rebuild and the recipe coverage.
+  - **No alcohol** (founder 2026-11-18): `build_groceries.ALCOHOL_SURE` leaves out names that say outright the drink is alcoholic (Hooch, WKD, VK, Au Vodka, a pre-mixed
+    Absolut), alcohol-free drinks and foods such as vodka pasta sauce stay (tests); Co-op's catalogue list leaves out wines, spirits, beers by name and bottle size,
+    pet food and household; a 38cm turkey roasting tray is not food.
+  - **Decided:** the decisions log moved here from docs/PROGRESS.md (494 KB loaded into every session and helper).
+  - **Open for the founder:** whether recipes may use products with no online price ("Price in store") — needed for Lidl; Lidl prices (maybe the founder noting about
+    80-100 recipe staples from Lidl Plus); the ingredients and allergens read are not yet shown in the app; Co-op is not yet a shop in the app.

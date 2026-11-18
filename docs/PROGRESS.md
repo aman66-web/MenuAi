@@ -59,13 +59,12 @@ touches an earlier decision, and add new entries there, dated, at the end).
 - The rating question (iPhone app only, rarely; only a 5 asks for Apple's review pop-up): the founder's accepted risk under guideline 5.6.1.
 - Recipe pictures carry no visible caption (screen readers hear "An illustration of ...").
 
-**In progress: supermarket labels for every product** (founder 17 November: nutrition, ingredients and allergens for every product at every supermarket)
-- Read one page at a time in the founder's own Chrome by one helper per shop: reader v2 (`tools/groceries/labels_chrome.js`, two calls a page) and
-  `tools/groceries/labels_chrome_next.py` (`--harvest` copies each page's result from the helpers' transcripts byte for byte; nothing is retyped). Pages
-  done are kept in `data/groceries/nutrition/raw-<shop>/chrome.jsonl`; `labels_chrome_ingest.py <shop>` turns them into `nutrition/<shop>.csv` and
-  `ingredients/<shop>.csv`, then `build_all_products.py` and the recipe coverage test.
-- Asda, Aldi and M&S in Chrome; Morrisons and Iceland by their own scripts. **Tesco** stopped: its site showed a security check (never worked round).
-  **Waitrose**: the list has no product page addresses. **Lidl**: its pages print no nutrition. Ingredients and allergens are read but not yet shown in the app.
+**In progress: supermarket labels for every product** (founder 17-18 November: nutrition for every product, recipes for each supermarket; see the 18 November log entry)
+- One Sonnet reader per shop in the founder's Chrome (`tools/groceries/labels_chrome_next.py`, reader `labels_chrome.js`), recipe ingredients first, then every product
+  with no nutrition; results copied from transcripts byte for byte (`--harvest`). Asda, Aldi, Sainsbury's, Waitrose, Morrisons, Iceland, M&S and Co-op (catalogue only)
+  are reading; **Tesco stopped for good** (security page twice); **Lidl** publishes no nutrition or everyday prices online. M&S prices from the Marble Arch store
+  (`tools/groceries/mns_prices_chrome.py`). After reads: `labels_chrome_ingest.py <shop>`, `labels_iceland.py write`, `mns_prices_chrome.py write`,
+  `build_all_products.py`, then `WRITE_COVERAGE=1 npx vitest run tests/recipeCoverage.test.ts`. Ingredients and allergens are read but not yet shown in the app.
 
 **Open decisions:** "Pro" or "Premium" as the one name; the fridge feature (next version); Pip's pick on Compare (built, off); the paused review of all
 recipe methods and the design pass.
