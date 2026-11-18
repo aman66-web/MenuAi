@@ -25,13 +25,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 BASE = {"asda": "https://www.asda.com/groceries/product/{id}", "aldi": "https://www.aldi.co.uk/product/{page}",
         "tesco": "https://www.tesco.com/groceries/en-GB/products/{id}", "marks-and-spencer": "https://www.marksandspencer.com/food/{page}",
-        "sainsburys": "https://www.sainsburys.co.uk/gol-ui/product/{id}", "waitrose": "https://www.waitrose.com/ecom/products/{slug}/{id}"}
+        "sainsburys": "https://www.sainsburys.co.uk/gol-ui/product/{id}", "waitrose": "https://www.waitrose.com/ecom/products/{slug}/{id}",
+        "morrisons": "https://groceries.morrisons.com/products/{slug}/{id}", "iceland": "https://www.iceland.co.uk/p/x/{id}.html"}
+# pages already read by a shop's own script (founder 2026-11-18 moved Morrisons and Iceland to Chrome so they can watch it): counted as done
+SCRIPT_READS = {"morrisons": "raw-morrisons/reads.jsonl", "iceland": "raw-iceland/pages.jsonl"}
 
 
 def slug(name: str) -> str:
     """A product name as a page address part ("Kalamata & Halkidiki Olive Bread 400g" -> "kalamata-halkidiki-olive-bread-400g")."""
     import re
-    return re.sub(r"[^a-z0-9]+", "-", (name or "").lower().replace("'", "")).strip("-") or "product"
+    return re.sub(r"[^a-z0-9]+", "-", (name or "").lower().replace("&", " and ").replace("'", "")).strip("-") or "product"
 
 
 def all_products(shop: str):
@@ -50,7 +53,7 @@ def all_products(shop: str):
 
 TRANSCRIPTS = Path.home() / ".claude" / "projects" / ("-" + str(ROOT).strip("/").replace("/", "-"))
 HOSTS = {"asda.com": "asda", "aldi.co.uk": "aldi", "marksandspencer.com": "marks-and-spencer", "tesco.com": "tesco", "sainsburys.co.uk": "sainsburys",
-         "waitrose.com": "waitrose"}
+         "waitrose.com": "waitrose", "groceries.morrisons.com": "morrisons", "iceland.co.uk": "iceland"}
 MARK = "[javascript_tool:javascript_exec] "
 
 
@@ -86,6 +89,16 @@ def _results(text: str):
         i = text.find(MARK, j)
 
 
+_ICE: dict = {}
+
+
+def _iceland_names() -> dict:
+    if not _ICE:
+        doc = json.loads((ROOT / "web" / "public" / "groceries" / "all" / "iceland.json").read_text(encoding="utf-8"))
+        _ICE.update({r[0]: r[1] for r in doc["products"]})
+    return _ICE
+
+
 def done_ids(shop: str) -> set[str]:
     raw = ROOT / "data" / "groceries" / "nutrition" / f"raw-{shop}" / "chrome.jsonl"
     done = set()
@@ -93,6 +106,11 @@ def done_ids(shop: str) -> set[str]:
         for line in raw.read_text(encoding="utf-8").splitlines():
             if line.strip():
                 done.add(str(json.loads(line).get("id")))
+    other = ROOT / "data" / "groceries" / "nutrition" / SCRIPT_READS.get(shop, "-")
+    if shop in SCRIPT_READS and other.exists():
+        for line in other.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                done.add(str(json.loads(line).get("product_id")))
     return done
 
 
@@ -120,7 +138,7 @@ def harvest(days: float = 4) -> str:
                 for text in _texts(node):
                     for r in _results(text):
                         shop, want = HOSTS.get(str(r.get("host", ""))), r.get("want")
-                        if not shop or not isinstance(want, str) or not want or r.get("part") not in ("main", "ing"):
+                        if not shop or not isinstance(want, str) or not want or r.get("part") not in ("main", "ing", "ice"):
                             continue
                         if r["part"] == "main":
                             if "nut" not in r or "checked_on" not in r:
@@ -128,7 +146,7 @@ def harvest(days: float = 4) -> str:
                             if r.get("blocked"):
                                 blocked.setdefault(shop, set()).add(want)
                                 continue
-                        elif not isinstance(r.get("ingredients"), str):
+                        elif r["part"] == "ing" and not isinstance(r.get("ingredients"), str):
                             continue
                         parts.setdefault((shop, want), {})[r["part"]] = r
     added: dict[str, int] = {}
@@ -144,6 +162,8 @@ def harvest(days: float = 4) -> str:
         ing = got.get("ing")
         if (main.get("ingLen") or 0) > 0 and not ing:
             continue  # its ingredients didn't come back whole: offered again
+        if shop == "iceland" and "ice" not in got:
+            continue  # Iceland's embedded record didn't come back whole: offered again
         rec = {k: v for k, v in main.items() if k not in ("part", "want", "host", "ingLen")}
         rec["pageId"], rec["id"] = main.get("id"), want
         rec["ingredients"] = ing["ingredients"] if ing else ""
@@ -153,6 +173,17 @@ def harvest(days: float = 4) -> str:
         raw.parent.mkdir(parents=True, exist_ok=True)
         with open(raw, "a", encoding="utf-8") as f:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+        ice = (got.get("ice") or {}).get("iceland")
+        if shop == "iceland" and isinstance(ice, dict) and ice.get("nutritionInformation"):
+            # the page's own product record, filed where labels_iceland.py keeps the pages its script read, so its write step (and every check in it) applies
+            url = f"https://www.iceland.co.uk/p/x/{want}.html"
+            names = _iceland_names()
+            with open(ROOT / "data" / "groceries" / "nutrition" / "raw-iceland" / "pages.jsonl", "a", encoding="utf-8") as f:
+                f.write(json.dumps({"product_id": want, "page_url": url, "final_url": url, "http": 200, "checked_on": rec.get("checked_on", ""),
+                                    "listing_name": names.get(want, ""), "status": "ok" if ice.get("page_id") == want else "redirected",
+                                    "page_id": ice.get("page_id", ""), "page_name": ice.get("page_name", ""), "nutritionInformation": ice["nutritionInformation"],
+                                    "drainedWeight": ice.get("drainedWeight"), "allergenContains": ice.get("contains"), "allergenMayContain": ice.get("mayContain"),
+                                    "read_in": "chrome"}, ensure_ascii=False) + "\n")
         done[shop].add(want)
         added[shop] = added.get(shop, 0) + 1
     bl = {s: len(v - done_ids(s)) for s, v in blocked.items()}
@@ -233,6 +264,8 @@ def main() -> int:
                 actions += [{"name": "navigate", "input": {"url": url, "tabId": tab}}, {"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": code.replace("WANT", want)}}]
                 if short:
                     actions.append({"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": ing_code.replace("WANT", want)}})
+                if short and shop == "iceland":
+                    actions.append({"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": ing_code.replace("WANT", want).replace('("ing"', '("ice"')}})
             out += 1
             if out >= n:
                 break

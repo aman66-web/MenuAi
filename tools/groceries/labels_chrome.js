@@ -28,7 +28,9 @@
   // the ingredients list as the page prints it (founder 2026-11-17: "make sure you get all ingredients and nutritional information"): the text after the first heading or
   // label that is just "Ingredients", from the page's own text (folded sections included), at most 2,000 characters; "" when the page shows none
   let ingredients = "";
-  const label = [...document.querySelectorAll("h2, h3, h4, dt, summary, button, strong, b, span, p, div")].find((el) => /^ingredients:?$/i.test((el.textContent || "").trim()));
+  // a heading that is just "Ingredients", or one that starts with it (Morrisons: "Ingredients (ingredients and allergens may be subject to change ...)")
+  const label = [...document.querySelectorAll("h2, h3, h4, dt, summary, button, strong, b, span, p, div")].find((el) => /^ingredients:?$/i.test((el.textContent || "").trim()))
+    || [...document.querySelectorAll("h2, h3, h4, dt, summary")].find((el) => /^ingredients\b/i.test((el.textContent || "").trim()) && (el.textContent || "").length < 200);
   if (label) {
     let el = label.nextElementSibling || (label.parentElement && label.parentElement.nextElementSibling);
     if (!el && label.parentElement) el = label.parentElement.querySelector(":scope > *:not(:first-child)");
@@ -53,6 +55,19 @@
   // the ingredients come back in a call of their own ("ing"), so a long list is never cut off with the table; every result names the product asked
   // for ("want") and the site, so it can be copied from the transcript byte for byte
   const host = location.hostname.replace(/^www\./, "");
+  // Iceland draws its nutrition panel from data embedded in the page (no table): the product's own record there, as labels_iceland.py reads it from the
+  // same page, with "&", "?" and "=" written as words or spaces like everything else
+  let iceland = null;
+  if (host === "iceland.co.uk") {
+    try {
+      const d = JSON.parse(document.getElementById("mobify-data").textContent);
+      const p = d.__PRELOADED_STATE__.__STATE_MANAGEMENT_LIBRARY.store.productStore.productsById[want];
+      if (p) iceland = JSON.parse(JSON.stringify({ page_id: String(p.id || ""), page_name: p.name || "", nutritionInformation: p.nutritionInformation || null,
+        drainedWeight: p.drainedWeight || null, contains: p.allergenContains || null, mayContain: p.allergenMayContain || null }).replace(/&/g, " and ").replace(/[?=]/g, " "));
+    } catch (e) { iceland = null; }
+  }
   if (mode === "ing") return JSON.stringify({ want, host, part: "ing", ingredients });
+  // Iceland's record comes back in a third call ("ice"), so the main result stays short enough never to be cut off
+  if (mode === "ice") return JSON.stringify({ want, host, part: "ice", iceland });
   return JSON.stringify({ want, host, part: "main", id, h1: h1.slice(0, 90), blocked, nut, above: above.trim().slice(0, 120), bold: bold.slice(0, 14), allergy, mayContain, ingLen: ingredients.length, checked_on: new Date().toISOString().slice(0, 10) });
 })

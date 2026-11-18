@@ -27,10 +27,15 @@ import build_groceries as bg  # noqa: E402
 
 PAGE_BASE = {"asda": "https://www.asda.com/groceries/product/", "aldi": "https://www.aldi.co.uk/product/",
              "tesco": "https://www.tesco.com/groceries/en-GB/products/", "marks-and-spencer": "https://www.marksandspencer.com/food/",
-             "sainsburys": "https://www.sainsburys.co.uk/gol-ui/product/", "waitrose": "https://www.waitrose.com/ecom/products/x/"}
+             "sainsburys": "https://www.sainsburys.co.uk/gol-ui/product/", "waitrose": "https://www.waitrose.com/ecom/products/x/",
+             "morrisons": "https://groceries.morrisons.com/products/x/", "iceland": "https://www.iceland.co.uk/p/x/{id}.html"}
 # Sainsbury's main nutrition file is written by t2_sainsburys.py: Chrome reads go to a file of their own, which build_all_products.py uses only where the main
 # file has no row (it never replaces one)
-OUT_NAME = {"sainsburys": "sainsburys-chrome"}
+OUT_NAME = {"sainsburys": "sainsburys-chrome", "morrisons": "morrisons-chrome", "iceland": "iceland-chrome"}
+
+
+def page_address(base: str, page: str) -> str:
+    return base.format(id=page) if "{id}" in base else base + page
 STATE = re.compile(r"\b(cooked|prepared|drained|grilled|baked|fried|roasted|oven baked|microwaved|as consumed|as served|reconstituted|made up|boiled|steamed|heated)\b", re.I)
 NUM = re.compile(r"(<\s*)?(\d+(?:\.\d+)?)")
 
@@ -159,7 +164,7 @@ def main() -> int:
             if same_product(name, rec.get("h1", "")):
                 may = [m for m in (rec.get("mayContain") or []) if "{" not in m and len(m) < 240]
                 facts.append({"product_id": pid, "ingredients": rec.get("ingredients", ""), "allergens_bold": "; ".join(rec.get("bold") or []),
-                              "allergy_info": rec.get("allergy", ""), "may_contain": " | ".join(may), "checked_on": rec.get("checked_on", ""), "page_url": base + pages[pid]})
+                              "allergy_info": rec.get("allergy", ""), "may_contain": " | ".join(may), "checked_on": rec.get("checked_on", ""), "page_url": page_address(base, pages[pid])})
         if rec is None and pid not in reads:
             continue  # not read yet (every product in the list is asked for; only the read ones count)
         if rec is not None and rec.get("unreadable"):
@@ -191,7 +196,7 @@ def main() -> int:
             continue
         rows.append({"product_id": pid, "per": t["per"], "state": t["state"], "kj": t.get("kj") or "", "kcal": t["kcal"], "fat_g": t["fat_g"], "saturates_g": t.get("saturates_g") or "",
                      "carbs_g": t["carbs_g"], "sugars_g": t.get("sugars_g") or "", "fibre_g": t.get("fibre_g") or "", "protein_g": t["protein_g"], "salt_g": t.get("salt_g") or "",
-                     "checked_on": rec.get("checked_on", ""), "page_url": base + pages[pid]})
+                     "checked_on": rec.get("checked_on", ""), "page_url": page_address(base, pages[pid])})
     out = ROOT / "data" / "groceries" / "nutrition" / f"{OUT_NAME.get(a.shop, a.shop)}.csv"
     cols = ["product_id", "per", "state", "kj", "kcal", "fat_g", "saturates_g", "carbs_g", "sugars_g", "fibre_g", "protein_g", "salt_g", "checked_on", "page_url"]
     with open(out, "w", newline="", encoding="utf-8") as f:
