@@ -71,7 +71,9 @@ NON_FOOD = re.compile(r"\b(?:\d+\s?cm (?:\w+ )?roasters?|roasting (?:tins?|trays
                       r"(?:cupcake|muffin|cake|baking) cases|filter papers|piping bags?|cake boards?|cocktail sticks|cling film|baking parchment|"
                       r"foil trays?|kitchen foil|tin foil|freezer bags?|food bags?|dog toys?|dog treats?|dog chews?|cat treats?|pet treats?|for dogs|for cats)\b"
                       r"|\b(?:roses?|lil(?:y|ies)|tulips?|chrysanthemums?|carnations?|flowers?|alstroemeria|stems)\b.*\bbouquet\b|\bbouquet\b.*\b(?:roses?|lil(?:y|ies)|tulips?|flowers?|stems)\b"
-                      r"|^tesco \w+ bouquet$", re.I)
+                      r"|^tesco \w+ bouquet$"
+                      # kitchenware sold among the food (founder 2026-11-18: "every food product"): Asda's George Home range, Waitrose's John Lewis tools, shakers
+                      r"|^george home\b|^(?:john lewis|jl) stainless steel\b|\bprotein shaker\b", re.I)
 FOOD_AFTER = re.compile(r"\b(?:cakes?|crackers|kebabs?|biscuits?|cupcakes?)\b", re.I)
 
 

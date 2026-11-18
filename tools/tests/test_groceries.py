@@ -1299,3 +1299,11 @@ class AlcoholNamedTests(unittest.TestCase):
         import build_all_products as B
         self.assertTrue(B.not_food("Iceland 38cm Turkey Roaster"))
         self.assertFalse(B.not_food("Mini Roaster Potatoes 1 kg"))
+
+    def test_kitchenware_is_not_food(self):
+        import build_all_products as B
+        for name in ["George Home Black Fast Boil Kettle 1.7L", "George Home Peel Lid Food Storers - Colour May Vary", "George Home Kent Sundae Spoons",
+                     "John Lewis Stainless Steel 4-Sided Box Grater each", "JL Stainless Steel Y-Shaped Peeler each", "Nutmeg Home Protein Shaker 600ml"]:
+            self.assertTrue(B.not_food(name), name)
+        for name in ["Splenda Granulated Low Calorie Sweetener Canister 125g", "Nutmeg Organic Vegetable Paella Baby Food 12M+ 100g", "Yarden Houmous Prestige 250g"]:
+            self.assertFalse(B.not_food(name), name)
