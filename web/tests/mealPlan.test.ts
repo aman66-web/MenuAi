@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { SHOP_FIT_SLACK, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS } from "../lib/mm/mealPlan";
+import { BETTER, SHOP_FIT_SLACK, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS } from "../lib/mm/mealPlan";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { isVegan } from "../lib/mm/recipes";
 import { decodeShopProducts } from "../lib/mm/shopProducts";
@@ -154,5 +154,49 @@ describe("several shops (founder 2026-11-18: \"they're able to select multiple s
     expect(sanitizePlan({ shop: "sainsburys", ids, leaveOut: [], budget: null, start: "2026-11-18" })?.shops).toEqual(["sainsburys"]);
     expect(sanitizePlan({ shops: ["sainsburys", "morrisons", "sainsburys", "BAD!"], ids, leaveOut: [], budget: 40, start: "2026-11-18" })?.shops).toEqual(["sainsburys", "morrisons"]);
     expect(sanitizePlan({ shops: [], ids, start: "2026-11-18" })).toBeNull();
+  });
+});
+
+describe("the budget slider (founder 2026-11-18: lowest fits the goal, the green spot is the best fit, higher buys better produce)", () => {
+  const cands = planCandidates(RECIPES, products, none, target, [], "sainsburys");
+  const betterOf = (c: Parameters<typeof betterCandidate>[0]) => betterCandidate(c, products, target);
+
+  it("makes a recipe with the shop's better products where it has them, dearer, still a fitted meal", () => {
+    const some = [...cands.values()].flat().map(betterOf).filter((b) => !!b);
+    expect(some.length).toBeGreaterThan(5);
+    for (const b of some.slice(0, 20)) {
+      expect(b!.better).toBe(true);
+      expect(b!.picks.some((p) => BETTER.test(p.product.name))).toBe(true);
+      const plain = [...cands.values()].flat().find((c) => c.recipe.id === b!.recipe.id && c.meal === b!.meal)!;
+      expect(b!.cost).toBeGreaterThan(plain.cost);
+      expect(b!.picks.length).toBe(plain.picks.length);
+    }
+  });
+
+  it("has a range: the cheapest week, the best fit, and the best fit with better products", () => {
+    const r = budgetRange(cands, betterOf)!;
+    expect(r.min).toBeLessThanOrEqual(r.best);
+    expect(r.max).toBeGreaterThan(r.best);
+    expect(planForBudget(cands, null, betterOf)!.week.shoppingCost).toBeCloseTo(r.best, 2);
+  });
+
+  it("under the best fit: cheaper recipes; at or over it: better products while the bill fits; never under what the goal needs", () => {
+    const r = budgetRange(cands, betterOf)!;
+    const low = planForBudget(cands, Math.round((r.min + r.best) / 2), betterOf)!;
+    expect(low.better).toEqual([]);
+    expect(low.week.shoppingCost).toBeLessThan(r.best + 0.01);
+    const high = planForBudget(cands, Math.round((r.best + r.max) / 2), betterOf)!;
+    expect(high.better.length).toBeGreaterThan(0);
+    expect(high.week.shoppingCost).toBeLessThanOrEqual(Math.round((r.best + r.max) / 2) + 0.01);
+    expect(high.week.shoppingCost).toBeGreaterThanOrEqual(r.best - 0.01);
+    const top = planForBudget(cands, r.max, betterOf)!;
+    expect(top.better.length).toBeGreaterThanOrEqual(high.better.length);
+    // the meals still fit the meal size: upgrades change products, not recipes
+    for (const d of top.week.days) for (const m of d.meals) expect(m.candidate.distance).toBeLessThan(0.6);
+  });
+
+  it("keeps which recipes use better products when the plan is saved", () => {
+    const ids = Array.from({ length: PLAN_DAYS }, () => ["a", "b", "c"]);
+    expect(sanitizePlan({ shops: ["sainsburys"], ids, start: "2026-11-18", better: ["dinner:beef-chilli", "nope", 3] })?.better).toEqual(["dinner:beef-chilli"]);
   });
 });

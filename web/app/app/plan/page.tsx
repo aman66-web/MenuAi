@@ -6,11 +6,11 @@ import { MEAL_LABEL } from "@/lib/mm/budget";
 import { GATING_ENABLED } from "@/lib/mm/config";
 import { formatInt } from "@/lib/mm/format";
 import { addToList, formatPrice, listForShop, withPhoto } from "@/lib/mm/groceries";
-import { localeInfo } from "@/lib/mm/i18n";
-import { LEAVE_OUT, PLAN_MEALS, buildWeek, makePlan, mergeCandidates, planCandidates, setMeal, swapChoices, type PlanCandidate, type PlanIds, type SavedPlan } from "@/lib/mm/mealPlan";
+import { localeInfo, tk } from "@/lib/mm/i18n";
+import { LEAVE_OUT, PLAN_MEALS, PER_MEAL_RECIPES, betterCandidate, budgetRange, buildWeek, leavesOut, mergeCandidates, planCandidates, planForBudget, setMeal, swapChoices, withBetter, type BudgetRange, type PlanCandidate, type PlanIds, type SavedPlan } from "@/lib/mm/mealPlan";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { RECIPES } from "@/lib/mm/recipeBook";
-import { mealSizes, type MealTarget, type MealType } from "@/lib/mm/recipes";
+import { mealSizes, recipeForDiet, type MealTarget, type MealType } from "@/lib/mm/recipes";
 import { recipeShops, shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import { mealPlanStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { macroTargets } from "@/lib/mm/targets";
@@ -36,10 +36,10 @@ import { RecipeThumb } from "../recipes/RecipeThumb";
 
 const STEPS = 5;
 const today = () => new Date().toISOString().slice(0, 10);
-const BUDGETS = [30, 40, 50, 60, 80] as const;
 const ROUND = "group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95";
 const ROUND_IN = "inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong";
 const STEP_PIP: Record<number, PipMood> = { 1: "wave", 2: "think", 3: "point", 4: "think", 5: "point" };
+const MEAL_PLURAL: Record<string, string> = { breakfast: tk("breakfasts"), lunch: tk("lunches"), dinner: tk("dinners") };
 
 type Shop = { id: string; name: string };
 type Loaded = { id: string; file: ShopFile; products: ShopProduct[] };
@@ -79,6 +79,20 @@ function useMealTarget(): MealTarget {
   const daily = macroTargets(settings);
   const meal = mealTargetFor(settings) ?? { kcal: mealSizes(settings.dailyCalories).normal };
   return useMemo(() => ({ ...meal, protein: meal.protein ?? Math.round(daily.protein * 0.3) }), [meal.kcal, meal.protein, daily.protein]); // eslint-disable-line react-hooks/exhaustive-deps -- the numbers
+}
+
+/** Each candidate's better-products version (betterCandidate), worked out once per recipe and shop while the app is open. */
+const betterMemo = new Map<string, PlanCandidate | null>();
+function betterFor(loaded: readonly Loaded[], target: MealTarget): (c: PlanCandidate) => PlanCandidate | null {
+  const products = new Map(loaded.map((l) => [l.id, l.products]));
+  return (c) => {
+    const key = `${c.shop}|${c.meal}|${c.recipe.id}|${target.kcal}|${target.protein ?? 0}|${c.cost}`;
+    if (!betterMemo.has(key)) {
+      const p = products.get(c.shop);
+      betterMemo.set(key, p ? betterCandidate(c, p, target) : null);
+    }
+    return betterMemo.get(key)!;
+  };
 }
 
 const names = (shops: readonly Shop[], ids: readonly string[]) => new Intl.ListFormat("en-GB", { type: "conjunction" }).format(ids.map((id) => shops.find((s) => s.id === id)?.name ?? id));
@@ -125,9 +139,12 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
   const [step, setStep] = useState(1);
   const [leaveOut, setLeaveOut] = useState<string[]>(saved?.leaveOut ?? []);
   const [typed, setTyped] = useState("");
-  const [budgetText, setBudgetText] = useState(saved?.budget ? String(saved.budget) : "");
   const [shops, setShops] = useState<string[] | null>(saved?.shops ?? null);
-  const [making, setMaking] = useState<{ on: string; done: string[] } | null>(null);
+  // the budget step (founder 2026-11-18, a slider from the cheapest week to better products, a green spot for the best fit): the prices are worked out for the
+  // chosen shops when the step opens, then the slider shows; `pick` is the pound amount on it
+  const [prep, setPrep] = useState<{ key: string; loaded: Loaded[]; cands: Candidates; range: BudgetRange | null } | null>(null);
+  const [preparing, setPreparing] = useState<{ on: string; done: string[] } | null>(null);
+  const [pick, setPick] = useState<number | null>(null);
   const [problem, setProblem] = useState<"noPlan" | "offline" | null>(null);
   const heading = useRef<HTMLHeadingElement>(null);
 
@@ -136,10 +153,8 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
     if (shops !== null || !shopsAll.length) return;
     setShops(shopsAll.filter((s) => (settings.shops ?? []).includes(s.id)).map((s) => s.id)); // eslint-disable-line react-hooks/set-state-in-effect -- the answer starts from the person's shops once the list arrives
   }, [shopsAll, shops, settings.shops]);
-  const isMaking = making !== null;
-  useLayoutEffect(() => { window.scrollTo({ top: 0 }); heading.current?.focus({ preventScroll: true }); }, [step, isMaking]);
+  useLayoutEffect(() => { window.scrollTo({ top: 0 }); heading.current?.focus({ preventScroll: true }); }, [step]);
 
-  const budget = (() => { const v = Number(budgetText.replace(/[£,\s]/g, "")); return Number.isFinite(v) && v > 0 ? Math.round(v * 100) / 100 : null; })();
   const chosen = (shops ?? []).filter((id) => shopsAll.some((s) => s.id === id) || !shopsAll.length);
   const flip = (id: string) => setLeaveOut((l) => (l.includes(id) ? l.filter((x) => x !== id) : [...l, id]));
   const addTyped = () => {
@@ -148,36 +163,61 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
     setTyped("");
   };
   const typedWords = leaveOut.filter((x) => !LEAVE_OUT.some((c) => c.id === x));
+  // how many of our recipes each meal still has with this diet and these foods left out (founder 2026-11-18: "we won't be able to give them a plan if they
+  // are so picky?"): no limit on how many foods, but Pip says what's left as they tap, warns when a meal is down to a few (they repeat), and won't go on
+  // with none. Before the shops are chosen, so a shop that lacks an ingredient can still leave fewer.
+  const left = useMemo(() => PLAN_MEALS.map((meal) => ({
+    meal,
+    n: RECIPES.filter((r) => { if (r.meal !== meal) return false; const fit = recipeForDiet(r, settings.preferences); return !!fit && !leavesOut(fit, leaveOut); }).length,
+  })), [settings.preferences, leaveOut]);
+  const noneFor = left.find((l) => l.n === 0);
+  const fewFor = left.filter((l) => l.n > 0 && l.n < PER_MEAL_RECIPES);
+  const mealWord = (m: MealType) => t(MEAL_LABEL[m as "breakfast" | "lunch" | "dinner"]).toLowerCase();
 
-  const make = async () => {
-    if (!chosen.length) return;
-    setProblem(null);
-    setMaking({ on: chosen[0]!, done: [] });
-    let loaded: Loaded[];
-    try {
-      loaded = await loadShops(chosen);
-    } catch {
-      setMaking(null);
-      setProblem("offline");
-      return;
-    }
-    const candidates = await workOut(loaded, settings.preferences, target, leaveOut, (on, done) => setMaking({ on, done }));
-    const plan = makePlan(candidates, budget);
-    setMaking(null);
+  // the prices for the budget step: worked out when it opens (and again if the shops, the diet or the foods changed)
+  const prepKey = workKey(chosen, settings.preferences, target, leaveOut);
+  const prepping = useRef<string | null>(null);
+  useEffect(() => {
+    if (step !== 5 || !chosen.length || prep?.key === prepKey || prepping.current === prepKey) return;
+    prepping.current = prepKey;
+    let live = true;
+    (async () => {
+      setProblem(null);
+      setPreparing({ on: chosen[0]!, done: [] });
+      let loaded: Loaded[];
+      try {
+        loaded = await loadShops(chosen);
+      } catch {
+        if (live) { setPreparing(null); setProblem("offline"); prepping.current = null; }
+        return;
+      }
+      const cands = await workOut(loaded, settings.preferences, target, leaveOut, (on, done) => { if (live) setPreparing({ on, done }); });
+      const range = budgetRange(cands, betterFor(loaded, target));
+      if (!live) return;
+      setPrep({ key: prepKey, loaded, cands, range });
+      setPreparing(null);
+      if (range) setPick((p) => {
+        const want = p ?? saved?.budget ?? Math.round(range.best);
+        return Math.min(Math.ceil(range.max), Math.max(Math.floor(range.min), Math.round(want)));
+      });
+    })();
+    return () => { live = false; if (prepping.current === prepKey) prepping.current = null; };
+  }, [step, prepKey]); // eslint-disable-line react-hooks/exhaustive-deps -- prepKey holds the answers it depends on
+
+  const ready = !!prep && prep.key === prepKey && !!prep.range && pick !== null;
+  const make = () => {
+    if (!ready || !prep || pick === null) return;
+    const plan = planForBudget(prep.cands, pick, betterFor(prep.loaded, target));
     if (!plan) { setProblem("noPlan"); setStep(3); return; }
-    mealPlanStore.set({ shops: chosen, ids: plan.ids, leaveOut, budget, start: today() } satisfies SavedPlan);
+    mealPlanStore.set({ shops: chosen, ids: plan.ids, leaveOut, budget: pick, start: today(), ...(plan.better.length ? { better: plan.better } : {}) } satisfies SavedPlan);
     onDone();
   };
 
-  if (making) {
-    return (
-      <div className="pb-6">
-        <h1 ref={heading} tabIndex={-1} className={`mt-4 ${TITLE} outline-none`}>{t("Making your plan")}</h1>
-        <div className="mt-4"><PipSays mood="think" size={72} lively pulse={making.on}>{t("I'm checking every recipe at your shops and picking the best week for you.")}</PipSays></div>
-        <ul className="mt-5 space-y-3">
+  const working = preparing && (
+        <ul className="mt-5 space-y-3" aria-label={t("Working out the prices")}>
           {chosen.map((id) => {
-            const done = making.done.includes(id);
-            const on = making.on === id && !done;
+            const done = preparing.done.includes(id);
+            const on = preparing.on === id && !done;
             return (
               <li key={id} className="flex items-center gap-3 text-[1.0625rem] font-semibold">
                 {done ? <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)]"><CheckIcon className="h-4 w-4" /></span>
@@ -189,20 +229,17 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
             );
           })}
         </ul>
-        <p role="status" className="sr-only">{t("Making your plan")}</p>
-      </div>
-    );
-  }
+  );
 
-  const title = [t("Your daily numbers"), t("Your diet and allergies"), t("Foods you'd rather not have"), t("Your budget for the week"), t("Where you shop")][step - 1]!;
+  const title = [t("Your daily numbers"), t("Your diet and allergies"), t("Foods you'd rather not have"), t("Where you shop"), t("Your budget for the week")][step - 1]!;
   const says = [
     t("Hi! Let's plan your week. First, your daily numbers: I'll size every meal to them."),
     t("Do you follow a diet, or have any allergies? I'll leave out any recipe that doesn't fit."),
     t("Any foods you don't like? Tap them, or type your own, and I'll leave them out."),
-    t("How much would you like the week's food shopping to cost? Leave it empty for no limit."),
     t("Where do you shop? Pick as many as you like, and I'll find the best recipes across them."),
+    t("Slide to choose your budget. The green spot is the best week for your goal: left is cheaper, right buys better products."),
   ][step - 1]!;
-  const canGo = step < STEPS || chosen.length > 0;
+  const canGo = !(step === 3 && noneFor) && !(step === 4 && !chosen.length) && !(step === 5 && !ready);
 
   return (
     <div className="pb-6">
@@ -251,27 +288,19 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
               <input value={typed} onChange={(e) => setTyped(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); addTyped(); } }} placeholder={t("Something else, like sweetcorn")} aria-label={t("Another food to leave out")} className={`${inputClass} min-w-[12rem] flex-1`} maxLength={40} />
               <Button variant="secondary" onClick={addTyped} disabled={typed.trim().length < 3}>{t("Add")}</Button>
             </div>
+            {/* what's left to choose from, said plainly as they tap */}
+            <div role="status" aria-live="polite" className={`mt-4 rounded-[1.25rem] p-4 text-[0.9375rem] leading-snug ${noneFor ? "bg-[var(--fill)] font-semibold" : "glass"}`}>
+              {noneFor
+                ? t("With these, there are no {meal} recipes left, so I can't plan a week. Leave out fewer foods.", { meal: mealWord(noneFor.meal) })
+                : <>
+                    <span className="app-numbers">{t("I can choose from {b} breakfasts, {l} lunches and {d} dinners.", { b: left[0]!.n, l: left[1]!.n, d: left[2]!.n })}</span>
+                    {fewFor.length > 0 && <span className="mt-1 block font-semibold">{t("Only a few {meals} are left, so some days will repeat.", { meals: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(fewFor.map((f) => t(MEAL_PLURAL[f.meal]!))) })}</span>}
+                  </>}
+            </div>
           </>
         )}
 
         {step === 4 && (
-          <>
-            <div role="group" aria-label={t("Budget for the week")} className="flex flex-wrap gap-2">
-              {BUDGETS.map((b) => (
-                <button key={b} type="button" aria-pressed={budget === b} onClick={() => setBudgetText(String(b))} className={`${budget === b ? CHIP_ON : CHIP} app-numbers px-5`}>£{b}</button>
-              ))}
-              <button type="button" aria-pressed={budget === null} onClick={() => setBudgetText("")} className={`${budget === null ? CHIP_ON : CHIP} px-5`}>{t("No limit")}</button>
-            </div>
-            <label className="mt-4 flex flex-wrap items-center gap-2">
-              <span className="text-base font-semibold">{t("Or type an amount")}</span>
-              <span className="flex items-center gap-1.5"><span className="text-xl font-bold">£</span>
-                <input inputMode="decimal" value={budgetText} onChange={(e) => setBudgetText(e.target.value.slice(0, 8))} placeholder="50" aria-label={t("Budget for the week in pounds")} className={`${inputClass} app-numbers w-32`} />
-              </span>
-            </label>
-          </>
-        )}
-
-        {step === 5 && (
           <>
             {!manifest ? <Spinner label={t("Loading the shops")} /> : (
               <div role="group" aria-label={t("Where you shop")} className="space-y-2">
@@ -289,17 +318,87 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
               </div>
             )}
             <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("Every ingredient is a real product at one of these shops, with its price. Each meal's ingredients all come from one shop.")}</p>
-            {problem === "offline" && <div className="mt-3"><ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => void make()} /></div>}
+          </>
+        )}
+
+        {step === 5 && (
+          <>
+            {problem === "offline" ? <ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => { setProblem(null); setPrep(null); setStep(4); }} />
+              : preparing ? (<><p role="status" className="text-[1.0625rem] font-semibold">{t("Working out the prices at your shops…")}</p>{working}</>)
+              : !prep || prep.key !== prepKey ? <Spinner label={t("Working out the prices at your shops…")} />
+              : !prep.range ? <p role="alert" className="glass rounded-[1.25rem] p-4 font-semibold">{t("There aren't enough of our recipes left for every meal with these choices. Try leaving out fewer foods, or pick another shop.")}</p>
+              : pick !== null && <BudgetSlider range={prep.range} value={pick} onChange={setPick} />}
           </>
         )}
       </div>
 
       <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-6 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-3">
-        {step === STEPS && !chosen.length && <p className="mb-2 text-center text-[0.9375rem] font-semibold text-muted">{t("Pick at least one shop.")}</p>}
-        <Button full className="min-h-14 text-lg" disabled={!canGo} onClick={() => (step < STEPS ? setStep(step + 1) : void make())}>
+        {step === 4 && !chosen.length && <p className="mb-2 text-center text-[0.9375rem] font-semibold text-muted">{t("Pick at least one shop.")}</p>}
+        <Button full className="min-h-14 text-lg" disabled={!canGo} onClick={() => (step < STEPS ? setStep(step + 1) : make())}>
           {step < STEPS ? t("Continue") : t("Make my plan")}
         </Button>
       </div>
+    </div>
+  );
+}
+
+// ---------- the budget slider ----------
+
+/**
+ * The budget as a slider (founder 2026-11-18: "an ... sideways arrow ... from a to z ... a green spot based on what to choose to be perfect, higher than the
+ * green part is a higher budget to afford better produce. And lower on the scale is lower value produce but still to fit what they want they can't go lower
+ * than what they want"): from the cheapest week that still fits the person's goal to the best fit made with better products, in whole pounds, a green spot
+ * at the best fit, a head at each end of the track, and a plain line saying what the spot on the slider means. A native range input, so it works with a
+ * finger, the arrow keys and VoiceOver (which reads "£42 a week").
+ */
+function BudgetSlider({ range, value, onChange }: { range: BudgetRange; value: number; onChange: (v: number) => void }) {
+  const t = useT();
+  const min = Math.floor(range.min);
+  const max = Math.max(min + 1, Math.ceil(range.max));
+  const best = Math.min(max, Math.max(min, Math.round(range.best)));
+  const at = (v: number) => (v - min) / (max - min);
+  // the thumb is 2.25rem wide, so its middle runs from 1.125rem in from each end: the spot and the track line up with it
+  const along = (v: number) => `calc(1.125rem + (100% - 2.25rem) * ${at(v)})`;
+  const onSpot = Math.abs(value - best) <= 1;
+  const zone = value <= min ? t("The cheapest week for your goal: lower-cost recipes and everyday products.")
+    : value < best - 1 ? t("Cheaper than the best fit: some meals are lower-cost recipes, still sized to your goal.")
+    : value <= best + 1 ? t("The green spot: the best week for your goal.")
+    : value < max ? t("More to spend: some meals are made with better products, like the shops' best ranges, organic or free range.")
+    : t("Better products wherever your shops have them.");
+  return (
+    <div>
+      <p className="app-numbers text-center text-[2.75rem] font-[800] leading-none tracking-[-0.02em]">£{value}</p>
+      <p className="mt-1 text-center text-[0.9375rem] font-semibold text-muted">{t("for the week's shopping")}</p>
+      <div className={`relative mt-6 h-12 ${onSpot ? "[&_input::-webkit-slider-thumb]:border-[var(--sun)] [&_input::-moz-range-thumb]:border-[var(--sun)]" : ""}`}>
+        {/* the arrow: a track with a head at each end */}
+        <span aria-hidden className="absolute inset-x-[1.125rem] top-1/2 h-2 -translate-y-1/2 rounded-full bg-[var(--ring-track)]" />
+        <ChevronLeftIcon aria-hidden className="absolute start-0 top-1/2 h-5 w-5 -translate-y-1/2 text-muted rtl:rotate-180" />
+        <ChevronLeftIcon aria-hidden className="absolute end-0 top-1/2 h-5 w-5 -translate-y-1/2 rotate-180 text-muted rtl:rotate-0" />
+        {/* the green spot: the best fit, a short green stretch of the track that shows either side of the handle when the handle is on it */}
+        <span aria-hidden className="absolute top-1/2 h-3 w-[4.5rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--sun)]" style={{ left: along(best) }} />
+        <input
+          type="range"
+          min={min}
+          max={max}
+          step={1}
+          value={value}
+          onChange={(e) => onChange(Number(e.target.value))}
+          aria-label={t("Budget for the week")}
+          aria-valuetext={t("£{n} a week", { n: value })}
+          className="absolute inset-0 h-12 w-full cursor-pointer appearance-none bg-transparent focus-visible:outline-none [&::-moz-range-thumb]:h-9 [&::-moz-range-thumb]:w-9 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-4 [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:bg-foreground [&::-webkit-slider-thumb]:h-9 [&::-webkit-slider-thumb]:w-9 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-4 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:bg-foreground [&::-webkit-slider-thumb]:shadow-[0_4px_12px_rgba(0,0,0,0.3)] focus-visible:[&::-webkit-slider-thumb]:ring-4 focus-visible:[&::-webkit-slider-thumb]:ring-accent"
+        />
+      </div>
+      <div className="app-numbers mt-1 flex justify-between gap-3 text-[0.875rem] leading-snug">
+        <span><span className="block font-bold">£{min}</span><span className="text-muted">{t("Cheapest")}</span></span>
+        <span className="text-center"><span className="block font-bold">£{best}</span><span className="inline-flex items-center gap-1 text-muted"><span aria-hidden className="h-2.5 w-2.5 rounded-full bg-[var(--sun)]" />{t("Best fit")}</span></span>
+        <span className="text-end"><span className="block font-bold">£{max}</span><span className="text-muted">{t("Better products")}</span></span>
+      </div>
+      <p aria-live="polite" className="glass mt-4 rounded-[1.25rem] p-4 text-[0.9375rem] leading-snug">{zone}</p>
+      {Math.abs(value - best) > 1 && (
+        <button type="button" onClick={() => onChange(best)} className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-bold">
+          <span aria-hidden className="h-3 w-3 rounded-full bg-[var(--sun)]" />{t("Back to the green spot (£{n})", { n: best })}
+        </button>
+      )}
     </div>
   );
 }
@@ -323,6 +422,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
   const shopKey = saved.shops.join("|");
   const leaveKey = saved.leaveOut.join("|");
   const dietKey = JSON.stringify(settings.preferences);
+  const betterKey = (saved.better ?? []).join("|");
 
   useEffect(() => {
     let live = true;
@@ -330,11 +430,20 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
     loadShops(shopKey.split("|"))
       .then(async (l) => {
         const c = await workOut(l, JSON.parse(dietKey) as DietPrefs, target, leaveKey ? leaveKey.split("|") : []);
-        if (live) { setLoaded(l); setCandidates(c); }
+        // the meals the budget made with better products (planForBudget), made the same way again
+        const betterOf = betterFor(l, target);
+        const upgraded = new Map<string, PlanCandidate>();
+        for (const key of betterKey ? betterKey.split("|") : []) {
+          const [meal, id] = key.split(":");
+          const plain = c.get(meal as MealType)?.find((x) => x.recipe.id === id);
+          const b = plain ? betterOf(plain) : null;
+          if (b) upgraded.set(key, b);
+        }
+        if (live) { setLoaded(l); setCandidates(withBetter(c, upgraded)); }
       })
       .catch(() => { if (live) setFailed(true); });
     return () => { live = false; };
-  }, [shopKey, leaveKey, dietKey, target, retry]);
+  }, [shopKey, leaveKey, dietKey, betterKey, target, retry]);
 
   const week = useMemo(() => (candidates ? buildWeek(saved.ids, candidates, saved.budget) : null), [candidates, saved]);
   const dayNames = useMemo(() => {
@@ -425,6 +534,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
                     <span className="block font-bold leading-snug [overflow-wrap:anywhere]">{t(m.candidate.recipe.name)}</span>
                     <span className="app-numbers mt-0.5 block text-[0.875rem] text-muted">{formatInt(m.candidate.perServing.kcal)} kcal · {formatInt(m.candidate.perServing.protein)} g {t("protein")}</span>
                     {several && <span className="mt-1 flex items-center gap-1.5 text-[0.8125rem] text-muted"><ShopMark shopId={m.candidate.shop} size="xs" />{shopName(m.candidate.shop)}</span>}
+                    {m.candidate.better && <span className="mt-1 inline-block rounded-full bg-accent-soft px-2 py-0.5 text-[0.75rem] font-bold text-accent">{t("Better products")}</span>}
                   </span>
                 </Link>
                 <span className="app-numbers shrink-0 text-end text-base font-[800]">{formatPrice(m.candidate.cost)}</span>

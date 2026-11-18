@@ -1,9 +1,9 @@
 import { tk } from "./i18n";
 import type { DietPrefs } from "./pantry";
 import { PANTRY } from "./pantry";
-import { fitDistance, fitRecipe, pickFor, recipeForDiet, recipeTotals, resolveRecipe, type IngredientPick, type IngredientSpec, type MealTarget, type MealType, type Recipe } from "./recipes";
+import { candidates as productCandidates, fitDistance, fitRecipe, isMeatFree, pickFor, recipeForDiet, recipeTotals, resolveRecipe, type IngredientPick, type IngredientSpec, type MealTarget, type MealType, type Recipe } from "./recipes";
 import { normalizeForSearch } from "./search";
-import type { PricedProduct, ShopProduct } from "./shopProducts";
+import { productKey, type PricedProduct, type ShopProduct } from "./shopProducts";
 
 // A week's meal plan (founder 2026-11-18: "they type all of this in, and then my app will make them a diet plan for a week. It'll tell them what they need to buy
 // for the week for their shopping list ... how much the price is for each meal of each day ... the full cost ... Budget, amount of money per week"; "you should
@@ -66,6 +66,10 @@ export interface PlanCandidate {
   /** The shop every ingredient comes from (several shops: the one where this recipe fits best and costs least). */
   shop: string;
   recipe: Recipe;
+  /** The recipe for the person's diet before it was fitted to the meal (a better version is fitted again from it). */
+  base: Recipe;
+  /** Made with the shop's better products (betterCandidate). */
+  better?: boolean;
   meal: MealType;
   perServing: { kcal: number; protein: number; carbs: number; fat: number };
   /** What one serving's amounts cost (the recipe page's price a serving). */
@@ -91,6 +95,7 @@ export function planCandidates(recipes: readonly Recipe[], products: readonly Sh
     out.get(base.meal)!.push({
       shop,
       recipe: fitted ? fitted.recipe : recipe,
+      base: recipe,
       meal: base.meal,
       perServing: totals.perServing,
       cost: totals.costPerServing,
@@ -135,6 +140,89 @@ export function mergeCandidates(each: ReadonlyArray<Map<MealType, PlanCandidate[
     out.get(meal)!.sort((a, b) => a.distance - b.distance || a.cost - b.cost || a.recipe.name.localeCompare(b.recipe.name, "en-GB"));
   }
   return out;
+}
+
+/**
+ * Better produce (founder 2026-11-18: "higher than the green part is a higher budget to afford better produce"): the shops' own better ranges, organic and
+ * free range, as their product names say.
+ */
+export const BETTER = /\b(taste the difference|finest|extra special|exceptional|the best|no\.? ?1|duchy|specially selected|deluxe|luxury|organic|free range)\b/i;
+
+/**
+ * The same recipe with each ingredient's better product where the shop sells one (the first such product the recipe page would offer for it), fitted to the
+ * meal the same way. Cupboard things (oil, salt, stock) stay as they are. Null when the shop has no better product for any ingredient.
+ */
+export function betterCandidate(c: PlanCandidate, products: readonly ShopProduct[], target: MealTarget | null): PlanCandidate | null {
+  const meatFree = isMeatFree(c.base);
+  const chosen: Record<string, string> = {};
+  for (const pick of c.picks) {
+    if (pick.spec.cupboard || BETTER.test(pick.product.name)) continue;
+    const alt = productCandidates(products, pick.spec, meatFree).find((a) => BETTER.test(a.product.name));
+    if (alt) chosen[pick.spec.key] = productKey(alt.product);
+  }
+  if (!Object.keys(chosen).length) return null;
+  const fitted = target ? fitRecipe(c.base, products, chosen, target) : null;
+  const resolved = fitted ? fitted.resolved : resolveRecipe(c.base, products, chosen);
+  const totals = fitted ? fitted.totals : recipeTotals(resolved);
+  if (!totals || !resolved.complete || totals.costPerServing === null || totals.costPerServing <= c.cost) return null;
+  const recipe = fitted ? fitted.recipe : c.base;
+  return { ...c, recipe, perServing: totals.perServing, cost: totals.costPerServing, picks: resolved.picks as IngredientPick[], servings: recipe.servings, distance: target ? fitDistance(totals.perServing, target) : 0, better: true };
+}
+
+/** The candidates with some recipes (by "meal:id") made with better products. */
+export function withBetter(cands: Map<MealType, PlanCandidate[]>, better: ReadonlyMap<string, PlanCandidate>): Map<MealType, PlanCandidate[]> {
+  if (!better.size) return cands;
+  return new Map([...cands].map(([meal, list]) => [meal, list.map((c) => better.get(`${meal}:${c.recipe.id}`) ?? c)]));
+}
+
+/** The budget slider's three points: the cheapest week the recipes allow, the best fit for the person's goal, and that week with every better product. */
+export interface BudgetRange { min: number; best: number; max: number }
+
+/** The plan for a budget, and which of its recipes use better products (by "meal:id"). */
+export interface BudgetPlan { ids: PlanIds; week: WeekPlan; better: string[] }
+
+/**
+ * The week for a budget (founder 2026-11-18: "lower on the scale is lower value produce but still to fit what they want; they can't go lower than what they
+ * want"): under the best fit's bill, makePlan swaps in cheaper recipes (never one far from the meal size); at or over it, the best fit's recipes are made with
+ * better products, the one that adds least to the bill first, while the bill stays within the budget. Null budget: the best fit.
+ */
+export function planForBudget(cands: Map<MealType, PlanCandidate[]>, budget: number | null, betterOf: (c: PlanCandidate) => PlanCandidate | null): BudgetPlan | null {
+  const best = makePlan(cands, null);
+  if (!best) return null;
+  if (budget === null) return { ...best, better: [] };
+  if (best.week.shoppingCost > budget) {
+    const cheaper = makePlan(cands, budget);
+    return cheaper ? { ...cheaper, better: [] } : null;
+  }
+  const byKey = new Map<string, PlanCandidate>();
+  for (const [meal, list] of cands) for (const c of list) byKey.set(`${meal}:${c.recipe.id}`, c);
+  const inPlan = [...new Set(best.ids.flatMap((d) => d.map((id, i) => `${PLAN_MEALS[i]}:${id}`)))];
+  const options = inPlan.map((key) => ({ key, b: byKey.get(key) ? betterOf(byKey.get(key)!) : null })).filter((o): o is { key: string; b: PlanCandidate } => !!o.b);
+  const chosen = new Map<string, PlanCandidate>();
+  let week = best.week;
+  // cheapest additions first
+  const added = options
+    .map((o) => ({ ...o, extra: (buildWeek(best.ids, withBetter(cands, new Map([[o.key, o.b]])), budget)?.shoppingCost ?? Infinity) - best.week.shoppingCost }))
+    .sort((a, b) => a.extra - b.extra || a.key.localeCompare(b.key));
+  for (const o of added) {
+    const trial = new Map(chosen).set(o.key, o.b);
+    const w = buildWeek(best.ids, withBetter(cands, trial), budget);
+    if (w && w.shoppingCost <= budget + 0.005) {
+      chosen.set(o.key, o.b);
+      week = w;
+    }
+  }
+  return { ids: best.ids, week, better: [...chosen.keys()] };
+}
+
+/** The slider's range for these candidates (see BudgetRange); null when no week can be made. */
+export function budgetRange(cands: Map<MealType, PlanCandidate[]>, betterOf: (c: PlanCandidate) => PlanCandidate | null): BudgetRange | null {
+  const best = makePlan(cands, null);
+  const cheapest = makePlan(cands, 0.01);
+  if (!best || !cheapest) return null;
+  const all = planForBudget(cands, Number.MAX_SAFE_INTEGER, betterOf);
+  const min = Math.min(cheapest.week.shoppingCost, best.week.shoppingCost);
+  return { min, best: best.week.shoppingCost, max: Math.max(best.week.shoppingCost, all?.week.shoppingCost ?? 0) };
 }
 
 /** The plan as recipe ids: days × meals (PLAN_MEALS order). */
@@ -301,6 +389,8 @@ export interface SavedPlan {
   budget: number | null;
   /** The day the plan starts (yyyy-mm-dd): its days are named from it. */
   start: string;
+  /** The recipes made with better products, by "meal:id" (planForBudget). */
+  better?: string[];
 }
 
 export function sanitizePlan(raw: unknown): SavedPlan | null {
@@ -312,5 +402,6 @@ export function sanitizePlan(raw: unknown): SavedPlan | null {
   if (!ids || !shops.length || typeof r.start !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(r.start)) return null;
   const leaveOut = Array.isArray(r.leaveOut) ? (r.leaveOut as unknown[]).filter((x): x is string => typeof x === "string" && x.length <= 40).slice(0, 30) : [];
   const budget = typeof r.budget === "number" && Number.isFinite(r.budget) && r.budget > 0 && r.budget < 10000 ? r.budget : null;
-  return { shops, ids, leaveOut, budget, start: r.start };
+  const better = Array.isArray(r.better) ? (r.better as unknown[]).filter((x): x is string => typeof x === "string" && /^(breakfast|lunch|dinner):[a-z0-9-]{1,80}$/.test(x)).slice(0, 21) : [];
+  return { shops, ids, leaveOut, budget, start: r.start, ...(better.length ? { better } : {}) };
 }

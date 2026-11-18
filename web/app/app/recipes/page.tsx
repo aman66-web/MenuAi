@@ -274,11 +274,10 @@ function RecipesScreen() {
       </div>
 
       <h1 className="mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">{t("What's cooking today?")}</h1>
+      {/* one short line (founder 2026-11-18: "Is there actually any need for that text? ... make it a lot more shorter, maybe even like 1 or 2 lines"): the cards
+          below say the rest (our recipes, Make it at home, the meal plan); this says what nothing else on the page does */}
       <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">
-        {/* the two ways to use this tab, first (founder 2026-11-18: "is it clear on this screen that the people can either choose from pre selected meals that we
-            crafted or make their own?") */}
-        {PHOTO_RECIPES_ENABLED ? t("Pick one of our recipes, or make your own from a photo.") : t("Pick one of our recipes.")}{" "}
-        {shopNames.length ? t("Every ingredient is a real product at {shop}, with its price and the nutrition of each serving.", { shop: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) }) : t("Every ingredient is a real product at your supermarket, with its price and the nutrition of each serving.")}
+        {shopNames.length ? t("Made with real {shop} products and prices.", { shop: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) }) : t("Made with real supermarket products and prices.")}
       </p>
 
       {/* Which supermarkets the ingredients come from: only shops whose full product list, prices and labels we've read can fill a recipe, and all of the
@@ -329,7 +328,7 @@ function RecipesScreen() {
             <span className="text-[1.0625rem] font-[800] leading-tight">{t("Meal plan")}</span>
             {GATING_ENABLED && !pro && <span className="inline-block rounded-full bg-sun px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--on-accent)]">{t("Premium")}</span>}
           </span>
-          <span className="mt-0.5 block text-[0.875rem] leading-snug text-muted">{t("A week of meals for your goal and budget, with the shopping list and what each meal costs.")}</span>
+          <span className="mt-0.5 block text-[0.875rem] leading-snug text-muted">{t("A week of meals for your goal, with the shopping list.")}</span>
         </span>
         <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted rtl:rotate-180" />
       </Link>
