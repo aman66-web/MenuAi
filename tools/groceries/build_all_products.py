@@ -508,6 +508,66 @@ def fill_community_nutrition(docs: dict[str, dict], by_code: dict[str, tuple[lis
     return counts
 
 
+# A dry staple's label that is really for the cooked or prepared food (founder 2026-11-18, the label review): some pages and community records print figures
+# for the boiled pasta or the made-up couscous while the heading says only "per 100g" (M&S pearl barley 107 kcal; Asda penne 157 kcal from Open Food Facts).
+# Dried pasta, rice, grains, flour, oats and dried lentils are about 330-380 kcal per 100 g as sold, so under 250 can't be the food as sold: those numbers are
+# left out (nothing is guessed; the product shows no nutrition, and a recipe uses another product). Only a plain dry staple counts: every word of its name is a
+# staple, a shop or range word or a plain describing word, so ready meals ("spaghetti bolognese"), pouches ("microwave", "steamed"), fresh pasta and anything
+# "with" something are never touched, and nor is a pack under 400 g or a multipack (pouches come in those), rice pudding (a tinned dessert: "pudding rice" is
+# the dry one) or a lasagne that isn't "lasagne sheets" (a ready meal).
+STAPLE_CORE = {
+    "spaghetti", "spaghettini", "penne", "fusilli", "farfalle", "linguine", "tagliatelle", "pappardelle", "rigatoni", "macaroni", "conchiglie", "orzo",
+    "lasagne", "lasagna", "gemelli", "tortiglioni", "casarecce", "orecchiette", "pasta", "rice", "couscous", "bulgur", "bulghur", "bulgar", "barley",
+    "quinoa", "freekeh", "semolina", "polenta", "flour", "oats",
+}
+STAPLE_WORDS = STAPLE_CORE | {
+    # what the staple is
+    "sheets", "shells", "twists", "tubes", "elbows", "spirals", "bows", "pearl", "wheat", "durum", "whole", "wholewheat", "wholemeal", "wholegrain",
+    "white", "brown", "long", "grain", "easy", "cook", "basmati", "jasmine", "arborio", "risotto", "paella", "sticky", "sushi", "red", "green",
+    "split", "dried", "giant", "fine", "medium", "coarse", "plain", "self", "raising", "strong", "bread", "spelt", "porridge", "rolled", "jumbo", "scottish",
+    "tricolore", "tricolour", "mini", "quick", "italian", "organic", "free", "from", "gluten", "british", "lentils", "lentil", "pearled", "cracked",
+    # shops, their ranges and the big dry-goods brands
+    "asda", "tesco", "sainsbury", "sainsburys", "by", "ms", "waitrose", "morrisons", "iceland", "aldi", "lidl", "coop", "essential", "essentials",
+    "just", "everyday", "specially", "selected", "exceptional", "extra", "special", "taste", "the", "difference", "finest", "savers", "best", "value",
+    "inspired", "cucina", "duchy", "collection", "cooks", "ingredients", "stamford", "street", "hubbards", "napolina", "barilla", "de", "cecco", "garofalo",
+    "quaker", "flahavans", "mornflake", "homepride", "allinson", "allinsons", "tilda", "food", "foods",
+}
+
+
+def cooked_staple(name: str, nut) -> bool:
+    """A plain dry staple whose 'as sold' label is under 250 kcal per 100 g: the figures must be for the cooked or prepared food (see above)."""
+    if not nut or not isinstance(nut[0], (int, float)) or nut[0] >= 250 or (len(nut) > 10 and nut[10]):
+        return False
+    low = name.lower().replace("&", " ").replace("’", "'").replace("'s", "s")
+    if re.search(r"\d\s*x\s*\d|\bx\s*\d", low):
+        return False  # a multipack: pouches come in those
+    size = re.search(r"(\d+(?:\.\d+)?)\s*(kg|g)\b", low)
+    if size and float(size.group(1)) * (1000 if size.group(2) == "kg" else 1) < 400:
+        return False  # under 400 g: often a ready-to-heat pouch
+    words = [w for w in re.split(r"[^a-z]+", re.sub(r"\d+(?:\.\d+)?\s*(kg|g|ml|l)\b", " ", low)) if w]
+    if (("lentils" in words or "lentil" in words) and not {"red", "split", "dried"} & set(words)):
+        return False  # plain lentils may be a ready-to-eat pouch
+    if "pudding" in words:
+        at = words.index("pudding")
+        if at + 1 >= len(words) or words[at + 1] != "rice":
+            return False  # rice pudding is a dessert; only "pudding rice" is dry
+        words = words[:at] + words[at + 1:]
+    if ({"lasagne", "lasagna"} & set(words)) and "sheets" not in words:
+        return False  # a lasagne is a ready meal; the dry one is "lasagne sheets"
+    return bool(words) and all(w in STAPLE_WORDS for w in words) and any(w in STAPLE_CORE or w in ("lentils", "lentil") for w in words)
+
+
+def drop_cooked_staples(docs: dict[str, dict]) -> dict[str, int]:
+    """Leaves out the numbers cooked_staple finds (from any source), per shop."""
+    dropped: dict[str, int] = {}
+    for shop, doc in docs.items():
+        for row in doc["products"]:
+            if cooked_staple(row[1], row[10]):
+                row[10] = None
+                dropped[shop] = dropped.get(shop, 0) + 1
+    return dropped
+
+
 def own_label(nut) -> bool:
     """A row's numbers were read from that shop's own product page (not community numbers, not borrowed from another shop)."""
     return bool(nut) and not (len(nut) > 11 and isinstance(nut[11], str) and (nut[11] == "off" or nut[11].startswith("same:")))
@@ -665,9 +725,13 @@ def main(argv: list[str] | None = None) -> int:
         print(f"{a.only}: no listing to build from")
         return 1
     filled = fill_photos(docs, catalogue_photos(), read_off_images())
+    cooked = drop_cooked_staples(docs)  # before borrowing, so another shop's label for the same branded product can fill in
     same = fill_same_product_nutrition(docs)
     community = fill_community_nutrition(docs, catalogue_nutrition())
     produce = fill_produce_nutrition(docs)
+    for shop, n in drop_cooked_staples(docs).items():  # and after, for numbers borrowed from elsewhere
+        cooked[shop] = cooked.get(shop, 0) + n
+    print("dry staples whose 'as sold' label is a cooked figure, left out: " + (", ".join(f"{k} {v}" for k, v in sorted(cooked.items())) or "none"))
     if not a.only:
         print(f"rows still without any photo whose barcode Open Food Facts may have: {write_wanted_off(docs)} (data/groceries/wanted-images/off.csv)")
     for shop, doc in docs.items():

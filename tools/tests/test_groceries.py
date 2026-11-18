@@ -873,6 +873,32 @@ class PriceFileTests(unittest.TestCase):
             self.assertTrue("sainsburys-farfalle-pasta-500g" not in done and "sainsburys-butter-500g" in done and "sainsburys-spaghetti-pasta-1kg" in done)
 
 
+
+class CookedStapleTest(unittest.TestCase):
+    """build_all_products.cooked_staple (2026-11-18): a plain dry staple whose 'as sold' label is a cooked or prepared figure has its numbers left out."""
+
+    def nut(self, kcal, state=""):
+        return [kcal, 5, 30, 1, 0, 0, 0, 0, 0, "g", state]
+
+    def test_dry_staples_with_cooked_figures(self):
+        for name in ("ASDA Penne 500g", "Essential Basmati Rice 1kg", "Pearl Barley 500 g", "Red Lentils 500 g", "Giant Couscous 500 g", "Tesco Pudding Rice 750g",
+                     "Lasagne Sheets 500g", "Sainsbury's Quick Cook Fusilli Pasta 500g"):
+            self.assertTrue(bap.cooked_staple(name, self.nut(150)), name)
+
+    def test_left_alone(self):
+        self.assertFalse(bap.cooked_staple("ASDA Penne 500g", self.nut(355)))  # the dry figure
+        self.assertFalse(bap.cooked_staple("ASDA Penne 500g", self.nut(157, "boiled")))  # says it's cooked
+        self.assertFalse(bap.cooked_staple("ASDA Penne 500g", None))
+        for name in ("Ambrosia Rice Pudding 400g", "Spaghetti Bolognese 400g", "Microwave Basmati Rice 250g", "Basmati Rice 300 g", "Rice 4 x 125g",
+                     "Puy Lentils 400g", "Fresh Egg Tagliatelle 500g", "Lasagne 400g", "Napolina Penne with Tomato 500g", "Steamed Basmati Rice 500g"):
+            self.assertFalse(bap.cooked_staple(name, self.nut(150)), name)
+
+    def test_drop_counts_per_shop(self):
+        docs = {"asda": {"products": [["1", "ASDA Penne 500g", 0.7, None, "", None, None, 0, "", "", self.nut(157)], ["2", "ASDA Penne 500g", 0.7, None, "", None, None, 0, "", "", self.nut(355)]]}}
+        self.assertEqual(bap.drop_cooked_staples(docs), {"asda": 1})
+        self.assertIsNone(docs["asda"]["products"][0][10])
+        self.assertIsNotNone(docs["asda"]["products"][1][10])
+
 if __name__ == "__main__":
     unittest.main()
 
