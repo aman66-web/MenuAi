@@ -42,7 +42,8 @@ let passed = 0, failed = 0;
 async function step(name, fn) { try { await fn(); passed++; console.log("PASS", name); } catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n")[0]); } }
 const expect = (c, m) => { if (!c) throw new Error(m); };
 
-const gate = (page) => page.getByRole("heading", { name: "Create your free account" });
+// founder 2026-11-18: one screen that says it is for signing in and signing up
+const gate = (page) => page.getByRole("heading", { name: "Sign in or sign up" });
 /** Sign in on the sign-in screen with an email code. */
 async function emailSignIn(page, email) {
   await page.getByRole("button", { name: "Continue with email" }).click();

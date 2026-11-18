@@ -155,7 +155,7 @@ export function SignInPanel({ onDone, community, required = false }: { onDone: (
       {step === "choose" && (
         <>
           <p className="text-base leading-snug">{required
-            ? t("Your free account keeps your meals, shopping list and settings safe on all your devices. New here? Any of these creates it.")
+            ? t("New here? Any of these makes your free account. Been here before? Use the same one you used last time. Your account keeps your meals, shopping list and settings safe on all your devices.")
             : t("Sign in to keep your saved meals, shopping list and settings on all your devices. You don't need an account to use {app}.", { app: site.name })}</p>
           <div className="mt-5 space-y-2.5">
             {canUseProviders && (

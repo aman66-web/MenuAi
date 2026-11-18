@@ -30,8 +30,8 @@ export function SignInScreen({ onDone, onBack }: { onDone?: () => void; onBack?:
         <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-[var(--sun)]"><Pip mood="wave" size={40} className="translate-y-0.5" /></span>
         <span className="min-w-0">{site.name}</span>
       </p>
-      <h1 ref={heading} tabIndex={-1} className="mt-4 text-[2.25rem] font-[700] leading-[1.06] tracking-[-0.03em] outline-none">{t("Create your free account")}</h1>
-      <p className="mt-2 text-base leading-snug text-muted">{t("Already have one? Sign in the same way as before.")}</p>
+      <h1 ref={heading} tabIndex={-1} className="mt-4 text-[2.25rem] font-[700] leading-[1.06] tracking-[-0.03em] outline-none">{t("Sign in or sign up")}</h1>
+      <p className="mt-2 text-base leading-snug text-muted">{t("New here or coming back, this one screen does both.")}</p>
       <Card className="mt-5 p-5">
         <SignInPanel required community={false} onDone={onDone ?? (() => undefined)} />
       </Card>
