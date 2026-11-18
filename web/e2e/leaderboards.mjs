@@ -36,14 +36,20 @@ await step("a board's own figures, best first; a product at several shops shows 
   await page.getByRole("radio", { name: /^Fewest calories/ }).click();
   await page.waitForURL((u) => u.searchParams.get("board") === "fewestKcal");
   await page.getByRole("heading", { level: 2, name: "Fewest calories" }).waitFor();
-  const values = await page.locator("ol > li").evaluateAll((lis) => lis.map((li) => Number((/(\d+)\s*kcal/.exec(li.textContent ?? "") ?? [])[1])));
+  // the figure box at the row's end (the shops' prices sit beside the logos)
+  const values = await page.locator("ol > li").evaluateAll((lis) => lis.map((li) => Number((/(\d+)\s*kcal/.exec(li.querySelector("a > span:last-child")?.textContent ?? "") ?? [])[1])));
   expect(values.length === 20 && values.every((v, i) => i === 0 || values[i - 1] <= v), `lowest first: ${values.join(",")}`);
   await page.getByRole("radio", { name: /^Cheapest protein/ }).click();
   await page.waitForURL((u) => u.searchParams.get("board") === "cheapestProtein");
-  const several = page.locator("ol > li").filter({ hasText: /Sold at [^.]+ and / });
+  const several = page.locator("ol > li").filter({ hasText: /Sold at [^\n]+ and / });
   expect((await several.count()) >= 1, "at least one row is sold at several shops");
   const logos = await several.first().locator("span[aria-hidden] > *").count();
   expect(logos >= 2, `every shop's logo on it, got ${logos}`);
+  // each shop's own price under its logo (founder 2026-11-18: "You should also reference the price too"), and in what VoiceOver reads
+  const columns = several.first().locator("span[aria-hidden].inline-flex > span");
+  const prices = await columns.locator("> span:last-child").allInnerTexts();
+  expect(prices.length === (await columns.count()) && prices.length >= 2 && prices.every((p) => /^£\d+\.\d\d$|^\d+p$|^In store$/.test(p)), `prices: ${prices.join(", ")}`);
+  expect(/Sold at [^:]+: (£|\d|price in store)/.test(await several.first().innerText()), "the prices are read out with the shops");
   await page.getByRole("link", { name: "Compare protein products with everyday ones" }).waitFor();
   await page.reload();
   await page.getByRole("heading", { level: 2, name: "Cheapest protein" }).waitFor({ timeout: 60000 });

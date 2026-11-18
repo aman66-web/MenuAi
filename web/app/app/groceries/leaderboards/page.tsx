@@ -52,8 +52,10 @@ function Row({ file, board, entry, rank, unit }: { file: LeaderboardsFile; board
   const first = entry.shops[0]!;
   const meta = file.shops[first.shop];
   const sources = meta ? shopPhotoSources({ retailer: first.shop, photoBase: meta.photoBase, photoTemplate: meta.photoTemplate }, { photoId: first.photoId }) : [];
-  const names = entry.shops.map((s) => file.shops[s.shop]?.name ?? s.shop);
-  const sold = new Intl.ListFormat("en-GB", { type: "conjunction" }).format(names);
+  // each shop with its own shelf price (founder 2026-11-18: "You should also reference the price too"); the cheapest stands out when several are priced
+  const priced = entry.shops.filter((s) => s.price !== null);
+  const cheapest = priced.length > 1 ? Math.min(...priced.map((s) => s.price!)) : null;
+  const sold = new Intl.ListFormat("en-GB", { type: "conjunction" }).format(entry.shops.map((s) => t("{shop}: {price}", { shop: file.shops[s.shop]?.name ?? s.shop, price: s.price !== null ? formatPrice(s.price) : t("price in store") })));
   const f = figure(board, entry.value);
   return (
     <li>
@@ -66,8 +68,17 @@ function Row({ file, board, entry, rank, unit }: { file: LeaderboardsFile; board
           <span className="mt-1.5 flex flex-wrap items-center gap-1.5">
             <span className="sr-only">{t("Sold at {shops}", { shops: sold })}</span>
             {/* side by side like dominoes, each logo whole (founder 2026-11-18: "you can see the logo from each store that has them"; never one over another) */}
-            <span aria-hidden className="inline-flex flex-wrap items-center gap-1">{entry.shops.map((s) => <ShopMark key={s.shop} shopId={s.shop} size="xs" />)}</span>
-            {board === "cheapestProtein" && first.price !== null && <span className="app-numbers text-[0.8125rem] text-muted">{formatPrice(first.price)}</span>}
+            {/* side by side like dominoes, each logo whole with its shop's price under it */}
+            <span aria-hidden className="inline-flex flex-wrap items-start gap-x-2 gap-y-1.5">
+              {entry.shops.map((s) => (
+                <span key={s.shop} className="inline-flex flex-col items-center gap-0.5">
+                  <ShopMark shopId={s.shop} size="xs" />
+                  <span className={`app-numbers whitespace-nowrap text-[0.75rem] leading-none ${s.price !== null && s.price === cheapest ? "font-extrabold text-foreground" : "font-semibold text-muted"}`}>
+                    {s.price !== null ? formatPrice(s.price) : t("In store")}
+                  </span>
+                </span>
+              ))}
+            </span>
           </span>
         </span>
         <span className="app-numbers shrink-0 rounded-[0.875rem] bg-[var(--fill)] px-2.5 py-2 text-center">
@@ -139,7 +150,7 @@ function Boards() {
       {file && (
         <FootNote>
           {t(LEFT_OUT_NOTE)}{" "}
-          {t("Figures are per 100 g as sold, from each shop's own website (read up to {date}); a product sold at several shops shows every shop's logo. Not affiliated with any supermarket.", { date: formatDate(file.checkedOn, t) })}
+          {t("Figures are per 100 g as sold, from each shop's own website (read up to {date}); a product sold at several shops shows every shop's logo with its shelf price there, the cheapest in bold. Prices vary by store. Not affiliated with any supermarket.", { date: formatDate(file.checkedOn, t) })}
         </FootNote>
       )}
     </div>

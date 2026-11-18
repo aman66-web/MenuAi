@@ -3142,3 +3142,7 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   never one over another (CLAUDE.md rule 2). Own-brand products (Tesco Chia Seeds, ASDA Chia Seeds) are different products with their own labels and stay
   their own rows; The Chia Co seeds are sold only at Sainsbury's in our lists. 12 leaderboard unit tests pass; e2e leaderboards 3/3.
 - Held back: Morrisons 111611373 (protein printed "5, g"); Waitrose: 2 mixed boxes with one item's table, 13 teas whose per-100 g table is the brewed drink.
+- **Prices on the boards** (founder: "You should also reference the price too"): under each shop's logo on a board row, that shop's shelf price for the
+  product ("In store" where the shop's website prints none: M&S's everyday range, Lidl); with several shops priced, the cheapest in bold. VoiceOver reads
+  "Sold at Asda: £2.00, Sainsbury's: £2.00 and Waitrose: £2.20". The page's note says the prices are shelf prices and vary by store. e2e leaderboards 3/3.
+- Held back: 9 more Iceland pages (5 water mineral tables, 3 drinks with only energy, a Coke Zero whose salt per 250 ml and per 100 ml disagree).
