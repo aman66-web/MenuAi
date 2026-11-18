@@ -371,6 +371,9 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
             {totals.notCounted.length > 0 && (
               <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{totals.notCounted.length === 1 ? t("Herbs, spices and salt don't have to carry a nutrition label, and we have none for {name}, so it isn't counted in these numbers.", { name: t(totals.notCounted[0]!).toLowerCase() }) : t("Herbs, spices and salt don't have to carry a nutrition label, and we have none for {names}, so they aren't counted in these numbers.", { names: totals.notCounted.map((n) => t(n).toLowerCase()).join(", ") })}</p>
             )}
+            {totals.plainSalt.length > 0 && (
+              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("Salt doesn't have to carry a nutrition label. Where the shop gives none, we count it as UK table salt labels print it: no calories, protein, carbs or fat, and 99.9 g of salt in every 100 g.")}</p>
+            )}
             {totals.govFood.length > 0 && (
               <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("Loose fruit and vegetables have no nutrition label, so the numbers for {names} are the UK government's figures for those foods (McCance and Widdowson's Composition of Foods).", { names: totals.govFood.map((n) => t(n).toLowerCase()).join(", ") })}</p>
             )}

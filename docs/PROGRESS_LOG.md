@@ -2897,3 +2897,11 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
     into the ten languages (native-speaker check still on the founder's list).
   - **Result:** recipes Asda 47 -> 115, Iceland 33 -> 123, Morrisons 145 -> 161, Waitrose 111 -> 123, M&S 10 -> 22, Aldi 30 -> 31. Asda and Iceland now pass the
     80-recipe mark for Recipes. Also: "Per 100gms" headings read (Asda's Laila black pepper now has its own label).
+- 2026-11-18 (midday, Mac) — **Salt is counted** (founder: "guess the calories fats protein etc for salt salt is always the same"; "Salt is a fundamental for
+  flavour"). A salt with no label of its own counts as UK table salt labels print it, `PLAIN_SALT` in `lib/mm/recipes.ts`: 0 kJ, 0 kcal, 0 g fat, saturates,
+  carbohydrate, sugars, fibre and protein, 99.9 g salt per 100 g, the figures printed by Aldi's British Table Salt and Cerebos Iodised Table Salt (read from
+  their shops' own pages today; Sainsbury's own salts print 97.25 g and 1 kcal). So a recipe's salt figure is whole, never blank or too low. Founder's decision
+  overriding CLAUDE.md rule 1 for this one food; pepper and dried spices stay listed but not counted. New copy on the recipe page (rule 8): "Salt doesn't have to
+  carry a nutrition label. Where the shop gives none, we count it as UK table salt labels print it: no calories, protein, carbs or fat, and 99.9 g of salt in
+  every 100 g." (AI-translated into the ten languages). Checked in the app (dev server): Asda's chicken wraps show it with COOK by ASDA Cook Sea Salt; Asda's beef
+  chilli shows the spice line for ground cumin. Recipe counts unchanged (Asda 115, Iceland 123).

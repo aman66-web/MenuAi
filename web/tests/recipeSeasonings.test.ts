@@ -21,7 +21,7 @@ describe("seasonings without a label", () => {
     }
   });
 
-  it("a labelled one comes first; an unlabelled one is listed and priced but not counted, and uncounted salt leaves the salt figure out", () => {
+  it("a labelled one comes first; an unlabelled spice is listed and priced but not counted; unlabelled salt counts as table salt is labelled", () => {
     const n = (kcal: number, salt: number | null) => ({ kcal, protein: 1, carbs: 1, fat: 1, kj: null, saturates: 0, sugars: 0, fibre: 0, salt, per: "g" as const, state: "" });
     const p = (id: string, name: string, nutrition: ShopProduct["nutrition"]) => ({ id, name, price: 1, unitPrice: 4, unit: "kg", nutrition } as unknown as ShopProduct);
     const pepperSpec = specFromKind(kind("black-pepper"), 1);
@@ -32,7 +32,9 @@ describe("seasonings without a label", () => {
     expect(candidates([p("c", "Black Pepper Crackers 200g", null)], pepperSpec)).toEqual([]);
     const recipe = { id: "t", name: "t", blurb: "", servings: 1, method: [], ingredients: [specFromKind(kind("black-pepper"), 1), specFromKind(kind("salt"), 1)] } as unknown as Recipe;
     const totals = recipeTotals(resolveRecipe(recipe, [bare, p("d", "Saxa Fine Salt 750g", null)]))!;
-    expect(totals.notCounted).toEqual(["Ground black pepper", "Salt"]);
-    expect(totals.label.salt).toBeNull();
+    expect(totals.notCounted).toEqual(["Ground black pepper"]);
+    expect(totals.plainSalt).toEqual(["Salt"]);
+    expect(totals.perServing).toEqual({ kcal: 0, protein: 0, carbs: 0, fat: 0 });
+    expect(totals.label.salt).toBe(1); // 1 g of salt at 99.9 g per 100 g
   });
 });

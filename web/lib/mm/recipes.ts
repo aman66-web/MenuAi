@@ -1,7 +1,7 @@
 import { formatInt } from "./format";
 import { PANTRY, kindExcluded, kindForDiet, type DietPrefs, type IngredientMatch, type IngredientRole, type PantryKind } from "./pantry";
 import { normalizeForSearch } from "./search";
-import { hasPrice, productKey, type PricedProduct, type ShopProduct } from "./shopProducts";
+import { hasPrice, productKey, type PricedProduct, type ShopNutrition, type ShopProduct } from "./shopProducts";
 import { LOCAL_RANGE_SHOP, LOCAL_SHOP_PRODUCTS } from "./localRange";
 
 export type { IngredientMatch } from "./pantry";
@@ -471,8 +471,10 @@ export interface RecipeTotals {
   costPerServing: number | null;
   /** Whole packs to buy (leaving out the cupboard items the person says they have). */
   basket: number;
-  /** Ingredients whose label we haven't read: listed and priced, not counted in the nutrition (their labels, in recipe order). */
+  /** Dried spices and pepper with no nutrition label: listed and priced, not counted in the nutrition (their labels, in recipe order). */
   notCounted: string[];
+  /** Salt with no nutrition label, counted as UK table salt labels print it (PLAIN_SALT; their labels, in recipe order): the recipe page says so. */
+  plainSalt: string[];
   /** Ingredients counted from community numbers for their product's barcode, not the shop's own label (ShopNutrition.community; their labels, in recipe
    *  order): the recipe page names them (founder 2026-11-17: recipes for every supermarket in the app). */
   community: string[];
@@ -484,9 +486,15 @@ export interface RecipeTotals {
  *  person says they already have (cupboard items): left out of the basket, never out of a serving's price or numbers. For a recipe cooked for more
  *  or fewer people the serving is the recipe-as-written's serving (`basis`), worked out by this very arithmetic on its own amounts; only the basket
  *  is for the amounts shown. */
+/** Salt as UK table salt labels print it, per 100 g (Aldi's British Table Salt and Cerebos Iodised Table Salt, read from their shops' own pages on 18 November
+ *  2026: 0 kJ, 0 kcal, 0 g fat, saturates, carbohydrate, sugars, fibre and protein, 99.9 g salt). A salt with no label of its own counts as this (founder
+ *  2026-11-18: "guess the calories fats protein etc for salt, salt is always the same"; "Salt is a fundamental for flavour"), so a recipe's salt figure is whole. */
+export const PLAIN_SALT: ShopNutrition = { kcal: 0, protein: 0, carbs: 0, fat: 0, saturates: 0, sugars: 0, fibre: 0, salt: 99.9, kj: 0, per: "g", state: "" };
+
 export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new Set()): RecipeTotals | null {
   if (!r.complete) return null;
   const notCounted: string[] = [];
+  const plainSalt: string[] = [];
   const community: string[] = [];
   const govFood: string[] = [];
   const sum = { kcal: 0, protein: 0, carbs: 0, fat: 0 };
@@ -500,10 +508,13 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
     if (p.usedCost === null) usedKnown = false;
     else used += p.usedCost;
     if (!r.basis && kept(p)) basket += p.basketCost;
-    const n = p.product.nutrition;
+    let n = p.product.nutrition;
+    if (!n && p.spec.pantry === "salt") {
+      n = PLAIN_SALT;
+      if (!plainSalt.includes(p.spec.label)) plainSalt.push(p.spec.label);
+    }
     if (!n) {
       notCounted.push(p.spec.label);
-      if (p.spec.pantry === "salt") more.salt = null; // salt we can't count: the serving's salt figure would be wrong, so it shows as not on every label
       continue;
     }
     if (n.community && !community.includes(p.spec.label)) community.push(p.spec.label);
@@ -527,6 +538,7 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
     costPerServing: usedKnown ? Math.round((used / s) * 100) / 100 : null,
     basket: Math.round(basket * 100) / 100,
     notCounted,
+    plainSalt,
     community,
     govFood,
   };
