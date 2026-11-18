@@ -40,14 +40,14 @@ const estimateSchema = z.object({
 export function anthropicFirstLook(apiKey: string | undefined): FirstLookAi | null {
   if (!apiKey) return null;
   const c = client(apiKey);
-  return async (system, image) => {
+  return async (system, image, note) => {
     try {
       const res = await c.messages.parse({
         model: RECIPE_MODEL,
         max_tokens: 3000,
         output_config: { effort: "medium", format: zodOutputFormat(firstLookSchema) },
         system: [{ type: "text", text: system, cache_control: { type: "ephemeral" } }],
-        messages: [{ role: "user", content: [photo(image), { type: "text", text: `What food or drink is in this photo? List at most ${MAX_ITEMS} items.` }] }],
+        messages: [{ role: "user", content: [photo(image), { type: "text", text: `${note ? `${note}\n\n` : ""}What food or drink is in this photo? List at most ${MAX_ITEMS} items.` }] }],
       });
       if (res.stop_reason === "refusal") return { status: "refused" };
       return res.parsed_output ? { status: "ok", value: res.parsed_output } : { status: "error" };

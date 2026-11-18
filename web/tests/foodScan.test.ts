@@ -139,6 +139,17 @@ describe("checking Pip's answers", () => {
   });
 });
 
+describe("what the person typed the food is (founder 2026-11-18: \"before they take a photo, they have to type in what the food is\")", () => {
+  it("is cleaned to one short line with no quote marks", async () => {
+    const { cleanDescription, describedPrompt, MAX_DESCRIPTION } = await import("../lib/mm/foodScan");
+    expect(cleanDescription('  Chicken  "korma"\nwith rice ')).toBe("Chicken korma with rice");
+    expect(cleanDescription(42)).toBe("");
+    expect(cleanDescription("a".repeat(500)).length).toBe(MAX_DESCRIPTION);
+    expect(describedPrompt("")).toBe("");
+    expect(describedPrompt("chicken korma")).toMatch(/The person typed what this is: "chicken korma"/);
+  });
+});
+
 describe("the server half", () => {
   const jpeg = `/9j/${"A".repeat(400)}`;
   const look = { status: "ok" as const, value: { isFood: true, dish: "Burger and chips", items: [{ name: "Double cheeseburger", portion: "one", search: ["cheeseburger"] }, { name: "Chips", portion: "medium", search: ["fries"] }] } };
@@ -161,12 +172,28 @@ describe("the server half", () => {
     expect(seen).toContain("McDonald's: Double Cheeseburger = 445 kcal");
   });
 
+  it("passes what the person typed the food is to both looks, cleaned (an older app that sends none still works)", async () => {
+    let lookNote: string | undefined = "unset";
+    let estimateUser = "";
+    const res = await handleFoodScan(
+      { image: jpeg, description: ' chicken "korma" with rice ' },
+      ctx({ look: async (_s, _i, note) => { lookNote = note; return look; }, estimate: async (_s, _i, user) => { estimateUser = user; return estimate; } }),
+    );
+    expect(res.status).toBe(200);
+    expect(lookNote).toBe('The person typed what this is: "chicken korma with rice". Use their words to tell what the food is and how it was made, but count only what you can see in the photo.');
+    expect(estimateUser.startsWith('The person typed what this is: "chicken korma with rice".')).toBe(true);
+    let none: string | undefined = "unset";
+    await handleFoodScan({ image: jpeg }, ctx({ look: async (_s, _i, note) => { none = note; return look; } }));
+    expect(none).toBeUndefined();
+  });
+
   it("checks the request, Premium and the limit before any AI call", async () => {
     let calls = 0;
     const counting = ctx({ look: async () => { calls++; return look; } });
     expect((await handleFoodScan({ image: "not a photo" }, counting)).status).toBe(400);
     expect((await handleFoodScan({ image: `iVBO${"A".repeat(400)}` }, counting)).status).toBe(400);
     expect((await handleFoodScan({ image: jpeg, extra: 1 }, counting)).status).toBe(400);
+    expect((await handleFoodScan({ image: jpeg, description: "x".repeat(401) }, counting)).status).toBe(400);
     expect((await handleFoodScan({ image: jpeg }, { ...counting, premium: async () => false })).status).toBe(402);
     expect((await handleFoodScan({ image: jpeg }, { ...counting, allow: () => false })).status).toBe(429);
     expect(calls).toBe(0);
