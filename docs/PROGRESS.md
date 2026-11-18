@@ -45,8 +45,8 @@ touches an earlier decision, and add new entries there, dated, at the end).
   7-day free trial, Make it at home, everyone signs in, the rating question) is archived on the Mac (`build/Numbite-1.1-build6.xcarchive`), not uploaded. The
   archive predates the 17 November grocery data changes: re-pack the web app and archive again before uploading. Apple's updated Developer Program License Agreement
   was accepted on 18 November 2026 (developer.apple.com › Account); Paid and Free Apps agreements, bank and tax all Active, so uploads are open again (none made yet).
-- **numbite.com** runs `main` at aafea749 (17 November). Branch `iap` on the Mac is ahead with: everyone signs in, sign-out and Delete my account go to the
-  welcome screen, the rating question, the grocery label work below. Not live until the founder says so.
+- **numbite.com** runs `main` at 8825833f (18 November): aafea749 plus **Scan your food's server part only** (founder's go-ahead 18 Nov, "yes i give the go ahread to scan the food"; `/api/v1/scan`, Premium only, so it answers "Premium" to everyone until `ENTITLEMENT_PRIVATE_JWK` is fixed). Branch `iap` on the Mac is ahead with: everyone signs in, sign-out and Delete my account go to the
+  welcome screen, the rating question, the grocery label work, Plan my week, leaderboards, Community off. Not live until the founder says so.
 - **Vercel:** `APPLE_XCODE_TEST_CERT` is test-only (remove after Premium testing). `ANTHROPIC_API_KEY` is set (Make it at home: Sonnet 5.5 with prompt caching;
   the food check on Haiku 5.5).
 

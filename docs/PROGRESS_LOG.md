@@ -3016,3 +3016,16 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   (`mealPlanStore`, mm.v1.mealPlan, never synced, cleared by Clear data). Checked in the browser (1,900 kcal, no mushrooms, £40: £47.00, the cheapest sensible week,
   about 1,685 kcal and 114 g protein a day; Swap and Add all work). **Not yet decided:** free or Premium (free for now); weight and goal weight are not asked:
   the daily target already comes from the person's plan in setup. **New copy:** the page's questions and lines, the Recipes card.
+
+### 18 November 2026 (evening): Scan your food's server part live; auth.numbite.com steps
+
+- **Scan your food is on numbite.com** (founder: "yes i give the go ahread to scan the food", in answer to "its server part has to go live on numbite.com, which needs
+  your go-ahead"). Only the scanner went: branch `scan-live` = origin/main aafea749 + one commit (8825833f) with `/api/v1/scan`, its handler, AI calls and reference
+  dishes, the `/app/scan` screen, tests, the privacy paragraph, the `foodScan` paywall trigger and CLAUDE.md rule 1's exception. Nothing else from `iap` (sign-in
+  required, Community off, Plan my week and the rest stay on the Mac). Vercel already had `NEXT_PUBLIC_PHOTO_RECIPES=1` and `ANTHROPIC_API_KEY`, so the route answers:
+  checked with no photo (403 without the app's origin, 400 for a bad request); no real photo was sent (it costs money and needs Premium). The website shows no Scan card
+  (Home's card is on `iap` only); the iPhone app's copy reaches the route. Everyone gets "Premium" until `ENTITLEMENT_PRIVATE_JWK` holds a real key (founder to-do).
+- **Sign-in on auth.numbite.com** (founder: "for supabase pls use my numbite.com one"): Supabase's Custom Domain add-on; the founder's steps are in
+  docs/SUPABASE_CUSTOM_DOMAIN.md (it costs money, so the founder turns it on). Afterwards Claude changes `SUPABASE_URL` and redeploys with the founder's go-ahead.
+- Held back two labels whose pages print another item's table or a figure that can't be right: Morrisons 115605237 (Cream Cake Selection, "Per éclair") and
+  M&S fdp61228304 (Daylesford Rye Sourdough Crackers, 111.6 kJ beside 265.7 kcal).
