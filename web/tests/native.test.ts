@@ -49,3 +49,13 @@ describe("native bridge", () => {
     await expect(silent).resolves.toEqual({ error: "timeout" });
   });
 });
+
+describe("session.load's answer (2026-11-18)", () => {
+  it("keeps a plain session text, drops anything too long", async () => {
+    const { cleanNativeResult } = await import("../lib/mm/native");
+    expect(cleanNativeResult({ done: true, session: '{"accessToken":"x"}' })).toEqual({ done: true, session: '{"accessToken":"x"}' });
+    expect(cleanNativeResult({ done: true })).toEqual({ done: true });
+    expect(cleanNativeResult({ done: true, session: "x".repeat(16_385) })).toEqual({ done: true });
+    expect(cleanNativeResult({ session: 7 })).toEqual({ error: "unavailable" });
+  });
+});

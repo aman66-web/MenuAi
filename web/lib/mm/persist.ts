@@ -33,6 +33,30 @@ function defaultStorage(): KeyValueStorage | null {
   }
 }
 
+/**
+ * The same store, with every change also handed to `copy` (the iPhone app keeps a copy of the sign-in in its Keychain: app/app/_lib/account.ts). Reading is
+ * unchanged.
+ */
+export function withCopy<T>(store: Store<T>, copy: (value: T) => void): Store<T> {
+  return {
+    get: () => store.get(),
+    getServerSnapshot: () => store.getServerSnapshot(),
+    subscribe: (listener) => store.subscribe(listener),
+    set(next) {
+      store.set(next);
+      copy(store.get());
+    },
+    update(fn) {
+      store.update(fn);
+      copy(store.get());
+    },
+    reset() {
+      store.reset();
+      copy(store.get());
+    },
+  };
+}
+
 export function createStore<T>(key: string, fallback: T, options: StoreOptions<T>): Store<T> {
   const storage = options.storage === undefined ? defaultStorage() : options.storage;
   const listeners = new Set<() => void>();

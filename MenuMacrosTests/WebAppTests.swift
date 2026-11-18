@@ -124,6 +124,38 @@ struct BridgeMessageTests {
     }
 }
 
+/// The account's sign-in kept in the Keychain (Services/SessionStore.swift; founder 2026-11-18: "It always goes to this screen whenever you do the new build").
+struct SessionStoreTests {
+    @Test @MainActor func thePageCanKeepReadAndForgetItsSession() async {
+        let store = InMemorySessionStore()
+        let bridge = NativeBridge(
+            scanner: FakeBarcodeScanner(), location: FakeLocationService(), sharer: FakeShareService(), appleSignIn: FakeAppleSignIn(), webSignIn: FakeWebSignIn(),
+            notifications: FakeNotificationScheduler(), purchases: FakePurchaseService(), session: store
+        )
+        #expect(await bridge.handle(.sessionLoad(id: "a")) == BridgeReply(done: true))
+        #expect(await bridge.handle(.sessionSave(id: "b", value: #"{"accessToken":"x"}"#)) == BridgeReply(done: true))
+        #expect(store.load() == #"{"accessToken":"x"}"#)
+        #expect(await bridge.handle(.sessionLoad(id: "c")) == BridgeReply(done: true, session: #"{"accessToken":"x"}"#))
+        #expect(await bridge.handle(.sessionSave(id: "d", value: nil)) == BridgeReply(done: true))
+        #expect(store.load() == nil)
+    }
+
+    @Test func onlyAPlainStringOrNullIsKept() {
+        #expect(BridgeRequest(body: ["id": "a", "action": "session.load"]) == .sessionLoad(id: "a"))
+        #expect(BridgeRequest(body: ["id": "a", "action": "session.save", "payload": ["value": "abc"]]) == .sessionSave(id: "a", value: "abc"))
+        #expect(BridgeRequest(body: ["id": "a", "action": "session.save", "payload": ["value": NSNull()]]) == .sessionSave(id: "a", value: nil))
+        #expect(BridgeRequest(body: ["id": "a", "action": "session.save", "payload": [:] as [String: Any]]) == .sessionSave(id: "a", value: nil))
+        #expect(BridgeRequest(body: ["id": "a", "action": "session.save", "payload": ["value": 42]]) == nil)
+        #expect(BridgeRequest(body: ["id": "a", "action": "session.save", "payload": ["value": ""]]) == nil)
+        #expect(BridgeRequest(body: ["id": "a", "action": "session.save", "payload": ["value": String(repeating: "x", count: BridgeRequest.maxSessionLength + 1)]]) == nil)
+    }
+
+    @Test func theReplyCarriesTheSession() throws {
+        let script = try #require(BridgeReply(done: true, session: #"{"a":1}"#).script(for: "s-1"))
+        #expect(script.contains(#""session":"{\"a\":1}""#))
+    }
+}
+
 /// The small secrets sign-in needs, and reading where the secure browser sheet finished (docs/ACCOUNTS_SYNC.md).
 struct SignInTests {
     @Test func theFingerprintMatchesTheRFC7636Example() {

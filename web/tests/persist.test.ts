@@ -78,3 +78,21 @@ describe("sanitizers", () => {
     expect(sanitizeFavorites([{ chainId: "a", addedAt: "2026-10-05" }, { nope: true }])).toHaveLength(1);
   });
 });
+
+describe("withCopy (the iPhone app's Keychain copy of the sign-in, 2026-11-18)", () => {
+  it("hands every change to the copy and reads as before", async () => {
+    const { createStore, withCopy } = await import("../lib/mm/persist");
+    const mem = new Map<string, string>();
+    const storage = { getItem: (k: string) => mem.get(k) ?? null, setItem: (k: string, v: string) => void mem.set(k, v), removeItem: (k: string) => void mem.delete(k) };
+    const base = createStore<number | null>("t.copy", null, { sanitize: (v) => (typeof v === "number" ? v : null), storage });
+    const copies: Array<number | null> = [];
+    const store = withCopy(base, (v) => copies.push(v));
+    store.set(1);
+    store.update((v) => (v ?? 0) + 1);
+    store.reset();
+    expect(copies).toEqual([1, 2, null]);
+    base.set(5); // a change made straight to the store underneath is not copied (restoring from the copy uses that)
+    expect(store.get()).toBe(5);
+    expect(copies).toEqual([1, 2, null]);
+  });
+});

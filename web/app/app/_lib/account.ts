@@ -3,7 +3,8 @@
 import { useSyncExternalStore } from "react";
 import { API_BASE, APP_BUILD } from "@/lib/mm/config";
 import { cleanUser, createAccountApi, sanitizeStoredSession, type AccountApi, type AccountUser, type StoredSession } from "@/lib/mm/account";
-import { createStore } from "@/lib/mm/persist";
+import { hasNative, nativeCall } from "@/lib/mm/native";
+import { createStore, withCopy } from "@/lib/mm/persist";
 import { EMPTY_META, SyncEngine, sanitizeMeta, type SyncStatus } from "@/lib/mm/sync";
 import { createSyncAdapters } from "@/lib/mm/syncStores";
 import { communityCacheStore } from "./communityCache";
@@ -18,7 +19,33 @@ const isUser = (u: unknown): u is AccountUser =>
   typeof u === "object" && u !== null && typeof (u as AccountUser).id === "string" && (typeof (u as AccountUser).email === "string" || (u as AccountUser).email === null);
 
 export const userStore = createStore<AccountUser | null>("mm.v1.account", null, { sanitize: (raw) => (isUser(raw) ? cleanUser(raw) : null) });
-const tokensStore = createStore<StoredSession | null>("mm.v1.session", null, { sanitize: sanitizeStoredSession });
+const localTokens = createStore<StoredSession | null>("mm.v1.session", null, { sanitize: sanitizeStoredSession });
+// The iPhone app also keeps the session in its Keychain (founder 2026-11-18: "It always goes to this screen whenever you do the new build"): the web view's
+// storage can lose its newest writes when iOS ends the app at once (an install, an update, a crash), and a renewed session lost that way meant the old one
+// was refused and the person was signed out. Every change is copied to the Keychain (MenuMacros/Services/SessionStore.swift), which bootAccount reads first.
+const keepInKeychain = (session: StoredSession | null) => {
+  if (APP_BUILD && hasNative()) void nativeCall("session.save", { value: session ? JSON.stringify(session) : null }, 5_000);
+};
+const tokensStore = withCopy(localTokens, keepInKeychain);
+
+/** The iPhone app's Keychain copy of the session, put back in place before anything asks who is signed in; an app set up before the copy existed fills it. */
+async function restoreKeychainSession(): Promise<void> {
+  if (!APP_BUILD || !hasNative()) return;
+  const reply = await nativeCall("session.load", {}, 3_000);
+  if (reply.error) return; // no answer: carry on with what the page has
+  let kept: StoredSession | null = null;
+  try {
+    kept = reply.session ? sanitizeStoredSession(JSON.parse(reply.session)) : null;
+  } catch {
+    kept = null;
+  }
+  const local = localTokens.get();
+  if (kept) {
+    if (JSON.stringify(kept) !== JSON.stringify(local)) localTokens.set(kept);
+  } else if (local) {
+    keepInKeychain(local);
+  }
+}
 export const syncMetaStore = createStore("mm.v1.syncMeta", EMPTY_META, { sanitize: sanitizeMeta });
 
 let api: AccountApi | null = null;
@@ -129,7 +156,7 @@ const RETURNING = typeof window !== "undefined" && new URLSearchParams(window.lo
 
 // While the app finds out who is signed in and nobody is known yet (just back from Google or Apple, or the iPhone app holds a session the device has no name
 // for), the sign-in screen waits instead of flashing up (lib/mm/signInGate.ts).
-let checking = typeof window !== "undefined" && !userStore.get() && (RETURNING || (APP_BUILD && !!tokensStore.get()));
+let checking = typeof window !== "undefined" && !userStore.get() && (RETURNING || (APP_BUILD && (!!tokensStore.get() || hasNative())));
 const checkingListeners = new Set<() => void>();
 function doneChecking(): void {
   if (!checking) return;
@@ -142,6 +169,7 @@ let booted = false;
 export async function bootAccount(): Promise<void> {
   if (booted || typeof window === "undefined") return;
   booted = true;
+  await restoreKeychainSession();
   // Someone who never signed in sends the server nothing: ask only if this device already knows an account, the iPhone app holds a session,
   // or the browser has just come back from Google or Apple sign-in (the callback adds ?signin=ok).
   if (!userStore.get() && !RETURNING && !(APP_BUILD && tokensStore.get())) return doneChecking();

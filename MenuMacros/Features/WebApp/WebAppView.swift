@@ -12,7 +12,7 @@ struct WebAppView: UIViewRepresentable {
     var link: LinkInbox.Request?
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(bridge: NativeBridge(scanner: environment.scanner, location: environment.location, sharer: environment.sharer, appleSignIn: environment.appleSignIn, webSignIn: environment.webSignIn, notifications: environment.notifications, purchases: environment.purchases))
+        Coordinator(bridge: NativeBridge(scanner: environment.scanner, location: environment.location, sharer: environment.sharer, appleSignIn: environment.appleSignIn, webSignIn: environment.webSignIn, notifications: environment.notifications, purchases: environment.purchases, session: environment.session))
     }
 
     func makeUIView(context: Context) -> WKWebView {

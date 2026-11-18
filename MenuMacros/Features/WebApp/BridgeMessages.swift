@@ -24,6 +24,12 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
     case iapManage(id: String)
     /// Apple's own "rate this app" pop-up (StoreKit's requestReview); Apple decides whether it actually appears (at most three times a year).
     case requestReview(id: String)
+    /// The account's sign-in, kept in the Keychain (Services/SessionStore.swift) so killing the app can't lose it: read it, or keep a new one (nil forgets it).
+    case sessionLoad(id: String)
+    case sessionSave(id: String, value: String?)
+
+    /// The longest session text the page may hand over (Supabase's tokens are about 2 KB together).
+    static let maxSessionLength = 16_384
 
     /// The most product ids one `iap.products` request may list (there are three products; anything longer is not a real request).
     static let maxProductIDs = 20
@@ -32,7 +38,8 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
         switch self {
         case .scan(let id), .locate(let id, _), .share(let id, _), .appleSignIn(let id), .webAuth(let id, _),
              .notificationPermission(let id), .notificationStatus(let id), .syncReminders(let id, _), .openNotificationSettings(let id), .hideKeyboard(let id),
-             .iapProducts(let id, _), .iapPurchase(let id, _), .iapEntitlements(let id), .iapRestore(let id), .iapManage(let id), .requestReview(let id): id
+             .iapProducts(let id, _), .iapPurchase(let id, _), .iapEntitlements(let id), .iapRestore(let id), .iapManage(let id), .requestReview(let id),
+             .sessionLoad(let id), .sessionSave(let id, _): id
         }
     }
 
@@ -82,6 +89,17 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
             self = .iapManage(id: id)
         case "review.request":
             self = .requestReview(id: id)
+        case "session.load":
+            self = .sessionLoad(id: id)
+        case "session.save":
+            // a string to keep, or null to forget; anything else (or too long) is ignored
+            if payload["value"] is NSNull || payload["value"] == nil {
+                self = .sessionSave(id: id, value: nil)
+            } else if let value = payload["value"] as? String, !value.isEmpty, value.count <= Self.maxSessionLength {
+                self = .sessionSave(id: id, value: value)
+            } else {
+                return nil
+            }
         default:
             return nil
         }
@@ -144,6 +162,8 @@ nonisolated struct BridgeReply: Codable, Equatable, Sendable {
     var products: [IAPProduct]?
     var transactions: [String]?
     var pending: Bool?
+    /// "session.load": the saved session text ("session.load" with nothing saved answers `done` without it).
+    var session: String?
     var error: String?
 
     static func failure(_ reason: String) -> BridgeReply { BridgeReply(error: reason) }
