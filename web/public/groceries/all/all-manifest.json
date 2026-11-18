@@ -7,11 +7,11 @@
    "file": "sainsburys.json",
    "count": 15309,
    "checkedOn": "2026-10-08",
-   "nutrition": 13766,
-   "community": 189,
-   "sameProduct": 5,
+   "nutrition": 13808,
+   "community": 188,
+   "sameProduct": 6,
    "priced": 15309,
-   "sha256": "520fa79198eaf65ce428c12eef0fe899900d9235a4819b99ee2258ffbdc87fa6"
+   "sha256": "52a8a7d67fe85a4436e98d71ed599b8961218704034a8f1803dc05f1c6cd193b"
   },
   {
    "id": "tesco",
@@ -19,11 +19,11 @@
    "file": "tesco.json",
    "count": 6079,
    "checkedOn": "2026-10-09",
-   "nutrition": 1367,
+   "nutrition": 1382,
    "community": 585,
-   "sameProduct": 517,
+   "sameProduct": 532,
    "priced": 6079,
-   "sha256": "5d659a885e761e3f0160c43025954f360f2ea0359192a6ebda2d07452944e3f1"
+   "sha256": "15c121298838e44890cb99bfafd897ed29dcfbec3ddcc9ee5125ab9142a0c750"
   },
   {
    "id": "asda",
@@ -31,11 +31,11 @@
    "file": "asda.json",
    "count": 10512,
    "checkedOn": "2026-10-08",
-   "nutrition": 8081,
-   "community": 5581,
-   "sameProduct": 1206,
+   "nutrition": 8277,
+   "community": 5579,
+   "sameProduct": 1214,
    "priced": 10512,
-   "sha256": "a5c3fe966e05b91d65ab145b24fbfa0711e842dacc5b1d5aeab86a28d072764b"
+   "sha256": "0a9c0c1263c72fcca30afd37002ad522e773e9b149e24eba1dd31d7c8b6bff29"
   },
   {
    "id": "aldi",
@@ -43,10 +43,10 @@
    "file": "aldi.json",
    "count": 3207,
    "checkedOn": "2026-10-08",
-   "nutrition": 1388,
+   "nutrition": 1597,
    "community": 1,
    "priced": 3207,
-   "sha256": "a1115f14d20962827de3bdf6cccab378e85cecaaf7adbd0f689efd0c64d7cbeb"
+   "sha256": "8f573291fbe1b966a38cfcc4aa327cbb103237f28075f90e8c1bfce5a9233916"
   },
   {
    "id": "lidl",
@@ -64,11 +64,11 @@
    "file": "morrisons.json",
    "count": 16372,
    "checkedOn": "2026-10-08",
-   "nutrition": 4417,
+   "nutrition": 4736,
    "community": 653,
-   "sameProduct": 1213,
+   "sameProduct": 1234,
    "priced": 16372,
-   "sha256": "9d6c2285e6cf73ecd17fda241b0741f3e472458700284d6d58d615bd38c87644"
+   "sha256": "7beae44707bd7c50ffd3e3ee1297e71ad616ed76441770ca981a5a3f3decce0c"
   },
   {
    "id": "waitrose",
@@ -76,11 +76,11 @@
    "file": "waitrose.json",
    "count": 9723,
    "checkedOn": "2026-10-08",
-   "nutrition": 2554,
+   "nutrition": 2843,
    "community": 232,
-   "sameProduct": 670,
+   "sameProduct": 678,
    "priced": 9723,
-   "sha256": "0b1a5cc1d63c62b9cff7f489321e2e74ae4fa1249bddea36e929c9f18ddaa0c2"
+   "sha256": "e7ce5bbd10f9bbb0505ee8da55fac1b15084727611fc18f1945d885058400748"
   },
   {
    "id": "iceland",
@@ -88,11 +88,11 @@
    "file": "iceland.json",
    "count": 5962,
    "checkedOn": "2026-10-09",
-   "nutrition": 2836,
+   "nutrition": 3041,
    "community": 759,
-   "sameProduct": 459,
+   "sameProduct": 465,
    "priced": 5962,
-   "sha256": "6fa0b36cacfd7527de1cb7ad7db55bd2ae3136bae4da8a3a018a00620427d591"
+   "sha256": "a0fc7e33e0eb59081e2da12756a8a46d84be07596ffdd407d3a6f2f608aa733e"
   },
   {
    "id": "marks-and-spencer",
@@ -100,9 +100,9 @@
    "file": "marks-and-spencer.json",
    "count": 6141,
    "checkedOn": "2026-10-08",
-   "nutrition": 1878,
+   "nutrition": 2185,
    "priced": 5498,
-   "sha256": "171b69d7b4a369a68091c10a89fe19903a8cf6ebf783447c38d4d7d89de283c8"
+   "sha256": "16c578b7815d09eaf814274a243d3189cbcc073d792d317006edfc72560e673b"
   }
  ]
 }
