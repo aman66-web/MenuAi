@@ -74,15 +74,20 @@ def words(s: str) -> set[str]:
 
 
 def thousands(text: str) -> str:
-    """A thousands separator taken out ("1,222.9 kJ" -> "1222.9 kJ", as Aldi prints energy); a comma between other figures is left alone."""
-    return re.sub(r"(?<!\d)(\d{1,3}),(\d{3})(?!\d)", r"\1\2", text or "")
+    """A thousands separator taken out ("1,222.9 kJ" -> "1222.9 kJ", as Aldi prints energy), then a decimal comma read as a point ("Fat 1,5g" -> "1.5g", as
+    labels printed for several countries do; before 18 November 2026 these were cut at the comma, "1,5" read as 1). "0,125" is a decimal, never a thousand."""
+    text = re.sub(r"(?<![\d,.])([1-9]\d{0,2}),(\d{3})(?![\d,])", r"\1\2", text or "")
+    return re.sub(r"(?<![\d,.])(\d+),(\d{1,3})(?![\d,])", r"\1.\2", text)
 
 
 def printed(cell: str) -> str | None:
     """The first number in a cell exactly as printed, with a leading "<" kept ("<0.5"); None when there is none."""
+    if re.search(r"\d\s*[-–]\s*\d", cell or ""):
+        return None  # a range ("Protein 0-1g") is not one figure
     m = NUM.search(thousands(cell))
     if not m:
-        return None
+        # "nil" is how some labels print none at all ("Fat nil")
+        return "0" if re.fullmatch(r"\s*nil\s*(g|mg)?\s*", cell or "", re.I) else None
     return ("<" if m.group(1) else "") + m.group(2)
 
 
@@ -108,6 +113,9 @@ def read_table(rec: dict) -> tuple[dict | None, str]:
     header = rows[0]
     col, per = None, None
     for i, h in enumerate(header):
+        # the first column holds the row names, even when its heading says "Typical values per 100g" (Sainsbury's fruit)
+        if i == 0 and len(header) > 1:
+            continue
         m = re.search(r"100\s*(g|ml)\b", h, re.I)
         if m and not re.search(r"%|\bri\b|reference", h, re.I):
             col, per = i, m.group(1).lower()
@@ -122,7 +130,7 @@ def read_table(rec: dict) -> tuple[dict | None, str]:
     st = STATE.search(header[col])
     state = st.group(1).lower() if st else ""
     out = {"per": per, "state": state, "kj": None, "kcal": None}
-    keys = [("saturates_g", r"saturate"), ("sugars_g", r"sugar"), ("fat_g", r"^\W*fat"), ("carbs_g", r"carbohydrate"), ("fibre_g", r"fibre|fiber"), ("protein_g", r"protein|protien"), ("salt_g", r"^\W*salt")]
+    keys = [("saturates_g", r"saturate"), ("sugars_g", r"sugar"), ("fat_g", r"^\W*(?:total )?fat"), ("carbs_g", r"carbohydrate"), ("fibre_g", r"fibre|fiber"), ("protein_g", r"protein|protien"), ("salt_g", r"^\W*salt")]
     last_energy = False
     for r in rows[1:]:
         if len(r) <= col:
@@ -136,7 +144,8 @@ def read_table(rec: dict) -> tuple[dict | None, str]:
             out["kcal"] = out["kcal"] or kc
             last_energy = False
             continue
-        if re.search(r"energy", label, re.I) or (last_energy and not label.strip() and re.search(r"kcal|kj", cell, re.I)):
+        # the second energy row may be headed only by its unit ("- kcal" on Morrisons, "kcal" on Sainsbury's oils)
+        if re.search(r"energy", label, re.I) or (last_energy and (not label.strip() or re.fullmatch(r"\W*(kcal|kj)\W*", label, re.I)) and re.search(r"kcal|kj|^\s*<?\d", cell + " " + label, re.I)):
             kj, kc = energy([cell], label)
             out["kj"] = out["kj"] or kj
             out["kcal"] = out["kcal"] or kc

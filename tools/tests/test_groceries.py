@@ -1307,3 +1307,40 @@ class AlcoholNamedTests(unittest.TestCase):
             self.assertTrue(B.not_food(name), name)
         for name in ["Splenda Granulated Low Calorie Sweetener Canister 125g", "Nutmeg Organic Vegetable Paella Baby Food 12M+ 100g", "Yarden Houmous Prestige 250g"]:
             self.assertFalse(B.not_food(name), name)
+
+
+class ChromeIngestReadingTests(unittest.TestCase):
+    """labels_chrome_ingest.py reads the figures exactly as printed (decimal commas, "nil", ranges, Sainsbury's fruit tables)."""
+
+    def test_decimal_commas_and_thousands(self):
+        import labels_chrome_ingest as I
+        self.assertEqual(I.printed("1,5g"), "1.5")
+        self.assertEqual(I.printed("<0,5 g"), "<0.5")
+        self.assertEqual(I.printed("0,125 g"), "0.125")
+        self.assertEqual(I.printed("1,222.9 kJ"), "1222.9")
+        self.assertEqual(I.energy(["83,3 kJ (19,6 kcal)"], ""), ("83.3", "19.6"))
+        self.assertEqual(I.energy(["1,490kJ/351kcal"], ""), ("1490", "351"))
+
+    def test_nil_and_ranges(self):
+        import labels_chrome_ingest as I
+        self.assertEqual(I.printed("nil"), "0")
+        self.assertIsNone(I.printed("0-1g"))
+        self.assertIsNone(I.printed("Trace"))
+
+    def test_fruit_table_whose_first_heading_names_100g(self):
+        import labels_chrome_ingest as I
+        t, why = I.read_table({"nut": [["Typical values per 100g", "100g contains", "%Reference Intake Per 100 g/ml"], ["Energy", "83kJ", "1%"], ["", "20kcal", "1%"],
+                                       ["Fat", "<0.5g", "<1%"], ["Carbohydrate", "3.2g", "1%"], ["Protein", "1.0g", "2%"]], "above": ""})
+        self.assertEqual((t["kj"], t["kcal"], t["fat_g"], t["carbs_g"], t["protein_g"]), ("83", "20", "<0.5", "3.2", "1.0"))
+
+    def test_total_fats_row(self):
+        import labels_chrome_ingest as I
+        t, _ = I.read_table({"nut": [["Typical Values", "per 100ml"], ["Energy", "83,3 kJ (19,6 kcal)"], ["Total fats", "0 g"], ["Carbohydrates", "4,9 g"], ["Protein", "0g"]], "above": ""})
+        self.assertEqual((t["kcal"], t["fat_g"], t["carbs_g"]), ("19.6", "0", "4.9"))
+
+    def test_second_energy_row_named_by_its_unit(self):
+        import labels_chrome_ingest as I
+        t, _ = I.read_table({"nut": [["Typical Values", "100g Provides:"], ["Energy - kJ", "1176kJ"], ["- kcal", "283kcal"], ["Fat", "23g"]], "above": ""})
+        self.assertEqual((t["kj"], t["kcal"]), ("1176", "283"))
+        t, _ = I.read_table({"nut": [["", "per 100 ml"], ["Energy kJ", "3378"], ["kcal", "822"], ["Fat of which: g", "91.3"]], "above": ""})
+        self.assertEqual((t["kj"], t["kcal"], t["fat_g"]), ("3378", "822", "91.3"))
