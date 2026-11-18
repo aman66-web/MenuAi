@@ -362,6 +362,8 @@ export interface ShoppingItem {
   done?: true;
   /** The product's picture as it was when it was added (founder 2026-10-15: "the image should be next to it too"): one place a picture can come from, checked again whenever it is read back. */
   photo?: PhotoSource;
+  /** The id of the extra list it is on (ShoppingList.id, founder 2026-11-18: "an option to create multiple shopping lists"); absent = the main "Shopping list". */
+  list?: string;
 }
 
 export const MAX_SHOPPING_ITEMS = 200;
@@ -391,10 +393,17 @@ function untick(x: ShoppingItem): ShoppingItem {
   return y;
 }
 
-/** Tick an item off (in the basket) or back on. */
-export function toggleDone(list: readonly ShoppingItem[], code: string, retailer: string): ShoppingItem[] {
+/** Which list an item is on: its extra list's id, or "" for the main "Shopping list". */
+export const listOf = (i: Pick<ShoppingItem, "list">): string => i.list ?? "";
+
+/** The same entry: the same product (or typed words) for the same shop on the same list. One product can be on two lists. */
+export const sameEntry = (a: Pick<ShoppingItem, "gtin" | "shopId" | "custom" | "name" | "retailer" | "list">, b: Pick<ShoppingItem, "gtin" | "shopId" | "custom" | "name" | "retailer" | "list">): boolean =>
+  itemCode(a) === itemCode(b) && a.retailer === b.retailer && listOf(a) === listOf(b);
+
+/** Tick an item off (in the basket) or back on. `listId` is the list it is on ("" or absent = the main list). */
+export function toggleDone(list: readonly ShoppingItem[], code: string, retailer: string, listId = ""): ShoppingItem[] {
   return list.map((x) => {
-    if (itemCode(x) !== code || x.retailer !== retailer) return x;
+    if (itemCode(x) !== code || x.retailer !== retailer || listOf(x) !== listId) return x;
     return x.done ? untick(x) : { ...x, done: true as const };
   });
 }
@@ -402,23 +411,132 @@ export function toggleDone(list: readonly ShoppingItem[], code: string, retailer
 /** The list without the items ticked off. */
 export const withoutDone = (list: readonly ShoppingItem[]): ShoppingItem[] => list.filter((x) => !x.done);
 
-/** Adding the same product for the same retailer again raises its quantity (by `qty`, default 1). */
+/** An item as it is kept: no `list` key at all when it is on the main list (so an item on the main list is exactly what it was before there were lists). */
+function placed<I extends { list?: string }>(item: I): I {
+  if (item.list) return item;
+  const { list: _list, ...rest } = item; // eslint-disable-line @typescript-eslint/no-unused-vars
+  return rest as I;
+}
+
+/**
+ * Adding the same product for the same retailer to the same list again raises its quantity (by `qty`, default 1). The list it goes on is `item.list`
+ * (absent or "" = the main list): `addToList(l, { ...item, list: listForShop(settings, shop) })` puts it on the person's newest list for that shop.
+ */
 export function addToList(list: readonly ShoppingItem[], item: Omit<ShoppingItem, "qty" | "addedAt">, now = new Date(), qty = 1): ShoppingItem[] {
-  const code = itemCode(item);
   const add = Math.max(1, Math.floor(qty));
-  const i = list.findIndex((x) => itemCode(x) === code && x.retailer === item.retailer);
+  const i = list.findIndex((x) => sameEntry(x, item));
   // adding it again raises the quantity, and gives an item added before pictures were kept the picture it was missing
   if (i >= 0) return list.map((x, j) => (j === i ? { ...untick(x), qty: Math.min(MAX_QTY, x.qty + add), ...(!x.photo && item.photo ? { photo: item.photo } : {}) } : x));
   if (list.length >= MAX_SHOPPING_ITEMS) return [...list];
-  return [...list, { ...item, qty: Math.min(MAX_QTY, add), addedAt: now.toISOString() }];
+  return [...list, placed({ ...item, qty: Math.min(MAX_QTY, add), addedAt: now.toISOString() })];
 }
 
-/** `code` is the item's barcode, or its shop product id when it has no barcode (itemCode). */
-export function setQty(list: readonly ShoppingItem[], code: string, retailer: string, qty: number): ShoppingItem[] {
-  const same = (x: ShoppingItem) => itemCode(x) === code && x.retailer === retailer;
+/** `code` is the item's barcode, or its shop product id when it has no barcode (itemCode). `listId`: the list it is on ("" = the main list). */
+export function setQty(list: readonly ShoppingItem[], code: string, retailer: string, qty: number, listId = ""): ShoppingItem[] {
+  const same = (x: ShoppingItem) => itemCode(x) === code && x.retailer === retailer && listOf(x) === listId;
   if (qty <= 0) return list.filter((x) => !same(x));
   return list.map((x) => (same(x) ? { ...x, qty: Math.min(MAX_QTY, Math.floor(qty)) } : x));
 }
+
+/**
+ * Swap an item for another product (founder 2026-11-18: "they can always swap out ingredients when they're at the supermarket and they can't find something"):
+ * the new product takes the old one's place on the same list, with the same quantity, not ticked. When the new product is already on that list, the old
+ * one's quantity is added to it instead.
+ */
+export function swapItem(list: readonly ShoppingItem[], from: ShoppingItem, to: Omit<ShoppingItem, "qty" | "addedAt" | "list">): ShoppingItem[] {
+  const i = list.findIndex((x) => sameEntry(x, from));
+  if (i < 0) return [...list];
+  const old = list[i]!;
+  const next: ShoppingItem = placed({ ...untick({ ...(to as ShoppingItem) }), list: old.list, qty: old.qty, addedAt: old.addedAt });
+  if (sameEntry(next, old)) return list.map((x, j) => (j === i ? untick(x) : x));
+  const j = list.findIndex((x, k) => k !== i && sameEntry(x, next));
+  if (j >= 0) return list.flatMap((x, k) => (k === i ? [] : k === j ? [{ ...untick(x), qty: Math.min(MAX_QTY, x.qty + old.qty) }] : [x]));
+  return list.map((x, k) => (k === i ? next : x));
+}
+
+// ---------------------------------------------------------------- more than one list (founder 2026-11-18)
+
+/**
+ * An extra shopping list, for one shop ("M&S", "M&S 2"): the person's settings keep these (UserSettings.shoppingLists, synced with the other settings), and
+ * each item says which one it is on (ShoppingItem.list). The main "Shopping list" is not one of these: it is every item with no `list`, for any shop.
+ */
+export interface ShoppingList {
+  id: string;
+  /** The supermarket it is for (a retailer id). */
+  shop: string;
+  /** "M&S", then "M&S 2" for a second list for the same shop. */
+  name: string;
+}
+
+export const MAX_SHOPPING_LISTS = 20;
+/** A list id is 6 to 12 letters and digits (newListId makes 8), so "main" (the main list, in an address) is never one. */
+const LIST_ID = /^[a-z0-9]{6,12}$/;
+export const MAIN_LIST = "main";
+const LIST_SHOP = /^[a-z][a-z0-9-]{1,29}$/;
+const MAX_LIST_NAME = 40;
+export const isListId = (v: unknown): v is string => typeof v === "string" && LIST_ID.test(v);
+
+/** The lists as read back from storage or the sync server: well-formed ones only, each id once, at most MAX_SHOPPING_LISTS. */
+export function sanitizeShoppingLists(raw: unknown): ShoppingList[] {
+  if (!Array.isArray(raw)) return [];
+  const out: ShoppingList[] = [];
+  for (const r of raw) {
+    const x = r as Partial<ShoppingList> | null;
+    if (!x || typeof x !== "object" || !isListId(x.id) || typeof x.shop !== "string" || !LIST_SHOP.test(x.shop) || typeof x.name !== "string") continue;
+    const name = x.name.replace(/\s+/g, " ").trim().slice(0, MAX_LIST_NAME);
+    if (!name || out.some((o) => o.id === x.id)) continue;
+    out.push({ id: x.id, shop: x.shop, name });
+    if (out.length >= MAX_SHOPPING_LISTS) break;
+  }
+  return out;
+}
+
+/**
+ * The lists to show: the person's own, then any list an item says it is on that the settings don't have (the settings and the items sync separately, so
+ * one can arrive before the other): those are named after their shop, so their items are never hidden.
+ */
+export function knownLists(lists: readonly ShoppingList[] | undefined, items: readonly ShoppingItem[]): ShoppingList[] {
+  const out = [...(lists ?? [])];
+  for (const i of items) {
+    if (!i.list || out.some((l) => l.id === i.list)) continue;
+    const shop = items.find((x) => x.list === i.list && x.retailer !== CUSTOM_RETAILER)?.retailer ?? CUSTOM_RETAILER;
+    out.push({ id: i.list, shop, name: shop === CUSTOM_RETAILER ? englishT("Any shop") : retailerName(shop) });
+  }
+  return out;
+}
+
+/** The lists for one shop, oldest first. */
+export const listsForShop = (lists: readonly ShoppingList[] | undefined, shop: string): ShoppingList[] => (lists ?? []).filter((l) => l.shop === shop);
+
+/** The list a product from `shop` goes on by default: the person's newest list for that shop, or undefined for the main "Shopping list". */
+export function listForShop(settings: { shoppingLists?: readonly ShoppingList[] }, shop: string): string | undefined {
+  return listsForShop(settings.shoppingLists, shop).at(-1)?.id;
+}
+
+/** A new list's name: the shop's name, then "{shop} 2", "{shop} 3" (the lowest number not in use). */
+export function nextListName(lists: readonly ShoppingList[], shopName: string): string {
+  const names = new Set(lists.map((l) => l.name.toLowerCase()));
+  if (!names.has(shopName.toLowerCase())) return shopName;
+  for (let n = 2; ; n++) if (!names.has(`${shopName} ${n}`.toLowerCase())) return `${shopName} ${n}`;
+}
+
+/** A short id no other list has (8 letters and digits). */
+export function newListId(taken: readonly string[], random: () => number = Math.random): string {
+  for (;;) {
+    let id = "";
+    while (id.length < 8) id += "abcdefghijklmnopqrstuvwxyz0123456789"[Math.floor(random() * 36) % 36];
+    if (!taken.includes(id)) return id;
+  }
+}
+
+/** A new list for `shop`, named after it ("M&S", then "M&S 2"), or null when the person already has MAX_SHOPPING_LISTS. */
+export function newShoppingList(lists: readonly ShoppingList[], shop: string, shopName: string, random: () => number = Math.random): ShoppingList | null {
+  if (lists.length >= MAX_SHOPPING_LISTS || !LIST_SHOP.test(shop)) return null;
+  return { id: newListId(lists.map((l) => l.id), random), shop, name: nextListName(lists, shopName.trim().slice(0, MAX_LIST_NAME - 3) || retailerName(shop)) };
+}
+
+/** The items on one list ("" = the main list). */
+export const itemsOnList = (items: readonly ShoppingItem[], listId: string): ShoppingItem[] => items.filter((x) => listOf(x) === listId);
 
 export function sanitizeShoppingList(raw: unknown): ShoppingItem[] {
   if (!Array.isArray(raw)) return [];
@@ -437,6 +555,7 @@ export function sanitizeShoppingList(raw: unknown): ShoppingItem[] {
         ...(typeof x.price === "number" && Number.isFinite(x.price) && x.price > 0 && x.price < 1000 ? { price: Math.round(x.price * 100) / 100 } : {}),
         ...(typeof x.checkedOn === "string" && /^\d{4}-\d{2}-\d{2}$/.test(x.checkedOn) ? { checkedOn: x.checkedOn } : {}),
         ...(!custom && validPhoto(x.photo) ? { photo: validPhoto(x.photo)! } : {}),
+        ...(isListId(x.list) ? { list: x.list } : {}),
       });
     }
   }

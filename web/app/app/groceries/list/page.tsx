@@ -1,20 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { addToList, customItem, CUSTOM_RETAILER, formatPrice, groupName, itemCode, listAsText, listTotals, setQty, toggleDone, withoutDone, type ShoppingItem } from "@/lib/mm/groceries";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { addToList, customItem, CUSTOM_RETAILER, formatPrice, groupName, itemCode, itemsOnList, knownLists, listAsText, listOf, listTotals, MAIN_LIST, newShoppingList, sameEntry, setQty, swapItem, toggleDone, type ShoppingItem } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
 import { tk } from "@/lib/mm/i18n";
 import { nextToBuy } from "@/lib/mm/listRecipes";
 import { decodePayload, encodeEntries, payloadFrom, SHARE_PROBLEM, SHARED_APP_PATH, shareUrl, toEntries } from "@/lib/mm/shareList";
-import { shoppingStore } from "@/lib/mm/stores";
+import { settingsStore, shoppingStore } from "@/lib/mm/stores";
 import { site } from "@/site.config";
-import { ArrowRightIcon, BasketIcon, CheckIcon, CopyIcon, MinusIcon, PlusIcon, PotIcon, ShareIcon } from "../../_components/icons";
+import { ArrowRightIcon, BasketIcon, CheckIcon, CopyIcon, MinusIcon, PlusIcon, PotIcon, ShareIcon, SwapIcon, TrashIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
 import { SendToFriend } from "../../_components/SendToFriend";
-import { Button, EmptyIcon, EmptyState, LinkButton, Sheet } from "../../_components/ui";
-import { useHydrated, useStore } from "../../_lib/hooks";
+import { Button, EmptyIcon, EmptyState, LinkButton, Sheet, Spinner } from "../../_components/ui";
+import { useHydrated, useSettings, useStore } from "../../_lib/hooks";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { useListPhotos } from "../../_lib/listPhotos";
 import { addedNote, addMissing, useListRecipes } from "../../_lib/listRecipes";
@@ -26,6 +26,9 @@ import { ListThumb } from "../ProductPhoto";
 import { ProductMini } from "../ProductMini";
 import { RecipeThumb, RecipeThumbStack, hasRecipePicture } from "../../recipes/RecipeThumb";
 import { shopPhotoSources } from "@/lib/mm/shopProducts";
+import { listHref } from "../ListChoice";
+import { NewListSheet } from "./NewListSheet";
+import { SwapSheet } from "./SwapSheet";
 
 // "Shopping list" (founder 2026-10-10, renamed from "My groceries" 2026-10-11): the shopping list, on this device only. Type anything in ("Milk"), or add products from Groceries and
 // recipes; tick things off as they go in the basket. At the top: the recipes this list can make, and what one of them still needs. Share or
@@ -33,13 +36,36 @@ import { shopPhotoSources } from "@/lib/mm/shopProducts";
 // Looks follow Home (founder 2026-10-15): the compact title, a white pill to type in with a black Add pill, "What can I cook with this?" as the
 // one lime tile on the screen, each shop's items under a small capital label in one white card (rows divided by a fine line, like a recipe's
 // ingredients), each with a round tick and grey round − and + buttons.
+// More than one list (founder 2026-11-18: "an option to create multiple shopping lists ... for different shops ... and multiple of the same shop itself"): the
+// main "Shopping list" is every item with no list of its own, for any shop, exactly as before; "+ New list" asks which shop and makes a list for it ("M&S",
+// "M&S 2"). With any extra list, big chips at the top pick the list shown (kept in the address, ?l=<id>). A list for one shop shows its items, its total and
+// "Add more from {shop}", and can be deleted. Each product row has "Swap" (founder 2026-11-18: swap something you can't find at the supermarket).
 
 export default function ShoppingListPage() {
+  // the list shown comes from ?l=, so one cached page opens any of them
+  return (
+    <Suspense fallback={<Spinner />}>
+      <ShoppingListScreen />
+    </Suspense>
+  );
+}
+
+function ShoppingListScreen() {
   const t = useT();
   const poss = usePossessive();
   const router = useRouter();
   const hydrated = useHydrated();
-  const list = useStore(shoppingStore);
+  const all = useStore(shoppingStore);
+  const settings = useSettings();
+  const asked = useSearchParams().get("l");
+  const lists = useMemo(() => knownLists(settings.shoppingLists, all), [settings.shoppingLists, all]);
+  /** The id of the extra list shown, or "" for the main "Shopping list" (also when ?l= names a list that no longer exists). */
+  const listId = asked && lists.some((l) => l.id === asked) ? asked : "";
+  const current = lists.find((l) => l.id === listId) ?? null;
+  const list = useMemo(() => itemsOnList(all, listId), [all, listId]);
+  const [creating, setCreating] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const [swapping, setSwapping] = useState<ShoppingItem | null>(null);
   const [note, setNote] = useState<string | null>(null);
   const [typed, setTyped] = useState("");
   const [suggestNote, setSuggestNote] = useState<string | null>(null);
@@ -49,13 +75,19 @@ export default function ShoppingListPage() {
   useEffect(() => () => { if (undoTimer.current) clearTimeout(undoTimer.current); }, []);
   const { state, matches } = useListRecipes(list);
   const photosOf = useListPhotos(list);
-  const lists = useShopManifest();
+  const manifest = useShopManifest();
   /** Where "Add more from {shop}" goes: that shop's own list of products, or (a shop with no list) the page that asks which shop. */
-  const shopHref = (retailer: string) => (lists && !lists.retailers.some((r) => r.id === retailer) ? "/app/groceries" : `/app/groceries/shop?r=${encodeURIComponent(retailer)}`);
+  const shopHref = (retailer: string) => (manifest && !manifest.retailers.some((r) => r.id === retailer) ? "/app/groceries" : `/app/groceries/shop?r=${encodeURIComponent(retailer)}`);
+  /** Swap needs the shop's own list of products: every shop product, unless the shops' list says this shop has none. */
+  const canSwap = (i: ShoppingItem) => !i.custom && i.retailer !== CUSTOM_RETAILER && (!manifest || manifest.retailers.some((r) => r.id === i.retailer));
+  // the main list by shop, as before; a list for one shop is one card under its name (anything typed onto it included)
   const groups = new Map<string, ShoppingItem[]>();
-  for (const i of list) groups.set(i.retailer, [...(groups.get(i.retailer) ?? []), i]);
+  for (const i of list) {
+    const key = current ? current.shop : i.retailer;
+    groups.set(key, [...(groups.get(key) ?? []), i]);
+  }
   const ticked = list.filter((i) => i.done).length;
-  const suggestion = matches ? nextToBuy(matches) : null;
+  const suggestion = matches && !current ? nextToBuy(matches) : null;
 
   /**
    * What is sent (founder 2026-10-15: a friend gets a link that opens the list, and says to get the app): a line saying whose list, the items as plain words
@@ -102,12 +134,42 @@ export default function ShoppingListPage() {
     e.preventDefault();
     const item = customItem(typed);
     if (!item) return;
-    shoppingStore.update((l) => addToList(l, item));
+    shoppingStore.update((l) => addToList(l, { ...item, list: listId || undefined })); // onto the list shown
     setTyped("");
     setNote(t("Added “{name}”.", { name: item.name }));
   };
-  /** The same item: the key the rows already use (its code and its shop). */
-  const sameItem = (a: ShoppingItem, b: ShoppingItem) => itemCode(a) === itemCode(b) && a.retailer === b.retailer;
+  /** The same item: its code, its shop and its list. */
+  const sameItem = sameEntry;
+  /** "+ New list": a list for the shop chosen, named after it ("M&S", then "M&S 2"), opened at once. */
+  const createList = (shop: { id: string; name: string }) => {
+    const made = newShoppingList(lists, shop.id, shop.name);
+    if (!made) return;
+    settingsStore.update((s) => ({ ...s, shoppingLists: [...(s.shoppingLists ?? []), made] }));
+    setCreating(false);
+    setNote(t("Made a new list: {list}.", { list: made.name }));
+    router.replace(listHref(made.id), { scroll: false });
+  };
+  /** "Delete this list": the list and everything on it (asked first), then the main list. */
+  const deleteList = () => {
+    if (!current) return;
+    const { id, name } = current;
+    shoppingStore.update((l) => l.filter((x) => listOf(x) !== id));
+    settingsStore.update((s) => {
+      const rest = (s.shoppingLists ?? []).filter((l) => l.id !== id);
+      return { ...s, shoppingLists: rest.length ? rest : undefined };
+    });
+    setDeleting(false);
+    setNote(t("Deleted {list}.", { list: name }));
+    router.replace(listHref(), { scroll: false });
+  };
+  /** Swap: the chosen product takes the item's place on the same list, with the same quantity, not ticked. */
+  const swapTo = (to: Omit<ShoppingItem, "qty" | "addedAt" | "list">) => {
+    const from = swapping;
+    setSwapping(null);
+    if (!from) return;
+    shoppingStore.update((l) => swapItem(l, from, to));
+    setNote(t("Swapped for “{name}”.", { name: to.name }));
+  };
   /** Runs `apply` and, when it took items off the list, offers Undo for 8 seconds. */
   const withUndo = (key: string, values: Record<string, string> | undefined, apply: () => void) => {
     const before = shoppingStore.get();
@@ -140,6 +202,28 @@ export default function ShoppingListPage() {
       <h1 className={`mt-5 ${TITLE}`}>{t("Shopping list")}</h1>
       <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Your shopping list. Tick things off as they go in your basket.")}</p>
 
+      {/* the lists (only once there is more than the main one): big chips that wrap at large text; "+ New list" is always there */}
+      {hydrated && (
+        <nav aria-label={t("Your shopping lists")} className="mt-5 flex flex-wrap gap-2">
+          {lists.length > 0 && (
+            <>
+              <Link href={listHref()} replace scroll={false} aria-current={!current ? "page" : undefined} className={listChip(!current)}>
+                <BasketIcon className="h-5 w-5 shrink-0" /><span className="min-w-0 [overflow-wrap:anywhere]">{t("Shopping list")}</span>
+              </Link>
+              {lists.map((l) => (
+                <Link key={l.id} href={listHref(l.id)} replace scroll={false} aria-current={current?.id === l.id ? "page" : undefined} className={listChip(current?.id === l.id)}>
+                  <ShopMark shopId={l.shop} size="xs" /><span className="min-w-0 [overflow-wrap:anywhere]">{l.name}</span>
+                </Link>
+              ))}
+            </>
+          )}
+          <button type="button" onClick={() => setCreating(true)} className="glass inline-flex min-h-12 max-w-full items-center gap-2 rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-[0.97] hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+            <span aria-hidden className="bg-sun inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-on-accent"><PlusIcon className="h-4 w-4" strokeWidth={3} /></span>
+            <span className="min-w-0 [overflow-wrap:anywhere]">{t("New list")}</span>
+          </button>
+        </nav>
+      )}
+
       {/* the field takes the row and Add sits beside it; at large text, when both no longer fit, Add moves under the field across its width */}
       <form onSubmit={addTyped} className="mt-5 flex flex-wrap gap-2.5">
         <label className="min-w-0 flex-[999_1_13rem]">
@@ -151,13 +235,16 @@ export default function ShoppingListPage() {
       <p role="status" aria-live="polite" className="mt-2 min-h-5 ps-1 text-sm font-medium text-accent">{note}</p>
       <button type="button" onClick={() => { setPastedProblem(null); setOpening(true); }} className="-ms-1 inline-flex min-h-11 items-center rounded-full px-3 text-[0.9375rem] font-semibold text-accent underline decoration-[color-mix(in_srgb,var(--accent)_40%,transparent)] underline-offset-[3px] transition active:scale-[0.97]">{t("Got a list from a friend? Open it")}</button>
 
-      {!hydrated ? null : list.length === 0 ? (
+      {!hydrated ? null : list.length === 0 && current ? (
+        <div className="mt-2"><EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Nothing on {list} yet.", { list: current.name })} body={t("Add products from {shop}, or type what you need above.", { shop: groupName(current.shop, t) })} action={current.shop !== CUSTOM_RETAILER ? <Link href={shopHref(current.shop)} className="inline-flex min-h-11 items-center rounded-full bg-foreground px-5 text-[15px] font-bold text-background transition active:scale-[0.97]">{t("Add products from {shop}", { shop: groupName(current.shop, t) })}</Link> : undefined} /></div>
+      ) : list.length === 0 ? (
         <div className="mt-2"><EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Your list is empty.")} body={t("Type what you need above, or add products from Groceries and recipes.")} action={<div className="flex flex-wrap justify-center gap-2.5"><Link href="/app/groceries" className="inline-flex min-h-11 items-center rounded-full bg-foreground px-5 text-[15px] font-bold text-background transition active:scale-[0.97]">{t("Browse groceries")}</Link><Link href="/app/recipes" className="glass inline-flex min-h-11 items-center rounded-full px-5 text-[15px] font-semibold transition active:scale-[0.97] hover:bg-soft-strong">{t("See recipes")}</Link></div>} /></div>
       ) : (
         <>
           {/* At the top, as asked: what this list can make (its own products, matched by the recipes' rules). The one lime tile on the screen. */}
           {/* at large text the round pot steps aside (a container query) so the words keep their room */}
-          <Link href="/app/groceries/list/recipes" className="bg-sun lift group @container mt-2 flex min-h-[4.75rem] items-center gap-3.5 rounded-[1.25rem] p-3.5 text-on-accent">
+          {/* for the list shown (with lists of their own, the main list alone is ?l=main) */}
+          <Link href={lists.length > 0 ? `/app/groceries/list/recipes?l=${encodeURIComponent(current ? current.id : MAIN_LIST)}` : "/app/groceries/list/recipes"} className="bg-sun lift group @container mt-2 flex min-h-[4.75rem] items-center gap-3.5 rounded-[1.25rem] p-3.5 text-on-accent">
             {/* the pictures of the first recipes it finds (founder 2026-11-17: "Use images please when possible"); the pot while it looks, or when none matches */}
             {matches && matches.some((m) => hasRecipePicture(m.recipe.id))
               ? <span className="hidden @[19rem]:inline-flex"><RecipeThumbStack recipes={matches.slice(0, 3).map((m) => m.recipe)} ring="ring-[color:var(--sun)]" moreClass="hidden @[22rem]:block" /></span>
@@ -174,9 +261,10 @@ export default function ShoppingListPage() {
           {[...groups.entries()].map(([retailer, items]) => {
             const totals = listTotals(items);
             const sorted = [...items.filter((i) => !i.done), ...items.filter((i) => i.done)];
+            const heading = current ? current.name : groupName(retailer, t);
             return (
-              <section key={retailer} aria-label={groupName(retailer, t)} className="mt-8">
-                <h2 className="kicker mb-3 flex min-h-7 items-center gap-2.5 ps-1">{retailer !== CUSTOM_RETAILER && <ShopMark shopId={retailer} size="xs" />}{groupName(retailer, t)}</h2>
+              <section key={retailer} aria-label={heading} className="mt-8">
+                <h2 className="kicker mb-3 flex min-h-7 items-center gap-2.5 ps-1 [overflow-wrap:anywhere]">{retailer !== CUSTOM_RETAILER && <ShopMark shopId={retailer} size="xs" />}{heading}</h2>
                 <ul className={`${CARD} overflow-hidden`}>
                   {sorted.map((i) => {
                     const code = itemCode(i);
@@ -190,13 +278,13 @@ export default function ShoppingListPage() {
                     );
                     const thumb = <ListThumb sources={photosOf(i)} />;
                     return (
-                      <li key={code + i.retailer} className="relative flex min-h-[4.5rem] items-start gap-x-1.5 px-2 py-2 pe-2.5 before:pointer-events-none before:absolute before:end-0 before:start-[3.25rem] before:top-0 before:h-px before:bg-[var(--line)] first:before:hidden">
+                      <li key={`${code}|${i.retailer}`} className="relative flex min-h-[4.5rem] items-start gap-x-1.5 px-2 py-2 pe-2.5 before:pointer-events-none before:absolute before:end-0 before:start-[3.25rem] before:top-0 before:h-px before:bg-[var(--line)] first:before:hidden">
                         <button
                           type="button"
                           role="checkbox"
                           aria-checked={!!i.done}
                           aria-label={i.done ? t("{name}: in the basket", { name: i.name }) : t("{name}: still to get", { name: i.name })}
-                          onClick={() => shoppingStore.update((l) => toggleDone(l, code, i.retailer))}
+                          onClick={() => shoppingStore.update((l) => toggleDone(l, code, i.retailer, listId))}
                           className="mt-2.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95"
                         >
                           <span aria-hidden className={`inline-flex h-[1.625rem] w-[1.625rem] items-center justify-center rounded-full border-2 transition ${i.done ? "bg-sun border-transparent text-on-accent" : "border-[color-mix(in_srgb,var(--foreground)_28%,transparent)]"}`}>{i.done && <CheckIcon className="h-[15px] w-[15px]" strokeWidth={3} />}</span>
@@ -207,10 +295,18 @@ export default function ShoppingListPage() {
                           {href ? <Link href={href} tabIndex={-1} aria-hidden className="shrink-0">{thumb}</Link> : thumb}
                           <div className="min-w-0 flex-1">
                             {href ? <Link href={href} className="block py-0.5">{body}</Link> : <div className="py-0.5">{body}</div>}
-                            <div className="mt-1 flex items-center justify-end">
-                              <button type="button" aria-label={t("One fewer {name}", { name: i.name })} onClick={() => (i.qty <= 1 ? withUndo(tk("Removed “{name}” from your list."), { name: i.name }, () => shoppingStore.update((l) => setQty(l, code, i.retailer, 0))) : shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty - 1)))} className={qtyButton}><span aria-hidden className={qtyCircle}><MinusIcon className="h-[18px] w-[18px]" /></span></button>
-                              <span className="app-numbers w-7 text-center font-mono text-base" aria-label={t("Quantity {n}", { n: i.qty })}>{i.qty}</span>
-                              <button type="button" aria-label={t("One more {name}", { name: i.name })} onClick={() => shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty + 1))} className={qtyButton}><span aria-hidden className={qtyCircle}><PlusIcon className="h-[18px] w-[18px]" /></span></button>
+                            {/* "Swap" (a shop's product only: something similar at the same shop takes its place) at the start, − and + at the end; at large text they wrap */}
+                            <div className="mt-1 flex flex-wrap items-center justify-end gap-x-1 gap-y-1">
+                              {canSwap(i) && (
+                                <button type="button" onClick={() => setSwapping(i)} aria-label={t("Swap {name}", { name: i.name })} className="me-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-[var(--fill)] px-3.5 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-soft-strong">
+                                  <SwapIcon className="h-4 w-4" />{t("Swap")}
+                                </button>
+                              )}
+                              <div className="flex items-center">
+                                <button type="button" aria-label={t("One fewer {name}", { name: i.name })} onClick={() => (i.qty <= 1 ? withUndo(tk("Removed “{name}” from your list."), { name: i.name }, () => shoppingStore.update((l) => setQty(l, code, i.retailer, 0, listId))) : shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty - 1, listId)))} className={qtyButton}><span aria-hidden className={qtyCircle}><MinusIcon className="h-[18px] w-[18px]" /></span></button>
+                                <span className="app-numbers w-7 text-center font-mono text-base" aria-label={t("Quantity {n}", { n: i.qty })}>{i.qty}</span>
+                                <button type="button" aria-label={t("One more {name}", { name: i.name })} onClick={() => shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty + 1, listId))} className={qtyButton}><span aria-hidden className={qtyCircle}><PlusIcon className="h-[18px] w-[18px]" /></span></button>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -244,15 +340,15 @@ export default function ShoppingListPage() {
               </section>
             );
           })}
-          {/* and a way to another shop: the page that asks "Which shop?" */}
-          <LinkButton href="/app/groceries" variant="secondary" full className="mt-8 min-h-12"><BasketIcon className="h-5 w-5" />{[...groups.keys()].some((r) => r !== CUSTOM_RETAILER) ? t("Add from another shop") : t("Add products from a shop")}</LinkButton>
-          <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.5rem),1fr))] gap-2.5">
+          {/* and a way to another shop: the page that asks "Which shop?" (not on a list for one shop) */}
+          {!current && <LinkButton href="/app/groceries" variant="secondary" full className="mt-8 min-h-12"><BasketIcon className="h-5 w-5" />{[...groups.keys()].some((r) => r !== CUSTOM_RETAILER) ? t("Add from another shop") : t("Add products from a shop")}</LinkButton>}
+          <div className={`${current ? "mt-8" : "mt-3"} grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.5rem),1fr))] gap-2.5`}>
             <Button className="min-h-12" onClick={share}><ShareIcon className="h-5 w-5" />{t("Share list")}</Button>
             <Button variant="secondary" className="min-h-12" onClick={copy}><CopyIcon className="h-5 w-5" />{t("Copy")}</Button>
             {/* to a friend who has the app (Community, founder 2026-10-16): lands in their Shared with you; needs an account, the rest of this page does not */}
             <SendToFriend list={list} onSent={setNote} />
-            {ticked > 0 && <Button variant="secondary" className="min-h-12" onClick={() => { withUndo(tk("Ticked items removed."), undefined, () => shoppingStore.update(withoutDone)); setNote(null); }}>{t("Remove ticked ({n})", { n: ticked })}</Button>}
-            <Button variant="ghost" className={`min-h-12 ${ticked > 0 ? "" : "col-span-full"}`} onClick={() => { withUndo(tk("List cleared."), undefined, () => shoppingStore.set([])); setNote(null); }}>{t("Clear list")}</Button>
+            {ticked > 0 && <Button variant="secondary" className="min-h-12" onClick={() => { withUndo(tk("Ticked items removed."), undefined, () => shoppingStore.update((l) => l.filter((x) => listOf(x) !== listId || !x.done))); setNote(null); }}>{t("Remove ticked ({n})", { n: ticked })}</Button>}
+            <Button variant="ghost" className={`min-h-12 ${ticked > 0 ? "" : "col-span-full"}`} onClick={() => { withUndo(tk("List cleared."), undefined, () => shoppingStore.update((l) => l.filter((x) => listOf(x) !== listId))); setNote(null); }}>{t("Clear list")}</Button>
           </div>
           <p className="mt-3 px-1 text-sm leading-snug text-muted">{t("Sharing sends a link that holds your list, so anyone who has it can see it.")}</p>
           {suggestion && state?.status === "ready" && (
@@ -287,6 +383,13 @@ export default function ShoppingListPage() {
         </>
       )}
 
+      {/* a quiet way to delete a list of the person's own, at the foot (asked first: it says how many items go with it) */}
+      {hydrated && current && (
+        <div className="mt-8 flex justify-center">
+          <Button variant="ghost" className="min-h-12" onClick={() => setDeleting(true)}><TrashIcon className="h-5 w-5" />{t("Delete this list")}</Button>
+        </div>
+      )}
+
       {undo && (
         // Outside the empty-list branch (Clear list empties it), and at the top, clear of the rows' − and + and the tab bar, like Home's "Added" bar
         <div role="status" className="fixed inset-x-4 top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-[1.75rem] bg-foreground py-1.5 ps-5 pe-2 text-background shadow-lg">
@@ -306,6 +409,29 @@ export default function ShoppingListPage() {
           <Button type="submit" full className="min-h-12 text-base" disabled={!pasted.trim()}>{t("Open the list")}</Button>
         </form>
       </Sheet>
+
+      <NewListSheet open={creating} onClose={() => setCreating(false)} onPick={createList} lists={lists} />
+      <SwapSheet item={swapping} onClose={() => setSwapping(null)} onSwap={swapTo} moreHref={shopHref} />
+      <Sheet open={deleting} onClose={() => setDeleting(false)} title={t("Delete this list?")}>
+        {current && (
+          <div className="space-y-4 pb-2 pt-1">
+            <p className="text-base leading-snug [overflow-wrap:anywhere]">
+              {list.length === 0 ? t("{list} has nothing on it. Deleting it can't be undone.", { list: current.name })
+                : list.length === 1 ? t("This deletes {list} and the 1 item on it. It can't be undone.", { list: current.name })
+                : t("This deletes {list} and the {n} items on it. It can't be undone.", { list: current.name, n: list.length })}
+            </p>
+            <div className="grid gap-2.5">
+              <Button variant="danger" full className="min-h-12 text-base" onClick={deleteList}><TrashIcon className="h-5 w-5" />{t("Delete the list")}</Button>
+              <Button variant="secondary" full className="min-h-12 text-base" onClick={() => setDeleting(false)}>{t("Keep it")}</Button>
+            </div>
+          </div>
+        )}
+      </Sheet>
     </div>
   );
+}
+
+/** A list's chip at the top: big (48 px), wrapping its words at large text; the one shown is the dark one. */
+function listChip(on: boolean): string {
+  return `inline-flex min-h-12 max-w-full items-center gap-2 rounded-full border ps-2.5 pe-4 text-[0.9375rem] font-semibold leading-snug transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "border-transparent bg-foreground text-background" : "border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] bg-transparent hover:bg-soft-strong"}`;
 }

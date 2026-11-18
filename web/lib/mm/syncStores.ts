@@ -21,19 +21,25 @@ const descending = <T>(entries: ReadonlyArray<{ item: T; t: number }>, when: (x:
   [...entries].sort(byTime(when as (x: never) => string, -1)).map((e) => e.item);
 
 /** The settings that follow the person from device to device. */
-export const SYNCED_SETTING_KEYS = ["goal", "dailyCalories", "dailyProtein", "dailyCarbs", "dailyFat", "dailyWater", "hasSetTargets", "glp1MealCap", "preferences", "hasCompletedOnboarding", "shops", "recipeMeal"] as const;
+export const SYNCED_SETTING_KEYS = ["goal", "dailyCalories", "dailyProtein", "dailyCarbs", "dailyFat", "dailyWater", "hasSetTargets", "glp1MealCap", "preferences", "hasCompletedOnboarding", "shops", "recipeMeal", "shoppingLists"] as const;
 
 /**
  * The synced settings a person can leave empty (a typed target, the shops, the recipe fit). `pickSettings` leaves an empty one out of what is sent, so
  * a device that takes the account's settings must also let go of its own copy of those, or a target cleared on one device would come back from another.
  */
-const OPTIONAL_SYNCED_KEYS = ["dailyProtein", "dailyCarbs", "dailyFat", "dailyWater", "shops", "recipeMeal"] as const satisfies readonly (typeof SYNCED_SETTING_KEYS)[number][];
+const OPTIONAL_SYNCED_KEYS = ["dailyProtein", "dailyCarbs", "dailyFat", "dailyWater", "shops", "recipeMeal", "shoppingLists"] as const satisfies readonly (typeof SYNCED_SETTING_KEYS)[number][];
 
 function pickSettings(s: UserSettings): Record<string, unknown> {
   const out: Record<string, unknown> = {};
   for (const k of SYNCED_SETTING_KEYS) if (s[k] !== undefined) out[k] = s[k];
   return out;
 }
+
+/**
+ * A shopping list item's id across devices: "<shop>|<code>" on the main list (as before there were lists, so an older app keeps the same ids), and
+ * "<list>|<shop>|<code>" on an extra list, so the same product on two lists is two items. "" (not synced) when it has no code.
+ */
+export const shoppingSyncId = (i: ShoppingItem): string => (!itemCode(i) ? "" : i.list ? `${i.list}|${i.retailer}|${itemCode(i)}` : `${i.retailer}|${itemCode(i)}`);
 
 /** The stores a device has (the real ones in the browser, separate ones in tests). */
 export interface SyncStores {
@@ -92,7 +98,7 @@ export const createSyncAdapters = (stores: SyncStores): Adapter[] => [
     name: "shopping",
     kind: "set",
     store: stores.shopping,
-    id: (i) => (itemCode(i) ? `${i.retailer}|${itemCode(i)}` : ""),
+    id: shoppingSyncId,
     order: (e) => ascending(e, (i) => i.addedAt),
     sanitize: sanitizeShoppingList,
   }),
