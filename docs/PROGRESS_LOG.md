@@ -3029,3 +3029,24 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   docs/SUPABASE_CUSTOM_DOMAIN.md (it costs money, so the founder turns it on). Afterwards Claude changes `SUPABASE_URL` and redeploys with the founder's go-ahead.
 - Held back two labels whose pages print another item's table or a figure that can't be right: Morrisons 115605237 (Cream Cake Selection, "Per éclair") and
   M&S fdp61228304 (Daylesford Rye Sourdough Crackers, 111.6 kJ beside 265.7 kcal).
+
+### 18 November 2026 (evening, later): the guided tour on the real screens; Scan your food crops to the frame and knows food on screens
+
+- **Pip's tips on the real screens** (founder: "commit the guided tour ill try it like i want a guided tour of what everything does", answering "'Look around first':
+  a guided tour inside the app, or always show the current tour?"). After the welcome screens, the first visit to Home, Eat out, Groceries and Recipes dims the
+  page and lights one real control at a time (lime ring) with a card: Pip, "Tip n of m", a title and one plain sentence, Next/Done and "Stop the tips"
+  (app/app/_components/CoachMarks.tsx, coachSteps.ts; lib/mm/coach.ts). A modal dialog (nothing behind is tapped by mistake, focus on the tip, Escape = Done); it
+  waits for the tab's controls and for other sheets (the trial offer waits for it in turn), scrolls each control into view and shows the card once the page is
+  still, on the screen at every text size. Each tab's tips show once; "Stop the tips" stops them, and setting up again doesn't bring them back; Settings › Help ›
+  "Show me the buttons on each screen" always does. Kept on the phone only (`mm.v1.coach`), reset by Clear data and Reset onboarding. People set up before
+  today see none unless they ask in Settings. The welcome tour's rows now match the screens (Settings pill, Scan your food, leaderboards, Plan my week, My
+  recipes). e2e/coach.mjs (4 steps, axe, large text); older e2e start with the tips stopped; tour.mjs now counts four stops (it still said five since Community went off).
+- **Scan your food, after the founder's first try** (a dish on a website): the photo taken was the camera's whole wide picture, more than the screen showed
+  ("it should only be the frame that the person scanned"); now only the part under the corner marks is taken (lib/mm/photoCrop.ts, Make it at home too). And Pip
+  said it couldn't recognise food: the first look now counts a dish on a screen, menu, advert or pack as food and describes only the one in the middle; the
+  estimate takes one ordinary serving. The prompt change went live on numbite.com (main 368f832e, the same scanner go-ahead); the crop reaches the phone with
+  the next install.
+- Asda: every page read (the reader's list came back empty). Held back more mixed-pack and odd labels (holdback.csv): Asda 9408715, M&S fdp60608783, six
+  Volvic waters at Waitrose whose Energy has no unit.
+- Tesco: the founder asked three more times to restart Tesco after its security page ("im the one who is looking at the page so its fine"); declined again
+  (carrying on after a cleared check gets round Tesco's bot check, whoever watches). Fresh start tomorrow; a security page stops it for that day.
