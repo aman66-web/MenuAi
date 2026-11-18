@@ -37,7 +37,7 @@
     ingredients = clean(el ? el.textContent : "");
     // text that is really the nutrition table (some shops put both under one heading) is not an ingredients list
     if (/energy|kcal|typical values/i.test(ingredients.slice(0, 200))) ingredients = "";
-    ingredients = ingredients.slice(0, 1500);
+    ingredients = ingredients.slice(0, 1600);
   }
   // the allergens as the shop marks them (founder 2026-11-17: "also the allergens"): the words it prints in bold inside the ingredients (UK labels emphasise the 14
   // allergens), and the text of its own "Allergy information" / "Allergens" / "May contain" section, as printed (folded sections included); "" / [] when none
@@ -66,7 +66,9 @@
         drainedWeight: p.drainedWeight || null, contains: p.allergenContains || null, mayContain: p.allergenMayContain || null }).replace(/&/g, " and ").replace(/[?=]/g, " "));
     } catch (e) { iceland = null; }
   }
-  if (mode === "ing") return JSON.stringify({ want, host, part: "ing", ingredients });
+  // the browser tool cuts a result off at about 1,000 characters: the ingredients come back in two halves of at most 800
+  if (mode === "ing") return JSON.stringify({ want, host, part: "ing", ingredients: ingredients.slice(0, 800) });
+  if (mode === "ing2") return JSON.stringify({ want, host, part: "ing2", ingredients: ingredients.slice(800, 1600) });
   // Iceland's record comes back in a third call ("ice"), so the main result stays short enough never to be cut off
   if (mode === "ice") return JSON.stringify({ want, host, part: "ice", iceland });
   return JSON.stringify({ want, host, part: "main", id, h1: h1.slice(0, 90), blocked, nut, above: above.trim().slice(0, 120), bold: bold.slice(0, 14), allergy, mayContain, ingLen: ingredients.length, checked_on: new Date().toISOString().slice(0, 10) });

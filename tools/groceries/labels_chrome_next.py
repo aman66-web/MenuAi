@@ -118,6 +118,7 @@ def harvest(days: float = 4) -> str:
     """Copy reader v2 results from the transcripts of the last few days into raw-<shop>/chrome.jsonl (new pages only). Returns a one-line summary."""
     import time
     parts: dict[tuple[str, str], dict] = {}
+    seen: dict[tuple[str, str], int] = {}  # how many times each page's main result came back (a page read 3 times is kept with what came back whole)
     blocked: dict[str, set] = {}
     cutoff = time.time() - days * 86400
     for path in TRANSCRIPTS.glob("**/*.jsonl"):
@@ -138,7 +139,7 @@ def harvest(days: float = 4) -> str:
                 for text in _texts(node):
                     for r in _results(text):
                         shop, want = HOSTS.get(str(r.get("host", ""))), r.get("want")
-                        if not shop or not isinstance(want, str) or not want or r.get("part") not in ("main", "ing", "ice"):
+                        if not shop or not isinstance(want, str) or not want or r.get("part") not in ("main", "ing", "ing2", "ice"):
                             continue
                         if r["part"] == "main":
                             if "nut" not in r or "checked_on" not in r:
@@ -146,9 +147,11 @@ def harvest(days: float = 4) -> str:
                             if r.get("blocked"):
                                 blocked.setdefault(shop, set()).add(want)
                                 continue
-                        elif r["part"] == "ing" and not isinstance(r.get("ingredients"), str):
+                        elif r["part"] in ("ing", "ing2") and not isinstance(r.get("ingredients"), str):
                             continue
                         parts.setdefault((shop, want), {})[r["part"]] = r
+                        if r["part"] == "main":
+                            seen[(shop, want)] = seen.get((shop, want), 0) + 1
     added: dict[str, int] = {}
     done = {}
     for (shop, want), got in sorted(parts.items()):
@@ -159,15 +162,16 @@ def harvest(days: float = 4) -> str:
             done[shop] = done_ids(shop)
         if want in done[shop]:
             continue
-        ing = got.get("ing")
-        if (main.get("ingLen") or 0) > 0 and not ing:
-            continue  # its ingredients didn't come back whole: offered again
-        if shop == "iceland" and "ice" not in got:
+        text = (got.get("ing") or {}).get("ingredients", "") + (got.get("ing2") or {}).get("ingredients", "")
+        tries = seen.get((shop, want), 0)
+        if len(text) < (main.get("ingLen") or 0) and tries < 3:
+            continue  # its ingredients didn't come back whole: offered again (at most three times)
+        if shop == "iceland" and "ice" not in got and tries < 3:
             continue  # Iceland's embedded record didn't come back whole: offered again
         rec = {k: v for k, v in main.items() if k not in ("part", "want", "host", "ingLen")}
         rec["pageId"], rec["id"] = main.get("id"), want
-        rec["ingredients"] = ing["ingredients"] if ing else ""
-        if (main.get("ingLen") or 0) > len(rec["ingredients"]):
+        rec["ingredients"] = text
+        if (main.get("ingLen") or 0) > len(text):
             rec["ingredientsCut"] = True
         raw = ROOT / "data" / "groceries" / "nutrition" / f"raw-{shop}" / "chrome.jsonl"
         raw.parent.mkdir(parents=True, exist_ok=True)
@@ -264,6 +268,8 @@ def main() -> int:
                 actions += [{"name": "navigate", "input": {"url": url, "tabId": tab}}, {"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": code.replace("WANT", want)}}]
                 if short:
                     actions.append({"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": ing_code.replace("WANT", want)}})
+                if short:
+                    actions.append({"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": ing_code.replace("WANT", want).replace('("ing"', '("ing2"')}})
                 if short and shop == "iceland":
                     actions.append({"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": ing_code.replace("WANT", want).replace('("ing"', '("ice"')}})
             out += 1
