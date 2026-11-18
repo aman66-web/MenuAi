@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
-import { MAX_WISH, pantryLines, recipeFromAi, recipeToSaved, type Meal, type RecipeRequest } from "@/lib/mm/aiRecipe";
+import { MAX_SAVED_RECIPES, MAX_WISH, keepMadeRecipe, pantryLines, recipeFromAi, type Meal, type RecipeRequest } from "@/lib/mm/aiRecipe";
 import { mealSlotFor } from "@/lib/mm/budget";
 import { AI_RECIPES_ENABLED } from "@/lib/mm/config";
 import { tk } from "@/lib/mm/i18n";
@@ -70,6 +70,7 @@ function MakeScreen() {
   const [wish, setWish] = useState("");
   const [phase, setPhase] = useState<Phase>({ kind: "form" });
   const [savedId, setSavedId] = useState<string | null>(null);
+  const [dropped, setDropped] = useState<string | null>(null);
   const abort = useRef<AbortController | null>(null);
   const diet = settings.preferences;
   const dietKey = JSON.stringify(diet);
@@ -95,6 +96,13 @@ function MakeScreen() {
       const json = (await res.json().catch(() => ({}))) as { recipe?: unknown; message?: string };
       if (!res.ok) { setPhase({ kind: "error", message: json.message ?? tk("Pip couldn't make a recipe this time. Please try again.") }); return; }
       const recipe = recipeFromAi(json.recipe, { servings: people, diet }, `ai-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`);
+      if (recipe) {
+        // saved the moment it's made (founder 2026-11-18: "it automatically becomes a saved recipe. They can remove it from the recipes in my meals later")
+        let madeRoom: string | null = null;
+        myRecipesStore.update((l) => { const k = keepMadeRecipe(l, recipe, shop); madeRoom = k.dropped; return k.list; });
+        setSavedId(recipe.id);
+        setDropped(madeRoom);
+      }
       setPhase(recipe ? { kind: "done", recipe } : { kind: "error", message: tk("Pip's recipe didn't pass our checks. Please try again.") });
     } catch (e) {
       if ((e as Error).name === "AbortError") { setPhase({ kind: "form" }); return; }
@@ -151,9 +159,12 @@ function MakeScreen() {
           actions={
             <>
               {savedId ? (
-                <p role="status" className="glass rounded-[1.25rem] p-4 text-center font-semibold">{t("Saved to Your recipes.")} <Link href={`/app/recipes/view?mine=${savedId}&r=${shop}`} className="text-accent underline underline-offset-2">{t("Open it")}</Link></p>
+                <p role="status" className="glass rounded-[1.25rem] p-4 text-center font-semibold">
+                  {t("Saved to My recipes. You can take it out there any time.")} <Link href={`/app/recipes/view?mine=${savedId}&r=${shop}`} className="text-accent underline underline-offset-2">{t("Open it")}</Link>
+                  {dropped && <span className="mt-1.5 block text-[0.9375rem] font-medium text-muted">{t("My recipes keeps {n}, so the oldest, {name}, made room.", { n: MAX_SAVED_RECIPES, name: dropped })}</span>}
+                </p>
               ) : (
-                <Button full className="min-h-14 text-base" onClick={() => { myRecipesStore.update((l) => [recipeToSaved(recipe, shop), ...l.filter((s) => s.id !== recipe.id)].slice(0, 30)); setSavedId(recipe.id); }}>{t("Save this recipe")}</Button>
+                <Button full className="min-h-14 text-base" onClick={() => { myRecipesStore.update((l) => keepMadeRecipe(l, recipe, shop).list); setSavedId(recipe.id); }}>{t("Save this recipe")}</Button>
               )}
               <Button full variant="secondary" className="min-h-14 text-base" onClick={() => setPhase({ kind: "form" })}>{t("Make another")}</Button>
             </>

@@ -7,7 +7,7 @@ import { API_BASE, PAID_ACCESS_ENABLED, PHOTO_RECIPES_ENABLED } from "@/lib/mm/c
 import { tk } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { MAX_DESCRIPTION, PHOTO_WORKING_LINES, needsMoreDetail, photoRecipeFromAi, type PhotoRecipeRequest } from "@/lib/mm/photoRecipe";
-import { pantryLines, recipeToSaved } from "@/lib/mm/aiRecipe";
+import { MAX_SAVED_RECIPES, keepMadeRecipe, pantryLines } from "@/lib/mm/aiRecipe";
 import { mealSizes, type Recipe } from "@/lib/mm/recipes";
 import { myRecipesStore, paidStore, updateSettings } from "@/lib/mm/stores";
 import { CheckIcon, ChevronLeftIcon, ChevronRightIcon } from "../../_components/icons";
@@ -150,6 +150,8 @@ function PhotoScreen() {
   const [recipe, setRecipe] = useState<Recipe | null>(null);
   const [finished, setFinished] = useState(false);
   const [savedId, setSavedId] = useState<string | null>(null);
+  // the saved recipe that made room when the list was full (keepMadeRecipe), said once
+  const [dropped, setDropped] = useState<string | null>(null);
   const phoneCamera = useRef<HTMLInputElement>(null);
   const library = useRef<HTMLInputElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -240,6 +242,13 @@ function PhotoScreen() {
       if (!made) { setError(tk("Pip's recipe didn't pass our checks. Please try again.")); setStep("error"); return; }
       setFinished(true);
       setRecipe(made);
+      // saved the moment it's made (founder 2026-11-18: "When the person makes a recipe it automatically becomes a saved recipe. They can remove it from the
+      // recipes in my meals later"), with the person's photo as its picture, kept on this phone only (lib/mm/recipePhotos.ts)
+      let madeRoom: string | null = null;
+      myRecipesStore.update((l) => { const k = keepMadeRecipe(l, made, shop); madeRoom = k.dropped; return k.list; });
+      setSavedId(made.id);
+      setDropped(madeRoom);
+      if (photo) void recipeThumbnail(photo.url).then((thumb) => thumb && keepRecipePhoto(made.id, thumb));
       // a moment on the ticked list, then the recipe
       setTimeout(() => setStep("done"), 700);
     } catch (e) {
@@ -276,11 +285,11 @@ function PhotoScreen() {
   }
 
   if (step === "done" && recipe && ready && shop) {
+    // only if it was taken out of My recipes while this page was open: saving it again puts it back
     const saveRecipe = () => {
-      if (savedId) return;
-      myRecipesStore.update((l) => [recipeToSaved(recipe, shop), ...l.filter((s) => s.id !== recipe.id)].slice(0, 30));
+      if (myRecipesStore.get().some((s) => s.id === recipe.id)) return;
+      myRecipesStore.update((l) => keepMadeRecipe(l, recipe, shop).list);
       setSavedId(recipe.id);
-      // the person's photo becomes the saved recipe's picture, kept on this phone only (lib/mm/recipePhotos.ts)
       if (photo) void recipeThumbnail(photo.url).then((thumb) => thumb && keepRecipePhoto(recipe.id, thumb));
     };
     return (
@@ -295,7 +304,10 @@ function PhotoScreen() {
         actions={
           <>
             {savedId ? (
-              <p role="status" className="glass rounded-[1.25rem] p-4 text-center font-semibold">{t("Saved to Your recipes.")} <Link href={`/app/recipes/view?mine=${savedId}&r=${shop}`} className="text-accent underline underline-offset-2">{t("Open it")}</Link></p>
+              <p role="status" className="glass rounded-[1.25rem] p-4 text-center font-semibold">
+                {t("Saved to My recipes. You can take it out there any time.")} <Link href={`/app/recipes/view?mine=${savedId}&r=${shop}`} className="text-accent underline underline-offset-2">{t("Open it")}</Link>
+                {dropped && <span className="mt-1.5 block text-[0.9375rem] font-medium text-muted">{t("My recipes keeps {n}, so the oldest, {name}, made room.", { n: MAX_SAVED_RECIPES, name: dropped })}</span>}
+              </p>
             ) : (
               <Button full className="min-h-14 text-base" onClick={saveRecipe}>{t("Save this recipe")}</Button>
             )}

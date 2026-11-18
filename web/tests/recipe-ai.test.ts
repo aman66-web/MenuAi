@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { cleanText, pantryLines, recipeFromAi, recipeToSaved, recipeUserPrompt, sanitizeSavedRecipes, savedToRecipe, type RecipeRequest } from "../lib/mm/aiRecipe";
+import { MAX_SAVED_RECIPES, cleanText, keepMadeRecipe, pantryLines, recipeFromAi, recipeToSaved, recipeUserPrompt, sanitizeSavedRecipes, savedToRecipe, type RecipeRequest } from "../lib/mm/aiRecipe";
 import { PANTRY } from "../lib/mm/pantry";
 import { fitRecipe } from "../lib/mm/recipes";
 import { decodeShopProducts } from "../lib/mm/shopProducts";
@@ -84,6 +84,20 @@ describe("checking Pip's answer", () => {
     expect(savedToRecipe(saved, {})!.ingredients.map((i) => i.amount)).toEqual([300, 240, 400, 150]);
     expect(savedToRecipe(saved, { vegetarianOnly: true })).toBeNull();
     expect(sanitizeSavedRecipes([{ ...saved, id: "bad id" }, { ...saved, shop: "../x" }])).toEqual([]);
+  });
+  it("keeps a recipe the moment Pip makes it, newest first, and says which one made room when the list is full", () => {
+    const r = recipeFromAi(answer, { servings: 2, diet: {} }, "ai-new1")!;
+    const old = (n: number) => ({ ...recipeToSaved(recipeFromAi(answer, { servings: 2, diet: {} }, `ai-old${n}`)!, "sainsburys"), name: `Old ${n}` });
+    const some = keepMadeRecipe([old(1), old(2)], r, "sainsburys");
+    expect(some.list.map((x) => x.id)).toEqual(["ai-new1", "ai-old1", "ai-old2"]);
+    expect(some.dropped).toBeNull();
+    // made again (the same id): one copy, at the top
+    expect(keepMadeRecipe(some.list, r, "sainsburys").list.filter((x) => x.id === "ai-new1")).toHaveLength(1);
+    const full = Array.from({ length: MAX_SAVED_RECIPES }, (_, i) => old(i + 1));
+    const kept = keepMadeRecipe(full, r, "sainsburys");
+    expect(kept.list).toHaveLength(MAX_SAVED_RECIPES);
+    expect(kept.list[0]!.id).toBe("ai-new1");
+    expect(kept.dropped).toBe(`Old ${MAX_SAVED_RECIPES}`);
   });
 });
 

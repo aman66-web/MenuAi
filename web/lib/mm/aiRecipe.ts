@@ -182,6 +182,17 @@ export function recipeToSaved(r: Recipe, shop: string, now = new Date()): SavedR
   };
 }
 
+/**
+ * A recipe Pip just made, kept at the top of the person's recipes (founder 2026-11-18: "When the person makes a recipe it automatically becomes a saved recipe.
+ * They can remove it from the recipes in my meals later"). The list keeps MAX_SAVED_RECIPES; when a new one makes the list too long, the oldest goes and its
+ * name is returned so the screen can say so (never silently).
+ */
+export function keepMadeRecipe(list: readonly SavedRecipe[], r: Recipe, shop: string, now = new Date()): { list: SavedRecipe[]; dropped: string | null } {
+  const rest = list.filter((s) => s.id !== r.id);
+  const next = [recipeToSaved(r, shop, now), ...rest];
+  return { list: next.slice(0, MAX_SAVED_RECIPES), dropped: next.length > MAX_SAVED_RECIPES ? next[MAX_SAVED_RECIPES]!.name : null };
+}
+
 /** A saved recipe rebuilt from today's pantry for today's diet, or null when it no longer fits (an ingredient left out for the diet). */
 export function savedToRecipe(s: SavedRecipe, diet: DietPrefs): Recipe | null {
   return recipeFromAi({ ...s, ingredients: s.ingredients }, { servings: s.servings, diet }, s.id);

@@ -3153,3 +3153,8 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   beside its logo and name. The recipe and shopping-list rows already showed their prices. e2e leaderboards 3/3, groceries 6/6, groceries-compare 8/8,
   groceries-all 8/8. Held back: 19 more Waitrose teas whose per-100 g table is the brewed drink, 2 Morrisons labels (a 97 g fat typo, a portion column
   copied from the 100 g one).
+- **A made recipe saves itself** (founder: "When the person makes a recipe it automatically becomes a saved recipe. They can remove it from the recipes in my
+  meals later if they want"): Make it at home and Pip's recipe maker keep the recipe in My recipes the moment Pip makes it (`keepMadeRecipe`,
+  `lib/mm/aiRecipe.ts`; with the person's photo as its picture), and say "Saved to My recipes. You can take it out there any time." My recipes keeps 30
+  (MAX_SAVED_RECIPES, unchanged): when a new one makes room the screen says which one went, never silently. In My meals › Recipes a made recipe's heart is
+  filled; tapping it takes the recipe out, with Undo for 6 seconds, like the book's recipes.
