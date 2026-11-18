@@ -39,7 +39,7 @@ for (const scale of [1, 1.5, 2]) {
   await press("Show me around");
   await check("text size");
   await press("Continue");
-  for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Community"]) { await check(`walk: ${tab}`); await press("Continue"); }
+  for (const tab of ["Home", "Eat out", "Groceries", "Recipes"]) { await check(`walk: ${tab}`); await press("Continue"); }
   await check("let's make it yours");
   await press("Set up my plan");
   for (const q of ["goal", "avoid"]) { await check(`question: ${q}`); await press("Continue"); }

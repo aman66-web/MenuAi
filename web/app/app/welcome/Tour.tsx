@@ -1,7 +1,7 @@
 "use client";
 
 // Relative imports (not "@/"), so the unit tests can load TOUR_STOPS (tests/tour.test.ts).
-import { COMMUNITY_FRIENDS_ENABLED, PHOTO_RECIPES_ENABLED } from "../../../lib/mm/config";
+import { COMMUNITY_ENABLED, COMMUNITY_FRIENDS_ENABLED, PHOTO_RECIPES_ENABLED } from "../../../lib/mm/config";
 import { tk } from "../../../lib/mm/i18n";
 import {
   BasketIcon, CalendarIcon, CameraIcon, DropIcon, ForkIcon, GearIcon, GridIcon, HeartIcon, ListIcon, PeopleIcon, PinIcon, PlusIcon, ScanIcon, SearchIcon, SunriseIcon,
@@ -21,7 +21,7 @@ type Icon = (p: React.SVGProps<SVGSVGElement>) => React.ReactNode;
 export type TourRow = { Icon: Icon; text: string /* tk() */; when?: boolean };
 export type TourStopId = "home" | "eatOut" | "groceries" | "recipes" | "community";
 
-export const TOUR_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: PipMood; rows: TourRow[] }> = [
+const ALL_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: PipMood; rows: TourRow[] }> = [
   {
     id: "home",
     says: tk("This is Home. It keeps track of your day, so you can always see what's left!"),
@@ -74,6 +74,9 @@ export const TOUR_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: Pip
     ],
   },
 ];
+
+/** One stop a tab, for the tabs this build shows (no Community stop while Community is off, lib/mm/config.ts). */
+export const TOUR_STOPS = ALL_STOPS.filter((s) => COMMUNITY_ENABLED || s.id !== "community");
 
 /** The rows this build shows (a row whose feature is switched off is left out). */
 export const visibleRows = (rows: readonly TourRow[]): TourRow[] => rows.filter((r) => r.when !== false);

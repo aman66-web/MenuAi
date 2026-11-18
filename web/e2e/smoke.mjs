@@ -54,7 +54,8 @@ await step("the guided setup at /app/welcome: welcome, Pip's arrival, the text s
   await page.getByRole("radio", { name: "Standard", exact: true }).click();
   await visible(text("Perfect, that's easy on the eyes!"));
   await page.getByRole("button", { name: "Continue" }).click();
-  for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Community"]) {
+  // Community is off (2026-11-18): four tabs
+  for (const tab of ["Home", "Eat out", "Groceries", "Recipes"]) {
     await visible(page.getByRole("heading", { level: 1, name: tab, exact: true }));
     await visible(page.getByRole("heading", { level: 2, name: "What you can do" }));
     if (tab === "Home") await visible(text("The gear at the top opens Settings: your goal, diet, text size, and this tour again."));

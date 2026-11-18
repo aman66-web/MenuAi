@@ -156,15 +156,20 @@ describe("the tour's stops", () => {
     expect(visibleRows([{ Icon, text: "a" }, { Icon, text: "b", when: false }, { Icon, text: "c", when: true }]).map((r) => r.text)).toEqual(["a", "c"]);
   });
 
-  it("follows the build's switches: Make it at home only with photo recipes, friends only when Community friends are on", async () => {
+  it("follows the build's switches: Make it at home only with photo recipes, Community only when it is on, friends only when Community friends are on", async () => {
     vi.stubEnv("NEXT_PUBLIC_COMMUNITY_FRIENDS", "0");
     vi.stubEnv("NEXT_PUBLIC_PHOTO_RECIPES", "0");
     vi.resetModules();
     const off = (await import("../app/app/welcome/Tour")).TOUR_STOPS;
     const offRows = (id: string) => (off.find((s) => s.id === id)?.rows ?? []).filter((r) => r.when !== false).map((r) => r.text);
     expect(offRows("recipes").some((t) => t.startsWith("Make it at home"))).toBe(false);
-    expect(offRows("community").some((t) => t.includes("friends"))).toBe(false);
-    expect(off.find((s) => s.id === "community")?.says).toBe("Short articles to read, all in one place!");
+    // Community is off unless NEXT_PUBLIC_COMMUNITY=1 (founder 2026-11-18): no Community stop at all
+    expect(off.some((s) => s.id === "community")).toBe(false);
+    vi.stubEnv("NEXT_PUBLIC_COMMUNITY", "1");
+    vi.resetModules();
+    const noFriends = (await import("../app/app/welcome/Tour")).TOUR_STOPS;
+    expect((noFriends.find((s) => s.id === "community")?.rows ?? []).filter((r) => r.when !== false).some((r) => r.text.includes("friends"))).toBe(false);
+    expect(noFriends.find((s) => s.id === "community")?.says).toBe("Short articles to read, all in one place!");
 
     vi.stubEnv("NEXT_PUBLIC_COMMUNITY_FRIENDS", "1");
     vi.stubEnv("NEXT_PUBLIC_PHOTO_RECIPES", "1");

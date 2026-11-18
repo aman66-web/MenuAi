@@ -4,7 +4,7 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
 let pass = 0, fail = 0;
 async function step(n, fn) { try { await fn(); pass++; console.log("PASS", n); } catch (e) { fail++; console.log("FAIL", n, "-", String(e.message).split("\n")[0]); } }
 const vis = (l) => l.waitFor({ state: "visible", timeout: 8000 });
-// The welcome screen, Pip's arrival, the text size, Pip's walk along the tab bar (Home, Eat out, Groceries, Recipes, Community) and "Let's make it yours",
+// The welcome screen, Pip's arrival, the text size, Pip's walk along the tab bar (Home, Eat out, Groceries, Recipes; Community is off since 2026-11-18) and "Let's make it yours",
 // then "Set up my plan" to the first question.
 async function pastIntro(page) {
   await page.getByRole("button", { name: "Get started" }).click();
@@ -12,7 +12,7 @@ async function pastIntro(page) {
   await page.getByRole("button", { name: "Show me around" }).click();
   await vis(page.getByRole("heading", { name: "Easy to read" }));
   await page.getByRole("button", { name: "Continue" }).click();
-  for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Community"]) {
+  for (const tab of ["Home", "Eat out", "Groceries", "Recipes"]) {
     await vis(page.getByRole("heading", { level: 1, name: tab, exact: true }));
     await page.getByRole("button", { name: "Continue" }).click();
   }

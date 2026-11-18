@@ -38,7 +38,7 @@ export const CORE: readonly Recipe[] = [
     ],
   },
   {
-    id: "beef-chilli", meal: "dinner", name: "Beef chilli and rice", blurb: "A batch-cook classic for four.", servings: 4, minutes: 45,
+    id: "beef-chilli", meal: "dinner", name: "Beef chilli and rice", blurb: "A batch-cook classic that keeps well for the week.", servings: 4, minutes: 45,
     ingredients: [ing("beef-mince", 500), ing("kidney-beans", 240, { role: "other" }), ing("chopped-tomatoes", 400), ing("rice", 300), ing("chilli-powder", 3), ing("cumin", 3), ing("onion", 150, { note: "about 1 onion" })],
     method: [
       "Chop the onion: Peel the onion, cut it in half and chop it small, about the size of a pea, so it softens quickly.",

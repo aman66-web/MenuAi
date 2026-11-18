@@ -2956,3 +2956,15 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   can trust for supermarket products yet. **New copy:** the six boards' names and lines, the page's lines, the shortcut "Nutrition leaderboards / The top 20
   products for protein, fibre and more". Also today, from the founder's screenshots: Groceries' chosen-shops button moved to the foot of the screen and named
   ("See Lidl's products" / "See products from {shops}" / "See products from {n} shops"); no "Your shop" tag; "My list" renamed "Shopping list".
+
+- 2026-11-18 (night) — **Community switched off; the fresh-eyes review's mistakes fixed** (founder: "Okay, fine. In that case, we'll remove the community one"; "Apply any
+  edits you better think to make the app easier to understand"). **Community:** `COMMUNITY_ENABLED` (lib/mm/config.ts) is on only with NEXT_PUBLIC_COMMUNITY=1:
+  four tabs (Home, Eat out, Groceries, Recipes), no Community stop in the welcome tour, every /app/community page (and an old friend-invite link) opens Home
+  (app/app/community/layout.tsx), Send to a friend hidden (the shopping list keeps the phone's own Share). Nothing deleted: the pages, the food blogs, the
+  database tables and their data stay. e2e: smoke, tour, a11y, largetext, extra, offline now walk four tabs; community.mjs and community-friends.mjs need a build
+  with NEXT_PUBLIC_COMMUNITY=1. **Review fixes:** no doubled possessive anywhere ("McDonald's's own guide", "Sainsbury's's website"): lib/mm/i18n.ts format gives
+  "{name}'s" the possessive of the name (Tesco's, Morrisons', McDonald's); Filming mode shows in Settings only in testing builds or while it is on (Shift+F
+  still turns it on); Search every shop offers only the app's own shops as chips (no Co-op or empty Ocado chip); the beef chilli's blurb no longer says "for
+  four" beside Serves 1 ("A batch-cook classic that keeps well for the week."). **Waiting on the founder (rule 8):** Best for you at McDonald's ranks espressos
+  first for building muscle (1 kcal, so protein per 100 kcal is high): a minimum size for a pick changes the ranking and its golden cases. **Note:** the app pack
+  keeps leaderboards.json whole; if some supermarkets are left out of the App Store version, its rows for those shops would still show their logos.

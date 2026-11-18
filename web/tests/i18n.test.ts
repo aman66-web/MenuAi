@@ -60,6 +60,17 @@ function dataKeys(): string[] {
 
 const allKeys = () => [...new Set([...codeKeys(), ...dataKeys()])].sort();
 
+describe("filling in names", () => {
+  it("never doubles a possessive (review 2026-11-18: McDonald's's)", () => {
+    expect(format("Open {chain}'s allergen guide", { chain: "McDonald's" })).toBe("Open McDonald's allergen guide");
+    expect(format("As printed on {shop}'s website.", { shop: "Sainsbury's" })).toBe("As printed on Sainsbury's website.");
+    expect(format("{shop}'s allergy advice:", { shop: "Morrisons" })).toBe("Morrisons' allergy advice:");
+    expect(format("{shop}'s own product page", { shop: "Tesco" })).toBe("Tesco's own product page");
+    expect(format("None of {chain}'s {n} dishes", { chain: "Nando's", n: 3 })).toBe("None of Nando's 3 dishes");
+    expect(format("{a} and {b}", { a: "x", b: "y" })).toBe("x and y");
+  });
+});
+
 describe("translations", () => {
   it("t() fills in values and falls back to English", () => {
     expect(format("{n} of {total}", { n: 2, total: 5 })).toBe("2 of 5");

@@ -39,8 +39,8 @@ async function axe(page, where) {
   expect(v.length === 0, `${where}: ` + v.map((x) => x.id + ": " + x.nodes.slice(0, 2).map((n) => n.target.join(" ")).join(" | ")).join("; "));
 }
 
-const TABS = ["Home", "Eat out", "Groceries", "Recipes", "Community"];
-const IDS = ["home", "eatOut", "groceries", "recipes", "community"];
+const TABS = ["Home", "Eat out", "Groceries", "Recipes"]; // Community is off (2026-11-18)
+const IDS = ["home", "eatOut", "groceries", "recipes"];
 const ROWS = {
   home: [
     "Tap + next to Breakfast, Lunch or Dinner to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers.",

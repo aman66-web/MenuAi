@@ -330,11 +330,15 @@ export default function SettingsPage() {
         </Section>
       )}
 
+      {/* Filming mode is for making videos of the app: shown only in testing builds, or while it is on (so it can be switched off); Shift+F works anywhere
+          (the review of 2026-11-18 found it shown to everyone) */}
+      {(DEV_TOOLS_ENABLED || creator) && (
       <Section title={t("Filming mode")}>
         <Card className="p-3">
           <Toggle label={t("Filming mode")} description={t("Shows the Truth and Swap cards as the dark card with bigger figures, adds a Replay button and hides the bottom bar. Shift+F switches it too.")} checked={creator} onChange={setCreatorMode} />
         </Card>
       </Section>
+      )}
 
       <Section title={t("Your data")}>
         <Card className="p-4">
