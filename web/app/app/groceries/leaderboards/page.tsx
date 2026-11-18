@@ -5,11 +5,10 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import { PAID_ACCESS_ENABLED } from "@/lib/mm/config";
 import { formatDate } from "@/lib/mm/format";
-import { formatPrice } from "@/lib/mm/groceries";
 import { BOARDS, LEFT_OUT_NOTE, isLeaderboardsFile, type BoardEntry, type BoardId, type LeaderboardsFile } from "@/lib/mm/leaderboards";
 import { FREE_LEADERBOARD_ROWS } from "@/lib/mm/paid";
 import { shopPhotoSources } from "@/lib/mm/shopProducts";
-import { ShopMark } from "../../_components/ChainMark";
+import { ShopPrices } from "../ShopPrices";
 import { useGate } from "../../_components/Paywall";
 import { Button, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
 import { useIsPro } from "../../_lib/hooks";
@@ -48,14 +47,9 @@ function figure(board: BoardId, value: number): { big: string; small: string } {
 }
 
 function Row({ file, board, entry, rank, unit }: { file: LeaderboardsFile; board: BoardId; entry: BoardEntry; rank: number; unit: string }) {
-  const t = useT();
   const first = entry.shops[0]!;
   const meta = file.shops[first.shop];
   const sources = meta ? shopPhotoSources({ retailer: first.shop, photoBase: meta.photoBase, photoTemplate: meta.photoTemplate }, { photoId: first.photoId }) : [];
-  // each shop with its own shelf price (founder 2026-11-18: "You should also reference the price too"); the cheapest stands out when several are priced
-  const priced = entry.shops.filter((s) => s.price !== null);
-  const cheapest = priced.length > 1 ? Math.min(...priced.map((s) => s.price!)) : null;
-  const sold = new Intl.ListFormat("en-GB", { type: "conjunction" }).format(entry.shops.map((s) => t("{shop}: {price}", { shop: file.shops[s.shop]?.name ?? s.shop, price: s.price !== null ? formatPrice(s.price) : t("price in store") })));
   const f = figure(board, entry.value);
   return (
     <li>
@@ -64,21 +58,9 @@ function Row({ file, board, entry, rank, unit }: { file: LeaderboardsFile; board
         <ListThumb sources={sources} />
         <span className="min-w-0 flex-1">
           <span className="line-clamp-2 text-[0.9375rem] font-bold leading-snug [overflow-wrap:anywhere]"><span className="sr-only">{rank}. </span>{entry.name}</span>
-          {/* every supermarket that sells it, by its own logo (the names are read out) */}
-          <span className="mt-1.5 flex flex-wrap items-center gap-1.5">
-            <span className="sr-only">{t("Sold at {shops}", { shops: sold })}</span>
-            {/* side by side like dominoes, each logo whole (founder 2026-11-18: "you can see the logo from each store that has them"; never one over another) */}
-            {/* side by side like dominoes, each logo whole with its shop's price under it */}
-            <span aria-hidden className="inline-flex flex-wrap items-start gap-x-2 gap-y-1.5">
-              {entry.shops.map((s) => (
-                <span key={s.shop} className="inline-flex flex-col items-center gap-0.5">
-                  <ShopMark shopId={s.shop} size="xs" />
-                  <span className={`app-numbers whitespace-nowrap text-[0.75rem] leading-none ${s.price !== null && s.price === cheapest ? "font-extrabold text-foreground" : "font-semibold text-muted"}`}>
-                    {s.price !== null ? formatPrice(s.price) : t("In store")}
-                  </span>
-                </span>
-              ))}
-            </span>
+          {/* every supermarket that sells it, by its own logo with its price there (the names and prices are read out) */}
+          <span className="mt-1.5 block">
+            <ShopPrices items={entry.shops.map((s) => ({ shop: s.shop, name: file.shops[s.shop]?.name ?? s.shop, price: s.price }))} />
           </span>
         </span>
         <span className="app-numbers shrink-0 rounded-[0.875rem] bg-[var(--fill)] px-2.5 py-2 text-center">

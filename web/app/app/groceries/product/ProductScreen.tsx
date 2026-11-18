@@ -115,6 +115,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
   // Opened from a supermarket: that shop's own name, size, numbers and price lead; the others are listed below it.
   const selected = retailerHint && listed.retailers.includes(retailerHint) ? retailerHint : listed.retailers[0]!;
   const p = forRetailer(listed, selected);
+  const cheapestPrice = Math.min(...Object.values(listed.prices).map((x) => x.amount));
   const photos = photoSources(listed, selected);
   const per = perLabel(p, t);
   const sizes = sizeVariants(state.all, listed);
@@ -196,6 +197,8 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
             <Link key={r} href={`/app/groceries/product?code=${listed.gtin}&r=${r}`} replace prefetch={false} aria-current={r === selected ? "page" : undefined}
               className={`${r === selected ? CHIP_ON : CHIP} gap-2 pe-4 ps-1.5`}>
               <ShopMark shopId={r} size="xs" />{retailerName(r)}
+              {/* its price there, beside its logo (founder 2026-11-18) */}
+              {listed.prices[r] && <span className={`app-numbers ${r === selected ? "" : "text-muted"} ${listed.prices[r]!.amount === cheapestPrice && listed.retailers.length > 1 ? "font-extrabold" : "font-semibold"}`}>{formatPrice(listed.prices[r]!.amount)}</span>}
             </Link>
           ))}
         </nav>

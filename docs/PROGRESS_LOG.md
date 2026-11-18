@@ -3146,3 +3146,10 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   product ("In store" where the shop's website prints none: M&S's everyday range, Lidl); with several shops priced, the cheapest in bold. VoiceOver reads
   "Sold at Asda: £2.00, Sainsbury's: £2.00 and Waitrose: £2.20". The page's note says the prices are shelf prices and vary by store. e2e leaderboards 3/3.
 - Held back: 9 more Iceland pages (5 water mineral tables, 3 drinks with only energy, a Coke Zero whose salt per 250 ml and per 100 ml disagree).
+- **Prices beside the logos on other screens** (founder: "add the prices next to the logos on other screens too"): `ShopPrices`
+  (`app/app/groceries/ShopPrices.tsx`), each shop's logo with its price under it (the cheapest in bold when several are priced, a loyalty-card price under the
+  shelf price, "In store" where none is printed), now on the leaderboards and on every product row in search and the shop lists (every shop that sells that
+  barcode, the filtered shop first, then the cheapest; it was one price as text, "£2.74 at Asda"). The product page's shop chips say each shop's price
+  beside its logo and name. The recipe and shopping-list rows already showed their prices. e2e leaderboards 3/3, groceries 6/6, groceries-compare 8/8,
+  groceries-all 8/8. Held back: 19 more Waitrose teas whose per-100 g table is the brewed drink, 2 Morrisons labels (a 97 g fat typo, a portion column
+  copied from the 100 g one).
