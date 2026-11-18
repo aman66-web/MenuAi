@@ -420,7 +420,13 @@ def cmd_write(a) -> int:
     order = [r["product_id"] for r in candidates()]
     rows, why = [], Counter()
     left: list[tuple[str, str]] = []
+    # products whose page shows another product's label or figures that can't be right (data/groceries/nutrition/holdback.csv, as for the other shops): never used
+    hb = ROOT / "data" / "groceries" / "nutrition" / "holdback.csv"
+    held = {r["product_id"] for r in csv.DictReader(open(hb, newline="", encoding="utf-8")) if r["shop"] == "iceland"} if hb.exists() else set()
     for pid in order:
+        if pid in held:
+            why["held back"] += 1
+            continue
         rec = done.get(pid)
         if rec is None:
             why["not read yet"] += 1
