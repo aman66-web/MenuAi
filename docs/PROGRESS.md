@@ -84,6 +84,7 @@ Moved to docs/PROGRESS_LOG.md (see above).
 
 ## Founder to-do (things Claude can't do)
 
+- [ ] **Sign-in on auth.numbite.com (you asked 18 Nov, "use my numbite.com one"):** follow docs/SUPABASE_CUSTOM_DOMAIN.md (Supabase Custom Domain add-on, about $10 a month plus a paid plan if the project is on Free; two DNS records in Vercel; Google and Apple redirect URLs), then say "auth domain is on" and Claude switches `SUPABASE_URL` and redeploys with your go-ahead
 - [ ] **Remove `APPLE_XCODE_TEST_CERT` from Vercel when your Premium testing is finished** (Production variable pinning Xcode's test certificate; test only). Tell Claude and it will remove it
 - [ ] **Try Make it at home on your real iPhone** (plug it in with a cable, press Run in Xcode, Recipes > Make it at home): the live camera, the scanning screen and the loading screen. Delete the throwaway simulator when finished (command in the 17 Nov evening entry)
 - [x] The iOS 26.5 platform is installed (17 Nov). **Restart the Claude app when convenient:** its background VM still holds about 8 GB of the deleted downloads, and the Mac has only about 3 GB free
