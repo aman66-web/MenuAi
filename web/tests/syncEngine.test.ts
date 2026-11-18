@@ -413,6 +413,38 @@ describe("settings", () => {
   });
 });
 
+describe("more than one shopping list (founder 2026-11-18)", () => {
+  const mns = { id: "abcd1234", shop: "marks-and-spencer", name: "M&S" };
+  const product = (list?: string, qty = 1): ShoppingItem => ({ gtin: "", shopId: "p1", retailer: "marks-and-spencer", name: "Greek Style Live Yogurt 500 g", brand: "", size: "", qty, addedAt: "2026-10-13T08:00:00.000Z", ...(list ? { list } : {}) });
+
+  it("the lists and the same product on two lists reach the other device as they are; deleting the last list there deletes it here", async () => {
+    const { store, rows } = serverStore();
+    const clk = clock();
+    const a = device(store, clk);
+    const b = device(store, clk);
+    a.stores.settings.set(real({ shoppingLists: [mns] }));
+    a.stores.shopping.set([product(undefined, 1), product(mns.id, 3)]);
+    a.engine.prepareFor("user-1");
+    await a.engine.syncNow();
+    const ids = Object.keys((rows.get("user-1|shopping")!.value as { items: Record<string, unknown> }).items).sort();
+    expect(ids).toEqual([`${mns.id}|marks-and-spencer|p1`, "marks-and-spencer|p1"]); // the main list's id is the one it always had
+    b.engine.prepareFor("user-1");
+    await b.engine.syncNow();
+    expect(b.stores.settings.get().shoppingLists).toEqual([mns]);
+    expect(b.stores.shopping.get().map((i) => [i.list ?? "", i.qty])).toEqual([["", 1], [mns.id, 3]]);
+    clk.tick();
+    // B deletes the list and what is on it
+    const { shoppingLists: _l, ...rest } = b.stores.settings.get(); // eslint-disable-line @typescript-eslint/no-unused-vars
+    b.stores.settings.set(rest as UserSettings);
+    b.stores.shopping.set(b.stores.shopping.get().filter((i) => i.list !== mns.id));
+    await b.engine.syncNow();
+    clk.tick();
+    await a.engine.syncNow();
+    expect(a.stores.settings.get().shoppingLists).toBeUndefined();
+    expect(a.stores.shopping.get().map((i) => i.list ?? "")).toEqual([""]);
+  });
+});
+
 describe("today's log", () => {
   it("syncs today's entries, keeps older ones only on the phone, and isn't confused when they age out", async () => {
     const { store, rows } = serverStore();

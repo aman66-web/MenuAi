@@ -2,11 +2,10 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { addToList, formatPrice, retailerName, withPhoto } from "@/lib/mm/groceries";
-import { shoppingStore } from "@/lib/mm/stores";
+import { formatPrice, retailerName } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
 import { foodDietProblem } from "@/lib/mm/foodDiet";
-import { nutritionBasis, shopPageUrl, shopPhotoSources } from "@/lib/mm/shopProducts";
+import { nutritionBasis, shopListItem, shopPageUrl, shopPhotoSources } from "@/lib/mm/shopProducts";
 import { ExternalIcon, InfoIcon } from "../../../_components/icons";
 import { ErrorBox, Spinner } from "../../../_components/ui";
 import { loadRetailer } from "../../../_lib/groceries";
@@ -18,6 +17,7 @@ import { CompareButton } from "../../../_components/CompareButton";
 import { compareFoodFromShop } from "../../../_lib/compare";
 import { NutritionPanel } from "../../NutritionPanel";
 import { BackLink, CARD, FootNote, HEADING, MainButton, NOTE } from "../../PageBits";
+import { listHref, useAddToList } from "../../ListChoice";
 
 // One product from a shop's full list: what the shop's own category page printed. We have not read this product's page, so no calories, protein or allergens
 // here unless its barcode is one the Groceries list already has numbers for (then the full page is one tap away).
@@ -31,7 +31,9 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   const state = useShopProducts(shop, retry);
   const product = useMemo(() => (state.status === "ready" ? state.products.find((p) => p.id === id) : undefined), [state, id]);
   const [inCatalogue, setInCatalogue] = useState(false);
-  const [added, setAdded] = useState<string | null>(null);
+  const [added, setAdded] = useState<{ text: string; href: string } | null>(null);
+  // to the main list, or (when the person has lists for this shop) the one they choose
+  const { add, sheet } = useAddToList((list, item) => setAdded(list ? { text: t("Added to {list}.", { list: list.name }), href: listHref(list.id) } : { text: t("Added to your {shop} list.", { shop: state.status === "ready" ? state.file.name : retailerName(item.retailer) }), href: listHref() }));
   const gtin = product?.gtin ?? "";
   useEffect(() => {
     if (!gtin) return;
@@ -97,14 +99,15 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
       </div>
 
       <div className="mt-4 grid gap-3">
-        <MainButton onClick={() => { shoppingStore.update((l) => addToList(l, { gtin: product.gtin, shopId: product.id, retailer: file.retailer, name: product.name, brand: "", size: "", price: product.price ?? undefined, checkedOn: file.checkedOn, ...withPhoto(photos) })); setAdded(t("Added to your {shop} list.", { shop: file.name })); }}>
+        <MainButton onClick={() => add(shopListItem(file, product))}>
           {t("Add to my list")}
         </MainButton>
         {/* in its own block, so the compare button's own (empty) status line isn't a row of this grid with a gap above it */}
         {compareItem && <div><CompareButton full item={compareItem} /></div>}
       </div>
       {/* takes no room until there is something to say, so no empty band sits between the buttons and the next card */}
-      <p role="status" aria-live="polite" className="text-center text-sm font-medium text-accent [&:not(:empty)]:mt-3">{added && <>{added} <Link href="/app/groceries/list" className="underline underline-offset-2">{t("See list")}</Link></>}</p>
+      <p role="status" aria-live="polite" className="text-center text-sm font-medium text-accent [&:not(:empty)]:mt-3">{added && <>{added.text} <Link href={added.href} className="underline underline-offset-2">{t("See list")}</Link></>}</p>
+      {sheet}
 
       <section aria-labelledby="nutrition-heading" className={`${CARD} mt-3.5 p-5`}>
         <h2 id="nutrition-heading" className={HEADING}>{nutrition ? t("Nutrition {basis}", { basis: nutritionBasis(nutrition, t) }) : t("Nutrition")}</h2>
