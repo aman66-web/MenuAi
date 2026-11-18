@@ -198,7 +198,7 @@ await step("item detail: big calories, nutrients and 'not published'", async () 
   await shot("07-item");
 });
 await step("tapping Customise as a free user shows the honest paywall", async () => {
-  await page.getByRole("button", { name: "Customise" }).click();
+  await page.getByRole("button", { name: "Change the order" }).click();
   await visible(page.getByRole("heading", { name: "Build the perfect order, every time" }));
   await visible(text("Pro isn't on the web yet."));
   await visible(text("Top 5 picks for your goal at every chain"));
@@ -265,7 +265,7 @@ await step("Save → My meals › Restaurant meals lists it; Log → today's mea
   await page.getByRole("link", { name: "Open in builder" }).click();
   await page.waitForURL("**/app/builder?**");
   await visible(page.getByRole("group", { name: /Order total: 760 kcal/ }));
-  await page.getByRole("button", { name: "Log", exact: true }).click();
+  await page.getByRole("button", { name: "Add to today", exact: true }).click();
   await page.waitForURL("**/app/today");
   await visible(text("760"));
   await visible(text("/ 2,400 kcal"));

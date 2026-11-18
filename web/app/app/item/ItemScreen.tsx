@@ -10,7 +10,7 @@ import { describeOrder, lineFromItem, orderName, orderNutrients } from "@/lib/mm
 import { builderHref, chainHref } from "@/lib/mm/routes";
 import { addLogEntry, addSavedOrder, countProAction, noteItemViewed } from "@/lib/mm/stores";
 import { useGate } from "../_components/Paywall";
-import { BookmarkIcon, ChevronLeftIcon, ChevronRightIcon, InfoIcon, PlusIcon } from "../_components/icons";
+import { HeartIcon, ChevronLeftIcon, ChevronRightIcon, InfoIcon, PlusIcon } from "../_components/icons";
 import { ItemPhotoHero } from "../_components/ItemPhoto";
 import { AllergenSection } from "../_components/Allergens";
 import { ItemHero, NutrientTable } from "../_components/Nutrition";
@@ -81,34 +81,36 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
       {/* The actions, right under the numbers: one black pill for the main one, the rest as white pills, two by two. */}
       {hasMacros(item.nutrients) ? (
         <div className="@container mt-5">
+          {/* founder 2026-11-18 ("everyone needs to understand the point for each screen"): the one big button adds the dish to today's food; changing the
+              order (the builder) is one of the smaller buttons, called what it does */}
           <Button
             full
             className="min-h-12 text-base"
             onClick={() =>
-              gate("orderBuilder", () => {
-                analytics.track({ name: "builderOpened", origin: "item" });
-                router.push(builderHref({ chain: chain.id, item: item.id }));
+              gate("log", () => {
+                // the dish's photo goes with the entry, so Home and Today can show it (lib/mm/user-data.ts LogEntry.image)
+                addLogEntry({ chainId: chain.id, chainName: chain.name, name: item.name, nutrients: item.nutrients, source: "item", ...(item.image ? { image: item.image } : {}) });
+                analytics.track({ name: "mealLogged" });
+                countProAction();
+                setMessage(tk("Added to today's food."));
               })
             }
           >
-            {t("Customise")}
+            <PlusIcon aria-hidden className="h-5 w-5" />
+            {t("Add to today")}
           </Button>
           <div className="mt-2.5 grid grid-cols-2 gap-2.5 @max-[14rem]:grid-cols-1">
             <Button
               variant="secondary"
               full
               onClick={() =>
-                gate("log", () => {
-                  // the dish's photo goes with the entry, so Home and Today can show it (lib/mm/user-data.ts LogEntry.image)
-                  addLogEntry({ chainId: chain.id, chainName: chain.name, name: item.name, nutrients: item.nutrients, source: "item", ...(item.image ? { image: item.image } : {}) });
-                  analytics.track({ name: "mealLogged" });
-                  countProAction();
-                  setMessage(tk("Logged to Today."));
+                gate("orderBuilder", () => {
+                  analytics.track({ name: "builderOpened", origin: "item" });
+                  router.push(builderHref({ chain: chain.id, item: item.id }));
                 })
               }
             >
-              <PlusIcon aria-hidden className="h-5 w-5" />
-              {t("Log")}
+              {t("Change the order")}
             </Button>
             <Button
               variant="secondary"
@@ -119,11 +121,12 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
                   addSavedOrder({ chainId: chain.id, chainName: chain.name, name: orderName(index, lines) || item.name, lines, nutrients: total, dataVersionAtSave: menu.dataVersion ?? 0 });
                   analytics.track({ name: "orderSaved" });
                   countProAction();
-                  setMessage(tk("Saved."));
+                  setMessage(tk("Saved to My meals."));
                 })
               }
             >
-              <BookmarkIcon aria-hidden className="h-5 w-5" />
+              {/* the heart, as on recipes: one sign for keeping something in My meals */}
+              <HeartIcon aria-hidden className="h-5 w-5" />
               {t("Save")}
             </Button>
             <ShareButton full chainName={chain.name} orderName={item.name} description={description} nutrients={item.nutrients} />

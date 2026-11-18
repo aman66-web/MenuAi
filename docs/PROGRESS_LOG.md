@@ -2986,3 +2986,17 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   Premium, Make it at home and Scan your food don't show), built Numbite 1.1 (6) with development signing (BUILD SUCCEEDED, 67 MB) and installed and launched it
   with `devicectl` over the cable (data kept). Tesco: a third try at the founder's request was turned away by the security page on its first round; the reader
   stopped and left its tab open, as the founder asked; Tesco stays stopped for the day.
+
+- 2026-11-18 (night) — **Clarity changes from the fresh-eyes review** (founder: "Apply any edits you better think to make the app easier to understand, and so people
+  understand what each screen does"; "make sure all the stuff I've told you in this entire conversation, you definitely added"). **Dish page:** the one big button
+  is "Add to today" (it was "Customise"); "Change the order" opens the builder; Save has the heart (as on recipes) and says "Saved to My meals."; the builder's Log
+  is "Add to today". **Home:** a line under the date, "Your food today: what you've eaten and what's left.", and the gear says Settings in words. **Groceries:**
+  "Supermarket food, with its price and the calories and protein on its label." **Recipes:** the line starts "Pick one of our recipes, or make your own from a
+  photo." (just "Pick one of our recipes." where Make it at home is off). **Restaurant page:** the note on how its figures were read moved from the top to the foot,
+  beside the source (the menu started 1,500 px down); the calories-only and halal notes stay at the top. **Settings:** "Set up your plan again" (was "Set up with Pip",
+  easily taken for the tour), "Where your daily targets come from" (was "Where these numbers come from", beside SPEC's "How we get our numbers"), goal "On a GLP-1
+  medication" as in onboarding. **Setup:** with no shop ticked it says recipes use the supermarket we have most labels for; room under the last shops; the end
+  of the tour no longer says "That's the tour!" to someone who pressed Skip tour. **Shop lists:** "Loyalty card price" (was "Has a card price"). e2e updated
+  (recipes, shoppick, leaderboards, groceries-all, browse pass on the dev server; back-restaurants' Cmd-click-a-new-tab step times out on this Mac, a link this
+  change didn't touch). **Not done from the review** (bigger, next): one word for saving across chains' Favourites, opening a shop on its aisles, folding the Today
+  page into Home, bigger tab bar labels at large text sizes; the McDonald's note saying allergens are shown while its allergen box says they aren't (menu data, the pipeline).

@@ -96,7 +96,7 @@ await step("no signal: every restaurant comes from the menus packed in the app; 
   await page.goto(BASE + "/app/chain?id=kfc");
   await page.getByRole("heading", { level: 1, name: /KFC/ }).waitFor({ timeout: 15000 });
   await page.locator("a[href*='/app/item?chain=kfc']").first().click();
-  await page.getByRole("button", { name: "Log" }).waitFor();
+  await page.getByRole("button", { name: "Add to today" }).waitFor();
   await noForbidden(page, "KFC item");
   await ctx.close();
 });

@@ -275,6 +275,9 @@ function RecipesScreen() {
 
       <h1 className="mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">{t("What's cooking today?")}</h1>
       <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">
+        {/* the two ways to use this tab, first (founder 2026-11-18: "is it clear on this screen that the people can either choose from pre selected meals that we
+            crafted or make their own?") */}
+        {PHOTO_RECIPES_ENABLED ? t("Pick one of our recipes, or make your own from a photo.") : t("Pick one of our recipes.")}{" "}
         {shopNames.length ? t("Every ingredient is a real product at {shop}, with its price and the nutrition of each serving.", { shop: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) }) : t("Every ingredient is a real product at your supermarket, with its price and the nutrition of each serving.")}
       </p>
 

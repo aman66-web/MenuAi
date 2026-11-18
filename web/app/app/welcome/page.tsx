@@ -143,6 +143,8 @@ function Welcome() {
   const [step, setStep] = useState(0);
   // Back from Apple or Google sign-in on the website (it adds ?signin=ok to this page): carry on after the cover, where Get started led
   const [intro, setIntro] = useState(replay ? STOP0 : params.get("signin") === "ok" ? COVER + 1 : COVER);
+  // set by "Skip tour", so the choice at the end doesn't say "That's the tour!" to someone who skipped it (the review of 2026-11-18)
+  const [skippedTour, setSkippedTour] = useState(false);
   const [signInOpen, setSignInOpen] = useState(false);
   // Everyone signs in (founder 2026-11-17, SIGN_IN_REQUIRED): Get started on the cover opens the sign-in screen first; the tour and the questions follow it.
   const [signingUp, setSigningUp] = useState(false);
@@ -243,6 +245,7 @@ function Welcome() {
   // "Skip tour": to the choice at the end of the walk.
   const skipTour = () => {
     analytics.track({ name: "onboardingSkipped", step: 0 });
+    setSkippedTour(true);
     setIntro(FORK);
     window.scrollTo({ top: 0 });
   };
@@ -438,10 +441,12 @@ function Welcome() {
             <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{t("Let's make it yours")}<HeadPill Icon={CheckIcon} /></h1>
             <div className="mt-4">
               <PipSays size={64} mood="cheer">
-                {t("That's the tour! Now a few quick questions, and I'll work out your daily numbers and put the dishes that fit you first.")}
+                {skippedTour
+                  ? t("Now a few quick questions, and I'll work out your daily numbers and put the dishes that fit you first.")
+                  : t("That's the tour! Now a few quick questions, and I'll work out your daily numbers and put the dishes that fit you first.")}
               </PipSays>
             </div>
-            <p className="mt-4 text-[15px] text-muted">{t("You can see this tour again any time in Settings.")}</p>
+            <p className="mt-4 text-[15px] text-muted">{skippedTour ? t("You can see the tour any time in Settings.") : t("You can see this tour again any time in Settings.")}</p>
             <Bottom>
               <BottomButton onClick={() => setStep(GOAL)}>{t("Set up my plan")}</BottomButton>
               <BottomButton light className="mt-2" onClick={lookAround}>{t("Look around first")}</BottomButton>
@@ -664,6 +669,9 @@ function Welcome() {
           </div>
           <p className="mb-4 mt-4 text-[15px] text-muted">{t("Tap all that apply. Change it any time in Settings.")}</p>
           <ShopPicker value={shops} onChange={setShops} />
+          {/* the review of 2026-11-18: with none ticked, Continue led to one shop's recipes without saying so; and the last shops sat under the Continue button */}
+          {shops.length === 0 && <p className="mt-4 text-[15px] leading-snug text-muted">{t("Not sure yet? That's fine: until you choose, recipes use the supermarket we have the most labels for.")}</p>}
+          <div aria-hidden className="h-8 shrink-0" />
           <Bottom>
             <BottomButton onClick={() => { updateSettings({ shops: shops.length ? shops : undefined }); next(); }}>{t("Continue")}</BottomButton>
           </Bottom>

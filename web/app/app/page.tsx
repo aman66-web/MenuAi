@@ -150,10 +150,13 @@ export default function HomePage() {
           </button>
         </div>
         {/* a small grey circle like the picture's, inside a full 44 px tap area; a gear to Settings (founder 2026-10-16). Today's meals opens from the meal rows below. */}
-        <Link href="/app/settings" aria-label={t("Settings")} className="group -me-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><GearIcon className="h-[18px] w-[18px]" /></span>
+        {/* the gear with its word (the review of 2026-11-18: an icon alone means nothing to someone new to phones) */}
+        <Link href="/app/settings" className="group -me-1 inline-flex min-h-11 shrink-0 items-center rounded-full transition active:scale-95">
+          <span className="inline-flex h-9 items-center gap-1.5 rounded-full bg-soft-strong ps-2.5 pe-3.5 text-[0.9375rem] font-semibold transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><GearIcon aria-hidden className="h-[18px] w-[18px]" />{t("Settings")}</span>
         </Link>
       </div>
+      {/* what Home is for, in one line (founder 2026-11-18: "everyone needs to understand the point for each screen") */}
+      <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("Your food today: what you've eaten and what's left.")}</p>
 
       <ol aria-label={t("This week")} className="mt-4 grid grid-cols-7 gap-2 text-center">
         {weekOf(now).map((d) => {

@@ -199,9 +199,9 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             {(chain.cuisine || chain.sample) && <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1">{chain.cuisine ? <span className={SMALL_LABEL}>{t(chain.cuisine)}</span> : null} {chain.sample && <SampleBadge />}</p>}
           </div>
         </div>
-        {/* The data's limits come first: users must see them before trusting a number. */}
+        {/* The data's limits come first: users must see them before trusting a number (calories only, halal). The longer note on how the figures were read
+            moved to the foot of the page (the review of 2026-11-18: the menu started 1,500 px down behind it), beside the source. */}
         <div className="mt-4 space-y-3 border-t border-line pt-4 text-[0.9375rem] leading-snug">
-          {chain.note && <p>{chain.note}</p>}
           {caloriesOnly && <p className="font-semibold">{t("{chain} publishes calories only: protein, carbs and fat aren't published, so there are no best-for-you picks, order builder or logging for this restaurant.", { chain: chain.name })}</p>}
           {halal && (
             <div>
@@ -437,6 +437,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             }}
           />
         </p>
+        {chain.note && <p>{chain.note}</p>}
         <p>{t("Not affiliated with {chain}.", { chain: chain.name })}</p>
         <p>
           {t("Something look wrong?")}{" "}

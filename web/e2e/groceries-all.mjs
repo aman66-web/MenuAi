@@ -82,10 +82,10 @@ await step("full list: count, search by words, type filter, card price, sort, sh
   await page.getByRole("searchbox").fill("greek yog");
   await page.getByText("1 product", { exact: true }).waitFor();
   await page.getByRole("searchbox").fill("");
-  await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "Has a card price" }).click();
+  await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "Loyalty card price" }).click();
   await page.getByText("1 product", { exact: true }).waitFor();
   await page.getByRole("link", { name: /Multiseed Loaf/ }).waitFor();
-  await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "Has a card price" }).click();
+  await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "Loyalty card price" }).click();
   await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "Has nutrition" }).click();
   // the loaf's numbers come from its own page; the yogurt's from the catalogue's record for the same barcode
   await page.getByText("2 products", { exact: true }).waitFor();

@@ -47,15 +47,15 @@ await step("a restaurant: Best for you shows the picks (no lock), an item logs a
   if (await page.getByText(/See your 5 best orders/).count()) throw new Error("Best for you is locked");
   await noForbidden("KFC");
   await page.locator("a[href*='/app/item?chain=kfc']").first().click();
-  await vis(page.getByRole("button", { name: "Log" }));
-  await page.getByRole("button", { name: "Log" }).click();
+  await vis(page.getByRole("button", { name: "Add to today" }));
+  await page.getByRole("button", { name: "Add to today" }).click();
   await page.waitForTimeout(500);
   if (await page.getByRole("dialog").count()) {
     const d = await page.getByRole("dialog").innerText();
     if (FORBIDDEN.test(d)) throw new Error(`a paywall opened: ${d.slice(0, 120)}`);
   }
   await noForbidden("item");
-  await page.getByRole("button", { name: "Customise" }).click();
+  await page.getByRole("button", { name: "Change the order" }).click();
   await page.waitForURL(/\/app\/builder/);
   await noForbidden("builder");
 });

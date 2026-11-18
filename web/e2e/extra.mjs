@@ -262,9 +262,9 @@ await step("App Review 1.4.1: the sources of the suggested targets are one tap a
   await sheet.getByRole("button", { name: "Close" }).click();
   // the GLP-1 goal note has its own link, and Settings > About has the page
   await vis(page.locator("section, div").filter({ hasText: "follow the advice of your doctor or pharmacist" }).getByRole("button", { name: "Where these numbers come from" }).first());
-  await page.getByRole("link", { name: "Where these numbers come from" }).click();
+  await page.getByRole("link", { name: "Where your daily targets come from" }).click();
   await page.waitForURL(/\/app\/settings\/sources/);
-  await vis(page.getByRole("heading", { level: 1, name: "Where these numbers come from" }));
+  await vis(page.getByRole("heading", { level: 1, name: "Where your daily targets come from" }));
   await vis(page.getByRole("link", { name: "How we get our numbers" }));
   await page.getByRole("link", { name: "Settings", exact: true }).click();
   await vis(page.getByRole("heading", { level: 1, name: "Settings", exact: true }));

@@ -246,9 +246,9 @@ await step("Cheapest protein: five rows free, the rest locked behind the paywall
 await step("logging and the order builder stay free in the paid tier; the fourth saved order shows the paywall", async () => {
   const { ctx, page } = await open();
   await page.goto(BASE + DISHES[0]);
-  await page.getByRole("button", { name: "Log", exact: true }).click();
-  await page.getByText("Logged to Today.").waitFor();
-  await page.getByRole("button", { name: "Customise" }).click();
+  await page.getByRole("button", { name: "Add to today", exact: true }).click();
+  await page.getByText("Added to today's food.").waitFor();
+  await page.getByRole("button", { name: "Change the order" }).click();
   await page.waitForURL(/\/app\/builder/);
   expect((await page.getByRole("dialog").count()) === 0 || !(await paywall(page).isVisible()), "the paywall appeared for the builder");
   await ctx.close();

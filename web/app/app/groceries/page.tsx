@@ -56,6 +56,8 @@ export default function GroceriesPage() {
         <h1 className={TITLE}>{t("Groceries")}</h1>
         <ListLink count={list.length} />
       </div>
+      {/* what this tab is for, in one line (founder 2026-11-18: "everyone needs to understand the point for each screen") */}
+      <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Supermarket food, with its price and the calories and protein on its label.")}</p>
 
       <Link href="/app/groceries/search" className="glass mt-5 flex min-h-[3.25rem] items-center gap-3 rounded-[1.625rem] px-5 text-muted transition hover:bg-soft-strong active:scale-[0.99]">
         <SearchIcon className="h-5 w-5 shrink-0 text-foreground" />

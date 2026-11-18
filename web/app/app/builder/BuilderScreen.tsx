@@ -302,7 +302,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
                   })
                 }
               >
-                {t("Log")}
+                {t("Add to today")}
               </Button>
               <ShareButton full chainName={chain.name} orderName={name} description={describeOrder(ix, lines)} nutrients={total} />
             </div>

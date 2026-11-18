@@ -49,7 +49,7 @@ const GOAL_OPTIONS: ReadonlyArray<{ value: Goal; label: string }> = [
   { value: "lose", label: tk("Lose") },
   { value: "maintain", label: tk("Maintain") },
   { value: "buildMuscle", label: tk("Build muscle") },
-  { value: "glp1", label: tk("GLP-1") },
+  { value: "glp1", label: tk("On a GLP-1 medication") },
   { value: "other", label: tk("Other") },
 ];
 
@@ -204,7 +204,7 @@ export default function SettingsPage() {
       <Link href="/app/welcome" className="glass mt-5 flex min-h-[4.75rem] items-center gap-3.5 rounded-[1.25rem] px-4 py-3 transition-colors hover:bg-[var(--fill)] active:bg-soft-strong">
         <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-[var(--sun)]"><Pip mood="wave" size={40} className="translate-y-0.5" /></span>
         <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-          <span className="block text-base font-bold leading-snug">{t("Set up with Pip")}</span>
+          <span className="block text-base font-bold leading-snug">{t("Set up your plan again")}</span>
           <span className="mt-0.5 block text-sm leading-snug text-muted">{t("A short tour of the app, then your goal, diet, daily numbers, shops and text size.")}</span>
         </span>
         <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted" />
@@ -299,7 +299,7 @@ export default function SettingsPage() {
 
       <Section title={t("About")}>
         <div className="glass divide-y divide-line overflow-hidden rounded-[1.25rem]">
-          <LinkRow href="/app/settings/sources">{t("Where these numbers come from")}</LinkRow>
+          <LinkRow href="/app/settings/sources">{t("Where your daily targets come from")}</LinkRow>
           <LinkRow href="/app/settings/numbers">{t("How we get our numbers")}</LinkRow>
           <button type="button" onClick={() => setContactOpen(true)} className="flex min-h-[3.25rem] w-full items-center justify-between gap-3 px-4 py-2 text-start text-base font-semibold transition hover:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">{t("Contact us")}<ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" /></button>
           <LinkRow href="/privacy" external>{t("Privacy policy")}</LinkRow>

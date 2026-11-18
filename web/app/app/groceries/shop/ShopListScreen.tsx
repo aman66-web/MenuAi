@@ -116,7 +116,7 @@ export function ShopListScreen({ shop }: { shop: string }) {
       <div role="group" aria-label={t("Filters")} className="mt-3.5 flex flex-wrap gap-2 empty:hidden">
         {unsuited && <Chip selected={dietOn} onClick={() => { setDietOn((v) => !v); reset(); }}>{t("Fits my diet")}</Chip>}
         {nutritionCount > 0 && <Chip selected={nutrition} onClick={() => { setNutrition((v) => !v); reset(); }}>{t("Has nutrition")}</Chip>}
-        {hasCard && <Chip selected={card} onClick={() => { setCard((v) => !v); reset(); }}>{t("Has a card price")}</Chip>}
+        {hasCard && <Chip selected={card} onClick={() => { setCard((v) => !v); reset(); }}>{t("Loyalty card price")}</Chip>}
       </div>
       <div className="mt-3.5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,10rem),1fr))] gap-3">
         <SelectField label={t("Aisle")} value={category ?? ""} onChange={(e) => { setCategory(e.target.value || null); reset(); }}>
