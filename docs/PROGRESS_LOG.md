@@ -3050,3 +3050,30 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   Volvic waters at Waitrose whose Energy has no unit.
 - Tesco: the founder asked three more times to restart Tesco after its security page ("im the one who is looking at the page so its fine"); declined again
   (carrying on after a cleared check gets round Tesco's bot check, whoever watches). Fresh start tomorrow; a security page stops it for that day.
+
+### 18 November 2026 (night): meal plan with Pip and several shops; several shopping lists and Swap; Scan your food asks what the food is; a safety net for screens
+
+- **Meal plan** (founder: "make a third icon, which has meal plan, and that has pro on it ... Pip's guiding them through ... select the shops they want ... add
+  all the ingredients to their shopping list ... swap them out for other meals ... select multiple supermarkets ... choose the best meal plan overall"). Home's
+  third card (the whole width under Shopping list and Scan your food, Premium tag where Premium exists; Home stays lit on it). Premium (`mealPlan` paywall
+  trigger and bullet; without Premium the page says what it does and offers Premium). Five screens with Pip: daily numbers (from setup, "Change my numbers"),
+  diet and allergies, foods left out, budget (£30-£80 or typed, or no limit), shops (tick as many as you like). lib/mm/mealPlan.ts: each recipe fitted at
+  every chosen shop; the plan takes the closest fit, or a cheaper one within SHOP_FIT_SLACK (0.05); one meal's ingredients from one shop; shopping per shop
+  with its total; swapChoices/setMeal give a list to swap a meal to. Worked out one shop at a time on "Making your plan" (about 0.6-0.9 s a shop on the Mac),
+  cached while the app is open. A one-shop plan saved earlier still opens. Add all puts each shop's packs on that shop's own list (the newest) if there is one,
+  else the main list. Renamed "Plan my week" to "Meal plan" everywhere.
+- **Several shopping lists and Swap** (founder: "create multiple shopping lists ... press plus and what do you want to create a shopping list for? ... it can only
+  be one of the shops"; "they can always swap out ingredients when they're at the supermarket and they can't find something"). Built by a helper on its own
+  branch, merged: `ShoppingItem.list` (absent = the main list, unchanged), list names in settings `shoppingLists` (synced with settings; no new store, no
+  database change); an item on an extra list syncs as `<list>|<retailer>|<code>`. "+ New list" asks which shop (logo tiles; "M&S", "M&S 2"...); chips pick the
+  list; "Delete this list" with a confirmation. A product page asks "Add to which list?" when there is a list for its shop. Swap on every shop product: similar
+  products at that shop (same category, shared name words, cheaper first), tapping one replaces it (`similarProducts`). Counts on Home, the badge and Recipes
+  count all lists. Recipe "add all", "Add the rest" and shared lists go to the main list; the 200-item limit is for all lists together.
+- **Scan your food asks what the food is first** ("What are you eating?", required before either photo button; sent with the photo, cleaned, put before both
+  AI looks; optional on the server so older apps work). Server part live on numbite.com (main a1241cd5, the same scanner go-ahead).
+- **Crashes** (founder: "Sometimes my app just kind of crashes"): the phone's crash and memory reports have no Numbite entry (the one memory report today was
+  Mail's), so the likely cause is a screen error leaving a blank page. Added app/app/error.tsx (Pip, Try again, Go to Home; the tab bar keeps working) and
+  app/global-error.tsx. Nothing is sent anywhere. (The native web view already reloads if iOS ends its process.)
+- Home: no My meals where the scanner is ("I don't want My Meals anymore"); the Shopping list and Scan cards' icons in the light green.
+- Tests: 2184 unit tests pass; e2e lists 9/9, mealplan 6/6, listadd 8/8, sharelist 11/11, coach 4/4. More mixed packs held back (Waitrose 978402, 989516,
+  951401; Morrisons 110867182).
