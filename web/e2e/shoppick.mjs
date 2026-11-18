@@ -1,4 +1,4 @@
-// Groceries "Which shop?": a "Select" button at the bottom right of each shop's tile, "{n} shops selected" and "Go" (founder 2026-11-17), and the page
+// Groceries "Which shop?": a "Select" button at the bottom right of each shop's tile, "{n} shops selected" and a button at the foot of the screen that says what it opens (founder 2026-11-17; moved to the bottom and named 2026-11-18), and the page
 // that shows the selected shops together (/app/groceries/shops?r=a,b). Files are stubbed (two shops with a few products each, one of them with a Nectar-style
 // card price), so the test needs no real data.  Run: BASE=http://localhost:3101 node e2e/shoppick.mjs
 import { chromium } from "playwright-core";
@@ -49,7 +49,7 @@ await step("every shop's tile has a 'Select' button at its bottom right; nothing
   await page.getByRole("heading", { name: "Which shop?" }).waitFor();
   for (const s of ["Sainsbury's", "Tesco", "Asda"]) await select(page, s).waitFor();
   expect((await page.getByRole("button", { name: /^Select(ed)? / }).count()) === 3, "one Select button per shop");
-  expect((await page.getByText(/shops? selected/).count()) === 0 && (await page.getByRole("link", { name: "Go", exact: true }).count()) === 0, "no bar before a shop is selected");
+  expect((await page.getByText(/shops? selected/).count()) === 0 && (await page.getByRole("link", { name: /^See .*products/ }).count()) === 0, "no bar before a shop is selected");
   // bottom right of its own tile, and a full 44 px target that never sits on the shop's name or count
   const tile = await page.getByRole("link", { name: /^Tesco\b.*products/ }).boundingBox();
   const btn = await select(page, "Tesco").boundingBox();
@@ -64,26 +64,30 @@ await step("every shop's tile has a 'Select' button at its bottom right; nothing
   await ctx.close();
 });
 
-await step("selecting counts them ('1 shop selected', '2 shops selected') with a Go beside; Selected can be undone; the choice survives Back", async () => {
+await step("selecting counts them ('1 shop selected', '2 shops selected') with a button at the foot of the screen that says what it opens; Selected can be undone; the choice survives Back", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/groceries");
   await select(page, "Sainsbury's").click();
   await page.getByText("1 shop selected").waitFor();
   await page.getByRole("button", { name: "Selected Sainsbury's" }).waitFor();
+  // founder 2026-11-18: the button says what it opens
+  expect((await page.getByRole("link", { name: "See Sainsbury's products" }).getAttribute("href")) === "/app/groceries/shop?r=sainsburys", "one shop: its own products");
   await select(page, "Tesco").click();
   await page.getByText("2 shops selected").waitFor();
   await select(page, "Tesco").click();
   await page.getByText("1 shop selected").waitFor();
   await select(page, "Tesco").click();
   await page.getByText("2 shops selected").waitFor();
-  const go = page.getByRole("link", { name: "Go", exact: true });
+  const go = page.getByRole("link", { name: "See products from Sainsbury's and Tesco" });
   expect((await go.getAttribute("href")) === "/app/groceries/shops?r=sainsburys,tesco", "Go links to the two shops in the order ticked: " + (await go.getAttribute("href")));
   const gb = await go.boundingBox();
   expect(gb.height >= 44, "Go is a 44 px target");
-  // the bar stays in view when the list is scrolled
+  // founder 2026-11-18: at the foot of the screen, just above the tab bar, before and after the list is scrolled
+  expect(gb.y > 844 / 2 && gb.y + gb.height <= 844, `the button sits in the lower half of the screen (${Math.round(gb.y)})`);
   await page.evaluate(() => window.scrollTo(0, 400));
   await page.waitForTimeout(300);
-  expect((await go.boundingBox()).y < 200, "Go stays in reach when scrolled");
+  const after = await go.boundingBox();
+  expect(after.y > 844 / 2 && after.y + after.height <= 844, "still at the foot of the screen when scrolled");
   await go.click();
   await page.getByRole("heading", { level: 1, name: "Your selected shops" }).waitFor();
   await page.goBack();
@@ -97,7 +101,7 @@ await step("Go with two shops lists both shops' products, each row naming its sh
   await page.goto(BASE + "/app/groceries");
   await select(page, "Sainsbury's").click();
   await select(page, "Tesco").click();
-  await page.getByRole("link", { name: "Go", exact: true }).click();
+  await page.getByRole("link", { name: "See products from Sainsbury's and Tesco" }).click();
   await page.getByRole("heading", { level: 1, name: "Your selected shops" }).waitFor();
   await page.getByText("6 products", { exact: true }).waitFor();
   expect((await page.getByText("Products from Sainsbury's and Tesco").count()) === 1, "names the shops");
@@ -123,11 +127,11 @@ await step("Go with two shops lists both shops' products, each row naming its sh
   await ctx.close();
 });
 
-await step("one selected shop's Go opens that shop's own list; a bad or empty address says to choose a shop; a failed shop is named and the other still shows", async () => {
+await step("one selected shop's button opens that shop's own list; a bad or empty address says to choose a shop; a failed shop is named and the other still shows", async () => {
   const one = await newPage();
   await one.page.goto(BASE + "/app/groceries");
   await select(one.page, "Asda").click();
-  await one.page.getByRole("link", { name: "Go", exact: true }).click();
+  await one.page.getByRole("link", { name: "See Asda's products" }).click();
   await one.page.waitForURL(/\/app\/groceries\/shop\?r=asda$/);
   await one.page.getByRole("heading", { level: 1, name: "Asda" }).waitFor();
   await one.page.goto(BASE + "/app/groceries/shops?r=../../x,<b>");
@@ -156,7 +160,7 @@ await step("360 px, Extra large text, a long shop name: no sideways scroll on Gr
       const res = await page.evaluate(async () => await window.axe.run(document, { runOnly: ["wcag2a", "wcag2aa"] }));
       expect(res.violations.length === 0, "axe on Groceries: " + res.violations.map((v) => v.id + " " + v.nodes[0]?.html.slice(0, 120)).join("; "));
     }
-    await page.getByRole("link", { name: "Go", exact: true }).click();
+    await page.getByRole("link", { name: "See products from 3 shops" }).click();
     await page.getByRole("heading", { level: 1, name: "Your selected shops" }).waitFor();
     await page.getByText("7 products", { exact: true }).waitFor();
     expect((await overflow(page)) <= 1, `no sideways scroll on the shops page (${width}${big ? ", Extra large" : ""})`);
