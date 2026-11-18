@@ -74,6 +74,10 @@ def all_products(shop: str):
                 yield {"product_id": url, "page": url, "name": name}
         return
     doc = json.loads((ROOT / "web" / "public" / "groceries" / "all" / f"{shop}.json").read_text(encoding="utf-8"))
+    # founder 2026-11-18: "at the end of the day we need recipes for each supermarket": products that match a recipe ingredient
+    # (data/groceries/recipe-candidates/<shop>.csv) are read before the rest
+    cand_file = ROOT / "data" / "groceries" / "recipe-candidates" / f"{shop}.csv"
+    recipe_ids = {r["product_id"] for r in csv.DictReader(open(cand_file, newline="", encoding="utf-8"))} if cand_file.exists() else set()
     first, then = [], []
     for row in doc["products"]:
         nut = row[10] if len(row) > 10 else None
@@ -81,6 +85,7 @@ def all_products(shop: str):
         if shop in ("aldi", "marks-and-spencer") and not page:
             continue
         (then if nut else first).append({"product_id": row[0], "page": page, "name": row[1]})
+    first.sort(key=lambda r: r["product_id"] not in recipe_ids)  # stable: recipe products first, the rest in list order
     yield from first
     # founder 2026-11-18: "I just want every food product to have nutritional information": products that already show numbers (their own label, the same product's label
     # from another shop, community numbers or the government's produce figures) are read only when asked for (--with-labelled), for their ingredients
