@@ -3097,3 +3097,9 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   GLP-1 meal cap when that mode is on; protein follows each slot's share of the calories. The step shows each slot's kcal. A day with two snacks of the same
   kind gets two different ones; swaps never repeat a recipe already on that day. Saved plans keep their slots (`SavedPlan.slots`; plans saved before open as
   breakfast, lunch and dinner). Six steps now. Tests: 2193 unit tests pass, e2e mealplan 7/7. Mac branch `iap` and the phone only; not on numbite.com.
+- **One shop or several, said plainly** (founder: "if they choose one shop, all the ingredients can be bought from one shop. If they choose two shops ... spaced
+  over two shops ... it needs to be clear to them"): on the shops step Pip's line follows the ticks ("Everything will come from {shop}: one shop, one shopping
+  list. Pick another too, and I'll share the meals between them." / "I'll share your meals between {shops}, using the best shop for each meal."), and a card
+  under the list says how ("With 2 shops": each meal comes from the shop whose products fit your numbers best, the cheaper one when as close, all its
+  ingredients bought there; the list split by shop; more shops, more recipes). It replaces the grey line that sat under the Continue button. The intro card
+  now says "Your meals and snacks for seven days". e2e mealplan 7/7.

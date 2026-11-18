@@ -120,7 +120,7 @@ function PremiumIntro() {
       <h1 className={`mt-4 ${TITLE}`}>{t("Meal plan")}</h1>
       <div className="mt-4"><PipSays mood="wave" size={64}>{t("Tell me your goal, your diet and where you shop, and I'll plan a whole week of meals for you, with the shopping list.")}</PipSays></div>
       <ul className={`${CARD} mt-4 space-y-3 p-4 text-base leading-snug`}>
-        {[t("Breakfast, lunch and dinner for seven days, sized to your goal"), t("From one shop or several: the best recipes across them"), t("What each meal costs, and the week's shopping within your budget"), t("Swap any meal you don't fancy, then add everything to your shopping list")].map((line) => (
+        {[t("Your meals and snacks for seven days, sized to your goal"), t("From one shop or several: the best recipes across them"), t("What each meal costs, and the week's shopping within your budget"), t("Swap any meal you don't fancy, then add everything to your shopping list")].map((line) => (
           <li key={line} className="flex items-start gap-3"><span aria-hidden className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)]"><CheckIcon className="h-4 w-4" /></span>{line}</li>
         ))}
       </ul>
@@ -238,12 +238,19 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
   );
 
   const title = [t("Your daily numbers"), t("Your meals and snacks"), t("Your diet and allergies"), t("Foods you'd rather not have"), t("Where you shop"), t("Your budget for the week")][step - 1]!;
+  // the shops step says what the ticks mean as they change (founder 2026-11-18: "it needs to be clear to them")
+  const chosenNames = shopsAll.filter((s) => chosen.includes(s.id)).map((s) => s.name);
+  const shopsSay = chosenNames.length === 1
+    ? t("Everything will come from {shop}: one shop, one shopping list. Pick another too, and I'll share the meals between them.", { shop: chosenNames[0]! })
+    : chosenNames.length > 1
+      ? t("I'll share your meals between {shops}, using the best shop for each meal.", { shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(chosenNames) })
+      : t("Where do you shop? Pick one shop to buy everything there, or several and I'll share the meals between them.");
   const says = [
     t("Hi! Let's plan your week. First, your daily numbers: I'll size every meal to them."),
     t("How do you like to eat? Pick your meals and how many snacks, and I'll size each one so your day adds up."),
     t("Do you follow a diet, or have any allergies? I'll leave out any recipe that doesn't fit."),
     t("Any foods you don't like? Tap them, or type your own, and I'll leave them out."),
-    t("Where do you shop? Pick as many as you like, and I'll find the best recipes across them."),
+    shopsSay,
     t("Slide to choose your budget. The green spot is the best week for your goal: left is cheaper, right buys better products."),
   ][step - 1]!;
   const canGo = !(step === 2 && !shape.meals.length) && !(step === 4 && noneFor) && !(step === 5 && !chosen.length) && !(step === 6 && !ready);
@@ -265,7 +272,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
       <p className="mt-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted" aria-live="polite">{t("Step {step} of {total}", { step, total: STEPS })}</p>
 
       <h1 ref={heading} tabIndex={-1} className={`mt-3 ${TITLE} outline-none`}>{title}</h1>
-      <div className="mt-4"><PipSays mood={STEP_PIP[step]} size={64} lively pulse={step}>{says}</PipSays></div>
+      <div className="mt-4"><PipSays mood={STEP_PIP[step]} size={64} lively pulse={step === 5 ? `5-${chosenNames.length}` : step}>{says}</PipSays></div>
 
       <div className="mt-4">
         {step === 1 && (
@@ -326,7 +333,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
                 })}
               </div>
             )}
-            <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("Every ingredient is a real product at one of these shops, with its price. Each meal's ingredients all come from one shop.")}</p>
+            <div className="mt-4"><ShopsNote names={chosenNames} /></div>
           </>
         )}
 
@@ -352,6 +359,37 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
 }
 
 // ---------- meals and snacks ----------
+
+/**
+ * What one shop or several means for the week, said as the person ticks (founder 2026-11-18: "if they choose one shop, all the ingredients can be bought from
+ * one shop. If they choose two shops ... spaced over two shops, and will choose the best ingredients from the two shops ... it needs to be clear to them").
+ * Under the list; Pip's line above says the same in short. True to planCandidatesAcross: each meal from one shop, the closest fit or the cheaper one when as close; the list split by shop.
+ */
+function ShopsNote({ names }: { names: string[] }) {
+  const t = useT();
+  if (!names.length) return null;
+  const one = names.length === 1;
+  const lines = one
+    ? [
+        t("Every ingredient for the whole week is a real {shop} product, with its price.", { shop: names[0]! }),
+        t("One shop and one shopping list."),
+      ]
+    : [
+        t("Each meal comes from the shop whose products fit your numbers best (the cheaper one when they're as close), and all its ingredients are bought there."),
+        t("Your shopping list is split by shop, so you know what to buy where."),
+        t("More shops also means more recipes to choose from."),
+      ];
+  return (
+    <div role="status" aria-live="polite" className="glass rounded-[1.25rem] p-4">
+      <p className="text-[1.0625rem] font-bold leading-snug">{one ? t("With one shop") : t("With {n} shops", { n: names.length })}</p>
+      <ul className="mt-2 space-y-1.5">
+        {lines.map((l) => (
+          <li key={l} className="flex gap-2 text-[0.9375rem] leading-snug text-muted"><CheckIcon aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-foreground" />{l}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 /** Which meals the person eats (at least one) and how many snacks (none to three), with each one's size as the plan will make it. */
 function MealsAndSnacks({ shape, onChange, targets }: { shape: DayShape; onChange: (s: DayShape) => void; targets: Targets }) {

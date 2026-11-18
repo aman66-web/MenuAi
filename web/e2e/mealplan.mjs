@@ -73,7 +73,11 @@ await step("Pip asks one thing a screen: numbers, meals and snacks, diet, foods,
   const sains = page.getByRole("checkbox", { name: /Sainsbury/ });
   await sains.waitFor({ timeout: 60000 });
   expect((await sains.getAttribute("aria-checked")) === "true", "the person's own shop starts chosen");
+  await page.getByText(/^Everything will come from Sainsbury's: one shop, one shopping list/).waitFor();
+  await page.getByRole("status").filter({ hasText: /With one shop/ }).filter({ hasText: /real Sainsbury's product/ }).waitFor();
   await page.getByRole("checkbox", { name: /Morrisons/ }).click();
+  await page.getByText(/^I'll share your meals between Sainsbury's and Morrisons, using the best shop for each meal/).waitFor();
+  await page.getByRole("status").filter({ hasText: /With 2 shops/ }).filter({ hasText: /split by shop/ }).waitFor();
   await page.addScriptTag({ path: AXE });
   const v = await page.evaluate(async () => (await window.axe.run(document, { runOnly: ["wcag2a", "wcag2aa"] })).violations.map((x) => `${x.id}: ${x.nodes[0]?.html.slice(0, 100)}`));
   expect(v.length === 0, v.join(" | "));
