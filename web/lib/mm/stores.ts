@@ -1,4 +1,5 @@
 import { sanitizeShoppingList, type ShoppingItem } from "./groceries";
+import { sanitizePlan, type SavedPlan } from "./mealPlan";
 import { sanitizeSavedRecipes, type SavedRecipe } from "./aiRecipe";
 import { createStore, requestPersistentStorage } from "./persist";
 import { sanitizeOutbox, OutboxSender, type OutboxItem } from "./outbox";
@@ -45,6 +46,8 @@ export const remindersStore = createStore<Reminder[]>("mm.v1.reminders", [], { s
 export const outboxStore = createStore<OutboxItem[]>("mm.v1.outbox", [], { sanitize: sanitizeOutbox });
 /** Groceries the user wants to buy (barcode, retailer, name, quantity). On this device only. */
 export const shoppingStore = createStore<ShoppingItem[]>("mm.v1.shopping", [], { sanitize: sanitizeShoppingList });
+/** The week's meal plan (lib/mm/mealPlan.ts): the answers and recipe ids. On this device only, never synced; cleared by Clear data. */
+export const mealPlanStore = createStore<SavedPlan | null>("mm.v1.mealPlan", null, { sanitize: sanitizePlan });
 /** Recipes Pip wrote that the person saved (the pantry kinds and amounts, rebuilt from today's products when opened). On this device only. */
 export const myRecipesStore = createStore<SavedRecipe[]>("mm.v1.myRecipes", [], { sanitize: sanitizeSavedRecipes });
 /** Recipes from our book the person saved ("My recipes"), newest first. On this device only. */

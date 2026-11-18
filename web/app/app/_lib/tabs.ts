@@ -11,7 +11,7 @@ const ALL_TABS = [
   { href: "/app", label: tk("Home"), Icon: HomeIcon, match: (p: string) => p === "/app" || p.startsWith("/app/today") || p.startsWith("/app/saved") || p.startsWith("/app/meals") || p.startsWith("/app/groceries/list") || p.startsWith("/app/recipes/saved") || p.startsWith("/app/settings") || p.startsWith("/app/reminders") || p.startsWith("/app/scan") },
   { href: "/app/eat-out", label: tk("Eat out"), Icon: ForkIcon, match: (p: string) => p.startsWith("/app/eat-out") || p.startsWith("/app/map") || p.startsWith("/app/chain") || p.startsWith("/app/item") || p.startsWith("/app/search") || p.startsWith("/app/builder") },
   { href: "/app/groceries", label: tk("Groceries"), Icon: BasketIcon, match: (p: string) => p.startsWith("/app/groceries") && !p.startsWith("/app/groceries/list") },
-  { href: "/app/recipes", label: tk("Recipes"), Icon: PotIcon, match: (p: string) => p.startsWith("/app/recipes") && !p.startsWith("/app/recipes/saved") },
+  { href: "/app/recipes", label: tk("Recipes"), Icon: PotIcon, match: (p: string) => (p.startsWith("/app/recipes") && !p.startsWith("/app/recipes/saved")) || p.startsWith("/app/plan") },
   { href: "/app/community", label: tk("Community"), Icon: PeopleIcon, match: (p: string) => p.startsWith("/app/community") },
 ] as const;
 

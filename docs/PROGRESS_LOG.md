@@ -3000,3 +3000,19 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   (recipes, shoppick, leaderboards, groceries-all, browse pass on the dev server; back-restaurants' Cmd-click-a-new-tab step times out on this Mac, a link this
   change didn't touch). **Not done from the review** (bigger, next): one word for saving across chains' Favourites, opening a shop on its aisles, folding the Today
   page into Home, bigger tab bar labels at large text sizes; the McDonald's note saying allergens are shown while its allergen box says they aren't (menu data, the pipeline).
+
+- 2026-11-18 (night) — **Plan my week** (founder: "they type all of this in, and then my app will make them a diet plan for a week. It'll tell them what they need to buy
+  for the week ... how much the price is for each meal of each day ... the full cost ... Budget, amount of money per week"; "you should only use the pre-made recipes
+  ... just filter it to that, and make the best plan for them"). No AI. lib/mm/mealPlan.ts (tests/mealPlan.test.ts, 9 on Sainsbury's real list) and
+  app/app/plan/page.tsx, reached from a card on Recipes ("Plan my week"; the Recipes tab stays lit). **Questions** (one page, numbered): the daily target from the
+  person's own plan (Change opens Settings' targets), diet and allergies (the app's one setting), foods they don't eat (12 plain choices plus typed words, matched
+  in a recipe's ingredients, never a seasoning), a budget for the week (optional), their shop. **Rules:** our recipes only, each fitted to the Recipes tab's
+  meal size with a protein aim of 30% of the day's protein; left out when the diet, an allergy or a food left out rules it out, or the shop can't make it with
+  read labels and prices; each meal of the day rotates through its 4 closest recipes (each at most twice a week). With a budget, the dearest recipe is swapped
+  for the cheapest one of that meal still within 0.3 of the meal size (never a 200 kcal soup for lunch), then a meal rotates through fewer recipes so packs are
+  shared; if even that is over, the page says so. **The week:** the shopping bill (every meal's amounts added up per product, as whole packs) against the budget,
+  what the 21 meals use of it, the daily calories and protein, each day's three meals with calories, protein and price (opening the recipe page), Swap this meal,
+  the day's totals, the whole shopping list (cupboard items say "You may have this already") and "Add all to my shopping list". Kept on the phone
+  (`mealPlanStore`, mm.v1.mealPlan, never synced, cleared by Clear data). Checked in the browser (1,900 kcal, no mushrooms, £40: £47.00, the cheapest sensible week,
+  about 1,685 kcal and 114 g protein a day; Swap and Add all work). **Not yet decided:** free or Premium (free for now); weight and goal weight are not asked:
+  the daily target already comes from the person's plan in setup. **New copy:** the page's questions and lines, the Recipes card.

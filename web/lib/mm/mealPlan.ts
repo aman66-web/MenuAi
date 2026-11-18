@@ -17,6 +17,8 @@ export const PLAN_DAYS = 7;
 export const PLAN_MEALS: readonly MealType[] = ["breakfast", "lunch", "dinner"];
 /** How many different recipes each meal of the day rotates through in a week: four, so each comes round at most twice (variety, and packs shared). */
 export const PER_MEAL_RECIPES = 4;
+/** A budget never swaps a meal for one this far from the meal size (fitDistance; 0.3 is about 30% off on calories): a cheap 200 kcal soup doesn't make a lunch. */
+export const MAX_SWAP_DISTANCE = 0.3;
 
 /** Foods people commonly leave out that a diet or an allergy doesn't already cover, as plain choices; each matches these words in a recipe's ingredients. */
 export const LEAVE_OUT: ReadonlyArray<{ id: string; label: string; words: readonly string[] }> = [
@@ -191,7 +193,7 @@ export function makePlan(candidates: Map<MealType, PlanCandidate[]>, budget: num
     const inUse = PLAN_MEALS.flatMap((m) => chosen.get(m)!.slice(0, counts.get(m)!).map((c, i) => ({ m, c, i }))).sort((a, b) => b.c.cost - a.c.cost);
     for (const { m, c, i } of inUse) {
       const used = new Set(chosen.get(m)!.map((x) => x.recipe.id));
-      const cheaper = candidates.get(m)!.filter((x) => !used.has(x.recipe.id) && x.cost < c.cost).sort((a, b) => a.cost - b.cost || a.distance - b.distance)[0];
+      const cheaper = candidates.get(m)!.filter((x) => !used.has(x.recipe.id) && x.cost < c.cost && x.distance <= Math.max(MAX_SWAP_DISTANCE, c.distance)).sort((a, b) => a.cost - b.cost || a.distance - b.distance)[0];
       if (!cheaper) continue;
       const trial = chosen.get(m)!.slice();
       trial[i] = cheaper;
@@ -229,4 +231,24 @@ export function swapMeal(ids: PlanIds, day: number, mealIndex: number, candidate
     return ids.map((d, i) => (i === day ? d.map((x, j) => (j === mealIndex ? c.recipe.id : x)) : d.slice()));
   }
   return ids;
+}
+
+/** The plan kept on the phone (mm.v1.mealPlan; never synced): the answers and the recipe ids, worked out again from the shop's list when it is opened. */
+export interface SavedPlan {
+  shop: string;
+  ids: PlanIds;
+  leaveOut: string[];
+  budget: number | null;
+  /** The day the plan starts (yyyy-mm-dd): its days are named from it. */
+  start: string;
+}
+
+export function sanitizePlan(raw: unknown): SavedPlan | null {
+  if (!raw || typeof raw !== "object") return null;
+  const r = raw as Record<string, unknown>;
+  const ids = Array.isArray(r.ids) && r.ids.length === PLAN_DAYS && r.ids.every((d) => Array.isArray(d) && d.length === PLAN_MEALS.length && d.every((x) => typeof x === "string" && /^[a-z0-9-]{1,80}$/.test(x))) ? (r.ids as PlanIds) : null;
+  if (!ids || typeof r.shop !== "string" || !/^[a-z0-9-]{2,40}$/.test(r.shop) || typeof r.start !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(r.start)) return null;
+  const leaveOut = Array.isArray(r.leaveOut) ? (r.leaveOut as unknown[]).filter((x): x is string => typeof x === "string" && x.length <= 40).slice(0, 30) : [];
+  const budget = typeof r.budget === "number" && Number.isFinite(r.budget) && r.budget > 0 && r.budget < 10000 ? r.budget : null;
+  return { shop: r.shop, ids, leaveOut, budget, start: r.start };
 }

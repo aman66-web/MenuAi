@@ -74,6 +74,11 @@ describe("the week", () => {
     if (firstCupboard >= 0) expect(plan.week.shopping.slice(firstCupboard).every((l) => l.cupboard)).toBe(true);
   });
 
+  it("with a budget, never swaps in a meal far from the meal size", () => {
+    const tight = makePlan(cands, 1)!;
+    for (const d of tight.week.days) for (const m of d.meals) expect(m.candidate.distance, m.candidate.recipe.name).toBeLessThanOrEqual(Math.max(0.3, cands.get(m.meal)![3]!.distance));
+  });
+
   it("with a budget, makes the bill cheaper, and says when even the cheapest plan is over it", () => {
     const free = plan.week.shoppingCost;
     const tight = makePlan(cands, Math.round(free * 0.7))!;
