@@ -56,7 +56,7 @@ const ROWS = {
   groceries: [
     "Tap your supermarket to see its products and prices.",
     "Scan a barcode to look up a product you're holding.",
-    "My list is your shopping list. Tick things off as you shop.",
+    "Your shopping list: tick things off as you shop.",
   ],
   recipes: [
     "Tap Breakfast, Lunch, Dinner or Snacks to see recipes for that meal.",

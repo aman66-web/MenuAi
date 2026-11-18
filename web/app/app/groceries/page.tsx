@@ -22,7 +22,7 @@ import { Scanner } from "./Scanner";
 // work at once even while the shop list loads. Then the unchanged plain question, "Which shop?" (founder 2026-10-11: simple enough for a 90-year-old).
 // Each big tile opens that shop's own list: every product its pages showed, with its own photo and price, and the numbers where we have them. The person's
 // own shops (onboarding, Settings) come first, in the same two-across tiles as the rest (founder 2026-11-18: "there's no point having like your shop. You can
-// just get rid of that thing": no "Your shop" tag, so no wide tile for it either). Looks follow Home (founder 2026-10-15): the compact title, a grey pill for "My list", white tiles two across, no chevrons on tiles.
+// just get rid of that thing": no "Your shop" tag, so no wide tile for it either). Looks follow Home (founder 2026-10-15): the compact title, a grey pill for "Shopping list", white tiles two across, no chevrons on tiles.
 
 /** Two tiles side by side, one above the other when the text is large (the minimum width is in rem, so it grows with the text size). */
 const PICK_KEY = "mm.groceryPick";
@@ -51,7 +51,7 @@ export default function GroceriesPage() {
 
   return (
     <div>
-      {/* wraps, so at large text "My list" moves under the title instead of breaking the word "Groceries" */}
+      {/* wraps, so at large text "Shopping list" moves under the title instead of breaking the word "Groceries" */}
       <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
         <h1 className={TITLE}>{t("Groceries")}</h1>
         <ListLink count={list.length} />

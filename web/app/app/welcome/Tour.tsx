@@ -50,7 +50,7 @@ export const TOUR_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: Pip
     rows: [
       { Icon: GridIcon, text: tk("Tap your supermarket to see its products and prices.") },
       { Icon: ScanIcon, text: tk("Scan a barcode to look up a product you're holding.") },
-      { Icon: BasketIcon, text: tk("My list is your shopping list. Tick things off as you shop.") },
+      { Icon: BasketIcon, text: tk("Your shopping list: tick things off as you shop.") },
     ],
   },
   {
