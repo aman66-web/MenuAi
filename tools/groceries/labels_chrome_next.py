@@ -142,7 +142,8 @@ def stored_versions(shop: str) -> dict[str, int]:
             if line.strip():
                 r = json.loads(line)
                 k = str(r.get("id"))
-                out[k] = max(out.get(k, 0), r.get("reader") or 1)
+                # a line without a version: read by reader 2 if it came through the harvest (it has pageId), else by the first reader
+                out[k] = max(out.get(k, 0), r.get("reader") or (2 if "pageId" in r else 1))
     return out
 
 
