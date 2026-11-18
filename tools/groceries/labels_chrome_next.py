@@ -133,6 +133,19 @@ def _iceland_names() -> dict:
     return _ICE
 
 
+def stored_versions(shop: str) -> dict[str, int]:
+    """Every page in raw-<shop>/chrome.jsonl, with the newest reader version that read it."""
+    raw = ROOT / "data" / "groceries" / "nutrition" / f"raw-{shop}" / "chrome.jsonl"
+    out: dict[str, int] = {}
+    if raw.exists():
+        for line in raw.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                r = json.loads(line)
+                k = str(r.get("id"))
+                out[k] = max(out.get(k, 0), r.get("reader") or 1)
+    return out
+
+
 def done_ids(shop: str) -> set[str]:
     raw = ROOT / "data" / "groceries" / "nutrition" / f"raw-{shop}" / "chrome.jsonl"
     done = set()
@@ -193,8 +206,9 @@ def harvest(days: float = 4) -> str:
         if not main:
             continue
         if shop not in done:
-            done[shop] = done_ids(shop)
-        if want in done[shop]:
+            done[shop] = stored_versions(shop)
+        # a page is added when it isn't in the file yet, or when this read was made by a newer reader than the one stored (Tesco's re-reads)
+        if want in done[shop] and (main.get("v") or 2) <= done[shop][want]:
             continue
         text = (got.get("ing") or {}).get("ingredients", "") + (got.get("ing2") or {}).get("ingredients", "")
         tries = seen.get((shop, want), 0)
@@ -222,9 +236,9 @@ def harvest(days: float = 4) -> str:
                                     "page_id": ice.get("page_id", ""), "page_name": ice.get("page_name", ""), "nutritionInformation": ice["nutritionInformation"],
                                     "drainedWeight": ice.get("drainedWeight"), "allergenContains": ice.get("contains"), "allergenMayContain": ice.get("mayContain"),
                                     "read_in": "chrome"}, ensure_ascii=False) + "\n")
-        done[shop].add(want)
+        done[shop][want] = main.get("v") or 2
         added[shop] = added.get(shop, 0) + 1
-    bl = {s: len(v - done_ids(s)) for s, v in blocked.items()}
+    bl = {s: len(v - set(stored_versions(s))) for s, v in blocked.items()}
     return "harvested " + (", ".join(f"{s} {n}" for s, n in sorted(added.items())) or "nothing new") + ("; BLOCKED pages seen: " + ", ".join(f"{s} {n}" for s, n in bl.items() if n) if any(bl.values()) else "")
 
 
