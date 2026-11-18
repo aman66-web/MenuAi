@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
-import { AI_RECIPES_ENABLED, APP_PREMIUM, PHOTO_RECIPES_API_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { AI_RECIPES_ENABLED, APP_PREMIUM, FOOD_SCAN_API_ENABLED, PHOTO_RECIPES_API_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 
 export const metadata: Metadata = { title: "Privacy policy" };
@@ -227,6 +227,15 @@ export default function Privacy() {
           is sent, and we don&apos;t keep the photo or the recipe: the recipe comes straight back to your device. If you save the recipe, a small copy of your photo is kept on
           your device as its picture; it is not synced to your account or sent anywhere, and it is deleted with the recipe or by Clear data. To check you have Premium, your device sends its access
           token, which holds no personal details. The same one-way scramble of your IP address stops one person asking too often.
+        </p>
+        )}
+        {FOOD_SCAN_API_ENABLED && (
+        <p className={para}>
+          If you use Scan your food (part of Premium), the photo of your plate is made smaller on your device first and sent to our server, which passes it to
+          Anthropic, the company that makes the Claude AI, to see what food is on the plate and estimate its calories, protein, carbs and fat. Only the one photo you
+          take or choose is sent: no name, account, location or anything else. We don&apos;t keep the photo or the estimate: the estimate comes straight back to your
+          device. If you add it to your day&apos;s log, it is kept like any meal you log (its name and its four numbers, not the photo). To check you have Premium,
+          your device sends its access token, which holds no personal details. The same one-way scramble of your IP address stops one person asking too often.
         </p>
         )}
       </Section>

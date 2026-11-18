@@ -88,6 +88,14 @@ export const APP_PREMIUM = IAP_ENABLED || (!APP_BUILD && process.env.NEXT_PUBLIC
  *  website can serve the iPhone app's Premium feature while the website itself shows no Make it at home card (that needs GATING_ENABLED too). The privacy page
  *  describes the feature whenever these routes answer. */
 export const PHOTO_RECIPES_API_ENABLED = process.env.NEXT_PUBLIC_PHOTO_RECIPES === "1";
+
+/**
+ * Scan food (founder 2026-11-18: "a way to scan food at restaurants or wherever the person is and they will get the calories protein fats and also carbs like
+ * everything estimated"; "its a premium feature"): a photo of a plate in, an estimate out (lib/mm/foodScan.ts). It rides on Make it at home's switch: both are
+ * Premium photo features using the same AI key, so the screen exists only where Make it at home does, and its API route answers wherever Make it at home's do.
+ */
+export const FOOD_SCAN_ENABLED = PHOTO_RECIPES_ENABLED;
+export const FOOD_SCAN_API_ENABLED = PHOTO_RECIPES_API_ENABLED;
 /** Where the app build reaches the live website for newer data and the API: absolute, no trailing slash. Empty on the website itself. */
 export const REMOTE_BASE = APP_BUILD ? (process.env.NEXT_PUBLIC_REMOTE_BASE ?? "").replace(/\/$/, "") : "";
 

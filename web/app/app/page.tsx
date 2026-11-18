@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
 import { entryMeal, isSameLocalDay, loggedGaps, loggedToday, mealBudget, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
-import { PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
+import { FOOD_SCAN_ENABLED, PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { dayHref, shortDate } from "@/lib/mm/day";
 import { formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
@@ -21,7 +21,7 @@ import { Gauge } from "./_components/Gauge";
 import { useGate } from "./_components/Paywall";
 import { RemindersSection } from "./_components/RemindersSection";
 import { WaterCard } from "./_components/WaterCard";
-import { BasketIcon, CalendarIcon, ChevronRightIcon, FlameIcon, GearIcon, HeartIcon, PlusIcon } from "./_components/icons";
+import { BasketIcon, CalendarIcon, CameraIcon, ChevronRightIcon, FlameIcon, GearIcon, HeartIcon, PlusIcon } from "./_components/icons";
 import { Card, Spinner } from "./_components/ui";
 import { useChainIndexes, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "./_lib/hooks";
 import { useLanguage, useT } from "./_lib/i18n";
@@ -74,11 +74,14 @@ function MacroRow({ label, eaten, target }: { label: string; eaten: number; targ
 /** "Shopping list / 2 things to pick up / Open", measured from the founder's picture's Workouts and Meals cards (2026-10-15, "exactly like
  * image 2"): a heavy title, a one-line 14 px subtitle right under it, then the black pill. A round icon in the meal rows' flame tint sits
  * above the title, so the two cards aren't the plainest thing on the page. */
-function ThingCard({ href, title, line, icon }: { href: string; title: string; line: string; icon: ReactNode }) {
+function ThingCard({ href, title, line, icon, badge }: { href: string; title: string; line: string; icon: ReactNode; badge?: string }) {
   const t = useT();
   return (
     <Link href={href} className="glass lift flex min-w-0 flex-col rounded-[1.25rem] p-4 [overflow-wrap:anywhere]">
-      <span aria-hidden className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-accent">{icon}</span>
+      <span aria-hidden className="mb-3 flex items-center justify-between gap-2">
+        <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-accent">{icon}</span>
+        {badge && <span className="rounded-full bg-sun px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--on-accent)]">{badge}</span>}
+      </span>
       <span className="pb-3.5">
         <span className="block text-xl font-[800] leading-tight tracking-[-0.01em]">{title}</span>
         <span className="mt-1 block text-sm leading-snug text-muted">{line}</span>
@@ -242,8 +245,24 @@ export default function HomePage() {
       <h2 className="sr-only">{t("Your things")}</h2>
       <div className={`mt-3.5 ${PAIR}`}>
         <ThingCard href="/app/groceries/list" title={t("Shopping list")} line={groceriesLine} icon={<BasketIcon className="h-5 w-5" />} />
-        <ThingCard href="/app/meals" title={t("My meals")} line={mealsLine} icon={<HeartIcon className="h-5 w-5" />} />
+        {FOOD_SCAN_ENABLED ? (
+          // founder 2026-11-18: "replace my meals with instead a way to scan food at restaurants or wherever the person is" (Premium; app/app/scan)
+          <ThingCard href="/app/scan" title={t("Scan your food")} line={t("Snap your plate to see its calories")} icon={<CameraIcon className="h-5 w-5" />} badge={pro ? undefined : t("Premium")} />
+        ) : (
+          <ThingCard href="/app/meals" title={t("My meals")} line={mealsLine} icon={<HeartIcon className="h-5 w-5" />} />
+        )}
       </div>
+      {FOOD_SCAN_ENABLED && (
+        // My meals stays one tap from Home (the saved recipes and the saved restaurant meals), as a slim row under the two cards
+        <Link href="/app/meals" className="glass lift mt-3 flex min-h-14 items-center gap-3 rounded-[1.25rem] px-4 py-3">
+          <span aria-hidden className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent"><HeartIcon className="h-[18px] w-[18px]" /></span>
+          <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
+            <span className="block text-base font-[800] leading-tight">{t("My meals")}</span>
+            <span className="block text-sm leading-snug text-muted">{mealsLine}</span>
+          </span>
+          <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted rtl:rotate-180" />
+        </Link>
+      )}
 
       <h2 className="mt-7 text-xl font-extrabold tracking-tight">{t("Today's meals")}</h2>
       <ul className="mt-3 space-y-3">
