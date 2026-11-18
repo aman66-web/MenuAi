@@ -69,7 +69,7 @@ def all_products(shop: str):
             drink = bg.is_alcohol(name) or COOP_DRINK.search(name) or (COOP_BOTTLE.search(name) and not _re.search(r"\b(oil|vinegar|water|juice)\b", name))
             # a liqueur, a strength ("17 vol") or a wine sold by the bottle is a drink whatever food it names ("Jam Shed Rose Wine 75cl", "Baileys x Terry's
             # Chocolate Orange Irish Cream Liqueur")
-            strong = _re.search(r"\b(liqueur|liqueurs|\d+ vol|abv)\b", name) or (_re.search(r"\bwines?\b", name) and COOP_BOTTLE.search(name))
+            strong = _re.search(r"\b(liqueur|liqueurs|\d+ vol|abv|jam shed)\b", name) or (_re.search(r"\bwines?\b", name) and COOP_BOTTLE.search(name))
             if url != "search" and not strong and not COOP_NOT_FOOD.search(name) and (COOP_FOOD.search(name) or not drink):
                 yield {"product_id": url, "page": url, "name": name}
         return
