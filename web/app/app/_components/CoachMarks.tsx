@@ -90,7 +90,7 @@ function CoachRun({ screen }: { screen: CoachScreen }) {
       else finish();
       return;
     }
-    setSettled(false); // eslint-disable-line react-hooks/set-state-in-effect -- each tip waits for the page to stop moving
+    setSettled(false);
     bring(el);
     let frame = 0;
     let last = "";
