@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { savedToRecipe } from "@/lib/mm/aiRecipe";
 import { mealSlotFor } from "@/lib/mm/budget";
-import { AI_RECIPES_ENABLED, PHOTO_RECIPES_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
+import { AI_RECIPES_ENABLED, GATING_ENABLED, PHOTO_RECIPES_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { formatDate } from "@/lib/mm/format";
 import { RETAILERS } from "@/lib/mm/groceries";
 import { tk, type T } from "@/lib/mm/i18n";
@@ -321,12 +321,15 @@ function RecipesScreen() {
         </button>
       )}
 
-      {/* Plan my week (founder 2026-11-18; app/app/plan): a week of our recipes for the person's diet and budget, with the shopping list and each meal's price */}
+      {/* the meal plan (founder 2026-11-18; app/app/plan; Premium): a week of our recipes for the person's goal and budget, with the shopping list and each meal's price */}
       <Link href="/app/plan" className="glass lift mt-3 flex min-h-[4.5rem] items-center gap-3.5 rounded-[1.25rem] p-3.5 text-start">
-        <span aria-hidden className="grid h-12 w-12 shrink-0 place-items-center rounded-[0.875rem] bg-accent-soft text-accent"><CalendarIcon className="h-6 w-6" /></span>
+        <span aria-hidden className="grid h-12 w-12 shrink-0 place-items-center rounded-[0.875rem] bg-sun text-[var(--on-accent)]"><CalendarIcon className="h-6 w-6" /></span>
         <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-          <span className="block text-[1.0625rem] font-[800] leading-tight">{t("Plan my week")}</span>
-          <span className="mt-0.5 block text-[0.875rem] leading-snug text-muted">{t("A week of meals for your diet and budget, with the shopping list and what each meal costs.")}</span>
+          <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+            <span className="text-[1.0625rem] font-[800] leading-tight">{t("Meal plan")}</span>
+            {GATING_ENABLED && !pro && <span className="inline-block rounded-full bg-sun px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--on-accent)]">{t("Premium")}</span>}
+          </span>
+          <span className="mt-0.5 block text-[0.875rem] leading-snug text-muted">{t("A week of meals for your goal and budget, with the shopping list and what each meal costs.")}</span>
         </span>
         <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted rtl:rotate-180" />
       </Link>

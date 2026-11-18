@@ -1,12 +1,13 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { buildWeek, leavesOut, makePlan, planCandidates, swapMeal, PLAN_DAYS, PLAN_MEALS } from "../lib/mm/mealPlan";
+import { SHOP_FIT_SLACK, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS } from "../lib/mm/mealPlan";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { isVegan } from "../lib/mm/recipes";
 import { decodeShopProducts } from "../lib/mm/shopProducts";
 
 // A week's meal plan from our own recipes (founder 2026-11-18), worked out on Sainsbury's real list.
 const products = decodeShopProducts(JSON.parse(readFileSync("public/groceries/all/sainsburys.json", "utf8")));
+const morrisons = decodeShopProducts(JSON.parse(readFileSync("public/groceries/all/morrisons.json", "utf8")));
 const target = { kcal: 600 };
 const none = {};
 const byId = new Map(RECIPES.map((r) => [r.id, r]));
@@ -102,5 +103,56 @@ describe("the week", () => {
     const nothing = planCandidates(RECIPES, products, none, target, ["eggs", "fish", "beans", "cheese", "rice", "pasta", "tomatoes", "onions", "mushrooms"]);
     const anyEmpty = PLAN_MEALS.some((m) => !nothing.get(m)!.length);
     expect(makePlan(nothing, null) === null).toBe(anyEmpty);
+  });
+});
+
+describe("several shops (founder 2026-11-18: \"they're able to select multiple supermarkets ... choose the best meal plan overall\")", () => {
+  const shops = [{ id: "sainsburys", products }, { id: "morrisons", products: morrisons }];
+  const across = planCandidatesAcross(RECIPES, shops, none, target, []);
+  const one = { sainsburys: planCandidates(RECIPES, products, none, target, [], "sainsburys"), morrisons: planCandidates(RECIPES, morrisons, none, target, [], "morrisons") };
+
+  it("fits each recipe at every shop and keeps the closest fit, or a cheaper one as close", () => {
+    for (const m of PLAN_MEALS) {
+      const list = across.get(m)!;
+      expect(list.length).toBeGreaterThanOrEqual(Math.max(one.sainsburys.get(m)!.length, one.morrisons.get(m)!.length));
+      expect(new Set(list.map((c) => c.recipe.id)).size).toBe(list.length); // each recipe once
+      for (const c of list) {
+        expect(["sainsburys", "morrisons"]).toContain(c.shop);
+        const options = [one.sainsburys, one.morrisons].map((x) => x.get(m)!.find((o) => o.recipe.id === c.recipe.id)).filter((o) => !!o);
+        const closest = Math.min(...options.map((o) => o!.distance));
+        expect(c.distance).toBeLessThanOrEqual(closest + SHOP_FIT_SLACK + 1e-9);
+        for (const o of options) if (o!.distance <= closest + SHOP_FIT_SLACK) expect(c.cost).toBeLessThanOrEqual(o!.cost + 1e-9);
+      }
+    }
+  });
+
+  it("buys each product at its own shop and lists the shops, the one with the most to buy first", () => {
+    const plan = makePlan(across, null)!;
+    const used = new Set(plan.week.days.flatMap((d) => d.meals.map((x) => x.candidate.shop)));
+    expect(new Set(plan.week.shopping.map((l) => l.shop))).toEqual(used);
+    expect([...plan.week.shops].sort()).toEqual([...used].sort());
+    const keys = plan.week.shopping.map((l) => `${l.shop}|${l.product.id}`);
+    expect(new Set(keys).size).toBe(keys.length);
+    const spend = (sh: string) => plan.week.shopping.filter((l) => l.shop === sh).reduce((t, l) => t + l.cost, 0);
+    for (let i = 1; i < plan.week.shops.length; i++) expect(spend(plan.week.shops[i - 1]!)).toBeGreaterThanOrEqual(spend(plan.week.shops[i]!));
+  });
+
+  it("offers the other recipes for a meal to swap to, and sets the one chosen", () => {
+    const plan = makePlan(across, null)!;
+    const choices = swapChoices(plan.ids, 0, 2, across);
+    expect(choices.length).toBeGreaterThan(3);
+    expect(choices.some((c) => c.recipe.id === plan.ids[0]![2])).toBe(false);
+    for (const c of choices) expect(plan.ids.filter((d) => d[2] === c.recipe.id).length).toBeLessThan(2);
+    const ids = setMeal(plan.ids, 0, 2, choices[0]!.recipe.id);
+    expect(ids[0]![2]).toBe(choices[0]!.recipe.id);
+    expect(ids[1]).toEqual(plan.ids[1]);
+    expect(buildWeek(ids, across, null)).not.toBeNull();
+  });
+
+  it("keeps a plan saved before several shops (one shop) and a plan with several", () => {
+    const ids = Array.from({ length: PLAN_DAYS }, () => ["a", "b", "c"]);
+    expect(sanitizePlan({ shop: "sainsburys", ids, leaveOut: [], budget: null, start: "2026-11-18" })?.shops).toEqual(["sainsburys"]);
+    expect(sanitizePlan({ shops: ["sainsburys", "morrisons", "sainsburys", "BAD!"], ids, leaveOut: [], budget: 40, start: "2026-11-18" })?.shops).toEqual(["sainsburys", "morrisons"]);
+    expect(sanitizePlan({ shops: [], ids, start: "2026-11-18" })).toBeNull();
   });
 });

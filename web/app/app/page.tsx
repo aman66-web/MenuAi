@@ -6,12 +6,12 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
 import { entryMeal, isSameLocalDay, loggedGaps, loggedToday, mealBudget, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
-import { FOOD_SCAN_ENABLED, PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
+import { FOOD_SCAN_ENABLED, GATING_ENABLED, PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { dayHref, shortDate } from "@/lib/mm/day";
 import { formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
 import { localeInfo } from "@/lib/mm/i18n";
-import { deleteLogEntry, logStore, myRecipesStore, savedRecipesStore, savedStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
+import { deleteLogEntry, logStore, mealPlanStore, myRecipesStore, savedRecipesStore, savedStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
 import type { Meal } from "@/lib/mm/types";
 import { AddFoodSheet } from "./_components/addfood/AddFoodSheet";
@@ -102,6 +102,7 @@ export default function HomePage() {
   const { gate, showPaywall } = useGate();
   const log = useStore(logStore);
   const shopping = useStore(shoppingStore);
+  const hasPlan = !!useStore(mealPlanStore);
   // what "My meals" holds: the same three stores its page counts (saved recipes, Pip's recipes, saved restaurant orders)
   const savedOrders = useStore(savedStore);
   const savedMeals = useStore(savedRecipesStore).length + useStore(myRecipesStore).length + savedOrders.length;
@@ -256,6 +257,19 @@ export default function HomePage() {
           <ThingCard href="/app/meals" title={t("My meals")} line={mealsLine} icon={<HeartIcon className="h-5 w-5" />} />
         )}
       </div>
+      {/* the meal plan, the third card (founder 2026-11-18: "make a third icon, which has meal plan, and that has pro on it"): the whole width under the two, so the
+          words stay big at every text size */}
+      <Link href="/app/plan" className="glass lift mt-3 flex min-h-[5rem] items-center gap-3.5 rounded-[1.25rem] p-4 [overflow-wrap:anywhere]">
+        <span aria-hidden className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sun text-[var(--on-accent)]"><CalendarIcon className="h-5 w-5" /></span>
+        <span className="min-w-0 flex-1">
+          <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+            <span className="text-xl font-[800] leading-tight tracking-[-0.01em]">{t("Meal plan")}</span>
+            {GATING_ENABLED && !pro && <span className="rounded-full bg-sun px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--on-accent)]">{t("Premium")}</span>}
+          </span>
+          <span className="mt-1 block text-sm leading-snug text-muted">{hasPlan ? t("Your week of meals and its shopping") : t("A week of meals for your goal, with the shopping list")}</span>
+        </span>
+        <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted rtl:rotate-180" />
+      </Link>
       {/* founder 2026-11-18: "I don't want My Meals anymore. I just want the option where they can scan food": no My meals on Home where the scanner is (the
           saved recipes and orders are still in Recipes › My recipes); the website, which has no scanner, keeps the My meals card */}
 

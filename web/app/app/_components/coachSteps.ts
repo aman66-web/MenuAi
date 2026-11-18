@@ -21,6 +21,7 @@ export const COACH_STEPS: Readonly<Record<CoachScreen, readonly CoachStep[]>> = 
     { at: '[data-coach="home-add"]', title: tk("Add what you ate"), text: tk("Tap + next to a meal to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers.") },
     { at: 'main a[href="/app/scan"]', title: tk("Scan your food"), text: tk("Take a photo of your plate and Pip estimates its calories, protein, carbs and fat. It's part of Premium."), when: FOOD_SCAN_ENABLED },
     { at: 'main a[href="/app/groceries/list"]', title: tk("Shopping list"), text: tk("Everything you've added to buy, ready when you go to the shops.") },
+    { at: 'main a[href="/app/plan"]', title: tk("Meal plan"), text: tk("Pip plans a week of meals for your goal, diet and budget, from the shops you use. It's part of Premium.") },
     { at: 'main a[href="/app/settings"]', title: tk("Settings"), text: tk("Your goal, diet, allergies, text size, and these tips again.") },
     { at: '[data-coach="tabs"]', title: tk("Moving around"), text: tk("These buttons take you to each part of the app: Home, Eat out, Groceries and Recipes.") },
   ],
@@ -40,7 +41,7 @@ export const COACH_STEPS: Readonly<Record<CoachScreen, readonly CoachStep[]>> = 
   recipes: [
     { at: '[data-coach="recipes-tiles"]', title: tk("Choose a meal"), text: tk("Tap Breakfast, Lunch, Dinner or Snacks to see recipes for that meal. Tap More for every filter.") },
     { at: '[data-coach="recipes-photo"]', title: tk("Make it at home"), text: tk("Take a photo of a dish you've loved and get a recipe for it from your supermarket. It's part of Premium."), when: PHOTO_RECIPES_ENABLED },
-    { at: 'main a[href="/app/plan"]', title: tk("Plan my week"), text: tk("A week of meals for your diet and budget, with the shopping list and what each meal costs.") },
+    { at: 'main a[href="/app/plan"]', title: tk("Meal plan"), text: tk("A week of meals for your goal and budget, with the shopping list and what each meal costs.") },
     { at: '[data-coach="recipes-mine"]', title: tk("My recipes"), text: tk("Recipes you keep, and ones Pip made for you, are here.") },
   ],
 };

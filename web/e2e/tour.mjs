@@ -71,7 +71,7 @@ const ROWS = {
   ],
   recipes: [
     "Tap Breakfast, Lunch, Dinner or Snacks to see recipes for that meal, or More for every filter.",
-    "Plan my week makes a week of meals for your diet and budget, with the shopping list.",
+    "Meal plan makes a week of meals for your goal and budget, with the shopping list. It's part of Premium.",
     "Tap the heart on a recipe to keep it in My recipes.",
     PHOTO ? "Make it at home turns a photo of a dish into a recipe. It's part of Premium." : "Open a recipe to add everything it needs to your shopping list in one tap.",
   ],

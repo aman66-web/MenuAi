@@ -50,12 +50,12 @@ describe("when the tips show", () => {
 });
 
 describe("the tips on each tab", () => {
-  it("has two to six tips a tab, each with a title and one plain sentence, no figures and no good/bad words (CLAUDE.md rules 1 and 3)", async () => {
+  it("has two to seven tips a tab, each with a title and one plain sentence, no figures and no good/bad words (CLAUDE.md rules 1 and 3)", async () => {
     const { coachStepsFor } = await import("../app/app/_components/coachSteps");
     for (const screen of COACH_SCREENS) {
       const steps = coachStepsFor(screen);
       expect(steps.length, screen).toBeGreaterThanOrEqual(2);
-      expect(steps.length, screen).toBeLessThanOrEqual(6);
+      expect(steps.length, screen).toBeLessThanOrEqual(7);
       for (const s of steps) {
         expect(s.title.length, s.title).toBeLessThanOrEqual(24);
         expect(s.text.length, s.text).toBeLessThanOrEqual(130);

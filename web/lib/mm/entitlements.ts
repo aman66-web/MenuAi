@@ -6,7 +6,7 @@ import type { UserSettings } from "./user-data";
 // SPEC §4: free vs Pro. With GATING_ENABLED off (the free launch) every feature is open. With it on, "Pro" is a preview switch (test builds), a checked payment token
 // or the 48 hours given for a WhatsApp share (lib/mm/paid.ts); a payment is verified on the server (lib/payments).
 
-export type PaywallTrigger = "saveLimit" | "bestForYou" | "orderBuilder" | "log" | "recipeMaker" | "truthLimit" | "moreResults" | "leaderboard" | "smallAppetite" | "photoRecipe" | "foodScan";
+export type PaywallTrigger = "saveLimit" | "bestForYou" | "orderBuilder" | "log" | "recipeMaker" | "truthLimit" | "moreResults" | "leaderboard" | "smallAppetite" | "photoRecipe" | "foodScan" | "mealPlan";
 
 export function isPro(settings: Pick<UserSettings, "devProOverride">, paid: PaidState = NO_PAID, nowMs: number = Date.now()): boolean {
   if (!GATING_ENABLED) return true;
@@ -71,6 +71,8 @@ export const PAID_BULLETS = [
   ...(PHOTO_RECIPES_ENABLED ? [tk("Make any dish at home from a photo")] : []),
   // Scan food (lib/mm/foodScan.ts): on the same switch
   ...(PHOTO_RECIPES_ENABLED ? [tk("Photograph your food for an estimate of its calories, protein, carbs and fat")] : []),
+  // the meal plan (founder 2026-11-18: "a third icon, which has meal plan, and that has pro on it"; app/app/plan)
+  tk("A week's meal plan for your goal, with its shopping list"),
 ] as const;
 export const PAYWALL_BULLETS = [
   tk("Top 5 picks for your goal at every chain"),

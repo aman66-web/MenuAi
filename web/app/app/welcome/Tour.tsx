@@ -61,7 +61,7 @@ const ALL_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: PipMood; ro
     mood: "point",
     rows: [
       { Icon: SunriseIcon, text: tk("Tap Breakfast, Lunch, Dinner or Snacks to see recipes for that meal, or More for every filter.") },
-      { Icon: CalendarIcon, text: tk("Plan my week makes a week of meals for your diet and budget, with the shopping list.") },
+      { Icon: CalendarIcon, text: tk("Meal plan makes a week of meals for your goal and budget, with the shopping list. It's part of Premium.") },
       { Icon: HeartIcon, text: tk("Tap the heart on a recipe to keep it in My recipes.") },
       { Icon: PlusIcon, text: tk("Open a recipe to add everything it needs to your shopping list in one tap."), when: !PHOTO_RECIPES_ENABLED },
       { Icon: CameraIcon, text: tk("Make it at home turns a photo of a dish into a recipe. It's part of Premium."), when: PHOTO_RECIPES_ENABLED },
