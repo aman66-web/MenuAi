@@ -324,9 +324,9 @@ def main() -> int:
                     "document.head.appendChild(s); s.remove(); window.__lbl }")
         if shop == "coop":
             code = ("await new Promise((r) => setTimeout(r, WAIT_MS)); if (location.hostname !== 'www.coop.co.uk') JSON.stringify({ want: WANT, wrongSite: location.hostname }); "
-                    "else const R = window.name.startsWith('(async (want) => {') ? window.name : (localStorage.getItem('__numbite_reader') || ''); if (!R.startsWith('(async (want) => {')) JSON.stringify({ want: WANT, needInstall: true }); "
+                    "else { const R = window.name.startsWith('(async (want) => {') ? window.name : (localStorage.getItem('__numbite_reader') || ''); if (!R.startsWith('(async (want) => {')) JSON.stringify({ want: WANT, needInstall: true }); "
                     "else { window.__lbl = null; const s = document.createElement('script'); s.textContent = 'window.__lbl = (' + R + ')(' + JSON.stringify(WANT) + ')'; "
-                    "document.head.appendChild(s); s.remove(); await window.__lbl }").replace("WAIT_MS", str(wait_ms))
+                    "document.head.appendChild(s); s.remove(); await window.__lbl } }").replace("WAIT_MS", str(wait_ms))
         print(harvest(), file=sys.stderr)
     elif tab is not None:
         js = (Path(__file__).resolve().parent / "labels_chrome.js").read_text(encoding="utf-8")
