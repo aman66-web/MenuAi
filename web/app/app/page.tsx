@@ -287,7 +287,8 @@ export default function HomePage() {
               <Link href="/app/today" className="min-w-0 flex-1 break-words">
                 <span className="flex items-center gap-1 text-lg font-extrabold leading-snug tracking-tight">{title}<ChevronRightIcon aria-hidden className="h-4 w-4 shrink-0 text-muted" /></span>
                 <span className="mt-1.5 flex items-center gap-2">
-                  <span aria-hidden className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent"><FlameIcon className="h-[18px] w-[18px]" /></span>
+                  {/* the light green of Home's other icons (founder 2026-11-18: "Change these logos to light green too") */}
+                  <span aria-hidden className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-sun text-[var(--on-accent)]"><FlameIcon className="h-[18px] w-[18px]" /></span>
                   <span className="app-numbers text-lg font-bold"><span className="whitespace-nowrap">{formatInt(kcal)} / {formatInt(budget)}</span> <span className="text-sm font-semibold text-muted">kcal</span></span>
                 </span>
                 {entries.length > 0 && (
