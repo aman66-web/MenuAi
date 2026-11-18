@@ -1356,3 +1356,8 @@ class ChromeIngestReadingTests(unittest.TestCase):
         self.assertEqual(I.section_cut("Features\u200bDried oregano with warm, lemony notes"), "")
         self.assertEqual(I.section_cut("Features1 of your 5 a day per 80g"), "")
         self.assertEqual(I.section_cut("Pork (97%), Salt, Storage-stable spices"), "Pork (97%), Salt, Storage-stable spices")
+
+    def test_html_spaces_in_ingredients(self):
+        import labels_chrome_ingest as I
+        self.assertEqual(I.section_cut("Water, Sugar and nbsp; Salt\u200b"), "Water, Sugar Salt")
+        self.assertEqual(I.section_cut("Fish and amp; Chips"), "Fish and Chips")

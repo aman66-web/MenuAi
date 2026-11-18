@@ -44,7 +44,10 @@ def section_cut(text: str) -> str:
     """The ingredients list as printed, cut at the page's next section; text that isn't an ingredients list at all is dropped (""): the nutrition table read under
     an "Ingredients" heading by an earlier reader, a shop's own notices (M&S "Handling raw meat safely...", Waitrose "Warnings: Wash before use", Asda's
     "Product Information" terms) and a bare allergen line ("Contains Milk.", which belongs with the allergens, not the list)."""
-    t = SECTION.sub("", text or "").strip()
+    # a space the page wrote as an HTML entity ("&nbsp;", which the reader's "&" -> " and " turned into " and nbsp;") and zero-width spaces are spaces
+    t = re.sub(r"\s*\band (?:nbsp|#160);\s*", " ", text or "").replace("\u200b", "")
+    t = re.sub(r"\band amp;", "and", t)
+    t = SECTION.sub("", re.sub(r"[ \t]{2,}", " ", t)).strip()
     if NOT_A_LIST.match(t) or re.search(r"typical values|nutrition(?:al)? (?:information|values)|\bkcal\b|\d\s*kj\b", t, re.I):
         return ""
     return t
