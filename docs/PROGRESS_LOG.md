@@ -2862,3 +2862,20 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   - **Decided:** the decisions log moved here from docs/PROGRESS.md (494 KB loaded into every session and helper).
   - **Open for the founder:** whether recipes may use products with no online price ("Price in store") — needed for Lidl; Lidl prices (maybe the founder noting about
     80-100 recipe staples from Lidl Plus); the ingredients and allergens read are not yet shown in the app; Co-op is not yet a shop in the app.
+- 2026-11-18 (early morning, Mac) — **Overnight label reads, a decimal-comma fix, and why some shops have few recipes**
+  - **Fixed (published figures were wrong):** labels printed with a decimal comma ("Fat 1,5g", "Protein 6,5 g": imported and EU-labelled products) were cut at the
+    comma by `labels_chrome_ingest.py` (1,5 read as 1). About 100 rows at Asda, Waitrose, Morrisons and Tesco now carry the printed figure ("0,125" stays a decimal;
+    "1,222" with three digits stays a thousands comma). The older script readers (Morrisons, Iceland, Tesco) already handled or refused decimal commas.
+  - **Read now that wasn't:** Sainsbury's fruit tables whose first heading says "Typical values per 100g" (the figures sit in the next column), "Total fats",
+    "nil" (= 0, as printed), an energy row headed only "kcal" or "- kcal". A range ("Protein 0-1g") is no longer read as a figure. Tests in `tools/tests/test_groceries.py`.
+  - **Held back:** Morrisons Pizza Express 16 Doughballs (its page shows only the garlic dip's table). Not food: Asda's George Home kettles and food storers,
+    Waitrose's John Lewis grater and peeler, a protein shaker.
+  - **Left out on purpose:** about 234 Asda pages print energy in kJ only (no kcal): not converted (that would be a calculation, not the label). Morrisons meat pages
+    that print no carbohydrate row: not filled in.
+  - **Why Asda, Iceland, M&S and Tesco have few recipes:** black pepper blocks 76 recipes, salt 62, ground cumin 22, cinnamon 12, paprika 21 at shops whose pepper,
+    salt and spice pages print **no nutrition table** (UK law doesn't require one on herbs, spices and salt). Nothing else has numbers for them either: Open Food
+    Facts has no figures for Schwartz pepper, Schwartz cumin or Saxa salt, and the government's CoFID tables give no energy for black pepper, cumin, cinnamon,
+    paprika, nutmeg, turmeric, chilli powder or oregano (and have no table salt). Measured: if unlabelled pepper, salt and dried spices could be listed and priced but
+    not counted (the 17 November rule says no product without numbers in any recipe), Asda would go from 47 to 118 recipes, Iceland 33 -> 123, Morrisons 145 -> 161,
+    Waitrose 111 -> 123, M&S 10 -> 22. **Open for the founder.** Next blockers after that: Asda new potatoes in water (its pages print "hob-heated and drained"
+    figures, not as sold) and carrots (Asda prints boiled figures only); Waitrose and M&S sell no tinned new potatoes.
