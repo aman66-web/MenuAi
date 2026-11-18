@@ -89,6 +89,7 @@ TRANSCRIPTS = Path.home() / ".claude" / "projects" / ("-" + str(ROOT).strip("/")
 HOSTS = {"asda.com": "asda", "aldi.co.uk": "aldi", "marksandspencer.com": "marks-and-spencer", "tesco.com": "tesco", "sainsburys.co.uk": "sainsburys",
          "waitrose.com": "waitrose", "groceries.morrisons.com": "morrisons", "iceland.co.uk": "iceland", "coop.co.uk": "coop"}
 MARK = "[javascript_tool:javascript_exec] "
+CUT = __import__("re").compile(r'\{"want":"([^"]+)","host":"([^"]+)","part":"main"')
 
 
 def _texts(node):
@@ -119,7 +120,9 @@ def _results(text: str):
             if isinstance(obj, dict):
                 yield obj
         except ValueError:
-            pass
+            m = CUT.match(text, j)
+            if m:  # cut off by the browser tool: counted as a try, so it can't be handed out for ever
+                yield {"want": m.group(1), "host": m.group(2), "part": "cut"}
         i = text.find(MARK, j)
 
 
@@ -166,6 +169,7 @@ def harvest(days: float = 4) -> str:
     """Copy reader v2 results from the transcripts of the last few days into raw-<shop>/chrome.jsonl (new pages only). Returns a one-line summary."""
     import time
     parts: dict[tuple[str, str], dict] = {}
+    cut: dict[tuple[str, str], int] = {}  # how many times a page's main result came back cut off
     seen: dict[tuple[str, str], int] = {}  # how many times each page's main result came back (a page read 3 times is kept with what came back whole)
     blocked: dict[str, set] = {}
     cutoff = time.time() - days * 86400
@@ -187,6 +191,9 @@ def harvest(days: float = 4) -> str:
                 for text in _texts(node):
                     for r in _results(text):
                         shop, want = HOSTS.get(str(r.get("host", ""))), r.get("want")
+                        if r.get("part") == "cut" and shop and isinstance(want, str):
+                            cut[(shop, want)] = cut.get((shop, want), 0) + 1
+                            continue
                         if not shop or not isinstance(want, str) or not want or r.get("part") not in ("main", "ing", "ing2", "ice"):
                             continue
                         if r["part"] == "main":
@@ -239,6 +246,19 @@ def harvest(days: float = 4) -> str:
                                     "read_in": "chrome"}, ensure_ascii=False) + "\n")
         done[shop][want] = main.get("v") or 2
         added[shop] = added.get(shop, 0) + 1
+    import datetime
+    for (shop, want), n in sorted(cut.items()):
+        if n < 3 or "main" in parts.get((shop, want), {}):
+            continue
+        if shop not in done:
+            done[shop] = stored_versions(shop)
+        if want in done[shop]:
+            continue
+        with open(ROOT / "data" / "groceries" / "nutrition" / f"raw-{shop}" / "chrome.jsonl", "a", encoding="utf-8") as f:
+            f.write(json.dumps({"id": want, "unreadable": True, "nut": None, "reader": READER, "checked_on": datetime.date.today().isoformat(),
+                                "why": "its result was cut off by the browser tool three times"}) + "\n")
+        done[shop][want] = READER
+        added[shop] = added.get(shop, 0) + 1
     bl = {s: len(v - set(stored_versions(s))) for s, v in blocked.items()}
     return "harvested " + (", ".join(f"{s} {n}" for s, n in sorted(added.items())) or "nothing new") + ("; BLOCKED pages seen: " + ", ".join(f"{s} {n}" for s, n in bl.items() if n) if any(bl.values()) else "")
 
@@ -272,10 +292,20 @@ def main() -> int:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
         print("added", rec["id"], "blocked" if rec.get("blocked") else "")
         return 0
-    reader = (Path(__file__).resolve().parent / "labels_chrome.js").read_text(encoding="utf-8")
-    reader = " ".join(line.strip() for line in reader[reader.index("((mode, want) => {"):].splitlines() if line.strip() and not line.strip().startswith("//"))
+    if shop == "coop":
+        # Co-op: its own reader (tools/groceries/coop_chrome.js), which loads each catalogue page from the coop.co.uk tab with redirects off, so Co-op's online shop
+        # (behind a bot check) is never loaded
+        reader = (Path(__file__).resolve().parent / "coop_chrome.js").read_text(encoding="utf-8")
+        reader = " ".join(line.strip() for line in reader[reader.index("(async (want) => {"):].splitlines() if line.strip() and not line.strip().startswith("//"))
+    else:
+        reader = (Path(__file__).resolve().parent / "labels_chrome.js").read_text(encoding="utf-8")
+        reader = " ".join(line.strip() for line in reader[reader.index("((mode, want) => {"):].splitlines() if line.strip() and not line.strip().startswith("//"))
+    if len(sys.argv) > 2 and sys.argv[2] == "--uninstall":
+        print("try { localStorage.removeItem('__numbite_reader'); } catch (e) {} window.name = ''; 'removed'")
+        return 0
     if len(sys.argv) > 2 and sys.argv[2] == "--install":
-        print("window.name = " + json.dumps(reader) + "; 'installed'")
+        # window.name, and the site's own storage for a site that clears window.name on every page (Sainsbury's); removed again by --uninstall
+        print("window.name = " + json.dumps(reader) + "; try { localStorage.setItem('__numbite_reader', window.name); } catch (e) {} 'installed'")
         return 0
     n = int(sys.argv[2]) if len(sys.argv) > 2 else 70
     short = len(sys.argv) > 4 and sys.argv[3] == "--short"
@@ -286,12 +316,17 @@ def main() -> int:
         # --wait S: seconds on each page before reading (a gentler pace for a shop that slows down a quick reader: Tesco)
         wait_ms = int(float(sys.argv[sys.argv.index("--wait") + 1]) * 1000) if "--wait" in sys.argv else 2500
         # v2: two calls a page, "main" then "ing", each naming the product asked for; __lbl is emptied first, so a failed run can't return the last page's result
-        code = ("await new Promise((r) => setTimeout(r, WAIT_MS)); if (!window.name.startsWith('((mode, want) => {')) JSON.stringify({ want: WANT, needInstall: true }); "
-                "else { window.__lbl = null; const s = document.createElement('script'); s.textContent = 'window.__lbl = (' + window.name + ')(\"main\", ' + JSON.stringify(WANT) + ')'; "
+        code = ("await new Promise((r) => setTimeout(r, WAIT_MS)); const R = window.name.startsWith('((mode, want) => {') ? window.name : (localStorage.getItem('__numbite_reader') || ''); if (!R.startsWith('((mode, want) => {')) JSON.stringify({ want: WANT, needInstall: true }); "
+                "else { window.__lbl = null; const s = document.createElement('script'); s.textContent = 'window.__lbl = (' + R + ')(\"main\", ' + JSON.stringify(WANT) + ')'; "
                 "document.head.appendChild(s); s.remove(); window.__lbl }").replace("WAIT_MS", str(wait_ms))
-        ing_code = ("if (!window.name.startsWith('((mode, want) => {')) JSON.stringify({ want: WANT, needInstall: true }); "
-                    "else { window.__lbl = null; const s = document.createElement('script'); s.textContent = 'window.__lbl = (' + window.name + ')(\"ing\", ' + JSON.stringify(WANT) + ')'; "
+        ing_code = ("const R = window.name.startsWith('((mode, want) => {') ? window.name : (localStorage.getItem('__numbite_reader') || ''); if (!R.startsWith('((mode, want) => {')) JSON.stringify({ want: WANT, needInstall: true }); "
+                    "else { window.__lbl = null; const s = document.createElement('script'); s.textContent = 'window.__lbl = (' + R + ')(\"ing\", ' + JSON.stringify(WANT) + ')'; "
                     "document.head.appendChild(s); s.remove(); window.__lbl }")
+        if shop == "coop":
+            code = ("await new Promise((r) => setTimeout(r, WAIT_MS)); if (location.hostname !== 'www.coop.co.uk') JSON.stringify({ want: WANT, wrongSite: location.hostname }); "
+                    "else const R = window.name.startsWith('(async (want) => {') ? window.name : (localStorage.getItem('__numbite_reader') || ''); if (!R.startsWith('(async (want) => {')) JSON.stringify({ want: WANT, needInstall: true }); "
+                    "else { window.__lbl = null; const s = document.createElement('script'); s.textContent = 'window.__lbl = (' + R + ')(' + JSON.stringify(WANT) + ')'; "
+                    "document.head.appendChild(s); s.remove(); await window.__lbl }").replace("WAIT_MS", str(wait_ms))
         print(harvest(), file=sys.stderr)
     elif tab is not None:
         js = (Path(__file__).resolve().parent / "labels_chrome.js").read_text(encoding="utf-8")
@@ -314,7 +349,10 @@ def main() -> int:
                 print(f"{r['product_id']}\t{url}")
             else:
                 want = json.dumps(str(r["product_id"]))
-                actions += [{"name": "navigate", "input": {"url": url, "tabId": tab}}, {"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": code.replace("WANT", want)}}]
+                if shop == "coop":  # the tab stays on www.coop.co.uk: no navigation, one read a page
+                    actions.append({"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": code.replace("WANT", want)}})
+                else:
+                    actions += [{"name": "navigate", "input": {"url": url, "tabId": tab}}, {"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": code.replace("WANT", want)}}]
                 if short and shop != "coop":  # Co-op's catalogue prints no ingredients
                     actions.append({"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": ing_code.replace("WANT", want)}})
                 if short and shop != "coop":

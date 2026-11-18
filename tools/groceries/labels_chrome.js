@@ -98,5 +98,5 @@
   if (mode === "ing2") return JSON.stringify({ want, host, part: "ing2", ingredients: ingredients.slice(800, 1600) });
   // Iceland's record comes back in a third call ("ice"), so the main result stays short enough never to be cut off
   if (mode === "ice") return JSON.stringify({ want, host, part: "ice", iceland });
-  return JSON.stringify({ want, host, part: "main", v: 4, id, h1: h1.slice(0, 90), blocked, nut, above: above.trim().slice(0, 120), bold: bold.slice(0, 14), allergy, mayContain, ingLen: ingredients.length, coop, checked_on: new Date().toISOString().slice(0, 10) });
+  return JSON.stringify({ want, host, part: "main", v: 4, id, h1: h1.slice(0, 90), blocked, nut, above: above.trim().slice(0, 120), bold: bold.slice(0, 10).map((w) => w.slice(0, 25)), allergy, mayContain: mayContain.map((m) => m.slice(0, 110)), ingLen: ingredients.length, coop, checked_on: new Date().toISOString().slice(0, 10) });
 })
