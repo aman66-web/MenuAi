@@ -230,6 +230,12 @@ def read_nutrition(shop: str, problems: list, path: Path | None = None) -> dict:
             state = " ".join((r.get("state") or "").lower().split())[:24]
             out[slug] = ([round(main[0], 1), round(main[1], 1), round(main[2], 1), round(main[3], 1), opt("saturates_g"), opt("sugars_g"), opt("fibre_g"), opt("salt_g"),
                           opt("kj"), per, state], (r.get("checked_on") or "").strip())
+    # a shop whose main file comes from another reader (Sainsbury's: t2_sainsburys.py) keeps its Chrome reads in <shop>-chrome.csv: they fill only products the
+    # main file has no row for, never replace one
+    extra = ROOT / "data" / "groceries" / "nutrition" / f"{shop}-chrome.csv"
+    if path.name == f"{shop}.csv" and extra.exists():
+        for slug, v in read_nutrition(shop, problems, extra).items():
+            out.setdefault(slug, v)
     return out
 
 

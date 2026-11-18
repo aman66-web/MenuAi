@@ -26,7 +26,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import build_groceries as bg  # noqa: E402
 
 PAGE_BASE = {"asda": "https://www.asda.com/groceries/product/", "aldi": "https://www.aldi.co.uk/product/",
-             "tesco": "https://www.tesco.com/groceries/en-GB/products/", "marks-and-spencer": "https://www.marksandspencer.com/food/"}
+             "tesco": "https://www.tesco.com/groceries/en-GB/products/", "marks-and-spencer": "https://www.marksandspencer.com/food/",
+             "sainsburys": "https://www.sainsburys.co.uk/gol-ui/product/", "waitrose": "https://www.waitrose.com/ecom/products/x/"}
+# Sainsbury's main nutrition file is written by t2_sainsburys.py: Chrome reads go to a file of their own, which build_all_products.py uses only where the main
+# file has no row (it never replaces one)
+OUT_NAME = {"sainsburys": "sainsburys-chrome"}
 STATE = re.compile(r"\b(cooked|prepared|drained|grilled|baked|fried|roasted|oven baked|microwaved|as consumed|as served|reconstituted|made up|boiled|steamed|heated)\b", re.I)
 NUM = re.compile(r"(<\s*)?(\d+(?:\.\d+)?)")
 
@@ -127,10 +131,12 @@ def main() -> int:
         for row in json.loads(listing.read_text(encoding="utf-8"))["products"]:
             want[row[0]] = row[1]
             pages[row[0]] = (row[11] if len(row) > 11 and isinstance(row[11], str) and row[11] else row[0])
-    with open(ROOT / "data" / "groceries" / "recipe-candidates" / f"{a.shop}.csv", newline="", encoding="utf-8") as f:
-        for r in csv.DictReader(f):
-            want.setdefault(r["product_id"], r["name"])
-            pages.setdefault(r["product_id"], r.get("page") or r["product_id"])
+    cand = ROOT / "data" / "groceries" / "recipe-candidates" / f"{a.shop}.csv"
+    if cand.exists():
+        with open(cand, newline="", encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                want.setdefault(r["product_id"], r["name"])
+                pages.setdefault(r["product_id"], r.get("page") or r["product_id"])
     raw = ROOT / "data" / "groceries" / "nutrition" / f"raw-{a.shop}" / "chrome.jsonl"
     reads: dict[str, dict] = {}
     with open(raw, encoding="utf-8") as f:
@@ -186,7 +192,7 @@ def main() -> int:
         rows.append({"product_id": pid, "per": t["per"], "state": t["state"], "kj": t.get("kj") or "", "kcal": t["kcal"], "fat_g": t["fat_g"], "saturates_g": t.get("saturates_g") or "",
                      "carbs_g": t["carbs_g"], "sugars_g": t.get("sugars_g") or "", "fibre_g": t.get("fibre_g") or "", "protein_g": t["protein_g"], "salt_g": t.get("salt_g") or "",
                      "checked_on": rec.get("checked_on", ""), "page_url": base + pages[pid]})
-    out = ROOT / "data" / "groceries" / "nutrition" / f"{a.shop}.csv"
+    out = ROOT / "data" / "groceries" / "nutrition" / f"{OUT_NAME.get(a.shop, a.shop)}.csv"
     cols = ["product_id", "per", "state", "kj", "kcal", "fat_g", "saturates_g", "carbs_g", "sugars_g", "fibre_g", "protein_g", "salt_g", "checked_on", "page_url"]
     with open(out, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols)
@@ -194,7 +200,7 @@ def main() -> int:
         w.writerows(sorted(rows, key=lambda r: r["product_id"]))
     fdir = ROOT / "data" / "groceries" / "ingredients"
     fdir.mkdir(parents=True, exist_ok=True)
-    with open(fdir / f"{a.shop}.csv", "w", newline="", encoding="utf-8") as f:
+    with open(fdir / f"{OUT_NAME.get(a.shop, a.shop)}.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=["product_id", "ingredients", "allergens_bold", "allergy_info", "may_contain", "checked_on", "page_url"])
         w.writeheader()
         w.writerows(sorted(facts, key=lambda r: r["product_id"]))

@@ -24,7 +24,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 BASE = {"asda": "https://www.asda.com/groceries/product/{id}", "aldi": "https://www.aldi.co.uk/product/{page}",
-        "tesco": "https://www.tesco.com/groceries/en-GB/products/{id}", "marks-and-spencer": "https://www.marksandspencer.com/food/{page}"}
+        "tesco": "https://www.tesco.com/groceries/en-GB/products/{id}", "marks-and-spencer": "https://www.marksandspencer.com/food/{page}",
+        "sainsburys": "https://www.sainsburys.co.uk/gol-ui/product/{id}", "waitrose": "https://www.waitrose.com/ecom/products/{slug}/{id}"}
+
+
+def slug(name: str) -> str:
+    """A product name as a page address part ("Kalamata & Halkidiki Olive Bread 400g" -> "kalamata-halkidiki-olive-bread-400g")."""
+    import re
+    return re.sub(r"[^a-z0-9]+", "-", (name or "").lower().replace("'", "")).strip("-") or "product"
 
 
 def all_products(shop: str):
@@ -38,7 +45,7 @@ def all_products(shop: str):
         page = row[11] if len(row) > 11 and isinstance(row[11], str) else ""
         if shop in ("aldi", "marks-and-spencer") and not page:
             continue
-        yield {"product_id": row[0], "page": page}
+        yield {"product_id": row[0], "page": page, "name": row[1]}
 
 
 TRANSCRIPTS = Path.home() / ".claude" / "projects" / ("-" + str(ROOT).strip("/").replace("/", "-"))
@@ -218,7 +225,7 @@ def main() -> int:
             key = r["product_id"] if shop != "aldi" else (r["page"] or r["product_id"]).rstrip("/").split("/")[-1]
             if r["product_id"] in done or key in done:
                 continue
-            url = BASE[shop].format(id=r["product_id"], page=r["page"] or r["product_id"])
+            url = BASE[shop].format(id=r["product_id"], page=r["page"] or r["product_id"], slug=slug(r.get("name", "")))
             if tab is None:
                 print(f"{r['product_id']}\t{url}")
             else:

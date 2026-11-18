@@ -147,7 +147,16 @@ def read_done() -> dict[str, dict]:
 
 def candidates() -> list[dict]:
     with open(CANDIDATES, newline="", encoding="utf-8") as f:
-        return list(csv.DictReader(f))
+        rows = list(csv.DictReader(f))
+    # then every other product in the shop's published list (founder 2026-11-17: "we need nutrients for every single product"); pages already read are skipped
+    seen = {r["product_id"].strip() for r in rows}
+    listing = ROOT / "web" / "public" / "groceries" / "all" / f"{SHOP}.json"
+    if listing.exists():
+        for p in json.loads(listing.read_text(encoding="utf-8"))["products"]:
+            if p[0] not in seen:
+                seen.add(p[0])
+                rows.append({"product_id": p[0], "name": p[1]})
+    return rows
 
 
 def cmd_read(a) -> int:
