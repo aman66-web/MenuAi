@@ -79,7 +79,8 @@ function ThingCard({ href, title, line, icon, badge }: { href: string; title: st
   return (
     <Link href={href} className="glass lift flex min-w-0 flex-col rounded-[1.25rem] p-4 [overflow-wrap:anywhere]">
       <span aria-hidden className="mb-3 flex items-center justify-between gap-2">
-        <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-accent">{icon}</span>
+        {/* the app's light green, like the shortcut rows (founder 2026-11-18: "that should be light green") */}
+        <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sun text-[var(--on-accent)]">{icon}</span>
         {badge && <span className="rounded-full bg-sun px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--on-accent)]">{badge}</span>}
       </span>
       <span className="pb-3.5">
@@ -255,17 +256,8 @@ export default function HomePage() {
           <ThingCard href="/app/meals" title={t("My meals")} line={mealsLine} icon={<HeartIcon className="h-5 w-5" />} />
         )}
       </div>
-      {FOOD_SCAN_ENABLED && (
-        // My meals stays one tap from Home (the saved recipes and the saved restaurant meals), as a slim row under the two cards
-        <Link href="/app/meals" className="glass lift mt-3 flex min-h-14 items-center gap-3 rounded-[1.25rem] px-4 py-3">
-          <span aria-hidden className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent"><HeartIcon className="h-[18px] w-[18px]" /></span>
-          <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-            <span className="block text-base font-[800] leading-tight">{t("My meals")}</span>
-            <span className="block text-sm leading-snug text-muted">{mealsLine}</span>
-          </span>
-          <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted rtl:rotate-180" />
-        </Link>
-      )}
+      {/* founder 2026-11-18: "I don't want My Meals anymore. I just want the option where they can scan food": no My meals on Home where the scanner is (the
+          saved recipes and orders are still in Recipes › My recipes); the website, which has no scanner, keeps the My meals card */}
 
       <h2 className="mt-7 text-xl font-extrabold tracking-tight">{t("Today's meals")}</h2>
       <ul className="mt-3 space-y-3">
