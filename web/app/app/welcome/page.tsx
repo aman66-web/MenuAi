@@ -12,7 +12,8 @@ import { LOGOS_ENABLED, SIGN_IN_REQUIRED } from "@/lib/mm/config";
 import { tk } from "@/lib/mm/i18n";
 import { EMPTY_BODY, bodyProblems, planFromAnswers, readTargetFields, type BodyAnswers } from "@/lib/mm/onboardingPlan";
 import { macroTargets } from "@/lib/mm/targets";
-import { settingsStore, tourStore, updateSettings } from "@/lib/mm/stores";
+import { coachAfterWelcome } from "@/lib/mm/coach";
+import { coachStore, settingsStore, tourStore, updateSettings } from "@/lib/mm/stores";
 import { TOUR_VERSION } from "@/lib/mm/tour";
 import type { Goal, Preferences, Profile } from "@/lib/mm/types";
 import { TEXT_SCALE, type TextSize, type UserSettings } from "@/lib/mm/user-data";
@@ -240,6 +241,7 @@ function Welcome() {
   const lookAround = () => {
     analytics.track({ name: "onboardingSkipped", step: 0 });
     tourStore.set(TOUR_VERSION);
+    coachStore.set(coachAfterWelcome(coachStore.get())); // Pip's tips on each tab's real buttons (lib/mm/coach.ts)
     router.replace(afterOnboarding());
   };
   // "Skip tour": to the choice at the end of the walk.
@@ -281,6 +283,7 @@ function Welcome() {
   const finish = (recipeHref?: string) => {
     updateSettings({ hasCompletedOnboarding: true });
     tourStore.set(TOUR_VERSION);
+    coachStore.set(coachAfterWelcome(coachStore.get())); // Pip's tips on each tab's real buttons (lib/mm/coach.ts)
     analytics.track({ name: "onboardingCompleted", goal: settingsStore.get().goal });
     if (recipeHref) {
       // Replace this page with Home first and open the recipe only once Home is showing: asked in the same moment, the second navigation
@@ -385,7 +388,7 @@ function Welcome() {
             <TourRows rows={stop.rows} />
           </section>
           <Bottom>
-            {replay && last ? <BottomButton key={intro} onClick={leave}>{t("Done")}</BottomButton> : <BottomButton key={intro} onClick={next}>{t("Continue")}</BottomButton>}
+            {replay && last ? <BottomButton key={intro} onClick={() => { coachStore.set(coachAfterWelcome(coachStore.get())); leave(); }}>{t("Done")}</BottomButton> : <BottomButton key={intro} onClick={next}>{t("Continue")}</BottomButton>}
           </Bottom>
         </div>
       );

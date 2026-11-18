@@ -204,7 +204,7 @@ export default function HomePage() {
         <p className="glass mt-4 rounded-2xl px-4 py-2.5 text-xs text-muted">{t("Showing fictional sample data for testing. Numbers are not real.")}</p>
       )}
 
-      <div className={`app-numbers mt-6 ${PAIR}`}>
+      <div data-coach="home-numbers" className={`app-numbers mt-6 ${PAIR}`}>
         {/* Measured from the founder's picture of this card ("exactly like image 2"): the small label at the top, a dial about 55% of the
             card's width with a thick track and a small grey centre, plenty of room around it, the figures in a regular weight below. */}
         <Card className="flex min-h-[14.25rem] min-w-0 flex-col items-center justify-between gap-5 px-4 pb-3.5 pt-4 text-center">
@@ -291,7 +291,7 @@ export default function HomePage() {
                   </span>
                 )}
               </Link>
-              <button type="button" onClick={() => gate("log", () => setAddTo(meal))} aria-label={t(ADD_TO[meal])} className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-strong transition active:scale-95 hover:bg-accent-soft hover:text-accent">
+              <button type="button" data-coach={meal === MEALS[0] ? "home-add" : undefined} onClick={() => gate("log", () => setAddTo(meal))} aria-label={t(ADD_TO[meal])} className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-strong transition active:scale-95 hover:bg-accent-soft hover:text-accent">
                 <PlusIcon className="h-6 w-6" />
               </button>
             </li>

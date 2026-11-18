@@ -1,4 +1,5 @@
 import { sanitizeShoppingList, type ShoppingItem } from "./groceries";
+import { NO_COACH, sanitizeCoach, type CoachState } from "./coach";
 import { sanitizePlan, type SavedPlan } from "./mealPlan";
 import { sanitizeSavedRecipes, type SavedRecipe } from "./aiRecipe";
 import { createStore, requestPersistentStorage } from "./persist";
@@ -36,6 +37,8 @@ export const trialOfferStore = createStore<boolean>("mm.v1.trialOffer", false, {
 export const ratingStore = createStore<RatingState>("mm.v1.rating", EMPTY_RATING, { sanitize: sanitizeRating });
 /** The welcome tour's version this phone has seen (lib/mm/tour.ts TOUR_VERSION; 0 = not seen). On this device only: not synced, never sent anywhere. */
 export const tourStore = createStore<number>("mm.v1.tour", 0, { sanitize: (v) => (Number.isInteger(v) && (v as number) >= 0 && (v as number) < 100 ? (v as number) : 0) });
+/** Pip's tips on the real screens (lib/mm/coach.ts): whether they are on and which tabs' tips have been shown. On this device only: not synced, never sent. */
+export const coachStore = createStore<CoachState>("mm.v1.coach", NO_COACH, { sanitize: sanitizeCoach });
 export const favoritesStore = createStore<Favorite[]>("mm.v1.favorites", [], { sanitize: sanitizeFavorites });
 export const savedStore = createStore<SavedOrder[]>("mm.v1.saved", [], { sanitize: sanitizeSavedOrders });
 export const logStore = createStore<LogEntry[]>("mm.v1.log", [], { sanitize: sanitizeLog });

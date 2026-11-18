@@ -65,7 +65,7 @@ export default function GroceriesPage() {
       </Link>
 
       <div className={`mt-3.5 ${chainGroupClass}`}>
-        <Shortcut onClick={() => setScanning(true)} icon={<ScanIcon />} title={t("Scan a barcode")} line={t("Look up a product you're holding")} />
+        <Shortcut coach="groceries-scan" onClick={() => setScanning(true)} icon={<ScanIcon />} title={t("Scan a barcode")} line={t("Look up a product you're holding")} />
         {/* founder 2026-11-18: "instead of having like cheapest protein, have something called nutritional leaderboards" (Cheapest protein is one of the boards) */}
         <Shortcut href="/app/groceries/leaderboards" icon={<PodiumIcon />} title={t("Nutrition leaderboards")} line={t("The top 20 products for protein, fibre and more")} />
         <Shortcut href="/app/compare?tab=food" icon={<CompareIcon />} title={t("Compare products")} line={t("Put products side by side, even from different shops")} />
@@ -77,7 +77,7 @@ export default function GroceriesPage() {
       {!shops ? (
         <Spinner label={t("Loading products")} />
       ) : (
-        <ul className={`mt-4 ${PAIR}`}>
+        <ul data-coach="groceries-shops" className={`mt-4 ${PAIR}`}>
           {shops.map((r) => (
             <li key={r.id} className="@container relative flex">
               {/* the shop's name, then its count. When a tile has the whole row (large text: one tile a row) the logo sits beside the words instead of

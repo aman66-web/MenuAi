@@ -26,6 +26,7 @@ import { GATING_ENABLED, IAP_ENABLED, SIGN_IN_REQUIRED } from "@/lib/mm/config";
 import { signInGate } from "@/lib/mm/signInGate";
 import { hasNative } from "@/lib/mm/native";
 import { refreshAppStoreAccess } from "@/lib/payments/iap";
+import { CoachMarks } from "./CoachMarks";
 import { CommunityBadge } from "./CommunityBadge";
 import { PaywallProvider } from "./Paywall";
 import { TrialOffer } from "./TrialOffer";
@@ -148,6 +149,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           // icons so everyone can read where each tab goes. Colours are fixed: the bar is the same on every screen.
           <nav
             aria-label={t("Main")}
+            data-coach="tabs"
             className="fixed inset-x-[12px] bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-20 mx-auto max-w-[calc(28rem-1.5rem)] rounded-[2rem] bg-[#1d2320] p-[6px] shadow-[0_18px_40px_-16px_rgba(0,0,0,0.55)]"
           >
             <ul className="flex">
@@ -177,6 +179,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </nav>
         )}
       </div>
+      {gate === "open" && !fullScreen && <CoachMarks />}
       {gate === "open" && <TrialOffer />}
       {gate === "open" && <RatingPrompt />}
     </PaywallProvider>

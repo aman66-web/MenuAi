@@ -266,7 +266,7 @@ function RecipesScreen() {
         </div>
         {/* My recipes (founder 2026-11-18: "instead of the love heart ... maybe its better having 'my recipes'"): the heart and the words in a grey pill, with
             how many are saved, opening My meals at its Recipes tab (the recipes saved with a card's heart and the ones made for the person) */}
-        <Link href="/app/meals?tab=recipes" aria-label={savedCount > 0 ? `${t("My recipes")} · ${savedCount}` : t("My recipes")} className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-soft-strong ps-3 pe-3.5 text-[0.9375rem] font-bold transition hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] active:scale-95">
+        <Link href="/app/meals?tab=recipes" data-coach="recipes-mine" aria-label={savedCount > 0 ? `${t("My recipes")} · ${savedCount}` : t("My recipes")} className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-soft-strong ps-3 pe-3.5 text-[0.9375rem] font-bold transition hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] active:scale-95">
           <HeartIcon aria-hidden className="h-[18px] w-[18px]" />
           <span aria-hidden>{t("My recipes")}</span>
           {savedCount > 0 && <span aria-hidden className="app-numbers grid h-5 min-w-5 place-items-center rounded-full bg-foreground px-1 text-[0.6875rem] font-bold leading-none text-background">{savedCount}</span>}
@@ -302,7 +302,7 @@ function RecipesScreen() {
       {PHOTO_RECIPES_ENABLED && (
         // Make it at home (Premium; app/app/recipes/photo/page.tsx). Founder 2026-11-17 ("it can be easily missed"): the one dark card on the page, at the top under the
         // search, in the tab bar's near-black, with the scanner's lime corner marks round the camera. It opens the paywall for a free person.
-        <button type="button" onClick={() => gate("photoRecipe", () => router.push("/app/recipes/photo"))} className="group relative mt-4 flex min-h-[5.25rem] w-full items-center gap-3 overflow-hidden rounded-[1.5rem] bg-[#1d2320] p-3.5 text-start text-white shadow-[0_18px_40px_-20px_rgba(0,0,0,0.6)] transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+        <button type="button" data-coach="recipes-photo" onClick={() => gate("photoRecipe", () => router.push("/app/recipes/photo"))} className="group relative mt-4 flex min-h-[5.25rem] w-full items-center gap-3 overflow-hidden rounded-[1.5rem] bg-[#1d2320] p-3.5 text-start text-white shadow-[0_18px_40px_-20px_rgba(0,0,0,0.6)] transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
           <span aria-hidden className="relative grid h-12 w-12 shrink-0 place-items-center rounded-[0.875rem] bg-white/10 text-sun">
             <span className="absolute start-1 top-1 h-2.5 w-2.5 rounded-ss-md border-s-2 border-t-2 border-[var(--sun)]" />
             <span className="absolute end-1 top-1 h-2.5 w-2.5 rounded-se-md border-e-2 border-t-2 border-[var(--sun)]" />
@@ -352,7 +352,7 @@ function RecipesScreen() {
       </Sheet>
 
       {/* Eight big tiles: four columns on a phone, fewer when the text is large (the minimum width is in rem). */}
-      <div role="group" aria-label={t("Filters")} className="mt-3.5 grid auto-rows-fr grid-cols-[repeat(auto-fill,minmax(min(100%,4.9rem),1fr))] gap-2.5">
+      <div role="group" aria-label={t("Filters")} data-coach="recipes-tiles" className="mt-3.5 grid auto-rows-fr grid-cols-[repeat(auto-fill,minmax(min(100%,4.9rem),1fr))] gap-2.5">
         {MEAL_TYPES.map((m) => (
           <Tile key={m.value} label={t(m.label)} Icon={MEAL_LOOK[m.value].Icon} pressed={meals.has(m.value)} onClick={() => flipMeal(m.value)} />
         ))}

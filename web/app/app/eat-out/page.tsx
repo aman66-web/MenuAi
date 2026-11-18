@@ -159,7 +159,7 @@ export default function EatOutPage() {
           ) : (
           <>
           <h2 className="mt-8 text-xl font-[800] tracking-[-0.01em]">{t("Popular")}</h2>
-          <div className="stagger mt-3.5 grid grid-cols-2 gap-3.5">{popular.map((c) => (<ChainCard key={c.id} chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "popular" })} />))}</div>
+          <div data-coach="eatout-list" className="stagger mt-3.5 grid grid-cols-2 gap-3.5">{popular.map((c) => (<ChainCard key={c.id} chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "popular" })} />))}</div>
 
           {rest.length > 0 && (
             <>
