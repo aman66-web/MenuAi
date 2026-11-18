@@ -158,6 +158,29 @@ def stored_versions(shop: str) -> dict[str, int]:
     return out
 
 
+RETRY_SHOPS = {"asda", "aldi", "sainsburys", "waitrose", "morrisons", "marks-and-spencer", "tesco"}
+
+
+def retry_ids(shop: str) -> set[str]:
+    """Pages saved before they had drawn (no heading and no table: the reader ran while the page was still loading), read once more. A page that comes back
+    empty a second time counts as read. Not Iceland (its reads keep the table elsewhere) or Co-op (its own reader)."""
+    if shop not in RETRY_SHOPS:
+        return set()
+    raw = ROOT / "data" / "groceries" / "nutrition" / f"raw-{shop}" / "chrome.jsonl"
+    empty: dict[str, int] = {}
+    drawn: set[str] = set()
+    if raw.exists():
+        for line in raw.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                r = json.loads(line)
+                k = str(r.get("id"))
+                if r.get("unreadable") or r.get("h1") or r.get("nut"):
+                    drawn.add(k)
+                else:
+                    empty[k] = empty.get(k, 0) + 1
+    return {k for k, n in empty.items() if n == 1 and k not in drawn}
+
+
 def done_ids(shop: str) -> set[str]:
     raw = ROOT / "data" / "groceries" / "nutrition" / f"raw-{shop}" / "chrome.jsonl"
     done = set()
@@ -170,7 +193,7 @@ def done_ids(shop: str) -> set[str]:
                 if shop == "tesco" and (r.get("reader") or 0) < READER and r.get("nut") and not r.get("ingredients"):
                     continue
                 done.add(str(r.get("id")))
-    return done
+    return done - retry_ids(shop)
 
 
 STATE = ROOT / "data" / "groceries" / "nutrition" / ".harvest_state.json"  # where each transcript was read up to, and the tries so far (not in git)
@@ -243,14 +266,17 @@ def harvest(days: float = 4) -> str:
                         seen[(shop, want)] = seen.get((shop, want), 0) + 1
     added: dict[str, int] = {}
     done = {}
+    retry: dict[str, set] = {}
     for (shop, want), got in sorted(parts.items()):
         main = got.get("main")
         if not main:
             continue
         if shop not in done:
             done[shop] = stored_versions(shop)
-        # a page is added when it isn't in the file yet, or when this read was made by a newer reader than the one stored (Tesco's re-reads)
-        if want in done[shop] and (main.get("v") or 2) <= done[shop][want]:
+            retry[shop] = retry_ids(shop)
+        # a page is added when it isn't in the file yet, or when this read was made by a newer reader than the one stored (Tesco's re-reads), or when
+        # the stored read was taken before the page had drawn (retry_ids: once)
+        if want in done[shop] and (main.get("v") or 2) <= done[shop][want] and want not in retry[shop]:
             continue
         text = (got.get("ing") or {}).get("ingredients", "") + (got.get("ing2") or {}).get("ingredients", "")
         tries = seen.get((shop, want), 0)
@@ -280,6 +306,7 @@ def harvest(days: float = 4) -> str:
                                     "allergenMayContain": (got.get("ice2") or {}).get("mayContain"),
                                     "read_in": "chrome"}, ensure_ascii=False) + "\n")
         done[shop][want] = main.get("v") or 2
+        retry[shop].discard(want)
         added[shop] = added.get(shop, 0) + 1
     import datetime
     for (shop, want), n in sorted(cut.items()):
