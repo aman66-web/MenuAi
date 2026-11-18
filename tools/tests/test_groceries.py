@@ -1306,7 +1306,8 @@ class AlcoholNamedTests(unittest.TestCase):
     def test_kitchenware_is_not_food(self):
         import build_all_products as B
         for name in ["George Home Black Fast Boil Kettle 1.7L", "George Home Peel Lid Food Storers - Colour May Vary", "George Home Kent Sundae Spoons",
-                     "John Lewis Stainless Steel 4-Sided Box Grater each", "JL Stainless Steel Y-Shaped Peeler each", "Nutmeg Home Protein Shaker 600ml"]:
+                     "John Lewis Stainless Steel 4-Sided Box Grater each", "JL Stainless Steel Y-Shaped Peeler each", "Nutmeg Home Protein Shaker 600ml",
+                     "Brita Maxtra Pro All-in-One Cartridge 6pk", "Brita Maxtra Pro All in 1 Water Filter Cartridge 3 pack"]:
             self.assertTrue(B.not_food(name), name)
         for name in ["Splenda Granulated Low Calorie Sweetener Canister 125g", "Nutmeg Organic Vegetable Paella Baby Food 12M+ 100g", "Yarden Houmous Prestige 250g"]:
             self.assertFalse(B.not_food(name), name)
