@@ -35,10 +35,10 @@ CHUNK = 15  # rows are about 40 characters and the browser tool cuts a result at
 
 # one read: the chosen store's name from the page, and tiles [off, off+15) as [id, price, unitPrice] exactly as the page's own data gives them
 JS = ("WAIT const nd = JSON.parse(document.getElementById('__NEXT_DATA__').textContent); "
-      "const r = ((((nd.props || {}).pageProps || {}).viewModel || {}).productSearch || {}).productLists || {}; const t = r.ranged || []; "
+      "const ps = (((nd.props || {}).pageProps || {}).viewModel || {}).productSearch || {}; const r = ps.productLists || {}; const t = r.ranged || []; const pg = ps.pagination || {}; "
       "const txt = document.body ? document.body.innerText : ''; const st = (txt.match(/\\n([A-Z][A-Z0-9 '.-]{2,40})\\n\\s*Change store/) || [])[1] || ''; "
       "const blocked = /verify you are human|access denied|pardon our interruption|are you a robot|captcha/i.test(document.title + ' ' + txt.slice(0, 2000)); "
-      "JSON.stringify({ want: WANT, host: location.hostname.replace(/^www\\./, ''), part: 'mprice', off: OFF, n: t.length, store: st, blocked, "
+      "JSON.stringify({ want: WANT, host: location.hostname.replace(/^www\\./, ''), part: 'mprice', off: OFF, n: t.length, first: pg.pageFirstItemNum, pages: pg.totalPages, store: st, blocked, "
       "rows: t.slice(OFF, OFF + CHUNKN).map((x) => [String(x.id || ''), String(x.price || ''), String(x.unitPrice || '')]), checked_on: new Date().toISOString().slice(0, 10) })")
 
 
@@ -108,6 +108,13 @@ def harvest() -> str:
             if first.get("blocked") or not first.get("store"):
                 blocked.append(want)
                 continue
+            page = int(want.rsplit("|", 1)[1])
+            if first.get("first") is not None and int(first["first"]) != (page - 1) * 96 + 1:
+                # past the aisle's last page today: M&S answers it with page 1 again, so it holds no products of its own
+                out.write(json.dumps({"want": want, "store": first["store"], "n": 0, "rows": [], "beyond": True, "pages": first.get("pages"),
+                                      "checked_on": first["checked_on"]}, ensure_ascii=False) + "\n")
+                added += 1
+                continue
             n = int(first.get("n") or 0)
             need = [str(o) for o in range(0, max(n, 1), CHUNK)]
             if not all(o in parts for o in need):
@@ -128,7 +135,7 @@ def next_actions(tab: int, n: int) -> list[dict]:
         if key(unit, page) in have:
             continue
         acts.append({"name": "navigate", "input": {"url": M.page_url(units[unit], page), "tabId": tab}})
-        for i, off in enumerate(range(0, max(tiles, 1) + 10, CHUNK)):  # a few more than October's count, in case the aisle grew
+        for i, off in enumerate(range(0, 96, CHUNK)):  # a whole page of 96 (an aisle may have grown since October); reads past the end come back empty
             code = JS.replace("WAIT", "await new Promise((r) => setTimeout(r, 3500));" if i == 0 else "").replace("WANT", json.dumps(key(unit, page))).replace("OFF", str(off)).replace("CHUNKN", str(CHUNK))
             acts.append({"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": code}})
         n -= 1
