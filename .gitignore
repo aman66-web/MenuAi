@@ -25,3 +25,6 @@ data/i18n/
 
 # Recipe pictures as made (large PNGs); only the 800 x 600 WebP copies in web/public/recipe-images/ are kept in git
 data/recipe-images/
+
+# Chrome label harvest progress (local)
+data/groceries/nutrition/.harvest_state.*

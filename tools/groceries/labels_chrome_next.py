@@ -165,48 +165,74 @@ def done_ids(shop: str) -> set[str]:
     return done
 
 
+STATE = ROOT / "data" / "groceries" / "nutrition" / ".harvest_state.json"  # where each transcript was read up to, and the tries so far (not in git)
+
+
 def harvest(days: float = 4) -> str:
-    """Copy reader v2 results from the transcripts of the last few days into raw-<shop>/chrome.jsonl (new pages only). Returns a one-line summary."""
+    """Copy reader results from the transcripts of the last few days into raw-<shop>/chrome.jsonl (new pages only). Returns a one-line summary.
+    Each transcript is read only from where the last harvest stopped (STATE), under a lock, so the helpers' calls stay quick and never add a page twice."""
+    import fcntl
     import time
-    parts: dict[tuple[str, str], dict] = {}
-    cut: dict[tuple[str, str], int] = {}  # how many times a page's main result came back cut off
-    seen: dict[tuple[str, str], int] = {}  # how many times each page's main result came back (a page read 3 times is kept with what came back whole)
-    blocked: dict[str, set] = {}
+    STATE.parent.mkdir(parents=True, exist_ok=True)
+    lock = open(STATE.with_suffix(".lock"), "w")
+    fcntl.flock(lock, fcntl.LOCK_EX)
+    try:
+        state = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {}
+    except ValueError:
+        state = {}
+    offsets: dict = state.get("offsets", {})
+    key = lambda k: k[0] + "|" + k[1]
+    unkey = lambda k: tuple(k.split("|", 1))
+    parts: dict[tuple[str, str], dict] = {unkey(k): v for k, v in state.get("pending", {}).items()}  # pages with some parts but not yet whole
+    cut: dict[tuple[str, str], int] = {unkey(k): v for k, v in state.get("cut", {}).items()}  # how many times a page's main result came back cut off
+    seen: dict[tuple[str, str], int] = {unkey(k): v for k, v in state.get("seen", {}).items()}  # how many times each page's main result came back
+    blocked: dict[str, set] = {s_: set(v) for s_, v in state.get("blocked", {}).items()}
     cutoff = time.time() - days * 86400
     for path in TRANSCRIPTS.glob("**/*.jsonl"):
         try:
-            if path.stat().st_mtime < cutoff:
+            st = path.stat()
+            if st.st_mtime < cutoff:
                 continue
-            lines = open(path, encoding="utf-8", errors="replace")
+            start = offsets.get(str(path), 0)
+            if start > st.st_size:
+                start = 0
+            if start == st.st_size:
+                continue
+            with open(path, "rb") as fb:
+                fb.seek(start)
+                data = fb.read()
         except OSError:
             continue
-        with lines:
-            for line in lines:
-                if MARK not in line or "want" not in line:
-                    continue
-                try:
-                    node = json.loads(line)
-                except ValueError:
-                    continue
-                for text in _texts(node):
-                    for r in _results(text):
-                        shop, want = HOSTS.get(str(r.get("host", ""))), r.get("want")
-                        if r.get("part") == "cut" and shop and isinstance(want, str):
-                            cut[(shop, want)] = cut.get((shop, want), 0) + 1
+        end = data.rfind(b"\n")
+        if end < 0:
+            continue
+        offsets[str(path)] = start + end + 1
+        for raw_line in data[: end + 1].split(b"\n"):
+            if b"javascript_exec" not in raw_line or b"want" not in raw_line:
+                continue
+            try:
+                node = json.loads(raw_line.decode("utf-8", errors="replace"))
+            except ValueError:
+                continue
+            for text in _texts(node):
+                for r in _results(text):
+                    shop, want = HOSTS.get(str(r.get("host", ""))), r.get("want")
+                    if r.get("part") == "cut" and shop and isinstance(want, str):
+                        cut[(shop, want)] = cut.get((shop, want), 0) + 1
+                        continue
+                    if not shop or not isinstance(want, str) or not want or r.get("part") not in ("main", "ing", "ing2", "ice"):
+                        continue
+                    if r["part"] == "main":
+                        if "nut" not in r or "checked_on" not in r:
                             continue
-                        if not shop or not isinstance(want, str) or not want or r.get("part") not in ("main", "ing", "ing2", "ice"):
+                        if r.get("blocked"):
+                            blocked.setdefault(shop, set()).add(want)
                             continue
-                        if r["part"] == "main":
-                            if "nut" not in r or "checked_on" not in r:
-                                continue
-                            if r.get("blocked"):
-                                blocked.setdefault(shop, set()).add(want)
-                                continue
-                        elif r["part"] in ("ing", "ing2") and not isinstance(r.get("ingredients"), str):
-                            continue
-                        parts.setdefault((shop, want), {})[r["part"]] = r
-                        if r["part"] == "main":
-                            seen[(shop, want)] = seen.get((shop, want), 0) + 1
+                    elif r["part"] in ("ing", "ing2") and not isinstance(r.get("ingredients"), str):
+                        continue
+                    parts.setdefault((shop, want), {})[r["part"]] = r
+                    if r["part"] == "main":
+                        seen[(shop, want)] = seen.get((shop, want), 0) + 1
     added: dict[str, int] = {}
     done = {}
     for (shop, want), got in sorted(parts.items()):
@@ -260,6 +286,15 @@ def harvest(days: float = 4) -> str:
         done[shop][want] = READER
         added[shop] = added.get(shop, 0) + 1
     bl = {s: len(v - set(stored_versions(s))) for s, v in blocked.items()}
+    written = {(sh, w) for sh, d in done.items() for w in d}
+    state = {"offsets": offsets, "pending": {key(k): v for k, v in parts.items() if k not in written},
+             "cut": {key(k): v for k, v in cut.items() if k not in written}, "seen": {key(k): v for k, v in seen.items() if k not in written},
+             "blocked": {s_: sorted(v) for s_, v in blocked.items()}}
+    tmp = STATE.with_suffix(".tmp")
+    tmp.write_text(json.dumps(state), encoding="utf-8")
+    tmp.replace(STATE)
+    fcntl.flock(lock, fcntl.LOCK_UN)
+    lock.close()
     return "harvested " + (", ".join(f"{s} {n}" for s, n in sorted(added.items())) or "nothing new") + ("; BLOCKED pages seen: " + ", ".join(f"{s} {n}" for s, n in bl.items() if n) if any(bl.values()) else "")
 
 
