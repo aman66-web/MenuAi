@@ -1280,3 +1280,22 @@ class ProduceDataTests(unittest.TestCase):
         for not_plain in ["Morrisons Heart Raspberry Swirl Buns 2 Pack", "Tango Orange Original Can 8x330ml", "Tesco Breaded 4 Garlic Chicken Kievs 500g",
                           "Cirio Pelati Peeled Plum Tomatoes 400g", "Frozen Mixed Peppers", "Banana Chips 200g", "Waitrose Strawberry and Grape 115g"]:
             self.assertIsNone(cofid.produce_code(not_plain), not_plain)
+
+
+class AlcoholNamedTests(unittest.TestCase):
+    """Founder 2026-11-18: no alcoholic drinks. Names that say outright that a drink is alcoholic are left out whatever soft drink they also name."""
+
+    def test_named_alcohol_left_out_and_alcohol_free_kept(self):
+        import build_groceries as bg
+        for name in ["Hooch Alcoholic Lemonade with Vodka & Fruit Juice 440ml", "VK Mixed Pack A Selection of Vodka Mix Drinks 10 x 275ml",
+                     "WKD Blue Alcoholic Mix 700ml", "Absolut Pre-Mixed Raspberry Lemonade Vodka Drink 250ml"]:
+            self.assertTrue(bg.is_alcohol(name), name)
+        for name in ["Grace Mighty Malt Premium Original Non-Alcoholic Drink 330ml", "Morrisons The Best Pasta Alla Vodka 400G",
+                     "No.1 Vodka Battered Scallops With Bloody Mary Sauce 273g", "M&S Collection Italian Tomato and Vodka Pasta Sauce 280 g",
+                     "Fever-Tree Non Alcoholic Mojito 250ml", "Kopparberg 0.0% Alcohol Free Mixed Fruit Cider 500ml"]:
+            self.assertFalse(bg.is_alcohol(name), name)
+
+    def test_roasting_tray_is_not_food_but_roaster_potatoes_are(self):
+        import build_all_products as B
+        self.assertTrue(B.not_food("Iceland 38cm Turkey Roaster"))
+        self.assertFalse(B.not_food("Mini Roaster Potatoes 1 kg"))

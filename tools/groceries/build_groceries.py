@@ -552,10 +552,17 @@ ALCOHOL_TYPES = {"beers", "ciders", "wheat-beers", "craft-beers", "lagers", "ale
                  "white-wines", "rose-wines", "sparkling-wines", "champagnes", "proseccos", "spirits", "whiskies", "vodkas", "gins", "rums", "hard-seltzers"}
 
 
+# names that say outright that the drink is alcoholic (founder 2026-11-18: "leave out alcoholic drinks"; Iceland's Hooch and WKD, Asda's pre-mixed Absolut slipped through)
+ALCOHOL_SURE = re.compile(r"\balcoholic\b|\bwith vodka\b|\bvodka (?:mix|drinks?|cocktails?)\b|\bpre-?mixed\b.*\b(?:vodka|gin|rum|whisk(?:e)?y)\b|"
+                          r"\b(?:hooch|wkd|vk|au vodka|smirnoff ice)\b|\b\d+(?:\.\d+)?\s?%\s?(?:vol|abv)\b", re.I)
+
+
 def is_alcohol(name: str, aisle: str = "") -> bool:
     """True for an alcoholic drink, going by the shop's own aisle and the product's own name (see ALCOHOL_AISLE above)."""
     if NO_ALCOHOL.search(name):
         return False
+    if ALCOHOL_SURE.search(name):
+        return True  # the name itself says so ("Hooch Alcoholic Lemonade with Vodka", "VK ... Vodka Mix Drinks", "WKD Blue Alcoholic Mix"), whatever soft drink it names
     aisle = re.sub(r"[-_/]+", " ", aisle or "")
     word = ALCOHOL_WORD.search(name)
     if re.search(r"\bno[ -]?(?:and[ -]?)?low\b", aisle, re.I):

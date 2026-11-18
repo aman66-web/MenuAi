@@ -7,7 +7,7 @@ on marksandspencer.com (M&S Marble Arch, picked on 18 November 2026 by searching
 page's own data (__NEXT_DATA__, props.pageProps.viewModel.productSearch.productLists.ranged) carries every tile's "price" ("£5.25") and "unitPrice"
 ("£1.31 per 100g"), and a tile M&S doesn't sell at that store carries none. This copies those two strings exactly; nothing is estimated.
 
-    python3 tools/groceries/mns_prices_chrome.py next TAB [N]   # the next N aisle pages (default 4) as a browser_batch action list: navigate, then 4 reads of 25 tiles
+    python3 tools/groceries/mns_prices_chrome.py next TAB [N]   # the next N aisle pages (default 4) as a browser_batch action list: navigate, then reads of 15 tiles
     python3 tools/groceries/mns_prices_chrome.py harvest        # copy the reads from the helpers' transcripts into raw/marks-and-spencer-prices.jsonl
     python3 tools/groceries/mns_prices_chrome.py write          # the prices -> data/groceries/listing/marks-and-spencer-food.csv (price columns), with the store
 
@@ -31,15 +31,15 @@ RAW = ROOT / "data" / "groceries" / "listing" / "raw" / "marks-and-spencer-food.
 PRICES = ROOT / "data" / "groceries" / "listing" / "raw" / "marks-and-spencer-prices.jsonl"
 STATE = ROOT / "data" / "groceries" / "nutrition" / ".mprice_state.json"
 LISTING = ROOT / "data" / "groceries" / "listing" / "marks-and-spencer-food.csv"
-CHUNK = 25
+CHUNK = 15  # rows are about 40 characters and the browser tool cuts a result at about 1,000
 
-# one read: the chosen store's name from the page, and tiles [off, off+25) as [id, price, unitPrice] exactly as the page's own data gives them
+# one read: the chosen store's name from the page, and tiles [off, off+15) as [id, price, unitPrice] exactly as the page's own data gives them
 JS = ("WAIT const nd = JSON.parse(document.getElementById('__NEXT_DATA__').textContent); "
       "const r = ((((nd.props || {}).pageProps || {}).viewModel || {}).productSearch || {}).productLists || {}; const t = r.ranged || []; "
       "const txt = document.body ? document.body.innerText : ''; const st = (txt.match(/\\n([A-Z][A-Z0-9 '.-]{2,40})\\n\\s*Change store/) || [])[1] || ''; "
       "const blocked = /verify you are human|access denied|pardon our interruption|are you a robot|captcha/i.test(document.title + ' ' + txt.slice(0, 2000)); "
       "JSON.stringify({ want: WANT, host: location.hostname.replace(/^www\\./, ''), part: 'mprice', off: OFF, n: t.length, store: st, blocked, "
-      "rows: t.slice(OFF, OFF + 25).map((x) => [String(x.id || ''), String(x.price || ''), String(x.unitPrice || '')]), checked_on: new Date().toISOString().slice(0, 10) })")
+      "rows: t.slice(OFF, OFF + CHUNKN).map((x) => [String(x.id || ''), String(x.price || ''), String(x.unitPrice || '')]), checked_on: new Date().toISOString().slice(0, 10) })")
 
 
 def pages() -> list[tuple[str, int]]:
@@ -129,7 +129,7 @@ def next_actions(tab: int, n: int) -> list[dict]:
             continue
         acts.append({"name": "navigate", "input": {"url": M.page_url(units[unit], page), "tabId": tab}})
         for i, off in enumerate(range(0, max(tiles, 1) + 10, CHUNK)):  # a few more than October's count, in case the aisle grew
-            code = JS.replace("WAIT", "await new Promise((r) => setTimeout(r, 3500));" if i == 0 else "").replace("WANT", json.dumps(key(unit, page))).replace("OFF", str(off))
+            code = JS.replace("WAIT", "await new Promise((r) => setTimeout(r, 3500));" if i == 0 else "").replace("WANT", json.dumps(key(unit, page))).replace("OFF", str(off)).replace("CHUNKN", str(CHUNK))
             acts.append({"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": code}})
         n -= 1
         if n <= 0:

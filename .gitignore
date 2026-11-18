@@ -28,3 +28,4 @@ data/recipe-images/
 
 # Chrome label harvest progress (local)
 data/groceries/nutrition/.harvest_state.*
+data/groceries/nutrition/.mprice_state.json
