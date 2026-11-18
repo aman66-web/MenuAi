@@ -76,7 +76,10 @@
     try {
       const d = JSON.parse(document.getElementById("mobify-data").textContent);
       const p = d.__PRELOADED_STATE__.__STATE_MANAGEMENT_LIBRARY.store.productStore.productsById[want];
-      if (p) iceland = JSON.parse(JSON.stringify({ page_id: String(p.id || ""), page_name: p.name || "", nutritionInformation: p.nutritionInformation || null,
+      // only what labels_iceland.py reads (each nutrient's name and values), so the result stays short; the allergen lists come back in a call of their own
+      const ni = p && p.nutritionInformation;
+      if (p) iceland = JSON.parse(JSON.stringify({ page_id: String(p.id || ""), page_name: p.name || "",
+        nutritionInformation: ni ? { headings: ni.headings || [], nutrients: (ni.nutrients || []).map((n) => ({ name: n.name, values: n.values })) } : null,
         drainedWeight: p.drainedWeight || null, contains: p.allergenContains || null, mayContain: p.allergenMayContain || null }).replace(/&/g, " and ").replace(/[?=]/g, " "));
     } catch (e) { iceland = null; }
   }
@@ -97,6 +100,7 @@
   if (mode === "ing") return JSON.stringify({ want, host, part: "ing", ingredients: ingredients.slice(0, 800) });
   if (mode === "ing2") return JSON.stringify({ want, host, part: "ing2", ingredients: ingredients.slice(800, 1600) });
   // Iceland's record comes back in a third call ("ice"), so the main result stays short enough never to be cut off
-  if (mode === "ice") return JSON.stringify({ want, host, part: "ice", iceland });
+  if (mode === "ice") return JSON.stringify({ want, host, part: "ice", iceland: iceland && { ...iceland, contains: undefined, mayContain: undefined } });
+  if (mode === "ice2") return JSON.stringify({ want, host, part: "ice2", contains: iceland && iceland.contains, mayContain: iceland && iceland.mayContain });
   return JSON.stringify({ want, host, part: "main", v: 4, id, h1: h1.slice(0, 90), blocked, nut, above: above.trim().slice(0, 120), bold: bold.slice(0, 10).map((w) => w.slice(0, 25)), allergy, mayContain: mayContain.map((m) => m.slice(0, 110)), ingLen: ingredients.length, coop, checked_on: new Date().toISOString().slice(0, 10) });
 })

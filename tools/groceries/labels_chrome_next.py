@@ -220,7 +220,7 @@ def harvest(days: float = 4) -> str:
                     if r.get("part") == "cut" and shop and isinstance(want, str):
                         cut[(shop, want)] = cut.get((shop, want), 0) + 1
                         continue
-                    if not shop or not isinstance(want, str) or not want or r.get("part") not in ("main", "ing", "ing2", "ice"):
+                    if not shop or not isinstance(want, str) or not want or r.get("part") not in ("main", "ing", "ing2", "ice", "ice2"):
                         continue
                     if r["part"] == "main":
                         if "nut" not in r or "checked_on" not in r:
@@ -268,7 +268,8 @@ def harvest(days: float = 4) -> str:
                 f.write(json.dumps({"product_id": want, "page_url": url, "final_url": url, "http": 200, "checked_on": rec.get("checked_on", ""),
                                     "listing_name": names.get(want, ""), "status": "ok" if ice.get("page_id") == want else "redirected",
                                     "page_id": ice.get("page_id", ""), "page_name": ice.get("page_name", ""), "nutritionInformation": ice["nutritionInformation"],
-                                    "drainedWeight": ice.get("drainedWeight"), "allergenContains": ice.get("contains"), "allergenMayContain": ice.get("mayContain"),
+                                    "drainedWeight": ice.get("drainedWeight"), "allergenContains": (got.get("ice2") or {}).get("contains"),
+                                    "allergenMayContain": (got.get("ice2") or {}).get("mayContain"),
                                     "read_in": "chrome"}, ensure_ascii=False) + "\n")
         done[shop][want] = main.get("v") or 2
         added[shop] = added.get(shop, 0) + 1
@@ -351,15 +352,15 @@ def main() -> int:
         # --wait S: seconds on each page before reading (a gentler pace for a shop that slows down a quick reader: Tesco)
         wait_ms = int(float(sys.argv[sys.argv.index("--wait") + 1]) * 1000) if "--wait" in sys.argv else 2500
         # v2: two calls a page, "main" then "ing", each naming the product asked for; __lbl is emptied first, so a failed run can't return the last page's result
-        code = ("await new Promise((r) => setTimeout(r, WAIT_MS)); const R = window.name.startsWith('((mode, want) => {') ? window.name : (localStorage.getItem('__numbite_reader') || ''); if (!R.startsWith('((mode, want) => {')) JSON.stringify({ want: WANT, needInstall: true }); "
+        code = ("await new Promise((r) => setTimeout(r, WAIT_MS)); let R = ''; try { R = localStorage.getItem('__numbite_reader') || ''; } catch (e) {} if (!R.startsWith('((mode, want) => {')) R = window.name; R = R.slice(0, R.lastIndexOf('})') + 2); if (!R.startsWith('((mode, want) => {')) JSON.stringify({ want: WANT, needInstall: true }); "
                 "else { window.__lbl = null; const s = document.createElement('script'); s.textContent = 'window.__lbl = (' + R + ')(\"main\", ' + JSON.stringify(WANT) + ')'; "
                 "document.head.appendChild(s); s.remove(); window.__lbl }").replace("WAIT_MS", str(wait_ms))
-        ing_code = ("const R = window.name.startsWith('((mode, want) => {') ? window.name : (localStorage.getItem('__numbite_reader') || ''); if (!R.startsWith('((mode, want) => {')) JSON.stringify({ want: WANT, needInstall: true }); "
+        ing_code = ("let R = ''; try { R = localStorage.getItem('__numbite_reader') || ''; } catch (e) {} if (!R.startsWith('((mode, want) => {')) R = window.name; R = R.slice(0, R.lastIndexOf('})') + 2); if (!R.startsWith('((mode, want) => {')) JSON.stringify({ want: WANT, needInstall: true }); "
                     "else { window.__lbl = null; const s = document.createElement('script'); s.textContent = 'window.__lbl = (' + R + ')(\"ing\", ' + JSON.stringify(WANT) + ')'; "
                     "document.head.appendChild(s); s.remove(); window.__lbl }")
         if shop == "coop":
             code = ("await new Promise((r) => setTimeout(r, WAIT_MS)); if (location.hostname !== 'www.coop.co.uk') JSON.stringify({ want: WANT, wrongSite: location.hostname }); "
-                    "else { const R = window.name.startsWith('(async (want) => {') ? window.name : (localStorage.getItem('__numbite_reader') || ''); if (!R.startsWith('(async (want) => {')) JSON.stringify({ want: WANT, needInstall: true }); "
+                    "else { let R = ''; try { R = localStorage.getItem('__numbite_reader') || ''; } catch (e) {} if (!R.startsWith('(async (want) => {')) R = window.name; R = R.slice(0, R.lastIndexOf('})') + 2); if (!R.startsWith('(async (want) => {')) JSON.stringify({ want: WANT, needInstall: true }); "
                     "else { window.__lbl = null; const s = document.createElement('script'); s.textContent = 'window.__lbl = (' + R + ')(' + JSON.stringify(WANT) + ')'; "
                     "document.head.appendChild(s); s.remove(); await window.__lbl } }").replace("WAIT_MS", str(wait_ms))
         print(harvest(), file=sys.stderr)
@@ -394,6 +395,7 @@ def main() -> int:
                     actions.append({"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": ing_code.replace("WANT", want).replace('("ing"', '("ing2"')}})
                 if short and shop == "iceland":
                     actions.append({"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": ing_code.replace("WANT", want).replace('("ing"', '("ice"')}})
+                    actions.append({"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": ing_code.replace("WANT", want).replace('("ing"', '("ice2"')}})
             out += 1
             if out >= n:
                 break
