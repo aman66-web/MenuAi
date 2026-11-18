@@ -182,10 +182,16 @@ def main() -> int:
             m = re.search(r"-0*(\d+)$", rid)  # Aldi's page address ends with the zero-padded product id
             if m:
                 reads[m.group(1)] = rec
+    # products whose page shows another product's label (data/groceries/nutrition/holdback.csv): never used, counted below
+    hb = ROOT / "data" / "groceries" / "nutrition" / "holdback.csv"
+    held = {r["product_id"] for r in csv.DictReader(open(hb, newline="", encoding="utf-8")) if r["shop"] == a.shop} if hb.exists() else set()
     counts: dict[str, int] = {}
     rows = []
     facts = []  # the ingredients and allergens as each page printed them (data/groceries/ingredients/<shop>.csv)
     for pid, name in want.items():
+        if pid in held:
+            counts["held back"] = counts.get("held back", 0) + 1
+            continue
         rec = reads.get(pid)
         if rec is not None and not rec.get("blocked") and (rec.get("ingredients") or rec.get("bold") or rec.get("allergy")):
             if same_product(name, rec.get("h1", "")):
