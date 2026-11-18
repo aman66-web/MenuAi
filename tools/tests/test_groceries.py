@@ -1277,6 +1277,9 @@ class ProduceDataTests(unittest.TestCase):
         self.assertEqual(cofid.produce_code("Tesco Organic Bunched Carrots 400G"), "13-496")
         self.assertEqual(cofid.produce_code("NATURE'S PICK Bananas 5 Each"), "14-318")
         self.assertEqual(cofid.produce_code("Loose Red Pepper"), "13-524")
+        self.assertEqual(cofid.produce_code("Sweet Potatoes Loose"), "13-463")  # "sweet" is not "sweets"
+        self.assertEqual(cofid.produce_code("Waitrose Swede Each"), "13-359")
+        self.assertIsNone(cofid.produce_code("Haribo Sweets 200g"))
         for not_plain in ["Morrisons Heart Raspberry Swirl Buns 2 Pack", "Tango Orange Original Can 8x330ml", "Tesco Breaded 4 Garlic Chicken Kievs 500g",
                           "Cirio Pelati Peeled Plum Tomatoes 400g", "Frozen Mixed Peppers", "Banana Chips 200g", "Waitrose Strawberry and Grape 115g"]:
             self.assertIsNone(cofid.produce_code(not_plain), not_plain)

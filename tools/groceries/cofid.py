@@ -69,7 +69,7 @@ PRODUCE: list[tuple[str, str]] = [
     (r"\bcucumbers?\b", "13-523"), (r"\b(?:iceberg|little gem|romaine|cos|round) lettuces?\b|\blettuces?\b", "13-520"), (r"\brocket\b", "13-522"),
     (r"\bbaby spinach\b", "13-521"), (r"\bspinach\b", "13-572"), (r"\bmushrooms?\b", "13-505"), (r"\bbroccoli\b", "13-502"),
     (r"\bcauliflowers?\b", "13-512"), (r"\bkale\b", "13-234"), (r"\bleeks?\b", "13-624"), (r"\bcelery\b", "13-636"), (r"\bcourgettes?\b", "13-627"),
-    (r"\bsweet potato(?:es)?\b", "13-463"), (r"\bparsnips?\b", "13-312"), (r"\bbrussels sprouts?\b|\bsprouts\b", "13-177"), (r"\bred cabbage\b", "13-190"),
+    (r"\bsweet potato(?:es)?\b", "13-463"), (r"\bswedes?\b", "13-359"), (r"\bparsnips?\b", "13-312"), (r"\bbrussels sprouts?\b|\bsprouts\b", "13-177"), (r"\bred cabbage\b", "13-190"),
     (r"\b(?:green|fine|french) beans\b", "13-514"), (r"\bmange ?tout\b", "13-122"), (r"\bbeansprouts?\b|\bbean sprouts\b", "13-426"),
     (r"\bgarlic\b", "13-244"), (r"\bginger\b", "13-890"), (r"\bcoriander\b", "13-888"), (r"\bparsley\b", "13-844"), (r"\bbasil\b", "13-804"),
     (r"\b(?:new|baby|salad|charlotte|jersey royal) potato(?:es)?\b", "13-618"),
@@ -77,7 +77,7 @@ PRODUCE: list[tuple[str, str]] = [
 # a name with any of these is not plain fresh produce (frozen, tinned, dried, cooked, a mix, a dish, a flavour...)
 NOT_PLAIN = re.compile(r"\b(?:frozen|tinned|canned|in water|in juice|in syrup|juices?|juiced|dried|crisps?|chips|smoothies?|cakes?|bread|loaf|pies?|sauce|soups?|pur[eé]es?|kits?|"
                        r"coleslaw|dips?|houmous|hummus|pickles?|pickled|roast(?:ed)?|fried|mash(?:ed)?|medley|mix(?:ed)?|stir[ -]?fry|with|chutney|jam|bars?|yogh?urts?|milk|drinks?|"
-                       r"flavour(?:ed)?|seasoning|powder|paste|oil|sweets?|crispy|glazed|honey|butter|gratin|bake|cheese|dressing|salsa|beer|biscuits?|nuts|tea|sauce|ready|"
+                       r"flavour(?:ed)?|seasoning|powder|paste|oil|sweets|crispy|glazed|honey|butter|gratin|bake|cheese|dressing|salsa|beer|biscuits?|nuts|tea|sauce|ready|"
                        r"cooked|steamed|grilled|chargrilled|marinated|stuffed|salad kit|soup|rice|noodles?|wraps?|sandwich|tart|crumble|muffins?|loaves|cereal|granola|purée|"
                        r"concentrate|squash|cordial|dried|sugar|chocolate|ice|lolly|lollies|sorbet|baby food|pouch|organic baby|puffs|snacks?|fritters?|bhajis?|pakoras?)\b", re.I)
 
