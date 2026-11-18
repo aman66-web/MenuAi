@@ -41,7 +41,16 @@ SECTION = re.compile(r"\s*(Allergy Advice|ALLERGY ADVICE|Allergy Information|ALL
 
 
 def section_cut(text: str) -> str:
-    return SECTION.sub("", text or "").strip()
+    """The ingredients list as printed, cut at the page's next section; text that isn't an ingredients list at all is dropped (""): the nutrition table read under
+    an "Ingredients" heading by an earlier reader, a shop's own notices (M&S "Handling raw meat safely...", Waitrose "Warnings: Wash before use", Asda's
+    "Product Information" terms) and a bare allergen line ("Contains Milk.", which belongs with the allergens, not the list)."""
+    t = SECTION.sub("", text or "").strip()
+    if NOT_A_LIST.match(t) or re.search(r"typical values|nutrition(?:al)? (?:information|values)|\bkcal\b|\d\s*kj\b", t, re.I):
+        return ""
+    return t
+
+
+NOT_A_LIST = re.compile(r"(?:handling raw meat safely|warnings|asda product information|nutritional values|typical values|for try me love me)\b|contains [a-z ,&]+\.?\s*$", re.I)
 
 
 def page_address(base: str, page: str) -> str:
