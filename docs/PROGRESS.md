@@ -61,6 +61,8 @@ touches an earlier decision, and add new entries there, dated, at the end).
   the UK government's figures (McCance and Widdowson's CoFID 2021). Each is marked and named on screen.
 - The rating question (iPhone app only, rarely; only a 5 asks for Apple's review pop-up): the founder's accepted risk under guideline 5.6.1.
 - Recipe pictures carry no visible caption (screen readers hear "An illustration of ...").
+- Pip's tips on the real screens (founder 18 Nov, "a guided tour of what everything does"): after the welcome screens each tab's first visit lights its real buttons one at a time
+  (`CoachMarks.tsx`, `lib/mm/coach.ts`); "Stop the tips" stops them; Settings › Help › "Show me the buttons on each screen" starts them again.
 
 **In progress: supermarket labels for every product** (founder 17-18 November: nutrition for every product, recipes for each supermarket; see the 18 November log entry)
 - One Sonnet reader per shop in the founder's Chrome (`tools/groceries/labels_chrome_next.py`, reader `labels_chrome.js`), recipe ingredients first, then every product
