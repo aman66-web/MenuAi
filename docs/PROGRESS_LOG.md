@@ -3127,3 +3127,8 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
 - Tests: 2199 unit tests pass (6 new for the packs and variety); e2e mealplan 8/8, lists 10/10, listadd 8/8, sharelist 11/11. Mac branch `iap` and the phone.
 - Labels: M&S is fully read. Held back: 12 M&S squashes and a pressé with figures that can't be right, 6 Waitrose mixed boxes with one flavour's table,
   6 Iceland pages (water mineral tables, wine with only energy, a kJ/kcal clash, garbled rows).
+- **The whole picture** (founder: "a thing in the bottom right of the image of the photo where you can zoom in for full view of what it looks like"): a round
+  button at the recipe picture's bottom right (above the sheet that covers its foot; on the person's own photo too) opens `PhotoViewer`
+  (`app/app/_components/PhotoViewer.tsx`, a native modal dialog): the picture uncropped on black, pinch or double-tap to zoom up to 4x, drag to move round,
+  "Zoom in"/"Zoom out" for anyone who can't pinch, Close or Escape. The recipe pictures are stored 800 px wide, so close zoom is a little soft on a phone.
+  e2e photoviewer 4/4 (axe clean).

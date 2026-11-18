@@ -27,6 +27,7 @@ import { PhotoTile } from "../groceries/ProductPhoto";
 import { ProductMini } from "../groceries/ProductMini";
 import { targetSentence } from "./MealPicker";
 import { MEAL_LOOK, RecipeHeroArt } from "./RecipeTile";
+import { FullPictureButton } from "../_components/PhotoViewer";
 import { ShopMark } from "../_components/ChainMark";
 
 // One recipe filled with a shop's own products, fitted to the person's meal (Recipes › Your meal) unless they ask to see it as written.
@@ -295,7 +296,8 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
           <div className="relative h-[clamp(15rem,36dvh,22rem)] overflow-hidden bg-soft-strong">
             {/* eslint-disable-next-line @next/next/no-img-element -- the person's own photo, a local address on this phone */}
             <img src={photo} alt={t("Your photo")} className="h-full w-full object-cover" />
-            <p className="absolute bottom-12 start-4 me-4 rounded-[1rem] bg-black/65 px-3 py-1.5 text-[0.8125rem] font-semibold leading-snug text-white">{t("Your photo. The recipe is Pip's home version.")}</p>
+            <p className="absolute bottom-12 start-4 me-[4.5rem] rounded-[1rem] bg-black/65 px-3 py-1.5 text-[0.8125rem] font-semibold leading-snug text-white">{t("Your photo. The recipe is Pip's home version.")}</p>
+            <FullPictureButton src={photo} alt={t("Your photo")} className="bottom-12 end-4" />
           </div>
         ) : (
           <RecipeHeroArt id={recipe.id} name={recipe.name} label={rt(recipe.name)} meal={recipe.meal} />

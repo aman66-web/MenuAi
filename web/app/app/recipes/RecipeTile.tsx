@@ -13,6 +13,7 @@ import { useStore } from "../_lib/hooks";
 import { useRecipePhoto } from "../_lib/recipePhotos";
 import { useT } from "../_lib/i18n";
 import type { RecipeCard } from "../_lib/recipes";
+import { FullPictureButton } from "../_components/PhotoViewer";
 
 // One recipe in a list (Recipes, My meals). Founder 2026-10-14, from two reference pictures: a picture on top with a heart to save it, then the
 // name and, under it, calories and protein as two small chips; then the price of a serving at the shop and how long it takes. The picture is
@@ -111,7 +112,9 @@ export function RecipeHeroArt({ id, name, label, meal }: { id: string; name: str
         <>
           {/* eslint-disable-next-line @next/next/no-img-element -- static file named by its hash; the service worker caches it */}
           <img src={image.src} onError={image.fail} alt={own ? t("Your photo") : t("An illustration of {name}", { name: label.toLowerCase() })} width={800} height={600} decoding="async" className="h-full w-full object-cover" />
-          {own && <p className="absolute bottom-12 start-4 me-4 rounded-[1rem] bg-black/65 px-3 py-1.5 text-[0.8125rem] font-semibold leading-snug text-white">{t("Your photo. The recipe is Pip's home version.")}</p>}
+          {own && <p className="absolute bottom-12 start-4 me-[4.5rem] rounded-[1rem] bg-black/65 px-3 py-1.5 text-[0.8125rem] font-semibold leading-snug text-white">{t("Your photo. The recipe is Pip's home version.")}</p>}
+          {/* the whole picture, full screen (founder 2026-11-18), above the sheet that covers the photo's foot */}
+          <FullPictureButton src={image.src} alt={own ? t("Your photo") : t("An illustration of {name}", { name: label.toLowerCase() })} className="bottom-12 end-4" />
         </>
       ) : (
         <span aria-hidden className="absolute inset-0">
