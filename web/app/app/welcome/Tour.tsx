@@ -106,7 +106,7 @@ export function PipTour({ stop }: { stop: number }) {
         <ul aria-hidden className="flex rounded-[2rem] bg-[#1d2320] p-[6px] shadow-[0_18px_40px_-16px_rgba(0,0,0,0.55)]">
           {TABS.map(({ href, label, Icon }, i) => (
             <li key={href} className="min-w-0 flex-1">
-              <span className={`flex min-h-14 flex-col items-center justify-center gap-1 rounded-[1.5rem] text-center text-[13px] font-semibold leading-[1.1] transition-colors duration-500 ${i === stop ? "text-[#d6efa0]" : "text-[#c2c9c4]"}`}>
+              <span className={`flex min-h-14 flex-col items-center justify-center gap-1 rounded-[1.5rem] text-center text-[0.8125rem] font-semibold leading-[1.1] transition-colors duration-500 ${i === stop ? "text-[#d6efa0]" : "text-[#c2c9c4]"}`}>
                 <span className={`inline-flex h-8 w-12 items-center justify-center rounded-full transition-colors duration-500 ${i === stop ? "bg-[#d6efa0] text-[#0b1a12]" : ""}`}><Icon className="h-5 w-5" /></span>
                 <TabLabel text={t(label)} />
               </span>

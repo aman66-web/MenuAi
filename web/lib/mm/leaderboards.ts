@@ -16,11 +16,12 @@ export const BOARD_SIZE = 20;
 /** What the page says is left out (leftOff below). */
 export const LEFT_OUT_NOTE = tk("Powders, supplements, herbs, spices and cupboard extras like salt and vinegar are left out, and so are sugar and sweets from Most carbs and Fewest calories: they're used a spoonful at a time.");
 
-export type BoardId = "proteinPerKcal" | "protein" | "cheapestProtein" | "fibre" | "carbs" | "fewestKcal";
+export type BoardId = "proteinPerKcal" | "protein" | "meatFreeProtein" | "cheapestProtein" | "fibre" | "carbs" | "fewestKcal";
 
 export const BOARDS: ReadonlyArray<{ id: BoardId; title: string; line: string; unit: string }> = [
   { id: "proteinPerKcal", title: tk("Most protein for the calories"), line: tk("Grams of protein in every 100 calories"), unit: tk("per 100 kcal") },
   { id: "protein", title: tk("Most protein"), line: tk("Grams of protein in 100 g"), unit: tk("per 100 g") },
+  { id: "meatFreeProtein", title: tk("Most protein, meat-free"), line: tk("Beans, lentils, tofu, Quorn and more: grams of protein in 100 g"), unit: tk("per 100 g") },
   { id: "cheapestProtein", title: tk("Cheapest protein"), line: tk("What 10 g of protein costs"), unit: tk("for 10 g of protein") },
   { id: "fibre", title: tk("Most fibre"), line: tk("Grams of fibre in 100 g"), unit: tk("per 100 g") },
   { id: "carbs", title: tk("Most carbs"), line: tk("Grams of carbohydrate in 100 g, from starchy foods"), unit: tk("per 100 g") },
@@ -60,6 +61,13 @@ const POWDER_OR_SUPPLEMENT = /\b(?:powders?|whey|isolate|protein shakes?|shake m
 const SEASONING = /\b(?:herbs?|spices?|seasonings?|cinnamon|cumin|paprika|oregano|basil|rosemary|thyme|sage|sumac|masala|curry powder|chilli flakes|chilli powder|coriander seeds|turmeric|nutmeg|cloves|mulling|bay leaves|parsley|dill|pods|matcha|teas?|coffee|cocoa|stock cubes?|stock pots?|gravy granules|yeast|bouillon|salt|vinegar|baking powder|bicarbonate|cream of tartar|gelatine|food colou?rings?|flavourings?|extract|essence|ice cubes?|water)\b/i;
 const SUGARS = /\b(?:sugars?|sweeteners?|syrups?|honey|icing|glucose|dextrose|mints?|peppermints?|imperials|sweets|candy|lolly|lollies|lollipops?|pops?|marshmallows?|fudge|toffees?|jelly beans|jelly babies|gums?|pastilles|sherbet|nips|drops|jam|marmalade|treacle|molasses|sprinkles|decorations?|dusting|vermicelli|hundreds|1000's|sippers?|clear fruits)\b/i;
 
+/** Meat-free protein foods, by name (founder 2026-11-18: "instead do like the best vegetarian foods"): what the product is made of, and never a name that also
+ *  names meat or fish ("Beans with Sausages"). Picked by the shop's own product name, so the page says so; it is not a vegetarian or vegan marking. */
+const PLANT_PROTEIN = /\b(?:tofu|tempeh|seitan|edamame|lentils?|chickpeas?|beans?|houmous|hummus|falafel|quorn|soya|soy chunks|soya chunks|split peas|dhal|dal|mycoprotein|textured vegetable protein|tvp)\b/i;
+const MEAT_OR_FISH = /\b(?:chicken|beef|pork|lamb|turkey|duck|ham|bacon|sausages?|chorizo|salami|pepperoni|meat|mince|steak|fish|salmon|tuna|cod|haddock|prawns?|mackerel|anchov\w*|crab|lobster|mussels|gelatine)\b/i;
+const SAYS_MEAT_FREE = /\b(?:meat[- ]free|plant[- ]based|vegan|vegetarian|quorn)\b/i;
+export const isMeatFreeProteinName = (name: string): boolean => PLANT_PROTEIN.test(name) && (!MEAT_OR_FISH.test(name) || SAYS_MEAT_FREE.test(name));
+
 /** Whether a product is left off a board whatever its label says: powders, supplements, herbs, spices and cupboard extras (salt, vinegar, baking powder) on every
  *  board but Cheapest protein; sugar, sweeteners and sweets on Most carbs and Fewest calories. */
 export function leftOff(board: BoardId, name: string): boolean {
@@ -85,9 +93,10 @@ export function boardValue(board: BoardId, p: ShopProduct): number | null {
   if (n.protein + n.carbs + n.fat > 105) return null;
   // a food with almost no calories at all is a cupboard extra or a zero-calorie spray, not a food that fills you up
   if (board === "fewestKcal") return Number.isFinite(n.kcal) && n.kcal >= 5 && n.kcal < 900 ? Math.round(n.kcal) : null;
+  if (board === "meatFreeProtein" && !isMeatFreeProteinName(p.name)) return null;
   // Most carbs counts starchy foods (rice, pasta, oats): sugar at most a quarter of the carbs, so sweets and meringues don't fill it
   if (board === "carbs" && (n.sugars === null || n.sugars > 0.25 * n.carbs)) return null;
-  const g = board === "protein" ? n.protein : board === "fibre" ? n.fibre : n.carbs;
+  const g = board === "protein" || board === "meatFreeProtein" ? n.protein : board === "fibre" ? n.fibre : n.carbs;
   // a label whose figures can't all be true (more than 100 g in 100 g) is left out
   if (g === null || !Number.isFinite(g) || g <= 0 || g > 100 || n.protein + n.carbs + n.fat > 105) return null;
   return g;

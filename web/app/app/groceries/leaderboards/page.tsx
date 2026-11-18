@@ -113,6 +113,7 @@ function Boards() {
       <section aria-labelledby="board-h" className="mt-7">
         <h2 id="board-h" className={HEADING}>{t(info.title)}</h2>
         <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t(info.line)}</p>
+        {board === "meatFreeProtein" && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Chosen by the product's name, with no meat or fish in it: if you're vegetarian or vegan, check the pack.")}</p>}
         {file === undefined ? (
           <Spinner label={t("Loading products")} />
         ) : file === null ? (

@@ -20,8 +20,8 @@ await step("Groceries' shortcut opens the leaderboards: six boards, the first sh
   await page.getByRole("link", { name: /^Nutrition leaderboards/ }).click();
   await page.getByRole("heading", { level: 1, name: "Nutrition leaderboards" }).waitFor({ timeout: 120000 });
   const tiles = page.getByRole("radiogroup", { name: "Leaderboards" }).getByRole("radio");
-  expect((await tiles.count()) === 6, `six boards, got ${await tiles.count()}`);
-  for (const name of ["Most protein for the calories", "Most protein", "Cheapest protein", "Most fibre", "Most carbs", "Fewest calories"]) await page.getByRole("radio", { name: new RegExp(`^${name}`) }).first().waitFor();
+  expect((await tiles.count()) === 7, `seven boards, got ${await tiles.count()}`);
+  for (const name of ["Most protein for the calories", "Most protein", "Most protein, meat-free", "Cheapest protein", "Most fibre", "Most carbs", "Fewest calories"]) await page.getByRole("radio", { name: new RegExp(`^${name}`) }).first().waitFor();
   expect((await tiles.first().getAttribute("aria-checked")) === "true", "the first board shows");
   const rows = page.locator("ol > li");
   await rows.first().waitFor({ timeout: 30000 });

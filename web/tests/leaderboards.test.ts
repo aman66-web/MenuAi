@@ -53,6 +53,18 @@ describe("what is left off", () => {
   });
 });
 
+describe("the meat-free board", () => {
+  it("takes protein foods by name and never a name with meat or fish, unless it says it is meat-free", async () => {
+    const { isMeatFreeProteinName } = await import("../lib/mm/leaderboards");
+    expect(isMeatFreeProteinName("Laila Red Split Lentils 1kg")).toBe(true);
+    expect(isMeatFreeProteinName("Cauldron Organic Tofu Block 396g")).toBe(true);
+    expect(isMeatFreeProteinName("Heinz Beanz with Pork Sausages 415g")).toBe(false);
+    expect(isMeatFreeProteinName("Squeaky Bean Vegan Crispy Bacon 50g")).toBe(true);
+    expect(isMeatFreeProteinName("Chicken Breast Fillets 300g")).toBe(false);
+    expect(boardValue("meatFreeProtein", product("q", "Quorn Mince 300g", {}, { protein: 14.5, kcal: 105, carbs: 4.5, fat: 2 }))).toBe(14.5);
+  });
+});
+
 describe("a board", () => {
   const lists = [
     { shop: "tesco", products: [product("t1", "Brand Biltong 100g", { gtin: "5000000000001" }, { protein: 50, kcal: 250, carbs: 6, fat: 4 }), product("t2", "Tesco Chicken Breast", {}, { protein: 24, kcal: 106 })] },

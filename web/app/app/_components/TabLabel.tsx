@@ -19,13 +19,16 @@ export function TabLabel({ text }: { text: string }) {
     if (!el || !tab || !pen) return;
     const fit = () => {
       const cs = getComputedStyle(el);
+      // the sizes follow the app's text size (founder 2026-11-18: the review found the tab words stayed tiny at Extra large): 13 and 11 px at the standard size
+      const k = (parseFloat(getComputedStyle(document.documentElement).fontSize) || 16) / 16;
+      const big = 13 * k, small = 11 * k;
       const room = tab.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - 1; // 1 px for rounding
       const width = (px: number, s: string) => { pen.font = `${cs.fontWeight} ${px}px ${cs.fontFamily}`; return pen.measureText(s).width; };
       const longest = (px: number) => Math.max(...text.split(/\s+/).map((word) => width(px, word)));
       const TIGHT = 0.03; // em taken off each letter's spacing
-      const tightWidth = Math.max(...text.split(/\s+/).map((word) => width(11, word) - [...word].length * TIGHT * 11));
-      if (width(13, text) <= room || (width(11, text) > room && longest(13) <= room)) setSize("");
-      else if (width(11, text) <= room || longest(11) <= room || cs.direction === "rtl" || tightWidth > room) setSize("small");
+      const tightWidth = Math.max(...text.split(/\s+/).map((word) => width(small, word) - [...word].length * TIGHT * small));
+      if (width(big, text) <= room || (width(small, text) > room && longest(big) <= room)) setSize("");
+      else if (width(small, text) <= room || longest(small) <= room || cs.direction === "rtl" || tightWidth > room) setSize("small");
       else setSize("tight");
     };
     fit();
@@ -36,7 +39,7 @@ export function TabLabel({ text }: { text: string }) {
     return () => { live = false; watch.disconnect(); };
   }, [text]);
   return (
-    <span ref={ref} className={`line-clamp-2 block max-w-full hyphens-auto [overflow-wrap:anywhere] ${size === "small" ? "text-[11px]" : size === "tight" ? "text-[11px] tracking-[-0.03em]" : ""}`}>
+    <span ref={ref} className={`line-clamp-2 block max-w-full hyphens-auto [overflow-wrap:anywhere] ${size === "small" ? "text-[0.6875rem]" : size === "tight" ? "text-[0.6875rem] tracking-[-0.03em]" : ""}`}>
       {text}
     </span>
   );
