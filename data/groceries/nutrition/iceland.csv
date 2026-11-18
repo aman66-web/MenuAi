@@ -1,20 +1,29 @@
 product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_g,salt_g,checked_on,page_url
+100031,g,oven cooked,1005,241,14.2,2.5,16.4,1.1,0.8,11.5,1.2,2026-11-18,https://www.iceland.co.uk/p/x/100031.html
 100172,g,,1565,374,8.0,1.5,60,1.1,9.0,11,0,2026-11-17,https://www.iceland.co.uk/p/x/100172.html
 100174,g,,1641,390,8.0,1.3,63,4.5,8.8,12,0.23,2026-11-17,https://www.iceland.co.uk/p/x/100174.html
 100267,g,,338,81,0.4,0.1,15.5,4.3,3.9,4.8,0.6,2026-11-17,https://www.iceland.co.uk/p/x/100267.html
 100440,g,,1942,467,26,14,55,3.6,12,7.7,0.68,2026-11-17,https://www.iceland.co.uk/p/x/100440.html
 100448,g,,1316,317,25.0,17.5,3.0,2.0,,20.0,2.5,2026-11-17,https://www.iceland.co.uk/p/x/100448.html
 100655,g,drained,350,83,1.2,0.2,<0.1,0.0,<0.1,18.0,1.05,2026-11-17,https://www.iceland.co.uk/p/x/100655.html
+100730,g,,528,126,5.0,1.4,16.2,2.9,0.5,4.1,0.9,2026-11-18,https://www.iceland.co.uk/p/x/100730.html
 100793,g,,203,48.6,1.03,0.50,0.00,0.00,0.00,9.84,1.12,2026-11-17,https://www.iceland.co.uk/p/x/100793.html
 101001,g,,954,227,8.9,1.7,30,4,,6.2,1.9,2026-11-17,https://www.iceland.co.uk/p/x/101001.html
 101061,g,,145,34,<0.5,0.2,5.3,3.8,1.5,1.6,0.25,2026-11-17,https://www.iceland.co.uk/p/x/101061.html
 101062,g,,488,115,0.6,0.2,21,16,3.5,4.6,0.55,2026-11-17,https://www.iceland.co.uk/p/x/101062.html
+101123,g,,829,197,6.8,0.55,21.3,2.35,1.75,11.9,0.705,2026-11-18,https://www.iceland.co.uk/p/x/101123.html
+101158,g,oven cooked,857,204,8.3,0.7,21.6,1.6,1.0,10.3,0.6,2026-11-18,https://www.iceland.co.uk/p/x/101158.html
+101175,g,,1073,257,13,1.0,28,0.5,6.0,4.0,0.10,2026-11-18,https://www.iceland.co.uk/p/x/101175.html
 101196,g,prepared,798,188,0.7,0.2,38,0.8,2.0,7.0,0.55,2026-11-17,https://www.iceland.co.uk/p/x/101196.html
+101203,g,,989,236,11,3.8,23,2.6,2.2,11,1.3,2026-11-18,https://www.iceland.co.uk/p/x/101203.html
+101207,g,,1042,247,6.5,2.4,38,3.9,1.8,8.7,0.93,2026-11-18,https://www.iceland.co.uk/p/x/101207.html
 101264,ml,,3375,823,91,7.4,0,0,,0,0,2026-11-17,https://www.iceland.co.uk/p/x/101264.html
 101289,g,,1741,414,11.6,1.4,64.2,21.3,7.6,9.4,0.03,2026-11-17,https://www.iceland.co.uk/p/x/101289.html
+101296,g,microwaved,697,166,4.3,0.4,28,0.8,2.5,2.7,0.12,2026-11-18,https://www.iceland.co.uk/p/x/101296.html
 101304,g,,422,99,<0.5,<0.1,24.0,17.4,<0.5,0.7,0.74,2026-11-17,https://www.iceland.co.uk/p/x/101304.html
 101375,g,,271,64,0.8,0.5,0.6,0.1,0.0,13.6,0.50,2026-11-17,https://www.iceland.co.uk/p/x/101375.html
 101555,g,,2174,520,29,6.3,57,4.6,3.5,6.1,1.2,2026-11-17,https://www.iceland.co.uk/p/x/101555.html
+101663,g,microwaved,341,81,2.1,1.2,5.2,2.6,0.2,10.2,0.9,2026-11-18,https://www.iceland.co.uk/p/x/101663.html
 101879,g,,171,41,0.4,0.1,7.7,7.2,2.1,0.5,0.1,2026-11-17,https://www.iceland.co.uk/p/x/101879.html
 101893,g,,80,19,0.4,<0.1,2.7,0.8,1.9,2.2,<0.05,2026-11-17,https://www.iceland.co.uk/p/x/101893.html
 101896,g,,171,41,0.4,0.1,7.7,7.2,2.1,0.5,0.1,2026-11-17,https://www.iceland.co.uk/p/x/101896.html
@@ -22,11 +31,15 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 101925,g,,514,123,3.4,2.0,14.0,3.9,3.6,7.5,0.7,2026-11-17,https://www.iceland.co.uk/p/x/101925.html
 101942,g,,1353,325,21.6,4.0,23.7,2.2,,7.7,0.4,2026-11-17,https://www.iceland.co.uk/p/x/101942.html
 101946,g,,938,224,9.6,3,8.2,2.2,<0.5,26,1.6,2026-11-17,https://www.iceland.co.uk/p/x/101946.html
+101950,g,,696,165,2.1,1.4,31.6,0.8,,1.9,0.9,2026-11-18,https://www.iceland.co.uk/p/x/101950.html
 101972,g,,267,64,3.7,2.5,4.7,4.6,<0.5,3,0.21,2026-11-17,https://www.iceland.co.uk/p/x/101972.html
 101973,g,,340,81,3.4,2.01,7.4,3.5,<0.5,5.2,0.19,2026-11-17,https://www.iceland.co.uk/p/x/101973.html
 102075,g,,1118,269,19,13,2.4,2.4,,22,0.20,2026-11-17,https://www.iceland.co.uk/p/x/102075.html
+102115,g,,146,35,0.2,0,6.4,2.5,3.2,1.9,0.02,2026-11-18,https://www.iceland.co.uk/p/x/102115.html
 102141,g,,509,120,0.9,0.3,0.0,0.0,,28,0.9,2026-11-17,https://www.iceland.co.uk/p/x/102141.html
 102143,g,,509,120,0.9,0.3,0.0,0.0,,28,0.8,2026-11-17,https://www.iceland.co.uk/p/x/102143.html
+102222,g,,644,153,5.2,0.8,23,0,2.5,2.2,0.63,2026-11-18,https://www.iceland.co.uk/p/x/102222.html
+102223,g,,735,175,6.2,0.7,27,0,1.4,2.2,0.62,2026-11-18,https://www.iceland.co.uk/p/x/102223.html
 102248,g,oven cooked,1147,275,15.6,3.3,28,1.1,,5.4,1.2,2026-11-17,https://www.iceland.co.uk/p/x/102248.html
 102250,g,oven cooked,1249,300,20.6,5.7,19.5,1.6,,8.4,1.71,2026-11-17,https://www.iceland.co.uk/p/x/102250.html
 102297,g,,789,189,10.8,3.4,3.1,1.0,,19.3,1.4,2026-11-17,https://www.iceland.co.uk/p/x/102297.html
@@ -51,6 +64,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 103136,g,,920,220,9.4,4.2,17.6,<0.5,,15.7,1.21,2026-11-17,https://www.iceland.co.uk/p/x/103136.html
 103137,g,,819,195,9.6,4.5,16.3,<0.5,,15.7,1.21,2026-11-17,https://www.iceland.co.uk/p/x/103137.html
 103138,g,,986,236,10.2,4.4,20.3,<0.5,,15.1,1.01,2026-11-17,https://www.iceland.co.uk/p/x/103138.html
+103373,g,as consumed,217,51,0.4,0.1,8.4,1.3,0.6,3.1,1.00,2026-11-18,https://www.iceland.co.uk/p/x/103373.html
+103380,g,oven cooked,923,221,12.7,2.2,16.0,0.4,0.4,10.5,0.9,2026-11-18,https://www.iceland.co.uk/p/x/103380.html
 103405,g,,721,171,4.2,0.6,24.5,4.8,2.7,7.5,1.19,2026-11-17,https://www.iceland.co.uk/p/x/103405.html
 103406,g,,83,20,0,0,4.9,4.65,0,0,0,2026-11-17,https://www.iceland.co.uk/p/x/103406.html
 103482,g,,577,138,5.0,0.5,2.1,1.8,7.1,17,1.5,2026-11-17,https://www.iceland.co.uk/p/x/103482.html
@@ -72,10 +87,12 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 104134,g,oven cooked,969,233,14.8,2.7,12.8,2.3,0.9,11.6,0.9,2026-11-17,https://www.iceland.co.uk/p/x/104134.html
 104375,g,,1707,402,1.0,1.0,98.1,95.6,0.5,0.5,0.01,2026-11-17,https://www.iceland.co.uk/p/x/104375.html
 104405,g,,2397,580,49.9,3.8,5.3,4.5,12.5,21.2,0.01,2026-11-17,https://www.iceland.co.uk/p/x/104405.html
+104589,g,,938,222,4.5,0.7,36,8.1,2.7,7.8,0.88,2026-11-18,https://www.iceland.co.uk/p/x/104589.html
 104636,g,,557,132,2.1,0.6,2.2,1.4,0.9,25.6,0.52,2026-11-17,https://www.iceland.co.uk/p/x/104636.html
 104643,g,,1152,277,20.1,8.0,5.6,1.3,,19.2,2.4,2026-11-17,https://www.iceland.co.uk/p/x/104643.html
 104673,g,,2122,507,26.1,16.1,61.1,40.9,2.1,5.7,0.73,2026-11-17,https://www.iceland.co.uk/p/x/104673.html
 104775,g,,1671,402,30,20,0,0,,32,1.6,2026-11-17,https://www.iceland.co.uk/p/x/104775.html
+104850,g,fried,975,233,10,0.7,30,0.7,3.4,2.9,0.64,2026-11-18,https://www.iceland.co.uk/p/x/104850.html
 104867,g,,856,206,14.0,9.3,6.1,3.4,,13.6,2.2,2026-11-17,https://www.iceland.co.uk/p/x/104867.html
 104912,g,,769,184,9.4,1.8,6.4,1.1,1.6,17.6,0.5,2026-11-17,https://www.iceland.co.uk/p/x/104912.html
 104921,g,,769,184,9.4,1.8,6.4,1.1,1.6,17.6,0.5,2026-11-17,https://www.iceland.co.uk/p/x/104921.html
@@ -83,68 +100,119 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 104969,g,,987,234,10.3,1.8,20.2,0.7,,15.2,1.2,2026-11-17,https://www.iceland.co.uk/p/x/104969.html
 104971,g,,1024,244,11.1,1.9,20.4,1.3,,14.8,1.3,2026-11-17,https://www.iceland.co.uk/p/x/104971.html
 104974,g,,997,237,11.0,2.0,17.3,0.3,,14.7,2.4,2026-11-17,https://www.iceland.co.uk/p/x/104974.html
+105025,g,,986,234,8.0,3.3,28,4.0,2.0,11,1.4,2026-11-18,https://www.iceland.co.uk/p/x/105025.html
+105034,g,,986,235,8.1,3.9,29,3.9,2.0,11,1.2,2026-11-18,https://www.iceland.co.uk/p/x/105034.html
+105035,g,,919,218,6.8,2.8,27,4.4,2.4,11,0.88,2026-11-18,https://www.iceland.co.uk/p/x/105035.html
 105038,g,,952,229,15.1,6.7,5.1,0.3,,17.5,2.5,2026-11-17,https://www.iceland.co.uk/p/x/105038.html
+105040,g,,953,226,6.4,2.7,28,4.1,2.3,13,1.1,2026-11-18,https://www.iceland.co.uk/p/x/105040.html
 105052,g,,769,184,9.4,1.8,6.4,1.1,1.6,17.6,0.5,2026-11-17,https://www.iceland.co.uk/p/x/105052.html
 105058,g,as consumed,777,184,3.3,0.5,30.7,10.8,0.6,7.5,0.7,2026-11-17,https://www.iceland.co.uk/p/x/105058.html
+105062,g,as consumed,516,122,3.3,0.8,8.5,0.9,0.8,14.3,0.6,2026-11-18,https://www.iceland.co.uk/p/x/105062.html
+105063,g,as consumed,705,168,5.5,0.7,19.9,2.1,1.0,9.0,1.3,2026-11-18,https://www.iceland.co.uk/p/x/105063.html
+105065,g,as consumed,577,137,3.7,0.6,16.8,8.1,1.2,8.6,1.0,2026-11-18,https://www.iceland.co.uk/p/x/105065.html
+105066,g,as consumed,718,171,5.3,0.9,19.2,3.0,0.7,11.1,1.0,2026-11-18,https://www.iceland.co.uk/p/x/105066.html
+105067,g,as consumed,678,161,5.0,0.8,20.9,5.9,0.7,7.7,1.0,2026-11-18,https://www.iceland.co.uk/p/x/105067.html
+105068,g,as consumed,783,186,5.1,1.1,27.0,5.8,1.2,7.4,1.2,2026-11-18,https://www.iceland.co.uk/p/x/105068.html
+105069,g,fried,1094,260,8.4,0.9,42,0.7,3.7,2.9,1.0,2026-11-18,https://www.iceland.co.uk/p/x/105069.html
 105321,g,,2658,636,50,10,20,10,11,28,0.18,2026-11-17,https://www.iceland.co.uk/p/x/105321.html
 105322,g,,2658,636,50,10,20,10,11,28,0.18,2026-11-17,https://www.iceland.co.uk/p/x/105322.html
+105371,g,oven cooked,751,179,7.4,1.3,15.7,0.6,0.7,12.1,0.8,2026-11-18,https://www.iceland.co.uk/p/x/105371.html
 105377,g,,2225,534,34,4.9,40,6.0,3.2,15,1.3,2026-11-17,https://www.iceland.co.uk/p/x/105377.html
+105379,g,,786,187,5.6,2.1,24.5,3.3,2.0,8.6,1.08,2026-11-18,https://www.iceland.co.uk/p/x/105379.html
+105415,g,oven cooked,1177,281,19.6,8.8,21.0,0.5,,10.8,1.20,2026-11-18,https://www.iceland.co.uk/p/x/105415.html
+105495,g,,1010,242,12.9,6.2,22.3,1.3,1.6,9.1,0.80,2026-11-18,https://www.iceland.co.uk/p/x/105495.html
+105496,g,,1046,250,13.1,6.2,26.6,2.2,1.8,5.6,0.99,2026-11-18,https://www.iceland.co.uk/p/x/105496.html
 105569,g,,960,229,8.9,2.0,30,1.5,,6.6,2.2,2026-11-17,https://www.iceland.co.uk/p/x/105569.html
 105605,g,,1306,307,<0.5,<0.1,76,76,<0.5,<0.5,0.03,2026-11-17,https://www.iceland.co.uk/p/x/105605.html
 105654,g,,847,203,12,0.8,20,14,,3.3,2.0,2026-11-17,https://www.iceland.co.uk/p/x/105654.html
+105686,g,,1188,284,13,1.4,36,8.5,5.3,7.3,0.6,2026-11-18,https://www.iceland.co.uk/p/x/105686.html
 105703,g,,762,179,0.1,0.1,44.0,42,,0.4,1.3,2026-11-17,https://www.iceland.co.uk/p/x/105703.html
 105737,g,,1212,293,25,12,0,0,0,16.9,0.30,2026-11-17,https://www.iceland.co.uk/p/x/105737.html
 10577,g,,1127,272,21.8,10.6,0.7,0.1,0.4,18.0,0.2,2026-11-17,https://www.iceland.co.uk/p/x/10577.html
 105805,g,,1058,254,18.61,5.73,5.87,0.91,,16.27,1.5,2026-11-17,https://www.iceland.co.uk/p/x/105805.html
 105877,g,,337,80,2.50,1.70,3.00,3.00,<0.10,11.00,0.91,2026-11-17,https://www.iceland.co.uk/p/x/105877.html
+105909,g,microwaved,638,152,4.6,3.6,21,3.7,0.9,6.1,0.61,2026-11-18,https://www.iceland.co.uk/p/x/105909.html
+105910,g,microwaved,584,138,2.2,0.4,24,7.7,0.8,5.2,0.72,2026-11-18,https://www.iceland.co.uk/p/x/105910.html
+105911,g,microwaved,580,137,3.2,2.3,21,2.9,0.9,5.7,0.80,2026-11-18,https://www.iceland.co.uk/p/x/105911.html
+105912,g,microwaved,554,132,3.2,0.6,18,7.5,2.0,6.7,1.1,2026-11-18,https://www.iceland.co.uk/p/x/105912.html
 105918,ml,,3393,825,91.7,7.3,0,0,0,0,0.00,2026-11-17,https://www.iceland.co.uk/p/x/105918.html
 105919,ml,,3393,825,91.7,7.3,0,0,0,0,0.00,2026-11-17,https://www.iceland.co.uk/p/x/105919.html
 105920,ml,,3404,828,92.0,10.1,0,0,0,0,0.00,2026-11-17,https://www.iceland.co.uk/p/x/105920.html
 105985,g,,387,92,1.6,0.5,13.8,5.2,3.8,5.2,0.7,2026-11-17,https://www.iceland.co.uk/p/x/105985.html
+105997,g,,573,135,0.3,0.1,25,9.4,1.6,7.2,0.99,2026-11-18,https://www.iceland.co.uk/p/x/105997.html
+105998,g,microwaved,664,158,5.9,3.1,19,4.6,1.5,6.5,1.1,2026-11-18,https://www.iceland.co.uk/p/x/105998.html
+105999,g,,663,158,4.9,0.8,24,10,1.2,4.2,1.0,2026-11-18,https://www.iceland.co.uk/p/x/105999.html
 106014,ml,,6,1,0,0,0,0,,0,0.04,2026-11-17,https://www.iceland.co.uk/p/x/106014.html
 106015,ml,,6,1,0,0,0,0,,0,0.04,2026-11-17,https://www.iceland.co.uk/p/x/106015.html
 106031,g,,485,116,3.2,0.3,1.9,0.3,5.7,17,1.5,2026-11-17,https://www.iceland.co.uk/p/x/106031.html
 106038,ml,,3393,825,91.7,7.3,0.0,0.0,0.0,0.0,0.00,2026-11-17,https://www.iceland.co.uk/p/x/106038.html
 106193,g,,2094,500,25,2.2,61,2.5,2.1,7.6,0.95,2026-11-17,https://www.iceland.co.uk/p/x/106193.html
 106197,g,,393,94,2.4,0,20,8,,4,,2026-11-17,https://www.iceland.co.uk/p/x/106197.html
+106226,g,cooked,740,177,10.4,5.2,15.6,1.3,1.3,4.7,0.9,2026-11-18,https://www.iceland.co.uk/p/x/106226.html
 106319,g,,1693,405,16,1.7,34,5.3,22,22,0.21,2026-11-17,https://www.iceland.co.uk/p/x/106319.html
 10633,g,,561,134,6.1,2.3,1.0,0.1,0.6,18.5,2.3,2026-11-17,https://www.iceland.co.uk/p/x/10633.html
 106332,g,oven cooked,1193,286,16.8,2.7,20.4,0.9,1.9,12.3,0.77,2026-11-18,https://www.iceland.co.uk/p/x/106332.html
 106333,g,oven cooked,963,231,13.5,3.5,16.5,1.6,2.1,9.8,1.02,2026-11-18,https://www.iceland.co.uk/p/x/106333.html
 106334,g,oven cooked,1194,286,17.1,2.5,17.6,0.7,2.2,14.3,0.72,2026-11-18,https://www.iceland.co.uk/p/x/106334.html
+106352,g,as consumed,1017,242,7.5,0.9,38.4,0.7,3.4,3.6,1.10,2026-11-18,https://www.iceland.co.uk/p/x/106352.html
+106355,g,oven cooked,807,193,10.3,0.9,21.1,1.9,3.5,2.2,0.83,2026-11-18,https://www.iceland.co.uk/p/x/106355.html
+106358,g,oven cooked,806,192,8.5,0.8,16.2,,0.8,12.3,0.62,2026-11-18,https://www.iceland.co.uk/p/x/106358.html
+106383,g,,1048,249,9.1,3.8,31.4,2.2,1.4,9.9,1.21,2026-11-18,https://www.iceland.co.uk/p/x/106383.html
+106387,g,,976,232,7.8,3.0,31.3,2.4,1.5,8.4,1.07,2026-11-18,https://www.iceland.co.uk/p/x/106387.html
+106389,g,,1490,355,14,4.8,45,2.5,2.8,9.8,1.1,2026-11-18,https://www.iceland.co.uk/p/x/106389.html
 106456,g,drained,787,188,10.0,1.9,0,0,0,23,0.85,2026-11-17,https://www.iceland.co.uk/p/x/106456.html
 106457,g,drained,787,188,11.0,1.9,0,0,0,21,1.1,2026-11-17,https://www.iceland.co.uk/p/x/106457.html
 106485,g,,1593,375,<0.5,<0.1,84,<0.5,,8.1,<0.01,2026-11-17,https://www.iceland.co.uk/p/x/106485.html
 106486,ml,,563,136,13,12,4.0,2.2,,0.8,0.02,2026-11-17,https://www.iceland.co.uk/p/x/106486.html
 106534,g,,872,208,9.2,1.7,15,0.9,1.2,15,0.5,2026-11-17,https://www.iceland.co.uk/p/x/106534.html
+106535,g,oven cooked,607,145,8.3,3.6,10.0,0.5,0.6,7.4,0.7,2026-11-18,https://www.iceland.co.uk/p/x/106535.html
 106544,g,,1153,275,12.7,5.9,29.2,2.9,,11,1.1,2026-11-17,https://www.iceland.co.uk/p/x/106544.html
+106551,g,as consumed,854,204,9.2,4.7,21.3,2,1.5,8.2,1.17,2026-11-18,https://www.iceland.co.uk/p/x/106551.html
+106555,g,,621,147,4.0,3.2,21,2.8,1.5,6.3,0.68,2026-11-18,https://www.iceland.co.uk/p/x/106555.html
 106570,g,,444,105,1.9,0.4,0,0,,21.7,0.37,2026-11-17,https://www.iceland.co.uk/p/x/106570.html
+106596,g,oven cooked,819,195,7.7,0.5,19.4,1.3,1.4,11.4,0.54,2026-11-18,https://www.iceland.co.uk/p/x/106596.html
+106597,g,oven cooked,1054,251,9.6,1.1,29.7,1.7,2.2,10.4,1.00,2026-11-18,https://www.iceland.co.uk/p/x/106597.html
+106598,g,oven cooked,927,221,8.7,0.5,25.4,1.2,2.1,9.2,0.82,2026-11-18,https://www.iceland.co.uk/p/x/106598.html
+106599,g,oven cooked,897,213,7.7,0.5,24.8,1.3,1.1,10.6,0.57,2026-11-18,https://www.iceland.co.uk/p/x/106599.html
 106618,g,,1091,262,14.1,2.2,18.6,2.89,5.9,12.1,1.46,2026-11-17,https://www.iceland.co.uk/p/x/106618.html
 106621,g,,1082,259,13.9,2.1,20.3,3.2,4.5,11.0,1.77,2026-11-17,https://www.iceland.co.uk/p/x/106621.html
 106622,g,,1131,271,15.3,2.5,18.8,2.7,5.2,11.8,1.52,2026-11-18,https://www.iceland.co.uk/p/x/106622.html
 106623,g,,1092,262,14.1,2.2,19.0,4.0,4.3,12.5,1.64,2026-11-17,https://www.iceland.co.uk/p/x/106623.html
 106632,g,oven cooked,1033,247,13.9,2.1,14.9,0.5,1.5,14.9,1.12,2026-11-18,https://www.iceland.co.uk/p/x/106632.html
+106647,g,oven cooked,1030,245,9.9,0.6,26.9,1.1,1.2,11.7,1.47,2026-11-18,https://www.iceland.co.uk/p/x/106647.html
+106648,g,oven cooked,868,207,7.7,0.6,23.0,0.2,3.0,10.0,0.96,2026-11-18,https://www.iceland.co.uk/p/x/106648.html
 106658,g,,275,65,0.2,0.1,4,4,,11,0.12,2026-11-17,https://www.iceland.co.uk/p/x/106658.html
 106677,g,,1137,274,20.9,9.4,13.5,0.3,,9.0,1.5,2026-11-17,https://www.iceland.co.uk/p/x/106677.html
 106678,g,,681,162,5.9,1.9,16.0,0.4,,11.0,1.6,2026-11-17,https://www.iceland.co.uk/p/x/106678.html
 10670,g,,514,122,4.9,1.8,1.0,0.1,0.6,18.3,2.4,2026-11-17,https://www.iceland.co.uk/p/x/10670.html
 106712,g,,431,103,6.0,5.1,3.6,3.6,,10.0,0.7,2026-11-17,https://www.iceland.co.uk/p/x/106712.html
+106731,g,,917,218,5.0,2.2,31,2.5,2.5,11,0.8,2026-11-18,https://www.iceland.co.uk/p/x/106731.html
 106761,g,,1217,293,21.7,8.1,12.1,1.1,2.5,11.1,1.25,2026-11-17,https://www.iceland.co.uk/p/x/106761.html
 106762,g,,1091,262,15.5,4.4,14.9,2.4,3.5,13.9,1.50,2026-11-17,https://www.iceland.co.uk/p/x/106762.html
+106765,g,,727,174,7.9,2.6,20.5,2.2,2.5,6.3,0.3,2026-11-18,https://www.iceland.co.uk/p/x/106765.html
 106782,g,,1113,268,20,7.6,7.5,1.1,0.6,14,2.0,2026-11-17,https://www.iceland.co.uk/p/x/106782.html
+106786,g,fried,908,217,11.1,1.9,16.9,0.8,0.9,11.9,1.0,2026-11-18,https://www.iceland.co.uk/p/x/106786.html
 106791,g,,293,69,0.8,0.3,0.1,0.1,0.1,15.4,1.2,2026-11-17,https://www.iceland.co.uk/p/x/106791.html
+106829,g,,931,222,9.7,4.9,23.3,1.7,1.9,9.1,0.91,2026-11-18,https://www.iceland.co.uk/p/x/106829.html
 106841,g,,3696,899,99.9,12.0,0,0,,0,0,2026-11-17,https://www.iceland.co.uk/p/x/106841.html
+106851,g,,476,114,4.8,2.1,12.2,1.6,1.4,4.6,0.71,2026-11-18,https://www.iceland.co.uk/p/x/106851.html
+106852,g,,455,109,5.4,1.8,11.2,1.8,1.2,3.1,0.61,2026-11-18,https://www.iceland.co.uk/p/x/106852.html
+106853,g,,610,146,6.1,1.7,16,3.2,2.1,5.5,0.73,2026-11-18,https://www.iceland.co.uk/p/x/106853.html
+106854,g,,825,197,8.5,3.2,17.9,2.0,1.8,11.1,1.03,2026-11-18,https://www.iceland.co.uk/p/x/106854.html
 106859,g,oven cooked,960,230,12.0,0.8,21.0,0.6,1.1,8.4,1.30,2026-11-17,https://www.iceland.co.uk/p/x/106859.html
 10686,g,,1127,272,21.8,10.6,0.7,0.1,0.4,18.0,0.2,2026-11-17,https://www.iceland.co.uk/p/x/10686.html
+106862,g,oven cooked,1020,244,9.6,1.3,24.6,1.3,1.5,9.8,1.10,2026-11-18,https://www.iceland.co.uk/p/x/106862.html
 106994,g,,2262,541,31,9.8,55,49,,12,0.92,2026-11-17,https://www.iceland.co.uk/p/x/106994.html
 106995,g,,2307,552,32,16,59,54,,6.7,0.46,2026-11-17,https://www.iceland.co.uk/p/x/106995.html
 107050,g,,564,133,0.8,0.1,28.5,<0.5,1.0,2.4,<0.01,2026-11-17,https://www.iceland.co.uk/p/x/107050.html
 107051,g,,579,137,1.2,0.5,28.0,<0.5,<0.5,3.2,0.02,2026-11-17,https://www.iceland.co.uk/p/x/107051.html
 107072,g,,633,145,3.2,0.7,8.6,2.7,,23.1,0.44,2026-11-17,https://www.iceland.co.uk/p/x/107072.html
 107075,g,,633,145,3.2,0.7,8.6,2.7,,23.1,0.44,2026-11-17,https://www.iceland.co.uk/p/x/107075.html
+107089,g,,636,152,3.9,1.8,26.8,,3.8,4.2,0.68,2026-11-18,https://www.iceland.co.uk/p/x/107089.html
 107121,g,,2205,529,32,20,50,48,,6.2,0.31,2026-11-17,https://www.iceland.co.uk/p/x/107121.html
 107141,g,,335,80,2.0,1.5,3.6,3.6,,11.0,0.7,2026-11-17,https://www.iceland.co.uk/p/x/107141.html
 107158,g,,2149,515,30.6,2.6,50.6,1.5,5.2,6.7,1.5,2026-11-17,https://www.iceland.co.uk/p/x/107158.html
+107183,g,,1400,355,8.3,3.1,45,1.4,2.0,6,1.60,2026-11-18,https://www.iceland.co.uk/p/x/107183.html
 107190,g,,1127,272,21.6,1.8,10.5,0.6,5.0,6.4,1.0,2026-11-17,https://www.iceland.co.uk/p/x/107190.html
 107211,g,,2117,507,29,2.1,54,1.2,4.2,6.3,0.99,2026-11-17,https://www.iceland.co.uk/p/x/107211.html
 107233,g,,1052,253,19.8,7.5,0,0,0,18.8,0.15,2026-11-17,https://www.iceland.co.uk/p/x/107233.html
@@ -154,24 +222,33 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 107258,g,,77,18,0.1,0.0,3.0,2.8,0.7,1.0,0.05,2026-11-17,https://www.iceland.co.uk/p/x/107258.html
 107282,g,,2514,606,47,6.3,16,5.3,8.1,26,0.02,2026-11-17,https://www.iceland.co.uk/p/x/107282.html
 107283,g,,2514,606,47,6.3,16,5.3,8.1,26,0.02,2026-11-17,https://www.iceland.co.uk/p/x/107283.html
+107287,g,as consumed,377,90,2.8,2.0,12.2,3.2,1.1,3.4,1.32,2026-11-18,https://www.iceland.co.uk/p/x/107287.html
 107356,g,,924,219,10,4.1,17,0,,15,1.8,2026-11-17,https://www.iceland.co.uk/p/x/107356.html
 107357,g,,634,152,6.1,2.5,8.0,,,16,1.2,2026-11-18,https://www.iceland.co.uk/p/x/107357.html
 12082,g,grilled,1187,286,23.8,8.9,1.7,0.1,1.5,15.6,1.6,2026-11-17,https://www.iceland.co.uk/p/x/12082.html
 12157,g,fried,624,148,3.1,0.8,9.4,8.8,1.1,20.1,1.2,2026-11-18,https://www.iceland.co.uk/p/x/12157.html
 12160,g,fried,626,148,2.7,0.7,9.8,9.0,1.0,20.7,1.0,2026-11-18,https://www.iceland.co.uk/p/x/12160.html
 12161,g,fried,614,145,2.7,0.8,8.7,7.4,1.0,21.1,1.3,2026-11-18,https://www.iceland.co.uk/p/x/12161.html
+12407,g,oven cooked,830,198,9.2,2.3,21.3,0.3,2.7,6.3,1.6,2026-11-18,https://www.iceland.co.uk/p/x/12407.html
 12425,g,,1725,416,34.9,21.7,0.1,0.1,,25.4,1.8,2026-11-17,https://www.iceland.co.uk/p/x/12425.html
 12535,g,oven cooked,769,183,7.8,3.6,2.1,1.8,0.0,26.2,0.4,2026-11-17,https://www.iceland.co.uk/p/x/12535.html
 12546,g,oven cooked,1030,246,12.0,2.0,19.0,1.3,1.0,15.0,1.0,2026-11-18,https://www.iceland.co.uk/p/x/12546.html
 12904,g,oven cooked,969,232,13.2,2.3,15.8,0.4,0.9,12.0,0.9,2026-11-17,https://www.iceland.co.uk/p/x/12904.html
+13842,g,oven cooked,1137,270,8.4,3.0,36.9,3.9,2.2,10.6,1.0,2026-11-18,https://www.iceland.co.uk/p/x/13842.html
+13928,g,oven cooked,1042,248,8.4,3.0,33.3,4.4,2.8,8.4,0.6,2026-11-18,https://www.iceland.co.uk/p/x/13928.html
+1478,g,oven cooked,904,216,9.7,0.9,19.4,0.6,1.5,12.0,0.6,2026-11-18,https://www.iceland.co.uk/p/x/1478.html
 14821,g,oven cooked,333,79,1.7,1.0,11.3,1.4,1.1,4.0,0.4,2026-11-18,https://www.iceland.co.uk/p/x/14821.html
+16459,g,oven cooked,791,189,8.5,3.3,22.8,0.7,2.6,4.0,1.0,2026-11-18,https://www.iceland.co.uk/p/x/16459.html
 16873,g,oven cooked,1071,256,14.3,3.6,22.2,3.0,2.6,8.5,0.8,2026-11-17,https://www.iceland.co.uk/p/x/16873.html
 16881,g,oven cooked,1692,405,22.3,7.5,39.0,3.3,2.1,11.0,1.0,2026-11-18,https://www.iceland.co.uk/p/x/16881.html
+16883,g,oven cooked,1006,240,8.7,4.5,28.6,3.8,2.3,10.5,1.2,2026-11-18,https://www.iceland.co.uk/p/x/16883.html
 17,g,boiled,148,35,0.3,0.1,4.0,3.0,4.1,2.1,0.0,2026-11-17,https://www.iceland.co.uk/p/x/17.html
 17428,g,oven cooked,787,188,11.0,3.5,0.1,0.1,0.5,21.9,1.1,2026-11-17,https://www.iceland.co.uk/p/x/17428.html
 17637,g,oven cooked,660,157,5.9,1.5,3.1,3.1,0.5,22.6,0.6,2026-11-17,https://www.iceland.co.uk/p/x/17637.html
 17684,g,fried,137,33,1.3,0.1,3.3,3.3,2.0,0.9,0.0,2026-11-17,https://www.iceland.co.uk/p/x/17684.html
+17712,g,microwaved,393,93,0.5,0.2,14.7,0.7,0.8,7.0,0.5,2026-11-18,https://www.iceland.co.uk/p/x/17712.html
 17738,g,oven cooked,842,200,6.2,0.7,20.6,7.3,0.9,15.0,0.9,2026-11-18,https://www.iceland.co.uk/p/x/17738.html
+18055,g,,506,119,0.93,0.37,17.4,1.56,11.0,10.3,0.95,2026-11-18,https://www.iceland.co.uk/p/x/18055.html
 18264,g,oven cooked,948,227,14.3,3.8,3.0,2.9,0.4,21.5,0.5,2026-11-17,https://www.iceland.co.uk/p/x/18264.html
 18406,g,oven cooked,430,102,1.7,0.4,2.4,1.5,0.9,18.8,0.6,2026-11-17,https://www.iceland.co.uk/p/x/18406.html
 18407,g,oven cooked,473,112,2.0,0.5,4.2,3.2,0.9,18.8,0.6,2026-11-17,https://www.iceland.co.uk/p/x/18407.html
@@ -179,6 +256,9 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 18652,g,oven cooked,1076,259,18.5,8.6,0.8,0.4,1.0,21.7,1.0,2026-11-17,https://www.iceland.co.uk/p/x/18652.html
 18750,g,fried,802,191,6.8,0.9,9.0,0.4,0.2,23.4,0.7,2026-11-17,https://www.iceland.co.uk/p/x/18750.html
 18754,g,microwaved,463,110,1.9,1.0,12.5,1.0,0.9,10.1,0.6,2026-11-18,https://www.iceland.co.uk/p/x/18754.html
+18831,g,oven cooked,1194,286,16.8,9.6,26.8,3.1,2.0,6.1,0.8,2026-11-18,https://www.iceland.co.uk/p/x/18831.html
+18834,g,oven cooked,1290,309,18.9,9.3,25.9,1.9,1.8,7.9,1.3,2026-11-18,https://www.iceland.co.uk/p/x/18834.html
+18835,g,oven cooked,1042,250,14.4,6.6,22.4,2.3,3.1,6.1,0.8,2026-11-18,https://www.iceland.co.uk/p/x/18835.html
 18843,g,fried,1207,290,20.1,8.5,2.8,0.8,2.5,23.4,0.9,2026-11-18,https://www.iceland.co.uk/p/x/18843.html
 18851,g,as consumed,448,106,1.5,0.4,2.0,1.0,0.0,21.0,1.5,2026-11-17,https://www.iceland.co.uk/p/x/18851.html
 19438,g,as consumed,494,117,2.1,0.7,2.0,2.0,0.0,22.4,1.9,2026-11-17,https://www.iceland.co.uk/p/x/19438.html
@@ -189,6 +269,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 19501,ml,as consumed,209,50,1.8,1.1,4.8,4.8,0.0,3.6,0.1,2026-11-17,https://www.iceland.co.uk/p/x/19501.html
 19502,ml,as consumed,209,50,1.8,1.1,4.8,4.8,0.0,3.6,0.1,2026-11-17,https://www.iceland.co.uk/p/x/19502.html
 19507,ml,as consumed,193,46,1.5,0.9,4.6,4.6,0.0,3.5,0.1,2026-11-17,https://www.iceland.co.uk/p/x/19507.html
+19533,g,oven cooked,844,202,11.2,6.2,14.3,1.0,0.9,10.5,1.1,2026-11-18,https://www.iceland.co.uk/p/x/19533.html
+19556,g,fried,512,121,2.5,0.3,18.0,4.6,1.9,5.8,0.6,2026-11-18,https://www.iceland.co.uk/p/x/19556.html
 19699,g,,41,10,0.1,,1.5,1.4,0.6,0.7,,2026-11-17,https://www.iceland.co.uk/p/x/19699.html
 19701,g,,73,17,0.3,0.1,3.1,3.1,1.0,0.7,,2026-11-17,https://www.iceland.co.uk/p/x/19701.html
 19705,g,,53,13,0.3,,1.9,1.9,0.6,0.7,,2026-11-17,https://www.iceland.co.uk/p/x/19705.html
@@ -201,6 +283,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 20789,g,oven cooked,1117,267,15.0,5.8,3.8,3.7,1.1,28.7,0.7,2026-11-18,https://www.iceland.co.uk/p/x/20789.html
 20799,g,,1007,242,18.8,8.8,0.0,0.0,0.0,18.3,0.2,2026-11-18,https://www.iceland.co.uk/p/x/20799.html
 210,g,boiled,145,35,0.5,0.1,2.8,1.6,2.8,3.3,0.0,2026-11-17,https://www.iceland.co.uk/p/x/210.html
+21179,g,oven cooked,490,116,0.4,0.1,22.6,1.4,3.7,3.7,0.5,2026-11-18,https://www.iceland.co.uk/p/x/21179.html
 21185,g,,1052,253,19.8,8.9,0.0,0.0,0.0,18.8,0.30,2026-11-17,https://www.iceland.co.uk/p/x/21185.html
 22281,g,,1030,248,18.2,8.5,3.2,2.6,0.1,17.8,0.5,2026-11-18,https://www.iceland.co.uk/p/x/22281.html
 22517,g,,251,59,0.2,<0.1,12.6,3.9,0.6,1.8,0.4,2026-11-17,https://www.iceland.co.uk/p/x/22517.html
@@ -208,40 +291,63 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 23260,g,,1497,354,2.0,0.6,68,4.2,10,11,0.28,2026-11-17,https://www.iceland.co.uk/p/x/23260.html
 23448,ml,as consumed,209,50,1.8,1.1,4.8,4.8,0.0,3.6,0.1,2026-11-17,https://www.iceland.co.uk/p/x/23448.html
 23566,g,oven cooked,819,195,7.8,0.6,24.7,0.2,2.1,5.5,0.38,2026-11-17,https://www.iceland.co.uk/p/x/23566.html
+23742,g,oven cooked,1261,301,13.8,4.5,33.6,3.2,1.7,9.7,1.0,2026-11-18,https://www.iceland.co.uk/p/x/23742.html
 23949,g,,1200,288,20.8,13.3,1.0,1.0,0.0,24.3,1.4,2026-11-17,https://www.iceland.co.uk/p/x/23949.html
+24000,g,oven cooked,974,233,10.7,1.2,29.7,0.2,3.2,2.9,0.5,2026-11-18,https://www.iceland.co.uk/p/x/24000.html
+24521,g,fried,930,222,9.2,1.1,28.3,1.1,2.7,5.1,1.0,2026-11-18,https://www.iceland.co.uk/p/x/24521.html
 24538,g,,547,131,9.0,2.5,0.0,0.0,0.0,12.6,0.39,2026-11-17,https://www.iceland.co.uk/p/x/24538.html
+24540,g,oven cooked,1001,239,11.2,5.4,29.9,0.3,3.2,3.0,1.0,2026-11-18,https://www.iceland.co.uk/p/x/24540.html
+24546,g,fried,1036,248,13.7,1.0,20.5,0.6,0.9,10.1,1.2,2026-11-18,https://www.iceland.co.uk/p/x/24546.html
 25236,g,as consumed,444,105,1.7,0.6,0.2,0.1,0.5,22.1,1.7,2026-11-17,https://www.iceland.co.uk/p/x/25236.html
 25238,g,as consumed,509,121,2.9,1.0,1.3,1.3,0.0,22.4,1.4,2026-11-17,https://www.iceland.co.uk/p/x/25238.html
 25241,g,as consumed,457,108,1.6,0.6,1.7,1.4,0.0,21.8,1.7,2026-11-17,https://www.iceland.co.uk/p/x/25241.html
 25246,g,oven cooked,638,151,4.0,1.7,0.9,0.9,1.0,27.5,0.8,2026-11-18,https://www.iceland.co.uk/p/x/25246.html
+25249,g,oven cooked,745,178,7.1,0.8,24.5,0.3,2.7,2.5,1.3,2026-11-18,https://www.iceland.co.uk/p/x/25249.html
+26053,g,microwaved,172,41,0.4,0.1,6.0,2.7,3.0,1.8,0.5,2026-11-18,https://www.iceland.co.uk/p/x/26053.html
+26054,g,microwaved,451,107,1.7,0.5,8.1,3.1,1.1,14.3,0.5,2026-11-18,https://www.iceland.co.uk/p/x/26054.html
 26064,g,,99,23,0.2,0.0,3.6,3.6,1.0,1.3,0.10,2026-11-17,https://www.iceland.co.uk/p/x/26064.html
+26283,g,microwaved,592,142,7.3,3.6,7.4,5.8,1.3,11.0,0.8,2026-11-18,https://www.iceland.co.uk/p/x/26283.html
 26780,g,oven cooked,337,80,1.1,0.4,10.0,2.8,1.3,6.8,0.5,2026-11-17,https://www.iceland.co.uk/p/x/26780.html
 27637,g,oven cooked,838,201,11.0,2.9,3.7,2.6,0.7,21.3,1.2,2026-11-17,https://www.iceland.co.uk/p/x/27637.html
 27763,g,oven cooked,807,191,4.2,0.9,11.8,10.8,1.7,25.7,1.2,2026-11-18,https://www.iceland.co.uk/p/x/27763.html
+27832,g,microwaved,568,135,3.5,1.8,18.2,2.5,1.4,6.9,0.7,2026-11-18,https://www.iceland.co.uk/p/x/27832.html
+27874,g,microwaved,510,121,1.5,0.3,15.5,3.1,0.7,11.0,0.5,2026-11-18,https://www.iceland.co.uk/p/x/27874.html
 27938,g,,1135,269,4.3,0.9,44.6,2.5,7.2,9.4,0.9,2026-11-17,https://www.iceland.co.uk/p/x/27938.html
+28684,g,microwaved,346,82,2.9,0.4,4.8,2.7,0.5,9.1,1.1,2026-11-18,https://www.iceland.co.uk/p/x/28684.html
+28926,g,microwaved,444,105,1.9,0.6,8.3,0.8,3.5,11.9,0.5,2026-11-18,https://www.iceland.co.uk/p/x/28926.html
 28987,g,fried,1083,258,11.6,2.1,23.4,2.7,1.5,14.3,0.9,2026-11-17,https://www.iceland.co.uk/p/x/28987.html
 29015,ml,,206,49,1.7,1.0,4.8,4.8,,3.6,0.1,2026-11-17,https://www.iceland.co.uk/p/x/29015.html
+29047,g,as consumed,1623,390,27.9,12.9,28.0,17.7,0.7,6.5,0.2,2026-11-18,https://www.iceland.co.uk/p/x/29047.html
 29048,g,,714,171,9.0,3.0,4.3,0.2,1.0,17.5,1.7,2026-11-17,https://www.iceland.co.uk/p/x/29048.html
 30608,g,,476,114,5.3,1.0,0.8,0.3,1.6,14.9,1.9,2026-11-17,https://www.iceland.co.uk/p/x/30608.html
 30659,g,fried,1120,269,18.0,8.2,6.1,0.6,0.4,20.4,0.8,2026-11-18,https://www.iceland.co.uk/p/x/30659.html
 30690,ml,,204,49,1.7,1,5,5,,3.4,0.14,2026-11-17,https://www.iceland.co.uk/p/x/30690.html
 30692,g,fried,1169,281,19.3,8.7,1.0,0.9,1.0,25.3,0.9,2026-11-17,https://www.iceland.co.uk/p/x/30692.html
 30713,g,as consumed,1295,311,21.8,7.7,20.1,2.9,2.6,7.3,1.3,2026-11-17,https://www.iceland.co.uk/p/x/30713.html
+31435,g,as consumed,1196,286,16.7,6.8,27.7,1.5,1.4,5.7,0.5,2026-11-18,https://www.iceland.co.uk/p/x/31435.html
+31497,g,oven cooked,1201,288,16.4,9.2,27.8,2.6,1.4,6.5,0.8,2026-11-18,https://www.iceland.co.uk/p/x/31497.html
+31550,g,oven cooked,1174,281,15.6,8.8,26.0,2.4,1.9,8.3,0.8,2026-11-18,https://www.iceland.co.uk/p/x/31550.html
+31601,g,oven cooked,1463,351,22.0,11.7,27.2,2.2,2.2,10.0,1.3,2026-11-18,https://www.iceland.co.uk/p/x/31601.html
 31893,g,cooked,550,131,4.1,1.6,0.1,0.1,1.7,22.6,1.0,2026-11-17,https://www.iceland.co.uk/p/x/31893.html
 32024,ml,,204,49,1.7,1,5,5,,3.4,0.14,2026-11-17,https://www.iceland.co.uk/p/x/32024.html
+32800,g,microwaved,263,62,0.9,0.2,3.8,2.7,1.2,9.2,0.6,2026-11-18,https://www.iceland.co.uk/p/x/32800.html
 33205,g,,1304,309,7.3,0.7,51.2,12.1,2.5,8.4,0.73,2026-11-17,https://www.iceland.co.uk/p/x/33205.html
 33778,g,oven cooked,1200,286,12.4,2.3,28.8,10.2,1.5,14.1,1.4,2026-11-18,https://www.iceland.co.uk/p/x/33778.html
 33780,g,fried,1105,263,10.6,2.0,29.6,11.0,1.3,11.8,0.9,2026-11-18,https://www.iceland.co.uk/p/x/33780.html
+33820,g,,595,147,4.8,1.7,17.0,2.7,0.8,8.0,0.26,2026-11-18,https://www.iceland.co.uk/p/x/33820.html
 33898,g,,612,146,7.9,2.6,0.7,0.4,0.5,18.0,2.7,2026-11-17,https://www.iceland.co.uk/p/x/33898.html
 33983,g,oven cooked,752,180,10.1,5.6,12.0,2.1,0.9,9.9,0.8,2026-11-18,https://www.iceland.co.uk/p/x/33983.html
 34174,g,as consumed,505,119,1.4,0.4,0.0,0.0,0.0,26.6,0.7,2026-11-17,https://www.iceland.co.uk/p/x/34174.html
 34175,g,as consumed,495,117,1.5,0.4,1.2,0.0,0.0,24.6,0.6,2026-11-17,https://www.iceland.co.uk/p/x/34175.html
 34231,g,,252,60,0.5,0.1,7.9,7.7,0.5,5.6,0.2,2026-11-17,https://www.iceland.co.uk/p/x/34231.html
+34933,g,oven cooked,440,104,0.1,0.1,22.0,0.4,2.5,2.5,0.2,2026-11-18,https://www.iceland.co.uk/p/x/34933.html
 35004,g,fried,961,229,10.2,3.0,17.3,0.8,1.3,16.4,1.0,2026-11-18,https://www.iceland.co.uk/p/x/35004.html
 35006,g,fried,947,226,9.8,2.0,17.2,0.0,1.2,16.5,0.8,2026-11-18,https://www.iceland.co.uk/p/x/35006.html
 3538,ml,,204,49,1.7,1.0,5.0,5.0,,3.4,0.14,2026-11-17,https://www.iceland.co.uk/p/x/3538.html
 35808,g,fried,181,43,1.7,0.2,1.9,0.6,3.1,3.6,0.1,2026-11-17,https://www.iceland.co.uk/p/x/35808.html
+35841,g,oven cooked,988,236,10.3,1.2,31.5,3.8,2.7,2.9,1.0,2026-11-18,https://www.iceland.co.uk/p/x/35841.html
 35843,g,oven cooked,858,205,10.2,3.1,6.9,4.9,0.5,21.0,1.2,2026-11-18,https://www.iceland.co.uk/p/x/35843.html
+36848,g,cooked,442,105,0.9,0.2,15.1,2.5,2.4,7.9,0.4,2026-11-18,https://www.iceland.co.uk/p/x/36848.html
 37350,g,microwaved,382,90,0.9,0.3,11.2,2.6,1.4,8.7,0.5,2026-11-18,https://www.iceland.co.uk/p/x/37350.html
 37353,g,oven cooked,981,234,11.4,2.4,20.7,2.6,1.4,11.5,1.0,2026-11-18,https://www.iceland.co.uk/p/x/37353.html
 37357,g,,952,229,15.1,6.7,5.1,0.3,1.4,17.5,2.5,2026-11-18,https://www.iceland.co.uk/p/x/37357.html
@@ -249,6 +355,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 37819,g,,1054,250,2.4,0.9,44.6,1.8,10.6,7.2,0.6,2026-11-17,https://www.iceland.co.uk/p/x/37819.html
 37820,g,,1019,242,2.7,1.0,40.0,2.1,12.3,8.2,0.5,2026-11-17,https://www.iceland.co.uk/p/x/37820.html
 37981,g,oven cooked,593,136,2.3,0.6,1.0,0.1,1.0,28.5,1.0,2026-11-17,https://www.iceland.co.uk/p/x/37981.html
+38115,g,oven cooked,908,216,7.6,0.9,32.1,0.2,3.8,3.1,0.7,2026-11-18,https://www.iceland.co.uk/p/x/38115.html
 38286,g,fried,994,237,10.5,1.7,21.9,8.4,1.4,13.1,0.9,2026-11-17,https://www.iceland.co.uk/p/x/38286.html
 38290,g,fried,1042,248,10.1,1.4,25.1,10.5,1.2,13.6,1.1,2026-11-17,https://www.iceland.co.uk/p/x/38290.html
 38475,g,,365,87,2.2,0.9,10,0.9,,6.0,1.3,2026-11-18,https://www.iceland.co.uk/p/x/38475.html
@@ -256,11 +363,18 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 38600,g,oven cooked,1178,282,16.6,3.2,22.3,0.9,1.7,10.2,0.8,2026-11-18,https://www.iceland.co.uk/p/x/38600.html
 38610,g,fried,1067,255,12.8,5.6,6.8,0.6,1.1,27.7,2.4,2026-11-18,https://www.iceland.co.uk/p/x/38610.html
 38680,g,fried,1270,305,18.8,7.3,19.1,0.5,1.7,13.9,1.3,2026-11-17,https://www.iceland.co.uk/p/x/38680.html
+39115,g,microwaved,146,34,0.1,0.1,7.2,0.1,1.0,0.6,1.3,2026-11-18,https://www.iceland.co.uk/p/x/39115.html
+39140,g,fried,844,201,7.6,0.7,22.3,1.6,2.1,9.7,0.83,2026-11-18,https://www.iceland.co.uk/p/x/39140.html
 39191,g,fried,930,223,14.5,5.4,8.6,0.3,1.2,13.9,2.6,2026-11-18,https://www.iceland.co.uk/p/x/39191.html
 39194,g,oven cooked,793,189,8.0,3.7,17.1,7.4,0.8,11.9,1.2,2026-11-18,https://www.iceland.co.uk/p/x/39194.html
 39222,g,,1361,327,24.1,10.8,11.8,0.6,1.2,15.2,2.4,2026-11-18,https://www.iceland.co.uk/p/x/39222.html
 39223,g,grilled,1076,258,16.4,8.2,10.0,5.4,0.6,17.2,1.0,2026-11-18,https://www.iceland.co.uk/p/x/39223.html
 39247,g,,1725,416,34.9,21.7,0.1,0.1,0.0,25.4,1.8,2026-11-17,https://www.iceland.co.uk/p/x/39247.html
+39276,g,,893,212,6.5,2.3,29.4,6.0,1.3,8.4,0.8,2026-11-18,https://www.iceland.co.uk/p/x/39276.html
+39279,g,,1019,243,11.3,4.7,24.6,1.5,1.1,10.3,1.2,2026-11-18,https://www.iceland.co.uk/p/x/39279.html
+39280,g,,1036,247,10.4,5.3,26.8,1.5,1.1,11.0,0.8,2026-11-18,https://www.iceland.co.uk/p/x/39280.html
+39281,g,,813,193,6.4,2.8,24.2,3.1,1.0,9.2,0.8,2026-11-18,https://www.iceland.co.uk/p/x/39281.html
+39283,g,,766,182,6.6,2.9,23.5,2.4,1.5,6.5,0.5,2026-11-18,https://www.iceland.co.uk/p/x/39283.html
 39285,g,fried,854,204,10.3,3.9,13.8,1.2,2.5,12.7,1.9,2026-11-18,https://www.iceland.co.uk/p/x/39285.html
 39286,g,fried,808,193,9.7,3.9,15.8,0.6,1.4,10.0,2.5,2026-11-17,https://www.iceland.co.uk/p/x/39286.html
 39291,g,,1725,416,34.9,21.7,0.1,0.1,0.0,25.4,1.8,2026-11-17,https://www.iceland.co.uk/p/x/39291.html
@@ -272,46 +386,102 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 39322,g,oven cooked,731,174,6.8,0.7,16.4,0.6,1.6,10.9,0.53,2026-11-17,https://www.iceland.co.uk/p/x/39322.html
 39391,ml,,1125,270,17,12,26,24.5,0.6,2.9,0.08,2026-11-17,https://www.iceland.co.uk/p/x/39391.html
 39393,g,,350,82,0.4,0.1,1.0,0.6,0.1,18.7,0.7,2026-11-17,https://www.iceland.co.uk/p/x/39393.html
+39399,g,oven cooked,872,208,10.2,2.0,17.3,0.8,1.7,11.0,0.64,2026-11-18,https://www.iceland.co.uk/p/x/39399.html
 39819,g,,365,87,2.2,0.9,10,0.9,,6.0,1.3,2026-11-18,https://www.iceland.co.uk/p/x/39819.html
 40031,g,,1725,416,34.9,21.7,0.1,0.1,0.0,25.4,1.8,2026-11-17,https://www.iceland.co.uk/p/x/40031.html
 40034,g,,1718,414,34.2,21.3,1.7,0.1,0.0,24.9,1.8,2026-11-17,https://www.iceland.co.uk/p/x/40034.html
+40052,g,oven cooked,303,72,0.6,0.2,9.4,1.4,1.2,6.5,0.4,2026-11-18,https://www.iceland.co.uk/p/x/40052.html
+40064,g,oven cooked,823,195,4.2,1.5,22.0,2.2,2.0,16.5,1.2,2026-11-18,https://www.iceland.co.uk/p/x/40064.html
+40065,g,oven cooked,786,186,3.2,0.9,22.5,4.2,2.0,15.7,1.2,2026-11-18,https://www.iceland.co.uk/p/x/40065.html
 40068,g,grilled,918,220,11.7,5.6,4.3,0.8,1.7,23.4,1.0,2026-11-18,https://www.iceland.co.uk/p/x/40068.html
 40082,g,fried,993,238,14.9,7.0,6.7,0.7,1.8,18.6,0.9,2026-11-18,https://www.iceland.co.uk/p/x/40082.html
 40093,g,as consumed,450,107,2.2,0.8,3.6,3.6,0.0,18.0,1.8,2026-11-17,https://www.iceland.co.uk/p/x/40093.html
 40148,g,,496,118,4.5,1.2,0.3,0.0,0.0,19.1,0.24,2026-11-18,https://www.iceland.co.uk/p/x/40148.html
 40152,g,as consumed,542,128,1.8,0.6,0.0,0.0,0.0,27.9,0.7,2026-11-17,https://www.iceland.co.uk/p/x/40152.html
+40153,g,oven cooked,897,214,11.0,0.9,16.2,0.4,0.8,12.1,0.7,2026-11-18,https://www.iceland.co.uk/p/x/40153.html
 40155,g,,99,23,0.2,0.0,3.6,3.6,1.0,1.3,0.10,2026-11-17,https://www.iceland.co.uk/p/x/40155.html
+40159,g,oven cooked,921,220,10.4,0.9,17.7,0.7,1.2,13.3,0.80,2026-11-18,https://www.iceland.co.uk/p/x/40159.html
 40215,g,fried,591,140,3.2,0.7,1.6,1.2,2.4,25.2,0.8,2026-11-17,https://www.iceland.co.uk/p/x/40215.html
+40236,g,microwaved,291,69,1.3,0.3,3.8,2.2,1.9,9.5,0.7,2026-11-18,https://www.iceland.co.uk/p/x/40236.html
 40244,g,fried,925,221,11.7,2.1,16.1,1.4,1.6,12.1,1.1,2026-11-17,https://www.iceland.co.uk/p/x/40244.html
 40245,g,fried,973,233,13.2,2.3,15.8,1.4,1.9,11.7,0.9,2026-11-18,https://www.iceland.co.uk/p/x/40245.html
+40247,g,,1461,349,17,6.3,36,2.9,,12,0.53,2026-11-18,https://www.iceland.co.uk/p/x/40247.html
+40250,g,baked,1500,359,19,7.3,33,2.7,,13,0.83,2026-11-18,https://www.iceland.co.uk/p/x/40250.html
 40267,g,fried,1123,269,14.6,2.2,20.8,1.0,1.9,12.5,1.0,2026-11-17,https://www.iceland.co.uk/p/x/40267.html
 40269,g,as consumed,1248,299,16.2,8.1,30.9,1.0,1.3,6.8,1.2,2026-11-17,https://www.iceland.co.uk/p/x/40269.html
 40270,g,as consumed,1179,282,15.4,7.0,28.9,0.5,1.5,6.3,0.8,2026-11-17,https://www.iceland.co.uk/p/x/40270.html
 40294,g,as consumed,1126,270,15.7,8.1,24.4,4.0,1.3,7.0,0.5,2026-11-17,https://www.iceland.co.uk/p/x/40294.html
 40295,g,as consumed,1190,285,17.3,8.8,23.9,3.9,1.1,8.0,0.4,2026-11-17,https://www.iceland.co.uk/p/x/40295.html
+40323,g,microwaved,349,83,1.2,0.5,11.1,2.4,2.0,5.9,0.6,2026-11-18,https://www.iceland.co.uk/p/x/40323.html
 40329,g,microwaved,484,114,1.0,0.2,20.0,2.6,1.9,5.4,0.39,2026-11-18,https://www.iceland.co.uk/p/x/40329.html
+40330,g,microwaved,565,134,2.8,0.7,19.1,15.5,0.7,7.6,1.1,2026-11-18,https://www.iceland.co.uk/p/x/40330.html
+40344,g,oven cooked,892,213,11.7,5.5,14.9,0.6,1.1,11.7,1.0,2026-11-18,https://www.iceland.co.uk/p/x/40344.html
+40358,g,oven cooked,770,184,8.1,3.5,18.6,3.0,3.9,7.3,1.0,2026-11-18,https://www.iceland.co.uk/p/x/40358.html
+40370,g,microwaved,730,176,12.3,7.2,9.3,2.2,4.0,5.0,0.6,2026-11-18,https://www.iceland.co.uk/p/x/40370.html
 40379,g,fried,1208,289,13.6,2.1,30.5,2.6,2.4,9.8,1.3,2026-11-17,https://www.iceland.co.uk/p/x/40379.html
+40385,g,oven cooked,858,206,10.9,3.1,22.8,6.1,4.9,1.7,0.46,2026-11-18,https://www.iceland.co.uk/p/x/40385.html
 40389,g,oven cooked,1193,286,17.5,4.3,18.6,1.8,2.3,12.4,1.5,2026-11-18,https://www.iceland.co.uk/p/x/40389.html
+40394,g,oven cooked,786,188,7.7,2.7,19.4,5.9,3.6,8.4,1.2,2026-11-18,https://www.iceland.co.uk/p/x/40394.html
+40405,g,oven cooked,604,144,5.3,2.5,14.1,3.2,2.4,8.8,1.0,2026-11-18,https://www.iceland.co.uk/p/x/40405.html
+40406,g,oven cooked,593,141,4.7,1.8,13.7,2.8,1.8,10.0,0.7,2026-11-18,https://www.iceland.co.uk/p/x/40406.html
+40926,g,,915,218,7.7,2.5,28,3.4,2.3,8.3,1.1,2026-11-18,https://www.iceland.co.uk/p/x/40926.html
 40990,g,microwaved,581,138,3.0,1.4,12.3,2.9,2.6,14.2,1.0,2026-11-18,https://www.iceland.co.uk/p/x/40990.html
+41015,g,oven cooked,483,116,5.9,2.5,9.4,0.8,2.6,4.9,0.8,2026-11-18,https://www.iceland.co.uk/p/x/41015.html
+41016,g,oven cooked,473,113,5.5,2.6,9.7,1.3,2.3,5.0,0.6,2026-11-18,https://www.iceland.co.uk/p/x/41016.html
 41047,g,oven cooked,1175,281,15.2,2.5,18.9,1.6,1.8,16.3,0.8,2026-11-17,https://www.iceland.co.uk/p/x/41047.html
 41433,g,fried,1013,242,13.0,1.8,15.3,0.9,2.1,15.0,0.7,2026-11-18,https://www.iceland.co.uk/p/x/41433.html
 41435,g,oven cooked,576,137,5.2,1.4,0.1,0.1,0.5,22.2,0.24,2026-11-17,https://www.iceland.co.uk/p/x/41435.html
+41439,g,oven cooked,576,138,7.5,3.0,11.9,2.1,1.6,4.9,1.1,2026-11-18,https://www.iceland.co.uk/p/x/41439.html
+41440,g,,485,116,1.8,0.2,17.0,1.5,0.8,7.2,0.49,2026-11-18,https://www.iceland.co.uk/p/x/41440.html
+41441,g,fried,651,155,4.7,1.4,19.5,1.7,1.8,7.8,0.8,2026-11-18,https://www.iceland.co.uk/p/x/41441.html
+41447,g,microwaved,282,67,0.2,0.1,12.7,2.0,1.5,2.7,0.4,2026-11-18,https://www.iceland.co.uk/p/x/41447.html
 41449,g,microwaved,395,94,1.8,0.9,9.4,1.8,1.1,9.4,0.7,2026-11-18,https://www.iceland.co.uk/p/x/41449.html
+41453,g,microwaved,344,81,1.2,0.3,5.0,4.3,1.9,11.6,0.6,2026-11-18,https://www.iceland.co.uk/p/x/41453.html
 41459,g,microwaved,462,110,3.8,1.3,13.5,1.6,2.1,4.5,0.7,2026-11-18,https://www.iceland.co.uk/p/x/41459.html
 41471,g,fried,1176,281,13.8,2.9,30.4,6.4,2.4,7.7,1.1,2026-11-17,https://www.iceland.co.uk/p/x/41471.html
 41472,g,fried,939,223,8.4,1.6,20.4,3.8,1.3,15.9,0.8,2026-11-17,https://www.iceland.co.uk/p/x/41472.html
 41508,g,,547,131,9.0,2.5,0.0,0.0,0.0,12.6,0.39,2026-11-17,https://www.iceland.co.uk/p/x/41508.html
 41510,g,fried,926,222,13.3,4.5,5.9,1.2,0.9,19.2,1.1,2026-11-18,https://www.iceland.co.uk/p/x/41510.html
+41511,g,oven cooked,895,213,9.2,0.8,21.1,1.1,1.3,10.8,0.7,2026-11-18,https://www.iceland.co.uk/p/x/41511.html
+41512,g,oven cooked,950,227,12.1,1.0,17.9,0.4,1.2,11.1,0.9,2026-11-18,https://www.iceland.co.uk/p/x/41512.html
+41528,g,oven cooked,405,97,6.3,2.6,6.2,3.1,1.5,3.3,1.0,2026-11-18,https://www.iceland.co.uk/p/x/41528.html
 41534,g,oven cooked,1123,269,16.7,6.3,13.5,6.2,1.2,15.5,1.7,2026-11-17,https://www.iceland.co.uk/p/x/41534.html
 41545,g,oven cooked,658,156,5.0,1.7,0.5,0.5,0.7,27.1,2.0,2026-11-18,https://www.iceland.co.uk/p/x/41545.html
+41563,g,,272,64,0.5,0.1,1.0,0.1,0.5,13.7,1.5,2026-11-18,https://www.iceland.co.uk/p/x/41563.html
+41589,g,oven cooked,776,185,6.9,0.8,25.9,0.3,3.4,3.2,0.6,2026-11-18,https://www.iceland.co.uk/p/x/41589.html
 41660,g,oven cooked,947,225,7.9,2.6,25.5,1.8,2.3,11.9,0.59,2026-11-18,https://www.iceland.co.uk/p/x/41660.html
 41808,g,,1146,271,4.6,2.2,49.1,10.9,0.8,7.9,30.43,2026-11-17,https://www.iceland.co.uk/p/x/41808.html
+41879,g,fried,531,127,5.6,2.7,12.5,0.9,1.5,5.8,0.38,2026-11-18,https://www.iceland.co.uk/p/x/41879.html
 41978,g,fried,737,176,7.3,0.7,10.6,0.7,0.5,16.6,0.45,2026-11-17,https://www.iceland.co.uk/p/x/41978.html
+41991,g,,1050,250,9.2,3.7,30.0,2.0,1.6,11.0,0.9,2026-11-18,https://www.iceland.co.uk/p/x/41991.html
+41992,g,,1029,245,10.5,3.8,28.6,3.3,1.7,8.2,1.1,2026-11-18,https://www.iceland.co.uk/p/x/41992.html
+41993,g,,1040,248,9.4,3.6,30.0,1.4,1.5,10.0,1.0,2026-11-18,https://www.iceland.co.uk/p/x/41993.html
+42005,g,,988,235,8.2,3.1,30.0,3.1,1.6,9.5,0.9,2026-11-18,https://www.iceland.co.uk/p/x/42005.html
+42026,g,oven cooked,1216,291,17.0,8.0,24.9,1.2,1.8,8.7,0.5,2026-11-18,https://www.iceland.co.uk/p/x/42026.html
+42059,g,oven cooked,1213,291,17.4,8.5,24.6,2.3,1.4,8.2,0.5,2026-11-18,https://www.iceland.co.uk/p/x/42059.html
+42060,g,oven cooked,1172,281,16.1,7.4,25.0,1.7,2.0,7.9,0.7,2026-11-18,https://www.iceland.co.uk/p/x/42060.html
 42081,g,oven cooked,1446,349,27.6,10.2,1.0,0.2,0.5,23.7,1.4,2026-11-18,https://www.iceland.co.uk/p/x/42081.html
 42658,g,,952,229,15.1,6.7,5.1,0.3,1.4,17.5,2.5,2026-11-18,https://www.iceland.co.uk/p/x/42658.html
+42965,g,as consumed,1666,399,20.8,3.1,46.0,19.0,2.4,5.7,0.6,2026-11-18,https://www.iceland.co.uk/p/x/42965.html
+43014,g,as consumed,1238,296,15.0,7.7,31.7,1.0,1.7,7.7,1.2,2026-11-18,https://www.iceland.co.uk/p/x/43014.html
+43033,g,oven cooked,1182,281,10.3,4.2,35.1,2.9,1.3,11.4,1.4,2026-11-18,https://www.iceland.co.uk/p/x/43033.html
+43039,g,oven cooked,1240,296,12.2,4.3,34.3,2.4,2.2,11.0,1.8,2026-11-18,https://www.iceland.co.uk/p/x/43039.html
+43043,g,,951,226,8.2,3.1,28.7,2.6,1.2,8.8,1.4,2026-11-18,https://www.iceland.co.uk/p/x/43043.html
+43056,g,,919,219,7.8,3.0,27.3,3.0,1.1,9.2,1.4,2026-11-18,https://www.iceland.co.uk/p/x/43056.html
 43188,g,,214,51,1.4,0.3,4.1,3.1,4.1,3.5,0.0,2026-11-17,https://www.iceland.co.uk/p/x/43188.html
 43202,g,,1565,374,8.0,1.5,60,1.1,9.0,11,0,2026-11-17,https://www.iceland.co.uk/p/x/43202.html
+43227,g,oven cooked,1081,257,8.8,3.6,30.8,3.4,1.9,12.7,1.6,2026-11-18,https://www.iceland.co.uk/p/x/43227.html
+43471,g,oven cooked,1127,269,10.6,4.2,31.7,5.8,2.4,10.4,1.6,2026-11-18,https://www.iceland.co.uk/p/x/43471.html
+43556,g,oven cooked,1136,271,12.0,4.8,27.8,2.6,2.1,11.9,1.7,2026-11-18,https://www.iceland.co.uk/p/x/43556.html
+43586,g,,859,204,5.5,2.2,28.4,5.0,0.9,9.7,1.6,2026-11-18,https://www.iceland.co.uk/p/x/43586.html
+43655,g,oven cooked,942,223,5.0,2.0,32.7,7.2,2.6,10.6,1.2,2026-11-18,https://www.iceland.co.uk/p/x/43655.html
+43965,g,oven cooked,997,237,8.3,3.2,29.3,2.8,2.2,10.2,1.6,2026-11-18,https://www.iceland.co.uk/p/x/43965.html
+44058,g,,1534,368,22.6,6.5,30.2,1.5,1.1,10.2,0.9,2026-11-18,https://www.iceland.co.uk/p/x/44058.html
+44204,g,fried,554,132,5.8,2.3,14.1,0.4,1.9,5.0,0.5,2026-11-18,https://www.iceland.co.uk/p/x/44204.html
+44435,g,fried,588,140,5.5,2.2,16.8,0.5,2.1,4.7,0.6,2026-11-18,https://www.iceland.co.uk/p/x/44435.html
+4477,g,fried,866,206,6.4,0.8,31.5,0.3,4.1,3.7,0.96,2026-11-18,https://www.iceland.co.uk/p/x/4477.html
 4482,g,,1458,344,2.0,0.5,68,3.5,3.0,12,0.03,2026-11-17,https://www.iceland.co.uk/p/x/4482.html
+45183,g,oven cooked,867,206,6.2,0.7,32.7,0.2,3.9,3.1,0.7,2026-11-18,https://www.iceland.co.uk/p/x/45183.html
 45231,g,oven cooked,1008,242,16.2,8.0,3.7,1.3,0.2,20.2,1.3,2026-11-17,https://www.iceland.co.uk/p/x/45231.html
 45235,g,as consumed,485,115,1.5,0.3,5.2,2.0,1.9,19.2,0.7,2026-11-18,https://www.iceland.co.uk/p/x/45235.html
 45411,g,as consumed,536,127,1.5,0.3,6.0,3.9,1.2,21.7,0.5,2026-11-17,https://www.iceland.co.uk/p/x/45411.html
@@ -320,22 +490,36 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 45570,g,as consumed,473,112,1.4,0.3,6.0,3.5,1.1,18.3,0.6,2026-11-17,https://www.iceland.co.uk/p/x/45570.html
 45646,g,fried,969,231,9.7,1.6,19.2,0.3,1.4,16.1,0.7,2026-11-18,https://www.iceland.co.uk/p/x/45646.html
 4566,g,,796,190,10,0.7,16,11,3,6.6,8.4,2026-11-17,https://www.iceland.co.uk/p/x/4566.html
+45790,g,oven cooked,1130,269,10.3,4.7,29.3,3.6,1.8,14.0,1.3,2026-11-18,https://www.iceland.co.uk/p/x/45790.html
 45832,g,oven cooked,1117,267,15.0,5.8,3.8,3.7,1.1,28.7,0.7,2026-11-18,https://www.iceland.co.uk/p/x/45832.html
 45867,g,fried,971,232,12.0,1.7,13.3,1.2,2.4,16.6,0.9,2026-11-17,https://www.iceland.co.uk/p/x/45867.html
 45879,g,fried,1029,246,13.7,1.8,15.4,2.1,1.7,14.4,0.8,2026-11-17,https://www.iceland.co.uk/p/x/45879.html
+46050,g,microwaved,152,36,0.3,0.1,6.5,4.5,1.4,1.2,0.5,2026-11-18,https://www.iceland.co.uk/p/x/46050.html
 46066,g,fried,603,143,2.7,0.6,2.3,0.4,1.8,26.4,0.6,2026-11-18,https://www.iceland.co.uk/p/x/46066.html
 46078,g,as consumed,523,123,1.0,0.3,6.0,4.3,0.9,22.2,0.6,2026-11-17,https://www.iceland.co.uk/p/x/46078.html
 46392,ml,,3404,828,92,10.1,0,0,0,0,0,2026-11-17,https://www.iceland.co.uk/p/x/46392.html
 46393,ml,,3393,825,91.7,7.3,0,0,0,0,0,2026-11-17,https://www.iceland.co.uk/p/x/46393.html
 4696,g,microwaved,946,227,13.7,6.5,3.8,2.8,0.5,21.8,0.4,2026-11-18,https://www.iceland.co.uk/p/x/4696.html
+46963,g,boiled,592,141,2.8,1.5,20.3,1.3,4.0,6.6,0.6,2026-11-18,https://www.iceland.co.uk/p/x/46963.html
+46971,g,boiled,720,171,4.6,2.7,23.1,1.1,2.6,8.1,1.0,2026-11-18,https://www.iceland.co.uk/p/x/46971.html
 4701,g,,1575,374,8.7,1.2,58,1.0,7.9,12,0.03,2026-11-17,https://www.iceland.co.uk/p/x/4701.html
 47277,g,fried,567,134,2.7,0.7,2.7,0.5,1.0,24.4,0.9,2026-11-17,https://www.iceland.co.uk/p/x/47277.html
 47321,g,fried,550,130,2.0,0.6,3.1,1.2,1.0,24.4,0.8,2026-11-17,https://www.iceland.co.uk/p/x/47321.html
 47364,g,fried,574,136,3.3,1.0,3.4,0.1,1.1,22.7,0.8,2026-11-18,https://www.iceland.co.uk/p/x/47364.html
+47365,g,fried,645,154,8.4,3.2,3.4,1.7,0.9,15.9,0.8,2026-11-18,https://www.iceland.co.uk/p/x/47365.html
+47441,g,fried,696,166,8.9,3.5,3.5,1.4,0.8,17.6,0.7,2026-11-18,https://www.iceland.co.uk/p/x/47441.html
 47639,g,fried,1013,242,13.0,1.8,15.3,0.9,2.1,15.0,0.7,2026-11-18,https://www.iceland.co.uk/p/x/47639.html
 47725,g,oven cooked,546,129,1.9,0.6,1.2,0.1,1.0,26.4,0.9,2026-11-17,https://www.iceland.co.uk/p/x/47725.html
 47772,g,fried,980,233,7.6,1.5,26.3,5.3,1.2,14.1,1.7,2026-11-17,https://www.iceland.co.uk/p/x/47772.html
 48159,g,fried,921,219,8.8,1.9,15.5,2.9,1.1,19.1,1.4,2026-11-17,https://www.iceland.co.uk/p/x/48159.html
+48161,g,microwaved,504,119,2.0,1.0,13.3,1.1,2.1,11.0,0.5,2026-11-18,https://www.iceland.co.uk/p/x/48161.html
+48218,g,microwaved,420,100,2.4,0.7,8.7,2.7,1.7,10.0,0.5,2026-11-18,https://www.iceland.co.uk/p/x/48218.html
+48221,g,microwaved,435,103,2.0,0.7,11.1,2.0,2.8,8.8,0.7,2026-11-18,https://www.iceland.co.uk/p/x/48221.html
+48234,g,oven cooked,356,85,3.2,2.1,9.2,1.3,1.3,4.2,0.4,2026-11-18,https://www.iceland.co.uk/p/x/48234.html
+48241,g,oven cooked,339,81,4.3,2.7,5.1,2.5,1.5,4.8,0.7,2026-11-18,https://www.iceland.co.uk/p/x/48241.html
+48268,g,microwaved,400,95,0.8,0.1,14.2,3.0,6.2,4.8,0.6,2026-11-18,https://www.iceland.co.uk/p/x/48268.html
+48271,g,microwaved,342,81,0.3,0.1,12.1,2.8,1.8,6.4,0.6,2026-11-18,https://www.iceland.co.uk/p/x/48271.html
+48313,g,microwaved,317,75,0.6,0.1,9.5,1.5,1.1,7.2,0.5,2026-11-18,https://www.iceland.co.uk/p/x/48313.html
 48314,g,oven cooked,1500,358,17.6,8.7,41.1,2.2,2.6,7.7,0.7,2026-11-18,https://www.iceland.co.uk/p/x/48314.html
 48315,g,microwaved,445,106,2.2,1.1,10.3,2.6,1.4,10.4,0.6,2026-11-18,https://www.iceland.co.uk/p/x/48315.html
 48584,g,fried,1013,242,11.9,2.1,18.0,0.4,1.2,15.1,0.8,2026-11-18,https://www.iceland.co.uk/p/x/48584.html
@@ -350,10 +534,12 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 48960,g,,1142,273,12.9,2.1,31.4,4.8,1.5,7.0,0.9,2026-11-17,https://www.iceland.co.uk/p/x/48960.html
 49025,g,oven cooked,1084,261,19.1,7.3,11.0,0.8,1.1,10.6,1.9,2026-11-18,https://www.iceland.co.uk/p/x/49025.html
 49026,g,oven cooked,923,222,14.3,5.4,10.8,0.6,1.5,11.7,1.8,2026-11-18,https://www.iceland.co.uk/p/x/49026.html
+49033,g,microwaved,363,86,2.4,1.3,5.2,2.6,0.3,10.8,0.8,2026-11-18,https://www.iceland.co.uk/p/x/49033.html
 49036,g,oven cooked,1100,265,20.1,7.8,10.8,0.6,1.1,9.6,2.1,2026-11-18,https://www.iceland.co.uk/p/x/49036.html
 49088,g,fried,1063,255,15.3,6.1,11.5,6.1,1.4,17.2,1.6,2026-11-17,https://www.iceland.co.uk/p/x/49088.html
 49098,g,fried,1162,280,20.3,9.7,4.8,1.2,4.2,17.3,2.1,2026-11-17,https://www.iceland.co.uk/p/x/49098.html
 49101,g,fried,637,151,2.1,0.5,3.2,1.0,1.0,29.3,1.1,2026-11-18,https://www.iceland.co.uk/p/x/49101.html
+49105,g,oven cooked,1104,264,15.4,7.3,21.1,0.7,0.6,10.1,0.47,2026-11-18,https://www.iceland.co.uk/p/x/49105.html
 49224,g,fried,732,173,3.0,0.7,6.6,3.0,1.0,29.5,1.0,2026-11-18,https://www.iceland.co.uk/p/x/49224.html
 49225,g,fried,645,153,3.6,0.8,4.5,2.2,0.6,25.4,0.82,2026-11-18,https://www.iceland.co.uk/p/x/49225.html
 49226,g,fried,1033,247,11.9,2.7,17.9,0.0,1.1,16.4,0.8,2026-11-17,https://www.iceland.co.uk/p/x/49226.html
@@ -362,6 +548,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 49325,g,fried,1040,248,11.0,2.0,20.3,2.2,1.2,16.3,1.2,2026-11-17,https://www.iceland.co.uk/p/x/49325.html
 49336,g,fried,1052,251,11.7,2.1,20.0,3.1,1.3,15.7,0.9,2026-11-18,https://www.iceland.co.uk/p/x/49336.html
 49347,g,microwaved,429,102,1.7,0.5,9.3,2.6,1.8,11.3,0.6,2026-11-17,https://www.iceland.co.uk/p/x/49347.html
+49372,g,microwaved,460,109,2.4,0.9,9.3,2.7,3.6,10.8,0.5,2026-11-18,https://www.iceland.co.uk/p/x/49372.html
+49407,g,oven cooked,786,188,9.6,0.8,12.0,1.4,1.8,12.6,1.0,2026-11-18,https://www.iceland.co.uk/p/x/49407.html
 49489,g,fried,940,224,10.7,2.8,15.4,1.4,1.1,16.0,0.8,2026-11-17,https://www.iceland.co.uk/p/x/49489.html
 49490,g,fried,893,213,8.1,1.5,16.3,0.0,1.4,18.1,1.1,2026-11-17,https://www.iceland.co.uk/p/x/49490.html
 49491,g,fried,1083,259,13.3,2.3,18.6,1.2,1.4,15.5,1.1,2026-11-17,https://www.iceland.co.uk/p/x/49491.html
@@ -372,27 +560,47 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 49660,g,fried,1021,243,10.0,1.9,23.6,10.2,1.4,13.9,0.8,2026-11-18,https://www.iceland.co.uk/p/x/49660.html
 49664,g,fried,993,237,9.7,1.8,22.4,7.7,1.3,14.3,1.1,2026-11-18,https://www.iceland.co.uk/p/x/49664.html
 49665,g,fried,1229,293,13.5,2.3,25.6,1.2,1.3,16.6,1.5,2026-11-18,https://www.iceland.co.uk/p/x/49665.html
+49666,g,fried,995,239,15.7,4.3,1.0,0.1,0.5,23.1,0.2,2026-11-18,https://www.iceland.co.uk/p/x/49666.html
+49667,g,fried,1178,284,21.5,4.3,1.0,0.1,0.5,21.2,0.2,2026-11-18,https://www.iceland.co.uk/p/x/49667.html
+49668,g,fried,590,139,0.8,0.2,4.8,6.9,0.9,27.8,0.6,2026-11-18,https://www.iceland.co.uk/p/x/49668.html
+49670,g,fried,1005,241,16.3,4.6,1.0,0.1,0.5,22.5,0.2,2026-11-18,https://www.iceland.co.uk/p/x/49670.html
+49715,g,,703,168,9.8,2.2,0.0,0.0,0.0,20.0,0.2,2026-11-18,https://www.iceland.co.uk/p/x/49715.html
+49725,g,fried,979,235,16.9,9.7,1.0,0.1,0.5,19.7,0.6,2026-11-18,https://www.iceland.co.uk/p/x/49725.html
 49729,g,fried,1013,242,9.8,1.8,23.2,0.8,1.5,14.3,1.1,2026-11-17,https://www.iceland.co.uk/p/x/49729.html
 49730,g,,270,64,0.5,0.1,1.1,0.1,0.5,13.5,1.4,2026-11-17,https://www.iceland.co.uk/p/x/49730.html
 49731,g,,320,75,0.6,0.2,0.0,0.0,0.0,17.5,0.2,2026-11-17,https://www.iceland.co.uk/p/x/49731.html
 49744,g,,317,75,0.4,0.1,0.0,0.0,0.0,17.8,0.2,2026-11-17,https://www.iceland.co.uk/p/x/49744.html
+49748,g,oven cooked,379,89,0.3,0.1,0.1,0.1,0.5,21.4,1.6,2026-11-18,https://www.iceland.co.uk/p/x/49748.html
+49749,g,,454,107,0.7,0.2,0.0,0.0,0.0,25.2,0.2,2026-11-18,https://www.iceland.co.uk/p/x/49749.html
 49775,g,fried,549,131,4.7,1.5,0.4,0.1,0.5,21.4,0.5,2026-11-17,https://www.iceland.co.uk/p/x/49775.html
+49778,g,,305,72,0.7,0.1,0.0,0.0,0.0,16.4,0.2,2026-11-18,https://www.iceland.co.uk/p/x/49778.html
 49807,g,,313,74,1.6,0.5,0.0,0.0,0.0,14.9,0.5,2026-11-17,https://www.iceland.co.uk/p/x/49807.html
+49808,g,as consumed,439,104,1.6,0.6,0.3,0.1,0.5,21.9,0.8,2026-11-18,https://www.iceland.co.uk/p/x/49808.html
 49813,g,,968,233,17.9,3.9,0.0,0.0,0.0,18.0,0.4,2026-11-17,https://www.iceland.co.uk/p/x/49813.html
+49835,g,,298,70,0.5,0.1,4.1,0.1,0.5,12.1,1.0,2026-11-18,https://www.iceland.co.uk/p/x/49835.html
+49840,g,fried,514,122,2.9,0.5,3.0,0.1,0.5,20.7,1.0,2026-11-18,https://www.iceland.co.uk/p/x/49840.html
 49841,g,as consumed,295,70,0.9,0.2,0.0,0.0,0.0,15.4,1.5,2026-11-17,https://www.iceland.co.uk/p/x/49841.html
 49846,g,,240,57,0.5,0.1,1.0,0.1,0.5,11.8,1.3,2026-11-17,https://www.iceland.co.uk/p/x/49846.html
+49877,g,as consumed,293,69,0.8,0.3,0.1,0.1,0.1,15.4,1.2,2026-11-18,https://www.iceland.co.uk/p/x/49877.html
 49937,g,cooked,547,130,4.2,1.6,2.4,1.9,2.5,19.5,1.0,2026-11-17,https://www.iceland.co.uk/p/x/49937.html
 49981,g,fried,1247,300,20.2,8.6,5.6,0.6,3.4,22.3,1.3,2026-11-17,https://www.iceland.co.uk/p/x/49981.html
+49982,g,fried,891,213,9.1,4.0,25.2,4.8,4.4,5.2,0.83,2026-11-18,https://www.iceland.co.uk/p/x/49982.html
+49983,g,fried,975,233,9.4,2.7,30.0,2.7,4.2,4.8,1.0,2026-11-18,https://www.iceland.co.uk/p/x/49983.html
 50170,g,oven cooked,1003,241,17.0,2.5,0.9,0.3,0.5,20.9,0.2,2026-11-17,https://www.iceland.co.uk/p/x/50170.html
 50299,g,fried,896,214,8.7,1.9,18.0,0.5,1.2,15.2,1.0,2026-11-18,https://www.iceland.co.uk/p/x/50299.html
 50305,g,fried,1083,259,13.6,3.6,17.0,0.4,1.4,16.6,0.6,2026-11-17,https://www.iceland.co.uk/p/x/50305.html
 50375,g,fried,1063,255,14.8,3.4,14.0,0.5,1.3,15.8,0.6,2026-11-17,https://www.iceland.co.uk/p/x/50375.html
+50383,g,,885,212,11,4.7,21,1.9,,8.3,0.89,2026-11-18,https://www.iceland.co.uk/p/x/50383.html
+50384,g,,899,215,10,3.7,24,2.8,,5.5,0.9,2026-11-18,https://www.iceland.co.uk/p/x/50384.html
+50386,g,,1298,312,18,6.6,29,2.3,,8.3,0.90,2026-11-18,https://www.iceland.co.uk/p/x/50386.html
+50388,g,,1070,256,13,5.3,29,2.7,,6.3,0.75,2026-11-18,https://www.iceland.co.uk/p/x/50388.html
 50399,g,,258,61,0.4,0.2,7.9,7.2,0.4,6.3,0.3,2026-11-17,https://www.iceland.co.uk/p/x/50399.html
 50403,g,fried,692,165,7.4,3.7,1.1,0.1,1.2,22.9,1.3,2026-11-18,https://www.iceland.co.uk/p/x/50403.html
 50404,g,fried,736,177,9.7,2.8,4.1,2.3,4.9,15.6,1.1,2026-11-17,https://www.iceland.co.uk/p/x/50404.html
 50455,g,,1233,297,22.0,9.6,4.9,0.2,2.9,18.5,2.2,2026-11-17,https://www.iceland.co.uk/p/x/50455.html
 50459,g,,182,43,0.6,0.2,3.2,1.9,4.0,4.3,0.0,2026-11-17,https://www.iceland.co.uk/p/x/50459.html
 50631,g,fried,1004,240,11.3,2.1,19.0,2.1,1.1,14.9,1.7,2026-11-17,https://www.iceland.co.uk/p/x/50631.html
+50634,g,fried,1536,368,23.2,4.4,26.7,2.5,2.9,11.9,1.0,2026-11-18,https://www.iceland.co.uk/p/x/50634.html
 50635,g,fried,875,209,11.2,3.9,2.9,2.3,0.2,24.1,1.3,2026-11-17,https://www.iceland.co.uk/p/x/50635.html
 50637,g,fried,1150,276,17.4,2.8,10.8,0.3,1.3,18.4,1.1,2026-11-17,https://www.iceland.co.uk/p/x/50637.html
 50646,g,fried,1167,280,19.5,5.3,6.0,0.2,1.0,19.6,1.1,2026-11-17,https://www.iceland.co.uk/p/x/50646.html
@@ -400,62 +608,116 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 50652,g,fried,773,184,8.5,2.2,9.7,8.4,1.4,16.8,0.9,2026-11-17,https://www.iceland.co.uk/p/x/50652.html
 50653,g,oven cooked,1398,334,15.1,8.1,40.8,2.5,2.4,7.5,0.7,2026-11-18,https://www.iceland.co.uk/p/x/50653.html
 50654,g,oven cooked,1453,347,17.0,9.4,39.9,2.2,2.4,7.4,0.9,2026-11-18,https://www.iceland.co.uk/p/x/50654.html
+50656,g,oven cooked,1024,244,9.5,3.3,26.1,2.9,1.7,12.8,1.5,2026-11-18,https://www.iceland.co.uk/p/x/50656.html
 50699,g,oven cooked,436,103,1.3,0.3,11.9,1.1,2.8,9.7,0.5,2026-11-18,https://www.iceland.co.uk/p/x/50699.html
 50701,g,oven cooked,422,100,2.1,0.6,13.5,0.5,3.0,5.4,0.7,2026-11-18,https://www.iceland.co.uk/p/x/50701.html
 50836,g,fried,737,176,9.0,3.2,1.0,0.1,0.5,22.5,0.3,2026-11-17,https://www.iceland.co.uk/p/x/50836.html
+50837,g,,367,86,0.5,0.1,4.3,0.1,0.6,15.9,0.8,2026-11-18,https://www.iceland.co.uk/p/x/50837.html
 50876,g,oven cooked,337,80,1.1,0.4,10.0,2.8,1.3,6.8,0.5,2026-11-17,https://www.iceland.co.uk/p/x/50876.html
+50893,g,microwaved,382,90,0.9,0.3,11.2,2.6,1.4,8.7,0.5,2026-11-18,https://www.iceland.co.uk/p/x/50893.html
+50894,g,oven cooked,303,72,0.6,0.2,9.4,1.4,1.2,6.5,0.4,2026-11-18,https://www.iceland.co.uk/p/x/50894.html
+50895,g,microwaved,349,83,1.2,0.5,11.1,2.4,2.0,5.9,0.6,2026-11-18,https://www.iceland.co.uk/p/x/50895.html
+50931,g,microwaved,338,80,0.5,0.2,12.4,1.9,1.0,6.0,0.3,2026-11-18,https://www.iceland.co.uk/p/x/50931.html
 50932,g,microwaved,361,85,0.7,0.3,13.3,1.8,1.1,5.8,0.3,2026-11-17,https://www.iceland.co.uk/p/x/50932.html
+50933,g,oven cooked,379,90,0.9,0.3,9.9,2.3,1.5,9.8,0.6,2026-11-18,https://www.iceland.co.uk/p/x/50933.html
 51037,g,oven cooked,1030,247,14.4,2.5,19.4,0.9,1.1,9.4,0.9,2026-11-18,https://www.iceland.co.uk/p/x/51037.html
 51109,g,oven cooked,1104,265,16.1,3.2,19.1,1.1,1.1,10.3,0.7,2026-11-17,https://www.iceland.co.uk/p/x/51109.html
 51110,g,oven cooked,1104,265,16.1,3.2,19.1,1.1,1.1,10.3,0.7,2026-11-18,https://www.iceland.co.uk/p/x/51110.html
 51111,g,oven cooked,1047,251,14.6,2.3,18.9,1.2,1.0,10.4,0.8,2026-11-17,https://www.iceland.co.uk/p/x/51111.html
 51112,g,oven cooked,1047,251,14.6,2.3,18.9,1.2,1.0,10.4,0.8,2026-11-18,https://www.iceland.co.uk/p/x/51112.html
 51113,g,oven cooked,1096,263,17.2,3.1,17.3,0.7,1.1,9.3,0.8,2026-11-17,https://www.iceland.co.uk/p/x/51113.html
+51279,g,microwaved,657,157,6.4,3.9,12.5,1.7,0.9,11.7,1.0,2026-11-18,https://www.iceland.co.uk/p/x/51279.html
 51293,g,,592,140,2.6,0.8,4.5,4.4,1.1,24.1,0.7,2026-11-17,https://www.iceland.co.uk/p/x/51293.html
 51319,g,oven cooked,520,124,3.5,0.8,18.3,2.5,1.1,4.1,0.6,2026-11-18,https://www.iceland.co.uk/p/x/51319.html
 51347,g,,540,128,3.1,0.8,3.5,1.4,1.0,21.1,0.7,2026-11-17,https://www.iceland.co.uk/p/x/51347.html
 51363,g,fried,655,155,2.4,0.4,4.0,2.7,0.0,29.3,0.8,2026-11-18,https://www.iceland.co.uk/p/x/51363.html
 51417,g,fried,654,154,1.3,0.4,5.6,2.8,0.0,30.1,0.7,2026-11-17,https://www.iceland.co.uk/p/x/51417.html
+51419,g,fried,433,103,3.7,0.5,10.6,2.1,2.2,5.8,0.6,2026-11-18,https://www.iceland.co.uk/p/x/51419.html
 51421,g,fried,656,155,2.0,0.4,5.9,4.4,0.0,28.3,1.0,2026-11-17,https://www.iceland.co.uk/p/x/51421.html
 51422,g,fried,1032,246,11.4,2.0,19.8,0.3,1.2,15.7,1.0,2026-11-17,https://www.iceland.co.uk/p/x/51422.html
 51423,g,fried,982,234,10.7,1.9,18.0,0.0,1.2,15.9,0.8,2026-11-17,https://www.iceland.co.uk/p/x/51423.html
+51424,g,fried,538,128,5.2,0.6,13.9,3.3,1.6,5.6,0.5,2026-11-18,https://www.iceland.co.uk/p/x/51424.html
+51427,g,oven cooked,707,169,8.9,5.3,10.7,0.9,0.7,11.3,0.6,2026-11-18,https://www.iceland.co.uk/p/x/51427.html
+51430,g,,746,179,9.7,4.8,14.0,2.8,1.0,8.3,0.9,2026-11-18,https://www.iceland.co.uk/p/x/51430.html
 51431,g,fried,1122,268,13.3,2.4,20.6,0.7,1.4,15.7,0.9,2026-11-17,https://www.iceland.co.uk/p/x/51431.html
 51434,g,fried,1148,274,14.0,2.4,20.6,0.6,1.4,15.8,1.0,2026-11-17,https://www.iceland.co.uk/p/x/51434.html
 51435,g,fried,1284,308,17.9,3.8,17.0,1.7,0.7,19.4,1.5,2026-11-17,https://www.iceland.co.uk/p/x/51435.html
 51490,g,microwaved,539,128,2.4,0.5,14.0,4.2,1.6,11.8,0.5,2026-11-17,https://www.iceland.co.uk/p/x/51490.html
+51574,g,microwaved,538,128,4.2,1.5,14.2,1.6,1.3,7.7,0.9,2026-11-18,https://www.iceland.co.uk/p/x/51574.html
+51589,g,microwaved,546,130,5.2,2.0,10.9,1.6,1.4,9.3,0.8,2026-11-18,https://www.iceland.co.uk/p/x/51589.html
+51604,g,microwaved,691,165,6.4,3.0,16.5,2.5,1.8,9.4,1.0,2026-11-18,https://www.iceland.co.uk/p/x/51604.html
+51612,g,microwaved,851,204,11.4,6.6,15.7,0.6,0.8,9.1,0.8,2026-11-18,https://www.iceland.co.uk/p/x/51612.html
 51624,g,oven cooked,1081,260,17.5,9.3,13.9,2.9,3.0,10.2,1.1,2026-11-17,https://www.iceland.co.uk/p/x/51624.html
 51625,g,grilled,1194,287,20.6,10.1,1.6,0.1,0.3,23.7,0.7,2026-11-17,https://www.iceland.co.uk/p/x/51625.html
+51781,g,oven cooked,716,171,8.1,4.2,13.4,0.7,0.9,10.8,0.7,2026-11-18,https://www.iceland.co.uk/p/x/51781.html
+51782,g,oven cooked,888,213,12.0,5.5,16.1,1.7,1.2,9.4,0.9,2026-11-18,https://www.iceland.co.uk/p/x/51782.html
 51783,g,oven cooked,611,146,5.5,1.5,3.6,1.9,0.9,20.0,1.5,2026-11-17,https://www.iceland.co.uk/p/x/51783.html
 51794,g,grilled,1150,276,17.3,8.7,5.6,0.1,0.5,24.1,0.8,2026-11-17,https://www.iceland.co.uk/p/x/51794.html
 51795,g,oven cooked,1095,263,17.8,8.9,5.2,5.2,0.3,20.3,1.3,2026-11-17,https://www.iceland.co.uk/p/x/51795.html
 51821,g,fried,1036,248,14.4,5.1,17.5,1.1,2.5,11.0,1.7,2026-11-18,https://www.iceland.co.uk/p/x/51821.html
+51838,g,microwaved,483,115,2.3,1.2,10.7,1.2,1.4,12.1,0.5,2026-11-18,https://www.iceland.co.uk/p/x/51838.html
+51843,g,fried,1185,284,15.4,1.2,31.2,0.8,4.5,2.9,1.3,2026-11-18,https://www.iceland.co.uk/p/x/51843.html
+51874,g,oven cooked,790,189,11.3,4.0,15.0,1.3,1.6,6.2,1.1,2026-11-18,https://www.iceland.co.uk/p/x/51874.html
+51875,g,as consumed,1306,313,17.5,6.4,25.5,2.0,1.6,12.4,1.6,2026-11-18,https://www.iceland.co.uk/p/x/51875.html
 51954,g,,547,131,9.0,2.5,0.0,0.0,0.0,12.6,0.39,2026-11-17,https://www.iceland.co.uk/p/x/51954.html
+51971,g,oven cooked,1238,295,12.5,5.7,32.5,2.8,2.0,12.2,1.6,2026-11-18,https://www.iceland.co.uk/p/x/51971.html
+51972,g,oven cooked,1197,286,12.7,7.0,29.6,2.7,1.8,12.3,1.3,2026-11-18,https://www.iceland.co.uk/p/x/51972.html
+51975,g,oven cooked,965,230,7.4,2.9,28.9,3.5,1.8,10.9,1.4,2026-11-18,https://www.iceland.co.uk/p/x/51975.html
+51977,g,oven cooked,966,230,6.7,2.4,31.4,6.8,2.1,10.0,1.4,2026-11-18,https://www.iceland.co.uk/p/x/51977.html
+51981,g,oven cooked,1105,263,10.3,4.1,30.5,6.1,1.7,11.3,1.5,2026-11-18,https://www.iceland.co.uk/p/x/51981.html
+51985,g,oven cooked,984,234,8.1,3.3,29.6,3.4,2.1,9.6,1.2,2026-11-18,https://www.iceland.co.uk/p/x/51985.html
+51986,g,oven cooked,1120,267,10.4,4.7,30.3,2.9,1.9,12.1,1.5,2026-11-18,https://www.iceland.co.uk/p/x/51986.html
+51987,g,oven cooked,933,222,6.7,2.9,30.3,4.1,2.3,8.9,1.1,2026-11-18,https://www.iceland.co.uk/p/x/51987.html
+51988,g,oven cooked,1270,303,13.4,7.2,34.1,3.6,3.2,10.0,0.8,2026-11-18,https://www.iceland.co.uk/p/x/51988.html
 51993,g,fried,944,226,12.0,3.7,6.3,4.4,1.0,22.7,0.8,2026-11-17,https://www.iceland.co.uk/p/x/51993.html
 51995,g,oven cooked,946,226,13.0,3.5,2.5,1.7,0.2,24.8,0.3,2026-11-17,https://www.iceland.co.uk/p/x/51995.html
 51996,g,oven cooked,791,188,8.0,2.3,8.8,7.4,0.7,19.9,1.5,2026-11-17,https://www.iceland.co.uk/p/x/51996.html
 52066,g,microwaved,354,84,1.0,0.3,9.5,1.9,1.5,8.5,0.5,2026-11-18,https://www.iceland.co.uk/p/x/52066.html
 52083,g,oven cooked,641,153,7.9,4.1,5.4,0.7,0.3,14.9,0.6,2026-11-17,https://www.iceland.co.uk/p/x/52083.html
 52084,g,oven cooked,704,168,7.2,3.0,7.6,6.0,0.1,18.1,0.7,2026-11-18,https://www.iceland.co.uk/p/x/52084.html
+52085,g,microwaved,639,151,2.7,0.2,31.1,27.3,0.5,0.4,0.5,2026-11-18,https://www.iceland.co.uk/p/x/52085.html
 52092,g,grilled,969,233,15.1,6.8,3.9,1.0,0.8,19.7,1.0,2026-11-18,https://www.iceland.co.uk/p/x/52092.html
+52093,g,microwaved,552,131,2.8,0.7,21.7,1.2,1.9,3.7,0.6,2026-11-18,https://www.iceland.co.uk/p/x/52093.html
+52094,g,microwaved,540,128,3.6,0.4,19.8,3.3,1.3,3.6,0.8,2026-11-18,https://www.iceland.co.uk/p/x/52094.html
+52121,g,fried,1179,282,14.0,2.1,33.8,1.0,2.7,3.9,1.6,2026-11-18,https://www.iceland.co.uk/p/x/52121.html
+52122,g,fried,1055,251,9.5,1.5,32.9,9.9,1.6,7.6,1.1,2026-11-18,https://www.iceland.co.uk/p/x/52122.html
+52125,g,fried,1314,314,15.8,2.5,30.3,2.5,2.8,11.3,1.1,2026-11-18,https://www.iceland.co.uk/p/x/52125.html
+52126,g,microwaved,905,218,17.3,7.9,6.6,4.7,1.3,8.3,0.8,2026-11-18,https://www.iceland.co.uk/p/x/52126.html
+52127,g,oven cooked,1280,306,16.1,4.3,27.2,1.0,1.7,12.2,1.1,2026-11-18,https://www.iceland.co.uk/p/x/52127.html
 52128,g,oven cooked,1066,256,15.7,5.8,1.0,0.5,1.1,26.9,1.4,2026-11-18,https://www.iceland.co.uk/p/x/52128.html
 52129,g,oven cooked,703,167,3.1,1.1,7.9,7.6,1.0,26.2,2.4,2026-11-18,https://www.iceland.co.uk/p/x/52129.html
 52133,g,oven cooked,1049,251,12.4,1.5,30.5,3.4,2.0,3.4,0.9,2026-11-17,https://www.iceland.co.uk/p/x/52133.html
 52225,g,fried,1006,242,16.5,7.3,8.4,0.8,0.4,14.7,0.9,2026-11-18,https://www.iceland.co.uk/p/x/52225.html
 52255,g,fried,858,204,6.7,0.8,31.7,0.2,3.2,2.7,0.7,2026-11-17,https://www.iceland.co.uk/p/x/52255.html
+52258,g,fried,1546,370,19.6,7.1,38.7,1.0,2.6,8.5,1.2,2026-11-18,https://www.iceland.co.uk/p/x/52258.html
 52262,g,as consumed,448,106,2.0,0.9,0.3,0.3,0.0,21.8,1.6,2026-11-17,https://www.iceland.co.uk/p/x/52262.html
 52268,g,microwaved,509,121,2.2,0.2,22.0,1.6,1.4,2.6,0.6,2026-11-18,https://www.iceland.co.uk/p/x/52268.html
+52269,g,oven cooked,620,148,7.3,3.7,9.7,1.5,1.2,10.5,0.8,2026-11-18,https://www.iceland.co.uk/p/x/52269.html
 52272,g,fried,1213,290,14.1,2.2,32.9,2.1,4.0,5.9,1.2,2026-11-18,https://www.iceland.co.uk/p/x/52272.html
+52273,g,fried,1042,250,13.1,1.4,23.7,5.7,6.5,6.0,1.6,2026-11-18,https://www.iceland.co.uk/p/x/52273.html
+52274,g,fried,1028,246,10.1,1.3,30.9,4.6,4.9,5.3,1.3,2026-11-18,https://www.iceland.co.uk/p/x/52274.html
+52308,g,fried,769,183,6.1,1.0,21.3,5.7,0.6,10.2,0.9,2026-11-18,https://www.iceland.co.uk/p/x/52308.html
+52330,g,fried,898,214,8.0,0.9,30.8,0.8,3.6,3.0,1.1,2026-11-18,https://www.iceland.co.uk/p/x/52330.html
+52373,g,oven cooked,1144,273,10.6,6.6,30.7,2.3,2.1,12.6,1.1,2026-11-18,https://www.iceland.co.uk/p/x/52373.html
+52379,g,fried,1033,247,10.7,1.2,33.0,0.3,3.4,2.9,0.9,2026-11-18,https://www.iceland.co.uk/p/x/52379.html
 52441,g,oven cooked,649,155,7.1,1.6,15.9,1.5,1.2,6.3,0.6,2026-11-18,https://www.iceland.co.uk/p/x/52441.html
 52543,g,,1113,266,26,2.6,6.1,2.3,<0.5,<0.5,1.7,2026-11-17,https://www.iceland.co.uk/p/x/52543.html
 52547,g,as consumed,1238,297,17.5,7.7,22.3,7.6,1.4,11.9,1.7,2026-11-17,https://www.iceland.co.uk/p/x/52547.html
+52548,g,as consumed,1400,335,20.3,8.4,25.3,1.2,1.4,12.2,1.8,2026-11-18,https://www.iceland.co.uk/p/x/52548.html
+52550,g,fried,1294,310,17.0,7.3,26.8,0.8,2.4,11.1,1.0,2026-11-18,https://www.iceland.co.uk/p/x/52550.html
+52602,g,,1036,246,6.7,0.9,38.8,2.7,0.6,7.4,1.9,2026-11-18,https://www.iceland.co.uk/p/x/52602.html
 52691,g,,824,198,12.9,2.0,0.0,0.0,0.0,20.5,0.2,2026-11-17,https://www.iceland.co.uk/p/x/52691.html
 52744,g,fried,996,239,13.7,2.6,15.3,0.8,1.3,12.8,1.2,2026-11-17,https://www.iceland.co.uk/p/x/52744.html
 52752,g,fried,1040,249,13.4,3.6,19.0,0.8,1.4,12.3,1.3,2026-11-17,https://www.iceland.co.uk/p/x/52752.html
 52761,g,fried,1057,253,13.9,4.8,20.8,0.7,1.3,10.5,1.9,2026-11-17,https://www.iceland.co.uk/p/x/52761.html
+52788,g,fried,1098,262,12.5,2.2,32.8,3.3,1.1,4.0,1.0,2026-11-18,https://www.iceland.co.uk/p/x/52788.html
+52790,g,fried,973,232,9.1,1.4,26.0,6.2,3.2,9.9,1.0,2026-11-18,https://www.iceland.co.uk/p/x/52790.html
 52887,g,microwaved,802,191,5.3,2.9,23.6,3.6,2.0,11.2,0.7,2026-11-18,https://www.iceland.co.uk/p/x/52887.html
+52898,g,oven cooked,537,128,6.1,2.5,11.2,1.2,1.1,6.6,0.5,2026-11-18,https://www.iceland.co.uk/p/x/52898.html
 52983,g,fried,950,227,12.5,2.6,13.8,0.0,1.1,14.3,0.9,2026-11-17,https://www.iceland.co.uk/p/x/52983.html
 53002,g,oven cooked,1349,323,19.5,7.3,14.2,12.5,1.1,22.2,1.1,2026-11-17,https://www.iceland.co.uk/p/x/53002.html
 53005,g,oven cooked,854,203,7.5,2.9,9.3,8.1,1.0,24.1,0.6,2026-11-17,https://www.iceland.co.uk/p/x/53005.html
+53028,g,oven cooked,945,225,7.7,0.9,33.9,0.3,3.6,3.3,1.3,2026-11-18,https://www.iceland.co.uk/p/x/53028.html
 53257,g,,646,152,<0.5,<0.1,37,33,1.2,<0.5,<0.01,2026-11-17,https://www.iceland.co.uk/p/x/53257.html
 53301,g,fried,522,124,4.4,2.3,2.5,2.1,1.3,18.0,1.3,2026-11-17,https://www.iceland.co.uk/p/x/53301.html
 53488,g,oven cooked,576,137,5.2,1.4,0.1,0.1,0.5,22.2,0.24,2026-11-17,https://www.iceland.co.uk/p/x/53488.html
@@ -470,6 +732,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 53838,g,oven cooked,966,232,15.0,8.0,4.6,0.9,0.4,19.4,1.3,2026-11-17,https://www.iceland.co.uk/p/x/53838.html
 53839,g,grilled,969,233,15.1,6.8,3.9,1.0,0.8,19.7,1.0,2026-11-17,https://www.iceland.co.uk/p/x/53839.html
 53840,g,grilled,1076,258,16.4,8.2,10.0,5.4,0.6,17.2,1.0,2026-11-18,https://www.iceland.co.uk/p/x/53840.html
+53854,g,,1594,382,24,11,26,1.6,,15,1.8,2026-11-18,https://www.iceland.co.uk/p/x/53854.html
 53892,g,,755,182,13.1,5.6,2.4,1.9,0.7,13.1,0.14,2026-11-17,https://www.iceland.co.uk/p/x/53892.html
 53893,g,,1036,249,19.6,8.4,0.0,0.0,0.0,18.3,0.19,2026-11-17,https://www.iceland.co.uk/p/x/53893.html
 53946,g,,759,183,13.2,5.9,2.7,2.1,0.7,12.9,0.09,2026-11-17,https://www.iceland.co.uk/p/x/53946.html
@@ -478,10 +741,15 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 54083,g,fried,1006,242,16.5,7.3,8.4,0.8,0.4,14.7,0.9,2026-11-17,https://www.iceland.co.uk/p/x/54083.html
 54106,g,oven cooked,1178,282,16.6,3.2,22.3,0.9,1.7,10.2,0.8,2026-11-18,https://www.iceland.co.uk/p/x/54106.html
 54122,ml,,198,47,1.5,1.1,4.8,4.8,,3.6,0.13,2026-11-17,https://www.iceland.co.uk/p/x/54122.html
+54139,g,oven cooked,1201,287,13.2,9.7,28.3,2.9,1.6,13.0,1.2,2026-11-18,https://www.iceland.co.uk/p/x/54139.html
 54161,g,fried,656,155,2.0,0.4,5.5,3.9,0.5,28.5,0.88,2026-11-18,https://www.iceland.co.uk/p/x/54161.html
 54178,g,oven cooked,721,171,2.6,0.9,12.3,10.2,1.0,24.1,1.3,2026-11-17,https://www.iceland.co.uk/p/x/54178.html
+54186,g,oven cooked,1494,359,23.3,11.7,22.6,2.7,2.0,13.7,0.97,2026-11-18,https://www.iceland.co.uk/p/x/54186.html
 54238,g,fried,1034,247,10.3,4.6,28.7,1.4,2.5,8.6,1.1,2026-11-18,https://www.iceland.co.uk/p/x/54238.html
 54284,g,oven cooked,1342,322,18.4,7.3,23.5,2.3,3.0,14.0,0.8,2026-11-18,https://www.iceland.co.uk/p/x/54284.html
+54309,g,as consumed,523,125,6.9,1.2,3.4,1.9,0.1,12.3,1.1,2026-11-18,https://www.iceland.co.uk/p/x/54309.html
+54311,g,fried,1054,251,8.4,3.1,32.1,3.5,2.9,10.2,1.1,2026-11-18,https://www.iceland.co.uk/p/x/54311.html
+54315,g,fried,1148,273,9.6,3.5,36.5,3.9,2.1,9.2,1.3,2026-11-18,https://www.iceland.co.uk/p/x/54315.html
 54316,g,as consumed,973,232,9.1,1.4,26.0,6.2,3.2,9.9,1.0,2026-11-18,https://www.iceland.co.uk/p/x/54316.html
 54327,g,fried,1093,262,13.5,2.3,21.3,3.8,0.8,13.3,0.98,2026-11-18,https://www.iceland.co.uk/p/x/54327.html
 54328,g,fried,985,235,10.5,1.8,19.9,1.3,0.6,14.8,0.97,2026-11-18,https://www.iceland.co.uk/p/x/54328.html
@@ -489,27 +757,43 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 54331,g,fried,1098,262,12.5,2.2,32.8,3.3,1.1,4.0,1.0,2026-11-18,https://www.iceland.co.uk/p/x/54331.html
 54390,g,,150,35,0.2,0.1,6.6,4.7,0.7,1.4,1.5,2026-11-17,https://www.iceland.co.uk/p/x/54390.html
 54475,g,cooked,658,157,6.2,2.7,0.7,0.7,0.7,24.2,0.6,2026-11-17,https://www.iceland.co.uk/p/x/54475.html
+54491,g,oven cooked,1041,248,10.3,6.6,22.0,2.5,1.4,16.2,1.1,2026-11-18,https://www.iceland.co.uk/p/x/54491.html
+54519,g,baked,1214,291,19,9.2,22,0.8,,7.5,1.0,2026-11-18,https://www.iceland.co.uk/p/x/54519.html
 54529,g,,579,138,7.2,1.7,0.1,0.1,0.1,18.3,0.18,2026-11-17,https://www.iceland.co.uk/p/x/54529.html
 54563,g,fried,1086,260,13.0,1.7,17.9,0.9,0.5,17.4,0.95,2026-11-17,https://www.iceland.co.uk/p/x/54563.html
 54564,g,fried,1340,321,17.5,3.0,19.0,0.5,0.7,21.4,1.3,2026-11-17,https://www.iceland.co.uk/p/x/54564.html
+54786,g,fried,1405,336,16.6,2.7,42.9,2.7,1.7,2.9,1.8,2026-11-18,https://www.iceland.co.uk/p/x/54786.html
 54801,g,fried,1350,322,12.7,4.3,41.5,10.7,1.4,9.7,1.3,2026-11-17,https://www.iceland.co.uk/p/x/54801.html
 54802,g,fried,1076,257,10.8,2.0,23.4,4.0,1.3,16.0,1.1,2026-11-17,https://www.iceland.co.uk/p/x/54802.html
 54822,g,fried,970,231,8.9,1.8,20.4,2.8,1.1,16.8,0.58,2026-11-17,https://www.iceland.co.uk/p/x/54822.html
 54824,g,fried,1011,241,9.0,1.6,22.8,1.0,1.3,16.3,1.0,2026-11-18,https://www.iceland.co.uk/p/x/54824.html
 54825,g,fried,1232,295,14.2,2.7,24.5,2.6,1.4,16.5,1.4,2026-11-18,https://www.iceland.co.uk/p/x/54825.html
 54827,g,fried,1225,293,15.4,2.9,21.6,1.3,1.3,16.4,1.1,2026-11-17,https://www.iceland.co.uk/p/x/54827.html
+54834,g,oven cooked,709,170,8.5,1.5,20.4,6.8,2.4,1.6,1.7,2026-11-18,https://www.iceland.co.uk/p/x/54834.html
 54839,g,microwaved,534,127,2.7,1.4,11.9,1.7,1.6,12.8,0.55,2026-11-18,https://www.iceland.co.uk/p/x/54839.html
+54840,g,microwaved,552,131,2.5,1.3,12.3,2.6,1.6,13.9,0.46,2026-11-18,https://www.iceland.co.uk/p/x/54840.html
 54841,g,microwaved,542,128,2.5,1.0,12.3,1.4,2.1,13.1,0.45,2026-11-18,https://www.iceland.co.uk/p/x/54841.html
 54924,g,,467,110,1.3,0.6,1.5,0.7,0.1,23.2,0.11,2026-11-17,https://www.iceland.co.uk/p/x/54924.html
+54969,g,oven cooked,877,209,6.1,0.7,32.7,0.6,4.8,3.3,0.3,2026-11-18,https://www.iceland.co.uk/p/x/54969.html
 54978,g,microwaved,346,82,2.0,1.2,11.6,3.2,1.2,3.8,0.5,2026-11-18,https://www.iceland.co.uk/p/x/54978.html
+55148,g,oven cooked,907,217,11.1,2.0,18.0,0.9,1.0,10.8,1.0,2026-11-18,https://www.iceland.co.uk/p/x/55148.html
+55205,g,microwaved,732,175,8.6,1.2,5.7,5.6,0.8,18.3,0.55,2026-11-18,https://www.iceland.co.uk/p/x/55205.html
+55255,g,fried,431,102,2.5,0.5,5.8,5.4,0.9,13.6,1.4,2026-11-18,https://www.iceland.co.uk/p/x/55255.html
+55260,g,fried,455,108,3.3,0.7,4.4,4.3,0.9,14.8,1.1,2026-11-18,https://www.iceland.co.uk/p/x/55260.html
+55261,g,microwaved,708,169,9.6,1.2,3.3,2.5,0.8,17.0,0.67,2026-11-18,https://www.iceland.co.uk/p/x/55261.html
 55264,g,grilled,1243,299,21.3,9.5,0.0,0.0,0.0,26.7,0.8,2026-11-18,https://www.iceland.co.uk/p/x/55264.html
 55301,g,,387,92,2.2,0.3,0.0,0.0,0.0,18.0,0.25,2026-11-17,https://www.iceland.co.uk/p/x/55301.html
+55316,g,fried,721,172,7.8,0.9,1.0,0.1,0.7,24.1,0.29,2026-11-18,https://www.iceland.co.uk/p/x/55316.html
 55372,g,,359,85,0.6,0.1,12.5,4.7,5.9,4.6,0.60,2026-11-17,https://www.iceland.co.uk/p/x/55372.html
 55373,g,,359,85,0.6,0.1,12.5,4.7,5.9,4.6,0.60,2026-11-17,https://www.iceland.co.uk/p/x/55373.html
+55431,g,,562,134,6.1,1.8,0.0,0.0,0.0,19.8,0.35,2026-11-18,https://www.iceland.co.uk/p/x/55431.html
+55481,g,fried,648,155,6.9,1.2,14.0,0.2,0.4,9.0,0.49,2026-11-18,https://www.iceland.co.uk/p/x/55481.html
 5551,g,,339,81,0.4,0.1,15.5,4.3,3.9,4.8,0.6,2026-11-17,https://www.iceland.co.uk/p/x/5551.html
 55562,g,,521,124,4.9,2.2,1.2,0.1,0.5,18.6,0.27,2026-11-17,https://www.iceland.co.uk/p/x/55562.html
 55573,g,,496,118,4.9,2.2,0.0,0.0,0.0,18.6,0.3,2026-11-17,https://www.iceland.co.uk/p/x/55573.html
+55574,g,fried,997,238,9.4,1.6,33.3,4.5,2.2,3.9,1.00,2026-11-18,https://www.iceland.co.uk/p/x/55574.html
 55577,g,fried,754,180,8.9,2.7,4.9,3.8,0.3,20.0,1.3,2026-11-17,https://www.iceland.co.uk/p/x/55577.html
+55615,g,oven cooked,606,145,7.6,4.9,13.8,1.4,1.4,4.6,0.75,2026-11-18,https://www.iceland.co.uk/p/x/55615.html
 5562,g,,255,60,0.2,,12.5,3.5,0.8,1.6,0.3,2026-11-17,https://www.iceland.co.uk/p/x/5562.html
 55657,g,fried,517,123,5.1,1.1,13.4,1.8,0.7,5.6,0.56,2026-11-18,https://www.iceland.co.uk/p/x/55657.html
 55659,g,fried,699,166,6.3,2.3,17.2,2.5,1.4,9.5,0.5,2026-11-18,https://www.iceland.co.uk/p/x/55659.html
@@ -517,6 +801,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 55713,g,fried,1095,262,15.0,2.5,17.2,1.5,3.5,13.0,0.99,2026-11-18,https://www.iceland.co.uk/p/x/55713.html
 55714,g,fried,1222,294,18.9,3.4,16.4,2.1,3.3,12.9,0.88,2026-11-18,https://www.iceland.co.uk/p/x/55714.html
 55765,g,fried,476,113,3.0,0.2,15.4,1.7,1.4,5.4,0.7,2026-11-18,https://www.iceland.co.uk/p/x/55765.html
+55797,g,oven cooked,965,231,12.5,3.0,25.4,0.5,2.6,3.0,1.0,2026-11-18,https://www.iceland.co.uk/p/x/55797.html
 55841,g,,547,131,9.0,2.5,0.0,0.0,0.0,12.6,0.39,2026-11-17,https://www.iceland.co.uk/p/x/55841.html
 55874,g,grilled,978,235,15.0,6.8,5.4,0.3,0.6,19.3,1.0,2026-11-18,https://www.iceland.co.uk/p/x/55874.html
 55913,g,fried,893,213,11.5,3.4,7.6,5.7,0.0,19.9,0.86,2026-11-17,https://www.iceland.co.uk/p/x/55913.html
@@ -528,6 +813,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 56179,g,microwaved,739,176,4.8,1.8,22.7,3.3,1.8,9.5,0.83,2026-11-18,https://www.iceland.co.uk/p/x/56179.html
 56189,g,microwaved,895,215,13.0,5.7,7.0,3.5,2.5,16.1,1.1,2026-11-18,https://www.iceland.co.uk/p/x/56189.html
 56191,g,oven cooked,588,140,6.1,1.4,10.5,4.5,2.2,9.9,0.86,2026-11-18,https://www.iceland.co.uk/p/x/56191.html
+56233,g,microwaved,493,117,2.7,1.2,5.7,3.4,0.5,17.1,0.40,2026-11-18,https://www.iceland.co.uk/p/x/56233.html
 56240,g,microwaved,503,119,3.0,0.7,6.4,3.0,1.9,15.8,0.66,2026-11-18,https://www.iceland.co.uk/p/x/56240.html
 56285,g,microwaved,449,106,1.3,0.4,8.3,2.2,1.6,14.5,0.43,2026-11-18,https://www.iceland.co.uk/p/x/56285.html
 56287,g,microwaved,518,123,2.9,1.0,8.2,1.5,1.2,15.4,0.59,2026-11-18,https://www.iceland.co.uk/p/x/56287.html
@@ -537,65 +823,128 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 56455,g,as consumed,542,128,1.8,0.6,0.0,0.0,0.0,27.9,0.7,2026-11-18,https://www.iceland.co.uk/p/x/56455.html
 56456,g,as consumed,542,128,1.8,0.6,0.0,0.0,0.0,27.9,0.7,2026-11-17,https://www.iceland.co.uk/p/x/56456.html
 56464,g,microwaved,440,105,2.7,1.3,5.8,4.9,0.9,13.8,0.62,2026-11-18,https://www.iceland.co.uk/p/x/56464.html
+56471,g,microwaved,536,127,4.0,2.0,6.7,4.7,0.9,15.6,0.38,2026-11-18,https://www.iceland.co.uk/p/x/56471.html
+56493,g,oven cooked,379,89,0.3,0.1,0.1,0.1,0.5,21.4,1.6,2026-11-18,https://www.iceland.co.uk/p/x/56493.html
 56515,g,microwaved,442,105,2.5,1.1,5.6,2.5,1.0,14.6,0.53,2026-11-18,https://www.iceland.co.uk/p/x/56515.html
+56517,g,microwaved,459,108,1.6,0.4,6.2,6.1,0.5,17.0,0.35,2026-11-18,https://www.iceland.co.uk/p/x/56517.html
 56518,g,microwaved,455,108,2.6,0.9,6.6,0.9,1.6,13.9,0.83,2026-11-17,https://www.iceland.co.uk/p/x/56518.html
 56519,g,oven cooked,979,234,12.4,4.1,3.3,2.9,1.0,26.8,2.5,2026-11-17,https://www.iceland.co.uk/p/x/56519.html
 56551,g,oven cooked,972,232,12.2,6.2,19.0,1.2,1.1,11.0,1.4,2026-11-18,https://www.iceland.co.uk/p/x/56551.html
+56552,g,,364,86,0.5,0.1,19.8,1.7,2.5,1.8,,2026-11-18,https://www.iceland.co.uk/p/x/56552.html
 56599,g,oven cooked,362,86,3.9,2.4,6.4,0.4,0.8,6.1,0.46,2026-11-18,https://www.iceland.co.uk/p/x/56599.html
 56650,g,oven cooked,639,152,6.3,4.0,12.1,0.6,1.6,11.0,0.93,2026-11-18,https://www.iceland.co.uk/p/x/56650.html
+56651,g,fried,962,230,12.2,1.0,18.5,0.7,1.9,10.6,0.59,2026-11-18,https://www.iceland.co.uk/p/x/56651.html
 56661,g,oven cooked,658,156,4.7,1.8,2.1,0.8,1.0,25.9,1.2,2026-11-17,https://www.iceland.co.uk/p/x/56661.html
 56664,g,,1189,284,15.2,3.9,28.4,3.6,1.8,7.7,0.87,2026-11-18,https://www.iceland.co.uk/p/x/56664.html
 56665,g,oven cooked,802,192,10.3,3.9,0.6,0.5,0.6,23.9,0.38,2026-11-18,https://www.iceland.co.uk/p/x/56665.html
 56667,g,fried,1063,255,14.8,5.7,15.8,9.8,1.7,13.6,2.7,2026-11-17,https://www.iceland.co.uk/p/x/56667.html
+56669,g,as consumed,334,79,0.0,0.0,14.5,12.0,0.0,5.1,0.14,2026-11-18,https://www.iceland.co.uk/p/x/56669.html
+56672,g,oven cooked,1343,321,15.8,8.4,31.3,1.2,1.9,12.4,1.2,2026-11-18,https://www.iceland.co.uk/p/x/56672.html
+56675,g,oven cooked,1060,254,15.5,8.5,21.7,1.7,2.5,5.7,0.89,2026-11-18,https://www.iceland.co.uk/p/x/56675.html
+56677,g,oven cooked,1051,252,14.6,8.2,19.0,1.5,3.0,9.6,0.82,2026-11-18,https://www.iceland.co.uk/p/x/56677.html
+56678,g,oven cooked,1060,253,10.6,5.2,25.9,2.0,2.2,12.3,1.3,2026-11-18,https://www.iceland.co.uk/p/x/56678.html
+56679,g,oven cooked,1050,250,9.9,5.3,26.1,1.9,2.0,13.2,1.2,2026-11-18,https://www.iceland.co.uk/p/x/56679.html
+56680,g,oven cooked,976,232,6.7,2.4,32.7,6.0,2.3,9.1,1.2,2026-11-18,https://www.iceland.co.uk/p/x/56680.html
+56682,g,oven cooked,895,212,4.9,1.6,31.6,2.8,2.3,9.3,1.1,2026-11-18,https://www.iceland.co.uk/p/x/56682.html
+56683,g,oven cooked,1275,303,8.4,3.2,47.5,11.7,2.8,8.0,1.2,2026-11-18,https://www.iceland.co.uk/p/x/56683.html
+56694,g,oven cooked,952,228,10.9,3.5,27.7,0.6,3.2,3.0,0.65,2026-11-18,https://www.iceland.co.uk/p/x/56694.html
+56695,g,,681,163,8.0,5.1,7.4,2.2,0.0,15.0,1.5,2026-11-18,https://www.iceland.co.uk/p/x/56695.html
+56697,g,,779,187,12.0,5.7,4.8,0.9,0.0,14.0,1.4,2026-11-18,https://www.iceland.co.uk/p/x/56697.html
+56698,g,microwaved,432,103,2.9,0.5,7.6,4.5,0.5,11.3,0.86,2026-11-18,https://www.iceland.co.uk/p/x/56698.html
+56699,g,microwaved,660,156,2.4,0.6,16.1,0.4,1.2,17.0,0.66,2026-11-18,https://www.iceland.co.uk/p/x/56699.html
+56700,g,microwaved,483,114,1.4,0.3,18.7,1.9,1.5,6.0,0.32,2026-11-18,https://www.iceland.co.uk/p/x/56700.html
 56701,g,fried,629,150,7.4,2.5,2.5,1.2,1.6,17.7,1.4,2026-11-17,https://www.iceland.co.uk/p/x/56701.html
+56704,g,oven cooked,827,198,9.8,5.2,15.4,2.8,1.1,11.4,1.1,2026-11-18,https://www.iceland.co.uk/p/x/56704.html
 56706,g,oven cooked,768,184,9.0,5.3,13.6,1.1,1.2,11.5,0.82,2026-11-18,https://www.iceland.co.uk/p/x/56706.html
+56707,g,oven cooked,675,161,5.4,1.9,18.8,2.1,2.2,8.2,1.1,2026-11-18,https://www.iceland.co.uk/p/x/56707.html
+56708,g,oven cooked,678,161,5.5,1.7,23.8,1.8,2.8,2.7,0.15,2026-11-18,https://www.iceland.co.uk/p/x/56708.html
+56729,g,oven cooked,1240,298,19.1,9.0,21.8,1.2,1.5,9.0,0.6,2026-11-18,https://www.iceland.co.uk/p/x/56729.html
+56730,g,oven cooked,1093,262,14.7,6.0,22.6,1.0,1.7,9.0,0.6,2026-11-18,https://www.iceland.co.uk/p/x/56730.html
 56765,g,fried,618,148,7.0,0.9,16.0,1.7,0.6,4.9,0.73,2026-11-18,https://www.iceland.co.uk/p/x/56765.html
+56795,g,oven cooked,1400,335,17.0,8.4,32.0,1.1,1.8,12.6,1.6,2026-11-18,https://www.iceland.co.uk/p/x/56795.html
+56812,g,oven cooked,762,182,8.2,2.2,18.0,1.8,2.1,8.0,0.90,2026-11-18,https://www.iceland.co.uk/p/x/56812.html
 56819,g,oven cooked,864,206,8.5,2.3,21.3,2.2,4.4,9.0,0.86,2026-11-18,https://www.iceland.co.uk/p/x/56819.html
 56823,g,,734,176,9.9,3.1,5.3,1.5,1.8,15.4,1.6,2026-11-17,https://www.iceland.co.uk/p/x/56823.html
 56833,g,,714,171,10.2,4.1,7.3,3.8,1.7,11.6,1.5,2026-11-17,https://www.iceland.co.uk/p/x/56833.html
 56834,g,,642,154,8.7,3.6,7.0,3.2,2.2,10.8,1.6,2026-11-17,https://www.iceland.co.uk/p/x/56834.html
 56845,g,as consumed,99,24,0.5,,3.2,2.3,2.2,1.9,,2026-11-17,https://www.iceland.co.uk/p/x/56845.html
+56872,g,oven cooked,829,197,5.9,0.7,31,0.6,3.2,3.1,0.22,2026-11-18,https://www.iceland.co.uk/p/x/56872.html
+56875,g,oven cooked,315,75,1.7,0.2,12.6,0.1,1.8,1.4,0.13,2026-11-18,https://www.iceland.co.uk/p/x/56875.html
+56882,g,fried,1368,327,13.7,1.7,43.0,0.4,6.2,4.7,0.17,2026-11-18,https://www.iceland.co.uk/p/x/56882.html
+56883,g,fried,1008,240,8.3,1.0,35.3,0.2,4.5,3.9,1.9,2026-11-18,https://www.iceland.co.uk/p/x/56883.html
+56921,g,microwaved,678,162,8.6,5.7,17.8,0.3,2.2,2.3,0.79,2026-11-18,https://www.iceland.co.uk/p/x/56921.html
 57037,g,,1291,305,1.4,0.2,64.0,55.0,4.5,6.8,19.50,2026-11-17,https://www.iceland.co.uk/p/x/57037.html
+57123,g,oven cooked,1064,254,9.4,1.1,36.4,0.2,4.5,3.5,1.4,2026-11-18,https://www.iceland.co.uk/p/x/57123.html
+57163,g,fried,1098,262,10.9,1.3,35.4,0.2,4.5,3.4,0.49,2026-11-18,https://www.iceland.co.uk/p/x/57163.html
+57164,g,oven cooked,1033,246,9.5,1.2,33.4,0.2,4.6,4.5,0.73,2026-11-18,https://www.iceland.co.uk/p/x/57164.html
 57165,g,fried,1473,354,23.3,6.2,21.2,2.8,2.0,13.9,1.7,2026-11-17,https://www.iceland.co.uk/p/x/57165.html
 57193,g,,139,33,0.9,0.2,1.8,1.5,2.6,4.4,,2026-11-17,https://www.iceland.co.uk/p/x/57193.html
 57304,g,oven cooked,1107,265,16.2,2.9,17.8,0.6,1.1,11.6,1.1,2026-11-17,https://www.iceland.co.uk/p/x/57304.html
+57309,g,oven cooked,898,214,8.2,0.7,24.9,0.8,1.3,9.4,1.3,2026-11-18,https://www.iceland.co.uk/p/x/57309.html
+57442,g,fried,1650,397,28.7,16.4,28.1,2.7,0.9,6.1,1.1,2026-11-18,https://www.iceland.co.uk/p/x/57442.html
 57587,g,oven cooked,918,220,11.5,3.6,18.6,1.5,1.6,9.7,1.3,2026-11-18,https://www.iceland.co.uk/p/x/57587.html
 57802,g,fried,712,170,7.4,2.2,4.7,2.8,3.6,19.5,0.82,2026-11-17,https://www.iceland.co.uk/p/x/57802.html
 57811,g,,1610,388,29.4,17.6,4.9,0.7,0.6,25.4,1.6,2026-11-17,https://www.iceland.co.uk/p/x/57811.html
+57848,g,fried,1338,321,18.0,7.4,23.1,2.2,3.5,14.8,0.90,2026-11-18,https://www.iceland.co.uk/p/x/57848.html
+57859,g,oven cooked,722,172,5.3,0.6,26.2,0.2,3.8,3.1,1.2,2026-11-18,https://www.iceland.co.uk/p/x/57859.html
+57862,g,oven cooked,1151,274,9.5,0.9,41.7,1.1,3.3,3.8,0.3,2026-11-18,https://www.iceland.co.uk/p/x/57862.html
 57892,g,microwaved,911,217,7.8,4.2,22.4,1.7,1.5,13.5,1.3,2026-11-18,https://www.iceland.co.uk/p/x/57892.html
 57893,g,microwaved,915,218,8.0,4.1,23.1,3.4,1.7,12.5,1.5,2026-11-18,https://www.iceland.co.uk/p/x/57893.html
 57897,g,microwaved,987,235,7.8,3.3,29.9,2.8,2.3,10.2,1.1,2026-11-18,https://www.iceland.co.uk/p/x/57897.html
 57898,g,microwaved,1047,249,8.9,4.3,28.0,4.6,2.1,13.2,1.1,2026-11-18,https://www.iceland.co.uk/p/x/57898.html
 57921,g,oven cooked,1372,329,19.5,8.1,29.5,1.9,2.7,7.5,0.53,2026-11-18,https://www.iceland.co.uk/p/x/57921.html
+57941,g,microwaved,256,61,0.6,0.1,2.2,1.4,2.0,10.6,0.4,2026-11-18,https://www.iceland.co.uk/p/x/57941.html
+57942,g,oven cooked,334,79,1.8,1.0,3.0,2.4,1.7,12.1,0.5,2026-11-18,https://www.iceland.co.uk/p/x/57942.html
 57971,g,as consumed,1169,277,4.8,2.1,48.5,5.9,2.5,8.8,0.92,2026-11-18,https://www.iceland.co.uk/p/x/57971.html
 57972,g,as consumed,1111,262,2.4,0.5,50.0,3.9,1.8,9.2,0.79,2026-11-17,https://www.iceland.co.uk/p/x/57972.html
 57976,g,oven cooked,446,106,2.5,1.2,9.9,1.8,2.5,9.8,0.5,2026-11-18,https://www.iceland.co.uk/p/x/57976.html
 57979,g,oven cooked,1104,265,16.1,3.2,19.1,1.1,1.1,10.3,0.73,2026-11-18,https://www.iceland.co.uk/p/x/57979.html
+57980,g,oven cooked,912,219,12.9,1.0,12.2,1.4,2.1,12.5,0.76,2026-11-18,https://www.iceland.co.uk/p/x/57980.html
+57981,g,oven cooked,895,214,12.4,1.0,14.2,0.5,1.8,10.6,0.72,2026-11-18,https://www.iceland.co.uk/p/x/57981.html
 57982,g,oven cooked,686,164,7.6,3.2,15.7,2.1,1.2,7.7,0.77,2026-11-18,https://www.iceland.co.uk/p/x/57982.html
 57985,g,oven cooked,630,150,3.8,0.5,19.4,1.0,1.7,8.6,0.72,2026-11-18,https://www.iceland.co.uk/p/x/57985.html
+57988,g,,1187,285,17.7,11.0,23.0,2.1,1.0,7.8,1.2,2026-11-18,https://www.iceland.co.uk/p/x/57988.html
+57990,g,fried,1181,282,14.8,5.8,31.5,3.2,1.7,5.1,1.4,2026-11-18,https://www.iceland.co.uk/p/x/57990.html
 57996,g,microwaved,302,72,1.6,0.4,2.9,2.5,1.5,10.7,0.8,2026-11-18,https://www.iceland.co.uk/p/x/57996.html
+58002,g,microwaved,413,98,1.4,0.5,12.8,2.5,2.2,7.6,0.4,2026-11-18,https://www.iceland.co.uk/p/x/58002.html
+58142,g,oven cooked,595,143,8.9,5.6,11.3,1.1,1.3,3.8,0.98,2026-11-18,https://www.iceland.co.uk/p/x/58142.html
+58143,g,oven cooked,630,152,11.0,5.5,7.9,2.7,1.4,4.6,0.89,2026-11-18,https://www.iceland.co.uk/p/x/58143.html
+58144,g,oven cooked,784,188,12.3,6.9,14.6,1.8,1.5,4.0,0.88,2026-11-18,https://www.iceland.co.uk/p/x/58144.html
 58174,g,,77,18,0.1,0.0,3.0,2.8,0.7,1.0,0.05,2026-11-17,https://www.iceland.co.uk/p/x/58174.html
 58224,g,fried,1213,291,18.8,5.3,20.1,0.9,1.6,9.6,1.7,2026-11-18,https://www.iceland.co.uk/p/x/58224.html
+58225,g,,1678,403,26.4,13.9,28.7,1.7,1.0,12.2,0.65,2026-11-18,https://www.iceland.co.uk/p/x/58225.html
 58238,g,,1725,416,34.9,21.7,0.1,0.1,,25.4,1.8,2026-11-17,https://www.iceland.co.uk/p/x/58238.html
 58241,g,,980,235,15.4,4.2,0,0,0,24.0,0.2,2026-11-17,https://www.iceland.co.uk/p/x/58241.html
 58286,g,,775,185,9.1,2.5,0,0,0,25.8,0.3,2026-11-17,https://www.iceland.co.uk/p/x/58286.html
+58310,g,microwaved,595,140,0.4,0.1,31.1,0.0,0.5,2.8,0.0,2026-11-18,https://www.iceland.co.uk/p/x/58310.html
 58341,g,,357,84,0.5,0.1,0.0,0.0,0.0,20.1,0.10,2026-11-17,https://www.iceland.co.uk/p/x/58341.html
+58346,g,oven cooked,997,237,8.3,3.2,29.3,2.8,2.2,10.2,1.6,2026-11-18,https://www.iceland.co.uk/p/x/58346.html
+58348,g,,1019,243,11.3,4.7,24.6,1.5,1.1,10.3,1.2,2026-11-18,https://www.iceland.co.uk/p/x/58348.html
+58349,g,,1036,247,10.4,5.3,26.8,1.5,1.1,11.0,0.80,2026-11-18,https://www.iceland.co.uk/p/x/58349.html
 58354,g,oven cooked,1081,260,19.2,7.4,11.0,0.8,1.1,10.3,1.9,2026-11-18,https://www.iceland.co.uk/p/x/58354.html
 58670,g,,69,16,<0.5,0,3.0,2.8,0.7,1.0,0.09,2026-11-17,https://www.iceland.co.uk/p/x/58670.html
 58676,g,,440,103,0.2,0.1,17.4,1,6.7,8.4,0.25,2026-11-17,https://www.iceland.co.uk/p/x/58676.html
 58892,g,oven cooked,1275,307,20.3,4.3,17.0,1.2,3.7,12.1,1.37,2026-11-18,https://www.iceland.co.uk/p/x/58892.html
 59189,g,cooked,637,160,5.2,2.3,2.1,0.9,0.5,25.9,0.7,2026-11-17,https://www.iceland.co.uk/p/x/59189.html
+59237,g,oven cooked,794,189,6.3,0.7,29.3,13.2,5.0,1.4,0.45,2026-11-18,https://www.iceland.co.uk/p/x/59237.html
 5925,g,,405,97,1.6,0.3,4.2,0.3,5.0,14,0.64,2026-11-17,https://www.iceland.co.uk/p/x/5925.html
 59391,g,,449,106,1.1,0.3,0.0,0.0,0.0,24.0,0.2,2026-11-17,https://www.iceland.co.uk/p/x/59391.html
 59392,g,,449,106,1.1,0.3,0.0,0.0,0.0,24.0,0.2,2026-11-17,https://www.iceland.co.uk/p/x/59392.html
+59641,g,microwaved,513,122,3.7,1.5,13.3,1.5,0.9,8.4,0.5,2026-11-18,https://www.iceland.co.uk/p/x/59641.html
 59645,g,oven cooked,772,185,10.0,4.6,11.8,2.7,1.1,11.2,0.8,2026-11-18,https://www.iceland.co.uk/p/x/59645.html
+59646,g,microwaved,681,163,9.6,3.7,6.6,4.4,1.7,11.7,0.9,2026-11-18,https://www.iceland.co.uk/p/x/59646.html
+59832,g,microwaved,461,109,3.0,1.7,14.0,0.7,0.5,6.3,0.7,2026-11-18,https://www.iceland.co.uk/p/x/59832.html
+59834,g,microwaved,415,99,4.3,2.4,8.7,1.1,0.9,6.0,0.6,2026-11-18,https://www.iceland.co.uk/p/x/59834.html
 59835,g,oven cooked,541,129,6.0,3.4,11.3,1.7,0.7,7.3,0.7,2026-11-17,https://www.iceland.co.uk/p/x/59835.html
 60903,g,fried,915,218,8.7,1.6,16.3,0.5,1.1,18.2,0.88,2026-11-17,https://www.iceland.co.uk/p/x/60903.html
+60905,g,microwaved,366,87,0.9,0.3,12.5,2.1,1.8,6.1,0.6,2026-11-18,https://www.iceland.co.uk/p/x/60905.html
 60906,g,fried,1042,248,9.0,1.7,24.9,0.9,1.3,16.1,0.87,2026-11-17,https://www.iceland.co.uk/p/x/60906.html
 61629,ml,as consumed,209,50,1.8,1.1,4.8,4.8,0.0,3.6,0.1,2026-11-17,https://www.iceland.co.uk/p/x/61629.html
+6179,g,oven cooked,972,232,11,1.2,30,0.5,2.4,2.6,0.38,2026-11-18,https://www.iceland.co.uk/p/x/6179.html
 61796,g,,1725,416,34.9,21.7,0.1,0.1,0.0,25.4,1.8,2026-11-17,https://www.iceland.co.uk/p/x/61796.html
 61797,g,,1725,416,34.9,21.7,0.1,0.1,0.0,25.4,1.8,2026-11-17,https://www.iceland.co.uk/p/x/61797.html
 61891,g,,1725,416,34.9,21.7,0.1,0.1,0.0,25.4,1.8,2026-11-17,https://www.iceland.co.uk/p/x/61891.html
+61920,g,oven cooked,1057,252,10.4,5.3,26.8,3.2,1.9,11.8,1.2,2026-11-18,https://www.iceland.co.uk/p/x/61920.html
 62403,g,,726,174,10.3,4.6,0.3,0.1,0.5,19.8,0.2,2026-11-17,https://www.iceland.co.uk/p/x/62403.html
 62406,g,,726,174,10.3,4.6,0.3,0.1,0.5,19.8,0.2,2026-11-17,https://www.iceland.co.uk/p/x/62406.html
 62472,g,oven cooked,775,185,9.1,2.5,0.0,0.0,0.0,25.8,0.3,2026-11-18,https://www.iceland.co.uk/p/x/62472.html
@@ -605,6 +954,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 63121,g,,84,20,0.3,0.1,3.1,3.1,1.0,0.7,0.2,2026-11-17,https://www.iceland.co.uk/p/x/63121.html
 63224,g,,765,181,0.2,0,44,39,,0.9,1.1,2026-11-17,https://www.iceland.co.uk/p/x/63224.html
 63275,g,,65,16,0.5,0.1,0.4,0.2,1.1,1.8,,2026-11-17,https://www.iceland.co.uk/p/x/63275.html
+63343,g,baked,1190,286,19,9.9,22,1.7,,5.9,0.98,2026-11-18,https://www.iceland.co.uk/p/x/63343.html
+63344,g,baked,1012,241,10,4.0,25,0.7,,12,1.2,2026-11-18,https://www.iceland.co.uk/p/x/63344.html
 63360,g,oven cooked,1132,268,3.9,0.3,48.7,2.3,2.4,8.2,0.7,2026-11-18,https://www.iceland.co.uk/p/x/63360.html
 63377,g,oven cooked,1145,271,3.0,0.2,49.5,3.0,4.4,9.3,0.9,2026-11-17,https://www.iceland.co.uk/p/x/63377.html
 63472,g,grilled,1226,295,21.6,10.9,7.4,3.8,1.4,17.0,1.8,2026-11-18,https://www.iceland.co.uk/p/x/63472.html
@@ -613,13 +964,18 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 63722,g,,339,81,0.4,0.1,15.5,4.3,3.9,4.8,0.6,2026-11-17,https://www.iceland.co.uk/p/x/63722.html
 6374,ml,,3378,822,91.3,15.5,0,0,0,0,0,2026-11-17,https://www.iceland.co.uk/p/x/6374.html
 63791,g,,1456,353,35.6,2.5,6.6,4.8,0.6,1.2,1.56,2026-11-17,https://www.iceland.co.uk/p/x/63791.html
+63923,g,oven cooked,651,156,10.8,3.7,7.6,2.9,1.4,6.6,0.6,2026-11-18,https://www.iceland.co.uk/p/x/63923.html
 64257,g,,547,131,9.0,2.5,0.0,0.0,0.0,12.6,0.4,2026-11-17,https://www.iceland.co.uk/p/x/64257.html
 64748,g,as consumed,542,128,1.8,0.6,0.0,0.0,0.0,27.9,0.7,2026-11-18,https://www.iceland.co.uk/p/x/64748.html
 64806,g,as consumed,436,103,2.8,1.0,2.1,2.1,0.0,17.5,1.7,2026-11-17,https://www.iceland.co.uk/p/x/64806.html
 64835,g,as consumed,436,103,2.8,1.0,2.1,2.1,0.0,17.5,1.7,2026-11-17,https://www.iceland.co.uk/p/x/64835.html
 64904,g,fried,569,135,3.1,0.9,5.4,2.2,1.1,20.8,0.6,2026-11-18,https://www.iceland.co.uk/p/x/64904.html
 65435,g,,1161,278,13.4,1.3,33.1,2.1,3.9,4.1,1.91,2026-11-17,https://www.iceland.co.uk/p/x/65435.html
+66213,g,oven cooked,788,187,5.1,0.6,30.7,0.2,3.3,3.0,0.2,2026-11-18,https://www.iceland.co.uk/p/x/66213.html
+66214,g,oven cooked,745,177,4.9,0.6,29.1,0.2,3.3,2.6,0.4,2026-11-18,https://www.iceland.co.uk/p/x/66214.html
+66215,g,oven cooked,779,185,4.4,0.5,31.4,0.2,3.8,3.0,0.3,2026-11-18,https://www.iceland.co.uk/p/x/66215.html
 66216,g,oven cooked,923,219,6.3,0.7,35.2,0.3,3.7,3.7,0.5,2026-11-18,https://www.iceland.co.uk/p/x/66216.html
+66338,g,,1335,320,21,12,23,0,,8.9,1.5,2026-11-18,https://www.iceland.co.uk/p/x/66338.html
 66670,g,,547,131,9.0,2.5,0.0,0.0,0.0,12.6,0.4,2026-11-17,https://www.iceland.co.uk/p/x/66670.html
 66671,g,,547,131,9.0,2.5,0.0,0.0,0.0,12.6,0.4,2026-11-17,https://www.iceland.co.uk/p/x/66671.html
 66672,g,,547,131,9.0,2.5,0.0,0.0,0.0,12.6,0.4,2026-11-17,https://www.iceland.co.uk/p/x/66672.html
@@ -637,54 +993,85 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 68142,g,oven cooked,1430,341,21.2,4.8,27.0,1.0,,10.9,1.4,2026-11-17,https://www.iceland.co.uk/p/x/68142.html
 68215,g,,1671,402,30,20,0,0,,32,1.6,2026-11-17,https://www.iceland.co.uk/p/x/68215.html
 68431,g,oven cooked,966,232,15.0,8.0,4.6,0.9,0.4,19.4,1.3,2026-11-18,https://www.iceland.co.uk/p/x/68431.html
+68653,g,oven cooked,1002,239,8.9,4.1,27.1,5.6,3.3,11.0,1.2,2026-11-18,https://www.iceland.co.uk/p/x/68653.html
+68654,g,oven cooked,940,224,7.7,4.2,26.3,3.5,3.2,10.8,0.8,2026-11-18,https://www.iceland.co.uk/p/x/68654.html
 68883,g,microwaved,494,118,5.0,2.7,9.6,1.9,1.4,7.9,0.8,2026-11-18,https://www.iceland.co.uk/p/x/68883.html
 68886,g,oven cooked,557,132,4.0,1.8,13.9,1.1,0.6,9.9,1.0,2026-11-18,https://www.iceland.co.uk/p/x/68886.html
+69223,g,,697,162,8.0,3.3,15,2.8,,5.9,0.7,2026-11-18,https://www.iceland.co.uk/p/x/69223.html
 69359,g,,496,115,<0.5,<0.1,28,26,1.6,<0.5,<0.01,2026-11-17,https://www.iceland.co.uk/p/x/69359.html
 69396,g,,915,219,11,4.4,20,2.0,,6.2,1.0,2026-11-17,https://www.iceland.co.uk/p/x/69396.html
 69711,g,,544,129,4.5,1.9,0.1,0.1,0.5,21.8,0.2,2026-11-17,https://www.iceland.co.uk/p/x/69711.html
+69971,g,fried,213,51,1.6,0.1,6.1,5.1,2.1,2.0,0.0,2026-11-18,https://www.iceland.co.uk/p/x/69971.html
+70108,g,oven cooked,1158,276,12.0,2.8,30.8,1.0,2.4,10.1,0.5,2026-11-18,https://www.iceland.co.uk/p/x/70108.html
 70318,g,,277,66,0.2,0.1,9.5,1.9,3.6,4.6,0.4,2026-11-17,https://www.iceland.co.uk/p/x/70318.html
 70349,g,drained,530,126,2.2,0.0,15.7,0.0,7.4,7.2,0.02,2026-11-17,https://www.iceland.co.uk/p/x/70349.html
 70419,g,,1144,277,27,2.5,7.5,3.8,0,1.0,1.7,2026-11-17,https://www.iceland.co.uk/p/x/70419.html
 70572,g,,1264,299,5.2,1.2,53.2,2.1,1.6,9.1,1.00,2026-11-17,https://www.iceland.co.uk/p/x/70572.html
 70625,g,,123,29,0.5,0.1,4.0,1.3,2.5,0.9,0.0,2026-11-17,https://www.iceland.co.uk/p/x/70625.html
 70626,g,,206,49,0.9,0.2,4.3,2.4,4.1,4.0,0.0,2026-11-17,https://www.iceland.co.uk/p/x/70626.html
+70627,g,,127,30,0.5,0.1,3.9,3.9,2.8,1.1,0.0,2026-11-18,https://www.iceland.co.uk/p/x/70627.html
 70628,g,,504,119,0.5,0.1,21.5,0.7,2.5,5.9,0.0,2026-11-17,https://www.iceland.co.uk/p/x/70628.html
 70774,ml,,206,49,1.7,1.0,4.8,4.8,,3.6,0.1,2026-11-17,https://www.iceland.co.uk/p/x/70774.html
+70827,g,oven cooked,1072,257,14,3.3,28,0.5,3.1,3.2,0.47,2026-11-18,https://www.iceland.co.uk/p/x/70827.html
+71238,g,,468,111,1.1,0.2,17.6,6.6,0.5,7.3,1.2,2026-11-18,https://www.iceland.co.uk/p/x/71238.html
 71655,g,fried,1109,267,19.2,7.1,5.6,0.1,0.4,17.8,1.3,2026-11-18,https://www.iceland.co.uk/p/x/71655.html
+71957,g,fried,408,97,1.6,0.3,13.9,4.8,2.0,5.6,0.5,2026-11-18,https://www.iceland.co.uk/p/x/71957.html
 72144,g,microwaved,336,79,0.2,0.1,11.1,3.7,1.2,7.7,0.6,2026-11-18,https://www.iceland.co.uk/p/x/72144.html
 72270,g,,359,85,0.6,0.1,12.5,4.7,5.9,4.6,0.60,2026-11-17,https://www.iceland.co.uk/p/x/72270.html
+72981,g,,972,232,9.0,3.0,28,3.3,2.4,8.9,1.2,2026-11-18,https://www.iceland.co.uk/p/x/72981.html
+72982,g,,951,226,8.3,2.7,27,3.1,2.3,9.4,1.2,2026-11-18,https://www.iceland.co.uk/p/x/72982.html
 72987,g,oven cooked,727,173,8.0,1.1,10.5,0.6,0.3,14.7,0.7,2026-11-17,https://www.iceland.co.uk/p/x/72987.html
+72988,g,oven cooked,684,163,6.6,0.9,9.4,0.5,0.3,16.3,0.4,2026-11-18,https://www.iceland.co.uk/p/x/72988.html
 72998,g,,559,133,0.7,<0.1,30,26,<0.5,0.7,1.6,2026-11-17,https://www.iceland.co.uk/p/x/72998.html
 73227,ml,,175,41,0.4,0.1,4.9,4.9,,4.5,0.11,2026-11-17,https://www.iceland.co.uk/p/x/73227.html
 73473,g,,1105,266,26,2.1,7.8,3.0,0,0.6,1.7,2026-11-17,https://www.iceland.co.uk/p/x/73473.html
+73684,g,oven cooked,725,172,3.8,0.4,30,0.6,2.9,2.8,0.14,2026-11-18,https://www.iceland.co.uk/p/x/73684.html
+73879,g,,314,74,0.5,0.1,0.7,0.1,0.5,16.5,0.8,2026-11-18,https://www.iceland.co.uk/p/x/73879.html
+73952,g,oven cooked,1004,240,13.8,2.4,18.0,0.8,0.7,10.8,1.1,2026-11-18,https://www.iceland.co.uk/p/x/73952.html
 75007,g,,3696,899,100,15,0.0,0.0,0.0,0.0,<0.01,2026-11-17,https://www.iceland.co.uk/p/x/75007.html
 75025,ml,,1011,238,<0.5,<0.1,59,49,1.0,<0.5,2.8,2026-11-17,https://www.iceland.co.uk/p/x/75025.html
 75105,g,,710,170,10.7,5.4,0.0,0.0,0.0,18.5,0.29,2026-11-17,https://www.iceland.co.uk/p/x/75105.html
 75108,g,,1007,242,18.8,8.8,0.0,0.0,0.0,18.3,0.14,2026-11-18,https://www.iceland.co.uk/p/x/75108.html
 75117,g,,1152,277,20.5,9.0,7.3,0.8,1.2,15.3,1.4,2026-11-18,https://www.iceland.co.uk/p/x/75117.html
 75118,g,,780,187,12.4,5.9,0.2,0.2,0.1,18.7,0.2,2026-11-18,https://www.iceland.co.uk/p/x/75118.html
+75196,g,microwaved,580,139,5.2,1.8,16.9,3.2,1.8,5.3,0.73,2026-11-18,https://www.iceland.co.uk/p/x/75196.html
+75366,g,microwaved,244,58,0.5,0.2,5.8,2.5,1.3,6.8,0.4,2026-11-18,https://www.iceland.co.uk/p/x/75366.html
 75452,g,fried,833,199,10.5,3.2,5.9,2.1,0.2,20.1,1.3,2026-11-18,https://www.iceland.co.uk/p/x/75452.html
 75779,g,,443,105,6.5,0.6,8.6,6.8,1.8,1.3,1.3,2026-11-17,https://www.iceland.co.uk/p/x/75779.html
 76074,g,,1009,241,20,7.4,11,2.1,,9.6,1.5,2026-11-18,https://www.iceland.co.uk/p/x/76074.html
+76133,g,baked,1405,338,23,11,23,0,,8.9,1.5,2026-11-18,https://www.iceland.co.uk/p/x/76133.html
 76367,g,as consumed,542,128,1.8,0.6,0.0,0.0,0.0,27.9,0.7,2026-11-17,https://www.iceland.co.uk/p/x/76367.html
 76406,g,,604,145,10.00,6.90,5.10,5.10,0.30,7.20,0.70,2026-11-17,https://www.iceland.co.uk/p/x/76406.html
 76583,g,,584,138,0.2,0.1,34.0,29,0,0.9,1.2,2026-11-17,https://www.iceland.co.uk/p/x/76583.html
 76587,ml,,671,160,0.2,0,38,33,,1.3,2.5,2026-11-17,https://www.iceland.co.uk/p/x/76587.html
+76868,g,oven cooked,1055,251,7.8,0.9,39.3,0.6,4.4,3.7,1.5,2026-11-18,https://www.iceland.co.uk/p/x/76868.html
+76873,g,fried,1069,254,7.7,0.9,40.4,0.4,4.3,3.8,1.2,2026-11-18,https://www.iceland.co.uk/p/x/76873.html
+76876,g,fried,947,225,7.7,0.9,34.2,0.2,3.6,3.0,0.76,2026-11-18,https://www.iceland.co.uk/p/x/76876.html
 76889,g,,690,165,8.6,1.7,0,0,,20.6,0.9,2026-11-17,https://www.iceland.co.uk/p/x/76889.html
 76933,g,,359,85,0.6,0.1,12.5,4.7,5.9,4.6,0.60,2026-11-17,https://www.iceland.co.uk/p/x/76933.html
 77103,g,,162,38,0.2,,7.9,5.6,1.4,1.2,,2026-11-17,https://www.iceland.co.uk/p/x/77103.html
 77104,g,,161,38,0.5,0.1,7.6,5.9,1.4,1.0,0.01,2026-11-17,https://www.iceland.co.uk/p/x/77104.html
 77127,g,oven cooked,284,68,1.9,0.2,8.9,7.8,2.7,2.4,0.8,2026-11-17,https://www.iceland.co.uk/p/x/77127.html
 77145,g,,726,174,10.1,4.3,0.0,0.0,0.0,20.7,0.10,2026-11-17,https://www.iceland.co.uk/p/x/77145.html
+77226,g,oven cooked,1120,267,11.5,1.0,36.1,1.0,3.0,3.3,1.3,2026-11-18,https://www.iceland.co.uk/p/x/77226.html
 77239,g,,521,124,4.9,2.2,1.2,0.1,0.5,18.6,0.27,2026-11-17,https://www.iceland.co.uk/p/x/77239.html
+77331,g,oven cooked,1046,248,7.3,3.7,32.3,4.0,1.8,12.5,1.2,2026-11-18,https://www.iceland.co.uk/p/x/77331.html
 77415,g,oven cooked,869,208,10.4,3.6,11.2,0.6,0.9,16.8,0.89,2026-11-17,https://www.iceland.co.uk/p/x/77415.html
 77431,g,oven cooked,878,210,10.2,3.7,0.5,0.1,0.2,28.8,0.25,2026-11-17,https://www.iceland.co.uk/p/x/77431.html
 77480,g,,184.0,44.0,1.5,0.2,6.4,0,0.7,0.8,0.09,2026-11-17,https://www.iceland.co.uk/p/x/77480.html
+77622,g,fried,910,217,9.4,0.8,19.7,0.8,1.0,12.9,0.8,2026-11-18,https://www.iceland.co.uk/p/x/77622.html
+77776,g,microwaved,697,166,4.3,0.4,28,0.8,2.5,2.7,0.12,2026-11-18,https://www.iceland.co.uk/p/x/77776.html
+77778,g,microwaved,710,169,4.7,0.6,28,0.5,2.8,2.2,0.14,2026-11-18,https://www.iceland.co.uk/p/x/77778.html
 78170,g,oven cooked,1037,249,15.7,4.0,0.1,0.1,0.1,26.6,0.3,2026-11-18,https://www.iceland.co.uk/p/x/78170.html
+78372,g,oven cooked,960,229,11.0,2.0,18.6,0.6,1.0,13.4,0.7,2026-11-18,https://www.iceland.co.uk/p/x/78372.html
+78440,g,oven cooked,945,226,10.1,1.9,18.4,1.2,1.5,14.5,1.0,2026-11-18,https://www.iceland.co.uk/p/x/78440.html
+78441,g,fried,1026,246,13.6,2.4,16.1,0.7,0.9,14.3,1.4,2026-11-18,https://www.iceland.co.uk/p/x/78441.html
 78605,g,oven cooked,560,133,3.9,1.7,7.4,0.7,0.5,16.8,1.3,2026-11-17,https://www.iceland.co.uk/p/x/78605.html
+78627,g,microwaved,338,80,0.5,0.2,12.4,1.9,1.0,6.0,0.3,2026-11-18,https://www.iceland.co.uk/p/x/78627.html
 79112,g,,2427,580,45,5.9,12,5,7.9,28,2.1,2026-11-17,https://www.iceland.co.uk/p/x/79112.html
 79235,g,microwaved,362,85,0.4,0.1,14.9,2.2,1.2,4.9,0.4,2026-11-17,https://www.iceland.co.uk/p/x/79235.html
 79236,g,microwaved,361,85,0.7,0.3,13.3,1.8,1.1,5.8,0.3,2026-11-17,https://www.iceland.co.uk/p/x/79236.html
+79306,g,oven cooked,1213,289,10.5,3.9,36.0,2.0,2.0,11.4,1.00,2026-11-18,https://www.iceland.co.uk/p/x/79306.html
 79401,g,,449,106,1.1,0.3,0.0,0.0,0.0,24.0,0.2,2026-11-17,https://www.iceland.co.uk/p/x/79401.html
 79402,g,,449,106,1.1,0.3,0.0,0.0,0.0,24.0,0.2,2026-11-17,https://www.iceland.co.uk/p/x/79402.html
 79403,g,,449,106,1.1,0.3,0.0,0.0,0.0,24.0,0.2,2026-11-17,https://www.iceland.co.uk/p/x/79403.html
@@ -700,21 +1087,33 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 79977,g,oven cooked,577,138,6.5,2.7,11.8,1.4,1.0,7.5,0.3,2026-11-17,https://www.iceland.co.uk/p/x/79977.html
 80124,g,microwaved,302,71,1.2,0.3,4.8,3.6,1.3,9.8,0.4,2026-11-18,https://www.iceland.co.uk/p/x/80124.html
 80142,g,,1715,414,34.2,21.4,1.6,0.1,,24.9,1.8,2026-11-17,https://www.iceland.co.uk/p/x/80142.html
+80675,g,microwaved,403,95,1.2,0.4,13.5,1.9,2.2,6.7,0.4,2026-11-18,https://www.iceland.co.uk/p/x/80675.html
 81040,ml,,3393,825,91.7,7.3,0,0,0,0,0,2026-11-17,https://www.iceland.co.uk/p/x/81040.html
 81226,g,oven cooked,1151,275,14.8,2.2,28.8,1.5,,5.5,1.3,2026-11-17,https://www.iceland.co.uk/p/x/81226.html
 81228,g,fried,742,175,1.8,0.6,13.8,8.9,0.5,25.7,0.96,2026-11-18,https://www.iceland.co.uk/p/x/81228.html
 81243,g,,1301,312,18.9,5.4,25.2,2.7,<0.4,10.2,1.9,2026-11-17,https://www.iceland.co.uk/p/x/81243.html
+81367,g,oven cooked,648,154,4.9,1.2,4.9,3.4,2.6,21.3,0.6,2026-11-18,https://www.iceland.co.uk/p/x/81367.html
 81373,g,microwaved,576,138,6.9,3.3,7.0,4.7,1.5,11.2,0.8,2026-11-18,https://www.iceland.co.uk/p/x/81373.html
+81445,g,oven cooked,766,184,11.0,2.0,1.9,0.5,0.5,19.1,0.5,2026-11-18,https://www.iceland.co.uk/p/x/81445.html
 81708,g,fried,872,209,11.0,2.9,7.6,6.3,1.4,19.2,1.2,2026-11-17,https://www.iceland.co.uk/p/x/81708.html
 8172,ml,,204,49,1.7,1.0,5.0,5.0,,3.4,0.14,2026-11-17,https://www.iceland.co.uk/p/x/8172.html
 81787,g,oven cooked,1006,239,5.7,1.0,30.2,0.3,1.3,16.0,1.1,2026-11-18,https://www.iceland.co.uk/p/x/81787.html
+81796,g,oven cooked,750,178,6.6,1.1,20.2,0.6,1.1,9.1,0.9,2026-11-18,https://www.iceland.co.uk/p/x/81796.html
+81838,g,oven cooked,408,96,0.2,0.0,20.2,0.7,1.9,2.4,0.3,2026-11-18,https://www.iceland.co.uk/p/x/81838.html
 83160,g,microwaved,621,148,3.2,1.1,21.8,3.7,3.5,6.1,0.8,2026-11-18,https://www.iceland.co.uk/p/x/83160.html
 83376,g,fried,1014,241,7.8,1.5,25.3,0.6,1.2,16.8,1.6,2026-11-17,https://www.iceland.co.uk/p/x/83376.html
 83380,g,oven cooked,1221,291,12.3,2.3,28.0,0.3,1.5,16.3,1.0,2026-11-18,https://www.iceland.co.uk/p/x/83380.html
 83383,g,oven cooked,1241,296,14.4,2.5,22.8,0.5,1.6,18.2,0.8,2026-11-18,https://www.iceland.co.uk/p/x/83383.html
 83386,g,microwaved,334,79,1.3,0.3,10.0,1.7,2.3,5.8,0.4,2026-11-18,https://www.iceland.co.uk/p/x/83386.html
+83387,g,microwaved,323,76,0.7,0.1,10.7,3.2,1.0,6.4,0.3,2026-11-18,https://www.iceland.co.uk/p/x/83387.html
+83389,g,microwaved,313,74,0.6,0.1,8.8,3.4,1.2,7.8,0.5,2026-11-18,https://www.iceland.co.uk/p/x/83389.html
+83557,g,oven cooked,895,214,10.3,0.9,17.7,1.1,1.2,12.0,0.9,2026-11-18,https://www.iceland.co.uk/p/x/83557.html
+83671,g,microwaved,120,29,0.5,0.2,3.6,3.1,2.7,1.1,0.8,2026-11-18,https://www.iceland.co.uk/p/x/83671.html
+83673,g,microwaved,507,120,2.1,0.1,21.4,1.6,1.6,3.1,0.6,2026-11-18,https://www.iceland.co.uk/p/x/83673.html
 83680,g,fried,431,103,5.3,0.6,11.2,8.6,3.0,1.2,0.0,2026-11-17,https://www.iceland.co.uk/p/x/83680.html
+83682,g,boiled,134,32,0.7,0.2,3.7,2.9,2.2,1.7,0.0,2026-11-18,https://www.iceland.co.uk/p/x/83682.html
 83685,g,fried,446,108,11.0,0.8,0.4,0.4,1.0,1.4,0.0,2026-11-17,https://www.iceland.co.uk/p/x/83685.html
+83727,g,microwaved,612,146,7.7,4.3,7.7,5.2,1.1,10.9,0.7,2026-11-18,https://www.iceland.co.uk/p/x/83727.html
 83793,g,fried,566,135,6.4,0.6,11.9,2.4,1.3,6.9,0.7,2026-11-18,https://www.iceland.co.uk/p/x/83793.html
 83795,g,microwaved,561,133,2.0,1.1,19.0,1.3,2.3,8.5,0.7,2026-11-18,https://www.iceland.co.uk/p/x/83795.html
 83796,g,microwaved,585,138,0.8,0.2,26.1,7.0,2.2,5.5,0.3,2026-11-18,https://www.iceland.co.uk/p/x/83796.html
@@ -723,27 +1122,50 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 83842,g,oven cooked,648,155,7.1,2.0,15.4,2.1,1.3,6.7,0.6,2026-11-18,https://www.iceland.co.uk/p/x/83842.html
 83843,g,oven cooked,480,115,5.5,2.8,10.6,1.4,3.2,4.3,1.0,2026-11-18,https://www.iceland.co.uk/p/x/83843.html
 83851,g,oven cooked,544,130,5.4,1.2,15.5,2.3,1.7,4.0,0.5,2026-11-18,https://www.iceland.co.uk/p/x/83851.html
+83893,g,oven cooked,1123,267,9.6,5.0,32.1,2.8,2.0,12.1,1.1,2026-11-18,https://www.iceland.co.uk/p/x/83893.html
+83894,g,oven cooked,1068,254,8.5,4.3,31.5,4.2,1.7,11.9,1.2,2026-11-18,https://www.iceland.co.uk/p/x/83894.html
 83932,g,fried,976,233,9.7,1.8,18.8,0.2,1.2,17.1,0.9,2026-11-17,https://www.iceland.co.uk/p/x/83932.html
+83950,g,microwaved,471,112,3.8,2.5,16.3,0.4,2.1,2.2,0.50,2026-11-18,https://www.iceland.co.uk/p/x/83950.html
 84056,g,oven cooked,379,90,0.9,0.3,9.9,2.3,1.5,9.8,0.6,2026-11-18,https://www.iceland.co.uk/p/x/84056.html
+84128,g,oven cooked,857,204,8.9,0.8,17.5,2.9,1.1,13,1,2026-11-18,https://www.iceland.co.uk/p/x/84128.html
+84193,g,oven cooked,844,201,9.6,1.0,15.7,0.8,1.1,12.5,1.1,2026-11-18,https://www.iceland.co.uk/p/x/84193.html
 84313,g,oven cooked,1083,260,16.1,6.6,8.7,0.7,1.1,19.5,1.7,2026-11-18,https://www.iceland.co.uk/p/x/84313.html
+85753,g,oven cooked,831,198,8.8,0.7,19.7,0.7,1.5,9.4,0.8,2026-11-18,https://www.iceland.co.uk/p/x/85753.html
+85818,g,oven cooked,1162,279,18.2,2.9,4.6,4.3,0.6,23.8,0.5,2026-11-18,https://www.iceland.co.uk/p/x/85818.html
+85819,g,oven cooked,930,223,13.7,1.2,12.9,0.1,1.2,11.4,0.81,2026-11-18,https://www.iceland.co.uk/p/x/85819.html
+85820,g,oven cooked,863,206,9.1,0.8,16.4,0.4,1.0,14.0,0.9,2026-11-18,https://www.iceland.co.uk/p/x/85820.html
+85945,g,oven cooked,718,171,4.3,0.4,29.1,0.3,2.4,2.6,1.0,2026-11-18,https://www.iceland.co.uk/p/x/85945.html
 85956,g,fried,1142,274,17.9,5.0,16.3,1.4,1.2,11.4,1.8,2026-11-18,https://www.iceland.co.uk/p/x/85956.html
 86027,g,,1495,351,0.5,0.1,84,0.1,,8,<0.1,2026-11-17,https://www.iceland.co.uk/p/x/86027.html
 86094,g,fried,681,162,5.4,2.1,18.0,2.5,2.3,9.2,0.7,2026-11-17,https://www.iceland.co.uk/p/x/86094.html
 86147,g,,1961,468,21,1.4,58,2.9,5.0,8.8,2.2,2026-11-17,https://www.iceland.co.uk/p/x/86147.html
 86215,g,microwaved,324,77,1.3,0.4,14.8,3.0,1.3,0.8,1.6,2026-11-18,https://www.iceland.co.uk/p/x/86215.html
+86216,g,microwaved,447,106,0.8,0.2,15.3,0.8,5.8,6.6,0.4,2026-11-18,https://www.iceland.co.uk/p/x/86216.html
 86799,g,as consumed,542,128,1.8,0.6,0.0,0.0,0.0,27.9,0.7,2026-11-17,https://www.iceland.co.uk/p/x/86799.html
+86834,g,,937,223,8.2,3.3,27,3.8,2.2,9.0,1.1,2026-11-18,https://www.iceland.co.uk/p/x/86834.html
 87073,ml,,129,31,0.5,0.1,6.9,2.4,0.5,0.5,0.01,2026-11-17,https://www.iceland.co.uk/p/x/87073.html
 87078,g,microwaved,600,144,8.6,3.9,6.1,5.1,1.2,9.8,0.8,2026-11-18,https://www.iceland.co.uk/p/x/87078.html
 87079,g,microwaved,542,130,8.3,2.6,5.3,2.8,0.9,8.0,0.7,2026-11-18,https://www.iceland.co.uk/p/x/87079.html
 87080,g,microwaved,426,102,4.9,0.5,3.8,3.1,1.5,9.8,0.7,2026-11-18,https://www.iceland.co.uk/p/x/87080.html
+87081,g,microwaved,698,166,4.1,,27.3,1.7,2.5,3.6,0.8,2026-11-18,https://www.iceland.co.uk/p/x/87081.html
+87082,g,microwaved,677,160,1.9,0.2,31.8,0.1,0.7,3.7,0.6,2026-11-18,https://www.iceland.co.uk/p/x/87082.html
 87085,g,microwaved,612,145,3.3,0.4,23.0,2.1,1.2,5.4,0.7,2026-11-18,https://www.iceland.co.uk/p/x/87085.html
+87087,g,microwaved,672,159,3.8,0.5,23.1,1.2,1.2,7.7,0.7,2026-11-18,https://www.iceland.co.uk/p/x/87087.html
+87116,g,oven cooked,787,188,8.1,0.8,17.4,0.7,0.8,10.9,0.8,2026-11-18,https://www.iceland.co.uk/p/x/87116.html
+87117,g,oven cooked,796,190,8.3,0.9,15.2,0.8,0.9,13.2,1.2,2026-11-18,https://www.iceland.co.uk/p/x/87117.html
 87179,g,oven cooked,1093,262,17.7,6.5,13.0,1.3,0.8,12.5,0.6,2026-11-18,https://www.iceland.co.uk/p/x/87179.html
 87180,g,oven cooked,895,214,10.9,2.6,14.1,1.0,0.8,14.5,0.9,2026-11-18,https://www.iceland.co.uk/p/x/87180.html
 87302,g,,1476,348,0.7,0.2,77.6,0.5,1.1,7.1,<0.01,2026-11-17,https://www.iceland.co.uk/p/x/87302.html
 87304,g,,1489,351,0.6,0.2,78.6,0.5,0.9,7.3,<0.01,2026-11-17,https://www.iceland.co.uk/p/x/87304.html
 87441,g,microwaved,451,108,5.9,2.3,4.5,2.7,1.3,8.6,0.6,2026-11-18,https://www.iceland.co.uk/p/x/87441.html
+87446,g,microwaved,613,147,8.3,3.5,6.7,3.7,1.9,10.5,0.8,2026-11-18,https://www.iceland.co.uk/p/x/87446.html
 87448,g,microwaved,417,99,3.9,0.7,5.6,2.8,0.6,10.2,0.7,2026-11-18,https://www.iceland.co.uk/p/x/87448.html
+87449,g,microwaved,621,149,9.3,2.9,6.2,4.4,1.8,9.3,0.88,2026-11-18,https://www.iceland.co.uk/p/x/87449.html
+87452,g,microwaved,471,113,5.3,0.6,4.0,3.6,2.2,11.0,0.7,2026-11-18,https://www.iceland.co.uk/p/x/87452.html
+87453,g,microwaved,447,107,5.5,0.6,3.4,2.1,1.5,10.1,0.6,2026-11-18,https://www.iceland.co.uk/p/x/87453.html
 87455,g,microwaved,474,113,4.0,1.0,12.4,2.6,0.9,6.3,0.7,2026-11-18,https://www.iceland.co.uk/p/x/87455.html
+87457,g,microwaved,476,114,5.5,0.6,4.8,2.8,2.2,10.1,0.7,2026-11-18,https://www.iceland.co.uk/p/x/87457.html
+87458,g,microwaved,639,152,4.9,1.0,18.9,2.0,1.1,7.6,0.7,2026-11-18,https://www.iceland.co.uk/p/x/87458.html
 87460,g,microwaved,554,131,2.1,0.3,16.8,14.7,,10.9,0.3,2026-11-18,https://www.iceland.co.uk/p/x/87460.html
 87462,g,oven cooked,767,182,4.4,0.8,23.7,10.0,0.6,11.5,1.0,2026-11-18,https://www.iceland.co.uk/p/x/87462.html
 87650,g,oven cooked,600,142,2.8,1.0,0.4,0.3,0.0,28.8,0.4,2026-11-17,https://www.iceland.co.uk/p/x/87650.html
@@ -758,6 +1180,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 88311,g,microwaved,652,156,8.0,5.3,14.5,0.5,2.7,5.2,0.9,2026-11-17,https://www.iceland.co.uk/p/x/88311.html
 88457,ml,,3393,825,91.7,7.3,0,0,0,0,0.00,2026-11-17,https://www.iceland.co.uk/p/x/88457.html
 88459,ml,,3408,829,92,10.1,0,0,0,0,0.00,2026-11-17,https://www.iceland.co.uk/p/x/88459.html
+88468,g,oven cooked,566,134,3.4,1.0,23.0,0.4,2.4,1.9,0.26,2026-11-18,https://www.iceland.co.uk/p/x/88468.html
+88549,g,oven cooked,805,192,6.0,1.5,30,0.6,2.8,2.9,0.32,2026-11-18,https://www.iceland.co.uk/p/x/88549.html
 88762,g,,872,208,10.4,4.7,14.6,<0.5,,13.6,1.05,2026-11-17,https://www.iceland.co.uk/p/x/88762.html
 88763,g,,1013,243,14.5,2.7,14.6,1.4,,12.0,0.82,2026-11-17,https://www.iceland.co.uk/p/x/88763.html
 88764,g,,1197,287,16.6,2.6,18.7,1.1,,15.1,1.38,2026-11-17,https://www.iceland.co.uk/p/x/88764.html
@@ -767,12 +1191,26 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 89098,g,fried,860,206,11.4,3.2,4.2,3.1,0.3,21.6,1.5,2026-11-18,https://www.iceland.co.uk/p/x/89098.html
 89122,g,boiled,221,53,0.8,0.2,6.2,3.0,3.6,3.2,0.0,2026-11-17,https://www.iceland.co.uk/p/x/89122.html
 89123,g,boiled,129,31,0.4,0.0,4.0,3.3,1.9,1.9,0.0,2026-11-17,https://www.iceland.co.uk/p/x/89123.html
+89127,g,fried,594,141,4.7,2.0,16.6,1.5,0.9,7.7,0.67,2026-11-18,https://www.iceland.co.uk/p/x/89127.html
+89177,g,microwaved,330,78,0.5,0.1,9.7,3.5,1.7,7.7,0.5,2026-11-18,https://www.iceland.co.uk/p/x/89177.html
 89192,g,oven cooked,1131,270,11.0,8.0,25.2,1.6,1.6,16.6,1.7,2026-11-18,https://www.iceland.co.uk/p/x/89192.html
+89193,g,oven cooked,1286,307,15.9,11.8,24.2,1.4,1.9,15.8,1.3,2026-11-18,https://www.iceland.co.uk/p/x/89193.html
+89234,g,microwaved,302,71,0.3,0.1,13.3,4.9,1.6,3.0,0.6,2026-11-18,https://www.iceland.co.uk/p/x/89234.html
+89268,g,oven cooked,1102,263,12.2,5.5,26.5,3.6,1.4,11.1,1.3,2026-11-18,https://www.iceland.co.uk/p/x/89268.html
+89269,g,oven cooked,1073,256,9.3,4.1,29.0,2.2,2.6,12.8,0.92,2026-11-18,https://www.iceland.co.uk/p/x/89269.html
 89277,g,,2149,514,28.9,2.8,55.9,0.4,,5.7,1.32,2026-11-17,https://www.iceland.co.uk/p/x/89277.html
 89322,g,,380,90,<0.5,<0.1,20,18,1.4,1.2,<0.1,2026-11-17,https://www.iceland.co.uk/p/x/89322.html
 89323,g,,380,90,<0.5,<0.1,20,18,1.4,1.2,0.1,2026-11-17,https://www.iceland.co.uk/p/x/89323.html
+89394,g,oven cooked,869,208,10.3,3.0,17.9,1.0,1.3,10.1,1.1,2026-11-18,https://www.iceland.co.uk/p/x/89394.html
+89400,g,oven cooked,762,182,7.2,0.9,22.2,0.3,1.0,6.5,1.6,2026-11-18,https://www.iceland.co.uk/p/x/89400.html
 89453,g,,590,141,7.6,2.4,0.0,0.0,0.0,18.3,0.2,2026-11-17,https://www.iceland.co.uk/p/x/89453.html
+89525,g,oven cooked,862,206,10.9,0.7,15.1,0.4,0.6,11.7,0.65,2026-11-18,https://www.iceland.co.uk/p/x/89525.html
+89529,g,oven cooked,721,173,10.8,6.3,11.5,0.9,1.2,6.8,0.7,2026-11-18,https://www.iceland.co.uk/p/x/89529.html
 89536,g,oven cooked,974,234,16.5,11.4,13.6,0.8,1.8,7.0,1.3,2026-11-18,https://www.iceland.co.uk/p/x/89536.html
+89701,g,oven cooked,748,178,6.6,0.8,19.8,0.8,1.1,9.3,0.57,2026-11-18,https://www.iceland.co.uk/p/x/89701.html
+89733,g,,1113,265,9.1,1.0,40,1.6,1.2,5.1,0.48,2026-11-18,https://www.iceland.co.uk/p/x/89733.html
+89759,g,,1061,253,11,3.6,26,3.8,2.3,11,1.1,2026-11-18,https://www.iceland.co.uk/p/x/89759.html
+89760,g,,1003,240,11,3.6,23,3.1,2.0,10,0.91,2026-11-18,https://www.iceland.co.uk/p/x/89760.html
 89763,g,,1554,371,5.7,0.9,68,26,6.9,8.3,0.23,2026-11-17,https://www.iceland.co.uk/p/x/89763.html
 89777,g,,447,107,4.5,1.5,<0.1,<0.1,,16.5,2.1,2026-11-17,https://www.iceland.co.uk/p/x/89777.html
 89778,g,,474,113,4.4,1.4,1.5,0.1,,16.8,2.3,2026-11-17,https://www.iceland.co.uk/p/x/89778.html
@@ -789,8 +1227,15 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 90317,g,fried,781,186,5.7,1.1,17.8,0.8,1.1,15.1,1.0,2026-11-17,https://www.iceland.co.uk/p/x/90317.html
 90318,g,fried,838,200,7.9,1.5,13.9,0.0,1.2,17.5,1.0,2026-11-18,https://www.iceland.co.uk/p/x/90318.html
 90319,g,oven cooked,781,186,7.1,1.2,15.1,0.0,1.2,14.8,0.8,2026-11-18,https://www.iceland.co.uk/p/x/90319.html
+90510,g,oven cooked,1284,306,13.1,5.9,33.4,3.4,1.9,12.7,0.8,2026-11-18,https://www.iceland.co.uk/p/x/90510.html
+90614,g,oven cooked,944,226,13.7,1.2,14.8,0.1,1.1,10.5,0.80,2026-11-18,https://www.iceland.co.uk/p/x/90614.html
+90615,g,fried,917,220,12.2,1.0,15.7,0.1,1.9,10.8,0.79,2026-11-18,https://www.iceland.co.uk/p/x/90615.html
+90616,g,oven cooked,819,195,6.7,0.6,21.5,0.7,1.7,11.3,0.85,2026-11-18,https://www.iceland.co.uk/p/x/90616.html
 9065,g,,613,147,11.00,7.10,5.20,5.10,0.30,7.40,0.70,2026-11-17,https://www.iceland.co.uk/p/x/9065.html
+90696,g,oven cooked,1314,315,17.3,1.3,35.6,3.5,1.6,3.2,0.4,2026-11-18,https://www.iceland.co.uk/p/x/90696.html
+90716,g,oven cooked,1072,257,14,3.3,28,0.5,3.1,3.2,0.47,2026-11-18,https://www.iceland.co.uk/p/x/90716.html
 90760,g,,427,102,6.0,2.5,3.9,0.9,0.5,7.9,0.79,2026-11-17,https://www.iceland.co.uk/p/x/90760.html
+90780,g,,1072,256,13.1,7.0,25.0,1.3,1.2,8.9,0.97,2026-11-18,https://www.iceland.co.uk/p/x/90780.html
 90809,g,fried,911,217,10.0,2.1,14.6,0.4,1.1,16.7,0.80,2026-11-18,https://www.iceland.co.uk/p/x/90809.html
 90815,g,fried,689,164,3.2,0.8,8.2,3.3,0.5,25.2,1.1,2026-11-18,https://www.iceland.co.uk/p/x/90815.html
 90822,g,fried,571,135,2.8,0.7,0.6,0.3,0.5,26.7,0.97,2026-11-18,https://www.iceland.co.uk/p/x/90822.html
@@ -805,19 +1250,27 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 90957,g,,1514,357,1.4,0.3,72,3.1,3.2,12.5,<0.01,2026-11-17,https://www.iceland.co.uk/p/x/90957.html
 90958,g,,1514,357,1.4,0.3,72,3.1,3.2,12.5,<0.01,2026-11-17,https://www.iceland.co.uk/p/x/90958.html
 90982,g,microwaved,645,154,7.8,4.8,11.8,1.3,0.6,8.9,0.6,2026-11-18,https://www.iceland.co.uk/p/x/90982.html
+90984,g,microwaved,621,149,9.1,3.9,5.7,3.0,1.4,10.3,0.8,2026-11-18,https://www.iceland.co.uk/p/x/90984.html
+91001,g,fried,1372,329,20.2,8.7,26.4,0.1,1.1,9.8,1.4,2026-11-18,https://www.iceland.co.uk/p/x/91001.html
 91006,g,fried,1198,286,15.1,5.2,26.3,2.6,0.8,10.9,0.7,2026-11-17,https://www.iceland.co.uk/p/x/91006.html
 9104,g,,339,81,0.4,0.1,15.5,4.3,3.9,4.8,0.6,2026-11-17,https://www.iceland.co.uk/p/x/9104.html
 91066,g,fried,913,217,8.4,1.6,19.4,0.3,1.0,15.6,1.0,2026-11-18,https://www.iceland.co.uk/p/x/91066.html
 91092,g,fried,995,237,8.9,1.7,22.2,1.2,1.2,16.3,0.73,2026-11-17,https://www.iceland.co.uk/p/x/91092.html
+91141,g,microwaved,562,133,2.5,0.3,20.9,9.9,0.7,6.5,1.0,2026-11-18,https://www.iceland.co.uk/p/x/91141.html
 91205,g,,2264,550,60.3,23.6,1.5,0.2,0.5,0.2,1.0,2026-11-17,https://www.iceland.co.uk/p/x/91205.html
+91240,g,oven cooked,1557,372,17.2,5.5,44.9,3.2,3.1,7.8,0.8,2026-11-18,https://www.iceland.co.uk/p/x/91240.html
 91241,g,oven cooked,1520,363,16.8,5.7,44.4,3.3,2.2,7.4,0.7,2026-11-18,https://www.iceland.co.uk/p/x/91241.html
+91243,g,oven cooked,1673,400,22.3,8.2,38.6,2.3,3.0,9.9,0.9,2026-11-18,https://www.iceland.co.uk/p/x/91243.html
 91263,g,cooked,608,144,3.7,1.3,3.2,0.2,1.5,23.8,1.0,2026-11-17,https://www.iceland.co.uk/p/x/91263.html
+91265,g,oven cooked,541,130,8.0,4.2,6.0,2.1,2.2,7.5,0.7,2026-11-18,https://www.iceland.co.uk/p/x/91265.html
+91285,g,oven cooked,649,155,8.2,4.2,12.4,1.5,1.2,7.4,1.0,2026-11-18,https://www.iceland.co.uk/p/x/91285.html
 91287,g,,423,100,2.0,0.7,0.5,0.5,,20,2.0,2026-11-17,https://www.iceland.co.uk/p/x/91287.html
 91437,g,,547,131,9.0,2.5,0.0,0.0,0.0,12.5,0.39,2026-11-17,https://www.iceland.co.uk/p/x/91437.html
 91439,g,,547,131,9.0,2.5,0.0,0.0,0.0,12.6,0.4,2026-11-17,https://www.iceland.co.uk/p/x/91439.html
 91451,g,fried,1203,287,13.1,2.5,25.9,1.5,1.1,15.8,0.9,2026-11-18,https://www.iceland.co.uk/p/x/91451.html
 91544,g,oven cooked,1122,269,17.1,6.8,10.0,5.9,2.5,17.6,1.7,2026-11-18,https://www.iceland.co.uk/p/x/91544.html
 91565,g,oven cooked,617,148,9.0,4.6,7.8,1.6,1.2,8.3,1.0,2026-11-18,https://www.iceland.co.uk/p/x/91565.html
+91570,g,microwaved,185,44,0.3,0.1,4.6,2.7,1.3,5.0,0.8,2026-11-18,https://www.iceland.co.uk/p/x/91570.html
 91604,g,oven cooked,994,237,9.4,1.6,21.3,2.0,1.3,16.1,0.6,2026-11-17,https://www.iceland.co.uk/p/x/91604.html
 91608,g,oven cooked,795,189,6.7,1.5,16.4,0.3,1.5,15.2,0.7,2026-11-17,https://www.iceland.co.uk/p/x/91608.html
 91610,g,oven cooked,867,207,9.4,1.6,15.0,0.4,1.3,15.0,0.9,2026-11-17,https://www.iceland.co.uk/p/x/91610.html
@@ -825,6 +1278,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 91619,g,fried,1138,273,16.0,2.8,14.9,1.0,1.3,16.7,1.4,2026-11-18,https://www.iceland.co.uk/p/x/91619.html
 9162,g,,1497,354,2.0,0.6,68,4.2,10,11,0.28,2026-11-17,https://www.iceland.co.uk/p/x/9162.html
 91620,g,fried,1205,289,16.3,1.5,18.4,0.2,0.0,17.3,1.6,2026-11-18,https://www.iceland.co.uk/p/x/91620.html
+91799,g,oven cooked,729,174,6.8,0.6,24,1.4,2.5,3.0,0.27,2026-11-18,https://www.iceland.co.uk/p/x/91799.html
+91807,g,microwaved,407,97,4.6,0.5,4.5,3.3,1.8,8.7,0.6,2026-11-18,https://www.iceland.co.uk/p/x/91807.html
 91811,g,microwaved,566,135,4.1,1.6,15.2,2.6,2.1,8.2,0.70,2026-11-18,https://www.iceland.co.uk/p/x/91811.html
 91830,g,,392,93,2.0,0.8,2.4,2.2,,16.0,1.8,2026-11-17,https://www.iceland.co.uk/p/x/91830.html
 91831,g,,391,93,2.3,0.9,1.6,1.6,,16.0,1.8,2026-11-17,https://www.iceland.co.uk/p/x/91831.html
@@ -843,14 +1298,23 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 92232,g,drained,323,77,1.7,0.4,10.6,5.2,4.3,2.7,0.08,2026-11-17,https://www.iceland.co.uk/p/x/92232.html
 92250,g,fried,949,227,11.1,2.2,20.5,5.6,1.3,10.7,0.6,2026-11-18,https://www.iceland.co.uk/p/x/92250.html
 92251,g,fried,925,221,10.7,2.3,20.0,6.1,1.4,10.6,0.8,2026-11-17,https://www.iceland.co.uk/p/x/92251.html
+92285,g,oven cooked,533,127,3.7,0.4,19.5,3.7,3.3,2.3,0.7,2026-11-18,https://www.iceland.co.uk/p/x/92285.html
+92289,g,oven cooked,1104,264,15.6,6.1,22.0,0.6,1.4,8.3,1.0,2026-11-18,https://www.iceland.co.uk/p/x/92289.html
 92378,g,,501,118,1.5,0.4,2.9,0.3,0.5,23.1,0.7,2026-11-18,https://www.iceland.co.uk/p/x/92378.html
+92500,g,microwaved,363,86,0.4,0.1,14.6,3.5,1.0,5.5,0.6,2026-11-18,https://www.iceland.co.uk/p/x/92500.html
+92513,g,microwaved,480,114,2.8,0.7,10.1,2.0,0.7,11.7,0.5,2026-11-18,https://www.iceland.co.uk/p/x/92513.html
 92540,g,,1210,291,22.9,8.9,4.4,0.3,,16.5,3.3,2026-11-17,https://www.iceland.co.uk/p/x/92540.html
 92569,g,microwaved,574,137,4.4,0.9,15.4,1.9,2.1,7.8,0.4,2026-11-18,https://www.iceland.co.uk/p/x/92569.html
 92572,g,microwaved,486,115,2.4,1.0,9.2,2.2,2.3,13.1,0.8,2026-11-18,https://www.iceland.co.uk/p/x/92572.html
 92576,g,microwaved,556,132,2.8,1.4,13.6,1.4,1.6,12.2,0.5,2026-11-18,https://www.iceland.co.uk/p/x/92576.html
+92711,g,fried,912,218,10.8,0.7,20.0,0.3,1.4,9.4,1.4,2026-11-18,https://www.iceland.co.uk/p/x/92711.html
+92823,g,microwaved,746,178,7.3,3.9,17.4,1.4,1.6,10.0,1.0,2026-11-18,https://www.iceland.co.uk/p/x/92823.html
 92844,g,,105,25,0.4,0.1,1.4,0.4,2.2,2.9,0.20,2026-11-17,https://www.iceland.co.uk/p/x/92844.html
+92868,g,oven cooked,848,203,10.0,0.8,14.1,0.3,0.6,13.6,0.60,2026-11-18,https://www.iceland.co.uk/p/x/92868.html
+92869,g,oven cooked,710,169,6.0,0.6,15.1,0.6,1.2,13.2,0.77,2026-11-18,https://www.iceland.co.uk/p/x/92869.html
 93035,ml,,3696,899,99.9,11.9,0.0,0.0,0.0,<0.01,<0.01,2026-11-17,https://www.iceland.co.uk/p/x/93035.html
 93037,ml,,3696,899,99.9,11.9,0.0,0.0,0.0,<0.01,<0.01,2026-11-17,https://www.iceland.co.uk/p/x/93037.html
+93238,g,microwaved,107,26,0.1,0.1,3.2,2.7,3.9,1.1,0.0,2026-11-18,https://www.iceland.co.uk/p/x/93238.html
 93301,g,,,350.5,0.5,,78.0,,,8.5,,2026-11-17,https://www.iceland.co.uk/p/x/93301.html
 93302,g,,1505,354,0.5,0.2,79.0,0.1,3.3,8.5,0.01,2026-11-17,https://www.iceland.co.uk/p/x/93302.html
 93413,g,oven cooked,773,183,3.7,0.9,5.2,4.2,0.6,31.9,1.1,2026-11-17,https://www.iceland.co.uk/p/x/93413.html
@@ -859,16 +1323,20 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 93491,g,oven cooked,545,130,5.7,2.8,11.6,1.4,1.1,7.5,0.8,2026-11-18,https://www.iceland.co.uk/p/x/93491.html
 93522,g,microwaved,475,113,5.1,1.9,9.9,1.9,1.0,6.4,0.6,2026-11-18,https://www.iceland.co.uk/p/x/93522.html
 93523,g,microwaved,606,144,3.1,1.3,22.2,1.4,2.3,5.6,0.77,2026-11-18,https://www.iceland.co.uk/p/x/93523.html
+93526,g,microwaved,525,125,4.2,1.5,16.2,0.7,0.6,5.2,0.6,2026-11-18,https://www.iceland.co.uk/p/x/93526.html
 93604,g,,2242,538,32,4.1,53,2.1,4.6,6.4,1.7,2026-11-17,https://www.iceland.co.uk/p/x/93604.html
 93654,g,,163,39,0.5,0.0,6.8,4.1,2.8,1.5,1.32,2026-11-17,https://www.iceland.co.uk/p/x/93654.html
 93720,g,,1593,375,<0.5,<0.1,84,<0.5,,8.1,<0.01,2026-11-17,https://www.iceland.co.uk/p/x/93720.html
 93893,g,,1353,323,1.3,0.2,56.3,2.4,1.5,23.8,0.0,2026-11-17,https://www.iceland.co.uk/p/x/93893.html
+94211,g,,1182,283,15.9,5.6,24.5,1.1,1.5,9.5,0.97,2026-11-18,https://www.iceland.co.uk/p/x/94211.html
 94264,g,,423,100,2.1,0.7,<1.3,<0.1,,19.0,2.5,2026-11-17,https://www.iceland.co.uk/p/x/94264.html
 94307,g,,1113,266,26,2.6,6.1,2.3,<0.5,<0.5,1.7,2026-11-17,https://www.iceland.co.uk/p/x/94307.html
 94344,g,,2077,496,23,2.1,63,2.6,2.5,7.9,0.99,2026-11-17,https://www.iceland.co.uk/p/x/94344.html
 94368,g,steamed,142,34,0.3,0.1,2.5,1.9,2.3,4.1,0.1,2026-11-17,https://www.iceland.co.uk/p/x/94368.html
+94496,g,microwaved,452,108,6.8,0.7,6.9,3.9,1.5,4.1,1.2,2026-11-18,https://www.iceland.co.uk/p/x/94496.html
 94516,g,,890,213,9.9,3.9,14.8,0.2,0.7,16.4,1.1,2026-11-18,https://www.iceland.co.uk/p/x/94516.html
 94579,g,,584,138,2.7,0.6,6.7,3.0,1.2,21.2,1.0,2026-11-17,https://www.iceland.co.uk/p/x/94579.html
+94601,g,as consumed,877,208,4.2,0.6,33.2,1.6,2.2,8.2,0.65,2026-11-18,https://www.iceland.co.uk/p/x/94601.html
 94626,g,,1406,340,28.8,2.8,10.9,1.1,4.3,7.1,0.7,2026-11-17,https://www.iceland.co.uk/p/x/94626.html
 94629,g,,431,102,0.1,<0.1,24.3,19.5,0.6,0.59,1.77,2026-11-17,https://www.iceland.co.uk/p/x/94629.html
 94666,ml,,3382,823,91.4,13.1,0,0,0,0,0,2026-11-17,https://www.iceland.co.uk/p/x/94666.html
@@ -878,9 +1346,15 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 94887,g,,257,61,0.5,0.1,12,11.7,,1,1.2,2026-11-17,https://www.iceland.co.uk/p/x/94887.html
 94926,g,microwaved,615,146,2.6,0.3,24.5,2.7,2.5,4.9,1.0,2026-11-18,https://www.iceland.co.uk/p/x/94926.html
 94936,g,oven cooked,974,234,14.5,5.7,9.8,0.8,0.7,15.6,1.6,2026-11-18,https://www.iceland.co.uk/p/x/94936.html
+94956,g,microwaved,489,116,2.1,1.0,11.2,2.4,1.6,12.2,0.4,2026-11-18,https://www.iceland.co.uk/p/x/94956.html
+94958,g,microwaved,539,128,1.7,0.9,14.3,5.0,1.8,12.8,0.6,2026-11-18,https://www.iceland.co.uk/p/x/94958.html
+94990,g,oven cooked,966,231,11.8,4.0,22.5,0.4,2.3,7.6,1.3,2026-11-18,https://www.iceland.co.uk/p/x/94990.html
 95009,g,oven cooked,532,127,5.8,2.6,11.5,2.3,1.3,6.6,0.9,2026-11-18,https://www.iceland.co.uk/p/x/95009.html
+95013,g,oven cooked,678,161,4.2,0.5,25.9,0.3,3.4,3.3,0.6,2026-11-18,https://www.iceland.co.uk/p/x/95013.html
 95020,g,,548,130,1.8,0.7,1.8,0.4,0.5,26.2,1.2,2026-11-17,https://www.iceland.co.uk/p/x/95020.html
+95043,g,as consumed,295,70,0.9,0.2,0.0,0.0,0.0,15.4,1.5,2026-11-18,https://www.iceland.co.uk/p/x/95043.html
 95045,g,as consumed,296,70,0.6,0.2,0.3,0.0,0.1,15.8,1.3,2026-11-17,https://www.iceland.co.uk/p/x/95045.html
+95055,g,oven cooked,916,219,9.5,0.7,20.0,0.9,1.5,12.6,0.6,2026-11-18,https://www.iceland.co.uk/p/x/95055.html
 95066,g,oven cooked,582,139,7.8,4.2,7.9,1.6,0.6,9.0,0.9,2026-11-18,https://www.iceland.co.uk/p/x/95066.html
 95120,g,,403,95,2.2,0.8,2.5,0.8,,16.0,1.9,2026-11-17,https://www.iceland.co.uk/p/x/95120.html
 95122,g,,391,93,2.3,0.9,1.6,1.6,,16.0,1.8,2026-11-17,https://www.iceland.co.uk/p/x/95122.html
@@ -890,15 +1364,20 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 95196,g,microwaved,705,167,4.7,1.5,23.4,2.8,2.4,6.7,0.9,2026-11-17,https://www.iceland.co.uk/p/x/95196.html
 95197,g,microwaved,543,128,1.1,0.2,22.4,2.0,2.2,6.2,0.6,2026-11-18,https://www.iceland.co.uk/p/x/95197.html
 95198,g,microwaved,405,96,1.9,0.2,15.5,1.9,1.2,3.7,0.6,2026-11-18,https://www.iceland.co.uk/p/x/95198.html
+95209,g,oven cooked,899,215,11.6,1.3,23.9,0.4,2.5,2.6,0.6,2026-11-18,https://www.iceland.co.uk/p/x/95209.html
 95235,g,as consumed,1284,308,19.1,4.8,24.4,4.4,1.1,9.0,1.4,2026-11-18,https://www.iceland.co.uk/p/x/95235.html
 95291,g,,1593,375,<0.5,<0.1,84,<0.5,,8.1,<0.01,2026-11-17,https://www.iceland.co.uk/p/x/95291.html
 95338,g,,579,137,1.1,0.2,25,<0.5,2.9,5.6,0.32,2026-11-17,https://www.iceland.co.uk/p/x/95338.html
 95349,g,oven cooked,784,188,11.4,3.8,3.2,0.5,1.0,17.6,1.5,2026-11-17,https://www.iceland.co.uk/p/x/95349.html
 95365,g,,398,94,0.2,0.1,1.6,1.3,1.8,20.6,0.5,2026-11-17,https://www.iceland.co.uk/p/x/95365.html
+95373,g,boiled,334,80,1.9,0.3,9.5,2.5,5.1,3.6,0.0,2026-11-18,https://www.iceland.co.uk/p/x/95373.html
 95375,g,boiled,354,84,0.7,0.1,11.2,5.9,5.5,5.5,0.0,2026-11-17,https://www.iceland.co.uk/p/x/95375.html
 95376,g,boiled,354,84,0.7,0.1,11.2,5.9,5.5,5.5,0.0,2026-11-17,https://www.iceland.co.uk/p/x/95376.html
 95377,g,boiled,182,44,1.3,0.3,3.5,3.0,3.1,2.9,0.0,2026-11-17,https://www.iceland.co.uk/p/x/95377.html
+95382,g,boiled,158,38,0.7,0.2,4.6,3.0,2.7,1.9,0.0,2026-11-18,https://www.iceland.co.uk/p/x/95382.html
+95388,g,boiled,207,49,0.7,0.2,6.2,3.5,3.8,2.6,0.0,2026-11-18,https://www.iceland.co.uk/p/x/95388.html
 95391,g,boiled,334,80,1.9,0.3,9.5,2.5,5.1,3.6,0.0,2026-11-17,https://www.iceland.co.uk/p/x/95391.html
+95444,g,fried,914,218,9.3,0.8,21.1,0.7,0.9,12.0,0.6,2026-11-18,https://www.iceland.co.uk/p/x/95444.html
 95446,g,,1394,336,25.1,10.4,11.4,0.7,1.6,15.3,2.3,2026-11-18,https://www.iceland.co.uk/p/x/95446.html
 95471,g,oven cooked,612,146,5.1,1.8,1.7,0.6,1.0,23,0.52,2026-11-17,https://www.iceland.co.uk/p/x/95471.html
 95472,g,microwaved,497,118,2.3,0.5,10.0,1.1,1.1,13.8,0.7,2026-11-18,https://www.iceland.co.uk/p/x/95472.html
