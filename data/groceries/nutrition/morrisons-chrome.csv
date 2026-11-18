@@ -11,6 +11,15 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 100407625,g,,1527,361,5.6,1.0,67.5,10.7,1.7,9.4,11.24,2026-11-18,https://groceries.morrisons.com/products/x/100407625
 100407668,g,,1452,347,5.9,0.8,65.7,12.7,2.0,9.2,7.59,2026-11-18,https://groceries.morrisons.com/products/x/100407668
 102314422,ml,,142,34,0,0,7.6,6.8,,0.8,0.08,2026-11-18,https://groceries.morrisons.com/products/x/102314422
+102368560,g,as consumed,1191,281,1.3,0.3,56.5,3.2,3.7,9,1.09,2026-11-18,https://groceries.morrisons.com/products/x/102368560
+102368586,g,as consumed,1191,281,1.3,0.3,56.5,3.2,3.7,9,1.09,2026-11-18,https://groceries.morrisons.com/products/x/102368586
+102368658,g,as consumed,1191,281,1.3,0.3,56.5,3.2,3.7,9,1.12,2026-11-18,https://groceries.morrisons.com/products/x/102368658
+102370934,g,,1113,265,3.9,0.8,46.6,3.0,2.4,9.7,0.98,2026-11-18,https://groceries.morrisons.com/products/x/102370934
+102371081,g,,1079,255,2.5,0.5,47.2,2.5,1.9,9.8,0.8,2026-11-18,https://groceries.morrisons.com/products/x/102371081
+102371363,g,,995,235,1.1,0.3,47.4,3.9,2.1,7.8,0.78,2026-11-18,https://groceries.morrisons.com/products/x/102371363
+102371371,g,,978,231,1.4,0.3,42.2,3.3,5,9.9,0.83,2026-11-18,https://groceries.morrisons.com/products/x/102371371
+102371401,g,,995,235,1.1,0.3,47.4,3.9,2.1,7.8,0.78,2026-11-18,https://groceries.morrisons.com/products/x/102371401
+102372622,g,,1071,253,3.6,1.6,44.5,5.7,2.2,9.7,0.74,2026-11-18,https://groceries.morrisons.com/products/x/102372622
 102407961,g,,962.31,231.47,17.03,2.53,0.5,0.07,0.3,18.9,0.1,2026-11-18,https://groceries.morrisons.com/products/x/102407961
 102410043,g,,281.7,66.4,0.4,0.1,0,0,0,15.7,0.045,2026-11-18,https://groceries.morrisons.com/products/x/102410043
 102413201,g,,347.2,81.91,0.43,0.13,0.5,0.05,0.76,18.63,2.132,2026-11-18,https://groceries.morrisons.com/products/x/102413201
@@ -207,7 +216,10 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 104328465,g,,3062,745,82.2,52.1,0.6,0.6,,0.6,1.5,2026-11-18,https://groceries.morrisons.com/products/x/104328465
 104334259,ml,,140,33,0.1,0,4.5,4.5,,3.5,0.1,2026-11-18,https://groceries.morrisons.com/products/x/104334259
 104406291,g,,1306,307,0,0,76.4,76.4,,0.4,0.03,2026-11-18,https://groceries.morrisons.com/products/x/104406291
+104418719,g,as consumed,898,215,11.4,7,23.5,20.3,0.5,4.3,0.1,2026-11-18,https://groceries.morrisons.com/products/x/104418719
 104418751,g,,1028,245,10.4,8.2,33.3,20.4,0.9,2.5,0.14,2026-11-18,https://groceries.morrisons.com/products/x/104418751
+104418840,g,,1183,282,9.4,8.5,42,19.6,1.1,3.3,0.3,2026-11-18,https://groceries.morrisons.com/products/x/104418840
+104418903,g,,1169,279,12.2,10.7,34.4,19.6,1.8,3.5,0.2,2026-11-18,https://groceries.morrisons.com/products/x/104418903
 104421467,g,grilled,812,194,9.4,3.2,16,1.5,2.3,10.2,1.82,2026-11-18,https://groceries.morrisons.com/products/x/104421467
 104421547,g,grilled,956,229,14.7,5.2,8.1,1.6,0.7,15.8,1.28,2026-11-18,https://groceries.morrisons.com/products/x/104421547
 104421651,g,grilled,1191,287,22.8,8.4,6.9,1,1.2,12.9,0.89,2026-11-18,https://groceries.morrisons.com/products/x/104421651
@@ -222,6 +234,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 104512676,g,,1529,367,26.3,10.2,24.1,1.2,1.2,8.0,1.02,2026-11-18,https://groceries.morrisons.com/products/x/104512676
 104514145,g,,1910,461,41,14.4,4,2.7,,19.1,3.5,2026-11-18,https://groceries.morrisons.com/products/x/104514145
 104514170,g,,1777,427,28.7,10.8,1.3,0.8,0.5,40.5,3.84,2026-11-18,https://groceries.morrisons.com/products/x/104514170
+104556151,g,as consumed,,97,7.6,5.3,5.9,1.4,0.7,1,0.65,2026-11-18,https://groceries.morrisons.com/products/x/104556151
 104622517,g,,1766,428,41.3,26.6,1.6,,,12.4,1.51,2026-11-18,https://groceries.morrisons.com/products/x/104622517
 104635561,g,,1235,298,24,15.8,1.5,1.5,,18.9,2.8,2026-11-18,https://groceries.morrisons.com/products/x/104635561
 104638316,g,,1402,339,29.3,19.7,0.1,0.1,,18.6,1.3,2026-11-18,https://groceries.morrisons.com/products/x/104638316
@@ -235,9 +248,12 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 104699127,g,,553.0,132.0,7.8,5.0,13.0,12,0.2,2.6,0.14,2026-11-18,https://groceries.morrisons.com/products/x/104699127
 104699186,g,,541.0,130.0,7.8,5.0,12.0,12,0.2,2.6,0.11,2026-11-18,https://groceries.morrisons.com/products/x/104699186
 104724855,ml,,183,43,0.2,0.1,9.3,8.6,0.5,0.8,0,2026-11-18,https://groceries.morrisons.com/products/x/104724855
+104738131,g,,1170.547,277.121,4.726,1.321,48.508,1.563,2.622,8.829,0.968,2026-11-18,https://groceries.morrisons.com/products/x/104738131
 104742092,g,,486,115,3.6,1.3,2.9,2.6,0.5,17.6,1.41,2026-11-18,https://groceries.morrisons.com/products/x/104742092
 104742181,g,,480,114,3.6,1.3,1.8,1.4,0.5,18.4,1.5,2026-11-18,https://groceries.morrisons.com/products/x/104742181
+104742869,g,,1224.299,289.23,2.367,0.953,55.781,4.001,3.945,9.23,0.93,2026-11-18,https://groceries.morrisons.com/products/x/104742869
 104743861,g,,2452,596,66,27.8,0.3,,,0.3,1.3,2026-11-18,https://groceries.morrisons.com/products/x/104743861
+104746085,g,,1031.7,243.5,1.5,0.4,47.7,3.1,2.6,8.5,0.67,2026-11-18,https://groceries.morrisons.com/products/x/104746085
 104746780,g,,942,228,21.3,3.8,4.5,3.7,1,4.1,0.6,2026-11-18,https://groceries.morrisons.com/products/x/104746780
 104775901,g,,1584.84,381.37,28.23,11.15,21.5,1.3,1.39,9.63,0.918,2026-11-18,https://groceries.morrisons.com/products/x/104775901
 104786765,g,,1699.6,410.2,35,23,0.1,0.1,0,23.7,1.97,2026-11-18,https://groceries.morrisons.com/products/x/104786765
@@ -273,6 +289,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 105035699,g,as consumed,841,201,11,4,0.6,0.2,,24.9,2.88,2026-11-18,https://groceries.morrisons.com/products/x/105035699
 105042186,g,fried,1175,282,20.2,8,0.2,0.2,0.6,24.7,4.66,2026-11-18,https://groceries.morrisons.com/products/x/105042186
 105042362,g,fried,1092,262,17.7,6.9,0.1,0.1,0.5,25.3,4.12,2026-11-18,https://groceries.morrisons.com/products/x/105042362
+105055981,g,,1009.224,238.928,2.382,0.853,40.899,1.877,6.484,10.232,0.831,2026-11-18,https://groceries.morrisons.com/products/x/105055981
 105079907,ml,,122.0,29.0,1.6,0.2,3.2,3.2,0.3,0.4,0.14,2026-11-18,https://groceries.morrisons.com/products/x/105079907
 105082348,g,,1712.1,414.7,40.3,25.6,0,0,0,13,1.25,2026-11-18,https://groceries.morrisons.com/products/x/105082348
 105097582,g,,853,202,0.4,0.1,40.5,38.7,11,3.6,0.28,2026-11-18,https://groceries.morrisons.com/products/x/105097582
@@ -308,7 +325,9 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 105472151,g,,1291,310,21.5,13.6,0.1,0.1,,29.1,1.8,2026-11-18,https://groceries.morrisons.com/products/x/105472151
 105472194,g,,1725,416,34.9,21.7,0.1,0.1,,25.4,1.8,2026-11-18,https://groceries.morrisons.com/products/x/105472194
 105493067,g,,839,201,10.8,1.8,6.9,3.5,1.1,18.5,1.24,2026-11-18,https://groceries.morrisons.com/products/x/105493067
+105498597,g,,1697,404,13.7,5.6,66.2,39.4,0.7,3.5,0.13,2026-11-18,https://groceries.morrisons.com/products/x/105498597
 105499021,g,,1223,292,13.3,5.3,36.6,17.2,0.6,6.1,0.1,2026-11-18,https://groceries.morrisons.com/products/x/105499021
+105499071,g,,1556,373,23.9,10.2,32.3,20.1,1.5,6.6,0.15,2026-11-18,https://groceries.morrisons.com/products/x/105499071
 105499143,g,,1527,367,25.1,11.9,28.4,20.5,1,6.3,0.14,2026-11-18,https://groceries.morrisons.com/products/x/105499143
 105519167,g,,407,97,2.9,0.4,9.7,2.2,1.3,7.3,0.80,2026-11-18,https://groceries.morrisons.com/products/x/105519167
 105519247,g,,417,99,2.0,0.3,11,3.5,2.9,7.8,0.80,2026-11-18,https://groceries.morrisons.com/products/x/105519247
@@ -317,6 +336,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 105546413,g,,1625.7,392,32,20.1,1.9,0.1,0.6,23.8,1.685,2026-11-18,https://groceries.morrisons.com/products/x/105546413
 105546464,g,,1728.6,417.2,35.6,24.9,1.6,0.1,0,22.6,1.478,2026-11-18,https://groceries.morrisons.com/products/x/105546464
 105547230,g,,1746.4,421.8,36.2,24.7,1.2,0.2,2,21.8,1.375,2026-11-18,https://groceries.morrisons.com/products/x/105547230
+105548128,g,,1182,282,12.0,5.0,40.0,24.0,0.9,3.0,0.35,2026-11-18,https://groceries.morrisons.com/products/x/105548128
 105549577,g,,1247,300.5,24.1,16.9,1.9,0.2,0,19,1.275,2026-11-18,https://groceries.morrisons.com/products/x/105549577
 105572831,g,,1725,416,34.9,21.7,0.1,0.1,,25.4,1.8,2026-11-18,https://groceries.morrisons.com/products/x/105572831
 105581307,ml,,146,35,0.8,0.5,4.0,3.7,,2.8,0.09,2026-11-18,https://groceries.morrisons.com/products/x/105581307
@@ -326,11 +346,14 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 105625779,g,,529,126,6.1,0.5,15.8,2.7,1.4,1.4,0.38,2026-11-18,https://groceries.morrisons.com/products/x/105625779
 105627070,g,,496,118,4.1,2.4,18.3,14.7,0.6,1.7,0.15,2026-11-18,https://groceries.morrisons.com/products/x/105627070
 105627141,g,,503,120,4.1,2.4,18.5,14.3,0.8,1.8,0.15,2026-11-18,https://groceries.morrisons.com/products/x/105627141
+105630025,g,,1296.744,312.398,24.43,14.709,20.305,10.262,0.819,2.418,0.302,2026-11-18,https://groceries.morrisons.com/products/x/105630025
+105630324,g,,1094.399,261.874,14.215,8.211,29.68,19.064,1.592,3.008,0.293,2026-11-18,https://groceries.morrisons.com/products/x/105630324
 105645366,g,,932,224,14,9.5,8.9,7.2,,15.3,2.2,2026-11-18,https://groceries.morrisons.com/products/x/105645366
 105648701,g,,1725,416,35,22,0.1,0.1,,25,1.8,2026-11-18,https://groceries.morrisons.com/products/x/105648701
 105656321,g,prepared,1053,251,10.4,1,30.5,3.1,2.3,7.6,0.52,2026-11-18,https://groceries.morrisons.com/products/x/105656321
 105662377,g,as consumed,934,221,4.7,0.6,35.1,1.9,2.5,8.5,0.49,2026-11-18,https://groceries.morrisons.com/products/x/105662377
 105684293,g,,1259,302,21.1,12.8,1.7,1.1,,26.4,0.94,2026-11-18,https://groceries.morrisons.com/products/x/105684293
+105694619,g,,1123,266,3.5,0.6,48.7,3.5,2.8,8.4,0.9,2026-11-18,https://groceries.morrisons.com/products/x/105694619
 105700548,ml,,128,31,1.8,1,3.3,0.1,0.2,0.2,0.77,2026-11-18,https://groceries.morrisons.com/products/x/105700548
 105700610,ml,prepared,132,32,2,1.1,3.1,,0.1,0.2,0.8,2026-11-18,https://groceries.morrisons.com/products/x/105700610
 105700695,ml,prepared,134,32,2.1,1.2,3,0.1,0.1,0.2,0.83,2026-11-18,https://groceries.morrisons.com/products/x/105700695
@@ -340,15 +363,18 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 105704477,g,as consumed,673,159,1.6,0.7,30.4,1.7,2.8,4.4,1.22,2026-11-18,https://groceries.morrisons.com/products/x/105704477
 105704506,g,as consumed,673,159,1.6,0.7,30.4,1.7,2.8,4.4,1.22,2026-11-18,https://groceries.morrisons.com/products/x/105704506
 105738440,g,,1559,376,31.8,11.4,3,0.1,2.5,18.3,4.07,2026-11-18,https://groceries.morrisons.com/products/x/105738440
+105739397,g,,1346,321,12.5,5.3,48.8,19.5,2,2.6,0.185,2026-11-18,https://groceries.morrisons.com/products/x/105739397
 105743345,g,,1582,381,30.3,11,0.4,0.1,0.5,26.5,3.43,2026-11-18,https://groceries.morrisons.com/products/x/105743345
 105761236,g,,558,132,0,0,26.6,1.6,2.1,5.3,0.32,2026-11-18,https://groceries.morrisons.com/products/x/105761236
 105762159,g,,1050,254,22.0,9.6,1.0,0.1,,13.8,1.6,2026-11-18,https://groceries.morrisons.com/products/x/105762159
 105770765,g,as consumed,814,195,9.9,2.7,15.6,0.6,1.2,10.1,0.78,2026-11-18,https://groceries.morrisons.com/products/x/105770765
 105771063,g,as consumed,776,185,8.7,2.1,16.1,0.6,0.7,10.2,0.73,2026-11-18,https://groceries.morrisons.com/products/x/105771063
 105789925,g,as consumed,1285,308,20.7,7.9,20.4,0.5,,9.7,1.4,2026-11-18,https://groceries.morrisons.com/products/x/105789925
+105796754,g,as consumed,,93,6.7,3.8,6,1.3,0.5,1.9,0.87,2026-11-18,https://groceries.morrisons.com/products/x/105796754
 105798910,g,,1490,351,1.5,0.3,69,3.4,2.9,14,0,2026-11-18,https://groceries.morrisons.com/products/x/105798910
 105805817,g,,279.0,66.0,2.1,0.4,7.5,7.5,0.9,3.7,0.2,2026-11-18,https://groceries.morrisons.com/products/x/105805817
 105811141,g,,1317,318,25.3,9.4,12.4,7.4,0.7,9.7,1.79,2026-11-18,https://groceries.morrisons.com/products/x/105811141
+105840487,g,,1067,253,7,6.4,42.3,22.3,1,2.5,0.28,2026-11-18,https://groceries.morrisons.com/products/x/105840487
 105957327,g,,914,218,11.4,3.9,8.4,0.4,,20.2,1.9,2026-11-18,https://groceries.morrisons.com/products/x/105957327
 105965124,g,,2577,622,50.9,10.9,18.8,5.6,3.2,20.5,0.73,2026-11-18,https://groceries.morrisons.com/products/x/105965124
 106017759,g,as consumed,1041,249,13.6,1.6,26.7,2.3,2.4,3.8,0.55,2026-11-18,https://groceries.morrisons.com/products/x/106017759
@@ -378,8 +404,14 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 106166560,ml,,182,43,0,0,10.3,10.3,0.4,0.2,0,2026-11-18,https://groceries.morrisons.com/products/x/106166560
 106166658,ml,,169,40,0.1,0,9,8.8,0.3,0.6,0,2026-11-18,https://groceries.morrisons.com/products/x/106166658
 106166771,ml,,172,40,0.1,0,9.2,9,0.1,0.6,0,2026-11-18,https://groceries.morrisons.com/products/x/106166771
+106189227,g,as consumed,712,169,3.7,1.1,26.9,1.4,1.8,6.1,0.36,2026-11-18,https://groceries.morrisons.com/products/x/106189227
+106189260,g,as consumed,876,208,5.9,1.8,29.8,3.3,1.8,8.2,0.71,2026-11-18,https://groceries.morrisons.com/products/x/106189260
+106193736,g,as consumed,781,185,4.5,1.3,27.9,1.8,1.6,7.5,0.48,2026-11-18,https://groceries.morrisons.com/products/x/106193736
+106194122,g,as consumed,993,236,7.4,2,33,3.4,1.6,8.5,0.75,2026-11-18,https://groceries.morrisons.com/products/x/106194122
+106194202,g,as consumed,875,207,3.5,0.8,34.8,2.6,2.4,7.9,0.52,2026-11-18,https://groceries.morrisons.com/products/x/106194202
 106197147,g,,588,141,9.5,2.1,3.7,0.1,0.6,9.9,0.73,2026-11-18,https://groceries.morrisons.com/products/x/106197147
 106199601,g,,582,140,8.1,1,7.5,2.1,0.9,8.7,0.64,2026-11-18,https://groceries.morrisons.com/products/x/106199601
+106199943,g,as consumed,962,229,6.7,2,33,3.6,2,8.2,0.46,2026-11-18,https://groceries.morrisons.com/products/x/106199943
 106201003,g,,700,167,8,0.9,11.5,10.3,0.6,12.1,0.6,2026-11-18,https://groceries.morrisons.com/products/x/106201003
 106214621,g,,1227,295,19.7,10.3,22.5,1.7,1.7,6.0,0.93,2026-11-18,https://groceries.morrisons.com/products/x/106214621
 106236610,g,as consumed,1450,346,13.5,2.4,47.6,3.3,2.6,7.1,0.93,2026-11-18,https://groceries.morrisons.com/products/x/106236610
@@ -387,6 +419,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 106246367,g,as consumed,1100,262,9,2,29.6,12.8,1.1,15,0.82,2026-11-18,https://groceries.morrisons.com/products/x/106246367
 106265664,g,,300.0,71.0,1.4,1.0,10.0,9.9,1.1,2.9,0.11,2026-11-18,https://groceries.morrisons.com/products/x/106265664
 106265859,g,,821,195,3.9,2.4,32,24,0.5,2.1,0.46,2026-11-18,https://groceries.morrisons.com/products/x/106265859
+106302664,g,,238,56,0.4,0.1,11,1.3,4.3,3.9,0.6,2026-11-18,https://groceries.morrisons.com/products/x/106302664
+106302728,g,,112,26,0.3,0.1,5.8,1.2,2.2,1.1,0.5,2026-11-18,https://groceries.morrisons.com/products/x/106302728
 106385130,g,,909,219,18.1,12.2,11.9,9.1,,2.2,0.07,2026-11-18,https://groceries.morrisons.com/products/x/106385130
 106385164,g,,1211,293,28,20,8,8,,2.3,0.08,2026-11-18,https://groceries.morrisons.com/products/x/106385164
 106465818,g,,1195,287,19.3,9,19.9,1.6,2.9,7,0.89,2026-11-18,https://groceries.morrisons.com/products/x/106465818
@@ -426,7 +460,11 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 106923680,g,cooked,624,149,5.6,2,16,2.1,1.2,8,0.44,2026-11-18,https://groceries.morrisons.com/products/x/106923680
 107007851,g,,3062,745,82.2,52.1,0.6,0.6,,0.6,,2026-11-18,https://groceries.morrisons.com/products/x/107007851
 107007886,g,,3062,745,82.2,52.1,0.6,0.6,,0.6,1.5,2026-11-18,https://groceries.morrisons.com/products/x/107007886
+107051641,g,,1075,253,2.8,0.5,52.1,0.4,2.9,8.0,1.35,2026-11-18,https://groceries.morrisons.com/products/x/107051641
+107091248,g,,615,147,7.7,4.6,17.1,12.2,0.8,2,0.15,2026-11-18,https://groceries.morrisons.com/products/x/107091248
+107091416,g,,611,146,7.5,4.5,17.4,14.3,0.8,1.8,0.15,2026-11-18,https://groceries.morrisons.com/products/x/107091416
 107170288,g,,1683,403,22.0,10.0,43.0,31.0,2.0,7.6,0.43,2026-11-18,https://groceries.morrisons.com/products/x/107170288
+107177130,g,as consumed,1176,280,10.8,2.2,36.4,4.3,2.8,8,0.51,2026-11-18,https://groceries.morrisons.com/products/x/107177130
 107184997,g,,709,169,4.8,3.0,27,8.0,1.5,5.5,0.15,2026-11-18,https://groceries.morrisons.com/products/x/107184997
 107196883,g,as consumed,1505,361,23.3,8.6,30.5,3.6,1.8,6.4,0.49,2026-11-18,https://groceries.morrisons.com/products/x/107196883
 107226747,g,,323,76,0.0,0.0,19,18,,0.0,0.10,2026-11-18,https://groceries.morrisons.com/products/x/107226747
@@ -484,10 +522,13 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 107703005,g,,1725,416,34.9,21.7,0.1,0.1,,25.4,1.81,2026-11-18,https://groceries.morrisons.com/products/x/107703005
 107703030,g,,1723,415,34.2,21.3,2.1,0.1,,24.9,1.77,2026-11-18,https://groceries.morrisons.com/products/x/107703030
 107704702,g,cooked,794,189,8.6,4.1,16.8,1.6,1.1,10.8,0.41,2026-11-18,https://groceries.morrisons.com/products/x/107704702
+107733028,g,,1146.62,272.89,10.33,4.83,40.5,22.8,0.5,4.23,0.225,2026-11-18,https://groceries.morrisons.com/products/x/107733028
+107745635,g,,139,33,0.7,0.2,5.4,1.2,0.7,1.5,0.53,2026-11-18,https://groceries.morrisons.com/products/x/107745635
 107852246,g,microwaved,587,139,3.3,0.7,20.4,2.4,1.6,6.3,0.24,2026-11-18,https://groceries.morrisons.com/products/x/107852246
 107852271,g,cooked,399,95,2.6,1.4,12.9,1.2,1.5,4.1,0.44,2026-11-18,https://groceries.morrisons.com/products/x/107852271
 107871949,g,microwaved,476,113,3.1,1.3,15.9,2.6,1.1,4.8,0.56,2026-11-18,https://groceries.morrisons.com/products/x/107871949
 107871981,g,microwaved,504,120,3.3,2.2,17.2,1.8,0.6,5,0.6,2026-11-18,https://groceries.morrisons.com/products/x/107871981
+107872298,g,,231,55,2.5,1.5,3.7,1.2,0.5,4.3,0.6,2026-11-18,https://groceries.morrisons.com/products/x/107872298
 107872731,g,,328,78,2.8,1.3,7.3,2.7,2.1,4.9,0.38,2026-11-18,https://groceries.morrisons.com/products/x/107872731
 107907471,g,,1093,261,12.8,5.2,21.9,3.1,,13.7,1.5,2026-11-18,https://groceries.morrisons.com/products/x/107907471
 107907518,g,,1104,264,15.3,6.4,16.4,2.1,,14.1,1.3,2026-11-18,https://groceries.morrisons.com/products/x/107907518
@@ -514,6 +555,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 108184526,g,,202,48,0,0,0.8,0.7,,10.9,0.41,2026-11-18,https://groceries.morrisons.com/products/x/108184526
 108186441,g,cooked,605,143,1.5,0.4,0,0,,32.3,0.16,2026-11-18,https://groceries.morrisons.com/products/x/108186441
 108192008,g,,3031,740,81.4,39.2,3.2,0.6,,0.5,1.1,2026-11-18,https://groceries.morrisons.com/products/x/108192008
+108235910,g,,905,216,14,11,19,15,2.9,2.1,0.06,2026-11-18,https://groceries.morrisons.com/products/x/108235910
 108248083,g,,1269,307,26.7,9.8,4.2,1.3,2,11.4,1.49,2026-11-18,https://groceries.morrisons.com/products/x/108248083
 108261624,g,microwaved,577,137,3.5,0.6,21.5,8.1,1.3,4.2,0.55,2026-11-18,https://groceries.morrisons.com/products/x/108261624
 108262133,g,,1850,446,38,14.4,4,3,0.2,22,3.4,2026-11-18,https://groceries.morrisons.com/products/x/108262133
@@ -546,6 +588,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 108313236,g,as consumed,452,108,7.4,4.3,7.7,1.2,0.1,2.7,0.67,2026-11-18,https://groceries.morrisons.com/products/x/108313236
 108314263,g,,176,42,0.1,,8.8,8.8,1.6,0.6,,2026-11-18,https://groceries.morrisons.com/products/x/108314263
 108317579,g,,544,131,9.2,1.7,7.8,0.6,1,3.8,0.53,2026-11-18,https://groceries.morrisons.com/products/x/108317579
+108323371,g,,1673,400,22.0,9.1,46.0,1.8,1.9,8.8,2.25,2026-11-18,https://groceries.morrisons.com/products/x/108323371
 108359525,g,,601,143,6.6,3.3,13.9,1.0,0.7,6.6,0.60,2026-11-18,https://groceries.morrisons.com/products/x/108359525
 108359681,g,,357,85,3.3,1.5,6.8,0.7,2.4,5.9,0.71,2026-11-18,https://groceries.morrisons.com/products/x/108359681
 108384827,g,,210,50,0.4,,8.8,5.3,1.5,1.9,,2026-11-18,https://groceries.morrisons.com/products/x/108384827
@@ -571,6 +614,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 108450960,g,,728,175,13,1.6,1.4,0.7,0.4,14,1.2,2026-11-18,https://groceries.morrisons.com/products/x/108450960
 108455293,g,,130,31,0.3,,6,4.2,2.1,1,,2026-11-18,https://groceries.morrisons.com/products/x/108455293
 108456122,g,,459,108,0.4,0.3,23.9,18.6,1.3,1.6,1.49,2026-11-18,https://groceries.morrisons.com/products/x/108456122
+108457387,g,as consumed,815,193,5.3,1.4,28.6,2.9,1.3,7.2,0.47,2026-11-18,https://groceries.morrisons.com/products/x/108457387
 108457580,g,as consumed,488,116,3.1,1.1,0.1,0.1,0.5,21.6,3.94,2026-11-18,https://groceries.morrisons.com/products/x/108457580
 108459841,g,,507,120,2.3,0.2,19.6,2.3,2.2,4.2,,2026-11-18,https://groceries.morrisons.com/products/x/108459841
 108459876,g,,334,80,1.9,0.3,9.5,2.5,5.1,3.6,0.04,2026-11-18,https://groceries.morrisons.com/products/x/108459876
@@ -618,7 +662,10 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 108770285,g,,1400,335,19.8,7.8,29.6,1.8,2,8.6,0.87,2026-11-18,https://groceries.morrisons.com/products/x/108770285
 108820684,g,,2413,586,63.5,39.7,2.3,2.3,,1.6,0.04,2026-11-18,https://groceries.morrisons.com/products/x/108820684
 108827026,g,,876,209,10.6,1.8,10.3,6,1.4,17.5,1.03,2026-11-18,https://groceries.morrisons.com/products/x/108827026
+108831447,g,,1273,302,6.4,3.2,50.2,8.1,2.5,9.6,0.6,2026-11-18,https://groceries.morrisons.com/products/x/108831447
+108831535,g,,1267,300,6,3.1,50.8,8,2.7,9.3,0.61,2026-11-18,https://groceries.morrisons.com/products/x/108831535
 108882148,g,,1192,284,11.3,9.6,38.8,16.8,1.4,4,0.21,2026-11-18,https://groceries.morrisons.com/products/x/108882148
+108884400,g,,999,238,8.4,1.2,35,14.4,2.5,4.3,0.45,2026-11-18,https://groceries.morrisons.com/products/x/108884400
 108887740,g,,1057,257,25.7,1.8,4.8,4.8,1.2,0.9,0.51,2026-11-18,https://groceries.morrisons.com/products/x/108887740
 108887774,g,,1057,257,25.7,1.8,4.8,4.8,1.2,0.9,0.51,2026-11-18,https://groceries.morrisons.com/products/x/108887774
 108887862,g,,756,183,16.1,1.3,7.3,6,1.7,1.3,0.57,2026-11-18,https://groceries.morrisons.com/products/x/108887862
@@ -647,6 +694,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 109086952,g,,453.3,107.2,1.8,0.6,0.9,0.7,0.1,21.8,1.575,2026-11-18,https://groceries.morrisons.com/products/x/109086952
 109088915,g,,,183.62,11.2,4.1,0.7,0.7,0.01,20,2.75,2026-11-18,https://groceries.morrisons.com/products/x/109088915
 109184894,g,drained,828,197,7.5,2.2,23.1,20.4,0.6,9,1.86,2026-11-18,https://groceries.morrisons.com/products/x/109184894
+109198911,g,,1067,252,2.6,0.9,46.4,4.5,3.6,9,0.68,2026-11-18,https://groceries.morrisons.com/products/x/109198911
+109199084,g,,987,234,2.8,0.6,38.4,3.6,8,9.8,0.63,2026-11-18,https://groceries.morrisons.com/products/x/109199084
 109267041,g,,939,226,18,5.4,<0.5,<0.5,<0.5,16,0.21,2026-11-18,https://groceries.morrisons.com/products/x/109267041
 109298015,ml,,191,45,0.5,0.1,5.4,5.4,0.5,4.5,0.12,2026-11-18,https://groceries.morrisons.com/products/x/109298015
 109301034,g,,889,214,18,8.1,2.0,0.1,,11,1.7,2026-11-18,https://groceries.morrisons.com/products/x/109301034
@@ -660,13 +709,30 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 109314812,g,,1128,268,9.6,1.3,35.4,1.1,1.5,9.4,0.59,2026-11-18,https://groceries.morrisons.com/products/x/109314812
 109317546,ml,prepared,134,32,2.1,1.1,3.1,0.2,0.1,0.2,0.83,2026-11-18,https://groceries.morrisons.com/products/x/109317546
 109317589,ml,prepared,133,32,2,1,3,,0.3,0.3,0.65,2026-11-18,https://groceries.morrisons.com/products/x/109317589
+109326258,g,,1146.62,272.89,10.33,4.83,40.5,22.8,0.5,4.23,0.225,2026-11-18,https://groceries.morrisons.com/products/x/109326258
+109331057,g,microwaved,762,183,11.9,7,15.5,8.5,0.7,3.1,0.08,2026-11-18,https://groceries.morrisons.com/products/x/109331057
+109331145,g,cooked,1055,251,8.8,3.8,39.3,23.1,2.3,2.5,0.09,2026-11-18,https://groceries.morrisons.com/products/x/109331145
+109345424,g,,931,222,6.3,1.7,32,4.1,2.6,8,0.64,2026-11-18,https://groceries.morrisons.com/products/x/109345424
+109350830,g,,1064,251,2.3,0.5,48.3,3.3,,10.7,1.04,2026-11-18,https://groceries.morrisons.com/products/x/109350830
+109351496,g,as consumed,1048,250,9.7,4.2,36.8,20.4,2.2,2.7,0.09,2026-11-18,https://groceries.morrisons.com/products/x/109351496
 109352245,g,,481,115,8.3,5.5,4.9,4.9,,4.5,0.10,2026-11-18,https://groceries.morrisons.com/products/x/109352245
+109362478,g,,1183,282,11.7,9.4,36.4,16,2,4.4,0.22,2026-11-18,https://groceries.morrisons.com/products/x/109362478
+109364924,g,,967,230,9.6,3.8,27,2,3,7.4,0.65,2026-11-18,https://groceries.morrisons.com/products/x/109364924
+109368482,g,,812.793,194.59,10.467,5.64,22.06,12.745,2.264,1.904,0.156,2026-11-18,https://groceries.morrisons.com/products/x/109368482
+109369581,g,,1130,268,6.3,5.7,46.6,17.3,0.8,2.7,0.25,2026-11-18,https://groceries.morrisons.com/products/x/109369581
 109385514,g,,1250,300,20.5,9.9,15.4,0.5,,13.8,1.38,2026-11-18,https://groceries.morrisons.com/products/x/109385514
 109421562,g,,795,192,15.4,1.2,4.3,2.5,0.3,8.9,1.28,2026-11-18,https://groceries.morrisons.com/products/x/109421562
 109429994,g,,357,85,2.0,0.3,11.2,3.7,0.9,5.0,0.5,2026-11-18,https://groceries.morrisons.com/products/x/109429994
+109463762,g,,1136.664,271.116,11.255,5.082,27.178,1.512,3.021,13.766,0.567,2026-11-18,https://groceries.morrisons.com/products/x/109463762
+109464335,g,,1355.686,324.238,16.469,5.779,29.309,0.933,3.481,12.956,0.915,2026-11-18,https://groceries.morrisons.com/products/x/109464335
+109464669,g,,1096.595,261.865,12.659,5.653,21.604,2.368,1.016,14.872,1.23,2026-11-18,https://groceries.morrisons.com/products/x/109464669
+109464781,g,,1144.965,273.089,12.074,5.754,25.43,2.753,1.143,15.105,0.848,2026-11-18,https://groceries.morrisons.com/products/x/109464781
 109486892,g,,1053,253,17,0.2,22,9.6,2.9,3.7,0.6,2026-11-18,https://groceries.morrisons.com/products/x/109486892
 109486921,g,,1551,375,31,4.6,17,7.6,4.1,9.5,0.8,2026-11-18,https://groceries.morrisons.com/products/x/109486921
 109490808,g,,728,172,3.0,1.3,1.7,<0.5,<0.5,36.3,2.0,2026-11-18,https://groceries.morrisons.com/products/x/109490808
+109507913,g,,1033,247,11.9,4.8,31.4,19.1,1.3,2.7,0.15,2026-11-18,https://groceries.morrisons.com/products/x/109507913
+109507972,g,,1057,252,11.8,4.7,33.2,21.8,0.9,2.8,0.19,2026-11-18,https://groceries.morrisons.com/products/x/109507972
+109508001,g,,1031,246,11.4,4.6,32.3,20.1,1.7,2.7,0.16,2026-11-18,https://groceries.morrisons.com/products/x/109508001
 109525062,g,,1214,291,17.0,8.4,25.1,1.5,,8.5,1.1,2026-11-18,https://groceries.morrisons.com/products/x/109525062
 109529291,g,,687,165,10,3.2,1.3,<0.5,<0.5,17,0.18,2026-11-18,https://groceries.morrisons.com/products/x/109529291
 109529741,g,cooked,492,117,4.3,1.6,13.3,2.9,1,5.8,0.52,2026-11-18,https://groceries.morrisons.com/products/x/109529741
@@ -674,12 +740,16 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 109537602,g,,867,207,8.8,1.4,26.4,4.6,,5.5,1.3,2026-11-18,https://groceries.morrisons.com/products/x/109537602
 109540975,g,,1036,249,18,6.4,<0.5,<0.5,0.5,21,3.0,2026-11-18,https://groceries.morrisons.com/products/x/109540975
 109541687,g,as consumed,867,207,9.1,0.8,19.5,0.3,1.1,11.2,0.84,2026-11-18,https://groceries.morrisons.com/products/x/109541687
+109544141,g,,220,52,2.5,0.2,5.3,2.5,1.1,1.6,0.57,2026-11-18,https://groceries.morrisons.com/products/x/109544141
 109545514,g,,565.0,135.0,7.8,5.0,13.0,13,0.5,2.6,0.12,2026-11-18,https://groceries.morrisons.com/products/x/109545514
 109555721,g,,351,83,2.4,1.6,9.3,8.6,0.3,5.9,0.11,2026-11-18,https://groceries.morrisons.com/products/x/109555721
 109640992,g,,495,117,2.1,0.7,1.1,0.9,0.5,23.1,1.45,2026-11-18,https://groceries.morrisons.com/products/x/109640992
 109645021,g,,177.0,42.0,2.3,0.4,0.0,0,0.9,4.0,0.24,2026-11-18,https://groceries.morrisons.com/products/x/109645021
 109670711,g,microwaved,628,149,4.2,1,17.6,2.5,1.7,9.5,0.32,2026-11-18,https://groceries.morrisons.com/products/x/109670711
 109687758,g,,1077,257,18.0,7.8,1.0,1.0,,16.5,2.1,2026-11-18,https://groceries.morrisons.com/products/x/109687758
+109708723,g,,973,230,2.4,0.9,41.5,2.8,,8.8,1.15,2026-11-18,https://groceries.morrisons.com/products/x/109708723
+109708758,g,,973,230,2.4,0.9,41.5,2.8,,8.8,1.15,2026-11-18,https://groceries.morrisons.com/products/x/109708758
+109708934,g,,934,221,1.8,0.4,37.8,4.1,6.8,10.0,0.90,2026-11-18,https://groceries.morrisons.com/products/x/109708934
 109724993,g,,926,225,23,3.2,2,0,2.3,1.3,3.79,2026-11-18,https://groceries.morrisons.com/products/x/109724993
 109725540,g,,1361,329,30.8,7.3,9.6,8.1,1.5,2.7,0.42,2026-11-18,https://groceries.morrisons.com/products/x/109725540
 109726032,g,,737,179,18.3,2.7,0.8,0,3.2,1.2,3.19,2026-11-18,https://groceries.morrisons.com/products/x/109726032
@@ -691,6 +761,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 109743668,g,,593,141,3.5,1.2,1.2,1.2,0.6,25.8,1.78,2026-11-18,https://groceries.morrisons.com/products/x/109743668
 109767791,g,,652,154,1.6,0.2,29.4,8.5,2.1,4.5,0.22,2026-11-18,https://groceries.morrisons.com/products/x/109767791
 109768857,g,,628,150,8.6,6.2,3.9,0.1,1.9,13.4,0.8,2026-11-18,https://groceries.morrisons.com/products/x/109768857
+109775707,g,as served,1683,402,18.8,8.3,55.0,42.0,2.5,1.5,0.4,2026-11-18,https://groceries.morrisons.com/products/x/109775707
 109787441,g,as consumed,591,141,7.2,4.8,14.8,1.2,1.3,3.7,0.56,2026-11-18,https://groceries.morrisons.com/products/x/109787441
 109787476,g,as consumed,599,144,9.4,5.6,12.1,1.6,1.8,1.8,0.28,2026-11-18,https://groceries.morrisons.com/products/x/109787476
 109802672,g,,1144,275,20.7,10.5,5.9,2.2,0.5,16.1,2.47,2026-11-18,https://groceries.morrisons.com/products/x/109802672
@@ -714,8 +785,10 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 110091855,g,,1377,330,20,9.9,30,1.9,,6.4,1.11,2026-11-18,https://groceries.morrisons.com/products/x/110091855
 110091901,g,,1401,336,20,10.1,30,1.8,,7.2,1.10,2026-11-18,https://groceries.morrisons.com/products/x/110091901
 110092006,g,,1381,330,19,9.3,32,1.9,,8.0,1.08,2026-11-18,https://groceries.morrisons.com/products/x/110092006
+110102260,g,as consumed,755,179,4.8,1.9,27.2,3.4,2,5.8,0.61,2026-11-18,https://groceries.morrisons.com/products/x/110102260
 110106033,g,,,363,33,3.4,8.3,0.6,4.1,6.6,1.0,2026-11-18,https://groceries.morrisons.com/products/x/110106033
 110106181,g,,963,232,19,5.8,1.7,0.7,,13,2.4,2026-11-18,https://groceries.morrisons.com/products/x/110106181
+110114834,g,as consumed,,274,4.8,1.4,47.2,3.4,2.6,9.3,0.79,2026-11-18,https://groceries.morrisons.com/products/x/110114834
 110120530,g,grilled,1139,274,21.4,8.3,3.8,1.6,0.5,16.4,1.12,2026-11-18,https://groceries.morrisons.com/products/x/110120530
 110130771,g,,940,227,18,4.9,<0.5,<0.5,0.6,16,0.17,2026-11-18,https://groceries.morrisons.com/products/x/110130771
 110137964,g,,1700,410,35,23,0.1,0.1,,23.7,1.97,2026-11-18,https://groceries.morrisons.com/products/x/110137964
@@ -731,6 +804,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 110221980,g,,214,51,0.4,0.1,10.3,10.2,1.6,0.7,,2026-11-18,https://groceries.morrisons.com/products/x/110221980
 110227046,g,,1118,267,13.3,4.5,25.1,1.2,,11.9,1.6,2026-11-18,https://groceries.morrisons.com/products/x/110227046
 110227118,g,,1186,285,18.8,2.5,18.6,0.3,,10.1,0.5,2026-11-18,https://groceries.morrisons.com/products/x/110227118
+110227409,g,,1255,296,1.8,0.3,57,2.6,,12,1.4,2026-11-18,https://groceries.morrisons.com/products/x/110227409
 110229252,g,,723,173,6.2,1.1,16.1,3.1,,13.0,1.6,2026-11-18,https://groceries.morrisons.com/products/x/110229252
 110234238,g,,1664,403,37.5,25,8.5,7,,7.5,0.74,2026-11-18,https://groceries.morrisons.com/products/x/110234238
 110234529,g,,1287,310,23.7,10,13.2,0.6,,10.2,1.9,2026-11-18,https://groceries.morrisons.com/products/x/110234529
@@ -743,6 +817,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 110293781,g,,1000,240,17,6.5,3,<1,,17,1.8,2026-11-18,https://groceries.morrisons.com/products/x/110293781
 110295794,g,grilled,704,168,7.4,2.6,7.9,1.7,0.8,17.1,1.22,2026-11-18,https://groceries.morrisons.com/products/x/110295794
 110338811,g,,406,97,5.0,3.5,2.0,1.5,,11,0.70,2026-11-18,https://groceries.morrisons.com/products/x/110338811
+110387023,g,,948,226,10.9,6.3,27.5,23.5,0.5,4.3,0.11,2026-11-18,https://groceries.morrisons.com/products/x/110387023
 110434897,ml,,245,59,2.9,2.1,4.6,2.8,,3.5,0.10,2026-11-18,https://groceries.morrisons.com/products/x/110434897
 110436307,g,,268,64,2.1,1.4,5.4,5.4,,4.7,0.12,2026-11-18,https://groceries.morrisons.com/products/x/110436307
 110436391,g,,239,56,0.1,0.0,4.1,3.7,,10.0,0.10,2026-11-18,https://groceries.morrisons.com/products/x/110436391
@@ -767,6 +842,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 110543946,g,,399,95,3.1,1.9,13.6,13.6,,3.1,0.08,2026-11-18,https://groceries.morrisons.com/products/x/110543946
 110578938,g,,1757,420,27.4,13.6,38.2,1.4,,5.2,1.5,2026-11-18,https://groceries.morrisons.com/products/x/110578938
 110583665,g,,459,109,1.9,1.2,20.2,16.4,0.5,2.5,0.07,2026-11-18,https://groceries.morrisons.com/products/x/110583665
+110601384,g,,980,234,5.6,2.7,33,3.0,1.4,12,1.1,2026-11-18,https://groceries.morrisons.com/products/x/110601384
 110611822,ml,,256,60,1.1,0.7,9.1,7.7,,3.6,0.15,2026-11-18,https://groceries.morrisons.com/products/x/110611822
 110627373,g,,249,58,<0.5,0.1,8.0,7.1,,5.5,0.23,2026-11-18,https://groceries.morrisons.com/products/x/110627373
 110627402,g,,254,60,<0.5,0.1,8.3,7.4,,5.5,0.23,2026-11-18,https://groceries.morrisons.com/products/x/110627402
@@ -778,6 +854,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 110697312,g,,136,32,0,0,5.5,4.8,,1.6,1.0,2026-11-18,https://groceries.morrisons.com/products/x/110697312
 110713175,g,cooked,1213,292,19.3,4.3,20.2,1.2,3.5,7.6,0.56,2026-11-18,https://groceries.morrisons.com/products/x/110713175
 110718275,g,,746,179,9.3,4.1,7.6,0.7,2.5,14.7,1.2,2026-11-18,https://groceries.morrisons.com/products/x/110718275
+110729100,g,,1088,259,3.9,1.1,46.4,3.1,1.6,8.8,1.00,2026-11-18,https://groceries.morrisons.com/products/x/110729100
 110739025,g,microwaved,653,157,9.5,3.5,10.9,3.1,1.2,6.3,0.51,2026-11-18,https://groceries.morrisons.com/products/x/110739025
 110739480,g,as consumed,415,98,0.3,0.1,0.5,,0.3,23.1,1.37,2026-11-18,https://groceries.morrisons.com/products/x/110739480
 110742460,ml,,122,29,0.1,0.1,3.4,3.4,,3.4,0.11,2026-11-18,https://groceries.morrisons.com/products/x/110742460
@@ -797,12 +874,14 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 110885954,g,,1261,304,25,9.1,10.7,4.3,0.5,8.8,1.58,2026-11-18,https://groceries.morrisons.com/products/x/110885954
 110886017,g,,1184,286,23.6,8.8,5.4,1.3,1.9,12,1.41,2026-11-18,https://groceries.morrisons.com/products/x/110886017
 110891123,g,,2600,632,70,28,<0.5,<0.5,,<0.5,1.1,2026-11-18,https://groceries.morrisons.com/products/x/110891123
+110892661,g,as consumed,1165,277,7.2,3.4,40.7,3.3,2.9,10.8,0.95,2026-11-18,https://groceries.morrisons.com/products/x/110892661
 110942242,ml,,204,48,0,0,11,9.8,1.3,0,0,2026-11-18,https://groceries.morrisons.com/products/x/110942242
 110942277,ml,,230,54,0,0,13,11,0.8,0.7,0,2026-11-18,https://groceries.morrisons.com/products/x/110942277
 110942390,ml,,210,50,0,0,12,10,0.6,0.5,0,2026-11-18,https://groceries.morrisons.com/products/x/110942390
 110948311,g,microwaved,617,147,5.5,2,16,1.6,1.4,7.8,0.53,2026-11-18,https://groceries.morrisons.com/products/x/110948311
 110968864,ml,,764,185,19,17,2.0,2.0,,1.6,0.05,2026-11-18,https://groceries.morrisons.com/products/x/110968864
 110993744,g,as consumed,392,94,4.5,2.9,10.1,1.3,1.4,2.7,0.5,2026-11-18,https://groceries.morrisons.com/products/x/110993744
+110998781,g,as consumed,1070,253,2.4,0.4,47.8,2,3.2,8.4,0.90,2026-11-18,https://groceries.morrisons.com/products/x/110998781
 111001882,g,,,170,10.6,3.8,7.0,1.1,,11.6,1.30,2026-11-18,https://groceries.morrisons.com/products/x/111001882
 111006940,g,grilled,1118,269,21,8.1,3.2,1.5,0.6,16.6,1.27,2026-11-18,https://groceries.morrisons.com/products/x/111006940
 111007045,g,as consumed,1137,274,20.5,7.6,8.9,1.1,1.1,12.9,1.06,2026-11-18,https://groceries.morrisons.com/products/x/111007045
@@ -813,6 +892,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 111007951,g,grilled,1625,392,31.1,12.1,1.2,0.1,0.5,26.5,4.84,2026-11-18,https://groceries.morrisons.com/products/x/111007951
 111010121,g,,845,201,9.7,4.8,15.0,0.1,,12.4,0.6,2026-11-18,https://groceries.morrisons.com/products/x/111010121
 111010674,g,,1000,239,10.2,4.8,26.7,4.7,2.3,9.9,1.9,2026-11-18,https://groceries.morrisons.com/products/x/111010674
+111014405,g,,278,66,0.6,0.3,14.4,14.4,1,0.2,0.15,2026-11-18,https://groceries.morrisons.com/products/x/111014405
 111021251,ml,,197,46,0,0,11,9.6,,0.4,0.01,2026-11-18,https://groceries.morrisons.com/products/x/111021251
 111021841,g,,622,149,8.7,4.7,13.7,11.5,0.7,3.6,0.07,2026-11-18,https://groceries.morrisons.com/products/x/111021841
 111021904,g,,727,174,10.3,7,17.6,15.6,0.6,2.5,0.05,2026-11-18,https://groceries.morrisons.com/products/x/111021904
@@ -826,9 +906,13 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 111055055,g,as consumed,876,208,5.5,2.3,13.3,12,0.7,26,0.85,2026-11-18,https://groceries.morrisons.com/products/x/111055055
 111060284,g,,914,218,10.2,3.5,0.1,0.1,0.5,31.3,2.77,2026-11-18,https://groceries.morrisons.com/products/x/111060284
 111060946,g,as consumed,733,175,8,0.6,23.5,2,2.8,1,0.51,2026-11-18,https://groceries.morrisons.com/products/x/111060946
+111071653,g,,1434,343,20.2,9.8,35.9,19.1,0.6,4.2,0.23,2026-11-18,https://groceries.morrisons.com/products/x/111071653
+111071709,g,,1671,401,26.2,13.4,36,19.1,0.9,4.8,0.17,2026-11-18,https://groceries.morrisons.com/products/x/111071709
+111071805,g,,1520,364,21.3,10.2,38.1,21,1.2,4.4,0.26,2026-11-18,https://groceries.morrisons.com/products/x/111071805
 111085588,g,drained,833,202,20.6,2.9,1.6,0.1,3.1,1.2,1.16,2026-11-18,https://groceries.morrisons.com/products/x/111085588
 111088691,ml,,230,54,0,0,13,11,0.8,0.7,0,2026-11-18,https://groceries.morrisons.com/products/x/111088691
 111088746,ml,,210,50,0,0,12,10,0.6,0.5,0,2026-11-18,https://groceries.morrisons.com/products/x/111088746
+111090942,g,,1670,401,26.2,13.4,36,19.1,0.9,4.8,0.17,2026-11-18,https://groceries.morrisons.com/products/x/111090942
 111093158,g,,398,95,5.0,3.4,3.5,3.5,,9.0,0.09,2026-11-18,https://groceries.morrisons.com/products/x/111093158
 111093369,g,,1645,396,32,19,0.1,0.1,,27,1.5,2026-11-18,https://groceries.morrisons.com/products/x/111093369
 111097221,g,,601.9,149.6,9.0,6.1,12.6,12.4,,5.4,0.3,2026-11-18,https://groceries.morrisons.com/products/x/111097221
@@ -841,6 +925,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 111154897,g,,246,58,0.2,,12.9,12.9,0.9,0.7,,2026-11-18,https://groceries.morrisons.com/products/x/111154897
 111157502,g,,486,115,3.6,1.3,2.9,2.6,0.5,17.6,1.41,2026-11-18,https://groceries.morrisons.com/products/x/111157502
 111157561,g,,480,114,3.6,1.3,1.8,1.4,0.5,18.4,1.5,2026-11-18,https://groceries.morrisons.com/products/x/111157561
+111167276,g,,1137,269,2.3,0.4,51.6,3.0,2.9,8.8,0.8,2026-11-18,https://groceries.morrisons.com/products/x/111167276
 111219128,g,,579,138,6.7,1.4,13.6,1.2,1.4,5.2,0.81,2026-11-18,https://groceries.morrisons.com/products/x/111219128
 111222378,g,,548,131,5.8,1.5,3.7,0.8,0.5,15.7,1.29,2026-11-18,https://groceries.morrisons.com/products/x/111222378
 111234002,ml,,75,18,0,0,4.3,4.3,,0.1,0.01,2026-11-18,https://groceries.morrisons.com/products/x/111234002
@@ -848,6 +933,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 111264607,g,,1005,241,14.2,2.1,2.8,2,,25.4,1,2026-11-18,https://groceries.morrisons.com/products/x/111264607
 111264691,g,as consumed,1249,301,24.4,6.3,0.5,,0.3,19.6,2.45,2026-11-18,https://groceries.morrisons.com/products/x/111264691
 111318513,g,as consumed,830,198,9.5,1,22,2.2,2.2,5.1,0.61,2026-11-18,https://groceries.morrisons.com/products/x/111318513
+111318652,g,,992,235,4,1.6,40,2.7,4.8,7.4,1.6,2026-11-18,https://groceries.morrisons.com/products/x/111318652
 111324702,g,,1445,345,16.93,7.14,40.80,10.82,,8.16,2.67,2026-11-18,https://groceries.morrisons.com/products/x/111324702
 111336404,g,,1725,416,34.9,21.7,0.1,0.1,,25.4,1.81,2026-11-18,https://groceries.morrisons.com/products/x/111336404
 111339082,g,,1185,282,11,1.1,40,1.7,1.2,5.2,0.61,2026-11-18,https://groceries.morrisons.com/products/x/111339082
@@ -862,6 +948,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 111365985,g,,156,37,0.7,0.2,5.5,3.0,1.6,1.3,0.42,2026-11-18,https://groceries.morrisons.com/products/x/111365985
 111388036,g,,1130,270,14,9.0,21,2.0,,15,1.5,2026-11-18,https://groceries.morrisons.com/products/x/111388036
 111400242,g,as consumed,767,183,8.8,3.3,0.1,0.1,0.1,25.8,0.2,2026-11-18,https://groceries.morrisons.com/products/x/111400242
+111400779,g,as consumed,1245,297,12.9,6.7,14,18.7,1.6,3.4,0.04,2026-11-18,https://groceries.morrisons.com/products/x/111400779
 111425087,ml,,56,13,0,0,3.2,3.2,,0.1,0.01,2026-11-18,https://groceries.morrisons.com/products/x/111425087
 111425116,ml,,75,18,0,0,4.3,4.3,,0.1,0.01,2026-11-18,https://groceries.morrisons.com/products/x/111425116
 111447690,g,,183,44,1.8,0.6,4.1,4.1,0.5,2.5,0.08,2026-11-18,https://groceries.morrisons.com/products/x/111447690
@@ -881,6 +968,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 111607526,ml,,200,48,2.2,0.2,6.7,2.5,,0.4,0.11,2026-11-18,https://groceries.morrisons.com/products/x/111607526
 111611111,g,as consumed,636,151,4.5,2.5,15.7,5.2,2.4,10.8,0.73,2026-11-18,https://groceries.morrisons.com/products/x/111611111
 111611197,g,as consumed,665,158,5.5,2,21,3.2,0.9,5.7,0.58,2026-11-18,https://groceries.morrisons.com/products/x/111611197
+111612392,g,,1178,278,1.3,0.4,56.0,3.0,3.1,11.3,1.3,2026-11-18,https://groceries.morrisons.com/products/x/111612392
 111614486,g,cooked,568,135,2.7,0.2,23.7,0.2,2.3,2.8,0.31,2026-11-18,https://groceries.morrisons.com/products/x/111614486
 111629127,g,,1557,374,24.8,8.9,26.1,1.2,1.4,10.9,0.87,2026-11-18,https://groceries.morrisons.com/products/x/111629127
 111631340,g,as consumed,1693,407,29.2,2.8,24.6,2.6,3.2,9.9,0.63,2026-11-18,https://groceries.morrisons.com/products/x/111631340
@@ -900,10 +988,12 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 111662533,g,,1554,375,32.6,24,0.6,0.1,0.3,19.7,2.92,2026-11-18,https://groceries.morrisons.com/products/x/111662533
 111668003,g,,257,61,0.2,,11.8,11.8,3.4,1.3,0.01,2026-11-18,https://groceries.morrisons.com/products/x/111668003
 111687870,g,as consumed,1167,279,15.7,5.9,6.8,6.8,1.2,27.1,0.6,2026-11-18,https://groceries.morrisons.com/products/x/111687870
+111688565,g,as consumed,297,71,4,1.9,7,1.3,0.6,1.4,0.72,2026-11-18,https://groceries.morrisons.com/products/x/111688565
 111693356,g,as consumed,546,131,10.1,6.3,4.7,2.1,1.1,4.9,0.62,2026-11-18,https://groceries.morrisons.com/products/x/111693356
 111697859,g,,2179,522,28,15,56,54,,6.3,0.15,2026-11-18,https://groceries.morrisons.com/products/x/111697859
 111703577,g,,1156,277,16.6,8.1,21.9,1.5,1.2,9.6,1.27,2026-11-18,https://groceries.morrisons.com/products/x/111703577
 111706735,g,,970,232,10,1.1,22,3.9,4.0,12,1.5,2026-11-18,https://groceries.morrisons.com/products/x/111706735
+111708571,g,,1315,312,7.2,1.8,51,7.8,1.7,9.9,1.1,2026-11-18,https://groceries.morrisons.com/products/x/111708571
 111711331,g,as consumed,1118,269,18.4,8.8,17.5,2.7,0.6,8,0.5,2026-11-18,https://groceries.morrisons.com/products/x/111711331
 111711454,g,as consumed,1231,296,20.4,9.4,17.7,2.3,0.7,9.9,0.7,2026-11-18,https://groceries.morrisons.com/products/x/111711454
 111718293,g,,1082,260,17.3,5.5,12.6,1.2,1.3,12.9,1.3,2026-11-18,https://groceries.morrisons.com/products/x/111718293
@@ -916,8 +1006,10 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 111743632,g,,552,132,7.6,4.0,8.4,1.4,0.7,7.4,0.60,2026-11-18,https://groceries.morrisons.com/products/x/111743632
 111743691,g,,656,157,8.6,4.2,12.2,2.1,0.7,7.3,0.55,2026-11-18,https://groceries.morrisons.com/products/x/111743691
 111743721,g,,663,159,8.7,4.4,11.1,2.1,0.8,8.5,0.59,2026-11-18,https://groceries.morrisons.com/products/x/111743721
+111755300,g,,979,233,6.0,0.5,37.2,7.5,3.6,5.8,0.75,2026-11-18,https://groceries.morrisons.com/products/x/111755300
 111772185,g,,886,212,12,5,1,1,,25,1.56,2026-11-18,https://groceries.morrisons.com/products/x/111772185
 111777533,g,,438,105,3.3,2.0,15.0,14.2,0.5,3.4,0.10,2026-11-18,https://groceries.morrisons.com/products/x/111777533
+111778042,g,as consumed,1179,281,10.9,6.2,31.3,3.3,2.4,13.2,0.97,2026-11-18,https://groceries.morrisons.com/products/x/111778042
 111781452,ml,,515,124,10,7.9,4.4,4.4,,3.3,0.1,2026-11-18,https://groceries.morrisons.com/products/x/111781452
 111790156,g,,1406,341,30.4,3.9,5.7,0.4,7,7.6,0.76,2026-11-18,https://groceries.morrisons.com/products/x/111790156
 111790210,g,,845,205,20.9,2.7,1.9,0.1,2.1,1.3,3.36,2026-11-18,https://groceries.morrisons.com/products/x/111790210
@@ -935,6 +1027,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 111858288,ml,,253,60,1.3,0.8,9.0,8.7,,2.9,0.09,2026-11-18,https://groceries.morrisons.com/products/x/111858288
 111905814,g,,609,145,4.6,0.4,15,4.2,2.8,9.5,0.80,2026-11-18,https://groceries.morrisons.com/products/x/111905814
 111905929,g,,594,142,4.8,0.5,13,5.0,3.2,10,0.80,2026-11-18,https://groceries.morrisons.com/products/x/111905929
+111908046,g,,1312,311,7.4,1.7,49,11,2.3,11,0.85,2026-11-18,https://groceries.morrisons.com/products/x/111908046
 111916708,g,microwaved,569,135,3.7,0.4,17.7,1.7,0.7,7.4,0.46,2026-11-18,https://groceries.morrisons.com/products/x/111916708
 111916804,g,,571,136,3.8,1,17.6,1.7,0.9,7.3,0.43,2026-11-18,https://groceries.morrisons.com/products/x/111916804
 111920205,g,,210.0,49.0,0.1,0.1,7.3,,,4.7,0.25,2026-11-18,https://groceries.morrisons.com/products/x/111920205
@@ -991,13 +1084,21 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 112413125,g,,807,190,0,0,46,43,,1,1.7,2026-11-18,https://groceries.morrisons.com/products/x/112413125
 112413301,g,,828,195,0,0,47,44,,1,1.5,2026-11-18,https://groceries.morrisons.com/products/x/112413301
 112419439,g,,492,117,2.4,0.7,4.3,3.1,<0.5,19.5,1.11,2026-11-18,https://groceries.morrisons.com/products/x/112419439
+112420018,g,,1113,265,3.9,0.8,46.6,3.0,2.4,9.7,0.98,2026-11-18,https://groceries.morrisons.com/products/x/112420018
 112426559,ml,,185,44,1.8,0.2,6.8,2.5,,0.2,0.10,2026-11-18,https://groceries.morrisons.com/products/x/112426559
 112445418,g,,1118,269,18.4,8.8,17.5,2.7,0.6,8,0.5,2026-11-18,https://groceries.morrisons.com/products/x/112445418
 112445477,g,as consumed,1175,282,18.3,8.9,18.6,1.1,0.7,10.3,0.79,2026-11-18,https://groceries.morrisons.com/products/x/112445477
 112447544,ml,,172,40,0,0,9.3,8.6,0,0.8,0,2026-11-18,https://groceries.morrisons.com/products/x/112447544
 112447561,ml,,175,41,0,0,9.3,8.6,0.4,0.8,0,2026-11-18,https://groceries.morrisons.com/products/x/112447561
+112449064,g,as consumed,1178,281,11.3,5.5,31.4,4,2.1,12.3,1.14,2026-11-18,https://groceries.morrisons.com/products/x/112449064
+112449232,g,as consumed,1133,270,9.9,5.3,31.7,4.6,2.7,12.1,0.95,2026-11-18,https://groceries.morrisons.com/products/x/112449232
+112456555,g,,1062,251,1.6,0.2,47.6,3.3,3.6,9.7,0.92,2026-11-18,https://groceries.morrisons.com/products/x/112456555
 112457953,g,,633,152,9.7,5.7,6.9,4.1,0.5,9.1,0.38,2026-11-18,https://groceries.morrisons.com/products/x/112457953
 112461151,g,,1405,339,26.7,17,2.1,0.1,0.5,22.2,2.76,2026-11-18,https://groceries.morrisons.com/products/x/112461151
+112461311,g,,1615,387,22.8,11.1,39.6,19.9,1.8,4.9,0.31,2026-11-18,https://groceries.morrisons.com/products/x/112461311
+112472897,g,as consumed,1266,299,1.2,0.3,60.7,2.7,2.9,9.8,1,2026-11-18,https://groceries.morrisons.com/products/x/112472897
+112473005,g,as consumed,1231,291,2.2,0.4,56.7,3.3,3.2,9.4,1.1,2026-11-18,https://groceries.morrisons.com/products/x/112473005
+112481873,g,,1086,256,1.0,0.3,52.6,1.0,3.4,10.7,1.38,2026-11-18,https://groceries.morrisons.com/products/x/112481873
 112482948,g,,582,140,9.80,6.60,5.30,5.30,0.40,6.90,,2026-11-18,https://groceries.morrisons.com/products/x/112482948
 112483035,g,,366,87,2.50,1.70,4.90,4.90,0.40,11.00,,2026-11-18,https://groceries.morrisons.com/products/x/112483035
 112483123,g,,933,226,21.00,14.00,4.30,4.30,0.20,5.40,,2026-11-18,https://groceries.morrisons.com/products/x/112483123
@@ -1095,6 +1196,9 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 112729963,g,,200,47,0.2,0.1,10.2,10.1,1.1,0.6,0.01,2026-11-18,https://groceries.morrisons.com/products/x/112729963
 112730497,g,as consumed,1182,282,11,1.3,35,1.0,1.8,9.8,0.60,2026-11-18,https://groceries.morrisons.com/products/x/112730497
 112752776,g,as consumed,670,160,7.3,2.8,1,1.5,1.8,21.7,0.63,2026-11-18,https://groceries.morrisons.com/products/x/112752776
+112757534,g,,1255,296,1.8,0.3,57,2.6,,12,1.4,2026-11-18,https://groceries.morrisons.com/products/x/112757534
+112757593,g,,1255,296,1.8,0.3,57.0,2.6,,12.0,1.40,2026-11-18,https://groceries.morrisons.com/products/x/112757593
+112757657,g,,1255,295,1.3,0.4,56.9,3.8,,10.5,1,2026-11-18,https://groceries.morrisons.com/products/x/112757657
 112767804,g,,266,63,0.2,,11.8,11.8,4.5,1.3,0.01,2026-11-18,https://groceries.morrisons.com/products/x/112767804
 112775521,g,,199,47,<0.5,<0.1,12.0,12.0,1.8,<0.5,<0.01,2026-11-18,https://groceries.morrisons.com/products/x/112775521
 112776911,g,,1100,265,20.0,7.0,1.7,1.0,,19.5,3.5,2026-11-18,https://groceries.morrisons.com/products/x/112776911
@@ -1142,9 +1246,12 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 112854799,g,,1139,275,24.1,8.9,5.3,2.2,0.5,9,1.86,2026-11-18,https://groceries.morrisons.com/products/x/112854799
 112857341,g,,3021,735,81,52.1,0.6,0.6,,0.8,3,2026-11-18,https://groceries.morrisons.com/products/x/112857341
 112862617,g,as consumed,415,98,2,0.6,11.8,2,2.4,7.1,0.33,2026-11-18,https://groceries.morrisons.com/products/x/112862617
+112863193,g,,1190,284,12.2,7.7,40.5,26.4,1,2.3,0.5,2026-11-18,https://groceries.morrisons.com/products/x/112863193
 112869069,g,,2470,596,46.0,8.7,11.6,5.9,8.5,29.6,0.01,2026-11-18,https://groceries.morrisons.com/products/x/112869069
 112869544,ml,,165,39,0.2,0.1,8.6,6.7,<0.5,0.3,0.01,2026-11-18,https://groceries.morrisons.com/products/x/112869544
 112873885,g,,1478,354,19.2,8.8,38.4,14,1.5,6.0,0.56,2026-11-18,https://groceries.morrisons.com/products/x/112873885
+112874520,g,,1156,276,11.8,6.5,39.9,25.0,0.5,2.2,0.27,2026-11-18,https://groceries.morrisons.com/products/x/112874520
+112874554,g,,1510,363,25.2,14,29.3,9.7,1.2,4.1,0.29,2026-11-18,https://groceries.morrisons.com/products/x/112874554
 112876672,g,,1156,280,27,5.5,6.8,2.6,0.5,2.2,0.78,2026-11-18,https://groceries.morrisons.com/products/x/112876672
 112876701,g,,1110,269,26.5,4.8,5.8,2.6,0.5,1.6,0.85,2026-11-18,https://groceries.morrisons.com/products/x/112876701
 112876779,g,,561,135,10.9,5.1,4.7,2.5,0.2,4.5,0.5,2026-11-18,https://groceries.morrisons.com/products/x/112876779
@@ -1156,6 +1263,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 112887486,g,as consumed,467,111,1.8,0.5,12.6,2,6.5,7.9,0.2,2026-11-18,https://groceries.morrisons.com/products/x/112887486
 112891709,ml,,276,66,3.7,2.4,4.7,4.7,,3.5,0.11,2026-11-18,https://groceries.morrisons.com/products/x/112891709
 112893675,ml,,244,58,2.3,0.2,8.4,3.6,<0.5,0.8,0.10,2026-11-18,https://groceries.morrisons.com/products/x/112893675
+112896059,g,,1060,255,12,1.3,31,7.0,3.6,5.1,1.02,2026-11-18,https://groceries.morrisons.com/products/x/112896059
 112899903,g,,1656,397,26.2,9.7,30.3,5.6,1.4,9.4,0.89,2026-11-18,https://groceries.morrisons.com/products/x/112899903
 112906131,ml,,202,48,1.4,1.0,5.0,4.7,,3.3,0.10,2026-11-18,https://groceries.morrisons.com/products/x/112906131
 112906464,ml,,190,46,1.2,0.9,4.6,4.6,,3.0,0.10,2026-11-18,https://groceries.morrisons.com/products/x/112906464
@@ -1166,6 +1274,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 112918748,g,,578,138,8.2,5.4,13.1,11.7,0.5,2.8,0.08,2026-11-18,https://groceries.morrisons.com/products/x/112918748
 112921373,g,,1217,296,31.7,8.1,2.3,0.1,0.5,0.1,1.02,2026-11-18,https://groceries.morrisons.com/products/x/112921373
 112932574,g,,523,124,2.1,0.7,0.4,0.4,0.5,25.5,0.59,2026-11-18,https://groceries.morrisons.com/products/x/112932574
+112933825,g,,1208,286,5.8,4.7,54.8,37.5,3.3,2.0,0.86,2026-11-18,https://groceries.morrisons.com/products/x/112933825
 112937076,g,,756,181,9.2,0.7,18.8,7.4,0.5,5.4,1.2,2026-11-18,https://groceries.morrisons.com/products/x/112937076
 112937877,g,,468,111,1.1,0.2,17.6,6.6,0.5,7.3,1.2,2026-11-18,https://groceries.morrisons.com/products/x/112937877
 112939485,g,,570,136,7.2,4.9,14.6,12.8,0.5,3,0.06,2026-11-18,https://groceries.morrisons.com/products/x/112939485
@@ -1218,6 +1327,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113037686,g,as consumed,705,168,5.7,2.6,7.1,0.5,0.7,21.6,0.93,2026-11-18,https://groceries.morrisons.com/products/x/113037686
 113037846,g,,408,96,1.4,0.3,8.4,2.4,0.5,12.3,0.91,2026-11-18,https://groceries.morrisons.com/products/x/113037846
 113038224,g,,849,203,12.7,4.6,5.3,0.2,5.3,14.2,0.85,2026-11-18,https://groceries.morrisons.com/products/x/113038224
+113052181,g,,1345,320,12.7,7.7,46.3,27.4,1.2,4.6,0.18,2026-11-18,https://groceries.morrisons.com/products/x/113052181
+113054769,g,as consumed,1222,291,9.5,3.4,39.1,3,2.6,10.8,1.17,2026-11-18,https://groceries.morrisons.com/products/x/113054769
 113054873,g,,754,183,16.9,2,3.4,2.1,3.6,2.5,2.32,2026-11-18,https://groceries.morrisons.com/products/x/113054873
 113054902,g,,422,101,5.4,0.5,9.2,8.6,1.8,3,0.55,2026-11-18,https://groceries.morrisons.com/products/x/113054902
 113055067,g,,897,217,20.5,5,1.2,0.1,2.4,5.8,1.64,2026-11-18,https://groceries.morrisons.com/products/x/113055067
@@ -1225,6 +1336,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113061459,ml,,134,32,0,0,7.9,7.9,0,0,0,2026-11-18,https://groceries.morrisons.com/products/x/113061459
 113061483,ml,,204,48,0,0,12,12,0,0,0,2026-11-18,https://groceries.morrisons.com/products/x/113061483
 113066532,g,,1012,243,14.5,2.6,12.4,8.2,2.7,14.3,1.32,2026-11-18,https://groceries.morrisons.com/products/x/113066532
+113066639,g,oven baked,1093,260,10.5,4.5,27,2.4,3.1,12,0.8,2026-11-18,https://groceries.morrisons.com/products/x/113066639
 113068749,g,,641,153,7.3,2.4,5.1,0.8,0.6,16.2,0.71,2026-11-18,https://groceries.morrisons.com/products/x/113068749
 113072879,g,,1056,254,17.3,8.8,10.7,6.7,1,13.3,1.53,2026-11-18,https://groceries.morrisons.com/products/x/113072879
 113073038,g,,1084,261,18.4,9.6,9.4,7.9,0.5,14.1,1.56,2026-11-18,https://groceries.morrisons.com/products/x/113073038
@@ -1242,7 +1354,12 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113082541,g,,1443,351,39,10,0,0,,0,1.3,2026-11-18,https://groceries.morrisons.com/products/x/113082541
 113082591,g,,1036,252,28,5.6,<0.5,<0.5,,<0.5,1.3,2026-11-18,https://groceries.morrisons.com/products/x/113082591
 113082621,g,,1443,351,39,10,0,0,,0,1.3,2026-11-18,https://groceries.morrisons.com/products/x/113082621
+113100041,g,,1101,262,10.5,4.2,29.3,2.3,1.5,11.9,1.6,2026-11-18,https://groceries.morrisons.com/products/x/113100041
+113100104,g,,975,232,7.3,3.3,30.0,2.5,2.3,10.4,1.2,2026-11-18,https://groceries.morrisons.com/products/x/113100104
 113103823,g,,274,66,4.0,2.6,4.6,0.9,0.6,2.7,0.54,2026-11-18,https://groceries.morrisons.com/products/x/113103823
+113103911,g,,204,48,1.0,0.8,6.4,1.7,0.2,3.3,0.50,2026-11-18,https://groceries.morrisons.com/products/x/113103911
+113104009,g,,257,61,2.8,2.0,4.9,2.0,2.2,3.0,0.44,2026-11-18,https://groceries.morrisons.com/products/x/113104009
+113104068,g,,257,61,2.6,1.9,7.7,2.5,1.3,1.1,0.58,2026-11-18,https://groceries.morrisons.com/products/x/113104068
 113111276,g,,258,62,3.6,2.0,2.8,2.8,0.6,4.2,0.58,2026-11-18,https://groceries.morrisons.com/products/x/113111276
 113111321,g,,191,45,1.3,1.0,4.7,1.4,1.0,3.2,0.64,2026-11-18,https://groceries.morrisons.com/products/x/113111321
 113114581,g,,1121,271,23.8,7.8,10.2,8.5,1.6,3.2,0.48,2026-11-18,https://groceries.morrisons.com/products/x/113114581
@@ -1263,6 +1380,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113134697,g,,1009,241,10.00,6.00,26.00,6.70,2.80,9.50,,2026-11-18,https://groceries.morrisons.com/products/x/113134697
 113141150,g,,933,221,4.0,1.2,35.2,4.7,,9.8,1.2,2026-11-18,https://groceries.morrisons.com/products/x/113141150
 113145855,ml,,171,40,<0.5,<0.1,9.2,8.7,<0.5,<0.5,<0.01,2026-11-18,https://groceries.morrisons.com/products/x/113145855
+113146719,g,,1058,252,3.7,0.7,44.3,2.9,2.4,9.1,0.98,2026-11-18,https://groceries.morrisons.com/products/x/113146719
 113148159,g,,,349,23,8.3,24.5,3.2,1.3,10.2,0.81,2026-11-18,https://groceries.morrisons.com/products/x/113148159
 113154487,g,boiled,345,81,0.1,,17.5,0.8,1.6,1.8,0,2026-11-18,https://groceries.morrisons.com/products/x/113154487
 113154591,g,microwaved,402,95,1.6,0.9,17.1,2,1.9,2.1,0.05,2026-11-18,https://groceries.morrisons.com/products/x/113154591
@@ -1284,6 +1402,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113220122,g,as consumed,1039,248,10.3,3.3,27.6,3.6,1.7,10.3,0.9,2026-11-18,https://groceries.morrisons.com/products/x/113220122
 113222460,g,,1021,246,17.9,5,11.4,1.1,0.9,9.3,1.58,2026-11-18,https://groceries.morrisons.com/products/x/113222460
 113222494,g,,607,146,8.9,1.4,10.8,1.5,1.6,4.8,0.92,2026-11-18,https://groceries.morrisons.com/products/x/113222494
+113223631,g,,1079,255,2.5,0.5,47.2,2.5,1.9,9.8,0.8,2026-11-18,https://groceries.morrisons.com/products/x/113223631
+113223681,g,,1044,247,2.4,0.4,44.1,2.3,5,9.6,0.8,2026-11-18,https://groceries.morrisons.com/products/x/113223681
 113224991,g,,506,120,1.8,0.5,1.3,0.1,,24.6,0.11,2026-11-18,https://groceries.morrisons.com/products/x/113224991
 113235404,ml,,156,37,0.2,<0.1,5.2,5.2,,3.4,0.11,2026-11-18,https://groceries.morrisons.com/products/x/113235404
 113239405,ml,,276,66,3.7,2.4,4.7,4.7,,3.5,0.11,2026-11-18,https://groceries.morrisons.com/products/x/113239405
@@ -1355,6 +1475,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113395521,g,as consumed,542,129,3.6,0.6,17.5,1.3,0.5,6.3,0.5,2026-11-18,https://groceries.morrisons.com/products/x/113395521
 113397489,g,as consumed,309,73,2.4,1,9.8,1.7,0.6,2.8,0.51,2026-11-18,https://groceries.morrisons.com/products/x/113397489
 113404520,g,grilled,1025,246,18,6.2,0.0,0.0,,22,1.4,2026-11-18,https://groceries.morrisons.com/products/x/113404520
+113404722,g,,1183,280,4.5,0.4,50,8.8,2.8,8.5,0.95,2026-11-18,https://groceries.morrisons.com/products/x/113404722
 113404853,g,,1388,332,19.3,8.3,30.6,1.9,1.9,8.5,1.41,2026-11-18,https://groceries.morrisons.com/products/x/113404853
 113405506,g,,1086,260,15.3,7.2,22.9,2.6,1.8,6.8,0.85,2026-11-18,https://groceries.morrisons.com/products/x/113405506
 113405637,g,,1023,245,14.4,2.9,18.4,0.9,1.3,9.8,0.78,2026-11-18,https://groceries.morrisons.com/products/x/113405637
@@ -1366,12 +1487,14 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113439917,ml,,300,71,1.3,0.8,11.0,10.4,,3.7,0.12,2026-11-18,https://groceries.morrisons.com/products/x/113439917
 113481162,g,,1235,295,25.5,14.0,1.0,1.0,,15.4,2.1,2026-11-18,https://groceries.morrisons.com/products/x/113481162
 113518501,g,,543,128,1.5,0.3,23,0.2,1.5,5.5,0.20,2026-11-18,https://groceries.morrisons.com/products/x/113518501
+113547256,g,,275,66,1.9,1.2,7.4,1.2,3.0,3.6,0.56,2026-11-18,https://groceries.morrisons.com/products/x/113547256
 113551600,g,as consumed,1085,261,18,11.1,14.8,11.4,0.5,2,0.06,2026-11-18,https://groceries.morrisons.com/products/x/113551600
 113555264,g,as consumed,420,100,2.4,1,10.6,2.3,1.2,8.3,0.39,2026-11-18,https://groceries.morrisons.com/products/x/113555264
 113555328,g,,362,86,1.4,0.2,10.2,2.9,1.6,7.3,0.55,2026-11-18,https://groceries.morrisons.com/products/x/113555328
 113560928,g,,318,76,2.7,1.8,9.2,9.1,,2.9,0.13,2026-11-18,https://groceries.morrisons.com/products/x/113560928
 113612839,g,as consumed,268,64,1.7,0.2,6.2,2.3,4.8,3.7,0.25,2026-11-18,https://groceries.morrisons.com/products/x/113612839
 113617701,g,,1204,284,<0.5,<0.01,64.5,59.1,8.5,2.3,<0.01,2026-11-18,https://groceries.morrisons.com/products/x/113617701
+113642721,g,,913,216,4,1.4,33,4.3,5,7,1.5,2026-11-18,https://groceries.morrisons.com/products/x/113642721
 113649826,g,,1199,283,<0.5,<0.01,62.0,58.2,12.1,2.8,<0.01,2026-11-18,https://groceries.morrisons.com/products/x/113649826
 113654959,g,,887,211,11.0,4,20,0.4,,7,1,2026-11-18,https://groceries.morrisons.com/products/x/113654959
 113655118,g,,1322,317,21.4,10.0,25.0,1.6,0.9,5.7,1.16,2026-11-18,https://groceries.morrisons.com/products/x/113655118
@@ -1388,9 +1511,12 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113673797,g,,1106,266,19,6.9,13,1.2,1.7,10,1.9,2026-11-18,https://groceries.morrisons.com/products/x/113673797
 113673949,g,,809,196,18.6,4.2,0.4,0.1,3.6,5,2.8,2026-11-18,https://groceries.morrisons.com/products/x/113673949
 113678459,ml,,260,61,0,0,14.8,14.8,,0,7.86,2026-11-18,https://groceries.morrisons.com/products/x/113678459
+113678942,g,as consumed,1040,247,8.6,3.7,31.2,3.2,2.2,10.2,0.82,2026-11-18,https://groceries.morrisons.com/products/x/113678942
+113678985,g,as consumed,1117,266,9.6,3.5,33.4,3.3,2.6,10.2,1.1,2026-11-18,https://groceries.morrisons.com/products/x/113678985
 113687398,g,,847,205,18.7,2.5,7.2,5,0.9,1.5,4.65,2026-11-18,https://groceries.morrisons.com/products/x/113687398
 113694934,ml,,204,49,2.6,0.4,2.6,2.2,0.5,3.5,0.1,2026-11-18,https://groceries.morrisons.com/products/x/113694934
 113696631,g,,219,52,1.0,0.6,7.4,7,,2.7,0.10,2026-11-18,https://groceries.morrisons.com/products/x/113696631
+113696921,g,,2542,618,67.4,5,2.1,1.3,0.5,0.5,0.7,2026-11-18,https://groceries.morrisons.com/products/x/113696921
 113697406,g,,542,128,4.0,2.8,17.8,17.6,,5.1,0.21,2026-11-18,https://groceries.morrisons.com/products/x/113697406
 113697852,g,,2931,713,79,32,0.5,0.5,,<0.5,1.1,2026-11-18,https://groceries.morrisons.com/products/x/113697852
 113697967,g,,2830,688,75,36.6,2,<0.5,,<0.5,140,2026-11-18,https://groceries.morrisons.com/products/x/113697967
@@ -1442,6 +1568,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113783751,ml,,195,46,0,0,11,10,0.6,0.2,0,2026-11-18,https://groceries.morrisons.com/products/x/113783751
 113783814,ml,,175,41,0,0,9.3,8.6,0.4,0.8,0,2026-11-18,https://groceries.morrisons.com/products/x/113783814
 113783849,ml,,172,40,0,0,9.3,8.6,0,0.8,0,2026-11-18,https://groceries.morrisons.com/products/x/113783849
+113784091,g,as consumed,1187,283,12,1.6,23,2,0.7,20.5,0.6,2026-11-18,https://groceries.morrisons.com/products/x/113784091
 113785908,g,,1666,400,27.2,9.9,29.1,1.7,1.2,9.2,0.78,2026-11-18,https://groceries.morrisons.com/products/x/113785908
 113787250,g,,1097,263,17,7.9,18.8,2.6,0.7,8.5,0.73,2026-11-18,https://groceries.morrisons.com/products/x/113787250
 113787381,g,as consumed,1105,265,16.7,8.5,19.7,1.7,0.7,8.7,0.5,2026-11-18,https://groceries.morrisons.com/products/x/113787381
@@ -1455,7 +1582,9 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113813147,g,as consumed,759,180,6.5,0.6,15.2,0.5,0.6,15,0.83,2026-11-18,https://groceries.morrisons.com/products/x/113813147
 113815871,g,,1997,479,31.1,20.6,2.9,2.5,,47,2.93,2026-11-18,https://groceries.morrisons.com/products/x/113815871
 113821008,ml,,161,38,<0.5,<0.1,4.9,3.4,,4.6,0.19,2026-11-18,https://groceries.morrisons.com/products/x/113821008
+113823847,g,,400,95,2.4,1.8,16.1,11.9,,2.2,0.1,2026-11-18,https://groceries.morrisons.com/products/x/113823847
 113824188,g,,,356,23,13,33,22,0.97,3.4,0.23,2026-11-18,https://groceries.morrisons.com/products/x/113824188
+113824410,g,,,385,24,14,37,27,1.47,4.4,0.23,2026-11-18,https://groceries.morrisons.com/products/x/113824410
 113825033,g,grilled,1836,442,34.9,13.4,3.8,1.2,0.5,28.1,4.75,2026-11-18,https://groceries.morrisons.com/products/x/113825033
 113825691,g,,425,101,2.2,0.8,16,3,1.4,3.8,0.27,2026-11-18,https://groceries.morrisons.com/products/x/113825691
 113825771,g,,595,141,4.3,2.5,19.5,1.1,1.1,6.3,0.18,2026-11-18,https://groceries.morrisons.com/products/x/113825771
@@ -1487,6 +1616,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113950088,g,,604,144,4.4,1.0,20.1,3.7,1.6,5.2,0.37,2026-11-18,https://groceries.morrisons.com/products/x/113950088
 113950281,g,as consumed,822,196,6.5,2.4,23.6,2.4,5.7,7.8,0.70,2026-11-18,https://groceries.morrisons.com/products/x/113950281
 113954847,g,,1174,277,3.7,1.6,26,24,,35,3.0,2026-11-18,https://groceries.morrisons.com/products/x/113954847
+113961123,g,as consumed,1059,252,8.3,3.4,33.1,3.9,3,9.7,0.98,2026-11-18,https://groceries.morrisons.com/products/x/113961123
 113968819,g,cooked,1471,353,22.2,12,27.6,2.4,1.9,9.7,1.2,2026-11-18,https://groceries.morrisons.com/products/x/113968819
 113969820,g,,1477,350,6.5,3.4,68.1,2.1,0.9,4.2,12.59,2026-11-18,https://groceries.morrisons.com/products/x/113969820
 113970193,g,cooked,1431,343,20.3,8.8,30.3,1.7,2.1,8.7,1,2026-11-18,https://groceries.morrisons.com/products/x/113970193
@@ -1494,11 +1624,13 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113972800,g,,535,127,2.9,1,1.5,1.3,0.5,23.5,1.26,2026-11-18,https://groceries.morrisons.com/products/x/113972800
 113974805,g,,425,102,7.6,5.1,4.2,4.2,0.5,4,0.1,2026-11-18,https://groceries.morrisons.com/products/x/113974805
 113976456,g,,327,77,1.6,1.1,9.9,9.1,0.1,5.8,0.1,2026-11-18,https://groceries.morrisons.com/products/x/113976456
+113989927,g,,590,140,3.9,2.2,22.1,16.7,<0.5,4.3,0.13,2026-11-18,https://groceries.morrisons.com/products/x/113989927
 113990696,g,,1082,260,17.3,5.5,12.6,1.2,1.3,12.9,1.26,2026-11-18,https://groceries.morrisons.com/products/x/113990696
 113990768,ml,,201,47,0.5,0.1,9.9,8.6,,0.8,0.01,2026-11-18,https://groceries.morrisons.com/products/x/113990768
 113990856,ml,,169,40,1.6,0.6,8.7,8.6,,1.7,0.02,2026-11-18,https://groceries.morrisons.com/products/x/113990856
 113990864,g,,1082,260,17.3,5.5,12.6,1.2,1.3,12.9,1.26,2026-11-18,https://groceries.morrisons.com/products/x/113990864
 113990928,g,,1082,260,17.3,5.5,12.6,1.2,1.3,12.9,1.26,2026-11-18,https://groceries.morrisons.com/products/x/113990928
+113991091,g,,610,145,4.2,2.4,22.4,15.9,<0.5,4.3,0.15,2026-11-18,https://groceries.morrisons.com/products/x/113991091
 113992739,g,,1125,269,14.4,3.2,24.8,5,3.7,8.3,0.93,2026-11-18,https://groceries.morrisons.com/products/x/113992739
 114000121,g,,453,107,1.8,0.6,0.9,0.7,0.1,21.8,1.58,2026-11-18,https://groceries.morrisons.com/products/x/114000121
 114001212,g,,393,93,1.7,1.1,15.8,13.0,0.0,3.6,0.10,2026-11-18,https://groceries.morrisons.com/products/x/114001212
@@ -1514,6 +1646,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 114008692,g,,647,154,5,1.6,0.5,0.5,0.5,26.4,0.56,2026-11-18,https://groceries.morrisons.com/products/x/114008692
 114014030,g,,451,107,2.3,0.6,0.6,0.1,0.5,20.8,1.27,2026-11-18,https://groceries.morrisons.com/products/x/114014030
 114014128,g,,557,132,2.3,0.6,1.8,1.4,1.1,25.4,0.41,2026-11-18,https://groceries.morrisons.com/products/x/114014128
+114016297,g,microwaved,1610,384,15.6,6.4,55.8,23.9,2.7,3.8,0.1,2026-11-18,https://groceries.morrisons.com/products/x/114016297
 114020350,g,,280,67,2.6,1.6,6.7,6.1,,4.0,0.12,2026-11-18,https://groceries.morrisons.com/products/x/114020350
 114021854,g,,471,112,2.6,1,1,1,0.5,20.8,1.6,2026-11-18,https://groceries.morrisons.com/products/x/114021854
 114026997,g,cooked,916,219,9.7,1.3,28,14.2,6.4,1.9,0.52,2026-11-18,https://groceries.morrisons.com/products/x/114026997
@@ -1521,9 +1654,13 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 114029282,g,,588,139,2.1,0.6,2.9,2,0.7,26.8,0.54,2026-11-18,https://groceries.morrisons.com/products/x/114029282
 114031121,g,,296,71,3.3,2.2,5.3,5.3,0.5,4.7,0.11,2026-11-18,https://groceries.morrisons.com/products/x/114031121
 114031518,g,,263,62,0.1,0.1,8,8,0.5,7,0.16,2026-11-18,https://groceries.morrisons.com/products/x/114031518
+114035359,g,,460,111,7.9,2.4,8.3,0.6,0.5,1.3,0.82,2026-11-18,https://groceries.morrisons.com/products/x/114035359
 114036431,g,,646,152,<0.5,<0.1,37,33,1.2,<0.5,<0.01,2026-11-18,https://groceries.morrisons.com/products/x/114036431
 114038761,ml,,276,66,3.7,2.4,4.7,4.7,,3.5,0.11,2026-11-18,https://groceries.morrisons.com/products/x/114038761
 114042495,g,,1473,352,18.6,7.1,36.2,7.2,1.8,9.3,1.13,2026-11-18,https://groceries.morrisons.com/products/x/114042495
+114052693,g,,1102,260,3.5,0.6,48.3,3.9,2.2,8.0,0.88,2026-11-18,https://groceries.morrisons.com/products/x/114052693
+114052802,g,,1102,260,3.5,0.6,48.3,3.9,2.2,8.0,0.88,2026-11-18,https://groceries.morrisons.com/products/x/114052802
+114057700,g,,1488,356,18.6,10.1,41.9,29.8,1,4.7,0.42,2026-11-18,https://groceries.morrisons.com/products/x/114057700
 114057718,g,microwaved,658,157,5.3,1.3,18.3,1.4,1.7,8.1,0.57,2026-11-18,https://groceries.morrisons.com/products/x/114057718
 114067529,g,,835,200,11.7,1.83,3.13,0.05,0.25,20.4,0.85,2026-11-18,https://groceries.morrisons.com/products/x/114067529
 114067570,g,,425,100,0.5,0.1,0,0,0,23.9,0.23,2026-11-18,https://groceries.morrisons.com/products/x/114067570
@@ -1535,10 +1672,13 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 114078957,g,,827,198,9.9,5.5,22.3,15.7,0.6,4.4,0.12,2026-11-18,https://groceries.morrisons.com/products/x/114078957
 114081144,ml,,3389,824,91.6,14.0,0,0,0,0,0,2026-11-18,https://groceries.morrisons.com/products/x/114081144
 114082930,g,grilled,947,226,11.2,4.1,0.3,0,,31,3.58,2026-11-18,https://groceries.morrisons.com/products/x/114082930
+114083473,g,as consumed,1365,327,18.1,10.8,35.3,21.6,1,5.1,0.21,2026-11-18,https://groceries.morrisons.com/products/x/114083473
 114086068,g,as consumed,462,109,1.9,0.6,4.7,4.7,0.6,18.1,2.67,2026-11-18,https://groceries.morrisons.com/products/x/114086068
 114086092,g,as consumed,1317,318,25.5,11.9,1.5,0.5,0.7,20.2,0.55,2026-11-18,https://groceries.morrisons.com/products/x/114086092
+114090534,g,cooked,1171,279,10,5.5,42.8,23.6,2.6,3.1,0.10,2026-11-18,https://groceries.morrisons.com/products/x/114090534
 114094498,g,grilled,1318,316,20.6,7.7,0.2,0.8,0.5,32.3,3.54,2026-11-18,https://groceries.morrisons.com/products/x/114094498
 114094594,g,grilled,1327,319,22.2,8.6,1.3,1.2,0.5,28.2,4.63,2026-11-18,https://groceries.morrisons.com/products/x/114094594
+114097681,g,,1070,256,12.4,9.1,31.3,15.4,1.4,4,0.1,2026-11-18,https://groceries.morrisons.com/products/x/114097681
 114097736,g,,1136,271,12.1,9.7,32,20,1.2,5,0.14,2026-11-18,https://groceries.morrisons.com/products/x/114097736
 114097921,g,,302.0,72.0,3.1,2.0,7.9,,,3.1,0.12,2026-11-18,https://groceries.morrisons.com/products/x/114097921
 114104262,g,boiled,272,64,0.1,<0.1,14.9,1.1,,1.8,<0.01,2026-11-18,https://groceries.morrisons.com/products/x/114104262
@@ -1617,6 +1757,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 114180142,g,as consumed,1093,261,13.2,5.5,22,9.4,0.5,13.3,0.46,2026-11-18,https://groceries.morrisons.com/products/x/114180142
 114180206,g,as consumed,610,145,5.4,1.2,15.9,1.9,2,7.3,0.4,2026-11-18,https://groceries.morrisons.com/products/x/114180206
 114180302,g,as consumed,544,131,9.7,1.9,6.9,4.4,3.2,2.5,0.58,2026-11-18,https://groceries.morrisons.com/products/x/114180302
+114181858,g,,1310,311,7.6,1.9,50,13,2.2,9.5,1.0,2026-11-18,https://groceries.morrisons.com/products/x/114181858
 114183511,g,microwaved,689,164,6.8,2.8,17.2,2.7,1.5,7.8,0.49,2026-11-18,https://groceries.morrisons.com/products/x/114183511
 114186472,g,microwaved,591,141,4.7,0.6,18.9,4.4,1.1,5.1,1,2026-11-18,https://groceries.morrisons.com/products/x/114186472
 114186536,g,microwaved,557,132,4,1.1,15.3,1.5,1.6,8,0.46,2026-11-18,https://groceries.morrisons.com/products/x/114186536
@@ -1624,6 +1765,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 114187547,g,cooked,652,155,5.2,0.6,20.2,6.2,1.3,6.2,0.78,2026-11-18,https://groceries.morrisons.com/products/x/114187547
 114188849,g,microwaved,575,137,4,2,17.2,0.2,0.9,7.5,0.52,2026-11-18,https://groceries.morrisons.com/products/x/114188849
 114190009,g,as consumed,1279,307,19.7,11.3,22.7,6.8,1,9.1,0.73,2026-11-18,https://groceries.morrisons.com/products/x/114190009
+114198836,g,,942,226,15.4,9.8,18.5,17.2,,3.4,0.10,2026-11-18,https://groceries.morrisons.com/products/x/114198836
 114199257,g,cooked,273,65,2.1,1,9.2,7.5,3.1,0.8,0.2,2026-11-18,https://groceries.morrisons.com/products/x/114199257
 114200879,g,,701,166,2.6,0.4,30.4,11.3,1.1,4.7,1.28,2026-11-18,https://groceries.morrisons.com/products/x/114200879
 114211800,g,as consumed,779,186,10.7,2.9,1.5,0.6,0.5,20.7,0.57,2026-11-18,https://groceries.morrisons.com/products/x/114211800
@@ -1725,6 +1867,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 114758127,g,,601,144,5.4,3.9,14,0.4,3.8,7.5,1.3,2026-11-18,https://groceries.morrisons.com/products/x/114758127
 114758291,g,cooked,724,173,7.3,0.7,6.9,0,3.4,18,1.2,2026-11-18,https://groceries.morrisons.com/products/x/114758291
 114758514,g,,384,91,1.8,0.4,3.3,0.7,5.9,12,0.71,2026-11-18,https://groceries.morrisons.com/products/x/114758514
+114758590,g,,1417,339,18.7,9.8,38.2,19.3,0.7,4.1,0.25,2026-11-18,https://groceries.morrisons.com/products/x/114758590
 114775120,ml,,79,19,0,0,4.5,4.5,,0,0,2026-11-18,https://groceries.morrisons.com/products/x/114775120
 114782961,g,,360,85,0.3,0.1,9.5,9.3,0.9,10.6,1.37,2026-11-18,https://groceries.morrisons.com/products/x/114782961
 114783445,g,cooked,636,152,8.8,4.4,4.6,3.3,1.2,13.1,0.81,2026-11-18,https://groceries.morrisons.com/products/x/114783445
@@ -1734,6 +1877,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 114788668,g,,340,80,0.2,0.1,10,9.7,,9.5,0.14,2026-11-18,https://groceries.morrisons.com/products/x/114788668
 114790178,g,,1045,250,12.9,4.4,25.6,1.0,1.1,7.2,0.70,2026-11-18,https://groceries.morrisons.com/products/x/114790178
 114790389,g,,1075,257,14.2,6.4,23.6,1.1,1.6,8.0,0.79,2026-11-18,https://groceries.morrisons.com/products/x/114790389
+114790557,g,,1064,255,15.1,7.3,21.2,3.6,1.5,7.9,0.47,2026-11-18,https://groceries.morrisons.com/products/x/114790557
+114790805,g,,,280,18.1,8.4,20.3,3.2,1.6,8.0,0.66,2026-11-18,https://groceries.morrisons.com/products/x/114790805
 114795454,g,,1077,260,20.5,1.7,10.5,1.3,4.7,6.0,1.0,2026-11-18,https://groceries.morrisons.com/products/x/114795454
 114797732,g,,1040,249,13.4,2.3,18.3,17.3,0.6,13.4,1.30,2026-11-18,https://groceries.morrisons.com/products/x/114797732
 114797767,g,,878,210,9.9,1.7,15.7,11.2,1.1,13.9,0.97,2026-11-18,https://groceries.morrisons.com/products/x/114797767
@@ -1765,6 +1910,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 114819102,g,,603,145,9.3,3.4,10.4,0.7,1.6,4.1,0.41,2026-11-18,https://groceries.morrisons.com/products/x/114819102
 114819330,g,,751,179,7.6,0.8,21,2.7,,5.2,1.7,2026-11-18,https://groceries.morrisons.com/products/x/114819330
 114819874,ml,,146,35,0.8,0.5,4.0,3.7,,2.8,0.09,2026-11-18,https://groceries.morrisons.com/products/x/114819874
+114820681,g,,959,229,7.7,2.8,29.0,1.6,1.8,10.0,1.3,2026-11-18,https://groceries.morrisons.com/products/x/114820681
 114820875,g,,790,186,1.4,0.2,38,4.1,1.7,4.4,1.8,2026-11-18,https://groceries.morrisons.com/products/x/114820875
 114821368,g,,770,182,1.7,0.3,37,31,2.9,3.5,4.1,2026-11-18,https://groceries.morrisons.com/products/x/114821368
 114821501,g,,691,163,1.2,0.5,29,20,4.7,6.9,4.6,2026-11-18,https://groceries.morrisons.com/products/x/114821501
@@ -1791,6 +1937,14 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 114873715,g,,537,127,3.5,0.86,16.66,5.6,0.9,6.9,0.88,2026-11-18,https://groceries.morrisons.com/products/x/114873715
 114874620,ml,,161,38,<0.5,0.3,8.5,6.8,,0.2,<0.1,2026-11-18,https://groceries.morrisons.com/products/x/114874620
 114874662,ml,,166,39,<0.1,<0.1,9.5,9.4,,0.2,<0.1,2026-11-18,https://groceries.morrisons.com/products/x/114874662
+114876385,g,as consumed,997,237,5.9,3.9,32.3,4.3,4.2,11.5,0.87,2026-11-18,https://groceries.morrisons.com/products/x/114876385
+114876414,g,as consumed,968,230,5.2,3.2,31.6,5,3.1,12.5,0.78,2026-11-18,https://groceries.morrisons.com/products/x/114876414
+114876449,g,as consumed,1037,246,6.8,3.7,30.2,4,2.6,14.8,1.05,2026-11-18,https://groceries.morrisons.com/products/x/114876449
+114877396,g,as consumed,1014,241,6.5,3.3,32.3,4.3,3.4,11.6,1.1,2026-11-18,https://groceries.morrisons.com/products/x/114877396
+114877450,g,as consumed,1013,241,6.3,3.6,33.5,4.6,3.2,10.9,0.77,2026-11-18,https://groceries.morrisons.com/products/x/114877450
+114877863,g,as consumed,968,230,4.8,2.8,33.8,6.9,2.7,11.4,1.04,2026-11-18,https://groceries.morrisons.com/products/x/114877863
+114878006,g,as consumed,1029,245,6.7,4.2,29.7,3.4,3.9,14.3,1.06,2026-11-18,https://groceries.morrisons.com/products/x/114878006
+114878090,g,as consumed,848,202,5.7,3.6,26.7,2.8,3,9.3,0.61,2026-11-18,https://groceries.morrisons.com/products/x/114878090
 114879826,g,,743,177,7.2,4.1,18,2.4,0.7,9.4,0.45,2026-11-18,https://groceries.morrisons.com/products/x/114879826
 114883462,g,as consumed,508,121,4.1,1.9,11.4,2.2,1.4,9,0.52,2026-11-18,https://groceries.morrisons.com/products/x/114883462
 114883606,g,cooked,421,100,3.5,2,11.4,1.9,1.3,5.1,0.42,2026-11-18,https://groceries.morrisons.com/products/x/114883606
@@ -1813,16 +1967,21 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 114999617,g,,345,82,2.3,0.4,7.1,6.9,1.0,7.5,0.17,2026-11-18,https://groceries.morrisons.com/products/x/114999617
 114999967,g,,341,81,2.0,1.3,11.6,9.7,,4.0,0.11,2026-11-18,https://groceries.morrisons.com/products/x/114999967
 115000342,ml,,236,56,1.9,1.2,5.7,5.7,,4.0,0.16,2026-11-18,https://groceries.morrisons.com/products/x/115000342
+115000650,g,,1058,250,0.7,0.1,50.4,3.5,2.6,9.2,0.87,2026-11-18,https://groceries.morrisons.com/products/x/115000650
 115000748,g,,,339,23,13,31,21,0.40,2.3,0.39,2026-11-18,https://groceries.morrisons.com/products/x/115000748
+115000756,g,,1041,245,0.7,0.1,48.8,3.4,1.8,10.0,0.78,2026-11-18,https://groceries.morrisons.com/products/x/115000756
 115000844,g,,1521,359,2.0,0.5,71,3.5,3.0,13,0.01,2026-11-18,https://groceries.morrisons.com/products/x/115000844
+115001329,g,,1842,440,29.4,15.3,38.5,29,,5,0.31,2026-11-18,https://groceries.morrisons.com/products/x/115001329
 115001994,g,,,383,25,14,33,24,1.40,4.7,0.51,2026-11-18,https://groceries.morrisons.com/products/x/115001994
 115002065,g,,,433,28,13,39,34,0.6,5.8,0.30,2026-11-18,https://groceries.morrisons.com/products/x/115002065
+115003535,g,,1313,311,7.1,1.7,52.0,8.7,2.1,8.8,1.00,2026-11-18,https://groceries.morrisons.com/products/x/115003535
 115014963,g,microwaved,662,158,4.7,1.2,21.6,2.8,2.4,6,0.6,2026-11-18,https://groceries.morrisons.com/products/x/115014963
 115015392,ml,,280,66,0.3,0.2,5.0,4.9,,10.6,0.10,2026-11-18,https://groceries.morrisons.com/products/x/115015392
 115015448,ml,,279,66,0.2,0.1,5.4,5.1,,10.6,0.11,2026-11-18,https://groceries.morrisons.com/products/x/115015448
 115015501,ml,,276,65,0.2,0.1,5.2,5.2,,10.6,0.11,2026-11-18,https://groceries.morrisons.com/products/x/115015501
 115015907,g,,1701,410,34.5,21.6,0.1,0.1,,24.9,1.80,2026-11-18,https://groceries.morrisons.com/products/x/115015907
 115016205,g,,362,86,2.9,1.9,5.0,4.0,,10.0,0.20,2026-11-18,https://groceries.morrisons.com/products/x/115016205
+115016221,g,,1298,308,6.6,3.1,49.6,6.7,5.6,9.8,0.55,2026-11-18,https://groceries.morrisons.com/products/x/115016221
 115022293,g,,401,95,1.9,0.3,12,0,5.4,5.4,0.8,2026-11-18,https://groceries.morrisons.com/products/x/115022293
 115024926,g,grilled,1327,319,22.2,8.6,1.3,1.2,,28.2,4.63,2026-11-18,https://groceries.morrisons.com/products/x/115024926
 115030710,g,,3695,899,99.7,53.8,0.5,0.5,,0.4,0.02,2026-11-18,https://groceries.morrisons.com/products/x/115030710
@@ -1830,6 +1989,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115041216,g,as consumed,1149,273,7.6,2.3,39.2,3,2.4,10.7,0.87,2026-11-18,https://groceries.morrisons.com/products/x/115041216
 115041312,g,as consumed,1379,328,11.5,4.6,47,2.8,1.9,8.2,0.95,2026-11-18,https://groceries.morrisons.com/products/x/115041312
 115043246,g,as consumed,1168,277,7.7,3.4,41.4,2.7,2.5,9.4,0.9,2026-11-18,https://groceries.morrisons.com/products/x/115043246
+115043254,g,,572,137,6.8,4.2,17.0,14.5,0.5,1.6,0.15,2026-11-18,https://groceries.morrisons.com/products/x/115043254
 115043318,g,as consumed,1113,264,5.4,1.7,44.5,3.8,2.9,7.9,0.95,2026-11-18,https://groceries.morrisons.com/products/x/115043318
 115043393,g,as consumed,1337,318,10.9,1.5,44.9,6.3,3.3,8.6,0.91,2026-11-18,https://groceries.morrisons.com/products/x/115043393
 115048901,g,as consumed,344,81,0.3,0.1,0.1,0.1,0.6,19.1,1.31,2026-11-18,https://groceries.morrisons.com/products/x/115048901
@@ -1860,8 +2020,12 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115151520,g,,159,38,0.6,0.2,6.0,2.2,,1.4,1.4,2026-11-18,https://groceries.morrisons.com/products/x/115151520
 115152805,g,,545,131,10,7.1,4.3,3.3,,6,0.12,2026-11-18,https://groceries.morrisons.com/products/x/115152805
 115161331,g,,968,233,14.4,1.2,11.7,3.5,3.4,12.3,1.26,2026-11-18,https://groceries.morrisons.com/products/x/115161331
+115162923,g,as consumed,1221,292,16.7,11,29.7,19.6,0.6,5.5,0.27,2026-11-18,https://groceries.morrisons.com/products/x/115162923
 115164638,g,,536,128,5.8,2.5,10.9,1.6,<0.5,8.1,0.51,2026-11-18,https://groceries.morrisons.com/products/x/115164638
+115170114,g,as consumed,816,194,5.4,1.8,29.3,3.5,1.5,6.3,0.47,2026-11-18,https://groceries.morrisons.com/products/x/115170114
 115172451,ml,,234,56,3.6,2.3,2.6,2.6,,3.3,0.10,2026-11-18,https://groceries.morrisons.com/products/x/115172451
+115175450,g,as consumed,772,183,4.9,1,28.6,6.2,1.6,5.5,0.8,2026-11-18,https://groceries.morrisons.com/products/x/115175450
+115175978,g,as consumed,889,212,7.6,3.2,29.4,5.6,1.7,5.7,0.51,2026-11-18,https://groceries.morrisons.com/products/x/115175978
 115185295,g,as consumed,415,98,2,0.6,11.8,2,2.4,7.1,0.33,2026-11-18,https://groceries.morrisons.com/products/x/115185295
 115185412,g,as consumed,417,99,2.4,1,11.6,2.3,1.2,7.1,0.39,2026-11-18,https://groceries.morrisons.com/products/x/115185412
 115185586,g,as consumed,362,86,1.4,0.2,10.2,2.9,1.6,7.3,0.55,2026-11-18,https://groceries.morrisons.com/products/x/115185586
@@ -1883,6 +2047,11 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115217171,g,,1676,399,12,7.4,66,59,6.9,3.3,0.19,2026-11-18,https://groceries.morrisons.com/products/x/115217171
 115217613,g,,1676,399,11,7,69,63,6.5,2.7,0.58,2026-11-18,https://groceries.morrisons.com/products/x/115217613
 115221621,g,microwaved,1122,269,14.7,9.7,29.2,19.2,1.1,4.3,0.21,2026-11-18,https://groceries.morrisons.com/products/x/115221621
+115221807,g,microwaved,1382,330,14.2,9.1,45.1,29,2.5,4.1,0.4,2026-11-18,https://groceries.morrisons.com/products/x/115221807
+115221920,g,microwaved,1825,435,19.1,13.2,62.5,40.3,1.7,2.5,0.43,2026-11-18,https://groceries.morrisons.com/products/x/115221920
+115222050,g,microwaved,1596,379,10.9,5.5,65.9,40.2,1.8,3.4,0.46,2026-11-18,https://groceries.morrisons.com/products/x/115222050
+115222341,g,microwaved,1607,384,19.5,13.1,48,33.4,2.7,2.8,0.4,2026-11-18,https://groceries.morrisons.com/products/x/115222341
+115222498,g,microwaved,1528,363,10.2,5.2,63.5,38.7,1.4,3.5,0.32,2026-11-18,https://groceries.morrisons.com/products/x/115222498
 115234974,g,as consumed,923,221,11.6,5.6,1.4,0.6,0.3,27.6,0.46,2026-11-18,https://groceries.morrisons.com/products/x/115234974
 115243096,g,,1243,301,29,25,10,2.3,3.1,<0.5,0.04,2026-11-18,https://groceries.morrisons.com/products/x/115243096
 115243125,g,,347,83,5.8,5.3,6.2,1.5,2.0,0.7,0.04,2026-11-18,https://groceries.morrisons.com/products/x/115243125
@@ -1898,6 +2067,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115262991,g,microwaved,373,90,5.9,3.8,7.2,1.4,,2,1.18,2026-11-18,https://groceries.morrisons.com/products/x/115262991
 115263071,g,cooked,818,198,18.3,9.4,6.1,2.2,,2.1,1.15,2026-11-18,https://groceries.morrisons.com/products/x/115263071
 115263134,g,cooked,225,54,2.6,0.8,4.8,0.5,0.4,2.7,1.05,2026-11-18,https://groceries.morrisons.com/products/x/115263134
+115263193,g,as consumed,249,60,3.8,2.1,4.5,1.1,,1.9,0.92,2026-11-18,https://groceries.morrisons.com/products/x/115263193
 115264575,g,,663,157,4.6,2.2,16.7,8.6,1.2,11.7,0.12,2026-11-18,https://groceries.morrisons.com/products/x/115264575
 115264639,g,,611,145,4.3,2.3,13.7,6.5,1.2,12.3,0.13,2026-11-18,https://groceries.morrisons.com/products/x/115264639
 115264727,g,cooked,799,190,5.3,0.5,29.5,2.5,5.9,3.2,0.6,2026-11-18,https://groceries.morrisons.com/products/x/115264727
@@ -1911,6 +2081,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115266474,g,cooked,1468,353,25.7,11.8,18.9,2.2,3.4,10,0.75,2026-11-18,https://groceries.morrisons.com/products/x/115266474
 115266600,g,cooked,971,232,8.7,2.2,30.6,7,5.9,4.9,0.65,2026-11-18,https://groceries.morrisons.com/products/x/115266600
 115266781,g,microwaved,694,166,7.3,3.2,17.7,2.3,1.5,6.5,0.57,2026-11-18,https://groceries.morrisons.com/products/x/115266781
+115266829,g,as consumed,1094,260,8.5,3.3,35.1,4.8,3.1,9.4,1.31,2026-11-18,https://groceries.morrisons.com/products/x/115266829
+115266888,g,as consumed,1102,262,9.2,3.9,31.1,4.1,3.2,12.2,1.08,2026-11-18,https://groceries.morrisons.com/products/x/115266888
 115266917,g,microwaved,630,150,6.2,2.6,16.3,1.5,1.4,6.5,0.63,2026-11-18,https://groceries.morrisons.com/products/x/115266917
 115266984,g,microwaved,553,132,4.7,0.4,18.5,2.2,2.2,2.8,0.60,2026-11-18,https://groceries.morrisons.com/products/x/115266984
 115267047,g,microwaved,564,134,4.9,0.5,15.2,1.7,1.5,6.7,0.71,2026-11-18,https://groceries.morrisons.com/products/x/115267047
@@ -1975,7 +2147,11 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115303440,g,cooked,466,111,5.1,3.0,11,2.5,1.1,4.8,0.67,2026-11-18,https://groceries.morrisons.com/products/x/115303440
 115305752,g,as consumed,1146,272,7.4,0.8,40.5,3.9,1.8,10,0.47,2026-11-18,https://groceries.morrisons.com/products/x/115305752
 115305904,g,cooked,1040,249,10.8,1.1,30.7,0.2,6.3,4,1.22,2026-11-18,https://groceries.morrisons.com/products/x/115305904
+115306085,g,,1001,238,8.9,3.7,29,1.3,1.1,10,1.3,2026-11-18,https://groceries.morrisons.com/products/x/115306085
 115306165,g,,768,185,13.9,1.1,12.9,1.9,1.4,1.4,0.63,2026-11-18,https://groceries.morrisons.com/products/x/115306165
+115306261,g,,1046,249,12,5.3,25,3.6,0.9,10,1.5,2026-11-18,https://groceries.morrisons.com/products/x/115306261
+115306430,g,,969,230,7.6,3.6,29,1.5,1.0,11,1.2,2026-11-18,https://groceries.morrisons.com/products/x/115306430
+115306595,g,,979,233,9.3,4.6,26,1.5,0.8,11,1.2,2026-11-18,https://groceries.morrisons.com/products/x/115306595
 115307061,g,as consumed,925,221,9.9,1,28.5,4,2.7,3.1,0.69,2026-11-18,https://groceries.morrisons.com/products/x/115307061
 115316161,g,,466,111,3.5,1.1,0.1,0.1,0.5,19.5,2.22,2026-11-18,https://groceries.morrisons.com/products/x/115316161
 115316304,g,,1432,345,27.6,8.7,2.3,0.1,0.5,21.7,3.94,2026-11-18,https://groceries.morrisons.com/products/x/115316304
@@ -1986,6 +2162,9 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115316937,g,,1184,283,18,5.6,20,0.45,,8.6,0.18,2026-11-18,https://groceries.morrisons.com/products/x/115316937
 115319290,g,,1656,397,26.2,9.7,30.3,5.6,1.4,9.4,0.89,2026-11-18,https://groceries.morrisons.com/products/x/115319290
 115320127,g,,1472,352,17.5,9.4,42.6,28.1,1.7,5.1,0.33,2026-11-18,https://groceries.morrisons.com/products/x/115320127
+115325518,g,,481,116,9.4,4.9,5.1,4.4,1.1,2.3,0.86,2026-11-18,https://groceries.morrisons.com/products/x/115325518
+115326019,g,,1150,274,9.7,3.5,35.0,1.6,3.3,10.0,1.8,2026-11-18,https://groceries.morrisons.com/products/x/115326019
+115326182,g,as consumed,1105,264,12,4.2,26,2.9,1.9,12,0.48,2026-11-18,https://groceries.morrisons.com/products/x/115326182
 115329682,g,,1678,405,34.3,22.4,1.62,,<0.5,22.5,1.02,2026-11-18,https://groceries.morrisons.com/products/x/115329682
 115329842,g,,1787,431,36.8,24.47,1.13,<0.1,1.5,23.2,1.01,2026-11-18,https://groceries.morrisons.com/products/x/115329842
 115330173,ml,,248,59,1.3,0.2,10,4.7,,0.8,0.13,2026-11-18,https://groceries.morrisons.com/products/x/115330173
@@ -2003,6 +2182,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115345092,g,,,454,26,16,49,25,3.2,5.1,0.09,2026-11-18,https://groceries.morrisons.com/products/x/115345092
 115345130,g,as consumed,1020,244,14.8,5.3,6.3,6.3,,21.5,2.89,2026-11-18,https://groceries.morrisons.com/products/x/115345130
 115345308,g,as consumed,1024,245,13.3,4.9,8.1,8.1,,23.2,2.01,2026-11-18,https://groceries.morrisons.com/products/x/115345308
+115346571,g,,903,216,9.3,4.6,19,6,,14,0.20,2026-11-18,https://groceries.morrisons.com/products/x/115346571
 115346941,g,grilled,852,203,8.2,3,0.3,0.3,,31.9,2.78,2026-11-18,https://groceries.morrisons.com/products/x/115346941
 115349683,g,,1695,403,14.6,9.1,63.4,33.4,1,4.1,0.11,2026-11-18,https://groceries.morrisons.com/products/x/115349683
 115349860,g,as consumed,1318,315,16.8,7.5,27.6,2.1,1.6,12.6,0.97,2026-11-18,https://groceries.morrisons.com/products/x/115349860
@@ -2016,6 +2196,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115356664,g,as consumed,348,84,5.7,2.9,6.9,3.5,0.9,0.7,0.42,2026-11-18,https://groceries.morrisons.com/products/x/115356664
 115356779,g,,1110,269,25,19,8,8,,2.9,0.11,2026-11-18,https://groceries.morrisons.com/products/x/115356779
 115356808,g,as consumed,272,65,2.9,1.8,7.7,0.6,0.9,1.6,0.57,2026-11-18,https://groceries.morrisons.com/products/x/115356808
+115357181,g,as consumed,321,77,3.8,1.3,6.9,4.4,1.4,3,0.79,2026-11-18,https://groceries.morrisons.com/products/x/115357181
 115360014,g,,601,143,5.0,3.9,20.2,16.5,0.8,3.9,0.13,2026-11-18,https://groceries.morrisons.com/products/x/115360014
 115360022,g,,989,237,12.4,6.5,21.4,1.3,1.4,9.2,1.09,2026-11-18,https://groceries.morrisons.com/products/x/115360022
 115360073,g,,2700,656,72,29.89,1.96,0.1,,0.36,1.8,2026-11-18,https://groceries.morrisons.com/products/x/115360073
@@ -2046,6 +2227,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115399453,g,,1939,469,43.8,17.5,1.3,0.5,0.4,17.2,3.63,2026-11-18,https://groceries.morrisons.com/products/x/115399453
 115405833,g,,1738,420,35.9,24,0.2,0.2,0.5,23.7,1.81,2026-11-18,https://groceries.morrisons.com/products/x/115405833
 115410907,g,,140,33,0.5,0.1,4.4,4,2.8,1.4,0.03,2026-11-18,https://groceries.morrisons.com/products/x/115410907
+115415661,g,,638,153,7.1,4.2,17,15,1.7,4.3,0.12,2026-11-18,https://groceries.morrisons.com/products/x/115415661
 115418167,g,,478.0,113.0,3.0,1.2,15.0,9.8,1.7,5.7,0.15,2026-11-18,https://groceries.morrisons.com/products/x/115418167
 115419098,g,,880,210,8.5,1.3,23,1.4,5.4,7.4,1.9,2026-11-18,https://groceries.morrisons.com/products/x/115419098
 115419362,g,,1174,281,10.8,6.1,41.0,39.7,0.5,4.6,0.16,2026-11-18,https://groceries.morrisons.com/products/x/115419362
@@ -2068,9 +2250,14 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115445018,g,cooked,1304,314,24.3,8.7,5.4,0.8,0.7,18,1.74,2026-11-18,https://groceries.morrisons.com/products/x/115445018
 115448913,g,microwaved,421,100,1.8,1.1,17.2,1.5,1.6,2.8,0.40,2026-11-18,https://groceries.morrisons.com/products/x/115448913
 115450731,g,,541,129,4.0,1.6,17.5,2.2,3.0,4.2,0.9,2026-11-18,https://groceries.morrisons.com/products/x/115450731
+115450749,g,as consumed,1440,343,14.2,8.3,50.2,31.7,2.6,2.4,0.21,2026-11-18,https://groceries.morrisons.com/products/x/115450749
 115450870,g,,1005,240,11.5,5.2,24.6,5.5,,8.8,1.7,2026-11-18,https://groceries.morrisons.com/products/x/115450870
+115450976,g,,635,151,5.7,4.5,21.1,18.3,0.5,3.7,0.2,2026-11-18,https://groceries.morrisons.com/products/x/115450976
+115451047,g,,617,147,4.7,3.4,22.5,18.8,0.5,3.3,0.3,2026-11-18,https://groceries.morrisons.com/products/x/115451047
+115451135,g,,366,86,1.7,1.0,16.1,14.6,0.6,1.4,0.12,2026-11-18,https://groceries.morrisons.com/products/x/115451135
 115454395,g,,1702,408,23,15,46,34,0.7,3.4,0.62,2026-11-18,https://groceries.morrisons.com/products/x/115454395
 115464331,g,,1385,335,29.6,20.8,1.1,0.3,0.3,15.8,1.3,2026-11-18,https://groceries.morrisons.com/products/x/115464331
+115465351,g,,1025,245,11.7,9.4,30,18,1.7,4,0.16,2026-11-18,https://groceries.morrisons.com/products/x/115465351
 115465588,g,,1115,266,12.1,8,37.4,29.1,0.6,1.5,0.14,2026-11-18,https://groceries.morrisons.com/products/x/115465588
 115466986,g,heated,850,202,7.0,3.7,26,3.0,1.0,8.4,0.56,2026-11-18,https://groceries.morrisons.com/products/x/115466986
 115468092,g,cooked,956,229,14.7,5.2,8.1,1.6,0.7,15.8,1.28,2026-11-18,https://groceries.morrisons.com/products/x/115468092
@@ -2087,6 +2274,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115489686,g,,667,159,0.1,<0.1,39.3,29.9,0.3,0.2,0.86,2026-11-18,https://groceries.morrisons.com/products/x/115489686
 115489774,g,,627,150,0.1,<0.1,37.0,29.8,0.3,0.2,0.82,2026-11-18,https://groceries.morrisons.com/products/x/115489774
 115495445,g,,2410,583,47.6,6.1,5.5,5.5,17.3,24.7,3.39,2026-11-18,https://groceries.morrisons.com/products/x/115495445
+115495605,g,as consumed,1056,252,9.8,3.7,28.2,2.8,2.9,11.2,1.12,2026-11-18,https://groceries.morrisons.com/products/x/115495605
 115495648,g,,1428,340,0.0,0.0,80.8,59.7,7.0,2.9,0.07,2026-11-18,https://groceries.morrisons.com/products/x/115495648
 115495795,g,,2620,633,53.5,4.0,9.0,5.6,10.6,24.0,1.62,2026-11-18,https://groceries.morrisons.com/products/x/115495795
 115505068,g,,1198,290,28,19,3,2.5,,6.5,1.1,2026-11-18,https://groceries.morrisons.com/products/x/115505068
@@ -2096,11 +2284,14 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115529537,g,,1524,368,31.2,21.2,1.6,0.2,0.5,19.8,1.92,2026-11-18,https://groceries.morrisons.com/products/x/115529537
 115542045,g,,349,82,0.5,0.3,8.4,7.0,,11,0.12,2026-11-18,https://groceries.morrisons.com/products/x/115542045
 115542168,g,,351,84,0.4,0.2,7.8,5.5,,12.3,<0.1,2026-11-18,https://groceries.morrisons.com/products/x/115542168
+115544930,g,,1338,318,7.6,1.1,46.5,3.5,8.8,11.4,0.98,2026-11-18,https://groceries.morrisons.com/products/x/115544930
 115545019,ml,,273,65,3.7,2.4,4.7,4.7,,3.5,0.11,2026-11-18,https://groceries.morrisons.com/products/x/115545019
 115546572,g,,1779,431,42,27,<0.5,<0.5,,13,1.6,2026-11-18,https://groceries.morrisons.com/products/x/115546572
 115561158,ml,,201,47,0.5,0.1,9.9,8.6,,0.8,0.01,2026-11-18,https://groceries.morrisons.com/products/x/115561158
 115566039,g,,1748,422,34.3,23.7,2.7,0.1,1.8,24.6,1.79,2026-11-18,https://groceries.morrisons.com/products/x/115566039
 115589062,ml,,317,75,1.3,0.9,11.9,11.4,,3.7,0.11,2026-11-18,https://groceries.morrisons.com/products/x/115589062
+115605157,g,,1223,292,13.3,5.3,36.6,17.2,0.6,6.1,0.1,2026-11-18,https://groceries.morrisons.com/products/x/115605157
+115672747,g,as consumed,678,160,1,0.2,27.4,0.5,1.7,9.5,0.4,2026-11-18,https://groceries.morrisons.com/products/x/115672747
 115672771,ml,,335,80,5,3.4,4.7,4.7,,3.7,0.2,2026-11-18,https://groceries.morrisons.com/products/x/115672771
 115674099,ml,,258,61,1.1,0.1,12,11,0.9,0.4,0.01,2026-11-18,https://groceries.morrisons.com/products/x/115674099
 115674224,ml,,183,43,0.5,0.1,8.6,8.6,1.3,0.5,0.01,2026-11-18,https://groceries.morrisons.com/products/x/115674224
@@ -2116,6 +2307,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115694356,g,as consumed,455,108,1.6,0.3,7.4,1,2.5,14.7,0.37,2026-11-18,https://groceries.morrisons.com/products/x/115694356
 115694452,g,as consumed,454,108,0.9,0.1,11.4,1.6,7.9,9.7,0.25,2026-11-18,https://groceries.morrisons.com/products/x/115694452
 115694575,g,as consumed,519,123,1.4,0.5,14.1,2.9,2.1,12.4,0.43,2026-11-18,https://groceries.morrisons.com/products/x/115694575
+115696677,g,,1119,265,2.5,0.3,49,2.4,5.7,8.8,1.0,2026-11-18,https://groceries.morrisons.com/products/x/115696677
+115696765,g,,1102,260,2.2,0.3,50,2.4,2.6,8.4,0.8,2026-11-18,https://groceries.morrisons.com/products/x/115696765
 115698841,ml,,192,45,0.1,,10.5,9.6,0.5,0.3,0.01,2026-11-18,https://groceries.morrisons.com/products/x/115698841
 115698921,ml,,198,47,0.1,,10.7,9.7,0.5,0.5,0.01,2026-11-18,https://groceries.morrisons.com/products/x/115698921
 115698998,ml,,198,47,0.1,,10.7,9.7,0.5,0.5,0.01,2026-11-18,https://groceries.morrisons.com/products/x/115698998
@@ -2128,6 +2321,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115720323,g,,1113,265,11,1.4,15,3.8,0.9,25,1.49,2026-11-18,https://groceries.morrisons.com/products/x/115720323
 115720876,g,,546,130,4.3,0.5,5.9,0.7,4.3,15,0.96,2026-11-18,https://groceries.morrisons.com/products/x/115720876
 115721035,g,,578,138,4.7,0.6,6.2,1.0,4.3,16,1.1,2026-11-18,https://groceries.morrisons.com/products/x/115721035
+115722994,g,,501,119,3.5,2.4,19.2,16.1,1.0,2.2,0.14,2026-11-18,https://groceries.morrisons.com/products/x/115722994
 115730038,g,,760,181,7.4,0.8,23,4.3,1.1,5.3,1.5,2026-11-18,https://groceries.morrisons.com/products/x/115730038
 115734830,g,as consumed,268,64,1.7,0.2,6.2,2.3,4.8,3.7,0.25,2026-11-18,https://groceries.morrisons.com/products/x/115734830
 115735103,g,as consumed,766,182,6.4,1.7,17.9,2.8,1.5,12.5,1.19,2026-11-18,https://groceries.morrisons.com/products/x/115735103
@@ -2143,7 +2337,9 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115756035,g,,241,57,0.1,0.0,12.4,12.4,2.7,0.3,0.00,2026-11-18,https://groceries.morrisons.com/products/x/115756035
 115757222,g,,1666,396,0,0,98,92,,0,0,2026-11-18,https://groceries.morrisons.com/products/x/115757222
 115757425,g,,513,123,7,2.3,2.3,0.1,0.5,12.4,0.24,2026-11-18,https://groceries.morrisons.com/products/x/115757425
+115757679,g,,,427,19,12,57,36,1.9,5.7,0.65,2026-11-18,https://groceries.morrisons.com/products/x/115757679
 115758145,ml,,301,72,2.5,0.7,4.4,3.3,1.8,7,0.1,2026-11-18,https://groceries.morrisons.com/products/x/115758145
+115759009,g,as consumed,744,177,5.1,1.9,23.4,0.3,1.3,8.7,0.43,2026-11-18,https://groceries.morrisons.com/products/x/115759009
 115759201,g,,369,87,1.2,0.2,18,13,0.2,1.1,1.4,2026-11-18,https://groceries.morrisons.com/products/x/115759201
 115759236,g,,526,124,2,0.2,24.2,20.5,0.3,2.2,1.44,2026-11-18,https://groceries.morrisons.com/products/x/115759236
 115759308,g,,526,124,1.2,0.1,27.8,20.5,0.4,0.4,0.83,2026-11-18,https://groceries.morrisons.com/products/x/115759308
@@ -2164,6 +2360,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115769282,g,,506,121,5.1,2.7,10.9,2.3,1.4,7.1,0.15,2026-11-18,https://groceries.morrisons.com/products/x/115769282
 115769346,g,,486,116,5.7,2.6,8.5,2.4,2.1,6.7,0.14,2026-11-18,https://groceries.morrisons.com/products/x/115769346
 115771391,g,as consumed,1000,240,16.5,6.4,4.2,1.6,0.3,18.6,0.44,2026-11-18,https://groceries.morrisons.com/products/x/115771391
+115775607,g,,854,204,11.4,7.8,21.4,16,0.5,3.8,0.18,2026-11-18,https://groceries.morrisons.com/products/x/115775607
 115783906,g,microwaved,321,77,5.3,3.5,4.9,2,0.9,2,0.55,2026-11-18,https://groceries.morrisons.com/products/x/115783906
 115784036,g,,1388,332,18,3.8,36.4,2.9,1.8,5.2,1.37,2026-11-18,https://groceries.morrisons.com/products/x/115784036
 115784044,g,cooked,308,74,3.8,2.4,5.5,1.9,1,3.8,0.44,2026-11-18,https://groceries.morrisons.com/products/x/115784044
@@ -2212,6 +2409,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115852836,g,,733,175,8.0,5.1,20.8,18.5,,4.8,0.19,2026-11-18,https://groceries.morrisons.com/products/x/115852836
 115853468,g,cooked,589,140,3.7,1.1,22.8,3.2,2.9,2.4,0.32,2026-11-18,https://groceries.morrisons.com/products/x/115853468
 115853652,g,,687,164,5.2,0.5,27.8,8.4,4.8,4.7,1.01,2026-11-18,https://groceries.morrisons.com/products/x/115853652
+115856028,g,,1246,297,13,3.8,34,5.4,2.8,9.7,1.8,2026-11-18,https://groceries.morrisons.com/products/x/115856028
 115856167,g,grilled,1059,255,19,8.8,4.9,2.5,0.6,15.9,1.29,2026-11-18,https://groceries.morrisons.com/products/x/115856167
 115858912,g,,215,51,0.9,0,8.6,8.3,2.7,0.8,,2026-11-18,https://groceries.morrisons.com/products/x/115858912
 115859069,g,,100,24,0.1,0,4.2,4.2,1.8,0.6,0.02,2026-11-18,https://groceries.morrisons.com/products/x/115859069
@@ -2262,7 +2460,9 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115894892,ml,,158,37,0,0,9,7.9,0,0.3,0.03,2026-11-18,https://groceries.morrisons.com/products/x/115894892
 115894972,ml,,195,46,0,0,11,10,0.6,0.2,0,2026-11-18,https://groceries.morrisons.com/products/x/115894972
 115895060,ml,,166,39,0,0,9.5,8.5,0,0.2,0,2026-11-18,https://groceries.morrisons.com/products/x/115895060
+115896767,g,,,401,26,15,36,25,1.8,5.1,0.67,2026-11-18,https://groceries.morrisons.com/products/x/115896767
 115896791,g,,2080,502,44,18,3.6,3.0,,23,4.0,2026-11-18,https://groceries.morrisons.com/products/x/115896791
+115897006,g,,,329,19,11,35,21,1.0,4.3,0.46,2026-11-18,https://groceries.morrisons.com/products/x/115897006
 115897129,g,,2077,502,44,18,4.4,2.6,,22,4.0,2026-11-18,https://groceries.morrisons.com/products/x/115897129
 115897276,g,,2080,502,44,18,3.6,3.0,,23,4.0,2026-11-18,https://groceries.morrisons.com/products/x/115897276
 115900156,ml,,159,38,0.4,0.1,7.1,6.5,<0.5,1.0,0.0,2026-11-18,https://groceries.morrisons.com/products/x/115900156
@@ -2276,6 +2476,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115915008,g,,438,105,8.0,5.1,4.2,4.1,,3.5,0.13,2026-11-18,https://groceries.morrisons.com/products/x/115915008
 115915083,g,,195,46,0.2,,9.8,3.6,<0.6,1.3,0.75,2026-11-18,https://groceries.morrisons.com/products/x/115915083
 115919826,g,,1447,349,27.4,11.6,12.5,3.0,1.5,13.8,1.41,2026-11-18,https://groceries.morrisons.com/products/x/115919826
+115923551,g,as consumed,1235,296,18,7.3,27.7,24.5,1.9,5,0.17,2026-11-18,https://groceries.morrisons.com/products/x/115923551
 115923956,g,,1425,340,14.4,6,48.1,27.8,2.3,3.4,0.56,2026-11-18,https://groceries.morrisons.com/products/x/115923956
 115928571,ml,,195,46,2.3,0.2,6.1,2.2,,0.7,0.11,2026-11-18,https://groceries.morrisons.com/products/x/115928571
 115930486,g,,536,127,4.1,2.8,18.1,15.1,<0.5,4.4,0.1,2026-11-18,https://groceries.morrisons.com/products/x/115930486
@@ -2322,15 +2523,20 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115976417,g,cooked,804,192,8.3,0.7,14.6,0.5,0.6,14.4,0.73,2026-11-18,https://groceries.morrisons.com/products/x/115976417
 115977137,g,,3104,755,83,53,1.2,0.4,,0.7,1.8,2026-11-18,https://groceries.morrisons.com/products/x/115977137
 115981401,g,heated,783,186,5.6,2.5,23.8,1.8,1.1,8.9,0.68,2026-11-18,https://groceries.morrisons.com/products/x/115981401
+115982489,g,,767,183,0.1,0.02,45.4,40.6,0.1,0.4,0.63,2026-11-18,https://groceries.morrisons.com/products/x/115982489
 115986084,ml,,1063,258,26,25,3.3,3.0,,2.3,0.17,2026-11-18,https://groceries.morrisons.com/products/x/115986084
 115986800,g,,1473,353,22.5,13.5,25.7,2.5,0.9,11.5,0.68,2026-11-18,https://groceries.morrisons.com/products/x/115986800
 115986869,g,,1411,338,20.3,11.7,29.0,2.8,2.0,8.8,0.60,2026-11-18,https://groceries.morrisons.com/products/x/115986869
 115988733,g,as consumed,794,190,9.4,6.7,17.5,1,1,8.2,0.74,2026-11-18,https://groceries.morrisons.com/products/x/115988733
 115988768,g,as consumed,613,147,7.5,4.5,10.5,1.3,0.6,9,0.55,2026-11-18,https://groceries.morrisons.com/products/x/115988768
 115988792,g,as consumed,523,125,6,3.5,10.1,1.1,1.2,7,0.5,2026-11-18,https://groceries.morrisons.com/products/x/115988792
+115989859,g,,1163,275,3,0.7,51.4,5.7,2.7,9.2,1.06,2026-11-18,https://groceries.morrisons.com/products/x/115989859
 116006754,g,,508,121,2.9,1.17,15.3,0.52,0.54,8.15,0.59,2026-11-18,https://groceries.morrisons.com/products/x/116006754
 116012011,g,as consumed,1085,259,13.1,6.3,26,2,1,8.8,0.67,2026-11-18,https://groceries.morrisons.com/products/x/116012011
 116013559,ml,,220,52,2.1,0.2,7.0,3.4,0.8,1.1,0.10,2026-11-18,https://groceries.morrisons.com/products/x/116013559
+116026940,g,as consumed,948,226,8.1,2.7,25,5.3,5.1,11,1.2,2026-11-18,https://groceries.morrisons.com/products/x/116026940
+116027037,g,,298,72,5.2,0.5,4.5,4.5,0.9,1.3,1.2,2026-11-18,https://groceries.morrisons.com/products/x/116027037
+116027061,g,as consumed,877,209,9,3.7,21,5.6,3.3,9,0.92,2026-11-18,https://groceries.morrisons.com/products/x/116027061
 116027221,g,as consumed,1252,298,8.8,1.8,43,1.5,3.2,10,0.97,2026-11-18,https://groceries.morrisons.com/products/x/116027221
 116028099,g,,95,22,0.1,0.1,3.3,3.2,1.3,1.1,0.26,2026-11-18,https://groceries.morrisons.com/products/x/116028099
 116028582,ml,,233,55,0.8,0.5,8.9,7.3,,3.0,0.19,2026-11-18,https://groceries.morrisons.com/products/x/116028582
@@ -2398,6 +2604,14 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 116189474,g,grilled,1002,240,14.8,6,0.8,0,0.4,25.7,2.83,2026-11-18,https://groceries.morrisons.com/products/x/116189474
 116189503,g,grilled,1333,322,28.2,11.2,1.4,0,0.4,15.4,2.60,2026-11-18,https://groceries.morrisons.com/products/x/116189503
 116189538,g,grilled,758,181,9.3,3.7,0.7,0,0.4,23.4,2.76,2026-11-18,https://groceries.morrisons.com/products/x/116189538
+116192041,g,as consumed,1003,239,9,4.1,26.6,3,2.8,11.6,1.13,2026-11-18,https://groceries.morrisons.com/products/x/116192041
+116192112,g,as consumed,1090,259,7.5,3.3,35.3,6.3,3.6,10.7,1.09,2026-11-18,https://groceries.morrisons.com/products/x/116192112
+116192155,g,as consumed,1010,240,7.1,3.2,31.3,4.6,2.9,11.2,1.17,2026-11-18,https://groceries.morrisons.com/products/x/116192155
+116192163,g,,1056,251,7.6,3.1,33.2,3.7,2.8,11,1.05,2026-11-18,https://groceries.morrisons.com/products/x/116192163
+116192331,g,as consumed,1073,255,8.5,2.5,31.8,4.1,2.8,11.6,1.24,2026-11-18,https://groceries.morrisons.com/products/x/116192331
+116192420,g,as consumed,1045,249,7.6,2.6,31.7,3.2,2.8,11.9,1.14,2026-11-18,https://groceries.morrisons.com/products/x/116192420
+116192454,g,as consumed,1018,242,6.6,2.4,33,5.7,3.2,11,0.84,2026-11-18,https://groceries.morrisons.com/products/x/116192454
+116192489,g,as consumed,1032,246,9.5,2.8,28.4,5,2.7,10.4,1.18,2026-11-18,https://groceries.morrisons.com/products/x/116192489
 116195698,g,,1650,399,34.7,23.6,0.2,<0.1,<0.5,21.5,2.83,2026-11-18,https://groceries.morrisons.com/products/x/116195698
 116195701,g,,1620,392,34.4,12.9,<0.1,0.4,<0.5,20.8,2.23,2026-11-18,https://groceries.morrisons.com/products/x/116195701
 116201947,g,fried,1739,419,32.8,12.5,0.5,0,0.4,30.3,5.53,2026-11-18,https://groceries.morrisons.com/products/x/116201947
@@ -2444,6 +2658,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 116239398,g,as consumed,437,104,1.4,0.2,12.4,2.5,3.3,8.7,0.49,2026-11-18,https://groceries.morrisons.com/products/x/116239398
 116239427,g,as consumed,235,56,0.5,0.1,5.6,3.3,2.8,5.7,0.48,2026-11-18,https://groceries.morrisons.com/products/x/116239427
 116240794,g,,1460,347,0.4,0,4.9,1.4,11,77,2.0,2026-11-18,https://groceries.morrisons.com/products/x/116240794
+116241455,g,,1751,420,26.7,13.1,38.1,23.5,2.8,5.3,0.30,2026-11-18,https://groceries.morrisons.com/products/x/116241455
 116242028,g,,1137,273,19.8,11.4,2.5,2.5,,21.3,1.8,2026-11-18,https://groceries.morrisons.com/products/x/116242028
 116242052,g,,1137,273,19.8,11.4,2.5,2.5,,21.3,1.8,2026-11-18,https://groceries.morrisons.com/products/x/116242052
 116245106,g,,431,103,1.7,0.3,2.6,0.3,6.9,16,0.11,2026-11-18,https://groceries.morrisons.com/products/x/116245106
@@ -2462,6 +2677,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 116246601,g,,485,115,1.7,0.6,1.0,<0.5,<0.5,23.8,0.68,2026-11-18,https://groceries.morrisons.com/products/x/116246601
 116246643,g,,1317,318,28,10.1,5.4,0.2,0.5,10.9,1.72,2026-11-18,https://groceries.morrisons.com/products/x/116246643
 116246782,g,,589,140,4.1,1.5,3.0,2.5,<0.5,22.5,1.63,2026-11-18,https://groceries.morrisons.com/products/x/116246782
+116247021,g,,1386,330,8.6,1.9,52.1,6.6,2.2,9.9,0.95,2026-11-18,https://groceries.morrisons.com/products/x/116247021
 116247371,g,,627,149,5.4,2.1,0.6,0.2,0.6,24.2,0.68,2026-11-18,https://groceries.morrisons.com/products/x/116247371
 116247419,g,,627,149,5.4,2.1,0.6,0.2,0.6,24.2,0.68,2026-11-18,https://groceries.morrisons.com/products/x/116247419
 116250790,g,as consumed,1037,248,14.2,5.2,11.4,6.3,2.1,17.8,0.72,2026-11-18,https://groceries.morrisons.com/products/x/116250790
@@ -2473,6 +2689,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 116253704,g,microwaved,245,59,2.3,1.2,5.3,3.4,4.2,2,0.12,2026-11-18,https://groceries.morrisons.com/products/x/116253704
 116253739,g,,179,43,0.4,0.1,7.4,7,3.9,0.4,0.07,2026-11-18,https://groceries.morrisons.com/products/x/116253739
 116253798,g,,134,32,0.3,0.1,2.8,2.1,3.3,2.9,0.01,2026-11-18,https://groceries.morrisons.com/products/x/116253798
+116254221,g,,,411,29,19,33,23,2.0,4.3,0.43,2026-11-18,https://groceries.morrisons.com/products/x/116254221
 116254336,g,,511,121,2.3,0.7,0.1,0.1,0.5,24.7,0.63,2026-11-18,https://groceries.morrisons.com/products/x/116254336
 116254361,g,,572,135,1.7,0.5,1.1,1.1,0.7,28.5,0.57,2026-11-18,https://groceries.morrisons.com/products/x/116254361
 116256876,g,,428,102,2.6,0.9,2.2,2.2,0.5,17.1,1.47,2026-11-18,https://groceries.morrisons.com/products/x/116256876
@@ -2482,6 +2699,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 116257289,g,,428,102,2.6,0.9,2.2,2.2,0.5,17.1,1.47,2026-11-18,https://groceries.morrisons.com/products/x/116257289
 116257351,g,,1486,359,30.9,10.9,2.4,0.1,0.3,17.6,3.21,2026-11-18,https://groceries.morrisons.com/products/x/116257351
 116257385,g,,1242,301,27.9,10.6,2.9,2.3,1.2,8.8,1.79,2026-11-18,https://groceries.morrisons.com/products/x/116257385
+116257473,g,,1042,248,2.1,0.4,46.4,2.3,2.0,9.9,0.95,2026-11-18,https://groceries.morrisons.com/products/x/116257473
 116257553,g,as consumed,725,173,8.1,2.7,2.2,1,0.9,22.4,0.78,2026-11-18,https://groceries.morrisons.com/products/x/116257553
 116259559,g,,76,18,0.3,0.1,1.0,0.1,0.5,2.9,0.79,2026-11-18,https://groceries.morrisons.com/products/x/116259559
 116259583,g,,98,23,0.2,0.11,1.03,0.1,0.5,4.6,0.69,2026-11-18,https://groceries.morrisons.com/products/x/116259583
@@ -2491,6 +2709,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 116259840,ml,,242,57,1.5,0.9,7.4,6.6,,3.1,0.2,2026-11-18,https://groceries.morrisons.com/products/x/116259840
 116259891,g,,1028,246,13.8,6.5,24.3,2.0,1.5,5.4,0.70,2026-11-18,https://groceries.morrisons.com/products/x/116259891
 116259903,g,,1094,262,15.3,7.2,23.5,1.8,2.5,6.5,0.92,2026-11-18,https://groceries.morrisons.com/products/x/116259903
+116260277,g,,1016,242,1.3,0.3,45.8,2.5,2.3,10.6,0.95,2026-11-18,https://groceries.morrisons.com/products/x/116260277
 116263195,g,,1700,410,34.4,21.1,0.1,0.1,,25,1.7,2026-11-18,https://groceries.morrisons.com/products/x/116263195
 116263312,g,,527,124,1.4,0.4,3,2.1,0.1,24.9,0.42,2026-11-18,https://groceries.morrisons.com/products/x/116263312
 116263873,g,,1513,365,31.2,11.2,5.9,4.7,2.5,14,1.40,2026-11-18,https://groceries.morrisons.com/products/x/116263873
