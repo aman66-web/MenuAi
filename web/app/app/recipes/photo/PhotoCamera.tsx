@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { framedPart } from "@/lib/mm/photoCrop";
 import { CameraIcon, CloseIcon, PhotoIcon } from "../../_components/icons";
 import { Pip } from "../../_components/Mascot";
 import { useT } from "../../_lib/i18n";
@@ -13,7 +14,7 @@ import { useT } from "../../_lib/i18n";
 // Founder 2026-11-17: the Scan food button is pressed and HELD ("that way it ensures you get good photos"): a lime ring fills round it while the light sweeps fast,
 // and the photo is taken when the ring is full (let go early and nothing is taken). From a keyboard, Enter or Space takes it at once.
 
-/** The longest side of the picture taken from the live view; shrinkPhoto then makes it smaller still for sending. */
+/** The longest side of the picture taken from the live view (only the part inside the scanning frame); shrinkPhoto then makes it smaller still for sending. */
 const CAPTURE_SIDE = 1600;
 /** How long the taken photo is "scanned" before the flow goes on (a moment shorter when the phone is set to reduce motion). */
 const SCAN_MS = 2600;
@@ -41,6 +42,7 @@ export function PhotoCamera({ onCapture, onClose, onPickPhoto, onPhonesCamera, n
   const t = useT();
   const dialog = useRef<HTMLDialogElement>(null);
   const video = useRef<HTMLVideoElement>(null);
+  const frame = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
   const [unavailable, setUnavailable] = useState(false);
   const [flash, setFlash] = useState(false);
@@ -82,11 +84,16 @@ export function PhotoCamera({ onCapture, onClose, onPickPhoto, onPhonesCamera, n
   const shoot = () => {
     const v = video.current;
     if (!v || !v.videoWidth) return;
-    const scale = Math.min(1, CAPTURE_SIDE / Math.max(v.videoWidth, v.videoHeight));
+    // only what was inside the scanning frame (founder 2026-11-18: "it should only be the frame that the person scanned"): the live view fills the screen, so the
+    // camera's whole picture holds more round the edges than the person saw (lib/mm/photoCrop.ts)
+    const view = v.getBoundingClientRect();
+    const box = frame.current?.getBoundingClientRect();
+    const part = framedPart(v.videoWidth, v.videoHeight, view.width, view.height, box ? { x: box.left - view.left, y: box.top - view.top, width: box.width, height: box.height } : { x: 0, y: 0, width: 0, height: 0 });
+    const scale = Math.min(1, CAPTURE_SIDE / Math.max(part.width, part.height));
     const canvas = document.createElement("canvas");
-    canvas.width = Math.max(1, Math.round(v.videoWidth * scale));
-    canvas.height = Math.max(1, Math.round(v.videoHeight * scale));
-    canvas.getContext("2d")?.drawImage(v, 0, 0, canvas.width, canvas.height);
+    canvas.width = Math.max(1, Math.round(part.width * scale));
+    canvas.height = Math.max(1, Math.round(part.height * scale));
+    canvas.getContext("2d")?.drawImage(v, part.x, part.y, part.width, part.height, 0, 0, canvas.width, canvas.height);
     try { navigator.vibrate?.(20); } catch { /* not every browser can */ }
     setFlash(true);
     canvas.toBlob((blob) => { if (blob) onCapture(blob); else setFlash(false); }, "image/jpeg", 0.9);
@@ -125,7 +132,7 @@ export function PhotoCamera({ onCapture, onClose, onPickPhoto, onPhonesCamera, n
 
       {/* dim the edges so the dish sits in a bright frame */}
       {!unavailable && <div aria-hidden className="pointer-events-none absolute inset-0 shadow-[inset_0_0_0_100vmax_rgba(0,0,0,0.18)]" />}
-      {!unavailable && <div className="absolute inset-x-5 bottom-44 top-24"><ScanFrame strong={holding} /></div>}
+      {!unavailable && <div ref={frame} className="absolute inset-x-5 bottom-44 top-24"><ScanFrame strong={holding} /></div>}
       {flash && <div aria-hidden className="absolute inset-0 bg-white/80" />}
 
       <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-3 px-5 pb-3 pt-[max(1rem,env(safe-area-inset-top))]">

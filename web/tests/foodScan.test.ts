@@ -132,6 +132,10 @@ describe("checking Pip's answers", () => {
     expect(ESTIMATE_SYSTEM_PROMPT).toMatch(/never a restaurant's or brand's name/);
     expect(ESTIMATE_SYSTEM_PROMPT).toMatch(/4 kcal a gram, fat about 9/);
     expect(FIRST_LOOK_SYSTEM_PROMPT).toMatch(/Don't guess any nutrition figures yet/);
+    // founder 2026-11-18: a photo of a dish on a website was turned down as "not food"; a dish on a screen, menu or pack counts, and only the one aimed at
+    expect(FIRST_LOOK_SYSTEM_PROMPT).toMatch(/A dish on a screen, in a menu, in an advert or on a pack counts/);
+    expect(FIRST_LOOK_SYSTEM_PROMPT).toMatch(/describe only the one in the middle/);
+    expect(ESTIMATE_SYSTEM_PROMPT).toMatch(/estimate one ordinary serving of it/);
   });
 });
 
