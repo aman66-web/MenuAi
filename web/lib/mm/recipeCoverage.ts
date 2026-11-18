@@ -7,7 +7,7 @@ export const RECIPE_COVERAGE: Readonly<Record<string, number>> = {
   "aldi": 27,
   "lidl": 0,
   "morrisons": 145,
-  "waitrose": 1,
+  "waitrose": 11,
   "iceland": 33,
   "marks-and-spencer": 0,
 };
