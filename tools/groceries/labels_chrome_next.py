@@ -26,9 +26,25 @@ ROOT = Path(__file__).resolve().parents[2]
 BASE = {"asda": "https://www.asda.com/groceries/product/{id}", "aldi": "https://www.aldi.co.uk/product/{page}",
         "tesco": "https://www.tesco.com/groceries/en-GB/products/{id}", "marks-and-spencer": "https://www.marksandspencer.com/food/{page}",
         "sainsburys": "https://www.sainsburys.co.uk/gol-ui/product/{id}", "waitrose": "https://www.waitrose.com/ecom/products/{slug}/{id}",
-        "morrisons": "https://groceries.morrisons.com/products/{slug}/{id}", "iceland": "https://www.iceland.co.uk/p/x/{id}.html"}
-# pages already read by a shop's own script (founder 2026-11-18 moved Morrisons and Iceland to Chrome so they can watch it): counted as done
-SCRIPT_READS = {"morrisons": "raw-morrisons/reads.jsonl", "iceland": "raw-iceland/pages.jsonl"}
+        "morrisons": "https://groceries.morrisons.com/products/{slug}/{id}", "iceland": "https://www.iceland.co.uk/p/x/{id}.html",
+        "coop": "https://www.coop.co.uk/products/{id}"}
+# wine, beer and spirits names a slug can carry without a size (is_alcohol needs one): left out of Co-op's list
+import re as _re
+COOP_DRINK = _re.compile(r"\b(wines?|chardonnay|shiraz|merlot|sauvignon|pinot|rioja|malbec|cabernet|prosecco|cava|champagne|riesling|grenache|tempranillo|zinfandel|"
+                         r"chenin|semillon|viognier|beaujolais|bordeaux|chianti|primitivo|montepulciano|valpolicella|lambrusco|muscadet|claret|lagers?|beers?|ciders?|"
+                         r"ipa|stout|porter|gin|vodka|whisky|whiskey|rum|brandy|cognac|tequila|liqueurs?|sherry|spritz|seltzer|spirits|croft|baileys|pimms|aperol|"
+                         r"smirnoff|gordons|bacardi|jagermeister|kopparberg|strongbow|carling|stella|peroni|corona|guinness|budweiser|fosters|heineken|magners|"
+                         r"thatchers|brewdog|madri|birra|moretti|desperados|hooch|wkd|martini|cointreau|disaronno|tia maria|kahlua|captain morgan|jack daniels|"
+                         r"famous grouse|bells|glenfiddich|jameson|southern comfort|archers|malibu|sambuca|amaretto|vermouth|mead|perry|shandy)\b")
+# a name that also names a food or a soft drink is food ("Chardonnay Wine Vinegar Crisps", "Chianti Beef Pizza", "Bells Scotch Steak Pie", "Ginger Beer")
+COOP_FOOD = _re.compile(r"\b(vinegar|crisps|chips|pizza|pie|pies|ginger beer|ginger ale|sauce|gravy|cake|cakes|truffles?|chocolates?|mustard|beef|chicken|steak|pork|"
+                        r"ham|cheese|battered|glazed|marinade|stock|soup|pudding|trifle|jam|chutney|sausages?|alcohol free|non alcoholic|0 0|zero)\b")
+# wine and spirits bottles named by region or brand ("Languedoc 75cl", "Talisker Skye 70cl")
+COOP_BOTTLE = _re.compile(r"\b(75cl|70cl|35cl|50cl|37 5cl|20cl|1 litre)\b")
+# groceries only: pet food and household goods are left out first, whatever else the name says
+COOP_NOT_FOOD = _re.compile(r"\b(whiskas|felix|pedigree|dreamies|sheba|cesar|winalot|purina|go cat|cat|cats|dog|dogs|kitten|puppy|washing up|laundry|detergent|"
+                            r"toilet|bin bags|bleach|kitchen roll|tissues|nappies|wipes|fabric|dishwasher|shampoo|toothpaste|deodorant|batteries)\b")
+READER = 3  # the reader's version, stored on each page read (3: every "Ingredients" heading tried, 18 November 2026)
 
 
 def slug(name: str) -> str:
@@ -38,22 +54,40 @@ def slug(name: str) -> str:
 
 
 def all_products(shop: str):
-    """Every product in the shop's published list (web/public/groceries/all/<shop>.json) that has its own product page and no label read from it yet (founder 2026-11-17:
-    "we need nutrients for every single product"), as rows shaped like recipe-candidates (product_id, page). Rows whose only address is the shop's search are skipped."""
+    """Every product in the shop's published list (web/public/groceries/all/<shop>.json) with its own product page (founder 2026-11-17: "we need nutrients for
+    every single product"; 2026-11-18: "not just the product, but the ingredients"), as rows shaped like recipe-candidates (product_id, page, name): those with no
+    label of any kind first, then those whose label came from somewhere else or whose ingredients haven't been read. Rows whose only address is the shop's search
+    are skipped. Alcoholic drinks are never in these lists (build_all_products.py leaves them out)."""
+    if shop == "coop":
+        # Co-op has no list in the app yet: its catalogue's own sitemap (saved once, 18 November 2026), alcoholic drinks left out by name
+        import re
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import build_groceries as bg
+        xml = (ROOT / "data" / "groceries" / "listing" / "raw" / "coop_products_sitemap.xml").read_text(encoding="utf-8")
+        for url in re.findall(r"<loc>https://www\.coop\.co\.uk/products/([a-z0-9-]+)</loc>", xml):
+            name = url.replace("-", " ")
+            drink = bg.is_alcohol(name) or COOP_DRINK.search(name) or (COOP_BOTTLE.search(name) and not _re.search(r"\b(oil|vinegar|water|juice)\b", name))
+            # a liqueur, a strength ("17 vol") or a wine sold by the bottle is a drink whatever food it names ("Jam Shed Rose Wine 75cl", "Baileys x Terry's
+            # Chocolate Orange Irish Cream Liqueur")
+            strong = _re.search(r"\b(liqueur|liqueurs|\d+ vol|abv)\b", name) or (_re.search(r"\bwines?\b", name) and COOP_BOTTLE.search(name))
+            if url != "search" and not strong and not COOP_NOT_FOOD.search(name) and (COOP_FOOD.search(name) or not drink):
+                yield {"product_id": url, "page": url, "name": name}
+        return
     doc = json.loads((ROOT / "web" / "public" / "groceries" / "all" / f"{shop}.json").read_text(encoding="utf-8"))
+    first, then = [], []
     for row in doc["products"]:
         nut = row[10] if len(row) > 10 else None
-        if nut and not (len(nut) > 11 and nut[11] == "off"):
-            continue  # the shop's own label is already read
         page = row[11] if len(row) > 11 and isinstance(row[11], str) else ""
         if shop in ("aldi", "marks-and-spencer") and not page:
             continue
-        yield {"product_id": row[0], "page": page, "name": row[1]}
+        (then if nut else first).append({"product_id": row[0], "page": page, "name": row[1]})
+    yield from first
+    yield from then
 
 
 TRANSCRIPTS = Path.home() / ".claude" / "projects" / ("-" + str(ROOT).strip("/").replace("/", "-"))
 HOSTS = {"asda.com": "asda", "aldi.co.uk": "aldi", "marksandspencer.com": "marks-and-spencer", "tesco.com": "tesco", "sainsburys.co.uk": "sainsburys",
-         "waitrose.com": "waitrose", "groceries.morrisons.com": "morrisons", "iceland.co.uk": "iceland"}
+         "waitrose.com": "waitrose", "groceries.morrisons.com": "morrisons", "iceland.co.uk": "iceland", "coop.co.uk": "coop"}
 MARK = "[javascript_tool:javascript_exec] "
 
 
@@ -105,12 +139,10 @@ def done_ids(shop: str) -> set[str]:
     if raw.exists():
         for line in raw.read_text(encoding="utf-8").splitlines():
             if line.strip():
-                done.add(str(json.loads(line).get("id")))
-    other = ROOT / "data" / "groceries" / "nutrition" / SCRIPT_READS.get(shop, "-")
-    if shop in SCRIPT_READS and other.exists():
-        for line in other.read_text(encoding="utf-8").splitlines():
-            if line.strip():
-                done.add(str(json.loads(line).get("product_id")))
+                r = json.loads(line)
+                if shop == "tesco" and (r.get("reader") or 0) < READER and r.get("nut") and not r.get("ingredients"):
+                    continue
+                done.add(str(r.get("id")))
     return done
 
 
@@ -169,7 +201,7 @@ def harvest(days: float = 4) -> str:
         if shop == "iceland" and "ice" not in got and tries < 3:
             continue  # Iceland's embedded record didn't come back whole: offered again
         rec = {k: v for k, v in main.items() if k not in ("part", "want", "host", "ingLen")}
-        rec["pageId"], rec["id"] = main.get("id"), want
+        rec["pageId"], rec["id"], rec["reader"] = main.get("id"), want, READER
         rec["ingredients"] = text
         if (main.get("ingLen") or 0) > len(text):
             rec["ingredientsCut"] = True
@@ -266,9 +298,9 @@ def main() -> int:
             else:
                 want = json.dumps(str(r["product_id"]))
                 actions += [{"name": "navigate", "input": {"url": url, "tabId": tab}}, {"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": code.replace("WANT", want)}}]
-                if short:
+                if short and shop != "coop":  # Co-op's catalogue prints no ingredients
                     actions.append({"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": ing_code.replace("WANT", want)}})
-                if short:
+                if short and shop != "coop":
                     actions.append({"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": ing_code.replace("WANT", want).replace('("ing"', '("ing2"')}})
                 if short and shop == "iceland":
                     actions.append({"name": "javascript_tool", "input": {"action": "javascript_exec", "tabId": tab, "text": ing_code.replace("WANT", want).replace('("ing"', '("ice"')}})

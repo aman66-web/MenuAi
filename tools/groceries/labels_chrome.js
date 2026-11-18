@@ -27,22 +27,30 @@
   }
   // the ingredients list as the page prints it (founder 2026-11-17: "make sure you get all ingredients and nutritional information"): the text after the first heading or
   // label that is just "Ingredients", from the page's own text (folded sections included), at most 2,000 characters; "" when the page shows none
+  // every heading or label that is just "Ingredients" (or starts with it, as Morrisons's does), tried in page order until one is followed by a real list: on Tesco
+  // the first "Ingredients" heading sits over a box holding the nutrition table too, and a smaller "Ingredients" heading inside it holds the list itself
+  const after = (el) => {
+    let n = el.nextElementSibling || (el.parentElement && el.parentElement.nextElementSibling);
+    if (!n && el.parentElement) n = el.parentElement.querySelector(":scope > *:not(:first-child)");
+    return n;
+  };
+  const labels = [...document.querySelectorAll("h2, h3, h4, dt, summary, button, strong, b, span, p, div")].filter((el) => /^ingredients:?$/i.test((el.textContent || "").trim()))
+    .concat([...document.querySelectorAll("h2, h3, h4, dt, summary")].filter((el) => /^ingredients\b/i.test((el.textContent || "").trim()) && (el.textContent || "").length < 200));
   let ingredients = "";
-  // a heading that is just "Ingredients", or one that starts with it (Morrisons: "Ingredients (ingredients and allergens may be subject to change ...)")
-  const label = [...document.querySelectorAll("h2, h3, h4, dt, summary, button, strong, b, span, p, div")].find((el) => /^ingredients:?$/i.test((el.textContent || "").trim()))
-    || [...document.querySelectorAll("h2, h3, h4, dt, summary")].find((el) => /^ingredients\b/i.test((el.textContent || "").trim()) && (el.textContent || "").length < 200);
-  if (label) {
-    let el = label.nextElementSibling || (label.parentElement && label.parentElement.nextElementSibling);
-    if (!el && label.parentElement) el = label.parentElement.querySelector(":scope > *:not(:first-child)");
-    ingredients = clean(el ? el.textContent : "");
+  let label = null;
+  for (const el of labels) {
+    const n = after(el);
+    let t = clean(n ? n.textContent : "").replace(/^ingredients:?\s*/i, "");
     // text that is really the nutrition table (some shops put both under one heading) is not an ingredients list
-    if (/energy|kcal|typical values/i.test(ingredients.slice(0, 200))) ingredients = "";
-    ingredients = ingredients.slice(0, 1600);
+    if (!t || /energy|kcal|typical values/i.test(t.slice(0, 200))) continue;
+    ingredients = t.slice(0, 1600);
+    label = el;
+    break;
   }
   // the allergens as the shop marks them (founder 2026-11-17: "also the allergens"): the words it prints in bold inside the ingredients (UK labels emphasise the 14
   // allergens), and the text of its own "Allergy information" / "Allergens" / "May contain" section, as printed (folded sections included); "" / [] when none
   const bold = label ? (() => {
-    let el = label.nextElementSibling || (label.parentElement && label.parentElement.nextElementSibling);
+    const el = after(label);
     return el ? [...new Set([...el.querySelectorAll("strong, b")].map((x) => clean(x.textContent)).filter((w) => w && w.length <= 40))] : [];
   })() : [];
   let allergy = "";
@@ -67,9 +75,22 @@
     } catch (e) { iceland = null; }
   }
   // the browser tool cuts a result off at about 1,000 characters: the ingredients come back in two halves of at most 800
+  // Co-op's catalogue (coop.co.uk/products, open to robots; its online shop is behind a bot check, so never read): name, price and photo as the page gives them in
+  // its own structured data, and the price line as printed (with any deal); it prints no nutrition or ingredients
+  let coop = null;
+  if (host === "coop.co.uk") {
+    try {
+      const ld = [...document.querySelectorAll('script[type="application/ld+json"]')].map((x) => { try { return JSON.parse(x.textContent); } catch (e) { return null; } }).find((x) => x && x["@type"] === "Product");
+      const t = document.body ? document.body.innerText : "";
+      const i = t.search(/£\d/);
+      const o = (ld && ld.offers) || {};
+      coop = { name: clean(ld && ld.name), price: String(o.price || ""), until: String(o.priceValidUntil || "").slice(0, 10), stock: String(o.availability || "").split("/").pop(),
+        priceText: i >= 0 ? clean(t.slice(i, i + 160)) : "", image: ((document.querySelector('meta[property="og:image"]') || {}).content || "").replace(/[?=&].*$/, "") };
+    } catch (e) { coop = null; }
+  }
   if (mode === "ing") return JSON.stringify({ want, host, part: "ing", ingredients: ingredients.slice(0, 800) });
   if (mode === "ing2") return JSON.stringify({ want, host, part: "ing2", ingredients: ingredients.slice(800, 1600) });
   // Iceland's record comes back in a third call ("ice"), so the main result stays short enough never to be cut off
   if (mode === "ice") return JSON.stringify({ want, host, part: "ice", iceland });
-  return JSON.stringify({ want, host, part: "main", id, h1: h1.slice(0, 90), blocked, nut, above: above.trim().slice(0, 120), bold: bold.slice(0, 14), allergy, mayContain, ingLen: ingredients.length, checked_on: new Date().toISOString().slice(0, 10) });
+  return JSON.stringify({ want, host, part: "main", id, h1: h1.slice(0, 90), blocked, nut, above: above.trim().slice(0, 120), bold: bold.slice(0, 14), allergy, mayContain, ingLen: ingredients.length, coop, checked_on: new Date().toISOString().slice(0, 10) });
 })
