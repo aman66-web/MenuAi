@@ -1307,9 +1307,11 @@ class AlcoholNamedTests(unittest.TestCase):
         import build_all_products as B
         for name in ["George Home Black Fast Boil Kettle 1.7L", "George Home Peel Lid Food Storers - Colour May Vary", "George Home Kent Sundae Spoons",
                      "John Lewis Stainless Steel 4-Sided Box Grater each", "JL Stainless Steel Y-Shaped Peeler each", "Nutmeg Home Protein Shaker 600ml",
-                     "Brita Maxtra Pro All-in-One Cartridge 6pk", "Brita Maxtra Pro All in 1 Water Filter Cartridge 3 pack"]:
+                     "Brita Maxtra Pro All-in-One Cartridge 6pk", "Brita Maxtra Pro All in 1 Water Filter Cartridge 3 pack",
+                     "BAKE by ASDA BAKE by 100 Fairy Cake White Paper Cases", "BAKE by ASDA BAKE by 20 Disposable Loaf Liners",
+                     "BAKE by ASDA BAKE by 2 Disposable Foil Baking Trays", "BAKE by ASDA BAKE by 2 Gold Spotty Cupcake Boxes"]:
             self.assertTrue(B.not_food(name), name)
-        for name in ["Splenda Granulated Low Calorie Sweetener Canister 125g", "Nutmeg Organic Vegetable Paella Baby Food 12M+ 100g", "Yarden Houmous Prestige 250g"]:
+        for name in ["ASDA White Marzipan 500g", "ASDA Asda Ready to Roll Pink lcing 250g", "Splenda Granulated Low Calorie Sweetener Canister 125g", "Nutmeg Organic Vegetable Paella Baby Food 12M+ 100g", "Yarden Houmous Prestige 250g"]:
             self.assertFalse(B.not_food(name), name)
 
 
