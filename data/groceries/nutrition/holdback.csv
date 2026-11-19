@@ -898,3 +898,6 @@ waitrose,979622-1-2,"Waitrose product: a negative energy figure, garbled (seen 1
 morrisons,115783130,"Morrisons product: a garbled fat figure (2,6g where its calories need about 26 g) (seen 19 November 2026); never used"
 waitrose,816509-804192-804193,"Waitrose product: its ingredients name another flavour, so they may belong to a different product (seen 19 November 2026); never used"
 waitrose,003356-1305-1305,"Waitrose product: a variety multipack showing one flavour's table (seen 19 November 2026); never used"
+morrisons,115123078,"Morrisons product: its ingredients were read garbled (allergen words swapped), so its allergens can't be trusted (seen 19 November 2026); never used"
+morrisons,113495601,"Morrisons product: an unlabelled row after fat that would read as saturates above fat (seen 19 November 2026); never used"
+morrisons,116200160,"Morrisons product: only a per-item energy row, no per 100 g figures (seen 19 November 2026); never used"
