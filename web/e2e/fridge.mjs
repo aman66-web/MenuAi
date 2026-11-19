@@ -22,8 +22,8 @@ const page = await ctx.newPage();
 const errors = [];
 page.on("pageerror", (e) => errors.push(String(e).slice(0, 160)));
 
-await step("Recipes has the card, and it opens Cook with what you already have", async () => {
-  await page.goto(BASE + "/app/recipes");
+await step("Home has the card under the day's numbers, and it opens Cook with what you already have", async () => {
+  await page.goto(BASE + "/app");
   const card = page.getByRole("link", { name: /Cook with what you already have/ });
   await card.waitFor({ timeout: 90000 });
   await card.tap();

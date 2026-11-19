@@ -113,11 +113,11 @@ await step("(a) Recipes, then the heart at the top right, then My meals: Back la
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 // (b) + (c) Home and its pages
 
-await step("(b) Home, the My meals tile, Back: Home; Home, the Shopping list tile, Back: Home", async () => {
+await step("(b) Home, Cook with what you already have, Back: Home; Home, the Shopping list at the top right, Back: Home", async () => {
   const { ctx, page, errors } = await open();
   await home(page);
-  await page.locator('a[href="/app/meals"]').tap();
-  await waitPath(page, "/app/meals");
+  await page.locator('main a[href="/app/recipes/fridge"]').tap();
+  await waitPath(page, "/app/recipes/fridge");
   await back(page, "Back", "/app");
   await homeReady(page);
   await page.locator('a[href="/app/groceries/list"]').first().tap();

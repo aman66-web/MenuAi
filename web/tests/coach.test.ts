@@ -73,7 +73,7 @@ describe("the tips on each tab", () => {
       groceries: "app/app/groceries/page.tsx",
       recipes: "app/app/recipes/page.tsx",
     };
-    const shell = readFileSync("app/app/_components/AppShell.tsx", "utf8") + readFileSync("app/app/_components/Shortcut.tsx", "utf8") + readFileSync("app/app/groceries/PageBits.tsx", "utf8");
+    const shell = readFileSync("app/app/_components/AppShell.tsx", "utf8") + readFileSync("app/app/_components/Shortcut.tsx", "utf8") + readFileSync("app/app/groceries/PageBits.tsx", "utf8") + readFileSync("app/app/_components/RecipeTools.tsx", "utf8");
     for (const screen of COACH_SCREENS) {
       const page = readFileSync(files[screen]!, "utf8") + shell;
       for (const step of COACH_STEPS[screen]) {

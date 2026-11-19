@@ -24,13 +24,14 @@ async function context(patch) {
 const ctx = await context();
 const page = await ctx.newPage();
 
-await step("Home's third card is the meal plan, the whole width under the two", async () => {
+await step("Home: the meal plan sits beside Cook with what you already have, under the day's numbers (founder 2026-11-19)", async () => {
   await page.goto(BASE + "/app");
   const card = page.getByRole("link", { name: /^Meal plan/ });
   await card.waitFor({ timeout: 120000 });
-  const [a, b] = await Promise.all([page.getByRole("link", { name: /^Shopping list/ }).first().boundingBox(), card.boundingBox()]);
-  expect(b.y >= a.y + a.height - 1, "under the two cards");
-  expect(b.width > 300 && b.height >= 44, `the whole width, a big target: ${JSON.stringify(b)}`);
+  const [n, a, b] = await Promise.all([page.locator('[data-coach="home-numbers"]').boundingBox(), page.getByRole("link", { name: /^Cook with what you already have/ }).boundingBox(), card.boundingBox()]);
+  expect(a.y >= n.y + n.height - 1, "under the day's numbers");
+  expect(Math.abs(a.y - b.y) < 2 && b.x > a.x + a.width - 1, `side by side: ${JSON.stringify([a, b])}`);
+  expect(b.width >= 44 && b.height >= 44, `a big target: ${JSON.stringify(b)}`);
   await card.click();
   await page.waitForURL((u) => u.pathname.startsWith("/app/plan"));
 });

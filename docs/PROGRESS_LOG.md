@@ -3296,3 +3296,20 @@ Founder: "Yes, put it all live for me, please." `iap` (db413393, 66 commits sinc
 was checked: the new words ("How many people is the shopping for?", "Choose a product for", "I have this:", "in the basket", "For breakfast") are in the live
 pages' code, and every shop's list file on numbite.com matches the build (Morrisons 12,104 products with labels, Waitrose 8,239, Tesco 1,686). In the iPhone app
 only newer restaurant menus come from numbite.com (docs/APP_BUILD.md "Live data"): the grocery lists and these fixes reach iPhone users with the next app build. Two Morrisons label readers carry on.
+
+### 19 November 2026 (afternoon): the cooking tools on Home, one Scan your food card (on `iap`, not live)
+Founder, with two screenshots: "move from image one, those three things ... in that gap" (Recipes' three cards to Home, under the day's numbers); then
+"instead of it saying settings in the top right on the home screen, I think that should maybe say shopping list instead. And then you remove shopping list from
+that dashboard and you remove scan your food ... they have scan to get the macros or scan to recipe"; then "Wait, don't make it live yet."
+- **Home** (`app/app/page.tsx`, the new `_components/RecipeTools.tsx`): top right is a Shopping list pill with how many things are left (a screen reader hears
+  "3 things to pick up") and the round gear for Settings; under the numbers, one dark **Scan your food** card (Premium; hidden on the website, where nothing is
+  sold) with two full-width buttons, **Calories and macros** (`/app/scan`) and **Make it at home** (paywall, then `/app/recipes/photo`), then **Cook with what you
+  already have** and **Meal plan** side by side. The Shopping list and Scan cards and the old full-width Meal plan card are gone. Side by side, the two scan
+  buttons broke their words in two at standard text, so they stand one above the other. Checked at standard, large and extra large text: no sideways scroll,
+  every control 44 points or more.
+- **Recipes** starts with its search and shop, then the meal buttons and the dishes.
+- **Pip's tips** on Home (seven, the most a screen has): Your day, Add what you ate, Scan your food, Cook from your fridge, Meal plan, one tip for the top right
+  corner ("Shopping list, Settings"), Moving around. Recipes keeps Choose a meal and My recipes. **The welcome tour's** Home stop names the scan card, the two
+  cooking cards and the top right corner; its Recipes stop names the search and shop instead of Make it at home and Meal plan.
+- **Morrisons:** the second reader finished its stretch of the queue (fewer than 200 unread pages remain; the first reader carries on); 4 more labels held back
+  (two energy figures that disagree with themselves, a dried pasta labelled only as cooked, a Fat row misprinted "Fai").

@@ -34,14 +34,17 @@ async function axe(page, where) {
   expect(r.length === 0, `${where}: ${r.join(", ")}`);
 }
 
-await step("Home: the second card is Scan your food, with no My meals on Home (founder 2026-11-18: \"I don't want My Meals anymore\")", async () => {
+await step("Home: one Scan your food card with its two choices, Calories and macros or Make it at home (founder 2026-11-19), and no My meals on Home", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app");
-  const scan = page.getByRole("link", { name: /^Scan your food/ });
-  await scan.waitFor({ timeout: 120000 });
-  expect((await scan.innerText()).includes("Snap your plate to see its calories"), "the card says what it does");
-  expect(!(await scan.innerText()).includes("Premium"), "no Premium tag for a Premium person");
+  const card = page.getByRole("region", { name: "Scan your food" });
+  await card.waitFor({ timeout: 120000 });
+  expect((await card.innerText()).includes("Take a photo of a meal: see its calories and macros, or get the recipe to make it at home."), "the card says what it does");
+  expect(!(await card.innerText()).includes("Premium"), "no Premium tag for a Premium person");
+  await card.getByRole("button", { name: /Make it at home/ }).waitFor();
   expect((await page.locator("main").getByRole("link", { name: /^My meals/ }).count()) === 0, "no My meals on Home");
+  const scan = card.getByRole("link", { name: "Calories and macros" });
+  for (const b of [await scan.boundingBox(), await card.getByRole("button", { name: /Make it at home/ }).boundingBox()]) expect(b && b.height >= 44, "a big button");
   await scan.click();
   await page.getByRole("heading", { level: 1, name: "Scan your food" }).waitFor({ timeout: 60000 });
   await ctx.close();
@@ -59,7 +62,8 @@ await step("a photo in, the estimate out: the plate, Estimate from your photo, c
   await axe(page, "first page");
   await page.locator('input[type=file]:not([capture])').setInputFiles(await jpeg(page));
   await page.getByRole("heading", { level: 1, name: SCAN.name }).waitFor({ timeout: 30000 });
-  expect(sent && typeof sent.image === "string" && sent.image.startsWith("/9j/") && Object.keys(sent).join() === "image", "only the photo is sent, as a JPEG");
+  // the photo as a JPEG, and what the person typed about it (nothing here) since a1241cd5 (Pip reads the words with the photo): nothing else
+  expect(sent && typeof sent.image === "string" && sent.image.startsWith("/9j/") && Object.keys(sent).sort().join() === "description,image" && sent.description === "", "only the photo and the typed words are sent: " + Object.keys(sent ?? {}).join());
   await page.getByText("Estimate from your photo", { exact: true }).waitFor();
   const text = await page.locator("main").innerText();
   for (const s of ["790", "kcal", "30", "77", "40", "Calories", "Protein", "Carbs", "Fat", "What Pip counted", "Double cheeseburger", "one burger, about 180 g", "Chips", "A good guess from what Pip can see."]) expect(text.includes(s), `shows ${s}`);
@@ -97,9 +101,9 @@ await step("a free person: Home's card says Premium, and Take a photo opens the 
   let asked = 0;
   await page.route("**/api/v1/scan", (r) => { asked++; return r.fulfill({ contentType: "application/json", body: "{}" }); });
   await page.goto(BASE + "/app");
-  const scan = page.getByRole("link", { name: /^Scan your food/ });
-  await scan.waitFor({ timeout: 120000 });
-  expect((await scan.innerText()).includes("Premium"), "a Premium tag on the card");
+  const card = page.getByRole("region", { name: "Scan your food" });
+  await card.waitFor({ timeout: 120000 });
+  expect((await card.innerText()).includes("Premium"), "a Premium tag on the card");
   await page.goto(BASE + "/app/scan");
   await page.getByRole("button", { name: "Take a photo" }).click();
   await page.getByRole("dialog").filter({ hasText: /Photograph your food for an estimate/ }).waitFor({ timeout: 15000 }).catch(async () => { await page.getByRole("dialog").first().waitFor({ timeout: 5000 }); });

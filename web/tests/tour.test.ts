@@ -162,7 +162,8 @@ describe("the tour's stops", () => {
     vi.resetModules();
     const off = (await import("../app/app/welcome/Tour")).TOUR_STOPS;
     const offRows = (id: string) => (off.find((s) => s.id === id)?.rows ?? []).filter((r) => r.when !== false).map((r) => r.text);
-    expect(offRows("recipes").some((t) => t.startsWith("Make it at home"))).toBe(false);
+    // the scan card's row (calories and macros, or a recipe to make it at home) is on Home since 2026-11-19, and only on a build with the photo features
+    expect([...offRows("home"), ...offRows("recipes")].some((t) => t.includes("make it at home") || t.startsWith("Scan your food"))).toBe(false);
     // Community is off unless NEXT_PUBLIC_COMMUNITY=1 (founder 2026-11-18): no Community stop at all
     expect(off.some((s) => s.id === "community")).toBe(false);
     vi.stubEnv("NEXT_PUBLIC_COMMUNITY", "1");
@@ -177,7 +178,8 @@ describe("the tour's stops", () => {
     vi.resetModules();
     const on = (await import("../app/app/welcome/Tour")).TOUR_STOPS;
     const onRows = (id: string) => (on.find((s) => s.id === id)?.rows ?? []).filter((r) => r.when !== false).map((r) => r.text);
-    expect(onRows("recipes")).toContain("Make it at home turns a photo of a dish into a recipe. It's part of Premium.");
+    expect(onRows("home")).toContain("Scan your food: take a photo of a meal for its calories and macros, or for a recipe to make it at home. It's part of Premium.");
+    expect(onRows("home")).toContain("Under your numbers: cook with what you already have, or let Meal plan make your week. Meal plan is part of Premium.");
     expect(onRows("community")).toContain("Sign in to add friends with a code, then send each other shopping lists.");
     expect(on.find((s) => s.id === "community")?.says).toBe("Read short food articles, and send your shopping list to friends!");
   });

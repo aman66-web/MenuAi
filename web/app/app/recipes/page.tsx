@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { savedToRecipe } from "@/lib/mm/aiRecipe";
 import { mealSlotFor } from "@/lib/mm/budget";
-import { AI_RECIPES_ENABLED, GATING_ENABLED, PHOTO_RECIPES_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
+import { AI_RECIPES_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { formatDate } from "@/lib/mm/format";
 import { RETAILERS } from "@/lib/mm/groceries";
 import { tk, type T } from "@/lib/mm/i18n";
@@ -22,7 +22,6 @@ import { ArrowRightIcon, BasketIcon, CheckIcon, GridIcon, HeartIcon, InfoIcon, L
 import { Pip } from "../_components/Mascot";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
 import { ShopChoice } from "./ShopChoice";
-import { HaveChips, ScanFrameIcon, WeekStrip } from "../_components/FeaturePreviews";
 import { useGate } from "../_components/Paywall";
 import { Button, EmptyState, ErrorBox, Segmented, Sheet, Spinner } from "../_components/ui";
 import { useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
@@ -289,50 +288,6 @@ function RecipesScreen() {
           <span>{otherShopNote}</span>
         </p>
       )}
-
-      {PHOTO_RECIPES_ENABLED && (
-        // Make it at home (Premium; app/app/recipes/photo/page.tsx). Founder 2026-11-17 ("it can be easily missed"): the one dark card on the page, at the top under the
-        // search, in the tab bar's near-black, with the scanner's lime corner marks round the camera. It opens the paywall for a free person.
-        <button type="button" data-coach="recipes-photo" onClick={() => gate("photoRecipe", () => router.push("/app/recipes/photo"))} className="group relative mt-4 flex min-h-[5.25rem] w-full items-center gap-3 overflow-hidden rounded-[1.5rem] bg-[#1d2320] p-3.5 text-start text-white shadow-[0_18px_40px_-20px_rgba(0,0,0,0.6)] transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-          <ScanFrameIcon onDark />
-          <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-            <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
-              <span className="text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("Make it at home")}</span>
-              {!pro && <span className="inline-block rounded-full bg-sun px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--on-accent)]">{t("Premium")}</span>}
-            </span>
-            <span className="mt-0.5 block text-[0.875rem] leading-snug text-white/80">{t("Snap a dish, or upload a photo of one, and get a recipe from your supermarket.")}</span>
-          </span>
-          <span aria-hidden className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)] transition-transform group-hover:translate-x-0.5 rtl:-scale-x-100"><ArrowRightIcon className="h-[1.125rem] w-[1.125rem]" /></span>
-        </button>
-      )}
-
-      {/* Cook with what you have and the meal plan side by side, under Make it at home (founder 2026-11-19: "the most important one will be where make it at home
-          is and take up that entire space. And the least important two should be on the same line ... so it's not taken up all the way"): each its icon and name,
-          the line saying what it does kept for a screen reader, so the dishes start higher up the page. At the largest text the two still share the row. */}
-      <div className="mt-3 grid grid-cols-2 gap-3">
-        {/* Cook with what you have (founder 2026-11-19; app/app/recipes/fridge): our recipes for what's in the fridge, free; Pip's own one is Premium inside */}
-        {/* each shows what it gives you (founder 2026-11-19: the icons were "hard to recognize"): the foods you'd type in, a week of days */}
-        <Link href="/app/recipes/fridge" className="glass lift flex min-h-[4.5rem] min-w-0 flex-col gap-2.5 rounded-[1.25rem] p-3 text-start">
-          <span className="block hyphens-auto text-[1rem] font-[800] leading-[1.25] [overflow-wrap:anywhere]">
-            {t("Cook with what you already have")}
-            <span className="sr-only">. {t("Tell us what's in your fridge and get recipes for it.")}</span>
-          </span>
-          <span className="mt-auto"><HaveChips /></span>
-        </Link>
-
-        {/* the meal plan (founder 2026-11-18; app/app/plan; Premium): a week of our recipes for the person's goal and budget, with the shopping list and each meal's price */}
-        <Link href="/app/plan" className="glass lift flex min-h-[4.5rem] min-w-0 flex-col gap-2.5 rounded-[1.25rem] p-3 text-start">
-          <span className="block [overflow-wrap:anywhere]">
-            <span className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
-              <span className="text-[1rem] font-[800] leading-[1.25]">{t("Meal plan")}</span>
-              {GATING_ENABLED && !pro && <span className="inline-block rounded-full bg-sun px-2 py-0.5 text-[0.75rem] font-bold leading-snug text-[var(--on-accent)]">{t("Premium")}</span>}
-            </span>
-            <span className="mt-0.5 block text-[0.8125rem] font-semibold leading-snug text-muted">{t("7 days, one list")}</span>
-            <span className="sr-only">. {t("A week of meals for your goal, with the shopping list.")}</span>
-          </span>
-          <span className="mt-auto"><WeekStrip /></span>
-        </Link>
-      </div>
 
       {/* the search and the shop sit with what they choose from: the meals and filters below and the recipes under them (founder 2026-11-19: the two tools
           between the search and the meal buttons split them up; the tools now come first, the browsing after) */}

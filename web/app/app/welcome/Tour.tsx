@@ -4,7 +4,7 @@
 import { COMMUNITY_ENABLED, COMMUNITY_FRIENDS_ENABLED, FOOD_SCAN_ENABLED, GATING_ENABLED, PHOTO_RECIPES_ENABLED } from "../../../lib/mm/config";
 import { tk } from "../../../lib/mm/i18n";
 import {
-  BasketIcon, CalendarIcon, CameraIcon, DropIcon, ForkIcon, GearIcon, GridIcon, HeartIcon, ListIcon, PeopleIcon, PinIcon, PlusIcon, PodiumIcon, ScanIcon, SearchIcon, SunriseIcon,
+  BasketIcon, CameraIcon, DropIcon, ForkIcon, FridgeIcon, GridIcon, HeartIcon, ListIcon, PeopleIcon, PinIcon, PlusIcon, PodiumIcon, ScanIcon, SearchIcon, SunriseIcon,
 } from "../_components/icons";
 import { Pip, type PipMood } from "../_components/Mascot";
 import { TabLabel } from "../_components/TabLabel";
@@ -28,10 +28,14 @@ const ALL_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: PipMood; ro
     mood: "wave",
     rows: [
       { Icon: PlusIcon, text: tk("Tap + next to Breakfast, Lunch or Dinner to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers.") },
-      { Icon: CameraIcon, text: tk("Scan your food: take a photo of your plate for an estimate of its calories, protein, carbs and fat. It's part of Premium."), when: FOOD_SCAN_ENABLED },
-      { Icon: CalendarIcon, text: tk("Tap the calendar next to the date to see another day."), when: !FOOD_SCAN_ENABLED },
-      { Icon: GearIcon, text: tk("Settings, at the top, has your goal, diet, text size, and this tour again.") },
-      { Icon: DropIcon, text: tk("Further down Home, add the water you drink and set your own reminders.") },
+      // Home holds the cooking tools since 2026-11-19 (founder: "move from image one, those three things ... in that gap"), and the shopping list and the gear share
+      // its top right corner: the stop says so in the order they come down the screen, four rows at most
+      { Icon: CameraIcon, text: tk("Scan your food: take a photo of a meal for its calories and macros, or for a recipe to make it at home. It's part of Premium."), when: FOOD_SCAN_ENABLED && PHOTO_RECIPES_ENABLED },
+      // "part of Premium" only where Premium is sold (usability test 2026-11-19: on the website, where nothing is sold, it was free and the tour said otherwise)
+      { Icon: FridgeIcon, text: tk("Under your numbers: cook with what you already have, or let Meal plan make your week. Meal plan is part of Premium."), when: GATING_ENABLED },
+      { Icon: FridgeIcon, text: tk("Under your numbers: cook with what you already have, or let Meal plan make your week."), when: !GATING_ENABLED },
+      { Icon: BasketIcon, text: tk("Top right: your shopping list, and the gear for Settings: your goal, diet, text size, and this tour again.") },
+      { Icon: DropIcon, text: tk("Further down Home, add the water you drink and set your own reminders."), when: !(FOOD_SCAN_ENABLED && PHOTO_RECIPES_ENABLED) },
     ],
   },
   {
@@ -40,12 +44,9 @@ const ALL_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: PipMood; ro
     mood: "point",
     rows: [
       { Icon: SunriseIcon, text: tk("Tap Breakfast, Lunch, Dinner or Snacks to see recipes for that meal, or More for every filter.") },
-      // "part of Premium" only where Premium is sold (usability test 2026-11-19: on the website, where nothing is sold, it was free and the tour said otherwise)
-      { Icon: CalendarIcon, text: tk("Meal plan makes a week of meals for your goal and budget, with the shopping list. It's part of Premium."), when: GATING_ENABLED },
-      { Icon: CalendarIcon, text: tk("Meal plan makes a week of meals for your goal and budget, with the shopping list."), when: !GATING_ENABLED },
+      { Icon: SearchIcon, text: tk("Search for a recipe by name, or choose your supermarket to see its prices.") },
       { Icon: HeartIcon, text: tk("Tap the heart on a recipe to keep it in My recipes.") },
-      { Icon: PlusIcon, text: tk("Open a recipe to add everything it needs to your shopping list in one tap."), when: !PHOTO_RECIPES_ENABLED },
-      { Icon: CameraIcon, text: tk("Make it at home turns a photo of a dish into a recipe. It's part of Premium."), when: PHOTO_RECIPES_ENABLED },
+      { Icon: PlusIcon, text: tk("Open a recipe to add everything it needs to your shopping list in one tap.") },
     ],
   },
   {

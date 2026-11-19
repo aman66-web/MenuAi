@@ -56,9 +56,11 @@ const IDS = ["home", "recipes", "groceries", "eatOut"];
 const ROWS = {
   home: [
     "Tap + next to Breakfast, Lunch or Dinner to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers.",
-    PHOTO ? "Scan your food: take a photo of your plate for an estimate of its calories, protein, carbs and fat. It's part of Premium." : "Tap the calendar next to the date to see another day.",
-    "Settings, at the top, has your goal, diet, text size, and this tour again.",
-    "Further down Home, add the water you drink and set your own reminders.",
+    ...(PHOTO ? ["Scan your food: take a photo of a meal for its calories and macros, or for a recipe to make it at home. It's part of Premium."] : []),
+    // "part of Premium" only where Premium is sold (the test build turns Pro on)
+    GATED ? "Under your numbers: cook with what you already have, or let Meal plan make your week. Meal plan is part of Premium." : "Under your numbers: cook with what you already have, or let Meal plan make your week.",
+    "Top right: your shopping list, and the gear for Settings: your goal, diet, text size, and this tour again.",
+    ...(PHOTO ? [] : ["Further down Home, add the water you drink and set your own reminders."]),
   ],
   eatOut: [
     "Search for any restaurant or dish by name.",
@@ -73,10 +75,9 @@ const ROWS = {
   ],
   recipes: [
     "Tap Breakfast, Lunch, Dinner or Snacks to see recipes for that meal, or More for every filter.",
-    // "part of Premium" only where Premium is sold (the test build turns Pro on)
-    GATED ? "Meal plan makes a week of meals for your goal and budget, with the shopping list. It's part of Premium." : "Meal plan makes a week of meals for your goal and budget, with the shopping list.",
+    "Search for a recipe by name, or choose your supermarket to see its prices.",
     "Tap the heart on a recipe to keep it in My recipes.",
-    PHOTO ? "Make it at home turns a photo of a dish into a recipe. It's part of Premium." : "Open a recipe to add everything it needs to your shopping list in one tap.",
+    "Open a recipe to add everything it needs to your shopping list in one tap.",
   ],
   community: [
     "Food blogs are short, easy reads about eating out, shopping and cooking.",

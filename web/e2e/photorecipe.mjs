@@ -105,18 +105,19 @@ const keptPhotos = (page) => page.evaluate(async () => {
 });
 async function until(fn, ok, ms = 8000) { const end = Date.now() + ms; for (;;) { const v = await fn(); if (ok(v)) return v; if (Date.now() > end) return v; await new Promise((r) => setTimeout(r, 200)); } }
 
-await step("Recipes shows the Make it at home card; a free person gets the paywall, a Premium person the page with the name and description first", async () => {
+await step("Home's Scan your food card has Make it at home; a free person gets the paywall, a Premium person the page with the name and description first", async () => {
   const free = await open({ devProOverride: false });
-  await free.page.goto(BASE + "/app/recipes");
+  await free.page.goto(BASE + "/app");
   const card = free.page.getByRole("button", { name: /Make it at home/ });
   await card.waitFor({ timeout: 90000 });
-  expect(/Premium/.test(await card.innerText()), "no Premium badge on the card for a free person");
+  const box = free.page.locator('[data-coach="home-photo"]');
+  expect(/Premium/.test(await box.innerText()), "no Premium badge on the card for a free person");
   await card.tap();
   await free.page.locator("dialog[open]").waitFor({ timeout: 5000 });
   expect(!free.page.url().includes("/recipes/photo"), "a free person reached the page");
   await free.ctx.close();
   const pro = await open();
-  await pro.page.goto(BASE + "/app/recipes");
+  await pro.page.goto(BASE + "/app");
   await pro.page.getByRole("button", { name: /Make it at home/ }).tap();
   await pro.page.waitForURL(/\/app\/recipes\/photo/);
   await heading(pro.page, "Make it at home").waitFor();

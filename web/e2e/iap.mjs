@@ -239,7 +239,7 @@ await step("the replay of the tour (Settings › Help › Show me around again) 
 
 await step("a Premium feature for a free person: the paywall pops up with the 7-day free trial banner", async () => {
   const { ctx, page } = await newPage({ offerShown: true });
-  await page.goto(BASE + "/app/recipes");
+  await page.goto(BASE + "/app");
   await page.getByRole("button", { name: /Make it at home/ }).click();
   const sheet = page.getByRole("dialog");
   await sheet.getByText("7-day free trial", { exact: true }).waitFor();
@@ -251,7 +251,7 @@ await step("a Premium feature for a free person: the paywall pops up with the 7-
 
 await step("starting the free trial: Apple's signed transaction goes to our server, the token comes back, Premium is on and Make it at home opens", async () => {
   const { ctx, page, claims } = await newPage({ offerShown: true });
-  await page.goto(BASE + "/app/recipes");
+  await page.goto(BASE + "/app");
   await page.getByRole("button", { name: /Make it at home/ }).click();
   const sheet = page.getByRole("dialog");
   await sheet.getByRole("button", { name: "Start my 7-day free trial" }).click();

@@ -3,15 +3,15 @@
 import { StartPrompt } from "./_components/StartPrompt";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState } from "react";
 import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
 import { entryMeal, isSameLocalDay, loggedGaps, loggedToday, mealBudget, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
-import { FOOD_SCAN_ENABLED, GATING_ENABLED, PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
+import { PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { dayHref, shortDate } from "@/lib/mm/day";
 import { formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
 import { localeInfo } from "@/lib/mm/i18n";
-import { deleteLogEntry, logStore, mealPlanStore, myRecipesStore, savedRecipesStore, savedStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
+import { deleteLogEntry, logStore, savedStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
 import type { Meal } from "@/lib/mm/types";
 import { AddFoodSheet } from "./_components/addfood/AddFoodSheet";
@@ -21,8 +21,8 @@ import { Gauge } from "./_components/Gauge";
 import { useGate } from "./_components/Paywall";
 import { RemindersSection } from "./_components/RemindersSection";
 import { WaterCard } from "./_components/WaterCard";
-import { BasketIcon, CalendarIcon, CameraIcon, ChevronRightIcon, FlameIcon, GearIcon, HeartIcon, PlusIcon } from "./_components/icons";
-import { ScanFrameIcon, WeekStrip } from "./_components/FeaturePreviews";
+import { BasketIcon, CalendarIcon, ChevronRightIcon, FlameIcon, GearIcon, PlusIcon } from "./_components/icons";
+import { RecipeTools } from "./_components/RecipeTools";
 import { Card, Spinner } from "./_components/ui";
 import { useChainIndexes, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "./_lib/hooks";
 import { useLanguage, useT } from "./_lib/i18n";
@@ -72,26 +72,6 @@ function MacroRow({ label, eaten, target }: { label: string; eaten: number; targ
   );
 }
 
-/** "Shopping list / 2 things to pick up / Open", measured from the founder's picture's Workouts and Meals cards (2026-10-15, "exactly like
- * image 2"): a heavy title, a one-line 14 px subtitle right under it, then the black pill. A round icon in the meal rows' flame tint sits
- * above the title, so the two cards aren't the plainest thing on the page. */
-function ThingCard({ href, title, line, icon, badge, mark }: { href: string; title: string; line: string; icon: ReactNode; badge?: string; /** A picture of what it does in place of the round icon (FeaturePreviews). */ mark?: ReactNode }) {
-  const t = useT();
-  return (
-    <Link href={href} className="glass lift flex min-w-0 flex-col rounded-[1.25rem] p-4 [overflow-wrap:anywhere]">
-      <span aria-hidden className="mb-3 flex items-center justify-between gap-2">
-        {/* the app's light green, like the shortcut rows (founder 2026-11-18: "that should be light green") */}
-        {mark ?? <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sun text-[var(--on-accent)]">{icon}</span>}
-        {badge && <span className="rounded-full bg-sun px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--on-accent)]">{badge}</span>}
-      </span>
-      <span className="pb-3.5">
-        <span className="block text-xl font-[800] leading-tight tracking-[-0.01em]">{title}</span>
-        <span className="mt-1 block text-sm leading-snug text-muted">{line}</span>
-      </span>
-      <span aria-hidden className="mt-auto inline-flex min-h-11 w-full items-center justify-center rounded-full bg-foreground px-4 text-[0.9375rem] font-bold text-background">{t("Open")}</span>
-    </Link>
-  );
-}
 
 export default function HomePage() {
   const t = useT();
@@ -103,10 +83,7 @@ export default function HomePage() {
   const { gate, showPaywall } = useGate();
   const log = useStore(logStore);
   const shopping = useStore(shoppingStore);
-  const hasPlan = !!useStore(mealPlanStore);
-  // what "My meals" holds: the same three stores its page counts (saved recipes, Pip's recipes, saved restaurant orders)
   const savedOrders = useStore(savedStore);
-  const savedMeals = useStore(savedRecipesStore).length + useStore(myRecipesStore).length + savedOrders.length;
   const now = useNow();
   // The + on a meal opens the Add food sheet for that meal; what it adds is offered back with an Undo for a few seconds.
   const router = useRouter();
@@ -135,15 +112,13 @@ export default function HomePage() {
   const loggedDays = new Set(log.map((e) => dayKey(new Date(e.loggedAt))));
 
   const toBuy = shopping.filter((i) => !i.done).length;
-  const mealsLine = savedMeals === 0 ? t("Your favourite meals") : savedMeals === 1 ? t("1 saved meal") : t("{n} saved meals", { n: savedMeals });
-  const groceriesLine = shopping.length === 0 ? t("Nothing on it yet") : toBuy === 0 ? t("All picked up") : toBuy === 1 ? t("1 thing to pick up") : t("{n} things to pick up", { n: toBuy });
 
   const pictureOf = (e: LogEntry): EntryPicture | undefined => entryPicture(e, legacyImage(e, indexes.get(e.chainId), savedOrders));
   const byMeal = (meal: Meal) => todays.filter((e) => entryMeal(e) === meal).sort((a, b) => Date.parse(a.loggedAt) - Date.parse(b.loggedAt));
 
   return (
     <div>
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
         <div className="flex min-w-0 items-center gap-1.5">
           {/* Today's date in short form, month first in English ("Oct 16": founder 2026-10-16). The page keeps its name "Home" for screen readers. */}
           <h1 className="min-w-0 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]"><span className="sr-only">{t("Home")}, </span>{shortDate(now, htmlLang)}</h1>
@@ -152,11 +127,19 @@ export default function HomePage() {
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><CalendarIcon className="h-[18px] w-[18px]" /></span>
           </button>
         </div>
-        {/* a small grey circle like the picture's, inside a full 44 px tap area; a gear to Settings (founder 2026-10-16). Today's meals opens from the meal rows below. */}
-        {/* the gear with its word (the review of 2026-11-18: an icon alone means nothing to someone new to phones) */}
-        <Link href="/app/settings" className="group -me-1 inline-flex min-h-11 shrink-0 items-center rounded-full transition active:scale-95">
-          <span className="inline-flex h-9 items-center gap-1.5 rounded-full bg-soft-strong ps-2.5 pe-3.5 text-[0.9375rem] font-semibold transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><GearIcon aria-hidden className="h-[18px] w-[18px]" />{t("Settings")}</span>
-        </Link>
+        {/* the shopping list at the top right, with how many things are left to pick up (founder 2026-11-19: "instead of it saying settings in the top right on the
+            home screen, I think that should maybe say shopping list instead"), and Settings beside it as the round gear Pip's tips point out */}
+        <div data-coach="home-top" className="-me-1 flex shrink-0 items-center gap-0.5">
+          <Link href="/app/groceries/list" className="group inline-flex min-h-11 items-center rounded-full transition active:scale-95">
+            <span className="inline-flex h-9 items-center gap-1.5 rounded-full bg-soft-strong ps-2.5 pe-3 text-[0.9375rem] font-semibold transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]">
+              <BasketIcon aria-hidden className="h-[18px] w-[18px]" />{t("Shopping list")}
+              {toBuy > 0 && <span className="app-numbers ms-0.5 inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-foreground px-1.5 text-[0.75rem] font-bold text-background"><span className="sr-only">, {toBuy === 1 ? t("1 thing to pick up") : t("{n} things to pick up", { n: toBuy })}</span><span aria-hidden>{toBuy}</span></span>}
+            </span>
+          </Link>
+          <Link href="/app/settings" aria-label={t("Settings")} className="group inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><GearIcon aria-hidden className="h-[18px] w-[18px]" /></span>
+          </Link>
+        </div>
       </div>
       {/* what Home is for, in one line (founder 2026-11-18: "everyone needs to understand the point for each screen") */}
       <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("Your food today: what you've eaten and what's left.")}</p>
@@ -253,30 +236,10 @@ export default function HomePage() {
         </Card>
       )}
 
-      <h2 className="sr-only">{t("Your things")}</h2>
-      <div className={`mt-3.5 ${PAIR}`}>
-        <ThingCard href="/app/groceries/list" title={t("Shopping list")} line={groceriesLine} icon={<BasketIcon className="h-5 w-5" />} />
-        {FOOD_SCAN_ENABLED ? (
-          // founder 2026-11-18: "replace my meals with instead a way to scan food at restaurants or wherever the person is" (Premium; app/app/scan)
-          <ThingCard href="/app/scan" title={t("Scan your food")} line={t("Snap your plate to see its calories")} icon={<CameraIcon className="h-5 w-5" />} mark={<ScanFrameIcon size="sm" />} badge={pro ? undefined : t("Premium")} />
-        ) : (
-          <ThingCard href="/app/meals" title={t("My meals")} line={mealsLine} icon={<HeartIcon className="h-5 w-5" />} />
-        )}
-      </div>
-      {/* the meal plan, the third card (founder 2026-11-18: "make a third icon, which has meal plan, and that has pro on it"): the whole width under the two, so the
-          words stay big at every text size */}
-      {/* a week of days under the words: it reads as a plan for the week at a glance (founder 2026-11-19: the icons were "hard to recognize") */}
-      <Link href="/app/plan" className="glass lift mt-3 flex min-h-[5rem] items-center gap-3.5 rounded-[1.25rem] p-4 [overflow-wrap:anywhere]">
-        <span className="min-w-0 flex-1">
-          <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
-            <span className="text-xl font-[800] leading-tight tracking-[-0.01em]">{t("Meal plan")}</span>
-            {GATING_ENABLED && !pro && <span className="rounded-full bg-sun px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--on-accent)]">{t("Premium")}</span>}
-          </span>
-          <span className="mt-1 block text-sm leading-snug text-muted">{hasPlan ? t("Your week of meals and its shopping") : t("A week of meals for your goal, with the shopping list")}</span>
-          <span className="mt-3 block max-w-[22rem]"><WeekStrip /></span>
-        </span>
-        <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted rtl:rotate-180" />
-      </Link>
+      {/* the cooking tools between the day's numbers and the things below (founder 2026-11-19) */}
+      <h2 className="sr-only">{t("Cooking")}</h2>
+      <div className="mt-1"><RecipeTools /></div>
+
       {/* founder 2026-11-18: "I don't want My Meals anymore. I just want the option where they can scan food": no My meals on Home where the scanner is (the
           saved recipes and orders are still in Recipes › My recipes); the website, which has no scanner, keeps the My meals card */}
 
