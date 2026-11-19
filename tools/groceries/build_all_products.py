@@ -209,6 +209,15 @@ def gtins_by_slug(shop: str) -> dict:
     return out
 
 
+def held_back(shop: str) -> set[str]:
+    """The product ids of the shop's labels in data/groceries/nutrition/holdback.csv (shop,id,reason)."""
+    hb = ROOT / "data" / "groceries" / "nutrition" / "holdback.csv"
+    if not hb.exists():
+        return set()
+    with open(hb, newline="", encoding="utf-8") as f:
+        return {row[1].strip() for row in csv.reader(f) if len(row) >= 2 and row[0].strip() == shop}
+
+
 def read_nutrition(shop: str, problems: list, path: Path | None = None) -> dict:
     """slug -> ([kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kJ, per], checked_on), from the shop's own product pages."""
     path = path or ROOT / "data" / "groceries" / "nutrition" / f"{shop}.csv"
@@ -218,9 +227,14 @@ def read_nutrition(shop: str, problems: list, path: Path | None = None) -> dict:
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     import build_groceries as bg  # noqa: E402  (the same number reading and plausibility rules as the catalogue)
 
+    # a label held back (data/groceries/nutrition/holdback.csv: it can't be right, or the shop's page shows another product's) is never used, whichever of the
+    # shop's label files it comes from (2026-11-19: labels_chrome_ingest.py left it out of <shop>-chrome.csv, but an older <shop>.csv row still showed it)
+    held = held_back(shop)
     with open(path, newline="", encoding="utf-8-sig") as f:
         for line, r in enumerate(csv.DictReader(f), start=2):
             slug, per = (r.get("product_id") or "").strip(), (r.get("per") or "").strip()
+            if slug in held:
+                continue
             main = [bg.printed_num(r.get(k)) for k in ("kcal", "protein_g", "carbs_g", "fat_g")]
             if not SLUG.fullmatch(slug) or per not in ("g", "ml") or None in main or bg.implausible(main[0], main[1], main[2], main[3], fibre=bg.printed_num(r.get("fibre_g"))):
                 problems.append(f"nutrition/{path.name} line {line}: not usable ({slug!r})")

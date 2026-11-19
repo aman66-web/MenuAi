@@ -3335,3 +3335,15 @@ shouldn't be the case"; "you have breakfast, lunch, and dinner, but also have on
   the day's calories of its own: it shows what was eaten there ("610 kcal"), counts in the day's total, and the three meals' shares (MEAL_SHARE 25/35/40%) and
   Best for you are unchanged (CLAUDE.md rule 8). The clock never puts an entry in Snacks; only its + does. An older app that syncs such an entry shows it under
   the meal its time falls in.
+
+### 19 November 2026 (evening): held-back labels now kept out of every label file; labels whose heading names the cooking are kept
+- **Fixed:** `holdback.csv` was applied only to the Chrome reads (`<shop>-chrome.csv`), so a label held back there could still show from an older `<shop>.csv` row
+  (Morrisons: a fruit and nut mix with more sugars than carbohydrate, freeze-dried strawberries with more saturates than fat). `build_all_products.py`
+  `read_nutrition` now leaves a held-back product out of every label file of its shop. Other shops' counts did not change.
+- **Not held back any more:** labels whose per 100 g heading itself says the food is cooked or prepared ("(as consumed)", "(oven cooked)", "(grilled)",
+  "as prepared", "(boiled)"). The importer already keeps that word (`state`), product pages show it ("per 100 g (as consumed)"), and recipes and the leaderboards
+  never use such a label (`lib/mm/recipes.ts`, `lib/mm/leaderboards.ts`). Seven held back earlier today for that reason were put back (penne, two noodles, gravy,
+  vegan sausages, broccoli, sprouts, red cabbage), and 42 chicken labels a reader flagged were kept. Still held back: those where the heading says only
+  "per 100 g" over prepared figures (Maggi noodles' footnote, a follow-on milk given per 100 ml made up, BBQ drumsticks with cooked-looking figures).
+  The readers' briefs now say such a heading needs no note.
+- Morrisons 12,598 of 16,367 products with labels.
