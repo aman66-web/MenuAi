@@ -3175,3 +3175,13 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   so `iap`'s side was taken and the merged tree is exactly `iap`'s (2205 unit tests, e2e photorecipe 16/16). On the website nothing is sold (GATING_ENABLED
   false): every feature is open, Make it at home and Scan your food stay hidden, and everyone signs in (SIGN_IN_REQUIRED). The App Store app is unchanged
   until 1.1 is uploaded and approved; that still waits on the payment key (`ENTITLEMENT_PRIVATE_JWK`) and the In-App Purchase products.
+- **Tabs in a new order** (founder 19 Nov: "home; recipes; groceries; resturantes"): Home, Recipes, Groceries, Eat out (`app/app/_lib/tabs.ts`; the welcome
+  tour's stops follow the bar). The label stays "Eat out".
+- **Logos instead of shop names on mixed-shop product rows** (founder: "Instead of writing Sainsbury's, Asda, whatever, add their logos ... on the right
+  side"): `ShopProductRow` with `showShop` shows the shop's own logo at the row's top right; the name is kept for screen readers ("Asda, ..."), as on the
+  leaderboards. A founder's call on CLAUDE.md rule 2's "next to its name": in these rows the logo stands for the name on screen.
+- **Make it at home says a photo can be snapped or uploaded** (founder: "they can either snap or upload a photo of dish to make it they should know that"):
+  the Recipes card, the Premium screen and Pip's first line now say so.
+- The fridge recipe idea ("take a photo of their fridge or type what's in it") is not built: still the open decision for the next version.
+- Tesco read about 36 pages, then its security page came back ("Oops... It looks like something is not right"); stopped for the day with the tab left
+  open, no refresh (the founder asked to refresh past it; declined: that works round Tesco's bot protection). Asda and Sainsbury's are fully read.

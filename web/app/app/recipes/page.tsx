@@ -314,7 +314,7 @@ function RecipesScreen() {
               <span className="text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("Make it at home")}</span>
               {!pro && <span className="inline-block rounded-full bg-sun px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--on-accent)]">{t("Premium")}</span>}
             </span>
-            <span className="mt-0.5 block text-[0.875rem] leading-snug text-white/80">{t("Snap a dish you've loved and get a recipe from your supermarket.")}</span>
+            <span className="mt-0.5 block text-[0.875rem] leading-snug text-white/80">{t("Snap a dish, or upload a photo of one, and get a recipe from your supermarket.")}</span>
           </span>
           <span aria-hidden className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)] transition-transform group-hover:translate-x-0.5 rtl:-scale-x-100"><ArrowRightIcon className="h-[1.125rem] w-[1.125rem]" /></span>
         </button>

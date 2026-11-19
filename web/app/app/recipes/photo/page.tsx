@@ -290,7 +290,7 @@ function PhotoScreen() {
       <div>
         {back}
         <h1 className={H1}>{t("Make it at home")}</h1>
-        <div className="mt-4"><PipSays mood="wave" size={84}>{t("Make it at home is part of Premium. Snap a dish you've loved and I'll write a recipe you can cook from your supermarket.")}</PipSays></div>
+        <div className="mt-4"><PipSays mood="wave" size={84}>{t("Make it at home is part of Premium. Snap a dish you've loved, or upload a photo of it, and I'll write a recipe you can cook from your supermarket.")}</PipSays></div>
         <div className="mt-5 grid gap-3">
           <Button full className="min-h-14 text-lg" onClick={() => showPaywall("photoRecipe")}>{t("See Premium")}</Button>
           <Link href={nav.href} onClick={nav.onClick} replace className="glass flex min-h-14 items-center justify-center rounded-full px-5 text-base font-bold">{t("Back to the recipes")}</Link>
@@ -341,7 +341,7 @@ function PhotoScreen() {
       {(step === "describe" || step === "camera") && (
         <section aria-labelledby="describe-intro">
           <Steps current={1} />
-          <div id="describe-intro" className="mt-5"><PipSays mood="wave" size={76}>{t("Tell me what you'd like to make. The more detail you give, the better the recipe will match.")}</PipSays></div>
+          <div id="describe-intro" className="mt-5"><PipSays mood="wave" size={76}>{t("Tell me what you'd like to make. Then snap it, or upload a photo of it from your phone. The more detail you give, the better the recipe will match.")}</PipSays></div>
 
           <div className="glass mt-5 rounded-[1.5rem] p-5 shadow-[0_14px_34px_-22px_rgba(17,24,20,0.4)]">
             <div className="flex items-center gap-3">

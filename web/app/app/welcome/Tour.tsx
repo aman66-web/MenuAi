@@ -35,13 +35,15 @@ const ALL_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: PipMood; ro
     ],
   },
   {
-    id: "eatOut",
-    says: tk("Going out to eat? Look the place up first and know the numbers before you order!"),
+    id: "recipes",
+    says: tk("Cooking at home? These recipes use real products, with the cost of each serving!"),
     mood: "point",
     rows: [
-      { Icon: SearchIcon, text: tk("Search for any restaurant or dish by name.") },
-      { Icon: PinIcon, text: tk("Near me shows the places to eat around you on a map.") },
-      { Icon: ForkIcon, text: tk("Open a restaurant to see the numbers for each dish. Best for you lists orders that fit your goal.") },
+      { Icon: SunriseIcon, text: tk("Tap Breakfast, Lunch, Dinner or Snacks to see recipes for that meal, or More for every filter.") },
+      { Icon: CalendarIcon, text: tk("Meal plan makes a week of meals for your goal and budget, with the shopping list. It's part of Premium.") },
+      { Icon: HeartIcon, text: tk("Tap the heart on a recipe to keep it in My recipes.") },
+      { Icon: PlusIcon, text: tk("Open a recipe to add everything it needs to your shopping list in one tap."), when: !PHOTO_RECIPES_ENABLED },
+      { Icon: CameraIcon, text: tk("Make it at home turns a photo of a dish into a recipe. It's part of Premium."), when: PHOTO_RECIPES_ENABLED },
     ],
   },
   {
@@ -56,15 +58,13 @@ const ALL_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: PipMood; ro
     ],
   },
   {
-    id: "recipes",
-    says: tk("Cooking at home? These recipes use real products, with the cost of each serving!"),
+    id: "eatOut",
+    says: tk("Going out to eat? Look the place up first and know the numbers before you order!"),
     mood: "point",
     rows: [
-      { Icon: SunriseIcon, text: tk("Tap Breakfast, Lunch, Dinner or Snacks to see recipes for that meal, or More for every filter.") },
-      { Icon: CalendarIcon, text: tk("Meal plan makes a week of meals for your goal and budget, with the shopping list. It's part of Premium.") },
-      { Icon: HeartIcon, text: tk("Tap the heart on a recipe to keep it in My recipes.") },
-      { Icon: PlusIcon, text: tk("Open a recipe to add everything it needs to your shopping list in one tap."), when: !PHOTO_RECIPES_ENABLED },
-      { Icon: CameraIcon, text: tk("Make it at home turns a photo of a dish into a recipe. It's part of Premium."), when: PHOTO_RECIPES_ENABLED },
+      { Icon: SearchIcon, text: tk("Search for any restaurant or dish by name.") },
+      { Icon: PinIcon, text: tk("Near me shows the places to eat around you on a map.") },
+      { Icon: ForkIcon, text: tk("Open a restaurant to see the numbers for each dish. Best for you lists orders that fit your goal.") },
     ],
   },
   {

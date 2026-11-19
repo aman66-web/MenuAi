@@ -107,7 +107,12 @@ await step("Go with two shops lists both shops' products, each row naming its sh
   expect((await page.getByText("Products from Sainsbury's and Tesco").count()) === 1, "names the shops");
   const rows = page.locator("ul.space-y-3 > li");
   expect((await rows.filter({ hasText: "Sainsbury's Greek Style" }).count()) === 1 && (await rows.filter({ hasText: "Tesco Greek Style" }).count()) === 1, "a product sold at both shops is two rows");
-  for (const li of await rows.all()) { expect((await li.locator("span").filter({ hasText: /^(Tesco|Sainsbury's)$/ }).count()) === 1, "each row names its shop: " + (await li.innerText()).replace(/\n/g, " | ")); }
+  // each row says whose it is: the shop's logo at the row's right (founder 2026-11-19), its name for a screen reader
+  for (const li of await rows.all()) {
+    const said = (await li.locator(".sr-only").first().textContent()) ?? "";
+    const logo = await li.locator("a > span[aria-hidden]:last-of-type img, a > span[aria-hidden]:last-of-type [aria-hidden]").count();
+    expect(/^(Tesco|Sainsbury's), $/.test(said) && logo >= 1, "each row names its shop: " + said + " / logo " + logo);
+  }
   // search across both
   await page.getByRole("searchbox", { name: "Search these shops' products" }).fill("chicken");
   await page.getByText("2 products", { exact: true }).waitFor();
