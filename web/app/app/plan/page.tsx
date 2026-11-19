@@ -17,7 +17,7 @@ import { earlierPlansStore, mealPlanStore, shoppingStore, updateSettings } from 
 import { macroTargets } from "@/lib/mm/targets";
 import type { DietPrefs } from "@/lib/mm/pantry";
 import { ShopMark } from "../_components/ChainMark";
-import { DietPicker } from "../_components/DietPicker";
+import { DietPicker, dietWords } from "../_components/DietPicker";
 import { CalendarIcon, CheckIcon, ChevronLeftIcon, PlusIcon, SwapIcon } from "../_components/icons";
 import { Pip, PipSays, type PipMood } from "../_components/Mascot";
 import { useGate } from "../_components/Paywall";
@@ -846,6 +846,8 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
       <p className="mt-2 text-base leading-snug text-muted">
         {snackCount ? t("{meals} meals and {snacks} snacks from our recipes, with ingredients from {shops}.", { meals: mealCount, snacks: snackCount, shops: names(shopsAll, week.shops) })
           : t("{meals} meals from our recipes, with ingredients from {shops}.", { meals: mealCount, shops: names(shopsAll, week.shops) })}
+        {/* the diet said on the plan itself (usability test 2026-11-19: Raj looked for "all vegetarian" and didn't find it) */}
+        {dietWords(t, settings.preferences).length > 0 && <> {t("Every meal fits your diet: {diet}.", { diet: dietWords(t, settings.preferences).join(", ").toLowerCase() })}</>}
       </p>
       {/* another plan whenever they like, at the top where it's seen (founder 2026-11-19); this one is kept among the earlier plans */}
       <div className="mt-3 flex flex-wrap gap-2">
@@ -906,7 +908,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
                 </Link>
                 <span className="app-numbers shrink-0 text-end text-base font-[800]">{formatPrice(m.candidate.cost)}{forN}</span>
               </div>
-              <button type="button" onClick={() => setSwapping(i)} className="mt-2 inline-flex min-h-11 items-center gap-1.5 rounded-full bg-[var(--fill)] px-4 text-[0.875rem] font-bold transition active:scale-95">
+              <button type="button" onClick={() => setSwapping(i)} aria-label={t("Swap {meal}: {recipe}", { meal: slotName(i).toLowerCase(), recipe: t(m.candidate.recipe.name) })} className="mt-2 inline-flex min-h-11 items-center gap-1.5 rounded-full bg-[var(--fill)] px-4 text-[0.875rem] font-bold transition active:scale-95">
                 <SwapIcon aria-hidden className="h-4 w-4" />{t("Swap this meal")}
               </button>
             </li>
