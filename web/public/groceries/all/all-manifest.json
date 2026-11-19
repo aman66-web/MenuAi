@@ -65,11 +65,11 @@
    "file": "morrisons.json",
    "count": 16367,
    "checkedOn": "2026-10-08",
-   "nutrition": 9811,
+   "nutrition": 9844,
    "community": 653,
-   "sameProduct": 1476,
+   "sameProduct": 1484,
    "priced": 16367,
-   "sha256": "32bfc89d280125e982f7ae8e7214e7b71105b454623514d67dd0f1ed027fa015"
+   "sha256": "7e811e27381fe5d89898dd742e5d8a74226a3e8dc37d93d557864b5c55cac016"
   },
   {
    "id": "waitrose",
@@ -77,11 +77,11 @@
    "file": "waitrose.json",
    "count": 9721,
    "checkedOn": "2026-10-08",
-   "nutrition": 7848,
+   "nutrition": 7961,
    "community": 232,
    "sameProduct": 758,
    "priced": 9721,
-   "sha256": "17afbed20ad9e11a027f68bfb7711db23fd1ce5db2a5609778993b9405abeb2c"
+   "sha256": "36c641b4efccbd8d4ec6132336c1118150217dfc5a806b0097c1d0c7f52a3177"
   },
   {
    "id": "iceland",
@@ -89,11 +89,11 @@
    "file": "iceland.json",
    "count": 5962,
    "checkedOn": "2026-10-09",
-   "nutrition": 4992,
+   "nutrition": 4993,
    "community": 759,
-   "sameProduct": 532,
+   "sameProduct": 533,
    "priced": 5962,
-   "sha256": "31606d71b9f0b1170edd2397c376ab2a4dfff61924f8f9116f13fea8aa4c8223"
+   "sha256": "b265a6c8aaa16df226a433649f56daba27c6d7db4c60ffe4b984e382ed4aae7d"
   },
   {
    "id": "marks-and-spencer",
