@@ -3,6 +3,8 @@ import { tk } from "./i18n";
 import { leavesOut } from "./mealPlan";
 import { photoRecipeFromAi } from "./photoRecipe";
 import { recipeForDiet, type MealTarget, type Recipe } from "./recipes";
+import { CUISINES, type CuisineId } from "./recipeBook/niches";
+import { matchesNiche } from "./recipeNiche";
 import type { DietPrefs } from "./pantry";
 
 // Cook with what you have (founder 2026-11-19: "people can write down what they have in their fridge, and then it can make some cool recipe which tastes nice
@@ -25,16 +27,50 @@ export function haveItems(text: string): string[] {
   }).slice(0, 25);
 }
 
+/**
+ * What kind of food they fancy (founder 2026-11-19: "And based on what vibe of food they wanna eat"): one choice, Anything by default. It narrows our recipes
+ * (a cuisine by the recipe book's own cuisine lines; Quick by the time; the others by the recipe's own words and tags) and is told to Pip in plain words.
+ */
+export const FRIDGE_MOODS = [
+  { id: "any", label: tk("Anything"), forPip: "" },
+  { id: "comforting", label: tk("Comforting"), forPip: "something comforting and warming" },
+  { id: "spicy", label: tk("Spicy"), forPip: "something with a bit of heat" },
+  { id: "fresh", label: tk("Fresh and zesty"), forPip: "something fresh and zesty" },
+  { id: "cheesy", label: tk("Cheesy"), forPip: "something cheesy" },
+  { id: "quick", label: tk("Quick"), forPip: "something quick, ready in about 20 minutes" },
+  ...CUISINES.map((c) => ({ id: c.id, label: c.label, forPip: `${c.id.replace("-", " ")} food` })),
+] as const;
+export type FridgeMood = (typeof FRIDGE_MOODS)[number]["id"];
+export const FRIDGE_MOOD_IDS = FRIDGE_MOODS.map((m) => m.id) as [FridgeMood, ...FridgeMood[]];
+
+const COMFORT = /\b(pie|stew|soup|bake|mash|curry|chilli|casserole|hotpot|lasagne|macaroni|risotto|porridge|roast)\b/i;
+const FRESH = /\b(salad|wrap|lime|lemon|herb|slaw|poke|bowl|tabbouleh|gazpacho)\b/i;
+const CHEESE = ["cheddar", "mozzarella", "feta", "halloumi", "parmesan", "soft cheese", "cottage cheese", "paneer"];
+
+/** Whether one of our recipes is the kind of food chosen. */
+export function moodMatches(recipe: Recipe, mood: FridgeMood): boolean {
+  const tags = (recipe.tags ?? []).join(" ");
+  switch (mood) {
+    case "any": return true;
+    case "quick": return recipe.minutes <= 20;
+    case "spicy": return leavesOut(recipe, ["spicy"]);
+    case "cheesy": return CHEESE.some((w) => leavesOut(recipe, [w]));
+    case "comforting": return /Bake|Soup|One pot|Batch cook|Roast/i.test(tags) || COMFORT.test(recipe.name);
+    case "fresh": return /Salad|No cook|Bowl/i.test(tags) || FRESH.test(recipe.name);
+    default: return matchesNiche(recipe.id, [mood as CuisineId], []);
+  }
+}
+
 /** One of our recipes and the things the person has that it uses. */
 export interface FridgeMatch { recipe: Recipe; uses: string[] }
 
 /** Our recipes that use the most of what the person has, for their diet (the same word match as "foods you'd rather not have": the recipe's own ingredients,
  *  never a seasoning), most used first, then the fewest ingredients. Only recipes that use at least one thing. */
-export function recipesFromFridge(recipes: readonly Recipe[], items: readonly string[], diet: DietPrefs, limit = 12): FridgeMatch[] {
+export function recipesFromFridge(recipes: readonly Recipe[], items: readonly string[], diet: DietPrefs, limit = 12, mood: FridgeMood = "any"): FridgeMatch[] {
   const out: FridgeMatch[] = [];
   for (const base of recipes) {
     const recipe = recipeForDiet(base, diet);
-    if (!recipe) continue;
+    if (!recipe || !moodMatches(recipe, mood)) continue;
     const uses = items.filter((item) => leavesOut(recipe, [item]));
     if (uses.length) out.push({ recipe, uses });
   }
@@ -48,6 +84,8 @@ export interface FridgeRecipeRequest {
   diet: DietPrefs;
   /** What the person has at home, as they typed it. */
   have: string;
+  /** What kind of food they fancy (FRIDGE_MOODS; "any" or absent: whatever goes best). */
+  mood?: FridgeMood;
   pantry: PantryLine[];
 }
 
@@ -75,11 +113,13 @@ Rules:
 - "name": the dish in up to 6 words, as a home cook would say it ("Cheesy spinach and egg fried rice"). "blurb": one short sentence about the dish.`;
 
 /** The text sent with the cached system prompt and pantry (lib/mm/photoRecipe.ts photoPantryPrompt). */
-export function fridgeUserPrompt(req: Pick<FridgeRecipeRequest, "servings" | "target" | "diet" | "have">): string {
+export function fridgeUserPrompt(req: Pick<FridgeRecipeRequest, "servings" | "target" | "diet" | "have" | "mood">): string {
+  const fancy = FRIDGE_MOODS.find((m) => m.id === req.mood)?.forPip ?? "";
   const t = req.target;
   const target = [`about ${t.kcal} kcal`, t.protein ? `about ${t.protein} g protein` : "", t.carbsMax ? `no more than ${t.carbsMax} g carbohydrate` : "", t.fatMax ? `no more than ${t.fatMax} g fat` : ""].filter(Boolean).join(", ");
   return [
     `What they have at home: "${haveItems(req.have).join(", ").replace(/"/g, "'")}"`,
+    `What they fancy: ${fancy || "whatever goes best with what they have"}`,
     `People: ${req.servings} (servings)`,
     `Target per serving: ${target}`,
     `Diet: ${dietText(req.diet)}`,

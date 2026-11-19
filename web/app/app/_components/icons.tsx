@@ -100,3 +100,5 @@ export const CoinIcon = (p: P) => (<svg {...base(p)}><circle cx="12" cy="12" r="
 /** Four corner brackets pointing out: "full screen" (the Nearby map's button). Shrink is the same corners pointing in: "leave full screen". */
 export const ExpandIcon = (p: P) => (<svg {...base(p)}><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" /></svg>);
 export const ShrinkIcon = (p: P) => (<svg {...base(p)}><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" /></svg>);
+/** A fridge: two doors and their handles (Cook with what you have). */
+export const FridgeIcon = (p: P) => (<svg {...base(p)}><rect x="6" y="3" width="12" height="18" rx="2.5" /><path d="M6 10h12M9 6.5v1.5M9 13v2.5" /></svg>);

@@ -36,7 +36,7 @@ await step("Home's third card is the meal plan, the whole width under the two", 
 });
 
 await step("Pip asks one thing a screen: numbers, meals and snacks, diet, foods, shops (two chosen)", async () => {
-  await page.getByText("Step 1 of 6").waitFor({ timeout: 60000 });
+  await page.getByText("Step 1 of 7").waitFor({ timeout: 60000 });
   await page.getByRole("heading", { level: 1, name: "Your daily numbers" }).waitFor();
   expect(await page.evaluate(() => document.activeElement?.tagName === "H1"), "the headline has the focus");
   await page.getByRole("button", { name: "Continue" }).click();
@@ -56,6 +56,14 @@ await step("Pip asks one thing a screen: numbers, meals and snacks, diet, foods,
   expect((await page.getByRole("radio", { name: /^Meal prep/ }).getAttribute("aria-checked")) === "true", "meal prep chosen");
   await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("heading", { level: 1, name: "Your diet and allergies" }).waitFor();
+  await page.getByRole("button", { name: "Continue" }).click();
+  // the food they like (founder 2026-11-19: "choose the cuisine or have the option to do any cuisine"): Any to start with, then Italian and Indian
+  await page.getByRole("heading", { level: 1, name: "The food you like" }).waitFor();
+  expect((await page.getByRole("button", { name: "Any", exact: true }).getAttribute("aria-pressed")) === "true", "Any to start with");
+  await page.getByRole("button", { name: /^Italian/ }).click();
+  await page.getByRole("button", { name: /^Indian/ }).click();
+  await page.getByText(/^Lunches and dinners from Italian or Indian\./).waitFor();
+  expect((await page.getByRole("button", { name: "Any", exact: true }).getAttribute("aria-pressed")) === "false", "Any is off once a cuisine is chosen");
   await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("heading", { level: 1, name: "Foods you'd rather not have" }).waitFor();
   await page.getByRole("button", { name: "Mushrooms", exact: true }).click();
@@ -141,6 +149,7 @@ await step("the week: 21 meals from the two shops, a shop on each meal, the shop
   expect(stored.shops.join() === "sainsburys,morrisons" && typeof stored.budget === "number" && stored.leaveOut.join() === "mushrooms", JSON.stringify(stored).slice(0, 200));
   expect(JSON.stringify(stored.slots) === JSON.stringify(["breakfast", "lunch", "dinner", "snack", "snack"]), `slots kept: ${JSON.stringify(stored.slots)}`);
   expect(stored.variety === 2, `variety kept: ${stored.variety}`);
+  expect(JSON.stringify(stored.cuisines) === JSON.stringify(["italian", "indian"]), `cuisines kept: ${JSON.stringify(stored.cuisines)}`);
   // meal prep: two recipes for each meal over the week
   const breakfasts = new Set(stored.ids.map((d) => d[0]));
   expect(breakfasts.size === 2, `breakfast recipes: ${breakfasts.size}`);
@@ -184,8 +193,10 @@ await step("the plan opens again as it was; Make a new plan starts Pip's questio
   const box = await top.boundingBox();
   expect(box && box.y < 400, "Make a new plan is near the top: " + JSON.stringify(box));
   await top.click();
-  await page.getByText("Step 1 of 6").waitFor();
+  await page.getByText("Step 1 of 7").waitFor();
   for (let i = 0; i < 3; i++) await page.getByRole("button", { name: "Continue" }).click();
+  expect((await page.getByRole("button", { name: /^Italian/ }).getAttribute("aria-pressed")) === "true", "cuisines kept");
+  await page.getByRole("button", { name: "Continue" }).click();
   expect((await page.getByRole("button", { name: "Mushrooms", exact: true }).getAttribute("aria-pressed")) === "true", "foods kept");
   await page.getByRole("button", { name: "Keep my plan" }).click();
   await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor();
@@ -194,8 +205,8 @@ await step("the plan opens again as it was; Make a new plan starts Pip's questio
 await step("a new plan keeps the old one under Earlier plans; Open makes it the plan again; Remove takes one away with Undo", async () => {
   const first = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.mealPlan")).data);
   await page.getByRole("button", { name: "Make a new plan" }).first().click();
-  await page.getByText("Step 1 of 6").waitFor();
-  for (let i = 0; i < 5; i++) await page.getByRole("button", { name: "Continue" }).click();
+  await page.getByText("Step 1 of 7").waitFor();
+  for (let i = 0; i < 6; i++) await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("slider").waitFor({ timeout: 180000 });
   await page.getByRole("button", { name: "Make my plan" }).click();
   await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 30000 });

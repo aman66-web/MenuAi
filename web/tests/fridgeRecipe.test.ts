@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { FRIDGE_SYSTEM_PROMPT, fridgeRecipeFromAi, fridgeUserPrompt, haveItems, recipesFromFridge, type FridgeRecipeRequest } from "../lib/mm/fridgeRecipe";
+import { FRIDGE_SYSTEM_PROMPT, moodMatches, fridgeRecipeFromAi, fridgeUserPrompt, haveItems, recipesFromFridge, type FridgeRecipeRequest } from "../lib/mm/fridgeRecipe";
 import { handleFridgeRecipe, type AskFridgeRecipe, type FridgeCtx } from "../lib/fridgeRecipeHandler";
 import { RECIPES } from "../lib/mm/recipeBook";
 
@@ -42,6 +42,27 @@ describe("what the person has", () => {
     expect(matches.every((m, i) => i === 0 || matches[i - 1]!.uses.length >= m.uses.length)).toBe(true);
     // a vegan sees no recipe that only works with eggs
     for (const m of recipesFromFridge(RECIPES, ["eggs"], { veganOnly: true })) expect(m.recipe.ingredients.some((i) => (i.pantry ?? i.key) === "eggs")).toBe(false);
+  });
+});
+
+describe("the kind of food they fancy (founder 2026-11-19: \"what vibe of food they wanna eat\")", () => {
+  const byId = new Map(RECIPES.map((r) => [r.id, r]));
+  it("narrows our recipes by cuisine, time, heat and cheese", () => {
+    expect(moodMatches(byId.get("spaghetti-bolognese")!, "italian")).toBe(true);
+    expect(moodMatches(byId.get("spaghetti-bolognese")!, "indian")).toBe(false);
+    expect(moodMatches(byId.get("beef-chilli")!, "spicy")).toBe(true);
+    expect(moodMatches(byId.get("easy-macaroni-cheese")!, "cheesy")).toBe(true);
+    const quick = recipesFromFridge(RECIPES, ["eggs"], {}, 30, "quick");
+    expect(quick.length).toBeGreaterThan(0);
+    expect(quick.every((m) => m.recipe.minutes <= 20)).toBe(true);
+    expect(recipesFromFridge(RECIPES, ["chicken"], {}, 30, "indian").every((m) => moodMatches(m.recipe, "indian"))).toBe(true);
+  });
+
+  it("is told to Pip in plain words, and only the known kinds are accepted", async () => {
+    expect(fridgeUserPrompt(request({ mood: "spicy" }))).toContain("What they fancy: something with a bit of heat");
+    expect(fridgeUserPrompt(request())).toContain("What they fancy: whatever goes best with what they have");
+    expect((await handleFridgeRecipe({ ...request(), mood: "anything goes" }, ctx())).status).toBe(400);
+    expect((await handleFridgeRecipe(request({ mood: "italian" }), ctx())).status).toBe(200);
   });
 });
 

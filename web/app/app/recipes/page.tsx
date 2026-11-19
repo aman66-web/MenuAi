@@ -18,7 +18,7 @@ import { recipeShops } from "@/lib/mm/shopProducts";
 import { myRecipesStore, savedRecipesStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { ShopMark } from "../_components/ChainMark";
 import { AllergenTiles, dietWords } from "../_components/DietPicker";
-import { ArrowRightIcon, BasketIcon, CalendarIcon, CameraIcon, CheckIcon, ChevronRightIcon, GridIcon, HeartIcon, InfoIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
+import { ArrowRightIcon, BasketIcon, CalendarIcon, CameraIcon, CheckIcon, ChevronRightIcon, FridgeIcon, GridIcon, HeartIcon, InfoIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
 import { ShopChoice } from "./ShopChoice";
@@ -319,6 +319,16 @@ function RecipesScreen() {
           <span aria-hidden className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)] transition-transform group-hover:translate-x-0.5 rtl:-scale-x-100"><ArrowRightIcon className="h-[1.125rem] w-[1.125rem]" /></span>
         </button>
       )}
+
+      {/* Cook with what you have (founder 2026-11-19; app/app/recipes/fridge): our recipes for what's in the fridge, free; Pip's own one is Premium inside */}
+      <Link href="/app/recipes/fridge" className="glass lift mt-3 flex min-h-[4.5rem] items-center gap-3.5 rounded-[1.25rem] p-3.5 text-start">
+        <span aria-hidden className="grid h-12 w-12 shrink-0 place-items-center rounded-[0.875rem] bg-sun text-[var(--on-accent)]"><FridgeIcon className="h-6 w-6" /></span>
+        <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
+          <span className="block text-[1.0625rem] font-[800] leading-tight">{t("Cook with what you have")}</span>
+          <span className="mt-0.5 block text-[0.875rem] leading-snug text-muted">{t("Tell us what's in your fridge and get recipes for it.")}</span>
+        </span>
+        <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted rtl:rotate-180" />
+      </Link>
 
       {/* the meal plan (founder 2026-11-18; app/app/plan; Premium): a week of our recipes for the person's goal and budget, with the shopping list and each meal's price */}
       <Link href="/app/plan" className="glass lift mt-3 flex min-h-[4.5rem] items-center gap-3.5 rounded-[1.25rem] p-3.5 text-start">

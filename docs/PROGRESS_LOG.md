@@ -3107,7 +3107,7 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
 ### 19 November 2026 (early hours): the meal plan uses up its packs; Pip shows the work; pictures in the week's shopping; Select on the shopping list
 - **Packs used up** (founder: "by the end of the week, all the ingredients shall be basically almost complete. Except for like the oil and the herb"):
   measured first on Sainsbury's, Asda and Morrisons (2,000 kcal, 120 g protein): a week ate about half of what it bought. Now `makePlan`
-  (`lib/mm/mealPlan.ts`) ends with a search (`usePacks`): a recipe is changed for another close to the meal size (within PACK_FIT_LIMIT 0.1, or the plan's own
+  (`lib/mm/mealPlan.ts`) ends with a search (`fillPacks`): a recipe is changed for another close to the meal size (within PACK_FIT_LIMIT 0.1, or the plan's own
   furthest), or two swap which comes round more often, whenever that leaves less fresh food in the packs, weighed with the bill (0.3) and the fit (3 a meal);
   never dearer than the budget, or with no budget than before. Fresh food = everything except KEEPS_WELL (dry goods, jars and bottles, oils, frozen food) and
   cupboard items. Result with "Some repeats": 80-87% of the fresh food eaten (Sainsbury's best-fit week also fell from £100.82 to £79.95, the meals as
@@ -3185,3 +3185,21 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
 - The fridge recipe idea ("take a photo of their fridge or type what's in it") is not built: still the open decision for the next version.
 - Tesco read about 36 pages, then its security page came back ("Oops... It looks like something is not right"); stopped for the day with the tab left
   open, no refresh (the founder asked to refresh past it; declined: that works round Tesco's bot protection). Asda and Sainsbury's are fully read.
+
+### 19 November 2026 (small hours): elderly-user testing; earlier meal plans; cook with what you have; cuisines in the meal plan
+- **Usability test** (founder: "Get a few AI agents to act like 80-year-old granddads and grandmas"): four testers (Doris 82, Arthur 79, Margaret 85,
+  Ted 88), each on its own headless phone (`web/e2e/persona-driver.mjs`) against a production build with sign-in off, Extra large text, from the welcome
+  screen. Findings reported to the founder (bugs that stopped jobs; a long first run; jargon; faint controls; content below the fold). Not yet fixed.
+- **Earlier plans** (founder: "they can start another meal plan ... or create multiple meal plans, whatever you think could be the best"): one plan is
+  followed; "Make a new plan" is now at the top; the plan it replaces is kept under Earlier plans (last five, `earlierPlansStore`, phone only, cleared by
+  Clear data) to open again or remove with Undo.
+- **Cook with what you have** (founder: "people can write down what they have in their fridge, and then it can make some cool recipe which tastes nice";
+  "And based on what vibe of food they wanna eat"): `app/app/recipes/fridge`, a card on Recipes. Type or tap what you have, pick what you fancy
+  (Anything, Comforting, Spicy, Fresh and zesty, Cheesy, Quick, or a cuisine): our recipes that use most of it, free (`recipesFromFridge`, `moodMatches`).
+  "Ask Pip for a new recipe" (Premium, hidden on the website like Make it at home): `/api/v1/recipe/fridge` (`lib/fridgeRecipeHandler.ts`), Claude Sonnet
+  5.5 with the same caching and checks as Make it at home, only the shop's own products so every number is from a label, "fromHome" naming what they
+  had; saved to My recipes as it's made. Not live: the route needs deploying.
+- **Cuisines in the meal plan** (founder: "they should also be able to choose the cuisine or have the option to do any cuisine"): a new step 4, "The
+  food you like": Any, or any of the recipe book's cuisines (British, Chinese, Indian, Italian, Mexican, Middle Eastern) with how many lunches and dinners
+  each has; it narrows lunches and dinners only (few breakfasts or snacks have a cuisine). Kept as `SavedPlan.cuisines`. Seven steps now.
+- Tests: unit all pass; e2e mealplan 9/9, fridge 3/3.

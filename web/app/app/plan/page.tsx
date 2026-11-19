@@ -9,6 +9,8 @@ import { addToList, formatPrice, listForShop, withPhoto } from "@/lib/mm/groceri
 import { localeInfo, tk } from "@/lib/mm/i18n";
 import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterCandidate, budgetRange, buildWeek, keepEarlier, openEarlier, leavesOut, mergeCandidates, planCandidates, planForBudget, planSlots, setMeal, shapeOf, slotTargets, swapChoices, withBetter, type BudgetRange, type DayShape, type PlanCandidate, type PlanIds, type SavedPlan, type Variety } from "@/lib/mm/mealPlan";
 import { RECIPES } from "@/lib/mm/recipeBook";
+import { CUISINES, type CuisineId } from "@/lib/mm/recipeBook/niches";
+import { matchesNiche } from "@/lib/mm/recipeNiche";
 import { recipeForDiet, type MealTarget, type MealType } from "@/lib/mm/recipes";
 import { recipeShops, shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import { earlierPlansStore, mealPlanStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
@@ -34,11 +36,11 @@ import { RecipeThumb } from "../recipes/RecipeThumb";
 // another from a list; what the shopping comes to against the budget; the shopping for each shop as whole packs, and one button that puts it all on the
 // shopping list. The plan stays on the phone until a new one is made (mm.v1.mealPlan).
 
-const STEPS = 6;
+const STEPS = 7;
 const today = () => new Date().toISOString().slice(0, 10);
 const ROUND = "group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95";
 const ROUND_IN = "inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong";
-const STEP_PIP: Record<number, PipMood> = { 1: "wave", 2: "point", 3: "think", 4: "point", 5: "think", 6: "point" };
+const STEP_PIP: Record<number, PipMood> = { 1: "wave", 2: "point", 3: "think", 4: "cheer", 5: "point", 6: "think", 7: "point" };
 const MEAL_PLURAL: Record<string, string> = { breakfast: tk("breakfasts"), lunch: tk("lunches"), dinner: tk("dinners"), snack: tk("snacks") };
 
 type Shop = { id: string; name: string };
@@ -48,7 +50,11 @@ type Targets = Partial<Record<MealType, MealTarget>>;
 
 // The recipes worked out for a set of answers, kept while the app is open, so opening the plan again doesn't redo the sums.
 const worked = new Map<string, Candidates>();
-const workKey = (shops: readonly string[], diet: DietPrefs, targets: Targets, leaveOut: readonly string[]) => JSON.stringify([[...shops].sort(), diet, targets, [...leaveOut].sort()]);
+const workKey = (shops: readonly string[], diet: DietPrefs, targets: Targets, leaveOut: readonly string[], cuisines: readonly CuisineId[] = []) => JSON.stringify([[...shops].sort(), diet, targets, [...leaveOut].sort(), [...cuisines].sort()]);
+
+/** Our recipes for the cuisines chosen (founder 2026-11-19: "they should also be able to choose the cuisine or have the option to do any cuisine"): lunches and
+ *  dinners of those cuisines, by the recipe book's own cuisine lines; breakfasts and snacks whatever theirs (few have one). All of them when none is chosen. */
+const recipesFor = (cuisines: readonly CuisineId[]) => (cuisines.length ? RECIPES.filter((r) => (r.meal !== "lunch" && r.meal !== "dinner") || matchesNiche(r.id, cuisines, [])) : RECIPES);
 
 /** Each shop's list (loaded once and cached by loadShopFile). */
 async function loadShops(ids: readonly string[]): Promise<Loaded[]> {
@@ -56,8 +62,8 @@ async function loadShops(ids: readonly string[]): Promise<Loaded[]> {
 }
 
 /** The recipes for these answers, one shop at a time with a pause between, so the screen can say which shop Pip is on. */
-async function workOut(shops: readonly Loaded[], diet: DietPrefs, targets: Targets, leaveOut: readonly string[], onShop?: (id: string, done: string[]) => void): Promise<Candidates> {
-  const key = workKey(shops.map((s) => s.id), diet, targets, leaveOut);
+async function workOut(shops: readonly Loaded[], diet: DietPrefs, targets: Targets, leaveOut: readonly string[], cuisines: readonly CuisineId[], onShop?: (id: string, done: string[]) => void): Promise<Candidates> {
+  const key = workKey(shops.map((s) => s.id), diet, targets, leaveOut, cuisines);
   const known = worked.get(key);
   if (known) return known;
   const each: Candidates[] = [];
@@ -65,7 +71,7 @@ async function workOut(shops: readonly Loaded[], diet: DietPrefs, targets: Targe
   for (const sh of shops) {
     onShop?.(sh.id, [...done]);
     await new Promise((r) => setTimeout(r, 40));
-    each.push(planCandidates(RECIPES, sh.products, diet, targets, leaveOut, sh.id));
+    each.push(planCandidates(recipesFor(cuisines), sh.products, diet, targets, leaveOut, sh.id));
     done.push(sh.id);
   }
   onShop?.("", done);
@@ -148,6 +154,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
   // "Make my plan": the plan is made, then Pip shows the work step by step before the week opens
   const [making, setMaking] = useState<{ steps: string[]; plan: SavedPlan } | null>(null);
   const [leaveOut, setLeaveOut] = useState<string[]>(saved?.leaveOut ?? []);
+  const [cuisines, setCuisines] = useState<CuisineId[]>(saved?.cuisines ?? []);
   const [typed, setTyped] = useState("");
   const [shops, setShops] = useState<string[] | null>(saved?.shops ?? null);
   // the budget step (founder 2026-11-18, a slider from the cheapest week to better products, a green spot for the best fit): the prices are worked out for the
@@ -179,17 +186,17 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
   const prefs = settings.preferences;
   const left = useMemo(() => [...new Set(slots)].map((meal) => ({
     meal,
-    n: RECIPES.filter((r) => { if (r.meal !== meal) return false; const fit = recipeForDiet(r, prefs); return !!fit && !leavesOut(fit, leaveOut); }).length,
-  })), [prefs, leaveOut, slots]);
+    n: recipesFor(cuisines).filter((r) => { if (r.meal !== meal) return false; const fit = recipeForDiet(r, prefs); return !!fit && !leavesOut(fit, leaveOut); }).length,
+  })), [prefs, leaveOut, slots, cuisines]);
   const noneFor = left.find((l) => l.n === 0);
   const fewFor = left.filter((l) => l.n > 0 && l.n < variety * slots.filter((x) => x === l.meal).length);
   const mealWord = (m: MealType) => (m === "snack" ? t("snack") : t(MEAL_LABEL[m as "breakfast" | "lunch" | "dinner"]).toLowerCase());
 
   // the prices for the budget step: worked out when it opens (and again if the shops, the diet or the foods changed)
-  const prepKey = workKey(chosen, settings.preferences, targets, leaveOut) + slots.join("|") + `|${variety}`;
+  const prepKey = workKey(chosen, settings.preferences, targets, leaveOut, cuisines) + slots.join("|") + `|${variety}`;
   const prepping = useRef<string | null>(null);
   useEffect(() => {
-    if (step !== 6 || !chosen.length || prep?.key === prepKey || prepping.current === prepKey) return;
+    if (step !== 7 || !chosen.length || prep?.key === prepKey || prepping.current === prepKey) return;
     prepping.current = prepKey;
     let live = true;
     (async () => {
@@ -202,7 +209,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
         if (live) { setPreparing(null); setProblem("offline"); prepping.current = null; }
         return;
       }
-      const cands = await workOut(loaded, settings.preferences, targets, leaveOut, (on, done) => { if (live) setPreparing({ on, done }); });
+      const cands = await workOut(loaded, settings.preferences, targets, leaveOut, cuisines, (on, done) => { if (live) setPreparing({ on, done }); });
       const range = budgetRange(cands, betterFor(loaded, targets), slots, variety);
       if (!live) return;
       setPrep({ key: prepKey, loaded, cands, range });
@@ -219,7 +226,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
   const make = () => {
     if (!ready || !prep || pick === null) return;
     const plan = planForBudget(prep.cands, pick, betterFor(prep.loaded, targets), slots, variety);
-    if (!plan) { setProblem("noPlan"); setStep(4); return; }
+    if (!plan) { setProblem("noPlan"); setStep(5); return; }
     // what Pip did, each with its real figure (founder 2026-11-18: "show them what you're doing ... so you're showing them that you're properly working")
     const w = plan.week;
     const recipes = new Set([...prep.cands.values()].flat().map((c) => c.recipe.id)).size;
@@ -236,7 +243,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
       w.overBudget ? t("Finding the cheapest week your choices allow: {cost}", { cost: formatPrice(w.shoppingCost) }) : t("Keeping the week to {cost}, within your {budget}", { cost: formatPrice(w.shoppingCost), budget: formatPrice(pick) }),
       t("Writing your shopping list: {n} products", { n: w.shopping.length }),
     ];
-    setMaking({ steps, plan: { shops: chosen, ids: plan.ids, slots, leaveOut, budget: pick, start: today(), variety, ...(plan.better.length ? { better: plan.better } : {}) } });
+    setMaking({ steps, plan: { shops: chosen, ids: plan.ids, slots, leaveOut, budget: pick, start: today(), variety, ...(cuisines.length ? { cuisines } : {}), ...(plan.better.length ? { better: plan.better } : {}) } });
   };
   const finish = () => {
     if (!making) return;
@@ -264,7 +271,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
         </ul>
   );
 
-  const title = [t("Your daily numbers"), t("Your meals and snacks"), t("Your diet and allergies"), t("Foods you'd rather not have"), t("Where you shop"), t("Your budget for the week")][step - 1]!;
+  const title = [t("Your daily numbers"), t("Your meals and snacks"), t("Your diet and allergies"), t("The food you like"), t("Foods you'd rather not have"), t("Where you shop"), t("Your budget for the week")][step - 1]!;
   // the shops step says what the ticks mean as they change (founder 2026-11-18: "it needs to be clear to them")
   const chosenNames = shopsAll.filter((s) => chosen.includes(s.id)).map((s) => s.name);
   const shopsSay = chosenNames.length === 1
@@ -276,12 +283,14 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
     t("Hi! Let's plan your week. First, your daily numbers: I'll size every meal to them."),
     t("How do you like to eat? Pick your meals and snacks, and how often a meal can come round. I'll size each one so your day adds up."),
     t("Do you follow a diet, or have any allergies? I'll leave out any recipe that doesn't fit."),
+    cuisines.length ? t("Lunches and dinners from {cuisines}. Breakfasts and snacks stay as usual.", { cuisines: new Intl.ListFormat("en-GB", { type: "disjunction" }).format(cuisines.map((c) => t(CUISINES.find((x) => x.id === c)!.label))) })
+      : t("What kind of food do you like for lunch and dinner? Pick as many as you like, or Any."),
     t("Any foods you don't like? Tap them, or type your own, and I'll leave them out."),
     shopsSay,
     t("Slide to choose your budget. The green spot is the best week for your goal: left is cheaper, right buys better products."),
   ][step - 1]!;
   if (making) return <Making steps={making.steps} onDone={finish} />;
-  const canGo = !(step === 2 && !shape.meals.length) && !(step === 4 && noneFor) && !(step === 5 && !chosen.length) && !(step === 6 && !ready);
+  const canGo = !(step === 2 && !shape.meals.length) && !(step === 5 && noneFor) && !(step === 6 && !chosen.length) && !(step === 7 && !ready);
 
   return (
     <div className="pb-6">
@@ -300,7 +309,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
       <p className="mt-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted" aria-live="polite">{t("Step {step} of {total}", { step, total: STEPS })}</p>
 
       <h1 ref={heading} tabIndex={-1} className={`mt-3 ${TITLE} outline-none`}>{title}</h1>
-      <div className="mt-4"><PipSays mood={STEP_PIP[step]} size={64} lively pulse={step === 5 ? `5-${chosenNames.length}` : step}>{says}</PipSays></div>
+      <div className="mt-4"><PipSays mood={STEP_PIP[step]} size={64} lively pulse={step === 6 ? `6-${chosenNames.length}` : step === 4 ? `4-${cuisines.join()}` : step}>{says}</PipSays></div>
 
       <div className="mt-4">
         {step === 1 && (
@@ -315,7 +324,9 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
 
         {step === 3 && <DietPicker value={settings.preferences} onChange={(p) => updateSettings({ preferences: p })} />}
 
-        {step === 4 && (
+        {step === 4 && <CuisinePicker value={cuisines} onChange={setCuisines} />}
+
+        {step === 5 && (
           <>
             {problem === "noPlan" && <p role="alert" className="glass mb-3 rounded-[1.25rem] p-4 font-semibold">{t("There aren't enough of our recipes left for every meal with these choices. Try leaving out fewer foods, or pick another shop.")}</p>}
             <div role="group" aria-label={t("Foods you'd rather not have")} className="flex flex-wrap gap-2">
@@ -344,7 +355,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
           </>
         )}
 
-        {step === 5 && (
+        {step === 6 && (
           <>
             {!manifest ? <Spinner label={t("Loading the shops")} /> : (
               <div role="group" aria-label={t("Where you shop")} className="space-y-2">
@@ -365,9 +376,9 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
           </>
         )}
 
-        {step === 6 && (
+        {step === 7 && (
           <>
-            {problem === "offline" ? <ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => { setProblem(null); setPrep(null); setStep(5); }} />
+            {problem === "offline" ? <ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => { setProblem(null); setPrep(null); setStep(6); }} />
               : preparing ? (<><p role="status" className="text-[1.0625rem] font-semibold">{t("Working out the prices at your shops…")}</p>{working}</>)
               : !prep || prep.key !== prepKey ? <Spinner label={t("Working out the prices at your shops…")} />
               : !prep.range ? <p role="alert" className="glass rounded-[1.25rem] p-4 font-semibold">{t("There aren't enough of our recipes left for every meal with these choices. Try leaving out fewer foods, or pick another shop.")}</p>
@@ -377,7 +388,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
       </div>
 
       <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-6 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-3">
-        {step === 5 && !chosen.length && <p className="mb-2 text-center text-[0.9375rem] font-semibold text-muted">{t("Pick at least one shop.")}</p>}
+        {step === 6 && !chosen.length && <p className="mb-2 text-center text-[0.9375rem] font-semibold text-muted">{t("Pick at least one shop.")}</p>}
         <Button full className="min-h-14 text-lg" disabled={!canGo} onClick={() => (step < STEPS ? setStep(step + 1) : make())}>
           {step < STEPS ? t("Continue") : t("Make my plan")}
         </Button>
@@ -415,6 +426,27 @@ function ShopsNote({ names }: { names: string[] }) {
           <li key={l} className="flex gap-2 text-[0.9375rem] leading-snug text-muted"><CheckIcon aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-foreground" />{l}</li>
         ))}
       </ul>
+    </div>
+  );
+}
+
+/** The cuisines for lunch and dinner (founder 2026-11-19): Any (none chosen), or as many as they like, each with how many of our lunches and dinners it has. */
+function CuisinePicker({ value, onChange }: { value: CuisineId[]; onChange: (v: CuisineId[]) => void }) {
+  const t = useT();
+  const count = (id: CuisineId) => RECIPES.filter((r) => (r.meal === "lunch" || r.meal === "dinner") && matchesNiche(r.id, [id], [])).length;
+  return (
+    <div role="group" aria-label={t("The food you like")} className="flex flex-wrap gap-2">
+      <button type="button" aria-pressed={!value.length} onClick={() => onChange([])} className={`${!value.length ? CHIP_ON : CHIP} gap-1.5 px-5`}>
+        {!value.length && <CheckIcon aria-hidden className="h-4 w-4" />}{t("Any")}
+      </button>
+      {CUISINES.map((c) => {
+        const on = value.includes(c.id);
+        return (
+          <button key={c.id} type="button" aria-pressed={on} onClick={() => onChange(on ? value.filter((x) => x !== c.id) : [...value, c.id])} className={`${on ? CHIP_ON : CHIP} gap-1.5 px-5`}>
+            {on && <CheckIcon aria-hidden className="h-4 w-4" />}{t(c.label)}<span className={`app-numbers text-[0.8125rem] ${on ? "" : "text-muted"}`}>{count(c.id)}</span>
+          </button>
+        );
+      })}
     </div>
   );
 }
@@ -671,13 +703,14 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
   const leaveKey = saved.leaveOut.join("|");
   const dietKey = JSON.stringify(settings.preferences);
   const betterKey = (saved.better ?? []).join("|");
+  const cuisineKey = (saved.cuisines ?? []).join("|");
 
   useEffect(() => {
     let live = true;
     setFailed(false); // eslint-disable-line react-hooks/set-state-in-effect -- a new try starts clean
     loadShops(shopKey.split("|"))
       .then(async (l) => {
-        const c = await workOut(l, JSON.parse(dietKey) as DietPrefs, targets, leaveKey ? leaveKey.split("|") : []);
+        const c = await workOut(l, JSON.parse(dietKey) as DietPrefs, targets, leaveKey ? leaveKey.split("|") : [], cuisineKey ? (cuisineKey.split("|") as CuisineId[]) : []);
         // the meals the budget made with better products (planForBudget), made the same way again
         const betterOf = betterFor(l, targets);
         const upgraded = new Map<string, PlanCandidate>();
@@ -691,7 +724,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
       })
       .catch(() => { if (live) setFailed(true); });
     return () => { live = false; };
-  }, [shopKey, leaveKey, dietKey, betterKey, targets, retry]);
+  }, [shopKey, leaveKey, dietKey, betterKey, cuisineKey, targets, retry]);
 
   const week = useMemo(() => (candidates ? buildWeek(saved.ids, candidates, saved.budget, slots) : null), [candidates, saved, slots]);
   // each slot's name: "Breakfast", "Snack", or "Snack 2" when there are several

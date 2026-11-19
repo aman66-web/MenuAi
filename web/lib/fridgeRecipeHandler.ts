@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { ALLERGEN_KEYS } from "./mm/types";
 import { PANTRY, kindExcluded } from "./mm/pantry";
-import { FRIDGE_MESSAGES, FRIDGE_SYSTEM_PROMPT, MAX_HAVE, MIN_HAVE_ITEMS, fridgeRecipeFromAi, fridgeUserPrompt, haveItems, type FridgeRecipeRequest } from "./mm/fridgeRecipe";
+import { FRIDGE_MESSAGES, FRIDGE_MOOD_IDS, FRIDGE_SYSTEM_PROMPT, MAX_HAVE, MIN_HAVE_ITEMS, fridgeRecipeFromAi, fridgeUserPrompt, haveItems, type FridgeRecipeRequest } from "./mm/fridgeRecipe";
 import { PHOTO_MESSAGES, photoPantryPrompt } from "./mm/photoRecipe";
 import type { Result } from "./handlers";
 
@@ -20,6 +20,7 @@ export const fridgeRequestSchema = z.object({
     noPork: z.boolean().optional(), noBeef: z.boolean().optional(), avoidAllergens: z.array(z.enum(ALLERGEN_KEYS)).max(14).optional(),
   }).strict(),
   have: z.string().max(MAX_HAVE),
+  mood: z.enum(FRIDGE_MOOD_IDS).optional(),
   pantry: z.array(z.object({
     key: z.string().max(40), label: z.string().max(80), unit: z.enum(["g", "ml"]), product: z.string().max(160),
     kcal: num(0, 950), protein: num(0, 100), carbs: num(0, 100), fat: num(0, 100), drained: z.boolean().optional(),

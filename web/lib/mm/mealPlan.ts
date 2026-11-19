@@ -2,6 +2,7 @@ import { tk } from "./i18n";
 import type { DietPrefs } from "./pantry";
 import { PANTRY } from "./pantry";
 import { candidates as productCandidates, fitDistance, fitRecipe, isMeatFree, pickFor, recipeForDiet, recipeTotals, resolveRecipe, type IngredientPick, type IngredientSpec, type MealTarget, type MealType, type Recipe } from "./recipes";
+import { CUISINES, type CuisineId } from "./recipeBook/niches";
 import { normalizeForSearch } from "./search";
 import { productKey, type PricedProduct, type ShopProduct } from "./shopProducts";
 
@@ -489,13 +490,13 @@ function makePlanFresh(candidates: Map<MealType, PlanCandidate[]>, budget: numbe
     if (week.shoppingCost < best.shoppingCost) best = week;
     else { counts.set(m, counts.get(m)! + 1); break; }
   }
-  usePacks(candidates, chosen, counts, types, slots, ids, budget);
+  fillPacks(candidates, chosen, counts, types, slots, ids, budget);
   const finalIds = ids();
   return { ids: finalIds, week: buildWeek(finalIds, candidates, budget, slots)! };
 }
 
 /** makePlan's last step (see there): changes `chosen` in place, one move at a time, the move that helps most first, until no move helps. */
-function usePacks(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<MealType, PlanCandidate[]>, counts: ReadonlyMap<MealType, number>, types: readonly MealType[], slots: readonly MealType[], ids: () => PlanIds, budget: number | null): void {
+function fillPacks(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<MealType, PlanCandidate[]>, counts: ReadonlyMap<MealType, number>, types: readonly MealType[], slots: readonly MealType[], ids: () => PlanIds, budget: number | null): void {
   const byId = new Map<string, PlanCandidate>();
   for (const list of candidates.values()) for (const c of list) byId.set(`${c.meal}:${c.recipe.id}`, c);
   const memo = new Map<string, { cost: number; left: number }>();
@@ -586,6 +587,8 @@ export interface SavedPlan {
   better?: string[];
   /** How often a meal may come round (VARIETIES); absent = PER_MEAL_RECIPES, as plans were before 19 November. */
   variety?: Variety;
+  /** The cuisines for lunch and dinner (founder 2026-11-19); absent = any. */
+  cuisines?: CuisineId[];
 }
 
 export function sanitizePlan(raw: unknown): SavedPlan | null {
@@ -602,7 +605,8 @@ export function sanitizePlan(raw: unknown): SavedPlan | null {
   const budget = typeof r.budget === "number" && Number.isFinite(r.budget) && r.budget > 0 && r.budget < 10000 ? r.budget : null;
   const better = Array.isArray(r.better) ? (r.better as unknown[]).filter((x): x is string => typeof x === "string" && /^(breakfast|lunch|dinner|snack):[a-z0-9-]{1,80}$/.test(x)).slice(0, 42) : [];
   const variety = (VARIETIES as readonly unknown[]).includes(r.variety) ? (r.variety as Variety) : null;
-  return { shops, ids, leaveOut, budget, start: r.start, ...(slotsOk ? { slots } : {}), ...(better.length ? { better } : {}), ...(variety ? { variety } : {}) };
+  const cuisines = Array.isArray(r.cuisines) ? [...new Set((r.cuisines as unknown[]).filter((c): c is CuisineId => CUISINES.some((x) => x.id === c)))] : [];
+  return { shops, ids, leaveOut, budget, start: r.start, ...(slotsOk ? { slots } : {}), ...(better.length ? { better } : {}), ...(variety ? { variety } : {}), ...(cuisines.length ? { cuisines } : {}) };
 }
 
 /**

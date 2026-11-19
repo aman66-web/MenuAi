@@ -348,3 +348,11 @@ describe("earlier plans (founder 2026-11-19: \"they can start another meal plan\
     expect(sanitizePlans("x")).toEqual([]);
   });
 });
+
+describe("cuisines for lunch and dinner (founder 2026-11-19: \"choose the cuisine or have the option to do any cuisine\")", () => {
+  it("keeps the cuisines chosen with the plan, only known ones; none means any", () => {
+    const ids = makePlan(planCandidates(RECIPES, products, none, target, []), null)!.ids;
+    expect(sanitizePlan({ shops: ["sainsburys"], ids, start: "2026-11-19", cuisines: ["italian", "indian", "klingon"] })!.cuisines).toEqual(["italian", "indian"]);
+    expect(sanitizePlan({ shops: ["sainsburys"], ids, start: "2026-11-19" })!.cuisines).toBeUndefined();
+  });
+});
