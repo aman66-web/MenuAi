@@ -392,7 +392,8 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
                     <h3 className="text-lg font-[800] leading-snug tracking-[-0.01em]">{s.category}</h3>
                     <span className="app-numbers font-mono text-[0.8125rem] text-muted">{s.items.length}</span>
                   </div>
-                  {allExtras && <p className="-mt-1.5 mb-3 text-sm text-muted">{t("Not suggested in Best for you.")}</p>}
+                  {/* not at a calories-only restaurant, which has no Best for you at all (usability test 2026-11-19: the line repeated under every section) */}
+                  {allExtras && !caloriesOnly && <p className="-mt-1.5 mb-3 text-sm text-muted">{t("Not suggested in Best for you.")}</p>}
                   <ItemList
                     items={shown}
                     chainId={chain.id}
@@ -446,7 +447,8 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         </p>
       </footer>
 
-      {bestOffScreen && (
+      {/* no pill back to Best for you where there is none to go back to (a calories-only restaurant; usability test 2026-11-19) */}
+      {bestOffScreen && !caloriesOnly && (
         <button
           type="button"
           onClick={() => bestRef.current?.scrollIntoView({ behavior: smoothScroll(), block: "start" })}

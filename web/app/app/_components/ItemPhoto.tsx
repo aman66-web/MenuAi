@@ -51,9 +51,10 @@ export function ItemPhotoHero({ image, chainName }: { image: string | undefined;
   if (!src) return null;
   return (
     <figure>
+      {/* never more than about a third of the screen, so the dish's numbers show without scrolling at large text (usability test 2026-11-19) */}
       <div className="px-2 pt-2">
         {/* eslint-disable-next-line @next/next/no-img-element -- already resized and WebP-encoded by tools/uk_extract/images_common.py */}
-        <img src={src} alt="" width={640} height={480} decoding="async" onError={() => setFailed(true)} className="mx-auto block h-auto max-h-[18rem] w-auto max-w-full rounded-[0.75rem] bg-white" />
+        <img src={src} alt="" width={640} height={480} decoding="async" onError={() => setFailed(true)} className="mx-auto block h-auto max-h-[min(18rem,34svh)] w-auto max-w-full rounded-[0.75rem] bg-white" />
       </div>
       <figcaption className="px-4 pt-2.5 text-[0.8125rem] font-medium leading-snug text-muted">{t("Photo from the {chain} website", { chain: chainName })}</figcaption>
     </figure>

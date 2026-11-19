@@ -19,7 +19,7 @@ import { PANTRY } from "@/lib/mm/pantry";
 import { cupboardStore, savedRecipesStore, shoppingStore, toggleCupboard, toggleSavedRecipe } from "@/lib/mm/stores";
 import { site } from "@/site.config";
 import { CheckIcon, ChevronLeftIcon, ChevronRightIcon, HeartIcon, InfoIcon, LeafIcon, MinusIcon, PlusIcon, SwapIcon, TodayIcon } from "../_components/icons";
-import { Button, Chip, Sheet, radioKeyNav } from "../_components/ui";
+import { Button, Chip, LinkButton, Sheet, radioKeyNav } from "../_components/ui";
 import { backName, travelBack, useBack } from "../_lib/backNav";
 import { useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
@@ -335,6 +335,8 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
           </div>
           <h1 className="mt-1.5 text-[2rem] font-[800] leading-[1.08] tracking-[-0.02em] [overflow-wrap:anywhere]">{rt(recipe.name)}</h1>
           {recipe.blurb && <p className="mx-auto mt-2 max-w-[30rem] text-[0.9375rem] leading-snug text-muted">{rt(recipe.blurb)}</p>}
+          {/* a serving's calories and protein on the first screen (usability test 2026-11-19: they were only further down, under the picture and the chips) */}
+          {totals && <p className="app-numbers mt-2.5 text-[1.0625rem] font-bold leading-snug">{t("{kcal} kcal and {protein} g protein a serving", { kcal: formatInt(totals.perServing.kcal), protein: formatInt(totals.perServing.protein) })}</p>}
         </div>
 
         {/* "Serves · time · meal", like the reference's chip row. Laid out so no chip is left alone on a line: with three chips the stepper sits
@@ -616,10 +618,18 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
           // (like the reference's "Add to list" bar; no fade). Last in the page and pulled down over main's own bottom padding (pb-32), so at the
           // very end it sits under the footer.
           <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-4 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-3">
-            <Button full className="min-h-[3.25rem]" onClick={addAll}>
-              <PlusIcon aria-hidden className="h-5 w-5 shrink-0" />
-              {t("Add all to my shopping list")}
-            </Button>
+            {/* once added, the button says so and opens the list, so a second tap doesn't add everything twice (usability test 2026-11-19) */}
+            {added ? (
+              <LinkButton full href="/app/groceries/list" className="min-h-[3.25rem]">
+                <CheckIcon aria-hidden className="h-5 w-5 shrink-0" />
+                {t("Added: see your list")}
+              </LinkButton>
+            ) : (
+              <Button full className="min-h-[3.25rem]" onClick={addAll}>
+                <PlusIcon aria-hidden className="h-5 w-5 shrink-0" />
+                {t("Add all to my shopping list")}
+              </Button>
+            )}
             <p role="status" aria-live="polite" className="px-2 text-center text-[0.875rem] font-semibold text-accent">
               {added && <span className="mt-2 block">{added} <Link href="/app/groceries/list" className="underline underline-offset-2">{t("See list")}</Link></span>}
             </p>

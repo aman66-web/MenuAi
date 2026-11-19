@@ -97,7 +97,17 @@ function ShoppingListScreen() {
   const allPicked = list.length > 0 && pickedNow.length === list.length;
   const flipPick = (i: ShoppingItem) => setPicked((p) => { const n = new Set(p); if (n.has(pickKey(i))) n.delete(pickKey(i)); else n.add(pickKey(i)); return n; });
   const stopSelecting = () => { setSelecting(false); setPicked(new Set()); };
-  const suggestion = matches && !current ? nextToBuy(matches) : null;
+  // what was just ticked off and removed (bought) is not suggested again straight away (usability test 2026-11-19: Joan removed the ham she'd put in her
+  // basket, and "You might also need" offered it back)
+  const [bought, setBought] = useState<ReadonlySet<string>>(new Set());
+  const suggestion = matches && !current
+    ? nextToBuy(matches.map((m) => ({ ...m, missing: m.missing.filter((i) => { const pr = m.resolved.picks[i]?.product; return !pr || !bought.has(pr.gtin || pr.id); }) })))
+    : null;
+  const removeTicked = () => {
+    setBought((b) => new Set([...b, ...list.filter((x) => x.done).map((x) => x.gtin || x.shopId || "").filter(Boolean)]));
+    withUndo(tk("Ticked items removed."), undefined, () => shoppingStore.update((l) => l.filter((x) => listOf(x) !== listId || !x.done)));
+    setNote(null);
+  };
 
   /**
    * What is sent (founder 2026-10-15: a friend gets a link that opens the list, and says to get the app): a line saying whose list, the items as plain words
@@ -307,7 +317,8 @@ function ShoppingListScreen() {
                   {sorted.map((i) => {
                     const code = itemCode(i);
                     const href = i.custom ? null : i.gtin ? `/app/groceries/product?code=${i.gtin}&r=${i.retailer}` : `/app/groceries/shop/item?r=${i.retailer}&id=${encodeURIComponent(i.shopId ?? "")}`;
-                    const detail = [i.brand, i.size, i.price !== undefined ? formatPrice(i.price) : "", i.gtin].filter(Boolean).join(" · ");
+                    // no barcode number here (usability test 2026-11-19: "meaningless clutter", and cut off at large text)
+                    const detail = [i.brand, i.size, i.price !== undefined ? formatPrice(i.price) : ""].filter(Boolean).join(" · ");
                     const body = (
                       <>
                         <span className={`block text-base font-semibold leading-snug [overflow-wrap:anywhere] ${i.done ? "text-muted line-through decoration-1" : ""}`}>{i.name}</span>
@@ -401,13 +412,14 @@ function ShoppingListScreen() {
           )}
           {/* and a way to another shop: the page that asks "Which shop?" (not on a list for one shop) */}
           {!current && <LinkButton href="/app/groceries" variant="secondary" full className="mt-8 min-h-12"><BasketIcon className="h-5 w-5" />{[...groups.keys()].some((r) => r !== CUSTOM_RETAILER) ? t("Add from another shop") : t("Add products from a shop")}</LinkButton>}
-          <div className={`${current ? "mt-8" : "mt-3"} grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.5rem),1fr))] gap-2.5`}>
+          {/* the ticked things off the list, as the main button once something is ticked (usability test 2026-11-19: it was a quiet button at the very bottom) */}
+          {ticked > 0 && <Button full className={`${current ? "mt-8" : "mt-3"} min-h-14 text-lg`} onClick={removeTicked}><TrashIcon className="h-5 w-5" />{t("Remove ticked ({n})", { n: ticked })}</Button>}
+          <div className={`${ticked > 0 ? "mt-3" : current ? "mt-8" : "mt-3"} grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.5rem),1fr))] gap-2.5`}>
             <Button className="min-h-12" onClick={share}><ShareIcon className="h-5 w-5" />{t("Share list")}</Button>
             <Button variant="secondary" className="min-h-12" onClick={copy}><CopyIcon className="h-5 w-5" />{t("Copy")}</Button>
             {/* to a friend who has the app (Community, founder 2026-10-16): lands in their Shared with you; needs an account, the rest of this page does not */}
             <SendToFriend list={list} onSent={setNote} />
-            {ticked > 0 && <Button variant="secondary" className="min-h-12" onClick={() => { withUndo(tk("Ticked items removed."), undefined, () => shoppingStore.update((l) => l.filter((x) => listOf(x) !== listId || !x.done))); setNote(null); }}>{t("Remove ticked ({n})", { n: ticked })}</Button>}
-            <Button variant="ghost" className={`min-h-12 ${ticked > 0 ? "" : "col-span-full"}`} onClick={() => { withUndo(tk("List cleared."), undefined, () => shoppingStore.update((l) => l.filter((x) => listOf(x) !== listId))); setNote(null); }}>{t("Clear list")}</Button>
+            <Button variant="ghost" className="col-span-full min-h-12" onClick={() => { withUndo(tk("List cleared."), undefined, () => shoppingStore.update((l) => l.filter((x) => listOf(x) !== listId))); setNote(null); }}>{t("Clear list")}</Button>
           </div>
           <p className="mt-3 px-1 text-sm leading-snug text-muted">{t("Sharing sends a link that holds your list, so anyone who has it can see it.")}</p>
           {suggestion && state?.status === "ready" && (

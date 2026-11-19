@@ -50,7 +50,7 @@ await step("the tab bar opens Recipes; Home's My meals tile opens one page with 
 await step("recipes list: picked for you, 165 recipes priced at Sainsbury's, 24 at a time, meal tiles, search, filters, sort by price under More, save with the heart", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/recipes");
-  await page.getByText(/Every ingredient is a real product at Sainsbury's/).waitFor();
+  await page.getByText(/Made with real Sainsbury's products and prices|Every ingredient is a real product at Sainsbury's/).waitFor();
   const picks = page.getByRole("region", { name: "Picked for you" }).locator("a[href*='/app/recipes/view']");
   await picks.first().waitFor();
   expect((await picks.count()) === 8, `8 picked for you, got ${await picks.count()}`);
@@ -647,7 +647,7 @@ await step("cuisine and occasion: side by side, each opens the Filters sheet at 
 await step("Shopping at (Recipes page): one shop beside the search with its logo and name, a tap opens a choice of one shop, a pick is saved at once as the person's first shop and shows a short working moment, the recipes change to that shop, axe", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/recipes");
-  await page.getByText(/Every ingredient is a real product at Sainsbury's/).waitFor();
+  await page.getByText(/Made with real Sainsbury's products and prices|Every ingredient is a real product at Sainsbury's/).waitFor();
   const search = page.getByLabel("Search recipes");
   const shop = page.getByRole("button", { name: /^Shopping at/ });
   expect((await shop.getAttribute("aria-label")) === "Shopping at: Sainsbury's", "label: " + (await shop.getAttribute("aria-label")));
@@ -677,11 +677,11 @@ await step("Shopping at (Recipes page): one shop beside the search with its logo
   await sheet.waitFor({ state: "hidden", timeout: 6000 });
   expect(Date.now() - t0 < 4000, "the working moment lasted too long");
   expect((await shop.getAttribute("aria-label")) === "Shopping at: Morrisons", "after: " + (await shop.getAttribute("aria-label")));
-  await page.getByText(/Every ingredient is a real product at Morrisons/).waitFor();
+  await page.getByText(/Made with real Morrisons products and prices|Every ingredient is a real product at Morrisons/).waitFor();
   // Morrisons makes fewer of the recipes than Sainsbury's (labels read so far): the page says so
   await page.getByText(/more recipes? needs? something we haven't found at Morrisons yet\. Choose another shop/).waitFor();
   await page.reload();
-  await page.getByText(/Every ingredient is a real product at Morrisons/).waitFor();
+  await page.getByText(/Made with real Morrisons products and prices|Every ingredient is a real product at Morrisons/).waitFor();
   await ctx.close();
 });
 
