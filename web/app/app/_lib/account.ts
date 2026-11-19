@@ -9,7 +9,7 @@ import { EMPTY_META, SyncEngine, sanitizeMeta, type SyncStatus } from "@/lib/mm/
 import { createSyncAdapters } from "@/lib/mm/syncStores";
 import { communityCacheStore } from "./communityCache";
 import { forgetInviteCode } from "./inviteCode";
-import { compareStore, cupboardStore, favoritesStore, logStore, myRecipesStore, remindersStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, waterStore } from "@/lib/mm/stores";
+import { compareStore, cupboardStore, favoritesStore, logStore, myRecipesStore, remindersStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, waterStore, householdStore } from "@/lib/mm/stores";
 
 // Sign-in and sync for the running app (docs/ACCOUNTS_SYNC.md). Since 2026-11-17 everyone signs in (lib/mm/config.ts SIGN_IN_REQUIRED: the app shows the
 // sign-in screen until someone is); with that switch off signing in is optional, and with no account none of this does anything and everything stays on the device. The cached "who" (mm.v1.account) is only for showing the name; the real session is the server's
@@ -120,6 +120,7 @@ async function leave(tellServer: boolean): Promise<void> {
   stopLoop?.();
   if (tellServer) await accountApi().signOut();
   communityCacheStore.reset(); // friends and shared lists belong to the account, not to the device (docs/BACKEND.md "Community")
+  householdStore.reset(); // the people the meal plan cooks for: another person may sign in next on this phone
   userStore.set(null);
 }
 
@@ -135,6 +136,7 @@ export async function deleteAccount(appleAuthorizationCode?: string): Promise<vo
   stopLoop?.();
   syncEngine().forget();
   communityCacheStore.reset(); // the username, friends and lists were deleted with the account
+  householdStore.reset();
   forgetInviteCode();
   userStore.set(null);
 }

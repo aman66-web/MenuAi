@@ -23,7 +23,7 @@ import { ShopChoice } from "../ShopChoice";
 // The shop in the header is a button: it opens "Shopping at" with every shop that can make recipes, those that can't make THIS one greyed; choosing one saves it
 // as the person's first supermarket and works the whole recipe out again from that shop's products and labels. The other shops are loaded only when the Swap
 // sheet or that choice is opened (a plain look at a recipe loads one shop), so one ingredient can be swapped to another shop's product.
-export function RecipeScreen({ id, mine, shop: asked, have }: { id: string | null; mine: string | null; shop: string | null; have?: readonly string[] }) {
+export function RecipeScreen({ id, mine, shop: asked, have, servings, asWritten }: { id: string | null; mine: string | null; shop: string | null; have?: readonly string[]; servings?: number; asWritten?: boolean }) {
   const t = useT();
   const router = useRouter();
   const hydrated = useHydrated();
@@ -103,6 +103,8 @@ export function RecipeScreen({ id, mine, shop: asked, have }: { id: string | nul
       onNeedOtherShops={needOthers}
       othersLoading={wantOthers && !allLoaded}
       haveKeys={have}
+      startServings={servings}
+      startAsWritten={asWritten}
       actions={savedOne ? <Button full variant="ghost" onClick={() => { myRecipesStore.update((l) => l.filter((s) => s.id !== savedOne.id)); router.push(`/app/recipes?r=${shop}`); }}><TrashIcon className="h-5 w-5" />{t("Remove from my recipes")}</Button> : undefined}
     />
   );

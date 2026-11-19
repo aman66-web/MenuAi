@@ -129,7 +129,7 @@ function MacroRow({ label, grams, dot }: { label: string; grams: number; dot: st
  *  `products` are theirs, tagged with their shop. Every ingredient comes from the first shop unless the person swaps it to another shop's product.
  *  `onChangeShops`: when given, the shop in the header is a button that opens the screen's choice of shop. `onNeedOtherShops`: called when the Swap sheet opens,
  *  so the screen loads the other shops (they're not loaded for a plain look at a recipe); `othersLoading` says they are on their way. */
-export function RecipeDetail({ recipe, files, products, backHref, actions, photo, onChangeShops, onNeedOtherShops, othersLoading, diet, save, haveKeys }: { /** Ingredients the person said they have (Cook with what you have): they start ticked "I have this". */ haveKeys?: readonly string[]; recipe: Recipe; files: readonly ShopFile[]; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode; photo?: string; onChangeShops?: () => void; onNeedOtherShops?: () => void; othersLoading?: boolean; /** The diet this recipe was made for (Make it at home's "What to exclude"), when it isn't the one in Settings. */ diet?: Preferences; /** A recipe Pip has just written (Make it at home): a Save button at the top, and Back asks to save it first while it isn't saved. */ save?: { saved: boolean; onSave: () => void } }) {
+export function RecipeDetail({ recipe, files, products, backHref, actions, photo, onChangeShops, onNeedOtherShops, othersLoading, diet, save, haveKeys, startServings, startAsWritten }: { /** Opened from a household meal plan: everyone's servings, as written. */ startServings?: number; startAsWritten?: boolean; /** Ingredients the person said they have (Cook with what you have): they start ticked "I have this". */ haveKeys?: readonly string[]; recipe: Recipe; files: readonly ShopFile[]; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode; photo?: string; onChangeShops?: () => void; onNeedOtherShops?: () => void; othersLoading?: boolean; /** The diet this recipe was made for (Make it at home's "What to exclude"), when it isn't the one in Settings. */ diet?: Preferences; /** A recipe Pip has just written (Make it at home): a Save button at the top, and Back asks to save it first while it isn't saved. */ save?: { saved: boolean; onSave: () => void } }) {
   const t = useT();
   const poss = usePossessive();
   const first = files[0]!;
@@ -152,10 +152,10 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   const targetKey = JSON.stringify(recipe.meal === "snack" ? null : mealTargetFor(settings));
   const target = useMemo(() => JSON.parse(targetKey) as ReturnType<typeof mealTargetFor>, [targetKey]);
   // founder 2026-11-16: a recipe opens for one person ("Serves 1 should be the norm"); + cooks for more, and the amounts, the numbers shown and the steps follow
-  const [servings, setServings] = useState(1);
+  const [servings, setServings] = useState(startServings ?? 1);
   const [chosen, setChosen] = useState<Record<string, string>>({});
   const [subs, setSubs] = useState<Record<string, string>>({});
-  const [asWritten, setAsWritten] = useState(false);
+  const [asWritten, setAsWritten] = useState(startAsWritten ?? false);
   const [swapping, setSwapping] = useState<string | null>(null);
   // which shop's products the Swap sheet lists (the shop of the product now in the recipe until another is chosen), for the ingredient being swapped
   const [swapShopFor, setSwapShopFor] = useState<{ key: string; shop: string } | null>(null);

@@ -3375,3 +3375,31 @@ top part instead".
   a soft tint of its own so it is noticed and known by its colour: Meal plan pale green (#e4f0d0, white day squares), Cook with what you already have cream
   (#fbeccb, white food chips), Scan your food white with its lime and dark buttons; every "add" button on Home (the meals', Water's, Reminders') dark with a
   white +. axe finds nothing for a Premium or a free person; addfood, water and coach pass.
+
+### 19 November 2026 (evening): the meal plan for everyone at home (on `iap`, not live)
+Founder: "people normally live with people so I want a way people can add their kids and partner etc and create a plan for everyone"; "first screen is how
+many people are they cooking for"; "needs good personalisation ... but easy to understand"; "have a meeting with 20 ai agents ... we need the best possible ...
+consider everything"; then "once the final conclusion is done please make those pages and commit". The meeting (20 roles, 42 agent runs: proposals, a merged
+draft, a vote, a conclusion; average score 7.1 of 10) is summed up in the session; its conclusion is the plan for these screens.
+- **The steps** (one question a screen; the bottom button says the usual answer until something changes: "No allergies at home", "We all eat the same",
+  "Nothing to leave out"): How many people are you cooking for? (Just me to 6 of us) > Who's eating with you? (a card per person: Adult, Teenager, Child or
+  Little one, an optional name, Smaller/Usual/Bigger, Pip saying the portion in words) > Your meals and snacks (your numbers on its top line) > Where you shop
+  (moved earlier) > Any food allergies at home? (one list for the home) > Does anyone not eat meat? (the whole home has the meat-free version) > Anything
+  someone won't eat? > Your budget > Ready to make your plan? (everyone, Just me too; allergies first; Change on every line). Just me keeps its diet and
+  "The food you like" screens. Step 1 of 8 (Just me) or 9.
+- **Cooked as written** (`lib/mm/household.ts`, `forHousehold` in `lib/mm/mealPlan.ts`): every recipe as written, scaled to everyone's portions; the user's
+  portion matches their own meal size; another grown-up's matches the same meal of a 2,000 kcal day; a teenager 1¼, a child ¾, a little one ½ of a grown-up's,
+  a quarter less or more for Smaller or Bigger (FOR THE FOUNDER TO APPROVE); recipes whose written version suits the user's meal come first; snacks are just
+  for the user. Never fitted to the user's targets for everyone (a dieter's dish for the children, extra meat bought).
+- **The week**: the cost for everyone, only the user's numbers, the allergy sentence ("Recipes made with peanuts are left out. Always check the label."),
+  "Servings each: you 1¼, Person 2 1½ and Sam 1¼." on each meal, "Add my portion to Breakfast" (logs the user's own portion), and a meal opens on its recipe
+  page for everyone's servings, as written (`?n=&w=1`).
+- **Privacy**: the household (`mm.v1.household`) is on the phone only, never synced; a saved plan keeps the others' age groups and portions and the home's
+  allergies and meat answer, never names; signing out, deleting the account and Clear data remove it. The privacy page says so.
+- Tests: `tests/household.test.ts` (shares, plates, sizing, what is kept); `e2e/household.mjs` 6 of 6; `e2e/mealplan.mjs` reordered for the new Just me
+  steps, 9 of 9 (now run with the Premium preview).
+- **Not yet built** (the meeting's first version): Lunch on weekdays, "Was there enough for everyone?", the example week on the Premium intro, product label
+  checks with "Check these packs", "People you cook for" outside the plan's steps, the week staying readable when Premium ends. The allergy flags on the
+  recipe ingredients are being checked against the shops' own labels (a separate commit).
+- **Open for the founder** (the meeting's questions): the portion sizes; "may contain" packs left out or listed; the whole home going vegetarian in 1.2; under-5s
+  (included at half a portion, no health advice); the website the same day; counting plan sizes (not done); the new wording.

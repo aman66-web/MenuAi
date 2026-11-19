@@ -1,4 +1,6 @@
 import { tk } from "./i18n";
+import { platesFor, sanitizeHousehold, yourPortionDistance, type HomeMeat, type HomePerson } from "./household";
+import type { AllergenKey } from "./types";
 import type { DietPrefs } from "./pantry";
 import { PANTRY } from "./pantry";
 import { candidates as productCandidates, fitDistance, fitRecipe, isMeatFree, pickFor, recipeForDiet, recipeTotals, resolveRecipe, type IngredientPick, type IngredientSpec, type MealTarget, type MealType, type Recipe } from "./recipes";
@@ -155,6 +157,10 @@ export interface PlanCandidate {
   servings: number;
   /** How far one serving is from the meal size (0 = spot on). */
   distance: number;
+  /** A plan cooked for a household (forHousehold): each person's amount in the recipe's written servings, the app user first. */
+  plates?: number[];
+  /** The candidate as written, before forHousehold sized it for everyone (its better version is made from this). */
+  plain?: PlanCandidate;
 }
 
 /** Every recipe that can go in the plan, for each meal, closest to the meal size first (then cheapest, then name). */
@@ -165,6 +171,8 @@ export function planCandidates(
   targets: MealTarget | Partial<Record<MealType, MealTarget>> | null,
   leaveOut: readonly string[],
   shop = "",
+  /** A household plan (forHousehold): the recipes as written, not fitted to the user's meal, for every slot `targets` names. */
+  asWritten = false,
 ): Map<MealType, PlanCandidate[]> {
   // one size for breakfast, lunch and dinner (the Recipes tab's), or a size for each slot the day has (slotTargets)
   const single = !targets || "kcal" in targets;
@@ -176,7 +184,7 @@ export function planCandidates(
     const target = targetFor(base.meal);
     const recipe = recipeForDiet(base, diet);
     if (!recipe || leavesOut(recipe, leaveOut)) continue;
-    const fitted = target ? fitRecipe(recipe, products, {}, target) : null;
+    const fitted = target && !asWritten ? fitRecipe(recipe, products, {}, target) : null;
     const resolved = fitted ? fitted.resolved : resolveRecipe(recipe, products);
     const totals = fitted ? fitted.totals : recipeTotals(resolved);
     if (!totals || !resolved.complete || totals.costPerServing === null) continue;
@@ -189,7 +197,7 @@ export function planCandidates(
       cost: totals.costPerServing,
       picks: resolved.picks as IngredientPick[],
       servings: (fitted ? fitted.recipe : recipe).servings,
-      distance: target ? fitDistance(totals.perServing, target) : 0,
+      distance: target && !asWritten ? fitDistance(totals.perServing, target) : 0,
     });
   }
   for (const list of out.values()) list.sort((a, b) => a.distance - b.distance || a.cost - b.cost || a.recipe.name.localeCompare(b.recipe.name, "en-GB"));
@@ -292,6 +300,58 @@ export function betterForPeople(betterOf: (c: PlanCandidate) => PlanCandidate | 
   return (c) => {
     const b = betterOf(timesPeople(c, 1 / people));
     return b ? timesPeople(b, people) : null;
+  };
+}
+
+/**
+ * A plan cooked for a household (founder 2026-11-19, the 20-agent meeting: "cook recipes as written and measure your portion out"): every recipe as written,
+ * scaled to everyone's portions (household.ts platesFor), so the shopping and the price are the home's; the user's own portion matches their meal, and
+ * recipes whose written version suits the user's meal come first. Snacks are just for the user. Never fitted to the user's targets for everyone.
+ */
+export interface HouseholdSizing {
+  targets: Partial<Record<MealType, MealTarget>>;
+  yourDailyKcal: number;
+  others: readonly Pick<HomePerson, "group" | "portion">[];
+}
+
+export function householdCandidate(c: PlanCandidate, s: HouseholdSizing): PlanCandidate {
+  const target = s.targets[c.meal];
+  if (!target) return c;
+  const plain = c.plain ?? c;
+  const plates = platesFor(c.meal, plain.perServing.kcal, target, s.yourDailyKcal, s.others as HomePerson[]);
+  const you = plates.servings[0]!;
+  const ps = plain.perServing;
+  return {
+    ...plain,
+    plain,
+    plates: plates.servings,
+    servings: plain.servings / plates.total,
+    cost: plain.cost * plates.total,
+    perServing: { kcal: ps.kcal * you, protein: ps.protein * you, carbs: ps.carbs * you, fat: ps.fat * you },
+    distance: yourPortionDistance(ps, you, target),
+  };
+}
+
+const householdMemo = new WeakMap<Map<MealType, PlanCandidate[]>, Map<string, Map<MealType, PlanCandidate[]>>>();
+
+/** The as-written candidates (planCandidates with asWritten) sized for the household; the same map comes back for the same sizing, so makePlan's memo holds. */
+export function forHousehold(cands: Map<MealType, PlanCandidate[]>, s: HouseholdSizing): Map<MealType, PlanCandidate[]> {
+  const key = JSON.stringify([s.targets, s.yourDailyKcal, s.others.map((p) => [p.group, p.portion])]);
+  let byKey = householdMemo.get(cands);
+  if (!byKey) householdMemo.set(cands, (byKey = new Map()));
+  let out = byKey.get(key);
+  if (!out) {
+    out = new Map([...cands].map(([meal, list]) => [meal, list.map((c) => householdCandidate(c, s)).sort((a, b) => a.distance - b.distance || a.cost - b.cost || a.recipe.name.localeCompare(b.recipe.name, "en-GB"))]));
+    byKey.set(key, out);
+  }
+  return out;
+}
+
+/** betterOf for household candidates: the better version is made from the plain (as written) candidate, then sized for the household the same way. */
+export function betterForHousehold(betterOf: (c: PlanCandidate) => PlanCandidate | null, s: HouseholdSizing): (c: PlanCandidate) => PlanCandidate | null {
+  return (c) => {
+    const b = betterOf(c.plain ?? c);
+    return b ? householdCandidate({ ...b, plain: undefined }, s) : null;
   };
 }
 
@@ -645,6 +705,9 @@ export interface SavedPlan {
   swapped?: boolean;
   /** How many people the shopping is for (PLAN_PEOPLE); absent = one, as plans were before 19 November. */
   people?: number;
+  /** A plan cooked for a household (founder 2026-11-19): the others' age groups and portion sizes (never names) and the home's allergies and meat answer
+   *  as they were when the plan was made, so the week is rebuilt the same way. Absent = the user alone (or `people` copies of them, before 19 November). */
+  home?: { others: Array<Pick<HomePerson, "group" | "portion">>; allergies: AllergenKey[]; meat: HomeMeat };
 }
 
 export function sanitizePlan(raw: unknown): SavedPlan | null {
@@ -662,7 +725,13 @@ export function sanitizePlan(raw: unknown): SavedPlan | null {
   const better = Array.isArray(r.better) ? (r.better as unknown[]).filter((x): x is string => typeof x === "string" && /^(breakfast|lunch|dinner|snack):[a-z0-9-]{1,80}$/.test(x)).slice(0, 42) : [];
   const variety = (VARIETIES as readonly unknown[]).includes(r.variety) ? (r.variety as Variety) : null;
   const cuisines = Array.isArray(r.cuisines) ? [...new Set((r.cuisines as unknown[]).filter((c): c is CuisineId => CUISINES.some((x) => x.id === c)))] : [];
-  return { shops, ids, leaveOut, budget, start: r.start, ...(slotsOk ? { slots } : {}), ...(better.length ? { better } : {}), ...(variety ? { variety } : {}), ...(cuisines.length ? { cuisines } : {}), ...(r.swapped === true ? { swapped: true } : {}), ...(typeof r.people === "number" && (PLAN_PEOPLE as readonly number[]).includes(r.people) && r.people > 1 ? { people: r.people } : {}) };
+  // the home, checked like the household itself (its people get placeholder ids: a plan keeps no ids or names)
+  const homeRaw = r.home && typeof r.home === "object" ? (r.home as Record<string, unknown>) : null;
+  const homeOk = homeRaw && Array.isArray(homeRaw.others) && homeRaw.others.length >= 1
+    ? sanitizeHousehold({ ...homeRaw, others: (homeRaw.others as unknown[]).map((o, i) => (o && typeof o === "object" ? { ...(o as object), id: `p${i}`, name: undefined } : o)) })
+    : null;
+  const home = homeOk && homeOk.others.length ? { others: homeOk.others.map((o) => ({ group: o.group, portion: o.portion })), allergies: homeOk.allergies, meat: homeOk.meat } : null;
+  return { shops, ids, leaveOut, budget, start: r.start, ...(slotsOk ? { slots } : {}), ...(better.length ? { better } : {}), ...(variety ? { variety } : {}), ...(cuisines.length ? { cuisines } : {}), ...(r.swapped === true ? { swapped: true } : {}), ...(home ? { home } : typeof r.people === "number" && (PLAN_PEOPLE as readonly number[]).includes(r.people) && r.people > 1 ? { people: r.people } : {}) };
 }
 
 /**

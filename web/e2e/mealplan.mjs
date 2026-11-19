@@ -5,7 +5,8 @@ import { createRequire } from "node:module";
 const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
 const BASE = process.env.BASE ?? "http://localhost:3101";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
-const settings = (patch = {}) => JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, dailyProtein: 120, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true, shops: ["sainsburys"], ...patch } });
+// devProOverride: a build with Premium switched on lets this tester in (the dev server's Premium preview); a build without it ignores it
+const settings = (patch = {}) => JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, dailyProtein: 120, hasSetTargets: true, devProOverride: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true, shops: ["sainsburys"], ...patch } });
 let passed = 0, failed = 0;
 async function step(name, fn) { try { await fn(); passed++; console.log("PASS", name); } catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n").slice(0, 3).join(" | ")); } }
 const expect = (c, m) => { if (!c) throw new Error(m); };
@@ -37,10 +38,11 @@ await step("Home: the meal plan is a row of its own across the width, under the 
   await page.waitForURL((u) => u.pathname.startsWith("/app/plan"));
 });
 
-await step("Pip asks one thing a screen: numbers, meals and snacks, diet, foods, shops (two chosen)", async () => {
-  await page.getByText("Step 1 of 7").waitFor({ timeout: 60000 });
-  await page.getByRole("heading", { level: 1, name: "Your daily numbers" }).waitFor();
+await step("Pip asks one thing a screen: how many people (Just me), meals and snacks, shops (two chosen), diet, the food you like, foods (the order since 2026-11-19)", async () => {
+  await page.getByText("Step 1 of 8").waitFor({ timeout: 60000 });
+  await page.getByRole("heading", { level: 1, name: "How many people are you cooking for?" }).waitFor();
   expect(await page.evaluate(() => document.activeElement?.tagName === "H1"), "the headline has the focus");
+  expect((await page.getByRole("radio", { name: "Just me" }).getAttribute("aria-checked")) === "true", "Just me to begin with");
   await page.getByRole("button", { name: "Continue" }).click();
   // meals and snacks (founder 2026-11-18: "how many meals and how many snacks they want a day as well")
   await page.getByRole("heading", { level: 1, name: "Your meals and snacks" }).waitFor();
@@ -56,6 +58,19 @@ await step("Pip asks one thing a screen: numbers, meals and snacks, diet, foods,
   expect((await page.getByRole("radio", { name: /^Some repeats/ }).getAttribute("aria-checked")) === "true", "some repeats to start with");
   await page.getByRole("radio", { name: /^Meal prep/ }).click();
   expect((await page.getByRole("radio", { name: /^Meal prep/ }).getAttribute("aria-checked")) === "true", "meal prep chosen");
+  await page.getByRole("button", { name: "Continue" }).click();
+  await page.getByRole("heading", { level: 1, name: "Where you shop" }).waitFor();
+  const sains = page.getByRole("checkbox", { name: /Sainsbury/ });
+  await sains.waitFor({ timeout: 60000 });
+  expect((await sains.getAttribute("aria-checked")) === "true", "the person's own shop starts chosen");
+  await page.getByText(/^Everything will come from Sainsbury's: one shop, one shopping list/).waitFor();
+  await page.getByRole("status").filter({ hasText: /With one shop/ }).filter({ hasText: /real Sainsbury's product/ }).waitFor();
+  await page.getByRole("checkbox", { name: /Morrisons/ }).click();
+  await page.getByText(/^I'll share your meals between Sainsbury's and Morrisons, using the best shop for each meal/).waitFor();
+  await page.getByRole("status").filter({ hasText: /With 2 shops/ }).filter({ hasText: /split by shop/ }).waitFor();
+  await page.addScriptTag({ path: AXE });
+  const v = await page.evaluate(async () => (await window.axe.run(document, { runOnly: ["wcag2a", "wcag2aa"] })).violations.map((x) => `${x.id}: ${x.nodes[0]?.html.slice(0, 100)}`));
+  expect(v.length === 0, v.join(" | "));
   await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("heading", { level: 1, name: "Your diet and allergies" }).waitFor();
   await page.getByRole("button", { name: "Continue" }).click();
@@ -83,19 +98,6 @@ await step("Pip asks one thing a screen: numbers, meals and snacks, diet, foods,
   for (const w of ["avocado", "oats", "bread", "yoghurt", "milk", "banana", "toast", "porridge", "granola", "berries", "pancake", "muffin"]) await page.getByRole("button", { name: w, exact: true }).click();
   await page.getByRole("status").filter({ hasText: /I can choose from/ }).waitFor();
   await page.getByRole("button", { name: "Continue" }).click();
-  await page.getByRole("heading", { level: 1, name: "Where you shop" }).waitFor();
-  const sains = page.getByRole("checkbox", { name: /Sainsbury/ });
-  await sains.waitFor({ timeout: 60000 });
-  expect((await sains.getAttribute("aria-checked")) === "true", "the person's own shop starts chosen");
-  await page.getByText(/^Everything will come from Sainsbury's: one shop, one shopping list/).waitFor();
-  await page.getByRole("status").filter({ hasText: /With one shop/ }).filter({ hasText: /real Sainsbury's product/ }).waitFor();
-  await page.getByRole("checkbox", { name: /Morrisons/ }).click();
-  await page.getByText(/^I'll share your meals between Sainsbury's and Morrisons, using the best shop for each meal/).waitFor();
-  await page.getByRole("status").filter({ hasText: /With 2 shops/ }).filter({ hasText: /split by shop/ }).waitFor();
-  await page.addScriptTag({ path: AXE });
-  const v = await page.evaluate(async () => (await window.axe.run(document, { runOnly: ["wcag2a", "wcag2aa"] })).violations.map((x) => `${x.id}: ${x.nodes[0]?.html.slice(0, 100)}`));
-  expect(v.length === 0, v.join(" | "));
-  await page.getByRole("button", { name: "Continue" }).click();
 });
 
 await step("the budget slider: from the cheapest week for the goal to better products, a green spot at the best fit, the plain line follows the slider", async () => {
@@ -116,17 +118,15 @@ await step("the budget slider: from the cheapest week for the goal to better pro
   await page.getByText("The green spot: the best week for your goal.").waitFor();
   const box = await slider.boundingBox();
   expect(box.height >= 44, "a big target");
-  // shopping for two (usability test 2026-11-19): the range is worked out again for both, then back to just me
-  await page.getByRole("radio", { name: "Just me" }).getAttribute("aria-checked").then((v) => expect(v === "true", "just me to begin with"));
-  await page.getByRole("radio", { name: "2 people" }).click();
-  await page.getByText("Every meal is sized to your numbers, and I'll buy the same for each person.").waitFor();
-  await page.waitForFunction((m) => { const s = document.querySelector('input[type="range"]'); return !!s && Number(s.min) > m; }, min, { timeout: 60000 });
-  await page.getByRole("radio", { name: "Just me" }).click();
-  await page.waitForFunction((m) => { const s = document.querySelector('input[type="range"]'); return !!s && Number(s.min) === m; }, min, { timeout: 60000 });
   await slider.focus();
   await page.keyboard.press("ArrowRight");
   await page.keyboard.press("ArrowRight");
   await page.keyboard.press("ArrowRight");
+  await page.getByRole("button", { name: "Continue" }).click();
+  // the check screen (the 20-agent meeting, 2026-11-19): everyone sees it, Just me too, with Change on every line
+  await page.getByRole("heading", { level: 1, name: "Ready to make your plan?" }).waitFor();
+  await page.getByText("Just you", { exact: true }).waitFor();
+  expect((await page.getByRole("button", { name: /^Change: / }).count()) >= 6, "a Change on every line");
   await page.getByRole("button", { name: "Make my plan" }).click();
 });
 
@@ -203,8 +203,8 @@ await step("the plan opens again as it was; Make a new plan starts Pip's questio
   const box = await top.boundingBox();
   expect(box && box.y < 400, "Make a new plan is near the top: " + JSON.stringify(box));
   await top.click();
-  await page.getByText("Step 1 of 7").waitFor();
-  for (let i = 0; i < 3; i++) await page.getByRole("button", { name: "Continue" }).click();
+  await page.getByText("Step 1 of 8").waitFor();
+  for (let i = 0; i < 4; i++) await page.getByRole("button", { name: "Continue" }).click(); // how many, meals, shops, diet
   expect((await page.getByRole("button", { name: /^Italian/ }).getAttribute("aria-pressed")) === "true", "cuisines kept");
   await page.getByRole("button", { name: "Continue" }).click();
   expect((await page.getByRole("button", { name: "Mushrooms", exact: true }).getAttribute("aria-pressed")) === "true", "foods kept");
@@ -215,9 +215,10 @@ await step("the plan opens again as it was; Make a new plan starts Pip's questio
 await step("a new plan keeps the old one under Earlier plans; Open makes it the plan again; Remove takes one away with Undo", async () => {
   const first = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.mealPlan")).data);
   await page.getByRole("button", { name: "Make a new plan" }).first().click();
-  await page.getByText("Step 1 of 7").waitFor();
-  for (let i = 0; i < 6; i++) await page.getByRole("button", { name: "Continue" }).click();
+  await page.getByText("Step 1 of 8").waitFor();
+  for (let i = 0; i < 6; i++) await page.getByRole("button", { name: "Continue" }).click(); // to the budget
   await page.getByRole("slider").waitFor({ timeout: 180000 });
+  await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("button", { name: "Make my plan" }).click();
   await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 30000 });
   const earlier = page.locator("section[aria-labelledby='earlier-h']");

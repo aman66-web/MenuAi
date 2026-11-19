@@ -65,7 +65,7 @@ export default function Privacy() {
 
       <Section title="What stays on your phone or in your browser">
         <Rows>
-          <li className={row}>Your goal, daily targets, preferences, favourite restaurants, saved orders, the meals you log, the water you add on Home, your reminders (see &ldquo;Reminders&rdquo; below), and the dishes you looked at in the last day (shown as &ldquo;Recently viewed&rdquo; on that restaurant&apos;s page, then forgotten), and the products and dishes you pick to compare.</li>
+          <li className={row}>Your goal, daily targets, preferences, favourite restaurants, saved orders, the meals you log, the water you add on Home, your reminders (see &ldquo;Reminders&rdquo; below), and the dishes you looked at in the last day (shown as &ldquo;Recently viewed&rdquo; on that restaurant&apos;s page, then forgotten), and the products and dishes you pick to compare. Your meal plan, and the people you cook for in it (for each, an age group, a portion size and a name only if you type one, plus your home&apos;s allergies and whether anyone doesn&apos;t eat meat), stay only on your phone: they are never sent to us or synced, and signing out, deleting your account or &ldquo;Clear data on this device&rdquo; removes them.</li>
           <li className={row}>
             In the iPhone app these are stored only inside the app on your phone; deleting the app deletes them. In the web app they are stored only in this browser
             on this device (local storage and, for a report photo that hasn&apos;t been sent yet, IndexedDB). {SIGN_IN_REQUIRED ? <>The parts listed under &ldquo;Your account and syncing&rdquo; are also saved in your account.</> : <>If you don&apos;t sign in, we never
@@ -102,7 +102,7 @@ export default function Privacy() {
             mark as already having, what you picked to compare, and today&apos;s log (entries from today and yesterday only).
           </li>
           <li className={row}>
-            <strong>What never syncs:</strong> your location, the water you add on Home (only your daily water goal syncs, with your other targets), your reminders, the dishes you viewed in the last day, the offline menu files, messages waiting to be
+            <strong>What never syncs:</strong> your location, the water you add on Home (only your daily water goal syncs, with your other targets), your reminders, your meal plan and the people you cook for, the dishes you viewed in the last day, the offline menu files, messages waiting to be
             sent, and anything in the app while you are signed out.
           </li>
           <li className={row}>

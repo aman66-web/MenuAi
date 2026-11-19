@@ -1,6 +1,7 @@
 import { sanitizeShoppingList, type ShoppingItem } from "./groceries";
 import { NO_COACH, sanitizeCoach, type CoachState } from "./coach";
 import { sanitizePlan, sanitizePlans, type SavedPlan } from "./mealPlan";
+import { NO_HOUSEHOLD, sanitizeHousehold, type Household } from "./household";
 import { sanitizeSavedRecipes, type SavedRecipe } from "./aiRecipe";
 import { createStore, requestPersistentStorage } from "./persist";
 import { sanitizeOutbox, OutboxSender, type OutboxItem } from "./outbox";
@@ -55,6 +56,9 @@ export const mealPlanStore = createStore<SavedPlan | null>("mm.v1.mealPlan", nul
 /** The meal plans made before the one being followed, newest first, at most MAX_EARLIER_PLANS (lib/mm/mealPlan.ts keepEarlier). On this device only, never synced;
  *  cleared by Clear data. */
 export const earlierPlansStore = createStore<SavedPlan[]>("mm.v1.earlierPlans", [], { sanitize: sanitizePlans });
+/** The people the meal plan cooks for (lib/mm/household.ts): on this device only, never synced or sent anywhere; cleared by Clear data, signing out and
+ *  deleting the account (founder 2026-11-19, the 20-agent meeting: "kept on this phone only ... another account signing in removes it"). */
+export const householdStore = createStore<Household>("mm.v1.household", NO_HOUSEHOLD, { sanitize: sanitizeHousehold });
 /** Recipes Pip wrote that the person saved (the pantry kinds and amounts, rebuilt from today's products when opened). On this device only. */
 export const myRecipesStore = createStore<SavedRecipe[]>("mm.v1.myRecipes", [], { sanitize: sanitizeSavedRecipes });
 /** Recipes from our book the person saved ("My recipes"), newest first. On this device only. */
