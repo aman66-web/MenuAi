@@ -21,10 +21,11 @@ export const COACH_STEPS: Readonly<Record<CoachScreen, readonly CoachStep[]>> = 
     { at: '[data-coach="home-add"]', title: tk("Add what you ate"), text: tk("Tap + next to a meal to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers.") },
     // the cooking tools sit on Home under the numbers (founder 2026-11-19), so their tips are here, in the order they come down the screen
     { at: '[data-coach="home-photo"]', title: tk("Scan your food"), text: tk("Take a photo of a meal: see its calories and protein, or get the recipe to make it at home. It's part of Premium."), when: PHOTO_RECIPES_ENABLED || FOOD_SCAN_ENABLED },
-    { at: 'main a[href="/app/recipes/fridge"]', title: tk("Cook from your fridge"), text: tk("Type or tap what you already have and get our recipes that use it.") },
     { at: 'main a[href="/app/plan"]', title: tk("Meal plan"), text: tk("Pip plans a week of meals for your goal, diet and budget, from the shops you use. It's part of Premium."), when: GATING_ENABLED },
     { at: 'main a[href="/app/plan"]', title: tk("Meal plan"), text: tk("Pip plans a week of meals for your goal, diet and budget, from the shops you use."), when: !GATING_ENABLED },
-    { at: 'main a[href="/app/groceries/list"]', title: tk("Shopping list"), text: tk("Everything you've added to buy, ready when you go to the shops. The number is how many things are left.") },
+    { at: 'main a[href="/app/recipes/fridge"]', title: tk("Cook from your fridge"), text: tk("Type or tap what you already have and get our recipes that use it.") },
+    // the shopping list and the gear share the top right corner (founder 2026-11-19), so one tip lights both and keeps Home to seven
+    { at: '[data-coach="home-top"]', title: tk("Shopping list, Settings"), text: tk("Top right: your shopping list (the number is what's left to buy), and the gear for Settings: your goal, diet and these tips.") },
     { at: '[data-coach="tabs"]', title: tk("Moving around"), text: tk("These buttons take you to each part of the app: Home, Recipes, Groceries and Eat out.") },
   ],
   eatOut: [

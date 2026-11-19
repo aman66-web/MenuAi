@@ -4,7 +4,7 @@
 import { COMMUNITY_ENABLED, COMMUNITY_FRIENDS_ENABLED, FOOD_SCAN_ENABLED, GATING_ENABLED, PHOTO_RECIPES_ENABLED } from "../../../lib/mm/config";
 import { tk } from "../../../lib/mm/i18n";
 import {
-  BasketIcon, CameraIcon, DropIcon, ForkIcon, FridgeIcon, GearIcon, GridIcon, HeartIcon, ListIcon, PeopleIcon, PinIcon, PlusIcon, PodiumIcon, ScanIcon, SearchIcon, SunriseIcon,
+  BasketIcon, CalendarIcon, CameraIcon, DropIcon, ForkIcon, GearIcon, GridIcon, HeartIcon, ListIcon, PeopleIcon, PinIcon, PlusIcon, PodiumIcon, ScanIcon, SearchIcon, SunriseIcon,
 } from "../_components/icons";
 import { Pip, type PipMood } from "../_components/Mascot";
 import { TabLabel } from "../_components/TabLabel";
@@ -32,9 +32,9 @@ const ALL_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: PipMood; ro
       // its top right corner: the stop says so in the order they come down the screen, four rows at most
       { Icon: CameraIcon, text: tk("Scan your food: take a photo of a meal for its calories and macros, or for a recipe to make it at home. It's part of Premium."), when: FOOD_SCAN_ENABLED && PHOTO_RECIPES_ENABLED },
       // "part of Premium" only where Premium is sold (usability test 2026-11-19: on the website, where nothing is sold, it was free and the tour said otherwise)
-      { Icon: FridgeIcon, text: tk("Under your numbers: cook with what you already have, or let Meal plan make your week. Meal plan is part of Premium."), when: GATING_ENABLED },
-      { Icon: FridgeIcon, text: tk("Under your numbers: cook with what you already have, or let Meal plan make your week."), when: !GATING_ENABLED },
-      { Icon: BasketIcon, text: tk("Top right: your shopping list, with how many things are left to buy.") },
+      { Icon: CalendarIcon, text: tk("Under your numbers: let Meal plan make your week, or cook with what you already have. Meal plan is part of Premium."), when: GATING_ENABLED },
+      { Icon: CalendarIcon, text: tk("Under your numbers: let Meal plan make your week, or cook with what you already have."), when: !GATING_ENABLED },
+      { Icon: BasketIcon, text: tk("Top right: your shopping list, and the gear for Settings: your goal, diet, and this tour again.") },
       { Icon: DropIcon, text: tk("Further down Home, add the water you drink and set your own reminders."), when: !(FOOD_SCAN_ENABLED && PHOTO_RECIPES_ENABLED) },
     ],
   },

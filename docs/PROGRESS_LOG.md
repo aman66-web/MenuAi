@@ -3351,3 +3351,17 @@ shouldn't be the case"; "you have breakfast, lunch, and dinner, but also have on
   `drop_held_back` in build_all_products.py): Nesquik milkshake powders (labelled per 100 ml of the made-up drink; the Open Food Facts copies carry the same
   figures as per 100 g) and an Alpro soya drink (saturates printed equal to fat, at Morrisons, Sainsbury's and through Tesco's borrowing). Other hold-backs,
   most of them about one shop's page, still let the product borrow the same product's label from another shop. A misspelt "Carohydrate" row is read.
+
+### 19 November 2026 (about 18:15): Home after the founder's test on the phone (on `iap`, not live)
+Founder, with photos from the iPhone: "I feel like these aren't noticed much the meal plan is a big thing it should have its own row. Also keep the settings
+cog on the right of shopping list like before"; "The background colour used for the scan your food may be better if that's used for the background of the
+top part instead".
+- **The day's numbers** (calories dial and macro bars) are on the app's dark (#1d2320), white words, the dial and bars lime on a faint white track.
+- **Scan your food** is a light card now: lime "Calories and macros", dark "Make it at home".
+- **Meal plan** is a row of its own across the width, in lime, saying "Pip plans 7 days of meals for your goal, with one shopping list." with a week of days;
+  **Cook with what you already have** is the next row, white, with what it does in words and the foods you'd type.
+- **The Settings gear** is back at Home's top right, right of the Shopping list; Eat out keeps its named Settings button. Home's tab is lit on Settings again
+  (as before), Settings' fallback Back is "Back to home", and Settings is still never a tab's remembered page. Pip's tips: one tip for the top right corner again.
+- The tips test waits for the page to scroll to a control far down Home. Morrisons: a Fridge Raiders variety pack (one flavour's table; the same at Sainsbury's)
+  held back at both, with no numbers from elsewhere.
+- Installed on the founder's iPhone 16 from the Mac (xcodebuild + devicectl): the free Xcode test purchases are on only when started with Xcode's Run.

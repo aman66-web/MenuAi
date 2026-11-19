@@ -27,8 +27,8 @@ async function context(coach, patch) {
 const tip = (page) => page.getByRole("dialog", { name: /./ }).filter({ hasText: /Tip \d+ of \d+/ });
 /** The lit hole sits round the control: the control's middle is inside the ring. */
 async function litAround(page, selector) {
-  await page.waitForTimeout(900); // the page scrolls the control into place and the ring follows
-  return page.evaluate((sel) => {
+  // the page scrolls the control into place and the ring follows: a control far down Home (the meals' + since the cooking cards, 2026-11-19) takes longer
+  const check = () => page.evaluate((sel) => {
     const el = document.querySelector(sel);
     const ring = [...document.querySelectorAll("dialog[open] div[aria-hidden]")].find((d) => d.style.boxShadow.includes("200vmax"));
     if (!el || !ring) return false;
@@ -36,6 +36,9 @@ async function litAround(page, selector) {
     const x = a.left + a.width / 2, y = a.top + Math.min(a.height, innerHeight * 0.42) / 2;
     return x >= b.left && x <= b.right && y >= b.top && y <= b.bottom;
   }, selector);
+  await page.waitForTimeout(900);
+  for (let i = 0; i < 12; i++) { if (await check()) return true; await page.waitForTimeout(250); }
+  return check();
 }
 
 await step("a phone set up before the tips existed sees none unasked", async () => {

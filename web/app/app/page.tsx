@@ -21,7 +21,7 @@ import { Gauge } from "./_components/Gauge";
 import { useGate } from "./_components/Paywall";
 import { RemindersSection } from "./_components/RemindersSection";
 import { WaterCard } from "./_components/WaterCard";
-import { BasketIcon, CalendarIcon, ChevronRightIcon, FlameIcon, PlusIcon } from "./_components/icons";
+import { BasketIcon, CalendarIcon, ChevronRightIcon, FlameIcon, GearIcon, PlusIcon } from "./_components/icons";
 import { RecipeTools } from "./_components/RecipeTools";
 import { Card, Spinner } from "./_components/ui";
 import { useChainIndexes, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "./_lib/hooks";
@@ -42,6 +42,8 @@ import { useLanguage, useT } from "./_lib/i18n";
 
 /** Two cards side by side, stacked when the text is large: the minimum width is in rem, so it grows with the text size. */
 const PAIR = "grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] gap-3.5";
+/** The day's numbers' two cards: the app's dark (the colour the scan card had), white words. */
+const DARK_CARD = "rounded-[1.25rem] bg-[#1d2320] text-white shadow-[0_18px_40px_-20px_rgba(0,0,0,0.6)]";
 
 const dayKey = (d: Date) => `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
 
@@ -55,11 +57,11 @@ function weekOf(now: Date): Date[] {
  * "PROTEIN      56g / 150g" and a thin bar well below it, measured from the founder's picture of this card (2026-10-15, "exactly like the
  * design in image 2"): the label in small spaced capitals and the figures in DM Mono, both the same grey, on one line; the bar spans the row.
  */
-function MacroRow({ label, eaten, target }: { label: string; eaten: number; target?: number }) {
+function MacroRow({ label, eaten, target, onDark = false }: { label: string; eaten: number; target?: number; /** On the dark numbers card. */ onDark?: boolean }) {
   const fraction = target ? Math.min(1, Math.max(0, eaten / target)) : 0;
   return (
     <div>
-      <p className="flex flex-wrap items-baseline justify-between gap-x-1.5 gap-y-0.5 text-muted">
+      <p className={`flex flex-wrap items-baseline justify-between gap-x-1.5 gap-y-0.5 ${onDark ? "text-white/75" : "text-muted"}`}>
         <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.08em]">{label}</span>
         <span className="app-numbers whitespace-nowrap font-mono text-[0.6875rem] font-normal">{formatGrams(eaten)}{target ? ` / ${formatGrams(target)}` : null}</span>
       </p>
@@ -128,13 +130,17 @@ export default function HomePage() {
           </button>
         </div>
         {/* the shopping list at the top right, with how many things are left to pick up (founder 2026-11-19: "instead of it saying settings in the top right on the
-            home screen, I think that should maybe say shopping list instead"); Settings is at the top right of Eat out ("that should be where the settings is") */}
-        <div className="-me-1 flex shrink-0 items-center">
+            home screen, I think that should maybe say shopping list instead"), and the Settings gear beside it ("keep the settings cog on the right of shopping list
+            like before"); Settings is also a named button at the top right of Eat out */}
+        <div data-coach="home-top" className="-me-1 flex shrink-0 items-center gap-0.5">
           <Link href="/app/groceries/list" className="group inline-flex min-h-11 items-center rounded-full transition active:scale-95">
             <span className="inline-flex h-9 items-center gap-1.5 rounded-full bg-soft-strong ps-2.5 pe-3 text-[0.9375rem] font-semibold transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]">
               <BasketIcon aria-hidden className="h-[18px] w-[18px]" />{t("Shopping list")}
               {toBuy > 0 && <span className="app-numbers ms-0.5 inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-foreground px-1.5 text-[0.75rem] font-bold text-background"><span className="sr-only">, {toBuy === 1 ? t("1 thing to pick up") : t("{n} things to pick up", { n: toBuy })}</span><span aria-hidden>{toBuy}</span></span>}
             </span>
+          </Link>
+          <Link href="/app/settings" aria-label={t("Settings")} className="group inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><GearIcon aria-hidden className="h-[18px] w-[18px]" /></span>
           </Link>
         </div>
       </div>
@@ -187,17 +193,19 @@ export default function HomePage() {
         <p className="glass mt-4 rounded-2xl px-4 py-2.5 text-xs text-muted">{t("Showing fictional sample data for testing. Numbers are not real.")}</p>
       )}
 
-      <div data-coach="home-numbers" className={`app-numbers mt-6 ${PAIR}`}>
+      {/* the day's numbers on the dark of the app's scan card (founder 2026-11-19: "the background colour used for the scan your food may be better if that's
+          used for the background of the top part instead"): white words, the dial and bars lime on a faint white track */}
+      <div data-coach="home-numbers" className={`app-numbers mt-6 ${PAIR}`} style={{ "--ring-track": "rgba(255,255,255,0.14)", "--bar": "var(--sun)" } as React.CSSProperties}>
         {/* Measured from the founder's picture of this card ("exactly like image 2"): the small label at the top, a dial about 55% of the
             card's width with a thick track and a small grey centre, plenty of room around it, the figures in a regular weight below. */}
-        <Card className="flex min-h-[14.25rem] min-w-0 flex-col items-center justify-between gap-5 px-4 pb-3.5 pt-4 text-center">
-          <p className="self-start text-[0.6875rem] font-bold uppercase tracking-[0.07em] text-muted">{t("Calories")}</p>
+        <div className={`${DARK_CARD} flex min-h-[14.25rem] min-w-0 flex-col items-center justify-between gap-5 px-4 pb-3.5 pt-4 text-center`}>
+          <p className="self-start text-[0.6875rem] font-bold uppercase tracking-[0.07em] text-white/75">{t("Calories")}</p>
           <Gauge id="home" label={t("Calories used today")} fraction={used} size={100} stroke={17} disc>
             <span aria-hidden className="text-[23px] font-[800] leading-none tracking-tight">{Math.round(used * 100)}%</span>
           </Gauge>
           <div>
             <p className="text-[1.25rem] font-normal leading-tight [overflow-wrap:anywhere]">
-              <span className="text-accent">{formatInt(eaten.calories)}</span> <span>/ {formatInt(settings.dailyCalories)}</span>
+              <span className="text-[var(--sun)]">{formatInt(eaten.calories)}</span> <span>/ {formatInt(settings.dailyCalories)}</span>
             </p>
             <p className="mt-0.5 text-[1.0625rem] font-normal leading-tight">kcal</p>
             {/* what's left, said in words (usability test 2026-11-19: "no figure says 1,028 left anywhere, so she must subtract in her head") */}
@@ -206,12 +214,12 @@ export default function HomePage() {
               {Math.round(eaten.calories) <= settings.dailyCalories ? t("{n} left", { n: formatInt(settings.dailyCalories - Math.round(eaten.calories)) }) : t("{n} over", { n: formatInt(Math.round(eaten.calories) - settings.dailyCalories) })}
             </p>
           </div>
-        </Card>
-        <Card className="flex min-w-0 flex-col justify-center gap-[2.1rem] px-4 py-6">
-          <MacroRow label={t("Protein")} eaten={eaten.protein} target={targets.protein} />
-          <MacroRow label={t("Carbs")} eaten={eaten.carbs} target={targets.carbs} />
-          <MacroRow label={t("Fat")} eaten={eaten.fat} target={targets.fat} />
-        </Card>
+        </div>
+        <div className={`${DARK_CARD} flex min-w-0 flex-col justify-center gap-[2.1rem] px-4 py-6`}>
+          <MacroRow onDark label={t("Protein")} eaten={eaten.protein} target={targets.protein} />
+          <MacroRow onDark label={t("Carbs")} eaten={eaten.carbs} target={targets.carbs} />
+          <MacroRow onDark label={t("Fat")} eaten={eaten.fat} target={targets.fat} />
+        </div>
       </div>
       {gaps.any && <p className="mt-3 px-1 text-sm leading-snug text-muted">{t("Some meals you added have no protein, carbs or fat entered, so those figures only count the rest.")}</p>}
 

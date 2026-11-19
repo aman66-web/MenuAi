@@ -207,8 +207,8 @@ export default function SettingsPage() {
 
   return (
     <div>
-      {/* Settings is the button at the top right of Eat out (founder 2026-11-19), not a tab: Back returns to the page before (Eat out by default) */}
-      <BackLink href="/app/eat-out" label={t("Back to Eat out")} />
+      {/* Settings is the gear on Home (and a button at the top right of Eat out), not a tab: Back returns to the page before (Home by default) */}
+      <BackLink href="/app" label={t("Back to home")} />
       <h1 className="mt-4 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{t("Settings")}</h1>
 
       {/* The guided setup with Pip (the welcome screens: a short tour, then the questions), for anyone who skipped it or wants to go through it again. */}

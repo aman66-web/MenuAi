@@ -58,8 +58,8 @@ const ROWS = {
     "Tap + next to Breakfast, Lunch, Dinner or Snacks to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers.",
     ...(PHOTO ? ["Scan your food: take a photo of a meal for its calories and macros, or for a recipe to make it at home. It's part of Premium."] : []),
     // "part of Premium" only where Premium is sold (the test build turns Pro on)
-    GATED ? "Under your numbers: cook with what you already have, or let Meal plan make your week. Meal plan is part of Premium." : "Under your numbers: cook with what you already have, or let Meal plan make your week.",
-    "Top right: your shopping list, with how many things are left to buy.",
+    GATED ? "Under your numbers: let Meal plan make your week, or cook with what you already have. Meal plan is part of Premium." : "Under your numbers: let Meal plan make your week, or cook with what you already have.",
+    "Top right: your shopping list, and the gear for Settings: your goal, diet, and this tour again.",
     ...(PHOTO ? [] : ["Further down Home, add the water you drink and set your own reminders."]),
   ],
   eatOut: [

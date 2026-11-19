@@ -52,7 +52,7 @@ const shortNow = () => new Intl.DateTimeFormat("en-US", { month: "short", day: "
 const dayPage = (page) => page.getByRole("heading", { level: 1 });
 const figuresText = (page) => page.locator("main, body").first().innerText();
 
-await step("Home's title is today's short date, month first, still named Home for screen readers; the calendar button sits beside it and the Shopping list is at the far right (Settings is on Eat out since 2026-11-19)", async () => {
+await step("Home's title is today's short date, month first, still named Home for screen readers; the calendar button sits beside it, then the Shopping list and the Settings gear at the far right", async () => {
   const { ctx, page, errors } = await open();
   await home(page);
   const h1 = page.getByRole("heading", { level: 1 });
@@ -61,12 +61,13 @@ await step("Home's title is today's short date, month first, still named Home fo
   expect((await page.getByRole("heading", { name: "Home", level: 1 }).count()) === 1, "no heading named Home");
   const cal = page.getByRole("button", { name: "Choose a day", exact: true });
   const list = page.locator('main a[href="/app/groceries/list"]').first();
-  const [c, g, t] = [await cal.boundingBox(), await list.boundingBox(), await h1.boundingBox()];
+  const gear = page.locator("main").getByRole("link", { name: "Settings", exact: true }); // founder 2026-11-19: "keep the settings cog on the right of shopping list"
+  const [c, l, g, t] = [await cal.boundingBox(), await list.boundingBox(), await gear.boundingBox(), await h1.boundingBox()];
   expect(c.width >= 44 && c.height >= 44, `the calendar button is ${c.width} x ${c.height}`);
   expect(c.x > t.x + t.width - 1, "the calendar button isn't to the right of the date");
-  expect(g.x > c.x + c.width, "the Shopping list isn't further right than the calendar button");
-  expect(g.x + g.width > 390 - 20, `the Shopping list isn't at the far right (right edge ${g.x + g.width})`);
-  expect((await page.locator("main").getByRole("link", { name: "Settings", exact: true }).count()) === 0, "Settings is still on Home");
+  expect(l.x > c.x + c.width, "the Shopping list isn't further right than the calendar button");
+  expect(g.x >= l.x + l.width - 1, "the gear isn't to the right of the Shopping list");
+  expect(g.width >= 44 && g.height >= 44 && g.x + g.width > 390 - 20, `the gear isn't a 44 px button at the far right: ${JSON.stringify(g)}`);
   expect(errors.length === 0, errors.join(" | "));
   await ctx.close();
 });

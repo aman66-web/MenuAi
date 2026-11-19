@@ -179,7 +179,7 @@ describe("the tour's stops", () => {
     const on = (await import("../app/app/welcome/Tour")).TOUR_STOPS;
     const onRows = (id: string) => (on.find((s) => s.id === id)?.rows ?? []).filter((r) => r.when !== false).map((r) => r.text);
     expect(onRows("home")).toContain("Scan your food: take a photo of a meal for its calories and macros, or for a recipe to make it at home. It's part of Premium.");
-    expect(onRows("home")).toContain("Under your numbers: cook with what you already have, or let Meal plan make your week. Meal plan is part of Premium.");
+    expect(onRows("home")).toContain("Under your numbers: let Meal plan make your week, or cook with what you already have. Meal plan is part of Premium.");
     expect(onRows("community")).toContain("Sign in to add friends with a code, then send each other shopping lists.");
     expect(on.find((s) => s.id === "community")?.says).toBe("Read short food articles, and send your shopping list to friends!");
   });

@@ -51,7 +51,7 @@ await step("the tab bar ends with Community (Home, Eat out, Groceries, Recipes, 
   await ctx.close();
 });
 
-await step("Settings is still reachable: the Settings button at Eat out's top right opens it (founder 2026-11-19), and Eat out's tab is the lit one on Settings and its sub-pages", async () => {
+await step("Settings is still reachable: the Settings button at Eat out's top right opens it (founder 2026-11-19), and Home's tab is the lit one on Settings and its sub-pages (as before; Home's gear opens it too)", async () => {
   const { ctx, page } = await open();
   await go(page, "/app/eat-out", /Eat/);
   const gear = page.locator("main").getByRole("link", { name: "Settings", exact: true });
@@ -61,7 +61,7 @@ await step("Settings is still reachable: the Settings button at Eat out's top ri
   expect(box.x + box.width > 390 - 24, `Settings isn't at the top right (right edge ${box.x + box.width})`);
   await gear.click();
   await page.getByRole("heading", { level: 1, name: "Settings", exact: true }).waitFor({ timeout: 90000 });
-  expect((await tabBar(page).getByRole("link", { name: "Eat out" }).getAttribute("aria-current")) === "page", "Eat out's tab is not lit on Settings");
+  expect((await tabBar(page).getByRole("link", { name: "Home" }).getAttribute("aria-current")) === "page", "Home's tab is not lit on Settings");
   expect((await tabBar(page).locator('a[aria-current="page"]').count()) === 1, "more than one tab is lit");
   // Settings is a second-level page, so it has a Back button, as the other pages inside a tab do; it returns to the page before (Eat out)
   const back = page.locator("main").getByRole("link", { name: /^Back/ }).first();
@@ -73,7 +73,7 @@ await step("Settings is still reachable: the Settings button at Eat out's top ri
   expect(new URL(page.url()).pathname === "/app/eat-out", "Back from Settings went to " + page.url());
   // the Eat out tab opens Eat out after a visit to Settings (Settings is never a tab's remembered page)
   await go(page, "/app/settings/numbers", /.+/);
-  expect((await tabBar(page).getByRole("link", { name: "Eat out" }).getAttribute("aria-current")) === "page", "Eat out's tab is not lit on Settings > numbers");
+  expect((await tabBar(page).getByRole("link", { name: "Home" }).getAttribute("aria-current")) === "page", "Home's tab is not lit on Settings > numbers");
   expect((await tabBar(page).getByRole("link", { name: "Eat out" }).getAttribute("href")) === "/app/eat-out", "Eat out's tab would reopen Settings");
   await ctx.close();
 });

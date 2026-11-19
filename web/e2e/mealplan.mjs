@@ -24,14 +24,15 @@ async function context(patch) {
 const ctx = await context();
 const page = await ctx.newPage();
 
-await step("Home: the meal plan sits beside Cook with what you already have, under the day's numbers (founder 2026-11-19)", async () => {
+await step("Home: the meal plan is a row of its own across the width, under the day's numbers, then Cook with what you already have under it (founder 2026-11-19: \"the meal plan is a big thing it should have its own row\")", async () => {
   await page.goto(BASE + "/app");
   const card = page.getByRole("link", { name: /^Meal plan/ });
   await card.waitFor({ timeout: 120000 });
-  const [n, a, b] = await Promise.all([page.locator('[data-coach="home-numbers"]').boundingBox(), page.getByRole("link", { name: /^Cook with what you already have/ }).boundingBox(), card.boundingBox()]);
-  expect(a.y >= n.y + n.height - 1, "under the day's numbers");
-  expect(Math.abs(a.y - b.y) < 2 && b.x > a.x + a.width - 1, `side by side: ${JSON.stringify([a, b])}`);
-  expect(b.width >= 44 && b.height >= 44, `a big target: ${JSON.stringify(b)}`);
+  const [n, b, a] = await Promise.all([page.locator('[data-coach="home-numbers"]').boundingBox(), card.boundingBox(), page.getByRole("link", { name: /^Cook with what you already have/ }).boundingBox()]);
+  expect(b.y >= n.y + n.height - 1, "under the day's numbers");
+  expect(b.width > 300 && b.height >= 44, `the whole width, a big target: ${JSON.stringify(b)}`);
+  expect(a.y >= b.y + b.height - 1 && a.width > 300, `Cook with what you already have is the next row: ${JSON.stringify([b, a])}`);
+  expect((await card.innerText()).includes("Pip plans 7 days of meals for your goal, with one shopping list."), "the card says what it does");
   await card.click();
   await page.waitForURL((u) => u.pathname.startsWith("/app/plan"));
 });

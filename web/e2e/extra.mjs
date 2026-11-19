@@ -222,7 +222,7 @@ await step("Eat out › My favourite restaurants: star one from the list and it'
   if (await page.getByRole("heading", { name: "Recently viewed" }).count()) throw new Error("still shown after a day");
   await ctx.close();
 });
-await step("Settings is the named button at Eat out's top right (founder 2026-11-19), a 44 px link to /app/settings that opens Settings; Home's top right is the Shopping list; Today's meals opens from a meal row", async () => {
+await step("Settings is the gear at Home's top right, right of the Shopping list, and a named button at Eat out's top right (founder 2026-11-19): 44 px links to /app/settings; Today's meals opens from a meal row", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, serviceWorkers: "block" });
   await ctx.addInitScript(() => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "maintain", dailyCalories: 2000 } })); });
   const page = await ctx.newPage();
@@ -230,7 +230,11 @@ await step("Settings is the named button at Eat out's top right (founder 2026-11
   // Home's header is the date and the calendar button on the left and the shopping list on the right: the h1's grandparent holds all three
   const header = page.locator("h1", { hasText: "Home" }).locator("xpath=../..");
   await vis(header.getByRole("link", { name: /^Shopping list/ }));
-  if (await page.getByRole("link", { name: "Settings", exact: true }).count()) throw new Error("Settings is still on Home");
+  const homeGear = header.getByRole("link", { name: "Settings", exact: true });
+  await vis(homeGear);
+  const hb = await homeGear.boundingBox();
+  if (hb.width < 44 || hb.height < 44 || (await homeGear.getAttribute("href")) !== "/app/settings") throw new Error(`Home's gear: ${JSON.stringify(hb)} ${await homeGear.getAttribute("href")}`);
+  if ((await page.getByRole("link", { name: "Settings", exact: true }).count()) !== 1) throw new Error("Settings should be one gear on Home, not a tab");
   if (await header.getByRole("link", { name: "Today's meals" }).count()) throw new Error("the calendar link is still in the header");
   const row = page.getByRole("link", { name: /Breakfast/ }).first();
   if ((await row.getAttribute("href")) !== "/app/today") throw new Error("a meal row no longer opens Today's meals: " + (await row.getAttribute("href")));
