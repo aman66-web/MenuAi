@@ -519,6 +519,8 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                               <SwapIcon className="h-4 w-4" />{t("Swap")}
                             </button>
                           </div>
+                          {/* said under any ticked ingredient, as on the cupboard ones (usability test 2026-11-19: Joan saw only a green tick on her eggs) */}
+                          {hasIt(spec) && !(spec.cupboard && spec.pantry) && <p className="mt-1 text-[0.875rem] font-semibold leading-snug text-muted">{t("Left off your list and the price to buy it all.")}</p>}
                         </>
                       ) : (
                         <p className="mt-1 text-[0.8125rem] text-muted">{t("Not found at {shop} yet.", { shop: first.name })}</p>
@@ -528,7 +530,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                   {p && spec.cupboard && spec.pantry && (
                     <div className="mt-3 flex flex-wrap items-center justify-end gap-x-3 gap-y-2 rounded-[1rem] bg-[var(--fill)] py-1.5 pe-1.5 ps-3.5">
                       <span className="min-w-0 flex-1 basis-32 text-[0.875rem] leading-snug text-muted">{hasIt(spec) ? t("Left off your list and the price to buy it all.") : t("You may have this already.")}</span>
-                      <button type="button" aria-pressed={hasIt(spec)} onClick={() => { toggleCupboard(spec.pantry!); setAdded(null); }} className={`inline-flex min-h-11 max-w-full items-center gap-1.5 rounded-full px-4 text-[0.9375rem] font-bold transition active:scale-95 ${hasIt(spec) ? "bg-sun text-on-accent" : "bg-white hover:bg-soft-strong"}`}>
+                      <button type="button" aria-pressed={hasIt(spec)} aria-label={t("I have this: {name}", { name: t(spec.label).toLowerCase() })} onClick={() => { toggleCupboard(spec.pantry!); setAdded(null); }} className={`inline-flex min-h-11 max-w-full items-center gap-1.5 rounded-full px-4 text-[0.9375rem] font-bold transition active:scale-95 ${hasIt(spec) ? "bg-sun text-on-accent" : "bg-white hover:bg-soft-strong"}`}>
                         {hasIt(spec) && <CheckIcon className="h-4 w-4" />}{t("I have this")}
                       </button>
                     </div>

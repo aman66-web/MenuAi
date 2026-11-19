@@ -125,9 +125,9 @@ await step("a recipe: per-serving numbers, what to buy, swap an ingredient, add 
   const cumin = buy.filter({ hasText: "Ground cumin" });
   await cumin.getByText("You may have this already.").waitFor();
   const basketBefore = await page.getByText("to buy it all", { exact: true }).locator("xpath=..").innerText();
-  await cumin.getByRole("button", { name: "I have this" }).click();
+  await cumin.getByRole("button", { name: /^I have this: ground cumin/ }).click();
   await cumin.getByText("Left off your list and the price to buy it all.").waitFor();
-  expect((await cumin.getByRole("button", { name: "I have this" }).getAttribute("aria-pressed")) === "true", "ticked");
+  expect((await cumin.getByRole("button", { name: /^I have this: ground cumin/ }).getAttribute("aria-pressed")) === "true", "ticked");
   const basketAfter = await page.getByText("to buy it all", { exact: true }).locator("xpath=..").innerText();
   expect(basketAfter !== basketBefore, `the price to buy it all drops (${basketBefore} -> ${basketAfter})`);
   const riceRow = buy.nth(3);

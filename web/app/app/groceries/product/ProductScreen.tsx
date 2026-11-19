@@ -12,7 +12,7 @@ import { compareFoodFromListed } from "../../_lib/compare";
 import { AllergenTable } from "../../_components/Allergens";
 import { CopyIcon, InfoIcon, PlusIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
-import { Button, ErrorBox, Spinner } from "../../_components/ui";
+import { Button, ErrorBox, LinkButton, Spinner } from "../../_components/ui";
 import { loadManifest, loadRetailer } from "../../_lib/groceries";
 import { useSettings } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
@@ -109,7 +109,16 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
   const back = <BackLink href="/app/groceries" label={t("Back to groceries")} />;
   if (state.status === "loading") return (<div>{back}<Spinner label={t("Loading product")} /></div>);
   if (state.status === "error") return (<div>{back}<div className="mt-4"><ErrorBox message={t("Couldn't load this product. Check your connection.")} /></div></div>);
-  if (state.status === "missing") return (<div>{back}<div className="mt-4"><ErrorBox message={t("That barcode isn't in our list yet.")} /></div></div>);
+  if (state.status === "missing") return (
+    <div>{back}
+      <div className="mt-4"><ErrorBox message={t("That barcode isn't in our list yet.")} /></div>
+      {/* never a dead end: the ways on */}
+      <div className="mt-4 grid gap-2.5">
+        <LinkButton href="/app/groceries/search" full>{t("Search the supermarkets")}</LinkButton>
+        <LinkButton href="/app/groceries/list" variant="secondary" full>{t("See your shopping list")}</LinkButton>
+      </div>
+    </div>
+  );
 
   const listed = state.product;
   // Opened from a supermarket: that shop's own name, size, numbers and price lead; the others are listed below it.

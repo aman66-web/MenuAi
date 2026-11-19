@@ -332,7 +332,9 @@ function ShoppingListScreen() {
                 <ul className={`${CARD} overflow-hidden`}>
                   {sorted.map((i) => {
                     const code = itemCode(i);
-                    const href = i.custom ? null : i.gtin ? `/app/groceries/product?code=${i.gtin}&r=${i.retailer}` : `/app/groceries/shop/item?r=${i.retailer}&id=${encodeURIComponent(i.shopId ?? "")}`;
+                    // the shop's own product page when we know its id there (it always exists; the barcode page only when the Groceries list has that barcode:
+                    // usability test 2026-11-19, Joan's Birds Eye peas opened "That barcode isn't in our list yet")
+                    const href = i.custom ? null : i.shopId ? `/app/groceries/shop/item?r=${i.retailer}&id=${encodeURIComponent(i.shopId)}` : `/app/groceries/product?code=${i.gtin}&r=${i.retailer}`;
                     // no barcode number here (usability test 2026-11-19: "meaningless clutter", and cut off at large text)
                     const detail = [i.brand, i.size, i.price !== undefined ? formatPrice(i.price) : ""].filter(Boolean).join(" · ");
                     const body = (
