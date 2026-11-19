@@ -173,7 +173,7 @@ await step("the week: 21 meals from the two shops, a shop on each meal, the shop
 await step("swap a meal: a list of other recipes for that meal, the one tapped takes its place", async () => {
   const first = page.locator("section[aria-labelledby='day-h'] li").first();
   const before = await first.locator("a span.font-bold").first().innerText();
-  await first.getByRole("button", { name: /^Swap / }).click();
+  await first.getByRole("button", { name: /^Swap this meal: / }).click();
   const sheet = page.getByRole("dialog", { name: /^Swap breakfast/ });
   await sheet.waitFor();
   const options = sheet.getByRole("button").filter({ hasText: /kcal/ });

@@ -69,10 +69,10 @@ const pages = [
   ["welcome", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).waitFor(); }],
   ["intro (Pip arrives)", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("heading", { name: "Hi, I'm Pip!" }).waitFor(); await p.waitForTimeout(1800); }],
   ["intro (easy to read)", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); await p.getByRole("heading", { name: "Easy to read" }).waitFor(); await p.getByRole("radio", { name: "Large", exact: true }).click(); await p.getByText("Perfect, that's easy on the eyes!").waitFor(); }],
-  ["intro (Pip's walk: Eat out)", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); for (let i = 0; i < 2; i++) { await p.waitForTimeout(150); await p.getByRole("button", { name: "Continue" }).click(); } await p.getByRole("heading", { level: 1, name: "Eat out", exact: true }).waitFor(); await p.waitForTimeout(1200); }],
-  ["intro (Pip's walk: Recipes, the last tab while Community is off)", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); for (let i = 0; i < 4; i++) { await p.waitForTimeout(150); await p.getByRole("button", { name: "Continue" }).click(); } await p.getByRole("heading", { level: 1, name: "Recipes", exact: true }).waitFor(); await p.waitForTimeout(1200); }],
+  ["intro (Pip's walk: Recipes)", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); for (let i = 0; i < 2; i++) { await p.waitForTimeout(150); await p.getByRole("button", { name: "Continue" }).click(); } await p.getByRole("heading", { level: 1, name: "Recipes", exact: true }).waitFor(); await p.waitForTimeout(1200); }],
+  ["intro (Pip's walk: Eat out, the last tab while Community is off)", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); for (let i = 0; i < 4; i++) { await p.waitForTimeout(150); await p.getByRole("button", { name: "Continue" }).click(); } await p.getByRole("heading", { level: 1, name: "Eat out", exact: true }).waitFor(); await p.waitForTimeout(1200); }],
   ["tour: let's make it yours", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); await p.getByRole("button", { name: "Skip tour" }).click(); await p.getByRole("heading", { name: "Let's make it yours" }).waitFor(); await p.waitForTimeout(800); }],
-  ["tour: replay (Settings › Help)", "/app/welcome?tour=1", false, async (p) => { await p.getByText("Step 1 of 5").waitFor(); await p.getByRole("heading", { level: 1, name: "Home", exact: true }).waitFor(); await p.waitForTimeout(1200); }],
+  ["tour: replay (Settings › Help)", "/app/welcome?tour=1", false, async (p) => { await p.getByText("Step 1 of 4").waitFor(); await p.getByRole("heading", { level: 1, name: "Home", exact: true }).waitFor(); await p.waitForTimeout(1200); }],
   ["home", "/app", true, async () => {}],
   ["home (free)", "/app", false, async () => {}],
   ["eat out", "/app/eat-out", true, async () => {}],
@@ -124,6 +124,8 @@ let total = 0;
 for (const scheme of ["light", "dark"]) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, colorScheme: scheme, serviceWorkers: "block" });
   for (const [name, path, pro, prep] of pages) {
+    // SKIP="paywall,..." leaves pages out (the paywall needs a build with Premium on: a dev server without it has no "See Pro")
+    if ((process.env.SKIP ?? "").split(",").includes(name)) { console.log(`${scheme.padEnd(5)} ${name.padEnd(14)} skipped`); continue; }
     const page = await ctx.newPage();
     await page.addInitScript(([s, sv, lg]) => { localStorage.setItem("mm.v1.settings", s); localStorage.setItem("mm.v1.saved", sv); localStorage.setItem("mm.v1.log", lg); localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 1 })); }, [settings(pro), saved, log]);
     await page.goto(BASE + path);

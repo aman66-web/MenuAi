@@ -908,7 +908,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
                 </Link>
                 <span className="app-numbers shrink-0 text-end text-base font-[800]">{formatPrice(m.candidate.cost)}{forN}</span>
               </div>
-              <button type="button" onClick={() => setSwapping(i)} aria-label={t("Swap {meal}: {recipe}", { meal: slotName(i).toLowerCase(), recipe: t(m.candidate.recipe.name) })} className="mt-2 inline-flex min-h-11 items-center gap-1.5 rounded-full bg-[var(--fill)] px-4 text-[0.875rem] font-bold transition active:scale-95">
+              <button type="button" onClick={() => setSwapping(i)} aria-label={t("Swap this meal: {meal}, {recipe}", { meal: slotName(i).toLowerCase(), recipe: t(m.candidate.recipe.name) })} className="mt-2 inline-flex min-h-11 items-center gap-1.5 rounded-full bg-[var(--fill)] px-4 text-[0.875rem] font-bold transition active:scale-95">
                 <SwapIcon aria-hidden className="h-4 w-4" />{t("Swap this meal")}
               </button>
             </li>
