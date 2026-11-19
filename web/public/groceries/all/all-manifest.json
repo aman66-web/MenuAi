@@ -19,11 +19,11 @@
    "file": "tesco.json",
    "count": 6079,
    "checkedOn": "2026-10-09",
-   "nutrition": 1530,
+   "nutrition": 1575,
    "community": 585,
-   "sameProduct": 623,
+   "sameProduct": 634,
    "priced": 6079,
-   "sha256": "5df21118c781b4fdaa953f2c03f12eadd7f95dbb75789f84f0f510cc3bffa0cf"
+   "sha256": "4d7bc5bb5e539875e30c868be43eea39e03296f4e2d28b6e33a8bdcf0574bc0b"
   },
   {
    "id": "asda",
@@ -31,11 +31,11 @@
    "file": "asda.json",
    "count": 10506,
    "checkedOn": "2026-10-08",
-   "nutrition": 9219,
+   "nutrition": 9244,
    "community": 5562,
-   "sameProduct": 1310,
+   "sameProduct": 1316,
    "priced": 10506,
-   "sha256": "1d918872865ebf50f8d81ef52c3a9914fe6b7cbbc4e90777b79304bc608952a8"
+   "sha256": "4600ccd6d6d88df097b28f4a4b71ecfddc167df4f7e911d92c40dab6ec61e4d3"
   },
   {
    "id": "aldi",
@@ -64,11 +64,11 @@
    "file": "morrisons.json",
    "count": 16367,
    "checkedOn": "2026-10-08",
-   "nutrition": 7913,
+   "nutrition": 8371,
    "community": 653,
-   "sameProduct": 1417,
+   "sameProduct": 1427,
    "priced": 16367,
-   "sha256": "7643152a158536ab50ff314aca806b60096ab445c0ebde66072198c315753ba2"
+   "sha256": "8a79312738efad93bf20b54871a17755365cdb0369a99d235ed9564c32df25fd"
   },
   {
    "id": "waitrose",
@@ -76,11 +76,11 @@
    "file": "waitrose.json",
    "count": 9721,
    "checkedOn": "2026-10-08",
-   "nutrition": 5793,
+   "nutrition": 5898,
    "community": 232,
-   "sameProduct": 712,
+   "sameProduct": 719,
    "priced": 9721,
-   "sha256": "f50ff6bde52832796a0064f5a2afc1c9a26087a2b203f78b3ae35a159d8178f0"
+   "sha256": "92b112d30ebf5f9f9bf187be3f372c8d489fac663e1e78bf5a8aa7e3a90870cd"
   },
   {
    "id": "iceland",
@@ -88,11 +88,11 @@
    "file": "iceland.json",
    "count": 5962,
    "checkedOn": "2026-10-09",
-   "nutrition": 4907,
+   "nutrition": 4984,
    "community": 759,
-   "sameProduct": 517,
+   "sameProduct": 524,
    "priced": 5962,
-   "sha256": "7d3530afe8fed5c0388dfe75dc4b17347c3a73b3ea10c9653005d1f23e1cdd31"
+   "sha256": "912f5c556a7a68ef21ef5adc460f4b236cfbad3e9abbb4df82b233ba2b0947f7"
   },
   {
    "id": "marks-and-spencer",

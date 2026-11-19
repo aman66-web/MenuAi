@@ -7,14 +7,17 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 253558033,Apple,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/253558033
 253560634,Lime,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/253560634
 253561247,Pear,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/253561247
+253704206,"Mature Cheddar Cheese (Milk), Potato Starch.",INGREDIENTS:; Milk,"For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/253704206
 254033802,,,,,2026-11-17,https://www.tesco.com/groceries/en-GB/products/254033802
 254142569,,,"May contain peanuts, nuts and sesame seeds.","May contain peanuts, nuts and sesame seeds.",2026-11-18,https://www.tesco.com/groceries/en-GB/products/254142569
 254384645,Melon,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/254384645
 254385356,Melon,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/254385356
+255081368,,,Contains milk.,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/255081368
 256056991,Peanuts.,Peanuts,"May contain other nuts. For allergens, see ingredients in bold.",May contain other nuts.,2026-11-18,https://www.tesco.com/groceries/en-GB/products/256056991
 256180514,Basil,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/256180514
 256204223,Thyme,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/256204223
 256212432,Parsley,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/256212432
+256344327,"Extra Mature Cheddar Cheese (Milk), Potato Starch.",INGREDIENTS:; Milk,"For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/256344327
 257574329,Parsley,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/257574329
 258057537,"Dried Apricot, Preservative (Sulphur Dioxide).",INGREDIENTS:; Sulphur Dioxide,Contains sulphites.,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/258057537
 258421636,,,,,2026-11-17,https://www.tesco.com/groceries/en-GB/products/258421636
@@ -24,6 +27,7 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 261718731,Mint,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/261718731
 262453391,Chilli Pepper,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/262453391
 262456128,Watermelon,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/262456128
+265422924,,,"For allergens, see ingredients in bold.",may contain white eggs.,2026-11-19,https://www.tesco.com/groceries/en-GB/products/265422924
 266356851,,,May contain sesame seeds and peanuts and other nuts.,May contain sesame seeds and peanuts and other nuts.,2026-11-17,https://www.tesco.com/groceries/en-GB/products/266356851
 266357101,,,May contain sesame seeds and peanuts and other nuts.,May contain sesame seeds and peanuts and other nuts.,2026-11-17,https://www.tesco.com/groceries/en-GB/products/266357101
 266375033,"Cashew Nuts, Almonds, Hazelnuts, Walnuts.",INGREDIENTS:; Cashew Nuts; Almonds; Hazelnuts; Walnuts,"May contain peanuts and other nuts. For allergens, see ingredients in bold.",May contain peanuts and other nuts.,2026-11-18,https://www.tesco.com/groceries/en-GB/products/266375033
@@ -38,6 +42,7 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 275280804,,,,,2026-11-17,https://www.tesco.com/groceries/en-GB/products/275280804
 277053207,"Melon (Honeydew Melon, Cantaloupe Melon).",INGREDIENTS:,,Not suitable for freezing.,2026-11-18,https://www.tesco.com/groceries/en-GB/products/277053207
 277926811,Tenderstemmed Broccoli,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/277926811
+278857608,,,Contains Milk.,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/278857608
 278935113,"Cooked Pasta [Water, Durum Wheat Semolina], Feta Full Fat Soft Cheese (Milk) (10%), Onion, Water, Tomato Paste, Marinated Semi Dried Tomato (4%) [Tomato, Sunflower Oil, Salt, Garlic, Oregano], Rapeseed Oil, Red Pepper, Tomato, Spirit Vinegar, Spinach, White Wine Vinegar, Sundried Tomatoes, Basil, Parsley, Cornflour, Garlic Purée, Concentrated Lemon Juice, Pepper, Rosemary.",INGREDIENTS:; Wheat; Milk,"For allergens, including cereals containing gluten, see ingredients in bold.",,2026-11-18,https://www.tesco.com/groceries/en-GB/products/278935113
 279627298,Carrot,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/279627298
 279684822,,,Contains soya.,Not suitable for freezing.,2026-11-17,https://www.tesco.com/groceries/en-GB/products/279684822
@@ -73,6 +78,8 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 292686720,Flat Leaf Parsley,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/292686720
 293821231,Chestnut Mushroom,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/293821231
 294076120,Grapes,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/294076120
+294770087,"Fat Free Cottage Cheese (Milk), Salt.",INGREDIENTS:; Milk,"For allergens, see ingredients in bold.",Not suitable for freezing.,2026-11-19,https://www.tesco.com/groceries/en-GB/products/294770087
+295580293,"Halloumi Cheese (Milk), Mint.",INGREDIENTS:; Milk,"For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/295580293
 296057670,Peach,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/296057670
 296057693,Nectarine,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/296057693
 296057710,Plum,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/296057710
@@ -81,7 +88,11 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 297682889,,INGREDIENTS:,,Not suitable for freezing.,2026-11-17,https://www.tesco.com/groceries/en-GB/products/297682889
 298126620,Brussels Sprouts,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/298126620
 299045691,Mango.,INGREDIENTS:,,Not suitable for freezing.,2026-11-18,https://www.tesco.com/groceries/en-GB/products/299045691
+299685318,"Paneer Cheese(Skimmed Milk, Cream (Milk), Salt, Rennet, Sunflower Lecithins, Citric Acid).",INGREDIENTS:; Milk,"Contains milk. For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/299685318
+299914475,"Mozzarella Medium Fat Soft Cheese (Milk), Acidity Regulator (Citric Acid).",INGREDIENTS:; Milk,"For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/299914475
+300543993,"Cottage Cheese (Milk), Salt.",INGREDIENTS:; Milk,"For allergens, see ingredients in bold.",Not suitable for freezing.,2026-11-19,https://www.tesco.com/groceries/en-GB/products/300543993
 300991012,Melon,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/300991012
+302676607,,,Contains milk.,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/302676607
 302677255,Milled Flax Seeds.,INGREDIENTS:,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/302677255
 302677376,"Almonds, Cashew Nuts, Pineapple Juice Infused Dried Cranberries [Cranberry, Pineapple Juice from Concentrate, Sunflower Oil], Flame Raisins [Raisins, Sunflower Oil].",INGREDIENTS:; Almonds; Cashew Nuts,"May contain peanuts, sesame seeds and soya. For allergens, see ingredients in bold.","May contain peanuts, sesame seeds and soya.",2026-11-18,https://www.tesco.com/groceries/en-GB/products/302677376
 302685493,,INGREDIENTS:; Sulphur Dioxide,"May contain peanuts, nuts, sesame seeds and soya. For allergens, see ingredients in bold.","May contain peanuts, nuts, sesame seeds and soya.",2026-11-18,https://www.tesco.com/groceries/en-GB/products/302685493
@@ -96,11 +107,16 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 304796979,Chive,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/304796979
 305831903,IngredientsApple,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/305831903
 305975243,Onion,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/305975243
+305977270,,,Contains milk.,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/305977270
 305977327,"Raspberry, Blueberry",,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/305977327
+306665741,,,Contains milk.,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/306665741
 307365386,IngredientsParsnip,,,,2026-11-17,https://www.tesco.com/groceries/en-GB/products/307365386
 308454819,"Melon, Grapes, Strawberry, Apple, Orange.",INGREDIENTS:,,Not suitable for freezing.,2026-11-18,https://www.tesco.com/groceries/en-GB/products/308454819
+309173667,,,Contains milk.,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/309173667
+309197656,,,Contains milk.,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/309197656
 309206774,"Water, Chickpeas (16%), Potatoes (10%), Lentils (9%), Coconut Cream (Coconut Extract, Water) (5.5%), Tomatoes, Onions, Tomato Paste, Spinach (3%), Ginger Purée, Garlic Purée, Demerara Sugar, Ground Cumin, Ground Turmeric, Salt, Ground Coriander, Ground Cardamom, Coriander, Ground Cinnamon, Ground Nutmeg, Ground Black Pepper, Dried Chillies",,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/309206774
 309472739,"Watermelon, Mango.",INGREDIENTS:,,Not suitable for freezing.,2026-11-18,https://www.tesco.com/groceries/en-GB/products/309472739
+309474478,Feta Cheese PDO (Milk),Milk,"For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/309474478
 309753989,Apple,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/309753989
 311209097,"Melon, Kiwi Fruit, Strawberry.",INGREDIENTS:,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/311209097
 311430205,Plum,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/311430205
@@ -124,6 +140,7 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 316556020,Pineapple,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/316556020
 316808604,Grapes,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/316808604
 317663398,,,May contain peanuts and other nuts.,May contain peanuts and other nuts.,2026-11-18,https://www.tesco.com/groceries/en-GB/products/317663398
+317870636,"Mozzarella Full Fat Soft Cheese (Milk) (50%), Mild Cheddar Cheese (Milk), Continental Medium Fat Hard Cheese (Milk), Potato Starch.",INGREDIENTS:; Milk,"For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/317870636
 320671931,"Hazelnuts, Almonds, Cashew Nuts, Walnuts, Blanched Almonds.",INGREDIENTS:; Hazelnuts; Almonds; Cashew Nuts; Walnuts,"May contain peanuts and other nuts. For allergens, see ingredients in bold.",May contain peanuts and other nuts.,2026-11-18,https://www.tesco.com/groceries/en-GB/products/320671931
 320793320,"Apple, Grapes, Cheddar Cheese [Cheddar Cheese (Milk), Potato Starch].",INGREDIENTS:; Milk,"For allergens, see ingredients in bold.",,2026-11-18,https://www.tesco.com/groceries/en-GB/products/320793320
 320799395,"Cabbage (30%), Rapeseed Oil, Carrot, West Country Extra Mature Cheddar Cheese (Milk) (10%), Water, Onion, Extra Mature Cheddar Cheese (Milk) (4%), Pasteurised Egg Yolk, Spirit Vinegar, Sugar, Chive, Salt, Mustard Flour, Citrus Fibre, Black Pepper, Stabilisers (Guar Gum, Xanthan Gum), Thickener (Pectin).",INGREDIENTS:; Milk; Egg; Mustard,"For allergens, see ingredients in bold.",,2026-11-18,https://www.tesco.com/groceries/en-GB/products/320799395
