@@ -18,7 +18,7 @@ import { recipeShops } from "@/lib/mm/shopProducts";
 import { myRecipesStore, savedRecipesStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { ShopMark } from "../_components/ChainMark";
 import { AllergenTiles, dietWords } from "../_components/DietPicker";
-import { ArrowRightIcon, BasketIcon, CalendarIcon, CameraIcon, CheckIcon, ChevronRightIcon, FridgeIcon, GridIcon, HeartIcon, InfoIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
+import { ArrowRightIcon, BasketIcon, CalendarIcon, CameraIcon, CheckIcon, FridgeIcon, GridIcon, HeartIcon, InfoIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
 import { ShopChoice } from "./ShopChoice";
@@ -320,28 +320,30 @@ function RecipesScreen() {
         </button>
       )}
 
-      {/* Cook with what you have (founder 2026-11-19; app/app/recipes/fridge): our recipes for what's in the fridge, free; Pip's own one is Premium inside */}
-      <Link href="/app/recipes/fridge" className="glass lift mt-3 flex min-h-[4.5rem] items-center gap-3.5 rounded-[1.25rem] p-3.5 text-start">
-        <span aria-hidden className="grid h-12 w-12 shrink-0 place-items-center rounded-[0.875rem] bg-sun text-[var(--on-accent)]"><FridgeIcon className="h-6 w-6" /></span>
-        <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-          <span className="block text-[1.0625rem] font-[800] leading-tight">{t("Cook with what you have")}</span>
-          <span className="mt-0.5 block text-[0.875rem] leading-snug text-muted">{t("Tell us what's in your fridge and get recipes for it.")}</span>
-        </span>
-        <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted rtl:rotate-180" />
-      </Link>
-
-      {/* the meal plan (founder 2026-11-18; app/app/plan; Premium): a week of our recipes for the person's goal and budget, with the shopping list and each meal's price */}
-      <Link href="/app/plan" className="glass lift mt-3 flex min-h-[4.5rem] items-center gap-3.5 rounded-[1.25rem] p-3.5 text-start">
-        <span aria-hidden className="grid h-12 w-12 shrink-0 place-items-center rounded-[0.875rem] bg-sun text-[var(--on-accent)]"><CalendarIcon className="h-6 w-6" /></span>
-        <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-          <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
-            <span className="text-[1.0625rem] font-[800] leading-tight">{t("Meal plan")}</span>
-            {GATING_ENABLED && !pro && <span className="inline-block rounded-full bg-sun px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--on-accent)]">{t("Premium")}</span>}
+      {/* Cook with what you have and the meal plan side by side, under Make it at home (founder 2026-11-19: "the most important one will be where make it at home
+          is and take up that entire space. And the least important two should be on the same line ... so it's not taken up all the way"): each its icon and name,
+          the line saying what it does kept for a screen reader, so the dishes start higher up the page. At the largest text the two still share the row. */}
+      <div className="mt-3 grid grid-cols-2 gap-3">
+        {/* Cook with what you have (founder 2026-11-19; app/app/recipes/fridge): our recipes for what's in the fridge, free; Pip's own one is Premium inside */}
+        {/* the name flows round the icon (it wraps under it), so it keeps the card's width at large text */}
+        <Link href="/app/recipes/fridge" className="glass lift flow-root min-h-[4.5rem] min-w-0 rounded-[1.25rem] p-3 text-start">
+          <span aria-hidden className="float-start me-2.5 grid h-10 w-10 place-items-center rounded-[0.75rem] bg-sun text-[var(--on-accent)]"><FridgeIcon className="h-5 w-5" /></span>
+          <span className="block hyphens-auto pt-0.5 text-[1rem] font-[800] leading-[1.3] [overflow-wrap:anywhere]">
+            {t("Cook with what you have")}
+            <span className="sr-only">. {t("Tell us what's in your fridge and get recipes for it.")}</span>
           </span>
-          <span className="mt-0.5 block text-[0.875rem] leading-snug text-muted">{t("A week of meals for your goal, with the shopping list.")}</span>
-        </span>
-        <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted rtl:rotate-180" />
-      </Link>
+        </Link>
+
+        {/* the meal plan (founder 2026-11-18; app/app/plan; Premium): a week of our recipes for the person's goal and budget, with the shopping list and each meal's price */}
+        <Link href="/app/plan" className="glass lift flow-root min-h-[4.5rem] min-w-0 rounded-[1.25rem] p-3 text-start">
+          <span aria-hidden className="float-start me-2.5 grid h-10 w-10 place-items-center rounded-[0.75rem] bg-sun text-[var(--on-accent)]"><CalendarIcon className="h-5 w-5" /></span>
+          <span className="block hyphens-auto pt-0.5 [overflow-wrap:anywhere]">
+            <span className="block text-[1rem] font-[800] leading-[1.3]">{t("Meal plan")}</span>
+            {GATING_ENABLED && !pro && <span className="mt-1 inline-block rounded-full bg-sun px-2 py-0.5 text-[0.75rem] font-bold leading-snug text-[var(--on-accent)]">{t("Premium")}</span>}
+            <span className="sr-only">. {t("A week of meals for your goal, with the shopping list.")}</span>
+          </span>
+        </Link>
+      </div>
 
       {/* One shop at a time; tapping a shop saves it at once and shows a short "working" moment. */}
       <Sheet open={shopsOpen} onClose={closeShops} title={t("Shopping at")}>
