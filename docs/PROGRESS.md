@@ -44,7 +44,7 @@ touches an earlier decision, and add new entries there, dated, at the end).
 - **App Store:** Numbite 1.0 (build 4) is live in the UK store since 12 November 2026. **1.1 (build 7) was uploaded to App Store Connect on 19 November
   2026 at 03:01** (founder: "I want to upload the newest version ... even though ... we are still working on some stuff"): Premium through Apple In-App Purchase
   with a 7-day free trial, Make it at home, Cook with what you have, everyone signs in, the rating question, and the 19 November fixes from the older testers
-  (`build/Numbite-1.1-build7.xcarchive`). **Not submitted for review.** Apple warned that from April 2027 uploads need Xcode 27 (the iOS 27 SDK). Apple's updated Developer Program License Agreement
+  (`build/Numbite-1.1-build7.xcarchive`). **Submitted for App Review on 19 November 2026 at about 03:30** with the two Premium subscriptions (founder: "do that all for me, check everything's good, then submit the app"); release is set to **manual**, so it goes live only when the founder releases it. Apple warned that from April 2027 uploads need Xcode 27 (the iOS 27 SDK). Apple's updated Developer Program License Agreement
   was accepted on 18 November 2026 (developer.apple.com › Account); Paid and Free Apps agreements, bank and tax all Active, so uploads are open again (none made yet).
 - **numbite.com** runs `main` at d0d1fb0f (19 November): **all of `iap` merged** (founder 19 Nov, "Put it all live pls"): everyone signs in, the meal plan,
   leaderboards with every shop's logo and price, several shopping lists, Select on the list, the grocery labels, Community off, the food-crop box from the food

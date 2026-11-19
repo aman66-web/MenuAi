@@ -289,6 +289,8 @@ requests for a limited time under its own terms. Both types are already in the q
 
 ## Version 1.1 (build 7): what was submitted (19 November 2026, founder: "OK please submit for review")
 
+**Prices as submitted** (founder 19 Nov): Annual £49.99 a year and Monthly £4.99 a month, each with a free first week; no 90-day pass. The 16 November table above is out of date.
+
 Build 7 replaces build 6 (never uploaded) and adds the meal plan, Cook with what you have, Scan your food, everyone signing in and the fixes from the usability tests.
 
 **What's New in This Version:**

@@ -3234,3 +3234,19 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   and to use Safari with several agents were declined (each works round the block); one reader resumes only when Tesco serves new pages again.
   `tools/groceries/listing_chrome_next.py` (a shelf-page reader for Tesco's missing Food Cupboard, Treats and Snacks and soft drinks, about 10,000
   products) is written but not yet tried.
+
+### 19 November 2026 (03:00-03:35): iPhone 1.1 build 7 uploaded and submitted, with Premium at new prices
+- **Prices** (founder: "monthly should be £4.99 or £5.99. Annually should be about £49.99. Founding member payment, I don't think we need that one", then "do that
+  all for me"): **Annual £49.99 a year, Monthly £4.99 a month** (the lower of the two monthly prices offered: Annual then saves about 17%), each with a **free first week**
+  (an introductory offer from 19 November with no end date), UK only. **No 90-day pass** (it was never created; the app shows only the products StoreKit returns, so build 7
+  needed no change; the server still accepts its product id, harmless). These replace the 16 November drafts (£14.99 / £2.99 / £9.99) in docs/STORE.md and docs/PAYMENTS.md.
+- **App Store Connect** (in the founder's Chrome, signed in by the founder): subscription group "Numbite Premium" (ID 22594537, display name "Numbite Premium");
+  Annual `com.amanmarwaha.numbite.pro.annual` (Apple ID 6836613222) and Monthly `com.amanmarwaha.numbite.pro.monthly` (6836614524), each with an English (U.K.)
+  display name and description, the review screenshot `build/review-plans.png` (the plans screen of a test copy at the new prices, 1290 x 2796) and review notes.
+  Version 1.1: build 7; new promotional text and description (the 1.0 text said "no account needed", "every feature is free" and "11 languages", untrue in 1.1; it now
+  describes the free account, Premium with Apple's renewal wording, and ends with the Terms of Use (Apple's standard EULA) and Privacy Policy links); What's New and the
+  Notes for App Review as in docs/STORE.md "Version 1.1 (build 7)" (the old notes about Community and an optional account replaced). App Privacy unchanged (Photos or Videos,
+  Other User Content, Email, User ID, Health, Customer Support, Other Data already declared for App Functionality). Sign-in required left unticked (Sign in with Apple works
+  with any Apple ID; the notes say so). **Manual release.** Submitted as one review submission of four items at about 03:30.
+- **Still to do:** update `Config/Numbite.storekit` and `FakePurchaseService.swift` (local testing and previews) to the new prices and two products; remove
+  `APPLE_XCODE_TEST_CERT` from Vercel after testing; the plans screen still says "Numbite Pro" while the group and the store text say Premium (open decision).
