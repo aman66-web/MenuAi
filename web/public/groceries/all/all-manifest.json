@@ -19,11 +19,11 @@
    "file": "tesco.json",
    "count": 6079,
    "checkedOn": "2026-10-09",
-   "nutrition": 1643,
+   "nutrition": 1680,
    "community": 585,
    "sameProduct": 640,
    "priced": 6079,
-   "sha256": "82c57dfa23e92c32b8bcd54b167a3bd80ae8919e00d8cbe91a8c1b37f22fde2e"
+   "sha256": "30a9b962ec75e05509fb3324751c099b3de893872222549a2264fc9e10adf57a"
   },
   {
    "id": "asda",
