@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addToList, barcodeQuery, forRetailer, listAsText, mergeProducts, photoCaption, photoSources, productLine, proteinPer100Kcal, sanitizeShoppingList, searchProducts, setQty, type GroceryFile, type GroceryProduct } from "../lib/mm/groceries";
+import { addToList, barcodeQuery, forRetailer, forTheirShops, listAsText, mergeProducts, photoCaption, photoSources, productLine, proteinPer100Kcal, sanitizeShoppingList, searchProducts, setQty, type GroceryFile, type GroceryProduct } from "../lib/mm/groceries";
 
 const p = (over: Partial<GroceryProduct> & Pick<GroceryProduct, "gtin" | "name">): GroceryProduct => ({ brand: "", size: "", per: "g", kcal: 100, protein: 10, carbs: 5, fat: 3, allergens: null, category: "other", ...over });
 const file = (retailer: string, products: GroceryProduct[]): GroceryFile => ({ v: 1, retailer, name: retailer, generatedOn: "2026-10-07", source: "t", products });
@@ -100,5 +100,15 @@ describe("the cost of the amount a recipe uses", () => {
     expect(formatUsedPrice(0.06)).toBe("£0.06");
     expect(formatUsedPrice(0.874)).toBe("£0.87");
     expect(formatUsedPrice(0)).toBe("£0.00");
+  });
+});
+
+describe("search results for one person (usability test 2026-11-19: George's Sainsbury's porridge came after Asda's)", () => {
+  const p = (name: string, retailers: string[]) => ({ name, retailers });
+  const list = [p("ASDA Porridge Oats 1kg", ["asda"]), p("Sainsbury's Golden Syrup Porridge Oat Sachets 10 x 36g", ["sainsburys"]), p("Sainsbury's Porridge Oats 1kg", ["sainsburys"]), p("Quaker Oat So Simple Original Porridge", ["asda", "tesco"])];
+  it("puts their own shops first, in the order they chose them, then the plainer names", () => {
+    expect(forTheirShops(list, ["sainsburys"]).map((x) => x.name)).toEqual(["Sainsbury's Porridge Oats 1kg", "Sainsbury's Golden Syrup Porridge Oat Sachets 10 x 36g", "ASDA Porridge Oats 1kg", "Quaker Oat So Simple Original Porridge"]);
+    expect(forTheirShops(list, ["tesco", "sainsburys"])[0]!.name).toBe("Quaker Oat So Simple Original Porridge");
+    expect(forTheirShops(list, undefined)[0]!.name).toBe("ASDA Porridge Oats 1kg");
   });
 });

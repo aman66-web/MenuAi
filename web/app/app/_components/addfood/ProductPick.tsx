@@ -3,7 +3,7 @@
 import { useDeferredValue, useId, useMemo, useState } from "react";
 import { ADD_TO, amountNutrients, MAX_AMOUNT, MIN_AMOUNT, parseAmount } from "@/lib/mm/addFood";
 import { formatCalories, formatGrams } from "@/lib/mm/format";
-import { forRetailer, photoSources, retailerName, searchProducts, withPhoto, type ListedProduct } from "@/lib/mm/groceries";
+import { forRetailer, forTheirShops, photoSources, retailerName, searchProducts, withPhoto, type ListedProduct } from "@/lib/mm/groceries";
 import type { Meal, Nutrients } from "@/lib/mm/types";
 import { NumberDone } from "../SearchDone";
 import { ScanIcon } from "../icons";
@@ -24,14 +24,15 @@ const RESULTS = 8;
 
 export function ProductPick({ meal, onAdd, onBack }: { meal: Meal; onAdd: (entry: NewEntry) => void; onBack: () => void }) {
   const t = useT();
-  const prefer = useSettings().shops?.[0] ?? null;
+  const shops = useSettings().shops;
+  const prefer = shops?.[0] ?? null;
   const [retry, setRetry] = useState(0);
   const catalogue = useGroceryCatalogue(null, retry);
   const [query, setQuery] = useState("");
   const deferred = useDeferredValue(query).trim();
   const [scanning, setScanning] = useState(false);
   const [picked, setPicked] = useState<ListedProduct | null>(null);
-  const results = useMemo(() => (deferred.length >= 2 ? searchProducts(catalogue.products, { query: deferred, sort: "name" }).slice(0, RESULTS) : []), [catalogue.products, deferred]);
+  const results = useMemo(() => (deferred.length >= 2 ? forTheirShops(searchProducts(catalogue.products, { query: deferred, sort: "name" }), shops).slice(0, RESULTS) : []), [catalogue.products, deferred, shops]);
 
   if (picked) return <HowMuch product={picked} meal={meal} prefer={prefer} onBack={() => setPicked(null)} onAdd={onAdd} />;
 

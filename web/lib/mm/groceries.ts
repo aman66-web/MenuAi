@@ -213,6 +213,16 @@ export function searchProducts(products: readonly ListedProduct[], f: GroceryFil
   return list;
 }
 
+/**
+ * Search results for one person (usability test 2026-11-19: George shops at Sainsbury's and the first porridge was Asda's, because the list was A to Z):
+ * products sold at their own shops first, in the order they chose them, then the shorter names (the plain thing before the flavoured or the multipack), then A to Z.
+ */
+export function forTheirShops<T extends Pick<ListedProduct, "retailers" | "name">>(list: readonly T[], shops: readonly string[] | undefined): T[] {
+  const mine = shops ?? [];
+  const rank = (p: T) => { const i = mine.findIndex((s) => p.retailers.includes(s)); return i < 0 ? mine.length : i; };
+  return [...list].sort((a, b) => rank(a) - rank(b) || normalizeForSearch(a.name).length - normalizeForSearch(b.name).length || a.name.localeCompare(b.name, "en-GB", { sensitivity: "base" }));
+}
+
 /** "£1.25". */
 export const formatPrice = (amount: number): string => `£${amount.toFixed(2)}`;
 /** The cost of the amount a recipe uses: never "£0.00" for something that costs a little (founder 2026-11-17: "there's no such thing as £0 used ... round it to 1p"). */
