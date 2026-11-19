@@ -410,10 +410,15 @@ def main() -> int:
     done = done_ids(shop)
     out = 0
     every = "--all" in sys.argv
+    # --skip K: start K unread pages down the queue, so a second helper on the same shop reads a different stretch (two from the top would read the same pages)
+    skip = int(sys.argv[sys.argv.index("--skip") + 1]) if "--skip" in sys.argv else 0
     for r in (all_products(shop) if every else csv.DictReader(open(ROOT / "data" / "groceries" / "recipe-candidates" / f"{shop}.csv", newline="", encoding="utf-8"))):
         if True:
             key = r["product_id"] if shop != "aldi" else (r["page"] or r["product_id"]).rstrip("/").split("/")[-1]
             if r["product_id"] in done or key in done:
+                continue
+            if skip > 0:
+                skip -= 1
                 continue
             url = BASE[shop].format(id=r["product_id"], page=r["page"] or r["product_id"], slug=slug(r.get("name", "")))
             if tab is None:
