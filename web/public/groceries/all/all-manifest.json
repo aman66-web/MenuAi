@@ -8,10 +8,10 @@
    "count": 15288,
    "checkedOn": "2026-10-08",
    "nutrition": 13935,
-   "community": 173,
-   "sameProduct": 36,
+   "community": 172,
+   "sameProduct": 37,
    "priced": 15288,
-   "sha256": "5d99db29fa1835cac3f0a2daaab863ef735b75e2eac1e8aedca722f3a919dbec"
+   "sha256": "9d1c407d51fa6b67b95ab164425295c1e334deb1fe901437d7c184777bb0f61a"
   },
   {
    "id": "tesco",
@@ -32,10 +32,10 @@
    "count": 10506,
    "checkedOn": "2026-10-08",
    "nutrition": 9255,
-   "community": 5459,
-   "sameProduct": 1430,
+   "community": 5451,
+   "sameProduct": 1438,
    "priced": 10506,
-   "sha256": "c5f33825cbe8706231f521bab54264e6b85221f5de8181c4673a2b546a0f0ff8"
+   "sha256": "eca6ac71527848bb78985a596859a8097da3d5663d28d4118910dfacb879b6e2"
   },
   {
    "id": "aldi",
@@ -65,11 +65,11 @@
    "file": "morrisons.json",
    "count": 16367,
    "checkedOn": "2026-10-08",
-   "nutrition": 10804,
-   "community": 600,
-   "sameProduct": 1521,
+   "nutrition": 10919,
+   "community": 599,
+   "sameProduct": 1517,
    "priced": 16367,
-   "sha256": "775f55905de4a17f5543953ce409ec28502fc0a1bea8f66b14a6fd26854af0c6"
+   "sha256": "1897d6137359965a1d414e1a10a7f9de377df7f5aa9e5ea565213095785b6899"
   },
   {
    "id": "waitrose",
@@ -78,10 +78,10 @@
    "count": 9721,
    "checkedOn": "2026-10-08",
    "nutrition": 8235,
-   "community": 76,
-   "sameProduct": 218,
+   "community": 61,
+   "sameProduct": 106,
    "priced": 9721,
-   "sha256": "571bbe6dce2f9707fac83cb59abd7be7098dc8df2ec0bc568f600a250477681c"
+   "sha256": "ae3c32d877992485d6b7c232a5eeeb9928aae6cf63364f4ce76b191d40a4e1b2"
   },
   {
    "id": "iceland",
@@ -90,10 +90,10 @@
    "count": 5962,
    "checkedOn": "2026-10-09",
    "nutrition": 4994,
-   "community": 722,
-   "sameProduct": 571,
+   "community": 721,
+   "sameProduct": 572,
    "priced": 5962,
-   "sha256": "5cf3eaaed0c2d8709a234ce824b974f1c78f477e3f956b5da23a911679078aa2"
+   "sha256": "79aa863cc91647de19e8629462647c38edd6a1199fc2e50d33f79592b9a8579b"
   },
   {
    "id": "marks-and-spencer",
