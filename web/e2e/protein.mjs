@@ -15,10 +15,13 @@ const open = async (extra = {}, viewport = { width: 390, height: 844 }) => {
 };
 const loaded = async (page) => { await page.goto(BASE + "/app/groceries/protein"); await page.getByRole("heading", { level: 2, name: /cheapest protein foods/ }).waitFor({ timeout: 60000 }); };
 
-await step("Groceries has a 'Cheapest protein' row that opens the screen", async () => {
+// since 2026-11-18 Groceries opens Nutrition leaderboards, and Cheapest protein is reached from there
+await step("Groceries > Nutrition leaderboards leads to the Cheapest protein screen", async () => {
   const { ctx, page } = await open();
   await page.goto(BASE + "/app/groceries");
-  await page.getByRole("link", { name: "Cheapest protein" }).click();
+  await page.getByRole("link", { name: /Nutrition leaderboards/ }).click();
+  await page.getByText("Cheapest protein", { exact: true }).first().click();
+  await page.getByRole("link", { name: "Compare protein products with everyday ones" }).click();
   await page.getByRole("heading", { level: 1, name: "Cheapest protein" }).waitFor();
   await ctx.close();
 });

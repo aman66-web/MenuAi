@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useDeferredValue, useId, useMemo, useState } from "react";
+import { useDeferredValue, useEffect, useId, useMemo, useRef, useState } from "react";
 import { addToCompare, COMPARE_MAX, compareRows, inCompare, mixedBasis, removeFromCompare, shownFigure, trafficLightFor, type CompareItem, type CompareKind, type CompareRow } from "@/lib/mm/compare";
 import { formatPrice, photoSources, searchProducts, type ListedProduct, type PhotoSource } from "@/lib/mm/groceries";
 import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
@@ -236,15 +236,29 @@ function SideBySide({ items, kind }: { items: readonly CompareItem[]; kind: Comp
   const rows = useMemo(() => compareRows(items), [items]);
   const lights = useMemo(() => rows.some((r) => items.some((it, i) => r.values[i] !== null && trafficLightFor(it, r.id) !== null)), [rows, items]);
   const pictures = items.some((it) => pictureOf(it));
+  // when the columns don't all fit, say so in words (usability test 2026-11-19: the second dish's column was cut off and no one thought to swipe sideways)
+  const scroller = useRef<HTMLDivElement>(null);
+  const [wider, setWider] = useState(false);
+  useEffect(() => {
+    const el = scroller.current;
+    if (!el) return;
+    const check = () => setWider(el.scrollWidth > el.clientWidth + 4 && el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+    check();
+    const ro = new ResizeObserver(check);
+    ro.observe(el);
+    el.addEventListener("scroll", check, { passive: true });
+    return () => { ro.disconnect(); el.removeEventListener("scroll", check); };
+  }, [items]);
   const basis = kind === "dish" ? t("Per serving, as each restaurant publishes it.") : items.every((i) => i.basis === "ml") ? t("Per 100 ml, as each label prints it.") : t("Per 100 g, as each label prints it.");
   return (
     <section aria-labelledby="side-heading" className="mt-8">
       <h2 id="side-heading" className="text-xl font-[800] tracking-[-0.01em]">{t("Side by side")}</h2>
       <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{basis}</p>
       {kind === "food" && mixedBasis(items) && <p className="glass mt-3 rounded-[1.25rem] px-4 py-3 text-[0.9375rem] leading-snug">{t("Some of these labels are per 100 ml or for the cooked food, so compare those with care.")}</p>}
+      {wider && <p className="mt-3 text-[0.9375rem] font-semibold leading-snug">{t("Swipe the table sideways to see every column →")}</p>}
       <div className="glass mt-3.5 overflow-hidden rounded-[1.25rem]">
         {/* focusable so the keyboard can scroll it sideways */}
-        <div role="group" aria-label={basis} tabIndex={0} className="overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent">
+        <div ref={scroller} role="group" aria-label={basis} tabIndex={0} className="overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent">
           <table aria-labelledby="side-heading" className="w-full min-w-full border-separate border-spacing-0 text-start">
             <thead>
               <tr>

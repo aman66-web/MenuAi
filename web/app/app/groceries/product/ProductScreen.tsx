@@ -308,7 +308,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
               : t("Costs less per litre than {pct}% of {n} similar products. {price} per litre here; the middle is {median}.", { pct: rating.cheaperThanPct, n: rating.n, price: formatPrice(rating.mine), median: formatPrice(rating.median) })}
           </p>
           {rating.proteinPerPound > 0 && <p className="app-numbers mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("{g}g of protein for every £1.", { g: rating.proteinPerPound })}</p>}
-          <p className={`mt-3 ${NOTE}`}>{typeLabel ? t("Compared with other {type} products we have prices for, using the lowest price we've read for each. This is about price only.", { type: typeLabel }) : t("Compared with other similar products we have prices for, using the lowest price we've read for each. This is about price only.")}</p>
+          <p className={`mt-3 ${NOTE}`}>{typeLabel ? t("Compared with the other {type} we have prices for, using the lowest price we've read for each. This is about price only.", { type: typeLabel }) : t("Compared with other similar products we have prices for, using the lowest price we've read for each. This is about price only.")}</p>
         </section>
       )}
 
