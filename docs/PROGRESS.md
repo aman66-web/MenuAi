@@ -46,9 +46,10 @@ touches an earlier decision, and add new entries there, dated, at the end).
   with a 7-day free trial, Make it at home, Cook with what you have, everyone signs in, the rating question, and the 19 November fixes from the older testers
   (`build/Numbite-1.1-build7.xcarchive`). **Submitted for App Review on 19 November 2026 at about 03:30** with the two Premium subscriptions (founder: "do that all for me, check everything's good, then submit the app"); release is set to **manual**, so it goes live only when the founder releases it. Apple warned that from April 2027 uploads need Xcode 27 (the iOS 27 SDK). Apple's updated Developer Program License Agreement
   was accepted on 18 November 2026 (developer.apple.com › Account); Paid and Free Apps agreements, bank and tax all Active, so uploads are open again (none made yet).
-- **Not live yet: 33 commits on `iap` since `main` (543c194b, live on numbite.com since the night of 19 November)**: the overnight fixes from the older testers
-  (plans for several people, Choose a product, I have this, allergen warnings, Cook with what you have reading, food diary details, and more) and about 700 more
-  Waitrose and Morrisons products with labels (Waitrose 7,364 of 9,721, Morrisons 9,640 of 16,367); see the 19 November entries in docs/PROGRESS_LOG.md and docs/USABILITY_TESTS.md "Round 3". Putting them live needs the founder's go-ahead.
+- **numbite.com runs `main` at db413393 (19 November, about 12:55; founder: "Yes, put it all live for me, please")**: all of `iap`, with the overnight fixes from the
+  older testers (plans for several people, Choose a product, I have this, allergen warnings, Cook with what you have reading, food diary details, and more) and the
+  grocery lists as of then (Waitrose 8,239 of 9,721 products with labels, every page read; Morrisons 12,104 of 16,367; Tesco 1,686). Checked live: the new words in
+  the plan, list and recipe pages' code, and every shop's list file matching the build. See docs/PROGRESS_LOG.md and docs/USABILITY_TESTS.md "Round 3".
 - **numbite.com** ran `main` at d0d1fb0f (19 November): **all of `iap` merged** (founder 19 Nov, "Put it all live pls"): everyone signs in, the meal plan,
   leaderboards with every shop's logo and price, several shopping lists, Select on the list, the grocery labels, Community off, the food-crop box from the food
   check. On the website nothing is sold, so every feature is open (GATING_ENABLED false) and Make it at home and Scan your food stay hidden there; their API

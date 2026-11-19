@@ -3290,3 +3290,9 @@ changes, so it was left alone and a look inside was declined).
 - **Groceries:** two more reader rounds per shop; 32 more labels held back; 4 stray records (Waitrose pages saved under Morrisons ids when two readers shared a
   tab) removed, and the briefs (`tools/groceries/briefs/`, now committed) say to use only a tab of one's own. Waitrose 7,364 of 9,721 with labels, Morrisons 9,640 of 16,367.
 - **Tesco:** the check at about 05:20 got Tesco's bot-protection page ("Powered and protected by"): no reader started.
+
+### 19 November 2026 (about 12:55): the overnight work put live
+Founder: "Yes, put it all live for me, please." `iap` (db413393, 66 commits since 543c194b) pushed to `main`; Vercel's production build was Ready, and numbite.com
+was checked: the new words ("How many people is the shopping for?", "Choose a product for", "I have this:", "in the basket", "For breakfast") are in the live
+pages' code, and every shop's list file on numbite.com matches the build (Morrisons 12,104 products with labels, Waitrose 8,239, Tesco 1,686). The iPhone app
+picks up the grocery lists from numbite.com; its code changes need the next build. Two Morrisons label readers carry on.
