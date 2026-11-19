@@ -3255,8 +3255,8 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
 Founder: "keep doing all the groceries ... and apply any other updates, do you think, to the app too, to make it better". Each fix has its unit or browser test;
 nothing here is on numbite.com or in the App Store yet (the founder decides when).
 - **Meal plan:** "How many people is the shopping for?" (Just me to 6) on the budget step (`PLAN_PEOPLE`, `forPeople` in `lib/mm/mealPlan.ts`): every meal stays
-  sized to the person's own numbers, the shopping, the meal prices and the budget range are for everyone, and the packs are shared out for all of them (a plan
-  for 2 at Sainsbury's: about 1.7x one person's shopping, not 2x). The plan says the diet every meal fits ("Every meal fits your diet: vegetarian."); each Swap
+  sized to the person's own numbers, the shopping, the meal prices and the budget range are for everyone, and the packs are shared out for all of them (measured
+  on Sainsbury's for 600 kcal meals: one person's week £58.49; the same meals for 2 cost 1.5x that, for 3 2.0x, for 4 2.4x). The plan says the diet every meal fits ("Every meal fits your diet: vegetarian."); each Swap
   button's spoken name says which meal and recipe it swaps, starting with its visible words. Earlier plans say "for 2 people".
 - **Shopping list:** "Choose a product" on anything typed in ("milk", "bread"): the person's shops' products with those words, the thing itself first
   (`typedMatches`: fresh milk before evaporated, free-range eggs before Scotch eggs, loose bananas before banana smoothies), tapping one takes its place with
