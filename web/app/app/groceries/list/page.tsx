@@ -314,7 +314,7 @@ function ShoppingListScreen() {
               </>
             ) : (
               <>
-                <span className="app-numbers ps-1 text-[0.9375rem] font-semibold text-muted">{list.length === 1 ? t("1 item") : t("{n} items", { n: list.length })}</span>
+                <span className="app-numbers ps-1 text-[0.9375rem] font-semibold text-muted">{list.length === 1 ? t("1 item") : t("{n} items", { n: list.length })}{ticked > 0 ? ` · ${t("{n} in the basket", { n: ticked })}` : ""}</span>
                 <button type="button" onClick={() => { setSelecting(true); setPicked(new Set()); }} className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong">
                   <CheckIcon aria-hidden className="h-4 w-4" />{t("Select")}
                 </button>

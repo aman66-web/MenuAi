@@ -800,6 +800,30 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
     return Array.from({ length: 7 }, (_, i) => f.format(new Date(start.getTime() + i * 86_400_000)));
   }, [saved.start, language]);
   const shopName = (id: string) => shopsAll.find((s) => s.id === id)?.name ?? id;
+  // the days run off the right edge at large text: the strip fades out there while there are more to see, and the day chosen scrolls into view
+  // (usability test 2026-11-19: Irene didn't know the strip scrolled)
+  const dayStrip = useRef<HTMLDivElement>(null);
+  const [moreRight, setMoreRight] = useState(false);
+  useEffect(() => {
+    const el = dayStrip.current;
+    if (!el) return;
+    const check = () => setMoreRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+    check();
+    el.addEventListener("scroll", check, { passive: true });
+    const observer = new ResizeObserver(check);
+    observer.observe(el);
+    return () => { el.removeEventListener("scroll", check); observer.disconnect(); };
+  }, [week]);
+  useEffect(() => {
+    // sideways only (scrollIntoView would also move the page to the strip)
+    const el = dayStrip.current;
+    const b = el?.querySelector<HTMLElement>('[aria-checked="true"]');
+    if (!el || !b) return;
+    const r = b.getBoundingClientRect();
+    const box = el.getBoundingClientRect();
+    if (r.right > box.right - 16) el.scrollBy({ left: r.right - box.right + 40, behavior: "smooth" });
+    else if (r.left < box.left + 16) el.scrollBy({ left: r.left - box.left - 40, behavior: "smooth" });
+  }, [day]);
 
   if (failed) return <div><BackLink href="/app" label={t("Back to Home")} /><h1 className={`mt-4 ${TITLE}`}>{t("Your meal plan")}</h1><div className="mt-4"><ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div></div>;
   if (!candidates || !loaded) return <div><BackLink href="/app" label={t("Back to Home")} /><h1 className={`mt-4 ${TITLE}`}>{t("Your meal plan")}</h1><Spinner label={t("Opening your plan")} /></div>;
@@ -884,7 +908,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
       </div>
 
       {/* the days: big buttons, the one showing is dark */}
-      <div role="radiogroup" aria-label={t("Day")} className="no-scrollbar -mx-5 mt-5 flex gap-2 overflow-x-auto px-5">
+      <div ref={dayStrip} role="radiogroup" aria-label={t("Day")} className={`no-scrollbar -mx-5 mt-5 flex gap-2 overflow-x-auto px-5 ${moreRight ? "[mask-image:linear-gradient(to_right,#000_82%,transparent)]" : ""}`}>
         {dayNames.map((name, i) => (
           <button key={i} type="button" role="radio" aria-checked={day === i} onClick={() => setDay(i)} className={`min-h-12 shrink-0 rounded-full px-4 text-[0.9375rem] font-bold transition active:scale-95 ${day === i ? "bg-foreground text-background" : "glass"}`}>{name}</button>
         ))}
