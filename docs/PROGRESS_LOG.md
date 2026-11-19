@@ -3365,3 +3365,8 @@ top part instead".
 - The tips test waits for the page to scroll to a control far down Home. Morrisons: a Fridge Raiders variety pack (one flavour's table; the same at Sainsbury's)
   held back at both, with no numbers from elsewhere.
 - Installed on the founder's iPhone 16 from the Mac (xcodebuild + devicectl): the free Xcode test purchases are on only when started with Xcode's Run.
+- (18:30) **Cook with what you already have: picking a shop is instant again** (founder, on the phone: "The animation is slow when a new one is selected fix it").
+  The page matched every cupboard staple against the chosen shop's whole list (`pantryLines`) on opening and on each shop change, though only "Make me a
+  recipe" uses it: about 0.6 s of work, 2 to 2.5 s on a phone-speed processor (Chrome slowed 4x), which froze the highlight half way. It is now worked out only
+  when Pip is asked. Measured at 4x: the new shop shows as picked in 0.1 to 0.2 s (was 1.9 s), with no long task after it (was up to 2.5 s); Pip's request still
+  carries the shop's cupboard list (125 lines at Waitrose).

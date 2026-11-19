@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { MAX_SAVED_RECIPES, keepMadeRecipe, pantryLines } from "@/lib/mm/aiRecipe";
 import { API_BASE, PAID_ACCESS_ENABLED, PHOTO_RECIPES_ENABLED } from "@/lib/mm/config";
 import { FRIDGE_MESSAGES, FRIDGE_MOODS, MAX_HAVE, MIN_HAVE_ITEMS, fridgeRecipeFromAi, haveItems, ingredientsYouHave, plainItem, readItems, recipesFromFridge, type FridgeMood, type FridgeRecipeRequest } from "@/lib/mm/fridgeRecipe";
@@ -70,7 +70,6 @@ function Fridge() {
   // what was typed as our recipes read it: a slip of the finger read as the food meant, and anything none of them uses named (usability test 2026-11-19: Pat)
   const reading = readItems(RECIPES, items);
   const itemsKey = reading.items.join("|");
-  const dietKey = JSON.stringify(diet);
   // worked out again only when what they have, the diet or the kind of food changes (the React Compiler keeps it between renders)
   const matches = shown ? recipesFromFridge(RECIPES, itemsKey ? itemsKey.split("|") : [], diet, 12, mood) : [];
   const { cards } = useRecipeCards(matches.map((m) => m.recipe), ready?.products ?? null, diet, target);
@@ -78,7 +77,6 @@ function Fridge() {
   // the recipe opens with what the person has ticked "I have this", so Add all leaves it off the list
   const haveOf = new Map(matches.map((m) => [m.recipe.id, ingredientsYouHave(m.recipe, m.uses)]));
   const haveFor = (id: string) => { const keys = haveOf.get(id) ?? []; return keys.length ? `&have=${keys.join(",")}` : ""; };
-  const pantry = useMemo(() => (ready ? pantryLines(ready.products, JSON.parse(dietKey)) : []), [ready, dietKey]);
 
   useEffect(() => { if (shown) results.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }, [shown]);
   useEffect(() => {
@@ -103,6 +101,9 @@ function Fridge() {
     setError(null);
     setLine(0);
     setStep("working");
+    // the shop's cupboard staples are worked out only here, when Pip is asked (founder 2026-11-19, "the animation is slow when a new one is selected": matching
+    // every staple against the whole shop list on each shop change held the page up for about two seconds on a phone)
+    const pantry = pantryLines(ready.products, diet);
     const body: FridgeRecipeRequest = { shop, servings: SERVINGS, target, diet, have: text.slice(0, MAX_HAVE), mood, pantry };
     try {
       const res = await fetch(`${API_BASE}recipe/fridge`, { method: "POST", headers: { "Content-Type": "application/json", ...(paid.token ? { Authorization: `Bearer ${paid.token}` } : {}) }, body: JSON.stringify(body) });
