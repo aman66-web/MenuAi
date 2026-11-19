@@ -3166,3 +3166,12 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   16/16 (the test build), unit 2205.
 - Held back: 11 more Iceland pages (all of Iceland is now read), 19 Waitrose coffees whose per-100 g table is brewed coffee or contradicts its serving
   column. Kept: 12 Waitrose coffees that all print the same roasted-coffee table (406 kcal per 100 g), plausible for beans as sold.
+
+### 19 November 2026 (night): everything on `iap` live on numbite.com
+- Founder: "Yes, put it all life, please", then "Put it all live pls". First the food-crop server part alone (main 4119d9a5, deployed Ready), then all of
+  `iap` merged into `main` (d0d1fb0f, 152 commits). Checked first: the API and server code are identical on both (the live App Store 1.0 app talks to the same
+  API; the founder's phone has run `iap` against it for days), the restaurant menu data is unchanged, 1.0 carries its own grocery lists, and no database
+  change is needed. The five conflicts were the scanner and food-crop changes that had gone to `main` as copies; `iap` held every one of their lines and more,
+  so `iap`'s side was taken and the merged tree is exactly `iap`'s (2205 unit tests, e2e photorecipe 16/16). On the website nothing is sold (GATING_ENABLED
+  false): every feature is open, Make it at home and Scan your food stay hidden, and everyone signs in (SIGN_IN_REQUIRED). The App Store app is unchanged
+  until 1.1 is uploaded and approved; that still waits on the payment key (`ENTITLEMENT_PRIVATE_JWK`) and the In-App Purchase products.
