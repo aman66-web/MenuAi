@@ -229,6 +229,15 @@ export default function Privacy() {
           token, which holds no personal details. The same one-way scramble of your IP address stops one person asking too often.
         </p>
         )}
+        {PHOTO_RECIPES_API_ENABLED && (
+        <p className={para}>
+          If you ask Pip for a new recipe in Cook with what you have (part of Premium), the list of food you typed or tapped, the kind of food you fancy, your diet
+          and allergy choices, the size of your meal and the list of the shop&apos;s products it may use are sent to our server, which passes them to Anthropic to write
+          the recipe. No name, account, location or anything else is sent, and we don&apos;t keep the list or the recipe: the recipe comes straight back to your device and
+          is saved in your recipes there. Finding our own recipes for what you have happens on your device only and sends nothing. To check you have Premium, your
+          device sends its access token, which holds no personal details, and the same one-way scramble of your IP address stops one person asking too often.
+        </p>
+        )}
         {FOOD_SCAN_API_ENABLED && (
         <p className={para}>
           If you use Scan your food (part of Premium), the photo of your plate is made smaller on your device first and sent to our server, which passes it to
