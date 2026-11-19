@@ -1020,7 +1020,16 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
               </button>
             </li>
           ))}
-          {!choices.length && <li className="glass rounded-[1.25rem] p-4">{t("No other recipes fit this meal with your choices.")}</li>}
+          {/* why, and the way on (usability test 2026-11-19: Raj's Indian dinners were all in the plan already, and the sheet just said no) */}
+          {!choices.length && (
+            <li className="glass rounded-[1.25rem] p-4 text-[0.9375rem] leading-snug">
+              <p className="font-semibold">{saved.cuisines?.length
+                ? t("Every {meal} of the kinds of food you chose that fits your diet is in your plan already.", { meal: swapping === null ? "" : slotName(swapping).toLowerCase() })
+                : t("Every {meal} that fits your diet and your choices is in your plan already.", { meal: swapping === null ? "" : slotName(swapping).toLowerCase() })}</p>
+              <p className="mt-1">{saved.cuisines?.length ? t("For more choice, make a new plan with more kinds of food, or Any.") : t("For more choice, make a new plan leaving out fewer foods.")}</p>
+              <Button variant="secondary" className="mt-3 min-h-12" onClick={() => { setSwapping(null); onChange(); }}>{t("Make a new plan")}</Button>
+            </li>
+          )}
         </ul>
       </Sheet>
     </div>

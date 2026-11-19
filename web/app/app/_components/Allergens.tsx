@@ -100,22 +100,31 @@ export function AllergenSection({ chain, allergens, changesNotCovered, title: ti
     );
   }
   const containsCount = allergens.contains.length;
-  const mine = (settings.preferences.avoidAllergens ?? []).map((k) => ({ k, s: statusOf(allergens, k).kind }));
+  // the person's own allergies, the warnings first: contains, then may contain, then not listed
+  const rank = { contains: 0, may: 1 } as Record<string, number>;
+  const mine = (settings.preferences.avoidAllergens ?? []).map((k) => ({ k, s: statusOf(allergens, k).kind })).sort((a, b) => (rank[a.s] ?? 2) - (rank[b.s] ?? 2));
   return (
     <section aria-labelledby="allergens-heading" className="glass overflow-hidden rounded-[1.25rem]">
       <div className="px-4 pt-4">
         <h2 id="allergens-heading" className="text-xl font-[800] tracking-[-0.01em]">{title}</h2>
         <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">
           {containsCount === 0 ? t("None of the 14 main allergens listed as an ingredient.") : t("Contains {n} of the 14 main allergens.", { n: containsCount })}
+          {/* the "may contain" ones counted apart (usability test 2026-11-19: Harold read "Contains 4" as counting his wife's "may contain" peanuts too) */}
+          {guide.mayContainPublished && allergens.mayContain.length > 0 && ` ${allergens.mayContain.length === 1 ? t("1 more may be present in small amounts.") : t("{n} more may be present in small amounts.", { n: allergens.mayContain.length })}`}
           {!guide.mayContainPublished && ` ${t("{chain}'s guide doesn't say what may be present in traces.", { chain: chain.name })}`}
         </p>
         {/* the allergies the person set, said first, in words */}
         {mine.length > 0 && (
           <ul className="mt-3 space-y-1.5">
+            {/* a warning never looks like an all-clear (usability test 2026-11-19: Harold's "may contain" peanuts sat in the same grey box as "not listed"):
+                contains is the dark box, may contain a box with a heavy border and what it means said in it, not listed the plain grey one */}
             {mine.map(({ k, s }) => (
-              <li key={k} className="rounded-[0.875rem] bg-[var(--fill)] px-3.5 py-2.5 text-[0.9375rem] font-bold leading-snug">
-                {s === "contains" ? t("{allergen}: this item contains it.", { allergen: t(ALLERGEN_LABEL[k]) })
-                  : s === "may" ? t("{allergen}: this item may contain it.", { allergen: t(ALLERGEN_LABEL[k]) })
+              <li key={k} className={`rounded-[0.875rem] px-3.5 py-2.5 text-[0.9375rem] font-bold leading-snug ${s === "contains" ? "bg-foreground text-background" : s === "may" ? "border-[3px] border-foreground bg-white" : "bg-[var(--fill)]"}`}>
+                {s === "contains" ? <><span aria-hidden className="me-1.5">⚠</span>{t("{allergen}: this item contains it.", { allergen: t(ALLERGEN_LABEL[k]) })}</>
+                  : s === "may" ? <>
+                      <span aria-hidden className="me-1.5">⚠</span>{t("{allergen}: this item may contain it.", { allergen: t(ALLERGEN_LABEL[k]) })}
+                      <span className="mt-1 block font-normal">{t("The restaurant says small amounts could get in, for example from a shared kitchen or fryer.")}</span>
+                    </>
                   : t("{allergen}: not listed for this item. Ask staff to be sure.", { allergen: t(ALLERGEN_LABEL[k]) })}
               </li>
             ))}
