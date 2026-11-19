@@ -15,7 +15,9 @@ function RecipeRoute() {
   const shop = params.get("r");
   const okId = id && /^[a-z0-9-]{2,60}$/.test(id) ? id : null;
   const okMine = mine && /^ai-[a-z0-9-]{4,40}$/.test(mine) ? mine : null;
-  return okId || okMine ? <RecipeScreen id={okId} mine={okMine} shop={shop && /^[a-z0-9-]{2,40}$/.test(shop) ? shop : null} /> : <ErrorBox message={t("Choose a recipe first.")} />;
+  // ?have=: the recipe's ingredients the person said they have (Cook with what you have), by key
+  const have = (params.get("have") ?? "").split(",").filter((k) => /^[a-z0-9-]{1,40}$/.test(k)).slice(0, 30);
+  return okId || okMine ? <RecipeScreen id={okId} mine={okMine} shop={shop && /^[a-z0-9-]{2,40}$/.test(shop) ? shop : null} have={have} /> : <ErrorBox message={t("Choose a recipe first.")} />;
 }
 
 export default function RecipePage() {

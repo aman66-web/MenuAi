@@ -1660,6 +1660,7 @@
  "I can choose from {list}.",
  "I can't show recipes just now. You'll find them any time under Recipes.",
  "I have this",
+ "I have this: {name}",
  "I worked these out from your answers. They're only a starting point, so change any of them.",
  "I'll share your meals between {shops}, using the best shop for each meal.",
  "I'm on a GLP-1 medication",

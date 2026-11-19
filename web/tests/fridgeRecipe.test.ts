@@ -1,5 +1,8 @@
 import { describe, expect, it, vi } from "vitest";
-import { FRIDGE_SYSTEM_PROMPT, moodMatches, fridgeRecipeFromAi, fridgeUserPrompt, haveItems, recipesFromFridge, type FridgeRecipeRequest } from "../lib/mm/fridgeRecipe";
+import { FRIDGE_SYSTEM_PROMPT, moodMatches, fridgeRecipeFromAi, fridgeUserPrompt, haveItems, ingredientsYouHave, recipesFromFridge, type FridgeRecipeRequest } from "../lib/mm/fridgeRecipe";
+import { haveKey, recipeTotals, resolveRecipe } from "../lib/mm/recipes";
+import { decodeShopProducts } from "../lib/mm/shopProducts";
+import { readFileSync } from "node:fs";
 import { handleFridgeRecipe, type AskFridgeRecipe, type FridgeCtx } from "../lib/fridgeRecipeHandler";
 import { RECIPES } from "../lib/mm/recipeBook";
 
@@ -105,5 +108,29 @@ describe("forgiving spellings (usability test 2026-11-19)", () => {
     const typo = recipesFromFridge(RECIPES, ["potatos"], {}, 50);
     expect(typo.length).toBe(right);
     expect(typo.every((m) => m.uses.includes("potatos"))).toBe(true);
+  });
+});
+
+describe("what the person has stays off the shopping list (usability test 2026-11-19: Pat's Add all put her own eggs and onion on it)", () => {
+  const omelette = RECIPES.find((r) => r.id === "spanish-omelette")!;
+
+  it("finds the recipe's ingredients the person has, by key, plurals and slips forgiven, never a seasoning", () => {
+    const keys = ingredientsYouHave(omelette, ["eggs", "onions", "potatos", "pepper"]);
+    const labels = omelette.ingredients.filter((i) => keys.includes(i.key)).map((i) => i.label.toLowerCase());
+    expect(labels.some((l) => l.includes("egg"))).toBe(true);
+    expect(labels.some((l) => l.includes("onion"))).toBe(true);
+    expect(labels.some((l) => l.includes("potato"))).toBe(true);
+    expect(labels.some((l) => /black pepper|salt/.test(l))).toBe(false);
+    expect(ingredientsYouHave(omelette, [])).toEqual([]);
+  });
+
+  it("leaves a ticked ingredient out of the price to buy it all, never out of a serving's numbers", () => {
+    const products = decodeShopProducts(JSON.parse(readFileSync("public/groceries/all/sainsburys.json", "utf8")));
+    const resolved = resolveRecipe(omelette, products);
+    const all = recipeTotals(resolved)!;
+    const egg = omelette.ingredients.find((i) => /egg/i.test(i.label))!;
+    const less = recipeTotals(resolved, new Set([haveKey(egg.key)]))!;
+    expect(less.basket).toBeLessThan(all.basket);
+    expect(less.perServing).toEqual(all.perServing);
   });
 });

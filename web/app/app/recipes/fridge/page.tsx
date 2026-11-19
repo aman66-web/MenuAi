@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { MAX_SAVED_RECIPES, keepMadeRecipe, pantryLines } from "@/lib/mm/aiRecipe";
 import { API_BASE, PAID_ACCESS_ENABLED, PHOTO_RECIPES_ENABLED } from "@/lib/mm/config";
-import { FRIDGE_MESSAGES, FRIDGE_MOODS, MAX_HAVE, MIN_HAVE_ITEMS, fridgeRecipeFromAi, haveItems, recipesFromFridge, type FridgeMood, type FridgeRecipeRequest } from "@/lib/mm/fridgeRecipe";
+import { FRIDGE_MESSAGES, FRIDGE_MOODS, MAX_HAVE, MIN_HAVE_ITEMS, fridgeRecipeFromAi, haveItems, ingredientsYouHave, recipesFromFridge, type FridgeMood, type FridgeRecipeRequest } from "@/lib/mm/fridgeRecipe";
 import { tk } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { RECIPES } from "@/lib/mm/recipeBook";
@@ -73,6 +73,9 @@ function Fridge() {
   const matches = shown ? recipesFromFridge(RECIPES, itemsKey ? itemsKey.split("|") : [], diet, 12, mood) : [];
   const { cards } = useRecipeCards(matches.map((m) => m.recipe), ready?.products ?? null, diet, target);
   const usesOf = new Map(matches.map((m) => [m.recipe.id, m.uses]));
+  // the recipe opens with what the person has ticked "I have this", so Add all leaves it off the list
+  const haveOf = new Map(matches.map((m) => [m.recipe.id, ingredientsYouHave(m.recipe, m.uses)]));
+  const haveFor = (id: string) => { const keys = haveOf.get(id) ?? []; return keys.length ? `&have=${keys.join(",")}` : ""; };
   const pantry = useMemo(() => (ready ? pantryLines(ready.products, JSON.parse(dietKey)) : []), [ready, dietKey]);
 
   useEffect(() => { if (shown) results.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }, [shown]);
@@ -128,6 +131,7 @@ function Fridge() {
         products={ready.products}
         backHref="/app/recipes"
         diet={diet}
+        haveKeys={made.recipe.ingredients.filter((i) => made.fromHome.includes(i.pantry ?? i.key)).map((i) => i.key)}
         save={{ saved: true, onSave: () => {} }}
         actions={
           <>
@@ -212,7 +216,7 @@ function Fridge() {
                   return (
                     // the tile fills the space above the line, so the line stays in view (usability test 2026-11-19: the tile's full height pushed it under the next card)
                     <li key={c.recipe.id} className="flex min-w-0 flex-col">
-                      <div className="min-h-0 flex-1"><RecipeTile card={c} href={`/app/recipes/view?id=${c.recipe.id}&r=${shop}`} /></div>
+                      <div className="min-h-0 flex-1"><RecipeTile card={c} href={`/app/recipes/view?id=${c.recipe.id}&r=${shop}${haveFor(c.recipe.id)}`} /></div>
                       <p className="mt-1.5 px-1 text-[0.875rem] font-semibold leading-snug text-accent">{t("Uses your {things}", { things: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(uses) })}</p>
                     </li>
                   );

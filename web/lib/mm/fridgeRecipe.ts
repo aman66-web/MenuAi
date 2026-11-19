@@ -85,6 +85,15 @@ export function recipesFromFridge(recipes: readonly Recipe[], items: readonly st
   return out.sort((a, b) => b.uses.length - a.uses.length || a.recipe.ingredients.length - b.recipe.ingredients.length || a.recipe.name.localeCompare(b.recipe.name, "en-GB")).slice(0, limit);
 }
 
+/**
+ * Which of a recipe's ingredients are things the person said they have (by ingredient key), so its page starts with them ticked "I have this" and they stay
+ * off the shopping list (usability test 2026-11-19: Pat's "Add all" put her own eggs and onion on the list). The same word match as recipesFromFridge, one
+ * ingredient at a time; never a seasoning.
+ */
+export function ingredientsYouHave(recipe: Recipe, items: readonly string[]): string[] {
+  return recipe.ingredients.filter((i) => leavesOut({ ...recipe, name: "", ingredients: [i] }, items.flatMap(spellings))).map((i) => i.key);
+}
+
 export interface FridgeRecipeRequest {
   shop: string;
   servings: number;

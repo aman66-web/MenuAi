@@ -491,6 +491,9 @@ export interface RecipeTotals {
  *  2026-11-18: "guess the calories fats protein etc for salt, salt is always the same"; "Salt is a fundamental for flavour"), so a recipe's salt figure is whole. */
 export const PLAIN_SALT: ShopNutrition = { kcal: 0, protein: 0, carbs: 0, fat: 0, saturates: 0, sugars: 0, fibre: 0, salt: 99.9, kj: 0, per: "g", state: "" };
 
+/** In recipeTotals' `have`: any ingredient the person has ticked "I have this" on this recipe (cupboard things are there by their pantry kind). */
+export const haveKey = (ingredientKey: string): string => `key:${ingredientKey}`;
+
 export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new Set()): RecipeTotals | null {
   if (!r.complete) return null;
   const notCounted: string[] = [];
@@ -502,7 +505,7 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
   let used = 0;
   let usedKnown = true;
   let basket = 0;
-  const kept = (p: IngredientPick) => !(p.spec.cupboard && p.spec.pantry && have.has(p.spec.pantry));
+  const kept = (p: IngredientPick) => !(p.spec.cupboard && p.spec.pantry && have.has(p.spec.pantry)) && !have.has(haveKey(p.spec.key));
   if (r.basis) for (const p of r.picks as IngredientPick[]) if (kept(p)) basket += p.basketCost;
   for (const p of (r.basis ?? r).picks as IngredientPick[]) {
     if (p.usedCost === null) usedKnown = false;

@@ -56,6 +56,25 @@ await step("axe finds nothing on the screen", async () => {
   expect(errors.length === 0, errors.join(" | "));
 });
 
+await step("a recipe opened from here starts with what you have ticked \"I have this\", and Add all leaves it off the list (usability test 2026-11-19: Pat)", async () => {
+  await page.getByRole("radio", { name: "Anything" }).tap();
+  await page.getByRole("button", { name: "Show me recipes" }).tap();
+  const card = page.locator("section[aria-labelledby='fridge-results'] li").filter({ hasText: /Uses your .*eggs/ }).first();
+  await card.waitFor({ timeout: 60000 });
+  const href = await card.locator("a[href*='/app/recipes/view']").first().getAttribute("href");
+  expect(/[?&]have=[a-z0-9,-]+/.test(href ?? ""), "the link carries what you have: " + href);
+  await page.goto(BASE + href);
+  const ticked = page.getByRole("button", { name: /^I have this: .*egg/i, pressed: true });
+  await ticked.first().waitFor({ timeout: 90000 });
+  // untick and tick again: the toggle works by hand too
+  await ticked.first().tap();
+  await page.getByRole("button", { name: /^I have this: .*egg/i, pressed: false }).first().waitFor();
+  await page.getByRole("button", { name: /^I have this: .*egg/i }).first().tap();
+  await page.getByRole("button", { name: "Add all to my shopping list" }).tap();
+  const list = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.shopping") ?? "null")?.data ?? []);
+  expect(list.length > 0 && !list.some((x) => /\begg/i.test(x.name)), "eggs left off: " + list.map((x) => x.name).join(" | "));
+});
+
 await browser.close();
 console.log(`\n${passed} passed, ${failed} failed`);
 process.exit(failed ? 1 : 0);

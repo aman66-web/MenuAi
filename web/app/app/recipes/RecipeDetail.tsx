@@ -11,7 +11,7 @@ import { firstMentions } from "@/lib/mm/stepIngredients";
 import { methodAmount, placeAmounts, scaleMethodStep } from "@/lib/mm/kitchenAmount";
 import { LOCAL_RANGE_SHOP, LOCAL_SHOP_PRODUCTS } from "@/lib/mm/localRange";
 import { localTipFor } from "@/lib/mm/localTips";
-import { MEAL_TYPES, candidates, isMeatFree, pickFor, recipeTotals, recipeView, roundedAmountsMatter, scaleServings, scaleSpec, subSpec, type IngredientPick, type IngredientSpec, type Recipe } from "@/lib/mm/recipes";
+import { MEAL_TYPES, candidates, haveKey, isMeatFree, pickFor, recipeTotals, recipeView, roundedAmountsMatter, scaleServings, scaleSpec, subSpec, type IngredientPick, type IngredientSpec, type Recipe } from "@/lib/mm/recipes";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { splitStep, stepTime } from "@/lib/mm/recipeSteps";
 import { productKey, shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
@@ -128,7 +128,7 @@ function MacroRow({ label, grams, dot }: { label: string; grams: number; dot: st
  *  `products` are theirs, tagged with their shop. Every ingredient comes from the first shop unless the person swaps it to another shop's product.
  *  `onChangeShops`: when given, the shop in the header is a button that opens the screen's choice of shop. `onNeedOtherShops`: called when the Swap sheet opens,
  *  so the screen loads the other shops (they're not loaded for a plain look at a recipe); `othersLoading` says they are on their way. */
-export function RecipeDetail({ recipe, files, products, backHref, actions, photo, onChangeShops, onNeedOtherShops, othersLoading, diet, save }: { recipe: Recipe; files: readonly ShopFile[]; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode; photo?: string; onChangeShops?: () => void; onNeedOtherShops?: () => void; othersLoading?: boolean; /** The diet this recipe was made for (Make it at home's "What to exclude"), when it isn't the one in Settings. */ diet?: Preferences; /** A recipe Pip has just written (Make it at home): a Save button at the top, and Back asks to save it first while it isn't saved. */ save?: { saved: boolean; onSave: () => void } }) {
+export function RecipeDetail({ recipe, files, products, backHref, actions, photo, onChangeShops, onNeedOtherShops, othersLoading, diet, save, haveKeys }: { /** Ingredients the person said they have (Cook with what you have): they start ticked "I have this". */ haveKeys?: readonly string[]; recipe: Recipe; files: readonly ShopFile[]; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode; photo?: string; onChangeShops?: () => void; onNeedOtherShops?: () => void; othersLoading?: boolean; /** The diet this recipe was made for (Make it at home's "What to exclude"), when it isn't the one in Settings. */ diet?: Preferences; /** A recipe Pip has just written (Make it at home): a Save button at the top, and Back asks to save it first while it isn't saved. */ save?: { saved: boolean; onSave: () => void } }) {
   const t = useT();
   const poss = usePossessive();
   const first = files[0]!;
@@ -162,7 +162,11 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   const [tab, setTab] = useState<RecipeTab>("ingredients");
   const [detail, setDetail] = useState(false);
   const haveList = useStore(cupboardStore);
-  const have = useMemo(() => new Set(haveList), [haveList]);
+  // "I have this" on any ingredient, for this recipe only (usability test 2026-11-19: Pat's own eggs and onion went on the list): cupboard things are kept for
+  // every recipe (cupboardStore); anything else is ticked here, starting with what the person said they have, and leaves the list and the price to buy it all
+  const [haveHere, setHaveHere] = useState<ReadonlySet<string>>(() => new Set(haveKeys ?? []));
+  const flipHave = (key: string) => setHaveHere((h) => { const n = new Set(h); if (n.has(key)) n.delete(key); else n.add(key); return n; });
+  const have = useMemo(() => new Set([...haveList, ...[...haveHere].map(haveKey)]), [haveList, haveHere]);
   const meatFree = isMeatFree(recipe);
   // cooking for more or fewer people scales every amount with them (eggs, peppers and cloves stay whole), but a serving stays the same: its numbers
   // and price come from the recipe as written, with the substitutes and the fit to the meal chosen for it (recipeView, lib/mm/recipes.ts)
@@ -179,7 +183,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   // the basket leaves out the cupboard items the person has ticked; a serving's price and numbers never do
   const totals = useMemo(() => (view.totals ? recipeTotals(view.resolved, have) : null), [view, have]);
   const picks = view.resolved.picks;
-  const hasIt = (spec: IngredientSpec) => !!spec.cupboard && !!spec.pantry && have.has(spec.pantry);
+  const hasIt = (spec: IngredientSpec) => (!!spec.cupboard && !!spec.pantry && have.has(spec.pantry)) || haveHere.has(spec.key);
   const swapIndex = view.recipe.ingredients.findIndex((i) => i.key === swapping);
   // what the row shows: the pick's own spec when the shop lacked the ingredient and a substitute stands in
   const swapSpec = swapIndex >= 0 ? (picks[swapIndex]?.spec ?? view.recipe.ingredients[swapIndex]!) : null;
@@ -506,7 +510,12 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                             {/* founder 2026-11-17 ("the cost of each ingredient as relative to how much is used"): what the amount listed above costs at the shop's own price per kg or litre,
                                 in the green of "a serving"; it follows Serves, and is left out where the shop prints no such price (the serving's price is then "–" too) */}
                             {p.usedCost !== null && <span className="app-numbers text-[0.9375rem] font-semibold text-accent">{t("{price} used", { price: formatUsedPrice(p.usedCost) })}</span>}
-                            <button type="button" onClick={() => setSwapping(spec.key)} aria-label={t("Swap {name}", { name: t(spec.label) })} className="ms-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-soft-strong">
+                            {!(spec.cupboard && spec.pantry) && (
+                              <button type="button" aria-pressed={hasIt(spec)} aria-label={t("I have this: {name}", { name: t(spec.label).toLowerCase() })} onClick={() => { flipHave(spec.key); setAdded(null); }} className={`ms-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full px-4 text-[0.9375rem] font-bold transition active:scale-95 ${hasIt(spec) ? "bg-sun text-on-accent" : "bg-[var(--fill)] hover:bg-soft-strong"}`}>
+                                {hasIt(spec) && <CheckIcon className="h-4 w-4" />}{t("I have this")}
+                              </button>
+                            )}
+                            <button type="button" onClick={() => setSwapping(spec.key)} aria-label={t("Swap {name}", { name: t(spec.label) })} className={`${spec.cupboard && spec.pantry ? "ms-auto " : ""}inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-soft-strong`}>
                               <SwapIcon className="h-4 w-4" />{t("Swap")}
                             </button>
                           </div>
