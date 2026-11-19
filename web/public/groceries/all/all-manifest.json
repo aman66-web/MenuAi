@@ -64,11 +64,11 @@
    "file": "morrisons.json",
    "count": 16367,
    "checkedOn": "2026-10-08",
-   "nutrition": 9778,
+   "nutrition": 9793,
    "community": 653,
    "sameProduct": 1470,
    "priced": 16367,
-   "sha256": "48f7b0e0f22cdeb0c919a27af73f088e20779c0d91c9a13c21bff437d46a7c6e"
+   "sha256": "023b398f3b6277c78c805219c09015b7eed603ff3baeab863e5cbb9648190d59"
   },
   {
    "id": "waitrose",
@@ -76,11 +76,11 @@
    "file": "waitrose.json",
    "count": 9721,
    "checkedOn": "2026-10-08",
-   "nutrition": 7602,
+   "nutrition": 7731,
    "community": 232,
    "sameProduct": 758,
    "priced": 9721,
-   "sha256": "4fafc7499596070594954037b40243b7ae4bda960a60054e3e9d51b586c9d877"
+   "sha256": "8f5920877d9599dcb4f7028f4306e574153ce5c200fbbf83be29e88095e114d9"
   },
   {
    "id": "iceland",
