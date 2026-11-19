@@ -86,6 +86,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 004652-1985-1986,g,,2535,612,49.4,7.9,11.6,6.4,9.3,25.6,0.52,2026-11-18,https://www.waitrose.com/ecom/products/x/004652-1985-1986
 004653-1987-1988,g,,2614,631,52.2,8.6,12.0,6.8,6.7,25.0,0.68,2026-11-18,https://www.waitrose.com/ecom/products/x/004653-1987-1988
 004668-1999-2000,g,,915,219,13.0,1.0,23.7,20.8,1.0,0.9,2.0,2026-11-19,https://www.waitrose.com/ecom/products/x/004668-1999-2000
+004689-2011-2012,g,,1495,355,10.6,6.3,61.8,60.8,<0.5,3.0,0.25,2026-11-19,https://www.waitrose.com/ecom/products/x/004689-2011-2012
 004737-2041-2042,g,,547,131,9.0,2.5,0.0,0.0,0.0,12.6,0.39,2026-11-18,https://www.waitrose.com/ecom/products/x/004737-2041-2042
 004891-2103-2104,ml,,1,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/004891-2103-2104
 004908-2111-2112,g,,3059,744,80,53,0.6,0.6,,0.6,1.8,2026-11-18,https://www.waitrose.com/ecom/products/x/004908-2111-2112
@@ -166,6 +167,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 007819-3707-3708,g,,1198,283,4.1,1.0,46.8,16.5,2.8,13.5,24.90,2026-11-19,https://www.waitrose.com/ecom/products/x/007819-3707-3708
 007820-3709-3710,g,,1113,264,5.4,2.6,34.6,1.2,3.0,17.7,28.97,2026-11-19,https://www.waitrose.com/ecom/products/x/007820-3709-3710
 007825-3711-3712,g,,1068,252,0.8,0.4,23,1.4,0.8,38,11.3,2026-11-19,https://www.waitrose.com/ecom/products/x/007825-3711-3712
+007833-3715-3716,g,,1100,260,<0.5,<0.1,30,1.2,1.1,34,10.8,2026-11-19,https://www.waitrose.com/ecom/products/x/007833-3715-3716
+007835-3719-3720,g,,1100,260,<0.5,<0.1,30,1.2,,34,10.8,2026-11-19,https://www.waitrose.com/ecom/products/x/007835-3719-3720
 007847-3731-3732,g,,558,133,9.0,1.3,10,1.1,2.0,2.1,1.2,2026-11-18,https://www.waitrose.com/ecom/products/x/007847-3731-3732
 007848-3733-3734,g,,480,115,4.5,1.0,11,1.0,5.0,5.0,1.2,2026-11-18,https://www.waitrose.com/ecom/products/x/007848-3733-3734
 008101-3842-3843,g,,1700,400,0,0,100,100,,0,0,2026-11-19,https://www.waitrose.com/ecom/products/x/008101-3842-3843
@@ -224,6 +227,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 010213-5088-5089,g,,2352,565,37,22,48,34,5.2,7.4,0.10,2026-11-18,https://www.waitrose.com/ecom/products/x/010213-5088-5089
 010263-5106-5107,g,,2084,497,22.8,11.6,65.2,26.0,2.3,6.6,0.45,2026-11-19,https://www.waitrose.com/ecom/products/x/010263-5106-5107
 010312-5142-5143,g,,559,134,6.69,4.4,14.9,13.4,,3.8,0.10,2026-11-18,https://www.waitrose.com/ecom/products/x/010312-5142-5143
+010343-5164-5165,ml,,157,37,<0.5,0.1,5.0,5.0,0.0,3.6,0.12,2026-11-19,https://www.waitrose.com/ecom/products/x/010343-5164-5165
 010399-5198-5199,g,,1458,344,1.8,0.3,66.8,<0.5,3.7,13.3,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/010399-5198-5199
 010432-5212-5213,g,,900,214,8.2,0.7,20.6,1.1,1.7,13.7,0.60,2026-11-18,https://www.waitrose.com/ecom/products/x/010432-5212-5213
 010464-5228-5229,g,,151,36,<0.5,0.0,5.6,5.6,3.9,1.0,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/010464-5228-5229
@@ -271,6 +275,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 015355-7365-7366,g,,1945,465,55,13,<0.5,<0.5,,<0.5,0.81,2026-11-18,https://www.waitrose.com/ecom/products/x/015355-7365-7366
 015532-7463-7464,g,,230,55,<0.5,<0.1,12.1,12.1,0.5,0.5,0.02,2026-11-18,https://www.waitrose.com/ecom/products/x/015532-7463-7464
 015622-7515-7516,g,,2093,500,25,16,61,40,2.8,7.3,0.61,2026-11-18,https://www.waitrose.com/ecom/products/x/015622-7515-7516
+015864-7587-7588,ml,,276,66,3.7,2.4,4.7,4.7,0.0,3.5,0.11,2026-11-19,https://www.waitrose.com/ecom/products/x/015864-7587-7588
 015880-7597-7598,g,,74,18,<0.5,0.1,0.0,0.0,1.4,2.7,0.08,2026-11-18,https://www.waitrose.com/ecom/products/x/015880-7597-7598
 015949-7628-7629,g,,888,211,3.8,0.6,34.4,3.3,9.1,5.3,1.0,2026-11-18,https://www.waitrose.com/ecom/products/x/015949-7628-7629
 016018-7668-7669,g,,2128,509,28.3,2.2,53.9,4.5,4.7,7.5,0.87,2026-11-19,https://www.waitrose.com/ecom/products/x/016018-7668-7669
@@ -317,6 +322,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 018594-8979-8980,g,,1531,364,10.2,6.8,61.6,44.2,3.1,4.8,0.27,2026-11-18,https://www.waitrose.com/ecom/products/x/018594-8979-8980
 018664-9019-9020,g,,1501,356,7.8,4.0,65.3,46.7,2.1,5.0,0.32,2026-11-18,https://www.waitrose.com/ecom/products/x/018664-9019-9020
 018691-9029-9030,ml,,62,15,0.0,0.0,3.3,3.3,,0.05,0.0,2026-11-19,https://www.waitrose.com/ecom/products/x/018691-9029-9030
+018732-9053-9054,ml,,276,66,3.7,2.4,4.7,4.7,0.0,3.5,0.11,2026-11-19,https://www.waitrose.com/ecom/products/x/018732-9053-9054
 018784-9085-9086,g,,1096,260,6.4,0.9,40.9,4.7,3.3,8.1,1.15,2026-11-18,https://www.waitrose.com/ecom/products/x/018784-9085-9086
 018859-9121-9122,g,,919,221,15.3,5.0,1.0,<0.5,0.6,19.6,2.38,2026-11-18,https://www.waitrose.com/ecom/products/x/018859-9121-9122
 019023-9177-9178,g,,302,71,0.2,0.1,11.7,4.7,3.2,4.1,0.6,2026-11-18,https://www.waitrose.com/ecom/products/x/019023-9177-9178
@@ -424,6 +430,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 025065-12148-12149,ml,,3382,823,91.4,13.1,0.0,0.0,0.0,0.0,0.0,2026-11-19,https://www.waitrose.com/ecom/products/x/025065-12148-12149
 025211-12246-12247,ml,,80,19,0,0,4.4,4.4,,0,0,2026-11-19,https://www.waitrose.com/ecom/products/x/025211-12246-12247
 025400-12358-12359,g,,1907,454,18.00,9.30,71.00,50.00,0.70,2.10,0.66,2026-11-18,https://www.waitrose.com/ecom/products/x/025400-12358-12359
+025513-12430-12431,ml,,271,65,3.6,2.3,4.7,4.7,,3.4,0.1,2026-11-19,https://www.waitrose.com/ecom/products/x/025513-12430-12431
 025555-12462-12463,g,,1671,394,2.7,0.7,82.3,0.5,,8.5,0.3,2026-11-18,https://www.waitrose.com/ecom/products/x/025555-12462-12463
 025649-12512-12513,g,,556,133,5.4,0.5,13.1,3.8,6.0,5.0,0.35,2026-11-18,https://www.waitrose.com/ecom/products/x/025649-12512-12513
 025725-12544-12545,g,,2060,493,27,18,58,52,,3.5,0.03,2026-11-18,https://www.waitrose.com/ecom/products/x/025725-12544-12545
@@ -595,12 +602,14 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 037400-18712-18713,g,,1034,248,16.5,5.6,4.3,4.3,0.7,20.4,2.19,2026-11-18,https://www.waitrose.com/ecom/products/x/037400-18712-18713
 037737-18839-18840,g,,1505,355,0.7,0.2,78.6,0.7,1.2,7.9,<0.03,2026-11-18,https://www.waitrose.com/ecom/products/x/037737-18839-18840
 038106-19028-19029,g,,1852,443,20.2,2.0,43.3,<0.5,7.6,18.1,3.97,2026-11-19,https://www.waitrose.com/ecom/products/x/038106-19028-19029
+038197-19062-19063,ml,,283,66,3.5,2.6,4.7,4.7,,3.3,0.10,2026-11-19,https://www.waitrose.com/ecom/products/x/038197-19062-19063
 038389-19143-19144,g,,565,134,3.0,0.2,24.3,0.5,1.8,2.3,0.8,2026-11-18,https://www.waitrose.com/ecom/products/x/038389-19143-19144
 038410-19155-19156,g,,449,108,5.8,1.5,5.5,3.4,1.9,7.5,0.84,2026-11-18,https://www.waitrose.com/ecom/products/x/038410-19155-19156
 038732-19305-19306,g,,1490,351,1.5,0.3,69,3.4,2.9,14,0,2026-11-19,https://www.waitrose.com/ecom/products/x/038732-19305-19306
 039136-19419-19420,g,,1480,349,2.1,0.4,68,0.8,3.1,13,0.03,2026-11-19,https://www.waitrose.com/ecom/products/x/039136-19419-19420
 039178-19437-19438,g,,2633,640,70,49,1.5,1.5,,1.0,0.03,2026-11-18,https://www.waitrose.com/ecom/products/x/039178-19437-19438
 039205-19449-19450,ml,,150,36,1.6,1.0,3.5,3.5,0.2,1.6,0.05,2026-11-19,https://www.waitrose.com/ecom/products/x/039205-19449-19450
+039425-19537-19538,ml,,264,63,3.5,2.3,4.5,4.3,0.5,3.2,0.14,2026-11-19,https://www.waitrose.com/ecom/products/x/039425-19537-19538
 039455-19553-19554,g,,563,135,7.2,5.2,12.5,1.1,2.2,3.9,0.54,2026-11-18,https://www.waitrose.com/ecom/products/x/039455-19553-19554
 039527-19581-19582,g,,91,22,<0.5,0.0,<0.5,<0.5,1.7,3.6,0.08,2026-11-18,https://www.waitrose.com/ecom/products/x/039527-19581-19582
 039548-19597-19598,g,,949,227,9.8,5.1,30,12,,2.7,0.21,2026-11-18,https://www.waitrose.com/ecom/products/x/039548-19597-19598
@@ -746,10 +755,16 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 053227-26599-26600,g,,389,93,5.0,3.6,3.0,3.0,,9.0,0.10,2026-11-18,https://www.waitrose.com/ecom/products/x/053227-26599-26600
 053238-26611-26612,g,,536,127,4.0,2.4,17.2,15.2,,4.9,0.2,2026-11-18,https://www.waitrose.com/ecom/products/x/053238-26611-26612
 053339-26669-26670,g,,1249,298,0,0,77.73,66.11,,0,0,2026-11-18,https://www.waitrose.com/ecom/products/x/053339-26669-26670
+053403-26709-26710,ml,,276,66,3.7,2.4,4.7,4.7,0.0,3.5,0.11,2026-11-19,https://www.waitrose.com/ecom/products/x/053403-26709-26710
+053404-26711-26712,ml,,276,66,3.7,2.4,4.7,4.7,0.0,3.5,0.11,2026-11-19,https://www.waitrose.com/ecom/products/x/053404-26711-26712
+053407-26715-26716,ml,,276,66,3.7,2.4,4.7,4.7,0.0,3.5,0.11,2026-11-19,https://www.waitrose.com/ecom/products/x/053407-26715-26716
 053408-26717-26718,g,,1590,386,41.0,27.5,2.3,2.3,0.0,2.0,0.07,2026-11-18,https://www.waitrose.com/ecom/products/x/053408-26717-26718
 053428-26727-26728,ml,,731,177,16.9,10.1,3.3,2.7,0.5,2.7,0.07,2026-11-18,https://www.waitrose.com/ecom/products/x/053428-26727-26728
 053432-26729-26730,ml,,1215,295,31,22,3.2,3.0,,1.8,0.1,2026-11-18,https://www.waitrose.com/ecom/products/x/053432-26729-26730
 053434-26731-26732,g,,1385,336,33,23,6.8,6.8,,2.1,0.07,2026-11-18,https://www.waitrose.com/ecom/products/x/053434-26731-26732
+053444-26741-26742,ml,,157,37,<0.5,0.1,5.0,5.0,0.0,3.6,0.12,2026-11-19,https://www.waitrose.com/ecom/products/x/053444-26741-26742
+053445-26743-26744,ml,,157,37,<0.5,0.1,5.0,5.0,0.0,3.6,0.12,2026-11-19,https://www.waitrose.com/ecom/products/x/053445-26743-26744
+053446-26745-26746,ml,,157,37,<0.5,0.1,5.0,5.0,0.0,3.6,0.12,2026-11-19,https://www.waitrose.com/ecom/products/x/053446-26745-26746
 053447-26747-26748,ml,,209,50,1.8,1.1,4.8,4.8,0.0,3.6,0.11,2026-11-18,https://www.waitrose.com/ecom/products/x/053447-26747-26748
 053448-26749-26750,ml,,209,50,1.8,1.1,4.8,4.8,0.0,3.6,0.11,2026-11-18,https://www.waitrose.com/ecom/products/x/053448-26749-26750
 053451-26753-26754,g,,1590,386,41.0,27.5,2.3,2.3,0.0,2.0,0.07,2026-11-18,https://www.waitrose.com/ecom/products/x/053451-26753-26754
@@ -842,7 +857,6 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 059214-29811-29812,g,,2210,529,31,2.5,54,1.9,3.9,6.5,2.1,2026-11-19,https://www.waitrose.com/ecom/products/x/059214-29811-29812
 059362-29919-29920,g,,2272,544,32,19,56,54,,7.2,0.32,2026-11-18,https://www.waitrose.com/ecom/products/x/059362-29919-29920
 059468-29972-29973,g,,1784,423,9.9,1.2,74,2.0,2.9,6.5,1.1,2026-11-18,https://www.waitrose.com/ecom/products/x/059468-29972-29973
-059554-30028-30028,g,,2210,529,31,2.5,54,1.9,3.9,6.5,2.1,2026-11-19,https://www.waitrose.com/ecom/products/x/059554-30028-30028
 059577-30038-30039,g,,1566,369,0.8,0.2,80,4,5,8,1.5,2026-11-18,https://www.waitrose.com/ecom/products/x/059577-30038-30039
 059686-30104-30105,g,,1725,416,34.9,21.7,<0.5,<0.5,0.0,25.4,1.80,2026-11-18,https://www.waitrose.com/ecom/products/x/059686-30104-30105
 059769-30165-30166,g,,593,144,15.0,2.0,0.0,0.0,2.8,0.9,4.14,2026-11-19,https://www.waitrose.com/ecom/products/x/059769-30165-30166
@@ -926,6 +940,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 070421-35664-35665,g,,318,76,2.7,1.8,9.2,9.1,,2.9,0.13,2026-11-18,https://www.waitrose.com/ecom/products/x/070421-35664-35665
 070671-35813-35814,g,,1960,467,18.1,2.2,64.3,26.8,6.4,8.7,0.85,2026-11-18,https://www.waitrose.com/ecom/products/x/070671-35813-35814
 070684-35827-35828,ml,,112,26,0.0,0.0,2.9,2.5,0.0,<0.5,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/070684-35827-35828
+070805-35887-35888,ml,,157,37,<0.5,0.1,5.0,5.0,0.0,3.6,0.12,2026-11-19,https://www.waitrose.com/ecom/products/x/070805-35887-35888
 071471-36256-36257,g,,1419,339,15.0,9.8,44.1,18.0,2.0,5.8,0.72,2026-11-18,https://www.waitrose.com/ecom/products/x/071471-36256-36257
 071710-36408-36409,g,,350,82,<0.1,0.0,20,17.3,,0.1,0.00,2026-11-18,https://www.waitrose.com/ecom/products/x/071710-36408-36409
 071723-36416-36417,g,,1514,357,2.1,0.5,71.6,3.7,4.9,10.6,1.43,2026-11-19,https://www.waitrose.com/ecom/products/x/071723-36416-36417
@@ -969,7 +984,6 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 078724-40077-40078,g,,1432,345,27.9,19.4,0.0,0.0,0.0,23.5,1.90,2026-11-18,https://www.waitrose.com/ecom/products/x/078724-40077-40078
 078737-40087-40088,g,,1271,307,26.0,17.2,0.6,<0.5,0.0,17.6,1.51,2026-11-18,https://www.waitrose.com/ecom/products/x/078737-40087-40088
 078744-40089-40090,ml,,1501,353,0.0,0.0,83.0,81.0,0.0,0.3,0.12,2026-11-19,https://www.waitrose.com/ecom/products/x/078744-40089-40090
-078873-40149-40149,g,,2101,502,25,2.3,64,1.0,2.5,3.1,2.0,2026-11-19,https://www.waitrose.com/ecom/products/x/078873-40149-40149
 078952-40187-40188,g,,1605,380,4.8,0.9,69.8,17.7,9.2,9.9,0.80,2026-11-18,https://www.waitrose.com/ecom/products/x/078952-40187-40188
 079420-40423-40424,g,,238,57,0.6,0.1,8.6,5.9,3.3,2.5,<0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/079420-40423-40424
 079552-40485-40486,g,,912,218,10.5,4.4,5.4,3.2,0.9,25.0,0.29,2026-11-18,https://www.waitrose.com/ecom/products/x/079552-40485-40486
@@ -999,6 +1013,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 082611-42023-42024,g,,1190,284,8.7,1.4,30,13,,17,17.8,2026-11-19,https://www.waitrose.com/ecom/products/x/082611-42023-42024
 082745-42075-42076,g,,684,163,1.7,0.5,24.5,0.0,14.0,5.6,0.02,2026-11-18,https://www.waitrose.com/ecom/products/x/082745-42075-42076
 082777-42085-42086,g,,600,142,1.6,0.2,29,<0.5,<0.5,3.1,<0.01,2026-11-18,https://www.waitrose.com/ecom/products/x/082777-42085-42086
+082835-42105-42106,ml,,276,66,3.7,2.4,4.7,4.7,0.0,3.5,0.11,2026-11-19,https://www.waitrose.com/ecom/products/x/082835-42105-42106
 082926-42143-42144,g,,547,131,9.0,2.5,0.0,0.0,0.0,12.6,0.39,2026-11-18,https://www.waitrose.com/ecom/products/x/082926-42143-42144
 082996-42175-42176,g,,1094,262,16,11,<0,<0,,30,1.5,2026-11-18,https://www.waitrose.com/ecom/products/x/082996-42175-42176
 083049-42207-42208,g,,1833,435,11,9.6,76,64,1.7,7.1,0.46,2026-11-19,https://www.waitrose.com/ecom/products/x/083049-42207-42208
@@ -1105,6 +1120,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 086673-44301-44302,ml,,800,194,19.1,12.2,2.2,2.2,0.0,3.3,0.07,2026-11-18,https://www.waitrose.com/ecom/products/x/086673-44301-44302
 086926-44412-44413,g,,91,22,<0.5,0.0,<0.5,<0.5,1.7,3.6,0.08,2026-11-18,https://www.waitrose.com/ecom/products/x/086926-44412-44413
 087038-44472-44473,g,prepared,656,155,0.5,<0.1,34,<0.5,0.8,3.3,<0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/087038-44472-44473
+087099-44508-44509,g,,1625,387,15,8.5,60,60,,2.2,0.31,2026-11-19,https://www.waitrose.com/ecom/products/x/087099-44508-44509
 087523-44740-44741,g,,398,94,2.0,1.1,15.9,8.7,<0.5,3.1,0.14,2026-11-18,https://www.waitrose.com/ecom/products/x/087523-44740-44741
 087584-44782-44783,g,,574,137,5.4,3.5,18.5,10.4,,3.4,0.3,2026-11-18,https://www.waitrose.com/ecom/products/x/087584-44782-44783
 087694-44846-44847,g,,2117,506,26.1,16.0,61.0,40.8,2.1,5.7,0.73,2026-11-18,https://www.waitrose.com/ecom/products/x/087694-44846-44847
@@ -1197,6 +1213,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 095692-49035-49036,g,,547,131,9.0,2.5,0.0,0.0,0.0,12.6,0.39,2026-11-18,https://www.waitrose.com/ecom/products/x/095692-49035-49036
 095861-49100-49101,g,,983,237,19.8,7.1,0.0,0.0,0.0,14.7,2.29,2026-11-18,https://www.waitrose.com/ecom/products/x/095861-49100-49101
 095955-49142-49142,g,,464,110,3.9,2.5,13.8,13.1,,4.3,0.17,2026-11-18,https://www.waitrose.com/ecom/products/x/095955-49142-49142
+096067-49176-49177,ml,,156,37,0.3,0.1,4.9,4.9,,3.6,0.1,2026-11-19,https://www.waitrose.com/ecom/products/x/096067-49176-49177
 096217-49242-49243,g,,298,72,3.8,2.5,4.9,4.9,,4.2,0.12,2026-11-18,https://www.waitrose.com/ecom/products/x/096217-49242-49243
 096294-49266-49267,g,prepared,724,171,1.3,<0.1,35,<0.5,1.5,3.9,<0.01,2026-11-18,https://www.waitrose.com/ecom/products/x/096294-49266-49267
 096424-49334-49335,g,,1801,427,9.7,3.1,80,49,3.9,2.9,1.3,2026-11-18,https://www.waitrose.com/ecom/products/x/096424-49334-49335
@@ -1238,6 +1255,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 201839-850064-850065,g,,1002,238,6.4,0.6,22.2,1.7,5.6,20.3,0.98,2026-11-18,https://www.waitrose.com/ecom/products/x/201839-850064-850065
 201851-1-2,g,,1569,375,0.0,0.0,88.7,88.7,0.0,4.8,0.2,2026-11-19,https://www.waitrose.com/ecom/products/x/201851-1-2
 201907-832611-832612,g,,1091,262,17.4,6.9,2.2,<0.5,0.0,24.2,0.51,2026-11-18,https://www.waitrose.com/ecom/products/x/201907-832611-832612
+201955-1-2,g,,2272,544,32.1,5.4,55.5,51.3,3.5,6.7,0.07,2026-11-19,https://www.waitrose.com/ecom/products/x/201955-1-2
 202044-1-2,g,,2125,508,26.0,17.7,60.1,28.2,3.7,6.6,0.62,2026-11-19,https://www.waitrose.com/ecom/products/x/202044-1-2
 202104-834919-834920,g,,1578,376,11.5,1.5,34.3,0.6,8.3,38.1,1.01,2026-11-18,https://www.waitrose.com/ecom/products/x/202104-834919-834920
 202113-1-2,g,,812,195,11,4.7,4.0,4.0,4.1,18,1.2,2026-11-18,https://www.waitrose.com/ecom/products/x/202113-1-2
@@ -1255,6 +1273,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 209978-1-2,g,,295,70,1.7,0.9,10.4,7.6,1.2,2.7,0.07,2026-11-19,https://www.waitrose.com/ecom/products/x/209978-1-2
 210465-1-2,g,,865,206,8.5,5.7,28,26,,4.6,0.2,2026-11-18,https://www.waitrose.com/ecom/products/x/210465-1-2
 210769-1-2,g,,1540,364,3.3,0.8,70.0,20.0,9.3,9.0,0.67,2026-11-18,https://www.waitrose.com/ecom/products/x/210769-1-2
+210794-1-2,ml,,80,19,0,0,4.7,4.4,,0,0.02,2026-11-19,https://www.waitrose.com/ecom/products/x/210794-1-2
+210882-1-2,ml,,75,18,0,0,4.2,4.2,,0,0,2026-11-19,https://www.waitrose.com/ecom/products/x/210882-1-2
 210974-844567-844568,g,,401,95,1.9,0.3,12,0,5.4,5.4,0.8,2026-11-18,https://www.waitrose.com/ecom/products/x/210974-844567-844568
 211081-1-2,g,,2379,569,41,14,42,39,3.2,8.4,0.36,2026-11-19,https://www.waitrose.com/ecom/products/x/211081-1-2
 211205-850832-850833,g,,2136,511,27,2.5,62,1.0,2.8,3.2,2.0,2026-11-19,https://www.waitrose.com/ecom/products/x/211205-850832-850833
@@ -1268,7 +1288,9 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 216412-1-2,g,,1836,437,13,1.4,55,16,5.2,22,0.23,2026-11-19,https://www.waitrose.com/ecom/products/x/216412-1-2
 216419-1-2,g,,91,21,0.2,0.1,0.5,0.4,0.4,3.9,0.4,2026-11-18,https://www.waitrose.com/ecom/products/x/216419-1-2
 216428-1-2,g,,95,22,0.1,0.1,3.3,3.2,1.3,1.1,0.26,2026-11-18,https://www.waitrose.com/ecom/products/x/216428-1-2
+216444-1-2,g,,703,168,8.3,3.0,14.1,3.3,1.2,8.7,0.57,2026-11-19,https://www.waitrose.com/ecom/products/x/216444-1-2
 216498-1-2,g,,2364,565,32.7,20,50.4,35.5,3.8,3.4,0.6,2026-11-19,https://www.waitrose.com/ecom/products/x/216498-1-2
+216561-1-2,ml,,85,20,<0.1,0.0,4.4,3.4,,0.2,0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/216561-1-2
 216721-1-2,ml,,169,40,1.6,0.6,8.7,8.6,,1.7,0.02,2026-11-18,https://www.waitrose.com/ecom/products/x/216721-1-2
 216727-846667-846668,g,,708,169,8.8,1.2,1.9,0.2,5.2,20,1.2,2026-11-18,https://www.waitrose.com/ecom/products/x/216727-846667-846668
 216753-843465-843466,g,,953,227,3.4,0.57,41.0,4.2,2.4,7.0,1.5,2026-11-18,https://www.waitrose.com/ecom/products/x/216753-843465-843466
@@ -1298,6 +1320,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 223117-1-2,g,drained,778,186,9.0,2.1,<1,0,0,24,0.80,2026-11-19,https://www.waitrose.com/ecom/products/x/223117-1-2
 223767-832997-832998,g,,1610,382,9.9,4.5,70.5,57.8,0.6,2.4,0.56,2026-11-18,https://www.waitrose.com/ecom/products/x/223767-832997-832998
 223905-1-2,g,,1738,419,33,11.2,1.1,0.6,0.7,27,3.8,2026-11-18,https://www.waitrose.com/ecom/products/x/223905-1-2
+223954-1-2,ml,,99,23,0,0,5.0,<0.5,,0.6,<0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/223954-1-2
 224925-1-2,ml,,81,19,0.0,0.0,4.4,4.4,,0.0,0,2026-11-19,https://www.waitrose.com/ecom/products/x/224925-1-2
 224946-1-2,g,,2299,550,31,19,62,61,0,4.6,0.23,2026-11-18,https://www.waitrose.com/ecom/products/x/224946-1-2
 224964-826710-826711,g,,1944,464,18.9,9.0,57.7,1.5,4.4,13.4,2.07,2026-11-19,https://www.waitrose.com/ecom/products/x/224964-826710-826711
@@ -1329,6 +1352,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 237533-1-2,g,,1445,340,<0.5,<0.1,77,<0.5,3.0,6.0,<0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/237533-1-2
 238143-847375-847376,g,,702,167,6.7,0.7,21.6,1.4,1.4,4.6,0.50,2026-11-18,https://www.waitrose.com/ecom/products/x/238143-847375-847376
 238196-1-2,g,,979,234,7.8,0.9,28.5,1.8,12.5,6.2,0.69,2026-11-18,https://www.waitrose.com/ecom/products/x/238196-1-2
+239075-1-2,ml,,199,47,0.2,0.1,9.1,7.5,0.7,1.3,0.04,2026-11-19,https://www.waitrose.com/ecom/products/x/239075-1-2
 239131-830947-830948,g,,1782,426,22.0,8.3,52.0,38.8,2.0,4.0,0.40,2026-11-18,https://www.waitrose.com/ecom/products/x/239131-830947-830948
 239442-1-2,g,,991,235,2.6,0.4,43.3,23.1,7.7,5.7,37.09,2026-11-19,https://www.waitrose.com/ecom/products/x/239442-1-2
 240277-849905-849906,g,,1499,361,16,9.8,16,4.0,28,27,1.2,2026-11-19,https://www.waitrose.com/ecom/products/x/240277-849905-849906
@@ -1355,6 +1379,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 253829-851267-851268,g,,175,42,1.1,0.7,5.9,4.4,1.6,1.2,0.4,2026-11-19,https://www.waitrose.com/ecom/products/x/253829-851267-851268
 254653-1-2,g,,578,139,8.8,0.7,12.3,9.8,2.3,1.4,0.67,2026-11-18,https://www.waitrose.com/ecom/products/x/254653-1-2
 255212-1-2,g,,2391,575,40.1,29.2,36.7,2.7,2.9,15.3,1.62,2026-11-18,https://www.waitrose.com/ecom/products/x/255212-1-2
+257282-836417-836418,ml,,132,32,1.6,0.3,0.8,0,0.6,3.2,0,2026-11-19,https://www.waitrose.com/ecom/products/x/257282-836417-836418
 257336-834887-834888,g,,1604,378,0.9,0.2,84,8.0,3.0,7.0,1.1,2026-11-18,https://www.waitrose.com/ecom/products/x/257336-834887-834888
 257621-1-2,ml,,838,200,9.4,6.7,27,17.2,0.5,2.1,0.06,2026-11-18,https://www.waitrose.com/ecom/products/x/257621-1-2
 257712-834599-834600,g,,1489,356,20,12,39,33,<0.5,5.2,0.45,2026-11-18,https://www.waitrose.com/ecom/products/x/257712-834599-834600
@@ -1395,10 +1420,12 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 272899-839224-839225,g,,919,219,5.3,0.5,32.3,1.2,14.8,3.3,0.74,2026-11-18,https://www.waitrose.com/ecom/products/x/272899-839224-839225
 273252-1-2,g,,741,178,10.7,5.9,10.5,1.6,1.1,8.1,0.66,2026-11-18,https://www.waitrose.com/ecom/products/x/273252-1-2
 273275-848045-848046,g,,774,185,10.0,2.1,0.0,0.0,<0.5,23.7,15.00,2026-11-19,https://www.waitrose.com/ecom/products/x/273275-848045-848046
+273351-1-2,ml,,201,47,0.5,0.1,9.9,8.6,,0.8,0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/273351-1-2
 273425-1-2,g,,659,157,6.0,2.2,3.2,0.9,0.6,22.3,0.76,2026-11-18,https://www.waitrose.com/ecom/products/x/273425-1-2
 273443-1-2,g,,671,160,6.9,1.8,7.3,1.5,0.6,16.9,0.74,2026-11-18,https://www.waitrose.com/ecom/products/x/273443-1-2
 273474-847119-847120,ml,,25,6,<0.1,0.0,1.0,1.0,0.1,<0.1,0.02,2026-11-18,https://www.waitrose.com/ecom/products/x/273474-847119-847120
 273637-1-2,g,,60,14,<0.5,0.0,1.4,1.4,1.5,1.2,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/273637-1-2
+273646-1-2,ml,,71,17,0,0,4.2,4.2,0,0,0.03,2026-11-19,https://www.waitrose.com/ecom/products/x/273646-1-2
 273680-1-2,g,,2006,479,23.2,9.4,60.4,44.1,2.5,5.9,0.15,2026-11-18,https://www.waitrose.com/ecom/products/x/273680-1-2
 273741-1-2,ml,,74,18,0.0,0.0,3.9,3.9,,0.0,0,2026-11-19,https://www.waitrose.com/ecom/products/x/273741-1-2
 273818-846229-846230,g,,747,181,18,2.3,1.7,<0.5,3.1,1.3,2.7,2026-11-18,https://www.waitrose.com/ecom/products/x/273818-846229-846230
@@ -1408,6 +1435,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 274056-848379-848380,ml,,75,18,1.0,0.8,2.0,0.3,0.3,0.1,0.03,2026-11-19,https://www.waitrose.com/ecom/products/x/274056-848379-848380
 274084-847121-847122,ml,,82,19,0.0,0.0,4.8,4.8,0.0,0.0,0.04,2026-11-18,https://www.waitrose.com/ecom/products/x/274084-847121-847122
 274172-836596-836597,g,,1507,360,8.1,6.9,57,39,23,3.1,0.18,2026-11-18,https://www.waitrose.com/ecom/products/x/274172-836596-836597
+274174-844413-844414,g,,564,136,8.0,0.7,9.6,2.9,5.1,3.7,0.91,2026-11-19,https://www.waitrose.com/ecom/products/x/274174-844413-844414
 274230-1-2,g,,1168,278,17,12,26,25,2.3,4.3,0.12,2026-11-18,https://www.waitrose.com/ecom/products/x/274230-1-2
 274262-831697-831698,g,,738,177,10.8,4.5,3.2,1.0,1.2,16.2,0.83,2026-11-18,https://www.waitrose.com/ecom/products/x/274262-831697-831698
 274342-1-2,g,,1478,358,34.7,4.3,7.2,6.8,2.0,3.1,2.5,2026-11-19,https://www.waitrose.com/ecom/products/x/274342-1-2
@@ -1415,6 +1443,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 274493-1-2,g,drained,280,66,0.5,0.1,2.5,1.5,0,13.3,1.4,2026-11-19,https://www.waitrose.com/ecom/products/x/274493-1-2
 274497-1-2,g,,857,205,12,3.2,5.1,1.6,2.0,21,0.77,2026-11-18,https://www.waitrose.com/ecom/products/x/274497-1-2
 274586-1-2,g,,1829,434,10.8,5.1,78.8,45.5,1.4,4.6,0.46,2026-11-18,https://www.waitrose.com/ecom/products/x/274586-1-2
+274688-1-2,ml,,181,43,0.2,0.0,9.2,7.9,0.0,0.5,0.0,2026-11-19,https://www.waitrose.com/ecom/products/x/274688-1-2
 274817-831598-831599,g,,553,131,0.8,0.2,30,26,,0.2,0.01,2026-11-18,https://www.waitrose.com/ecom/products/x/274817-831598-831599
 275004-1-2,g,,485,109,2.9,0.4,12.0,4.1,1.6,7.8,1.14,2026-11-18,https://www.waitrose.com/ecom/products/x/275004-1-2
 275009-1-2,g,,777,186,8.0,0.6,24.7,1.7,3.4,2.0,0.58,2026-11-18,https://www.waitrose.com/ecom/products/x/275009-1-2
@@ -1469,6 +1498,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 300538-834383-834384,g,,1371,326,9.8,5.9,45.3,1.9,2.1,13.0,0.72,2026-11-18,https://www.waitrose.com/ecom/products/x/300538-834383-834384
 300541-1-2,g,,1079,257,1.3,0.4,50.0,6.3,2.4,10.0,0.80,2026-11-18,https://www.waitrose.com/ecom/products/x/300541-1-2
 301691-1-2,g,,2216,530,29.00,17.00,59.00,58.00,2.40,7.00,0.26,2026-11-19,https://www.waitrose.com/ecom/products/x/301691-1-2
+302242-848647-848648,ml,,259,62,0.0,0.0,16,15,0.0,0.0,0.0,2026-11-19,https://www.waitrose.com/ecom/products/x/302242-848647-848648
 302870-1-2,ml,,202,48,0.1,<0.1,11,10,,0.2,0,2026-11-19,https://www.waitrose.com/ecom/products/x/302870-1-2
 303446-1-2,g,,1504,363,31,4.8,0,0,,21,1.1,2026-11-19,https://www.waitrose.com/ecom/products/x/303446-1-2
 303449-1-2,g,,388,92,2.2,0.6,14.5,1.3,1.2,2.9,0.28,2026-11-19,https://www.waitrose.com/ecom/products/x/303449-1-2
@@ -1478,6 +1508,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 305159-847383-847384,g,,794,190,10.4,0.9,16.5,2.6,1.8,6.7,0.31,2026-11-18,https://www.waitrose.com/ecom/products/x/305159-847383-847384
 305870-1-2,g,,1380,332,25.1,14.1,16.0,2.2,1.1,9.9,0.97,2026-11-18,https://www.waitrose.com/ecom/products/x/305870-1-2
 306069-1-2,g,,803,193,14.0,3.5,2.2,1.1,0.6,14.4,1.97,2026-11-18,https://www.waitrose.com/ecom/products/x/306069-1-2
+306522-831705-831706,ml,,237,56,0.1,0.1,3.6,3.5,,10,0.26,2026-11-19,https://www.waitrose.com/ecom/products/x/306522-831705-831706
 307748-846797-846798,g,,2468,595,46,7.3,15,14,7.6,27,0.75,2026-11-19,https://www.waitrose.com/ecom/products/x/307748-846797-846798
 308289-1-2,g,,2397,576,39,22,47,,,8.1,0.34,2026-11-18,https://www.waitrose.com/ecom/products/x/308289-1-2
 308403-844260-844261,g,,1743,411,3.4,2.0,94.5,57.9,<0.5,0.5,0.25,2026-11-19,https://www.waitrose.com/ecom/products/x/308403-844260-844261
@@ -1501,6 +1532,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 318330-1-2,ml,,318,75,0.5,0.2,16.8,12.1,0.5,0.6,1.04,2026-11-19,https://www.waitrose.com/ecom/products/x/318330-1-2
 320250-1-2,g,,2659,642,53.9,6.2,12.2,6.3,5.8,24.3,0.7,2026-11-18,https://www.waitrose.com/ecom/products/x/320250-1-2
 320838-1-2,ml,,54,13,0,0,2.5,2.5,0,0,<0.01,2026-11-18,https://www.waitrose.com/ecom/products/x/320838-1-2
+323475-1-2,ml,,207,49,1.8,0.2,7.2,4.2,,0.6,0.09,2026-11-19,https://www.waitrose.com/ecom/products/x/323475-1-2
 323494-832629-832630,g,,1173,277,1.4,0.3,55.8,3.8,4.1,8.3,1.32,2026-11-18,https://www.waitrose.com/ecom/products/x/323494-832629-832630
 325319-1-2,g,,571,137,7.0,3.7,9.6,1.2,1.7,8.1,0.55,2026-11-18,https://www.waitrose.com/ecom/products/x/325319-1-2
 325977-851291-851292,g,,65,16,0.6,0.0,<0.5,<0.5,1.1,1.6,0.05,2026-11-18,https://www.waitrose.com/ecom/products/x/325977-851291-851292
@@ -1520,6 +1552,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 334153-843512-843513,g,,605,144,3.1,2.7,25,19,2.9,1.7,0.08,2026-11-18,https://www.waitrose.com/ecom/products/x/334153-843512-843513
 335395-1-2,g,,1038,248,11.5,3.3,26.7,3.3,1.6,8.6,1.37,2026-11-18,https://www.waitrose.com/ecom/products/x/335395-1-2
 336577-1-2,g,,1574,378,26.8,10.6,32.7,17.4,4.0,1.4,0.6,2026-11-18,https://www.waitrose.com/ecom/products/x/336577-1-2
+336890-1-2,ml,,120,29,0.2,<0.1,5.6,2.9,,0.2,0,2026-11-19,https://www.waitrose.com/ecom/products/x/336890-1-2
 337086-1-2,g,,1415.8,338.4,1.4,0.2,68.2,0.6,5,12,<0.01,2026-11-18,https://www.waitrose.com/ecom/products/x/337086-1-2
 337497-848385-848386,g,,1719,407,7.1,1.0,73.0,3.6,3.5,11.0,1.27,2026-11-18,https://www.waitrose.com/ecom/products/x/337497-848385-848386
 338154-851095-851096,g,,266,63,0.8,0.1,11.7,6.2,1.8,1.4,0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/338154-851095-851096
@@ -1551,6 +1584,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 363174-848391-848392,g,,2098,502,25.8,14.2,58.6,44.6,5.5,5.6,0.04,2026-11-18,https://www.waitrose.com/ecom/products/x/363174-848391-848392
 363213-1-2,g,,1852,442,18.6,1.3,56.6,48.6,6.1,9.0,0.03,2026-11-19,https://www.waitrose.com/ecom/products/x/363213-1-2
 363238-1-2,g,,318,75,<0.5,0.0,5.9,4.5,<0.5,11.5,0.05,2026-11-18,https://www.waitrose.com/ecom/products/x/363238-1-2
+363252-847487-847488,ml,,115,27,0,0,5.7,5.7,,0,<0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/363252-847487-847488
 363277-1-2,g,,1057,251,8.6,5.2,39.6,22.8,1.7,3.1,0.13,2026-11-18,https://www.waitrose.com/ecom/products/x/363277-1-2
 363415-1-2,g,,524,125,7.4,4.7,10.8,9.4,,4.0,0.11,2026-11-18,https://www.waitrose.com/ecom/products/x/363415-1-2
 363528-851772-851773,g,,252,59,0,0,4.5,3.5,,10.3,0.10,2026-11-18,https://www.waitrose.com/ecom/products/x/363528-851772-851773
@@ -1671,6 +1705,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 376166-832313-832314,g,,2162,518,30.5,17.9,52.7,46.6,4.5,5.9,0.17,2026-11-19,https://www.waitrose.com/ecom/products/x/376166-832313-832314
 376214-1-2,g,,331,78,<0.5,0.0,<0.5,<0.5,0.5,18.7,1.50,2026-11-18,https://www.waitrose.com/ecom/products/x/376214-1-2
 376229-850181-850182,g,,1499,361,16,9.8,16,4.0,28,27,1.2,2026-11-19,https://www.waitrose.com/ecom/products/x/376229-850181-850182
+376238-1-2,g,,462,110,4.0,0.6,2.8,2.5,1.6,15.0,0.59,2026-11-19,https://www.waitrose.com/ecom/products/x/376238-1-2
 376360-826722-826723,g,,662,157,2.5,0.4,29,0.2,2.6,3.0,0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/376360-826722-826723
 376422-1-2,g,,1865,450,38,15,1.0,1.0,,26,4.5,2026-11-18,https://www.waitrose.com/ecom/products/x/376422-1-2
 376437-168474-168475,g,,1700,403,11.1,3.4,73.7,62.5,0.7,1.8,0.38,2026-11-18,https://www.waitrose.com/ecom/products/x/376437-168474-168475
@@ -1806,7 +1841,9 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 393877-174468-174469,g,,1857,442,16,7.4,70,65,,4.4,0.70,2026-11-18,https://www.waitrose.com/ecom/products/x/393877-174468-174469
 393918-55355-55356,g,,3034,725,79,6.2,1.4,1.3,<0.5,1.1,1.2,2026-11-19,https://www.waitrose.com/ecom/products/x/393918-55355-55356
 394403-834627-834628,g,,919,220,11.9,7.7,24.5,22.6,<0.5,3.4,0.23,2026-11-18,https://www.waitrose.com/ecom/products/x/394403-834627-834628
+394727-1-2,g,,681,162,7.0,4.3,17.5,3.9,1.0,6.8,0.62,2026-11-19,https://www.waitrose.com/ecom/products/x/394727-1-2
 394754-845006-845007,g,,256,61,0,0,14,12,1,<0.5,0,2026-11-18,https://www.waitrose.com/ecom/products/x/394754-845006-845007
+394842-831614-831615,g,,2093,500,25,3.3,60,3.0,4.1,6.8,1.5,2026-11-19,https://www.waitrose.com/ecom/products/x/394842-831614-831615
 394853-55495-55496,g,,0,0,0.0,0.0,0.0,0.0,0.0,0.0,99.18,2026-11-18,https://www.waitrose.com/ecom/products/x/394853-55495-55496
 394900-1-2,g,,1057,253,14.6,5.8,20.9,1.0,1.0,9.0,0.54,2026-11-18,https://www.waitrose.com/ecom/products/x/394900-1-2
 394963-55511-55512,g,,574,137,8.1,4.1,8.7,1.3,0.8,7.0,0.56,2026-11-18,https://www.waitrose.com/ecom/products/x/394963-55511-55512
@@ -1842,6 +1879,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 399564-1-2,g,drained,851,203,11,,0,,,26,1.0,2026-11-19,https://www.waitrose.com/ecom/products/x/399564-1-2
 399626-139974-139975,g,,652,157,12,1.6,9.6,5.6,1.6,2.5,1.4,2026-11-19,https://www.waitrose.com/ecom/products/x/399626-139974-139975
 399827-1-2,ml,,1097,258,0.0,0.0,61.0,58.0,0.0,0.4,0.04,2026-11-19,https://www.waitrose.com/ecom/products/x/399827-1-2
+400039-56272-56273,ml,,335,80,5,3.4,4.7,4.7,,3.7,0.2,2026-11-19,https://www.waitrose.com/ecom/products/x/400039-56272-56273
 400132-784772-784773,g,,1139,272,3.9,1.3,36.6,0.5,25.7,9.8,0.10,2026-11-19,https://www.waitrose.com/ecom/products/x/400132-784772-784773
 400260-806217-806218,g,,793,190,11.9,4.6,<0.5,<0.5,0.5,20.3,0.16,2026-11-18,https://www.waitrose.com/ecom/products/x/400260-806217-806218
 400348-147997-147998,g,,399,96,6.2,0.5,7.5,1.1,0.4,2.3,0.86,2026-11-19,https://www.waitrose.com/ecom/products/x/400348-147997-147998
@@ -1862,6 +1900,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 403051-712961-712962,ml,,69,17,0,0,3.1,3.0,,0,0,2026-11-18,https://www.waitrose.com/ecom/products/x/403051-712961-712962
 403182-408456-408457,g,,2200,526,27.7,16.8,62.7,18.5,1.9,5.5,0.57,2026-11-18,https://www.waitrose.com/ecom/products/x/403182-408456-408457
 403230-828136-828137,g,,317,75,<0.5,0.0,<0.5,<0.5,<0.5,17.9,1.50,2026-11-18,https://www.waitrose.com/ecom/products/x/403230-828136-828137
+403318-815472-815473,ml,,107,26,2.2,0.2,0.4,0.2,0.4,0.9,0.10,2026-11-19,https://www.waitrose.com/ecom/products/x/403318-815472-815473
 403590-759353-759354,g,,485,115,2.7,0.6,11.8,1.7,2.4,9.8,0.32,2026-11-18,https://www.waitrose.com/ecom/products/x/403590-759353-759354
 403684-56827-56828,g,,1104,263,9.7,5.0,33,2.0,1.9,9.9,1.0,2026-11-18,https://www.waitrose.com/ecom/products/x/403684-56827-56828
 403928-721789-721790,g,,1875,447,20,9.6,46,23,3.7,19,1.2,2026-11-19,https://www.waitrose.com/ecom/products/x/403928-721789-721790
@@ -1989,6 +2028,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 420141-721022-721023,g,,575,137,6.2,1.8,0.0,0.0,0.0,20.3,0.18,2026-11-18,https://www.waitrose.com/ecom/products/x/420141-721022-721023
 420305-535118-535119,g,prepared,447,106,2.9,2.3,16.1,11.7,1.0,3.4,0.42,2026-11-18,https://www.waitrose.com/ecom/products/x/420305-535118-535119
 420613-655221-655222,g,,370,88,3.6,2.3,11.1,9.5,1.5,2.1,0.05,2026-11-19,https://www.waitrose.com/ecom/products/x/420613-655221-655222
+421084-662424-662425,g,,1153,271,0.5,0.1,29,0.6,0.9,39,6.1,2026-11-19,https://www.waitrose.com/ecom/products/x/421084-662424-662425
 421141-260680-260681,g,,2567,620,51.0,5.6,10.0,6.4,9.8,25.4,0.09,2026-11-19,https://www.waitrose.com/ecom/products/x/421141-260680-260681
 421437-805739-805740,g,,497,118,2.4,0.3,14.6,0.6,6.0,6.6,0.04,2026-11-18,https://www.waitrose.com/ecom/products/x/421437-805739-805740
 421564-59308-59309,g,,837,203,21.4,18.7,2.3,1.6,0.0,<0.5,0.12,2026-11-18,https://www.waitrose.com/ecom/products/x/421564-59308-59309
@@ -2027,6 +2067,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 426611-664737-664738,g,,1047,250,12.5,4.9,26.8,2.4,2.3,6.5,1.19,2026-11-18,https://www.waitrose.com/ecom/products/x/426611-664737-664738
 426636-811532-811533,g,,1977,471,20.8,12.0,66.8,57.7,1.4,3.3,0.22,2026-11-19,https://www.waitrose.com/ecom/products/x/426636-811532-811533
 426658-148125-148126,g,,373,90,6.7,0.6,6.0,0.7,0.8,1.0,0.96,2026-11-19,https://www.waitrose.com/ecom/products/x/426658-148125-148126
+426662-140703-140704,g,,2148,514,29,6.3,56,2.5,3.3,5.7,1.9,2026-11-19,https://www.waitrose.com/ecom/products/x/426662-140703-140704
 426755-151739-151740,g,,2230,534,30.00,18.00,57.00,56.00,2.10,7.40,0.24,2026-11-18,https://www.waitrose.com/ecom/products/x/426755-151739-151740
 427124-788844-788845,g,,619,148,6.3,4.0,20.2,16.4,0.6,2.2,0.18,2026-11-18,https://www.waitrose.com/ecom/products/x/427124-788844-788845
 427220-60125-60126,g,,971,233,14.8,9.5,21.5,17.0,0.5,3.0,0.07,2026-11-18,https://www.waitrose.com/ecom/products/x/427220-60125-60126
@@ -2085,6 +2126,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 435276-823328-823329,g,prepared,572,137,5.3,0.6,18,1.4,0.7,3.3,0.53,2026-11-18,https://www.waitrose.com/ecom/products/x/435276-823328-823329
 435380-752403-752404,ml,,172,40,0,0,9.3,8.6,0,0.8,0,2026-11-19,https://www.waitrose.com/ecom/products/x/435380-752403-752404
 435916-728880-728881,g,,1483,349,<0.5,0.2,80.5,46.0,0.5,5.5,0.05,2026-11-19,https://www.waitrose.com/ecom/products/x/435916-728880-728881
+435996-735718-735719,ml,,51,12,1.1,0.1,0.0,0.0,<0.5,0.5,0.14,2026-11-19,https://www.waitrose.com/ecom/products/x/435996-735718-735719
 436004-753509-753510,g,,2878,698,68.5,7.5,3.3,2.6,4.7,14.7,0.02,2026-11-19,https://www.waitrose.com/ecom/products/x/436004-753509-753510
 436080-704701-704702,g,,1422,339,11.0,5.7,53.5,37.6,5.4,3.0,0.18,2026-11-18,https://www.waitrose.com/ecom/products/x/436080-704701-704702
 436313-61390-61391,g,,65,15,<0.5,0.1,2.2,1.7,1.0,0.7,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/436313-61390-61391
@@ -2115,6 +2157,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 439978-679257-679258,g,,156,37,<0.5,0.0,5.6,5.6,4.8,0.9,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/439978-679257-679258
 440036-1-2,g,,1007,241,14,6.6,25,1.6,,3.4,0.83,2026-11-18,https://www.waitrose.com/ecom/products/x/440036-1-2
 440083-425783-61954,g,,1646,391,11.7,4.1,67.8,60.6,1.0,3.1,0.35,2026-11-18,https://www.waitrose.com/ecom/products/x/440083-425783-61954
+440123-61966-61967,ml,,337,81,5,3.4,4.7,4.7,,3.7,0.2,2026-11-19,https://www.waitrose.com/ecom/products/x/440123-61966-61967
 440590-806267-806268,ml,,79,19,0,0,4.5,4.4,,0,0,2026-11-18,https://www.waitrose.com/ecom/products/x/440590-806267-806268
 441119-818295-818296,g,,1450,343,1.7,0.7,75.7,54.4,7.6,2.3,0.18,2026-11-19,https://www.waitrose.com/ecom/products/x/441119-818295-818296
 441295-408490-408491,g,,2480,600,49.7,7.5,8.9,1.0,15.5,21.5,0.03,2026-11-19,https://www.waitrose.com/ecom/products/x/441295-408490-408491
@@ -2168,6 +2211,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 448025-782779-782780,g,,2690,650,56.6,5.0,5.6,3.4,7.3,26.0,0.78,2026-11-19,https://www.waitrose.com/ecom/products/x/448025-782779-782780
 448029-1-2,g,,1815,431,10.8,0.6,73.3,50.6,5.3,7.4,0.13,2026-11-19,https://www.waitrose.com/ecom/products/x/448029-1-2
 448126-63103-63104,g,,1982,472,19.00,5.40,67.00,35.00,2.90,5.60,0.76,2026-11-18,https://www.waitrose.com/ecom/products/x/448126-63103-63104
+448576-759539-759540,ml,,48,12,1.1,0.1,0.0,0.0,0.5,<0.5,0.14,2026-11-19,https://www.waitrose.com/ecom/products/x/448576-759539-759540
 448860-781141-781142,g,,794,190,9.8,1.9,<0.5,<0.5,0.5,25.0,0.15,2026-11-18,https://www.waitrose.com/ecom/products/x/448860-781141-781142
 449005-812409-812410,g,,1873,448,17.4,12.7,69.2,34.7,2.5,3.6,0.67,2026-11-19,https://www.waitrose.com/ecom/products/x/449005-812409-812410
 449022-491915-491916,g,,2884,698,62.5,6.9,5.2,1.4,8.2,24.6,0.04,2026-11-18,https://www.waitrose.com/ecom/products/x/449022-491915-491916
@@ -2229,7 +2273,9 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 458823-408514-408515,g,,506,121,7.7,4.1,8.9,5.3,1.7,3.3,1.6,2026-11-19,https://www.waitrose.com/ecom/products/x/458823-408514-408515
 459302-778934-778935,g,,2425,584,43.9,3.8,19.1,6.6,6.6,24.9,1.09,2026-11-19,https://www.waitrose.com/ecom/products/x/459302-778934-778935
 459318-64735-64736,g,,976,231,3.3,0.6,42,3.9,6.8,4.6,1.2,2026-11-18,https://www.waitrose.com/ecom/products/x/459318-64735-64736
+459456-813494-813495,ml,,133,32,2.1,0.3,1.7,1.3,0.7,1.2,0.12,2026-11-19,https://www.waitrose.com/ecom/products/x/459456-813494-813495
 459513-585459-585460,ml,,79,19,0,0,4.5,4.5,,0,0,2026-11-18,https://www.waitrose.com/ecom/products/x/459513-585459-585460
+459915-825043-825044,ml,,298,71,2.0,1.4,9.1,8.6,,3.6,0.1,2026-11-19,https://www.waitrose.com/ecom/products/x/459915-825043-825044
 459938-832008-832009,g,,1053,252,12.8,7.3,22.5,2.1,1.7,10.8,0.53,2026-11-18,https://www.waitrose.com/ecom/products/x/459938-832008-832009
 460124-755815-755816,g,,2231,536,35.2,2.7,36.3,<0.5,5.2,15.9,3.60,2026-11-19,https://www.waitrose.com/ecom/products/x/460124-755815-755816
 460289-706023-706024,g,,1690,401,11.6,3.5,72.0,57.7,<0.5,2.0,0.42,2026-11-18,https://www.waitrose.com/ecom/products/x/460289-706023-706024
@@ -2341,6 +2387,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 478720-755835-755836,ml,,377,89,0,0,6.1,1.9,,11,16.6,2026-11-18,https://www.waitrose.com/ecom/products/x/478720-755835-755836
 478819-791485-791486,g,,395,94,4.6,3.6,12.1,9.3,11.1,0.7,0.04,2026-11-19,https://www.waitrose.com/ecom/products/x/478819-791485-791486
 478824-506160-506161,ml,,86,21,0.9,0.2,1.1,0.7,,0.9,7.8,2026-11-19,https://www.waitrose.com/ecom/products/x/478824-506160-506161
+478928-813502-813503,ml,,195,46,0.9,0.3,9.1,2.6,<0.5,0.3,0.10,2026-11-19,https://www.waitrose.com/ecom/products/x/478928-813502-813503
 478959-784722-784723,ml,,266,63,<0.5,0.0,14.2,11.0,0.0,<0.5,12.77,2026-11-19,https://www.waitrose.com/ecom/products/x/478959-784722-784723
 479114-791487-791488,g,,1774,422,12,1.2,50,1.4,6,24,1.02,2026-11-18,https://www.waitrose.com/ecom/products/x/479114-791487-791488
 479233-780229-780230,g,,1695,402,7.3,0.7,70,3.2,8.2,10.5,1.7,2026-11-19,https://www.waitrose.com/ecom/products/x/479233-780229-780230
@@ -2378,6 +2425,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 484592-756346-756347,g,,680,163,10.0,0.8,14.6,1.2,1.6,2.8,0.85,2026-11-18,https://www.waitrose.com/ecom/products/x/484592-756346-756347
 484779-662552-662553,g,,1728,420,43.0,5.1,3.6,3.5,4.9,1.9,3.3,2026-11-19,https://www.waitrose.com/ecom/products/x/484779-662552-662553
 484859-311152-311153,g,,1964,467,17.0,2.9,67.0,2.4,3.3,10.0,2.0,2026-11-18,https://www.waitrose.com/ecom/products/x/484859-311152-311153
+484878-761956-761957,ml,,181,43,<0.5,0.0,8.9,8.9,0.8,<0.5,0.0,2026-11-19,https://www.waitrose.com/ecom/products/x/484878-761956-761957
 485085-828138-828139,g,,284,67,<0.5,0.0,<0.5,<0.5,<0.5,16.0,1.50,2026-11-18,https://www.waitrose.com/ecom/products/x/485085-828138-828139
 485205-1-2,g,,720,171,5.1,1.0,25,4.4,1.2,6.0,1.3,2026-11-18,https://www.waitrose.com/ecom/products/x/485205-1-2
 485468-723697-723698,g,,2072,495,25,1.8,61,5.1,4.4,4.7,1.3,2026-11-19,https://www.waitrose.com/ecom/products/x/485468-723697-723698
@@ -2528,6 +2576,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 509378-486499-486500,g,,811,194,11.2,2.5,<0.5,<0.5,<0.5,22.7,0.10,2026-11-18,https://www.waitrose.com/ecom/products/x/509378-486499-486500
 509502-662590-662591,ml,,75,18,0,0,4.4,4.4,,0,0.02,2026-11-19,https://www.waitrose.com/ecom/products/x/509502-662590-662591
 509587-830873-830874,g,,2197,527,32.4,20.2,50.3,47.4,3.7,6.7,0.50,2026-11-18,https://www.waitrose.com/ecom/products/x/509587-830873-830874
+510339-793408-793409,ml,,197,46,<0.5,<0.5,11.5,10,,<0.5,0.004,2026-11-19,https://www.waitrose.com/ecom/products/x/510339-793408-793409
 510485-827196-827197,g,,518,122,2.2,0.7,3.3,<0.5,0.0,22.3,0.44,2026-11-18,https://www.waitrose.com/ecom/products/x/510485-827196-827197
 510799-499292-499293,ml,,3389,824,91.6,14.6,0,0,,0,0,2026-11-18,https://www.waitrose.com/ecom/products/x/510799-499292-499293
 510897-766837-766837,g,,2591,624,47,34,44,43,,4.9,0.19,2026-11-19,https://www.waitrose.com/ecom/products/x/510897-766837-766837
@@ -2554,12 +2603,14 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 514434-671670-671671,g,,668,158,2.1,0.3,30,4.5,0.7,4.4,1.3,2026-11-18,https://www.waitrose.com/ecom/products/x/514434-671670-671671
 514486-759300-759301,g,,501,120,5.9,2.7,11.4,1.7,2.1,4.4,0.73,2026-11-18,https://www.waitrose.com/ecom/products/x/514486-759300-759301
 515095-72777-72778,g,,646,152,0.7,0.0,33.0,<0.5,0.8,3.1,0.02,2026-11-18,https://www.waitrose.com/ecom/products/x/515095-72777-72778
+515096-682890-682891,ml,,47,12,<0.5,<0.1,2.7,0.1,,0.3,<0.1,2026-11-19,https://www.waitrose.com/ecom/products/x/515096-682890-682891
 515113-696520-696521,g,,269,64,2.7,1.6,6.3,2.3,2.0,2.7,0.51,2026-11-19,https://www.waitrose.com/ecom/products/x/515113-696520-696521
 515266-827318-827319,g,,414,98,0.7,0.2,1.1,0.0,<0.5,21.5,0.79,2026-11-18,https://www.waitrose.com/ecom/products/x/515266-827318-827319
 515312-72819-72820,g,,2233,535,30.00,18.00,57.00,56.00,2.10,7.30,0.24,2026-11-18,https://www.waitrose.com/ecom/products/x/515312-72819-72820
 515328-784878-784879,g,,1240,298,8.9,0.6,25.9,3.3,33.7,11.8,7.95,2026-11-18,https://www.waitrose.com/ecom/products/x/515328-784878-784879
 515385-724857-724858,g,,1170,282,22.4,2.3,10.6,0.6,4.5,7.2,0.87,2026-11-18,https://www.waitrose.com/ecom/products/x/515385-724857-724858
 515492-720087-720088,g,,2091,500,26.8,15.5,60.2,40.6,0.6,4.2,0.38,2026-11-18,https://www.waitrose.com/ecom/products/x/515492-720087-720088
+515513-785700-785701,ml,,245,58,1.4,0.9,3.8,3.8,,7.3,0.22,2026-11-19,https://www.waitrose.com/ecom/products/x/515513-785700-785701
 515749-784880-784881,g,,1158,276,3.3,1.4,38.7,0.6,25.3,10.4,0.10,2026-11-18,https://www.waitrose.com/ecom/products/x/515749-784880-784881
 516342-752933-752934,g,,1557,370,7.7,1.3,59,1.0,9.0,11,0,2026-11-18,https://www.waitrose.com/ecom/products/x/516342-752933-752934
 516560-824107-824108,g,,1996,476,21.0,14.1,62.3,6.6,2.9,8.1,1.3,2026-11-19,https://www.waitrose.com/ecom/products/x/516560-824107-824108
@@ -2568,6 +2619,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 517735-815494-815495,g,,1725,416,34.9,21.7,0.1,0.1,0.0,25.4,1.8,2026-11-18,https://www.waitrose.com/ecom/products/x/517735-815494-815495
 517957-767550-767551,g,,329,78,2.0,1.0,12.1,7.4,<0.5,2.9,0.12,2026-11-18,https://www.waitrose.com/ecom/products/x/517957-767550-767551
 517959-220478-220479,g,,2230,537,37,22,36,30,,9,0.3,2026-11-18,https://www.waitrose.com/ecom/products/x/517959-220478-220479
+518033-586516-586517,ml,,281,67,1.5,1.1,9.6,9.2,,3.5,0.1,2026-11-19,https://www.waitrose.com/ecom/products/x/518033-586516-586517
 518092-707052-707053,g,,2550,614,46.5,28.6,38.4,34.7,3.6,8.7,0.18,2026-11-18,https://www.waitrose.com/ecom/products/x/518092-707052-707053
 518329-73271-73272,ml,,204,48,0,0,12,12,0,0,0,2026-11-19,https://www.waitrose.com/ecom/products/x/518329-73271-73272
 518333-497782-497783,g,,1414,340,22.9,8.0,0.6,<0.5,0.9,32.3,3.68,2026-11-18,https://www.waitrose.com/ecom/products/x/518333-497782-497783
@@ -2753,6 +2805,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 548379-661659-661660,ml,,,59,2.9,2.1,4.6,2.8,,3.5,0.10,2026-11-18,https://www.waitrose.com/ecom/products/x/548379-661659-661660
 548569-138740-138741,ml,,217,51,0,0,12,10,1.2,0,0,2026-11-19,https://www.waitrose.com/ecom/products/x/548569-138740-138741
 548691-131960-131961,g,,1558,370,4.0,0.6,71.9,38.0,,8.3,1.7,2026-11-19,https://www.waitrose.com/ecom/products/x/548691-131960-131961
+548749-306874-306875,g,,2033,487,26,2.3,53,1.1,6.0,6.8,0.65,2026-11-19,https://www.waitrose.com/ecom/products/x/548749-306874-306875
 548970-77639-77640,g,,767,183,9.6,1.9,<0.5,<0.5,<0.5,23.8,0.83,2026-11-18,https://www.waitrose.com/ecom/products/x/548970-77639-77640
 549132-77659-77660,g,,2144,512,26.1,15.8,63.3,24.0,1.6,5.2,0.81,2026-11-19,https://www.waitrose.com/ecom/products/x/549132-77659-77660
 549427-168556-168557,g,,1477,348,0.1,<0.1,86.9,85.9,,<0.1,<0.1,2026-11-18,https://www.waitrose.com/ecom/products/x/549427-168556-168557
@@ -2777,6 +2830,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 552474-824794-824795,g,,563,137,12.1,1.97,2.2,2.2,,1.5,4.00,2026-11-19,https://www.waitrose.com/ecom/products/x/552474-824794-824795
 552505-759367-759368,g,,603,143,4.2,1.9,19.3,1.3,1.9,6.0,0.36,2026-11-18,https://www.waitrose.com/ecom/products/x/552505-759367-759368
 552803-211672-211673,g,,271,65,3.3,0.5,6.5,5.0,1.6,1.5,0.83,2026-11-18,https://www.waitrose.com/ecom/products/x/552803-211672-211673
+552854-810911-810912,g,,586,140,4.6,1.4,16.9,1.8,2.0,6.6,0.59,2026-11-19,https://www.waitrose.com/ecom/products/x/552854-810911-810912
 552995-727237-727238,g,,1266,306,28,2.2,13,10,,0.5,2.7,2026-11-19,https://www.waitrose.com/ecom/products/x/552995-727237-727238
 553179-78178-78179,g,,2311,554,35,17,51,48,,7.6,0.22,2026-11-18,https://www.waitrose.com/ecom/products/x/553179-78178-78179
 553470-451638-451639,g,,1725,416,34.9,21.7,<0.5,<0.5,0.0,25.4,1.80,2026-11-18,https://www.waitrose.com/ecom/products/x/553470-451638-451639
@@ -2824,6 +2878,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 559863-79264-79265,g,,112,27,0.2,0.1,4.2,3.8,1.1,1.1,0.02,2026-11-19,https://www.waitrose.com/ecom/products/x/559863-79264-79265
 560062-747674-747675,g,,370,89,0.8,0.1,9.1,<0.5,10.0,6.1,0.03,2026-11-19,https://www.waitrose.com/ecom/products/x/560062-747674-747675
 560069-79305-79306,g,,1813,431,14.0,2.3,65.0,4.0,3.5,10.0,1.80,2026-11-18,https://www.waitrose.com/ecom/products/x/560069-79305-79306
+560101-560479-560480,ml,,276,66,3.7,2.4,4.7,4.7,0.0,3.5,0.11,2026-11-19,https://www.waitrose.com/ecom/products/x/560101-560479-560480
 560273-705041-705042,g,,1730,409,5.6,2.7,89.0,79.3,1.0,<0.5,0.07,2026-11-18,https://www.waitrose.com/ecom/products/x/560273-705041-705042
 560280-585545-585546,g,,1839,439,17.4,1.5,56.6,0.6,10.9,8.6,1.09,2026-11-18,https://www.waitrose.com/ecom/products/x/560280-585545-585546
 560350-512774-512775,ml,,219,51,0,0,12,12,0,0.3,0,2026-11-19,https://www.waitrose.com/ecom/products/x/560350-512774-512775
@@ -2897,6 +2952,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 569328-502709-502710,g,as consumed,559,133,3.6,0.67,0.37,0.53,0.87,24.4,3.03,2026-11-18,https://www.waitrose.com/ecom/products/x/569328-502709-502710
 569536-512788-512789,g,,175,42,<0.5,0.0,8.8,8.8,1.7,0.5,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/569536-512788-512789
 569590-771173-771174,g,,891,212,7.0,0.8,32.0,<0.5,3.6,3.4,0.44,2026-11-18,https://www.waitrose.com/ecom/products/x/569590-771173-771174
+569850-283643-283644,g,,599,143,6.6,2.8,13.5,0.3,0.6,7.1,0.61,2026-11-19,https://www.waitrose.com/ecom/products/x/569850-283643-283644
 570076-716507-716508,g,,418,99,1.2,0.4,<0.5,<0.5,<0.5,22,1.9,2026-11-18,https://www.waitrose.com/ecom/products/x/570076-716507-716508
 570084-229743-229744,g,,382,92,5.9,0.5,4.4,3.7,2.8,4.0,0.04,2026-11-18,https://www.waitrose.com/ecom/products/x/570084-229743-229744
 570225-585551-585552,ml,,1.3,0.3,0,0,0,0,,0,0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/570225-585551-585552
@@ -2926,6 +2982,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 572730-791521-791522,g,,243,58,1.2,0.5,7.4,1.7,1.8,3.3,0.05,2026-11-19,https://www.waitrose.com/ecom/products/x/572730-791521-791522
 572876-743480-743481,g,,1879,449,22.6,9.3,57.4,42.1,<0.5,3.8,0.28,2026-11-18,https://www.waitrose.com/ecom/products/x/572876-743480-743481
 572963-785908-785909,g,,835,199,9.2,1.9,18.0,1.7,1.2,10.5,0.86,2026-11-18,https://www.waitrose.com/ecom/products/x/572963-785908-785909
+573220-81207-81208,g,,1639,391,17.0,11.6,56.5,50.8,0.5,2.7,0.37,2026-11-19,https://www.waitrose.com/ecom/products/x/573220-81207-81208
 573461-413779-413780,g,,1384,326,0.20,0.20,77.00,61.00,,3.10,0.04,2026-11-19,https://www.waitrose.com/ecom/products/x/573461-413779-413780
 573642-762010-762011,ml,,176,41,0,0,10,10,0,0,0,2026-11-19,https://www.waitrose.com/ecom/products/x/573642-762010-762011
 573760-691022-691023,g,,1801,427,10.9,4.2,78.2,55.9,,3.1,0.21,2026-11-18,https://www.waitrose.com/ecom/products/x/573760-691022-691023
@@ -3065,6 +3122,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 595562-506212-506213,g,,653,156,<0.5,0.1,38,26,0,<0.5,2.6,2026-11-18,https://www.waitrose.com/ecom/products/x/595562-506212-506213
 596188-1-2,g,,750,178,2.4,0.6,31.8,2.7,3.6,5.5,0.58,2026-11-19,https://www.waitrose.com/ecom/products/x/596188-1-2
 596229-786150-786151,g,,1978,473,22.3,2.6,57.2,5.6,7.0,7.3,0.95,2026-11-18,https://www.waitrose.com/ecom/products/x/596229-786150-786151
+596640-826528-826529,ml,,317,75,4.5,2.9,4.6,4.0,,3.9,0.1,2026-11-19,https://www.waitrose.com/ecom/products/x/596640-826528-826529
 596842-129686-129687,g,,1650,397,29.7,19.6,0.0,0.0,0.0,32.4,1.63,2026-11-18,https://www.waitrose.com/ecom/products/x/596842-129686-129687
 596854-156981-156982,g,drained,602,146,15,3.0,0.0,0.0,,1.3,3.0,2026-11-19,https://www.waitrose.com/ecom/products/x/596854-156981-156982
 596889-408642-408643,g,,2294,551,36.3,14.1,33.4,24.9,5.9,19.5,0.259,2026-11-18,https://www.waitrose.com/ecom/products/x/596889-408642-408643
@@ -3161,6 +3219,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 609817-86508-86509,g,,1606,387,32.0,22.0,0.0,0.0,0.0,24.8,1.70,2026-11-18,https://www.waitrose.com/ecom/products/x/609817-86508-86509
 609868-728312-728313,ml,,64,15,0,0,3.8,3.8,,0,0.02,2026-11-19,https://www.waitrose.com/ecom/products/x/609868-728312-728313
 609979-220516-220517,g,,2253,541,33,20,52,48,,5.3,0.1,2026-11-18,https://www.waitrose.com/ecom/products/x/609979-220516-220517
+610000-847163-847164,g,,1100,260,<0.5,<0.1,30,1.2,1.1,34,10.8,2026-11-19,https://www.waitrose.com/ecom/products/x/610000-847163-847164
 610218-133580-133581,g,,235,55,<0.5,0.0,11.8,11.8,0.6,1.3,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/610218-133580-133581
 610264-525688-525689,g,,381,90,<0.5,0.0,1.2,<0.5,0.6,19.9,1.05,2026-11-18,https://www.waitrose.com/ecom/products/x/610264-525688-525689
 610378-493044-493045,g,,1225,296,24.9,17.5,2.1,<0.5,<0.5,15.7,2.59,2026-11-18,https://www.waitrose.com/ecom/products/x/610378-493044-493045
@@ -3209,6 +3268,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 619211-818664-818665,g,,1762,417,8,0.7,80,10,3.5,4,2.4,2026-11-19,https://www.waitrose.com/ecom/products/x/619211-818664-818665
 619575-830886-830886,g,,2183,522,27.8,13.4,59.3,36.8,5.3,6.2,0.34,2026-11-19,https://www.waitrose.com/ecom/products/x/619575-830886-830886
 619730-492039-492040,g,,2541,615,53.8,4.5,3.8,1.8,10.1,23.8,0.0,2026-11-19,https://www.waitrose.com/ecom/products/x/619730-492039-492040
+619900-783942-783943,ml,,71,17,0,0,3.9,0.7,,0.4,0,2026-11-19,https://www.waitrose.com/ecom/products/x/619900-783942-783943
 620288-690264-690265,ml,,3404,828,92,13,0,0,,0,0,2026-11-18,https://www.waitrose.com/ecom/products/x/620288-690264-690265
 620591-197970-197971,g,,157,37,<0.5,0.1,6.4,6.1,2.1,1.0,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/620591-197970-197971
 620646-723866-723867,ml,,180,42,0,0,10.6,10.6,,0,0,2026-11-19,https://www.waitrose.com/ecom/products/x/620646-723866-723867
@@ -3277,6 +3337,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 631726-780255-780256,g,,1947,464,19.4,2.9,62.4,2.1,0.7,9.5,2.83,2026-11-19,https://www.waitrose.com/ecom/products/x/631726-780255-780256
 631813-170834-170835,g,,554,133,5.9,0.5,11.1,1.5,6.1,5.7,0.44,2026-11-18,https://www.waitrose.com/ecom/products/x/631813-170834-170835
 631828-756394-756395,g,,157,37,0.5,0.1,5.0,3.7,2.4,2.0,0.04,2026-11-18,https://www.waitrose.com/ecom/products/x/631828-756394-756395
+631865-457152-457153,g,,2354,564,35.3,6.5,54.2,49.0,1.5,6.7,0.12,2026-11-19,https://www.waitrose.com/ecom/products/x/631865-457152-457153
 632050-745191-745192,g,as consumed,777,185,4.7,3.2,26.9,1.1,3.4,7.0,0.55,2026-11-18,https://www.waitrose.com/ecom/products/x/632050-745191-745192
 632312-1-2,g,,1167,278,6.8,0.7,37.0,16.2,,9.8,12.9,2026-11-19,https://www.waitrose.com/ecom/products/x/632312-1-2
 632398-373347-373348,g,,204,48,0.1,,10.0,10.0,3.1,0.3,,2026-11-18,https://www.waitrose.com/ecom/products/x/632398-373347-373348
@@ -3369,6 +3430,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 646830-1-2,g,,1071,255,2.0,0.6,47.4,4.0,2.0,10.9,0.90,2026-11-18,https://www.waitrose.com/ecom/products/x/646830-1-2
 647794-202379-202380,g,,1199,289,22.8,16.2,0.0,0.0,0.0,20.9,1.65,2026-11-18,https://www.waitrose.com/ecom/products/x/647794-202379-202380
 647863-776993-776994,ml,,77,18,0,0,4.5,4,,0,0.04,2026-11-19,https://www.waitrose.com/ecom/products/x/647863-776993-776994
+647910-140863-140864,g,,2203,528,31,3.0,54,0.9,4.1,6.2,0.62,2026-11-19,https://www.waitrose.com/ecom/products/x/647910-140863-140864
 648225-833715-833716,ml,,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2026-11-19,https://www.waitrose.com/ecom/products/x/648225-833715-833716
 648322-762432-762433,g,,1603,380,6.0,0.9,63.7,0.7,5.4,15.0,0.02,2026-11-18,https://www.waitrose.com/ecom/products/x/648322-762432-762433
 648428-92038-92039,g,cooked,572,135,0.7,0.2,26.2,0.6,3.9,4.0,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/648428-92038-92039
@@ -3449,6 +3511,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 658962-581368-581369,g,,909,218,12.5,4.7,3.7,3.7,0.8,22.3,1.31,2026-11-18,https://www.waitrose.com/ecom/products/x/658962-581368-581369
 658971-805797-805798,ml,,3389,824,92,,0,0,,0,0,2026-11-18,https://www.waitrose.com/ecom/products/x/658971-805797-805798
 659147-93620-93621,g,,2083,498,25,2.3,64,1.0,2.6,3.6,2.2,2026-11-19,https://www.waitrose.com/ecom/products/x/659147-93620-93621
+659355-757393-757394,ml,,299,71,2.4,1.6,8.7,8.4,,3.4,0.1,2026-11-19,https://www.waitrose.com/ecom/products/x/659355-757393-757394
 659597-405356-405357,ml,,87,20,0.0,0.0,4.6,4.5,0.0,0.1,0.00,2026-11-18,https://www.waitrose.com/ecom/products/x/659597-405356-405357
 659688-362377-362378,g,,965,232,16.2,5.0,1.2,<0.5,0.5,20.1,0.28,2026-11-18,https://www.waitrose.com/ecom/products/x/659688-362377-362378
 659810-745241-745242,g,,2284,547,31.9,19.7,62.3,42.8,,1.6,0.02,2026-11-18,https://www.waitrose.com/ecom/products/x/659810-745241-745242
@@ -3511,6 +3574,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 671189-442946-442947,g,,2653,634,53,20.8,19.9,9.4,11.3,15.3,0.04,2026-11-19,https://www.waitrose.com/ecom/products/x/671189-442946-442947
 671363-785022-785023,g,,1383,334,14.6,0.6,11.9,0.6,38.0,19.8,0.0,2026-11-19,https://www.waitrose.com/ecom/products/x/671363-785022-785023
 671405-619917-619918,g,,1669,400,22.6,14.8,36.7,5.4,1.9,11.4,0.99,2026-11-18,https://www.waitrose.com/ecom/products/x/671405-619917-619918
+671448-586684-586685,ml,,315,75,2.2,1.5,9.7,9.3,,3.7,0.2,2026-11-19,https://www.waitrose.com/ecom/products/x/671448-586684-586685
 671621-785970-785971,g,,1410,335,8.6,5.1,59.2,45.8,3.0,3.6,0.25,2026-11-18,https://www.waitrose.com/ecom/products/x/671621-785970-785971
 671890-497966-497967,g,,1571,379,30.0,17.0,23.0,15.0,,3.1,0.34,2026-11-18,https://www.waitrose.com/ecom/products/x/671890-497966-497967
 672137-693810-693811,g,,69,17,<0.5,<0.1,1.8,1.7,,0.9,0.03,2026-11-18,https://www.waitrose.com/ecom/products/x/672137-693810-693811
@@ -3611,6 +3675,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 688707-777169-777170,g,,208,49,0,0,12,9.9,,0.1,0,2026-11-18,https://www.waitrose.com/ecom/products/x/688707-777169-777170
 688871-408748-408749,g,,569,135,2.6,0.6,23.3,0.1,3.0,3.1,<0.03,2026-11-18,https://www.waitrose.com/ecom/products/x/688871-408748-408749
 688927-509358-509359,g,,344,82,2.2,0.7,12.6,6.9,0.8,2.6,0.07,2026-11-19,https://www.waitrose.com/ecom/products/x/688927-509358-509359
+689237-820104-820105,g,,1913,456,18,1.5,59,0.7,4.4,13,2.20,2026-11-19,https://www.waitrose.com/ecom/products/x/689237-820104-820105
 689279-149311-149312,g,,1345,324,26.1,9.1,1.1,<0.5,<0.5,21.0,1.08,2026-11-18,https://www.waitrose.com/ecom/products/x/689279-149311-149312
 689800-97983-97984,g,,2547,615,50,7.9,7.4,5.5,8.4,29,1.2,2026-11-19,https://www.waitrose.com/ecom/products/x/689800-97983-97984
 689809-568146-568147,g,,1599,381,16.5,1.3,54.3,31.2,1.0,3.4,0.39,2026-11-18,https://www.waitrose.com/ecom/products/x/689809-568146-568147
@@ -3683,6 +3748,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 700635-781121-781122,g,,488,116,4.8,2.1,10.5,2.0,1.2,7.2,0.53,2026-11-18,https://www.waitrose.com/ecom/products/x/700635-781121-781122
 700918-785052-785053,g,,1241,299,12.9,2.1,19.1,10.3,24.9,14.1,0.20,2026-11-18,https://www.waitrose.com/ecom/products/x/700918-785052-785053
 701063-99492-99493,g,,992,234,1.1,0.3,46.3,2.6,2.4,8.5,0.83,2026-11-18,https://www.waitrose.com/ecom/products/x/701063-99492-99493
+701223-783986-783987,ml,,100,24,<0.2,<0.1,6,4.2,,0.2,13,2026-11-19,https://www.waitrose.com/ecom/products/x/701223-783986-783987
 701268-762100-762101,g,,486,116,3.2,1.2,11.3,1.2,5.8,7.6,1.13,2026-11-18,https://www.waitrose.com/ecom/products/x/701268-762100-762101
 701328-785054-785055,g,,1158,276,3.3,1.4,38.7,0.6,25.3,10.4,0.0,2026-11-19,https://www.waitrose.com/ecom/products/x/701328-785054-785055
 701356-319626-319627,g,,785,187,9.3,3.3,0.6,0.6,<0.5,25.1,1.29,2026-11-18,https://www.waitrose.com/ecom/products/x/701356-319626-319627
@@ -3719,7 +3785,6 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 705748-762466-762467,g,,760,181,8.2,0.6,12.3,<0.5,2.3,13.6,0.45,2026-11-18,https://www.waitrose.com/ecom/products/x/705748-762466-762467
 705847-100239-100240,g,,2230,533,29,10,58,53,,11,0.80,2026-11-18,https://www.waitrose.com/ecom/products/x/705847-100239-100240
 706298-368050-368051,g,,245,58,0,0,13,13,1.2,1,0,2026-11-18,https://www.waitrose.com/ecom/products/x/706298-368050-368051
-706526-658481-658481,g,,1829,435,13.0,1.4,72.0,5.8,6.1,5.9,0.88,2026-11-19,https://www.waitrose.com/ecom/products/x/706526-658481-658481
 706651-804926-804927,g,,1423,334,0,0,79.6,67.7,,4.1,<0.03,2026-11-19,https://www.waitrose.com/ecom/products/x/706651-804926-804927
 706666-805643-805644,g,,1225,291,10.2,4.1,39.7,1.3,2.0,9.1,0.88,2026-11-18,https://www.waitrose.com/ecom/products/x/706666-805643-805644
 706804-100389-100390,g,,367,87,0.7,0.2,12,4,,9.3,1.83,2026-11-18,https://www.waitrose.com/ecom/products/x/706804-100389-100390
@@ -3908,7 +3973,6 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 738709-105006-105007,g,,2132,511,29.4,2.5,52.5,2.5,4.5,6.9,0.58,2026-11-19,https://www.waitrose.com/ecom/products/x/738709-105006-105007
 738735-822519-822520,g,,524,125,6.2,4.1,13.7,11.3,<0.5,3.4,0.09,2026-11-18,https://www.waitrose.com/ecom/products/x/738735-822519-822520
 738840-693862-693863,g,,1110,266,16.9,7.9,16.8,2.2,0.8,11.3,0.64,2026-11-18,https://www.waitrose.com/ecom/products/x/738840-693862-693863
-739466-105107-105108,g,,2024,484,22.9,2.0,59.4,<0.5,4.1,7.9,1.10,2026-11-19,https://www.waitrose.com/ecom/products/x/739466-105107-105108
 739603-826766-826767,ml,,1649,400,40.8,2.8,7.9,5.4,<0.5,<0.5,0.76,2026-11-19,https://www.waitrose.com/ecom/products/x/739603-826766-826767
 739889-174645-174646,g,,2064,493,24,14,65,48,,4.5,0.40,2026-11-18,https://www.waitrose.com/ecom/products/x/739889-174645-174646
 739927-457190-457191,g,,794,190,10.1,1.3,0.0,0.0,0.0,24.7,0.66,2026-11-19,https://www.waitrose.com/ecom/products/x/739927-457190-457191
@@ -3998,7 +4062,6 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 752595-825211-825212,g,,1149,272,5.5,0.9,44.1,3.6,3.3,10.0,0.83,2026-11-18,https://www.waitrose.com/ecom/products/x/752595-825211-825212
 753038-810452-810453,g,,1578,377,38,3.3,8,3.9,0.6,1.8,1.7,2026-11-19,https://www.waitrose.com/ecom/products/x/753038-810452-810453
 753080-743941-743942,g,,1962,468,21,9.4,49,24,3.6,19,0.60,2026-11-19,https://www.waitrose.com/ecom/products/x/753080-743941-743942
-753235-107108-107108,g,,2127,510,29,2.3,53,0.9,4.5,5.9,0.64,2026-11-19,https://www.waitrose.com/ecom/products/x/753235-107108-107108
 753388-696606-696607,g,,144,34,1.8,1.1,3.5,1.6,0.7,0.7,0.47,2026-11-19,https://www.waitrose.com/ecom/products/x/753388-696606-696607
 753876-815005-815006,g,,1252,295,<0.5,0.1,68.0,68.0,4.0,3.3,0.0,2026-11-19,https://www.waitrose.com/ecom/products/x/753876-815005-815006
 754053-813408-813409,g,,1682,399,7.9,5.0,68,50,11,8.6,0.68,2026-11-19,https://www.waitrose.com/ecom/products/x/754053-813408-813409
@@ -4110,6 +4173,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 768717-818971-818972,g,,510,122,4.2,2.4,13,2.0,4.2,5.9,0.49,2026-11-19,https://www.waitrose.com/ecom/products/x/768717-818971-818972
 768789-450648-450649,g,,1512,357,5.2,1.0,65.1,4.8,,12.5,3.0,2026-11-19,https://www.waitrose.com/ecom/products/x/768789-450648-450649
 768944-785108-785109,g,,1572,371,2.2,0.8,77.1,2.7,2.7,9.3,0.87,2026-11-19,https://www.waitrose.com/ecom/products/x/768944-785108-785109
+769128-785792-785793,ml,,232,55,1.3,0.8,3.5,3.4,,7.3,0.21,2026-11-19,https://www.waitrose.com/ecom/products/x/769128-785792-785793
 769158-703267-703268,g,,645,156,14.1,2.3,4.1,3.0,3.5,1.2,0.94,2026-11-18,https://www.waitrose.com/ecom/products/x/769158-703267-703268
 770094-109539-109540,g,,487,118,3.40,0.90,0.70,0.30,0.20,21.00,2.50,2026-11-18,https://www.waitrose.com/ecom/products/x/770094-109539-109540
 770192-824399-824400,g,,638,152,4.2,0.3,25,0.5,1.9,2.7,0.43,2026-11-18,https://www.waitrose.com/ecom/products/x/770192-824399-824400
@@ -4152,6 +4216,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 775335-1-2,ml,,209,49,0,0,11,10,1,0.7,0.04,2026-11-18,https://www.waitrose.com/ecom/products/x/775335-1-2
 775671-778990-778991,g,,2337,562,38.0,3.9,36.8,6.0,7.1,14.6,1.27,2026-11-19,https://www.waitrose.com/ecom/products/x/775671-778990-778991
 775733-110331-110332,g,,1141,272,0,0,39,37,7.3,0,0.04,2026-11-18,https://www.waitrose.com/ecom/products/x/775733-110331-110332
+775765-813548-813549,ml,,183,43,<0.5,0.0,9.4,9.4,<0.5,<0.5,0.0,2026-11-19,https://www.waitrose.com/ecom/products/x/775765-813548-813549
 776082-776828-776829,g,,453,108,3.4,2.0,16.0,15.2,0.3,3.4,0.1,2026-11-18,https://www.waitrose.com/ecom/products/x/776082-776828-776829
 776091-764964-764965,g,,2346,564,37,18,48,43,,6.2,0.05,2026-11-18,https://www.waitrose.com/ecom/products/x/776091-764964-764965
 776382-382222-382223,g,,978,235,12.7,1.9,22.3,5.1,5.3,5.2,0.64,2026-11-18,https://www.waitrose.com/ecom/products/x/776382-382222-382223
@@ -4290,7 +4355,6 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 799216-779977-779978,g,,1058,250,0.7,0.1,50.4,3.5,2.6,9.2,0.87,2026-11-18,https://www.waitrose.com/ecom/products/x/799216-779977-779978
 799332-811019-811020,g,,948,227,13.1,6.3,16.3,2.7,0.8,10.6,0.76,2026-11-18,https://www.waitrose.com/ecom/products/x/799332-811019-811020
 799351-284723-284724,g,,1606,380,2.7,0.5,76,15,7.0,9.3,0.02,2026-11-18,https://www.waitrose.com/ecom/products/x/799351-284723-284724
-799380-723541-723541,g,,2175,521,30.5,2.8,53.8,3.2,3.3,6.2,1.25,2026-11-19,https://www.waitrose.com/ecom/products/x/799380-723541-723541
 799396-819047-819048,g,,2754,666,59.6,5.7,8.1,2.9,7.0,20.9,0.54,2026-11-19,https://www.waitrose.com/ecom/products/x/799396-819047-819048
 799397-706942-706943,g,,2420,583,43.2,26.0,35.4,30.8,10.7,7.9,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/799397-706942-706943
 799540-506115-506116,g,,614,146,4.9,1.5,2.4,2.4,<0.5,23.0,1.67,2026-11-18,https://www.waitrose.com/ecom/products/x/799540-506115-506116
@@ -4381,6 +4445,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 807731-745996-745997,g,,263,62,0.0,0.0,12.9,7.7,2.9,1.2,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/807731-745996-745997
 807792-620075-620076,g,,729,174,8.2,2.1,<0.5,<0.5,<0.5,24.7,0.33,2026-11-18,https://www.waitrose.com/ecom/products/x/807792-620075-620076
 807839-695214-695215,g,,685,162,1.2,0.2,33.6,0.5,1.1,3.5,0.45,2026-11-19,https://www.waitrose.com/ecom/products/x/807839-695214-695215
+807863-728518-728519,ml,,63,15,<0.1,<0.1,3.0,1.8,,0.1,<0.1,2026-11-19,https://www.waitrose.com/ecom/products/x/807863-728518-728519
 807887-509446-509447,g,,353,84,2.0,0.7,13.5,7.6,1.0,2.5,0.07,2026-11-19,https://www.waitrose.com/ecom/products/x/807887-509446-509447
 808466-156605-156606,g,,450,107,1.7,0.5,0.0,0.0,0.6,22.5,1.32,2026-11-18,https://www.waitrose.com/ecom/products/x/808466-156605-156606
 808589-824900-824901,g,,496,117,<0.5,0.2,20.9,1.1,3.0,6.0,0.05,2026-11-18,https://www.waitrose.com/ecom/products/x/808589-824900-824901
@@ -4508,6 +4573,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 820070-785178-785179,g,,2151,518,36.2,2.0,15.9,6.8,12.2,26.1,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/820070-785178-785179
 820327-744449-744450,g,,1287,306,8.8,1.6,49,0.8,4.3,11,1.2,2026-11-18,https://www.waitrose.com/ecom/products/x/820327-744449-744450
 820441-812998-812999,g,,1925,457,14.0,1.5,74.3,2.8,2.9,7.1,0.04,2026-11-19,https://www.waitrose.com/ecom/products/x/820441-812998-812999
+820717-762166-762167,ml,,202,48,<0.5,0.0,10.0,10.0,1.1,<0.5,0.0,2026-11-19,https://www.waitrose.com/ecom/products/x/820717-762166-762167
 820917-759349-759350,g,,451,107,4.2,1.6,13.0,4.2,1.3,3.9,0.42,2026-11-18,https://www.waitrose.com/ecom/products/x/820917-759349-759350
 820944-198098-198099,g,,1329,317,13.1,8.4,42.9,15.0,1.8,5.9,0.64,2026-11-18,https://www.waitrose.com/ecom/products/x/820944-198098-198099
 821034-255939-255940,g,oven baked,727,173,8.0,1.1,10.5,0.6,0.3,14.7,0.7,2026-11-18,https://www.waitrose.com/ecom/products/x/821034-255939-255940
@@ -4568,6 +4634,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 827123-230037-230038,ml,prepared,22,5,<0.5,<0.1,0.5,<0.5,<0.5,<0.5,0.86,2026-11-19,https://www.waitrose.com/ecom/products/x/827123-230037-230038
 827274-846689-846690,g,,1091,261,12,1.5,13,6.7,6.5,22,0.35,2026-11-18,https://www.waitrose.com/ecom/products/x/827274-846689-846690
 827278-758736-758737,ml,,89,21,0.5,0.2,2.2,0.5,,0.8,5.9,2026-11-19,https://www.waitrose.com/ecom/products/x/827278-758736-758737
+827422-762172-762173,ml,,192,45,<0.5,0.0,9.7,9.7,<0.5,<0.5,0.0,2026-11-19,https://www.waitrose.com/ecom/products/x/827422-762172-762173
 827557-288106-288107,g,,1230,293,10.6,7.8,45.5,41.3,2.3,2.7,0.05,2026-11-18,https://www.waitrose.com/ecom/products/x/827557-288106-288107
 827906-343550-343551,ml,,8,2,0,0,0,0,,0,0.10,2026-11-19,https://www.waitrose.com/ecom/products/x/827906-343550-343551
 828027-162221-162222,g,,467,111,3.0,0.3,12.3,7.4,<0.5,8.4,1.39,2026-11-18,https://www.waitrose.com/ecom/products/x/828027-162221-162222
@@ -4589,6 +4656,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 829493-631619-631620,g,,713,170,6.4,,0,,,28,0.9,2026-11-19,https://www.waitrose.com/ecom/products/x/829493-631619-631620
 829505-229479-229480,g,,202,48,1.4,0.6,5.3,2.0,1.5,2.8,0.06,2026-11-19,https://www.waitrose.com/ecom/products/x/829505-229479-229480
 829531-274967-274968,g,,2148,514,26.9,16.8,61.7,23.5,1.9,5.2,0.68,2026-11-19,https://www.waitrose.com/ecom/products/x/829531-274967-274968
+829563-826872-826873,ml,,140,33,1.4,0.7,3.4,3.3,0.3,1.5,0.10,2026-11-19,https://www.waitrose.com/ecom/products/x/829563-826872-826873
 829708-823170-823171,g,,1215,293,24.6,16.0,4.0,1.5,,13.5,1.22,2026-11-18,https://www.waitrose.com/ecom/products/x/829708-823170-823171
 829999-492191-492192,g,,1152,273,<0.5,0.1,64,49,11,1.8,<0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/829999-492191-492192
 830330-347892-347893,g,,1868,445,17.7,7.0,58.7,31.6,7.6,9.0,0.0,2026-11-19,https://www.waitrose.com/ecom/products/x/830330-347892-347893
@@ -4616,7 +4684,6 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 832631-785194-785195,g,,1562,376,17.3,3.3,29.4,10.3,27.2,12.0,0.10,2026-11-18,https://www.waitrose.com/ecom/products/x/832631-785194-785195
 832740-673911-673912,g,,389,93,5.0,3.6,3.0,3.0,,9.0,0.10,2026-11-18,https://www.waitrose.com/ecom/products/x/832740-673911-673912
 832754-679283-679284,g,,163,39,0.5,0.0,6.1,6.1,3.8,0.6,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/832754-679283-679284
-832817-450734-450734,g,,2083,498,25,2.3,64,1.0,2.6,3.6,2.2,2026-11-19,https://www.waitrose.com/ecom/products/x/832817-450734-450734
 832936-759216-759217,g,,1718,411,21.6,13.0,46.2,44.0,8.9,5.7,0.09,2026-11-19,https://www.waitrose.com/ecom/products/x/832936-759216-759217
 832994-696664-696665,g,,51,12,<0.5,0.0,0.6,0.6,<0.5,1.5,0.32,2026-11-19,https://www.waitrose.com/ecom/products/x/832994-696664-696665
 833000-234349-234350,g,,1164,279,16.2,7.0,23.0,1.4,1.5,9.5,0.52,2026-11-18,https://www.waitrose.com/ecom/products/x/833000-234349-234350
@@ -4706,6 +4773,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 840930-782818-782819,g,,913,216,1.2,0.1,43.3,43.3,10.0,3.1,0.30,2026-11-19,https://www.waitrose.com/ecom/products/x/840930-782818-782819
 841009-590433-590434,g,,1137,270,5.0,0.8,49.0,6.0,7.0,11.0,1.2,2026-11-18,https://www.waitrose.com/ecom/products/x/841009-590433-590434
 841032-785204-785205,g,,1425,345,17.8,1.0,13.0,0.0,41.9,12.4,0.80,2026-11-19,https://www.waitrose.com/ecom/products/x/841032-785204-785205
+841041-811043-811044,g,,335,80,1.9,0.5,11,0.9,0.5,4.4,1.0,2026-11-19,https://www.waitrose.com/ecom/products/x/841041-811043-811044
 841070-817006-817007,g,,1653,396,0.1,0.1,94.5,86.3,,4.1,<0.1,2026-11-19,https://www.waitrose.com/ecom/products/x/841070-817006-817007
 841175-629454-629455,g,,1110,263,4.5,0.6,44.8,2.4,4.2,8.9,0.76,2026-11-18,https://www.waitrose.com/ecom/products/x/841175-629454-629455
 841493-675154-675155,g,,1864,443,12.3,1.4,76.4,60.7,3.5,4.9,0.09,2026-11-18,https://www.waitrose.com/ecom/products/x/841493-675154-675155
@@ -4765,6 +4833,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 846995-790967-790968,ml,,180,42,<0.5,<0.1,11,9.5,<0.5,<0.5,<0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/846995-790967-790968
 847001-746411-746412,g,,125,30,<0.5,0.1,3.7,2.9,2.1,2.0,0.03,2026-11-18,https://www.waitrose.com/ecom/products/x/847001-746411-746412
 847065-824608-824609,g,,1561,375,24.3,9.0,28.1,3.4,1.3,10.2,0.69,2026-11-18,https://www.waitrose.com/ecom/products/x/847065-824608-824609
+847151-762196-762197,ml,,180,43,<0.5,0.0,8.7,8.7,1.1,<0.5,0.0,2026-11-19,https://www.waitrose.com/ecom/products/x/847151-762196-762197
 847260-755085-755086,g,,691,165,8.2,3.9,15.4,2.0,1.2,6.9,0.80,2026-11-18,https://www.waitrose.com/ecom/products/x/847260-755085-755086
 847406-1-2,g,,481,114,6.2,3.7,10,3.9,4.9,4.6,0.92,2026-11-18,https://www.waitrose.com/ecom/products/x/847406-1-2
 847449-730948-730949,g,,117,28,<0.5,<0.1,4.4,3.4,,1.2,0.01,2026-11-18,https://www.waitrose.com/ecom/products/x/847449-730948-730949
@@ -4973,6 +5042,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 868072-633662-633663,ml,,73,17,0,0,4.3,4.3,,0,0,2026-11-19,https://www.waitrose.com/ecom/products/x/868072-633662-633663
 868074-759409-759410,g,,1238,295,9.9,1.4,32.1,2.3,7.3,15.8,0.82,2026-11-18,https://www.waitrose.com/ecom/products/x/868074-759409-759410
 868076-324716-324717,g,,481,115,8.3,5.5,4.9,4.9,,4.5,0.10,2026-11-18,https://www.waitrose.com/ecom/products/x/868076-324716-324717
+868083-813560-813561,ml,,261,62,1.5,1.3,11.3,11.3,0.6,<0.5,0.0,2026-11-19,https://www.waitrose.com/ecom/products/x/868083-813560-813561
 868287-526190-526191,g,,536,128,5.8,2.5,10.9,1.6,<0.5,8.1,0.51,2026-11-18,https://www.waitrose.com/ecom/products/x/868287-526190-526191
 868353-823372-823373,g,prepared,571,136,5.4,0.6,18,1.1,0.6,3.1,0.59,2026-11-18,https://www.waitrose.com/ecom/products/x/868353-823372-823373
 868382-409612-409613,ml,,189,45,0,0,10,9.6,,0.4,0,2026-11-19,https://www.waitrose.com/ecom/products/x/868382-409612-409613
@@ -5184,6 +5254,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 891196-758836-758837,ml,,309,73,<0.1,<0.1,17.9,14.1,,0.5,0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/891196-758836-758837
 891344-629544-629545,g,,1623,391,32.6,22.3,2.6,<0.5,0.0,21.9,1.99,2026-11-18,https://www.waitrose.com/ecom/products/x/891344-629544-629545
 891354-255724-255725,g,,1091,262,17.7,6.9,3.5,<0.5,0.5,21.8,0.81,2026-11-18,https://www.waitrose.com/ecom/products/x/891354-255724-255725
+891631-409656-409657,ml,,281,67,1.5,1.1,9.6,9.2,,3.5,0.1,2026-11-19,https://www.waitrose.com/ecom/products/x/891631-409656-409657
 891769-492250-492251,g,,1824,437,25.0,2.8,40.7,37.1,5.1,9.8,0.03,2026-11-19,https://www.waitrose.com/ecom/products/x/891769-492250-492251
 891854-261060-261061,g,,2596,627,54.0,4.0,5.2,3.4,6.5,26.9,0.08,2026-11-18,https://www.waitrose.com/ecom/products/x/891854-261060-261061
 891859-819408-819409,g,,2434,588,48.2,9.5,18.1,4.6,5.3,17.7,0.04,2026-11-19,https://www.waitrose.com/ecom/products/x/891859-819408-819409
@@ -5209,6 +5280,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 893970-834409-834410,g,,1515,361,15.4,7.1,47.9,9.9,1.5,7.0,0.38,2026-11-18,https://www.waitrose.com/ecom/products/x/893970-834409-834410
 893980-744172-744173,ml,,2.1,0.5,0,0,0,0,,0,0,2026-11-18,https://www.waitrose.com/ecom/products/x/893980-744172-744173
 894034-558750-558751,g,,1277,303,5.2,1.9,49.4,4.8,7.8,10.7,1.2,2026-11-18,https://www.waitrose.com/ecom/products/x/894034-558750-558751
+894082-337486-337487,g,,596,142,5.0,1.5,16.4,2.1,2.0,6.9,0.62,2026-11-19,https://www.waitrose.com/ecom/products/x/894082-337486-337487
 894083-785892-785893,g,,1810,432,25,16,38,4.4,1.5,18,0.36,2026-11-19,https://www.waitrose.com/ecom/products/x/894083-785892-785893
 894225-781087-781088,g,,2614,631,52.2,8.6,12.0,6.8,6.7,25.0,0.68,2026-11-18,https://www.waitrose.com/ecom/products/x/894225-781087-781088
 894232-756253-756254,g,prepared,315,75,2.0,1.3,12,0.8,,1.7,0.52,2026-11-18,https://www.waitrose.com/ecom/products/x/894232-756253-756254
@@ -5316,6 +5388,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 903082-1-2,g,prepared,303,72,1.4,0.2,13,1.0,0.5,1.9,0.82,2026-11-18,https://www.waitrose.com/ecom/products/x/903082-1-2
 903112-834015-834016,g,,1672,401,24.6,9.8,40.4,23.2,0.8,4.0,0.41,2026-11-18,https://www.waitrose.com/ecom/products/x/903112-834015-834016
 903166-836190-836191,g,,1650,397,29.7,19.6,0.0,0.0,0.0,32.4,1.60,2026-11-18,https://www.waitrose.com/ecom/products/x/903166-836190-836191
+903168-837498-837499,ml,,274,65,1.6,1.0,8.9,7.4,,3.5,0.15,2026-11-19,https://www.waitrose.com/ecom/products/x/903168-837498-837499
 903175-1-2,g,,679,162,6.3,1.8,<0.5,<0.5,0.6,25.5,0.58,2026-11-18,https://www.waitrose.com/ecom/products/x/903175-1-2
 903216-1-2,g,,431,104,7.4,5.5,4.9,2.1,3.0,3.1,0.50,2026-11-18,https://www.waitrose.com/ecom/products/x/903216-1-2
 903283-847183-847184,ml,,68,16,0,0,4,4,,0,0,2026-11-18,https://www.waitrose.com/ecom/products/x/903283-847183-847184
@@ -5340,6 +5413,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 904532-1-2,ml,,252,60,0.1,0,11.4,10.6,5.2,0.6,0.05,2026-11-19,https://www.waitrose.com/ecom/products/x/904532-1-2
 904551-1-2,g,,2299,551,33.00,18.00,59.00,48.00,1.40,4.50,0.43,2026-11-19,https://www.waitrose.com/ecom/products/x/904551-1-2
 904630-1-2,g,drained,616,147,14.8,2.5,2.1,<1.0,,1.2,4.3,2026-11-19,https://www.waitrose.com/ecom/products/x/904630-1-2
+904632-837506-837507,ml,,249,59,2.9,2.1,4.6,2.7,<0.5,3.5,0.10,2026-11-19,https://www.waitrose.com/ecom/products/x/904632-837506-837507
 904732-832365-832366,g,,2348,565,36,20,53,50,,5.3,0.13,2026-11-19,https://www.waitrose.com/ecom/products/x/904732-832365-832366
 904832-1-2,g,,1722,416,35.7,5.6,19.1,13.7,3.1,2.5,2.0,2026-11-19,https://www.waitrose.com/ecom/products/x/904832-1-2
 905010-1-2,g,,2346,566,41.1,25.1,33.1,23.8,13.1,9.3,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/905010-1-2
@@ -5347,6 +5421,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 905065-834415-834416,g,,1863,446,24.1,11.5,48.6,20.3,2.4,7.4,0.77,2026-11-18,https://www.waitrose.com/ecom/products/x/905065-834415-834416
 905124-829932-829933,g,prepared,1256,301,20.9,13.46,16.7,16.2,0.5,11.63,0.65,2026-11-18,https://www.waitrose.com/ecom/products/x/905124-829932-829933
 905191-1-2,g,,2202,528,31,2.7,53,5.6,3.9,5.1,1.9,2026-11-19,https://www.waitrose.com/ecom/products/x/905191-1-2
+905227-847189-847190,g,,2231,533,32,8,54,51,6.0,6.0,0.02,2026-11-19,https://www.waitrose.com/ecom/products/x/905227-847189-847190
 905294-1-2,g,,1693,405,13.0,1.8,44.0,2.8,19.0,21.0,0.44,2026-11-19,https://www.waitrose.com/ecom/products/x/905294-1-2
 905346-832367-832368,g,,1632,388,8.2,4.0,12,2.9,3.5,64,0.84,2026-11-19,https://www.waitrose.com/ecom/products/x/905346-832367-832368
 905367-836664-836665,g,,2081,497,23.00,7.40,68.00,43.00,2.10,4.20,0.57,2026-11-19,https://www.waitrose.com/ecom/products/x/905367-836664-836665
@@ -5384,6 +5459,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 907328-1-2,g,,1872,453,43,4.0,8.4,7.8,,6.0,2.6,2026-11-19,https://www.waitrose.com/ecom/products/x/907328-1-2
 907432-831731-831732,g,,90,21,<0.5,0.0,<0.5,<0.5,<0.5,4.4,0.65,2026-11-18,https://www.waitrose.com/ecom/products/x/907432-831731-831732
 907484-1-2,g,,426,101,3.2,0.9,14.6,1.9,2.5,2.3,0.51,2026-11-18,https://www.waitrose.com/ecom/products/x/907484-1-2
+907507-845551-845552,ml,,257,61,3.0,0.3,7.1,3.4,0.8,1.1,0.10,2026-11-19,https://www.waitrose.com/ecom/products/x/907507-845551-845552
 907618-1-2,ml,,38,9,0,0,0.9,0.7,,1,0,2026-11-19,https://www.waitrose.com/ecom/products/x/907618-1-2
 907662-1-2,g,,1136,274,21.7,8.7,0.9,<0.5,<0.5,18.6,2.88,2026-11-18,https://www.waitrose.com/ecom/products/x/907662-1-2
 907689-849114-849115,g,,1421,337,9.1,3.8,55.4,24.5,2.6,7.2,0.67,2026-11-18,https://www.waitrose.com/ecom/products/x/907689-849114-849115
@@ -5396,6 +5472,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 907956-833103-833104,g,,1174,276,0,0,69,54,0.6,0,0.03,2026-11-19,https://www.waitrose.com/ecom/products/x/907956-833103-833104
 908002-1-2,g,,2130,510,26.6,2.3,63.8,1.5,4.3,5.9,1.3,2026-11-19,https://www.waitrose.com/ecom/products/x/908002-1-2
 908049-826934-826935,g,,60,14,<0.5,0.0,1.4,1.4,1.5,1.2,0.02,2026-11-18,https://www.waitrose.com/ecom/products/x/908049-826934-826935
+908056-1-2,g,,647,154,5.3,1.7,18.2,4.7,1.3,7.6,0.70,2026-11-19,https://www.waitrose.com/ecom/products/x/908056-1-2
 908210-829868-829869,g,,388,93,2.1,0.7,13.3,4.4,3.2,5.1,0.8,2026-11-18,https://www.waitrose.com/ecom/products/x/908210-829868-829869
 908245-827344-827345,g,,502,120,10.0,9.0,5.9,1.6,1.0,1.2,0.04,2026-11-18,https://www.waitrose.com/ecom/products/x/908245-827344-827345
 908287-852040-852041,g,,874,210,13.2,4.9,<0.5,<0.5,0.7,22.1,0.36,2026-11-18,https://www.waitrose.com/ecom/products/x/908287-852040-852041
@@ -5421,6 +5498,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 910012-1-2,g,,1135,270,10.3,3.0,29.0,3.2,2.4,14.2,1.13,2026-11-18,https://www.waitrose.com/ecom/products/x/910012-1-2
 910017-850993-850994,g,,1610,389,35.6,22.4,1.2,<0.5,0.0,16.0,1.06,2026-11-18,https://www.waitrose.com/ecom/products/x/910017-850993-850994
 910137-839258-839259,g,,1854,441,15.2,3.8,63.8,31.6,6.1,9.3,0.14,2026-11-19,https://www.waitrose.com/ecom/products/x/910137-839258-839259
+910177-847493-847494,ml,,70,16,<0.1,<0.1,3.5,0.1,,0.6,<0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/910177-847493-847494
 910182-1-2,g,,2039,486,21,10,66,54,,6.9,0.68,2026-11-19,https://www.waitrose.com/ecom/products/x/910182-1-2
 910197-832379-832380,g,,2413,579,36.2,24.1,53.9,53.6,,8.8,0.305,2026-11-18,https://www.waitrose.com/ecom/products/x/910197-832379-832380
 910206-1-2,ml,,153,36,<0.5,0.0,7.0,7.0,1.0,<0.5,0.0,2026-11-19,https://www.waitrose.com/ecom/products/x/910206-1-2
@@ -5460,6 +5538,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 912390-834423-834424,g,,781,187,10.8,2.4,0.6,<0.5,0.5,21.6,0.46,2026-11-18,https://www.waitrose.com/ecom/products/x/912390-834423-834424
 912467-834251-834252,g,,1000,238,9.1,4.5,27,1.3,2.1,11,0.77,2026-11-18,https://www.waitrose.com/ecom/products/x/912467-834251-834252
 912500-1-2,g,,1929,459,18.0,12.0,55.0,0.8,1.1,18.0,3.0,2026-11-19,https://www.waitrose.com/ecom/products/x/912500-1-2
+912518-847213-847214,g,,1477,351,12.1,7.6,58.6,55.3,<0.5,1.7,0.22,2026-11-19,https://www.waitrose.com/ecom/products/x/912518-847213-847214
 912684-1-2,g,,1659,397,11,1.6,57,13.4,11,12,0.1,2026-11-19,https://www.waitrose.com/ecom/products/x/912684-1-2
 912787-1-2,g,,1968,469,20,1.6,62,1.5,2.3,10,2.13,2026-11-19,https://www.waitrose.com/ecom/products/x/912787-1-2
 912797-834253-834254,g,,1054,251,11,4.5,27,1.4,2.2,10,0.90,2026-11-18,https://www.waitrose.com/ecom/products/x/912797-834253-834254
@@ -5489,6 +5568,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 914354-1-2,g,,2145,512,26.00,13.00,63.00,35.00,2.10,6.60,0.58,2026-11-18,https://www.waitrose.com/ecom/products/x/914354-1-2
 914399-832032-832033,g,,690,165,7.8,2.8,15.0,4.4,1.6,8.0,0.88,2026-11-18,https://www.waitrose.com/ecom/products/x/914399-832032-832033
 914463-1-2,g,,771,185,10.5,1.0,10.0,7.7,1.6,11.8,0.72,2026-11-18,https://www.waitrose.com/ecom/products/x/914463-1-2
+914516-1-2,ml,,65,15,0,0,3.6,1.4,,0.2,0.04,2026-11-19,https://www.waitrose.com/ecom/products/x/914516-1-2
 914537-1-2,g,,2060,493,22.4,5.3,63.2,1.1,3.5,7.8,1.71,2026-11-19,https://www.waitrose.com/ecom/products/x/914537-1-2
 914785-1-2,g,,1006,241,14.0,2.1,4.7,4.7,<0.5,23.8,0.67,2026-11-18,https://www.waitrose.com/ecom/products/x/914785-1-2
 914817-850199-850200,g,,1544,370,16,9.0,33,2.2,4.0,34,0.55,2026-11-18,https://www.waitrose.com/ecom/products/x/914817-850199-850200
@@ -5501,10 +5581,12 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 915100-1-2,g,,743,176,2.1,0.3,34.6,0.8,1.3,4.0,0.40,2026-11-18,https://www.waitrose.com/ecom/products/x/915100-1-2
 915127-1-2,ml,,546,130,5.6,3.7,17.5,13.8,,2.1,<0.1,2026-11-18,https://www.waitrose.com/ecom/products/x/915127-1-2
 915176-1-2,g,,1553,366,0.5,0.3,87.0,37.1,5.2,0.8,<0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/915176-1-2
+915234-1-2,ml,,77,18,0,0,4.5,4,,0,0.08,2026-11-19,https://www.waitrose.com/ecom/products/x/915234-1-2
 915274-836932-836933,g,,462,110,2.6,0.9,1.1,1.1,0.5,20.2,1.50,2026-11-18,https://www.waitrose.com/ecom/products/x/915274-836932-836933
 915285-833125-833126,g,,175,42,2.4,0.2,2.8,0.1,,1.7,89.8,2026-11-19,https://www.waitrose.com/ecom/products/x/915285-833125-833126
 915430-1-2,g,,960,230,12,4.8,23,2.0,,5.1,0.93,2026-11-18,https://www.waitrose.com/ecom/products/x/915430-1-2
 915448-1-2,g,,445,105,1.0,0.3,<0.5,<0.5,0.0,23.9,0.15,2026-11-18,https://www.waitrose.com/ecom/products/x/915448-1-2
+915504-1-2,ml,,102,24,<0.5,<0.1,4.4,1.5,,0.5,<0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/915504-1-2
 915509-840703-840704,g,,796,190,7.2,3.6,23.3,0.6,1.8,7.0,0.41,2026-11-18,https://www.waitrose.com/ecom/products/x/915509-840703-840704
 915539-835136-835137,g,,1898,452,16.3,6.1,62.5,1.3,7.9,10.0,1.49,2026-11-19,https://www.waitrose.com/ecom/products/x/915539-835136-835137
 915660-837147-837148,g,,788,189,10.5,5.8,20.8,15.2,1.0,2.2,0.08,2026-11-18,https://www.waitrose.com/ecom/products/x/915660-837147-837148
@@ -5520,6 +5602,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 916382-1-2,g,,458,108,0.5,0.1,4.4,4.1,<0.5,21.2,0.57,2026-11-18,https://www.waitrose.com/ecom/products/x/916382-1-2
 916525-1-2,g,,2165,517,25.8,13.9,65.7,50.7,1.4,4.5,0.15,2026-11-18,https://www.waitrose.com/ecom/products/x/916525-1-2
 916555-1-2,g,,2022,483,21,14,66,39,,5.7,0.36,2026-11-19,https://www.waitrose.com/ecom/products/x/916555-1-2
+916585-1-2,g,,2329,558,32.9,4.8,61.4,58.9,0.9,3.6,0.07,2026-11-19,https://www.waitrose.com/ecom/products/x/916585-1-2
 916593-826798-826799,g,,1801,430,19.6,8.7,53.7,18.6,5.6,7.2,0.04,2026-11-18,https://www.waitrose.com/ecom/products/x/916593-826798-826799
 916613-1-2,g,,1281,303,4.8,0.8,51.0,1.4,2.8,10.0,2.0,2026-11-18,https://www.waitrose.com/ecom/products/x/916613-1-2
 916802-1-2,g,,853,205,11.8,3.0,17.9,2.4,2.0,5.8,0.63,2026-11-18,https://www.waitrose.com/ecom/products/x/916802-1-2
@@ -5527,12 +5610,15 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 916847-1-2,g,,275,66,1.9,1.2,7.4,1.2,3.0,3.6,0.56,2026-11-18,https://www.waitrose.com/ecom/products/x/916847-1-2
 916886-1-2,g,,1454,353,35,4.4,7.0,1.8,1.0,1.9,2.9,2026-11-19,https://www.waitrose.com/ecom/products/x/916886-1-2
 916896-846709-846710,g,,3131,761,83.0,53.46,3.1,0.3,,0.51,2.5,2026-11-18,https://www.waitrose.com/ecom/products/x/916896-846709-846710
+916903-847217-847218,g,,2212,529,31,10,60,53,3.0,4.0,0.57,2026-11-19,https://www.waitrose.com/ecom/products/x/916903-847217-847218
 916935-1-2,g,,2514,606,47,6.3,16,5.3,8.1,26,0.02,2026-11-18,https://www.waitrose.com/ecom/products/x/916935-1-2
 916962-1-2,g,,1150,272,4.5,2.4,47.7,9.7,2.2,9.2,0.80,2026-11-18,https://www.waitrose.com/ecom/products/x/916962-1-2
 917032-846829-846830,g,,1241,293,2.1,0.4,61,48.2,,4.9,18.4,2026-11-19,https://www.waitrose.com/ecom/products/x/917032-846829-846830
+917049-1-2,ml,,63,15,<0.1,<0.1,3.4,1.5,,0.3,0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/917049-1-2
 917090-848433-848434,g,,2101,502,24.3,13.8,62.5,49.6,2.3,6.9,0.22,2026-11-19,https://www.waitrose.com/ecom/products/x/917090-848433-848434
 917094-1-2,g,,568,136,7.7,2.1,6.3,3.9,1.0,9.9,1.06,2026-11-18,https://www.waitrose.com/ecom/products/x/917094-1-2
 917104-1-2,g,,1497,352,<0.10,<0.10,87.00,76.00,,<0.10,0.11,2026-11-19,https://www.waitrose.com/ecom/products/x/917104-1-2
+917153-1-2,ml,,445,106,4.7,2.9,12,9.1,,3.9,0.1,2026-11-19,https://www.waitrose.com/ecom/products/x/917153-1-2
 917155-852048-852049,g,,1153,277,19.7,9.0,<0.5,<0.5,<0.5,24.5,0.44,2026-11-18,https://www.waitrose.com/ecom/products/x/917155-852048-852049
 917159-1-2,g,,250,59,1.0,0.1,8.6,2.3,2.6,2.8,0.53,2026-11-18,https://www.waitrose.com/ecom/products/x/917159-1-2
 917166-847727-847728,g,,1830,444,42,4.7,15,12,,1.0,1.2,2026-11-19,https://www.waitrose.com/ecom/products/x/917166-847727-847728
@@ -5545,6 +5631,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 917488-829702-829703,g,,1217,290,13.0,4.6,31.1,5.4,1.0,11.7,1.27,2026-11-18,https://www.waitrose.com/ecom/products/x/917488-829702-829703
 917642-847729-847730,g,,887,221,16.3,1.4,14.0,10.4,0,1.3,1.5,2026-11-19,https://www.waitrose.com/ecom/products/x/917642-847729-847730
 917757-1-2,g,,386,92,2.9,1.9,11.5,9.8,<0.5,4.6,0.11,2026-11-18,https://www.waitrose.com/ecom/products/x/917757-1-2
+917783-847495-847496,ml,,196,47,0,0,11,11,,0,0.02,2026-11-19,https://www.waitrose.com/ecom/products/x/917783-847495-847496
 917860-847221-847222,ml,,78,18,0.0,0.0,2.8,2.2,1.8,0.0,<0.01,2026-11-18,https://www.waitrose.com/ecom/products/x/917860-847221-847222
 917880-848361-848362,g,,2278,544,36,5.2,48,1.5,5.2,6.9,1.9,2026-11-19,https://www.waitrose.com/ecom/products/x/917880-848361-848362
 918063-1-2,g,,1061,252,6.2,3.2,37.0,4.8,2.0,11.0,1.2,2026-11-18,https://www.waitrose.com/ecom/products/x/918063-1-2
@@ -5584,10 +5671,12 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 920066-1-2,g,,2148,514,28.00,14.00,56.00,53.00,3.00,7.80,0.19,2026-11-18,https://www.waitrose.com/ecom/products/x/920066-1-2
 920168-1-2,g,,2116,507,27.9,2.4,53.6,3.9,6.4,7.1,0.56,2026-11-19,https://www.waitrose.com/ecom/products/x/920168-1-2
 920193-831743-831744,g,,934,222,8.5,0.8,17.4,1.1,0.7,18.7,0.53,2026-11-18,https://www.waitrose.com/ecom/products/x/920193-831743-831744
+920264-1-2,ml,,120,28,<0.1,0.0,7.0,5.6,,<0.1,0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/920264-1-2
 920421-849176-849177,g,,1892,453,24.5,11.1,55.1,42.4,1.0,2.4,0.49,2026-11-18,https://www.waitrose.com/ecom/products/x/920421-849176-849177
 920428-1-2,g,,591,140,1.6,0.2,27.9,0.2,1.8,2.6,0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/920428-1-2
 920611-1-2,g,,1960,469,23,2.5,54,11,9.7,15,0.21,2026-11-18,https://www.waitrose.com/ecom/products/x/920611-1-2
 920662-1-2,g,,1961,467,19,1.5,62,3.1,2.3,10,2.71,2026-11-19,https://www.waitrose.com/ecom/products/x/920662-1-2
+920694-837540-837541,ml,,259,62,2.6,1.8,6.4,5.1,<0.5,3.0,0.09,2026-11-19,https://www.waitrose.com/ecom/products/x/920694-837540-837541
 920746-852056-852057,g,,1366,329,26.1,8.5,2.7,1.1,1.0,20.4,1.19,2026-11-18,https://www.waitrose.com/ecom/products/x/920746-852056-852057
 920772-847890-847891,g,,2078,497,26.1,16.1,60.1,44.4,1.5,4.6,0.26,2026-11-18,https://www.waitrose.com/ecom/products/x/920772-847890-847891
 920779-843646-843647,g,,1405,336,21,14,34,28,1.8,1.7,0.14,2026-11-18,https://www.waitrose.com/ecom/products/x/920779-843646-843647
@@ -5643,6 +5732,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 923595-834029-834030,g,,1192,284,13.0,2.2,35.0,14.1,1.7,6.0,0.84,2026-11-18,https://www.waitrose.com/ecom/products/x/923595-834029-834030
 923611-1-2,g,,2150,514,26,16,62,61,2.2,5.4,0.26,2026-11-19,https://www.waitrose.com/ecom/products/x/923611-1-2
 923618-1-2,g,,247,58,<0.5,0.2,15,12,<0.5,<0.5,0.1,2026-11-19,https://www.waitrose.com/ecom/products/x/923618-1-2
+923715-1-2,g,,2210,529,31,2.5,54,1.9,3.9,6.5,2.1,2026-11-19,https://www.waitrose.com/ecom/products/x/923715-1-2
 923751-1-2,g,,460,110,6.2,1.0,1.8,0.5,0.5,11.5,0.02,2026-11-18,https://www.waitrose.com/ecom/products/x/923751-1-2
 923797-847237-847238,g,,2562,618,48.7,6.2,12.8,6.0,5.5,29.3,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/923797-847237-847238
 923815-1-2,g,,2249,537,31.3,11.8,54.4,46.3,1.8,8.5,0.7,2026-11-19,https://www.waitrose.com/ecom/products/x/923815-1-2
@@ -5655,6 +5745,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 924501-835526-835527,g,,1459,344,1,0.3,63,1.4,5.1,18,0.4,2026-11-18,https://www.waitrose.com/ecom/products/x/924501-835526-835527
 924733-1-2,g,,231,55,2.6,1.7,6.5,3.2,1.2,0.8,0.43,2026-11-18,https://www.waitrose.com/ecom/products/x/924733-1-2
 924739-846835-846836,g,,1264,299,5.2,1.2,53.2,2.1,1.6,9.1,1.00,2026-11-18,https://www.waitrose.com/ecom/products/x/924739-846835-846836
+924775-1-2,ml,,61,14,0,0,3.6,3.5,,0,0.02,2026-11-19,https://www.waitrose.com/ecom/products/x/924775-1-2
 924845-836445-836446,g,,1037,249,16,1.9,16,2.3,,8.9,1.1,2026-11-19,https://www.waitrose.com/ecom/products/x/924845-836445-836446
 924882-1-2,ml,,43,10,0,0,2.8,2.2,,0,0,2026-11-19,https://www.waitrose.com/ecom/products/x/924882-1-2
 924915-1-2,ml,,71,17,0.0,0.0,3.8,3.7,,0.0,0,2026-11-19,https://www.waitrose.com/ecom/products/x/924915-1-2
@@ -5671,6 +5762,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 925586-1-2,g,,1659,396,19.1,10.3,50.9,30.7,2.0,4.2,0.15,2026-11-18,https://www.waitrose.com/ecom/products/x/925586-1-2
 925640-836222-836223,ml,,1921,467,50.5,31.4,1.6,1.6,0.0,1.5,0.05,2026-11-18,https://www.waitrose.com/ecom/products/x/925640-836222-836223
 925674-851479-851480,g,,178,42,1.1,0.3,4.5,2.4,1.3,3.1,0.3,2026-11-19,https://www.waitrose.com/ecom/products/x/925674-851479-851480
+925785-1-2,g,,2188,524,31,2.7,53,6.6,3.8,5.8,2.0,2026-11-19,https://www.waitrose.com/ecom/products/x/925785-1-2
 925800-1-2,g,,1171,281,19.0,6.3,10.4,6.8,0.9,16.7,1.03,2026-11-18,https://www.waitrose.com/ecom/products/x/925800-1-2
 925886-1-2,g,,604,145,7.8,1.2,1.1,<0.1,1.9,16.5,0.06,2026-11-18,https://www.waitrose.com/ecom/products/x/925886-1-2
 925990-1-2,g,,789,186,1.2,0.3,35,3.7,10,4.2,1.1,2026-11-18,https://www.waitrose.com/ecom/products/x/925990-1-2
@@ -5724,6 +5816,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 928196-1-2,g,,586,139,2.1,0.2,24,4.0,2.3,4.6,1.4,2026-11-18,https://www.waitrose.com/ecom/products/x/928196-1-2
 928414-831646-831647,g,,1953,465,16.6,1.8,67.5,5.5,5.3,8.4,0.75,2026-11-19,https://www.waitrose.com/ecom/products/x/928414-831646-831647
 928470-1-2,g,,1024,244,6.3,1,33,1,7.5,10,0.78,2026-11-18,https://www.waitrose.com/ecom/products/x/928470-1-2
+928496-1-2,g,,230,55,<0.5,<0.1,12.1,12.1,<0.5,<0.5,0.03,2026-11-19,https://www.waitrose.com/ecom/products/x/928496-1-2
 928542-833807-833808,ml,,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.03,2026-11-19,https://www.waitrose.com/ecom/products/x/928542-833807-833808
 928584-833809-833810,ml,,82,19,0.0,0.0,4.8,4.8,0.0,0.0,0.03,2026-11-19,https://www.waitrose.com/ecom/products/x/928584-833809-833810
 928667-1-2,g,,285,67,0.0,0.0,16.0,15.0,0.5,0.0,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/928667-1-2
@@ -5793,6 +5886,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 932841-1-2,g,,1734,414,18,6.7,52,25,9.1,8.9,0.5,2026-11-19,https://www.waitrose.com/ecom/products/x/932841-1-2
 932896-828197-828198,g,,913,218,10.4,7.6,28.5,18.5,1.2,1.9,0.13,2026-11-18,https://www.waitrose.com/ecom/products/x/932896-828197-828198
 932899-1-2,g,,2188,523,29,17,59,58,2.4,5.8,0.27,2026-11-18,https://www.waitrose.com/ecom/products/x/932899-1-2
+932918-832056-832057,g,,499,119,6.9,2.6,5.3,3.4,0.6,8.8,0.82,2026-11-19,https://www.waitrose.com/ecom/products/x/932918-832056-832057
 932943-1-2,g,,2406,580,43,5.5,16,6.2,10,26,0,2026-11-18,https://www.waitrose.com/ecom/products/x/932943-1-2
 932967-1-2,g,,1484,350,1.40,0.37,71.90,1.80,2.00,12.80,0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/932967-1-2
 933171-836698-836699,g,,1710,406,10.2,4.3,59.4,0.5,6.1,16.1,0.13,2026-11-18,https://www.waitrose.com/ecom/products/x/933171-836698-836699
@@ -5814,6 +5908,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 934386-849126-849127,g,,1252,297,7.4,0.9,39.0,4.0,6.5,15.5,0.50,2026-11-18,https://www.waitrose.com/ecom/products/x/934386-849126-849127
 934488-832674-832675,g,,1063,256,21.0,9.1,0.0,0.0,0.0,16.8,0.13,2026-11-18,https://www.waitrose.com/ecom/products/x/934488-832674-832675
 934646-1-2,g,,1084,260,15.1,9.9,26.7,23.1,0.2,4.0,0.22,2026-11-18,https://www.waitrose.com/ecom/products/x/934646-1-2
+934837-837759-837759,g,,977,234,12.9,1.0,21.1,4.1,5.9,5.5,0.93,2026-11-19,https://www.waitrose.com/ecom/products/x/934837-837759-837759
 934839-1-2,g,,653,156,9.0,4.5,5.9,0.9,0.8,12.6,0.90,2026-11-18,https://www.waitrose.com/ecom/products/x/934839-1-2
 934860-1-2,g,,590,142,9.7,3.3,7.3,4.9,2.1,5.3,1.46,2026-11-18,https://www.waitrose.com/ecom/products/x/934860-1-2
 934887-1-2,g,,1083,256,2.7,0.4,46.1,2.1,4.3,9.7,0.82,2026-11-18,https://www.waitrose.com/ecom/products/x/934887-1-2
@@ -5936,6 +6031,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 942158-1-2,g,,2251,539,35,15,45,42,2.8,7.6,0.28,2026-11-18,https://www.waitrose.com/ecom/products/x/942158-1-2
 942243-1-2,g,,775,183,0.1,<0.1,42,34,4.0,2.0,0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/942243-1-2
 942364-1-2,g,,1528,367,17,3.5,38,13,18,5.9,0.06,2026-11-19,https://www.waitrose.com/ecom/products/x/942364-1-2
+942505-844463-844464,g,,633,152,8.3,4.0,10.4,1.7,0.9,7.5,0.65,2026-11-19,https://www.waitrose.com/ecom/products/x/942505-844463-844464
 942652-1-2,g,,1900,454,22,13,55,26,6.4,6.1,0.06,2026-11-19,https://www.waitrose.com/ecom/products/x/942652-1-2
 942748-1-2,g,,1578,371,0.3,0.2,92.1,76.1,,0.1,<0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/942748-1-2
 942817-1-2,g,,1545,365,3.2,1.9,74,70,,6.1,0.51,2026-11-19,https://www.waitrose.com/ecom/products/x/942817-1-2
@@ -5961,6 +6057,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 943837-1-2,g,,1670,403,33.6,21.1,<0.5,<0.5,0.0,25.0,1.66,2026-11-18,https://www.waitrose.com/ecom/products/x/943837-1-2
 943919-843718-843719,g,,1011,242,12.6,8.1,28.1,24.4,0.7,3.6,0.06,2026-11-18,https://www.waitrose.com/ecom/products/x/943919-843718-843719
 944031-833177-833178,g,,1789,425,12.0,5.2,72.4,34.8,2.1,5.7,0.48,2026-11-18,https://www.waitrose.com/ecom/products/x/944031-833177-833178
+944048-1-2,ml,,121,29,1.2,0.2,3.4,3.2,0.7,0.8,0.1,2026-11-19,https://www.waitrose.com/ecom/products/x/944048-1-2
 944085-849196-849197,g,,1700,404,13.3,3.6,69.5,55.7,0.8,1.2,0.46,2026-11-18,https://www.waitrose.com/ecom/products/x/944085-849196-849197
 944177-1-2,g,,1253,303,27,3.2,12,8.1,2.0,2.0,2.0,2026-11-19,https://www.waitrose.com/ecom/products/x/944177-1-2
 944223-1-2,g,,1094,263,18.7,6.4,2.4,0.7,1.3,20.6,2.07,2026-11-18,https://www.waitrose.com/ecom/products/x/944223-1-2
@@ -5999,6 +6096,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 946576-1-2,g,,758,180,6.0,0.7,12.0,0.9,0.9,19.1,0.48,2026-11-18,https://www.waitrose.com/ecom/products/x/946576-1-2
 946658-1-2,g,,470,111,<0.5,0.1,26.2,21.8,<0.5,<0.5,0.07,2026-11-18,https://www.waitrose.com/ecom/products/x/946658-1-2
 946669-837442-837443,g,,1839,438,13.7,1.7,64.8,14.2,6.5,10.4,0.02,2026-11-18,https://www.waitrose.com/ecom/products/x/946669-837442-837443
+946749-1-2,g,,596,142,6.1,0.6,12.5,1.9,1.7,8.5,0.60,2026-11-19,https://www.waitrose.com/ecom/products/x/946749-1-2
 946825-1-2,g,,1048,247,1.5,0.3,47.2,2.6,3.7,9.4,1.00,2026-11-18,https://www.waitrose.com/ecom/products/x/946825-1-2
 946975-846859-846860,g,,1041,247,19.2,1.5,13.8,5.7,2.8,4.3,2,2026-11-19,https://www.waitrose.com/ecom/products/x/946975-846859-846860
 947060-1-2,g,,1569,375,0.0,0.0,88.8,88.5,0.0,4.9,0.2,2026-11-19,https://www.waitrose.com/ecom/products/x/947060-1-2
@@ -6127,6 +6225,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 953709-1-2,g,,373,90,8.3,1.0,2.0,1.8,2.3,0.8,0.95,2026-11-19,https://www.waitrose.com/ecom/products/x/953709-1-2
 953717-849130-849131,g,,1421,338,10.8,6.5,52.4,17.4,1.5,7.0,1.01,2026-11-18,https://www.waitrose.com/ecom/products/x/953717-849130-849131
 953803-836952-836953,g,,485,115,3.4,1.2,<0.5,<0.5,<0.5,20.6,1.48,2026-11-18,https://www.waitrose.com/ecom/products/x/953803-836952-836953
+953820-1-2,g,,2086,499,25,2.9,59,2.0,4.2,7.3,1.5,2026-11-19,https://www.waitrose.com/ecom/products/x/953820-1-2
 953860-1-2,g,,2107,505,27.6,2.3,53.7,2.9,6.7,7.0,1.3,2026-11-19,https://www.waitrose.com/ecom/products/x/953860-1-2
 953978-1-2,g,,1708,412,35.0,23.0,<0.5,<0.5,1.0,23.7,1.97,2026-11-18,https://www.waitrose.com/ecom/products/x/953978-1-2
 954010-1-2,g,,672,160,4.3,1.3,24,5.5,1.3,5.7,0.5,2026-11-18,https://www.waitrose.com/ecom/products/x/954010-1-2
@@ -6138,6 +6237,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 954328-832084-832085,g,,378,90,3.0,0.4,12.6,3.5,3.4,1.5,0.78,2026-11-18,https://www.waitrose.com/ecom/products/x/954328-832084-832085
 954372-848065-848066,g,,1371,331,28,4.9,0.7,0,,19,1.2,2026-11-19,https://www.waitrose.com/ecom/products/x/954372-848065-848066
 954602-1-2,g,,972,231,6.5,2.8,29.6,2.6,1.8,12.6,1.17,2026-11-18,https://www.waitrose.com/ecom/products/x/954602-1-2
+954633-1-2,g,,444,106,5.7,2.6,10.0,2.8,1.1,3.2,0.82,2026-11-19,https://www.waitrose.com/ecom/products/x/954633-1-2
 954699-828507-828508,g,,1349,319,0.8,0.2,71,58,8.0,2.9,0.08,2026-11-19,https://www.waitrose.com/ecom/products/x/954699-828507-828508
 954764-846627-846628,g,,2085,498,23.00,14.00,65.00,39.00,2.80,6.20,0.64,2026-11-19,https://www.waitrose.com/ecom/products/x/954764-846627-846628
 954779-851001-851002,g,,1744,421,34.9,22.0,3.8,<0.5,0.0,22.8,1.74,2026-11-18,https://www.waitrose.com/ecom/products/x/954779-851001-851002
@@ -6195,6 +6295,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 957336-836746-836747,g,,2091,500,25.1,15.8,56.0,5.1,4.0,10.5,1.75,2026-11-19,https://www.waitrose.com/ecom/products/x/957336-836746-836747
 957368-1-2,g,,2190,530,42,4.7,4.1,1.4,21,24,0.17,2026-11-19,https://www.waitrose.com/ecom/products/x/957368-1-2
 957387-843746-843747,g,,727,172,4.1,1.3,25,1.8,1.9,7.9,1.0,2026-11-18,https://www.waitrose.com/ecom/products/x/957387-843746-843747
+957441-844479-844480,g,,674,162,9.4,2.4,4.7,4.1,1.1,14.1,0.77,2026-11-19,https://www.waitrose.com/ecom/products/x/957441-844479-844480
 957512-1-2,g,,215,51,2.1,0.2,6.8,4.8,0.6,0.8,0.5,2026-11-19,https://www.waitrose.com/ecom/products/x/957512-1-2
 957606-1-2,g,,1636,386,1.9,0.9,84,17,3.8,6.3,0.65,2026-11-18,https://www.waitrose.com/ecom/products/x/957606-1-2
 957629-1-2,g,,1487,354,13.6,8.4,51.2,29.3,1.0,6.2,0.44,2026-11-18,https://www.waitrose.com/ecom/products/x/957629-1-2
@@ -6218,6 +6319,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 958431-1-2,g,,2010,480,22.3,1.89,66.8,1.59,7.7,6.95,1.1,2026-11-19,https://www.waitrose.com/ecom/products/x/958431-1-2
 958497-1-2,g,,1146,275,7.3,1.1,30,3.7,24,10,16.2,2026-11-19,https://www.waitrose.com/ecom/products/x/958497-1-2
 958554-1-2,g,,1807,428,10.7,8.1,81.0,64.9,<0.5,1.8,0.59,2026-11-19,https://www.waitrose.com/ecom/products/x/958554-1-2
+958567-827567-827568,ml,,85,20,<0.5,0,4.5,4.5,,<0.5,0,2026-11-19,https://www.waitrose.com/ecom/products/x/958567-827567-827568
 958578-1-2,ml,,56,14,0,0,2.6,2.6,0,0,<0.01,2026-11-18,https://www.waitrose.com/ecom/products/x/958578-1-2
 958585-844481-844482,g,,2102,507,38.1,12.3,1.1,<0.5,,33.2,4.1,2026-11-18,https://www.waitrose.com/ecom/products/x/958585-844481-844482
 958919-828092-828093,g,,1063,253,6.8,0.5,40.5,11.4,4.5,5.3,0.51,2026-11-18,https://www.waitrose.com/ecom/products/x/958919-828092-828093
@@ -6263,6 +6365,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 961397-1-2,ml,,1205,292,31,22,2.3,1.3,,0.6,0.11,2026-11-18,https://www.waitrose.com/ecom/products/x/961397-1-2
 961443-836292-836293,g,,1510,360,15.7,2.6,49.7,23.9,1.0,4.4,0.47,2026-11-18,https://www.waitrose.com/ecom/products/x/961443-836292-836293
 961576-1-2,g,,283,68,0.5,0.3,2.8,2.8,,13,0.10,2026-11-18,https://www.waitrose.com/ecom/products/x/961576-1-2
+961746-847926-847927,ml,,,64,2.6,1.8,6.8,4.9,,3.3,0.09,2026-11-19,https://www.waitrose.com/ecom/products/x/961746-847926-847927
 961848-850231-850232,g,,1972,471,21.5,2.2,56.7,3.2,5.8,9.8,1.30,2026-11-19,https://www.waitrose.com/ecom/products/x/961848-850231-850232
 961921-1-2,g,,1837,440,25.3,5.3,46.8,32.3,1.9,5.2,0.43,2026-11-18,https://www.waitrose.com/ecom/products/x/961921-1-2
 961987-1-2,g,,52,13,<0.5,0.2,<0.5,<0.5,1.1,1.0,5.42,2026-11-19,https://www.waitrose.com/ecom/products/x/961987-1-2
@@ -6289,6 +6392,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 963059-1-2,g,,292,70,4.4,0.7,5.5,3.7,1.8,1.3,0.53,2026-11-19,https://www.waitrose.com/ecom/products/x/963059-1-2
 963142-1-2,ml,,157,37,1,0.7,4.6,4.6,,2.3,0.16,2026-11-19,https://www.waitrose.com/ecom/products/x/963142-1-2
 963252-838793-838794,g,,1554,368,5.2,1.0,64.6,23.5,5.4,13.0,0.11,2026-11-19,https://www.waitrose.com/ecom/products/x/963252-838793-838794
+963254-847509-847510,ml,,77,18,0,0,4.5,4.5,,0,0.02,2026-11-19,https://www.waitrose.com/ecom/products/x/963254-847509-847510
 963408-849140-849141,g,,1903,455,24.9,10.5,52.8,40.3,0.7,4.6,0.35,2026-11-18,https://www.waitrose.com/ecom/products/x/963408-849140-849141
 963465-847317-847318,g,,2648,640,54.3,4.4,6.2,4.3,6.5,28.3,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/963465-847317-847318
 963566-1-2,g,,2410,582,43.2,25.9,35.5,29.4,,8.2,<0.1,2026-11-18,https://www.waitrose.com/ecom/products/x/963566-1-2
@@ -6308,11 +6412,13 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 964437-847785-847786,ml,,1272,307,26,3.4,17,7.2,1.2,1.9,1.3,2026-11-19,https://www.waitrose.com/ecom/products/x/964437-847785-847786
 964438-1-2,g,,2190,522,26.7,15.0,65.4,47.8,1.8,4.3,0.34,2026-11-18,https://www.waitrose.com/ecom/products/x/964438-1-2
 964439-1-2,g,,715,170,6.5,0.6,12.1,<0.5,0.7,15.5,0.52,2026-11-18,https://www.waitrose.com/ecom/products/x/964439-1-2
+964458-832096-832097,g,as consumed,292,69,1.9,0.6,8.7,0.9,0.8,4.0,1.1,2026-11-19,https://www.waitrose.com/ecom/products/x/964458-832096-832097
 964517-847319-847320,ml,,83,20,0.0,0.0,4.9,4.9,0.0,0.0,0.04,2026-11-19,https://www.waitrose.com/ecom/products/x/964517-847319-847320
 964519-845721-845722,ml,,238,57,1.0,0.1,10.6,3.9,,1.0,0.1,2026-11-19,https://www.waitrose.com/ecom/products/x/964519-845721-845722
 964544-1-2,g,,1906,453,15.00,5.00,68.00,28.00,5.40,7.50,0.52,2026-11-19,https://www.waitrose.com/ecom/products/x/964544-1-2
 964548-1-2,g,,1047,251,15.1,5.6,18.2,1.5,1.4,9.3,1.25,2026-11-18,https://www.waitrose.com/ecom/products/x/964548-1-2
 964664-835015-835016,g,,1597,382,9,1.5,60,8.1,9.7,11,0.03,2026-11-19,https://www.waitrose.com/ecom/products/x/964664-835015-835016
+964821-1-2,ml,,77,18,0.5,0.1,4.1,4.6,,0.06,0.1,2026-11-19,https://www.waitrose.com/ecom/products/x/964821-1-2
 964903-1-2,g,,798,190,8.6,2.8,20.0,3.2,1.3,7.7,0.83,2026-11-18,https://www.waitrose.com/ecom/products/x/964903-1-2
 964926-1-2,g,,2198,527,31,2.6,54,3.6,4.0,6.5,0.47,2026-11-19,https://www.waitrose.com/ecom/products/x/964926-1-2
 964934-1-2,g,,1800,428,13.8,1.3,50.6,2.8,6.9,22.0,1.03,2026-11-18,https://www.waitrose.com/ecom/products/x/964934-1-2
@@ -6321,6 +6427,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 965080-827577-827578,ml,,39,9,0,0,2.3,1.7,,0,0,2026-11-18,https://www.waitrose.com/ecom/products/x/965080-827577-827578
 965141-845723-845724,g,,868,208,12.8,8.0,19.2,13.8,0.8,3.6,0.13,2026-11-18,https://www.waitrose.com/ecom/products/x/965141-845723-845724
 965148-1-2,g,,1004,242,19.4,4.3,5.3,4.9,<0.5,11.4,0.85,2026-11-18,https://www.waitrose.com/ecom/products/x/965148-1-2
+965149-847511-847512,ml,,74,17,0,0,4.3,4.3,,0,0.02,2026-11-19,https://www.waitrose.com/ecom/products/x/965149-847511-847512
 965346-1-2,g,,950,228,18,6.6,2.2,0.7,,14,2.1,2026-11-18,https://www.waitrose.com/ecom/products/x/965346-1-2
 965351-829710-829711,g,,3012,732,79.8,6.1,1.8,1.8,0.8,1.3,0.38,2026-11-18,https://www.waitrose.com/ecom/products/x/965351-829710-829711
 965379-830984-830985,g,,1004,237,0.7,0.1,46.4,2.1,3.0,9.7,0.80,2026-11-18,https://www.waitrose.com/ecom/products/x/965379-830984-830985
@@ -6342,7 +6449,6 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 966229-1-2,g,,1157,274,3.3,0.5,51,3.1,3.5,8.1,0.51,2026-11-19,https://www.waitrose.com/ecom/products/x/966229-1-2
 966361-835017-835018,g,,651,157,11.1,0.9,7.6,4.9,,3.1,2.89,2026-11-19,https://www.waitrose.com/ecom/products/x/966361-835017-835018
 966439-1-2,g,,1133,273,22.3,10.2,1.7,1.2,0.5,16.2,0.53,2026-11-18,https://www.waitrose.com/ecom/products/x/966439-1-2
-966487-1-2,g,,2009,480,22.0,2.2,61,3.7,5.5,6.8,0.89,2026-11-19,https://www.waitrose.com/ecom/products/x/966487-1-2
 966612-1-2,g,,1181,284,20.3,7.2,5.0,0.2,0.7,20,2.47,2026-11-18,https://www.waitrose.com/ecom/products/x/966612-1-2
 966699-1-2,g,,2233,535,30.00,18.00,57.00,56.00,2.10,7.30,0.24,2026-11-19,https://www.waitrose.com/ecom/products/x/966699-1-2
 966737-847323-847324,g,,2562,618,49.4,6.4,11.0,5.8,6.8,29.0,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/966737-847323-847324
@@ -6399,6 +6505,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 970386-1-2,g,,1724,412,14,2.1,52,10.8,15,12,0.1,2026-11-18,https://www.waitrose.com/ecom/products/x/970386-1-2
 970463-1-2,g,,130,31,<0.5,0.0,4.8,4.8,3.0,1.2,0.02,2026-11-18,https://www.waitrose.com/ecom/products/x/970463-1-2
 970495-1-2,g,,1211,287,5.5,3.6,50.5,2.1,3.3,7.3,1.23,2026-11-19,https://www.waitrose.com/ecom/products/x/970495-1-2
+970504-1-2,ml,,131,31,1.6,0.3,1.6,1.6,<0.5,2.4,0.24,2026-11-19,https://www.waitrose.com/ecom/products/x/970504-1-2
 970596-846635-846636,g,,309,74,1.2,0.2,12,12,1.4,2.6,15.1,2026-11-19,https://www.waitrose.com/ecom/products/x/970596-846635-846636
 970597-851816-851817,g,,691,166,10.6,7.36,4.6,3.3,,9.8,0.16,2026-11-18,https://www.waitrose.com/ecom/products/x/970597-851816-851817
 970657-1-2,g,,2002,477,19,8.4,67,48,4.3,7.4,0.39,2026-11-19,https://www.waitrose.com/ecom/products/x/970657-1-2
@@ -6436,6 +6543,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 972990-1-2,g,,901,215,8.8,0.8,18.6,<0.5,1.0,14.7,1.08,2026-11-18,https://www.waitrose.com/ecom/products/x/972990-1-2
 973024-1-2,g,,1215,292,18.8,4.6,17.9,2.9,3.7,10.9,1.34,2026-11-18,https://www.waitrose.com/ecom/products/x/973024-1-2
 973063-1-2,g,,520,124,2.1,0.3,16,1.9,5.7,7.2,0.55,2026-11-18,https://www.waitrose.com/ecom/products/x/973063-1-2
+973080-851818-851819,ml,,249,60,2.6,1.8,5.9,4.2,,3.1,0.09,2026-11-19,https://www.waitrose.com/ecom/products/x/973080-851818-851819
 973183-1-2,g,,1928,464,27.1,3.6,27.1,13.1,18.0,19.6,0.22,2026-11-19,https://www.waitrose.com/ecom/products/x/973183-1-2
 973190-847797-847798,g,,60,14,<0.5,0.0,1.4,1.4,1.5,1.2,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/973190-847797-847798
 973282-1-2,g,,2207,528,29.2,18.2,60.0,17.9,1.8,5.4,0.63,2026-11-19,https://www.waitrose.com/ecom/products/x/973282-1-2
@@ -6455,6 +6563,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 973826-1-2,g,,446,106,1.7,0.3,0.7,<0.5,0.5,21.6,0.56,2026-11-18,https://www.waitrose.com/ecom/products/x/973826-1-2
 973846-1-2,g,,612,146,7.1,3.4,13.4,0.8,1.7,6.4,0.65,2026-11-18,https://www.waitrose.com/ecom/products/x/973846-1-2
 973896-1-2,g,,2169,518,25,20,69,33,0.7,3.9,,2026-11-18,https://www.waitrose.com/ecom/products/x/973896-1-2
+974132-836310-836311,ml,,264,63,3.0,0.3,8.2,3.5,<0.5,0.8,0.10,2026-11-19,https://www.waitrose.com/ecom/products/x/974132-836310-836311
 974172-1-2,g,,278,66,2.0,1.3,10.4,6.9,1.5,0.9,<0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/974172-1-2
 974215-1-2,g,,287,68,0.9,0.3,5.5,1.8,<0.5,9.2,1.70,2026-11-18,https://www.waitrose.com/ecom/products/x/974215-1-2
 974243-1-2,ml,,99,23,0,0,4.6,4.5,,0,0,2026-11-18,https://www.waitrose.com/ecom/products/x/974243-1-2
@@ -6462,6 +6571,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 974278-1-2,g,as consumed,775,185,7.3,4.9,19.9,0.6,1.0,9.3,0.81,2026-11-18,https://www.waitrose.com/ecom/products/x/974278-1-2
 974289-851083-851084,g,,270,65,1.5,0.3,10.4,3.4,2.9,2.3,0.03,2026-11-19,https://www.waitrose.com/ecom/products/x/974289-851083-851084
 974296-833253-833254,g,,1793,426,12.7,1.3,67,0.5,9.4,7.9,1.1,2026-11-19,https://www.waitrose.com/ecom/products/x/974296-833253-833254
+974298-1-2,g,,503,120,5.7,2.9,12.2,2.9,1.9,4.2,0.47,2026-11-19,https://www.waitrose.com/ecom/products/x/974298-1-2
 974409-850022-850023,g,,1561,373,0.0,0.0,88.3,88.3,0.0,4.8,0.27,2026-11-18,https://www.waitrose.com/ecom/products/x/974409-850022-850023
 974425-840982-840983,g,,1800,429,19.0,11.2,58.0,44.0,3.0,5.1,0.42,2026-11-18,https://www.waitrose.com/ecom/products/x/974425-840982-840983
 974493-1-2,g,,743,177,7.2,2.3,<0.5,<0.5,<0.5,27.7,0.27,2026-11-18,https://www.waitrose.com/ecom/products/x/974493-1-2
@@ -6588,6 +6698,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 981348-1-2,g,,621,148,6.0,3.7,16.2,1.5,1.1,6.7,0.40,2026-11-18,https://www.waitrose.com/ecom/products/x/981348-1-2
 981361-1-2,g,,2230,534,30.00,18.00,57.00,56.00,2.10,7.40,0.24,2026-11-19,https://www.waitrose.com/ecom/products/x/981361-1-2
 981362-835029-835030,g,,1602,383,10,2,63,8.7,9,12,0.01,2026-11-19,https://www.waitrose.com/ecom/products/x/981362-835029-835030
+981403-838877-838878,ml,,79,19,0,0,3.8,3.8,,0,0,2026-11-19,https://www.waitrose.com/ecom/products/x/981403-838877-838878
 981441-847345-847346,g,,2101,502,25,2.3,65,1.3,2.9,3.6,1.8,2026-11-19,https://www.waitrose.com/ecom/products/x/981441-847345-847346
 981462-848519-848520,ml,prepared,182,43,1.5,0.9,4.1,4.1,0.5,3.1,0.14,2026-11-19,https://www.waitrose.com/ecom/products/x/981462-848519-848520
 981478-1-2,g,,2106,505,29.6,4.8,37.6,10.7,10.9,16.7,0.09,2026-11-19,https://www.waitrose.com/ecom/products/x/981478-1-2
@@ -6642,6 +6753,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 983523-1-2,g,,724,173,6.8,1.2,3.6,1.7,6.3,21,1.23,2026-11-18,https://www.waitrose.com/ecom/products/x/983523-1-2
 983536-1-2,g,,2033,487,23.9,2.3,56.3,1.8,9.3,6.9,0.5,2026-11-19,https://www.waitrose.com/ecom/products/x/983536-1-2
 983558-828533-828534,g,,2008,480,24.5,12.5,61.4,45.5,2.0,6.9,0.41,2026-11-18,https://www.waitrose.com/ecom/products/x/983558-828533-828534
+983623-1-2,ml,,82,19,0.0,0.0,4.8,4.2,0.0,0.0,0.06,2026-11-19,https://www.waitrose.com/ecom/products/x/983623-1-2
 983668-1-2,g,made up,600,144,4.5,0.8,17,6.1,2.9,7.3,0.09,2026-11-19,https://www.waitrose.com/ecom/products/x/983668-1-2
 983863-1-2,g,,1091,262,17.1,5.7,4.3,4.1,0.8,22.3,0.78,2026-11-18,https://www.waitrose.com/ecom/products/x/983863-1-2
 983961-1-2,g,,1179,278,0,0,68,63,1.7,0,0.77,2026-11-19,https://www.waitrose.com/ecom/products/x/983961-1-2
@@ -6689,6 +6801,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 986916-1-2,g,,1738,416,23.1,12.5,42.5,16.6,2.2,8.4,0.38,2026-11-18,https://www.waitrose.com/ecom/products/x/986916-1-2
 986950-1-2,g,made up,607,145,4.7,0.6,19,8.0,3.2,5.1,0.08,2026-11-19,https://www.waitrose.com/ecom/products/x/986950-1-2
 986970-1-2,g,,550,131,6.3,3.2,12.7,1.9,1.4,5.3,0.80,2026-11-18,https://www.waitrose.com/ecom/products/x/986970-1-2
+987001-1-2,g,,551,132,5.5,1.4,13.6,3.5,1.9,5.9,0.78,2026-11-19,https://www.waitrose.com/ecom/products/x/987001-1-2
 987018-1-2,ml,,3382,823,91.4,17.0,0.0,0.0,0.0,0.0,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/987018-1-2
 987052-846893-846894,g,,1238,299,8.9,1.4,17.9,10.8,41.7,15.9,0.17,2026-11-19,https://www.waitrose.com/ecom/products/x/987052-846893-846894
 987154-836481-836482,g,,310,74,1.6,0.3,10.9,5.2,2.7,2.7,0.0,2026-11-18,https://www.waitrose.com/ecom/products/x/987154-836481-836482
@@ -6711,6 +6824,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 988210-1-2,g,,1909,454,16.1,1.6,66.6,1.2,4.7,8.4,0.91,2026-11-19,https://www.waitrose.com/ecom/products/x/988210-1-2
 988218-1-2,g,,954,229,15.1,9.0,18.5,18.5,,4.4,0.09,2026-11-18,https://www.waitrose.com/ecom/products/x/988218-1-2
 988254-1-2,g,,1843,438,13,1.1,71,5.3,4.7,7.5,0.02,2026-11-19,https://www.waitrose.com/ecom/products/x/988254-1-2
+988325-847357-847358,g,,2228,552,34,9.8,50,45,3.8,8.6,0.3,2026-11-19,https://www.waitrose.com/ecom/products/x/988325-847357-847358
 988347-832720-832721,g,,1173,277,1.4,0.3,55.8,3.8,4.1,8.3,1.32,2026-11-18,https://www.waitrose.com/ecom/products/x/988347-832720-832721
 988385-1-2,g,,630,149,1.4,0.4,29.9,<0.5,1.9,3.2,0.08,2026-11-19,https://www.waitrose.com/ecom/products/x/988385-1-2
 988386-1-2,g,,2067,501,48,7.4,14,14,,1.8,2.1,2026-11-19,https://www.waitrose.com/ecom/products/x/988386-1-2
@@ -6741,6 +6855,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 990850-1-2,g,,1084,259,12.8,4.4,26.6,3.0,1.3,8.7,0.94,2026-11-18,https://www.waitrose.com/ecom/products/x/990850-1-2
 990894-847577-847578,g,,1128,268,8.8,3.6,33.4,2.6,2.6,12.6,1.27,2026-11-18,https://www.waitrose.com/ecom/products/x/990894-847577-847578
 990941-1-2,g,,1153,277,19.7,5.9,12.4,0.8,1.4,11.9,0.92,2026-11-18,https://www.waitrose.com/ecom/products/x/990941-1-2
+990968-1-2,g,,629,150,6.8,4.2,16.3,4.1,1.0,5.5,1.05,2026-11-19,https://www.waitrose.com/ecom/products/x/990968-1-2
 990978-1-2,g,,1107,263,7.9,3.3,37.0,5.0,2.0,10.0,1.5,2026-11-18,https://www.waitrose.com/ecom/products/x/990978-1-2
 991020-1-2,g,,1121,267,4.5,0.9,37.8,13.7,12.4,12.5,20.75,2026-11-19,https://www.waitrose.com/ecom/products/x/991020-1-2
 991102-1-2,g,,247,59,2.6,0.4,6.1,5.3,2.3,1.7,0.68,2026-11-18,https://www.waitrose.com/ecom/products/x/991102-1-2
@@ -6755,6 +6870,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 991704-1-2,ml,prepared,229,54,1.5,0.9,6.9,6.8,0.4,3.1,0.12,2026-11-19,https://www.waitrose.com/ecom/products/x/991704-1-2
 991840-846757-846758,g,,1092,258,1.0,0.2,51.6,2.3,3.2,9.0,0.60,2026-11-18,https://www.waitrose.com/ecom/products/x/991840-846757-846758
 991939-1-2,g,,1997,482,40.9,15.0,<0.5,<0.5,0.8,27.7,3.25,2026-11-18,https://www.waitrose.com/ecom/products/x/991939-1-2
+991952-1-2,g,,1762,419,11,1.1,46,5.4,7.9,30,0.89,2026-11-19,https://www.waitrose.com/ecom/products/x/991952-1-2
 991989-826350-826351,g,,1650,392,11,2.0,65,19,4.5,7.1,0.58,2026-11-19,https://www.waitrose.com/ecom/products/x/991989-826350-826351
 992004-833279-833280,g,,1576,371,0.29,0.23,92.1,76.1,,0,0.03,2026-11-19,https://www.waitrose.com/ecom/products/x/992004-833279-833280
 992016-1-2,ml,,256,61,2.9,0.3,7.7,4.4,<0.5,0.9,0.15,2026-11-18,https://www.waitrose.com/ecom/products/x/992016-1-2
@@ -6798,6 +6914,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 994656-1-2,g,,784,188,7.0,1.2,4.5,0.6,3.7,18,0.99,2026-11-18,https://www.waitrose.com/ecom/products/x/994656-1-2
 994671-844386-844387,g,,1189,281,1.0,0.2,62.6,62.6,4.6,3.0,0.04,2026-11-19,https://www.waitrose.com/ecom/products/x/994671-844386-844387
 994680-827262-827263,g,,1201,289,21.1,8.0,2.3,0.6,<0.5,22.2,3.61,2026-11-18,https://www.waitrose.com/ecom/products/x/994680-827262-827263
+994689-1-2,ml,,80,19,0.0,0.0,4.7,4.5,0.0,0.0,0.06,2026-11-19,https://www.waitrose.com/ecom/products/x/994689-1-2
 995002-1-2,g,drained,434,102,0.7,0.2,0,0,,24,0.85,2026-11-18,https://www.waitrose.com/ecom/products/x/995002-1-2
 995156-1-2,g,,279,67,<0.5,<0.1,14,7.6,1.7,0.9,0.03,2026-11-19,https://www.waitrose.com/ecom/products/x/995156-1-2
 995187-1-2,g,,1110,269,25,19,8,8,,2.9,0.11,2026-11-18,https://www.waitrose.com/ecom/products/x/995187-1-2
@@ -6841,6 +6958,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 997604-1-2,g,,468,111,0.2,<0.1,25,23,2.7,0.7,0.04,2026-11-18,https://www.waitrose.com/ecom/products/x/997604-1-2
 997626-1-2,g,,2211,529,30.0,18.7,58.2,16.5,2.0,5.6,0.68,2026-11-19,https://www.waitrose.com/ecom/products/x/997626-1-2
 997639-846432-846433,g,,908,218,15.4,5.4,1.3,1.3,0.6,18.3,2.98,2026-11-18,https://www.waitrose.com/ecom/products/x/997639-846432-846433
+997673-1-2,ml,,81,19,0.0,0.0,4.8,4.2,0.0,0.0,0.06,2026-11-19,https://www.waitrose.com/ecom/products/x/997673-1-2
 997688-842596-842597,g,,1750,419,23,11,45,8.1,2.7,6.6,0.88,2026-11-18,https://www.waitrose.com/ecom/products/x/997688-842596-842597
 997760-834733-834734,g,,1505,360,21,12,38,32,0.9,4.9,0.35,2026-11-18,https://www.waitrose.com/ecom/products/x/997760-834733-834734
 997769-1-2,g,,1830,437,21.2,11.2,55.0,43.2,1.9,5.6,0.07,2026-11-18,https://www.waitrose.com/ecom/products/x/997769-1-2
@@ -6857,6 +6975,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 998501-828559-828560,ml,,34,8,<0.5,0.1,1.5,0.5,<0.5,<0.5,1.2,2026-11-19,https://www.waitrose.com/ecom/products/x/998501-828559-828560
 998704-1-2,g,,1970,471,19.6,4.1,63.8,7.5,3.0,8.1,2.17,2026-11-19,https://www.waitrose.com/ecom/products/x/998704-1-2
 998822-828179-828180,g,,1291,312,29.1,2.2,2.8,2.3,<0.5,9.6,1.34,2026-11-18,https://www.waitrose.com/ecom/products/x/998822-828179-828180
+998841-1-2,ml,,395,94,3.3,0.5,11,4,1.6,4,0.16,2026-11-19,https://www.waitrose.com/ecom/products/x/998841-1-2
 998892-835942-835943,g,,943,225,12,1.1,18,0.6,0.7,11,1.0,2026-11-18,https://www.waitrose.com/ecom/products/x/998892-835942-835943
 999036-1-2,ml,,387,91,0.1,0.0,21.9,18.3,1.2,0.1,0.01,2026-11-18,https://www.waitrose.com/ecom/products/x/999036-1-2
 999042-1-2,g,,1428,345,31.7,11.0,4.6,2.7,0.9,10.0,1.49,2026-11-18,https://www.waitrose.com/ecom/products/x/999042-1-2
@@ -6875,6 +6994,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 999686-1-2,g,,2158,516,27.5,17.2,60.6,23.0,2.1,5.5,0.80,2026-11-19,https://www.waitrose.com/ecom/products/x/999686-1-2
 999689-1-2,g,,2601,626,48,35,45,,,4,0.2,2026-11-19,https://www.waitrose.com/ecom/products/x/999689-1-2
 999863-1-2,g,,720,171,5.8,0.8,22,3.4,1.6,6.8,1.1,2026-11-18,https://www.waitrose.com/ecom/products/x/999863-1-2
+999866-1-2,ml,,406,97,3.5,0.6,12,4,1.7,4,0.15,2026-11-19,https://www.waitrose.com/ecom/products/x/999866-1-2
 999889-1-2,g,,786,188,9.5,1.6,1.5,0.5,<0.5,23.8,2.37,2026-11-18,https://www.waitrose.com/ecom/products/x/999889-1-2
 999904-1-2,g,,206,49,<0.5,<0.1,13,13,1,0,0.02,2026-11-18,https://www.waitrose.com/ecom/products/x/999904-1-2
 999933-848545-848546,ml,prepared,240,57,1.5,0.9,7.5,7.4,0.5,3.1,0.14,2026-11-19,https://www.waitrose.com/ecom/products/x/999933-848545-848546
+999960-1-2,g,,2166,519,29,2.7,56,2.8,3.6,6.6,1.6,2026-11-19,https://www.waitrose.com/ecom/products/x/999960-1-2
