@@ -58,15 +58,15 @@ await step("the guided setup at /app/welcome: welcome, Pip's arrival, the text s
   await page.waitForTimeout(1800); // the arrival animation
   await shot("00-onboarding-pip");
   await page.getByRole("button", { name: "Show me around" }).click(); // straight to the first stop: no text size screen since 2026-11-19
-  // Community is off (2026-11-18): four tabs
-  for (const tab of ["Home", "Eat out", "Groceries", "Recipes"]) {
+  // Community is off (2026-11-18): four tabs, in the bar's order since 2026-11-19
+  for (const tab of ["Home", "Recipes", "Groceries", "Eat out"]) {
     await visible(page.getByRole("heading", { level: 1, name: tab, exact: true }));
     await visible(page.getByRole("heading", { level: 2, name: "What you can do" }));
-    if (tab === "Home") await visible(text("Settings, at the top, has your goal, diet, text size, and this tour again."));
-    if (tab === "Eat out") await visible(text("Search for any restaurant or dish by name."));
+    if (tab === "Home") await visible(text("Top right: your shopping list, with how many things are left to buy."));
+    if (tab === "Eat out") await visible(text("Settings, at the top right, has your goal, diet, and this tour again."));
     if (tab === "Community") await visible(text("Food blogs are short, easy reads about eating out, shopping and cooking."));
     await page.waitForTimeout(900); // Pip's hop to this tab
-    if (tab === "Recipes") await shot("00-onboarding-tour");
+    if (tab === "Eat out") await shot("00-onboarding-tour");
     await page.getByRole("button", { name: "Continue" }).click();
   }
   await visible(page.getByRole("heading", { name: "Let's make it yours" }));
@@ -123,13 +123,14 @@ await step("onboarding: goal → preferences → about you → targets → shops
   await page.goBack(); // the phone's own Back: Home is under the recipe, never the welcome screens
   await page.waitForURL(/\/app\/?$/);
 });
-await step("home is today: this week, calories against the target, the two cards, today's meals and the sample banner", async () => {
+await step("home is today: this week, calories against the target, the Shopping list at the top right, the cooking cards, today's meals and the sample banner", async () => {
   await visible(page.getByRole("heading", { level: 1, name: "Home" }));
   await visible(page.getByRole("list", { name: "This week" }));
   await visible(page.getByRole("progressbar", { name: "Calories used today" }));
   await visible(text("/ 2,400"));
   await visible(text("Log your meals to see what's left today."));
-  for (const name of [/Shopping list/, /My meals/]) await visible(page.getByRole("link", { name }));
+  // the cooking tools under the numbers since 2026-11-19 (Scan your food only where Premium is sold); My meals is reached from Recipes
+  for (const name of [/^Shopping list/, /^Cook with what you already have/, /^Meal plan/]) await visible(page.getByRole("link", { name }));
   for (const name of [/^Breakfast/, /^Lunch/, /^Dinner/]) await visible(page.getByRole("link", { name }));
   for (const name of [/My groceries/, /My saved meals/, /My recipes/, /My diet/]) if (await page.getByRole("link", { name }).count()) throw new Error(`old tile still on Home: ${name}`);
   await visible(text("fictional sample data"));

@@ -15,7 +15,7 @@ import { HEADING, NOTE, TITLE } from "../groceries/PageBits";
 // Community (founder 2026-10-16: "The settings at the bottom right is now a community. Where you can find food blogs, and more and also add a
 // friend and more"). The fifth tab. Three things: Friends (add friends with a code; needs an account), Shared with you (shopping lists friends
 // sent; needs an account) and the food blogs (short articles of our own, bundled in the app, so they are readable with no account and no signal).
-// Settings is the gear at the top of Home. Home's look: the compact heavy title, white cards with 20 px corners and a soft shadow.
+// Settings is the button at the top right of Eat out (since 2026-11-19). Home's look: the compact heavy title, white cards with 20 px corners and a soft shadow.
 
 /** One of the two cards that lead to a signed-in page: a round icon, what it is, one line of what is in it, and (if something is waiting) a small lime count. */
 function HubCard({ href, icon, title, line, waiting }: { href: string; icon: ReactNode; title: string; line: string; waiting?: string }) {
