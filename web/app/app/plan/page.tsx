@@ -638,7 +638,15 @@ function BudgetSlider({ range, value, onChange }: { range: BudgetRange; value: n
     <div>
       <p className="app-numbers text-center text-[2.75rem] font-[800] leading-none tracking-[-0.02em]">£{value}</p>
       <p className="mt-1 text-center text-[0.9375rem] font-semibold text-muted">{t("for the week's shopping")}</p>
-      <div className={`relative mt-6 h-12 ${onSpot ? "[&_input::-webkit-slider-thumb]:border-[var(--sun)] [&_input::-moz-range-thumb]:border-[var(--sun)]" : ""}`}>
+      {/* "Best fit" stands over the green spot itself, wherever it is on the track (usability test 2026-11-19: in the middle of the row below, it was
+          far from the spot when the best fit sat near one end) */}
+      <div aria-hidden className="relative mt-5 h-7">
+        <span className="app-numbers absolute bottom-0 inline-flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full bg-[var(--fill)] px-2.5 py-0.5 text-[0.875rem] leading-snug"
+          style={{ left: `clamp(4.5rem, ${along(best)}, calc(100% - 4.5rem))` }}>
+          <span className="h-2.5 w-2.5 rounded-full bg-[var(--sun)]" /><span className="text-muted">{t("Best fit")}</span><span className="font-bold">£{best}</span>
+        </span>
+      </div>
+      <div className={`relative mt-1 h-12 ${onSpot ? "[&_input::-webkit-slider-thumb]:border-[var(--sun)] [&_input::-moz-range-thumb]:border-[var(--sun)]" : ""}`}>
         {/* the arrow: a track with a head at each end */}
         <span aria-hidden className="absolute inset-x-[1.125rem] top-1/2 h-2 -translate-y-1/2 rounded-full bg-[var(--ring-track)]" />
         <ChevronLeftIcon aria-hidden className="absolute start-0 top-1/2 h-5 w-5 -translate-y-1/2 text-muted rtl:rotate-180" />
@@ -659,7 +667,8 @@ function BudgetSlider({ range, value, onChange }: { range: BudgetRange; value: n
       </div>
       <div className="app-numbers mt-1 flex justify-between gap-3 text-[0.875rem] leading-snug">
         <span><span className="block font-bold">£{min}</span><span className="text-muted">{t("Cheapest")}</span></span>
-        <span className="text-center"><span className="block font-bold">£{best}</span><span className="inline-flex items-center gap-1 text-muted"><span aria-hidden className="h-2.5 w-2.5 rounded-full bg-[var(--sun)]" />{t("Best fit")}</span></span>
+        {/* the best fit is said over its spot above; for a screen reader, here */}
+        <span className="sr-only">{t("Best fit")} £{best}</span>
         <span className="text-end"><span className="block font-bold">£{max}</span><span className="text-muted">{t("Better products")}</span></span>
       </div>
       <p aria-live="polite" className="glass mt-4 rounded-[1.25rem] p-4 text-[0.9375rem] leading-snug">{zone}</p>
@@ -677,7 +686,7 @@ function BudgetSlider({ range, value, onChange }: { range: BudgetRange; value: n
 /**
  * The plans made before this one (founder 2026-11-19: "they can start another meal plan ... or create multiple meal plans, whatever you think could be the
  * best"): one plan is followed at a time; the last MAX_EARLIER_PLANS are kept here, newest first. Open makes one the plan again (this one is kept in its
- * place); Remove takes one away, with Undo for 6 seconds.
+ * place); Remove takes one away, with Undo for 10 seconds.
  */
 function EarlierPlans({ shopsAll }: { shopsAll: Shop[] }) {
   const t = useT();
