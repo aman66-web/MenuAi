@@ -296,16 +296,16 @@ await step("(e) Recipes, a recipe, Back: Recipes (the address it was at)", async
   await ctx.close();
 });
 
-await step("(e) Home, My meals, a saved recipe, Back: My meals", async () => {
+await step("(e) Recipes, My recipes, a saved recipe, Back: My recipes (My meals is no longer on Home)", async () => {
   const { ctx, page, errors } = await open({ seed: { "mm.v1.savedRecipes": [{ id: RECIPE, savedAt: iso }] } });
-  await home(page);
-  await page.locator('a[href="/app/meals"]').tap();
-  await waitPath(page, "/app/meals");
+  await go(page, "/app/recipes");
+  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
+  await waitPath(page, "/app/meals?tab=recipes");
   const tile = page.locator('a[href^="/app/recipes/view?id=' + RECIPE + '"]').first();
   await tile.waitFor({ timeout: 180000 });
   await tile.tap();
   await page.waitForFunction(() => location.pathname === "/app/recipes/view", null, { timeout: 60000 });
-  await back(page, "Back", "/app/meals");
+  await back(page, "Back", "/app/meals?tab=recipes");
   noErrors(errors);
   await ctx.close();
 });

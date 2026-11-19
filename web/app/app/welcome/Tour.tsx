@@ -4,7 +4,7 @@
 import { COMMUNITY_ENABLED, COMMUNITY_FRIENDS_ENABLED, FOOD_SCAN_ENABLED, GATING_ENABLED, PHOTO_RECIPES_ENABLED } from "../../../lib/mm/config";
 import { tk } from "../../../lib/mm/i18n";
 import {
-  BasketIcon, CameraIcon, DropIcon, ForkIcon, FridgeIcon, GridIcon, HeartIcon, ListIcon, PeopleIcon, PinIcon, PlusIcon, PodiumIcon, ScanIcon, SearchIcon, SunriseIcon,
+  BasketIcon, CameraIcon, DropIcon, ForkIcon, FridgeIcon, GearIcon, GridIcon, HeartIcon, ListIcon, PeopleIcon, PinIcon, PlusIcon, PodiumIcon, ScanIcon, SearchIcon, SunriseIcon,
 } from "../_components/icons";
 import { Pip, type PipMood } from "../_components/Mascot";
 import { TabLabel } from "../_components/TabLabel";
@@ -34,7 +34,7 @@ const ALL_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: PipMood; ro
       // "part of Premium" only where Premium is sold (usability test 2026-11-19: on the website, where nothing is sold, it was free and the tour said otherwise)
       { Icon: FridgeIcon, text: tk("Under your numbers: cook with what you already have, or let Meal plan make your week. Meal plan is part of Premium."), when: GATING_ENABLED },
       { Icon: FridgeIcon, text: tk("Under your numbers: cook with what you already have, or let Meal plan make your week."), when: !GATING_ENABLED },
-      { Icon: BasketIcon, text: tk("Top right: your shopping list, and the gear for Settings: your goal, diet, text size, and this tour again.") },
+      { Icon: BasketIcon, text: tk("Top right: your shopping list, with how many things are left to buy.") },
       { Icon: DropIcon, text: tk("Further down Home, add the water you drink and set your own reminders."), when: !(FOOD_SCAN_ENABLED && PHOTO_RECIPES_ENABLED) },
     ],
   },
@@ -68,6 +68,8 @@ const ALL_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: PipMood; ro
       { Icon: SearchIcon, text: tk("Search for any restaurant or dish by name.") },
       { Icon: PinIcon, text: tk("Near me shows the places to eat around you on a map.") },
       { Icon: ForkIcon, text: tk("Open a restaurant to see the numbers for each dish. Best for you lists orders that fit your goal.") },
+      // Settings is at the top right of Eat out (founder 2026-11-19)
+      { Icon: GearIcon, text: tk("Settings, at the top right, has your goal, diet, and this tour again.") },
     ],
   },
   {

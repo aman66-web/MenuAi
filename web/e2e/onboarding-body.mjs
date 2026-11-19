@@ -39,12 +39,12 @@ async function fresh(extra = {}, init) {
 const go = (page, name) => page.getByRole("button", { name, exact: true }).click();
 const cont = (page) => go(page, "Continue");
 const head = (page, name) => vis(page.getByRole("heading", { name }));
-/** The welcome screen, Pip's arrival and the text size, then "Skip tour" and "Set up my plan", to "What's your goal?". */
+/** The welcome screen and Pip's arrival (no text size screen since 2026-11-19), then "Skip tour" and "Set up my plan", to "What's your goal?". */
 async function toGoal(page, path = "/app/welcome") {
   await page.goto(BASE + path);
   await go(page, "Get started");
   await go(page, "Show me around");
-  await head(page, "Easy to read");
+  await vis(page.getByRole("heading", { level: 1, name: "Home", exact: true }));
   await go(page, "Skip tour");
   await head(page, "Let's make it yours");
   await go(page, "Set up my plan");

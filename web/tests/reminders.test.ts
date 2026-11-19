@@ -1295,7 +1295,9 @@ describe("reminders never leave the device", () => {
   it("Settings' Clear data empties them, and so does a different person signing in (the real wiring)", () => {
     const settings = read("app/app/settings/page.tsx");
     expect(settings).toContain("clearReminders()");
-    expect(settings.match(/reminders you set/g)?.length).toBe(2); // the sentence, in both its versions, says so
+    // every Clear data sentence (phone and browser, with and without the text size choice) names the reminders
+    expect(settings.match(/reminders you set/g)?.length).toBe(settings.match(/This removes your goal/g)?.length);
+    expect(settings.match(/reminders you set/g)?.length).toBeGreaterThanOrEqual(2);
     expect(read("app/app/_lib/account.ts")).toMatch(/localStores: \[[^\]]*remindersStore[^\]]*\]/);
   });
 });

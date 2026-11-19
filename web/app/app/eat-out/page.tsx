@@ -9,7 +9,7 @@ import { SAMPLES_ENABLED } from "@/lib/mm/config";
 import { chainsInGroup, cuisineGroups } from "@/lib/mm/cuisine";
 import { groupByInitial, splitChains } from "@/lib/mm/popular";
 import { ChainCard, ChainRow, chainGroupClass } from "../_components/ChainRow";
-import { ChevronRightIcon, CompareIcon, ForkIcon, GridIcon, PinIcon, ScaleIcon, SearchIcon, StarIcon } from "../_components/icons";
+import { ChevronRightIcon, CompareIcon, ForkIcon, GearIcon, GridIcon, PinIcon, ScaleIcon, SearchIcon, StarIcon } from "../_components/icons";
 import { Shortcut } from "../_components/Shortcut";
 import { RequestChainSheet } from "../_components/Submit";
 import { Button, Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../_components/ui";
@@ -75,7 +75,16 @@ export default function EatOutPage() {
 
   return (
     <div>
-      <h1 className="text-[1.75rem] font-[800] leading-none tracking-[-0.02em]"><Rich text={t("Eat {out}")} values={{ out: <span className="serif-em">{t("out")}</span> }} /></h1>
+      {/* Settings at the top right, with its name (founder 2026-11-19: "on the Eat Out page at the top right, that should be where the settings is ... That'd be
+          easier"); Home's top right is the shopping list */}
+      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+        <h1 className="text-[1.75rem] font-[800] leading-none tracking-[-0.02em]"><Rich text={t("Eat {out}")} values={{ out: <span className="serif-em">{t("out")}</span> }} /></h1>
+        <Link href="/app/settings" className="group -me-1 inline-flex min-h-11 shrink-0 items-center rounded-full transition active:scale-95">
+          <span className="inline-flex h-9 items-center gap-1.5 rounded-full bg-soft-strong ps-2.5 pe-3 text-[0.9375rem] font-semibold transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]">
+            <GearIcon aria-hidden className="h-[18px] w-[18px]" />{t("Settings")}
+          </span>
+        </Link>
+      </div>
       <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Restaurants, cafés, pubs and takeaways, with the calories and protein of every dish.")}</p>
 
       <StartPrompt className="mt-5" />

@@ -21,7 +21,7 @@ import { Gauge } from "./_components/Gauge";
 import { useGate } from "./_components/Paywall";
 import { RemindersSection } from "./_components/RemindersSection";
 import { WaterCard } from "./_components/WaterCard";
-import { BasketIcon, CalendarIcon, ChevronRightIcon, FlameIcon, GearIcon, PlusIcon } from "./_components/icons";
+import { BasketIcon, CalendarIcon, ChevronRightIcon, FlameIcon, PlusIcon } from "./_components/icons";
 import { RecipeTools } from "./_components/RecipeTools";
 import { Card, Spinner } from "./_components/ui";
 import { useChainIndexes, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "./_lib/hooks";
@@ -128,16 +128,13 @@ export default function HomePage() {
           </button>
         </div>
         {/* the shopping list at the top right, with how many things are left to pick up (founder 2026-11-19: "instead of it saying settings in the top right on the
-            home screen, I think that should maybe say shopping list instead"), and Settings beside it as the round gear Pip's tips point out */}
-        <div data-coach="home-top" className="-me-1 flex shrink-0 items-center gap-0.5">
+            home screen, I think that should maybe say shopping list instead"); Settings is at the top right of Eat out ("that should be where the settings is") */}
+        <div className="-me-1 flex shrink-0 items-center">
           <Link href="/app/groceries/list" className="group inline-flex min-h-11 items-center rounded-full transition active:scale-95">
             <span className="inline-flex h-9 items-center gap-1.5 rounded-full bg-soft-strong ps-2.5 pe-3 text-[0.9375rem] font-semibold transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]">
               <BasketIcon aria-hidden className="h-[18px] w-[18px]" />{t("Shopping list")}
               {toBuy > 0 && <span className="app-numbers ms-0.5 inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-foreground px-1.5 text-[0.75rem] font-bold text-background"><span className="sr-only">, {toBuy === 1 ? t("1 thing to pick up") : t("{n} things to pick up", { n: toBuy })}</span><span aria-hidden>{toBuy}</span></span>}
             </span>
-          </Link>
-          <Link href="/app/settings" aria-label={t("Settings")} className="group inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><GearIcon aria-hidden className="h-[18px] w-[18px]" /></span>
           </Link>
         </div>
       </div>

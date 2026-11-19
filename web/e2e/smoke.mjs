@@ -57,13 +57,7 @@ await step("the guided setup at /app/welcome: welcome, Pip's arrival, the text s
   await visible(text("I'm your guide to the numbers in your food."));
   await page.waitForTimeout(1800); // the arrival animation
   await shot("00-onboarding-pip");
-  await page.getByRole("button", { name: "Show me around" }).click();
-  // the text size comes first now, saved on the tap
-  await visible(page.getByRole("heading", { name: "Easy to read" }));
-  await page.getByRole("radio", { name: "Large", exact: true }).click();
-  await page.getByRole("radio", { name: "Standard", exact: true }).click();
-  await visible(text("Perfect, that's easy on the eyes!"));
-  await page.getByRole("button", { name: "Continue" }).click();
+  await page.getByRole("button", { name: "Show me around" }).click(); // straight to the first stop: no text size screen since 2026-11-19
   // Community is off (2026-11-18): four tabs
   for (const tab of ["Home", "Eat out", "Groceries", "Recipes"]) {
     await visible(page.getByRole("heading", { level: 1, name: tab, exact: true }));

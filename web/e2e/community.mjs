@@ -51,27 +51,30 @@ await step("the tab bar ends with Community (Home, Eat out, Groceries, Recipes, 
   await ctx.close();
 });
 
-await step("Settings is still reachable: Home's gear opens it, and Home's tab is the lit one on Settings and on its sub-pages", async () => {
+await step("Settings is still reachable: the Settings button at Eat out's top right opens it (founder 2026-11-19), and Eat out's tab is the lit one on Settings and its sub-pages", async () => {
   const { ctx, page } = await open();
-  await go(page, "/app", /Home/);
-  const gear = page.locator('a[aria-label="Settings"]');
-  expect((await gear.getAttribute("href")) === "/app/settings", "the gear goes to " + (await gear.getAttribute("href")));
+  await go(page, "/app/eat-out", /Eat/);
+  const gear = page.locator("main").getByRole("link", { name: "Settings", exact: true });
+  expect((await gear.getAttribute("href")) === "/app/settings", "the button goes to " + (await gear.getAttribute("href")));
   const box = await gear.boundingBox();
-  expect(box.width >= 44 && box.height >= 44, `gear tap area ${box.width} x ${box.height}`);
+  expect(box.width >= 44 && box.height >= 44, `Settings tap area ${box.width} x ${box.height}`);
+  expect(box.x + box.width > 390 - 24, `Settings isn't at the top right (right edge ${box.x + box.width})`);
   await gear.click();
   await page.getByRole("heading", { level: 1, name: "Settings", exact: true }).waitFor({ timeout: 90000 });
-  expect((await tabBar(page).getByRole("link", { name: "Home" }).getAttribute("aria-current")) === "page", "Home's tab is not lit on Settings");
+  expect((await tabBar(page).getByRole("link", { name: "Eat out" }).getAttribute("aria-current")) === "page", "Eat out's tab is not lit on Settings");
   expect((await tabBar(page).locator('a[aria-current="page"]').count()) === 1, "more than one tab is lit");
-  // Settings is a second-level page now, so it has a Back button, as the other pages inside a tab do; it returns to the page before (Home)
+  // Settings is a second-level page, so it has a Back button, as the other pages inside a tab do; it returns to the page before (Eat out)
   const back = page.locator("main").getByRole("link", { name: /^Back/ }).first();
   expect((await back.count()) === 1, "Settings has no Back button");
   const bb = await back.boundingBox();
   expect(bb.height >= 43.5, "Settings' Back is " + bb.height + " px high");
   await back.click();
-  await page.getByRole("heading", { level: 1, name: /Home/ }).first().waitFor({ timeout: 90000 });
-  expect(new URL(page.url()).pathname === "/app", "Back from Settings went to " + page.url());
+  await page.getByRole("heading", { level: 1, name: /Eat/ }).first().waitFor({ timeout: 90000 });
+  expect(new URL(page.url()).pathname === "/app/eat-out", "Back from Settings went to " + page.url());
+  // the Eat out tab opens Eat out after a visit to Settings (Settings is never a tab's remembered page)
   await go(page, "/app/settings/numbers", /.+/);
-  expect((await tabBar(page).getByRole("link", { name: "Home" }).getAttribute("aria-current")) === "page", "Home's tab is not lit on Settings > numbers");
+  expect((await tabBar(page).getByRole("link", { name: "Eat out" }).getAttribute("aria-current")) === "page", "Eat out's tab is not lit on Settings > numbers");
+  expect((await tabBar(page).getByRole("link", { name: "Eat out" }).getAttribute("href")) === "/app/eat-out", "Eat out's tab would reopen Settings");
   await ctx.close();
 });
 

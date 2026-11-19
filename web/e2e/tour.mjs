@@ -59,13 +59,14 @@ const ROWS = {
     ...(PHOTO ? ["Scan your food: take a photo of a meal for its calories and macros, or for a recipe to make it at home. It's part of Premium."] : []),
     // "part of Premium" only where Premium is sold (the test build turns Pro on)
     GATED ? "Under your numbers: cook with what you already have, or let Meal plan make your week. Meal plan is part of Premium." : "Under your numbers: cook with what you already have, or let Meal plan make your week.",
-    "Top right: your shopping list, and the gear for Settings: your goal, diet, text size, and this tour again.",
+    "Top right: your shopping list, with how many things are left to buy.",
     ...(PHOTO ? [] : ["Further down Home, add the water you drink and set your own reminders."]),
   ],
   eatOut: [
     "Search for any restaurant or dish by name.",
     "Near me shows the places to eat around you on a map.",
     "Open a restaurant to see the numbers for each dish. Best for you lists orders that fit your goal.",
+    "Settings, at the top right, has your goal, diet, and this tour again.",
   ],
   groceries: [
     "Tap a supermarket to see its products and prices.",
@@ -139,21 +140,17 @@ await step("1. a plain first visit to /app ends on the welcome screens without H
   await ctx.close();
 });
 
-await step("2. Get started → 'Hi, I'm Pip!' (its headline has the focus) → Show me around → 'Easy to read'; Extra large applies at once and is saved without Continue", async () => {
+await step("2. Get started → 'Hi, I'm Pip!' (its headline has the focus) → Show me around → the first stop: no text size screen (founder 2026-11-19, \"Just keep standard pls\")", async () => {
   await page.getByRole("button", { name: "Get started" }).click();
   await page.getByRole("heading", { level: 1, name: "Hi, I'm Pip!" }).waitFor();
   await h1Focused(page, "Hi, I'm Pip!");
   await page.getByRole("button", { name: "Show me around" }).click();
-  await page.getByRole("heading", { level: 1, name: "Easy to read" }).waitFor();
-  await h1Focused(page, "Easy to read");
-  await page.getByRole("radio", { name: "Extra large", exact: true }).click();
-  await page.getByText("Perfect, that's easy on the eyes!").waitFor();
-  expect((await page.evaluate(() => document.documentElement.style.fontSize)) === "130%", "html font-size: " + (await page.evaluate(() => document.documentElement.style.fontSize)));
-  expect((await settingsOf(page))?.textSize === "xlarge", "saved: " + JSON.stringify(await settingsOf(page)));
+  await page.getByRole("heading", { level: 1, name: "Home", exact: true }).waitFor();
+  expect((await page.getByRole("heading", { name: "Easy to read" }).count()) === 0, "the text size screen is back");
+  expect((await page.evaluate(() => document.documentElement.style.fontSize)) === "", "html font-size: " + (await page.evaluate(() => document.documentElement.style.fontSize)));
 });
 
 await step("3. the five stops: the tab's name as the focused headline, the stop's id, the real bar's words with the stop's tab lit, and the rows of 'What you can do'", async () => {
-  await page.getByRole("button", { name: "Continue" }).click();
   for (let i = 0; i < TABS.length; i++) {
     await page.getByRole("heading", { level: 1, name: TABS[i], exact: true }).waitFor();
     await h1Focused(page, TABS[i]);
@@ -205,8 +202,6 @@ await step("6. 'Skip tour' on stop 2 jumps to 'Let's make it yours'; 'Look aroun
   await p.waitForURL(/\/app\/welcome$/);
   await p.getByRole("button", { name: "Get started" }).click();
   await p.getByRole("button", { name: "Show me around" }).click();
-  await p.getByRole("heading", { level: 1, name: "Easy to read" }).waitFor();
-  await p.getByRole("button", { name: "Continue" }).click();
   await p.getByRole("heading", { level: 1, name: "Home", exact: true }).waitFor();
   await p.getByRole("button", { name: "Continue" }).click();
   await p.getByRole("heading", { level: 1, name: "Recipes", exact: true }).waitFor(); // stop 2 since the tabs were reordered (2026-11-19)
@@ -332,8 +327,7 @@ await step("11. reduced motion: nothing is animating on Pip's arrival or the sto
   await p.waitForTimeout(300);
   const running = () => p.evaluate(() => document.getAnimations().filter((a) => a.playState === "running").map((a) => a.animationName ?? a.transitionProperty ?? "animation"));
   expect((await running()).length === 0, "the arrival animates: " + (await running()).join(", "));
-  await p.getByRole("button", { name: "Show me around" }).click();
-  await p.getByRole("button", { name: "Continue" }).click();
+  await p.getByRole("button", { name: "Show me around" }).click(); // straight to the first stop: no text size screen since 2026-11-19
   for (let i = 0; i < TABS.length; i++) {
     await p.getByRole("heading", { level: 1, name: TABS[i], exact: true }).waitFor();
     await p.waitForTimeout(200);
@@ -367,9 +361,6 @@ await step("12. Extra large text at 360×780 and 375×667: no sideways scroll, e
     await p.waitForTimeout(1900);
     await check("Pip's arrival");
     await p.getByRole("button", { name: "Show me around" }).click();
-    await p.getByRole("heading", { level: 1, name: "Easy to read" }).waitFor();
-    await check("text size");
-    await p.getByRole("button", { name: "Continue" }).click();
     for (let i = 0; i < TABS.length; i++) {
       await p.getByRole("heading", { level: 1, name: TABS[i], exact: true }).waitFor();
       await p.waitForTimeout(900);
@@ -389,7 +380,7 @@ await step("12. Extra large text at 360×780 and 375×667: no sideways scroll, e
   }
 });
 
-await step("13. axe: no violations on the welcome screen, 'Easy to read', a stop, 'Let's make it yours' and the replay", async () => {
+await step("13. axe: no violations on the welcome screen, a stop, 'Let's make it yours' and the replay", async () => {
   const ctx = await fresh(); const p = await ctx.newPage();
   await p.goto(BASE + "/app/welcome");
   await p.getByRole("button", { name: "Get started" }).waitFor();
@@ -397,9 +388,7 @@ await step("13. axe: no violations on the welcome screen, 'Easy to read', a stop
   await axe(p, "welcome");
   await p.getByRole("button", { name: "Get started" }).click();
   await p.getByRole("button", { name: "Show me around" }).click();
-  await p.getByRole("heading", { level: 1, name: "Easy to read" }).waitFor();
-  await axe(p, "Easy to read");
-  await p.getByRole("button", { name: "Continue" }).click();
+  await p.getByRole("heading", { level: 1, name: "Home", exact: true }).waitFor();
   await p.getByRole("button", { name: "Continue" }).click();
   await p.getByRole("heading", { level: 1, name: "Recipes", exact: true }).waitFor();
   await p.waitForTimeout(900);

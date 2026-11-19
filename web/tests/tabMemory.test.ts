@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { readMemory, remember, tabFor, tabTarget, validFor, type TabDef } from "../lib/mm/tabMemory";
 
 const TABS: TabDef[] = [
-  { href: "/app", match: (p) => p === "/app" || p.startsWith("/app/settings") },
-  { href: "/app/eat-out", match: (p) => p.startsWith("/app/eat-out") || p.startsWith("/app/chain") },
+  { href: "/app", match: (p) => p === "/app" },
+  { href: "/app/eat-out", match: (p) => p.startsWith("/app/eat-out") || p.startsWith("/app/chain") || p.startsWith("/app/settings") },
   { href: "/app/recipes", match: (p) => p.startsWith("/app/recipes") },
 ];
 const [HOME, EAT, RECIPES] = TABS as [TabDef, TabDef, TabDef];
@@ -55,15 +55,20 @@ describe("tab memory", () => {
   });
 
   it("finds a page's tab", () => {
-    expect(tabFor(TABS, "/app/settings")?.href).toBe("/app");
+    expect(tabFor(TABS, "/app/settings")?.href).toBe("/app/eat-out");
     expect(tabFor(TABS, "/app/chain")?.href).toBe("/app/eat-out");
     expect(tabFor(TABS, "/nowhere")).toBeUndefined();
   });
 });
 
-describe("Home always opens Home (usability test 2026-11-19)", () => {
-  it("never remembers a page in the Home tab, such as Settings", () => {
+describe("Home always opens Home, and no tab opens Settings (usability test 2026-11-19)", () => {
+  it("never remembers a page in the Home tab", () => {
+    expect(remember({}, TABS, "/app/today", "")).toEqual({});
+  });
+  it("never remembers Settings, though it sits in the Eat out tab: the restaurant seen before it stays the one Eat out opens", () => {
     expect(remember({}, TABS, "/app/settings", "")).toEqual({});
+    expect(remember({}, TABS, "/app/settings/numbers", "")).toEqual({});
     expect(remember({ "/app/eat-out": "/app/chain?id=kfc" }, TABS, "/app/settings", "")).toEqual({ "/app/eat-out": "/app/chain?id=kfc" });
+    expect(validFor(EAT, "/app/settings")).toBe(false);
   });
 });

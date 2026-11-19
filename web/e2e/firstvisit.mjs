@@ -126,7 +126,7 @@ await step("the guided setup at /app/welcome is entered through the tour's 'Set 
   await page.goto(BASE + "/app/welcome");
   await page.getByRole("button", { name: "Get started" }).click();
   await page.getByRole("button", { name: "Show me around" }).click();
-  await page.getByRole("heading", { name: "Easy to read" }).waitFor();
+  await page.getByRole("heading", { level: 1, name: "Home", exact: true }).waitFor(); // no text size screen since 2026-11-19
   await page.getByRole("button", { name: "Skip tour" }).click();
   await page.getByRole("heading", { name: "Let's make it yours" }).waitFor();
   await page.getByRole("button", { name: "Set up my plan" }).click();

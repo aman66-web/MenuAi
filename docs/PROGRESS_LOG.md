@@ -3313,3 +3313,13 @@ that dashboard and you remove scan your food ... they have scan to get the macro
   cooking cards and the top right corner; its Recipes stop names the search and shop instead of Make it at home and Meal plan.
 - **Morrisons:** the second reader finished its stretch of the queue (fewer than 200 unread pages remain; the first reader carries on); 4 more labels held back
   (two energy figures that disagree with themselves, a dried pasta labelled only as cooked, a Fat row misprinted "Fai").
+
+### 19 November 2026 (about 14:30): Settings on Eat out, Standard text only (on `iap`, not live)
+Founder, after seeing the new Home: "i like the one you have above commit it so i can test" (committed 02f61678); then "on the Eat Out page at the top right,
+that should be where the settings is ... That'd be easier"; and "there is no need for a medium sized text mode and large. Just keep standard pls".
+- **Settings** is a named button (gear and "Settings") at the top right of Eat out; Home's top right is the Shopping list alone. Eat out's tab is the lit one on
+  the Settings pages, Settings' fallback Back is "Back to Eat out", and Settings is never a tab's remembered page (`lib/mm/tabMemory.ts`), so the Eat out tab
+  always opens Eat out. Pip's tips: Home's sixth tip is the Shopping list again; Eat out gains a Settings tip. The welcome tour's Eat out stop has a Settings row.
+- **Text size:** `TEXT_SIZE_CHOICE_ENABLED` (lib/mm/config.ts) is false: no "Easy to read" screen in setup, no Text size in Settings, and everyone reads
+  Standard (a saved Large or Extra large is kept but not applied). The founder was told first that the iPhone app does not follow the phone's own text size,
+  so this leaves no way inside the app to make the words bigger; true brings it all back.

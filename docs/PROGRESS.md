@@ -51,8 +51,8 @@ touches an earlier decision, and add new entries there, dated, at the end).
   grocery lists as of then (Waitrose 8,239 of 9,721 products with labels, every page read; Morrisons 12,104 of 16,367; Tesco 1,686). Checked live: the new words in
   the plan, list and recipe pages' code, and every shop's list file matching the build. See docs/PROGRESS_LOG.md and docs/USABILITY_TESTS.md "Round 3".
 - **On `iap` only, not live (founder 19 Nov, "Wait, don't make it live yet"):** the cooking tools on Home (one Scan your food card with Calories and macros or
-  Make it at home; Cook with what you already have and Meal plan side by side), the Shopping list at Home's top right beside the gear, Recipes starting with its
-  search. See the 19 November afternoon entry in docs/PROGRESS_LOG.md.
+  Make it at home; Cook with what you already have and Meal plan side by side), the Shopping list at Home's top right, Settings at Eat out's top right, Recipes
+  starting with its search, and Standard text only (`TEXT_SIZE_CHOICE_ENABLED` false). See the 19 November afternoon entries in docs/PROGRESS_LOG.md.
 - **numbite.com** ran `main` at d0d1fb0f (19 November): **all of `iap` merged** (founder 19 Nov, "Put it all live pls"): everyone signs in, the meal plan,
   leaderboards with every shop's logo and price, several shopping lists, Select on the list, the grocery labels, Community off, the food-crop box from the food
   check. On the website nothing is sold, so every feature is open (GATING_ENABLED false) and Make it at home and Scan your food stay hidden there; their API

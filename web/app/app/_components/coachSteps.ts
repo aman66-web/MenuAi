@@ -24,8 +24,7 @@ export const COACH_STEPS: Readonly<Record<CoachScreen, readonly CoachStep[]>> = 
     { at: 'main a[href="/app/recipes/fridge"]', title: tk("Cook from your fridge"), text: tk("Type or tap what you already have and get our recipes that use it.") },
     { at: 'main a[href="/app/plan"]', title: tk("Meal plan"), text: tk("Pip plans a week of meals for your goal, diet and budget, from the shops you use. It's part of Premium."), when: GATING_ENABLED },
     { at: 'main a[href="/app/plan"]', title: tk("Meal plan"), text: tk("Pip plans a week of meals for your goal, diet and budget, from the shops you use."), when: !GATING_ENABLED },
-    // the shopping list and the gear share the top right corner (founder 2026-11-19), so one tip lights both and keeps Home to seven
-    { at: '[data-coach="home-top"]', title: tk("Shopping list, Settings"), text: tk("Top right: your shopping list (the number is what's left to buy), and the gear for your goal, diet, text size and these tips.") },
+    { at: 'main a[href="/app/groceries/list"]', title: tk("Shopping list"), text: tk("Everything you've added to buy, ready when you go to the shops. The number is how many things are left.") },
     { at: '[data-coach="tabs"]', title: tk("Moving around"), text: tk("These buttons take you to each part of the app: Home, Recipes, Groceries and Eat out.") },
   ],
   eatOut: [
@@ -33,6 +32,8 @@ export const COACH_STEPS: Readonly<Record<CoachScreen, readonly CoachStep[]>> = 
     { at: 'main a[href="/app/map"]', title: tk("Near me"), text: tk("See the places to eat around you on a map.") },
     { at: 'main a[href="/app/eat-out/favourites"]', title: tk("Favourite restaurants"), text: tk("Tap the star on a restaurant's page and it's kept here.") },
     { at: '[data-coach="eatout-list"]', title: tk("Restaurants"), text: tk("Tap any restaurant to see the calories and protein of every dish on its menu.") },
+    // Settings lives at the top right of Eat out (founder 2026-11-19)
+    { at: 'main a[href="/app/settings"]', title: tk("Settings"), text: tk("Settings is here at the top: your goal, diet, allergies, and these tips again.") },
   ],
   groceries: [
     { at: '[data-coach="groceries-shops"]', title: tk("Your supermarkets"), text: tk("Tap a shop to see its products and prices. Tap Select on a few to see them together.") },

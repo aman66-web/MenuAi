@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
-import { APP_BUILD, DEV_TOOLS_ENABLED, GATING_ENABLED, IAP_ENABLED, PAID_ACCESS_ENABLED, PAYMENTS_ENABLED, PRO_PREVIEW_FROM_ENV, APP_VERSION } from "@/lib/mm/config";
+import { APP_BUILD, DEV_TOOLS_ENABLED, GATING_ENABLED, IAP_ENABLED, PAID_ACCESS_ENABLED, PAYMENTS_ENABLED, PRO_PREVIEW_FROM_ENV, APP_VERSION, TEXT_SIZE_CHOICE_ENABLED } from "@/lib/mm/config";
 import { isPro } from "@/lib/mm/entitlements";
 import { dataVersionDate } from "@/lib/mm/menu-client";
 import { formatDate } from "@/lib/mm/format";
@@ -207,8 +207,8 @@ export default function SettingsPage() {
 
   return (
     <div>
-      {/* Settings is the gear on Home, not a tab: Back returns to the page before (Home by default) */}
-      <BackLink href="/app" label={t("Back to home")} />
+      {/* Settings is the button at the top right of Eat out (founder 2026-11-19), not a tab: Back returns to the page before (Eat out by default) */}
+      <BackLink href="/app/eat-out" label={t("Back to Eat out")} />
       <h1 className="mt-4 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{t("Settings")}</h1>
 
       {/* The guided setup with Pip (the welcome screens: a short tour, then the questions), for anyone who skipped it or wants to go through it again. */}
@@ -216,7 +216,7 @@ export default function SettingsPage() {
         <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-[var(--sun)]"><Pip mood="wave" size={40} className="translate-y-0.5" /></span>
         <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
           <span className="block text-base font-bold leading-snug">{t("Set up your plan again")}</span>
-          <span className="mt-0.5 block text-sm leading-snug text-muted">{t("A short tour of the app, then your goal, diet, daily numbers, shops and text size.")}</span>
+          <span className="mt-0.5 block text-sm leading-snug text-muted">{TEXT_SIZE_CHOICE_ENABLED ? t("A short tour of the app, then your goal, diet, daily numbers, shops and text size.") : t("A short tour of the app, then your goal, diet, daily numbers and shops.")}</span>
         </span>
         <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted" />
       </Link>
@@ -225,9 +225,10 @@ export default function SettingsPage() {
         <AccountSection />
       </Section>
 
-      <Section title={t("Text size")}>
+      {/* off since 2026-11-19 (founder: "Just keep standard pls"; lib/mm/config.ts TEXT_SIZE_CHOICE_ENABLED) */}
+      {TEXT_SIZE_CHOICE_ENABLED && <Section title={t("Text size")}>
         <Segmented label={t("Text size")} value={settings.textSize ?? "standard"} options={TEXT_OPTIONS.map((o) => ({ ...o, label: t(o.label) }))} onChange={(textSize) => { updateSettings({ textSize }); applyTextSize(textSize); }} />
-      </Section>
+      </Section>}
 
       {/* Pip's walk through the five tabs again (the welcome tour's stops only): nothing is saved, and Close or Done comes back here. */}
       <Section title={t("Help")}>
@@ -390,7 +391,7 @@ export default function SettingsPage() {
       </Sheet>
 
       <Sheet open={clearOpen} onClose={() => setClearOpen(false)} title={t("Clear data on this device")}>
-        <p className="pt-1 text-base leading-snug">{APP_BUILD ? t("This removes your goal, targets, saved orders, log, water you added, reminders you set, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this phone. It can't be undone. Your text size stays as it is, and the app starts again from the beginning.") : t("This removes your goal, targets, saved orders, log, water you added, reminders you set, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this browser. It can't be undone. Your text size stays as it is, and the app starts again from the beginning.")}</p>
+        <p className="pt-1 text-base leading-snug">{APP_BUILD ? (TEXT_SIZE_CHOICE_ENABLED ? t("This removes your goal, targets, saved orders, log, water you added, reminders you set, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this phone. It can't be undone. Your text size stays as it is, and the app starts again from the beginning.") : t("This removes your goal, targets, saved orders, log, water you added, reminders you set, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this phone. It can't be undone. The app starts again from the beginning.")) : (TEXT_SIZE_CHOICE_ENABLED ? t("This removes your goal, targets, saved orders, log, water you added, reminders you set, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this browser. It can't be undone. Your text size stays as it is, and the app starts again from the beginning.") : t("This removes your goal, targets, saved orders, log, water you added, reminders you set, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this browser. It can't be undone. The app starts again from the beginning."))}</p>
         {account && <p className="mt-2.5 text-base leading-snug">{t("This also signs you out of your account on this device. What is synced stays in your account.")}</p>}
         <div className="mt-5 space-y-2 pb-2">
           <Button full className="min-h-12 text-base" onClick={async () => { const keepSize = settings.textSize; await leaveForClearing(); settingsStore.set({ ...DEFAULT_SETTINGS, ...(keepSize ? { textSize: keepSize } : {}) }); tourStore.reset(); coachStore.reset(); savedStore.reset(); logStore.reset(); waterStore.reset(); clearReminders(); favoritesStore.reset(); shoppingStore.reset(); mealPlanStore.reset(); earlierPlansStore.reset(); myRecipesStore.reset(); void clearRecipePhotos(); savedRecipesStore.reset(); cupboardStore.reset(); recentStore.reset(); compareStore.reset(); comparePicksStore.reset(); ratingStore.reset(); outbox().clear(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); sessionStorage.removeItem("mm.finder"); sessionStorage.removeItem("mm.sharedAdded"); localStorage.removeItem("mm.v1.mapArea"); } catch { /* storage blocked */ } setClearOpen(false); router.replace("/app/welcome?cleared=1"); }}>{t("Clear everything")}</Button>

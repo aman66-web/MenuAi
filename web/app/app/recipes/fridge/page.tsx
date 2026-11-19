@@ -123,7 +123,7 @@ function Fridge() {
 
   const back = (
     <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to recipes"), nav.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong">
-      <ChevronLeftIcon className="h-5 w-5" />{t("Back")}
+      <ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span>
     </Link>
   );
   if (!hydrated) return <Spinner />;

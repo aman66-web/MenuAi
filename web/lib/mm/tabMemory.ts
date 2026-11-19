@@ -9,7 +9,9 @@ export interface TabDef {
 
 export type TabMemory = Record<string, string>;
 
-const NOT_REMEMBERED = ["/app/welcome", "/app/offline"];
+// Settings is never a tab's remembered page (2026-11-19: it lives in the Eat out tab now, and the Eat out tab must open Eat out, not Settings: the usability
+// test of 2026-11-19 found the same thing with Home's tab)
+const NOT_REMEMBERED = ["/app/welcome", "/app/offline", "/app/settings"];
 /** Tabs that always open their first page (usability test 2026-11-19: Home's tab opened Settings, the page last seen there, and Frank thought he was lost). */
 const ALWAYS_FIRST = ["/app"];
 

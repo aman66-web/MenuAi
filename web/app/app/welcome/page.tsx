@@ -6,7 +6,7 @@ import { formatInt } from "@/lib/mm/format";
 import { retailerName } from "@/lib/mm/groceries";
 import { POPULAR_ORDER } from "@/lib/mm/popular";
 import { analytics } from "@/lib/mm/analytics";
-import { LOGOS_ENABLED, SIGN_IN_REQUIRED } from "@/lib/mm/config";
+import { LOGOS_ENABLED, SIGN_IN_REQUIRED, TEXT_SIZE_CHOICE_ENABLED } from "@/lib/mm/config";
 import { tk } from "@/lib/mm/i18n";
 import { EMPTY_BODY, bodyProblems, planFromAnswers, readTargetFields, type BodyAnswers } from "@/lib/mm/onboardingPlan";
 import { macroTargets } from "@/lib/mm/targets";
@@ -92,7 +92,8 @@ const SIZES: ReadonlyArray<{ value: TextSize; label: string }> = [
 ];
 
 // Step 0's screens, in order: the welcome cover (0), Pip's arrival (1), the text size, the five stops of Pip's walk (one per tab) and the choice at the end.
-const COVER = 0, TEXT = 2, STOP0 = 3, FORK = STOP0 + TOUR_STOPS.length;
+// With the text size choice off (founder 2026-11-19, "Just keep standard pls"; lib/mm/config.ts) there is no text size screen: the walk follows Pip's arrival.
+const COVER = 0, TEXT = TEXT_SIZE_CHOICE_ENABLED ? 2 : -1, STOP0 = TEXT_SIZE_CHOICE_ENABLED ? 3 : 2, FORK = STOP0 + TOUR_STOPS.length;
 const INTRO_SEGMENTS = FORK + 1;
 // Seven questions, then "You're all set!" (8) and the choice of a first recipe (9). The three about the person (3-5) are skipped together.
 const GOAL = 1, AVOID = 2, ABOUT = 3, SIZE = 4, ACTIVE = 5, TARGETS = 6, SHOPS = 7, ALL_SET = 8, RECIPE = 9;

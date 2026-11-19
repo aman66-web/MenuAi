@@ -34,6 +34,13 @@ export const AI_RECIPES_ENABLED = false;
 export const LANGUAGES_ENABLED = false;
 
 /**
+ * The text size choice (Standard, Large, Extra large: onboarding's "Easy to read" screen and Settings › Text size). Off (founder 2026-11-19: "there is no need
+ * for a medium sized text mode and large. Just keep standard pls"): no screen in setup, no choice in Settings, and everyone reads Standard, including anyone
+ * who chose Large before (their saved choice is kept but not used). True brings all of it back as it was.
+ */
+export const TEXT_SIZE_CHOICE_ENABLED = false;
+
+/**
  * Community as a whole (its tab, the food blogs, friends and shopping lists sent to friends). Off (founder 2026-11-18: "Okay, fine. In that case, we'll remove the
  * community one", after "Everyone needs to understand the point for each screen" and "I want my granddad to be able to use it"): four tabs, one job each. Its
  * pages forward to Home, the tour has no Community stop, and a shopping list is still sent with the phone's own Share. The code and the database tables stay, so
