@@ -136,7 +136,7 @@ def read_table(rec: dict) -> tuple[dict | None, str]:
     st = STATE.search(header[col])
     state = st.group(1).lower() if st else ""
     out = {"per": per, "state": state, "kj": None, "kcal": None}
-    keys = [("saturates_g", r"saturate"), ("sugars_g", r"sugar"), ("fat_g", r"^\W*(?:total )?fat"), ("carbs_g", r"carbohydrate"), ("fibre_g", r"fibre|fiber"), ("protein_g", r"protein|protien"), ("salt_g", r"^\W*salt")]
+    keys = [("saturates_g", r"saturate"), ("sugars_g", r"sugar"), ("fat_g", r"^\W*(?:total )?fat"), ("carbs_g", r"carbohydrate|carohydrate"), ("fibre_g", r"fibre|fiber"), ("protein_g", r"protein|protien"), ("salt_g", r"^\W*salt")]
     last_energy = False
     for r in rows[1:]:
         if len(r) <= col:
