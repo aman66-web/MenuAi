@@ -22,12 +22,12 @@ const page = await ctx.newPage();
 const errors = [];
 page.on("pageerror", (e) => errors.push(String(e).slice(0, 160)));
 
-await step("Recipes has the card, and it opens Cook with what you have", async () => {
+await step("Recipes has the card, and it opens Cook with what you already have", async () => {
   await page.goto(BASE + "/app/recipes");
-  const card = page.getByRole("link", { name: /Cook with what you have/ });
+  const card = page.getByRole("link", { name: /Cook with what you already have/ });
   await card.waitFor({ timeout: 90000 });
   await card.tap();
-  await page.getByRole("heading", { level: 1, name: "Cook with what you have" }).waitFor();
+  await page.getByRole("heading", { level: 1, name: "Cook with what you already have" }).waitFor();
   expect(await page.getByRole("button", { name: "Show me recipes" }).isDisabled(), "nothing typed: can't look yet");
 });
 

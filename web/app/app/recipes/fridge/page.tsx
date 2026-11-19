@@ -174,7 +174,7 @@ function Fridge() {
   return (
     <div className="pb-6">
       {back}
-      <h1 className={`mt-4 ${TITLE}`}>{t("Cook with what you have")}</h1>
+      <h1 className={`mt-4 ${TITLE}`}>{t("Cook with what you already have")}</h1>
       <div className="mt-4"><PipSays mood="wave" size={72}>{t("Tell me what's in your fridge and cupboards, and what you fancy. I'll find recipes that use it.")}</PipSays></div>
 
       <label htmlFor="have" className="mt-5 block text-lg font-[800]">{t("What do you have?")}</label>

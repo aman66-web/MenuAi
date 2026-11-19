@@ -290,15 +290,6 @@ function RecipesScreen() {
         </p>
       )}
 
-      <div className="mt-4 flex items-center gap-2.5">
-        <div className="group/search relative min-w-0 flex-1">
-          <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
-          {/* 16 px text: smaller text makes iPhone Safari zoom into the field */}
-          <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); setLimit(PAGE); }} placeholder={t("Search recipes")} aria-label={t("Search recipes")} {...DONE_KEY} autoComplete="off" className={`glass min-h-[3.25rem] w-full rounded-full ps-12 pe-4 ${DONE_ROOM} text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent`} />
-          <SearchDone />
-        </div>
-        <ShopsButton shop={shop} onClick={() => { setWorking(false); setShopsOpen(true); }} />
-      </div>
       {PHOTO_RECIPES_ENABLED && (
         // Make it at home (Premium; app/app/recipes/photo/page.tsx). Founder 2026-11-17 ("it can be easily missed"): the one dark card on the page, at the top under the
         // search, in the tab bar's near-black, with the scanner's lime corner marks round the camera. It opens the paywall for a free person.
@@ -323,7 +314,7 @@ function RecipesScreen() {
         {/* each shows what it gives you (founder 2026-11-19: the icons were "hard to recognize"): the foods you'd type in, a week of days */}
         <Link href="/app/recipes/fridge" className="glass lift flex min-h-[4.5rem] min-w-0 flex-col gap-2.5 rounded-[1.25rem] p-3 text-start">
           <span className="block hyphens-auto text-[1rem] font-[800] leading-[1.25] [overflow-wrap:anywhere]">
-            {t("Cook with what you have")}
+            {t("Cook with what you already have")}
             <span className="sr-only">. {t("Tell us what's in your fridge and get recipes for it.")}</span>
           </span>
           <span className="mt-auto"><HaveChips /></span>
@@ -341,6 +332,18 @@ function RecipesScreen() {
           </span>
           <span className="mt-auto"><WeekStrip /></span>
         </Link>
+      </div>
+
+      {/* the search and the shop sit with what they choose from: the meals and filters below and the recipes under them (founder 2026-11-19: the two tools
+          between the search and the meal buttons split them up; the tools now come first, the browsing after) */}
+      <div className="mt-4 flex items-center gap-2.5">
+        <div className="group/search relative min-w-0 flex-1">
+          <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
+          {/* 16 px text: smaller text makes iPhone Safari zoom into the field */}
+          <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); setLimit(PAGE); }} placeholder={t("Search recipes")} aria-label={t("Search recipes")} {...DONE_KEY} autoComplete="off" className={`glass min-h-[3.25rem] w-full rounded-full ps-12 pe-4 ${DONE_ROOM} text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent`} />
+          <SearchDone />
+        </div>
+        <ShopsButton shop={shop} onClick={() => { setWorking(false); setShopsOpen(true); }} />
       </div>
 
       {/* One shop at a time; tapping a shop saves it at once and shows a short "working" moment. */}
