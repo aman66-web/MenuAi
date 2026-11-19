@@ -3,6 +3,7 @@ import type { DietPrefs } from "./pantry";
 import { PANTRY } from "./pantry";
 import { candidates as productCandidates, fitDistance, fitRecipe, isMeatFree, pickFor, recipeForDiet, recipeTotals, resolveRecipe, type IngredientPick, type IngredientSpec, type MealTarget, type MealType, type Recipe } from "./recipes";
 import { CUISINES, type CuisineId } from "./recipeBook/niches";
+import { matchesNiche } from "./recipeNiche";
 import { normalizeForSearch } from "./search";
 import { productKey, type PricedProduct, type ShopProduct } from "./shopProducts";
 
@@ -82,7 +83,10 @@ export const LEAVE_OUT: ReadonlyArray<{ id: string; label: string; words: readon
   { id: "eggs", label: tk("Eggs"), words: ["egg"] },
   { id: "onions", label: tk("Onions"), words: ["onion"] },
   { id: "peppers", label: tk("Peppers"), words: ["peppers", "red pepper", "green pepper", "yellow pepper"] },
-  { id: "spicy", label: tk("Spicy food"), words: ["chilli", "jalapeno", "jalapeño", "cayenne", "curry paste", "hot sauce", "sriracha"] },
+  // a hot dish by its name too ("Crispy spiced chickpeas", "Devilled eggs"; usability test 2026-11-19: Irene left spicy food out and still got both), and its
+  // dried spices count here (leavesOut): chilli flakes and cayenne are what make a dish hot
+  { id: "spicy", label: tk("Spicy food"), words: ["chilli", "chili", "jalapeno", "jalapeño", "cayenne", "curry paste", "hot sauce", "sriracha", "spicy", "spiced",
+    "devilled", "harissa", "peri peri", "piri piri", "gochujang", "chipotle", "cajun", "jerk", "vindaloo", "madras", "tabasco", "wasabi"] },
   { id: "tomatoes", label: tk("Tomatoes"), words: ["tomato", "passata"] },
   { id: "beans", label: tk("Beans and lentils"), words: ["bean", "lentil", "chickpea"] },
   { id: "cheese", label: tk("Cheese"), words: ["cheese", "cheddar", "mozzarella", "feta", "halloumi", "parmesan"] },
@@ -92,11 +96,11 @@ export const LEAVE_OUT: ReadonlyArray<{ id: string; label: string; words: readon
 ];
 
 /** The words a recipe is checked against for a food left out: its name and each ingredient's label and kind (never a seasoning's: "black pepper" is not peppers). */
-function recipeWords(recipe: Recipe): string {
+function recipeWords(recipe: Recipe, seasonings = false): string {
   const parts = [recipe.name];
   for (const i of recipe.ingredients) {
     const kind = i.pantry ? PANTRY.get(i.pantry) : undefined;
-    if (kind?.labelOptional) continue; // salt, pepper and dried spices
+    if (kind?.labelOptional && !seasonings) continue; // salt, pepper and dried spices
     parts.push(i.label, kind?.label ?? "");
   }
   return ` ${normalizeForSearch(parts.join(" "))} `;
@@ -109,11 +113,28 @@ export function leavesOut(recipe: Recipe, leaveOut: readonly string[]): boolean 
   return leaveOut.some((x) => {
     const choice = LEAVE_OUT.find((c) => c.id === x);
     const words = choice ? choice.words : [x];
+    const where = x === "spicy" ? recipeWords(recipe, true) : hay;
     return words.some((w) => {
       const n = normalizeForSearch(w);
-      return n.length >= 3 && hay.includes(` ${n}`);
+      return n.length >= 3 && where.includes(` ${n}`);
     });
   });
+}
+
+/** Fewer than this many lunches (or dinners) of the kinds of food chosen, for the person's diet, and that meal takes any kind (cuisineRecipes). */
+export const CUISINE_MIN = 3;
+
+/**
+ * Our recipes for the kinds of food chosen (founder 2026-11-19: "they should also be able to choose the cuisine or have the option to do any cuisine"): lunches
+ * and dinners of those cuisines, by the recipe book's own cuisine lines; breakfasts and snacks whatever theirs (few have one); all of them when none is chosen.
+ * A meal with fewer than CUISINE_MIN of them that suit the diet and the foods left out takes any kind instead, and is named in `widened`, so a choice never
+ * leaves a meal with nothing (usability test 2026-11-19: vegetarian Indian at Asda had no lunches, and the plan couldn't go on).
+ */
+export function cuisineRecipes(recipes: readonly Recipe[], cuisines: readonly CuisineId[], diet: DietPrefs, leaveOut: readonly string[]): { recipes: Recipe[]; widened: MealType[] } {
+  if (!cuisines.length) return { recipes: [...recipes], widened: [] };
+  const fits = (r: Recipe) => { const d = recipeForDiet(r, diet); return !!d && !leavesOut(d, leaveOut); };
+  const widened = (["lunch", "dinner"] as const).filter((meal) => recipes.filter((r) => r.meal === meal && matchesNiche(r.id, cuisines, []) && fits(r)).length < CUISINE_MIN);
+  return { recipes: recipes.filter((r) => (r.meal !== "lunch" && r.meal !== "dinner") || widened.includes(r.meal) || matchesNiche(r.id, cuisines, [])), widened };
 }
 
 /** A recipe that can go in the plan: fitted to the meal, every ingredient at the shop with a price, and what one serving costs. */
@@ -589,6 +610,8 @@ export interface SavedPlan {
   variety?: Variety;
   /** The cuisines for lunch and dinner (founder 2026-11-19); absent = any. */
   cuisines?: CuisineId[];
+  /** A meal was swapped since the plan was made (the budget line then says the swaps, not the choices, took it over). */
+  swapped?: boolean;
 }
 
 export function sanitizePlan(raw: unknown): SavedPlan | null {
@@ -606,7 +629,7 @@ export function sanitizePlan(raw: unknown): SavedPlan | null {
   const better = Array.isArray(r.better) ? (r.better as unknown[]).filter((x): x is string => typeof x === "string" && /^(breakfast|lunch|dinner|snack):[a-z0-9-]{1,80}$/.test(x)).slice(0, 42) : [];
   const variety = (VARIETIES as readonly unknown[]).includes(r.variety) ? (r.variety as Variety) : null;
   const cuisines = Array.isArray(r.cuisines) ? [...new Set((r.cuisines as unknown[]).filter((c): c is CuisineId => CUISINES.some((x) => x.id === c)))] : [];
-  return { shops, ids, leaveOut, budget, start: r.start, ...(slotsOk ? { slots } : {}), ...(better.length ? { better } : {}), ...(variety ? { variety } : {}), ...(cuisines.length ? { cuisines } : {}) };
+  return { shops, ids, leaveOut, budget, start: r.start, ...(slotsOk ? { slots } : {}), ...(better.length ? { better } : {}), ...(variety ? { variety } : {}), ...(cuisines.length ? { cuisines } : {}), ...(r.swapped === true ? { swapped: true } : {}) };
 }
 
 /**

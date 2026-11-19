@@ -61,6 +61,14 @@ export function moodMatches(recipe: Recipe, mood: FridgeMood): boolean {
   }
 }
 
+/** A thing typed, and the same without a plural ending, so "potatos", "tomatos" and "carrots" still match (usability test 2026-11-19: Pat typed "potatos"). */
+export function spellings(item: string): string[] {
+  const out = [item];
+  if (item.length > 4 && item.endsWith("es")) out.push(item.slice(0, -2));
+  if (item.length > 3 && item.endsWith("s")) out.push(item.slice(0, -1));
+  return out;
+}
+
 /** One of our recipes and the things the person has that it uses. */
 export interface FridgeMatch { recipe: Recipe; uses: string[] }
 
@@ -71,7 +79,7 @@ export function recipesFromFridge(recipes: readonly Recipe[], items: readonly st
   for (const base of recipes) {
     const recipe = recipeForDiet(base, diet);
     if (!recipe || !moodMatches(recipe, mood)) continue;
-    const uses = items.filter((item) => leavesOut(recipe, [item]));
+    const uses = items.filter((item) => spellings(item).some((w) => leavesOut(recipe, [w])));
     if (uses.length) out.push({ recipe, uses });
   }
   return out.sort((a, b) => b.uses.length - a.uses.length || a.recipe.ingredients.length - b.recipe.ingredients.length || a.recipe.name.localeCompare(b.recipe.name, "en-GB")).slice(0, limit);

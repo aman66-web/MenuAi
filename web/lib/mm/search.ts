@@ -190,6 +190,19 @@ function matchRank(norm: string, q: string): 0 | 1 | null {
 
 const byName = (a: string, b: string) => a.localeCompare(b, "en-US");
 
+/** The restaurant a search names at its start or end ("greggs sausage roll", "sausage roll greggs", "greggs"), with the rest of the words; null when none does. */
+function namedChain(index: SearchIndex, q: string): { chainId: string; rest: string } | null {
+  let best: { chainId: string; rest: string; len: number } | null = null;
+  for (const c of index.chains) {
+    for (const n of c.norms) {
+      if (n.length < 3 || (best && best.len >= n.length)) continue;
+      const rest = q === n ? "" : q.startsWith(`${n} `) ? q.slice(n.length + 1) : q.endsWith(` ${n}`) ? q.slice(0, -(n.length + 1)) : null;
+      if (rest !== null) best = { chainId: c.chainId, rest: rest.trim(), len: n.length };
+    }
+  }
+  return best && { chainId: best.chainId, rest: best.rest };
+}
+
 /** `diet`: the person's diet settings; dishes that don't fit are left out (and counted in hiddenByDiet). */
 export function search(index: SearchIndex, rawQuery: string, maxItems = 40, diet?: Preferences): SearchResults {
   const q = normalizeForSearch(rawQuery);
@@ -201,12 +214,21 @@ export function search(index: SearchIndex, rawQuery: string, maxItems = 40, diet
     .sort((a, b) => a.rank - b.rank || byName(a.c.name, b.c.name))
     .map(({ c }) => ({ chainId: c.chainId, name: c.name, cuisine: c.cuisine, sample: c.sample }));
 
-  const matched = index.items
-    .map((i) => ({ i, rank: matchRank(i.norm, q) }))
-    .filter((x): x is { i: IndexedItem; rank: 0 | 1 } => x.rank !== null);
+  // a restaurant named in the search (usability test 2026-11-19: "greggs sausage roll" found nothing, and "greggs" showed no Greggs dish): its dishes that match
+  // the rest of the words come first; its name alone lists its menu. The longest name wins ("pizza express" over "pizza").
+  const named = namedChain(index, q);
+  const inChain = named ? index.items.filter((i) => i.chainId === named.chainId) : [];
+  const fromChain = named
+    ? inChain.map((i) => ({ i, rank: named.rest ? matchRank(i.norm, named.rest) : (0 as const) })).filter((x): x is { i: IndexedItem; rank: 0 | 1 } => x.rank !== null).map((x) => ({ i: x.i, rank: (x.rank - 2) as -2 | -1 }))
+    : [];
+  const seen = new Set(fromChain.map((x) => x.i));
+  const matched = [
+    ...fromChain,
+    ...index.items.map((i) => ({ i, rank: matchRank(i.norm, q) })).filter((x): x is { i: IndexedItem; rank: 0 | 1 } => x.rank !== null && !seen.has(x.i)),
+  ];
   const fitting = diet ? matched.filter((x) => fitsDiet(x.i.diet, diet)) : matched;
   const items = fitting
-    .sort((a, b) => a.rank - b.rank || byName(a.i.chainName, b.i.chainName) || byName(a.i.name, b.i.name))
+    .sort((a, b) => a.rank - b.rank || (a.rank === -2 && !named?.rest ? 0 : byName(a.i.chainName, b.i.chainName) || byName(a.i.name, b.i.name)))
     .slice(0, maxItems)
     .map(({ i }) => ({
       chainId: i.chainId,

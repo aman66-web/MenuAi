@@ -7,7 +7,7 @@ import { GATING_ENABLED } from "@/lib/mm/config";
 import { formatInt } from "@/lib/mm/format";
 import { addToList, formatPrice, listForShop, withPhoto } from "@/lib/mm/groceries";
 import { localeInfo, tk } from "@/lib/mm/i18n";
-import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterCandidate, budgetRange, buildWeek, keepEarlier, openEarlier, leavesOut, mergeCandidates, planCandidates, planForBudget, planSlots, setMeal, shapeOf, slotTargets, swapChoices, withBetter, type BudgetRange, type DayShape, type PlanCandidate, type PlanIds, type SavedPlan, type Variety } from "@/lib/mm/mealPlan";
+import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterCandidate, budgetRange, buildWeek, cuisineRecipes, keepEarlier, openEarlier, leavesOut, mergeCandidates, planCandidates, planForBudget, planSlots, setMeal, shapeOf, slotTargets, swapChoices, withBetter, type BudgetRange, type DayShape, type PlanCandidate, type PlanIds, type SavedPlan, type Variety } from "@/lib/mm/mealPlan";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { CUISINES, type CuisineId } from "@/lib/mm/recipeBook/niches";
 import { matchesNiche } from "@/lib/mm/recipeNiche";
@@ -52,9 +52,8 @@ type Targets = Partial<Record<MealType, MealTarget>>;
 const worked = new Map<string, Candidates>();
 const workKey = (shops: readonly string[], diet: DietPrefs, targets: Targets, leaveOut: readonly string[], cuisines: readonly CuisineId[] = []) => JSON.stringify([[...shops].sort(), diet, targets, [...leaveOut].sort(), [...cuisines].sort()]);
 
-/** Our recipes for the cuisines chosen (founder 2026-11-19: "they should also be able to choose the cuisine or have the option to do any cuisine"): lunches and
- *  dinners of those cuisines, by the recipe book's own cuisine lines; breakfasts and snacks whatever theirs (few have one). All of them when none is chosen. */
-const recipesFor = (cuisines: readonly CuisineId[]) => (cuisines.length ? RECIPES.filter((r) => (r.meal !== "lunch" && r.meal !== "dinner") || matchesNiche(r.id, cuisines, [])) : RECIPES);
+/** Our recipes for the kinds of food chosen (cuisineRecipes: a meal with too few of them for the diet takes any kind). */
+const recipesFor = (cuisines: readonly CuisineId[], diet: DietPrefs, leaveOut: readonly string[]) => cuisineRecipes(RECIPES, cuisines, diet, leaveOut).recipes;
 
 /** Each shop's list (loaded once and cached by loadShopFile). */
 async function loadShops(ids: readonly string[]): Promise<Loaded[]> {
@@ -71,7 +70,7 @@ async function workOut(shops: readonly Loaded[], diet: DietPrefs, targets: Targe
   for (const sh of shops) {
     onShop?.(sh.id, [...done]);
     await new Promise((r) => setTimeout(r, 40));
-    each.push(planCandidates(recipesFor(cuisines), sh.products, diet, targets, leaveOut, sh.id));
+    each.push(planCandidates(recipesFor(cuisines, diet, leaveOut), sh.products, diet, targets, leaveOut, sh.id));
     done.push(sh.id);
   }
   onShop?.("", done);
@@ -186,7 +185,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
   const prefs = settings.preferences;
   const left = useMemo(() => [...new Set(slots)].map((meal) => ({
     meal,
-    n: recipesFor(cuisines).filter((r) => { if (r.meal !== meal) return false; const fit = recipeForDiet(r, prefs); return !!fit && !leavesOut(fit, leaveOut); }).length,
+    n: recipesFor(cuisines, prefs, leaveOut).filter((r) => { if (r.meal !== meal) return false; const fit = recipeForDiet(r, prefs); return !!fit && !leavesOut(fit, leaveOut); }).length,
   })), [prefs, leaveOut, slots, cuisines]);
   const noneFor = left.find((l) => l.n === 0);
   const fewFor = left.filter((l) => l.n > 0 && l.n < variety * slots.filter((x) => x === l.meal).length);
@@ -324,11 +323,13 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
 
         {step === 3 && <DietPicker value={settings.preferences} onChange={(p) => updateSettings({ preferences: p })} />}
 
-        {step === 4 && <CuisinePicker value={cuisines} onChange={setCuisines} />}
+        {step === 4 && <CuisinePicker value={cuisines} onChange={setCuisines} diet={prefs} leaveOut={leaveOut} slots={slots} />}
 
         {step === 5 && (
           <>
             {problem === "noPlan" && <p role="alert" className="glass mb-3 rounded-[1.25rem] p-4 font-semibold">{t("There aren't enough of our recipes left for every meal with these choices. Try leaving out fewer foods, or pick another shop.")}</p>}
+            {/* nothing left for a meal: said at the top, where it's seen (usability test 2026-11-19: at large text it sat under the sticky Continue) */}
+            {noneFor && <p role="alert" className="mb-3 rounded-[1.25rem] bg-[var(--fill)] p-4 text-[0.9375rem] font-semibold leading-snug">{t("With these, there are no {meal} recipes left, so I can't plan a week. Tap a food again to put it back.", { meal: mealWord(noneFor.meal) })}</p>}
             <div role="group" aria-label={t("Foods you'd rather not have")} className="flex flex-wrap gap-2">
               {LEAVE_OUT.map((c) => (
                 <button key={c.id} type="button" aria-pressed={leaveOut.includes(c.id)} onClick={() => flip(c.id)} className={`${leaveOut.includes(c.id) ? CHIP_ON : CHIP} gap-1.5 px-4`}>
@@ -346,7 +347,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
             {/* what's left to choose from, said plainly as they tap */}
             <div role="status" aria-live="polite" className={`mt-4 rounded-[1.25rem] p-4 text-[0.9375rem] leading-snug ${noneFor ? "bg-[var(--fill)] font-semibold" : "glass"}`}>
               {noneFor
-                ? t("With these, there are no {meal} recipes left, so I can't plan a week. Leave out fewer foods.", { meal: mealWord(noneFor.meal) })
+                ? t("With these, there are no {meal} recipes left, so I can't plan a week. Tap a food again to put it back.", { meal: mealWord(noneFor.meal) })
                 : <>
                     <span className="app-numbers">{t("I can choose from {list}.", { list: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(left.map((l) => `${l.n} ${t(MEAL_PLURAL[l.meal]!)}`)) })}</span>
                     {fewFor.length > 0 && <span className="mt-1 block font-semibold">{t("Only a few {meals} are left, so some days will repeat.", { meals: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(fewFor.map((f) => t(MEAL_PLURAL[f.meal]!))) })}</span>}
@@ -431,22 +432,40 @@ function ShopsNote({ names }: { names: string[] }) {
 }
 
 /** The cuisines for lunch and dinner (founder 2026-11-19): Any (none chosen), or as many as they like, each with how many of our lunches and dinners it has. */
-function CuisinePicker({ value, onChange }: { value: CuisineId[]; onChange: (v: CuisineId[]) => void }) {
+/** "2 meals and 1 snack a day" (usability test 2026-11-19: "1 snacks"). */
+function dayShape(t: ReturnType<typeof useT>, shape: DayShape): string {
+  const meals = shape.meals.length;
+  if (!shape.snacks) return meals === 1 ? t("1 meal a day") : t("{meals} meals a day", { meals });
+  if (shape.snacks === 1) return meals === 1 ? t("1 meal and 1 snack a day") : t("{meals} meals and 1 snack a day", { meals });
+  return meals === 1 ? t("1 meal and {snacks} snacks a day", { snacks: shape.snacks }) : t("{meals} meals and {snacks} snacks a day", { meals, snacks: shape.snacks });
+}
+
+/** The kinds of food for lunch and dinner, each with how many of its lunches and dinners suit the person's diet; a meal with too few takes any kind, said here. */
+function CuisinePicker({ value, onChange, diet, leaveOut, slots }: { value: CuisineId[]; onChange: (v: CuisineId[]) => void; diet: DietPrefs; leaveOut: readonly string[]; slots: readonly MealType[] }) {
   const t = useT();
-  const count = (id: CuisineId) => RECIPES.filter((r) => (r.meal === "lunch" || r.meal === "dinner") && matchesNiche(r.id, [id], [])).length;
+  const fits = (r: (typeof RECIPES)[number]) => { const d = recipeForDiet(r, diet); return !!d && !leavesOut(d, leaveOut); };
+  const count = (id: CuisineId) => RECIPES.filter((r) => (r.meal === "lunch" || r.meal === "dinner") && slots.includes(r.meal) && matchesNiche(r.id, [id], []) && fits(r)).length;
+  const widened = cuisineRecipes(RECIPES, value, diet, leaveOut).widened.filter((m) => slots.includes(m));
+  const kinds = new Intl.ListFormat("en-GB", { type: "disjunction" }).format(value.map((c) => t(CUISINES.find((x) => x.id === c)?.label ?? c)));
+  const meals = new Intl.ListFormat("en-GB", { type: "conjunction" }).format(widened.map((m) => t(MEAL_PLURAL[m]!)));
   return (
-    <div role="group" aria-label={t("The food you like")} className="flex flex-wrap gap-2">
-      <button type="button" aria-pressed={!value.length} onClick={() => onChange([])} className={`${!value.length ? CHIP_ON : CHIP} gap-1.5 px-5`}>
-        {!value.length && <CheckIcon aria-hidden className="h-4 w-4" />}{t("Any")}
-      </button>
-      {CUISINES.map((c) => {
-        const on = value.includes(c.id);
-        return (
-          <button key={c.id} type="button" aria-pressed={on} onClick={() => onChange(on ? value.filter((x) => x !== c.id) : [...value, c.id])} className={`${on ? CHIP_ON : CHIP} gap-1.5 px-5`}>
-            {on && <CheckIcon aria-hidden className="h-4 w-4" />}{t(c.label)}<span className={`app-numbers text-[0.8125rem] ${on ? "" : "text-muted"}`}>{count(c.id)}</span>
-          </button>
-        );
-      })}
+    <div>
+      <div role="group" aria-label={t("The food you like")} className="flex flex-wrap gap-2">
+        <button type="button" aria-pressed={!value.length} onClick={() => onChange([])} className={`${!value.length ? CHIP_ON : CHIP} gap-1.5 px-5`}>
+          {!value.length && <CheckIcon aria-hidden className="h-4 w-4" />}{t("Any")}
+        </button>
+        {CUISINES.map((c) => {
+          const on = value.includes(c.id);
+          return (
+            <button key={c.id} type="button" aria-pressed={on} onClick={() => onChange(on ? value.filter((x) => x !== c.id) : [...value, c.id])} className={`${on ? CHIP_ON : CHIP} gap-1.5 px-5`}>
+              {on && <CheckIcon aria-hidden className="h-4 w-4" />}{t(c.label)}<span className={`app-numbers text-[0.8125rem] ${on ? "" : "text-muted"}`}>{count(c.id)}</span>
+            </button>
+          );
+        })}
+      </div>
+      <p className="mt-2 text-[0.875rem] leading-snug text-muted">{t("The numbers are how many lunches and dinners of each kind suit your diet.")}</p>
+      {/* a kind with too few for this diet doesn't stop the plan: that meal takes any kind, and Pip says so (usability test 2026-11-19) */}
+      {widened.length > 0 && <p role="status" className="mt-3 rounded-[1.25rem] bg-[var(--fill)] p-4 text-[0.9375rem] font-semibold leading-snug">{t("There aren't enough {kinds} {meals} for your diet yet, so your {meals} can be any kind of food.", { kinds, meals })}</p>}
     </div>
   );
 }
@@ -664,7 +683,8 @@ function EarlierPlans({ shopsAll }: { shopsAll: Shop[] }) {
             <li key={`${p.start}-${i}`} className={`${CARD} p-4`}>
               <p className="font-bold leading-snug">{t("From {day}", { day: from(p.start) })}</p>
               <p className="mt-0.5 text-[0.9375rem] leading-snug text-muted">
-                {[names(shopsAll, p.shops), shape.snacks ? t("{meals} meals and {snacks} snacks a day", { meals: shape.meals.length, snacks: shape.snacks }) : t("{meals} meals a day", { meals: shape.meals.length })].join(" · ")}
+                {[p.cuisines?.length ? new Intl.ListFormat("en-GB", { type: "conjunction" }).format(p.cuisines.map((c) => t(CUISINES.find((x) => x.id === c)?.label ?? c))) : t("Any kind of food"),
+                  names(shopsAll, p.shops), dayShape(t, shape)].join(" · ")}
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 <Button className="min-h-12 px-5" onClick={() => open(i)}>{t("Open this plan")}</Button>
@@ -686,6 +706,7 @@ function EarlierPlans({ shopsAll }: { shopsAll: Shop[] }) {
 
 function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
   const t = useT();
+  const earlierCount = useStore(earlierPlansStore).length;
   const language = useLanguage();
   const settings = useSettings();
   const manifest = useShopManifest();
@@ -762,7 +783,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
   const choose = (recipeId: string) => {
     if (swapping === null) return;
     const ids: PlanIds = setMeal(saved.ids, day, swapping, recipeId);
-    mealPlanStore.set({ ...saved, ids });
+    mealPlanStore.set({ ...saved, ids, swapped: true });
     setSwapping(null);
     setAdded(null);
   };
@@ -789,9 +810,18 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
           : t("{meals} meals from our recipes, with ingredients from {shops}.", { meals: mealCount, shops: names(shopsAll, week.shops) })}
       </p>
       {/* another plan whenever they like, at the top where it's seen (founder 2026-11-19); this one is kept among the earlier plans */}
-      <button type="button" onClick={onChange} className="mt-3 inline-flex min-h-12 items-center gap-2 rounded-full bg-sun px-5 text-[0.9375rem] font-bold text-[var(--on-accent)] transition active:scale-95">
-        <PlusIcon aria-hidden className="h-5 w-5" />{t("Make a new plan")}
-      </button>
+      <div className="mt-3 flex flex-wrap gap-2">
+        <button type="button" onClick={onChange} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-sun px-5 text-[0.9375rem] font-bold text-[var(--on-accent)] transition active:scale-95">
+          <PlusIcon aria-hidden className="h-5 w-5" />{t("Make a new plan")}
+        </button>
+        {/* the plans kept from before, reachable from the top (usability test 2026-11-19: at the bottom, below the whole shopping list, they were nearly missed) */}
+        {earlierCount > 0 && (
+          <a href="#earlier-h" onClick={(e) => { e.preventDefault(); document.getElementById("earlier-h")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}
+            className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[var(--fill)] px-5 text-[0.9375rem] font-bold transition active:scale-95">
+            <CalendarIcon aria-hidden className="h-5 w-5" />{earlierCount === 1 ? t("Your earlier plan") : t("Your {n} earlier plans", { n: earlierCount })}
+          </a>
+        )}
+      </div>
 
       {/* the money first: what the shopping comes to, against the budget */}
       <div className={`${CARD} mt-4 p-4`}>
@@ -804,6 +834,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
         </div>
         <p className="mt-3 text-[0.9375rem] leading-snug">
           {week.budget === null ? t("No budget set.")
+            : week.overBudget && saved.swapped ? t("That's {over} over your {budget} budget with the meals you swapped in.", { over: formatPrice(week.shoppingCost - week.budget), budget: formatPrice(week.budget) })
             : week.overBudget ? t("That's {over} over your {budget} budget: it's the cheapest week our recipes allow with your choices.", { over: formatPrice(week.shoppingCost - week.budget), budget: formatPrice(week.budget) })
             : t("Within your {budget} budget.", { budget: formatPrice(week.budget) })}
         </p>

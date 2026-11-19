@@ -94,3 +94,16 @@ describe("Pip's recipe from it", () => {
     expect(ask.mock.calls[0]![1]).toContain("What they have at home");
   });
 });
+
+describe("forgiving spellings (usability test 2026-11-19)", () => {
+  it("matches a thing typed with a wrong plural", async () => {
+    const { spellings, recipesFromFridge } = await import("../lib/mm/fridgeRecipe");
+    expect(spellings("potatos")).toContain("potato");
+    expect(spellings("eggs")).toContain("egg");
+    const { RECIPES } = await import("../lib/mm/recipeBook");
+    const right = recipesFromFridge(RECIPES, ["potatoes"], {}, 50).length;
+    const typo = recipesFromFridge(RECIPES, ["potatos"], {}, 50);
+    expect(typo.length).toBe(right);
+    expect(typo.every((m) => m.uses.includes("potatos"))).toBe(true);
+  });
+});

@@ -356,3 +356,40 @@ describe("cuisines for lunch and dinner (founder 2026-11-19: \"choose the cuisin
     expect(sanitizePlan({ shops: ["sainsburys"], ids, start: "2026-11-19" })!.cuisines).toBeUndefined();
   });
 });
+
+// Usability test 2026-11-19 (Raj, Irene): a kind of food with too few lunches for the diet no longer stops the plan, and "Spicy food" catches hot dishes by name.
+describe("kinds of food and spicy food", () => {
+  const veg = { vegetarianOnly: true };
+  it("keeps only the chosen kind where there are enough, and lets a meal with too few take any kind", async () => {
+    const { cuisineRecipes, CUISINE_MIN } = await import("../lib/mm/mealPlan");
+    const { matchesNiche } = await import("../lib/mm/recipeNiche");
+    const { recipeForDiet } = await import("../lib/mm/recipes");
+    expect(cuisineRecipes(RECIPES, [], veg, []).widened).toEqual([]);
+    for (const cuisine of ["indian", "italian", "chinese", "mexican", "british", "middle-eastern"] as const) {
+      const { recipes, widened } = cuisineRecipes(RECIPES, [cuisine], veg, []);
+      for (const meal of ["lunch", "dinner"] as const) {
+        const ofKind = RECIPES.filter((r) => r.meal === meal && matchesNiche(r.id, [cuisine], []) && recipeForDiet(r, veg)).length;
+        const kept = recipes.filter((r) => r.meal === meal);
+        expect(widened.includes(meal), `${cuisine} ${meal}: ${ofKind}`).toBe(ofKind < CUISINE_MIN);
+        if (ofKind < CUISINE_MIN) expect(kept.length).toBe(RECIPES.filter((r) => r.meal === meal).length);
+        else expect(kept.every((r) => matchesNiche(r.id, [cuisine], []))).toBe(true);
+      }
+      expect(recipes.filter((r) => r.meal === "breakfast").length).toBe(RECIPES.filter((r) => r.meal === "breakfast").length);
+    }
+  });
+  it("leaves out dishes named spiced or devilled, and ones made hot with a dried spice", () => {
+    const named = RECIPES.filter((r) => /\b(spiced|devilled|spicy|harissa|peri peri|cajun|jerk)\b/i.test(r.name));
+    expect(named.length).toBeGreaterThan(0);
+    for (const r of named) expect(leavesOut(r, ["spicy"]), r.name).toBe(true);
+    const hotSpice = RECIPES.filter((r) => r.ingredients.some((i) => /chilli flakes|cayenne|chilli powder/i.test(i.label)));
+    for (const r of hotSpice) expect(leavesOut(r, ["spicy"]), r.name).toBe(true);
+    // a seasoning still never counts for other foods: black pepper is not peppers
+    const blackPepper = RECIPES.find((r) => r.ingredients.some((i) => /black pepper/i.test(i.label)) && !/pepper/i.test(r.name) && !r.ingredients.some((i) => /\b(red|green|yellow) pepper|peppers\b/i.test(i.label)));
+    if (blackPepper) expect(leavesOut(blackPepper, ["peppers"])).toBe(false);
+  });
+  it("keeps the mark that a meal was swapped", () => {
+    const plan = sanitizePlan({ shops: ["sainsburys"], ids: Array.from({ length: PLAN_DAYS }, () => ["a", "b", "c"]), leaveOut: [], budget: 40, start: "2026-11-19", swapped: true });
+    expect(plan?.swapped).toBe(true);
+    expect(sanitizePlan({ shops: ["sainsburys"], ids: Array.from({ length: PLAN_DAYS }, () => ["a", "b", "c"]), leaveOut: [], budget: 40, start: "2026-11-19", swapped: "yes" })?.swapped).toBeUndefined();
+  });
+});

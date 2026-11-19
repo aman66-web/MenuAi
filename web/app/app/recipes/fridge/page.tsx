@@ -210,8 +210,9 @@ function Fridge() {
                 {cards.map((c) => {
                   const uses = usesOf.get(c.recipe.id) ?? [];
                   return (
-                    <li key={c.recipe.id} className="min-w-0">
-                      <RecipeTile card={c} href={`/app/recipes/view?id=${c.recipe.id}&r=${shop}`} />
+                    // the tile fills the space above the line, so the line stays in view (usability test 2026-11-19: the tile's full height pushed it under the next card)
+                    <li key={c.recipe.id} className="flex min-w-0 flex-col">
+                      <div className="min-h-0 flex-1"><RecipeTile card={c} href={`/app/recipes/view?id=${c.recipe.id}&r=${shop}`} /></div>
                       <p className="mt-1.5 px-1 text-[0.875rem] font-semibold leading-snug text-accent">{t("Uses your {things}", { things: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(uses) })}</p>
                     </li>
                   );

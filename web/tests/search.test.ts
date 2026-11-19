@@ -164,3 +164,24 @@ describe("search results carry the dish's photo", () => {
     expect(photos).toBeGreaterThan(1000);
   });
 });
+
+// Usability test 2026-11-19 (George, 87): "greggs sausage roll" found nothing, and "greggs" showed no Greggs dish.
+describe("a restaurant named in the search", () => {
+  it("finds that restaurant's dish when the name comes first or last", () => {
+    for (const q of ["cluck house nuggets", "nuggets cluck house", "Cluck House nugg"]) {
+      const r = search(index, q);
+      expect(r.items.length, q).toBeGreaterThan(0);
+      expect(r.items[0]!.chainId, q).toBe("cluck-house");
+      expect(r.items[0]!.name.toLowerCase(), q).toContain("nugget");
+    }
+  });
+  it("lists the restaurant's menu, in its own order, when only its name is typed", () => {
+    const r = search(index, "cluck house");
+    expect(r.chains.map((c) => c.chainId)).toContain("cluck-house");
+    const menu = loadChain("cluck-house").items.map((i) => i.name);
+    expect(r.items.map((i) => i.name)).toEqual(menu.slice(0, r.items.length));
+  });
+  it("still finds a dish anywhere when no restaurant is named", () => {
+    expect(search(index, "nugg").items.length).toBeGreaterThan(2);
+  });
+});

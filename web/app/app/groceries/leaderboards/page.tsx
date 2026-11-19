@@ -53,17 +53,18 @@ function Row({ file, board, entry, rank, unit }: { file: LeaderboardsFile; board
   const f = figure(board, entry.value);
   return (
     <li>
-      <Link href={productHref(entry)} className="flex min-h-[6rem] items-center gap-3 px-3.5 py-3 transition hover:bg-[var(--fill)] active:bg-[var(--fill)]">
+      {/* the figure moves under the name when the text is large (usability test 2026-11-19: at Extra large the name was squeezed to one letter) */}
+      <Link href={productHref(entry)} className="flex min-h-[6rem] flex-wrap items-center gap-x-3 gap-y-2 px-3.5 py-3 transition hover:bg-[var(--fill)] active:bg-[var(--fill)]">
         <span aria-hidden className={`app-numbers grid h-8 w-8 shrink-0 place-items-center rounded-full text-[0.9375rem] font-extrabold ${rank <= 3 ? "bg-[var(--sun)] text-[var(--on-accent)]" : "bg-[var(--fill)] text-muted"}`}>{rank}</span>
         <ListThumb sources={sources} />
-        <span className="min-w-0 flex-1">
-          <span className="line-clamp-2 text-[0.9375rem] font-bold leading-snug [overflow-wrap:anywhere]"><span className="sr-only">{rank}. </span>{entry.name}</span>
+        <span className="min-w-[7.5rem] flex-1 basis-[7.5rem]">
+          <span className="line-clamp-3 text-[0.9375rem] font-bold leading-snug [overflow-wrap:break-word]"><span className="sr-only">{rank}. </span>{entry.name}</span>
           {/* every supermarket that sells it, by its own logo with its price there (the names and prices are read out) */}
           <span className="mt-1.5 block">
             <ShopPrices items={entry.shops.map((s) => ({ shop: s.shop, name: file.shops[s.shop]?.name ?? s.shop, price: s.price }))} />
           </span>
         </span>
-        <span className="app-numbers shrink-0 rounded-[0.875rem] bg-[var(--fill)] px-2.5 py-2 text-center">
+        <span className="app-numbers ms-auto shrink-0 rounded-[0.875rem] bg-[var(--fill)] px-2.5 py-2 text-center">
           <span className="block text-[1.125rem] font-extrabold leading-none tracking-tight">{f.big}{f.small && <span className="ms-0.5 text-[0.8125rem] font-bold">{f.small}</span>}</span>
           <span className="mt-1 block max-w-[5.5rem] text-[0.6875rem] font-semibold leading-tight text-muted">{unit}</span>
         </span>
