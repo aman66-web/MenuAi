@@ -9,6 +9,16 @@ const BASE = process.env.BASE ?? "http://localhost:3101";
 // a build with no sample chains (production default): CHAIN="kfc:KFC"
 const [CHAIN_ID, CHAIN_NAME] = (process.env.CHAIN ?? "cluck-house:Cluck House").split(":");
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
+
+// Pip's tips on the real screens (CoachMarks, 2026-11-18) are stopped in this test, as if the person had pressed "Stop the tips": e2e/coach.mjs covers them.
+{
+  const open = browser.newContext.bind(browser);
+  browser.newContext = async (options) => {
+    const c = await open(options);
+    await c.addInitScript(() => { try { if (!localStorage.getItem("mm.v1.coach")) localStorage.setItem("mm.v1.coach", JSON.stringify({ v: 1, data: { armed: false, seen: ["home", "eatOut", "groceries", "recipes"] } })); } catch { /* storage blocked */ } });
+    return c;
+  };
+}
 let passed = 0, failed = 0;
 async function step(name, fn) { try { await fn(); passed++; console.log("PASS", name); } catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n")[0]); } }
 const expect = (c, m) => { if (!c) throw new Error(m); };

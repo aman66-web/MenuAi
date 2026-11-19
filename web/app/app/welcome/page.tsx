@@ -8,11 +8,12 @@ import { isAllHalal } from "@/lib/mm/halal";
 import { lunchTeaser, TEASER_MIN_PROTEIN } from "@/lib/mm/onboarding";
 import { POPULAR_ORDER } from "@/lib/mm/popular";
 import { analytics } from "@/lib/mm/analytics";
-import { LOGOS_ENABLED } from "@/lib/mm/config";
+import { LOGOS_ENABLED, SIGN_IN_REQUIRED } from "@/lib/mm/config";
 import { tk } from "@/lib/mm/i18n";
 import { EMPTY_BODY, bodyProblems, planFromAnswers, readTargetFields, type BodyAnswers } from "@/lib/mm/onboardingPlan";
 import { macroTargets } from "@/lib/mm/targets";
-import { settingsStore, tourStore, updateSettings } from "@/lib/mm/stores";
+import { coachAfterWelcome } from "@/lib/mm/coach";
+import { coachStore, settingsStore, tourStore, updateSettings } from "@/lib/mm/stores";
 import { TOUR_VERSION } from "@/lib/mm/tour";
 import type { Goal, Preferences, Profile } from "@/lib/mm/types";
 import { TEXT_SCALE, type TextSize, type UserSettings } from "@/lib/mm/user-data";
@@ -36,7 +37,8 @@ import { TargetsStep } from "./TargetsStep";
 import { PipTour, TOUR_STOPS, TourRows } from "./Tour";
 import { useTargetFields } from "./useTargetFields";
 import { SignInSheet } from "../_components/SignIn";
-import { useAccountUser } from "../_lib/account";
+import { SignInScreen } from "../_components/SignInScreen";
+import { useAccountChecking, useAccountUser } from "../_lib/account";
 import { radioKeyNav, Spinner } from "../_components/ui";
 import { travelBack } from "../_lib/backNav";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
@@ -131,6 +133,7 @@ export default function WelcomePage() {
 function Welcome() {
   const router = useRouter();
   const accountUser = useAccountUser();
+  const accountChecking = useAccountChecking();
   const params = useSearchParams();
   // ?tour=1: just the five stops again (Settings › Help, or the setup card's "Show me around"), "Step n of 5", with Close; nothing is saved.
   const [replay] = useState(() => params.get("tour") === "1");
@@ -139,8 +142,13 @@ function Welcome() {
   // The app is English only (founder 2026-10-16), so there is no language screen. Step 0 is the welcome cover, then Pip's arrival, the text size,
   // the walk through the app and the choice (intro 1-8), then the seven questions (steps 1-7), "You're all set!" (8) and the first recipe (9).
   const [step, setStep] = useState(0);
-  const [intro, setIntro] = useState(replay ? STOP0 : COVER);
+  // Back from Apple or Google sign-in on the website (it adds ?signin=ok to this page): carry on after the cover, where Get started led
+  const [intro, setIntro] = useState(replay ? STOP0 : params.get("signin") === "ok" ? COVER + 1 : COVER);
+  // set by "Skip tour", so the choice at the end doesn't say "That's the tour!" to someone who skipped it (the review of 2026-11-18)
+  const [skippedTour, setSkippedTour] = useState(false);
   const [signInOpen, setSignInOpen] = useState(false);
+  // Everyone signs in (founder 2026-11-17, SIGN_IN_REQUIRED): Get started on the cover opens the sign-in screen first; the tour and the questions follow it.
+  const [signingUp, setSigningUp] = useState(false);
   const hydrated = useHydrated();
   // what has been saved so far: "You're all set!" shows this, so it is always what Home will show
   const settings = useSettings();
@@ -203,7 +211,8 @@ function Welcome() {
 
   const next = () => {
     if (step === 0) {
-      if (intro < FORK) setIntro((i) => i + 1);
+      if (SIGN_IN_REQUIRED && intro === COVER && !accountUser) setSigningUp(true);
+      else if (intro < FORK) setIntro((i) => i + 1);
       else setStep(GOAL);
     }
     // Someone who came to read a shopping list a friend sent, or to add a friend from an invite link, goes straight there after "You're all set!" (no recipe to choose
@@ -232,11 +241,13 @@ function Welcome() {
   const lookAround = () => {
     analytics.track({ name: "onboardingSkipped", step: 0 });
     tourStore.set(TOUR_VERSION);
+    coachStore.set(coachAfterWelcome(coachStore.get())); // Pip's tips on each tab's real buttons (lib/mm/coach.ts)
     router.replace(afterOnboarding());
   };
   // "Skip tour": to the choice at the end of the walk.
   const skipTour = () => {
     analytics.track({ name: "onboardingSkipped", step: 0 });
+    setSkippedTour(true);
     setIntro(FORK);
     window.scrollTo({ top: 0 });
   };
@@ -272,6 +283,7 @@ function Welcome() {
   const finish = (recipeHref?: string) => {
     updateSettings({ hasCompletedOnboarding: true });
     tourStore.set(TOUR_VERSION);
+    coachStore.set(coachAfterWelcome(coachStore.get())); // Pip's tips on each tab's real buttons (lib/mm/coach.ts)
     analytics.track({ name: "onboardingCompleted", goal: settingsStore.get().goal });
     if (recipeHref) {
       // Replace this page with Home first and open the recipe only once Home is showing: asked in the same moment, the second navigation
@@ -332,6 +344,28 @@ function Welcome() {
   }, [real, prefs.halalOnly]);
 
   // Pip's arrival (intro 1), the text size (2), the walk along the tab bar (3-7) and the choice (8). "Skip tour" goes to the choice; the replay has Close.
+  // Everyone signs in: Get started on the cover leads here, and nothing after the cover (the tour, the questions, a replay of the tour) shows to someone who isn't
+  // signed in. Signing in carries on where Get started led; someone already set up is taken to the app by the effect above, once their settings arrive.
+  if (SIGN_IN_REQUIRED && !accountUser && accountChecking && !(step === 0 && intro === COVER)) return <Spinner />; // finding out who just signed in
+  if (SIGN_IN_REQUIRED && hydrated && !accountUser && (signingUp || !(step === 0 && intro === COVER))) {
+    return (
+      <SignInScreen
+        onBack={signingUp ? () => setSigningUp(false) : undefined}
+        onDone={() => {
+          if (!signingUp) return;
+          setSigningUp(false);
+          // someone who signed out and signs in again (already set up on this phone) goes straight to the app; a new account carries on to the tour
+          if (settingsStore.get().hasCompletedOnboarding) {
+            router.replace(afterOnboarding());
+            return;
+          }
+          setIntro(COVER + 1);
+          window.scrollTo({ top: 0 });
+        }}
+      />
+    );
+  }
+
   if (step === 0 && intro > COVER) {
     const stopIndex = intro - STOP0; // 0-4 on the walk
     const stop = intro >= STOP0 && intro < FORK ? TOUR_STOPS[stopIndex] : undefined;
@@ -354,7 +388,7 @@ function Welcome() {
             <TourRows rows={stop.rows} />
           </section>
           <Bottom>
-            {replay && last ? <BottomButton key={intro} onClick={leave}>{t("Done")}</BottomButton> : <BottomButton key={intro} onClick={next}>{t("Continue")}</BottomButton>}
+            {replay && last ? <BottomButton key={intro} onClick={() => { coachStore.set(coachAfterWelcome(coachStore.get())); leave(); }}>{t("Done")}</BottomButton> : <BottomButton key={intro} onClick={next}>{t("Continue")}</BottomButton>}
           </Bottom>
         </div>
       );
@@ -410,10 +444,12 @@ function Welcome() {
             <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{t("Let's make it yours")}<HeadPill Icon={CheckIcon} /></h1>
             <div className="mt-4">
               <PipSays size={64} mood="cheer">
-                {t("That's the tour! Now a few quick questions, and I'll work out your daily numbers and put the dishes that fit you first.")}
+                {skippedTour
+                  ? t("Now a few quick questions, and I'll work out your daily numbers and put the dishes that fit you first.")
+                  : t("That's the tour! Now a few quick questions, and I'll work out your daily numbers and put the dishes that fit you first.")}
               </PipSays>
             </div>
-            <p className="mt-4 text-[15px] text-muted">{t("You can see this tour again any time in Settings.")}</p>
+            <p className="mt-4 text-[15px] text-muted">{skippedTour ? t("You can see the tour any time in Settings.") : t("You can see this tour again any time in Settings.")}</p>
             <Bottom>
               <BottomButton onClick={() => setStep(GOAL)}>{t("Set up my plan")}</BottomButton>
               <BottomButton light className="mt-2" onClick={lookAround}>{t("Look around first")}</BottomButton>
@@ -466,8 +502,9 @@ function Welcome() {
           </h1>
           <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 text-sm font-semibold text-muted">
             {[
-              { Icon: ShieldIcon, text: t("No account needed") },
-              { Icon: CheckIcon, text: t("Stays on your phone") },
+              ...(SIGN_IN_REQUIRED
+                ? [{ Icon: ShieldIcon, text: t("Free account") }, { Icon: CheckIcon, text: t("On all your devices") }]
+                : [{ Icon: ShieldIcon, text: t("No account needed") }, { Icon: CheckIcon, text: t("Stays on your phone") }]),
               { Icon: GiftIcon, text: t("Every menu free") },
             ].map(({ Icon, text }) => (
               <li key={text} className="flex items-center gap-1.5"><Icon aria-hidden className="h-4 w-4 text-accent" />{text}</li>
@@ -476,8 +513,13 @@ function Welcome() {
         </div>
         <Bottom className="order-4">
           <BottomButton light onClick={next}>{t("Get started")}</BottomButton>
-          <button type="button" onClick={() => setSignInOpen(true)} className="mt-1 min-h-11 w-full text-center text-[15px] font-semibold text-accent underline-offset-2 hover:underline">{t("Already have an account? Sign in")}</button>
-          <SignInSheet open={signInOpen} onClose={() => setSignInOpen(false)} />
+          {/* with sign-in required, Get started leads to the sign-in screen, which signs in an existing account too */}
+          {!SIGN_IN_REQUIRED && !accountUser && (
+            <>
+              <button type="button" onClick={() => setSignInOpen(true)} className="mt-1 min-h-11 w-full text-center text-[15px] font-semibold text-accent underline-offset-2 hover:underline">{t("Already have an account? Sign in")}</button>
+              <SignInSheet open={signInOpen} onClose={() => setSignInOpen(false)} />
+            </>
+          )}
           {/* the two links keep a 44 px tap area (padding pulled back with negative margins, so the line stays the same height) */}
           <p className="mt-4 text-center text-xs text-muted">
             <a href="/terms" className="-mx-1.5 -my-3.5 inline-block px-1.5 py-3.5 underline underline-offset-2">{t("Terms")}</a> · <a href="/privacy" className="-mx-1.5 -my-3.5 inline-block px-1.5 py-3.5 underline underline-offset-2">{t("Privacy")}</a> · {t("Not affiliated with any restaurant or shop shown.")}
@@ -630,6 +672,9 @@ function Welcome() {
           </div>
           <p className="mb-4 mt-4 text-[15px] text-muted">{t("Tap all that apply. Change it any time in Settings.")}</p>
           <ShopPicker value={shops} onChange={setShops} />
+          {/* the review of 2026-11-18: with none ticked, Continue led to one shop's recipes without saying so; and the last shops sat under the Continue button */}
+          {shops.length === 0 && <p className="mt-4 text-[15px] leading-snug text-muted">{t("Not sure yet? That's fine: until you choose, recipes use the supermarket we have the most labels for.")}</p>}
+          <div aria-hidden className="h-8 shrink-0" />
           <Bottom>
             <BottomButton onClick={() => { updateSettings({ shops: shops.length ? shops : undefined }); next(); }}>{t("Continue")}</BottomButton>
           </Bottom>

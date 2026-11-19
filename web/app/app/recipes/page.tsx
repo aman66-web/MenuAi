@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { savedToRecipe } from "@/lib/mm/aiRecipe";
 import { mealSlotFor } from "@/lib/mm/budget";
-import { AI_RECIPES_ENABLED, PHOTO_RECIPES_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
+import { AI_RECIPES_ENABLED, GATING_ENABLED, PHOTO_RECIPES_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { formatDate } from "@/lib/mm/format";
 import { RETAILERS } from "@/lib/mm/groceries";
 import { tk, type T } from "@/lib/mm/i18n";
@@ -18,7 +18,7 @@ import { recipeShops } from "@/lib/mm/shopProducts";
 import { myRecipesStore, savedRecipesStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { ShopMark } from "../_components/ChainMark";
 import { AllergenTiles, dietWords } from "../_components/DietPicker";
-import { ArrowRightIcon, BasketIcon, CameraIcon, CheckIcon, GridIcon, HeartIcon, InfoIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
+import { ArrowRightIcon, BasketIcon, CalendarIcon, CameraIcon, CheckIcon, ChevronRightIcon, GridIcon, HeartIcon, InfoIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
 import { ShopChoice } from "./ShopChoice";
@@ -30,7 +30,7 @@ import { recipeShopSetFor, useRecipeCards, useRecipeMakerEnabled, useRecipeShopS
 import { useListRecipes } from "../_lib/listRecipes";
 import { useShopManifest } from "../_lib/shopProducts";
 import { MealPicker, targetSentence } from "./MealPicker";
-import { NicheFields } from "./NicheFields";
+import { FilterChip, NicheFields } from "./NicheFields";
 import { MEAL_LOOK, RecipeTile } from "./RecipeTile";
 import { RecipeThumbStack, hasRecipePicture } from "./RecipeThumb";
 import { useNicheFilter } from "./useNicheFilter";
@@ -84,7 +84,7 @@ function sortCards(cards: RecipeCard[], sort: Sort): RecipeCard[] {
   return [...cards].sort((a, b) => key(a) - key(b) || a.recipe.name.localeCompare(b.recipe.name, "en-GB"));
 }
 
-/** One of the eight big tiles: an icon over a word. Pressed = dark; "More" is the one lime tile, as in the reference. */
+/** One of the eight big tiles: an icon over a word. Pressed = dark (any number at once); "More" is the one lime tile, as in the reference, and opens the Filters sheet. */
 function Tile({ label, Icon, pressed, onClick, more, expanded }: { label: string; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode; pressed?: boolean; onClick: () => void; more?: boolean; expanded?: boolean }) {
   const look = more
     ? expanded ? "bg-foreground text-background" : "bg-sun text-[var(--on-accent)]"
@@ -93,7 +93,7 @@ function Tile({ label, Icon, pressed, onClick, more, expanded }: { label: string
     <button
       type="button"
       onClick={onClick}
-      {...(more ? { "aria-expanded": !!expanded, "aria-controls": "recipe-options" } : { "aria-pressed": !!pressed })}
+      {...(more ? { "aria-haspopup": "dialog" as const } : { "aria-pressed": !!pressed })}
       className={`flex min-h-[5.25rem] min-w-0 flex-col items-center justify-center gap-1.5 rounded-[1.25rem] px-1.5 py-2.5 text-center transition active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${look}`}
     >
       <Icon className={`h-6 w-6 ${pressed || more ? "" : "text-accent"}`} />
@@ -178,9 +178,19 @@ function RecipesScreen() {
   const dietKey = JSON.stringify(diet);
   const mine = useMemo(() => saved.filter((s) => s.shop === shop).map((s) => savedToRecipe(s, JSON.parse(dietKey))).filter((r): r is Recipe => !!r), [saved, shop, dietKey]);
   const mineCards = useRecipeCards(mine, products, diet, target).cards;
-  const [meal, setMeal] = useState<MealType | null>(null);
+  // Founder 2026-11-18: several at once ("they shouldn't have to select just one"). The meals are alternatives (Breakfast and Lunch shows breakfasts and
+  // lunches); Quick, No meat or fish and Vegan all apply, to every meal chosen ("breakfasts that are no meat or fish and vegan, lunches that are ...").
+  const [meals, setMeals] = useState<ReadonlySet<MealType>>(new Set());
   const [toggles, setToggles] = useState<ReadonlySet<Toggle>>(new Set());
+  // "More" opens every filter in one sheet (founder 2026-11-18: "it opens all of them including the 7 there"); openAt is the part it opens at
   const [more, setMore] = useState(false);
+  const [openAt, setOpenAt] = useState<string | null>(null);
+  const openFilters = (at: string | null = null) => { setOpenAt(at); setMore(true); };
+  useEffect(() => {
+    if (!more || !openAt) return;
+    const id = requestAnimationFrame(() => document.getElementById(openAt)?.scrollIntoView({ block: "start" }));
+    return () => cancelAnimationFrame(id);
+  }, [more, openAt]);
   const [shopsOpen, setShopsOpen] = useState(false);
   const [working, setWorking] = useState(false);
   const chosenShops = settings.shops ?? [];
@@ -205,13 +215,13 @@ function RecipesScreen() {
   const offered = useMemo(() => ({ cuisines: CUISINE_OPTIONS, occasions: occasionOpts }), [occasionOpts]);
   // everything but the niche, then the niche: the counts beside each cuisine and occasion are worked out from the first list
   const base = useMemo(
-    () => cards.filter((c) => [...toggles].every((x) => TOGGLE_TEST[x](c.recipe)) && (!meal || c.recipe.meal === meal) && matchesSearch(c.recipe, query, t, offered)),
-    [cards, toggles, meal, query, t, offered],
+    () => cards.filter((c) => [...toggles].every((x) => TOGGLE_TEST[x](c.recipe)) && (meals.size === 0 || (!!c.recipe.meal && meals.has(c.recipe.meal))) && matchesSearch(c.recipe, query, t, offered)),
+    [cards, toggles, meals, query, t, offered],
   );
-  const shown = useMemo(() => sortCards(base.filter((c) => matchesNiche(c.recipe.id, niche.cuisine, niche.occasion)), effectiveSort), [base, niche.cuisine, niche.occasion, effectiveSort]);
-  const nicheNumbers = useMemo(() => (cards.length ? nicheCounts(base.map((c) => c.recipe.id), niche.cuisine, niche.occasion) : null), [cards.length, base, niche.cuisine, niche.occasion]);
-  const nicheOn = niche.cuisine !== null || niche.occasion !== null;
-  const filtering = toggles.size > 0 || meal !== null || query.trim() !== "" || nicheOn;
+  const shown = useMemo(() => sortCards(base.filter((c) => matchesNiche(c.recipe.id, niche.cuisines, niche.occasions)), effectiveSort), [base, niche.cuisines, niche.occasions, effectiveSort]);
+  const nicheNumbers = useMemo(() => (cards.length ? nicheCounts(base.map((c) => c.recipe.id), niche.cuisines, niche.occasions) : null), [cards.length, base, niche.cuisines, niche.occasions]);
+  const nicheOn = niche.cuisines.length > 0 || niche.occasions.length > 0;
+  const filtering = toggles.size > 0 || meals.size > 0 || query.trim() !== "" || nicheOn;
   const slot: MealType = mealSlotFor(now);
   const picks = useMemo(() => sortCards(cards.filter((c) => c.recipe.meal === slot), target ? "fit" : "protein").slice(0, PICKS), [cards, slot, target]);
   // how many recipes the shopping list can help make, and the first three (their pictures go on the card)
@@ -237,11 +247,12 @@ function RecipesScreen() {
   const makeHref = `/app/recipes/make${shop ? `?r=${shop}` : ""}`;
 
   const flip = (x: Toggle) => { setToggles((s) => { const n = new Set(s); if (n.has(x)) n.delete(x); else n.add(x); return n; }); setLimit(PAGE); };
+  const flipMeal = (m: MealType) => { setMeals((s) => { const n = new Set(s); if (n.has(m)) n.delete(m); else n.add(m); return n; }); setLimit(PAGE); };
   // What a screen reader is told as the list changes: how many recipes there are, or that none match. One live region stays mounted for every state, so the
   // words are read when an empty list fills and when a list empties (a region that appears together with its text is often not read).
   const countLine = shown.length === 1 ? (filtering ? t("1 recipe match") : t("1 recipe")) : filtering ? t("{n} recipes match", { n: shown.length }) : t("{n} recipes", { n: shown.length });
   const liveLine = shown.length > 0 ? countLine : filtering && cards.length > 0 ? t("No recipes match.") : "";
-  const clearAll = () => { setQuery(""); setMeal(null); setToggles(new Set()); niche.clear(); setLimit(PAGE); };
+  const clearAll = () => { setQuery(""); setMeals(new Set()); setToggles(new Set()); niche.clear(); setLimit(PAGE); };
   const href = (c: RecipeCard) => `/app/recipes/view?id=${c.recipe.id}&r=${shop}`;
 
   return (
@@ -253,16 +264,20 @@ function RecipesScreen() {
           </span>
           <span className="truncate text-base font-semibold">{t("Recipes")}</span>
         </div>
-        {/* a small grey circle like Home's calendar button, inside a full 44 px tap area; the count sits on its edge */}
-        <Link href="/app/meals?tab=recipes" aria-label={savedCount > 0 ? `${t("My meals")} · ${savedCount}` : t("My meals")} className="group relative -me-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><HeartIcon className="h-[18px] w-[18px]" /></span>
-          {savedCount > 0 && <span aria-hidden className="app-numbers absolute end-0 top-0 grid h-5 min-w-5 place-items-center rounded-full bg-foreground px-1 text-[0.6875rem] font-bold leading-none text-background">{savedCount}</span>}
+        {/* My recipes (founder 2026-11-18: "instead of the love heart ... maybe its better having 'my recipes'"): the heart and the words in a grey pill, with
+            how many are saved, opening My meals at its Recipes tab (the recipes saved with a card's heart and the ones made for the person) */}
+        <Link href="/app/meals?tab=recipes" data-coach="recipes-mine" aria-label={savedCount > 0 ? `${t("My recipes")} · ${savedCount}` : t("My recipes")} className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-soft-strong ps-3 pe-3.5 text-[0.9375rem] font-bold transition hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] active:scale-95">
+          <HeartIcon aria-hidden className="h-[18px] w-[18px]" />
+          <span aria-hidden>{t("My recipes")}</span>
+          {savedCount > 0 && <span aria-hidden className="app-numbers grid h-5 min-w-5 place-items-center rounded-full bg-foreground px-1 text-[0.6875rem] font-bold leading-none text-background">{savedCount}</span>}
         </Link>
       </div>
 
       <h1 className="mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">{t("What's cooking today?")}</h1>
+      {/* one short line (founder 2026-11-18: "Is there actually any need for that text? ... make it a lot more shorter, maybe even like 1 or 2 lines"): the cards
+          below say the rest (our recipes, Make it at home, the meal plan); this says what nothing else on the page does */}
       <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">
-        {shopNames.length ? t("Every ingredient is a real product at {shop}, with its price and the nutrition of each serving.", { shop: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) }) : t("Every ingredient is a real product at your supermarket, with its price and the nutrition of each serving.")}
+        {shopNames.length ? t("Made with real {shop} products and prices.", { shop: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) }) : t("Made with real supermarket products and prices.")}
       </p>
 
       {/* Which supermarkets the ingredients come from: only shops whose full product list, prices and labels we've read can fill a recipe, and all of the
@@ -286,24 +301,37 @@ function RecipesScreen() {
       {PHOTO_RECIPES_ENABLED && (
         // Make it at home (Premium; app/app/recipes/photo/page.tsx). Founder 2026-11-17 ("it can be easily missed"): the one dark card on the page, at the top under the
         // search, in the tab bar's near-black, with the scanner's lime corner marks round the camera. It opens the paywall for a free person.
-        <button type="button" onClick={() => gate("photoRecipe", () => router.push("/app/recipes/photo"))} className="group relative mt-4 flex min-h-[6rem] w-full items-center gap-3.5 overflow-hidden rounded-[1.5rem] bg-[#1d2320] p-4 text-start text-white shadow-[0_18px_40px_-20px_rgba(0,0,0,0.6)] transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-          <span aria-hidden className="relative grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-white/10 text-sun">
-            <span className="absolute start-1 top-1 h-3 w-3 rounded-ss-md border-s-2 border-t-2 border-[var(--sun)]" />
-            <span className="absolute end-1 top-1 h-3 w-3 rounded-se-md border-e-2 border-t-2 border-[var(--sun)]" />
-            <span className="absolute bottom-1 start-1 h-3 w-3 rounded-es-md border-b-2 border-s-2 border-[var(--sun)]" />
-            <span className="absolute bottom-1 end-1 h-3 w-3 rounded-ee-md border-b-2 border-e-2 border-[var(--sun)]" />
-            <CameraIcon className="h-7 w-7" />
+        <button type="button" data-coach="recipes-photo" onClick={() => gate("photoRecipe", () => router.push("/app/recipes/photo"))} className="group relative mt-4 flex min-h-[5.25rem] w-full items-center gap-3 overflow-hidden rounded-[1.5rem] bg-[#1d2320] p-3.5 text-start text-white shadow-[0_18px_40px_-20px_rgba(0,0,0,0.6)] transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+          <span aria-hidden className="relative grid h-12 w-12 shrink-0 place-items-center rounded-[0.875rem] bg-white/10 text-sun">
+            <span className="absolute start-1 top-1 h-2.5 w-2.5 rounded-ss-md border-s-2 border-t-2 border-[var(--sun)]" />
+            <span className="absolute end-1 top-1 h-2.5 w-2.5 rounded-se-md border-e-2 border-t-2 border-[var(--sun)]" />
+            <span className="absolute bottom-1 start-1 h-2.5 w-2.5 rounded-es-md border-b-2 border-s-2 border-[var(--sun)]" />
+            <span className="absolute bottom-1 end-1 h-2.5 w-2.5 rounded-ee-md border-b-2 border-e-2 border-[var(--sun)]" />
+            <CameraIcon className="h-6 w-6" />
           </span>
           <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
             <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <span className="text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("Make it at home")}</span>
               {!pro && <span className="inline-block rounded-full bg-sun px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--on-accent)]">{t("Premium")}</span>}
             </span>
-            <span className="mt-1 block text-[0.9375rem] leading-snug text-white/80">{t("Snap a dish you've loved and get a recipe from your supermarket.")}</span>
+            <span className="mt-0.5 block text-[0.875rem] leading-snug text-white/80">{t("Snap a dish you've loved and get a recipe from your supermarket.")}</span>
           </span>
-          <span aria-hidden className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)] transition-transform group-hover:translate-x-0.5 rtl:-scale-x-100"><ArrowRightIcon className="h-5 w-5" /></span>
+          <span aria-hidden className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)] transition-transform group-hover:translate-x-0.5 rtl:-scale-x-100"><ArrowRightIcon className="h-[1.125rem] w-[1.125rem]" /></span>
         </button>
       )}
+
+      {/* the meal plan (founder 2026-11-18; app/app/plan; Premium): a week of our recipes for the person's goal and budget, with the shopping list and each meal's price */}
+      <Link href="/app/plan" className="glass lift mt-3 flex min-h-[4.5rem] items-center gap-3.5 rounded-[1.25rem] p-3.5 text-start">
+        <span aria-hidden className="grid h-12 w-12 shrink-0 place-items-center rounded-[0.875rem] bg-sun text-[var(--on-accent)]"><CalendarIcon className="h-6 w-6" /></span>
+        <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
+          <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+            <span className="text-[1.0625rem] font-[800] leading-tight">{t("Meal plan")}</span>
+            {GATING_ENABLED && !pro && <span className="inline-block rounded-full bg-sun px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--on-accent)]">{t("Premium")}</span>}
+          </span>
+          <span className="mt-0.5 block text-[0.875rem] leading-snug text-muted">{t("A week of meals for your goal, with the shopping list.")}</span>
+        </span>
+        <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted rtl:rotate-180" />
+      </Link>
 
       {/* One shop at a time; tapping a shop saves it at once and shows a short "working" moment. */}
       <Sheet open={shopsOpen} onClose={closeShops} title={t("Shopping at")}>
@@ -326,58 +354,95 @@ function RecipesScreen() {
       </Sheet>
 
       {/* Eight big tiles: four columns on a phone, fewer when the text is large (the minimum width is in rem). */}
-      <div role="group" aria-label={t("Filters")} className="mt-3.5 grid auto-rows-fr grid-cols-[repeat(auto-fill,minmax(min(100%,4.9rem),1fr))] gap-2.5">
+      <div role="group" aria-label={t("Filters")} data-coach="recipes-tiles" className="mt-3.5 grid auto-rows-fr grid-cols-[repeat(auto-fill,minmax(min(100%,4.9rem),1fr))] gap-2.5">
         {MEAL_TYPES.map((m) => (
-          <Tile key={m.value} label={t(m.label)} Icon={MEAL_LOOK[m.value].Icon} pressed={meal === m.value} onClick={() => { setMeal(meal === m.value ? null : m.value); setLimit(PAGE); }} />
+          <Tile key={m.value} label={t(m.label)} Icon={MEAL_LOOK[m.value].Icon} pressed={meals.has(m.value)} onClick={() => flipMeal(m.value)} />
         ))}
         {TOGGLES.map((x) => (
           <Tile key={x.value} label={t(x.label)} Icon={x.Icon} pressed={toggles.has(x.value)} onClick={() => flip(x.value)} />
         ))}
-        <Tile label={t("More")} Icon={GridIcon} more expanded={more} onClick={() => setMore((v) => !v)} />
+        <Tile label={t("More")} Icon={GridIcon} more expanded={more} onClick={() => openFilters()} />
       </div>
 
-      {/* Cuisine and Occasion: two plain fields, each the phone's own list, with how many recipes every choice would show. */}
+      {/* Cuisine and Occasion side by side (founder 2026-11-18); each opens the Filters sheet at its own choices, since each can hold several. */}
       <NicheFields
         cuisines={CUISINE_OPTIONS}
         occasions={occasionOpts}
-        counts={nicheNumbers}
-        cuisine={niche.cuisine}
-        occasion={niche.occasion}
-        onCuisine={(id) => { niche.setCuisine(id); setLimit(PAGE); }}
-        onOccasion={(id) => { niche.setOccasion(id); setLimit(PAGE); }}
+        chosenCuisines={niche.cuisines}
+        chosenOccasions={niche.occasions}
+        onOpen={(field) => openFilters(field === "cuisine" ? "filter-cuisine" : "filter-occasion")}
       />
 
-      {more && (
-        <div id="recipe-options" className="mt-3 space-y-3">
-          <div className="glass rounded-[1.25rem] p-4">
-            <p className="mb-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{t("Sort by")}</p>
-            <Segmented
-              label={t("Sort recipes")}
-              value={effectiveSort}
-              options={[...(target ? [{ value: "fit" as const, label: t("Closest fit") }] : []), { value: "price" as const, label: t("Lowest price") }, { value: "protein" as const, label: t("Most protein") }]}
-              onChange={setSort}
-            />
+      {/* Every filter in one sheet (founder 2026-11-18: "when they select more it opens all of them including the 7 there and they can select more filters
+          multiple as many as they want"): the seven tiles' choices, every cuisine and occasion with how many recipes each has, then the sort, the meal size,
+          allergies and the diet. Choices apply at once; the button at the bottom says how many recipes match and closes the sheet. */}
+      <Sheet open={more} onClose={() => setMore(false)} title={t("Filters")}>
+        <div className="space-y-5 pb-2">
+          <section aria-labelledby="filter-meal-h">
+            <p id="filter-meal-h" className="mb-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{t("Meal")}</p>
+            <div role="group" aria-labelledby="filter-meal-h" className="flex flex-wrap gap-2">
+              {MEAL_TYPES.map((m) => <FilterChip key={m.value} label={t(m.label)} pressed={meals.has(m.value)} onClick={() => flipMeal(m.value)} />)}
+            </div>
+          </section>
+          <section aria-labelledby="filter-only-h">
+            <p id="filter-only-h" className="mb-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{t("Only show")}</p>
+            <div role="group" aria-labelledby="filter-only-h" className="flex flex-wrap gap-2">
+              {TOGGLES.map((x) => <FilterChip key={x.value} label={t(x.label)} pressed={toggles.has(x.value)} onClick={() => flip(x.value)} />)}
+            </div>
+          </section>
+          {CUISINE_OPTIONS.length > 0 && (
+            <section id="filter-cuisine" aria-labelledby="filter-cuisine-h" className="scroll-mt-24">
+              <p id="filter-cuisine-h" className="mb-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{t("Cuisine")}</p>
+              <div role="group" aria-labelledby="filter-cuisine-h" className="flex flex-wrap gap-2">
+                {CUISINE_OPTIONS.map((c) => <FilterChip key={c.id} label={t(c.label)} count={nicheNumbers ? (nicheNumbers.cuisine.get(c.id) ?? 0) : null} pressed={niche.cuisines.includes(c.id)} onClick={() => { niche.toggleCuisine(c.id); setLimit(PAGE); }} />)}
+              </div>
+            </section>
+          )}
+          {occasionOpts.length > 0 && (
+            <section id="filter-occasion" aria-labelledby="filter-occasion-h" className="scroll-mt-24">
+              <p id="filter-occasion-h" className="mb-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{t("Occasion")}</p>
+              <div role="group" aria-labelledby="filter-occasion-h" className="flex flex-wrap gap-2">
+                {occasionOpts.map((o) => <FilterChip key={o.id} label={t(o.label)} count={nicheNumbers ? (nicheNumbers.occasion.get(o.id) ?? 0) : null} pressed={niche.occasions.includes(o.id)} onClick={() => { niche.toggleOccasion(o.id); setLimit(PAGE); }} />)}
+              </div>
+            </section>
+          )}
+          <div id="recipe-options" className="scroll-mt-24 space-y-3">
+            <div className="glass rounded-[1.25rem] p-4">
+              <p className="mb-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{t("Sort by")}</p>
+              <Segmented
+                label={t("Sort recipes")}
+                value={effectiveSort}
+                options={[...(target ? [{ value: "fit" as const, label: t("Closest fit") }] : []), { value: "price" as const, label: t("Lowest price") }, { value: "protein" as const, label: t("Most protein") }]}
+                onChange={setSort}
+              />
+            </div>
+            <MealPicker summary={false} />
+            {/* The same choice as Settings' "Allergies to avoid" (one setting for the whole app), here so it can be changed while looking at recipes. */}
+            <div className="glass rounded-[1.25rem] p-4">
+              <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{t("Allergies to avoid")}</p>
+              <AllergenTiles chosen={diet.avoidAllergens ?? []} label={t("Allergies to avoid")} onToggle={(k) => { updateSettings({ preferences: toggleAllergen(diet, k) }); setLimit(PAGE); }} />
+              {(diet.avoidAllergens?.length ?? 0) > 0 && (
+                <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">
+                  {diet.halalOnly
+                    ? t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen or halal labels, so check each pack before you buy.")
+                    : t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen labels, so check each pack before you buy.")}
+                </p>
+              )}
+            </div>
+            <div className="glass flex flex-wrap items-center gap-x-3 gap-y-2 rounded-[1.25rem] p-4">
+              <p className="min-w-0 flex-1 text-[0.9375rem] leading-snug"><span className="font-bold">{t("Your diet:")}</span> {words.length ? words.join(" · ") : t("nothing left out")}</p>
+              <Link href="/app/settings#diet" className={`${PILL} bg-[var(--fill)]`}>{t("Change")}</Link>
+            </div>
           </div>
-          <MealPicker summary={false} />
-          {/* The same choice as Settings' "Allergies to avoid" (one setting for the whole app), here so it can be changed while looking at recipes. */}
-          <div className="glass rounded-[1.25rem] p-4">
-            <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{t("Allergies to avoid")}</p>
-            <AllergenTiles chosen={diet.avoidAllergens ?? []} label={t("Allergies to avoid")} onToggle={(k) => { updateSettings({ preferences: toggleAllergen(diet, k) }); setLimit(PAGE); }} />
-            {(diet.avoidAllergens?.length ?? 0) > 0 && (
-              <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">
-                {diet.halalOnly
-                  ? t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen or halal labels, so check each pack before you buy.")
-                  : t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen labels, so check each pack before you buy.")}
-              </p>
-            )}
-          </div>
-          <div className="glass flex flex-wrap items-center gap-x-3 gap-y-2 rounded-[1.25rem] p-4">
-            <p className="min-w-0 flex-1 text-[0.9375rem] leading-snug"><span className="font-bold">{t("Your diet:")}</span> {words.length ? words.join(" · ") : t("nothing left out")}</p>
-            <Link href="/app/settings#diet" className={`${PILL} bg-[var(--fill)]`}>{t("Change")}</Link>
-          </div>
-          <Button full variant="secondary" className="min-h-12" onClick={() => setMore(false)}>{t("Done")}</Button>
         </div>
-      )}
+        {/* stays at the bottom while the sheet scrolls */}
+        <div className="sticky bottom-[calc(-1*max(1.75rem,env(safe-area-inset-bottom)))] z-10 -mx-5 -mb-[max(1.75rem,env(safe-area-inset-bottom))] flex items-center gap-2.5 bg-white px-5 pb-[max(1.75rem,env(safe-area-inset-bottom))] pt-3 shadow-[0_-10px_18px_-14px_rgba(17,24,20,0.3)]">
+          {filtering && <button type="button" onClick={clearAll} className={`${PILL} bg-[var(--fill)]`}>{t("Clear all")}</button>}
+          <Button full className="min-h-12 flex-1" onClick={() => setMore(false)}>
+            <span className="app-numbers">{shown.length === 0 && filtering ? t("No recipes match.") : shown.length === 1 ? t("Show 1 recipe") : t("Show {n} recipes", { n: shown.length })}</span>
+          </Button>
+        </div>
+      </Sheet>
 
       {AI_RECIPES_ENABLED && (makerOn || SAMPLES_ENABLED) && (
         <button type="button" onClick={() => gate("recipeMaker", () => router.push(makeHref))} className="glass lift group mt-4 flex min-h-[5.5rem] w-full items-center gap-3 rounded-[1.25rem] p-3 ps-2 text-start">
@@ -431,7 +496,7 @@ function RecipesScreen() {
         <h2 id="all-heading" className={HEADING}>{t("All recipes")}{cards.length > 0 && <span className="app-numbers font-semibold text-muted"> · {cards.length}</span>}</h2>
         <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-2">
           <p className="app-numbers min-w-0 flex-1 text-[0.9375rem] leading-snug text-muted">{targetSentence(t, target)}{words.length > 0 && <> {t("Your diet:")} {words.join(" · ")}.</>}</p>
-          <button type="button" aria-expanded={more} aria-controls="recipe-options" onClick={() => { setMore(true); requestAnimationFrame(() => document.getElementById("recipe-options")?.scrollIntoView({ behavior: "smooth", block: "start" })); }} className={`glass ${PILL}`}>{t("Adjust")}</button>
+          <button type="button" aria-haspopup="dialog" onClick={() => openFilters("recipe-options")} className={`glass ${PILL}`}>{t("Adjust")}</button>
         </div>
 
         <p role="status" className="sr-only">{liveLine}</p>

@@ -873,6 +873,32 @@ class PriceFileTests(unittest.TestCase):
             self.assertTrue("sainsburys-farfalle-pasta-500g" not in done and "sainsburys-butter-500g" in done and "sainsburys-spaghetti-pasta-1kg" in done)
 
 
+
+class CookedStapleTest(unittest.TestCase):
+    """build_all_products.cooked_staple (2026-11-18): a plain dry staple whose 'as sold' label is a cooked or prepared figure has its numbers left out."""
+
+    def nut(self, kcal, state=""):
+        return [kcal, 5, 30, 1, 0, 0, 0, 0, 0, "g", state]
+
+    def test_dry_staples_with_cooked_figures(self):
+        for name in ("ASDA Penne 500g", "Essential Basmati Rice 1kg", "Pearl Barley 500 g", "Red Lentils 500 g", "Giant Couscous 500 g", "Tesco Pudding Rice 750g",
+                     "Lasagne Sheets 500g", "Sainsbury's Quick Cook Fusilli Pasta 500g"):
+            self.assertTrue(bap.cooked_staple(name, self.nut(150)), name)
+
+    def test_left_alone(self):
+        self.assertFalse(bap.cooked_staple("ASDA Penne 500g", self.nut(355)))  # the dry figure
+        self.assertFalse(bap.cooked_staple("ASDA Penne 500g", self.nut(157, "boiled")))  # says it's cooked
+        self.assertFalse(bap.cooked_staple("ASDA Penne 500g", None))
+        for name in ("Ambrosia Rice Pudding 400g", "Spaghetti Bolognese 400g", "Microwave Basmati Rice 250g", "Basmati Rice 300 g", "Rice 4 x 125g",
+                     "Puy Lentils 400g", "Fresh Egg Tagliatelle 500g", "Lasagne 400g", "Napolina Penne with Tomato 500g", "Steamed Basmati Rice 500g"):
+            self.assertFalse(bap.cooked_staple(name, self.nut(150)), name)
+
+    def test_drop_counts_per_shop(self):
+        docs = {"asda": {"products": [["1", "ASDA Penne 500g", 0.7, None, "", None, None, 0, "", "", self.nut(157)], ["2", "ASDA Penne 500g", 0.7, None, "", None, None, 0, "", "", self.nut(355)]]}}
+        self.assertEqual(bap.drop_cooked_staples(docs), {"asda": 1})
+        self.assertIsNone(docs["asda"]["products"][0][10])
+        self.assertIsNotNone(docs["asda"]["products"][1][10])
+
 if __name__ == "__main__":
     unittest.main()
 
@@ -1224,3 +1250,147 @@ class CommunityNutritionTests(unittest.TestCase):
             differ = {"asda": {"products": [["1", "Saxa Table Salt 750g", 1.0, None, "", None, None, 0, "", "5010024103644", None]]}}
             self.assertEqual(bap.fill_community_nutrition(agree, by_code), {"asda": 1})
             self.assertEqual(bap.fill_community_nutrition(differ, by_code), {"asda": 0})
+
+
+class FibreEnergyTests(unittest.TestCase):
+    """build_groceries.implausible counts fibre's energy when a label prints fibre (founder 2026-11-17: no product without numbers in a recipe; ground cinnamon's
+    own label adds up only with its fibre), and keeps a label whose carbohydrate already includes the fibre."""
+
+    def test_high_fibre_labels(self):
+        self.assertIsNone(bg.implausible(243, 4.0, 27.5, 1.2, 1006, 53.1))        # UK label: fibre on top of carbohydrate
+        self.assertIsNotNone(bg.implausible(243, 4.0, 27.5, 1.2, 1006))           # the same label without its fibre line can't be checked: left out
+        self.assertIsNone(bg.implausible(255, 11, 65, 3, 1067, 27))               # fibre already inside carbohydrate: still fine
+        self.assertIsNotNone(bg.implausible(400, 5, 10, 2, None, 5))              # fibre can't explain 400 kcal from 5 g protein, 10 g carbs, 2 g fat
+
+
+class SameProductNutritionTests(unittest.TestCase):
+    """build_all_products.fill_same_product_nutrition (founder 2026-11-17: the same exact product at another supermarket lends its label)."""
+
+    def test_barcode_and_branded_name_only(self):
+        label = [77, 4.7, 13.0, 0.2, None, 4.5, 3.8, 0.6, 327, "g", ""]
+        docs = {
+            "sainsburys": {"products": [
+                ["s1", "Heinz Baked Beans In Tomato Sauce 415g", 1.4, None, "", None, None, 0, "", "5000157062673", list(label)],
+                ["s2", "Sainsbury's Chopped Tomatoes 400g", 0.4, None, "", None, None, 0, "", "", [21, 1, 3, 0.1, None, None, None, None, None, "g", ""]],
+            ]},
+            "tesco": {"products": [
+                ["t1", "Heinz Beanz 415G", 1.5, None, "", None, None, 0, "", "05000157062673", None],         # same barcode (leading zero)
+                ["t2", "Heinz Baked Beans in Tomato Sauce 415g", 1.5, None, "", None, None, 0, "", "", None],  # same branded name and size
+                ["t3", "Tesco Chopped Tomatoes 400g", 0.4, None, "", None, None, 0, "", "", None],             # own brand: never
+            ]},
+        }
+        self.assertEqual(bap.fill_same_product_nutrition(docs), {"sainsburys": 0, "tesco": 2})
+        t1, t2, t3 = docs["tesco"]["products"]
+        self.assertEqual(t1[10][:4], [77, 4.7, 13.0, 0.2])
+        self.assertEqual(t1[10][11], "same:sainsburys")
+        self.assertEqual(t2[10][11], "same:sainsburys")
+        self.assertIsNone(t3[10])
+
+    def test_disagreeing_labels_lend_nothing(self):
+        docs = {
+            "a": {"products": [["a1", "Brand Oats 1kg", 1, None, "", None, None, 0, "", "5012345678900", [370, 11, 60, 8, None, None, None, None, None, "g", ""]]]},
+            "b": {"products": [["b1", "Brand Oats 1kg", 1, None, "", None, None, 0, "", "5012345678900", [380, 12, 61, 8, None, None, None, None, None, "g", ""]]]},
+            "c": {"products": [["c1", "Brand Oats 1kg", 1, None, "", None, None, 0, "", "5012345678900", None]]},
+        }
+        self.assertEqual(bap.fill_same_product_nutrition(docs)["c"], 0)
+
+
+class ProduceDataTests(unittest.TestCase):
+    """cofid.produce_code (founder 2026-11-17: UK government food data only for loose fruit and vegetables without any label)."""
+
+    def test_plain_produce_only(self):
+        import cofid
+        self.assertEqual(cofid.produce_code("Tesco Organic Bunched Carrots 400G"), "13-496")
+        self.assertEqual(cofid.produce_code("NATURE'S PICK Bananas 5 Each"), "14-318")
+        self.assertEqual(cofid.produce_code("Loose Red Pepper"), "13-524")
+        self.assertEqual(cofid.produce_code("Sweet Potatoes Loose"), "13-463")  # "sweet" is not "sweets"
+        self.assertEqual(cofid.produce_code("Waitrose Swede Each"), "13-359")
+        self.assertIsNone(cofid.produce_code("Haribo Sweets 200g"))
+        for not_plain in ["Morrisons Heart Raspberry Swirl Buns 2 Pack", "Tango Orange Original Can 8x330ml", "Tesco Breaded 4 Garlic Chicken Kievs 500g",
+                          "Cirio Pelati Peeled Plum Tomatoes 400g", "Frozen Mixed Peppers", "Banana Chips 200g", "Waitrose Strawberry and Grape 115g"]:
+            self.assertIsNone(cofid.produce_code(not_plain), not_plain)
+
+
+class AlcoholNamedTests(unittest.TestCase):
+    """Founder 2026-11-18: no alcoholic drinks. Names that say outright that a drink is alcoholic are left out whatever soft drink they also name."""
+
+    def test_named_alcohol_left_out_and_alcohol_free_kept(self):
+        import build_groceries as bg
+        for name in ["Hooch Alcoholic Lemonade with Vodka & Fruit Juice 440ml", "VK Mixed Pack A Selection of Vodka Mix Drinks 10 x 275ml",
+                     "WKD Blue Alcoholic Mix 700ml", "Absolut Pre-Mixed Raspberry Lemonade Vodka Drink 250ml"]:
+            self.assertTrue(bg.is_alcohol(name), name)
+        for name in ["Grace Mighty Malt Premium Original Non-Alcoholic Drink 330ml", "Morrisons The Best Pasta Alla Vodka 400G",
+                     "No.1 Vodka Battered Scallops With Bloody Mary Sauce 273g", "M&S Collection Italian Tomato and Vodka Pasta Sauce 280 g",
+                     "Fever-Tree Non Alcoholic Mojito 250ml", "Kopparberg 0.0% Alcohol Free Mixed Fruit Cider 500ml"]:
+            self.assertFalse(bg.is_alcohol(name), name)
+
+    def test_roasting_tray_is_not_food_but_roaster_potatoes_are(self):
+        import build_all_products as B
+        self.assertTrue(B.not_food("Iceland 38cm Turkey Roaster"))
+        self.assertFalse(B.not_food("Mini Roaster Potatoes 1 kg"))
+
+    def test_kitchenware_is_not_food(self):
+        import build_all_products as B
+        for name in ["George Home Black Fast Boil Kettle 1.7L", "George Home Peel Lid Food Storers - Colour May Vary", "George Home Kent Sundae Spoons",
+                     "John Lewis Stainless Steel 4-Sided Box Grater each", "JL Stainless Steel Y-Shaped Peeler each", "Nutmeg Home Protein Shaker 600ml",
+                     "Brita Maxtra Pro All-in-One Cartridge 6pk", "Brita Maxtra Pro All in 1 Water Filter Cartridge 3 pack",
+                     "BAKE by ASDA BAKE by 100 Fairy Cake White Paper Cases", "BAKE by ASDA BAKE by 20 Disposable Loaf Liners",
+                     "BAKE by ASDA BAKE by 2 Disposable Foil Baking Trays", "BAKE by ASDA BAKE by 2 Gold Spotty Cupcake Boxes"]:
+            self.assertTrue(B.not_food(name), name)
+        for name in ["ASDA White Marzipan 500g", "ASDA Asda Ready to Roll Pink lcing 250g", "Splenda Granulated Low Calorie Sweetener Canister 125g", "Nutmeg Organic Vegetable Paella Baby Food 12M+ 100g", "Yarden Houmous Prestige 250g"]:
+            self.assertFalse(B.not_food(name), name)
+
+
+class ChromeIngestReadingTests(unittest.TestCase):
+    """labels_chrome_ingest.py reads the figures exactly as printed (decimal commas, "nil", ranges, Sainsbury's fruit tables)."""
+
+    def test_decimal_commas_and_thousands(self):
+        import labels_chrome_ingest as I
+        self.assertEqual(I.printed("1,5g"), "1.5")
+        self.assertEqual(I.printed("<0,5 g"), "<0.5")
+        self.assertEqual(I.printed("0,125 g"), "0.125")
+        self.assertEqual(I.printed("1,222.9 kJ"), "1222.9")
+        self.assertEqual(I.energy(["83,3 kJ (19,6 kcal)"], ""), ("83.3", "19.6"))
+        self.assertEqual(I.energy(["1,490kJ/351kcal"], ""), ("1490", "351"))
+
+    def test_nil_and_ranges(self):
+        import labels_chrome_ingest as I
+        self.assertEqual(I.printed("nil"), "0")
+        self.assertIsNone(I.printed("0-1g"))
+        self.assertIsNone(I.printed("Trace"))
+
+    def test_fruit_table_whose_first_heading_names_100g(self):
+        import labels_chrome_ingest as I
+        t, why = I.read_table({"nut": [["Typical values per 100g", "100g contains", "%Reference Intake Per 100 g/ml"], ["Energy", "83kJ", "1%"], ["", "20kcal", "1%"],
+                                       ["Fat", "<0.5g", "<1%"], ["Carbohydrate", "3.2g", "1%"], ["Protein", "1.0g", "2%"]], "above": ""})
+        self.assertEqual((t["kj"], t["kcal"], t["fat_g"], t["carbs_g"], t["protein_g"]), ("83", "20", "<0.5", "3.2", "1.0"))
+
+    def test_total_fats_row(self):
+        import labels_chrome_ingest as I
+        t, _ = I.read_table({"nut": [["Typical Values", "per 100ml"], ["Energy", "83,3 kJ (19,6 kcal)"], ["Total fats", "0 g"], ["Carbohydrates", "4,9 g"], ["Protein", "0g"]], "above": ""})
+        self.assertEqual((t["kcal"], t["fat_g"], t["carbs_g"]), ("19.6", "0", "4.9"))
+
+    def test_second_energy_row_named_by_its_unit(self):
+        import labels_chrome_ingest as I
+        t, _ = I.read_table({"nut": [["Typical Values", "100g Provides:"], ["Energy - kJ", "1176kJ"], ["- kcal", "283kcal"], ["Fat", "23g"]], "above": ""})
+        self.assertEqual((t["kj"], t["kcal"]), ("1176", "283"))
+        t, _ = I.read_table({"nut": [["", "per 100 ml"], ["Energy kJ", "3378"], ["kcal", "822"], ["Fat of which: g", "91.3"]], "above": ""})
+        self.assertEqual((t["kj"], t["kcal"], t["fat_g"]), ("3378", "822", "91.3"))
+
+    def test_a_features_section_is_not_an_ingredients_list(self):
+        import labels_chrome_ingest as I
+        self.assertEqual(I.section_cut("FeaturesChosen with Care. Quality Checked. Perfect with Lamb"), "")
+        self.assertEqual(I.section_cut("StorageKeep refrigerated"), "")
+        self.assertEqual(I.section_cut("Features\u200bDried oregano with warm, lemony notes"), "")
+        self.assertEqual(I.section_cut("Features1 of your 5 a day per 80g"), "")
+        self.assertEqual(I.section_cut("Pork (97%), Salt, Storage-stable spices"), "Pork (97%), Salt, Storage-stable spices")
+
+    def test_html_spaces_in_ingredients(self):
+        import labels_chrome_ingest as I
+        self.assertEqual(I.section_cut("Water, Sugar and nbsp; Salt\u200b"), "Water, Sugar Salt")
+        self.assertEqual(I.section_cut("Fish and amp; Chips"), "Fish and Chips")
+
+    def test_per_100_gms_heading(self):
+        import labels_chrome_ingest as I
+        t, why = I.read_table({"nut": [["Typical values", "Per 100gms"], ["Energy", "1201kJ / 286kcal"], ["Fat", "3.3g"], ["Carbohydrate", "38.7g"], ["Protein", "10.4g"]], "above": ""})
+        self.assertEqual((why, t["per"], t["kcal"]), ("", "g", "286"))

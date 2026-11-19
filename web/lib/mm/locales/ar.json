@@ -1863,8 +1863,9 @@
  "We haven't read a price at {shop} yet.": "لم نقرأ سعرًا في {shop} بعد.",
  "We haven't read allergens for these products, so your allergy settings can't hide any here. Always check the pack.": "لم نقرأ مسبّبات الحساسية لهذه المنتجات بعد، لذا لا تستطيع إعدادات الحساسية لديك إخفاء أي منها هنا. راجع العبوة دائمًا.",
  "We haven't read enough of {shop} product pages to fill these recipes yet.": "لم نقرأ ما يكفي من صفحات منتجات {shop} لإكمال هذه الوصفات بعد.",
- "We haven't read the label for {name} yet, so it isn't counted in these numbers.": "لم نقرأ بعد ملصق هذا المكوّن: {name}، لذا لا تشمله هذه الأرقام.",
- "We haven't read the labels for {names} yet, so they aren't counted in these numbers.": "لم نقرأ بعد ملصقات هذه المكوّنات: {names}، لذا لا تشملها هذه الأرقام.",
+ "Herbs, spices and salt don't have to carry a nutrition label, and we have none for {name}, so it isn't counted in these numbers.": "لا يلزم أن تحمل الأعشاب والتوابل والملح ملصقًا غذائيًا، وليس لدينا ملصق لهذا المكوّن: {name}، لذا لا يُحتسب في هذه الأرقام.",
+ "Herbs, spices and salt don't have to carry a nutrition label, and we have none for {names}, so they aren't counted in these numbers.": "لا يلزم أن تحمل الأعشاب والتوابل والملح ملصقًا غذائيًا، وليس لدينا ملصقات لهذه المكوّنات: {names}، لذا لا تُحتسب في هذه الأرقام.",
+ "Salt doesn't have to carry a nutrition label. Where the shop gives none, we count it as UK table salt labels print it: no calories, protein, carbs or fat, and 99.9 g of salt in every 100 g.": "لا يلزم أن يحمل الملح ملصقًا غذائيًا. وحين لا يقدّم المتجر ملصقًا، نحتسبه كما تطبعه ملصقات ملح الطعام في المملكة المتحدة: بلا سعرات ولا بروتين ولا كربوهيدرات ولا دهون، و99.9 غ من الملح في كل 100 غ.",
  "We haven't read the nutrition for this product yet. The label on the pack has it, and so does the product's page on {shopPossessive} website.": "لم نقرأ القيم الغذائية لهذا المنتج بعد. تجدها على ملصق العبوة، وكذلك في صفحة المنتج على موقع {shopPossessive}.",
  "We never estimate. If a restaurant doesn't publish a value, we show ‘not published’.": "لا نقدّر الأرقام أبدًا. إذا لم ينشر المطعم قيمة ما، نعرض «غير منشور».",
  "We only keep your email address and what you choose to sync. No ads, no tracking.": "نحتفظ فقط بعنوان بريدك الإلكتروني وبما تختار مزامنته. لا إعلانات ولا تتبّع.",
@@ -2149,5 +2150,9 @@
  "{total} for the {priced} of {count} items with a price, at {shopPossessive} prices. Prices change: check in store.": "{total} لـ {priced} من {count} أصناف لها سعر، بأسعار {shopPossessive}. الأسعار تتغير: تحقّق في المتجر.",
  "{used} of {limit} free saved orders used.": "استخدمت {used} من {limit} طلبات محفوظة مجانية.",
  "“Not listed” means nothing is recorded, not that the product is free from it.": "«غير مُدرج» يعني أنه لا يوجد شيء مسجّل، وليس أن المنتج خالٍ منه.",
- "…": "…"
+ "…": "…",
+ "My recipes": "وصفاتي",
+ "Only show": "اعرض فقط",
+ "Show {n} recipes": "اعرض {n} وصفات",
+ "Show 1 recipe": "اعرض وصفة واحدة"
 }

@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { catalogueStats } from "@/lib/mm/catalogue";
 import type { Manifest } from "@/lib/mm/types";
-import { APP_PREMIUM, PRO_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { APP_PREMIUM, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { PLANS } from "@/lib/payments/plans";
 import { site } from "@/site.config";
 import { BasketIcon, CheckIcon, ForkIcon, PlusIcon, PotIcon } from "@/app/app/_components/icons";
@@ -93,7 +93,7 @@ export default function Home() {
                 </a>
               )}
             </div>
-            <p className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-muted">Free. No account needed for menus, shops and recipes. Your targets and saved orders stay on your device unless you sign in to sync them.</p>
+            <p className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-muted">{SIGN_IN_REQUIRED ? "Free. Your free account keeps your targets, saved meals and shopping list on all your devices." : "Free. No account needed for menus, shops and recipes. Your targets and saved orders stay on your device unless you sign in to sync them."}</p>
           </div>
 
           {stats.chains > 0 && (

@@ -6,12 +6,15 @@ import { site } from "@/site.config";
 import { AccountError } from "@/lib/mm/account";
 import { hasNative, nativeCall } from "@/lib/mm/native";
 import { tk } from "@/lib/mm/i18n";
-import { tourStore } from "@/lib/mm/stores";
+import { APP_PREMIUM, IAP_ENABLED, SIGN_IN_REQUIRED } from "@/lib/mm/config";
+import { manageSubscriptions } from "@/lib/payments/iap";
+import { tourStore, updateSettings } from "@/lib/mm/stores";
 import { deleteAccount, signOut, syncEngine, useAccountUser, useSyncState } from "../_lib/account";
 import { communityCacheStore } from "../_lib/communityCache";
 import { useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { Button, Card, Sheet } from "./ui";
+import { TrashIcon } from "./icons";
 import { SignInSheet } from "./SignIn";
 
 // Settings › Account (docs/ACCOUNTS_SYNC.md). Optional: signed out, everything stays on this device. Signed in, the person's saved meals,
@@ -75,6 +78,8 @@ export function AccountSection() {
     try {
       await signOut();
       setMessage(t("Signed out. Your data stays on this device."));
+      // founder 2026-11-17: signing out goes back to the welcome screen too, keeping the account; signing in again from there goes straight to the app
+      router.replace("/app/welcome");
     } finally {
       setBusy(false);
     }
@@ -93,6 +98,8 @@ export function AccountSection() {
       // founder 2026-11-17: "when an account's deleted, they go back to the starting screen of my app": the welcome screen again (the tour counts as unseen); what is on this
       // device is kept, as the message says
       tourStore.reset();
+      // ...and a new account starts the setup from the beginning (the data on the phone stays)
+      updateSettings({ hasCompletedOnboarding: false });
       router.replace("/app/welcome");
     } catch (e) {
       setMessage(e instanceof AccountError && e.offline ? t("You're offline. Connect to the internet and try again.") : t("Something went wrong. Please try again."));
@@ -120,10 +127,28 @@ export function AccountSection() {
         <Button variant="secondary" disabled={busy} onClick={() => void out()}>{t("Sign out")}</Button>
       </div>
       {message && <p role="status" className={noteClass}>{message}</p>}
-      <button type="button" className="mt-3 min-h-11 text-[0.9375rem] font-semibold text-muted underline underline-offset-4 hover:text-foreground" onClick={() => setDeleteOpen(true)}>{t("Delete my account")}</button>
+      {/* founder 2026-11-17 ("There's no way for the person to delete their account"): a full-width button of its own, not a small grey link */}
+      <div className="mt-4 border-t border-line pt-4">
+        <Button full variant="danger" className="min-h-12 gap-2 text-base" disabled={busy} onClick={() => setDeleteOpen(true)}>
+          <TrashIcon aria-hidden className="h-5 w-5" />{t("Delete my account")}
+        </Button>
+        <p className="mt-2 text-[0.875rem] leading-snug text-muted">{t("Deletes your account and everything synced for it.")}</p>
+      </div>
 
       <Sheet open={deleteOpen} onClose={() => setDeleteOpen(false)} title={t("Delete my account")}>
-        <p className="pt-1 text-base leading-snug">{t("This deletes your account and everything we've synced for it. The data on this device stays, so you can keep using {app} without an account. This can't be undone.", { app: site.name })}</p>
+        <p className="pt-1 text-base leading-snug">{SIGN_IN_REQUIRED
+          ? t("This deletes your account and everything we've synced for it. This can't be undone. To use {app} again, you'll need to create a new account.", { app: site.name })
+          : t("This deletes your account and everything we've synced for it. The data on this device stays, so you can keep using {app} without an account. This can't be undone.", { app: site.name })}</p>
+        {/* An App Store subscription is between the person and Apple: deleting the account can't cancel it (founder 2026-11-17 asked; Apple expects the app to say
+            so here and show how to cancel). In the iPhone app the button opens Apple's own screen; on the website, Apple's subscriptions page. */}
+        {APP_PREMIUM && (
+          <div className="mt-3 rounded-[1rem] bg-[var(--fill)] p-3.5">
+            <p className="text-base leading-snug">{t("Deleting your account doesn't cancel an App Store subscription. To stop being charged, cancel it in your App Store settings.")}</p>
+            {IAP_ENABLED && hasNative()
+              ? <Button full variant="secondary" className="mt-3 min-h-11" onClick={() => void manageSubscriptions()}>{t("Manage subscription")}</Button>
+              : <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex min-h-11 items-center text-[0.9375rem] font-semibold text-accent underline underline-offset-4">{t("Manage subscription")}</a>}
+          </div>
+        )}
         {/* Community's rows are removed with the account (docs/BACKEND.md "Community"): said here only to someone who has a username */}
         {community?.userId === user.id && community.profile && <p className="mt-3 text-base leading-snug">{t("Your username, friends and the shopping lists you sent or received are deleted too.")}</p>}
         <div className="mt-5 space-y-2 pb-2">

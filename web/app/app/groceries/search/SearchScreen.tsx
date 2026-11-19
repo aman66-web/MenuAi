@@ -11,6 +11,7 @@ import { DONE_KEY, DONE_ROOM, SearchDone } from "../../_components/SearchDone";
 import { Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
 import { useEntryQuery } from "../../_lib/backNav";
 import { useGroceryCatalogue, useGroceryManifest } from "../../_lib/groceries";
+import { useShopManifest } from "../../_lib/shopProducts";
 import { useSettings, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { BackLink, FootNote, ListLink, MoreButton, NOTE, PILL_INPUT, SelectField, TITLE } from "../PageBits";
@@ -61,6 +62,7 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
     return (catalogue.manifest?.categories ?? []).filter((c) => counts.has(c.id));
   }, [catalogue.products, catalogue.manifest]);
   const counts = new Map((catalogue.manifest?.retailers ?? []).map((r) => [r.id, r.count]));
+  const fullLists = useShopManifest();
   const isBarcode = !!barcodeQuery(deferred);
 
   const reset = () => setShown(PAGE);
@@ -86,7 +88,8 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
 
       <div role="group" aria-label={t("Supermarket")} className="no-scrollbar -mx-5 mt-4 flex gap-2 overflow-x-auto px-5">
         <Chip selected={retailer === null} onClick={() => { setRetailer(null); reset(); }}>{t("All")}</Chip>
-        {RETAILERS.filter((r) => !catalogue.manifest || counts.has(r.id)).map((r) => (
+        {/* only shops that are in the app (the review of 2026-11-18: Co-op and Ocado were offered here while Groceries says they aren't here yet) with something to find */}
+        {RETAILERS.filter((r) => (!catalogue.manifest || (counts.get(r.id) ?? 0) > 0) && (!fullLists || fullLists.retailers.some((x) => x.id === r.id))).map((r) => (
           <Chip key={r.id} selected={retailer === r.id} onClick={() => { setRetailer(r.id); reset(); }} className="gap-2 ps-1.5"><ShopMark shopId={r.id} size="xs" />{r.name}</Chip>
         ))}
       </div>

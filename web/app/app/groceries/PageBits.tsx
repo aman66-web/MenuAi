@@ -46,13 +46,13 @@ export function BackLink({ href, label }: { href: string; label: string }) {
   );
 }
 
-/** "My list" with how many things are on it, as a small grey pill inside a 44 px tap area. */
+/** "Shopping list" with how many things are on it, as a small grey pill inside a 44 px tap area (founder 2026-11-18: "it should say shopping list for consistency": Home's card has the same name). */
 export function ListLink({ count }: { count: number }) {
   const t = useT();
   return (
     <Link href="/app/groceries/list" className="group -me-1 inline-flex min-h-11 shrink-0 items-center transition active:scale-95">
       <span className={`inline-flex h-9 items-center gap-2 whitespace-nowrap rounded-full bg-soft-strong ps-3 pe-3.5 text-[0.9375rem] font-semibold transition-colors ${HOVER}`}>
-        <BasketIcon className="h-[18px] w-[18px]" />{t("My list")}
+        <BasketIcon className="h-[18px] w-[18px]" />{t("Shopping list")}
         {count > 0 && <span className="app-numbers grid h-5 min-w-5 place-items-center rounded-full bg-foreground px-1.5 font-mono text-[0.6875rem] font-medium text-background">{count}</span>}
       </span>
     </Link>

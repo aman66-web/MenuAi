@@ -1,7 +1,7 @@
 // Make it at home: the photo someone picks is made smaller on the phone before anything is sent (lib/mm/photoRecipe.ts MAX_PHOTO_SIDE): a JPEG with its long side
 // at most 1024 pixels, which is plenty for Pip to see the dish and keeps the request small. The original never leaves the phone.
 
-import { MAX_PHOTO_BASE64, MAX_PHOTO_SIDE } from "@/lib/mm/photoRecipe";
+import { MAX_PHOTO_BASE64, MAX_PHOTO_SIDE, foodCrop, type FoodBox } from "@/lib/mm/photoRecipe";
 
 export interface ShrunkPhoto {
   /** base64 of the JPEG, no "data:" prefix (what the API takes). */
@@ -65,6 +65,29 @@ export async function recipeThumbnail(url: string): Promise<Blob | null> {
     canvas.getContext("2d")?.drawImage(pic.source, (pic.width - sw) / 2, (pic.height - sh) / 2, sw, sh, 0, 0, W, H);
     pic.done();
     return await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/jpeg", 0.8));
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * The photo cropped round the food (founder 2026-11-18: "You should automatically adjust the photo yourself to make sure the food is in it"): where the food
+ * check said the dish is (FoodBox), with a margin, at 4:3 (the recipe picture's and the cards' shape), long side at most 1024 pixels, as a local address.
+ * Null when it can't be made (the screen then shows the photo as taken).
+ */
+export async function photoOfFood(url: string, box: FoodBox): Promise<string | null> {
+  try {
+    const blob = await (await fetch(url)).blob();
+    const pic = await draw(blob);
+    const c = foodCrop(pic.width, pic.height, box);
+    const scale = Math.min(1, 1024 / Math.max(c.width, c.height));
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, Math.round(c.width * scale));
+    canvas.height = Math.max(1, Math.round(c.height * scale));
+    canvas.getContext("2d")?.drawImage(pic.source, c.x, c.y, c.width, c.height, 0, 0, canvas.width, canvas.height);
+    pic.done();
+    const out = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/jpeg", 0.85));
+    return out ? URL.createObjectURL(out) : null;
   } catch {
     return null;
   }

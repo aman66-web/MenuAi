@@ -1863,8 +1863,9 @@
  "We haven't read a price at {shop} yet.": "আমরা এখনো {shop}-এর দাম পড়িনি।",
  "We haven't read allergens for these products, so your allergy settings can't hide any here. Always check the pack.": "এই পণ্যগুলোর অ্যালার্জেন আমরা এখনও পড়িনি, তাই আপনার অ্যালার্জি সেটিংস এখানে কিছুই লুকাতে পারে না। সবসময় প্যাকেট দেখে নিন।",
  "We haven't read enough of {shop} product pages to fill these recipes yet.": "এই রেসিপিগুলো পূরণ করার মতো যথেষ্ট {shop} পণ্যের পেজ আমরা এখনো পড়িনি।",
- "We haven't read the label for {name} yet, so it isn't counted in these numbers.": "আমরা এখনো {name}-এর লেবেল পড়িনি, তাই এটি এই হিসাবে ধরা হয়নি।",
- "We haven't read the labels for {names} yet, so they aren't counted in these numbers.": "আমরা এখনো {names}-এর লেবেল পড়িনি, তাই এগুলো এই হিসাবে ধরা হয়নি।",
+ "Herbs, spices and salt don't have to carry a nutrition label, and we have none for {name}, so it isn't counted in these numbers.": "ভেষজ, মশলা ও লবণের গায়ে পুষ্টি-লেবেল থাকা বাধ্যতামূলক নয়, আর {name}-এর কোনো লেবেল আমাদের কাছে নেই, তাই এটি এই সংখ্যাগুলোতে ধরা হয়নি।",
+ "Herbs, spices and salt don't have to carry a nutrition label, and we have none for {names}, so they aren't counted in these numbers.": "ভেষজ, মশলা ও লবণের গায়ে পুষ্টি-লেবেল থাকা বাধ্যতামূলক নয়, আর {names}-এর কোনো লেবেল আমাদের কাছে নেই, তাই এগুলো এই সংখ্যাগুলোতে ধরা হয়নি।",
+ "Salt doesn't have to carry a nutrition label. Where the shop gives none, we count it as UK table salt labels print it: no calories, protein, carbs or fat, and 99.9 g of salt in every 100 g.": "লবণের গায়ে পুষ্টি-লেবেল থাকা বাধ্যতামূলক নয়। দোকান কোনো লেবেল না দিলে আমরা যুক্তরাজ্যের টেবিল লবণের লেবেলে যেমন লেখা থাকে তেমনভাবেই ধরি: কোনো ক্যালোরি, প্রোটিন, কার্বোহাইড্রেট বা চর্বি নেই, আর প্রতি ১০০ গ্রামে ৯৯.৯ গ্রাম লবণ।",
  "We haven't read the nutrition for this product yet. The label on the pack has it, and so does the product's page on {shopPossessive} website.": "আমরা এখনো এই পণ্যের পুষ্টি তথ্য পড়িনি। প্যাকেটের লেবেলে তা আছে, আর {shopPossessive} ওয়েবসাইটে পণ্যটির পেজেও আছে।",
  "We never estimate. If a restaurant doesn't publish a value, we show ‘not published’.": "আমরা কখনো আন্দাজ করি না। কোনো রেস্তোরাঁ কোনো মান প্রকাশ না করলে আমরা ‘প্রকাশ করা হয়নি’ দেখাই।",
  "We only keep your email address and what you choose to sync. No ads, no tracking.": "আমরা শুধু আপনার ইমেইল ঠিকানা আর আপনি যা সিঙ্ক করতে বেছে নেন তা রাখি। কোনো বিজ্ঞাপন নেই, কোনো ট্র্যাকিং নেই।",
@@ -2149,5 +2150,9 @@
  "{total} for the {priced} of {count} items with a price, at {shopPossessive} prices. Prices change: check in store.": "{count}টি আইটেমের মধ্যে দাম আছে এমন {priced}টির জন্য {total}, {shopPossessive} দামে। দাম বদলায়: দোকানে দেখে নিন।",
  "{used} of {limit} free saved orders used.": "{limit}টি ফ্রি সংরক্ষিত অর্ডারের মধ্যে {used}টি ব্যবহার হয়েছে।",
  "“Not listed” means nothing is recorded, not that the product is free from it.": "“তালিকায় নেই” মানে কিছুই রেকর্ড করা নেই, এর মানে এই নয় যে পণ্যটিতে এটি নেই।",
- "…": "…"
+ "…": "…",
+ "My recipes": "আমার রেসিপি",
+ "Only show": "শুধু দেখান",
+ "Show {n} recipes": "{n}টি রেসিপি দেখান",
+ "Show 1 recipe": "1টি রেসিপি দেখান"
 }

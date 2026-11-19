@@ -8,6 +8,7 @@ import { LOCAL_SHOP_PRODUCTS } from "./localRange";
 // is either a small-shop product or has a tip here.
 export const LOCAL_TIPS: Readonly<Record<string, string>> = {
   rice: tk("any bag of basmati or long-grain rice"),
+  cinnamon: tk("any jar of ground cinnamon"),
   "pasta-long": tk("any bag of spaghetti"),
   "pasta-shapes": tk("any bag of penne or fusilli"),
   eggs: tk("a box of free-range eggs"),

@@ -9,6 +9,16 @@ import { mergeStates, validateState } from "../lib/mm/syncMerge.ts";
 const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
 const BASE = process.env.BASE ?? "http://localhost:3101";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
+
+// Pip's tips on the real screens (CoachMarks, 2026-11-18) are stopped in this test, as if the person had pressed "Stop the tips": e2e/coach.mjs covers them.
+{
+  const open = browser.newContext.bind(browser);
+  browser.newContext = async (options) => {
+    const c = await open(options);
+    await c.addInitScript(() => { try { if (!localStorage.getItem("mm.v1.coach")) localStorage.setItem("mm.v1.coach", JSON.stringify({ v: 1, data: { armed: false, seen: ["home", "eatOut", "groceries", "recipes"] } })); } catch { /* storage blocked */ } });
+    return c;
+  };
+}
 const settings = JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true } });
 
 // ------------------------------------------------------------------------------------------------ the fake backend
@@ -195,8 +205,9 @@ await step("sign out keeps the data on the phone; deleting the account deletes t
 
   await page.goto(BASE + "/app/settings");
   await page.getByRole("button", { name: "Sign out" }).click();
-  await page.getByText("Signed out. Your data stays on this device.").waitFor();
-  await page.getByRole("button", { name: "Sign in", exact: true }).waitFor();
+  // founder 2026-11-17: signing out goes back to the welcome screen too, keeping the account
+  await page.waitForURL(/\/app\/welcome/);
+  await page.getByRole("button", { name: "Get started" }).waitFor();
   expect(device.user === null && server.signedOut >= 1, "the server was told");
   await page.goto(BASE + "/app/groceries/list");
   await page.getByText("Bread", { exact: true }).first().waitFor();

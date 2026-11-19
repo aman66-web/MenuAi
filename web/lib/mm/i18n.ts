@@ -44,10 +44,14 @@ export type Vars = Readonly<Record<string, string | number>>;
 /** The translate function screens and helpers receive. */
 export type T = (english: string, vars?: Vars) => string;
 
-/** Put values into {placeholders}; a placeholder with no value is left as it is. */
+/** A name followed by "'s" in English wording, as English writes it: "Tesco's", "Morrisons'", and "McDonald's" or "Sainsbury's" never doubled (the review of
+ *  2026-11-18 found "McDonald's's own guide"). The same rule as lib/mm/shopProducts.ts possessive, kept here so this file needs nothing else. */
+const possessiveOf = (name: string): string => (/['’]s$/.test(name) ? name : /s$/.test(name) ? `${name}'` : `${name}'s`);
+
+/** Put values into {placeholders}; a placeholder with no value is left as it is. A placeholder written as "{chain}'s" takes the possessive of its value. */
 export function format(text: string, vars?: Vars): string {
   if (!vars) return text;
-  return text.replace(/\{(\w+)\}/g, (m, k: string) => (k in vars ? String(vars[k]) : m));
+  return text.replace(/\{(\w+)\}('s(?![a-z]))?/g, (m, k: string, s?: string) => (k in vars ? (s ? possessiveOf(String(vars[k])) : String(vars[k])) : m));
 }
 
 /** The translation of `english` (or the English when the dictionary has none), with its values filled in. */

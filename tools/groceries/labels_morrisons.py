@@ -176,7 +176,16 @@ def load_reads() -> dict[str, dict]:
 
 def candidates() -> list[dict]:
     with open(CANDIDATES, newline="", encoding="utf-8") as f:
-        return [r for r in csv.DictReader(f) if (r.get("product_id") or "").strip()]
+        rows = [r for r in csv.DictReader(f) if (r.get("product_id") or "").strip()]
+    # then every other product in the shop's published list (founder 2026-11-17: "we need nutrients for every single product"); pages already read are skipped
+    seen = {r["product_id"].strip() for r in rows}
+    listing = ROOT / "web" / "public" / "groceries" / "all" / f"{SHOP}.json"
+    if listing.exists():
+        for p in json.loads(listing.read_text(encoding="utf-8"))["products"]:
+            if p[0] not in seen:
+                seen.add(p[0])
+                rows.append({"product_id": p[0], "name": p[1]})
+    return rows
 
 
 def cmd_fetch(limit: int | None, ids: list[str] | None = None) -> int:
@@ -543,7 +552,7 @@ def label_from(nutrition_html) -> tuple[dict | None, str]:
     if None in main:
         return None, "a main figure isn't a number"
     kj = bg.printed_num(r["kj"]) if r["kj"] else None
-    bad = bg.implausible(main[0], main[1], main[2], main[3], kj)
+    bad = bg.implausible(main[0], main[1], main[2], main[3], kj, bg.printed_num(r["fibre"]) if r.get("fibre") else None)
     if not bad and kj and main[0] >= 20 and not 3.55 <= kj / main[0] <= 4.82:
         bad = "kJ and kcal disagree"
     if bad:

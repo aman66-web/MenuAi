@@ -13,6 +13,7 @@ import { useStore } from "../_lib/hooks";
 import { useRecipePhoto } from "../_lib/recipePhotos";
 import { useT } from "../_lib/i18n";
 import type { RecipeCard } from "../_lib/recipes";
+import { FullPictureButton } from "../_components/PhotoViewer";
 
 // One recipe in a list (Recipes, My meals). Founder 2026-10-14, from two reference pictures: a picture on top with a heart to save it, then the
 // name and, under it, calories and protein as two small chips; then the price of a serving at the shop and how long it takes. The picture is
@@ -111,7 +112,9 @@ export function RecipeHeroArt({ id, name, label, meal }: { id: string; name: str
         <>
           {/* eslint-disable-next-line @next/next/no-img-element -- static file named by its hash; the service worker caches it */}
           <img src={image.src} onError={image.fail} alt={own ? t("Your photo") : t("An illustration of {name}", { name: label.toLowerCase() })} width={800} height={600} decoding="async" className="h-full w-full object-cover" />
-          {own && <p className="absolute bottom-12 start-4 me-4 rounded-[1rem] bg-black/65 px-3 py-1.5 text-[0.8125rem] font-semibold leading-snug text-white">{t("Your photo. The recipe is Pip's home version.")}</p>}
+          {own && <p className="absolute bottom-12 start-4 me-[4.5rem] rounded-[1rem] bg-black/65 px-3 py-1.5 text-[0.8125rem] font-semibold leading-snug text-white">{t("Your photo. The recipe is Pip's home version.")}</p>}
+          {/* the whole picture, full screen (founder 2026-11-18), above the sheet that covers the photo's foot */}
+          <FullPictureButton src={image.src} alt={own ? t("Your photo") : t("An illustration of {name}", { name: label.toLowerCase() })} className="bottom-12 end-4" />
         </>
       ) : (
         <span aria-hidden className="absolute inset-0">
@@ -125,15 +128,16 @@ export function RecipeHeroArt({ id, name, label, meal }: { id: string; name: str
   );
 }
 
-/** `onUnsave` is told when the heart takes the recipe out of My meals (My meals offers an Undo for it). */
-export function RecipeTile({ card, href, badge, wide = false, saveable = true, onOpen, onUnsave }: { card: RecipeCard; href: string; badge?: string; wide?: boolean; saveable?: boolean; onOpen?: React.MouseEventHandler<HTMLAnchorElement>; onUnsave?: (id: string) => void }) {
+/** `onUnsave` is told when the heart takes the recipe out of My meals (My meals offers an Undo for it). `onRemoveMine`, for a recipe Pip made (always saved):
+ *  its heart is filled, and tapping it takes the recipe out of My recipes (founder 2026-11-18: "They can remove it from the recipes in my meals later"). */
+export function RecipeTile({ card, href, badge, wide = false, saveable = true, onOpen, onUnsave, onRemoveMine }: { card: RecipeCard; href: string; badge?: string; wide?: boolean; saveable?: boolean; onOpen?: React.MouseEventHandler<HTMLAnchorElement>; onUnsave?: (id: string) => void; onRemoveMine?: (id: string) => void }) {
   const t = useT();
   const savedList = useStore(savedRecipesStore);
   const { recipe, totals } = card;
   // our recipe book is translated; what Pip wrote with AI is shown as it wrote it
   const rt = (s: string) => (recipe.ai ? s : t(s));
-  const saved = savedList.some((s) => s.id === recipe.id);
-  const canSave = saveable && !recipe.ai; // Pip's recipes are already kept on this phone
+  const saved = recipe.ai ? true : savedList.some((s) => s.id === recipe.id);
+  const canSave = saveable && (!recipe.ai || !!onRemoveMine); // Pip's recipes are kept as they're made: only My recipes offers taking one out
   const price = totals.costPerServing !== null ? formatPrice(totals.costPerServing) : null;
   // protein, carbs and fat under the name (founder 2026-10-16: "Add the fats and carbs to each of the recipes also", then "calories where the red is ...
   // below the title the protein, fats and carbs"); the calories are the pill in the picture's corner. One grey strip of three cells, each a figure over
@@ -169,6 +173,7 @@ export function RecipeTile({ card, href, badge, wide = false, saveable = true, o
           aria-pressed={saved}
           aria-label={saved ? t("Saved to My meals") : t("Save to My meals")}
           onClick={() => {
+            if (recipe.ai) { onRemoveMine?.(recipe.id); return; }
             const was = saved;
             toggleSavedRecipe(recipe.id);
             if (was) onUnsave?.(recipe.id);

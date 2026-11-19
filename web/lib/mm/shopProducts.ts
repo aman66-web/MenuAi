@@ -2,14 +2,14 @@
 // unit price, card price, picture), with NO nutrition unless we have read the product's own page. Built by tools/groceries/build_all_products.py from
 // the listing crawls; one compact array per product so a 17,000-product shop stays about 2.5 MB.
 import { isTakenDown } from "./logos";
-import { MIN_DENSITY_PROTEIN, PHOTO_HOSTS, type PhotoSource } from "./groceries";
+import { MIN_DENSITY_PROTEIN, PHOTO_HOSTS, retailerName, withPhoto, type PhotoSource, type ShoppingItem } from "./groceries";
 import { englishT, tk, type T } from "./i18n";
 import { normalizeForSearch } from "./search";
 
 /** [id, name, price, unitPrice, unit, memberPrice, schemeIndex, categoryIndex, photoId, gtin, nutrition?, page?] where page is the product page's path after
  *  pageBase when it isn't pageBase + id (Aldi, Lidl: from the shop's own sitemap), and nutrition is
  *  [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kJ, "g" | "ml"] per 100 g or ml, copied from the product's own page, or null when that page has not been read. */
-export type ShopNutritionRow = [number, number, number, number, number | null, number | null, number | null, number | null, number | null, "g" | "ml", string?, "off"?];
+export type ShopNutritionRow = [number, number, number, number, number | null, number | null, number | null, number | null, number | null, "g" | "ml", string?, string?, string?];
 export type ShopRow = [string, string, number | null, number | null, string, number | null, number | null, number, string, string, (ShopNutritionRow | null)?, string?, [string, string]?];
 
 import { RECIPE_COVERAGE } from "./recipeCoverage";
@@ -95,6 +95,13 @@ export interface ShopNutrition {
    *  the barcode catalogue; tools/groceries/build_all_products.py catalogue_nutrition). Every screen showing them says so (founder 2026-11-17: recipes for
    *  every supermarket in the app). */
   community?: true;
+  /** Set when the numbers were read from ANOTHER supermarket's page for exactly the same product (the same barcode, or the same branded name and pack size;
+   *  never a shop's own brand): that shop's id (tools/groceries/build_all_products.py fill_same_product_nutrition; founder 2026-11-17). A real label, so
+   *  recipes treat it like the shop's own; the product page says whose page it is from. */
+  sameAs?: string;
+  /** Set for loose fresh fruit and vegetables with no label of any kind: the UK government's figures for that food, raw (McCance and Widdowson's Composition of
+   *  Foods Integrated Dataset 2021; tools/groceries/cofid.py; founder 2026-11-17), and this is the dataset's own name for the food ("Onions, raw"). */
+  govFood?: string;
 }
 
 export interface ShopProduct {
@@ -169,10 +176,12 @@ export const nutritionBasis = (n: Pick<ShopNutrition, "per" | "state">, t: T = e
 
 function decodeNutrition(n: ShopNutritionRow | null | undefined): ShopNutrition | null {
   if (!Array.isArray(n) || n.length < 10) return null;
-  const [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kj, per, state, source] = n;
+  const [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kj, per, state, source, food] = n;
   if (![kcal, protein, carbs, fat].every((v) => typeof v === "number" && Number.isFinite(v)) || (per !== "g" && per !== "ml")) return null;
   const opt = (v: number | null) => (typeof v === "number" ? v : null);
-  return { kcal, protein, carbs, fat, saturates: opt(saturates), sugars: opt(sugars), fibre: opt(fibre), salt: opt(salt), kj: opt(kj), per, state: typeof state === "string" && /^[a-z][a-z ]{0,23}$/.test(state) ? state : "", ...(source === "off" ? { community: true as const } : {}) };
+  return { kcal, protein, carbs, fat, saturates: opt(saturates), sugars: opt(sugars), fibre: opt(fibre), salt: opt(salt), kj: opt(kj), per, state: typeof state === "string" && /^[a-z][a-z ]{0,23}$/.test(state) ? state : "",
+    ...(source === "off" ? { community: true as const } : {}), ...(typeof source === "string" && /^same:[a-z][a-z-]{1,30}$/.test(source) ? { sameAs: source.slice(5) } : {}),
+    ...(source === "cofid" && typeof food === "string" && food.length > 0 && food.length <= 80 ? { govFood: food } : {}) };
 }
 
 // Where a borrowed photo may come from: the supermarkets' own image servers and Open Food Facts' (https only, checked again here).
@@ -286,4 +295,80 @@ export function searchShopProducts(products: readonly ShopProduct[], f: ShopFilt
     list.sort((a, b) => low(a) - low(b) || key(b) - key(a) || name(a, b));
   } else list.sort(name);
   return list;
+}
+
+// ---------------------------------------------------------------- the shopping list's Swap (founder 2026-11-18)
+
+/** A shop's product as a shopping list item: its barcode where its page showed one, the shop's own id, the shelf price and the day it was read, its picture. */
+export function shopListItem(f: Pick<ShopFile, "retailer" | "checkedOn" | "photoBase" | "photoTemplate">, p: ShopProduct): Omit<ShoppingItem, "qty" | "addedAt"> {
+  return { gtin: p.gtin, shopId: p.id, retailer: f.retailer, name: p.name, brand: "", size: "", price: p.price ?? undefined, checkedOn: f.checkedOn, ...withPhoto(shopPhotoSources(f, p)) };
+}
+
+/** The pack size printed in a product's name ("800g", "4 x 125g", "1.13L", "2 Pints"), as printed; null when the name doesn't say. */
+export function packLabel(name: string): string | null {
+  const m = /\b(?:\d+\s*[x×]\s*)?\d+(?:\.\d+)?\s*(?:kg|g|ml|cl|l|ltr|litres?|pints?)\b/i.exec(name);
+  return m ? m[0].replace(/\s+/g, " ").trim() : null;
+}
+
+/** Words that say nothing about what a product is: joining words, sizes and pack words (numbers and sizes like "500g" are dropped as well). */
+const FILLER = new Set(["and", "with", "in", "of", "the", "a", "an", "for", "by", "to", "on", "or", "x", "from", "our", "pack", "pk", "approx", "each", "per", "serves", "g", "kg", "ml", "cl", "l", "ltr", "litre", "litres", "pint", "pints", "oz"]);
+
+/** Two spellings of the same thing in the shops' names. */
+const SAME_WORD: ReadonlyMap<string, string> = new Map([["yoghurt", "yogurt"], ["yoghurts", "yogurt"], ["yogurts", "yogurt"], ["yoghourt", "yogurt"]]);
+
+/** One form of a word for plurals and spellings: "eggs" and "egg", "tomatoes" and "tomato", "berries" and "berry", "yoghurt" and "yogurt". */
+function stem(w: string): string {
+  const same = SAME_WORD.get(w);
+  if (same) return same;
+  if (w.length > 4 && w.endsWith("ies")) return `${w.slice(0, -3)}y`;
+  if (w.length > 4 && w.endsWith("oes")) return w.slice(0, -2);
+  if (w.length > 3 && w.endsWith("s") && !w.endsWith("ss")) return w.slice(0, -1);
+  return w;
+}
+
+/** The words of a shop's own name ("sainsburys", "tesco", "marks", "spencer"): the shop's own brand says nothing about what a product is. */
+const shopWords = (retailer: string): Set<string> =>
+  new Set([retailerName(retailer), retailer.replace(/-/g, " ")].flatMap((x) => normalizeForSearch(x).split(" ")).filter(Boolean));
+
+/** The meaningful words of a product's name, for comparing it with others at the same shop. */
+export function nameWords(name: string, retailer: string, own: ReadonlySet<string> = shopWords(retailer)): Set<string> {
+  const out = new Set<string>();
+  for (const w of normalizeForSearch(name).split(" ")) {
+    if (w.length < 2 || /\d/.test(w) || FILLER.has(w) || own.has(w)) continue;
+    out.add(stem(w));
+  }
+  return out;
+}
+
+const noZeros = (gtin: string) => gtin.replace(/^0+/, "");
+/** Each product's words, worked out once (a shop's list is decoded once a session and shared by every screen). */
+const wordCache = new WeakMap<ShopProduct, { shop: string; words: Set<string> }>();
+
+/**
+ * Products like this shopping list item at its own shop, for "Swap" in the shopping list (founder 2026-11-18: swap something you can't find in the shop):
+ * the shop's products in the item's own category where we know it (the item found in the shop's list by its id, barcode or exact name), scored by how many
+ * meaningful words of their names they share with it (sizes, numbers, the shop's own name and joining words left out), best first, then cheaper first
+ * (no price last), then by name. Never the item itself; nothing that shares no word.
+ */
+export function similarProducts(products: readonly ShopProduct[], item: Pick<ShoppingItem, "name" | "retailer" | "gtin" | "shopId">, limit = 12): ShopProduct[] {
+  const own = shopWords(item.retailer);
+  const words = nameWords(item.name, item.retailer, own);
+  if (words.size === 0) return [];
+  const plain = normalizeForSearch(item.name);
+  const gtin = item.gtin ? noZeros(item.gtin) : "";
+  const isSelf = (p: ShopProduct) => (!!item.shopId && p.id === item.shopId) || (!!gtin && !!p.gtin && noZeros(p.gtin) === gtin);
+  const self = products.find(isSelf) ?? products.find((p) => normalizeForSearch(p.name) === plain);
+  const category = self?.category;
+  const scored: Array<{ p: ShopProduct; score: number }> = [];
+  for (const p of products) {
+    if (p === self || isSelf(p) || (category !== undefined && p.category !== category)) continue;
+    let theirs = wordCache.get(p);
+    if (!theirs || theirs.shop !== item.retailer) wordCache.set(p, (theirs = { shop: item.retailer, words: nameWords(p.name, item.retailer, own) }));
+    let score = 0;
+    for (const w of theirs.words) if (words.has(w)) score++;
+    if (score > 0 && normalizeForSearch(p.name) !== plain) scored.push({ p, score });
+  }
+  const price = (p: ShopProduct) => p.price ?? Number.POSITIVE_INFINITY;
+  scored.sort((a, b) => b.score - a.score || price(a.p) - price(b.p) || a.p.name.localeCompare(b.p.name, "en-GB", { sensitivity: "base" }));
+  return scored.slice(0, limit).map((x) => x.p);
 }

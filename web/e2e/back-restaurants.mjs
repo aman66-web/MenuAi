@@ -100,7 +100,7 @@ await step("a restaurant reached from one of its dishes (the chain name): Back r
 await step("the order builder opened with Customise: Back returns to the dish; opened by address it says 'Back to menu' and goes to the restaurant", async () => {
   const { ctx, page } = await open();
   await go(page, `/app/item?chain=bowl-and-co&item=${DISH}`);
-  await page.getByRole("button", { name: "Customise" }).click();
+  await page.getByRole("button", { name: "Change the order" }).click();
   await waitPath(page, `/app/builder?chain=bowl-and-co&item=${DISH}`);
   await page.getByRole("heading", { name: "Build your order" }).waitFor({ timeout: 120000 });
   expect((await page.locator("main").getByRole("button", { name: "Back", exact: true }).count()) === 0, "the builder's Back is still a button, not a link");
@@ -170,7 +170,7 @@ const MEALS = "/app/meals?tab=restaurant";
 await step("the builder's Save: My meals takes its place in the history, Back returns to the dish (not the builder), and nothing is saved twice", async () => {
   const { ctx, page, errors } = await open();
   await go(page, `/app/item?chain=bowl-and-co&item=${DISH}`);
-  await page.getByRole("button", { name: "Customise" }).click();
+  await page.getByRole("button", { name: "Change the order" }).click();
   await waitPath(page, `/app/builder?chain=bowl-and-co&item=${DISH}`);
   await page.getByRole("heading", { name: "Build your order" }).waitFor({ timeout: 120000 });
   await page.getByRole("button", { name: "Save", exact: true }).click();
@@ -188,10 +188,10 @@ await step("the builder's Save: My meals takes its place in the history, Back re
 await step("the builder's Log: Today takes its place in the history and Back returns to the dish, so the meal cannot be logged twice by going back", async () => {
   const { ctx, page, errors } = await open();
   await go(page, `/app/item?chain=bowl-and-co&item=${DISH}`);
-  await page.getByRole("button", { name: "Customise" }).click();
+  await page.getByRole("button", { name: "Change the order" }).click();
   await waitPath(page, `/app/builder?chain=bowl-and-co&item=${DISH}`);
   await page.getByRole("heading", { name: "Build your order" }).waitFor({ timeout: 120000 });
-  await page.getByRole("button", { name: "Log", exact: true }).click();
+  await page.getByRole("button", { name: "Add to today", exact: true }).click();
   await waitPath(page, "/app/today");
   expect((await count(page, "mm.v1.log")) === 1, "one log entry expected");
   await (await backLink(page, "Back")).click();
@@ -204,7 +204,7 @@ await step("the builder's Log: Today takes its place in the history and Back ret
 await step("'Save changes' on a saved order opened from My meals goes back to My meals through the history (Home is not three Backs away)", async () => {
   const { ctx, page, errors } = await open();
   await go(page, `/app/item?chain=bowl-and-co&item=${DISH}`); // depth 0
-  await page.getByRole("button", { name: "Customise" }).click();
+  await page.getByRole("button", { name: "Change the order" }).click();
   await page.getByRole("heading", { name: "Build your order" }).waitFor({ timeout: 120000 });
   await page.getByRole("button", { name: "Save", exact: true }).click();
   await waitPath(page, MEALS); // takes the builder's place: depth 1
@@ -223,7 +223,7 @@ await step("'Save changes' on a saved order opened from My meals goes back to My
 await step("'Save changes' with the builder opened by address (nothing below) replaces it with My meals; Back from there goes to Home", async () => {
   const { ctx, page } = await open();
   await go(page, `/app/item?chain=bowl-and-co&item=${DISH}`);
-  await page.getByRole("button", { name: "Customise" }).click();
+  await page.getByRole("button", { name: "Change the order" }).click();
   await page.getByRole("heading", { name: "Build your order" }).waitFor({ timeout: 120000 });
   await page.getByRole("button", { name: "Save", exact: true }).click();
   await waitPath(page, MEALS);

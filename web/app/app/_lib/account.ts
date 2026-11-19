@@ -3,22 +3,49 @@
 import { useSyncExternalStore } from "react";
 import { API_BASE, APP_BUILD } from "@/lib/mm/config";
 import { cleanUser, createAccountApi, sanitizeStoredSession, type AccountApi, type AccountUser, type StoredSession } from "@/lib/mm/account";
-import { createStore } from "@/lib/mm/persist";
+import { hasNative, nativeCall } from "@/lib/mm/native";
+import { createStore, withCopy } from "@/lib/mm/persist";
 import { EMPTY_META, SyncEngine, sanitizeMeta, type SyncStatus } from "@/lib/mm/sync";
 import { createSyncAdapters } from "@/lib/mm/syncStores";
 import { communityCacheStore } from "./communityCache";
 import { forgetInviteCode } from "./inviteCode";
 import { compareStore, cupboardStore, favoritesStore, logStore, myRecipesStore, remindersStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, waterStore } from "@/lib/mm/stores";
 
-// Sign-in and sync for the running app (docs/ACCOUNTS_SYNC.md). Signing in is optional: with no account none of this does anything and
-// everything stays on the device. The cached "who" (mm.v1.account) is only for showing the name; the real session is the server's
+// Sign-in and sync for the running app (docs/ACCOUNTS_SYNC.md). Since 2026-11-17 everyone signs in (lib/mm/config.ts SIGN_IN_REQUIRED: the app shows the
+// sign-in screen until someone is); with that switch off signing in is optional, and with no account none of this does anything and everything stays on the device. The cached "who" (mm.v1.account) is only for showing the name; the real session is the server's
 // (http-only cookies on the website; the iPhone app's own copy in mm.v1.session).
 
 const isUser = (u: unknown): u is AccountUser =>
   typeof u === "object" && u !== null && typeof (u as AccountUser).id === "string" && (typeof (u as AccountUser).email === "string" || (u as AccountUser).email === null);
 
 export const userStore = createStore<AccountUser | null>("mm.v1.account", null, { sanitize: (raw) => (isUser(raw) ? cleanUser(raw) : null) });
-const tokensStore = createStore<StoredSession | null>("mm.v1.session", null, { sanitize: sanitizeStoredSession });
+const localTokens = createStore<StoredSession | null>("mm.v1.session", null, { sanitize: sanitizeStoredSession });
+// The iPhone app also keeps the session in its Keychain (founder 2026-11-18: "It always goes to this screen whenever you do the new build"): the web view's
+// storage can lose its newest writes when iOS ends the app at once (an install, an update, a crash), and a renewed session lost that way meant the old one
+// was refused and the person was signed out. Every change is copied to the Keychain (MenuMacros/Services/SessionStore.swift), which bootAccount reads first.
+const keepInKeychain = (session: StoredSession | null) => {
+  if (APP_BUILD && hasNative()) void nativeCall("session.save", { value: session ? JSON.stringify(session) : null }, 5_000);
+};
+const tokensStore = withCopy(localTokens, keepInKeychain);
+
+/** The iPhone app's Keychain copy of the session, put back in place before anything asks who is signed in; an app set up before the copy existed fills it. */
+async function restoreKeychainSession(): Promise<void> {
+  if (!APP_BUILD || !hasNative()) return;
+  const reply = await nativeCall("session.load", {}, 3_000);
+  if (reply.error) return; // no answer: carry on with what the page has
+  let kept: StoredSession | null = null;
+  try {
+    kept = reply.session ? sanitizeStoredSession(JSON.parse(reply.session)) : null;
+  } catch {
+    kept = null;
+  }
+  const local = localTokens.get();
+  if (kept) {
+    if (JSON.stringify(kept) !== JSON.stringify(local)) localTokens.set(kept);
+  } else if (local) {
+    keepInKeychain(local);
+  }
+}
 export const syncMetaStore = createStore("mm.v1.syncMeta", EMPTY_META, { sanitize: sanitizeMeta });
 
 let api: AccountApi | null = null;
@@ -127,14 +154,25 @@ export async function leaveForClearing(): Promise<void> {
 /** Read when this file loads, before the settings page tidies "?signin=ok" out of the address. */
 const RETURNING = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("signin") === "ok";
 
+// While the app finds out who is signed in and nobody is known yet (just back from Google or Apple, or the iPhone app holds a session the device has no name
+// for), the sign-in screen waits instead of flashing up (lib/mm/signInGate.ts).
+let checking = typeof window !== "undefined" && !userStore.get() && (RETURNING || (APP_BUILD && (!!tokensStore.get() || hasNative())));
+const checkingListeners = new Set<() => void>();
+function doneChecking(): void {
+  if (!checking) return;
+  checking = false;
+  checkingListeners.forEach((f) => f());
+}
+
 let booted = false;
 /** On every launch: ask who is signed in. Offline keeps what we knew; a "no" means the session ended, so the device goes back to plain local data. */
 export async function bootAccount(): Promise<void> {
   if (booted || typeof window === "undefined") return;
   booted = true;
+  await restoreKeychainSession();
   // Someone who never signed in sends the server nothing: ask only if this device already knows an account, the iPhone app holds a session,
   // or the browser has just come back from Google or Apple sign-in (the callback adds ?signin=ok).
-  if (!userStore.get() && !RETURNING && !(APP_BUILD && tokensStore.get())) return;
+  if (!userStore.get() && !RETURNING && !(APP_BUILD && tokensStore.get())) return doneChecking();
   try {
     const user = await accountApi().session();
     if (user) signedIn(user);
@@ -142,6 +180,8 @@ export async function bootAccount(): Promise<void> {
   } catch {
     const known = userStore.get();
     if (known) startLoop(); // offline: stay signed in as far as we know and sync when the network is back
+  } finally {
+    doneChecking();
   }
 }
 
@@ -149,6 +189,18 @@ export async function bootAccount(): Promise<void> {
 
 export function useAccountUser(): AccountUser | null {
   return useSyncExternalStore(userStore.subscribe, userStore.get, userStore.getServerSnapshot);
+}
+
+/** True while the app is still finding out who is signed in (see `checking` above). */
+export function useAccountChecking(): boolean {
+  return useSyncExternalStore(
+    (fn) => {
+      checkingListeners.add(fn);
+      return () => checkingListeners.delete(fn);
+    },
+    () => checking,
+    () => false,
+  );
 }
 
 export function useSyncState(): { status: SyncStatus; lastSyncAt?: number } {

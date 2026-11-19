@@ -1,5 +1,6 @@
 import Foundation
 import OSLog
+import StoreKit
 import WebKit
 
 /// Answers the page's requests (BridgeRequest) with the iPhone's own scanner, location, share sheet, sign-in sheets, reminder notifications and the App
@@ -16,8 +17,9 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
     private let webSignIn: any WebSigningIn
     private let notifications: any NotificationScheduling
     private let purchases: any PurchaseService
+    private let session: any SessionStoring
 
-    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn, notifications: any NotificationScheduling, purchases: any PurchaseService) {
+    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn, notifications: any NotificationScheduling, purchases: any PurchaseService, session: any SessionStoring = InMemorySessionStore()) {
         self.scanner = scanner
         self.location = location
         self.sharer = sharer
@@ -25,6 +27,7 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
         self.webSignIn = webSignIn
         self.notifications = notifications
         self.purchases = purchases
+        self.session = session
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
@@ -105,6 +108,15 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
             }
         case .iapManage:
             await purchases.manageSubscriptions()
+            return BridgeReply(done: true)
+        case .requestReview:
+            // the page asks only after someone rated the app 5 (web/app/app/_components/RatingPrompt.tsx); Apple shows its pop-up or, past its yearly limit, nothing
+            if let scene = webView?.window?.windowScene { AppStore.requestReview(in: scene) }
+            return BridgeReply(done: true)
+        case .sessionLoad:
+            return BridgeReply(done: true, session: session.load())
+        case .sessionSave(_, let value):
+            session.save(value)
             return BridgeReply(done: true)
         }
     }

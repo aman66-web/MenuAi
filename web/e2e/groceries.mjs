@@ -63,7 +63,10 @@ await step("product page: numbers per 100 g, price with its source, the allergen
   await page.goto(BASE + "/app/groceries/product?code=5012345678900&r=aldi");
   await page.getByRole("heading", { name: "Greek Style Yogurt" }).waitFor();
   await page.getByText("KCAL PER 100 G", { exact: false }).first().waitFor();
-  await page.getByText("£1.25").waitFor();
+  await page.getByText("£1.25").first().waitFor();
+  // each shop's chip says its price there too (founder 2026-11-18: "add the prices next to the logos on other screens too")
+  const chips = page.getByRole("navigation", { name: "Supermarket" }).getByRole("link");
+  if ((await chips.count()) > 1) expect((await chips.allInnerTexts()).every((c) => /£\d+\.\d\d/.test(c)), `chips: ${(await chips.allInnerTexts()).join(" | ")}`);
   await page.getByText("Prices and offers vary by store").waitFor();
   const table = page.getByRole("region", { name: "Allergens" }).getByRole("table");
   await table.getByRole("row", { name: /Milk/ }).getByText("Contains", { exact: true }).waitFor();

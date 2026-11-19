@@ -1,10 +1,20 @@
 import { chromium } from "playwright-core";
 const BASE = process.env.BASE ?? "http://localhost:3101";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
+
+// Pip's tips on the real screens (CoachMarks, 2026-11-18) are stopped in this test, as if the person had pressed "Stop the tips": e2e/coach.mjs covers them.
+{
+  const open = browser.newContext.bind(browser);
+  browser.newContext = async (options) => {
+    const c = await open(options);
+    await c.addInitScript(() => { try { if (!localStorage.getItem("mm.v1.coach")) localStorage.setItem("mm.v1.coach", JSON.stringify({ v: 1, data: { armed: false, seen: ["home", "eatOut", "groceries", "recipes"] } })); } catch { /* storage blocked */ } });
+    return c;
+  };
+}
 let pass = 0, fail = 0;
 async function step(n, fn) { try { await fn(); pass++; console.log("PASS", n); } catch (e) { fail++; console.log("FAIL", n, "-", String(e.message).split("\n")[0]); } }
 const vis = (l) => l.waitFor({ state: "visible", timeout: 8000 });
-// The welcome screen, Pip's arrival, the text size, Pip's walk along the tab bar (Home, Eat out, Groceries, Recipes, Community) and "Let's make it yours",
+// The welcome screen, Pip's arrival, the text size, Pip's walk along the tab bar (Home, Eat out, Groceries, Recipes; Community is off since 2026-11-18) and "Let's make it yours",
 // then "Set up my plan" to the first question.
 async function pastIntro(page) {
   await page.getByRole("button", { name: "Get started" }).click();
@@ -12,7 +22,7 @@ async function pastIntro(page) {
   await page.getByRole("button", { name: "Show me around" }).click();
   await vis(page.getByRole("heading", { name: "Easy to read" }));
   await page.getByRole("button", { name: "Continue" }).click();
-  for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Community"]) {
+  for (const tab of ["Home", "Eat out", "Groceries", "Recipes"]) {
     await vis(page.getByRole("heading", { level: 1, name: tab, exact: true }));
     await page.getByRole("button", { name: "Continue" }).click();
   }
@@ -262,9 +272,9 @@ await step("App Review 1.4.1: the sources of the suggested targets are one tap a
   await sheet.getByRole("button", { name: "Close" }).click();
   // the GLP-1 goal note has its own link, and Settings > About has the page
   await vis(page.locator("section, div").filter({ hasText: "follow the advice of your doctor or pharmacist" }).getByRole("button", { name: "Where these numbers come from" }).first());
-  await page.getByRole("link", { name: "Where these numbers come from" }).click();
+  await page.getByRole("link", { name: "Where your daily targets come from" }).click();
   await page.waitForURL(/\/app\/settings\/sources/);
-  await vis(page.getByRole("heading", { level: 1, name: "Where these numbers come from" }));
+  await vis(page.getByRole("heading", { level: 1, name: "Where your daily targets come from" }));
   await vis(page.getByRole("link", { name: "How we get our numbers" }));
   await page.getByRole("link", { name: "Settings", exact: true }).click();
   await vis(page.getByRole("heading", { level: 1, name: "Settings", exact: true }));

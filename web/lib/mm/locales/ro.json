@@ -1863,8 +1863,9 @@
  "We haven't read a price at {shop} yet.": "Încă n-am citit un preț la {shop}.",
  "We haven't read allergens for these products, so your allergy settings can't hide any here. Always check the pack.": "Nu am citit încă alergenii acestor produse, așa că setările tale pentru alergii nu pot ascunde nimic aici. Verifică mereu ambalajul.",
  "We haven't read enough of {shop} product pages to fill these recipes yet.": "Încă n-am citit destule pagini de produse de la {shop} ca să completăm aceste rețete.",
- "We haven't read the label for {name} yet, so it isn't counted in these numbers.": "Încă n-am citit eticheta pentru {name}, așa că nu intră în aceste cifre.",
- "We haven't read the labels for {names} yet, so they aren't counted in these numbers.": "Încă n-am citit etichetele pentru {names}, așa că nu intră în aceste cifre.",
+ "Herbs, spices and salt don't have to carry a nutrition label, and we have none for {name}, so it isn't counted in these numbers.": "Ierburile, condimentele și sarea nu trebuie să aibă etichetă nutrițională, iar pentru {name} nu avem una, așa că nu este inclus în aceste cifre.",
+ "Herbs, spices and salt don't have to carry a nutrition label, and we have none for {names}, so they aren't counted in these numbers.": "Ierburile, condimentele și sarea nu trebuie să aibă etichetă nutrițională, iar pentru {names} nu avem, așa că nu sunt incluse în aceste cifre.",
+ "Salt doesn't have to carry a nutrition label. Where the shop gives none, we count it as UK table salt labels print it: no calories, protein, carbs or fat, and 99.9 g of salt in every 100 g.": "Sarea nu trebuie să aibă etichetă nutrițională. Când magazinul nu oferă una, o socotim așa cum o arată etichetele sării de masă din Regatul Unit: fără calorii, proteine, carbohidrați sau grăsimi și 99,9 g de sare la fiecare 100 g.",
  "We haven't read the nutrition for this product yet. The label on the pack has it, and so does the product's page on {shopPossessive} website.": "Încă n-am citit valorile nutriționale pentru acest produs. Le găsești pe eticheta de pe ambalaj și pe pagina produsului de pe site-ul {shopPossessive}.",
  "We never estimate. If a restaurant doesn't publish a value, we show ‘not published’.": "Nu estimăm niciodată. Dacă un restaurant nu publică o valoare, afișăm „nepublicat”.",
  "We only keep your email address and what you choose to sync. No ads, no tracking.": "Păstrăm doar adresa ta de e-mail și ce alegi să sincronizezi. Fără reclame, fără urmărire.",
@@ -2149,5 +2150,9 @@
  "{total} for the {priced} of {count} items with a price, at {shopPossessive} prices. Prices change: check in store.": "{total} pentru cele {priced} din {count} produse care au preț, la prețurile {shopPossessive}. Prețurile se schimbă: verifică în magazin.",
  "{used} of {limit} free saved orders used.": "Ai folosit {used} din {limit} comenzi salvate gratuite.",
  "“Not listed” means nothing is recorded, not that the product is free from it.": "„Nu e menționat” înseamnă că nu e înregistrat nimic, nu că produsul nu îl conține.",
- "…": "…"
+ "…": "…",
+ "My recipes": "Rețetele mele",
+ "Only show": "Arată doar",
+ "Show {n} recipes": "Arată {n} rețete",
+ "Show 1 recipe": "Arată 1 rețetă"
 }

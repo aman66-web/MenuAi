@@ -14,6 +14,7 @@ export const RANKING_CONFIG = {
   glp1ProteinFirst: 25, // glp1: picks with >= 25 g protein are listed first
   outOfBudgetThreshold: 200, // remaining kcal below this -> "lowest-calorie options" mode
   outOfBudgetMinProtein: 10,
+  minPickCalories: 100, // founder 2026-11-18 ("Yes, skip them"): a ranked pick has at least 100 kcal, unless nothing that big fits (an espresso was #1 for building muscle)
   maxPerBaseItem: 2,
   resultCount: 5,
 } as const;
@@ -115,7 +116,10 @@ export function rank({ chain, profile, loggedCalories, meal, preferences, config
     return { mode: "outOfBudget", remaining, budget, picks };
   }
 
-  const fits = pool.filter((c) => c.nutrients.calories <= budget);
+  const fitsAll = pool.filter((c) => c.nutrients.calories <= budget);
+  // tiny items (an espresso, a sachet) only when nothing of minPickCalories or more fits
+  const bigEnough = fitsAll.filter((c) => c.nutrients.calories >= config.minPickCalories);
+  const fits = bigEnough.length ? bigEnough : fitsAll;
   if (fits.length === 0) {
     const closest = [...pool]
       .sort((a, b) => a.nutrients.calories - b.nutrients.calories || compareStrings(a.name, b.name))

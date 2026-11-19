@@ -6,6 +6,7 @@ import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import type { Recipe } from "@/lib/mm/recipes";
 import { myRecipesStore, savedRecipesStore } from "@/lib/mm/stores";
+import type { SavedRecipe } from "@/lib/mm/aiRecipe";
 import type { RecipeSave } from "@/lib/mm/user-data";
 import { PotIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
@@ -37,22 +38,38 @@ export function MyRecipes() {
   const pip = useMemo(() => mine.filter((m) => m.shop === shop).map((m) => savedToRecipe(m, JSON.parse(dietKey))).filter((r): r is Recipe => !!r), [mine, shop, dietKey]);
   const bookCards = useRecipeCards(book, products, settings.preferences, target);
   const pipCards = useRecipeCards(pip, products, settings.preferences, target).cards;
-  const [undo, setUndo] = useState<{ entry: RecipeSave; index: number; name: string } | null>(null);
+  // the last one taken out, for Undo: a saved book recipe, or one Pip made (founder 2026-11-18: made recipes are saved as they're made, and come out here)
+  const [undo, setUndo] = useState<{ kind: "book"; entry: RecipeSave; index: number; name: string } | { kind: "mine"; entry: SavedRecipe; index: number; name: string } | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
 
   function unsaved(id: string, name: string) {
     const index = saves.findIndex((s) => s.id === id);
     if (index < 0) return;
-    setUndo({ entry: saves[index]!, index, name });
+    setUndo({ kind: "book", entry: saves[index]!, index, name });
+    if (timer.current) clearTimeout(timer.current);
+    timer.current = setTimeout(() => setUndo(null), 6000);
+  }
+
+  function removeMine(id: string, name: string) {
+    const index = mine.findIndex((m) => m.id === id);
+    if (index < 0) return;
+    const entry = mine[index]!;
+    myRecipesStore.update((list) => list.filter((m) => m.id !== id));
+    setUndo({ kind: "mine", entry, index, name });
     if (timer.current) clearTimeout(timer.current);
     timer.current = setTimeout(() => setUndo(null), 6000);
   }
 
   function restore() {
     if (!undo) return;
-    const { entry, index } = undo;
-    savedRecipesStore.update((list) => (list.some((r) => r.id === entry.id) ? list : [...list.slice(0, index), entry, ...list.slice(index)]));
+    if (undo.kind === "mine") {
+      const { entry, index } = undo;
+      myRecipesStore.update((list) => (list.some((r) => r.id === entry.id) ? list : [...list.slice(0, index), entry, ...list.slice(index)]));
+    } else {
+      const { entry, index } = undo;
+      savedRecipesStore.update((list) => (list.some((r) => r.id === entry.id) ? list : [...list.slice(0, index), entry, ...list.slice(index)]));
+    }
     if (timer.current) clearTimeout(timer.current);
     setUndo(null);
   }
@@ -74,7 +91,7 @@ export function MyRecipes() {
     <div>
       {(bookCards.cards.length > 0 || pipCards.length > 0) && (
         <ul className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,10rem),1fr))] gap-3">
-          {pipCards.map((c) => (<li key={c.recipe.id} className="min-w-0"><RecipeTile card={c} badge={t("Made by Pip")} href={`/app/recipes/view?mine=${c.recipe.id}&r=${shop}`} /></li>))}
+          {pipCards.map((c) => (<li key={c.recipe.id} className="min-w-0"><RecipeTile card={c} badge={t("Made by Pip")} href={`/app/recipes/view?mine=${c.recipe.id}&r=${shop}`} onRemoveMine={(id) => removeMine(id, c.recipe.name)} /></li>))}
           {bookCards.cards.map((c) => (<li key={c.recipe.id} className="min-w-0"><RecipeTile card={c} href={`/app/recipes/view?id=${c.recipe.id}&r=${shop}`} onUnsave={(id) => unsaved(id, t(c.recipe.name))} /></li>))}
         </ul>
       )}

@@ -33,7 +33,23 @@ export const AI_RECIPES_ENABLED = false;
  */
 export const LANGUAGES_ENABLED = false;
 
-export const COMMUNITY_FRIENDS_ENABLED = process.env.NEXT_PUBLIC_COMMUNITY_FRIENDS !== "0";
+/**
+ * Community as a whole (its tab, the food blogs, friends and shopping lists sent to friends). Off (founder 2026-11-18: "Okay, fine. In that case, we'll remove the
+ * community one", after "Everyone needs to understand the point for each screen" and "I want my granddad to be able to use it"): four tabs, one job each. Its
+ * pages forward to Home, the tour has no Community stop, and a shopping list is still sent with the phone's own Share. The code and the database tables stay, so
+ * NEXT_PUBLIC_COMMUNITY=1 brings it all back; nothing is deleted.
+ */
+export const COMMUNITY_ENABLED = process.env.NEXT_PUBLIC_COMMUNITY === "1";
+export const COMMUNITY_FRIENDS_ENABLED = COMMUNITY_ENABLED && process.env.NEXT_PUBLIC_COMMUNITY_FRIENDS !== "0";
+
+/**
+ * Everyone signs in (founder 2026-11-17: "Sign up screen shouldn't be skippable, required for everyone"). Until someone is signed in, every app screen shows the
+ * sign-in screen (_components/SignInScreen.tsx) instead; the welcome screen and the privacy, terms and support pages stay open. On for the real website and the
+ * iPhone app. Off for the browser tests' builds (they turn the sample chains on; NEXT_PUBLIC_SIGN_IN_REQUIRED=1 forces it on there) and with
+ * NEXT_PUBLIC_SIGN_IN_REQUIRED=0: the one-line fallback if App Review objects under guideline 5.1.1(v) (sign-in then goes back to being optional).
+ */
+export const SIGN_IN_REQUIRED =
+  process.env.NEXT_PUBLIC_SIGN_IN_REQUIRED === "1" || (process.env.NEXT_PUBLIC_SIGN_IN_REQUIRED !== "0" && !SAMPLES_ENABLED);
 
 /** Flip to true once payments exist (docs/WEB_BUILD_PLAN.md). Until then the paywall is honest about it. */
 export const PAYMENTS_ENABLED = false;

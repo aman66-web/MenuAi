@@ -6,10 +6,9 @@ import { barcodeQuery, cheapestRetailer, forRetailer, formatPrice, mergeProducts
 import { formatDate } from "@/lib/mm/format";
 import { foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
 import type { Allergens } from "@/lib/mm/types";
-import { addToList, withPhoto } from "@/lib/mm/groceries";
+import { withPhoto } from "@/lib/mm/groceries";
 import { CompareButton } from "../../_components/CompareButton";
 import { compareFoodFromListed } from "../../_lib/compare";
-import { shoppingStore } from "@/lib/mm/stores";
 import { AllergenTable } from "../../_components/Allergens";
 import { CopyIcon, InfoIcon, PlusIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
@@ -22,6 +21,7 @@ import { NutritionPanel } from "../NutritionPanel";
 import { BackLink, CARD, CHIP, CHIP_ON, FootNote, HEADING, LABEL, NOTE } from "../PageBits";
 import { ProductPhotoFigure } from "../ProductPhoto";
 import { ProductMini } from "../ProductMini";
+import { listHref, useAddToList } from "../ListChoice";
 
 // A product from the supermarket lists (docs/GROCERIES_PLAN.md): photo, per-100 g numbers, price where known, the 14 allergens, the barcode.
 // Looks follow Home (founder 2026-10-15): one white card holding the picture, the name as a big title and the nutrition as Home's macro rows; the
@@ -76,7 +76,9 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
   const prefs = useSettings().preferences;
   const wanted = barcodeQuery(code);
   const [state, setState] = useState<State>({ status: "loading" });
-  const [added, setAdded] = useState<string | null>(null);
+  const [added, setAdded] = useState<{ text: string; href: string } | null>(null);
+  // to the main list, or (when the person has lists for that shop) the one they choose
+  const { add, sheet } = useAddToList((list, item) => setAdded(list ? { text: t("Added to {list}.", { list: list.name }), href: listHref(list.id) } : { text: t("Added to your list for {shop}.", { shop: retailerName(item.retailer) }), href: listHref() }));
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -113,6 +115,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
   // Opened from a supermarket: that shop's own name, size, numbers and price lead; the others are listed below it.
   const selected = retailerHint && listed.retailers.includes(retailerHint) ? retailerHint : listed.retailers[0]!;
   const p = forRetailer(listed, selected);
+  const cheapestPrice = Math.min(...Object.values(listed.prices).map((x) => x.amount));
   const photos = photoSources(listed, selected);
   const per = perLabel(p, t);
   const sizes = sizeVariants(state.all, listed);
@@ -194,6 +197,8 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
             <Link key={r} href={`/app/groceries/product?code=${listed.gtin}&r=${r}`} replace prefetch={false} aria-current={r === selected ? "page" : undefined}
               className={`${r === selected ? CHIP_ON : CHIP} gap-2 pe-4 ps-1.5`}>
               <ShopMark shopId={r} size="xs" />{retailerName(r)}
+              {/* its price there, beside its logo (founder 2026-11-18) */}
+              {listed.prices[r] && <span className={`app-numbers ${r === selected ? "" : "text-muted"} ${listed.prices[r]!.amount === cheapestPrice && listed.retailers.length > 1 ? "font-extrabold" : "font-semibold"}`}>{formatPrice(listed.prices[r]!.amount)}</span>}
             </Link>
           ))}
         </nav>
@@ -279,13 +284,14 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
         <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-2.5">
           {/* the shop you came from first, across the card's width; the others in equal cells two to a row under it (one a row at large text) */}
           {[...p.retailers].sort((x, y) => Number(y === selected) - Number(x === selected)).map((r) => (
-            <Button key={r} variant={r === selected ? "primary" : "secondary"} className={r === selected ? "col-span-full" : "px-3! text-balance"} onClick={() => { shoppingStore.update((l) => addToList(l, { gtin: listed.gtin, retailer: r, name: forRetailer(listed, r).name, brand: listed.brand, size: forRetailer(listed, r).size, ...withPhoto(photoSources(listed, r)) })); setAdded(t("Added to your list for {shop}.", { shop: retailerName(r) })); }}>
+            <Button key={r} variant={r === selected ? "primary" : "secondary"} className={r === selected ? "col-span-full" : "px-3! text-balance"} onClick={() => add({ gtin: listed.gtin, retailer: r, name: forRetailer(listed, r).name, brand: listed.brand, size: forRetailer(listed, r).size, ...withPhoto(photoSources(listed, r)) })}>
               {r === selected && <PlusIcon className="h-[18px] w-[18px]" />}{t("Add · {shop}", { shop: retailerName(r) })}
             </Button>
           ))}
         </div>
-        <p role="status" aria-live="polite" className="mt-3 text-sm font-medium text-accent empty:mt-0">{added}</p>
-        {added && <Link href="/app/groceries/list" className={`inline-flex min-h-11 items-center text-[0.9375rem] ${outLink}`}>{t("Open your shopping list")}</Link>}
+        <p role="status" aria-live="polite" className="mt-3 text-sm font-medium text-accent empty:mt-0">{added?.text}</p>
+        {added && <Link href={added.href} className={`inline-flex min-h-11 items-center text-[0.9375rem] ${outLink}`}>{t("Open your shopping list")}</Link>}
+        {sheet}
       </div>
 
       <div className="mt-3.5"><CompareButton full item={compareFoodFromListed(listed, selected)} /></div>

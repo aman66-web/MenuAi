@@ -66,12 +66,15 @@ MORRISONS_AISLES = {"fruit-veg": "Fruit & Veg", "meat-fish": "Meat & Fish", "fre
 TESCO_AISLES = {"fresh-food": "Fresh Food", "bakery": "Bakery", "frozen-food": "Frozen Food"}
 # Not food or drink, going by the product's own name (groceries only, founder 2026-10-11); "bouquet" alone is also a wine word, so it needs a flower word.
 # A cake named after its decoration ("Candles Celebration Cake", "Balloon & Stars Cake", "Rose Bouquet Madeira Cake") is food: a food word after the match keeps it.
-NON_FOOD = re.compile(r"\b(?:candles?|sparklers?|cake toppers?|balloons?|napkins?|paper plates?|bin bags?|kitchen rolls?|toilet rolls?|batter(?:y|ies)|"
+NON_FOOD = re.compile(r"\b(?:\d+\s?cm (?:\w+ )?roasters?|roasting (?:tins?|trays?)|foil (?:trays?|containers?)|candles?|sparklers?|cake toppers?|balloons?|napkins?|paper plates?|bin bags?|kitchen rolls?|toilet rolls?|batter(?:y|ies)|"
                       r"light bulbs?|firelighters|charcoal briquettes|lumpwood charcoal|gift cards?|carrier bags?|bags? for life|"
                       r"(?:cupcake|muffin|cake|baking) cases|filter papers|piping bags?|cake boards?|cocktail sticks|cling film|baking parchment|"
                       r"foil trays?|kitchen foil|tin foil|freezer bags?|food bags?|dog toys?|dog treats?|dog chews?|cat treats?|pet treats?|for dogs|for cats)\b"
                       r"|\b(?:roses?|lil(?:y|ies)|tulips?|chrysanthemums?|carnations?|flowers?|alstroemeria|stems)\b.*\bbouquet\b|\bbouquet\b.*\b(?:roses?|lil(?:y|ies)|tulips?|flowers?|stems)\b"
-                      r"|^tesco \w+ bouquet$", re.I)
+                      r"|^tesco \w+ bouquet$"
+                      # kitchenware sold among the food (founder 2026-11-18: "every food product"): Asda's George Home range, Waitrose's John Lewis tools, shakers
+                      r"|^george home\b|^(?:john lewis|jl) stainless steel\b|\bprotein shaker\b|\bnut ?crackers?\b(?!.*\b(?:chocolate|biscuits?)\b)|\bwater filter\b|\bfilter cartridges?\b|\bmaxtra\b"
+                      r"|\bpaper cases\b|\b(?:cake|loaf) liners\b|\bbaking trays?\b|\b(?:cupcake|cake) boxes\b", re.I)
 FOOD_AFTER = re.compile(r"\b(?:cakes?|crackers|kebabs?|biscuits?|cupcakes?)\b", re.I)
 
 
@@ -219,7 +222,7 @@ def read_nutrition(shop: str, problems: list, path: Path | None = None) -> dict:
         for line, r in enumerate(csv.DictReader(f), start=2):
             slug, per = (r.get("product_id") or "").strip(), (r.get("per") or "").strip()
             main = [bg.printed_num(r.get(k)) for k in ("kcal", "protein_g", "carbs_g", "fat_g")]
-            if not SLUG.fullmatch(slug) or per not in ("g", "ml") or None in main or bg.implausible(main[0], main[1], main[2], main[3]):
+            if not SLUG.fullmatch(slug) or per not in ("g", "ml") or None in main or bg.implausible(main[0], main[1], main[2], main[3], fibre=bg.printed_num(r.get("fibre_g"))):
                 problems.append(f"nutrition/{path.name} line {line}: not usable ({slug!r})")
                 continue
 
@@ -230,6 +233,12 @@ def read_nutrition(shop: str, problems: list, path: Path | None = None) -> dict:
             state = " ".join((r.get("state") or "").lower().split())[:24]
             out[slug] = ([round(main[0], 1), round(main[1], 1), round(main[2], 1), round(main[3], 1), opt("saturates_g"), opt("sugars_g"), opt("fibre_g"), opt("salt_g"),
                           opt("kj"), per, state], (r.get("checked_on") or "").strip())
+    # a shop whose main file comes from another reader (Sainsbury's: t2_sainsburys.py) keeps its Chrome reads in <shop>-chrome.csv: they fill only products the
+    # main file has no row for, never replace one
+    extra = ROOT / "data" / "groceries" / "nutrition" / f"{shop}-chrome.csv"
+    if path.name == f"{shop}.csv" and extra.exists():
+        for slug, v in read_nutrition(shop, problems, extra).items():
+            out.setdefault(slug, v)
     return out
 
 
@@ -449,7 +458,8 @@ def catalogue_nutrition(base: Path | None = None, details: Path | None = None, l
             if not code or code in out or code in own or restricted_code(code) or c.get("per") not in ("g", "ml"):
                 continue
             main = [c.get(k) for k in ("kcal", "protein", "carbs", "fat")]
-            if not all(isinstance(v, (int, float)) for v in main) or implausible(*main, c.get("kj") if isinstance(c.get("kj"), (int, float)) else None):
+            if not all(isinstance(v, (int, float)) for v in main) or implausible(*main, c.get("kj") if isinstance(c.get("kj"), (int, float)) else None,
+                                                                                 c.get("fibre") if isinstance(c.get("fibre"), (int, float)) else None):
                 continue
             out[code] = (community_row(c), None)
     looked_up = looked_up or ROOT / "data" / "groceries" / "nutrition" / "raw-off"
@@ -494,6 +504,141 @@ def fill_community_nutrition(docs: dict[str, dict], by_code: dict[str, tuple[lis
                 continue
             r[10] = list(row)
             n += 1
+        counts[shop] = n
+    return counts
+
+
+# A dry staple's label that is really for the cooked or prepared food (founder 2026-11-18, the label review): some pages and community records print figures
+# for the boiled pasta or the made-up couscous while the heading says only "per 100g" (M&S pearl barley 107 kcal; Asda penne 157 kcal from Open Food Facts).
+# Dried pasta, rice, grains, flour, oats and dried lentils are about 330-380 kcal per 100 g as sold, so under 250 can't be the food as sold: those numbers are
+# left out (nothing is guessed; the product shows no nutrition, and a recipe uses another product). Only a plain dry staple counts: every word of its name is a
+# staple, a shop or range word or a plain describing word, so ready meals ("spaghetti bolognese"), pouches ("microwave", "steamed"), fresh pasta and anything
+# "with" something are never touched, and nor is a pack under 400 g or a multipack (pouches come in those), rice pudding (a tinned dessert: "pudding rice" is
+# the dry one) or a lasagne that isn't "lasagne sheets" (a ready meal).
+STAPLE_CORE = {
+    "spaghetti", "spaghettini", "penne", "fusilli", "farfalle", "linguine", "tagliatelle", "pappardelle", "rigatoni", "macaroni", "conchiglie", "orzo",
+    "lasagne", "lasagna", "gemelli", "tortiglioni", "casarecce", "orecchiette", "pasta", "rice", "couscous", "bulgur", "bulghur", "bulgar", "barley",
+    "quinoa", "freekeh", "semolina", "polenta", "flour", "oats",
+}
+STAPLE_WORDS = STAPLE_CORE | {
+    # what the staple is
+    "sheets", "shells", "twists", "tubes", "elbows", "spirals", "bows", "pearl", "wheat", "durum", "whole", "wholewheat", "wholemeal", "wholegrain",
+    "white", "brown", "long", "grain", "easy", "cook", "basmati", "jasmine", "arborio", "risotto", "paella", "sticky", "sushi", "red", "green",
+    "split", "dried", "giant", "fine", "medium", "coarse", "plain", "self", "raising", "strong", "bread", "spelt", "porridge", "rolled", "jumbo", "scottish",
+    "tricolore", "tricolour", "mini", "quick", "italian", "organic", "free", "from", "gluten", "british", "lentils", "lentil", "pearled", "cracked",
+    # shops, their ranges and the big dry-goods brands
+    "asda", "tesco", "sainsbury", "sainsburys", "by", "ms", "waitrose", "morrisons", "iceland", "aldi", "lidl", "coop", "essential", "essentials",
+    "just", "everyday", "specially", "selected", "exceptional", "extra", "special", "taste", "the", "difference", "finest", "savers", "best", "value",
+    "inspired", "cucina", "duchy", "collection", "cooks", "ingredients", "stamford", "street", "hubbards", "napolina", "barilla", "de", "cecco", "garofalo",
+    "quaker", "flahavans", "mornflake", "homepride", "allinson", "allinsons", "tilda", "food", "foods",
+}
+
+
+def cooked_staple(name: str, nut) -> bool:
+    """A plain dry staple whose 'as sold' label is under 250 kcal per 100 g: the figures must be for the cooked or prepared food (see above)."""
+    if not nut or not isinstance(nut[0], (int, float)) or nut[0] >= 250 or (len(nut) > 10 and nut[10]):
+        return False
+    low = name.lower().replace("&", " ").replace("’", "'").replace("'s", "s")
+    if re.search(r"\d\s*x\s*\d|\bx\s*\d", low):
+        return False  # a multipack: pouches come in those
+    size = re.search(r"(\d+(?:\.\d+)?)\s*(kg|g)\b", low)
+    if size and float(size.group(1)) * (1000 if size.group(2) == "kg" else 1) < 400:
+        return False  # under 400 g: often a ready-to-heat pouch
+    words = [w for w in re.split(r"[^a-z]+", re.sub(r"\d+(?:\.\d+)?\s*(kg|g|ml|l)\b", " ", low)) if w]
+    if (("lentils" in words or "lentil" in words) and not {"red", "split", "dried"} & set(words)):
+        return False  # plain lentils may be a ready-to-eat pouch
+    if "pudding" in words:
+        at = words.index("pudding")
+        if at + 1 >= len(words) or words[at + 1] != "rice":
+            return False  # rice pudding is a dessert; only "pudding rice" is dry
+        words = words[:at] + words[at + 1:]
+    if ({"lasagne", "lasagna"} & set(words)) and "sheets" not in words:
+        return False  # a lasagne is a ready meal; the dry one is "lasagne sheets"
+    return bool(words) and all(w in STAPLE_WORDS for w in words) and any(w in STAPLE_CORE or w in ("lentils", "lentil") for w in words)
+
+
+def drop_cooked_staples(docs: dict[str, dict]) -> dict[str, int]:
+    """Leaves out the numbers cooked_staple finds (from any source), per shop."""
+    dropped: dict[str, int] = {}
+    for shop, doc in docs.items():
+        for row in doc["products"]:
+            if cooked_staple(row[1], row[10]):
+                row[10] = None
+                dropped[shop] = dropped.get(shop, 0) + 1
+    return dropped
+
+
+def own_label(nut) -> bool:
+    """A row's numbers were read from that shop's own product page (not community numbers, not borrowed from another shop)."""
+    return bool(nut) and not (len(nut) > 11 and isinstance(nut[11], str) and (nut[11] == "off" or nut[11].startswith("same:")))
+
+
+def fill_same_product_nutrition(docs: dict[str, dict]) -> dict[str, int]:
+    """A row with no label of its own takes the label read from ANOTHER supermarket's page for exactly the same product (founder 2026-11-17: "if it's the same
+    exact product on another supermarket ... you can literally just duplicate it"): the same barcode (never a shop-internal number), else the same branded name
+    and pack size (build_groceries.name_key: never a shop's own brand, whose recipe differs from shop to shop; exact, not the any-order match photos use). A
+    product two shops' labels disagree on lends nothing. Marked "same:<shop>" so the app says whose page the numbers are from. Runs before the community step,
+    so a shop's label always beats community numbers. Returns how many rows per shop."""
+    by_code: dict[str, tuple[str, list] | None] = {}
+    by_name: dict[str, tuple[str, list] | None] = {}
+
+    def put(table: dict, key: str, shop: str, nut: list) -> None:
+        if key in table:
+            seen = table[key]
+            if seen is not None and seen[1][:4] != nut[:4]:
+                table[key] = None  # two shops print different numbers for it: lend neither
+            return
+        table[key] = (shop, nut)
+
+    for shop, doc in docs.items():
+        for r in doc["products"]:
+            if not own_label(r[10]):
+                continue
+            nut = list(r[10][:11]) + [""] * (11 - len(r[10][:11]))
+            code = norm_code(r[9]) if r[9] else ""
+            if code and not restricted_code(code):
+                put(by_code, code, shop, nut)
+            key = name_key(r[1])
+            if key and (shop, r[0]) not in NAME_SKIP:
+                put(by_name, key, shop, nut)
+    counts: dict[str, int] = {}
+    for shop, doc in docs.items():
+        n = 0
+        for r in doc["products"]:
+            if r[10] is not None:
+                continue
+            code = norm_code(r[9]) if r[9] else ""
+            hit = by_code.get(code) if code and not restricted_code(code) else None
+            if not hit and (shop, r[0]) not in NAME_SKIP:
+                key = name_key(r[1])
+                hit = by_name.get(key) if key else None
+            if hit and hit[0] != shop:
+                r[10] = list(hit[1]) + ["same:" + hit[0]]
+                n += 1
+        counts[shop] = n
+    return counts
+
+
+def fill_produce_nutrition(docs: dict[str, dict]) -> dict[str, int]:
+    """Loose fresh fruit and vegetables with no label of any kind take the UK government's figures for that food, raw (McCance and Widdowson's Composition of Foods
+    Integrated Dataset 2021, Open Government Licence; tools/groceries/cofid.py; founder 2026-11-17: "you can use the government food data for loose fruits and
+    vegetables. If it doesn't, of course, have it on the website of the supermarket"). Marked "cofid" with the food's own name, so the app says so. Runs last."""
+    import cofid  # noqa: E402
+
+    try:
+        table = cofid.cofid_rows()
+    except (OSError, KeyError, StopIteration):
+        return {}
+    counts: dict[str, int] = {}
+    for shop, doc in docs.items():
+        n = 0
+        for r in doc["products"]:
+            if r[10] is not None:
+                continue
+            code = cofid.produce_code(r[1])
+            if code and code in table:
+                r[10] = list(table[code])
+                n += 1
         counts[shop] = n
     return counts
 
@@ -580,7 +725,13 @@ def main(argv: list[str] | None = None) -> int:
         print(f"{a.only}: no listing to build from")
         return 1
     filled = fill_photos(docs, catalogue_photos(), read_off_images())
+    cooked = drop_cooked_staples(docs)  # before borrowing, so another shop's label for the same branded product can fill in
+    same = fill_same_product_nutrition(docs)
     community = fill_community_nutrition(docs, catalogue_nutrition())
+    produce = fill_produce_nutrition(docs)
+    for shop, n in drop_cooked_staples(docs).items():  # and after, for numbers borrowed from elsewhere
+        cooked[shop] = cooked.get(shop, 0) + n
+    print("dry staples whose 'as sold' label is a cooked figure, left out: " + (", ".join(f"{k} {v}" for k, v in sorted(cooked.items())) or "none"))
     if not a.only:
         print(f"rows still without any photo whose barcode Open Food Facts may have: {write_wanted_off(docs)} (data/groceries/wanted-images/off.csv)")
     for shop, doc in docs.items():
@@ -592,9 +743,10 @@ def main(argv: list[str] | None = None) -> int:
         (OUT / f"{shop}.json").write_text(text)
         with_nutrition = sum(1 for p in doc["products"] if p[10])
         with_community = sum(1 for p in doc["products"] if p[10] and len(p[10]) > 11 and p[10][11] == "off")
+        with_same = sum(1 for p in doc["products"] if p[10] and len(p[10]) > 11 and str(p[10][11]).startswith("same:"))
         priced = sum(1 for p in doc["products"] if p[2] is not None)
         entry = {"id": shop, "name": doc["name"], "file": f"{shop}.json", "count": len(doc["products"]), "checkedOn": doc["checkedOn"],
-                 "nutrition": with_nutrition, **({"community": with_community} if with_community else {}), "priced": priced, "sha256": hashlib.sha256(text.encode()).hexdigest()}
+                 "nutrition": with_nutrition, **({"community": with_community} if with_community else {}), **({"sameProduct": with_same} if with_same else {}), "priced": priced, "sha256": hashlib.sha256(text.encode()).hexdigest()}
         if a.only:  # replace this shop's entry where it stands (or add it at the end), leave every other entry as it is
             at = next((i for i, r in enumerate(manifest["retailers"]) if r.get("id") == shop), None)
             if at is None:
@@ -604,7 +756,7 @@ def main(argv: list[str] | None = None) -> int:
         else:
             manifest["retailers"].append(entry)
         print(f"{shop}: {len(doc['products'])} products ({priced} with a price), {len(text) / 1e6:.1f} MB, {sum(1 for p in doc['products'] if p[8])} with the shop's photo, "
-              f"{sum(1 for p in doc['products'] if len(p) > 11 and p[11])} with a page address, {sum(1 for p in doc['products'] if p[9])} with a barcode, {with_nutrition} with nutrition ({community.get(shop, 0)} of them community numbers by barcode), {len(doc['categories'])} categories")
+              f"{sum(1 for p in doc['products'] if len(p) > 11 and p[11])} with a page address, {sum(1 for p in doc['products'] if p[9])} with a barcode, {with_nutrition} with nutrition ({same.get(shop, 0)} same product at another shop, {community.get(shop, 0)} community, {produce.get(shop, 0)} government produce data), {len(doc['categories'])} categories")
     manifest_path.write_text(json.dumps(manifest, indent=1) + "\n")
     for p in problems[:20]:
         print("problem:", p)

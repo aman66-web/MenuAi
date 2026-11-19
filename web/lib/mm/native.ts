@@ -23,7 +23,10 @@ export type NativeAction =
   | "iap.purchase"
   | "iap.entitlements"
   | "iap.restore"
-  | "iap.manage";
+  | "iap.manage"
+  | "review.request"
+  | "session.load"
+  | "session.save";
 
 /** "iap.products": one App Store product as StoreKit gives it (the price is StoreKit's own localised text, never ours). */
 export interface NativeProduct {
@@ -59,6 +62,8 @@ export interface NativeResult {
   transactions?: string[];
   /** "iap.purchase": waiting for approval (Ask to Buy, or the bank's extra check). */
   pending?: boolean;
+  /** "session.load": the account's saved sign-in as the page handed it to "session.save" (kept in the iPhone's Keychain). */
+  session?: string;
   /** "denied" (the person said no in Settings), "unavailable" (this iPhone can't), "cancelled", "timeout". */
   error?: "denied" | "unavailable" | "cancelled" | "timeout";
 }
@@ -115,8 +120,9 @@ export function cleanNativeResult(raw: unknown): NativeResult {
   if (Array.isArray(r.products)) out.products = r.products.slice(0, 10).map(cleanProduct).filter((p): p is NativeProduct => p !== null);
   if (Array.isArray(r.transactions) && r.transactions.length <= 20 && r.transactions.every((t) => typeof t === "string" && t.length <= 20_000 && JWS.test(t))) out.transactions = r.transactions as string[];
   if (r.pending === true) out.pending = true;
+  if (typeof r.session === "string" && r.session.length > 0 && r.session.length <= 16_384) out.session = r.session;
   if (r.error === "denied" || r.error === "unavailable" || r.error === "cancelled" || r.error === "timeout") out.error = r.error;
-  if (!out.code && out.lat === undefined && !out.done && !out.idToken && !out.authCode && !out.permission && !out.products && !out.transactions && !out.pending && !out.error) out.error = "unavailable";
+  if (!out.code && out.lat === undefined && !out.done && !out.idToken && !out.authCode && !out.permission && !out.products && !out.transactions && !out.pending && !out.session && !out.error) out.error = "unavailable";
   return out;
 }
 

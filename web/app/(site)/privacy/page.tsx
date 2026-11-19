@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
-import { AI_RECIPES_ENABLED, APP_PREMIUM, FOOD_SCAN_API_ENABLED, PHOTO_RECIPES_API_ENABLED, PRO_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { AI_RECIPES_ENABLED, APP_PREMIUM, FOOD_SCAN_API_ENABLED, PHOTO_RECIPES_API_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 
 export const metadata: Metadata = { title: "Privacy policy" };
@@ -45,10 +45,20 @@ export default function Privacy() {
       </header>
 
       <p className={`${FILL} mt-8 rounded-[1.25rem] p-[20px] text-base leading-[1.65] sm:p-6 sm:text-[1.0625rem]`}>
-        {site.name} is built to know as little about you as possible. You don&apos;t need an account: everything works without one, and then
-        nothing you set up leaves your device. The one exception is adding friends and sending them shopping lists (Community), which needs an account so
-        there is someone to send to. If you choose to sign in, to keep your data on all your devices or to use Community, the sections &ldquo;Signing in and
-        syncing (optional)&rdquo; and &ldquo;Community (needs an account)&rdquo; below say exactly what we then keep. This policy covers the {site.name} iPhone app, the {site.name} web app (at /app on this website) and this website. The iPhone app
+        {SIGN_IN_REQUIRED ? (
+          <>
+            {site.name} is built to know as little about you as possible. You need a free account to use it, so we keep your email address and a user ID, and
+            the things listed under &ldquo;Your account and syncing&rdquo; so they are on all your devices. Nothing else you set up leaves your device. If you
+            use friends (Community), &ldquo;Community (needs an account)&rdquo; below says what that adds.
+          </>
+        ) : (
+          <>
+            {site.name} is built to know as little about you as possible. You don&apos;t need an account: everything works without one, and then
+            nothing you set up leaves your device. The one exception is adding friends and sending them shopping lists (Community), which needs an account so
+            there is someone to send to. If you choose to sign in, to keep your data on all your devices or to use Community, the sections &ldquo;Signing in and
+            syncing (optional)&rdquo; and &ldquo;Community (needs an account)&rdquo; below say exactly what we then keep.
+          </>
+        )} This policy covers the {site.name} iPhone app, the {site.name} web app (at /app on this website) and this website. The iPhone app
         is the web app packed into an app, so it works the same way, except that it keeps everything inside the app on your phone. To keep the app small, it loads
         photos of dishes, recipes and products from this website the first time you look at them (like the web app does), and keeps them on your phone to show again.
       </p>
@@ -58,8 +68,8 @@ export default function Privacy() {
           <li className={row}>Your goal, daily targets, preferences, favourite restaurants, saved orders, the meals you log, the water you add on Home, your reminders (see &ldquo;Reminders&rdquo; below), and the dishes you looked at in the last day (shown as &ldquo;Recently viewed&rdquo; on that restaurant&apos;s page, then forgotten), and the products and dishes you pick to compare.</li>
           <li className={row}>
             In the iPhone app these are stored only inside the app on your phone; deleting the app deletes them. In the web app they are stored only in this browser
-            on this device (local storage and, for a report photo that hasn&apos;t been sent yet, IndexedDB). If you don&apos;t sign in, we never
-            receive them; if you do, the parts listed under &ldquo;Signing in and syncing&rdquo; are also saved in your account. Clearing your browser&apos;s site data, or using &ldquo;Clear data on this device&rdquo; in
+            on this device (local storage and, for a report photo that hasn&apos;t been sent yet, IndexedDB). {SIGN_IN_REQUIRED ? <>The parts listed under &ldquo;Your account and syncing&rdquo; are also saved in your account.</> : <>If you don&apos;t sign in, we never
+            receive them; if you do, the parts listed under &ldquo;Signing in and syncing&rdquo; are also saved in your account.</>} Clearing your browser&apos;s site data, or using &ldquo;Clear data on this device&rdquo; in
             Settings, removes them. Browsers can also remove site data on their own if you haven&apos;t visited for a
             while (iPhone Safari can do this after about a week); adding the web app to your Home Screen helps prevent it.
           </li>
@@ -70,10 +80,15 @@ export default function Privacy() {
         </Rows>
       </Section>
 
-      <Section title="Signing in and syncing (optional)">
+      <Section title={SIGN_IN_REQUIRED ? "Your account and syncing" : "Signing in and syncing (optional)"}>
         <p className={para}>
-          Signing in is your choice, and nothing in {site.name} needs it except adding friends and sending them shopping lists (see &ldquo;Community (needs an account)&rdquo; below). You can sign in with Apple, with Google, or with a 6-digit code we email you
-          (no password). Signing in turns on sync, so your data follows you to your other devices.
+          {SIGN_IN_REQUIRED ? (
+            <>You need a free account to use {site.name}. You sign in with Apple, with Google, or with a 6-digit code we email you (no password); a new email
+            address, Apple ID or Google account creates the account. Your account turns on sync, so your data follows you to your other devices.</>
+          ) : (
+            <>Signing in is your choice, and nothing in {site.name} needs it except adding friends and sending them shopping lists (see &ldquo;Community (needs an account)&rdquo; below). You can sign in with Apple, with Google, or with a 6-digit code we email you
+            (no password). Signing in turns on sync, so your data follows you to your other devices.</>
+          )}
         </p>
         <Rows>
           <li className={row}>
@@ -112,7 +127,7 @@ export default function Privacy() {
 
       <Section title="Community (needs an account)">
         <p className={para}>
-          Community is the Community tab. The food articles in it need no account. <strong>Friends</strong> and <strong>Shared with you</strong> do: you add a friend with their friend
+          Community is the Community tab.{SIGN_IN_REQUIRED ? " " : " The food articles in it need no account. "}<strong>Friends</strong> and <strong>Shared with you</strong> do: you add a friend with their friend
           code or invite link, and you can then send them your shopping list. Nobody can search for you, there is no chat, no posts, no comments and no push notifications, and
           we do not read your contacts.
         </p>
@@ -180,7 +195,7 @@ export default function Privacy() {
           which pictures your device asks for (we ask it not to say which page you are on); or, only for a product no supermarket&apos;s website has a photo
           of, the Open Food Facts photo of that exact barcode, loaded from Open Food Facts&apos; servers, which can see the same. If a picture fails to load we try the
           next place, and show no picture if none loads.
-          Your shopping list stays on your device, unless you sign in to sync it or send it to a friend (see &ldquo;Community (needs an account)&rdquo; above). If you scan a barcode, the camera picture is read on your device and is never sent anywhere.
+          {SIGN_IN_REQUIRED ? "Your shopping list syncs to your account, and goes to a friend only if you send it" : "Your shopping list stays on your device, unless you sign in to sync it or send it to a friend"} (see &ldquo;Community (needs an account)&rdquo; above). If you scan a barcode, the camera picture is read on your device and is never sent anywhere.
         </p>
         <p className={para}>
           If you share your shopping list as a link, the app makes a link and hands it to whatever you choose to send it with (Messages, WhatsApp, email). The list is inside the link,

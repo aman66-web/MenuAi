@@ -29,6 +29,7 @@ TOTAL_PROTEIN_BONUS = 0.05      # buildMuscle: +0.05 per gram of protein
 GLP1_PROTEIN_FIRST = 25         # glp1: picks with >= 25 g protein are listed first
 OUT_OF_BUDGET_THRESHOLD = 200   # remaining kcal below this -> "lowest-calorie options" mode
 OUT_OF_BUDGET_MIN_PROTEIN = 10
+MIN_PICK_CALORIES = 100        # founder 2026-11-18: a ranked pick has at least this many kcal (an espresso is not "best for you" for building muscle)
 MAX_PER_BASE_ITEM = 2
 RESULT_COUNT = 5
 
@@ -99,7 +100,9 @@ def rank(chain: dict, profile: dict, logged_calories: int, meal: str, prefs: dic
                        key=lambda c: (c["nutrients"]["calories"], -c["nutrients"]["protein"], c["name"]))[:RESULT_COUNT]
         return {"mode": "outOfBudget", "remaining": remaining, "budget": budget, "picks": [p["id"] for p in picks]}
 
-    fits = [c for c in pool if c["nutrients"]["calories"] <= budget]
+    fits_all = [c for c in pool if c["nutrients"]["calories"] <= budget]
+    # tiny items (an espresso, a sachet) only when nothing of MIN_PICK_CALORIES or more fits
+    fits = [c for c in fits_all if c["nutrients"]["calories"] >= MIN_PICK_CALORIES] or fits_all
     if not fits:
         closest = sorted(pool, key=lambda c: (c["nutrients"]["calories"], c["name"]))[:3]
         return {"mode": "nothingFits", "remaining": remaining, "budget": budget, "picks": [p["id"] for p in closest]}

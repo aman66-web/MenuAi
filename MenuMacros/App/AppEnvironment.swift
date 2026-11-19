@@ -12,10 +12,12 @@ final class AppEnvironment {
     let notifications: any NotificationScheduling
     /// Apple In-App Purchase (the paid features).
     let purchases: any PurchaseService
+    /// The account's sign-in, kept in the Keychain (SessionStore.swift).
+    let session: any SessionStoring
     /// Links the app is opened with (a shared shopping list): MenuMacrosApp hands them in, the web view shows them.
     let links = LinkInbox()
 
-    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn, notifications: any NotificationScheduling, purchases: any PurchaseService) {
+    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn, notifications: any NotificationScheduling, purchases: any PurchaseService, session: any SessionStoring = InMemorySessionStore()) {
         self.scanner = scanner
         self.location = location
         self.sharer = sharer
@@ -23,11 +25,12 @@ final class AppEnvironment {
         self.webSignIn = webSignIn
         self.notifications = notifications
         self.purchases = purchases
+        self.session = session
     }
 
     /// The real iPhone services.
     static func live() -> AppEnvironment {
-        AppEnvironment(scanner: VisionKitBarcodeScanner(), location: CoreLocationService(), sharer: ActivityShareService(), appleSignIn: AuthorizationAppleSignIn(), webSignIn: AuthenticationSessionWebSignIn(), notifications: UserNotificationScheduler(), purchases: StoreKitPurchaseService())
+        AppEnvironment(scanner: VisionKitBarcodeScanner(), location: CoreLocationService(), sharer: ActivityShareService(), appleSignIn: AuthorizationAppleSignIn(), webSignIn: AuthenticationSessionWebSignIn(), notifications: UserNotificationScheduler(), purchases: StoreKitPurchaseService(), session: KeychainSessionStore())
     }
 
     /// Fakes, for previews and tests.

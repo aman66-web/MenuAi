@@ -1,4 +1,4 @@
-// Scan your food (founder 2026-11-18, Premium): Home's card and the My meals row, the first page that says what it does, a photo in, the estimate out (the AI's
+// Scan your food (founder 2026-11-18, Premium): Home's card (no My meals on Home), the first page that says what it does, a photo in, the estimate out (the AI's
 // answer is faked here, so nothing is sent to Anthropic), adding it to a meal, a photo that isn't food, the paywall for a free person, axe.
 // Run against a server built with the feature on and Pro previewed: NEXT_PUBLIC_PRO=1 NEXT_PUBLIC_PHOTO_RECIPES=1, then BASE=http://localhost:3005 node e2e/foodscan.mjs
 import { chromium } from "playwright-core";
@@ -34,20 +34,14 @@ async function axe(page, where) {
   expect(r.length === 0, `${where}: ${r.join(", ")}`);
 }
 
-await step("Home: the second card is Scan your food, and My meals is one tap away under the two cards", async () => {
+await step("Home: the second card is Scan your food, with no My meals on Home (founder 2026-11-18: \"I don't want My Meals anymore\")", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app");
   const scan = page.getByRole("link", { name: /^Scan your food/ });
   await scan.waitFor({ timeout: 120000 });
   expect((await scan.innerText()).includes("Snap your plate to see its calories"), "the card says what it does");
   expect(!(await scan.innerText()).includes("Premium"), "no Premium tag for a Premium person");
-  const meals = page.getByRole("link", { name: /^My meals/ });
-  await meals.waitFor();
-  const [a, b] = await Promise.all([scan.boundingBox(), meals.boundingBox()]);
-  expect(b.y >= a.y + a.height - 1 && b.height >= 44, "My meals sits under the cards, 44 pt tall");
-  await meals.click();
-  await page.waitForURL((u) => u.pathname.startsWith("/app/meals"));
-  await page.goBack();
+  expect((await page.locator("main").getByRole("link", { name: /^My meals/ }).count()) === 0, "no My meals on Home");
   await scan.click();
   await page.getByRole("heading", { level: 1, name: "Scan your food" }).waitFor({ timeout: 60000 });
   await ctx.close();

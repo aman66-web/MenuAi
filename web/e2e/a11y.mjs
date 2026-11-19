@@ -3,6 +3,16 @@ const BASE = process.env.BASE ?? "http://localhost:3101";
 import { createRequire } from "node:module";
 const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
+
+// Pip's tips on the real screens (CoachMarks, 2026-11-18) are stopped in this test, as if the person had pressed "Stop the tips": e2e/coach.mjs covers them.
+{
+  const open = browser.newContext.bind(browser);
+  browser.newContext = async (options) => {
+    const c = await open(options);
+    await c.addInitScript(() => { try { if (!localStorage.getItem("mm.v1.coach")) localStorage.setItem("mm.v1.coach", JSON.stringify({ v: 1, data: { armed: false, seen: ["home", "eatOut", "groceries", "recipes"] } })); } catch { /* storage blocked */ } });
+    return c;
+  };
+}
 const settings = (pro) => JSON.stringify({ v: 1, data: { goal: "buildMuscle", dailyCalories: 2400, dailyProtein: 150, hasSetTargets: true, glp1MealCap: 450, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true, dismissedTargetsCard: false, paywallDismissCount: 0, proActionCount: 0, devProOverride: pro } });
 const saved = JSON.stringify({ v: 1, data: [{ id: "s1", createdAt: "2026-10-05T12:00:00Z", chainId: "bowl-and-co", chainName: "Bowl & Co.", name: "Chicken bowl · double chicken", lines: [{ kind: "components", itemId: "chicken-bowl", components: [{ id: "white-rice", qty: 1 }, { id: "chicken", qty: 2 }, { id: "black-beans", qty: 1 }, { id: "tomato-salsa", qty: 1 }, { id: "cheese", qty: 1 }] }], nutrients: { calories: 835, protein: 82, carbs: 67, fat: 27.5 }, dataVersionAtSave: 1 }] });
 const log = JSON.stringify({ v: 1, data: [{ id: "l1", loggedAt: new Date().toISOString(), chainId: "bowl-and-co", chainName: "Bowl & Co.", name: "Chicken bowl", nutrients: { calories: 655, protein: 50, carbs: 67, fat: 20.5 }, source: "item" }] });
@@ -60,7 +70,7 @@ const pages = [
   ["intro (Pip arrives)", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("heading", { name: "Hi, I'm Pip!" }).waitFor(); await p.waitForTimeout(1800); }],
   ["intro (easy to read)", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); await p.getByRole("heading", { name: "Easy to read" }).waitFor(); await p.getByRole("radio", { name: "Large", exact: true }).click(); await p.getByText("Perfect, that's easy on the eyes!").waitFor(); }],
   ["intro (Pip's walk: Eat out)", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); for (let i = 0; i < 2; i++) { await p.waitForTimeout(150); await p.getByRole("button", { name: "Continue" }).click(); } await p.getByRole("heading", { level: 1, name: "Eat out", exact: true }).waitFor(); await p.waitForTimeout(1200); }],
-  ["intro (Pip's walk: Community)", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); for (let i = 0; i < 5; i++) { await p.waitForTimeout(150); await p.getByRole("button", { name: "Continue" }).click(); } await p.getByRole("heading", { level: 1, name: "Community", exact: true }).waitFor(); await p.waitForTimeout(1200); }],
+  ["intro (Pip's walk: Recipes, the last tab while Community is off)", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); for (let i = 0; i < 4; i++) { await p.waitForTimeout(150); await p.getByRole("button", { name: "Continue" }).click(); } await p.getByRole("heading", { level: 1, name: "Recipes", exact: true }).waitFor(); await p.waitForTimeout(1200); }],
   ["tour: let's make it yours", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); await p.getByRole("button", { name: "Skip tour" }).click(); await p.getByRole("heading", { name: "Let's make it yours" }).waitFor(); await p.waitForTimeout(800); }],
   ["tour: replay (Settings › Help)", "/app/welcome?tour=1", false, async (p) => { await p.getByText("Step 1 of 5").waitFor(); await p.getByRole("heading", { level: 1, name: "Home", exact: true }).waitFor(); await p.waitForTimeout(1200); }],
   ["home", "/app", true, async () => {}],

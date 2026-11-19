@@ -6,8 +6,8 @@ import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { API_BASE, PAID_ACCESS_ENABLED, PHOTO_RECIPES_ENABLED } from "@/lib/mm/config";
 import { tk } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
-import { MAX_DESCRIPTION, PHOTO_WORKING_LINES, needsMoreDetail, photoRecipeFromAi, type PhotoRecipeRequest } from "@/lib/mm/photoRecipe";
-import { pantryLines, recipeToSaved } from "@/lib/mm/aiRecipe";
+import { MAX_DESCRIPTION, PHOTO_WORKING_LINES, cleanFoodBox, needsMoreDetail, photoRecipeFromAi, type FoodBox, type PhotoRecipeRequest } from "@/lib/mm/photoRecipe";
+import { MAX_SAVED_RECIPES, keepMadeRecipe, pantryLines } from "@/lib/mm/aiRecipe";
 import { mealSizes, type Recipe } from "@/lib/mm/recipes";
 import { myRecipesStore, paidStore, updateSettings } from "@/lib/mm/stores";
 import { CheckIcon, ChevronLeftIcon, ChevronRightIcon } from "../../_components/icons";
@@ -20,7 +20,7 @@ import { Button, ErrorBox, inputClass, Spinner } from "../../_components/ui";
 import { backName, useBack } from "../../_lib/backNav";
 import { useHydrated, useIsPro, useSettings, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
-import { recipeThumbnail, shrinkPhoto, type ShrunkPhoto } from "../../_lib/photo";
+import { photoOfFood, recipeThumbnail, shrinkPhoto, type ShrunkPhoto } from "../../_lib/photo";
 import { keepRecipePhoto } from "../../_lib/recipePhotos";
 import { recipeShop } from "../../_lib/recipes";
 import { recipeShops } from "@/lib/mm/shopProducts";
@@ -150,6 +150,13 @@ function PhotoScreen() {
   const [recipe, setRecipe] = useState<Recipe | null>(null);
   const [finished, setFinished] = useState(false);
   const [savedId, setSavedId] = useState<string | null>(null);
+  // the saved recipe that made room when the list was full (keepMadeRecipe), said once
+  const [dropped, setDropped] = useState<string | null>(null);
+  // where Pip's food check saw the dish in the photo, and the photo cropped round it (founder 2026-11-18: "automatically adjust the photo yourself to make
+  // sure the food is in it"); the photo as taken when there's no box
+  const foodBox = useRef<FoodBox | null>(null);
+  const [dishPhoto, setDishPhoto] = useState<string | null>(null);
+  useEffect(() => () => { if (dishPhoto) URL.revokeObjectURL(dishPhoto); }, [dishPhoto]);
   const phoneCamera = useRef<HTMLInputElement>(null);
   const library = useRef<HTMLInputElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -186,7 +193,11 @@ function PhotoScreen() {
   const checkFood = async (image: string): Promise<FoodCheck> => {
     try {
       const res = await fetch(`${API_BASE}recipe/photo/describe`, { method: "POST", headers: headers(), body: JSON.stringify({ image }) });
-      if (res.ok) return "food";
+      if (res.ok) {
+        const json = (await res.json().catch(() => ({}))) as { food?: unknown };
+        foodBox.current = cleanFoodBox(json.food);
+        return "food";
+      }
       const json = (await res.json().catch(() => ({}))) as { error?: string };
       return res.status === 422 && json.error === "not_food" ? "notFood" : "unknown";
     } catch {
@@ -201,6 +212,8 @@ function PhotoScreen() {
     const shrunk = await shrinkPhoto(file);
     if (!shrunk) { setPhotoError(true); setStep("describe"); return; }
     setPhoto(shrunk);
+    foodBox.current = null;
+    setDishPhoto(null);
     foodCheck.current = checkFood(shrunk.base64);
     setStep("scanning");
   };
@@ -240,6 +253,17 @@ function PhotoScreen() {
       if (!made) { setError(tk("Pip's recipe didn't pass our checks. Please try again.")); setStep("error"); return; }
       setFinished(true);
       setRecipe(made);
+      // saved the moment it's made (founder 2026-11-18: "When the person makes a recipe it automatically becomes a saved recipe. They can remove it from the
+      // recipes in my meals later"), with the person's photo as its picture, kept on this phone only (lib/mm/recipePhotos.ts)
+      let madeRoom: string | null = null;
+      myRecipesStore.update((l) => { const k = keepMadeRecipe(l, made, shop); madeRoom = k.dropped; return k.list; });
+      setSavedId(made.id);
+      setDropped(madeRoom);
+      if (photo) {
+        const dish = foodBox.current ? await photoOfFood(photo.url, foodBox.current) : null;
+        setDishPhoto(dish);
+        void recipeThumbnail(dish ?? photo.url).then((thumb) => thumb && keepRecipePhoto(made.id, thumb));
+      }
       // a moment on the ticked list, then the recipe
       setTimeout(() => setStep("done"), 700);
     } catch (e) {
@@ -276,12 +300,12 @@ function PhotoScreen() {
   }
 
   if (step === "done" && recipe && ready && shop) {
+    // only if it was taken out of My recipes while this page was open: saving it again puts it back
     const saveRecipe = () => {
-      if (savedId) return;
-      myRecipesStore.update((l) => [recipeToSaved(recipe, shop), ...l.filter((s) => s.id !== recipe.id)].slice(0, 30));
+      if (myRecipesStore.get().some((s) => s.id === recipe.id)) return;
+      myRecipesStore.update((l) => keepMadeRecipe(l, recipe, shop).list);
       setSavedId(recipe.id);
-      // the person's photo becomes the saved recipe's picture, kept on this phone only (lib/mm/recipePhotos.ts)
-      if (photo) void recipeThumbnail(photo.url).then((thumb) => thumb && keepRecipePhoto(recipe.id, thumb));
+      if (photo) void recipeThumbnail(dishPhoto ?? photo.url).then((thumb) => thumb && keepRecipePhoto(recipe.id, thumb));
     };
     return (
       <RecipeDetail
@@ -289,13 +313,16 @@ function PhotoScreen() {
         files={[ready.file]}
         products={ready.products}
         backHref="/app/recipes"
-        photo={photo?.url}
+        photo={dishPhoto ?? photo?.url}
         diet={diet}
         save={{ saved: !!savedId, onSave: saveRecipe }}
         actions={
           <>
             {savedId ? (
-              <p role="status" className="glass rounded-[1.25rem] p-4 text-center font-semibold">{t("Saved to Your recipes.")} <Link href={`/app/recipes/view?mine=${savedId}&r=${shop}`} className="text-accent underline underline-offset-2">{t("Open it")}</Link></p>
+              <p role="status" className="glass rounded-[1.25rem] p-4 text-center font-semibold">
+                {t("Saved to My recipes. You can take it out there any time.")} <Link href={`/app/recipes/view?mine=${savedId}&r=${shop}`} className="text-accent underline underline-offset-2">{t("Open it")}</Link>
+                {dropped && <span className="mt-1.5 block text-[0.9375rem] font-medium text-muted">{t("My recipes keeps {n}, so the oldest, {name}, made room.", { n: MAX_SAVED_RECIPES, name: dropped })}</span>}
+              </p>
             ) : (
               <Button full className="min-h-14 text-base" onClick={saveRecipe}>{t("Save this recipe")}</Button>
             )}

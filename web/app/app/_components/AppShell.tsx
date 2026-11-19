@@ -13,7 +13,7 @@ import { refreshHiddenLogos } from "../_lib/hiddenLogos";
 import { menuClient } from "../_lib/menu";
 import { warmOffline } from "../_lib/warm";
 import { applyTextSize } from "../_lib/textSize";
-import { bootAccount } from "../_lib/account";
+import { bootAccount, useAccountChecking, useAccountUser } from "../_lib/account";
 import { noteTabPage, useTabMemory } from "../_lib/tabMemoryStore";
 import { useReminderSync } from "../_lib/reminderSync";
 import { setLanguage, useT } from "../_lib/i18n";
@@ -22,12 +22,17 @@ import { TabLabel } from "./TabLabel";
 import { CreatorKeys } from "../_lib/creator";
 import { RefCapture } from "../../components/RefCapture";
 import { recheckStoredToken } from "@/lib/payments/client";
-import { GATING_ENABLED, IAP_ENABLED } from "@/lib/mm/config";
+import { GATING_ENABLED, IAP_ENABLED, SIGN_IN_REQUIRED } from "@/lib/mm/config";
+import { signInGate } from "@/lib/mm/signInGate";
 import { hasNative } from "@/lib/mm/native";
 import { refreshAppStoreAccess } from "@/lib/payments/iap";
+import { CoachMarks } from "./CoachMarks";
 import { CommunityBadge } from "./CommunityBadge";
 import { PaywallProvider } from "./Paywall";
 import { TrialOffer } from "./TrialOffer";
+import { RatingPrompt } from "./RatingPrompt";
+import { SignInScreen } from "./SignInScreen";
+import { Spinner } from "./ui";
 
 // The five tabs (and the measured word under each icon) live in _lib/tabs.ts and TabLabel.tsx, shared with the welcome tour's copy of the bar.
 
@@ -38,7 +43,12 @@ export function AppShell({ children }: { children: ReactNode }) {
   const settings = useSettings();
   const textSize = settings.textSize;
   const language = settings.language;
-  const fullScreen = pathname.startsWith("/app/welcome");
+  // Everyone signs in (founder 2026-11-17; lib/mm/config.ts SIGN_IN_REQUIRED): until someone is, every page but the welcome and offline screens shows the sign-in
+  // screen in its place (the address, a shared list's "#" included, stays as it is, so the page opens once they're in).
+  const user = useAccountUser();
+  const checking = useAccountChecking();
+  const gate = signInGate({ required: SIGN_IN_REQUIRED, hydrated, signedIn: !!user, checking, pathname });
+  const fullScreen = pathname.startsWith("/app/welcome") || gate !== "open";
   const online = useOnline();
   const animate = useNavigatedOnce(pathname);
   const menu = useMenu();
@@ -132,13 +142,14 @@ export function AppShell({ children }: { children: ReactNode }) {
           </p>
         )}
         <main className={`flex-1 px-5 ${fullScreen ? "pb-8" : "pb-32"} pt-[max(1.25rem,env(safe-area-inset-top))]`}>
-          <div key={pathname} className={animate ? "rise" : undefined}>{children}</div>
+          {gate === "open" ? <div key={pathname} className={animate ? "rise" : undefined}>{children}</div> : gate === "wait" ? <Spinner /> : <SignInScreen />}
         </main>
         {!fullScreen && (
           // A dark floating bar like the founder's reference pictures (2026-10-15), the open tab in the app's lime. Its words stay under the
           // icons so everyone can read where each tab goes. Colours are fixed: the bar is the same on every screen.
           <nav
             aria-label={t("Main")}
+            data-coach="tabs"
             className="fixed inset-x-[12px] bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-20 mx-auto max-w-[calc(28rem-1.5rem)] rounded-[2rem] bg-[#1d2320] p-[6px] shadow-[0_18px_40px_-16px_rgba(0,0,0,0.55)]"
           >
             <ul className="flex">
@@ -150,7 +161,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                     <Link
                       href={tabTarget(tabMemory, tab, active)}
                       aria-current={active ? "page" : undefined}
-                      className={`group relative flex min-h-14 flex-col items-center justify-center gap-1 rounded-[1.5rem] text-center text-[13px] font-semibold leading-[1.1] transition-colors focus-visible:outline-[#d6efa0] ${active ? "text-[#d6efa0]" : "text-[#c2c9c4] hover:text-white"}`}
+                      className={`group relative flex min-h-14 flex-col items-center justify-center gap-1 rounded-[1.5rem] text-center text-[0.8125rem] font-semibold leading-[1.1] transition-colors focus-visible:outline-[#d6efa0] ${active ? "text-[#d6efa0]" : "text-[#c2c9c4] hover:text-white"}`}
                     >
                       <span
                         aria-hidden
@@ -168,7 +179,9 @@ export function AppShell({ children }: { children: ReactNode }) {
           </nav>
         )}
       </div>
-      <TrialOffer />
+      {gate === "open" && !fullScreen && <CoachMarks />}
+      {gate === "open" && <TrialOffer />}
+      {gate === "open" && <RatingPrompt />}
     </PaywallProvider>
   );
 }

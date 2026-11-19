@@ -10,6 +10,16 @@ const BASE = process.env.BASE ?? "http://localhost:3101";
 const PHOTO = process.env.NEXT_PUBLIC_PHOTO_RECIPES === "1" && (process.env.NEXT_PUBLIC_PRO === "1" || process.env.NEXT_PUBLIC_WEB_PRO === "1" || process.env.NEXT_PUBLIC_IAP === "1");
 const FRIENDS = process.env.NEXT_PUBLIC_COMMUNITY_FRIENDS !== "0";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
+
+// Pip's tips on the real screens (CoachMarks, 2026-11-18) are stopped in this test, as if the person had pressed "Stop the tips": e2e/coach.mjs covers them.
+{
+  const open = browser.newContext.bind(browser);
+  browser.newContext = async (options) => {
+    const c = await open(options);
+    await c.addInitScript(() => { try { if (!localStorage.getItem("mm.v1.coach")) localStorage.setItem("mm.v1.coach", JSON.stringify({ v: 1, data: { armed: false, seen: ["home", "eatOut", "groceries", "recipes"] } })); } catch { /* storage blocked */ } });
+    return c;
+  };
+}
 let passed = 0, failed = 0;
 async function step(name, fn) { try { await fn(); passed++; console.log("PASS", name); } catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n")[0]); } }
 const expect = (c, m) => { if (!c) throw new Error(m); };
@@ -39,13 +49,13 @@ async function axe(page, where) {
   expect(v.length === 0, `${where}: ` + v.map((x) => x.id + ": " + x.nodes.slice(0, 2).map((n) => n.target.join(" ")).join(" | ")).join("; "));
 }
 
-const TABS = ["Home", "Eat out", "Groceries", "Recipes", "Community"];
-const IDS = ["home", "eatOut", "groceries", "recipes", "community"];
+const TABS = ["Home", "Eat out", "Groceries", "Recipes"]; // Community is off (2026-11-18)
+const IDS = ["home", "eatOut", "groceries", "recipes"];
 const ROWS = {
   home: [
     "Tap + next to Breakfast, Lunch or Dinner to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers.",
-    "Tap the calendar next to the date to see another day.",
-    "The gear at the top opens Settings: your goal, diet, text size, and this tour again.",
+    PHOTO ? "Scan your food: take a photo of your plate for an estimate of its calories, protein, carbs and fat. It's part of Premium." : "Tap the calendar next to the date to see another day.",
+    "Settings, at the top, has your goal, diet, text size, and this tour again.",
     "Further down Home, add the water you drink and set your own reminders.",
   ],
   eatOut: [
@@ -54,15 +64,16 @@ const ROWS = {
     "Open a restaurant to see the numbers for each dish. Best for you lists orders that fit your goal.",
   ],
   groceries: [
-    "Tap your supermarket to see its products and prices.",
+    "Tap a supermarket to see its products and prices.",
     "Scan a barcode to look up a product you're holding.",
-    "My list is your shopping list. Tick things off as you shop.",
+    "Nutrition leaderboards rank the supermarket products by protein, fibre and more.",
+    "Your shopping list: tick things off as you shop.",
   ],
   recipes: [
-    "Tap Breakfast, Lunch, Dinner or Snacks to see recipes for that meal.",
-    "Tap the heart on a recipe to keep it in My meals.",
-    "Open a recipe to add everything it needs to your shopping list in one tap.",
-    ...(PHOTO ? ["Make it at home turns a photo of a dish into a recipe. It's part of Premium."] : []),
+    "Tap Breakfast, Lunch, Dinner or Snacks to see recipes for that meal, or More for every filter.",
+    "Meal plan makes a week of meals for your goal and budget, with the shopping list. It's part of Premium.",
+    "Tap the heart on a recipe to keep it in My recipes.",
+    PHOTO ? "Make it at home turns a photo of a dish into a recipe. It's part of Premium." : "Open a recipe to add everything it needs to your shopping list in one tap.",
   ],
   community: [
     "Food blogs are short, easy reads about eating out, shopping and cooking.",
@@ -251,7 +262,7 @@ await step("8. no redirect for someone set up, someone who said Not now, or some
   }
 });
 
-await step("9. Settings › Help › 'Show me around again': 'Step 1 of 5', Close and Done return to Settings, nothing is saved; the setup card's 'Show me around' returns to Home", async () => {
+await step("9. Settings › Help › 'Show me around again': 'Step 1 of 4', Close and Done return to Settings, nothing is saved; the setup card's 'Show me around' returns to Home", async () => {
   const ctx = await fresh();
   await seed(ctx, { "mm.v1.settings": ONBOARDED });
   const p = await ctx.newPage();
@@ -262,16 +273,16 @@ await step("9. Settings › Help › 'Show me around again': 'Step 1 of 5', Clos
   expect((await again.getAttribute("href")) === "/app/welcome?tour=1", "the Help row goes to " + (await again.getAttribute("href")));
   expect((await again.boundingBox()).height >= 44, "the Help row is under 44 px");
   await again.click();
-  await p.getByText("Step 1 of 5").waitFor();
+  await p.getByText(`Step 1 of ${TABS.length}`).waitFor();
   await p.getByRole("heading", { level: 1, name: "Home", exact: true }).waitFor();
   await p.getByRole("button", { name: "Close", exact: true }).click();
   await p.waitForURL(/\/app\/settings$/);
   await again.click();
-  await p.getByText("Step 1 of 5").waitFor();
+  await p.getByText(`Step 1 of ${TABS.length}`).waitFor();
   for (let i = 1; i < TABS.length; i++) {
     await p.getByRole("button", { name: "Continue" }).click();
     await p.getByRole("heading", { level: 1, name: TABS[i], exact: true }).waitFor();
-    await p.getByText(`Step ${i + 1} of 5`).waitFor();
+    await p.getByText(`Step ${i + 1} of ${TABS.length}`).waitFor();
   }
   expect((await p.getByRole("button", { name: "Continue" }).count()) === 0, "the last stop says Done, not Continue");
   await p.getByRole("button", { name: "Done", exact: true }).click();
@@ -286,7 +297,7 @@ await step("9. Settings › Help › 'Show me around again': 'Step 1 of 5', Clos
   await q.goto(BASE + "/app");
   await card(q).waitFor();
   await q.getByRole("link", { name: "Show me around" }).click();
-  await q.getByText("Step 1 of 5").waitFor();
+  await q.getByText(`Step 1 of ${TABS.length}`).waitFor();
   await q.getByRole("button", { name: "Close", exact: true }).click();
   await q.waitForURL(/\/app\/?$/);
   await card(q).waitFor();
@@ -393,7 +404,7 @@ await step("13. axe: no violations on the welcome screen, 'Easy to read', a stop
   await p.getByRole("heading", { level: 1, name: "Let's make it yours" }).waitFor();
   await axe(p, "Let's make it yours");
   await p.goto(BASE + "/app/welcome?tour=1");
-  await p.getByText("Step 1 of 5").waitFor();
+  await p.getByText(`Step 1 of ${TABS.length}`).waitFor();
   await p.waitForTimeout(900);
   await axe(p, "the replay");
   await ctx.close();

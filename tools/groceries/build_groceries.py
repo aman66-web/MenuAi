@@ -219,13 +219,18 @@ def allergens_from(p: dict):
     return {"contains": sorted(contains, key=order), "mayContain": sorted(may, key=order)}
 
 
-def implausible(kcal: float, protein: float, carbs: float, fat: float, kj: float | None = None) -> str | None:
+def implausible(kcal: float, protein: float, carbs: float, fat: float, kj: float | None = None, fibre: float | None = None) -> str | None:
     """Why four per-100 g numbers can't be right (None when they can): used for community data and for the shops' own pages alike.
-    With `kj`, a label whose kJ and kcal disagree (1 kcal = 4.184 kJ) is left out too: one of the two is wrong and we can't tell which."""
+    With `kj`, a label whose kJ and kcal disagree (1 kcal = 4.184 kJ) is left out too: one of the two is wrong and we can't tell which.
+    With `fibre`, the energy the label counts for fibre (2 kcal a gram, as UK labels do) is part of the check, so a high-fibre label that adds up (ground
+    cinnamon: 243 kcal with 53 g fibre) isn't left out; a label that prints no fibre is checked as before."""
     if min(kcal, protein, carbs, fat) < 0 or max(protein, carbs, fat) > 100 or protein + carbs + fat > 101 or kcal > 950:
         return "implausible numbers"
-    est = 4 * protein + 4 * carbs + 9 * fat
-    if kcal >= 40 and abs(kcal - est) / kcal > 0.4 and abs(kcal - est) > 50:
+    # with fibre counted on top (UK labels) or already inside carbohydrate (some imported labels): a label that adds up either way is kept
+    ests = [4 * protein + 4 * carbs + 9 * fat]
+    if fibre is not None and 0 < fibre <= 100:
+        ests.append(ests[0] + 2 * fibre)
+    if kcal >= 40 and all(abs(kcal - est) / kcal > 0.4 and abs(kcal - est) > 50 for est in ests):
         return "energy doesn't match macros (check)"
     pf = 4 * protein + 9 * fat  # protein and fat always carry energy (carbs may be mostly polyols or fibre, as in sugar-free gum and sweeteners)
     if pf >= 20 and kcal < 0.6 * pf - 5:
@@ -547,10 +552,17 @@ ALCOHOL_TYPES = {"beers", "ciders", "wheat-beers", "craft-beers", "lagers", "ale
                  "white-wines", "rose-wines", "sparkling-wines", "champagnes", "proseccos", "spirits", "whiskies", "vodkas", "gins", "rums", "hard-seltzers"}
 
 
+# names that say outright that the drink is alcoholic (founder 2026-11-18: "leave out alcoholic drinks"; Iceland's Hooch and WKD, Asda's pre-mixed Absolut slipped through)
+ALCOHOL_SURE = re.compile(r"\balcoholic\b|\bwith vodka\b|\bvodka (?:mix|drinks?|cocktails?)\b|\bpre-?mixed\b.*\b(?:vodka|gin|rum|whisk(?:e)?y)\b|"
+                          r"\b(?:hooch|wkd|vk|au vodka|smirnoff ice)\b|\b\d+(?:\.\d+)?\s?%\s?(?:vol|abv)\b", re.I)
+
+
 def is_alcohol(name: str, aisle: str = "") -> bool:
     """True for an alcoholic drink, going by the shop's own aisle and the product's own name (see ALCOHOL_AISLE above)."""
     if NO_ALCOHOL.search(name):
         return False
+    if ALCOHOL_SURE.search(name):
+        return True  # the name itself says so ("Hooch Alcoholic Lemonade with Vodka", "VK ... Vodka Mix Drinks", "WKD Blue Alcoholic Mix"), whatever soft drink it names
     aisle = re.sub(r"[-_/]+", " ", aisle or "")
     word = ALCOHOL_WORD.search(name)
     if re.search(r"\bno[ -]?(?:and[ -]?)?low\b", aisle, re.I):

@@ -6,24 +6,23 @@ import { useEffect, useState } from "react";
 import { barcodeQuery, RETAILERS } from "@/lib/mm/groceries";
 import { parseShops, pickedShopsHref, toggleShop } from "@/lib/mm/shopPick";
 import { shoppingStore } from "@/lib/mm/stores";
-import { CheckIcon, CoinIcon, CompareIcon, ScanIcon, SearchIcon } from "../_components/icons";
+import { CheckIcon, CompareIcon, PodiumIcon, ScanIcon, SearchIcon } from "../_components/icons";
 import { ShopMark } from "../_components/ChainMark";
 import { chainGroupClass } from "../_components/ChainRow";
 import { Shortcut } from "../_components/Shortcut";
 import { Spinner } from "../_components/ui";
 import { useSettings, useStore } from "../_lib/hooks";
-import { useT } from "../_lib/i18n";
+import { usePossessive, useT } from "../_lib/i18n";
 import { useShopManifest } from "../_lib/shopProducts";
 import { CARD, FootNote, HEADING, ListLink, TITLE } from "./PageBits";
 import { Scanner } from "./Scanner";
 
 // Groceries puts its tools first, laid out like Eat out (founder 2026-11-17: the tools at the bottom were being ignored): the white "Search every shop
-// at once" pill, then one card of Eat out's shortcut rows (every icon in lime: Scan a barcode; Cheapest protein; Compare products), so they
+// at once" pill, then one card of Eat out's shortcut rows (every icon in lime: Scan a barcode; Nutrition leaderboards; Compare products), so they
 // work at once even while the shop list loads. Then the unchanged plain question, "Which shop?" (founder 2026-10-11: simple enough for a 90-year-old).
 // Each big tile opens that shop's own list: every product its pages showed, with its own photo and price, and the numbers where we have them. The person's
-// own shops (onboarding, Settings) come first, each as a wide tile across the row with a small lime "Your shop" mark under its count, so the two-across
-// tiles below all have the same height (a tag in a half-width tile made its row taller than the rest, and no place beside the logo is wide enough for it
-// in every language). Looks follow Home (founder 2026-10-15): the compact title, a grey pill for "My list", white tiles two across, no chevrons on tiles.
+// own shops (onboarding, Settings) come first, in the same two-across tiles as the rest (founder 2026-11-18: "there's no point having like your shop. You can
+// just get rid of that thing": no "Your shop" tag, so no wide tile for it either). Looks follow Home (founder 2026-10-15): the compact title, a grey pill for "Shopping list", white tiles two across, no chevrons on tiles.
 
 /** Two tiles side by side, one above the other when the text is large (the minimum width is in rem, so it grows with the text size). */
 const PICK_KEY = "mm.groceryPick";
@@ -31,6 +30,7 @@ const PAIR = "grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] ga
 
 export default function GroceriesPage() {
   const t = useT();
+  const poss = usePossessive();
   const router = useRouter();
   const list = useStore(shoppingStore);
   const settings = useSettings();
@@ -43,23 +43,21 @@ export default function GroceriesPage() {
   const mine = settings.shops ?? [];
   const order = (id: string) => (mine.includes(id) ? mine.indexOf(id) : 100 + RETAILERS.findIndex((r) => r.id === id));
   const shops = lists ? [...lists.retailers].sort((a, b) => order(a.id) - order(b.id)) : null;
+  const pickedNames = picked.map((id) => lists?.retailers.find((r) => r.id === id)?.name ?? RETAILERS.find((r) => r.id === id)?.name ?? id);
+  const pickedLabel = pickedNames.length === 1 ? t("See {shop} products", { shop: poss(pickedNames[0]!) })
+    : pickedNames.length === 2 ? t("See products from {shops}", { shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(pickedNames) })
+    : t("See products from {n} shops", { n: pickedNames.length });
   const missing = lists ? RETAILERS.filter((r) => !lists.retailers.some((x) => x.id === r.id)).map((r) => r.name) : [];
 
   return (
     <div>
-      {/* wraps, so at large text "My list" moves under the title instead of breaking the word "Groceries" */}
+      {/* wraps, so at large text "Shopping list" moves under the title instead of breaking the word "Groceries" */}
       <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
         <h1 className={TITLE}>{t("Groceries")}</h1>
         <ListLink count={list.length} />
       </div>
-
-      {picked.length > 0 && (
-        // sticky, so "Go" stays in reach however far the shops are scrolled; it replaces nothing: tapping a shop's name still opens that one shop
-        <div className="sticky top-[max(0.5rem,env(safe-area-inset-top))] z-20 bg-white shadow-[0_6px_24px_rgba(0,0,0,0.10)] mt-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 rounded-[1.625rem] py-2 ps-5 pe-2">
-          <p role="status" aria-live="polite" className="app-numbers text-base font-bold">{picked.length === 1 ? t("1 shop selected") : t("{n} shops selected", { n: picked.length })}</p>
-          <Link href={pickedShopsHref(picked)} className="inline-flex min-h-11 items-center justify-center rounded-full bg-foreground px-7 text-base font-bold text-background transition active:scale-[0.97]">{t("Go")}</Link>
-        </div>
-      )}
+      {/* what this tab is for, in one line (founder 2026-11-18: "everyone needs to understand the point for each screen") */}
+      <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Supermarket food, with its price and the calories and protein on its label.")}</p>
 
       <Link href="/app/groceries/search" className="glass mt-5 flex min-h-[3.25rem] items-center gap-3 rounded-[1.625rem] px-5 text-muted transition hover:bg-soft-strong active:scale-[0.99]">
         <SearchIcon className="h-5 w-5 shrink-0 text-foreground" />
@@ -67,8 +65,9 @@ export default function GroceriesPage() {
       </Link>
 
       <div className={`mt-3.5 ${chainGroupClass}`}>
-        <Shortcut onClick={() => setScanning(true)} icon={<ScanIcon />} title={t("Scan a barcode")} line={t("Look up a product you're holding")} />
-        <Shortcut href="/app/groceries/protein" icon={<CoinIcon />} title={t("Cheapest protein")} line={t("What 10 g of protein costs")} />
+        <Shortcut coach="groceries-scan" onClick={() => setScanning(true)} icon={<ScanIcon />} title={t("Scan a barcode")} line={t("Look up a product you're holding")} />
+        {/* founder 2026-11-18: "instead of having like cheapest protein, have something called nutritional leaderboards" (Cheapest protein is one of the boards) */}
+        <Shortcut href="/app/groceries/leaderboards" icon={<PodiumIcon />} title={t("Nutrition leaderboards")} line={t("The top 20 products for protein, fibre and more")} />
         <Shortcut href="/app/compare?tab=food" icon={<CompareIcon />} title={t("Compare products")} line={t("Put products side by side, even from different shops")} />
       </div>
 
@@ -78,22 +77,19 @@ export default function GroceriesPage() {
       {!shops ? (
         <Spinner label={t("Loading products")} />
       ) : (
-        <ul className={`mt-4 ${PAIR}`}>
+        <ul data-coach="groceries-shops" className={`mt-4 ${PAIR}`}>
           {shops.map((r) => (
-            <li key={r.id} className={`@container relative flex ${mine.includes(r.id) ? "col-span-full" : ""}`}>
-              {/* the shop's name comes first in the tile's text, then its count, then a small lime "Your shop" tag. When a tile has the whole
-                  row the logo sits beside the words instead of above them, so the tiles stay short; when that row is also wide for its text size
-                  (a wide "Your shop" tile at the standard size), the tag moves to the tile's end, level with the words (a three-column grid; the
-                  words' wrapper steps aside with `contents`, so the reading order stays name, count, tag) */}
-              <Link href={`/app/groceries/shop?r=${r.id}`} prefetch={false} className={`${CARD} lift flex w-full flex-col items-start p-4 pb-[4.25rem] [overflow-wrap:anywhere] @[300px]:flex-row @[300px]:items-center @[300px]:gap-4 @[20rem]:grid @[20rem]:grid-cols-[auto_minmax(0,1fr)_auto] @[20rem]:gap-y-0!`}>
-                <span className="contents @[20rem]:row-span-2 @[20rem]:flex"><ShopMark shopId={r.id} size="md" /></span>
-                <span className="mt-4 block min-w-0 @[300px]:mt-0 @[20rem]:contents">
-                  <span className="block text-lg font-[800] leading-snug tracking-[-0.01em] @[20rem]:col-start-2">{r.name}</span>
-                  <span className="app-numbers mt-0.5 block text-[0.9375rem] leading-snug text-muted @[20rem]:col-start-2">{r.count === 1 ? t("1 product") : t("{n} products", { n: r.count.toLocaleString("en-GB") })}</span>
-                  {mine.includes(r.id) && <span className="bg-sun mt-3 inline-flex items-center justify-self-end whitespace-nowrap rounded-full px-2.5 py-1 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-on-accent @[300px]:mt-2 @[20rem]:col-start-3 @[20rem]:row-span-2 @[20rem]:row-start-1 @[20rem]:mt-0!">{t("Your shop")}</span>}
+            <li key={r.id} className="@container relative flex">
+              {/* the shop's name, then its count. When a tile has the whole row (large text: one tile a row) the logo sits beside the words instead of
+                  above them, so the tiles stay short */}
+              <Link href={`/app/groceries/shop?r=${r.id}`} prefetch={false} className={`${CARD} lift flex w-full flex-col items-start p-4 pb-[4.25rem] [overflow-wrap:anywhere] @[300px]:flex-row @[300px]:items-center @[300px]:gap-4`}>
+                <ShopMark shopId={r.id} size="md" />
+                <span className="mt-4 block min-w-0 @[300px]:mt-0">
+                  <span className="block text-lg font-[800] leading-snug tracking-[-0.01em]">{r.name}</span>
+                  <span className="app-numbers mt-0.5 block text-[0.9375rem] leading-snug text-muted">{r.count === 1 ? t("1 product") : t("{n} products", { n: r.count.toLocaleString("en-GB") })}</span>
                 </span>
               </Link>
-              {/* "Select" at the tile's bottom right (a separate button beside the link, never inside it): ticks the shop for "Go" above. Its words are
+              {/* "Select" at the tile's bottom right (a separate button beside the link, never inside it): ticks the shop for the button at the foot of the screen. Its words are
                   visible; the shop's name is spoken after them ("Select Tesco"), so the name always contains what is drawn. */}
               <button type="button" onClick={() => pick(r.id)} className={`absolute bottom-3 end-3 inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3.5 text-[0.9375rem] font-semibold transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${picked.includes(r.id) ? "border-transparent bg-foreground text-background" : "border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] bg-white text-foreground hover:bg-soft-strong"}`}>
                 {picked.includes(r.id) && <CheckIcon className="h-4 w-4" />}
@@ -107,6 +103,18 @@ export default function GroceriesPage() {
       {missing.length > 0 && <p className="mt-3.5 text-[0.9375rem] leading-snug text-muted">{t("Not here yet: {shops}.", { shops: missing.join(", ") })}</p>}
 
       <FootNote>{t("Prices appear only where we've read them from the supermarket's own website. Not affiliated with any supermarket.")}</FootNote>
+
+      {picked.length > 0 && (
+        // At the foot of the screen, just above the tab bar (founder 2026-11-18: "maybe the go button should be shown instead at the bottom"), where the thumb is
+        // after ticking shops further down, on a strip of the page's grey that the list slides under. The button says what it opens (founder 2026-11-18: everyone
+        // should understand each screen): one shop's products, or the chosen shops' products together.
+        <div className="sticky bottom-0 z-20 -mx-5 -mb-32 mt-4 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-3">
+          <p role="status" aria-live="polite" className="app-numbers mb-2 text-center text-[0.9375rem] font-semibold text-muted">{picked.length === 1 ? t("1 shop selected") : t("{n} shops selected", { n: picked.length })}</p>
+          <Link href={pickedShopsHref(picked)} className="flex min-h-14 w-full items-center justify-center rounded-full bg-foreground px-5 text-center text-lg font-bold leading-snug text-background transition active:scale-[0.98]">
+            {pickedLabel}
+          </Link>
+        </div>
+      )}
 
       <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(code) => { setScanning(false); const c = barcodeQuery(code); if (c) router.push(`/app/groceries/product?code=${c}`); }} />
     </div>

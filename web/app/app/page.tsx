@@ -6,12 +6,12 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
 import { entryMeal, isSameLocalDay, loggedGaps, loggedToday, mealBudget, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
-import { PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
+import { FOOD_SCAN_ENABLED, GATING_ENABLED, PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { dayHref, shortDate } from "@/lib/mm/day";
 import { formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
 import { localeInfo } from "@/lib/mm/i18n";
-import { deleteLogEntry, logStore, myRecipesStore, savedRecipesStore, savedStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
+import { deleteLogEntry, logStore, mealPlanStore, myRecipesStore, savedRecipesStore, savedStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
 import type { Meal } from "@/lib/mm/types";
 import { AddFoodSheet } from "./_components/addfood/AddFoodSheet";
@@ -21,7 +21,7 @@ import { Gauge } from "./_components/Gauge";
 import { useGate } from "./_components/Paywall";
 import { RemindersSection } from "./_components/RemindersSection";
 import { WaterCard } from "./_components/WaterCard";
-import { BasketIcon, CalendarIcon, ChevronRightIcon, FlameIcon, GearIcon, HeartIcon, PlusIcon } from "./_components/icons";
+import { BasketIcon, CalendarIcon, CameraIcon, ChevronRightIcon, FlameIcon, GearIcon, HeartIcon, PlusIcon } from "./_components/icons";
 import { Card, Spinner } from "./_components/ui";
 import { useChainIndexes, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "./_lib/hooks";
 import { useLanguage, useT } from "./_lib/i18n";
@@ -74,11 +74,15 @@ function MacroRow({ label, eaten, target }: { label: string; eaten: number; targ
 /** "Shopping list / 2 things to pick up / Open", measured from the founder's picture's Workouts and Meals cards (2026-10-15, "exactly like
  * image 2"): a heavy title, a one-line 14 px subtitle right under it, then the black pill. A round icon in the meal rows' flame tint sits
  * above the title, so the two cards aren't the plainest thing on the page. */
-function ThingCard({ href, title, line, icon }: { href: string; title: string; line: string; icon: ReactNode }) {
+function ThingCard({ href, title, line, icon, badge }: { href: string; title: string; line: string; icon: ReactNode; badge?: string }) {
   const t = useT();
   return (
     <Link href={href} className="glass lift flex min-w-0 flex-col rounded-[1.25rem] p-4 [overflow-wrap:anywhere]">
-      <span aria-hidden className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-accent">{icon}</span>
+      <span aria-hidden className="mb-3 flex items-center justify-between gap-2">
+        {/* the app's light green, like the shortcut rows (founder 2026-11-18: "that should be light green") */}
+        <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sun text-[var(--on-accent)]">{icon}</span>
+        {badge && <span className="rounded-full bg-sun px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--on-accent)]">{badge}</span>}
+      </span>
       <span className="pb-3.5">
         <span className="block text-xl font-[800] leading-tight tracking-[-0.01em]">{title}</span>
         <span className="mt-1 block text-sm leading-snug text-muted">{line}</span>
@@ -98,6 +102,7 @@ export default function HomePage() {
   const { gate, showPaywall } = useGate();
   const log = useStore(logStore);
   const shopping = useStore(shoppingStore);
+  const hasPlan = !!useStore(mealPlanStore);
   // what "My meals" holds: the same three stores its page counts (saved recipes, Pip's recipes, saved restaurant orders)
   const savedOrders = useStore(savedStore);
   const savedMeals = useStore(savedRecipesStore).length + useStore(myRecipesStore).length + savedOrders.length;
@@ -147,10 +152,13 @@ export default function HomePage() {
           </button>
         </div>
         {/* a small grey circle like the picture's, inside a full 44 px tap area; a gear to Settings (founder 2026-10-16). Today's meals opens from the meal rows below. */}
-        <Link href="/app/settings" aria-label={t("Settings")} className="group -me-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><GearIcon className="h-[18px] w-[18px]" /></span>
+        {/* the gear with its word (the review of 2026-11-18: an icon alone means nothing to someone new to phones) */}
+        <Link href="/app/settings" className="group -me-1 inline-flex min-h-11 shrink-0 items-center rounded-full transition active:scale-95">
+          <span className="inline-flex h-9 items-center gap-1.5 rounded-full bg-soft-strong ps-2.5 pe-3.5 text-[0.9375rem] font-semibold transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><GearIcon aria-hidden className="h-[18px] w-[18px]" />{t("Settings")}</span>
         </Link>
       </div>
+      {/* what Home is for, in one line (founder 2026-11-18: "everyone needs to understand the point for each screen") */}
+      <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("Your food today: what you've eaten and what's left.")}</p>
 
       <ol aria-label={t("This week")} className="mt-4 grid grid-cols-7 gap-2 text-center">
         {weekOf(now).map((d) => {
@@ -198,7 +206,7 @@ export default function HomePage() {
         <p className="glass mt-4 rounded-2xl px-4 py-2.5 text-xs text-muted">{t("Showing fictional sample data for testing. Numbers are not real.")}</p>
       )}
 
-      <div className={`app-numbers mt-6 ${PAIR}`}>
+      <div data-coach="home-numbers" className={`app-numbers mt-6 ${PAIR}`}>
         {/* Measured from the founder's picture of this card ("exactly like image 2"): the small label at the top, a dial about 55% of the
             card's width with a thick track and a small grey centre, plenty of room around it, the figures in a regular weight below. */}
         <Card className="flex min-h-[14.25rem] min-w-0 flex-col items-center justify-between gap-5 px-4 pb-3.5 pt-4 text-center">
@@ -242,8 +250,28 @@ export default function HomePage() {
       <h2 className="sr-only">{t("Your things")}</h2>
       <div className={`mt-3.5 ${PAIR}`}>
         <ThingCard href="/app/groceries/list" title={t("Shopping list")} line={groceriesLine} icon={<BasketIcon className="h-5 w-5" />} />
-        <ThingCard href="/app/meals" title={t("My meals")} line={mealsLine} icon={<HeartIcon className="h-5 w-5" />} />
+        {FOOD_SCAN_ENABLED ? (
+          // founder 2026-11-18: "replace my meals with instead a way to scan food at restaurants or wherever the person is" (Premium; app/app/scan)
+          <ThingCard href="/app/scan" title={t("Scan your food")} line={t("Snap your plate to see its calories")} icon={<CameraIcon className="h-5 w-5" />} badge={pro ? undefined : t("Premium")} />
+        ) : (
+          <ThingCard href="/app/meals" title={t("My meals")} line={mealsLine} icon={<HeartIcon className="h-5 w-5" />} />
+        )}
       </div>
+      {/* the meal plan, the third card (founder 2026-11-18: "make a third icon, which has meal plan, and that has pro on it"): the whole width under the two, so the
+          words stay big at every text size */}
+      <Link href="/app/plan" className="glass lift mt-3 flex min-h-[5rem] items-center gap-3.5 rounded-[1.25rem] p-4 [overflow-wrap:anywhere]">
+        <span aria-hidden className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sun text-[var(--on-accent)]"><CalendarIcon className="h-5 w-5" /></span>
+        <span className="min-w-0 flex-1">
+          <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+            <span className="text-xl font-[800] leading-tight tracking-[-0.01em]">{t("Meal plan")}</span>
+            {GATING_ENABLED && !pro && <span className="rounded-full bg-sun px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--on-accent)]">{t("Premium")}</span>}
+          </span>
+          <span className="mt-1 block text-sm leading-snug text-muted">{hasPlan ? t("Your week of meals and its shopping") : t("A week of meals for your goal, with the shopping list")}</span>
+        </span>
+        <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted rtl:rotate-180" />
+      </Link>
+      {/* founder 2026-11-18: "I don't want My Meals anymore. I just want the option where they can scan food": no My meals on Home where the scanner is (the
+          saved recipes and orders are still in Recipes › My recipes); the website, which has no scanner, keeps the My meals card */}
 
       <h2 className="mt-7 text-xl font-extrabold tracking-tight">{t("Today's meals")}</h2>
       <ul className="mt-3 space-y-3">
@@ -259,7 +287,8 @@ export default function HomePage() {
               <Link href="/app/today" className="min-w-0 flex-1 break-words">
                 <span className="flex items-center gap-1 text-lg font-extrabold leading-snug tracking-tight">{title}<ChevronRightIcon aria-hidden className="h-4 w-4 shrink-0 text-muted" /></span>
                 <span className="mt-1.5 flex items-center gap-2">
-                  <span aria-hidden className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent"><FlameIcon className="h-[18px] w-[18px]" /></span>
+                  {/* the light green of Home's other icons (founder 2026-11-18: "Change these logos to light green too") */}
+                  <span aria-hidden className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-sun text-[var(--on-accent)]"><FlameIcon className="h-[18px] w-[18px]" /></span>
                   <span className="app-numbers text-lg font-bold"><span className="whitespace-nowrap">{formatInt(kcal)} / {formatInt(budget)}</span> <span className="text-sm font-semibold text-muted">kcal</span></span>
                 </span>
                 {entries.length > 0 && (
@@ -269,7 +298,7 @@ export default function HomePage() {
                   </span>
                 )}
               </Link>
-              <button type="button" onClick={() => gate("log", () => setAddTo(meal))} aria-label={t(ADD_TO[meal])} className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-strong transition active:scale-95 hover:bg-accent-soft hover:text-accent">
+              <button type="button" data-coach={meal === MEALS[0] ? "home-add" : undefined} onClick={() => gate("log", () => setAddTo(meal))} aria-label={t(ADD_TO[meal])} className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-strong transition active:scale-95 hover:bg-accent-soft hover:text-accent">
                 <PlusIcon className="h-6 w-6" />
               </button>
             </li>

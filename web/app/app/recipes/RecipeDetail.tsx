@@ -27,6 +27,7 @@ import { PhotoTile } from "../groceries/ProductPhoto";
 import { ProductMini } from "../groceries/ProductMini";
 import { targetSentence } from "./MealPicker";
 import { MEAL_LOOK, RecipeHeroArt } from "./RecipeTile";
+import { FullPictureButton } from "../_components/PhotoViewer";
 import { ShopMark } from "../_components/ChainMark";
 
 // One recipe filled with a shop's own products, fitted to the person's meal (Recipes › Your meal) unless they ask to see it as written.
@@ -295,7 +296,8 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
           <div className="relative h-[clamp(15rem,36dvh,22rem)] overflow-hidden bg-soft-strong">
             {/* eslint-disable-next-line @next/next/no-img-element -- the person's own photo, a local address on this phone */}
             <img src={photo} alt={t("Your photo")} className="h-full w-full object-cover" />
-            <p className="absolute bottom-12 start-4 me-4 rounded-[1rem] bg-black/65 px-3 py-1.5 text-[0.8125rem] font-semibold leading-snug text-white">{t("Your photo. The recipe is Pip's home version.")}</p>
+            <p className="absolute bottom-12 start-4 me-[4.5rem] rounded-[1rem] bg-black/65 px-3 py-1.5 text-[0.8125rem] font-semibold leading-snug text-white">{t("Your photo. The recipe is Pip's home version.")}</p>
+            <FullPictureButton src={photo} alt={t("Your photo")} className="bottom-12 end-4" />
           </div>
         ) : (
           <RecipeHeroArt id={recipe.id} name={recipe.name} label={rt(recipe.name)} meal={recipe.meal} />
@@ -303,7 +305,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
         <div className="absolute inset-x-0 top-0 flex flex-wrap items-start justify-between gap-2 px-4 pt-[max(0.75rem,env(safe-area-inset-top))]">
           <Link href={back.href} onClick={(e) => { if (save && !save.saved) { e.preventDefault(); setLeaving(true); return; } back.onClick(e); }} aria-label={backName(t("Back"), t("Back to recipes"), back.cameFromApp)} className={`${ON_PICTURE} ps-2.5 pe-4`}><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
           {!recipe.ai ? <SaveRecipeButton id={recipe.id} /> : save && (
-            <button type="button" aria-pressed={save.saved} aria-label={save.saved ? t("Saved to Your recipes.") : t("Save this recipe")} onClick={() => { if (!save.saved) save.onSave(); }} className={`${ON_PICTURE} ms-auto ps-3.5 pe-4`}>
+            <button type="button" aria-pressed={save.saved} aria-label={save.saved ? t("Saved to My recipes") : t("Save this recipe")} onClick={() => { if (!save.saved) save.onSave(); }} className={`${ON_PICTURE} ms-auto ps-3.5 pe-4`}>
               <HeartIcon filled={save.saved} className={`h-5 w-5 ${save.saved ? "text-[#e11d48]" : ""}`} />{save.saved ? t("Saved") : t("Save")}
             </button>
           )}
@@ -369,7 +371,13 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
               <p className="app-numbers mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("Each serving: {kcal} kcal, {protein}g protein, {carbs}g carbs, {fat}g fat.", { kcal: formatInt(totals.perServing.kcal), protein: Math.round(totals.perServing.protein), carbs: Math.round(totals.perServing.carbs), fat: Math.round(totals.perServing.fat) })}</p>
             )}
             {totals.notCounted.length > 0 && (
-              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{totals.notCounted.length === 1 ? t("We haven't read the label for {name} yet, so it isn't counted in these numbers.", { name: t(totals.notCounted[0]!).toLowerCase() }) : t("We haven't read the labels for {names} yet, so they aren't counted in these numbers.", { names: totals.notCounted.map((n) => t(n).toLowerCase()).join(", ") })}</p>
+              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{totals.notCounted.length === 1 ? t("Herbs, spices and salt don't have to carry a nutrition label, and we have none for {name}, so it isn't counted in these numbers.", { name: t(totals.notCounted[0]!).toLowerCase() }) : t("Herbs, spices and salt don't have to carry a nutrition label, and we have none for {names}, so they aren't counted in these numbers.", { names: totals.notCounted.map((n) => t(n).toLowerCase()).join(", ") })}</p>
+            )}
+            {totals.plainSalt.length > 0 && (
+              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("Salt doesn't have to carry a nutrition label. Where the shop gives none, we count it as UK table salt labels print it: no calories, protein, carbs or fat, and 99.9 g of salt in every 100 g.")}</p>
+            )}
+            {totals.govFood.length > 0 && (
+              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("Loose fruit and vegetables have no nutrition label, so the numbers for {names} are the UK government's figures for those foods (McCance and Widdowson's Composition of Foods).", { names: totals.govFood.map((n) => t(n).toLowerCase()).join(", ") })}</p>
             )}
             {totals.community.length > 0 && (
               <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{totals.community.length === 1 ? t("The numbers for {name} come from Open Food Facts contributors (community data) for that product's barcode, not from the supermarket's own label. Check the pack.", { name: t(totals.community[0]!).toLowerCase() }) : t("The numbers for {names} come from Open Food Facts contributors (community data) for those products' barcodes, not from the supermarket's own labels. Check the packs.", { names: totals.community.map((n) => t(n).toLowerCase()).join(", ") })}</p>

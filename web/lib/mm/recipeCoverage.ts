@@ -2,10 +2,12 @@
 // with numbers (its own label, or community numbers for the barcode). Don't edit by hand.
 export const RECIPE_COVERAGE: Readonly<Record<string, number>> = {
   "sainsburys": 165,
-  "tesco": 2,
-  "asda": 99,
-  "aldi": 0,
+  "tesco": 3,
+  "asda": 115,
+  "aldi": 31,
+  "lidl": 0,
   "morrisons": 161,
-  "waitrose": 0,
-  "iceland": 122,
+  "waitrose": 123,
+  "iceland": 123,
+  "marks-and-spencer": 22,
 };

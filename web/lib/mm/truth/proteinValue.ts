@@ -24,7 +24,7 @@ export const MIN_PROTEIN_ENERGY_SHARE = 0.25;
 export function proteinValue(p: ShopProduct): ProteinValue | null {
   const n = p.nutrition;
   // the shop's own label only: community numbers for a barcode (ShopNutrition.community) aren't what this screen says it reads
-  if (!n || n.state !== "" || n.community || p.price === null || p.price <= 0 || p.unitPrice === null || p.unitPrice <= 0) return null;
+  if (!n || n.state !== "" || n.community || n.govFood || p.price === null || p.price <= 0 || p.unitPrice === null || p.unitPrice <= 0) return null;
   const basisMatches = (p.unit === "per kg" && n.per === "g") || (p.unit === "per litre" && n.per === "ml");
   if (!basisMatches || !Number.isFinite(n.protein) || n.protein <= 0 || n.protein > 100 || !Number.isFinite(n.kcal)) return null;
   return { product: p, pence10g: Math.round(((p.unitPrice * 100) / n.protein) * 10) / 10, proteinPer100: n.protein, kcalPer100: n.kcal, per: n.per };

@@ -5,6 +5,16 @@ const SHOTS = new URL("./shots/", import.meta.url).pathname;
 import { mkdirSync } from "node:fs";
 mkdirSync(SHOTS, { recursive: true });
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
+
+// Pip's tips on the real screens (CoachMarks, 2026-11-18) are stopped in this test, as if the person had pressed "Stop the tips": e2e/coach.mjs covers them.
+{
+  const open = browser.newContext.bind(browser);
+  browser.newContext = async (options) => {
+    const c = await open(options);
+    await c.addInitScript(() => { try { if (!localStorage.getItem("mm.v1.coach")) localStorage.setItem("mm.v1.coach", JSON.stringify({ v: 1, data: { armed: false, seen: ["home", "eatOut", "groceries", "recipes"] } })); } catch { /* storage blocked */ } });
+    return c;
+  };
+}
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, colorScheme: "light" });
 // The welcome tour has been seen on this phone (e2e/tour.mjs covers the tour a first plain launch opens), so a plain /app here opens Home.
 await ctx.addInitScript(() => { if (!localStorage.getItem("mm.v1.tour")) localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 1 })); });
@@ -54,10 +64,11 @@ await step("the guided setup at /app/welcome: welcome, Pip's arrival, the text s
   await page.getByRole("radio", { name: "Standard", exact: true }).click();
   await visible(text("Perfect, that's easy on the eyes!"));
   await page.getByRole("button", { name: "Continue" }).click();
-  for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Community"]) {
+  // Community is off (2026-11-18): four tabs
+  for (const tab of ["Home", "Eat out", "Groceries", "Recipes"]) {
     await visible(page.getByRole("heading", { level: 1, name: tab, exact: true }));
     await visible(page.getByRole("heading", { level: 2, name: "What you can do" }));
-    if (tab === "Home") await visible(text("The gear at the top opens Settings: your goal, diet, text size, and this tour again."));
+    if (tab === "Home") await visible(text("Settings, at the top, has your goal, diet, text size, and this tour again."));
     if (tab === "Eat out") await visible(text("Search for any restaurant or dish by name."));
     if (tab === "Community") await visible(text("Food blogs are short, easy reads about eating out, shopping and cooking."));
     await page.waitForTimeout(900); // Pip's hop to this tab
@@ -197,7 +208,7 @@ await step("item detail: big calories, nutrients and 'not published'", async () 
   await shot("07-item");
 });
 await step("tapping Customise as a free user shows the honest paywall", async () => {
-  await page.getByRole("button", { name: "Customise" }).click();
+  await page.getByRole("button", { name: "Change the order" }).click();
   await visible(page.getByRole("heading", { name: "Build the perfect order, every time" }));
   await visible(text("Pro isn't on the web yet."));
   await visible(text("Top 5 picks for your goal at every chain"));
@@ -264,7 +275,7 @@ await step("Save → My meals › Restaurant meals lists it; Log → today's mea
   await page.getByRole("link", { name: "Open in builder" }).click();
   await page.waitForURL("**/app/builder?**");
   await visible(page.getByRole("group", { name: /Order total: 760 kcal/ }));
-  await page.getByRole("button", { name: "Log", exact: true }).click();
+  await page.getByRole("button", { name: "Add to today", exact: true }).click();
   await page.waitForURL("**/app/today");
   await visible(text("760"));
   await visible(text("/ 2,400 kcal"));

@@ -59,7 +59,7 @@ await step("item page: macros read 'not published', no ordering tools", async ()
   await page.goto(BASE + "/app/item?chain=calorie-corner&item=fish-and-chips");
   await page.getByRole("heading", { name: "Fish and chips" }).waitFor();
   expect((await page.getByText("not published", { exact: true }).count()) >= 3, "protein, carbs and fat should each say not published");
-  for (const name of ["Customise", "Log", "Save", "Share"]) expect((await page.getByRole("button", { name, exact: true }).count()) === 0, `${name} button shown`);
+  for (const name of ["Change the order", "Add to today", "Save", "Share"]) expect((await page.getByRole("button", { name, exact: true }).count()) === 0, `${name} button shown`);
   await page.getByText("publishes calories only, so ordering").waitFor();
   await ctx.close();
 });

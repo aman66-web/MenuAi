@@ -147,7 +147,16 @@ def read_done() -> dict[str, dict]:
 
 def candidates() -> list[dict]:
     with open(CANDIDATES, newline="", encoding="utf-8") as f:
-        return list(csv.DictReader(f))
+        rows = list(csv.DictReader(f))
+    # then every other product in the shop's published list (founder 2026-11-17: "we need nutrients for every single product"); pages already read are skipped
+    seen = {r["product_id"].strip() for r in rows}
+    listing = ROOT / "web" / "public" / "groceries" / "all" / f"{SHOP}.json"
+    if listing.exists():
+        for p in json.loads(listing.read_text(encoding="utf-8"))["products"]:
+            if p[0] not in seen:
+                seen.add(p[0])
+                rows.append({"product_id": p[0], "name": p[1]})
+    return rows
 
 
 def cmd_read(a) -> int:
@@ -391,7 +400,7 @@ def row_from(rec: dict) -> tuple[dict | None, str]:
     if None in main:
         return None, "a main number (kcal, protein, carbs or fat) missing or not a plain figure"
     kj = bg.printed_num(row["kj"])
-    bad = bg.implausible(main[0], main[1], main[2], main[3], kj)
+    bad = bg.implausible(main[0], main[1], main[2], main[3], kj, bg.printed_num(row["fibre_g"]))
     if not bad and kj and main[0] >= 20 and not 3.55 <= kj / main[0] <= 4.82:
         bad = "kJ and kcal disagree"
     if bad:
@@ -411,7 +420,13 @@ def cmd_write(a) -> int:
     order = [r["product_id"] for r in candidates()]
     rows, why = [], Counter()
     left: list[tuple[str, str]] = []
+    # products whose page shows another product's label or figures that can't be right (data/groceries/nutrition/holdback.csv, as for the other shops): never used
+    hb = ROOT / "data" / "groceries" / "nutrition" / "holdback.csv"
+    held = {r["product_id"] for r in csv.DictReader(open(hb, newline="", encoding="utf-8")) if r["shop"] == "iceland"} if hb.exists() else set()
     for pid in order:
+        if pid in held:
+            why["held back"] += 1
+            continue
         rec = done.get(pid)
         if rec is None:
             why["not read yet"] += 1

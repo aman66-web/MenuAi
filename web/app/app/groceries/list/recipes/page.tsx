@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useMemo, useState } from "react";
+import { isListId, itemsOnList, MAIN_LIST } from "@/lib/mm/groceries";
 import { shopPhotoSources } from "@/lib/mm/shopProducts";
 import { shoppingStore } from "@/lib/mm/stores";
 import { CheckIcon, ChevronRightIcon, PlusIcon, PotIcon } from "../../../_components/icons";
@@ -14,6 +16,7 @@ import { addedNote, addMissing, fileForProduct, useListRecipes, type ListMatch }
 import { Rich } from "../../../_lib/Rich";
 import { BackLink, CARD, LABEL, NOTE } from "../../PageBits";
 import { ProductMini } from "../../ProductMini";
+import { listHref } from "../../ListChoice";
 import { RecipeThumb } from "../../../recipes/RecipeThumb";
 
 // "What can I cook with this?" (founder 2026-10-10): recipes that use something on the shopping list, the ones needing least else first.
@@ -81,16 +84,30 @@ function MatchCard({ m }: { m: ListMatch }) {
 }
 
 export default function ListRecipesPage() {
+  // ?l= is the list it was opened from (one of the person's own lists); without it, every list
+  return (
+    <Suspense fallback={<Spinner />}>
+      <ListRecipesScreen />
+    </Suspense>
+  );
+}
+
+function ListRecipesScreen() {
   const t = useT();
   const hydrated = useHydrated();
-  const list = useStore(shoppingStore);
+  const all = useStore(shoppingStore);
+  // ?l=<id>: one of the person's own lists; ?l=main: the main "Shopping list" alone; nothing: every list together (the Recipes page's card)
+  const asked = useSearchParams().get("l");
+  const from = asked === MAIN_LIST ? "" : asked && isListId(asked) ? asked : null;
+  const list = useMemo(() => (from === null ? all : itemsOnList(all, from)), [all, from]);
   const { state, matches } = useListRecipes(list);
   const [limit, setLimit] = useState(PAGE);
-  const listNav = useBack("/app/groceries/list"); // for the empty-state button: the page before when there is one in the app, else the list in this page's place
+  const back = listHref(from);
+  const listNav = useBack(back); // for the empty-state button: the page before when there is one in the app, else the list in this page's place
 
   return (
     <div>
-      <BackLink href="/app/groceries/list" label={t("Back to shopping list")} />
+      <BackLink href={back} label={t("Back to shopping list")} />
       <h1 className="mt-5 text-[1.75rem] font-[800] leading-[1.08] tracking-[-0.02em]"><Rich text={t("Cook with your {list}")} values={{ list: <span>{t("shopping list")}</span> }} /></h1>
       <div className="mt-5"><PipSays mood="point" size={72}>{t("These recipes use something on your list. Each one shows what you still need to buy.")}</PipSays></div>
 

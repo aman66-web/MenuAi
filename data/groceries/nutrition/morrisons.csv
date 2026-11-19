@@ -1,5 +1,6 @@
 product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_g,salt_g,checked_on,page_url
 100002892,g,,405,97,1.6,0.3,4.2,0.3,5.0,14,0.64,2026-11-17,https://groceries.morrisons.com/products/quorn-vegetarian-pieces-300g/100002892
+100098261,g,,2584,623,48.4,8.1,25.8,6.5,3.2,19.4,0.04,2026-11-18,https://groceries.morrisons.com/products/morrisons-cashew-nuts-250g/100098261
 100104173,g,,1641,390,8.0,1.3,63,4.5,8.8,12,0.23,2026-11-17,https://groceries.morrisons.com/products/weetabix-oatibix-cereal/100104173
 100104181,g,,1708,405,8.6,1.4,67,14,8.0,11,0.28,2026-11-17,https://groceries.morrisons.com/products/weetabix-oatibix-flakes-cereal/100104181
 100104991,g,,1550,369,10.6,1.7,56.4,21.9,6.4,8.7,0.02,2026-11-17,https://groceries.morrisons.com/products/mornflake-original-oat-granola/100104991
@@ -109,7 +110,35 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 100907911,g,,1589,374,<0.10,0.00,93.00,73.00,,<0.10,<0.01,2026-11-17,https://groceries.morrisons.com/products/trebor-softmints-peppermint-mints-4-pack/100907911
 102407661,g,,318.6,75.05,0.17,0.08,0.5,0.05,0.3,17.73,0.225,2026-11-17,https://groceries.morrisons.com/products/market-street-haddock-loin/102407661
 102480447,ml,,3378,822,91.3,15.5,0,0,0,0,0,2026-11-17,https://groceries.morrisons.com/products/filippo-berio-special-selection-extra-virgin-olive-oil/102480447
+102754920,g,oven cooked,652,155,5.3,2.8,9.9,1.6,,17.1,0.54,2026-11-18,https://groceries.morrisons.com/products/jeff-the-chef-mini-chicken-parmos/102754920
+102780968,g,,875,209,10,0.8,23,4.9,1.1,5.6,0.11,2026-11-18,https://groceries.morrisons.com/products/spicy-chicken-pasta-750g-serves-6-fto/102780968
+102793312,g,,824.1,197.7,12.9,5.4,0,0,0,20.4,0.168,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-prime-topside-steak/102793312
+102793321,g,,824.1,197.7,12.9,5.4,0,0,0,20.4,0.168,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-prime-topside-joint/102793321
+102793339,g,,824.1,197.7,12.9,5.4,0,0,0,20.4,0.168,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-lean-diced-topside-beef/102793339
+102793363,g,,824.1,197.7,12.9,5.4,0,0,0,20.4,0.15,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-prime-silverside-joint/102793363
+102793380,g,,894.4,214.8,14.8,5.9,0,0,0,20.4,0.133,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-prime-salmon-cut-silverside-joint-700g/102793380
+102793419,g,,801.04,192.18,12.58,4.36,0,0,0,19.74,0.013,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-brisket-boneless-rolled-joint/102793419
+102793478,g,,1201.8,288.6,19.8,8.9,8.8,0.7,0,18.8,0.325,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-prime-rib-eye-steak/102793478
+102793540,g,,838.8,201.1,12.7,5.6,0,0,0,21.7,0.155,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-prime-sirloin-steak/102793540
+102793654,g,,1117.6,266.7,12.7,5.3,5.2,0,0,32.9,0.15,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-best-braising-steak/102793654
+102793662,g,,801.04,192.18,12.58,4.36,0,0,0,19.74,0.013,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-beef-braising-steak/102793662
 102793689,g,,672.719,160.84,8.68,3.811,0,0,0,20.681,0.147,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-minced-beef/102793689
+102793769,g,,1117.6,266.7,12.7,5.3,5.2,0,0,32.9,0.15,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-lean-casserole-steak/102793769
+102793865,g,,894.4,214.8,14.8,5.9,0,0,0,20.4,0.133,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-beef-sandwich-steak/102793865
+102794008,g,,824,198,12.9,5.4,0,0,0,20.4,0.17,2026-11-18,https://groceries.morrisons.com/products/morrisons-scotch-topside-steak/102794008
+102794016,g,,824,198,12.9,5.4,0,0,0,20.4,0.17,2026-11-18,https://groceries.morrisons.com/products/morrisons-scotch-topside-joint/102794016
+102794024,g,,824,198,12.9,5.4,0,0,0,20.4,0.17,2026-11-18,https://groceries.morrisons.com/products/morrisons-scotch-topside-diced/102794024
+102794201,g,,838.8,201.1,12.7,5.6,0,0,0,21.7,0.155,2026-11-18,https://groceries.morrisons.com/products/morrisons-scotch-sirloin-steak/102794201
+102796484,g,,778.1,186.7,12.3,5.4,0,0,0,19,0.145,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-leg-of-lamb/102796484
+102796505,g,,778.1,186.7,12.3,5.4,0,0,0,19,0.145,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-spring-lamb-shank-370g/102796505
+102796548,g,,779.9,187.8,14.6,6.8,0,0,0,14.1,0.125,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-spring-lamb-shoulder/102796548
+102796636,g,,923,222,16.4,7.6,0,0,0,18.6,0.14,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-rack-of-spring-lamb-joint/102796636
+102796679,g,,747.6,179.2,11.2,5.2,0,0,0,19.6,0.55,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-spring-lamb-ribs/102796679
+102796716,g,,923,222,16.4,7.6,0,0,0,18.6,0.14,2026-11-18,https://groceries.morrisons.com/products/market-street-british-lamb-leg-steak/102796716
+102796775,g,,779.9,187.8,14.6,6.8,0,0,0,14.1,0.125,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-diced-shoulder-of-spring-lamb-275g/102796775
+102796804,g,,747.6,179.2,11.2,5.2,0,0,0,19.6,0.55,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-lamb-breast/102796804
+102796812,g,,1065.799,253.2,7.227,3.227,30.027,2.72,2.532,15.747,1.61,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-spring-lamb-stuffed-breast/102796812
+102796901,g,,778.1,186.7,12.3,5.4,0,0,0,19,0.145,2026-11-18,https://groceries.morrisons.com/products/morrisons-scotch-leg-of-spring-lamb/102796901
 103035556,g,,547,131,9.0,2.5,<0.5,<0.5,,12.6,0.39,2026-11-17,https://groceries.morrisons.com/products/happy-egg-co-6-large-free-range-eggs/103035556
 103039311,ml,,197,47,1.6,1,4.6,4.6,,3.5,0.11,2026-11-17,https://groceries.morrisons.com/products/morrisons-less-than-2-fat-semi-skimmed-long-life-milk-6-x-1l/103039311
 103045623,g,,915,220,16,11,2.0,1.0,,17,0.70,2026-11-17,https://groceries.morrisons.com/products/galbani-mozzarella/103045623
@@ -154,6 +183,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 104428001,g,,2532,610,46.8,7.7,20.4,7.9,7,23.4,0.47,2026-11-17,https://groceries.morrisons.com/products/morrisons-smooth-peanut-butter/104428001
 104454411,g,,1543,367,8.4,1.3,56.1,1,9.1,12.1,,2026-11-17,https://groceries.morrisons.com/products/morrisons-savers-porridge-oats/104454411
 104472820,g,,584,138,0.2,0.1,34.0,29,,0.9,1.2,2026-11-17,https://groceries.morrisons.com/products/heinz-classic-bbq-sauce-400ml/104472820
+104490243,g,,635,152,9,0.7,15,2.5,1.6,1.7,0.6,2026-11-18,https://groceries.morrisons.com/products/deli-style-potato-salad-900g-serves-6-fto/104490243
 104491271,ml,,3378,822,91.3,15.5,0,0,,0,0,2026-11-17,https://groceries.morrisons.com/products/filippo-berio-olive-oil/104491271
 104521644,g,,,371,5.7,0.9,68,26,6.9,8.3,0.23,2026-11-17,https://groceries.morrisons.com/products/quaker-oat-so-simple-sultanas-raisins-porridge-sachets/104521644
 104531308,g,,263,62,0.1,0.1,8,8,0.5,7,0.16,2026-11-17,https://groceries.morrisons.com/products/morrisons-fat-free-greek-style-yogurt/104531308
@@ -173,6 +203,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 104571721,g,,1725,416,35,22,0.1,0.1,,25,1.8,2026-11-17,https://groceries.morrisons.com/products/seriously-strong-original-scottish-extra-mature-red-cheddar-350g/104571721
 104572311,g,,1593,375,<0.5,<0.1,84,<0.5,,8.1,<0.01,2026-11-17,https://groceries.morrisons.com/products/laila-basmati-rice/104572311
 104585955,g,as consumed,623,147,0.3,0.1,31.5,0.3,1.3,4,0.39,2026-11-17,https://groceries.morrisons.com/products/morrisons-gnocchi/104585955
+104597673,g,,748.452,178.533,7.933,3.46,6.857,0.88,0.793,19.53,1.157,2026-11-18,https://groceries.morrisons.com/products/morrisons-scotch-hand-made-beef-steak-burger-4-pack/104597673
 104639896,g,,366,87,0.2,0.1,13.6,4.7,4.3,5.4,0.6,2026-11-17,https://groceries.morrisons.com/products/heinz-mixed-five-baked-beans-in-a-rich-tomato-sauce-415g/104639896
 104667416,g,drained,898,216,16,11,1,1,,17,0.7,2026-11-17,https://groceries.morrisons.com/products/morrisons-mozzarella/104667416
 104786247,g,,1728.5,417,35,22,0.1,0.1,0,25.4,1.8,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-castello-tickler-extra-mature-cheddar/104786247
@@ -180,12 +211,16 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 104794061,g,as consumed,614,145,0.6,0.1,27.4,0.7,3.9,5.7,0.02,2026-11-17,https://groceries.morrisons.com/products/morrisons-wholewheat-spaghetti-500g/104794061
 104794141,g,as consumed,659,156,0.8,0.2,31.2,1.2,1.8,4.9,,2026-11-17,https://groceries.morrisons.com/products/morrisons-spaghetti-500g/104794141
 104854748,g,,1355,321,4.4,1.4,58.4,24.6,7.4,7.8,12.64,2026-11-17,https://groceries.morrisons.com/products/maggi-so-juicy-mixed-herbs-chicken-recipe-mix/104854748
+104892710,g,,2005,482,31,5.4,26.8,26.8,9.1,19.4,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-savers-fruit-nuts/104892710
 104893721,g,boiled,145,35,0.5,0.1,2.8,1.6,2.8,3.3,0.02,2026-11-17,https://groceries.morrisons.com/products/morrisons-broccoli-florets-900g/104893721
 104894782,g,,231,55,2.6,1.3,5.7,1.1,0.6,1.9,0.50,2026-11-17,https://groceries.morrisons.com/products/crosse-and-blackwell-best-of-british-broccoli-and-stilton-soup/104894782
 104896753,g,fried,148,35,1.5,0.1,3.4,3.3,1.6,1.4,0.04,2026-11-17,https://groceries.morrisons.com/products/morrisons-stir-fry-vegetables-500g/104896753
 104954925,g,as consumed,90,21,0.2,0.1,3.1,3,1.1,1.2,0.11,2026-11-17,https://groceries.morrisons.com/products/morrisons-passata-500g/104954925
 105062603,g,,413,98,1.5,0.4,1,1,,20,1.6,2026-11-17,https://groceries.morrisons.com/products/morrisons-chicken-breast/105062603
 105093792,g,,121,29,0.1,,4.8,4.4,1.4,1.5,1.13,2026-11-17,https://groceries.morrisons.com/products/morrisons-cornichons-with-dill-350g/105093792
+105097582,g,,853,202,0.4,0.1,40.5,38.7,11,3.6,0.28,2026-11-18,https://groceries.morrisons.com/products/morrisons-soft-figs/105097582
+105097646,g,,1195,282,0.2,0.1,64,55,7.8,2.2,,2026-11-18,https://groceries.morrisons.com/products/morrisons-soft-pitted-dates/105097646
+105099027,g,,1317,311,0.8,0.3,71,58.8,6.3,1.7,0.18,2026-11-18,https://groceries.morrisons.com/products/morrisons-dried-mango/105099027
 105099431,g,,1418,335,1.3,0.1,77.9,66.8,5.1,0.3,0.02,2026-11-17,https://groceries.morrisons.com/products/morrisons-dried-cranberries-80g/105099431
 105106282,g,,438,104,2.6,1.7,16.7,10.1,<0.5,3.3,0.21,2026-11-17,https://groceries.morrisons.com/products/ambrosia-traditional-rice-pudding-with-sultanas-nutmeg-dessert-can-400g/105106282
 105127243,g,drained,155,37,0.2,0.1,6.6,5.6,2.7,0.8,0.96,2026-11-17,https://groceries.morrisons.com/products/morrisons-red-cabbage-440g/105127243
@@ -206,6 +241,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 105250233,g,,207,49,0.7,0.0,6.4,3.0,0.1,1.7,,2026-11-17,https://groceries.morrisons.com/products/taj-crushed-ginger-400g/105250233
 105251172,g,,338,80,3.5,2.0,7.0,3.7,,5.2,0.2,2026-11-17,https://groceries.morrisons.com/products/lancashire-farm-natural-bio-yogurt/105251172
 105251201,g,,338,80,3.5,2.0,7.0,3.7,,5.2,0.2,2026-11-17,https://groceries.morrisons.com/products/lancashire-farm-natural-bio-yogurt/105251201
+105255691,g,,1032,249,21,7,2,,,13,3,2026-11-18,https://groceries.morrisons.com/products/hilalturk-chicken-sausages/105255691
 105266577,g,,,225,0.9,0.3,49.3,1.3,2.5,5.9,0.5,2026-11-17,https://groceries.morrisons.com/products/dina-paninette-large-white-bread-wraps/105266577
 105355764,g,,340,81,3.4,2.01,7.4,3.5,<0.5,5.2,0.19,2026-11-17,https://groceries.morrisons.com/products/pakeeza-live-set-natural-yogurt/105355764
 105361929,g,,1521,361,7.0,1.1,58,1,9,12,,2026-11-17,https://groceries.morrisons.com/products/morrisons-super-smooth-porridge-original-oats/105361929
@@ -214,9 +250,14 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 105397892,g,drained,329,78,0.7,0.3,10,2.3,5.2,5.4,0.05,2026-11-17,https://groceries.morrisons.com/products/morrisons-petits-pois-400g/105397892
 105401492,g,,2077,496,23.2,2.1,62.6,2.6,2.5,7.9,0.99,2026-11-17,https://groceries.morrisons.com/products/morrisons-rosemary-crackers/105401492
 105405215,g,drained,69,17,0.3,,0.4,0.1,1.7,2.2,,2026-11-17,https://groceries.morrisons.com/products/morrisons-whole-button-mushrooms-290g/105405215
+105406816,g,,2746,666,63.5,4.6,6,4,6.9,14.1,0.02,2026-11-18,https://groceries.morrisons.com/products/morrisons-hazelnuts/105406816
 105407085,g,drained,95,23,0.5,0.2,2.7,2.5,2.7,0.5,0.06,2026-11-17,https://groceries.morrisons.com/products/morrisons-whole-carrots-300g/105407085
 105408168,g,drained,456,108,0.6,0.1,15.7,0.6,6.2,6.9,0.03,2026-11-17,https://groceries.morrisons.com/products/morrisons-red-kidney-beans-400g/105408168
+105409996,g,,3094,751,76.1,11.9,4.8,4.1,8,7.8,0.88,2026-11-18,https://groceries.morrisons.com/products/morrisons-macadamias-nuts/105409996
+105410161,g,,2859,693,68.6,4.6,4,3.9,1.9,14,0,2026-11-18,https://groceries.morrisons.com/products/morrisons-pine-nuts/105410161
 105410196,g,,2600,629,55.8,4.4,6.9,4.2,7.4,21.1,0.04,2026-11-17,https://groceries.morrisons.com/products/morrisons-almonds/105410196
+105410444,g,,2403,580,46,8.7,12.5,6.2,6.2,25.8,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-monkey-nuts-200g/105410444
+105410612,g,edible portion,2537,613,49.7,7.7,12.9,4.9,8.4,24.4,0.02,2026-11-18,https://groceries.morrisons.com/products/morrisons-roasted-monkey-nuts-200g/105410612
 105411957,g,,1747,416,15.9,3.2,57.3,47.8,3.3,9.3,0.03,2026-11-17,https://groceries.morrisons.com/products/morrisons-flame-raisins-jumbo-cashews/105411957
 105415501,g,,85,20,0.5,0.1,2.7,2.7,0.9,0.9,0.09,2026-11-17,https://groceries.morrisons.com/products/morrisons-chopped-tomatoes-400g/105415501
 105415579,g,,85,20,0.5,0.1,2.7,2.7,0.9,0.9,0.09,2026-11-17,https://groceries.morrisons.com/products/morrisons-italian-chopped-tomatoes-220g/105415579
@@ -235,7 +276,13 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 105573905,g,,1725,416,34.9,21.7,0.1,0.1,,25.4,1.8,2026-11-17,https://groceries.morrisons.com/products/cathedral-city-british-mature-cheddar-cheese-550g/105573905
 105620337,g,,1296,306,0.1,,70.4,61.1,5.8,2.9,0.1,2026-11-17,https://groceries.morrisons.com/products/morrisons-sultanas-500g/105620337
 105620370,g,,1296,306,0.1,,70.4,61.1,5.8,2.9,0.1,2026-11-17,https://groceries.morrisons.com/products/morrisons-sultanas-1kg/105620370
+105626384,g,,2869,696,68.5,7.5,3.3,2.6,3.5,14.7,0.03,2026-11-18,https://groceries.morrisons.com/products/morrisons-walnut-pieces-150g/105626384
+105645964,g,,2600,629,55.8,4.4,6.9,4.2,7.4,21.1,0.04,2026-11-18,https://groceries.morrisons.com/products/morrisons-flaked-almonds-150g/105645964
+105651281,g,,2555,618,53.6,3.6,7.2,3.6,10.7,21.4,,2026-11-18,https://groceries.morrisons.com/products/morrisons-toasted-flaked-almonds-150g/105651281
 105651361,g,,2535,613,52.5,4,8.8,4.6,9.9,21.4,0.05,2026-11-17,https://groceries.morrisons.com/products/morrisons-whole-blanched-almonds-150g/105651361
+105652953,g,,2089,503,34.9,4.3,24,25.6,10.2,18.1,,2026-11-18,https://groceries.morrisons.com/products/morrisons-fruit-nut-mix/105652953
+105653155,g,,2403,580,46,8.7,12.5,6.2,6.2,25.8,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-redskin-peanuts-400g/105653155
+105660195,g,,2403,579,45.6,7,15.2,1.1,5.3,24.4,0.05,2026-11-18,https://groceries.morrisons.com/products/morrisons-wholefoods-pumpkin-seeds/105660195
 105661948,g,as consumed,403,96,0.8,0.1,11.7,0.1,6.1,7.4,0.02,2026-11-17,https://groceries.morrisons.com/products/morrisons-wholefoods-red-split-lentils-500g/105661948
 105662211,g,as consumed,483,114,0.7,0.1,16.3,0.4,3.8,8.8,,2026-11-17,https://groceries.morrisons.com/products/morrisons-wholefoods-green-lentils/105662211
 105662289,g,as consumed,425,101,0.9,0.3,12.4,0.8,6.9,7.4,0.02,2026-11-17,https://groceries.morrisons.com/products/morrisons-wholefoods-butter-beans/105662289
@@ -244,9 +291,11 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 105712901,ml,prepared,31,8,0.4,0.2,0.9,0.2,0.1,0.1,0.75,2026-11-17,https://groceries.morrisons.com/products/morrisons-vegetable-stock-cubes-12-s/105712901
 105714608,g,,1884,448,13.8,1.7,66.8,5.3,3.6,12.2,0.98,2026-11-17,https://groceries.morrisons.com/products/morrisons-olive-oil-sea-salt-croutons-95g/105714608
 105725307,g,as consumed,814,194,9.2,1.4,18.3,1.4,1.3,9,0.46,2026-11-17,https://groceries.morrisons.com/products/morrisons-2-salmon-broccoli-fish-cakes/105725307
+105729463,g,,2859,693,68.6,4.6,4,3.9,1.9,14,,2026-11-18,https://groceries.morrisons.com/products/morrisons-pine-nuts-100g/105729463
 105761130,g,,644,152,0.9,0.1,28.8,0.7,2.6,5.8,0.4,2026-11-17,https://groceries.morrisons.com/products/morrisons-wok-ready-medium-noodles/105761130
 105762896,g,cooked,561,132,0.6,0.1,26.1,0.3,1.3,5,0.25,2026-11-17,https://groceries.morrisons.com/products/morrisons-medium-egg-noodles-250g/105762896
 105762968,g,cooked,552,130,1,0.3,24.8,0.3,1.3,4.9,0.25,2026-11-17,https://groceries.morrisons.com/products/morrisons-fine-egg-noodles/105762968
+105764568,g,as consumed,999,239,13.1,2.5,12.9,0.5,,17.4,0.57,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-southern-fried-chicken-portions-800g/105764568
 105765923,g,,1077,255,3.7,0.3,46.7,2.3,3.2,7.1,0.73,2026-11-17,https://groceries.morrisons.com/products/morrisons-mini-naans-4-x-50g/105765923
 105809931,g,,361,86,0.3,0.2,14.9,14.9,3.8,3.9,0.5,2026-11-17,https://groceries.morrisons.com/products/morrisons-tomato-puree-200g/105809931
 105832920,g,,333,78,0.2,0.1,0.1,0.1,0.5,18.8,0.48,2026-11-17,https://groceries.morrisons.com/products/market-street-angel-cut-haddock/105832920
@@ -282,17 +331,23 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 106623661,g,,1278,307,9.8,0.7,28.1,2.7,28.9,12.2,7.33,2026-11-17,https://groceries.morrisons.com/products/morrisons-medium-curry-powder/106623661
 106623695,g,,1391,334,13,0.9,26.9,2.4,27.7,13.6,5.75,2026-11-17,https://groceries.morrisons.com/products/morrisons-mild-curry-powder/106623695
 106686565,g,,1508,356,1.5,0.3,72.0,3.0,3.0,12.0,<0.01,2026-11-17,https://groceries.morrisons.com/products/napolina-spaghetti/106686565
+106692762,g,edible portion,2775,673,64,7.5,4.8,3.3,6.5,16.1,0,2026-11-18,https://groceries.morrisons.com/products/morrisons-shell-on-mixed-nuts-300g/106692762
+106698566,g,edible portion,2813,681,62.3,5.6,10.7,2.2,5.2,16.7,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-shell-on-walnuts-300g/106698566
 106704575,g,,1142,269,0.8,0.1,62,61,3.3,1.9,0.1,2026-11-17,https://groceries.morrisons.com/products/morrisons-soft-jumbo-raisins-sultanas-200g/106704575
 106793580,g,oven cooked,758,181,7.3,2,0.9,0.1,0.9,27.4,0.13,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-boneless-chicken-thigh-fillets-600g/106793580
 106824921,g,,517,123,5,1.4,0.1,0.1,0.8,19,0.22,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-turkey-thigh-mince-500g/106824921
 106829538,g,,1345,319,7.1,3.2,54,2.8,2,8.7,0.53,2026-11-17,https://groceries.morrisons.com/products/morrisons-white-mini-tortilla-wraps/106829538
 106923591,g,microwaved,621,148,4.8,1.4,19.7,2.7,1.7,5.6,0.36,2026-11-17,https://groceries.morrisons.com/products/morrisons-penne-mozzarella/106923591
+106938654,g,,911,215,0.2,0.1,47.3,43.8,7.1,2.5,0.2,2026-11-18,https://groceries.morrisons.com/products/morrisons-dried-soft-apricots/106938654
+106938793,g,,1055,249,0.7,0.2,55.1,35.9,7.2,2,,2026-11-18,https://groceries.morrisons.com/products/morrisons-prunes/106938793
+106974292,g,,770,186,14.3,4.8,2.5,,2.0,10.7,1.76,2026-11-18,https://groceries.morrisons.com/products/grace-halal-chicken-vienna-sausages-200g/106974292
 106980916,g,,650,155,6.62,1.11,0.13,<0.1,0.8,23.37,3.13,2026-11-17,https://groceries.morrisons.com/products/mr-freeds-oak-smoked-salmon-200g/106980916
 107103392,g,,1398,329,<0.5,0.2,81.5,80.8,<0.5,<0.5,0.03,2026-11-17,https://groceries.morrisons.com/products/rowse-squeezy-honey-clear/107103392
 107152936,g,drained,78,19,0.7,0.6,0.1,0.1,2.3,1.9,0.1,2026-11-17,https://groceries.morrisons.com/products/morrisons-sliced-mushrooms-in-water-290g/107152936
 107183759,g,grilled,1109,266,17.5,7,4.7,0.9,0.5,22.2,0.81,2026-11-17,https://groceries.morrisons.com/products/morrisons-4-burgers-with-onions/107183759
 107258984,g,,486,115,1.7,0.6,3.8,3.1,0.5,20.8,1.55,2026-11-17,https://groceries.morrisons.com/products/morrisons-honey-roast-ham-slices/107258984
 107297115,ml,,201,47,1.8,,4.8,,,3.6,0.11,2026-11-17,https://groceries.morrisons.com/products/grahams-the-family-dairy-semi-skimmed-milk/107297115
+107310279,g,,2246,537,29,14,59,1.8,,10,2.4,2026-11-18,https://groceries.morrisons.com/products/pbmg-bacon-flavour-crumbles-240g/107310279
 107311159,g,,339,81,0.4,0.1,15.5,4.3,3.9,4.8,0.6,2026-11-17,https://groceries.morrisons.com/products/heinz-baked-beans-in-a-rich-tomato-sauce-6-x-415g/107311159
 107350668,g,,1708,402,1.0,1.0,98.2,95.7,0.5,0.5,0.01,2026-11-17,https://groceries.morrisons.com/products/polo-spearmint-mint-tube-multipack-4-pack/107350668
 107350730,g,,1707,402,1.0,1.0,98.1,95.6,0.5,0.5,0.01,2026-11-17,https://groceries.morrisons.com/products/polo-original-mint-tube-multipack-4-pack/107350730
@@ -307,7 +362,12 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 107480041,g,,1521,359,2.0,0.5,71.2,3.5,3.0,12.5,0.013,2026-11-17,https://groceries.morrisons.com/products/barilla-pasta-lasagne-sheets-500g/107480041
 107482767,g,,99,23,0.2,0.0,3.6,3.6,1.0,1.3,0.10,2026-11-17,https://groceries.morrisons.com/products/napolina-chopped-tomatoes-6x400g/107482767
 107487592,g,,157,37,0.5,0.0,6.9,,2.2,1.3,1.18,2026-11-17,https://groceries.morrisons.com/products/old-el-paso-mild-squeezy-chunky-salsa-238g/107487592
+107631638,g,,1812,433,22.3,3.4,40.3,36.3,4.6,15.7,,2026-11-18,https://groceries.morrisons.com/products/morrisons-trail-mix/107631638
+107631793,g,,2437,588,46.5,9,18.7,7.8,6.6,20.4,,2026-11-18,https://groceries.morrisons.com/products/morrisons-cashew-nuts/107631793
+107631822,g,,2854,692,68.2,17.4,3.1,2.4,4.3,14.3,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-brazil-nuts/107631822
 107631881,g,,2600,629,55.8,4.4,6.9,4.2,7.4,21.1,0.04,2026-11-17,https://groceries.morrisons.com/products/morrisons-almonds/107631881
+107631953,g,,2492,601,47.3,8.6,21.3,14.6,5.9,19.6,0.05,2026-11-18,https://groceries.morrisons.com/products/morrisons-chocolate-nut-mix-60g/107631953
+107631988,g,,2803,679,62.7,6.3,9.1,3.7,6.4,16.4,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-walnuts/107631988
 107678655,g,,1328,317,21,14,27,6.6,1.9,4,33,2026-11-17,https://groceries.morrisons.com/products/knorr-stock-cubes-vegetable-20-x-10g/107678655
 107683631,g,,719,170,1.3,0.2,33,9.5,5.3,3.8,0.02,2026-11-17,https://groceries.morrisons.com/products/merchant-gourmet-whole-chestnuts-180g/107683631
 107692300,ml,,206,49,1.7,1,4.8,4.8,,3.6,0.11,2026-11-17,https://groceries.morrisons.com/products/morrisons-for-farmers-british-semi-skimmed-milk-4-pints/107692300
@@ -320,6 +380,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 107806258,g,,575,137,0.6,0,28.1,0,,4.4,0.3,2026-11-17,https://groceries.morrisons.com/products/tiger-tiger-udon-noodles/107806258
 107819323,g,,346,82,0.2,,11,,,6.1,,2026-11-17,https://groceries.morrisons.com/products/sea-isle-black-beans-in-salted-water/107819323
 107819471,ml,,82.97,19.85,0,0,4.88,3.2,0,0,0,2026-11-17,https://groceries.morrisons.com/products/ktc-natural-strength-lime-juice-200ml/107819471
+107848335,g,grilled,496,118,2.7,0.9,3.4,0.0,,19,1.6,2026-11-18,https://groceries.morrisons.com/products/heck-chicken-italia-sausage/107848335
 107913408,g,,1839,439,17.4,1.5,56.6,0.6,10.9,8.6,1.09,2026-11-17,https://groceries.morrisons.com/products/proper-corn-lightly-sea-salted-popcorn-70g/107913408
 108000299,ml,,175,41,0.4,0.1,4.9,4.9,,4.5,0.11,2026-11-17,https://groceries.morrisons.com/products/arla-bob-skimmed-milk-tastes-like-semi-skimmed-2l/108000299
 108066503,g,,340,81,3.4,2.01,7.4,3.5,<0.5,5.2,0.19,2026-11-17,https://groceries.morrisons.com/products/pakeeza-live-set-natural-yogurt/108066503
@@ -334,45 +395,99 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 108280569,g,,604,144,6.2,2.3,1.1,0.7,0.5,21,2.6,2026-11-17,https://groceries.morrisons.com/products/oakpark-smoked-bacon-medallions-6-pack/108280569
 108280737,g,,566,135,5.5,2.0,0.9,0.67,0.5,20.2,2.58,2026-11-17,https://groceries.morrisons.com/products/oakpark-unsmoked-bacon-medallions-6-pack/108280737
 108285343,g,,68,16,0.5,0.1,1.7,1.7,0.9,0.8,,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-little-gem-lettuce-2-pack/108285343
+108285386,g,,68,16,0.5,0.1,1.7,1.7,0.9,0.8,,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-round-lettuce/108285386
 108292210,g,,68,16,0.5,0.1,1.7,1.7,0.9,0.8,,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-romaine-lettuce-hearts-2-pack/108292210
+108292332,g,,78,19,0.2,,2.2,1.2,1,1.5,0.2,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-chinese-leaf/108292332
+108300785,g,,133,32,0.2,,5,4.9,2.1,1.4,,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-white-cabbage/108300785
 108300881,g,,133,32,0.4,0.1,4.1,4,2.4,1.7,,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-red-cabbage-450-1350g/108300881
+108300911,g,,133,32,0.4,0.1,4.1,4,2.4,1.7,,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-sweetheart-cabbage/108300911
+108300961,g,,113,27,0.4,0.1,4.1,4,2.4,1.7,,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-savoy-cabbage/108300961
+108302422,g,,168,40,1,0.1,3.1,2.7,3.4,3,0.1,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-spring-greens-500g/108302422
+108302570,g,,168,40,1,0.1,3.1,2.7,3.4,3,0.1,2026-11-18,https://groceries.morrisons.com/products/morrisons-sliced-greens/108302570
+108302801,g,,160,38,0.9,0.2,1.8,1.5,2.6,4.4,,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-purple-sprouting-broccoli/108302801
+108303071,g,,142,34,0.9,0.2,3,2.5,1.8,3.6,,2026-11-18,https://groceries.morrisons.com/products/morrisons-medium-cauliflower/108303071
 108304330,g,,1837,437,13.2,4.9,65.6,16.1,6.2,10.8,,2026-11-17,https://groceries.morrisons.com/products/morrisons-superberry-granola/108304330
+108304356,g,,160,38,0.9,0.2,2.4,2,2.2,4,,2026-11-18,https://groceries.morrisons.com/products/morrisons-broccoli-cauliflower-florets-400g/108304356
 108304575,g,,321,76,1.1,0.2,12.5,5.7,4.6,1.8,,2026-11-17,https://groceries.morrisons.com/products/morrisons-parsnips-500g/108304575
+108304663,g,,123,29,0.3,,5,4.9,1.9,0.7,,2026-11-18,https://groceries.morrisons.com/products/morrisons-whole-swede/108304663
 108305383,g,,175,42,0.3,0.1,7.9,7.4,2.4,0.6,,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-carrots-500g/108305383
 108305471,g,,152,36,0.5,0.1,6,5.6,2.4,0.7,0.1,2026-11-17,https://groceries.morrisons.com/products/morrisons-chantenay-carrots-500g/108305471
 108305527,g,,175,42,0.3,0.1,7.9,7.4,2.4,0.6,,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-carrots-1kg/108305527
+108306239,g,,278,66,0.1,,15.4,15.4,0.7,0.4,,2026-11-18,https://groceries.morrisons.com/products/morrisons-seedless-green-grapes-punnet-400g/108306239
 108306618,g,,1381,330,1.6,0.3,78.9,0.2,,7.1,,2026-11-17,https://groceries.morrisons.com/products/mai-thai-aaa-jasmine-fragrant-rice/108306618
 108306714,g,,2045,489,24.4,6.7,52.8,13,6.2,11.5,,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-nuts-seed-granola-500g/108306714
 108307653,g,,1854,442,17.6,3.1,40.7,10.3,6.7,26.9,,2026-11-17,https://groceries.morrisons.com/products/lizi-s-granola-high-protein-nuts-seeds-granola-350g/108307653
+108309579,g,as consumed,155,37,0.4,0.1,5.7,5.6,2.2,1.5,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-mediterranean-style-vegetables-400g/108309579
+108309608,g,,162,39,0.5,0.1,3.7,2.4,2.9,3.4,0.02,2026-11-18,https://groceries.morrisons.com/products/morrisons-broccoli-cauliflower-florets-375g/108309608
+108312348,g,,176,42,0.1,,8.8,8.8,1.6,0.6,,2026-11-18,https://groceries.morrisons.com/products/morrisons-fresh-plums-400g/108312348
 108313017,g,,,225,0.9,0.3,49.3,1.3,2.5,5.9,0.5,2026-11-17,https://groceries.morrisons.com/products/dina-paninette-white-bread-wraps/108313017
+108314263,g,,176,42,0.1,,8.8,8.8,1.6,0.6,,2026-11-18,https://groceries.morrisons.com/products/morrisons-ready-to-eat-plums/108314263
+108317579,g,,544,131,9.2,1.7,7.8,0.6,1,3.8,0.53,2026-11-18,https://groceries.morrisons.com/products/morrisons-caesar-salad/108317579
 108320372,g,,78,19,0.6,0.1,0.2,,1,2.6,0.08,2026-11-17,https://groceries.morrisons.com/products/morrisons-baby-spinach-160g/108320372
 108320882,g,,214,52,3.6,0.5,3,2.8,1.8,0.9,0.18,2026-11-17,https://groceries.morrisons.com/products/morrisons-sweet-crispy-salad-bowl-190g/108320882
 108329385,g,,489,116,3.2,1.1,<0.5,<0.5,<0.5,21.8,0.3,2026-11-17,https://groceries.morrisons.com/products/shazans-small-chicken-breast-fillet/108329385
+108336032,g,,40,10,0.2,,0.9,0.9,1.1,0.5,0.2,2026-11-18,https://groceries.morrisons.com/products/morrisons-celery/108336032
+108337043,g,,208,49,0.2,0.1,9.7,8.7,1.1,1.6,0.09,2026-11-18,https://groceries.morrisons.com/products/morrisons-natural-cooked-beetroot/108337043
+108337115,g,,158,37,0.1,0.1,7,4,1.2,1.5,0.1,2026-11-18,https://groceries.morrisons.com/products/morrisons-pickled-beetroot/108337115
 108341190,g,,2514,606,47,6.3,16,5.3,8.1,26,0.02,2026-11-17,https://groceries.morrisons.com/products/meridian-smooth-peanut-butter/108341190
 108351224,g,,2514,606,47,6.3,16,5.3,8.1,26,0.02,2026-11-17,https://groceries.morrisons.com/products/meridian-crunchy-peanut-butter/108351224
 108358178,g,,257,61,0.5,0.1,12,11.7,,1,1.2,2026-11-17,https://groceries.morrisons.com/products/mrs-unis-spiced-onions/108358178
 108370943,g,,60,14,0.3,,1.9,1.9,0.6,0.7,,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-iceberg-lettuce/108370943
+108384827,g,,210,50,0.4,,8.8,5.3,1.5,1.9,,2026-11-18,https://groceries.morrisons.com/products/morrisons-scotch-bonnet-chillies/108384827
 108384886,g,,106,25,0.2,,4,4,1.5,1.8,,2026-11-17,https://groceries.morrisons.com/products/morrisons-fresh-red-chillies-50g/108384886
 108384966,g,,106,25,0.2,,4,4,1.5,1.8,,2026-11-17,https://groceries.morrisons.com/products/morrisons-mixed-chillies-50g/108384966
 108388174,g,,84,20,0.3,0.1,3.1,3.1,1,0.7,,2026-11-17,https://groceries.morrisons.com/products/morrisons-baby-plum-tomatoes-250g/108388174
 108388220,g,,84,20,0.3,0.1,3.1,3.1,1,0.7,,2026-11-17,https://groceries.morrisons.com/products/morrisons-cherry-tomatoes-420g/108388220
+108388490,g,,84,20,0.3,0.1,3.1,3.1,1,0.7,,2026-11-18,https://groceries.morrisons.com/products/morrisons-sweet-vine-ripened-tomatoes-250g/108388490
 108388529,g,,84,20,0.3,0.1,3.1,3.1,1,0.7,,2026-11-17,https://groceries.morrisons.com/products/morrisons-vine-ripe-cherry-tomatoes-225g/108388529
 108388692,g,,84,20,0.3,0.1,3.1,3.1,1,0.7,,2026-11-17,https://groceries.morrisons.com/products/morrisons-vine-ripened-large-tomatoes/108388692
 108388941,g,,84,20,0.3,0.1,3.1,3.1,1,0.7,,2026-11-17,https://groceries.morrisons.com/products/morrisons-salad-tomatoes-750g/108388941
 108389100,g,,84,20,0.3,0.1,3.1,3.1,1,0.7,,2026-11-17,https://groceries.morrisons.com/products/morrisons-salad-tomatoes-6-pack/108389100
+108391066,g,,479,113,0.5,0.1,25.3,,,1.8,,2026-11-18,https://groceries.morrisons.com/products/morrisons-fresh-lemongrass-2-pack/108391066
+108391146,g,,93,22,0.4,0.1,3.2,2.8,2,1.6,,2026-11-18,https://groceries.morrisons.com/products/morrisons-stringless-beans-180g/108391146
 108391736,g,,136,32,0.2,,4.2,3.4,2.3,3.6,,2026-11-17,https://groceries.morrisons.com/products/morrisons-trimmed-mangetout/108391736
+108391912,g,,96,23,2.3,0.2,19.6,2.3,2.2,4.2,0.1,2026-11-18,https://groceries.morrisons.com/products/morrisons-baby-corn-125g/108391912
 108392018,g,,205,49,0.2,,7.6,4,2.6,2.8,,2026-11-17,https://groceries.morrisons.com/products/morrisons-sugar-snap-peas-150g/108392018
+108392923,g,,55,13,0.2,0,2.2,1.2,1,1.5,0.16,2026-11-18,https://groceries.morrisons.com/products/morrisons-pak-choi-200g/108392923
+108395569,g,,175,42,0.3,0.1,7.9,7.4,2.4,0.6,0.1,2026-11-18,https://groceries.morrisons.com/products/morrisons-organic-carrots-600g/108395569
+108409289,g,,703,171,17.4,4.2,1.8,0.4,3.1,1.8,0.02,2026-11-18,https://groceries.morrisons.com/products/morrisons-ripe-ready-avocados-2-pack/108409289
+108409721,g,,233,55,0.5,,10.6,10.3,1.9,1.1,,2026-11-18,https://groceries.morrisons.com/products/morrisons-kiwi-fruit-6-pack/108409721
+108414272,g,,346,82,0.2,,17.2,0.6,1.3,2.1,,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-baking-potatoes-4-pack/108414272
+108414361,g,,346,82,0.2,,17.2,0.6,1.3,2.1,,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-white-potatoes-2-5kg/108414361
+108414651,g,,322,76,0.3,0.1,16.1,1.3,1,1.7,,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-baby-potatoes-1kg/108414651
+108414686,g,,322,76,0.3,0.1,16.1,1.3,1,1.7,,2026-11-18,https://groceries.morrisons.com/products/morrisons-miniature-potatoes-500g/108414686
+108418409,g,,215,51,0.5,0.1,11.6,11.6,1.2,0.6,<0.1,2026-11-18,https://groceries.morrisons.com/products/morrisons-pink-lady-apples-4-pack/108418409
+108419006,g,,196,47,0.1,,10,10,2.2,0.3,,2026-11-18,https://groceries.morrisons.com/products/morrisons-ripe-ready-conference-pears-4-pack/108419006
 108421000,g,as consumed,288,68,0.5,0.1,1,0.1,0.5,14.6,0.67,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-raw-peeled-king-prawns/108421000
 108423216,g,,1060,251,3.5,0.5,45.4,2.8,2.3,8.2,1.09,2026-11-17,https://groceries.morrisons.com/products/the-clay-oven-bakery-spicy-naan-bread-3-pack/108423216
+108428156,g,,1008,242,15,6.3,12.8,1.0,1.8,13,1.94,2026-11-18,https://groceries.morrisons.com/products/malcolm-allan-steak-lorne/108428156
+108428797,g,,207,49,0.3,,9.2,1.6,1.8,1.5,0.3,2026-11-18,https://groceries.morrisons.com/products/morrisons-celeriac-1kg/108428797
+108435268,g,as consumed,134,32,0.1,0.1,5.4,3.3,2.7,1,0.02,2026-11-18,https://groceries.morrisons.com/products/morrisons-vegetable-soup-kit-500g/108435268
 108444711,g,as consumed,574,136,1.4,0.5,0.1,0.1,0.5,30.4,0.1,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-chicken-breast-fillets-1kg/108444711
 108444754,g,as consumed,574,136,1.4,0.5,0.1,0.1,0.5,30.4,0.1,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-chicken-breast-fillets-630g/108444754
 108445108,g,,266,64,3.5,2.2,4.7,4.7,,3.3,0.14,2026-11-17,https://groceries.morrisons.com/products/onken-natural-set-yogurt/108445108
+108450548,g,,346,82,0.2,,17.2,0.6,1.3,2.1,,2026-11-18,https://groceries.morrisons.com/products/morrisons-organic-potatoes-1-5kg/108450548
+108451381,g,boiled,317,75,0.1,<0.01,16,0.8,1.6,1.8,<0.01,2026-11-18,https://groceries.morrisons.com/products/albert-bartlett-rooster-potatoes/108451381
+108453204,g,,2750,666,61.1,6.8,5.1,3.1,6.7,20.5,,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-chunky-mixed-nuts/108453204
+108453239,g,,2052,492,28.9,3,39.6,33.9,6.5,15.1,0,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-fruits-nuts-seeds-medley/108453239
+108453263,g,,2004,480,27.2,4.2,45.6,35.2,4.4,11.0,,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-cranberry-fruit-nut-medley/108453263
+108455251,g,,456,107,0.3,0.2,24.7,23.3,0.5,1.3,0.29,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-sweet-juniper-and-black-pepper-beetroot/108455251
 108456181,g,,909,220,16.6,1.9,12.5,10.9,6.7,1.6,1.24,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-horseradish-sauce-175g/108456181
+108459841,g,,507,120,2.3,0.2,19.6,2.3,2.2,4.2,,2026-11-18,https://groceries.morrisons.com/products/morrisons-corn-cobettes/108459841
+108459876,g,edible portion,334,80,1.9,0.3,9.5,2.5,5.1,3.6,0.04,2026-11-18,https://groceries.morrisons.com/products/morrisons-ready-to-eat-corn-on-the-cob/108459876
 108462418,g,,173,41,0.2,,7.9,5.6,1.4,1.2,,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-red-onions-1kg/108462418
 108465408,g,,1398,329,<0.5,0.2,81.5,80.8,<0.5,<0.5,0.03,2026-11-17,https://groceries.morrisons.com/products/rowse-squeezy-greek-honey/108465408
+108480632,g,as consumed,300,72,1.9,1.2,11.2,2.2,2.2,1.3,0.32,2026-11-18,https://groceries.morrisons.com/products/morrisons-colcannon-mash/108480632
 108488950,g,as consumed,109,26,0.4,0.1,3.1,3.1,2.2,1.4,0.1,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-italian-cherry-tomatoes-400g/108488950
 108491876,g,,214,51,1.4,0.3,4.1,3.1,4.1,3.5,,2026-11-17,https://groceries.morrisons.com/products/morrisons-brussels-sprouts/108491876
+108501157,g,,241,57,0.1,,12.4,12.4,2.7,0.3,,2026-11-18,https://groceries.morrisons.com/products/morrisons-snack-apple-bag-80g/108501157
+108501202,g,,256,61,0.1,,13.3,13.3,2.4,0.4,,2026-11-18,https://groceries.morrisons.com/products/morrisons-snack-apple-grape-bag/108501202
+108502361,g,,1857,441,13,1,67,3.6,4.5,11.8,1.2,2026-11-18,https://groceries.morrisons.com/products/morrisons-garlic-herb-croutons/108502361
+108502504,g,,1838,437,12.1,0.9,68,5.1,5.5,11.1,0.94,2026-11-18,https://groceries.morrisons.com/products/morrisons-black-pepper-croutons/108502504
 108503486,g,oven cooked,654,157,8.8,3.8,10,1.2,1,8.8,0.58,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-salmon-pollock-king-prawn-fish-pie/108503486
+108503831,g,,211,50,0.1,,11.1,11.1,1.2,0.5,,2026-11-18,https://groceries.morrisons.com/products/morrisons-pineapple-fruit-300g/108503831
+108504147,g,,139,33,0.3,0.1,6.9,6.9,0.5,0.4,,2026-11-18,https://groceries.morrisons.com/products/morrisons-watermelon-300g/108504147
+108504411,g,,211,50,0.1,,11.1,11.1,1.2,0.5,,2026-11-18,https://groceries.morrisons.com/products/morrisons-pineapple-500g/108504411
 108504753,g,,173,41,0.2,,7.9,5.6,1.4,1.2,,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-brown-onions-1kg/108504753
 108505537,g,as consumed,658,158,9,3.5,8.6,1.2,0.9,10.1,0.52,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-salmon-pollock-king-prawn-fish-pie-700g/108505537
 108515663,g,,2567,619,48.7,6,15.2,6.5,7.9,26.1,0.03,2026-11-17,https://groceries.morrisons.com/products/morrisons-100-smooth-peanut-butter/108515663
@@ -385,12 +500,15 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 108571585,g,boiled,786,188,6.7,1.3,14.7,2.7,10.7,12,0.28,2026-11-17,https://groceries.morrisons.com/products/morrisons-edamame-beans/108571585
 108599246,g,,160,38,0.9,0.2,1.8,1.5,2.6,4.4,,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-tenderstem-broccoli-200g/108599246
 108600711,ml,,360,86,8.9,6.9,1.1,0,,0,0.05,2026-11-17,https://groceries.morrisons.com/products/dunns-river-coconut-milk/108600711
+108603621,g,,410,97,0.6,0.4,21.4,20.2,1,1,0.2,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-sweet-fiery-baby-beetroot/108603621
 108606696,g,,1581,378,6.0,0.6,62.9,10.7,,20.5,0.06,2026-11-17,https://groceries.morrisons.com/products/indus-chickpeas-1kg/108606696
 108606901,g,,85,20,0.5,0.1,2.7,2.7,0.9,0.9,0.09,2026-11-17,https://groceries.morrisons.com/products/morrisons-chopped-tomatoes-4x400g/108606901
 108613693,g,,985,233,2.4,0.3,46.0,22.0,3.5,5.0,5.9,2026-11-17,https://groceries.morrisons.com/products/ajumma-republic-korean-hot-red-pepper-paste-500g/108613693
 108622397,g,,2205,529,32,20,50,48,,6.2,0.31,2026-11-17,https://groceries.morrisons.com/products/lindt-excellence-dark-sea-salt-chocolate-bar-100g/108622397
+108644473,g,as consumed,548,130,3.7,1.3,0.7,0.1,0.5,23.3,0.28,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-chicken-livers-400g/108644473
 108682621,g,,226,53,0.1,,11.8,11.8,1.8,0.4,,2026-11-17,https://groceries.morrisons.com/products/morrisons-royal-gala-apples-6-pack/108682621
 108682681,g,,226,53,0.1,,11.8,11.8,1.8,0.4,,2026-11-17,https://groceries.morrisons.com/products/morrisons-braeburn-apples-6-pack/108682681
+108682832,g,,226,53,0.1,,11.8,11.8,1.8,0.4,,2026-11-18,https://groceries.morrisons.com/products/morrisons-golden-delicious-apples-6-pack/108682832
 108702581,g,,285,68,0.7,0.1,7.5,4.9,6.0,4.9,<0.01,2026-11-17,https://groceries.morrisons.com/products/birds-eye-garden-peas-800g/108702581
 108702645,g,,285,68,0.7,0.1,7.5,4.9,6.0,4.9,<0.01,2026-11-17,https://groceries.morrisons.com/products/birds-eye-garden-peas-375g/108702645
 108702856,g,,285,68,0.7,0.1,7.5,4.9,6.0,4.9,<0.01,2026-11-17,https://groceries.morrisons.com/products/birds-eye-petits-pois-545g/108702856
@@ -406,6 +524,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 108850947,g,,277,66,0.2,0.1,9.5,1.9,3.6,4.6,0.4,2026-11-17,https://groceries.morrisons.com/products/heinz-no-added-sugar-baked-beans-in-a-rich-tomato-sauce-6-x-415g/108850947
 108854278,g,as consumed,765,182,7.3,2.1,0.2,,,28.9,0.14,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-boneless-chicken-thigh-fillets-1kg/108854278
 108896603,g,,1238,300,28.7,4.8,5.5,3.8,1.4,4.2,0.58,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-extra-crunchy-barber-s-mature-cheddar-coleslaw-300g/108896603
+108908651,g,,139,33,0.3,0.1,6.9,6.9,0.5,0.4,0.02,2026-11-18,https://groceries.morrisons.com/products/morrisons-watermelon-fans-95g/108908651
 108918614,ml,,205,49,2.3,0.3,6.2,4.6,0.9,0.5,0.09,2026-11-17,https://groceries.morrisons.com/products/rude-health-organic-unsweetened-oat-drink-1l/108918614
 108964004,g,,192,46,2.8,1.74,3.0,2.3,<0.5,2.18,0.49,2026-11-17,https://groceries.morrisons.com/products/pakeeza-ayran-lassi-natural-yogurt-drink-1kg/108964004
 108965285,g,,1345,324,13.3,2.3,20.2,10.3,34.1,13.9,0.2,2026-11-17,https://groceries.morrisons.com/products/morrisons-hot-smoked-paprika/108965285
@@ -419,6 +538,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 109046310,g,,1751,416,12,1.5,64,21,6.2,11,0.03,2026-11-17,https://groceries.morrisons.com/products/jordans-crunchy-oat-granola-raisin-almond-breakfast-cereal/109046310
 109085554,g,,443,105,6.5,0.6,8.6,6.8,1.8,1.3,1.3,2026-11-17,https://groceries.morrisons.com/products/colman-s-horseradish-sauce-136g/109085554
 109085626,g,,496,115,<0.5,<0.1,28,26,1.6,<0.5,<0.01,2026-11-17,https://groceries.morrisons.com/products/colman-s-bramley-apple-sauce-155g/109085626
+109139971,g,as consumed,729,174,8.2,2.4,0.1,0.1,0.5,24.7,0.29,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-roast-in-the-bag-extra-tasty-whole-chicken-1-6kg/109139971
+109140031,g,as consumed,704,168,6.9,2.2,1.8,0.5,1,24.1,0.37,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-cook-in-the-bag-stuffed-whole-chicken-1-6kg/109140031
 109148703,g,,160,38,0.9,0.2,1.8,1.5,2.6,4.4,,2026-11-17,https://groceries.morrisons.com/products/morrisons-broccoli-375g/109148703
 109244279,g,,1294,305,0.4,0.2,69.4,59,5.2,3.4,0.2,2026-11-17,https://groceries.morrisons.com/products/morrisons-raisins-500g/109244279
 109244957,g,,1294,305,0.4,0.2,69.4,59,5.2,3.4,0.2,2026-11-17,https://groceries.morrisons.com/products/morrisons-raisins-1kg/109244957
@@ -429,15 +550,19 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 109330821,g,,489,116,3.2,1.1,<0.5,<0.5,<0.5,21.8,0.3,2026-11-17,https://groceries.morrisons.com/products/shazans-chicken-breast-fillets/109330821
 109331209,g,grilled,852,201,2.8,1,0.7,0.7,0.7,43,4.93,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-6-traditional-cure-unsmoked-bacon-medallions-160g/109331209
 109345547,g,as consumed,886,211,7.7,2.7,23,3.5,4.5,10,0.96,2026-11-17,https://groceries.morrisons.com/products/la-famiglia-rana-prosciutto-mozzarella-tortelloni/109345547
+109350194,g,cooked,930,223,12,5.3,6.5,0.6,<0.5,22,1.2,2026-11-18,https://groceries.morrisons.com/products/edwards-2-proper-welsh-beef-steak-burgers-320g/109350194
 109372975,g,fried,354,84,0.9,0.1,1,0.1,1,17.5,1.53,2026-11-17,https://groceries.morrisons.com/products/morrisons-raw-peeled-king-prawns/109372975
 109381062,g,drained,368,88,1.7,0.3,13.9,7.5,3.1,2.6,<0.01,2026-11-17,https://groceries.morrisons.com/products/morrisons-savers-sweetcorn-in-water-326g/109381062
 109409918,g,,2094,500,24.8,2.2,60.6,2.5,2.1,7.6,0.95,2026-11-17,https://groceries.morrisons.com/products/morrisons-sea-salt-scalloped-crackers/109409918
+109490779,g,,863,207,15.0,4.4,2.1,1.4,<0.5,16.0,1.8,2026-11-18,https://groceries.morrisons.com/products/herta-chicken-frankfurter-10-pack/109490779
+109499626,g,,147,35,0.2,,5.7,5.7,3.6,0.9,,2026-11-18,https://groceries.morrisons.com/products/morrisons-wonky-berries-mix-1kg/109499626
 109523083,g,,2600,630,56.8,8.3,0.8,0.5,12.1,22.8,0.01,2026-11-17,https://groceries.morrisons.com/products/morrisons-sesame-seeds-100g/109523083
 109535041,g,,1831,437,19,2.7,51,11,7.3,12,0.39,2026-11-17,https://groceries.morrisons.com/products/yockenthwaite-farm-nutty-spelt-granola-475g/109535041
 109535287,g,,1709,407,13,2,57,12,7.1,11,0.36,2026-11-17,https://groceries.morrisons.com/products/yockenthwaite-farm-real-oaty-granola-475g/109535287
 109592628,g,oven cooked,988,237,16.2,2.3,0.5,0.1,0.3,22.2,0.19,2026-11-17,https://groceries.morrisons.com/products/morrisons-salmon-fillets/109592628
 109603201,g,drained,476,115,10,3.3,4.2,4.1,3.1,0.6,1.51,2026-11-17,https://groceries.morrisons.com/products/morrisons-grilled-mixed-peppers-280g/109603201
 109612908,g,,1482,349,0.8,0.2,77.0,0.4,0.4,8.3,0.01,2026-11-17,https://groceries.morrisons.com/products/badshah-basmati-rice/109612908
+109644029,g,grilled,546,130,2.9,0.8,5.6,0.0,,20,1.7,2026-11-18,https://groceries.morrisons.com/products/heck-simply-chicken-sausages-340g/109644029
 109652379,g,,243,57,0.4,0.25,5.3,4.2,<0.5,8.06,0.12,2026-11-17,https://groceries.morrisons.com/products/lancashire-farm-low-sugar-greek-style-fat-free-yogurt-1kg/109652379
 109682615,g,,1446,349,15.0,1.4,21.1,2.1,34.0,15.3,0.30,2026-11-17,https://groceries.morrisons.com/products/morrisons-garam-masala-curry-powder/109682615
 109696902,g,,177,42,0.5,0.3,6.2,0.6,3.4,1.5,1.2,2026-11-17,https://groceries.morrisons.com/products/morrisons-crushed-ginger/109696902
@@ -452,6 +577,9 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 109751473,ml,,3393,825,91.7,7.6,0,0,0,0,0,2026-11-17,https://groceries.morrisons.com/products/mazola-100-pure-rapeseed-oil/109751473
 109755618,g,,1396,336,26.1,18.3,2.2,2.2,,23.1,2.5,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-halloumi/109755618
 109755706,g,drained,1253,303,26.1,17.7,0.7,0.7,,16.2,2.17,2026-11-17,https://groceries.morrisons.com/products/morrisons-feta-cubes/109755706
+109762535,g,,1133,271,18.4,7.5,11.4,0.5,,13.5,2.0,2026-11-18,https://groceries.morrisons.com/products/simon-howie-premium-steak-lorne/109762535
+109790456,g,,343,83,6.2,0.5,4.6,4.2,2.3,0.9,0.37,2026-11-18,https://groceries.morrisons.com/products/morrisons-crunchy-coleslaw-kit-300g/109790456
+109798781,g,,146,35,1.2,0.8,1.3,0.6,2.5,4.7,0.04,2026-11-18,https://groceries.morrisons.com/products/good4u-salad-topper-super-sprouts/109798781
 109805785,g,,584,138,0.2,0.1,34.0,29,0,0.9,1.2,2026-11-17,https://groceries.morrisons.com/products/heinz-classic-bbq-sauce-665g/109805785
 109815107,g,,,66,0.3,0.2,6,4.6,,9.8,0.21,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-greek-yogurt-0-fat/109815107
 109826341,g,baked,1107,265,16.2,2.9,17.8,0.6,1.1,11.6,1.1,2026-11-17,https://groceries.morrisons.com/products/young-s-chip-shop-4-cod-fillets/109826341
@@ -479,8 +607,10 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 110203600,g,,118,28,0.2,0,4.3,4.3,1.1,1.7,0.12,2026-11-17,https://groceries.morrisons.com/products/napolina-tomato-passata-690g/110203600
 110203685,g,drained,362,86,0.7,0.3,10,<0.1,7.8,6.1,0.05,2026-11-17,https://groceries.morrisons.com/products/napolina-lentils-in-water-400g/110203685
 110215942,g,,3608,877,95.4,6.96,4.4,<0.1,<0.5,0.18,,2026-11-17,https://groceries.morrisons.com/products/mackintosh-of-glendaveny-extra-virgin-cold-pressed-rapeseed-oil/110215942
+110221980,g,,214,51,0.4,0.1,10.3,10.2,1.6,0.7,,2026-11-18,https://groceries.morrisons.com/products/morrisons-strawberry-mango-raspberry-apple/110221980
 110236743,g,,184.0,44.0,1.5,0.2,6.4,0,0.7,0.8,0.09,2026-11-17,https://groceries.morrisons.com/products/alpro-oat-no-sugar-chilled-dairy-free-drink-1l/110236743
 110263848,ml,as consumed,85,20,1.1,1,2,1.5,0.4,0.3,0.19,2026-11-17,https://groceries.morrisons.com/products/morrisons-coconut-milk/110263848
+110285318,g,,83,20,0.3,0.1,3.2,3.2,,1.0,,2026-11-18,https://groceries.morrisons.com/products/morrisons-unwaxed-lemons-4-pack/110285318
 110313999,ml,,183,44,1.6,1.1,4.3,4.3,,3.0,0.1,2026-11-17,https://groceries.morrisons.com/products/st-helen-s-farm-semi-skimmed-goats-milk/110313999
 110328171,g,,1396,334,29.7,3.6,7.0,0.6,5.0,7.0,1.0,2026-11-17,https://groceries.morrisons.com/products/yarden-tahina-houmous-400g/110328171
 110330511,g,as consumed,713,171,11.3,4.3,4.5,0.6,0.7,12.5,0.60,2026-11-17,https://groceries.morrisons.com/products/morrisons-minced-beef-onion/110330511
@@ -504,16 +634,25 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 110503856,g,,1286,305,4.8,1.2,54.1,40,11.3,5.8,12.28,2026-11-17,https://groceries.morrisons.com/products/morrisons-smoky-bbq-fajita-seasoning/110503856
 110517254,g,,393,92,0.1,,1,0.7,0.3,21.7,1.2,2026-11-17,https://groceries.morrisons.com/products/morrisons-shell-on-king-prawns/110517254
 110517297,g,,316,74,0.2,0.1,1,0.3,0.5,16.9,1.23,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-jumbo-king-prawns/110517297
+110524788,g,,220,52,0.6,0.2,10.4,10.1,1.1,0.7,,2026-11-18,https://groceries.morrisons.com/products/morrisons-mango-240g/110524788
+110524884,g,,139,33,0.3,0.1,6.9,6.9,0.5,0.4,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-watermelon-wedges-550g/110524884
 110532446,ml,,195,46,1.7,1.1,4.7,4.7,,3.4,0.1,2026-11-17,https://groceries.morrisons.com/products/lanchester-dairies-fresh-milk-semi-skimmed/110532446
 110534337,ml,,206,49,1.7,1,4.8,4.8,,3.6,0.11,2026-11-17,https://groceries.morrisons.com/products/morrisons-milk-for-farmers-semi-skimmed-milk-6-pint/110534337
 110557467,g,,488,115,0.2,<0.1,27,22,,1.3,1.7,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-sticky-teriyaki-stir-fry-cooking-sauce-mild-120g/110557467
 110557643,g,,2252,540,32.8,3.6,56.4,3.4,2.3,3.6,2.26,2026-11-17,https://groceries.morrisons.com/products/morrisons-bbq-saucers/110557643
 110587754,ml,,197,47,1.4,0.2,7.1,3.4,0.7,1.1,0.10,2026-11-17,https://groceries.morrisons.com/products/oatly-oat-drink-semi-chilled-1l/110587754
 110587789,ml,,245,58,2.7,0.3,6.9,3.4,0.9,1.0,0.10,2026-11-17,https://groceries.morrisons.com/products/oatly-oat-drink-whole-chilled-1l/110587789
+110604155,g,as consumed,1021,245,14.3,7,6.9,5.7,1.2,21.5,0.54,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-slow-cooked-lamb-shoulder-with-mint-gravy-360g/110604155
 110612948,g,as consumed,659,156,0.8,0.2,31.2,1.2,1.8,4.9,0.03,2026-11-17,https://groceries.morrisons.com/products/morrisons-farfalle-pasta/110612948
+110615698,g,,791.223,189.437,10.909,4.95,3.477,2.501,0.498,19.088,0.812,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-minty-flavoured-lamb-ribs/110615698
 110619040,g,,740,175,2.3,0.5,35.3,<0.1,<0.5,3.2,<0.03,2026-11-17,https://groceries.morrisons.com/products/tilda-fragrant-jasmine-rice/110619040
+110637459,g,,2451,591,44.3,5.3,29.7,21.3,7.8,14.3,0.37,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-salted-caramel-nut-medley/110637459
+110644253,g,as consumed,574,136,2.5,0.9,6.7,0.8,1.6,20.8,0.79,2026-11-18,https://groceries.morrisons.com/products/morrisons-12-beef-meatballs-5-fat/110644253
+110644288,g,grilled,630,150,4.3,1.7,5.2,1.1,1.5,21.8,0.62,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-beef-quarter-pounders-5-fat-4-pack-454g/110644288
+110648924,g,as consumed,941,225,12.9,5.2,4.5,3.4,0.5,22.5,0.75,2026-11-18,https://groceries.morrisons.com/products/morrisons-slow-cooked-mint-gravy-lamb-shank/110648924
 110652827,g,,,374,8.0,1.5,60,1.1,9.0,11,0,2026-11-17,https://groceries.morrisons.com/products/quaker-jumbo-porridge-oats/110652827
 110704210,g,,156,37,0,0,7.1,4.8,,1.6,1.0,2026-11-17,https://groceries.morrisons.com/products/santa-maria-mild-chunky-salsa-230g/110704210
+110718312,g,,1250,300,20.5,9.9,15.4,0.5,,13.8,1.38,2026-11-18,https://groceries.morrisons.com/products/we-hae-meat-steak-slice-beef-sausage/110718312
 110721618,g,grilled,1059,255,18.8,6.8,8.1,1.4,0.8,12.9,1.14,2026-11-17,https://groceries.morrisons.com/products/morrisons-12-butchers-style-pork-chipolatas/110721618
 110723541,g,,736,173,< 0.5,< 0.1,39,36,,3.6,4.9,2026-11-17,https://groceries.morrisons.com/products/lee-kum-kee-teriyaki-sauce-200g/110723541
 110730258,g,,1671,398,13,1.9,57,13,6.8,10,0.35,2026-11-17,https://groceries.morrisons.com/products/yockenthwaite-farm-just-ginger-granola-475g/110730258
@@ -525,6 +664,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 110769970,g,,497,118,2,0.7,0.1,0.1,0.5,24.5,3.12,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-british-wiltshire-ham-120g/110769970
 110771893,g,,99,23,0.2,0.0,3.6,3.6,1.0,1.3,0.10,2026-11-17,https://groceries.morrisons.com/products/napolina-chopped-tomatoes-in-a-rich-tomato-juice/110771893
 110771949,g,,516,122,2.5,0.8,0.8,0.1,0.5,23.8,2.74,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-british-breaded-wiltshire-ham/110771949
+110781645,g,as consumed,571,136,4.9,1.7,2.7,1,0.5,20,0.47,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-slow-cooked-beef-joint-with-a-red-wine-gravy-470g/110781645
 110787561,g,,356,85,0.5,0.1,12.5,2.8,5.1,5.0,0.39,2026-11-17,https://groceries.morrisons.com/products/branston-reduced-sugar-and-salt-baked-beans/110787561
 110832123,g,,749,179,10.8,4.9,0,0,,20.1,1.36,2026-11-17,https://groceries.morrisons.com/products/gilberts-kosher-foods-beef-steak-mince/110832123
 110836554,g,,1105,266,26,2.1,7.8,3.0,,0.6,1.7,2026-11-17,https://groceries.morrisons.com/products/heinz-seriously-good-light-mayonnaise-565ml/110836554
@@ -546,7 +686,11 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 111093094,g,,241,57,<0.5,0.3,3.5,3.5,,10.0,0.10,2026-11-17,https://groceries.morrisons.com/products/yeo-valley-organic-greek-recipe-strained-natural-yogurt-0-fat-450g/111093094
 111103900,ml,,53,13,1.1,<0.1,0.2,0,,<0.5,0.15,2026-11-17,https://groceries.morrisons.com/products/blue-diamond-almonds-almond-breeze-unsweetened/111103900
 111103918,g,,2586,625,52,13,11,5.1,8.0,24,0.60,2026-11-17,https://groceries.morrisons.com/products/whole-earth-smooth-organic-peanut-butter/111103918
+111106879,g,as consumed,1308,315,25.6,10.8,2.7,0.3,0.7,18.1,0.71,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-12-beef-meatballs-340g/111106879
+111110501,g,,254,61,2.1,0.5,6.9,3.2,1.2,3.1,0.29,2026-11-18,https://groceries.morrisons.com/products/morrisons-potato-egg-salad/111110501
+111136200,g,,92,22,0.2,0.1,2.1,2,1.9,2,0.11,2026-11-18,https://groceries.morrisons.com/products/morrisons-bistro-salad/111136200
 111152971,g,,643,152,<0.5,<0.1,37,35,,<0.5,2.7,2026-11-17,https://groceries.morrisons.com/products/thai-dragon-sweet-chilli-sauce-455ml/111152971
+111154897,g,,246,58,0.2,,12.9,12.9,0.9,0.7,,2026-11-18,https://groceries.morrisons.com/products/morrisons-berry-medley/111154897
 111181019,g,,1666,392,0.5,0.1,96.5,58.3,0.5,0.1,0.04,2026-11-17,https://groceries.morrisons.com/products/morrisons-clear-mints-200g/111181019
 111190821,g,,2106,505,27.8,2.6,52.9,3.6,6.5,7.5,1.3,2026-11-17,https://groceries.morrisons.com/products/tyrrells-mature-cheddar-chive-sharing-crisps/111190821
 111238126,g,,2374,576,57,10,10,9.3,,4.7,2.2,2026-11-17,https://groceries.morrisons.com/products/rana-genovese-basil-p-d-o-pesto-sauce-140g/111238126
@@ -555,11 +699,15 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 111264666,g,,800,192,11.3,1.9,0.5,0.1,0.3,21.8,2.84,2026-11-17,https://groceries.morrisons.com/products/morrisons-ready-to-eat-smoked-salmon-slices-60g/111264666
 111280842,ml,,203,48,1.5,0.2,7.2,3.5,0.7,1.1,0.10,2026-11-17,https://groceries.morrisons.com/products/oatly-oat-drink-organic-chilled-1l/111280842
 111294224,g,,1275,307,24,21,21,0.1,,1.3,2.2,2026-11-17,https://groceries.morrisons.com/products/violife-epic-mature-cheddar-flavour-block-200g/111294224
+111335701,g,as consumed,699,166,5.6,1.6,0.1,0.1,0.5,28.6,0.26,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-chicken-drumsticks-1kg/111335701
+111335735,g,as consumed,898,215,13.4,3.9,0.5,0.1,0.5,22.9,0.19,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-chicken-thighs-1kg/111335735
+111335760,g,as consumed,1122,268,13.8,3.9,1.5,0.1,0.5,34.2,0.35,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-chicken-wings/111335760
 111339550,g,,,374,8.0,1.5,60,1.1,9.0,11,0,2026-11-17,https://groceries.morrisons.com/products/quaker-rolled-porridge-oats/111339550
 111345992,g,,875,210,12.9,1.9,0.8,0.2,0.3,22.5,2.98,2026-11-17,https://groceries.morrisons.com/products/morrisons-ready-to-eat-smoked-salmon-slices-200g/111345992
 111356747,g,,1751,422,35.2,24.3,2.1,0.1,,24.3,1.78,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-british-extra-mature-farmhouse-cheddar-300g/111356747
 111357192,g,,518,123,2,0.7,2,1.5,0.5,23.9,1.53,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-honey-roast-ham-16-slices-400g/111357192
 111384182,g,,1725,416,35,22,0.1,0.1,,25,1.8,2026-11-17,https://groceries.morrisons.com/products/galloway-mature-scottish-cheddar-350g/111384182
+111404446,g,,450,106,1.4,0.4,0.4,0.4,0.8,22.8,0.33,2026-11-18,https://groceries.morrisons.com/products/morrisons-medium-basted-turkey-crown-2-2-99-kg-serves-6-9/111404446
 111405238,g,,1725,416,34.9,21.7,0.1,0.1,,25.4,1.8,2026-11-17,https://groceries.morrisons.com/products/orkney-mature-scottish-coloured-cheddar-200g/111405238
 111418127,g,,1967,470,21,8.9,59,22,7.6,7.4,0.84,2026-11-17,https://groceries.morrisons.com/products/kellogg-s-crunchy-nut-red-berries-breakfast-granola-380g/111418127
 111452544,g,,1192,281,1.5,0.2,56.2,7.4,2.9,9.4,0.76,2026-11-17,https://groceries.morrisons.com/products/sharwood-s-low-fat-mini-naans-260g/111452544
@@ -573,13 +721,18 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 111594104,g,,2457,593,46,9.7,13,7.0,8.2,29,0.89,2026-11-17,https://groceries.morrisons.com/products/sun-pat-crunchy-peanut-butter/111594104
 111594155,g,,2465,595,46,10,13,7.2,8.0,28,1.2,2026-11-17,https://groceries.morrisons.com/products/sun-pat-smooth-peanut-butter/111594155
 111637274,g,,519,123,2,0.7,2,2,0.7,23.9,1.53,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-thinly-sliced-honey-roast-ham/111637274
+111657380,g,oven cooked,1308,315,25.6,10.8,2.7,0.3,0.7,18.1,0.71,2026-11-18,https://groceries.morrisons.com/products/morrisons-scotch-beef-12-meatballs-340g/111657380
 111658366,g,,536,126,0.1,0.1,30.2,19.5,0.5,1,1.23,2026-11-17,https://groceries.morrisons.com/products/morrisons-bbq-sauce-450g/111658366
 111659490,ml,,201,47,1.8,1.1,4.8,4.8,,3.6,0.11,2026-11-17,https://groceries.morrisons.com/products/yeo-valley-organic-fresh-semi-skimmed-milk-2l/111659490
 111662672,g,,1521,359,2.0,0.5,71.2,3.5,3.0,12.5,0.013,2026-11-17,https://groceries.morrisons.com/products/barilla-pasta-penne-500g/111662672
+111668003,g,,257,61,0.2,,11.8,11.8,3.4,1.3,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-pomegranate/111668003
 111675035,ml,,249,59,<0.5,<0.1,13,12.5,,1.8,13.0,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-light-soy-sauce-150ml/111675035
 111675107,ml,,289,68,<0.5,<0.1,15,15,,2.0,12.3,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-reduced-salt-soy-sauce-150ml/111675107
 111682657,g,,532,126,5,1.3,3.6,2,,16,1.2,2026-11-17,https://groceries.morrisons.com/products/jahan-chicken-breast-fillets/111682657
 111685559,g,,1593,375,<0.5,<0.1,84,<0.5,,8.1,<0.01,2026-11-17,https://groceries.morrisons.com/products/laila-gold-basmati-rice-10kg/111685559
+111685680,g,grilled,1206,290,22.3,9.7,0.9,0.3,1.1,21,0.68,2026-11-18,https://groceries.morrisons.com/products/morrisons-scotch-beef-burgers-454g/111685680
+111687714,g,as consumed,755,179,3.5,1.3,8.9,7,0.9,27.6,0.37,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-slow-cooked-beef-brisket-with-a-sticky-bbq-sauce-400g/111687714
+111696493,g,as consumed,1308,315,25.6,10.8,2.7,0.3,0.7,18.1,0.71,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-beef-24-meatballs-645g/111696493
 111699192,g,,413,99,5.0,3.4,3.9,3.9,0.0,9.0,0.13,2026-11-17,https://groceries.morrisons.com/products/arla-skyr-high-protein-natural-icelandic-style-yogurt/111699192
 111709792,g,,285,68,0.7,0.1,7.5,4.9,6.0,4.9,<0.01,2026-11-17,https://groceries.morrisons.com/products/birds-eye-petits-pois-960g/111709792
 111734111,g,,2535,613,52.5,4,8.8,4.6,9.9,21.4,0.05,2026-11-17,https://groceries.morrisons.com/products/morrisons-chopped-almonds-125g/111734111
@@ -592,11 +745,14 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 111866261,g,prepared,656,155,0.5,<0.1,34,<0.5,0.8,3.3,<0.01,2026-11-17,https://groceries.morrisons.com/products/ben-s-original-long-grain-rice/111866261
 111874042,g,,1465.4,350,0.4,0.2,81.1,0.84,1.12,5.43,0.17,2026-11-17,https://groceries.morrisons.com/products/thai-dragon-rice-stick-noodles/111874042
 111897113,g,,800,192,11.3,1.9,0.5,0.1,0.3,21.8,2.84,2026-11-17,https://groceries.morrisons.com/products/morrisons-smoked-salmon-slices-120g/111897113
+111900255,g,,1000,240,21.5,9,3,<1,,11.5,1.2,2026-11-18,https://groceries.morrisons.com/products/gilbert-s-chicken-hot-dogs/111900255
 111947168,g,,2475,595,49,6.1,10,5.4,7.5,27,0.53,2026-11-17,https://groceries.morrisons.com/products/pip-nut-crunchy-peanut-butter/111947168
 111947264,g,,2469,593,49,6.2,11,6.6,7.4,27,0.45,2026-11-17,https://groceries.morrisons.com/products/pip-nut-smooth-peanut-butter/111947264
 111999822,g,as consumed,740,175,1.6,0.5,33,0.7,2,6.1,0.02,2026-11-17,https://groceries.morrisons.com/products/morrisons-lasagne-sheets/111999822
 112002633,g,,730,172,0.5,0.1,34,0.8,2.2,6.8,0.02,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-rigatoni-500g/112002633
 112020452,g,,93,22,0.7,0.2,0.2,0.1,1.2,3.2,0.01,2026-11-17,https://groceries.morrisons.com/products/morrisons-spinach/112020452
+112040630,g,,293,68,<0.5,,16.2,16.2,,0.6,,2026-11-18,https://groceries.morrisons.com/products/explore-cotton-candy-seedless-grapes-400g/112040630
+112069133,g,as consumed,,154,5.3,1.4,1.7,0.3,1.2,24.3,0.33,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-salt-pepper-chicken-crown-700g/112069133
 112077141,g,as consumed,573,135,1.4,0.5,0.1,0.1,0.5,30.3,0.1,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-chicken-breast-fillets-330g/112077141
 112105296,g,,827,195,0.5,0.1,47.0,43.2,0.7,0.2,0.14,2026-11-17,https://groceries.morrisons.com/products/morrisons-cranberry-sauce-200g/112105296
 112125502,g,oven cooked,509,120,0.8,0.2,0.9,0.1,0.9,26.9,0.12,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-chicken-mini-breast-fillets-400g/112125502
@@ -611,7 +767,10 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 112248650,ml,,202,48,1.6,1,5,5,,3.4,0.15,2026-11-17,https://groceries.morrisons.com/products/morrisons-fresh-semi-skimmed-milk/112248650
 112254611,g,,963,229,5.2,1.7,37,1.9,4.9,6,1.7,2026-11-17,https://groceries.morrisons.com/products/rana-filled-pan-fry-gnocchi-spinach-mozzarella/112254611
 112316122,ml,,221,53,1.7,1.1,4.7,4.6,,4.6,0.10,2026-11-17,https://groceries.morrisons.com/products/arla-bob-semi-skimmed-milk-2l-that-tastes-like-whole/112316122
+112334865,g,as consumed,1196,286,16.5,2.5,20,0.1,0.7,14.1,0.93,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-breaded-hot-spicy-chicken-wings-500g/112334865
+112334929,g,as consumed,1166,279,15.1,3.9,20.1,1.2,2.4,14.4,0.54,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-breaded-chicken-goujons-650g/112334929
 112338129,g,,796,190,7.9,1.3,11.4,<0.1,<0.5,18.2,1.0,2026-11-17,https://groceries.morrisons.com/products/superchick-sizzler-hot-spicy-chicken-breast-fillets-1kg/112338129
+112340819,g,as consumed,945,226,12.2,1.1,13.1,0.3,1.4,15.4,0.61,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-tempura-chicken-mini-fillets-300g/112340819
 112348175,ml,,252.0,60.0,3.3,0.3,5.9,2.5,0.2,1.8,0.11,2026-11-17,https://groceries.morrisons.com/products/alpro-oat-growing-up-1-3-years-long-life-dairy-free-drink-1-litre/112348175
 112354364,g,,2143,512,26.00,15.00,61.00,35.00,2.30,7.50,0.47,2026-11-17,https://groceries.morrisons.com/products/cadbury-dairy-milk-mint-fingers/112354364
 112384221,g,,3131,761,83.0,53.46,3.1,0.3,,0.51,2.5,2026-11-17,https://groceries.morrisons.com/products/castle-dairies-welsh-butter-with-halen-mon-sea-salt-crystals/112384221
@@ -619,17 +778,41 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 112398560,g,,110,26,0.2,<0.1,3.9,2.8,,1.2,0.30,2026-11-17,https://groceries.morrisons.com/products/mutti-finely-chopped-tomatoes-4x400g/112398560
 112418209,g,,730,174,8.0,5.1,3.2,3.2,,22,0.10,2026-11-17,https://groceries.morrisons.com/products/apetina-original-paneer-cheese-225g/112418209
 112425361,g,,1059,251,6.6,0.6,39.1,3.9,3.2,7.4,0.76,2026-11-17,https://groceries.morrisons.com/products/morrisons-snack-salt-pepper-breadsticks-with-a-red-pepper-harissa-dip/112425361
+112429469,g,,2679,648,58.6,8.4,6.9,3.5,6.9,19.9,0.03,2026-11-18,https://groceries.morrisons.com/products/morrisons-mixed-nuts/112429469
+112429506,g,,2854,692,68.2,17.4,3.1,2.4,4.3,14.3,,2026-11-18,https://groceries.morrisons.com/products/morrisons-brazil-nuts/112429506
+112429531,g,,2886,700,70.1,5.7,5.8,4.3,4.7,9.2,,2026-11-18,https://groceries.morrisons.com/products/morrisons-pecans/112429531
+112430275,g,,2442,589,45.8,5.6,18,7.7,10.3,21.1,0.02,2026-11-18,https://groceries.morrisons.com/products/morrisons-pistachios/112430275
+112431593,g,,2418,583,48.2,9.5,18.1,4.6,3.2,17.7,0.04,2026-11-18,https://groceries.morrisons.com/products/morrisons-cashews/112431593
+112437557,g,,2869,696,68.5,7.5,3.3,2.6,3.5,14.7,0.02,2026-11-18,https://groceries.morrisons.com/products/morrisons-walnuts-180g/112437557
+112439413,g,,2118,514,42.2,3.7,1.6,1.6,27.3,18.3,0.08,2026-11-18,https://groceries.morrisons.com/products/morrisons-flax-seeds/112439413
 112439448,g,,2586,625,53.1,4.2,5.1,4.4,10.3,26.7,0.01,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-roasted-almonds-150g/112439448
+112440027,g,,1823,442,30.7,3.3,7.7,,34.4,16.5,0.04,2026-11-18,https://groceries.morrisons.com/products/morrisons-chia-seeds/112440027
+112441417,g,,2506,604,46.4,9.2,29.7,5,3,15.3,0.04,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-roasted-jumbo-cashews-150g/112441417
+112441441,g,,2458,593,47.5,6.6,18.6,1.7,6,19.8,,2026-11-18,https://groceries.morrisons.com/products/morrisons-sunflower-seeds/112441441
+112441476,g,,2403,579,45.6,7,15.2,1.1,5.3,24.4,0.05,2026-11-18,https://groceries.morrisons.com/products/morrisons-pumpkin-seeds/112441476
 112444010,g,,2558,619,52.5,4.1,10.1,4.9,10.9,21,,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-roasted-almonds/112444010
+112444263,g,,2526,609,49,7.2,16.1,5.1,6.2,22.9,0.93,2026-11-18,https://groceries.morrisons.com/products/morrisons-roasted-salted-cashews-peanuts/112444263
 112460669,g,,597,143,9.8,5.8,4.3,4.3,0.8,9.2,0.41,2026-11-17,https://groceries.morrisons.com/products/morrisons-50-reduced-fat-soft-cheese-200g/112460669
+112465048,g,,2506,604,46.4,9.2,29.7,5,3,15.3,0.04,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-roasted-jumbo-cashews/112465048
 112482972,g,,613,147,11.00,7.10,5.20,5.10,0.30,7.40,0.70,2026-11-17,https://groceries.morrisons.com/products/philadelphia-light-low-fat-soft-cream-cheese-165g/112482972
 112483001,g,,604,145,10.00,6.90,5.10,5.10,0.30,7.20,0.70,2026-11-17,https://groceries.morrisons.com/products/philadelphia-light-low-fat-soft-cream-cheese-280g/112483001
+112487132,g,,1151,276,15.3,2.5,17.8,0.6,1.5,15.9,0.52,2026-11-18,https://groceries.morrisons.com/products/morrisons-breaded-southern-fried-chicken-goujon-270g/112487132
 112489939,g,,72,17,0.5,0.1,1.7,1.7,1.4,0.8,0.01,2026-11-17,https://groceries.morrisons.com/products/morrisons-wild-rocket-60g/112489939
+112490809,g,as consumed,1234,295,16.3,2.7,17.4,1.6,1.3,19.1,0.61,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-breaded-chicken-goujons-270g/112490809
+112490833,g,as consumed,1184,284,16.7,2.9,16.9,1.3,1.7,15.6,0.56,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-4-breaded-chicken-steaks-500g/112490833
+112490876,g,as consumed,1027,246,13.8,2.3,14.8,0.5,1.2,15,0.68,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-4-southern-fried-chicken-steaks-500g/112490876
+112490905,g,as consumed,924,221,12.5,3,12,1.2,1.8,14.3,0.58,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-2-cheese-ham-chicken-kyivs/112490905
+112490964,g,as consumed,1145,275,17.1,6.8,14.3,2,1.9,14.9,0.65,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-2-breaded-garlic-chicken-kyivs/112490964
 112495108,g,,276,66,0.5,0.0,8.4,2.5,4.6,4.6,0.40,2026-11-17,https://groceries.morrisons.com/products/old-el-paso-mild-black-beans-425g/112495108
 112500843,g,,1617,390,31.4,19.42,2.3,1.3,0.8,24.1,0.125,2026-11-17,https://groceries.morrisons.com/products/pakeeza-diced-paneer-full-fat-soft-cheese-450g/112500843
+112504545,g,as consumed,870,207,8.4,0.9,14.1,1.1,1.7,17.9,0.47,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-crispy-chicken-mini-fillets-300g/112504545
+112504588,g,as consumed,1005,239,9.4,1,18.9,2,1.6,19.1,0.73,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-southern-fried-chicken-mini-fillets-300g/112504588
 112505468,g,,422,99,<0.5,<0.1,24.0,17.4,<0.5,0.7,0.74,2026-11-17,https://groceries.morrisons.com/products/sharwood-s-east-asian-japanese-teriyaki-cooking-sauce-420g/112505468
 112513775,g,,285,68,0.7,0.1,7.5,4.9,6.0,4.9,<0.01,2026-11-17,https://groceries.morrisons.com/products/birds-eye-garden-peas/112513775
+112522874,g,as consumed,699,166,5.6,1.6,0.1,0.1,0.5,28.6,0.26,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-chicken-drumsticks-500g/112522874
+112522946,g,as consumed,1122,268,13.8,3.9,1.5,0.1,0.5,34.2,0.35,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-chicken-wings-500g/112522946
 112526787,g,,477,114,4.4,0.4,12.9,9.1,5.3,3.1,1.14,2026-11-17,https://groceries.morrisons.com/products/morrisons-tikka-masala-curry-paste/112526787
+112527341,g,grilled,1206,290,22.3,9.7,0.9,0.3,1.1,21,0.68,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-6-quarter-pounder-burgers/112527341
 112541637,g,,3696,899,100,10,0,0,0,<0.5,<0.01,2026-11-17,https://groceries.morrisons.com/products/ktc-premium-quality-olive-pomace-oil-blend-3l/112541637
 112542517,g,,428,101,1.3,0.2,21.3,16.6,,1,1.08,2026-11-17,https://groceries.morrisons.com/products/morrisons-teriyaki-stir-fry-sauce-120g/112542517
 112561540,g,,,201,18,3.1,7.5,2.4,0.5,1.1,0.63,2026-11-17,https://groceries.morrisons.com/products/doritos-cool-sour-cream-chives-sharing-dip/112561540
@@ -638,7 +821,11 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 112570964,g,,195,46,0.2,0.1,0.7,,0.3,10.2,1.43,2026-11-17,https://groceries.morrisons.com/products/morrisons-savers-king-prawns-150g/112570964
 112603682,g,,1697,409,33.3,21.2,3.5,0.2,,23.8,1.54,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-mature-cheddar-240g/112603682
 112604255,g,,1708,412,33.2,21.3,3.8,0.1,,24.4,1.6,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-extra-mature-white-cheddar-240g/112604255
+112606584,g,as consumed,,150,1.6,0.5,1.1,1.1,0.5,32.6,0.26,2026-11-18,https://groceries.morrisons.com/products/morrisons-bbq-mango-lime-steaks-350g/112606584
+112606672,g,oven cooked,648,153,2.9,0.7,2.5,2,0.5,29.1,0.59,2026-11-18,https://groceries.morrisons.com/products/morrisons-cajun-style-chicken-breast-steaks-350g/112606672
 112618690,g,,2016,481,22.0,13.2,65.8,61.6,2.3,3.8,0.07,2026-11-17,https://groceries.morrisons.com/products/after-eight-mint-collection-box-199g/112618690
+112633769,g,,2173,526,41,4.9,6.5,1.6,20,23,0.21,2026-11-18,https://groceries.morrisons.com/products/linwoods-cold-flaxseed/112633769
+112633822,g,,2163,523,40,5.3,11,4.9,18,22,0.21,2026-11-18,https://groceries.morrisons.com/products/linwoods-organic-flaxseed-sunflower-pumpkin-chia-seeds-goji-berries/112633822
 112634147,g,,519,123,2,0.7,2,2,0.7,23.9,1.54,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-honey-roast-ham-120g/112634147
 112634180,g,,518,123,2,0.7,2,2,0.5,23.9,1.53,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-thinly-sliced-honey-roast-ham-120g/112634180
 112634551,g,,429,101,1.8,0.6,0.8,0.3,0.6,20.3,1.52,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-cooked-ham-120g/112634551
@@ -649,21 +836,42 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 112655079,g,as consumed,659,156,0.8,0.2,31.2,1.2,1.8,4.9,0.03,2026-11-17,https://groceries.morrisons.com/products/morrisons-tricolore-fusilli/112655079
 112655167,g,as consumed,614,145,0.6,0.1,27.4,0.7,3.9,5.7,0.02,2026-11-17,https://groceries.morrisons.com/products/morrisons-wholewheat-penne/112655167
 112655394,g,,1293,307,7.1,3.2,51.3,3,2.3,8.2,0.88,2026-11-17,https://groceries.morrisons.com/products/morrisons-plain-tortilla-wraps/112655394
+112657533,g,as consumed,490,117,4.4,2.1,14.1,0.8,2.4,4.1,0.45,2026-11-18,https://groceries.morrisons.com/products/morrisons-cheese-garlic-stuffed-mushrooms-200g/112657533
 112661655,g,boiled,354,84,0.7,0.1,11.2,5.9,5.5,5.5,0.01,2026-11-17,https://groceries.morrisons.com/products/morrisons-garden-peas-1kg/112661655
+112665795,g,boiled,182,44,1.3,0.3,3.5,3,3.1,2.9,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-prepared-sprouts-200g/112665795
+112673293,g,microwaved,421,100,1.8,1.1,17.2,1.5,1.6,2.8,0.4,2026-11-18,https://groceries.morrisons.com/products/morrisons-mashed-potato-400g/112673293
 112673550,g,,342,82,4.3,2.5,7.3,1.6,1.2,2.9,0.65,2026-11-17,https://groceries.morrisons.com/products/cully-sully-smoked-salmon-haddock-chowder/112673550
+112704942,g,as consumed,481,115,5.4,2.3,3.9,1.5,0.7,12.3,0.78,2026-11-18,https://groceries.morrisons.com/products/morrisons-slow-cooked-beef-bourguignon/112704942
 112706462,ml,,8,2,0,0,0.6,0.2,,0.1,0,2026-11-17,https://groceries.morrisons.com/products/tetley-super-herbal-digestion-mint-fennel-18-per-pack/112706462
+112712926,g,,960,230,14,6.5,8.7,3.1,1.3,17,1.07,2026-11-18,https://groceries.morrisons.com/products/malcolm-allan-4-steak-burgers-360g/112712926
+112719423,g,as consumed,501,119,3.9,1.2,18.1,2.1,1.9,2,0.19,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-goose-fat-roast-potatoes-800g/112719423
+112729963,g,,200,47,0.2,0.1,10.2,10.1,1.1,0.6,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-fruit-platter/112729963
 112756751,g,,1806,429,13,1.6,69,1.2,4.4,5.7,0.73,2026-11-17,https://groceries.morrisons.com/products/popchips-sea-salt/112756751
+112767804,g,,266,63,0.2,,11.8,11.8,4.5,1.3,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-pomegranate-200g/112767804
+112775521,g,,199,47,<0.5,<0.1,12.0,12.0,1.8,<0.5,<0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-pink-lady-apples/112775521
 112778175,g,,1127,272,21.6,1.8,10.5,0.6,5.0,6.4,1.0,2026-11-17,https://groceries.morrisons.com/products/ramona-s-original-houmous/112778175
 112779979,g,,1695,402,7.3,0.7,70,3.2,8.2,10.5,1.7,2026-11-17,https://groceries.morrisons.com/products/peter-s-yard-rosemary-sea-salt-sourdough-crackers/112779979
+112780187,g,,658,157,5.8,1.5,0.5,0.2,0.5,25.2,0.64,2026-11-18,https://groceries.morrisons.com/products/morrisons-roast-chicken-drumsticks/112780187
+112780216,g,,835,200,11.3,3,0.7,0.3,0.6,23.6,0.66,2026-11-18,https://groceries.morrisons.com/products/morrisons-roast-chicken-thighs/112780216
 112800336,ml,,181,43,0.15,0,9.6,8.1,2,0.52,0.01,2026-11-17,https://groceries.morrisons.com/products/mockingbird-raw-greens-kiwi-spinach-pear-banana-with-vitamins-750ml/112800336
 112804450,g,,482,114,3.0,1.0,<1.0,<1.0,,23.9,1.4,2026-11-17,https://groceries.morrisons.com/products/simon-howie-dry-cured-smoked-bacon-medallions/112804450
+112810243,g,,133,32,0.1,,6.6,6.6,1.1,0.5,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-melon-grape/112810243
+112811422,g,,106,25,0.2,,5,5,0.9,0.4,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-melon-medley/112811422
+112817883,g,,177,42,0.6,0.1,4.8,3.7,3.8,2.5,0.04,2026-11-18,https://groceries.morrisons.com/products/morrisons-vegetable-selection-with-babycorn-225g/112817883
+112817912,g,,201,48,0.3,0.1,8.9,4.1,2.5,1.1,0.03,2026-11-18,https://groceries.morrisons.com/products/morrisons-casserole-vegetables-600g/112817912
 112817947,g,as consumed,180,43,0.6,0.2,3.1,1.9,4,4.3,0.02,2026-11-17,https://groceries.morrisons.com/products/morrisons-broccoli-florets/112817947
+112818018,g,oven cooked,1175,281,13.6,1,33.8,0.8,3.7,4,0.42,2026-11-18,https://groceries.morrisons.com/products/morrisons-crispy-potato-slices/112818018
 112819951,g,,592,140,0.8,0.1,26.7,0.6,1.9,5.4,0.32,2026-11-17,https://groceries.morrisons.com/products/morrisons-straight-to-wok-fine-thread-noodles/112819951
 112837622,g,as consumed,711,168,2.2,0.3,31.1,0.1,2.4,4.8,0.15,2026-11-17,https://groceries.morrisons.com/products/morrisons-egg-noodles/112837622
 112841111,g,as consumed,178,42,0.1,0.1,5.5,4.2,3.9,2.9,0.07,2026-11-17,https://groceries.morrisons.com/products/morrisons-carrot-broccoli-brussels-sprouts/112841111
 112845219,g,,126,30,0.9,0.6,0.7,0.5,1,4.3,0.03,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-the-best-pea-shoots-purple-radish-garlic-chives/112845219
 112845403,g,,81,19,0.3,0.1,0.6,0.1,1.9,2.6,0.09,2026-11-17,https://groceries.morrisons.com/products/morrisons-watercress-spinach-rocket/112845403
+112846078,g,,130,31,1,0.5,0.6,0.6,1,4.3,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-pea-shoots/112846078
+112846473,g,,59,14,0.2,0.1,0.8,0.2,1.1,1.7,0.03,2026-11-18,https://groceries.morrisons.com/products/morrisons-butterhead-salad-80g/112846473
+112846561,g,,108,26,0.3,0.1,3.3,1,1.7,1.5,0.04,2026-11-18,https://groceries.morrisons.com/products/morrisons-mixed-leaf-salad-100g/112846561
 112846828,g,,107,26,1,0.3,0.4,0.4,1.5,3,0.12,2026-11-17,https://groceries.morrisons.com/products/morrisons-watercress-70g/112846828
+112854502,g,,121,29,0.2,,4.2,4,2.8,1.1,0.03,2026-11-18,https://groceries.morrisons.com/products/morrisons-crisp-leaf-mix-200g/112854502
+112854561,g,,70,17,0.2,,1.2,0.8,1.4,1.8,0.05,2026-11-18,https://groceries.morrisons.com/products/morrisons-italian-style-salad-80g/112854561
 112861876,g,as consumed,345,82,1.4,0.2,12,2.8,1.4,4.6,0.24,2026-11-17,https://groceries.morrisons.com/products/morrisons-nourish-king-prawn-linguine/112861876
 112862553,g,as consumed,372,88,1.7,0.8,9.1,1.7,1.9,8.2,0.35,2026-11-17,https://groceries.morrisons.com/products/morrisons-nourish-chicken-green-vegetables-broccoli/112862553
 112869940,ml,,184,43,0,0,10.2,8.2,<0.5,0.7,0,2026-11-17,https://groceries.morrisons.com/products/plenish-cold-pressed-turmeric-defence/112869940
@@ -690,19 +898,30 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 112982782,ml,,154,36,0.6,0.1,7.2,3.1,0.6,0.6,0.08,2026-11-17,https://groceries.morrisons.com/products/plenish-organic-oat-dairy-alternative-milks/112982782
 112987031,g,,2122,507,26.1,16.1,61.1,40.9,2.1,5.7,0.73,2026-11-17,https://groceries.morrisons.com/products/mcvitie-s-club-mint-biscuit-bar-7-pack/112987031
 112988471,g,,"1,161",276,6.2,0.6,47,2.7,7.9,4.1,1.00,2026-11-17,https://groceries.morrisons.com/products/bfree-gluten-free-stone-baked-naan-bread/112988471
+112988501,g,,213,50,0.6,0.1,10,10,1.1,0.7,,2026-11-18,https://groceries.morrisons.com/products/morrisons-mango-chunks-120g/112988501
 112997634,g,,1828,435,13.1,1.9,65.5,18.1,7,10.2,0.03,2026-11-17,https://groceries.morrisons.com/products/morrisons-savers-granola/112997634
 113003161,ml,,202,48,1.7,1.1,4.7,4.7,,3.5,0.11,2026-11-17,https://groceries.morrisons.com/products/scottish-semi-skimmed-milk/113003161
 113007313,g,drained,120,29,0.1,,3.8,0.7,2.8,1.7,,2026-11-17,https://groceries.morrisons.com/products/morrisons-cut-green-beans-400g/113007313
+113010942,g,as consumed,706,168,6.3,1.5,2.5,2.5,0.5,25.1,0.4,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-bbq-chicken-drumsticks-1kg/113010942
+113011021,g,as consumed,613,145,3.5,1.5,3.2,2.3,0.5,25,0.3,2026-11-18,https://groceries.morrisons.com/products/morrisons-thai-satay-chicken-mini-fillets-350g/113011021
+113015372,g,grilled,643,153,4.8,1.3,8.2,0.5,1.7,18.4,0.6,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-garlic-herb-chicken-kofta-360g/113015372
 113017976,g,,2534,612,55.8,4.4,6.9,4.2,7.4,21.1,0.04,2026-11-17,https://groceries.morrisons.com/products/indus-whole-almonds-500g/113017976
+113020446,g,as consumed,848,204,13.2,2,3,2.7,1.3,17.5,0.48,2026-11-18,https://groceries.morrisons.com/products/morrisons-slow-cook-chicken-doner-kebab-with-chilli-kebab-sauce-450g/113020446
+113028405,g,oven cooked,495,117,0.7,0.3,0.6,0.1,0.2,26.9,0.12,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-chicken-mini-fillets-450g/113028405
 113028499,g,as consumed,575,136,1.4,0.5,0.1,0.1,0.5,30.4,0.1,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-chicken-breast-fillets-400g/113028499
+113028683,g,oven cooked,1093,261,12.1,1.1,17.6,1.6,1.6,19.7,0.83,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-buttermilk-chicken-mini-fillets-300g/113028683
+113031081,g,,122,29,0.1,,6.1,6.1,1,0.4,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-melon-pineapple-platter/113031081
 113039500,g,,1087,261,14.3,0.9,22.0,1.5,7.3,7.3,1.18,2026-11-17,https://groceries.morrisons.com/products/gosh-mediterranean-falafel-with-chickpeas-a-hint-of-basil/113039500
 113039534,g,,1037,248,11.5,0.8,26.5,8.4,8.0,5.7,1.04,2026-11-17,https://groceries.morrisons.com/products/gosh-moroccan-spiced-falafel-with-red-pepper-apricot-171g/113039534
 113040543,g,,1392,336,25.6,22.1,23.7,0.4,4.9,0.2,2.1,2026-11-17,https://groceries.morrisons.com/products/cathedral-city-plant-based-mature-cheddar-cheese-flavour-vegan-block-280g/113040543
 113040674,g,,1360,328,25.7,22.2,21.1,0.4,6,0.2,2.1,2026-11-17,https://groceries.morrisons.com/products/cathedral-city-plant-based-mature-cheddar-cheese-flavour-vegan-grated-150g/113040674
+113055307,g,,525,126,6.0,2.2,3.5,0.0,,13.5,1.3,2026-11-18,https://groceries.morrisons.com/products/simon-howie-the-scottish-butcher-4-premium-steak-burgers-454g/113055307
+113061512,g,oven cooked,648,153,2.9,0.7,2.5,2,0.5,29.1,0.59,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-cajun-chicken-steaks-600g/113061512
 113068482,g,,1110,266,15.4,3.7,25.1,0.8,1.7,5.9,0.61,2026-11-17,https://groceries.morrisons.com/products/morrisons-spinach-feta-parcels/113068482
 113074971,g,,579,137,1.1,0.2,25,<0.5,2.9,5.6,0.32,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-medium-wok-ready-noodles-300g/113074971
 113077418,g,,1513,356,1.2,0.3,77,0.2,0,9.4,0,2026-11-17,https://groceries.morrisons.com/products/kohinoor-gold-basmati-rice-5kg/113077418
 113077442,g,,1513,356,1.2,0.3,77,0.2,0,9.4,0,2026-11-17,https://groceries.morrisons.com/products/kohinoor-gold-basmati-rice-10kg/113077442
+113077733,g,grilled,1080,260,17.7,7.9,5.1,1.2,1.4,19.4,0.86,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-the-best-lamb-mint-burgers-2-pack/113077733
 113080481,g,,275,65,0.2,,0.6,0.1,0.5,14.9,1.4,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-cold-water-prawns/113080481
 113081193,g,as consumed,485,115,0.9,0.2,0.2,0.2,0.5,26.2,0.21,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-raw-jumbo-king-prawns/113081193
 113104261,g,baked,738,176,6.0,0.9,20.5,2.1,1.0,9.4,0.9,2026-11-17,https://groceries.morrisons.com/products/young-s-4-breaded-salmon-spinach-fishcakes-540g/113104261
@@ -721,6 +940,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113150582,g,,1050,251,3.3,1.4,63.9,0.6,,10.4,0.05,2026-11-17,https://groceries.morrisons.com/products/indus-black-pepper-ground-300g/113150582
 113150700,g,,1179,282,14.3,2.5,49.7,7.2,,13.5,7.2,2026-11-17,https://groceries.morrisons.com/products/indus-chilli-powder-300g/113150700
 113150911,g,,1252,299,0.5,0.1,79.2,59.2,,3.1,0.3,2026-11-17,https://groceries.morrisons.com/products/indus-green-raisins/113150911
+113154487,g,boiled,345,81,0.1,,17.5,0.8,1.6,1.8,,2026-11-18,https://groceries.morrisons.com/products/morrisons-peeled-potatoes-500g/113154487
+113154591,g,microwaved,402,95,1.6,0.9,17.1,2,1.9,2.1,0.05,2026-11-18,https://groceries.morrisons.com/products/morrisons-herby-baby-potatoes/113154591
 113155720,ml,,209,50,1.8,1.1,4.8,4.8,,3.6,0.11,2026-11-17,https://groceries.morrisons.com/products/morrisons-for-farmers-british-semi-skimmed-milk-2-pint/113155720
 113158576,g,,489,116,3.2,1.1,<0.5,<0.5,<0.5,21.8,0.3,2026-11-17,https://groceries.morrisons.com/products/shazans-chicken-breast-fillets-650g/113158576
 113158971,g,,489,116,3.2,1.1,<0.5,<0.5,<0.5,21.8,0.3,2026-11-17,https://groceries.morrisons.com/products/shazans-diced-chicken-breast-450g/113158971
@@ -745,20 +966,35 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113282809,g,,1779,422,10.5,8.3,69.8,3.5,3.8,10.2,1.40,2026-11-17,https://groceries.morrisons.com/products/morrisons-free-from-cheese-crackers-with-sea-salt/113282809
 113283158,g,,1593,375,<0.5,<0.1,84,<0.5,,8.1,<0.01,2026-11-17,https://groceries.morrisons.com/products/laila-gold-basmati-rice-5kg/113283158
 113290331,g,boiled,489,115,0.3,0.1,24.7,0.1,1.3,2.8,,2026-11-17,https://groceries.morrisons.com/products/morrisons-easy-cook-basmati-rice/113290331
+113308626,g,,558,134,7.1,4.3,11.2,11.2,1.8,5.3,0.36,2026-11-18,https://groceries.morrisons.com/products/morrisons-apple-grapes-cheese/113308626
 113337347,g,,1697,399,0,0,99,99,,0,0,2026-11-17,https://groceries.morrisons.com/products/buchanan-s-mint-crumbles/113337347
+113338420,g,as consumed,1094,262,15.7,6.8,2.9,0.1,1.6,26.6,0.91,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-lamb-grill-steaks-2-pack-300g/113338420
+113339254,g,as consumed,788,188,9.7,1,5.6,0.1,0.6,19.4,0.62,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-buttermilk-chicken-burgers-200g/113339254
 113343616,g,,654,154,0.5,0.1,36.7,31.8,0.6,0.4,0.44,2026-11-17,https://groceries.morrisons.com/products/morrisons-mint-jelly-200g/113343616
 113343991,g,as consumed,1260,303,21.7,3.2,5.2,2.2,0.4,21.5,0.61,2026-11-17,https://groceries.morrisons.com/products/gourmet-collection-yorkshire-bred-crackling-pork-belly-apple-rosemary-jus/113343991
 113344361,g,as consumed,524,126,7.1,2.2,7.9,3.8,5.1,5,0.31,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-baby-brussels-sprouts-italian-pancetta-350g/113344361
+113345806,g,as consumed,671,160,7.7,2.9,2.8,2.7,0.6,19.6,0.35,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-the-best-slow-cooked-lamb-shank-470g/113345806
 113346307,g,,2475,595,49,6.1,10,5.4,7.5,27,0.53,2026-11-17,https://groceries.morrisons.com/products/pip-nut-crunchy-peanut-butter-1kg/113346307
+113346331,g,,2537,613,49.7,7.7,12.9,4.9,8.4,24.4,,2026-11-18,https://groceries.morrisons.com/products/morrisons-roasted-monkey-nuts-650g/113346331
 113346913,g,,2469,593,49,6.2,11,6.6,7.49,27,0.45,2026-11-17,https://groceries.morrisons.com/products/pip-nut-smooth-peanut-butter-1kg/113346913
 113359482,g,,437,104,4.5,3,3.7,3.3,0.5,12,0.09,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-natural-full-fat-cottage-cheese-300g/113359482
 113359888,g,,218,46,2.9,1.0,3.4,1.1,0.6,1.4,0.5,2026-11-17,https://groceries.morrisons.com/products/heinz-broccoli-stilton-soup-400g/113359888
+113360643,g,grilled,491,116,1.6,0.5,1.2,1.0,,24.2,2.5,2026-11-18,https://groceries.morrisons.com/products/mattessons-6-smoked-turkey-bacon-rashers-150g/113360643
+113361486,g,grilled,493,117,2.1,0.7,1.2,0.8,,23.2,2.2,2026-11-18,https://groceries.morrisons.com/products/mattessons-6-unsmoked-turkey-bacon-rashers-150g/113361486
 113362809,g,,378,89,1.6,1,6.4,3.6,0.5,12.1,0.09,2026-11-17,https://groceries.morrisons.com/products/morrisons-savers-cottage-cheese-300g/113362809
+113363676,g,as consumed,556,131,1.6,0.3,4.3,4.3,1.1,24.4,0.49,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-mexican-style-chicken-mini-fillets-300g/113363676
+113363764,g,as consumed,693,165,5.7,2.6,4.6,0.5,0.8,23.4,0.39,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-garlic-herb-crumb-breast-fillets-285g/113363764
 113372741,g,,338,81,0.4,0.1,15.5,4.3,3.9,4.8,0.6,2026-11-17,https://groceries.morrisons.com/products/heinz-tinned-baked-beans-4-x-200g/113372741
 113372898,g,,276,65,0.2,0.1,9.5,1.9,3.6,4.6,0.4,2026-11-17,https://groceries.morrisons.com/products/heinz-no-added-sugar-baked-beans-in-tomato-sauce-4-x-200g/113372898
+113374404,g,,572,137,3.9,1.7,20.9,9.1,5.7,1.6,0.22,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-honey-mustard-glazed-parsnip-wedges-400g/113374404
+113378552,g,microwaved,536,128,5,3.4,18.3,2.5,1.1,1.9,0.39,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-creamy-mash-400g/113378552
 113384602,g,as consumed,316,75,2,0.2,9.7,2.6,1.9,3.7,0.54,2026-11-17,https://groceries.morrisons.com/products/morrisons-tomato-red-pepper-lentil-soup/113384602
+113389948,g,microwaved,380,90,2.4,1.6,14.6,1.2,1.9,1.5,0.24,2026-11-18,https://groceries.morrisons.com/products/albert-bartlett-mashed-potato-400g/113389948
 113393752,g,,1857,442,16.4,1.7,62.5,16.5,5.0,8.7,0.03,2026-11-17,https://groceries.morrisons.com/products/dorset-oat-granola-breakfast-cereal-500g/113393752
 113414066,g,,1458,344,2.0,0.5,68,3.5,3.0,12,0.03,2026-11-17,https://groceries.morrisons.com/products/marshalls-spaghetti/113414066
+113423317,g,,1182,279,0.4,0.1,64.3,59.3,4.8,2.2,0.07,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-pitted-medjool-dates/113423317
+113426059,g,as consumed,1121,265,0.6,0.3,58.7,58.7,7.5,2.4,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-deglet-nour-dates-without-stones-200g/113426059
+113447351,g,,2077,499,30,4.1,24,2.1,15,25,0.75,2026-11-18,https://groceries.morrisons.com/products/good4u-salad-topper-garlic-herb/113447351
 113471301,g,prepared,754,178,0.8,0.2,35,1.1,2.1,6.3,0.56,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-fine-egg-noodles-4-pack-250g/113471301
 113471491,g,prepared,798,188,0.7,0.2,38,0.8,2.0,7.0,0.55,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-medium-egg-noodles-250g/113471491
 113472987,g,,1535,362,2.1,0.5,70.2,1.3,4.1,13.6,0.66,2026-11-17,https://groceries.morrisons.com/products/sharwood-s-east-asian-fine-egg-noodles-for-stir-fry-226g/113472987
@@ -771,8 +1007,21 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113582107,ml,,54,13,0,0,2.5,2.5,0,0,<0.01,2026-11-17,https://groceries.morrisons.com/products/fix8-kombucha-strawberry-basil-250ml/113582107
 113583185,g,,1118,269,19,13,2.4,2.4,,22,0.20,2026-11-17,https://groceries.morrisons.com/products/lancashire-farm-paneer/113583185
 113595194,g,as consumed,438,105,4.9,2.1,13.0,10.2,3.4,0.5,0.15,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-chantenay-carrots-with-acacia-honey-butter-300g/113595194
+113616434,g,,1182,279,0.4,0.1,64.3,59.3,4.8,2.1,0.00,2026-11-18,https://groceries.morrisons.com/products/al-munawwarah-palestinian-medjoul-dates-4kg/113616434
 113654861,g,,653,155,4.4,1.2,20,2.5,1.7,8.2,0.71,2026-11-17,https://groceries.morrisons.com/products/itsu-chicken-spring-onion-gourmet-gyoza/113654861
+113682634,g,,636,152,8,1.6,7.7,1.7,1.4,11.6,0.63,2026-11-18,https://groceries.morrisons.com/products/morrisons-chicken-caesar-salad-185g/113682634
+113682853,g,,100,24,0.3,0.1,3.1,2.5,1.6,1.3,0.06,2026-11-18,https://groceries.morrisons.com/products/morrisons-classic-crunchy-salad-455g/113682853
+113683856,ml,,1509,366,36.2,2.8,7.5,1.8,0.5,2.3,1.14,2026-11-18,https://groceries.morrisons.com/products/morrisons-caesar-dressing-170ml/113683856
+113683928,ml,,1109,268,25.1,1.7,9.8,5.3,0.5,0.6,1.24,2026-11-18,https://groceries.morrisons.com/products/morrisons-french-style-dressing/113683928
+113683995,ml,,1608,389,36.9,2.3,13.3,11.2,0.5,0.8,1.15,2026-11-18,https://groceries.morrisons.com/products/morrisons-honey-mustard-dressing-170ml/113683995
+113685190,g,as consumed,750,179,8.5,2,2.5,2.2,1.1,22.6,0.46,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-bbq-chinese-style-chicken-portions-750g/113685190
+113685771,g,as consumed,933,223,11.6,2.8,4.7,4,1.1,24.4,0.51,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-bbq-chicken-wings/113685771
+113686272,ml,,659,159,14.2,1.8,5.6,2,0.5,2,1.15,2026-11-18,https://groceries.morrisons.com/products/morrisons-reduced-fat-caesar-dressing-170ml/113686272
+113688198,g,,536,128,5.2,0.8,13.3,2.2,2.1,6,0.42,2026-11-18,https://groceries.morrisons.com/products/morrisons-chicken-bacon-sweetcorn-pasta-salad-345g/113688198
+113689684,g,as consumed,740,176,4.6,1.4,0.1,0.1,0.5,33.2,0.3,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-chicken-drumstick-fillets-600g/113689684
 113691661,g,,713,173,16.1,1.9,4.1,2.1,2.6,1.6,2.04,2026-11-17,https://groceries.morrisons.com/products/morrisons-cherry-tomato-rosemary-olives-170g/113691661
+113696059,g,oven cooked,611,144,1.8,0.6,2.9,2.9,0.5,28.9,0.41,2026-11-18,https://groceries.morrisons.com/products/morrisons-bbq-lemon-garlic-herb-british-chicken-breast-steaks-350g/113696059
+113696884,g,as consumed,993,237,12.5,3.1,1.6,1,0.5,29.4,0.68,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-bbq-buffalo-chicken-wings/113696884
 113698046,g,,1339,318,7.4,1.2,54.2,2.7,2.0,7.5,0.76,2026-11-17,https://groceries.morrisons.com/products/mission-original-xl-tortilla-wraps/113698046
 113708574,g,,937,224,<0.5,<0.1,55,46,0,0.6,3.1,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-original-thai-sweet-chilli-sauce-315g/113708574
 113708603,g,,653,156,<0.5,<0.1,38,26,0,<0.5,2.6,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-reduced-sugar-thai-sweet-chilli-dipping-sauce-500g/113708603
@@ -781,7 +1030,9 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113708726,g,,933,223,<0.5,<0.1,55,45,0,0.6,3.2,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-hot-thai-sweet-chilli-dipping-sauce-315g/113708726
 113709083,g,,747,178,8.7,1.5,0.4,0.5,0.5,24.4,2.94,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-strong-intense-smoked-scottish-salmon-100g/113709083
 113711731,g,as consumed,766,183,8.3,1.3,3.9,0.5,0.3,23,2.76,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-mild-smoked-scottish-salmon-100g/113711731
+113715619,g,,447,106,2.7,0.7,0.2,0.1,0.5,19.9,0.14,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-chicken-mince-5-fat-500g/113715619
 113722034,g,,1619,388,25.4,14.3,32.6,3.5,1.4,6.7,0.69,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-8-slow-roasted-tomato-feta-puffs/113722034
+113724179,g,,976,234,10.9,1.1,26.9,3.4,5.3,4.3,0.43,2026-11-18,https://groceries.morrisons.com/products/morrisons-sweetcorn-fritters/113724179
 113725913,g,as consumed,1090,261,16.4,7.9,19.3,3.6,1,8.7,0.65,2026-11-17,https://groceries.morrisons.com/products/morrisons-chorizo-and-red-pepper-quiche/113725913
 113726043,g,as consumed,1023,245,14.1,6.9,21.4,2.9,1.3,7.5,0.46,2026-11-17,https://groceries.morrisons.com/products/morrisons-broccoli-tomato-quiche/113726043
 113726414,g,,2237,536,31,11,53,45,,11,0.58,2026-11-17,https://groceries.morrisons.com/products/snickers-creamy-peanut-butter-multipack/113726414
@@ -791,9 +1042,17 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113737658,g,,2457,593,46,9.7,13,7.0,8.2,29,0.89,2026-11-17,https://groceries.morrisons.com/products/sun-pat-crunchy-peanut-butter-300g/113737658
 113737957,g,,2463,594,46,11,13,7.2,8.0,28,1.2,2026-11-17,https://groceries.morrisons.com/products/sun-pat-smooth-peanut-butter-300g/113737957
 113741331,ml,,450,107,0,0,6.9,3.9,,9.7,9.1,2026-11-17,https://groceries.morrisons.com/products/kikkoman-less-salt-soy-sauce-150ml/113741331
+113742756,g,as consumed,818,194,6.2,1.7,0.4,0.4,0.7,33.8,0.46,2026-11-18,https://groceries.morrisons.com/products/morrisons-bbq-salt-pepper-beef-sizzle-steaks-300g/113742756
+113743046,g,,236,56,0.5,0,11.6,11.6,1.2,0.6,0,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-kissabel-apples/113743046
+113743345,g,grilled,925,222,14.3,5.6,1.3,0.2,0.6,21.8,1.33,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-british-steak-burgers-2-pack-340g/113743345
+113745682,g,,215,51,0.5,0.1,11.6,11.6,1.2,0.6,<0.1,2026-11-18,https://groceries.morrisons.com/products/pinkids-apples/113745682
+113756568,g,as consumed,909,217,11.5,3.2,2.6,1,0.5,25.6,0.44,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-bbq-marinated-chicken-wings-selection-pack-1-2kg/113756568
 113756744,g,,1074,256,12.1,6.7,32.9,22.7,,3.8,0.16,2026-11-17,https://groceries.morrisons.com/products/cottage-desserts-toffee-cheesecakes/113756744
+113757501,g,as consumed,717,171,7.1,2.7,0.1,0.1,0.5,26.4,0.28,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-roast-in-the-bag-garlic-herb-whole-chicken-1-6kg/113757501
 113768577,g,,1476,348,0.7,0.2,77.6,0.5,1.1,7.1,<0.01,2026-11-17,https://groceries.morrisons.com/products/tilda-everyday-long-grain-rice/113768577
 113768665,g,,144,34,0.2,,6.7,3.9,0.5,1.2,0.73,2026-11-17,https://groceries.morrisons.com/products/morrisons-mexican-style-chunky-squeezy-salsa-270g/113768665
+113770263,g,grilled,1095,263,19.4,8.2,2.1,0.2,0.5,19.9,0.76,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-british-beef-quarter-pounder-burgers-4-pack454g/113770263
+113771098,g,oven cooked,1214,292,21.9,10.2,3.3,0.5,2.1,19.5,0.61,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-bbq-6-lamb-kofta-kebabs-340g/113771098
 113771549,g,,1708,412,33.2,21.3,3.8,0.1,,24.4,1.6,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-extra-mature-cheddar-750g/113771549
 113771653,g,,1697,409,33.3,21.2,3.5,0.2,,23.8,1.54,2026-11-17,https://groceries.morrisons.com/products/morrisons-mature-cheddar-750g/113771653
 113772269,g,,1264,299,5.2,1.2,53.2,2.1,1.6,9.1,1.00,2026-11-17,https://groceries.morrisons.com/products/old-el-paso-mexican-street-vibes-8-soft-taco-wraps-220g/113772269
@@ -801,6 +1060,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113776307,g,,214,51,0.8,0.2,8.1,1.7,2,1.8,0.03,2026-11-17,https://groceries.morrisons.com/products/morrisons-chopped-ginger-75g/113776307
 113779786,g,,1215,288,5.7,0.8,49,2.6,3.4,8.7,0.90,2026-11-17,https://groceries.morrisons.com/products/patak-s-indian-flame-baked-mini-naan-breads-4pk/113779786
 113780550,g,,1508,356,1.5,0.3,72.0,3.0,3.0,12.0,<0.01,2026-11-17,https://groceries.morrisons.com/products/napolina-macaroni/113780550
+113781552,g,,245,57,0.2,0.1,14.1,13.8,2.6,0.7,0.01,2026-11-18,https://groceries.morrisons.com/products/love-me-tender-mango/113781552
 113781721,g,,1216,291,7.2,1.0,34,18,23,11,12.6,2026-11-17,https://groceries.morrisons.com/products/capsicana-mexican-chipotle-cumin-fajita-spice-mix-seasoning-28g28g/113781721
 113782029,g,cooked,1084,261,20,7.0,4.0,1.8,1.0,16,1.2,2026-11-17,https://groceries.morrisons.com/products/edwards-12-traditional-pork-chipolatas-375g/113782029
 113784163,ml,,660,155,<0.5,<0.1,38,35,0.7,0.5,3.3,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-reduced-sugar-thai-sweet-chilli-sauce-250g/113784163
@@ -808,8 +1068,10 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113785490,ml,,1458,343,<0.5,<0.1,84,80,<0.5,1.6,8.5,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-sweet-teriyaki-sauce-mild-spice-250ml/113785490
 113805286,g,,2009,480,22,1.6,60,0.9,4.1,8.6,1.79,2026-11-17,https://groceries.morrisons.com/products/eat-real-kale-tomato-and-spinach-veggie-straws/113805286
 113805358,g,,1913,456,18,1.5,59,0.7,4.4,13,2.20,2026-11-17,https://groceries.morrisons.com/products/eat-real-sea-salt-lentil-chips/113805358
+113819303,g,as consumed,768,184,10.0,2.5,0.8,0.8,2.0,22.3,1.42,2026-11-18,https://groceries.morrisons.com/products/tgi-fridays-buffalo-chicken-wings-500g/113819303
 113819821,g,,1913,456,18,1.5,59,0.7,4.4,13,2.20,2026-11-17,https://groceries.morrisons.com/products/eat-real-sea-salt-lentil-chips/113819821
 113830115,g,,336,79,0.2,0.1,0.1,0.1,0.5,19,0.38,2026-11-17,https://groceries.morrisons.com/products/morrisons-angel-cut-scotish-haddock-fillets-2-pack-240g/113830115
+113832276,g,as consumed,1009,241,12.7,4.5,7.9,7.8,0.9,23.5,0.38,2026-11-18,https://groceries.morrisons.com/products/tgi-fridays-smoked-rack-of-pork-ribs-with-tennesee-bourbon-bbq-sauce-450g/113832276
 113834327,g,,894,215,15.5,6.4,0.2,0.1,0.5,18.5,0.16,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-beef-mince-15-fat-500g/113834327
 113834474,g,,894,215,15.5,6.4,0.2,0.1,0.5,18.5,0.16,2026-11-17,https://groceries.morrisons.com/products/morrisons-scotch-beef-mince-15-fat-500g/113834474
 113836269,g,,1725,416,34.9,21.7,0.1,0.1,0,25.4,1.81,2026-11-17,https://groceries.morrisons.com/products/lake-british-district-mature-cheddar-700g/113836269
@@ -824,6 +1086,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113867751,g,,1388,331,0.4,<0.1,70.8,61.1,1.3,2.9,13.10,2026-11-17,https://groceries.morrisons.com/products/flava-it-garden-mint-marinade/113867751
 113869271,g,,559,133,2.1,0.8,24.0,0.3,3.0,2.9,0.28,2026-11-17,https://groceries.morrisons.com/products/tilda-basmati-quinoa-rice/113869271
 113875621,g,,419,101,6,0.7,7.8,2.9,2.5,2.7,0.46,2026-11-17,https://groceries.morrisons.com/products/morrisons-carrot-sticks-houmous/113875621
+113876295,g,,220,52,0.6,0.2,10.4,10.1,1.1,0.7,,2026-11-18,https://groceries.morrisons.com/products/morrisons-mango-fingers/113876295
 113879998,g,,2255,539,30,9.0,54,48,,12,0.97,2026-11-17,https://groceries.morrisons.com/products/reese-s-peanut-butter-tree-34g/113879998
 113886661,g,,492,116,0.9,,0,,,27,0.90,2026-11-17,https://groceries.morrisons.com/products/john-west-no-drain-tuna-chunks-with-a-little-brine-msc-3x100g/113886661
 113886899,g,,492,116,0.9,,0,,,27,0.80,2026-11-17,https://groceries.morrisons.com/products/john-west-no-drain-tuna-chunks-with-a-little-spring-water-msc-3x100g/113886899
@@ -839,40 +1102,69 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 113898099,g,,484,115,2.5,,0,,,23,0.7,2026-11-17,https://groceries.morrisons.com/products/john-west-pink-salmon-fridgepot/113898099
 113898232,g,drained,451,106,0.7,,0,,,25,0.80,2026-11-17,https://groceries.morrisons.com/products/john-west-tuna-chunks-in-spring-water-msc-125g-102g-drained/113898232
 113908509,g,,547,131,9.0,2.5,<0.5,<0.5,,12.6,0.3,2026-11-17,https://groceries.morrisons.com/products/freshlay-golden-yolker-10-mixed-weight-eggs/113908509
+113913826,g,boiled,317,75,0.1,<0.01,16,0.8,1.6,1.8,<0.01,2026-11-18,https://groceries.morrisons.com/products/albert-bartlett-buttergold-potatoes/113913826
 113942192,g,,469,112,3.8,1.5,2.5,2.5,0.5,16.5,1.46,2026-11-17,https://groceries.morrisons.com/products/morrisons-savers-cooked-ham-slices-125g/113942192
 113962863,g,made up,563,133,1.2,0.3,25,1.4,1.7,4.9,0.79,2026-11-17,https://groceries.morrisons.com/products/ainsley-harriott-lemon-mint-parsley-couscous/113962863
 113964914,g,,1508,356,1.5,0.3,72.0,3.0,3.0,12.0,<0.01,2026-11-17,https://groceries.morrisons.com/products/napolina-conchiglie-pasta/113964914
 113964973,g,,1508,356,1.5,0.3,72.0,3.0,3.0,12.0,<0.01,2026-11-17,https://groceries.morrisons.com/products/napolina-linguine-pasta/113964973
 113965992,g,,1352,323,10,2.3,35.1,10.5,20.5,13,11.7,2026-11-17,https://groceries.morrisons.com/products/morrisons-fajita-seasoning/113965992
 113974936,g,,269,65,4.4,2.9,5.5,<0.5,<0.5,<0.5,0.86,2026-11-17,https://groceries.morrisons.com/products/schwartz-creamy-watercress-sauce-300g/113974936
+113990776,g,,819,196,10.4,2.3,10.4,1,1.2,14.6,1.34,2026-11-18,https://groceries.morrisons.com/products/morrisons-25-chicken-cocktail-sausages-205g/113990776
 113994902,g,,320,76,2.1,1.2,9.9,3.6,1.8,3.5,0.1,2026-11-17,https://groceries.morrisons.com/products/nutmeg-organic-tomato-courgette-spaghetti-with-cheese-baby-food-10m/113994902
 113995542,ml,,100,24,0.0,0.0,5.5,4.5,0.0,0.1,0.00,2026-11-17,https://groceries.morrisons.com/products/san-pellegrino-lemon-mint-6x330ml/113995542
 113997003,g,,380,90,<0.5,<0.1,20,18,1.4,1.2,0.1,2026-11-17,https://groceries.morrisons.com/products/fyffes-premium-bananas-ripen-at-home/113997003
 113997302,g,,1519,363,0.9,0.4,81,0,1.1,7.1,0.05,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-pad-thai-rice-noodles-4-pack-200g/113997302
+114003138,g,,2363,572,48,6.1,3.8,1.8,17,22,0.13,2026-11-18,https://groceries.morrisons.com/products/linwoods-flaxseed-almonds-brazil-nuts-walnuts-co-enzyme-q10/114003138
 114008078,g,,400,95,2.1,0.7,2,2,0.5,16.7,1.33,2026-11-17,https://groceries.morrisons.com/products/morrisons-cooked-ham/114008078
 114014101,g,,499,118,2.1,0.7,1.7,1.1,0.5,22.9,1.65,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-thinly-sliced-smoked-ham/114014101
 114015817,g,,429,101,1.8,0.6,0.8,0.3,0.6,20.3,1.52,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-thinly-sliced-cooked-ham/114015817
+114026997,g,oven cooked,916,219,9.7,1.3,28,14.2,6.4,1.9,0.52,2026-11-18,https://groceries.morrisons.com/products/albert-bartlett-sweet-potato-fries-300g/114026997
+114027033,g,,167,40,0.2,0.1,8.4,8.3,1.0,0.5,0.01,2026-11-18,https://groceries.morrisons.com/products/del-monte-fruit-platter-1-1kg-fto/114027033
 114028950,g,grilled,1055,253,15,2.1,7.9,0.9,5.0,20,1.4,2026-11-17,https://groceries.morrisons.com/products/linda-mccartney-s-4-mozzarella-burgers-454g/114028950
 114034997,g,,637,150,<0.5,<0.1,37,33,<0.5,<0.5,<0.01,2026-11-17,https://groceries.morrisons.com/products/ocean-spray-smooth-cranberry-sauce-200g/114034997
 114038656,ml,,206,49,1.7,1,4.8,4.8,,3.6,0.11,2026-11-17,https://groceries.morrisons.com/products/morrisons-organic-semi-skimmed-milk-1l/114038656
+114043105,g,as consumed,859,205,9.6,2.9,10.6,0.1,1.2,18.5,0.84,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-the-best-2-chicken-kyivs-with-garlicbutter-320g/114043105
 114061012,g,,687,162,0.5,<0.1,35,<0.5,<0.5,4.0,<0.01,2026-11-17,https://groceries.morrisons.com/products/ben-s-original-long-grain-rice/114061012
 114061055,g,,597,141,1.3,0.1,29,<0.5,<0.5,3.3,<0.01,2026-11-17,https://groceries.morrisons.com/products/ben-s-original-basmati-rice/114061055
+114070437,g,oven cooked,683,163,6.2,1.4,23.5,2.7,1.8,2.3,0.16,2026-11-18,https://groceries.morrisons.com/products/morrisons-parmentier-potatoes-400g/114070437
 114082569,g,,1778,424,12.8,1.2,48.5,3.3,17.4,20.0,1.10,2026-11-17,https://groceries.morrisons.com/products/kallo-rosemary-sea-salt-veggie-thins/114082569
 114082673,g,,1798,430,12.9,1.2,49.7,4.5,16.6,20.1,0.80,2026-11-17,https://groceries.morrisons.com/products/kallo-beetroot-mixed-seeds-veggie-thins/114082673
+114084290,g,as consumed,740,176,4.6,1.4,0.1,0.1,0.5,33.2,0.3,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-chicken-drumstick-fillets-1kg/114084290
+114104262,g,boiled,272,64,0.1,<0.1,14.9,1.1,,1.8,<0.01,2026-11-18,https://groceries.morrisons.com/products/blas-y-tir-baby-potatoes/114104262
+114107720,g,,1289,304,0.2,0.1,71.1,62.9,5.1,1.9,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-zamli-dates/114107720
+114108634,g,as consumed,405,96,2.7,1.1,4.2,2.3,0.9,13.3,0.63,2026-11-18,https://groceries.morrisons.com/products/morrisons-slow-cooked-beef-bourguignon-530g/114108634
+114108765,g,as consumed,490,116,2.5,1,1.8,0.1,1,21.1,0.78,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-slow-cooked-chicken-in-creamy-mushroom-sauce-500g/114108765
+114109012,g,oven cooked,463,110,2.8,1.2,2.4,0.7,0.5,18.5,0.86,2026-11-18,https://groceries.morrisons.com/products/morrisons-street-slow-cooked-beef-brisket-in-a-peppercorn-sauce/114109012
+114109282,g,as consumed,567,135,5.2,1.3,5.9,5.4,0.9,15.8,0.85,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-slow-cooked-chicken-shawarma-450g/114109282
 114109688,ml,,175,41,0.4,0.1,4.9,4.9,,4.5,0.11,2026-11-17,https://groceries.morrisons.com/products/arla-bob-skimmed-milk-1l-tastes-like-semi-skimmed/114109688
 114110734,g,,221,53,3.0,2.0,1.8,1.8,,4.0,0.09,2026-11-17,https://groceries.morrisons.com/products/arla-lactofree-natural-yogurt/114110734
+114112852,g,oven cooked,456,108,3.5,1.9,4.1,2.2,0.6,14.8,0.63,2026-11-18,https://groceries.morrisons.com/products/morrisons-slow-cooked-beef-stroganoff/114112852
 114119501,ml,,245,58,2.7,0.3,6.9,3.4,0.9,1.0,0.10,2026-11-17,https://groceries.morrisons.com/products/oatly-oat-drink-whole-chilled-500ml/114119501
+114130268,g,,1383,326,0.6,0.2,74.6,62,5.3,3,0.18,2026-11-18,https://groceries.morrisons.com/products/morrisons-dried-mango/114130268
+114130807,g,,992,234,0.4,,51.6,32.6,6,3.2,0.1,2026-11-18,https://groceries.morrisons.com/products/morrisons-dried-apricots/114130807
+114131375,g,,2393,576,41.1,15.1,35.8,35.6,6.9,12.3,0.42,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-chocolate-roasted-nut-medley-with-a-hint-of-salt-150g/114131375
+114131404,g,,2343,564,39.5,13.3,35.8,33.6,9,11.8,0.2,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-gingerbread-cinnamon-chocolate-roasted-nut-medley/114131404
+114131439,g,,2441,589,44.7,19.5,32.2,22.6,9.1,9.8,0.07,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-milk-dark-chocolate-brazil-nuts-175g/114131439
 114131797,g,,1685,397,0.5,0.5,97.5,94.5,,0.1,0.028,2026-11-17,https://groceries.morrisons.com/products/tic-tac-fresh-mint-sweets-4-x-18g/114131797
+114132600,g,oven cooked,662,157,3.9,1,5.5,4.9,0.7,24.5,0.4,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-slow-cooked-sweet-chilli-chicken-400g/114132600
+114133080,g,as consumed,918,219,11.4,4.6,2.8,2.8,0.6,26.2,0.58,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-the-best-slow-cooked-lamb-shank-480g/114133080
+114139879,g,as consumed,819,195,8.6,3.7,1.8,1.8,0.7,27.4,0.39,2026-11-18,https://groceries.morrisons.com/products/morrisons-market-street-slow-cooked-lamb-shank-with-a-mint-gravy-370g/114139879
+114140802,g,as consumed,889,212,11.3,3.7,6.3,6.3,0.6,22.3,0.45,2026-11-18,https://groceries.morrisons.com/products/tgi-fridays-chicken-wings-mini-pork-ribs-580g/114140802
+114142314,g,,2206,528,30.9,26.5,59.4,16.8,2.6,2,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-dried-banana-chips/114142314
 114143481,g,,702,166,1.1,<0.1,36,25,,2.9,5.7,2026-11-17,https://groceries.morrisons.com/products/sun-hee-namsan-bbq-sauce-300g/114143481
 114144889,g,,266,63,0.3,0.1,13.0,4.9,0.6,1.7,0.37,2026-11-17,https://groceries.morrisons.com/products/branston-spaghetti/114144889
 114145259,g,,517,123,0,0,27,0,,3.2,0.33,2026-11-17,https://groceries.morrisons.com/products/sun-hee-udon-noodles/114145259
 114145662,g,,932,220,<0.5,<0.1,52,46,<0.5,1.5,3.1,2026-11-17,https://groceries.morrisons.com/products/sun-hee-teriyaki-sauce-300g/114145662
+114150779,g,,660,157,8.3,0.6,19.1,0.1,1.3,2.1,0.33,2026-11-18,https://groceries.morrisons.com/products/mash-direct-crispy-potato-slices/114150779
 114155713,ml,,209,50,1.8,1.1,4.8,4.8,,3.6,0.11,2026-11-17,https://groceries.morrisons.com/products/morrisons-semi-skimmed-british-milk-1-pint/114155713
 114155828,ml,,209,50,1.8,1.1,4.8,4.8,,3.6,0.11,2026-11-17,https://groceries.morrisons.com/products/morrisons-scottish-milk-semi-skimmed-1-pint/114155828
 114162817,ml,,90,22,1.4,1.2,2.0,1.7,<0.5,<0.5,0.04,2026-11-17,https://groceries.morrisons.com/products/ufc-velvet-coconut-milk-unsweetened/114162817
+114163457,g,,2489,600,46,8,24.2,15.8,4.4,20.1,0.37,2026-11-18,https://groceries.morrisons.com/products/morrisons-honey-roasted-peanuts-cashews/114163457
 114166535,g,,271,64,0.8,0.5,0.6,0.1,0.0,13.6,0.50,2026-11-17,https://groceries.morrisons.com/products/crown-farms-big-bag-cooked-peeled-king-prawns-875g/114166535
+114199257,g,oven cooked,273,65,2.1,1,9.2,7.5,3.1,0.8,0.2,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-seville-orange-honey-glazed-carrot-wedges-400g/114199257
 114208248,g,,335,81,4.7,0.6,5.2,3.2,2.5,3.1,,2026-11-17,https://groceries.morrisons.com/products/morrisons-tenderstem-broccoli-stir-fry-vegetable-medley/114208248
 114214533,g,,757,181,9.7,1.6,0.8,0.1,0.4,22.4,3.0,2026-11-17,https://groceries.morrisons.com/products/big-blue-sea-smoked-salmon-slices/114214533
+114247301,g,cooked,1040,250,14.2,3.7,1.3,1.0,0.2,29.0,1.00,2026-11-18,https://groceries.morrisons.com/products/cherrywood-farm-salt-pepper-spatchcock-chicken/114247301
 114257322,g,,2568,619,48.4,6,16.2,6.7,7.1,26.2,0.03,2026-11-17,https://groceries.morrisons.com/products/morrisons-peanut-butter-crunchy-1000g/114257322
 114258034,g,,2567,619,48.7,6,15.2,6.5,7.9,26.1,0.03,2026-11-17,https://groceries.morrisons.com/products/morrisons-smooth-peanut-butter-1000g/114258034
 114258405,g,,234,56,1.0,0.1,5.4,2.0,4.9,3.9,0.50,2026-11-17,https://groceries.morrisons.com/products/bol-power-soup-red-pepper-tomato-lentil/114258405
@@ -884,11 +1176,16 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 114287492,g,,1641,396,32.9,20,2.5,0.1,,22.5,1.44,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-savers-mature-coloured-cheddar-400g/114287492
 114287732,g,,1628,393,32.3,20.5,2.3,0.1,,23.2,1.64,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-savers-mature-white-cheddar-400g/114287732
 114299215,g,,1632,394,32.4,19.6,2.4,0.1,,23.2,1.8,2026-11-17,https://groceries.morrisons.com/products/morrisons-scottish-mature-coloured-cheddar-400g/114299215
+114306761,g,as consumed,977,233,10.9,6.2,19,2.2,0.8,14.4,0.41,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-beef-wellington-with-a-rich-mushroom-duxelles-1kg/114306761
 114481981,g,,1829,434,12.3,7.4,78.6,68.9,2.9,2.2,0.24,2026-11-17,https://groceries.morrisons.com/products/poppets-mint-creams-100g/114481981
+114484761,g,,2265,541,46.8,8.7,16,1.3,9.8,25,0,2026-11-18,https://groceries.morrisons.com/products/fudco-sunflower-pumpkin-seed-mix/114484761
 114484795,g,,2675,646,52.3,4.5,15.6,4.7,9.8,23.3,<0.1,2026-11-17,https://groceries.morrisons.com/products/fudco-supreme-almonds/114484795
+114486133,g,as consumed,1148,276,19.3,7.9,4,1.4,1.7,20.8,0.6,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-peppered-beef-grill-steaks-4-pack-454g/114486133
 114487013,g,,3696,899,100,15,0.0,0.0,0.0,0.0,<0.01,2026-11-17,https://groceries.morrisons.com/products/ktc-extended-life-vegetable-oil-3l/114487013
 114487072,ml,,3696,899,99.9,11.9,0.0,0.0,0.0,<0.01,<0.01,2026-11-17,https://groceries.morrisons.com/products/ktc-vegetable-oil-1l/114487072
 114487110,g,,3696,899,99.9,11.9,0.0,0.0,0.0,<0.01,<0.01,2026-11-17,https://groceries.morrisons.com/products/ktc-pure-sunflower-oil-3l/114487110
+114497924,g,boiled,315,74,0.1,<0.1,17.5,0.8,,1.8,<0.01,2026-11-18,https://groceries.morrisons.com/products/market-street-blas-y-tir-welsh-red-potatoes/114497924
+114499760,g,boiled,315,74,0.1,<0.1,17.5,0.8,,1.8,<0.01,2026-11-18,https://groceries.morrisons.com/products/market-street-blas-y-tir-all-rounder-potatoes/114499760
 114509171,ml,,1125,270,17,12,26,24.5,0.6,2.9,0.08,2026-11-17,https://groceries.morrisons.com/products/cadbury-mint-sticks/114509171
 114515854,g,,276,65,0.2,0.1,9.5,1.9,3.6,4.6,0.4,2026-11-17,https://groceries.morrisons.com/products/heinz-no-added-sugar-baked-beans-in-rich-tomato-sauce-6-x-200g/114515854
 114516101,g,,338,81,0.4,0.1,15.5,4.3,3.9,4.8,0.6,2026-11-17,https://groceries.morrisons.com/products/heinz-baked-beans-in-rich-tomato-sauce-6-x-200g/114516101
@@ -896,6 +1193,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 114527396,g,as consumed,668,158,0.4,0.1,31.5,0.7,2.2,5.8,0.02,2026-11-17,https://groceries.morrisons.com/products/morrisons-penne-pasta/114527396
 114533569,g,,401,96,4.9,3.1,7.6,5.8,,5.1,0.16,2026-11-17,https://groceries.morrisons.com/products/village-dairy-llaeth-y-llan-natural-kefir-yogurt-350g/114533569
 114542431,g,,1566,371,5.8,1.0,64,0.9,8.3,11,< 0.01,2026-11-17,https://groceries.morrisons.com/products/flahavan-s-organic-porridge-oats-1kg/114542431
+114543898,g,,2407,575,45,5.5,7,5,10,30,0.49,2026-11-18,https://groceries.morrisons.com/products/good4u-salad-topper-super-seeds-150g/114543898
 114552073,g,,1204,285,4.0,1.0,52.6,3.3,4.7,7.4,0.63,2026-11-17,https://groceries.morrisons.com/products/deli-kitchen-plain-wraps/114552073
 114559751,ml,,257,62,6.0,5.4,1.3,<0.5,,<0.5,0.02,2026-11-17,https://groceries.morrisons.com/products/laila-coconut-milk-light/114559751
 114559873,ml,,563,136,13,12,4.0,2.2,,0.8,0.02,2026-11-17,https://groceries.morrisons.com/products/laila-coconut-milk-rich-creamy/114559873
@@ -903,17 +1201,29 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 114566926,g,grilled,869,208,10,3.5,0.1,0.1,0.5,29,3.54,2026-11-17,https://groceries.morrisons.com/products/morrisons-2-unsmoked-horseshoe-gammon-steaks/114566926
 114567267,g,grilled,841,200,8.9,3.1,0.1,0.2,0.5,29.7,3.26,2026-11-17,https://groceries.morrisons.com/products/morrisons-2-smoked-horseshoe-gammon-steaks/114567267
 114567478,g,grilled,724,172,4.3,1.4,0.5,0.5,0.5,32.5,3.06,2026-11-17,https://groceries.morrisons.com/products/morrisons-2-smoked-gammon-steaks/114567478
+114570802,g,,211,50,0.1,,11.1,11.1,1.2,0.5,,2026-11-18,https://groceries.morrisons.com/products/morrisons-pineapple-145g/114570802
+114574889,g,,175,42,0.3,0.1,8.4,8.3,1.4,0.6,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-exotic-fruit-salad-240g/114574889
 114600207,ml,,264,63,3.0,0.3,8.2,3.5,<0.5,0.8,0.10,2026-11-17,https://groceries.morrisons.com/products/moma-extra-creamy-oat-drink-750ml/114600207
+114616225,g,,179,42,0.3,,8.6,5.6,1.4,0.6,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-melon-pineapple-mango-fingers-240g/114616225
 114624356,g,,1020,240,<0.5,<0.1,57,52,,2.5,5.2,2026-11-17,https://groceries.morrisons.com/products/lee-kum-kee-honey-soy-stir-fry-sauce-70g/114624356
+114715928,g,,71,17,0.2,0.0,1.9,0.7,1.2,1.3,0.07,2026-11-18,https://groceries.morrisons.com/products/florette-mixed/114715928
 114718555,g,,680,165,16.8,2.2,0.1,0.1,3.9,1.5,2.66,2026-11-17,https://groceries.morrisons.com/products/mixed-olives-with-herbs-500g-serves-8/114718555
+114718811,g,,67,16,0.2,0.0,1.0,0.3,2.5,1.5,0.04,2026-11-18,https://groceries.morrisons.com/products/florette-crispy/114718811
 114719312,g,,489,116,3.2,1.1,<0.5,<0.5,<0.5,21.8,0.3,2026-11-17,https://groceries.morrisons.com/products/shazans-chicken-breast-fillets-950g/114719312
+114719718,g,as consumed,865,207,11.7,3.4,2.6,2.4,0.5,22.6,0.43,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-piri-piri-chicken-legs-590g/114719718
+114719881,g,,713,170,5.3,1.5,4.4,4.2,0.9,25.6,0.57,2026-11-18,https://groceries.morrisons.com/products/morrisons-bbq-chicken-drumsticks-750g/114719881
+114723653,g,,131,31,0.5,0.1,3.1,2.3,3.4,1.9,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-traditional-sliced-runner-beans-160g/114723653
 114727671,g,drained,332,79,<0.1,<0.1,12.1,1.9,,4.9,0.1,2026-11-17,https://groceries.morrisons.com/products/very-lazy-chopped-smoked-garlic-200g/114727671
 114732074,g,drained,179,43,0.5,0.1,6.7,1.6,2.1,1.8,0.03,2026-11-17,https://groceries.morrisons.com/products/morrisons-mixed-vegetables-in-water-300g/114732074
 114735419,g,,391,93,2.4,0.2,12,1.4,0.8,5.3,0.60,2026-11-17,https://groceries.morrisons.com/products/dolmio-classics-meatballs-fusilli-pasta-250g/114735419
 114735443,g,,364,86,1.5,0.8,13,1.7,0.7,4.5,0.58,2026-11-17,https://groceries.morrisons.com/products/dolmio-classics-fusilli-carbonara-pasta-250g/114735443
+114739954,g,,1376,324,0.5,0.1,76.4,63.9,3.6,1.7,0.24,2026-11-18,https://groceries.morrisons.com/products/morrisons-exotic-fruit-mix/114739954
+114740197,g,,1825,438,23.8,6.9,41.7,32.3,12.4,8.1,0.03,2026-11-18,https://groceries.morrisons.com/products/whitworths-wonder-mix-feel-energised-chocolate-fruit-nut-mix-200g/114740197
 114748885,g,,198,47,1.1,0.3,5.9,1.5,2.2,2.3,0.46,2026-11-17,https://groceries.morrisons.com/products/baxters-super-good-pea-broccoli-basil-pesto-soup-400g/114748885
+114755946,g,as consumed,851,201,3.4,1.4,20.7,17.3,0.4,21.7,0.7,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-slow-cooked-bbq-beef-burnt-ends-352g/114755946
 114758549,g,,667,159,5.8,0.6,5.7,3.6,5.0,19,2.0,2026-11-17,https://groceries.morrisons.com/products/richmond-meat-free-deli-slices-ham-90g/114758549
 114772931,g,,1231,297,25.4,4,12.9,7.5,1.5,3.5,1.01,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-red-pepper-ricotta-pesto-190g/114772931
+114775349,g,oven cooked,673,159,2.6,0.8,2.3,2.3,0.5,31.4,0.65,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-tikka-chicken-breast-steaks-350g/114775349
 114775883,g,,561,132,0.9,0.1,28.9,24,1.3,1.5,1.05,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-korean-bbq-sauce-300g/114775883
 114775921,g,,268,63,0.5,0.2,4.0,3.5,,10,0.14,2026-11-17,https://groceries.morrisons.com/products/isey-skyr-creme-brulee/114775921
 114776106,g,as consumed,317,75,0.3,0.1,12,2.3,4,4.1,0.3,2026-11-17,https://groceries.morrisons.com/products/morrisons-reduced-sugar-salt-baked-beans-in-tomato-sauce-4-x-410g/114776106
@@ -924,13 +1234,19 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 114788916,g,drained,405,96,0.6,0.0,12.0,0.0,6.4,7.5,0.30,2026-11-17,https://groceries.morrisons.com/products/indus-red-kidney-beans-400g/114788916
 114789062,g,drained,454,108,2.6,0.4,12.0,0.0,6.9,5.8,0.33,2026-11-17,https://groceries.morrisons.com/products/indus-chickpeas-400g/114789062
 114789097,g,,92,22,0.1,0.0,3.2,3.2,1.0,1.5,0.03,2026-11-17,https://groceries.morrisons.com/products/indus-chopped-tomatoes-400g/114789097
+114793985,g,,1210,286,0.2,0.1,63.9,54.8,7.8,2.2,0.05,2026-11-18,https://groceries.morrisons.com/products/morrisons-organic-dates-200g/114793985
+114794283,g,,2457,593,47.5,7.3,18.4,5.9,5,20.3,0.04,2026-11-18,https://groceries.morrisons.com/products/morrisons-organic-cashew-nuts-150g/114794283
 114794355,g,,525,124,0.3,0.1,29,22,0.7,0.9,0.84,2026-11-17,https://groceries.morrisons.com/products/morrisons-smoky-kansas-style-bbq-sauce-300g/114794355
+114794929,g,,2897,702,67.1,6.4,5,2.7,6.2,16.5,0.02,2026-11-18,https://groceries.morrisons.com/products/morrisons-organic-walnuts-150g/114794929
 114805886,g,as consumed,389,92,2.1,1,15.4,1.7,2.2,1.8,0.08,2026-11-17,https://groceries.morrisons.com/products/morrisons-baby-potatoes-with-chives-salted-butter-350g/114805886
 114806125,g,,1284,307,6.5,0.8,52.5,2.1,,8.5,0.80,2026-11-17,https://groceries.morrisons.com/products/gran-luchito-soft-taco-wraps-300g/114806125
 114812816,g,,856,205,13.8,7.1,7.7,1.6,0.7,12.4,0.77,2026-11-17,https://groceries.morrisons.com/products/morrisons-protein-spinach-red-pepper-bites-112g/114812816
 114820736,g,,766,181,1.4,0.2,37,4.6,1.5,4.4,1.9,2026-11-17,https://groceries.morrisons.com/products/bibigo-bbq-udon-noodles/114820736
 114821317,g,,1170,277,4.9,0.9,40.5,2.8,1.9,16.9,0.92,2026-11-17,https://groceries.morrisons.com/products/mission-protein-tortilla-wraps-367g/114821317
+114824622,g,microwaved,421,100,1.8,1.1,17.2,1.5,1.6,2.8,0.4,2026-11-18,https://groceries.morrisons.com/products/morrisons-mash-potato/114824622
+114826193,g,as consumed,923,221,12.6,6,1.2,0.5,0.3,25.5,0.33,2026-11-18,https://groceries.morrisons.com/products/morrisons-slow-cooked-lamb-shawarma-with-tzatziki-340g/114826193
 114826281,g,,894,214,11.3,2.9,21.7,1.9,2.1,5.3,0.83,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-spinach-basil-pine-nut-pasta-200g/114826281
+114834919,g,,703,171,17.4,4.2,1.8,0.4,3.1,1.8,0.02,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-avocados-2-pack/114834919
 114837562,g,,1794,432,34.7,20.8,7,0.3,0.6,22.8,1.86,2026-11-17,https://groceries.morrisons.com/products/morrisons-savers-grated-mature-cheddar-cheese-250g/114837562
 114848202,g,,1495,355,5.4,0.5,50,2.6,11,21,0.10,2026-11-17,https://groceries.morrisons.com/products/laila-chickpeas/114848202
 114848288,g,,1383,327,1.9,0.2,49,1.2,8.9,24,0.03,2026-11-17,https://groceries.morrisons.com/products/laila-green-lentils/114848288
@@ -942,6 +1258,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 114860148,g,,507,120,0.4,0.0,27.4,23.6,1.2,1.0,0.39,2026-11-17,https://groceries.morrisons.com/products/old-el-paso-salsa-dip-street-vibes-sweet-jalapeno-335g/114860148
 114862362,g,,1876,448,24,6.5,44,17,8.5,12,0.53,2026-11-17,https://groceries.morrisons.com/products/deliciously-ella-peanut-butter-on-the-go-breakfast-bakes-multipack-3x50g/114862362
 114862961,g,,526,124,<0.5,<0.1,27,0.4,1.8,3.3,0.46,2026-11-17,https://groceries.morrisons.com/products/itsu-heat-eat-udon-noodles-150g/114862961
+114863226,g,grilled,621,147,3.8,0.9,5.2,1.1,0.6,22.8,0.92,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-2-seasoned-chicken-burgers-227g/114863226
 114863533,g,prepared,381,90,<0.5,<0.1,20,<0.5,0.8,1.2,0.13,2026-11-17,https://groceries.morrisons.com/products/itsu-rice-noodles-serves-4-180g/114863533
 114865310,g,,2060,493,25.5,3.6,48.5,3.3,8.0,13.4,0.02,2026-11-17,https://groceries.morrisons.com/products/lizi-s-low-sugar-granola-nuts-seeds-400g/114865310
 114867358,g,,598,142,3.1,1.1,1.5,1,0.7,26.5,1.87,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-finely-sliced-dry-cured-cooked-ham-240g/114867358
@@ -959,6 +1276,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 114933853,g,,282,67,0.5,0.3,2.5,2.5,,13,0.77,2026-11-17,https://groceries.morrisons.com/products/lindahls-protein-cottage-cheese-175g/114933853
 114970953,g,as consumed,345,82,0.4,0.1,13.1,4.5,4.6,4.3,0.51,2026-11-17,https://groceries.morrisons.com/products/morrisons-baked-beans-in-tomato-sauce-4-x-220g/114970953
 114973396,g,,2520,608,48.5,5.5,16,8,5.8,23.9,0.98,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-rosemary-sea-salt-nut-medley/114973396
+114973450,g,,2548,615,50.1,5.4,14.2,6.4,6.5,23.5,0.59,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-sriracha-lime-nut-medley-150g/114973450
 114980211,g,,1259,299,7.0,3.3,46.8,2.2,6.5,8.9,0.73,2026-11-17,https://groceries.morrisons.com/products/geeta-s-onion-paprika-flatbreads-220g/114980211
 114999326,g,fried,591,140,4.1,0.6,1,0.1,1.3,24.2,0.51,2026-11-17,https://groceries.morrisons.com/products/morrisons-3-skin-on-boneless-wild-pink-salmon-fillets-330g/114999326
 115000465,g,fried,640,152,5.3,1.2,1,0.1,0.5,24.9,0.07,2026-11-17,https://groceries.morrisons.com/products/morrisons-3-skinless-boneless-basa-fillets-450g/115000465
@@ -969,55 +1287,94 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115003762,g,,437,105,7.3,5.0,4.3,3.2,,5.5,0.1,2026-11-17,https://groceries.morrisons.com/products/st-helens-farm-natural-goats-yogurt/115003762
 115011586,g,,1189,281,1.0,,62.6,,4.6,3.0,0.04,2026-11-17,https://groceries.morrisons.com/products/sunny-raisins-6x30g/115011586
 115015122,ml,,564,133,0.5,0.1,28.8,22.1,0.5,3,4.63,2026-11-17,https://groceries.morrisons.com/products/morrisons-teriyaki-sauce-150ml/115015122
+115017435,g,,2780,673,61.6,53.9,18.7,14,7.3,7.2,0.1,2026-11-18,https://groceries.morrisons.com/products/morrisons-market-street-coconut-chips-80g/115017435
 115055343,g,,577,138,7.1,1.2,13,1.2,1.9,5.1,0.71,2026-11-17,https://groceries.morrisons.com/products/unearthed-spanish-spinach-tortilla-250g/115055343
 115062121,g,as consumed,695,165,5.3,1.5,0.1,0.1,0.5,29.0,0.18,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-chicken-breast-crown-700g/115062121
 115083854,g,,1837,440,20,3.7,47,9.5,18,9,0.03,2026-11-17,https://groceries.morrisons.com/products/jordans-no-added-sugar-triple-nut-granola-breakfast-cereal-425g/115083854
+115098044,g,,2486,601,48.9,6.1,11.6,6.5,10,23.6,1.34,2026-11-18,https://groceries.morrisons.com/products/morrisons-market-street-salted-pistachios/115098044
 115102525,g,drained,378,90,0.5,0.1,11.7,0.4,5.6,6.9,0.03,2026-11-17,https://groceries.morrisons.com/products/morrisons-black-beans-in-water/115102525
 115102613,g,drained,362,86,0.2,0.1,12.9,0.2,3.6,6.3,0.02,2026-11-17,https://groceries.morrisons.com/products/morrisons-green-lentils-in-water/115102613
+115109541,g,as consumed,1210,290,16.7,2.9,19.9,1.7,1.9,14.1,0.64,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-breaded-chicken-goujons-510g/115109541
+115110592,g,as consumed,1068,254,9.6,1.1,25,1.8,0.5,16.7,0.88,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-southern-fried-chicken-bites-300g/115110592
 115136215,g,,634,151,5.0,0.6,18.0,0.8,6.3,5.5,0.79,2026-11-17,https://groceries.morrisons.com/products/gosh-beetroot-burgers-with-a-hint-of-mint/115136215
 115150789,ml,,1078,254,0.6,0.1,60.9,44.2,0.7,1.7,1.62,2026-11-17,https://groceries.morrisons.com/products/guinness-sweet-smoky-bbq-sauce-200ml/115150789
 115159151,g,,149,36,<0.5,<0.1,5.1,4.5,,1.6,0.50,2026-11-17,https://groceries.morrisons.com/products/mutti-organic-tomato-passata-560g/115159151
 115159185,g,,407,96,0.2,0.1,17,14,,4.2,0.07,2026-11-17,https://groceries.morrisons.com/products/mutti-organic-double-concentrate-tomato-puree-185g/115159185
 115161736,ml,,3381,822,91.4,12.8,0,0,0,0,0,2026-11-17,https://groceries.morrisons.com/products/la-espanola-squeezy-extra-virgin-olive-oil-500ml/115161736
 115161787,ml,,3381,822,91.4,12.8,0,0,0,0,0,2026-11-17,https://groceries.morrisons.com/products/la-espanola-squeezy-olive-oil-500ml/115161787
+115192081,g,,1136,274,22.4,9.1,0.4,0.1,0.6,17.4,0.13,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-beef-and-pork-mince-550g/115192081
+115192111,g,,1136,274,22.4,9.1,0.4,0.1,0.6,17.4,0.13,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-beef-and-pork-mince-1kg/115192111
 115193324,g,,,534,34,4.9,40,6.0,3.2,15,1.3,2026-11-17,https://groceries.morrisons.com/products/that-s-nuts-walkers-max-paprika-sharing-coated-peanuts-160g/115193324
 115208098,g,,2506,604,48,9.0,21,6.1,4.8,21,0.81,2026-11-17,https://groceries.morrisons.com/products/kp-signature-sea-salt-and-rosemary-cashews/115208098
 115209082,g,,2509,605,48,9.1,21,5.9,4.9,21,0.80,2026-11-17,https://groceries.morrisons.com/products/kp-signature-smoked-chilli-and-red-pepper-cashews/115209082
 115210649,g,as consumed,371,88,1.7,0.8,9.1,1.7,1.9,8.2,0.35,2026-11-17,https://groceries.morrisons.com/products/morrisons-calorie-counted-chicken-veg-broccoli-380g/115210649
 115210702,g,as consumed,314,74,1.1,0.2,11.1,3.1,1.8,4.1,0.41,2026-11-17,https://groceries.morrisons.com/products/morrisons-calorie-counted-king-prawn-linguine-380g/115210702
+115214236,g,as consumed,802,192,10,2.6,2.3,2.2,,23,0.38,2026-11-18,https://groceries.morrisons.com/products/morrisons-peri-peri-half-chicken-800g/115214236
 115214551,ml,,285,68,2.8,0.3,7.8,4.5,1,1.1,0.15,2026-11-17,https://groceries.morrisons.com/products/oatly-matcha-latte-oat-drink-1l/115214551
 115240426,ml,,3382,823,91.4,13.1,0,0,0,0,0,2026-11-17,https://groceries.morrisons.com/products/napolina-olive-oil-1l/115240426
 115240485,ml,,3382,823,91.4,13.1,0,0,0,0,0,2026-11-17,https://groceries.morrisons.com/products/napolina-extra-virgin-olive-oil-1l/115240485
 115249922,g,drained,465,111,0.8,0.2,14.8,0.5,7.6,7.3,0.01,2026-11-17,https://groceries.morrisons.com/products/napolina-black-beans-400g/115249922
+115254300,g,oven cooked,601,144,7.7,3.4,3.4,2.6,1.2,14.6,0.44,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-slow-cooked-lamb-casserole-with-a-red-wine-gravy-400g/115254300
 115255011,g,,0,0,0,0,0,0,,0,96.8,2026-11-17,https://groceries.morrisons.com/products/tata-salt-iodized-sea-salt-pillow-pouch/115255011
+115264049,g,,2923,710,76.1,47.3,4.4,0.5,1.4,1.2,1.04,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-the-best-chimichurri-steak-butter-90g/115264049
+115264065,g,,2509,606,49.1,5,16.1,6.7,6.9,21.5,0.55,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-cocktail-nut-medley-270g/115264065
+115264250,g,,2946,716,75.9,47.2,6.8,0.6,0.5,1.1,1.13,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-the-best-black-garlic-herb-steak-butter-90g/115264250
 115264874,g,microwaved,496,118,2.3,0.2,18.2,1.9,1.7,5.2,0.47,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-chilli-king-prawn-linguine-400g/115264874
 115270035,g,,35,8,0.2,,0.3,0.3,0.7,1,,2026-11-17,https://groceries.morrisons.com/products/morrisons-chestnut-mushrooms-340g/115270035
+115270351,g,oven cooked,497,118,3.1,1.2,19.2,3.4,2.3,2.2,0.34,2026-11-18,https://groceries.morrisons.com/products/morrisons-market-street-roast-potatoes-with-salted-butter-450g/115270351
 115271249,ml,,135,32,1.1,1,5.3,3,<0.5,<0.5,0.13,2026-11-17,https://groceries.morrisons.com/products/plenish-coconut-milk-chilled-1l/115271249
 115271530,ml,,167,39,0.7,0.1,7.6,2.6,0.7,0.7,0.1,2026-11-17,https://groceries.morrisons.com/products/plenish-oat-calcium-fibre-drink-chilled-dairy-free-1l/115271530
 115274280,g,,848,202,6.8,1.8,28.7,0.4,2.7,5.1,1.58,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-parmesan-truffle-fries-300g/115274280
+115276875,g,as consumed,729,174,8.2,2.4,0.1,0.1,0.5,24.7,0.29,2026-11-18,https://groceries.morrisons.com/products/morrisons-market-street-extra-tasty-roast-in-the-bag-chicken-2-4kg/115276875
+115279179,g,,1036,245,0.6,<0.1,54.7,42,6.9,1.8,0.03,2026-11-18,https://groceries.morrisons.com/products/pagysa-soft-apricots-500g/115279179
+115279187,g,as consumed,995,237,9.2,1,19.9,2.9,1.9,17.7,0.84,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-bbq-chicken-breast-strips-300g/115279187
+115282731,g,as consumed,900,215,10.8,2.7,6.6,6.1,1,22.3,0.34,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-slow-cooked-hot-honey-chicken-wings-450g/115282731
+115286256,g,,2003,478,21.8,12.5,68.4,68.4,0.5,1.7,0.23,2026-11-18,https://groceries.morrisons.com/products/morrisons-yoghurt-coated-cranberries/115286256
 115286441,g,,1334,315,0.7,0.2,72.9,67.0,2.7,2.8,0.18,2026-11-17,https://groceries.morrisons.com/products/morrisons-sultanas-200g/115286441
+115286467,g,as consumed,872,208,9.8,2.5,10,0.5,1.3,19.4,0.53,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-the-best-2-west-country-cheddar-ham-chicken-kyivs-320g/115286467
+115286598,g,as consumed,952,227,8.9,1.2,18.5,1,1.5,17.4,0.76,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-limited-edition-salt-chilli-chicken-breast-bites-300g/115286598
 115291709,g,microwaved,291,69,1.1,0.4,12.7,10.8,2.5,0.9,0.48,2026-11-17,https://groceries.morrisons.com/products/morrisons-red-cabbage-with-bramley-apple-300g/115291709
 115291717,ml,,186,44,0,0,9.6,9.6,1.2,0.7,0,2026-11-17,https://groceries.morrisons.com/products/innocent-cucumber-lemon-apple-spinach-smoothie-750ml/115291717
 115291936,ml,,209,49,0,0,11,10,1,0.7,0.04,2026-11-17,https://groceries.morrisons.com/products/innocent-cherry-beetroot-apple-spinach-smoothie-750ml/115291936
+115294088,g,,348,83,3.1,1.8,7.3,3.2,4.9,4.1,0.2,2026-11-18,https://groceries.morrisons.com/products/morrisons-market-street-seasonal-vegetable-medley-240g/115294088
 115294475,g,as consumed,571,136,6,1.4,1.6,1.6,1.3,18.4,0.56,2026-11-17,https://groceries.morrisons.com/products/morrisons-tandoori-chicken-with-cucumber-mint-raita-470g/115294475
 115294731,g,as consumed,501,119,4,0.5,11.5,2.7,2.1,8.3,0.51,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-spanish-style-chicken-with-paprika-roasted-potatoes-375g/115294731
 115294740,g,,1366,328,22.8,9.5,21.3,18.0,1.7,8.5,0.25,2026-11-17,https://groceries.morrisons.com/products/haagen-dazs-peanut-butter-crunch-ice-cream/115294740
+115295312,g,oven cooked,780,187,10.2,0.9,20.1,3.8,3,2.1,0.65,2026-11-18,https://groceries.morrisons.com/products/morrisons-4-potato-rosti-300g/115295312
+115297115,g,oven cooked,299,71,3.2,2,5.9,1.5,1,4.2,0.44,2026-11-18,https://groceries.morrisons.com/products/morrisons-broccoli-cheese-bake-400g/115297115
+115297174,g,,1408,332,0.5,0.2,82.0,69.5,4.5,2.2,<0.01,2026-11-18,https://groceries.morrisons.com/products/forest-feast-preda-fair-trade-dried-mango-slices-100g/115297174
 115297318,g,,1184,286,22.4,2.5,8.6,1.6,7.6,8.6,1.06,2026-11-17,https://groceries.morrisons.com/products/morrisons-deli-grazing-pesto-houmous/115297318
 115297641,g,,241,57,<0.5,<0.1,3.6,3.6,,9.5,0.14,2026-11-17,https://groceries.morrisons.com/products/yoplait-skyr-high-protein-natural-yoghurt-0-fat-850g/115297641
 115298370,g,,1155,279,21.7,2.4,7.2,1.8,8.7,9.4,0.86,2026-11-17,https://groceries.morrisons.com/products/morrisons-deli-grazing-houmous/115298370
 115300011,g,,987,240,24.9,3.1,1.4,0.1,2.7,1.2,3.08,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-deli-on-market-street-mixed-olives-with-garlic-herbs-120g/115300011
+115301559,g,oven cooked,366,88,3.3,1.5,11.6,6.6,2.9,1.4,0.1,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-roasting-vegetables-with-wild-garlic-butter-350g/115301559
+115316671,g,oven cooked,776,185,8.6,3.7,11.3,1.7,0.9,15.2,0.67,2026-11-18,https://groceries.morrisons.com/products/morrisons-crispy-chicken-with-korean-bbq-dip-190g/115316671
+115316831,g,,470,111,1.1,0.3,0.7,0.1,0.5,24.3,0.16,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-turkey-breast-steaks-300g/115316831
 115326001,g,as consumed,925,221,8.9,3.1,23,4.1,4.7,10,1,2026-11-17,https://groceries.morrisons.com/products/la-famiglia-rana-spicy-sausage-mozzarella-250g/115326001
 115329383,g,,1909,455,15,1.5,68,0.7,7.1,7.3,1.65,2026-11-17,https://groceries.morrisons.com/products/proper-crunch-sea-salt-crunch-corn/115329383
 115329535,g,,1630,390,32,19,0.2,0.2,,26,1.8,2026-11-17,https://groceries.morrisons.com/products/cornish-cheese-co-british-cornish-cheddar-extra-mature-200g/115329535
 115340283,g,as consumed,695,165,5.3,1.5,0.1,0.1,0.5,29,0.18,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-market-street-chicken-breast-crown-700g/115340283
+115342131,g,as consumed,796,190,7.1,1.4,13.1,1.1,1.5,17.6,1.0,2026-11-18,https://groceries.morrisons.com/products/crisp-up-love-me-tenders-chicken-breast-fillet-pieces-330g/115342131
+115342166,g,as consumed,850,202,7.7,1.5,17.1,<0.5,1.6,15.4,0.87,2026-11-18,https://groceries.morrisons.com/products/crisp-up-kentucky-tenders-chicken-breast-fillet-pieces-330g/115342166
+115342191,g,as consumed,860,205,8.6,1.7,15.5,<0.5,1.5,15.6,0.70,2026-11-18,https://groceries.morrisons.com/products/crisp-up-pop-bites-chicken-breast-fillet-chunks-340g/115342191
 115342254,g,as consumed,438,104,1.6,0.4,0.1,0.1,0.5,22,0.24,2026-11-17,https://groceries.morrisons.com/products/morrisons-market-st-hake-fillets-260g/115342254
 115348162,g,oven cooked,686,164,9.3,6.4,0.4,0.7,,19.7,0.64,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-raw-argentinian-red-prawns-with-chimichurri-butter/115348162
+115354722,g,oven cooked,520,125,9.3,6,4.5,1.7,0.8,5.6,0.46,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-cauliflower-cheese-400g/115354722
+115362917,g,as consumed,676,161,4.7,1.9,1.6,1,1.2,27.4,0.45,2026-11-18,https://groceries.morrisons.com/products/morrisons-carvery-slow-cooked-beef-joint-800g/115362917
+115394396,g,,545,130,6.2,1.2,0.9,0.1,<0.5,17.6,0.7,2026-11-18,https://groceries.morrisons.com/products/shazans-halal-tandoori-chicken-drumsticks-900g/115394396
+115394572,g,,639,153,8.0,3.5,<0.5,<0.5,<0.5,20.2,<0.3,2026-11-18,https://groceries.morrisons.com/products/shazans-mutton-mince-10-fat/115394572
 115394951,g,,489,116,3.2,1.1,<0.5,<0.5,<0.5,21.8,0.3,2026-11-17,https://groceries.morrisons.com/products/shazans-halal-diced-chicken-breast-750g/115394951
 115395081,g,,587,140,6.2,1.0,1.3,0.3,<0.5,19.6,1.2,2026-11-17,https://groceries.morrisons.com/products/shazans-halal-peri-peri-diced-chicken-breast-500g/115395081
+115395313,g,,819,197,13.1,6.9,4.6,0.1,1.9,14.0,1.2,2026-11-18,https://groceries.morrisons.com/products/shazans-firecracker-lamb-sausages/115395313
+115410907,g,,140,33,0.5,0.1,4.4,4,2.8,1.4,0.03,2026-11-18,https://groceries.morrisons.com/products/morrisons-carrot-baby-corn-80g/115410907
 115427531,g,,359,85,0.6,0.1,12.5,4.7,5.9,4.6,0.60,2026-11-17,https://groceries.morrisons.com/products/branston-loadsa-baked-beans-in-a-rich-thick-tomatoey-sauce-540g/115427531
 115432639,g,,279,66,0.3,0.2,6,4.6,,9.8,0.21,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-0-greek-yogurt-1kg/115432639
 115434888,g,,145,34,0.3,,6,4.2,1.3,1.2,0.62,2026-11-17,https://groceries.morrisons.com/products/morrisons-mild-salsa-dip-300g/115434888
+115448913,g,microwaved,421,100,1.8,1.1,17.2,1.5,1.6,2.8,0.40,2026-11-18,https://groceries.morrisons.com/products/morrisons-market-street-creamy-mash-800g/115448913
 115466636,ml,,533,125,<0.5,<0.1,29,20,<0.5,1.2,1.5,2026-11-17,https://groceries.morrisons.com/products/brewdog-punk-ipa-bbq-sauce-240ml/115466636
+115483090,g,oven cooked,924,220,8.9,1.6,15.7,0.8,0.7,19,0.68,2026-11-18,https://groceries.morrisons.com/products/morrisons-chicken-schnitzel-400g/115483090
+115486004,g,oven cooked,1106,264,12.4,2,19.8,0.5,2,17.3,1.17,2026-11-18,https://groceries.morrisons.com/products/morrisons-peri-peri-chicken-tenders-300g/115486004
+115486047,g,oven cooked,957,228,10.8,1.8,13.9,1,0.7,18.6,0.6,2026-11-18,https://groceries.morrisons.com/products/morrisons-popcorn-chicken-bites-275g/115486047
 115489230,g,as consumed,1091,261,14,1.2,22.6,0.5,1.4,10.3,0.67,2026-11-17,https://groceries.morrisons.com/products/morrisons-market-street-battered-king-prawns/115489230
 115520276,g,,365,87,4.1,0.8,4.3,3.1,2.6,6.9,0.6,2026-11-17,https://groceries.morrisons.com/products/authentic-curries-world-foods-beef-curry-red-peppers-leeks/115520276
 115525894,g,,1037,249,7.1,3.2,17.9,0.9,27.5,14.7,1.1,2026-11-17,https://groceries.morrisons.com/products/mission-carb-balance-tortilla-wraps/115525894
@@ -1031,17 +1388,30 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115672931,g,as consumed,754,178,0.3,0.1,32.6,1,2.8,9.9,0.01,2026-11-17,https://groceries.morrisons.com/products/morrisons-applied-nutrition-spaghetti-500g/115672931
 115673045,g,as consumed,754,178,0.3,0.1,32.6,1,2.8,9.9,0.01,2026-11-17,https://groceries.morrisons.com/products/morrisons-applied-nutrition-fusilli-500g/115673045
 115679447,g,,933,224,6.2,1.4,18,6.1,21,15,0.75,2026-11-17,https://groceries.morrisons.com/products/bfree-soft-white-wraps/115679447
+115705300,g,cooked,884,212,13,6.2,<0.5,<0.5,<0.5,23,0.58,2026-11-18,https://groceries.morrisons.com/products/gressingham-spatchcock-poussin-with-salt-four-pepper-seasoning/115705300
 115709280,g,,1179,282,14.3,2.5,49.7,7.2,,13.5,7.2,2026-11-17,https://groceries.morrisons.com/products/indus-chilli-powder/115709280
 115710061,g,,1305,312,3.2,1.8,67.1,3.2,,9.7,0.07,2026-11-17,https://groceries.morrisons.com/products/indus-haldi-turmeric-powder/115710061
 115710096,g,,352,85,5.7,0.9,6.3,1.8,1.5,1.0,2.1,2026-11-17,https://groceries.morrisons.com/products/indus-minced-paste-ginger/115710096
 115734936,g,,362,86,1.7,0.2,14,2.9,1.5,3.4,0.59,2026-11-17,https://groceries.morrisons.com/products/dolmio-classics-arrabiata-rigatoni-250g/115734936
 115734987,g,as consumed,498,119,5.3,0.8,7.7,4.1,0.3,9.9,0.77,2026-11-17,https://groceries.morrisons.com/products/morrisons-chicken-in-ginger-with-spring-onion/115734987
 115738398,ml,,3389,824,92,14,0,0,,0,0,2026-11-17,https://groceries.morrisons.com/products/laila-pomace-olive-oil-blend-5l/115738398
+115755905,g,,171,41,0.4,0.1,8.3,8.2,0.7,0.5,0.01,2026-11-18,https://groceries.morrisons.com/products/del-monte-watermelon-mango-100g/115755905
+115756035,g,,241,57,0.1,0.0,12.4,12.4,2.7,0.3,0.00,2026-11-18,https://groceries.morrisons.com/products/del-monte-pink-lady-apple-100g/115756035
 115759181,g,as consumed,172,41,1.6,0.1,4.6,3.2,1.9,1.2,0.05,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-oriental-style-stir-fry-veg/115759181
+115759201,g,,369,87,1.2,0.2,18,13,0.2,1.1,1.4,2026-11-18,https://groceries.morrisons.com/products/blue-dragon-chow-mein-stir-fry-sauce-150g/115759201
+115759236,g,,526,124,2,0.2,24.2,20.5,0.3,2.2,1.44,2026-11-18,https://groceries.morrisons.com/products/blue-dragon-black-bean-stir-fry-sauce-150g/115759236
 115759261,g,as consumed,174,42,1.4,0.2,4.5,3.5,2.3,1.5,0.04,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-family-pack-stir-fry-vegetables-570g/115759261
+115759308,g,,526,124,1.2,0.1,27.8,20.5,0.4,0.4,0.83,2026-11-18,https://groceries.morrisons.com/products/blue-dragon-sweet-chilli-garlic-stir-fry-sauce-150g/115759308
+115759341,g,as consumed,105,25,1.3,0.1,1.2,1.2,1.4,1.5,0.02,2026-11-18,https://groceries.morrisons.com/products/blue-dragon-beansprouts-stir-fry-veg/115759341
+115759367,g,as consumed,152,36,1.5,0.1,3.6,2.8,1.6,1.4,0.03,2026-11-18,https://groceries.morrisons.com/products/blue-dragon-mixed-pepper-stir-fry-veg/115759367
 115759439,g,,474,112,0.2,0.1,26.3,21.4,0.1,1.2,1.7,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-teriyaki-stir-fry-sauce-150g/115759439
 115759455,g,as consumed,266,64,3,0.4,3.5,2.2,2.7,4.4,0.04,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-edamame-broccoli-stir-fry-veg/115759455
+115759498,g,,447,106,1.2,0.2,22.3,17.3,0.5,1.1,1.6,2026-11-18,https://groceries.morrisons.com/products/blue-dragon-hoisin-stir-fry-sauce-150g/115759498
+115759535,g,,434,102,0.1,0.1,25,21.8,0.1,0.3,0.98,2026-11-18,https://groceries.morrisons.com/products/blue-dragon-sweet-sour-stir-fry-sauce-150g/115759535
+115759586,g,as consumed,159,38,1.8,0.2,2.5,1.5,2.1,2.1,0.02,2026-11-18,https://groceries.morrisons.com/products/blue-dragon-mushroom-stir-fry-veg/115759586
+115760000,g,as consumed,742,176,2.7,0.2,31,0.4,2.5,5.6,0.16,2026-11-18,https://groceries.morrisons.com/products/blue-dragon-egg-noodles-wok-ready/115760000
 115760085,g,,130,31,0.2,0.1,3.8,2.7,2.6,2.2,0.04,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-tenderstem-broccoli-stir-fry-veg/115760085
+115760122,g,,120,29,0.3,0.1,3.6,2.9,2.4,1.7,0.05,2026-11-18,https://groceries.morrisons.com/products/blue-dragon-baby-vegetable-stir-fry-veg/115760122
 115766014,g,as consumed,690,163,2.3,0.7,0.1,0.1,0.5,35.3,0.23,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-british-diced-chicken-breast-for-stir-fry-350g/115766014
 115775316,g,,1306,316,28.5,5.1,13.4,11.2,2.1,0.5,1.06,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-triple-pickle-with-extra-virgin-olive-oil-330g/115775316
 115780861,ml,,619,146,<0.5,0.1,34,32,,1.1,1.1,2026-11-17,https://groceries.morrisons.com/products/encona-jerk-bbq-sauce-220ml/115780861
@@ -1060,6 +1430,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115801342,ml,,3408,829,92.0,10.1,0,0,0,0,0.00,2026-11-17,https://groceries.morrisons.com/products/pura-sunflower-oil/115801342
 115801570,g,,451,107,2.2,0.1,17,2.5,,3.8,4.0,2026-11-17,https://groceries.morrisons.com/products/just-add-garlic-puree/115801570
 115803313,g,,1741,411,5.50,2.80,90.00,72.00,,0.00,0.32,2026-11-17,https://groceries.morrisons.com/products/maynards-bassetts-murray-mints/115803313
+115804076,g,oven cooked,568,135,2.7,0.2,23.7,0.2,2.3,2.8,0.31,2026-11-18,https://groceries.morrisons.com/products/morrisons-carvery-roast-potatoes-650g/115804076
 115808966,ml,,271,65,2.8,0.3,8.3,5.0,1.0,1.1,0.16,2026-11-17,https://groceries.morrisons.com/products/oatly-oat-drink-matcha-latte-strawberry-flavour-1l/115808966
 115813503,g,,3195,777,85.8,,1.25,,,0.6,1.6,2026-11-17,https://groceries.morrisons.com/products/graham-s-isle-of-skye-sea-salt-butter-250g/115813503
 115816405,g,,2120,507,24,2.4,61,2.2,7.6,7.9,0.63,2026-11-17,https://groceries.morrisons.com/products/eat-real-tortilla-smoky-salsa-160g/115816405
@@ -1068,8 +1439,14 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115823091,g,,1264,299,5.2,1.2,53.2,2.1,1.6,9.1,1.00,2026-11-17,https://groceries.morrisons.com/products/old-el-paso-6-large-super-soft-flour-tortilla-wraps/115823091
 115823146,g,,149,35,0.5,0.0,5.5,4.2,1.8,1.3,1.13,2026-11-17,https://groceries.morrisons.com/products/old-el-paso-thick-n-chunky-hot-salsa-226g/115823146
 115823349,ml,,6,1,0,0,0,0,,0,0.04,2026-11-17,https://groceries.morrisons.com/products/sprite-chill-mint-zero-sugar-500ml/115823349
+115823891,g,grilled,919,220,11.5,4.8,2.6,0.3,0.8,26.1,0.7,2026-11-18,https://groceries.morrisons.com/products/the-best-signature-collection-2-british-salt-dry-age-steak-burgers-340g/115823891
 115829708,g,microwaved,521,124,3.1,0.3,16.5,2.5,1.1,6.9,0.28,2026-11-17,https://groceries.morrisons.com/products/morrisons-italian-chicken-tomato-tagliatelle-400g/115829708
+115831576,g,,75,18,0.2,,1.1,0.4,1.4,2.2,0.14,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-butterhead-peashoots-chard-red-vein-sorrel-80g/115831576
 115831779,g,,69,17,0.2,0.1,1.2,1.2,1.9,1.6,0.02,2026-11-17,https://groceries.morrisons.com/products/morrisons-crispy-salad-120g/115831779
+115832421,g,,98,23,0.2,,3.2,3,2.3,1,0.03,2026-11-18,https://groceries.morrisons.com/products/morrisons-sweet-and-crunchy-salad-250g/115832421
+115832579,g,,592,143,11,1.8,6.7,0.7,1,3.8,0.48,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-caesar-salad-kit-255g/115832579
+115832835,g,,612,148,12,2.5,7.3,4.3,1.6,2,0.39,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-buffalo-salad-kit-220g/115832835
+115833352,g,,67,16,0.3,,1.9,1.9,1.4,0.7,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-chopped-iceberg-salad-240g/115833352
 115844220,g,,1635,396,38,5.6,7.5,3.6,2.0,5.0,2.7,2026-11-17,https://groceries.morrisons.com/products/sacla-pesto-pots-basil-2-pack/115844220
 115844300,g,,110,26,0.4,0.1,1,0.4,1.8,3.8,0.17,2026-11-17,https://groceries.morrisons.com/products/morrisons-rocket-baby-leaf-salad-70g/115844300
 115844369,g,,70,17,0.2,,1,0.2,1.5,2,0.12,2026-11-17,https://groceries.morrisons.com/products/morrisons-baby-leaf-salad-90g/115844369
@@ -1080,20 +1457,29 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115849469,ml,,200,47,1.2,0.2,8.2,3.5,<0.5,0.8,0.11,2026-11-17,https://groceries.morrisons.com/products/moma-immunity-support-oat-drink-750ml/115849469
 115849602,g,,303,72,1.8,0.5,9.2,4.8,4.2,2.7,0.03,2026-11-17,https://groceries.morrisons.com/products/morrisons-savers-sweetcorn-500g/115849602
 115849987,g,,385,92,4.2,2.8,1.5,1.5,,12,0.8,2026-11-17,https://groceries.morrisons.com/products/meadow-churn-lactose-free-cottage-cheese-180g/115849987
+115850574,g,as consumed,1210,289,15.8,2.8,14.2,2.4,0.5,22.3,0.83,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-breaded-bbq-chicken-wings-650g/115850574
+115851497,g,microwaved,341,82,3.8,2.1,5.3,2.4,4.7,4.3,0.14,2026-11-18,https://groceries.morrisons.com/products/morrisons-green-vegetable-medley-250g/115851497
 115851614,g,,149,35,0.1,,6.4,5.4,2.2,1.1,0.01,2026-11-17,https://groceries.morrisons.com/products/morrisons-sliced-red-onions-200g/115851614
 115853759,g,,847,203,7.6,0.6,21.5,2.8,8.4,7.8,1.01,2026-11-17,https://groceries.morrisons.com/products/gosh-black-bean-red-pepper-burger-with-chipotle-and-lime-220g/115853759
 115853847,g,,707,169,7.3,0.75,22.6,3.2,4.5,5.1,1.3,2026-11-17,https://groceries.morrisons.com/products/gosh-cannellini-bean-mozzarella-croquettes-220g/115853847
 115856992,g,,1128,267,5.8,1.9,43,4.9,2.8,9.4,1.6,2026-11-17,https://groceries.morrisons.com/products/scoiattolo-perline-parmigiano-reggiano-250g/115856992
+115858912,g,,215,51,0.9,,8.6,8.3,2.7,0.8,,2026-11-18,https://groceries.morrisons.com/products/morrisons-kiwi-chunks-100g/115858912
+115859069,g,,100,24,0.1,,4.2,4.2,1.8,0.6,0.02,2026-11-18,https://groceries.morrisons.com/products/morrisons-cantaloupe-melon-chunks-145g/115859069
 115859317,g,fried,446,108,11,0.8,0.4,0.4,1,1.4,0.02,2026-11-17,https://groceries.morrisons.com/products/morrisons-sliced-mushrooms-750g/115859317
 115859421,g,boiled,334,80,1.9,0.3,9.5,2.5,5.1,3.6,,2026-11-17,https://groceries.morrisons.com/products/morrisons-supersweet-sweetcorn-800g/115859421
+115865258,g,,183,43,0.4,0.1,9,7.4,0.5,0.8,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-kiwi-strawberries-melon-220g/115865258
 115865266,g,,837,199,7.1,3.5,21.4,4.5,1.9,11.4,0.96,2026-11-17,https://groceries.morrisons.com/products/tuk-in-foods-butter-chicken-curry-in-a-naan/115865266
 115874867,ml,,39,9,0.9,0.3,0.9,0.3,,0.1,0.1,2026-11-17,https://groceries.morrisons.com/products/kallo-organic-very-low-salt-vegetable-stock-cubes-48g/115874867
+115878833,g,,241,57,0.1,,12.4,12.4,2.7,0.3,,2026-11-18,https://groceries.morrisons.com/products/morrisons-pink-lady-apple-slices-310g/115878833
 115882939,g,,,408,17,1.7,44,3.7,26,7.3,0.12,2026-11-17,https://groceries.morrisons.com/products/quaker-no-added-sugar-granola-400g/115882939
 115883085,g,,,405,16,1.7,34,5.3,22,22,0.21,2026-11-17,https://groceries.morrisons.com/products/quaker-protein-granola-mango-passionfruit-400g/115883085
 115883675,g,,357,84,< 0.5,< 0.1,15,14,,3.8,0.80,2026-11-17,https://groceries.morrisons.com/products/mutti-basil-flavoured-puree/115883675
 115883763,g,,342,81,< 0.5,< 0.1,14,13,,3.9,0.70,2026-11-17,https://groceries.morrisons.com/products/mutti-garlic-flavoured-puree/115883763
+115888732,g,as consumed,2592,625,50.2,5.5,5.1,4.5,7.4,34.6,0.02,2026-11-18,https://groceries.morrisons.com/products/whitworths-monkey-nuts-280g/115888732
 115888871,g,,230,54,0.0,0.0,4.0,4.0,,9.5,0.1,2026-11-17,https://groceries.morrisons.com/products/siggi-s-skyr-natural-0-fat-yoghurt-450g/115888871
+115889022,g,,2915,708,70.1,5.7,5.8,4.3,8.3,9.2,0.01,2026-11-18,https://groceries.morrisons.com/products/whitworths-pecan-halves-75g/115889022
 115889268,g,,399,95,5.0,3.3,3.9,3.9,,8.8,0.1,2026-11-17,https://groceries.morrisons.com/products/siggi-s-skyr-natural-5-fat-450g/115889268
+115889524,g,,1448,342,1.9,1.1,77.0,64.9,5.4,1.5,0.22,2026-11-18,https://groceries.morrisons.com/products/whitworths-fusions-melon-papaya-80g/115889524
 115890040,g,,1914,459,21,2.3,53,16,7.3,14,0.19,2026-11-17,https://groceries.morrisons.com/products/spoon-peanut-butter-granola-400g/115890040
 115904131,g,,450,105,5,,6.9,6.6,,9,0.6,2026-11-17,https://groceries.morrisons.com/products/all-things-cottage-cheese-mango/115904131
 115904165,g,,431,103,6.0,5.1,3.6,3.6,,10.0,0.7,2026-11-17,https://groceries.morrisons.com/products/all-things-cottage-cheese-natural/115904165
@@ -1105,6 +1491,8 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115943981,g,,708,167,1.9,0.1,35.9,23,1,1.1,0.98,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-smokehouse-bbq-sauce-290g/115943981
 115947421,g,,563,134,5.5,0.7,7,4.9,0.3,14,1.0,2026-11-17,https://groceries.morrisons.com/products/john-west-stir-serve-tuna-in-soy-ginger-honey-sauce-300g/115947421
 115959537,g,,384,91,0.4,0.07,19,8.0,,3.7,3.05,2026-11-17,https://groceries.morrisons.com/products/very-lazy-squeezy-roasted-garlic-paste/115959537
+115963721,g,,1112,268,18.5,8.7,10.5,0.4,,14.5,1.2,2026-11-18,https://groceries.morrisons.com/products/we-hae-meat-premium-steak-slice/115963721
+115965241,g,as consumed,773,184,8.8,2.6,2.9,2.9,,23.4,0.5,2026-11-18,https://groceries.morrisons.com/products/morrisons-teriyaki-thigh-fillets-400g/115965241
 115966286,g,drained,787,188,10.0,1.9,0,0,0,23,0.85,2026-11-17,https://groceries.morrisons.com/products/john-west-atlantic-salmon-skinless-boneless-olive-oil-115g/115966286
 115968927,g,,761,180,4.4,1.4,28.5,5.7,0.7,6.2,1.57,2026-11-17,https://groceries.morrisons.com/products/morrisons-salmon-edamame-sushi-selection/115968927
 115969524,g,,734,174,2.6,0.5,31.8,9.1,1.1,5.3,1.87,2026-11-17,https://groceries.morrisons.com/products/morrisons-teriyaki-chicken-red-pepper-sushi-snack/115969524
@@ -1114,6 +1502,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 115973611,g,,1113,266,26,2.6,6.1,2.3,<0.5,<0.5,1.7,2026-11-17,https://groceries.morrisons.com/products/hellmann-s-real-mayonnaise-light-800g/115973611
 115976855,ml,,156,37,0.2,,8.6,8.6,0.1,0.2,0.01,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-strawberry-lemonade-with-mint-1l/115976855
 115981435,g,,1630,391,23.8,11.4,38.7,24.2,1.3,4.6,0.32,2026-11-17,https://groceries.morrisons.com/products/english-cheesecake-company-mint-choc-chip-cheesecake-bites-6-pack-210g/115981435
+115990121,g,oven cooked,570,135,1.2,0.3,0.4,0.4,0.7,30.1,0.32,2026-11-18,https://groceries.morrisons.com/products/morrisons-space-to-roam-extra-tasty-chicken-mini-fillets-305g/115990121
 115990657,g,,1617,390,31.4,19.42,2.3,1.3,0.8,24.1,0.12,2026-11-17,https://groceries.morrisons.com/products/riyas-paneer-450g/115990657
 115990745,g,,716,169,<0.5,<0.1,41,41,1.9,<0.5,<0.01,2026-11-17,https://groceries.morrisons.com/products/ocean-spray-smoked-chilli-cranberry-sauce-200g/115990745
 116007511,g,,2307,552,32,16,59,54,,6.7,0.46,2026-11-17,https://groceries.morrisons.com/products/reese-s-peanut-butter-filled-santas-55g/116007511
@@ -1138,6 +1527,9 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 116061585,g,,2541,613,49.3,6.5,9.1,6.4,8.8,26.9,0.9,2026-11-17,https://groceries.morrisons.com/products/manilife-deep-roast-smooth-peanut-butter-275g/116061585
 116063492,g,,2158,516,27.00,16.00,62.00,57.00,1.90,6.50,0.28,2026-11-17,https://groceries.morrisons.com/products/cadbury-dairy-milk-winter-mint-crisp-bar-350g/116063492
 116066247,g,grilled,852,203,8.2,3,0.3,0.3,,31.9,2.78,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-wiltshire-cured-unsmoked-gammon-steaks-400g/116066247
+116068103,g,,2035,486,24,6.9,56.9,50.7,2.2,9.5,0.11,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-limited-edition-cherry-bakewell-fruit-nut-150g/116068103
+116068138,g,,2131,509,26.3,64.5,61.8,55.1,2.8,5,0.18,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-double-chocolate-freeze-dried-strawberries-150g/116068138
+116068197,g,,2275,546,35.2,16.8,47,39.8,3.9,8.5,0.14,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-chocolate-almonds-with-candied-orange-150g/116068197
 116070799,g,,67,16,0.3,,1.9,1.9,1.4,0.7,0.01,2026-11-17,https://groceries.morrisons.com/products/morrisons-shredded-iceberg-lettuce-130g/116070799
 116071513,g,,1042,248,21,3.5,12,6.5,0.9,2.8,3.0,2026-11-17,https://groceries.morrisons.com/products/veeba-coriander-mint-veginnaise-eggless-300g/116071513
 116087478,g,,547,131,9.0,2.5,0.0,0.0,0.0,12.6,0.39,2026-11-17,https://groceries.morrisons.com/products/clarence-court-burford-buff-large-free-range-eggs-6-pack/116087478
@@ -1148,20 +1540,42 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 116119257,g,,1055,250,2.8,0.35,46,1.0,2.5,8.6,1.31,2026-11-17,https://groceries.morrisons.com/products/geetas-plain-naan-bread-260g/116119257
 116130173,g,,1725,416,34.9,21.7,0.1,0.1,,25.4,1.81,2026-11-17,https://groceries.morrisons.com/products/morrisons-deli-mature-cheddar-star-truckle-180g/116130173
 116148437,g,,1813,431,11.7,1.4,48.9,13.6,7.5,28.8,0.04,2026-11-17,https://groceries.morrisons.com/products/morrisons-applied-nutrition-high-protein-granola-berries-405g/116148437
+116148955,g,oven cooked,584,139,5.6,2,0.9,0.9,1.9,20.4,0.59,2026-11-18,https://groceries.morrisons.com/products/morrisons-ready-to-cook-chicken-roast-dinner-400g/116148955
 116150844,g,,790,189,8.9,1.6,3.9,1.4,0.6,22.9,2.82,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-limited-edition-asian-style-smoked-salmon-100g/116150844
 116153244,g,,578,138,4.8,0.7,20.8,15.7,2.2,1.7,1.11,2026-11-17,https://groceries.morrisons.com/products/blue-dragon-korean-style-bbq-sauce-150g/116153244
 116155418,g,,472,112,2.5,1,0.6,0.6,<0.5,22,1.8,2026-11-17,https://groceries.morrisons.com/products/aubel-continental-oven-cooked-ham-150g/116155418
+116157923,g,,1547,375,22,2.3,6.9,1.6,41,17,0.08,2026-11-18,https://groceries.morrisons.com/products/linwoods-fibre-boost-200g/116157923
+116158344,g,,2015,483,27,2.9,2.7,0.9,9.0,52,0.75,2026-11-18,https://groceries.morrisons.com/products/linwoods-protein-boost-200g/116158344
 116161640,g,as consumed,325,78,2.9,1.6,7.3,3.2,3.9,3.8,0.54,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-brussels-sprouts-bacon-west-country-butter-400g/116161640
 116161703,g,as consumed,445,105,1,0.2,21.2,18.3,3.2,1.4,0.75,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-braised-red-cabbage-400g/116161703
+116163928,g,,211,50,0.1,,11.1,11.1,1.2,0.5,,2026-11-18,https://groceries.morrisons.com/products/morrisons-disney-snack-pineapple-lolly-80g/116163928
 116164349,g,,1218,293,20.2,12.5,2.9,1,,24.9,1.45,2026-11-17,https://groceries.morrisons.com/products/morrisons-10-mozzarella-slices-250g/116164349
 116164875,g,,1697,409,33.3,21.2,3.5,0.2,,23.8,1.54,2026-11-17,https://groceries.morrisons.com/products/morrisons-grated-mature-white-cheddar-250g/116164875
 116181317,g,,1320,317,20.2,12.5,23.1,2.4,1.1,10.1,0.47,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-2-hot-smoked-salmon-spinach-tarts-120g/116181317
+116181341,g,fried,1212,290,17,3.6,17.3,0.1,1.2,16.4,0.82,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-limited-edition-lemon-pepper-chicken-wings-480g/116181341
 116181595,g,,894,215,15.5,6.4,0.2,0.1,0.5,18.5,0.16,2026-11-17,https://groceries.morrisons.com/products/morrisons-scottish-15-beef-mince-750g/116181595
 116181721,g,,894,215,15.5,6.4,0.2,0.1,0.5,18.5,0.16,2026-11-17,https://groceries.morrisons.com/products/morrisons-scottish-15-beef-mince-300g/116181721
 116181755,g,,894,215,15.5,6.4,0.2,0.1,0.5,18.5,0.16,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-15-beef-mince-300g/116181755
+116181801,g,as consumed,1378,332,27.7,11.6,2.3,0.3,0.7,18.1,0.68,2026-11-18,https://groceries.morrisons.com/products/morrisons-scottish-beef-meatballs-672g/116181801
+116182951,g,as consumed,1378,332,27.7,11.6,2.3,0.3,0.7,18.1,0.68,2026-11-18,https://groceries.morrisons.com/products/morrisons-british-beef-meatballs-672g/116182951
 116184690,g,,1458,353,35.6,2.5,6.6,4.8,0.6,1.3,1.56,2026-11-17,https://groceries.morrisons.com/products/heera-yoghurt-mint-raita-1l/116184690
 116189634,g,,35,8,0.2,,0.3,0.3,0.7,1,,2026-11-17,https://groceries.morrisons.com/products/morrisons-family-pack-chestnut-mushrooms-570g/116189634
 116189773,g,,2119,507,24,2.4,61,1.6,7.5,7.9,0.67,2026-11-17,https://groceries.morrisons.com/products/eat-real-multiseed-tortilla-chilli-lime-sea-salt-chips-5-x-160g/116189773
+116207046,g,as consumed,1216,293,21.6,9.2,2.1,0.5,1.4,21.8,1.08,2026-11-18,https://groceries.morrisons.com/products/morrisons-seasoned-lamb-meatballs-336g/116207046
+116207222,g,oven cooked,964,230,9.9,1.7,19.2,1.6,0.6,15.6,1.19,2026-11-18,https://groceries.morrisons.com/products/morrisons-limited-edition-salt-vinegar-chippy-tea-chicken-bites-300g/116207222
+116207257,g,oven cooked,1124,268,11,2,23.1,1.9,1.7,18.2,1.24,2026-11-18,https://groceries.morrisons.com/products/morrisons-limited-edition-masala-style-chicken-tenders-300g/116207257
+116208225,g,fried,961,230,13.3,5.6,1.3,1.3,0.5,26,0.56,2026-11-18,https://groceries.morrisons.com/products/morrisons-garlic-herb-lamb-leg-steaks-315g/116208225
+116208751,g,cooked,409,97,3.4,1.3,2.6,0.9,0.7,13.7,0.62,2026-11-18,https://groceries.morrisons.com/products/morrisons-slow-cooked-beef-and-red-wine-casserole-450g/116208751
+116208794,g,as consumed,605,145,7,2,3.7,3,1.1,16.1,0.72,2026-11-18,https://groceries.morrisons.com/products/morrisons-signature-slow-cooked-beef-cheek-ragu-660g/116208794
+116208823,g,as consumed,812,193,5.4,2.0,5.7,5.4,1.3,29.6,0.42,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-slow-cooked-smoked-brisket-with-hot-maple-glaze-406g/116208823
+116208962,g,prepared,217,52,3.4,0.3,3.9,3.4,1.3,0.8,0.18,2026-11-18,https://groceries.morrisons.com/products/morrisons-house-salad-with-dressing-150g/116208962
+116208997,g,prepared,381,91,5,1.8,5.3,2.9,1.4,5.5,0.46,2026-11-18,https://groceries.morrisons.com/products/morrisons-cheese-ham-and-potato-salad-240g/116208997
+116209025,g,,570,137,6.7,0.9,8.9,1,5,7.7,0.58,2026-11-18,https://groceries.morrisons.com/products/morrisons-italian-pesto-bean-booster-240g/116209025
+116209084,g,,502,119,2.8,0.4,15.8,3.3,4.2,5.7,0.36,2026-11-18,https://groceries.morrisons.com/products/morrisons-tuscan-tomato-bean-booster-270g/116209084
+116209148,g,,133,32,0.4,0.1,4.3,3.4,2.1,1.5,0.1,2026-11-18,https://groceries.morrisons.com/products/morrisons-rainbow-side-salad-bowl-150g/116209148
+116211643,g,as consumed,791,187,2.4,0.4,22.9,0.1,1.5,17.6,1.4,2026-11-18,https://groceries.morrisons.com/products/crisp-up-golden-crispy-chunks-330g/116211643
+116222131,g,as consumed,535,128,6.2,2.6,2.5,2.3,1.2,15,0.73,2026-11-18,https://groceries.morrisons.com/products/morrisons-slow-cooked-chicken-tikka-masala-400g/116222131
+116222166,g,cooked,472,113,4.4,1.1,3.9,3,2.3,13.2,0.73,2026-11-18,https://groceries.morrisons.com/products/morrisons-slow-cooked-chinese-chicken-curry-400g/116222166
 116222182,g,cooked,455,109,5.3,2.7,8.7,1,1.5,5.8,0.86,2026-11-17,https://groceries.morrisons.com/products/morrisons-slow-cooked-beef-mince-hot-pot-400g/116222182
 116227426,g,,474,112,2.6,0.8,0.3,0.3,0.3,21.8,0.21,2026-11-17,https://groceries.morrisons.com/products/morrisons-turkey-mince-4-500g/116227426
 116238125,g,,1391,334,21.5,13.4,18.3,15.8,3,14.6,1.17,2026-11-17,https://groceries.morrisons.com/products/morrisons-cranberry-blueberry-stilton-amaretto-cherry-sauce-240g/116238125
@@ -1172,13 +1586,19 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 116245131,g,,668,160,6.7,0.6,2.8,0.3,6.0,19,1.00,2026-11-17,https://groceries.morrisons.com/products/this-extra-firm-mushroom-tofu-200g/116245131
 116246176,g,as consumed,379,89,0.2,0.1,21.5,16.3,,1.0,0.96,2026-11-17,https://groceries.morrisons.com/products/wasabi-sweet-chilli-sauce-300g/116246176
 116246723,g,,563,133,2.2,0.6,0.2,0.2,0.1,28.1,0.44,2026-11-17,https://groceries.morrisons.com/products/morrisons-family-pack-4-chicken-breast-fillets-470g/116246723
+116247056,g,,859,206,11.6,2.7,3.4,2.4,0.3,21.8,0.57,2026-11-18,https://groceries.morrisons.com/products/morrisons-chinese-style-chicken-wings-310g/116247056
 116248260,g,as consumed,1141,274,19.9,13.1,5.9,4.3,0.7,17.5,1.44,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-camembert-with-caramelised-onion-garlic-thyme-285g/116248260
+116248788,g,fried,888,212,9,2.1,15.3,5.9,1,16.8,0.66,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-breaded-chicken-burgers-with-bbq-sauce-2-x-172g/116248788
 116250597,g,,1546,366,1.9,0.3,72.3,21.3,10.6,9.5,0.67,2026-11-17,https://groceries.morrisons.com/products/nestle-shreddies-peanut-butter-580g/116250597
 116250829,g,drained,546,130,5.1,1.1,0.0,0.0,0.0,21.0,0.90,2026-11-17,https://groceries.morrisons.com/products/princes-skinless-boneless-wild-pacific-red-salmon-170g/116250829
 116251194,ml,,256,61,2.9,0.3,7.7,4.4,<0.5,0.9,0.15,2026-11-17,https://groceries.morrisons.com/products/moma-toffee-nut-cinnamon-flavour-oat-drink-1l/116251194
 116251338,ml,,260,62,2.9,0.3,7.2,3.2,2.4,0.9,0.12,2026-11-17,https://groceries.morrisons.com/products/moma-gut-support-oat-drink-1l/116251338
 116253421,g,,163,39,0.3,0.1,5,4.2,3,2.5,0.03,2026-11-17,https://groceries.morrisons.com/products/morrisons-tenderstem-broccoli-carrot-and-sugarsnaps-160g/116253421
+116253499,g,,156,37,0.4,0.1,6.2,6,3.2,0.6,0.05,2026-11-18,https://groceries.morrisons.com/products/morrisons-diced-swede-and-carrot-600g/116253499
 116253675,g,,148,35,0.2,0.1,2.7,2.0,3.7,3.8,0.02,2026-11-17,https://groceries.morrisons.com/products/morrisons-tenderstem-broccoli-160g/116253675
+116253704,g,microwaved,245,59,2.3,1.2,5.3,3.4,4.2,2,0.12,2026-11-18,https://groceries.morrisons.com/products/morrisons-carrot-sweetcorn-and-peas-385g/116253704
+116253739,g,,179,43,0.4,0.1,7.4,7,3.9,0.4,0.07,2026-11-18,https://groceries.morrisons.com/products/morrisons-carrot-batons-400g/116253739
+116253798,g,,134,32,0.3,0.1,2.8,2.1,3.3,2.9,0.01,2026-11-18,https://groceries.morrisons.com/products/morrisons-tenderstem-broccoli-babycorn-fine-green-beans-160g/116253798
 116253827,g,,131,31,0.5,0.1,3.1,2.3,3.4,1.9,0.01,2026-11-17,https://groceries.morrisons.com/products/morrisons-fine-green-beans-160g/116253827
 116256606,g,,486,115,3.6,1.3,2.9,2.6,0.5,17.6,1.41,2026-11-17,https://groceries.morrisons.com/products/morrisons-honey-cured-ham-slices-125g/116256606
 116256665,g,,400,95,2.1,0.7,2,2,0.5,16.7,1.88,2026-11-17,https://groceries.morrisons.com/products/morrisons-cooked-ham-slices-400g/116256665
@@ -1186,14 +1606,24 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 116256841,g,,428,102,2.6,0.9,2.2,2.2,0.5,17.1,1.47,2026-11-17,https://groceries.morrisons.com/products/morrisons-cooked-ham-slices-125g/116256841
 116256964,g,,519,123,2,0.7,2,2,0.7,23.9,1.54,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-honey-roast-ham-240g/116256964
 116256981,g,,429,101,1.8,0.6,0.8,0.3,0.6,20.3,1.65,2026-11-17,https://groceries.morrisons.com/products/morrisons-british-cooked-ham-240g/116256981
+116257570,g,as consumed,908,216,8,2.9,6.2,5.7,1.1,29.3,0.50,2026-11-18,https://groceries.morrisons.com/products/morrisons-slow-cooked-hickory-smoked-beef-brisket-with-maple-glaze-1-12kg/116257570
+116257625,g,as consumed,1040,250,16,7.4,1.2,1.1,0.9,24.8,0.45,2026-11-18,https://groceries.morrisons.com/products/morrisons-slow-cooked-lamb-shoulder-joint-with-minted-gravy-920g/116257625
 116258151,g,,510,121,3.3,1,0.2,0,0,22.6,1.0,2026-11-17,https://groceries.morrisons.com/products/glenryck-pink-salmon-212g/116258151
 116262555,g,,727,174,9.3,5.1,14,1.2,2.9,7,0.9,2026-11-17,https://groceries.morrisons.com/products/la-famiglia-rana-mushroom-meatball-boscaiola-tagliatelle-407g/116262555
 116262678,g,,727,174,9.3,5.1,14,1.2,2.9,7,0.9,2026-11-17,https://groceries.morrisons.com/products/la-famiglia-rana-mushroom-meatball-boscaiola-tagliatelle-814g/116262678
+116265861,g,fried,396,94,1.6,0.2,17.3,16.9,3.8,0.7,0.31,2026-11-18,https://groceries.morrisons.com/products/morrisons-honey-roasted-carrot-wedges-230g/116265861
+116265895,g,fried,403,97,6.7,0.6,4.7,3.7,2.7,3.2,0.47,2026-11-18,https://groceries.morrisons.com/products/morrisons-bang-bang-cauliflower-230g/116265895
+116265916,g,fried,451,107,2.1,0.4,18.3,13.6,3.5,2.0,0.31,2026-11-18,https://groceries.morrisons.com/products/morrisons-tikka-sweet-potato-230g/116265916
 116266071,g,fried,289,70,3.4,0.3,3.2,2.8,4.8,4.1,0.72,2026-11-17,https://groceries.morrisons.com/products/morrisons-salt-pepper-broccoli-230g/116266071
 116269394,g,,837,201,12.7,5.6,0,0,0,21.6,0.16,2026-11-17,https://groceries.morrisons.com/products/the-grill-block-beef-sirloin-steak-227g/116269394
 116269407,g,,726,174,10.1,4.3,0,0,0,20.7,0.14,2026-11-17,https://groceries.morrisons.com/products/the-grill-block-beef-rump-steak-255g/116269407
 116273254,g,,731,174,8,2,1.4,0.2,,24.2,2.79,2026-11-17,https://groceries.morrisons.com/products/morrisons-the-best-pink-pepper-orange-scottish-smoked-salmon-100g/116273254
 116277802,g,oven cooked,,295,22.3,7.8,3.8,0.5,1.4,19,1.4,2026-11-17,https://groceries.morrisons.com/products/the-jolly-hog-little-porkers-12-british-chipolatas/116277802
+116277992,g,oven cooked,332,79,3.2,1,9.8,9,3.6,1.1,0.17,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-maple-carrot-and-parsnip-wedges-375g/116277992
+116294143,g,,894,215,15.5,6.4,0.2,0.1,0.5,18.5,0.16,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-15-steak-mince-500g/116294143
+116296384,g,,1647,398,34.7,14.6,1.7,1,0.5,19.5,0.89,2026-11-18,https://groceries.morrisons.com/products/morrisons-signature-heritage-breed-bone-in-rib-of-beef-2kg-serves-8-10/116296384
+116296448,g,as consumed,872,209,12,5.5,0.3,0.3,0.7,24.5,0.43,2026-11-18,https://groceries.morrisons.com/products/morrisons-peppered-beef-topside-joint-with-a-beef-basting-butter-700g/116296448
+116296843,g,,863,207,13.1,5.3,0.7,0.7,0.5,21.4,0.4,2026-11-18,https://groceries.morrisons.com/products/morrisons-the-best-boneless-lamb-leg-with-red-wine-gravy-700g/116296843
 116361406,g,drained,593,141,5.7,1.1,0.0,0.0,0.0,22.5,0.91,2026-11-17,https://groceries.morrisons.com/products/princes-red-salmon-skinless-boneless-105g/116361406
 300001656,g,,722,172,8.4,0.7,21.6,14.2,1.6,1.8,1.52,2026-11-17,https://groceries.morrisons.com/products/morrisons-horseradish-sauce-180g/300001656
 300001666,g,,762,179,0.1,0.1,44.0,42,,0.4,1.3,2026-11-17,https://groceries.morrisons.com/products/heinz-sweet-chilli-sauce-400ml/300001666

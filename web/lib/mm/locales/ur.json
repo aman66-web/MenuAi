@@ -1863,8 +1863,9 @@
  "We haven't read a price at {shop} yet.": "ہم نے ابھی {shop} میں قیمت نہیں پڑھی۔",
  "We haven't read allergens for these products, so your allergy settings can't hide any here. Always check the pack.": "ہم نے ابھی ان پروڈکٹس کے الرجن نہیں پڑھے، اس لیے آپ کی الرجی کی سیٹنگز یہاں کچھ نہیں چھپا سکتیں۔ ہمیشہ پیک ضرور دیکھیں۔",
  "We haven't read enough of {shop} product pages to fill these recipes yet.": "ہم نے ابھی {shop} کے اتنے پروڈکٹ صفحات نہیں پڑھے کہ یہ ترکیبیں مکمل ہو سکیں۔",
- "We haven't read the label for {name} yet, so it isn't counted in these numbers.": "ہم نے ابھی {name} کا لیبل نہیں پڑھا، اس لیے یہ ان اعداد میں شامل نہیں۔",
- "We haven't read the labels for {names} yet, so they aren't counted in these numbers.": "ہم نے ابھی {names} کے لیبل نہیں پڑھے، اس لیے یہ ان اعداد میں شامل نہیں۔",
+ "Herbs, spices and salt don't have to carry a nutrition label, and we have none for {name}, so it isn't counted in these numbers.": "جڑی بوٹیوں، مسالوں اور نمک پر غذائی لیبل ہونا ضروری نہیں، اور ہمارے پاس {name} کا کوئی لیبل نہیں، اس لیے یہ ان اعداد میں شامل نہیں۔",
+ "Herbs, spices and salt don't have to carry a nutrition label, and we have none for {names}, so they aren't counted in these numbers.": "جڑی بوٹیوں، مسالوں اور نمک پر غذائی لیبل ہونا ضروری نہیں، اور ہمارے پاس {names} کے لیبل نہیں، اس لیے یہ ان اعداد میں شامل نہیں۔",
+ "Salt doesn't have to carry a nutrition label. Where the shop gives none, we count it as UK table salt labels print it: no calories, protein, carbs or fat, and 99.9 g of salt in every 100 g.": "نمک پر غذائی لیبل ہونا ضروری نہیں۔ جہاں دکان کوئی لیبل نہ دے، ہم اسے ویسے ہی گنتے ہیں جیسے برطانیہ میں ٹیبل نمک کے لیبل پر لکھا ہوتا ہے: کوئی کیلوری، پروٹین، کاربوہائیڈریٹ یا چکنائی نہیں، اور ہر 100 گرام میں 99.9 گرام نمک۔",
  "We haven't read the nutrition for this product yet. The label on the pack has it, and so does the product's page on {shopPossessive} website.": "ہم نے ابھی اس پروڈکٹ کی غذائی معلومات نہیں پڑھیں۔ یہ پیک کے لیبل پر ہیں، اور {shopPossessive} کی ویب سائٹ پر پروڈکٹ کے صفحے پر بھی۔",
  "We never estimate. If a restaurant doesn't publish a value, we show ‘not published’.": "ہم کبھی اندازہ نہیں لگاتے۔ اگر کوئی ریسٹورنٹ کوئی عدد شائع نہیں کرتا تو ہم ‘شائع نہیں کیا گیا’ دکھاتے ہیں۔",
  "We only keep your email address and what you choose to sync. No ads, no tracking.": "ہم صرف آپ کا ای میل پتہ اور وہ چیزیں رکھتے ہیں جو آپ سنک کرنے کے لیے چنتے ہیں۔ کوئی اشتہار نہیں، کوئی ٹریکنگ نہیں۔",
@@ -2149,5 +2150,9 @@
  "{total} for the {priced} of {count} items with a price, at {shopPossessive} prices. Prices change: check in store.": "{count} میں سے قیمت والی {priced} آئٹمز کا کل {total}، {shopPossessive} کی قیمتوں پر۔ قیمتیں بدلتی رہتی ہیں: اسٹور میں دیکھ لیں۔",
  "{used} of {limit} free saved orders used.": "{limit} میں سے {used} مفت محفوظ آرڈر استعمال ہو چکے۔",
  "“Not listed” means nothing is recorded, not that the product is free from it.": "“درج نہیں” کا مطلب ہے کہ کچھ ریکارڈ نہیں، یہ نہیں کہ پروڈکٹ اس سے پاک ہے۔",
- "…": "…"
+ "…": "…",
+ "My recipes": "میری ترکیبیں",
+ "Only show": "صرف دکھائیں",
+ "Show {n} recipes": "{n} ترکیبیں دکھائیں",
+ "Show 1 recipe": "1 ترکیب دکھائیں"
 }

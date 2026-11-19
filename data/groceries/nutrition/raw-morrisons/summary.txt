@@ -1,18 +1,20 @@
-Morrisons labels, 2026-11-17: 1600 candidates, 1600 pages read, 1201 rows written to data/groceries/nutrition/morrisons.csv
-rows by basis: (as sold) 987, as consumed 102, drained 46, grilled 14, oven cooked 12, boiled 8, fried 7, microwaved 6, cooked 6, baked 6, prepared 5, made up 1, diluted 1
+Morrisons labels, 2026-11-18: 16373 candidates, 2412 pages read, 1631 rows written to data/groceries/nutrition/morrisons.csv
+rows by basis: (as sold) 1246, as consumed 196, drained 46, oven cooked 44, grilled 27, boiled 15, microwaved 14, fried 13, cooked 11, prepared 7, baked 6, edible portion 4, made up 1, diluted 1
 left without numbers:
-    171  no nutrition field
-     78  carbs not printed as a number
-     56  fat not printed as a number
-     35  http 404
-     12  more than one per-100 column and no single as-sold one
-     10  unclear basis wording
+  13961  not read yet
+    394  no nutrition field
+    144  carbs not printed as a number
+     86  fat not printed as a number
+     72  http 404
+     16  unclear basis wording
+     15  more than one per-100 column and no single as-sold one
+     14  nutrition printed as text, not a table
+      9  no per 100 g/ml column
       9  protein not printed as a number
       7  energy doesn't match macros
-      6  no per 100 g/ml column
-      5  energy cell not readable
+      6  energy cell not readable
       3  unclear basis
-      3  nutrition printed as text, not a table
       2  kcal not printed as a number
+      2  kJ and kcal disagree
       1  energy cell has other figures
-      1  kJ and kcal disagree
+      1  words outside the table may change its basis

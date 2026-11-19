@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { APP_PREMIUM, PRO_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { APP_PREMIUM, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { PASS_DAYS, PLANS } from "@/lib/payments/plans";
 import { site } from "@/site.config";
 
@@ -70,9 +70,11 @@ export default function Terms() {
         </Section>
       )}
 
-      <Section title="Accounts (optional)">
+      <Section title={SIGN_IN_REQUIRED ? "Accounts" : "Accounts (optional)"}>
         <p className={para}>
-          You can use {site.name} without an account; only friends (the Community tab) need one. If you sign in (with Apple, Google or an email code) your settings and saved items sync across your devices.
+          {SIGN_IN_REQUIRED
+            ? <>You need a free account to use {site.name}: you sign in with Apple, Google or an email code, and your settings and saved items sync across your devices.</>
+            : <>You can use {site.name} without an account; only friends (the Community tab) need one. If you sign in (with Apple, Google or an email code) your settings and saved items sync across your devices.</>}
           Keep your sign-in secure and tell us if you think someone else has used it. You can delete your account at any time in Settings › Account; that
           deletes the account and everything synced for it. We may close an account that is used to misuse the service. What we keep, and for how long, is
           in the <a className={LINK} href="/privacy">privacy policy</a>.

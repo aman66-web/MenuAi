@@ -1,3 +1,4 @@
+// Community is switched off since 2026-11-18 (lib/mm/config.ts COMMUNITY_ENABLED): run this only against a build made with NEXT_PUBLIC_COMMUNITY=1.
 // Community's friends and shared shopping lists (founder 2026-10-16: "add a friend and more, you can add a friend and send them shopping lists"), through the real pages in a
 // real browser, with TWO PEOPLE: each phone is its own browser context (its own storage); the "server" behind /api/v1/community is the REAL handler code (lib/community/handlers.ts)
 // on in-memory tables (tests/helpers/communityServer.ts, loaded here through Vite), so the username rules, the one neutral answer for a code that can't be added, the limits and who

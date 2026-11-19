@@ -155,16 +155,25 @@ await step("Creator View: Shift+F hides the tab bar and makes the card dark with
   await ctx.close();
 });
 
-await step("Settings has the Filming mode switch, and it works", async () => {
+await step("Filming mode: in a testing build Settings has its switch; elsewhere Shift+F turns it on and Settings then shows the switch to turn it off (hidden from everyone else, 2026-11-18)", async () => {
   const { ctx, page } = await open();
   await page.goto(BASE + "/app/settings");
-  await page.getByRole("heading", { name: "Filming mode" }).waitFor();
+  await page.getByRole("heading", { level: 1 }).first().waitFor();
   const label = page.locator("label", { hasText: "Shows the Truth and Swap cards" });
-  await label.click();
-  expect((await page.locator("html").getAttribute("data-creator")) !== null, "not on");
-  expect(await label.locator("input[role=switch]").isChecked(), "the switch does not show on");
-  await label.click();
-  expect((await page.locator("html").getAttribute("data-creator")) === null, "not off");
+  if ((await page.getByRole("heading", { name: "Filming mode" }).count()) === 0) {
+    await page.keyboard.press("Shift+F");
+    await page.getByRole("heading", { name: "Filming mode" }).waitFor();
+    expect((await page.locator("html").getAttribute("data-creator")) !== null, "Shift+F turns it on");
+    expect(await label.locator("input[role=switch]").isChecked(), "the switch shows on");
+    await label.click();
+    expect((await page.locator("html").getAttribute("data-creator")) === null, "the switch turns it off");
+  } else {
+    await label.click();
+    expect((await page.locator("html").getAttribute("data-creator")) !== null, "not on");
+    expect(await label.locator("input[role=switch]").isChecked(), "the switch does not show on");
+    await label.click();
+    expect((await page.locator("html").getAttribute("data-creator")) === null, "not off");
+  }
   await ctx.close();
 });
 

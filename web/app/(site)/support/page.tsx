@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { APP_PREMIUM, PRO_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { APP_PREMIUM, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 import { SupportForm } from "./SupportForm";
 
@@ -57,7 +57,7 @@ export default function Support() {
             </div>
             <div className="py-4">
               <h2 className="text-base font-bold tracking-[-0.01em]">Your data</h2>
-              <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">You don&apos;t need an account (only friends, in the Community tab, need one). Everything you set up stays on your phone unless you sign in to sync it across your devices (Settings › Account). Settings › Account › Delete my account removes the account and what was synced; Settings › Clear data on this device removes what is on the phone.</p>
+              <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">{SIGN_IN_REQUIRED ? "You sign in with a free account (Apple, Google or an email code), and what you set up syncs across your devices." : "You don't need an account (only friends, in the Community tab, need one). Everything you set up stays on your phone unless you sign in to sync it across your devices (Settings › Account)."} Settings › Account › Delete my account removes the account and what was synced; Settings › Clear data on this device removes what is on the phone.</p>
             </div>
           </div>
         </div>

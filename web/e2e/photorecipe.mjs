@@ -329,15 +329,15 @@ await step("a photo picked from the phone is scanned the same way; Next shows th
   expect(body.pantry.length > 20, "the pantry wasn't sent");
   await page.getByRole("tab", { name: "Method" }).tap();
   for (const title of ["Cook the rice", "Coat the chicken", "Cook the chicken", "Serve"]) await page.getByRole("heading", { name: title, exact: true }).waitFor();
-  await page.getByRole("button", { name: "Save this recipe" }).last().tap();
-  await page.getByText("Saved to Your recipes.").waitFor();
+  // saved the moment it's made (founder 2026-11-18: "When the person makes a recipe it automatically becomes a saved recipe")
+  await page.getByText("Saved to My recipes. You can take it out there any time.").waitFor();
   const mine = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.myRecipes") ?? "null")?.data ?? []);
   expect(mine.length === 1 && mine[0].name === RECIPE.name, "the recipe wasn't saved");
   expect(errors.length === 0, errors.join(" | "));
   await ctx.close();
 });
 
-await step("Pip's recipe has Save at the top; Back before saving asks 'Save your recipe first?' and both answers go back, saving only when asked", async () => {
+await step("Pip's recipe is saved as it's made: the top button says Saved, Back goes straight back, and its heart in My meals takes it out with Undo", async () => {
   const { ctx, page, errors, sent } = await open();
   await pretend(page, sent, { delay: 200 });
   const toRecipe = async () => {
@@ -346,31 +346,31 @@ await step("Pip's recipe has Save at the top; Back before saving asks 'Save your
     await page.getByRole("button", { name: "Next", exact: true }).tap();
     await page.getByRole("heading", { name: RECIPE.name }).waitFor({ timeout: 15000 });
   };
-  const mine = () => page.evaluate(() => (JSON.parse(localStorage.getItem("mm.v1.myRecipes") ?? "null")?.data ?? []).length);
+  const mine = () => page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.myRecipes") ?? "null")?.data ?? []);
   await toRecipe();
-  const top = page.getByRole("button", { name: "Save this recipe" }).first();
+  const top = page.getByRole("button", { name: "Saved to My recipes" }).first();
+  await top.waitFor({ timeout: 3000 });
   const box = await top.boundingBox();
-  expect(box && box.y < 120 && box.x > page.viewportSize().width / 2, "Save isn't at the top right: " + JSON.stringify(box));
-  // Back without saving: asked, and "Go back without saving" leaves with nothing saved
-  await page.getByRole("link", { name: /^Back/ }).first().tap();
-  const sheet = page.locator("dialog[open]");
-  await sheet.getByRole("heading", { name: "Save your recipe first?" }).waitFor({ timeout: 3000 });
-  await sheet.getByRole("button", { name: "Go back without saving" }).tap();
-  await page.waitForURL((u) => !u.pathname.endsWith("/recipes/photo"), { timeout: 8000 });
-  expect((await mine()) === 0, "a recipe was saved without being asked");
-  // again: "Save and go back" saves it and leaves
-  await toRecipe();
-  await page.getByRole("link", { name: /^Back/ }).first().tap();
-  await page.locator("dialog[open]").getByRole("button", { name: "Save and go back" }).tap();
-  await page.waitForURL((u) => !u.pathname.endsWith("/recipes/photo"), { timeout: 8000 });
-  expect((await mine()) === 1, "Save and go back didn't save");
-  // and once saved with the top button, Back goes straight back
-  await toRecipe();
-  await page.getByRole("button", { name: "Save this recipe" }).first().tap();
-  await page.getByRole("button", { name: "Saved to Your recipes." }).waitFor({ timeout: 3000 });
+  expect(box && box.y < 120 && box.x > page.viewportSize().width / 2, "Saved isn't at the top right: " + JSON.stringify(box));
+  expect((await top.getAttribute("aria-pressed")) === "true", "the top button isn't pressed");
+  // nothing to ask on the way out: it's already kept
   await page.getByRole("link", { name: /^Back/ }).first().tap();
   await page.waitForURL((u) => !u.pathname.endsWith("/recipes/photo"), { timeout: 8000 });
-  expect((await mine()) === 2, "the top Save didn't save");
+  expect((await page.locator("dialog[open]").count()) === 0, "Back asked a question");
+  const saved = await mine();
+  expect(saved.length === 1 && saved[0].name === RECIPE.name, `saved: ${saved.length}`);
+  // My meals > Recipes: its heart is filled; tapping it takes the recipe out, and Undo puts it back
+  await page.goto(BASE + "/app/meals?tab=recipes");
+  const card = page.locator(`a[href*="mine=${saved[0].id}"]`);
+  await card.waitFor({ timeout: 30000 });
+  const heart = card.locator("xpath=..").getByRole("button", { name: "Saved to My meals" });
+  expect((await heart.getAttribute("aria-pressed")) === "true", "the heart isn't filled");
+  await heart.tap();
+  await page.getByText(`Removed “${RECIPE.name}” from My meals.`).waitFor();
+  expect((await mine()).length === 0, "the heart didn't take it out");
+  await page.getByRole("button", { name: "Undo" }).tap();
+  await card.waitFor({ timeout: 10000 });
+  expect((await mine()).length === 1, "Undo didn't put it back");
   expect(errors.length === 0, errors.join(" | "));
   await ctx.close();
 });
@@ -382,8 +382,7 @@ await step("the photo becomes the saved recipe's picture: on its card in My meal
   await page.waitForFunction(() => ![...document.querySelectorAll("button")].find((b) => b.textContent?.trim() === "Next")?.disabled, null, { timeout: 30000 });
   await page.getByRole("button", { name: "Next", exact: true }).tap();
   await page.getByRole("heading", { name: RECIPE.name }).waitFor({ timeout: 15000 });
-  await page.getByRole("button", { name: "Save this recipe" }).last().tap();
-  await page.getByText("Saved to Your recipes.").waitFor();
+  await page.getByText("Saved to My recipes. You can take it out there any time.").waitFor();
   // the photo is kept on the phone (IndexedDB), and NOT inside the saved recipe that syncs to an account
   const kept = (await until(() => keptPhotos(page), (v) => Array.isArray(v) && v.length === 1))?.[0];
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.myRecipes") ?? "null")?.data ?? []);
@@ -405,6 +404,26 @@ await step("the photo becomes the saved recipe's picture: on its card in My meal
   await page.getByRole("button", { name: "Clear everything" }).tap();
   const left = await until(() => keptPhotos(page), (v) => Array.isArray(v) && v.length === 0);
   expect(Array.isArray(left) && left.length === 0, `photos left after Clear data: ${JSON.stringify(left)}`);
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
+await step("the photo at the top of the recipe is cropped round the food where the food check says the dish is (founder 2026-11-18: \"make sure the food is in it\")", async () => {
+  const { ctx, page, errors, sent } = await open();
+  const food = { left: 0.1, top: 0.55, width: 0.5, height: 0.35 };
+  await pretend(page, sent, { delay: 200, describe: { status: 200, body: { description: "peri-peri chicken with spicy rice", food } } });
+  await toShops(page);
+  await page.waitForFunction(() => ![...document.querySelectorAll("button")].find((b) => b.textContent?.trim() === "Next")?.disabled, null, { timeout: 30000 });
+  await page.getByRole("button", { name: "Next", exact: true }).tap();
+  await page.getByRole("heading", { name: RECIPE.name }).waitFor({ timeout: 15000 });
+  const top = page.getByRole("img", { name: "Your photo" }).first();
+  await top.waitFor({ timeout: 10000 });
+  // a new picture made on the phone, in the recipe picture's 4:3 shape, not the photo as taken
+  const shape = await page.waitForFunction(() => {
+    const img = document.querySelector("img[alt='Your photo']");
+    return img && img.complete && img.naturalWidth > 0 ? { w: img.naturalWidth, h: img.naturalHeight, src: img.getAttribute("src") } : null;
+  }, null, { timeout: 10000 }).then((h) => h.jsonValue());
+  expect(shape.src.startsWith("blob:") && Math.abs(shape.w / shape.h - 4 / 3) < 0.02, `top picture ${shape.w}x${shape.h}`);
   expect(errors.length === 0, errors.join(" | "));
   await ctx.close();
 });

@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { englishT } from "../lib/mm/i18n";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { isMeatFree } from "../lib/mm/recipes";
-import { CUISINES, CUISINE_LINES, NICHES, OCCASIONS, OCCASION_LINES, nicheOf } from "../lib/mm/recipeBook/niches";
-import { MIN_NICHE_RECIPES, cuisineOptions, inSeason, matchesNiche, nicheCounts, nicheSearchWords, occasionOptions, parseCuisine, parseOccasion } from "../lib/mm/recipeNiche";
+import { CUISINES, CUISINE_LINES, NICHES, OCCASIONS, OCCASION_LINES, nicheOf, type CuisineId, type OccasionId } from "../lib/mm/recipeBook/niches";
+import { MIN_NICHE_RECIPES, cuisineOptions, inSeason, matchesNiche, nicheCounts, nicheSearchWords, occasionOptions, parseCuisines, parseOccasions } from "../lib/mm/recipeNiche";
 
 // Cuisine and occasion choices on the Recipes screen (founder 2026-10-16): the catalogue and each recipe's niche (lib/mm/recipeBook/niches.ts), and the rules
 // for what is offered, what matches and what each choice would show (lib/mm/recipeNiche.ts).
@@ -61,38 +61,46 @@ describe("which cuisines and occasions are offered", () => {
 describe("reading a choice from the address", () => {
   const cuisines = cuisineOptions(IDS);
   const occasions = occasionOptions(IDS, JAN);
-  it("accepts an offered choice, in any case, and nothing else", () => {
-    expect(parseCuisine("chinese", cuisines)).toBe("chinese");
-    expect(parseCuisine(" Middle-Eastern ", cuisines)).toBe("middle-eastern");
-    expect(parseOccasion("PICNIC", occasions)).toBe("picnic");
-    for (const bad of [null, undefined, "", "klingon", "thai", "japanese", ["chinese"], 7, {}, "chinese,indian", "constructor", "__proto__"]) expect(parseCuisine(bad, cuisines), String(bad)).toBeNull();
+  it("accepts offered choices, in any case, several at once (founder 2026-11-18), each once, in the catalogue's order, and nothing else", () => {
+    expect(parseCuisines("chinese", cuisines)).toEqual(["chinese"]);
+    expect(parseCuisines(" Middle-Eastern ", cuisines)).toEqual(["middle-eastern"]);
+    expect(parseOccasions("PICNIC", occasions)).toEqual(["picnic"]);
+    expect(parseCuisines("indian,chinese", cuisines), "the catalogue's order").toEqual(["chinese", "indian"]);
+    expect(parseCuisines("chinese, indian ,chinese", cuisines), "each once").toEqual(["chinese", "indian"]);
+    expect(parseCuisines("chinese,klingon,thai", cuisines), "a name not on offer is left out").toEqual(["chinese"]);
+    for (const bad of [null, undefined, "", ",", "klingon", "thai", "japanese", ["chinese"], 7, {}, "constructor", "__proto__", "chinese;indian"]) expect(parseCuisines(bad, cuisines), String(bad)).toEqual([]);
     // an occasion that exists but is out of season is not on offer, so it is no choice
-    expect(parseOccasion("bonfire-night", occasions)).toBeNull();
-    expect(parseOccasion("bonfire-night", occasionOptions(IDS, OCT_20))).toBe("bonfire-night");
-    expect(parseOccasion("christmas", occasionOptions(IDS, JAN_10))).toBeNull();
-    expect(parseOccasion("christmas", occasionOptions(IDS, NOV_15))).toBe("christmas");
+    expect(parseOccasions("bonfire-night", occasions)).toEqual([]);
+    expect(parseOccasions("bonfire-night,picnic", occasions)).toEqual(["picnic"]);
+    expect(parseOccasions("bonfire-night", occasionOptions(IDS, OCT_20))).toEqual(["bonfire-night"]);
+    expect(parseOccasions("christmas", occasionOptions(IDS, JAN_10))).toEqual([]);
+    expect(parseOccasions("christmas", occasionOptions(IDS, NOV_15))).toEqual(["christmas"]);
   });
 });
 
 describe("which recipes match a choice", () => {
-  it("is any when nothing is chosen, one field when one is, and both together when both are", () => {
-    for (const id of IDS) expect(matchesNiche(id, null, null), id).toBe(true);
-    expect(matchesNiche("chicken-chow-mein", "chinese", null)).toBe(true);
-    expect(matchesNiche("chicken-chow-mein", "indian", null)).toBe(false);
-    expect(matchesNiche("chicken-chow-mein", null, "picnic")).toBe(false);
-    expect(matchesNiche("chicken-wraps", null, "picnic")).toBe(true);
-    expect(matchesNiche("chicken-wraps", "chinese", "picnic")).toBe(false);
-    expect(matchesNiche("chicken-shawarma-wraps", "middle-eastern", "summer-barbecue")).toBe(true);
-    expect(matchesNiche("chicken-shawarma-wraps", "middle-eastern", "picnic")).toBe(false);
-    expect(matchesNiche("no-such-recipe", null, null)).toBe(true);
-    expect(matchesNiche("no-such-recipe", "chinese", null)).toBe(false);
+  it("is any when nothing is chosen; within a field any of the choices; the two fields together both", () => {
+    for (const id of IDS) expect(matchesNiche(id, [], []), id).toBe(true);
+    expect(matchesNiche("chicken-chow-mein", ["chinese"], [])).toBe(true);
+    expect(matchesNiche("chicken-chow-mein", ["indian"], [])).toBe(false);
+    expect(matchesNiche("chicken-chow-mein", ["indian", "chinese"], []), "Chinese or Indian").toBe(true);
+    expect(matchesNiche("chicken-chow-mein", [], ["picnic"])).toBe(false);
+    expect(matchesNiche("chicken-wraps", [], ["picnic"])).toBe(true);
+    expect(matchesNiche("chicken-wraps", [], ["christmas", "picnic"]), "Christmas or a picnic").toBe(true);
+    expect(matchesNiche("chicken-wraps", ["chinese"], ["picnic"])).toBe(false);
+    expect(matchesNiche("chicken-shawarma-wraps", ["middle-eastern"], ["summer-barbecue"])).toBe(true);
+    expect(matchesNiche("chicken-shawarma-wraps", ["middle-eastern"], ["picnic"])).toBe(false);
+    expect(matchesNiche("chicken-shawarma-wraps", ["chinese", "middle-eastern"], ["picnic", "summer-barbecue"])).toBe(true);
+    expect(matchesNiche("no-such-recipe", [], [])).toBe(true);
+    expect(matchesNiche("no-such-recipe", ["chinese"], [])).toBe(false);
+    expect(matchesNiche("overnight-oats", [], ["picnic"]), "a recipe with no occasion").toBe(false);
   });
 });
 
 describe("how many recipes each choice would show", () => {
   const some = ["chicken-chow-mein", "egg-fried-rice", "chicken-curry", "chickpea-curry", "chicken-wraps", "houmous-veg-sticks", "chicken-shawarma-wraps", "overnight-oats"];
   it("counts a cuisine and an occasion over what is left, honouring the other field and not its own", () => {
-    const none = nicheCounts(some, null, null);
+    const none = nicheCounts(some, [], []);
     expect(none.cuisine.get("chinese")).toBe(2);
     expect(none.cuisine.get("indian")).toBe(2);
     expect(none.cuisine.get("middle-eastern")).toBe(2);
@@ -100,25 +108,32 @@ describe("how many recipes each choice would show", () => {
     expect(none.occasion.get("lunchbox")).toBe(2);
     expect(none.occasion.get("summer-barbecue")).toBe(1);
     // with Picnic chosen, a cuisine's count is the picnic recipes of it; Picnic's own count is not narrowed by itself
-    const picnic = nicheCounts(some, null, "picnic");
+    const picnic = nicheCounts(some, [], ["picnic"]);
     expect(picnic.cuisine.get("middle-eastern")).toBe(1);
     expect(picnic.cuisine.get("chinese") ?? 0).toBe(0);
     expect(picnic.occasion.get("picnic")).toBe(2);
     // with Middle Eastern chosen, an occasion's count is the Middle Eastern recipes for it; the cuisine's own count is not narrowed by itself
-    const me = nicheCounts(some, "middle-eastern", null);
+    const me = nicheCounts(some, ["middle-eastern"], []);
     expect(me.occasion.get("picnic")).toBe(1);
     expect(me.occasion.get("summer-barbecue")).toBe(1);
     expect(me.occasion.get("lunchbox")).toBe(1);
     expect(me.cuisine.get("middle-eastern")).toBe(2);
     // a recipe with no niche is in no count
-    expect([...nicheCounts(["overnight-oats"], null, null).cuisine.values()]).toEqual([]);
+    expect([...nicheCounts(["overnight-oats"], [], []).cuisine.values()]).toEqual([]);
   });
 
-  it("agrees with matching: the number beside a choice is the number of recipes that choosing it shows", () => {
-    for (const [cuisine, occasion] of [[null, null], ["italian", null], [null, "party-food"], ["mexican", "picnic"], ["chinese", "lunchbox"]] as const) {
-      const counts = nicheCounts(IDS, cuisine, occasion);
-      for (const c of CUISINES) expect(counts.cuisine.get(c.id) ?? 0, `${c.id} with ${occasion}`).toBe(IDS.filter((id) => matchesNiche(id, c.id, occasion)).length);
-      for (const o of OCCASIONS) expect(counts.occasion.get(o.id) ?? 0, `${o.id} with ${cuisine}`).toBe(IDS.filter((id) => matchesNiche(id, cuisine, o.id)).length);
+  it("counts with several chosen: a cuisine's count honours all the chosen occasions (any of them), an occasion's all the chosen cuisines", () => {
+    const two = nicheCounts(some, ["chinese", "middle-eastern"], ["picnic", "summer-barbecue"]);
+    expect(two.cuisine.get("middle-eastern")).toBe(IDS.filter((id) => some.includes(id) && matchesNiche(id, ["middle-eastern"], ["picnic", "summer-barbecue"])).length);
+    expect(two.occasion.get("picnic")).toBe(some.filter((id) => matchesNiche(id, ["chinese", "middle-eastern"], ["picnic"])).length);
+  });
+
+  it("agrees with matching: the number beside a choice is the number of recipes of that kind with everything else as it is", () => {
+    const cases: Array<[CuisineId[], OccasionId[]]> = [[[], []], [["italian"], []], [[], ["party-food"]], [["mexican"], ["picnic"]], [["chinese"], ["lunchbox"]], [["chinese", "indian"], []], [[], ["picnic", "lunchbox"]], [["british", "italian"], ["party-food", "christmas"]]];
+    for (const [cuisines, occasions] of cases) {
+      const counts = nicheCounts(IDS, cuisines, occasions);
+      for (const c of CUISINES) expect(counts.cuisine.get(c.id) ?? 0, `${c.id} with ${occasions}`).toBe(IDS.filter((id) => matchesNiche(id, [c.id], occasions)).length);
+      for (const o of OCCASIONS) expect(counts.occasion.get(o.id) ?? 0, `${o.id} with ${cuisines}`).toBe(IDS.filter((id) => matchesNiche(id, cuisines, [o.id])).length);
     }
   });
 });

@@ -1,4 +1,6 @@
 import { sanitizeShoppingList, type ShoppingItem } from "./groceries";
+import { NO_COACH, sanitizeCoach, type CoachState } from "./coach";
+import { sanitizePlan, type SavedPlan } from "./mealPlan";
 import { sanitizeSavedRecipes, type SavedRecipe } from "./aiRecipe";
 import { createStore, requestPersistentStorage } from "./persist";
 import { sanitizeOutbox, OutboxSender, type OutboxItem } from "./outbox";
@@ -6,6 +8,7 @@ import { indexedDbPhotos } from "./photo-store";
 import { recordView, sanitizeRecent, type RecentView } from "./recent";
 import { sanitizeCompare, type CompareItem } from "./compare";
 import { sanitizeComparePicks, type PickEntry } from "./comparePick";
+import { EMPTY_RATING, sanitizeRating, type RatingState } from "./ratingPrompt";
 import { sanitizeHiddenLogos, setHiddenLogos } from "./logos";
 import { grantShareUnlock, localDay, NO_PAID, NO_TRUTH_DAY, openTruth, sanitizePaid, sanitizeTruthDay, withoutToken, withVerifiedToken, type PaidState, type TruthDay } from "./paid";
 import type { PlanId } from "../payments/plans";
@@ -30,8 +33,12 @@ export const paidStore = createStore<PaidState>("mm.v1.paid", NO_PAID, { sanitiz
 export const truthDayStore = createStore<TruthDay>("mm.v1.truthDay", NO_TRUTH_DAY, { sanitize: sanitizeTruthDay });
 /** The iPhone app has shown its one-time "try Premium free" offer after setup on this phone (founder 2026-11-16). Never synced: it belongs to the phone. */
 export const trialOfferStore = createStore<boolean>("mm.v1.trialOffer", false, { sanitize: (v) => v === true });
+/** "Are you enjoying Numbite?" in the iPhone app (lib/mm/ratingPrompt.ts): the days the app was used and when it last asked. On this phone only, never synced. */
+export const ratingStore = createStore<RatingState>("mm.v1.rating", EMPTY_RATING, { sanitize: sanitizeRating });
 /** The welcome tour's version this phone has seen (lib/mm/tour.ts TOUR_VERSION; 0 = not seen). On this device only: not synced, never sent anywhere. */
 export const tourStore = createStore<number>("mm.v1.tour", 0, { sanitize: (v) => (Number.isInteger(v) && (v as number) >= 0 && (v as number) < 100 ? (v as number) : 0) });
+/** Pip's tips on the real screens (lib/mm/coach.ts): whether they are on and which tabs' tips have been shown. On this device only: not synced, never sent. */
+export const coachStore = createStore<CoachState>("mm.v1.coach", NO_COACH, { sanitize: sanitizeCoach });
 export const favoritesStore = createStore<Favorite[]>("mm.v1.favorites", [], { sanitize: sanitizeFavorites });
 export const savedStore = createStore<SavedOrder[]>("mm.v1.saved", [], { sanitize: sanitizeSavedOrders });
 export const logStore = createStore<LogEntry[]>("mm.v1.log", [], { sanitize: sanitizeLog });
@@ -42,6 +49,8 @@ export const remindersStore = createStore<Reminder[]>("mm.v1.reminders", [], { s
 export const outboxStore = createStore<OutboxItem[]>("mm.v1.outbox", [], { sanitize: sanitizeOutbox });
 /** Groceries the user wants to buy (barcode, retailer, name, quantity). On this device only. */
 export const shoppingStore = createStore<ShoppingItem[]>("mm.v1.shopping", [], { sanitize: sanitizeShoppingList });
+/** The week's meal plan (lib/mm/mealPlan.ts): the answers and recipe ids. On this device only, never synced; cleared by Clear data. */
+export const mealPlanStore = createStore<SavedPlan | null>("mm.v1.mealPlan", null, { sanitize: sanitizePlan });
 /** Recipes Pip wrote that the person saved (the pantry kinds and amounts, rebuilt from today's products when opened). On this device only. */
 export const myRecipesStore = createStore<SavedRecipe[]>("mm.v1.myRecipes", [], { sanitize: sanitizeSavedRecipes });
 /** Recipes from our book the person saved ("My recipes"), newest first. On this device only. */

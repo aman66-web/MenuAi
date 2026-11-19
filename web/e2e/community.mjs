@@ -1,3 +1,4 @@
+// Community is switched off since 2026-11-18 (lib/mm/config.ts COMMUNITY_ENABLED): run this only against a build made with NEXT_PUBLIC_COMMUNITY=1.
 // Community, the fifth tab (founder 2026-10-16: "The settings at the bottom right is now a community. Where you can find food blogs, and more and also add a friend and more").
 // The tab bar ends with Community (Settings is the gear at the top of Home, and Home's tab stays lit on the Settings pages); the hub lists the latest three food blogs
 // with See all; the list has a search box (with the app's Done button), topic chips and a count; an article is a static shell read from ?id= with its title, read time, date

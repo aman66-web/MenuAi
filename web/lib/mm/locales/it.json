@@ -1863,8 +1863,9 @@
  "We haven't read a price at {shop} yet.": "Non abbiamo ancora letto un prezzo da {shop}.",
  "We haven't read allergens for these products, so your allergy settings can't hide any here. Always check the pack.": "Non abbiamo ancora letto gli allergeni di questi prodotti, quindi le tue impostazioni per le allergie non possono nascondere nulla qui. Controlla sempre la confezione.",
  "We haven't read enough of {shop} product pages to fill these recipes yet.": "Non abbiamo ancora letto abbastanza pagine prodotto di {shop} per completare queste ricette.",
- "We haven't read the label for {name} yet, so it isn't counted in these numbers.": "Non abbiamo ancora letto l'etichetta per {name}, quindi non rientra in questi valori.",
- "We haven't read the labels for {names} yet, so they aren't counted in these numbers.": "Non abbiamo ancora letto le etichette per {names}, quindi non rientrano in questi valori.",
+ "Herbs, spices and salt don't have to carry a nutrition label, and we have none for {name}, so it isn't counted in these numbers.": "Erbe, spezie e sale non devono riportare per forza un'etichetta nutrizionale, e non ne abbiamo una per {name}, quindi non è conteggiato in questi valori.",
+ "Herbs, spices and salt don't have to carry a nutrition label, and we have none for {names}, so they aren't counted in these numbers.": "Erbe, spezie e sale non devono riportare per forza un'etichetta nutrizionale, e non ne abbiamo per {names}, quindi non sono conteggiati in questi valori.",
+ "Salt doesn't have to carry a nutrition label. Where the shop gives none, we count it as UK table salt labels print it: no calories, protein, carbs or fat, and 99.9 g of salt in every 100 g.": "Il sale non deve riportare per forza un'etichetta nutrizionale. Se il negozio non ne fornisce una, lo contiamo come lo riportano le etichette del sale da tavola nel Regno Unito: niente calorie, proteine, carboidrati o grassi, e 99,9 g di sale ogni 100 g.",
  "We haven't read the nutrition for this product yet. The label on the pack has it, and so does the product's page on {shopPossessive} website.": "Non abbiamo ancora letto i valori nutrizionali di questo prodotto. Li trovi sull'etichetta della confezione e sulla pagina del prodotto sul sito di {shopPossessive}.",
  "We never estimate. If a restaurant doesn't publish a value, we show ‘not published’.": "Non facciamo mai stime. Se un ristorante non pubblica un valore, mostriamo ‘non pubblicato’.",
  "We only keep your email address and what you choose to sync. No ads, no tracking.": "Conserviamo solo il tuo indirizzo email e ciò che scegli di sincronizzare. Niente pubblicità, niente tracciamento.",
@@ -2149,5 +2150,9 @@
  "{total} for the {priced} of {count} items with a price, at {shopPossessive} prices. Prices change: check in store.": "{total} per i {priced} prodotti su {count} che hanno un prezzo, ai prezzi di {shopPossessive}. I prezzi cambiano: controlla in negozio.",
  "{used} of {limit} free saved orders used.": "Hai usato {used} dei {limit} ordini salvati gratuiti.",
  "“Not listed” means nothing is recorded, not that the product is free from it.": "“Non indicato” vuol dire che non è registrato niente, non che il prodotto ne sia privo.",
- "…": "…"
+ "…": "…",
+ "My recipes": "Le mie ricette",
+ "Only show": "Mostra solo",
+ "Show {n} recipes": "Mostra {n} ricette",
+ "Show 1 recipe": "Mostra 1 ricetta"
 }

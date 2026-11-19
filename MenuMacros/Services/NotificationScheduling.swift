@@ -37,4 +37,6 @@ protocol NotificationScheduling {
 extension Logger {
     /// Counts and states only: never a reminder's name or note (they can be about medication).
     nonisolated static let reminders = Logger(subsystem: Bundle.main.bundleIdentifier ?? "Numbite", category: "reminders")
+    /// The account's saved sign-in (SessionStore.swift).
+    nonisolated static let account = Logger(subsystem: Bundle.main.bundleIdentifier ?? "Numbite", category: "account")
 }

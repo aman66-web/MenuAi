@@ -7,9 +7,11 @@ import { nativeCall, hasNative } from "@/lib/mm/native";
 import { site } from "@/site.config";
 import { accountApi, signedIn } from "../_lib/account";
 import { useT } from "../_lib/i18n";
+import { Pip } from "./Mascot";
 import { Button, Field, Sheet, Spinner, inputClass } from "./ui";
 
-// Sign in (docs/ACCOUNTS_SYNC.md). Optional: the app works the same without it, and signing in only turns on sync across devices.
+// Sign in (docs/ACCOUNTS_SYNC.md). Since 2026-11-17 everyone signs in (SIGN_IN_REQUIRED: the full-screen SignInScreen uses this same panel); with that
+// switch off it is optional, and signing in only turns on sync across devices.
 // Three ways in, one big button each: Apple, Google, and a 6-digit code by email (no password to remember).
 //   * Website: Apple and Google are a normal sign-in on numbite.com (the browser leaves for the provider and comes back).
 //   * iPhone app: Apple uses the iPhone's own Apple sheet; Google opens numbite.com in the iPhone's secure browser sheet.
@@ -59,12 +61,30 @@ export function SignInSheet({ open, onClose, community }: { open: boolean; onClo
   );
 }
 
-function SignInPanel({ onDone, community }: { onDone: () => void; community: boolean }) {
+/** While the account is being made or opened (Apple's or Google's window has closed, or the email code was right) the whole screen shows Pip and a spinner,
+ *  so the sign-in buttons don't flash up again for the second it takes (founder 2026-11-18: "instead of that little small 1 second flash, just have like a loading
+ *  animation"). It stays until the app opens, or comes off with the error if it fails. */
+function SigningIn() {
+  const t = useT();
+  return (
+    <div role="status" aria-live="polite" className="fixed inset-0 z-50 grid place-items-center bg-background px-6">
+      <div className="flex flex-col items-center gap-5 text-center">
+        <Pip mood="cheer" size={104} />
+        <span className="h-9 w-9 animate-spin rounded-full border-[3px] border-[rgba(17,24,20,0.1)] border-t-[var(--bar)] motion-reduce:animate-none" />
+        <p className="text-lg font-bold">{t("Signing you in…")}</p>
+      </div>
+    </div>
+  );
+}
+
+/** The three ways in. `required`: on the sign-in screen everyone sees first (it says an account is needed rather than that it isn't). */
+export function SignInPanel({ onDone, community, required = false }: { onDone: () => void; community: boolean; required?: boolean }) {
   const t = useT();
   const [step, setStep] = useState<Step>("choose");
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
   const [busy, setBusy] = useState(false);
+  const [finishing, setFinishing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const native = hasNative();
   const canUseProviders = !APP_BUILD || native; // the packed app outside the iPhone app (a testing browser) has no way to open them
@@ -89,6 +109,8 @@ function SignInPanel({ onDone, community }: { onDone: () => void; community: boo
   async function finish(user: Awaited<ReturnType<ReturnType<typeof accountApi>["verifyCode"]>>) {
     signedIn(user);
     onDone();
+    // the app opens in place of this screen; if this screen is still here a few seconds on (a sheet, a slow start), the loading screen comes off
+    setTimeout(() => setFinishing(false), 4000);
   }
 
   async function withProvider(provider: "apple" | "google") {
@@ -100,14 +122,17 @@ function SignInPanel({ onDone, community }: { onDone: () => void; community: boo
         const r = await nativeCall("appleSignIn");
         if (r.error === "cancelled") return;
         if (!r.idToken) throw new Error(r.error ?? "failed");
+        setFinishing(true);
         await finish(await accountApi().signInWithApple(r.idToken, r.nonce));
       } else {
         const r = await nativeCall("webAuth", { provider: "google" });
         if (r.error === "cancelled") return;
         if (!r.authCode || !r.verifier) throw new Error(r.error ?? "failed");
+        setFinishing(true);
         await finish(await accountApi().exchange(r.authCode, r.verifier));
       }
     } catch (e) {
+      setFinishing(false);
       setError(describe(e));
     } finally {
       setBusy(false);
@@ -139,9 +164,11 @@ function SignInPanel({ onDone, community }: { onDone: () => void; community: boo
       return;
     }
     setBusy(true);
+    setFinishing(true);
     try {
       await finish(await accountApi().verifyCode(email.trim(), code.trim()));
     } catch (e) {
+      setFinishing(false);
       setError(describe(e));
     } finally {
       setBusy(false);
@@ -150,9 +177,12 @@ function SignInPanel({ onDone, community }: { onDone: () => void; community: boo
 
   return (
     <div className="pb-2 pt-1">
+      {finishing && required && <SigningIn />}
       {step === "choose" && (
         <>
-          <p className="text-base leading-snug">{t("Sign in to keep your saved meals, shopping list and settings on all your devices. You don't need an account to use {app}.", { app: site.name })}</p>
+          <p className="text-base leading-snug">{required
+            ? t("New here? Any of these makes your free account. Been here before? Use the same one you used last time. Your account keeps your meals, shopping list and settings safe on all your devices.")
+            : t("Sign in to keep your saved meals, shopping list and settings on all your devices. You don't need an account to use {app}.", { app: site.name })}</p>
           <div className="mt-5 space-y-2.5">
             {canUseProviders && (
               <>
@@ -205,7 +235,7 @@ function SignInPanel({ onDone, community }: { onDone: () => void; community: boo
         </form>
       )}
 
-      <p className="mt-5 text-[0.8125rem] leading-snug text-muted">{t("We only keep your email address and what you choose to sync. No ads, no tracking.")}</p>
+      <p className="mt-5 text-[0.8125rem] leading-snug text-muted">{required ? t("We only keep your email address and what your account syncs. No ads, no tracking.") : t("We only keep your email address and what you choose to sync. No ads, no tracking.")}</p>
       {community && <p className="mt-2 text-[0.8125rem] leading-snug text-muted">{t("To use friends, we also keep the username you choose, your friends and the shopping lists you send and get.")}</p>}
     </div>
   );

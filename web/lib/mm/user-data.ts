@@ -4,7 +4,7 @@ import { ALLERGEN_KEYS, NO_PREFERENCES } from "./types";
 import { DEFAULT_DAILY_CALORIES, DEFAULT_GLP1_MEAL_CAP, MEALS } from "./budget";
 import type { OrderLine } from "./order";
 import { MAX_WATER_GOAL_ML, MIN_WATER_GOAL_ML } from "./water";
-import { validPhoto, type PhotoSource } from "./groceries";
+import { sanitizeShoppingLists, validPhoto, type PhotoSource, type ShoppingList } from "./groceries";
 
 // User data lives only in this browser (localStorage). Nutrient snapshots let history survive menu changes.
 
@@ -82,6 +82,8 @@ export interface UserSettings {
   recipeMeal?: RecipeMeal;
   /** The app's language (lib/mm/i18n.ts), chosen on the first screen; absent = English, not chosen yet. */
   language?: Locale;
+  /** The person's extra shopping lists, each for one shop (founder 2026-11-18), oldest first; absent = only the main "Shopping list". Synced. */
+  shoppingLists?: ShoppingList[];
 }
 
 export interface RecipeMeal {
@@ -174,6 +176,7 @@ export function sanitizeSettings(raw: unknown): UserSettings {
       : {}),
     ...(sanitizeRecipeMeal(raw.recipeMeal) ? { recipeMeal: sanitizeRecipeMeal(raw.recipeMeal) } : {}),
     ...(isLocale(raw.language) ? { language: raw.language } : {}),
+    ...(sanitizeShoppingLists(raw.shoppingLists).length ? { shoppingLists: sanitizeShoppingLists(raw.shoppingLists) } : {}),
   };
 }
 

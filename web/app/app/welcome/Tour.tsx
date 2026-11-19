@@ -1,10 +1,10 @@
 "use client";
 
 // Relative imports (not "@/"), so the unit tests can load TOUR_STOPS (tests/tour.test.ts).
-import { COMMUNITY_FRIENDS_ENABLED, PHOTO_RECIPES_ENABLED } from "../../../lib/mm/config";
+import { COMMUNITY_ENABLED, COMMUNITY_FRIENDS_ENABLED, FOOD_SCAN_ENABLED, PHOTO_RECIPES_ENABLED } from "../../../lib/mm/config";
 import { tk } from "../../../lib/mm/i18n";
 import {
-  BasketIcon, CalendarIcon, CameraIcon, DropIcon, ForkIcon, GearIcon, GridIcon, HeartIcon, ListIcon, PeopleIcon, PinIcon, PlusIcon, ScanIcon, SearchIcon, SunriseIcon,
+  BasketIcon, CalendarIcon, CameraIcon, DropIcon, ForkIcon, GearIcon, GridIcon, HeartIcon, ListIcon, PeopleIcon, PinIcon, PlusIcon, PodiumIcon, ScanIcon, SearchIcon, SunriseIcon,
 } from "../_components/icons";
 import { Pip, type PipMood } from "../_components/Mascot";
 import { TabLabel } from "../_components/TabLabel";
@@ -21,15 +21,16 @@ type Icon = (p: React.SVGProps<SVGSVGElement>) => React.ReactNode;
 export type TourRow = { Icon: Icon; text: string /* tk() */; when?: boolean };
 export type TourStopId = "home" | "eatOut" | "groceries" | "recipes" | "community";
 
-export const TOUR_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: PipMood; rows: TourRow[] }> = [
+const ALL_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: PipMood; rows: TourRow[] }> = [
   {
     id: "home",
     says: tk("This is Home. It keeps track of your day, so you can always see what's left!"),
     mood: "wave",
     rows: [
       { Icon: PlusIcon, text: tk("Tap + next to Breakfast, Lunch or Dinner to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers.") },
-      { Icon: CalendarIcon, text: tk("Tap the calendar next to the date to see another day.") },
-      { Icon: GearIcon, text: tk("The gear at the top opens Settings: your goal, diet, text size, and this tour again.") },
+      { Icon: CameraIcon, text: tk("Scan your food: take a photo of your plate for an estimate of its calories, protein, carbs and fat. It's part of Premium."), when: FOOD_SCAN_ENABLED },
+      { Icon: CalendarIcon, text: tk("Tap the calendar next to the date to see another day."), when: !FOOD_SCAN_ENABLED },
+      { Icon: GearIcon, text: tk("Settings, at the top, has your goal, diet, text size, and this tour again.") },
       { Icon: DropIcon, text: tk("Further down Home, add the water you drink and set your own reminders.") },
     ],
   },
@@ -48,9 +49,10 @@ export const TOUR_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: Pip
     says: tk("Going shopping? Pick your supermarket and look up its products and prices!"),
     mood: "think",
     rows: [
-      { Icon: GridIcon, text: tk("Tap your supermarket to see its products and prices.") },
+      { Icon: GridIcon, text: tk("Tap a supermarket to see its products and prices.") },
       { Icon: ScanIcon, text: tk("Scan a barcode to look up a product you're holding.") },
-      { Icon: BasketIcon, text: tk("My list is your shopping list. Tick things off as you shop.") },
+      { Icon: PodiumIcon, text: tk("Nutrition leaderboards rank the supermarket products by protein, fibre and more.") },
+      { Icon: BasketIcon, text: tk("Your shopping list: tick things off as you shop.") },
     ],
   },
   {
@@ -58,9 +60,10 @@ export const TOUR_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: Pip
     says: tk("Cooking at home? These recipes use real products, with the cost of each serving!"),
     mood: "point",
     rows: [
-      { Icon: SunriseIcon, text: tk("Tap Breakfast, Lunch, Dinner or Snacks to see recipes for that meal.") },
-      { Icon: HeartIcon, text: tk("Tap the heart on a recipe to keep it in My meals.") },
-      { Icon: PlusIcon, text: tk("Open a recipe to add everything it needs to your shopping list in one tap.") },
+      { Icon: SunriseIcon, text: tk("Tap Breakfast, Lunch, Dinner or Snacks to see recipes for that meal, or More for every filter.") },
+      { Icon: CalendarIcon, text: tk("Meal plan makes a week of meals for your goal and budget, with the shopping list. It's part of Premium.") },
+      { Icon: HeartIcon, text: tk("Tap the heart on a recipe to keep it in My recipes.") },
+      { Icon: PlusIcon, text: tk("Open a recipe to add everything it needs to your shopping list in one tap."), when: !PHOTO_RECIPES_ENABLED },
       { Icon: CameraIcon, text: tk("Make it at home turns a photo of a dish into a recipe. It's part of Premium."), when: PHOTO_RECIPES_ENABLED },
     ],
   },
@@ -74,6 +77,9 @@ export const TOUR_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: Pip
     ],
   },
 ];
+
+/** One stop a tab, for the tabs this build shows (no Community stop while Community is off, lib/mm/config.ts). */
+export const TOUR_STOPS = ALL_STOPS.filter((s) => COMMUNITY_ENABLED || s.id !== "community");
 
 /** The rows this build shows (a row whose feature is switched off is left out). */
 export const visibleRows = (rows: readonly TourRow[]): TourRow[] => rows.filter((r) => r.when !== false);
@@ -103,7 +109,7 @@ export function PipTour({ stop }: { stop: number }) {
         <ul aria-hidden className="flex rounded-[2rem] bg-[#1d2320] p-[6px] shadow-[0_18px_40px_-16px_rgba(0,0,0,0.55)]">
           {TABS.map(({ href, label, Icon }, i) => (
             <li key={href} className="min-w-0 flex-1">
-              <span className={`flex min-h-14 flex-col items-center justify-center gap-1 rounded-[1.5rem] text-center text-[13px] font-semibold leading-[1.1] transition-colors duration-500 ${i === stop ? "text-[#d6efa0]" : "text-[#c2c9c4]"}`}>
+              <span className={`flex min-h-14 flex-col items-center justify-center gap-1 rounded-[1.5rem] text-center text-[0.8125rem] font-semibold leading-[1.1] transition-colors duration-500 ${i === stop ? "text-[#d6efa0]" : "text-[#c2c9c4]"}`}>
                 <span className={`inline-flex h-8 w-12 items-center justify-center rounded-full transition-colors duration-500 ${i === stop ? "bg-[#d6efa0] text-[#0b1a12]" : ""}`}><Icon className="h-5 w-5" /></span>
                 <TabLabel text={t(label)} />
               </span>

@@ -7,7 +7,8 @@ import { isPro } from "@/lib/mm/entitlements";
 import { dataVersionDate } from "@/lib/mm/menu-client";
 import { formatDate } from "@/lib/mm/format";
 import { mailtoFor } from "@/lib/mm/outbox";
-import { paidStore, compareStore, comparePicksStore, cupboardStore, favoritesStore, recentStore, logStore, myRecipesStore, outbox, outboxStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, tourStore, updateSettings, waterStore, clearReminders } from "@/lib/mm/stores";
+import { COACH_ARMED } from "@/lib/mm/coach";
+import { coachStore, paidStore, compareStore, comparePicksStore, ratingStore, cupboardStore, favoritesStore, recentStore, logStore, mealPlanStore, myRecipesStore, outbox, outboxStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, tourStore, updateSettings, waterStore, clearReminders } from "@/lib/mm/stores";
 import { DEFAULT_SETTINGS, type TextSize } from "@/lib/mm/user-data";
 import { CARB_FAT_NOTE, GLP1_NOTE, isLowCalories, LOW_CALORIES_NOTE, MAX_MACRO_TARGET, suggestCarbFat, suggestProtein, SUGGESTION_NOTE } from "@/lib/mm/targets";
 import type { Goal } from "@/lib/mm/types";
@@ -49,7 +50,7 @@ const GOAL_OPTIONS: ReadonlyArray<{ value: Goal; label: string }> = [
   { value: "lose", label: tk("Lose") },
   { value: "maintain", label: tk("Maintain") },
   { value: "buildMuscle", label: tk("Build muscle") },
-  { value: "glp1", label: tk("GLP-1") },
+  { value: "glp1", label: tk("On a GLP-1 medication") },
   { value: "other", label: tk("Other") },
 ];
 
@@ -204,7 +205,7 @@ export default function SettingsPage() {
       <Link href="/app/welcome" className="glass mt-5 flex min-h-[4.75rem] items-center gap-3.5 rounded-[1.25rem] px-4 py-3 transition-colors hover:bg-[var(--fill)] active:bg-soft-strong">
         <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-[var(--sun)]"><Pip mood="wave" size={40} className="translate-y-0.5" /></span>
         <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-          <span className="block text-base font-bold leading-snug">{t("Set up with Pip")}</span>
+          <span className="block text-base font-bold leading-snug">{t("Set up your plan again")}</span>
           <span className="mt-0.5 block text-sm leading-snug text-muted">{t("A short tour of the app, then your goal, diet, daily numbers, shops and text size.")}</span>
         </span>
         <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted" />
@@ -220,8 +221,16 @@ export default function SettingsPage() {
 
       {/* Pip's walk through the five tabs again (the welcome tour's stops only): nothing is saved, and Close or Done comes back here. */}
       <Section title={t("Help")}>
-        <div className="glass overflow-hidden rounded-[1.25rem]">
+        <div className="glass divide-y divide-line overflow-hidden rounded-[1.25rem]">
           <LinkRow href="/app/welcome?tour=1">{t("Show me around again")}</LinkRow>
+          {/* Pip's tips on the real screens again (lib/mm/coach.ts): switched on, then Home, where the first ones show */}
+          <Link href="/app" onClick={() => coachStore.set(COACH_ARMED)} className="flex min-h-[3.25rem] items-center justify-between gap-3 px-4 py-2 text-base font-semibold transition hover:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">
+            <span className="min-w-0 [overflow-wrap:anywhere]">
+              <span className="block">{t("Show me the buttons on each screen")}</span>
+              <span className="mt-0.5 block text-sm font-normal leading-snug text-muted">{t("Pip points out what each button does, the next time you open each tab.")}</span>
+            </span>
+            <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />
+          </Link>
         </div>
       </Section>
 
@@ -299,7 +308,7 @@ export default function SettingsPage() {
 
       <Section title={t("About")}>
         <div className="glass divide-y divide-line overflow-hidden rounded-[1.25rem]">
-          <LinkRow href="/app/settings/sources">{t("Where these numbers come from")}</LinkRow>
+          <LinkRow href="/app/settings/sources">{t("Where your daily targets come from")}</LinkRow>
           <LinkRow href="/app/settings/numbers">{t("How we get our numbers")}</LinkRow>
           <button type="button" onClick={() => setContactOpen(true)} className="flex min-h-[3.25rem] w-full items-center justify-between gap-3 px-4 py-2 text-start text-base font-semibold transition hover:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">{t("Contact us")}<ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" /></button>
           <LinkRow href="/privacy" external>{t("Privacy policy")}</LinkRow>
@@ -330,11 +339,15 @@ export default function SettingsPage() {
         </Section>
       )}
 
+      {/* Filming mode is for making videos of the app: shown only in testing builds, or while it is on (so it can be switched off); Shift+F works anywhere
+          (the review of 2026-11-18 found it shown to everyone) */}
+      {(DEV_TOOLS_ENABLED || creator) && (
       <Section title={t("Filming mode")}>
         <Card className="p-3">
           <Toggle label={t("Filming mode")} description={t("Shows the Truth and Swap cards as the dark card with bigger figures, adds a Replay button and hides the bottom bar. Shift+F switches it too.")} checked={creator} onChange={setCreatorMode} />
         </Card>
       </Section>
+      )}
 
       <Section title={t("Your data")}>
         <Card className="p-4">
@@ -348,7 +361,7 @@ export default function SettingsPage() {
         <Section title={t("Testing tools")}>
           <Card className="space-y-2 p-3">
             {GATING_ENABLED && <Toggle label={t("Pro preview")} description={t("Unlock Pro features without paying (testing builds only)")} checked={settings.devProOverride} onChange={(v) => updateSettings({ devProOverride: v })} />}
-            <Button variant="secondary" full onClick={() => { updateSettings({ hasCompletedOnboarding: false }); tourStore.reset(); }}>{t("Reset onboarding")}</Button>
+            <Button variant="secondary" full onClick={() => { updateSettings({ hasCompletedOnboarding: false }); tourStore.reset(); coachStore.reset(); }}>{t("Reset onboarding")}</Button>
             <Button variant="secondary" full onClick={() => logStore.reset()}>{t("Clear logs")}</Button>
           </Card>
         </Section>
@@ -369,7 +382,7 @@ export default function SettingsPage() {
         <p className="pt-1 text-base leading-snug">{APP_BUILD ? t("This removes your goal, targets, saved orders, log, water you added, reminders you set, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this phone. It can't be undone.") : t("This removes your goal, targets, saved orders, log, water you added, reminders you set, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this browser. It can't be undone.")}</p>
         {account && <p className="mt-2.5 text-base leading-snug">{t("This also signs you out of your account on this device. What is synced stays in your account.")}</p>}
         <div className="mt-5 space-y-2 pb-2">
-          <Button full className="min-h-12 text-base" onClick={async () => { await leaveForClearing(); settingsStore.set(DEFAULT_SETTINGS); tourStore.reset(); savedStore.reset(); logStore.reset(); waterStore.reset(); clearReminders(); favoritesStore.reset(); shoppingStore.reset(); myRecipesStore.reset(); void clearRecipePhotos(); savedRecipesStore.reset(); cupboardStore.reset(); recentStore.reset(); compareStore.reset(); comparePicksStore.reset(); outbox().clear(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); sessionStorage.removeItem("mm.finder"); sessionStorage.removeItem("mm.sharedAdded"); localStorage.removeItem("mm.v1.mapArea"); } catch { /* storage blocked */ } setClearOpen(false); }}>{t("Clear everything")}</Button>
+          <Button full className="min-h-12 text-base" onClick={async () => { await leaveForClearing(); settingsStore.set(DEFAULT_SETTINGS); tourStore.reset(); coachStore.reset(); savedStore.reset(); logStore.reset(); waterStore.reset(); clearReminders(); favoritesStore.reset(); shoppingStore.reset(); mealPlanStore.reset(); myRecipesStore.reset(); void clearRecipePhotos(); savedRecipesStore.reset(); cupboardStore.reset(); recentStore.reset(); compareStore.reset(); comparePicksStore.reset(); ratingStore.reset(); outbox().clear(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); sessionStorage.removeItem("mm.finder"); sessionStorage.removeItem("mm.sharedAdded"); localStorage.removeItem("mm.v1.mapArea"); } catch { /* storage blocked */ } setClearOpen(false); }}>{t("Clear everything")}</Button>
           <Button full variant="ghost" onClick={() => setClearOpen(false)}>{t("Cancel")}</Button>
         </div>
       </Sheet>

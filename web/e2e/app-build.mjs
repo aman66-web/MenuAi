@@ -8,6 +8,16 @@ import { chromium } from "playwright-core";
 const BASE = process.env.BASE ?? "http://localhost:3103";
 const LIVE = process.env.LIVE ?? "https://numbite.com";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
+
+// Pip's tips on the real screens (CoachMarks, 2026-11-18) are stopped in this test, as if the person had pressed "Stop the tips": e2e/coach.mjs covers them.
+{
+  const open = browser.newContext.bind(browser);
+  browser.newContext = async (options) => {
+    const c = await open(options);
+    await c.addInitScript(() => { try { if (!localStorage.getItem("mm.v1.coach")) localStorage.setItem("mm.v1.coach", JSON.stringify({ v: 1, data: { armed: false, seen: ["home", "eatOut", "groceries", "recipes"] } })); } catch { /* storage blocked */ } });
+    return c;
+  };
+}
 const onboarded = JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true, shops: ["sainsburys"] } });
 const FORBIDDEN = /\bPro\b|(?<!un)subscri|free trial|paywall|Anthropic|Ask Pip|Claude|Add .* to your Home Screen|iPhone Safari/i;
 
@@ -96,7 +106,7 @@ await step("no signal: every restaurant comes from the menus packed in the app; 
   await page.goto(BASE + "/app/chain?id=kfc");
   await page.getByRole("heading", { level: 1, name: /KFC/ }).waitFor({ timeout: 15000 });
   await page.locator("a[href*='/app/item?chain=kfc']").first().click();
-  await page.getByRole("button", { name: "Log" }).waitFor();
+  await page.getByRole("button", { name: "Add to today" }).waitFor();
   await noForbidden(page, "KFC item");
   await ctx.close();
 });
