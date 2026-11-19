@@ -9,8 +9,8 @@ import { entryMeal, loggedGaps, loggedToday, isSameLocalDay, MEALS, MEAL_LABEL }
 import { PAYMENTS_ENABLED } from "@/lib/mm/config";
 import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
-import { deleteLogEntry, logStore, moveLogEntry, restoreLogEntry, savedStore } from "@/lib/mm/stores";
-import type { LogEntry } from "@/lib/mm/user-data";
+import { deleteLogEntry, logStore, moveLogEntry, restoreLogEntry, savedStore, setLogPortion } from "@/lib/mm/stores";
+import { PORTIONS, withPortion, type LogEntry } from "@/lib/mm/user-data";
 import type { Meal } from "@/lib/mm/types";
 import { AddFoodSheet } from "../_components/addfood/AddFoodSheet";
 import { EatenThumb, entryPicture, legacyImage } from "../_components/addfood/EntryPicture";
@@ -132,6 +132,13 @@ function TodayScreen() {
   const calFraction = Math.min(1, totals.calories / settings.dailyCalories);
   const targets = macroTargets(settings);
 
+  function portionTo(entry: LogEntry, portion: number) {
+    setLogPortion(entry.id, portion);
+    setMoving(null);
+    setMoved(t("Changed “{name}” to {amount}.", { name: entry.name, amount: portionWords(portion) }));
+  }
+  const portionWords = (n: number) => (n === 1 ? t("1 portion") : t("{n} portions", { n: n === 0.5 ? "½" : n === 1.5 ? "1½" : String(n) }));
+
   function moveTo(entry: LogEntry, meal: Meal) {
     moveLogEntry(entry.id, meal);
     setMoving(null);
@@ -218,7 +225,7 @@ function TodayScreen() {
                         {/* the picture steps aside when the row is narrow (large text), so the name and figures keep their room */}
                         <span className="hidden shrink-0 @[18rem]:block"><EatenThumb picture={entryPicture(e, legacyImage(e, indexes.get(e.chainId), saved))} product={e.source === "product"} /></span>
                         <div className="min-w-0 flex-1">
-                          <p className="text-base font-bold leading-snug [overflow-wrap:anywhere]">{e.name}</p>
+                          <p className="text-base font-bold leading-snug [overflow-wrap:anywhere]">{e.name}{e.portion ? <span className="font-semibold text-muted"> · {portionWords(e.portion)}</span> : null}</p>
                           <p className="mt-0.5 text-[0.875rem] leading-snug text-muted">{timeFormat.format(new Date(e.loggedAt))}{e.chainName ? ` · ${e.chainName}` : ""}</p>
                           {/* typed numbers may leave protein out: then only the calories are shown, never a 0 */}
                           {e.nutrients.protein === undefined ? (
@@ -227,8 +234,8 @@ function TodayScreen() {
                             <p className="app-numbers mt-1.5 font-mono text-[0.75rem] font-normal text-muted" aria-label={t("{calories} calories, {protein} grams protein", { calories: Math.round(e.nutrients.calories), protein: Math.round(e.nutrients.protein) })}>{t("{kcal} · {protein} protein", { kcal: formatCalories(e.nutrients.calories), protein: formatGrams(e.nutrients.protein) })}</p>
                           )}
                         </div>
-                        <button type="button" aria-label={t("Move {name}", { name: e.name })} onClick={() => setMoving(e)} className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-soft-strong px-3.5 text-[0.875rem] font-bold transition active:scale-95">
-                          {t("Move")}
+                        <button type="button" aria-label={t("Change {name}", { name: e.name })} onClick={() => setMoving(e)} className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-soft-strong px-3.5 text-[0.875rem] font-bold transition active:scale-95">
+                          {t("Change")}
                         </button>
                         <button type="button" aria-label={t("Delete {name}", { name: e.name })} onClick={() => remove(e)} className="group -me-1.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
                           <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong text-foreground transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><TrashIcon className="h-[18px] w-[18px]" /></span>
@@ -245,12 +252,29 @@ function TodayScreen() {
 
       <AddFoodSheet meal={addTo} onClose={() => setAddTo(null)} onAdded={(entry, meal) => { setAddTo(null); setAdded({ entry, meal }); }} />
 
-      <Sheet open={moving !== null} onClose={() => setMoving(null)} title={moving ? t("Move “{name}”", { name: moving.name }) : ""}>
+      {/* how much it was, and which meal it belongs to (usability test 2026-11-19: George logged the wrong amount and the wrong meal, and could only delete it) */}
+      <Sheet open={moving !== null} onClose={() => setMoving(null)} title={moving ? t("Change “{name}”", { name: moving.name }) : ""}>
         {moving && (
-          <div className="space-y-2.5 pb-2">
-            {MEALS.filter((m) => m !== entryMeal(moving)).map((m) => (
-              <Button key={m} full variant="secondary" className="min-h-14 text-lg" onClick={() => moveTo(moving, m)}>{t("Move to {meal}", { meal: t(MEAL_LABEL[m]) })}</Button>
-            ))}
+          <div className="pb-2">
+            <h3 className="text-[1.0625rem] font-bold">{t("How much did you have?")}</h3>
+            <div role="group" aria-label={t("How much did you have?")} className="mt-2.5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,6.5rem),1fr))] gap-2">
+              {PORTIONS.map((n) => {
+                const on = (moving.portion ?? 1) === n;
+                return (
+                  <button key={n} type="button" aria-pressed={on} onClick={() => portionTo(moving, n)}
+                    className={`flex min-h-14 flex-col items-center justify-center rounded-[1rem] px-2 py-1.5 text-center transition active:scale-95 ${on ? "bg-foreground text-background" : "bg-soft-strong"}`}>
+                    <span className="text-[0.9375rem] font-bold">{portionWords(n)}</span>
+                    <span className={`app-numbers text-[0.8125rem] ${on ? "text-white/75" : "text-muted"}`}>{formatCalories(withPortion(moving, n).nutrients.calories)}</span>
+                  </button>
+                );
+              })}
+            </div>
+            <h3 className="mt-6 text-[1.0625rem] font-bold">{t("Move to another meal")}</h3>
+            <div className="mt-2.5 space-y-2.5">
+              {MEALS.filter((m) => m !== entryMeal(moving)).map((m) => (
+                <Button key={m} full variant="secondary" className="min-h-14 text-lg" onClick={() => moveTo(moving, m)}>{t("Move to {meal}", { meal: t(MEAL_LABEL[m]) })}</Button>
+              ))}
+            </div>
           </div>
         )}
       </Sheet>

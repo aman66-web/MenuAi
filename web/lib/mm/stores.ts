@@ -20,7 +20,7 @@ import {
   type DraftResult, type Reminder, type ReminderDraft,
 } from "./reminders";
 import {
-  DEFAULT_SETTINGS, sanitizeFavorites, sanitizeLog, sanitizeRecipeSaves, sanitizeSavedOrders, sanitizeSettings,
+  DEFAULT_SETTINGS, sanitizeFavorites, sanitizeLog, sanitizeRecipeSaves, sanitizeSavedOrders, sanitizeSettings, withPortion,
   type Favorite, type LogEntry, type RecipeSave, type SavedOrder, type UserSettings,
 } from "./user-data";
 
@@ -161,6 +161,11 @@ export function deleteLogEntry(id: string) {
 /** A logged food moved to another meal of its day (usability test 2026-11-19: put under Breakfast by mistake, the only way was to delete it and add it again). */
 export function moveLogEntry(id: string, meal: Meal) {
   logStore.update((list) => list.map((e) => (e.id === id ? { ...e, meal } : e)));
+}
+
+/** A logged food changed to `portion` portions (half, one and a half, two ...), its figures scaled with it (usability test 2026-11-19). */
+export function setLogPortion(id: string, portion: number) {
+  logStore.update((list) => list.map((e) => (e.id === id ? withPortion(e, portion) : e)));
 }
 
 /** A drink of water, now. */

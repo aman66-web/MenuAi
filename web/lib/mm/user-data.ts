@@ -42,6 +42,20 @@ export interface LogEntry {
   image?: string;
   recipeId?: string;
   photo?: PhotoSource;
+  /** How many portions of what was logged this is, when the person changed it (usability test 2026-11-19); absent = one. The figures are already scaled. */
+  portion?: number;
+}
+
+/** The portions a logged food can be changed to. */
+export const PORTIONS = [0.5, 1, 1.5, 2, 3] as const;
+
+/** A logged food as `portion` portions of what was logged: every figure scaled from the portion it is now, to one decimal place. */
+export function withPortion(e: LogEntry, portion: number): LogEntry {
+  const from = e.portion ?? 1;
+  const f = portion / from;
+  const nutrients = Object.fromEntries(Object.entries(e.nutrients).map(([k, v]) => [k, typeof v === "number" ? Math.round(v * f * 10) / 10 : v])) as LogEntry["nutrients"];
+  const { portion: _old, ...rest } = e; // eslint-disable-line @typescript-eslint/no-unused-vars -- the old portion is replaced
+  return portion === 1 ? { ...rest, nutrients } : { ...rest, nutrients, portion };
 }
 
 export interface Favorite {
@@ -213,10 +227,11 @@ export function sanitizeLog(raw: unknown): LogEntry[] {
     .map((e) => {
       // A meal row this app doesn't know: the entry falls back to its time. A picture reference that isn't one we would show is dropped
       // (it comes back from this phone's storage and from the sync server); the entry itself stays.
-      const { meal, image, recipeId, photo, ...rest } = e;
+      const { meal, image, recipeId, photo, portion, ...rest } = e;
       const kept = validPhoto(photo);
       return {
         ...rest,
+        ...(typeof portion === "number" && Number.isFinite(portion) && portion >= 0.25 && portion <= 10 && portion !== 1 ? { portion } : {}),
         ...(meal !== undefined && MEALS.includes(meal) ? { meal } : {}),
         ...(typeof image === "string" && image.length <= 200 && LOG_IMAGE.test(image) ? { image } : {}),
         ...(typeof recipeId === "string" && RECIPE_ID.test(recipeId) && !(recipeId in Object.prototype) ? { recipeId } : {}),
