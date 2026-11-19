@@ -7,11 +7,11 @@
    "file": "sainsburys.json",
    "count": 15288,
    "checkedOn": "2026-10-08",
-   "nutrition": 13937,
+   "nutrition": 13938,
    "community": 170,
-   "sameProduct": 41,
+   "sameProduct": 42,
    "priced": 15288,
-   "sha256": "e565982f28f5b2c0932266a68e88d06d7c7ad17ba44a14e148005e2a28dee31e"
+   "sha256": "46499b49a59dae3e0de03ef9c21cc9674fb3255d1972c0fd28416a224fe2c9e5"
   },
   {
    "id": "tesco",
@@ -65,11 +65,11 @@
    "file": "morrisons.json",
    "count": 16367,
    "checkedOn": "2026-10-08",
-   "nutrition": 12104,
+   "nutrition": 12324,
    "community": 597,
    "sameProduct": 1516,
    "priced": 16367,
-   "sha256": "a6f63ad8c9432de276bacfacd200ab990fb66dadc29efe4b38c423cf4790a212"
+   "sha256": "e8835a206ef44e53957205905871447c15d74272ba7ee4a0a8a2ab9fa9e05631"
   },
   {
    "id": "waitrose",
