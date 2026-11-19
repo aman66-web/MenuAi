@@ -3294,5 +3294,5 @@ changes, so it was left alone and a look inside was declined).
 ### 19 November 2026 (about 12:55): the overnight work put live
 Founder: "Yes, put it all live for me, please." `iap` (db413393, 66 commits since 543c194b) pushed to `main`; Vercel's production build was Ready, and numbite.com
 was checked: the new words ("How many people is the shopping for?", "Choose a product for", "I have this:", "in the basket", "For breakfast") are in the live
-pages' code, and every shop's list file on numbite.com matches the build (Morrisons 12,104 products with labels, Waitrose 8,239, Tesco 1,686). The iPhone app
-picks up the grocery lists from numbite.com; its code changes need the next build. Two Morrisons label readers carry on.
+pages' code, and every shop's list file on numbite.com matches the build (Morrisons 12,104 products with labels, Waitrose 8,239, Tesco 1,686). In the iPhone app
+only newer restaurant menus come from numbite.com (docs/APP_BUILD.md "Live data"): the grocery lists and these fixes reach iPhone users with the next app build. Two Morrisons label readers carry on.
