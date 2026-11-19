@@ -74,3 +74,18 @@ Each tester's full notes: `docs/usability/2026-11-19/<name>.md`.
 - A text size bigger than Extra large (Frank).
 - "Does Numbite cost anything?" in Settings with one answer (Barbara), once Premium is on.
 - "Help and contact" near the top of Settings, and whether to show a phone number (Frank).
+
+## Round 3 (19 November 2026, early morning): five of the round 2 testers again, on the night's fixes
+
+Same people and jobs where they struggled, on the development server of the `iap` branch (sign-in off there), each from the welcome screen.
+
+| Tester | Result | Fixed after this round |
+|---|---|---|
+| Raj | 4 of 5: plan for 2 people worked (£81.90 within £86); a dinner swap said only "No other recipes fit" | the swap says why (every dinner of the chosen kinds is in the plan) and offers Make a new plan |
+| Joan | 4 of 5: Choose a product for milk and bread, basket count, Remove ticked, Add one more all worked; opening peas from the list hit "That barcode isn't in our list yet" | list items open their shop's own page; the missing-barcode screen offers ways on; every "I have this" names its ingredient; a ticked ingredient says it's left off |
+| George | 6 of 6 | eaten and left now add up exactly; Today says what's left; "½ portion"; the amount box selects its 100; results name their shop; the sheet's label reads "For breakfast" |
+| Pat | 5 of 5, two the hard way: "an onion", "a tin of beans" and "some chedar" were ignored silently; the list suggested things she'd ticked | typed foods read without "a", "some", "tin of"; a one-letter slip read and said ("I read chedar as cheddar"); what no recipe uses is named; the list leaves out what she has |
+| Harold | 5 of 5: "You avoid" on every dish worked; the "may contain" peanut warning looked like an all-clear | own allergies listed worst first; contains as a dark box, may contain with a heavy border and its meaning; may-contain counted apart |
+
+Not changed (decisions or the test tool): the "35 g+ protein" order (most protein for the calories, as its own line says); Pip's tips over Home after setup; eggs in a
+plan for two looked many to Raj (42, from the recipes' own amounts); Asda prices checked 8 October; a dropdown and some taps the test tool couldn't do like a finger.

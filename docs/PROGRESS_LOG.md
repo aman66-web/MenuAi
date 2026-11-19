@@ -3275,3 +3275,18 @@ nothing here is on numbite.com or in the App Store yet (the founder decides when
 - **Not done, for the founder:** comparing a whole list's total between shops (own-brand products never match across shops, so most lists couldn't be compared
   honestly; it needs a decision on matching "similar" products); "35 g+ protein" ordering by protein per calorie (a ranking choice); kcal versus "calories" in the
   words; a text size above Extra large.
+
+### 19 November 2026 (05:00-07:00): more tester fixes, a second tester round, more labels (all on `iap`, not live)
+Founder ~05:10: "Close down any [tabs] or anything that isn't being used by you right now ... Do as much as you can to make the [app] the best it can be ...
+you have free [rein]". Closed: an empty Chrome tab and the booted iOS Simulator (Safari refused to quit, "user cancelled": a page there may hold unsaved
+changes, so it was left alone and a look inside was declined).
+- **Fixes:** supermarket search in Add food puts the person's shops first; "You're all set" says when the numbers are only starting ones; the welcome logo wall fills
+  in after hydration (the "Hydration failed" rebuild on every first visit is gone; onboarding-body passes 22 of 22 on the dev server); the list says how many are
+  in the basket; the plan's day strip fades while more days are off screen; "Best fit £n" stands over the green spot; Contact us moved up into Settings › Help.
+- **Second tester round** (docs/USABILITY_TESTS.md "Round 3"), then its fixes: list items open their shop's page; I have this named on every ingredient and
+  remembered while the app is open; Cook with what you have reads "an onion", "a tin of beans", slips like "chedar", and names what no recipe uses; the list's
+  suggestions leave out what the person has; the food diary's left/eaten sum, "½ portion", the amount box, shop names in results, the "For breakfast" label;
+  allergen warnings for the person's own allergies stand out and come first; a swap with nothing left says why.
+- **Groceries:** two more reader rounds per shop; 32 more labels held back; 4 stray records (Waitrose pages saved under Morrisons ids when two readers shared a
+  tab) removed, and the briefs (`tools/groceries/briefs/`, now committed) say to use only a tab of one's own. Waitrose 7,364 of 9,721 with labels, Morrisons 9,640 of 16,367.
+- **Tesco:** the 06:17 check got Tesco's bot-protection page ("Powered and protected by"): no reader started.
