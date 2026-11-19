@@ -58,7 +58,8 @@ export function WaterCard({ now, guard }: { now: Date; guard: (go: () => void) =
           type="button"
           onClick={() => guard(() => setOpen(true))}
           aria-label={t("Add water")}
-          className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-strong transition active:scale-95 hover:bg-accent-soft hover:text-accent"
+          // dark, like every "add" on Home (founder 2026-11-19: "choose the best colours for each thing")
+          className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#1d2320] text-white transition active:scale-95 hover:bg-[#2c3530] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
           <PlusIcon aria-hidden className="h-6 w-6" />
         </button>

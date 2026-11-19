@@ -55,28 +55,30 @@ export function RecipeTools() {
             the meal plan is a big thing it should have its own row"): the meal plan in the app's lime under the dark scan card, so the eye meets it next; each
             card says in words what it does, with a small picture of the result (a week of days, the foods you'd type) */}
         {/* the meal plan (founder 2026-11-18; app/app/plan; Premium): a week of our recipes for the person's goal and budget, with the shopping list and each meal's price */}
-        <Link href="/app/plan" className="mt-3 block rounded-[1.5rem] bg-sun p-4 text-[var(--on-accent)] shadow-[0_14px_30px_-22px_rgba(0,0,0,0.5)] transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+        {/* the colours (founder 2026-11-19: "choose the best colours for each thing"): the dark is the day's numbers alone, the lime is for buttons and progress,
+            and each feature card has a soft tint of its own so it is noticed and known by its colour: the meal plan a pale green, Cook with what you have a cream */}
+        <Link href="/app/plan" className="mt-3 block rounded-[1.5rem] bg-[#e4f0d0] p-4 text-[#1d2320] shadow-[0_14px_30px_-24px_rgba(0,0,0,0.45)] transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
           <span className="flex items-start gap-3">
             <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
               <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
                 <span className="text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("Meal plan")}</span>
                 {GATING_ENABLED && !pro && <span className="inline-block rounded-full bg-[#1d2320] px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--sun)]">{t("Premium")}</span>}
               </span>
-              <span className="mt-0.5 block text-[0.9375rem] leading-snug">{t("Pip plans 7 days of meals for your goal, with one shopping list.")}</span>
+              <span className="mt-0.5 block text-[0.9375rem] leading-snug text-[#3d4a3f]">{t("Pip plans 7 days of meals for your goal, with one shopping list.")}</span>
             </span>
             <ChevronRightIcon aria-hidden className="mt-0.5 h-5 w-5 shrink-0" />
           </span>
-          <span className="mt-3 block"><WeekStrip onLime /></span>
+          <span className="mt-3 block"><WeekStrip onTint /></span>
         </Link>
 
         {/* Cook with what you already have (founder 2026-11-19; app/app/recipes/fridge): our recipes for what's in the fridge, free; Pip's own one is Premium inside */}
-        <Link href="/app/recipes/fridge" className="glass lift mt-3 block rounded-[1.5rem] p-4 text-start">
+        <Link href="/app/recipes/fridge" className="mt-3 block rounded-[1.5rem] bg-[#fbeccb] p-4 text-start text-[#1d2320] shadow-[0_14px_30px_-24px_rgba(0,0,0,0.45)] transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
           <span className="flex items-start gap-3">
             <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
               <span className="block text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("Cook with what you already have")}</span>
-              <span className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{t("Tell us what's in your fridge and get recipes for it.")}</span>
+              <span className="mt-0.5 block text-[0.9375rem] leading-snug text-[#5a4a2c]">{t("Tell us what's in your fridge and get recipes for it.")}</span>
             </span>
-            <ChevronRightIcon aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-muted" />
+            <ChevronRightIcon aria-hidden className="mt-0.5 h-5 w-5 shrink-0" />
           </span>
           <span className="mt-3 block"><HaveChips large /></span>
         </Link>

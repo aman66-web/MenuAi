@@ -25,7 +25,8 @@ export function ScanFrameIcon({ size = "md", onDark = false }: { size?: "sm" | "
 /** The foods you'd type in, as chips: "Cook with what you have". `large` (a card across the width): bigger chips and a third food where it fits. */
 export function HaveChips({ large = false }: { large?: boolean }) {
   const t = useT();
-  const chip = `inline-flex items-center rounded-full bg-sun font-bold leading-none text-[var(--on-accent)] ${large ? "min-h-8 px-3 text-[0.875rem]" : "min-h-6 px-2 text-[0.75rem]"}`;
+  // on the cream Cook card (large): white chips with dark words; small: the lime chips
+  const chip = `inline-flex items-center rounded-full font-bold leading-none ${large ? "min-h-8 bg-white px-3 text-[0.875rem] text-[#1d2320] shadow-[0_1px_2px_rgba(0,0,0,0.06)]" : "min-h-6 bg-sun px-2 text-[0.75rem] text-[var(--on-accent)]"}`;
   const plus = large ? "h-8 w-8" : "h-6 w-6";
   return (
     // the "+" only where it fits on the same line (a narrow card at large text shows the two foods alone)
@@ -38,8 +39,8 @@ export function HaveChips({ large = false }: { large?: boolean }) {
   );
 }
 
-/** A week of days, Monday first, each a small square with its letter: "Meal plan". `onLime` (on the lime Meal plan card): white squares, taller. */
-export function WeekStrip({ onLime = false }: { onLime?: boolean }) {
+/** A week of days, Monday first, each a small square with its letter: "Meal plan". `onTint` (on the pale green Meal plan card): white squares, taller. */
+export function WeekStrip({ onTint = false }: { onTint?: boolean }) {
   const language = useLanguage();
   const f = new Intl.DateTimeFormat(localeInfo(language).htmlLang, { weekday: "narrow" });
   // 3 to 9 November 2026 is a Monday to a Sunday: only the letters are used
@@ -47,7 +48,7 @@ export function WeekStrip({ onLime = false }: { onLime?: boolean }) {
   return (
     <span aria-hidden className="flex gap-1">
       {days.map((d, i) => (
-        <span key={i} className={`grid min-w-0 flex-1 place-items-center rounded-[0.5rem] font-bold leading-none ${onLime ? "h-8 bg-white text-[0.875rem] text-[#1d2320]" : "h-6 bg-sun text-[0.75rem] text-[var(--on-accent)]"}`}>{d}</span>
+        <span key={i} className={`grid min-w-0 flex-1 place-items-center rounded-[0.5rem] font-bold leading-none ${onTint ? "h-8 bg-white text-[0.875rem] text-[#1d2320] shadow-[0_1px_2px_rgba(0,0,0,0.06)]" : "h-6 bg-sun text-[0.75rem] text-[var(--on-accent)]"}`}>{d}</span>
       ))}
     </span>
   );

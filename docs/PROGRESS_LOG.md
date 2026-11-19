@@ -3370,3 +3370,8 @@ top part instead".
   recipe" uses it: about 0.6 s of work, 2 to 2.5 s on a phone-speed processor (Chrome slowed 4x), which froze the highlight half way. It is now worked out only
   when Pip is asked. Measured at 4x: the new shop shows as picked in 0.1 to 0.2 s (was 1.9 s), with no long task after it (was up to 2.5 s); Pip's request still
   carries the shop's cupboard list (125 lines at Waitrose).
+- (18:50) **Home's colours** (founder: "Choose the best colours for each thing for the best design in your opinion"): the app's dark (#1d2320) for the day's
+  numbers alone (and the tab bar); the lime only for what is tapped or shows progress (the main buttons, today, the dial and bars, the open tab); each feature card
+  a soft tint of its own so it is noticed and known by its colour: Meal plan pale green (#e4f0d0, white day squares), Cook with what you already have cream
+  (#fbeccb, white food chips), Scan your food white with its lime and dark buttons; every "add" button on Home (the meals', Water's, Reminders') dark with a
+  white +. axe finds nothing for a Premium or a free person; addfood, water and coach pass.

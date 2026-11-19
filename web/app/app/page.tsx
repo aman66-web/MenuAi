@@ -274,7 +274,7 @@ export default function HomePage() {
                   </span>
                 )}
               </Link>
-              <button type="button" data-coach={meal === LOG_MEALS[0] ? "home-add" : undefined} onClick={() => gate("log", () => setAddTo(meal))} aria-label={t(ADD_TO[meal])} className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-strong transition active:scale-95 hover:bg-accent-soft hover:text-accent">
+              <button type="button" data-coach={meal === LOG_MEALS[0] ? "home-add" : undefined} onClick={() => gate("log", () => setAddTo(meal))} aria-label={t(ADD_TO[meal])} className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#1d2320] text-white transition active:scale-95 hover:bg-[#2c3530] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
                 <PlusIcon className="h-6 w-6" />
               </button>
             </li>
