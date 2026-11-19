@@ -9,6 +9,7 @@ import { LOW_SHARE_OVER_1000, MIN_SCORED_KCAL, SHARE_BANDS, SIZE_CAPS } from "@/
 import { MIN_PROTEIN_ENERGY_SHARE, MIN_PROTEIN_PER_100 } from "@/lib/mm/truth/proteinValue";
 import { REFERENCE_INTAKE } from "@/lib/mm/truth/referenceIntake";
 import { MIN_ORIGINAL_KCAL, MIN_SAVING_KCAL, MIN_SAVING_SHARE, MIN_SIZE_SHARE } from "@/lib/mm/truth/swap";
+import type { Chain } from "@/lib/mm/types";
 import { useT } from "../_lib/i18n";
 
 // "Where these numbers come from" for the menu screens (App Review 1.4.1: citations for health information, easy to find): the numbers a dish's Truth card,
@@ -46,11 +47,22 @@ function Block({ title, level, children }: { title: string; level: Level; childr
 }
 
 /** `level`: the headings inside, one below the title they sit under (a sheet's title is an h2, the page's an h1). `withAdvice`: the "not medical advice" line (the sources page already shows it once). */
-export function MenuSourcesBody({ level = "h3", withAdvice = true }: { level?: Level; withAdvice?: boolean }) {
+export function MenuSourcesBody({ level = "h3", withAdvice = true, chain }: { level?: Level; withAdvice?: boolean; chain?: Pick<Chain, "name" | "source"> }) {
   const t = useT();
   const app = site.name;
   return (
     <div className="space-y-3.5 pb-2">
+      {/* on a restaurant's screens, its own figures come first (usability test 2026-11-19: Harold looked here for where Nando's numbers come from) */}
+      {chain && (
+        <Block level={level} title={t("{chain}'s own figures", { chain: chain.name })}>
+          <p>{t("Each dish's figures, and its allergens where they're shown, are {chain}'s own, as it publishes them, checked {date}. {app} doesn't estimate any of them.", { chain: chain.name, date: formatDate(chain.source.checkedOn, t), app })}</p>
+          <p className="mt-2.5 text-[0.9375rem] leading-snug">
+            <a className="inline-flex min-h-11 items-center font-semibold text-accent underline underline-offset-4" href={chain.source.url} target="_blank" rel="noopener noreferrer">
+              <span>{chain.source.title}<span className="sr-only"> {t("(opens in a new tab)")}</span></span>
+            </a>
+          </p>
+        </Block>
+      )}
       <p className="text-base leading-relaxed">{t("On a dish's Truth card, in Quick answers and in Cheapest protein, {app} adds a few numbers to the restaurant's or shop's own figures. This says where each one comes from.", { app })}</p>
 
       <Block level={level} title={t("Reference intakes")}>

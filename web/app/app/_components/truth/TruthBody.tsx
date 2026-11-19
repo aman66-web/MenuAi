@@ -261,7 +261,7 @@ export function TruthBody({ chain, item, swap, creator = false, replay = 0, onWh
       </section>
 
       {/* App Review 1.4.1: where the reference intakes, the traffic lights, "What that looks like" and the Protein score come from, at the top of the card. */}
-      <MenuSourcesLink className="mt-1.5" />
+      <MenuSourcesLink className="mt-1.5" chain={chain} />
 
       {truth.score ? (
         <section aria-labelledby="truth-score" className="truth-bounce mt-3 rounded-[1.5rem] bg-[var(--fill)] p-5">

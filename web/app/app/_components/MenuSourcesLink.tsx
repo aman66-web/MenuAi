@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { createPortal } from "react-dom";
+import type { Chain } from "@/lib/mm/types";
 import { useT } from "../_lib/i18n";
 import { MenuSourcesBody } from "./MenuSourcesBody";
 import { Sheet } from "./ui";
@@ -11,7 +12,7 @@ import { Sheet } from "./ui";
  * so the person keeps their place. The sheet goes to the end of the page (a portal), not inside the Truth card, so the dark card's colours never reach it;
  * a second modal dialog sits on top of the first and closing it leaves the first open (ui.tsx Sheet only answers its own close).
  */
-export function MenuSourcesLink({ className = "" }: { className?: string }) {
+export function MenuSourcesLink({ className = "", chain }: { className?: string; /** On a restaurant's screens: its own figures' source first. */ chain?: Pick<Chain, "name" | "source"> }) {
   const t = useT();
   const [open, setOpen] = useState(false);
   // The sheet is put on the page the first time it is opened and then kept, so closing it runs the dialog's own close (focus goes back to this link).
@@ -32,7 +33,7 @@ export function MenuSourcesLink({ className = "" }: { className?: string }) {
       {used &&
         createPortal(
           <Sheet open={open} onClose={() => setOpen(false)} title={t("Where these numbers come from")}>
-            <MenuSourcesBody />
+            <MenuSourcesBody chain={chain} />
           </Sheet>,
           document.body,
         )}

@@ -59,7 +59,7 @@ export function PresetPills({ chain, items, renderList }: { chain: Chain; items:
         )}
       </div>
       {/* App Review 1.4.1: the limits behind each list are Numbite's own; the sheet says so, with the other menu sources. */}
-      {def && <MenuSourcesLink className="mt-0.5" />}
+      {def && <MenuSourcesLink className="mt-0.5" chain={chain} />}
       {def && results.length > 0 && <div className="mt-2.5">{renderList(results.slice(0, gated ? FREE_PRESET_RESULTS : PRESET_TOP))}</div>}
       {def && gated && Math.min(results.length, PRESET_TOP) > FREE_PRESET_RESULTS && (
         <Button size="lg" full variant="secondary" className="mt-2.5" onClick={() => showPaywall("moreResults")}>{t("Unlock the other {n}", { n: Math.min(results.length, PRESET_TOP) - FREE_PRESET_RESULTS })}</Button>

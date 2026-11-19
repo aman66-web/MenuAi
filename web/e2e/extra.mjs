@@ -22,7 +22,7 @@ async function pastIntro(page) {
   await page.getByRole("button", { name: "Show me around" }).click();
   await vis(page.getByRole("heading", { name: "Easy to read" }));
   await page.getByRole("button", { name: "Continue" }).click();
-  for (const tab of ["Home", "Eat out", "Groceries", "Recipes"]) {
+  for (const tab of ["Home", "Recipes", "Groceries", "Eat out"]) {
     await vis(page.getByRole("heading", { level: 1, name: tab, exact: true }));
     await page.getByRole("button", { name: "Continue" }).click();
   }
@@ -105,11 +105,12 @@ await step("onboarding back button returns to the previous step, keeping the cho
   await page.getByRole("button", { name: "Back to the previous step" }).click();
   await vis(page.getByRole("heading", { name: "Let's make it yours" }));
   await page.getByRole("button", { name: "Back to the previous step" }).click();
-  await vis(page.getByRole("heading", { level: 1, name: "Community", exact: true }));
+  // the walk follows the tab bar (Home, Recipes, Groceries, Eat out; Community is off): back from the end is Eat out
+  await vis(page.getByRole("heading", { level: 1, name: "Eat out", exact: true }));
   await page.getByRole("button", { name: "Back to the previous step" }).click();
-  await vis(page.getByRole("heading", { level: 1, name: "Recipes", exact: true }));
-  // Groceries, Eat out, Home, the text size, Pip's arrival, the welcome screen
-  for (let i = 0; i < 6; i++) await page.getByRole("button", { name: "Back to the previous step" }).click();
+  await vis(page.getByRole("heading", { level: 1, name: "Groceries", exact: true }));
+  // Recipes, Home, the text size, Pip's arrival, the welcome screen
+  for (let i = 0; i < 5; i++) await page.getByRole("button", { name: "Back to the previous step" }).click();
   await vis(page.getByRole("button", { name: "Get started" }));
   await ctx.close();
 });
@@ -318,7 +319,7 @@ await step("Settings › Set up with Pip opens the welcome screen with a way bac
   await ctx.addInitScript(() => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "maintain", dailyCalories: 2000 } })); });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/settings");
-  const pip = page.getByRole("link", { name: /Set up with Pip/ });
+  const pip = page.getByRole("link", { name: /Set up your plan again/ });
   await vis(pip);
   if ((await pip.getAttribute("href")) !== "/app/welcome") throw new Error("the card goes to " + (await pip.getAttribute("href")));
   const box = await pip.boundingBox();

@@ -226,10 +226,14 @@ await step("App Review 1.4.1: 'Where these numbers come from' sits at the top of
   await link.click();
   const sources = page.getByRole("dialog", { name: "Where these numbers come from" });
   await sources.getByRole("heading", { level: 3, name: "Reference intakes" }).waitFor();
-  const hrefs = await sources.locator("a[href^='http']").evaluateAll((as) => as.map((a) => a.href));
+  const all = await sources.locator("a[href^='http']").evaluateAll((as) => as.map((a) => a.href));
+  // first, the restaurant's own published figures (usability test 2026-11-19: Harold looked here for where the chain's numbers come from)
+  await sources.getByRole("heading", { level: 3, name: "Subway's own figures" }).waitFor();
+  expect(/subway\.com/.test(all[0] ?? ""), "the restaurant's own source first: " + all[0]);
+  const hrefs = all.slice(1);
   expect(hrefs.length === 5, "five sources: " + hrefs.join(" "));
   for (const h of hrefs) { const u = new URL(h); expect(u.protocol === "https:" && HOSTS.includes(u.host), "source " + h); }
-  expect([...new Set(cardLinks)].sort().join() === [...hrefs].sort().join(), "the sheet should list exactly the card's own links: " + cardLinks.join(" "));
+  expect([...new Set(cardLinks.filter((h) => !/subway\.com/.test(h)))].sort().join() === [...hrefs].sort().join(), "the sheet should list exactly the card's own links: " + cardLinks.join(" "));
   const words = (await sources.innerText()).replace(/\s+/g, " ");
   for (const w of ["2,000 kcal of energy", "Protein score: 5 needs at least 25%", "Quick answers: meals of 500 kcal or less", "Smart Swap:", "Cheapest protein:", "not taken from a published source", "doesn't give medical advice", "Sources checked on 13 Nov 2026"]) expect(words.includes(w), "missing: " + w);
   expect(!/\b(good|bad|healthy)\b/i.test(words), "judging words in the sheet");
