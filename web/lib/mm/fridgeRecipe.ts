@@ -17,10 +17,24 @@ export const MAX_HAVE = 400;
 /** Fewer than this many things isn't enough to build a recipe around. */
 export const MIN_HAVE_ITEMS = 2;
 
-/** What the person typed, as separate things: split at commas, new lines, "and", "&" or ";", tidied, each once, at most 25. */
+/** How much or what state it's in, said before the food ("an onion", "a tin of beans", "some cheddar", "leftover rice", "2 eggs"): the food is what's matched. */
+const BEFORE_THE_FOOD = /^(?:a|an|the|some|few|a few|couple of|a couple of|bit of|a bit of|half|half a|half an|tins? of|cans? of|jars? of|bags? of|packets? of|packs? of|box of|boxes of|cartons? of|bottles? of|loaf of|lots of|leftover|left over|tinned|canned|fresh|frozen|cooked|\d+(?:\.\d+)?\s*(?:g|kg|ml|l)?)\s+/;
+
+/** One thing typed without the words before the food ("a tin of beans" is beans). */
+export function plainItem(s: string): string {
+  let out = s;
+  for (let i = 0; i < 4; i++) {
+    const next = out.replace(BEFORE_THE_FOOD, "");
+    if (next === out) break;
+    out = next;
+  }
+  return out;
+}
+
+/** What the person typed, as separate things: split at commas, new lines, "and", "&" or ";", tidied, the words before the food left off, each once, at most 25. */
 export function haveItems(text: string): string[] {
   const seen = new Set<string>();
-  return text.slice(0, MAX_HAVE).toLowerCase().split(/[,;\n&]+|\band\b/).map((s) => s.replace(/[^\p{L}\p{N}' -]+/gu, " ").replace(/\s+/g, " ").trim()).filter((s) => {
+  return text.slice(0, MAX_HAVE).toLowerCase().split(/[,;\n&]+|\band\b/).map((s) => plainItem(s.replace(/[^\p{L}\p{N}' -]+/gu, " ").replace(/\s+/g, " ").trim())).filter((s) => {
     if (s.length < 2 || s.length > 40 || seen.has(s)) return false;
     seen.add(s);
     return true;
@@ -67,6 +81,44 @@ export function spellings(item: string): string[] {
   if (item.length > 4 && item.endsWith("es")) out.push(item.slice(0, -2));
   if (item.length > 3 && item.endsWith("s")) out.push(item.slice(0, -1));
   return out;
+}
+
+/** Every word of our recipes' ingredients (4 letters or more), for reading a slip of the finger as the food meant. */
+function ingredientWords(recipes: readonly Recipe[]): Set<string> {
+  const out = new Set<string>();
+  for (const r of recipes) for (const i of r.ingredients) for (const w of i.label.toLowerCase().split(/[^a-z]+/)) if (w.length >= 4) out.add(w);
+  return out;
+}
+
+/** Whether two words are one slip apart: a letter missing, added, changed, or two side by side swapped ("chedar" and "cheddar"). */
+function oneSlip(a: string, b: string): boolean {
+  if (a === b || Math.abs(a.length - b.length) > 1) return false;
+  let i = 0;
+  while (i < a.length && i < b.length && a[i] === b[i]) i++;
+  if (a.length === b.length) return a.slice(i + 1) === b.slice(i + 1) || (a[i] === b[i + 1] && a[i + 1] === b[i] && a.slice(i + 2) === b.slice(i + 2));
+  return a.length > b.length ? a.slice(i + 1) === b.slice(i) : a.slice(i) === b.slice(i + 1);
+}
+
+/**
+ * The things typed as our recipes can read them (usability test 2026-11-19: Pat's "some chedar" was dropped without a word): a word our recipes don't have that
+ * is one slip from one they do (5 letters or more) is read as that word, and a thing none of our recipes uses at all is named, so the screen can say so.
+ */
+export function readItems(recipes: readonly Recipe[], items: readonly string[]): { items: string[]; fixed: Array<{ typed: string; read: string }>; missing: string[] } {
+  const vocab = ingredientWords(recipes);
+  const known = (w: string) => spellings(w).some((x) => vocab.has(x)) || [...vocab].some((v) => v.startsWith(w));
+  const fixed: Array<{ typed: string; read: string }> = [];
+  const read = items.map((item) => {
+    const words = item.split(" ").map((w) => {
+      if (w.length < 5 || known(w)) return w;
+      const near = [...vocab].find((v) => oneSlip(w, v));
+      return near ?? w;
+    });
+    const out = words.join(" ");
+    if (out !== item) fixed.push({ typed: item, read: out });
+    return out;
+  });
+  const missing = read.filter((item) => !recipes.some((r) => spellings(item).some((w) => leavesOut(r, [w]))));
+  return { items: read, fixed, missing };
 }
 
 /** One of our recipes and the things the person has that it uses. */

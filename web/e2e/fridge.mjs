@@ -49,6 +49,19 @@ await step("typing and tapping what you have, then what you fancy, finds our rec
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "no sideways scroll");
 });
 
+await step("Pat's typing (usability test 2026-11-19): 'an onion', 'a tin of beans' and 'some chedar' are read as onion, beans and cheddar, and the screen says so", async () => {
+  await page.getByLabel("What do you have?").fill("eggs, an onion, potatos, a tin of beans, some chedar, unicorn steak");
+  await page.getByRole("radio", { name: "Anything" }).tap();
+  await page.getByRole("button", { name: "Show me recipes" }).tap();
+  await page.getByText("I read “chedar” as cheddar.").waitFor({ timeout: 60000 });
+  await page.getByText(/None of our recipes uses “unicorn steak”/).waitFor();
+  const cards = page.locator("section[aria-labelledby='fridge-results'] li");
+  await cards.first().waitFor({ timeout: 60000 });
+  const all = (await cards.allInnerTexts()).join(" | ");
+  expect(/Uses your [^|]*onion/.test(all) && /Uses your [^|]*(beans|cheddar)/.test(all), "onion and beans or cheddar are used: " + all.slice(0, 300));
+  expect((await page.getByRole("button", { name: "tinned beans", pressed: true }).count()) === 1, "the tinned beans chip shows as chosen");
+});
+
 await step("axe finds nothing on the screen", async () => {
   await page.addScriptTag({ path: AXE });
   const v = await page.evaluate(async () => (await window.axe.run(document, { runOnly: ["wcag2a", "wcag2aa"] })).violations.map((x) => `${x.id}: ${x.nodes[0]?.html.slice(0, 90)}`));

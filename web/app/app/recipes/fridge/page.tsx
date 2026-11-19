@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { MAX_SAVED_RECIPES, keepMadeRecipe, pantryLines } from "@/lib/mm/aiRecipe";
 import { API_BASE, PAID_ACCESS_ENABLED, PHOTO_RECIPES_ENABLED } from "@/lib/mm/config";
-import { FRIDGE_MESSAGES, FRIDGE_MOODS, MAX_HAVE, MIN_HAVE_ITEMS, fridgeRecipeFromAi, haveItems, ingredientsYouHave, recipesFromFridge, type FridgeMood, type FridgeRecipeRequest } from "@/lib/mm/fridgeRecipe";
+import { FRIDGE_MESSAGES, FRIDGE_MOODS, MAX_HAVE, MIN_HAVE_ITEMS, fridgeRecipeFromAi, haveItems, ingredientsYouHave, plainItem, readItems, recipesFromFridge, type FridgeMood, type FridgeRecipeRequest } from "@/lib/mm/fridgeRecipe";
 import { tk } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { RECIPES } from "@/lib/mm/recipeBook";
@@ -67,7 +67,9 @@ function Fridge() {
   const diet = settings.preferences;
   const target = mealTargetFor(settings) ?? { kcal: mealSizes(settings.dailyCalories).normal };
   const items = haveItems(text);
-  const itemsKey = items.join("|");
+  // what was typed as our recipes read it: a slip of the finger read as the food meant, and anything none of them uses named (usability test 2026-11-19: Pat)
+  const reading = readItems(RECIPES, items);
+  const itemsKey = reading.items.join("|");
   const dietKey = JSON.stringify(diet);
   // worked out again only when what they have, the diet or the kind of food changes (the React Compiler keeps it between renders)
   const matches = shown ? recipesFromFridge(RECIPES, itemsKey ? itemsKey.split("|") : [], diet, 12, mood) : [];
@@ -85,9 +87,13 @@ function Fridge() {
     return () => clearInterval(id);
   }, [step]);
 
+  // a tap adds the food to what was typed, or takes just that food out; the rest stays as the person wrote it ("leftover rice" stays "leftover rice")
   const flip = (word: string) => {
-    const has = items.includes(word);
-    setText(has ? items.filter((x) => x !== word).join(", ") : [...items, word].join(", "));
+    const plain = plainItem(word);
+    if (items.includes(plain)) {
+      const kept = text.split(/[,;\n&]+|\band\b/).map((x) => x.trim()).filter((x) => x && haveItems(x)[0] !== plain);
+      setText(kept.join(", "));
+    } else setText(text.trim() ? `${text.trim().replace(/[,;&\s]+$/, "")}, ${word}` : word);
     setShown(false);
   };
 
@@ -178,7 +184,7 @@ function Fridge() {
       <div role="group" aria-label={t("Common things to add")} className="mt-2 flex flex-wrap gap-2">
         {COMMON.map((c) => {
           const word = t(c);
-          const on = items.includes(word.toLowerCase());
+          const on = items.includes(plainItem(word.toLowerCase()));
           return (
             <button key={c} type="button" aria-pressed={on} onClick={() => flip(word.toLowerCase())} className={`${on ? CHIP_ON : CHIP} gap-1.5 px-4`}>
               {on ? <CheckIcon aria-hidden className="h-4 w-4" /> : <PlusIcon aria-hidden className="h-4 w-4" />}{word}
@@ -207,6 +213,12 @@ function Fridge() {
       {shown && (
         <section ref={results} aria-labelledby="fridge-results" className="mt-8 scroll-mt-4">
           <h2 id="fridge-results" className="text-[1.375rem] font-[800] leading-tight">{t("Recipes that use what you have")}</h2>
+          {(reading.fixed.length > 0 || reading.missing.length > 0) && (
+            <div role="status" className="mt-3 space-y-1 rounded-[1.25rem] bg-[var(--fill)] p-4 text-[0.9375rem] leading-snug">
+              {reading.fixed.map((f) => <p key={f.typed}>{t("I read “{typed}” as {read}.", { typed: f.typed, read: f.read })}</p>)}
+              {reading.missing.length > 0 && <p className="font-semibold">{t("None of our recipes uses {things}. Check the spelling, or tap a food above.", { things: new Intl.ListFormat("en-GB", { type: "disjunction" }).format(reading.missing.map((m) => `“${m}”`)) })}</p>}
+            </div>
+          )}
           {!ready ? <Spinner label={t("Loading the recipes")} />
             : cards.length === 0 ? <p className="glass mt-3 rounded-[1.25rem] p-4 text-[0.9375rem] leading-snug">{mood === "any" ? t("None of our recipes uses these yet.") : t("None of our recipes of that kind uses these. Try Anything.")}</p>
             : (

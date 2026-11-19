@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { FRIDGE_SYSTEM_PROMPT, moodMatches, fridgeRecipeFromAi, fridgeUserPrompt, haveItems, ingredientsYouHave, recipesFromFridge, type FridgeRecipeRequest } from "../lib/mm/fridgeRecipe";
+import { FRIDGE_SYSTEM_PROMPT, moodMatches, fridgeRecipeFromAi, fridgeUserPrompt, haveItems, ingredientsYouHave, readItems, recipesFromFridge, type FridgeRecipeRequest } from "../lib/mm/fridgeRecipe";
 import { haveKey, recipeTotals, resolveRecipe } from "../lib/mm/recipes";
 import { decodeShopProducts } from "../lib/mm/shopProducts";
 import { readFileSync } from "node:fs";
@@ -34,7 +34,7 @@ const ctx = (over: Partial<FridgeCtx> = {}): FridgeCtx => ({ ask: async () => an
 
 describe("what the person has", () => {
   it("splits what's typed into things, tidied and each once", () => {
-    expect(haveItems("Eggs, spinach and cheddar\nleftover rice; eggs & half an onion!")).toEqual(["eggs", "spinach", "cheddar", "leftover rice", "half an onion"]);
+    expect(haveItems("Eggs, spinach and cheddar\nleftover rice; eggs & half an onion!")).toEqual(["eggs", "spinach", "cheddar", "rice", "onion"]);
     expect(haveItems("  ")).toEqual([]);
   });
 
@@ -132,5 +132,22 @@ describe("what the person has stays off the shopping list (usability test 2026-1
     const less = recipeTotals(resolved, new Set([haveKey(egg.key)]))!;
     expect(less.basket).toBeLessThan(all.basket);
     expect(less.perServing).toEqual(all.perServing);
+  });
+});
+
+describe("reading what Pat typed (usability test 2026-11-19: 'eggs, an onion, potatos, a tin of beans, some chedar' used only eggs and potatos)", () => {
+  it("leaves off the words before the food", () => {
+    expect(haveItems("eggs, an onion, potatos, a tin of beans, some chedar, leftover rice, 2 peppers")).toEqual(["eggs", "onion", "potatos", "beans", "chedar", "rice", "peppers"]);
+  });
+  it("reads a one-letter slip as the food meant, and names what no recipe uses", () => {
+    const r = readItems(RECIPES, ["eggs", "onion", "potatos", "beans", "chedar", "unicorn steak"]);
+    expect(r.items).toContain("cheddar");
+    expect(r.fixed).toContainEqual({ typed: "chedar", read: "cheddar" });
+    expect(r.fixed.every((f) => ["chedar", "potatos"].includes(f.typed))).toBe(true);
+    expect(r.missing).toEqual(["unicorn steak"]);
+    const found = recipesFromFridge(RECIPES, r.items, {}, 12);
+    expect(found.some((m) => m.uses.includes("onion"))).toBe(true);
+    expect(found.some((m) => m.uses.includes("beans"))).toBe(true);
+    expect(found.some((m) => m.uses.includes("cheddar"))).toBe(true);
   });
 });
