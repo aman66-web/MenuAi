@@ -69,7 +69,8 @@ export function anthropicDescribePhoto(apiKey: string | undefined): DescribePhot
   if (!apiKey) return null;
   const c = client(apiKey);
   return async (system, image) => {
-    const schema = z.object({ isFood: z.boolean(), description: z.string() });
+    // where the food is, so the app can show the dish and not the rest of the photo (lib/mm/photoRecipe.ts cleanFoodBox, foodCrop)
+    const schema = z.object({ isFood: z.boolean(), description: z.string(), food: z.object({ left: z.number(), top: z.number(), width: z.number(), height: z.number() }).nullable() });
     try {
       const res = await c.messages.parse({
         model: RECIPE_MODEL,
