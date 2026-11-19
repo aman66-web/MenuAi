@@ -1394,3 +1394,30 @@ class ChromeIngestReadingTests(unittest.TestCase):
         import labels_chrome_ingest as I
         t, why = I.read_table({"nut": [["Typical values", "Per 100gms"], ["Energy", "1201kJ / 286kcal"], ["Fat", "3.3g"], ["Carbohydrate", "38.7g"], ["Protein", "10.4g"]], "above": ""})
         self.assertEqual((why, t["per"], t["kcal"]), ("", "g", "286"))
+
+    def test_carohydrate_row_is_read_as_carbohydrate(self):
+        import labels_chrome_ingest as I
+        t, why = I.read_table({"nut": [["Typical values", "(oven baked) per 100g"], ["Energy", "738kJ/176kcal"], ["Fat", "6.0g"], ["Carohydrate", "20.5g"], ["Protein", "9.4g"]], "above": ""})
+        self.assertEqual((why, t["carbs_g"], t["state"]), ("", "20.5", "oven baked"))
+
+    def test_held_back_products_and_those_that_take_nothing_from_elsewhere(self):
+        """A held-back label is never used, from any of the shop's label files; only a hold-back that says so also stops borrowed and community numbers."""
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root / "data" / "groceries" / "nutrition").mkdir(parents=True)
+            (root / "data" / "groceries" / "nutrition" / "holdback.csv").write_text(
+                'shop,id,reason\n'
+                'morrisons,111,"Morrisons product: a negative energy figure, garbled (seen 19 November 2026); never used"\n'
+                'morrisons,222,"Morrisons product: a powder per 100 ml made up (seen 19 November 2026); never used, and it takes no numbers from elsewhere either (x)"\n',
+                encoding="utf-8")
+            old = bap.ROOT
+            bap.ROOT = root
+            try:
+                self.assertEqual(bap.held_back("morrisons"), {"111", "222"})
+                self.assertEqual(bap.label_held_back("morrisons"), {"222"})
+                borrowed = [100.0, 1, 2, 3, None, None, None, None, None, "g", "", "same:sainsburys"]
+                docs = {"morrisons": {"products": [["111", "A"] + [None] * 8 + [list(borrowed)], ["222", "B"] + [None] * 8 + [list(borrowed)], ["333", "C"] + [None] * 8 + [list(borrowed)]]}}
+                self.assertEqual(bap.drop_held_back(docs), {"morrisons": 1})
+                self.assertEqual([p[10] is not None for p in docs["morrisons"]["products"]], [True, False, True])
+            finally:
+                bap.ROOT = old

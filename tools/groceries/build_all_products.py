@@ -218,6 +218,32 @@ def held_back(shop: str) -> set[str]:
         return {row[1].strip() for row in csv.reader(f) if len(row) >= 2 and row[0].strip() == shop}
 
 
+def label_held_back(shop: str) -> set[str]:
+    """The held-back products whose hold-back says it "takes no numbers from elsewhere": the wrong figures are the maker's own, seen in the community data
+    or other shops' labels too (2026-11-19: Nesquik powders, an Alpro drink). Every other hold-back still lets the product borrow the same product's label
+    from another shop or take community numbers (most are about one shop's page: a misread, another product's table, one item of a mixed pack)."""
+    hb = ROOT / "data" / "groceries" / "nutrition" / "holdback.csv"
+    if not hb.exists():
+        return set()
+    with open(hb, newline="", encoding="utf-8") as f:
+        return {row[1].strip() for row in csv.reader(f) if len(row) >= 3 and row[0].strip() == shop and "no numbers from elsewhere" in row[2]}
+
+
+def drop_held_back(docs: dict[str, dict]) -> dict[str, int]:
+    """Clear the numbers (borrowed from another shop, community or government data) of every product whose hold-back says it takes none (label_held_back):
+    it shows none. Returns how many per shop."""
+    out: dict[str, int] = {}
+    for shop, doc in docs.items():
+        held = label_held_back(shop)
+        n = 0
+        for p in doc["products"]:
+            if p[10] and str(p[0]) in held:
+                p[10] = None
+                n += 1
+        out[shop] = n
+    return out
+
+
 def read_nutrition(shop: str, problems: list, path: Path | None = None) -> dict:
     """slug -> ([kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kJ, per], checked_on), from the shop's own product pages."""
     path = path or ROOT / "data" / "groceries" / "nutrition" / f"{shop}.csv"
@@ -745,6 +771,11 @@ def main(argv: list[str] | None = None) -> int:
     produce = fill_produce_nutrition(docs)
     for shop, n in drop_cooked_staples(docs).items():  # and after, for numbers borrowed from elsewhere
         cooked[shop] = cooked.get(shop, 0) + n
+    # a product held back because its maker's figures are wrong takes no numbers from anywhere else either (2026-11-19: Nesquik powders' community numbers
+    # and an Alpro drink's borrowed label carried the very error its own label was held back for); it says so in its hold-back
+    for shop, n in drop_held_back(docs).items():
+        if n:
+            print(f"{shop}: {n} held-back products given no numbers from elsewhere")
     print("dry staples whose 'as sold' label is a cooked figure, left out: " + (", ".join(f"{k} {v}" for k, v in sorted(cooked.items())) or "none"))
     if not a.only:
         print(f"rows still without any photo whose barcode Open Food Facts may have: {write_wanted_off(docs)} (data/groceries/wanted-images/off.csv)")

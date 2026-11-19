@@ -3347,3 +3347,7 @@ shouldn't be the case"; "you have breakfast, lunch, and dinner, but also have on
   "per 100 g" over prepared figures (Maggi noodles' footnote, a follow-on milk given per 100 ml made up, BBQ drumsticks with cooked-looking figures).
   The readers' briefs now say such a heading needs no note.
 - Morrisons 12,598 of 16,367 products with labels.
+- (later) **A hold-back can also stop borrowed and community numbers**, but only when its line says "takes no numbers from elsewhere" (`label_held_back`,
+  `drop_held_back` in build_all_products.py): Nesquik milkshake powders (labelled per 100 ml of the made-up drink; the Open Food Facts copies carry the same
+  figures as per 100 g) and an Alpro soya drink (saturates printed equal to fat, at Morrisons, Sainsbury's and through Tesco's borrowing). Other hold-backs,
+  most of them about one shop's page, still let the product borrow the same product's label from another shop. A misspelt "Carohydrate" row is read.
