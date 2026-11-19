@@ -160,7 +160,9 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
   useEffect(() => {
     const el = summaryRef.current;
     if (!el) return;
-    const check = () => setPinned(el.offsetHeight <= window.innerHeight * 0.4);
+    // pinned to the bottom only while it takes under 30% of the screen (usability test 2026-11-19: at Extra large text it took 39% and, with the tab bar,
+    // hid the allergen table Harold was reading); larger, it sits in the page after the allergens
+    const check = () => setPinned(el.offsetHeight <= window.innerHeight * 0.3);
     check();
     const observer = new ResizeObserver(check);
     observer.observe(el);

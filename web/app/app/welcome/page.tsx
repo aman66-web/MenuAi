@@ -746,8 +746,8 @@ function TopBar({ onBack, end, segments, current = 0, status }: { onBack?: () =>
 
 /** A quiet word at the top right: Skip, "Skip tour" or Close. */
 function TopButton({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
-  // a real button, not faint text (usability test 2026-11-19: most testers never saw "Skip tour" or "Skip")
-  return <button type="button" onClick={onClick} className="-me-1 inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full bg-soft-strong px-4 text-[1rem] font-bold text-foreground transition hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{children}</button>;
+  // a real button, not faint text (usability test 2026-11-19: most testers never saw "Skip tour" or "Skip"); at the largest text its words wrap rather than run off the side
+  return <button type="button" onClick={onClick} className="-me-1 inline-flex min-h-11 min-w-0 items-center rounded-full bg-soft-strong px-4 py-1 text-center text-[1rem] font-bold leading-tight text-foreground transition hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{children}</button>;
 }
 
 /** A small round picture inside a headline (decorative). */
