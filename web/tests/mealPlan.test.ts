@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS, KEEPS_WELL, keepsWell, VARIETIES, MAX_EARLIER_PLANS, keepEarlier, openEarlier, sanitizePlans } from "../lib/mm/mealPlan";
+import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS, KEEPS_WELL, keepsWell, VARIETIES, MAX_EARLIER_PLANS, keepEarlier, openEarlier, sanitizePlans, forPeople, betterForPeople, PLAN_PEOPLE } from "../lib/mm/mealPlan";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { isVegan } from "../lib/mm/recipes";
 import { decodeShopProducts } from "../lib/mm/shopProducts";
@@ -391,5 +391,57 @@ describe("kinds of food and spicy food", () => {
     const plan = sanitizePlan({ shops: ["sainsburys"], ids: Array.from({ length: PLAN_DAYS }, () => ["a", "b", "c"]), leaveOut: [], budget: 40, start: "2026-11-19", swapped: true });
     expect(plan?.swapped).toBe(true);
     expect(sanitizePlan({ shops: ["sainsburys"], ids: Array.from({ length: PLAN_DAYS }, () => ["a", "b", "c"]), leaveOut: [], budget: 40, start: "2026-11-19", swapped: "yes" })?.swapped).toBeUndefined();
+  });
+});
+
+describe("a plan for several people (usability test 2026-11-19: Raj, 'a plan for two')", () => {
+  const cands = planCandidates(RECIPES, products, none, target, [], "sainsburys");
+  const betterOf = (c: Parameters<typeof betterCandidate>[0]) => betterCandidate(c, products, target);
+  const one = makePlan(cands, null)!;
+
+  it("buys enough for everyone: the same meals, each meal's price times the people, the day's calories still one person's", () => {
+    const two = forPeople(cands, 2);
+    const w1 = buildWeek(one.ids, cands, null)!;
+    const w2 = buildWeek(one.ids, two, null)!;
+    w1.days.forEach((d, i) => {
+      expect(w2.days[i]!.kcal).toBe(d.kcal);
+      expect(w2.days[i]!.protein).toBe(d.protein);
+      expect(w2.days[i]!.cost).toBeCloseTo(d.cost * 2, 1);
+    });
+    expect(w2.mealsCost).toBeCloseTo(w1.mealsCost * 2, 0);
+    // more is bought, never less, and never more than twice the packs
+    expect(w2.shoppingCost).toBeGreaterThan(w1.shoppingCost);
+    expect(w2.shoppingCost).toBeLessThanOrEqual(w1.shoppingCost * 2 + 0.01);
+    for (const l of w2.shopping) {
+      const before = w1.shopping.find((x) => x.product.id === l.product.id)!;
+      expect(l.packs).toBeGreaterThanOrEqual(before.packs);
+    }
+  });
+
+  it("is one person's candidates for one, and the same map each time (makePlan's memo)", () => {
+    expect(forPeople(cands, 1)).toBe(cands);
+    expect(forPeople(cands, 3)).toBe(forPeople(cands, 3));
+    expect(PLAN_PEOPLE[0]).toBe(1);
+  });
+
+  it("finds better products from one person's recipe and prices them for everyone", () => {
+    const c = [...cands.values()].flat().find((x) => betterOf(x))!;
+    const b1 = betterOf(c)!;
+    const c3 = forPeople(cands, 3).get(c.meal)!.find((x) => x.recipe.id === c.recipe.id)!;
+    const b3 = betterForPeople(betterOf, 3)(c3)!;
+    expect(b3.cost).toBeCloseTo(b1.cost * 3, 6);
+    expect(b3.servings).toBeCloseTo(b1.servings / 3, 6);
+    const r1 = budgetRange(cands, betterOf)!;
+    const r2 = budgetRange(forPeople(cands, 2), betterForPeople(betterOf, 2))!;
+    expect(r2.best).toBeGreaterThan(r1.best);
+    expect(r2.max).toBeGreaterThan(r2.best);
+  });
+
+  it("keeps how many people when the plan is saved, two to six", () => {
+    const base = { shops: ["sainsburys"], ids: Array.from({ length: PLAN_DAYS }, () => ["a", "b", "c"]), leaveOut: [], budget: 40, start: "2026-11-19" };
+    expect(sanitizePlan({ ...base, people: 2 })?.people).toBe(2);
+    expect(sanitizePlan({ ...base, people: 1 })?.people).toBeUndefined();
+    expect(sanitizePlan({ ...base, people: 9 })?.people).toBeUndefined();
+    expect(sanitizePlan({ ...base, people: "2" })?.people).toBeUndefined();
   });
 });

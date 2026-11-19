@@ -264,6 +264,37 @@ export function withBetter(cands: Map<MealType, PlanCandidate[]>, better: Readon
   return new Map([...cands].map(([meal, list]) => [meal, list.map((c) => better.get(`${meal}:${c.recipe.id}`) ?? c)]));
 }
 
+/**
+ * How many people the week's shopping is for (usability test 2026-11-19, Raj: a plan "for two"). Every meal is sized to the person's own numbers and the
+ * same is bought for each of the others; the day's calories and protein stay one person's.
+ */
+export const PLAN_PEOPLE = [1, 2, 3, 4, 5, 6] as const;
+
+const forPeopleMemo = new WeakMap<Map<MealType, PlanCandidate[]>, Map<number, Map<MealType, PlanCandidate[]>>>();
+const timesPeople = (c: PlanCandidate, people: number): PlanCandidate => ({ ...c, servings: c.servings / people, cost: c.cost * people });
+
+/**
+ * The candidates for a week cooked for `people`: each meal's amounts and its price are `people` servings' (buildWeek and the pack search read amount / servings),
+ * so the shopping list buys enough for everyone and packs are shared out the same way. The same map comes back for the same people, so makePlan's memo holds.
+ */
+export function forPeople(cands: Map<MealType, PlanCandidate[]>, people: number): Map<MealType, PlanCandidate[]> {
+  if (!(people > 1)) return cands;
+  let byPeople = forPeopleMemo.get(cands);
+  if (!byPeople) forPeopleMemo.set(cands, (byPeople = new Map()));
+  let out = byPeople.get(people);
+  if (!out) byPeople.set(people, (out = new Map([...cands].map(([meal, list]) => [meal, list.map((c) => timesPeople(c, people))]))));
+  return out;
+}
+
+/** betterOf for candidates made for `people` (forPeople): the better version is found from one person's candidate, then made for everyone the same way. */
+export function betterForPeople(betterOf: (c: PlanCandidate) => PlanCandidate | null, people: number): (c: PlanCandidate) => PlanCandidate | null {
+  if (!(people > 1)) return betterOf;
+  return (c) => {
+    const b = betterOf(timesPeople(c, 1 / people));
+    return b ? timesPeople(b, people) : null;
+  };
+}
+
 /** The budget slider's three points: the cheapest week the recipes allow, the best fit for the person's goal, and that week with every better product. */
 export interface BudgetRange { min: number; best: number; max: number }
 
@@ -612,6 +643,8 @@ export interface SavedPlan {
   cuisines?: CuisineId[];
   /** A meal was swapped since the plan was made (the budget line then says the swaps, not the choices, took it over). */
   swapped?: boolean;
+  /** How many people the shopping is for (PLAN_PEOPLE); absent = one, as plans were before 19 November. */
+  people?: number;
 }
 
 export function sanitizePlan(raw: unknown): SavedPlan | null {
@@ -629,7 +662,7 @@ export function sanitizePlan(raw: unknown): SavedPlan | null {
   const better = Array.isArray(r.better) ? (r.better as unknown[]).filter((x): x is string => typeof x === "string" && /^(breakfast|lunch|dinner|snack):[a-z0-9-]{1,80}$/.test(x)).slice(0, 42) : [];
   const variety = (VARIETIES as readonly unknown[]).includes(r.variety) ? (r.variety as Variety) : null;
   const cuisines = Array.isArray(r.cuisines) ? [...new Set((r.cuisines as unknown[]).filter((c): c is CuisineId => CUISINES.some((x) => x.id === c)))] : [];
-  return { shops, ids, leaveOut, budget, start: r.start, ...(slotsOk ? { slots } : {}), ...(better.length ? { better } : {}), ...(variety ? { variety } : {}), ...(cuisines.length ? { cuisines } : {}), ...(r.swapped === true ? { swapped: true } : {}) };
+  return { shops, ids, leaveOut, budget, start: r.start, ...(slotsOk ? { slots } : {}), ...(better.length ? { better } : {}), ...(variety ? { variety } : {}), ...(cuisines.length ? { cuisines } : {}), ...(r.swapped === true ? { swapped: true } : {}), ...(typeof r.people === "number" && (PLAN_PEOPLE as readonly number[]).includes(r.people) && r.people > 1 ? { people: r.people } : {}) };
 }
 
 /**

@@ -114,6 +114,14 @@ await step("the budget slider: from the cheapest week for the goal to better pro
   await page.getByText("The green spot: the best week for your goal.").waitFor();
   const box = await slider.boundingBox();
   expect(box.height >= 44, "a big target");
+  // shopping for two (usability test 2026-11-19): the range is worked out again for both, then back to just me
+  await page.getByRole("radio", { name: "Just me" }).getAttribute("aria-checked").then((v) => expect(v === "true", "just me to begin with"));
+  await page.getByRole("radio", { name: "2 people" }).click();
+  await page.getByText("Every meal is sized to your numbers, and I'll buy the same for each person.").waitFor();
+  await page.waitForFunction((m) => { const s = document.querySelector('input[type="range"]'); return !!s && Number(s.min) > m; }, min, { timeout: 60000 });
+  await page.getByRole("radio", { name: "Just me" }).click();
+  await page.waitForFunction((m) => { const s = document.querySelector('input[type="range"]'); return !!s && Number(s.min) === m; }, min, { timeout: 60000 });
+  await slider.focus();
   await page.keyboard.press("ArrowRight");
   await page.keyboard.press("ArrowRight");
   await page.keyboard.press("ArrowRight");

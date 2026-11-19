@@ -7,7 +7,7 @@ import { GATING_ENABLED } from "@/lib/mm/config";
 import { formatInt } from "@/lib/mm/format";
 import { addToList, formatPrice, listForShop, withPhoto } from "@/lib/mm/groceries";
 import { localeInfo, tk } from "@/lib/mm/i18n";
-import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterCandidate, budgetRange, buildWeek, cuisineRecipes, keepEarlier, openEarlier, leavesOut, mergeCandidates, planCandidates, planForBudget, planSlots, setMeal, shapeOf, slotTargets, swapChoices, withBetter, type BudgetRange, type DayShape, type PlanCandidate, type PlanIds, type SavedPlan, type Variety } from "@/lib/mm/mealPlan";
+import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterCandidate, betterForPeople, budgetRange, buildWeek, cuisineRecipes, forPeople, PLAN_PEOPLE, keepEarlier, openEarlier, leavesOut, mergeCandidates, planCandidates, planForBudget, planSlots, setMeal, shapeOf, slotTargets, swapChoices, withBetter, type BudgetRange, type DayShape, type PlanCandidate, type PlanIds, type SavedPlan, type Variety } from "@/lib/mm/mealPlan";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { CUISINES, type CuisineId } from "@/lib/mm/recipeBook/niches";
 import { matchesNiche } from "@/lib/mm/recipeNiche";
@@ -158,7 +158,10 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
   const [shops, setShops] = useState<string[] | null>(saved?.shops ?? null);
   // the budget step (founder 2026-11-18, a slider from the cheapest week to better products, a green spot for the best fit): the prices are worked out for the
   // chosen shops when the step opens, then the slider shows; `pick` is the pound amount on it
-  const [prep, setPrep] = useState<{ key: string; loaded: Loaded[]; cands: Candidates; range: BudgetRange | null } | null>(null);
+  const [prep, setPrep] = useState<{ key: string; loaded: Loaded[]; cands: Candidates } | null>(null);
+  // how many people the shopping is for (usability test 2026-11-19, Raj: "a plan for two"), on the budget step: the slider's range is worked out for them
+  const [people, setPeople] = useState<number>(saved?.people ?? 1);
+  const [ranged, setRanged] = useState<{ key: string; range: BudgetRange | null } | null>(null);
   const [preparing, setPreparing] = useState<{ on: string; done: string[] } | null>(null);
   const [pick, setPick] = useState<number | null>(null);
   const [problem, setProblem] = useState<"noPlan" | "offline" | null>(null);
@@ -209,22 +212,33 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
         return;
       }
       const cands = await workOut(loaded, settings.preferences, targets, leaveOut, cuisines, (on, done) => { if (live) setPreparing({ on, done }); });
-      const range = budgetRange(cands, betterFor(loaded, targets), slots, variety);
       if (!live) return;
-      setPrep({ key: prepKey, loaded, cands, range });
+      setPrep({ key: prepKey, loaded, cands });
       setPreparing(null);
-      if (range) setPick((p) => {
-        const want = p ?? saved?.budget ?? Math.round(range.best);
-        return Math.min(Math.ceil(range.max), Math.max(Math.floor(range.min), Math.round(want)));
-      });
     })();
     return () => { live = false; if (prepping.current === prepKey) prepping.current = null; };
   }, [step, prepKey]); // eslint-disable-line react-hooks/exhaustive-deps -- prepKey holds the answers it depends on
 
-  const ready = !!prep && prep.key === prepKey && !!prep.range && pick !== null;
+  // the slider's range for these prices and this many people, worked out after the screen has drawn (the spinner shows meanwhile)
+  const rangeKey = prep && prep.key === prepKey ? `${prepKey}|${people}` : null;
+  useEffect(() => {
+    if (!rangeKey || !prep || ranged?.key === rangeKey) return;
+    const timer = setTimeout(() => {
+      const range = budgetRange(forPeople(prep.cands, people), betterForPeople(betterFor(prep.loaded, targets), people), slots, variety);
+      setRanged({ key: rangeKey, range });
+      if (range) setPick((p) => {
+        const want = p ?? (saved && (saved.people ?? 1) === people ? saved.budget : null) ?? Math.round(range.best);
+        return Math.min(Math.ceil(range.max), Math.max(Math.floor(range.min), Math.round(want)));
+      });
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [rangeKey]); // eslint-disable-line react-hooks/exhaustive-deps -- rangeKey holds the answers it depends on
+  const range = ranged && ranged.key === rangeKey ? ranged.range : undefined;
+
+  const ready = !!prep && prep.key === prepKey && !!range && pick !== null;
   const make = () => {
     if (!ready || !prep || pick === null) return;
-    const plan = planForBudget(prep.cands, pick, betterFor(prep.loaded, targets), slots, variety);
+    const plan = planForBudget(forPeople(prep.cands, people), pick, betterForPeople(betterFor(prep.loaded, targets), people), slots, variety);
     if (!plan) { setProblem("noPlan"); setStep(5); return; }
     // what Pip did, each with its real figure (founder 2026-11-18: "show them what you're doing ... so you're showing them that you're properly working")
     const w = plan.week;
@@ -240,9 +254,9 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
       snacks ? t("Choosing {meals} meals and {snacks} snacks for your week", { meals, snacks }) : t("Choosing {meals} meals for your week", { meals }),
       t("Planning the packs so {pct}% of the fresh food gets eaten", { pct: eaten }),
       w.overBudget ? t("Finding the cheapest week your choices allow: {cost}", { cost: formatPrice(w.shoppingCost) }) : t("Keeping the week to {cost}, within your {budget}", { cost: formatPrice(w.shoppingCost), budget: formatPrice(pick) }),
-      t("Writing your shopping list: {n} products", { n: w.shopping.length }),
+      people > 1 ? t("Writing your shopping list for {people} people: {n} products", { people, n: w.shopping.length }) : t("Writing your shopping list: {n} products", { n: w.shopping.length }),
     ];
-    setMaking({ steps, plan: { shops: chosen, ids: plan.ids, slots, leaveOut, budget: pick, start: today(), variety, ...(cuisines.length ? { cuisines } : {}), ...(plan.better.length ? { better: plan.better } : {}) } });
+    setMaking({ steps, plan: { shops: chosen, ids: plan.ids, slots, leaveOut, budget: pick, start: today(), variety, ...(cuisines.length ? { cuisines } : {}), ...(plan.better.length ? { better: plan.better } : {}), ...(people > 1 ? { people } : {}) } });
   };
   const finish = () => {
     if (!making) return;
@@ -286,7 +300,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
       : t("What kind of food do you like for lunch and dinner? Pick as many as you like, or Any."),
     t("Any foods you don't like? Tap them, or type your own, and I'll leave them out."),
     shopsSay,
-    t("Slide to choose your budget. The green spot is the best week for your goal: left is cheaper, right buys better products."),
+    t("Who's the shopping for? Then slide to choose your budget. The green spot is the best week for your goal: left is cheaper, right buys better products."),
   ][step - 1]!;
   if (making) return <Making steps={making.steps} onDone={finish} />;
   const canGo = !(step === 2 && !shape.meals.length) && !(step === 5 && noneFor) && !(step === 6 && !chosen.length) && !(step === 7 && !ready);
@@ -379,11 +393,12 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
 
         {step === 7 && (
           <>
+            <PeoplePicker value={people} onChange={(n) => { if (n !== people) { setPeople(n); setPick(null); } }} />
             {problem === "offline" ? <ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => { setProblem(null); setPrep(null); setStep(6); }} />
               : preparing ? (<><p role="status" className="text-[1.0625rem] font-semibold">{t("Working out the prices at your shops…")}</p>{working}</>)
-              : !prep || prep.key !== prepKey ? <Spinner label={t("Working out the prices at your shops…")} />
-              : !prep.range ? <p role="alert" className="glass rounded-[1.25rem] p-4 font-semibold">{t("There aren't enough of our recipes left for every meal with these choices. Try leaving out fewer foods, or pick another shop.")}</p>
-              : pick !== null && <BudgetSlider range={prep.range} value={pick} onChange={setPick} />}
+              : range === undefined ? <Spinner label={t("Working out the prices at your shops…")} />
+              : !range ? <p role="alert" className="glass rounded-[1.25rem] p-4 font-semibold">{t("There aren't enough of our recipes left for every meal with these choices. Try leaving out fewer foods, or pick another shop.")}</p>
+              : pick !== null && <BudgetSlider range={range} value={pick} onChange={setPick} />}
           </>
         )}
       </div>
@@ -579,6 +594,25 @@ function Making({ steps, onDone }: { steps: string[]; onDone: () => void }) {
 
 // ---------- the budget slider ----------
 
+/** How many people the week's shopping is for: "Just me", then 2 to 6. Each meal is the person's own size; the others get the same. */
+function PeoplePicker({ value, onChange }: { value: number; onChange: (n: number) => void }) {
+  const t = useT();
+  return (
+    <div className={`${CARD} mb-4 p-4`}>
+      <p id="people-h" className="text-[1.0625rem] font-bold leading-snug">{t("How many people is the shopping for?")}</p>
+      <div role="radiogroup" aria-labelledby="people-h" className="mt-3 flex flex-wrap gap-2">
+        {PLAN_PEOPLE.map((n) => (
+          <button key={n} type="button" role="radio" aria-checked={value === n} aria-label={n === 1 ? t("Just me") : t("{n} people", { n })} onClick={() => onChange(n)}
+            className={`${value === n ? CHIP_ON : CHIP} app-numbers min-w-12 justify-center px-4`}>
+            {value === n && <CheckIcon aria-hidden className="h-4 w-4" />}{n === 1 ? t("Just me") : n}
+          </button>
+        ))}
+      </div>
+      {value > 1 && <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("Every meal is sized to your numbers, and I'll buy the same for each person.")}</p>}
+    </div>
+  );
+}
+
 /**
  * The budget as a slider (founder 2026-11-18: "an ... sideways arrow ... from a to z ... a green spot based on what to choose to be perfect, higher than the
  * green part is a higher budget to afford better produce. And lower on the scale is lower value produce but still to fit what they want they can't go lower
@@ -684,7 +718,7 @@ function EarlierPlans({ shopsAll }: { shopsAll: Shop[] }) {
               <p className="font-bold leading-snug">{t("From {day}", { day: from(p.start) })}</p>
               <p className="mt-0.5 text-[0.9375rem] leading-snug text-muted">
                 {[p.cuisines?.length ? new Intl.ListFormat("en-GB", { type: "conjunction" }).format(p.cuisines.map((c) => t(CUISINES.find((x) => x.id === c)?.label ?? c))) : t("Any kind of food"),
-                  names(shopsAll, p.shops), dayShape(t, shape)].join(" · ")}
+                  names(shopsAll, p.shops), dayShape(t, shape), ...(p.people && p.people > 1 ? [t("for {n} people", { n: p.people })] : [])].join(" · ")}
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 <Button className="min-h-12 px-5" onClick={() => open(i)}>{t("Open this plan")}</Button>
@@ -747,7 +781,10 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
     return () => { live = false; };
   }, [shopKey, leaveKey, dietKey, betterKey, cuisineKey, targets, retry]);
 
-  const week = useMemo(() => (candidates ? buildWeek(saved.ids, candidates, saved.budget, slots) : null), [candidates, saved, slots]);
+  // a plan for several people: each meal cooked for everyone (forPeople), so the prices and the shopping are everyone's and the calories one person's
+  const people = saved.people ?? 1;
+  const forAll = useMemo(() => (candidates ? forPeople(candidates, people) : null), [candidates, people]);
+  const week = useMemo(() => (forAll ? buildWeek(saved.ids, forAll, saved.budget, slots) : null), [forAll, saved, slots]);
   // each slot's name: "Breakfast", "Snack", or "Snack 2" when there are several
   const slotName = (i: number) => {
     const m = slots[i]!;
@@ -778,7 +815,8 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
 
   const shown = week.days[day]!;
   const avg = (k: "kcal" | "protein") => Math.round(week.days.reduce((s, d) => s + d[k], 0) / week.days.length);
-  const choices = swapping === null ? [] : swapChoices(saved.ids, day, swapping, candidates, 10, slots);
+  const choices = swapping === null ? [] : swapChoices(saved.ids, day, swapping, forAll ?? candidates, 10, slots);
+  const forN = people > 1 && <span className="block text-[0.75rem] font-semibold text-muted">{t("for {n}", { n: people })}</span>;
   const several = saved.shops.length > 1;
   const choose = (recipeId: string) => {
     if (swapping === null) return;
@@ -829,7 +867,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
           <Pip mood={week.overBudget ? "think" : "cheer"} size={56} />
           <div className="min-w-0">
             <p className="app-numbers text-[1.75rem] font-[800] leading-none">{formatPrice(week.shoppingCost)}</p>
-            <p className="mt-1 text-[0.9375rem] font-semibold text-muted">{t("for the week's shopping")}</p>
+            <p className="mt-1 text-[0.9375rem] font-semibold text-muted">{people > 1 ? t("for the week's shopping for {n} people", { n: people }) : t("for the week's shopping")}</p>
           </div>
         </div>
         <p className="mt-3 text-[0.9375rem] leading-snug">
@@ -840,6 +878,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
         </p>
         {week.fresh.bought > 0 && <p className="app-numbers mt-2 text-[0.9375rem] leading-snug text-muted">{t("{pct}% of the fresh food you buy is eaten this week. Oil, spices, dry goods like rice and pasta, jars and frozen food keep for longer.", { pct: Math.round((100 * week.fresh.eaten) / week.fresh.bought) })}</p>}
         <p className="app-numbers mt-2 text-[0.9375rem] leading-snug text-muted">{t("About {kcal} kcal and {protein} g protein a day (your target is {target} kcal).", { kcal: formatInt(avg("kcal")), protein: formatInt(avg("protein")), target: formatInt(settings.dailyCalories) })}</p>
+        {people > 1 && <p className="app-numbers mt-2 text-[0.9375rem] leading-snug text-muted">{t("The shopping is for {n} people: each has the same meals, sized to your numbers.", { n: people })}</p>}
       </div>
 
       {/* the days: big buttons, the one showing is dark */}
@@ -865,7 +904,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
                     {m.candidate.better && <span className="mt-1 inline-block rounded-full bg-accent-soft px-2 py-0.5 text-[0.75rem] font-bold text-accent">{t("Better products")}</span>}
                   </span>
                 </Link>
-                <span className="app-numbers shrink-0 text-end text-base font-[800]">{formatPrice(m.candidate.cost)}</span>
+                <span className="app-numbers shrink-0 text-end text-base font-[800]">{formatPrice(m.candidate.cost)}{forN}</span>
               </div>
               <button type="button" onClick={() => setSwapping(i)} className="mt-2 inline-flex min-h-11 items-center gap-1.5 rounded-full bg-[var(--fill)] px-4 text-[0.875rem] font-bold transition active:scale-95">
                 <SwapIcon aria-hidden className="h-4 w-4" />{t("Swap this meal")}
@@ -873,7 +912,9 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
             </li>
           ))}
         </ul>
-        <p className="app-numbers mt-3 px-1 text-[0.9375rem] font-semibold">{t("{day}: {kcal} kcal · {protein} g protein · {cost}", { day: dayNames[day]!, kcal: formatInt(shown.kcal), protein: formatInt(shown.protein), cost: formatPrice(shown.cost) })}</p>
+        <p className="app-numbers mt-3 px-1 text-[0.9375rem] font-semibold">{people > 1
+          ? t("{day}: {kcal} kcal · {protein} g protein each · {cost} for {n}", { day: dayNames[day]!, kcal: formatInt(shown.kcal), protein: formatInt(shown.protein), cost: formatPrice(shown.cost), n: people })
+          : t("{day}: {kcal} kcal · {protein} g protein · {cost}", { day: dayNames[day]!, kcal: formatInt(shown.kcal), protein: formatInt(shown.protein), cost: formatPrice(shown.cost) })}</p>
       </section>
 
       <section aria-labelledby="buy-h" className="mt-8">
@@ -940,7 +981,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
                   <span className="block font-bold leading-snug [overflow-wrap:anywhere]">{t(c.recipe.name)}</span>
                   <span className="app-numbers mt-0.5 block text-[0.875rem] text-muted">{formatInt(c.perServing.kcal)} kcal · {formatInt(c.perServing.protein)} g {t("protein")}{several ? ` · ${shopName(c.shop)}` : ""}</span>
                 </span>
-                <span className="app-numbers shrink-0 font-[800]">{formatPrice(c.cost)}</span>
+                <span className="app-numbers shrink-0 text-end font-[800]">{formatPrice(c.cost)}{forN}</span>
               </button>
             </li>
           ))}
