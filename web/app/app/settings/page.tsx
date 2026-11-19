@@ -232,6 +232,8 @@ export default function SettingsPage() {
       {/* Pip's walk through the five tabs again (the welcome tour's stops only): nothing is saved, and Close or Done comes back here. */}
       <Section title={t("Help")}>
         <div className="glass divide-y divide-line overflow-hidden rounded-[1.25rem]">
+          {/* near the top, where it's looked for (usability test 2026-11-19: Frank scrolled the whole of Settings to find Contact us under About) */}
+          <button type="button" onClick={() => setContactOpen(true)} className="flex min-h-[3.25rem] w-full items-center justify-between gap-3 px-4 py-2 text-start text-base font-semibold transition hover:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">{t("Contact us")}<ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" /></button>
           <LinkRow href="/app/welcome?tour=1">{t("Show me around again")}</LinkRow>
           {/* Pip's tips on the real screens again (lib/mm/coach.ts): switched on, then Home, where the first ones show */}
           <Link href="/app" onClick={() => coachStore.set(COACH_ARMED)} className="flex min-h-[3.25rem] items-center justify-between gap-3 px-4 py-2 text-base font-semibold transition hover:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">
@@ -320,7 +322,6 @@ export default function SettingsPage() {
         <div className="glass divide-y divide-line overflow-hidden rounded-[1.25rem]">
           <LinkRow href="/app/settings/sources">{t("Where your daily targets come from")}</LinkRow>
           <LinkRow href="/app/settings/numbers">{t("How we get our numbers")}</LinkRow>
-          <button type="button" onClick={() => setContactOpen(true)} className="flex min-h-[3.25rem] w-full items-center justify-between gap-3 px-4 py-2 text-start text-base font-semibold transition hover:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">{t("Contact us")}<ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" /></button>
           <LinkRow href="/privacy" external>{t("Privacy policy")}</LinkRow>
           <LinkRow href="/terms" external>{t("Terms of use")}</LinkRow>
           {/* When the menus were last published, with a quiet pill to fetch them again. */}
