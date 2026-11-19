@@ -6,11 +6,12 @@ import { formatPrice, retailerName } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
 import { foodDietProblem } from "@/lib/mm/foodDiet";
 import { nutritionBasis, shopListItem, shopPageUrl, shopPhotoSources } from "@/lib/mm/shopProducts";
-import { ExternalIcon, InfoIcon } from "../../../_components/icons";
+import { CheckIcon, ExternalIcon, InfoIcon } from "../../../_components/icons";
 import { ErrorBox, Spinner } from "../../../_components/ui";
 import { loadRetailer } from "../../../_lib/groceries";
 import { usePossessive, useT } from "../../../_lib/i18n";
-import { useSettings } from "../../../_lib/hooks";
+import { useSettings, useStore } from "../../../_lib/hooks";
+import { shoppingStore } from "@/lib/mm/stores";
 import { useShopProducts } from "../../../_lib/shopProducts";
 import { ProductPhotoFigure } from "../../ProductPhoto";
 import { CompareButton } from "../../../_components/CompareButton";
@@ -35,6 +36,9 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   // to the main list, or (when the person has lists for this shop) the one they choose
   const { add, sheet } = useAddToList((list, item) => setAdded(list ? { text: t("Added to {list}.", { list: list.name }), href: listHref(list.id) } : { text: t("Added to your {shop} list.", { shop: state.status === "ready" ? state.file.name : retailerName(item.retailer) }), href: listHref() }));
   const gtin = product?.gtin ?? "";
+  // how many are on the person's lists already (usability test 2026-11-19: Stan tapped Add twice because the button looked the same after the first tap)
+  const listed = useStore(shoppingStore);
+  const onLists = product ? listed.filter((x) => x.retailer === shop && (x.shopId === product.id || (!!gtin && x.gtin === gtin))).reduce((n, x) => n + x.qty, 0) : 0;
   useEffect(() => {
     if (!gtin) return;
     let cancelled = false;
@@ -99,14 +103,20 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
       </div>
 
       <div className="mt-4 grid gap-3">
+        {onLists > 0 && (
+          <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-base font-semibold">
+            <span className="inline-flex items-center gap-1.5"><span aria-hidden className="grid h-6 w-6 place-items-center rounded-full bg-sun text-on-accent"><CheckIcon className="h-3.5 w-3.5" strokeWidth={3} /></span>{onLists === 1 ? t("On your list") : t("{n} on your list", { n: onLists })}</span>
+            <Link href={added?.href ?? listHref()} className="underline underline-offset-4">{t("See list")}</Link>
+          </p>
+        )}
         <MainButton onClick={() => add(shopListItem(file, product))}>
-          {t("Add to my list")}
+          {onLists > 0 ? t("Add one more") : t("Add to my list")}
         </MainButton>
         {/* in its own block, so the compare button's own (empty) status line isn't a row of this grid with a gap above it */}
         {compareItem && <div><CompareButton full item={compareItem} /></div>}
       </div>
       {/* takes no room until there is something to say, so no empty band sits between the buttons and the next card */}
-      <p role="status" aria-live="polite" className="text-center text-sm font-medium text-accent [&:not(:empty)]:mt-3">{added && <>{added.text} <Link href={added.href} className="underline underline-offset-2">{t("See list")}</Link></>}</p>
+      <p role="status" aria-live="polite" className="text-center text-sm font-medium text-accent [&:not(:empty)]:mt-3">{added && <>{added.text}{onLists === 0 && <> <Link href={added.href} className="underline underline-offset-2">{t("See list")}</Link></>}</>}</p>
       {sheet}
 
       <section aria-labelledby="nutrition-heading" className={`${CARD} mt-3.5 p-5`}>

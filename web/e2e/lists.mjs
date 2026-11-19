@@ -298,7 +298,7 @@ await step("axe: no violations on a list with chips and Swap, and in the New lis
   await page.waitForTimeout(500);
   await run(page, "New list sheet");
   await page.goto(BASE + "/app/groceries/shop/item?r=marks-and-spencer&id=fdp60023388");
-  await page.getByRole("button", { name: "Add to my list" }).tap({ timeout: 90000 });
+  await page.getByRole("button", { name: "Add one more" }).tap({ timeout: 90000 }); // the yogurt is on a list already: it says so, and the button adds one more
   await sheet(page, "Add to which list?").waitFor({ timeout: 15000 });
   await page.waitForTimeout(500);
   await run(page, "Add to which list sheet");
