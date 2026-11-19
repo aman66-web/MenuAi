@@ -31,11 +31,11 @@
    "file": "asda.json",
    "count": 10506,
    "checkedOn": "2026-10-08",
-   "nutrition": 9247,
+   "nutrition": 9248,
    "community": 5562,
-   "sameProduct": 1319,
+   "sameProduct": 1320,
    "priced": 10506,
-   "sha256": "5de0b97efa397f6dc4484356735b2714df1739a2a90386f5d1148be0933143a3"
+   "sha256": "4183c8fbfc975e0d6f6e7fe119a8d12e06efc398812a18b1d0ebef17ce86b1da"
   },
   {
    "id": "aldi",
@@ -64,11 +64,11 @@
    "file": "morrisons.json",
    "count": 16367,
    "checkedOn": "2026-10-08",
-   "nutrition": 9198,
+   "nutrition": 9324,
    "community": 653,
-   "sameProduct": 1457,
+   "sameProduct": 1460,
    "priced": 16367,
-   "sha256": "d4cd7273b7a07c8e6a032059f2e901891be626c8e127f96897ef0628e75772ea"
+   "sha256": "4c4899051ad28a538e2a5e2c7bfd9e37fd6be868509c8bb388c67a68dd961471"
   },
   {
    "id": "waitrose",
@@ -76,11 +76,11 @@
    "file": "waitrose.json",
    "count": 9721,
    "checkedOn": "2026-10-08",
-   "nutrition": 6803,
+   "nutrition": 6978,
    "community": 232,
    "sameProduct": 745,
    "priced": 9721,
-   "sha256": "482d57e310299d5784bdd49935e09a56b1de9d3b82fe97838e4b2610154965f0"
+   "sha256": "8679a68465d3e739d5368a29118d9a929217e67bc87ad68112d4f546ff52e40c"
   },
   {
    "id": "iceland",
