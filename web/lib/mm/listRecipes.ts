@@ -59,3 +59,27 @@ export function recipesFromList(list: readonly ShoppingItem[], recipes: readonly
 export function nextToBuy(matches: readonly ListRecipe[]): ListRecipe | null {
   return matches.find((m) => m.missing.length > 0) ?? null;
 }
+
+/**
+ * The ingredients the person has said they have, kept while the app is open (not saved): a recipe's ingredients ticked "I have this" on its page, by recipe id
+ * and ingredient key. The recipe page fills it; the shopping list leaves them out of what it suggests buying.
+ */
+export const recipeTicks = new Map<string, Set<string>>();
+
+/**
+ * The list's recipes without what the person has (usability test 2026-11-19: Pat had ticked oil spray and her potatoes "I have this", and "You might also need"
+ * offered them back): cupboard kinds they keep (cupboardStore, by pantry kind) and a recipe's ingredients ticked on its page (recipeTicks) aren't to buy.
+ */
+export function withoutWhatTheyHave(matches: readonly ListRecipe[], cupboard: ReadonlySet<string>, ticks: ReadonlyMap<string, ReadonlySet<string>> = recipeTicks): ListRecipe[] {
+  return matches.map((m) => ({
+    ...m,
+    missing: m.missing.filter((i) => {
+      const written = m.recipe.ingredients[i]!;
+      const spec = (m.resolved.picks[i] as { spec?: IngredientSpec } | undefined)?.spec ?? written;
+      if (spec.cupboard && spec.pantry && cupboard.has(spec.pantry)) return false;
+      const ticked = ticks.get(m.recipe.id);
+      return !(ticked && (ticked.has(spec.key) || ticked.has(written.key)));
+    }),
+  }));
+}
+

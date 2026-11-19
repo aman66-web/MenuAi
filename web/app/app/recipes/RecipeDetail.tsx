@@ -8,6 +8,7 @@ import { addToList, formatPrice, formatUsedPrice, withPhoto } from "@/lib/mm/gro
 import { formatDate, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
 import { tk, type T } from "@/lib/mm/i18n";
 import { firstMentions } from "@/lib/mm/stepIngredients";
+import { recipeTicks } from "@/lib/mm/listRecipes";
 import { methodAmount, placeAmounts, scaleMethodStep } from "@/lib/mm/kitchenAmount";
 import { LOCAL_RANGE_SHOP, LOCAL_SHOP_PRODUCTS } from "@/lib/mm/localRange";
 import { localTipFor } from "@/lib/mm/localTips";
@@ -164,7 +165,9 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   const haveList = useStore(cupboardStore);
   // "I have this" on any ingredient, for this recipe only (usability test 2026-11-19: Pat's own eggs and onion went on the list): cupboard things are kept for
   // every recipe (cupboardStore); anything else is ticked here, starting with what the person said they have, and leaves the list and the price to buy it all
-  const [haveHere, setHaveHere] = useState<ReadonlySet<string>>(() => new Set(haveKeys ?? []));
+  // (kept for this recipe while the app is open, so coming back finds them ticked and the shopping list doesn't suggest them: recipeTicks)
+  const [haveHere, setHaveHere] = useState<ReadonlySet<string>>(() => new Set([...(recipeTicks.get(recipe.id) ?? []), ...(haveKeys ?? [])]));
+  useEffect(() => { recipeTicks.set(recipe.id, new Set(haveHere)); }, [recipe.id, haveHere]);
   const flipHave = (key: string) => setHaveHere((h) => { const n = new Set(h); if (n.has(key)) n.delete(key); else n.add(key); return n; });
   const have = useMemo(() => new Set([...haveList, ...[...haveHere].map(haveKey)]), [haveList, haveHere]);
   const meatFree = isMeatFree(recipe);

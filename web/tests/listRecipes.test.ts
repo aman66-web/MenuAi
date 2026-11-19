@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
 import { addToList, customItem, CUSTOM_RETAILER, itemCode, listAsText, sanitizeShoppingList, setQty, toggleDone, withoutDone, type ShoppingItem } from "../lib/mm/groceries";
-import { nextToBuy, recipesFromList } from "../lib/mm/listRecipes";
+import { nextToBuy, recipesFromList, withoutWhatTheyHave } from "../lib/mm/listRecipes";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { nameFits, recipeForDiet, resolveRecipe, type Recipe } from "../lib/mm/recipes";
 import { PANTRY } from "../lib/mm/pantry";
@@ -233,5 +233,22 @@ describe("saved recipes", () => {
   it("keeps valid ids once each", () => {
     expect(sanitizeRecipeSaves([{ id: "chicken-curry", savedAt: "x" }, { id: "chicken-curry", savedAt: "y" }, { id: "Bad id!", savedAt: "x" }, null, "x"])).toEqual([{ id: "chicken-curry", savedAt: "x" }]);
     expect(sanitizeRecipeSaves("nope")).toEqual([]);
+  });
+});
+
+describe("what the person has isn't suggested (usability test 2026-11-19: Pat's oil spray and potatoes came back as 'You might also need')", () => {
+  it("leaves out cupboard kinds they keep and ingredients ticked on the recipe's page", () => {
+    const withCupboard = RECIPES.find((r) => r.ingredients.some((i) => i.cupboard && i.pantry) && resolveRecipe(r, products).complete)!;
+    const first = resolveRecipe(withCupboard, products).picks.find((p, i) => !!p && !withCupboard.ingredients[i]!.cupboard)!;
+    const list = addToList([], { gtin: "", shopId: first.product.id, retailer: "sainsburys", name: first.product.name, brand: "", size: "" });
+    const matches = recipesFromList(list, RECIPES, products, "sainsburys");
+    const m = matches.find((x) => x.recipe.id === withCupboard.id)!;
+    expect(m).toBeTruthy();
+    const cupboardKinds = new Set(m.missing.map((i) => m.recipe.ingredients[i]!).filter((s) => s.cupboard && s.pantry).map((s) => s.pantry!));
+    const fresh = m.missing.map((i) => m.recipe.ingredients[i]!).filter((s) => !(s.cupboard && s.pantry)).map((s) => s.key);
+    const after = withoutWhatTheyHave([m], cupboardKinds, new Map([[m.recipe.id, new Set(fresh)]]))[0]!;
+    expect(after.missing).toEqual([]);
+    expect(nextToBuy([after])).toBeNull();
+    expect(withoutWhatTheyHave([m], new Set(), new Map())[0]!.missing).toEqual(m.missing);
   });
 });

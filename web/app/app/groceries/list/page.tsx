@@ -6,9 +6,9 @@ import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { addToList, customItem, CUSTOM_RETAILER, formatPrice, groupName, itemCode, itemsOnList, knownLists, listAsText, listOf, listTotals, MAIN_LIST, newShoppingList, sameEntry, setQty, swapItem, toggleDone, type ShoppingItem } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
 import { tk } from "@/lib/mm/i18n";
-import { nextToBuy } from "@/lib/mm/listRecipes";
+import { nextToBuy, withoutWhatTheyHave } from "@/lib/mm/listRecipes";
 import { decodePayload, encodeEntries, payloadFrom, SHARE_PROBLEM, SHARED_APP_PATH, shareUrl, toEntries } from "@/lib/mm/shareList";
-import { settingsStore, shoppingStore } from "@/lib/mm/stores";
+import { cupboardStore, settingsStore, shoppingStore } from "@/lib/mm/stores";
 import { site } from "@/site.config";
 import { ArrowRightIcon, BasketIcon, CheckIcon, CopyIcon, MinusIcon, PlusIcon, PotIcon, SearchIcon, ShareIcon, SwapIcon, TrashIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
@@ -108,8 +108,10 @@ function ShoppingListScreen() {
   // what was just ticked off and removed (bought) is not suggested again straight away (usability test 2026-11-19: Joan removed the ham she'd put in her
   // basket, and "You might also need" offered it back)
   const [bought, setBought] = useState<ReadonlySet<string>>(new Set());
+  // nor what the person has said they have (cupboard kinds they keep, a recipe's ingredients ticked "I have this": withoutWhatTheyHave)
+  const cupboard = useStore(cupboardStore);
   const suggestion = matches && !current
-    ? nextToBuy(matches.map((m) => ({ ...m, missing: m.missing.filter((i) => { const pr = m.resolved.picks[i]?.product; return !pr || !bought.has(pr.gtin || pr.id); }) })))
+    ? nextToBuy(withoutWhatTheyHave(matches, new Set(cupboard)).map((m) => ({ ...m, missing: m.missing.filter((i) => { const pr = m.resolved.picks[i]?.product; return !pr || !bought.has(pr.gtin || pr.id); }) })))
     : null;
   const removeTicked = () => {
     setBought((b) => new Set([...b, ...list.filter((x) => x.done).map((x) => x.gtin || x.shopId || "").filter(Boolean)]));
