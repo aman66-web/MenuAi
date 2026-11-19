@@ -3250,3 +3250,28 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   with any Apple ID; the notes say so). **Manual release.** Submitted as one review submission of four items at about 03:30.
 - **Still to do:** update `Config/Numbite.storekit` and `FakePurchaseService.swift` (local testing and previews) to the new prices and two products; remove
   `APPLE_XCODE_TEST_CERT` from Vercel after testing; the plans screen still says "Numbite Pro" while the group and the store text say Premium (open decision).
+
+### 19 November 2026 (03:40-05:00): overnight fixes from the older testers, more supermarket labels (all on `iap`, not live)
+Founder: "keep doing all the groceries ... and apply any other updates, do you think, to the app too, to make it better". Each fix has its unit or browser test;
+nothing here is on numbite.com or in the App Store yet (the founder decides when).
+- **Meal plan:** "How many people is the shopping for?" (Just me to 6) on the budget step (`PLAN_PEOPLE`, `forPeople` in `lib/mm/mealPlan.ts`): every meal stays
+  sized to the person's own numbers, the shopping, the meal prices and the budget range are for everyone, and the packs are shared out for all of them (a plan
+  for 2 at Sainsbury's: about 1.7x one person's shopping, not 2x). The plan says the diet every meal fits ("Every meal fits your diet: vegetarian."); each Swap
+  button's spoken name says which meal and recipe it swaps, starting with its visible words. Earlier plans say "for 2 people".
+- **Shopping list:** "Choose a product" on anything typed in ("milk", "bread"): the person's shops' products with those words, the thing itself first
+  (`typedMatches`: fresh milk before evaporated, free-range eggs before Scotch eggs, loose bananas before banana smoothies), tapping one takes its place with
+  its price. Rows wrap their size and price instead of cutting them off.
+- **Product page:** once a product is on a list it says "On your list" (or "2 on your list") with See list, and the button reads "Add one more".
+- **Recipes:** "I have this" on every ingredient (cupboard things as before, kept for every recipe; anything else for this recipe only), left out of Add all and
+  the price to buy it all, never out of a serving's numbers. A recipe opened from Cook with what you have starts with what was typed already ticked.
+- **Smaller:** Undo after deleting a food, a plan or a saved meal now stays 10 seconds (was 6); Add buttons in the add-food sheet say which restaurant
+  ("Add Sausage roll from Greggs"); a logged supermarket product shows its shop on Today, not "Groceries"; Build your order pins its total only while it takes under 30% of
+  the screen (at Extra large it took 39% and hid the allergens); the welcome screens' Skip pill wraps at 200% text.
+- **Tests brought up to date:** the a11y test (tour order, the 4-stop replay, `SKIP=paywall` for a build without Premium); a11y checked with axe on every
+  screen changed tonight (no violations), the large-text check passes at 100/150/200%.
+- **Groceries:** two more rounds each of the Waitrose and Morrisons readers (about 540 pages); 116 more labels held back on the readers' notes (figures as prepared,
+  cooked weight on dry rice and pasta, mixed packs, identical columns, negative or garbled figures). Waitrose 7,086 of 9,721 products with labels, Morrisons 9,428
+  of 16,367. An automatic rule for cooked-weight figures was tried and dropped: it caught fresh noodles, rice puddings and ready meals whose figures are right.
+- **Not done, for the founder:** comparing a whole list's total between shops (own-brand products never match across shops, so most lists couldn't be compared
+  honestly; it needs a decision on matching "similar" products); "35 g+ protein" ordering by protein per calorie (a ranking choice); kcal versus "calories" in the
+  words; a text size above Extra large.
