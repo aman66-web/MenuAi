@@ -18,10 +18,11 @@ import { recipeShops } from "@/lib/mm/shopProducts";
 import { myRecipesStore, savedRecipesStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { ShopMark } from "../_components/ChainMark";
 import { AllergenTiles, dietWords } from "../_components/DietPicker";
-import { ArrowRightIcon, BasketIcon, CalendarIcon, CameraIcon, CheckIcon, FridgeIcon, GridIcon, HeartIcon, InfoIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
+import { ArrowRightIcon, BasketIcon, CheckIcon, GridIcon, HeartIcon, InfoIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
 import { ShopChoice } from "./ShopChoice";
+import { HaveChips, ScanFrameIcon, WeekStrip } from "../_components/FeaturePreviews";
 import { useGate } from "../_components/Paywall";
 import { Button, EmptyState, ErrorBox, Segmented, Sheet, Spinner } from "../_components/ui";
 import { useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
@@ -302,13 +303,7 @@ function RecipesScreen() {
         // Make it at home (Premium; app/app/recipes/photo/page.tsx). Founder 2026-11-17 ("it can be easily missed"): the one dark card on the page, at the top under the
         // search, in the tab bar's near-black, with the scanner's lime corner marks round the camera. It opens the paywall for a free person.
         <button type="button" data-coach="recipes-photo" onClick={() => gate("photoRecipe", () => router.push("/app/recipes/photo"))} className="group relative mt-4 flex min-h-[5.25rem] w-full items-center gap-3 overflow-hidden rounded-[1.5rem] bg-[#1d2320] p-3.5 text-start text-white shadow-[0_18px_40px_-20px_rgba(0,0,0,0.6)] transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-          <span aria-hidden className="relative grid h-12 w-12 shrink-0 place-items-center rounded-[0.875rem] bg-white/10 text-sun">
-            <span className="absolute start-1 top-1 h-2.5 w-2.5 rounded-ss-md border-s-2 border-t-2 border-[var(--sun)]" />
-            <span className="absolute end-1 top-1 h-2.5 w-2.5 rounded-se-md border-e-2 border-t-2 border-[var(--sun)]" />
-            <span className="absolute bottom-1 start-1 h-2.5 w-2.5 rounded-es-md border-b-2 border-s-2 border-[var(--sun)]" />
-            <span className="absolute bottom-1 end-1 h-2.5 w-2.5 rounded-ee-md border-b-2 border-e-2 border-[var(--sun)]" />
-            <CameraIcon className="h-6 w-6" />
-          </span>
+          <ScanFrameIcon onDark />
           <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
             <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <span className="text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("Make it at home")}</span>
@@ -325,23 +320,26 @@ function RecipesScreen() {
           the line saying what it does kept for a screen reader, so the dishes start higher up the page. At the largest text the two still share the row. */}
       <div className="mt-3 grid grid-cols-2 gap-3">
         {/* Cook with what you have (founder 2026-11-19; app/app/recipes/fridge): our recipes for what's in the fridge, free; Pip's own one is Premium inside */}
-        {/* the name flows round the icon (it wraps under it), so it keeps the card's width at large text */}
-        <Link href="/app/recipes/fridge" className="glass lift flow-root min-h-[4.5rem] min-w-0 rounded-[1.25rem] p-3 text-start">
-          <span aria-hidden className="float-start me-2.5 grid h-10 w-10 place-items-center rounded-[0.75rem] bg-sun text-[var(--on-accent)]"><FridgeIcon className="h-5 w-5" /></span>
-          <span className="block hyphens-auto pt-0.5 text-[1rem] font-[800] leading-[1.3] [overflow-wrap:anywhere]">
+        {/* each shows what it gives you (founder 2026-11-19: the icons were "hard to recognize"): the foods you'd type in, a week of days */}
+        <Link href="/app/recipes/fridge" className="glass lift flex min-h-[4.5rem] min-w-0 flex-col gap-2.5 rounded-[1.25rem] p-3 text-start">
+          <span className="block hyphens-auto text-[1rem] font-[800] leading-[1.25] [overflow-wrap:anywhere]">
             {t("Cook with what you have")}
             <span className="sr-only">. {t("Tell us what's in your fridge and get recipes for it.")}</span>
           </span>
+          <span className="mt-auto"><HaveChips /></span>
         </Link>
 
         {/* the meal plan (founder 2026-11-18; app/app/plan; Premium): a week of our recipes for the person's goal and budget, with the shopping list and each meal's price */}
-        <Link href="/app/plan" className="glass lift flow-root min-h-[4.5rem] min-w-0 rounded-[1.25rem] p-3 text-start">
-          <span aria-hidden className="float-start me-2.5 grid h-10 w-10 place-items-center rounded-[0.75rem] bg-sun text-[var(--on-accent)]"><CalendarIcon className="h-5 w-5" /></span>
-          <span className="block hyphens-auto pt-0.5 [overflow-wrap:anywhere]">
-            <span className="block text-[1rem] font-[800] leading-[1.3]">{t("Meal plan")}</span>
-            {GATING_ENABLED && !pro && <span className="mt-1 inline-block rounded-full bg-sun px-2 py-0.5 text-[0.75rem] font-bold leading-snug text-[var(--on-accent)]">{t("Premium")}</span>}
+        <Link href="/app/plan" className="glass lift flex min-h-[4.5rem] min-w-0 flex-col gap-2.5 rounded-[1.25rem] p-3 text-start">
+          <span className="block [overflow-wrap:anywhere]">
+            <span className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
+              <span className="text-[1rem] font-[800] leading-[1.25]">{t("Meal plan")}</span>
+              {GATING_ENABLED && !pro && <span className="inline-block rounded-full bg-sun px-2 py-0.5 text-[0.75rem] font-bold leading-snug text-[var(--on-accent)]">{t("Premium")}</span>}
+            </span>
+            <span className="mt-0.5 block text-[0.8125rem] font-semibold leading-snug text-muted">{t("7 days, one list")}</span>
             <span className="sr-only">. {t("A week of meals for your goal, with the shopping list.")}</span>
           </span>
+          <span className="mt-auto"><WeekStrip /></span>
         </Link>
       </div>
 
