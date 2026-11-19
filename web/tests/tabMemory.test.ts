@@ -60,3 +60,10 @@ describe("tab memory", () => {
     expect(tabFor(TABS, "/nowhere")).toBeUndefined();
   });
 });
+
+describe("Home always opens Home (usability test 2026-11-19)", () => {
+  it("never remembers a page in the Home tab, such as Settings", () => {
+    expect(remember({}, TABS, "/app/settings", "")).toEqual({});
+    expect(remember({ "/app/eat-out": "/app/chain?id=kfc" }, TABS, "/app/settings", "")).toEqual({ "/app/eat-out": "/app/chain?id=kfc" });
+  });
+});

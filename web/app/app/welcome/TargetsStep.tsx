@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { parseNumber } from "@/lib/mm/addFood";
 import { formatInt } from "@/lib/mm/format";
 import { suggestCarbFat, suggestProtein, MAX_MACRO_TARGET, CARB_FAT_NOTE, isLowCalories, LOW_CALORIES_NOTE, SUGGESTION_NOTE, UNDER_18_COPY, type PlanNote } from "@/lib/mm/targets";
 import type { AnswersPlan, TargetFieldKey, TargetFieldTexts, TargetFieldsReading } from "@/lib/mm/onboardingPlan";
@@ -50,6 +51,23 @@ export function TargetsStep({ goal, prefs, answers, skipped, fields, setField, r
   const suggestedProtein = suggestProtein(baseCalories);
   const suggestedCarbFat = suggestCarbFat(baseCalories, reading.protein);
   const anyEmpty = fields.protein.trim() === "" || fields.carbs.trim() === "" || fields.fat.trim() === "";
+  // carbs and fat that are still the worked-out figures follow a change of calories (usability test 2026-11-19: Barbara typed 2,000 and carbs and fat
+  // stayed at the 1,500 figures); ones the person changed are kept
+  // (compared with the figures for the last whole calorie number, so the digits on the way to "2000" don't count)
+  const [followFrom, setFollowFrom] = useState<number | null>(() => { const x = parseNumber(fields.calories); return typeof x === "number" ? x : null; });
+  const changeCalories = (v: string) => {
+    setField("calories", v);
+    const now = parseNumber(v);
+    if (typeof now !== "number" || now < 500 || now > 10000) return;
+    if (followFrom !== null) {
+      const before = suggestCarbFat(followFrom, reading.protein);
+      const after = suggestCarbFat(now, reading.protein);
+      const near = (text: string, figure: number) => { const x = parseNumber(text); return typeof x === "number" && Math.abs(x - figure) <= 5; };
+      if (near(fields.carbs, before.carbs)) setField("carbs", String(after.carbs));
+      if (near(fields.fat, before.fat)) setField("fat", String(after.fat));
+    }
+    setFollowFrom(now);
+  };
   const notes: readonly PlanNote[] = plan?.kind === "ok" ? plan.notes : suggestedNotes ?? (goal === "glp1" ? ["glp1"] : []);
   // Pip does not cheer over a caution to check the measurements or to talk to a doctor or dietitian
   const cautious = notes.some((n) => n === "check-measurements" || n === "low-calories-floor" || n === "low-bmi") || isLowCalories(fields.calories);
@@ -79,7 +97,7 @@ export function TargetsStep({ goal, prefs, answers, skipped, fields, setField, r
         </PipSays>
       </div>
       <div className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] gap-3.5">
-        <StepperCard id="target-calories" label={t("Calories")} Icon={FlameIcon} value={fields.calories} onChange={(v) => setField("calories", v)} step={50} min={500} max={10000} invalid={bad("calories")} describedBy={MAIN_PROBLEM} />
+        <StepperCard id="target-calories" label={t("Calories")} Icon={FlameIcon} value={fields.calories} onChange={changeCalories} step={50} min={500} max={10000} invalid={bad("calories")} describedBy={MAIN_PROBLEM} />
         <StepperCard id="target-protein" label={t("Protein (g)")} Icon={BoltIcon} value={fields.protein} onChange={(v) => setField("protein", v)} step={5} min={5} max={1000} placeholder={t("Optional")} from={suggestedProtein} invalid={bad("protein")} describedBy={MAIN_PROBLEM} />
         <StepperCard id="target-carbs" label={t("Carbs (g)")} Icon={SproutIcon} value={fields.carbs} onChange={(v) => setField("carbs", v)} step={5} min={5} max={MAX_MACRO_TARGET} placeholder={t("Optional")} from={suggestedCarbFat.carbs} invalid={bad("carbs")} describedBy={MACRO_PROBLEM} />
         <StepperCard id="target-fat" label={t("Fat (g)")} Icon={DropIcon} value={fields.fat} onChange={(v) => setField("fat", v)} step={5} min={5} max={MAX_MACRO_TARGET} placeholder={t("Optional")} from={suggestedCarbFat.fat} invalid={bad("fat")} describedBy={MACRO_PROBLEM} />

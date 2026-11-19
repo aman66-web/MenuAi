@@ -24,8 +24,8 @@ type Icon = (p: React.SVGProps<SVGSVGElement>) => React.ReactNode;
 /**
  * A number with − and + either side, for the daily targets. The words on the buttons don't name the number, so the label stays the card's.
  * While the box is in use a Done button takes the place of the little round picture (an iPhone's number pad has no Return key); an empty box that is
- * tapped with − or + starts from `from` (the suggestion for it) when there is one, instead of from the lowest number. A tap steps from the number as it
- * stands (2110 and + is 2160, not the nearest 50 first), because the plan's numbers are not multiples of the step. `invalid` marks the box as wrong
+ * tapped with − or + starts from `from` (the suggestion for it) when there is one, instead of from the lowest number. A tap goes to the next round number
+ * (1,370 and + is 1,400, then 1,450, 1,500; usability test 2026-11-19: stepping from 1,370 by 50 could never reach the 1,500 Elsie wanted). `invalid` marks the box as wrong
  * for assistive technology, and `describedBy` is the id of the line that says what is wrong.
  */
 export function StepperCard({ id, label, Icon, value, onChange, step, min, max, placeholder, from, invalid, describedBy }: { id: string; label: string; Icon: Icon; value: string; onChange: (v: string) => void; step: number; min: number; max: number; placeholder?: string; from?: number; invalid?: boolean; describedBy?: string }) {
@@ -37,8 +37,9 @@ export function StepperCard({ id, label, Icon, value, onChange, step, min, max, 
   const bump = (d: number) => {
     const empty = !Number.isFinite(n);
     if (empty && from !== undefined && Number.isFinite(from) && from > 0) return onChange(String(clamp(Math.round(from / step) * step)));
-    const start = empty ? (d > 0 ? min - step : min + step) : Math.round(n);
-    onChange(String(clamp(start + d)));
+    if (empty) return onChange(String(clamp(min)));
+    const cur = Math.round(n);
+    onChange(String(clamp(d > 0 ? Math.floor(cur / step) * step + step : Math.ceil(cur / step) * step - step)));
   };
   // Like Home's calories card: a small spaced-capitals label, the figure big in a regular weight, and the two round grey buttons under it
   // (side by side with the figure they left no room for "Optional" on a 390 px phone).

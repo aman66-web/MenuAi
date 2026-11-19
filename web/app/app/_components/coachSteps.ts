@@ -1,6 +1,6 @@
 // Relative imports (not "@/"), so the unit tests can load the steps (tests/coach.test.ts).
 import type { CoachScreen } from "../../../lib/mm/coach";
-import { FOOD_SCAN_ENABLED, PHOTO_RECIPES_ENABLED } from "../../../lib/mm/config";
+import { FOOD_SCAN_ENABLED, GATING_ENABLED, PHOTO_RECIPES_ENABLED } from "../../../lib/mm/config";
 import { tk } from "../../../lib/mm/i18n";
 
 // What Pip points at on each tab (founder 2026-11-18: "a guided tour of what everything does"; CoachMarks.tsx draws it). Each tip lights up one real control,
@@ -21,9 +21,10 @@ export const COACH_STEPS: Readonly<Record<CoachScreen, readonly CoachStep[]>> = 
     { at: '[data-coach="home-add"]', title: tk("Add what you ate"), text: tk("Tap + next to a meal to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers.") },
     { at: 'main a[href="/app/scan"]', title: tk("Scan your food"), text: tk("Take a photo of your plate and Pip estimates its calories, protein, carbs and fat. It's part of Premium."), when: FOOD_SCAN_ENABLED },
     { at: 'main a[href="/app/groceries/list"]', title: tk("Shopping list"), text: tk("Everything you've added to buy, ready when you go to the shops.") },
-    { at: 'main a[href="/app/plan"]', title: tk("Meal plan"), text: tk("Pip plans a week of meals for your goal, diet and budget, from the shops you use. It's part of Premium.") },
+    { at: 'main a[href="/app/plan"]', title: tk("Meal plan"), text: tk("Pip plans a week of meals for your goal, diet and budget, from the shops you use. It's part of Premium."), when: GATING_ENABLED },
+    { at: 'main a[href="/app/plan"]', title: tk("Meal plan"), text: tk("Pip plans a week of meals for your goal, diet and budget, from the shops you use."), when: !GATING_ENABLED },
     { at: 'main a[href="/app/settings"]', title: tk("Settings"), text: tk("Your goal, diet, allergies, text size, and these tips again.") },
-    { at: '[data-coach="tabs"]', title: tk("Moving around"), text: tk("These buttons take you to each part of the app: Home, Eat out, Groceries and Recipes.") },
+    { at: '[data-coach="tabs"]', title: tk("Moving around"), text: tk("These buttons take you to each part of the app: Home, Recipes, Groceries and Eat out.") },
   ],
   eatOut: [
     { at: 'main a[href="/app/search"]', title: tk("Search"), text: tk("Type the name of a restaurant or a dish to find it.") },

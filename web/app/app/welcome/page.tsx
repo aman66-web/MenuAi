@@ -493,6 +493,8 @@ function Welcome() {
         </div>
         {/* then the greeting, the line that sums the app up and the three promises */}
         <div className="order-3">
+          {/* after Settings › Clear data (usability test 2026-11-19: there was no word that it had worked) */}
+          {params.get("cleared") === "1" && <p role="status" className="mb-3 rounded-[1.25rem] bg-[var(--fill)] px-4 py-3 text-[0.9375rem] font-bold leading-snug">{t("Done: everything on this device was cleared.")}</p>}
           <p className="mt-2 flex items-center gap-3 text-[1.125rem] font-semibold leading-snug">
             <span aria-hidden className={`grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full ${LIME}`}><Pip mood="wave" size={40} className="translate-y-0.5" /></span>
             <span className="min-w-0">{t("Welcome to {app}", { app: site.name })}</span>

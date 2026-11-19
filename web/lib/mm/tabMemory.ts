@@ -10,6 +10,8 @@ export interface TabDef {
 export type TabMemory = Record<string, string>;
 
 const NOT_REMEMBERED = ["/app/welcome", "/app/offline"];
+/** Tabs that always open their first page (usability test 2026-11-19: Home's tab opened Settings, the page last seen there, and Frank thought he was lost). */
+const ALWAYS_FIRST = ["/app"];
 
 /** The tab a page belongs to (the first one whose match fits), if any. */
 export function tabFor(tabs: readonly TabDef[], path: string): TabDef | undefined {
@@ -28,7 +30,7 @@ export function validFor(tab: TabDef, address: unknown): address is string {
 export function remember(memory: TabMemory, tabs: readonly TabDef[], path: string, search: string): TabMemory {
   if (NOT_REMEMBERED.some((p) => path.startsWith(p))) return memory;
   const tab = tabFor(tabs, path);
-  if (!tab) return memory;
+  if (!tab || ALWAYS_FIRST.includes(tab.href)) return memory;
   const address = path + search;
   if (address === tab.href) {
     if (!(tab.href in memory)) return memory;

@@ -2,6 +2,7 @@ import { ALLERGEN_LABEL } from "@/lib/mm/allergens";
 import { formatDate } from "@/lib/mm/format";
 import { tk } from "@/lib/mm/i18n";
 import { ALLERGEN_KEYS, type AllergenKey, type Allergens, type Chain } from "@/lib/mm/types";
+import { useSettings } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { ExternalIcon, InfoIcon } from "./icons";
 import { SMALL_LABEL } from "./Nutrition";
@@ -11,6 +12,9 @@ import { SMALL_LABEL } from "./Nutrition";
 // otherwise just the link. Never "free from": an allergen the guide doesn't list reads "Not listed".
 // Look (founder 2026-10-15, Home's language): a white card with no tints; "Contains" is a small dark pill on a quiet grey row,
 // "May contain" an outlined pill, "Not listed" muted text. Dark means emphasis, never good or bad (CLAUDE.md rule 3).
+// Usability test 2026-11-19 (Harold, whose wife has a peanut allergy): "May contain" looked weaker than "Contains" and was never explained, and nothing
+// pointed at the allergy he had set. Now "May contain" has a strong outline and its own line saying what it means, and an allergen the person avoids
+// is marked "You avoid" in its row and named at the top.
 
 const CHECK_WITH_STAFF = tk("Recipes change and kitchens handle many allergens, so always check with staff before you order.");
 
@@ -43,6 +47,7 @@ function statusOf(a: Allergens, key: AllergenKey): { kind: "contains" | "may" | 
 /** `pad`: the cells' side padding, matching the card the table sits in (px-5 on the grocery product page, px-4 on a dish's card). */
 export function AllergenTable({ allergens, caption, columnLabel, pad = "px-5" }: { allergens: Allergens; caption: string; columnLabel: string; pad?: string }) {
   const t = useT();
+  const avoid = useSettings().preferences.avoidAllergens ?? [];
   return (
     <table className="mt-3 w-full text-start text-[0.9375rem]">
         <caption className="sr-only">{caption}</caption>
@@ -56,16 +61,17 @@ export function AllergenTable({ allergens, caption, columnLabel, pad = "px-5" }:
           {ALLERGEN_KEYS.map((key) => {
             const s = statusOf(allergens, key);
             return (
-              <tr key={key} className={s.kind === "contains" ? "bg-[var(--fill)]" : undefined}>
-                <th scope="row" className={`${pad} py-3 text-start align-middle leading-snug ${s.kind === "contains" ? "font-bold" : "font-medium"}`}>
+              <tr key={key} className={s.kind !== "none" || avoid.includes(key) ? "bg-[var(--fill)]" : undefined}>
+                <th scope="row" className={`${pad} py-3 text-start align-middle leading-snug ${s.kind !== "none" || avoid.includes(key) ? "font-bold" : "font-medium"}`}>
                   {t(ALLERGEN_LABEL[key])}
+                  {avoid.includes(key) && <span className="ms-2 inline-flex rounded-full bg-sun px-2 py-0.5 align-middle text-[0.75rem] font-bold text-[var(--on-accent)]">{t("You avoid")}</span>}
                   {s.detail && <span className="mt-0.5 block text-sm font-medium text-muted">{s.detail}</span>}
                 </th>
                 <td className={`${pad} py-3 text-end align-middle`}>
                   {s.kind === "contains" ? (
                     <span className="inline-flex items-center whitespace-nowrap rounded-full bg-foreground px-2.5 py-1 text-[0.8125rem] font-semibold leading-none text-background">{t("Contains")}</span>
                   ) : s.kind === "may" ? (
-                    <span className="inline-flex items-center whitespace-nowrap rounded-full border border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] px-2.5 py-1 text-[0.8125rem] font-semibold leading-none">{t("May contain")}</span>
+                    <span className="inline-flex items-center whitespace-nowrap rounded-full border-2 border-foreground px-2.5 py-1 text-[0.8125rem] font-bold leading-none">{t("May contain")}</span>
                   ) : (
                     <span className="text-sm text-muted">{t("Not listed")}</span>
                   )}
@@ -80,6 +86,7 @@ export function AllergenTable({ allergens, caption, columnLabel, pad = "px-5" }:
 
 export function AllergenSection({ chain, allergens, changesNotCovered, title: titleProp, itemName }: { chain: Chain; allergens: Allergens | undefined | null; changesNotCovered?: boolean; title?: string; itemName?: string }) {
   const t = useT();
+  const settings = useSettings();
   const title = titleProp ?? t("Allergens");
   const guide = chain.allergenGuide;
   const link = guide?.url ?? chain.source.url;
@@ -93,6 +100,7 @@ export function AllergenSection({ chain, allergens, changesNotCovered, title: ti
     );
   }
   const containsCount = allergens.contains.length;
+  const mine = (settings.preferences.avoidAllergens ?? []).map((k) => ({ k, s: statusOf(allergens, k).kind }));
   return (
     <section aria-labelledby="allergens-heading" className="glass overflow-hidden rounded-[1.25rem]">
       <div className="px-4 pt-4">
@@ -101,6 +109,18 @@ export function AllergenSection({ chain, allergens, changesNotCovered, title: ti
           {containsCount === 0 ? t("None of the 14 main allergens listed as an ingredient.") : t("Contains {n} of the 14 main allergens.", { n: containsCount })}
           {!guide.mayContainPublished && ` ${t("{chain}'s guide doesn't say what may be present in traces.", { chain: chain.name })}`}
         </p>
+        {/* the allergies the person set, said first, in words */}
+        {mine.length > 0 && (
+          <ul className="mt-3 space-y-1.5">
+            {mine.map(({ k, s }) => (
+              <li key={k} className="rounded-[0.875rem] bg-[var(--fill)] px-3.5 py-2.5 text-[0.9375rem] font-bold leading-snug">
+                {s === "contains" ? t("{allergen}: this item contains it.", { allergen: t(ALLERGEN_LABEL[k]) })
+                  : s === "may" ? t("{allergen}: this item may contain it.", { allergen: t(ALLERGEN_LABEL[k]) })
+                  : t("{allergen}: not listed for this item. Ask staff to be sure.", { allergen: t(ALLERGEN_LABEL[k]) })}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
       <AllergenTable
         allergens={allergens}
@@ -110,6 +130,7 @@ export function AllergenSection({ chain, allergens, changesNotCovered, title: ti
       />
       <div className="space-y-3 px-4 pb-4 pt-3.5">
         {changesNotCovered && <p className="text-sm text-muted">{t("Your changes aren't reflected: the guide lists allergens for the standard item only.")}</p>}
+        {guide.mayContainPublished && <p className="text-[0.9375rem] leading-snug"><span className="font-bold">{t("“May contain”")}</span> {t("means the restaurant says small amounts could get in, for example from a shared kitchen or fryer.")}</p>}
         <p className="flex gap-2 text-[0.8125rem] leading-snug text-muted">
           <InfoIcon className="mt-px h-4 w-4 shrink-0 text-accent" />
           <span>{t("From {guide}, checked {date}. “Not listed” means the guide doesn't list it, not that the item is free from it.", { guide: guide.title, date: formatDate(guide.checkedOn, t) })} {t(CHECK_WITH_STAFF)}</span>

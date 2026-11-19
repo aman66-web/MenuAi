@@ -192,17 +192,18 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       </div>
 
       <div className="hero-card mt-4 rounded-[1.25rem] p-4">
-        <div className="flex items-center gap-4">
+        {/* the name goes under the logo when the text is large, rather than breaking mid-word (usability test 2026-11-19: "McDonal / d's") */}
+        <div className="flex flex-wrap items-center gap-4">
           <ChainMark chainId={chain.id} cuisine={chain.cuisine} size="xl" />
-          <div className="min-w-0">
-            <h1 className="text-[2rem] font-[800] leading-[1.05] tracking-[-0.02em] [overflow-wrap:anywhere]">{chain.name}</h1>
+          <div className="min-w-[min(100%,11rem)] flex-1">
+            <h1 className="hyphens-auto text-[2rem] font-[800] leading-[1.05] tracking-[-0.02em] [overflow-wrap:break-word]">{chain.name}</h1>
             {(chain.cuisine || chain.sample) && <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1">{chain.cuisine ? <span className={SMALL_LABEL}>{t(chain.cuisine)}</span> : null} {chain.sample && <SampleBadge />}</p>}
           </div>
         </div>
         {/* The data's limits come first: users must see them before trusting a number (calories only, halal). The longer note on how the figures were read
             moved to the foot of the page (the review of 2026-11-18: the menu started 1,500 px down behind it), beside the source. */}
         <div className="mt-4 space-y-3 border-t border-line pt-4 text-[0.9375rem] leading-snug">
-          {caloriesOnly && <p className="font-semibold">{t("{chain} publishes calories only: protein, carbs and fat aren't published, so there are no best-for-you picks, order builder or logging for this restaurant.", { chain: chain.name })}</p>}
+          {caloriesOnly && <p className="font-semibold">{t("{chain} publishes calories only: protein, carbs and fat aren't published, so there are no best-for-you picks or order builder for this restaurant. Its dishes are added to today and saved with their calories.", { chain: chain.name })}</p>}
           {halal && (
             <div>
               <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
