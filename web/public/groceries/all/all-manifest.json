@@ -65,11 +65,11 @@
    "file": "morrisons.json",
    "count": 16367,
    "checkedOn": "2026-10-08",
-   "nutrition": 12056,
+   "nutrition": 12104,
    "community": 597,
    "sameProduct": 1516,
    "priced": 16367,
-   "sha256": "c5ed116b0640c2a87cc1d5f409d687feddb7470ecbcce1772d91c96f3334bb57"
+   "sha256": "a6f63ad8c9432de276bacfacd200ab990fb66dadc29efe4b38c423cf4790a212"
   },
   {
    "id": "waitrose",
