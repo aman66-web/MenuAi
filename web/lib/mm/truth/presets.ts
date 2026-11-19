@@ -15,11 +15,15 @@ export interface PresetDef {
   label: string;
   /** One line under the list saying exactly what the filter was. */
   rule: string;
+  /** The line for a restaurant that publishes calories only, where the list can't be in protein order. */
+  ruleCaloriesOnly?: string;
   needs: "calories" | "protein" | "sugar";
 }
 
 export const PRESETS: readonly PresetDef[] = [
-  { id: "under-500", label: "Under 500 calories", rule: "Meals of 500 kcal or less, with the most protein first.", needs: "calories" },
+  // a calories-only restaurant's list is the biggest meals under the line first (usability test 2026-11-19: "most protein first" on Pizza Express, which
+  // publishes no protein, put olives and kids' dishes at the top)
+  { id: "under-500", label: "Under 500 calories", rule: "Meals of 500 kcal or less, with the most protein first.", ruleCaloriesOnly: "Meals of 500 kcal or less, the highest calories first.", needs: "calories" },
   { id: "protein-35", label: "35 g+ protein", rule: "Meals with 35 g of protein or more, most protein for their calories first.", needs: "protein" },
   { id: "small-appetite", label: "Small appetite", rule: "Meals of 400 kcal or less with at least 20 g of protein, most protein for the calories first.", needs: "protein" },
   { id: "sugar-5", label: "5 g sugar or less", rule: "Meals that publish their sugar and have 5 g or less, lowest first.", needs: "sugar" },
@@ -53,7 +57,8 @@ export function applyPreset(id: PresetId, items: readonly MenuItem[]): MenuItem[
     case "under-500":
       return meals
         .filter((i) => i.nutrients.calories <= UNDER_500_KCAL)
-        .sort((a, b) => (protein(b) ?? -1) - (protein(a) ?? -1) || a.nutrients.calories - b.nutrients.calories || byName(a, b));
+        .sort((a, b) => (protein(b) ?? -1) - (protein(a) ?? -1)
+          || (protein(a) === undefined && protein(b) === undefined ? b.nutrients.calories - a.nutrients.calories : a.nutrients.calories - b.nutrients.calories) || byName(a, b));
     case "protein-35":
       return meals.filter((i) => (protein(i) ?? -1) >= PROTEIN_35_G).sort((a, b) => share(b) - share(a) || (protein(b) as number) - (protein(a) as number) || byName(a, b));
     case "small-appetite":

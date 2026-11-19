@@ -108,3 +108,13 @@ describe("applyPreset: real menus", () => {
     expect(nonEmpty).toBeGreaterThan(500);
   });
 });
+
+// Usability test 2026-11-19 (Elsie, Pizza Express): a restaurant that publishes calories only can't be put in protein order, so its "Under 500 calories"
+// list is the biggest meals under the line first, and says so.
+describe("Under 500 calories at a calories-only restaurant", () => {
+  it("puts the highest calories first", () => {
+    const items = [it_("Small side meal", 180, undefined), it_("Leggera pizza", 472, undefined), it_("Pasta", 497, undefined), it_("Big pizza", 900, undefined)];
+    expect(applyPreset("under-500", items).map((i) => i.name)).toEqual(["Pasta", "Leggera pizza", "Small side meal"]);
+    expect(PRESETS.find((p) => p.id === "under-500")!.ruleCaloriesOnly).toMatch(/highest calories first/);
+  });
+});

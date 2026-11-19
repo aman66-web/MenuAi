@@ -12,6 +12,7 @@ import { EMPTY_RATING, sanitizeRating, type RatingState } from "./ratingPrompt";
 import { sanitizeHiddenLogos, setHiddenLogos } from "./logos";
 import { grantShareUnlock, localDay, NO_PAID, NO_TRUTH_DAY, openTruth, sanitizePaid, sanitizeTruthDay, withoutToken, withVerifiedToken, type PaidState, type TruthDay } from "./paid";
 import type { PlanId } from "../payments/plans";
+import type { Meal } from "./types";
 import { IAP_ENABLED } from "./config";
 import { addWater, lastWaterToday, removeWater, sanitizeWater, type WaterEntry } from "./water";
 import {
@@ -155,6 +156,11 @@ export function restoreLogEntry(entry: LogEntry) {
 
 export function deleteLogEntry(id: string) {
   logStore.update((list) => list.filter((e) => e.id !== id));
+}
+
+/** A logged food moved to another meal of its day (usability test 2026-11-19: put under Breakfast by mistake, the only way was to delete it and add it again). */
+export function moveLogEntry(id: string, meal: Meal) {
+  logStore.update((list) => list.map((e) => (e.id === id ? { ...e, meal } : e)));
 }
 
 /** A drink of water, now. */

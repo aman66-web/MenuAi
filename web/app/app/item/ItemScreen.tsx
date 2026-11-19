@@ -136,10 +136,33 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
           <p role="status" aria-live="polite" className="mt-2.5 text-center text-sm font-semibold text-accent empty:mt-0">{message && t(message)}</p>
         </div>
       ) : (
-        <>
-          <p className="mt-5 px-1 text-[0.9375rem] leading-snug text-muted">{t("{chain} publishes calories only, so ordering, saving, logging and sharing aren't available for this item (they need protein, carbs and fat).", { chain: chain.name })}</p>
-          <div className="mt-3"><CompareButton full item={compareDish(chain, item)} /></div>
-        </>
+        // a calories-only dish is added and saved with its calories alone (usability test 2026-11-19: Elsie, who counts calories, could neither log nor keep
+        // a Pizza Express dish); its protein, carbs and fat stay absent, never 0. Changing the order and the share card still need all three.
+        <div className="@container mt-5">
+          <Button full className="min-h-12 text-base" onClick={() => gate("log", () => {
+            addLogEntry({ chainId: chain.id, chainName: chain.name, name: item.name, nutrients: item.nutrients, source: "item", ...(item.image ? { image: item.image } : {}) });
+            analytics.track({ name: "mealLogged" });
+            countProAction();
+            setMessage(tk("Added to today's food."));
+          })}>
+            <PlusIcon aria-hidden className="h-5 w-5" />
+            {t("Add to today")}
+          </Button>
+          <div className="mt-2.5 grid grid-cols-2 gap-2.5 @max-[14rem]:grid-cols-1">
+            <Button variant="secondary" full onClick={() => gate("saveLimit", () => {
+              addSavedOrder({ chainId: chain.id, chainName: chain.name, name: item.name, lines, nutrients: item.nutrients, dataVersionAtSave: menu.dataVersion ?? 0 });
+              analytics.track({ name: "orderSaved" });
+              countProAction();
+              setMessage(tk("Saved to My meals."));
+            })}>
+              <HeartIcon aria-hidden className="h-5 w-5" />
+              {t("Save")}
+            </Button>
+            <CompareButton full item={compareDish(chain, item)} />
+          </div>
+          <p role="status" aria-live="polite" className="mt-2.5 text-center text-sm font-semibold text-accent empty:mt-0">{message && t(message)}</p>
+          <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("{chain} publishes calories only, so only the calories are counted.", { chain: chain.name })}</p>
+        </div>
       )}
 
       <div className="mt-3.5"><AllergenSection chain={chain} allergens={item.allergens} itemName={item.name} /></div>

@@ -219,6 +219,10 @@ export default function HomePage() {
               <span className="text-accent">{formatInt(eaten.calories)}</span> <span>/ {formatInt(settings.dailyCalories)}</span>
             </p>
             <p className="mt-0.5 text-[1.0625rem] font-normal leading-tight">kcal</p>
+            {/* what's left, said in words (usability test 2026-11-19: "no figure says 1,028 left anywhere, so she must subtract in her head") */}
+            <p className="mt-1.5 text-[0.9375rem] font-bold leading-tight">
+              {eaten.calories <= settings.dailyCalories ? t("{n} left", { n: formatInt(settings.dailyCalories - eaten.calories) }) : t("{n} over", { n: formatInt(eaten.calories - settings.dailyCalories) })}
+            </p>
           </div>
         </Card>
         <Card className="flex min-w-0 flex-col justify-center gap-[2.1rem] px-4 py-6">

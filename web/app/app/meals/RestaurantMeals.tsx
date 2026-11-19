@@ -1,11 +1,12 @@
 "use client";
 
+import { hasMacros } from "@/lib/mm/nutrients";
 import Link from "next/link";
 import { builderHref, chainHref } from "@/lib/mm/routes";
 import { useEffect, useRef, useState } from "react";
 import type { ChainIndex } from "@/lib/mm/chain-index";
 import { FREE_SAVED_ORDER_LIMIT } from "@/lib/mm/config";
-import { formatGrams, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
+import { formatCalories, formatGrams, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
 import type { T } from "@/lib/mm/i18n";
 import { itemImageUrl } from "@/lib/mm/images";
 import type { Nutrients } from "@/lib/mm/types";
@@ -116,7 +117,8 @@ export function RestaurantMeals() {
                 </div>
                 {expanded && (
                   <div className="mt-3 rounded-[1rem] bg-[var(--fill)] p-3.5">
-                    <MacroSummary nutrients={o.nutrients} />
+                    {/* a calories-only dish shows its calories alone, never a 0 for what its restaurant doesn't publish */}
+                    {hasMacros(o.nutrients) ? <MacroSummary nutrients={o.nutrients} /> : <p className="app-numbers text-[1.25rem] font-bold">{formatCalories(o.nutrients.calories)} <span className="text-[0.9375rem] font-semibold text-muted">{t("(calories only)")}</span></p>}
                     {ix && ix !== "missing" && !gone && <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{describeOrder(ix, o.lines)}</p>}
                   </div>
                 )}

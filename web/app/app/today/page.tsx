@@ -9,7 +9,7 @@ import { entryMeal, loggedGaps, loggedToday, isSameLocalDay, MEALS, MEAL_LABEL }
 import { PAYMENTS_ENABLED } from "@/lib/mm/config";
 import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
-import { deleteLogEntry, logStore, restoreLogEntry, savedStore } from "@/lib/mm/stores";
+import { deleteLogEntry, logStore, moveLogEntry, restoreLogEntry, savedStore } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
 import type { Meal } from "@/lib/mm/types";
 import { AddFoodSheet } from "../_components/addfood/AddFoodSheet";
@@ -20,7 +20,7 @@ import { ChevronLeftIcon, ChevronRightIcon, PlusIcon, TrashIcon } from "../_comp
 import { Gauge } from "../_components/Gauge";
 import { Pip } from "../_components/Mascot";
 import { Ring } from "../_components/Ring";
-import { Button, Card, EmptyState } from "../_components/ui";
+import { Button, Card, EmptyState, Sheet } from "../_components/ui";
 import { backName, useBack } from "../_lib/backNav";
 import { useChainIndexes, useHydrated, useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
 import { useLanguage, useT } from "../_lib/i18n";
@@ -93,6 +93,15 @@ function TodayScreen() {
   // only for entries logged before entries kept their picture: their dish is looked up in its chain's menu
   const indexes = useChainIndexes(pro ? todays.filter((e) => e.chainId && !e.image && !e.recipeId && !e.photo).map((e) => e.chainId) : []);
 
+  // a food put under the wrong meal moves to another (usability test 2026-11-19), said in a status line
+  const [moving, setMoving] = useState<LogEntry | null>(null);
+  const [moved, setMoved] = useState<string | null>(null);
+  useEffect(() => {
+    if (!moved) return;
+    const hide = setTimeout(() => setMoved(null), 5000);
+    return () => clearTimeout(hide);
+  }, [moved]);
+
   if (!hydrated) return null;
 
   if (!pro) {
@@ -122,6 +131,12 @@ function TodayScreen() {
   const gaps = loggedGaps(log, day);
   const calFraction = Math.min(1, totals.calories / settings.dailyCalories);
   const targets = macroTargets(settings);
+
+  function moveTo(entry: LogEntry, meal: Meal) {
+    moveLogEntry(entry.id, meal);
+    setMoving(null);
+    setMoved(t("Moved “{name}” to {meal}.", { name: entry.name, meal: t(MEAL_LABEL[meal]) }));
+  }
 
   function remove(entry: LogEntry) {
     deleteLogEntry(entry.id);
@@ -212,6 +227,9 @@ function TodayScreen() {
                             <p className="app-numbers mt-1.5 font-mono text-[0.75rem] font-normal text-muted" aria-label={t("{calories} calories, {protein} grams protein", { calories: Math.round(e.nutrients.calories), protein: Math.round(e.nutrients.protein) })}>{t("{kcal} · {protein} protein", { kcal: formatCalories(e.nutrients.calories), protein: formatGrams(e.nutrients.protein) })}</p>
                           )}
                         </div>
+                        <button type="button" onClick={() => setMoving(e)} className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-soft-strong px-3.5 text-[0.875rem] font-bold transition active:scale-95">
+                          {t("Move")}<span className="sr-only"> {e.name}</span>
+                        </button>
                         <button type="button" aria-label={t("Delete {name}", { name: e.name })} onClick={() => remove(e)} className="group -me-1.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
                           <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong text-foreground transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><TrashIcon className="h-[18px] w-[18px]" /></span>
                         </button>
@@ -226,6 +244,17 @@ function TodayScreen() {
       )}
 
       <AddFoodSheet meal={addTo} onClose={() => setAddTo(null)} onAdded={(entry, meal) => { setAddTo(null); setAdded({ entry, meal }); }} />
+
+      <Sheet open={moving !== null} onClose={() => setMoving(null)} title={moving ? t("Move “{name}”", { name: moving.name }) : ""}>
+        {moving && (
+          <div className="space-y-2.5 pb-2">
+            {MEALS.filter((m) => m !== entryMeal(moving)).map((m) => (
+              <Button key={m} full variant="secondary" className="min-h-14 text-lg" onClick={() => moveTo(moving, m)}>{t("Move to {meal}", { meal: t(MEAL_LABEL[m]) })}</Button>
+            ))}
+          </div>
+        )}
+      </Sheet>
+      {moved && <p role="status" className="fixed inset-x-4 bottom-28 z-30 mx-auto max-w-md rounded-full bg-foreground px-5 py-3 text-[0.9375rem] leading-snug text-background shadow-lg">{moved}</p>}
 
       {added && (
         // At the top, clear of the meals and their + buttons, as on Home: a second tap on the same + must never land on Undo.

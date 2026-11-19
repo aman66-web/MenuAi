@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { PAID_ACCESS_ENABLED } from "@/lib/mm/config";
 import { FREE_PRESET_RESULTS } from "@/lib/mm/paid";
 import { applyPreset, presetsFor, type PresetId } from "@/lib/mm/truth/presets";
@@ -32,6 +32,9 @@ export function PresetPills({ chain, items, renderList }: { chain: Chain; items:
   const counts = useMemo(() => new Map(defs.map((d) => [d.id, applyPreset(d.id, items).length])), [defs, items]);
   const [active, setActive] = useState<PresetId | null>(null);
   const results = useMemo(() => (active ? applyPreset(active, items) : []), [active, items]);
+  // the answer comes into view when a pill is tapped (usability test 2026-11-19: at large text it was below the screen, so the tap seemed to do nothing)
+  const answer = useRef<HTMLDivElement>(null);
+  useEffect(() => { if (active) answer.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }, [active]);
   if (defs.length === 0) return null;
   const def = defs.find((d) => d.id === active);
   return (
@@ -48,10 +51,10 @@ export function PresetPills({ chain, items, renderList }: { chain: Chain; items:
           );
         })}
       </div>
-      <div className="mt-3" role="status" aria-live="polite">
+      <div ref={answer} className="mt-3 scroll-mt-4" role="status" aria-live="polite">
         {def && (
           <p className="text-base leading-snug text-muted">
-            {results.length > PRESET_TOP ? t("Showing the top {n} of {total}.", { n: PRESET_TOP, total: results.length }) : t("{n} on this menu.", { n: results.length })} {t(def.rule)}
+            {results.length > PRESET_TOP ? t("Showing the top {n} of {total}.", { n: PRESET_TOP, total: results.length }) : t("{n} on this menu.", { n: results.length })} {t(chain.nutritionLevel === "calories" && def.ruleCaloriesOnly ? def.ruleCaloriesOnly : def.rule)}
           </p>
         )}
       </div>

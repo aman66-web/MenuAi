@@ -2,7 +2,6 @@
 
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { formatCalories, formatGrams } from "@/lib/mm/format";
-import { tk } from "@/lib/mm/i18n";
 import { hasMacros } from "@/lib/mm/nutrients";
 import { search, type ItemHit } from "@/lib/mm/search";
 import { savedStore } from "@/lib/mm/stores";
@@ -15,8 +14,8 @@ import { linesImage } from "./EntryPicture";
 import { AddPill, PICK_LIST, PickRow, SheetSearch, type NewEntry } from "./parts";
 
 // "Choose a restaurant meal": a dish found in the menus, or an order the person saved. A dish is added as the restaurant publishes it (one
-// serving, all of its figures); one that publishes calories only can't be, because the log counts protein, carbs and fat too (the same rule as
-// the dish's own page), and the way to log it is to type its calories in.
+// serving, all of its figures). One from a restaurant that publishes calories only is added with its calories alone (usability test 2026-11-19:
+// Elsie, who counts calories, couldn't log a Pizza Express dish at all): its protein, carbs and fat stay absent, never 0, as typed numbers can.
 // Each row leads with the chain's own photo of the dish (founder 2026-11-17, "use images please when possible"): a search hit's from the search
 // file, a saved meal's first dish with one from its chain's menu (loaded for the few saved meals shown); the grey fork tile where there is none
 // or it doesn't load, so every name starts at the same place. The photo is kept on the entry, for Home and Today.
@@ -24,7 +23,6 @@ import { AddPill, PICK_LIST, PickRow, SheetSearch, type NewEntry } from "./parts
 const SAVED_SHOWN = 5;
 /** The lists here sit on the sheet's grey: a dish without a photo gets ItemThumb's fork tile in white (like the photos' own white), so it still reads as a tile. */
 const dishLead = (image: string | undefined) => <span className="contents [&>span]:bg-white"><ItemThumb image={image} placeholder /></span>;
-const CALORIES_ONLY = tk("This dish publishes calories only, so it can't be added here. You can type its calories in instead.");
 
 export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
   const t = useT();
@@ -44,12 +42,7 @@ export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
     };
   }, []);
 
-  // Restaurants that publish calories only are left out of the results (they have no dish this can add).
-  const caloriesOnly = useMemo(() => new Set(menu.chains.filter((c) => c.nutritionLevel === "calories").map((c) => c.id)), [menu.chains]);
-  const hits = useMemo(
-    () => (searchIndex && deferred.length >= 2 ? search(searchIndex, deferred, 60).items.filter((h) => !caloriesOnly.has(h.chainId)).slice(0, 10) : []),
-    [searchIndex, deferred, caloriesOnly],
-  );
+  const hits = useMemo(() => (searchIndex && deferred.length >= 2 ? search(searchIndex, deferred, 10).items : []), [searchIndex, deferred]);
 
   const addHit = async (h: ItemHit) => {
     setBusy(`${h.chainId}:${h.itemId}`);
@@ -59,7 +52,6 @@ export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
       if (!here.current) return;
       const item = ix.items.get(h.itemId);
       if (!item) setFailed(t("Couldn't load this menu."));
-      else if (!hasMacros(item.nutrients)) setFailed(t(CALORIES_ONLY));
       else onAdd({ chainId: ix.chain.id, chainName: ix.chain.name, name: item.name, nutrients: item.nutrients, source: "item", ...(item.image ? { image: item.image } : {}) });
     } catch {
       if (here.current) setFailed(t("Couldn't load this menu."));
@@ -92,7 +84,7 @@ export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
                   key={o.id}
                   lead={dishLead(image)}
                   title={o.name}
-                  line={`${o.chainName} · ${t("{kcal} · {protein} protein", { kcal: formatCalories(o.nutrients.calories), protein: formatGrams(o.nutrients.protein ?? 0) })}`}
+                  line={`${o.chainName} · ${hasMacros(o.nutrients) ? t("{kcal} · {protein} protein", { kcal: formatCalories(o.nutrients.calories), protein: formatGrams(o.nutrients.protein ?? 0) }) : formatCalories(o.nutrients.calories)}`}
                   action={<AddPill name={o.name} onClick={() => onAdd({ chainId: o.chainId, chainName: o.chainName, name: o.name, nutrients: o.nutrients, source: "savedOrder", ...(image ? { image } : {}) })} />}
                 />
               );
@@ -122,7 +114,6 @@ export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
           </ul>
         ))}
 
-      <p className="text-[0.9375rem] leading-snug text-muted">{t("Restaurants that publish calories only aren't listed here. You can type their calories in instead.")}</p>
     </div>
   );
 }
