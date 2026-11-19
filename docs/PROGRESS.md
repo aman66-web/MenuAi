@@ -48,7 +48,7 @@ touches an earlier decision, and add new entries there, dated, at the end).
 - **numbite.com** runs `main` at d0d1fb0f (19 November): **all of `iap` merged** (founder 19 Nov, "Put it all live pls"): everyone signs in, the meal plan,
   leaderboards with every shop's logo and price, several shopping lists, Select on the list, the grocery labels, Community off, the food-crop box from the food
   check. On the website nothing is sold, so every feature is open (GATING_ENABLED false) and Make it at home and Scan your food stay hidden there; their API
-  routes answer "Premium" until `ENTITLEMENT_PRIVATE_JWK` is fixed. `main` and `iap` now hold the same code.
+  routes check Premium with the new key (fixed 19 November). `main` and `iap` now hold the same code.
 - **Vercel:** `APPLE_XCODE_TEST_CERT` is test-only (remove after Premium testing). `ANTHROPIC_API_KEY` is set (Make it at home: Sonnet 5.5 with prompt caching;
   the food check on Haiku 5.5).
 
@@ -92,7 +92,7 @@ Moved to docs/PROGRESS_LOG.md (see above).
 - [ ] **Remove `APPLE_XCODE_TEST_CERT` from Vercel when your Premium testing is finished** (Production variable pinning Xcode's test certificate; test only). Tell Claude and it will remove it
 - [ ] **Try Make it at home on your real iPhone** (plug it in with a cable, press Run in Xcode, Recipes > Make it at home): the live camera, the scanning screen and the loading screen. Delete the throwaway simulator when finished (command in the 17 Nov evening entry)
 - [x] The iOS 26.5 platform is installed (17 Nov). **Restart the Claude app when convenient:** its background VM still holds about 8 GB of the deleted downloads, and the Mac has only about 3 GB free
-- [ ] **Fix `ENTITLEMENT_PRIVATE_JWK` in Vercel:** it holds a value starting "sk-ant-" (an Anthropic key, pasted by mistake). Run `node tools/payments/make_entitlement_key.mjs` in Terminal in the repo folder and paste what it puts on the clipboard (it starts `{"kty":"EC"`) in its place; then tell Claude so the public key can be committed
+- [x] **`ENTITLEMENT_PRIVATE_JWK` fixed** (19 Nov: the founder ran `make_entitlement_key.mjs --replace --to-vercel`; public key committed, main 8555ee8e deployed; the Apple route now answers 400 to a blank request, not 503)
 - [ ] **If you want Pip's pick on Compare:** paste `supabase/migrations/20261117120000_compare_picks.sql` in the Supabase SQL Editor and say "switch on Pip's pick" (`NEXT_PUBLIC_COMPARE_PICK=1`); it works without the table, only without the shared cache
 - [x] **Decide: should logging meals be free?** No, it stays Pro (2026-10-11).
 - [x] ~~Before launch: switch off `ALL_FREE_FOR_TESTING`~~ replaced 2026-10-12: the free launch ships with Pro off (`PRO_ENABLED`); turn Pro on in a later update with payments
