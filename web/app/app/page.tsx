@@ -221,7 +221,8 @@ export default function HomePage() {
             <p className="mt-0.5 text-[1.0625rem] font-normal leading-tight">kcal</p>
             {/* what's left, said in words (usability test 2026-11-19: "no figure says 1,028 left anywhere, so she must subtract in her head") */}
             <p className="mt-1.5 text-[0.9375rem] font-bold leading-tight">
-              {eaten.calories <= settings.dailyCalories ? t("{n} left", { n: formatInt(settings.dailyCalories - eaten.calories) }) : t("{n} over", { n: formatInt(eaten.calories - settings.dailyCalories) })}
+              {/* from the figure shown, so eaten and left add up to the target exactly (usability test 2026-11-19: George's 319 and 1,232 made 1,551) */}
+              {Math.round(eaten.calories) <= settings.dailyCalories ? t("{n} left", { n: formatInt(settings.dailyCalories - Math.round(eaten.calories)) }) : t("{n} over", { n: formatInt(Math.round(eaten.calories) - settings.dailyCalories) })}
             </p>
           </div>
         </Card>

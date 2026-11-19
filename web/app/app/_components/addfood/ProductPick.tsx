@@ -56,7 +56,8 @@ export function ProductPick({ meal, onAdd, onBack }: { meal: Meal; onAdd: (entry
               key={p.gtin}
               lead={<PhotoTile sources={photoSources(p, prefer)} />}
               title={p.name}
-              line={t("{kcal} kcal · {protein}g protein per 100 {unit}", { kcal: Math.round(forRetailer(p, prefer).kcal), protein: forRetailer(p, prefer).protein, unit: p.per })}
+              // the shop it's from first (usability test 2026-11-19: George couldn't tell his Sainsbury's oats from Asda's)
+              line={`${retailerName(prefer && p.retailers.includes(prefer) ? prefer : p.retailers[0] ?? "")} · ${t("{kcal} kcal · {protein}g protein per 100 {unit}", { kcal: Math.round(forRetailer(p, prefer).kcal), protein: forRetailer(p, prefer).protein, unit: p.per })}`}
               action={<ChoosePill name={p.name} onClick={() => setPicked(p)} />}
             />
           ))}
@@ -109,6 +110,8 @@ function HowMuch({ product, meal, prefer, onBack, onAdd }: { product: ListedProd
           id={id}
           value={text}
           onChange={(e) => setText(e.target.value)}
+          // the 100 is chosen when the box is tapped, so typing replaces it (usability test 2026-11-19: George typed after the 100)
+          onFocus={(e) => e.currentTarget.select()}
           inputMode="decimal"
           enterKeyHint="done"
           autoComplete="off"

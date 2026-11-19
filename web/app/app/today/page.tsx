@@ -137,7 +137,8 @@ function TodayScreen() {
     setMoving(null);
     setMoved(t("Changed “{name}” to {amount}.", { name: entry.name, amount: portionWords(portion) }));
   }
-  const portionWords = (n: number) => (n === 1 ? t("1 portion") : t("{n} portions", { n: n === 0.5 ? "½" : n === 1.5 ? "1½" : String(n) }));
+  // one portion or less is "portion" ("½ portion", usability test 2026-11-19: "½ portions" read wrong)
+  const portionWords = (n: number) => (n === 1 ? t("1 portion") : n < 1 ? t("{n} portion", { n: n === 0.5 ? "½" : String(n) }) : t("{n} portions", { n: n === 1.5 ? "1½" : String(n) }));
 
   function moveTo(entry: LogEntry, meal: Meal) {
     moveLogEntry(entry.id, meal);
@@ -175,6 +176,8 @@ function TodayScreen() {
           <p className="min-w-0 flex-1 font-normal leading-tight [overflow-wrap:anywhere]">
             <span className="block text-[2rem] leading-none tracking-[-0.02em] text-accent">{formatInt(totals.calories)}</span>{" "}
             <span className="mt-2 block text-[1.0625rem]">/ {formatCalories(settings.dailyCalories)}</span>
+            {/* what's left, as on Home (usability test 2026-11-19: George had to go back to Home to find it) */}
+            <span className="mt-1.5 block text-[0.9375rem] font-bold">{Math.round(totals.calories) <= settings.dailyCalories ? t("{n} left", { n: formatInt(settings.dailyCalories - Math.round(totals.calories)) }) : t("{n} over", { n: formatInt(Math.round(totals.calories) - settings.dailyCalories) })}</span>
           </p>
         </div>
         <div className="mt-6 space-y-5 border-t border-line pt-5">

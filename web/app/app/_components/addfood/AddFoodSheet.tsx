@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ADD_TO } from "@/lib/mm/addFood";
+import { ADD_TO, FOR_MEAL } from "@/lib/mm/addFood";
 import { analytics } from "@/lib/mm/analytics";
 import { tk } from "@/lib/mm/i18n";
 import { addLogEntry, countProAction } from "@/lib/mm/stores";
@@ -71,7 +71,7 @@ export function AddFoodSheet({ meal, onClose, onAdded }: { meal: Meal | null; on
         <div>
           {view !== "product" && <BackBar onBack={() => setView("menu")} />}
           {/* which meal it goes to, on every step (usability test 2026-11-19: "the add sheet never says which meal it is adding to") */}
-          <p className="mb-3 inline-flex rounded-full bg-[var(--fill)] px-3.5 py-1.5 text-[0.9375rem] font-bold">{t(ADD_TO[meal])}</p>
+          <p className="mb-3 inline-flex rounded-full bg-[var(--fill)] px-3.5 py-1.5 text-[0.9375rem] font-bold">{t(FOR_MEAL[meal])}</p>
           {view === "numbers" && <TypedNumbers meal={meal} onAdd={add} />}
           {view === "recipe" && <RecipePick meal={meal} onAdd={add} />}
           {view === "restaurant" && <DishPick onAdd={add} />}

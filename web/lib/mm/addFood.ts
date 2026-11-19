@@ -10,6 +10,8 @@ import type { Meal, Nutrients } from "./types";
 
 /** The sheet's title and its button, and the line shown after: one whole sentence per meal so a translation can inflect the meal's name. */
 export const ADD_TO: Record<Meal, string> = { breakfast: tk("Add to Breakfast"), lunch: tk("Add to Lunch"), dinner: tk("Add to Dinner") };
+/** The meal a sheet adds to, said at its top: not the same words as its Add button (usability test 2026-11-19: George saw "Add to Breakfast" twice and tapped the label). */
+export const FOR_MEAL: Record<Meal, string> = { breakfast: tk("For breakfast"), lunch: tk("For lunch"), dinner: tk("For dinner") };
 export const ADDED_TO: Record<Meal, string> = {
   breakfast: tk("Added “{name}” to Breakfast."),
   lunch: tk("Added “{name}” to Lunch."),
