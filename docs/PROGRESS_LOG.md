@@ -3403,3 +3403,15 @@ draft, a vote, a conclusion; average score 7.1 of 10) is summed up in the sessio
   recipe ingredients are being checked against the shops' own labels (a separate commit).
 - **Open for the founder** (the meeting's questions): the portion sizes; "may contain" packs left out or listed; the whole home going vegetarian in 1.2; under-5s
   (included at half a portion, no health advice); the website the same day; counting plan sizes (not done); the new wording.
+- (later) **Allergy flags on the recipe ingredients checked against the shops' own labels** (the meeting found lupin, molluscs and sulphites flagged on no
+  ingredient, mustard missing from light mayo and BBQ sauce, celery only on the stock cube). A helper ran the app's own matching over all 9 shops' lists and
+  read each matched product's label allergens (`data/groceries/ingredients/*.csv`, unread Chrome pages, the same barcode elsewhere; Open Food Facts for 2):
+  20 kinds gained flags where about 20% or more of their real products, or the product a recipe uses by default, declare them (stock cube gluten; mustard
+  sulphites and gluten; lemon and lime juice sulphites; light mayo mustard and milk; BBQ sauce gluten and mustard; teriyaki sulphites and sesame; granola nuts,
+  peanuts and soya; parmesan and pesto eggs; raisins, chickpeas and chipolatas sulphites; apple sauce sulphites, milk and mustard; fajita seasoning and stir-fry
+  veg soya; Thai and curry paste gluten; ham gluten; lasagne sheets eggs). None removed. Recipes left under each allergy filter: gluten 92 -> 55, sulphites
+  165 -> 100, eggs 128 -> 125, milk 107 -> 102, mustard 139 -> 133, soya 152 -> 147. No product declares lupin or molluscs, and no recipe ingredient is
+  one by nature. **Found, not fixed (changes recipes' products and figures, needs a decision):** some ingredients match products that aren't that food
+  (mint: a halloumi or a Magnum at three shops; chives: Double Gloucester with chives; thyme: pitta chips; rosemary: chipolatas; skyr: a crème brûlée skyr;
+  mozzarella: flatbreads at Asda; paprika: flatbreads at Morrisons). Three "gluten free" collection recipes now leave a gluten filter (breaded ham, Colman's
+  mustard, Oxo cube). Full results: the session's scratchpad `allergen-audit/`.
