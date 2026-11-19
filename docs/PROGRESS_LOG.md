@@ -3158,3 +3158,11 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   `lib/mm/aiRecipe.ts`; with the person's photo as its picture), and say "Saved to My recipes. You can take it out there any time." My recipes keeps 30
   (MAX_SAVED_RECIPES, unchanged): when a new one makes room the screen says which one went, never silently. In My meals › Recipes a made recipe's heart is
   filled; tapping it takes the recipe out, with Undo for 6 seconds, like the book's recipes.
+- **The photo cropped round the food** (founder: "You should automatically adjust the photo yourself to make sure the food is in it", a Make it at home photo
+  of a website showing its offer banner, not the dish): the quick food check (Haiku, the same call) now also gives "food", the smallest box round the dish as
+  fractions of the photo (DESCRIBE_SYSTEM_PROMPT; `cleanFoodBox`, `foodCrop` in `lib/mm/photoRecipe.ts`; returned by /api/v1/recipe/photo/describe as `food`).
+  The app crops the photo round it with a margin at 4:3 (`photoOfFood`, `app/app/_lib/photo.ts`) for the top of the recipe and the saved picture; with no
+  box (an older server, or Pip unsure) the photo shows as taken. The server part must be live on numbite.com for the phone to get the box. e2e photorecipe
+  16/16 (the test build), unit 2205.
+- Held back: 11 more Iceland pages (all of Iceland is now read), 19 Waitrose coffees whose per-100 g table is brewed coffee or contradicts its serving
+  column. Kept: 12 Waitrose coffees that all print the same roasted-coffee table (406 kcal per 100 g), plausible for beans as sold.

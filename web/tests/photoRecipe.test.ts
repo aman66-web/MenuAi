@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import {
-  PHOTO_SYSTEM_PROMPT, cleanSuggestion, needsMoreDetail, photoPantryPrompt, photoRecipeFromAi, photoUserPrompt, type PhotoRecipeRequest,
+  DESCRIBE_SYSTEM_PROMPT, PHOTO_SYSTEM_PROMPT, cleanFoodBox, cleanSuggestion, foodCrop, needsMoreDetail, photoPantryPrompt, photoRecipeFromAi, photoUserPrompt, type PhotoRecipeRequest,
 } from "../lib/mm/photoRecipe";
 import { handleDescribePhoto, handlePhotoRecipe, isJpeg, type AskPhotoRecipe, type DescribePhoto, type PhotoCtx } from "../lib/photoRecipeHandler";
 
@@ -71,6 +71,33 @@ describe("Make it at home: the description", () => {
     expect(cleanSuggestion({ isFood: true, description: "a 450 kcal burger" })).toBeNull();
     expect(cleanSuggestion({ isFood: true, description: "word ".repeat(30) })).toBeNull();
     expect(cleanSuggestion("chicken")).toBeNull();
+  });
+
+  it("says where the food is, so the app shows the dish and not the rest of the photo (founder 2026-11-18)", () => {
+    expect(DESCRIBE_SYSTEM_PROMPT).toMatch(/smallest box around the dish itself/);
+    const food = { left: 0.2, top: 0.55, width: 0.5, height: 0.4 };
+    expect(cleanSuggestion({ isFood: true, description: "cajun chicken pasta", food })).toEqual({ isFood: true, description: "cajun chicken pasta", food });
+    // no box, a box off the photo or one too small to trust: the description still counts
+    expect(cleanSuggestion({ isFood: true, description: "cajun chicken pasta", food: null })).toEqual({ isFood: true, description: "cajun chicken pasta" });
+    expect(cleanFoodBox({ left: 0.9, top: 0.9, width: 0.5, height: 0.5 })).toEqual({ left: 0.9, top: 0.9, width: 0.09999999999999998, height: 0.09999999999999998 });
+    expect(cleanFoodBox({ left: 0.5, top: 0.5, width: 0.01, height: 0.3 })).toBeNull();
+    expect(cleanFoodBox({ left: "0.1", top: 0, width: 1, height: 1 })).toBeNull();
+  });
+
+  it("crops the photo round the food at the picture's shape, inside the photo", () => {
+    // a phone screenshot (1000 x 2000) with the dish in its lower half: the crop is 4:3, holds the dish with a margin, and stays inside the photo
+    const box = { left: 0.1, top: 0.6, width: 0.8, height: 0.25 };
+    const c = foodCrop(1000, 2000, box);
+    expect(c.width / c.height).toBeCloseTo(4 / 3, 5);
+    expect(c.x).toBeGreaterThanOrEqual(0);
+    expect(c.x + c.width).toBeLessThanOrEqual(1000 + 1e-9);
+    expect(c.y + c.height).toBeLessThanOrEqual(2000 + 1e-9);
+    expect(c.y).toBeLessThanOrEqual(0.6 * 2000);
+    expect(c.y + c.height).toBeGreaterThanOrEqual(0.85 * 2000);
+    // food filling a wide photo: the whole height, centred on the food
+    const wide = foodCrop(2000, 1000, { left: 0, top: 0, width: 1, height: 1 });
+    expect(wide.height).toBeCloseTo(1000, 5);
+    expect(wide.width).toBeCloseTo(4000 / 3, 5);
   });
 });
 
@@ -149,6 +176,8 @@ describe("Make it at home: the server", () => {
   });
 
   it("suggests a description, says when there's no food, and checks Premium", async () => {
+    const boxed = await handleDescribePhoto({ image: JPEG }, ctx({ describe: async () => answer({ isFood: true, description: "cajun chicken pasta", food: { left: 0.1, top: 0.5, width: 0.6, height: 0.4 } }) }));
+    expect(boxed.body).toEqual({ description: "cajun chicken pasta", food: { left: 0.1, top: 0.5, width: 0.6, height: 0.4 } });
     const ok = await handleDescribePhoto({ image: JPEG }, ctx());
     expect(ok).toEqual({ status: 200, body: { description: "peri-peri chicken wings with fries and coleslaw" } });
     expect((await handleDescribePhoto({ image: JPEG }, ctx({ describe: async () => answer({ isFood: false, description: "" }) }))).status).toBe(422);

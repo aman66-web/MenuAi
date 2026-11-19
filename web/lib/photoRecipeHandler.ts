@@ -107,5 +107,5 @@ export async function handleDescribePhoto(body: unknown, ctx: PhotoCtx): Promise
   const clean = answer.status === "ok" ? cleanSuggestion(answer.value) : null;
   if (!clean) return say(502, "no_suggestion", PHOTO_MESSAGES.noSuggestion);
   if (!clean.isFood) return say(422, "not_food", PHOTO_MESSAGES.notFood);
-  return { status: 200, body: { description: clean.description } };
+  return { status: 200, body: { description: clean.description, ...(clean.food ? { food: clean.food } : {}) } };
 }

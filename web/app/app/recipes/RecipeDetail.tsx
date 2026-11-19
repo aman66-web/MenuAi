@@ -305,7 +305,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
         <div className="absolute inset-x-0 top-0 flex flex-wrap items-start justify-between gap-2 px-4 pt-[max(0.75rem,env(safe-area-inset-top))]">
           <Link href={back.href} onClick={(e) => { if (save && !save.saved) { e.preventDefault(); setLeaving(true); return; } back.onClick(e); }} aria-label={backName(t("Back"), t("Back to recipes"), back.cameFromApp)} className={`${ON_PICTURE} ps-2.5 pe-4`}><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
           {!recipe.ai ? <SaveRecipeButton id={recipe.id} /> : save && (
-            <button type="button" aria-pressed={save.saved} aria-label={save.saved ? t("Saved to Your recipes.") : t("Save this recipe")} onClick={() => { if (!save.saved) save.onSave(); }} className={`${ON_PICTURE} ms-auto ps-3.5 pe-4`}>
+            <button type="button" aria-pressed={save.saved} aria-label={save.saved ? t("Saved to My recipes") : t("Save this recipe")} onClick={() => { if (!save.saved) save.onSave(); }} className={`${ON_PICTURE} ms-auto ps-3.5 pe-4`}>
               <HeartIcon filled={save.saved} className={`h-5 w-5 ${save.saved ? "text-[#e11d48]" : ""}`} />{save.saved ? t("Saved") : t("Save")}
             </button>
           )}
