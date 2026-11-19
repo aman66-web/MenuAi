@@ -44,6 +44,8 @@ export interface LogEntry {
   photo?: PhotoSource;
   /** How many portions of what was logged this is, when the person changed it (usability test 2026-11-19); absent = one. The figures are already scaled. */
   portion?: number;
+  /** A Scan your food estimate from a photo (CLAUDE.md rule 1's one exception), so Home's week can say it includes estimates. Kept only when exactly true. */
+  estimate?: true;
 }
 
 /** The portions a logged food can be changed to. */
@@ -227,7 +229,7 @@ export function sanitizeLog(raw: unknown): LogEntry[] {
     .map((e) => {
       // A meal row this app doesn't know: the entry falls back to its time. A picture reference that isn't one we would show is dropped
       // (it comes back from this phone's storage and from the sync server); the entry itself stays.
-      const { meal, image, recipeId, photo, portion, ...rest } = e;
+      const { meal, image, recipeId, photo, portion, estimate, ...rest } = e;
       const kept = validPhoto(photo);
       return {
         ...rest,
@@ -236,6 +238,7 @@ export function sanitizeLog(raw: unknown): LogEntry[] {
         ...(typeof image === "string" && image.length <= 200 && LOG_IMAGE.test(image) ? { image } : {}),
         ...(typeof recipeId === "string" && RECIPE_ID.test(recipeId) && !(recipeId in Object.prototype) ? { recipeId } : {}),
         ...(kept ? { photo: kept } : {}),
+        ...(estimate === true ? { estimate: true as const } : {}),
       };
     });
 }

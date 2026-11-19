@@ -3,7 +3,7 @@ import { platesFor, sanitizeHousehold, yourPortionDistance, type HomeMeat, type 
 import type { AllergenKey } from "./types";
 import type { DietPrefs } from "./pantry";
 import { PANTRY } from "./pantry";
-import { candidates as productCandidates, fitDistance, fitRecipe, isMeatFree, pickFor, recipeForDiet, recipeTotals, resolveRecipe, type IngredientPick, type IngredientSpec, type MealTarget, type MealType, type Recipe } from "./recipes";
+import { candidates as productCandidates, fitDistance, fitRecipe, isMeatFree, pickFor, recipeForDiet, recipeTotals, resolveRecipe, type IngredientPick, type IngredientSpec, type MealTarget, type MealType, type Recipe, type RecipeTotals } from "./recipes";
 import { CUISINES, type CuisineId } from "./recipeBook/niches";
 import { matchesNiche } from "./recipeNiche";
 import { normalizeForSearch } from "./search";
@@ -150,6 +150,9 @@ export interface PlanCandidate {
   better?: boolean;
   meal: MealType;
   perServing: { kcal: number; protein: number; carbs: number; fat: number };
+  /** The rest of one serving's label (recipeTotals' label: null where any product doesn't print that figure), so a meal logged from the plan keeps its sugar,
+   *  salt and fibre (Home's third page). Sized with perServing for a household. */
+  label?: RecipeTotals["label"];
   /** What one serving's amounts cost (the recipe page's price a serving). */
   cost: number;
   /** The fitted recipe's products for its written servings. */
@@ -194,6 +197,7 @@ export function planCandidates(
       base: recipe,
       meal: base.meal,
       perServing: totals.perServing,
+      label: totals.label,
       cost: totals.costPerServing,
       picks: resolved.picks as IngredientPick[],
       servings: (fitted ? fitted.recipe : recipe).servings,
@@ -263,7 +267,7 @@ export function betterCandidate(c: PlanCandidate, products: readonly ShopProduct
   const totals = fitted ? fitted.totals : recipeTotals(resolved);
   if (!totals || !resolved.complete || totals.costPerServing === null || totals.costPerServing <= c.cost) return null;
   const recipe = fitted ? fitted.recipe : c.base;
-  return { ...c, recipe, perServing: totals.perServing, cost: totals.costPerServing, picks: resolved.picks as IngredientPick[], servings: recipe.servings, distance: target ? fitDistance(totals.perServing, target) : 0, better: true };
+  return { ...c, recipe, perServing: totals.perServing, label: totals.label, cost: totals.costPerServing, picks: resolved.picks as IngredientPick[], servings: recipe.servings, distance: target ? fitDistance(totals.perServing, target) : 0, better: true };
 }
 
 /** The candidates with some recipes (by "meal:id") made with better products. */
@@ -314,6 +318,12 @@ export interface HouseholdSizing {
   others: readonly Pick<HomePerson, "group" | "portion">[];
 }
 
+/** A serving's label figures times `k` (null stays null: a figure no label printed is never made up). */
+function scaleLabel(l: RecipeTotals["label"], k: number): RecipeTotals["label"] {
+  const x = (n: number | null) => (n === null ? null : n * k);
+  return { kj: x(l.kj), saturates: x(l.saturates), sugars: x(l.sugars), fibre: x(l.fibre), salt: x(l.salt) };
+}
+
 export function householdCandidate(c: PlanCandidate, s: HouseholdSizing): PlanCandidate {
   const target = s.targets[c.meal];
   if (!target) return c;
@@ -328,6 +338,7 @@ export function householdCandidate(c: PlanCandidate, s: HouseholdSizing): PlanCa
     servings: plain.servings / plates.total,
     cost: plain.cost * plates.total,
     perServing: { kcal: ps.kcal * you, protein: ps.protein * you, carbs: ps.carbs * you, fat: ps.fat * you },
+    ...(plain.label ? { label: scaleLabel(plain.label, you) } : {}),
     distance: yourPortionDistance(ps, you, target),
   };
 }

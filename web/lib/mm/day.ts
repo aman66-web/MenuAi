@@ -47,6 +47,12 @@ export function shortDate(d: Date, htmlLang: string): string {
   }
 }
 
+/** Monday to Sunday of the week that holds `now`, each at local midnight (built from the calendar date, never by stepping 24 hours, so a clock change can't move a day). */
+export function weekOf(now: Date): Date[] {
+  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate() - ((now.getDay() + 6) % 7));
+  return Array.from({ length: 7 }, (_, i) => new Date(start.getFullYear(), start.getMonth(), start.getDate() + i));
+}
+
 /** A month as weeks of seven cells, Monday first, `null` for the blanks before the 1st and after the last day. Month is 0 to 11. */
 export function monthGrid(year: number, month: number): Array<Array<Date | null>> {
   const first = new Date(year, month, 1);

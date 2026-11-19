@@ -76,6 +76,12 @@ describe("a plan for a household", () => {
     // sizing again from the sized candidate starts from the plain one: nothing is multiplied twice
     expect(householdCandidate(c, sizing).cost).toBeCloseTo(c.cost);
   });
+  it("sizes the rest of the label with the user's portion, so a meal logged from the plan keeps its sugar, salt and fibre (null stays null)", () => {
+    const c = householdCandidate({ ...cand, label: { kj: 1700, saturates: 2, sugars: 6, fibre: 4, salt: 1.2 } }, sizing);
+    expect(c.label!.sugars).toBeCloseTo(9);
+    expect(c.label!.salt).toBeCloseTo(1.8);
+    expect(householdCandidate({ ...cand, label: { kj: null, saturates: null, sugars: 6, fibre: null, salt: null } }, sizing).label!.fibre).toBeNull();
+  });
   it("comes back the same for the same household, so the plan's memo holds", () => {
     const map = new Map([["dinner" as const, [cand]]]);
     expect(forHousehold(map, sizing)).toBe(forHousehold(map, sizing));

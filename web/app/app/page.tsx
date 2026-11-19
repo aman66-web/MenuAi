@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
 import { entryMeal, isSameLocalDay, LOG_MEAL_LABEL, LOG_MEALS, loggedGaps, loggedToday, mealBudget } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
-import { dayHref, shortDate } from "@/lib/mm/day";
-import { formatGrams, formatInt } from "@/lib/mm/format";
+import { dayHref, dayParam, loggedDayKeys, shortDate, weekOf } from "@/lib/mm/day";
+import { formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
 import { localeInfo } from "@/lib/mm/i18n";
 import { deleteLogEntry, logStore, savedStore, updateSettings } from "@/lib/mm/stores";
@@ -17,7 +17,10 @@ import type { LogMeal } from "@/lib/mm/types";
 import { AddFoodSheet } from "./_components/addfood/AddFoodSheet";
 import { EntryAvatars, entryPicture, legacyImage, type EntryPicture } from "./_components/addfood/EntryPicture";
 import { DayPicker } from "./_components/DayPicker";
-import { Gauge } from "./_components/Gauge";
+import { HomeLabels } from "./_components/HomeLabels";
+import { HOME_PAGE_NAMES, HomePages } from "./_components/HomePages";
+import { HomeToday } from "./_components/HomeToday";
+import { HomeWeek } from "./_components/HomeWeek";
 import { useGate } from "./_components/Paywall";
 import { RemindersSection } from "./_components/RemindersSection";
 import { WaterCard } from "./_components/WaterCard";
@@ -40,41 +43,6 @@ import { useLanguage, useT } from "./_lib/i18n";
 // Logging is Pro (SPEC §7.8): while Pro is on, a free user's + opens the paywall.
 // Each meal row shows up to two pictures of what was eaten (founder 2026-11-17, "use images please when possible"): the dish's, the recipe's or the
 // product's, kept on the entry when it was logged (EntryPicture.tsx; older entries: the dish found by its name). One that doesn't load is left out.
-
-/** Two cards side by side, stacked when the text is large: the minimum width is in rem, so it grows with the text size. */
-const PAIR = "grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] gap-3.5";
-/** The day's numbers' two cards: the app's dark (the colour the scan card had), white words. */
-const DARK_CARD = "rounded-[1.25rem] bg-[#1d2320] text-white shadow-[0_18px_40px_-20px_rgba(0,0,0,0.6)]";
-
-const dayKey = (d: Date) => `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
-
-/** Monday to Sunday of the week that holds `now`, at local midnight. */
-function weekOf(now: Date): Date[] {
-  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate() - ((now.getDay() + 6) % 7));
-  return Array.from({ length: 7 }, (_, i) => new Date(start.getFullYear(), start.getMonth(), start.getDate() + i));
-}
-
-/**
- * "PROTEIN      56g / 150g" and a thin bar well below it, measured from the founder's picture of this card (2026-10-15, "exactly like the
- * design in image 2"): the label in small spaced capitals and the figures in DM Mono, both the same grey, on one line; the bar spans the row.
- */
-function MacroRow({ label, eaten, target, onDark = false }: { label: string; eaten: number; target?: number; /** On the dark numbers card. */ onDark?: boolean }) {
-  const fraction = target ? Math.min(1, Math.max(0, eaten / target)) : 0;
-  return (
-    <div>
-      <p className={`flex flex-wrap items-baseline justify-between gap-x-1.5 gap-y-0.5 ${onDark ? "text-white/75" : "text-muted"}`}>
-        <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.08em]">{label}</span>
-        <span className="app-numbers whitespace-nowrap font-mono text-[0.6875rem] font-normal">{formatGrams(eaten)}{target ? ` / ${formatGrams(target)}` : null}</span>
-      </p>
-      {target ? (
-        <div className="mt-[1.1rem] h-1 overflow-hidden rounded-full bg-[var(--ring-track)]" role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(fraction * 100)}>
-          <div className="h-full rounded-full bg-[var(--bar)] transition-[width] duration-700 ease-out motion-reduce:transition-none" style={{ width: `${fraction * 100}%` }} />
-        </div>
-      ) : null}
-    </div>
-  );
-}
-
 
 export default function HomePage() {
   const t = useT();
@@ -106,12 +74,11 @@ export default function HomePage() {
   const profile = { goal: settings.goal, dailyCalories: settings.dailyCalories, glp1MealCap: settings.glp1MealCap, ...(settings.dailyProtein ? { dailyProtein: settings.dailyProtein } : {}) };
   const eaten = loggedToday(log, now);
   const gaps = loggedGaps(log, now);
-  const used = Math.min(1, Math.max(0, eaten.calories / settings.dailyCalories));
   const targets = macroTargets(settings);
   const htmlLang = localeInfo(language).htmlLang;
   const narrow = new Intl.DateTimeFormat(htmlLang, { weekday: "narrow" });
   const longDay = new Intl.DateTimeFormat(htmlLang, { weekday: "long", day: "numeric", month: "long" });
-  const loggedDays = new Set(log.map((e) => dayKey(new Date(e.loggedAt))));
+  const loggedDays = loggedDayKeys(log);
 
 
   const pictureOf = (e: LogEntry): EntryPicture | undefined => entryPicture(e, legacyImage(e, indexes.get(e.chainId), savedOrders));
@@ -131,7 +98,7 @@ export default function HomePage() {
         {/* the shopping list at the top right, with how many things are left to pick up (founder 2026-11-19: "instead of it saying settings in the top right on the
             home screen, I think that should maybe say shopping list instead"), and the Settings gear beside it ("keep the settings cog on the right of shopping list
             like before"); Settings is also a named button at the top right of Eat out */}
-        <div data-coach="home-top" className="-me-1 flex shrink-0 items-center gap-0.5">
+        <div data-coach="home-top" className="-me-1 flex max-w-full flex-wrap items-center justify-end gap-0.5">
           <ShoppingListPill />
           <SettingsGear />
         </div>
@@ -143,7 +110,7 @@ export default function HomePage() {
         {weekOf(now).map((d) => {
           const today = isSameLocalDay(d, now);
           const future = !today && d > now;
-          const logged = loggedDays.has(dayKey(d));
+          const logged = loggedDays.has(dayParam(d));
           const name = longDay.format(d);
           const label = today ? t("{day} (today)", { day: name }) : future ? name : logged ? t("{day}: food logged", { day: name }) : t("{day}: nothing logged", { day: name });
           // Like the picture: every day gone by is a dark circle, today is the brand colour, the days ahead are grey. A small dot at the foot
@@ -159,7 +126,7 @@ export default function HomePage() {
             </>
           );
           return (
-            <li key={dayKey(d)} className="min-w-0">
+            <li key={dayParam(d)} className="min-w-0">
               {future ? (
                 // the same box as the links (their padding included), so all seven circles share one baseline
                 <span className="-mx-1 flex flex-col items-center gap-2.5 px-1 py-0.5">
@@ -185,35 +152,18 @@ export default function HomePage() {
         <p className="glass mt-4 rounded-2xl px-4 py-2.5 text-xs text-muted">{t("Showing fictional sample data for testing. Numbers are not real.")}</p>
       )}
 
-      {/* the day's numbers on the dark of the app's scan card (founder 2026-11-19: "the background colour used for the scan your food may be better if that's
-          used for the background of the top part instead"): white words, the dial and bars lime on a faint white track */}
-      <div data-coach="home-numbers" className={`app-numbers mt-6 ${PAIR}`} style={{ "--ring-track": "rgba(255,255,255,0.14)", "--bar": "var(--sun)" } as React.CSSProperties}>
-        {/* Measured from the founder's picture of this card ("exactly like image 2"): the small label at the top, a dial about 55% of the
-            card's width with a thick track and a small grey centre, plenty of room around it, the figures in a regular weight below. */}
-        <div className={`${DARK_CARD} flex min-h-[14.25rem] min-w-0 flex-col items-center justify-between gap-5 px-4 pb-3.5 pt-4 text-center`}>
-          <p className="self-start text-[0.6875rem] font-bold uppercase tracking-[0.07em] text-white/75">{t("Calories")}</p>
-          <Gauge id="home" label={t("Calories used today")} fraction={used} size={100} stroke={17} disc>
-            <span aria-hidden className="text-[23px] font-[800] leading-none tracking-tight">{Math.round(used * 100)}%</span>
-          </Gauge>
-          <div>
-            <p className="text-[1.25rem] font-normal leading-tight [overflow-wrap:anywhere]">
-              <span className="text-[var(--sun)]">{formatInt(eaten.calories)}</span> <span>/ {formatInt(settings.dailyCalories)}</span>
-            </p>
-            <p className="mt-0.5 text-[1.0625rem] font-normal leading-tight">kcal</p>
-            {/* what's left, said in words (usability test 2026-11-19: "no figure says 1,028 left anywhere, so she must subtract in her head") */}
-            <p className="mt-1.5 text-[0.9375rem] font-bold leading-tight">
-              {/* from the figure shown, so eaten and left add up to the target exactly (usability test 2026-11-19: George's 319 and 1,232 made 1,551) */}
-              {Math.round(eaten.calories) <= settings.dailyCalories ? t("{n} left", { n: formatInt(settings.dailyCalories - Math.round(eaten.calories)) }) : t("{n} over", { n: formatInt(Math.round(eaten.calories) - settings.dailyCalories) })}
-            </p>
-          </div>
-        </div>
-        <div className={`${DARK_CARD} flex min-w-0 flex-col justify-center gap-[2.1rem] px-4 py-6`}>
-          <MacroRow onDark label={t("Protein")} eaten={eaten.protein} target={targets.protein} />
-          <MacroRow onDark label={t("Carbs")} eaten={eaten.carbs} target={targets.carbs} />
-          <MacroRow onDark label={t("Fat")} eaten={eaten.fat} target={targets.fat} />
-        </div>
-      </div>
-      {gaps.any && <p className="mt-3 px-1 text-sm leading-snug text-muted">{t("Some meals you added have no protein, carbs or fat entered, so those figures only count the rest.")}</p>}
+      {/* the day's numbers as three pages you slide sideways, with three dots under them (founder 2026-11-19; the 20-person meeting): Today (the two dark cards,
+          as before), Calories and protein this week, and Today: sugar, salt and fibre */}
+      <HomePages
+        now={now}
+        pages={[
+          { name: t(HOME_PAGE_NAMES.today), node: <><h2 className="sr-only">{t(HOME_PAGE_NAMES.today)}</h2><HomeToday calories={eaten.calories} target={settings.dailyCalories} targets={targets} eaten={eaten} /></> },
+          { name: t(HOME_PAGE_NAMES.week), node: <HomeWeek log={log} now={now} target={settings.dailyCalories} pro={pro} htmlLang={htmlLang} /> },
+          { name: t(HOME_PAGE_NAMES.labels), node: <HomeLabels log={log} now={now} pro={pro} /> },
+        ]}
+      />
+      {/* the word "today" keeps it true under any of the pages */}
+      {gaps.any && <p className="mt-3 px-1 text-sm leading-snug text-muted">{t("Some meals you added today have no protein, carbs or fat entered, so today's figures only count the rest.")}</p>}
 
       {!pro && (
         <Card className="mt-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 p-4">

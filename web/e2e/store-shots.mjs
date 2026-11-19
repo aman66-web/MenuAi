@@ -42,6 +42,8 @@ async function shot(name, path, ready) {
   console.log("saved", name);
 }
 
+// Home's swipe pages settled for the store picture: no first-visit hint, no half-done demonstration slide (2026-11-19)
+await page.addInitScript(() => { try { localStorage.setItem("mm.v1.homePages", JSON.stringify({ v: 1, data: { seen: true, slid: true, hintDays: 5, lastHintDay: "2026-01-01" } })); } catch { /* storage blocked */ } });
 await shot("1-home", "/app", () => page.getByRole("progressbar", { name: "Calories used today" }).waitFor());
 await shot("2-eat-out", "/app/eat-out", () => page.getByText(/\d{3} UK restaurants/).waitFor({ timeout: 15000 }));
 await shot("3-restaurant", "/app/chain?id=nandos", () => page.getByRole("heading", { level: 1 }).waitFor({ timeout: 15000 }));

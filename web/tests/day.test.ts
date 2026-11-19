@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addMonths, calendarBounds, dayHref, dayParam, isFutureDay, loggedDayKeys, monthGrid, parseDayParam, sameMonth, shortDate, startOfDay, stepDay } from "../lib/mm/day";
+import { addMonths, calendarBounds, dayHref, dayParam, isFutureDay, loggedDayKeys, monthGrid, parseDayParam, sameMonth, shortDate, startOfDay, stepDay, weekOf } from "../lib/mm/day";
 
 // Home's date, the calendar and the day page: pure helpers.
 
@@ -108,5 +108,21 @@ describe("loggedDayKeys", () => {
       { loggedAt: "not a date" },
     ]);
     expect([...keys].sort()).toEqual(["2026-10-14", "2026-10-16"]);
+  });
+});
+
+describe("weekOf (Home's day circles and its week page)", () => {
+  it("runs Monday to Sunday at local midnight, and a Sunday belongs to the week that began the Monday before", () => {
+    const wed = weekOf(new Date(2026, 10, 18, 15, 30));
+    expect(wed.map(dayParam)).toEqual(["2026-11-16", "2026-11-17", "2026-11-18", "2026-11-19", "2026-11-20", "2026-11-21", "2026-11-22"]);
+    expect(wed.every((d) => d.getHours() === 0 && d.getMinutes() === 0)).toBe(true);
+    expect(weekOf(new Date(2026, 10, 22, 23, 59)).map(dayParam)[0]).toBe("2026-11-16");
+    expect(weekOf(new Date(2026, 10, 16, 0, 1)).map(dayParam)[6]).toBe("2026-11-22");
+  });
+  it("keeps seven different calendar days across a clock change and a month end", () => {
+    const march = weekOf(new Date(2027, 2, 29, 12)).map(dayParam); // the UK clocks go forward on Sunday 28 March 2027
+    expect(march).toEqual(["2027-03-29", "2027-03-30", "2027-03-31", "2027-04-01", "2027-04-02", "2027-04-03", "2027-04-04"]);
+    expect(new Set(weekOf(new Date(2027, 2, 28, 12)).map(dayParam)).size).toBe(7);
+    expect(new Set(weekOf(new Date(2026, 9, 25, 12)).map(dayParam)).size).toBe(7); // and back on 25 October 2026
   });
 });

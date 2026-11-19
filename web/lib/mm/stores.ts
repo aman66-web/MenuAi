@@ -1,3 +1,4 @@
+import { NO_HOME_PAGES, sanitizeHomePages, type HomePagesState } from "./homePages";
 import { sanitizeShoppingList, type ShoppingItem } from "./groceries";
 import { NO_COACH, sanitizeCoach, type CoachState } from "./coach";
 import { sanitizePlan, sanitizePlans, type SavedPlan } from "./mealPlan";
@@ -41,6 +42,8 @@ export const ratingStore = createStore<RatingState>("mm.v1.rating", EMPTY_RATING
 export const tourStore = createStore<number>("mm.v1.tour", 0, { sanitize: (v) => (Number.isInteger(v) && (v as number) >= 0 && (v as number) < 100 ? (v as number) : 0) });
 /** Pip's tips on the real screens (lib/mm/coach.ts): whether they are on and which tabs' tips have been shown. On this device only: not synced, never sent. */
 export const coachStore = createStore<CoachState>("mm.v1.coach", NO_COACH, { sanitize: sanitizeCoach });
+/** Home's swipe pages: whether page 2 or 3 has been seen, the one demonstration slide, and the days the hint showed (lib/mm/homePages.ts). On this device only: not synced, never sent. */
+export const homePagesStore = createStore<HomePagesState>("mm.v1.homePages", NO_HOME_PAGES, { sanitize: sanitizeHomePages });
 export const favoritesStore = createStore<Favorite[]>("mm.v1.favorites", [], { sanitize: sanitizeFavorites });
 export const savedStore = createStore<SavedOrder[]>("mm.v1.saved", [], { sanitize: sanitizeSavedOrders });
 export const logStore = createStore<LogEntry[]>("mm.v1.log", [], { sanitize: sanitizeLog });

@@ -47,8 +47,7 @@ for (const scale of [1, 1.5, 2]) {
   await press("Get started");
   await check("Pip arrives");
   await press("Show me around");
-  await check("text size");
-  await press("Continue");
+  // no text size screen since 2026-11-19 (founder: "Just keep standard pls"; TEXT_SIZE_CHOICE_ENABLED false): the walk follows Pip's arrival
   for (const tab of ["Home", "Eat out", "Groceries", "Recipes"]) { await check(`walk: ${tab}`); await press("Continue"); }
   await check("let's make it yours");
   await press("Set up my plan");

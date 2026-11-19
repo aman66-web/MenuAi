@@ -3423,3 +3423,24 @@ draft, a vote, a conclusion; average score 7.1 of 10) is summed up in the sessio
 - (evening) **Morrisons: every product page is read** (the reader's next round handed out none). 10,553 Morrisons labels of its own; 4 more held back
   (tuna with sugars above carbohydrate, a baby food's garbled "7.79", two stock cubes with figures only as made up). Tesco still answers with its protection
   page (checked once, no reader started).
+- (night) **Home's numbers are three pages you slide sideways, with three dots under them** (founder: "I also want like 3 dots here showing that they can also
+  swipe right to see different things like stats ... Have a meeting with 20 people and discuss what to do then after do all of those things"; the 20-person
+  meeting's conclusion, both reviews "approve with changes", 8/10). On `iap` only.
+  - Page 1 **Today**: the two dark cards exactly as before (moved to `_components/HomeToday.tsx`); the dial and bars now also tell VoiceOver the real figures
+    ("640 of 2,000 kcal, 1,360 left", "56 grams of 150 grams"). Page 2 **Calories and protein this week** (`HomeWeek.tsx`, `lib/mm/week.ts`): a bar per day on
+    the day circles' own grid, the target as a dashed line ("Your target: 2,000 kcal"), and calories and protein a day over the days logged before today ("From
+    the 2 days you logged, not counting today."); a day with nothing logged has a dash, never a 0; no red, no "over", no streaks; Monday says "A new week starts
+    today." with last week's average; notes for foods with no protein and for photo estimates. Page 3 **Today: sugar, salt and fibre** (`HomeLabels.tsx`,
+    `lib/mm/labelTotals.ts`): only figures a label or menu printed, "from 1 of your 2 foods", "not published" when none; no targets or colours.
+  - The dots (`HomePages.tsx`) are three 44 pt buttons ("Choose what to show"), the page shown a dark pill; CSS scroll snap only (one page a swipe, no touch code,
+    no library). A first-visit hint "Slide the cards sideways, or tap here, to see your week" until page 2 or 3 is seen, on at most 5 days; one demonstration
+    slide once per device (not while Pip's tips are due, not with reduced motion). Kept on the device only (`homePagesStore`, mm.v1.homePages, not synced;
+    cleared by Clear data and Reset onboarding). On a narrow screen (content under 20.375rem) the pages stack with no dots. Home always opens on Today.
+  - Pip's "Your day" tip: "What you've eaten today and what's left. Slide the cards or tap the dots to see your week." Home's gap sentence now says "today"
+    ("Some meals you added today have no protein, carbs or fat entered, so today's figures only count the rest."); the Today page keeps the old one.
+  - A meal logged from the meal plan now keeps its sugar, salt, fibre, saturates and kJ (the plan keeps each recipe's label and sizes it with your portion), and a
+    Scan your food entry is marked `estimate: true` (kept only when exactly true).
+  - Not built, waiting for the founder: the dial showing the real percentage over 100% (now capped at 100%); a sliver of the next card always showing; syncing
+    the whole week's log (only 2 days sync, so the week page says "on this device"). The new words are English only for now (languages are off).
+  - Checked: unit tests (week, label totals, hint, estimate, weekOf across clock changes, household label), e2e `homepages.mjs` 8/8 (dots, pages, hint, slide,
+    free user, 320/360/390 px, axe 0), screenshots of all three pages. Not yet checked on the iPhone (swipe feel, VoiceOver in the web view).

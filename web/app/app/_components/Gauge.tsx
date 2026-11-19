@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
  * `disc` puts a plain grey circle behind the figure in the middle, with a white ring between it and the track, and opens the dial a little
  * wider at the bottom (280° of arc), like the founder's Home picture (2026-10-15, "exactly like image 2").
  */
-export function Gauge({ fraction, label, size = 132, stroke = 10, disc = false, className = "", children, id }: { fraction: number; label: string; size?: number; stroke?: number; disc?: boolean; className?: string; children?: ReactNode; id: string }) {
+export function Gauge({ fraction, label, size = 132, stroke = 10, disc = false, className = "", children, id, valueText }: { fraction: number; label: string; size?: number; stroke?: number; disc?: boolean; className?: string; children?: ReactNode; id: string; /** What a screen reader says for the value, with the real figures ("640 of 2,000 kcal, 1,360 left"). */ valueText?: string }) {
   const f = Math.min(1, Math.max(0, Number.isFinite(fraction) ? fraction : 0));
   const r = 50 - stroke / 2;
   // From the lower left clockwise round the top to the lower right: 270° of arc (280° with the picture's disc).
@@ -15,7 +15,7 @@ export function Gauge({ fraction, label, size = 132, stroke = 10, disc = false, 
   const d = `M ${at(from)} A ${r} ${r} 0 1 1 ${at(to)}`;
   void id; // kept so callers stay the same; the dial no longer needs its own gradient id
   return (
-    <div role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(f * 100)} className={`relative shrink-0 ${className}`} style={{ width: size, height: size }}>
+    <div role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(f * 100)} aria-valuetext={valueText} className={`relative shrink-0 ${className}`} style={{ width: size, height: size }}>
       <svg viewBox="0 0 100 100" className="h-full w-full" aria-hidden focusable="false">
         {disc && <circle cx="50" cy="50" r={(r - stroke / 2) * 0.66} fill="var(--ring-track)" />}
         <path d={d} fill="none" stroke="var(--ring-track)" strokeWidth={stroke} strokeLinecap="round" pathLength={100} />

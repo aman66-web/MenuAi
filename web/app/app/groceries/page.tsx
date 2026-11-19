@@ -56,7 +56,7 @@ export default function GroceriesPage() {
       <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
         <h1 className={TITLE}>{t("Groceries")}</h1>
         {/* its shopping list, then the Settings gear at the top right as on every tab (founder 2026-11-19) */}
-        <div className="-me-1 flex shrink-0 items-center gap-0.5"><ListLink count={list.length} /><SettingsGear /></div>
+        <div className="-me-1 flex max-w-full flex-wrap items-center justify-end gap-0.5"><ListLink count={list.length} /><SettingsGear /></div>
       </div>
       {/* what this tab is for, in one line (founder 2026-11-18: "everyone needs to understand the point for each screen") */}
       <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Supermarket food, with its price and the calories and protein on its label.")}</p>

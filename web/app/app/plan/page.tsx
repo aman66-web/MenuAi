@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { recipeNutrients } from "@/lib/mm/addFood";
 import { MEAL_LABEL } from "@/lib/mm/budget";
 import { GATING_ENABLED } from "@/lib/mm/config";
 import { formatInt } from "@/lib/mm/format";
@@ -830,9 +831,9 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
     plates.map((n, i) => `${i === 0 ? t("you") : plateNames[i - 1] ?? ""} ${shareWords(Math.max(0.25, Math.round(n * 4) / 4))}`),
   );
   const logMine = (c: PlanCandidate, slot: MealType) => gate("log", () => {
-    const n = c.perServing;
-    addLogEntry({ chainId: "", chainName: t("Recipe"), name: t(c.recipe.name), source: "recipe", recipeId: c.recipe.id, meal: slot,
-      nutrients: { calories: Math.round(n.kcal), protein: Math.round(n.protein * 10) / 10, carbs: Math.round(n.carbs * 10) / 10, fat: Math.round(n.fat * 10) / 10 } });
+    // the whole label where every product printed it (sugar, salt, fibre...: Home's third page), as Add food's recipes log it
+    const nutrients = recipeNutrients({ perServing: c.perServing, label: c.label ?? { kj: null, saturates: null, sugars: null, fibre: null, salt: null } }, 1);
+    addLogEntry({ chainId: "", chainName: t("Recipe"), name: t(c.recipe.name), source: "recipe", recipeId: c.recipe.id, meal: slot, nutrients });
     setLogged(t("Added your portion of {name} to today.", { name: t(c.recipe.name) }));
   });
   const planDiet = useMemo(() => (savedHome ? homeDiet(settings.preferences, { others: savedHome.others.map((o, i) => ({ ...o, id: `p${i}` })), allergies: savedHome.allergies, meat: savedHome.meat }) : settings.preferences), [savedHome, settings.preferences]);

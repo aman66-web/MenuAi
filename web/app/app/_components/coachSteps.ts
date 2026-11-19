@@ -17,7 +17,7 @@ export interface CoachStep {
 
 export const COACH_STEPS: Readonly<Record<CoachScreen, readonly CoachStep[]>> = {
   home: [
-    { at: '[data-coach="home-numbers"]', title: tk("Your day"), text: tk("What you've eaten today, and what's left of your calories, protein, carbs and fat.") },
+    { at: '[data-coach="home-numbers"]', title: tk("Your day"), text: tk("What you've eaten today and what's left. Slide the cards or tap the dots to see your week.") },
     { at: '[data-coach="home-add"]', title: tk("Add what you ate"), text: tk("Tap + next to a meal to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers.") },
     // the cooking tools sit on Home under the numbers (founder 2026-11-19), so their tips are here, in the order they come down the screen
     { at: '[data-coach="home-photo"]', title: tk("Scan your food"), text: tk("Take a photo of a meal: see its calories and protein, or get the recipe to make it at home. It's part of Premium."), when: PHOTO_RECIPES_ENABLED || FOOD_SCAN_ENABLED },

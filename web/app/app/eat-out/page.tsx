@@ -81,7 +81,7 @@ export default function EatOutPage() {
         <h1 className="text-[1.75rem] font-[800] leading-none tracking-[-0.02em]"><Rich text={t("Eat {out}")} values={{ out: <span className="serif-em">{t("out")}</span> }} /></h1>
         {/* the shopping list and the Settings gear at the top right, as on every tab (founder 2026-11-19: "the settings cog should be on the top right of
             every page. Also shopping list should be on the last page too") */}
-        <div className="-me-1 flex shrink-0 items-center gap-0.5"><ShoppingListPill /><SettingsGear /></div>
+        <div className="-me-1 flex max-w-full flex-wrap items-center justify-end gap-0.5"><ShoppingListPill /><SettingsGear /></div>
       </div>
       <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Restaurants, cafés, pubs and takeaways, with the calories and protein of every dish.")}</p>
 

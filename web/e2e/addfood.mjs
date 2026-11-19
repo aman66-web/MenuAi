@@ -109,7 +109,7 @@ await step("an entry stays in the meal whose + was tapped, whatever the time, on
     await dlg(page).getByRole("button", { name: `Add to ${meal}`, exact: true }).tap();
     await page.getByText(`Added “${name}” to ${meal}.`).waitFor();
   }
-  await page.getByText("Some meals you added have no protein, carbs or fat entered, so those figures only count the rest.").waitFor(); // never "0g" as if it were known
+  await page.getByText("Some meals you added today have no protein, carbs or fat entered, so today's figures only count the rest.").waitFor(); // never "0g" as if it were known (Home's wording says "today": it sits under all three of Home's pages)
   for (const [meal, cals] of [["Breakfast", "111"], ["Lunch", "222"], ["Dinner", "333"]]) {
     const text = await mealRow(page, meal).innerText();
     expect(new RegExp(`^${meal}\\s+${cals}\\s*/`).test(text.trim()), `${meal} row: ${text}`);

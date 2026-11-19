@@ -9,7 +9,7 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
   const open = browser.newContext.bind(browser);
   browser.newContext = async (options) => {
     const c = await open(options);
-    await c.addInitScript(() => { try { if (!localStorage.getItem("mm.v1.coach")) localStorage.setItem("mm.v1.coach", JSON.stringify({ v: 1, data: { armed: false, seen: ["home", "eatOut", "groceries", "recipes"] } })); } catch { /* storage blocked */ } });
+    await c.addInitScript(() => { try { if (!localStorage.getItem("mm.v1.coach")) localStorage.setItem("mm.v1.coach", JSON.stringify({ v: 1, data: { armed: false, seen: ["home", "eatOut", "groceries", "recipes"] } })); if (!localStorage.getItem("mm.v1.homePages")) localStorage.setItem("mm.v1.homePages", JSON.stringify({ v: 1, data: { seen: false, slid: true, hintDays: 0, lastHintDay: "" } })); } catch { /* storage blocked */ } });
     return c;
   };
 }

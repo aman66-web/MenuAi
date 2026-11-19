@@ -268,7 +268,7 @@ function RecipesScreen() {
         {/* My recipes (founder 2026-11-18: "instead of the love heart ... maybe its better having 'my recipes'"): the heart and the words in a grey pill, with
             how many are saved, opening My meals at its Recipes tab (the recipes saved with a card's heart and the ones made for the person) */}
         {/* My recipes, then the Settings gear at the top right as on every tab (founder 2026-11-19) */}
-        <div className="-me-1 flex shrink-0 items-center gap-0.5">
+        <div className="-me-1 flex max-w-full flex-wrap items-center justify-end gap-0.5">
         <Link href="/app/meals?tab=recipes" data-coach="recipes-mine" aria-label={savedCount > 0 ? `${t("My recipes")} · ${savedCount}` : t("My recipes")} className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-soft-strong ps-3 pe-3.5 text-[0.9375rem] font-bold transition hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] active:scale-95">
           <HeartIcon aria-hidden className="h-[18px] w-[18px]" />
           <span aria-hidden>{t("My recipes")}</span>

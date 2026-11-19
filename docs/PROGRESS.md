@@ -53,6 +53,8 @@ touches an earlier decision, and add new entries there, dated, at the end).
 - **On `iap` only, not live (founder 19 Nov, "Wait, don't make it live yet"):** the cooking tools on Home (one Scan your food card with Calories and macros or
   Make it at home; Cook with what you already have and Meal plan side by side), the Shopping list at Home's top right, Settings at Eat out's top right, Recipes
   starting with its search, and Standard text only (`TEXT_SIZE_CHOICE_ENABLED` false). See the 19 November afternoon entries in docs/PROGRESS_LOG.md.
+  Also on `iap` only (19 November evening): the Settings gear at the top right of every tab, the meal plan for everyone at home, and Home's numbers as three
+  pages with three dots (Today; Calories and protein this week; Today: sugar, salt and fibre).
 - **numbite.com** ran `main` at d0d1fb0f (19 November): **all of `iap` merged** (founder 19 Nov, "Put it all live pls"): everyone signs in, the meal plan,
   leaderboards with every shop's logo and price, several shopping lists, Select on the list, the grocery labels, Community off, the food-crop box from the food
   check. On the website nothing is sold, so every feature is open (GATING_ENABLED false) and Make it at home and Scan your food stay hidden there; their API

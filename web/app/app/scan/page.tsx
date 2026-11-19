@@ -179,7 +179,7 @@ function ScanScreen() {
   const log = () => {
     if (!scan) return;
     const name = t(ESTIMATE_LOG_NAME, { name: scan.name });
-    addLogEntry({ chainId: "", chainName: "", name, nutrients: { calories: scan.total.kcal, protein: scan.total.protein, carbs: scan.total.carbs, fat: scan.total.fat }, source: "custom", meal });
+    addLogEntry({ chainId: "", chainName: "", name, nutrients: { calories: scan.total.kcal, protein: scan.total.protein, carbs: scan.total.carbs, fat: scan.total.fat }, source: "custom", meal, estimate: true });
     analytics.track({ name: "mealLogged" });
     countProAction();
     setLogged(meal);

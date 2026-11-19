@@ -69,13 +69,15 @@ describe("the tips on each tab", () => {
     const { COACH_STEPS } = await import("../app/app/_components/coachSteps");
     const files: Record<string, string> = {
       home: "app/app/page.tsx",
+      // Home's numbers moved into their own pages (2026-11-19): the "Your day" tip's marker is on them
+      homePages: "app/app/_components/HomePages.tsx",
       eatOut: "app/app/eat-out/page.tsx",
       groceries: "app/app/groceries/page.tsx",
       recipes: "app/app/recipes/page.tsx",
     };
-    const shell = readFileSync("app/app/_components/AppShell.tsx", "utf8") + readFileSync("app/app/_components/Shortcut.tsx", "utf8") + readFileSync("app/app/groceries/PageBits.tsx", "utf8") + readFileSync("app/app/_components/RecipeTools.tsx", "utf8");
+    const shell = readFileSync("app/app/_components/AppShell.tsx", "utf8") + readFileSync("app/app/_components/Shortcut.tsx", "utf8") + readFileSync("app/app/groceries/PageBits.tsx", "utf8") + readFileSync("app/app/_components/RecipeTools.tsx", "utf8") + readFileSync("app/app/_components/TopActions.tsx", "utf8");
     for (const screen of COACH_SCREENS) {
-      const page = readFileSync(files[screen]!, "utf8") + shell;
+      const page = readFileSync(files[screen]!, "utf8") + (screen === "home" ? readFileSync(files.homePages!, "utf8") : "") + shell;
       for (const step of COACH_STEPS[screen]) {
         const name = /data-coach="([^"]+)"/.exec(step.at)?.[1];
         const href = /href="([^"]+)"/.exec(step.at)?.[1];
