@@ -287,6 +287,46 @@ Make it at home (Premium) sends the photo the person chooses, their description 
 **User Content › Photos or Videos** and **User Content › Other User Content** (the dish description), **not linked**, purpose App Functionality, because they pass through our server to Anthropic, which may keep API
 requests for a limited time under its own terms. Both types are already in the questionnaire and in `PrivacyInfo.xcprivacy` (photos not linked, user content linked for synced data), so the only change is to tick App Functionality for them if it isn't already, and nothing changes in the manifest.
 
+## Version 1.1 (build 7): what was submitted (19 November 2026, founder: "OK please submit for review")
+
+Build 7 replaces build 6 (never uploaded) and adds the meal plan, Cook with what you have, Scan your food, everyone signing in and the fixes from the usability tests.
+
+**What's New in This Version:**
+
+```
+What's new in 1.1
+
+• Premium: every Truth card, Smart Swap and Quick answer, the Top 5 picks for your goal at every chain, the full Cheapest protein list, as many saved orders as you like, the meal plan, Make it at home, Scan your food and Pip's own recipes from what you have. Try it free for 7 days, then choose Monthly or Annual, or a one-off 90-day pass. Everything that was free stays free.
+
+• Meal plan (Premium): a week of meals from our recipes for your goal, diet, budget and the food you like, with the shopping list, from one supermarket or several.
+
+• Cook with what you have: type what's in your fridge and cupboards and see which of our recipes use it. Pip can also write a new recipe around it (Premium).
+
+• Make it at home (Premium): snap or upload a photo of a dish and Pip writes a home recipe from real supermarket products, with the amounts, the price and the nutrition of each serving.
+
+• Scan your food (Premium): take a photo of your plate for an estimate of its calories, protein, carbs and fat. It always says it's an estimate.
+
+• See the truth, Smart Swap and Quick answers on every menu, and what 10 g of protein costs at the shops.
+
+• Supermarkets: labels for thousands more products, with each shop's logo and price side by side.
+
+• A free account keeps your plan, meals and lists on all your devices: Sign in with Apple, Google or an email code.
+
+• Easier to use: bigger buttons, plainer words and many small fixes from testing with older people.
+
+Every figure comes from each restaurant's or shop's own published information, except Scan your food, which is always marked as an estimate. Numbite isn't affiliated with any restaurant or shop, and doesn't give medical advice.
+```
+
+**Added to the Notes for App Review:**
+
+```
+New in 1.1. Sign-in: Numbite needs a free account; Sign in with Apple works with any Apple ID (Google and a 6-digit email code are also offered). Settings > Account has Sign out and Delete my account.
+
+In-App Purchase: three products, Annual and Monthly (auto-renewable, one group, each with a 7-day free trial as an introductory offer) and a Founding Member 90-Day Pass (non-renewing). To see the plans: Settings (gear on Home) > Subscription > See plans, or open "See the truth" on four different menu items, or Recipes > Make it at home. Restore purchases is on the plans screen and in Settings > Subscription. Purchases are checked with Apple's signed transaction on our server; sandbox purchases work.
+
+Make it at home, Scan your food and Pip's recipe in Cook with what you have (all Premium) send what the person chooses (a photo, a short description, or the list of food they typed, with their diet choices) to our server, which asks Anthropic's Claude to answer; nothing is kept on our server. Every amount, price and nutrition figure in a recipe is worked out by the app from the products' own labels. Scan your food is the one place the app shows an estimate: the screen always says "Estimate from your photo", and the entry is logged as "(estimate)".
+```
+
 ## Release checklist (free launch)
 
 - [ ] Decide which supermarkets the App Store version includes (web/app-content.json; food photos are in): see docs/APP_BUILD.md
