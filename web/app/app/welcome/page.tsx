@@ -313,7 +313,9 @@ function Welcome() {
   const problems = bodyProblems(body);
   // How many "things to avoid" are chosen (Pip reacts to each change on that step).
   const avoidCount = [prefs.vegetarianOnly, prefs.veganOnly, prefs.pescatarianOnly, prefs.halalOnly, prefs.noPork, prefs.noBeef].filter(Boolean).length + (prefs.avoidAllergens?.length ?? 0);
-  const real = useMemo(() => menu.chains.filter((c) => !c.sample), [menu.chains]);
+  // the chains only once the page has hydrated: the browser may already hold the menu list (cached) that the server didn't, and a different wall on the two
+  // sides made React rebuild the screen ("Hydration failed" on every first visit)
+  const real = useMemo(() => (hydrated ? menu.chains.filter((c) => !c.sample) : []), [menu.chains, hydrated]);
   const hiddenLogos = useHiddenLogos();
   const restaurants = real.length;
   // The welcome wall: restaurants in the app that have an official logo file (well-known ones first, then the rest; a few very large
@@ -850,6 +852,8 @@ function Plan({ goal, settings, prefs, shops }: { goal: Goal; settings: UserSett
       <PlateArt className="pointer-events-none absolute -end-9 -top-7 h-32 w-32" />
       <p className={CAPS}>{t("Your plan")}</p>
       <p className="mt-1 pe-20 text-xl font-[800] tracking-[-0.01em]">{goalLabel ? t(goalLabel) : null}</p>
+      {/* numbers nobody worked out are said to be starting ones (usability test 2026-11-19: Harold skipped his size, and 2,000 kcal and 100 g read "as if worked out") */}
+      {!settings.hasSetTargets && <p className="mt-2 pe-16 text-[0.9375rem] font-semibold leading-snug">{t("These are starting numbers, not worked out for you. You can set your own any time in Settings.")}</p>}
       <div className="app-numbers mt-3 space-y-2">
         <p className="flex items-baseline gap-3"><span aria-hidden className="h-6 w-1.5 shrink-0 self-center rounded-full bg-[var(--bar)]" /><span className="text-[15px] text-muted"><Rich text={t("{kcal} kcal a day")} values={{ kcal: <span className="text-[1.5rem] font-medium leading-none tracking-[-0.01em] text-foreground">{formatInt(calories)}</span> }} /></span></p>
         <p className="flex items-baseline gap-3"><span aria-hidden className="h-6 w-1.5 shrink-0 self-center rounded-full bg-accent" /><span className="text-[15px] text-muted"><Rich text={t("{eaten} protein")} values={{ eaten: <span className="text-[1.5rem] font-medium leading-none tracking-[-0.01em] text-accent">{formatInt(macros.protein)}g</span> }} /></span></p>
