@@ -7,11 +7,11 @@
    "file": "sainsburys.json",
    "count": 15288,
    "checkedOn": "2026-10-08",
-   "nutrition": 13935,
+   "nutrition": 13936,
    "community": 170,
-   "sameProduct": 39,
+   "sameProduct": 40,
    "priced": 15288,
-   "sha256": "5fc968302f0d39e9d9def0edda0a025fbd2c8d0e56ffa863ea4e6a1c570b630c"
+   "sha256": "9b45c89826e11a471176384c271831a5b01339887244fa819d748470344f242b"
   },
   {
    "id": "tesco",
@@ -19,11 +19,11 @@
    "file": "tesco.json",
    "count": 6079,
    "checkedOn": "2026-10-09",
-   "nutrition": 1683,
+   "nutrition": 1685,
    "community": 584,
-   "sameProduct": 644,
+   "sameProduct": 646,
    "priced": 6079,
-   "sha256": "d5380d1697916bff6bc33fa9b99e4028a9f7c69f94001b907814ca0ca6858d3d"
+   "sha256": "0a571f313cec9bbf9f36197372003aa91b736fb4a996cce69a06cb0c83b97f43"
   },
   {
    "id": "asda",
@@ -31,11 +31,11 @@
    "file": "asda.json",
    "count": 10506,
    "checkedOn": "2026-10-08",
-   "nutrition": 9256,
+   "nutrition": 9258,
    "community": 5445,
-   "sameProduct": 1445,
+   "sameProduct": 1447,
    "priced": 10506,
-   "sha256": "70cd5e103fc59dc6463998a83e420856bcb578c078f7296f7944bcdb6fe80152"
+   "sha256": "7c84ebf59f4c6918435c50907a4380228eba1bacbefb61d23df25f5c1af1a67c"
   },
   {
    "id": "aldi",
@@ -65,11 +65,11 @@
    "file": "morrisons.json",
    "count": 16367,
    "checkedOn": "2026-10-08",
-   "nutrition": 11566,
+   "nutrition": 11781,
    "community": 597,
    "sameProduct": 1516,
    "priced": 16367,
-   "sha256": "b35954bee809b9af3a618b20ff82e791ed80f3cb1c9cff3ff7a80d2a069e444d"
+   "sha256": "4b2808aa28cbbe8e0dc4cd41b42fd7168c44cc86ced83c7d7b31fe5dea954e9e"
   },
   {
    "id": "waitrose",
@@ -77,11 +77,11 @@
    "file": "waitrose.json",
    "count": 9721,
    "checkedOn": "2026-10-08",
-   "nutrition": 8238,
+   "nutrition": 8239,
    "community": 53,
-   "sameProduct": 67,
+   "sameProduct": 68,
    "priced": 9721,
-   "sha256": "634feeae6dd87bf24c8b5533a3c75f4f0ffa9c4475cdd8826e39395817a9dcf2"
+   "sha256": "b6f2c29e03b3e2d774f4ba8d3dd377fe1becd1cacc9532f62064cd0e21ed542d"
   },
   {
    "id": "iceland",
