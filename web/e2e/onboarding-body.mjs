@@ -152,23 +152,24 @@ await step("(b) person A (a vegan woman in stone and feet): the targets arrive f
   // the worked-out carbs followed the new calories (usability test 2026-11-19), and + goes to the next multiple of 5
   const carbsBefore = Number(await num(page, "carbs"));
   await page.getByRole("button", { name: "Increase", exact: true }).nth(2).click();
-  expect(Number(await num(page, "carbs")) === Math.floor(carbsBefore / 5) * 5 + 5, `carbs stepped up from ${carbsBefore}: ` + (await num(page, "carbs")));
+  const carbsNow = Math.floor(carbsBefore / 5) * 5 + 5;
+  expect(Number(await num(page, "carbs")) === carbsNow, `carbs stepped up from ${carbsBefore}: ` + (await num(page, "carbs")));
   await page.locator("#target-fat").fill("");
   await cont(page);
   await head(page, "Where do you shop?");
   const s = await settingsOf(page);
-  expect(s.dailyCalories === 1600 && s.dailyProtein === 115 && s.dailyCarbs === 165 && s.hasSetTargets === true, "saved: " + JSON.stringify(s));
+  expect(s.dailyCalories === 1600 && s.dailyProtein === 115 && s.dailyCarbs === carbsNow && s.hasSetTargets === true, "saved: " + JSON.stringify(s));
   expect(!("dailyFat" in s) || s.dailyFat === undefined, "an emptied fat box stays unset: " + s.dailyFat);
   // on to the end, and Home shows the same numbers (typed ones first, the empty fat worked out from the calories: 30% of 1,600 at 9 kcal/g = 53 -> 55)
   await page.getByRole("button", { name: "Skip", exact: true }).click();
   await head(page, "You're all set!");
   const plan = await page.locator("section").innerText();
-  expect(/1,600/.test(plan) && /115g/.test(plan) && /165g/.test(plan) && /55g/.test(plan), "the plan card shows the four targets as Home will: " + plan.replace(/\s+/g, " "));
+  expect(/1,600/.test(plan) && /115g/.test(plan) && new RegExp(`${carbsNow}g`).test(plan) && /55g/.test(plan), "the plan card shows the four targets as Home will: " + plan.replace(/\s+/g, " "));
   await cont(page);
   await go(page, "Take me to Home");
   await page.waitForURL(/\/app\/?$/);
   const home = await page.locator("main").innerText();
-  expect(/\/\s*1,600/.test(home) && /\/\s*115g/.test(home) && /\/\s*165g/.test(home) && /\/\s*55g/.test(home), "Home agrees: " + home.replace(/\s+/g, " ").slice(0, 300));
+  expect(/\/\s*1,600/.test(home) && /\/\s*115g/.test(home) && new RegExp(`/\\s*${carbsNow}g`).test(home) && /\/\s*55g/.test(home), "Home agrees: " + home.replace(/\s+/g, " ").slice(0, 300));
   await ctx.close();
 });
 
