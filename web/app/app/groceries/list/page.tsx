@@ -10,7 +10,7 @@ import { nextToBuy } from "@/lib/mm/listRecipes";
 import { decodePayload, encodeEntries, payloadFrom, SHARE_PROBLEM, SHARED_APP_PATH, shareUrl, toEntries } from "@/lib/mm/shareList";
 import { settingsStore, shoppingStore } from "@/lib/mm/stores";
 import { site } from "@/site.config";
-import { ArrowRightIcon, BasketIcon, CheckIcon, CopyIcon, MinusIcon, PlusIcon, PotIcon, ShareIcon, SwapIcon, TrashIcon } from "../../_components/icons";
+import { ArrowRightIcon, BasketIcon, CheckIcon, CopyIcon, MinusIcon, PlusIcon, PotIcon, SearchIcon, ShareIcon, SwapIcon, TrashIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
 import { SendToFriend } from "../../_components/SendToFriend";
 import { Button, EmptyIcon, EmptyState, LinkButton, Sheet, Spinner } from "../../_components/ui";
@@ -28,6 +28,7 @@ import { RecipeThumb, RecipeThumbStack, hasRecipePicture } from "../../recipes/R
 import { shopPhotoSources } from "@/lib/mm/shopProducts";
 import { listHref } from "../ListChoice";
 import { NewListSheet } from "./NewListSheet";
+import { ChooseSheet } from "./ChooseSheet";
 import { SwapSheet } from "./SwapSheet";
 
 // "Shopping list" (founder 2026-10-10, renamed from "My groceries" 2026-10-11): the shopping list, on this device only. Type anything in ("Milk"), or add products from Groceries and
@@ -68,6 +69,8 @@ function ShoppingListScreen() {
   const [creating, setCreating] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [swapping, setSwapping] = useState<ShoppingItem | null>(null);
+  // "Choose a product" for something typed in (usability test 2026-11-19): which item, at the list's own shop, else the person's shops (else every shop)
+  const [choosing, setChoosing] = useState<ShoppingItem | null>(null);
   const [note, setNote] = useState<string | null>(null);
   const [typed, setTyped] = useState("");
   const [suggestNote, setSuggestNote] = useState<string | null>(null);
@@ -80,6 +83,11 @@ function ShoppingListScreen() {
   const manifest = useShopManifest();
   /** Where "Add more from {shop}" goes: that shop's own list of products, or (a shop with no list) the page that asks which shop. */
   const shopHref = (retailer: string) => (manifest && !manifest.retailers.some((r) => r.id === retailer) ? "/app/groceries" : `/app/groceries/shop?r=${encodeURIComponent(retailer)}`);
+  const chooseShops = useMemo(() => {
+    const all = manifest?.retailers ?? [];
+    const mine = all.filter((r) => (current ? r.id === current.shop : (settings.shops ?? []).includes(r.id)));
+    return (mine.length ? mine : all).map((r) => ({ id: r.id, name: r.name }));
+  }, [manifest, current, settings.shops]);
   /** Swap needs the shop's own list of products: every shop product, unless the shops' list says this shop has none. */
   const canSwap = (i: ShoppingItem) => !i.custom && i.retailer !== CUSTOM_RETAILER && (!manifest || manifest.retailers.some((r) => r.id === i.retailer));
   // the main list by shop, as before; a list for one shop is one card under its name (anything typed onto it included)
@@ -189,6 +197,14 @@ function ShoppingListScreen() {
     if (!from) return;
     shoppingStore.update((l) => swapItem(l, from, to));
     setNote(t("Swapped for “{name}”.", { name: to.name }));
+  };
+  /** Choose a product: the product takes the typed item's place on the same list, with the same quantity, not ticked. */
+  const chooseTo = (to: Omit<ShoppingItem, "qty" | "addedAt" | "list">) => {
+    const from = choosing;
+    setChoosing(null);
+    if (!from) return;
+    shoppingStore.update((l) => swapItem(l, from, to));
+    setNote(t("Chose “{name}”.", { name: to.name }));
   };
   /** Runs `apply` and, when it took items off the list, offers Undo for 8 seconds. */
   const withUndo = (key: string, values: Record<string, string> | undefined, apply: () => void) => {
@@ -359,6 +375,11 @@ function ShoppingListScreen() {
                             {href ? <Link href={href} className="block py-0.5">{body}</Link> : <div className="py-0.5">{body}</div>}
                             {/* "Swap" (a shop's product only: something similar at the same shop takes its place) at the start, − and + at the end; at large text they wrap */}
                             <div className={`mt-1 flex-wrap items-center justify-end gap-x-1 gap-y-1 ${selecting ? "hidden" : "flex"}`}>
+                              {i.custom && chooseShops.length > 0 && (
+                                <button type="button" onClick={() => setChoosing(i)} aria-label={t("Choose a product for {name}", { name: i.name })} className="me-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-[var(--fill)] px-3.5 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-soft-strong">
+                                  <SearchIcon className="h-4 w-4" />{t("Choose a product")}
+                                </button>
+                              )}
                               {canSwap(i) && (
                                 <button type="button" onClick={() => setSwapping(i)} aria-label={t("Swap {name}", { name: i.name })} className="me-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-[var(--fill)] px-3.5 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-soft-strong">
                                   <SwapIcon className="h-4 w-4" />{t("Swap")}
@@ -483,6 +504,7 @@ function ShoppingListScreen() {
 
       <NewListSheet open={creating} onClose={() => setCreating(false)} onPick={createList} lists={lists} />
       <SwapSheet item={swapping} onClose={() => setSwapping(null)} onSwap={swapTo} moreHref={shopHref} />
+      <ChooseSheet item={choosing} shops={chooseShops} onClose={() => setChoosing(null)} onChoose={chooseTo} />
       <Sheet open={deleting} onClose={() => setDeleting(false)} title={t("Delete this list?")}>
         {current && (
           <div className="space-y-4 pb-2 pt-1">

@@ -372,3 +372,43 @@ export function similarProducts(products: readonly ShopProduct[], item: Pick<Sho
   scored.sort((a, b) => b.score - a.score || price(a.p) - price(b.p) || a.p.name.localeCompare(b.p.name, "en-GB", { sensitivity: "base" }));
   return scored.slice(0, limit).map((x) => x.p);
 }
+
+/**
+ * Products at a shop for something typed onto the shopping list ("milk", "bread"; usability test 2026-11-19: Joan's typed milk and bread had no price), for
+ * "Choose a product": every meaningful word typed must be a word of the name (plurals and spellings aside, as Swap compares them). The ones where the typed
+ * thing is what the product is come first ("Semi Skimmed Milk 2 Pints" before "Milk Chocolate Buttons": the fewer words after it, the better), then those
+ * in the aisle most of those are in (fresh milk before evaporated), then the shorter names, then cheaper (no price last), then by name.
+ */
+/** Words after the thing itself that only say its size or pack ("Free Range Eggs Large", "Bananas Loose"). */
+const SIZE_WORDS = new Set(["large", "medium", "small", "mixed", "weight", "size", "sized", "loose", "family", "value", "bag", "box", "tub", "jar", "tin", "bottle", "can", "multipack", "british"]);
+/** Words that say where it's from or how it's made, not what it is: they don't count against a name ("British Free Range Eggs" is eggs, as "Scotch Eggs" isn't). */
+const PLAIN_WORDS = new Set([...SIZE_WORDS, "free", "range", "organic", "fairtrade", "welsh", "scottish", "english", "irish", "fresh", "everyday", "essentials", "essential", "savers", "extra", "finest", "best", "golden", "yolk", "brown", "white", "pack"]);
+
+export function typedMatches(products: readonly ShopProduct[], text: string, retailer: string, limit = 12): ShopProduct[] {
+  const own = shopWords(retailer);
+  const words = [...nameWords(text, retailer, own)];
+  if (!words.length) return [];
+  const scored: Array<{ p: ShopProduct; after: number; extra: number }> = [];
+  for (const p of products) {
+    const theirs = normalizeForSearch(p.name).split(" ").filter((w) => w.length >= 2 && !/\d/.test(w) && !FILLER.has(w) && !own.has(w)).map(stem);
+    let last = -1;
+    let all = true;
+    for (const w of words) {
+      const at = theirs.lastIndexOf(w);
+      if (at < 0) { all = false; break; }
+      last = Math.max(last, at);
+    }
+    let after = 0;
+    for (let i = last + 1; i < theirs.length; i++) if (!SIZE_WORDS.has(theirs[i]!)) after++;
+    if (all) scored.push({ p, after, extra: theirs.filter((w) => !PLAIN_WORDS.has(w) && !words.includes(w)).length });
+  }
+  // the shop's own aisle for the thing typed: the category most of the products named after it are in ("milk": fresh milk, not the tins of evaporated milk)
+  const aisles = new Map<string, number>();
+  // (each counts less the more other words its name has: "ASDA 6 Bananas" says bananas more than "Strawberry Banana Smoothie")
+  for (const x of scored) if (x.after === 0 && x.p.category !== undefined) aisles.set(x.p.category, (aisles.get(x.p.category) ?? 0) + 1 / (1 + x.extra));
+  const aisle = [...aisles].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0];
+  const inAisle = (p: ShopProduct) => (aisle !== undefined && p.category === aisle ? 0 : 1);
+  const price = (p: ShopProduct) => p.price ?? Number.POSITIVE_INFINITY;
+  scored.sort((a, b) => a.after - b.after || inAisle(a.p) - inAisle(b.p) || a.extra - b.extra || price(a.p) - price(b.p) || a.p.name.localeCompare(b.p.name, "en-GB", { sensitivity: "base" }));
+  return scored.slice(0, limit).map((x) => x.p);
+}

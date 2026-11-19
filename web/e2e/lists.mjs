@@ -182,6 +182,29 @@ await step("Swap when the shop's products can't load says so, with Try again", a
   await ctx.close();
 });
 
+await step("Choose a product for something typed in: the person's shop's products with that word, fresh milk first; choosing one takes its place with its price", async () => {
+  const { ctx, page, errors } = await open([{ ...typedItem, qty: 2 }, asdaItem], { st: { shops: ["sainsburys", "asda"] } });
+  await page.goto(BASE + "/app/groceries/list");
+  await page.getByRole("button", { name: "Choose a product for Milk" }).tap({ timeout: 90000 });
+  const s = sheet(page, "Choose a product for “Milk”");
+  await s.getByRole("radio", { name: /Sainsbury's/ }).waitFor();
+  expect((await s.getByRole("radio", { name: /Sainsbury's/ }).getAttribute("aria-checked")) === "true", "the person's first shop to begin with");
+  const first = s.getByRole("list", { name: "Products at Sainsbury's" }).getByRole("button").first();
+  await first.waitFor({ timeout: 60000 });
+  const name = (await first.locator("span.font-semibold").first().innerText()).trim();
+  expect(/milk/i.test(name) && !/evaporated|condensed|coconut|chocolate/i.test(name), `fresh milk first: ${name}`);
+  await s.getByRole("radio", { name: /ASDA|Asda/ }).tap();
+  await s.getByRole("list", { name: /^Products at A/ }).getByRole("button").first().waitFor({ timeout: 60000 });
+  await s.getByRole("list", { name: /^Products at A/ }).getByRole("button").first().tap();
+  await page.getByText(/^Chose “/).waitFor();
+  const after = await stored(page);
+  const chosen = after.find((x) => x.retailer === "asda" && x.name !== asdaItem.name);
+  expect(!after.some((x) => x.custom), "the typed Milk is gone");
+  expect(chosen && /milk/i.test(chosen.name) && chosen.qty === 2 && typeof chosen.price === "number", JSON.stringify(chosen));
+  expect(!errors.length, errors.join(" | "));
+  await ctx.close();
+});
+
 await step("Delete this list asks first, says how many items go, then deletes the list and its items and shows the main list", async () => {
   const { ctx, page } = await open([asdaItem, { ...yogurt, list: MNS.id }], { st: { shoppingLists: [MNS] } });
   await page.goto(BASE + `/app/groceries/list?l=${MNS.id}`);

@@ -1,5 +1,6 @@
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { decodeShopProducts, isShopFile, isShopManifest, nutritionBasis, possessive, recipeShops, searchShopProducts, shopPageUrl, shopPhotoUrl, type ShopFile } from "../lib/mm/shopProducts";
+import { decodeShopProducts, isShopFile, isShopManifest, nutritionBasis, possessive, recipeShops, searchShopProducts, shopPageUrl, shopPhotoUrl, typedMatches, type ShopFile } from "../lib/mm/shopProducts";
 
 const file: ShopFile = {
   v: 1, retailer: "sainsburys", name: "Sainsbury's", checkedOn: "2026-10-08", pageBase: "https://www.sainsburys.co.uk/groceries/product/", photoBase: "https://assets.sainsburys-groceries.co.uk/gol/",
@@ -198,5 +199,29 @@ describe("borrowed photos for list rows without one (founder 2026-10-11)", () =>
     }
     // the shop's own photo always comes first
     expect(shopPhotoSources(file, { ...asda, photoId: "6325944" })[0]).toMatchObject({ shop: "sainsburys" });
+  });
+});
+
+describe("Choose a product for something typed onto the list (usability test 2026-11-19: Joan's milk and bread had no price)", () => {
+  const at = (shop: string) => decodeShopProducts(JSON.parse(readFileSync(`public/groceries/all/${shop}.json`, "utf8")));
+  const asda = at("asda");
+  const sainsburys = at("sainsburys");
+
+  it("puts the thing itself first: fresh milk, not evaporated or flavoured; eggs, not Scotch eggs", () => {
+    for (const ps of [asda, sainsburys]) {
+      const milk = typedMatches(ps, "milk", ps === asda ? "asda" : "sainsburys").slice(0, 3);
+      expect(milk.length).toBe(3);
+      for (const p of milk) expect(p.name, p.name).toMatch(/\b(whole|skimmed|semi)\b/i);
+      const eggs = typedMatches(ps, "eggs", ps === asda ? "asda" : "sainsburys").slice(0, 3);
+      for (const p of eggs) { expect(p.name).toMatch(/eggs?\b/i); expect(p.name).not.toMatch(/scotch|noodle/i); }
+    }
+  });
+
+  it("forgives a plural or a common slip, needs every word, and finds nothing in nothing", () => {
+    expect(typedMatches(asda, "potatos", "asda")[0]!.name).toMatch(/potatoes/i);
+    for (const p of typedMatches(asda, "tea bags", "asda")) expect(p.name).toMatch(/\btea\b/i);
+    expect(typedMatches(asda, "", "asda")).toEqual([]);
+    expect(typedMatches(asda, "500g", "asda")).toEqual([]);
+    expect(typedMatches(asda, "milk", "asda", 5)).toHaveLength(5);
   });
 });
