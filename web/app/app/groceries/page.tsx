@@ -16,6 +16,7 @@ import { usePossessive, useT } from "../_lib/i18n";
 import { useShopManifest } from "../_lib/shopProducts";
 import { CARD, FootNote, HEADING, ListLink, TITLE } from "./PageBits";
 import { Scanner } from "./Scanner";
+import { SettingsGear } from "../_components/TopActions";
 
 // Groceries puts its tools first, laid out like Eat out (founder 2026-11-17: the tools at the bottom were being ignored): the white "Search every shop
 // at once" pill, then one card of Eat out's shortcut rows (every icon in lime: Scan a barcode; Nutrition leaderboards; Compare products), so they
@@ -54,7 +55,8 @@ export default function GroceriesPage() {
       {/* wraps, so at large text "Shopping list" moves under the title instead of breaking the word "Groceries" */}
       <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
         <h1 className={TITLE}>{t("Groceries")}</h1>
-        <ListLink count={list.length} />
+        {/* its shopping list, then the Settings gear at the top right as on every tab (founder 2026-11-19) */}
+        <div className="-me-1 flex shrink-0 items-center gap-0.5"><ListLink count={list.length} /><SettingsGear /></div>
       </div>
       {/* what this tab is for, in one line (founder 2026-11-18: "everyone needs to understand the point for each screen") */}
       <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Supermarket food, with its price and the calories and protein on its label.")}</p>

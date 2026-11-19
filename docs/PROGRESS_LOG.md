@@ -3415,3 +3415,11 @@ draft, a vote, a conclusion; average score 7.1 of 10) is summed up in the sessio
   (mint: a halloumi or a Magnum at three shops; chives: Double Gloucester with chives; thyme: pitta chips; rosemary: chipolatas; skyr: a crème brûlée skyr;
   mozzarella: flatbreads at Asda; paprika: flatbreads at Morrisons). Three "gluten free" collection recipes now leave a gluten filter (breaded ham, Colman's
   mustard, Oxo cube). Full results: the session's scratchpad `allergen-audit/`.
+- (evening) **The Settings gear at the top right of every tab, and the Shopping list on Eat out too** (founder: "the settings cog should be on the top right of
+  every page. Also shopping list should be on the last page too"). Home's two pieces are shared (`web/app/app/_components/TopActions.tsx`: `ShoppingListPill`,
+  `SettingsGear`): Home and Eat out show the Shopping list then the gear; Recipes shows My recipes then the gear; Groceries its own list button then the gear.
+  Eat out's named "Settings" pill is gone. Checked at 390 px: the gear's right edge at the same place on all four tabs, one Settings link each, 44 px, no
+  sideways scroll; e2e extra, days, back, smoke, coach and tour pass (community needs a build with Community on).
+- (evening) **Morrisons: every product page is read** (the reader's next round handed out none). 10,553 Morrisons labels of its own; 4 more held back
+  (tuna with sugars above carbohydrate, a baby food's garbled "7.79", two stock cubes with figures only as made up). Tesco still answers with its protection
+  page (checked once, no reader started).

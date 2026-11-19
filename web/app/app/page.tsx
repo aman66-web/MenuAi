@@ -11,7 +11,7 @@ import { dayHref, shortDate } from "@/lib/mm/day";
 import { formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
 import { localeInfo } from "@/lib/mm/i18n";
-import { deleteLogEntry, logStore, savedStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
+import { deleteLogEntry, logStore, savedStore, updateSettings } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
 import type { LogMeal } from "@/lib/mm/types";
 import { AddFoodSheet } from "./_components/addfood/AddFoodSheet";
@@ -21,8 +21,9 @@ import { Gauge } from "./_components/Gauge";
 import { useGate } from "./_components/Paywall";
 import { RemindersSection } from "./_components/RemindersSection";
 import { WaterCard } from "./_components/WaterCard";
-import { BasketIcon, CalendarIcon, ChevronRightIcon, FlameIcon, GearIcon, PlusIcon } from "./_components/icons";
+import { CalendarIcon, ChevronRightIcon, FlameIcon, PlusIcon } from "./_components/icons";
 import { RecipeTools } from "./_components/RecipeTools";
+import { SettingsGear, ShoppingListPill } from "./_components/TopActions";
 import { Card, Spinner } from "./_components/ui";
 import { useChainIndexes, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "./_lib/hooks";
 import { useLanguage, useT } from "./_lib/i18n";
@@ -84,7 +85,6 @@ export default function HomePage() {
   const menu = useMenu();
   const { gate, showPaywall } = useGate();
   const log = useStore(logStore);
-  const shopping = useStore(shoppingStore);
   const savedOrders = useStore(savedStore);
   const now = useNow();
   // The + on a meal opens the Add food sheet for that meal; what it adds is offered back with an Undo for a few seconds.
@@ -113,7 +113,6 @@ export default function HomePage() {
   const longDay = new Intl.DateTimeFormat(htmlLang, { weekday: "long", day: "numeric", month: "long" });
   const loggedDays = new Set(log.map((e) => dayKey(new Date(e.loggedAt))));
 
-  const toBuy = shopping.filter((i) => !i.done).length;
 
   const pictureOf = (e: LogEntry): EntryPicture | undefined => entryPicture(e, legacyImage(e, indexes.get(e.chainId), savedOrders));
   const byMeal = (meal: LogMeal) => todays.filter((e) => entryMeal(e) === meal).sort((a, b) => Date.parse(a.loggedAt) - Date.parse(b.loggedAt));
@@ -133,15 +132,8 @@ export default function HomePage() {
             home screen, I think that should maybe say shopping list instead"), and the Settings gear beside it ("keep the settings cog on the right of shopping list
             like before"); Settings is also a named button at the top right of Eat out */}
         <div data-coach="home-top" className="-me-1 flex shrink-0 items-center gap-0.5">
-          <Link href="/app/groceries/list" className="group inline-flex min-h-11 items-center rounded-full transition active:scale-95">
-            <span className="inline-flex h-9 items-center gap-1.5 rounded-full bg-soft-strong ps-2.5 pe-3 text-[0.9375rem] font-semibold transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]">
-              <BasketIcon aria-hidden className="h-[18px] w-[18px]" />{t("Shopping list")}
-              {toBuy > 0 && <span className="app-numbers ms-0.5 inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-foreground px-1.5 text-[0.75rem] font-bold text-background"><span className="sr-only">, {toBuy === 1 ? t("1 thing to pick up") : t("{n} things to pick up", { n: toBuy })}</span><span aria-hidden>{toBuy}</span></span>}
-            </span>
-          </Link>
-          <Link href="/app/settings" aria-label={t("Settings")} className="group inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><GearIcon aria-hidden className="h-[18px] w-[18px]" /></span>
-          </Link>
+          <ShoppingListPill />
+          <SettingsGear />
         </div>
       </div>
       {/* what Home is for, in one line (founder 2026-11-18: "everyone needs to understand the point for each screen") */}

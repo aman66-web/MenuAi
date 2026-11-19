@@ -34,6 +34,7 @@ import { FilterChip, NicheFields } from "./NicheFields";
 import { MEAL_LOOK, RecipeTile } from "./RecipeTile";
 import { RecipeThumbStack, hasRecipePicture } from "./RecipeThumb";
 import { useNicheFilter } from "./useNicheFilter";
+import { SettingsGear } from "../_components/TopActions";
 
 // Recipes from your shop (founder 2026-10-10): every ingredient is a real product at that supermarket, with its shelf price and the
 // nutrition its own page prints. Each recipe is fitted to the person's meal (size and protein) and their diet from Settings.
@@ -266,11 +267,15 @@ function RecipesScreen() {
         </div>
         {/* My recipes (founder 2026-11-18: "instead of the love heart ... maybe its better having 'my recipes'"): the heart and the words in a grey pill, with
             how many are saved, opening My meals at its Recipes tab (the recipes saved with a card's heart and the ones made for the person) */}
+        {/* My recipes, then the Settings gear at the top right as on every tab (founder 2026-11-19) */}
+        <div className="-me-1 flex shrink-0 items-center gap-0.5">
         <Link href="/app/meals?tab=recipes" data-coach="recipes-mine" aria-label={savedCount > 0 ? `${t("My recipes")} · ${savedCount}` : t("My recipes")} className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-soft-strong ps-3 pe-3.5 text-[0.9375rem] font-bold transition hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] active:scale-95">
           <HeartIcon aria-hidden className="h-[18px] w-[18px]" />
           <span aria-hidden>{t("My recipes")}</span>
           {savedCount > 0 && <span aria-hidden className="app-numbers grid h-5 min-w-5 place-items-center rounded-full bg-foreground px-1 text-[0.6875rem] font-bold leading-none text-background">{savedCount}</span>}
         </Link>
+        <SettingsGear />
+        </div>
       </div>
 
       <h1 className="mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">{t("What's cooking today?")}</h1>
