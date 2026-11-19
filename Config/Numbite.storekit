@@ -10,23 +10,7 @@
     ]
   },
   "identifier" : "4E554D42",
-  "nonRenewingSubscriptions" : [
-    {
-      "displayPrice" : "9.99",
-      "familyShareable" : false,
-      "internalID" : "4E425033",
-      "localizations" : [
-        {
-          "description" : "90 days of Numbite's paid features. Does not renew.",
-          "displayName" : "Founding Member 90-Day Pass",
-          "locale" : "en_GB"
-        }
-      ],
-      "productID" : "com.amanmarwaha.numbite.pro.pass90",
-      "referenceName" : "Founding Member 90-Day Pass",
-      "type" : "NonRenewingSubscription"
-    }
-  ],
+  "nonRenewingSubscriptions" : [],
   "products" : [],
   "settings" : {
     "_askToBuyEnabled" : false,
@@ -51,14 +35,14 @@
           "billingPlans" : [
             {
               "billingPlanType" : "BILLED_UPFRONT",
-              "commitmentDisplayPrice" : "14.99",
-              "displayPrice" : "14.99",
+              "commitmentDisplayPrice" : "49.99",
+              "displayPrice" : "49.99",
               "internalID" : "4E425031",
               "isEnabled" : true
             }
           ],
           "codeOffers" : [],
-          "displayPrice" : "14.99",
+          "displayPrice" : "49.99",
           "familyShareable" : false,
           "groupNumber" : 1,
           "internalID" : "4E414E31",
@@ -97,14 +81,14 @@
           "billingPlans" : [
             {
               "billingPlanType" : "BILLED_UPFRONT",
-              "commitmentDisplayPrice" : "2.99",
-              "displayPrice" : "2.99",
+              "commitmentDisplayPrice" : "4.99",
+              "displayPrice" : "4.99",
               "internalID" : "4E425032",
               "isEnabled" : true
             }
           ],
           "codeOffers" : [],
-          "displayPrice" : "2.99",
+          "displayPrice" : "4.99",
           "familyShareable" : false,
           "groupNumber" : 1,
           "internalID" : "4E4D4F31",
