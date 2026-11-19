@@ -54,13 +54,23 @@ await step("chain page: explains, no Best for you / meal chips / protein sorts",
   await ctx.close();
 });
 
-await step("item page: macros read 'not published', no ordering tools", async () => {
+// usability test 2026-11-19: a calories-only dish can be added to today and saved with its calories alone; changing the order and sharing still need all three
+await step("item page: macros read 'not published'; Add to today and Save keep the calories alone; no ordering or sharing", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/item?chain=calorie-corner&item=fish-and-chips");
   await page.getByRole("heading", { name: "Fish and chips" }).waitFor();
   expect((await page.getByText("not published", { exact: true }).count()) >= 3, "protein, carbs and fat should each say not published");
-  for (const name of ["Change the order", "Add to today", "Save", "Share"]) expect((await page.getByRole("button", { name, exact: true }).count()) === 0, `${name} button shown`);
-  await page.getByText("publishes calories only, so ordering").waitFor();
+  for (const name of ["Change the order", "Share"]) expect((await page.getByRole("button", { name, exact: true }).count()) === 0, `${name} button shown`);
+  await page.getByText("publishes calories only, so only the calories are counted.").waitFor();
+  await page.getByRole("button", { name: "Add to today", exact: true }).click();
+  await page.getByText("Added to today's food.").waitFor();
+  await page.getByRole("button", { name: "Save", exact: true }).click();
+  await page.getByText("Saved to My meals.").waitFor();
+  const stored = await page.evaluate(() => ({ log: JSON.parse(localStorage.getItem("mm.v1.log") || "null")?.data ?? [], saved: JSON.parse(localStorage.getItem("mm.v1.saved") || "null")?.data ?? [] }));
+  const e = stored.log.find((x) => x.name === "Fish and chips");
+  expect(e && e.nutrients.calories > 0 && e.nutrients.protein === undefined && e.nutrients.carbs === undefined && e.nutrients.fat === undefined, "logged: " + JSON.stringify(e));
+  const o = stored.saved.find((x) => x.name === "Fish and chips");
+  expect(o && o.nutrients.calories > 0 && o.nutrients.protein === undefined, "saved: " + JSON.stringify(o));
   await ctx.close();
 });
 

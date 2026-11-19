@@ -53,6 +53,9 @@ export function RecipeChoice({ onPick }: { onPick: (href: string) => void }) {
   // only shops whose products and labels we have read can fill a recipe, so these may not be the shops the person picked: say which they are (as Recipes does)
   const shopNames = shopIds.map((id) => manifest?.retailers.find((r) => r.id === id)?.name).filter((n): n is string => !!n);
   const shopName = shopNames.length ? new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) : undefined;
+  // a shop they picked that recipes can't use yet is named, with the reason (usability test 2026-11-19: Tesco picked, Sainsbury's shown, no word why)
+  const left = (settings.shops ?? []).filter((id) => !shopIds.includes(id)).map((id) => manifest?.retailers.find((r) => r.id === id)?.name ?? id);
+  const leftNames = left.length ? new Intl.ListFormat("en-GB", { type: "conjunction" }).format(left) : "";
 
   if (loading) {
     return (
@@ -73,7 +76,8 @@ export function RecipeChoice({ onPick }: { onPick: (href: string) => void }) {
   return (
     <>
       <div aria-live="polite" className="mt-4">
-        <PipSays lively size={64} mood="cheer">{shopName ? t("Every ingredient is a real product at {shop}, with its price and the nutrition of each serving.", { shop: shopName }) : t("Every ingredient is a real product at your supermarket, with its price and the nutrition of each serving.")}</PipSays>
+        <PipSays lively size={64} mood="cheer">{shopName && leftNames ? t("We haven't read enough labels from {left} for recipes yet, so these use {shop}: every ingredient is a real product there, with its price.", { left: leftNames, shop: shopName })
+          : shopName ? t("Every ingredient is a real product at {shop}, with its price and the nutrition of each serving.", { shop: shopName }) : t("Every ingredient is a real product at your supermarket, with its price and the nutrition of each serving.")}</PipSays>
       </div>
       <ul className="stagger mt-5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.5rem),1fr))] gap-3">
         {picks.map((c) => {

@@ -100,6 +100,7 @@ export function AgeField({ value, onChange }: { value: string; onChange: (v: str
       <input
         id={`${id}-age`}
         className={BOX}
+        placeholder={t("Your age, like 75")}
         inputMode="numeric"
         autoComplete="off"
         value={value}

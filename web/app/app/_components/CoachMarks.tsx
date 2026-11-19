@@ -200,7 +200,7 @@ function CoachRun({ screen }: { screen: CoachScreen }) {
               >
                 {last ? t("Done") : t("Next")}
               </button>
-              <button type="button" onClick={stopAll} className="inline-flex min-h-12 items-center justify-center rounded-full px-4 text-[0.9375rem] font-semibold text-muted transition hover:bg-soft-strong">
+              <button type="button" onClick={stopAll} className="inline-flex min-h-12 items-center justify-center rounded-full bg-soft-strong px-5 text-[1rem] font-bold text-foreground transition hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]">
                 {t("Stop the tips")}
               </button>
             </div>

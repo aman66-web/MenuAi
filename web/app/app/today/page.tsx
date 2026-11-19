@@ -227,8 +227,8 @@ function TodayScreen() {
                             <p className="app-numbers mt-1.5 font-mono text-[0.75rem] font-normal text-muted" aria-label={t("{calories} calories, {protein} grams protein", { calories: Math.round(e.nutrients.calories), protein: Math.round(e.nutrients.protein) })}>{t("{kcal} · {protein} protein", { kcal: formatCalories(e.nutrients.calories), protein: formatGrams(e.nutrients.protein) })}</p>
                           )}
                         </div>
-                        <button type="button" onClick={() => setMoving(e)} className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-soft-strong px-3.5 text-[0.875rem] font-bold transition active:scale-95">
-                          {t("Move")}<span className="sr-only"> {e.name}</span>
+                        <button type="button" aria-label={t("Move {name}", { name: e.name })} onClick={() => setMoving(e)} className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-soft-strong px-3.5 text-[0.875rem] font-bold transition active:scale-95">
+                          {t("Move")}
                         </button>
                         <button type="button" aria-label={t("Delete {name}", { name: e.name })} onClick={() => remove(e)} className="group -me-1.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
                           <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong text-foreground transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><TrashIcon className="h-[18px] w-[18px]" /></span>

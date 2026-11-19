@@ -292,7 +292,7 @@ await step("a recipe: one serving's figures match the recipe's own card on Recip
   await ctx.close();
 });
 
-await step("a restaurant meal: a dish is added as published; a saved meal sits above the search; a calories-only restaurant's dishes are not offered", async () => {
+await step("a restaurant meal: a dish is added as published (a calories-only restaurant's with its calories alone); a saved meal sits above the search", async () => {
   const real = await (await fetch(BASE + "/menus/menus-manifest.json")).json();
   const lite = real.chains.find((c) => c.nutritionLevel === "calories" && !c.sample);
   expect(lite, "no calories-only chain in the data");
@@ -313,7 +313,13 @@ await step("a restaurant meal: a dish is added as published; a saved meal sits a
   await dlg(page).getByRole("button", { name: /^Add / }).first().waitFor({ timeout: 60000 });
   expect(goneSaved, "saved meals stay under a search");
   await page.waitForTimeout(1000); // the results settle (the search runs on a deferred value) before a row is read and tapped
-  const row = dlg(page).locator("li", { has: page.getByRole("button", { name: /^Add / }) }).first();
+  // the first row from a restaurant that publishes full nutrition (calories-only restaurants are offered too since 2026-11-19)
+  const liteNames = real.chains.filter((c) => c.nutritionLevel === "calories").map((c) => c.name);
+  const rows = dlg(page).locator("li", { has: page.getByRole("button", { name: /^Add / }) });
+  const texts = await rows.allInnerTexts();
+  const at = texts.findIndex((x) => !liteNames.some((n) => x.includes(n + " ·")));
+  expect(at >= 0, "no full-nutrition dish for chicken: " + texts.join(" | "));
+  const row = rows.nth(at);
   const text = await row.innerText();
   const dish = text.split("\n")[0].replace(/\s*Add.*$/, "").trim();
   await row.getByRole("button", { name: /^Add / }).tap();
@@ -331,13 +337,17 @@ await step("a restaurant meal: a dish is added as published; a saved meal sits a
   const entries = await log(page);
   const s = entries.find((x) => x.name === "My usual");
   expect(s && s.source === "savedOrder" && s.chainName === "KFC" && s.nutrients.calories === 600 && s.meal === "dinner", "saved meal entry: " + JSON.stringify(s));
-  // a calories-only restaurant
+  // a calories-only restaurant's dish is offered and added with its calories alone (usability test 2026-11-19), never a 0 for the rest
   await openMeal(page, "Lunch");
   await choose(page, "Choose a restaurant meal");
-  await page.getByLabel("Search restaurants and items").fill(liteDish);
+  await page.getByLabel("Search restaurants and items").fill(`${lite.name} ${liteDish}`);
   await page.waitForTimeout(1500);
-  const lines = await dlg(page).locator("li", { has: page.getByRole("button", { name: /^Add / }) }).allInnerTexts();
-  expect(!lines.some((l) => l.includes(lite.name + " ·") || l.includes("\n" + lite.name)), `${lite.name}'s dish "${liteDish}" is offered: ${lines.join(" | ")}`);
+  const liteRow = dlg(page).locator("li", { has: page.getByRole("button", { name: /^Add / }) }).filter({ hasText: lite.name + " ·" }).first();
+  await liteRow.waitFor({ timeout: 30000 });
+  await liteRow.getByRole("button", { name: /^Add / }).tap();
+  await page.getByText(/^Added “.*” to Lunch\.$/).waitFor({ timeout: 30000 });
+  const liteEntry = (await log(page)).find((x) => x.chainName === lite.name);
+  expect(liteEntry && liteEntry.nutrients.calories > 0 && liteEntry.nutrients.protein === undefined && liteEntry.nutrients.carbs === undefined, "calories-only entry: " + JSON.stringify(liteEntry));
   expect(errors.length === 0, errors.join(" | "));
   await ctx.close();
 });

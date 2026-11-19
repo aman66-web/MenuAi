@@ -149,8 +149,10 @@ await step("(b) person A (a vegan woman in stone and feet): the targets arrive f
   // every number can be changed: type calories, step carbs up, type protein, clear fat
   await page.locator("#target-calories").fill("1600");
   await page.locator("#target-protein").fill("115");
+  // the worked-out carbs followed the new calories (usability test 2026-11-19), and + goes to the next multiple of 5
+  const carbsBefore = Number(await num(page, "carbs"));
   await page.getByRole("button", { name: "Increase", exact: true }).nth(2).click();
-  expect((await num(page, "carbs")) === "165", "carbs stepped up by 5: " + (await num(page, "carbs")));
+  expect(Number(await num(page, "carbs")) === Math.floor(carbsBefore / 5) * 5 + 5, `carbs stepped up from ${carbsBefore}: ` + (await num(page, "carbs")));
   await page.locator("#target-fat").fill("");
   await cont(page);
   await head(page, "Where do you shop?");
@@ -747,16 +749,16 @@ await step("(p) a floor plan lowered by hand shows one caution, not three; a pla
   await two.ctx.close();
 });
 
-await step("(q) a − or + steps from the number as it stands (1,530 is 1,480 and 1,580), and the boxes read 2,000 and digits in other numeral systems", async () => {
+await step("(q) a − or + goes to the next round number (1,530 is 1,500 and 1,550; usability test 2026-11-19), and the boxes read 2,000 and digits in other numeral systems", async () => {
   const { ctx, page } = await fresh();
   await toGoal(page);
   await toTargets(page, A);
   expect((await num(page, "calories")) === "1530", "person A's plan is 1,530, not a multiple of the 50 a tap steps by: " + (await num(page, "calories")));
   await page.getByRole("button", { name: "Decrease", exact: true }).first().click();
-  expect((await num(page, "calories")) === "1480", "down from 1,530: " + (await num(page, "calories")));
+  expect((await num(page, "calories")) === "1500", "down from 1,530: " + (await num(page, "calories")));
   await page.locator("#target-calories").fill("1530");
   await page.getByRole("button", { name: "Increase", exact: true }).first().click();
-  expect((await num(page, "calories")) === "1580", "up from 1,530: " + (await num(page, "calories")));
+  expect((await num(page, "calories")) === "1550", "up from 1,530: " + (await num(page, "calories")));
   for (const typed of ["2,000", "٢٠٠٠"]) {
     await page.locator("#target-calories").fill(typed);
     expect(!(await page.getByRole("button", { name: "Continue", exact: true }).isDisabled()), `"${typed}" calories is a number`);

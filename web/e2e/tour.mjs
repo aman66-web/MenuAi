@@ -9,6 +9,8 @@ const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
 const BASE = process.env.BASE ?? "http://localhost:3101";
 const PHOTO = process.env.NEXT_PUBLIC_PHOTO_RECIPES === "1" && (process.env.NEXT_PUBLIC_PRO === "1" || process.env.NEXT_PUBLIC_WEB_PRO === "1" || process.env.NEXT_PUBLIC_IAP === "1");
 const FRIENDS = process.env.NEXT_PUBLIC_COMMUNITY_FRIENDS !== "0";
+/** Premium is sold in this build (lib/mm/config.ts GATING_ENABLED), so the tour calls the meal plan part of it. */
+const GATED = process.env.NEXT_PUBLIC_PRO === "1" || process.env.NEXT_PUBLIC_WEB_PRO === "1" || process.env.NEXT_PUBLIC_IAP === "1";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 
 // Pip's tips on the real screens (CoachMarks, 2026-11-18) are stopped in this test, as if the person had pressed "Stop the tips": e2e/coach.mjs covers them.
@@ -49,8 +51,8 @@ async function axe(page, where) {
   expect(v.length === 0, `${where}: ` + v.map((x) => x.id + ": " + x.nodes.slice(0, 2).map((n) => n.target.join(" ")).join(" | ")).join("; "));
 }
 
-const TABS = ["Home", "Eat out", "Groceries", "Recipes"]; // Community is off (2026-11-18)
-const IDS = ["home", "eatOut", "groceries", "recipes"];
+const TABS = ["Home", "Recipes", "Groceries", "Eat out"]; // Community is off (2026-11-18); the order since 2026-11-19
+const IDS = ["home", "recipes", "groceries", "eatOut"];
 const ROWS = {
   home: [
     "Tap + next to Breakfast, Lunch or Dinner to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers.",
@@ -71,7 +73,8 @@ const ROWS = {
   ],
   recipes: [
     "Tap Breakfast, Lunch, Dinner or Snacks to see recipes for that meal, or More for every filter.",
-    "Meal plan makes a week of meals for your goal and budget, with the shopping list. It's part of Premium.",
+    // "part of Premium" only where Premium is sold (the test build turns Pro on)
+    GATED ? "Meal plan makes a week of meals for your goal and budget, with the shopping list. It's part of Premium." : "Meal plan makes a week of meals for your goal and budget, with the shopping list.",
     "Tap the heart on a recipe to keep it in My recipes.",
     PHOTO ? "Make it at home turns a photo of a dish into a recipe. It's part of Premium." : "Open a recipe to add everything it needs to your shopping list in one tap.",
   ],
@@ -205,7 +208,7 @@ await step("6. 'Skip tour' on stop 2 jumps to 'Let's make it yours'; 'Look aroun
   await p.getByRole("button", { name: "Continue" }).click();
   await p.getByRole("heading", { level: 1, name: "Home", exact: true }).waitFor();
   await p.getByRole("button", { name: "Continue" }).click();
-  await p.getByRole("heading", { level: 1, name: "Eat out", exact: true }).waitFor();
+  await p.getByRole("heading", { level: 1, name: "Recipes", exact: true }).waitFor(); // stop 2 since the tabs were reordered (2026-11-19)
   await p.getByRole("button", { name: "Skip tour" }).click();
   await p.getByRole("heading", { level: 1, name: "Let's make it yours" }).waitFor();
   await p.getByRole("button", { name: "Look around first" }).click();
@@ -397,9 +400,9 @@ await step("13. axe: no violations on the welcome screen, 'Easy to read', a stop
   await axe(p, "Easy to read");
   await p.getByRole("button", { name: "Continue" }).click();
   await p.getByRole("button", { name: "Continue" }).click();
-  await p.getByRole("heading", { level: 1, name: "Eat out", exact: true }).waitFor();
+  await p.getByRole("heading", { level: 1, name: "Recipes", exact: true }).waitFor();
   await p.waitForTimeout(900);
-  await axe(p, "the Eat out stop");
+  await axe(p, "the Recipes stop");
   await p.getByRole("button", { name: "Skip tour" }).click();
   await p.getByRole("heading", { level: 1, name: "Let's make it yours" }).waitFor();
   await axe(p, "Let's make it yours");

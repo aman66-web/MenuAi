@@ -3203,3 +3203,34 @@ search it (`grep -n`) when a task touches an earlier decision. Add new entries a
   food you like": Any, or any of the recipe book's cuisines (British, Chinese, Indian, Italian, Mexican, Middle Eastern) with how many lunches and dinners
   each has; it narrows lunches and dinners only (few breakfasts or snacks have a cuisine). Kept as `SavedPlan.cuisines`. Seven steps now.
 - Tests: unit all pass; e2e mealplan 9/9, fridge 3/3.
+
+### 19 November 2026 (night): ten older testers, and the fixes from both rounds
+- **Round 2 of the usability test** (founder: "Have 10 ai agents act as 80 yr old elders And navigate the app. Then tell me what we need to work on"):
+  ten testers aged 79 to 90 on a test copy (sign-in off), one browser with ten phones (`web/e2e/persona-driver.mjs` now takes a list of names).
+  Findings and each tester's notes: `docs/USABILITY_TESTS.md`, `docs/usability/2026-11-19/`.
+- **Fixes** (founder: "Do whatever you think first ... Just fix whatever you want ... what you think's the best"; so the copy and behaviour changes
+  below were made without asking each one, CLAUDE.md rule 8):
+  - Meal plan: a kind of food with too few lunches or dinners for the diet (fewer than `CUISINE_MIN` = 3) no longer stops the plan; that meal takes any
+    kind and Pip says so (`cuisineRecipes`); the cuisine counts are for the diet; "nothing left" is said at the top; "Spicy food" also catches dishes
+    named spiced, devilled, harissa, peri peri, cajun, jerk and the like, and the dried chilli or cayenne in a recipe; after a swap the budget line says
+    the swaps took it over (`SavedPlan.swapped`); earlier plans have a button at the top and say what kind of food; "1 snack".
+  - Search: a restaurant's name at the start or end finds its dishes ("greggs sausage roll"); the name alone lists its menu (`namedChain`).
+  - Leaderboards: the figure moves under the name at large text. Cook with what you have: the "Uses your ..." line stays in view; "potatos" matches.
+  - Today: Move (to another meal) on each logged food (`moveLogEntry`); the add sheet says which meal; Home says "N left" under the calories.
+  - **Calories-only restaurants** (Pizza Express and others): their dishes can now be added to today and saved, with the calories alone (protein, carbs and
+    fat stay absent, never 0, as typed numbers already could; rule 1 holds); the dish search in Add food includes them; My meals shows such a dish's
+    calories only; "Under 500 calories" lists the highest calories first there and says so. The order builder and the share card still need all three.
+  - Allergens: "May contain" has a strong outline and a line saying what it means; the person's own allergens are named at the top and marked "You avoid".
+  - Tabs: the shopping list lights Groceries; Home always opens Home (`ALWAYS_FIRST` in tabMemory). Targets: - and + go to round numbers; worked-out
+    carbs and fat follow a calorie change (setup and Settings). Clear data keeps the text size, returns to the welcome screen and says it worked.
+  - Setup: the age box has a hint and the grey Continue says why; the all-set screen's McDonald's example is gone ("Everything is ready for you. You can
+    change any of this later in Settings."); the recipe step says when a picked shop can't be used for recipes yet and why; "Get started" is the dark
+    button; "Skip", "Skip tour" and "Stop the tips" are real buttons; restaurant names go under the logo at large text instead of breaking mid-word; the
+    tour calls the meal plan Premium only where Premium is sold, and names the tabs in their new order.
+- **Not done (left for a decision or later):** a language choice (English only, founder 2026-10-16); a text size above Extra large; shop names beside the
+  logos (the founder asked for logos instead of names on 19 November); "Change amount" on a logged food; a "how many people" step in the meal plan;
+  comparing a whole shopping list between shops; a shorter tour.
+- **Tesco:** the label reader read 67 more pages, then Tesco's security page came back; the founder's suggestions to refresh past it, to use other tabs,
+  and to use Safari with several agents were declined (each works round the block); one reader resumes only when Tesco serves new pages again.
+  `tools/groceries/listing_chrome_next.py` (a shelf-page reader for Tesco's missing Food Cupboard, Treats and Snacks and soft drinks, about 10,000
+  products) is written but not yet tried.

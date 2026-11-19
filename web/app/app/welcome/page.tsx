@@ -4,8 +4,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { formatInt } from "@/lib/mm/format";
 import { retailerName } from "@/lib/mm/groceries";
-import { isAllHalal } from "@/lib/mm/halal";
-import { lunchTeaser, TEASER_MIN_PROTEIN } from "@/lib/mm/onboarding";
 import { POPULAR_ORDER } from "@/lib/mm/popular";
 import { analytics } from "@/lib/mm/analytics";
 import { LOGOS_ENABLED, SIGN_IN_REQUIRED } from "@/lib/mm/config";
@@ -15,7 +13,7 @@ import { macroTargets } from "@/lib/mm/targets";
 import { coachAfterWelcome } from "@/lib/mm/coach";
 import { coachStore, settingsStore, tourStore, updateSettings } from "@/lib/mm/stores";
 import { TOUR_VERSION } from "@/lib/mm/tour";
-import type { Goal, Preferences, Profile } from "@/lib/mm/types";
+import type { Goal, Preferences } from "@/lib/mm/types";
 import { TEXT_SCALE, type TextSize, type UserSettings } from "@/lib/mm/user-data";
 import { ALLERGEN_SHORT, DietPicker } from "../_components/DietPicker";
 import {
@@ -42,7 +40,7 @@ import { useAccountChecking, useAccountUser } from "../_lib/account";
 import { radioKeyNav, Spinner } from "../_components/ui";
 import { travelBack } from "../_lib/backNav";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
-import { useChain, useHydrated, useMenu, useSettings } from "../_lib/hooks";
+import { useHydrated, useMenu, useSettings } from "../_lib/hooks";
 import { recipeShopSetFor } from "../_lib/recipes";
 import { loadShopFile, loadShopManifest, useShopManifest } from "../_lib/shopProducts";
 import { TABS } from "../_lib/tabs";
@@ -335,13 +333,6 @@ function Welcome() {
     }
     return out;
   }, [real, hiddenLogos]); // eslint-disable-line react-hooks/exhaustive-deps -- logoFor reads the taken-down list, which hiddenLogos tracks
-  // One well-known restaurant to show a real example at the end (a halal one if the user asked for halal).
-  const teaserChainId = useMemo(() => {
-    const full = real.filter((c) => (c.nutritionLevel ?? "full") === "full");
-    const pool = prefs.halalOnly ? full.filter((c) => isAllHalal(c.id)) : full;
-    const byPopularity = POPULAR_ORDER.map((id) => pool.find((c) => c.id === id)).find(Boolean);
-    return (byPopularity ?? pool[0])?.id ?? "";
-  }, [real, prefs.halalOnly]);
 
   // Pip's arrival (intro 1), the text size (2), the walk along the tab bar (3-7) and the choice (8). "Skip tour" goes to the choice; the replay has Close.
   // Everyone signs in: Get started on the cover leads here, and nothing after the cover (the tour, the questions, a replay of the tour) shows to someone who isn't
@@ -514,7 +505,7 @@ function Welcome() {
           </ul>
         </div>
         <Bottom className="order-4">
-          <BottomButton light onClick={next}>{t("Get started")}</BottomButton>
+          <BottomButton onClick={next}>{t("Get started")}</BottomButton>
           {/* with sign-in required, Get started leads to the sign-in screen, which signs in an existing account too */}
           {!SIGN_IN_REQUIRED && !accountUser && (
             <>
@@ -622,6 +613,8 @@ function Welcome() {
         <section className="mt-5 flex flex-1 flex-col">
           <AboutYouStep body={body} change={changeBody} />
           <Bottom>
+            {/* why Continue is grey, said beside it (usability test 2026-11-19: all ten testers met a grey button and no reason) */}
+            {problems.includes("age") && <p className="mb-2 text-center text-[0.9375rem] font-semibold leading-snug">{body.age.trim() === "" ? t("Type your age above to go on, or tap Skip.") : t("Check your age above: a whole number from 18 to 100.")}</p>}
             <BottomButton disabled={problems.includes("age")} onClick={continueAbout}>{t("Continue")}</BottomButton>
           </Bottom>
         </section>
@@ -631,6 +624,7 @@ function Welcome() {
         <section className="mt-5 flex flex-1 flex-col">
           <YourSizeStep body={body} change={changeBody} />
           <Bottom>
+            {problems.some((p) => p !== "age") && <p className="mb-2 text-center text-[0.9375rem] font-semibold leading-snug">{t("Fill in your weight and height above to go on, or tap Skip.")}</p>}
             <BottomButton disabled={problems.some((p) => p !== "age")} onClick={continueSize}>{t("Continue")}</BottomButton>
           </Bottom>
         </section>
@@ -688,17 +682,8 @@ function Welcome() {
           <Confetti />
           <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{t("You're all set!")}<HeadPill Icon={CheckIcon} /></h1>
           <div aria-live="polite" className="mt-4">
-            <PipSays lively size={64} mood="cheer">
-              {teaserChainId ? (
-                <TeaserText
-                  chainId={teaserChainId}
-                  profile={{ goal: settings.goal, dailyCalories: settings.dailyCalories, glp1MealCap: settings.glp1MealCap }}
-                  prefs={settings.preferences}
-                />
-              ) : (
-                <>{t("Everything is ready for you.")}</>
-              )}
-            </PipSays>
+            {/* plain words, not a restaurant example (usability test 2026-11-19: the McDonald's line "meant nothing" to all ten testers) */}
+            <PipSays lively size={64} mood="cheer">{t("Everything is ready for you. You can change any of this later in Settings.")}</PipSays>
           </div>
           <Plan goal={settings.goal} settings={settings} prefs={settings.preferences} shops={settings.shops ?? []} />
           {/* founder 2026-11-17: ask for an account once, right after the tour and the questions, and never insist: Continue is the way to skip (rule 4: optional) */}
@@ -761,7 +746,8 @@ function TopBar({ onBack, end, segments, current = 0, status }: { onBack?: () =>
 
 /** A quiet word at the top right: Skip, "Skip tour" or Close. */
 function TopButton({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
-  return <button type="button" onClick={onClick} className="-me-1 inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full px-3 text-[15px] font-semibold text-muted transition hover:bg-soft-strong hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{children}</button>;
+  // a real button, not faint text (usability test 2026-11-19: most testers never saw "Skip tour" or "Skip")
+  return <button type="button" onClick={onClick} className="-me-1 inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full bg-soft-strong px-4 text-[1rem] font-bold text-foreground transition hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{children}</button>;
 }
 
 /** A small round picture inside a headline (decorative). */
@@ -847,25 +833,6 @@ function PipArrives() {
         {landed && <Burst />}
       </div>
     </div>
-  );
-}
-
-/** A real example from a well-known menu: how many main dishes have 20 g+ protein and fit the user's lunch (counts only). */
-function TeaserText({ chainId, profile, prefs }: { chainId: string; profile: Profile; prefs: Preferences }) {
-  const { index } = useChain(chainId);
-  const t = useT();
-  if (!index) return <>{t("Everything is ready for you.")}</>;
-  const { count, budget } = lunchTeaser(index.chain, profile, prefs);
-  if (count === 0) return <>{t("Everything is ready for you.")}</>;
-  return (
-    <Rich
-      text={t("At {chain} alone I found {dishes} with {protein}g+ protein that fit a {budget} kcal lunch.", { protein: TEASER_MIN_PROTEIN })}
-      values={{
-        chain: index.chain.name,
-        dishes: <strong className="app-numbers">{count === 1 ? t("1 dish") : t("{n} dishes", { n: count })}</strong>,
-        budget: <span className="app-numbers">{formatInt(budget)}</span>,
-      }}
-    />
   );
 }
 
