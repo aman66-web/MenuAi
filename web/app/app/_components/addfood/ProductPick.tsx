@@ -4,7 +4,7 @@ import { useDeferredValue, useId, useMemo, useState } from "react";
 import { ADD_TO, amountNutrients, MAX_AMOUNT, MIN_AMOUNT, parseAmount } from "@/lib/mm/addFood";
 import { formatCalories, formatGrams } from "@/lib/mm/format";
 import { forRetailer, forTheirShops, photoSources, retailerName, searchProducts, withPhoto, type ListedProduct } from "@/lib/mm/groceries";
-import type { Meal, Nutrients } from "@/lib/mm/types";
+import type { LogMeal, Nutrients } from "@/lib/mm/types";
 import { NumberDone } from "../SearchDone";
 import { ScanIcon } from "../icons";
 import { Button, ErrorBox, inputClass, Spinner } from "../ui";
@@ -22,7 +22,7 @@ import { BackBar, ChoosePill, PICK_LIST, PickRow, SheetSearch, type NewEntry } f
 
 const RESULTS = 8;
 
-export function ProductPick({ meal, onAdd, onBack }: { meal: Meal; onAdd: (entry: NewEntry) => void; onBack: () => void }) {
+export function ProductPick({ meal, onAdd, onBack }: { meal: LogMeal; onAdd: (entry: NewEntry) => void; onBack: () => void }) {
   const t = useT();
   const shops = useSettings().shops;
   const prefer = shops?.[0] ?? null;
@@ -70,7 +70,7 @@ export function ProductPick({ meal, onAdd, onBack }: { meal: Meal; onAdd: (entry
 const figures = (amount: string, n: Nutrients) => ({ amount, kcal: formatCalories(n.calories), protein: formatGrams(n.protein ?? 0), carbs: formatGrams(n.carbs ?? 0), fat: formatGrams(n.fat ?? 0) });
 
 /** The second step: how much of it, and what that comes to. */
-function HowMuch({ product, meal, prefer, onBack, onAdd }: { product: ListedProduct; meal: Meal; prefer: string | null; onBack: () => void; onAdd: (entry: NewEntry) => void }) {
+function HowMuch({ product, meal, prefer, onBack, onAdd }: { product: ListedProduct; meal: LogMeal; prefer: string | null; onBack: () => void; onAdd: (entry: NewEntry) => void }) {
   const t = useT();
   const id = useId();
   // The figures are the preferred shop's own record where it has one (read from its product page), else the community record for the barcode.

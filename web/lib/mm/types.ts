@@ -159,6 +159,9 @@ export interface Manifest {
 /** "other" (founder 2026-10-10: "should also be an option for other") works out targets and ranks orders exactly like "maintain". */
 export type Goal = "lose" | "maintain" | "buildMuscle" | "glp1" | "other";
 export type Meal = "breakfast" | "lunch" | "dinner";
+/** A row of the day's log: the three meals, and Snacks (founder 2026-11-19: "you have breakfast, lunch, and dinner, but also have one for like snacks"). Snacks have no
+ *  share of the day's calories of their own (budget.ts MEAL_SHARE is the three meals', unchanged): what's eaten there still counts in the day's total. */
+export type LogMeal = Meal | "snack";
 
 export interface Preferences {
   vegetarianOnly: boolean;

@@ -5,13 +5,13 @@ import { useRouter } from "next/navigation";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { ADDED_TO } from "@/lib/mm/addFood";
 import { analytics } from "@/lib/mm/analytics";
-import { MEAL_LABEL, MEALS, mealSlotFor } from "@/lib/mm/budget";
+import { LOG_MEAL_LABEL, LOG_MEALS, mealSlotFor } from "@/lib/mm/budget";
 import { API_BASE, FOOD_SCAN_ENABLED, PAID_ACCESS_ENABLED } from "@/lib/mm/config";
 import { ESTIMATE_LOG_NAME, MAX_DESCRIPTION, SCAN_WORKING_LINES, type FoodScan } from "@/lib/mm/foodScan";
 import { formatInt } from "@/lib/mm/format";
 import { tk } from "@/lib/mm/i18n";
 import { addLogEntry, countProAction, paidStore } from "@/lib/mm/stores";
-import type { Meal } from "@/lib/mm/types";
+import type { LogMeal } from "@/lib/mm/types";
 import { CameraIcon, CheckIcon, ChevronLeftIcon, PhotoIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
 import { useGate } from "../_components/Paywall";
@@ -101,8 +101,8 @@ function ScanScreen() {
   const [scan, setScan] = useState<FoodScan | null>(null);
   const [finished, setFinished] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [meal, setMeal] = useState<Meal>(() => mealSlotFor(new Date()));
-  const [logged, setLogged] = useState<Meal | null>(null);
+  const [meal, setMeal] = useState<LogMeal>(() => mealSlotFor(new Date()));
+  const [logged, setLogged] = useState<LogMeal | null>(null);
   // what the food is, typed before the photo (founder 2026-11-18: "before they take a photo, they have to type in what the food is ... that brief description will
   // also help the AI"); sent with the photo, never kept
   const [what, setWhat] = useState("");
@@ -288,15 +288,16 @@ function ScanScreen() {
 
           <div className="glass mt-6 rounded-[1.25rem] p-4">
             <h2 className="text-lg font-[800]">{t("Add it to today")}</h2>
-            <div role="radiogroup" aria-label={t("Which meal?")} className="mt-3 grid grid-cols-3 gap-2">
-              {MEALS.map((m) => (
-                <button key={m} type="button" role="radio" aria-checked={meal === m} onClick={() => { setMeal(m); setLogged(null); }} className={`min-h-12 rounded-full px-2 text-[0.9375rem] font-bold transition active:scale-95 ${meal === m ? "bg-foreground text-background" : "bg-soft-strong"}`}>{t(MEAL_LABEL[m])}</button>
+            <div role="radiogroup" aria-label={t("Which meal?")} className="mt-3 grid grid-cols-2 gap-2">
+              {/* the three meals and Snacks (founder 2026-11-19), two by two so each word stays whole */}
+              {LOG_MEALS.map((m) => (
+                <button key={m} type="button" role="radio" aria-checked={meal === m} onClick={() => { setMeal(m); setLogged(null); }} className={`min-h-12 rounded-full px-2 text-[0.9375rem] font-bold transition active:scale-95 ${meal === m ? "bg-foreground text-background" : "bg-soft-strong"}`}>{t(LOG_MEAL_LABEL[m])}</button>
               ))}
             </div>
             {logged === meal ? (
               <p role="status" className="mt-3 flex items-center gap-2 font-semibold"><CheckIcon className="h-5 w-5 text-accent" />{t(ADDED_TO[meal], { name: t(ESTIMATE_LOG_NAME, { name: scan.name }) })}</p>
             ) : (
-              <Button full className="mt-3 min-h-14 text-lg" onClick={log}>{t("Add to {meal}", { meal: t(MEAL_LABEL[meal]) })}</Button>
+              <Button full className="mt-3 min-h-14 text-lg" onClick={log}>{t("Add to {meal}", { meal: t(LOG_MEAL_LABEL[meal]) })}</Button>
             )}
           </div>
           <div className="mt-3 grid gap-2.5">

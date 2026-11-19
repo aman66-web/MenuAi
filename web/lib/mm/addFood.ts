@@ -1,7 +1,7 @@
 import { tk } from "./i18n";
 import { halfUp } from "./nutrients";
 import { toAsciiDigits } from "./numbers";
-import type { Meal, Nutrients } from "./types";
+import type { LogMeal, Nutrients } from "./types";
 
 // The "Add food" sheet on Home's meal rows (founder 2026-10-15, on the + beside Breakfast: "a kind of menu vibe sheet should launch where you can
 // either type in macros, choose a recipe perhaps, choose a meal from a restaurant or whatever"). Pure rules for what it adds. Nothing here
@@ -9,13 +9,14 @@ import type { Meal, Nutrients } from "./types";
 // are its label scaled by the weight the person says they had (plain arithmetic, like the recipes), a restaurant dish's are the restaurant's.
 
 /** The sheet's title and its button, and the line shown after: one whole sentence per meal so a translation can inflect the meal's name. */
-export const ADD_TO: Record<Meal, string> = { breakfast: tk("Add to Breakfast"), lunch: tk("Add to Lunch"), dinner: tk("Add to Dinner") };
+export const ADD_TO: Record<LogMeal, string> = { breakfast: tk("Add to Breakfast"), lunch: tk("Add to Lunch"), dinner: tk("Add to Dinner"), snack: tk("Add to Snacks") };
 /** The meal a sheet adds to, said at its top: not the same words as its Add button (usability test 2026-11-19: George saw "Add to Breakfast" twice and tapped the label). */
-export const FOR_MEAL: Record<Meal, string> = { breakfast: tk("For breakfast"), lunch: tk("For lunch"), dinner: tk("For dinner") };
-export const ADDED_TO: Record<Meal, string> = {
+export const FOR_MEAL: Record<LogMeal, string> = { breakfast: tk("For breakfast"), lunch: tk("For lunch"), dinner: tk("For dinner"), snack: tk("For snacks") };
+export const ADDED_TO: Record<LogMeal, string> = {
   breakfast: tk("Added “{name}” to Breakfast."),
   lunch: tk("Added “{name}” to Lunch."),
   dinner: tk("Added “{name}” to Dinner."),
+  snack: tk("Added “{name}” to Snacks."),
 };
 
 /** The most calories one typed entry can hold, and the most grams of protein, carbs or fat: a slip of the finger (an extra zero) is caught, a big day isn't. */

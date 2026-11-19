@@ -4,11 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import { ADD_TO, FOR_MEAL } from "@/lib/mm/addFood";
 import { analytics } from "@/lib/mm/analytics";
 import { tk } from "@/lib/mm/i18n";
-import { addLogEntry, countProAction } from "@/lib/mm/stores";
-import type { Meal } from "@/lib/mm/types";
+import { addLogEntry, countProAction, myRecipesStore } from "@/lib/mm/stores";
+import type { LogMeal } from "@/lib/mm/types";
 import type { LogEntry } from "@/lib/mm/user-data";
 import { BasketIcon, ForkIcon, PencilIcon, PotIcon } from "../icons";
 import { Sheet } from "../ui";
+import { useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { DishPick } from "./DishPick";
 import { BackBar, Choice, type NewEntry } from "./parts";
@@ -29,9 +30,10 @@ const TITLE: Record<Exclude<View, "menu">, string> = {
   product: tk("Choose a supermarket product"),
 };
 
-export function AddFoodSheet({ meal, onClose, onAdded }: { meal: Meal | null; onClose: () => void; onAdded: (entry: LogEntry, meal: Meal) => void }) {
+export function AddFoodSheet({ meal, onClose, onAdded }: { meal: LogMeal | null; onClose: () => void; onAdded: (entry: LogEntry, meal: LogMeal) => void }) {
   const t = useT();
   const [view, setView] = useState<View>("menu");
+  const ownRecipes = useStore(myRecipesStore).length;
 
   // When the view changes the title changes with it: focus goes to the title (so a screen reader says where it is and a keyboard starts from the top),
   // never to a search box, which would put the keyboard over the list.
@@ -62,7 +64,7 @@ export function AddFoodSheet({ meal, onClose, onAdded }: { meal: Meal | null; on
       {meal !== null && view === "menu" && (
         <div className="space-y-3 pb-2">
           <Choice icon={<PencilIcon className="h-6 w-6" />} title={t("Type in your numbers")} line={t("Calories, protein, carbs and fat")} onClick={() => setView("numbers")} />
-          <Choice icon={<PotIcon className="h-6 w-6" />} title={t("Choose a recipe")} line={t("A serving of one of our recipes")} onClick={() => setView("recipe")} />
+          <Choice icon={<PotIcon className="h-6 w-6" />} title={t("Choose a recipe")} line={ownRecipes > 0 ? t("A serving of one of yours, or one of ours") : t("A serving of one of our recipes")} onClick={() => setView("recipe")} />
           <Choice icon={<ForkIcon className="h-6 w-6" />} title={t("Choose a restaurant meal")} line={t("Search the menus, or pick a saved meal")} onClick={() => setView("restaurant")} />
           <Choice icon={<BasketIcon className="h-6 w-6" />} title={t("Choose a supermarket product")} line={t("Search, or scan its barcode")} onClick={() => setView("product")} />
         </div>

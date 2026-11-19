@@ -3323,3 +3323,15 @@ that should be where the settings is ... That'd be easier"; and "there is no nee
 - **Text size:** `TEXT_SIZE_CHOICE_ENABLED` (lib/mm/config.ts) is false: no "Easy to read" screen in setup, no Text size in Settings, and everyone reads
   Standard (a saved Large or Extra large is kept but not applied). The founder was told first that the iPhone app does not follow the phone's own text size,
   so this leaves no way inside the app to make the words bigger; true brings it all back.
+
+### 19 November 2026 (about 15:30): your own recipes in Add food, and Snacks (on `iap`, not live)
+Founder: "if they have a recipe where they scanned it, and that was a custom-made recipe, they're unable to add those. It's only the standard recipes ... which
+shouldn't be the case"; "you have breakfast, lunch, and dinner, but also have one for like snacks".
+- **Choose a recipe** (Add food, `RecipePick.tsx`) lists the person's own recipes first under "Your recipes" (Make it at home, or Pip from the fridge: `myRecipesStore`),
+  worked out from the same shops' labels and fitted the same way as on their own recipe page, then "Our recipes". One that can't be worked out (an ingredient
+  left out for the diet, or not sold with a label at the person's shops) is said so, never silently missing. The sheet's line reads "A serving of one of yours,
+  or one of ours" when there are any.
+- **Snacks** is a fourth row on Home and Today (and a choice on Scan your food), after Dinner (`LogMeal`, `LOG_MEALS` in lib/mm/budget.ts). It has no share of
+  the day's calories of its own: it shows what was eaten there ("610 kcal"), counts in the day's total, and the three meals' shares (MEAL_SHARE 25/35/40%) and
+  Best for you are unchanged (CLAUDE.md rule 8). The clock never puts an entry in Snacks; only its + does. An older app that syncs such an entry shows it under
+  the meal its time falls in.

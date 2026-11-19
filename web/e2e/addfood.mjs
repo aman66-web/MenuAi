@@ -265,6 +265,38 @@ await step("a recipe: the figures on its row are what is logged, more servings m
   await ctx.close();
 });
 
+// a recipe the person made (Make it at home, or Pip from what's in the fridge), as it is kept in My recipes
+const MINE = { id: "ai-peri-peri-test", name: "Peri-peri chicken with spicy rice", blurb: "Smoky paprika chicken with fluffy rice.", servings: 2, minutes: 35,
+  ingredients: [{ key: "chicken", amount: 400, role: "protein" }, { key: "rice", amount: 150, role: "carb" }, { key: "paprika", amount: 4, role: "other" }, { key: "salt", amount: 1, role: "other" }, { key: "olive-oil", amount: 10, role: "other" }, { key: "garlic", amount: 10, role: "other" }],
+  method: ["Cook the rice: Rinse the rice, then simmer it for 12 minutes.", "Cook the chicken: Fry it for 8 to 10 minutes, until piping hot."], shop: "sainsburys", savedAt: "2026-11-19T12:00:00.000Z" };
+
+await step("Snacks is the fourth meal, and a recipe the person made is under Your recipes, first; added to Snacks, it stays there with its own figures (founder 2026-11-19)", async () => {
+  const { ctx, page, errors } = await open({}, {}, { "mm.v1.myRecipes": [MINE] });
+  await home(page);
+  const rows = await page.getByRole("button", { name: /^Add to (Breakfast|Lunch|Dinner|Snacks)$/ }).evaluateAll((bs) => bs.map((b) => b.getAttribute("aria-label")));
+  expect(rows.join("|") === "Add to Breakfast|Add to Lunch|Add to Dinner|Add to Snacks", "rows: " + rows.join("|"));
+  expect(/^0\s*kcal/.test((await mealRow(page, "Snacks").innerText()).split("\n").find((l) => /kcal/.test(l)) ?? ""), "Snacks has no target of its own: " + (await mealRow(page, "Snacks").innerText()));
+  await openMeal(page, "Snacks");
+  await dlg(page).getByText("A serving of one of yours, or one of ours").waitFor();
+  await choose(page, "Choose a recipe");
+  await dlg(page).getByRole("heading", { name: "Your recipes" }).waitFor({ timeout: 120000 });
+  const row = dlg(page).locator("li", { hasText: MINE.name }).first();
+  const one = kcal(await row.innerText());
+  expect(one > 0, "no calories on the row: " + (await row.innerText()));
+  const firstRow = (await dlg(page).locator("li").first().innerText());
+  expect(firstRow.includes(MINE.name), "the person's own recipe isn't first: " + firstRow);
+  await row.getByRole("button", { name: /^Add / }).tap();
+  await page.getByText(`Added “${MINE.name}” to Snacks.`).waitFor();
+  const [e] = await log(page);
+  expect(e.source === "recipe" && e.meal === "snack" && e.recipeId === MINE.id && e.nutrients.calories === one && e.nutrients.protein > 0, "entry: " + JSON.stringify(e));
+  expect((await mealRow(page, "Snacks").innerText()).includes(MINE.name), "not listed under Snacks");
+  await page.reload();
+  await plus(page, "Snacks").waitFor({ timeout: 90000 });
+  expect((await mealRow(page, "Snacks").innerText()).includes(MINE.name), "not under Snacks after a reload");
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
 await step("a recipe: one serving's figures match the recipe's own card on Recipes, and a search narrows the list", async () => {
   const { ctx, page } = await open();
   await home(page);

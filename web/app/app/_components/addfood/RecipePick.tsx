@@ -2,15 +2,18 @@
 
 import { useMemo, useState } from "react";
 import { MAX_SERVINGS, MIN_SERVINGS, recipeNutrients, stepServings } from "@/lib/mm/addFood";
+import { savedToRecipe } from "@/lib/mm/aiRecipe";
+import type { Recipe } from "@/lib/mm/recipes";
+import { myRecipesStore } from "@/lib/mm/stores";
 import { formatCalories, formatGrams } from "@/lib/mm/format";
 import { tk } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { normalizeForSearch } from "@/lib/mm/search";
-import type { Meal } from "@/lib/mm/types";
+import type { LogMeal } from "@/lib/mm/types";
 import { RecipeThumb } from "../../recipes/RecipeThumb";
 import { MinusIcon, PlusIcon } from "../icons";
 import { Button, ErrorBox, Spinner } from "../ui";
-import { useSettings } from "../../_lib/hooks";
+import { useSettings, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { recipeShopSetFor, useRecipeCards, useRecipeShopSet, type RecipeCard } from "../../_lib/recipes";
 import { useShopManifest } from "../../_lib/shopProducts";
@@ -21,6 +24,9 @@ import { AddPill, PICK_LIST, PickRow, SheetSearch, type NewEntry } from "./parts
 // person's diet are left out, as everywhere else. Each row leads with the recipe's own picture (founder 2026-11-17, "use images please when
 // possible"; RecipeThumb: its small copy, the full picture, else the card's plate drawing), the size of a product's picture in this sheet; the
 // recipe's id is kept on the entry so Home and Today show the same picture.
+// The person's own recipes come first, under "Your recipes" (founder 2026-11-19: a recipe made from a photo with Make it at home, or by Pip from what's in the
+// fridge, couldn't be added, "only the standard recipes ... which shouldn't be the case"): worked out from the same shops' labels, the same way as on their
+// own recipe page, so they log with the figures that page shows.
 
 const PAGE = 8;
 const NAME_WITH_SERVINGS = tk("{name} ({n} servings)");
@@ -34,7 +40,7 @@ function matches(card: RecipeCard, query: string, t: (s: string) => string): boo
   return words.every((w) => hay.includes(w));
 }
 
-export function RecipePick({ meal, onAdd }: { meal: Meal; onAdd: (entry: NewEntry) => void }) {
+export function RecipePick({ meal, onAdd }: { meal: LogMeal; onAdd: (entry: NewEntry) => void }) {
   const t = useT();
   const settings = useSettings();
   const [retry, setRetry] = useState(0);
@@ -44,7 +50,12 @@ export function RecipePick({ meal, onAdd }: { meal: Meal; onAdd: (entry: NewEntr
   const shop = shopIds[0] ?? null;
   const state = useRecipeShopSet(shopIds, retry);
   const products = state.status === "ready" ? state.products : null;
-  const { cards } = useRecipeCards(null, products, settings.preferences, mealTargetFor(settings));
+  const target = mealTargetFor(settings);
+  const { cards } = useRecipeCards(null, products, settings.preferences, target);
+  const saved = useStore(myRecipesStore);
+  const dietKey = JSON.stringify(settings.preferences);
+  const mine = useMemo(() => saved.map((s) => savedToRecipe(s, JSON.parse(dietKey))).filter((r): r is Recipe => !!r), [saved, dietKey]);
+  const mineCards = useRecipeCards(mine, products, settings.preferences, target).cards;
   const [servings, setServings] = useState(1);
   const [query, setQuery] = useState("");
   const [limit, setLimit] = useState(PAGE);
@@ -56,6 +67,22 @@ export function RecipePick({ meal, onAdd }: { meal: Meal; onAdd: (entry: NewEntr
       .filter((c) => matches(c, query, t))
       .sort((a, b) => own(a) - own(b) || a.distance - b.distance || a.recipe.name.localeCompare(b.recipe.name, "en-GB"));
   }, [cards, meal, query, t]);
+  // the person's own, newest first (as kept), whatever the meal: there are only a few
+  const yours = useMemo(() => mineCards.filter((c) => matches(c, query, t)), [mineCards, query, t]);
+
+  const row = (c: RecipeCard) => {
+    const n = recipeNutrients(c.totals, servings);
+    const name = t(c.recipe.name);
+    return (
+      <PickRow
+        key={c.recipe.id}
+        lead={<RecipeThumb id={c.recipe.id} name={c.recipe.name} meal={c.recipe.meal} />}
+        title={name}
+        line={t("{kcal} · {protein} protein", { kcal: formatCalories(n.calories), protein: formatGrams(n.protein ?? 0) })}
+        action={<AddPill name={name} onClick={() => onAdd({ chainId: "", chainName: t("Recipe"), name: servings === 1 ? name : t(NAME_WITH_SERVINGS, { name, n: servings }), nutrients: n, source: "recipe", recipeId: c.recipe.id })} />}
+      />
+    );
+  };
 
   if (!manifest || (shop && state.status === "loading")) return <div className="pt-4"><Spinner label={t("Loading recipes")} /></div>;
   if (!shop || state.status === "error") return <div className="pt-4"><ErrorBox message={t("Couldn't load the recipes. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>;
@@ -74,27 +101,26 @@ export function RecipePick({ meal, onAdd }: { meal: Meal; onAdd: (entry: NewEntr
         </span>
       </div>
 
-      {shown.length === 0 ? (
+      {yours.length > 0 && (
+        <section aria-labelledby="pick-yours" className="space-y-2">
+          <h3 id="pick-yours" className="text-[0.9375rem] font-[800] uppercase tracking-[0.06em] text-muted">{t("Your recipes")}</h3>
+          <ul className={PICK_LIST}>{yours.map((c) => row(c))}</ul>
+        </section>
+      )}
+      {/* never a silent gap: one of the person's own recipes that can't be worked out here (an ingredient left out for their diet, or one their shops don't sell
+          with a label) is said so */}
+      {!query.trim() && saved.length > mineCards.length && (
+        <p role="note" className="text-[0.9375rem] leading-snug text-muted">{saved.length - mineCards.length === 1 ? t("One of your recipes isn't here: it no longer suits your diet, or your shops don't sell something it needs with a label.") : t("{n} of your recipes aren't here: they no longer suit your diet, or your shops don't sell something they need with a label.", { n: saved.length - mineCards.length })}</p>
+      )}
+
+      {shown.length === 0 && yours.length === 0 ? (
         <p className="text-[0.9375rem] text-muted">{t("No recipes match.")}</p>
-      ) : (
-        <>
-          <ul className={PICK_LIST}>
-            {shown.slice(0, limit).map((c) => {
-              const n = recipeNutrients(c.totals, servings);
-              const name = t(c.recipe.name);
-              return (
-                <PickRow
-                  key={c.recipe.id}
-                  lead={<RecipeThumb id={c.recipe.id} name={c.recipe.name} meal={c.recipe.meal} />}
-                  title={name}
-                  line={t("{kcal} · {protein} protein", { kcal: formatCalories(n.calories), protein: formatGrams(n.protein ?? 0) })}
-                  action={<AddPill name={name} onClick={() => onAdd({ chainId: "", chainName: t("Recipe"), name: servings === 1 ? name : t(NAME_WITH_SERVINGS, { name, n: servings }), nutrients: n, source: "recipe", recipeId: c.recipe.id })} />}
-                />
-              );
-            })}
-          </ul>
+      ) : shown.length > 0 && (
+        <section aria-labelledby={yours.length > 0 ? "pick-ours" : undefined} className="space-y-2">
+          {yours.length > 0 && <h3 id="pick-ours" className="text-[0.9375rem] font-[800] uppercase tracking-[0.06em] text-muted">{t("Our recipes")}</h3>}
+          <ul className={PICK_LIST}>{shown.slice(0, limit).map((c) => row(c))}</ul>
           {shown.length > limit && <Button variant="secondary" full onClick={() => setLimit((l) => l + PAGE)}>{t("Show more recipes ({n} more)", { n: Math.min(PAGE, shown.length - limit) })}</Button>}
-        </>
+        </section>
       )}
     </div>
   );

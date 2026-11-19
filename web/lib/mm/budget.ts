@@ -1,6 +1,6 @@
 import { tk } from "./i18n";
 import { halfUp } from "./nutrients";
-import type { Goal, Meal, Nutrients, Profile } from "./types";
+import type { Goal, LogMeal, Meal, Nutrients, Profile } from "./types";
 
 // SPEC §6.3: left today and meal budget.
 
@@ -9,6 +9,9 @@ export const DEFAULT_DAILY_CALORIES = 2000;
 export const DEFAULT_GLP1_MEAL_CAP = 450;
 export const MEALS: Meal[] = ["breakfast", "lunch", "dinner"];
 export const MEAL_LABEL: Record<Meal, string> = { breakfast: tk("Breakfast"), lunch: tk("Lunch"), dinner: tk("Dinner") };
+/** The rows of the day's log (Home, Today, Add food): the three meals, then Snacks, which has no meal budget of its own (types.ts LogMeal). */
+export const LOG_MEALS: readonly LogMeal[] = ["breakfast", "lunch", "dinner", "snack"];
+export const LOG_MEAL_LABEL: Record<LogMeal, string> = { ...MEAL_LABEL, snack: tk("Snacks") };
 
 /** Meal slot from local time: breakfast before 10:30, lunch 10:30–15:59, dinner from 16:00. */
 export function mealSlotFor(date: Date): Meal {
@@ -19,7 +22,7 @@ export function mealSlotFor(date: Date): Meal {
 }
 
 /** The meal an entry sits under: the row it was added to (Home's + on a meal), else the meal its time falls in. */
-export function entryMeal(e: { loggedAt: string; meal?: Meal }): Meal {
+export function entryMeal(e: { loggedAt: string; meal?: LogMeal }): LogMeal {
   return e.meal ?? mealSlotFor(new Date(e.loggedAt));
 }
 

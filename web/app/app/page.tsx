@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
-import { entryMeal, isSameLocalDay, loggedGaps, loggedToday, mealBudget, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
+import { entryMeal, isSameLocalDay, LOG_MEAL_LABEL, LOG_MEALS, loggedGaps, loggedToday, mealBudget } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { dayHref, shortDate } from "@/lib/mm/day";
 import { formatGrams, formatInt } from "@/lib/mm/format";
@@ -13,7 +13,7 @@ import { macroTargets } from "@/lib/mm/targets";
 import { localeInfo } from "@/lib/mm/i18n";
 import { deleteLogEntry, logStore, savedStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
-import type { Meal } from "@/lib/mm/types";
+import type { LogMeal } from "@/lib/mm/types";
 import { AddFoodSheet } from "./_components/addfood/AddFoodSheet";
 import { EntryAvatars, entryPicture, legacyImage, type EntryPicture } from "./_components/addfood/EntryPicture";
 import { DayPicker } from "./_components/DayPicker";
@@ -88,8 +88,8 @@ export default function HomePage() {
   // The + on a meal opens the Add food sheet for that meal; what it adds is offered back with an Undo for a few seconds.
   const router = useRouter();
   const [picking, setPicking] = useState(false);
-  const [addTo, setAddTo] = useState<Meal | null>(null);
-  const [added, setAdded] = useState<{ entry: LogEntry; meal: Meal } | null>(null);
+  const [addTo, setAddTo] = useState<LogMeal | null>(null);
+  const [added, setAdded] = useState<{ entry: LogEntry; meal: LogMeal } | null>(null);
   useEffect(() => {
     if (!added) return;
     const timer = setTimeout(() => setAdded(null), 8000);
@@ -114,7 +114,7 @@ export default function HomePage() {
   const toBuy = shopping.filter((i) => !i.done).length;
 
   const pictureOf = (e: LogEntry): EntryPicture | undefined => entryPicture(e, legacyImage(e, indexes.get(e.chainId), savedOrders));
-  const byMeal = (meal: Meal) => todays.filter((e) => entryMeal(e) === meal).sort((a, b) => Date.parse(a.loggedAt) - Date.parse(b.loggedAt));
+  const byMeal = (meal: LogMeal) => todays.filter((e) => entryMeal(e) === meal).sort((a, b) => Date.parse(a.loggedAt) - Date.parse(b.loggedAt));
 
   return (
     <div>
@@ -242,11 +242,12 @@ export default function HomePage() {
 
       <h2 className="mt-7 text-xl font-extrabold tracking-tight">{t("Today's meals")}</h2>
       <ul className="mt-3 space-y-3">
-        {MEALS.map((meal) => {
+        {/* Breakfast, Lunch, Dinner, then Snacks (founder 2026-11-19): Snacks shows what was eaten there, with no share of the day of its own */}
+        {LOG_MEALS.map((meal) => {
           const entries = byMeal(meal);
           const kcal = entries.reduce((s, e) => s + e.nutrients.calories, 0);
-          const { budget } = mealBudget(profile, 0, meal);
-          const title = t(MEAL_LABEL[meal]);
+          const budget = meal === "snack" ? null : mealBudget(profile, 0, meal).budget;
+          const title = t(LOG_MEAL_LABEL[meal]);
           // up to two different pictures (EntryAvatars leaves out one that doesn't load), then what was eaten by the names the person logged
           const pictures = entries.map(pictureOf).filter((p): p is EntryPicture => !!p);
           return (
@@ -256,7 +257,7 @@ export default function HomePage() {
                 <span className="mt-1.5 flex items-center gap-2">
                   {/* the light green of Home's other icons (founder 2026-11-18: "Change these logos to light green too") */}
                   <span aria-hidden className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-sun text-[var(--on-accent)]"><FlameIcon className="h-[18px] w-[18px]" /></span>
-                  <span className="app-numbers text-lg font-bold"><span className="whitespace-nowrap">{formatInt(kcal)} / {formatInt(budget)}</span> <span className="text-sm font-semibold text-muted">kcal</span></span>
+                  <span className="app-numbers text-lg font-bold"><span className="whitespace-nowrap">{budget === null ? formatInt(kcal) : `${formatInt(kcal)} / ${formatInt(budget)}`}</span> <span className="text-sm font-semibold text-muted">kcal</span></span>
                 </span>
                 {entries.length > 0 && (
                   <span className="mt-2.5 flex items-center gap-2.5">
@@ -265,7 +266,7 @@ export default function HomePage() {
                   </span>
                 )}
               </Link>
-              <button type="button" data-coach={meal === MEALS[0] ? "home-add" : undefined} onClick={() => gate("log", () => setAddTo(meal))} aria-label={t(ADD_TO[meal])} className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-strong transition active:scale-95 hover:bg-accent-soft hover:text-accent">
+              <button type="button" data-coach={meal === LOG_MEALS[0] ? "home-add" : undefined} onClick={() => gate("log", () => setAddTo(meal))} aria-label={t(ADD_TO[meal])} className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-strong transition active:scale-95 hover:bg-accent-soft hover:text-accent">
                 <PlusIcon className="h-6 w-6" />
               </button>
             </li>

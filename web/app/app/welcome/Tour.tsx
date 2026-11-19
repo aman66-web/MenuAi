@@ -27,7 +27,7 @@ const ALL_STOPS: ReadonlyArray<{ id: TourStopId; says: string; mood: PipMood; ro
     says: tk("This is Home. It keeps track of your day, so you can always see what's left!"),
     mood: "wave",
     rows: [
-      { Icon: PlusIcon, text: tk("Tap + next to Breakfast, Lunch or Dinner to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers.") },
+      { Icon: PlusIcon, text: tk("Tap + next to Breakfast, Lunch, Dinner or Snacks to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers.") },
       // Home holds the cooking tools since 2026-11-19 (founder: "move from image one, those three things ... in that gap"), and the shopping list and the gear share
       // its top right corner: the stop says so in the order they come down the screen, four rows at most
       { Icon: CameraIcon, text: tk("Scan your food: take a photo of a meal for its calories and macros, or for a recipe to make it at home. It's part of Premium."), when: FOOD_SCAN_ENABLED && PHOTO_RECIPES_ENABLED },

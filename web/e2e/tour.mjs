@@ -55,7 +55,7 @@ const TABS = ["Home", "Recipes", "Groceries", "Eat out"]; // Community is off (2
 const IDS = ["home", "recipes", "groceries", "eatOut"];
 const ROWS = {
   home: [
-    "Tap + next to Breakfast, Lunch or Dinner to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers.",
+    "Tap + next to Breakfast, Lunch, Dinner or Snacks to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers.",
     ...(PHOTO ? ["Scan your food: take a photo of a meal for its calories and macros, or for a recipe to make it at home. It's part of Premium."] : []),
     // "part of Premium" only where Premium is sold (the test build turns Pro on)
     GATED ? "Under your numbers: cook with what you already have, or let Meal plan make your week. Meal plan is part of Premium." : "Under your numbers: cook with what you already have, or let Meal plan make your week.",

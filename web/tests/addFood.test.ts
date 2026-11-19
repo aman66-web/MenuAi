@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   amountNutrients, MAX_AMOUNT, MAX_NAME_LENGTH, MAX_SERVINGS, MAX_TYPED_GRAMS, MAX_TYPED_KCAL, MIN_SERVINGS, parseAmount, parseNumber, recipeNutrients, stepServings, typedEntry,
 } from "../lib/mm/addFood";
-import { entryMeal, loggedGaps, loggedToday } from "../lib/mm/budget";
+import { entryMeal, LOG_MEAL_LABEL, LOG_MEALS, loggedGaps, loggedToday, MEAL_SHARE, MEALS } from "../lib/mm/budget";
 import { sanitizeLog } from "../lib/mm/user-data";
 
 // The Add food sheet's rules: typed numbers are the person's own (an empty box is no figure, never 0), a product is its label x the amount over 100,
@@ -123,6 +123,27 @@ describe("the meal an entry sits under", () => {
     expect(entryMeal(entry(19))).toBe("dinner");
     expect(entryMeal(entry(19, "breakfast"))).toBe("breakfast");
     expect(entryMeal(entry(8, "dinner"))).toBe("dinner");
+  });
+});
+
+describe("Snacks (founder 2026-11-19: \"you have breakfast, lunch, and dinner, but also have one for like snacks\")", () => {
+  const base = { id: "s", loggedAt: new Date(2026, 9, 15, 15, 0).toISOString(), chainId: "", chainName: "", name: "Apple", source: "custom", nutrients: { calories: 80, protein: 0.4, carbs: 19, fat: 0.3 } };
+  it("is the fourth row of the day, after Dinner", () => {
+    expect(LOG_MEALS).toEqual(["breakfast", "lunch", "dinner", "snack"]);
+    expect(LOG_MEAL_LABEL.snack).toBe("Snacks");
+  });
+  it("keeps an entry added to Snacks there (the sanitiser keeps the row; the clock never picks it)", () => {
+    const [kept] = sanitizeLog([{ ...base, meal: "snack" }]);
+    expect(kept?.meal).toBe("snack");
+    expect(entryMeal(kept!)).toBe("snack");
+    expect(entryMeal({ loggedAt: base.loggedAt })).toBe("lunch");
+    expect(sanitizeLog([{ ...base, meal: "supper" }])[0]).not.toHaveProperty("meal");
+  });
+  it("counts in the day's total, and has no meal share of its own: the three meals' shares are unchanged", () => {
+    const list = sanitizeLog([{ ...base, meal: "snack" }, { ...base, id: "t", meal: "lunch", nutrients: { calories: 500, protein: 30, carbs: 50, fat: 15 } }]);
+    expect(loggedToday(list, new Date(2026, 9, 15, 18, 0)).calories).toBe(580);
+    expect(MEALS).toEqual(["breakfast", "lunch", "dinner"]);
+    expect(MEAL_SHARE).toEqual({ breakfast: 0.25, lunch: 0.35, dinner: 0.4 });
   });
 });
 

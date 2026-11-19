@@ -3,7 +3,7 @@
 import { useId, useState } from "react";
 import { ADD_TO, MAX_NAME_LENGTH, typedEntry, type TypedField } from "@/lib/mm/addFood";
 import { tk } from "@/lib/mm/i18n";
-import type { Meal } from "@/lib/mm/types";
+import type { LogMeal } from "@/lib/mm/types";
 import { dismissKeyboard, NumberDone } from "../SearchDone";
 import { Button, inputClass } from "../ui";
 import { useT } from "../../_lib/i18n";
@@ -19,7 +19,7 @@ const PROBLEM: Record<TypedField, string> = {
   fat: tk("Check the fat: use a number from 0 to 1,000 g."),
 };
 
-export function TypedNumbers({ meal, onAdd }: { meal: Meal; onAdd: (entry: NewEntry) => void }) {
+export function TypedNumbers({ meal, onAdd }: { meal: LogMeal; onAdd: (entry: NewEntry) => void }) {
   const t = useT();
   const [name, setName] = useState("");
   const [calories, setCalories] = useState("");

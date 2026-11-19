@@ -5,13 +5,13 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import { dayHref, dayParam, parseDayParam, stepDay } from "@/lib/mm/day";
 import { localeInfo } from "@/lib/mm/i18n";
 import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
-import { entryMeal, loggedGaps, loggedToday, isSameLocalDay, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
+import { entryMeal, loggedGaps, loggedToday, isSameLocalDay, LOG_MEALS, LOG_MEAL_LABEL } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED } from "@/lib/mm/config";
 import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
 import { deleteLogEntry, logStore, moveLogEntry, restoreLogEntry, savedStore, setLogPortion } from "@/lib/mm/stores";
 import { PORTIONS, withPortion, type LogEntry } from "@/lib/mm/user-data";
-import type { Meal } from "@/lib/mm/types";
+import type { LogMeal } from "@/lib/mm/types";
 import { AddFoodSheet } from "../_components/addfood/AddFoodSheet";
 import { EatenThumb, entryPicture, legacyImage } from "../_components/addfood/EntryPicture";
 import { useGate } from "../_components/Paywall";
@@ -81,8 +81,8 @@ function TodayScreen() {
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
   // Home's Add food sheet, opened for the meal tapped; what it adds is offered back with an Undo for a few seconds (as on Home).
-  const [addTo, setAddTo] = useState<Meal | null>(null);
-  const [added, setAdded] = useState<{ entry: LogEntry; meal: Meal } | null>(null);
+  const [addTo, setAddTo] = useState<LogMeal | null>(null);
+  const [added, setAdded] = useState<{ entry: LogEntry; meal: LogMeal } | null>(null);
   useEffect(() => {
     if (!added) return;
     const hide = setTimeout(() => setAdded(null), 8000);
@@ -140,10 +140,10 @@ function TodayScreen() {
   // one portion or less is "portion" ("½ portion", usability test 2026-11-19: "½ portions" read wrong)
   const portionWords = (n: number) => (n === 1 ? t("1 portion") : n < 1 ? t("{n} portion", { n: n === 0.5 ? "½" : String(n) }) : t("{n} portions", { n: n === 1.5 ? "1½" : String(n) }));
 
-  function moveTo(entry: LogEntry, meal: Meal) {
+  function moveTo(entry: LogEntry, meal: LogMeal) {
     moveLogEntry(entry.id, meal);
     setMoving(null);
-    setMoved(t("Moved “{name}” to {meal}.", { name: entry.name, meal: t(MEAL_LABEL[meal]) }));
+    setMoved(t("Moved “{name}” to {meal}.", { name: entry.name, meal: t(LOG_MEAL_LABEL[meal]) }));
   }
 
   function remove(entry: LogEntry) {
@@ -153,7 +153,7 @@ function TodayScreen() {
     timer.current = setTimeout(() => setUndo(null), 10000);
   }
 
-  const byMeal = (meal: Meal) => todays.filter((e) => entryMeal(e) === meal);
+  const byMeal = (meal: LogMeal) => todays.filter((e) => entryMeal(e) === meal);
 
   return (
     <div>
@@ -195,7 +195,7 @@ function TodayScreen() {
         </div>
       ) : (
         <div className="mt-5 space-y-3.5">
-          {MEALS.map((meal) => {
+          {LOG_MEALS.map((meal) => {
             const entries = byMeal(meal);
             // today shows every meal so each has its "Add to …"; a past day shows only the meals with something in them
             if (!isToday && entries.length === 0) return null;
@@ -204,7 +204,7 @@ function TodayScreen() {
               <section key={meal} aria-labelledby={`today-${meal}`} className="glass overflow-hidden rounded-[1.25rem]">
                 <div className="flex items-center gap-3 px-4 pb-1 pt-3">
                   <div className="flex min-w-0 flex-1 flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-                    <h2 id={`today-${meal}`} className="text-lg font-[800] leading-snug tracking-[-0.01em]">{t(MEAL_LABEL[meal])}</h2>
+                    <h2 id={`today-${meal}`} className="text-lg font-[800] leading-snug tracking-[-0.01em]">{t(LOG_MEAL_LABEL[meal])}</h2>
                     {entries.length > 0 && <span className="app-numbers shrink-0 font-mono text-[0.75rem] text-muted">{formatCalories(kcal)}</span>}
                   </div>
                   {/* each meal has exactly one "Add to …": this + once something is in it, the wide button below while it is empty */}
@@ -274,8 +274,8 @@ function TodayScreen() {
             </div>
             <h3 className="mt-6 text-[1.0625rem] font-bold">{t("Move to another meal")}</h3>
             <div className="mt-2.5 space-y-2.5">
-              {MEALS.filter((m) => m !== entryMeal(moving)).map((m) => (
-                <Button key={m} full variant="secondary" className="min-h-14 text-lg" onClick={() => moveTo(moving, m)}>{t("Move to {meal}", { meal: t(MEAL_LABEL[m]) })}</Button>
+              {LOG_MEALS.filter((m) => m !== entryMeal(moving)).map((m) => (
+                <Button key={m} full variant="secondary" className="min-h-14 text-lg" onClick={() => moveTo(moving, m)}>{t("Move to {meal}", { meal: t(LOG_MEAL_LABEL[m]) })}</Button>
               ))}
             </div>
           </div>

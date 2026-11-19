@@ -1,7 +1,7 @@
-import type { AllergenKey, Nutrients, Goal, Meal, Preferences } from "./types";
+import type { AllergenKey, Nutrients, Goal, LogMeal, Preferences } from "./types";
 import { isLocale, type Locale } from "./i18n";
 import { ALLERGEN_KEYS, NO_PREFERENCES } from "./types";
-import { DEFAULT_DAILY_CALORIES, DEFAULT_GLP1_MEAL_CAP, MEALS } from "./budget";
+import { DEFAULT_DAILY_CALORIES, DEFAULT_GLP1_MEAL_CAP, LOG_MEALS } from "./budget";
 import type { OrderLine } from "./order";
 import { MAX_WATER_GOAL_ML, MIN_WATER_GOAL_ML } from "./water";
 import { sanitizeShoppingLists, validPhoto, type PhotoSource, type ShoppingList } from "./groceries";
@@ -30,8 +30,8 @@ export interface LogEntry {
   name: string;
   nutrients: Nutrients;
   source: LogSource;
-  /** The meal row it was added to (Home's + on Breakfast, Lunch or Dinner). Absent = the meal its time falls in (budget.ts entryMeal, SPEC §6.3). */
-  meal?: Meal;
+  /** The meal row it was added to (Home's + on Breakfast, Lunch, Dinner or Snacks). Absent = the meal its time falls in (budget.ts entryMeal, SPEC §6.3). */
+  meal?: LogMeal;
   /**
    * The pictures shown beside it on Home and Today (founder 2026-11-17, "use images please when possible"), kept when it was logged; older entries
    * have none. `image`: the chain's own photo of the dish, or of the first dish in the order that has one, "<chain id>/<file>.webp" as in the menu
@@ -232,7 +232,7 @@ export function sanitizeLog(raw: unknown): LogEntry[] {
       return {
         ...rest,
         ...(typeof portion === "number" && Number.isFinite(portion) && portion >= 0.25 && portion <= 10 && portion !== 1 ? { portion } : {}),
-        ...(meal !== undefined && MEALS.includes(meal) ? { meal } : {}),
+        ...(meal !== undefined && LOG_MEALS.includes(meal) ? { meal } : {}),
         ...(typeof image === "string" && image.length <= 200 && LOG_IMAGE.test(image) ? { image } : {}),
         ...(typeof recipeId === "string" && RECIPE_ID.test(recipeId) && !(recipeId in Object.prototype) ? { recipeId } : {}),
         ...(kept ? { photo: kept } : {}),
