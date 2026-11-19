@@ -149,7 +149,7 @@ function TodayScreen() {
     deleteLogEntry(entry.id);
     setUndo(entry);
     if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => setUndo(null), 6000);
+    timer.current = setTimeout(() => setUndo(null), 10000);
   }
 
   const byMeal = (meal: Meal) => todays.filter((e) => entryMeal(e) === meal);

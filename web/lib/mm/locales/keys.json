@@ -4023,6 +4023,7 @@
  "{name} (estimate)",
  "{name} ({n} servings)",
  "{name} can't be doubled.",
+ "{name} from {chain}",
  "{name} has too many lists waiting to be opened. Try again later.",
  "{name} is already in this order.",
  "{name} is blocked.",

@@ -338,7 +338,7 @@ function ShoppingListScreen() {
                     const body = (
                       <>
                         <span className={`block text-base font-semibold leading-snug [overflow-wrap:anywhere] ${i.done ? "text-muted line-through decoration-1" : ""}`}>{i.name}</span>
-                        {detail && <span className="app-numbers mt-0.5 block truncate text-sm text-muted">{detail}</span>}
+                        {detail && <span className="app-numbers mt-0.5 block text-sm text-muted [overflow-wrap:anywhere]">{detail}</span>}
                       </>
                     );
                     const thumb = <ListThumb sources={photosOf(i)} />;

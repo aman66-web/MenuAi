@@ -699,7 +699,7 @@ function EarlierPlans({ shopsAll }: { shopsAll: Shop[] }) {
     earlierPlansStore.update((l) => l.filter((_, j) => j !== i));
     setRemoved({ plan, index: i });
     if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => setRemoved(null), 6000);
+    timer.current = setTimeout(() => setRemoved(null), 10000);
   };
   const undo = () => {
     if (!removed) return;

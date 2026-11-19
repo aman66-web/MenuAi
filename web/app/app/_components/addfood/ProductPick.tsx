@@ -3,7 +3,7 @@
 import { useDeferredValue, useId, useMemo, useState } from "react";
 import { ADD_TO, amountNutrients, MAX_AMOUNT, MIN_AMOUNT, parseAmount } from "@/lib/mm/addFood";
 import { formatCalories, formatGrams } from "@/lib/mm/format";
-import { forRetailer, photoSources, searchProducts, withPhoto, type ListedProduct } from "@/lib/mm/groceries";
+import { forRetailer, photoSources, retailerName, searchProducts, withPhoto, type ListedProduct } from "@/lib/mm/groceries";
 import type { Meal, Nutrients } from "@/lib/mm/types";
 import { NumberDone } from "../SearchDone";
 import { ScanIcon } from "../icons";
@@ -80,13 +80,16 @@ function HowMuch({ product, meal, prefer, onBack, onAdd }: { product: ListedProd
   const unit = p.per;
   const shown = amount === null ? "" : `${Math.round(amount * 10) / 10} ${unit}`;
   const sources = photoSources(p, prefer);
+  // the shop it comes from on Today's row (usability test 2026-11-19: George's porridge said "Groceries"): the shop chosen, or its only shop
+  const shop = prefer && product.retailers.includes(prefer) ? prefer : product.retailers.length === 1 ? product.retailers[0]! : null;
+  const shopName = shop ? retailerName(shop) : t("Groceries");
 
   return (
     <form
       className="space-y-5 pb-2"
       onSubmit={(e) => {
         e.preventDefault();
-        if (n && amount !== null) onAdd({ chainId: "", chainName: t("Groceries"), name: `${p.name} (${shown})`, nutrients: n, source: "product", ...withPhoto(sources) });
+        if (n && amount !== null) onAdd({ chainId: "", chainName: shopName, name: `${p.name} (${shown})`, nutrients: n, source: "product", ...withPhoto(sources) });
       }}
     >
       <BackBar onBack={onBack} />

@@ -48,7 +48,7 @@ export function MyRecipes() {
     if (index < 0) return;
     setUndo({ kind: "book", entry: saves[index]!, index, name });
     if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => setUndo(null), 6000);
+    timer.current = setTimeout(() => setUndo(null), 10000);
   }
 
   function removeMine(id: string, name: string) {
@@ -58,7 +58,7 @@ export function MyRecipes() {
     myRecipesStore.update((list) => list.filter((m) => m.id !== id));
     setUndo({ kind: "mine", entry, index, name });
     if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => setUndo(null), 6000);
+    timer.current = setTimeout(() => setUndo(null), 10000);
   }
 
   function restore() {

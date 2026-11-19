@@ -69,7 +69,7 @@ export function RestaurantMeals() {
     deleteSavedOrder(order.id);
     setUndo(order);
     if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => setUndo(null), 6000);
+    timer.current = setTimeout(() => setUndo(null), 10000);
   }
 
   return (

@@ -85,7 +85,7 @@ export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
                   lead={dishLead(image)}
                   title={o.name}
                   line={`${o.chainName} · ${hasMacros(o.nutrients) ? t("{kcal} · {protein} protein", { kcal: formatCalories(o.nutrients.calories), protein: formatGrams(o.nutrients.protein ?? 0) }) : formatCalories(o.nutrients.calories)}`}
-                  action={<AddPill name={o.name} onClick={() => onAdd({ chainId: o.chainId, chainName: o.chainName, name: o.name, nutrients: o.nutrients, source: "savedOrder", ...(image ? { image } : {}) })} />}
+                  action={<AddPill name={o.chainName ? t("{name} from {chain}", { name: o.name, chain: o.chainName }) : o.name} onClick={() => onAdd({ chainId: o.chainId, chainName: o.chainName, name: o.name, nutrients: o.nutrients, source: "savedOrder", ...(image ? { image } : {}) })} />}
                 />
               );
             })}
@@ -108,7 +108,7 @@ export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
                 lead={dishLead(h.image)}
                 title={h.name}
                 line={`${h.chainName} · ${formatCalories(h.calories)}`}
-                action={<AddPill name={h.name} disabled={busy !== null} busy={busy === `${h.chainId}:${h.itemId}`} onClick={() => void addHit(h)} />}
+                action={<AddPill name={t("{name} from {chain}", { name: h.name, chain: h.chainName })} disabled={busy !== null} busy={busy === `${h.chainId}:${h.itemId}`} onClick={() => void addHit(h)} />}
               />
             ))}
           </ul>
