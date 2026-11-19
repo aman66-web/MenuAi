@@ -3,6 +3,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { z } from "zod";
 import { RECIPE_MODEL } from "./recipeAi";
+import type { AskFridgeRecipe } from "./fridgeRecipeHandler";
 import type { AskPhotoRecipe, DescribePhoto } from "./photoRecipeHandler";
 
 // Make it at home's two AI calls (lib/photoRecipeHandler.ts decides when): check the photo shows food (and say what it is), and write the home recipe.
@@ -83,6 +84,44 @@ export function anthropicDescribePhoto(apiKey: string | undefined): DescribePhot
       return res.parsed_output ? { status: "ok", value: res.parsed_output } : { status: "error" };
     } catch (error) {
       logError("describe photo AI", error);
+      return { status: "error" };
+    }
+  };
+}
+
+/** Cook with what you have (lib/fridgeRecipeHandler.ts): the same model, effort, caching and checks as the photo recipe, with no photo, and "fromHome" (the keys of
+ *  what the person already has) in the answer. */
+export function anthropicFridgeRecipe(apiKey: string | undefined): AskFridgeRecipe | null {
+  if (!apiKey) return null;
+  const c = client(apiKey);
+  return async (system, user, allowedKeys, pantry) => {
+    const key = z.enum(allowedKeys as [string, ...string[]]);
+    const schema = z.object({
+      name: z.string(),
+      blurb: z.string(),
+      servings: z.number().int(),
+      minutes: z.number().int(),
+      ingredients: z.array(z.object({ key, amount: z.number(), role: z.enum(["protein", "carb", "other"]) })),
+      method: z.array(z.string()),
+      fromHome: z.array(key),
+    });
+    try {
+      const res = await c.messages.parse({
+        model: PHOTO_RECIPE_MODEL,
+        max_tokens: 16000,
+        output_config: { effort: "high", format: zodOutputFormat(schema) },
+        system: [
+          { type: "text", text: system, cache_control: { type: "ephemeral" } },
+          { type: "text", text: pantry, cache_control: { type: "ephemeral" } },
+        ],
+        messages: [{ role: "user", content: user }],
+      });
+      const u = res.usage;
+      console.info(`fridge recipe: ${PHOTO_RECIPE_MODEL} in ${u.input_tokens}, cache read ${u.cache_read_input_tokens ?? 0}, cache write ${u.cache_creation_input_tokens ?? 0}, out ${u.output_tokens}`);
+      if (res.stop_reason === "refusal") return { status: "refused" };
+      return res.parsed_output ? { status: "ok", value: res.parsed_output } : { status: "error" };
+    } catch (error) {
+      logError("fridge recipe AI", error);
       return { status: "error" };
     }
   };

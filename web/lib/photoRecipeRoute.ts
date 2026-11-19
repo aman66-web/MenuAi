@@ -4,7 +4,8 @@ import { withCors, type CorsOptions } from "./cors";
 import { PAID_ACCESS_ENABLED, PHOTO_RECIPES_API_ENABLED, PRO_ENABLED } from "./mm/config";
 import { verifyToken } from "./payments/token";
 import type { PhotoCtx } from "./photoRecipeHandler";
-import { anthropicDescribePhoto, anthropicPhotoRecipe } from "./photoRecipeAi";
+import { anthropicDescribePhoto, anthropicFridgeRecipe, anthropicPhotoRecipe } from "./photoRecipeAi";
+import type { FridgeCtx } from "./fridgeRecipeHandler";
 import { makeLimiter } from "./recipeHandler";
 import { entitlementPublicKey } from "./payments/publicKey";
 
@@ -45,6 +46,18 @@ export function photoCtx(request: Request, kind: "recipe" | "describe", deadline
     describe: PHOTO_RECIPES_API_ENABLED ? anthropicDescribePhoto(key) : null,
     premium: () => hasPremium(request),
     allow: () => (kind === "recipe" ? recipeLimit(who) : describeLimit(who)),
+    timeLeft: () => deadlineMs - (Date.now() - started),
+  };
+}
+
+/** Cook with what you have: the same switch, Premium check and recipe limit as Make it at home (the two share the limit). */
+export function fridgeCtx(request: Request, deadlineMs: number): FridgeCtx {
+  const who = caller(request);
+  const started = Date.now();
+  return {
+    ask: PHOTO_RECIPES_API_ENABLED ? anthropicFridgeRecipe(process.env.ANTHROPIC_API_KEY) : null,
+    premium: () => hasPremium(request),
+    allow: () => recipeLimit(who),
     timeLeft: () => deadlineMs - (Date.now() - started),
   };
 }
