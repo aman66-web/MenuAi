@@ -179,12 +179,44 @@ await step("add all to the shopping list, then the list holds them", async () =>
 await step("the plan opens again as it was; Make a new plan starts Pip's questions with the answers kept", async () => {
   await page.reload();
   await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 120000 });
-  await page.getByRole("button", { name: "Make a new plan" }).click();
+  // "Make a new plan" is at the top of the plan now (founder 2026-11-19), and again at the foot
+  const top = page.getByRole("button", { name: "Make a new plan" }).first();
+  const box = await top.boundingBox();
+  expect(box && box.y < 400, "Make a new plan is near the top: " + JSON.stringify(box));
+  await top.click();
   await page.getByText("Step 1 of 6").waitFor();
   for (let i = 0; i < 3; i++) await page.getByRole("button", { name: "Continue" }).click();
   expect((await page.getByRole("button", { name: "Mushrooms", exact: true }).getAttribute("aria-pressed")) === "true", "foods kept");
   await page.getByRole("button", { name: "Keep my plan" }).click();
   await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor();
+});
+
+await step("a new plan keeps the old one under Earlier plans; Open makes it the plan again; Remove takes one away with Undo", async () => {
+  const first = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.mealPlan")).data);
+  await page.getByRole("button", { name: "Make a new plan" }).first().click();
+  await page.getByText("Step 1 of 6").waitFor();
+  for (let i = 0; i < 5; i++) await page.getByRole("button", { name: "Continue" }).click();
+  await page.getByRole("slider").waitFor({ timeout: 180000 });
+  await page.getByRole("button", { name: "Make my plan" }).click();
+  await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 30000 });
+  const earlier = page.locator("section[aria-labelledby='earlier-h']");
+  await earlier.waitFor();
+  expect((await earlier.locator("li").count()) === 1, "one earlier plan");
+  const kept = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.earlierPlans")).data);
+  expect(kept.length === 1 && JSON.stringify(kept[0].ids) === JSON.stringify(first.ids), "the old plan is the earlier one");
+  // Open: the old plan is followed again, and the newer one takes its place among the earlier ones
+  const second = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.mealPlan")).data);
+  await earlier.getByRole("button", { name: "Open this plan" }).click();
+  await page.waitForFunction((ids) => JSON.stringify(JSON.parse(localStorage.getItem("mm.v1.mealPlan")).data.ids) === ids, JSON.stringify(first.ids));
+  const after = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.earlierPlans")).data);
+  expect(after.length === 1 && JSON.stringify(after[0].ids) === JSON.stringify(second.ids), "the newer plan went to the earlier ones");
+  // Remove, then Undo
+  await earlier.getByRole("button", { name: "Remove" }).click();
+  await page.getByText("Plan removed.").waitFor();
+  expect((await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.earlierPlans")).data.length)) === 0, "removed");
+  await page.getByRole("button", { name: "Undo" }).click();
+  await earlier.locator("li").first().waitFor();
+  expect((await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.earlierPlans")).data.length)) === 1, "Undo put it back");
 });
 
 await ctx.close();

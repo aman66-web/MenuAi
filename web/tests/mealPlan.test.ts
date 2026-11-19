@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS, KEEPS_WELL, keepsWell, VARIETIES } from "../lib/mm/mealPlan";
+import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS, KEEPS_WELL, keepsWell, VARIETIES, MAX_EARLIER_PLANS, keepEarlier, openEarlier, sanitizePlans } from "../lib/mm/mealPlan";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { isVegan } from "../lib/mm/recipes";
 import { decodeShopProducts } from "../lib/mm/shopProducts";
@@ -315,5 +315,36 @@ describe("using up the packs (founder 2026-11-18: \"by the end of the week, all 
     expect(sanitizePlan({ shops: ["sainsburys"], ids: plan.ids, start: "2026-11-19", variety: 2 })!.variety).toBe(2);
     expect(sanitizePlan({ shops: ["sainsburys"], ids: plan.ids, start: "2026-11-19", variety: 5 })!.variety).toBeUndefined();
     expect(sanitizePlan({ shops: ["sainsburys"], ids: plan.ids, start: "2026-11-19" })!.variety).toBeUndefined();
+  });
+});
+
+describe("earlier plans (founder 2026-11-19: \"they can start another meal plan\")", () => {
+  const cands = planCandidates(RECIPES, products, none, target, []);
+  const ids = makePlan(cands, null)!.ids;
+  const plan = (start: string) => sanitizePlan({ shops: ["sainsburys"], ids, start })!;
+
+  it("keeps the plan set aside first, without a copy, and only the last few", () => {
+    let earlier = keepEarlier([], plan("2026-11-01"));
+    earlier = keepEarlier(earlier, plan("2026-11-08"));
+    expect(earlier.map((p) => p.start)).toEqual(["2026-11-08", "2026-11-01"]);
+    expect(keepEarlier(earlier, plan("2026-11-08")).map((p) => p.start)).toEqual(["2026-11-08", "2026-11-01"]);
+    for (let d = 10; d < 20; d++) earlier = keepEarlier(earlier, plan(`2026-11-${d}`));
+    expect(earlier).toHaveLength(MAX_EARLIER_PLANS);
+    expect(earlier[0]!.start).toBe("2026-11-19");
+    expect(keepEarlier(earlier, null)).toHaveLength(MAX_EARLIER_PLANS);
+  });
+
+  it("opening an earlier plan makes it the plan and puts the one it replaces first", () => {
+    const now = plan("2026-11-19");
+    const earlier = [plan("2026-11-12"), plan("2026-11-05")];
+    const opened = openEarlier(now, earlier, 1);
+    expect(opened.current!.start).toBe("2026-11-05");
+    expect(opened.earlier.map((p) => p.start)).toEqual(["2026-11-19", "2026-11-12"]);
+    expect(openEarlier(now, earlier, 9).current).toBe(now);
+  });
+
+  it("reads back only good plans from the phone", () => {
+    expect(sanitizePlans([plan("2026-11-12"), { nonsense: true }, null]).map((p) => p.start)).toEqual(["2026-11-12"]);
+    expect(sanitizePlans("x")).toEqual([]);
   });
 });

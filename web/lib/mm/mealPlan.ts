@@ -604,3 +604,30 @@ export function sanitizePlan(raw: unknown): SavedPlan | null {
   const variety = (VARIETIES as readonly unknown[]).includes(r.variety) ? (r.variety as Variety) : null;
   return { shops, ids, leaveOut, budget, start: r.start, ...(slotsOk ? { slots } : {}), ...(better.length ? { better } : {}), ...(variety ? { variety } : {}) };
 }
+
+/**
+ * Earlier plans (founder 2026-11-19: "if they've done their meal plan, they can start another meal plan ... or they can create multiple meal plans, whatever you
+ * think could be the best"): one plan is the one being followed; making a new one keeps the old one among the last MAX_EARLIER_PLANS, newest first, so it can
+ * be opened again. On this phone only, like the plan itself.
+ */
+export const MAX_EARLIER_PLANS = 5;
+
+const samePlan = (a: SavedPlan, b: SavedPlan) => a.start === b.start && JSON.stringify(a.ids) === JSON.stringify(b.ids);
+
+/** The earlier plans once `old` is set aside (a new plan made, or an earlier one opened): `old` first, without a copy of it, at most MAX_EARLIER_PLANS. */
+export function keepEarlier(earlier: readonly SavedPlan[], old: SavedPlan | null): SavedPlan[] {
+  if (!old) return earlier.slice(0, MAX_EARLIER_PLANS);
+  return [old, ...earlier.filter((p) => !samePlan(p, old))].slice(0, MAX_EARLIER_PLANS);
+}
+
+/** Opening an earlier plan: it becomes the plan, and the one it replaces goes to the top of the earlier ones. */
+export function openEarlier(current: SavedPlan | null, earlier: readonly SavedPlan[], index: number): { current: SavedPlan | null; earlier: SavedPlan[] } {
+  const chosen = earlier[index];
+  if (!chosen) return { current, earlier: [...earlier] };
+  const rest = earlier.filter((_, i) => i !== index);
+  return { current: chosen, earlier: keepEarlier(rest, current) };
+}
+
+export function sanitizePlans(raw: unknown): SavedPlan[] {
+  return Array.isArray(raw) ? raw.map(sanitizePlan).filter((p): p is SavedPlan => !!p).slice(0, MAX_EARLIER_PLANS) : [];
+}

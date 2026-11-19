@@ -7,11 +7,11 @@ import { GATING_ENABLED } from "@/lib/mm/config";
 import { formatInt } from "@/lib/mm/format";
 import { addToList, formatPrice, listForShop, withPhoto } from "@/lib/mm/groceries";
 import { localeInfo, tk } from "@/lib/mm/i18n";
-import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterCandidate, budgetRange, buildWeek, leavesOut, mergeCandidates, planCandidates, planForBudget, planSlots, setMeal, shapeOf, slotTargets, swapChoices, withBetter, type BudgetRange, type DayShape, type PlanCandidate, type PlanIds, type SavedPlan, type Variety } from "@/lib/mm/mealPlan";
+import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterCandidate, budgetRange, buildWeek, keepEarlier, openEarlier, leavesOut, mergeCandidates, planCandidates, planForBudget, planSlots, setMeal, shapeOf, slotTargets, swapChoices, withBetter, type BudgetRange, type DayShape, type PlanCandidate, type PlanIds, type SavedPlan, type Variety } from "@/lib/mm/mealPlan";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { recipeForDiet, type MealTarget, type MealType } from "@/lib/mm/recipes";
 import { recipeShops, shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
-import { mealPlanStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
+import { earlierPlansStore, mealPlanStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { macroTargets } from "@/lib/mm/targets";
 import type { DietPrefs } from "@/lib/mm/pantry";
 import { ShopMark } from "../_components/ChainMark";
@@ -240,6 +240,8 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
   };
   const finish = () => {
     if (!making) return;
+    // the plan this one replaces is kept among the earlier plans (founder 2026-11-19: "they can start another meal plan")
+    if (saved) earlierPlansStore.update((l) => keepEarlier(l, saved));
     mealPlanStore.set(making.plan);
     onDone();
   };
@@ -587,6 +589,69 @@ function BudgetSlider({ range, value, onChange }: { range: BudgetRange; value: n
 
 // ---------- the week ----------
 
+/**
+ * The plans made before this one (founder 2026-11-19: "they can start another meal plan ... or create multiple meal plans, whatever you think could be the
+ * best"): one plan is followed at a time; the last MAX_EARLIER_PLANS are kept here, newest first. Open makes one the plan again (this one is kept in its
+ * place); Remove takes one away, with Undo for 6 seconds.
+ */
+function EarlierPlans({ shopsAll }: { shopsAll: Shop[] }) {
+  const t = useT();
+  const language = useLanguage();
+  const earlier = useStore(earlierPlansStore);
+  const [removed, setRemoved] = useState<{ plan: SavedPlan; index: number } | null>(null);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
+  if (!earlier.length && !removed) return null;
+  const from = (start: string) => new Intl.DateTimeFormat(localeInfo(language).htmlLang, { weekday: "long", day: "numeric", month: "long" }).format(new Date(`${start}T12:00:00`));
+  const open = (i: number) => {
+    const next = openEarlier(mealPlanStore.get(), earlier, i);
+    earlierPlansStore.set(next.earlier);
+    mealPlanStore.set(next.current);
+    window.scrollTo({ top: 0 });
+  };
+  const remove = (i: number) => {
+    const plan = earlier[i]!;
+    earlierPlansStore.update((l) => l.filter((_, j) => j !== i));
+    setRemoved({ plan, index: i });
+    if (timer.current) clearTimeout(timer.current);
+    timer.current = setTimeout(() => setRemoved(null), 6000);
+  };
+  const undo = () => {
+    if (!removed) return;
+    earlierPlansStore.update((l) => [...l.slice(0, removed.index), removed.plan, ...l.slice(removed.index)]);
+    setRemoved(null);
+  };
+  return (
+    <section aria-labelledby="earlier-h" className="mt-8">
+      <h2 id="earlier-h" className={HEADING}>{t("Earlier plans")}</h2>
+      <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Your last plans are kept on this phone. Open one to follow it again.")}</p>
+      <ul className="mt-3 space-y-2.5">
+        {earlier.map((p, i) => {
+          const shape = shapeOf(p.slots ?? [...PLAN_MEALS]);
+          return (
+            <li key={`${p.start}-${i}`} className={`${CARD} p-4`}>
+              <p className="font-bold leading-snug">{t("From {day}", { day: from(p.start) })}</p>
+              <p className="mt-0.5 text-[0.9375rem] leading-snug text-muted">
+                {[names(shopsAll, p.shops), shape.snacks ? t("{meals} meals and {snacks} snacks a day", { meals: shape.meals.length, snacks: shape.snacks }) : t("{meals} meals a day", { meals: shape.meals.length })].join(" · ")}
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <Button className="min-h-12 px-5" onClick={() => open(i)}>{t("Open this plan")}</Button>
+                <Button variant="ghost" className="min-h-12 px-4" onClick={() => remove(i)}>{t("Remove")}</Button>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+      {removed && (
+        <p role="status" className="mt-3 flex items-center justify-between gap-3 rounded-[1.25rem] bg-foreground py-1.5 ps-4 pe-1.5 text-[0.9375rem] text-background">
+          {t("Plan removed.")}
+          <button type="button" onClick={undo} className="min-h-11 rounded-full px-4 font-bold text-[var(--sun)]">{t("Undo")}</button>
+        </p>
+      )}
+    </section>
+  );
+}
+
 function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
   const t = useT();
   const language = useLanguage();
@@ -690,6 +755,10 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
         {snackCount ? t("{meals} meals and {snacks} snacks from our recipes, with ingredients from {shops}.", { meals: mealCount, snacks: snackCount, shops: names(shopsAll, week.shops) })
           : t("{meals} meals from our recipes, with ingredients from {shops}.", { meals: mealCount, shops: names(shopsAll, week.shops) })}
       </p>
+      {/* another plan whenever they like, at the top where it's seen (founder 2026-11-19); this one is kept among the earlier plans */}
+      <button type="button" onClick={onChange} className="mt-3 inline-flex min-h-12 items-center gap-2 rounded-full bg-sun px-5 text-[0.9375rem] font-bold text-[var(--on-accent)] transition active:scale-95">
+        <PlusIcon aria-hidden className="h-5 w-5" />{t("Make a new plan")}
+      </button>
 
       {/* the money first: what the shopping comes to, against the budget */}
       <div className={`${CARD} mt-4 p-4`}>
@@ -782,6 +851,8 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
         {week.shops.length > 1 && <p className="app-numbers mt-3 flex items-center justify-between px-1 text-lg font-[800]"><span>{t("Total")}</span><span>{formatPrice(week.shoppingCost)}</span></p>}
         <p className="mt-2 px-1 text-[0.8125rem] leading-snug text-muted">{t("Prices are each shop's shelf prices and vary by store.")}</p>
       </section>
+
+      <EarlierPlans shopsAll={shopsAll} />
 
       <div className="mt-6 space-y-2.5">
         <Button variant="secondary" full className="min-h-12 gap-2" onClick={onChange}><CalendarIcon aria-hidden className="h-5 w-5" />{t("Make a new plan")}</Button>
