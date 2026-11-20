@@ -71,7 +71,7 @@ async function back(page, want, to) {
   await waitPath(page, to);
 }
 const tab = (page, href) => page.locator(`nav a[href="${href}"]`);
-const homeReady = async (page) => { await page.getByRole("button", { name: "Choose a day", exact: true }).waitFor({ timeout: 120000 }); };
+const homeReady = async (page) => { await page.getByRole("button", { name: /Choose a day$/ }).waitFor({ timeout: 120000 }); };
 const home = async (page) => { await go(page, "/app"); await homeReady(page); };
 const dialog = (page) => page.locator("dialog[open]");
 const pad = (n) => String(n).padStart(2, "0");
@@ -157,7 +157,7 @@ await step("(c) Home, a circle of a past day in the week strip, Back: Home (skip
 await step("(c) Home, the calendar, a day picked, Back: Home with the sheet closed", async () => {
   const { ctx, page, errors } = await open();
   await home(page);
-  await page.getByRole("button", { name: "Choose a day", exact: true }).tap();
+  await page.getByRole("button", { name: /Choose a day$/ }).tap();
   await dialog(page).waitFor();
   await page.waitForTimeout(700); // the sheet slides in
   const y = new Date(); y.setDate(y.getDate() - 1);

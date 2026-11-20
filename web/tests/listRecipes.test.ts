@@ -147,7 +147,7 @@ describe("recipes from the shopping list, with several shops", () => {
     const m = recipesFromShopSet(list, RECIPES, both).find((x) => x.recipe.id === r.id);
     expect(m).toBeDefined();
     expect(m!.resolved.picks.some((p) => p?.product.shop === "sainsburys")).toBe(true);
-  });
+  }, 30000); // reads two whole shops' products and every recipe: slow under a full run
 
   it("a product on the list counts by the recipe's rules at its own shop, never by a same-id product at another", () => {
     const picks = resolveRecipe(curry, both).picks;

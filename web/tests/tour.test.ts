@@ -1,11 +1,11 @@
-import { readFileSync } from "node:fs";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { readdirSync, readFileSync } from "node:fs";
+import { describe, expect, it } from "vitest";
 import { isPlainLaunch, OWN_DATA_KEYS, SIGNED_IN_KEYS, storedData, TOUR_GATE_SCRIPT, TOUR_VERSION, tourDue, tourGateScript, trialOfferDue } from "../lib/mm/tour";
+import { progressNote, resumeAt, startRun, stepCounter, WELCOME_PROGRESS_KEY, WELCOME_STEPS, type WelcomeStepId } from "../lib/mm/welcomeSteps";
 
-// The welcome tour (lib/mm/tour.ts, app/app/welcome/Tour.tsx): the gate a first plain launch goes through, the iPhone app's trial offer after it, and the words
-// Pip says on each stop (and the rows the replay shows). The two app modules the tour's stops read through "@/" paths are replaced here (the words come back as they are).
-vi.mock("../app/app/_lib/i18n", () => ({ useT: () => (s: string) => s }));
-vi.mock("../app/app/welcome/parts", () => ({ CAPS: "" }));
+// The welcome screens' gate (lib/mm/tour.ts): where a first plain launch goes, the iPhone app's trial offer after it, and (the onboarding redesign meeting of
+// 20 November 2026, build list 7) TOUR_VERSION 2, the tab tour gone, the welcome screens writing nothing of the person's own, and someone who quits at any step
+// coming back through the cover.
 
 type Stored = Record<string, unknown>;
 interface FakeStorage { getItem: (key: string) => string | null }
@@ -146,8 +146,8 @@ describe("the iPhone app's free-trial offer", () => {
     ["in the visit where setup just finished, even on a later day", { ...base, setUpThisVisit: true }, false],
     ["before any day was counted", { ...base, firstDay: null }, false],
     ["after a Premium feature's paywall (it already offered the trial)", { ...base, paywallSeen: true }, false],
-    ["after the tour was seen (Look around first), a later day", { ...base, onboarded: false, tourSeen: true }, true],
-    ["neither set up nor toured", { ...base, onboarded: false, tourSeen: false }, false],
+    ["after the welcome screens were finished on this phone (tourSeen), a later day", { ...base, onboarded: false, tourSeen: true }, true],
+    ["neither set up nor finished the welcome screens", { ...base, onboarded: false, tourSeen: false }, false],
     ["shown already", { ...base, shown: true }, false],
     ["paid access on", { ...base, paid: true }, false],
     ["on the website", { ...base, native: false }, false],
@@ -160,114 +160,79 @@ describe("the iPhone app's free-trial offer", () => {
   });
 });
 
-describe("the tour's stops", () => {
-  afterEach(() => {
-    vi.unstubAllEnvs();
-    vi.resetModules();
+describe("the redesign of 20 November (TOUR_VERSION 2)", () => {
+  it("shows the new welcome screens once to someone who only saw the old tour and has neither set up nor stored anything", () => {
+    expect(TOUR_VERSION).toBe(2);
+    const oldTour = storage({ "mm.v1.tour": 1 });
+    expect(runGate("/app", oldTour)).toEqual(["/app/welcome"]);
+    expect(runGate("/app", oldTour, tourGateScript(true))).toEqual(["/app/welcome"]);
+    // signed in (an earlier "Look around first" person) too: they get the signed-in run of 10
+    expect(runGate("/app", storage({ "mm.v1.tour": 1, "mm.v1.account": { id: "u1" } }), tourGateScript(true))).toEqual(["/app/welcome"]);
   });
 
-  const lines = (stop: { says: string; rows: ReadonlyArray<{ text: string }> }) => [stop.says, ...stop.rows.map((r) => r.text)];
-  /** How many sentences a line has: each ends in ".", "?" or "!" followed by a space or the end. */
-  const sentences = (line: string) => line.split(/[.?!](?:\s|$)/).filter((part) => part.trim() !== "").length;
-
-  it("has one stop per tab, in the bar's order", async () => {
-    const { TOUR_STOPS } = await import("../app/app/welcome/Tour");
-    const { TABS } = await import("../app/app/_lib/tabs");
-    const ids: Record<string, string> = { "/app": "home", "/app/eat-out": "eatOut", "/app/groceries": "groceries", "/app/recipes": "recipes", "/app/community": "community" };
-    expect(TOUR_STOPS.map((s) => s.id)).toEqual(TABS.map((t) => ids[t.href]));
+  it("leaves everyone who finished onboarding on 1.0 or 1.1 untouched, and anyone with something of their own", () => {
+    expect(runGate("/app", storage({ "mm.v1.tour": 1, "mm.v1.settings": settings({ hasCompletedOnboarding: true }) }))).toEqual([]);
+    expect(runGate("/app", storage({ "mm.v1.tour": 1, "mm.v1.favorites": [{ chainId: "kfc" }] }))).toEqual([]);
+    expect(runGate("/app", storage({ "mm.v1.tour": 1, "mm.v1.settings": settings({ dismissedTargetsCard: true }) }))).toEqual([]);
   });
 
-  // the rows show in the replay only (Settings › Help › "Show me around again"; the first run has Pip's line alone)
-  it("shows three or four things to do on each tab (Community: the food blogs, and friends when they are on)", async () => {
-    const { TOUR_STOPS, visibleRows } = await import("../app/app/welcome/Tour");
-    const { COMMUNITY_FRIENDS_ENABLED } = await import("../lib/mm/config");
-    for (const stop of TOUR_STOPS) {
-      const n = visibleRows(stop.rows).length;
-      if (stop.id === "community") expect(n).toBe(COMMUNITY_FRIENDS_ENABLED ? 2 : 1);
-      else expect(n, stop.id).toBeGreaterThanOrEqual(3);
-      expect(n, stop.id).toBeLessThanOrEqual(4);
-    }
-  });
-
-  it("has no figures and never calls food good or bad (CLAUDE.md rules 1 and 3)", async () => {
-    const { TOUR_STOPS } = await import("../app/app/welcome/Tour");
-    for (const stop of TOUR_STOPS) {
-      for (const line of lines(stop)) {
-        expect(line, line).not.toMatch(/\d/);
-        expect(line, line).not.toMatch(/\b(good|bad|healthy|unhealthy|junk|clean)\b/i);
+  it("is still checked against tourDue: the layout's script and the function agree", () => {
+    for (const store of [storage({ "mm.v1.tour": 1 }), storage({ "mm.v1.tour": 2 }), storage({ "mm.v1.tour": 2, "mm.v1.account": { id: "u1" } })]) {
+      for (const required of [false, true]) {
+        expect(runGate("/app", store, tourGateScript(required)).length === 1).toBe(expected("/app", store, required));
       }
     }
   });
+});
 
-  it("leaves a row out when its feature is off", async () => {
-    const { visibleRows } = await import("../app/app/welcome/Tour");
-    const Icon = () => null;
-    expect(visibleRows([{ Icon, text: "a" }, { Icon, text: "b", when: false }, { Icon, text: "c", when: true }]).map((r) => r.text)).toEqual(["a", "c"]);
+describe("someone who quits at any step comes back through the cover", () => {
+  /** What is on the phone after leaving at `step`: the settings typed so far (saved on each Continue, never the body answers) and the progress note. */
+  const leftAt = (step: WelcomeStepId, extra: Record<string, unknown> = {}) => {
+    const i = WELCOME_STEPS.indexOf(step);
+    const typed = {
+      ...(i > 0 ? { goal: "lose" } : {}),
+      ...(i > 1 ? { preferences: { vegetarianOnly: true } } : {}),
+      ...(i > 3 ? { shops: ["sainsburys"] } : {}),
+      ...(i > 8 ? { dailyCalories: 1700, hasSetTargets: true } : {}),
+    };
+    return storage({ "mm.v1.settings": settings({ ...typed, hasCompletedOnboarding: false }), [WELCOME_PROGRESS_KEY]: progressNote({ step }, "2026-11-20"), ...extra });
+  };
+
+  it.each(WELCOME_STEPS.map((s) => [s]))("left at %s: a plain launch opens the cover, which carries on from the right step", (step) => {
+    for (const [script, signedIn] of [[TOUR_GATE_SCRIPT, false], [tourGateScript(true), false], [tourGateScript(true), true], [tourGateScript(false), false]] as const) {
+      const store = leftAt(step, signedIn ? { "mm.v1.account": { id: "u1" } } : {});
+      expect(runGate("/app", store, script), `${step}, signed in: ${signedIn}`).toEqual(["/app/welcome"]);
+    }
+    const note = storedData((k) => leftAt(step).getItem(k))(WELCOME_PROGRESS_KEY);
+    const at = resumeAt(startRun(false), note as never);
+    if (step === "goal") expect(at).toBeNull();
+    else expect(stepCounter(startRun(false), at!.step)!.step).toBe(["about", "size", "active"].includes(step) ? 6 : WELCOME_STEPS.indexOf(step) + 1);
   });
 
-  it("follows the build's switches: Make it at home only with photo recipes, Community only when it is on, friends only when Community friends are on", async () => {
-    vi.stubEnv("NEXT_PUBLIC_COMMUNITY_FRIENDS", "0");
-    vi.stubEnv("NEXT_PUBLIC_PHOTO_RECIPES", "0");
-    vi.resetModules();
-    const off = (await import("../app/app/welcome/Tour")).TOUR_STOPS;
-    const offRows = (id: string) => (off.find((s) => s.id === id)?.rows ?? []).filter((r) => r.when !== false).map((r) => r.text);
-    // the scan card's row (calories and macros, or a recipe to make it at home) is on Home since 2026-11-19, and only on a build with the photo features
-    expect([...offRows("home"), ...offRows("recipes")].some((t) => t.includes("make it at home") || t.startsWith("Scan your food"))).toBe(false);
-    // Community is off unless NEXT_PUBLIC_COMMUNITY=1 (founder 2026-11-18): no Community stop at all
-    expect(off.some((s) => s.id === "community")).toBe(false);
-    vi.stubEnv("NEXT_PUBLIC_COMMUNITY", "1");
-    vi.resetModules();
-    const noFriends = (await import("../app/app/welcome/Tour")).TOUR_STOPS;
-    expect((noFriends.find((s) => s.id === "community")?.rows ?? []).filter((r) => r.when !== false).some((r) => r.text.includes("friends"))).toBe(false);
-    expect(noFriends.find((s) => s.id === "community")?.says).toBe("Short articles to read, all in one place.");
+  it("but a link still opens at once", () => {
+    expect(runGate("/app/chain?id=kfc", leftAt("eatOut"), tourGateScript(true))).toEqual([]);
+  });
+});
 
-    vi.stubEnv("NEXT_PUBLIC_COMMUNITY_FRIENDS", "1");
-    vi.stubEnv("NEXT_PUBLIC_PHOTO_RECIPES", "1");
-    vi.stubEnv("NEXT_PUBLIC_PRO", "1"); // Make it at home needs Premium on the build
-    vi.resetModules();
-    const on = (await import("../app/app/welcome/Tour")).TOUR_STOPS;
-    const onRows = (id: string) => (on.find((s) => s.id === id)?.rows ?? []).filter((r) => r.when !== false).map((r) => r.text);
-    expect(onRows("home")).toContain("Scan your food: take a photo of a meal for its calories and macros, or for a recipe to make it at home. It's part of Premium.");
-    expect(onRows("home")).toContain("Under your numbers: let Meal plan make your week, or cook with what you already have. Meal plan is part of Premium.");
-    expect(onRows("community")).toContain("Sign in to add friends with a code, then send each other shopping lists.");
-    expect(on.find((s) => s.id === "community")?.says).toBe("Read short food articles, and send your shopping list to friends.");
-    // the onboarding meeting's checks hold for both Community lines too
-    for (const stop of [...on, ...noFriends]) {
-      expect(stop.says, stop.says).not.toContain("!");
-      expect(sentences(stop.says), stop.says).toBeLessThanOrEqual(2);
+describe("the welcome screens write nothing of the person's own before an account exists", () => {
+  const ownStores = ["logStore", "savedStore", "favoritesStore", "shoppingStore", "savedRecipesStore", "myRecipesStore", "waterStore", "remindersStore", "addLogEntry", "deleteLogEntry", "addToList"];
+  const welcomeFiles = (dir: URL): string[] =>
+    readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? welcomeFiles(new URL(`${e.name}/`, dir)) : /\.(tsx?|mjs)$/.test(e.name) ? [new URL(e.name, dir).pathname] : []));
+
+  it("no welcome screen touches the log, favourites, shopping list, saved orders, recipes, water or reminders", () => {
+    const files = welcomeFiles(new URL("../app/app/welcome/", import.meta.url));
+    expect(files.length).toBeGreaterThan(0);
+    for (const file of files) {
+      const source = readFileSync(file, "utf8");
+      for (const name of [...ownStores, ...OWN_DATA_KEYS]) expect(source.includes(name), `${file} uses ${name}`).toBe(false);
     }
   });
 
-  // The onboarding meeting (19 November): every stop line ended in "!", which read like a children's presenter, and the lines are kept short now the first run
-  // has no rows under them.
-  it("Pip's line on each stop has no '!' and is at most two sentences", async () => {
-    const { TOUR_STOPS, BAR_LINE } = await import("../app/app/welcome/Tour");
-    for (const stop of TOUR_STOPS) {
-      expect(stop.says, stop.id).not.toContain("!");
-      expect(sentences(stop.says), stop.says).toBeLessThanOrEqual(2);
-    }
-    expect(BAR_LINE).not.toContain("!");
-    expect(BAR_LINE).toContain("{names}");
-  });
-
-  it("Pip waves on Home and points down at his tab on every other stop", async () => {
-    const { TOUR_STOPS } = await import("../app/app/welcome/Tour");
-    expect(TOUR_STOPS.map((s) => s.mood)).toEqual(TOUR_STOPS.map((s) => (s.id === "home" ? "wave" : "point")));
-  });
-
-  it("every line is a tk() key, listed in keys.json", async () => {
-    const { TOUR_STOPS } = await import("../app/app/welcome/Tour");
-    const keys = new Set(JSON.parse(readFileSync(new URL("../lib/mm/locales/keys.json", import.meta.url), "utf8")) as string[]);
-    const source = readFileSync(new URL("../app/app/welcome/Tour.tsx", import.meta.url), "utf8");
-    for (const stop of TOUR_STOPS) {
-      for (const row of stop.rows) {
-        expect(source, row.text).toContain(`tk(${JSON.stringify(row.text)})`);
-        expect(keys.has(row.text), `run WRITE_I18N=1 npx vitest run tests/i18n.test.ts: "${row.text}" is not in keys.json`).toBe(true);
-      }
-      expect(keys.has(stop.says), stop.says).toBe(true);
-    }
-    const { BAR_LINE } = await import("../app/app/welcome/Tour");
-    expect(source).toContain(`tk(${JSON.stringify(BAR_LINE)})`);
-    expect(keys.has(BAR_LINE), BAR_LINE).toBe(true);
+  it("so OWN_DATA_KEYS stay empty on a fresh phone after onboarding: only the settings, the welcome screens' own marks and the progress note are written", () => {
+    const written = ["mm.v1.settings", "mm.v1.tour", "mm.v1.coach", "mm.v1.trialOffer", WELCOME_PROGRESS_KEY];
+    for (const key of written) expect(OWN_DATA_KEYS, key).not.toContain(key);
+    // and once they are finished, the gate leaves the phone alone
+    const finished = storage({ "mm.v1.settings": settings({ hasCompletedOnboarding: true }), "mm.v1.tour": TOUR_VERSION, "mm.v1.coach": {} });
+    expect(runGate("/app", finished, tourGateScript(true))).toEqual([]);
   });
 });

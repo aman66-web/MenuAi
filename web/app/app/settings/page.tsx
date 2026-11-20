@@ -214,13 +214,14 @@ export default function SettingsPage() {
       <PageHeader back={{ href: "/app", label: t("Back to home") }} settings={false} />
       <h1 className="mt-4 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{t("Settings")}</h1>
 
-      {/* The guided setup with Pip (the welcome screens: a short tour, then the questions), for anyone who skipped it or wants to go through it again. */}
+      {/* The guided setup again (the welcome screens as a signed-in run of 10 steps: the questions with the saved answers ticked, the three feature screens and
+          "Save and go to Home"), for anyone who skipped it or wants to go through it again (the onboarding meeting, 20 November 2026). */}
       <Link href="/app/welcome" className="glass mt-5 flex min-h-[4.75rem] items-center gap-3.5 rounded-[1.25rem] px-4 py-3 transition-colors hover:bg-background active:bg-background">
         {/* Pip bare, on no disc (he melts into one) */}
         <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center"><Pip mood="wave" size={44} /></span>
         <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
           <span className="block text-base font-bold leading-snug">{t("Set up your plan again")}</span>
-          <span className="mt-0.5 block text-sm leading-snug text-muted">{TEXT_SIZE_CHOICE_ENABLED ? t("A short tour of the app, then your goal, diet, daily numbers, shops and text size.") : t("A short tour of the app, then your goal, diet, daily numbers and shops.")}</span>
+          <span className="mt-0.5 block text-sm leading-snug text-muted">{t("Your goal, the foods you avoid, your shops and daily numbers, with a look at what {app} can do.", { app: site.name })}</span>
         </span>
         <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-ink" />
       </Link>
@@ -234,12 +235,13 @@ export default function SettingsPage() {
         <Segmented label={t("Text size")} value={settings.textSize ?? "standard"} options={TEXT_OPTIONS.map((o) => ({ ...o, label: t(o.label) }))} onChange={(textSize) => { updateSettings({ textSize }); applyTextSize(textSize); }} />
       </Section>}
 
-      {/* Pip's walk through the five tabs again (the welcome tour's stops only): nothing is saved, and Close or Done comes back here. */}
+      {/* "Show me what Numbite can do" (the onboarding meeting, 20 November 2026; it replaced "Show me around again" and the tab tour): the three feature screens
+          (Eat out, recipes from your shop, your week) with the current settings, "{n} of 3", Close and Next then Done; nothing is saved, and it comes back here. */}
       <Section title={t("Help")}>
         <div className="glass divide-y divide-line overflow-hidden rounded-[1.25rem]">
           {/* near the top, where it's looked for (usability test 2026-11-19: Frank scrolled the whole of Settings to find Contact us under About) */}
           <button type="button" onClick={() => setContactOpen(true)} className="flex min-h-[3.25rem] w-full items-center justify-between gap-3 px-4 py-2 text-start text-base font-semibold transition hover:bg-background focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">{t("Contact us")}<ChevronRightIcon className="h-5 w-5 shrink-0 text-ink" /></button>
-          <LinkRow href="/app/welcome?tour=1">{t("Show me around again")}</LinkRow>
+          <LinkRow href="/app/welcome?showcase=1">{t("Show me what {app} can do", { app: site.name })}</LinkRow>
           {/* Pip's tips on the real screens again (lib/mm/coach.ts): switched on, then Home, where the first ones show */}
           <Link href="/app" onClick={() => coachStore.set(COACH_ARMED)} className="flex min-h-[3.25rem] items-center justify-between gap-3 px-4 py-2 text-base font-semibold transition hover:bg-background focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">
             <span className="min-w-0 [overflow-wrap:anywhere]">
@@ -321,8 +323,14 @@ export default function SettingsPage() {
             </div>
             {paid.until && paid.until > nowMs && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Access until {date}.", { date: formatDate(new Date(paid.until).toISOString().slice(0, 10), t) })}</p>}
             {!paid.until && paid.unlockUntil && paid.unlockUntil > nowMs && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Unlocked for sharing, until {date}.", { date: formatDate(new Date(paid.unlockUntil).toISOString().slice(0, 10), t) })}</p>}
-            {PAID_ACCESS_ENABLED ? <LinkButton href="/app/pro" className="mt-3 min-h-12 px-6 text-base">{trial ? t("Start your {days}-day free trial", { days: trial }) : t("See plans")}</LinkButton>
-              : !PAYMENTS_ENABLED && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Premium isn't available on the web yet. Every chain's full menu with calories and macros stays free.")}</p>}
+            {/* the plans, never a trial-led button (the onboarding meeting of 20 November 2026, App Review 3.1.2(c)): the trial this Apple ID can still have is
+                said under it, and its price is on the plans (founder 2026-11-16: "they can claim the free trial later") */}
+            {PAID_ACCESS_ENABLED ? (
+              <>
+                <LinkButton href="/app/pro" className="mt-3 min-h-12 px-6 text-base">{t("See plans")}</LinkButton>
+                {trial && !isPro(settings, paid, nowMs) && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("You can still have a {days}-day free trial.", { days: trial })}</p>}
+              </>
+            ) : !PAYMENTS_ENABLED && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Premium isn't available on the web yet. Every chain's full menu with calories and macros stays free.")}</p>}
             {IAP_ENABLED && <AppStoreAccountButtons />}
           </Card>
         </Section>
@@ -406,7 +414,7 @@ export default function SettingsPage() {
         {/* Cancel first (secondary, on the left), then the red Clear everything on the right; stacked when the text is large */}
         <div className="mt-5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-2 pb-2">
           <Button full variant="secondary" className="min-h-12 text-base" onClick={() => setClearOpen(false)}>{t("Cancel")}</Button>
-          <Button full variant="dangerFilled" className="min-h-12 text-base" onClick={async () => { const keepSize = settings.textSize; await leaveForClearing(); settingsStore.set({ ...DEFAULT_SETTINGS, ...(keepSize ? { textSize: keepSize } : {}) }); tourStore.reset(); coachStore.reset(); homePagesStore.reset(); savedStore.reset(); logStore.reset(); waterStore.reset(); clearReminders(); favoritesStore.reset(); shoppingStore.reset(); mealPlanStore.reset(); earlierPlansStore.reset(); householdStore.reset(); myRecipesStore.reset(); void clearRecipePhotos(); savedRecipesStore.reset(); cupboardStore.reset(); recentStore.reset(); compareStore.reset(); comparePicksStore.reset(); ratingStore.reset(); outbox().clear(); forgetInstallId(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); sessionStorage.removeItem("mm.finder"); sessionStorage.removeItem("mm.sharedAdded"); localStorage.removeItem("mm.v1.mapArea"); } catch { /* storage blocked */ } setClearOpen(false); router.replace("/app/welcome?cleared=1"); }}>{t("Clear everything")}</Button>
+          <Button full variant="dangerFilled" className="min-h-12 text-base" onClick={async () => { const keepSize = settings.textSize; await leaveForClearing(); settingsStore.set({ ...DEFAULT_SETTINGS, ...(keepSize ? { textSize: keepSize } : {}) }); tourStore.reset(); coachStore.reset(); homePagesStore.reset(); savedStore.reset(); logStore.reset(); waterStore.reset(); clearReminders(); favoritesStore.reset(); shoppingStore.reset(); mealPlanStore.reset(); earlierPlansStore.reset(); householdStore.reset(); myRecipesStore.reset(); void clearRecipePhotos(); savedRecipesStore.reset(); cupboardStore.reset(); recentStore.reset(); compareStore.reset(); comparePicksStore.reset(); ratingStore.reset(); outbox().clear(); forgetInstallId(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); sessionStorage.removeItem("mm.finder"); sessionStorage.removeItem("mm.sharedAdded"); localStorage.removeItem("mm.v1.mapArea"); localStorage.removeItem("mm.v1.welcomeProgress"); } catch { /* storage blocked */ } setClearOpen(false); router.replace("/app/welcome?cleared=1"); }}>{t("Clear everything")}</Button>
         </div>
       </Sheet>
     </div>

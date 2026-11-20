@@ -1,21 +1,30 @@
-// The welcome tour on a first plain launch (founder 2026-11-17, docs/PROGRESS.md). Instant utility first still holds for links (13 Nov 2026): a shared list,
+// The welcome screens on a first plain launch (founder 2026-11-17, docs/PROGRESS.md). Instant utility first still holds for links (13 Nov 2026): a shared list,
 // a friend's invite, a restaurant or a dish opens at once. Only a plain start of the app (the iPhone app's start page, or numbite.com/app with nothing after
-// it) by someone who hasn't set up, hasn't said "Not now", hasn't seen the tour on this phone and has nothing of their own stored yet goes to the welcome
-// screens first. Where everyone signs in, sign-in comes after "Your daily targets" (the onboarding meeting of 19 November, question 1, approved that day), so
-// someone can see the tour and leave during the questions or at the sign-in screen: a plain start then goes back to the welcome screens too (not to a bare
-// sign-in screen), as long as setup isn't finished and nobody is signed in on this phone. Pure, importing only constants: the app's layout runs
-// TOUR_GATE_SCRIPT before the first paint, and the unit tests run the same script.
+// it) by someone who hasn't set up, hasn't said "Not now", hasn't finished the welcome screens on this phone and has nothing of their own stored yet goes to the
+// welcome screens first. There is no tab tour any more (the onboarding redesign meeting of 20 November 2026, approved by the founder): the welcome screens show
+// three features working with the person's own answers instead, and Pip's tips teach the real buttons on Home. mm.v1.tour now records that the welcome
+// screens were finished on this phone (set by the welcome flow's one finish, with setup marked done); TOUR_VERSION 2 shows the new screens once to anyone who
+// only saw the old tour and has still neither set up nor stored anything. Where everyone signs in, the account is the last welcome step, so someone can
+// leave at any step: a plain start then goes back to the welcome screens' cover (with "Carry on from step {n}"), not to a bare sign-in screen, as long as setup
+// isn't finished and nobody is signed in on this phone. Pure, importing only constants: the app's layout runs TOUR_GATE_SCRIPT before the first paint, and
+// the unit tests run the same script and check it against tourDue.
 
 import { APP_SWITCHES_KEY } from "./appSwitches";
 import { SIGN_IN_REQUIRED } from "./config";
 
-/** The tour's version. Raising it shows the tour again, once, to everyone who saw an older one. */
-export const TOUR_VERSION = 1;
+/**
+ * The welcome screens' version (mm.v1.tour holds the version finished on this phone). Raising it shows the welcome screens again, once, on a plain launch, to
+ * anyone who finished an older version but has neither set up nor stored anything of their own (tourDue): 2 is the onboarding redesign of 20 November 2026.
+ */
+export const TOUR_VERSION = 2;
 
-/** Founder decision: the tour also starts on the website's plain /app (false: the gate runs only in the iPhone app). */
+/** Founder decision: the welcome screens also open by themselves on the website's plain /app (false: the gate runs only in the iPhone app). */
 export const AUTO_TOUR_ON_WEBSITE = true;
 
-/** The person's own things. Something in any of these means the app has been used here already, so the tour never starts by itself. */
+/**
+ * The person's own things. Something in any of these means the app has been used here already, so the welcome screens never open by themselves. The welcome
+ * screens' own notes (mm.v1.welcomeProgress, Home's Start here note) are never among them: the welcome screens write nothing here before an account exists.
+ */
 export const OWN_DATA_KEYS: readonly string[] = ["mm.v1.log", "mm.v1.saved", "mm.v1.favorites", "mm.v1.shopping", "mm.v1.savedRecipes", "mm.v1.myRecipes", "mm.v1.water", "mm.v1.reminders"];
 
 /** The app's start page: /app, /app/ or the exported /app/index.html. */
@@ -23,7 +32,7 @@ const PLAIN = /^\/app\/?(index\.html)?$/;
 /** Home itself (what the router reports for the start page). */
 const HOME = /^\/app\/?$/;
 
-/** A plain start of the app: its start page with no "?" and no "#". Any query (a creator's ?ref= too) or fragment means a link was opened, so no tour. */
+/** A plain start of the app: its start page with no "?" and no "#". Any query (a creator's ?ref= too) or fragment means a link was opened, so no welcome screens. */
 export function isPlainLaunch(pathname: string, search: string, hash: string): boolean {
   return PLAIN.test(pathname) && search === "" && hash === "";
 }
@@ -43,9 +52,10 @@ export function storedData(getItem: (key: string) => string | null): (key: strin
 export const SIGNED_IN_KEYS: readonly string[] = ["mm.v1.account", "mm.v1.session"];
 
 /**
- * Whether the tour is due: not set up, the setup card not put off with "Not now", nothing of the person's own stored, and either the tour not seen on this phone or,
- * where everyone signs in (`signInRequired`: SIGN_IN_REQUIRED, unless the switches file on numbite.com has made sign-in optional), nobody signed in here yet: someone
- * who saw the tour and left during the questions, or at the sign-in screen, comes back to the welcome screens rather than a bare sign-in screen.
+ * Whether the welcome screens are due: not set up, the setup card not put off with "Not now", nothing of the person's own stored, and either the welcome screens
+ * not finished on this phone (mm.v1.tour below TOUR_VERSION; someone who left at any step, signed in or not, comes back to the cover and its "Carry on") or,
+ * where everyone signs in (`signInRequired`: SIGN_IN_REQUIRED, unless the switches file on numbite.com has made sign-in optional), nobody signed in here yet:
+ * they come back to the welcome screens rather than a bare sign-in screen.
  */
 export function tourDue(read: (key: string) => unknown, signInRequired = false): boolean {
   const s = read("mm.v1.settings");
@@ -69,11 +79,12 @@ export function tourDue(read: (key: string) => unknown, signInRequired = false):
 }
 
 /**
- * The iPhone app's one-time free-trial offer (_components/TrialOffer.tsx). The onboarding meeting of 19 November (question 5, approved that day): never straight
- * after setup, where the first free moment became an offer to pay. Someone who taps a Premium feature first meets the same offer in the paywall it opens (with the
- * free-trial banner), so the sheet never follows a paywall already seen (`paywallSeen`). Otherwise it opens once, on Home, on a later day than the first day the app
- * was used on this phone (`firstDay`, `today`: "YYYY-MM-DD", lib/mm/ratingPrompt.ts) and not in the visit where setup or "Look around first" just finished
- * (`setUpThisVisit`). In the app only, once the person has set up or has seen the tour, never shown before and not while paid access is on.
+ * The iPhone app's one-time free-trial offer (_components/TrialOffer.tsx). The onboarding meeting of 19 November (question 5, approved that day), kept unchanged
+ * by the redesign of 20 November: never straight after setup, where the first free moment became an offer to pay. Someone who taps a Premium feature first meets
+ * the same offer in the paywall it opens (with the free-trial banner), so the sheet never follows a paywall already seen (`paywallSeen`). Otherwise it opens once,
+ * on Home, on a later day than the first day the app was used on this phone (`firstDay`, `today`: "YYYY-MM-DD", lib/mm/ratingPrompt.ts) and not in the visit
+ * where the welcome screens just finished (`setUpThisVisit`: their one finish holds the offer for the visit). In the app only, once the person has set up
+ * (`onboarded`) or finished the welcome screens on this phone (`tourSeen`: mm.v1.tour at TOUR_VERSION or above), never shown before and not while paid access is on.
  */
 export function trialOfferDue(x: {
   native: boolean;

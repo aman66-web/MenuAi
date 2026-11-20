@@ -46,8 +46,11 @@ const WORKING_STEP_MS = 8000;
 
 const H1 = "mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]";
 const H2 = "text-[1.25rem] font-bold leading-tight tracking-[-0.01em]";
-/** The lime circle with the part's number (1 name, 2 description, 3 what to exclude). */
-const STEP_NUMBER = "app-numbers grid h-11 w-11 shrink-0 place-items-center rounded-full bg-sun text-[1.25rem] font-[800] text-[var(--on-accent)]";
+/** The circle with the part's number (1 name, 2 description, 3 what to exclude): lime with the dark-green edge for the part the person is on ("where you are",
+ *  colour meeting 19 November 2026), the others white with the 1.5 px edge; the same size either way, so nothing moves. */
+const stepNumber = (on: boolean) => `app-numbers grid h-11 w-11 shrink-0 place-items-center rounded-full text-[1.25rem] font-[800] ${on ? "border-2 border-on-sun bg-sun text-on-sun" : "border-[1.5px] border-edge bg-card text-foreground"}`;
+/** A finished line of the loading list: lime with the dark-green edge and a tick, as on every loading list. */
+const DONE_TICK = "grid h-7 w-7 shrink-0 place-items-center rounded-full border-2 border-on-sun bg-sun text-on-sun";
 const PICK_GRID = "grid grid-cols-[repeat(auto-fit,minmax(min(100%,8.5rem),1fr))] gap-2";
 const PICK_LABEL = "text-[0.9375rem] font-semibold leading-snug";
 
@@ -81,7 +84,7 @@ function Working({ shopName, finished, photoUrl }: { shopName: string; finished:
         {PHOTO_WORKING_LINES.map((line, i) => (
           <li key={line} className={`flex items-center gap-3 text-[1.0625rem] font-semibold transition-colors ${i <= shown ? "text-foreground" : "text-muted"}`}>
             {i < shown ? (
-              <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)]"><CheckIcon className="h-4 w-4" /></span>
+              <span className={DONE_TICK}><CheckIcon className="h-4 w-4" strokeWidth={3} /></span>
             ) : i === shown ? (
               <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-line border-t-ink motion-reduce:animate-none" />
             ) : (
@@ -144,6 +147,9 @@ function PhotoScreen() {
   const stepNow = useRef<Step>("describe");
   const [name, setName] = useState("");
   const [about, setAbout] = useState("");
+  // the part of the form the person is on: the one they last went into, else the first one still empty
+  const [focusPart, setFocusPart] = useState<1 | 2 | 3 | null>(null);
+  const part = focusPart ?? (!name.trim() ? 1 : !about.trim() ? 2 : 3);
   const [nudged, setNudged] = useState(false);
   // One shop for the recipe (founder 2026-11-17: "they should only be allowed to choose one shop on this screen"); it starts with the person's first shop that can make recipes
   const [pickedShop, setPickedShop] = useState<string | null>(null);
@@ -345,8 +351,9 @@ function PhotoScreen() {
           <div id="describe-intro" className="mt-5"><PipSays mood="wave" size={76}>{t("Tell me what you'd like to make. Then snap it, or upload a photo of it from your phone. The more detail you give, the better the recipe will match.")}</PipSays></div>
 
           <div className="glass mt-5 rounded-[1.5rem] p-5 shadow-[var(--card-shadow)]">
+            <div onFocus={() => setFocusPart(1)}>
             <div className="flex items-center gap-3">
-              <span aria-hidden className={STEP_NUMBER}>1</span>
+              <span aria-hidden className={stepNumber(part === 1)}>1</span>
               <label htmlFor="dish-name" className="min-w-0 flex-1 text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("Name of the dish")}</label>
             </div>
             <input
@@ -360,14 +367,17 @@ function PhotoScreen() {
               placeholder={t("For example: salsa chicken tacos")}
             />
             <p id="dish-help" className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Be as specific as you can: the flavour, the sauce and how it's cooked. For example, 'peri-peri chicken wings with spicy rice', not just 'chicken wings'.")}</p>
+            </div>
 
             <div className="my-5 h-px bg-[color:var(--line)]" aria-hidden />
 
+            <div onFocus={() => setFocusPart(2)}>
             <div className="flex items-center gap-3">
-              <span aria-hidden className={STEP_NUMBER}>2</span>
+              <span aria-hidden className={stepNumber(part === 2)}>2</span>
               <div className="min-w-0 flex-1">
                 <label htmlFor="dish-about" className="block text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("A short description")}</label>
-                <span className="mt-1.5 inline-block rounded-full bg-sun px-2.5 py-1 text-[0.75rem] font-bold uppercase leading-none tracking-[0.08em] text-[var(--on-accent)]">{t("Recommended for accuracy")}</span>
+                {/* an info tag (page fill inside the card, 6 px corners, no edge, text-colour words): lime is never a badge */}
+                <span className="mt-1.5 inline-block rounded-[6px] bg-fill px-2 py-1 text-[0.8125rem] font-semibold leading-none text-foreground">{t("Recommended for accuracy")}</span>
               </div>
             </div>
             <textarea
@@ -380,12 +390,13 @@ function PhotoScreen() {
               placeholder={t("For example: honey-glazed chicken tacos with sweet corn salsa and lime crema")}
             />
             <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("It helps Pip choose the right ingredients, so the recipe matches your dish more closely.")}</p>
+            </div>
 
             <div className="my-5 h-px bg-[color:var(--line)]" aria-hidden />
 
-            <div role="group" aria-labelledby="exclude-title" aria-describedby="exclude-help">
+            <div role="group" aria-labelledby="exclude-title" aria-describedby="exclude-help" onFocus={() => setFocusPart(3)}>
               <div className="flex items-center gap-3">
-                <span aria-hidden className={STEP_NUMBER}>3</span>
+                <span aria-hidden className={stepNumber(part === 3)}>3</span>
                 <p id="exclude-title" className="min-w-0 flex-1 text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("What to exclude")}</p>
               </div>
               <p id="exclude-help" className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Tick anything you don't eat, and Pip leaves it out. It starts with your diet from Settings; changes here are for this recipe only.")}</p>
@@ -426,7 +437,7 @@ function PhotoScreen() {
           {/* founder 2026-11-17 ("you can't see the next button ... you have to scroll down"): Next stays in view just above the tab bar, like a recipe's
               "Add all to my shopping list", on a strip of the page's grey that the form slides under */}
           <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-4 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-3">
-            <Button full className="min-h-14 text-lg" disabled={!name.trim()} onClick={next}>{nudged && thin ? t("Carry on anyway") : t("Next")}</Button>
+            <Button full className="min-h-14 text-lg" disabled={!name.trim()} reason={t("Type the name of the dish first.")} onClick={next}>{nudged && thin ? t("Carry on anyway") : t("Next")}</Button>
           </div>
         </section>
       )}
@@ -463,7 +474,8 @@ function PhotoScreen() {
                 {t("Pip uses AI from Anthropic (the company that makes Claude). To write your recipe we send your photo (made smaller on your phone first), your description, your diet choices and the list of {shop} products it may use. Nothing about you, and nothing is kept. The numbers you see are worked out from the products' own labels.", { shop: shopName })}
               </p>
               <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-4 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-3">
-                <Button full className="min-h-14 text-lg" disabled={pantry.length < 2 || !photo} onClick={generate}>{t("Next")}</Button>
+                {/* a Next that can't be pressed yet says why above it (colour meeting: never a silent grey button) */}
+                <Button full className="min-h-14 text-lg" disabled={pantry.length < 2 || !photo} reason={!photo ? t("Take or choose a photo of the dish first.") : !shop ? t("Pick a shop first.") : t("Too few {shop} products fit what you exclude. Go back and untick something, or choose another shop.", { shop: shopName })} onClick={generate}>{t("Next")}</Button>
               </div>
             </>
           )}

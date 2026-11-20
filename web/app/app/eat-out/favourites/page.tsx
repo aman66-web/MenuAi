@@ -1,33 +1,27 @@
 "use client";
 
-import Link from "next/link";
 import { useDeferredValue, useMemo, useState } from "react";
 import { favoritesStore, toggleFavorite } from "@/lib/mm/stores";
 import { normalizeForSearch } from "@/lib/mm/search";
 import { ChainMark } from "../../_components/ChainMark";
 import { ChainRow, chainGroupClass } from "../../_components/ChainRow";
-import { ChevronLeftIcon, SearchIcon, StarIcon } from "../../_components/icons";
+import { SearchIcon, StarIcon } from "../../_components/icons";
 import { Pip } from "../../_components/Mascot";
+import { PageHeader } from "../../_components/PageHeader";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../../_components/SearchDone";
 import { EmptyState, Spinner } from "../../_components/ui";
-import { backName, useBack } from "../../_lib/backNav";
 import { useHydrated, useMenu, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 
 // "My favourite restaurants" (founder 2026-10-11: "on the eat out section there should be one which says my favourite restaurants ... that's when they can
 // bookmark restaurants"): the person's favourites first, then every restaurant with a star to add or take it off. On this device only (mm.v1.favorites),
 // the same favourites as the star on a restaurant's page.
-// Look (founder 2026-10-15): Home's language. A grey Back pill (36 px, in a 44 px tap area, like Home's round buttons), a compact heavy
-// title, favourites and the add list as grouped white cards, a white search pill, and Save as the same small grey pill that turns the
-// brand lime once a restaurant is saved (lime = selected).
-
-/** Back: a 36 px grey pill inside a 44 px tap area, like Home's round buttons. */
-const BACK = "group -ms-1 inline-flex min-h-11 items-center rounded-full px-1 transition active:scale-95";
-const BACK_PILL = "inline-flex min-h-9 items-center gap-1 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft py-1 ps-2 pe-3.5 text-[0.9375rem] font-bold leading-tight transition-colors group-hover:bg-[var(--fill)]";
+// Look (founder 2026-10-15, then the colour meeting of 19 November 2026): the header every page has (PageHeader: Back with its word, the title under it, the
+// Settings cog with its word), favourites and the add list as grouped white cards, a search field with the 1.5 px control edge, and Save as a small white pill
+// with the edge that takes the chosen look (lime with the 2 px dark green edge) once a restaurant is saved (lime = selected).
 
 export default function FavouriteRestaurantsPage() {
   const t = useT();
-  const back = useBack("/app/eat-out"); // the page before (Eat out, a restaurant's page...) when there is one in the app, else Eat out
   const hydrated = useHydrated();
   const menu = useMenu();
   const favorites = useStore(favoritesStore);
@@ -44,8 +38,8 @@ export default function FavouriteRestaurantsPage() {
 
   return (
     <div>
-      <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to restaurants"), back.cameFromApp)} className={BACK}><span className={BACK_PILL}><ChevronLeftIcon className="h-[1.125rem] w-[1.125rem]" /><span>{t("Back")}</span></span></Link>
-      <h1 className="mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">{t("My favourite restaurants")}</h1>
+      {/* Back goes to the page before (Eat out, a restaurant's page...) when there is one in the app, else Eat out */}
+      <PageHeader back={{ href: "/app/eat-out", label: t("Back to restaurants") }} title={t("My favourite restaurants")} />
 
       {!hydrated || menu.status === "loading" || menu.status === "idle" ? (
         <Spinner label={t("Loading restaurants")} />
@@ -62,7 +56,7 @@ export default function FavouriteRestaurantsPage() {
           <h2 className="mt-8 text-xl font-[800] tracking-[-0.01em]">{t("Add a restaurant")}</h2>
           <div className="group/search relative mt-3.5">
             <SearchIcon className="pointer-events-none absolute start-5 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-foreground" />
-            <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t("Type a restaurant's name")} aria-label={t("Search restaurants")} {...DONE_KEY} autoComplete="off" className={`glass min-h-[3.25rem] w-full rounded-full ps-12 pe-4 ${DONE_ROOM} text-base placeholder:text-muted`} />
+            <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t("Type a restaurant's name")} aria-label={t("Search restaurants")} {...DONE_KEY} autoComplete="off" className={`min-h-[3.25rem] w-full rounded-full border-[1.5px] border-edge bg-card ps-12 pe-4 ${DONE_ROOM} text-base text-foreground placeholder:text-placeholder focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent`} />
             <SearchDone />
           </div>
           <ul className={`mt-3.5 ${chainGroupClass}`}>
@@ -73,7 +67,7 @@ export default function FavouriteRestaurantsPage() {
                   <ChainMark chainId={c.id} cuisine={c.cuisine} size="md" />
                   <span className="min-w-0 flex-1 text-base font-bold leading-snug">{c.name}</span>
                   <button type="button" aria-pressed={on} onClick={() => toggleFavorite(c.id)} className="group inline-flex min-h-11 shrink-0 items-center rounded-full">
-                    <span className={`inline-flex min-h-9 items-center gap-1.5 rounded-full py-1 ps-3 pe-3.5 text-[0.9375rem] font-bold leading-tight transition group-active:scale-95 ${on ? "border-[1.5px] border-[color:var(--on-accent)] bg-sun text-[var(--on-accent)]" : "border-[1.5px] border-[color:var(--edge)] bg-soft text-foreground group-hover:bg-[var(--fill)]"}`}>
+                    <span className={`inline-flex min-h-9 items-center gap-1.5 rounded-full py-1 ps-3 pe-3.5 text-[0.9375rem] font-bold leading-tight transition group-active:scale-95 ${on ? "border-[1.5px] border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-[1.5px] border-edge bg-card text-foreground group-hover:bg-background"}`}>
                       <StarIcon filled={on} className="h-[1.125rem] w-[1.125rem]" />{on ? t("Saved") : t("Save")}
                     </span>
                     <span className="sr-only"> {c.name}</span>

@@ -3504,3 +3504,40 @@ draft, a vote, a conclusion; average score 7.1 of 10) is summed up in the sessio
     step: update Apple's App Privacy answers first.
   - Checked: tsc clean, all unit tests (2,757). The reviewers' leftovers (remote switch needs a CORS header for the app, a few lime leftovers, the favourites page's
     header, the 360 px Shopping list) are handed to the third wave.
+
+### 20 November 2026 (02:30-04:30): third wave, the new onboarding that shows the app working, and the queued fixes (on `iap`, not live)
+Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, maybe showing the features like how it is useful and showing the customer", the
+30-person meeting's conclusion (docs/meetings/2026-11-20-onboarding-redesign.json: shown, not told; the account last), and "do whatever you think is best".
+- **Onboarding, 11 steps with one counter** (`lib/mm/welcomeSteps.ts`, `app/app/welcome/*`): 1 goal, 2 foods you avoid, **3 a look at Eat out** (real dishes at a
+  chain the person might use, with that chain's own figures and date, chosen for the goal: `lib/mm/showcase.ts`, display only), 4 shops (each with a line saying what
+  it offers: recipes, prices or names only), **5 a look at Recipes** (two of our recipes priced at their shop; tap one to cook first), 6-8 about you, size, activity
+  (all skippable), 9 daily targets, **10 a look at Meal plan** (a real one-person week from their shop on one shopping list: `lib/mm/planPreview.ts`, the same sums as
+  Meal plan), **11 the free account** (a 10-step run if already signed in). Gone: the tab tour, Pip's separate hello, "Look around first", the text-size step and
+  "You're all set!". Nothing is sold during setup; Premium is only named, with "Nothing is charged during setup." Quitting part-way offers "Carry on from step n".
+  Settings > Help "Show me what Numbite can do" replays steps 3, 5 and 10 without saving anything.
+- **Home after setup:** a one-time "Start here" card (add what you ate, the step-3 dish added only on a tap with its own figures and Undo, the step-5 recipe), a
+  short toast, and Pip's tips over two visits that never cover the numbers or that card. **Home's numbers are two pages** (Today; Calories and protein this week):
+  the sugar, salt and fibre page is gone (the founder delegated it). Shopping list and Settings sit on the date's line from 320 to 430 px (the word "Shopping
+  list" is hidden below 375 px and still spoken).
+- **Meal plan:** the first open goes straight to the check screen filled in from the person's settings ("Who's eating: Just me"), no budget unless set;
+  **"Making your plan" takes about 20 seconds** (founder: "maybe like 20 seconds or so"; `MAKING_STEP_MS` 2800, 7 steps); with a GLP-1 goal the plan says so
+  ("Your goal is 'I'm on a GLP-1 medication', so I keep each meal to {cap} kcal: your meals come to {sum} of your {daily} kcal." with "Change it in Settings");
+  the home's diet is now the full diet list including the six new ones; no Pip on the money card.
+- **Diets:** "More diets" in the diet picker (Jain, No onion or garlic, Kosher style "We can't check kosher certification.", No red meat, No alcohol, No halal or
+  kosher meat). Restaurants and products are never said to fit them: "Restaurant menus don't list ingredients, so dishes aren't checked for {diets}." and
+  "Products aren't checked for {diets}. Always check the pack."
+- **Every recipe has a price** (founder: "the wraps here, they're missing a price"): piece weights for prices only in `pantry.ts` (tomato 85 g, a bunch of spring
+  onions 100 g, a punnet of cherry tomatoes 200 g, lettuce 100 g, naan 50 g); Asda 128 of 128 and Iceland 136 of 136 recipes now priced a serving; a card that
+  still can't price a serving shows "£x to buy" (the basket at shelf prices). Side effect: 30 cheapest-product picks changed, 14 recipes' calories changed by the
+  new products' own labels (Waitrose's wraps use Sharwood's mini naans: about +50 kcal). Aldi (not a recipe shop) still lacks pack sizes.
+- **Premium:** the plans screen leads with Apple's billed price, then "First 7 days free, then £x. Renews until you cancel.", then Continue; "What Premium adds"
+  lists Meal plan, Scan your food, Make it at home and Cook with what you have first; the untrue "We'll remind you 2 days before your trial ends." is removed;
+  Settings' Subscription button says "See plans" (the trial is a quiet line under it). The order builder no longer shows a Premium wall in 1.1 (it is free there).
+- **Pip as the guide, not the decoration** (founder: "Yeah, do that for me"): off the Recipes header, the search hint, the list-recipes intro, Scan your food's start
+  screen, the paywall and the meal plan's money card; he stays in onboarding, the tips, empty screens and the AI features.
+- **Small fixes:** `/app-switches.json` gets the open headers the app needs; a failed Apple or Google sign-in started in onboarding returns to it; the colour
+  meeting's leftovers (allergy badge amber, Compare white with an edge, info tags, the favourites page header, Make it at home's step numbers, Scan your food's
+  estimate card dashed with an info tag); the website says Premium.
+- Left for later (noted by the builders): `RecipeTile` has no native choose mode (step 5 lays a button over it); Costa frappés count as mains in `itemKind.ts`
+  (the `\b` after "é"); mini and full naans share one piece weight; the iPhone's own offline signal is not used on step 11; the 2.5 s week cap not yet timed in the
+  iPhone web view.

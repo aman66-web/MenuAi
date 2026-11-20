@@ -6,14 +6,14 @@ import { recipeNutrients } from "@/lib/mm/addFood";
 import { MEAL_LABEL } from "@/lib/mm/budget";
 import { GATING_ENABLED } from "@/lib/mm/config";
 import { formatInt } from "@/lib/mm/format";
-import { addToList, formatPrice, listForShop, withPhoto } from "@/lib/mm/groceries";
+import { addToList, formatPrice, listForShop, retailerName, withPhoto } from "@/lib/mm/groceries";
 import { localeInfo, tk } from "@/lib/mm/i18n";
-import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterCandidate, betterForHousehold, forHousehold, budgetRange, buildWeek, cuisineRecipes, forPeople, keepEarlier, openEarlier, leavesOut, mergeCandidates, planCandidates, planForBudget, planSlots, setMeal, shapeOf, slotTargets, swapChoices, withBetter, type BudgetRange, type DayShape, type PlanCandidate, type PlanIds, type SavedPlan, type Variety } from "@/lib/mm/mealPlan";
+import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterCandidate, betterForHousehold, forHousehold, budgetRange, buildWeek, capShortfall, cuisineRecipes, forPeople, keepEarlier, openEarlier, leavesOut, mergeCandidates, planCandidates, planForBudget, planSlots, setMeal, shapeOf, slotTargets, swapChoices, withBetter, type BudgetRange, type DayShape, type PlanCandidate, type PlanIds, type SavedPlan, type Variety } from "@/lib/mm/mealPlan";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { CUISINES, type CuisineId } from "@/lib/mm/recipeBook/niches";
 import { matchesNiche } from "@/lib/mm/recipeNiche";
 import { recipeForDiet, type MealTarget, type MealType } from "@/lib/mm/recipes";
-import { recipeShops, shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
+import { recipeShops, recipeShopSet, shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import { addLogEntry, deleteLogEntry, earlierPlansStore, householdStore, mealPlanStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { homeDiet, shareWords, withCount, type Household } from "@/lib/mm/household";
 import { macroTargets } from "@/lib/mm/targets";
@@ -21,7 +21,7 @@ import type { DietPrefs } from "@/lib/mm/pantry";
 import { ShopMark } from "../_components/ChainMark";
 import { DietPicker, dietWords } from "../_components/DietPicker";
 import { CalendarIcon, CheckIcon, ChevronLeftIcon, ChevronRightIcon, PlusIcon, SwapIcon } from "../_components/icons";
-import { Pip, PipSays, type PipMood } from "../_components/Mascot";
+import { PipSays, type PipMood } from "../_components/Mascot";
 import { InfoBanner } from "../_components/Note";
 import { PageHeader } from "../_components/PageHeader";
 import { useGate } from "../_components/Paywall";
@@ -34,7 +34,7 @@ import { loadShopFile, useShopManifest } from "../_lib/shopProducts";
 import { CARD, CHIP, CHIP_ON, HEADING, TITLE } from "../groceries/PageBits";
 import { PhotoTile } from "../groceries/ProductPhoto";
 import { RecipeThumb } from "../recipes/RecipeThumb";
-import { AllergiesStep, CountStep, GROUP_LABEL, MeatStep, WhoStep, allergyLine, personName, whoWords } from "./HouseholdSteps";
+import { AllergiesStep, CountStep, GROUP_LABEL, HOME_DIET_LABEL, HomeDietStep, WhoStep, allergyLine, homeDietLine, personName, whoWords } from "./HouseholdSteps";
 
 // The meal plan (founder 2026-11-18; lib/mm/mealPlan.ts has the rules). Premium ("a third icon, which has meal plan, and that has pro on it"). Pip asks one thing
 // a screen ("they just got to type in all their stuff, like Pip's guiding them through"): the daily numbers from the person's own plan, their diet and allergies,
@@ -42,6 +42,9 @@ import { AllergiesStep, CountStep, GROUP_LABEL, MeatStep, WhoStep, allergyLine, 
 // overall"). Then the week: each day's breakfast, lunch and dinner from our own recipes with its calories, protein, price and shop; any meal can be swapped for
 // another from a list; what the shopping comes to against the budget; the shopping for each shop as whole packs, and one button that puts it all on the
 // shopping list. The plan stays on the phone until a new one is made (mm.v1.mealPlan).
+// The first open, with no plan yet (the onboarding meeting, 20 November 2026, build list 13): straight to the check screen, filled in from the person's own
+// settings (their diet and allergies, daily numbers and shop) and Meal plan's Just-me defaults, "Who's eating: Just me" first, every line with its Change; its
+// "Make my plan" makes the same week the onboarding preview and PremiumIntro show, and saves it as before.
 
 const today = () => new Date().toISOString().slice(0, 10);
 /**
@@ -55,11 +58,12 @@ const CHOICE_ROW_ON = "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(
 /** A done step on Pip's working lists: lime with the 2 px dark green edge and a dark green tick (done, on a light surface). */
 const DONE_TICK = "grid h-7 w-7 shrink-0 place-items-center rounded-full border-2 border-on-sun bg-sun text-on-sun";
 // The steps, one question a screen (the 20-agent meeting, 2026-11-19): how many people first; a household then says who each person is, its allergies and
-// whether anyone doesn't eat meat; Just me keeps its own diet and the food it likes; everyone ends on the check screen before the plan is made.
-type StepId = "count" | "who" | "meals" | "shops" | "diet" | "cuisine" | "allergies" | "meat" | "leaveOut" | "budget" | "check";
+// the diets anyone at home follows (until 20 November, whether anyone doesn't eat meat); Just me keeps its own diet and the food it likes; everyone ends on the
+// check screen before the plan is made (and a first open starts there).
+type StepId = "count" | "who" | "meals" | "shops" | "diet" | "cuisine" | "allergies" | "homeDiet" | "leaveOut" | "budget" | "check";
 const JUST_ME: readonly StepId[] = ["count", "meals", "shops", "diet", "cuisine", "leaveOut", "budget", "check"];
-const HOUSEHOLD: readonly StepId[] = ["count", "who", "meals", "shops", "allergies", "meat", "leaveOut", "budget", "check"];
-const STEP_PIP: Record<StepId, PipMood> = { count: "wave", who: "point", meals: "point", shops: "listen", diet: "listen", cuisine: "listen", allergies: "listen", meat: "point", leaveOut: "point", budget: "point", check: "cheer" };
+const HOUSEHOLD: readonly StepId[] = ["count", "who", "meals", "shops", "allergies", "homeDiet", "leaveOut", "budget", "check"];
+const STEP_PIP: Record<StepId, PipMood> = { count: "wave", who: "point", meals: "point", shops: "listen", diet: "listen", cuisine: "listen", allergies: "listen", homeDiet: "point", leaveOut: "point", budget: "point", check: "cheer" };
 /** A new person's id on this phone (letters and digits only). */
 const personId = () => `p${Math.random().toString(36).slice(2, 10)}`;
 const MEAL_PLURAL: Record<string, string> = { breakfast: tk("breakfasts"), lunch: tk("lunches"), dinner: tk("dinners"), snack: tk("snacks") };
@@ -109,6 +113,31 @@ function useSlotTargets(shape: DayShape): Targets {
   return useMemo(() => slotTargets(JSON.parse(key) as DayShape, { kcal: settings.dailyCalories, protein: daily.protein }, cap), [key, settings.dailyCalories, daily.protein, cap]);
 }
 
+/** The day's shortfall under a GLP-1 meal cap (mealPlan.ts capShortfall) with the figures to say it; null when the day adds up (no cap, or a cap it fits under). */
+type CapGap = { cap: number; sum: number; daily: number } | null;
+function useCapGap(shape: DayShape, targets: Targets): CapGap {
+  const settings = useSettings();
+  const gap = capShortfall(shape, targets, settings.dailyCalories);
+  const cap = settings.goal === "glp1" ? settings.glp1MealCap : undefined;
+  return gap > 0 && cap ? { cap, sum: settings.dailyCalories - gap, daily: settings.dailyCalories } : null;
+}
+
+/**
+ * Why the meals come to less than the day (founder 2026-11-20, "clearly they all have to be ... 3,400 divided by 3"; lib/mm/mealPlan.ts slotTargets): with the
+ * GLP-1 goal each meal is kept to the meal size the person set, so the day can't add up, and the plan says so with the way to change it. Pip never says the
+ * day adds up then. `boxed`: on the page in its own white card; otherwise inside a card already.
+ */
+function CapNote({ gap, boxed, className = "" }: { gap: CapGap; boxed?: boolean; className?: string }) {
+  const t = useT();
+  if (!gap) return null;
+  return (
+    <div className={`${boxed ? `${CARD} p-4` : ""} ${className}`}>
+      <p className="app-numbers text-[0.9375rem] leading-snug">{t("Your goal is 'I'm on a GLP-1 medication', so I keep each meal to {cap} kcal: your meals come to {sum} of your {daily} kcal.", { cap: formatInt(gap.cap), sum: formatInt(gap.sum), daily: formatInt(gap.daily) })}</p>
+      <LinkButton href="/app/settings#targets" variant="secondary" className="mt-3 px-4">{t("Change it in Settings")}</LinkButton>
+    </div>
+  );
+}
+
 /** Each candidate's better-products version (betterCandidate), worked out once per recipe and shop while the app is open. */
 const betterMemo = new Map<string, PlanCandidate | null>();
 function betterFor(loaded: readonly Loaded[], targets: Targets): (c: PlanCandidate) => PlanCandidate | null {
@@ -137,21 +166,114 @@ function PlanScreen() {
   return <Questions saved={saved} onDone={() => setEditing(false)} onKeep={saved ? () => setEditing(false) : undefined} />;
 }
 
-/** For someone without Premium: what the meal plan does, and the way to Premium. */
+/** The week Meal plan's first open would make (useWeekPreview): working on it, ready, or none (offline, no shop, or too few recipes for the diet). */
+type Preview = { state: "working" } | { state: "none" } | { state: "ready"; meals: PlanCandidate[]; kcal: number; protein: number; total: number; gap: CapGap };
+
+/**
+ * The week the first open's "Make my plan" makes (the onboarding meeting, 20 November 2026: "not bait"): one person with Meal plan's Just-me defaults
+ * (breakfast, lunch and dinner, any kind of food, nothing left out, no budget, PER_MEAL_RECIPES), the person's own diet, allergies and daily numbers, from the
+ * first of their shops that recipes can use, else the shop recipes use until they choose (recipeShopSet). The same sums, in the same order, as the check
+ * screen's "Make my plan" (workOut, then planForBudget with no budget), so the week is the same one; worked out on this phone and never saved.
+ */
+function useWeekPreview(): { shop: string | null; preview: Preview } {
+  const settings = useSettings();
+  const manifest = useShopManifest();
+  const shop = manifest ? recipeShopSet(manifest, null, settings.shops)[0] ?? null : null;
+  const targets = useSlotTargets(DEFAULT_SHAPE);
+  const gap = useCapGap(DEFAULT_SHAPE, targets);
+  const key = JSON.stringify([shop, settings.preferences, targets]);
+  const [result, setResult] = useState<{ key: string; preview: Preview } | null>(null);
+  useEffect(() => {
+    if (!shop) return;
+    let live = true;
+    const [, diet, tg] = JSON.parse(key) as [string, DietPrefs, Targets];
+    // after the screen has drawn: the sums take a moment on a phone
+    const timer = setTimeout(() => {
+      (async () => {
+        const loaded = await loadShops([shop]);
+        const cands = await workOut(loaded, diet, tg, [], []);
+        const plan = planForBudget(cands, null, betterFor(loaded, tg), planSlots(DEFAULT_SHAPE), PER_MEAL_RECIPES);
+        const first = plan?.week.days[0];
+        if (!live) return;
+        if (!plan || !first) { setResult({ key, preview: { state: "none" } }); return; }
+        const avg = (k: "kcal" | "protein") => Math.round(plan.week.days.reduce((n, d) => n + d[k], 0) / plan.week.days.length);
+        setResult({ key, preview: { state: "ready", meals: first.meals.map((m) => m.candidate), kcal: avg("kcal"), protein: avg("protein"), total: plan.week.shoppingCost, gap: null } });
+      })().catch(() => { if (live) setResult({ key, preview: { state: "none" } }); });
+    }, 0);
+    return () => { live = false; clearTimeout(timer); };
+  }, [key, shop]);
+  const preview: Preview = !manifest ? { state: "working" } : !shop ? { state: "none" } : result?.key === key ? (result.preview.state === "ready" ? { ...result.preview, gap } : result.preview) : { state: "working" };
+  return { shop, preview };
+}
+
+const PREVIEW_ROW: Partial<Record<MealType, string>> = { breakfast: tk("Breakfast · {recipe}"), lunch: tk("Lunch · {recipe}"), dinner: tk("Dinner · {recipe}") };
+
+/**
+ * The week, shown before Premium (the onboarding meeting's "Meal plan honesty"): the first day's three meals by name, the day's average against the target, the
+ * week's shopping as a labelled line at normal size (never a big £ figure that could be read as a charge), and the shelf-price line. While it is worked out,
+ * grey bars with no figures and a status line saying what is happening; when no week can be made, the words alone.
+ */
+function WeekPreview({ shop, preview }: { shop: string | null; preview: Preview }) {
+  const t = useT();
+  const settings = useSettings();
+  const language = useLanguage();
+  const shopName = shop ? retailerName(shop) : "";
+  const dayName = useMemo(() => new Intl.DateTimeFormat(localeInfo(language).htmlLang, { weekday: "long" }).format(new Date()), [language]);
+  return (
+    <section aria-labelledby="preview-h" className={`${CARD} mt-4 min-h-[15rem] p-4`}>
+      <h2 id="preview-h" className="text-lg font-[800] leading-snug">{t("Your week, planned")}</h2>
+      {preview.state === "none" ? (
+        <p className="mt-1.5 text-[0.9375rem] leading-snug">{t("Meal plan plans a week of meals from your shop, sized to your numbers, with one shopping list.")}</p>
+      ) : (
+        <>
+          <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Breakfast, lunch and dinner for 7 days from {shop}, sized to your numbers.", { shop: shopName })}</p>
+          {preview.state === "working" ? (
+            <>
+              <p role="status" className="mt-3 text-[0.9375rem] font-semibold leading-snug">{t("Planning your week from {shop}'s recipes…", { shop: shopName })}</p>
+              <div aria-hidden className="mt-3 space-y-2.5">
+                {["w-1/3", "w-11/12", "w-10/12", "w-9/12", "w-2/3"].map((w, i) => <span key={i} className={`block h-4 ${w} animate-pulse rounded-full bg-line motion-reduce:animate-none`} />)}
+              </div>
+            </>
+          ) : (
+            <>
+              <p className="mt-3 font-bold">{dayName}</p>
+              <ul className="mt-1.5 space-y-1.5 text-[1rem] leading-snug">
+                {preview.meals.map((c) => <li key={`${c.meal}-${c.recipe.id}`} className="[overflow-wrap:anywhere]">{t(PREVIEW_ROW[c.meal] ?? "{recipe}", { recipe: t(c.recipe.name) })}</li>)}
+              </ul>
+              <p className="app-numbers mt-3 text-[0.9375rem] leading-snug">{t("About {kcal} kcal and {protein} g protein a day (your target is {target} kcal).", { kcal: formatInt(preview.kcal), protein: formatInt(preview.protein), target: formatInt(settings.dailyCalories) })}</p>
+              <CapNote gap={preview.gap} className="mt-2" />
+              <p className="app-numbers mt-2 text-[0.9375rem] leading-snug">{t("Shopping for the week at {shop}: about £{total}", { shop: shopName, total: formatInt(Math.round(preview.total)) })}</p>
+              <p className="mt-1.5 text-[0.9375rem] leading-snug">{t("Everything goes on one shopping list.")}</p>
+              <p className="mt-1.5 text-[0.9375rem] leading-snug">{t("With Premium, Meal plan makes you this week. You can change any answer first, and swap any meal after.")}</p>
+              <p className="mt-2 text-[0.8125rem] leading-snug text-muted">{t("Prices are {shop}'s shelf prices and vary by store.", { shop: shopName })}</p>
+            </>
+          )}
+        </>
+      )}
+    </section>
+  );
+}
+
+/** For someone without Premium: what the meal plan does, the week it would make them (the same one), and the way to Premium. */
 function PremiumIntro() {
   const t = useT();
   const { showPaywall } = useGate();
+  const { shop, preview } = useWeekPreview();
   return (
     <div className="pb-6">
       <PageHeader back={{ href: "/app", label: t("Back to Home") }} />
       <h1 className={`mt-4 ${TITLE}`}>{t("Meal plan")}</h1>
       <div className="mt-4"><PipSays mood="wave" size={64}>{t("Tell me your goal, your diet and where you shop, and I'll plan a whole week of meals for you, with the shopping list.")}</PipSays></div>
+      <WeekPreview shop={shop} preview={preview} />
       <ul className={`${CARD} mt-4 space-y-3 p-4 text-base leading-snug`}>
         {[t("Your meals and snacks for seven days, sized to your goal"), t("From one shop or several: the best recipes across them"), t("What each meal costs, and the week's shopping within your budget"), t("Swap any meal you don't fancy, then add everything to your shopping list")].map((line) => (
           <li key={line} className="flex items-start gap-3"><CheckIcon aria-hidden strokeWidth={2.6} className="mt-0.5 h-5 w-5 shrink-0 text-ink" />{line}</li>
         ))}
       </ul>
-      <Button full className="mt-5 min-h-14 text-lg" onClick={() => showPaywall("mealPlan")}>{t("Get Premium")}</Button>
+      {/* the one main action, on a 16 px band of the page's grey above the tab bar, so it shows however long the week is */}
+      <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-5 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-4">
+        <Button full className="min-h-14 text-lg" onClick={() => showPaywall("mealPlan")}>{t("Get Premium")}</Button>
+      </div>
     </div>
   );
 }
@@ -161,19 +283,31 @@ function PremiumIntro() {
 function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone: () => void; onKeep?: () => void }) {
   const t = useT();
   const settings = useSettings();
-  const manifest = useShopManifest();
+  // tried again from the check screen's "Try again" when the shops or their products couldn't be loaded
+  const [attempt, setAttempt] = useState(0);
+  const manifest = useShopManifest(attempt);
   const shopsAll: Shop[] = useMemo(() => recipeShops(manifest).map((r) => ({ id: r.id, name: r.name })), [manifest]);
   const daily = macroTargets(settings);
-  const [step, setStep] = useState(1);
   // the people cooked for (lib/mm/household.ts; on this phone only): Just me unless they say otherwise on the first screen
   const home = useStore(householdStore);
   const household = home.others.length > 0;
   const count = home.others.length + 1;
   const setHome = (patch: Partial<Household>) => householdStore.set({ ...householdStore.get(), ...patch });
   const steps = household ? HOUSEHOLD : JUST_ME;
+  // the first open, with no plan yet, starts on the check screen ("direct": not walked through the steps yet, so there is no step count and Back goes Home);
+  // Make a new plan walks the steps from the first, as before
+  const [direct, setDirect] = useState(!saved);
+  const [step, setStep] = useState(() => (saved ? 1 : steps.length));
   const id: StepId = steps[Math.min(step, steps.length) - 1] ?? "count";
   const total = steps.length;
-  const go = (to: StepId) => setStep(steps.indexOf(to) + 1);
+  // no budget on the first open: the best week for the goal, as the preview made it (planForBudget with none); the slider's amount once its step has shown
+  const [noBudget, setNoBudget] = useState(!saved || saved.budget === null);
+  const moveTo = (n: number) => {
+    if (steps[Math.min(n, steps.length) - 1] === "budget") setNoBudget(false);
+    setDirect(false);
+    setStep(n);
+  };
+  const go = (to: StepId) => moveTo(steps.indexOf(to) + 1);
   // the day's meals and snacks (founder 2026-11-18: "how many meals and how many snacks they want a day as well ... full personalization")
   const [shape, setShape] = useState<DayShape>(saved?.slots ? shapeOf(saved.slots) : DEFAULT_SHAPE);
   const slots = useMemo(() => planSlots(shape), [shape]);
@@ -196,11 +330,12 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
   const heading = useRef<HTMLHeadingElement>(null);
   const typedBox = useRef<HTMLInputElement>(null);
 
-  // the shops start as the person's own (those that can make our recipes), else none chosen
+  // with no plan yet, the shop is the first of the person's own that can make our recipes, else the one recipes use until they choose (recipeShopSet): the one
+  // shop the onboarding preview used, so Make my plan makes that week; more can be ticked on the shops step
   useEffect(() => {
     if (shops !== null || !shopsAll.length) return;
-    setShops(shopsAll.filter((s) => (settings.shops ?? []).includes(s.id)).map((s) => s.id)); // eslint-disable-line react-hooks/set-state-in-effect -- the answer starts from the person's shops once the list arrives
-  }, [shopsAll, shops, settings.shops]);
+    setShops(recipeShopSet(manifest, null, settings.shops)); // eslint-disable-line react-hooks/set-state-in-effect -- the answer starts from the person's shops once the list arrives
+  }, [shopsAll, shops, settings.shops, manifest]);
   useLayoutEffect(() => { window.scrollTo({ top: 0 }); heading.current?.focus({ preventScroll: true }); }, [step]);
 
   const chosen = (shops ?? []).filter((id) => shopsAll.some((s) => s.id === id) || !shopsAll.length);
@@ -248,7 +383,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
       setPreparing(null);
     })();
     return () => { live = false; if (prepping.current === prepKey) prepping.current = null; };
-  }, [id, prepKey]); // eslint-disable-line react-hooks/exhaustive-deps -- prepKey holds the answers it depends on
+  }, [id, prepKey, attempt]); // eslint-disable-line react-hooks/exhaustive-deps -- prepKey holds the answers it depends on
 
   // a household's meals: each recipe as written, sized for everyone (mealPlan.ts forHousehold); Just me: fitted to the person, as before
   const others = useMemo(() => home.others.map((o) => ({ group: o.group, portion: o.portion })), [home.others]);
@@ -257,7 +392,8 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
   const betterSized = (l: readonly Loaded[]) => (household ? betterForHousehold(betterFor(l, {}), sizing) : betterFor(l, targets));
   const homeKey = JSON.stringify(others);
   // the slider's range for these prices and these people, worked out after the screen has drawn (the spinner shows meanwhile)
-  const rangeKey = prep && prep.key === prepKey ? `${prepKey}|${homeKey}` : null;
+  // (not needed while there is no budget: the week is the best fit)
+  const rangeKey = prep && prep.key === prepKey && !noBudget ? `${prepKey}|${homeKey}` : null;
   useEffect(() => {
     if (!rangeKey || !prep || ranged?.key === rangeKey) return;
     const timer = setTimeout(() => {
@@ -272,10 +408,12 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
   }, [rangeKey]); // eslint-disable-line react-hooks/exhaustive-deps -- rangeKey holds the answers it depends on
   const range = ranged && ranged.key === rangeKey ? ranged.range : undefined;
 
-  const ready = !!prep && prep.key === prepKey && !!range && pick !== null;
+  const ready = !!prep && prep.key === prepKey && (noBudget || (!!range && pick !== null));
+  const gap = useCapGap(shape, targets);
   const make = () => {
-    if (!ready || !prep || pick === null) return;
-    const plan = planForBudget(sized(prep.cands), pick, betterSized(prep.loaded), slots, variety);
+    if (!ready || !prep) return;
+    const budget = noBudget ? null : pick;
+    const plan = planForBudget(sized(prep.cands), budget, betterSized(prep.loaded), slots, variety);
     if (!plan) { setProblem("noPlan"); go("leaveOut"); return; }
     // what Pip did, each with its real figure (founder 2026-11-18: "show them what you're doing ... so you're showing them that you're properly working")
     const w = plan.week;
@@ -287,14 +425,17 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
     const steps = [
       t("Reading {n} recipes that suit your diet", { n: formatInt(recipes) }),
       t("Looking through {n} products at {shops}", { n: formatInt(products), shops: names(shopsAll, chosen) }),
-      household ? t("Sizing every meal for {n} of you: your own portion to your {kcal} kcal and {protein} g protein a day", { n: count, kcal: formatInt(settings.dailyCalories), protein: formatInt(daily.protein) })
+      // under a GLP-1 meal cap the meals are sized to the meal size, not the day (CapNote says so)
+      gap ? (household ? t("Sizing every meal for {n} of you: your own portion to your {cap} kcal meal size", { n: count, cap: formatInt(gap.cap) }) : t("Sizing every meal to your {cap} kcal meal size", { cap: formatInt(gap.cap) }))
+        : household ? t("Sizing every meal for {n} of you: your own portion to your {kcal} kcal and {protein} g protein a day", { n: count, kcal: formatInt(settings.dailyCalories), protein: formatInt(daily.protein) })
         : t("Sizing every meal to your {kcal} kcal and {protein} g protein a day", { kcal: formatInt(settings.dailyCalories), protein: formatInt(daily.protein) }),
       snacks ? t("Choosing {meals} meals and {snacks} snacks for your week", { meals, snacks }) : t("Choosing {meals} meals for your week", { meals }),
       t("Planning the packs so {pct}% of the fresh food gets eaten", { pct: eaten }),
-      w.overBudget ? t("Finding the cheapest week your choices allow: {cost}", { cost: formatPrice(w.shoppingCost) }) : t("Keeping the week to {cost}, within your {budget}", { cost: formatPrice(w.shoppingCost), budget: formatPrice(pick) }),
+      budget === null ? t("Pricing the best week for your goal: {cost}", { cost: formatPrice(w.shoppingCost) })
+        : w.overBudget ? t("Finding the cheapest week your choices allow: {cost}", { cost: formatPrice(w.shoppingCost) }) : t("Keeping the week to {cost}, within your {budget}", { cost: formatPrice(w.shoppingCost), budget: formatPrice(budget) }),
       household ? t("Writing your shopping list for {people} people: {n} products", { people: count, n: w.shopping.length }) : t("Writing your shopping list: {n} products", { n: w.shopping.length }),
     ];
-    setMaking({ steps, plan: { shops: chosen, ids: plan.ids, slots, leaveOut, budget: pick, start: today(), variety, ...(cuisinesUsed.length ? { cuisines: cuisinesUsed } : {}), ...(plan.better.length ? { better: plan.better } : {}), ...(household ? { home: { others, allergies: home.allergies, meat: home.meat } } : {}) } });
+    setMaking({ steps, plan: { shops: chosen, ids: plan.ids, slots, leaveOut, budget, start: today(), variety, ...(cuisinesUsed.length ? { cuisines: cuisinesUsed } : {}), ...(plan.better.length ? { better: plan.better } : {}), ...(household ? { home: { others, allergies: home.allergies, diets: home.diets } } : {}) } });
   };
   const finish = () => {
     if (!making) return;
@@ -324,7 +465,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
 
   const TITLES: Record<StepId, string> = {
     count: t("How many people are you cooking for?"), who: t("Who's eating with you?"), meals: t("Your meals and snacks"), shops: t("Where you shop"),
-    diet: t("Your diet and allergies"), cuisine: t("The food you like"), allergies: t("Any food allergies at home?"), meat: t("Does anyone not eat meat?"),
+    diet: t("Your diet and allergies"), cuisine: t("The food you like"), allergies: t("Any food allergies at home?"), homeDiet: t("Any diets at home?"),
     leaveOut: household ? t("Anything someone won't eat?") : t("Foods you'd rather not have"), budget: t("Your budget for the week"), check: t("Ready to make your plan?"),
   };
   const title = TITLES[id];
@@ -338,49 +479,63 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
   const SAYS: Record<StepId, string> = {
     count: t("Hi! Let's plan your week. Count yourself: I'll size every meal for everyone who's eating."),
     who: t("Tell me who each person is, so I can size their portion. Names are optional and stay on this phone."),
-    meals: t("How do you like to eat? Pick your meals and snacks, and how often a meal can come round. I'll size each one so your day adds up."),
+    // under a GLP-1 meal cap the day can't add up, so Pip doesn't say it does (CapNote under "Each day:" says why)
+    meals: gap ? t("How do you like to eat? Pick your meals and snacks, and how often a meal can come round.") : t("How do you like to eat? Pick your meals and snacks, and how often a meal can come round. I'll size each one so your day adds up."),
     shops: shopsSay,
     diet: t("Do you follow a diet, or have any allergies? I'll leave out any recipe that doesn't fit."),
     cuisine: cuisines.length ? t("Lunches and dinners from {cuisines}. Breakfasts and snacks stay as usual.", { cuisines: new Intl.ListFormat("en-GB", { type: "disjunction" }).format(cuisines.map((c) => t(CUISINES.find((x) => x.id === c)!.label))) })
       : t("What kind of food do you like for lunch and dinner? Pick as many as you like, or Any."),
     allergies: t("Tick any food allergy anyone at home has. Recipes made with it are left out for everyone. Always check the label."),
-    meat: t("I cook one meal for everyone, so if anyone doesn't eat meat, the whole home has the meat-free version."),
+    homeDiet: t("I cook one meal for everyone, so tick every diet anyone at home follows. Every meal will fit all of them, for everyone."),
     leaveOut: household ? t("Any foods someone won't eat? Tap them, or type your own, and I'll leave them out for everyone.") : t("Any foods you don't like? Tap them, or type your own, and I'll leave them out."),
     budget: t("Slide to choose your budget. The green spot is the best week for your goal: left is cheaper, right buys better products."),
-    check: t("Here's everything. Tap Change on anything you'd like to change, then I'll make your plan."),
+    check: direct ? t("I've filled this in from your settings. Tap Change on anything you'd like to change, then I'll make your plan.") : t("Here's everything. Tap Change on anything you'd like to change, then I'll make your plan."),
   };
   const says = SAYS[id];
+  // the person's own shops can't make our recipes yet: the week uses the shop recipes use until they choose, and the check screen says so
+  const ownShops = settings.shops ?? [];
+  const shopNote = ownShops.length > 0 && chosen.length === 1 && !ownShops.some((o) => shopsAll.some((s) => s.id === o))
+    ? (ownShops.length === 1 ? t("{left} isn't in recipes yet, so this week uses {shop}.", { left: retailerName(ownShops[0]!), shop: chosenNames[0] ?? "" })
+      : t("{left} aren't in recipes yet, so this week uses {shop}.", { left: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(ownShops.map((o) => retailerName(o))), shop: chosenNames[0] ?? "" }))
+    : undefined;
   // the allergies the plan leaves out: the home's, or (Just me) the person's own
   const allergiesSet = household ? home.allergies.length > 0 : (settings.preferences.avoidAllergens?.length ?? 0) > 0;
   if (making) return <Making steps={making.steps} onDone={finish} />;
   const canGo = !(id === "meals" && !shape.meals.length) && !(id === "leaveOut" && noneFor) && !(id === "shops" && !chosen.length) && !((id === "budget" || id === "check") && !ready);
+  // the shops or their products couldn't be loaded (no connection): the check screen says so, with Try again
+  const unloaded = problem === "offline" || (!!manifest && !shopsAll.length);
   // why the button can't be pressed yet, written above it (colour meeting, 19 November 2026: every tester met a grey Continue with no reason)
   const cantGo = canGo ? null
     : id === "meals" ? t("Pick at least one meal.")
     : id === "shops" ? t("Pick at least one shop.")
     : id === "leaveOut" ? t("Tap a food again to put it back.")
-    : problem === "offline" || range === null ? null
+    : unloaded || range === null ? null
     : t("Working out the prices at your shops…");
   // the bottom button says the usual answer until something is changed (the meeting: the button is the only way on, and a hurried person taps it once)
   const nextLabel = id === "check" ? t("Make my plan")
     : id === "allergies" && !home.allergies.length ? t("No allergies at home")
-    : id === "meat" && home.meat === "all" ? t("We all eat the same")
+    : id === "homeDiet" && !home.diets.length ? t("No diets at home")
     : id === "leaveOut" && !leaveOut.length ? t("Nothing to leave out")
     : t("Continue");
 
   return (
     <div className="pb-6">
       <PageHeader
-        back={step > 1 ? { onPress: () => setStep(step - 1), label: t("Back to the previous step") } : { href: "/app", label: t("Back to Home") }}
+        back={step > 1 && !direct ? { onPress: () => moveTo(step - 1), label: t("Back to the previous step") } : { href: "/app", label: t("Back to Home") }}
         action={onKeep && <Button variant="secondary" className="px-4" onClick={onKeep}>{t("Keep my plan")}</Button>}
       />
-      {/* the steps done in the deep green on the line (progress on a light surface), the step in words beside it */}
-      <div aria-hidden className="mt-4 flex gap-1.5">
-        {Array.from({ length: total }, (_, i) => <span key={i} className={`h-1.5 flex-1 rounded-full transition-colors duration-500 ${i < step ? "bg-bar" : "bg-line"}`} />)}
-      </div>
-      <p className="mt-2.5 text-[0.8125rem] font-semibold text-muted" aria-live="polite">{t("Step {step} of {total}", { step, total })}</p>
+      {/* the steps done in the deep green on the line (progress on a light surface), the step in words beside it; none on a first open's check screen,
+          which is no step of a walk */}
+      {!direct && (
+        <>
+          <div aria-hidden className="mt-4 flex gap-1.5">
+            {Array.from({ length: total }, (_, i) => <span key={i} className={`h-1.5 flex-1 rounded-full transition-colors duration-500 ${i < step ? "bg-bar" : "bg-line"}`} />)}
+          </div>
+          <p className="mt-2.5 text-[0.8125rem] font-semibold text-muted" aria-live="polite">{t("Step {step} of {total}", { step, total })}</p>
+        </>
+      )}
 
-      <h1 ref={heading} tabIndex={-1} className={`mt-3 ${TITLE} outline-none`}>{title}</h1>
+      <h1 ref={heading} tabIndex={-1} className={`${direct ? "mt-4" : "mt-3"} ${TITLE} outline-none`}>{title}</h1>
       <div className="mt-4"><PipSays mood={STEP_PIP[id]} size={64} lively pulse={id === "shops" ? `shops-${chosenNames.length}` : id === "cuisine" ? `cuisine-${cuisines.join()}` : id}>{says}</PipSays></div>
 
       <div className="mt-4">
@@ -396,7 +551,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
           </div>
         )}
 
-        {id === "meals" && <MealsAndSnacks shape={shape} onChange={setShape} targets={targets} variety={variety} onVariety={setVariety} />}
+        {id === "meals" && <MealsAndSnacks shape={shape} onChange={setShape} targets={targets} variety={variety} onVariety={setVariety} gap={gap} />}
 
         {id === "diet" && <DietPicker value={settings.preferences} onChange={(p) => updateSettings({ preferences: p })} />}
 
@@ -404,7 +559,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
 
         {id === "allergies" && <AllergiesStep value={home.allergies} onChange={(a) => { setHome({ allergies: a }); setPick(null); }} />}
 
-        {id === "meat" && <MeatStep value={home.meat} onChange={(m) => { setHome({ meat: m }); setPick(null); }} />}
+        {id === "homeDiet" && <HomeDietStep value={home.diets} onChange={(d) => { setHome({ diets: d }); setPick(null); }} />}
 
         {id === "leaveOut" && (
           <>
@@ -462,7 +617,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
 
         {id === "budget" && (
           <>
-            {problem === "offline" ? <ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => { setProblem(null); setPrep(null); go("shops"); }} />
+            {unloaded ? <ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => { setProblem(null); setPrep(null); go("shops"); }} />
               : preparing ? (<><p role="status" className="text-[1.0625rem] font-semibold">{t("Working out the prices at your shops…")}</p>{working}</>)
               : range === undefined ? <Spinner label={t("Working out the prices at your shops…")} />
               : !range ? <InfoBanner heading={null} className="font-semibold">{t("There aren't enough of our recipes left for every meal with these choices. Try leaving out fewer foods, or pick another shop.")}</InfoBanner>
@@ -470,42 +625,48 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
           </>
         )}
 
-        {/* the check screen (the meeting: everyone sees it, Just me too; allergies first; anything can be changed from here) */}
+        {/* the check screen (the meeting: everyone sees it, Just me too; anything can be changed from here). Who's eating first (the onboarding meeting,
+            20 November 2026: the first open starts here, and the old first question became this line), then the allergies */}
+        {id === "check" && unloaded && (
+          <div className="mb-3"><ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => { setProblem(null); setPrep(null); prepping.current = null; setAttempt((n) => n + 1); }} /></div>
+        )}
         {id === "check" && (
           <ul className="space-y-2.5">
             {([
+              ["count", t("Who's eating"), household ? whoWords(t, home) : t("Just me")],
               household ? ["allergies", t("Allergies at home"), allergyLine(t, home.allergies)] : ["diet", t("Your diet and allergies"), dietWords(t, settings.preferences).join(", ") || t("No diet or allergies.")],
-              ["count", t("Who's eating"), household ? whoWords(t, home) : t("Just you")],
-              ...(household ? [["meat", t("Meat"), home.meat === "vegan" ? t("Every meal vegan, for everyone") : home.meat === "vegetarian" ? t("Every meal vegetarian, for everyone") : t("Meals can have meat or fish")]] : []),
+              ...(household ? [["homeDiet", t("Diets at home"), homeDietLine(t, home.diets)]] : []),
               ["meals", t("Meals and snacks"), dayShape(t, shape)],
-              ["shops", t("Where you shop"), chosenNames.length ? new Intl.ListFormat("en-GB", { type: "conjunction" }).format(chosenNames) : t("No shop chosen")],
+              ["shops", t("Where you shop"), chosenNames.length ? new Intl.ListFormat("en-GB", { type: "conjunction" }).format(chosenNames) : t("No shop chosen"), shopNote],
               ...(household ? [] : [["cuisine", t("The food you like"), cuisines.length ? new Intl.ListFormat("en-GB", { type: "conjunction" }).format(cuisines.map((c) => t(CUISINES.find((x) => x.id === c)!.label))) : t("Any")]]),
               ["leaveOut", household ? t("Left out for everyone") : t("Foods left out"), leaveOut.length ? leaveOut.map((x) => t(LEAVE_OUT.find((c) => c.id === x)?.label ?? x)).join(", ") : t("Nothing")],
-              ["budget", t("Your budget"), pick !== null ? t("{budget} a week", { budget: formatPrice(pick) }) : t("Not set yet")],
-            ] as Array<[StepId, string, string]>).map(([to, label, value], i) => {
+              ["budget", t("Your budget"), noBudget ? t("No budget: the best week for your goal") : pick !== null ? t("{budget} a week", { budget: formatPrice(pick) }) : t("Not set yet")],
+            ] as Array<[StepId, string, string, string?]>).map(([to, label, value, note]) => {
               const row = (
                 <>
                   <span className="min-w-0 flex-1">
                     <span className="block text-[0.8125rem] font-semibold text-muted">{label}</span>
                     <span className="mt-0.5 block text-[1rem] font-semibold leading-snug [overflow-wrap:anywhere]">{value}</span>
+                    {note && <span className="mt-1 block text-[0.9375rem] leading-snug">{note}</span>}
                   </span>
                   <Button variant="secondary" onClick={() => go(to)} aria-label={t("Change: {what}", { what: label })} className="shrink-0 px-4">{t("Change")}</Button>
                 </>
               );
-              // the allergies, first, in the one amber note when there are any (the card a parent must not miss); "No allergies at home." stays a plain card
+              // the allergies in the one amber note when there are any (the card a parent must not miss); "No allergies at home." stays a plain card
               return (
                 <li key={to}>
-                  {i === 0 && allergiesSet ? <AllergyNote><div className="mt-1 flex items-center gap-3">{row}</div></AllergyNote> : <div className={`${CARD} flex items-center gap-3 p-4`}>{row}</div>}
+                  {(to === "diet" || to === "allergies") && allergiesSet ? <AllergyNote><div className="mt-1 flex items-center gap-3">{row}</div></AllergyNote> : <div className={`${CARD} flex items-center gap-3 p-4`}>{row}</div>}
                 </li>
               );
             })}
           </ul>
         )}
+        {id === "check" && <CapNote gap={gap} boxed className="mt-2.5" />}
       </div>
 
       {/* a 16 px band of the page's own grey above the button, so it never sits on a card */}
       <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-6 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-4">
-        <Button full className="min-h-14 text-lg" disabled={!canGo} reason={cantGo} onClick={() => (step < total ? setStep(step + 1) : make())}>{nextLabel}</Button>
+        <Button full className="min-h-14 text-lg" disabled={!canGo} reason={cantGo} onClick={() => (step < total ? moveTo(step + 1) : make())}>{nextLabel}</Button>
       </div>
     </div>
   );
@@ -584,7 +745,7 @@ function CuisinePicker({ value, onChange, diet, leaveOut, slots }: { value: Cuis
 }
 
 /** Which meals the person eats (at least one) and how many snacks (none to three), with each one's size as the plan will make it. */
-function MealsAndSnacks({ shape, onChange, targets, variety, onVariety }: { shape: DayShape; onChange: (s: DayShape) => void; targets: Targets; variety: Variety; onVariety: (v: Variety) => void }) {
+function MealsAndSnacks({ shape, onChange, targets, variety, onVariety, gap }: { shape: DayShape; onChange: (s: DayShape) => void; targets: Targets; variety: Variety; onVariety: (v: Variety) => void; gap: CapGap }) {
   const t = useT();
   const flip = (m: MealType) => onChange({ ...shape, meals: shape.meals.includes(m) ? shape.meals.filter((x) => x !== m) : PLAN_MEALS.filter((x) => x === m || shape.meals.includes(x)) });
   return (
@@ -621,6 +782,8 @@ function MealsAndSnacks({ shape, onChange, targets, variety, onVariety }: { shap
               </li>
             ))}
           </ul>
+          {/* under a GLP-1 meal cap: why the meals come to less than the day */}
+          <CapNote gap={gap} className="mt-3 border-t border-line pt-3" />
         </div>
       )}
       <h2 className="mt-6 text-lg font-[800]">{t("How often can a meal come round?")}</h2>
@@ -646,8 +809,11 @@ function MealsAndSnacks({ shape, onChange, targets, variety, onVariety }: { shap
   );
 }
 
-/** How long each of Pip's steps shows on "Making your plan" (seven steps: about ten seconds, as the founder asked on 18 November 2026). */
-const MAKING_STEP_MS = 1400;
+/**
+ * How long each of Pip's steps shows on "Making your plan": seven steps, about 20 seconds (founder 2026-11-20: "think for longer during this, maybe like 20
+ * seconds or so"; until then about ten, as asked on 18 November). With Reduce Motion the time is the same, with nothing moving.
+ */
+const MAKING_STEP_MS = 2800;
 
 /**
  * "Making your plan" (founder 2026-11-18: "it should take about maybe 10 seconds ... make sure you show them what you're doing, analysing this, analysing
@@ -826,7 +992,9 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
   const manifest = useShopManifest();
   const shopsAll: Shop[] = useMemo(() => recipeShops(manifest).map((r) => ({ id: r.id, name: r.name })), [manifest]);
   const slots = useMemo(() => saved.slots ?? [...PLAN_MEALS], [saved.slots]);
-  const targets = useSlotTargets(shapeOf(slots));
+  const shape = useMemo(() => shapeOf(slots), [slots]);
+  const targets = useSlotTargets(shape);
+  const gap = useCapGap(shape, targets);
   const [loaded, setLoaded] = useState<Loaded[] | null>(null);
   const [candidates, setCandidates] = useState<Candidates | null>(null);
   const [failed, setFailed] = useState(false);
@@ -870,7 +1038,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
     setLoggedKeys((k) => { const next = new Set(k); next.delete(logged.key); return next; });
     setLogged(null);
   };
-  const planDiet = useMemo(() => (savedHome ? homeDiet(settings.preferences, { others: savedHome.others.map((o, i) => ({ ...o, id: `p${i}` })), allergies: savedHome.allergies, meat: savedHome.meat }) : settings.preferences), [savedHome, settings.preferences]);
+  const planDiet = useMemo(() => (savedHome ? homeDiet(settings.preferences, { others: savedHome.others.map((o, i) => ({ ...o, id: `p${i}` })), allergies: savedHome.allergies, diets: savedHome.diets }) : settings.preferences), [savedHome, settings.preferences]);
   const dietKey = JSON.stringify(planDiet);
   const betterKey = (saved.better ?? []).join("|");
   const cuisineKey = (saved.cuisines ?? []).join("|");
@@ -959,6 +1127,8 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
   }
 
   const shown = week.days[day]!;
+  // the person's own diet, and a home's diets as the plan was made for them
+  const dietLine = [...dietWords(t, settings.preferences), ...(savedHome?.diets ?? []).map((d) => t(HOME_DIET_LABEL[d]))].filter((w, i, all) => all.indexOf(w) === i);
   const avg = (k: "kcal" | "protein") => Math.round(week.days.reduce((s, d) => s + d[k], 0) / week.days.length);
   const choices = swapping === null ? [] : swapChoices(saved.ids, day, swapping, forAll ?? candidates, 10, slots);
   const forN = people > 1 && <span className="block text-[0.8125rem] font-semibold text-muted">{t("for {n}", { n: people })}</span>;
@@ -991,8 +1161,9 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
       <p className="mt-2 text-base leading-snug text-muted">
         {snackCount ? t("{meals} meals and {snacks} snacks from our recipes, with ingredients from {shops}.", { meals: mealCount, snacks: snackCount, shops: names(shopsAll, week.shops) })
           : t("{meals} meals from our recipes, with ingredients from {shops}.", { meals: mealCount, shops: names(shopsAll, week.shops) })}
-        {/* the diet said on the plan itself (usability test 2026-11-19: Raj looked for "all vegetarian" and didn't find it) */}
-        {dietWords(t, settings.preferences).length > 0 && <> {t("Every meal fits your diet: {diet}.", { diet: dietWords(t, settings.preferences).join(", ").toLowerCase() })}</>}
+        {/* the diet said on the plan itself (usability test 2026-11-19: Raj looked for "all vegetarian" and didn't find it), with a home's diets */}
+        {/* each diet as its picker names it, capitals kept (Jain, Kosher style; and German nouns) */}
+        {dietLine.length > 0 && <> {t("Every meal fits your diet: {diet}.", { diet: dietLine.join(", ") })}</>}
       </p>
       {/* another plan whenever they like, at the top where it's seen (founder 2026-11-19); this one is kept among the earlier plans */}
       <div className="mt-3 flex flex-wrap gap-2">
@@ -1009,16 +1180,11 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
         )}
       </div>
 
-      {/* the money first: what the shopping comes to, against the budget */}
+      {/* the money first: what the shopping comes to, against the budget. No Pip on it (founder 2026-11-20, "keep him as the guide, not the decoration";
+          the onboarding meeting: no Pip near money) */}
       <div className={`${CARD} mt-4 p-4`}>
-        <div className="flex items-center gap-3">
-          {/* one calm face, within budget or over it: Pip never reacts to a budget (colour meeting, 19 November 2026) */}
-          <Pip mood="listen" size={56} />
-          <div className="min-w-0">
-            <p className="app-numbers text-[1.75rem] font-[800] leading-none">{formatPrice(week.shoppingCost)}</p>
-            <p className="mt-1 text-[0.9375rem] font-semibold text-muted">{people > 1 ? t("for the week's shopping for {n} people", { n: people }) : t("for the week's shopping")}</p>
-          </div>
-        </div>
+        <p className="app-numbers text-[1.75rem] font-[800] leading-none">{formatPrice(week.shoppingCost)}</p>
+        <p className="mt-1 text-[0.9375rem] font-semibold text-muted">{people > 1 ? t("for the week's shopping for {n} people", { n: people }) : t("for the week's shopping")}</p>
         {/* the budget in plain dark words, within it or over it alike (money is never green or red) */}
         <p className="mt-3 text-[0.9375rem] leading-snug">
           {week.budget === null ? t("No budget set.")
@@ -1028,6 +1194,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
         </p>
         {week.fresh.bought > 0 && <p className="app-numbers mt-2 text-[0.9375rem] leading-snug">{t("{pct}% of the fresh food you buy is eaten this week. Oil, spices, dry goods like rice and pasta, jars and frozen food keep for longer.", { pct: Math.round((100 * week.fresh.eaten) / week.fresh.bought) })}</p>}
         <p className="app-numbers mt-2 text-[0.9375rem] leading-snug">{t("About {kcal} kcal and {protein} g protein a day (your target is {target} kcal).", { kcal: formatInt(avg("kcal")), protein: formatInt(avg("protein")), target: formatInt(settings.dailyCalories) })}</p>
+        <CapNote gap={gap} className="mt-2" />
         {/* the home's allergies: the one amber note, the same words as the check screen; "No allergies at home." stays a plain line */}
         {savedHome && (savedHome.allergies.length
           ? <AllergyNote className="mt-3"><p>{allergyLine(t, savedHome.allergies)}</p></AllergyNote>

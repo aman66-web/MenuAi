@@ -15,7 +15,7 @@ const stats = catalogueStats((JSON.parse(readFileSync(join(process.cwd(), "publi
 const steps = [
   { title: "Pick the restaurant", body: "Search by name and open the whole menu. Works offline once you've opened it." },
   { title: "See every item's numbers", body: "Calories, protein, carbs, fat and salt for the whole menu, free." },
-  { title: "Get the order that fits", body: PRO_ENABLED ? "Pro ranks the five best orders for your goal and what's left today, and adds up custom orders as you tap." : "See the five best orders for your goal and what's left today, and add up your own order as you tap." },
+  { title: "Get the order that fits", body: PRO_ENABLED ? "Premium ranks the five best orders for your goal and what's left today, and adds up custom orders as you tap." : "See the five best orders for your goal and what's left today, and add up your own order as you tap." },
 ];
 
 // The three things the app does (founder 2026-10-10: "it's also for groceries ... recipes based on where you shop"), each with the
@@ -34,7 +34,7 @@ const goals = [
 ];
 
 const faqs = [
-  { q: "Is it free?", a: WEB_PRO_ENABLED || APP_PREMIUM ? `Every restaurant's full menu with calories and macros is free, and so is the Truth card for three dishes a day. Paid access adds the rest: ${PLANS.monthly.price} a month, ${PLANS.annual.price} a year, or a ${PLANS.pass90.price} 90-day pass with no subscription. Prices are shown before you pay.` : PRO_ENABLED ? "Full menus with calories and macros are free for everyone. Pro adds the ranked best orders, the order builder and logging. Pricing will be shown before you pay for anything." : "Yes. Every feature is free, and nothing needs an account except adding friends in Community. There is nothing to buy." },
+  { q: "Is it free?", a: WEB_PRO_ENABLED || APP_PREMIUM ? `Every restaurant's full menu with calories and macros is free, and so is the Truth card for three dishes a day. Paid access adds the rest: ${PLANS.monthly.price} a month, ${PLANS.annual.price} a year, or a ${PLANS.pass90.price} 90-day pass with no subscription. Prices are shown before you pay.` : PRO_ENABLED ? "Full menus with calories and macros are free for everyone. Premium adds the ranked best orders, the order builder and logging. Pricing will be shown before you pay for anything." : "Yes. Every feature is free, and nothing needs an account except adding friends in Community. There is nothing to buy." },
   { q: "Where do the numbers come from?", a: "From each restaurant's own published nutrition information. We show the source and the date we last checked on every chain, never estimate missing values, and fix reported mistakes within 48 hours." },
   { q: "Which restaurants?", a: `${stats.chains > 0 ? `${stats.chains} popular UK chains so far` : "Popular UK chains first"}, taken from each chain's own nutrition guide, with more added based on what people request. US chains come later.` },
   { q: "Is it an app?", a: "There is a web version that works in any browser and can be added to your home screen. An iPhone app is planned; Android may follow later." },

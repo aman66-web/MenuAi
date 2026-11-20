@@ -13,14 +13,17 @@ import { useT } from "../_lib/i18n";
 import { storeProducts, useStoreProducts } from "../_lib/storeProducts";
 import { ErrorBanner } from "./Note";
 import { InkBadge } from "./PremiumBadge";
+import { TrialStory } from "./PremiumOffer";
 import { Button, ChoiceMark, ErrorBox, radioKeyNav } from "./ui";
 
 // The plans in the iPhone app (version 1.1), sold with Apple In-App Purchase (App Store rule 3.1.1). Names and prices come from StoreKit, never from our own table, so
-// the screen always shows what Apple will charge. Under the plans: Apple's required words about renewing and cancelling, and links to the Terms of Use and the Privacy
-// Policy (App Store rule 3.1.2). Nothing here mentions the website or any other way to pay. Colours (colour meeting, 19 November 2026, approved by the founder
-// that day): each plan white with the 1.5 px edge and an empty ring, the chosen one lime with the 2 px dark green edge and a tick; the billed price the largest
-// figure, in the body's ink; "Best value" in the Premium badge's ink look (never lime); Buy the one ink button, busy with its words while the App Store works;
-// Restore an underlined link; a purchase that fails is the error banner; Apple's words at 15 px.
+// the screen always shows what Apple will charge. Under the plans: the chosen plan's billed amount, the largest price on the screen, with the free trial's line
+// smaller beneath it and "Continue" (the onboarding meeting of 20 November 2026, App Review 3.1.2(c): the main button used to say "Start my {days}-day free trial",
+// and the trial headline sat above the prices); then the free trial's own card (PremiumOffer.tsx TrialStory), Restore, Apple's required words about renewing and
+// cancelling, and links to the Terms of Use and the Privacy Policy (App Store rule 3.1.2). Nothing here mentions the website or any other way to pay. Colours
+// (colour meeting, 19 November 2026, approved by the founder that day): each plan white with the 1.5 px edge and an empty ring, the chosen one lime with the 2 px
+// dark green edge and a tick; prices in the body's ink; "Best value" in the Premium badge's ink look (never lime); Continue the one ink button, busy with its
+// words while the App Store works; Restore an underlined link; a purchase that fails is the error banner; Apple's words at 15 px.
 
 const TAGLINE: Record<PlanId, string> = {
   pass90: tk("One payment. 90 days of access. It doesn't renew."),
@@ -50,7 +53,7 @@ export function AppStorePlans() {
   const paid = useStore(paidStore);
   const now = useNow();
   const { products: found, retry } = useStoreProducts();
-  // plans with a free trial for this Apple ID come first: the trial is the headline when there is one
+  // plans with a free trial for this Apple ID come first (and the first is chosen), so the trial's card below the prices is about the chosen plan
   const products = found === "loading" || found === null ? found : [...found].sort((a, b) => Number(!!b.trialDays) - Number(!!a.trialDays));
   const trial = products && products !== "loading" ? products.find((p) => p.trialDays)?.trialDays ?? null : null;
   const [busy, setBusy] = useState<PlanId | "restore" | null>(null);
@@ -135,14 +138,22 @@ export function AppStorePlans() {
           </div>
           {selected && (
             <>
-              <Button size="lg" full className="mt-4 min-h-14 text-[1.0625rem]" busy={busy === selected.plan} busyLabel={t("Waiting for the App Store…")} disabled={busy === "restore"} onClick={() => void buy(selected.plan)}>
-                {selected.trialDays ? t("Start my {days}-day free trial", { days: selected.trialDays }) : selected.period === "none" ? t("Buy for {price}", { price: selected.price }) : t("Subscribe for {price} {per}", { price: selected.price, per: perOf(selected) })}
-              </Button>
-              <p className="app-numbers mt-2 text-center text-[0.9375rem] font-semibold leading-snug">
-                {selected.trialDays ? t("First {days} days free, then {price} {per}.", { days: selected.trialDays, price: selected.price, per: perOf(selected) }) : selected.period === "none" ? t("{price}, one payment. It doesn't renew.", { price: selected.price }) : t("{price} {per}. Renews until you cancel.", { price: selected.price, per: perOf(selected) })}
+              {/* what Apple will charge for the chosen plan: the largest price text on the screen (StoreKit's own words, never typed), then the trial or renewal
+                  line smaller beneath it, then the button */}
+              <p className="app-numbers mt-5 text-center leading-tight">
+                <span className="text-[2rem] font-extrabold tracking-tight">{selected.price}</span>{" "}
+                <span className="text-[1.0625rem] font-bold">{perOf(selected)}</span>
               </p>
+              <p className="app-numbers mt-1 text-center text-[0.9375rem] leading-snug">
+                {selected.trialDays ? t("First {days} days free, then {price} {per}. Renews until you cancel.", { days: selected.trialDays, price: selected.price, per: perOf(selected) }) : selected.period === "none" ? t("{price}, one payment. It doesn't renew.", { price: selected.price }) : t("{price} {per}. Renews until you cancel.", { price: selected.price, per: perOf(selected) })}
+              </p>
+              <Button size="lg" full className="mt-3.5 min-h-14 text-[1.0625rem]" busy={busy === selected.plan} busyLabel={t("Waiting for the App Store…")} disabled={busy === "restore"} onClick={() => void buy(selected.plan)}>
+                {selected.trialDays ? t("Continue") : selected.period === "none" ? t("Buy for {price}", { price: selected.price }) : t("Subscribe for {price} {per}", { price: selected.price, per: perOf(selected) })}
+              </Button>
             </>
           )}
+          {/* the free trial's headline, badge and how the free week works, below the prices (never above them) */}
+          <TrialStory trial={trial} />
         </>
       )}
 

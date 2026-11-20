@@ -10,9 +10,9 @@ import { CheckIcon, CompareIcon } from "./icons";
 
 /**
  * "Compare" on a product or dish page: adds it to the compare list (or takes it off), and links to the comparison.
- * A pill like the secondary actions beside it (white on the page, light grey on a card); once the item is in the comparison the
- * pill turns lime, the app's colour for "selected", with a tick where there's room for it beside the words (in half a row the
- * words come first, so they stay on one line).
+ * A pill like the secondary actions beside it (Share and Save: white with the 1.5 px edge, ink words); once the item is in the comparison the
+ * pill takes the chosen look (lime with the 2 px dark green edge and bold words, the colour plan's "selected"), with a tick where there's room for it
+ * beside the words (in half a row the words come first, so they stay on one line). The edge's width never changes, so the row never shifts.
  */
 export function CompareButton({ item, full }: { item: CompareItem; full?: boolean }) {
   const t = useT();
@@ -45,7 +45,7 @@ export function CompareButton({ item, full }: { item: CompareItem; full?: boolea
         type="button"
         aria-pressed={on}
         onClick={toggle}
-        className={`${full ? "flex w-full @container" : "inline-flex"} min-h-11 items-center justify-center gap-2 rounded-full px-4 text-[0.9375rem] font-semibold leading-snug transition duration-150 active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "bg-sun text-on-accent hover:bg-[color-mix(in_srgb,var(--sun)_93%,var(--foreground))]" : "glass text-foreground hover:bg-soft-strong"}`}
+        className={`${full ? "flex w-full @container" : "inline-flex"} min-h-11 items-center justify-center gap-2 rounded-full px-4 text-[0.9375rem] font-semibold leading-snug transition duration-150 active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent border-[1.5px] ${on ? "border-on-sun bg-sun font-bold text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-edge bg-card text-foreground hover:bg-background active:bg-background"}`}
       >
         {on ? <CheckIcon className={`h-5 w-5 shrink-0 ${full ? "hidden @[13rem]:block" : ""}`} /> : <CompareIcon className="h-5 w-5 shrink-0" />}
         <span className="text-balance">{on ? t("In your comparison") : t("Compare")}</span>

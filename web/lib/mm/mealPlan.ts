@@ -1,5 +1,5 @@
 import { tk } from "./i18n";
-import { platesFor, sanitizeHousehold, yourPortionDistance, type HomeMeat, type HomePerson } from "./household";
+import { platesFor, sanitizeHousehold, yourPortionDistance, type HomeDiet, type HomePerson } from "./household";
 import type { AllergenKey } from "./types";
 import type { DietPrefs } from "./pantry";
 import { PANTRY } from "./pantry";
@@ -721,9 +721,10 @@ export interface SavedPlan {
   swapped?: boolean;
   /** How many people the shopping is for (PLAN_PEOPLE); absent = one, as plans were before 19 November. */
   people?: number;
-  /** A plan cooked for a household (founder 2026-11-19): the others' age groups and portion sizes (never names) and the home's allergies and meat answer
-   *  as they were when the plan was made, so the week is rebuilt the same way. Absent = the user alone (or `people` copies of them, before 19 November). */
-  home?: { others: Array<Pick<HomePerson, "group" | "portion">>; allergies: AllergenKey[]; meat: HomeMeat };
+  /** A plan cooked for a household (founder 2026-11-19): the others' age groups and portion sizes (never names) and the home's allergies and diets
+   *  as they were when the plan was made, so the week is rebuilt the same way. Absent = the user alone (or `people` copies of them, before 19 November).
+   *  A plan from before 20 November kept a meat answer instead of the diets: it is read as the diet it meant (household.ts sanitizeHomeDiets). */
+  home?: { others: Array<Pick<HomePerson, "group" | "portion">>; allergies: AllergenKey[]; diets: HomeDiet[] };
 }
 
 export function sanitizePlan(raw: unknown): SavedPlan | null {
@@ -746,7 +747,7 @@ export function sanitizePlan(raw: unknown): SavedPlan | null {
   const homeOk = homeRaw && Array.isArray(homeRaw.others) && homeRaw.others.length >= 1
     ? sanitizeHousehold({ ...homeRaw, others: (homeRaw.others as unknown[]).map((o, i) => (o && typeof o === "object" ? { ...(o as object), id: `p${i}`, name: undefined } : o)) })
     : null;
-  const home = homeOk && homeOk.others.length ? { others: homeOk.others.map((o) => ({ group: o.group, portion: o.portion })), allergies: homeOk.allergies, meat: homeOk.meat } : null;
+  const home = homeOk && homeOk.others.length ? { others: homeOk.others.map((o) => ({ group: o.group, portion: o.portion })), allergies: homeOk.allergies, diets: homeOk.diets } : null;
   return { shops, ids, leaveOut, budget, start: r.start, ...(slotsOk ? { slots } : {}), ...(better.length ? { better } : {}), ...(variety ? { variety } : {}), ...(cuisines.length ? { cuisines } : {}), ...(r.swapped === true ? { swapped: true } : {}), ...(home ? { home } : typeof r.people === "number" && (PLAN_PEOPLE as readonly number[]).includes(r.people) && r.people > 1 ? { people: r.people } : {}) };
 }
 

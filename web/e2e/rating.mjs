@@ -15,7 +15,7 @@ async function phone(rating) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   await ctx.addInitScript(({ s, r }) => {
     if (!localStorage.getItem("mm.v1.settings")) localStorage.setItem("mm.v1.settings", s);
-    localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 1 }));
+    localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 2 }));
     localStorage.setItem("mm.v1.trialOffer", JSON.stringify({ v: 1, data: true }));
     if (r && !localStorage.getItem("mm.v1.rating")) localStorage.setItem("mm.v1.rating", JSON.stringify({ v: 1, data: r }));
     window.__bridgeCalls = [];

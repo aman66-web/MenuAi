@@ -79,9 +79,9 @@ await step("first launch with no signal: the welcome wall follows the appLogos s
   await ctx.close();
 });
 
-// The welcome tour (lib/mm/tour.ts): the layout's inline script sends a cold, plain start of the app's start page to the welcome screens (the scheme handler
+// The welcome screens (lib/mm/tour.ts): the layout's inline script sends a cold, plain start of the app's start page to the welcome screens (the scheme handler
 // serves welcome/index.html), before anything is drawn; a link the app opens instead of its start page (a shared list) opens as it is.
-await step("first launch: a cold plain start of /app opens the welcome tour; a start on a shared list's link opens the list, not the tour", async () => {
+await step("first launch: a cold plain start of /app opens the welcome screens; a start on a shared list's link opens the list, not the welcome screens", async () => {
   const { ctx, page } = await newPage({ settings: null });
   await page.goto(BASE + "/app");
   await page.waitForURL(/\/app\/welcome/, { timeout: 15000 });
@@ -94,6 +94,28 @@ await step("first launch: a cold plain start of /app opens the welcome tour; a s
   await two.page.waitForTimeout(800);
   expect(!/welcome/.test(two.page.url()), "a shared list was sent to the tour: " + two.page.url());
   await two.ctx.close();
+});
+
+// The onboarding redesign meeting of 20 November 2026 (build list 17, "the website build against the app build"): in the iPhone app the menus and the shops'
+// files are inside the app, so the feature screens never wait on a connection: step 3's dishes and step 5's recipes show with no signal (the website says
+// "Menus need a connection the first time" instead), and the week is made from the packed shop file.
+await step("the welcome steps with no signal: step 3's restaurant dishes, step 5's two recipes and step 10's week come from the files packed in the app", async () => {
+  const { ctx, page } = await newPage({ settings: null });
+  await page.goto(BASE + "/app/welcome");
+  await page.getByRole("button", { name: "Get started" }).click();
+  await page.getByRole("heading", { name: "What's your goal?" }).waitFor({ timeout: 15000 });
+  await page.getByRole("button", { name: "Skip", exact: true }).click();
+  await page.getByRole("button", { name: "Nothing to avoid" }).click();
+  await page.getByRole("radiogroup", { name: "Restaurants" }).waitFor({ timeout: 15000 });
+  expect((await page.getByText("Menus need a connection the first time.", { exact: false }).count()) === 0, "the website's connection line in the app");
+  await page.getByRole("button", { name: "Next: where you shop" }).click();
+  await page.getByRole("button", { name: "Continue" }).click();
+  await page.getByRole("region", { name: "A look at Recipes" }).locator("button[aria-pressed]").first().waitFor({ timeout: 15000 });
+  await page.getByRole("button", { name: "Next: your daily numbers" }).click();
+  await page.getByRole("button", { name: "Skip these questions" }).click();
+  await page.getByRole("button", { name: "Next: plan my week" }).click();
+  await page.getByRole("region", { name: "A look at Meal plan, on Home" }).locator("h2", { hasText: /^Monday$/ }).waitFor({ timeout: 15000 });
+  await ctx.close();
 });
 
 await step("no signal: every restaurant comes from the menus packed in the app; no service worker; the live website was tried", async () => {

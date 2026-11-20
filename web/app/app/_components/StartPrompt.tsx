@@ -13,11 +13,12 @@ import { DietPicker, PickTile } from "./DietPicker";
 import { SourcesLink } from "./SourcesLink";
 import { Button, Card, Sheet } from "./ui";
 
-// Instant utility first (founder's brief, 13 Nov 2026): nobody is stopped at the door by a questionnaire any more. A first visit goes straight to
-// the app with sensible defaults (goal "Maintain", a 2,000 kcal day, no diet filters), and this quiet card offers to fit it to the person: one
-// sheet with the goal and what they avoid, nothing else. The longer guided setup (Pip, daily numbers from age and size) is reached through the welcome tour's
-// "Set up my daily numbers" (a first plain launch opens the tour: lib/mm/tour.ts), and is reachable from Settings > Set up with Pip. Someone who arrived by a link and hasn't
-// had a plain launch yet can see the tour from here ("Show me around": just the five stops, nothing saved, back to this page).
+// Instant utility first (founder's brief, 13 Nov 2026): nobody is stopped at the door by a questionnaire any more. Someone who reaches Home without having
+// set up (a link opened before any plain launch, or the website) gets sensible defaults (goal "Maintain", a 2,000 kcal day, no diet filters), and this quiet
+// card offers to fit it to them: one sheet with the goal and what they avoid, nothing else. The full setup (the welcome screens: the questions, daily numbers
+// from age and size, and the three feature screens) runs on the next plain launch (lib/mm/tour.ts) and from Settings › Set up your plan again.
+// "See what Numbite can do" opens the same replay as Settings › Help (the onboarding meeting, 20 November 2026: /app/welcome?showcase=1, the three feature
+// screens with the person's current settings, saving nothing, Close or Done coming back here); it replaced "Show me around" and the tab tour.
 // Answering saves the goal and diet and counts as having set up, so the card goes away; "Not now" hides it too (the same flag the targets card uses).
 // The goals' hints are the welcome screen's own (the onboarding meeting, 19 November: "Stay where you are" was unclear, and "orders" didn't fit people who cook).
 
@@ -62,7 +63,7 @@ export function StartPrompt({ className = "" }: { className?: string }) {
           <Button size="lg" variant="secondary" onClick={() => updateSettings({ dismissedTargetsCard: true })}>{t("Not now")}</Button>
         </div>
         {/* green words are always underlined, like every link (colour meeting, 19 November 2026) */}
-        <Link href="/app/welcome?tour=1" className="inline-flex min-h-11 items-center self-start text-[15px] font-semibold text-accent underline underline-offset-2">{t("Show me around")}</Link>
+        <Link href="/app/welcome?showcase=1" className="inline-flex min-h-11 items-center self-start text-[15px] font-semibold text-accent underline underline-offset-2">{t("See what {app} can do", { app: site.name })}</Link>
       </Card>
       <Sheet open={open} onClose={() => setOpen(false)} title={t("Make {app} fit you", { app: site.name })}>
         <p className="text-base font-bold">{t("Your goal")}</p>

@@ -49,6 +49,12 @@ const websiteConfig: NextConfig = {
         headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }, ...openToTheApp],
       },
       {
+        // The remote switches (lib/mm/appSwitches.ts), read by the installed iPhone app from app://menumath, so it needs the same open headers as the
+        // taken-down logos list or the app's fetch is refused and the switch never reaches it.
+        source: "/app-switches.json",
+        headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }, ...openToTheApp],
+      },
+      {
         // Dish, recipe and stored product photos are named by a hash of their content (tools/uk_extract/images_common.py, tools/recipes/import_recipe_images.py,
         // tools/groceries/fetch_retailer_images.py), so a file never changes: the iPhone app loads them from here and keeps them (lib/mm/config.ts REMOTE_IMAGES).
         source: "/:dir(menu-images|recipe-images|grocery-images)/:path*",

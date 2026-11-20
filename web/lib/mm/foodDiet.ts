@@ -1,4 +1,4 @@
-import { englishT, type T } from "./i18n";
+import { englishT, tk, type T } from "./i18n";
 import type { AllergenKey, Preferences } from "./types";
 
 // Diet settings for supermarket products (founder 2026-10-11: "I put in vegetarian and it's suggesting meat items, fix all of this").
@@ -161,16 +161,51 @@ export function foodDietProblem(f: FoodFacts, prefs: Preferences): DietProblem |
   return null;
 }
 
+/**
+ * The six diets added on 20 November 2026 (founder: "cater to every single diet you can possibly think about"; lib/mm/pantry.ts kindExcluded). Recipes and the
+ * meal plan leave out what each one doesn't allow, from the shops' ingredient lists. Restaurant menus print no ingredients, and products are not read for them
+ * yet, so neither is ever said to fit one: the restaurant pages and the grocery lists say they aren't checked (lib/mm/menu-view.ts restaurantDietNote,
+ * foodDietNotChecked below). foodDietProblem does not act on them.
+ */
+export type MoreDietKey = "jain" | "noOnionGarlic" | "kosherStyle" | "noRedMeat" | "noAlcohol" | "noHalalKosherMeat";
+export const MORE_DIET_KEYS: readonly MoreDietKey[] = ["jain", "noOnionGarlic", "kosherStyle", "noRedMeat", "noAlcohol", "noHalalKosherMeat"];
+/** Their names, as the diet picker's tiles say them. */
+export const MORE_DIET_LABEL: Record<MoreDietKey, string> = {
+  jain: tk("Jain"),
+  noOnionGarlic: tk("No onion or garlic"),
+  kosherStyle: tk("Kosher style"),
+  noRedMeat: tk("No red meat"),
+  noAlcohol: tk("No alcohol"),
+  noHalalKosherMeat: tk("No halal or kosher meat"),
+};
+/** Which of the six are on, in the picker's order. */
+export const moreDietsOn = (p: Preferences): MoreDietKey[] => MORE_DIET_KEYS.filter((k) => p[k] === true);
+
+/** The diets' names inside a sentence, each in quotes so a name with "or" in it reads as one ("“Jain” and “No onion or garlic”"). */
+export function dietNameList(keys: readonly MoreDietKey[], t: T = englishT): string {
+  const names = keys.map((k) => t("“{name}”", { name: t(MORE_DIET_LABEL[k]) }));
+  if (names.length <= 1) return names[0] ?? "";
+  return t("{a} and {b}", { a: names.slice(0, -1).join(", "), b: names[names.length - 1]! });
+}
+
+/** The grocery lists' line while any of the six is on: products aren't read for them, so a product left in is never said to fit (null when none is on). */
+export function foodDietNotChecked(prefs: Preferences, t: T = englishT): string | null {
+  const on = moreDietsOn(prefs);
+  return on.length ? t("Products aren't checked for {diets}. Always check the pack.", { diets: dietNameList(on, t) }) : null;
+}
+
 /** Any setting foodDietProblem acts on. */
 export const anyFoodDiet = (p: Preferences): boolean =>
   p.vegetarianOnly || p.noPork || p.noBeef || Boolean(p.veganOnly) || Boolean(p.pescatarianOnly) || Boolean(p.halalOnly) || Boolean(p.avoidAllergens?.length);
 
-/** The calm line under a grocery list while the diet filter is on (null when no diet word applies). */
+/** The calm line under a grocery list while the diet filter is on (null when no diet word applies), with the diets products aren't checked for after it. */
 export function foodDietCaution(prefs: Preferences, t: T = englishT): string | null {
   const promises = [prefs.vegetarianOnly && t("vegetarian"), prefs.veganOnly && t("vegan"), prefs.pescatarianOnly && t("pescatarian"), prefs.halalOnly && t("halal"), prefs.noPork && t("pork-free"), prefs.noBeef && t("beef-free")].filter((p): p is string => Boolean(p));
-  if (promises.length === 0) return null;
+  if (promises.length === 0) return foodDietNotChecked(prefs, t);
   const what = promises.reduce((a, b) => t("{a} or {b}", { a, b }));
-  return t("We go by each product's name, type and label, so this can't promise a product is {what}. Always check the pack.", { what });
+  const caution = t("We go by each product's name, type and label, so this can't promise a product is {what}. Always check the pack.", { what });
+  const more = moreDietsOn(prefs);
+  return more.length ? `${caution} ${t("Products aren't checked for {diets}.", { diets: dietNameList(more, t) })}` : caution;
 }
 
 /** A grocery listing as facts: every shop's own name and ingredients count (they can word the same product differently). */

@@ -1,5 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { GROUP_SHARE, NO_HOUSEHOLD, homeDiet, newPerson, personShare, platesFor, sanitizeHousehold, shareWords, withCount } from "../lib/mm/household";
+import { ALL_HOME_DIETS, GROUP_SHARE, HOME_DIETS, MORE_HOME_DIETS, NO_HOUSEHOLD, homeDiet, newPerson, personShare, platesFor, sanitizeHousehold, shareWords, toggleHomeDiet, withCount } from "../lib/mm/household";
+import { kindExcluded, PANTRY } from "../lib/mm/pantry";
+import { recipeForDiet } from "../lib/mm/recipes";
+import { RECIPES } from "../lib/mm/recipeBook";
 import { forHousehold, householdCandidate, sanitizePlan, type PlanCandidate } from "../lib/mm/mealPlan";
 
 // The people a meal plan cooks for (founder 2026-11-19; the 20-agent meeting): kept on the phone, ages and portions only, allergies for the whole home,
@@ -32,11 +35,35 @@ describe("how many people", () => {
 });
 
 describe("the home's diet", () => {
-  it("adds the home's allergies and its meat answer to the person's own, and leaves Just me alone", () => {
-    const home = { others: [newPerson("a")], allergies: ["peanuts" as const], meat: "vegetarian" as const };
+  it("adds the home's allergies and every diet anyone at home follows to the person's own, and leaves Just me alone", () => {
+    const home = { others: [newPerson("a")], allergies: ["peanuts" as const], diets: ["vegetarianOnly" as const] };
     expect(homeDiet({ noPork: true, avoidAllergens: ["milk"] }, home)).toEqual({ noPork: true, avoidAllergens: ["milk", "peanuts"], vegetarianOnly: true });
     expect(homeDiet({ noPork: true }, { ...home, others: [] })).toEqual({ noPork: true });
-    expect(homeDiet({}, { ...home, meat: "vegan" }).veganOnly).toBe(true);
+    expect(homeDiet({}, { ...home, diets: ["veganOnly"] }).veganOnly).toBe(true);
+    // the newer diets too (founder 2026-11-20: "cater to every single diet"), several at once
+    expect(homeDiet({ halalOnly: true }, { ...home, allergies: [], diets: ["jain", "noAlcohol"] })).toEqual({ halalOnly: true, jain: true, noAlcohol: true });
+  });
+  it("offers every diet the person's own picker knows: the six everyone knows first, the six more behind More diets", () => {
+    expect(HOME_DIETS).toEqual(["vegetarianOnly", "veganOnly", "pescatarianOnly", "halalOnly", "noPork", "noBeef"]);
+    expect(MORE_HOME_DIETS).toEqual(["jain", "noOnionGarlic", "kosherStyle", "noRedMeat", "noAlcohol", "noHalalKosherMeat"]);
+    expect([...HOME_DIETS, ...MORE_HOME_DIETS]).toEqual([...ALL_HOME_DIETS]);
+  });
+  it("turns one diet on or off, kept in the screen's order", () => {
+    expect(toggleHomeDiet([], "noAlcohol")).toEqual(["noAlcohol"]);
+    expect(toggleHomeDiet(["noAlcohol"], "vegetarianOnly")).toEqual(["vegetarianOnly", "noAlcohol"]);
+    expect(toggleHomeDiet(["vegetarianOnly", "noAlcohol"], "vegetarianOnly")).toEqual(["noAlcohol"]);
+  });
+  it("every meal fits all of the home's diets: a recipe left out for one is left out for the home", () => {
+    const home = { others: [newPerson("a")], allergies: [], diets: ["noOnionGarlic" as const, "kosherStyle" as const] };
+    const diet = homeDiet({}, home);
+    const allium = RECIPES.find((r) => r.ingredients.some((i) => i.pantry && PANTRY.get(i.pantry)?.allium));
+    expect(allium).toBeTruthy();
+    expect(recipeForDiet(allium!, diet)).toBeNull();
+    for (const r of RECIPES) {
+      const fit = recipeForDiet(r, diet);
+      if (!fit) continue;
+      for (const i of fit.ingredients) { const k = i.pantry ? PANTRY.get(i.pantry) : undefined; if (k) expect(kindExcluded(k, diet)).toBeNull(); }
+    }
   });
 });
 
@@ -89,15 +116,24 @@ describe("a plan for a household", () => {
 });
 
 describe("what is kept", () => {
-  it("keeps only ages, portions, a short name, the home's allergies and its meat answer", () => {
-    const h = sanitizeHousehold({ others: [{ id: "a", group: "teen", portion: "bigger", name: "  Sam   Smith with a very long name indeed " }, { id: "a", group: "x" }, { id: "b", group: "nope", portion: "nope" }], allergies: ["peanuts", "peanuts", "gravel"], meat: "vegan", email: "x@y.z" });
-    expect(h).toEqual({ others: [{ id: "a", group: "teen", portion: "bigger", name: "Sam Smith with a ver" }, { id: "b", group: "adult", portion: "usual" }], allergies: ["peanuts"], meat: "vegan" });
+  it("keeps only ages, portions, a short name, the home's allergies and its diets", () => {
+    const h = sanitizeHousehold({ others: [{ id: "a", group: "teen", portion: "bigger", name: "  Sam   Smith with a very long name indeed " }, { id: "a", group: "x" }, { id: "b", group: "nope", portion: "nope" }], allergies: ["peanuts", "peanuts", "gravel"], diets: ["noAlcohol", "jain", "jain", "carnivore", "avoidAllergens"], email: "x@y.z" });
+    expect(h).toEqual({ others: [{ id: "a", group: "teen", portion: "bigger", name: "Sam Smith with a ver" }, { id: "b", group: "adult", portion: "usual" }], allergies: ["peanuts"], diets: ["jain", "noAlcohol"] });
     expect(sanitizeHousehold(null)).toEqual(NO_HOUSEHOLD);
   });
-  it("a saved plan keeps the home's ages and portions, never names", () => {
+  it("reads the meat answer of before 20 November as the diet it meant", () => {
+    expect(sanitizeHousehold({ others: [], allergies: [], meat: "vegan" }).diets).toEqual(["veganOnly"]);
+    expect(sanitizeHousehold({ others: [], allergies: [], meat: "vegetarian" }).diets).toEqual(["vegetarianOnly"]);
+    expect(sanitizeHousehold({ others: [], allergies: [], meat: "all" }).diets).toEqual([]);
+    expect(sanitizeHousehold({ others: [], allergies: [], meat: "vegan", diets: ["halalOnly"] }).diets).toEqual(["veganOnly", "halalOnly"]);
+  });
+  it("a saved plan keeps the home's ages, portions and diets, never names", () => {
     const ids = Array.from({ length: 7 }, () => ["r1", "r2", "r3"]);
-    const p = sanitizePlan({ shops: ["asda"], ids, leaveOut: [], budget: 60, start: "2026-11-23", home: { others: [{ group: "child", portion: "usual", name: "Sam", id: "q" }], allergies: ["peanuts"], meat: "all" } });
-    expect(p?.home).toEqual({ others: [{ group: "child", portion: "usual" }], allergies: ["peanuts"], meat: "all" });
+    const p = sanitizePlan({ shops: ["asda"], ids, leaveOut: [], budget: 60, start: "2026-11-23", home: { others: [{ group: "child", portion: "usual", name: "Sam", id: "q" }], allergies: ["peanuts"], diets: ["noOnionGarlic", "halalOnly"] } });
+    expect(p?.home).toEqual({ others: [{ group: "child", portion: "usual" }], allergies: ["peanuts"], diets: ["halalOnly", "noOnionGarlic"] });
     expect(JSON.stringify(p)).not.toContain("Sam");
+    // a plan saved before 20 November, with the meat answer
+    const old = sanitizePlan({ shops: ["asda"], ids, leaveOut: [], budget: 60, start: "2026-11-19", home: { others: [{ group: "adult", portion: "usual" }], allergies: [], meat: "vegetarian" } });
+    expect(old?.home).toEqual({ others: [{ group: "adult", portion: "usual" }], allergies: [], diets: ["vegetarianOnly"] });
   });
 });

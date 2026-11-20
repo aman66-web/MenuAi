@@ -10,16 +10,17 @@ import { useT } from "../_lib/i18n";
 import { ChevronRightIcon } from "./icons";
 import { PAIR_STACK_REM } from "./HomeToday";
 
-// Home's numbers as three pages you slide sideways, with three dots under them (founder 2026-11-19: "I also want like 3 dots here showing that they can also
-// swipe right to see different things like stats"; the 20-person meeting's conclusion the same day): Today (the two dark cards, as before), Calories and protein
-// this week, and Today: sugar, salt and fibre.
+// Home's numbers as pages you slide sideways, with a dot for each under them (founder 2026-11-19: "I also want like 3 dots here showing that they can also
+// swipe right to see different things like stats"; the 20-person meeting's conclusion the same day). Two pages since 20 November (decided overnight under the
+// founder's delegation): Today (the two dark cards) and Calories and protein this week; the sugar, salt and fibre page is no longer shown (HomeLabels.tsx and
+// lib/mm/labelTotals.ts are kept).
 // - Only the browser's own scrolling: CSS scroll snap, one page per swipe (snap-stop), no touch handlers, no library. WebKit keeps a vertical drag for the page.
-// - The dots are real buttons (44 pt each, touching), so nobody has to swipe; the one shown is a dark pill. Home always opens on Today; nothing is remembered.
-// - A first-time hint under the dots ("Slide the cards sideways, or tap here, to see your week") until page 2 or 3 is seen, on at most five days, and one slow
+// - The dots are real buttons (44 pt tall, touching), so nobody has to swipe; the one shown is a dark pill. Home always opens on Today; nothing is remembered.
+// - A first-time hint under the dots ("Slide the cards sideways, or tap here, to see your week") until page 2 is seen, on at most five days, and one slow
 //   demonstration slide once per device (never while Pip's tips are due, never with reduced motion). On this device only (homePagesStore).
 // - When the cards stack (a narrow phone or large text: the content is under PAIR's 20.375rem), the pages show one under another with no dots, hint or slide:
 //   nothing sits behind a swipe for the people who most need big text.
-// - VoiceOver reads the three pages in order ("Today, 1 of 3"...); none is ever hidden.
+// - VoiceOver reads the pages in order ("Today, 1 of 2"...); none is ever hidden.
 
 export interface HomePage {
   /** The page's name, for its dot and for a screen reader ("Calories and protein this week"). */
@@ -155,7 +156,7 @@ export function HomePages({ pages, now }: { pages: HomePage[]; now: Date }) {
           ))}
         </div>
       </div>
-      {/* three dots under the cards, where the founder drew them: real 44 pt buttons, the page shown a dark pill */}
+      {/* a dot for each page under the cards, where the founder drew them: real 44 pt buttons, the page shown a dark pill */}
       {/* close together, an even 14 pt apart (founder 2026-11-20: "make that gap more short and even so it looks nicer"). Each dot's button is its own share of
           the row with no overlap: 7 pt of the gap on each inner side, 30 pt more on the outer ends; all 44 pt tall, so the outer dots get wide targets and the
           middle one 24 pt (WCAG 2.5.8's minimum), and a tap on any dot always opens that dot's page */}
@@ -184,5 +185,5 @@ export function HomePages({ pages, now }: { pages: HomePage[]; now: Date }) {
   );
 }
 
-/** The pages' names (their dots and what a screen reader says). */
+/** The pages' names (their dots and what a screen reader says). `labels` is the page no longer shown (HomeLabels.tsx), kept for when it comes back. */
 export const HOME_PAGE_NAMES = { today: tk("Today"), week: tk("Calories and protein this week"), labels: tk("Sugar, salt and fibre") };

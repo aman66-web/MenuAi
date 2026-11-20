@@ -4,12 +4,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
+import { needsPaywall } from "@/lib/mm/entitlements";
 import { tk } from "@/lib/mm/i18n";
 import { hasMacros } from "@/lib/mm/nutrients";
 import { describeOrder, lineFromItem, orderName, orderNutrients } from "@/lib/mm/order";
 import { builderHref, chainHref } from "@/lib/mm/routes";
 import { addLogEntry, addSavedOrder, countProAction, noteItemViewed } from "@/lib/mm/stores";
 import { useGate } from "../_components/Paywall";
+import { PremiumBadge } from "../_components/PremiumBadge";
 import { HeartIcon, ChevronRightIcon, InfoIcon, PlusIcon } from "../_components/icons";
 import { PageHeader } from "../_components/PageHeader";
 import { Toast } from "../_components/Toast";
@@ -22,7 +24,7 @@ import { CompareButton } from "../_components/CompareButton";
 import { compareDish } from "../_lib/compare";
 import { ReportSheet } from "../_components/Submit";
 import { Badge, Button, ErrorBox, Spinner } from "../_components/ui";
-import { useChain, useMenu } from "../_lib/hooks";
+import { useChain, useIsPro, useMenu } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 
 // SPEC §7.5: name, serving, big calories, then protein/carbs/fat, then the optional nutrients ("not published").
@@ -39,6 +41,10 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
   const t = useT();
   const router = useRouter();
   const { gate } = useGate();
+  // Premium's badge on a paid action, only where a tap would open the paywall (a build that sells it; the paid tier keeps both free)
+  const pro = useIsPro();
+  const logPaid = needsPaywall("log", { pro });
+  const builderPaid = needsPaywall("orderBuilder", { pro });
   const menu = useMenu();
   const { status, index, error, retry } = useChain(chainId);
   const [message, setMessageText] = useState<string | null>(null);
@@ -103,11 +109,13 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
           >
             <PlusIcon aria-hidden className="h-5 w-5" />
             {t("Add to today")}
+            {logPaid && <PremiumBadge onInk />}
           </Button>
           <div className="mt-2.5 grid grid-cols-2 gap-2.5 @max-[14rem]:grid-cols-1">
             <Button
               variant="secondary"
               full
+              className={builderPaid ? "flex-wrap" : undefined}
               onClick={() =>
                 gate("orderBuilder", () => {
                   analytics.track({ name: "builderOpened", origin: "item" });
@@ -116,6 +124,7 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
               }
             >
               {t("Change the order")}
+              {builderPaid && <PremiumBadge />}
             </Button>
             <Button
               variant="secondary"
@@ -150,6 +159,7 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
           })}>
             <PlusIcon aria-hidden className="h-5 w-5" />
             {t("Add to today")}
+            {logPaid && <PremiumBadge onInk />}
           </Button>
           <div className="mt-2.5 grid grid-cols-2 gap-2.5 @max-[14rem]:grid-cols-1">
             <Button variant="secondary" full onClick={() => gate("saveLimit", () => {

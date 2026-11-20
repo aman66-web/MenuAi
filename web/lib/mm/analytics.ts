@@ -1,21 +1,30 @@
 // SPEC §14: anonymous events, no location, no health values, no free text.
 // Two parts:
 //   * `analytics.track` (the SPEC's event list): an interface only. Events print to the console in development and go nowhere, ever, until the founder picks
-//     what to do with them; nothing below sends them.
-//   * `reportSetupScreen` (the onboarding meeting of 19 November 2026, question 10, approved by the founder that day): one anonymous count each time the
-//     welcome screens reach a screen for the first time on this page load, sent to TelemetryDeck (CLAUDE.md rule 6: pre-approved) by a plain fetch, no SDK.
+//     what to do with them; nothing below sends them, except `welcomeStep`, which is the setup screen count below under another name.
+//   * `reportSetupScreen` (the onboarding meeting of 19 November 2026, question 10, approved by the founder that day; its names follow the welcome steps of the
+//     redesign of 20 November, lib/mm/welcomeSteps.ts): one anonymous count each time the welcome screens reach a screen for the first time on this page load,
+//     sent to TelemetryDeck (CLAUDE.md rule 6: pre-approved) by a plain fetch, no SDK.
 //     BUILT SWITCHED OFF: with NEXT_PUBLIC_TELEMETRY_APP_ID unset (lib/mm/config.ts TELEMETRY_ENABLED) it does nothing at all: no request, and no id is made
 //     or stored. Switched on, each signal is exactly { appID, clientUser, type: "setupScreen", payload: { "Setup.screen": <the screen's name> } } (plus
 //     isTestMode outside production builds): clientUser is a SHA-256 hash of a random number made on this device (mm.v1.installId, never synced, removed by
 //     Settings › Clear data), so TelemetryDeck can tell one phone's counts from another's without anyone knowing whose they are. No account, email, answers,
-//     settings, location, page address or referrer ever goes with it. While it is on, the cover, the sign-in screen and the privacy page say so.
+//     goal, body measurement, nutrition figure, settings, location, page address or referrer ever goes with it: only the screen's name, from a fixed list. While
+//     it is on, the cover, the sign-in screen and the privacy page say so. Switching it on is the founder's (with the App Privacy answers updated to match).
+// The onboarding redesign meeting (20 November 2026, build list 15): onboardingCompleted carries no goal ("glp1" would say someone takes a medicine: health
+// data), onboardingSkipped carries the step's name rather than a number, and welcomeStep carries the step's name only.
 
 import { TELEMETRY_APP_ID } from "./config";
 import type { KeyValueStorage } from "./persist";
+import { WELCOME_STEPS, type WelcomeStepId } from "./welcomeSteps";
 
 export type AnalyticsEvent =
-  | { name: "onboardingCompleted"; goal: string }
-  | { name: "onboardingSkipped"; step: number }
+  /** the welcome screens finished (never the goal: "glp1" is health data) */
+  | { name: "onboardingCompleted" }
+  /** a skip on a welcome step: which step, by its name */
+  | { name: "onboardingSkipped"; step: WelcomeStepId }
+  /** a welcome step reached: its name only (never an answer, a body measurement, a goal or a nutrition figure); counted as a setup screen */
+  | { name: "welcomeStep"; step: WelcomeStepId }
   | { name: "chainOpened"; chainId: string; source: "search" | "favorite" | "popular" | "saved" }
   | { name: "itemOpened"; chainId: string }
   | { name: "menuSorted"; kind: string }
@@ -39,6 +48,8 @@ export interface Analytics {
 export const consoleAnalytics: Analytics = {
   track(event) {
     if (process.env.NODE_ENV !== "production") console.debug("[analytics]", event);
+    // the one event with somewhere to go: the setup screen count (nothing at all while TelemetryDeck is switched off)
+    if (event.name === "welcomeStep") reportSetupScreen(event.step);
   },
 };
 
@@ -46,29 +57,12 @@ export const analytics: Analytics = consoleAnalytics;
 
 // ---- The setup screen counts (TelemetryDeck) ----
 
-/** Every name a setup screen count can carry: a fixed list, so no typed word, answer or number can ever be sent. Anything else is dropped. */
-export const SETUP_SCREENS = [
-  "cover",
-  "arrival",
-  "textSize",
-  "tour.home",
-  "tour.eatOut",
-  "tour.groceries",
-  "tour.recipes",
-  "tour.community",
-  "fork",
-  "goal",
-  "avoid",
-  "aboutYou",
-  "yourSize",
-  "activity",
-  "targets",
-  "signIn.setup",
-  "signIn.look",
-  "signIn.returning",
-  "shops",
-  "allSet",
-] as const;
+/**
+ * Every name a setup screen count can carry: a fixed list, so no typed word, answer or number can ever be sent. Anything else is dropped. The welcome cover, its
+ * eleven steps by their names (lib/mm/welcomeSteps.ts; "save" is the account step), and "returning", the sign-in screen the cover's "Already have an account?
+ * Sign in" opens.
+ */
+export const SETUP_SCREENS = ["cover", ...WELCOME_STEPS, "returning"] as const;
 export type SetupScreen = (typeof SETUP_SCREENS)[number];
 const KNOWN = new Set<string>(SETUP_SCREENS);
 

@@ -223,7 +223,8 @@ function MakeScreen() {
         <div className="mt-4"><ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>
       ) : (
         <div className="mt-4">
-          <Button full className="min-h-14 text-lg" disabled={pantry.length < 2 || makerOn === false} onClick={make}>{t("Make my recipe")}</Button>
+          {/* while it can't be pressed, the reason sits above it (colour meeting: never a silent grey button) */}
+          <Button full className="min-h-14 text-lg" disabled={pantry.length < 2 || makerOn === false} reason={makerOn === false ? t("Pip's recipe maker isn't switched on yet. Our own recipes are ready to use.") : !shop ? t("Recipes appear once we've read a supermarket's products and prices.") : t("Too few {shop} products fit your diet. You can change your diet in Settings.", { shop: shopName })} onClick={make}>{t("Make my recipe")}</Button>
           <p className="mt-3 text-[0.8125rem] leading-snug text-muted">
             {t("Pip uses AI from Anthropic (the company that makes Claude). To write your recipe we send your choices on this page (meal, people, meal size, diet and anything you typed) and the list of {shop} products it may use. Nothing about you, and nothing is kept. The numbers you see are worked out from the products' own labels.", { shop: shopName })}
           </p>

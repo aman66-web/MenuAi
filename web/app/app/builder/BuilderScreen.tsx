@@ -4,6 +4,7 @@ import { chainHref } from "@/lib/mm/routes";
 import { useRouter } from "next/navigation";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
+import { needsPaywall } from "@/lib/mm/entitlements";
 import { orderAllergens } from "@/lib/mm/allergens";
 import { loggedGaps, loggedToday, remainingToday } from "@/lib/mm/budget";
 import type { ChainIndex } from "@/lib/mm/chain-index";
@@ -17,14 +18,15 @@ import {
 } from "@/lib/mm/order";
 import { addLogEntry, addSavedOrder, countProAction, logStore, savedStore, updateSavedOrder } from "@/lib/mm/stores";
 import type { LogSource, SavedOrder } from "@/lib/mm/user-data";
-import { anyDietFilter, passesDiet } from "@/lib/mm/menu-view";
+import { anyDietFilter, passesDiet, restaurantDietNote } from "@/lib/mm/menu-view";
 import { passesPreferences } from "@/lib/mm/ranking";
 import type { MenuComponent } from "@/lib/mm/types";
 import { AllergenSection } from "../_components/Allergens";
 import { useGate } from "../_components/Paywall";
+import { PremiumBadge } from "../_components/PremiumBadge";
 import { linesImage } from "../_components/addfood/EntryPicture";
 import { ItemThumb } from "../_components/ItemPhoto";
-import { LockIcon, MinusIcon, PlusIcon, SwapIcon, TrashIcon } from "../_components/icons";
+import { CheckIcon, LockIcon, MinusIcon, PlusIcon, SwapIcon, TrashIcon } from "../_components/icons";
 import { MacroSummary, SMALL_LABEL } from "../_components/Nutrition";
 import { PageHeader } from "../_components/PageHeader";
 import { ShareButton } from "../_components/ShareButton";
@@ -36,8 +38,9 @@ import { useT } from "../_lib/i18n";
 
 // SPEC §6.5 and §7.6: customise any order with live totals (Pro).
 // Look (founder 2026-10-15, Home's language): a compact heavy title, white cards with 20 px corners, each ingredient group as a quiet
-// grey list on the card with its label in small spaced capitals and the portion and calories in DM Mono, "Double" a white pill lit in
-// the brand lime when it's on, and the totals as a floating white card that stays in reach above the tab bar.
+// grey list on the card with its label in small spaced capitals and the portion and calories in DM Mono, "Double" a white pill with the 1.5 px control edge
+// that takes the chosen look when it's on (lime, the 2 px dark green edge and a tick: the colour plan), and the totals as a floating white card that stays in
+// reach above the tab bar.
 // Photos (founder 2026-11-17, "use images please when possible"): each order line's card and each dish in the "Add item" sheet lead with the
 // chain's own photo of the dish (ItemThumb: the small copy, then the full photo, else the grey fork tile, so the names line up), as on the
 // restaurant's menu; never on an ingredient (ingredients have no photos, and a dish photo never stands in for one). They step aside when the
@@ -90,13 +93,16 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
   // app, else the restaurant's menu (Eat out when the link names no restaurant); the Settings cog far right
   const back = <PageHeader back={props.chainId ? { href: chainHref(props.chainId), label: t("Back to menu") } : { href: "/app/eat-out", label: t("Back to restaurants") }} />;
   if (!hydrated || status === "loading") return (<div>{back}<Spinner label={t("Loading")} /></div>);
-  if (!pro) {
+  // the same test as every way in (the dish page's "Change the order", Best for you): the paid tier keeps the builder free (entitlements.ts PAID_TIER_ONLY), so
+  // only a build that sells it shows this. It used to test `pro` alone, so in the iPhone app 1.1 "Change the order" opened this wall for a free person.
+  if (needsPaywall("orderBuilder", { pro })) {
     return (
       <div>
         {back}
         <h1 className={`mt-5 ${TITLE}`}>{t("Order builder")}</h1>
         <Card className="mt-5 flex flex-col items-center gap-3 p-6 text-center">
           <span aria-hidden className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--fill)]"><LockIcon className="h-6 w-6 text-muted" /></span>
+          <PremiumBadge />
           <p className="text-base font-semibold">{t("Customise any order with live totals")}</p>
           <p className="text-[0.9375rem] text-muted">{t("The order builder is part of Premium.")}</p>
           <Button onClick={() => showPaywall("orderBuilder")}>{t("See Premium")}</Button>
@@ -350,7 +356,7 @@ function ComponentLineEditor({ ix, line, onDouble, onRemove, onSwap, onAdd }: {
                 </div>
                 <div className="ms-auto flex shrink-0 items-center">
                   {comp.allowDouble && (
-                    <button type="button" aria-pressed={ref.qty === 2} aria-label={t("Double {name}", { name: lowerFirst(comp.name) })} onClick={() => onDouble(comp.id, ref.qty !== 2)} className={`me-0.5 min-h-9 rounded-full px-3.5 text-sm font-bold transition ${ref.qty === 2 ? "bg-sun text-on-accent" : "bg-card text-foreground hover:bg-soft-strong"} relative before:absolute before:inset-x-0 before:-inset-y-1 before:content-['']`}>{t("Double")}</button>
+                    <button type="button" aria-pressed={ref.qty === 2} aria-label={t("Double {name}", { name: lowerFirst(comp.name) })} onClick={() => onDouble(comp.id, ref.qty !== 2)} className={`me-0.5 inline-flex min-h-9 items-center gap-1 rounded-full border-[1.5px] px-3.5 text-sm font-bold transition active:scale-[0.97] ${ref.qty === 2 ? "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-edge bg-card text-foreground hover:bg-background"} relative before:absolute before:inset-x-0 before:-inset-y-1 before:content-['']`}>{ref.qty === 2 && <CheckIcon className="h-4 w-4 shrink-0" />}{t("Double")}</button>
                   )}
                   {swapOptions(ix, line, comp.id).length > 0 && (
                     <button type="button" aria-label={t("Swap {name}", { name: comp.name })} onClick={() => onSwap(comp.id)} className={ICON_BUTTON}><SwapIcon className="h-5 w-5" /></button>
@@ -415,7 +421,14 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
   const prefs = useSettings().preferences;
   const [dietOn, setDietOn] = useState(true);
   const diet = anyDietFilter(prefs) && dietOn;
-  const dietChip = anyDietFilter(prefs) ? <div className="mb-3"><Chip selected={dietOn} onClick={() => setDietOn((v) => !v)}>{t("Fits my diet")}</Chip></div> : null;
+  // the diets a menu can't be checked for (Jain, Kosher style...) are said plainly beside the chip, so "Fits my diet" never claims them
+  const notChecked = restaurantDietNote(prefs, t);
+  const dietChip = anyDietFilter(prefs) || notChecked ? (
+    <div className="mb-3">
+      {anyDietFilter(prefs) && <Chip selected={dietOn} onClick={() => setDietOn((v) => !v)}>{t("Fits my diet")}</Chip>}
+      {notChecked && <p className={`${anyDietFilter(prefs) ? "mt-2" : ""} text-[0.9375rem] leading-snug text-muted`}>{notChecked}</p>}
+    </div>
+  ) : null;
   const line = picker && picker.type !== "item" ? (lines[picker.lineIndex] as ComponentLine | undefined) : undefined;
   const optionGroups: Array<{ title: string; items: MenuComponent[] }> = [];
   const fitComponent = (c: MenuComponent) => !diet || passesPreferences(c.tags, prefs);

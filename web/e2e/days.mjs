@@ -224,7 +224,7 @@ await step("Previous day and Next day flip through days; Today comes back; Next 
   await ctx.close();
 });
 
-await step("a bad, missing or future date shows today; deleting an entry on a past day works with Undo", async () => {
+await step("a bad, missing or future date shows today; removing an entry on a past day works with Undo", async () => {
   const { ctx, page, errors } = await open();
   for (const bad of ["abc", "2026-13-45", keyOf(at(-3, 12)), "1999-01-01x"]) {
     await page.goto(BASE + "/app/today?d=" + bad, { timeout: 120000 });
@@ -236,7 +236,7 @@ await step("a bad, missing or future date shows today; deleting an entry on a pa
   await page.getByText("Nothing was logged on this day.").waitFor({ timeout: 90000 });
   await page.goto(BASE + "/app/today?d=" + keyOf(at(1, 12)), { timeout: 120000 });
   await page.getByText("Yesterday curry").waitFor({ timeout: 90000 });
-  await page.getByRole("button", { name: "Delete Yesterday curry", exact: true }).tap();
+  await page.getByRole("button", { name: "Remove Yesterday curry", exact: true }).tap();
   // the entry leaves the list at once (the toast's own words also contain the name, so match the whole line only)
   await page.getByText("Yesterday curry", { exact: true }).waitFor({ state: "detached" });
   await page.getByRole("button", { name: "Undo", exact: true }).tap();

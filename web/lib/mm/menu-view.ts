@@ -1,5 +1,5 @@
 import { NEW_ITEM_DAYS } from "./config";
-import { foodDietProblem, foodSignals, namedPescatarian } from "./foodDiet";
+import { dietNameList, foodDietProblem, foodSignals, moreDietsOn, namedPescatarian, type MoreDietKey } from "./foodDiet";
 import { englishT, tk, type T } from "./i18n";
 import { proteinPer100Cal } from "./nutrients";
 import { passesPreferences } from "./ranking";
@@ -311,18 +311,29 @@ export const LARGE_MENU_ITEMS = 120;
 export const SECTION_PREVIEW_ITEMS = 6;
 
 /**
+ * The six diets added on 20 November 2026 (Jain, No onion or garlic, Kosher style, No red meat, No alcohol, No halal or kosher meat; lib/mm/foodDiet.ts
+ * MORE_DIET_KEYS) can't be checked on a restaurant's menu: menus print no ingredients. No dish is hidden or picked for them (passesDiet ignores them, and
+ * anyDietFilter doesn't count them), and the restaurant pages and menu filters say so plainly with this line. Null when none of them is on.
+ */
+export function restaurantDietNote(prefs: Preferences, t: T = englishT): string | null {
+  const on = moreDietsOn(prefs);
+  return on.length ? t("Restaurant menus don't list ingredients, so dishes aren't checked for {diets}.", { diets: dietNameList(on, t) }) : null;
+}
+
+/**
  * The one calm line shown wherever a diet filter is on: the filters only know what each restaurant's guide states, so
- * they can't promise anything (matters for halal and vegetarian users). Null when no filter is on.
+ * they can't promise anything (matters for halal and vegetarian users), and the diets a menu can't be checked for are named (restaurantDietNote).
+ * Null when no filter is on.
  */
 export function filterCaution(prefs: Preferences, t: T = englishT): string | null {
   const promises = [prefs.vegetarianOnly && t("vegetarian"), prefs.veganOnly && t("vegan"), prefs.pescatarianOnly && t("pescatarian"), prefs.noPork && t("pork-free"), prefs.noBeef && t("beef-free")].filter((p): p is string => Boolean(p));
   const allergy = prefs.avoidAllergens?.length
     ? t("Allergy filters use each restaurant's own allergen guide and hide dishes it doesn't cover. If you have an allergy, always check with the restaurant.")
     : null;
-  if (promises.length === 0) return allergy;
-  const what = promises.reduce((a, b) => t("{a} or {b}", { a, b }));
-  const diet = t("We only know what each restaurant publishes, so this can't promise a dish is {what}.", { what });
-  return allergy ? `${diet} ${allergy}` : diet;
+  const unchecked = restaurantDietNote(prefs, t);
+  const diet = promises.length ? t("We only know what each restaurant publishes, so this can't promise a dish is {what}.", { what: promises.reduce((a, b) => t("{a} or {b}", { a, b })) }) : null;
+  const lines = [diet, unchecked, allergy].filter((x): x is string => Boolean(x));
+  return lines.length ? lines.join(" ") : null;
 }
 
 /** The preferences with one allergen added or taken off, kept in the app's order (none left = the field is dropped, as if it was never set). */
@@ -334,7 +345,7 @@ export function toggleAllergen(prefs: Preferences, key: AllergenKey): Preference
   return sorted.length ? { ...rest, avoidAllergens: sorted } : rest;
 }
 
-export type DietKey = "vegetarianOnly" | "veganOnly" | "pescatarianOnly" | "halalOnly" | "noPork" | "noBeef";
+export type DietKey = "vegetarianOnly" | "veganOnly" | "pescatarianOnly" | "halalOnly" | "noPork" | "noBeef" | MoreDietKey;
 
 /**
  * One diet choice turned on or off. Pescatarian and Vegetarian/Vegan are alternatives (the vegetarian rule is stricter and wins, so having both on

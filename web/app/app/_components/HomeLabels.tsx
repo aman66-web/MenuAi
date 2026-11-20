@@ -9,6 +9,8 @@ import type { LogEntry } from "@/lib/mm/user-data";
 import { useT } from "../_lib/i18n";
 import { DARK_CARD } from "./HomeToday";
 
+// NOT SHOWN since 20 November 2026: Home has two pages (Today; Calories and protein this week), decided overnight under the founder's delegation. Kept, with
+// lib/mm/labelTotals.ts and its tests, so it can come back as one more entry in app/app/page.tsx's HomePages list.
 // Home's third page, "Today: sugar, salt and fibre" (the 20-person meeting, 2026-11-19): figures the app already keeps on each logged food but never added up.
 // Only what a label or menu printed (CLAUDE.md rule 1): a food without the figure is left out, and the row says how many gave it; none at all reads "not
 // published". No targets, reference intakes, bars, colours or high/low words (rule 3). The same formatting as the item pages, so Home and they agree.

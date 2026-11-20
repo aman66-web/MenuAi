@@ -14,28 +14,10 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
 let pass = 0, fail = 0;
 async function step(n, fn) { try { await fn(); pass++; console.log("PASS", n); } catch (e) { fail++; console.log("FAIL", n, "-", String(e.message).split("\n")[0]); } }
 const vis = (l) => l.waitFor({ state: "visible", timeout: 8000 });
-// The welcome screen, Pip's arrival, Pip's walk along the tab bar (Home, Recipes, Groceries, Eat out; Community is off since 2026-11-18) and "Let's make it yours",
-// then "Set up my daily numbers" to the first question.
+// The welcome cover's Get started, straight to the first question (step 1 of 11: no Pip's hello screen, no tour, no "Let's make it yours" since 20 November).
 async function pastIntro(page) {
   await page.getByRole("button", { name: "Get started" }).click();
-  await vis(page.getByRole("heading", { name: "Hi, I'm Pip!" }));
-  await page.getByRole("button", { name: "Show me around" }).click(); // straight to the first stop: no text size screen since 2026-11-19
-  for (const [i, tab] of ["Home", "Recipes", "Groceries", "Eat out"].entries()) {
-    await vis(page.getByRole("heading", { level: 1, name: stopHead(tab, i + 1) }));
-    await page.getByRole("button", { name: "Continue" }).click();
-  }
-  await vis(page.getByRole("heading", { name: "Let's make it yours" }));
-  await page.getByRole("button", { name: "Set up my daily numbers" }).click();
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
-}
-
-/** A first-run stop's headline as a screen reader hears it: the tab's name, then "stop n of 4" (Chrome puts a space before the comma). */
-const stopHead = (tab, n) => new RegExp(`^${tab} ?, stop ${n} of 4$`);
-
-// "You're all set!" (with its first recipes) → Go to Home (or the shared page): the way out of onboarding without picking a recipe.
-async function finishWithoutRecipe(page) {
-  await vis(page.getByRole("heading", { name: "You're all set!" }));
-  await page.getByRole("button", { name: "Go to Home" }).click();
 }
 
 await step("a link to a restaurant on a first visit opens it straight away: no questions first, and nothing is redirected", async () => {
@@ -61,7 +43,7 @@ await step("onboarding goal radios work with the arrow keys (roving focus)", asy
   await vis(page.getByRole("radio", { name: "Build muscle", checked: true }));
   await ctx.close();
 });
-await step("GLP-1 onboarding shows the exact line 'Comfortable meal size: … calories'", async () => {
+await step("GLP-1 onboarding keeps the default comfortable meal size (450) when the setup is skipped from step 3", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/welcome");
@@ -69,9 +51,15 @@ await step("GLP-1 onboarding shows the exact line 'Comfortable meal size: … ca
   await page.getByRole("radio", { name: "I'm on a GLP-1 medication" }).click();
   await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("button", { name: "Skip", exact: true }).click(); // foods to avoid
-  await page.getByRole("button", { name: "Skip", exact: true }).click(); // the questions about the person (not "Skip these questions", which does the same)
-  await vis(page.getByText("Comfortable meal size:"));
-  if ((await page.getByLabel("Comfortable meal size in calories").inputValue()) !== "450") throw new Error("default 450 expected");
+  await page.getByRole("button", { name: "Skip setup and make my account" }).click(); // step 3's link, to the account (step 11)
+  await vis(page.getByRole("heading", { name: "Save your plan: make your free account" }));
+  await page.getByRole("button", { name: "Not now" }).click();
+  await page.waitForURL(/\/app\/?$/);
+  // the meal size (GLP-1's default, 450) is in Settings › Daily targets, said as on the targets step
+  await page.goto(BASE + "/app/settings");
+  await vis(page.getByText("Comfortable meal size", { exact: false }).first());
+  const cap = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data.glp1MealCap ?? 450);
+  if (cap !== 450) throw new Error("default 450 expected, got " + cap);
   await ctx.close();
 });
 await step("onboarding offers Other as a goal, Pip answers, and it's kept in Settings", async () => {
@@ -83,15 +71,16 @@ await step("onboarding offers Other as a goal, Pip answers, and it's kept in Set
   await vis(page.getByText("Got it. I'll show you the numbers and keep your meals and orders around your target."));
   await vis(page.getByRole("button", { name: "Continue" }));
   await page.getByRole("button", { name: "Continue" }).click();
-  // foods to avoid, the questions about the person, the targets and the shops (text size is chosen at the start of the tour now)
-  for (let i = 0; i < 4; i++) await page.getByRole("button", { name: "Skip", exact: true }).click();
-  await finishWithoutRecipe(page);
-  await page.waitForURL(/\/app$/);
+  // foods to avoid, then step 3's "Skip setup and make my account" and "Not now" on the account step (sign-in optional on this build)
+  await page.getByRole("button", { name: "Skip", exact: true }).click();
+  await page.getByRole("button", { name: "Skip setup and make my account" }).click();
+  await page.getByRole("button", { name: "Not now" }).click();
+  await page.waitForURL(/\/app\/?$/);
   await page.goto(BASE + "/app/settings");
   await vis(page.getByRole("radiogroup", { name: "Goal" }).getByRole("radio", { name: "Other", checked: true }));
   await ctx.close();
 });
-await step("onboarding back button returns to the previous step, keeping the choice; step 1 goes back to 'Let's make it yours', then Pip's walk and the welcome screen", async () => {
+await step("onboarding back button returns to the previous step, keeping the choice; step 1 goes back to the cover", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/welcome");
@@ -103,14 +92,6 @@ await step("onboarding back button returns to the previous step, keeping the cho
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
   await vis(page.getByRole("radio", { name: "Build muscle", checked: true }));
   await page.getByRole("button", { name: "Back to the previous step" }).click();
-  await vis(page.getByRole("heading", { name: "Let's make it yours" }));
-  await page.getByRole("button", { name: "Back to the previous step" }).click();
-  // the walk follows the tab bar (Home, Recipes, Groceries, Eat out; Community is off): back from the end is Eat out
-  await vis(page.getByRole("heading", { level: 1, name: stopHead("Eat out", 4) }));
-  await page.getByRole("button", { name: "Back to the previous step" }).click();
-  await vis(page.getByRole("heading", { level: 1, name: stopHead("Groceries", 3) }));
-  // Recipes, Home, Pip's arrival, the welcome screen (no text size screen since 2026-11-19)
-  for (let i = 0; i < 4; i++) await page.getByRole("button", { name: "Back to the previous step" }).click();
   await vis(page.getByRole("button", { name: "Get started" }));
   await ctx.close();
 });
@@ -321,7 +302,7 @@ await step("Settings › Daily targets: an empty protein box says 'Worked out'; 
   await vis(notSaved);
   await ctx.close();
 });
-await step("Settings › Set up with Pip opens the welcome screen with a way back to Settings; a first visit to the welcome screen has no such button and no Skip", async () => {
+await step("Settings › Set up your plan again opens the welcome screen with a way back to Settings; a first visit to the welcome screen has no such button and no Skip", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   await ctx.addInitScript(() => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "maintain", dailyCalories: 2000 } })); });
   const page = await ctx.newPage();

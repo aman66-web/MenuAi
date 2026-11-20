@@ -1,8 +1,11 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { mergeSwitches, NO_SWITCHES, sanitizeAppSwitches, signInRequiredWith } from "../lib/mm/appSwitches";
-import { afterSignIn, sanitizeResume, SIGN_IN_HEADING, signInGate, TYPED_SETUP_KEYS, typedSetup, type GateState } from "../lib/mm/signInGate";
+import { showcaseDishes, dishFits } from "../lib/mm/showcase";
+import { afterSignIn, sanitizeResume, SIGN_IN_HEADING, SIGN_IN_REASONS, signInGate, TYPED_SETUP_KEYS, typedSetup, type GateState } from "../lib/mm/signInGate";
+import { NO_PREFERENCES, type Chain } from "../lib/mm/types";
 import { DEFAULT_SETTINGS, type UserSettings } from "../lib/mm/user-data";
+import { tinyChain } from "./fixtures";
 
 const base: GateState = { required: true, hydrated: true, signedIn: false, checking: false, pathname: "/app" };
 
@@ -13,7 +16,7 @@ describe("the sign-in screen (founder 2026-11-17: everyone signs in)", () => {
       expect(signInGate({ ...base, pathname, signedIn: true }), pathname).toBe("open");
     }
   });
-  it("leaves the welcome screens and the offline page open (they ask for the account themselves, after 'Your daily targets')", () => {
+  it("leaves the welcome screens and the offline page open (they ask for the account themselves, as their last step)", () => {
     for (const pathname of ["/app/welcome", "/app/welcome/", "/app/offline"]) expect(signInGate({ ...base, pathname })).toBe("open");
     expect(signInGate({ ...base, pathname: "/app/welcomeback" })).toBe("signIn");
   });
@@ -28,18 +31,19 @@ describe("the sign-in screen (founder 2026-11-17: everyone signs in)", () => {
   });
 });
 
-// The onboarding meeting of 19 November (questions 1, 4 and 8, approved by the founder that day): the welcome screens ask for the account after "Your daily targets",
-// the sign-in screen's heading follows how it was reached, and a switches file on numbite.com can make sign-in optional (never stricter).
+// The onboarding redesign meeting of 20 November 2026 (build list 7, approved by the founder): the account is the welcome screens' last step (Step 11 of 11), and
+// after it the person goes straight to Home; "Look around first" and its reason are gone. From 19 November: the heading follows how the screen was reached, and
+// a switches file on numbite.com can make sign-in optional (never stricter).
 describe("the welcome screens' sign-in step", () => {
   const typedNow = (over: Partial<UserSettings> = {}): UserSettings => ({ ...DEFAULT_SETTINGS, goal: "glp1", dailyCalories: 1500, dailyProtein: 110, hasSetTargets: true, glp1MealCap: 500, preferences: { ...DEFAULT_SETTINGS.preferences, veganOnly: true }, ...over });
 
   it("heads the screen by the way it was reached, and keeps 'Sign in or sign up' on a page of the app", () => {
     expect(SIGN_IN_HEADING).toEqual({
       setup: "Save your plan: make your free account",
-      look: "Make your free account",
       returning: "Welcome back. Sign in",
       page: "Sign in or sign up",
     });
+    expect(SIGN_IN_REASONS).toEqual(["setup", "returning"]);
   });
 
   it("takes only the goal, the targets, the diet and the shops from what was typed (never anything about the body, which is never stored)", () => {
@@ -50,15 +54,14 @@ describe("the welcome screens' sign-in step", () => {
   });
 
   it("an account already set up goes straight to the app, whichever way in (its own settings win)", () => {
-    for (const reason of ["setup", "look", "returning"] as const) {
+    for (const reason of ["setup", "returning"] as const) {
       expect(afterSignIn({ reason, setUp: true, cleared: false, settingsSynced: true, current: typedNow(), typed: typedSetup(typedNow()) })).toEqual({ to: "app" });
     }
   });
 
-  it("a new account carries on: to 'Where do you shop?' after the targets, to Home from 'Look around first', into the welcome screens from the cover's link", () => {
+  it("a new account goes straight to Home from the last step, and into the welcome steps (a signed-in run) from the cover's link", () => {
     const base = { setUp: false, cleared: false, settingsSynced: false, current: typedNow(), typed: typedSetup(typedNow()) };
-    expect(afterSignIn({ ...base, reason: "setup" })).toEqual({ to: "shops", restore: {} });
-    expect(afterSignIn({ ...base, reason: "look" })).toEqual({ to: "home" });
+    expect(afterSignIn({ ...base, reason: "setup" })).toEqual({ to: "home", restore: {} });
     expect(afterSignIn({ ...base, reason: "returning" })).toEqual({ to: "tour" });
   });
 
@@ -66,31 +69,60 @@ describe("the welcome screens' sign-in step", () => {
     const typed = typedSetup({ ...typedNow(), shops: ["tesco"] });
     const emptied = { ...DEFAULT_SETTINGS };
     const after = afterSignIn({ reason: "setup", setUp: false, cleared: true, settingsSynced: false, current: emptied, typed });
-    expect(after.to).toBe("shops");
-    const restore = after.to === "shops" ? after.restore : {};
+    expect(after.to).toBe("home");
+    const restore = after.to === "home" ? after.restore : {};
     expect(restore).toMatchObject({ goal: "glp1", dailyCalories: 1500, dailyProtein: 110, hasSetTargets: true, glp1MealCap: 500, shops: ["tesco"] });
     expect(restore.preferences?.veganOnly).toBe(true);
     // only what differs
     const same = afterSignIn({ reason: "setup", setUp: false, cleared: true, settingsSynced: false, current: typedNow(), typed: typedSetup(typedNow()) });
-    expect(same).toEqual({ to: "shops", restore: {} });
+    expect(same).toEqual({ to: "home", restore: {} });
   });
 
   it("never overwrites an account's own settings: nothing is put back when the account's settings arrived, or when this phone wasn't emptied", () => {
     const typed = typedSetup(typedNow());
     const accounts = { ...DEFAULT_SETTINGS, goal: "lose" as const, dailyCalories: 1800, hasSetTargets: true };
-    expect(afterSignIn({ reason: "setup", setUp: false, cleared: true, settingsSynced: true, current: accounts, typed })).toEqual({ to: "shops", restore: {} });
-    expect(afterSignIn({ reason: "setup", setUp: false, cleared: false, settingsSynced: true, current: accounts, typed })).toEqual({ to: "shops", restore: {} });
-    expect(afterSignIn({ reason: "setup", setUp: false, cleared: true, settingsSynced: false, current: accounts, typed: null })).toEqual({ to: "shops", restore: {} });
+    expect(afterSignIn({ reason: "setup", setUp: false, cleared: true, settingsSynced: true, current: accounts, typed })).toEqual({ to: "home", restore: {} });
+    expect(afterSignIn({ reason: "setup", setUp: false, cleared: false, settingsSynced: true, current: accounts, typed })).toEqual({ to: "home", restore: {} });
+    expect(afterSignIn({ reason: "setup", setUp: false, cleared: true, settingsSynced: false, current: accounts, typed: null })).toEqual({ to: "home", restore: {} });
   });
 
   it("reads back the website's note of the sign-in step like anything stored, and nothing else", () => {
     const typed = typedSetup(typedNow());
     expect(sanitizeResume(JSON.parse(JSON.stringify({ reason: "setup", typed })))).toMatchObject({ reason: "setup", typed: { goal: "glp1", dailyCalories: 1500, hasSetTargets: true } });
-    expect(sanitizeResume({ reason: "look", typed: null })).toEqual({ reason: "look", typed: null });
     expect(sanitizeResume({ reason: "returning" })).toEqual({ reason: "returning", typed: null });
     for (const bad of [null, "setup", 3, {}, { reason: "admin" }, { reason: ["setup"] }]) expect(sanitizeResume(bad)).toBeNull();
     // a damaged target is tidied like a stored one (sanitizeSettings), never passed on as it is
     expect(sanitizeResume({ reason: "setup", typed: { dailyCalories: "lots", goal: "nonsense", dailyProtein: -4 } })?.typed).toMatchObject({ goal: DEFAULT_SETTINGS.goal, dailyCalories: DEFAULT_SETTINGS.dailyCalories, dailyProtein: undefined });
+  });
+
+  it("an old tab's note that says 'look' (Look around first, removed) no longer reads, so that tab lands on the cover", () => {
+    expect(sanitizeResume({ reason: "look", typed: null })).toBeNull();
+    expect(sanitizeResume(JSON.parse(JSON.stringify({ reason: "look", typed: typedSetup(typedNow()) })))).toBeNull();
+  });
+
+  it("keeps Home's two navigation hints through the website's Apple and Google trip, checked like anything stored", () => {
+    const typed = typedSetup(typedNow());
+    const note = { reason: "setup", typed, firstRecipeId: "chicken-fajita-bowl", firstDish: { chainId: "greggs", itemId: "greggs-chicken-bake" } };
+    expect(sanitizeResume(JSON.parse(JSON.stringify(note)))).toMatchObject({ reason: "setup", firstRecipeId: "chicken-fajita-bowl", firstDish: { chainId: "greggs", itemId: "greggs-chicken-bake" } });
+    // a damaged hint is dropped on its own; the note still reads
+    const bad = sanitizeResume({ reason: "setup", typed, firstRecipeId: "<img src=x>", firstDish: { chainId: "Greggs", itemId: 4 } });
+    expect(bad?.reason).toBe("setup");
+    expect(bad && ("firstRecipeId" in bad || "firstDish" in bad)).toBe(false);
+  });
+
+  it("an existing account's settings win, and the Start here dish is checked again against them", () => {
+    // typed on this phone: no diet; the account (signed in at step 11 on a phone it had used before) is vegan with a milk allergy
+    const typed = typedSetup(typedNow({ preferences: { ...DEFAULT_SETTINGS.preferences } }));
+    const account: UserSettings = { ...DEFAULT_SETTINGS, goal: "lose", dailyCalories: 1700, hasSetTargets: true, preferences: { ...DEFAULT_SETTINGS.preferences, veganOnly: true, avoidAllergens: ["milk"] } };
+    // the account's settings arrived with the sync: nothing typed is put back over them
+    expect(afterSignIn({ reason: "setup", setUp: false, cleared: false, settingsSynced: true, current: account, typed })).toEqual({ to: "home", restore: {} });
+    expect(afterSignIn({ reason: "setup", setUp: false, cleared: true, settingsSynced: true, current: account, typed })).toEqual({ to: "home", restore: {} });
+    // the dish chosen on step 3 (it fitted what was typed) no longer fits the account's own diet, so Home doesn't offer it
+    const c: Chain = { ...tinyChain([["wrap", "Chicken Wrap", 450, 40], ["burger", "Beef Burger", 620, 35]]), id: "testchain", sample: false };
+    const dish = showcaseDishes(c, "maintain", NO_PREFERENCES)!.dishes[0]!;
+    const item = c.items.find((i) => i.id === dish.itemId)!;
+    expect(dishFits(c, item, typed.preferences!)).toBe(true);
+    expect(dishFits(c, item, account.preferences)).toBe(false);
   });
 });
 

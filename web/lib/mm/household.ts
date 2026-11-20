@@ -4,12 +4,26 @@ import { fitDistance, type MealTarget, type MealType } from "./recipes";
 
 // The people a meal plan is cooked for (founder 2026-11-19: "people normally live with people so I want a way people can add their kids and partner etc and
 // create a plan for everyone ... needs good personalisation ... but easy to understand"; the 20-agent meeting's conclusion the same day). Kept on this phone
-// only, never synced or sent anywhere: for each other person an age group, an optional nickname and a portion size. Allergies and the meat answer belong to
-// the home, never to a person. Children and teenagers never get calorie numbers: only a share of a portion.
+// only, never synced or sent anywhere: for each other person an age group, an optional nickname and a portion size. Allergies and diets belong to the home,
+// never to a person. Children and teenagers never get calorie numbers: only a share of a portion.
 
 export type AgeGroup = "adult" | "teen" | "child" | "little";
 export type PortionSize = "smaller" | "usual" | "bigger";
-export type HomeMeat = "all" | "vegetarian" | "vegan";
+/** A diet someone at home follows: the same keys as the person's own diet (DietPrefs), every one of them. */
+export type HomeDiet = Exclude<keyof DietPrefs, "avoidAllergens">;
+/**
+ * The home's diets as the meal plan offers them (founder 2026-11-20: "cater to every single diet"; the lead's call that night: the six newer ones behind one
+ * "More diets" button): the six everyone knows first, then the rest. Until 20 November the home had one meat answer (all, vegetarian or vegan); it grew into
+ * these, and an old answer is read as the diet it meant (sanitizeHousehold).
+ */
+// every diet key once, in the order shown (the compiler checks none is missing, so the lists below can't drift from DietPrefs)
+const EVERY_DIET: Record<HomeDiet, true> = {
+  vegetarianOnly: true, veganOnly: true, pescatarianOnly: true, halalOnly: true, noPork: true, noBeef: true,
+  jain: true, noOnionGarlic: true, kosherStyle: true, noRedMeat: true, noAlcohol: true, noHalalKosherMeat: true,
+};
+export const ALL_HOME_DIETS = Object.keys(EVERY_DIET) as readonly HomeDiet[];
+export const HOME_DIETS: readonly HomeDiet[] = ["vegetarianOnly", "veganOnly", "pescatarianOnly", "halalOnly", "noPork", "noBeef"];
+export const MORE_HOME_DIETS: readonly HomeDiet[] = ALL_HOME_DIETS.filter((d) => !HOME_DIETS.includes(d));
 
 export interface HomePerson {
   id: string;
@@ -24,11 +38,11 @@ export interface Household {
   others: HomePerson[];
   /** Allergies at home: recipes made with any of them are left out for everyone. */
   allergies: AllergenKey[];
-  /** Does anyone not eat meat: answered for the whole home (one pot), the strictest wins. */
-  meat: HomeMeat;
+  /** The diets anyone at home follows, answered for the whole home (one pot): every meal fits all of them, for everyone. In ALL_HOME_DIETS order. */
+  diets: HomeDiet[];
 }
 
-export const NO_HOUSEHOLD: Household = { others: [], allergies: [], meat: "all" };
+export const NO_HOUSEHOLD: Household = { others: [], allergies: [], diets: [] };
 /** "Just me" to "6 of us". */
 export const MAX_PEOPLE = 6;
 export const NAME_MAX = 20;
@@ -65,16 +79,27 @@ export function withCount(h: Household, count: number, nextId: () => string): Ho
   return { ...h, others };
 }
 
-/** The home's diet for the recipes: the person's own preferences, with the home's allergies added and the home's meat answer (the strictest wins). */
-export function homeDiet(own: DietPrefs, h: Household): DietPrefs {
+/** The home's diet for the recipes: the person's own preferences, with the home's allergies and every diet anyone at home follows added (each one applies). */
+export function homeDiet(own: DietPrefs, h: Pick<Household, "others" | "allergies" | "diets">): DietPrefs {
   if (!h.others.length) return own;
   const allergies = [...new Set([...(own.avoidAllergens ?? []), ...h.allergies])];
-  return {
-    ...own,
-    ...(allergies.length ? { avoidAllergens: allergies } : {}),
-    ...(h.meat === "vegan" ? { veganOnly: true } : {}),
-    ...(h.meat === "vegetarian" ? { vegetarianOnly: true } : {}),
-  };
+  const out: DietPrefs = { ...own, ...(allergies.length ? { avoidAllergens: allergies } : {}) };
+  for (const d of h.diets) if (d in EVERY_DIET) out[d] = true;
+  return out;
+}
+
+/** The home's diets with one turned on or off, kept in ALL_HOME_DIETS order. */
+export function toggleHomeDiet(diets: readonly HomeDiet[], key: HomeDiet): HomeDiet[] {
+  const next = diets.includes(key) ? diets.filter((d) => d !== key) : [...diets, key];
+  return ALL_HOME_DIETS.filter((d) => next.includes(d));
+}
+
+/** The diets kept from stored data (a list of keys, or the meat answer of before 20 November: "vegetarian" or "vegan"), known keys only, in order. */
+export function sanitizeHomeDiets(diets: unknown, meat?: unknown): HomeDiet[] {
+  const keys = new Set<unknown>(Array.isArray(diets) ? diets : []);
+  if (meat === "vegetarian") keys.add("vegetarianOnly");
+  if (meat === "vegan") keys.add("veganOnly");
+  return ALL_HOME_DIETS.filter((d) => keys.has(d));
 }
 
 /** Plain-word share: 1 -> "1", 1.25 -> "1¼", 0.5 -> "½". */
@@ -127,6 +152,5 @@ export function sanitizeHousehold(raw: unknown): Household {
     others.push({ id: o.id, group, portion, ...(name ? { name } : {}) });
   }
   const allergies = Array.isArray(r.allergies) ? [...new Set(r.allergies.filter((a): a is AllergenKey => ALLERGEN_KEYS.includes(a as AllergenKey)))] : [];
-  const meat: HomeMeat = r.meat === "vegetarian" || r.meat === "vegan" ? r.meat : "all";
-  return { others, allergies, meat };
+  return { others, allergies, diets: sanitizeHomeDiets(r.diets, r.meat) };
 }

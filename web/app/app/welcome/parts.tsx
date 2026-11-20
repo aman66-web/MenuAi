@@ -15,13 +15,13 @@ import { useT } from "../_lib/i18n";
 // Pieces of the onboarding screens that more than one file draws (page.tsx, the targets step and the body steps): the big headline, the small
 // label, the card corners and the number card with − and +. Moved out of page.tsx unchanged, except that the number card gained a Done
 // button and a way to start an empty box from a suggestion. Also the words page.tsx needs that the unit tests check (a page file may export nothing else):
-// Pip's reaction to each goal and the last screen's line on what is free.
+// Pip's reaction to each goal and step 10's line on what is free.
 
 /**
  * The big headline, in one plain ink like Home's title and every one of the founder's reference pictures (2026-10-15: no accent words in
- * headings); a touch heavier than before so it sits with Home's heavy "Home".
+ * headings). 2rem since the onboarding redesign meeting (20 November 2026), so each screen's first content sits above the sticky button at 375x667.
  */
-export const HEADLINE = "text-[2.5rem] font-[700] leading-[1.05] tracking-[-0.03em]";
+export const HEADLINE = "text-[2rem] font-[700] leading-[1.08] tracking-[-0.03em]";
 /** The small label inside a card ("Calories"): sentence case, semibold, at least 13 px, in the caption grey (colour meeting, 19 November 2026: spaced capitals
  *  were hard to read). Kept under its old name. */
 export const CAPS = "text-[0.875rem] font-semibold text-muted";
@@ -39,9 +39,10 @@ type Icon = (p: React.SVGProps<SVGSVGElement>) => React.ReactNode;
  * The box looks like a box you can type in (Margaret couldn't see how to type her GP's 1,500: the soft fill alone is about 1.1:1 on the white card), with a
  * 1.5 px edge in the --edge token (#7a817d, 3.99:1 on white, WCAG 1.4.11). After a tap on − or + a hidden polite line says the new number ("Calories, 1,550";
  * the low-vision tester heard nothing); typing announces nothing. The − and + are white with the same edge (colour meeting, 19 November 2026: never grey
- * pills you tap), and Done is the ink pill.
+ * pills you tap), and Done is the ink pill. `large`: the figure a size bigger (calories and protein, which come first); `highlight`: a ring in the link green round the
+ * card (the targets screen's Calories box when the questions were skipped: tap it to type your own number).
  */
-export function StepperCard({ id, label, Icon, value, onChange, step, min, max, placeholder, from, invalid, describedBy }: { id: string; label: string; Icon: Icon; value: string; onChange: (v: string) => void; step: number; min: number; max: number; placeholder?: string; from?: number; invalid?: boolean; describedBy?: string }) {
+export function StepperCard({ id, label, Icon, value, onChange, step, min, max, placeholder, from, invalid, describedBy, large, highlight, className = "" }: { id: string; label: string; Icon: Icon; value: string; onChange: (v: string) => void; step: number; min: number; max: number; placeholder?: string; from?: number; invalid?: boolean; describedBy?: string; large?: boolean; highlight?: boolean; className?: string }) {
   const t = useT();
   // read like every other number box ("2,000" and digits typed in another numeral system count)
   const parsed = parseNumber(value);
@@ -63,7 +64,7 @@ export function StepperCard({ id, label, Icon, value, onChange, step, min, max, 
   // (side by side with the figure they left no room for "Optional" on a 390 px phone).
   const round = "grid h-11 w-11 shrink-0 place-items-center rounded-full border-[1.5px] border-edge bg-card transition active:scale-90 active:bg-background hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
   return (
-    <div className={`group/step glass ${CARD} min-w-0 p-4`}>
+    <div className={`group/step glass ${CARD} min-w-0 p-4 ${highlight ? "ring-2 ring-accent ring-offset-2 ring-offset-background" : ""} ${className}`}>
       <div className="flex min-h-8 items-center justify-between gap-2">
         <label htmlFor={id} id={`${id}-label`} className={CAPS}>{label}</label>
         <span aria-hidden className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-background text-accent group-focus-within/step:hidden"><Icon className="h-4 w-4" /></span>
@@ -77,7 +78,7 @@ export function StepperCard({ id, label, Icon, value, onChange, step, min, max, 
           {t("Done")}
         </button>
       </div>
-      <input id={id} inputMode="numeric" autoComplete="off" value={value} onChange={(e) => { setSaid(""); onChange(e.target.value); }} placeholder={placeholder} aria-invalid={invalid || undefined} aria-describedby={invalid ? describedBy : undefined} className="app-numbers mt-2 min-h-11 w-full min-w-0 rounded-xl border-[1.5px] border-edge bg-card px-2 py-1 text-center text-[1.75rem] font-medium leading-none tracking-[-0.01em] placeholder:text-base placeholder:font-medium placeholder:tracking-normal placeholder:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent" />
+      <input id={id} inputMode="numeric" autoComplete="off" value={value} onChange={(e) => { setSaid(""); onChange(e.target.value); }} placeholder={placeholder} aria-invalid={invalid || undefined} aria-describedby={invalid ? describedBy : undefined} className={`app-numbers mt-2 min-h-11 w-full min-w-0 rounded-xl border-[1.5px] border-edge bg-card px-2 py-1 text-center ${large ? "text-[2.125rem]" : "text-[1.75rem]"} font-medium leading-none tracking-[-0.01em] placeholder:text-base placeholder:font-medium placeholder:tracking-normal placeholder:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent`} />
       <div className="mt-2 flex items-center justify-center gap-3">
         <button type="button" aria-label={t("Decrease")} aria-describedby={`${id}-label`} onClick={() => bump(-step)} className={round}><MinusIcon className="h-5 w-5" /></button>
         <button type="button" aria-label={t("Increase")} aria-describedby={`${id}-label`} onClick={() => bump(step)} className={round}><PlusIcon className="h-5 w-5" /></button>
@@ -100,7 +101,7 @@ export const GOAL_REACTION: Readonly<Record<Goal, string>> = {
 };
 
 /**
- * The last screen's one line on what is free (shown only where free and paid are told apart, to someone without Premium). Adding what you eat is named on the
+ * Step 10's one line on what is free (shown only where free and paid are told apart, to someone without Premium). Adding what you eat is named on the
  * free side or the paid side as this build's + button treats it (`logIsPaid`: LOG_IS_PAID, never bare needsPaywall, which is true on a build with no gating at
  * all), and Scan your food only where it exists. "Such as", because more is paid than fits in a line (each of those buttons says so itself), so the list never
  * reads as complete.

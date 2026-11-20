@@ -10,7 +10,7 @@ import { useT } from "../_lib/i18n";
 import { ShieldIcon } from "./icons";
 import { Pip } from "./Mascot";
 import { Note } from "./Note";
-import { Button, Field, Sheet, Spinner, inputClass } from "./ui";
+import { Button, Field, Sheet, inputClass } from "./ui";
 
 // Sign in (docs/ACCOUNTS_SYNC.md). Since 2026-11-17 everyone signs in (SIGN_IN_REQUIRED: the full-screen SignInScreen uses this same panel); with that
 // switch off it is optional, and signing in only turns on sync across devices.
@@ -75,13 +75,13 @@ export function SignInSheet({ open, onClose, community }: { open: boolean; onClo
 /** While the account is being made or opened (Apple's or Google's window has closed, or the email code was right) the whole screen shows Pip and a spinner,
  *  so the sign-in buttons don't flash up again for the second it takes (founder 2026-11-18: "instead of that little small 1 second flash, just have like a loading
  *  animation"). It stays until the app opens, or comes off with the error if it fails. The welcome screens show it too while they wait for the account's
- *  settings after their sign-in step (app/app/welcome/page.tsx). */
+ *  settings after their sign-in step (app/app/welcome/page.tsx). Pip waves (the founder's Pip audit, 20 November 2026: calm, he cheers for nothing here). */
 export function SigningIn() {
   const t = useT();
   return (
     <div role="status" aria-live="polite" className="fixed inset-0 z-50 grid place-items-center bg-background px-6">
       <div className="flex flex-col items-center gap-5 text-center">
-        <Pip mood="cheer" size={104} />
+        <Pip mood="wave" size={104} />
         <span className="h-9 w-9 animate-spin rounded-full border-[3px] border-line border-t-ink motion-reduce:animate-none" />
         <p className="text-lg font-bold">{t("Signing you in…")}</p>
       </div>
@@ -202,13 +202,15 @@ export function SignInPanel({ onDone, community, required = false }: { onDone: (
                   <AppleLogo />
                   {t("Continue with Apple")}
                 </ProviderButton>
+                {/* the iPhone app only: what Apple's own sheet will ask for */}
+                {native && <p className="px-1 text-[0.9375rem] leading-snug text-foreground">{t("With Apple, your iPhone asks for Face ID or your passcode. There's no new password to remember.")}</p>}
                 <ProviderButton href={native ? undefined : providerHref("google")} disabled={busy} onClick={() => void withProvider("google")} className="border border-line bg-white text-[#1f1f1f]">
                   <GoogleLogo />
                   {t("Continue with Google")}
                 </ProviderButton>
               </>
             )}
-            <Button full variant="secondary" disabled={busy} className="min-h-12 text-base" onClick={() => { setError(null); setStep("email"); }}>
+            <Button full variant="secondary" disabled={busy} data-signin-last className="min-h-12 text-base" onClick={() => { setError(null); setStep("email"); }}>
               {t("Continue with email")}
             </Button>
           </div>
@@ -225,7 +227,8 @@ export function SignInPanel({ onDone, community, required = false }: { onDone: (
             </Field>
           </div>
           {error && <SignInError>{error}</SignInError>}
-          <Button full className="mt-5 min-h-12 text-base" disabled={busy} type="submit">{busy ? <Spinner label={t("Sending…")} /> : t("Send me a code")}</Button>
+          {/* busy: the ink stays ink with a spinner and "Working…" (never the grey can't-press fill, which read as broken) */}
+          <Button full className="mt-5 min-h-12 text-base" busy={busy} type="submit">{t("Send me a code")}</Button>
           <Button full variant="ghost" className="mt-1.5" onClick={() => { setError(null); setStep("choose"); }}>{t("Back")}</Button>
         </form>
       )}
@@ -239,13 +242,15 @@ export function SignInPanel({ onDone, community, required = false }: { onDone: (
             <strong className="mt-0.5 block text-[1.125rem] font-bold [overflow-wrap:anywhere]">{email.trim()}</strong>
           </p>
           <p className="mt-2.5 text-base leading-snug">{t("It comes from {app} ({sender}). Not there in a minute? Look in Junk or Spam.", { app: site.name, sender: CODE_SENDER })}</p>
+          {/* the iPhone app: going to Mail and back loses nothing (if iOS ends the app meanwhile, the welcome screens carry on from this step) */}
+          {native && <p className="mt-2.5 text-base leading-snug">{t("Open Mail to find the code, then come back here. {app} keeps your place.", { app: site.name })}</p>}
           <div className="mt-5">
             <Field label={t("6-digit code")}>
               <input type="text" inputMode="numeric" pattern="[0-9]*" autoComplete="one-time-code" maxLength={6} autoFocus className={`${inputClass} min-h-14 text-center text-[1.75rem] font-semibold tracking-[0.4em] tabular-nums`} value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, "").slice(0, 6))} />
             </Field>
           </div>
           {error && <SignInError>{error}</SignInError>}
-          <Button full className="mt-5 min-h-12 text-base" disabled={busy} type="submit">{busy ? <Spinner label={t("Checking…")} /> : t("Sign in")}</Button>
+          <Button full className="mt-5 min-h-12 text-base" busy={busy} type="submit">{t("Sign in")}</Button>
           <div className="mt-1.5 flex flex-wrap justify-center gap-x-2">
             <Button variant="ghost" disabled={busy} onClick={() => { setError(null); setStep("email"); }}>{t("Use a different email")}</Button>
             <Button variant="ghost" disabled={busy} onClick={() => void sendCode()}>{t("Send a new code")}</Button>
@@ -254,14 +259,15 @@ export function SignInPanel({ onDone, community, required = false }: { onDone: (
       )}
 
       {required ? (
-        // What the account keeps, named (lib/mm/syncStores.ts: the synced settings and stores; the log only today's and yesterday's entries), in readable
-        // ink, not small grey. Age, height and weight are never kept (lib/mm/onboardingPlan.ts PRIVACY). Change this with the privacy page and SYNC_STORES.
-        <p className="mt-5 flex items-start gap-2.5 text-[0.9375rem] leading-snug">
-          <ShieldIcon aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+        // What the account keeps, named (lib/mm/syncStores.ts: the synced settings and stores; the log only today's and yesterday's entries), at 16 px in the
+        // page's ink, not small grey. Sex, age, height, weight and activity are never kept (lib/mm/onboardingPlan.ts PRIVACY). Change this with the privacy page
+        // and SYNC_STORES.
+        <p className="mt-5 flex items-start gap-2.5 text-base leading-snug text-foreground">
+          <ShieldIcon aria-hidden className="mt-[0.2rem] h-[1.125rem] w-[1.125rem] shrink-0 text-accent" />
           {/* "No ads, no tracking" stays only while the setup screen counts are off (lib/mm/config.ts TELEMETRY_ENABLED); on, the line says what is counted */}
           <span>{TELEMETRY_ENABLED
-            ? t("We keep your email address, your goal and daily numbers, the foods you avoid, your shops, today's food log, your favourites, and the meals, recipes, lists, comparisons and cupboard items you save. Never your age, weight or height. No ads. We also count how many people reach each setup screen, without knowing who they are.")
-            : t("We keep your email address, your goal and daily numbers, the foods you avoid, your shops, today's food log, your favourites, and the meals, recipes, lists, comparisons and cupboard items you save. Never your age, weight or height. No ads, no tracking.")}</span>
+            ? t("We keep your email address, your goal and daily numbers, the foods you avoid, your shops, today's food log, your favourites, and the meals, recipes, lists, comparisons and cupboard items you save. Never your sex, age, height, weight or activity. No ads. We also count how many people reach each setup screen, without knowing who they are.")
+            : t("We keep your email address, your goal and daily numbers, the foods you avoid, your shops, today's food log, your favourites, and the meals, recipes, lists, comparisons and cupboard items you save. Never your sex, age, height, weight or activity. No ads, no tracking.")}</span>
         </p>
       ) : (
         <p className="mt-5 text-[0.8125rem] leading-snug text-muted">{TELEMETRY_ENABLED

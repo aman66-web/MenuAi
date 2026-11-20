@@ -264,11 +264,12 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             <h2 id="best-heading" className="text-xl font-[800] tracking-[-0.01em]">{t("Best for you")}</h2>
             <p className={`mb-2 mt-4 ${SMALL_LABEL}`}>{t("Which meal?")}</p>
             {/* Three across when they fit; one under another at large text, so no meal ever breaks onto two lines (stacked, the
-                unselected meals are dark text like the shared segmented control's list, so they read as choices). */}
+                unselected meals are dark text like the shared segmented control's list, so they read as choices). Across, the chosen one with its tick fits
+                its third at 375 px (second wave's review: "Breakfast" was clipped): a slimmer track, 4 px sides, a 14 px tick and 15 px words. */}
             <div className="@container">
-              <div className="grid grid-cols-1 gap-1 rounded-[1.625rem] border-[1.5px] border-edge bg-fill p-1 @min-[18.5rem]:grid-cols-3" role="group" aria-label={t("Meal")}>
+              <div className="grid grid-cols-1 gap-0.5 rounded-[1.625rem] border-[1.5px] border-edge bg-fill p-0.5 @min-[18.5rem]:grid-cols-3" role="group" aria-label={t("Meal")}>
                 {MEALS.map((m) => (
-                  <Chip key={m} segment className={`w-full justify-center px-2 text-center [overflow-wrap:normal] ${meal === m ? "" : "@max-[18.5rem]:text-foreground"}`} selected={meal === m} onClick={() => setMeal(m)}>{t(MEAL_LABEL[m])}</Chip>
+                  <Chip key={m} segment className={`w-full justify-center gap-1! px-1! text-center text-[0.9375rem]! [overflow-wrap:normal] [&>svg]:h-3.5 [&>svg]:w-3.5 ${meal === m ? "" : "@max-[18.5rem]:text-foreground"}`} selected={meal === m} onClick={() => setMeal(m)}>{t(MEAL_LABEL[m])}</Chip>
                 ))}
               </div>
             </div>

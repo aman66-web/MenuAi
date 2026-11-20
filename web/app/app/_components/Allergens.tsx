@@ -4,7 +4,7 @@ import { tk } from "@/lib/mm/i18n";
 import { ALLERGEN_KEYS, type AllergenKey, type Allergens, type Chain } from "@/lib/mm/types";
 import { useSettings } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
-import { ExternalIcon, InfoIcon } from "./icons";
+import { ExternalIcon, InfoIcon, WarningIcon } from "./icons";
 import { SMALL_LABEL } from "./Nutrition";
 
 // Allergens exactly as the chain's own guide lists them (docs/DATA.md "Allergens"): a row for each of the 14 allergens UK
@@ -64,7 +64,13 @@ export function AllergenTable({ allergens, caption, columnLabel, pad = "px-5" }:
               <tr key={key} className={s.kind !== "none" || avoid.includes(key) ? "bg-[var(--fill)]" : undefined}>
                 <th scope="row" className={`${pad} py-3 text-start align-middle leading-snug ${s.kind !== "none" || avoid.includes(key) ? "font-bold" : "font-medium"}`}>
                   {t(ALLERGEN_LABEL[key])}
-                  {avoid.includes(key) && <span className="ms-2 inline-flex rounded-full bg-sun px-2 py-0.5 align-middle text-[0.75rem] font-bold text-[var(--on-accent)]">{t("You avoid")}</span>}
+                  {/* the person's own allergen: the amber allergy note's look (Note.tsx), never lime, which means only chosen or done (second wave's review) */}
+                  {avoid.includes(key) && (
+                    <span className="ms-2 inline-flex items-center gap-1 rounded-full border-2 border-note-edge bg-note-bg px-2 py-0.5 align-middle text-[0.75rem] font-bold text-foreground">
+                      <WarningIcon className="h-3.5 w-3.5 shrink-0 text-note-edge" />
+                      {t("You avoid")}
+                    </span>
+                  )}
                   {s.detail && <span className="mt-0.5 block text-sm font-medium text-muted">{s.detail}</span>}
                 </th>
                 <td className={`${pad} py-3 text-end align-middle`}>

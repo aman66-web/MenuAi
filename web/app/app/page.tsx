@@ -3,27 +3,28 @@
 import { StartPrompt } from "./_components/StartPrompt";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
 import { entryMeal, isSameLocalDay, LOG_MEAL_LABEL, LOG_MEALS, loggedGaps, loggedToday, mealBudget } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { dayHref, dayParam, loggedDayKeys, shortDate, weekOf } from "@/lib/mm/day";
 import { needsPaywall } from "@/lib/mm/entitlements";
 import { formatInt } from "@/lib/mm/format";
+import { ARRIVAL_TOAST, arrivalDue, startHereDone, withoutArrival } from "@/lib/mm/homePages";
 import { macroTargets } from "@/lib/mm/targets";
 import { localeInfo } from "@/lib/mm/i18n";
-import { deleteLogEntry, logStore, savedStore, updateSettings } from "@/lib/mm/stores";
+import { deleteLogEntry, homePagesStore, logStore, savedStore, updateSettings } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
 import type { LogMeal } from "@/lib/mm/types";
 import { AddFoodSheet } from "./_components/addfood/AddFoodSheet";
 import { EntryAvatars, entryPicture, legacyImage, type EntryPicture } from "./_components/addfood/EntryPicture";
 import { DayPicker } from "./_components/DayPicker";
-import { HomeLabels } from "./_components/HomeLabels";
 import { HOME_PAGE_NAMES, HomePages } from "./_components/HomePages";
 import { HomeToday } from "./_components/HomeToday";
 import { HomeWeek } from "./_components/HomeWeek";
 import { useGate } from "./_components/Paywall";
 import { RemindersSection } from "./_components/RemindersSection";
+import { StartHere, useStartHere } from "./_components/StartHere";
 import { WaterCard } from "./_components/WaterCard";
 import { ChevronRightIcon, FlameIcon, PlusIcon } from "./_components/icons";
 import { PageHeader } from "./_components/PageHeader";
@@ -51,6 +52,9 @@ import { useLanguage, useT } from "./_lib/i18n";
 // room at the top right for the Shopping list and the cog with its word (PageHeader); the week strip shows today in lime with its dark-green edge, a dot and the
 // word "Today", the days gone by white with the control edge and a small ink dot when food was logged, the days ahead plain; the meal rows' icon wells are the
 // page fill with an ink icon (never green beside a food figure); the log card's "See Premium" is a secondary button; what was added is said in the one toast.
+// The onboarding redesign meeting (20 November 2026, approved by the founder): Home is where the welcome screens end, with no "You're all set!" screen. The
+// first visit says what is now true in one ink toast (lib/mm/homePages.ts ARRIVAL_TOAST, 8 s at least), and shows the one-time Start here card under the
+// numbers (StartHere.tsx); while it shows, the "Set your targets" card waits. Pip's tips start once the toast has gone (CoachMarks.tsx: data-coach-wait).
 
 export default function HomePage() {
   const t = useT();
@@ -68,6 +72,23 @@ export default function HomePage() {
   const [picking, setPicking] = useState(false);
   const [addTo, setAddTo] = useState<LogMeal | null>(null);
   const [added, setAdded] = useState<{ entry: LogEntry; meal: LogMeal } | null>(null);
+  // What the welcome screens left for this visit (lib/mm/homePages.ts): read once, kept for this visit, and forgotten on the phone at once ("one time").
+  const [arrival] = useState(() => arrivalDue(homePagesStore.get(), new Date()));
+  const [arrivalToast, setArrivalToast] = useState(arrival?.toast ?? null);
+  useEffect(() => {
+    if (arrival) homePagesStore.set(withoutArrival(homePagesStore.get()));
+  }, [arrival]);
+  // the Start here card: what it would show, which of its rows have been used this visit, and whether "Done with this" closed it
+  const logPaid = needsPaywall("log", { pro }); // whether logging is paid for this person on this build (the same check the + makes through gate("log"))
+  const start = useStartHere(arrival, !logPaid);
+  const [startUsed, setStartUsed] = useState<{ add: boolean; dishEntry: string | null; recipe: boolean }>({ add: false, dishEntry: null, recipe: false });
+  const [startClosed, setStartClosed] = useState(false);
+  const [addFromStart, setAddFromStart] = useState(false);
+  /** The one toast at the top says what was just added (it takes the arrival toast's place). */
+  const showAdded = (next: { entry: LogEntry; meal: LogMeal }) => {
+    setArrivalToast(null);
+    setAdded(next);
+  };
   const todays = log.filter((e) => isSameLocalDay(new Date(e.loggedAt), now));
   // only for entries logged before entries kept their picture: their dish is looked up in its chain's menu
   const indexes = useChainIndexes(todays.filter((e) => e.chainId && !e.image && !e.recipeId && !e.photo).map((e) => e.chainId));
@@ -82,8 +103,8 @@ export default function HomePage() {
   const narrow = new Intl.DateTimeFormat(htmlLang, { weekday: "narrow" });
   const longDay = new Intl.DateTimeFormat(htmlLang, { weekday: "long", day: "numeric", month: "long" });
   const loggedDays = loggedDayKeys(log);
-  // whether logging is paid for this person on this build (the same check the + makes through gate("log"))
-  const logPaid = needsPaywall("log", { pro });
+  const dishUsed = !!startUsed.dishEntry && log.some((e) => e.id === startUsed.dishEntry);
+  const startOpen = start.shows && !startClosed && !startHereDone(start.rows, { add: startUsed.add, dish: dishUsed, recipe: startUsed.recipe });
 
   const pictureOf = (e: LogEntry): EntryPicture | undefined => entryPicture(e, legacyImage(e, indexes.get(e.chainId), savedOrders));
   const byMeal = (meal: LogMeal) => todays.filter((e) => entryMeal(e) === meal).sort((a, b) => Date.parse(a.loggedAt) - Date.parse(b.loggedAt));
@@ -166,16 +187,29 @@ export default function HomePage() {
         <p className="glass mt-4 rounded-2xl px-4 py-2.5 text-xs text-muted">{t("Showing fictional sample data for testing. Numbers are not real.")}</p>
       )}
 
-      {/* the day's numbers as three pages you slide sideways, with three dots under them (founder 2026-11-19; the 20-person meeting): Today (the two dark cards,
-          as before), Calories and protein this week, and Today: sugar, salt and fibre */}
+      {/* the day's numbers as two pages you slide sideways, with two dots under them (founder 2026-11-19; the 20-person meeting): Today (the two dark cards,
+          as before) and Calories and protein this week. The sugar, salt and fibre page is no longer shown (20 November, decided overnight under the founder's
+          delegation; HomeLabels.tsx is kept for when it comes back) */}
       <HomePages
         now={now}
         pages={[
           { name: t(HOME_PAGE_NAMES.today), node: <><h2 className="sr-only">{t(HOME_PAGE_NAMES.today)}</h2><HomeToday calories={eaten.calories} target={settings.dailyCalories} targets={targets} eaten={eaten} /></> },
           { name: t(HOME_PAGE_NAMES.week), node: <HomeWeek log={log} now={now} target={settings.dailyCalories} logPaid={logPaid} htmlLang={htmlLang} /> },
-          { name: t(HOME_PAGE_NAMES.labels), node: <HomeLabels log={log} now={now} logPaid={logPaid} /> },
         ]}
       />
+      {/* the one-time Start here card, directly under the numbers and their dots, above the cooking tools */}
+      {startOpen && (
+        <StartHere
+          state={start}
+          now={now}
+          used={startUsed}
+          onAddWhatYouAte={(meal) => { setAddFromStart(true); setAddTo(meal); }}
+          onDishAdded={(entry, meal) => { setStartUsed((u) => ({ ...u, dishEntry: entry.id })); showAdded({ entry, meal }); }}
+          onDishUndone={(id) => { if (added?.entry.id === id) setAdded(null); }}
+          onRecipeOpened={() => setStartUsed((u) => ({ ...u, recipe: true }))}
+          onDone={() => setStartClosed(true)}
+        />
+      )}
       {/* the word "today" keeps it true under any of the pages */}
       {gaps.any && <p className="mt-3 px-1 text-sm leading-snug text-muted">{t("Some meals you added today have no protein, carbs or fat entered, so today's figures only count the rest.")}</p>}
 
@@ -191,7 +225,8 @@ export default function HomePage() {
 
       <StartPrompt className="mt-3" />
 
-      {!settings.hasSetTargets && !settings.dismissedTargetsCard && settings.hasCompletedOnboarding && (
+      {/* waits while the Start here card shows (the meeting); it opens Settings › Daily targets, with "Where these numbers come from" */}
+      {!startOpen && !settings.hasSetTargets && !settings.dismissedTargetsCard && settings.hasCompletedOnboarding && (
         <Card className="mt-3 flex items-center justify-between gap-3 p-4">
           <Link href="/app/settings#targets" className="min-h-11 flex-1 font-medium">{t("Set your targets to see what's left today")}</Link>
           <button type="button" className="min-h-11 min-w-11 text-sm text-muted" onClick={() => updateSettings({ dismissedTargetsCard: true })} aria-label={t("Dismiss")}>{t("Dismiss")}</button>
@@ -249,7 +284,23 @@ export default function HomePage() {
 
       <DayPicker open={picking} onClose={() => setPicking(false)} log={log} now={now} onPick={(d) => { setPicking(false); router.push(dayHref(d, now)); }} />
 
-      <AddFoodSheet meal={addTo} onClose={() => setAddTo(null)} onAdded={(entry, meal) => { setAddTo(null); setAdded({ entry, meal }); }} />
+      <AddFoodSheet
+        meal={addTo}
+        onClose={() => { setAddTo(null); setAddFromStart(false); }}
+        onAdded={(entry, meal) => {
+          setAddTo(null);
+          if (addFromStart) setStartUsed((u) => ({ ...u, add: true }));
+          setAddFromStart(false);
+          showAdded({ entry, meal });
+        }}
+      />
+
+      {arrivalToast && !added && (
+        // the arrival toast, once (the meeting's words for how the person arrived); Pip's tips wait until it has gone (data-coach-wait)
+        <span data-coach-wait="">
+          <Toast onClose={() => setArrivalToast(null)}>{t(ARRIVAL_TOAST[arrivalToast])}</Toast>
+        </span>
+      )}
 
       {added && (
         // The one toast (Toast.tsx), at the top, clear of the meal rows and their + buttons: a second tap on the same + must never land on Undo. A new key for

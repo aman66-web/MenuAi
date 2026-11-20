@@ -11,9 +11,8 @@ import { formatInt } from "@/lib/mm/format";
 import { tk } from "@/lib/mm/i18n";
 import { addLogEntry, countProAction, paidStore } from "@/lib/mm/stores";
 import type { LogMeal } from "@/lib/mm/types";
-import { CameraIcon, CheckIcon, PhotoIcon } from "../_components/icons";
+import { CameraIcon, CheckIcon, InfoIcon, PhotoIcon } from "../_components/icons";
 import { PageHeader } from "../_components/PageHeader";
-import { Pip } from "../_components/Mascot";
 import { useGate } from "../_components/Paywall";
 import { Button, ErrorBox, Spinner } from "../_components/ui";
 import { useHydrated, useIsPro, useStore } from "../_lib/hooks";
@@ -25,6 +24,9 @@ import { PhotoCamera, ScanningPhoto } from "../recipes/photo/PhotoCamera";
 // choose one), then the camera, a short scanning look, a loading screen while Pip works, and the estimate: the plate's calories, protein, carbs and fat, what Pip
 // counted, how sure it is, always marked as an estimate from a photo. One tap adds it to today's breakfast, lunch or dinner. Premium only, and the page exists only
 // while FOOD_SCAN_ENABLED (lib/mm/config.ts). The photo is made smaller on the phone first (_lib/photo.ts) and is never kept.
+// No Pip on the first page (Pip audit, founder 2026-11-20: "keep him as the guide, not the decoration"). The estimate is a white card with the dashed edge and
+// the "Estimate from your photo" info tag at its top (colour meeting, 19 November 2026: an AI estimate must never look like a published label), and nothing on
+// this screen is lime: the loading list's finished steps are plain ink ticks.
 
 type Step = "start" | "camera" | "scanning" | "working" | "done" | "error";
 const WORKING_STEP_MS = 6000;
@@ -57,7 +59,7 @@ function Working({ photoUrl, finished }: { photoUrl: string | null; finished: bo
         {SCAN_WORKING_LINES.map((line, i) => (
           <li key={line} className={`flex items-center gap-3 text-[1.0625rem] font-semibold ${i <= shown ? "text-foreground" : "text-muted"}`}>
             {i < shown ? (
-              <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)]"><CheckIcon className="h-4 w-4" /></span>
+              <span className="grid h-7 w-7 shrink-0 place-items-center text-foreground"><CheckIcon className="h-6 w-6" strokeWidth={3} /></span>
             ) : i === shown ? (
               <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-line border-t-ink motion-reduce:animate-none" />
             ) : (
@@ -194,7 +196,6 @@ function ScanScreen() {
         <section aria-labelledby="scan-h">
           <h1 id="scan-h" ref={heading} tabIndex={-1} className={H1}>{t("Scan your food")}</h1>
           <p className="mt-2 text-[1.0625rem] leading-snug text-muted">{t("Take a photo of your plate and Pip estimates its calories, protein, carbs and fat.")}</p>
-          <div className="mt-5 flex justify-center"><Pip mood="wave" size={96} /></div>
           {/* first, in a few words, what the food is: Pip reads it with the photo */}
           <label htmlFor="scan-what" className="mt-5 block text-lg font-[800] leading-snug">{t("What are you eating?")}</label>
           <p id="scan-what-help" className="mt-0.5 text-[0.9375rem] leading-snug text-muted">{t("A few words help Pip tell what's on the plate.")}</p>
@@ -219,7 +220,8 @@ function ScanScreen() {
             <Button full variant="secondary" className="min-h-14 gap-2.5 text-lg" onClick={() => start("library")}><PhotoIcon className="h-6 w-6" />{t("Choose a photo")}</Button>
           </div>
           {photoError && <p role="alert" className="glass mt-3 rounded-[1.25rem] p-4 font-semibold">{t("That photo couldn't be opened. Please try another one.")}</p>}
-          <p className="mt-5 text-[0.9375rem] leading-snug text-muted">{t("The numbers are an estimate from your photo, not from a label: oil, sauces and portion sizes can't always be seen.")}</p>
+          {/* the estimate line in the text colour with an info icon (colour meeting: "the estimate must be seen", CLAUDE.md rule 1) */}
+          <p className="mt-5 flex gap-2 text-[0.9375rem] leading-snug text-foreground"><InfoIcon aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-accent" /><span>{t("The numbers are an estimate from your photo, not from a label: oil, sauces and portion sizes can't always be seen.")}</span></p>
           <p className="mt-3 text-[0.8125rem] leading-snug text-muted">{t("Pip uses AI from Anthropic (the company that makes Claude). To work out the numbers we send your photo (made smaller on your phone first). Nothing about you is sent with it, and we don't keep the photo.")}</p>
         </section>
       )}
@@ -258,14 +260,18 @@ function ScanScreen() {
             <img src={photo.url} alt={t("Your photo")} className="mt-4 aspect-[4/3] w-full rounded-[1.5rem] object-cover" />
           )}
           <h1 id="scan-done-h" ref={heading} tabIndex={-1} className={H1}>{scan.name}</h1>
-          <p className="mt-2 inline-flex rounded-full bg-sun px-3 py-1 text-[0.9375rem] font-bold text-[var(--on-accent)]">{t("Estimate from your photo")}</p>
-          <div className="mt-4 grid grid-cols-3 gap-2.5">
-            <Figure big value={scan.total.kcal} unit="kcal" label={t("Calories")} />
-            <Figure value={scan.total.protein} unit="g" label={t("Protein")} />
-            <Figure value={scan.total.carbs} unit="g" label={t("Carbs")} />
-            <Figure value={scan.total.fat} unit="g" label={t("Fat")} />
+          {/* a white card with the 1.5 px dashed edge, the info tag at its top (page fill, 6 px corners, no edge, text-colour words at body size), the four
+              figures in page-fill wells (a .glass inside a .glass) */}
+          <div className="glass mt-4 rounded-[1.25rem] border-[1.5px] border-dashed border-edge p-3">
+            <p className="inline-flex items-center gap-1.5 rounded-[6px] bg-fill px-2.5 py-1 text-base font-semibold text-foreground"><InfoIcon aria-hidden className="h-[1.125rem] w-[1.125rem] shrink-0" />{t("Estimate from your photo")}</p>
+            <div className="mt-3 grid grid-cols-3 gap-2.5">
+              <Figure big value={scan.total.kcal} unit="kcal" label={t("Calories")} />
+              <Figure value={scan.total.protein} unit="g" label={t("Protein")} />
+              <Figure value={scan.total.carbs} unit="g" label={t("Carbs")} />
+              <Figure value={scan.total.fat} unit="g" label={t("Fat")} />
+            </div>
+            <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t(SURE[scan.confidence])}</p>
           </div>
-          <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t(SURE[scan.confidence])}</p>
 
           <h2 className="mt-6 text-xl font-[800] tracking-[-0.01em]">{t("What Pip counted")}</h2>
           <ul className="mt-3 space-y-2.5">

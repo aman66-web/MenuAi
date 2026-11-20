@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
+  analytics,
   createSetupScreenReporter,
   INSTALL_ID_KEY,
   reportSetupScreen,
@@ -12,6 +13,7 @@ import {
 } from "../lib/mm/analytics";
 import { TELEMETRY_APP_ID, TELEMETRY_ENABLED } from "../lib/mm/config";
 import type { KeyValueStorage } from "../lib/mm/persist";
+import { WELCOME_STEPS } from "../lib/mm/welcomeSteps";
 
 // The setup screen counts (the onboarding meeting of 19 November 2026, question 10): TelemetryDeck by plain fetch, BUILT SWITCHED OFF. Off, nothing is sent and
 // nothing is stored; on, a signal carries only "setupScreen", the screen's name and a hash of a random number kept on the device (mm.v1.installId).
@@ -114,11 +116,11 @@ describe("setup screen counts: switched on", () => {
     const r = createSetupScreenReporter(d);
     r.report("cover");
     r.report("cover");
-    r.report("arrival");
-    r.report("tour.home");
-    r.report("arrival");
+    r.report("goal");
+    r.report("eatOut");
+    r.report("goal");
     await settle();
-    expect(bodies(fetch).map((b) => (b[0] as { payload: Record<string, string> }).payload["Setup.screen"])).toEqual(["cover", "arrival", "tour.home"]);
+    expect(bodies(fetch).map((b) => (b[0] as { payload: Record<string, string> }).payload["Setup.screen"])).toEqual(["cover", "goal", "eatOut"]);
     expect(new Set(bodies(fetch).map((b) => (b[0] as { clientUser: string }).clientUser))).toEqual(new Set([hashOf(ID)]));
     expect(randomId).toHaveBeenCalledTimes(1);
   });
@@ -157,9 +159,9 @@ describe("setup screen counts: switched on", () => {
 
   it("marks test builds' signals as test signals", async () => {
     const { d, fetch } = deps({ testMode: true });
-    createSetupScreenReporter(d).report("allSet");
+    createSetupScreenReporter(d).report("save");
     await settle();
-    expect(bodies(fetch)[0]).toEqual([{ appID: "APP-ID", clientUser: hashOf(ID), type: "setupScreen", payload: { "Setup.screen": "allSet" }, isTestMode: true }]);
+    expect(bodies(fetch)[0]).toEqual([{ appID: "APP-ID", clientUser: hashOf(ID), type: "setupScreen", payload: { "Setup.screen": "save" }, isTestMode: true }]);
   });
 
   it("never throws: offline, refused, or storage blocked", async () => {
@@ -200,14 +202,14 @@ describe("setup screen counts: switched on", () => {
     const fresh = await import("../lib/mm/analytics");
     expect(config.TELEMETRY_ENABLED).toBe(true);
     expect(config.TELEMETRY_APP_ID).toBe("MY-APP");
-    fresh.reportSetupScreen("signIn.setup");
+    fresh.reportSetupScreen("save");
     await vi.waitFor(() => expect(fetch).toHaveBeenCalledTimes(1));
     const id = storage.data.get(INSTALL_ID_KEY)!;
     expect(id).toMatch(/^[0-9a-f]{32}$/);
     const [signal] = JSON.parse(String((fetch.mock.calls[0] as unknown as [string, RequestInit])[1].body)) as Array<Record<string, unknown>>;
     expect(Object.keys(signal!).sort()).toEqual(["appID", "clientUser", "isTestMode", "payload", "type"]);
     expect(signal!.appID).toBe("MY-APP");
-    expect(signal!.payload).toEqual({ "Setup.screen": "signIn.setup" });
+    expect(signal!.payload).toEqual({ "Setup.screen": "save" });
     expect(signal!.clientUser).toMatch(/^[0-9a-f]{64}$/);
     expect(signal!.clientUser).not.toContain(id);
     fresh.forgetInstallId();
@@ -223,5 +225,61 @@ describe("the number stays on the device", () => {
   it("Settings › Clear data removes it", () => {
     const settings = readFileSync(new URL("../app/app/settings/page.tsx", import.meta.url), "utf8");
     expect(settings).toContain("forgetInstallId();");
+  });
+});
+
+// The onboarding redesign meeting (20 November 2026, build list 15): the counts follow the welcome steps by name; no event carries the goal (GLP-1 is health
+// data), a body answer or a nutrition figure; and all of it stays silent until the founder switches TelemetryDeck on.
+describe("the welcome steps' events", () => {
+  it("names the cover, the eleven steps and the returning sign-in, and none of the screens that were removed", () => {
+    expect(SETUP_SCREENS).toEqual(["cover", ...WELCOME_STEPS, "returning"]);
+    for (const gone of ["arrival", "textSize", "tour.home", "fork", "signIn.look", "allSet", "aboutYou", "yourSize", "activity"]) {
+      expect((SETUP_SCREENS as readonly string[]).includes(gone), gone).toBe(false);
+    }
+  });
+
+  it("carries no goal on onboardingCompleted, and a step's name (never a number) on onboardingSkipped and welcomeStep", () => {
+    analytics.track({ name: "onboardingCompleted" });
+    analytics.track({ name: "onboardingSkipped", step: "about" });
+    analytics.track({ name: "welcomeStep", step: "eatOut" });
+    // @ts-expect-error the goal is health data ("glp1"): never part of the event
+    analytics.track({ name: "onboardingCompleted", goal: "glp1" });
+    // @ts-expect-error a step is named, not numbered
+    analytics.track({ name: "onboardingSkipped", step: 6 });
+    // @ts-expect-error only a step's name, never an answer or a figure
+    analytics.track({ name: "welcomeStep", step: "eatOut", kcal: 2000 });
+  });
+
+  it("sends nothing while TelemetryDeck is off, whatever is tracked", async () => {
+    const fetch = vi.fn(async () => new Response("1"));
+    const storage = new MemoryStorage();
+    vi.stubGlobal("fetch", fetch);
+    vi.stubGlobal("localStorage", storage);
+    for (const step of WELCOME_STEPS) {
+      analytics.track({ name: "welcomeStep", step });
+      analytics.track({ name: "onboardingSkipped", step });
+    }
+    analytics.track({ name: "onboardingCompleted" });
+    await settle();
+    expect(fetch).not.toHaveBeenCalled();
+    expect(storage.writes).toBe(0);
+  });
+
+  it("switched on, a welcome step is counted once as that step's name, and nothing else is sent", async () => {
+    vi.stubEnv("NEXT_PUBLIC_TELEMETRY_APP_ID", "MY-APP");
+    const fetch = vi.fn(async () => new Response("1"));
+    vi.stubGlobal("fetch", fetch);
+    vi.stubGlobal("localStorage", new MemoryStorage());
+    vi.resetModules();
+    const fresh = await import("../lib/mm/analytics");
+    fresh.analytics.track({ name: "welcomeStep", step: "week" });
+    fresh.analytics.track({ name: "welcomeStep", step: "week" });
+    fresh.analytics.track({ name: "onboardingSkipped", step: "goal" });
+    fresh.analytics.track({ name: "onboardingCompleted" });
+    await vi.waitFor(() => expect(fetch).toHaveBeenCalledTimes(1));
+    await settle();
+    expect(fetch).toHaveBeenCalledTimes(1);
+    const [signal] = JSON.parse(String((fetch.mock.calls[0] as unknown as [string, RequestInit])[1].body)) as Array<Record<string, unknown>>;
+    expect(signal!.payload).toEqual({ "Setup.screen": "week" });
   });
 });

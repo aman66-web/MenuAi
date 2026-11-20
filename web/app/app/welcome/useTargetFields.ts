@@ -47,6 +47,13 @@ export function useTargetFields(initial: UserSettings) {
     setSuggestedNotes([...notes]);
   }, []);
 
+  /** The cover's "Start again": the boxes as these settings have them, with no plan or suggestion behind them. */
+  const resetTo = useCallback((s: UserSettings) => {
+    lastPlan.current = null;
+    setSuggestedNotes(null);
+    setFields(fromSettings(s));
+  }, []);
+
   // `start` is what the boxes held on arrival (the saved targets), so the page can tell whether the person changed a box
-  return { fields, setField, applyPlan, apply, suggestedNotes, start };
+  return { fields, setField, applyPlan, apply, resetTo, suggestedNotes, start };
 }

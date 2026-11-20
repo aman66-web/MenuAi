@@ -22,10 +22,11 @@ import { Button, Sheet } from "./ui";
 // When (the onboarding meeting of 19 November, question 5, approved that day; lib/mm/tour.ts trialOfferDue): never straight after setup, where the first free
 // moment became an offer to pay. The first time someone taps a Premium feature, the paywall it opens is the offer (it carries the free-trial banner), and this sheet
 // then never follows it. Otherwise this sheet opens on Home on their second visit day: a later day than the first day the app was used on this phone (the same
-// count of days as the rating question, lib/mm/ratingPrompt.ts), never in the visit where setup or "Look around first" finished, and never over another sheet
-// (the setup card's, Add food...): it waits until that one is closed.
+// count of days as the rating question, lib/mm/ratingPrompt.ts), never in the visit where the welcome screens finished (finishWelcome, after sign-in, "Not now" or a
+// signed-in run's last step: the onboarding meeting of 20 November 2026 keeps this timing unchanged), and never over another sheet (the setup card's, Add
+// food...): it waits until that one is closed. Inside: what Premium adds, the plans with the billed amount first, then the free trial's card (PremiumOffer.tsx).
 
-/** Set by the welcome screens when setup or "Look around first" finishes: no offer in the rest of this visit (the app's JavaScript lives as long as the visit). */
+/** Set by the welcome screens when they finish (finishWelcome): no offer in the rest of this visit (the app's JavaScript lives as long as the visit). */
 let setUpThisVisit = false;
 export function holdTrialOfferThisVisit(): void {
   setUpThisVisit = true;
@@ -79,7 +80,7 @@ function TrialOfferInApp() {
   return (
     <Sheet open={open} onClose={() => setOpen(false)} title={t("{app} Premium", { app: site.name })}>
       <div className="pb-1 font-medium">
-        <PremiumOffer trial={trial} />
+        <PremiumOffer />
         <div className="mt-5"><AppStorePlans /></div>
         <Button size="lg" full variant="secondary" className="mt-4" onClick={() => setOpen(false)}>{t("Not now")}</Button>
         <p className="mt-2 text-center text-[0.9375rem] leading-snug text-muted">{t("You can start your free trial later from any Premium feature, or in Settings › Subscription.")}</p>

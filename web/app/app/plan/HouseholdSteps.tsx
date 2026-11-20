@@ -1,17 +1,20 @@
 "use client";
 
+import { useState } from "react";
 import { ALLERGEN_LABEL } from "@/lib/mm/allergens";
-import { AGE_GROUPS, MAX_PEOPLE, NAME_MAX, PORTIONS, personShare, shareWords, type AgeGroup, type HomeMeat, type HomePerson, type Household, type PortionSize } from "@/lib/mm/household";
+import { AGE_GROUPS, HOME_DIETS, MAX_PEOPLE, MORE_HOME_DIETS, NAME_MAX, PORTIONS, personShare, shareWords, toggleHomeDiet, type AgeGroup, type HomeDiet, type HomePerson, type Household, type PortionSize } from "@/lib/mm/household";
 import { tk } from "@/lib/mm/i18n";
 import { ALLERGEN_KEYS, type AllergenKey } from "@/lib/mm/types";
 import { PipSays } from "../_components/Mascot";
+import { ChevronRightIcon } from "../_components/icons";
 import { ChoiceMark, inputClass } from "../_components/ui";
 import { useT } from "../_lib/i18n";
 import { CARD, CHIP, CHIP_ON } from "../groceries/PageBits";
 
 // The meal plan's household screens (founder 2026-11-19: "people normally live with people ... a plan for everyone"; "first screen is how many people are they
 // cooking for"; the 20-agent meeting's conclusion the same day): how many, who each other person is (an age group, an optional name, a portion), the home's
-// allergies, and whether anyone doesn't eat meat. Big buttons, one question a screen; Pip says in one line what each answer does. Nothing here leaves the phone.
+// allergies, and the diets anyone at home follows (until 20 November one meat answer; now every diet the person's own picker knows, the six newer ones behind
+// "More diets"). Big buttons, one question a screen; Pip says in one line what each answer does. Nothing here leaves the phone.
 // Every answer is in the one choice look (colour meeting, 19 November 2026, approved by the founder that day): unchosen, white with the 1.5 px edge and an empty
 // ring; chosen, lime with the 2 px dark green edge, bold dark green words and a tick (never a dark disc, and never a grey tile that looks switched off).
 
@@ -111,29 +114,50 @@ export function AllergiesStep({ value, onChange }: { value: AllergenKey[]; onCha
   );
 }
 
-const MEAT_CHOICES: ReadonlyArray<{ id: HomeMeat; title: string; line: string }> = [
-  { id: "all", title: tk("We all eat meat"), line: tk("Meals can have meat or fish.") },
-  { id: "vegetarian", title: tk("Someone is vegetarian"), line: tk("I'll cook every meal vegetarian, for everyone.") },
-  { id: "vegan", title: tk("Someone is vegan"), line: tk("I'll cook every meal vegan, for everyone.") },
-];
+/** Each diet's name as the person's own diet picker says it (DietPicker), and the second line on the hard ones. */
+export const HOME_DIET_LABEL: Record<HomeDiet, string> = {
+  vegetarianOnly: tk("Vegetarian"), veganOnly: tk("Vegan"), pescatarianOnly: tk("Pescatarian"), halalOnly: tk("Halal"), noPork: tk("No pork"), noBeef: tk("No beef"),
+  jain: tk("Jain"), noOnionGarlic: tk("No onion or garlic"), kosherStyle: tk("Kosher style"), noRedMeat: tk("No red meat"), noAlcohol: tk("No alcohol"), noHalalKosherMeat: tk("No halal or kosher meat"),
+};
+const HOME_DIET_HINT: Partial<Record<HomeDiet, string>> = { pescatarianOnly: tk("fish, no meat"), kosherStyle: tk("We can't check kosher certification.") };
 
-/** Whether anyone doesn't eat meat: one answer for the home (one pot, the strictest wins). */
-export function MeatStep({ value, onChange }: { value: HomeMeat; onChange: (v: HomeMeat) => void }) {
+/**
+ * The diets anyone at home follows: one answer for the home (one pot), every meal fitting all of them. The six everyone knows, then "More diets" for the rest
+ * (open from the start when one of them is already ticked). Nothing ticked: the bottom button says "No diets at home".
+ */
+export function HomeDietStep({ value, onChange }: { value: readonly HomeDiet[]; onChange: (v: HomeDiet[]) => void }) {
   const t = useT();
+  const [more, setMore] = useState(() => value.some((d) => MORE_HOME_DIETS.includes(d)));
+  const tile = (d: HomeDiet) => {
+    const on = value.includes(d);
+    const hint = HOME_DIET_HINT[d];
+    return (
+      <button key={d} type="button" aria-pressed={on} onClick={() => onChange(toggleHomeDiet(value, d))}
+        className={`${TILE} min-h-14 w-full gap-3 rounded-[1.25rem] px-4 py-2.5 ${on ? TILE_ON : TILE_OFF}`}>
+        <span className="min-w-0 flex-1">
+          <span className="block text-[1.0625rem] font-[800] leading-snug">{t(HOME_DIET_LABEL[d])}</span>
+          {hint && <span className={`mt-0.5 block text-[0.9375rem] leading-snug ${on ? "" : "text-muted"}`}>{t(hint)}</span>}
+        </span>
+        <ChoiceMark on={on} kind="circle" />
+      </button>
+    );
+  };
   return (
-    <div role="radiogroup" aria-label={t("Does anyone not eat meat?")} className="space-y-2.5">
-      {MEAT_CHOICES.map((c) => (
-        <button key={c.id} type="button" role="radio" aria-checked={value === c.id} onClick={() => onChange(c.id)}
-          className={`${TILE} min-h-16 w-full gap-3 rounded-[1.25rem] p-3.5 ${value === c.id ? TILE_ON : TILE_OFF}`}>
-          <span className="min-w-0 flex-1">
-            <span className="block text-[1.0625rem] font-[800] leading-snug">{t(c.title)}</span>
-            <span className="mt-0.5 block text-[0.9375rem] leading-snug">{t(c.line)}</span>
-          </span>
-          <ChoiceMark on={value === c.id} kind="circle" />
-        </button>
-      ))}
+    <div>
+      <div role="group" aria-label={t("Diets at home")} className="space-y-2">{HOME_DIETS.map(tile)}</div>
+      <button type="button" aria-expanded={more} aria-controls={more ? "more-home-diets" : undefined} onClick={() => setMore((m) => !m)}
+        className="mt-3 inline-flex min-h-12 items-center gap-2 rounded-full border-[1.5px] border-edge bg-card px-5 text-[0.9375rem] font-bold text-foreground transition active:scale-[0.97] hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+        {t("More diets")}<ChevronRightIcon aria-hidden className={`h-4 w-4 transition-transform motion-reduce:transition-none ${more ? "-rotate-90" : "rotate-90"}`} />
+      </button>
+      {more && <div id="more-home-diets" role="group" aria-label={t("More diets")} className="mt-3 space-y-2">{MORE_HOME_DIETS.map(tile)}</div>}
     </div>
   );
+}
+
+/** The home's diets in words for the check screen: "No diets at home." or "For everyone: Vegetarian, No alcohol". */
+export function homeDietLine(t: (s: string, v?: Record<string, string | number>) => string, diets: readonly HomeDiet[]): string {
+  if (!diets.length) return t("No diets at home: meals can have meat or fish.");
+  return t("For everyone: {diets}", { diets: diets.map((d) => t(HOME_DIET_LABEL[d])).join(", ") });
 }
 
 /** The allergy sentence for a list of allergens, or "No allergies at home." */

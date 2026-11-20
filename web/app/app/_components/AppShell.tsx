@@ -35,7 +35,7 @@ import { RatingPrompt } from "./RatingPrompt";
 import { SignInScreen } from "./SignInScreen";
 import { Spinner } from "./ui";
 
-// The five tabs (and the measured word under each icon) live in _lib/tabs.ts and TabLabel.tsx, shared with the welcome tour's copy of the bar.
+// The five tabs (and the measured word under each icon) live in _lib/tabs.ts and TabLabel.tsx.
 
 export function AppShell({ children }: { children: ReactNode }) {
   const t = useT();
@@ -46,7 +46,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const language = settings.language;
   // Everyone signs in (founder 2026-11-17; lib/mm/config.ts SIGN_IN_REQUIRED, unless numbite.com's switches file has made it optional: _lib/appSwitches.ts): until
   // someone is, every page but the welcome and offline screens shows the sign-in screen in its place (the address, a shared list's "#" included, stays as it is,
-  // so the page opens once they're in). The welcome screens ask for the account themselves, after "Your daily targets".
+  // so the page opens once they're in). The welcome screens ask for the account themselves, as their last step (step 11, the redesign of 20 November 2026).
   const user = useAccountUser();
   const checking = useAccountChecking();
   const signInRequired = useSignInRequired();

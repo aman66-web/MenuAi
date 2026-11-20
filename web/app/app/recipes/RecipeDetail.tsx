@@ -70,6 +70,8 @@ const PIECE_NOTES: Record<string, [string, string]> = {
   carrot: [tk("about 1 carrot"), tk("about {n} carrots")], cucumber: [tk("about 1 cucumber"), tk("about {n} cucumbers")],
   banana: [tk("about 1 banana"), tk("about {n} bananas")], apple: [tk("about 1 apple"), tk("about {n} apples")], clove: [tk("about 1 clove"), tk("about {n} cloves")],
   "stock cube": [tk("about 1 stock cube"), tk("about {n} stock cubes")], biscuit: [tk("about 1 biscuit"), tk("about {n} biscuits")],
+  tomato: [tk("about 1 tomato"), tk("about {n} tomatoes")], "bunch of spring onions": [tk("about 1 bunch of spring onions"), tk("about {n} bunches of spring onions")],
+  slice: [tk("about 1 slice"), tk("about {n} slices")], chipolata: [tk("about 1 chipolata"), tk("about {n} chipolatas")], "red cabbage": [tk("about 1 red cabbage"), tk("about {n} red cabbages")],
 };
 const PIECE_WORD = new Map<string, string>([...PANTRY.values()].flatMap((k) => (k.pieceName ? [[k.pieceName[0], k.pieceName[0]], [k.pieceName[1], k.pieceName[0]]] as Array<[string, string]> : [])));
 
@@ -96,6 +98,9 @@ const ROUND_FACE = "grid h-9 w-9 place-items-center rounded-full border-[1.5px] 
 /** A fact about the recipe beside the servings stepper (minutes, meal, no meat or fish): flat words with an ink icon, no pill (colour meeting, 19 November 2026:
  *  white pills looked like buttons), as tall as the stepper. */
 const INFO_CHIP = "inline-flex min-h-[3.25rem] items-center gap-1.5 px-2 text-[0.9375rem] font-semibold text-foreground";
+/** "I have this" when ticked: lime with the 2 px dark-green edge (a 1.5 px border and a half-pixel ring, so it is the size of the unticked one) and its tick; the
+ *  unticked one shows the empty tick ring in the same place (ChoiceMark), so the words never jump. */
+const HAVE_ON = "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]";
 /** A secondary action inside a white card: a light grey pill. */
 const SOFT_PILL = "inline-flex min-h-11 max-w-full items-center justify-center gap-1.5 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]";
 
@@ -208,6 +213,8 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   const localFirst = options.some((o) => fileOf(o.product).retailer === LOCAL_RANGE_SHOP && LOCAL_SHOP_PRODUCTS.has(o.product.id));
   // what a serving costs with each option: the amount the recipe as written uses (the same for any number of people) over the servings it makes
   const basis = view.resolved.basis ?? view.resolved;
+  // the ingredients whose pack has no weight on the shop's list (and no price per kg), so a serving can't be priced: the price line names them
+  const unpriced = [...new Set(basis.picks.flatMap((p) => (p && p.usedCost === null ? [t(p.spec.label).toLowerCase()] : [])))];
   const basisSpec = swapIndex >= 0 ? basis.picks[swapIndex]?.spec : undefined;
   const servingCost = (o: IngredientPick): number | null => {
     const used = basisSpec ? pickFor(basisSpec, o.product).usedCost : o.usedCost;
@@ -477,16 +484,27 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
           {totals && (
             <div className="app-numbers">
               <div className={PAIR}>
-                <div className={`${CARD} p-4`}>
-                  <p className={LABEL}>{t("a serving")}</p>
-                  <p className="mt-2.5 text-[1.75rem] font-medium leading-none tracking-[-0.02em] text-foreground">{totals.costPerServing !== null ? formatPrice(totals.costPerServing) : "–"}</p>
-                </div>
+                {/* founder 2026-11-20 ("every recipe has a price"): a serving can't be priced when the shop's list gives no weight for one of the packs (and no
+                    price per kg); then the card for the whole shop stands alone (full width) and the line under it says which pack, never a blank card */}
+                {totals.costPerServing !== null && (
+                  <div className={`${CARD} p-4`}>
+                    <p className={LABEL}>{t("a serving")}</p>
+                    <p className="mt-2.5 text-[1.75rem] font-medium leading-none tracking-[-0.02em] text-foreground">{formatPrice(totals.costPerServing)}</p>
+                  </div>
+                )}
                 <div className={`${CARD} p-4`}>
                   <p className={LABEL}>{t("to buy it all")}</p>
                   <p className="mt-2.5 text-[1.75rem] font-medium leading-none tracking-[-0.02em]">{formatPrice(totals.basket)}</p>
                 </div>
               </div>
-              <p className="mt-2.5 px-1 text-[0.8125rem] leading-snug text-muted">{many ? t("\"A serving\" prices only what one serving uses. \"To buy it all\" is the whole packs below, at each shop's shelf prices; you'll have some left over.") : t("\"A serving\" prices only what one serving uses. \"To buy it all\" is the whole packs below, at {shop} shelf prices; you'll have some left over.", { shop: poss(shown[0]!.name) })}</p>
+              {totals.costPerServing !== null ? (
+                <p className="mt-2.5 px-1 text-[0.8125rem] leading-snug text-muted">{many ? t("\"A serving\" prices only what one serving uses. \"To buy it all\" is the whole packs below, at each shop's shelf prices; you'll have some left over.") : t("\"A serving\" prices only what one serving uses. \"To buy it all\" is the whole packs below, at {shop} shelf prices; you'll have some left over.", { shop: poss(shown[0]!.name) })}</p>
+              ) : (
+                <p className="mt-2.5 px-1 text-[0.8125rem] leading-snug text-muted">
+                  {unpriced.length === 0 ? null : unpriced.length === 1 ? t("We can't price a serving: the shop's list doesn't say how much is in the pack of {name}.", { name: unpriced[0]! }) : t("We can't price a serving: the shop's list doesn't say how much is in the packs of {names}.", { names: unpriced.join(", ") })}{" "}
+                  {many ? t("\"To buy it all\" is the whole packs below, at each shop's shelf prices; you'll have some left over.") : t("\"To buy it all\" is the whole packs below, at {shop} shelf prices; you'll have some left over.", { shop: poss(shown[0]!.name) })}
+                </p>
+              )}
             </div>
           )}
           <h2 id="ingredients-heading" className={`mt-6 ${HEADING}`}>{t("What to buy")}</h2>
@@ -527,11 +545,12 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                           <div className="mt-1.5 flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
                             <span className="app-numbers text-[0.9375rem] font-semibold">{formatPrice(p.product.price)}{p.packs > 1 ? ` · ${t("buy {n}", { n: p.packs })}` : ""}</span>
                             {/* founder 2026-11-17 ("the cost of each ingredient as relative to how much is used"): what the amount listed above costs at the shop's own price per kg or litre,
-                                in the green of "a serving"; it follows Serves, and is left out where the shop prints no such price (the serving's price is then "–" too) */}
+                                in the green of "a serving"; it follows Serves, and is left out where the shop prints no such price (then the price of a serving isn't shown either: the
+                                whole shop's price stands alone above, with the reason) */}
                             {p.usedCost !== null && <span className="app-numbers text-[0.9375rem] font-semibold text-foreground">{t("{price} used", { price: formatUsedPrice(p.usedCost) })}</span>}
                             {!(spec.cupboard && spec.pantry) && (
-                              <button type="button" aria-pressed={hasIt(spec)} aria-label={t("I have this: {name}", { name: t(spec.label).toLowerCase() })} onClick={() => { flipHave(spec.key); setAdded(null); }} className={`ms-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full px-4 text-[0.9375rem] font-bold transition active:scale-95 ${hasIt(spec) ? "border-[1.5px] border-[color:var(--on-accent)] bg-sun text-on-accent" : "border-[1.5px] border-[color:var(--edge)] bg-soft hover:bg-[var(--fill)]"}`}>
-                                {hasIt(spec) && <CheckIcon className="h-4 w-4" />}{t("I have this")}
+                              <button type="button" aria-pressed={hasIt(spec)} aria-label={t("I have this: {name}", { name: t(spec.label).toLowerCase() })} onClick={() => { flipHave(spec.key); setAdded(null); }} className={`ms-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border-[1.5px] px-4 text-[0.9375rem] font-bold transition active:scale-95 ${hasIt(spec) ? HAVE_ON : "border-[color:var(--edge)] bg-soft hover:bg-[var(--fill)]"}`}>
+                                <ChoiceMark on={hasIt(spec)} />{t("I have this")}
                               </button>
                             )}
                             <button type="button" onClick={() => setSwapping(spec.key)} aria-label={t("Swap {name}", { name: t(spec.label) })} className={`${spec.cupboard && spec.pantry ? "ms-auto " : ""}inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-[var(--fill)]`}>
@@ -549,8 +568,8 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                   {p && spec.cupboard && spec.pantry && (
                     <div className="mt-3 flex flex-wrap items-center justify-end gap-x-3 gap-y-2 rounded-[1rem] bg-[var(--fill)] py-1.5 pe-1.5 ps-3.5">
                       <span className="min-w-0 flex-1 basis-32 text-[0.875rem] leading-snug text-muted">{hasIt(spec) ? t("Left off your list and the price to buy it all.") : t("You may have this already.")}</span>
-                      <button type="button" aria-pressed={hasIt(spec)} aria-label={t("I have this: {name}", { name: t(spec.label).toLowerCase() })} onClick={() => { toggleCupboard(spec.pantry!); setAdded(null); }} className={`inline-flex min-h-11 max-w-full items-center gap-1.5 rounded-full px-4 text-[0.9375rem] font-bold transition active:scale-95 ${hasIt(spec) ? "border-[1.5px] border-[color:var(--on-accent)] bg-sun text-on-accent" : "border-[1.5px] border-[color:var(--edge)] bg-card hover:bg-[var(--fill)]"}`}>
-                        {hasIt(spec) && <CheckIcon className="h-4 w-4" />}{t("I have this")}
+                      <button type="button" aria-pressed={hasIt(spec)} aria-label={t("I have this: {name}", { name: t(spec.label).toLowerCase() })} onClick={() => { toggleCupboard(spec.pantry!); setAdded(null); }} className={`inline-flex min-h-11 max-w-full items-center gap-1.5 rounded-full border-[1.5px] px-4 text-[0.9375rem] font-bold transition active:scale-95 ${hasIt(spec) ? HAVE_ON : "border-[color:var(--edge)] bg-card hover:bg-[var(--fill)]"}`}>
+                        <ChoiceMark on={hasIt(spec)} />{t("I have this")}
                       </button>
                     </div>
                   )}

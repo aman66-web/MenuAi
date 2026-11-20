@@ -52,7 +52,7 @@ import { SettingsGear, ShoppingListPill } from "../_components/TopActions";
 // the tiles and the search do (both together, and the diet), hide "Picked for you" like a search does, and the search finds a recipe by their words too.
 // Nothing about a niche is printed on a recipe card.
 // The colour meeting (19 November 2026, approved by the founder that day): the top right is the same on every tab, the Shopping list pill and the cog with its
-// word, so My recipes moves into the page, under the intro, as a white button with an ink heart; Pip stands bare beside the word "Recipes" (no disc). The
+// word, so My recipes moves into the page, under the intro, as a white button with an ink heart; the word "Recipes" stands alone (Pip audit, 20 November). The
 // tiles are white cards with the 1px line and accent icons ("More" white like the rest); a chosen tile is lime with the dark-green edge and a tick, an unchosen
 // one shows an empty tick ring in the same place, so nothing moves. The search and the shop are fields with the control edge; small labels in the Filters
 // sheet are sentence case; "Cook with what's on your list" takes the cream of every "cook with what you have" card, with an ink arrow button.
@@ -269,11 +269,11 @@ function RecipesScreen() {
 
   return (
     <div>
-      {/* Pip, bare, beside the word "Recipes" (the page's heading is the question under it); then the Shopping list pill and the Settings cog with its word at
-          the top right, in the order of every tab (founder 2026-11-19: "the settings cog should be on the top right of every page") */}
+      {/* the word "Recipes" (the page's heading is the question under it; Pip left it in the Pip audit, founder 2026-11-20: "keep him as the guide, not the
+          decoration"); then the Shopping list pill and the Settings cog with its word at the top right, in the order of every tab (founder 2026-11-19: "the
+          settings cog should be on the top right of every page") */}
       <div className="flex flex-wrap items-start justify-between gap-x-2 gap-y-1">
-        <div className="flex min-h-11 min-w-0 items-center gap-2">
-          <Pip mood="wave" size={34} className="shrink-0" />
+        <div className="flex min-h-11 min-w-0 items-center">
           <span className="truncate text-base font-semibold">{t("Recipes")}</span>
         </div>
         <div className="-me-1 ms-auto flex max-w-full flex-wrap items-start justify-end gap-x-1 gap-y-1">

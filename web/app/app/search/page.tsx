@@ -16,7 +16,6 @@ import { ChevronRightIcon, CloseIcon, SearchIcon } from "../_components/icons";
 import { PageHeader } from "../_components/PageHeader";
 import { RequestChainSheet } from "../_components/Submit";
 import { Button, Chip, EmptyIcon, EmptyState, SampleBadge } from "../_components/ui";
-import { PipSays } from "../_components/Mascot";
 import { useEntryQuery } from "../_lib/backNav";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useSearchIndex, useSettings } from "../_lib/hooks";
@@ -102,9 +101,8 @@ export default function SearchPage() {
             </div>
           </section>
         ) : (
-          <div className="mx-auto mt-10 max-w-sm">
-            <PipSays mood="think">{t("Type at least {n} letters of a restaurant or a dish.", { n: MIN_QUERY_LENGTH })}</PipSays>
-          </div>
+          // a plain hint, no Pip (Pip audit, founder 2026-11-20: "keep him as the guide, not the decoration")
+          <p className="mx-auto mt-10 max-w-sm text-center text-[0.9375rem] leading-snug text-muted">{t("Type at least {n} letters of a restaurant or a dish.", { n: MIN_QUERY_LENGTH })}</p>
         )
       )}
 

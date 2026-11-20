@@ -10,7 +10,7 @@ import { RECIPES } from "@/lib/mm/recipeBook";
 import { mealSizes, type Recipe } from "@/lib/mm/recipes";
 import { recipeShops } from "@/lib/mm/shopProducts";
 import { myRecipesStore, paidStore } from "@/lib/mm/stores";
-import { CheckIcon, FridgeIcon, PlusIcon } from "../../_components/icons";
+import { CheckIcon, FridgeIcon, InfoIcon, PlusIcon } from "../../_components/icons";
 import { PageHeader } from "../../_components/PageHeader";
 import { PremiumBadge } from "../../_components/PremiumBadge";
 import { Pip, PipSays } from "../../_components/Mascot";
@@ -158,7 +158,8 @@ function Fridge() {
         <ul role="status" aria-live="polite" className="glass mt-5 space-y-3 rounded-[1.25rem] p-4">
           {WORKING.slice(0, line + 1).map((w, i) => (
             <li key={w} className="flex items-center gap-3 text-[1.0625rem] font-semibold">
-              {i < line ? <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)]"><CheckIcon className="h-4 w-4" /></span>
+              {/* a finished line: lime with the dark-green edge and a tick, as on every loading list */}
+              {i < line ? <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border-2 border-on-sun bg-sun text-on-sun"><CheckIcon className="h-4 w-4" strokeWidth={3} /></span>
                 : <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-line border-t-ink motion-reduce:animate-none" />}
               {t(w, { shop: shopName })}
             </li>
@@ -204,8 +205,8 @@ function Fridge() {
         </>
       )}
 
-      <Button full className="mt-6 min-h-14 text-lg" disabled={!items.length} onClick={() => setShown(true)}>{t("Show me recipes")}</Button>
-      {!items.length && <p className="mt-2 text-center text-[0.9375rem] font-semibold text-muted">{t("Type or tap at least one thing you have.")}</p>}
+      {/* while it can't be pressed, the reason sits above it (colour meeting: never a silent grey button) */}
+      <Button full wrapClassName="mt-6" className={items.length ? "mt-6 min-h-14 text-lg" : "min-h-14 text-lg"} disabled={!items.length} reason={t("Type or tap at least one thing you have.")} onClick={() => setShown(true)}>{t("Show me recipes")}</Button>
 
       {shown && (
         <section ref={results} aria-labelledby="fridge-results" className="mt-8 scroll-mt-4">
@@ -249,7 +250,9 @@ function Fridge() {
                 </span>
               </div>
               {error && <p role="alert" className="mt-3 rounded-[1rem] bg-ink-pressed p-3 text-[0.9375rem] font-semibold">{error}</p>}
-              <Button variant="onInk" full size="lg" className="mt-3" onClick={() => gate("fridgeRecipe", () => { if (access) void askPip(); })} disabled={!ready} reason={!ready ? t("Loading the recipes") : undefined}>
+              {/* the reason it can't be pressed yet, above it in the card's own light words (the button's own reason line is drawn for light surfaces) */}
+              {!ready && <p id="fridge-ask-why" className="mt-3 flex items-start gap-1.5 text-[0.9375rem] font-semibold leading-snug text-on-ink"><InfoIcon aria-hidden className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0" /><span>{t("Loading the recipes")}</span></p>}
+              <Button variant="onInk" full size="lg" className="mt-3" onClick={() => gate("fridgeRecipe", () => { if (access) void askPip(); })} disabled={!ready} aria-describedby={!ready ? "fridge-ask-why" : undefined}>
                 <FridgeIcon aria-hidden className="h-5 w-5" />{t("Make me a recipe")}
               </Button>
             </div>

@@ -13,7 +13,6 @@ import { Rich } from "../_lib/Rich";
 import { CheckIcon } from "./icons";
 import { ProPlans } from "./ProPlans";
 import { PremiumOffer } from "./PremiumOffer";
-import { trialDaysOf, useStoreProducts } from "../_lib/storeProducts";
 import { ErrorBanner } from "./Note";
 import { Button, Sheet, inputClass } from "./ui";
 
@@ -86,15 +85,14 @@ export function PaywallProvider({ children }: { children: ReactNode }) {
 function PaywallBody({ onDone }: { onDone: () => void }) {
   const t = useT();
   const settings = useStore(settingsStore);
-  // In the iPhone app: the free trial this Apple ID can still have, as the banner on top (founder 2026-11-16: "it should pop up with a banner saying 7-day free trial")
-  const trial = trialDaysOf(useStoreProducts(IAP_ENABLED).products);
   // This sheet lives outside AppShell's .app-surface (the provider wraps it), so the running weight is set here to match the rest of
   // the app (500). The Sheet turns every soft surface light grey, so the two cards below sit as grey blocks on its white panel.
   return (
     <div className="pb-1 font-medium">
       {IAP_ENABLED ? (
-        // the iPhone app (1.1): the dark Premium card with Pip, the free week when this Apple ID can still have it, and what Premium adds as tiles
-        <PremiumOffer trial={trial} />
+        // the iPhone app (1.1): what Premium adds as tiles; the plans follow (ProPlans: the billed amount first, then the free week's card when this Apple ID can
+        // still have it, below the prices: the onboarding meeting of 20 November 2026)
+        <PremiumOffer />
       ) : (
         <>
           <h3 className="text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">

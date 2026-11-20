@@ -1,5 +1,7 @@
 // The meal plan (founder 2026-11-18: a third card on Home with Premium on it; Pip asks one thing a screen; several shops; swap any meal for another; add it all to
-// the shopping list). Run against a server: BASE=http://localhost:3005 node e2e/mealplan.mjs (a build without Premium switched on shows no Premium gate.)
+// the shopping list). The first open, with no plan yet, starts on the check screen filled in from the person's settings, "Who's eating: Just me" first (the
+// onboarding meeting, 20 November 2026), and its Make my plan makes the same week PremiumIntro shows; a GLP-1 meal cap is explained, never "your day adds up".
+// Run against a server: BASE=http://localhost:3005 node e2e/mealplan.mjs (a build without Premium switched on shows no Premium gate.)
 import { chromium } from "playwright-core";
 import { createRequire } from "node:module";
 const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
@@ -36,6 +38,26 @@ await step("Home: the meal plan is a row of its own across the width, under the 
   expect((await card.innerText()).includes("Pip plans 7 days of meals for your goal, with one shopping list."), "the card says what it does");
   await card.click();
   await page.waitForURL((u) => u.pathname.startsWith("/app/plan"));
+});
+
+await step("the first open starts on the check screen, filled in from the person's settings: Who's eating: Just me first, their shop, no budget; Back goes Home; axe", async () => {
+  await page.getByRole("heading", { level: 1, name: "Ready to make your plan?" }).waitFor({ timeout: 60000 });
+  expect(await page.evaluate(() => document.activeElement?.tagName === "H1"), "the headline has the focus");
+  expect((await page.getByText(/^Step \d+ of \d+$/).count()) === 0, "no step count on a first open");
+  const rows = page.locator("main ul li");
+  const first = await rows.first().innerText();
+  expect(/^Who's eating\s+Just me\s+Change$/.test(first.trim()), "Who's eating first: " + first);
+  await page.locator("main ul li", { hasText: "Where you shop" }).getByText("Sainsbury's", { exact: true }).waitFor({ timeout: 60000 });
+  await page.getByText("No budget: the best week for your goal", { exact: true }).waitFor();
+  await page.getByText(/^I've filled this in from your settings\./).waitFor();
+  expect((await page.getByRole("link", { name: /^Back/ }).getAttribute("href")) === "/app", "Back goes Home, not to a step");
+  await page.getByRole("button", { name: "Make my plan" }).and(page.locator(":enabled")).waitFor({ timeout: 180000 });
+  await page.evaluate(() => Promise.all(document.getAnimations().filter((a) => a.effect?.getComputedTiming().iterations !== Infinity).map((a) => a.finished.catch(() => {}))));
+  await page.addScriptTag({ path: AXE });
+  const v = await page.evaluate(async () => (await window.axe.run(document, { runOnly: ["wcag2a", "wcag2aa"] })).violations.map((x) => `${x.id}: ${x.nodes[0]?.html.slice(0, 100)}`));
+  expect(v.length === 0, v.join(" | "));
+  // the old first question is this line's Change: the steps from the start, as before
+  await page.getByRole("button", { name: "Change: Who's eating" }).click();
 });
 
 await step("Pip asks one thing a screen: how many people (Just me), meals and snacks, shops (two chosen), diet, the food you like, foods (the order since 2026-11-19)", async () => {
@@ -127,26 +149,29 @@ await step("the budget slider: from the cheapest week for the goal to better pro
   await page.getByRole("button", { name: "Continue" }).click();
   // the check screen (the 20-agent meeting, 2026-11-19): everyone sees it, Just me too, with Change on every line
   await page.getByRole("heading", { level: 1, name: "Ready to make your plan?" }).waitFor();
-  await page.getByText("Just you", { exact: true }).waitFor();
+  expect((await page.locator("main ul li").first().innerText()).includes("Just me"), "Who's eating: Just me, first");
   expect((await page.getByRole("button", { name: /^Change: / }).count()) >= 6, "a Change on every line");
   await page.getByRole("button", { name: "Make my plan" }).click();
 });
 
-await step("making the plan: Pip shows each step with its real figure for about ten seconds, then the week opens", async () => {
+await step("making the plan: Pip shows each step with its real figure for about 20 seconds (founder 2026-11-20), then the week opens", async () => {
   const began = Date.now();
   await page.getByRole("heading", { level: 1, name: "Making your plan" }).waitFor({ timeout: 30000 });
   await page.locator("li").filter({ hasText: /^Reading \d+ recipes that suit your diet/ }).waitFor();
   await page.locator("li").filter({ hasText: /^Looking through [\d,]+ products at Sainsbury's and Morrisons/ }).waitFor();
   await page.locator("li").filter({ hasText: /^Planning the packs so \d+% of the fresh food gets eaten/ }).waitFor();
   await page.locator("li").filter({ hasText: /^Writing your shopping list: \d+ products/ }).waitFor();
-  await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 30000 });
+  await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 45000 });
   const took = Date.now() - began;
-  expect(took >= 8000 && took <= 20000, `took ${took} ms`);
+  expect(took >= 17000 && took <= 32000, `took ${took} ms`);
 });
 
 await step("the week: 21 meals from the two shops, a shop on each meal, the shopping per shop with totals", async () => {
   await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 120000 });
   await page.getByText(/for the week's shopping/).waitFor();
+  // no Pip on the money card (founder 2026-11-20: "keep him as the guide, not the decoration")
+  const money = page.locator("p", { hasText: /^for the week's shopping/ }).locator("xpath=..");
+  expect((await money.locator("svg, img").count()) === 0, "no Pip on the money card");
   const days = page.getByRole("radiogroup", { name: "Day" }).getByRole("radio");
   expect((await days.count()) === 7, "seven days");
   const meals = page.locator("section[aria-labelledby='day-h'] li");
@@ -222,7 +247,7 @@ await step("a new plan keeps the old one under Earlier plans; Open makes it the 
   await page.getByRole("slider").waitFor({ timeout: 180000 });
   await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("button", { name: "Make my plan" }).click();
-  await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 30000 });
+  await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 45000 });
   const earlier = page.locator("section[aria-labelledby='earlier-h']");
   await earlier.waitFor();
   expect((await earlier.locator("li").count()) === 1, "one earlier plan");
@@ -244,6 +269,55 @@ await step("a new plan keeps the old one under Earlier plans; Open makes it the 
 });
 
 await ctx.close();
+
+// The week shown before Premium is the week the first open makes (the onboarding meeting: "not bait"). Only on a build that sells Premium; elsewhere there is no
+// PremiumIntro, and the step says so.
+const sold = await context({ devProOverride: false });
+const p2 = await sold.newPage();
+await step("before Premium: the same week the first open's Make my plan makes, from the person's shop, the shopping as a plain line", async () => {
+  await p2.goto(BASE + "/app/plan");
+  const intro = p2.getByRole("button", { name: "Get Premium", exact: true });
+  const check = p2.getByRole("heading", { level: 1, name: "Ready to make your plan?" });
+  await Promise.race([intro.waitFor({ timeout: 60000 }), check.waitFor({ timeout: 60000 })]);
+  if (!(await intro.isVisible())) { console.log("     (no Premium sold on this build: no PremiumIntro to check)"); return; }
+  const preview = p2.locator("section[aria-labelledby='preview-h']");
+  await preview.getByText(/^Breakfast · /).waitFor({ timeout: 180000 });
+  const shown = (await preview.locator("li").allInnerTexts()).map((x) => x.replace(/^(Breakfast|Lunch|Dinner) · /, ""));
+  expect(shown.length === 3, "three meals: " + shown.join(", "));
+  await preview.getByText(/^Shopping for the week at Sainsbury's: about £\d+$/).waitFor();
+  await preview.getByText(/^About [\d,]+ kcal and \d+ g protein a day \(your target is 2,000 kcal\)\.$/).waitFor();
+  // now with Premium: the first open's Make my plan, untouched
+  await p2.evaluate(() => { const s = JSON.parse(localStorage.getItem("mm.v1.settings")); s.data.devProOverride = true; localStorage.setItem("mm.v1.settings", JSON.stringify(s)); });
+  await p2.reload();
+  await check.waitFor({ timeout: 60000 });
+  await p2.getByRole("button", { name: "Make my plan" }).and(p2.locator(":enabled")).waitFor({ timeout: 180000 });
+  await p2.getByRole("button", { name: "Make my plan" }).click();
+  await p2.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 45000 });
+  const made = await p2.locator("section[aria-labelledby='day-h'] li a span.font-bold").allInnerTexts();
+  expect(JSON.stringify(made.slice(0, 3)) === JSON.stringify(shown), `the same first day: ${made.join(", ")} vs ${shown.join(", ")}`);
+  const stored = await p2.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.mealPlan")).data);
+  expect(stored.budget === null && stored.shops.join() === "sainsburys", JSON.stringify(stored).slice(0, 160));
+  await p2.getByText("No budget set.", { exact: true }).waitFor();
+});
+await sold.close();
+
+// A GLP-1 meal cap (founder 2026-11-20): the meals can't add up to the day, so the plan says why, with the way to change it, and Pip never says it adds up.
+const glp = await context({ goal: "glp1", glp1MealCap: 450, dailyCalories: 2000 });
+const p3 = await glp.newPage();
+await step("GLP-1: the check screen and the meals step say each meal is kept to 450 kcal, 1,350 of 2,000, with Change it in Settings; no 'adds up'", async () => {
+  await p3.goto(BASE + "/app/plan");
+  await p3.getByRole("heading", { level: 1, name: "Ready to make your plan?" }).waitFor({ timeout: 60000 });
+  const line = "Your goal is 'I'm on a GLP-1 medication', so I keep each meal to 450 kcal: your meals come to 1,350 of your 2,000 kcal.";
+  await p3.getByText(line, { exact: true }).waitFor();
+  expect((await p3.getByRole("link", { name: "Change it in Settings" }).getAttribute("href")) === "/app/settings#targets", "the link goes to the meal size");
+  await p3.getByRole("button", { name: "Change: Meals and snacks" }).click();
+  await p3.getByRole("heading", { level: 1, name: "Your meals and snacks" }).waitFor();
+  await p3.getByText(line, { exact: true }).waitFor();
+  expect((await p3.getByText(/your day adds up/).count()) === 0, "Pip doesn't say the day adds up");
+  const box = await p3.getByRole("link", { name: "Change it in Settings" }).boundingBox();
+  expect(box && box.height >= 44, "a big target: " + JSON.stringify(box));
+});
+await glp.close();
 await browser.close();
 console.log(`\n${passed} passed, ${failed} failed`);
 process.exit(failed ? 1 : 0);

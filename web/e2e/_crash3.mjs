@@ -11,7 +11,7 @@ const cases = {
 };
 for (const [name, prefs] of Object.entries(cases)) {
   const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
-  await ctx.addInitScript((p) => { localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false, ...p }, hasCompletedOnboarding: true } })); localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 1 })); }, prefs);
+  await ctx.addInitScript((p) => { localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false, ...p }, hasCompletedOnboarding: true } })); localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 2 })); }, prefs);
   const page = await ctx.newPage(); const errs = [];
   page.on("pageerror", (e) => errs.push(e.message.split("\n")[0]));
   const t0 = Date.now();

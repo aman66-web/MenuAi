@@ -1,6 +1,7 @@
 // Instant utility first (founder's brief, 13 Nov 2026): nobody is stopped at the door by a questionnaire. Links to a restaurant, a dish or a shared list open
 // straight away with defaults; Home and Eat out show a quiet "Make Numbite fit you" card that opens one sheet (goal + what you avoid). Since 17 Nov 2026 a plain
-// first launch of /app opens the welcome tour (lib/mm/tour.ts; e2e/tour.mjs has the rest), so the steps about the card on Home start after the tour was seen.
+// first launch of /app opens the welcome screens (lib/mm/tour.ts; e2e/tour.mjs and e2e/showcase.mjs have the rest), so the steps about the card on Home start
+// after they were seen (mm.v1.tour at TOUR_VERSION 2).
 // Run against a production build: BASE=http://localhost:3101 node e2e/firstvisit.mjs
 import { chromium } from "playwright-core";
 import { createRequire } from "node:module";
@@ -26,14 +27,14 @@ const fresh = (extra = {}) => browser.newContext({ viewport: { width: 390, heigh
 const settingsOf = (page) => page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings") || "null")?.data ?? null);
 const card = (page) => page.getByRole("heading", { level: 2, name: "Make Numbite fit you" });
 const overflow = (page) => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
-/** A browser where the welcome tour has been seen (it marks mm.v1.tour), so a plain /app opens Home. */
+/** A browser where the welcome screens have been seen (they mark mm.v1.tour at TOUR_VERSION, 2), so a plain /app opens Home. */
 const toured = async (extra = {}) => {
   const ctx = await fresh(extra);
-  await ctx.addInitScript(() => { if (!localStorage.getItem("mm.v1.tour")) localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 1 })); });
+  await ctx.addInitScript(() => { if (!localStorage.getItem("mm.v1.tour")) localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 2 })); });
   return ctx;
 };
 
-await step("a plain first visit to /app opens the welcome tour instead of Home", async () => {
+await step("a plain first visit to /app opens the welcome screens instead of Home", async () => {
   const ctx = await fresh(); const page = await ctx.newPage();
   await page.goto(BASE + "/app");
   await page.waitForURL(/\/app\/welcome$/);
@@ -42,7 +43,7 @@ await step("a plain first visit to /app opens the welcome tour instead of Home",
   await ctx.close();
 });
 
-await step("after the tour, Home shows the card and never leaves /app", async () => {
+await step("after the welcome screens, Home shows the card and never leaves /app", async () => {
   const ctx = await toured(); const page = await ctx.newPage();
   await page.goto(BASE + "/app");
   await page.getByRole("heading", { level: 1, name: "Home" }).waitFor();
@@ -121,18 +122,12 @@ await step("a returning person (set up already) never sees the card", async () =
   await ctx.close();
 });
 
-await step("the guided setup at /app/welcome is entered through the tour's 'Set up my daily numbers'", async () => {
+await step("the guided setup at /app/welcome starts with Get started on its cover, straight to 'Step 1 of 11' (no tour, no 'Let's make it yours' since 20 November)", async () => {
   const ctx = await fresh(); const page = await ctx.newPage();
   await page.goto(BASE + "/app/welcome");
   await page.getByRole("button", { name: "Get started" }).click();
-  await page.getByRole("button", { name: "Show me around" }).click();
-  // the first stop (no text size screen since 2026-11-19); its headline says "stop 1 of 4" to a screen reader (Chrome's name has a space before the comma)
-  await page.getByRole("heading", { level: 1, name: /^Home ?, stop 1 of 4$/ }).waitFor();
-  await page.getByRole("button", { name: "Skip tour" }).click();
-  await page.getByRole("heading", { name: "Let's make it yours" }).waitFor();
-  await page.getByRole("button", { name: "Set up my daily numbers" }).click();
   await page.getByRole("heading", { name: "What's your goal?" }).waitFor();
-  await page.getByText("Step 1 of 7").waitFor();
+  await page.locator("p.app-numbers").filter({ hasText: /^Step 1 of 11$/ }).waitFor();
   await ctx.close();
 });
 

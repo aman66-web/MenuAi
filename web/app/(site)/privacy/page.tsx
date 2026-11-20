@@ -346,7 +346,7 @@ export default function Privacy() {
           <li className={row}><strong>Support messages:</strong> your message and, if you give it, your email address so we can reply.</li>
           <li className={row}>
             <strong>Website and web app waitlist:</strong> your email address, and which link or screen brought you here
-            (for example a link you followed{PRO_ENABLED ? ", or the Pro screen in the web app" : ""}).
+            (for example a link you followed{PRO_ENABLED ? ", or the Premium screen in the web app" : ""}).
           </li>
         </Rows>
         <p className={para}>
@@ -376,7 +376,7 @@ export default function Privacy() {
         <p className={para}>
           Reports, requests and support messages are kept while they help us maintain accurate menus and support you.
           Waitlist emails are used only to send you one email when what you signed up for is ready (the iPhone app
-          launch{PRO_ENABLED ? ", or Pro in the web app" : ""}), and are deleted after that (or sooner if you ask). Your account and its synced data are kept until you delete your account. Community data is kept until you delete it or your account; shopping lists sent to a friend are deleted after 30 days, and reports are kept as described under Community. You can ask us to delete anything you&apos;ve sent at any time.
+          launch{PRO_ENABLED ? ", or Premium in the web app" : ""}), and are deleted after that (or sooner if you ask). Your account and its synced data are kept until you delete your account. Community data is kept until you delete it or your account; shopping lists sent to a friend are deleted after 30 days, and reports are kept as described under Community. You can ask us to delete anything you&apos;ve sent at any time.
         </p>
       </Section>
 

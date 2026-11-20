@@ -1,9 +1,9 @@
 // The iPhone app 1.1's Premium with Apple In-App Purchase, on the packed app (npm run build:app with NEXT_PUBLIC_IAP=1), with a pretend iPhone (the bridge, faked
 // like StoreKitPurchaseService would answer) and a pretend server for POST /api/v1/entitlement/apple (signing with a THROWAWAY key from e2e/paykey.mjs):
-// the free-trial offer once after setup (or after the welcome tour's "Look around first" and Skip), on Home only and never over another sheet, the paywall's
+// the free-trial offer once on a later day than the first (never straight after the welcome steps), on Home only and never over another sheet, the paywall's
 // free-trial banner, buying, restoring, a refund noticed at start-up, Settings, no Stripe or WhatsApp wording.
 //   cd web && KEY=$(node e2e/paykey.mjs) && NEXT_PUBLIC_IAP=1 NEXT_PUBLIC_PHOTO_RECIPES=1 NEXT_PUBLIC_REMOTE_BASE=https://numbite.com NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK="$KEY" \
-//     NEXT_PUBLIC_SUPPORT_EMAIL=test@numbite.com npm run build:app && (PORT=3103 node e2e/serve-app.mjs .next-app &) && BASE=http://localhost:3103 node e2e/iap.mjs
+//     NEXT_PUBLIC_SIGN_IN_REQUIRED=0 NEXT_PUBLIC_SUPPORT_EMAIL=test@numbite.com npm run build:app && (PORT=3103 node e2e/serve-app.mjs .next-app &) && BASE=http://localhost:3103 node e2e/iap.mjs
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { chromium } from "playwright-core";
@@ -57,14 +57,19 @@ function fakeBridge(state) {
   } } } };
 }
 
-async function newPage({ settings = onboarded, iap = {}, paid = null, offerShown = false, toured = false } = {}) {
+/** The day before today ("YYYY-MM-DD", local): the app first used then, so today is "a later day" (lib/mm/tour.ts trialOfferDue). */
+const YESTERDAY = (() => { const d = new Date(Date.now() - DAY); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`; })();
+
+/** `firstDay`: the first day the app was used on this phone (the trial offer waits for a later day); null = today, as on a brand-new phone. */
+async function newPage({ settings = onboarded, iap = {}, paid = null, offerShown = false, toured = false, firstDay = YESTERDAY } = {}) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
-  await ctx.addInitScript(({ s, p, o, w }) => {
+  await ctx.addInitScript(({ s, p, o, w, f }) => {
     if (!localStorage.getItem("mm.v1.settings") && s) localStorage.setItem("mm.v1.settings", s);
     if (p && !localStorage.getItem("mm.v1.paid")) localStorage.setItem("mm.v1.paid", p);
     if (o) localStorage.setItem("mm.v1.trialOffer", JSON.stringify({ v: 1, data: true }));
-    if (w && !localStorage.getItem("mm.v1.tour")) localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 1 }));
-  }, { s: settings, p: paid, o: offerShown, w: toured });
+    if (w && !localStorage.getItem("mm.v1.tour")) localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 2 }));
+    if (f && !localStorage.getItem("mm.v1.rating")) localStorage.setItem("mm.v1.rating", JSON.stringify({ v: 1, data: { firstDay: f, lastDay: f, daysUsed: 1, lastAsked: null, reviewAsked: false } }));
+  }, { s: settings, p: paid, o: offerShown, w: toured, f: firstDay });
   await ctx.addInitScript(fakeBridge, { trial: true, purchase: { transactions: [JWS] }, owned: [], ...iap });
   const page = await ctx.newPage();
   const claims = [];
@@ -105,7 +110,7 @@ await step("after setup: the free-trial offer once, with the plans, the price af
   expect((await plans.getByRole("radio").count()) === 3, "three plans");
   await plans.getByRole("radio", { name: /Annual/, checked: true }).waitFor();
   expect((await plans.getByText("First 7 days free").count()) === 2, "the free week on Annual and Monthly");
-  await sheet.getByRole("button", { name: "Start my 7-day free trial" }).waitFor();
+  await sheet.getByRole("button", { name: "Continue", exact: true }).waitFor();
   await sheet.getByText("First 7 days free, then £14.99 a year.").waitFor();
   await plans.getByRole("radio", { name: /Monthly/ }).click();
   await sheet.getByText("First 7 days free, then £2.99 a month.").waitFor();
@@ -150,32 +155,43 @@ await step("no offer when this Apple ID has had its trial, before setup is finis
   }
 });
 
-await step("after the welcome tour's 'Look around first' (the welcome screen has no Skip), the offer rises once on Home about 1.2 s later", async () => {
-  for (const way of ["Look around first"]) {
-    const { ctx, page } = await newPage({ settings: null });
+await step("never straight after setup: no offer on the welcome steps or on Home in the visit they finish in, nor on a phone first used today; on a later day it rises once on Home about 1.2 s after landing", async () => {
+  // a brand-new phone (first used today): the welcome steps, then Home with no offer
+  {
+    const { ctx, page } = await newPage({ settings: null, firstDay: null });
     await page.goto(BASE + "/app");
     await page.waitForURL(/\/app\/welcome/);
-    {
-      await page.getByRole("button", { name: "Get started" }).click();
-      await page.getByRole("button", { name: "Show me around" }).click();
-      await page.getByRole("button", { name: "Skip tour" }).click();
-      await page.getByRole("heading", { name: "Let's make it yours" }).waitFor();
-      expect((await page.getByRole("dialog").count()) === 0, `${way}: no offer on the welcome screens`);
-      await page.getByRole("button", { name: "Look around first" }).click();
-    }
+    await page.getByRole("button", { name: "Get started" }).click();
+    await page.getByRole("heading", { name: "What's your goal?" }).waitFor();
+    await page.getByRole("button", { name: "Skip", exact: true }).click();
+    await page.getByRole("button", { name: "Nothing to avoid" }).click();
+    await page.getByRole("button", { name: "Skip setup and make my account" }).click();
+    expect((await page.getByRole("dialog").count()) === 0, "an offer on the welcome steps");
+    // this build makes signing in optional (NEXT_PUBLIC_SIGN_IN_REQUIRED=0): "Not now" ends the steps
+    await page.getByRole("button", { name: "Not now" }).click();
     await page.waitForURL(/\/app\/?$/);
-    const landed = Date.now();
-    const sheet = page.getByRole("dialog", { name: "Numbite Premium" });
-    await sheet.waitFor({ timeout: 6000 });
-    expect(Date.now() - landed >= 900, `${way}: the offer waited a moment after Home appeared (${Date.now() - landed} ms)`);
-    expect((await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.tour") ?? "null")?.data)) === 1, `${way}: the tour is marked seen`);
-    await sheet.getByRole("button", { name: "Not now" }).click();
-    await sheet.waitFor({ state: "hidden" });
+    await page.waitForTimeout(3000);
+    expect((await page.getByRole("dialog", { name: "Numbite Premium" }).count()) === 0, "an offer straight after setup");
+    expect((await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.tour") ?? "null")?.data)) === 2, "the welcome screens are marked seen (TOUR_VERSION 2)");
     await page.reload();
-    await page.waitForTimeout(2500);
-    expect((await page.getByRole("dialog", { name: "Numbite Premium" }).count()) === 0, `${way}: shown once on this phone`);
+    await page.waitForTimeout(3000);
+    expect((await page.getByRole("dialog", { name: "Numbite Premium" }).count()) === 0, "an offer on the first day the app was used");
     await ctx.close();
   }
+  // a later day: once, about 1.2 s after Home appears
+  const { ctx, page } = await newPage();
+  await page.goto(BASE + "/app");
+  await page.waitForURL(/\/app\/?$/);
+  const landed = Date.now();
+  const sheet = page.getByRole("dialog", { name: "Numbite Premium" });
+  await sheet.waitFor({ timeout: 6000 });
+  expect(Date.now() - landed >= 900, `the offer waited a moment after Home appeared (${Date.now() - landed} ms)`);
+  await sheet.getByRole("button", { name: "Not now" }).click();
+  await sheet.waitFor({ state: "hidden" });
+  await page.reload();
+  await page.waitForTimeout(2500);
+  expect((await page.getByRole("dialog", { name: "Numbite Premium" }).count()) === 0, "shown once on this phone");
+  await ctx.close();
 });
 
 await step("after setup the offer appears on Home only: not on a recipe page", async () => {
@@ -193,7 +209,7 @@ await step("after setup the offer appears on Home only: not on a recipe page", a
 });
 
 await step("the offer never rises over the setup card's sheet or Add food: it waits, then shows once that sheet is closed", async () => {
-  // the setup card's sheet (the tour was seen with "Look around first", so Home shows the card)
+  // the setup card's sheet (the welcome screens were seen but setup not finished, so Home shows the card)
   {
     const { ctx, page } = await newPage({ settings: null, toured: true, iap: { productsDelay: 1500 } });
     await page.goto(BASE + "/app");
@@ -223,11 +239,11 @@ await step("the offer never rises over the setup card's sheet or Add food: it wa
   }
 });
 
-await step("the replay of the tour (Settings › Help › Show me around again) never shows the offer", async () => {
+await step("the replay of the feature screens (Settings › Help › Show me what Numbite can do) never shows the offer", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/settings");
-  await page.getByRole("link", { name: "Show me around again" }).click();
-  await page.getByText("Step 1 of 4").waitFor(); // four stops while Community is off (2026-11-18)
+  await page.getByRole("link", { name: "Show me what Numbite can do" }).click();
+  await page.getByText("1 of 3", { exact: true }).waitFor();
   await page.waitForTimeout(2500);
   expect((await page.getByRole("dialog").count()) === 0, "an offer during the replay");
   await page.getByRole("button", { name: "Close", exact: true }).click();
@@ -271,7 +287,7 @@ await step("starting the free trial: Apple's signed transaction goes to our serv
   await page.goto(BASE + "/app");
   await page.getByRole("button", { name: /Make it at home/ }).click();
   const sheet = page.getByRole("dialog");
-  await sheet.getByRole("button", { name: "Start my 7-day free trial" }).click();
+  await sheet.getByRole("button", { name: "Continue", exact: true }).click();
   await sheet.getByText("Premium is on. Thank you!").waitFor();
   expect(claims.length === 1 && claims[0].transactions?.[0] === JWS, `the transaction was sent: ${JSON.stringify(claims)}`);
   expect((await page.evaluate(() => window.__bridgeCalls)).includes("iap.purchase"), "the purchase went through the iPhone");
@@ -286,11 +302,11 @@ await step("starting the free trial: Apple's signed transaction goes to our serv
 await step("a cancelled purchase says nothing and charges nothing; Ask to Buy says it's waiting; Restore with nothing says so", async () => {
   const { ctx, page, claims } = await newPage({ offerShown: true, iap: { purchase: { error: "cancelled" } } });
   await page.goto(BASE + "/app/pro");
-  await page.getByRole("button", { name: "Start my 7-day free trial" }).click();
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
   await page.waitForTimeout(800);
   expect((await page.getByRole("status").filter({ hasText: /Premium|purchase/ }).count()) === 0 && claims.length === 0, "nothing after a cancel");
   await page.evaluate(() => { window.__iap.purchase = { pending: true }; });
-  await page.getByRole("button", { name: "Start my 7-day free trial" }).click();
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
   await page.getByText("Waiting for approval. Premium switches on once the purchase is approved.").waitFor();
   await page.getByRole("button", { name: "Restore purchases" }).click();
   await page.getByText("There's nothing to restore for this Apple ID.").waitFor();

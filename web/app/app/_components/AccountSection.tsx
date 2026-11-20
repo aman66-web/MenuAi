@@ -96,11 +96,12 @@ export function AccountSection() {
       setDeleteOpen(false);
       setMessage(t("Your account has been deleted. Your data stays on this device."));
       // founder 2026-11-17: "when an account's deleted, they go back to the starting screen of my app": the welcome screen again (the tour counts as unseen); what is on this
-      // device is kept, as the message says
+      // device is kept. The cover says so in its status line (?deleted=1, the onboarding meeting of 20 November 2026: "Your account has been deleted. What was on
+      // this phone is still here.").
       tourStore.reset();
       // ...and a new account starts the setup from the beginning (the data on the phone stays)
       updateSettings({ hasCompletedOnboarding: false });
-      router.replace("/app/welcome");
+      router.replace("/app/welcome?deleted=1");
     } catch (e) {
       setMessage(e instanceof AccountError && e.offline ? t("You're offline. Connect to the internet and try again.") : t("Something went wrong. Please try again."));
       setDeleteOpen(false);

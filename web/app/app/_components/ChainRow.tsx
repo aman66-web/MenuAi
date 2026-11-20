@@ -15,10 +15,15 @@ type ChainSummary = Pick<CatalogChain, "id" | "name" | "sample" | "itemCount" | 
 /** The white card that holds a run of `ChainRow`s (put it on a `div` or a `ul`). */
 export const chainGroupClass = "glass divide-y divide-line overflow-hidden rounded-[1.25rem]";
 
-/** "calories only" as a small pill: the chain publishes calories but not protein, carbs and fat. */
+/** "calories only" as a small info tag (the chain publishes calories but not protein, carbs and fat): the colour plan's info look, 6 px corners so it never
+ *  looks like a button, white with the card line on the page and the page fill with no edge inside a card (never the line fill, which means "can't press"). */
 function CaloriesOnly() {
   const t = useT();
-  return <span className="inline-flex items-center rounded-full bg-soft-strong px-2 py-px text-[0.6875rem] font-semibold text-muted">{t("calories only")}</span>;
+  return (
+    <span className="inline-flex items-center rounded-[0.375rem] border border-line bg-card px-1.5 py-px text-[0.6875rem] font-semibold text-foreground [:is(.glass,.hero-card,.inset-card,.sheet-panel)_&]:border-transparent [:is(.glass,.hero-card,.inset-card,.sheet-panel)_&]:bg-fill">
+      {t("calories only")}
+    </span>
+  );
 }
 
 /** "Burgers · 151 items", then the small pills; a pill that needs a new line starts at the line's edge (no stray indent). */

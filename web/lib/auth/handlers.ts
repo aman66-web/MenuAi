@@ -114,12 +114,16 @@ export async function handleEmailVerify(raw: unknown, ctx: AuthCtx): Promise<Htt
 
 const isProvider = (p: string): p is OAuthProvider => (OAUTH_PROVIDERS as readonly string[]).includes(p);
 
-/** Where a failed sign-in sends the person: back to Settings › Account on the website (which says what happened), or to the app. */
-const failure = (mode: "web" | "app", reason: string, cookies?: string[]): HttpResult => ({
-  status: 302,
-  redirect: mode === "app" ? `${APP_REDIRECT}?error=${encodeURIComponent(reason)}` : `/app/settings?signin=${encodeURIComponent(reason)}#account`,
-  ...(cookies ? { cookies } : {}),
-});
+/** Where a failed sign-in sends the person: to the app; on the website, back to the welcome screens when it started there (their sign-in step reads
+ *  ?signin=<what happened> and shows the buttons again), otherwise to Settings › Account (which says what happened). */
+const failure = (mode: "web" | "app", reason: string, cookies?: string[], from?: string): HttpResult => {
+  const back = from ? new URL(safeNext(from), "https://numbite.invalid") : null;
+  back?.searchParams.delete("signin"); // a page that already came back once (?signin=ok) gets only this answer
+  const web = back && /^\/app\/welcome\/?$/.test(back.pathname)
+    ? withParam(back.pathname + back.search + back.hash, "signin", reason)
+    : `/app/settings?signin=${encodeURIComponent(reason)}#account`;
+  return { status: 302, redirect: mode === "app" ? `${APP_REDIRECT}?error=${encodeURIComponent(reason)}` : web, ...(cookies ? { cookies } : {}) };
+};
 
 export function handleOAuthStart(provider: string, query: URLSearchParams, ctx: AuthCtx): HttpResult {
   const mode = query.get("mode") === "app" ? "app" : "web";
@@ -139,12 +143,13 @@ export async function handleOAuthCallback(query: URLSearchParams, cookieHeader: 
   const clear = clearFlowCookie(ctx.secure);
   if (!flow) return failure("web", "expired", [clear]); // no sign-in in progress here (cookie missing or too old)
   const code = query.get("code");
-  if (query.get("error") || !code) return failure(flow.m, query.get("error") === "access_denied" ? "cancelled" : "failed", [clear]);
+  const from = flow.m === "web" ? flow.n : undefined; // the page the website's sign-in started on
+  if (query.get("error") || !code) return failure(flow.m, query.get("error") === "access_denied" ? "cancelled" : "failed", [clear], from);
   let session: AuthSession;
   try {
     session = await ctx.port.oauthExchange(code, flow.v);
   } catch (e) {
-    if (e instanceof AuthError) return failure(flow.m, "failed", [clear]);
+    if (e instanceof AuthError) return failure(flow.m, "failed", [clear], from);
     throw e;
   }
   // "?signin=ok" tells the page to ask who is signed in (a visitor who never signed in sends the server nothing at all)

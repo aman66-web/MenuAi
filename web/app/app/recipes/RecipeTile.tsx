@@ -12,11 +12,13 @@ import { AppleIcon, EggGlyph, FishGlyph, HeartIcon, MoonIcon, NoodleGlyph, OatsG
 import { useStore } from "../_lib/hooks";
 import { useRecipePhoto } from "../_lib/recipePhotos";
 import { useT } from "../_lib/i18n";
+import { Rich } from "../_lib/Rich";
 import type { RecipeCard } from "../_lib/recipes";
 import { FullPictureButton } from "../_components/PhotoViewer";
 
 // One recipe in a list (Recipes, My meals). Founder 2026-10-14, from two reference pictures: a picture on top with a heart to save it, then the
-// name and, under it, calories and protein as two small chips; then the price of a serving at the shop and how long it takes. The picture is
+// name and, under it, calories and protein as two small chips; then the price of a serving at the shop and how long it takes (founder 2026-11-20, "every
+// recipe has a price": where a serving can't be priced, because the shop's list gives no weight for one of its packs, the whole shop "£x to buy" instead). The picture is
 // the recipe's AI illustration once there is one (no visible caption since 2026-11-17; screen readers hear "An illustration of …", CLAUDE.md rule 2); until then a plate with a drawing of the kind of dish (below).
 // Restyled 2026-10-15 to Home's language: a white card with 20 px corners, the name in the same weight as Home's meal rows, grey figure chips with a bold
 // number and a grey unit. Since 2026-11-17 the chips are one grey strip of three cells (protein, carbs, fat) and the name shows up to three lines. Since the
@@ -133,6 +135,7 @@ export function RecipeTile({ card, href, badge, wide = false, saveable = true, o
   const saved = recipe.ai ? true : savedList.some((s) => s.id === recipe.id);
   const canSave = saveable && (!recipe.ai || !!onRemoveMine); // Pip's recipes are kept as they're made: only My recipes offers taking one out
   const price = totals.costPerServing !== null ? formatPrice(totals.costPerServing) : null;
+  const bold = (text: string) => <span className="font-semibold text-foreground">{text}</span>;
   // protein, carbs and fat under the name (founder 2026-10-16: "Add the fats and carbs to each of the recipes also", then "calories where the red is ...
   // below the title the protein, fats and carbs"); the calories are the pill in the picture's corner. One grey strip of three cells, each a figure over
   // its grey word, so every card in a two-column grid on a phone keeps one row of three (chips used to wrap and leave fat alone on a second line).
@@ -155,7 +158,8 @@ export function RecipeTile({ card, href, badge, wide = false, saveable = true, o
             <span className="flex min-w-0 flex-col items-center px-1"><span className={figure}>{Math.round(totals.perServing.fat)}g</span>{" "}<span className={word}>{t("fat")}</span></span>
           </span>
           <span className="app-numbers mt-auto flex flex-wrap items-baseline gap-x-1.5 pt-2.5 text-[0.8125rem] text-muted">
-            {price && <><span><span className="font-semibold text-foreground">{price}</span> {t("a serving")}</span><span aria-hidden>·</span></>}
+            <span>{price ? <>{bold(price)} {t("a serving")}</> : <Rich text={t("{price} to buy")} values={{ price: bold(formatPrice(totals.basket)) }} />}</span>
+            <span aria-hidden>·</span>
             <span>{t("{n} min", { n: recipe.minutes })}</span>
           </span>
         </span>

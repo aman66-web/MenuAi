@@ -120,6 +120,10 @@ describe("the shared pieces use the tokens only", () => {
     "app/app/_components/Note.tsx", "app/app/_components/Toast.tsx", "app/app/_components/PremiumBadge.tsx", "app/app/_components/CommunityBadge.tsx",
     "app/app/_components/AddWaterSheet.tsx", "app/app/_components/PersonSheet.tsx", "app/app/_components/ReminderSheet.tsx", "app/app/_components/UsernameSheet.tsx",
     "app/app/groceries/PageBits.tsx",
+    // the welcome steps rebuilt by the onboarding redesign meeting (20 November 2026, build list 4) and Home's one-time Start here card
+    "app/app/welcome/Frame.tsx", "app/app/welcome/Cover.tsx", "app/app/welcome/QuestionSteps.tsx", "app/app/welcome/FeatureSteps.tsx",
+    "app/app/welcome/ShowcaseWindow.tsx", "app/app/welcome/EatOutShowcase.tsx", "app/app/welcome/RecipeChoice.tsx", "app/app/welcome/WeekShowcase.tsx",
+    "app/app/welcome/BodySteps.tsx", "app/app/welcome/TargetsStep.tsx", "app/app/_components/StartHere.tsx",
   ];
   for (const f of FILES) {
     it(`${f} has no raw colour, Tailwind palette colour or opacity fade`, () => {

@@ -29,7 +29,7 @@ const allManifest = { v: 1, retailers: SHOPS.map(([id, name, , , p]) => ({ id, n
 
 async function newPage({ width = 390, height = 844, failTesco = false } = {}) {
   const ctx = await browser.newContext({ viewport: { width, height }, serviceWorkers: "block" });
-  await ctx.addInitScript((s) => { if (!localStorage.getItem("mm.v1.settings")) localStorage.setItem("mm.v1.settings", s); if (!localStorage.getItem("mm.v1.tour")) localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 1 })); }, settings);
+  await ctx.addInitScript((s) => { if (!localStorage.getItem("mm.v1.settings")) localStorage.setItem("mm.v1.settings", s); if (!localStorage.getItem("mm.v1.tour")) localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 2 })); }, settings);
   const page = await ctx.newPage();
   await page.route("**/groceries/groceries-manifest.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify({ v: 1, generatedOn: "2026-11-17", source: "t", retailers: [], categories: [] }) }));
   await page.route("**/groceries/all/all-manifest.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify(allManifest) }));

@@ -13,9 +13,11 @@ import { BasketIcon, GearIcon } from "./icons";
 
 /**
  * The Shopping list, with how many things are left to pick up (a screen reader hears "Shopping list, 3 things to pick up"): white with the 1.5 px edge of
- * every control you can tap, an ink basket, ink words, and the count in an ink circle with a white figure (never red). On a phone narrower than 360 px the
- * word is only spoken, so the pill shows the basket and the count. The inline padding gives back the 1.5 px edge on each side. `photo`: the photo-chip look,
- * floating on a food photo.
+ * every control you can tap, an ink basket, ink words, and the count in an ink circle with a white figure (never red). The inline padding gives back the
+ * 1.5 px edge on each side. `photo`: the photo-chip look, floating on a food photo.
+ * It stays on the title's line at the top right at every phone width (founder 2026-11-20, "Take that in the top right"), with the widest date ("May 20")
+ * and a three-digit count, measured at 320, 360, 375, 390 and 430 px (e2e/homepages.mjs): below 375 px (a 360 px Android phone, a 320 px iPhone SE) the
+ * word is only spoken, so the pill shows the basket and the count; from 375 px the word shows, with 4 px gaps and a snug count circle so the row still fits.
  */
 export function ShoppingListPill({ photo }: { photo?: boolean } = {}) {
   const t = useT();
@@ -23,10 +25,10 @@ export function ShoppingListPill({ photo }: { photo?: boolean } = {}) {
   const toBuy = shopping.filter((i) => !i.done).length;
   return (
     <Link href="/app/groceries/list" className="group inline-flex min-h-11 shrink-0 items-center rounded-full transition active:scale-95">
-      <span className={`inline-flex h-9 items-center gap-1.5 whitespace-nowrap rounded-full ps-[calc(0.625rem_-_1.5px)] pe-[calc(0.75rem_-_1.5px)] text-[0.9375rem] font-semibold text-foreground transition-colors max-[360px]:pe-[calc(0.625rem_-_1.5px)] ${photo ? "photo-chip" : "border-[1.5px] border-edge bg-card group-hover:bg-background"}`}>
+      <span className={`inline-flex h-9 items-center gap-1 whitespace-nowrap rounded-full ps-[calc(0.625rem_-_1.5px)] pe-[calc(0.625rem_-_1.5px)] text-[0.9375rem] font-semibold text-foreground transition-colors ${photo ? "photo-chip" : "border-[1.5px] border-edge bg-card group-hover:bg-background"}`}>
         <BasketIcon aria-hidden className="h-[18px] w-[18px] shrink-0 text-ink" />
-        <span className="max-[360px]:sr-only">{t("Shopping list")}</span>
-        {toBuy > 0 && <span className="app-numbers ms-0.5 inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-ink px-1.5 text-[0.75rem] font-bold text-on-ink"><span className="sr-only">, {toBuy === 1 ? t("1 thing to pick up") : t("{n} things to pick up", { n: toBuy })}</span><span aria-hidden>{toBuy}</span></span>}
+        <span className="max-[375px]:sr-only">{t("Shopping list")}</span>
+        {toBuy > 0 && <span className="app-numbers inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-ink px-1 text-[0.75rem] font-bold text-on-ink"><span className="sr-only">, {toBuy === 1 ? t("1 thing to pick up") : t("{n} things to pick up", { n: toBuy })}</span><span aria-hidden>{toBuy}</span></span>}
       </span>
     </Link>
   );

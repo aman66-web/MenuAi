@@ -1,14 +1,19 @@
 "use client";
 
-import { useId, type ButtonHTMLAttributes, type ReactNode } from "react";
+import { useId, useState, type ButtonHTMLAttributes, type ReactNode } from "react";
+import { MORE_DIET_KEYS, MORE_DIET_LABEL, moreDietsOn, type MoreDietKey } from "@/lib/mm/foodDiet";
 import { filterCaution, toggleAllergen, toggleDiet, type DietKey } from "@/lib/mm/menu-view";
 import { HALAL_CAUTION } from "@/lib/mm/halal";
 import { tk, type T } from "@/lib/mm/i18n";
 import type { AllergenKey, Preferences } from "@/lib/mm/types";
 import { useT } from "../_lib/i18n";
-import { CheckIcon } from "./icons";
+import { CheckIcon, ChevronRightIcon } from "./icons";
 
 // Diet and allergy choices as big, plain buttons (onboarding, Settings and the restaurant page all use this one picker).
+// More diets (founder 2026-11-20: "cater to every single diet"; the lead's call overnight, under the founder's delegation): Jain, No onion or garlic, Kosher
+// style, No red meat, No alcohol and No halal or kosher meat sit behind one "More diets" button under the first six, so the everyday picker stays short. Someone
+// with any of them on always sees them open. Recipes and the meal plan follow them (lib/mm/pantry.ts kindExcluded); restaurant menus and products can't be
+// checked for them, and the line under the picker says so (lib/mm/menu-view.ts filterCaution, restaurantDietNote).
 
 export const DIETS: ReadonlyArray<{ key: DietKey; label: string }> = [
   { key: "vegetarianOnly", label: tk("Vegetarian") },
@@ -19,9 +24,12 @@ export const DIETS: ReadonlyArray<{ key: DietKey; label: string }> = [
   { key: "noBeef", label: tk("No beef") },
 ];
 
+/** The six behind "More diets", in the picker's order. */
+export const MORE_DIETS: ReadonlyArray<{ key: MoreDietKey; label: string }> = MORE_DIET_KEYS.map((key) => ({ key, label: MORE_DIET_LABEL[key] }));
+
 /** The person's diet in a few words ("Vegetarian", "No milk"), from Settings. */
 export function dietWords(t: T, p: Preferences): string[] {
-  return [p.vegetarianOnly && t("Vegetarian"), p.veganOnly && t("Vegan"), p.pescatarianOnly && t("Pescatarian"), p.halalOnly && t("Halal"), p.noPork && t("No pork"), p.noBeef && t("No beef"), ...(p.avoidAllergens ?? []).map((a) => t("No {allergen}", { allergen: t(ALLERGEN_SHORT[a]).toLowerCase() }))].filter((x): x is string => Boolean(x));
+  return [p.vegetarianOnly && t("Vegetarian"), p.veganOnly && t("Vegan"), p.pescatarianOnly && t("Pescatarian"), p.halalOnly && t("Halal"), p.noPork && t("No pork"), p.noBeef && t("No beef"), ...moreDietsOn(p).map((k) => t(MORE_DIET_LABEL[k])), ...(p.avoidAllergens ?? []).map((a) => t("No {allergen}", { allergen: t(ALLERGEN_SHORT[a]).toLowerCase() }))].filter((x): x is string => Boolean(x));
 }
 
 export const ALLERGEN_SHORT: Record<AllergenKey, string> = {
@@ -32,7 +40,7 @@ export const ALLERGEN_SHORT: Record<AllergenKey, string> = {
  * A short second line on the choices whose names are hard (the onboarding meeting, 19 November: Lupin, Molluscs and Pescatarian were guessed at; the FSA's own
  * descriptions), shown inside the tile in DietPicker. Lower case: they continue the name.
  */
-export const DIET_HINT: Partial<Record<DietKey, string>> = { pescatarianOnly: tk("fish, no meat") };
+export const DIET_HINT: Partial<Record<DietKey, string>> = { pescatarianOnly: tk("fish, no meat"), kosherStyle: tk("We can't check kosher certification.") };
 export const ALLERGEN_HINT: Partial<Record<AllergenKey, string>> = {
   crustaceans: tk("prawns, crab, lobster"),
   molluscs: tk("mussels, squid, oysters"),
@@ -128,22 +136,47 @@ export function DietPicker({ value, onChange, halal = true, allergies = true, al
   const cautionUp = allergies && allergyCautionFirst;
   // with the allergy line already under its heading, only the diet part is said under the card
   const caution = filterCaution(cautionUp ? { ...value, avoidAllergens: [] } : value, t);
+  // "More diets": open from the start (and never closable) while any of the six is on, so a chosen setting is never hidden
+  const anyMore = moreDietsOn(value).length > 0;
+  const [moreOpen, setMoreOpen] = useState(anyMore);
+  const showMore = moreOpen || anyMore;
+  const dietTile = (d: { key: DietKey; label: string }) => {
+    const on = Boolean(value[d.key]);
+    const hint = DIET_HINT[d.key];
+    return (
+      <PickTile key={d.key} on={on} aria-pressed={on} onClick={() => onChange(toggleDiet(value, d.key))} className={LABEL}>
+        <TileWords id={`${id}-${d.key}`} on={on} label={t(d.label)} hint={hint && t(hint)} />
+      </PickTile>
+    );
+  };
   return (
     <div>
       {/* One white card on the page (Settings, onboarding) holding both groups, with quiet grey tiles inside; in a sheet the card
           melts away (the sheet is the card) and the tiles sit straight on it. */}
       <div className="glass rounded-[1.25rem] p-3 [.sheet-panel_&]:bg-transparent [.sheet-panel_&]:p-0 [.sheet-panel_&]:shadow-none">
         <div role="group" aria-label={t("Your diet")} className={GRID}>
-          {DIETS.filter((d) => halal || d.key !== "halalOnly").map((d) => {
-            const on = Boolean(value[d.key]);
-            const hint = DIET_HINT[d.key];
-            return (
-              <PickTile key={d.key} on={on} aria-pressed={on} onClick={() => onChange(toggleDiet(value, d.key))} className={LABEL}>
-                <TileWords id={`${id}-${d.key}`} on={on} label={t(d.label)} hint={hint && t(hint)} />
-              </PickTile>
-            );
-          })}
+          {DIETS.filter((d) => halal || d.key !== "halalOnly").map(dietTile)}
         </div>
+        {/* one plain button opens the other six (white with the control edge, an ink chevron that turns); with one of them on, their label instead */}
+        {anyMore ? (
+          <p className="mb-2 mt-4 px-1 text-[0.8125rem] font-semibold leading-snug text-muted">{t("More diets")}</p>
+        ) : (
+          <button
+            type="button"
+            aria-expanded={showMore}
+            aria-controls={`${id}-more`}
+            onClick={() => setMoreOpen((v) => !v)}
+            className="mt-2 flex min-h-11 w-full items-center justify-between gap-2 rounded-[1.25rem] border-[1.5px] border-edge bg-card py-2.5 pe-3 ps-3.5 text-start text-[0.9375rem] font-semibold leading-snug text-foreground transition hover:bg-background active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            {t("More diets")}
+            <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-ink transition-transform ${showMore ? "rotate-90 rtl:-rotate-90" : ""}`} />
+          </button>
+        )}
+        {showMore && (
+          <div id={`${id}-more`} role="group" aria-label={t("More diets")} className={`${GRID} ${anyMore ? "" : "mt-2"}`}>
+            {MORE_DIETS.map(dietTile)}
+          </div>
+        )}
         {allergies && (
           <>
             <div aria-hidden className="mx-1 mb-4 mt-5 h-px bg-line" />

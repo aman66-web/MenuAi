@@ -17,7 +17,7 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
 }
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, colorScheme: "light" });
 // The welcome tour has been seen on this phone (e2e/tour.mjs covers the tour a first plain launch opens), so a plain /app here opens Home.
-await ctx.addInitScript(() => { if (!localStorage.getItem("mm.v1.tour")) localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 1 })); });
+await ctx.addInitScript(() => { if (!localStorage.getItem("mm.v1.tour")) localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 2 })); });
 const page = await ctx.newPage();
 
 const problems = [];
@@ -47,43 +47,45 @@ await step("a visit after the welcome tour goes straight to Home: no questionnai
   await visible(page.getByRole("button", { name: "Set up" }));
   await shot("00-first-visit-home");
 });
-await step("the guided setup at /app/welcome: welcome, Pip's arrival, Pip's walk along the tab bar, 'Let's make it yours', the first question", async () => {
+await step("the guided setup at /app/welcome: the cover, then 'Step 1 of 11' with Pip's landing on the goal (no hello screen, no tour, no fork)", async () => {
   await page.goto(`${BASE}/app/welcome`);
   await visible(page.getByRole("button", { name: "Get started" }));
   await shot("00-onboarding-welcome");
   await page.getByRole("button", { name: "Get started" }).click();
-  // Pip jumps in, then walks along a little tab bar and says what each tab is for
-  await visible(page.getByRole("heading", { name: "Hi, I'm Pip!" }));
-  await visible(text("I'll show you the calories and protein from restaurants' own menus and from food labels, before you order or buy."));
-  await page.waitForTimeout(1800); // the arrival animation
-  await shot("00-onboarding-pip");
-  await page.getByRole("button", { name: "Show me around" }).click(); // straight to the first stop: no text size screen since 2026-11-19
-  // Community is off (2026-11-18): four tabs, in the bar's order since 2026-11-19. A first run has Pip's line and the copy of the bar only: "What you can do"
-  // is in the replay (Settings › Help; e2e/tour.mjs checks it), and each stop's headline says "stop n of 4" to a screen reader.
-  const tabs = ["Home", "Recipes", "Groceries", "Eat out"];
-  for (const [i, tab] of tabs.entries()) {
-    // (Chrome's name puts a space before the comma: the screen-reader-only part is a block of its own)
-    await visible(page.getByRole("heading", { level: 1, name: new RegExp(`^${tab} ?, stop ${i + 1} of ${tabs.length}$`) }));
-    await visible(text("This is a picture of the buttons at the bottom of every screen: Home, Recipes, Groceries and Eat out."));
-    if ((await page.getByRole("heading", { level: 2, name: "What you can do" }).count()) !== 0) throw new Error(`${tab}: 'What you can do' on the first run`);
-    if (tab === "Home") await visible(text("This is Home: what you've eaten today, and what's left of your calories and protein."));
-    if (tab === "Eat out") await visible(text("Going out to eat? Look the place up first and see each dish's calories before you order."));
-    await page.waitForTimeout(900); // Pip's hop to this tab
-    if (tab === "Eat out") await shot("00-onboarding-tour");
-    await page.getByRole("button", { name: "Continue" }).click();
-  }
-  await visible(page.getByRole("heading", { name: "Let's make it yours" }));
-  await page.getByRole("button", { name: "Set up my daily numbers" }).click();
   await visible(page.getByRole("heading", { name: "What's your goal?" }));
-  await visible(text("Step 1 of 7"));
+  await visible(text("Step 1 of 11"));
+  await visible(text("Hi, I'm Pip. 11 short steps, and I'll show you what Numbite can do for you on the way."));
+  for (const gone of ["Hi, I'm Pip!", "Let's make it yours"]) if (await page.getByRole("heading", { name: gone }).count()) throw new Error(`'${gone}' is back`);
+  await page.waitForTimeout(1000); // Pip's jump
   await shot("01-onboarding-goal");
 });
-await step("onboarding: goal → preferences → about you → targets → shops → all set, with a first recipe on it", async () => {
-  await page.getByRole("radio", { name: "Build muscle" }).click();
+await step("onboarding: goal → avoid → Eat out → shops → a first recipe → about you → targets → the week → the account ('Not now') → Home with the Start here card, whose recipe opens the real recipe page (its Back lands on Home)", async () => {
+  await page.getByRole("radio", { name: /^Build muscle/ }).click();
   await page.getByRole("button", { name: "Continue" }).click();
   await visible(page.getByRole("heading", { name: "Anything you avoid?" }));
   await page.getByRole("button", { name: "Skip", exact: true }).click();
-  // the three questions about the person, then the targets arrive filled in from them
+  // 3: Eat out, from the restaurants' own figures (the goal's list)
+  await visible(page.getByRole("heading", { name: "Know before you order" }));
+  await visible(page.getByRole("radiogroup", { name: "Restaurants" }), 45000);
+  await visible(page.getByRole("region", { name: "A look at Eat out" }).getByText(/^35 g\+ protein at /));
+  await shot("02-onboarding-eat-out");
+  await page.getByRole("button", { name: "Next: where you shop" }).click();
+  // 4: the shops
+  await visible(page.getByRole("heading", { name: "Where do you shop?" }));
+  await page.getByRole("button", { name: "Sainsbury's", exact: true }).click();
+  await visible(text("Got it. I'll show those shops first."));
+  await page.getByRole("button", { name: "Continue" }).click();
+  // 5: two recipes from Sainsbury's: one chosen as the first recipe
+  await visible(page.getByRole("heading", { name: /^Recipes from Sainsbury's/ }));
+  const tiles = page.getByRole("region", { name: "A look at Recipes" }).locator("button[aria-pressed]");
+  await tiles.first().waitFor({ state: "visible", timeout: 45000 });
+  if ((await tiles.count()) !== 2) throw new Error(`expected two recipes to choose from, got ${await tiles.count()}`);
+  const recipe = (await tiles.first().getAttribute("aria-label")).split(", ")[0];
+  await tiles.first().click();
+  await visible(page.getByText("Your first recipe", { exact: true }));
+  await shot("03-onboarding-recipes");
+  await page.getByRole("button", { name: "Next: your daily numbers" }).click();
+  // 6-8: the three questions about the person, then the targets arrive filled in from them
   await visible(page.getByRole("heading", { name: "About you" }));
   await page.getByRole("radio", { name: "Male", exact: true }).click();
   await page.getByLabel("Age", { exact: true }).fill("34");
@@ -95,37 +97,38 @@ await step("onboarding: goal → preferences → about you → targets → shops
   await page.getByLabel("Inches").fill("11");
   await page.getByRole("button", { name: "Continue" }).click();
   await visible(page.getByRole("heading", { name: "How active are you?" }));
-  // nothing is picked for the person: Continue is grey until a tile is tapped
-  if (!(await page.getByRole("button", { name: "Continue" }).isDisabled())) throw new Error("Continue on 'How active are you?' works before a tile is tapped");
+  // nothing is picked for the person: the button is grey until a tile is tapped
+  if (!(await page.getByRole("button", { name: "Work out my numbers" }).isDisabled())) throw new Error("'Work out my numbers' works before a tile is tapped");
   await page.getByRole("radio", { name: "Lightly active", exact: true }).click();
-  await page.getByRole("button", { name: "Continue" }).click();
+  await page.getByRole("button", { name: "Work out my numbers" }).click();
   await visible(page.getByRole("heading", { name: "Your daily targets" }));
   if (!(await page.locator("#target-calories").inputValue())) throw new Error("the calories were not filled in from the answers");
   await page.getByLabel("Calories").fill("2400");
   await page.getByLabel("Protein (g)").fill("150");
-  await shot("02-onboarding-targets");
-  await page.getByRole("button", { name: "Continue" }).click();
-  await visible(page.getByRole("heading", { name: "Where do you shop?" }));
-  await page.getByRole("button", { name: "Sainsbury's", exact: true }).click();
-  await visible(text("Got it. I'll show those shops first."));
-  await page.getByRole("button", { name: "Continue" }).click();
-  // the one last screen: the plan (the goal named), two recipes picked for this person and Go to Home; a recipe opens the real recipe page, and its Back lands on Home
-  await visible(page.getByRole("heading", { name: "You're all set!" }));
-  await visible(page.getByText("Build muscle", { exact: true }));
-  await visible(page.getByRole("heading", { level: 2, name: "A recipe to start with" }));
-  await visible(page.getByRole("button", { name: "Go to Home" }));
-  await shot("03-onboarding-how");
-  const picks = page.locator('a[href^="/app/recipes/view?id="]');
-  await picks.first().waitFor({ state: "visible", timeout: 30000 });
-  if ((await picks.count()) !== 2) throw new Error(`expected two recipes to choose from, got ${await picks.count()}`);
-  await page.waitForTimeout(600);
-  await shot("03-onboarding-recipes");
-  await picks.first().click();
+  await shot("04-onboarding-targets");
+  await page.getByRole("button", { name: "Next: plan my week" }).click();
+  // 10: the week, sized to the numbers
+  await visible(page.getByRole("heading", { name: "Your week, planned" }));
+  await visible(page.getByText(/\(your target is 2,400 kcal\)\.$/), 45000);
+  await shot("05-onboarding-week");
+  await page.getByRole("button", { name: "Next: save your plan" }).click();
+  // 11: the account (optional on this build: "Not now")
+  await visible(page.getByRole("heading", { name: "Save your plan: make your free account" }));
+  await visible(text(`Waiting for you on Home: ${recipe}.`));
+  await shot("06-onboarding-account");
+  await page.getByRole("button", { name: "Not now" }).click();
+  await page.waitForURL(/\/app\/?$/);
+  // Home: the toast and the one-time Start here card with the recipe; Open goes to the real recipe page, whose Back lands on Home
+  await visible(text("You're in. Sign in any time in Settings to keep your goal and numbers safe."), 15000);
+  const start = page.getByRole("region", { name: "Start here" });
+  await visible(start.getByText(`Your first recipe: ${recipe}`));
+  await shot("07-home-start-here");
+  await start.getByRole("link", { name: /^Open/ }).or(start.getByRole("button", { name: /^Open/ })).first().click();
   await page.waitForURL(/\/app\/recipes\/view\?id=/);
   await visible(text("For 1 serving")); // a recipe opens for one person (founder 2026-11-16)
   await visible(page.getByRole("tab", { name: "Ingredients" }));
   await visible(page.getByRole("button", { name: /^Swap / }).first());
-  await shot("03-onboarding-recipe-opened");
+  await shot("08-start-here-recipe-opened");
   await page.goBack(); // the phone's own Back: Home is under the recipe, never the welcome screens
   await page.waitForURL(/\/app\/?$/);
 });
@@ -280,7 +283,7 @@ await step("Save → My meals › Restaurant meals lists it; Log → today's mea
   await page.getByRole("button", { name: "Add to today", exact: true }).click();
   await page.waitForURL("**/app/today");
   await visible(text("760"));
-  await visible(text("/ 2,400 kcal"));
+  await visible(text("of 2,400 kcal"));
   await shot("13-today");
 });
 await step("home shows today's calories after logging", async () => {
@@ -291,12 +294,12 @@ await step("home shows today's calories after logging", async () => {
   if (await page.locator('[data-coach="home-numbers"]').getByText(/\d+%/).count()) throw new Error("a percentage is still shown on Home's numbers");
   await shot("14-home-pro");
 });
-await step("delete a log entry and undo it", async () => {
+await step("remove a log entry and undo it", async () => {
   await page.goto(`${BASE}/app/today`);
-  await page.getByRole("button", { name: /^Delete / }).first().click();
+  await page.getByRole("button", { name: /^Remove / }).first().click();
   await visible(text("Deleted"));
   await page.getByRole("button", { name: "Undo" }).click();
-  await visible(page.getByRole("button", { name: /^Delete / }).first());
+  await visible(page.getByRole("button", { name: /^Remove / }).first());
 });
 await step("report a number queues to /api/v1/reports with the right body", async () => {
   await page.goto(`${BASE}/app/item?chain=bowl-and-co&item=chicken-bowl`);

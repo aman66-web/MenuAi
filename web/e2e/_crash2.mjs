@@ -3,7 +3,7 @@ const b = await chromium.launch({ args: ["--no-sandbox"] });
 const base = "http://localhost:3103";
 async function run(name, fn) {
   const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
-  await ctx.addInitScript(() => { localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true } })); localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 1 })); });
+  await ctx.addInitScript(() => { localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true } })); localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 2 })); });
   const page = await ctx.newPage(); const errs = [];
   page.on("pageerror", (e) => errs.push("PAGEERROR " + e.message.split("\n")[0]));
   page.on("crash", () => errs.push("PAGE CRASHED"));

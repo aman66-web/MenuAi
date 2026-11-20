@@ -9,7 +9,6 @@ import { shoppingStore } from "@/lib/mm/stores";
 import { InfoLine } from "../../../_components/Note";
 import { PageHeader } from "../../../_components/PageHeader";
 import { CheckIcon, ChevronRightIcon, PlusIcon, PotIcon } from "../../../_components/icons";
-import { PipSays } from "../../../_components/Mascot";
 import { Button, EmptyState, ErrorBox, LinkButton, Spinner } from "../../../_components/ui";
 import { useBack } from "../../../_lib/backNav";
 import { useHydrated, useStore } from "../../../_lib/hooks";
@@ -112,7 +111,8 @@ function ListRecipesScreen() {
     <div>
       <PageHeader back={{ href: back, label: t("Back to shopping list") }} />
       <h1 className="mt-5 text-[1.75rem] font-[800] leading-[1.08] tracking-[-0.02em]"><Rich text={t("Cook with your {list}")} values={{ list: <span>{t("shopping list")}</span> }} /></h1>
-      <div className="mt-5"><PipSays mood="point" size={72}>{t("These recipes use something on your list. Each one shows what you still need to buy.")}</PipSays></div>
+      {/* a plain intro, no Pip (Pip audit, founder 2026-11-20: "keep him as the guide, not the decoration") */}
+      <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("These recipes use something on your list. Each one shows what you still need to buy.")}</p>
 
       {!hydrated ? null : list.length === 0 ? (
         <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("Your list is empty.")} body={t("Add a few things you have or plan to buy, and I'll find recipes that use them.")} action={<LinkButton href={listNav.href} onClick={listNav.onClick} replace variant="secondary">{t("Back to my groceries")}</LinkButton>} /></div>

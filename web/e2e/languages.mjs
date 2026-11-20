@@ -23,7 +23,7 @@ const done = JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 200
 await step("the first screen is Home in English, and the welcome screen has no language choice, even for a Polish browser", async () => {
   const ctx = await fresh("pl-PL");
   // the first-launch tour has been seen (lib/mm/tour.ts), so a plain /app opens on Home
-  await ctx.addInitScript(() => localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 1 })));
+  await ctx.addInitScript(() => localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 2 })));
   const page = await ctx.newPage();
   await page.goto(BASE + "/app");
   await page.getByRole("heading", { level: 1, name: "Home" }).waitFor();

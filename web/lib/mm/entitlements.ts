@@ -61,7 +61,9 @@ export function paywallCopy(p: PaywallProduct, t: T = englishT): PaywallCopy {
   if (p.trialEligible && p.trialDays) {
     return {
       button: t("Start {days}-day free trial", { days: p.trialDays }),
-      smallPrint: t("Free for {days} days, then {price}/year. We'll remind you 2 days before your trial ends. Cancel any time in Settings.", { days: p.trialDays, price: p.price }),
+      // no reminder is promised: nothing sends one (the onboarding meeting, 20 November 2026; App Review 3.1.2(c)). A line may mention a reminder only once one
+      // is really scheduled.
+      smallPrint: t("Free for {days} days, then {price}/year. Cancel any time in Settings.", { days: p.trialDays, price: p.price }),
     };
   }
   return { button: t("Subscribe"), smallPrint: t("{price}/year, renews automatically. Cancel any time in Settings.", { price: p.price }) };

@@ -3,6 +3,10 @@ import { PANTRY, kindExcluded, kindForDiet, mixesMeatAndDairy, type PantryKind }
 import { RECIPES } from "../lib/mm/recipeBook";
 import { recipeForDiet } from "../lib/mm/recipes";
 import { sanitizeSettings } from "../lib/mm/user-data";
+import { dietNameList, foodDietCaution, foodDietNotChecked, foodDietProblem, MORE_DIET_KEYS, moreDietsOn } from "../lib/mm/foodDiet";
+import { anyDietFilter, filterCaution, passesDiet, restaurantDietNote, toggleDiet } from "../lib/mm/menu-view";
+import { NO_PREFERENCES, type MenuItem } from "../lib/mm/types";
+import { cluck } from "./fixtures";
 
 // More diets for recipes and the meal plan (founder 2026-11-20: "Some people might be Hindu, Pakistani, whatever ... cater to every single diet you can possibly
 // think about"). The tags come from the shops' own ingredient lists where a kind is a made product (houmous, salsa, pesto...).
@@ -61,5 +65,45 @@ describe("the new diets are kept with the settings", () => {
     expect(s.preferences).toMatchObject({ jain: true, kosherStyle: true, noRedMeat: true, noAlcohol: true });
     expect("noOnionGarlic" in s.preferences).toBe(false);
     expect("noHalalKosherMeat" in s.preferences).toBe(false);
+  });
+});
+
+// The restaurants and the grocery lists can't be checked for the six (menus print no ingredients; products aren't read for them yet), so they are never said to
+// fit: nothing is hidden or picked for them, and a plain line names them (the lead's call overnight, 20 November 2026, under the founder's delegation).
+describe("restaurant menus and products say they aren't checked for the new diets", () => {
+  const dish = (over: Partial<MenuItem>): MenuItem => ({ ...cluck().chain.items[0]!, ...over });
+  it("names them in quotes, joined plainly, in the picker's order", () => {
+    expect(MORE_DIET_KEYS).toEqual(["jain", "noOnionGarlic", "kosherStyle", "noRedMeat", "noAlcohol", "noHalalKosherMeat"]);
+    expect(moreDietsOn({ ...NO_PREFERENCES, noAlcohol: true, jain: true })).toEqual(["jain", "noAlcohol"]);
+    expect(dietNameList(["jain"])).toBe("“Jain”");
+    expect(dietNameList(["jain", "noOnionGarlic"])).toBe("“Jain” and “No onion or garlic”");
+    expect(dietNameList(["jain", "kosherStyle", "noAlcohol"])).toBe("“Jain”, “Kosher style” and “No alcohol”");
+  });
+  it("a restaurant's menu: nothing hidden or picked for them, and the line says so", () => {
+    const jain = { ...NO_PREFERENCES, jain: true, noRedMeat: true };
+    expect(anyDietFilter(jain)).toBe(false);
+    expect(passesDiet(dish({ name: "Beef burger", tags: ["contains_beef"] }), jain)).toBe(true);
+    expect(restaurantDietNote(NO_PREFERENCES)).toBeNull();
+    expect(restaurantDietNote(jain)).toBe("Restaurant menus don't list ingredients, so dishes aren't checked for “Jain” and “No red meat”.");
+    expect(filterCaution(jain)).toBe(restaurantDietNote(jain));
+    expect(filterCaution({ ...jain, vegetarianOnly: true, avoidAllergens: ["milk"] })).toBe(
+      "We only know what each restaurant publishes, so this can't promise a dish is vegetarian. Restaurant menus don't list ingredients, so dishes aren't checked for “Jain” and “No red meat”. Allergy filters use each restaurant's own allergen guide and hide dishes it doesn't cover. If you have an allergy, always check with the restaurant.",
+    );
+  });
+  it("products: never left out or kept for them, and the line says they aren't checked", () => {
+    const kosher = { ...NO_PREFERENCES, kosherStyle: true, noAlcohol: true };
+    expect(foodDietProblem({ name: "Smoked Back Bacon" }, kosher)).toBeNull();
+    expect(foodDietNotChecked(NO_PREFERENCES)).toBeNull();
+    expect(foodDietNotChecked(kosher)).toBe("Products aren't checked for “Kosher style” and “No alcohol”. Always check the pack.");
+    expect(foodDietCaution(kosher)).toBe(foodDietNotChecked(kosher));
+    expect(foodDietCaution({ ...kosher, vegetarianOnly: true })).toBe(
+      "We go by each product's name, type and label, so this can't promise a product is vegetarian. Always check the pack. Products aren't checked for “Kosher style” and “No alcohol”.",
+    );
+  });
+  it("each turns on and off on its own, leaving the other choices as they were", () => {
+    const on = toggleDiet({ ...NO_PREFERENCES, vegetarianOnly: true }, "jain");
+    expect(on).toMatchObject({ vegetarianOnly: true, jain: true });
+    expect(toggleDiet(on, "jain").jain).toBe(false);
+    expect(sanitizeSettings({ preferences: toggleDiet(on, "jain") }).preferences.jain).toBeUndefined();
   });
 });
