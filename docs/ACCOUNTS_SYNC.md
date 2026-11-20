@@ -83,10 +83,11 @@ into the Supabase dashboard fields: never into chat, the repo, or a file.
 >      the server all say and check 6. Set to 6 on 14 October 2026 after the first real code arrived with 8).
 >    - Emails › SMTP Settings: custom SMTP on; host `smtp.resend.com`, port 465, user `resend`, password = the Resend API key, sender
 >      `noreply@numbite.com`, sender name `Numbite`.
->    - Email Templates › Magic Link: replace the body with "Your Numbite sign-in code is {{ .Token }}. It expires in 1 hour. If you didn't ask
->      for it, ignore this email."
->    - Email Templates › **Confirm sign up**: the same body and the subject "Your Numbite sign-in code". (Added 13 October 2026: a brand-new
->      address is signed up by its first code request, and Supabase then sends the "Confirm sign up" email, whose default text has a link and no code.)
+>    - Email Templates › Magic link or OTP: the subject "Your Numbite sign-in code" and, as the body, the whole of `supabase/templates/sign-in-code.html`
+>      (since 20 November 2026: the code big in a lime box, our icon, two short lines; until then the one plain line "Your Numbite sign-in code is
+>      {{ .Token }}. It expires in 1 hour. If you didn't ask for it, ignore this email.").
+>    - Email Templates › **Confirm sign up**: the same subject and body. (Added 13 October 2026: a brand-new address is signed up by its first code
+>      request, and Supabase then sends the "Confirm sign up" email, whose default text has a link and no code.)
 >
 > At the end, tell me which steps are done and which need me. Don't show any secret values.
 

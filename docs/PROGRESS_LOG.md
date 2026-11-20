@@ -3724,3 +3724,11 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   reach {target} kcal yet...", "Each meal is kept to your {cap} kcal meal size." and the week worked out ahead on How active are you?. Offline it still
   shows (no shop file needed). Copy, new: "Meal plan", "An example week.", "Your shop's prices", "{day}: {meals}." (screen readers). Tests:
   tests/exampleWeek.test.ts, welcomeShowcase.test.ts; e2e showcase 14/14, onboarding-body 17/17, tour 13/13, firstvisit 10/10; vitest all green.
+- (about 22:00) **The sign-in code email redesigned, live in Supabase** (founder, screenshot of the plain email: "You can make this far better with like the
+  digits to obviously log in, and it just looks so bland right now, this email, so make a better template in supabase"). `supabase/templates/sign-in-code.html`:
+  our icon and name, a white card, "Your sign-in code", "Type this code in Numbite to sign in.", the code in 46 px digits in a lime box with the dark green
+  edge, "It works for 1 hour.", a grey "Didn't ask for a code? You can ignore this email. Nobody can sign in without it.", and numbite.com; a hidden preview
+  line "Your Numbite code is {code}. It works for 1 hour." so the inbox list shows the code. Inline styles and tables only; nothing tracked. Pasted into the
+  live project (menumacros, rbbalkfkpacazzhsqfzz) in the founder's Chrome: Authentication › Emails › Magic link or OTP and Confirm sign up, subject "Your
+  Numbite sign-in code" on both; Supabase said "Successfully updated email template" twice. Also in supabase/config.toml for local runs; ACCOUNTS_SYNC.md
+  updated. Old body: "Your Numbite sign-in code is {{ .Token }}. It expires in 1 hour. If you didn't ask for it, ignore this email."

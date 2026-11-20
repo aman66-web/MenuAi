@@ -244,6 +244,15 @@ otp_expiry = 3600
 # admin_email = "admin@email.com"
 # sender_name = "Admin"
 
+# The sign-in code email (the same file is pasted into the live project's Magic link or OTP and Confirm sign up templates: docs/ACCOUNTS_SYNC.md)
+[auth.email.template.magic_link]
+subject = "Your Numbite sign-in code"
+content_path = "./supabase/templates/sign-in-code.html"
+
+[auth.email.template.confirmation]
+subject = "Your Numbite sign-in code"
+content_path = "./supabase/templates/sign-in-code.html"
+
 # Uncomment to customize email template
 # [auth.email.template.invite]
 # subject = "You have been invited"
