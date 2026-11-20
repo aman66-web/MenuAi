@@ -49,10 +49,19 @@ const WEEK = [
 await step("three 44 pt dots under the cards; each one shows its page and is marked as the one shown; Home opens on Today again after a reload", async () => {
   const { ctx, page } = await open({ log: WEEK });
   const names = ["Today", "Calories and protein this week", "Sugar, salt and fibre"];
+  // the dots sit close, an even 14 pt apart; each button is its own share of the row (no overlap): 44 pt tall, the outer ones wide, the middle one at least 24 pt,
+  // and a tap on the middle of any dot lands on that dot's button
+  const marks = [];
   for (const n of names) {
     const b = await dot(page, n).boundingBox();
-    expect(b.width >= 44 && b.height >= 44, `${n}: ${JSON.stringify(b)}`);
+    expect(b.height >= 44 && b.width >= 24, `${n}'s target: ${JSON.stringify(b)}`);
+    const m = await dot(page, n).locator("span").boundingBox();
+    const hit = await page.evaluate(([x, y]) => document.elementFromPoint(x, y)?.closest("button")?.getAttribute("aria-label") ?? null, [m.x + m.width / 2, m.y + m.height / 2]);
+    expect(hit === n, `a tap on ${n}'s dot opens ${n}: ${hit}`);
+    marks.push(m);
   }
+  const gaps = [marks[1].x - (marks[0].x + marks[0].width), marks[2].x - (marks[1].x + marks[1].width)];
+  expect(gaps.every((g) => Math.abs(g - 14) <= 1), `even 14 pt gaps between the dots: ${JSON.stringify(gaps)}`);
   const cards = await page.getByRole("group", { name: "Today, 1 of 3" }).boundingBox();
   const dots = await page.getByRole("group", { name: "Choose what to show" }).boundingBox();
   expect(dots.y >= cards.y + cards.height - 2 && dots.y < cards.y + cards.height + 12, `the dots sit right under the cards: ${JSON.stringify([cards, dots])}`);

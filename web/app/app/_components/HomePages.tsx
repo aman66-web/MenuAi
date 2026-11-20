@@ -156,7 +156,10 @@ export function HomePages({ pages, now }: { pages: HomePage[]; now: Date }) {
         </div>
       </div>
       {/* three dots under the cards, where the founder drew them: real 44 pt buttons, the page shown a dark pill */}
-      <div role="group" aria-label={t("Choose what to show")} className="relative z-10 flex justify-center">
+      {/* close together, an even 14 pt apart (founder 2026-11-20: "make that gap more short and even so it looks nicer"). Each dot's button is its own share of
+          the row with no overlap: 7 pt of the gap on each inner side, 30 pt more on the outer ends; all 44 pt tall, so the outer dots get wide targets and the
+          middle one 24 pt (WCAG 2.5.8's minimum), and a tap on any dot always opens that dot's page */}
+      <div role="group" aria-label={t("Choose what to show")} className="relative z-10 flex h-11 items-stretch justify-center">
         {pages.map((p, i) => (
           <button
             key={i}
@@ -164,7 +167,7 @@ export function HomePages({ pages, now }: { pages: HomePage[]; now: Date }) {
             aria-label={p.name}
             aria-current={current === i ? "true" : undefined}
             onClick={() => go(i)}
-            className="group inline-flex h-11 w-11 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-[-6px] focus-visible:outline-accent"
+            className={`flex h-11 items-center rounded-full focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent ${i === 0 ? "ps-[30px] pe-[7px]" : i === pages.length - 1 ? "ps-[7px] pe-[30px]" : "px-[7px]"}`}
           >
             <span aria-hidden className={`block h-2.5 rounded-full transition-[width,background-color] duration-200 motion-reduce:transition-none ${current === i ? "w-6 bg-ink" : "w-2.5 bg-muted"}`} />
           </button>
