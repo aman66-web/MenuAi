@@ -2,9 +2,14 @@
 
 import { useState } from "react";
 import { ALLERGEN_LABEL } from "@/lib/mm/allergens";
+import { assetUrl } from "@/lib/mm/config";
 import { AGE_GROUPS, ALL_HOME_DIETS, HOME_DIETS, MAX_PEOPLE, MORE_HOME_DIETS, NAME_MAX, PORTIONS, noMeatLeft, personShare, shareWords, toggleHomeDiet, type AgeGroup, type HomeDiet, type HomePerson, type Household, type PortionSize } from "@/lib/mm/household";
 import { tk } from "@/lib/mm/i18n";
+import { EATING_STYLES, HIGH_PROTEIN_MIN, LOWER_CARB_MAX, stylePicture, type EatingStyle } from "@/lib/mm/mealPlan";
 import type { DietPrefs } from "@/lib/mm/pantry";
+import { RECIPES } from "@/lib/mm/recipeBook";
+import { RECIPE_IMAGES } from "@/lib/mm/recipeImages";
+import { RECIPE_THUMBS } from "@/lib/mm/recipeThumbs";
 import { ALLERGEN_KEYS, type AllergenKey } from "@/lib/mm/types";
 import { ChevronRightIcon, ForkIcon } from "../_components/icons";
 import { InfoBanner } from "../_components/Note";
@@ -16,7 +21,7 @@ import { CARD, CHIP, CHIP_ON } from "../groceries/PageBits";
 // cooking for"; the 20-agent meeting's conclusion the same day): how many, who each other person is (an age group, an optional name, a portion), the home's
 // allergies, and the diets anyone at home follows (until 20 November one meat answer; now every diet the person's own picker knows, the six newer ones behind
 // "More diets"). Big buttons, one question a screen; Pip says in one line at the top what each answer does (one Pip a screen: the person cards say their
-// portion in plain words). Nothing here leaves the phone.
+// portion in plain words). Nothing here leaves the phone. Also the step both flows share, how the person likes to eat (StyleStep, founder 2026-11-20).
 // Every answer is in the one choice look (colour meeting, 19 November 2026, approved by the founder that day): unchosen, white with the 1.5 px edge and an empty
 // ring; chosen, lime with the 2 px dark green edge, bold dark green words and a tick (never a dark disc, and never a grey tile that looks switched off).
 
@@ -24,6 +29,7 @@ import { CARD, CHIP, CHIP_ON } from "../groceries/PageBits";
 const TILE = "flex items-center gap-2 border-[1.5px] text-start transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 const TILE_OFF = "border-edge bg-card text-foreground hover:bg-background";
 const TILE_ON = "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]";
+const RECIPE_BY_ID = new Map(RECIPES.map((r) => [r.id, r]));
 
 export const GROUP_LABEL: Record<AgeGroup, string> = { adult: tk("Adult"), teen: tk("Teenager"), child: tk("Child"), little: tk("Little one") };
 export const GROUP_AGES: Record<AgeGroup, string> = { adult: tk("18 or over"), teen: tk("11 to 17"), child: tk("5 to 10"), little: tk("1 to 4") };
@@ -75,7 +81,7 @@ export function WhoStep({ others, onChange }: { others: HomePerson[]; onChange: 
                 </button>
               ))}
             </div>
-            <label htmlFor={`name-${p.id}`} className="mt-4 block text-[1.0625rem] font-[800]">{t("Their name (you can leave it out)")}</label>
+            <label htmlFor={`name-${p.id}`} className="mt-4 block text-[1.0625rem] font-[800]">{t("Their name (optional)")}</label>
             <input id={`name-${p.id}`} value={p.name ?? ""} maxLength={NAME_MAX} autoComplete="off" placeholder={t("Person {n}", { n: i + 2 })}
               onChange={(e) => set(i, { name: e.target.value.slice(0, NAME_MAX) })} className={`${inputClass} mt-2 w-full`} />
             <p id={`portion-${p.id}`} className="mt-4 text-[1.0625rem] font-[800]">{t("How much do they usually eat?")}</p>
@@ -176,6 +182,61 @@ export function allergyLine(t: (s: string, v?: Record<string, string | number>) 
   if (!all.length) return t("No allergies at home.");
   const words = all.map((k) => (allergies.includes(k) ? t(ALLERGEN_LABEL[k]).toLowerCase() : t("{allergen} (yours, from Settings)", { allergen: t(ALLERGEN_LABEL[k]).toLowerCase() })));
   return t(ALLERGY_LINE, { allergens: new Intl.ListFormat("en-GB", { type: "disjunction" }).format(words) });
+}
+
+/**
+ * Each eating style's name (lib/mm/mealPlan.ts EATING_STYLES), and its one line on the tile, with the figure from the rule itself: the nutrient first, so the
+ * line keeps to two lines on a half-width tile at 375 px.
+ */
+export const STYLE_LABEL: Record<EatingStyle, string> = { balanced: tk("Balanced"), highProtein: tk("High protein"), lowerCarb: tk("Lower carb") };
+const styleLine = (t: (s: string, v?: Record<string, string | number>) => string, style: EatingStyle): string =>
+  style === "highProtein" ? t("Protein: at least {pct}% of calories", { pct: Math.round(HIGH_PROTEIN_MIN * 100) })
+    : style === "lowerCarb" ? t("Carbs: at most {pct}% of calories", { pct: Math.round(LOWER_CARB_MAX * 100) })
+    : t("Any of our recipes");
+
+/**
+ * How the person likes to eat (founder 2026-11-20: "How do you like to eat?", big picture tiles; laid out as the founder's example of the same day, "provide
+ * images of the diet": two to a row, the picture filling each tile's top, the name in bold and one short grey line under it). Each picture is one of our own
+ * recipes of that style that suits the diet (mealPlan.ts stylePicture; none for High protein and a vegan diet, or a picture that can't load: the plate
+ * drawing). The choice look on a picture tile: the ring (a tick when chosen) on the picture's corner, and the chosen tile lime with the dark green edge. An odd
+ * last tile sits in the middle of its row, the same size as the others. Never "healthy" (CLAUDE.md rule 3). `note`: what the shops' recipes leave short for
+ * this style, said under the tiles as it is known.
+ */
+export function StyleStep({ value, onChange, diet, note }: { value: EatingStyle; onChange: (s: EatingStyle) => void; diet: DietPrefs; note?: string | null }) {
+  const t = useT();
+  // a picture that couldn't load (offline before it was seen once): the plate drawing instead
+  const [failed, setFailed] = useState<readonly string[]>([]);
+  const odd = EATING_STYLES.length % 2 === 1;
+  return (
+    <div>
+      <div role="radiogroup" aria-label={t("How do you like to eat?")} className="grid grid-cols-2 gap-2.5">
+        {EATING_STYLES.map((s, i) => {
+          const on = value === s;
+          const id = stylePicture(s, diet, (x) => RECIPE_BY_ID.get(x));
+          const src = id ? RECIPE_IMAGES[id] ?? RECIPE_THUMBS[id] : undefined;
+          const shown = src && !failed.includes(src) ? src : undefined;
+          const last = odd && i === EATING_STYLES.length - 1;
+          return (
+            <button key={s} type="button" role="radio" aria-checked={on} onClick={() => onChange(s)}
+              className={`flex flex-col overflow-hidden rounded-[1.25rem] border-[1.5px] text-start transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${last ? "col-span-2 w-[calc(50%-0.3125rem)] justify-self-center" : ""} ${on ? TILE_ON : TILE_OFF}`}>
+              <span aria-hidden className="relative grid aspect-[8/5] w-full shrink-0 place-items-center overflow-hidden bg-fill">
+                {shown
+                  // eslint-disable-next-line @next/next/no-img-element -- static file named by its hash; decorative, the style's name is under it
+                  ? <img src={assetUrl(shown)} alt="" width={800} height={600} decoding="async" onError={() => setFailed((f) => [...f, shown])} className="h-full w-full object-cover" />
+                  : <span className="grid h-14 w-14 place-items-center rounded-full border border-line bg-card text-ink"><ForkIcon className="h-7 w-7" strokeWidth={1.6} /></span>}
+                <span className="absolute end-2 top-2 rounded-full shadow-[var(--photo-chip-shadow)]"><ChoiceMark on={on} kind="circle" /></span>
+              </span>
+              <span className="block flex-1 px-3.5 pb-3.5 pt-2.5">
+                <span className="block text-[1.125rem] font-[800] leading-tight">{t(STYLE_LABEL[s])}</span>
+                <span className={`mt-1 block text-[0.9375rem] leading-snug ${on ? "" : "text-muted"}`}>{styleLine(t, s)}</span>
+              </span>
+            </button>
+          );
+        })}
+      </div>
+      <p aria-live="polite" className="mt-3 text-[0.9375rem] font-semibold leading-snug empty:hidden">{note}</p>
+    </div>
+  );
 }
 
 /** "You, Alex (Adult) and Sam (Child)". */

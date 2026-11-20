@@ -51,18 +51,18 @@ export async function shrinkPhoto(file: Blob, maxSide = MAX_PHOTO_SIDE): Promise
   }
 }
 
-/** The saved recipe's picture: the photo cropped from the middle to 4:3 (the cards' shape) at 800 x 600, as a JPEG. Null when it can't be made. */
+/** The saved recipe's picture as a JPEG: the whole photo, never cropped, at least 800 x 600 where a card shows it (long side at most 1,600), so the person can move
+ *  it to choose which part shows (founder 2026-11-20: tap the photo, drag, Done; lib/mm/recipePhotos.ts keeps where). Until 20 November it was cropped from the
+ *  middle to 4:3, which left nothing to move. Null when it can't be made. */
 export async function recipeThumbnail(url: string): Promise<Blob | null> {
   try {
     const blob = await (await fetch(url)).blob();
     const pic = await draw(blob);
-    const W = 800, H = 600;
-    const scale = Math.max(W / pic.width, H / pic.height);
-    const sw = W / scale, sh = H / scale;
+    const scale = Math.min(Math.max(800 / pic.width, 600 / pic.height), 1600 / Math.max(pic.width, pic.height));
     const canvas = document.createElement("canvas");
-    canvas.width = W;
-    canvas.height = H;
-    canvas.getContext("2d")?.drawImage(pic.source, (pic.width - sw) / 2, (pic.height - sh) / 2, sw, sh, 0, 0, W, H);
+    canvas.width = Math.max(1, Math.round(pic.width * scale));
+    canvas.height = Math.max(1, Math.round(pic.height * scale));
+    canvas.getContext("2d")?.drawImage(pic.source, 0, 0, canvas.width, canvas.height);
     pic.done();
     return await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/jpeg", 0.8));
   } catch {

@@ -52,7 +52,8 @@ export default function SharedListPage() {
     <div>
       {back}
       {heading}
-      <SharedListBody entries={decoded.entries} code={hash ?? ""} intro={t("A friend shared this shopping list with you. Add it to yours to tick things off as you shop.")} />
+      {/* the heading says it was shared and the button what to do: no line repeating them (the words pass, 20 November 2026) */}
+      <SharedListBody entries={decoded.entries} code={hash ?? ""} />
     </div>
   );
 }

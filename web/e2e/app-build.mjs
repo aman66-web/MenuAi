@@ -97,25 +97,26 @@ await step("first launch: a cold plain start of /app opens the welcome screens; 
   await two.ctx.close();
 });
 
-// The onboarding redesign meeting of 20 November 2026 (build list 17, "the website build against the app build"): in the iPhone app the menus and the shops'
-// files are inside the app, so the feature screens never wait on a connection: step 3's dishes and step 5's recipes show with no signal (the website says
-// "Menus need a connection the first time" instead), and the week is made from the packed shop file.
-await step("the welcome steps with no signal: step 3's restaurant dishes, step 5's two recipes and step 10's week come from the files packed in the app", async () => {
+// The onboarding redesign meeting of 20 November 2026 (build list 17, "the website build against the app build"), kept by the seven-screen onboarding of the
+// same day: in the iPhone app the menus and the shops' files are inside the app, so the screens that show the app working never wait on a connection: step 4's
+// recipes, Your plan's week and its restaurant dishes show with no signal (the website says "Recipes can't load just now" instead).
+await step("the welcome steps with no signal: step 4's two recipes, Your plan's week and its restaurant dishes come from the files packed in the app", async () => {
   const { ctx, page } = await newPage({ settings: null });
   await page.goto(BASE + "/app/welcome");
   await page.getByRole("button", { name: "Get started" }).click();
-  await page.getByRole("heading", { name: "What's your goal?" }).waitFor({ timeout: 15000 });
+  await page.getByRole("heading", { name: /^What's your goal\?/ }).waitFor({ timeout: 15000 });
   await page.getByRole("button", { name: "Skip", exact: true }).click();
   await page.getByRole("button", { name: "Nothing to avoid" }).click();
-  await page.getByRole("radiogroup", { name: "Restaurants" }).waitFor({ timeout: 15000 });
-  expect((await page.getByText("Menus need a connection the first time.", { exact: false }).count()) === 0, "the website's connection line in the app");
-  await page.getByRole("button", { name: "Next: where you shop" }).click();
+  await page.getByRole("heading", { name: /^Where do you shop\?/ }).waitFor({ timeout: 15000 });
   await page.getByRole("button", { name: "Continue" }).click();
   await recipeTiles(page).first().waitFor({ timeout: 15000 }); // RecipeTile's choose mode: a radio each (the 20 November 2026 audit)
-  await page.getByRole("button", { name: "Next: your daily numbers" }).click();
-  await page.getByRole("button", { name: "Skip these questions" }).click();
-  await page.getByRole("button", { name: "Next: plan my week" }).click();
-  await page.getByRole("region", { name: "A look at Meal plan, on Home" }).locator("h2", { hasText: /^Monday$/ }).waitFor({ timeout: 15000 });
+  expect((await page.getByText("Recipes can't load just now.", { exact: false }).count()) === 0, "the website's connection line in the app");
+  await page.getByRole("button", { name: "Continue" }).click();
+  await page.getByRole("heading", { name: /^About you/ }).waitFor({ timeout: 15000 });
+  await page.getByRole("button", { name: "Skip", exact: true }).click();
+  await page.getByRole("heading", { name: /^Your plan/ }).waitFor({ timeout: 15000 });
+  await page.getByText(/^About £[\d,]+ for the week$/).waitFor({ timeout: 15000 });
+  await page.getByRole("region", { name: "Restaurants", exact: true }).locator("li .sr-only").first().waitFor({ timeout: 15000 });
   await ctx.close();
 });
 
@@ -244,7 +245,7 @@ await step("iPhone sign-in: Sign in with Apple and Google go through the phone, 
     const stored = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.session")));
     expect(stored?.data?.accessToken === "AT-" + provider, "the app keeps its session");
     await page.goto(BASE + "/app/groceries/list");
-    await page.getByPlaceholder("Add something, e.g. milk").fill("Milk");
+    await page.getByPlaceholder("e.g. milk").fill("Milk");
     await page.getByRole("button", { name: "Add", exact: true }).click();
     await page.waitForTimeout(4500);
     expect(seen.sync.length > 0 && seen.sync.every((h) => h === "Bearer AT-" + provider), `sync calls carry the session: ${JSON.stringify(seen.sync)}`);

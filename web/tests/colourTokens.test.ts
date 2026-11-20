@@ -125,8 +125,10 @@ describe("the shared pieces use the tokens only", () => {
     "app/app/groceries/PageBits.tsx",
     // the welcome steps rebuilt by the onboarding redesign meeting (20 November 2026, build list 4) and Home's one-time Start here card
     "app/app/welcome/Frame.tsx", "app/app/welcome/Cover.tsx", "app/app/welcome/QuestionSteps.tsx", "app/app/welcome/FeatureSteps.tsx",
-    "app/app/welcome/ShowcaseWindow.tsx", "app/app/welcome/EatOutShowcase.tsx", "app/app/welcome/RecipeChoice.tsx", "app/app/welcome/WeekShowcase.tsx",
-    "app/app/welcome/BodySteps.tsx", "app/app/welcome/TargetsStep.tsx", "app/app/_components/StartHere.tsx",
+    "app/app/welcome/ShowcaseWindow.tsx", "app/app/welcome/RecipeChoice.tsx", "app/app/welcome/WeekShowcase.tsx",
+    "app/app/welcome/BodySteps.tsx", "app/app/_components/StartHere.tsx",
+    // the seven-screen onboarding (20 November 2026): Your plan and its restaurant row
+    "app/app/welcome/PlanStep.tsx", "app/app/welcome/RestaurantRow.tsx",
     "app/app/welcome/parts.tsx", "app/app/welcome/page.tsx",
     // Pip's AI permission sheet and the screens the 20 November 2026 audit reworked
     "app/app/_components/AiConsentSheet.tsx", "app/app/_components/FeaturePreviews.tsx", "app/app/_components/Shortcut.tsx", "app/app/_components/BodyFields.tsx",

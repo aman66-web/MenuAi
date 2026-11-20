@@ -31,7 +31,7 @@ export function signInGate(s: GateState): Gate {
 
 // ------------------------------------------------------------------------------------------------ the welcome screens' sign-in step
 
-// Where everyone signs in, the account is the welcome screens' last step: "Save your goal and numbers: make your free account" (until 20 November "Save your plan: ..."), Step 11 of 11, after the three feature
+// Where everyone signs in, the account is the welcome screens' last step: "Save your plan" (founder, 20 November afternoon; that morning "Save your goal and numbers: make your free account"), Step 11 of 11, after the three feature
 // screens (a restaurant's dishes, two recipes from the person's shop, their week planned) and straight before Home (the onboarding redesign meeting of
 // 20 November 2026, approved by the founder; it refines the 19 November order, which asked straight after "Your daily targets" with the shops after it). Step
 // 3's "Skip setup and make my account" jumps to it. After signing in nothing more is asked: straight to Home. A run that starts signed in (a Settings rerun, or
@@ -46,9 +46,10 @@ export function signInGate(s: GateState): Gate {
 export type SignInReason = "setup" | "returning";
 export const SIGN_IN_REASONS: readonly SignInReason[] = ["setup", "returning"];
 
-/** The sign-in screen's heading for each way in; a page of the app, reached signed out, keeps "Sign in or sign up" (founder 2026-11-18). */
+/** The sign-in screen's heading for each way in; a page of the app, reached signed out, keeps "Sign in or sign up" (founder 2026-11-18). The last welcome step
+ *  says "Save your plan" (founder 2026-11-20, "short and simple"; until then "Save your goal and numbers: make your free account"). */
 export const SIGN_IN_HEADING: Readonly<Record<SignInReason | "page", string>> = {
-  setup: tk("Save your goal and numbers: make your free account"),
+  setup: tk("Save your plan"),
   returning: tk("Welcome back. Sign in"),
   page: tk("Sign in or sign up"),
 };
@@ -111,4 +112,38 @@ export function sanitizeResume(raw: unknown): SignInResume | null {
   const firstRecipeId = sanitizeRecipeId(r.firstRecipeId);
   const firstDish = sanitizeFirstDish(r.firstDish);
   return { reason: r.reason as SignInReason, typed, ...(firstRecipeId ? { firstRecipeId } : {}), ...(firstDish ? { firstDish } : {}) };
+}
+
+// ------------------------------------------------------------------------------------------------ the email code screens
+
+// "Continue with email" is two screens of one question each (founder 2026-11-20, from his reference apps): "What's your email?" with one big box, then "Enter the
+// code" with six big boxes that go on by themselves when the sixth digit is in, and "Send it again" once the wait below is over (_components/SignIn.tsx).
+
+/** The code in the email is 6 digits (Supabase's email code). */
+export const CODE_LENGTH = 6;
+/** Supabase sends an address one email code a minute (docs/ACCOUNTS_SYNC.md "Rate limits"), so "Send it again" is offered after this many seconds. */
+export const CODE_RESEND_SECONDS = 60;
+
+/** Whether what was typed looks like an email address: something@something.something, with no spaces. */
+export function looksLikeEmail(s: string): boolean {
+  return /^\S+@\S+\.\S+$/.test(s.trim());
+}
+
+/**
+ * The code's digits from whatever went into the boxes: typed, filled in by the phone from Mail, or pasted ("123 456" gives "123456"; a pasted sentence with one
+ * run of six digits in it gives that run). Never more than six. Wide digits from some keyboards count as digits.
+ */
+export function codeDigits(raw: string): string {
+  const s = raw.normalize("NFKC");
+  const digits = s.replace(/\D/g, "");
+  if (digits.length > CODE_LENGTH) {
+    const run = /(?:^|\D)(\d{6})(?!\d)/.exec(s);
+    if (run) return run[1]!;
+  }
+  return digits.slice(0, CODE_LENGTH);
+}
+
+/** Whole seconds until "Send it again" is offered, for a code sent at `sentAt` (ms); 0 once the wait is over. */
+export function resendWait(sentAt: number, now: number): number {
+  return Math.min(CODE_RESEND_SECONDS, Math.max(0, CODE_RESEND_SECONDS - Math.floor((now - sentAt) / 1000)));
 }

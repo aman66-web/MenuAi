@@ -87,7 +87,10 @@ const keptClear = (page) => page.evaluate(() => {
   const ring = [...document.querySelectorAll("dialog[open] div[aria-hidden]")].find((d) => d.style.boxShadow.includes("200vmax"))?.getBoundingClientRect();
   const stack = Math.max(...parts.map((r) => r.bottom)) - Math.min(...parts.map((r) => r.top));
   const tabs = document.querySelector('[data-coach="tabs"]').getBoundingClientRect();
-  const room = tabs.top - 16; // the most the page above the tab bar can hold
+  // the most the page above the tab bar can hold: the screen's top edge (16), and above the bar the lit ring's 6 px and Pip standing on it in "Moving around"
+  // (CoachMarks.tsx HOP_ROOM: 40 x 150 / 140 + 4), which the card keeps clear of too
+  const hop = document.querySelector("[data-coach-hop]") ? (40 * 150) / 140 + 4 : 0;
+  const room = tabs.top - 6 - hop - 16;
   const buttons = [...document.querySelectorAll("dialog[open] button")].filter((b) => /^(Next|Done|Stop the tips)$/.test(b.textContent.trim())).map((b) => b.getBoundingClientRect());
   const why = [];
   if (stack + card.height + 24 <= room) why.push(`there was room to keep clear (cards ${Math.round(stack)} + card ${Math.round(card.height)} <= ${Math.round(room)})`);

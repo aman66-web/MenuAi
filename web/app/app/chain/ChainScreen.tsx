@@ -19,7 +19,7 @@ import { ALLERGEN_KEYS, type Meal, type MenuItem, type Preferences } from "@/lib
 import { BestForYou } from "../_components/BestForYou";
 import { ALLERGEN_SHORT, DietPicker, dietWords } from "../_components/DietPicker";
 import { DONE_KEY, DONE_ROOM, DONE_ROOM_WITH_CLEAR, SearchDone } from "../_components/SearchDone";
-import { halalFor, HALAL_CAUTION } from "@/lib/mm/halal";
+import { halalFor } from "@/lib/mm/halal";
 import { ChainMark } from "../_components/ChainMark";
 import { ArrowUpIcon, ChevronRightIcon, CloseIcon, SearchIcon, StarIcon } from "../_components/icons";
 import { PageHeader } from "../_components/PageHeader";
@@ -53,6 +53,8 @@ const MORE_ROW = "flex min-h-12 w-full items-center justify-center gap-1.5 px-4 
 const LINK = "font-semibold text-accent underline decoration-solid underline-offset-[3px]";
 /** The menu client's words for a restaurant id that isn't in the catalogue (lib/mm/menu-client.ts): a missing page, not a failure. */
 const UNKNOWN_CHAIN = tk("That restaurant isn't available.");
+/** The check that goes with a halal line (lib/mm/halal.ts HALAL_CAUTION without its first sentence, which the line before already says). */
+const HALAL_CHECK = tk("If it matters to you, check with the restaurant.");
 /** The menu's search field: the app's input, with room for the icon and the clear and Done buttons. */
 const MENU_SEARCH = inputClass.replace("px-4", "ps-11 pe-14");
 
@@ -64,7 +66,7 @@ export function ChainScreen({ chainId }: { chainId: string }) {
   if (status === "error" && error === UNKNOWN_CHAIN) {
     return (
       <Shell>
-        <div className="mt-4"><EmptyState title={t(UNKNOWN_CHAIN)} body={t("It may have left the app, or the link may be wrong.")} action={<LinkButton href={EAT_OUT} variant="secondary">{t("See all restaurants")}</LinkButton>} /></div>
+        <div className="mt-4"><EmptyState title={t(UNKNOWN_CHAIN)} action={<LinkButton href={EAT_OUT} variant="secondary">{t("See all restaurants")}</LinkButton>} /></div>
       </Shell>
     );
   }
@@ -211,7 +213,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         </div>
       )}
       {caution && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{caution}</p>}
-      {prefs.halalOnly && !halal && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("{chain}'s website doesn't say its food is halal.", { chain: chain.name })} {t(HALAL_CAUTION)}</p>}
+      {prefs.halalOnly && !halal && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("{chain}'s website doesn't say its food is halal.", { chain: chain.name })} {t(HALAL_CHECK)}</p>}
     </>
   );
 
@@ -251,7 +253,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         {/* The data's limits come first: users must see them before trusting a number (calories only, halal). The longer note on how the figures were read
             moved to the foot of the page (the review of 2026-11-18: the menu started 1,500 px down behind it), beside the source. */}
         <div className="mt-4 space-y-3 border-t border-line pt-4 text-[0.9375rem] leading-snug">
-          {caloriesOnly && <p className="font-semibold">{t("{chain} publishes calories only: protein, carbs and fat aren't published, so there are no best-for-you picks or order builder for this restaurant. Its dishes are added to today and saved with their calories.", { chain: chain.name })}</p>}
+          {caloriesOnly && <p className="font-semibold">{t("{chain} publishes calories only.", { chain: chain.name })}</p>}
           {halal && (
             <div>
               <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
@@ -281,11 +283,11 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       {anyUnchecked(unchecked) && (
         <AllergyNote className="mt-3">
           <p className="font-bold">{allergiesUnchecked && dietUnchecked ? t("Not checked for your diet or allergies") : allergiesUnchecked ? t("Allergens aren't checked here") : t("Not checked for your diet")}</p>
-          {unchecked.vegetarian && prefs.vegetarianOnly && <p className="mt-1">{t("{chain} doesn't mark which dishes are vegetarian, so only dishes whose names, menu sections or labels say meat or fish are left out.", { chain: chain.name })}</p>}
-          {unchecked.vegetarian && prefs.pescatarianOnly && <p className="mt-1">{t("{chain} doesn't mark which dishes are vegetarian, so only dishes whose names, menu sections or labels say meat are left out.", { chain: chain.name })}</p>}
+          {unchecked.vegetarian && prefs.vegetarianOnly && <p className="mt-1">{t("{chain} doesn't mark vegetarian dishes, so only dishes whose names, menu sections or labels say meat or fish are left out.", { chain: chain.name })}</p>}
+          {unchecked.vegetarian && prefs.pescatarianOnly && <p className="mt-1">{t("{chain} doesn't mark vegetarian dishes, so only dishes whose names, menu sections or labels say meat are left out.", { chain: chain.name })}</p>}
           {unchecked.vegan && <p className="mt-1">{unchecked.vegetarianMarks
-            ? t("{chain} doesn't say which dishes are vegan, so only dishes it marks vegetarian are shown, and of those, dishes whose names, menu sections or labels say meat, fish, dairy or eggs are left out.", { chain: chain.name })
-            : t("{chain} doesn't say which dishes are vegan, so only dishes whose names, menu sections or labels say meat, fish, dairy or eggs are left out.", { chain: chain.name })}</p>}
+            ? t("{chain} doesn't mark vegan dishes. Only its vegetarian dishes are shown, leaving out any whose names, menu sections or labels say meat, fish, dairy or eggs.", { chain: chain.name })
+            : t("{chain} doesn't mark vegan dishes, so only dishes whose names, menu sections or labels say meat, fish, dairy or eggs are left out.", { chain: chain.name })}</p>}
           {meatUnmarked && <p className="mt-1">{t("{chain} doesn't mark which dishes have {meat}, so only dishes whose names say so are left out.", { chain: chain.name, meat: meatUnmarked })}</p>}
           {unchecked.others.length > 0 && <p className="mt-1">{t("Restaurant menus don't list ingredients, so {diets} can't be checked here.", { diets: dietNameList(unchecked.others, t) })}</p>}
           {allergiesUnchecked && <p className="mt-1">{t("{chain} doesn't publish allergen details we can read, so only dishes whose names or menu sections mention {allergens} are left out.", { chain: chain.name, allergens: allergyNames })}</p>}
@@ -293,7 +295,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           {allergiesUnchecked && chain.allergenGuide && <a href={chain.allergenGuide.url} target="_blank" rel="noopener noreferrer" className={`mt-1 inline-flex min-h-11 items-center ${LINK}`}>{t("See its own allergen information")}</a>}
         </AllergyNote>
       )}
-      <PresetPills chain={chain} items={filtered} notChecked={ranks || caloriesOnly ? null : t("Quick answers can't pick for your diet or allergies here. The full menu is below.")} renderList={(list) => <ItemList items={list} chainId={chain.id} now={now} photos={menuPhotos} />} />
+      <PresetPills chain={chain} items={filtered} notChecked={ranks || caloriesOnly ? null : t("Can't pick for your diet or allergies here.")} renderList={(list) => <ItemList items={list} chainId={chain.id} now={now} photos={menuPhotos} />} />
       {recent.length > 0 && (
         <section aria-labelledby="recent-heading" className="mt-7">
           <h2 id="recent-heading" className="mb-3 text-xl font-[800] tracking-[-0.01em]">{t("Recently viewed")}</h2>
@@ -327,15 +329,15 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             <div className="mt-5"><BestForYou bare index={bestIndex} meal={meal} preferences={prefs} onClearFilters={clearFilters} photos={menuPhotos} /></div>
           ) : (
             // Best for you recommends, so it never picks a dish the restaurant's data can't check against the person's diet or allergies; the menu below still
-            // shows the dishes
+            // shows the dishes. Why it can't is the amber note at the top of the page (always shown with this), so it isn't said again here (words pass, 20 November 2026)
             <div className="mt-5 rounded-[1rem] bg-[var(--fill)] p-4 text-[0.9375rem] leading-snug">
               <p>{markedDietUnchecked
                 ? allergiesUnchecked
-                  ? t("Best for you can't pick for your diet or allergies here, because {chain} doesn't mark which dishes fit them. Its full menu is below.", { chain: chain.name })
-                  : t("Best for you can't pick for your diet here, because {chain} doesn't mark which dishes fit it. Its full menu is below.", { chain: chain.name })
+                  ? t("Can't pick for your diet or allergies here.")
+                  : t("Can't pick for your diet here.")
                 : unchecked.others.length > 0
-                  ? t("Best for you can't pick for {diets} here: restaurant menus don't list ingredients. The full menu is below.", { diets: dietNameList(unchecked.others, t) })
-                  : t("Best for you can't pick for your allergies here, because {chain} doesn't publish allergen details we can read. Its full menu is below.", { chain: chain.name })}</p>
+                  ? t("Can't pick for {diets} here.", { diets: dietNameList(unchecked.others, t) })
+                  : t("Can't pick for your allergies here.")}</p>
               <Button variant="secondary" className="mt-3" onClick={() => { const el = document.getElementById("full-menu"); if (el) scrollToElement(el); }}>{t("See the full menu")}</Button>
             </div>
           )}
@@ -344,8 +346,8 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       <Sheet open={dietOpen} onClose={() => setDietOpen(false)} title={t("Your diet")}>
         {/* the choice here is for this visit only (the 20 November 2026 audit: Vegetarian chosen at KFC wasn't kept at Nando's): said, with the way to keep it */}
         <p className="mb-4 text-[0.9375rem] leading-snug text-muted">
-          {t("Just for {chain}, this visit.", { chain: chain.name })}{" "}
-          <Link href="/app/settings#diet" className={LINK}>{t("To change it everywhere, go to Settings › Diet.")}</Link>
+          {t("Just for this visit.")}{" "}
+          <Link href="/app/settings#diet" className={LINK}>{t("Change it in Settings")}</Link>
         </p>
         <DietPicker value={prefs} onChange={changeDiet} halal={false} />
         <div className="mt-5"><Button full onClick={() => setDietOpen(false)}>{t("Done")}</Button></div>
@@ -411,7 +413,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         <div className="glass mt-3 flex flex-wrap items-center gap-x-4 gap-y-3 rounded-[1.25rem] p-4">
           <div className="min-w-0 flex-1 basis-48 text-[0.9375rem] leading-snug">
             <p className="app-numbers font-bold">{everyDish ? t("Showing all {total} dishes", { total }) : t("Showing {n} of {total} dishes", { n: filtered.length.toLocaleString("en-GB"), total })}</p>
-            <p className="mt-0.5 text-muted">{everyDish ? t("Some of them may not fit your diet settings.") : t("The others don't fit your diet settings, or {chain} doesn't say.", { chain: chain.name })}</p>
+            <p className="mt-0.5 text-muted">{everyDish ? t("Some may not fit your diet.") : t("The rest don't fit your diet, or {chain} doesn't say.", { chain: chain.name })}</p>
           </div>
           <Button variant="secondary" onClick={() => setEveryDish((v) => !v)}>{everyDish ? t("Show only what fits") : t("Show all {total}", { total })}</Button>
         </div>
@@ -421,7 +423,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         {visible.length === 0 ? (
           <EmptyState
             title={searching ? t("Nothing on this menu matches “{query}”.", { query: query.trim() }) : anyFilter ? t("Your diet settings hide every dish here") : t("Nothing here matches your filters.")}
-            body={!searching && anyFilter ? t("None of {chain}'s {n} dishes fits your settings ({settings}). You can see them all for this visit, or change your diet.", { chain: chain.name, n: total, settings: [...dietWords(t, prefs), ...(hasLimits(limits) ? limitWords(limits, t) : [])].join(", ").toLowerCase() }) : undefined}
+            body={!searching && anyFilter ? t("Your settings: {settings}.", { settings: [...dietWords(t, prefs), ...(hasLimits(limits) ? limitWords(limits, t) : [])].join(", ").toLowerCase() }) : undefined}
             action={searching ? <Button variant="secondary" onClick={() => setQuery("")}>{t("Clear search")}</Button> : anyFilter ? (
               <div className="flex flex-wrap justify-center gap-2.5">
                 <Button onClick={() => { setEveryDish(true); setLimits({}); }}>{t("Show every dish")}</Button>

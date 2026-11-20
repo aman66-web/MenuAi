@@ -230,7 +230,8 @@ export default function Privacy() {
           of, the Open Food Facts photo of that exact barcode, loaded from Open Food Facts&apos; servers, which can see the same. If a picture fails to load we try the
           next place, and show no picture if none loads.{" "}
           {SIGN_IN_REQUIRED ? "Your shopping lists sync to your account." : "Your shopping lists stay on your device, unless you sign in to sync them."}{" "}
-          If you scan a barcode, the camera picture is read on your device and is never sent anywhere.
+          If you scan a barcode, the camera picture is read on your device and is never sent anywhere.{" "}
+          A barcode we don&apos;t have is looked up at Open Food Facts through our server: only the barcode is sent, and nothing about you is kept.
         </p>
         <p className={para}>
           If you share your shopping list as a link, the app makes a link and hands it to whatever you choose to send it with (Messages, WhatsApp, email). The list is inside the link,

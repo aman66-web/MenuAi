@@ -39,11 +39,12 @@ await step("Home: one Scan your food card with its two choices, Photo to calorie
   await page.goto(BASE + "/app");
   const card = page.getByRole("region", { name: "Scan your food" });
   await card.waitFor({ timeout: 120000 });
-  expect((await card.innerText()).includes("Take a photo of a meal: see its calories and macros, or get the recipe to make it at home."), "the card says what it does");
+  expect((await card.innerText()).includes("Photo to calories") && (await card.innerText()).includes("Photo to recipe"), "the card's two buttons say what each does");
   expect(!(await card.innerText()).includes("Premium"), "no Premium tag for a Premium person");
   await card.getByRole("button", { name: /Photo to recipe/ }).waitFor();
   expect((await page.locator("main").getByRole("link", { name: /^My meals/ }).count()) === 0, "no My meals on Home");
-  const scan = card.getByRole("link", { name: "Photo to calories" });
+  // both are buttons since 20 November 2026: each opens the paywall for someone without Premium (the audit), else its screen
+  const scan = card.getByRole("button", { name: /Photo to calories/ });
   for (const b of [await scan.boundingBox(), await card.getByRole("button", { name: /Photo to recipe/ }).boundingBox()]) expect(b && b.height >= 44, "a big button");
   await scan.click();
   await page.getByRole("heading", { level: 1, name: "Scan your food" }).waitFor({ timeout: 60000 });
@@ -56,8 +57,8 @@ await step("a photo in, the estimate out: the plate, Estimate from your photo, c
   await page.route("**/api/v1/scan", async (r) => { sent = JSON.parse(r.request().postData() ?? "{}"); await r.fulfill({ contentType: "application/json", body: JSON.stringify({ scan: SCAN }) }); });
   await page.goto(BASE + "/app/scan");
   await page.getByRole("heading", { level: 1, name: "Scan your food" }).waitFor({ timeout: 120000 });
-  await page.getByText("Take a photo of your plate and Pip estimates its calories, protein, carbs and fat.").waitFor();
-  await page.getByText(/we don't keep the photo/).waitFor();
+  await page.getByText("Pip estimates a plate's calories, protein, carbs and fat from a photo.").waitFor();
+  await page.getByText(/We don't keep it\./).waitFor();
   for (const name of ["Take a photo", "Choose a photo"]) { const b = await page.getByRole("button", { name }).boundingBox(); expect(b && b.height >= 44, `${name} is a big button`); }
   await axe(page, "first page");
   await page.locator('input[type=file]:not([capture])').setInputFiles(await jpeg(page));
@@ -70,7 +71,9 @@ await step("a photo in, the estimate out: the plate, Estimate from your photo, c
   await axe(page, "estimate");
   await page.getByRole("radio", { name: "Lunch" }).click();
   await page.getByRole("button", { name: "Add to Lunch" }).click();
-  await page.getByText("Added “Double cheeseburger and chips (estimate)” to Lunch.").waitFor();
+  // said on the card (with a tick) and in the toast with its Undo
+  await page.getByText("Added “Double cheeseburger and chips (estimate)” to Lunch.").first().waitFor();
+  await page.getByRole("status").filter({ hasText: "Added “Double cheeseburger and chips (estimate)” to Lunch." }).getByRole("button", { name: /Undo/ }).waitFor();
   const log = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.log") ?? "{}"));
   const entries = (log.data ?? log) || [];
   const e = (Array.isArray(entries) ? entries : []).find((x) => x.name === "Double cheeseburger and chips (estimate)");
@@ -96,7 +99,7 @@ await step("a photo that isn't food goes back to the camera with a note; an erro
   await ctx.close();
 });
 
-await step("a free person: Home's card says Premium, and Take a photo opens the paywall without sending anything", async () => {
+await step("a free person: Home's card says Premium; its Photo to calories and the scan page's See Premium (in place of Take a photo) open the paywall without sending anything", async () => {
   const { ctx, page } = await newPage(freeSettings);
   let asked = 0;
   await page.route("**/api/v1/scan", (r) => { asked++; return r.fulfill({ contentType: "application/json", body: "{}" }); });
@@ -104,9 +107,15 @@ await step("a free person: Home's card says Premium, and Take a photo opens the 
   const card = page.getByRole("region", { name: "Scan your food" });
   await card.waitFor({ timeout: 120000 });
   expect((await card.innerText()).includes("Premium"), "a Premium tag on the card");
+  // the card's button opens the paywall on Home (the 20 November 2026 audit), without leaving it
+  await card.getByRole("button", { name: /Photo to calories/ }).click();
+  await page.locator("dialog[open]").first().waitFor({ timeout: 15000 });
+  expect(new URL(page.url()).pathname.replace(/\/$/, "") === "/app", "left Home: " + page.url());
+  // the scan page itself, reached by its address: See Premium in place of Take a photo
   await page.goto(BASE + "/app/scan");
-  await page.getByRole("button", { name: "Take a photo" }).click();
-  await page.getByRole("dialog").filter({ hasText: /Photograph your food for an estimate/ }).waitFor({ timeout: 15000 }).catch(async () => { await page.getByRole("dialog").first().waitFor({ timeout: 5000 }); });
+  expect((await page.getByRole("button", { name: "Take a photo" }).count()) === 0, "Take a photo for a free person");
+  await page.getByRole("button", { name: "See Premium" }).click({ timeout: 60000 });
+  await page.locator("dialog[open]").first().waitFor({ timeout: 15000 });
   expect(asked === 0, "nothing sent");
   await ctx.close();
 });

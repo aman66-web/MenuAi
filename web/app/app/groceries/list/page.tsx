@@ -268,8 +268,8 @@ function ShoppingListScreen() {
       <PageHeader back={{ href: "/app", label: t("Back to home") }} />
       {/* an extra list is titled with its own name; the main list's line only once it has things on it (it repeated the title) */}
       <h1 className={`mt-5 ${TITLE} [overflow-wrap:anywhere]`}>{current ? current.name : t("Shopping list")}</h1>
-      {hydrated && (current ? <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("One of your shopping lists.")}</p>
-        : list.length > 0 && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("Tick things off as they go in your basket.")}</p>)}
+      {/* how to use it, once the list has things on it; an extra list's own name says what it is (the words pass, 20 November 2026) */}
+      {hydrated && list.length > 0 && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("Tick things off as you shop.")}</p>}
 
       {/* the lists (only once there is more than the main one): big chips that wrap at large text, each with how many things it still has to get, and
           "+ New list"; with no list of one's own, "New list" is a small link beside the count instead */}
@@ -296,7 +296,7 @@ function ShoppingListScreen() {
       <form onSubmit={addTyped} className={`mt-4 ${selecting ? "hidden" : ""}`}>
         <label htmlFor="list-add" className="mb-2 block ps-1 text-[0.9375rem] font-semibold leading-snug">{t("Add something to your list")}</label>
         <div className="flex flex-wrap gap-2.5">
-          <input id="list-add" ref={typedBox} value={typed} onChange={(e) => setTyped(e.target.value)} placeholder={t("Add something, e.g. milk")} maxLength={60} enterKeyHint="done" autoComplete="off" className={`${PILL_INPUT} min-h-[3.25rem] min-w-0 flex-[999_1_13rem]`} />
+          <input id="list-add" ref={typedBox} value={typed} onChange={(e) => setTyped(e.target.value)} placeholder={t("e.g. milk")} maxLength={60} enterKeyHint="done" autoComplete="off" className={`${PILL_INPUT} min-h-[3.25rem] min-w-0 flex-[999_1_13rem]`} />
           <Button type="submit" className="min-h-[3.25rem] flex-[1_0_auto] px-5"><PlusIcon className="h-5 w-5" />{t("Add")}</Button>
         </div>
       </form>
@@ -305,7 +305,7 @@ function ShoppingListScreen() {
 
       {!hydrated ? null : list.length === 0 && current ? (
         <div className="mt-2">
-          <EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Nothing on {list} yet.", { list: current.name })} body={t("Add products from {shop}, or type what you need above.", { shop: groupName(current.shop, t) })} action={current.shop !== CUSTOM_RETAILER ? <LinkButton href={shopHref(current.shop)}>{t("Add products from {shop}", { shop: groupName(current.shop, t) })}</LinkButton> : undefined} />
+          <EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Nothing on {list} yet.", { list: current.name })} action={current.shop !== CUSTOM_RETAILER ? <LinkButton href={shopHref(current.shop)}>{t("Add products from {shop}", { shop: groupName(current.shop, t) })}</LinkButton> : undefined} />
           <div className="mt-4 flex justify-center">{friendButton}</div>
         </div>
       ) : list.length === 0 && elsewhere ? (
@@ -317,7 +317,7 @@ function ShoppingListScreen() {
         </div>
       ) : list.length === 0 ? (
         <div className="mt-2">
-          <EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Your list is empty.")} body={t("Type what you need above, or add products from Groceries and recipes.")} action={<div className="flex flex-wrap justify-center gap-2.5"><LinkButton href="/app/groceries">{t("Browse groceries")}</LinkButton><LinkButton href="/app/recipes" variant="secondary">{t("See recipes")}</LinkButton></div>} />
+          <EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Your list is empty.")} action={<div className="flex flex-wrap justify-center gap-2.5"><LinkButton href="/app/groceries">{t("Browse groceries")}</LinkButton><LinkButton href="/app/recipes" variant="secondary">{t("See recipes")}</LinkButton></div>} />
           <div className="mt-4 flex flex-wrap justify-center gap-2">{friendButton}{lists.length === 0 && newListButton}</div>
         </div>
       ) : (
@@ -466,8 +466,8 @@ function ShoppingListScreen() {
                     <Rich
                       text={totals.priced === totals.count
                         ? (totals.oldest
-                          ? t("{total} for the items with a price, at {shopPossessive} prices checked {date}. Prices change: check in store.", { shopPossessive: poss(groupName(retailer, t)), date: formatDate(totals.oldest, t) })
-                          : t("{total} for the items with a price, at {shopPossessive} prices. Prices change: check in store.", { shopPossessive: poss(groupName(retailer, t)) }))
+                          ? t("{total} at {shopPossessive} prices checked {date}. Prices change: check in store.", { shopPossessive: poss(groupName(retailer, t)), date: formatDate(totals.oldest, t) })
+                          : t("{total} at {shopPossessive} prices. Prices change: check in store.", { shopPossessive: poss(groupName(retailer, t)) }))
                         : (totals.oldest
                           ? t("{total} for the {priced} of {count} items with a price, at {shopPossessive} prices checked {date}. Prices change: check in store.", { priced: totals.priced, count: totals.count, shopPossessive: poss(groupName(retailer, t)), date: formatDate(totals.oldest, t) })
                           : t("{total} for the {priced} of {count} items with a price, at {shopPossessive} prices. Prices change: check in store.", { priced: totals.priced, count: totals.count, shopPossessive: poss(groupName(retailer, t)) }))}
@@ -522,14 +522,14 @@ function ShoppingListScreen() {
               {/* the ticked things off the list, as the main button once something is ticked (usability test 2026-11-19: it was a quiet button at the very bottom) */}
               {ticked > 0 && <Button full className={`${current ? "mt-8" : "mt-3"} min-h-14 text-lg`} onClick={removeTicked}><TrashIcon className="h-5 w-5" />{t("Remove ticked ({n})", { n: ticked })}</Button>}
               {/* nothing to send once everything is ticked off: Share and Copy are switched off, with the reason once above them */}
-              {nothingToShare && <p className="mt-4 flex items-start gap-1.5 px-1 text-[0.9375rem] font-semibold leading-snug">{t("Everything is ticked off: nothing left to share.")}</p>}
+              {nothingToShare && <p className="mt-4 flex items-start gap-1.5 px-1 text-[0.9375rem] font-semibold leading-snug">{t("All ticked off: nothing to share.")}</p>}
               <div className={`${ticked > 0 || nothingToShare ? "mt-3" : current ? "mt-8" : "mt-3"} grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.5rem),1fr))] gap-2.5`}>
                 <Button variant="secondary" className="min-h-12" disabled={nothingToShare} onClick={share}><ShareIcon className="h-5 w-5" />{t("Share list")}</Button>
                 <Button variant="secondary" className="min-h-12" disabled={nothingToShare} onClick={copy}><CopyIcon className="h-5 w-5" />{t("Copy")}</Button>
                 {/* to a friend who has the app (Community, founder 2026-10-16): lands in their Shared with you; needs an account, the rest of this page does not */}
                 <SendToFriend list={list} onSent={setNote} />
               </div>
-              <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("Sharing sends a link that holds your list, so anyone who has it can see it.")}</p>
+              <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("Anyone with the link can see your list.")}</p>
               {/* a list somebody sent: opened here, with the other ways a list travels (it sat above the list and pushed it below the fold) */}
               <div className="mt-3">{friendButton}</div>
               {/* destructive, last and apart (Joan nearly hit Clear list): white with a red edge and red words; Undo in the toast */}
@@ -551,7 +551,6 @@ function ShoppingListScreen() {
 
       <Sheet open={opening} onClose={() => setOpening(false)} title={t("Open a shared list")}>
         <form onSubmit={openPasted} className="space-y-4 pb-2 pt-1">
-          <p className="text-[0.9375rem] leading-snug text-muted">{t("Paste the link your friend sent, and the list opens.")}</p>
           <label className="block">
             <span className="mb-2 block text-[0.9375rem] font-semibold leading-snug">{t("The link or code")}</span>
             <input value={pasted} onChange={(e) => { setPasted(e.target.value); setPastedProblem(null); }} placeholder={t("Paste it here")} enterKeyHint="go" autoComplete="off" autoCapitalize="none" spellCheck={false} aria-invalid={pastedProblem ? true : undefined} className={PILL_INPUT} />

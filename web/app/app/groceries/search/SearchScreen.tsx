@@ -103,8 +103,8 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
   return (
     <div>
       <PageHeader back={{ href: "/app/groceries", label: t("Back to groceries") }} list />
+      {/* the title says what the page does; no line repeating it (the words pass, 20 November 2026) */}
       <h1 className={`mt-5 ${TITLE}`}>{t("Search every shop")}</h1>
-      <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Find a product at every supermarket that sells it, with its price and, where we've read its label, its calories and protein.")}</p>
 
       <div className="mt-5 flex gap-2.5">
         <div className="group/search relative min-w-0 flex-1">
@@ -148,11 +148,11 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
           {lists.status === "ready" && lists.failed.length > 0 && (
             <div className="mt-4"><ErrorBox message={t("Couldn't load {shops}. Check your connection.", { shops: lists.failed.map(retailerName).join(", ") })} onRetry={() => setRetry((n) => n + 1)} /></div>
           )}
-          {(sort === "density" || sort === "protein") && <p className={`mt-3.5 ${NOTE}`}>{sort === "density" ? t("Products with under 20 kcal or 5 g of protein per 100 g, those without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.") : t("Products without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.")}</p>}
+          {(sort === "density" || sort === "protein") && <p className={`mt-3.5 ${NOTE}`}>{sort === "density" ? t("Listed last: under 20 kcal or 5 g protein per 100 g, no numbers, or numbers for the cooked or prepared food.") : t("Listed last: no numbers, or numbers for the cooked or prepared food.")}</p>}
           {dietLine && <p className={`mt-3.5 ${NOTE}`}>{dietLine}</p>}
           <p role="status" aria-live="polite" className="app-numbers mt-6 ps-1 text-sm font-semibold text-muted">{results.length === 1 ? t("1 product") : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
           {results.length === 0 ? (
-            <div className="mt-3"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No products match.")} body={t("Try fewer words, another supermarket, or a different type.")} /></div>
+            <div className="mt-3"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No products match.")} body={t("Try fewer words or another shop.")} /></div>
           ) : (
             <ul className="mt-2.5 space-y-3">
               {results.slice(0, shown).map((g) => (<li key={g.key}><GroupRow group={g} files={files} mine={mine} /></li>))}
@@ -165,8 +165,9 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
       )}
 
       <FootNote>
-        {t("Numbers come from each shop's own product page where we've read it; otherwise from the same product's label at another shop, Open Food Facts contributors (community data) for the same barcode, or, for loose fresh fruit and vegetables, the UK government's figures. Each product's page says which.")}{" "}
-        {t("Prices appear only where we've read them from the supermarket's own website. Not affiliated with any supermarket.")}
+        {t("Numbers are from each shop's own label where we've read it.")}{" "}
+        {t("Some numbers are the same product's label at another shop, Open Food Facts (community data), or UK government figures for loose fruit and veg; each product says which.")}{" "}
+        {t("Prices from each supermarket's own website. Not affiliated with any supermarket.")}
       </FootNote>
 
       {/* a scan opens the product: in a shop's full list where one has it (the person's own shop first), else its catalogue page, else "We don't have it yet" */}

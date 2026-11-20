@@ -95,17 +95,16 @@ const until = async (what, check, ms = 12000) => {
   throw new Error(`timed out waiting for: ${what}`);
 };
 
-/** Sign in through the sheet with an email code. */
+/** Sign in through the sheet with an email code ("What's your email?", Continue, then "Enter the code", which goes on by itself with the sixth digit). */
 async function signInWithEmail(page, email, code = "123456") {
   await page.goto(BASE + "/app/settings");
   await page.getByRole("heading", { name: "Account" }).waitFor();
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
   const sheet = page.getByRole("dialog");
   await sheet.getByRole("button", { name: "Continue with email" }).click();
-  await sheet.getByLabel("Your email address").fill(email);
-  await sheet.getByRole("button", { name: "Send me a code" }).click();
-  await sheet.getByLabel("6-digit code").fill(code);
-  await sheet.getByRole("button", { name: "Sign in", exact: true }).click();
+  await sheet.getByLabel("What's your email?").fill(email);
+  await sheet.getByRole("button", { name: "Continue", exact: true }).click();
+  await sheet.getByLabel("Enter the code").fill(code);
 }
 
 const SIGNED_IN = (email) => (page) => page.getByText(email, { exact: true }).waitFor();
@@ -114,7 +113,7 @@ await step("no account: nothing about sign-in or sync is ever sent, and Settings
   const { ctx, page } = await newPhone();
   await page.goto(BASE + "/app");
   await page.goto(BASE + "/app/groceries/list");
-  await page.getByPlaceholder("Add something, e.g. milk").fill("Milk");
+  await page.getByPlaceholder("e.g. milk").fill("Milk");
   await page.getByRole("button", { name: "Add", exact: true }).click();
   await page.goto(BASE + "/app/settings");
   await page.getByRole("heading", { name: "Account" }).waitFor();
@@ -133,20 +132,19 @@ await step("email code: a wrong code says so, the right one signs in, the accoun
   const sheet = page.getByRole("dialog");
   await seen("the intro", sheet.getByText("You don't need an account to use Numbite."));
   await sheet.getByRole("button", { name: "Continue with email" }).click();
-  await sheet.getByLabel("Your email address").fill("not an address");
-  await sheet.getByRole("button", { name: "Send me a code" }).click();
+  await sheet.getByLabel("What's your email?").fill("not an address");
+  await sheet.getByRole("button", { name: "Continue", exact: true }).click();
   await seen("the bad-address message", sheet.getByText("That doesn't look like an email address."));
-  await sheet.getByLabel("Your email address").fill("Person@Example.com");
-  await sheet.getByRole("button", { name: "Send me a code" }).click();
-  // the address on a line of its own, in bold, after the lead (the onboarding meeting, 19 November: a typo shows)
-  await seen("the code step", sheet.getByText("We've sent a 6-digit code to"));
+  await sheet.getByLabel("What's your email?").fill("Person@Example.com");
+  await sheet.getByRole("button", { name: "Continue", exact: true }).click();
+  // "Enter the code" / "Sent to {email}", the address in bold (the onboarding meeting, 19 November: a typo shows)
+  await seen("the code step", sheet.getByRole("heading", { name: "Enter the code" }));
   await seen("the address on the code step", sheet.locator("strong", { hasText: "Person@Example.com" }));
   expect(server.emails.at(-1) === "Person@Example.com", "the address was sent to the server");
-  await sheet.getByLabel("6-digit code").fill("000000");
-  await sheet.getByRole("button", { name: "Sign in", exact: true }).click();
+  // the sixth digit sends it, with no button to press
+  await sheet.getByLabel("Enter the code").fill("000000");
   await seen("the wrong-code message", sheet.getByText("That code isn't right, or it has run out. Ask for a new one."));
-  await sheet.getByLabel("6-digit code").fill("123456");
-  await sheet.getByRole("button", { name: "Sign in", exact: true }).click();
+  await sheet.getByLabel("Enter the code").fill("123456");
   await seen("who is signed in", page.getByText("Person@Example.com", { exact: true }));
   await seen("Sign out", page.getByRole("button", { name: "Sign out" }));
   await seen("Delete my account", page.getByRole("button", { name: "Delete my account" }));
@@ -162,7 +160,7 @@ await step("two phones: what one saves reaches the other, a removal reaches back
   await signInWithEmail(a.page, email);
   await a.page.getByText(email, { exact: true }).waitFor();
   await a.page.goto(BASE + "/app/groceries/list");
-  await a.page.getByPlaceholder("Add something, e.g. milk").fill("Milk");
+  await a.page.getByPlaceholder("e.g. milk").fill("Milk");
   await a.page.getByRole("button", { name: "Add", exact: true }).click();
   await until("A's Milk reaches the server", async () => shopping(uid).includes("Milk"));
 
@@ -181,7 +179,7 @@ await step("two phones: what one saves reaches the other, a removal reaches back
 
   // offline: A adds Eggs with no network; the phone keeps it; it goes up when the network is back
   a.device.offline = true;
-  await a.page.getByPlaceholder("Add something, e.g. milk").fill("Eggs");
+  await a.page.getByPlaceholder("e.g. milk").fill("Eggs");
   await a.page.getByRole("button", { name: "Add", exact: true }).click();
   await new Promise((r) => setTimeout(r, 4000));
   expect(!shopping(uid).includes("Eggs"), "nothing reached the server while offline");
@@ -201,7 +199,7 @@ await step("sign out keeps the data on the phone; deleting the account deletes t
   await signInWithEmail(page, email);
   await page.getByText(email, { exact: true }).waitFor();
   await page.goto(BASE + "/app/groceries/list");
-  await page.getByPlaceholder("Add something, e.g. milk").fill("Bread");
+  await page.getByPlaceholder("e.g. milk").fill("Bread");
   await page.getByRole("button", { name: "Add", exact: true }).click();
   await until("Bread synced", async () => shopping(uid).includes("Bread"));
 
@@ -236,7 +234,7 @@ await step("Clear data on this device while signed in signs out of the account a
   await signInWithEmail(page, email);
   await page.getByText(email, { exact: true }).waitFor();
   await page.goto(BASE + "/app/groceries/list");
-  await page.getByPlaceholder("Add something, e.g. milk").fill("Rice");
+  await page.getByPlaceholder("e.g. milk").fill("Rice");
   await page.getByRole("button", { name: "Add", exact: true }).click();
   await until("Rice synced", async () => shopping(uid).includes("Rice"));
   await page.goto(BASE + "/app/settings");
@@ -264,10 +262,9 @@ await step("a new phone's welcome screen offers 'Already have an account? Sign i
   await fresh.page.getByRole("button", { name: "Already have an account? Sign in" }).click();
   const sheet = fresh.page.getByRole("dialog");
   await sheet.getByRole("button", { name: "Continue with email" }).click();
-  await sheet.getByLabel("Your email address").fill(email);
-  await sheet.getByRole("button", { name: "Send me a code" }).click();
-  await sheet.getByLabel("6-digit code").fill("123456");
-  await sheet.getByRole("button", { name: "Sign in", exact: true }).click();
+  await sheet.getByLabel("What's your email?").fill(email);
+  await sheet.getByRole("button", { name: "Continue", exact: true }).click();
+  await sheet.getByLabel("Enter the code").fill("123456");
   await fresh.page.waitForURL((u) => !u.pathname.startsWith("/app/welcome"), { timeout: 15000 }); // no questions: the account already has its settings
   await fresh.ctx.close();
 });
@@ -290,13 +287,12 @@ for (const scheme of ["light", "dark"]) {
     await sheet.getByRole("button", { name: "Continue with email" }).waitFor();
     await scan("sheet: choose");
     await sheet.getByRole("button", { name: "Continue with email" }).click();
-    await sheet.getByLabel("Your email address").fill("a11y@example.com");
+    await sheet.getByLabel("What's your email?").fill("a11y@example.com");
     await scan("sheet: email");
-    await sheet.getByRole("button", { name: "Send me a code" }).click();
-    await sheet.getByLabel("6-digit code").waitFor();
+    await sheet.getByRole("button", { name: "Continue", exact: true }).click();
+    await sheet.getByLabel("Enter the code").waitFor();
     await scan("sheet: code");
-    await sheet.getByLabel("6-digit code").fill("123456");
-    await sheet.getByRole("button", { name: "Sign in", exact: true }).click();
+    await sheet.getByLabel("Enter the code").fill("123456");
     await page.getByText("a11y@example.com", { exact: true }).waitFor();
     await scan("signed in");
     await ctx.close();

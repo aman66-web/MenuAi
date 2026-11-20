@@ -708,7 +708,8 @@ await step("review fixes, the rows: 'Next: …' for a reminder that isn't for to
   expect((await sheet(page).getAttribute("aria-label")) === "Edit reminder", "Edit opened " + (await sheet(page).getAttribute("aria-label")));
   await page.keyboard.press("Escape");
   await sheet(page).waitFor({ state: "detached" });
-  expect(/Ticking “Done” is only your own mark\. It doesn't stop a reminder from ringing later today\./.test(await page.locator("main").innerText()), "the footnote on /app/reminders");
+  // the words pass (20 November 2026): the footnote is said under Home's list, where the ticks are; /app/reminders has no tick, so no footnote
+  expect(!/Ticking “Done”/.test(await page.locator("main").innerText()), "the Done footnote on /app/reminders, which has no tick");
   await ctx.close();
 
   // 'Next: …' and the footnote on Home

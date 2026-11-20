@@ -10,7 +10,7 @@ import { NoChoice, ShopListScreen } from "./ShopListScreen";
 function ShopRoute() {
   const t = useT();
   const shop = useSearchParams().get("r");
-  return shop && /^[a-z0-9-]{2,40}$/.test(shop) ? <ShopListScreen shop={shop} /> : <NoChoice title={t("Choose a supermarket first.")} body={t("Tap a shop on Groceries to see its products, prices and photos.")} />;
+  return shop && /^[a-z0-9-]{2,40}$/.test(shop) ? <ShopListScreen shop={shop} /> : <NoChoice title={t("Choose a supermarket first.")} />;
 }
 
 export default function ShopListPage() {

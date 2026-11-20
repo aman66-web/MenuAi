@@ -149,18 +149,16 @@ function PaywallBody({ trigger, onDone, onUnlocked }: { trigger: PaywallTrigger 
       {IAP_ENABLED ? null : PAID_ACCESS_ENABLED ? <div className="mt-5"><ProPlans /></div> : PAYMENTS_ENABLED ? null : (
         <div className={`mt-3.5 p-4 ${card}`}>
           <p className="text-lg font-[800] leading-snug tracking-[-0.01em]">{t("Premium isn't on the web yet.")}</p>
-          <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("Everything free stays free: every chain's full menu with calories and macros. Leave your email and we'll tell you once, when Premium is ready.")}</p>
+          <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("Every menu stays free. Leave your email and we'll tell you once, when it's ready.")}</p>
           <WaitlistInline />
         </div>
       )}
 
       {DEV_TOOLS_ENABLED && (
         <div className="mt-3.5 rounded-[1.25rem] border border-dashed border-line p-4">
-          <p className="text-[0.9375rem] leading-snug text-muted">{t("Testing build: unlock Premium features on this device without paying.")}</p>
           <Button
             variant="secondary"
             full
-            className="mt-3"
             onClick={() => {
               updateSettings({ devProOverride: !settings.devProOverride });
               onDone();

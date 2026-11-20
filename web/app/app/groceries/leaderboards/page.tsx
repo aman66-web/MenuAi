@@ -108,7 +108,7 @@ function Boards() {
     <div>
       <PageHeader back={{ href: "/app/groceries", label: t("Back to groceries") }} list />
       <h1 className={`mt-4 ${TITLE}`}>{t("Nutrition leaderboards")}</h1>
-      <p className="mt-2.5 text-base leading-snug">{t("The top 20 supermarket products for one thing at a time, from each product's own label. Tap a board to see it.")}</p>
+      <p className="mt-2.5 text-base leading-snug">{t("The top 20 supermarket products, from their own labels.")}</p>
 
       {/* the boards: big tiles, two across (one a row with large text), the one showing lime with the dark green edge and a tick */}
       <div role="radiogroup" aria-label={t("Leaderboards")} className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.5rem),1fr))] gap-2.5">
@@ -125,9 +125,9 @@ function Boards() {
       </div>
 
       <section aria-labelledby="board-h" className="mt-7">
+        {/* the board's own line is on its tile just above, and each row names its unit, so the heading stands alone (the words pass, 20 November 2026) */}
         <h2 id="board-h" ref={boardRef} className={`${HEADING} scroll-mt-24`}>{t(info.title)}</h2>
-        <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t(info.line)}</p>
-        {board === "meatFreeProtein" && <InfoLine heading={null} className="mt-2">{t("Chosen by the product's name, with no meat or fish in it: if you're vegetarian or vegan, check the pack.")}</InfoLine>}
+        {board === "meatFreeProtein" && <InfoLine heading={null} className="mt-2">{t("Picked by name, with no meat or fish in it. Vegetarian or vegan? Check the pack.")}</InfoLine>}
         {file === undefined ? (
           <Spinner label={t("Loading products")} />
         ) : file === null ? (
@@ -153,7 +153,7 @@ function Boards() {
       {file && (
         <FootNote>
           {t(LEFT_OUT_NOTE)}{" "}
-          {t("Figures are as sold, from each shop's own website (labels read up to {labels}, prices from {prices}); a product sold at several shops shows every shop's logo with its shelf price there, the cheapest in bold. Prices vary by store. Not affiliated with any supermarket.", { labels: formatDate(file.labelsOn ?? file.checkedOn, t), prices: formatDate(file.pricesOn ?? file.checkedOn, t) })}
+          {t("Figures as sold, from each shop's own website (labels read up to {labels}, prices from {prices}). Prices vary by store. Not affiliated with any supermarket.", { labels: formatDate(file.labelsOn ?? file.checkedOn, t), prices: formatDate(file.pricesOn ?? file.checkedOn, t) })}
         </FootNote>
       )}
     </div>

@@ -46,15 +46,15 @@ export function RecipeTools() {
           // One card for both photo features (founder 2026-11-19: "scan your food, where it tells you the calories, and scan to recipes, almost the same thing ...
           // they have scan to get the macros or scan to recipe"): the two choices as big buttons on the card itself, so nothing is hidden behind another tap.
           // Both are Premium: each opens the paywall here for someone without it (the 20 November 2026 audit: Scan your food used to skip it).
+          // The words pass (20 November 2026): no line under the title, the two buttons say what each does.
           <section data-coach="home-photo" aria-labelledby="scan-h" className="glass relative mt-4 overflow-hidden rounded-[1.5rem] p-3.5">
-            <div className="flex items-start gap-3">
+            <div className="flex items-center gap-3">
               <ScanWell />
               <div className="min-w-0 flex-1 [overflow-wrap:anywhere]">
                 <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
                   <span id="scan-h" className="text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("Scan your food")}</span>
                   <PremiumBadge />
                 </p>
-                <p className="mt-0.5 text-[0.875rem] leading-snug text-muted">{t("Take a photo of a meal: see its calories and macros, or get the recipe to make it at home.")}</p>
               </div>
             </div>
             {/* the two choices named for what goes in and what comes out (founder 2026-11-20: "call the top one like photo to macros, and the bottom one like
@@ -86,7 +86,7 @@ export function RecipeTools() {
                 <span className="text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("Meal plan")}</span>
                 <PremiumBadge />
               </span>
-              <span className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{t("Pip plans 7 days of meals for your goal, with one shopping list.")}</span>
+              <span className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{t("7 days of meals for your goal, with one shopping list.")}</span>
             </span>
             <ChevronRightIcon aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-ink" />
           </span>
@@ -98,7 +98,7 @@ export function RecipeTools() {
           <span className="flex items-start gap-3">
             <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
               <span className="block text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("Cook with what you already have")}</span>
-              <span className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{t("Tell me what's in your fridge and I'll find recipes for it.")}</span>
+              <span className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{t("Recipes from what's in your fridge.")}</span>
             </span>
             <ChevronRightIcon aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-ink" />
           </span>

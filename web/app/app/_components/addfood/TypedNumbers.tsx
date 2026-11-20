@@ -20,9 +20,10 @@ const PROBLEM: Record<TypedField, string> = {
   fat: tk("Check the fat: use a number from 0 to 1,000 g."),
 };
 
-export function TypedNumbers({ meal, onAdd }: { meal: LogMeal; onAdd: (entry: NewEntry) => void }) {
+/** `startName`: the name the box starts with (a scanned product's, when we have no figures for it). */
+export function TypedNumbers({ meal, onAdd, startName = "" }: { meal: LogMeal; onAdd: (entry: NewEntry) => void; startName?: string }) {
   const t = useT();
-  const [name, setName] = useState("");
+  const [name, setName] = useState(() => startName.slice(0, MAX_NAME_LENGTH));
   const [calories, setCalories] = useState("");
   const [protein, setProtein] = useState("");
   const [carbs, setCarbs] = useState("");

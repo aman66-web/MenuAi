@@ -21,13 +21,14 @@ import { LOCAL_RANGE_SHOP, LOCAL_SHOP_PRODUCTS } from "@/lib/mm/localRange";
 import { localTipFor } from "@/lib/mm/localTips";
 import { MAX_RECIPE_SERVINGS, MEAL_TYPES, candidates, countsSuit, fitOutcome, haveKey, isMeatFree, noteForPick, pickFor, recipeTotals, recipeView, resolveRecipe, roundedAmountsMatter, scaleServings, scaleSpec, subSpec, type IngredientPick, type IngredientSpec, type MealTarget, type Recipe } from "@/lib/mm/recipes";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
+import { USUAL_PORTION, portionReason, samePortion } from "@/lib/mm/recipePortion";
 import { splitStep, stepTime } from "@/lib/mm/recipeSteps";
 import { productKey, shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import { PANTRY } from "@/lib/mm/pantry";
 import { addLogEntry, cupboardStore, deleteLogEntry, savedRecipesStore, shoppingStore, toggleCupboard, toggleSavedRecipe } from "@/lib/mm/stores";
 import { site } from "@/site.config";
 import { CheckIcon, ChevronRightIcon, HeartIcon, InfoIcon, LeafIcon, MinusIcon, PlusIcon, SwapIcon, TodayIcon } from "../_components/icons";
-import { Button, Chip, ChoiceMark, LinkButton, Sheet, radioKeyNav } from "../_components/ui";
+import { Button, Chip, ChoiceMark, LinkButton, Segmented, Sheet, radioKeyNav } from "../_components/ui";
 import { Note } from "../_components/Note";
 import { Toast } from "../_components/Toast";
 import { useGate } from "../_components/Paywall";
@@ -39,9 +40,7 @@ import { useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
 import { PhotoTile } from "../groceries/ProductPhoto";
 import { ProductMini } from "../groceries/ProductMini";
-import { targetSentence } from "./MealPicker";
 import { MEAL_LOOK, RecipeHeroArt } from "./RecipeTile";
-import { FullPictureButton } from "../_components/PhotoViewer";
 import { ShopMark } from "../_components/ChainMark";
 
 // One recipe filled with a shop's own products, fitted to the person's meal (Recipes › Your meal) unless they ask to see it as written.
@@ -211,6 +210,12 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   const [chosen, setChosen] = useState<Record<string, string>>(() => (better ? betterChoices(recipe, files.length <= 1 ? products : products.filter((p) => p.shop === files[0]!.retailer)) : {}));
   const [subs, setSubs] = useState<Record<string, string>>({});
   const [asWritten, setAsWritten] = useState(startAsWritten ?? false);
+  // founder 2026-11-20: "Usual portion" fits the same recipe to a usual serving of about 600 kcal (lib/mm/recipePortion.ts) instead of the person's meal ("My
+  // meal size", the first choice), with the same fitting on the same labels
+  const [usual, setUsual] = useState(false);
+  const fitTo = asWritten || !target ? null : usual ? USUAL_PORTION : target;
+  // the person moving their own photo (tap it, drag, Done: RecipeHeroArt); "Drag to move it" and Done sit under the photo, never on it
+  const [moving, setMoving] = useState(false);
   const [swapping, setSwapping] = useState<string | null>(null);
   // which shop's products the Swap sheet lists (the shop of the product now in the recipe until another is chosen), for the ingredient being swapped
   const [swapShopFor, setSwapShopFor] = useState<{ key: string; shop: string } | null>(null);
@@ -237,7 +242,9 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
     const extra = keys.size ? products.filter((p) => p.shop !== first.retailer && keys.has(productKey(p))) : [];
     return extra.length ? [...base, ...extra] : base;
   }, [products, files.length, first.retailer, chosen]);
-  const view = useMemo(() => recipeView(recipe, viewProducts, { servings, subs, chosen, target: asWritten ? null : target }), [recipe, servings, subs, viewProducts, chosen, target, asWritten]);
+  const view = useMemo(() => recipeView(recipe, viewProducts, { servings, subs, chosen, target: fitTo }), [recipe, servings, subs, viewProducts, chosen, fitTo]);
+  // a serving at the other size, only to know whether the switch changes anything (a recipe with nothing that can move, or a meal of about 600 kcal, doesn't)
+  const otherServing = useMemo(() => (fitTo && target ? recipeView(recipe, viewProducts, { servings: 1, subs, chosen, target: usual ? target : USUAL_PORTION }).totals?.perServing ?? null : null), [recipe, viewProducts, subs, chosen, fitTo, target, usual]);
   // the basket leaves out the cupboard items the person has ticked; a serving's price and numbers never do
   const totals = useMemo(() => (view.totals ? recipeTotals(view.resolved, have) : null), [view, have]);
   const picks = view.resolved.picks;
@@ -395,18 +402,27 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
       <PlusIcon aria-hidden className="h-[18px] w-[18px] shrink-0" />{t("Add a serving to today")}
     </button>
   ) : null;
-  // how close the fit came (audit, 20 November 2026: "fitted to about 350 kcal" was said of a 500 kcal serving; lib/mm/recipes.ts fitOutcome)
-  const outcome = totals && target ? fitOutcome(view.fitted, totals.perServing.kcal, target) : null;
-  const fitNumbers = totals && target ? { kcal: formatInt(target.kcal), actual: formatInt(totals.perServing.kcal) } : { kcal: "", actual: "" };
-  const fitLine = !outcome || !target ? "" : asWritten
-    ? t("Showing the recipe as written.")
-    : outcome === "fitted"
-      ? `${targetSentence(t, target, "this")} ${t("The amounts below are changed to fit.")}`
-      : outcome === "closest"
-        ? `${t("Made as close to your {kcal} kcal meal as this recipe goes: {actual} kcal a serving.", fitNumbers)} ${t("The amounts below are changed to fit.")}`
-        : outcome === "fits"
-          ? t("This recipe already fits your meal, so nothing is changed.")
-          : t("This recipe can't be changed to fit your {kcal} kcal meal, so it's shown as written: {actual} kcal a serving.", fitNumbers);
+  // What size a serving is cooked to, right under its calories (founder 2026-11-20), only as true as the fit came (audit, 20 November 2026: "fitted to about 350
+  // kcal" was said of a 500 kcal serving; lib/mm/recipes.ts fitOutcome), and why, in a few words, when the size comes from the person's day
+  const outcome = totals && fitTo ? fitOutcome(view.fitted, totals.perServing.kcal, fitTo) : null;
+  const sizeKcal = fitTo ? formatInt(fitTo.kcal) : "";
+  const reason = outcome && outcome !== "cannot" && !usual && target ? portionReason(settings, target, !!planTarget) : null;
+  const reasonText = reason ? t(reason.text, { day: formatInt(reason.day ?? 0), meals: reason.meals ?? 0 }) : "";
+  // Laid out from the founder's tacos screenshot (20 November 2026, "1,000 calories ... I don't know if that's realistic"): one short line under the calories,
+  // the size in bold and, after a dot, why (or how big), so the answer sits right under the number without pushing "Serves" off the first screen. The kcal
+  // figure above already gives the serving, so a size from the person's day says the day, not a second, nearly equal number.
+  const fittedSize = outcome === "fitted" || outcome === "fits";
+  const sizeHead = !outcome ? "" : fittedSize
+    ? (usual ? t("Usual portion") : t("Sized to your meal"))
+    : outcome === "closest"
+      ? (usual ? t("As close to {kcal} kcal as this recipe goes", { kcal: sizeKcal }) : t("As close to your {kcal} kcal meal as this recipe goes", { kcal: sizeKcal }))
+      : t("This recipe can't be resized.");
+  const sizeWhy = fittedSize ? (reasonText || t("about {kcal} kcal", { kcal: sizeKcal })) : reasonText;
+  // a short size and its "why" share one line with a dot between (up to 44 characters, which fit a 375 px phone: "Sized to your meal · 30% of your 3,560 kcal
+  // day"); a longer pair, or a narrower phone, puts the why under the size, so a line never ends on a lone dot
+  const oneLine = fittedSize && sizeHead.length + sizeWhy.length <= 44;
+  const showSwitch = !!totals && !!otherServing && !samePortion(totals.perServing, otherServing);
+  const PORTIONS = [{ value: "usual", label: t("Usual portion") }, { value: "mine", label: t("My meal size") }] as const;
 
   const stepper = (
     <div className="glass inline-flex max-w-full items-center rounded-full p-1">
@@ -444,26 +460,25 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
           where a recipe can't be saved), the expand chip bottom right, and the light status band over its top 60 px (RecipeHeroArt draws it over a picture only). */}
       <div className="relative -mx-5" style={{ marginTop: "calc(-1 * max(1.25rem, env(safe-area-inset-top)))" }}>
         {/* first in the page, drawn over the picture: Back and Save come before "See the whole picture" for a keyboard or a screen reader (audit, 20 November) */}
-        <div className="absolute inset-x-0 top-0 z-10 px-4 pt-[max(0.75rem,env(safe-area-inset-top))]">
+        {/* only its buttons take a tap, so a drag of the person's photo can start anywhere else on it */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 px-4 pt-[max(0.75rem,env(safe-area-inset-top))] [&_a]:pointer-events-auto [&_button]:pointer-events-auto">
           {/* Back on a recipe Pip has just written that isn't saved yet asks first (it stays on the page and opens the question) */}
           <PageHeader photo settings={!saveControl} action={saveControl} back={{ href: backHref, label: t("Back to recipes"), onClick: (e) => { if (save && !save.saved) { e.preventDefault(); setLeaving(true); } } }} />
         </div>
-        {photo ? (
-          <div className="relative h-[clamp(15rem,36dvh,22rem)] overflow-hidden bg-fill">
-            {/* eslint-disable-next-line @next/next/no-img-element -- the person's own photo, a local address on this phone */}
-            <img src={photo} alt={t("Your photo")} className="h-full w-full object-cover" />
-            <div aria-hidden className="status-band" />
-            <FullPictureButton src={photo} alt={t("Your photo")} className="bottom-12 end-4" />
-          </div>
-        ) : (
-          <RecipeHeroArt id={recipe.id} name={recipe.name} label={rt(recipe.name)} meal={recipe.meal} />
-        )}
+        {/* the person's own photo (`photo`, just taken, or the one kept with the recipe) can be moved: a tap on it, then drag (founder 2026-11-20) */}
+        <RecipeHeroArt id={recipe.id} name={recipe.name} label={rt(recipe.name)} meal={recipe.meal} photo={photo} moving={moving} onMoving={setMoving} />
       </div>
 
       <div className="relative -mx-5 -mt-9 rounded-t-[2rem] bg-background px-5 pt-3 shadow-[var(--shadow-lift)]">
         <span aria-hidden className="mx-auto block h-1.5 w-12 rounded-full bg-edge" />
         {/* the person's own photo is labelled under it, never on it (colour meeting, 19 November 2026: no words on a food photo) */}
-        {(photo || ownPhoto) && <p className="mt-3 text-center text-[0.8125rem] font-medium leading-snug text-muted">{t("Your photo. The recipe is Pip's home version.")}</p>}
+        {(photo || ownPhoto) && (moving ? (
+          // moving the photo: what to do, and Done, right under it
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+            <p className="text-base font-bold leading-snug">{t("Drag to move it")}</p>
+            <Button onClick={() => setMoving(false)} className="min-w-[6rem]">{t("Done")}</Button>
+          </div>
+        ) : <p className="mt-3 text-center text-[0.8125rem] font-medium leading-snug text-muted">{t("Your photo. The recipe is Pip's home version.")}</p>)}
         <div className="mt-4 text-center">
           {/* founder 2026-11-17: the recipe's shop in the header, its own logo with its name beside it (CLAUDE.md rule 2: the name is always plain text); where the
               screen lets the person change shop, it is a button with a small arrow that opens the choice */}
@@ -487,6 +502,26 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
           {recipe.blurb && <p className="mx-auto mt-2 max-w-[30rem] text-[0.9375rem] leading-snug text-muted">{rt(recipe.blurb)}</p>}
           {/* a serving's calories and protein on the first screen (usability test 2026-11-19: they were only further down, under the picture and the chips) */}
           {totals && <p className="app-numbers mt-2.5 text-[1.0625rem] font-bold leading-snug">{t("{kcal} kcal and {protein} g protein a serving", { kcal: formatInt(totals.perServing.kcal), protein: formatInt(totals.perServing.protein) })}</p>}
+          {/* founder 2026-11-20: the size it's cooked to, why, and the switch to a usual portion, right under a serving's numbers */}
+          {sizeHead && (
+            <div className="@container mt-1">
+              <p className={`app-numbers flex flex-col items-center justify-center text-[0.9375rem] leading-snug ${oneLine ? "@[20.5rem]:flex-row @[20.5rem]:flex-wrap @[20.5rem]:gap-x-1.5" : ""}`}>
+                <span className="font-semibold">{sizeHead}</span>
+                {sizeWhy && (
+                  <>
+                    {oneLine && <span aria-hidden className="hidden text-muted @[20.5rem]:inline">·</span>}
+                    <span className="sr-only">, </span>
+                    <span className="text-muted">{sizeWhy}</span>
+                  </>
+                )}
+              </p>
+              {showSwitch && (
+                <div className="mx-auto mt-3 max-w-[24rem]">
+                  <Segmented value={usual ? "usual" : "mine"} options={PORTIONS} onChange={(v) => { setUsual(v === "usual"); setAdded(null); }} label={t("Portion size")} />
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* "Serves · time · meal", like the reference's chip row. Laid out so no chip is left alone on a line: with three chips the stepper sits
@@ -585,10 +620,11 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
           <p className={`${CARD} mt-3 p-4 text-[0.9375rem] font-semibold leading-snug`}>{t("Snacks are shown as written, not fitted to your meal size.")}</p>
         )}
 
-        {totals && target && (
+        {/* the recipe's own amounts, once the fit has changed them (the size itself is said under the serving's numbers) */}
+        {totals && target && (asWritten || view.fitted) && (
           <div className={`${CARD} mt-3 p-4`}>
-            <p className="app-numbers text-[0.9375rem] leading-snug">{fitLine}</p>
-            <button type="button" onClick={() => setAsWritten((v) => !v)} className={`mt-3 ${SOFT_PILL}`}>{asWritten ? t("Fit it to my meal") : t("Show it as written")}</button>
+            <p className="app-numbers text-[0.9375rem] leading-snug">{asWritten ? t("Showing the recipe as written.") : t("The amounts below are changed to fit.")}</p>
+            <button type="button" onClick={() => { if (asWritten) setUsual(false); setAsWritten((v) => !v); setAdded(null); }} className={`mt-3 ${SOFT_PILL}`}>{asWritten ? t("Fit it to my meal") : t("Show it as written")}</button>
           </div>
         )}
 

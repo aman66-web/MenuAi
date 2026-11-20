@@ -37,7 +37,7 @@ await step("Home: the meal plan is a row of its own across the width, under the 
   expect(b.y >= n.y + n.height - 1, "under the day's numbers");
   expect(b.width > 300 && b.height >= 44, `the whole width, a big target: ${JSON.stringify(b)}`);
   expect(a.y >= b.y + b.height - 1 && a.width > 300, `Cook with what you already have is the next row: ${JSON.stringify([b, a])}`);
-  expect((await card.innerText()).includes("Pip plans 7 days of meals for your goal, with one shopping list."), "the card says what it does");
+  expect((await card.innerText()).includes("7 days of meals for your goal, with one shopping list."), "the card says what it does");
   await card.click();
   await page.waitForURL((u) => u.pathname.startsWith("/app/plan"));
 });
@@ -60,11 +60,13 @@ await step("the first open starts on the check screen, filled in from the person
   expect(v.length === 0, v.join(" | "));
 });
 
-/** A line's Change on the check screen: that one step, "Step n of 8", whose button says Done and goes back to the check. */
+/** A line's Change on the check screen: that one step, "Step n of 9" (heard, not written, since 20 November 2026: the bar alone), whose button says Done and goes
+ *  back to the check. Just me has nine steps since the style step (How do you like to eat?) of 20 November 2026. */
 async function change(line, heading, n) {
   await page.getByRole("heading", { level: 1, name: "Ready to make your plan?" }).waitFor({ timeout: 60000 });
   await page.getByRole("button", { name: `Change: ${line}` }).click();
-  await page.getByText(`Step ${n} of 8`).waitFor({ timeout: 60000 });
+  await page.getByText(`Step ${n} of 9`).waitFor({ timeout: 60000 });
+  expect(await page.getByText(`Step ${n} of 9`).evaluate((el) => el.classList.contains("sr-only")), "'Step n of N' is written on screen");
   await page.getByRole("heading", { level: 1, name: heading }).waitFor();
 }
 const done = async () => {
@@ -97,10 +99,10 @@ await step("Pip asks one thing a screen, each opened by its Change and back with
   const sains = page.getByRole("checkbox", { name: /Sainsbury/ });
   await sains.waitFor({ timeout: 60000 });
   expect((await sains.getAttribute("aria-checked")) === "true", "the person's own shop starts chosen");
-  await page.getByText(/^Everything will come from Sainsbury's: one shop, one shopping list/).waitFor();
+  await page.getByText(/^Everything from Sainsbury's\. Pick another to share the meals\./).waitFor();
   await page.getByRole("status").filter({ hasText: /With one shop/ }).filter({ hasText: /real Sainsbury's product/ }).waitFor();
   await page.getByRole("checkbox", { name: /Morrisons/ }).click();
-  await page.getByText(/^I'll share your meals between Sainsbury's and Morrisons, using the best shop for each meal/).waitFor();
+  await page.getByText(/^I'll share your meals between Sainsbury's and Morrisons\./).waitFor();
   await page.getByRole("status").filter({ hasText: /With 2 shops/ }).filter({ hasText: /split by shop/ }).waitFor();
   // Pip pops up again when his words change: axe reads the bubble once it has landed (half-faded words read as low contrast)
   await page.evaluate(() => Promise.all(document.getAnimations().filter((a) => a.effect?.getComputedTiming().iterations !== Infinity).map((a) => a.finished.catch(() => {}))));
@@ -110,15 +112,24 @@ await step("Pip asks one thing a screen, each opened by its Change and back with
   await done();
   await change("Your diet and allergies", "Your diet and allergies", 4);
   await done();
+  // how they like to eat (founder 2026-11-20): three picture tiles, Balanced to start with; High protein chosen, then Balanced again
+  await change("How you like to eat", "How do you like to eat?", 5);
+  const styles = page.getByRole("radiogroup", { name: "How do you like to eat?" }).getByRole("radio");
+  expect((await styles.count()) === 3, "three ways to eat: " + (await styles.count()));
+  expect((await page.getByRole("radio", { name: /^Balanced/ }).getAttribute("aria-checked")) === "true", "Balanced to start with");
+  await page.getByRole("radio", { name: /^High protein/ }).click();
+  expect((await page.getByRole("radio", { name: /^High protein/ }).getAttribute("aria-checked")) === "true", "High protein chosen");
+  await page.getByRole("radio", { name: /^Balanced/ }).click();
+  await done();
   // the food they like (founder 2026-11-19: "choose the cuisine or have the option to do any cuisine"): Any to start with, then Italian and Indian
-  await change("The food you like", "The food you like", 5);
+  await change("The food you like", "The food you like", 6);
   expect((await page.getByRole("button", { name: "Any", exact: true }).getAttribute("aria-pressed")) === "true", "Any to start with");
   await page.getByRole("button", { name: /^Italian/ }).click();
   await page.getByRole("button", { name: /^Indian/ }).click();
   await page.getByText(/^Lunches and dinners from Italian or Indian\./).waitFor();
   expect((await page.getByRole("button", { name: "Any", exact: true }).getAttribute("aria-pressed")) === "false", "Any is off once a cuisine is chosen");
   await done();
-  await change("Foods left out", "Foods you'd rather not have", 6);
+  await change("Foods left out", "Foods you'd rather not have", 7);
   await page.getByRole("button", { name: "Mushrooms", exact: true }).click();
   expect((await page.getByRole("button", { name: "Mushrooms", exact: true }).getAttribute("aria-pressed")) === "true", "Mushrooms chosen");
   // Pip says what's left as they tap, and won't go on with a meal that has none (founder 2026-11-18: "we won't be able to give them a plan if they are so picky?")
@@ -137,7 +148,7 @@ await step("Pip asks one thing a screen, each opened by its Change and back with
 });
 
 await step("the budget slider: from the cheapest week for the goal to pricier products, a green spot at the best fit, the plain line follows the slider", async () => {
-  await change("Your budget", "Your budget for the week", 7);
+  await change("Your budget", "Your budget for the week", 8);
   const slider = page.getByRole("slider", { name: "Budget for the week" });
   await slider.waitFor({ timeout: 180000 });
   const [min, max, now] = await Promise.all(["min", "max", "value"].map((a) => slider.evaluate((el, a) => Number(el[a]), a)));
@@ -242,8 +253,8 @@ await step("the plan opens again as it was; Make a new plan starts Pip's questio
   const box = await top.boundingBox();
   expect(box && box.y < 400, "Make a new plan is near the top: " + JSON.stringify(box));
   await top.click();
-  await page.getByText("Step 1 of 8").waitFor();
-  for (let i = 0; i < 4; i++) await page.getByRole("button", { name: "Continue" }).click(); // how many, meals, shops, diet
+  await page.getByText("Step 1 of 9").waitFor();
+  for (let i = 0; i < 5; i++) await page.getByRole("button", { name: "Continue" }).click(); // how many, meals, shops, diet, how you like to eat
   expect((await page.getByRole("button", { name: /^Italian/ }).getAttribute("aria-pressed")) === "true", "cuisines kept");
   await page.getByRole("button", { name: "Continue" }).click();
   expect((await page.getByRole("button", { name: "Mushrooms", exact: true }).getAttribute("aria-pressed")) === "true", "foods kept");
@@ -254,8 +265,8 @@ await step("the plan opens again as it was; Make a new plan starts Pip's questio
 await step("a new plan keeps the old one under Earlier plans; Open makes it the plan again; Remove takes one away with Undo", async () => {
   const first = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.mealPlan")).data);
   await page.getByRole("button", { name: "Make a new plan" }).first().click();
-  await page.getByText("Step 1 of 8").waitFor();
-  for (let i = 0; i < 6; i++) await page.getByRole("button", { name: "Continue" }).click(); // to the budget
+  await page.getByText("Step 1 of 9").waitFor();
+  for (let i = 0; i < 7; i++) await page.getByRole("button", { name: "Continue" }).click(); // to the budget
   await page.getByRole("slider").waitFor({ timeout: 180000 });
   await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("button", { name: "Make my plan" }).click();
@@ -320,7 +331,7 @@ await step("GLP-1: the check screen and the meals step say the comfortable meal 
   await p3.goto(BASE + "/app/plan");
   await p3.getByRole("heading", { level: 1, name: "Ready to make your plan?" }).waitFor({ timeout: 60000 });
   // in the app's voice, no goal name and no medication (the 30-person audit, 20 November 2026)
-  const line = "Your comfortable meal size is 450 kcal (Settings), so your meals come to 1,350 of your 2,000 kcal.";
+  const line = "Your meal size is 450 kcal, so your meals come to 1,350 of your 2,000 kcal.";
   await p3.getByText(line, { exact: true }).waitFor();
   expect((await p3.getByRole("link", { name: "Change it in Settings" }).getAttribute("href")) === "/app/settings#targets", "the link goes to the meal size");
   await p3.getByRole("button", { name: "Change: Meals and snacks" }).click();

@@ -282,6 +282,109 @@ export function withBetter(cands: Map<MealType, PlanCandidate[]>, better: Readon
   return new Map([...cands].map(([meal, list]) => [meal, list.map((c) => better.get(`${meal}:${c.recipe.id}`) ?? c)]));
 }
 
+// ---------- how the person likes to eat ----------
+
+/**
+ * How the person likes to eat (founder 2026-11-20, 12:48: a step "How do you like to eat?" with picture tiles): Balanced, any of our recipes; High protein, at
+ * least HIGH_PROTEIN_MIN of a serving's calories from protein; Lower carb, at most LOWER_CARB_MAX from carbs. Judged on each meal's own figures as the plan
+ * makes it (the shop's labels, the recipe fitted to the meal, or as written for a household; never a figure of ours). Not keto (only 9 of our recipes have a
+ * tenth of their calories or less from carbs at Sainsbury's, not one a lunch or dinner) and not Mediterranean (no recipe is tagged Mediterranean, and Italian
+ * and Middle Eastern together have one breakfast): tests/eatingStyle.test.ts measures both.
+ */
+export const EATING_STYLES = ["balanced", "highProtein", "lowerCarb"] as const;
+export type EatingStyle = (typeof EATING_STYLES)[number];
+/** High protein: at least this share of a serving's calories from protein (4 kcal a gram). */
+export const HIGH_PROTEIN_MIN = 0.3;
+/** Lower carb: at most this share of a serving's calories from carbs (4 kcal a gram). */
+export const LOWER_CARB_MAX = 0.25;
+/**
+ * High protein and Lower carb fit each meal to at least this share of its calories from protein (the person's own protein for the meal when that is more), a
+ * little over the line so a fitted serving lands over it; carbs make way. Measured at Sainsbury's for a 2,000 kcal day: high-protein dinners go from 7 to 44 of
+ * 79, lower-carb dinners from 1 to 9 (tests/eatingStyle.test.ts).
+ */
+export const STYLE_PROTEIN_FIT = 0.32;
+
+/** Whether a serving's figures are of this style (Balanced: every serving). */
+export function fitsStyle(s: { kcal: number; protein: number; carbs: number }, style: EatingStyle): boolean {
+  if (style === "balanced") return true;
+  if (!(s.kcal > 0)) return false;
+  return style === "highProtein" ? (4 * s.protein) / s.kcal >= HIGH_PROTEIN_MIN : (4 * s.carbs) / s.kcal <= LOWER_CARB_MAX;
+}
+
+/** The meal sizes the recipes are fitted to for a style: the same calories, protein raised to STYLE_PROTEIN_FIT of them (Balanced: the same object). */
+export function styleTargets(targets: Partial<Record<MealType, MealTarget>>, style: EatingStyle): Partial<Record<MealType, MealTarget>> {
+  if (style === "balanced") return targets;
+  const out: Partial<Record<MealType, MealTarget>> = {};
+  for (const [m, t] of Object.entries(targets) as Array<[MealType, MealTarget]>) out[m] = { ...t, protein: Math.max(t.protein ?? 0, Math.round((t.kcal * STYLE_PROTEIN_FIT) / 4)) };
+  return out;
+}
+
+const styleMemo = new WeakMap<Map<MealType, PlanCandidate[]>, Map<EatingStyle, Map<MealType, PlanCandidate[]>>>();
+
+/**
+ * The candidates of a style: each meal's that fit it, in the same order. A meal with none of them keeps all of its own (styleShortfall names it), so the week
+ * never has a gap; a meal with a few rotates through those few, so they repeat. The same map comes back for the same style, so makePlan's memo holds.
+ */
+export function styleCandidates(cands: Map<MealType, PlanCandidate[]>, style: EatingStyle): Map<MealType, PlanCandidate[]> {
+  if (style === "balanced") return cands;
+  let byStyle = styleMemo.get(cands);
+  if (!byStyle) styleMemo.set(cands, (byStyle = new Map()));
+  let out = byStyle.get(style);
+  if (!out) {
+    out = new Map([...cands].map(([meal, list]) => {
+      const fit = list.filter((c) => fitsStyle(c.perServing, style));
+      return [meal, fit.length ? fit : list];
+    }));
+    byStyle.set(style, out);
+  }
+  return out;
+}
+
+/** Which of the day's meals have none of a style (they take any recipe) and which only a few (fewer than `variety` for each time a day it comes: they repeat). */
+export interface StyleShort { none: MealType[]; few: Array<{ meal: MealType; n: number }> }
+
+export function styleShortfall(cands: Map<MealType, PlanCandidate[]>, style: EatingStyle, slots: readonly MealType[], variety: number = PER_MEAL_RECIPES): StyleShort {
+  const out: StyleShort = { none: [], few: [] };
+  if (style === "balanced") return out;
+  for (const meal of [...new Set(slots)]) {
+    const list = cands.get(meal) ?? [];
+    if (!list.length) continue; // no recipe at all: the plan says so its own way
+    const n = list.filter((c) => fitsStyle(c.perServing, style)).length;
+    if (n === 0) out.none.push(meal);
+    else if (n < variety * slots.filter((x) => x === meal).length) out.few.push({ meal, n });
+  }
+  return out;
+}
+
+/** betterOf for a style: a recipe of the style is never made with products that take it out of the style (its plain version stays instead). */
+export function styleBetter(betterOf: (c: PlanCandidate) => PlanCandidate | null, style: EatingStyle): (c: PlanCandidate) => PlanCandidate | null {
+  if (style === "balanced") return betterOf;
+  return (c) => {
+    const b = betterOf(c);
+    return b && fitsStyle(c.perServing, style) && !fitsStyle(b.perServing, style) ? null : b;
+  };
+}
+
+/**
+ * Each style's picture on its tile: one of our own recipes of that style (CLAUDE.md rule 2: our recipes' pictures), the first that suits the person's diet as
+ * it is (no ingredient swapped for the diet, so the picture shows what they'd eat). tests/eatingStyle.test.ts checks each is of its style at Sainsbury's and
+ * has a picture. None suits (High protein for a vegan): no picture.
+ */
+export const STYLE_PICTURES: Record<EatingStyle, readonly string[]> = {
+  balanced: ["salmon-new-potatoes-peas", "mexican-bean-rice-bowl", "chickpea-rice-bowl"],
+  highProtein: ["lemon-garlic-chicken-potatoes", "mushroom-cheddar-omelette"],
+  lowerCarb: ["pepper-spinach-cheddar-frittata", "paprika-roasted-almonds"],
+};
+
+export function stylePicture(style: EatingStyle, diet: DietPrefs, recipeById: (id: string) => Recipe | undefined): string | null {
+  for (const id of STYLE_PICTURES[style]) {
+    const r = recipeById(id);
+    const d = r ? recipeForDiet(r, diet) : null;
+    if (r && d && d.ingredients.every((i, k) => i.label === r.ingredients[k]?.label)) return id;
+  }
+  return null;
+}
+
 /**
  * How many people the week's shopping is for (usability test 2026-11-19, Raj: a plan "for two"). Every meal is sized to the person's own numbers and the
  * same is bought for each of the others; the day's calories and protein stay one person's.
@@ -746,6 +849,8 @@ export interface SavedPlan {
   diet?: DietPrefs;
   /** The plan's shopping went on the shopping list (planListKey of the plan then): "Add all" isn't offered twice for the same week. */
   addedToList?: string;
+  /** How the person likes to eat (EATING_STYLES), so the week is rebuilt from the same recipes; absent = Balanced, as plans were before 20 November. */
+  style?: Exclude<EatingStyle, "balanced">;
 }
 
 /** A diet as kept with a plan: only what is on, in a fixed order, the allergies once each (known keys only). */
@@ -794,6 +899,9 @@ export function planShortfall(week: Pick<WeekPlan, "days">, dailyKcal: number): 
   return { avg, max: Math.round(Math.max(0, ...meals) / 10) * 10 };
 }
 
+/** A kept style: one of EATING_STYLES, anything else Balanced. */
+export const sanitizeStyle = (x: unknown): EatingStyle => ((EATING_STYLES as readonly unknown[]).includes(x) ? (x as EatingStyle) : "balanced");
+
 export function sanitizePlan(raw: unknown): SavedPlan | null {
   if (!raw || typeof raw !== "object") return null;
   const r = raw as Record<string, unknown>;
@@ -817,10 +925,11 @@ export function sanitizePlan(raw: unknown): SavedPlan | null {
   const home = homeOk && homeOk.others.length ? { others: homeOk.others.map((o) => ({ group: o.group, portion: o.portion })), allergies: homeOk.allergies, diets: homeOk.diets } : null;
   const diet = r.diet && typeof r.diet === "object" ? cleanDiet(r.diet) : null;
   const addedToList = typeof r.addedToList === "string" && /^[a-z0-9]{1,24}$/.test(r.addedToList) ? r.addedToList : null;
+  const style = sanitizeStyle(r.style);
   return {
     shops, ids, leaveOut, budget, start: r.start, ...(slotsOk ? { slots } : {}), ...(better.length ? { better } : {}), ...(variety ? { variety } : {}), ...(cuisines.length ? { cuisines } : {}), ...(r.swapped === true ? { swapped: true } : {}),
     ...(home ? { home } : typeof r.people === "number" && (PLAN_PEOPLE as readonly number[]).includes(r.people) && r.people > 1 ? { people: r.people } : {}),
-    ...(diet ? { diet } : {}), ...(addedToList ? { addedToList } : {}),
+    ...(diet ? { diet } : {}), ...(addedToList ? { addedToList } : {}), ...(style !== "balanced" ? { style } : {}),
   };
 }
 

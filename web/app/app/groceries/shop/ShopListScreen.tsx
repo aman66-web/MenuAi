@@ -19,7 +19,7 @@ import { FootNote, MoreButton, NOTE, PILL_INPUT, SelectField, TITLE } from "../P
 import { ShopProductRow } from "./ShopProductRow";
 
 /** A shop or product page opened without saying which (an old or mistyped link): Back, a plain sentence and the way on, never a lone red error (2026-11-20). */
-export function NoChoice({ title, body }: { title: string; body: string }) {
+export function NoChoice({ title, body }: { title: string; body?: string }) {
   const t = useT();
   return (
     <div>
@@ -107,13 +107,18 @@ export function ShopListScreen({ shop }: { shop: string }) {
         <ShopMark shopId={file.retailer} size="md" />
         <h1 className={`${TITLE} max-w-full [overflow-wrap:break-word]`}>{file.name}</h1>
       </div>
+      {/* how many show a price and how many have numbers; where and when the list was read is said once, in the note at the foot (the words pass,
+          20 November 2026: the date was said twice) */}
       <p className="app-numbers mt-3.5 text-[0.9375rem] leading-relaxed text-muted">
         {pricedCount === products.length
-          ? t("{n} products, with the prices {shop} showed on {date}.", { n: products.length.toLocaleString("en-GB"), shop: file.name, date: formatDate(file.checkedOn, t) })
-          : `${t("{n} products from {shopPossessive} website, checked {date}.", { n: products.length.toLocaleString("en-GB"), shopPossessive: poss(file.name), date: formatDate(file.checkedOn, t) })} ${file.priceNote === "stores"
-            ? t("{count} show a price. {shop} lists no price for the others.", { count: pricedCount.toLocaleString("en-GB"), shop: file.name })
-            : t("{count} show a price. {shop} shows the others' prices only in store.", { count: pricedCount.toLocaleString("en-GB"), shop: file.name })}`}{" "}
-        {nutritionCount > 0 ? t("{count} of them show calories and protein.", { count: nutritionCount.toLocaleString("en-GB") }) : t("Calories and protein aren't shown for these yet.")}
+          ? (nutritionCount > 0
+            ? t("{count} of {n} products show calories and protein.", { count: nutritionCount.toLocaleString("en-GB"), n: products.length.toLocaleString("en-GB") })
+            : t("{n} products. None show calories and protein yet.", { n: products.length.toLocaleString("en-GB") }))
+          : `${t("{count} of {n} products show a price.", { count: pricedCount.toLocaleString("en-GB"), n: products.length.toLocaleString("en-GB") })} ${file.priceNote === "stores"
+            ? t("{shop} lists no price for the others.", { shop: file.name })
+            : t("{shop} shows the others' prices only in store.", { shop: file.name })} ${nutritionCount > 0
+            ? t("{count} show calories and protein.", { count: nutritionCount.toLocaleString("en-GB") })
+            : t("None show calories and protein yet.")}`}
       </p>
 
       <div className="group/search relative mt-5">
@@ -137,15 +142,15 @@ export function ShopListScreen({ shop }: { shop: string }) {
         </SelectField>
       </div>
 
-      {(sort === "density" || sort === "protein") && <p className={`mt-3 ${NOTE}`}>{sort === "density" ? t("Products with under 20 kcal or 5 g of protein per 100 g, those without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.") : t("Products without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.")}</p>}
+      {(sort === "density" || sort === "protein") && <p className={`mt-3 ${NOTE}`}>{sort === "density" ? t("Listed last: under 20 kcal or 5 g protein per 100 g, no numbers, or numbers for the cooked or prepared food.") : t("Listed last: no numbers, or numbers for the cooked or prepared food.")}</p>}
       {dietLine && <p className={`mt-3 ${NOTE}`}>{dietLine}</p>}
       {/* what the allergy settings really do here (2026-11-20: it said they "can't hide any" while they hid some) */}
       {avoid.length > 0 && <AllergyNote className="mt-3"><p>{diet
-        ? t("Products whose Open Food Facts record lists {allergens}, or has no allergen information, are hidden. Most products here have no Open Food Facts record, so they stay. Always check the pack.", { allergens: avoidNames })
-        : t("Your allergy settings aren't hiding anything while “Fits my diet” is off. Always check the pack.")}</p></AllergyNote>}
+        ? t("Hidden: products whose Open Food Facts record lists {allergens} or no allergens. Most have no record, so they still show. Always check the pack.", { allergens: avoidNames })
+        : t("Nothing is hidden for your allergies while “Fits my diet” is off. Always check the pack.")}</p></AllergyNote>}
       <p role="status" aria-live="polite" className="app-numbers mt-6 ps-1 text-sm font-semibold text-muted">{results.length === 1 ? t("1 product") : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
       {results.length === 0 ? (
-        <div className="mt-3"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No products match.")} body={t("Try fewer words or a different type.")} /></div>
+        <div className="mt-3"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No products match.")} body={t("Try fewer words or another aisle.")} /></div>
       ) : (
         <ul className="mt-2.5 space-y-3">
           {results.slice(0, shown).map((p) => (<li key={p.id}><ShopProductRow file={file} product={p} /></li>))}
@@ -156,8 +161,8 @@ export function ShopListScreen({ shop }: { shop: string }) {
       )}
 
       <FootNote>
-        {t("From {shopPossessive} website, checked {date}.", { shopPossessive: poss(file.name), date: formatDate(file.checkedOn, t) })} {t("Prices and offers vary by store and by loyalty card.")}{" "}
-        {borrowed && t("Where we haven't read a product's own page, its numbers are the same product's label at another shop, Open Food Facts contributors' numbers (community data) for the same barcode, or, for loose fresh fruit and vegetables, the UK government's figures; each product's page says which.")}{" "}
+        {t("From {shopPossessive} website, checked {date}.", { shopPossessive: poss(file.name), date: formatDate(file.checkedOn, t) })} {t("Prices vary by store and loyalty card.")}{" "}
+        {borrowed && t("Some numbers are the same product's label at another shop, Open Food Facts (community data), or UK government figures for loose fruit and veg; each product says which.")}{" "}
         {t("Not affiliated with {shop}.", { shop: file.name })}
       </FootNote>
     </div>

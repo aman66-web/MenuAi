@@ -190,7 +190,7 @@ await step("Lidl's everyday range (founder 2026-10-11): a product Lidl prints no
     await page.route("**/imgproxy-retcat.assets.schwarz/**", (r) => r.fulfill({ contentType: "image/png", body: PNG }));
     await page.goto(BASE + "/app/groceries/shop?r=lidl");
     await page.getByRole("heading", { level: 1, name: "Lidl" }).waitFor();
-    await page.getByText(/3 products from Lidl's website, checked .*2 show a price\. Lidl shows the others' prices only in store\./).waitFor();
+    await page.getByText(/2 of 3 products show a price\. Lidl shows the others' prices only in store\./).waitFor();
     expect(await page.getByRole("link", { name: /Spinach.*Price in store/ }).isVisible(), "the row says Price in store");
     expect(await page.getByRole("link", { name: /Vegetable Salad.*£1\.49/ }).isVisible(), "an offer keeps its printed price");
     await page.getByLabel("Sort").selectOption({ label: "Price, lowest first" });
@@ -226,7 +226,7 @@ await step("M&S's everyday food range (founder 2026-10-16): its aisle lists show
   await page.route("**/assets.digitalcontent.marksandspencer.app/**", (r) => { askedMs.push(r.request().url()); return r.fulfill({ contentType: "image/png", body: PNG }); });
   await page.goto(BASE + "/app/groceries/shop?r=marks-and-spencer");
   await page.getByRole("heading", { level: 1, name: "M&S" }).waitFor();
-  await page.getByText(/2 products from M&S's website, checked .*1 show a price\. M&S lists no price for the others\./).waitFor();
+  await page.getByText(/1 of 2 products show a price\. M&S lists no price for the others\./).waitFor();
   expect((await page.getByText(/shows the others' prices only in store/).count()) === 0, "Lidl's list sentence is not shown for M&S");
   expect(await page.getByRole("link", { name: /Baby Rainbow Carrots.*Price in store/ }).isVisible(), "the row says Price in store");
   expect(await page.getByRole("link", { name: /Rainbow Cake.*£35\.00/ }).isVisible(), "a priced row keeps its printed price");

@@ -1,63 +1,63 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { GATING_ENABLED } from "@/lib/mm/config";
+import { assetUrl, GATING_ENABLED } from "@/lib/mm/config";
 import { formatDate, formatInt } from "@/lib/mm/format";
 import { retailerName } from "@/lib/mm/groceries";
-import { tk } from "@/lib/mm/i18n";
+import { localeInfo, tk } from "@/lib/mm/i18n";
 import type { DietPrefs } from "@/lib/mm/pantry";
-import { previewShop, weekPreview, type PlanPerson, type ShopLoader, type WeekPreview, type WeekPreviewInputs } from "@/lib/mm/planPreview";
+import { previewShop, weekGap, weekPreview, type PlanPerson, type ShopLoader, type WeekPreview, type WeekPreviewInputs } from "@/lib/mm/planPreview";
+import { RECIPE_IMAGES } from "@/lib/mm/recipeImages";
 import type { MealType } from "@/lib/mm/recipes";
+import { BasketIcon, ListIcon } from "../_components/icons";
+import { PremiumBadge } from "../_components/PremiumBadge";
+import { MEAL_LOOK } from "../recipes/RecipeTile";
 import { useIsPro, useSettings } from "../_lib/hooks";
 import { useLanguage, useT } from "../_lib/i18n";
-import { localeInfo } from "@/lib/mm/i18n";
 import { loadShopFile, loadShopManifest, useShopManifest } from "../_lib/shopProducts";
-import { FREE_PREMIUM_LINE } from "./parts";
-import { alsoInPremium, ShowcaseWindow } from "./ShowcaseWindow";
+import { ShowcaseWindow } from "./ShowcaseWindow";
 
-// Step 10 of the welcome steps, "Your week, planned" (the onboarding redesign meeting of 20 November 2026, build list 4; approved by the founder): one person's
-// real week of our recipes from their shop, sized to their daily numbers, on one shopping list, made by Meal plan's own planning with exactly its Just-me
-// defaults (lib/mm/planPreview.ts weekPreview: no AI, the shop's real products and prices; no budget, so it is the week Meal plan's first open makes). Shown as
-// one day's three meals (the first whose lunch and dinner aren't the same dish, headed with its name: Monday is the week's first), the day's average against their
-// target and the week's shopping as a labelled line at normal size (never a large £ figure, so it can't be read as a charge). It is never saved: Meal plan's
-// first open starts on this same week. The one place Premium is named during setup, honestly and with no price: where Premium is sold, the window's ink
-// badge with "Nothing is charged during setup.", then "Also in Premium: ..." and the free and Premium line under it; on the website, where nothing is sold,
-// none of that. Scan your food is named, never demonstrated (CLAUDE.md rule 1). Pip is off: the screen carries figures and money.
-// Timings: the week is usually ready already (worked out while "Your daily targets" was showing, prepareWeek). Otherwise a status line and page-fill bars, up to
-// 8 s for the shop's file and 2.5 s more for the sums, then the words-only form; an under-18, a narrow diet (a week more than 15% from their numbers: it isn't
-// "sized to your numbers") or too few recipes get that form too. The screen and its counter keep their place whatever happens. Every ticked shop not in recipes
-// is named (step 5's words), and the prices carry the date they were read.
+// Your plan's week as a picture timetable (founder, 20 November 2026): Monday to Sunday as rows, breakfast, lunch and dinner as columns of our own recipes'
+// pictures (illustrations of our own recipes, CLAUDE.md rule 2; a recipe with none shows its meal's drawing on the page fill), each day's calories at the row's
+// end, then two small cards: "About £{n} for the week" and "1 shopping list". It is one person's real week of our recipes from their shop, sized to their daily
+// numbers, made by Meal plan's own planning with exactly its Just-me defaults (lib/mm/planPreview.ts weekPreview: no AI, the shop's real products and prices,
+// no budget), so it is the week Meal plan's first open makes. It is never saved.
+// - Never hidden (founder: "never hide it"): a week that can't reach the person's calories (our recipes stretch only so far: planPreview.ts explains why) is
+//   shown with its real numbers anyway, each day's calories at its row's end, and one plain line says so (weekGap). A GLP-1 meal size that keeps the day under
+//   the calories is said too.
+// - Where Premium is sold the timetable carries the one small Premium badge (Meal plan is Premium there); no other label, no "Nothing is charged" line.
+// - The money is a small card at normal size beside "1 shopping list" (never a large £ figure, so it can't be read as a charge), with the shelf-price line and
+//   its date under them.
+// - Timings: the week is usually ready already (worked out while How active are you? showed, prepareWeek). Otherwise page-fill squares, up to 8 s for the
+//   shop's file and 2.5 s more for the sums, then the words-only line. An under-18 or too few recipes get that line too.
 
-/** The meeting's caps: the shop's file (the website; in the iPhone app it is inside the app), then the sums once the file is there. */
+/** The caps: the shop's file (the website; in the iPhone app it is inside the app), then the sums once the file is there. */
 const FILE_WAIT_MS = 8000;
 const WORK_WAIT_MS = 2500;
 
-const MEAL_ROW: Readonly<Record<MealType, string>> = {
-  breakfast: tk("Breakfast · {recipe}"),
-  lunch: tk("Lunch · {recipe}"),
-  dinner: tk("Dinner · {recipe}"),
-  snack: tk("Snack · {recipe}"),
-};
+const COLUMN: Readonly<Record<"breakfast" | "lunch" | "dinner", string>> = { breakfast: tk("Breakfast"), lunch: tk("Lunch"), dinner: tk("Dinner") };
+const COLUMNS = ["breakfast", "lunch", "dinner"] as const;
 
 const sleep = (ms: number) => new Promise<"late">((r) => setTimeout(() => r("late"), ms));
 
-/** The numbers a week is sized to, as saved (or, while "Your daily targets" is showing, as typed there). */
+/** The numbers a week is sized to, as saved. */
 export type WeekPerson = PlanPerson;
 
-/** The weeks being worked out now, by their inputs, so step 10 waits for the one "Your daily targets" started instead of doing the same sums twice. */
+/** The weeks being worked out now, by their inputs, so Your plan waits for the one How active are you? started instead of doing the same sums twice. */
 const inflight = new Map<string, Promise<WeekPreview>>();
 function previewOnce(inputs: WeekPreviewInputs, load: ShopLoader, signal?: AbortSignal): Promise<WeekPreview> {
   const key = JSON.stringify([inputs.shop, inputs.person, inputs.diet, !!inputs.under18]);
   const known = inflight.get(key);
   if (known) return known;
-  const p = weekPreview(inputs, { load, ...(signal ? { signal } : {}) }).finally(() => inflight.delete(key));
+  // keepNarrow: a week far from the numbers is shown with its real numbers (and said), never hidden
+  const p = weekPreview(inputs, { load, keepNarrow: true, ...(signal ? { signal } : {}) }).finally(() => inflight.delete(key));
   inflight.set(key, p);
   return p;
 }
 
 /**
- * Works the week out ahead (while "Your daily targets" is showing, 600 ms after the last change), into planPreview's cache, so step 10 and Meal plan's first open
- * find it made. Stops between chunks when `signal` is aborted (a number changed again, or the screen was left). Never throws.
+ * Works the week out ahead (while How active are you? is showing, once a tile is tapped), into planPreview's cache, so Your plan and Meal plan's first open find
+ * it made. Stops between chunks when `signal` is aborted (another tile was tapped, or the screen was left). Never throws.
  */
 export async function prepareWeek(person: WeekPerson, diet: DietPrefs, shops: readonly string[] | undefined, signal: AbortSignal): Promise<void> {
   try {
@@ -65,17 +65,47 @@ export async function prepareWeek(person: WeekPerson, diet: DietPrefs, shops: re
     if (!shop || signal.aborted) return;
     await previewOnce({ shop, diet, person }, loadShopFile, signal);
   } catch {
-    /* nothing to prepare: step 10 works it out itself */
+    /* nothing to prepare: Your plan works it out itself */
   }
 }
 
 type Shown = { kind: "working" } | { kind: "words" } | { kind: "week"; preview: WeekPreview & { ok: true } };
 
-/** Step 10's window and the lines under it. `under18`: nothing is worked out. `planLine`: the replay's line for someone who already has a plan this week. */
+/** One picture of the timetable: our recipe's illustration, or its meal's drawing on the page fill. */
+function Thumb({ recipeId, meal }: { recipeId: string; meal: MealType }) {
+  const [failed, setFailed] = useState(false);
+  const src = RECIPE_IMAGES[recipeId];
+  if (src && !failed) {
+    // eslint-disable-next-line @next/next/no-img-element -- our own recipe's illustration, a static file named by its hash
+    return <img src={assetUrl(src)} alt="" width={160} height={160} loading="lazy" decoding="async" onError={() => setFailed(true)} className="aspect-square w-full rounded-xl bg-fill object-cover" />;
+  }
+  const Icon = (MEAL_LOOK[meal] ?? MEAL_LOOK.dinner).Icon;
+  return <span className="grid aspect-square w-full place-items-center rounded-xl bg-fill text-muted"><Icon className="h-6 w-6" /></span>;
+}
+
+const GRID = "grid grid-cols-[2.5rem_repeat(3,minmax(0,1fr))_3.5rem] items-center gap-x-1.5";
+
+/** Seven rows of page-fill squares where the week will be (no digits). */
+function TimetableSkeleton() {
+  return (
+    <div aria-hidden className="space-y-1.5 pt-7">
+      {Array.from({ length: 7 }, (_, i) => (
+        <div key={i} className={GRID}>
+          <span className="h-3.5 w-8 rounded bg-background" />
+          {[0, 1, 2].map((j) => <span key={j} className="aspect-square w-full rounded-xl bg-background" />)}
+          <span className="ms-auto h-3.5 w-10 rounded bg-background" />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/** Your plan's week. `under18`: nothing is worked out (the words-only line). `planLine`: the replay's line for someone who already has a plan this week. */
 export function WeekShowcase({ under18 = false, planLine = false }: { under18?: boolean; planLine?: boolean }) {
   const t = useT();
   const settings = useSettings();
   const isPro = useIsPro();
+  const premium = GATING_ENABLED && !isPro;
   const manifest = useShopManifest();
   const language = useLanguage();
   const { shop, leftAll } = previewShop(manifest, settings.shops);
@@ -97,9 +127,9 @@ export function WeekShowcase({ under18 = false, planLine = false }: { under18?: 
       const file = loadShopFile(shop);
       const loaded = await Promise.race([file.then(() => "ready" as const, () => "failed" as const), sleep(FILE_WAIT_MS)]);
       if (loaded !== "ready") return show({ kind: "words" });
-      // the sums carry on after the cap (they fill the cache Meal plan's first open reads), but the screen keeps its words-only form
+      // the sums carry on after the cap (they fill the cache Meal plan's first open reads), but the screen keeps its words-only line
       const inputs = { shop, diet: settings.preferences, person };
-      const work = previewOnce(inputs, () => file).then((r) => (!r.ok && r.reason === "stopped" ? weekPreview(inputs, { load: () => file }) : r));
+      const work = previewOnce(inputs, () => file).then((r) => (!r.ok && r.reason === "stopped" ? weekPreview(inputs, { load: () => file, keepNarrow: true }) : r));
       const result = await Promise.race([work, sleep(WORK_WAIT_MS)]);
       show(result !== "late" && result.ok ? { kind: "week", preview: result } : { kind: "words" });
     })();
@@ -108,50 +138,71 @@ export function WeekShowcase({ under18 = false, planLine = false }: { under18?: 
 
   const value: Shown = shown.key === key ? shown.value : { kind: "working" };
   const preview = value.kind === "week" ? value.preview : null;
-  const meals = preview?.firstDay ?? [];
-  // the day shown, by name: the example week starts on a Monday (16 November 2026 was one), so day 2 is Wednesday
-  const dayName = new Intl.DateTimeFormat(localeInfo(language).htmlLang, { weekday: "long" }).format(new Date(2026, 10, 16 + (preview?.day ?? 0), 12));
-  const average = preview ? t("About {kcal} kcal and {protein} g protein a day (your target is {target} kcal).", { kcal: formatInt(preview.average.kcal), protein: formatInt(preview.average.protein), target: formatInt(settings.dailyCalories) }) : "";
-  const total = preview ? formatInt(Math.round(preview.total)) : "";
-  const names = meals.map((m) => t(m.name));
-  const spoken = preview
-    ? GATING_ENABLED
-      ? t("Example from Meal plan, part of Premium: {day}: {breakfast}, {lunch}, {dinner}. About {kcal} calories and {protein} grams of protein a day. A week's shopping at {shop}, about £{total}.", { day: dayName, breakfast: names[0] ?? "", lunch: names[1] ?? "", dinner: names[2] ?? "", kcal: formatInt(preview.average.kcal), protein: formatInt(preview.average.protein), shop: shopName, total })
-      : t("Example from Meal plan: {day}: {breakfast}, {lunch}, {dinner}. About {kcal} calories and {protein} grams of protein a day. A week's shopping at {shop}, about £{total}.", { day: dayName, breakfast: names[0] ?? "", lunch: names[1] ?? "", dinner: names[2] ?? "", kcal: formatInt(preview.average.kcal), protein: formatInt(preview.average.protein), shop: shopName, total })
-    : undefined;
-  const also = alsoInPremium();
+  const dayName = (i: number, weekday: "short" | "long") => new Intl.DateTimeFormat(localeInfo(language).htmlLang, { weekday }).format(new Date(2026, 10, 16 + i, 12)); // 16 November 2026 was a Monday
+  const gap = preview ? weekGap(preview) : null;
+  // a GLP-1 meal size keeps the day under the calories: said, so the row ends don't read as a mistake
+  const capped = preview && settings.goal === "glp1" && preview.sizedTo < settings.dailyCalories - 30 ? settings.glp1MealCap : null;
+  // the number the gap is said against: the person's own daily calories (the big number above), or the capped day under a GLP-1 meal size
+  const gapTarget = preview ? (capped !== null ? preview.sizedTo : settings.dailyCalories) : 0;
 
   return (
     <>
-      {/* every ticked shop not in recipes, named (one or several, as step 5 says it) */}
-      {leftAll.length > 0 && preview && <p className="mt-2 text-[0.9375rem] leading-snug text-foreground">{leftAll.length === 1 ? t("{left} isn't in recipes yet, so this week uses {shop}.", { left: leftNames, shop: shopName }) : t("{left} aren't in recipes yet, so this week uses {shop}.", { left: leftNames, shop: shopName })}</p>}
-      <ShowcaseWindow kind="week" loading={value.kind === "working"} status={shopName ? t("Planning your week from {shop}'s recipes…", { shop: shopName }) : undefined} rows={3}>
+      <ShowcaseWindow kind="week" loading={value.kind === "working"} status={shopName ? t("Planning your week from {shop}'s recipes…", { shop: shopName }) : undefined} quiet skeleton={<TimetableSkeleton />}>
         {preview ? (
           <>
-            <p className="sr-only">{spoken}</p>
+            {/* for a screen reader, the week in words; the picture grid below is for the eye */}
+            <ul className="sr-only">
+              {preview.days.map((d, i) => (
+                <li key={i}>{t("{day}: {meals}. {kcal} calories.", { day: dayName(i, "long"), meals: d.meals.map((m) => t(m.name)).join(", "), kcal: formatInt(d.kcal) })}</li>
+              ))}
+            </ul>
+            {/* where Premium is sold, Meal plan's one badge (read by a screen reader too) */}
+            {premium && <p className="mb-2 flex justify-end"><PremiumBadge /></p>}
             <div aria-hidden>
-              <h2 className="text-[1.0625rem] font-[800] leading-snug tracking-[-0.01em]">{dayName}</h2>
-              <ul className="mt-1.5 divide-y divide-line">
-                {meals.map((m, i) => (
-                  <li key={`${m.meal}-${m.recipeId}`} className="py-2 text-base font-semibold leading-snug [overflow-wrap:anywhere]">{t(MEAL_ROW[m.meal], { recipe: names[i] ?? m.name })}</li>
+              <div className={`${GRID} pb-1.5 text-[0.8125rem] font-semibold leading-tight text-muted`}>
+                <span />
+                {COLUMNS.map((c) => <span key={c} className="truncate text-center">{t(COLUMN[c])}</span>)}
+                <span className="text-end">{t("kcal")}</span>
+              </div>
+              <div className="space-y-1.5">
+                {preview.days.map((d, i) => (
+                  <div key={i} className={GRID}>
+                    <span className="text-[0.9375rem] font-bold">{dayName(i, "short")}</span>
+                    {COLUMNS.map((c) => {
+                      const m = d.meals.find((x) => x.meal === c);
+                      return m ? <Thumb key={c} recipeId={m.recipeId} meal={c} /> : <span key={c} className="aspect-square w-full rounded-xl bg-background" />;
+                    })}
+                    <span className="app-numbers text-end text-[1rem] font-bold">{formatInt(d.kcal)}</span>
+                  </div>
                 ))}
-              </ul>
-              <p className="app-numbers mt-2 text-[0.9375rem] leading-snug text-foreground">{average}</p>
-              <p className="app-numbers mt-1.5 text-[0.9375rem] font-semibold leading-snug text-foreground">{t("Shopping for the week at {shop}: about £{total}", { shop: shopName, total })}</p>
-              <p className="mt-1.5 text-[0.9375rem] leading-snug text-foreground">{t("Everything goes on one shopping list.")}</p>
+              </div>
             </div>
-            <p className="mt-3 border-t border-line pt-3 text-[0.9375rem] leading-snug text-muted">{t("This week isn't kept. Open Meal plan on Home to make it yours, for you or everyone you cook for.")}</p>
+            {/* never hidden: how far the week is from the numbers, in one line */}
+            {gap && (
+              <p className="mt-3 text-[0.9375rem] font-semibold leading-snug text-foreground">
+                {gap.kind === "short"
+                  ? t("Our recipes can't reach {target} kcal yet: about {kcal} a day.", { target: formatInt(gapTarget), kcal: formatInt(gap.kcal) })
+                  : t("Our recipes can't go down to {target} kcal yet: about {kcal} a day.", { target: formatInt(gapTarget), kcal: formatInt(gap.kcal) })}
+              </p>
+            )}
+            {capped !== null && <p className="mt-2 text-[0.9375rem] leading-snug text-foreground">{t("Each meal is kept to your {cap} kcal meal size.", { cap: formatInt(capped) })}</p>}
+            {/* the week's shopping as two small cards side by side (one a row at the largest text sizes), at the normal text size */}
+            <ul className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-3">
+              <li className="app-numbers flex min-h-14 items-center gap-2.5 rounded-[1.25rem] border border-line bg-card px-3.5 py-2.5 text-[1rem] font-bold leading-snug">
+                <BasketIcon aria-hidden className="h-6 w-6 shrink-0 text-accent" /><span className="min-w-0">{t("About £{n} for the week", { n: formatInt(Math.round(preview.total)) })}</span>
+              </li>
+              <li className="flex min-h-14 items-center gap-2.5 rounded-[1.25rem] border border-line bg-card px-3.5 py-2.5 text-[1rem] font-bold leading-snug">
+                <ListIcon aria-hidden className="h-6 w-6 shrink-0 text-accent" /><span className="min-w-0">{t("1 shopping list")}</span>
+              </li>
+            </ul>
+            {leftAll.length > 0 && <p className="mt-3 text-[0.9375rem] leading-snug text-foreground">{leftAll.length === 1 ? t("{left} isn't in recipes yet, so this week uses {shop}.", { left: leftNames, shop: shopName }) : t("{left} aren't in recipes yet, so this week uses {shop}.", { left: leftNames, shop: shopName })}</p>}
+            <p className="mt-2 text-sm leading-snug text-muted">{t("Prices are {shop}'s shelf prices, checked {date}, and vary by store.", { shop: shopName, date: formatDate(preview.checkedOn, t) })}</p>
           </>
         ) : (
-          <p role="status" className="text-[0.9375rem] leading-snug text-foreground">{t("Meal plan makes a week of meals from your shop, sized to your numbers, with one shopping list. You'll find it on Home.")}</p>
+          <p role="status" className="text-[0.9375rem] leading-snug text-foreground">{t("Meal plan makes your week from your shop, with one shopping list.")}</p>
         )}
       </ShowcaseWindow>
-      <div className="mt-3 space-y-2 text-[0.9375rem] leading-snug text-foreground">
-        {planLine && <p className="font-semibold">{t("You already have a plan for this week. Open Meal plan on Home.")}</p>}
-        {also && <p>{t(also)}</p>}
-        {GATING_ENABLED && !isPro && <p>{t(FREE_PREMIUM_LINE)}</p>}
-        {preview && <p>{t("Prices are {shop}'s shelf prices, checked {date}, and vary by store.", { shop: shopName, date: formatDate(preview.checkedOn, t) })}</p>}
-      </div>
+      {planLine && <p className="mt-3 text-[0.9375rem] font-semibold leading-snug text-foreground">{t("You already have a plan for this week. Open Meal plan on Home.")}</p>}
     </>
   );
 }

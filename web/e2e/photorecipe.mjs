@@ -35,13 +35,16 @@ const RECIPE = {
   ],
 };
 
-async function open(settings = {}, viewport = { width: 390, height: 844 }) {
+/** A phone set up with Premium previewed. Pip's AI permission for Make it at home (mm.v1.aiOk, the 20 November 2026 audit) is already given, unless `ask`:
+ *  the step that checks the permission sheet itself starts without it. */
+async function open(settings = {}, viewport = { width: 390, height: 844 }, { ask = false } = {}) {
   const ctx = await browser.newContext({ viewport, hasTouch: true, isMobile: true, serviceWorkers: "block", locale: "en-GB", permissions: ["camera"] });
-  await ctx.addInitScript((s) => {
+  await ctx.addInitScript(([s, ok]) => {
     if (sessionStorage.getItem("seeded")) return;
     sessionStorage.setItem("seeded", "1");
     localStorage.setItem("mm.v1.settings", s);
-  }, JSON.stringify({ v: 1, data: { ...baseSettings, ...settings } }));
+    if (ok) localStorage.setItem("mm.v1.aiOk", JSON.stringify({ v: 1, data: ["photoRecipe"] }));
+  }, [JSON.stringify({ v: 1, data: { ...baseSettings, ...settings } }), !ask]);
   const page = await ctx.newPage();
   const errors = [];
   const sent = { recipe: [] };
@@ -143,12 +146,36 @@ await step("a free person who opens the address sees the Premium screen, not the
   await ctx.close();
 });
 
+await step("Pip's AI permission: the first Next asks once what is sent to Anthropic; Not now sends nothing and stays; Allow goes on to the camera and is kept on this phone", async () => {
+  const { ctx, page, errors, sent } = await open({}, undefined, { ask: true });
+  await pretend(page, sent);
+  await toDescribe(page);
+  await fillDish(page);
+  await page.getByRole("button", { name: "Next", exact: true }).tap();
+  const sheet = page.getByRole("dialog", { name: "Pip uses AI for this" });
+  await sheet.waitFor({ timeout: 5000 });
+  await sheet.getByText(/^Pip uses AI from Anthropic \(the company that makes Claude\)\. We send: /).waitFor();
+  await sheet.getByRole("button", { name: "Not now", exact: true }).tap();
+  await sheet.waitFor({ state: "hidden", timeout: 5000 });
+  await page.getByLabel("Name of the dish").waitFor();
+  expect((await page.evaluate(() => localStorage.getItem("mm.v1.aiOk"))) === null, "Not now kept a permission");
+  await page.getByRole("button", { name: "Next", exact: true }).tap();
+  await sheet.waitFor({ timeout: 5000 });
+  await sheet.getByRole("button", { name: "Allow", exact: true }).tap();
+  await page.locator("dialog[open]").filter({ has: page.getByRole("heading", { name: "Scan your food" }) }).waitFor({ timeout: 5000 });
+  const kept = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.aiOk") ?? "null")?.data);
+  expect(JSON.stringify(kept) === '["photoRecipe"]', "the permission isn't kept: " + JSON.stringify(kept));
+  expect((sent.describe?.length ?? 0) === 0 && sent.recipe.length === 0, "something was sent before a photo");
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
 await step("a thin name gets the nudge; a description clears it; Next opens the camera", async () => {
   const { ctx, page, errors } = await open();
   await toDescribe(page);
   await page.getByLabel("Name of the dish").fill("wings");
   await page.getByRole("button", { name: "Next", exact: true }).tap();
-  await page.getByText("Add a bit more, like the flavour or sauce, so the recipe matches your photo.").waitFor();
+  await page.getByText("Add a bit more, like the flavour or sauce.").waitFor();
   await page.getByRole("button", { name: "Carry on anyway" }).waitFor();
   await page.getByLabel("A short description").fill("Smoky paprika wings with spicy rice");
   await page.waitForFunction(() => !document.body.innerText.includes("Add a bit more"), null, { timeout: 3000 });
@@ -314,14 +341,15 @@ await step("a photo picked from the phone is scanned the same way; Next shows th
   const { ctx, page, errors, sent } = await open();
   await pretend(page, sent);
   await toShops(page);
-  await page.getByText("we send your photo (made smaller on your phone first)", { exact: false }).waitFor();
+  // the one short line on what is sent (the words pass of 20 November 2026; the permission sheet says it in full)
+  await page.getByText("We send your photo (made smaller), your words, your diet and allergies", { exact: false }).waitFor();
   const next = page.getByRole("button", { name: "Next", exact: true });
   await page.waitForFunction(() => ![...document.querySelectorAll("button")].find((b) => b.textContent?.trim() === "Next")?.disabled, null, { timeout: 30000 });
   await next.tap();
   // the working screen (founder 2026-11-20: no fake progress): the photo, "Writing your recipe" with a real clock, what Pip works from, then what came back
   await page.getByRole("heading", { name: "Writing your recipe" }).waitFor({ timeout: 3000 });
   expect((await page.locator(".work-track").count()) === 1 && (await page.locator(".work-shimmer, .work-bar").count()) === 0, "the working bar isn't the plain one");
-  await page.getByText("Sainsbury's products, each with its own label and price", { exact: false }).first().waitFor();
+  await page.getByText(/^[\d,]+ Sainsbury's products$/).first().waitFor();
   await page.getByRole("heading", { name: "Your recipe is ready" }).waitFor({ timeout: 15000 });
   await page.getByText(/^\d+ ingredients chosen from Sainsbury's$/).first().waitFor();
   await page.getByRole("heading", { name: RECIPE.name }).waitFor({ timeout: 15000 });
@@ -333,7 +361,7 @@ await step("a photo picked from the phone is scanned the same way; Next shows th
   await page.getByRole("tab", { name: "Method" }).tap();
   for (const title of ["Cook the rice", "Coat the chicken", "Cook the chicken", "Serve"]) await page.getByRole("heading", { name: title, exact: true }).waitFor();
   // saved the moment it's made (founder 2026-11-18: "When the person makes a recipe it automatically becomes a saved recipe")
-  await page.getByText("Saved to My recipes. You can take it out there any time.").waitFor();
+  await page.getByText("Saved to My recipes.").first().waitFor();
   const mine = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.myRecipes") ?? "null")?.data ?? []);
   expect(mine.length === 1 && mine[0].name === RECIPE.name, "the recipe wasn't saved");
   expect(errors.length === 0, errors.join(" | "));
@@ -352,14 +380,15 @@ await step("Pip's recipe is saved as it's made: the button beside the title says
   const mine = () => page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.myRecipes") ?? "null")?.data ?? []);
   await toRecipe();
   // Save sits at the photo's top right, in place of the Settings cog (founder 2026-11-20: "Move the save into the top right instead of settings")
-  const top = page.getByRole("button", { name: "Saved to My recipes" }).first();
-  await top.waitFor({ timeout: 3000 });
+  // a recipe Pip wrote can't be unsaved here (My recipes takes it out), so it is a plain "Saved" that says so, not a toggle that does nothing
+  const top = page.getByRole("status").filter({ hasText: "Saved to My recipes" }).first();
+  await top.waitFor({ timeout: 5000 });
   const box = await top.boundingBox();
   const vw = page.viewportSize().width;
   expect(box && box.y < 80 && box.x + box.width > vw - 40, "Saved isn't at the photo's top right: " + JSON.stringify({ box, vw }));
   expect((await page.getByRole("link", { name: /^Settings/ }).count()) === 0, "the Settings cog is still on the recipe");
-  expect((await top.getAttribute("aria-pressed")) === "true", "the Save button isn't pressed");
-  expect((await top.innerText()).trim() === "Saved", "the button doesn't say Saved");
+  expect(!(await top.evaluate((el) => el.tagName === "BUTTON")), "Saved is a button that does nothing");
+  expect((await top.innerText()).trim().startsWith("Saved"), "it doesn't say Saved: " + (await top.innerText()));
   // nothing to ask on the way out: it's already kept
   await page.getByRole("link", { name: /^Back/ }).first().tap();
   await page.waitForURL((u) => !u.pathname.endsWith("/recipes/photo"), { timeout: 8000 });
@@ -389,7 +418,7 @@ await step("the photo becomes the saved recipe's picture: on its card in My meal
   await page.waitForFunction(() => ![...document.querySelectorAll("button")].find((b) => b.textContent?.trim() === "Next")?.disabled, null, { timeout: 30000 });
   await page.getByRole("button", { name: "Next", exact: true }).tap();
   await page.getByRole("heading", { name: RECIPE.name }).waitFor({ timeout: 15000 });
-  await page.getByText("Saved to My recipes. You can take it out there any time.").waitFor();
+  await page.getByText("Saved to My recipes.").first().waitFor();
   // the photo is kept on the phone (IndexedDB), and NOT inside the saved recipe that syncs to an account
   const kept = (await until(() => keptPhotos(page), (v) => Array.isArray(v) && v.length === 1))?.[0];
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.myRecipes") ?? "null")?.data ?? []);
@@ -468,6 +497,7 @@ await step("without a camera the same screen offers the phone's camera and photo
     if (sessionStorage.getItem("seeded")) return;
     sessionStorage.setItem("seeded", "1");
     localStorage.setItem("mm.v1.settings", s);
+    localStorage.setItem("mm.v1.aiOk", JSON.stringify({ v: 1, data: ["photoRecipe"] })); // Pip's AI permission already given (its own step checks the sheet)
     Object.defineProperty(navigator, "mediaDevices", { value: undefined, configurable: true });
   }, JSON.stringify({ v: 1, data: baseSettings }));
   const page = await ctx.newPage();

@@ -30,17 +30,17 @@ async function axe(where) {
   expect(v.length === 0, `${where}: ${v.join(" | ")}`);
 }
 
-await step("the first open's check screen: Who's eating: Just me first; its Change asks how many: Just me to begin with, then 3 of us; the steps become nine", async () => {
+await step("the first open's check screen: Who's eating: Just me first; its Change asks how many: Just me to begin with (nine steps since the style step of 20 November 2026), then 3 of us; the steps become ten", async () => {
   await page.goto(BASE + "/app/plan");
   await h1("Ready to make your plan?").waitFor({ timeout: 120000 });
   const first = await page.locator("main ul li").first().innerText();
   expect(first.includes("Who's eating") && first.includes("Just me"), "Who's eating first: " + first);
   await tap("Change: Who's eating");
   await h1("How many people are you cooking for?").waitFor();
-  await page.getByText("Step 1 of 8").waitFor();
+  await page.getByText("Step 1 of 9").waitFor();
   expect((await page.getByRole("radio", { name: "Just me" }).getAttribute("aria-checked")) === "true", "Just me to begin with");
   await page.getByRole("radio", { name: "3 of us" }).click();
-  await page.getByText("Step 1 of 9").waitFor();
+  await page.getByText("Step 1 of 10").waitFor();
   await tap("Continue");
 });
 
@@ -56,7 +56,7 @@ await step("who's eating: a card for each other person, a grown-up to begin with
   await cards.nth(1).getByRole("radio", { name: "Bigger" }).click();
   await cards.nth(1).getByText("They get a grown-up's portion.").waitFor();
   await cards.nth(1).getByRole("radio", { name: "Usual" }).click();
-  await cards.nth(1).getByLabel("Their name (you can leave it out)").fill("Sam");
+  await cards.nth(1).getByLabel("Their name (optional)").fill("Sam");
   await axe("who's eating");
   await tap("Continue");
 });
@@ -83,6 +83,11 @@ await step("meals, shops, then the home's allergies (the button says the usual a
   await page.getByRole("button", { name: /^No onion or garlic/ }).click();
   expect((await page.getByRole("button", { name: /^No onion or garlic/ }).getAttribute("aria-pressed")) === "true", "ticked");
   await axe("diets at home");
+  await tap("Continue");
+  // how they like to eat (founder 2026-11-20): three picture tiles, Balanced to start with
+  await h1("How do you like to eat?").waitFor();
+  expect((await page.getByRole("radiogroup", { name: "How do you like to eat?" }).getByRole("radio").count()) === 3, "three ways to eat");
+  await axe("how you like to eat");
   await tap("Continue");
   await h1("Anything someone won't eat?").waitFor();
   await tap("Nothing to leave out");

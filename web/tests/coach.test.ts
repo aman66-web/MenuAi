@@ -265,10 +265,11 @@ describe("the tips on each tab", () => {
     expect(titles("groceries")).toEqual(["Your supermarkets", "Search every shop", "Scan a barcode"]);
     expect(titles("recipes")).toEqual(["Choose a meal", "My recipes"]);
     // the Your day line is true whether Home's pages slide with dots or stack with none (the 30-person audit, 20 November 2026)
-    expect(coachStepsFor("home")[0]!.text).toBe("What you've eaten today and what's left, and your week.");
+    expect(coachStepsFor("home")[0]!.text).toBe("What you've eaten, what's left, and your week.");
     expect(coachStepsFor("home")[0]!.text).not.toMatch(/slide|dots|swipe/i);
-    // the Scan your food tip says what its card and button say: calories and macros
-    expect(COACH_STEPS.home.find((s) => s.title === "Scan your food")!.text).toContain("calories and macros");
+    // the Scan your food tip says what its two buttons say ("Photo to calories", "Photo to recipe"; founder 2026-11-20: "calories" rather than "macros")
+    expect(COACH_STEPS.home.find((s) => s.title === "Scan your food")!.text).toContain("calories");
+    expect(COACH_STEPS.home.find((s) => s.title === "Scan your food")!.text).toContain("recipe");
     expect(coachStepsFor("home")[0]!.at).toBe('[data-coach="home-numbers"]');
   });
 

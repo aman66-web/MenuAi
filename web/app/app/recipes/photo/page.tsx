@@ -86,7 +86,7 @@ function Working({ dish, about, shopName, productCount, target, avoid, photoUrl,
   const secs = Math.max(0, Math.round((now - started) / 1000));
   const rows: Array<[string, ReactNode]> = [
     [t("Dish"), <><span className="font-bold">{dish}</span>{about && <span className="mt-0.5 line-clamp-2 block text-muted">{about}</span>}</>],
-    [t("Choosing from"), t("{n} {shop} products, each with its own label and price", { n: productCount.toLocaleString("en-GB"), shop: shopName })],
+    [t("Choosing from"), t("{n} {shop} products", { n: productCount.toLocaleString("en-GB"), shop: shopName })],
     [t("Each serving"), target.protein ? t("About {kcal} kcal and {protein} g protein", { kcal: target.kcal.toLocaleString("en-GB"), protein: Math.round(target.protein) }) : t("About {kcal} kcal", { kcal: target.kcal.toLocaleString("en-GB") })],
     ...(avoid.length ? [[t("Your diet"), avoid.join(", ")] as [string, ReactNode]] : []),
   ];
@@ -126,7 +126,7 @@ function Working({ dish, about, shopName, productCount, target, avoid, photoUrl,
           ))}
         </ul>
       ) : (
-        <p className="mt-4 text-[0.9375rem] leading-snug text-muted">{t("Pip reads your photo and your words, and chooses a real {shop} product for each part of the dish. Then every amount, price and nutrition figure is worked out from those products' own labels. It can take up to a minute.", { shop: shopName })}</p>
+        <p className="mt-4 text-[0.9375rem] leading-snug text-muted">{t("Pip picks a real {shop} product for each part of the dish, then works out every figure from their labels. It can take up to a minute.", { shop: shopName })}</p>
       )}
     </div>
   );
@@ -341,7 +341,7 @@ function PhotoScreen() {
       <div>
         {back}
         <h1 className={H1}>{t("Make it at home")}</h1>
-        <div className="mt-4"><PipSays mood="wave" size={64}>{t("Make it at home is part of Premium. Snap a dish you've loved, or upload a photo of it, and I'll write a recipe you can cook from your supermarket.")}</PipSays></div>
+        <div className="mt-4"><PipSays mood="wave" size={64}>{t("Make it at home is part of Premium. Snap a dish you loved and I'll write a recipe from your supermarket.")}</PipSays></div>
         <div className="mt-5 grid gap-3">
           <Button full className="min-h-14 text-lg" onClick={() => showPaywall("photoRecipe")}>{t("See Premium")}</Button>
           <Link href={nav.href} onClick={nav.onClick} replace className="flex min-h-14 items-center justify-center rounded-full border-[1.5px] border-edge bg-card px-5 text-base font-semibold text-foreground transition hover:bg-background active:scale-[0.97]">{t("Back to the recipes")}</Link>
@@ -371,7 +371,7 @@ function PhotoScreen() {
           <>
             {savedId ? (
               <p role="status" className="glass rounded-[1.25rem] p-4 text-center font-semibold">
-                {t("Saved to My recipes. You can take it out there any time.")} <Link href={`/app/recipes/view?mine=${savedId}&r=${shop}`} className="text-accent underline underline-offset-2">{t("Open it")}</Link>
+                {t("Saved to My recipes.")} <Link href={`/app/recipes/view?mine=${savedId}&r=${shop}`} className="text-accent underline underline-offset-2">{t("Open it")}</Link>
                 {dropped && <span className="mt-1.5 block text-[0.9375rem] font-medium text-muted">{t("My recipes keeps {n}, so the oldest, {name}, made room.", { n: MAX_SAVED_RECIPES, name: dropped })}</span>}
               </p>
             ) : (
@@ -393,7 +393,7 @@ function PhotoScreen() {
       {(step === "describe" || step === "camera") && (
         <section aria-labelledby="describe-intro">
           <Steps current={1} />
-          <div id="describe-intro" className="mt-5"><PipSays mood="wave" size={64}>{t("Tell me what you'd like to make. Then snap it, or upload a photo of it from your phone. The more detail you give, the better the recipe will match.")}</PipSays></div>
+          <div id="describe-intro" className="mt-5"><PipSays mood="wave" size={64}>{t("Name the dish, then take or upload a photo of it.")}</PipSays></div>
 
           <div className="glass mt-5 rounded-[1.5rem] p-5 shadow-[var(--card-shadow)]">
             <div onFocus={() => setFocusPart(1)}>
@@ -411,7 +411,7 @@ function PhotoScreen() {
               onChange={(e) => setName(e.target.value)}
               placeholder={t("For example: salsa chicken tacos")}
             />
-            <p id="dish-help" className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Be as specific as you can: the flavour, the sauce and how it's cooked. For example, 'peri-peri chicken wings with spicy rice', not just 'chicken wings'.")}</p>
+            <p id="dish-help" className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Be specific: 'peri-peri chicken wings', not just 'chicken wings'.")}</p>
             </div>
 
             <div className="my-5 h-px bg-[color:var(--line)]" aria-hidden />
@@ -434,7 +434,6 @@ function PhotoScreen() {
               onChange={(e) => setAbout(e.target.value)}
               placeholder={t("For example: honey-glazed chicken tacos with sweet corn salsa and lime crema")}
             />
-            <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("It helps Pip choose the right ingredients, so the recipe matches your dish more closely.")}</p>
             </div>
 
             <div className="my-5 h-px bg-[color:var(--line)]" aria-hidden />
@@ -444,7 +443,7 @@ function PhotoScreen() {
                 <span aria-hidden className={stepNumber(part === 3)}>3</span>
                 <p id="exclude-title" className="min-w-0 flex-1 text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("What to exclude")}</p>
               </div>
-              <p id="exclude-help" className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Tick anything you don't eat, and Pip leaves it out. It starts with your diet from Settings; changes here are for this recipe only.")}</p>
+              <p id="exclude-help" className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Tick what you don't eat. Changes here are for this recipe only.")}</p>
               <div role="group" aria-label={t("Your diet")} className={`mt-3 ${PICK_GRID}`}>
                 {DIETS.map((d) => {
                   const on = Boolean(diet[d.key]);
@@ -485,14 +484,14 @@ function PhotoScreen() {
                 );
               })()}
               {(diet.vegetarianOnly || diet.veganOnly || diet.pescatarianOnly || diet.halalOnly || (diet.avoidAllergens?.length ?? 0) > 0) && (
-                <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{diet.halalOnly ? t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen or halal labels, so check each pack before you buy.") : t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen labels, so check each pack before you buy.")}</p>
+                <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{diet.halalOnly ? t("Chosen by their ingredients, not the packs' allergen or halal labels: check each pack before you buy.") : t("Chosen by their ingredients, not the packs' allergen labels: check each pack before you buy.")}</p>
               )}
             </div>
           </div>
 
           {photoError && <p role="alert" className="glass mt-3 rounded-[1.25rem] p-4 font-semibold">{t("That photo couldn't be opened. Please try another one.")}</p>}
           {nudged && thin && (
-            <p id="dish-nudge" role="alert" className="glass mt-3 rounded-[1.25rem] p-4 font-semibold">{t("Add a bit more, like the flavour or sauce, so the recipe matches your photo.")}</p>
+            <p id="dish-nudge" role="alert" className="glass mt-3 rounded-[1.25rem] p-4 font-semibold">{t("Add a bit more, like the flavour or sauce.")}</p>
           )}
 
           {/* founder 2026-11-17 ("you can't see the next button ... you have to scroll down"): Next stays in view just above the tab bar, like a recipe's
@@ -523,7 +522,7 @@ function PhotoScreen() {
           {unreadShops.length > 0 && (
             <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("Recipes can't use {shops} yet: we haven't read enough of their products' labels.", { shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(unreadShops) })}</p>
           )}
-          {onlyOneShop && shop && <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("For now, recipes use {shop} products, the shop whose labels we've read. More supermarkets will come as we read theirs.", { shop: shopName })}</p>}
+          {onlyOneShop && shop && <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("For now, recipes use {shop} products. More shops will follow.", { shop: shopName })}</p>}
           {step === "error" && error && <div className="mt-4"><ErrorBox message={t(error)} onRetry={generate} /></div>}
           {!manifest || (shop && products.status === "loading") ? (
             <Spinner label={t("Loading products")} />
@@ -532,11 +531,11 @@ function PhotoScreen() {
           ) : (
             <>
               <p className="mt-5 text-[0.8125rem] leading-snug text-muted">
-                {t("Pip uses AI from Anthropic (the company that makes Claude). To write your recipe we send your photo (made smaller on your phone first), your description, your diet and allergy choices, the meal size and the list of {shop} products it may use. No name, email or account is sent with it, and we don't keep it. The numbers you see are worked out from the products' own labels.", { shop: shopName })}
+                {t("Pip uses AI from Anthropic. We send your photo (made smaller), your words, your diet and allergies, the meal size and the {shop} product list; never your name, email or account. We don't keep it. The numbers come from the products' labels.", { shop: shopName })}
               </p>
               <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-4 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-3">
                 {/* a Next that can't be pressed yet says why above it (colour meeting: never a silent grey button) */}
-                <Button full className="min-h-14 text-lg" disabled={pantry.length < 2 || !photo} reason={!photo ? t("Take or choose a photo of the dish first.") : !shop ? t("Pick a shop first.") : t("Too few {shop} products fit what you exclude. Go back and untick something, or choose another shop.", { shop: shopName })} onClick={generate}>{t("Next")}</Button>
+                <Button full className="min-h-14 text-lg" disabled={pantry.length < 2 || !photo} reason={!photo ? t("Take or choose a photo of the dish first.") : !shop ? t("Pick a shop first.") : t("Too few {shop} products fit what you exclude. Untick something or choose another shop.", { shop: shopName })} onClick={generate}>{t("Next")}</Button>
               </div>
             </>
           )}

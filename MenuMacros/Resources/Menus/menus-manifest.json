@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261120122820,
- "generatedAt": "2026-11-20T12:28:20Z",
+ "dataVersion": 20261120155341,
+ "generatedAt": "2026-11-20T15:53:41Z",
  "chains": [
   {
    "id": "abokado",
@@ -759,8 +759,8 @@
    "name": "Costa Coffee",
    "cuisine": "Coffee",
    "file": "chain-costa.json",
-   "sha256": "8635b8b3500f4a96923aa10ad0cf36b0bc7cd1adf8a49e78e26b4c4204ca644c",
-   "contentHash": "9404131f869fea0d3438eb2c2bfb484271aba366d52936177d20f43916e1c745",
+   "sha256": "c3fcbde3b8993b0282a14b713082ffea86ae5f70f50be39af9d6b9e70a2a444e",
+   "contentHash": "0545e967374f7e97f3313e83a2735dccbcedece2b68542d89c50de914edd62cc",
    "sample": false,
    "itemCount": 141,
    "checkedOn": "2026-10-09"

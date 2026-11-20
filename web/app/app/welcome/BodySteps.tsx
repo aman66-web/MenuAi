@@ -1,93 +1,161 @@
 "use client";
 
-import type { BodyAnswers } from "@/lib/mm/onboardingPlan";
-import type { Activity } from "@/lib/mm/targets";
-import { ActivityTiles, AgeField, BODY_CARD, HeightField, SexTiles, WeightField } from "../_components/BodyFields";
+import { readAge } from "@/lib/mm/bodyUnits";
+import { tk } from "@/lib/mm/i18n";
+import { switchHeightUnit, switchWeightUnit, typeHeight, typeWeight, type BodyAnswers, type BodyProblem } from "@/lib/mm/onboardingPlan";
+import type { Activity, Sex } from "@/lib/mm/targets";
+import { ActivityTiles } from "../_components/BodyFields";
+import { PickTile } from "../_components/DietPicker";
 import { ShieldIcon } from "../_components/icons";
-import { PipSays } from "../_components/Mascot";
+import { NumberDone } from "../_components/SearchDone";
+import { radioKeyNav, Segmented } from "../_components/ui";
 import { useT } from "../_lib/i18n";
-import { HEADLINE } from "./parts";
+import { H1 } from "./Frame";
+import { GAP, HEADLINE, SUBLINE } from "./parts";
+import { CounterText } from "./QuestionSteps";
 
-// The three questions before "Your daily targets" (founder 2026-10-16: "3 screens asking their age and then another thing asking another thing"), steps 6 to 8:
-// About you (sex and age), Your height and weight (each in the unit the person uses) and how active they are. The page owns the answers and the buttons; these
-// draw one screen's questions each. What is typed is kept in the page's React state only and used once, to work out the suggested targets (CLAUDE.md rule 4:
-// never stored, never sent), and every screen says so on its own line at 16 px, before anything is typed.
-// The 20 November 2026 audit: About you says it once ("Only to work out your daily calories. Nothing here is saved or sent anywhere."), so the Age box is
-// on screen at 375x667, first (it is the one answer needed to go on); "Already have a daily calorie number?" sits under the boxes; nothing is ticked for sex
-// until a tile is tapped; the Age box's card has the id the page's grey Continue scrolls to.
-// Pip is off About you and Your height and weight (the onboarding redesign meeting of 20 November 2026: a typed body measurement counts as a number screen, so
-// his sentence stays as plain text in the app's voice). On How active are you? he listens and says it is the last question: that screen has no figure and no
-// typed measurement. He never reacts to what is typed about the person's body.
+// The questions about the person (founder, 20 November 2026): screen 5, About you, asks everything on one clean screen (Male, Female or Prefer not to say as big
+// tiles, then age, height and weight as big number boxes, in cm and kg or feet and stone), and screen 6, How active are you?, is the activity tiles. Both can be
+// skipped (page.tsx's top-right Skip). The age only, never a date of birth. What is typed is kept in the page's React state only and used once, to work out the
+// suggested targets (CLAUDE.md rule 4: never stored, never sent), and About you says so on its own line before anything is typed. No Pip on either.
 
-/** `counter`: "Step n of N", read by a screen reader with the headline (the bar's own words are hidden from it). */
+/** `counter`: "Step n of N", read by a screen reader with the headline. */
 interface StepProps { body: BodyAnswers; change: (patch: Partial<BodyAnswers>) => void; counter?: string }
 
-/** The Age box's card, which the grey Continue on About you brings into view. */
-export const AGE_BOX = "welcome-age";
+/** The id of each box, so a tap on the grey Continue can take the person to the first one that needs them. */
+export const BODY_BOX = { age: "welcome-age", heightMajor: "welcome-height", heightMinor: "welcome-height-minor", weightMajor: "welcome-weight", weightMinor: "welcome-weight-minor" } as const;
 
-/** The privacy promise, on its own line at 16 px in the page's ink, clear of the grey button's reason line. */
-function PrivacyLine() {
-  const t = useT();
+// Male first (the founder's order), "Prefer not to say" on its own row
+const SEX_OPTIONS: ReadonlyArray<{ value: Sex; label: string }> = [
+  { value: "male", label: tk("Male") },
+  { value: "female", label: tk("Female") },
+  { value: "unspecified", label: tk("Prefer not to say") },
+];
+
+/** A big number box with its unit after it ("34 years", "5 ft"). `wide`: three digits and a decimal (age, cm, kg). */
+function NumberBox({ id, label, unit, value, onChange, decimal, wide, invalid }: { id: string; label: string; unit: string; value: string; onChange: (v: string) => void; decimal?: boolean; wide?: boolean; invalid?: boolean }) {
   return (
-    <p className="mt-4 flex items-start gap-2.5 text-base leading-snug text-foreground">
-      <ShieldIcon aria-hidden className="mt-[0.2rem] h-[1.125rem] w-[1.125rem] shrink-0 text-accent" />
-      <span>{t("Your answers are only used to work out your numbers. They aren't saved or sent anywhere.")}</span>
-    </p>
+    <label htmlFor={id} className="inline-flex min-w-0 items-center gap-1.5">
+      <input
+        id={id}
+        aria-label={label}
+        inputMode={decimal ? "decimal" : "numeric"}
+        autoComplete="off"
+        value={value}
+        aria-invalid={invalid || undefined}
+        onChange={(e) => onChange(e.target.value)}
+        className={`app-numbers h-14 min-w-0 scroll-mb-52 scroll-mt-24 rounded-2xl border-[1.5px] bg-card px-1 text-center text-[2rem] font-semibold leading-none ${invalid ? "border-ink" : "border-edge"} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${wide ? "w-[6.5rem]" : "w-[4.5rem]"}`}
+      />
+      <span aria-hidden className="shrink-0 text-[1.0625rem] font-semibold text-muted">{unit}</span>
+    </label>
   );
 }
 
-function Counter({ text }: { text?: string }) {
-  return text ? <span className="sr-only">{`, ${text}`}</span> : null;
+/** One row: its name at the start, its boxes after it. */
+function Row({ name, children }: { name: string; children: React.ReactNode }) {
+  return (
+    <div role="group" aria-label={name} className="flex min-h-16 flex-wrap items-center gap-x-3 gap-y-2 py-1.5">
+      <span aria-hidden className="w-[4.5rem] shrink-0 text-[1.125rem] font-bold">{name}</span>
+      <span className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-2">{children}</span>
+    </div>
+  );
 }
 
-/** `sex`: the tile tapped, or null while none is (the sums use "Prefer not to say" until then). */
-export function AboutYouStep({ body, sex, change, counter }: StepProps & { sex: BodyAnswers["sex"] | null }) {
+/**
+ * Screen 5. `sex`: the tile tapped, or null while none is (the sums use "Prefer not to say" until then). `shown`: the problems to point out (after a tap on the
+ * grey Continue; a part of a stone or foot at once).
+ */
+export function AboutYouStep({ body, sex, change, counter, shown }: StepProps & { sex: Sex | null; shown: readonly BodyProblem[] }) {
   const t = useT();
+  const metric = body.height.unit === "cm";
+  // one switch for both: feet and stone, or centimetres and kilograms (what is typed is converted, as Settings' form does it)
+  const setMetric = (m: boolean) => change({ height: switchHeightUnit(body.height, m ? "cm" : "ft"), weight: switchWeightUnit(body.weight, m ? "kg" : "st") });
+  const bad = (p: BodyProblem) => shown.includes(p);
   return (
     <>
-      <h1 className={HEADLINE}>{t("About you")}<Counter text={counter} /></h1>
-      <p className="mt-3 flex items-start gap-2.5 text-base leading-snug text-foreground">
+      <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{t("About you")}<CounterText text={counter} /></h1>
+      {/* the screen's one grey line (the founder's examples), with the shield that says it is about privacy */}
+      <p className={`${SUBLINE} flex items-start gap-2`}>
         <ShieldIcon aria-hidden className="mt-[0.2rem] h-[1.125rem] w-[1.125rem] shrink-0 text-accent" />
-        <span>{t("Only to work out your daily calories. Nothing here is saved or sent anywhere.")}</span>
+        <span>{t("Only used to work out your numbers. Never saved or sent.")}</span>
       </p>
-      {/* the Age box first: it is the one answer needed to go on, so it is in view above the bottom bar at 375x667 */}
-      <div className="mt-5 space-y-3.5">
-        <div id={AGE_BOX} className={`${BODY_CARD} scroll-mt-6 scroll-mb-52`}><AgeField value={body.age} onChange={(age) => change({ age })} /></div>
-        <div className={BODY_CARD}><SexTiles value={sex} onChange={(s) => change({ sex: s })} /></div>
+      <div role="radiogroup" aria-label={t("Sex")} className={`${GAP} grid grid-cols-2 gap-2.5`}>
+        {SEX_OPTIONS.map((o, i) => (
+          <PickTile
+            key={o.value}
+            on={o.value === sex}
+            role="radio"
+            aria-checked={o.value === sex}
+            // with none ticked yet, the first takes the Tab key, so the group can be reached
+            tabIndex={o.value === sex || (sex === null && i === 0) ? 0 : -1}
+            onClick={() => change({ sex: o.value })}
+            onKeyDown={(e) => radioKeyNav(e, i, SEX_OPTIONS.length, (n) => change({ sex: SEX_OPTIONS[n]!.value }))}
+            className={`text-[1.125rem] font-bold leading-tight ${i === SEX_OPTIONS.length - 1 ? "col-span-full" : ""}`}
+          >
+            {t(o.label)}
+          </PickTile>
+        ))}
       </div>
-      {/* the calorie-number route, with no new screen: skip the questions and type the number on the targets screen */}
-      <p className="mt-4 text-base leading-snug text-foreground">{t("Already have a daily calorie number? Skip these questions and type it in on the next screen.")}</p>
+      <div className={GAP}>
+        <Segmented label={t("Units")} value={metric ? "metric" : "uk"} options={[{ value: "uk", label: t("Feet and stone") }, { value: "metric", label: t("cm and kg") }]} onChange={(v) => setMetric(v === "metric")} />
+      </div>
+      {/* the Done pill (an iPhone's number pad has no Return key) answers to the boxes below */}
+      <div className="group/nums relative mt-3 divide-y divide-line">
+        <Row name={t("Age")}>
+          <NumberBox id={BODY_BOX.age} label={t("Age in years")} unit={t("years")} value={body.age} onChange={(age) => change({ age })} wide invalid={bad("age")} />
+        </Row>
+        <Row name={t("Height")}>
+          {metric ? (
+            <NumberBox id={BODY_BOX.heightMajor} label={t("Centimetres")} unit="cm" value={body.height.major} onChange={(v) => change({ height: typeHeight(body.height, { major: v }) })} decimal wide invalid={bad("height")} />
+          ) : (
+            <>
+              <NumberBox id={BODY_BOX.heightMajor} label={t("Feet")} unit="ft" value={body.height.major} onChange={(v) => change({ height: typeHeight(body.height, { major: v }) })} invalid={bad("height") || bad("height-part")} />
+              <NumberBox id={BODY_BOX.heightMinor} label={t("Inches")} unit="in" value={body.height.minor} onChange={(v) => change({ height: typeHeight(body.height, { minor: v }) })} decimal invalid={bad("height")} />
+            </>
+          )}
+        </Row>
+        <Row name={t("Weight")}>
+          {metric ? (
+            <NumberBox id={BODY_BOX.weightMajor} label={t("Kilograms")} unit="kg" value={body.weight.major} onChange={(v) => change({ weight: typeWeight(body.weight, { major: v }) })} decimal wide invalid={bad("weight")} />
+          ) : (
+            <>
+              <NumberBox id={BODY_BOX.weightMajor} label={t("Stone")} unit="st" value={body.weight.major} onChange={(v) => change({ weight: typeWeight(body.weight, { major: v }) })} invalid={bad("weight") || bad("weight-part")} />
+              <NumberBox id={BODY_BOX.weightMinor} label={t("Pounds")} unit="lb" value={body.weight.minor} onChange={(v) => change({ weight: typeWeight(body.weight, { minor: v }) })} decimal invalid={bad("weight")} />
+            </>
+          )}
+        </Row>
+        <NumberDone />
+      </div>
     </>
   );
 }
 
-export function YourSizeStep({ body, change, counter }: StepProps) {
-  const t = useT();
-  return (
-    <>
-      {/* not "Your size", which read as a clothes size or a judgement (usability test 2026-11-19) */}
-      <h1 className={HEADLINE}>{t("Your height and weight")}<Counter text={counter} /></h1>
-      <p className="mt-3 text-base leading-snug text-foreground">{t("Use whichever units you know. Rather not say? Skip these questions.")}</p>
-      <PrivacyLine />
-      <div className="mt-5 space-y-3.5">
-        {/* height first, in the headline's order */}
-        <div className={BODY_CARD}><HeightField value={body.height} onChange={(height) => change({ height })} /></div>
-        <div className={BODY_CARD}><WeightField value={body.weight} onChange={(weight) => change({ weight })} /></div>
-      </div>
-    </>
-  );
+/** Whether the age typed is under 18 (nothing is worked out then, so height, weight and activity aren't needed). */
+export const typedUnder18 = (age: string): boolean => readAge(age).kind === "under18";
+
+/**
+ * The one line beside About you's grey Continue: what is missing, or the first thing to check (a part of a stone or a foot is said at once; a number that
+ * can't be right after a tap on the grey button).
+ */
+export function aboutProblemLine(t: ReturnType<typeof useT>, body: BodyAnswers, problems: readonly BodyProblem[]): string | null {
+  if (problems.length === 0) return null;
+  if (problems.includes("weight-part")) return t("Use the pounds box for part of a stone.");
+  if (problems.includes("height-part")) return t("Use the inches box for part of a foot.");
+  const typed = (p: BodyProblem) => (p === "age" ? body.age.trim() !== "" : p === "height" ? `${body.height.major}${body.height.minor}`.trim() !== "" : `${body.weight.major}${body.weight.minor}`.trim() !== "");
+  const wrong = problems.find((p) => typed(p));
+  if (wrong === "age") return t("Enter your age as a whole number from 18 to 100.");
+  if (wrong === "height") return t("That height doesn't look right. Please check it.");
+  if (wrong === "weight") return t("That weight doesn't look right. Please check it.");
+  return t("Add your age, height and weight, or tap Skip.");
 }
 
-/** `activity` is null until the person taps a tile (nothing is picked for them); `pick` is their tap. */
+/** Screen 6. `activity` is null until the person taps a tile (nothing is picked for them); `pick` is their tap. */
 export function ActivityStep({ activity, pick, counter }: { activity: Activity | null; pick: (a: Activity) => void; counter?: string }) {
   const t = useT();
   return (
     <>
-      <h1 className={HEADLINE}>{t("How active are you?")}<Counter text={counter} /></h1>
-      <div className="mt-4">
-        <PipSays size={64} mood="listen">{t("Last question. Think of a normal week, not your busiest one.")}</PipSays>
-      </div>
-      <div className="mt-4">
+      <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{t("How active are you?")}<CounterText text={counter} /></h1>
+      <div className={GAP}>
         <ActivityTiles value={activity} onChange={pick} />
       </div>
     </>

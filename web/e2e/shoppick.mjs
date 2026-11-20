@@ -104,7 +104,8 @@ await step("Go with two shops lists both shops' products, each row naming its sh
   await page.getByRole("link", { name: "See products from Sainsbury's and Tesco" }).click();
   await page.getByRole("heading", { level: 1, name: "Your selected shops" }).waitFor();
   await page.getByText("6 products", { exact: true }).waitFor();
-  expect((await page.getByText("Products from Sainsbury's and Tesco").count()) === 1, "names the shops");
+  // the shop chips name the shops (the line under the title went in the words pass, 20 November 2026)
+  { const shopChips = page.getByRole("group", { name: "Shop" }); expect((await shopChips.getByRole("button", { name: "Sainsbury's", exact: true }).count()) === 1 && (await shopChips.getByRole("button", { name: "Tesco", exact: true }).count()) === 1, "names the shops"); }
   const rows = page.locator("ul.space-y-3 > li");
   expect((await rows.filter({ hasText: "Sainsbury's Greek Style" }).count()) === 1 && (await rows.filter({ hasText: "Tesco Greek Style" }).count()) === 1, "a product sold at both shops is two rows");
   // each row says whose it is: the shop's logo at the row's right (founder 2026-11-19), its name for a screen reader

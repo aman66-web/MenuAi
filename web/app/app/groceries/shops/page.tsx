@@ -12,7 +12,7 @@ import { MultiShopScreen } from "./MultiShopScreen";
 function ShopsRoute() {
   const t = useT();
   const shops = parseShops(useSearchParams().get("r"));
-  return shops.length > 0 ? <MultiShopScreen shops={shops} /> : <NoChoice title={t("Choose a supermarket first.")} body={t("Tap Select on the shops you want on Groceries, then see their products together.")} />;
+  return shops.length > 0 ? <MultiShopScreen shops={shops} /> : <NoChoice title={t("Choose a supermarket first.")} body={t("Tap Select on the shops you want.")} />;
 }
 
 export default function ShopsPage() {

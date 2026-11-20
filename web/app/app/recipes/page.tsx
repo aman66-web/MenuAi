@@ -318,7 +318,7 @@ function RecipesScreen() {
   // none of the person's own shops can make recipes yet, so the recipes come from another shop
   const notMine = chosenShops.length > 0 && !!shop && !shopIds.some((id) => chosenShops.includes(id));
   const otherShopNote = notMine && shopName && unreadShops.length
-    ? t("These recipes use {shop} products for now. We haven't read enough of {shops} product labels yet, so their recipes aren't ready.", { shop: shopName, shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(unreadShops.map((n) => poss(n))) })
+    ? t("These recipes use {shop} products for now: we haven't read enough of {shops} labels yet.", { shop: shopName, shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(unreadShops.map((n) => poss(n))) })
     : "";
   const makerOn = useRecipeMakerEnabled();
   const words = dietWords(t, diet);
@@ -411,7 +411,7 @@ function RecipesScreen() {
           <ShopsWorking onDone={closeShops} />
         ) : (
           <>
-            <p className="text-[0.9375rem] leading-snug text-muted">{t("Recipes are made for one shop at a time. Choose where you're shopping; you can change it any time.")}</p>
+            <p className="text-[0.9375rem] leading-snug text-muted">{t("Recipes use one shop at a time.")}</p>
             <div className="mt-3">
               <ShopChoice shops={recipeShops(manifest).map((r) => ({ id: r.id, name: r.name }))} value={shop} onChange={pickShop} />
             </div>
@@ -512,8 +512,8 @@ function RecipesScreen() {
               {(diet.avoidAllergens?.length ?? 0) > 0 && (
                 <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">
                   {diet.halalOnly
-                    ? t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen or halal labels, so check each pack before you buy.")
-                    : t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen labels, so check each pack before you buy.")}
+                    ? t("Chosen by their ingredients, not the packs' allergen or halal labels: check each pack before you buy.")
+                    : t("Chosen by their ingredients, not the packs' allergen labels: check each pack before you buy.")}
                 </p>
               )}
             </div>
@@ -537,7 +537,7 @@ function RecipesScreen() {
           <Pip mood="wave" size={64} />
           <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
             <span className="block text-[1.0625rem] font-bold leading-snug tracking-[-0.01em]">{t("Ask Pip to make a recipe")}{needsPaywall("recipeMaker", { pro }) && <> <PremiumBadge className="ms-1 align-middle" /></>}</span>
-            <span className="block text-[0.9375rem] leading-snug text-muted">{shopName ? t("Say what you fancy and Pip writes one from {shop} products, fitted to your meal and diet.", { shop: poss(shopName) }) : t("Say what you fancy and Pip writes one from your shop's products, fitted to your meal and diet.")}</span>
+            <span className="block text-[0.9375rem] leading-snug text-muted">{shopName ? t("Say what you fancy; Pip writes one from {shop} products.", { shop: poss(shopName) }) : t("Say what you fancy; Pip writes one from your shop's products.")}</span>
           </span>
           <span aria-hidden className="icon-bubble-soft h-10 w-10 shrink-0 transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
         </button>
@@ -619,15 +619,15 @@ function RecipesScreen() {
               {shown.slice(0, limit).map((c) => (<li key={c.recipe.id} className="min-w-0"><RecipeTile card={c} href={href(c)} /></li>))}
             </ul>
             {shown.length > limit && (
-              <div className="mt-4"><Button full variant="secondary" className="min-h-12" onClick={() => { const next = limit + PAGE; setLimit(next); write({ shown: String(next) }); }}>{t("Show more recipes ({n} more)", { n: shown.length - limit })}</Button></div>
+              <div className="mt-4"><Button full variant="secondary" className="min-h-12" onClick={() => { const next = limit + PAGE; setLimit(next); write({ shown: String(next) }); }}>{t("Show {n} more recipes", { n: shown.length - limit })}</Button></div>
             )}
             {leftOut > 0 && <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{leftOut === 1 ? t("1 recipe is left out for your diet.") : t("{n} recipes are left out for your diet.", { n: leftOut })}</p>}
             {/* founder 2026-11-17: recipes come from the shops the person picks; one they can't fill there isn't shown, and the page says how many */}
             {incomplete > 0 && shopNames.length > 0 && (
               <p className="mt-2 px-1 text-[0.9375rem] leading-snug text-muted">
                 {incomplete === 1
-                  ? t("1 more recipe needs something we haven't found at {shops} yet. Choose another shop to see it.", { shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) })
-                  : t("{n} more recipes need something we haven't found at {shops} yet. Choose another shop to see them.", { n: incomplete, shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) })}
+                  ? t("1 more recipe needs something we haven't found at {shops}. Try another shop.", { shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) })
+                  : t("{n} more recipes need something we haven't found at {shops}. Try another shop.", { n: incomplete, shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) })}
               </p>
             )}
           </>
@@ -642,7 +642,7 @@ function RecipesScreen() {
             ? t("Prices from {shop} website, checked {date}; nutrition from each product's label where we've read it, checked {nutritionDate}.", { shop: poss(f.name), date: formatDate(f.checkedOn, t), nutritionDate: formatDate(f.nutritionCheckedOn, t) })
             : t("Prices from {shop} website, checked {date}; nutrition from each product's label where we've read it.", { shop: poss(f.name), date: formatDate(f.checkedOn, t) }))).join(" ")}{" "}
           {otherFigures && <>{t("A recipe that uses UK government figures for loose produce, another shop's label or community numbers says so.")}{" "}</>}
-          {t("\"A serving\" prices only the amounts a serving uses, including the pinch of salt and the spoon of oil. Recipes are chosen for your diet by their ingredients; check each pack.")}{" "}
+          {t("\"A serving\" prices only what one serving uses, salt and oil included. Recipes are chosen for your diet by their ingredients; check each pack.")}{" "}
           {state.files.length > 1 ? t("Not affiliated with {shops}.", { shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(state.files.map((f) => f.name)) }) : t("Not affiliated with {shop}.", { shop: state.files[0]!.name })}
         </p>
       )}

@@ -221,8 +221,9 @@ export default function HomePage() {
           onDone={() => homePagesStore.set(dropCard(homePagesStore.get()))}
         />
       )}
-      {/* the word "today" keeps it true under any of the pages; a restaurant that publishes calories only is named, not called "not entered" */}
-      {gaps.any && <p className="mt-3 px-1 text-sm leading-snug text-muted">{t("Some foods today don't have every figure (typed in without them, or from a restaurant that publishes calories only), so protein, carbs and fat count only the foods that have them.")}</p>}
+      {/* the word "today" keeps it true under any of the pages; never "not entered" (a restaurant may publish calories only). The words pass (20 November 2026):
+          the reasons in brackets went, the honest part stays */}
+      {gaps.any && <p className="mt-3 px-1 text-sm leading-snug text-muted">{t("Some foods today don't list protein, carbs or fat, so those totals count only the foods that do.")}</p>}
 
       {logPaid && (
         <Card className="mt-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 p-4">

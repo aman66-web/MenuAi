@@ -43,7 +43,7 @@ await step("onboarding goal radios work with the arrow keys (roving focus)", asy
   await vis(page.getByRole("radio", { name: "Build muscle", checked: true }));
   await ctx.close();
 });
-await step("GLP-1 onboarding keeps the default comfortable meal size (450) when the setup is skipped from step 3", async () => {
+await step("GLP-1 onboarding keeps the default comfortable meal size (450) when the rest of the setup is skipped", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/welcome");
@@ -51,8 +51,15 @@ await step("GLP-1 onboarding keeps the default comfortable meal size (450) when 
   await page.getByRole("radio", { name: "I'm on a GLP-1 medication" }).click();
   await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("button", { name: "Skip", exact: true }).click(); // foods to avoid
-  await page.getByRole("button", { name: "Skip setup and make my account" }).click(); // step 3's link, to the account (step 11)
-  await vis(page.getByRole("heading", { name: "Save your goal and numbers: make your free account" }));
+  await vis(page.getByRole("heading", { name: /^Where do you shop\?/ }));
+  await page.getByRole("button", { name: "Skip", exact: true }).click(); // the shops
+  await vis(page.getByRole("heading", { level: 1, name: /^Recipes/ }));
+  await page.getByRole("button", { name: "Continue", exact: true }).click(); // the recipes
+  await vis(page.getByRole("heading", { name: /^About you/ }));
+  await page.getByRole("button", { name: "Skip", exact: true }).click(); // About you and How active are you?, to Your plan
+  await vis(page.getByRole("heading", { name: /^Your plan/ }));
+  await page.getByRole("button", { name: "Save my plan" }).click();
+  await vis(page.getByRole("heading", { name: /^Save your plan/ }));
   await page.getByRole("button", { name: "Not now" }).click();
   await page.waitForURL(/\/app\/?$/);
   // the meal size (GLP-1's default, 450) is in Settings › Daily targets, said as on the targets step
@@ -62,18 +69,25 @@ await step("GLP-1 onboarding keeps the default comfortable meal size (450) when 
   if (cap !== 450) throw new Error("default 450 expected, got " + cap);
   await ctx.close();
 });
-await step("onboarding offers Other as a goal, Pip answers, and it's kept in Settings", async () => {
+await step("onboarding offers Other as a goal (full width, ticked when tapped; no speech bubble since 20 November 2026), and it's kept in Settings", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/welcome");
   await pastIntro(page);
   await page.getByRole("radio", { name: /^Other/ }).click();
-  await vis(page.getByText("Got it. I'll show you the numbers and keep your meals and orders around your target.").filter({ visible: true }));
+  await vis(page.getByRole("radio", { name: /^Other/, checked: true }));
+  if (await page.locator("main .speech").count()) throw new Error("a speech bubble on step 1");
   await vis(page.getByRole("button", { name: "Continue" }));
   await page.getByRole("button", { name: "Continue" }).click();
-  // foods to avoid, then step 3's "Skip setup and make my account" and "Not now" on the account step (sign-in optional on this build)
+  // the rest skipped, then "Not now" on the account step (sign-in optional on this build)
+  await page.getByRole("button", { name: "Skip", exact: true }).click(); // foods to avoid
+  await vis(page.getByRole("heading", { name: /^Where do you shop\?/ }));
+  await page.getByRole("button", { name: "Skip", exact: true }).click(); // the shops
+  await vis(page.getByRole("heading", { level: 1, name: /^Recipes/ }));
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
+  await vis(page.getByRole("heading", { name: /^About you/ }));
   await page.getByRole("button", { name: "Skip", exact: true }).click();
-  await page.getByRole("button", { name: "Skip setup and make my account" }).click();
+  await page.getByRole("button", { name: "Save my plan" }).click();
   await page.getByRole("button", { name: "Not now" }).click();
   await page.waitForURL(/\/app\/?$/);
   await page.goto(BASE + "/app/settings");
@@ -276,7 +290,7 @@ await step("Settings › Daily targets: an empty protein box says 'Worked out'; 
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/settings");
   const targets = page.locator("#targets");
-  const notSaved = page.getByText("Not saved yet. Tap \u201cSave targets\u201d to keep them.", { exact: true });
+  const notSaved = page.getByText("Not saved yet.", { exact: true });
   // the worked-out boxes (protein, carbs, fat) say so under the grey number; calories (a saved figure) and water (a default) don't
   // (each box's tag is its input's description: the label is now only the box's name, 20 November 2026)
   const tag = (name) => targets.getByLabel(name, { exact: true }).evaluate((i) => (i.getAttribute("aria-describedby") ?? "").split(" ").map((id) => document.getElementById(id)?.textContent?.trim() ?? "").join(" "));
@@ -305,7 +319,7 @@ await step("Settings › Daily targets: an empty protein box says 'Worked out'; 
   await vis(form.getByRole("status"));
   // "Use these" saves at once (it used to fill the boxes and wait for "Save targets", and was lost on leaving: the 20 November 2026 audit)
   await form.getByRole("button", { name: "Use these", exact: true }).click();
-  await vis(page.getByText("Saved. These are your new targets.", { exact: true }));
+  await vis(page.getByText("Saved.", { exact: true }));
   if (await notSaved.count()) throw new Error("'Not saved yet' after Use these, which saves");
   const used = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data);
   if (used.dailyCalories === 2100 || !(used.dailyCalories > 1200)) throw new Error("Use these didn't save the suggestion: " + used.dailyCalories);

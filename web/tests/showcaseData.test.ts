@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { isAllHalal } from "../lib/mm/halal";
 import { passesDiet } from "../lib/mm/menu-view";
 import { FREE_PRESET_RESULTS } from "../lib/mm/paid";
-import { SHOWCASE_GROUPS, SHOWCASE_HEADING, dishFits, presetOrder, showcaseCandidates, showcaseChips, showcasePrefs, type ShowcasePreset } from "../lib/mm/showcase";
+import { PHOTO_CHAINS, SHOWCASE_GROUPS, SHOWCASE_HEADING, dishFits, photoDishes, presetOrder, showcaseCandidates, showcaseChips, showcasePrefs, type ShowcasePreset } from "../lib/mm/showcase";
 import { itemKind } from "../lib/mm/truth/itemKind";
 import { applyPreset } from "../lib/mm/truth/presets";
 import { ALLERGEN_KEYS, type AllergenKey, type Chain, type Goal, type Manifest, type Preferences } from "../lib/mm/types";
@@ -96,4 +96,49 @@ describe("step 3 against the real menus", () => {
       });
     }
   }
+});
+
+// Your plan's row of restaurant dishes (founder, 20 November 2026): one dish in the chain's own photo at each of the chains with photos, its own figures, the
+// person's goal and diet applied; never Costa (it has no photos).
+describe("Your plan's restaurant photos against the real menus", () => {
+  const anyPhoto = (image: string) => /^[a-z0-9-]+\/[a-z0-9-]+\.webp$/.test(image);
+
+  it("are the chains with photos, never Costa", () => {
+    expect(PHOTO_CHAINS).toEqual(["mcdonalds", "nandos", "pret", "greggs", "caffe-nero"]);
+    expect(PHOTO_CHAINS as readonly string[]).not.toContain("costa");
+  });
+
+  it("give every chain a dish with its own photo on a plain run, each a real main with the restaurant's own figures", () => {
+    for (const goal of GOALS) {
+      const { dishes, pending } = photoDishes(manifest.chains, menu, goal, BASE, anyPhoto);
+      expect(pending).toEqual([]);
+      expect(dishes.map((d) => d.chainId), goal).toEqual([...PHOTO_CHAINS]);
+      for (const d of dishes) {
+        const item = menu(d.chainId).items.find((i) => i.id === d.itemId)!;
+        expect(item.image, d.name).toBe(d.image);
+        expect(d.kcal).toBe(item.nutrients.calories);
+        expect(d.protein).toBe(item.nutrients.protein);
+        expect(dishFits(menu(d.chainId), item, BASE), d.name).toBe(true);
+        expect(d.image.startsWith(`${d.chainId}/`), d.image).toBe(true);
+      }
+    }
+  });
+
+  it("follow the diet and allergies, leaving a chain out rather than showing a dish that doesn't fit", () => {
+    for (const [name, prefs] of Object.entries(DIETS)) {
+      for (const allergen of [null, "milk", "gluten"] as const) {
+        const p: Preferences = allergen ? { ...prefs, avoidAllergens: [allergen] } : prefs;
+        const { dishes } = photoDishes(manifest.chains, menu, "maintain", p, anyPhoto);
+        for (const d of dishes) {
+          const item = menu(d.chainId).items.find((i) => i.id === d.itemId)!;
+          expect(dishFits(menu(d.chainId), item, p), `${name} ${allergen} ${d.chainId} ${d.name}`).toBe(true);
+        }
+      }
+    }
+  });
+
+  it("show no dish when a photo may not be shown (photos off, or the chain taken down)", () => {
+    expect(photoDishes(manifest.chains, menu, "maintain", BASE, () => false).dishes).toEqual([]);
+    expect(photoDishes(manifest.chains, menu, "maintain", BASE, anyPhoto, ["nandos"]).dishes.map((d) => d.chainId)).not.toContain("nandos");
+  });
 });

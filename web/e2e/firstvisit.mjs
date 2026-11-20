@@ -122,12 +122,12 @@ await step("a returning person (set up already) never sees the card", async () =
   await ctx.close();
 });
 
-await step("the guided setup at /app/welcome starts with Get started on its cover, straight to 'Step 1 of 11' (no tour, no 'Let's make it yours' since 20 November)", async () => {
+await step("the guided setup at /app/welcome starts with Get started on its cover, straight to step 1 of 8 (heard with the headline, never written; no tour, no 'Let's make it yours' since 20 November)", async () => {
   const ctx = await fresh(); const page = await ctx.newPage();
   await page.goto(BASE + "/app/welcome");
   await page.getByRole("button", { name: "Get started" }).click();
-  await page.getByRole("heading", { name: "What's your goal?" }).waitFor();
-  await page.locator("p.app-numbers").filter({ hasText: /^Step 1 of 11$/ }).waitFor();
+  await page.getByRole("heading", { level: 1, name: /^What's your goal\?\s*, Step 1 of 8$/ }).waitFor();
+  expect((await page.getByText(/^Step \d+ of \d+$/).count()) === 0, "'Step n of N' is written on screen");
   await ctx.close();
 });
 

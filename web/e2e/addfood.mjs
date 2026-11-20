@@ -110,13 +110,13 @@ await step("an entry stays in the meal whose + was tapped, whatever the time, on
     await dlg(page).getByRole("button", { name: `Add to ${meal}`, exact: true }).tap();
     await page.getByText(`Added “${name}” to ${meal}.`).waitFor();
   }
-  await page.getByText("Some foods today don't have every figure (typed in without them, or from a restaurant that publishes calories only), so protein, carbs and fat count only the foods that have them.").waitFor(); // never "0g" as if it were known (Home's wording says "today": it sits under all three of Home's pages)
+  await page.getByText("Some foods today don't list protein, carbs or fat, so those totals count only the foods that do.").waitFor(); // never "0g" as if it were known (Home's wording says "today": it sits under all three of Home's pages)
   for (const [meal, cals] of [["Breakfast", "111"], ["Lunch", "222"], ["Dinner", "333"]]) {
     const text = await mealRow(page, meal).innerText();
     expect(new RegExp(`^${meal}\\s+${cals}\\s*/`).test(text.trim()), `${meal} row: ${text}`);
   }
   await page.goto(BASE + "/app/today");
-  await page.getByText("Some foods today don't have every figure (typed in without them, or from a restaurant that publishes calories only), so protein, carbs and fat count only the foods that have them.").waitFor({ timeout: 30000 });
+  await page.getByText("Some foods today don't list protein, carbs or fat, so those totals count only the foods that do.").waitFor({ timeout: 30000 });
   for (const [meal, name] of [["Breakfast", "Bfast thing"], ["Lunch", "Lunch thing"], ["Dinner", "Dinner thing"]]) {
     const section = page.locator("section", { has: page.getByRole("heading", { name: meal, exact: true }) });
     await section.waitFor({ timeout: 30000 });
@@ -388,7 +388,7 @@ await step("a restaurant meal: a dish is added as published (a calories-only res
   await ctx.close();
 });
 
-await step("a supermarket product: found by name, how much, the label's figures shown before Add, and exactly label x amount / 100 logged", async () => {
+await step("a supermarket product: found by name, How much?, the label's figures said before Add (the ring's one line), and exactly label x amount / 100 logged", async () => {
   const { ctx, page, errors } = await open();
   await home(page);
   await openMeal(page, "Breakfast");
@@ -401,9 +401,9 @@ await step("a supermarket product: found by name, how much, the label's figures 
   const per100 = kcal(rowText);
   const productName = rowText.split("\n")[0].trim();
   await choose1.tap();
-  const amount = page.getByLabel(/How much did you have/);
+  const amount = dlg(page).getByLabel("How much?");
   await amount.waitFor();
-  expect((await amount.inputValue()) === "100", "default amount");
+  expect(/^\d+$/.test(await amount.inputValue()), "the starting amount: " + (await amount.inputValue()));
   const add = dlg(page).getByRole("button", { name: "Add to Breakfast", exact: true });
   await amount.fill("0");
   expect(await add.isDisabled(), "Add is on for 0 g");
@@ -411,9 +411,11 @@ await step("a supermarket product: found by name, how much, the label's figures 
   await amount.fill("abc");
   expect(await add.isDisabled(), "Add is on for words");
   await amount.fill("200");
-  await page.getByText(/From (the label|Open Food Facts contributors \(community data\)), for 200 g: .* kcal/).waitFor();
-  const said = kcal(await page.getByText(/From (the label|Open Food Facts contributors \(community data\)), for 200 g/).innerText());
-  expect(said === Math.round(per100 * 2) || Math.abs(said - per100 * 2) <= 2, `label said ${said} for 200 g, per 100 g is ${per100}`);
+  // the ring's figures, said in one line to a screen reader, follow the amount (MacroRing, founder 2026-11-20: pictures over text)
+  const spoken = dlg(page).locator("p[role='status'].sr-only").first();
+  await page.waitForFunction((el) => /\d/.test(el.textContent ?? ""), await spoken.elementHandle());
+  const said = Number(((await spoken.innerText()).match(/([\d,]+)\s*(kcal|calories)/i)?.[1] ?? "").replace(/,/g, ""));
+  expect(said === Math.round(per100 * 2) || Math.abs(said - per100 * 2) <= 2, `the ring said ${said} for 200 g, per 100 g is ${per100}: ${await spoken.innerText()}`);
   await add.tap();
   await page.getByText(/^Added “.* \(200 g\)” to Breakfast\.$/).waitFor();
   const [e] = await log(page);
@@ -423,30 +425,30 @@ await step("a supermarket product: found by name, how much, the label's figures 
   await ctx.close();
 });
 
-await step("a supermarket product: Back goes list > amount > list > the four choices; Scan a barcode opens the camera or its typed fallback, and a typed barcode opens the product's amount", async () => {
+await step("a supermarket product: Back goes list > amount > list > the choices; its Scan a barcode opens Add food's own scan (the camera or its typed fallback), and a typed barcode opens the product's How much?, whose Back goes to the choices", async () => {
   const asda = await (await fetch(BASE + "/groceries/asda.json")).json();
   const p = asda.products.find((x) => x.price && x.kcal > 0 && x.protein > 0);
   const { ctx, page } = await open();
   await home(page);
   await openMeal(page, "Lunch");
   await choose(page, "Choose a supermarket product");
-  await page.getByRole("button", { name: "Scan a barcode" }).tap();
-  const typed = page.getByLabel("Barcode number");
+  // Back from the list goes to the choices; the product step's own Scan a barcode opens the same scan as the first choice (ScanFood)
+  await page.getByLabel("Search products or type a barcode").fill("baked beans");
+  await dlg(page).getByRole("button", { name: /^Choose / }).first().waitFor({ timeout: 120000 });
+  await dlg(page).getByRole("button", { name: /^Choose / }).first().tap();
+  await dlg(page).getByLabel("How much?").waitFor();
+  await page.getByRole("button", { name: "Back", exact: true }).first().tap();
+  await page.getByLabel("Search products or type a barcode").waitFor();
+  await dlg(page).getByRole("button", { name: "Scan a barcode" }).tap();
+  const typed = page.getByPlaceholder("Barcode number");
   await typed.waitFor({ timeout: 20000 }); // this browser has no camera: the typed fallback comes up
   await typed.fill(p.gtin);
   await page.getByRole("button", { name: "Find" }).tap();
-  // a barcode with one product goes straight to "How much did you have?" for it (founder 2026-11-20: "when they scan a barcode of a product, it needs to come
-  // up with the product and they can input in"); Back shows the search with the number in it and the product's row
-  await page.getByLabel(/How much did you have/).waitFor({ timeout: 60000 });
+  // a barcode goes straight to "How much?" for its product (founder 2026-11-20: "when they scan a barcode of a product, it needs to come up with the product and
+  // they can input in")
+  await dlg(page).getByLabel("How much?").waitFor({ timeout: 60000 });
   expect((await dlg(page).innerText()).includes(p.name), "the scanned product isn't the one shown: " + (await dlg(page).innerText()).slice(0, 200));
-  await page.getByRole("button", { name: "Back", exact: true }).tap();
-  await dlg(page).getByRole("button", { name: /^Choose / }).first().waitFor({ timeout: 60000 });
-  expect((await page.getByLabel("Search products or type a barcode").inputValue()).includes(p.gtin.replace(/^0+/, "")), "the scanned number didn't go into the search");
-  await dlg(page).getByRole("button", { name: /^Choose / }).first().tap();
-  await page.getByLabel(/How much did you have/).waitFor();
-  await page.getByRole("button", { name: "Back", exact: true }).tap();
-  await page.getByLabel("Search products or type a barcode").waitFor();
-  await page.getByRole("button", { name: "Back", exact: true }).tap();
+  await page.getByRole("button", { name: "Back", exact: true }).first().tap();
   await page.getByRole("button", { name: /Type in your numbers/ }).waitFor();
   await ctx.close();
 });
@@ -474,7 +476,7 @@ await step("a drink is asked for in millilitres; a nameless entry is called \"My
     for (let i = 0; i < Math.min(await rows.count(), 8); i++) {
       if (/per 100 ml/.test(await rows.nth(i).innerText())) { await rows.nth(i).getByRole("button", { name: /^Choose / }).tap(); found = true; break; }
     }
-    if (found) await page.getByLabel("How much did you have? (ml)").waitFor();
+    if (found) { await dlg(page).getByLabel("How much?").waitFor(); await dlg(page).getByText("ml", { exact: true }).first().waitFor(); }
   }
   await ctx.close();
 });
@@ -524,7 +526,7 @@ await step("axe: no violations in the four choices, the numbers form, the recipe
   await dlg(page).getByRole("button", { name: /^Choose / }).first().waitFor({ timeout: 120000 });
   await check("products");
   await dlg(page).getByRole("button", { name: /^Choose / }).first().tap();
-  await page.getByLabel(/How much did you have/).waitFor();
+  await dlg(page).getByLabel("How much?").waitFor();
   await check("amount");
   await ctx.close();
 });

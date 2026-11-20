@@ -107,7 +107,7 @@ export default function SearchPage() {
           </section>
         ) : (
           // a plain hint, no Pip (Pip audit, founder 2026-11-20: "keep him as the guide, not the decoration")
-          <p className="mx-auto mt-10 max-w-sm text-center text-[0.9375rem] leading-snug text-muted">{t("Type at least {n} letters of a restaurant or a dish.", { n: MIN_QUERY_LENGTH })}</p>
+          <p className="mx-auto mt-10 max-w-sm text-center text-[0.9375rem] leading-snug text-muted">{t("Type a restaurant or a dish.")}</p>
         )
       )}
 
@@ -122,7 +122,6 @@ export default function SearchPage() {
             <EmptyState
               icon={<EmptyIcon><SearchIcon /></EmptyIcon>}
               title={t("We don't cover this yet.")}
-              body={t("Nothing matches “{query}”. Tell us which restaurant you'd like next.", { query: deferred.trim() })}
               action={<Button onClick={() => setRequesting(true)}>{t("Request it")}</Button>}
             />
           )}
@@ -160,15 +159,15 @@ export default function SearchPage() {
         <div className="mt-5">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
             <Chip selected={dietOn} onClick={() => setDietOn((v) => !v)}>{t("Fits my diet")}</Chip>
-            {/* how many the diet hides and why, beside the chip that shows them (the 20 November 2026 audit: the empty message never said) */}
+            {/* how many the diet hides, beside the chip that shows them (the 20 November 2026 audit: the empty message never said); why is the caution line under it */}
             {diet && results.hiddenByDiet > 0 && (
               <p className="app-numbers min-w-0 flex-1 basis-48 text-[0.9375rem] leading-snug">
-                {results.hiddenByDiet === 1 ? t("1 dish hidden: it doesn't fit your diet settings, or its restaurant doesn't say.") : t("{n} dishes hidden: they don't fit your diet settings, or their restaurant doesn't say.", { n: results.hiddenByDiet.toLocaleString("en-GB") })}
+                {results.hiddenByDiet === 1 ? t("1 dish hidden") : t("{n} dishes hidden", { n: results.hiddenByDiet.toLocaleString("en-GB") })}
               </p>
             )}
           </div>
           {diet && <p className="mt-2.5 text-[0.8125rem] leading-snug text-muted">{filterCaution(prefs, t)}</p>}
-          {diet && results.items.some((i) => i.notChecked) && <p className="mt-1.5 text-[0.8125rem] leading-snug text-muted">{t("“Not checked”: its restaurant doesn't mark which dishes fit your diet or publish allergens, so only the dish's name was read.")}</p>}
+          {diet && results.items.some((i) => i.notChecked) && <p className="mt-1.5 text-[0.8125rem] leading-snug text-muted">{t("“Not checked”: only the dish's name was read.")}</p>}
         </div>
       )}
       {/* the newer diets a menu can't fully check are named whenever they are on, even with the chip off */}

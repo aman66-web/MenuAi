@@ -196,8 +196,8 @@ describe("someone who quits at any step comes back through the cover", () => {
     const typed = {
       ...(i > 0 ? { goal: "lose" } : {}),
       ...(i > 1 ? { preferences: { vegetarianOnly: true } } : {}),
-      ...(i > 3 ? { shops: ["sainsburys"] } : {}),
-      ...(i > 8 ? { dailyCalories: 1700, hasSetTargets: true } : {}),
+      ...(i > 2 ? { shops: ["sainsburys"] } : {}),
+      ...(i > 5 ? { dailyCalories: 1700, hasSetTargets: true } : {}),
     };
     return storage({ "mm.v1.settings": settings({ ...typed, hasCompletedOnboarding: false }), [WELCOME_PROGRESS_KEY]: progressNote({ step }, "2026-11-20"), ...extra });
   };
@@ -210,11 +210,11 @@ describe("someone who quits at any step comes back through the cover", () => {
     const note = storedData((k) => leftAt(step).getItem(k))(WELCOME_PROGRESS_KEY);
     const at = resumeAt(startRun(false), note as never);
     if (step === "goal") expect(at).toBeNull();
-    else expect(stepCounter(startRun(false), at!.step)!.step).toBe(["about", "size", "active"].includes(step) ? 6 : WELCOME_STEPS.indexOf(step) + 1);
+    else expect(stepCounter(startRun(false), at!.step)!.step).toBe(["about", "active"].includes(step) ? 5 : WELCOME_STEPS.indexOf(step) + 1);
   });
 
   it("but a link still opens at once", () => {
-    expect(runGate("/app/chain?id=kfc", leftAt("eatOut"), tourGateScript(true))).toEqual([]);
+    expect(runGate("/app/chain?id=kfc", leftAt("shops"), tourGateScript(true))).toEqual([]);
   });
 });
 

@@ -154,7 +154,7 @@ export function PhotoCamera({ onCapture, onClose, onPickPhoto, onPhonesCamera, n
       {unavailable ? (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center">
           <Pip mood="think" size={96} />
-          <p role="status" className="max-w-sm text-lg font-semibold leading-snug">{t("The camera can't be shown here. Take a photo with your phone's camera, or choose one from your photos.")}</p>
+          <p role="status" className="max-w-sm text-lg font-semibold leading-snug">{t("The camera can't be shown here.")}</p>
           <button type="button" onClick={onPhonesCamera} className="inline-flex min-h-14 w-full max-w-sm items-center justify-center gap-2 rounded-full bg-card px-6 text-lg font-bold text-foreground transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun">
             <CameraIcon className="h-6 w-6" />{t("Take a photo")}
           </button>
@@ -164,7 +164,7 @@ export function PhotoCamera({ onCapture, onClose, onPickPhoto, onPhonesCamera, n
         </div>
       ) : (
         <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-4 px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
-          <p role="status" className="max-w-sm text-center text-base font-semibold leading-snug [text-shadow:0_1px_8px_var(--scrim)]">{holding ? t("Hold still…") : letGo ? t("Keep holding the button until the ring fills.") : t("Point the camera at your food, then press and hold the button to scan.")}</p>
+          <p role="status" className="max-w-sm text-center text-base font-semibold leading-snug [text-shadow:0_1px_8px_var(--scrim)]">{holding ? t("Hold still…") : letGo ? t("Keep holding the button until the ring fills.") : t("Point the camera at your food, then press and hold.")}</p>
           {/* two ways in: hold the shutter to scan the food with the camera, or upload a photo from the camera roll (bottom right) */}
           <div className="grid w-full max-w-sm grid-cols-3 items-end">
             <span aria-hidden />

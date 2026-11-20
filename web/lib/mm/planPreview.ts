@@ -1,10 +1,10 @@
-// Meal plan's own planning, shared by the Meal plan screen (app/app/plan) and step 10 of the welcome screens, "Your week, planned" (the onboarding redesign
+// Meal plan's own planning, shared by the Meal plan screen (app/app/plan) and the welcome screens' Your plan (the onboarding redesign
 // meeting of 20 November 2026, build list 3; approved by the founder): so the preview and the real screen can never disagree. No AI: only our own recipes,
 // fitted exactly as Meal plan fits them (lib/mm/mealPlan.ts), from a shop's real products and prices. Pure apart from the shop files, which the caller loads
 // (`load`: app/app/_lib/shopProducts.ts loadShopFile in the app, the files on disk in the tests). Unit-tested in tests/planPreview.test.ts.
 //
 // The helpers Meal plan used to keep in its page (loadShops, workOut, recipesFor, betterFor, the slot targets) are here, with one cache of the worked-out
-// recipes kept while the app is open: the week step 10 works out is the one Meal plan's first open finds already made.
+// recipes kept while the app is open: the week the welcome screens work out is the one Meal plan's first open finds already made.
 //
 // weekPreview is one person's week with exactly Meal plan's Just-me defaults: breakfast, lunch and dinner (DEFAULT_SHAPE), every cuisine, nothing left out,
 // PER_MEAL_RECIPES, the person's own diet and allergies and their daily numbers, and no budget (the best week for their goal: what the first open's "Make my
@@ -12,7 +12,13 @@
 // under 50). It plans from one shop only (the first ticked shop that is in recipes, otherwise the default recipe shop, which the screen then names), with
 // none of Meal plan's pauses between shops, in chunks that hand control back to the screen. It is never saved; savedPlanFrom gives what Meal plan saves when
 // the person makes it theirs. A week whose days come out more than NARROW_PREVIEW from the person's calories (a narrow diet with few recipes) isn't shown
-// as "sized to your numbers": the screen shows its words-only form.
+// as "sized to your numbers": Meal plan's first open shows its words-only form. The welcome screens' Your plan asks for that week anyway (keepNarrow) and
+// shows it with its real numbers, every day's calories at its row's end and one plain line on the gap (weekGap; founder 20 November 2026: "never hide it").
+//
+// Why a big day comes out short (checked 20 November 2026 against every recipe at Sainsbury's and Morrisons): each meal is a third of the day (slotTargets,
+// the founder's equal meals), and a recipe is fitted to its meal only by moving its protein and carb ingredients between half and double the written amount
+// (lib/mm/recipes.ts fitRecipe), each within its own limits, the rest as written. That takes the biggest breakfast to about 960 kcal and the biggest lunch or
+// dinner to about 1,100, so a 3,480 kcal day (1,160 a meal) lands near 2,830, and from about 2,600 kcal a day the week starts to fall short.
 
 import { cleanDiet, cuisineRecipes, betterCandidate, DEFAULT_SHAPE, mergeCandidates, PER_MEAL_RECIPES, PLAN_DAYS, planCandidates, planForBudget, planSlots, slotTargets, type DayShape, type PlanCandidate, type PlanIds, type SavedPlan, type Variety, type WeekPlan } from "./mealPlan";
 import type { DietPrefs } from "./pantry";
@@ -39,7 +45,7 @@ export function dietKey(diet: DietPrefs): Array<[string, unknown]> {
     .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
 }
 
-/** The worked-out recipes for a set of answers, kept while the app is open, so opening the plan again (or after step 10) doesn't redo the sums. */
+/** The worked-out recipes for a set of answers, kept while the app is open, so opening the plan again (or after the welcome screens) doesn't redo the sums. */
 const worked = new Map<string, Candidates>();
 export const workKey = (shops: readonly string[], diet: DietPrefs, targets: Targets, leaveOut: readonly string[], cuisines: readonly CuisineId[] = [], asWritten = false): string =>
   JSON.stringify([[...shops].sort(), dietKey(diet), targets, [...leaveOut].sort(), [...cuisines].sort(), asWritten]);
@@ -121,7 +127,7 @@ export function mealTargets(person: PlanPerson, shape: DayShape = DEFAULT_SHAPE)
   return slotTargets(shape, { kcal: person.dailyCalories, protein: macroTargets(person).protein }, person.goal === "glp1" ? person.glp1MealCap : null);
 }
 
-// ------------------------------------------------------------------------------------------------ step 10's week
+// ------------------------------------------------------------------------------------------------ the welcome screens' week
 
 /**
  * The shop a preview plans from: the first ticked shop that is in recipes, otherwise the default recipe shop (null while the manifest isn't known or no shop is
@@ -141,7 +147,7 @@ export interface WeekPreviewInputs {
   shop: string;
   /** The foods avoided (step 2): the person's own diet and allergies. */
   diet: DietPrefs;
-  /** The daily numbers (step 9). */
+  /** The daily numbers (as saved). */
   person: PlanPerson;
   /** The age typed was under 18: nothing is worked out, and the screen shows its words-only form. */
   under18?: boolean;
@@ -149,6 +155,9 @@ export interface WeekPreviewInputs {
 
 export interface WeekPreviewDeps {
   load: ShopLoader;
+  /** A week more than NARROW_PREVIEW from the person's numbers comes back anyway, marked `narrow`, with its real numbers (the welcome screens' Your plan says
+   *  so in a line: weekGap). Without it such a week is { ok: false, reason: "narrow" } (Meal plan's first open). */
+  keepNarrow?: boolean;
   /** Hands control back to the screen between chunks (default: a zero-length timer). */
   yieldToScreen?: () => Promise<void>;
   /** Stops the work between chunks (the person changed a number, or left the screen). */
@@ -159,6 +168,13 @@ export interface WeekPreviewMeal {
   meal: MealType;
   recipeId: string;
   name: string;
+}
+
+/** One day of the week as the welcome screens' picture timetable draws it: its meals in order, and its calories and protein from the recipes' own labels. */
+export interface WeekPreviewDay {
+  meals: WeekPreviewMeal[];
+  kcal: number;
+  protein: number;
 }
 
 export type WeekPreview =
@@ -182,6 +198,12 @@ export type WeekPreview =
       week: WeekPlan;
       /** The day shown (`day`), meal by meal (the screen heads it with that day's name). */
       firstDay: WeekPreviewMeal[];
+      /** All seven days, meal by meal, each with its calories and protein rounded (the welcome screens' picture timetable). */
+      days: WeekPreviewDay[];
+      /** The day the meals are sized to: the person's calories, or less under a GLP-1 meal size. */
+      sizedTo: number;
+      /** Only with keepNarrow: the average day is more than NARROW_PREVIEW from `sizedTo`. */
+      narrow?: true;
       /** The seven days' average, rounded, from the recipes' own labels. */
       average: { kcal: number; protein: number };
       /** The week's shopping at the shop's shelf prices (whole packs). */
@@ -199,8 +221,21 @@ export type WeekPreview =
 /** The preview is only "sized to your numbers" when its average day is within this share of the day its meals are sized to (else reason "narrow"). */
 export const NARROW_PREVIEW = 0.15;
 
+/** The preview is said to be off the person's numbers (weekGap) when its average day is more than this share from the day its meals are sized to. */
+export const SHOW_GAP = 0.05;
+
 const previews = new Map<string, WeekPreview & { ok: true }>();
-const narrow = new Set<string>();
+/** The weeks more than NARROW_PREVIEW off, kept for keepNarrow (Meal plan's first open is told "narrow"). */
+const narrowWeeks = new Map<string, WeekPreview & { ok: true; narrow: true }>();
+
+/**
+ * How far the week's average day is from the day its meals are sized to, when that is more than SHOW_GAP of it: "short" (a big day our recipes can't reach,
+ * see the top of this file) or "over" (a small day, or a narrow diet's few recipes), with the average. Null when it is close enough to say nothing.
+ */
+export function weekGap(p: { average: { kcal: number }; sizedTo: number }): { kind: "short" | "over"; kcal: number } | null {
+  if (!(p.sizedTo > 0) || Math.abs(p.average.kcal - p.sizedTo) <= SHOW_GAP * p.sizedTo) return null;
+  return { kind: p.average.kcal < p.sizedTo ? "short" : "over", kcal: p.average.kcal };
+}
 
 /** The first two words of a dish's name, for telling two dishes apart ("Tuna and sweetcorn pasta" and "Tuna and sweetcorn pasta bake" are one dish). */
 const firstWords = (name: string) => name.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, " ").split(/\s+/).filter(Boolean).slice(0, 2).join(" ");
@@ -229,7 +264,8 @@ export async function weekPreview(inputs: WeekPreviewInputs, deps: WeekPreviewDe
   const previewKey = `${key}|${slots.join(",")}|${JUST_ME.variety}`;
   const known = previews.get(previewKey);
   if (known) return known;
-  if (narrow.has(previewKey)) return { ok: false, reason: "narrow" };
+  const off = narrowWeeks.get(previewKey);
+  if (off) return deps.keepNarrow ? off : { ok: false, reason: "narrow" };
 
   let loaded: Loaded[];
   try {
@@ -258,11 +294,8 @@ export async function weekPreview(inputs: WeekPreviewInputs, deps: WeekPreviewDe
   const average = { kcal: Math.round(days.reduce((s, d) => s + d.kcal, 0) / days.length), protein: Math.round(days.reduce((s, d) => s + d.protein, 0) / days.length) };
   // against the day the meals are sized to (the person's calories, or less under a GLP-1 meal size, which the screen explains)
   const sizedTo = slots.reduce((n, m) => n + (targets[m]?.kcal ?? 0), 0);
-  if (Math.abs(average.kcal - sizedTo) > NARROW_PREVIEW * sizedTo) {
-    narrow.add(previewKey);
-    return { ok: false, reason: "narrow" };
-  }
   const day = pickShownDay(days);
+  const mealsOf = (d: (typeof days)[number]): WeekPreviewMeal[] => d.meals.map((m) => ({ meal: m.meal, recipeId: m.candidate.recipe.id, name: m.candidate.recipe.name }));
   const result: WeekPreview & { ok: true } = {
     ok: true,
     shop: inputs.shop,
@@ -276,10 +309,17 @@ export async function weekPreview(inputs: WeekPreviewInputs, deps: WeekPreviewDe
     ids: plan.ids,
     better: plan.better,
     week: plan.week,
-    firstDay: days[day]!.meals.map((m) => ({ meal: m.meal, recipeId: m.candidate.recipe.id, name: m.candidate.recipe.name })),
+    firstDay: mealsOf(days[day]!),
+    days: days.map((d) => ({ meals: mealsOf(d), kcal: Math.round(d.kcal), protein: Math.round(d.protein) })),
+    sizedTo,
     average,
     total: plan.week.shoppingCost,
   };
+  if (Math.abs(average.kcal - sizedTo) > NARROW_PREVIEW * sizedTo) {
+    const marked = { ...result, narrow: true as const };
+    narrowWeeks.set(previewKey, marked);
+    return deps.keepNarrow ? marked : { ok: false, reason: "narrow" };
+  }
   previews.set(previewKey, result);
   return result;
 }
@@ -293,6 +333,6 @@ export function savedPlanFrom(p: WeekPreview & { ok: true }, start: string): Sav
 export function forgetPlanWork(): void {
   worked.clear();
   previews.clear();
-  narrow.clear();
+  narrowWeeks.clear();
   betterMemo.clear();
 }

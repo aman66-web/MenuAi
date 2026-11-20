@@ -106,7 +106,6 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
           <span aria-hidden className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--fill)]"><LockIcon className="h-6 w-6 text-muted" /></span>
           <PremiumBadge />
           <p className="text-base font-semibold">{t("Customise any order with live totals")}</p>
-          <p className="text-[0.9375rem] text-muted">{t("The order builder is part of Premium.")}</p>
           <Button onClick={() => showPaywall("orderBuilder")}>{t("See Premium")}</Button>
         </Card>
       </div>
@@ -119,7 +118,7 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
       <div>
         {back}
         <h1 className={`mt-5 ${TITLE}`}>{t("Order builder")}</h1>
-        <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("{chain} publishes calories only, so there are no protein, carbs or fat totals to build an order from.", { chain: index.chain.name })}</p>
+        <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("{chain} publishes calories only, so there are no protein, carbs or fat totals.", { chain: index.chain.name })}</p>
       </div>
     );
   }
@@ -132,7 +131,7 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
         {back}
         <h1 className={`mt-5 ${TITLE} [overflow-wrap:anywhere]`}>{start.saved.name}</h1>
         <p className="mt-3 text-[0.9375rem] font-semibold">{t("No longer on the menu")}</p>
-        <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Something in this order was removed from the menu, so it can't be edited. Your saved numbers are kept.")}</p>
+        <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("It can't be changed now. Your saved numbers are kept.")}</p>
         <Card className="mt-4 p-4"><MacroSummary nutrients={start.saved.nutrients} /></Card>
       </div>
     );
@@ -457,7 +456,7 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
   const dietChip = anyDietFilter(prefs) || notChecked ? (
     <div className="mb-3">
       {anyDietFilter(prefs) && <Chip selected={dietOn} onClick={() => setDietOn((v) => !v)}>{t("Fits my diet")}</Chip>}
-      {diet && anyUnchecked(unchecked) && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("{chain} doesn't mark which dishes fit your diet or allergies, so only dishes whose names say otherwise are left out.", { chain: ix.chain.name })}</p>}
+      {diet && anyUnchecked(unchecked) && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("{chain} doesn't mark which dishes fit, so only dishes whose names say otherwise are left out.", { chain: ix.chain.name })}</p>}
       {notChecked && <p className={`${anyDietFilter(prefs) ? "mt-2" : ""} text-[0.9375rem] leading-snug text-muted`}>{notChecked}</p>}
     </div>
   ) : null;

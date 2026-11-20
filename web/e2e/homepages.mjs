@@ -228,7 +228,7 @@ await step("first visit after the welcome screens: the ink toast says what is no
   expect(start.y >= numbers.y + numbers.height && start.y < numbers.y + numbers.height + 24 && start.y + start.height <= tools + 1, `under the numbers, above the cooking tools: ${JSON.stringify([numbers, start, tools])}`);
   await card.getByRole("button", { name: /^Had the .* today\? Add it$/ }).waitFor({ timeout: 30000 });
   const text = (await card.innerText()).replace(/\s+/g, " ");
-  expect(text.includes("Had something today? Add it and see what's left.") && text.includes("Add what you ate") && text.includes("Your first recipe: Scrambled eggs on toast") && text.includes("Open") && text.includes("Done with this"), text);
+  expect(text.includes("Had something today?") && text.includes("Add what you ate") && text.includes("Your first recipe: Scrambled eggs on toast") && text.includes("Open") && text.includes("Done with this"), text);
   for (const b of await card.getByRole("button").all()) expect((await b.boundingBox()).height >= 44, `44 pt: ${await b.textContent()}`);
   expect((await card.getByRole("link", { name: /^Open/ }).boundingBox()).height >= 44, "Open is 44 pt");
   expect(await page.getByRole("link", { name: "Set your targets to see what's left today" }).count() === 0, "the targets card waits while Start here shows");

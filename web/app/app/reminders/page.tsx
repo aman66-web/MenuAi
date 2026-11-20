@@ -3,7 +3,6 @@
 import { localeInfo } from "@/lib/mm/i18n";
 import { formatNextDay, formatTime, isDueToday, MAX_REMINDERS, nextOccurrence, repeatWords, type Reminder } from "@/lib/mm/reminders";
 import { remindersStore, setReminderEnabled } from "@/lib/mm/stores";
-import { site } from "@/site.config";
 import { BellIcon } from "../_components/icons";
 import { PageHeader } from "../_components/PageHeader";
 import { useReminderEditor } from "../_components/ReminderEditor";
@@ -84,9 +83,10 @@ export default function RemindersPage() {
           heading, as the editor's sheets give it focus back when they close */}
       <PageHeader back={{ href: "/app", label: t("Back to home") }} />
       <h1 id="reminders-title" tabIndex={-1} className="mt-3 text-[1.75rem] font-[800] leading-none tracking-[-0.02em] outline-none">{t("Reminders")}</h1>
-      {onPhone && <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("{app} rings at the times you choose, but a reminder may not appear if notifications are off or silenced, so don't rely on it alone.", { app: site.name })}</p>}
+      {/* The words pass (20 November 2026): the caution and the medication line stay, shortened; "Ticking Done ..." is said under Home's list, where the ticks are
+          (this page has none) */}
+      {onPhone && <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("A reminder may not appear if notifications are off or silenced, so don't rely on it alone.")}</p>}
       <p className={`${onPhone ? "mt-2" : "mt-3"} text-[0.9375rem] leading-snug text-muted`}>{t("Follow the advice of your doctor or pharmacist about any medication.")}</p>
-      <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("Ticking “Done” is only your own mark. It doesn't stop a reminder from ringing later today.")}</p>
       <ReminderNotice />
 
       {rows.length === 0 ? (

@@ -68,7 +68,7 @@ export function MultiShopScreen({ shops }: { shops: string[] }) {
 
   if (state.status === "loading") return (<div>{back}{title}<Spinner label={t("Loading the full list")} /></div>);
   if (manifest && known.length === 0) {
-    return (<div>{back}<div className="mt-6"><EmptyState title={t("Choose a supermarket first.")} body={t("Tap Select on the shops you want on Groceries, then see their products together.")} action={<LinkButton href="/app/groceries">{t("Choose a shop")}</LinkButton>} /></div></div>);
+    return (<div>{back}<div className="mt-6"><EmptyState title={t("Choose a supermarket first.")} body={t("Tap Select on the shops you want.")} action={<LinkButton href="/app/groceries">{t("Choose a shop")}</LinkButton>} /></div></div>);
   }
   if (!loaded || loaded.length === 0) {
     return (<div>{back}{title}<div className="mt-4"><ErrorBox message={t("Couldn't load this list. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div></div>);
@@ -78,7 +78,7 @@ export function MultiShopScreen({ shops }: { shops: string[] }) {
     <div>
       {back}
       {title}
-      <p className="mt-3.5 text-[0.9375rem] leading-relaxed text-muted">{t("Products from {shops}, each with its own shop's price and photo.", { shops: names })}</p>
+      {/* no line under the title: the shops' logos beside it and the shop chips below name them (the words pass, 20 November 2026) */}
       {state.failed.length > 0 && (
         <div className="mt-3.5"><ErrorBox message={t("Couldn't load {shops}. Check your connection.", { shops: state.failed.map(nameOf).join(", ") })} onRetry={() => setRetry((n) => n + 1)} /></div>
       )}
@@ -106,13 +106,13 @@ export function MultiShopScreen({ shops }: { shops: string[] }) {
         </SelectField>
       </div>
 
-      {(sort === "density" || sort === "protein") && <p className={`mt-3 ${NOTE}`}>{sort === "density" ? t("Products with under 20 kcal or 5 g of protein per 100 g, those without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.") : t("Products without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.")}</p>}
+      {(sort === "density" || sort === "protein") && <p className={`mt-3 ${NOTE}`}>{sort === "density" ? t("Listed last: under 20 kcal or 5 g protein per 100 g, no numbers, or numbers for the cooked or prepared food.") : t("Listed last: no numbers, or numbers for the cooked or prepared food.")}</p>}
       {dietLine && <p className={`mt-3 ${NOTE}`}>{dietLine}</p>}
       {/* allergens aren't read for these lists, so the allergy settings hide nothing here: said whether or not the filter is on */}
-      {avoid.length > 0 && <AllergyNote className="mt-3"><p>{t("We haven't read allergens for these products, so nothing is hidden for {allergens}. Always check the pack.", { allergens: avoidNames })}</p></AllergyNote>}
+      {avoid.length > 0 && <AllergyNote className="mt-3"><p>{t("Allergens aren't read here, so nothing is hidden for {allergens}. Always check the pack.", { allergens: avoidNames })}</p></AllergyNote>}
       <p role="status" aria-live="polite" className="app-numbers mt-6 ps-1 text-sm font-semibold text-muted">{results.length === 1 ? t("1 product") : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
       {results.length === 0 ? (
-        <div className="mt-3"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No products match.")} body={t("Try fewer words or a different type.")} /></div>
+        <div className="mt-3"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No products match.")} body={t("Try fewer words.")} /></div>
       ) : (
         <ul className="mt-2.5 space-y-3">
           {results.slice(0, shown).map((p) => {
@@ -126,7 +126,7 @@ export function MultiShopScreen({ shops }: { shops: string[] }) {
       )}
 
       <FootNote>
-        {t("Prices and offers vary by store and by loyalty card.")} {t("Not affiliated with {shops}.", { shops: names })}
+        {t("Prices vary by store and loyalty card.")} {t("Not affiliated with {shops}.", { shops: names })}
       </FootNote>
     </div>
   );

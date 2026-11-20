@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { favoritesStore, settingsStore } from "@/lib/mm/stores";
-import { HALAL_CAUTION, isAllHalal } from "@/lib/mm/halal";
+import { isAllHalal } from "@/lib/mm/halal";
+import { tk } from "@/lib/mm/i18n";
 import { SAMPLES_ENABLED } from "@/lib/mm/config";
 import { chainsInGroup, cuisineGroups } from "@/lib/mm/cuisine";
 import { groupByInitial, splitChains } from "@/lib/mm/popular";
@@ -33,6 +34,9 @@ import { FinderResults, NumbersPanel, useFinderResults, useNumbersFinder } from 
 // The colour meeting (19 November 2026, approved by the founder that day): the header every tab has (PageHeader: the title, the Shopping list pill, the cog with
 // its word, which replaces the old "Settings" pill); the search looks like a field; the two expander rows' icons sit in page-fill wells in the accent green
 // (lime means only chosen, today or progress), with ink chevrons; the A to Z circles are white with the control edge.
+
+/** The check that goes with every halal line (lib/mm/halal.ts HALAL_CAUTION without its first sentence, which the line before already says). */
+const HALAL_CHECK = tk("If it matters to you, check with the restaurant.");
 
 export default function EatOutPage() {
   const t = useT();
@@ -81,8 +85,8 @@ export default function EatOutPage() {
     <div>
       {/* the shopping list and the Settings cog at the top right, as on every tab (founder 2026-11-19: "the settings cog should be on the top right of every
           page. Also shopping list should be on the last page too"); at a narrow width or a larger text the pill and the cog move under the title */}
+      {/* no intro line under the title (words pass, 20 November 2026: Home has none, and the rows' "calories only" labels say what each restaurant publishes) */}
       <PageHeader title={<Rich text={t("Eat {out}")} values={{ out: <span className="serif-em">{t("out")}</span> }} />} list />
-      <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Restaurants, cafés, pubs and takeaways, with the calories of every dish, and protein where the restaurant publishes it.")}</p>
 
       <StartPrompt className="mt-5" />
 
@@ -92,14 +96,14 @@ export default function EatOutPage() {
       </Link>
 
       <div className={`mt-3.5 ${chainGroupClass}`}>
-        <Shortcut href="/app/map" icon={<PinIcon />} title={t("Near me")} line={t("See the places to eat around you on a map")} />
+        <Shortcut href="/app/map" icon={<PinIcon />} title={t("Near me")} line={t("On a map")} />
         <Shortcut
           href="/app/eat-out/favourites"
           icon={<StarIcon filled={favoriteChains.length > 0} />}
           title={t("My favourite restaurants")}
-          line={favoriteChains.length === 0 ? t("Keep the places you go to here") : favoriteChains.length === 1 ? t("1 restaurant") : t("{n} restaurants", { n: favoriteChains.length })}
+          line={favoriteChains.length === 0 ? t("None yet") : favoriteChains.length === 1 ? t("1 restaurant") : t("{n} restaurants", { n: favoriteChains.length })}
         />
-        <Shortcut href="/app/compare?tab=dish" icon={<CompareIcon />} title={t("Compare dishes")} line={t("Put dishes side by side, even from different restaurants")} />
+        <Shortcut href="/app/compare?tab=dish" icon={<CompareIcon />} title={t("Compare dishes")} line={t("Side by side, from any restaurant")} />
       </div>
 
       {SAMPLES_ENABLED && menu.chains.some((c) => c.sample) && (
@@ -117,7 +121,7 @@ export default function EatOutPage() {
           <EmptyState
             icon={<EmptyIcon><ForkIcon /></EmptyIcon>}
             title={t("Menus are coming soon")}
-            body={t("We're adding restaurants from their official nutrition guides. Tell us which ones you want first.")}
+            body={t("Tell us which ones you want first.")}
             action={<Button onClick={() => setRequesting(true)}>{t("Request a chain")}</Button>}
           />
         </div>
@@ -155,7 +159,7 @@ export default function EatOutPage() {
           </button>
           {finder.open && <div id="find-by-numbers"><NumbersPanel state={finder} found={found} /></div>}
 
-          {halalOnly && <p className="mt-3.5 px-1 text-[0.9375rem] leading-snug text-muted">{t("Restaurants whose own website says all their food is halal.")} {t(HALAL_CAUTION)}</p>}
+          {halalOnly && <p className="mt-3.5 px-1 text-[0.9375rem] leading-snug text-muted">{t("Their own websites say all their food is halal.")} {t(HALAL_CHECK)}</p>}
           {finder.active && finder.open ? (
             <FinderResults state={finder} chains={menu.chains} found={found} />
           ) : activeType ? (

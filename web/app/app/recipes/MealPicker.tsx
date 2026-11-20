@@ -56,9 +56,9 @@ export function targetSentence(t: T, target: MealTarget | null, subject: "each" 
   if (!target) return t("Recipes are shown as written.");
   const extra = [target.protein ? t("{n} g protein", { n: target.protein }) : "", target.carbsMax ? t("no more than {n} g carbs", { n: target.carbsMax }) : "", target.fatMax ? t("no more than {n} g fat", { n: target.fatMax }) : ""].filter(Boolean);
   const kcal = formatInt(target.kcal);
-  if (!extra.length) return subject === "this" ? t("This recipe is fitted to about {kcal} kcal a serving.", { kcal }) : t("Meals are fitted to about {kcal} kcal a serving, as far as each recipe allows; snacks are shown as written.", { kcal });
+  if (!extra.length) return subject === "this" ? t("This recipe is fitted to about {kcal} kcal a serving.", { kcal }) : t("Meals fitted to about {kcal} kcal a serving; snacks as written.", { kcal });
   const more = extra.join(", ");
-  return subject === "this" ? t("This recipe is fitted to about {kcal} kcal and {more} a serving.", { kcal, more }) : t("Meals are fitted to about {kcal} kcal and {more} a serving, as far as each recipe allows; snacks are shown as written.", { kcal, more });
+  return subject === "this" ? t("This recipe is fitted to about {kcal} kcal and {more} a serving.", { kcal, more }) : t("Meals fitted to about {kcal} kcal and {more} a serving; snacks as written.", { kcal, more });
 }
 
 /** `summary={false}` where the page already shows the sentence ("Each recipe is fitted to …") next to the button that opens this. */

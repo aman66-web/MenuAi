@@ -79,7 +79,7 @@ export function CompareScreen({ tab: asked }: { tab: CompareKind | null }) {
         list={tab === "food"}
         title={t("Compare")}
       />
-      <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Pick a few products or dishes and see their numbers side by side.")}</p>
+      {/* no intro: the tabs, "Add a product" and the empty card say what to do (the words pass, 20 November 2026) */}
 
       <div role="tablist" aria-label={t("Compare")} className="mt-5 grid grid-cols-2 gap-1 rounded-full border-[1.5px] border-edge bg-background p-1">
         {TABS.map((o, i) => {
@@ -119,8 +119,8 @@ export function CompareScreen({ tab: asked }: { tab: CompareKind | null }) {
                   icon={<CompareIcon />}
                   title={tab === "food" ? t("Nothing to compare yet") : t("No dishes to compare yet")}
                   body={tab === "food"
-                    ? t("Search above, for example “baked beans”, and add two or more. You can also tap “Compare” on any product.")
-                    : t("Search above, for example “chicken burger”, and add two or more. You can also tap “Compare” on any dish.")}
+                    ? t("Add two or more above, or tap “Compare” on any product.")
+                    : t("Add two or more above, or tap “Compare” on any dish.")}
                 />
               </div>
             )}
@@ -260,14 +260,14 @@ function SideBySide({ items, kind }: { items: readonly CompareItem[]; kind: Comp
   // not every food's figures are a shop's label: the basis line and the footnote say so, and each column names its source (2026-11-20)
   const others = kind === "food" && notAllLabels(items);
   const basis = kind === "dish" ? t("Per serving, as each restaurant publishes it.")
-    : others ? (items.every((i) => i.basis === "ml") ? t("Per 100 ml. Each column says where its figures come from: not all of them are a shop's label.") : t("Per 100 g. Each column says where its figures come from: not all of them are a shop's label."))
+    : others ? (items.every((i) => i.basis === "ml") ? t("Per 100 ml. Not all from a shop's label: each column says.") : t("Per 100 g. Not all from a shop's label: each column says."))
     : items.every((i) => i.basis === "ml") ? t("Per 100 ml, as each label prints it.") : t("Per 100 g, as each label prints it.");
   return (
     <section aria-labelledby="side-heading" className="mt-8">
       <h2 id="side-heading" className="text-xl font-[800] tracking-[-0.01em]">{t("Side by side")}</h2>
       <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{basis}</p>
-      {kind === "food" && mixedBasis(items) && <p className="glass mt-3 rounded-[1.25rem] px-4 py-3 text-[0.9375rem] leading-snug">{t("Some of these labels are per 100 ml or for the cooked food, so compare those with care.")}</p>}
-      {wider && <p className="mt-3 text-[0.9375rem] font-semibold leading-snug">{t("Swipe the table sideways to see every column →")}</p>}
+      {kind === "food" && mixedBasis(items) && <p className="glass mt-3 rounded-[1.25rem] px-4 py-3 text-[0.9375rem] leading-snug">{t("Some are per 100 ml or for the cooked food: compare with care.")}</p>}
+      {wider && <p className="mt-3 text-[0.9375rem] font-semibold leading-snug">{t("Swipe sideways for more →")}</p>}
       <div className="glass mt-3.5 overflow-hidden rounded-[1.25rem]">
         {/* focusable so the keyboard can scroll it sideways */}
         <div ref={scroller} role="group" aria-label={basis} tabIndex={0} className="overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent">
@@ -320,10 +320,10 @@ function SideBySide({ items, kind }: { items: readonly CompareItem[]; kind: Comp
       {COMPARE_PICK_ENABLED && <PipsPick items={items} picture={(i) => <HeaderPicture item={i} />} />}
       <p className="mt-5 text-[0.9375rem] leading-snug text-muted">
         {kind === "food"
-          ? t("Numbers as each product's label or page showed them when you added it. Price per kg is the shop's own; “Protein for £1” is that price worked out for the protein. Always check the pack.")
-            + (others ? " " + t("Some figures aren't a shop's label: they're Open Food Facts contributors' numbers (community data) or the UK government's figures for loose fruit and vegetables, as each column says.") : "")
-            + (lights ? " " + t("The colours are the UK Food Standards Agency's traffic-light bands for fat, saturates, sugars and salt per 100 g. Calories and protein have no colour, and products measured per 100 ml aren't coloured.") : "")
-          : t("Numbers as each restaurant publishes them, per serving. Servings differ in size, so a bigger dish can have more of everything.")}
+          ? t("Numbers from when you added each product. “Protein for £1” is worked out from the shop's own price per kg. Always check the pack.")
+            + (others ? " " + t("Some figures are Open Food Facts (community data) or UK government figures for loose fruit and veg, as each column says.") : "")
+            + (lights ? " " + t("Colours are the UK Food Standards Agency's traffic-light bands for fat, saturates, sugars and salt per 100 g.") : "")
+          : t("Servings differ in size, so a bigger dish can have more of everything.")}
       </p>
     </section>
   );
@@ -354,12 +354,12 @@ function Overview({ items }: { items: readonly CompareItem[] }) {
     <section aria-labelledby="overview-heading" className="mt-8">
       <h2 id="overview-heading" className="text-xl font-[800] tracking-[-0.01em]">{t("Overview")}</h2>
       {mixed ? (
-        <p className="glass mt-3 rounded-[1.25rem] px-4 py-3 text-[0.9375rem] leading-snug">{t("These are measured differently (some per 100 g, some per 100 ml), so there's no overview. Compare products measured the same way.")}</p>
+        <p className="glass mt-3 rounded-[1.25rem] px-4 py-3 text-[0.9375rem] leading-snug">{t("Some are per 100 g and some per 100 ml, so there's no overview.")}</p>
       ) : entries.length === 0 ? (
         <p className="glass mt-3 rounded-[1.25rem] px-4 py-3 text-[0.9375rem] leading-snug">{t("These match on every figure, or too few figures are published, so no one leads.")}</p>
       ) : (
         <>
-          <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Which one leads on each figure, worked out from the numbers above.")}</p>
+          <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Which one leads on each figure.")}</p>
           <ul className="glass mt-3.5 divide-y divide-[var(--line)] overflow-hidden rounded-[1.25rem]">
             {entries.map((e) => (
               <li key={e.id} className="flex flex-wrap items-center gap-x-3 gap-y-1.5 px-4 py-3.5">
@@ -376,7 +376,7 @@ function Overview({ items }: { items: readonly CompareItem[] }) {
               </li>
             ))}
           </ul>
-          <p className="mt-3 text-[0.8125rem] leading-snug text-muted">{t("One figure at a time. What suits a person differs, and nothing here is advice.")}</p>
+          <p className="mt-3 text-[0.8125rem] leading-snug text-muted">{t("What suits each person differs; this isn't advice.")}</p>
         </>
       )}
     </section>

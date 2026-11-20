@@ -1,3 +1,4 @@
+import type { OffProduct } from "./barcodes";
 import { forRetailer, photoSources, type ListedProduct, type PhotoSource } from "./groceries";
 import { tk } from "./i18n";
 import { halfUp } from "./nutrients";
@@ -169,6 +170,10 @@ export interface LoggableProduct {
   portion: string;
   /** Its pictures, best first (the first one fit to keep goes with the entry, as a shopping list item keeps one). */
   photos: PhotoSource[];
+  /** The brand, where the record names one (Open Food Facts): said above the name when no shop is known. */
+  brand?: string;
+  /** Its barcode as printed, where known (the Open Food Facts credit links to its record there). */
+  code?: string;
 }
 
 /** A shop list's per-100 figures (null where the page printed none) as a label (absent where not printed). */
@@ -237,8 +242,11 @@ export function amountChoices(p: Pick<LoggableProduct, "per" | "size" | "portion
   return out.filter((c, i) => out.findIndex((x) => x.amount === c.amount) === i);
 }
 
-/** The amount "How much did you have?" starts with: one portion where the label prints one, else 100 g or ml. */
-export const startAmount = (p: Pick<LoggableProduct, "per" | "size" | "portion">): number => amountChoices(p).find((c) => c.kind === "portion")?.amount ?? 100;
+/** The amount "How much?" starts with: one portion where the label prints one, else one item of a multipack (one sachet of ten), else 100 g or ml. */
+export const startAmount = (p: Pick<LoggableProduct, "per" | "size" | "portion">): number => {
+  const choices = amountChoices(p);
+  return (choices.find((c) => c.kind === "portion") ?? choices.find((c) => c.kind === "item"))?.amount ?? 100;
+};
 
 /** "125 g", "37.5 ml": an amount as the entry's name and the screen say it. */
 export const amountText = (amount: number, unit: "g" | "ml"): string => `${Math.round(amount * 10) / 10} ${unit}`;
@@ -264,7 +272,42 @@ export function loggableFromListed(listed: ListedProduct, prefer: string | null)
   const label: PerHundred = { kcal: p.kcal, protein: p.protein, carbs: p.carbs, fat: p.fat };
   for (const k of ["saturates", "sugars", "fibre", "salt", "kj"] as const) if (typeof p[k] === "number") label[k] = p[k];
   const own = prefer && listed.byRetailer[prefer] ? prefer : listed.retailers[0] ?? "";
-  return { key: `code:${listed.gtin}`, name: p.name, shop, per: p.per, state: "", label, source: p.source === "retailer" ? { kind: "shop", shop: own } : { kind: "community" }, size: p.size, portion: p.serving?.size ?? "", photos: photoSources(p, prefer) };
+  return { key: `code:${listed.gtin}`, name: p.name, shop, per: p.per, state: "", label, source: p.source === "retailer" ? { kind: "shop", shop: own } : { kind: "community" }, size: p.size, portion: p.serving?.size ?? "", photos: photoSources(p, prefer), code: listed.gtin };
+}
+
+/**
+ * A product Open Food Facts holds and none of our lists does (our API, GET /api/v1/barcode/{code}), ready for "How much did you have?"; null when it has no figures
+ * we'd add (lib/mm/barcodes.ts offLabel left them out). Community numbers, said so on screen. `unnamed`: the name to use when the record has none.
+ */
+export function loggableFromOff(p: OffProduct, unnamed: string): LoggableProduct | null {
+  if (!p.label) return null;
+  const label: PerHundred = { ...p.label };
+  return {
+    key: `off:${p.code}`, name: p.name || unnamed, shop: null, per: p.per, state: "", label, source: { kind: "community" }, size: p.quantity, portion: p.serving,
+    photos: p.image ? [{ src: p.image, from: "off", shop: "" }] : [], brand: p.brand, code: p.code,
+  };
+}
+
+/**
+ * One tap of − or + on "How much?": 5 at a time below 50, 10 up to 500, 50 above, landing on a round amount (37 then + is 40, − is 35), kept between MIN_AMOUNT and
+ * MAX_AMOUNT. From nothing typed, + is the first step and − stays at the least.
+ */
+export function stepAmount(current: number | null, direction: 1 | -1): number {
+  if (current === null || !Number.isFinite(current)) return direction === 1 ? 5 : MIN_AMOUNT;
+  const size = (v: number) => (v < 50 ? 5 : v < 500 ? 10 : 50);
+  // the step is the one for where the amount is going: down from 50 is 45, up from 45 is 50
+  const step = direction === 1 ? size(current) : size(current - 0.001);
+  const next = direction === 1 ? Math.floor(current / step + 1e-9) * step + step : Math.ceil(current / step - 1e-9) * step - step;
+  return Math.min(MAX_AMOUNT, Math.max(MIN_AMOUNT, next));
+}
+
+/** Each macro's share of the grams of protein, carbs and fat (for the ring), 0 to 1, adding to 1; all 0 when there are none. */
+export function macroShares(n: Pick<Nutrients, "protein" | "carbs" | "fat">): { protein: number; carbs: number; fat: number } {
+  const p = Math.max(0, n.protein ?? 0);
+  const c = Math.max(0, n.carbs ?? 0);
+  const f = Math.max(0, n.fat ?? 0);
+  const all = p + c + f;
+  return all > 0 ? { protein: p / all, carbs: c / all, fat: f / all } : { protein: 0, carbs: 0, fat: 0 };
 }
 
 /** The same product's numbers from a shop's label, in place of a catalogue record's (2026-11-20: the shop's own label always wins over community numbers). */

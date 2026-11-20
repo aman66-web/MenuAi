@@ -16,7 +16,9 @@ import { SMALL_LABEL } from "./Nutrition";
 // pointed at the allergy he had set. Now "May contain" has a strong outline and its own line saying what it means, and an allergen the person avoids
 // is marked "You avoid" in its row and named at the top.
 
-const CHECK_WITH_STAFF = tk("Dishes change and kitchens handle many allergens, so always check with staff before you order.");
+const CHECK_WITH_STAFF = tk("Before you order, always check with staff.");
+/** What "may contain" means, said once on the card: in the box for the person's own allergen when one of theirs is a "may contain", else under the table. */
+const MAY_MEANS = tk("Small amounts could get in, for example from a shared kitchen or fryer.");
 
 function GuideLink({ chain, href }: { chain: Chain; href: string }) {
   const t = useT();
@@ -104,7 +106,7 @@ export function AllergenSection({ chain, allergens, changesNotCovered, title: ti
     return (
       <section aria-labelledby="allergens-heading" className="glass rounded-[1.25rem] p-4">
         <h2 id="allergens-heading" className="text-xl font-[800] tracking-[-0.01em]">{title}</h2>
-        <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("We don't show allergens for {chain} yet. {chain}'s own guide lists them.", { chain: chain.name })} {t(CHECK_WITH_STAFF)}</p>
+        <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("We don't show allergens for {chain} yet.", { chain: chain.name })} {t(CHECK_WITH_STAFF)}</p>
         <div className="mt-3.5"><GuideLink chain={chain} href={link} /></div>
       </section>
     );
@@ -113,15 +115,17 @@ export function AllergenSection({ chain, allergens, changesNotCovered, title: ti
   // the person's own allergies, the warnings first: contains, then may contain, then not listed
   const rank = { contains: 0, may: 1 } as Record<string, number>;
   const mine = (settings.preferences.avoidAllergens ?? []).map((k) => ({ k, s: statusOf(allergens, k).kind })).sort((a, b) => (rank[a.s] ?? 2) - (rank[b.s] ?? 2));
+  const mayCount = allergens.mayContain.length;
   return (
     <section aria-labelledby="allergens-heading" className="glass overflow-hidden rounded-[1.25rem]">
       <div className="px-4 pt-4">
         <h2 id="allergens-heading" className="text-xl font-[800] tracking-[-0.01em]">{title}</h2>
         <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">
-          {containsCount === 0 ? t("None of the 14 main allergens listed as an ingredient.") : t("Contains {n} of the 14 main allergens.", { n: containsCount })}
-          {/* the "may contain" ones counted apart (usability test 2026-11-19: Harold read "Contains 4" as counting his wife's "may contain" peanuts too) */}
-          {guide.mayContainPublished && allergens.mayContain.length > 0 && ` ${allergens.mayContain.length === 1 ? t("1 more may be present in small amounts.") : t("{n} more may be present in small amounts.", { n: allergens.mayContain.length })}`}
-          {!guide.mayContainPublished && ` ${t("{chain}'s guide doesn't say what may be present in traces.", { chain: chain.name })}`}
+          {containsCount === 0 ? t("None of the 14 allergens listed as an ingredient.") : t("Contains {n} of the 14 allergens.", { n: containsCount })}
+          {/* the "may contain" ones counted apart (usability test 2026-11-19: Harold read "Contains 4" as counting his wife's "may contain" peanuts too), in the
+              table's own words */}
+          {guide.mayContainPublished && mayCount > 0 && ` ${containsCount === 0 ? t("May contain {n}.", { n: mayCount }) : t("May contain {n} more.", { n: mayCount })}`}
+          {!guide.mayContainPublished && ` ${t("{chain}'s guide doesn't list traces.", { chain: chain.name })}`}
         </p>
         {/* the allergies the person set, said first, in words */}
         {mine.length > 0 && (
@@ -133,7 +137,7 @@ export function AllergenSection({ chain, allergens, changesNotCovered, title: ti
                 {s === "contains" ? <><span aria-hidden className="me-1.5">⚠</span>{t("{allergen}: this item contains it.", { allergen: t(ALLERGEN_LABEL[k]) })}</>
                   : s === "may" ? <>
                       <span aria-hidden className="me-1.5">⚠</span>{t("{allergen}: this item may contain it.", { allergen: t(ALLERGEN_LABEL[k]) })}
-                      <span className="mt-1 block font-normal">{t("The restaurant says small amounts could get in, for example from a shared kitchen or fryer.")}</span>
+                      <span className="mt-1 block font-normal">{t(MAY_MEANS)}</span>
                     </>
                   : t("{allergen}: not listed for this item. Ask staff to be sure.", { allergen: t(ALLERGEN_LABEL[k]) })}
               </li>
@@ -148,11 +152,11 @@ export function AllergenSection({ chain, allergens, changesNotCovered, title: ti
         pad="px-4"
       />
       <div className="space-y-3 px-4 pb-4 pt-3.5">
-        {changesNotCovered && <p className="text-sm text-muted">{t("Your changes aren't reflected: the guide lists allergens for the standard item only.")}</p>}
-        {guide.mayContainPublished && <p className="text-[0.9375rem] leading-snug"><span className="font-bold">{t("“May contain”")}</span> {t("means the restaurant says small amounts could get in, for example from a shared kitchen or fryer.")}</p>}
+        {changesNotCovered && <p className="text-sm text-muted">{t("The guide covers the standard items, not your changes.")}</p>}
+        {guide.mayContainPublished && mayCount > 0 && !mine.some((m) => m.s === "may") && <p className="text-[0.9375rem] leading-snug"><span className="font-bold">{t("“May contain”")}</span> {t("means small amounts could get in, for example from a shared kitchen or fryer.")}</p>}
         <p className="flex gap-2 text-[0.8125rem] leading-snug text-muted">
           <InfoIcon className="mt-px h-4 w-4 shrink-0 text-foreground" />
-          <span>{t("From {chain}'s allergen guide, checked {date}.", { chain: chain.name, date: formatDate(guide.checkedOn, t) })} {t("“Not listed” means the guide doesn't list it, not that the item is free from it.")} {t(CHECK_WITH_STAFF)}</span>
+          <span>{t("From {chain}'s allergen guide, checked {date}.", { chain: chain.name, date: formatDate(guide.checkedOn, t) })} {t("“Not listed” doesn't mean free from.")} {t(CHECK_WITH_STAFF)}</span>
         </p>
         <GuideLink chain={chain} href={guide.url} />
       </div>

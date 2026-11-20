@@ -3,9 +3,9 @@ import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-// The welcome steps' feature screens (the onboarding redesign meeting of 20 November 2026, build list 4): the window draws no digit while it loads or when its
-// data failed (CLAUDE.md rule 1: no figure that isn't real), its Free and Premium tags and the week's named tools follow GATING_ENABLED and
-// PHOTO_RECIPES_ENABLED only, and nothing in the welcome screens moves under Reduce Motion.
+// The welcome screens that show the app working (step 4's recipes and Your plan's week): the window draws no digit while it loads or when its data failed
+// (CLAUDE.md rule 1: no figure that isn't real), carries no caption or tag (founder, 20 November 2026: "no labels on previews"), and nothing in the welcome
+// screens moves under Reduce Motion.
 
 // The window's words hook loads "@/" paths the unit tests can't resolve: a stand-in that fills the placeholders.
 vi.mock("../app/app/_lib/i18n", () => ({ useT: () => (s: string, v?: Record<string, unknown>) => s.replace(/\{(\w+)\}/g, (m, k: string) => (v && k in v ? String(v[k]) : m)) }));
@@ -28,13 +28,13 @@ afterEach(() => {
   vi.resetModules();
 });
 
-describe("the feature screens' window (welcome/ShowcaseWindow.tsx)", () => {
-  it("draws no digit while loading, on every window, with or without the tags", async () => {
+describe("the window (welcome/ShowcaseWindow.tsx)", () => {
+  it("draws no digit while loading, on every window, with or without Premium sold", async () => {
     for (const env of [{}, { NEXT_PUBLIC_PRO: "1" }]) {
       vi.resetModules();
       for (const [k, v] of Object.entries(env)) vi.stubEnv(k, v);
       const { ShowcaseWindow } = await import("../app/app/welcome/ShowcaseWindow");
-      for (const kind of ["eatOut", "recipes", "week"] as const) {
+      for (const kind of ["recipes", "week"] as const) {
         const html = renderToStaticMarkup(createElement(ShowcaseWindow, { kind, loading: true, status: "Finding two recipes at Sainsbury's…", rows: 3 }));
         expect(text(html), `${kind} ${JSON.stringify(env)}`).not.toMatch(/\d/);
         // the skeleton is there, and the window is a named region
@@ -44,53 +44,29 @@ describe("the feature screens' window (welcome/ShowcaseWindow.tsx)", () => {
     }
   });
 
-  it("carries the Free tag on Eat out and Recipes and the Premium badge on the week only where Premium is sold", async () => {
-    const { windowTags } = await import("../app/app/welcome/ShowcaseWindow");
-    expect(windowTags("eatOut", false)).toEqual({ free: false, premium: false });
-    expect(windowTags("week", false)).toEqual({ free: false, premium: false });
-    expect(windowTags("eatOut", true)).toEqual({ free: true, premium: false });
-    expect(windowTags("recipes", true)).toEqual({ free: true, premium: false });
-    expect(windowTags("week", true)).toEqual({ free: false, premium: true });
-  });
-
-  it("names Scan your food and Make it at home only where they are switched on, and nothing on the website", async () => {
-    const { alsoInPremium } = await import("../app/app/welcome/ShowcaseWindow");
-    expect(alsoInPremium(false, false)).toBeNull();
-    expect(alsoInPremium(false, true)).toBeNull();
-    // matching our own recipes to what you have is free: only Pip's new recipes from it are named as Premium (the 20 November 2026 audit)
-    expect(alsoInPremium(true, false)).toBe("Also in Premium: Pip's new recipes from what you have.");
-    expect(alsoInPremium(true, true)).toBe("Also in Premium: Scan your food, Make it at home and Pip's new recipes from what you have.");
-  });
-
-  it("follows this build's GATING_ENABLED and PHOTO_RECIPES_ENABLED, never another switch", async () => {
-    const builds: Array<Record<string, string>> = [{}, { NEXT_PUBLIC_PRO: "1" }, { NEXT_PUBLIC_PRO: "1", NEXT_PUBLIC_PHOTO_RECIPES: "1" }, { NEXT_PUBLIC_PHOTO_RECIPES: "1" }];
-    for (const env of builds) {
+  it("carries no caption, Free tag, Premium badge or 'Nothing is charged' line, on any build", async () => {
+    for (const env of [{}, { NEXT_PUBLIC_PRO: "1" }, { NEXT_PUBLIC_PRO: "1", NEXT_PUBLIC_PHOTO_RECIPES: "1" }]) {
       vi.unstubAllEnvs();
       vi.resetModules();
       for (const [k, v] of Object.entries(env)) vi.stubEnv(k, v);
-      const { alsoInPremium, windowTags, ShowcaseWindow } = await import("../app/app/welcome/ShowcaseWindow");
-      const { GATING_ENABLED, PHOTO_RECIPES_ENABLED } = await import("../lib/mm/config");
-      expect(alsoInPremium(), JSON.stringify(env)).toBe(alsoInPremium(GATING_ENABLED, PHOTO_RECIPES_ENABLED));
-      expect(windowTags("week").premium, JSON.stringify(env)).toBe(GATING_ENABLED);
-      const week = text(renderToStaticMarkup(createElement(ShowcaseWindow, { kind: "week", loading: true })));
-      expect(week.includes("Premium"), JSON.stringify(env)).toBe(GATING_ENABLED);
-      expect(week.includes("Nothing is charged during setup."), JSON.stringify(env)).toBe(GATING_ENABLED);
-      const eatOut = text(renderToStaticMarkup(createElement(ShowcaseWindow, { kind: "eatOut", loading: true })));
-      expect(/\bFree\b/.test(eatOut), JSON.stringify(env)).toBe(GATING_ENABLED);
-      // never a price or trial word anywhere in a window
-      expect(week + eatOut).not.toMatch(/£|trial|Try|Subscribe/i);
+      const { ShowcaseWindow } = await import("../app/app/welcome/ShowcaseWindow");
+      for (const kind of ["recipes", "week"] as const) {
+        const words = text(renderToStaticMarkup(createElement(ShowcaseWindow, { kind, loading: true })));
+        expect(words, `${kind} ${JSON.stringify(env)}`).not.toMatch(/A look at|\bFree\b|Premium|Nothing is charged|£|trial|Subscribe/i);
+      }
+    }
+    for (const file of readdirSync(WELCOME).filter((f) => /\.tsx?$/.test(f))) {
+      expect(source(file), file).not.toMatch(/"A look at|"Nothing is charged during setup\.|"Also in Premium/);
     }
   });
 });
 
-describe("the feature screens' words when their data is missing", () => {
-  // the plain lines drawn instead of dishes, recipes or a week: no digit in any of them (their only figures ever come from the data)
+describe("the welcome screens' words when their data is missing", () => {
+  // the plain lines drawn instead of recipes or a week: no digit in any of them (their only figures ever come from the data)
   const fallbacks: Array<[file: string, words: string]> = [
-    ["EatOutShowcase.tsx", "Menus need a connection the first time. Every restaurant is in Eat out."],
     ["RecipeChoice.tsx", "Recipes can't load just now. You'll find them under Recipes."],
     ["RecipeChoice.tsx", "Finding two recipes for you…"],
-    ["WeekShowcase.tsx", "Meal plan makes a week of meals from your shop, sized to your numbers, with one shopping list. You'll find it on Home."],
-    ["EatOutShowcase.tsx", "Loading the menus…"],
+    ["WeekShowcase.tsx", "Meal plan makes your week from your shop, with one shopping list."],
   ];
   it.each(fallbacks)("%s: %s", (file, words) => {
     expect(source(file)).toContain(`"${words}"`);
@@ -98,9 +74,23 @@ describe("the feature screens' words when their data is missing", () => {
   });
 
   it("shows prices only with the shelf-price line, on both screens that show them", () => {
-    // step 5 says the shelf prices vary; step 10, whose week is priced from the shop's list, also says when they were checked
+    // step 4 says the shelf prices vary; Your plan, whose week is priced from the shop's list, also says when they were checked
     expect(source("RecipeChoice.tsx")).toContain("Prices are {shop}'s shelf prices and vary by store.");
     expect(source("WeekShowcase.tsx")).toContain("Prices are {shop}'s shelf prices, checked {date}, and vary by store.");
+  });
+
+  it("never hides how far the week is from the person's numbers (founder: \"never hide it\")", () => {
+    const week = source("WeekShowcase.tsx");
+    expect(week).toContain("keepNarrow: true");
+    expect(week).toContain("weekGap(");
+    expect(week).toContain("Our recipes can't reach {target} kcal yet: about {kcal} a day.");
+  });
+
+  it("captions every restaurant photo with where it comes from (CLAUDE.md rule 2), and never shows Costa's (it has none)", () => {
+    const row = source("RestaurantRow.tsx");
+    expect(row).toContain('"Photo from the {chain} website"');
+    expect(row).toContain('"Not affiliated with any restaurant or shop shown."');
+    expect(row).toMatch(/itemImageUrl/);
   });
 });
 
@@ -120,6 +110,9 @@ describe("Reduce Motion", () => {
     const users = files.filter((f) => source(f).includes("pip-jump"));
     expect(users).toEqual(["QuestionSteps.tsx"]);
     expect(source("QuestionSteps.tsx")).toContain('animationDuration: "800ms"');
+  });
+  it("no Pip speech bubble is left in the welcome screens (founder, 20 November 2026)", () => {
+    for (const file of files) expect(source(file), file).not.toMatch(/<PipSays|BubbleWords|className="speech/);
   });
   it("no confetti, burst or count-up is left in the welcome screens", () => {
     for (const file of files) expect(source(file), file).not.toMatch(/<Confetti|<Burst|"confetti|"burst|countUp/);

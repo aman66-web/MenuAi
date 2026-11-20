@@ -3,14 +3,15 @@
 import Link from "next/link";
 import { RECIPE_IMAGES } from "@/lib/mm/recipeImages";
 import { assetUrl } from "@/lib/mm/config";
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { formatPrice } from "@/lib/mm/groceries";
 import { formatInt } from "@/lib/mm/format";
 import type { MealType } from "@/lib/mm/recipes";
 import { savedRecipesStore, toggleSavedRecipe } from "@/lib/mm/stores";
 import { AppleIcon, CheckIcon, EggGlyph, FishGlyph, HeartIcon, MoonIcon, NoodleGlyph, OatsGlyph, PastaGlyph, PotIcon, RiceBowlGlyph, SaladGlyph, SandwichIcon, SunriseIcon, TacoGlyph, TrashIcon, TrayGlyph } from "../_components/icons";
 import { useStore } from "../_lib/hooks";
-import { useRecipePhoto } from "../_lib/recipePhotos";
+import { keepRecipePhotoPosition, useRecipePhoto, useRecipePhotoPosition } from "../_lib/recipePhotos";
+import { PHOTO_CENTRE, dragPosition, objectPosition, photoRoom, type PhotoPosition } from "@/lib/mm/recipePhotos";
 import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 import type { RecipeCard } from "../_lib/recipes";
@@ -68,6 +69,8 @@ function RecipeArt({ id, name, meal, wide }: { id: string; name: string; meal: M
   const t = useT();
   // a recipe made from the person's own photo (Make it at home) shows that photo (founder 2026-11-16: "that's the thumbnail of the recipe")
   const own = useRecipePhoto(id);
+  // the part of their photo the person chose to show (they moved it on the recipe's page)
+  const place = useRecipePhotoPosition(id);
   const image = useUsableImage(own ?? (RECIPE_IMAGES[id] ? assetUrl(RECIPE_IMAGES[id]) : undefined));
   const look = MEAL_LOOK[meal ?? "dinner"] ?? MEAL_LOOK.dinner;
   const Dish = DISH.find(([re]) => re.test(name))?.[1] ?? look.Icon;
@@ -75,7 +78,7 @@ function RecipeArt({ id, name, meal, wide }: { id: string; name: string; meal: M
     <span className={`relative block overflow-hidden ${wide ? "aspect-[16/10]" : "aspect-[4/3] @[14rem]:aspect-[2/1]"}`}>
       {image ? (
         // eslint-disable-next-line @next/next/no-img-element -- static file named by its hash; the service worker caches it
-        <img src={image.src} alt="" loading="lazy" decoding="async" width={800} height={600} onError={image.fail} className="h-full w-full bg-fill object-cover" />
+        <img src={image.src} alt="" loading="lazy" decoding="async" width={800} height={600} onError={image.fail} style={own && image.src === own ? { objectPosition: objectPosition(place) } : undefined} className="h-full w-full bg-fill object-cover" />
       ) : (
         // the calories pill sits in the top row, so the plate is centred in the space under it and the two never meet
         <span aria-hidden className="flex h-full w-full items-center justify-center bg-fill pt-7">
@@ -90,27 +93,130 @@ function RecipeArt({ id, name, meal, wide }: { id: string; name: string; meal: M
   );
 }
 
+/** Four arrows: "move the picture" (the chip that starts moving the person's own photo). */
+function MoveGlyph(p: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden focusable={false} {...p}>
+      <path d="M12 3v18M3 12h18M9 6l3-3 3 3M9 18l3 3 3-3M6 9l-3 3 3 3M18 9l3 3-3 3" />
+    </svg>
+  );
+}
+
+/** The fewest pixels a photo must run past the picture's edge to be worth moving. */
+const MIN_ROOM = 8;
+/** One arrow-key press moves the photo this far (per cent of the way it can go). */
+const KEY_STEP = 5;
+
 /**
  * The top of a recipe's own page (founder 2026-10-14, from a reference picture: the food big at the top, the page's sheet over its foot):
  * the recipe's AI illustration (described to screen readers as an illustration), or the same plate and drawing as its card, larger. Never a photo of a product.
+ * The person's own photo (`photo`, the one just taken; else the one kept with the recipe) can be moved (founder 2026-11-20): a tap on it, or the four-arrow chip,
+ * starts moving (`onMoving(true)`; the page says "Drag to move it" with Done under it, never on the photo); a drag, or the arrow keys, choose which part shows
+ * (CSS object-position, kept with the recipe on this phone and used on its card too). The photo itself is never changed. Offered only when the photo runs past
+ * the picture's edge, so there is something to move.
  */
-export function RecipeHeroArt({ id, name, label, meal }: { id: string; name: string; label: string; meal: MealType | undefined }) {
+export function RecipeHeroArt({ id, name, label, meal, photo, moving = false, onMoving }: { id: string; name: string; label: string; meal: MealType | undefined; photo?: string; moving?: boolean; onMoving?: (on: boolean) => void }) {
   const t = useT();
   const own = useRecipePhoto(id);
-  const image = useUsableImage(own ?? (RECIPE_IMAGES[id] ? assetUrl(RECIPE_IMAGES[id]) : undefined));
+  const mine = photo ?? own;
+  const image = useUsableImage(mine ?? (RECIPE_IMAGES[id] ? assetUrl(RECIPE_IMAGES[id]) : undefined));
+  const isMine = !!mine && image?.src === mine;
   const look = MEAL_LOOK[meal ?? "dinner"] ?? MEAL_LOOK.dinner;
   const Dish = DISH.find(([re]) => re.test(name))?.[1] ?? look.Icon;
+  const kept = useRecipePhotoPosition(id);
+  // while a finger is down, the place it has dragged to (kept when it lifts)
+  const [dragging, setDragging] = useState<PhotoPosition | null>(null);
+  // the four arrows in the middle show until the photo has first been moved
+  const [moved, setMoved] = useState(false);
+  const startMoving = () => { setMoved(false); onMoving?.(true); };
+  const shown = dragging ?? kept ?? PHOTO_CENTRE;
+  const box = useRef<HTMLDivElement>(null);
+  const pic = useRef<HTMLImageElement>(null);
+  const start = useRef<{ x: number; y: number; from: PhotoPosition; id: number; to: PhotoPosition | null } | null>(null);
+  const [room, setRoom] = useState({ w: 0, h: 0 });
+  const sizes = () => {
+    const b = box.current, i = pic.current;
+    return b && i && i.naturalWidth ? { box: { w: b.clientWidth, h: b.clientHeight }, natural: { w: i.naturalWidth, h: i.naturalHeight } } : null;
+  };
+  const measure = useCallback(() => {
+    const b = box.current, i = pic.current;
+    setRoom(b && i && i.naturalWidth ? photoRoom({ w: b.clientWidth, h: b.clientHeight }, { w: i.naturalWidth, h: i.naturalHeight }) : { w: 0, h: 0 });
+  }, []);
+  useEffect(() => {
+    if (!isMine) return;
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [isMine, measure, image?.src]);
+  const canMove = isMine && !!onMoving && (room.w >= MIN_ROOM || room.h >= MIN_ROOM);
+  const surface = useRef<HTMLDivElement>(null);
+  useEffect(() => { if (moving && canMove) surface.current?.focus({ preventScroll: true }); }, [moving, canMove]);
+  const keep = (p: PhotoPosition) => keepRecipePhotoPosition(id, p);
+  const alt = isMine ? t("Your photo") : t("An illustration of {name}", { name: label.toLowerCase() });
+
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!e.isPrimary) return;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    start.current = { x: e.clientX, y: e.clientY, from: shown, id: e.pointerId, to: null };
+  };
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const s = start.current;
+    const z = sizes();
+    if (!s || s.id !== e.pointerId || !z) return;
+    s.to = dragPosition(s.from, e.clientX - s.x, e.clientY - s.y, z.box, z.natural);
+    setDragging(s.to);
+    setMoved(true);
+  };
+  const onPointerEnd = (e: React.PointerEvent<HTMLDivElement>) => {
+    const s = start.current;
+    if (!s || s.id !== e.pointerId) return;
+    start.current = null;
+    if (s.to) keep(s.to);
+    setDragging(null);
+  };
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Escape" || e.key === "Enter") { e.preventDefault(); onMoving?.(false); return; }
+    // an arrow moves the photo the way the arrow points, as a drag that way would
+    const d = ({ ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] } as Record<string, [number, number]>)[e.key];
+    const z = sizes();
+    if (!d || !z) return;
+    e.preventDefault();
+    const step = (r: number) => (r >= 1 ? (KEY_STEP / 100) * r : 0);
+    keep(dragPosition(shown, d[0] * step(room.w), d[1] * step(room.h), z.box, z.natural));
+    setMoved(true);
+  };
+
   return (
-    <div className="relative h-[clamp(15rem,36dvh,22rem)] overflow-hidden bg-fill">
+    <div ref={box} className="relative h-[clamp(15rem,36dvh,22rem)] overflow-hidden bg-fill">
       {image ? (
         <>
-          {/* eslint-disable-next-line @next/next/no-img-element -- static file named by its hash; the service worker caches it */}
-          <img src={image.src} onError={image.fail} alt={own ? t("Your photo") : t("An illustration of {name}", { name: label.toLowerCase() })} width={800} height={600} decoding="async" className="h-full w-full object-cover" />
+          {/* eslint-disable-next-line @next/next/no-img-element -- static file named by its hash, or the person's own photo (a local address on this phone) */}
+          <img ref={pic} src={image.src} onError={image.fail} onLoad={isMine ? measure : undefined} alt={alt} width={800} height={600} decoding="async" draggable={false} style={isMine ? { objectPosition: objectPosition(shown) } : undefined} className="h-full w-full select-none object-cover" />
           {/* the light band that keeps the iPhone's status bar readable over a picture (the only overlay a food picture may carry); the person's own photo
               is labelled under it, in the recipe's sheet */}
           <div aria-hidden className="status-band" />
-          {/* the whole picture, full screen (founder 2026-11-18), above the sheet that covers the photo's foot */}
-          <FullPictureButton src={image.src} alt={own ? t("Your photo") : t("An illustration of {name}", { name: label.toLowerCase() })} className="bottom-12 end-4" />
+          {canMove && moving ? (
+            // moving: the photo follows a finger (or the arrow keys); four arrows in the middle say so without words until it has moved
+            <div ref={surface} role="group" tabIndex={0} aria-label={t("Drag to move it")} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerEnd} onPointerCancel={onPointerEnd} onKeyDown={onKeyDown}
+              className="absolute inset-0 cursor-grab touch-none select-none focus-visible:outline-4 focus-visible:-outline-offset-4 focus-visible:outline-accent active:cursor-grabbing">
+              <span aria-hidden className={`photo-chip pointer-events-none absolute left-1/2 top-[45%] grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full text-ink transition-opacity ${moved ? "opacity-0" : "opacity-100"}`}>
+                <MoveGlyph className="h-7 w-7" />
+              </span>
+            </div>
+          ) : (
+            <>
+              {/* a tap anywhere on the person's photo starts moving it too (the chip below is the one a screen reader or keyboard meets) */}
+              {canMove && <button type="button" aria-hidden tabIndex={-1} onClick={startMoving} className="absolute inset-0 cursor-pointer" />}
+              {canMove && (
+                <button type="button" onClick={startMoving} aria-label={t("Move the photo")}
+                  className="photo-chip absolute bottom-12 start-4 inline-flex h-11 w-11 items-center justify-center rounded-full text-ink transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+                  <MoveGlyph className="h-5 w-5" />
+                </button>
+              )}
+              {/* the whole picture, full screen (founder 2026-11-18), above the sheet that covers the photo's foot */}
+              <FullPictureButton src={image.src} alt={alt} className="bottom-12 end-4" />
+            </>
+          )}
         </>
       ) : (
         <span aria-hidden className="absolute inset-0">

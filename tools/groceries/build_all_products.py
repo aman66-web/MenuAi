@@ -286,16 +286,19 @@ def read_nutrition(shop: str, problems: list, path: Path | None = None) -> dict:
 def read_listing_photos(shop: str, problems: list[str]) -> dict[str, str]:
     """Photos read later from a product's own page for listing rows that had none (founder 2026-10-11: every product should show its shop's own
     photo): data/groceries/images/<shop>-listing.csv, columns product_id,image_url,page_url,checked_on, written by the Chrome run in
-    docs/NEXT_GROCERIES_IMAGES_PROMPT.md. Only the shop's own image host, and only when page_url is that product's own page, are accepted."""
+    docs/NEXT_GROCERIES_IMAGES_PROMPT.md. Only the shop's own image host, and only when page_url is that product's own page, are accepted (a page ending
+    in the id, or in the shop's own page form: Iceland's "<id>.html")."""
     path = ROOT / "data" / "groceries" / "images" / f"{shop}-listing.csv"
     out: dict[str, str] = {}
     if not path.exists():
         return out
     base = PHOTO_BASE.get(shop, "")
+    page_form = SHOPS.get(shop, {}).get("pagePath") or "{id}"
     with open(path, newline="", encoding="utf-8") as f:
         for line, r in enumerate(csv.DictReader(f), start=2):
             pid, url, page = (r.get("product_id") or "").strip(), (r.get("image_url") or "").strip(), (r.get("page_url") or "").strip()
-            if not (SLUG.fullmatch(pid) and base and url.startswith(base) and page.rstrip("/").endswith("/" + pid)):
+            if not (SLUG.fullmatch(pid) and base and url.startswith(base) and page.startswith("https://")
+                    and page.rstrip("/").endswith("/" + page_form.format(id=pid))):
                 problems.append(f"{shop}-listing.csv line {line}: not the shop's own photo of that product's page ({pid!r})")
                 continue
             out[pid] = url

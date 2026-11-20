@@ -27,9 +27,9 @@ export function ChooseSheet({ item, shops, onClose, onChoose }: { item: Shopping
     <Sheet open={!!item} onClose={onClose} title={item ? t("Choose a product for “{name}”", { name: item.name }) : t("Choose a product")}>
       {item && shop && (
         <div className="pb-2 pt-1">
-          <p className="text-[0.9375rem] leading-snug text-muted">{t("Pick the one you want. It takes the place of “{name}” on your list, with its price.", { name: item.name })}</p>
+          {/* the title says what to do: no line repeating it (the words pass, 20 November 2026) */}
           {shops.length > 1 && (
-            <div role="radiogroup" aria-label={t("Shop")} className="no-scrollbar -mx-5 mt-3 flex gap-2 overflow-x-auto px-5">
+            <div role="radiogroup" aria-label={t("Shop")} className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5">
               {shops.map((s) => (
                 <button key={s.id} type="button" role="radio" aria-checked={s.id === shop.id} onClick={() => setAsked(s.id)}
                   className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border-[1.5px] ps-2 pe-4 text-[0.9375rem] transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${s.id === shop.id ? "border-on-sun bg-sun font-bold text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-edge bg-card font-semibold text-foreground hover:bg-background"}`}>
@@ -43,7 +43,7 @@ export function ChooseSheet({ item, shops, onClose, onChoose }: { item: Shopping
           ) : state.status === "error" ? (
             <div className="mt-4"><ErrorBox message={t("Couldn't load {shopPossessive} products. Check your connection.", { shopPossessive: poss(shop.name) })} onRetry={() => setRetry((n) => n + 1)} /></div>
           ) : options.length === 0 ? (
-            <p className="mt-4 text-base leading-snug">{t("Nothing at {shop} has “{name}” in its name. Try another shop, or keep it as you typed it.", { shop: shop.name, name: item.name })}</p>
+            <p className="mt-4 text-base leading-snug">{shops.length > 1 ? t("Nothing at {shop} matches “{name}”. Try another shop.", { shop: shop.name, name: item.name }) : t("Nothing at {shop} matches “{name}”.", { shop: shop.name, name: item.name })}</p>
           ) : (
             <ul className="mt-3 space-y-2" aria-label={t("Products at {shop}", { shop: shop.name })}>
               {state.status === "ready" && options.map((p) => {

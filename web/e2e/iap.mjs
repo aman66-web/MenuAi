@@ -119,8 +119,8 @@ await step("after setup: the free-trial offer once, with the plans, the price af
   await sheet.getByText("£9.99, one payment. It doesn't renew.").waitFor();
   await plans.getByRole("radio", { name: /Founding Member/ }).press("ArrowUp");
   await plans.getByRole("radio", { name: /Monthly/, checked: true }).waitFor();
-  await sheet.getByText(/There is one free trial per Apple ID\./).waitFor();
-  await sheet.getByText(/renews at the same price for the same length unless you cancel it at least 24 hours/).waitFor();
+  await sheet.getByText(/One free trial per Apple ID\./).waitFor();
+  await sheet.getByText(/renews at the same price and length unless you cancel at least 24 hours/).waitFor();
   await sheet.getByRole("link", { name: "Terms of Use (EULA)" }).waitFor();
   await sheet.getByRole("link", { name: "Privacy Policy" }).waitFor();
   await sheet.getByRole("button", { name: "Restore purchases" }).waitFor();
@@ -265,7 +265,7 @@ await step("adding a meal is free here: Home has no log card and no 'once you lo
   }
   await page.goto(BASE + "/app/today");
   await page.getByRole("heading", { level: 1, name: "Today's meals" }).waitFor();
-  expect((await page.getByText("Log a meal from any order and see your calories and protein against your targets", { exact: false }).count()) === 0, "Today shows the paywall card");
+  expect((await page.getByText("See what's left of your calories and protein.", { exact: false }).count()) === 0, "Today shows the paywall card");
   await page.getByRole("button", { name: /^Add to / }).first().waitFor();
   await ctx.close();
 });

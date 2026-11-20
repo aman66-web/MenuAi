@@ -11,7 +11,7 @@
   "url": "https://www.costa.co.uk/menu",
   "checkedOn": "2026-10-09"
  },
- "note": "Per portion as printed; drinks show the default size and milk only. The menu can differ by store; a few snacks print no numbers and are left out. Read from the chain's own pages on 2026-10-09 (50 UK sites: costa.co.uk/locations/store-locator lists 50 Costa locations within a mile of central London alone).",
+ "note": "Per portion as printed; drinks show the default size and milk only. The menu can differ by store; a few snacks print no numbers and are left out. Read from the chain's own pages on 2026-10-09 (50 UK sites: costa.co.uk/locations/store-locator lists 50 Costa locations within a mile of central London alone). No size shown for food: Costa's pages print food portions in ml.",
  "allergenGuide": {
   "title": "Costa Coffee allergen and nutritional information guide (PDF)",
   "url": "https://www.costa.co.uk/docs/store-allergen-guide.pdf",
@@ -38,7 +38,7 @@
    "id": "egg-and-mushroom-bap",
    "name": "Egg & Mushroom Bap",
    "category": "Breakfast",
-   "serving": "Per portion 158 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 339,
     "protein": 12,
@@ -68,7 +68,7 @@
    "id": "smoked-bacon-bap",
    "name": "Smoked Bacon Bap",
    "category": "Breakfast",
-   "serving": "Per portion 124 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 343,
     "protein": 18,
@@ -99,7 +99,7 @@
    "id": "pork-sausage-bap",
    "name": "Pork Sausage Bap",
    "category": "Breakfast",
-   "serving": "Per portion 161 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 515,
     "protein": 18,
@@ -201,7 +201,7 @@
    "id": "greek-style-yogurt-with-mixed-berry-compote-and-granola",
    "name": "Greek Style Yogurt with Mixed Berry Compote & Granola",
    "category": "Breakfast",
-   "serving": "Per portion 210 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 206,
     "protein": 11,
@@ -230,7 +230,7 @@
    "id": "wholegrain-jumbo-oats-porridge",
    "name": "Wholegrain Jumbo Oats Porridge",
    "category": "Breakfast",
-   "serving": "Per portion 220 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 162,
     "protein": 7,
@@ -259,7 +259,7 @@
    "id": "instant-wholegrain-porridge",
    "name": "Instant Wholegrain Porridge",
    "category": "Breakfast",
-   "serving": "Per portion 290 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 294,
     "protein": 13,
@@ -326,7 +326,7 @@
    "id": "seeded-brown-toast-v",
    "name": "Seeded Brown Toast (V)",
    "category": "Breakfast",
-   "serving": "Per portion 100 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 272,
     "protein": 11,
@@ -362,7 +362,7 @@
    "id": "white-toast-v",
    "name": "White Toast (V)",
    "category": "Breakfast",
-   "serving": "Per portion 90 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 226,
     "protein": 8.7,
@@ -628,7 +628,7 @@
    "id": "wiltshire-ham-and-mature-cheddar-toastie",
    "name": "Wiltshire Ham & Mature Cheddar Toastie",
    "category": "Lunch",
-   "serving": "Per portion 172 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 393,
     "protein": 22,
@@ -698,7 +698,7 @@
    "id": "mature-cheddar-and-roasted-tomato-toastie",
    "name": "Mature Cheddar & Roasted Tomato Toastie",
    "category": "Lunch",
-   "serving": "Per portion 165 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 430,
     "protein": 19,
@@ -763,7 +763,7 @@
    "id": "tuna-melt-panini",
    "name": "Tuna Melt Panini",
    "category": "Lunch",
-   "serving": "Per portion 190 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 462,
     "protein": 26,
@@ -798,7 +798,7 @@
    "id": "mozzarella-and-tomato-panini-v",
    "name": "Mozzarella & Tomato Panini (V)",
    "category": "Lunch",
-   "serving": "Per portion 195 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 493,
     "protein": 21,
@@ -895,7 +895,7 @@
    "id": "chicken-and-bacon-toastie",
    "name": "Chicken & Bacon Toastie",
    "category": "Lunch",
-   "serving": "Per portion 190 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 460,
     "protein": 27,
@@ -929,7 +929,7 @@
    "id": "ham-and-cheese-toastie",
    "name": "Ham & Cheese Toastie",
    "category": "Lunch",
-   "serving": "Per portion 148 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 356,
     "protein": 19,
@@ -963,7 +963,7 @@
    "id": "gluten-free-mozzarella-and-pesto-toastie",
    "name": "Gluten Free Mozzarella & Pesto Toastie",
    "category": "Lunch",
-   "serving": "Per portion 180 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 497,
     "protein": 18,
@@ -1094,7 +1094,7 @@
    "id": "blt-sandwich",
    "name": "BLT Sandwich",
    "category": "Lunch",
-   "serving": "Per portion 190 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 419,
     "protein": 21,
@@ -1128,7 +1128,7 @@
    "id": "free-range-egg-mayo-sandwich",
    "name": "Free Range Egg Mayo Sandwich",
    "category": "Lunch",
-   "serving": "Per portion 170 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 400,
     "protein": 15,
@@ -1162,7 +1162,7 @@
    "id": "mac-and-cheese",
    "name": "Mac & Cheese",
    "category": "Lunch",
-   "serving": "Per portion 270 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 567,
     "protein": 23,
@@ -1268,7 +1268,7 @@
    "id": "all-butter-sultana-scone-v",
    "name": "All Butter Sultana Scone (V)",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 100 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 355,
     "protein": 7,
@@ -1335,7 +1335,7 @@
    "id": "chocolate-and-pistachio-cookie-sandwich",
    "name": "Chocolate & Pistachio Cookie Sandwich",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 73 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 337,
     "protein": 4.4,
@@ -1373,7 +1373,7 @@
    "id": "raspberry-and-almond-bake",
    "name": "Raspberry & Almond Bake",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 75 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 346,
     "protein": 5.7,
@@ -1521,7 +1521,7 @@
    "id": "carrot-and-walnut-cake",
    "name": "Carrot & Walnut Cake",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 130 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 497,
     "protein": 6.4,
@@ -1635,7 +1635,7 @@
    "id": "triple-chocolate-muffin",
    "name": "Triple Chocolate Muffin",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 96 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 402,
     "protein": 5.1,
@@ -1737,7 +1737,7 @@
    "id": "pain-au-chocolat",
    "name": "Pain Au Chocolat",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 72 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 299,
     "protein": 5.9,
@@ -1770,7 +1770,7 @@
    "id": "croissant-v",
    "name": "Croissant (V)",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 62.8 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 246,
     "protein": 5.4,
@@ -1803,7 +1803,7 @@
    "id": "almond-croissant-v",
    "name": "Almond Croissant (V)",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 83 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 318,
     "protein": 7.9,
@@ -1871,7 +1871,7 @@
    "id": "cheddar-cheese-twist",
    "name": "Cheddar Cheese Twist",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 85 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 324,
     "protein": 8.6,
@@ -1937,7 +1937,7 @@
    "id": "chocolate-twist-v",
    "name": "Chocolate Twist (V)",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 85 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 309,
     "protein": 5.4,
@@ -1970,7 +1970,7 @@
    "id": "pain-aux-raisins",
    "name": "Pain aux Raisins",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 96 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 324,
     "protein": 6.5,
@@ -2003,7 +2003,7 @@
    "id": "blueberry-muffin",
    "name": "Blueberry Muffin",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 110 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 403,
     "protein": 4.8,
@@ -2036,7 +2036,7 @@
    "id": "lemon-muffin-v",
    "name": "Lemon Muffin (V)",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 101 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 399,
     "protein": 4.3,
@@ -2070,7 +2070,7 @@
    "id": "salted-caramel-brownie",
    "name": "Salted Caramel Brownie",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 80 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 352,
     "protein": 3.8,
@@ -2136,7 +2136,7 @@
    "id": "millionaires-shortbread-v",
    "name": "Millionaire's Shortbread (V)",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 77 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 396,
     "protein": 4,
@@ -2169,7 +2169,7 @@
    "id": "chocolate-tiffin-v",
    "name": "Chocolate Tiffin (V)",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 80 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 403,
     "protein": 3.8,
@@ -2245,7 +2245,7 @@
    "id": "lemon-curd-tart",
    "name": "Lemon Curd Tart",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 70 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 337,
     "protein": 3.6,
@@ -2281,7 +2281,7 @@
    "id": "lemon-drizzle-loaf-cake",
    "name": "Lemon Drizzle Loaf Cake",
    "category": "Pastries & Sweets",
-   "serving": "Per portion 105 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 402,
     "protein": 4.8,
@@ -2379,7 +2379,7 @@
    "id": "watermelon",
    "name": "Watermelon",
    "category": "Snacks",
-   "serving": "Per portion 180 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 66,
     "protein": 1.5,
@@ -2471,7 +2471,7 @@
    "id": "stem-ginger-biscuits",
    "name": "Stem Ginger Biscuits",
    "category": "Snacks",
-   "serving": "Per portion 48 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 234,
     "protein": 2.6,
@@ -2504,7 +2504,7 @@
    "id": "fruit-and-oat-biscuits",
    "name": "Fruit & Oat Biscuits",
    "category": "Snacks",
-   "serving": "Per portion 48 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 228,
     "protein": 2.6,
@@ -2537,7 +2537,7 @@
    "id": "millionaires-shortbread-gluten-free",
    "name": "Millionaire's Shortbread (Gluten Free)",
    "category": "Snacks",
-   "serving": "Per portion 56 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 279,
     "protein": 1.5,
@@ -2568,7 +2568,7 @@
    "id": "belgian-chocolate-brownie-gluten-free",
    "name": "Belgian Chocolate Brownie (Gluten Free)",
    "category": "Snacks",
-   "serving": "Per portion 60 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 302,
     "protein": 4.4,
@@ -2602,7 +2602,7 @@
    "id": "jammy-shortbread",
    "name": "Jammy Shortbread",
    "category": "Snacks",
-   "serving": "Per portion 50 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 238,
     "protein": 1.8,
@@ -2633,7 +2633,7 @@
    "id": "mini-all-butter-shortbreads",
    "name": "Mini All Butter Shortbreads",
    "category": "Snacks",
-   "serving": "Per portion 10 ml (one piece)",
+   "serving": "Per portion (one piece)",
    "nutrients": {
     "calories": 52,
     "protein": 0.5,
@@ -2666,7 +2666,7 @@
    "id": "caramel-waffles",
    "name": "Caramel Waffles",
    "category": "Snacks",
-   "serving": "Per portion 78 ml",
+   "serving": "Per portion",
    "nutrients": {
     "calories": 363,
     "protein": 3,

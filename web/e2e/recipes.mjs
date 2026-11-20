@@ -73,7 +73,7 @@ await step("recipes list: picked for you, every recipe priced at Sainsbury's, 24
   const cardText = await cards.evaluateAll((els) => els.map((el) => el.textContent ?? ""));
   const noFour = cardText.filter((s) => !(/\d\s*kcal/.test(s) && /\d+g\s*protein/.test(s) && /\d+g\s*carbs/.test(s) && /\d+g\s*fat/.test(s)));
   expect(noFour.length === 0, `${noFour.length} of 24 cards lack kcal, protein, carbs or fat: ${noFour[0] ?? ""}`);
-  await page.getByRole("button", { name: `Show more recipes (${SAINS - 24} more)` }).click();
+  await page.getByRole("button", { name: `Show ${SAINS - 24} more recipes` }).click();
   expect((await cards.count()) === 48, `48 after Show more, got ${await cards.count()}`);
   const tiles = page.getByRole("group", { name: "Filters" });
   /** The "n recipes match" line once it has changed from `was` (the counts follow the recipe book: new breakfasts came on 20 November). */
@@ -169,7 +169,7 @@ await step("a recipe: per-serving numbers, what to buy, swap an ingredient, add 
   const section = page.getByRole("region", { name: "Sainsbury's" });
   expect((await section.getByRole("checkbox").count()) === 6, "6 items on the list (not the cumin)"); // the card's last row is "Add more from Sainsbury's", not an item
   await section.getByText(second).waitFor();
-  await section.getByText(/for the items with a price, at Sainsbury's prices checked/).waitFor();
+  await section.getByText(/ at Sainsbury's prices checked .*Prices change: check in store\./).waitFor();
   await page.getByRole("heading", { name: "How to make it" }).count(); // not on this page; just making sure nothing threw
   await ctx.close();
 });
@@ -235,7 +235,7 @@ await step("My meals: the heart takes a saved recipe out with an Undo just above
   const tabs = await page.getByRole("navigation", { name: "Main" }).boundingBox();
   expect(box && tabs && box.y > 844 / 2 && box.y + box.height <= tabs.y, `the Undo bar sits just above the tab bar: ${JSON.stringify({ box, tabs })}`);
   await page.getByText("No saved recipes yet").waitFor();
-  await page.getByText("Tap the heart on any recipe, or Save at the top of a recipe, and it will be here next time.").waitFor();
+  await page.getByText("Tap the heart on any recipe to keep it here.").waitFor();
   expect((await page.getByText(/Save to My (meals|recipes)”/).count()) === 0, "the empty state no longer names a button that doesn't exist");
   expect(JSON.stringify(await stored()) === "[]", "taken out of the store: " + JSON.stringify(await stored()));
   await bar.getByRole("button", { name: "Undo" }).click();
@@ -453,7 +453,7 @@ await step("allergies: Recipes > More has the 14 allergens; choosing Milk leaves
   const group = page.getByRole("group", { name: "Allergies to avoid" });
   await group.waitFor();
   expect((await group.getByRole("button").count()) === 14, "the 14 allergens");
-  expect((await page.getByText(/allergen labels, so check each pack/).count()) === 0, "no caution until one is chosen");
+  expect((await page.getByText(/allergen labels: check each pack/).count()) === 0, "no caution until one is chosen");
   const milk = group.getByRole("button", { name: "Milk", exact: true });
   expect((await milk.getAttribute("aria-pressed")) === "false", "Milk starts off");
   await milk.click();
@@ -462,7 +462,7 @@ await step("allergies: Recipes > More has the 14 allergens; choosing Milk leaves
   const after = await total();
   expect(after < before && after > 0, `recipes with milk leave the list: ${before} -> ${after}`);
   await page.getByText("No milk").first().waitFor();
-  await page.getByText(/We haven't read these products' allergen labels, so check each pack before you buy/).waitFor();
+  await page.getByText(/^Chosen by their ingredients, not the packs' allergen labels: check each pack before you buy\.$/).waitFor();
   // the same setting as Settings' own picker
   await page.goto(BASE + "/app/settings");
   const settingsMilk = page.getByRole("group", { name: "Allergies to avoid" }).getByRole("button", { name: "Milk", exact: true });
@@ -475,7 +475,7 @@ await step("allergies: Recipes > More has the 14 allergens; choosing Milk leaves
   expect((await milk2.getAttribute("aria-pressed")) === "true", "still on after a visit elsewhere");
   await milk2.click();
   await page.waitForFunction((n) => Number(/·\s*(\d+)/.exec(document.querySelector("#all-heading")?.textContent ?? "")?.[1]) === n, before, { timeout: 15000 });
-  expect((await page.getByText(/allergen labels, so check each pack/).count()) === 0, "the caution goes with the last allergy");
+  expect((await page.getByText(/allergen labels: check each pack/).count()) === 0, "the caution goes with the last allergy");
   await ctx.close();
 });
 
@@ -710,7 +710,7 @@ await step("Shopping at (Recipes page): one shop beside the search with its logo
   expect((await shop.getAttribute("aria-label")) === "Shopping at: Morrisons", "after: " + (await shop.getAttribute("aria-label")));
   await page.getByText(/Made with real Morrisons products and prices|Every ingredient is a real product at Morrisons/).waitFor();
   // Morrisons makes fewer of the recipes than Sainsbury's (labels read so far): the page says so
-  await page.getByText(/more recipes? needs? something we haven't found at Morrisons yet\. Choose another shop/).waitFor();
+  await page.getByText(/more recipes? needs? something we haven't found at Morrisons\. Try another shop\./).waitFor();
   await page.reload();
   await page.getByText(/Made with real Morrisons products and prices|Every ingredient is a real product at Morrisons/).waitFor();
   await ctx.close();

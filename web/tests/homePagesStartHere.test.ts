@@ -181,7 +181,7 @@ describe("the Start here card", () => {
 
   it("its words are tk() keys in StartHere.tsx, with no figure and no good/bad word", () => {
     const src = readFileSync("app/app/_components/StartHere.tsx", "utf8");
-    for (const line of ["Start here", "Had something today? Add it and see what's left.", "Add what you ate", "Had the {dish} today? Add it", "Your first recipe: {recipe}", "Open", "Done with this"]) {
+    for (const line of ["Start here", "Had something today?", "Add what you ate", "Had the {dish} today? Add it", "Your first recipe: {recipe}", "Open", "Done with this"]) {
       expect(src, line).toContain(`t(${JSON.stringify(line)}`);
       expect(/\b(healthy|unhealthy|good|bad|junk)\b/i.test(line), line).toBe(false);
     }

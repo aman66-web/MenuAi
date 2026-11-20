@@ -59,8 +59,9 @@ export default function GroceriesPage() {
       {/* the title, then the shopping list and the Settings cog at the top right, as on every tab (founder 2026-11-19); it wraps, so at large text the pill and
           the cog move under the title instead of breaking the word "Groceries" */}
       <PageHeader title={t("Groceries")} list />
-      {/* what this tab is for, in one line (founder 2026-11-18: "everyone needs to understand the point for each screen") */}
-      <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Supermarket food, with its price and, where the shop publishes it, the calories and protein from its label.")}</p>
+      {/* what this tab is for, in one line (founder 2026-11-18: "everyone needs to understand the point for each screen"); as short as it still says it
+          (the words pass, 20 November 2026) */}
+      <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Supermarket prices, calories and protein.")}</p>
 
       <Link href="/app/groceries/search" className="mt-5 flex min-h-[3.25rem] items-center gap-3 rounded-[1.625rem] border-[1.5px] border-edge bg-card px-5 text-muted transition hover:bg-background active:scale-[0.99]">
         <SearchIcon className="h-5 w-5 shrink-0 text-ink" />
@@ -70,12 +71,11 @@ export default function GroceriesPage() {
       <div className={`mt-3.5 ${chainGroupClass}`}>
         <Shortcut coach="groceries-scan" onClick={() => setScanning(true)} icon={<ScanIcon />} title={t("Scan a barcode")} line={t("Look up a product you're holding")} />
         {/* founder 2026-11-18: "instead of having like cheapest protein, have something called nutritional leaderboards" (Cheapest protein is one of the boards) */}
-        <Shortcut href="/app/groceries/leaderboards" icon={<PodiumIcon />} title={t("Nutrition leaderboards")} line={t("The top 20 products for protein, fibre and more")} />
-        <Shortcut href="/app/compare?tab=food" icon={<CompareIcon />} title={t("Compare products")} line={t("Put products side by side, even from different shops")} />
+        <Shortcut href="/app/groceries/leaderboards" icon={<PodiumIcon />} title={t("Nutrition leaderboards")} line={t("Top 20 for protein, fibre and more")} />
+        <Shortcut href="/app/compare?tab=food" icon={<CompareIcon />} title={t("Compare products")} line={t("Side by side, from any shop")} />
       </div>
 
       <h2 className={`mt-8 ${HEADING}`}>{t("Which shop?")}</h2>
-      <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Tap a shop to see its products, prices and photos.")}</p>
 
       {manifest.status === "error" ? (
         // a failed load is said as one, with the way to try again (2026-11-20: it read as "no shops exist"); it also tries again when the connection comes back
@@ -108,7 +108,7 @@ export default function GroceriesPage() {
       )}
       {missing.length > 0 && <p className="mt-3.5 text-[0.9375rem] leading-snug text-muted">{t("Not here yet: {shops}.", { shops: missing.join(", ") })}</p>}
 
-      <FootNote>{t("Prices appear only where we've read them from the supermarket's own website. Not affiliated with any supermarket.")}</FootNote>
+      <FootNote>{t("Prices from each supermarket's own website. Not affiliated with any supermarket.")}</FootNote>
 
       {picked.length > 0 && (
         // At the foot of the screen, just above the tab bar (founder 2026-11-18: "maybe the go button should be shown instead at the bottom"), where the thumb is

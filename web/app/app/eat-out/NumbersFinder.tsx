@@ -174,7 +174,7 @@ export function NumbersPanel({ state, found }: { state: NumbersFinderState; foun
       {/* The number pad has no Return key, so while a box is in use a Done shows at the top corner of the card, where it takes no room and moves nothing. */}
       <div className="group/nums relative">
         <p className="kicker pe-20">{t("Your numbers")}</p>
-        <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("Type any of these to see the restaurants with dishes that fit. Leave the rest empty.")}</p>
+        <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("Fill in any of these.")}</p>
         <NumberDone onDone={showResults} />
         <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,8.5rem),1fr))] gap-2.5">
           {FIELDS.map((f) => (<NumberBox key={f.key} label={t(f.label)} value={state.fields[f.key]} onChange={(v) => state.setField(f.key, v)} />))}
@@ -289,9 +289,9 @@ export function FinderResults({ state, chains, found }: { state: NumbersFinderSt
       )}
       {hits.length > limit && <div className="mt-3.5"><Button full variant="secondary" onClick={() => setLimit((n) => n + PAGE)}>{t("Show more restaurants")}</Button></div>}
       <div className="mt-4 space-y-2 px-1 text-[0.9375rem] leading-snug text-muted">
-        <p>{t("These count every item on a menu, sides and drinks included, as each restaurant publishes it.")}</p>
-        {result.caloriesOnly > 0 && <p>{t("Restaurants that publish calories only are left out when you ask for protein, carbs or fat.")}</p>}
-        {picked.length + (prefs.avoidAllergens?.length ?? 0) > 0 && result.noAllergenGuide > 0 && <p>{t("Restaurants that don't publish an allergen guide are left out while you have allergies chosen.")}</p>}
+        <p>{t("Counts include sides and drinks.")}</p>
+        {result.caloriesOnly > 0 && <p>{t("Restaurants that publish calories only are left out.")}</p>}
+        {picked.length + (prefs.avoidAllergens?.length ?? 0) > 0 && result.noAllergenGuide > 0 && <p>{t("Restaurants with no allergen guide are left out.")}</p>}
       </div>
     </section>
   );

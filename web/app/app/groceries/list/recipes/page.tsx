@@ -120,13 +120,12 @@ function ListRecipesScreen() {
     <div>
       <PageHeader back={{ href: back, label: t("Back to shopping list") }} />
       <h1 className="mt-5 text-[1.75rem] font-[800] leading-[1.08] tracking-[-0.02em] [overflow-wrap:anywhere]">{own ? t("Cook with your {list} list", { list: own.name }) : <Rich text={t("Cook with your {list}")} values={{ list: <span>{t("shopping list")}</span> }} />}</h1>
-      {/* a plain intro, no Pip (Pip audit, founder 2026-11-20: "keep him as the guide, not the decoration") */}
-      <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("These recipes use something on your list. Each one shows what you still need to buy.")}</p>
+      {/* no intro: the title and the count below say what this is, and each card what is still to buy (the words pass, 20 November 2026) */}
       {/* a list for a shop that isn't in recipes yet: which shop the recipes use instead */}
-      {usesOther && shop && <p className="mt-2 text-[0.9375rem] leading-snug text-foreground">{t("{left} isn't in recipes yet, so these use {shop}: every ingredient is a real product there, with its price.", { left: retailerName(usesOther), shop: retailerName(shop) })}</p>}
+      {usesOther && shop && <p className="mt-2 text-[0.9375rem] leading-snug text-foreground">{t("{left} isn't in recipes yet, so these use {shop}.", { left: retailerName(usesOther), shop: retailerName(shop) })}</p>}
 
       {!hydrated ? null : list.length === 0 ? (
-        <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("Your list is empty.")} body={t("Add a few things you have or plan to buy, and I'll find recipes that use them.")} action={<LinkButton href={listNav.href} onClick={listNav.onClick} replace variant="secondary">{t("Back to my groceries")}</LinkButton>} /></div>
+        <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("Your list is empty.")} body={t("Add a few things and we'll find recipes that use them.")} action={<LinkButton href={listNav.href} onClick={listNav.onClick} replace variant="secondary">{t("Back to shopping list")}</LinkButton>} /></div>
       ) : state === null ? (
         <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No supermarket list yet.")} body={t("Recipes appear once we've read a supermarket's products and prices.")} /></div>
       ) : state.status === "error" ? (
@@ -142,7 +141,7 @@ function ListRecipesScreen() {
             {matches.slice(0, limit).map((m) => (<MatchCard key={m.recipe.id} m={m} lists={lists} viewing={from ?? undefined} />))}
           </ul>
           {matches.length > limit && <div className="mt-4"><Button full variant="secondary" className="min-h-12 text-[0.9375rem]" onClick={() => setLimit((n) => n + PAGE)}>{t("Show more recipes ({n} more)", { n: matches.length - limit })}</Button></div>}
-          <InfoLine heading={null} className="mt-6">{t("Recipes are matched to your list by the products' names and chosen for your diet by their ingredients; check each pack.")}</InfoLine>
+          <InfoLine heading={null} className="mt-6">{t("Matched by product names and chosen for your diet by ingredients: check each pack.")}</InfoLine>
         </>
       )}
     </div>

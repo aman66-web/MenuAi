@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   amountChoices, amountNutrients, loggableFromListed, loggableFromShop, MAX_AMOUNT, MAX_NAME_LENGTH, MAX_SERVINGS, MAX_TYPED_GRAMS, MAX_TYPED_KCAL, MIN_SERVINGS, packAmounts, parseAmount, parseNumber,
-  printedAmount, productEntry, recipeNutrients, startAmount, stepServings, typedEntry, withShopLabel,
+  macroShares, MIN_AMOUNT, printedAmount, productEntry, recipeNutrients, startAmount, stepAmount, stepServings, typedEntry, withShopLabel,
 } from "../lib/mm/addFood";
 import { mergeProducts, type GroceryFile } from "../lib/mm/groceries";
 import { decodeShopProducts, type ShopFile } from "../lib/mm/shopProducts";
@@ -240,5 +240,33 @@ describe("a supermarket product from a shop's list, a scan or a product page (fo
     expect(amountChoices({ per: "ml", size: "400g", portion: "30g" })).toEqual([{ kind: "hundred", amount: 100 }]);
     expect(startAmount({ per: "g", size: "400g", portion: "40g" })).toBe(40);
     expect(startAmount({ per: "g", size: "400g", portion: "" })).toBe(100);
+    expect(startAmount({ per: "g", size: "10x36g", portion: "" })).toBe(36); // one sachet of ten (founder 2026-11-20: scan the box, add what you had)
+  });
+});
+
+describe("How much? (founder 2026-11-20: a scanned product's amount, with − and +)", () => {
+  it("steps 5 at a time below 50, 10 up to 500 and 50 above, landing on a round amount", () => {
+    expect(stepAmount(30, 1)).toBe(35);
+    expect(stepAmount(37, 1)).toBe(40);
+    expect(stepAmount(37, -1)).toBe(35);
+    expect(stepAmount(45, 1)).toBe(50);
+    expect(stepAmount(50, 1)).toBe(60);
+    expect(stepAmount(50, -1)).toBe(45);
+    expect(stepAmount(100, -1)).toBe(90);
+    expect(stepAmount(330, 1)).toBe(340);
+    expect(stepAmount(500, 1)).toBe(550);
+    expect(stepAmount(500, -1)).toBe(490);
+  });
+  it("stays between the least and the most, and starts from nothing typed", () => {
+    expect(stepAmount(5, -1)).toBe(MIN_AMOUNT);
+    expect(stepAmount(1, -1)).toBe(MIN_AMOUNT);
+    expect(stepAmount(MAX_AMOUNT, 1)).toBe(MAX_AMOUNT);
+    expect(stepAmount(null, 1)).toBe(5);
+    expect(stepAmount(null, -1)).toBe(MIN_AMOUNT);
+  });
+  it("draws the ring from the grams themselves, adding to 1, and nothing when there are none", () => {
+    expect(macroShares({ protein: 10, carbs: 30, fat: 10 })).toEqual({ protein: 0.2, carbs: 0.6, fat: 0.2 });
+    expect(macroShares({ protein: 0, carbs: 0, fat: 0 })).toEqual({ protein: 0, carbs: 0, fat: 0 });
+    expect(macroShares({ protein: undefined, carbs: 4, fat: undefined })).toEqual({ protein: 0, carbs: 1, fat: 0 });
   });
 });

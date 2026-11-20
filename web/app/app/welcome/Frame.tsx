@@ -2,11 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import { site } from "@/site.config";
-import { CheckIcon, ChevronLeftIcon } from "../_components/icons";
+import { CheckIcon } from "../_components/icons";
 import { useT } from "../_lib/i18n";
 
-// The frame every welcome screen shares (moved out of page.tsx when the screens were rebuilt for the onboarding redesign meeting of 20 November 2026): the top
-// bar with Back, the app's name, the bar and "Step n of N"; the bottom bar that stays in place with its one ink button; the choice styles; and the quiet links.
+// The frame every welcome screen shares: the top bar with the back arrow and the bar on one row (no "Step n of N" written since the seven-screen onboarding of
+// 20 November 2026: the bar alone; a screen reader hears it with each headline; no app name over the steps, as in the founder's example screens); the bottom
+// bar that stays in place with its one ink button; the choice styles; and the quiet links.
 
 export const SCREEN = "flex min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_2rem)] flex-col";
 // The colour meeting (19 November 2026, approved by the founder that day): lime means only "chosen" here. A chosen answer is lime with a 2 px dark green edge, a
@@ -23,38 +24,46 @@ export const H1 = "outline-none";
 export const WHY_GREY = "welcome-why-grey";
 export const WHY_GREY_LINE = "mb-2 text-center text-[0.9375rem] font-semibold leading-snug";
 
-/**
- * The app's name (with its icon) at the top of every screen, Back (or the replay's Close) at the start, something at the far end (a question's Skip), then the
- * progress as segments and "Step n of N" (sentence case, semibold, 15 px: the meeting's counter). The counter is part of the headline for a screen reader
- * (page.tsx reads it with each h1), so it is not read out again here.
- */
-export function TopBar({ onBack, start, end, segments, current = 0, status }: { onBack?: () => void; start?: React.ReactNode; end?: React.ReactNode; segments?: number; current?: number; status?: string }) {
+/** The plain back arrow: a white circle with the control edge and an ink arrow (founder's examples, 20 November 2026). Its spoken name says what it does. */
+function BackCircle({ onClick }: { onClick: () => void }) {
   const t = useT();
   return (
-    <div>
-      <div className="flex min-h-11 items-center gap-2.5">
-        {start}
-        {!start && onBack && (
-          // Back always shows its word (colour meeting, 19 November 2026): a white pill with the control edge, an ink chevron and "Back"; its spoken name starts
-          // with the same word
-          <button type="button" onClick={onBack} aria-label={t("Back to the previous step")} className={`${SECONDARY} -ms-1 inline-flex min-h-11 shrink-0 items-center gap-1 rounded-full pe-3.5 ps-2 text-base font-semibold`}>
-            <ChevronLeftIcon aria-hidden className="h-5 w-5 text-ink rtl:rotate-180" />{t("Back")}
-          </button>
-        )}
-        <span className="inline-flex min-w-0 items-center gap-2">
-          {/* eslint-disable-next-line @next/next/no-img-element -- our own app icon, a static file */}
-          <img src="/icons/icon-192.png" alt="" width={28} height={28} className="h-7 w-7 shrink-0 rounded-lg" />
-          <span className="truncate text-lg font-[800] tracking-[-0.02em]">{site.name}</span>
-        </span>
-        <span className="flex-1" />
+    <button type="button" onClick={onClick} aria-label={t("Back to the previous step")} className={`${SECONDARY} -ms-1 grid h-12 w-12 shrink-0 place-items-center rounded-full`}>
+      <svg aria-hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.25} strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-ink rtl:rotate-180">
+        <path d="M19 12H5M11 5l-7 7 7 7" />
+      </svg>
+    </button>
+  );
+}
+
+/**
+ * The top of every welcome screen, like the founder's example screens (20 November 2026): on the steps, the plain back arrow (or the replay's Close) at the
+ * start, the progress as segments beside it with no words ("the bar alone"; "Step n of N" is part of each headline for a screen reader instead), and something
+ * at the far end (Skip); nothing else. The cover, which has no bar, keeps the app's name and icon.
+ */
+export function TopBar({ onBack, start, end, segments, current = 0 }: { onBack?: () => void; start?: React.ReactNode; end?: React.ReactNode; segments?: number; current?: number }) {
+  const back = start ?? (onBack ? <BackCircle onClick={onBack} /> : null);
+  if (segments) {
+    return (
+      <div className="flex min-h-12 items-center gap-3">
+        {back}
+        <div aria-hidden className="flex min-w-0 flex-1 gap-1">
+          {Array.from({ length: segments }, (_, i) => (<span key={i} className={`h-1.5 flex-1 rounded-full transition-colors duration-500 motion-reduce:transition-none ${i <= current ? "bg-[var(--bar)]" : "bg-[var(--line)]"}`} />))}
+        </div>
         {end}
       </div>
-      {segments ? (
-        <div aria-hidden className="mt-4 flex gap-1">
-          {Array.from({ length: segments }, (_, i) => (<span key={i} className={`h-1 flex-1 rounded-full transition-colors duration-500 motion-reduce:transition-none ${i <= current ? "bg-[var(--bar)]" : "bg-[var(--line)]"}`} />))}
-        </div>
-      ) : null}
-      {status && <p aria-hidden className="app-numbers mt-2.5 text-[0.9375rem] font-semibold text-muted">{status}</p>}
+    );
+  }
+  return (
+    <div className="flex min-h-12 items-center gap-2.5">
+      {back}
+      <span className="inline-flex min-w-0 items-center gap-2">
+        {/* eslint-disable-next-line @next/next/no-img-element -- our own app icon, a static file */}
+        <img src="/icons/icon-192.png" alt="" width={28} height={28} className="h-7 w-7 shrink-0 rounded-lg" />
+        <span className="truncate text-lg font-[800] tracking-[-0.02em]">{site.name}</span>
+      </span>
+      <span className="flex-1" />
+      {end}
     </div>
   );
 }
@@ -62,7 +71,7 @@ export function TopBar({ onBack, start, end, segments, current = 0, status }: { 
 /** A white pill at the top: a question's Skip, or the replay's Close. */
 export function TopButton({ onClick, label, children }: { onClick: () => void; label?: string; children: React.ReactNode }) {
   // a real button, not faint text (usability test 2026-11-19: most testers never saw "Skip"); at the largest text its words wrap rather than run off the side
-  return <button type="button" onClick={onClick} aria-label={label} className={`${SECONDARY} -me-1 inline-flex min-h-11 min-w-0 items-center rounded-full px-4 py-1 text-center text-[1rem] font-bold leading-tight`}>{children}</button>;
+  return <button type="button" onClick={onClick} aria-label={label} className={`${SECONDARY} -me-1 inline-flex min-h-12 min-w-0 shrink-0 items-center rounded-full px-4 py-1 text-center text-[1rem] font-bold leading-tight`}>{children}</button>;
 }
 
 /** The tick's place at the end of a choice: an empty ring in the control edge, or, chosen, a dark green disc with a lime tick (at least 16 px, 2 px or more). */
@@ -84,9 +93,8 @@ export function Bottom({ children, className = "" }: { children: React.ReactNode
 }
 
 /**
- * A quiet underlined link with a 44 pt tap area, under the bottom button: "Skip these questions" on the questions about the person, step 3's "Skip setup and
- * make my account", the cover's "Start again". Not a second pill (a white pill under a grey Continue would be the most tappable thing on the screen). The one
- * link look of the welcome screens (the 20 November 2026 audit: the cover's sign-in link was green and these were ink): the link green, always underlined.
+ * A quiet underlined link with a 44 pt tap area, under the bottom button (the cover's "Start again"). Not a second pill. The one link look of the welcome
+ * screens: the link green, always underlined.
  */
 export const LINK = "text-accent underline decoration-solid underline-offset-[3px]";
 

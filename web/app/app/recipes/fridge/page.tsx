@@ -168,7 +168,7 @@ function Fridge() {
           <>
             {saved ? (
               <p role="status" className="glass rounded-[1.25rem] p-4 text-center font-semibold">
-                {t("Saved to My recipes. You can take it out there any time.")}
+                {t("Saved to My recipes.")}
                 {fromHome.length > 0 && <span className="mt-1.5 block text-[0.9375rem] font-medium text-muted">{t("From your kitchen: {things}.", { things: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(fromHome) })}</span>}
                 {dropped && <span className="mt-1.5 block text-[0.9375rem] font-medium text-muted">{t("My recipes keeps {n}, so the oldest, {name}, made room.", { n: MAX_SAVED_RECIPES, name: dropped })}</span>}
               </p>
@@ -196,7 +196,7 @@ function Fridge() {
         ) : (
           <>
             {/* Pip hops in once and then stays still while he works (no hop every few seconds) */}
-            <div className="mt-4"><PipSays mood="think" size={64} lively pulse="fridge">{t("Give me a moment: I'm making a recipe from what you have.")}</PipSays></div>
+            <div className="mt-4"><PipSays mood="think" size={64} lively pulse="fridge">{t("Making a recipe from what you have.")}</PipSays></div>
             <ul role="status" aria-live="polite" className="glass mt-5 space-y-3 rounded-[1.25rem] p-4">
               {WORKING.slice(0, line + 1).map((w, i) => (
                 <li key={w} className="flex items-center gap-3 text-[1.0625rem] font-semibold">
@@ -219,11 +219,11 @@ function Fridge() {
       {back}
       <h1 className={`mt-4 ${TITLE}`}>{t("Cook with what you already have")}</h1>
       {!online && <OfflineBanner className="mt-4" />}
-      <div className="mt-4"><PipSays mood="wave" size={64}>{t("Tell me what's in your fridge and cupboards, and what you fancy. I'll find recipes that use it.")}</PipSays></div>
+      <div className="mt-4"><PipSays mood="wave" size={64}>{t("Tell me what you have, and I'll find recipes that use it.")}</PipSays></div>
 
       <label htmlFor="have" className="mt-5 block text-lg font-[800]">{t("What do you have?")}</label>
       <textarea id="have" value={text} onChange={(e) => { setText(e.target.value.slice(0, MAX_HAVE)); setShown(false); }} rows={3} maxLength={MAX_HAVE}
-        placeholder={t("For example: eggs, spinach, cheddar, leftover rice, half an onion")} className={`${inputClass} mt-2 min-h-[6rem] w-full py-3 text-base leading-snug`} />
+        placeholder={t("For example: eggs, spinach, leftover rice")} className={`${inputClass} mt-2 min-h-[6rem] w-full py-3 text-base leading-snug`} />
       <p className="mt-2 text-[0.9375rem] font-semibold text-muted">{t("Or tap to add:")}</p>
       <div role="group" aria-label={t("Common things to add")} className="mt-2 flex flex-wrap gap-2">
         {COMMON.map((c) => {
@@ -293,7 +293,7 @@ function Fridge() {
                     <span className="text-[1.1875rem] font-[800] leading-tight">{t("Ask Pip for a new recipe")}</span>
                     <PremiumBadge />
                   </span>
-                  <span className="mt-0.5 block text-[0.875rem] leading-snug text-muted">{t("Pip makes one up from what you have, adding as little as possible from {shop}.", { shop: shopName })}</span>
+                  <span className="mt-0.5 block text-[0.875rem] leading-snug text-muted">{t("From what you have, plus as little as possible from {shop}.", { shop: shopName })}</span>
                 </span>
               </div>
               <Button
@@ -307,7 +307,7 @@ function Fridge() {
               >
                 {t("Make me a recipe")}
               </Button>
-              <p className="mt-3 text-[0.8125rem] leading-snug text-muted">{t("Pip uses AI from Anthropic (the company that makes Claude). We send the foods you typed or tapped, what you fancy, your diet and allergy choices, the meal size and the list of {shop} products. No name, email or account is sent with it, and we don't keep it.", { shop: shopName })}</p>
+              <p className="mt-3 text-[0.8125rem] leading-snug text-muted">{t("Pip uses AI from Anthropic. We send your foods, what you fancy, your diet and allergies, the meal size and {shop} product list; never your name, email or account. We don't keep it.", { shop: shopName })}</p>
             </Card>
           )}
         </section>

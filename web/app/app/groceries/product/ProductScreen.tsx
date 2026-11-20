@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { loggableFromListed, loggableFromShop, withShopLabel, type LoggableProduct } from "@/lib/mm/addFood";
 import { ALLERGEN_LABEL } from "@/lib/mm/allergens";
-import { labelledHits, shopItemHref, type BarcodeHit } from "@/lib/mm/barcodes";
+import { barcodeDigits, barcodeShown, labelledHits, scannedItemHref, shopItemHref, type BarcodeHit } from "@/lib/mm/barcodes";
 import { barcodeQuery, cheapestRetailer, forRetailer, formatPrice, mergeProducts, photoSources, priceRating, RETAILERS, retailerName, sizeVariants, type GroceryFile, type ListedProduct } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
 import { avoidedAllergens, foodDietNotChecked, foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
@@ -114,7 +114,8 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
   const settings = useSettings();
   const prefs = settings.preferences;
   const mineKey = (settings.shops ?? []).join(",");
-  const wanted = barcodeQuery(code);
+  // a link from a screen that dropped the leading zeros (an EAN-8 such as 01318180 arrives as 1318180) still finds it
+  const wanted = barcodeQuery(barcodeShown(code));
   const [retry, setRetry] = useState(0);
   const key = `${wanted}|${retailerHint ?? ""}|${scan}|${retry}`;
   const [loaded, setLoaded] = useState<{ key: string; state: State; hit: BarcodeHit | null } | null>(null);
@@ -148,7 +149,8 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
         // a scan of a product in a shop's full list opens that shop's own page for it (the person's own shop first); so does a link to a barcode only those lists hold
         if (found && found.shops.length > 0 && (scan || found.catalogue.length === 0)) {
           const target = (!scan && found.shops.find((h) => h.shop === retailerHint)) || found.shops[0]!;
-          router.replace(shopItemHref(target));
+          // a scan says so, and that page then puts "Add to my food diary" first
+          router.replace(scan ? scannedItemHref(target) : shopItemHref(target));
           return;
         }
         if (found === null || (found && found.catalogue.length === 0)) return done({ status: "missing" }, found ?? null);
@@ -185,12 +187,13 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
   if (state.status === "missing" || !listed || !selected) return (
     <div>{back}
       {/* a barcode we don't have is an ordinary answer, not a failure: the calm line, and the ways on */}
-      <div className="mt-4"><InfoLine heading={null}>{t("We don't have {code} yet.", { code: wanted ?? code })}</InfoLine></div>
+      {/* the barcode as printed, leading zeros kept (the design review of 2026-11-20: 01318180 was shown as 1318180) */}
+      <div className="mt-4"><InfoLine heading={null}>{t("We don't have {code} yet.", { code: barcodeShown(code) })}</InfoLine></div>
       <div className="mt-4 grid gap-2.5">
         <Button full onClick={() => setScanning(true)}><ScanIcon aria-hidden className="h-5 w-5" />{t("Scan again")}</Button>
         <LinkButton href="/app/groceries/search" variant="secondary" full>{t("Search the supermarkets")}</LinkButton>
       </div>
-      <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(c) => { setScanning(false); const q = barcodeQuery(c); if (q) router.replace(`/app/groceries/product?code=${q}&scan=1`); }} />
+      <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(c) => { setScanning(false); const q = barcodeDigits(c); if (q) router.replace(`/app/groceries/product?code=${q}&scan=1`); }} />
     </div>
   );
 
@@ -248,6 +251,8 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
               : t("May contain {allergens}.", { allergens: names(avoided.mayContain) })}</p></AllergyNote>
         ) : dietProblem ? <InfoLine heading={null} className="mt-4">{t("This product doesn't fit your diet settings, going by its name, type and label.")}</InfoLine> : null}
         {notChecked && <InfoLine heading={null} className="mt-3">{notChecked}</InfoLine>}
+        {/* reached by a scan: the food diary is why, so its button is the page's one ink button, under the name and any allergy note (the design review of 2026-11-20) */}
+        {scan && <DiaryButton main product={loggable} className="mt-5 min-h-[3.25rem] text-base" onAdded={(entry, meal) => { setAdded(null); setDiary({ entry, meal }); }} />}
         <div className="mt-7">
           <NutritionPanel
             kcal={fig.kcal} protein={fig.protein} carbs={fig.carbs} fat={fig.fat} basis={per} rows={rows}
@@ -365,13 +370,13 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
           {/* the shop you came from first, across the card's width; the others in equal cells two to a row under it (one a row at large text); a lone one
               left over takes the whole row */}
           {shopsToAdd.map((r, i) => (
-            <Button key={r} variant={r === selected ? "primary" : "secondary"} className={r === selected || (others % 2 === 1 && i === shopsToAdd.length - 1) ? "col-span-full" : "px-3! text-balance"} onClick={() => add({ gtin: listed.gtin, retailer: r, name: forRetailer(listed, r).name, brand: listed.brand, size: forRetailer(listed, r).size, ...withPhoto(photoSources(listed, r)) })}>
+            <Button key={r} variant={r === selected && !scan ? "primary" : "secondary"} className={r === selected || (others % 2 === 1 && i === shopsToAdd.length - 1) ? "col-span-full" : "px-3! text-balance"} onClick={() => add({ gtin: listed.gtin, retailer: r, name: forRetailer(listed, r).name, brand: listed.brand, size: forRetailer(listed, r).size, ...withPhoto(photoSources(listed, r)) })}>
               {r === selected && <PlusIcon className="h-[18px] w-[18px]" />}{r === selected ? t("Add to my list") : t("Add · {shop}", { shop: retailerName(r) })}
             </Button>
           ))}
         </div>
-        {/* the food diary: the same "How much did you have?" step as Add food (founder 2026-11-20) */}
-        <DiaryButton product={loggable} className="mt-2.5" onAdded={(entry, meal) => { setAdded(null); setDiary({ entry, meal }); }} />
+        {/* the food diary: the same "How much?" step as Add food (founder 2026-11-20); at the top instead when the page was reached by a scan */}
+        {!scan && <DiaryButton product={loggable} className="mt-2.5" onAdded={(entry, meal) => { setAdded(null); setDiary({ entry, meal }); }} />}
         {added && (
           <Toast key={added.n} onClose={() => setAdded(null)}>
             <span>{added.text}</span> <Link href={added.href} className="font-bold text-on-ink underline underline-offset-2">{t("Open your shopping list")}</Link>

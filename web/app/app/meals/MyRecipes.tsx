@@ -91,7 +91,7 @@ export function MyRecipes() {
   );
 
   let body: React.ReactNode;
-  if (saves.length === 0 && mine.length === 0) body = <EmptyState icon={<Pip mood="point" size={64} />} title={t("No saved recipes yet")} body={t("Tap the heart on any recipe, or Save at the top of a recipe, and it will be here next time.")} action={<LinkButton href="/app/recipes" variant="secondary">{t("See all recipes")}</LinkButton>} />;
+  if (saves.length === 0 && mine.length === 0) body = <EmptyState icon={<Pip mood="point" size={64} />} title={t("No saved recipes yet")} body={t("Tap the heart on any recipe to keep it here.")} action={<LinkButton href="/app/recipes" variant="secondary">{t("See all recipes")}</LinkButton>} />;
   else if (!manifest || (shop && state.status === "loading")) body = <Spinner label={t("Loading recipes")} />;
   else if (!shop) body = <EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No supermarket list yet.")} body={t("Recipes appear once we've read a supermarket's products and prices.")} />;
   else if (state.status === "error") body = <ErrorBox message={t("Couldn't load the recipes. Check your connection.")} onRetry={() => window.location.reload()} />;

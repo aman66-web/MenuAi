@@ -28,14 +28,14 @@ export function NewListSheet({ open, onClose, onPick, lists }: { open: boolean; 
     <Sheet open={open} onClose={onClose} title={t("What do you want to make a shopping list for?")}>
       <div className="pb-2 pt-1">
         {full ? (
-          <p className="text-base leading-snug">{t("You have {n} lists, the most there can be. Delete one to make another.", { n: MAX_SHOPPING_LISTS })}</p>
+          <p className="text-base leading-snug">{t("{n} lists is the most. Delete one to make another.", { n: MAX_SHOPPING_LISTS })}</p>
         ) : (
           <>
-            <p className="text-[0.9375rem] leading-snug text-muted">{t("Choose a shop. You can have more than one list for the same shop.")}</p>
+            {/* the question is the sheet's title and the tiles are the shops: no line saying "Choose a shop" (the words pass, 20 November 2026) */}
             {!shops ? (
               <Spinner label={t("Loading shops")} />
             ) : (
-              <ul className={`mt-4 ${PAIR}`}>
+              <ul className={`mt-1 ${PAIR}`}>
                 {shops.map((s) => (
                   <li key={s.id} className="@container flex">
                     {/* the logo above the name; when a tile has the whole row (large text) the logo sits beside the name instead */}

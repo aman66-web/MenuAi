@@ -31,8 +31,11 @@ function useNamesManifest(): NamesManifest | null {
  * once the lists have loaded: nothing while they load, or offline (a failed load reads as no shops at all, which would wrongly mark every one). A shop with no
  * products at all (Ocado) isn't offered, unless it is already ticked (from before), so it can still be taken off.
  * `warm` (the welcome screens' "Where do you shop?"): ticking a shop starts loading the shop file the next screen's recipes will use, so they are ready sooner.
+ * `tiles` (the welcome screens; founder, 20 November 2026: pictures over text): big tiles two a row, each with the shop's own logo (unmodified, on its tile;
+ * CLAUDE.md rule 2), its name in plain text under it and the round mark; the only words besides the name are "No recipes yet" on a shop recipes can't use, as
+ * the next screen's recipes come from another shop then.
  */
-export function ShopPicker({ value, onChange, warm = false }: { value: readonly string[]; onChange: (shops: string[]) => void; warm?: boolean }) {
+export function ShopPicker({ value, onChange, warm = false, tiles = false }: { value: readonly string[]; onChange: (shops: string[]) => void; warm?: boolean; tiles?: boolean }) {
   const t = useT();
   const manifest = useShopManifest();
   const names = useNamesManifest();
@@ -45,6 +48,34 @@ export function ShopPicker({ value, onChange, warm = false }: { value: readonly 
     if (shop) void loadShopFile(shop).catch(() => undefined);
   };
   const shown = RETAILERS.filter((r) => value.includes(r.id) || shopOffer(r.id, manifest, names) !== "none");
+  if (tiles) {
+    return (
+      <div role="group" aria-label={t("Your supermarkets")} className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-3">
+        {shown.map((r) => {
+          const on = value.includes(r.id);
+          const offer = shopOffer(r.id, manifest, names);
+          // said only once the lists have loaded (a failed load must never mark every shop)
+          const noRecipes = offer !== null && offer !== "recipes";
+          return (
+            <button
+              key={r.id}
+              type="button"
+              aria-pressed={on}
+              onClick={() => change(on ? value.filter((x) => x !== r.id) : [...value, r.id])}
+              className={`relative flex min-h-[8.5rem] min-w-0 flex-col items-center justify-center gap-2 rounded-[1.25rem] px-3 pb-3 pt-4 text-center transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "border-2 border-on-sun bg-sun text-on-sun" : "border-[1.5px] border-edge bg-card text-foreground hover:bg-background"}`}
+            >
+              <span className="absolute end-2.5 top-2.5"><PickMark on={on} small /></span>
+              <ShopMark shopId={r.id} size="lg" />
+              <span className="block min-w-0 [overflow-wrap:break-word]">
+                <span className={`block text-[1.0625rem] leading-tight ${on ? "font-bold" : "font-semibold"}`}>{r.name}</span>
+                {noRecipes && <span className={`mt-0.5 block text-sm leading-snug ${on ? "text-on-sun" : "text-muted"}`}>{t("No recipes yet")}</span>}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+    );
+  }
   return (
     <div role="group" aria-label={t("Your supermarkets")} className="glass divide-y divide-line overflow-hidden rounded-[1.25rem]">
       {shown.map((r) => {

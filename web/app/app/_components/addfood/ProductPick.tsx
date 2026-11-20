@@ -2,29 +2,29 @@
 
 import { needsPaywall } from "@/lib/mm/entitlements";
 import { useDeferredValue, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
-import { ADD_TO, ADDED_TO, amountChoices, amountNutrients, amountText, loggableFromListed, loggableFromShop, MAX_AMOUNT, MIN_AMOUNT, parseAmount, productEntry, startAmount, withShopLabel, type AmountChoice, type LoggableProduct } from "@/lib/mm/addFood";
+import { ADD_TO, ADDED_TO, amountChoices, amountNutrients, amountText, loggableFromShop, MAX_AMOUNT, MIN_AMOUNT, parseAmount, productEntry, startAmount, stepAmount, withShopLabel, type AmountChoice, type LoggableProduct } from "@/lib/mm/addFood";
 import { analytics } from "@/lib/mm/analytics";
-import { hasLabel, normaliseBarcode } from "@/lib/mm/barcodes";
+import { barcodeDigits, barcodeShown } from "@/lib/mm/barcodes";
 import { LOG_MEAL_LABEL, LOG_MEALS, mealSlotFor } from "@/lib/mm/budget";
-import { mergeProducts, retailerName, withPhoto } from "@/lib/mm/groceries";
+import { retailerName, withPhoto } from "@/lib/mm/groceries";
 import { searchShopProducts, type ShopManifest } from "@/lib/mm/shopProducts";
 import { normalizeForSearch } from "@/lib/mm/search";
 import { addLogEntry, countProAction, deleteLogEntry } from "@/lib/mm/stores";
 import type { LogMeal, Nutrients } from "@/lib/mm/types";
 import type { LogEntry } from "@/lib/mm/user-data";
 import { NumberDone } from "../SearchDone";
-import { AlertCircleIcon, PlusIcon, ScanIcon } from "../icons";
+import { AlertCircleIcon, MinusIcon, PencilIcon, PlusIcon, ScanIcon } from "../icons";
 import { InfoLine } from "../Note";
 import { useGate } from "../Paywall";
 import { PremiumBadge } from "../PremiumBadge";
 import { Toast } from "../Toast";
-import { Button, Chip, ErrorBox, inputClass, Sheet, Spinner } from "../ui";
-import { loadRetailer } from "../../_lib/groceries";
+import { Button, Chip, ErrorBox, Sheet, Spinner } from "../ui";
 import { useIsPro, useSettings } from "../../_lib/hooks";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { findBarcode, loadShopFile, useShopLists, useShopManifest } from "../../_lib/shopProducts";
 import { PhotoTile } from "../../groceries/ProductPhoto";
-import { Scanner } from "../../groceries/Scanner";
+import { useBarcodeLookup } from "./findByBarcode";
+import { grams, MacroRing } from "./MacroRing";
 import { ChoosePill, PICK_LIST, PickRow, SheetSearch, type NewEntry } from "./parts";
 
 // "Choose a supermarket product": found by name in the person's own supermarkets' full lists (or one shop they pick), or by its barcode (typed, or read by the
@@ -37,9 +37,6 @@ const RESULTS = 8;
 /** How many shops a search covers at once when it is "My shops" (each is a full list held in memory). */
 const MAX_SEARCH_SHOPS = 3;
 
-/** Grams as the screens show them: whole from 10 g, one decimal below, with a space ("1.4 g", "23 g"). */
-const grams = (v: number) => `${v >= 10 ? Math.round(v) : Math.round(v * 10) / 10}\u00a0g`;
-
 /** The shops with labels a search can use: the person's own first (in their order), then the others by how many labels we've read. */
 export function labelShops(manifest: ShopManifest | null, mine: readonly string[]): string[] {
   const all = (manifest?.retailers ?? []).filter((r) => (r.nutrition ?? 0) > 0);
@@ -49,38 +46,9 @@ export function labelShops(manifest: ShopManifest | null, mine: readonly string[
 }
 
 /**
- * The products a barcode opens, best first (the person's own shops first): every shop list row with numbers for it; for a barcode no shop list holds, the
- * older catalogue's record (community numbers, said so), with only the catalogue files that hold it loaded. Empty when we have no numbers for it.
+ * `onScan` opens Add food's "Scan a barcode" (the camera); `onType` opens "Type in your numbers", starting with the name we know for a barcode we have no figures for.
  */
-export async function productsForBarcode(code: string, mine: readonly string[]): Promise<LoggableProduct[]> {
-  const hit = await findBarcode(code, mine);
-  if (!hit) return [];
-  const rows = hit.shops.filter(hasLabel);
-  if (rows.length > 0) {
-    const shops = [...new Set(rows.map((h) => h.shop))];
-    const lists = await Promise.allSettled(shops.map((s) => loadShopFile(s)));
-    const out: LoggableProduct[] = [];
-    for (const h of rows) {
-      const got = lists[shops.indexOf(h.shop)];
-      if (got?.status !== "fulfilled") continue;
-      const p = got.value.products.find((x) => x.id === h.id);
-      const l = p ? loggableFromShop(got.value.file, p) : null;
-      if (l && !out.some((x) => x.key === l.key)) out.push(l);
-    }
-    if (out.length === 0 && lists.every((x) => x.status === "rejected")) throw new Error("the shop lists couldn't be loaded");
-    return out;
-  }
-  if (hit.shops.length > 0 || hit.catalogue.length === 0) return [];
-  const loaded = await Promise.allSettled(hit.catalogue.map((r) => loadRetailer(r)));
-  const files = loaded.flatMap((x) => (x.status === "fulfilled" ? [x.value] : []));
-  if (files.length === 0) throw new Error("the catalogue couldn't be loaded");
-  const found = mergeProducts(files).find((p) => p.gtin.replace(/^0+/, "") === hit.code);
-  return found ? [loggableFromListed(found, hit.catalogue.find((r) => mine.includes(r)) ?? hit.catalogue[0] ?? null)] : [];
-}
-
-type CodeState = { code: string; status: "loading" } | { code: string; status: "ready"; products: LoggableProduct[] } | { code: string; status: "error" };
-
-export function ProductPick({ meal, onAdd, onBack, header }: { meal: LogMeal; onAdd: (entry: NewEntry) => void; onBack: () => void; header: (onBack: () => void) => ReactNode }) {
+export function ProductPick({ meal, onAdd, onBack, header, onScan, onType }: { meal: LogMeal; onAdd: (entry: NewEntry) => void; onBack: () => void; header: (onBack: () => void) => ReactNode; onScan: () => void; onType: (name: string) => void }) {
   const t = useT();
   const mine = useSettings().shops ?? [];
   const mineKey = mine.join(",");
@@ -94,8 +62,8 @@ export function ProductPick({ meal, onAdd, onBack, header }: { meal: LogMeal; on
   const [retry, setRetry] = useState(0);
   const [query, setQuery] = useState("");
   const deferred = useDeferredValue(query).trim();
-  const code = normaliseBarcode(deferred);
-  const [scanning, setScanning] = useState(false);
+  // a barcode typed in the box, with its leading zeros (the design review of 2026-11-20: 01318180 was shown as 1318180)
+  const code = barcodeDigits(deferred);
   const [picked, setPicked] = useState<LoggableProduct | null>(null);
   // the lists load only once something is typed (2026-11-20: never all of them when the sheet opens)
   const lists = useShopLists(!code && deferred.length >= 2 ? searchIds : [], retry);
@@ -117,21 +85,8 @@ export function ProductPick({ meal, onAdd, onBack, header }: { meal: LogMeal; on
     return out;
   }, [code, deferred, lists, searchKey]);
 
-  // a barcode, typed or scanned
-  const [byCode, setByCode] = useState<CodeState | null>(null);
-  const asked = useRef<string | null>(null);
-  useEffect(() => {
-    if (!code || asked.current === `${code}|${retry}`) return;
-    asked.current = `${code}|${retry}`;
-    let live = true;
-    setByCode({ code, status: "loading" });
-    productsForBarcode(code, mineKey ? mineKey.split(",") : []).then(
-      (products) => { if (live) setByCode({ code, status: "ready", products }); },
-      () => { if (live) setByCode({ code, status: "error" }); },
-    );
-    return () => { live = false; asked.current = null; };
-  }, [code, retry, mineKey]);
-  const codeState = code && byCode?.code === code ? byCode : code ? ({ code, status: "loading" } as const) : null;
+  // a barcode typed in the box: our lists, then Open Food Facts through our own API (findByBarcode.ts)
+  const byCode = useBarcodeLookup(code, mine, code ? t("Barcode {code}", { code }) : "", retry);
 
   // focus moves to the sheet's title when the step changes, as the sheet does between its views (never to a box, which would bring up the keyboard)
   const step = useRef(false);
@@ -139,18 +94,6 @@ export function ProductPick({ meal, onAdd, onBack, header }: { meal: LogMeal; on
     if (!step.current) { step.current = true; return; }
     document.querySelector<HTMLElement>("dialog[open] h2")?.focus({ preventScroll: true });
   }, [picked]);
-
-  const scanned = async (raw: string) => {
-    setScanning(false);
-    const c = normaliseBarcode(raw);
-    if (!c) return;
-    setQuery(c);
-    // one product for it (or one at the person's own shop): straight to How much
-    try {
-      const found = await productsForBarcode(c, mine);
-      if (found.length === 1 || (found.length > 1 && !!found[0]!.shop && mine.includes(found[0]!.shop))) setPicked(found[0]!);
-    } catch { /* the list below says it couldn't load */ }
-  };
 
   if (picked) {
     return (
@@ -161,17 +104,16 @@ export function ProductPick({ meal, onAdd, onBack, header }: { meal: LogMeal; on
     );
   }
 
-  const shown = code ? (codeState?.status === "ready" ? codeState.products : []) : results;
-  const loading = code ? codeState?.status === "loading" : deferred.length >= 2 && lists.status === "loading";
-  const failed = code ? codeState?.status === "error" : lists.status === "ready" && lists.failed.length > 0 && lists.loaded.length === 0;
+  const shown = code ? (byCode?.status === "found" ? byCode.products : []) : results;
+  const loading = code ? byCode?.status === "loading" : deferred.length >= 2 && lists.status === "loading";
+  const failed = code ? byCode?.status === "error" : lists.status === "ready" && lists.failed.length > 0 && lists.loaded.length === 0;
 
   return (
     <div className="pb-2">
       {header(onBack)}
       <div className="space-y-4">
         <SheetSearch value={query} onChange={setQuery} label={t("Search products or type a barcode")} placeholder={t("Type a product, e.g. baked beans")} />
-        <Button variant="secondary" full className="min-h-12" onClick={() => setScanning(true)}><ScanIcon aria-hidden className="h-5 w-5" />{t("Scan a barcode")}</Button>
-        <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(c) => void scanned(c)} />
+        <Button variant="secondary" full className="min-h-12" onClick={onScan}><ScanIcon aria-hidden className="h-5 w-5" />{t("Scan a barcode")}</Button>
 
         {!code && shops.length > 1 && (
           <div role="group" aria-label={t("Supermarket")} className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5">
@@ -181,12 +123,12 @@ export function ProductPick({ meal, onAdd, onBack, header }: { meal: LogMeal; on
         )}
 
         {loading ? (
-          <Spinner label={t("Loading products")} />
+          <Spinner label={code ? t("Looking it up") : t("Loading products")} />
         ) : failed ? (
-          <ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} />
-        ) : code && shown.length === 0 ? (
-          // a barcode we don't have is an ordinary answer, never a red error
-          <InfoLine heading={null}>{t("We don't have {code} yet. Search for it by name, or type in your numbers.", { code })}</InfoLine>
+          <ErrorBox message={code ? t("Couldn't look it up. Check your connection.") : t("Couldn't load the products. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} />
+        ) : code && byCode?.status === "missing" ? (
+          // a barcode nobody has figures for is an ordinary answer, never a red error
+          <NotFound name={byCode.name} onType={onType} />
         ) : !code && deferred.length >= 2 && shown.length === 0 ? (
           <p className="text-[0.9375rem] text-muted">{t("No products with their numbers match.")}</p>
         ) : shown.length > 0 ? (
@@ -197,7 +139,7 @@ export function ProductPick({ meal, onAdd, onBack, header }: { meal: LogMeal; on
                 lead={<PhotoTile sources={p.photos} />}
                 title={p.name}
                 // the shop it's from first (usability test 2026-11-19: George couldn't tell his Sainsbury's oats from Asda's)
-                line={`${p.shop ? retailerName(p.shop) : t("Groceries")} · ${t("{kcal} kcal · {protein} protein per 100 {unit}", { kcal: Math.round(p.label.kcal), protein: grams(p.label.protein), unit: p.per })}${p.source.kind === "community" ? ` · ${t("community numbers")}` : p.source.kind === "government" ? ` · ${t("UK government figures")}` : ""}`}
+                line={`${p.shop ? retailerName(p.shop) : p.brand || t("Groceries")} · ${t("{kcal} kcal · {protein} protein per 100 {unit}", { kcal: Math.round(p.label.kcal), protein: grams(p.label.protein), unit: p.per })}${p.source.kind === "community" ? ` · ${t("community numbers")}` : p.source.kind === "government" ? ` · ${t("UK government figures")}` : ""}`}
                 action={<ChoosePill name={p.name} onClick={() => setPicked(p)} />}
               />
             ))}
@@ -208,18 +150,43 @@ export function ProductPick({ meal, onAdd, onBack, header }: { meal: LogMeal; on
   );
 }
 
-const figures = (amount: string, n: Nutrients) => ({ amount, kcal: `${Math.round(n.calories)} kcal`, protein: grams(n.protein ?? 0), carbs: grams(n.carbs ?? 0), fat: grams(n.fat ?? 0) });
+/** A barcode nobody has figures for: the calm line, and the way on (typing the numbers from the pack, starting with the name where Open Food Facts knows it). */
+export function NotFound({ name, onType, code }: { name: string; onType: (name: string) => void; code?: string }) {
+  const t = useT();
+  return (
+    <div className="space-y-3">
+      <InfoLine heading={null}>{t("We don't have this one yet.")}</InfoLine>
+      {code && <p className="app-numbers px-1 text-[0.9375rem] text-muted">{t("Barcode {code}", { code: barcodeShown(code) })}</p>}
+      <Button full className="min-h-12 text-base" onClick={() => onType(name)}><PencilIcon aria-hidden className="h-5 w-5" />{t("Type the numbers from the pack")}</Button>
+    </div>
+  );
+}
 
-/** Where the numbers are from, worded as the shop product page says it. */
+/** Where the numbers are from, in one short line under them (and the credits Open Food Facts' data and photos need). */
 function SourceNote({ product }: { product: LoggableProduct }) {
   const t = useT();
   const poss = usePossessive();
   const s = product.source;
+  if (s.kind === "community") {
+    const photo = product.photos.some((p) => p.from === "off");
+    return (
+      <div className="space-y-1">
+        <p className="text-[0.875rem] font-semibold leading-snug">{t("Figures from Open Food Facts (community data)")}</p>
+        <p className="text-[0.8125rem] leading-snug text-muted">
+          {product.code ? (
+            <a href={`https://world.openfoodfacts.org/product/${product.code}`} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+              {t("Open Food Facts, ODbL")}<span className="sr-only"> {t("(opens in a new tab)")}</span>
+            </a>
+          ) : t("Open Food Facts, ODbL")}
+          {photo && <> · {t("Photo: Open Food Facts contributors (CC BY-SA)")}</>}
+        </p>
+      </div>
+    );
+  }
   const text = s.kind === "shop" ? t("Read from the product's own page on {shopPossessive} website.", { shopPossessive: poss(retailerName(s.shop)) })
     : s.kind === "same" ? t("Read from the same product's page on {shopPossessive} website.", { shopPossessive: poss(retailerName(s.shop)) })
-    : s.kind === "community" ? null // the line above already says so
     : t("Fresh fruit and vegetables don't have to carry a nutrition label, and {shopPossessive} page shows none, so these are the UK government's figures for {food}.", { shopPossessive: poss(product.shop ? retailerName(product.shop) : t("the shop")), food: s.food });
-  return text ? <p className="text-[0.8125rem] leading-relaxed text-muted">{text}</p> : null;
+  return <p className="text-[0.8125rem] leading-relaxed text-muted">{text}</p>;
 }
 
 function choiceLabel(c: AmountChoice, unit: "g" | "ml", t: ReturnType<typeof useT>): string {
@@ -230,9 +197,16 @@ function choiceLabel(c: AmountChoice, unit: "g" | "ml", t: ReturnType<typeof use
   return amount;
 }
 
+/** The round − and + beside the amount: white with the edge and an ink sign, 48 px. */
+const STEP = "inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-[1.5px] border-edge bg-card text-ink transition active:scale-95 hover:not-disabled:bg-background disabled:border-transparent disabled:bg-soft-strong disabled:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+
+const NONE: Nutrients = { calories: 0, protein: 0, carbs: 0, fat: 0 };
+
 /**
- * "How much did you have?": one-tap amounts from the label and the pack, the amount typed, what that comes to, and (on a product page, with `onMeal`) which
- * meal it goes to. The same step whether it is reached from Add food or from a product's own page.
+ * "How much?" (founder 2026-11-20, scanning a barcode into the food diary): the product with its photo and name, what the amount comes to as a ring of its protein,
+ * carbs and fat with the figures beside it (MacroRing; they follow the amount as it changes), one-tap amounts from its own label and pack (one portion where printed,
+ * the whole pack, 100 g or ml) with the chosen one marked, the amount typed in big with − and +, and (on a product page, with `onMeal`) which meal it goes to. Grams
+ * for food and millilitres for drinks, as the label's figures are per. The same step from Add food, a scan, or a product's own page.
  */
 export function HowMuch({ product, meal, onMeal, onAdd, busy }: { product: LoggableProduct; meal: LogMeal; onMeal?: (m: LogMeal) => void; onAdd: (entry: NewEntry, meal: LogMeal) => void; busy?: boolean }) {
   const t = useT();
@@ -243,70 +217,65 @@ export function HowMuch({ product, meal, onMeal, onAdd, busy }: { product: Logga
   const n = amount === null ? null : amountNutrients(product.label, amount);
   const unit = product.per;
   const choices = amountChoices(product);
-  const shopName = product.shop ? retailerName(product.shop) : t("Groceries");
-  const per = product.state ? t("per 100 {unit} ({state})", { unit, state: product.state }) : t("per 100 {unit}", { unit });
+  // the shop it's from; for a product no shop list holds, its brand
+  const fromName = product.shop ? retailerName(product.shop) : product.brand || t("Groceries");
+  const step = (direction: 1 | -1) => setText(String(stepAmount(amount ?? parseAmount(text.replace(/[^\d.,]/g, "")), direction)));
 
   return (
     <form
-      className="space-y-5 pb-2"
+      className="space-y-6 pb-2"
       onSubmit={(e) => {
         e.preventDefault();
-        if (n && amount !== null) onAdd({ ...productEntry(product, amount, shopName), ...withPhoto(product.photos) }, meal);
+        if (n && amount !== null) onAdd({ ...productEntry(product, amount, fromName), ...withPhoto(product.photos) }, meal);
       }}
     >
       <div className="flex items-center gap-3.5">
         <PhotoTile sources={product.photos} />
         <div className="min-w-0 flex-1">
-          <p className="text-lg font-[800] leading-snug tracking-[-0.01em] [overflow-wrap:anywhere]">{product.name}</p>
-          <p className="app-numbers mt-0.5 text-[0.875rem] leading-snug text-muted">{shopName} · {Math.round(product.label.kcal)} kcal · {t("{protein} protein", { protein: grams(product.label.protein) })} {per}</p>
+          <p className="text-[0.875rem] font-semibold leading-snug text-muted [overflow-wrap:anywhere]">{fromName}</p>
+          <p className="mt-0.5 text-lg font-[800] leading-snug tracking-[-0.01em] [overflow-wrap:anywhere]">{product.name}</p>
         </div>
       </div>
 
-      {choices.length > 1 && (
-        <div role="group" aria-label={t("Amounts")} className="flex flex-wrap gap-2">
-          {choices.map((c) => (
-            <Chip key={`${c.kind}-${c.amount}`} selected={amount === c.amount} mark="none" onClick={() => setText(String(c.amount))}>{choiceLabel(c, unit, t)}</Chip>
-          ))}
-        </div>
-      )}
+      <MacroRing nutrients={n ?? NONE} />
 
       <div className="group/nums relative">
-        <label htmlFor={id} className="mb-2 flex min-h-8 items-center pe-20 text-[0.9375rem] font-semibold leading-snug">{unit === "ml" ? t("How much did you have? (ml)") : t("How much did you have? (g)")}</label>
+        <label htmlFor={id} className="mb-3 flex min-h-8 items-center pe-20 text-lg font-[800] leading-snug tracking-[-0.01em]">{t("How much?")}</label>
         <NumberDone />
-        <input
-          id={id}
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          // the amount is chosen when the box is tapped, so typing replaces it (usability test 2026-11-19: George typed after the 100)
-          onFocus={(e) => e.currentTarget.select()}
-          inputMode="decimal"
-          enterKeyHint="done"
-          autoComplete="off"
-          aria-invalid={bad || undefined}
-          aria-describedby={`${id}-note`}
-          className={`${inputClass} app-numbers`}
-        />
-      </div>
-
-      {bad ? (
-        <p id={`${id}-note`} role="alert" className="flex items-start gap-1.5 text-[0.9375rem] font-semibold leading-snug text-danger">
-          <AlertCircleIcon aria-hidden className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0" />
-          <span className="min-w-0">{t("Type an amount from {min} to {max}.", { min: MIN_AMOUNT, max: MAX_AMOUNT.toLocaleString("en-GB") })}</span>
-        </p>
-      ) : (
-        <div id={`${id}-note`} className="space-y-1.5">
-          <p role="status" className="app-numbers min-h-6 text-[0.9375rem] font-semibold leading-snug">
-            {n && amount !== null
-              ? product.source.kind === "community"
-                ? t("From Open Food Facts contributors (community data), for {amount}: {kcal}, {protein} protein, {carbs} carbs, {fat} fat. Check the pack.", figures(amountText(amount, unit), n))
-                : product.source.kind === "government"
-                  ? t("From the UK government's figures, for {amount}: {kcal}, {protein} protein, {carbs} carbs, {fat} fat.", figures(amountText(amount, unit), n))
-                  : t("From the label, for {amount}: {kcal}, {protein} protein, {carbs} carbs, {fat} fat.", figures(amountText(amount, unit), n))
-              : t("Type an amount from {min} to {max}.", { min: MIN_AMOUNT, max: MAX_AMOUNT.toLocaleString("en-GB") })}
-          </p>
-          <SourceNote product={product} />
+        {choices.length > 1 && (
+          <div role="group" aria-label={t("Amounts")} className="mb-3.5 flex flex-wrap gap-2">
+            {choices.map((c) => (
+              <Chip key={`${c.kind}-${c.amount}`} selected={amount === c.amount} onClick={() => setText(String(c.amount))}>{choiceLabel(c, unit, t)}</Chip>
+            ))}
+          </div>
+        )}
+        <div className="flex items-center gap-2.5">
+          <button type="button" className={STEP} aria-label={t("Less")} disabled={amount !== null && amount <= MIN_AMOUNT} onClick={() => step(-1)}><MinusIcon aria-hidden className="h-5 w-5" /></button>
+          <div className="relative min-w-0 flex-1">
+            <input
+              id={id}
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              // the amount is chosen when the box is tapped, so typing replaces it (usability test 2026-11-19: George typed after the 100)
+              onFocus={(e) => e.currentTarget.select()}
+              inputMode="decimal"
+              enterKeyHint="done"
+              autoComplete="off"
+              aria-invalid={bad || undefined}
+              aria-describedby={bad ? `${id}-bad` : undefined}
+              className="app-numbers min-h-14 w-full rounded-2xl border-[1.5px] border-edge bg-card ps-4 pe-12 text-center text-[1.75rem] font-[800] text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent aria-[invalid=true]:border-danger aria-[invalid=true]:shadow-[0_0_0_0.5px_var(--danger)]"
+            />
+            <span aria-hidden className="pointer-events-none absolute end-4 top-1/2 -translate-y-1/2 text-lg font-semibold text-muted">{unit}</span>
+          </div>
+          <button type="button" className={STEP} aria-label={t("More")} disabled={amount !== null && amount >= MAX_AMOUNT} onClick={() => step(1)}><PlusIcon aria-hidden className="h-5 w-5" /></button>
         </div>
-      )}
+        {bad && (
+          <p id={`${id}-bad`} role="alert" className="mt-2.5 flex items-start gap-1.5 text-[0.9375rem] font-semibold leading-snug text-danger">
+            <AlertCircleIcon aria-hidden className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0" />
+            <span className="min-w-0">{t("Type an amount from {min} to {max}.", { min: MIN_AMOUNT, max: MAX_AMOUNT.toLocaleString("en-GB") })}</span>
+          </p>
+        )}
+      </div>
 
       {onMeal && (
         <div role="radiogroup" aria-label={t("Which meal?")}>
@@ -319,17 +288,20 @@ export function HowMuch({ product, meal, onMeal, onAdd, busy }: { product: Logga
         </div>
       )}
 
-      <Button type="submit" full disabled={!n} busy={busy} className="min-h-12 text-base">{t(ADD_TO[meal])}</Button>
+      <div className="space-y-3">
+        <SourceNote product={product} />
+        <Button type="submit" full disabled={!n} busy={busy} className="min-h-12 text-base">{t(ADD_TO[meal])}</Button>
+      </div>
     </form>
   );
 }
 
 /**
- * "Add to my food diary" on a product's own page (founder 2026-11-20): the white button opens "How much did you have?" in a sheet; the meal is the one the
+ * "Add to my food diary" on a product's own page (founder 2026-11-20): the white button (the ink one, `main`, on a page reached by a scan) opens "How much did you have?" in a sheet; the meal is the one the
  * clock says (Breakfast, Lunch or Dinner), changeable there. Adding does what Add food does (the entry, the analytics, the Premium count) and the page shows
  * the usual toast with Undo through `onAdded`. Free in 1.1: the gate decides, as Home's + does. Nothing shows for a product we have no numbers for.
  */
-export function DiaryButton({ product, onAdded, className }: { product: LoggableProduct | null; onAdded: (entry: LogEntry, meal: LogMeal) => void; className?: string }) {
+export function DiaryButton({ product, onAdded, className, main = false }: { product: LoggableProduct | null; onAdded: (entry: LogEntry, meal: LogMeal) => void; className?: string; /** The page's one ink button (a product page reached by a scan). */ main?: boolean }) {
   const t = useT();
   const { gate } = useGate();
   // the Premium badge only where adding really is Premium for this person (free in 1.1's In-App Purchase build: the release review, 20 November 2026)
@@ -339,7 +311,7 @@ export function DiaryButton({ product, onAdded, className }: { product: Loggable
   if (!product) return null;
   return (
     <>
-      <Button variant="secondary" full className={className} onClick={() => gate("log", () => { setMeal(mealSlotFor(new Date())); setOpen(true); })}>
+      <Button variant={main ? "primary" : "secondary"} full className={className} onClick={() => gate("log", () => { setMeal(mealSlotFor(new Date())); setOpen(true); })}>
         <PlusIcon aria-hidden className="h-5 w-5" />
         {t("Add to my food diary")}
         {logPaid && <PremiumBadge />}

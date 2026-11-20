@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { createVoter, decodeImage, toGray } from "@/lib/mm/barcode";
+import { barcodeDigits } from "@/lib/mm/barcodes";
 import { barcodeQuery } from "@/lib/mm/groceries";
 import { tk } from "@/lib/mm/i18n";
 import { hasNative, nativeCall } from "@/lib/mm/native";
@@ -217,7 +218,8 @@ export function Scanner({ open, onClose, onCode }: { open: boolean; onClose: () 
             className="flex gap-2.5"
             onSubmit={(e) => {
               e.preventDefault();
-              const c = barcodeQuery(typed);
+              // the digits as typed, leading zeros kept (the design review of 2026-11-20: 01318180 came back as 1318180); each screen looks it up its own way
+              const c = barcodeDigits(typed);
               if (c) onCode(c);
               else setNote(tk("A barcode is 8 to 14 digits."));
             }}

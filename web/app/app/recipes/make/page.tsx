@@ -146,7 +146,7 @@ function MakeScreen() {
         <div role="status" aria-live="polite" className="mt-10 flex flex-col items-center text-center">
           <div className="w-full max-w-sm text-start"><PipSays mood="think" size={64}>{t("I'm writing your recipe now…")}</PipSays></div>
           <p className="mt-4 text-lg font-semibold">{t("Picking products from {shop} and fitting them to your meal.", { shop: shopName })}</p>
-          <p className="mt-1 text-muted">{t("This usually takes 10 to 30 seconds.")}</p>
+          <p className="mt-1 text-muted">{t("Usually 10 to 30 seconds.")}</p>
           <span aria-hidden className="mt-5 flex gap-2"><i className="dot-pulse" /><i className="dot-pulse [animation-delay:150ms]" /><i className="dot-pulse [animation-delay:300ms]" /></span>
           <Button variant="ghost" className="mt-6" onClick={() => abort.current?.abort()}>{t("Stop")}</Button>
         </div>
@@ -167,7 +167,7 @@ function MakeScreen() {
             <>
               {savedId ? (
                 <p role="status" className="glass rounded-[1.25rem] p-4 text-center font-semibold">
-                  {t("Saved to My recipes. You can take it out there any time.")} <Link href={`/app/recipes/view?mine=${savedId}&r=${shop}`} className="text-accent underline underline-offset-2">{t("Open it")}</Link>
+                  {t("Saved to My recipes.")} <Link href={`/app/recipes/view?mine=${savedId}&r=${shop}`} className="text-accent underline underline-offset-2">{t("Open it")}</Link>
                   {dropped && <span className="mt-1.5 block text-[0.9375rem] font-medium text-muted">{t("My recipes keeps {n}, so the oldest, {name}, made room.", { n: MAX_SAVED_RECIPES, name: dropped })}</span>}
                 </p>
               ) : (
@@ -205,7 +205,7 @@ function MakeScreen() {
       <div className="mt-5"><MealPicker /></div>
 
       <section aria-labelledby="wish-q" className="mt-5">
-        <h2 id="wish-q" className="text-[1.0625rem] font-bold tracking-[-0.01em]">{t("Anything you'd like?")} <span className="font-medium text-muted">{t("(you can skip this)")}</span></h2>
+        <h2 id="wish-q" className="text-[1.0625rem] font-bold tracking-[-0.01em]">{t("Anything you'd like?")} <span className="font-medium text-muted">{t("(optional)")}</span></h2>
         <div className="mt-2 flex flex-wrap gap-2">
           {IDEAS.map((key) => {
             // the idea in the reader's language: it fills the box as shown (Pip understands it either way)
@@ -231,7 +231,7 @@ function MakeScreen() {
           {/* while it can't be pressed, the reason sits above it (colour meeting: never a silent grey button) */}
           <Button full className="min-h-14 text-lg" disabled={pantry.length < 2 || makerOn === false} reason={makerOn === false ? t("Pip's recipe maker isn't switched on yet. Our own recipes are ready to use.") : !shop ? t("Recipes appear once we've read a supermarket's products and prices.") : t("Too few {shop} products fit your diet. You can change your diet in Settings.", { shop: shopName })} onClick={make}>{t("Make my recipe")}</Button>
           <p className="mt-3 text-[0.8125rem] leading-snug text-muted">
-            {t("Pip uses AI from Anthropic (the company that makes Claude). To write your recipe we send your choices on this page (meal, people, meal size, diet and anything you typed) and the list of {shop} products it may use. No name, email or account is sent with it, and we don't keep it. The numbers you see are worked out from the products' own labels.", { shop: shopName })}
+            {t("Pip uses AI from Anthropic. We send your meal, people, meal size, diet, anything you typed and the {shop} product list; never your name, email or account. We don't keep it. The numbers come from the products' labels.", { shop: shopName })}
           </p>
         </div>
       )}

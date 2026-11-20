@@ -65,7 +65,7 @@ await step("the footnote says prices change, that dried foods are measured as so
   const { ctx, page } = await open();
   await loaded(page);
   const text = (await page.locator("main").innerText()).replace(/\s+/g, " ");
-  expect(/Prices are what Sainsbury's showed on .+ and they change\./.test(text), "prices note");
+  expect(/Prices from Sainsbury's on .+; they change\./.test(text), "prices note");
   expect(/dried foods such as lentils cook up heavier/.test(text), "dried note");
   expect(/says nothing else about a food/.test(text), "price only");
   expect(/Not affiliated with Sainsbury's\./.test(text), "affiliation");

@@ -13,7 +13,7 @@ function ShopItemRoute() {
   const params = useSearchParams();
   const shop = params.get("r");
   const id = params.get("id");
-  return shop && id && /^[a-z0-9-]{2,40}$/.test(shop) ? <ShopItemScreen shop={shop} id={id} /> : <NoChoice title={t("Choose a product first.")} body={t("Tap a shop on Groceries, then a product, to see its page.")} />;
+  return shop && id && /^[a-z0-9-]{2,40}$/.test(shop) ? <ShopItemScreen shop={shop} id={id} /> : <NoChoice title={t("Choose a product first.")} />;
 }
 
 export default function ShopItemPage() {

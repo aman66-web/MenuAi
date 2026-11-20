@@ -1,6 +1,6 @@
 // Everyone signs in (founder 2026-11-17: "Sign up screen shouldn't be skippable, required for everyone"; lib/mm/config.ts SIGN_IN_REQUIRED, lib/mm/signInGate.ts).
-// Since the onboarding redesign meeting of 20 November 2026 (approved by the founder) the account is the welcome steps' last one, step 11 of 11 ("Save your goal and numbers:
-// make your free account"), after the three feature screens (step 3's "Skip setup and make my account" jumps to it), and then straight to Home; the cover's
+// Since the seven-screen onboarding of 20 November 2026 (founder) the account is the welcome steps' last one, step 8 of 8 ("Save your plan"), after Your plan,
+// and then straight to Home; the cover's
 // link opens it at once ("Welcome back. Sign in"); a page of the app reached signed out keeps "Sign in or sign up". "Look around first" is gone. A new account
 // keeps what was typed; an account's own settings win.
 // The backend is a fake that answers /api/v1/* in memory (like account.mjs). Run on a build with the requirement on:
@@ -82,38 +82,45 @@ async function until(what, check, ms = 10000) {
 
 // founder 2026-11-18: one screen that says it is for signing in and signing up; its heading follows how it was reached (the onboarding meeting, 19 November)
 const gate = (page) => page.getByRole("heading", { name: "Sign in or sign up" });
-const setupGate = (page) => page.getByRole("heading", { name: "Save your goal and numbers: make your free account" });
+const setupGate = (page) => page.getByRole("heading", { name: "Save your plan" });
 const backGate = (page) => page.getByRole("heading", { name: "Welcome back. Sign in" });
-/** Get started on the cover: the first question (step 1 of 11; no hello screen, no tour, no fork since 20 November). */
+/** Get started on the cover: the first question (step 1 of 8, heard with the headline; no hello screen, no tour, no fork since 20 November). */
 async function toQuestions(page) {
   await page.getByRole("button", { name: "Get started" }).click();
   await page.getByRole("heading", { name: "What's your goal?" }).waitFor();
 }
-/** From the foods to avoid on: Eat out, the shops (none), the recipes, "Skip these questions", to the targets. */
-async function toTargetsFromAvoid(page) {
+/** From the foods to avoid on: the shops (none), the recipes, Skip on About you, to Your plan with the starting numbers. */
+async function toPlanFromAvoid(page) {
   await page.getByRole("button", { name: "Nothing to avoid" }).click();
-  await page.getByRole("button", { name: "Next: where you shop" }).click();
-  await page.getByRole("heading", { name: "Where do you shop?" }).waitFor();
+  await page.getByRole("heading", { name: /^Where do you shop\?/ }).waitFor();
   await page.getByRole("button", { name: "Continue" }).click();
-  await page.getByRole("button", { name: "Next: your daily numbers" }).click();
-  await page.getByRole("button", { name: "Skip these questions" }).click();
-  await page.getByRole("heading", { name: "Your daily targets" }).waitFor();
+  await page.getByRole("heading", { level: 1, name: /^Recipes/ }).waitFor();
+  await page.getByRole("button", { name: "Continue" }).click();
+  await page.getByRole("heading", { name: /^About you/ }).waitFor();
+  await page.getByRole("button", { name: "Skip", exact: true }).click();
+  await page.getByRole("heading", { name: /^Your plan/ }).waitFor();
 }
-/** From the targets: the week, then the account step. */
+/** Your plan's Change: the calories typed and saved. */
+async function changeCalories(page, kcal) {
+  await page.getByRole("button", { name: "Change", exact: true }).click();
+  await page.locator("#plan-calories").fill(String(kcal));
+  await page.getByRole("button", { name: "Save", exact: true }).click();
+  await page.getByRole("button", { name: "Change", exact: true }).waitFor();
+}
+/** From Your plan: "Save my plan", to the account step. */
 async function toAccount(page) {
-  await page.getByRole("button", { name: "Next: plan my week" }).click();
-  await page.getByRole("heading", { name: "Your week, planned" }).waitFor();
-  await page.getByRole("button", { name: "Next: save your numbers" }).click();
+  await page.getByRole("button", { name: "Save my plan" }).click();
   await setupGate(page).waitFor();
 }
+/** "Step n of N", heard with the step's headline (never written on screen). */
+const heardStep = (page, n, total) => page.getByRole("heading", { level: 1, name: new RegExp(`\\s*, Step ${n} of ${total}$`) }).waitFor();
 const settingsOn = (page) => page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings") || "null")?.data ?? null);
-/** Sign in on the sign-in screen with an email code. */
+/** Sign in on the sign-in screen with an email code: "What's your email?", Continue, then "Enter the code", which goes on by itself with the sixth digit. */
 async function emailSignIn(page, email) {
   await page.getByRole("button", { name: "Continue with email" }).click();
-  await page.getByLabel("Your email address").fill(email);
-  await page.getByRole("button", { name: "Send me a code" }).click();
-  await page.getByLabel("6-digit code").fill("123456");
-  await page.getByRole("button", { name: "Sign in", exact: true }).click();
+  await page.getByLabel("What's your email?").fill(email);
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
+  await page.getByLabel("Enter the code").fill("123456");
 }
 
 // Only a build where everyone signs in can run this: on any other (the feature suites' builds and a dev server with sample data turn the requirement off) say so
@@ -130,7 +137,7 @@ async function emailSignIn(page, email) {
   }
 }
 
-await step("a first visit: the cover says which numbers and 'No ads, no tracking'; Get started goes on to the steps without an account; the account is step 11 of 11, 'Save your goal and numbers: make your free account', and can't be skipped; Back returns to the week, and step 3's link jumps to it too", async () => {
+await step("a first visit: the cover says which numbers and 'No ads, no tracking'; Get started goes on to the steps without an account; the account is step 8 of 8, 'Save your plan', and can't be skipped; Back returns to Your plan", async () => {
   const { ctx, page, device } = await newPhone();
   await page.goto(BASE + "/app");
   await page.getByRole("button", { name: "Get started" }).waitFor();
@@ -139,33 +146,24 @@ await step("a first visit: the cover says which numbers and 'No ads, no tracking
   expect(cover.includes("Calories and protein") && cover.includes("Every menu free") && cover.includes("No ads, no tracking") && !cover.includes("No account needed") && !cover.includes("Stays on your phone"), "the cover's promises: " + cover.slice(0, 400).replace(/\n/g, " | "));
   await toQuestions(page);
   expect(!(await gate(page).count()) && !(await setupGate(page).count()), "no sign-in before the steps");
-  await page.getByText("Step 1 of 11", { exact: true }).waitFor();
+  await heardStep(page, 1, 8);
   await page.getByRole("button", { name: "Skip", exact: true }).click(); // the goal
-  await page.getByRole("heading", { name: "Anything you avoid?" }).waitFor();
-  await toTargetsFromAvoid(page);
+  await page.getByRole("heading", { name: /^Anything you avoid\?/ }).waitFor();
+  await toPlanFromAvoid(page);
   await toAccount(page);
-  await page.getByText("Step 11 of 11", { exact: true }).waitFor();
+  await heardStep(page, 8, 8);
   const screen = await page.locator("main").innerText();
   expect(!/skip|not now|continue without|look around|optional/i.test(screen), "nothing on the sign-in screen gets past it: " + screen.replace(/\n/g, " | "));
-  expect(screen.includes("Your goal and daily numbers are ready.") && /Never your sex, age, height, weight or activity/.test(screen) && screen.includes("No ads, no tracking."), "the reason and the promise: " + screen.replace(/\n/g, " | "));
+  // founder 2026-11-20: one short line from Pip and one small line with the Privacy link; no "New here?", no Face ID line, no long list
+  expect(screen.includes("Free, and it keeps your plan safe on any phone.") && screen.includes("We keep your email and what you save. No ads, no tracking.") && !/New here|Face ID|Never your sex/.test(screen), "the reason and the promise: " + screen.replace(/\n/g, " | "));
+  expect(await page.getByRole("link", { name: "Privacy" }).isVisible(), "the Privacy link beside the promise");
   for (const way of ["Continue with Apple", "Continue with Google", "Continue with email"]) expect(await page.getByText(way, { exact: true }).isVisible(), `${way} is offered`);
   expect(!(await page.getByRole("navigation", { name: "Main" }).count()), "no tab bar");
   expect(!device.calls.some((c) => c.startsWith("PUT sync")), "nothing is sent before signing in");
-  // Back returns to the week
+  // Back returns to Your plan
   await page.getByRole("button", { name: "Back to the previous step" }).click();
-  await page.getByRole("heading", { name: "Your week, planned" }).waitFor();
+  await page.getByRole("heading", { name: /^Your plan/ }).waitFor();
   await ctx.close();
-  // step 3's "Skip setup and make my account" goes to the same screen, and Back from it to step 3
-  const two = await newPhone();
-  await two.page.goto(BASE + "/app/welcome");
-  await toQuestions(two.page);
-  await two.page.getByRole("button", { name: "Skip", exact: true }).click();
-  await two.page.getByRole("button", { name: "Nothing to avoid" }).click();
-  await two.page.getByRole("button", { name: "Skip setup and make my account" }).click();
-  await setupGate(two.page).waitFor();
-  await two.page.getByRole("button", { name: "Back to the previous step" }).click();
-  await two.page.getByRole("heading", { name: "Know before you order" }).waitFor();
-  await two.ctx.close();
 });
 
 // A reversal of 17 November (when the link was taken off because Get started signs in too): the onboarding meeting of 19 November (change 13) put
@@ -241,34 +239,54 @@ await step("signing in on the sign-in screen opens the page that was asked for, 
   await second.ctx.close();
 });
 
-await step("the code step shows the typed address on its own line, who the email comes from, and to look in Junk", async () => {
-  const { ctx, page } = await newPhone({ settings: onboarded });
+await step("'Continue with email' is two screens of one question each: 'What's your email?' (the address typed big in the middle, the keyboard up, Continue), then 'Enter the code' (the address, six places that go on by themselves, the countdown to 'Send it again'); Back and Help at the top; nothing else", async () => {
+  const { ctx, page, device } = await newPhone({ settings: onboarded });
   await page.goto(BASE + "/app/eat-out");
   await gate(page).waitFor();
   await page.getByRole("button", { name: "Continue with email" }).click();
-  await page.getByLabel("Your email address").fill("joan.smith@example.com");
-  await page.getByRole("button", { name: "Send me a code" }).click();
-  await page.getByLabel("6-digit code").waitFor();
-  const address = page.locator("main strong", { hasText: "joan.smith@example.com" });
-  expect((await address.count()) === 1, "the address is shown");
-  const lead = page.getByText("We've sent a 6-digit code to");
-  const [a, l] = [await address.boundingBox(), await lead.boundingBox()];
-  expect(a && l && a.y >= l.y + 4 && a.x <= l.x + 1, `the address sits on a line of its own under the lead: ${JSON.stringify({ a, l })}`);
-  const text = await page.locator("main").innerText();
-  expect(text.includes("noreply@numbite.com") && text.includes("Look in Junk or Spam."), "who it comes from and where else to look: " + text.replace(/\n/g, " | "));
-  expect(await page.getByRole("button", { name: "Use a different email" }).isVisible() && await page.getByRole("button", { name: "Send a new code" }).isVisible(), "both ways out stay");
+  await page.getByRole("heading", { name: "What's your email?" }).waitFor();
+  const box = page.getByLabel("What's your email?");
+  const typing = await page.evaluate(() => { const a = document.activeElement; return a ? `${a.getAttribute("type")} ${a.getAttribute("autocomplete")}` : ""; });
+  expect(typing === "email email", "the email box has the focus, so the keyboard is up: " + typing);
+  let text = await page.locator("main").innerText();
+  expect(text.includes("We'll send you a code.") && !/Apple|Google|Terms|Pip|password/i.test(text), "only the question, its line, the box and Continue: " + text.replace(/\n/g, " | "));
+  expect(await page.getByRole("link", { name: "Help", exact: true }).isVisible(), "Help at the top right");
+  await box.fill("joan");
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
+  await page.getByText("That doesn't look like an email address.").waitFor();
+  await box.fill("joan.smith@example.com");
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
+  await page.getByRole("heading", { name: "Enter the code" }).waitFor();
+  const code = page.getByLabel("Enter the code");
+  expect(await code.evaluate((el) => el === document.activeElement && el.getAttribute("inputmode") === "numeric" && el.getAttribute("autocomplete") === "one-time-code"), "the code box has the focus, numbers only, with the phone's code from Mail");
+  expect((await page.locator("main strong", { hasText: "joan.smith@example.com" }).count()) === 1, "the address is shown, in bold");
+  text = await page.locator("main").innerText();
+  expect(text.includes("Sent to joan.smith@example.com") && /You can ask for a new code in \d+ seconds/.test(text) && !/Junk|Use a different email|Send a new code|Sign in/.test(text), "the code screen: " + text.replace(/\n/g, " | "));
+  // a wrong code goes by itself with the sixth digit, says so and empties the six places
+  await code.fill("000000");
+  await page.getByText("That code isn't right, or it has run out. Ask for a new one.").waitFor();
+  expect((await code.inputValue()) === "", "the six places are empty again");
+  // Back: the address is still there, and going on with it while its code is new sends no second email
+  const sends = device.calls.filter((c) => c === "POST auth/email/start").length;
+  await page.getByRole("button", { name: "Back", exact: true }).click();
+  expect((await box.inputValue()) === "joan.smith@example.com", "the address is kept");
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
+  await page.getByRole("heading", { name: "Enter the code" }).waitFor();
+  expect(device.calls.filter((c) => c === "POST auth/email/start").length === sends, "no second email inside the minute");
+  // a paste of the email's sentence fills all six and goes on
+  await code.fill("Your code is 123456.");
+  await page.getByRole("navigation", { name: "Main" }).waitFor();
   await ctx.close();
 });
 
-await step("a new account made at step 11 keeps the goal, targets and diet typed on this phone, goes straight to Home ('You're signed in. Your goal and daily numbers are saved.'), and never hears that signing in is optional", async () => {
+await step("a new account made at the account step keeps the goal, targets and diet typed on this phone, goes straight to Home ('You're signed in. Your goal and daily numbers are saved.'), and never hears that signing in is optional", async () => {
   const { ctx, page } = await newPhone();
   await page.goto(BASE + "/app/welcome");
   await toQuestions(page);
   await page.getByRole("radio", { name: /^Build muscle/ }).click();
   await page.getByRole("button", { name: "Continue" }).click();
-  await toTargetsFromAvoid(page);
-  await page.getByText("Your sex, age, height, weight and activity aren't kept. Your daily numbers, goal, the foods you avoid and your shops are kept on this phone, and in your account once you sign in.").waitFor();
-  await page.getByLabel("Calories", { exact: true }).fill("2300");
+  await toPlanFromAvoid(page);
+  await changeCalories(page, 2300);
   await toAccount(page);
   await emailSignIn(page, "new@example.com");
   await page.waitForURL((u) => /^\/app\/?$/.test(new URL(u).pathname), { timeout: 15000 });
@@ -285,7 +303,7 @@ await step("a new account made at step 11 keeps the goal, targets and diet typed
   await ctx.close();
 });
 
-await step("an account already set up, signed in at step 11 on a new phone, goes straight to the app with its own settings: what was typed never overwrites them", async () => {
+await step("an account already set up, signed in at the account step on a new phone, goes straight to the app with its own settings: what was typed never overwrites them", async () => {
   const email = "keep@example.com";
   const first = await newPhone({ settings: onboarded }); // maintain, 2,000 kcal
   await first.page.goto(BASE + "/app/eat-out");
@@ -300,8 +318,8 @@ await step("an account already set up, signed in at step 11 on a new phone, goes
   await toQuestions(page);
   await page.getByRole("radio", { name: /^Lose weight/ }).click();
   await page.getByRole("button", { name: "Continue" }).click();
-  await toTargetsFromAvoid(page);
-  await page.getByLabel("Calories", { exact: true }).fill("1600");
+  await toPlanFromAvoid(page);
+  await changeCalories(page, 1600);
   await toAccount(page);
   await emailSignIn(page, email);
   await page.waitForURL((u) => !new URL(u).pathname.startsWith("/app/welcome"), { timeout: 15000 });
@@ -334,7 +352,7 @@ await step("someone who leaves part-way comes back to the welcome cover on the n
   await ctx.close();
 });
 
-await step("signed in at a page's gate (a link) with nothing set up: the next plain start runs the signed-in steps, 'Step 1 of 10', and ends with 'Save and go to Home'", async () => {
+await step("signed in at a page's gate (a link) with nothing set up: the next plain start runs the signed-in steps, step 1 of 7, and ends with 'Save and go to Home'", async () => {
   const { ctx, page } = await newPhone();
   await page.goto(BASE + "/app/eat-out");
   await gate(page).waitFor();
@@ -343,10 +361,9 @@ await step("signed in at a page's gate (a link) with nothing set up: the next pl
   await page.goto(BASE + "/app");
   await page.waitForURL(/\/app\/welcome$/);
   await toQuestions(page);
-  await page.getByText("Step 1 of 10", { exact: true }).waitFor();
+  await heardStep(page, 1, 7);
   await page.getByRole("button", { name: "Skip", exact: true }).click();
-  await toTargetsFromAvoid(page);
-  await page.getByRole("button", { name: "Next: plan my week" }).click();
+  await toPlanFromAvoid(page);
   await page.getByRole("button", { name: "Save and go to Home" }).click();
   await page.waitForURL((u) => /^\/app\/?$/.test(new URL(u).pathname), { timeout: 15000 });
   expect((await settingsOn(page))?.hasCompletedOnboarding === true, "set up after the signed-in run");

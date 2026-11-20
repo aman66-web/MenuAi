@@ -18,7 +18,7 @@ import { Button } from "./ui";
 // Home's "Start here" card, one time, on the first visit after the welcome screens (the onboarding redesign meeting, 20 November 2026, approved by the
 // founder: "Home, first visit"). A white card directly under the numbers pages and their dots, above the cooking tools, that turns what the welcome screens
 // showed into a first real action:
-// - "Had something today? Add it and see what's left." with the ink "Add what you ate", which opens the real + sheet at the meal the time falls in;
+// - "Had something today?" with the ink "Add what you ate", which opens the real + sheet at the meal the time falls in;
 // - "Had the {dish} today? Add it" for the dish shown on step 3, only if it still suits the account's own diet and allergens (checked against the settings
 //   as they are now, so after sync too), isn't limited-time, and adding is free; after a tap the row says "Added to {meal}" with its own Undo, so Undo stays
 //   after the toast has gone. Nothing is ever added unless the person taps;
@@ -108,7 +108,8 @@ export function StartHere({ state, now, used, onAddWhatYouAte, onDishAdded, onDi
       {/* once something has been added through it, this row has done its job */}
       {rows.add && !used.add && (
         <div className="mt-1">
-          <p className="text-base leading-snug">{t("Had something today? Add it and see what's left.")}</p>
+          {/* the button under it says the rest (the words pass, 20 November 2026) */}
+          <p className="text-base leading-snug">{t("Had something today?")}</p>
           <Button className="mt-3" onClick={() => onAddWhatYouAte(mealSlotFor(new Date()))}>
             <PlusIcon aria-hidden className="h-5 w-5 shrink-0" />{t("Add what you ate")}
           </Button>

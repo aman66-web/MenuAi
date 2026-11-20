@@ -115,7 +115,7 @@ await step("a shop's full list: vegetarian keeps the bread and the meat-free bac
   await page.getByText("2 products", { exact: true }).waitFor();
   expect((await page.getByText("Sainsbury's British Chicken Thighs 1kg").count()) === 0, "no chicken");
   expect(await page.getByText("This Isn't Bacon Rashers 120g").isVisible(), "meat-free bacon kept");
-  await page.getByText("Products whose Open Food Facts record lists Milk, or has no allergen information, are hidden. Most products here have no Open Food Facts record, so they stay. Always check the pack.").waitFor();
+  await page.getByText("Hidden: products whose Open Food Facts record lists Milk or no allergens. Most have no record, so they still show. Always check the pack.").waitFor();
   await page.getByRole("button", { name: "Fits my diet" }).click();
   await page.getByText("3 products", { exact: true }).waitFor();
   await page.waitForTimeout(800); // rows fade in: judge colours once they've settled (as e2e/a11y.mjs does)

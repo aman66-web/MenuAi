@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { loggableFromShop } from "@/lib/mm/addFood";
 import { formatPrice, listOf, retailerName } from "@/lib/mm/groceries";
@@ -14,7 +15,7 @@ import { CheckIcon, ExternalIcon } from "../../../_components/icons";
 import { InfoLine } from "../../../_components/Note";
 import { PageHeader } from "../../../_components/PageHeader";
 import { Toast } from "../../../_components/Toast";
-import { EmptyState, ErrorBox, LinkButton, Spinner } from "../../../_components/ui";
+import { Button, EmptyState, ErrorBox, LinkButton, Spinner } from "../../../_components/ui";
 import { loadRetailer, productTitleClass } from "../../../_lib/groceries";
 import { usePossessive, useT } from "../../../_lib/i18n";
 import { useSettings, useStore } from "../../../_lib/hooks";
@@ -32,9 +33,11 @@ import { listHref, useAddToList } from "../../ListChoice";
 // Looks follow Home (founder 2026-10-15): one white card holding the picture and the name as a big title; the nutrition as the label's own rows
 // (NutritionPanel); the price as one big figure, extra bold in the body's ink (colour meeting, 19 November 2026: never the link green); the one main action as
 // the ink pill; what is already on a list said in words with a tick, and each add confirmed by the one toast. The order is the same on both product pages
-// (2026-11-20): picture and name, nutrition, price, Add to my list, Add to my food diary, compare.
+// (2026-11-20): picture and name, nutrition, price, Add to my list, Add to my food diary, compare. Reached by a scan (?scan=1), "Add to my food diary" comes
+// first, under the product, as the page's one ink button (the design review of 2026-11-20), and "Add to my list" is the white one.
 export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   const t = useT();
+  const scan = useSearchParams().get("scan") === "1";
   const poss = usePossessive();
   const prefs = useSettings().preferences;
   const [retry, setRetry] = useState(0);
@@ -98,6 +101,8 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
         {notChecked && <InfoLine heading={null} className="mt-3">{notChecked}</InfoLine>}
       </div>
 
+      {scan && <DiaryButton main product={loggable} className="mt-3.5 min-h-[3.25rem] text-base" onAdded={(entry, meal) => { setAdded(null); setDiary({ entry, meal }); }} />}
+
       <section aria-labelledby="nutrition-heading" className={`${CARD} mt-3.5 p-5`}>
         <h2 id="nutrition-heading" className={HEADING}>{nutrition ? t("Nutrition {basis}", { basis: nutritionBasis(nutrition, t) }) : t("Nutrition")}</h2>
         {nutrition ? (
@@ -158,11 +163,15 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
             <Link href={listHref(holder || null)} className="text-accent underline underline-offset-[3px]">{t("See list")}</Link>
           </p>
         )}
-        <MainButton onClick={() => add(shopListItem(file, product))}>
-          {onLists > 0 ? t("Add one more") : t("Add to my list")}
-        </MainButton>
-        {/* the food diary: the same "How much did you have?" step as Add food (founder 2026-11-20); only where we have the numbers */}
-        <DiaryButton product={loggable} className="min-h-12" onAdded={(entry, meal) => { setAdded(null); setDiary({ entry, meal }); }} />
+        {scan && loggable ? (
+          <Button variant="secondary" full className="min-h-[3.25rem] text-base" onClick={() => add(shopListItem(file, product))}>{onLists > 0 ? t("Add one more") : t("Add to my list")}</Button>
+        ) : (
+          <MainButton onClick={() => add(shopListItem(file, product))}>
+            {onLists > 0 ? t("Add one more") : t("Add to my list")}
+          </MainButton>
+        )}
+        {/* the food diary: the same "How much?" step as Add food (founder 2026-11-20); only where we have the numbers, and at the top when reached by a scan */}
+        {!scan && <DiaryButton product={loggable} className="min-h-12" onAdded={(entry, meal) => { setAdded(null); setDiary({ entry, meal }); }} />}
         {/* in its own block, so the compare button's own (empty) status line isn't a row of this grid with a gap above it */}
         {compareItem && <div><CompareButton full item={compareItem} /></div>}
       </div>

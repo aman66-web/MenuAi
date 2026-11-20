@@ -1,6 +1,6 @@
 // Scan a barcode, see the product, add it to the food diary (founder 2026-11-20: "when they scan a barcode of a product, it needs to come up with the product
 // and they can input in and it's their food thing, food tracker"). Groceries › Scan a barcode › "Type the number instead" 5063089019924 (ASDA British Milk
-// Semi Skimmed 2 L, in Asda's full list with Asda's own label) opens Asda's product page; "Add to my food diary" opens "How much did you have?"; Add puts the
+// Semi Skimmed 2 L, in Asda's full list with Asda's own label) opens Asda's product page; "Add to my food diary" opens "How much?"; Add puts the
 // label's figures x the amount on the food diary with the usual toast and Undo; Today shows it. A barcode we don't have says so calmly, with Scan again.
 // Run against a dev or test server: BASE=http://localhost:3005 node e2e/scandiary.mjs
 import { chromium } from "playwright-core";
@@ -57,14 +57,17 @@ try {
     expect(h1 === row[1], `title ${h1} is not ${row[1]}`);
   });
 
-  await step("Add to my food diary opens How much did you have?, with the meal the clock says and a choice of meal", async () => {
+  await step("Add to my food diary (the page's one ink button when reached by a scan) opens How much?, with the meal the clock says and a choice of meal", async () => {
     await page.getByRole("button", { name: /Add to my food diary/ }).tap();
     const dlg = page.getByRole("dialog", { name: "Add to my food diary" });
     await dlg.waitFor();
-    await dlg.getByLabel("How much did you have? (ml)").waitFor();
+    // "How much?" (founder 2026-11-20: fewest words), in ml for a drink, with the ring of its figures said in one line to a screen reader
+    await dlg.getByLabel("How much?").waitFor();
     expect((await dlg.getByRole("radiogroup", { name: "Which meal?" }).getByRole("radio").count()) === 4, "four meals to choose from");
-    await dlg.getByLabel("How much did you have? (ml)").fill("250");
-    await dlg.getByText(/^From the label, for 250 ml:/).waitFor();
+    await dlg.getByLabel("How much?").fill("250");
+    await dlg.getByText("ml", { exact: true }).first().waitFor();
+    const said = await dlg.locator("p[role='status'].sr-only").first().innerText();
+    expect(said.includes(String(Math.round(label[0] * 2.5))), "the figures for 250 ml: " + said);
     await dlg.getByRole("radio", { name: "Breakfast" }).tap();
     await dlg.getByRole("button", { name: "Add to Breakfast" }).tap();
   });

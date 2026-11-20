@@ -1,6 +1,6 @@
 // The welcome screens' one finish (the onboarding redesign meeting of 20 November 2026, build list 8; approved by the founder): every ending goes through here,
-// after signing in at step 11, after "Not now" (where sign-in is optional), at the end of a run that started signed in, and for an account already set up that
-// signed in from the cover. Relative imports (not "@/"), so the unit tests can load it (tests/welcomeFinish.test.ts).
+// after signing in at the account step, after "Not now" (where sign-in is optional), at the end of a run that started signed in, and for an account already set
+// up that signed in from the cover. Relative imports (not "@/"), so the unit tests can load it (tests/welcomeFinish.test.ts).
 //
 // What it does, in this order:
 // - holds the free-trial offer for the rest of this visit (never straight after setup: lib/mm/tour.ts trialOfferDue's setUpThisVisit);
@@ -8,8 +8,8 @@
 //   trialOfferDue's tourSeen), so a plain launch never opens them again by itself;
 // - switches Pip's tips on for the real screens, after the showcases (lib/mm/coach.ts coachAfterWelcome: no stored afterTour), except after a Settings rerun or a
 //   returning account, which never get tips;
-// - leaves Home its one toast and, for a new setup, the one-time Start here card with the two navigation hints (the restaurant dish left showing on step 3 and
-//   the recipe chosen on step 5; lib/mm/homePages.ts withArrival). Local only, never synced;
+// - leaves Home its one toast and, for a new setup, the one-time Start here card with the two navigation hints (the first restaurant dish on Your plan and the
+//   recipe chosen on step 4; lib/mm/homePages.ts withArrival). Local only, never synced;
 // - forgets the welcome progress note (mm.v1.welcomeProgress).
 // Nothing of the person's own (their log, favourites, lists or saved recipes) is written: only the settings, these marks and the two local notes.
 
@@ -21,13 +21,13 @@ import { sanitizeFirstDish, sanitizeRecipeId, welcomeProgressStore, type FirstDi
 
 /** How the welcome screens ended, which decides Home's toast, the Start here card and the tips. */
 export type WelcomeEnding =
-  /** signed in at step 11 with a brand-new account, or a run that started signed in by someone not set up yet */
+  /** signed in at the account step with a brand-new account, or a run that started signed in by someone not set up yet */
   | "signedIn"
-  /** signed in at step 11 with an account that was already set up (its own settings won) */
+  /** signed in at the account step with an account that was already set up (its own settings won) */
   | "signedInBack"
   /** the cover's "Already have an account? Sign in", with an account already set up: straight to Home with its own settings, no card and no tips */
   | "returning"
-  /** "Not now" at step 11, where sign-in is optional */
+  /** "Not now" at the account step, where sign-in is optional */
   | "notNow"
   /** a Settings rerun ("Set up your plan again"): the toast only, no card and no tips */
   | "saved";

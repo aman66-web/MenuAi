@@ -1,65 +1,63 @@
-// The welcome steps: their order, the one honest counter, Back, the jumps forward and carrying on after a relaunch. Pure and unit-tested
+// The welcome steps: their order, the counter behind the bar, Back, the jumps forward and carrying on after a relaunch. Pure and unit-tested
 // (tests/welcomeSteps.test.ts); the screens are app/app/welcome.
 //
-// The onboarding redesign meeting of 20 November 2026 (docs/meetings/2026-11-20-onboarding-redesign.json, build list 1; approved by the founder: "Whatever the
-// meeting ... conclude, go with that"): after the cover, eleven steps, each straight before the screen it changes:
-//    1 goal      What's your goal?                       (question, top-right Skip)
-//    2 avoid     Anything you avoid?                     (question, top-right Skip)
-//    3 eatOut    Know before you order                   (feature screen: real dishes at a restaurant, free)
-//    4 shops     Where do you shop?                      (question, top-right Skip)
-//    5 recipes   Recipes from {shop}                     (feature screen: two of our recipes priced there, free)
-//    6 about     About you                               (about the person: "Skip these questions")
-//    7 size      Your height and weight                  (about the person)
-//    8 active    How active are you?                     (about the person)
-//    9 targets   Your daily targets                      (the reveal, every number editable)
-//   10 week      Your week, planned                      (feature screen: Meal plan, Premium where sold)
-//   11 save      Save your plan: make your free account  (the required account, CLAUDE.md rule 4)
-// A run that starts signed in (a Settings rerun, an account not set up yet that signed in from the cover, someone who signed in at a page) has no step 11:
-// "Step n of 10", and step 10's button is "Save and go to Home". The total is fixed for the run before step 1 and never changes; the counter never restarts and
-// only jumps forward: "Skip these questions" (and an age under 18) go from 6 to 9, and step 3's "Skip setup and make my account" goes to 11 ("Skip the rest and
-// go to Home" in a signed-in run, which finishes). Back goes to the last screen actually shown.
+// Onboarding in seven screens (founder, 20 November 2026, 12:21-12:37: "one question a screen", far fewer words, pictures over text), then the account:
+//    1 goal      What's your goal?            (big tiles; top-right Skip)
+//    2 avoid     Anything you avoid?          (diets as picture tiles, allergies as chips; top-right Skip)
+//    3 shops     Where do you shop?           (the shops' logos; top-right Skip)
+//    4 recipes   Recipes from {shop}          (two of our recipes priced there: tap one to cook first)
+//    5 about     About you                    (sex, age, height and weight on one screen; top-right Skip skips 5 and 6)
+//    6 active    How active are you?          (tiles; top-right Skip skips it too)
+//    7 plan      Your plan                    (daily calories and protein, the week as pictures, its shopping, restaurant dishes)
+//    8 save      the account (the sign-in screen; CLAUDE.md rule 4)
+// A run that starts signed in (a Settings rerun, an account not set up yet that signed in from the cover, someone who signed in at a page) has no account step
+// and step 7's button saves and goes to Home. The run's steps are fixed before step 1 and never change; the bar only moves forward on a jump: Skip on 5 or 6
+// (and an age under 18) goes to 7. Back goes to the last screen actually shown. No "Step n of N" is written on screen (the bar alone); a screen reader still
+// hears it with each headline.
 //
-// The step reached and the two navigation hints (the restaurant dish left showing on step 3, the recipe chosen on step 5) are kept on this phone in
-// mm.v1.welcomeProgress, so a plain launch reopens the cover with "Carry on from step {n}" (step 6 if they left during the questions about the person, whose
-// answers are never kept), and the iPhone app's trip to Mail for the email code comes back to step 11 with nothing lost. That key is local only: not one of the
-// person's own stores (lib/mm/tour.ts OWN_DATA_KEYS, so it never stops the welcome screens opening), never synced (lib/mm/syncStores.ts), not emptied by a
-// sign-in (lib/mm/sync.ts prepareFor resets only the synced and listed local stores), and removed when the welcome screens finish and by Settings › Clear
-// everything. The answers about the person's body are never part of it.
-// The 20 November 2026 audit: the note also says whether a goal was chosen on step 1 (so Back to step 1 after "Carry on" shows it ticked, not Pip's hello
-// again), and "Carry on" past the questions about the person marks their answers as gone (bodyGone), which is not the same as skipping them: the targets
-// worked out from them before are the person's own, not starting numbers.
+// The step reached and the two navigation hints (the restaurant dish first in step 7's row, the recipe chosen on step 4) are kept on this phone in
+// mm.v1.welcomeProgress, so a plain launch reopens the cover with "Carry on from step {n}" (step 5 if they left during the questions about the person, whose
+// answers are never kept), and the iPhone app's trip to Mail for the email code comes back to the account step with nothing lost. That key is local only: not
+// one of the person's own stores (lib/mm/tour.ts OWN_DATA_KEYS, so it never stops the welcome screens opening), never synced (lib/mm/syncStores.ts), not
+// emptied by a sign-in (lib/mm/sync.ts prepareFor resets only the synced and listed local stores), and removed when the welcome screens finish and by Settings ›
+// Clear everything. The answers about the person's body are never part of it. A note written by the eleven-step screens before 20 November is read in the
+// new steps' terms (LEGACY_STEPS).
+// The note also says whether a goal was chosen on step 1 (so Back to step 1 after "Carry on" shows it ticked), and "Carry on" past the questions about the
+// person marks their answers as gone (bodyGone), which is not the same as skipping them: the targets worked out from them before are the person's own.
 
 import { createStore, type KeyValueStorage, type Store } from "./persist";
 
-export const WELCOME_STEPS = ["goal", "avoid", "eatOut", "shops", "recipes", "about", "size", "active", "targets", "week", "save"] as const;
+export const WELCOME_STEPS = ["goal", "avoid", "shops", "recipes", "about", "active", "plan", "save"] as const;
 export type WelcomeStepId = (typeof WELCOME_STEPS)[number];
 
-/** The questions about the person (sex and age, height and weight, activity): skipped together, and never kept. */
-export const BODY_STEPS: readonly WelcomeStepId[] = ["about", "size", "active"];
-/** The question screens whose top-right "Skip" means "skip this question" (the body screens' skip is the "Skip these questions" link). */
+/** The questions about the person (sex, age, height and weight; activity): skipped together, and never kept. */
+export const BODY_STEPS: readonly WelcomeStepId[] = ["about", "active"];
+/** The question screens whose top-right "Skip" means "skip this question". */
 export const QUESTION_STEPS: readonly WelcomeStepId[] = ["goal", "avoid", "shops"];
-/** The feature screens: Pip is off (they carry figures and prices), there is no top-right pill, and Next is always enabled. */
-export const FEATURE_STEPS: readonly WelcomeStepId[] = ["eatOut", "recipes", "week"];
+/** Every screen with a top-right Skip: the three questions (skip this one) and the two about the person (skip both, on to Your plan). */
+export const SKIP_STEPS: readonly WelcomeStepId[] = [...QUESTION_STEPS, ...BODY_STEPS];
+/** The screens that show the app working: no top-right pill, and their button is always enabled. */
+export const FEATURE_STEPS: readonly WelcomeStepId[] = ["recipes", "plan"];
 
 export const isWelcomeStep = (x: unknown): x is WelcomeStepId => typeof x === "string" && (WELCOME_STEPS as readonly string[]).includes(x);
 
 /** One run of the welcome steps, fixed before step 1. */
 export interface WelcomeRun {
-  /** Someone was signed in when the run began: no step 11, "Step n of 10". */
+  /** Someone was signed in when the run began: no account step. */
   readonly signedIn: boolean;
-  /** The counted steps, in order (11, or 10 without "save"). */
+  /** The steps, in order (8, or 7 without "save"). */
   readonly steps: readonly WelcomeStepId[];
-  /** N in "Step n of N" (and the digit in Pip's first line). */
+  /** How many segments the bar has (and N in the "Step n of N" a screen reader hears). */
   readonly total: number;
 }
 
-/** The run for someone signed in, or not, when it starts. Sign-in during the run (step 11, or the cover's link) never changes it. */
+/** The run for someone signed in, or not, when it starts. Sign-in during the run (the account step, or the cover's link) never changes it. */
 export function startRun(signedInAtStart: boolean): WelcomeRun {
   const steps = signedInAtStart ? WELCOME_STEPS.filter((s) => s !== "save") : [...WELCOME_STEPS];
   return Object.freeze({ signedIn: signedInAtStart, steps: Object.freeze(steps), total: steps.length });
 }
 
-/** "Step n of N": a step's place among the run's counted steps (n from 1), or null for a step the run doesn't have ("save" in a signed-in run). */
+/** A step's place among the run's steps (n from 1), or null for a step the run doesn't have ("save" in a signed-in run). */
 export function stepCounter(run: WelcomeRun, step: WelcomeStepId): { step: number; total: number } | null {
   const i = run.steps.indexOf(step);
   return i < 0 ? null : { step: i + 1, total: run.total };
@@ -67,36 +65,28 @@ export function stepCounter(run: WelcomeRun, step: WelcomeStepId): { step: numbe
 
 /** What has been answered so far that changes which screens are shown (never the answers themselves). */
 export interface WelcomeAnswers {
-  /** "Skip these questions" was used, or (after a relaunch) the body answers are gone: the targets come straight after About you, and Back from them goes there. */
+  /** Skip was used on About you or How active are you?, or (after a relaunch) the body answers are gone: Your plan has the starting numbers, and Back from it
+   *  goes to About you. */
   bodySkipped: boolean;
-  /** The age typed on About you is under 18: nothing is worked out, so height, weight and activity aren't asked. */
+  /** The age typed on About you is under 18: nothing is worked out, so how active isn't asked. */
   under18: boolean;
-  /** Step 3's "Skip setup and make my account" was used: straight on to the account (Back from it returns to step 3). */
-  skippedSetup: boolean;
   /** Set only by resumeAt: the run carried on past the questions about the person after a relaunch, so their answers are gone (bodySkipped is set too), but
    *  they were answered, not skipped. Cleared by answering or skipping them again. */
   bodyGone?: boolean;
 }
-export const NO_ANSWERS: WelcomeAnswers = Object.freeze({ bodySkipped: false, under18: false, skippedSetup: false });
+export const NO_ANSWERS: WelcomeAnswers = Object.freeze({ bodySkipped: false, under18: false });
 
-/** The screens this person sees, in order (a skip leaves screens out; the counter still numbers each by its place in the run). */
+/** The screens this person sees, in order (a skip leaves screens out; the bar still has a segment for each step of the run). */
 export function welcomePath(run: WelcomeRun, a: WelcomeAnswers): WelcomeStepId[] {
-  const shown = (s: WelcomeStepId): boolean => {
-    if (a.skippedSetup) return s === "goal" || s === "avoid" || s === "eatOut" || s === "save";
-    if (s === "size" || s === "active") return !a.bodySkipped && !a.under18;
-    return true;
-  };
-  return run.steps.filter(shown);
+  return run.steps.filter((s) => s !== "active" || (!a.bodySkipped && !a.under18));
 }
 
 /** How the person leaves a screen. */
 export type WelcomeMove =
-  /** Continue, Next, or a question's own top-right Skip (skip this question, on to the next screen) */
+  /** Continue, or a question's own top-right Skip (skip this question, on to the next screen) */
   | "next"
-  /** "Skip these questions" on About you, Your height and weight or How active are you? (to Your daily targets, the typed answers thrown away) */
-  | "skipBody"
-  /** Step 3's "Skip setup and make my account" ("Skip the rest and go to Home" in a signed-in run) */
-  | "skipSetup";
+  /** Skip on About you or How active are you? (to Your plan, the typed answers thrown away) */
+  | "skipBody";
 
 /** Where a move leads: the next screen, or "home" when the run is finished (the end of a signed-in run, or after the account). */
 export interface WelcomeNext {
@@ -114,21 +104,20 @@ function withoutGone(a: WelcomeAnswers): WelcomeAnswers {
 
 /**
  * The screen after `from`. Pass the answers as they are when the person taps (`under18` as the age now typed): a Continue on a question about the person means
- * those questions are being answered (bodySkipped goes), and Next on step 3 means the setup goes on (skippedSetup goes). Every move goes forward.
+ * those questions are being answered (bodySkipped goes). Every move goes forward.
  */
 export function moveOn(run: WelcomeRun, answers: WelcomeAnswers, from: WelcomeStepId, how: WelcomeMove = "next"): WelcomeNext {
-  if (how === "skipBody" && BODY_STEPS.includes(from)) return { to: "targets", answers: { ...withoutGone(answers), bodySkipped: true, under18: false } };
-  if (how === "skipSetup" && from === "eatOut") return { to: run.signedIn ? "home" : "save", answers: { ...answers, skippedSetup: true } };
-  const a: WelcomeAnswers = from === "eatOut" ? { ...answers, skippedSetup: false } : BODY_STEPS.includes(from) ? { ...withoutGone(answers), bodySkipped: false } : answers;
+  if (how === "skipBody" && BODY_STEPS.includes(from)) return { to: "plan", answers: { ...withoutGone(answers), bodySkipped: true, under18: false } };
+  const a: WelcomeAnswers = BODY_STEPS.includes(from) ? { ...withoutGone(answers), bodySkipped: false } : answers;
   const path = welcomePath(run, a);
   const i = path.indexOf(from);
   if (i >= 0) return { to: path[i + 1] ?? "home", answers: a };
-  // a screen this path doesn't show (it can't be on it): the next counted step after it
+  // a screen this path doesn't show (it can't be on it): the next step after it
   const j = run.steps.indexOf(from);
   return { to: j >= 0 ? (run.steps[j + 1] ?? "home") : "home", answers: a };
 }
 
-/** Back: the last screen actually shown before `from` (step 9 after a jump returns to About you; step 11 after step 3's link returns to step 3); the cover before step 1. */
+/** Back: the last screen actually shown before `from` (Your plan after a skip returns to About you); the cover before step 1. */
 export function backFrom(run: WelcomeRun, answers: WelcomeAnswers, from: WelcomeStepId): WelcomeStepId | "cover" {
   const path = welcomePath(run, answers);
   const i = path.indexOf(from);
@@ -149,12 +138,10 @@ export interface FirstDish {
 export interface WelcomeProgress {
   /** The last step reached. */
   step: WelcomeStepId;
-  /** The recipe chosen on step 5 ("Your first recipe"), if any. */
+  /** The recipe chosen on step 4 ("Tap one to cook first"), if any. */
   firstRecipeId?: string;
-  /** The restaurant chosen on step 3 and its top dish, if any. */
+  /** The first restaurant dish in Your plan's row, if any. */
   firstDish?: FirstDish;
-  /** Step 3's "Skip setup and make my account" led to the account, so Back from it returns to step 3 after a relaunch too. */
-  skippedSetup?: true;
   /** A goal was chosen with step 1's Continue (it is saved in the settings): after "Carry on", step 1 shows it ticked. */
   goalPicked?: true;
   /** The day it was written ("YYYY-MM-DD", the phone's own calendar). */
@@ -162,6 +149,12 @@ export interface WelcomeProgress {
 }
 
 export const WELCOME_PROGRESS_KEY = "mm.v1.welcomeProgress";
+
+/**
+ * The eleven steps before 20 November, read as today's: Know before you order came before the shops, Your height and weight is About you now, and Your daily
+ * targets and Your week, planned are Your plan.
+ */
+export const LEGACY_STEPS: Readonly<Record<string, WelcomeStepId>> = { eatOut: "shops", size: "about", targets: "plan", week: "plan" };
 
 const RECIPE_ID = /^[a-z0-9-]{1,80}$/;
 const CHAIN_ID = /^[a-z0-9][a-z0-9-]{0,60}$/;
@@ -178,18 +171,19 @@ export function sanitizeFirstDish(raw: unknown): FirstDish | null {
 /** A recipe hint as stored or as given, or null. */
 export const sanitizeRecipeId = (raw: unknown): string | null => (typeof raw === "string" && RECIPE_ID.test(raw) ? raw : null);
 
-/** The note as stored, checked like anything stored: null unless the step is one of the steps and the day is a day; a damaged hint is dropped on its own. */
+/** The note as stored, checked like anything stored: null unless the step is one of the steps (or an older one, LEGACY_STEPS) and the day is a day; a damaged
+ *  hint is dropped on its own. */
 export function sanitizeWelcomeProgress(raw: unknown): WelcomeProgress | null {
   if (!raw || typeof raw !== "object") return null;
   const r = raw as Record<string, unknown>;
-  if (!isWelcomeStep(r.step) || typeof r.savedOn !== "string" || !DAY.test(r.savedOn)) return null;
+  const step = isWelcomeStep(r.step) ? r.step : typeof r.step === "string" && Object.prototype.hasOwnProperty.call(LEGACY_STEPS, r.step) ? LEGACY_STEPS[r.step]! : null;
+  if (!step || typeof r.savedOn !== "string" || !DAY.test(r.savedOn)) return null;
   const firstRecipeId = sanitizeRecipeId(r.firstRecipeId);
   const firstDish = sanitizeFirstDish(r.firstDish);
   return {
-    step: r.step,
+    step,
     ...(firstRecipeId ? { firstRecipeId } : {}),
     ...(firstDish ? { firstDish } : {}),
-    ...(r.skippedSetup === true ? { skippedSetup: true as const } : {}),
     ...(r.goalPicked === true ? { goalPicked: true as const } : {}),
     savedOn: r.savedOn,
   };
@@ -197,14 +191,13 @@ export function sanitizeWelcomeProgress(raw: unknown): WelcomeProgress | null {
 
 /** The note for where the person is now: the step showing, the hints held in the page's memory (null or absent = none), whether step 1's goal was chosen,
  *  and today's date. */
-export function progressNote(x: { step: WelcomeStepId; answers?: Pick<WelcomeAnswers, "skippedSetup">; firstRecipeId?: string | null; firstDish?: FirstDish | null; goalPicked?: boolean }, today: string): WelcomeProgress {
+export function progressNote(x: { step: WelcomeStepId; firstRecipeId?: string | null; firstDish?: FirstDish | null; goalPicked?: boolean }, today: string): WelcomeProgress {
   const firstRecipeId = sanitizeRecipeId(x.firstRecipeId);
   const firstDish = sanitizeFirstDish(x.firstDish);
   return {
     step: x.step,
     ...(firstRecipeId ? { firstRecipeId } : {}),
     ...(firstDish ? { firstDish } : {}),
-    ...(x.answers?.skippedSetup && x.step === "save" ? { skippedSetup: true as const } : {}),
     ...(x.goalPicked === true ? { goalPicked: true as const } : {}),
     savedOn: today,
   };
@@ -213,15 +206,15 @@ export function progressNote(x: { step: WelcomeStepId; answers?: Pick<WelcomeAns
 /**
  * Where "Carry on from step {n}" goes, and the answers the run starts with there; null when there is nothing to carry on from (no note, or only step 1 reached:
  * Get started does the same). The questions about the person start again at About you, because their answers are never kept; past them, those answers are gone,
- * so Back from the targets goes to About you. A step the new run doesn't have ("save", for someone signed in by now) is its last step, Your week, whose button
- * then saves and goes to Home. After step 3's link, Back from the account still returns to step 3.
+ * so Back from Your plan goes to About you. A step the new run doesn't have ("save", for someone signed in by now) is its last step, Your plan, whose button
+ * then saves and goes to Home.
  */
 export function resumeAt(run: WelcomeRun, progress: WelcomeProgress | null): { step: WelcomeStepId; answers: WelcomeAnswers } | null {
   if (!progress || progress.step === "goal") return null;
   const wanted: WelcomeStepId = BODY_STEPS.includes(progress.step) ? "about" : progress.step;
   const step = run.steps.includes(wanted) ? wanted : run.steps[run.steps.length - 1]!;
   const past = WELCOME_STEPS.indexOf(step) > WELCOME_STEPS.indexOf("active");
-  return { step, answers: { bodySkipped: past, under18: false, skippedSetup: step === "save" && progress.skippedSetup === true, ...(past ? { bodyGone: true } : {}) } };
+  return { step, answers: { bodySkipped: past, under18: false, ...(past ? { bodyGone: true } : {}) } };
 }
 
 /** The note's store (the app's { v, data } envelope). `storage` for tests; the app uses the browser's. */

@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { mergeSwitches, NO_SWITCHES, sanitizeAppSwitches, signInRequiredWith } from "../lib/mm/appSwitches";
 import { showcaseDishes, dishFits } from "../lib/mm/showcase";
-import { afterSignIn, sanitizeResume, SIGN_IN_HEADING, SIGN_IN_REASONS, signInGate, TYPED_SETUP_KEYS, typedSetup, type GateState } from "../lib/mm/signInGate";
+import { afterSignIn, CODE_LENGTH, CODE_RESEND_SECONDS, codeDigits, looksLikeEmail, resendWait, sanitizeResume, SIGN_IN_HEADING, SIGN_IN_REASONS, signInGate, TYPED_SETUP_KEYS, typedSetup, type GateState } from "../lib/mm/signInGate";
 import { NO_PREFERENCES, type Chain } from "../lib/mm/types";
 import { DEFAULT_SETTINGS, type UserSettings } from "../lib/mm/user-data";
 import { tinyChain } from "./fixtures";
@@ -39,7 +39,7 @@ describe("the welcome screens' sign-in step", () => {
 
   it("heads the screen by the way it was reached, and keeps 'Sign in or sign up' on a page of the app", () => {
     expect(SIGN_IN_HEADING).toEqual({
-      setup: "Save your goal and numbers: make your free account", // the overnight audit's words (20 November 2026)
+      setup: "Save your plan", // founder 2026-11-20, "short and simple" (that morning: "Save your goal and numbers: make your free account")
       returning: "Welcome back. Sign in",
       page: "Sign in or sign up",
     });
@@ -152,5 +152,38 @@ describe("the remote switch on numbite.com (public/app-switches.json)", () => {
     expect(mergeSwitches(on, off, false)).toEqual(on);
     expect(mergeSwitches(off, on, false)).toEqual(on);
     expect(mergeSwitches(off, off, false)).toEqual(off);
+  });
+});
+
+// "Continue with email" as two screens (founder 2026-11-20): one big email box, then six code boxes that go on by themselves with the sixth digit, and
+// "Send it again" once Supabase's minute between codes is over.
+describe("the email code screens", () => {
+  it("takes an address only when it looks like one", () => {
+    for (const ok of ["joan@example.com", "  Joan.Smith@Example.co.uk ", "a+b@c.d"]) expect(looksLikeEmail(ok), ok).toBe(true);
+    for (const bad of ["", "joan", "joan@example", "joan @example.com", "@example.com", "joan@.com x"]) expect(looksLikeEmail(bad), bad).toBe(false);
+  });
+
+  it("keeps only the code's six digits, however they arrive (typed, filled in from Mail, pasted)", () => {
+    expect(CODE_LENGTH).toBe(6);
+    expect(codeDigits("")).toBe("");
+    expect(codeDigits("12")).toBe("12");
+    expect(codeDigits("12a")).toBe("12");
+    expect(codeDigits("123 456")).toBe("123456");
+    expect(codeDigits("123-456")).toBe("123456");
+    expect(codeDigits("1234567")).toBe("123456"); // a seventh digit is never kept
+    expect(codeDigits("Your code is 482913. It runs out in 60 minutes.")).toBe("482913"); // a pasted sentence: its run of six
+    expect(codeDigits("\uFF14\uFF18\uFF12\uFF19\uFF11\uFF13")).toBe("482913"); // wide digits
+  });
+
+  it("counts down a minute to 'Send it again', in whole seconds, never below 0 or above the minute", () => {
+    expect(CODE_RESEND_SECONDS).toBe(60);
+    const sent = 1_000_000;
+    expect(resendWait(sent, sent)).toBe(60);
+    expect(resendWait(sent, sent + 999)).toBe(60);
+    expect(resendWait(sent, sent + 1000)).toBe(59);
+    expect(resendWait(sent, sent + 59_000)).toBe(1);
+    expect(resendWait(sent, sent + 60_000)).toBe(0);
+    expect(resendWait(sent, sent + 3_600_000)).toBe(0);
+    expect(resendWait(sent, sent - 5000)).toBe(60); // a clock set back
   });
 });

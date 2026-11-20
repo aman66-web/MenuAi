@@ -2,13 +2,15 @@
 // hello screen, "Let's make it yours" and "You're all set!" are gone). A plain first launch of /app goes to the welcome cover before anything is drawn; links
 // open as they are; someone set up, someone who said Not now, or anyone with something of their own stored never meets it again by itself; TOUR_VERSION 2
 // shows the new screens once to a phone that only saw the old tour and has still neither set up nor stored anything. Settings › Help › "Show me what Numbite
-// can do" (and the old ?tour=1 address, and Home's setup card) replays the three feature screens (Eat out, recipes, your week) with "{n} of 3", Close, Next
-// and Done, and writes nothing. Clear everything brings the cover back with its status line. The cover's wall moves (no Pause button; still with Reduce Motion); Pip settles; nothing
-// moves for reduced motion. The eleven steps themselves are e2e/showcase.mjs.
+// can do" (and the old ?tour=1 address, and Home's setup card) replays the two screens that show the app working (since the seven-screen onboarding of
+// 20 November 2026: Recipes from {shop} and Your plan) with "{n} of 2" heard with each headline, Close, Next and Done, and writes nothing. Clear everything
+// brings the cover back with its status line. The cover's wall moves (no Pause button; still with Reduce Motion); Pip settles; nothing moves for reduced
+// motion. The seven screens themselves are e2e/showcase.mjs.
 // Run with the same NEXT_PUBLIC_ switches the server had:
 //   BASE=http://localhost:3005 NEXT_PUBLIC_PRO=1 NEXT_PUBLIC_PHOTO_RECIPES=1 node e2e/tour.mjs
 import { chromium } from "playwright-core";
 import { createRequire } from "node:module";
+import * as W from "./welcome-steps.mjs";
 const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
 const BASE = process.env.BASE ?? "http://localhost:3101";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
@@ -49,16 +51,15 @@ async function axe(page, where) {
   const v = (await page.evaluate(async () => await axe.run(document, { resultTypes: ["violations"] }))).violations;
   expect(v.length === 0, `${where}: ` + v.map((x) => x.id + ": " + x.nodes.slice(0, 2).map((n) => n.target.join(" ")).join(" | ")).join("; "));
 }
-/** The replay's three screens: their headlines and the window each shows. */
+/** The replay's two screens: their headlines and the part of the app each shows. */
 const REPLAY = [
-  { h1: /^Know before you order/, window: "A look at Eat out" },
-  { h1: /^Recipes( from | ?,|$)/, window: "A look at Recipes" },
-  { h1: /^Your week, planned/, window: "A look at Meal plan, on Home" },
+  { step: "recipes", region: "Recipes" },
+  { step: "plan", region: "Your week" },
 ];
 const replayAt = async (p, i) => {
-  await p.getByRole("heading", { level: 1, name: REPLAY[i].h1 }).waitFor({ timeout: 30000 });
-  await p.locator("p.app-numbers").filter({ hasText: new RegExp(`^${i + 1} of 3$`) }).waitFor();
-  await p.getByRole("region", { name: REPLAY[i].window }).waitFor();
+  await W.onStep(p, REPLAY[i].step, 30000);
+  expect((await W.counter(p)) === `${i + 1} of 2`, `the replay's counter: "${await W.counter(p)}"`);
+  await p.getByRole("region", { name: REPLAY[i].region, exact: true }).waitFor();
 };
 
 // One visitor's requests, kept for the last step.
@@ -75,18 +76,19 @@ const page = await main.newPage();
 const requests = [];
 page.on("request", (r) => requests.push({ url: r.url(), body: r.postData() ?? "" }));
 
-await step("1. a plain first visit to /app ends on the welcome cover without Home ever showing: no Skip, no bar and no counter; Get started opens 'Step 1 of 11' (no 'Hi, I'm Pip!' screen, no tour, no text size screen)", async () => {
+await step("1. a plain first visit to /app ends on the welcome cover without Home ever showing: no Skip, no bar and no counter; Get started opens step 1 of 8 (heard, not written; no 'Hi, I'm Pip!' screen, no tour, no text size screen)", async () => {
   await page.goto(BASE + "/app");
   await page.waitForURL(/\/app\/welcome$/);
   await getStarted(page).waitFor({ timeout: 120000 });
   expect(!(await page.evaluate(() => sessionStorage.getItem("homeSeen"))), "Home's heading showed before the welcome screens");
   expect((await page.getByRole("button", { name: "Skip", exact: true }).count()) === 0, "the cover has a Skip");
   expect((await page.getByText(/^Step \d+ of \d+$/).count()) === 0, "the cover has a counter");
-  expect((await page.locator("main span.h-1.flex-1").count()) === 0, "the cover has a progress bar");
+  expect((await W.segments(page)) === 0, "the cover has a progress bar");
   await page.getByRole("heading", { level: 1, name: "Eat out, shop and cook. Know the numbers first." }).waitFor();
   await getStarted(page).click();
   await page.getByRole("heading", { level: 1, name: /^What's your goal\?/ }).waitFor();
-  await page.locator("p.app-numbers").filter({ hasText: /^Step 1 of 11$/ }).waitFor();
+  await W.expectCounter(page, 1, 8);
+  expect((await W.segments(page)) === 8, "step 1's bar: " + (await W.segments(page)));
   for (const gone of ["Hi, I'm Pip!", "Let's make it yours", "Easy to read", "You're all set!"]) expect((await page.getByRole("heading", { name: gone }).count()) === 0, `'${gone}' is back`);
   expect((await page.getByRole("button", { name: /^(Show me around|Skip tour|Look around first)$/ }).count()) === 0, "an old tour button is back");
   expect((await page.evaluate(() => document.documentElement.style.fontSize)) === "", "html font-size: " + (await page.evaluate(() => document.documentElement.style.fontSize)));
@@ -160,7 +162,7 @@ await step("4. TOUR_VERSION 2: a phone that only saw the old tour (mm.v1.tour 1)
   await now.close();
 });
 
-await step("5. Settings › Help › 'Show me what Numbite can do' (it replaced 'Show me around again'): '1 of 3' to '3 of 3' with Close, Next and Done back to Settings; the three windows; nothing is saved", async () => {
+await step("5. Settings › Help › 'Show me what Numbite can do' (it replaced 'Show me around again'): '1 of 2' and '2 of 2' with Close, Next and Done back to Settings; the recipes and the week; nothing is saved", async () => {
   const ctx = await fresh();
   await seed(ctx, { "mm.v1.settings": ONBOARDED, "mm.v1.tour": env(2) });
   const p = await ctx.newPage();
@@ -176,15 +178,14 @@ await step("5. Settings › Help › 'Show me what Numbite can do' (it replaced 
   // no counter of the steps, no Skip, no Back: Close at the top left
   expect((await p.getByText(/^Step \d+ of \d+$/).count()) === 0, "the replay shows 'Step n of N'");
   expect((await p.getByRole("button", { name: "Skip", exact: true }).count()) === 0, "the replay has a Skip");
-  expect((await p.getByRole("button", { name: "Skip setup and make my account" }).count()) === 0, "the replay has step 3's link");
+  expect((await p.getByRole("button", { name: "Change", exact: true }).count()) === 0, "the replay has Your plan's Change");
   await p.getByRole("button", { name: "Close", exact: true }).click();
   await p.waitForURL(/\/app\/settings$/);
   await again.click();
   await replayAt(p, 0);
   await p.getByRole("button", { name: "Next", exact: true }).click();
   await replayAt(p, 1);
-  await p.getByRole("button", { name: "Next", exact: true }).click();
-  await replayAt(p, 2);
+  expect((await p.getByRole("button", { name: "Change", exact: true }).count()) === 0, "the replay has Your plan's Change");
   expect((await p.getByRole("button", { name: "Next", exact: true }).count()) === 0, "the last screen says Done, not Next");
   // nobody with a plan this week: no line about one
   expect((await p.getByText("You already have a plan for this week. Open Meal plan on Home.").count()) === 0, "the plan line with no plan");
@@ -195,7 +196,7 @@ await step("5. Settings › Help › 'Show me what Numbite can do' (it replaced 
   await ctx.close();
 });
 
-await step("6. the old ?tour=1 address opens the same replay; with a Meal plan saved this week its third screen says so; Home's setup card's 'See what Numbite can do' opens it and Close returns to Home", async () => {
+await step("6. the old ?tour=1 address opens the same replay; with a Meal plan saved this week its second screen says so; Home's setup card's 'See what Numbite can do' opens it and Close returns to Home", async () => {
   const monday = (() => { const d = new Date(); d.setDate(d.getDate() - ((d.getDay() + 6) % 7)); return d.toISOString().slice(0, 10); })();
   const ctx = await fresh();
   await seed(ctx, { "mm.v1.settings": ONBOARDED, "mm.v1.tour": env(2), "mm.v1.mealPlan": env({ shops: ["sainsburys"], ids: Array.from({ length: 7 }, () => ["scrambled-eggs-on-toast", "chicken-curry", "chicken-curry"]), leaveOut: [], budget: null, start: monday }) });
@@ -204,8 +205,6 @@ await step("6. the old ?tour=1 address opens the same replay; with a Meal plan s
   await replayAt(p, 0);
   await p.getByRole("button", { name: "Next", exact: true }).click();
   await replayAt(p, 1);
-  await p.getByRole("button", { name: "Next", exact: true }).click();
-  await replayAt(p, 2);
   await p.getByText("You already have a plan for this week. Open Meal plan on Home.").waitFor();
   await ctx.close();
   // from Home's setup card (someone who arrived by a link and has seen the welcome screens)
@@ -274,7 +273,7 @@ await step("8. reduced motion: nothing is animating on the cover, step 1 or the 
   await ctx.close();
 });
 
-await step("9. 200% text at 360x780 and 375x667: no sideways scroll and every button and link at least 44 px on the cover and the replay's three screens", async () => {
+await step("9. 200% text at 360x780 and 375x667: no sideways scroll and every button and link at least 44 px on the cover and the replay's two screens", async () => {
   for (const viewport of [{ width: 360, height: 780 }, { width: 375, height: 667 }]) {
     const ctx = await fresh({ viewport });
     await seed(ctx, { "mm.v1.settings": ONBOARDED, "mm.v1.tour": env(2) });
@@ -296,16 +295,16 @@ await step("9. 200% text at 360x780 and 375x667: no sideways scroll and every bu
     await getStarted(p).waitFor({ timeout: 60000 });
     await check("the cover");
     await p.goto(BASE + "/app/welcome?showcase=1");
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 2; i++) {
       await replayAt(p, i);
       await check(`replay ${i + 1}`);
-      await p.getByRole("button", { name: i < 2 ? "Next" : "Done", exact: true }).click();
+      await p.getByRole("button", { name: i < 1 ? "Next" : "Done", exact: true }).click();
     }
     await ctx.close();
   }
 });
 
-await step("10. axe: no violations on the cover (and its cleared and deleted lines) and the replay's three screens", async () => {
+await step("10. axe: no violations on the cover (and its cleared and deleted lines) and the replay's two screens", async () => {
   const ctx = await fresh();
   await seed(ctx, { "mm.v1.settings": ONBOARDED, "mm.v1.tour": env(2) });
   const p = await ctx.newPage();
@@ -317,11 +316,11 @@ await step("10. axe: no violations on the cover (and its cleared and deleted lin
   }
   await p.getByRole("status").filter({ hasText: "Your account has been deleted. What was on this phone is still here." }).waitFor();
   await p.goto(BASE + "/app/welcome?showcase=1");
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 2; i++) {
     await replayAt(p, i);
-    await p.waitForTimeout(1200);
+    await p.waitForTimeout(1500);
     await axe(p, `replay ${i + 1}`);
-    if (i < 2) await p.getByRole("button", { name: "Next", exact: true }).click();
+    if (i < 1) await p.getByRole("button", { name: "Next", exact: true }).click();
   }
   await ctx.close();
 });

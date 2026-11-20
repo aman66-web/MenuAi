@@ -5,14 +5,15 @@ import { dayParam } from "@/lib/mm/day";
 import { formatGrams, formatInt } from "@/lib/mm/format";
 import { lastWeekAverage, weekSummary, type WeekEntry } from "@/lib/mm/week";
 import { useT } from "../_lib/i18n";
-import { DARK_CARD } from "./HomeToday";
+import { DARK_CARD, LINKED_CARD, StatsChevron, StatsLink } from "./HomeToday";
 
 // Home's second page, "Calories and protein this week" (founder 2026-11-19: "3 dots here showing that they can also swipe right to see different things like
 // stats"; the 20-person meeting's conclusion). A bar for each day under the same Monday-to-Sunday as Home's day circles (the chart runs across the card's full
 // width on the circles' own grid, so Tuesday's bar sits under Tuesday's circle), the target as a dashed line, and the calories and protein a day over the days
 // logged before today. Only what was logged (CLAUDE.md rule 1): a day with nothing logged has a short dash, never a bar of 0; no red, no "over", no score (rule 3).
-// The chart can't be tapped: the circles above open each day. Colours (colour meeting, 19 November 2026): ink, lime for the figures and bars, white for what must be
-// read and the light grey (on-ink-2) for captions; the empty marks and lines are the mid grey of the dial's track; day letters in sentence case, at least 13 px.
+// The card opens Stats (founder 2026-11-20: its Calories tab, this week), with a small chevron by the title; the circles above still open each day.
+// Colours (colour meeting, 19 November 2026): ink, lime for the figures and bars, white for what must be read and the light grey (on-ink-2) for captions;
+// the empty marks and lines are the mid grey of the dial's track; day letters in sentence case, at least 13 px.
 // The 30-person audit (20 November 2026): the bars have at least 72 px to grow in (they barely differed at 34 px), with 16 px above them so the highest figure
 // never reaches the "Your target" caption; the chart sits 4 px in from the card's edges (Monday's letter touched it at 320); a day's figure is left off when it
 // would sit on the target line (the screen-reader list still says it); the figures are in rem, so they follow the text size, and in the app's sans like the
@@ -34,8 +35,12 @@ export function HomeWeek({ log, now, target, logPaid, htmlLang }: { log: readonl
   const pct = (n: number) => `${Math.min(100, (n / week.scaleTop) * 100)}%`;
 
   return (
-    <div className={`${DARK_CARD} flex h-full min-w-0 flex-col px-4 pb-3 pt-4`}>
-      <h2 className="text-[0.875rem] font-bold leading-snug">{t("Calories and protein this week")}</h2>
+    <div className={`${DARK_CARD} ${LINKED_CARD} flex h-full min-w-0 flex-col px-4 pb-3 pt-4`}>
+      <StatsLink href="/app/stats" name={t("See calorie stats")} />
+      <div className="flex items-start justify-between gap-2">
+        <h2 className="text-[0.875rem] font-bold leading-snug">{t("Calories and protein this week")}</h2>
+        <StatsChevron className="-me-1" />
+      </div>
 
       {empty ? (
         <p className="mt-2 text-[0.9375rem] leading-snug text-on-ink">{t("Each day's calories show here once you log your meals.")}</p>

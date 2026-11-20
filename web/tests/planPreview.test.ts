@@ -11,6 +11,8 @@ import {
   previewShop,
   recipesFor,
   savedPlanFrom,
+  SHOW_GAP,
+  weekGap,
   weekPreview,
   workKey,
   workOut,
@@ -152,6 +154,13 @@ describe("step 10's week", () => {
     expect(p.total).toBe(p.week.shoppingCost);
     expect(p.total).toBeGreaterThan(0);
     expect(p.week.shops).toEqual(["sainsburys"]);
+    // all seven days for the welcome screens' picture timetable, each with its own calories and protein
+    expect(p.days).toHaveLength(PLAN_DAYS);
+    expect(p.days.map((d) => d.kcal)).toEqual(p.week.days.map((d) => Math.round(d.kcal)));
+    expect(p.days.map((d) => d.meals.map((m) => m.recipeId))).toEqual(p.week.days.map((d) => d.meals.map((m) => m.candidate.recipe.id)));
+    expect(p.days[p.day]!.meals).toEqual(p.firstDay);
+    expect(p.sizedTo).toBe(planSlots(DEFAULT_SHAPE).reduce((t, m) => t + (mealTargets(MAINTAIN)[m]?.kcal ?? 0), 0));
+    expect(p.narrow).toBeUndefined();
   }, 120000);
 
   it("leaves Meal plan's cache ready: its first open finds the recipes already worked out", async () => {
@@ -214,6 +223,48 @@ describe("step 10's week", () => {
     expect(again).toEqual({ ok: false, reason: "narrow" });
     expect(NARROW_PREVIEW).toBeGreaterThan(0);
   }, 120000);
+
+  it("comes back anyway, marked and with its real numbers, for the welcome screens (keepNarrow: founder, 20 November 2026, \"never hide it\")", async () => {
+    const person: PlanPerson = { goal: "buildMuscle", dailyCalories: 6000 };
+    const p = await weekPreview({ shop: "sainsburys", diet: {}, person }, { load, yieldToScreen: now, keepNarrow: true });
+    if (!p.ok) throw new Error(p.reason);
+    expect(p.narrow).toBe(true);
+    expect(p.average.kcal).toBeLessThan(6000 * (1 - NARROW_PREVIEW));
+    expect(weekGap(p)).toEqual({ kind: "short", kcal: p.average.kcal });
+    // Meal plan's first open, asked next, still hears "narrow" (its words-only form is unchanged)
+    expect(await weekPreview({ shop: "sainsburys", diet: {}, person }, { load, yieldToScreen: now })).toEqual({ ok: false, reason: "narrow" });
+    // and the welcome screens, asked again, get the same week at once
+    expect(await weekPreview({ shop: "sainsburys", diet: {}, person }, { load: async () => { throw new Error("not loaded again"); }, yieldToScreen: now, keepNarrow: true })).toEqual(p);
+  }, 120000);
+
+  it("falls short on a big day because each recipe stretches only so far (the founder's 3,480 kcal day: about 2,830)", async () => {
+    // a third of the day a meal (equal meals), and a recipe's protein and carb ingredients move at most to double (lib/mm/recipes.ts fitRecipe): no breakfast
+    // reaches 1,160 kcal, so the day can't add up to 3,480; the welcome screens show the week with one line saying so
+    const person: PlanPerson = { goal: "buildMuscle", dailyCalories: 3480, dailyProtein: 175 };
+    const targets = mealTargets(person);
+    expect(targets.breakfast?.kcal).toBe(1160);
+    const { products } = await load("sainsburys");
+    const cands = planCandidates(recipesFor([], {}, []), products, {}, targets, [], "sainsburys", false);
+    const biggest = Math.max(...(cands.get("breakfast") ?? []).map((c) => c.perServing.kcal));
+    expect(biggest).toBeLessThan(1160);
+    const p = await weekPreview({ shop: "sainsburys", diet: {}, person }, { load, yieldToScreen: now, keepNarrow: true });
+    if (!p.ok) throw new Error(p.reason);
+    expect(p.average.kcal).toBeLessThan(3480 * 0.9);
+    expect(weekGap(p)?.kind).toBe("short");
+  }, 120000);
+});
+
+describe("how far the week is from the numbers (weekGap)", () => {
+  it("says nothing within SHOW_GAP of the day the meals are sized to, and short or over beyond it", () => {
+    expect(SHOW_GAP).toBe(0.05);
+    expect(weekGap({ average: { kcal: 2000 }, sizedTo: 2000 })).toBeNull();
+    expect(weekGap({ average: { kcal: 1900 }, sizedTo: 2000 })).toBeNull();
+    expect(weekGap({ average: { kcal: 2100 }, sizedTo: 2000 })).toBeNull();
+    expect(weekGap({ average: { kcal: 1899 }, sizedTo: 2000 })).toEqual({ kind: "short", kcal: 1899 });
+    expect(weekGap({ average: { kcal: 2825 }, sizedTo: 3480 })).toEqual({ kind: "short", kcal: 2825 });
+    expect(weekGap({ average: { kcal: 1400 }, sizedTo: 1200 })).toEqual({ kind: "over", kcal: 1400 });
+    expect(weekGap({ average: { kcal: 1400 }, sizedTo: 0 })).toBeNull();
+  });
 });
 
 describe("the day the preview shows", () => {

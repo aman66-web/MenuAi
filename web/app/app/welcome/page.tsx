@@ -6,15 +6,16 @@ import { parseNumber } from "@/lib/mm/addFood";
 import { analytics, reportSetupScreen } from "@/lib/mm/analytics";
 import { tk } from "@/lib/mm/i18n";
 import { dayParam } from "@/lib/mm/day";
-import { EMPTY_BODY, bodyProblems, planFromAnswers, readTargetFields, type BodyAnswers } from "@/lib/mm/onboardingPlan";
+import { EMPTY_BODY, bodyProblems, planFromAnswers, readTargetFields, type BodyAnswers, type BodyProblem } from "@/lib/mm/onboardingPlan";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { recipeShopSet } from "@/lib/mm/shopProducts";
 import { mealPlanStore, settingsStore, updateSettings } from "@/lib/mm/stores";
 import { afterSignIn, sanitizeResume, SIGN_IN_RESUME_KEY, TYPED_SETUP_KEYS, typedSetup, type SignInReason, type SignInResume, type TypedSetup } from "@/lib/mm/signInGate";
+import type { PlanNote } from "@/lib/mm/targets";
 import type { Goal } from "@/lib/mm/types";
 import { DEFAULT_SETTINGS, type UserSettings } from "@/lib/mm/user-data";
 import {
-  backFrom, moveOn, NO_ANSWERS, progressNote, QUESTION_STEPS, resumeAt, startRun, stepCounter, welcomeProgressStore,
+  backFrom, BODY_STEPS, moveOn, NO_ANSWERS, progressNote, resumeAt, SKIP_STEPS, startRun, stepCounter, welcomeProgressStore,
   type FirstDish, type WelcomeAnswers, type WelcomeMove, type WelcomeRun, type WelcomeStepId,
 } from "@/lib/mm/welcomeSteps";
 import { InfoBanner } from "../_components/Note";
@@ -28,57 +29,52 @@ import { travelBack } from "../_lib/backNav";
 import { useHydrated, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { loadShopFile, useShopManifest } from "../_lib/shopProducts";
-import { ActivityStep, AboutYouStep, AGE_BOX, YourSizeStep } from "./BodySteps";
+import { aboutProblemLine, ActivityStep, AboutYouStep, BODY_BOX, typedUnder18 } from "./BodySteps";
 import { Cover, type CoverNotice } from "./Cover";
-import { EatOutStep, RecipesStep, WeekStep } from "./FeatureSteps";
+import { RecipesStep } from "./FeatureSteps";
 import { finishWelcome, type WelcomeEnding } from "./finish";
-import { preloadShowcaseMenus } from "./EatOutShowcase";
-import { Bottom, BottomButton, QuietLink, reducedMotion, SCREEN, TopBar, TopButton, WHY_GREY, WHY_GREY_LINE } from "./Frame";
+import { Bottom, BottomButton, reducedMotion, SCREEN, TopBar, TopButton, WHY_GREY, WHY_GREY_LINE } from "./Frame";
+import { STEP_TOP } from "./parts";
+import { PlanStep } from "./PlanStep";
 import { AvoidStep, GoalStep, ShopsStep } from "./QuestionSteps";
-import { TargetsStep } from "./TargetsStep";
+import { preloadRestaurantRow } from "./RestaurantRow";
 import { useTargetFields } from "./useTargetFields";
 import { prepareWeek } from "./WeekShowcase";
 
-// The welcome screens (the onboarding redesign meeting of 20 November 2026, docs/meetings/2026-11-20-onboarding-redesign.json; approved by the founder: "Whatever
-// the meeting ... conclude, go with that"). Showing what the app does, made from the person's own answers, instead of a tour: after the cover, eleven steps in
-// one honest counter (lib/mm/welcomeSteps.ts), each straight before the screen it changes:
-//    1 What's your goal? · 2 Anything you avoid? · 3 Know before you order (real dishes at a restaurant, free) · 4 Where do you shop? · 5 Recipes from {shop}
-//    (two of our recipes priced there, free) · 6 About you · 7 Your height and weight · 8 How active are you? · 9 Your daily targets · 10 Your week, planned
-//    (Meal plan, Premium where sold) · 11 Save your plan: make your free account
-// A run that starts signed in (a Settings rerun, an account not set up yet that signed in from the cover, someone who signed in at a page) has no step 11:
-// "Step n of 10", and step 10's button is "Save and go to Home". The total is fixed for the run before step 1; the counter never restarts and only jumps forward
-// ("Skip these questions" and an age under 18 go from 6 to 9; step 3's "Skip setup and make my account" goes to 11). Back goes to the last screen actually shown.
+// The welcome screens: onboarding in seven screens, then the account (founder, 20 November 2026, 12:21-12:37: one question a screen, a short heading, a big
+// input, Continue pinned at the bottom, Back top left, far fewer words, pictures over text, no labels on what the app shows, no "Step n of N" words, no Pip
+// speech bubbles). lib/mm/welcomeSteps.ts holds the order:
+//    1 What's your goal? · 2 Anything you avoid? · 3 Where do you shop? · 4 Recipes from {shop} · 5 About you · 6 How active are you? · 7 Your plan · the account
+// A run that starts signed in (a Settings rerun, an account not set up yet that signed in from the cover, someone who signed in at a page) has no account step,
+// and Your plan's button is "Save and go to Home". Skip (top right) on 1 to 3 skips that question; on 5 and 6 it skips both, to Your plan with the starting
+// numbers (and an age under 18 goes from 5 to 7 too). Back goes to the last screen actually shown.
 // - The cover (Cover.tsx): Get started, or "Carry on from step {n}" with "Start again" for someone who left part-way (mm.v1.welcomeProgress, written at each
-//   step; the questions about the body resume at About you, because those answers are never kept), the status line after Clear data (?cleared=1) or after
-//   "Delete my account" (?deleted=1), and "Already have an account? Sign in" ("Welcome back. Sign in": an account already set up goes straight to Home with its
-//   own settings; one not set up yet goes on as a signed-in run of 10). A set-up person who signed out and taps Get started meets that same screen.
-// - Pip's one entrance is on step 1; he listens on steps 2, 4 and 8 and waves on step 11. He is off the feature screens (3, 5, 10) and the number screens
-//   (6, 7, 9): they carry figures, prices, money or typed body measurements (the founder's 20 November rule, made strict by the meeting).
-// - What is saved: the goal, the foods avoided, the shops and the targets, each on its Continue (so someone who leaves keeps them); the answers about the body
-//   stay in this page's memory only and are gone when it closes (CLAUDE.md rule 4). Nothing of the person's own (their food log, favourites, lists, saved
-//   meals or recipes) is written before an account exists: the restaurant left showing on step 3 and the recipe chosen on step 5 are navigation hints only.
-// - Every ending goes through finishWelcome (finish.ts): after signing in at step 11, after "Not now" where sign-in is optional, and at the end of a signed-in
-//   run; then straight to Home, where the toast and the one-time Start here card take over. There is no "You're all set!" screen, no confetti and no fork.
-// - ?showcase=1 (Settings › Help › "Show me what Numbite can do", Home's StartPrompt): steps 3, 5 and 10 again with the person's current settings, "{n} of 3",
-//   Close, Next and Done; nothing is saved. An old ?tour=1 link opens the same.
+//   step; the questions about the body resume at About you, because those answers are never kept), the status line after Clear data (?cleared=1), after
+//   "Delete my account" (?deleted=1) or after signing out (?signedout=1), and "Already have an account? Sign in" ("Welcome back. Sign in": an account already set
+//   up goes straight to Home with its own settings; one not set up yet goes on as a signed-in run).
+// - Pip appears once, small, beside step 1's heading, with no speech bubble.
+// - What is saved: the goal, the foods avoided and the shops, each on its Continue; the daily numbers when they are worked out (leaving How active are you?),
+//   changed ("Change", then "Save") or confirmed (Your plan's button). The answers about the body stay in this page's memory only and are gone when it closes
+//   (CLAUDE.md rule 4). Nothing of the person's own (their food log, favourites, lists, saved meals or recipes) is written before an account exists: the recipe
+//   chosen on step 4 and the first restaurant dish on Your plan are navigation hints only.
+// - Every ending goes through finishWelcome (finish.ts): after signing in at the account step, after "Not now" where sign-in is optional, and at the end of a
+//   signed-in run; then straight to Home, where the toast and the one-time Start here card take over.
+// - ?showcase=1 (Settings › Help, Home's StartPrompt): screens 4 and 7 again with the person's current settings, Close, Next and Done; nothing is saved or
+//   changed. An old ?tour=1 link opens the same.
 // - The website's Apple and Google sign-in leaves the page and comes back with ?signin=ok: why the sign-in screen was showing, what was typed and the two hints
 //   wait in this tab's session storage meanwhile (lib/mm/signInGate.ts SignInResume; never the answers about the body). One that didn't finish comes back with
-//   ?signin=cancelled, failed, expired or busy: the same screen opens again with a line saying what happened, and the address is tidied (the 20 November 2026
-//   audit). After signing out, ?signedout=1 puts a line on the cover; where everyone signs in, the cover has no Back for someone signed out.
-// - The 20 November 2026 audit also: the note records whether step 1's goal was chosen (so it shows ticked after "Carry on"); "Carry on" past the questions
-//   about the person keeps the targets worked out from them as the person's own; nothing is ticked for sex until a tile is tapped; a tap on About you's grey
-//   Continue brings the Age box into view; on a short screen (under 620 px) step 11 leaves out the recipe line so the sign-in buttons come first.
+//   ?signin=cancelled, failed, expired or busy: the same screen opens again with a line saying what happened, and the address is tidied.
 
 type View =
   | { kind: "cover" }
   | { kind: "step"; step: WelcomeStepId }
   /** the cover's "Already have an account? Sign in" */
   | { kind: "returning" }
-  /** ?showcase=1: the three feature screens again */
+  /** ?showcase=1: screens 4 and 7 again */
   | { kind: "replay"; index: number };
 
 /** The replay's screens, in order. */
-const REPLAY: readonly WelcomeStepId[] = ["eatOut", "recipes", "week"];
+const REPLAY: readonly WelcomeStepId[] = ["recipes", "plan"];
 
 // The four daily target boxes (not GLP-1's meal size): a change to any of them makes the targets the person's own (saveTargets).
 const TARGET_BOXES = ["calories", "protein", "carbs", "fat"] as const;
@@ -113,7 +109,7 @@ const SIGN_IN_NOTES: Readonly<Record<string, string>> = {
   busy: tk("Too many tries. Please wait a few minutes and try again."),
 };
 
-/** A screen too short for step 11's extra lines above the sign-in buttons (an iPhone SE at large text, a 320 x 568 phone). */
+/** A screen too short for the account step's extra lines above the sign-in buttons (an iPhone SE at large text, a 320 x 568 phone). */
 const SHORT_SCREEN = 620;
 const onResize = (change: () => void) => {
   window.addEventListener("resize", change);
@@ -127,6 +123,9 @@ function planThisWeek(start: string | undefined, today: string): boolean {
   const now = Date.parse(`${today}T00:00:00`);
   return Number.isFinite(from) && Number.isFinite(now) && now >= from && now < from + 7 * 24 * 60 * 60 * 1000;
 }
+
+/** The box a tap on About you's grey Continue takes the person to: the first that needs them. */
+const PROBLEM_BOX: Readonly<Record<BodyProblem, string>> = { age: BODY_BOX.age, height: BODY_BOX.heightMajor, "height-part": BODY_BOX.heightMajor, weight: BODY_BOX.weightMajor, "weight-part": BODY_BOX.weightMajor };
 
 /** The welcome screens are a static shell (like the restaurant page): the address's ?showcase=1, ?signin=ok and ?cleared=1 are read once on the phone. */
 export default function WelcomePage() {
@@ -159,14 +158,14 @@ function Welcome() {
   const [resume] = useState(() => (!replay && signinBack && (signinBack === "ok" || signinBack in SIGN_IN_NOTES) ? readResume() : null));
   const signInNote = resume && signinBack && signinBack in SIGN_IN_NOTES ? SIGN_IN_NOTES[signinBack]! : null;
   const shortScreen = useSyncExternalStore(onResize, () => window.innerHeight < SHORT_SCREEN, () => false);
-  // the run, fixed when the steps begin (a run started signed out has the account as step 11)
+  // the run, fixed when the steps begin (a run started signed out has the account as its last step)
   const [run, setRun] = useState<WelcomeRun>(() => startRun(false));
-  // back from Apple or Google at the account step: Back from it goes where it would have (to step 3 after its link), and the body answers are gone
-  const [answers, setAnswers] = useState<WelcomeAnswers>(() => (resume?.reason === "setup" ? resumeAt(startRun(false), { step: "save", savedOn: "", ...(progress?.skippedSetup ? { skippedSetup: true as const } : {}) })?.answers ?? NO_ANSWERS : NO_ANSWERS));
+  // back from Apple or Google at the account step: Back from it goes to Your plan, and the body answers are gone
+  const [answers, setAnswers] = useState<WelcomeAnswers>(() => (resume?.reason === "setup" ? resumeAt(startRun(false), { step: "save", savedOn: "" })?.answers ?? NO_ANSWERS : NO_ANSWERS));
   const [view, setView] = useState<View>(() => (replay ? { kind: "replay", index: 0 } : resume?.reason === "setup" ? { kind: "step", step: "save" } : resume?.reason === "returning" ? { kind: "returning" } : { kind: "cover" }));
-  // came back to the account step through "Carry on" (its Pip line says the answers are still here)
+  // came back to the account step through "Carry on" (its line says the answers are still here)
   const [resumed, setResumed] = useState(false);
-  // the navigation hints for Home's Start here card: the recipe chosen on step 5 and the restaurant dish left showing on step 3
+  // the navigation hints for Home's Start here card: the recipe chosen on step 4 and the first restaurant dish on Your plan
   const [firstRecipeId, setFirstRecipeId] = useState<string | null>(() => resume?.firstRecipeId ?? null);
   const [firstDish, setFirstDish] = useState<FirstDish | null>(() => resume?.firstDish ?? null);
   const hints = useRef<{ firstRecipeId: string | null; firstDish: FirstDish | null }>({ firstRecipeId, firstDish });
@@ -184,19 +183,23 @@ function Welcome() {
   const goalShown = wasOnboarded || goalTouched;
   // a goal was chosen with step 1's Continue (it is in the settings): noted, so "Carry on" shows it ticked if the person goes Back to step 1
   const [goalSaved, setGoalSaved] = useState(false);
-  // Skip on step 1 leaves the goal unset for step 3's list ("Most protein for the calories")
+  // Skip on step 1 leaves the goal unset for Your plan's restaurant dishes ("Most protein for the calories")
   const [goalSkipped, setGoalSkipped] = useState(false);
   const target = useTargetFields(initial);
   const [prefs, setPrefs] = useState(initial.preferences);
   const [shops, setShops] = useState<string[]>(initial.shops ?? []);
-  // The answers about the person (steps 6-8): React state only, never saved or sent; dropped with this page when the welcome screens end.
+  // The answers about the person (screens 5 and 6): React state only, never saved or sent; dropped with this page when the welcome screens end.
   const [body, setBody] = useState<BodyAnswers>(EMPTY_BODY);
   // Nothing is picked on "How active are you?" until a tile is tapped, on every run (the answers are never stored, so a re-run has nothing real to show).
   const [activityPicked, setActivityPicked] = useState(false);
-  // Nor for sex on About you: "Prefer not to say" is what the sums use until a tile is tapped, but no tile shows as chosen (the onboarding meeting).
+  // Nor for sex on About you: "Prefer not to say" is what the sums use until a tile is tapped, but no tile shows as chosen.
   const [sexPicked, setSexPicked] = useState(false);
+  // a tap on About you's grey Continue: what is wrong is then said and marked
+  const [aboutTried, setAboutTried] = useState(false);
   const plan = useMemo(() => planFromAnswers({ goal, prefs, body }), [goal, prefs, body]);
   const changeBody = (patch: Partial<BodyAnswers>) => setBody((b) => ({ ...b, ...patch }));
+  // the worked-out numbers were saved in this run (leaving How active are you?): a skip afterwards puts back the numbers the run started with
+  const savedWorkedOut = useRef(false);
   // Pip's entrance on step 1 plays once per visit to these screens
   const [pipHasJumped, setPipHasJumped] = useState(false);
 
@@ -270,7 +273,7 @@ function Welcome() {
       setFirstRecipeId(progress.firstRecipeId ?? null);
       setFirstDish(progress.firstDish ?? null);
       setResumed(carryOn.step === "save");
-      // the goal chosen before: ticked (with Pip's reaction, not his hello) if the person goes Back to step 1
+      // the goal chosen before: ticked if the person goes Back to step 1
       if (progress.goalPicked) {
         setGoalTouched(true);
         setGoalSaved(true);
@@ -293,6 +296,7 @@ function Welcome() {
     setBody(EMPTY_BODY);
     setActivityPicked(false);
     setSexPicked(false);
+    setAboutTried(false);
     if (!wasOnboarded) {
       const fresh: Record<string, unknown> = {};
       for (const k of TYPED_SETUP_KEYS) fresh[k] = DEFAULT_SETTINGS[k];
@@ -315,8 +319,8 @@ function Welcome() {
     saveResume({ reason: "setup", typed: typed.current, ...(firstRecipeId ? { firstRecipeId } : {}), ...(firstDish ? { firstDish } : {}) });
   }, [runStep, firstRecipeId, firstDish]);
 
-  // Signed in at the account step or from the cover's link (in the iPhone app at once; on the website back from Apple or Google, once the app knows who): wait for
-  // the account's settings, then carry on (lib/mm/signInGate.ts afterSignIn). Meanwhile "Signing you in…".
+  // Signed in at the account step or from the cover's link (in the iPhone app at once; on the website back from Apple or Google, once the app knows who): wait
+  // for the account's settings, then carry on (lib/mm/signInGate.ts afterSignIn). Meanwhile "Signing you in…".
   useEffect(() => {
     if (!signingFor || !accountUser || settling.current) return;
     settling.current = true;
@@ -341,13 +345,13 @@ function Welcome() {
     });
   }, [signingFor, accountUser]); // eslint-disable-line react-hooks/exhaustive-deps -- runs once per sign-in; the functions it calls read refs and setters
 
-  // ------------------------------------------------------------------------------------------------ notes, counts, focus
+  // ------------------------------------------------------------------------------------------------ notes, counts, focus, the week ahead
 
   // The step reached, kept on this phone so a plain launch can carry on from it (never in the replay).
   useEffect(() => {
     if (replay || view.kind !== "step" || finishing.current) return;
-    welcomeProgressStore.set(progressNote({ step: view.step, answers, firstRecipeId, firstDish, goalPicked: goalSaved }, dayParam(new Date())));
-  }, [replay, view, answers, firstRecipeId, firstDish, goalSaved]);
+    welcomeProgressStore.set(progressNote({ step: view.step, firstRecipeId, firstDish, goalPicked: goalSaved }, dayParam(new Date())));
+  }, [replay, view, firstRecipeId, firstDish, goalSaved]);
 
   // A sign-in on the website that didn't finish: its line is shown on the sign-in screen (below), so the address is tidied. "?signin=ok" stays for the account
   // code, which reads it to ask who is signed in.
@@ -381,12 +385,9 @@ function Welcome() {
     h.focus({ preventScroll: true });
   }, [viewKey]);
 
-  // The week for step 10 is worked out while "Your daily targets" shows: 600 ms after it has drawn or after the last change (never while typing), in chunks that
-  // hand control back to the screen, into the cache step 10 and Meal plan read. A change of numbers stops the old sums; going on to step 10 lets them finish.
-  const targetReading = readTargetFields(target.fields, goal === "glp1");
-  const weekKey = runStep === "targets" && plan.plan.kind !== "under18" && targetReading.problems.length === 0 && targetReading.calories !== undefined
-    ? JSON.stringify([goal, targetReading.calories, targetReading.protein, goal === "glp1" ? targetReading.mealCap : null])
-    : "";
+  // The week for Your plan is worked out while How active are you? shows, 300 ms after a tile is tapped, in chunks that hand control back to the screen, into
+  // the cache Your plan and Meal plan read. Another tile stops the old sums; going on to Your plan lets them finish.
+  const weekKey = runStep === "active" && activityPicked && plan.plan.kind === "ok" ? JSON.stringify([goal, plan.plan.calories, plan.plan.protein]) : "";
   const weekWork = useRef<{ key: string; stop: AbortController } | null>(null);
   useEffect(() => {
     if (!weekKey || replay || weekWork.current?.key === weekKey) return;
@@ -395,12 +396,52 @@ function Welcome() {
       const stop = new AbortController();
       weekWork.current = { key: weekKey, stop };
       const now = settingsStore.get();
-      const [g, calories, protein, mealCap] = JSON.parse(weekKey) as [Goal, number, number | undefined, number | null];
-      void prepareWeek({ goal: g, dailyCalories: calories, dailyProtein: protein ?? undefined, glp1MealCap: mealCap ?? now.glp1MealCap }, now.preferences, now.shops, stop.signal);
-    }, 600);
+      const [g, calories, protein] = JSON.parse(weekKey) as [Goal, number, number];
+      void prepareWeek({ goal: g, dailyCalories: calories, dailyProtein: protein, glp1MealCap: now.glp1MealCap }, now.preferences, now.shops, stop.signal);
+    }, 300);
     return () => window.clearTimeout(id);
   }, [weekKey, replay]);
   useEffect(() => () => weekWork.current?.stop.abort(), []);
+
+  // ------------------------------------------------------------------------------------------------ the daily numbers
+
+  const targetReading = readTargetFields(target.fields, goal === "glp1");
+  // back after "Carry on" past the questions about the person: the targets on the boxes were worked out from them before (they are the person's own)
+  const keptTargets = !!answers.bodyGone && settingsStore.get().hasSetTargets === true;
+  const changedByHand = TARGET_BOXES.some((k) => parseNumber(target.fields[k]) !== parseNumber(target.start[k]));
+  /**
+   * The numbers on the boxes, saved (Your plan's "Save" and its button). They count as set only when they are the person's own: worked out from the questions or
+   * a box they changed; untouched starting numbers stay marked as starting numbers. Never written as false, so a Settings rerun keeps targets set before.
+   */
+  const saveTargets = (): boolean => {
+    const r = readTargetFields(target.fields, goal === "glp1");
+    if (r.problems.length > 0 || r.calories === undefined) return false;
+    const workedOut = !answers.bodySkipped && plan.plan.kind === "ok";
+    updateSettings({
+      dailyCalories: r.calories,
+      ...(workedOut || changedByHand ? { hasSetTargets: true } : {}),
+      dailyProtein: r.protein,
+      dailyCarbs: r.carbs,
+      dailyFat: r.fat,
+      ...(goal === "glp1" && r.mealCap !== undefined ? { glp1MealCap: r.mealCap } : {}),
+    });
+    return true;
+  };
+  /** Leaving How active are you?: the numbers worked out from the answers fill the boxes and are saved, so Your plan's week is made for them. */
+  const saveWorkedOut = () => {
+    const p = plan.plan;
+    target.applyPlan(p);
+    if (p.kind !== "ok") return;
+    savedWorkedOut.current = true;
+    updateSettings({ dailyCalories: p.calories, dailyProtein: p.protein, dailyCarbs: p.carbs, dailyFat: p.fat, hasSetTargets: true });
+  };
+  /** Skipping the questions about the person (or an age under 18) after numbers were worked out in this run: the boxes and the saved numbers as the run began. */
+  const undoWorkedOut = () => {
+    target.applyPlan(null);
+    if (!savedWorkedOut.current) return;
+    savedWorkedOut.current = false;
+    updateSettings({ dailyCalories: initial.dailyCalories, dailyProtein: initial.dailyProtein, dailyCarbs: initial.dailyCarbs, dailyFat: initial.dailyFat, hasSetTargets: initial.hasSetTargets });
+  };
 
   // ------------------------------------------------------------------------------------------------ the screens
 
@@ -441,14 +482,26 @@ function Welcome() {
   if (view.kind === "replay") {
     const i = view.index;
     const last = i === REPLAY.length - 1;
-    const top = <TopBar start={<TopButton onClick={leave}>{t("Close")}</TopButton>} segments={REPLAY.length} current={i} status={t("{n} of {total}", { n: i + 1, total: REPLAY.length })} />;
+    const top = <TopBar start={<TopButton onClick={leave}>{t("Close")}</TopButton>} segments={REPLAY.length} current={i} />;
     const counter = t("{n} of {total}", { n: i + 1, total: REPLAY.length });
     const bottom = { next: last ? t("Done") : t("Next"), onNext: () => (last ? leave() : setView({ kind: "replay", index: i + 1 })) };
     return (
       <div key={`replay-${i}`} className={SCREEN}>
-        {REPLAY[i] === "eatOut" && <EatOutStep top={top} counter={counter} goal={settings.goal} prefs={settings.preferences} bottom={bottom} />}
         {REPLAY[i] === "recipes" && <ReplayRecipes top={top} counter={counter} bottom={bottom} />}
-        {REPLAY[i] === "week" && <WeekStep top={top} counter={counter} planLine={planThisWeek(savedPlan?.start, dayParam(new Date()))} bottom={bottom} />}
+        {REPLAY[i] === "plan" && (
+          <>
+            {top}
+            <PlanStep
+              counter={counter}
+              goal={settings.goal}
+              prefs={settings.preferences}
+              replay
+              planLine={planThisWeek(savedPlan?.start, dayParam(new Date()))}
+              targets={{ fields: target.fields, setField: target.setField, reading: targetReading, starting: false, under18: false, notes: [], save: () => true }}
+              bottom={bottom}
+            />
+          </>
+        )}
       </div>
     );
   }
@@ -458,30 +511,38 @@ function Welcome() {
   const index = run.steps.indexOf(step);
   const skipThis = () => {
     analytics.track({ name: "onboardingSkipped", step });
+    if (BODY_STEPS.includes(step)) {
+      // Skip on About you or How active are you?: both are skipped, the typed answers thrown away, to Your plan with the starting numbers
+      setBody(EMPTY_BODY);
+      setActivityPicked(false);
+      setSexPicked(false);
+      setAboutTried(false);
+      undoWorkedOut();
+      return forward(step, "skipBody");
+    }
     if (step === "goal") {
-      // Skip never saves: the goal goes back to what is saved, and step 3 uses "Most protein for the calories"
+      // Skip never saves: the goal goes back to what is saved, and Your plan's restaurant dishes use "Most protein for the calories"
       setGoal(settingsStore.get().goal);
       setGoalTouched(false);
       setGoalSkipped(!wasOnboarded);
     } else if (step === "avoid") {
       setPrefs(settingsStore.get().preferences);
-      preloadShowcaseMenus();
     } else if (step === "shops") {
       setShops(settingsStore.get().shops ?? []);
+      preloadRestaurantRow();
     }
     forward(step);
   };
   const top = (
     <TopBar
       onBack={() => back(step)}
-      end={QUESTION_STEPS.includes(step) ? <TopButton onClick={skipThis}>{t("Skip")}</TopButton> : undefined}
+      end={SKIP_STEPS.includes(step) ? <TopButton onClick={skipThis}>{t("Skip")}</TopButton> : undefined}
       segments={run.total}
       current={index}
-      status={counter}
     />
   );
 
-  // The account step (step 11): the sign-in screen as the bar's last segment, with Back. Where sign-in is optional, it also has "Not now".
+  // The account step: the sign-in screen as the bar's last segment, with Back. Where sign-in is optional, it also has "Not now".
   if (step === "save") {
     if (accountChecking && !accountUser) return <Spinner />;
     const recipe = firstRecipeId ? RECIPES.find((r) => r.id === firstRecipeId) : undefined;
@@ -498,43 +559,21 @@ function Welcome() {
     );
   }
 
-  const problems = bodyProblems(body);
-  const skipBody = () => {
-    analytics.track({ name: "onboardingSkipped", step });
-    setBody(EMPTY_BODY);
-    setActivityPicked(false);
-    setSexPicked(false);
-    target.applyPlan(null);
-    forward(step, "skipBody");
-  };
-  // Continue on "Your daily targets": all four numbers as they stand (typed or filled in) are saved. A protein, carbs or fat box left empty stays unset, so Home
-  // works it out. The targets count as set only when they are the person's own: worked out from the questions, a suggestion they asked for, or a box they
-  // changed. Untouched starting numbers stay marked as starting numbers. Never written as false, so a Settings rerun keeps targets set before.
-  const saveTargets = () => {
-    const r = targetReading;
-    if (r.problems.length > 0 || r.calories === undefined) return;
-    const workedOut = !answers.bodySkipped && plan.plan.kind === "ok";
-    const suggested = target.suggestedNotes !== null;
-    const changed = TARGET_BOXES.some((k) => parseNumber(target.fields[k]) !== parseNumber(target.start[k]));
-    updateSettings({
-      dailyCalories: r.calories,
-      ...(workedOut || suggested || changed ? { hasSetTargets: true } : {}),
-      dailyProtein: r.protein,
-      dailyCarbs: r.carbs,
-      dailyFat: r.fat,
-      ...(goal === "glp1" && r.mealCap !== undefined ? { glp1MealCap: r.mealCap } : {}),
-    });
-    forward("targets");
-  };
   const defaultShop = recipeShopSet(manifest, null, [])[0];
-  /** A tap on About you's grey Continue: the Age box into view, ready to type in. */
-  const showAgeBox = () => {
-    const box = document.getElementById(AGE_BOX);
+  // About you: an age under 18 needs nothing else (nothing is worked out); otherwise the age, height and weight
+  const under18Typed = typedUnder18(body.age);
+  const bodyWrong: BodyProblem[] = under18Typed ? [] : bodyProblems(body);
+  const partWrong = bodyWrong.filter((p) => p.endsWith("-part"));
+  const aboutLine = bodyWrong.length === 0 ? null : aboutTried || partWrong.length > 0 ? aboutProblemLine(t, body, bodyWrong) : t("Add your age, height and weight, or tap Skip.");
+  /** A tap on About you's grey Continue: what is wrong is said, and the first box that needs the person is brought into view, ready to type in. */
+  const showProblem = () => {
+    setAboutTried(true);
+    const box = bodyWrong[0] ? document.getElementById(PROBLEM_BOX[bodyWrong[0]]) : null;
     box?.scrollIntoView({ block: "center", behavior: reducedMotion() ? "auto" : "smooth" });
-    box?.querySelector<HTMLInputElement>("input")?.focus({ preventScroll: true });
+    box?.focus({ preventScroll: true });
   };
-  // back after "Carry on" past the questions about the person: the targets on the boxes were worked out from them before (they are the person's own)
-  const keptTargets = !!answers.bodyGone && settingsStore.get().hasSetTargets === true;
+  const planStarting = !answers.under18 && ((answers.bodySkipped && !keptTargets) || (!answers.bodySkipped && plan.plan.kind === "invalid")) && !changedByHand;
+  const planNotes: readonly PlanNote[] = !answers.bodySkipped && plan.plan.kind === "ok" ? plan.plan.notes : goal === "glp1" ? ["glp1"] : [];
 
   return (
     <div key={step} className={SCREEN}>
@@ -544,11 +583,9 @@ function Welcome() {
           <GoalStep
             goal={goal}
             shown={goalShown}
-            reacted={goalTouched}
             pick={(g) => { setGoal(g); setGoalTouched(true); }}
             onContinue={() => { updateSettings({ goal }); setGoalSkipped(false); setGoalSaved(true); forward("goal"); }}
             counter={counter}
-            total={run.total}
             jump={!pipHasJumped}
           />
         </>
@@ -557,26 +594,8 @@ function Welcome() {
       {step === "avoid" && (
         <>
           {top}
-          <AvoidStep prefs={prefs} setPrefs={setPrefs} counter={counter} onContinue={() => { updateSettings({ preferences: prefs }); preloadShowcaseMenus(); forward("avoid"); }} />
+          <AvoidStep prefs={prefs} setPrefs={setPrefs} counter={counter} onContinue={() => { updateSettings({ preferences: prefs }); forward("avoid"); }} />
         </>
-      )}
-
-      {step === "eatOut" && (
-        <EatOutStep
-          top={top}
-          counter={counter}
-          goal={goalSkipped ? null : settings.goal}
-          prefs={settings.preferences}
-          onDish={setFirstDish}
-          bottom={{
-            next: t("Next: where you shop"),
-            onNext: () => forward("eatOut"),
-            link: {
-              label: run.signedIn ? t("Skip the rest and go to Home") : t("Skip setup and make my account"),
-              onClick: () => { analytics.track({ name: "onboardingSkipped", step: "eatOut" }); forward("eatOut", "skipSetup"); },
-            },
-          }}
-        />
       )}
 
       {step === "shops" && (
@@ -586,11 +605,11 @@ function Welcome() {
             shops={shops}
             setShops={setShops}
             counter={counter}
-            defaultShop={defaultShop}
             onContinue={() => {
               updateSettings({ shops: shops.length ? shops : undefined });
               // none ticked: the default recipe shop's file starts loading for the next screen (a ticked shop's started on the tick: ShopPicker's `warm`)
               if (!shops.length && defaultShop) void loadShopFile(defaultShop).catch(() => undefined);
+              preloadRestaurantRow();
               forward("shops");
             }}
           />
@@ -598,45 +617,30 @@ function Welcome() {
       )}
 
       {step === "recipes" && (
-        <RecipesStep top={top} counter={counter} chosen={firstRecipeId} onChoose={setFirstRecipeId} bottom={{ next: t("Next: your daily numbers"), onNext: () => forward("recipes") }} />
+        <RecipesStep top={top} counter={counter} chosen={firstRecipeId} onChoose={setFirstRecipeId} bottom={{ next: t("Continue"), onNext: () => forward("recipes") }} />
       )}
 
-      {/* The three questions about the person: why Continue is grey is said beside it and linked to it, and "Skip these questions" sits quietly under it (no
-          top-right pill on steps 6 to 8: the link is the skip). An age under 18 goes straight to the targets, where nothing is worked out. */}
+      {/* About you: everything on one screen. Why Continue is grey is said beside it and linked to it; Skip is at the top right. An age under 18 goes straight
+          to Your plan, where nothing is worked out. */}
       {step === "about" && (
         <>
           {top}
-          <section className="mt-5 flex flex-1 flex-col">
-            <AboutYouStep body={body} sex={sexPicked ? body.sex : null} change={(patch) => { if (patch.sex) setSexPicked(true); changeBody(patch); }} counter={counter} />
+          <section className={`${STEP_TOP} flex flex-1 flex-col`}>
+            <AboutYouStep body={body} sex={sexPicked ? body.sex : null} change={(patch) => { if (patch.sex) setSexPicked(true); changeBody(patch); }} counter={counter} shown={aboutTried ? bodyWrong : partWrong} />
+            <div aria-hidden className="h-6 shrink-0" />
             <Bottom>
-              {problems.includes("age") && <p id={WHY_GREY} className={WHY_GREY_LINE}>{body.age.trim() === "" ? t("Type your age in the Age box to go on, or skip these questions.") : t("Check your age in the Age box: a whole number from 18 to 100.")}</p>}
+              {aboutLine && <p id={WHY_GREY} className={WHY_GREY_LINE}>{aboutLine}</p>}
               <BottomButton
-                disabled={problems.includes("age")}
-                onBlocked={showAgeBox}
-                describedBy={problems.includes("age") ? WHY_GREY : undefined}
+                disabled={bodyWrong.length > 0}
+                onBlocked={showProblem}
+                describedBy={aboutLine ? WHY_GREY : undefined}
                 onClick={() => {
-                  const under18 = plan.plan.kind === "under18";
-                  if (under18) target.applyPlan(plan.plan);
-                  forward("about", "next", { ...answers, under18 });
+                  if (under18Typed) undoWorkedOut();
+                  forward("about", "next", { ...answers, under18: under18Typed });
                 }}
               >
                 {t("Continue")}
               </BottomButton>
-              <QuietLink onClick={skipBody}>{t("Skip these questions")}</QuietLink>
-            </Bottom>
-          </section>
-        </>
-      )}
-
-      {step === "size" && (
-        <>
-          {top}
-          <section className="mt-5 flex flex-1 flex-col">
-            <YourSizeStep body={body} change={changeBody} counter={counter} />
-            <Bottom>
-              {problems.some((p) => p !== "age") && <p id={WHY_GREY} className={WHY_GREY_LINE}>{t("Fill in your height and weight above to go on, or skip these questions below.")}</p>}
-              <BottomButton disabled={problems.some((p) => p !== "age")} describedBy={problems.some((p) => p !== "age") ? WHY_GREY : undefined} onClick={() => forward("size")}>{t("Continue")}</BottomButton>
-              <QuietLink onClick={skipBody}>{t("Skip these questions")}</QuietLink>
             </Bottom>
           </section>
         </>
@@ -645,47 +649,36 @@ function Welcome() {
       {step === "active" && (
         <>
           {top}
-          <section className="mt-5 flex flex-1 flex-col">
+          <section className={`${STEP_TOP} flex flex-1 flex-col`}>
             <ActivityStep activity={activityPicked ? body.activity : null} pick={(activity) => { changeBody({ activity }); setActivityPicked(true); }} counter={counter} />
+            <div aria-hidden className="h-6 shrink-0" />
             <Bottom>
-              {!activityPicked && <p id={WHY_GREY} className={WHY_GREY_LINE}>{t("Pick the one closest to your week to go on, or skip these questions below.")}</p>}
-              <BottomButton disabled={!activityPicked} describedBy={activityPicked ? undefined : WHY_GREY} onClick={() => { if (!activityPicked) return; target.applyPlan(plan.plan); forward("active"); }}>{t("Work out my numbers")}</BottomButton>
-              <QuietLink onClick={skipBody}>{t("Skip these questions")}</QuietLink>
+              {!activityPicked && <p id={WHY_GREY} className={WHY_GREY_LINE}>{t("Pick one, or tap Skip.")}</p>}
+              <BottomButton disabled={!activityPicked} describedBy={activityPicked ? undefined : WHY_GREY} onClick={() => { if (!activityPicked) return; saveWorkedOut(); forward("active"); }}>{t("See my plan")}</BottomButton>
             </Bottom>
           </section>
         </>
       )}
 
-      {step === "targets" && (
+      {step === "plan" && (
         <>
           {top}
-          <TargetsStep
-            goal={goal}
-            prefs={prefs}
-            answers={answers.bodySkipped ? null : plan}
-            skipped={(answers.bodySkipped && !keptTargets) || (!answers.bodySkipped && plan.plan.kind === "invalid")}
-            kept={keptTargets}
-            fields={target.fields}
-            setField={target.setField}
-            reading={targetReading}
-            suggestedNotes={target.suggestedNotes}
-            applySuggestion={target.apply}
+          <PlanStep
             counter={counter}
+            goal={goalSkipped ? null : goal}
+            prefs={prefs}
+            onDish={setFirstDish}
+            targets={{ fields: target.fields, setField: target.setField, reading: targetReading, starting: planStarting, under18: answers.under18, notes: planNotes, save: saveTargets }}
+            bottom={{
+              next: run.signedIn ? t("Save and go to Home") : t("Save my plan"),
+              onNext: () => {
+                // the numbers as they stand (worked out, starting or typed) are saved; a box left wrong while changing them keeps the person here
+                if (!answers.under18 && !saveTargets()) return;
+                forward("plan");
+              },
+            }}
           />
-          <Bottom>
-            <BottomButton disabled={targetReading.problems.length > 0} onClick={saveTargets}>{answers.under18 ? t("Next") : t("Next: plan my week")}</BottomButton>
-          </Bottom>
         </>
-      )}
-
-      {step === "week" && (
-        <WeekStep
-          top={top}
-          counter={counter}
-          under18={answers.under18}
-          // "your numbers", not "your plan": the week shown here isn't kept (step 11 makes the account that keeps the goal and the numbers)
-          bottom={{ next: run.signedIn ? t("Save and go to Home") : t("Next: save your numbers"), onNext: () => forward("week") }}
-        />
       )}
     </div>
   );

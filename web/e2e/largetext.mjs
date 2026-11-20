@@ -31,15 +31,15 @@ for (const scale of [1, 1.5, 2]) {
     await page.close();
   }
 }
-// The welcome steps, screen by screen (the onboarding redesign meeting of 20 November 2026): the cover and all eleven steps, with nothing picked for the person
-// (the goal and the activity are tapped, and the foods-to-avoid button says "Nothing to avoid"), a first recipe chosen, the week made, and the account step.
+// The welcome steps, screen by screen (the seven-screen onboarding of 20 November 2026): the cover, the seven screens and the account step, with nothing picked
+// for the person (the goal and the activity are tapped, and the foods-to-avoid button says "Nothing to avoid"), a first recipe chosen and the plan made.
 for (const scale of [1, 1.5, 2]) {
   const c = await browser.newContext({ viewport: { width: 360, height: 740 }, serviceWorkers: "block" });
   const page = await c.newPage();
   await page.goto(BASE + "/app/welcome");
   await page.addStyleTag({ content: `html { font-size: ${scale * 100}% !important; }` });
   const check = async (label) => {
-    await page.waitForTimeout(1200); // Pip's jump on step 1, the windows' fade
+    await page.waitForTimeout(1200); // Pip's entrance on step 1, the windows' fade
     const m = await page.evaluate(() => ({ sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth }));
     if (m.sw > m.cw + 1) { bad++; console.log(`OVERFLOW x${scale} onboarding "${label}": scrollWidth ${m.sw} > ${m.cw}`); }
   };
@@ -51,30 +51,28 @@ for (const scale of [1, 1.5, 2]) {
   await press("Continue");
   await check("2 avoid");
   await press("Nothing to avoid");
-  await page.getByRole("radiogroup", { name: "Restaurants" }).waitFor({ timeout: 45000 }).catch(() => undefined);
-  await check("3 know before you order");
-  await press("Next: where you shop");
-  await check("4 shops");
+  await check("3 shops");
   await press("Continue");
   const tile = recipeTiles(page).first();
   await tile.waitFor({ timeout: 45000 }).then(() => tile.click()).catch(() => undefined);
-  await check("5 recipes, one chosen");
-  await press("Next: your daily numbers");
-  await check("6 about you");
-  await page.getByLabel("Age", { exact: true }).fill("34");
+  await check("4 recipes, one chosen");
   await press("Continue");
-  await check("7 your height and weight");
+  await check("5 about you");
+  await page.getByRole("radio", { name: "Female", exact: true }).click();
+  await page.getByLabel("Age in years").fill("34");
   await page.getByLabel("Stone").fill("11"); await page.getByLabel("Pounds").fill("4"); await page.getByLabel("Feet").fill("5"); await page.getByLabel("Inches").fill("10");
+  await check("5 about you, filled in");
   await press("Continue");
-  await check("8 how active");
+  await check("6 how active");
   await page.getByRole("radio", { name: "Lightly active", exact: true }).click();
-  await press("Work out my numbers");
-  await check("9 targets");
-  await press("Next: plan my week");
-  await page.getByRole("region", { name: "A look at Meal plan, on Home" }).locator("h2, p[role='status']").first().waitFor({ timeout: 45000 }).catch(() => undefined);
-  await check("10 your week, planned");
-  await press("Next: save your numbers");
-  await check("11 save your goal and numbers");
+  await press("See my plan");
+  await page.getByText(/^About £[\d,]+ for the week$/).or(page.getByText("Meal plan makes your week from your shop, with one shopping list.")).first().waitFor({ timeout: 60000 }).catch(() => undefined);
+  await check("7 your plan");
+  await press("Change");
+  await check("7 your plan, changing the numbers");
+  await press("Save");
+  await press("Save my plan");
+  await check("8 save your plan");
   await c.close();
 }
 console.log(bad === 0 ? "No horizontal overflow at 100%, 150% or 200% text size (360px wide)." : `${bad} overflow problem(s)`);

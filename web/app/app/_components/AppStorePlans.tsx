@@ -65,7 +65,7 @@ function renewalWords(products: readonly StoreProduct[] | null, t: ReturnType<ty
   const words: string[] = [];
   if (renewing.length === 1) words.push(t("{plan} is a subscription that renews automatically.", { plan: renewing[0]! }));
   else if (renewing.length > 1) words.push(t("{plans} and {last} are subscriptions that renew automatically.", { plans: renewing.slice(0, -1).join(", "), last: renewing[renewing.length - 1]! }));
-  words.push(t("Payment is charged to your Apple ID when you confirm the purchase. A subscription renews at the same price for the same length unless you cancel it at least 24 hours before the end of the current period, and the renewal is charged within the 24 hours before that. Manage or cancel it in your App Store account settings."));
+  words.push(t("Payment is charged to your Apple ID when you confirm. A subscription renews at the same price and length unless you cancel at least 24 hours before the period ends; the renewal is charged within those 24 hours. Manage or cancel it in your App Store account settings."));
   for (const name of once) words.push(t("{plan} is one payment and doesn't renew.", { plan: name }));
   return words;
 }
@@ -197,7 +197,7 @@ export function AppStorePlans({ afterContinue, onUnlocked }: { afterContinue?: R
       <p className="mt-4 text-[0.9375rem] leading-snug text-muted">{renewalWords(listed, t).join(" ")}</p>
       {trial && (
         <p className="mt-2 text-[0.9375rem] leading-snug text-muted">
-          {t("With the free trial you pay nothing for the first {days} days. If you don't cancel at least 24 hours before it ends, the subscription starts and you're charged. There is one free trial per Apple ID.", { days: trial })}
+          {t("One free trial per Apple ID.")}
         </p>
       )}
       <p className="mt-2 text-[0.9375rem] leading-snug text-muted">

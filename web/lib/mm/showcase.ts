@@ -1,5 +1,6 @@
-// Step 3 of the welcome screens, "Know before you order": real dishes at a restaurant the person goes to, from the list that fits their goal, with that
-// restaurant's own published figures (the onboarding redesign meeting of 20 November 2026, build list 2; approved by the founder). Display only: which list a
+// Real restaurant dishes for the welcome screens. Until the seven-screen onboarding of 20 November 2026 this was step 3, "Know before you order" (the chips
+// and two dishes below, still used by Home's Start here check); since then the welcome screens show one dish in the restaurant's own photo for each of a few
+// chains in Your plan's row (photoDishes, at the end). Both pick from the list that fits the person's goal, with that restaurant's own published figures (the onboarding redesign meeting of 20 November 2026, build list 2; approved by the founder). Display only: which list a
 // goal opens and which of its dishes are shown here change nothing else. applyPreset (lib/mm/truth/presets.ts), its constants and every ranking constant are
 // unchanged (CLAUDE.md rule 8), and every figure is the restaurant's own, read when the screen draws (rule 1). Pure and unit-tested (tests/showcase.test.ts,
 // and tests/showcaseData.test.ts against public/menus).
@@ -244,4 +245,64 @@ export function showcaseChips(
     }
   }
   return { chips, pending };
+}
+
+// ------------------------------------------------------------------------------------------------ Your plan's row of restaurant dishes
+
+/**
+ * The restaurants of the welcome screens' Your plan row (founder, 20 November 2026: a row of restaurant dishes in the chains' own photos, chains that have
+ * photos first; never Costa, which has none), in order. Each shows one dish with its photo and its own calories.
+ */
+export const PHOTO_CHAINS = ["mcdonalds", "nandos", "pret", "greggs", "caffe-nero"] as const;
+
+/** A dish with the restaurant's own photo ("<chain-id>/<file>.webp", lib/mm/images.ts). */
+export interface PhotoDish extends ShowcaseDish {
+  chainId: string;
+  chainName: string;
+  image: string;
+}
+
+/**
+ * The restaurant's top dish that has its own photo, from the goal's list (then Most protein for the calories, then Under 500 calories), after the same filters as
+ * every showcase dish (dishFits: the person's diet and allergies, no kids', sharing, side or drinks dish). `shown`: whether a photo may be shown (photos switched
+ * on and the chain not taken down: lib/mm/images.ts itemImageUrl). Null when none fits.
+ */
+export function photoDish(chain: Chain, goal: Goal | null | undefined, prefs: Preferences, shown: (image: string) => boolean): PhotoDish | null {
+  if (chain.sample || chain.nutritionLevel === "calories" || !chainFits(chain, prefs)) return null;
+  const items = chain.items.filter((i) => !!i.image && shown(i.image) && dishFits(chain, i, prefs));
+  for (const preset of presetOrder(goal)) {
+    const top = applyPreset(preset, items)[0];
+    if (!top) continue;
+    return { chainId: chain.id, chainName: chain.name, itemId: top.id, name: top.name, kcal: top.nutrients.calories, protein: top.nutrients.protein!, image: top.image!, ...(top.serving.trim() ? { serving: top.serving.trim() } : {}) };
+  }
+  return null;
+}
+
+/**
+ * Your plan's row: one photo dish per PHOTO_CHAINS restaurant that is real, not taken down and in the menus' list. `menu(id)` as for showcaseChips (undefined
+ * while it loads: `pending` names it, and the row keeps its place for it).
+ */
+export function photoDishes(
+  manifest: readonly Pick<ManifestChain, "id" | "sample" | "nutritionLevel">[],
+  menu: (id: string) => Chain | null | undefined,
+  goal: Goal | null | undefined,
+  prefs: Preferences,
+  shown: (image: string) => boolean,
+  hidden: Iterable<string> = [],
+): { dishes: PhotoDish[]; pending: string[] } {
+  const known = new Map(manifest.map((c) => [c.id, c]));
+  const down = new Set(hidden);
+  const dishes: PhotoDish[] = [];
+  const pending: string[] = [];
+  for (const id of PHOTO_CHAINS) {
+    const c = known.get(id);
+    if (!c || c.sample || c.nutritionLevel === "calories" || down.has(id)) continue;
+    const chain = menu(id);
+    if (chain === undefined) pending.push(id);
+    else if (chain) {
+      const d = photoDish(chain, goal, prefs, shown);
+      if (d) dishes.push(d);
+    }
+  }
+  return { dishes, pending };
 }

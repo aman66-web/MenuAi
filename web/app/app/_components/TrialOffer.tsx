@@ -94,7 +94,7 @@ function TrialOfferInApp() {
             afterContinue={
               <>
                 <Button size="lg" full variant="secondary" className="mt-2.5" onClick={() => setOpen(false)}>{t("Not now")}</Button>
-                <p className="mt-2 text-center text-[0.9375rem] leading-snug text-muted">{t("You can start your free trial later from any Premium feature, or in Settings › Subscription.")}</p>
+                <p className="mt-2 text-center text-[0.9375rem] leading-snug text-muted">{t("You can start it later in Settings › Subscription.")}</p>
                 <div className="mt-6"><PremiumOffer /></div>
               </>
             }

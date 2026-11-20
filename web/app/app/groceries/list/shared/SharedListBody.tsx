@@ -28,8 +28,9 @@ const writeAdded = (code: string) => {
   try { sessionStorage.setItem(ADDED_KEY, code); } catch { /* storage blocked: the page just forgets */ }
 };
 
-/** `code` is the list's payload: "Added" belongs to the list that was added, so a different list opened in this same tab starts as not added. `intro` is the line under the heading once the list has loaded. */
-export function SharedListBody({ entries, code, intro }: { entries: readonly SharedEntry[]; code: string; intro: string }) {
+/** `code` is the list's payload: "Added" belongs to the list that was added, so a different list opened in this same tab starts as not added. `intro` is the line
+ *  under the heading once the list has loaded (none when the heading says enough). */
+export function SharedListBody({ entries, code, intro }: { entries: readonly SharedEntry[]; code: string; intro?: string }) {
   const t = useT();
   const [retry, setRetry] = useState(0);
   const state = useSharedList(entries, retry);
@@ -51,7 +52,7 @@ export function SharedListBody({ entries, code, intro }: { entries: readonly Sha
 
   return (
     <>
-      <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted [overflow-wrap:anywhere]">{intro}</p>
+      {intro && <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted [overflow-wrap:anywhere]">{intro}</p>}
 
       {items.length === 0 ? (
         <div className="mt-4"><ErrorBox message={t("None of the products in this list could be found in the shops' lists any more.")} /></div>
@@ -90,7 +91,7 @@ export function SharedListBody({ entries, code, intro }: { entries: readonly Sha
               <Button full className="min-h-12 text-base" onClick={addAll}>{t("Add all to my shopping list")}</Button>
             )}
           </div>
-          <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("Prices are what each shop showed on its website, and they change: check in store.")}</p>
+          <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("Prices from each shop's website. Prices change: check in store.")}</p>
         </>
       )}
     </>

@@ -83,12 +83,8 @@ function AllergyLine({ chain, allergens }: { chain: Chain; allergens: Allergens 
   return (
     <AllergyNote className="mt-3.5">
       {contains.length > 0 && <p className="font-semibold">{t("Contains {allergens}, which you avoid.", { allergens: names(contains) })}</p>}
-      {may.length > 0 && (
-        <p className={contains.length > 0 ? "mt-1" : undefined}>
-          <span className="font-semibold">{t("May contain {allergens}.", { allergens: names(may) })}</span>{" "}
-          {t("The restaurant says small amounts could get in, for example from a shared kitchen or fryer.")}
-        </p>
-      )}
+      {/* what "may contain" means is said once, in the allergens card this links to (words pass, 20 November 2026) */}
+      {may.length > 0 && <p className={`font-semibold ${contains.length > 0 ? "mt-1" : ""}`}>{t("May contain {allergens}.", { allergens: names(may) })}</p>}
       <a href="#allergens-heading" className={`mt-1 inline-flex min-h-11 items-center ${LINK}`}>{t("See all 14 allergens")}</a>
     </AllergyNote>
   );

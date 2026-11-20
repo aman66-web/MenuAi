@@ -117,10 +117,10 @@ describe("setup screen counts: switched on", () => {
     r.report("cover");
     r.report("cover");
     r.report("goal");
-    r.report("eatOut");
+    r.report("shops");
     r.report("goal");
     await settle();
-    expect(bodies(fetch).map((b) => (b[0] as { payload: Record<string, string> }).payload["Setup.screen"])).toEqual(["cover", "goal", "eatOut"]);
+    expect(bodies(fetch).map((b) => (b[0] as { payload: Record<string, string> }).payload["Setup.screen"])).toEqual(["cover", "goal", "shops"]);
     expect(new Set(bodies(fetch).map((b) => (b[0] as { clientUser: string }).clientUser))).toEqual(new Set([hashOf(ID)]));
     expect(randomId).toHaveBeenCalledTimes(1);
   });
@@ -234,9 +234,10 @@ describe("the number stays on the device", () => {
 // The onboarding redesign meeting (20 November 2026, build list 15): the counts follow the welcome steps by name; no event carries the goal (GLP-1 is health
 // data), a body answer or a nutrition figure; and all of it stays silent until the founder switches TelemetryDeck on.
 describe("the welcome steps' events", () => {
-  it("names the cover, the eleven steps and the returning sign-in, and none of the screens that were removed", () => {
+  it("names the cover, the seven steps and the account, and the returning sign-in, and none of the screens that were removed", () => {
     expect(SETUP_SCREENS).toEqual(["cover", ...WELCOME_STEPS, "returning"]);
-    for (const gone of ["arrival", "textSize", "tour.home", "fork", "signIn.look", "allSet", "aboutYou", "yourSize", "activity"]) {
+    // the eleven steps' names before the seven-screen onboarding of 20 November 2026 (eatOut, size, targets, week) are gone too
+    for (const gone of ["arrival", "textSize", "tour.home", "fork", "signIn.look", "allSet", "aboutYou", "yourSize", "activity", "eatOut", "size", "targets", "week"]) {
       expect((SETUP_SCREENS as readonly string[]).includes(gone), gone).toBe(false);
     }
   });
@@ -244,13 +245,13 @@ describe("the welcome steps' events", () => {
   it("carries no goal on onboardingCompleted, and a step's name (never a number) on onboardingSkipped and welcomeStep", () => {
     analytics.track({ name: "onboardingCompleted" });
     analytics.track({ name: "onboardingSkipped", step: "about" });
-    analytics.track({ name: "welcomeStep", step: "eatOut" });
+    analytics.track({ name: "welcomeStep", step: "shops" });
     // @ts-expect-error the goal is health data ("glp1"): never part of the event
     analytics.track({ name: "onboardingCompleted", goal: "glp1" });
     // @ts-expect-error a step is named, not numbered
     analytics.track({ name: "onboardingSkipped", step: 6 });
     // @ts-expect-error only a step's name, never an answer or a figure
-    analytics.track({ name: "welcomeStep", step: "eatOut", kcal: 2000 });
+    analytics.track({ name: "welcomeStep", step: "shops", kcal: 2000 });
   });
 
   it("sends nothing while TelemetryDeck is off, whatever is tracked", async () => {
@@ -275,14 +276,14 @@ describe("the welcome steps' events", () => {
     vi.stubGlobal("localStorage", new MemoryStorage());
     vi.resetModules();
     const fresh = await import("../lib/mm/analytics");
-    fresh.analytics.track({ name: "welcomeStep", step: "week" });
-    fresh.analytics.track({ name: "welcomeStep", step: "week" });
+    fresh.analytics.track({ name: "welcomeStep", step: "plan" });
+    fresh.analytics.track({ name: "welcomeStep", step: "plan" });
     fresh.analytics.track({ name: "onboardingSkipped", step: "goal" });
     fresh.analytics.track({ name: "onboardingCompleted" });
     await vi.waitFor(() => expect(fetch).toHaveBeenCalledTimes(1));
     await settle();
     expect(fetch).toHaveBeenCalledTimes(1);
     const [signal] = JSON.parse(String((fetch.mock.calls[0] as unknown as [string, RequestInit])[1].body)) as Array<Record<string, unknown>>;
-    expect(signal!.payload).toEqual({ "Setup.screen": "week" });
+    expect(signal!.payload).toEqual({ "Setup.screen": "plan" });
   });
 });

@@ -9,7 +9,7 @@ import { tk } from "@/lib/mm/i18n";
 import { addLogEntry, countProAction, myRecipesStore } from "@/lib/mm/stores";
 import type { LogMeal } from "@/lib/mm/types";
 import type { LogEntry } from "@/lib/mm/user-data";
-import { BasketIcon, CameraIcon, ChevronRightIcon, ForkIcon, PencilIcon, PotIcon } from "../icons";
+import { BasketIcon, CameraIcon, ChevronRightIcon, ForkIcon, PencilIcon, PotIcon, ScanIcon } from "../icons";
 import { PremiumBadge } from "../PremiumBadge";
 import { Sheet } from "../ui";
 import { useStore } from "../../_lib/hooks";
@@ -18,15 +18,18 @@ import { DishPick } from "./DishPick";
 import { BackBar, Choice, type NewEntry } from "./parts";
 import { ProductPick } from "./ProductPick";
 import { RecipePick } from "./RecipePick";
+import { ScanFood } from "./ScanFood";
 import { TypedNumbers } from "./TypedNumbers";
 
 // The "Add food" sheet that Home's + opens on Breakfast, Lunch or Dinner (founder 2026-10-15: "a kind of menu vibe sheet should launch where you can
-// either type in macros, choose a recipe perhaps, choose a meal from a restaurant or whatever"). Four plain choices, each leading to a short list
-// or form; whatever is picked is added to the meal whose + was tapped (not to the meal the clock says), at the time of the tap.
+// either type in macros, choose a recipe perhaps, choose a meal from a restaurant or whatever"). Plain choices, each leading to a short list or form, with
+// "Scan a barcode" first (founder 2026-11-20: scan a pack straight into the food diary); whatever is picked is added to the meal whose + was tapped (not to
+// the meal the clock says), at the time of the tap.
 
-type View = "menu" | "numbers" | "recipe" | "restaurant" | "product";
+type View = "menu" | "barcode" | "numbers" | "recipe" | "restaurant" | "product";
 
 const TITLE: Record<Exclude<View, "menu">, string> = {
+  barcode: tk("Scan a barcode"),
   numbers: tk("Type in your numbers"),
   recipe: tk("Choose a recipe"),
   restaurant: tk("Choose a restaurant meal"),
@@ -36,6 +39,9 @@ const TITLE: Record<Exclude<View, "menu">, string> = {
 export function AddFoodSheet({ meal, onClose, onAdded }: { meal: LogMeal | null; onClose: () => void; onAdded: (entry: LogEntry, meal: LogMeal) => void }) {
   const t = useT();
   const [view, setView] = useState<View>("menu");
+  // the name "Type in your numbers" starts with: Open Food Facts' name for a scanned product it has no figures for, else none
+  const [typedName, setTypedName] = useState("");
+  const typeNumbers = (name: string) => { setTypedName(name); setView("numbers"); };
   const ownRecipes = useStore(myRecipesStore).length;
 
   // When the view changes the title changes with it: focus goes to the title (so a screen reader says where it is and a keyboard starts from the top),
@@ -75,7 +81,8 @@ export function AddFoodSheet({ meal, onClose, onAdded }: { meal: LogMeal | null;
     <Sheet open={meal !== null} onClose={close} title={meal === null ? "" : view === "menu" ? t(ADD_TO[meal]) : t(TITLE[view])}>
       {meal !== null && view === "menu" && (
         <div className="space-y-3 pb-2">
-          <Choice icon={<PencilIcon className="h-6 w-6" />} title={t("Type in your numbers")} line={t("Calories, protein, carbs and fat")} onClick={() => setView("numbers")} />
+          <Choice icon={<ScanIcon className="h-6 w-6" />} title={t("Scan a barcode")} line={t("For food in a pack")} onClick={() => setView("barcode")} />
+          <Choice icon={<PencilIcon className="h-6 w-6" />} title={t("Type in your numbers")} line={t("Calories, protein, carbs and fat")} onClick={() => typeNumbers("")} />
           <Choice icon={<PotIcon className="h-6 w-6" />} title={t("Choose a recipe")} line={ownRecipes > 0 ? t("A serving of one of yours, or one of ours") : t("A serving of one of our recipes")} onClick={() => setView("recipe")} />
           <Choice icon={<ForkIcon className="h-6 w-6" />} title={t("Choose a restaurant meal")} line={t("Search the menus, or pick a saved meal")} onClick={() => setView("restaurant")} />
           <Choice icon={<BasketIcon className="h-6 w-6" />} title={t("Choose a supermarket product")} line={t("Search, or scan its barcode")} onClick={() => setView("product")} />
@@ -94,11 +101,12 @@ export function AddFoodSheet({ meal, onClose, onAdded }: { meal: LogMeal | null;
       )}
       {meal !== null && view !== "menu" && (
         <div>
-          {view !== "product" && header(() => setView("menu"))}
-          {view === "numbers" && <TypedNumbers meal={meal} onAdd={add} />}
+          {view !== "product" && view !== "barcode" && header(() => setView("menu"))}
+          {view === "barcode" && <ScanFood meal={meal} onAdd={add} onBack={() => setView("menu")} onType={typeNumbers} header={header} />}
+          {view === "numbers" && <TypedNumbers key={typedName} meal={meal} onAdd={add} startName={typedName} />}
           {view === "recipe" && <RecipePick meal={meal} onAdd={add} />}
           {view === "restaurant" && <DishPick onAdd={add} />}
-          {view === "product" && <ProductPick meal={meal} onAdd={add} onBack={() => setView("menu")} header={header} />}
+          {view === "product" && <ProductPick meal={meal} onAdd={add} onBack={() => setView("menu")} header={header} onScan={() => setView("barcode")} onType={typeNumbers} />}
         </div>
       )}
     </Sheet>

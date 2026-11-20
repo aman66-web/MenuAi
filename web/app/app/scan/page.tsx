@@ -42,9 +42,9 @@ const WORKING_STEP_MS = 6000;
 const H1 = "mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]";
 
 const SURE: Record<FoodScan["confidence"], string> = {
-  high: tk("Pip is fairly sure about this one."),
+  high: tk("Pip is fairly sure."),
   medium: tk("A good guess from what Pip can see."),
-  low: tk("A rough guess: some of this plate is hidden or hard to tell."),
+  low: tk("A rough guess: some of it is hard to see."),
 };
 
 function Working({ photoUrl, finished }: { photoUrl: string | null; finished: boolean }) {
@@ -258,8 +258,8 @@ function ScanScreen() {
         // someone without Premium: what it does, the badge, and the plans (never a form that ends in a paywall)
         <section aria-labelledby="scan-h">
           <h1 id="scan-h" ref={heading} tabIndex={-1} className={`${H1} flex flex-wrap items-center gap-x-2.5 gap-y-1`}>{t("Scan your food")}<PremiumBadge always /></h1>
-          <p className="mt-2 text-[1.0625rem] leading-snug text-muted">{t("Take a photo of your plate and Pip estimates its calories, protein, carbs and fat.")}</p>
-          <p className="mt-5 flex gap-2 text-[0.9375rem] leading-snug text-foreground"><InfoIcon aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-foreground" /><span>{t("The numbers are an estimate from your photo, not from a label: oil, sauces and portion sizes can't always be seen.")}</span></p>
+          <p className="mt-2 text-[1.0625rem] leading-snug text-muted">{t("Pip estimates a plate's calories, protein, carbs and fat from a photo.")}</p>
+          <p className="mt-5 flex gap-2 text-[0.9375rem] leading-snug text-foreground"><InfoIcon aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-foreground" /><span>{t("Estimate from your photo, not a label: oil, sauces and portion sizes can't always be seen.")}</span></p>
           <Button full className="mt-5 min-h-14 text-lg" onClick={() => showPaywall("foodScan")}>{t("See Premium")}</Button>
         </section>
       )}
@@ -268,10 +268,9 @@ function ScanScreen() {
         <section aria-labelledby="scan-h">
           <h1 id="scan-h" ref={heading} tabIndex={-1} className={H1}>{t("Scan your food")}</h1>
           {!online && <OfflineBanner className="mt-4" />}
-          <p className="mt-2 text-[1.0625rem] leading-snug text-muted">{t("Take a photo of your plate and Pip estimates its calories, protein, carbs and fat.")}</p>
+          <p className="mt-2 text-[1.0625rem] leading-snug text-muted">{t("Pip estimates a plate's calories, protein, carbs and fat from a photo.")}</p>
           {/* first, in a few words, what the food is: Pip reads it with the photo */}
           <label htmlFor="scan-what" className="mt-5 block text-lg font-[800] leading-snug">{t("What are you eating?")}</label>
-          <p id="scan-what-help" className="mt-0.5 text-[0.9375rem] leading-snug text-muted">{t("A few words help Pip tell what's on the plate.")}</p>
           <input
             ref={whatBox}
             id="scan-what"
@@ -280,7 +279,7 @@ function ScanScreen() {
             maxLength={MAX_DESCRIPTION}
             enterKeyHint="done"
             autoComplete="off"
-            aria-describedby={whatMissing && !described ? "scan-what-help scan-what-missing" : "scan-what-help"}
+            aria-describedby={whatMissing && !described ? "scan-what-missing" : undefined}
             aria-invalid={whatMissing && !described ? true : undefined}
             placeholder={t("For example: creamy chicken pasta")}
             onChange={(e) => { setWhat(e.target.value); if (e.target.value.trim().length >= 2) setWhatMissing(false); }}
@@ -294,8 +293,8 @@ function ScanScreen() {
           </div>
           {photoError && <p role="alert" className="glass mt-3 rounded-[1.25rem] p-4 font-semibold">{t("That photo couldn't be opened. Please try another one.")}</p>}
           {/* the estimate line in the text colour with an info icon (colour meeting: "the estimate must be seen", CLAUDE.md rule 1) */}
-          <p className="mt-5 flex gap-2 text-[0.9375rem] leading-snug text-foreground"><InfoIcon aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-foreground" /><span>{t("The numbers are an estimate from your photo, not from a label: oil, sauces and portion sizes can't always be seen.")}</span></p>
-          <p className="mt-3 text-[0.8125rem] leading-snug text-muted">{t("Pip uses AI from Anthropic (the company that makes Claude). To work out the numbers we send your photo (made smaller on your phone first) and the words you typed about it. No name, email or account is sent with it, and we don't keep it.")}</p>
+          <p className="mt-5 flex gap-2 text-[0.9375rem] leading-snug text-foreground"><InfoIcon aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-foreground" /><span>{t("Estimate from your photo, not a label: oil, sauces and portion sizes can't always be seen.")}</span></p>
+          <p className="mt-3 text-[0.8125rem] leading-snug text-muted">{t("Pip uses AI from Anthropic. We send your photo (made smaller) and your words; never your name, email or account. We don't keep it.")}</p>
         </section>
       )}
 
@@ -387,7 +386,7 @@ function ScanScreen() {
             {loggedId && <Button full variant="secondary" className="min-h-12" onClick={() => router.push("/app")}>{t("Back to Home")}</Button>}
             <Button full variant="secondary" className="min-h-12" onClick={scanAnother}>{t("Scan another")}</Button>
           </div>
-          <p className="mt-4 text-[0.8125rem] leading-snug text-muted">{t("The numbers are an estimate from your photo, not from a label: oil, sauces and portion sizes can't always be seen.")}</p>
+          <p className="mt-4 text-[0.8125rem] leading-snug text-muted">{t("Not from a label: oil, sauces and portion sizes can't always be seen.")}</p>
         </section>
       )}
 

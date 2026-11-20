@@ -14,6 +14,9 @@ import { CheckIcon, ChevronRightIcon } from "./icons";
 // style, No red meat, No alcohol and No halal or kosher meat sit behind one "More diets" button under the first six, so the everyday picker stays short. Someone
 // with any of them on always sees them open. Recipes and the meal plan follow them (lib/mm/pantry.ts kindExcluded); restaurant menus and products can't be
 // checked for them, and the line under the picker says so (lib/mm/menu-view.ts filterCaution, restaurantDietNote).
+// The welcome screens' look (founder, 20 November 2026: "people understand images better than writing"): `pictures` makes each diet a big picture tile with
+// one of our own recipes that fits it (app/app/welcome/dietPictures.ts; an illustration of our own recipe, CLAUDE.md rule 2, no visible caption), and `chips`
+// makes the allergies big chips. Settings and the other screens keep the plain tiles.
 
 export const DIETS: ReadonlyArray<{ key: DietKey; label: string }> = [
   { key: "vegetarianOnly", label: tk("Vegetarian") },
@@ -107,9 +110,35 @@ function TileWords({ id, on, label, hint }: { id: string; on: boolean; label: st
  * filter. Pass the label the group is known by; the tiles are plain grey inside a white card, like every other choice. `hints`: the hard names get their
  * second line (DietPicker; the quick filters elsewhere stay one line).
  */
-export function AllergenTiles({ chosen, onToggle, label, hints, className = "" }: { chosen: readonly AllergenKey[]; onToggle: (k: AllergenKey) => void; label: string; hints?: boolean; className?: string }) {
+export function AllergenTiles({ chosen, onToggle, label, hints, chips, className = "" }: { chosen: readonly AllergenKey[]; onToggle: (k: AllergenKey) => void; label: string; hints?: boolean; chips?: boolean; className?: string }) {
   const t = useT();
   const id = useId();
+  if (chips) {
+    // big chips that wrap (the welcome screens): the name, and for a hard one its hint after it in a lighter line; the tick inside once chosen
+    return (
+      <div role="group" aria-label={label} className={`flex flex-wrap gap-2.5 ${className}`}>
+        {ALLERGEN_ORDER.map((k) => {
+          const on = chosen.includes(k);
+          const hint = hints ? ALLERGEN_HINT[k] : undefined;
+          return (
+            <button
+              key={k}
+              type="button"
+              aria-pressed={on}
+              onClick={() => onToggle(k)}
+              className={`inline-flex min-h-12 max-w-full items-center gap-2 rounded-[1.5rem] border-[1.5px] px-4 py-2 text-start text-[1.0625rem] leading-tight transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "border-on-sun bg-sun font-bold text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-edge bg-card font-semibold text-foreground hover:bg-background"}`}
+            >
+              {on && <CheckIcon aria-hidden className="h-4 w-4 shrink-0" strokeWidth={3} />}
+              <span className="min-w-0 [overflow-wrap:break-word]">
+                {t(ALLERGEN_SHORT[k])}
+                {hint && <span className={`block text-sm font-normal leading-snug ${on ? "text-on-sun" : "text-muted"}`}>{t(hint)}</span>}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+    );
+  }
   return (
     <div role="group" aria-label={label} className={`${GRID} ${className}`}>
       {ALLERGEN_ORDER.map((k) => {
@@ -129,7 +158,61 @@ export function AllergenTiles({ chosen, onToggle, label, hints, className = "" }
  * `allergyCautionFirst` (onboarding): the allergy caution sits under "Allergies to avoid" from the start, read before anything is ticked and never under the
  * bottom button (the onboarding meeting, 19 November); the diet and halal cautions stay under the card. Elsewhere all of them show under the card once they apply.
  */
-export function DietPicker({ value, onChange, halal = true, allergies = true, allergyCautionFirst = false }: { value: Preferences; onChange: (p: Preferences) => void; halal?: boolean; allergies?: boolean; allergyCautionFirst?: boolean }) {
+/** The picture tiles: two a row (one at the largest text sizes, as the minimum is in rem). */
+const PICTURE_GRID = "grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-3";
+
+/**
+ * The short grey line under each picture tile's name (the founder's example of diet tiles, 20 November 2026: a bold name and a few grey words under it). Each
+ * says only what the diet itself leaves out or keeps, true for our recipes' rules (lib/mm/pantry.ts kindExcluded); kosher style keeps its caution.
+ */
+export const PICTURE_LINE: Partial<Record<DietKey, string>> = {
+  vegetarianOnly: tk("No meat or fish"),
+  veganOnly: tk("No animal foods"),
+  pescatarianOnly: tk("Fish, no meat"),
+  halalOnly: tk("Halal meat, no alcohol"),
+  noPork: tk("Other meat is fine"),
+  noBeef: tk("Other meat is fine"),
+  jain: tk("Vegetarian, no eggs or root veg"),
+  noOnionGarlic: tk("In sauces too"),
+  kosherStyle: DIET_HINT.kosherStyle,
+  noRedMeat: tk("No beef, lamb or pork"),
+  noAlcohol: tk("Not even in cooking"),
+  noHalalKosherMeat: tk("Other meat is fine"),
+};
+
+/**
+ * A diet as a big picture tile (the welcome screens), like the founder's example: one of our own recipes that fits it filling the top of the tile, the round
+ * mark on the picture's corner, then the name in bold and its short grey line; chosen, the lime tile with the dark green edge, like every choice. The picture is
+ * decorative, so a screen reader hears the diet and its line (all the words on the tile). A picture that can't load (offline in the iPhone app before it was
+ * ever seen), or a diet with none, leaves the page fill in its place.
+ */
+function PictureTile({ on, src, label, hint, onClick }: { on: boolean; src: string | undefined; label: string; hint?: string; onClick: () => void }) {
+  const [failed, setFailed] = useState(false);
+  return (
+    <button
+      type="button"
+      aria-pressed={on}
+      onClick={onClick}
+      className={`relative flex min-w-0 flex-col overflow-hidden rounded-[1.25rem] text-start transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "border-2 border-on-sun bg-sun text-on-sun" : "border-[1.5px] border-edge bg-card text-foreground hover:bg-background"}`}
+    >
+      <span aria-hidden className="block aspect-[4/3] w-full bg-fill">
+        {/* eslint-disable-next-line @next/next/no-img-element -- our own recipe's illustration, a static file named by its hash */}
+        {src && !failed && <img src={src} alt="" loading="lazy" decoding="async" width={400} height={300} onError={() => setFailed(true)} className="h-full w-full object-cover" />}
+      </span>
+      <span className="absolute end-2.5 top-2.5"><PickMark on={on} /></span>
+      <span className="block w-full px-3.5 pb-3.5 pt-3">
+        <span className="block hyphens-auto text-[1.125rem] font-bold leading-tight [overflow-wrap:break-word]">{label}</span>
+        {hint && <span className={`mt-1 block text-[0.9375rem] leading-snug ${on ? "text-on-sun" : "text-muted"}`}>{hint}</span>}
+      </span>
+    </button>
+  );
+}
+
+/**
+ * `pictures` (the welcome screens): each diet's picture (its path, ready to load), which makes the diets big picture tiles straight on the page; `chips`: the
+ * allergies as big chips; `allergyCaution`: the words of the allergy caution under "Allergies to avoid" when it is shown first.
+ */
+export function DietPicker({ value, onChange, halal = true, allergies = true, allergyCautionFirst = false, pictures, chips = false, allergyCaution }: { value: Preferences; onChange: (p: Preferences) => void; halal?: boolean; allergies?: boolean; allergyCautionFirst?: boolean; pictures?: Partial<Record<DietKey, string>>; chips?: boolean; allergyCaution?: string }) {
   const t = useT();
   const id = useId();
   const avoid = value.avoidAllergens ?? [];
@@ -143,6 +226,10 @@ export function DietPicker({ value, onChange, halal = true, allergies = true, al
   const dietTile = (d: { key: DietKey; label: string }) => {
     const on = Boolean(value[d.key]);
     const hint = DIET_HINT[d.key];
+    if (pictures) {
+      const line = PICTURE_LINE[d.key];
+      return <PictureTile key={d.key} on={on} src={pictures[d.key]} label={t(d.label)} hint={line && t(line)} onClick={() => onChange(toggleDiet(value, d.key))} />;
+    }
     return (
       <PickTile key={d.key} on={on} aria-pressed={on} onClick={() => onChange(toggleDiet(value, d.key))} className={LABEL}>
         <TileWords id={`${id}-${d.key}`} on={on} label={t(d.label)} hint={hint && t(hint)} />
@@ -153,8 +240,8 @@ export function DietPicker({ value, onChange, halal = true, allergies = true, al
     <div>
       {/* One white card on the page (Settings, onboarding) holding both groups, with quiet grey tiles inside; in a sheet the card
           melts away (the sheet is the card) and the tiles sit straight on it. */}
-      <div className="glass rounded-[1.25rem] p-3 [.sheet-panel_&]:bg-transparent [.sheet-panel_&]:p-0 [.sheet-panel_&]:shadow-none">
-        <div role="group" aria-label={t("Your diet")} className={GRID}>
+      <div className={pictures ? "" : "glass rounded-[1.25rem] p-3 [.sheet-panel_&]:bg-transparent [.sheet-panel_&]:p-0 [.sheet-panel_&]:shadow-none"}>
+        <div role="group" aria-label={t("Your diet")} className={pictures ? PICTURE_GRID : GRID}>
           {DIETS.filter((d) => halal || d.key !== "halalOnly").map(dietTile)}
         </div>
         {/* one plain button opens the other six (white with the control edge, an ink chevron that turns); with one of them on, their label instead */}
@@ -166,24 +253,28 @@ export function DietPicker({ value, onChange, halal = true, allergies = true, al
             aria-expanded={showMore}
             aria-controls={`${id}-more`}
             onClick={() => setMoreOpen((v) => !v)}
-            className="mt-2 flex min-h-11 w-full items-center justify-between gap-2 rounded-[1.25rem] border-[1.5px] border-edge bg-card py-2.5 pe-3 ps-3.5 text-start text-[0.9375rem] font-semibold leading-snug text-foreground transition hover:bg-background active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className={`${pictures ? "mt-3 min-h-12 text-[1.0625rem]" : "mt-2 min-h-11 text-[0.9375rem]"} flex w-full items-center justify-between gap-2 rounded-[1.25rem] border-[1.5px] border-edge bg-card py-2.5 pe-3 ps-3.5 text-start font-semibold leading-snug text-foreground transition hover:bg-background active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent`}
           >
             {t("More diets")}
             <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-ink transition-transform ${showMore ? "rotate-90 rtl:-rotate-90" : ""}`} />
           </button>
         )}
         {showMore && (
-          <div id={`${id}-more`} role="group" aria-label={t("More diets")} className={`${GRID} ${anyMore ? "" : "mt-2"}`}>
+          <div id={`${id}-more`} role="group" aria-label={t("More diets")} className={`${pictures ? PICTURE_GRID : GRID} ${anyMore ? "" : pictures ? "mt-3" : "mt-2"}`}>
             {MORE_DIETS.map(dietTile)}
           </div>
         )}
         {allergies && (
           <>
-            <div aria-hidden className="mx-1 mb-4 mt-5 h-px bg-line" />
-            <p className="mb-3 px-1 text-[0.8125rem] font-semibold leading-snug text-muted">{t("Allergies to avoid")}</p>
+            {pictures ? <h2 className="mb-2 mt-7 text-[1.25rem] font-bold leading-snug tracking-[-0.01em]">{t("Allergies to avoid")}</h2> : (
+              <>
+                <div aria-hidden className="mx-1 mb-4 mt-5 h-px bg-line" />
+                <p className="mb-3 px-1 text-[0.8125rem] font-semibold leading-snug text-muted">{t("Allergies to avoid")}</p>
+              </>
+            )}
             {/* true for every restaurant (where one publishes no allergen guide, the dishes aren't all hidden: its page says they aren't checked; lib/mm/menu-view.ts) */}
-            {cautionUp && <p className="-mt-1 mb-3 px-1 text-[0.9375rem] leading-snug text-foreground">{t("Allergy filters use each restaurant's own allergen guide. If you have an allergy, always check with the restaurant.")}</p>}
-            <AllergenTiles chosen={avoid} label={t("Allergies to avoid")} hints onToggle={(k) => onChange(toggleAllergen(value, k))} />
+            {cautionUp && <p className={`${pictures ? "mb-3" : "-mt-1 mb-3 px-1"} text-[0.9375rem] leading-snug text-foreground`}>{allergyCaution ?? t("Allergy filters use each restaurant's own allergen guide. If you have an allergy, always check with the restaurant.")}</p>}
+            <AllergenTiles chosen={avoid} label={t("Allergies to avoid")} hints chips={chips} onToggle={(k) => onChange(toggleAllergen(value, k))} />
           </>
         )}
       </div>

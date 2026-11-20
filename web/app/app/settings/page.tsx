@@ -319,7 +319,7 @@ export default function SettingsPage() {
     setSuggest(false);
     setGoalChanged(false);
     setPlanNotes(notes);
-    setTargetsMessage({ ok: true, text: tk("Saved. These are your new targets.") });
+    setTargetsMessage({ ok: true, text: tk("Saved.") });
   }
 
   /** Where "Leave without saving" (or a good "Save") goes: on to the link that was tapped, or Back as the header's Back would have. */
@@ -364,7 +364,7 @@ export default function SettingsPage() {
         <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center"><Pip mood="wave" size={44} /></span>
         <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
           <span className="block text-base font-bold leading-snug">{t("Go through setup again")}</span>
-          <span className="mt-0.5 block text-sm leading-snug text-muted">{t("Your goal, the foods you avoid, your shops and daily numbers, with a look at what {app} can do.", { app: site.name })}</span>
+          <span className="mt-0.5 block text-sm leading-snug text-muted">{t("Your goal, foods, shops and numbers.")}</span>
         </span>
         <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-ink" />
       </Link>
@@ -389,7 +389,7 @@ export default function SettingsPage() {
           <Link href="/app" onClick={() => coachStore.set(COACH_ARMED)} className="flex min-h-[3.25rem] items-center justify-between gap-3 px-4 py-2 text-base font-semibold transition hover:bg-background focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">
             <span className="min-w-0 [overflow-wrap:anywhere]">
               <span className="block">{t("Show me the buttons on each screen")}</span>
-              <span className="mt-0.5 block text-sm font-normal leading-snug text-muted">{t("Takes you to Home, where Pip shows what each button does. Each tab's tips show the first time you open it.")}</span>
+              <span className="mt-0.5 block text-sm font-normal leading-snug text-muted">{t("Pip shows what each button does.")}</span>
             </span>
             <ChevronRightIcon className="h-5 w-5 shrink-0 text-ink" />
           </Link>
@@ -401,11 +401,11 @@ export default function SettingsPage() {
         {/* a new goal doesn't change the numbers by itself: said, with the way to new ones (the audit, 20 November 2026) */}
         {goalChanged && settings.goal !== "glp1" && (
           <p role="status" className="mt-3 text-[0.9375rem] leading-snug">
-            {t("Your daily targets haven't changed. Tap Suggest targets for numbers that fit this goal.")}{" "}
+            {t("Your targets haven't changed.")}{" "}
             <button type="button" onClick={() => { setSuggest(true); setGoalChanged(false); focusTargetBox("#targets-suggest"); }} className="inline-flex min-h-11 items-center font-semibold text-accent underline underline-offset-[3px]">{t("Suggest targets")}</button>
           </p>
         )}
-        {settings.goal === "glp1" && <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("Smaller, protein-first orders, capped at the meal size you set below.")}</p>}
+        {settings.goal === "glp1" && <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("Smaller, protein-first orders.")}</p>}
         {settings.goal === "glp1" && <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t(GLP1_NOTE, { app: site.name })}</p>}
         {settings.goal === "glp1" && <SourcesLink className="mt-1" />}
       </Section>
@@ -421,14 +421,14 @@ export default function SettingsPage() {
               <TargetTile auto label={t("Protein (g)")} invalid={targetsMessage?.field === "protein"} value={proteinText} placeholder={String(suggestProtein(Number.isFinite(draftCalories) ? draftCalories : settings.dailyCalories))} onChange={(v) => { setProtein(v); setTargetsMessage(null); }} />
               <TargetTile auto label={t("Carbs (g)")} invalid={targetsMessage?.field === "carbs"} value={carbsText} placeholder={String(suggestedCarbFat.carbs)} onChange={(v) => { setCarbs(v); setTargetsMessage(null); }} />
               <TargetTile auto label={t("Fat (g)")} invalid={targetsMessage?.field === "fat"} value={fatText} placeholder={String(suggestedCarbFat.fat)} onChange={(v) => { setFat(v); setTargetsMessage(null); }} />
-              <TargetTile wide label={t("Water (ml)")} invalid={targetsMessage?.field === "water"} hint={t("Your goal for the day on Home. Left empty it is 2,000 ml.")} value={waterText} placeholder={String(DEFAULT_WATER_GOAL_ML)} onChange={(v) => { setWater(v); setTargetsMessage(null); }} />
+              <TargetTile wide label={t("Water (ml)")} invalid={targetsMessage?.field === "water"} value={waterText} placeholder={String(DEFAULT_WATER_GOAL_ML)} onChange={(v) => { setWater(v); setTargetsMessage(null); }} />
               {settings.goal === "glp1" && (
-                <TargetTile wide label={t("Comfortable meal size (calories)")} invalid={targetsMessage?.field === "cap"} hint={t("Best-for-you picks and your meal plan stay within this size. Default 450.")} value={capText} onChange={(v) => { setMealCap(v); setTargetsMessage(null); }} />
+                <TargetTile wide label={t("Comfortable meal size (calories)")} invalid={targetsMessage?.field === "cap"} hint={t("Your picks and meal plan stay within this. Default 450.")} value={capText} onChange={(v) => { setMealCap(v); setTargetsMessage(null); }} />
               )}
             </div>
           </div>
           {/* what just happened, straight under the boxes and scrolled into view above the tab bar */}
-          {dirty && !(targetsMessage && !targetsMessage.ok) && <p role="status" className={`${messageClass} scroll-mb-32`}>{t("Not saved yet. Tap “Save targets” to keep them.")}</p>}
+          {dirty && !(targetsMessage && !targetsMessage.ok) && <p role="status" className={`${messageClass} scroll-mb-32`}>{t("Not saved yet.")}</p>}
           {targetsMessage && (targetsMessage.ok
             ? <p ref={status} role="status" className="mt-3 scroll-mb-32 text-[0.9375rem] font-semibold text-foreground">{t(targetsMessage.text)}</p>
             : <p ref={status} id={TARGETS_ERROR_ID} role="alert" className={`${messageClass} flex scroll-mb-32 items-start gap-1.5 text-danger`}><AlertCircleIcon aria-hidden className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0" /><span className="min-w-0">{t(targetsMessage.text)}</span></p>)}
@@ -465,7 +465,7 @@ export default function SettingsPage() {
       </Section>
 
       <Section title={t("Your supermarkets")}>
-        <p className="-mt-1 mb-3 text-[0.9375rem] leading-snug text-muted">{t("Groceries and Recipes open on the first one you picked.")}</p>
+        <p className="-mt-1 mb-3 text-[0.9375rem] leading-snug text-muted">{t("Groceries and Recipes open on your first pick.")}</p>
         <ShopPicker value={settings.shops ?? []} onChange={(shops) => updateSettings({ shops: shops.length ? shops : undefined })} />
       </Section>
 
@@ -482,7 +482,7 @@ export default function SettingsPage() {
                 : t("Premium")}
             </p>
             {subscribed && nowPremium && !(PRO_PREVIEW_FROM_ENV || settings.devProOverride) && (
-              <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{IAP_ENABLED ? t("Renews through the App Store. Change or cancel it with Manage subscription.") : t("Renews until you cancel. To cancel, email us from the support page.")}</p>
+              <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{IAP_ENABLED ? t("Renews through the App Store.") : t("Renews until you cancel. To cancel, email us from the support page.")}</p>
             )}
             {paying && paid.plan === "pass90" && paid.until && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Your pass ends on {date}.", { date: formatDate(new Date(paid.until).toISOString().slice(0, 10), t) })}</p>}
             {!paying && shareUnlockActive(paid, nowMs) && paid.unlockUntil && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Unlocked for sharing, until {date}.", { date: formatDate(new Date(paid.unlockUntil).toISOString().slice(0, 10), t) })}</p>}
@@ -497,7 +497,7 @@ export default function SettingsPage() {
                   {trial && !nowPremium && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("You can still have a {days}-day free trial.", { days: trial })}</p>}
                 </>
               )
-            ) : !PAYMENTS_ENABLED && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Premium isn't available on the web yet. Every chain's full menu with calories and macros stays free.")}</p>}
+            ) : !PAYMENTS_ENABLED && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Premium isn't on the web yet.")}</p>}
             {/* Restore purchases (and its answer) for anyone not subscribed; a subscriber already has Manage subscription above */}
             {IAP_ENABLED && !subscribed && <AppStoreAccountButtons />}
           </Card>
@@ -554,7 +554,7 @@ export default function SettingsPage() {
         <Card className="p-4">
           {/* the sentence that names what syncs is kept beside the list of synced stores (lib/mm/syncStores.ts), so the two can't drift apart */}
           <p className="text-[0.9375rem] leading-snug text-muted">{account ? t(YOUR_DATA_SYNCED) : t("Your settings, saved orders and log stay on this device. We never receive them.")}</p>
-          {!APP_BUILD && <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Browsers can clear site data they haven't seen in a while (iPhone Safari can after about a week). Adding {app} to your Home Screen, and opening it now and then, keeps your data safe.", { app: site.name })}</p>}
+          {!APP_BUILD && <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Browsers can clear site data you don't use (iPhone Safari after about a week). To keep yours, add {app} to your Home Screen and open it now and then.", { app: site.name })}</p>}
           {/* destructive: white with a red edge and red words, last in the card and apart from the rest */}
           <Button variant="danger" className="mt-5" onClick={() => setClearOpen(true)}>{t("Clear data on this device")}</Button>
         </Card>
@@ -563,7 +563,7 @@ export default function SettingsPage() {
       {DEV_TOOLS_ENABLED && (
         <Section title={t("Testing tools")}>
           <Card className="space-y-2 p-3">
-            {GATING_ENABLED && <Toggle label={t("Premium preview")} description={t("Unlock Premium features without paying (testing builds only)")} checked={settings.devProOverride} onChange={(v) => updateSettings({ devProOverride: v })} />}
+            {GATING_ENABLED && <Toggle label={t("Premium preview")} description={t("Premium without paying (testing builds only)")} checked={settings.devProOverride} onChange={(v) => updateSettings({ devProOverride: v })} />}
             <Button variant="secondary" full onClick={() => { updateSettings({ hasCompletedOnboarding: false }); tourStore.reset(); coachStore.reset(); homePagesStore.reset(); }}>{t("Reset onboarding")}</Button>
             <Button variant="danger" full onClick={() => logStore.reset()}>{t("Clear logs")}</Button>
           </Card>
@@ -598,8 +598,7 @@ export default function SettingsPage() {
 
       {/* typed targets not saved, and the person is leaving the page */}
       <Sheet open={leaving !== null} onClose={() => setLeaving(null)} title={t("Save your new targets?")}>
-        <p className="pt-1 text-base leading-snug">{t("You changed your daily targets but haven't saved them.")}</p>
-        <div className="mt-5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-2 pb-2">
+        <div className="mt-2 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-2 pb-2">
           <Button full variant="secondary" className="min-h-12 text-base" onClick={() => leaving && goOn(leaving)}>{t("Leave without saving")}</Button>
           <Button full className="min-h-12 text-base" onClick={() => { const to = leaving; if (saveTargets() && to) goOn(to); else setLeaving(null); }}>{t("Save")}</Button>
         </div>

@@ -8,7 +8,7 @@ import { FREE_LEADERBOARD_ROWS } from "@/lib/mm/paid";
 import { formatPrice } from "@/lib/mm/groceries";
 import { recipeShops, shopPhotoSources, type ShopFile } from "@/lib/mm/shopProducts";
 import type { PhotoSource } from "@/lib/mm/groceries";
-import { cheapestProtein, comparePair, costOf100gProtein, CURATED_PAIRS, proteinValue, type ProteinValue } from "@/lib/mm/truth/proteinValue";
+import { cheapestProtein, comparePair, CURATED_PAIRS, proteinValue, type ProteinValue } from "@/lib/mm/truth/proteinValue";
 import { PageHeader } from "../../_components/PageHeader";
 import { MenuSourcesLink } from "../../_components/MenuSourcesLink";
 import { useGate } from "../../_components/Paywall";
@@ -89,10 +89,10 @@ function PairCard({ file, title, branded, everyday }: { file: ShopFile; title: s
         <PairSide file={file} v={everyday} label={t("Everyday")} cheaper={r.saving > 0 && r.cheaper === everyday} />
       </div>
       {r.saving > 0 ? (
-        /* the saving in plain dark words, flat in the page fill (never a lime banner: lime means chosen) */
+        /* the saving in plain dark words, flat in the page fill (never a lime banner: lime means chosen); the two prices it comes from are on the two
+           sides just above (the words pass, 20 November 2026: a second line said them again) */
         <div className="mt-3 rounded-[1.25rem] bg-fill px-4 py-3.5 text-center text-foreground">
           <p className="text-[1.375rem] font-extrabold leading-tight tracking-tight">{t("Save {amount} on every 100 g of protein", { amount: formatPrice(r.saving) })}</p>
-          <p className="app-numbers mt-1 text-[0.875rem] font-semibold">{t("100 g of protein costs {a} in one and {b} in the other.", { a: formatPrice(costOf100gProtein(r.cheaper)), b: formatPrice(costOf100gProtein(r.dearer)) })}</p>
         </div>
       ) : (
         <p className="mt-3 rounded-[1.25rem] bg-fill px-4 py-3 text-center text-lg font-bold">{t("They cost the same for the protein.")}</p>
@@ -160,7 +160,7 @@ export function ProteinScreen() {
     return (
       <div>
         {head}
-        <EmptyState title={t("No prices to compare yet")} body={t("We haven't read the nutrition labels of any shop's products yet.")} />
+        <EmptyState title={t("No prices to compare yet")} body={t("We haven't read any shop's labels yet.")} />
       </div>
     );
   }
@@ -171,7 +171,7 @@ export function ProteinScreen() {
     <div>
       {head}
       <p className="mt-2.5 text-base leading-snug">
-        {t("What 10 g of protein costs at {shop}, worked out from each product's own label and shelf price.", { shop: shop.name })}
+        {t("What 10 g of protein costs at {shop}, from each label and shelf price.", { shop: shop.name })}
       </p>
       {/* App Review 1.4.1: the line for a "protein food" is Numbite's own; the menu sources sheet says so. */}
       <MenuSourcesLink className="mt-1" />
@@ -196,7 +196,7 @@ export function ProteinScreen() {
       </section>
 
       <FootNote>
-        {t("Prices are what {shop} showed on {date} and they change. Foods are measured as sold, so dried foods such as lentils cook up heavier. This compares the price of protein only, and says nothing else about a food. Not affiliated with {shop}.", { shop: shop.name, date: formatDate(state.file.checkedOn, t) })}
+        {t("Prices from {shop} on {date}; they change. Measured as sold, so dried foods such as lentils cook up heavier. Price of protein only: it says nothing else about a food. Not affiliated with {shop}.", { shop: shop.name, date: formatDate(state.file.checkedOn, t) })}
       </FootNote>
     </div>
   );

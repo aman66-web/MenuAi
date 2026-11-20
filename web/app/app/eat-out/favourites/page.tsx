@@ -45,7 +45,7 @@ export default function FavouriteRestaurantsPage() {
       ) : (
         <>
           {mine.length === 0 ? (
-            <div className="mt-5"><EmptyState icon={<EmptyIcon><StarIcon /></EmptyIcon>} title={t("No favourite restaurants yet")} body={t("Tap the star next to a restaurant below, or on its page, and it will be here next time.")} /></div>
+            <div className="mt-5"><EmptyState icon={<EmptyIcon><StarIcon /></EmptyIcon>} title={t("No favourite restaurants yet")} body={t("Tap Favourite next to a restaurant below.")} /></div>
           ) : (
             <ul className={`mt-5 ${chainGroupClass}`}>
               {mine.map((c) => (<li key={c.id}><ChainRow chain={c} /></li>))}
@@ -76,7 +76,7 @@ export default function FavouriteRestaurantsPage() {
               );
             })}
           </ul>
-          {!deferred.trim() && others.length > 40 && <p className="mt-3.5 px-1 text-[0.9375rem] leading-snug text-muted">{t("Type a name to find any of the {n} restaurants.", { n: others.length.toLocaleString("en-GB") })}</p>}
+          {!deferred.trim() && others.length > 40 && <p className="mt-3.5 px-1 text-[0.9375rem] leading-snug text-muted">{t("Type a name to see all {n}.", { n: others.length.toLocaleString("en-GB") })}</p>}
           {deferred.trim() && others.length === 0 && <p className="mt-3.5 px-1 text-[0.9375rem] leading-snug text-muted">{t("No restaurant matches “{query}”.", { query: deferred.trim() })}</p>}
         </>
       )}

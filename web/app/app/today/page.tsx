@@ -124,7 +124,7 @@ function TodayScreen() {
             <p className="text-xl font-[800] leading-snug tracking-[-0.01em]"><Rich text={t("Keep track of what you eat {today}")} values={{ today: <span className="serif-em pe-0.5">{t("today")}</span> }} /></p>
             <PremiumBadge />
           </div>
-          <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("Log a meal from any order and see your calories and protein against your targets, so you always know what's left.")}</p>
+          <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("See what's left of your calories and protein.")}</p>
           {/* the one name on the button, as on Home's card (the 30-person audit: "Try Premium free" there and here, "See Premium" elsewhere) */}
           <Button className="mt-4" onClick={() => showPaywall("log")}>{t("See Premium")}</Button>
         </Card>
@@ -249,12 +249,12 @@ function TodayScreen() {
               <MacroRow onDark label={t("Fat")} eaten={totals.fat} target={targets.fat} />
             </div>
           </div>
-          {/* a restaurant that publishes calories only is not "not entered": both ways a food can lack them are named */}
+          {/* never "not entered" (a restaurant may publish calories only); the words pass (20 November 2026) dropped the reasons in brackets, the honest part stays */}
           {gaps.any && (
             <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">
               {isToday
-                ? t("Some foods today don't have every figure (typed in without them, or from a restaurant that publishes calories only), so protein, carbs and fat count only the foods that have them.")
-                : t("Some foods on this day don't have every figure (typed in without them, or from a restaurant that publishes calories only), so protein, carbs and fat count only the foods that have them.")}
+                ? t("Some foods today don't list protein, carbs or fat, so those totals count only the foods that do.")
+                : t("Some foods on this day don't list protein, carbs or fat, so those totals count only the foods that do.")}
             </p>
           )}
           {!isToday && <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("These totals use your current targets.")}</p>}

@@ -25,7 +25,7 @@ export function SwapSheet({ item, onClose, onSwap, moreHref }: { item: ShoppingI
     <Sheet open={!!item} onClose={onClose} title={item ? t("Swap {name}", { name: item.name }) : t("Swap")}>
       {item && (
         <div className="pb-2 pt-1">
-          <p className="text-[0.9375rem] leading-snug text-muted">{t("Can't find it? Choose something similar at {shop} instead. It takes its place on your list.", { shop })}</p>
+          <p className="text-[0.9375rem] leading-snug text-muted">{t("Can't find it? Pick something similar at {shop}.", { shop })}</p>
           {state.status === "loading" ? (
             <Spinner label={t("Finding similar products")} />
           ) : state.status === "error" ? (

@@ -65,7 +65,7 @@ export function PremiumOffer({ level = "h3" }: { level?: "h2" | "h3" } = {}) {
           </ul>
         </details>
       )}
-      <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("Every menu, every recipe and every supermarket label stay free, and so does adding what you eat.")}</p>
+      <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("Every menu, recipe and label stays free, and so does your food diary.")}</p>
     </div>
   );
 }
