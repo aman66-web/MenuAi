@@ -14,7 +14,7 @@ import type { ShopFile, ShopProduct } from "./shopProducts";
 export const BOARD_SIZE = 20;
 
 /** What the page says is left out (leftOff below). */
-export const LEFT_OUT_NOTE = tk("Powders, supplements, herbs, spices and cupboard extras like salt and vinegar are left out, and so are sugar and sweets from Most carbs and Fewest calories: they're used a spoonful at a time.");
+export const LEFT_OUT_NOTE = tk("Powders, supplements, herbs, spices and cupboard extras like salt and vinegar are left out, and so are sugar, sweeteners and sweets from Most carbs and Fewest calories, and stock and broth from Fewest calories: they're used a spoonful at a time.");
 
 export type BoardId = "proteinPerKcal" | "protein" | "meatFreeProtein" | "cheapestProtein" | "fibre" | "carbs" | "fewestKcal";
 
@@ -50,6 +50,9 @@ export interface LeaderboardsFile {
   v: 1;
   /** The day the newest of the shop lists was read. */
   checkedOn: string;
+  /** The day the newest of the shops' prices was read (the shop lists' own day), and the newest day a product's label was read; absent in an older file. */
+  pricesOn?: string;
+  labelsOn?: string;
   /** What the phone needs to show each shop's own photos. */
   shops: Record<string, { name: string; photoBase: string; photoTemplate?: string }>;
   boards: Record<BoardId, BoardEntry[]>;
@@ -57,14 +60,16 @@ export interface LeaderboardsFile {
 
 /** Things eaten a spoonful or a scoop at a time, which would fill a per-100 g board on their own (the first build: twenty protein powders, twenty herbs and
  *  spices, twenty bags of sugar). The page says they are left out. */
-const POWDER_OR_SUPPLEMENT = /\b(?:powders?|whey|isolate|protein shakes?|shake mix|gainer|pro v gain|superblend|protein boost|fibre boost|impact|supplements?|capsules?|tablets?|vitamins?|collagen|gummies|jelly|sachets?)\b/i;
-const SEASONING = /\b(?:herbs?|spices?|seasonings?|cinnamon|cumin|paprika|oregano|basil|rosemary|thyme|sage|sumac|masala|curry powder|chilli flakes|chilli powder|coriander seeds|turmeric|nutmeg|cloves|mulling|bay leaves|parsley|dill|pods|matcha|teas?|coffee|cocoa|stock cubes?|stock pots?|gravy granules|yeast|bouillon|salt|vinegar|baking powder|bicarbonate|cream of tartar|gelatine|food colou?rings?|flavourings?|extract|essence|ice cubes?|water)\b/i;
-const SUGARS = /\b(?:sugars?|sweeteners?|syrups?|honey|icing|glucose|dextrose|mints?|peppermints?|imperials|sweets|candy|lolly|lollies|lollipops?|pops?|marshmallows?|fudge|toffees?|jelly beans|jelly babies|gums?|pastilles|sherbet|nips|drops|jam|marmalade|treacle|molasses|sprinkles|decorations?|dusting|vermicelli|hundreds|1000's|sippers?|clear fruits)\b/i;
+const POWDER_OR_SUPPLEMENT = /\b(?:powders?|whey|isolate|protein shakes?|shake mix|milkshake mix|gainer|pro v gain|superblend|protein boost|fibre boost|impact|supplements?|capsules?|tablets?|vitamins?|collagen|gummies|jelly|sachets?|oxygreens|super ?greens|greens powder|bone broths?|instant\b[\w' ]*\bbroths?)\b|\b(?:vegan|whey|plant|pea|soya?)\b[\w' ]*\bprotein\s+\d+(?:\.\d+)?\s*(?:g|kg)\b/i;
+const SEASONING = /\b(?:herbs?|spices?|seasonings?|cinnamon|cumin|paprika|oregano|basil|rosemary|thyme|sage|sumac|masala|garam|curry powder|chilli flakes|chilli powder|chilli blend|pepper flakes|coriander seeds|ground (?:coriander|cumin|ginger|turmeric|cinnamon|nutmeg|cloves|allspice|cardamom|fenugreek|mace|black pepper|white pepper|pepper)|(?:fennel|caraway|cumin|nigella|mustard|celery|coriander|poppy|onion|anise|ajwain|dill) seeds?|ras el hanout|bouquet garni|five spice|za'?atar|baharat|dukkah|nori|turmeric|nutmeg|cloves|mulling|bay leaves|parsley|dill|pods|matcha|teas?|coffee|cocoa|stock cubes?|stock pots?|jus|gravy granules|yeast|bouillon|salt|vinegar|baking powder|bicarbonate|cream of tartar|gelatine|food colou?rings?|flavourings?|extract|essence|ice cubes?|water)\b/i;
+const SUGARS = /\b(?:sugars?|sugarly|sweeteners?|canderel|erythritol|sucralose|stevia|xylitol|splenda|truvia|pure via|syrups?|honey|icing|glucose|dextrose|mints?|peppermints?|imperials|sweets|candy|lolly|lollies|lollipops?|pops?|marshmallows?|fudge|toffees?|jelly beans|jelly babies|gums?|pastilles|sherbet|nips|drops|jam|marmalade|treacle|molasses|sprinkles|decorations?|cake d[eé]cor|cobwebs|snowflakes|dusting|vermicelli|hundreds|1000's|sippers?|clear fruits)\b/i;
+/** Stock, broth and gravy: on Fewest calories they'd fill the board, yet they are a cooking liquid, not a food that fills you up (2026-11-20). */
+const STOCK = /\b(?:stocks?|broths?|consomm[eé]|gravy)\b/i;
 
 /** Meat-free protein foods, by name (founder 2026-11-18: "instead do like the best vegetarian foods"): what the product is made of, and never a name that also
  *  names meat or fish ("Beans with Sausages"). Picked by the shop's own product name, so the page says so; it is not a vegetarian or vegan marking. */
 const PLANT_PROTEIN = /\b(?:tofu|tempeh|seitan|edamame|lentils?|chickpeas?|beans?|houmous|hummus|falafel|quorn|soya|soy chunks|soya chunks|split peas|dhal|dal|mycoprotein|textured vegetable protein|tvp)\b/i;
-const MEAT_OR_FISH = /\b(?:chicken|beef|pork|lamb|turkey|duck|ham|bacon|sausages?|chorizo|salami|pepperoni|meat|mince|steak|fish|salmon|tuna|cod|haddock|prawns?|mackerel|anchov\w*|crab|lobster|mussels|gelatine)\b/i;
+const MEAT_OR_FISH = /\b(?:chicken|beef|pork|lamb|turkey|duck|ham|bacon|sausages?|chorizo|salami|pepperoni|meat|mince|steak|fish|salmon|tuna|cod|haddock|prawns?|mackerel|anchov\w*|crab|lobster|mussels|sardines?|pilchards?|herrings?|kippers?|sprats?|whitebait|squid|calamari|octopus|scallops?|clams?|eels?|trout|plaice|pollock|hake|sea ?bass|bream|seafood|shellfish|scampi|roe|gelatine)\b/i;
 const SAYS_MEAT_FREE = /\b(?:meat[- ]free|plant[- ]based|vegan|vegetarian|quorn)\b/i;
 export const isMeatFreeProteinName = (name: string): boolean => PLANT_PROTEIN.test(name) && (!MEAT_OR_FISH.test(name) || SAYS_MEAT_FREE.test(name));
 
@@ -73,6 +78,7 @@ export const isMeatFreeProteinName = (name: string): boolean => PLANT_PROTEIN.te
 export function leftOff(board: BoardId, name: string): boolean {
   if (board === "cheapestProtein") return false;
   if (POWDER_OR_SUPPLEMENT.test(name) || SEASONING.test(name)) return true;
+  if (board === "fewestKcal" && STOCK.test(name)) return true;
   return (board === "carbs" || board === "fewestKcal") && SUGARS.test(name);
 }
 
@@ -216,7 +222,8 @@ export function buildLeaderboards(lists: ReadonlyArray<{ file: ShopFile; product
   const boards = Object.fromEntries(BOARDS.map((b) => [b.id, buildBoard(b.id, plain, size, groupsOf)])) as Record<BoardId, BoardEntry[]>;
   const shops = Object.fromEntries(lists.map((l) => [l.file.retailer, { name: l.file.name, photoBase: l.file.photoBase, ...(l.file.photoTemplate !== undefined ? { photoTemplate: l.file.photoTemplate } : {}) }]));
   const checkedOn = lists.map((l) => l.file.checkedOn).sort().at(-1) ?? "";
-  return { v: 1, checkedOn, shops, boards };
+  const labelsOn = lists.map((l) => l.file.nutritionCheckedTo || l.file.nutritionCheckedOn || "").filter(Boolean).sort().at(-1) ?? "";
+  return { v: 1, checkedOn, pricesOn: checkedOn, ...(labelsOn ? { labelsOn } : {}), shops, boards };
 }
 
 /** A leaderboards file as the phone may use it (anything else is "none yet"). */
@@ -224,4 +231,36 @@ export function isLeaderboardsFile(x: unknown): x is LeaderboardsFile {
   if (!x || typeof x !== "object") return false;
   const f = x as Partial<LeaderboardsFile>;
   return f.v === 1 && !!f.boards && typeof f.boards === "object" && !!f.shops && BOARDS.every((b) => Array.isArray((f.boards as Record<string, unknown>)[b.id]));
+}
+
+/** One product found in several shops' lists: the same product at each shop that sells it (sameProductGroups), in the order the products were given. */
+export interface ProductGroup {
+  key: string;
+  items: Array<{ shop: string; product: ShopProduct }>;
+}
+
+/**
+ * Search results from several shops' lists as one row per product (2026-11-20: Search every shop shows "a product at every supermarket that sells it"): joined
+ * by the same barcode, or the same branded name and pack size, never by a shop's own brand (sameProductGroups). Each group keeps the place of its first product
+ * in `items` (already sorted), and one product a shop. `groups`: sameProductGroups of the whole lists, worked out once (else of `items` alone).
+ */
+export function groupProducts(items: ReadonlyArray<{ shop: string; product: ShopProduct }>, groups?: Map<string, string>): ProductGroup[] {
+  let groupsOf = groups;
+  if (!groupsOf) {
+    const byShop = new Map<string, ShopProduct[]>();
+    for (const { shop, product } of items) {
+      const list = byShop.get(shop);
+      if (list) list.push(product);
+      else byShop.set(shop, [product]);
+    }
+    groupsOf = sameProductGroups([...byShop].map(([shop, products]) => ({ shop, products })));
+  }
+  const out = new Map<string, ProductGroup>();
+  for (const { shop, product } of items) {
+    const key = groupsOf.get(`${shop}|${product.id}`) ?? `${shop}|${product.id}`;
+    const g = out.get(key) ?? { key, items: [] };
+    if (!g.items.some((x) => x.shop === shop)) g.items.push({ shop, product });
+    out.set(key, g);
+  }
+  return [...out.values()];
 }

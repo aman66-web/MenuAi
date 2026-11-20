@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { myRecipesStore, savedRecipesStore, savedStore } from "@/lib/mm/stores";
 import { PageHeader } from "../_components/PageHeader";
@@ -13,7 +13,8 @@ import { RestaurantMeals } from "./RestaurantMeals";
 // "My meals" (founder 2026-10-11: one tile on Home instead of "My recipes" and "My saved meals"; "two tabs ... your recipes ... and your
 // favourite restaurant meals ... very dead simple page"). The tab is kept in the address (?tab=restaurant), so coming back from a meal
 // opens the same tab. Styled like Home (2026-10-15): the compact heavy title and the two tabs in one pill; since the colour meeting (19 November 2026)
-// the open one is lime with its edge and tick.
+// the open one is lime with its edge and tick. Opened from the Recipes tab's "My recipes" (&from=recipes) the page is called My recipes and Back goes to Recipes
+// (audit, 20 November 2026: one place had four names).
 
 export type MealsTab = "recipes" | "restaurant";
 
@@ -24,6 +25,7 @@ export function MealsScreen({ tab: asked }: { tab: MealsTab | null }) {
   const recipes = useStore(savedRecipesStore).length + useStore(myRecipesStore).length;
   const orders = useStore(savedStore).length;
   const [picked, setPicked] = useState<MealsTab | null>(null);
+  const fromRecipes = useSearchParams().get("from") === "recipes";
   // with no tab asked for, open on recipes unless there are none and there are restaurant meals
   const tab: MealsTab = picked ?? asked ?? (recipes === 0 && orders > 0 ? "restaurant" : "recipes");
   const tabs: ReadonlyArray<{ value: MealsTab; label: string; count: number }> = [
@@ -32,15 +34,15 @@ export function MealsScreen({ tab: asked }: { tab: MealsTab | null }) {
   ];
   const choose = (v: MealsTab) => {
     setPicked(v);
-    router.replace(`/app/meals?tab=${v}`, { scroll: false });
+    router.replace(`/app/meals?tab=${v}${fromRecipes ? "&from=recipes" : ""}`, { scroll: false });
   };
 
   return (
     <div>
       {/* the header every page has (colour meeting, 19 November 2026): Back (the page before, else Home), the title under it, the Settings cog far right */}
-      <PageHeader back={{ href: "/app", label: t("Back to home") }} title={t("My meals")} />
+      <PageHeader back={fromRecipes ? { href: "/app/recipes", label: t("Back to recipes") } : { href: "/app", label: t("Back to home") }} title={fromRecipes ? t("My recipes") : t("My meals")} />
 
-      <div role="tablist" aria-label={t("My meals")} className="mt-4 grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-1 rounded-full border-[1.5px] border-edge bg-background p-1">
+      <div role="tablist" aria-label={fromRecipes ? t("My recipes") : t("My meals")} className="mt-4 grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-1 rounded-full border-[1.5px] border-edge bg-background p-1">
         {tabs.map((o, i) => {
           const on = o.value === tab;
           return (

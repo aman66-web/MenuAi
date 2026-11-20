@@ -31,12 +31,26 @@ const openToTheApp = [
   { key: "X-Content-Type-Options", value: "nosniff" },
 ];
 
+/**
+ * On every page and file of the website (the overnight audit, 20 November 2026): no other site may show it in a frame (clickjacking), files are taken as the
+ * type they say they are, other sites are told only our address (not the page), and only our own pages may ask for the camera (Scan your food, the barcode
+ * scanner) and location (Near me); nothing asks for the microphone. The iPhone app's copy is not served by this (it is a static export inside the app).
+ */
+const everyPage = [
+  { key: "X-Frame-Options", value: "DENY" },
+  { key: "Content-Security-Policy", value: "frame-ancestors 'none'" },
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  { key: "Permissions-Policy", value: "camera=(self), geolocation=(self), microphone=()" },
+];
+
 const websiteConfig: NextConfig = {
   poweredByHeader: false,
   // A new deploy registers a new service worker URL (/sw.js?v=<id>), so the offline cache is refreshed with it.
   env,
   async headers() {
     return [
+      { source: "/:path*", headers: everyPage },
       {
         // Menu data (published by scripts/publish_menus.sh). Clients revalidate every time; Vercel's CDN still serves it from the edge and
         // refreshes it on every deploy. The iPhone app reads it too, for menus newer than the ones packed inside it.

@@ -5,6 +5,7 @@ import { MAX_SERVINGS, MIN_SERVINGS, recipeNutrients, stepServings } from "@/lib
 import { savedToRecipe } from "@/lib/mm/aiRecipe";
 import type { Recipe } from "@/lib/mm/recipes";
 import { myRecipesStore } from "@/lib/mm/stores";
+import { halves } from "@/lib/mm/user-data";
 import { formatCalories, formatGrams } from "@/lib/mm/format";
 import { tk } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
@@ -27,9 +28,12 @@ import { AddPill, PICK_LIST, PickRow, SheetSearch, type NewEntry } from "./parts
 // The person's own recipes come first, under "Your recipes" (founder 2026-11-19: a recipe made from a photo with Make it at home, or by Pip from what's in the
 // fridge, couldn't be added, "only the standard recipes ... which shouldn't be the case"): worked out from the same shops' labels, the same way as on their
 // own recipe page, so they log with the figures that page shows.
+// Halves are written ½ and 1½ here too, as on the Today page (the 30-person audit, 20 November 2026: "1.5 servings" here, "1½ portions" there).
 
 const PAGE = 8;
 const NAME_WITH_SERVINGS = tk("{name} ({n} servings)");
+/** Half a serving is "serving", like "½ portion" on the Today page. */
+const NAME_WITH_SERVING = tk("{name} ({n} serving)");
 
 function matches(card: RecipeCard, query: string, t: (s: string) => string): boolean {
   const words = normalizeForSearch(query).split(" ").filter(Boolean);
@@ -79,7 +83,7 @@ export function RecipePick({ meal, onAdd }: { meal: LogMeal; onAdd: (entry: NewE
         lead={<RecipeThumb id={c.recipe.id} name={c.recipe.name} meal={c.recipe.meal} />}
         title={name}
         line={t("{kcal} · {protein} protein", { kcal: formatCalories(n.calories), protein: formatGrams(n.protein ?? 0) })}
-        action={<AddPill name={name} onClick={() => onAdd({ chainId: "", chainName: t("Recipe"), name: servings === 1 ? name : t(NAME_WITH_SERVINGS, { name, n: servings }), nutrients: n, source: "recipe", recipeId: c.recipe.id })} />}
+        action={<AddPill name={name} onClick={() => onAdd({ chainId: "", chainName: t("Recipe"), name: servings === 1 ? name : t(servings < 1 ? NAME_WITH_SERVING : NAME_WITH_SERVINGS, { name, n: halves(servings) }), nutrients: n, source: "recipe", recipeId: c.recipe.id })} />}
       />
     );
   };
@@ -97,7 +101,7 @@ export function RecipePick({ meal, onAdd }: { meal: LogMeal; onAdd: (entry: NewE
         <span className="min-w-0 text-base font-semibold [overflow-wrap:normal] [word-break:keep-all]">{t("Servings")}</span>
         <span className="flex items-center rounded-full border-[1.5px] border-edge bg-card">
           <button type="button" aria-label={t("Fewer servings")} disabled={servings <= MIN_SERVINGS} onClick={() => setServings((s) => stepServings(s, -1))} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-ink transition active:scale-95 hover:not-disabled:bg-background disabled:bg-soft-strong disabled:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"><MinusIcon className="h-5 w-5" /></button>
-          <output aria-live="polite" className="app-numbers min-w-10 text-center text-lg font-bold">{servings}</output>
+          <output aria-live="polite" className="app-numbers min-w-10 whitespace-nowrap text-center text-lg font-bold">{halves(servings)}</output>
           <button type="button" aria-label={t("More servings")} disabled={servings >= MAX_SERVINGS} onClick={() => setServings((s) => stepServings(s, 1))} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-ink transition active:scale-95 hover:not-disabled:bg-background disabled:bg-soft-strong disabled:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"><PlusIcon className="h-5 w-5" /></button>
         </span>
       </div>

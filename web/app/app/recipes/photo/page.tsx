@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { AI_MESSAGES, aiFailureMessage } from "@/lib/mm/aiConsent";
 import { API_BASE, PAID_ACCESS_ENABLED, PHOTO_RECIPES_ENABLED } from "@/lib/mm/config";
+import { moreDietsOn } from "@/lib/mm/foodDiet";
 import { tk } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { MAX_DESCRIPTION, cleanFoodBox, needsMoreDetail, photoRecipeFromAi, type FoodBox, type PhotoRecipeRequest } from "@/lib/mm/photoRecipe";
@@ -12,7 +14,8 @@ import { mealSizes, type MealTarget, type Recipe } from "@/lib/mm/recipes";
 import { myRecipesStore, paidStore, updateSettings } from "@/lib/mm/stores";
 import { CheckIcon, ChevronRightIcon } from "../../_components/icons";
 import { PageHeader } from "../../_components/PageHeader";
-import { AllergenTiles, DIETS, PickTile, dietWords } from "../../_components/DietPicker";
+import { OfflineBanner, useAiConsent, useOnline } from "../../_components/AiConsentSheet";
+import { AllergenTiles, DIETS, MORE_DIETS, PickTile, dietWords } from "../../_components/DietPicker";
 import { toggleAllergen, toggleDiet } from "@/lib/mm/menu-view";
 import type { Preferences } from "@/lib/mm/types";
 import { PipSays } from "../../_components/Mascot";
@@ -34,9 +37,14 @@ import { PhotoCamera } from "./PhotoCamera";
 // camera with a scanning look (PhotoCamera.tsx), then straight to the supermarket (no "Scanning" screen: founder 2026-11-20), Next, a loading screen while Pip writes it, and the recipe
 // with the person's photo on top from real products at the shop, every number worked out from their labels (lib/mm/photoRecipe.ts).
 // Premium only, and the whole page exists only while PHOTO_RECIPES_ENABLED (lib/mm/config.ts). The photo is made smaller on the phone first (_lib/photo.ts).
+// The 20 November 2026 audit: Pip's permission sheet before the camera opens (nothing is sent before it: AiConsentSheet.tsx), an offline line and no camera
+// while offline, the food check given at most 8 s (then the flow carries on), "Pip can't do this right now" when Anthropic can't answer, the plans (never an
+// error) when the server says Premium is needed, and the More diets that are on shown with the rest.
 
 type Step = "describe" | "camera" | "shops" | "working" | "done" | "error";
 type FoodCheck = "food" | "notFood" | "unknown";
+/** The most the food check may take before the flow carries on without it. */
+const FOOD_CHECK_MS = 8000;
 const SERVINGS = 2;
 /** The name and the description are joined into the one sentence the API takes (MAX_DESCRIPTION), so these two add up to less than that. */
 const MAX_NAME = 80;
@@ -136,7 +144,7 @@ function Steps({ current }: { current: 1 | 2 | 3 }) {
         return (
           <li key={label} aria-current={n === current ? "step" : undefined} className="min-w-0">
             <span aria-hidden className={`block h-1.5 rounded-full transition-colors ${on ? "bg-[var(--bar)]" : "bg-[var(--line)]"}`} />
-            <span className={`mt-1.5 block truncate text-[0.8125rem] font-bold uppercase tracking-[0.08em] ${n === current ? "text-foreground" : "text-muted"}`}>{n}. {label}</span>
+            <span className={`kicker mt-1.5 block truncate ${n === current ? "font-bold text-foreground!" : ""}`}>{n}. {label}</span>
           </li>
         );
       })}
@@ -162,6 +170,7 @@ function PhotoScreen() {
   const access = PAID_ACCESS_ENABLED ? pro && !!paid.token : pro;
   const { showPaywall } = useGate();
   const nav = useBack("/app/recipes");
+  const online = useOnline();
 
   const [step, setStep] = useState<Step>("describe");
   const [photo, setPhoto] = useState<ShrunkPhoto | null>(null);
@@ -213,6 +222,7 @@ function PhotoScreen() {
   const pantry = useMemo(() => (ready ? pantryLines(ready.products, JSON.parse(dietKey)) : []), [ready, dietKey]);
   const target = mealTargetFor(settings) ?? { kcal: mealSizes(settings.dailyCalories).normal };
   const onlyOneShop = recipeShops(manifest).length <= 1;
+  const consent = useAiConsent("photoRecipe", shopName);
   const text = dishText(name, about);
   const thin = needsMoreDetail(text);
 
@@ -224,10 +234,12 @@ function PhotoScreen() {
   /** A photo taken with the camera, or picked from the phone: made smaller, then "scanned" for a couple of seconds. */
   const headers = (): Record<string, string> => ({ "Content-Type": "application/json", ...(paid.token ? { Authorization: `Bearer ${paid.token}` } : {}) });
 
-  /** Does the photo show food? Only a clear "no" from Pip turns it down; if the check can't be made (no signal, too many tries) the flow carries on. */
+  /** Does the photo show food? Only a clear "no" from Pip turns it down; if the check can't be made (no signal, too many tries, no answer within 8 s) the flow
+   *  carries on. */
   const checkFood = async (image: string): Promise<FoodCheck> => {
+    if (navigator.onLine === false) return "unknown";
     try {
-      const res = await fetch(`${API_BASE}recipe/photo/describe`, { method: "POST", headers: headers(), body: JSON.stringify({ image }) });
+      const res = await fetch(`${API_BASE}recipe/photo/describe`, { method: "POST", headers: headers(), body: JSON.stringify({ image }), signal: AbortSignal.timeout(FOOD_CHECK_MS) });
       if (res.ok) {
         const json = (await res.json().catch(() => ({}))) as { food?: unknown };
         foodBox.current = cleanFoodBox(json.food);
@@ -257,10 +269,14 @@ function PhotoScreen() {
 
   const next = () => {
     if (thin && !nudged) { setNudged(true); return; }
-    setStep(photo ? "shops" : "camera");
+    if (photo) { setStep("shops"); return; }
+    if (!online) return; // the offline line at the top says why
+    // Pip's permission first: the photo is sent for the food check as soon as it is taken
+    consent.ask(() => setStep("camera"));
   };
 
-  const generate = async () => {
+  const generate = () => consent.ask(() => void write());
+  const write = async () => {
     if (!photo || !shop || pantry.length < 2) return;
     // the shop chosen here becomes the person's first shop, as on the Recipes page (the others stay ticked for Groceries)
     if (pickedShop && settings.shops?.[0] !== pickedShop) updateSettings({ shops: [pickedShop, ...(settings.shops ?? []).filter((id) => id !== pickedShop)] });
@@ -280,8 +296,10 @@ function PhotoScreen() {
     abort.current = new AbortController();
     try {
       const res = await fetch(`${API_BASE}recipe/photo`, { method: "POST", headers: headers(), body: JSON.stringify(body), signal: abort.current.signal });
-      const json = (await res.json().catch(() => ({}))) as { recipe?: unknown; message?: string };
-      if (!res.ok) { setError(json.message ?? tk("Pip couldn't make a recipe from this photo. Please try again, maybe with more detail about the dish.")); setStep("error"); return; }
+      const json = (await res.json().catch(() => ({}))) as { recipe?: unknown; message?: string; error?: string };
+      // the server's Premium check said no: the plans, never an error
+      if (res.status === 402 || json.error === "premium") { setStep("shops"); showPaywall("photoRecipe"); return; }
+      if (!res.ok) { setError(aiFailureMessage({ status: res.status, message: json.message }, tk("Pip couldn't make a recipe from this photo. Please try again, maybe with more detail about the dish."))); setStep("error"); return; }
       const made = photoRecipeFromAi(json.recipe, { servings: SERVINGS, diet }, `ai-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`);
       if (!made) { setError(tk("Pip's recipe didn't pass our checks. Please try again.")); setStep("error"); return; }
       setMade({ ingredients: made.ingredients.length, steps: made.method.length });
@@ -301,7 +319,7 @@ function PhotoScreen() {
       setTimeout(() => setStep("done"), 1800); // long enough to read what came back
     } catch (e) {
       if ((e as Error).name === "AbortError") { setStep("shops"); return; }
-      setError(tk("Couldn't reach Pip. Check your connection and try again."));
+      setError(aiFailureMessage({ status: 0 }, AI_MESSAGES.connection, navigator.onLine !== false));
       setStep("error");
     }
   };
@@ -323,7 +341,7 @@ function PhotoScreen() {
       <div>
         {back}
         <h1 className={H1}>{t("Make it at home")}</h1>
-        <div className="mt-4"><PipSays mood="wave" size={84}>{t("Make it at home is part of Premium. Snap a dish you've loved, or upload a photo of it, and I'll write a recipe you can cook from your supermarket.")}</PipSays></div>
+        <div className="mt-4"><PipSays mood="wave" size={64}>{t("Make it at home is part of Premium. Snap a dish you've loved, or upload a photo of it, and I'll write a recipe you can cook from your supermarket.")}</PipSays></div>
         <div className="mt-5 grid gap-3">
           <Button full className="min-h-14 text-lg" onClick={() => showPaywall("photoRecipe")}>{t("See Premium")}</Button>
           <Link href={nav.href} onClick={nav.onClick} replace className="flex min-h-14 items-center justify-center rounded-full border-[1.5px] border-edge bg-card px-5 text-base font-semibold text-foreground transition hover:bg-background active:scale-[0.97]">{t("Back to the recipes")}</Link>
@@ -370,11 +388,12 @@ function PhotoScreen() {
     <div>
       {back}
       <h1 ref={heading} tabIndex={-1} className={`${H1} outline-none`}>{t("Make it at home")}</h1>
+      {!online && step !== "working" && <OfflineBanner className="mt-4" />}
 
       {(step === "describe" || step === "camera") && (
         <section aria-labelledby="describe-intro">
           <Steps current={1} />
-          <div id="describe-intro" className="mt-5"><PipSays mood="wave" size={76}>{t("Tell me what you'd like to make. Then snap it, or upload a photo of it from your phone. The more detail you give, the better the recipe will match.")}</PipSays></div>
+          <div id="describe-intro" className="mt-5"><PipSays mood="wave" size={64}>{t("Tell me what you'd like to make. Then snap it, or upload a photo of it from your phone. The more detail you give, the better the recipe will match.")}</PipSays></div>
 
           <div className="glass mt-5 rounded-[1.5rem] p-5 shadow-[var(--card-shadow)]">
             <div onFocus={() => setFocusPart(1)}>
@@ -436,6 +455,22 @@ function PhotoScreen() {
                   );
                 })}
               </div>
+              {/* the More diets that are on (set in Settings, or on the website) are applied too, so they are shown with the rest and can be unticked here */}
+              {moreDietsOn(diet).length > 0 && (
+                <>
+                  <p className="mb-2 mt-4 px-1 text-[0.8125rem] font-semibold leading-snug text-muted">{t("More diets")}</p>
+                  <div role="group" aria-label={t("More diets")} className={PICK_GRID}>
+                    {MORE_DIETS.map((d) => {
+                      const on = Boolean(diet[d.key]);
+                      return (
+                        <PickTile key={d.key} on={on} aria-pressed={on} onClick={() => setOwnDiet(toggleDiet(diet, d.key))} className={PICK_LABEL}>
+                          {t(d.label)}
+                        </PickTile>
+                      );
+                    })}
+                  </div>
+                </>
+              )}
               {(() => {
                 const chosen = diet.avoidAllergens ?? [];
                 const open = allergiesOpen ?? chosen.length > 0;
@@ -462,7 +497,8 @@ function PhotoScreen() {
 
           {/* founder 2026-11-17 ("you can't see the next button ... you have to scroll down"): Next stays in view just above the tab bar, like a recipe's
               "Add all to my shopping list", on a strip of the page's grey that the form slides under */}
-          <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-4 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-3">
+          {/* on a short screen (iPhone SE) it stays under the form until the dish has a name, so its reason never sits on the very box it asks for */}
+          <div className={`sticky bottom-0 z-10 -mx-5 -mb-32 mt-4 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-3 ${name.trim() ? "" : "[@media(max-height:700px)]:static"}`}>
             <Button full className="min-h-14 text-lg" disabled={!name.trim()} reason={t("Type the name of the dish first.")} onClick={next}>{nudged && thin ? t("Carry on anyway") : t("Next")}</Button>
           </div>
         </section>
@@ -496,7 +532,7 @@ function PhotoScreen() {
           ) : (
             <>
               <p className="mt-5 text-[0.8125rem] leading-snug text-muted">
-                {t("Pip uses AI from Anthropic (the company that makes Claude). To write your recipe we send your photo (made smaller on your phone first), your description, your diet choices and the list of {shop} products it may use. Nothing about you, and nothing is kept. The numbers you see are worked out from the products' own labels.", { shop: shopName })}
+                {t("Pip uses AI from Anthropic (the company that makes Claude). To write your recipe we send your photo (made smaller on your phone first), your description, your diet and allergy choices, the meal size and the list of {shop} products it may use. No name, email or account is sent with it, and we don't keep it. The numbers you see are worked out from the products' own labels.", { shop: shopName })}
               </p>
               <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-4 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-3">
                 {/* a Next that can't be pressed yet says why above it (colour meeting: never a silent grey button) */}
@@ -515,6 +551,7 @@ function PhotoScreen() {
         </>
       )}
 
+      {consent.sheet}
       {/* the phone's own camera and photo picker, for the camera screen's buttons (the iPhone app has camera access for the barcode scanner already) */}
       <input ref={phoneCamera} type="file" accept="image/*" capture="environment" className="sr-only" tabIndex={-1} aria-hidden onChange={(e) => { void pick(e.target.files?.[0]); e.target.value = ""; }} />
       <input ref={library} type="file" accept="image/*" className="sr-only" tabIndex={-1} aria-hidden onChange={(e) => { void pick(e.target.files?.[0]); e.target.value = ""; }} />

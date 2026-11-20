@@ -1,25 +1,33 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { barcodeQuery, cheapestRetailer, forRetailer, formatPrice, mergeProducts, perLabel, photoSources, priceRating, RETAILERS, retailerName, sizeVariants, type GroceryFile, type ListedProduct } from "@/lib/mm/groceries";
+import { loggableFromListed, loggableFromShop, withShopLabel, type LoggableProduct } from "@/lib/mm/addFood";
+import { ALLERGEN_LABEL } from "@/lib/mm/allergens";
+import { labelledHits, shopItemHref, type BarcodeHit } from "@/lib/mm/barcodes";
+import { barcodeQuery, cheapestRetailer, forRetailer, formatPrice, mergeProducts, photoSources, priceRating, RETAILERS, retailerName, sizeVariants, type GroceryFile, type ListedProduct } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
-import { foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
-import type { Allergens } from "@/lib/mm/types";
+import { avoidedAllergens, foodDietNotChecked, foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
+import type { Allergens, LogMeal } from "@/lib/mm/types";
+import type { LogEntry } from "@/lib/mm/user-data";
 import { withPhoto } from "@/lib/mm/groceries";
 import { CompareButton } from "../../_components/CompareButton";
 import { compareFoodFromListed } from "../../_lib/compare";
 import { AllergenTable } from "../../_components/Allergens";
-import { CopyIcon, ExternalIcon, InfoIcon, PlusIcon } from "../../_components/icons";
+import { DiaryButton, DiaryToast } from "../../_components/addfood/ProductPick";
+import { CopyIcon, ExternalIcon, InfoIcon, PlusIcon, ScanIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
 import { InfoLine } from "../../_components/Note";
 import { PageHeader } from "../../_components/PageHeader";
 import { Toast } from "../../_components/Toast";
 import { AllergyNote, Button, ErrorBox, LinkButton, Spinner } from "../../_components/ui";
-import { loadManifest, loadRetailer } from "../../_lib/groceries";
+import { loadManifest, loadRetailer, productTitleClass } from "../../_lib/groceries";
 import { useSettings } from "../../_lib/hooks";
-import { useT } from "../../_lib/i18n";
+import { usePossessive, useT } from "../../_lib/i18n";
 import { Rich } from "../../_lib/Rich";
+import { findBarcode, loadShopFile, loadShopManifest } from "../../_lib/shopProducts";
+import { Scanner } from "../Scanner";
 import { NutritionPanel } from "../NutritionPanel";
 import { CARD, CHIP, CHIP_ON, FootNote, HEADING, LABEL, NOTE } from "../PageBits";
 import { ProductPhotoFigure } from "../ProductPhoto";
@@ -76,84 +84,152 @@ function LabelRows({ text }: { text: string }) {
   );
 }
 
-export function ProductScreen({ code, retailerHint }: { code: string; retailerHint: string | null }) {
+/** The numbers a shop list holds for this barcode from a shop's own label (or the same product's label at another shop), `prefer`'s first; null when none. */
+function useShopLabel(hit: BarcodeHit | null, prefer: string | null): LoggableProduct | null {
+  const key = hit ? `${hit.code}|${prefer ?? ""}` : "";
+  const [got, setGot] = useState<{ key: string; product: LoggableProduct | null } | null>(null);
+  useEffect(() => {
+    if (!hit) return;
+    let live = true;
+    (async () => {
+      for (const h of labelledHits(hit, prefer)) {
+        try {
+          const { file, products } = await loadShopFile(h.shop);
+          const p = products.find((x) => x.id === h.id);
+          const l = p ? loggableFromShop(file, p) : null;
+          if (l) { if (live) setGot({ key, product: l }); return; }
+        } catch { /* that list can't load: try the next */ }
+      }
+      if (live) setGot({ key, product: null });
+    })();
+    return () => { live = false; };
+  }, [hit, prefer, key]);
+  return got?.key === key ? got.product : null;
+}
+
+export function ProductScreen({ code, retailerHint, scan = false }: { code: string; retailerHint: string | null; scan?: boolean }) {
   const t = useT();
-  const prefs = useSettings().preferences;
+  const poss = usePossessive();
+  const router = useRouter();
+  const settings = useSettings();
+  const prefs = settings.preferences;
+  const mineKey = (settings.shops ?? []).join(",");
   const wanted = barcodeQuery(code);
-  const [state, setState] = useState<State>({ status: "loading" });
+  const [retry, setRetry] = useState(0);
+  const key = `${wanted}|${retailerHint ?? ""}|${scan}|${retry}`;
+  const [loaded, setLoaded] = useState<{ key: string; state: State; hit: BarcodeHit | null } | null>(null);
+  const state: State = loaded?.key === key ? loaded.state : { status: "loading" };
+  const hit = loaded?.key === key ? loaded.hit : null;
   const [added, setAdded] = useState<{ text: string; href: string; n: number } | null>(null);
+  const [diary, setDiary] = useState<{ entry: LogEntry; meal: LogMeal } | null>(null);
+  const [scanning, setScanning] = useState(false);
   // to the main list, or (when the person has lists for that shop) the one they choose; said in the toast, each add a new one
-  const { add, sheet } = useAddToList((list, item) => setAdded((was) => ({ ...(list ? { text: t("Added to {list}.", { list: list.name }), href: listHref(list.id) } : { text: t("Added to your list for {shop}.", { shop: retailerName(item.retailer) }), href: listHref() }), n: (was?.n ?? 0) + 1 })));
+  const { add, sheet } = useAddToList((list) => { setDiary(null); setAdded((was) => ({ ...(list ? { text: t("Added to {list}.", { list: list.name }), href: listHref(list.id) } : { text: t("Added to your Shopping list."), href: listHref() }), n: (was?.n ?? 0) + 1 })); });
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
+    const done = (st: State, h: BarcodeHit | null = null) => { if (!cancelled) setLoaded({ key, state: st, hit: h }); };
     (async () => {
       try {
-        if (!wanted) return void (!cancelled && setState({ status: "missing" }));
-        const manifest = await loadManifest();
-        const order = [...(retailerHint ? [retailerHint] : []), ...RETAILERS.map((r) => r.id).filter((id) => id !== retailerHint)].filter((id) => manifest.retailers.some((m) => m.id === id));
-        const files: GroceryFile[] = [];
-        for (const id of order) {
-          files.push(await loadRetailer(id));
-          // keep going: the same barcode may be sold by other retailers, which we list too
+        if (!wanted) return done({ status: "missing" });
+        const mine = mineKey ? mineKey.split(",") : [];
+        // where the barcode is (public/groceries/all/barcodes.json); undefined when that file can't be loaded (then every catalogue file is looked in)
+        let found: BarcodeHit | null | undefined;
+        try { found = await findBarcode(wanted, mine); } catch { found = undefined; }
+        // only shops whose lists this copy of the app has (the iPhone app can be packed with fewer shops than the barcode file names)
+        if (found) {
+          const [lists, cat] = await Promise.all([loadShopManifest(), loadManifest().catch(() => null)]);
+          const shops = found.shops.filter((h) => lists.retailers.some((r) => r.id === h.shop));
+          const catalogue = cat ? found.catalogue.filter((id) => cat.retailers.some((r) => r.id === id)) : found.catalogue;
+          found = shops.length || catalogue.length ? { ...found, shops, catalogue } : null;
         }
+        if (cancelled) return;
+        // a scan of a product in a shop's full list opens that shop's own page for it (the person's own shop first); so does a link to a barcode only those lists hold
+        if (found && found.shops.length > 0 && (scan || found.catalogue.length === 0)) {
+          const target = (!scan && found.shops.find((h) => h.shop === retailerHint)) || found.shops[0]!;
+          router.replace(shopItemHref(target));
+          return;
+        }
+        if (found === null || (found && found.catalogue.length === 0)) return done({ status: "missing" }, found ?? null);
+        // only the catalogue files that hold this barcode, all at once (2026-11-20: every file, one after another, about 10 MB, before anything showed)
+        let ids: string[];
+        if (found) ids = [...found.catalogue.filter((r) => r === retailerHint), ...found.catalogue.filter((r) => r !== retailerHint)];
+        else {
+          const manifest = await loadManifest();
+          ids = [...(retailerHint ? [retailerHint] : []), ...RETAILERS.map((r) => r.id).filter((id) => id !== retailerHint)].filter((id) => manifest.retailers.some((m) => m.id === id));
+        }
+        const files: GroceryFile[] = await Promise.all(ids.map((id) => loadRetailer(id)));
         // a shop counts only where its own list shows the price; a scanned barcode no shop prices still opens with its numbers
         const priced = mergeProducts(files, { pricedOnly: true });
         const pricedHit = priced.find((p) => p.gtin.replace(/^0+/, "") === wanted);
         const all = pricedHit ? priced : mergeProducts(files);
-        const found = pricedHit ?? all.find((p) => p.gtin.replace(/^0+/, "") === wanted);
-        if (!cancelled) setState(found ? { status: "ready", product: found, all } : { status: "missing" });
+        const product = pricedHit ?? all.find((p) => p.gtin.replace(/^0+/, "") === wanted);
+        done(product ? { status: "ready", product, all } : { status: "missing" }, found ?? null);
       } catch {
-        if (!cancelled) setState({ status: "error" });
+        done({ status: "error" });
       }
     })();
     return () => { cancelled = true; };
-  }, [wanted, retailerHint]);
+  }, [key, wanted, retailerHint, scan, mineKey, router]);
+
+  const listed = state.status === "ready" ? state.product : null;
+  // Opened from a supermarket: that shop's own name, size, numbers and price lead; the others are listed below it.
+  const selected = listed ? (retailerHint && listed.retailers.includes(retailerHint) ? retailerHint : listed.retailers[0]!) : null;
+  // the shop's own label always wins over community numbers (2026-11-20: the same product showed two sets of numbers, and Add food logged the wrong one)
+  const shopLabel = useShopLabel(listed ? hit : null, selected);
 
   const back = <PageHeader back={{ href: "/app/groceries", label: t("Back to groceries") }} list />;
   if (state.status === "loading") return (<div>{back}<Spinner label={t("Loading product")} /></div>);
-  if (state.status === "error") return (<div>{back}<div className="mt-4"><ErrorBox message={t("Couldn't load this product. Check your connection.")} /></div></div>);
-  if (state.status === "missing") return (
+  if (state.status === "error") return (<div>{back}<div className="mt-4"><ErrorBox message={t("Couldn't load this product. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div></div>);
+  if (state.status === "missing" || !listed || !selected) return (
     <div>{back}
-      <div className="mt-4"><ErrorBox message={t("That barcode isn't in our list yet.")} /></div>
-      {/* never a dead end: the ways on */}
+      {/* a barcode we don't have is an ordinary answer, not a failure: the calm line, and the ways on */}
+      <div className="mt-4"><InfoLine heading={null}>{t("We don't have {code} yet.", { code: wanted ?? code })}</InfoLine></div>
       <div className="mt-4 grid gap-2.5">
-        <LinkButton href="/app/groceries/search" full>{t("Search the supermarkets")}</LinkButton>
-        <LinkButton href="/app/groceries/list" variant="secondary" full>{t("See your shopping list")}</LinkButton>
+        <Button full onClick={() => setScanning(true)}><ScanIcon aria-hidden className="h-5 w-5" />{t("Scan again")}</Button>
+        <LinkButton href="/app/groceries/search" variant="secondary" full>{t("Search the supermarkets")}</LinkButton>
       </div>
+      <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(c) => { setScanning(false); const q = barcodeQuery(c); if (q) router.replace(`/app/groceries/product?code=${q}&scan=1`); }} />
     </div>
   );
 
-  const listed = state.product;
-  // Opened from a supermarket: that shop's own name, size, numbers and price lead; the others are listed below it.
-  const selected = retailerHint && listed.retailers.includes(retailerHint) ? retailerHint : listed.retailers[0]!;
   const p = forRetailer(listed, selected);
   const cheapestPrice = Math.min(...Object.values(listed.prices).map((x) => x.amount));
   const photos = photoSources(listed, selected);
-  const per = perLabel(p, t);
   const sizes = sizeVariants(state.all, listed);
   const rating = priceRating(state.all, listed, selected);
   const cheapest = cheapestRetailer(listed);
   const cheapestCard = cheapestRetailer(listed, true);
-  const cardLowest = (r: string) => pricedCount > 1 && cheapestCard === r && !!listed.prices[r]?.member && cheapestCard !== cheapest;
   const pricedCount = Object.keys(listed.prices).length;
+  const cardLowest = (r: string) => pricedCount > 1 && cheapestCard === r && !!listed.prices[r]?.member && cheapestCard !== cheapest;
   const here = listed.prices[selected];
   const otherShops = listed.retailers
     .filter((r) => r !== selected)
     .sort((a, b) => (listed.prices[a]?.amount ?? Number.POSITIVE_INFINITY) - (listed.prices[b]?.amount ?? Number.POSITIVE_INFINITY));
   const typeLabel = (listed.type ?? "").replace(/-/g, " ");
   const allergens: Allergens | null = p.allergens ? { contains: p.allergens.contains, mayContain: p.allergens.mayContain } : null;
+  // the numbers shown: a shop's label for this barcode where a shop list holds one, else this record's own
+  const fig = shopLabel
+    ? { kcal: shopLabel.label.kcal, protein: shopLabel.label.protein, carbs: shopLabel.label.carbs, fat: shopLabel.label.fat, saturates: shopLabel.label.saturates, sugars: shopLabel.label.sugars, fibre: shopLabel.label.fibre, salt: shopLabel.label.salt, kj: shopLabel.label.kj }
+    : { kcal: p.kcal, protein: p.protein, carbs: p.carbs, fat: p.fat, saturates: p.saturates, sugars: p.sugars, fibre: p.fibre, salt: p.salt, kj: p.kj };
+  const per = shopLabel ? (shopLabel.state ? t("per 100 {unit} ({state})", { unit: shopLabel.per, state: shopLabel.state }) : t("per 100 {unit}", { unit: shopLabel.per })) : t("per 100 {unit}", { unit: p.per });
   const rows: Array<[string, string]> = [
-    ...(p.kj !== undefined ? [[t("Energy"), `${p.kj.toLocaleString("en-GB")} kJ`] as [string, string]] : []),
-    ...(p.saturates !== undefined ? [[t("Saturates"), `${p.saturates}g`] as [string, string]] : []),
-    ...(p.sugars !== undefined ? [[t("Sugars"), `${p.sugars}g`] as [string, string]] : []),
-    ...(p.fibre !== undefined ? [[t("Fibre"), `${p.fibre}g`] as [string, string]] : []),
-    ...(p.salt !== undefined ? [[t("Salt"), `${p.salt}g`] as [string, string]] : []),
+    ...(fig.kj !== undefined ? [[t("Energy"), `${fig.kj.toLocaleString("en-GB")} kJ`] as [string, string]] : []),
+    ...(fig.saturates !== undefined ? [[t("Saturates"), `${fig.saturates}g`] as [string, string]] : []),
+    ...(fig.sugars !== undefined ? [[t("Sugars"), `${fig.sugars}g`] as [string, string]] : []),
+    ...(fig.fibre !== undefined ? [[t("Fibre"), `${fig.fibre}g`] as [string, string]] : []),
+    ...(fig.salt !== undefined ? [[t("Salt"), `${fig.salt}g`] as [string, string]] : []),
   ];
   const containsCount = p.allergens?.contains.length ?? 0;
   const dietProblem = foodDietProblem(listedFacts(listed), prefs);
+  const avoided = dietProblem === "allergen" ? avoidedAllergens(p.allergens, prefs.avoidAllergens ?? []) : null;
+  const names = (keys: readonly (keyof typeof ALLERGEN_LABEL)[]) => new Intl.ListFormat("en-GB", { type: "conjunction" }).format(keys.map((k) => t(ALLERGEN_LABEL[k])));
+  const notChecked = foodDietNotChecked(prefs, t);
   const outLink = "font-semibold text-accent underline underline-offset-4";
+  const loggable = shopLabel ? withShopLabel(loggableFromListed(listed, selected), shopLabel) : loggableFromListed(listed, selected);
+  const shopsToAdd = [...p.retailers].sort((x, y) => Number(y === selected) - Number(x === selected));
+  const others = shopsToAdd.length - 1;
 
   return (
     <div>
@@ -161,51 +237,39 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
       <div className={`${CARD} mt-3.5 overflow-hidden p-5`}>
         <ProductPhotoFigure sources={photos} />
         {p.brand && <p className="kicker">{p.brand}</p>}
-        <h1 className={`${p.brand ? "mt-1.5" : ""} text-[2rem] font-[800] leading-[1.08] tracking-[-0.02em] [overflow-wrap:anywhere]`}>{p.name}</h1>
+        <h1 className={`${p.brand ? "mt-1.5" : ""} ${productTitleClass(p.name)}`}>{p.name}</h1>
         {p.size && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{p.size}</p>}
-        {/* the person's own allergens: the one amber note; any other diet setting (vegetarian, halal...): the calm info line */}
-        {dietProblem === "allergen" ? <AllergyNote className="mt-4"><p>{t("This product doesn't fit your diet settings, going by its name, type and label.")}</p></AllergyNote>
-          : dietProblem && <InfoLine heading={null} className="mt-4">{t("This product doesn't fit your diet settings, going by its name, type and label.")}</InfoLine>}
+        {/* the person's own allergens: the one amber note, naming them; any other diet setting (vegetarian, halal...): the calm info line */}
+        {dietProblem === "allergen" ? (
+          <AllergyNote className="mt-4"><p>{avoided === null
+            ? t("No allergen record for this product, so we can't check it for your allergies. Check the pack.")
+            : avoided.contains.length > 0
+              ? t("Contains {allergens}, which you avoid.", { allergens: names(avoided.contains) })
+              : t("May contain {allergens}.", { allergens: names(avoided.mayContain) })}</p></AllergyNote>
+        ) : dietProblem ? <InfoLine heading={null} className="mt-4">{t("This product doesn't fit your diet settings, going by its name, type and label.")}</InfoLine> : null}
+        {notChecked && <InfoLine heading={null} className="mt-3">{notChecked}</InfoLine>}
         <div className="mt-7">
           <NutritionPanel
-            kcal={p.kcal} protein={p.protein} carbs={p.carbs} fat={p.fat} basis={per} rows={rows}
-            groupLabel={t("{name}, {kcal} calories, {protein} grams protein, {carbs} grams carbs, {fat} grams fat {per}", { name: p.name, kcal: p.kcal, protein: p.protein, carbs: p.carbs, fat: p.fat, per })}
+            kcal={fig.kcal} protein={fig.protein} carbs={fig.carbs} fat={fig.fat} basis={per} rows={rows}
+            groupLabel={t("{name}, {kcal} calories, {protein} grams protein, {carbs} grams carbs, {fat} grams fat {per}", { name: p.name, kcal: fig.kcal, protein: fig.protein, carbs: fig.carbs, fat: fig.fat, per })}
           />
         </div>
-        {p.serving && (
+        {p.serving && !shopLabel && (
           <p className={`app-numbers mt-5 rounded-2xl bg-fill px-4 py-3 ${NOTE}`}>
-            {t("Per serving ({size}): {kcal} kcal · {protein}g protein · {carbs}g carbs · {fat}g fat", { size: p.serving.size, kcal: Math.round(p.serving.kcal), protein: p.serving.protein, carbs: p.serving.carbs, fat: p.serving.fat })}
+            {t("Per serving ({size}): {kcal} kcal · {protein} g protein · {carbs} g carbs · {fat} g fat", { size: p.serving.size, kcal: Math.round(p.serving.kcal), protein: p.serving.protein, carbs: p.serving.carbs, fat: p.serving.fat })}
           </p>
         )}
       </div>
 
-      {p.other && (
-        <section aria-labelledby="more-label-heading" className={`${CARD} mt-3.5 p-5`}>
-          <h2 id="more-label-heading" className={HEADING}>{t("More from the label")}</h2>
-          <LabelRows text={p.other} />
-        </section>
-      )}
-
-      {p.portion && (
-        <section aria-labelledby="portion-heading" className={`${CARD} mt-3.5 p-5`}>
-          <h2 id="portion-heading" className={HEADING}>{t("Per portion")}</h2>
-          <LabelRows text={p.portion} />
-        </section>
-      )}
-
       <p className={`mt-3 px-1 ${NOTE}`}>
-        {p.source === "retailer"
-          ? <Rich text={p.checkedOn ? t("Numbers from {link}, checked {date}.", { date: formatDate(p.checkedOn, t) }) : t("Numbers from {link}.")} values={{ link: <a className="underline underline-offset-4" href={p.pageUrl} target="_blank" rel="noopener noreferrer">{t("{shop}'s own product page", { shop: retailerName(selected) })}<span className="sr-only"> {t("(opens in a new tab)")}</span></a> }} />
-          : <>{t("Numbers from Open Food Facts contributors (community data), not the supermarket.")}</>}
+        {shopLabel
+          ? shopLabel.source.kind === "same"
+            ? t("Read from the same product's page on {shopPossessive} website.", { shopPossessive: poss(retailerName(shopLabel.source.shop)) })
+            : t("Read from the product's own page on {shopPossessive} website.", { shopPossessive: poss(retailerName(shopLabel.shop ?? selected)) })
+          : p.source === "retailer"
+            ? <Rich text={p.checkedOn ? t("Numbers from {link}, checked {date}.", { date: formatDate(p.checkedOn, t) }) : t("Numbers from {link}.")} values={{ link: <a className="underline underline-offset-4" href={p.pageUrl} target="_blank" rel="noopener noreferrer">{t("{shop}'s own product page", { shop: retailerName(selected) })}<span className="sr-only"> {t("(opens in a new tab)")}</span></a> }} />
+            : <>{t("Numbers from Open Food Facts contributors (community data), not the supermarket.")}</>}
       </p>
-
-      {p.ingredients && (
-        <section aria-labelledby="ingredients-heading" className={`${CARD} mt-3.5 p-5`}>
-          <h2 id="ingredients-heading" className={HEADING}>{t("Ingredients")}</h2>
-          <p className="mt-2 text-[0.9375rem] leading-relaxed">{p.ingredients}</p>
-          <p className={`mt-3 ${NOTE}`}>{p.checkedOn ? t("As printed on {shop}'s website, checked {date}.", { shop: retailerName(selected), date: formatDate(p.checkedOn, t) }) : t("As printed on {shop}'s website.", { shop: retailerName(selected) })} {t("Recipes change, so check the pack.")}</p>
-        </section>
-      )}
 
       {listed.retailers.length > 1 && (
         <nav aria-label={t("Supermarket")} className="no-scrollbar -mx-5 mt-4 flex gap-2 overflow-x-auto px-5">
@@ -298,22 +362,48 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
       <div className={`${CARD} mt-3.5 p-5`}>
         <p className={LABEL}>{t("Add to your shopping list")}</p>
         <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-2.5">
-          {/* the shop you came from first, across the card's width; the others in equal cells two to a row under it (one a row at large text) */}
-          {[...p.retailers].sort((x, y) => Number(y === selected) - Number(x === selected)).map((r) => (
-            <Button key={r} variant={r === selected ? "primary" : "secondary"} className={r === selected ? "col-span-full" : "px-3! text-balance"} onClick={() => add({ gtin: listed.gtin, retailer: r, name: forRetailer(listed, r).name, brand: listed.brand, size: forRetailer(listed, r).size, ...withPhoto(photoSources(listed, r)) })}>
-              {r === selected && <PlusIcon className="h-[18px] w-[18px]" />}{t("Add · {shop}", { shop: retailerName(r) })}
+          {/* the shop you came from first, across the card's width; the others in equal cells two to a row under it (one a row at large text); a lone one
+              left over takes the whole row */}
+          {shopsToAdd.map((r, i) => (
+            <Button key={r} variant={r === selected ? "primary" : "secondary"} className={r === selected || (others % 2 === 1 && i === shopsToAdd.length - 1) ? "col-span-full" : "px-3! text-balance"} onClick={() => add({ gtin: listed.gtin, retailer: r, name: forRetailer(listed, r).name, brand: listed.brand, size: forRetailer(listed, r).size, ...withPhoto(photoSources(listed, r)) })}>
+              {r === selected && <PlusIcon className="h-[18px] w-[18px]" />}{r === selected ? t("Add to my list") : t("Add · {shop}", { shop: retailerName(r) })}
             </Button>
           ))}
         </div>
+        {/* the food diary: the same "How much did you have?" step as Add food (founder 2026-11-20) */}
+        <DiaryButton product={loggable} className="mt-2.5" onAdded={(entry, meal) => { setAdded(null); setDiary({ entry, meal }); }} />
         {added && (
           <Toast key={added.n} onClose={() => setAdded(null)}>
             <span>{added.text}</span> <Link href={added.href} className="font-bold text-on-ink underline underline-offset-2">{t("Open your shopping list")}</Link>
           </Toast>
         )}
+        <DiaryToast added={diary} onClose={() => setDiary(null)} />
         {sheet}
       </div>
 
       <div className="mt-3.5"><CompareButton full item={compareFoodFromListed(listed, selected)} /></div>
+
+      {p.other && (
+        <section aria-labelledby="more-label-heading" className={`${CARD} mt-3.5 p-5`}>
+          <h2 id="more-label-heading" className={HEADING}>{t("More from the label")}</h2>
+          <LabelRows text={p.other} />
+        </section>
+      )}
+
+      {p.portion && (
+        <section aria-labelledby="portion-heading" className={`${CARD} mt-3.5 p-5`}>
+          <h2 id="portion-heading" className={HEADING}>{t("Per portion")}</h2>
+          <LabelRows text={p.portion} />
+        </section>
+      )}
+
+      {p.ingredients && (
+        <section aria-labelledby="ingredients-heading" className={`${CARD} mt-3.5 p-5`}>
+          <h2 id="ingredients-heading" className={HEADING}>{t("Ingredients")}</h2>
+          <p className="mt-2 text-[0.9375rem] leading-relaxed">{p.ingredients}</p>
+          <p className={`mt-3 ${NOTE}`}>{p.checkedOn ? t("As printed on {shop}'s website, checked {date}.", { shop: retailerName(selected), date: formatDate(p.checkedOn, t) }) : t("As printed on {shop}'s website.", { shop: retailerName(selected) })} {t("Products change, so check the pack.")}</p>
+        </section>
+      )}
 
       {rating && (
         <section aria-labelledby="rating-heading" className={`${CARD} mt-3.5 p-5`}>
@@ -326,7 +416,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
               ? t("Costs less per kg than {pct}% of {n} similar products. {price} per kg here; the middle is {median}.", { pct: rating.cheaperThanPct, n: rating.n, price: formatPrice(rating.mine), median: formatPrice(rating.median) })
               : t("Costs less per litre than {pct}% of {n} similar products. {price} per litre here; the middle is {median}.", { pct: rating.cheaperThanPct, n: rating.n, price: formatPrice(rating.mine), median: formatPrice(rating.median) })}
           </p>
-          {rating.proteinPerPound > 0 && <p className="app-numbers mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("{g}g of protein for every £1.", { g: rating.proteinPerPound })}</p>}
+          {rating.proteinPerPound > 0 && <p className="app-numbers mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("{g} g of protein for every £1.", { g: rating.proteinPerPound })}</p>}
           <p className={`mt-3 ${NOTE}`}>{typeLabel ? t("Compared with the other {type} we have prices for, using the lowest price we've read for each. This is about price only.", { type: typeLabel }) : t("Compared with other similar products we have prices for, using the lowest price we've read for each. This is about price only.")}</p>
         </section>
       )}
@@ -347,16 +437,16 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
         {allergens && <AllergenTable allergens={allergens} caption={t("Allergens in {name}, from Open Food Facts contributors", { name: p.name })} columnLabel={t("This product")} />}
         <p className={`flex gap-2 border-t border-line px-5 py-4 ${NOTE}`}>
           <InfoIcon className="mt-px h-4 w-4 shrink-0 text-foreground" />
-          <span>{p.updated ? t("Community data from Open Food Facts, last edited {date}: recipes change and entries can be wrong, so always read the pack before you buy.", { date: formatDate(p.updated, t) }) : t("Community data from Open Food Facts: recipes change and entries can be wrong, so always read the pack before you buy.")} {t("“Not listed” means nothing is recorded, not that the product is free from it.")}</span>
+          <span>{p.updated ? t("Community data from Open Food Facts, last edited {date}: products change and entries can be wrong, so always read the pack before you buy.", { date: formatDate(p.updated, t) }) : t("Community data from Open Food Facts: products change and entries can be wrong, so always read the pack before you buy.")} {t("“Not listed” means nothing is recorded, not that the product is free from it.")}</span>
         </p>
       </section>
 
-      <section aria-labelledby="barcode-heading" className={`${CARD} mt-3.5 flex items-center justify-between gap-3 p-5`}>
+      <section aria-labelledby="barcode-heading" className={`${CARD} mt-3.5 flex flex-wrap items-center justify-between gap-3 p-5`}>
         <div className="min-w-0">
           <h2 id="barcode-heading" className={LABEL}>{t("Barcode")}</h2>
-          <p className="app-numbers mt-1.5 select-all font-mono text-lg tracking-[0.08em] [overflow-wrap:anywhere]">{p.gtin}</p>
+          <p className="app-numbers mt-1.5 select-all font-mono text-base tracking-[0.04em] [overflow-wrap:anywhere]">{p.gtin}</p>
         </div>
-        <Button variant="secondary" onClick={() => { void navigator.clipboard?.writeText(p.gtin).then(() => setCopied(true), () => undefined); }}><CopyIcon className="h-5 w-5" />{copied ? t("Copied") : t("Copy")}</Button>
+        <Button variant="secondary" className="shrink-0 whitespace-nowrap" onClick={() => { void navigator.clipboard?.writeText(p.gtin).then(() => setCopied(true), () => undefined); }}><CopyIcon className="h-5 w-5" />{copied ? t("Copied") : t("Copy")}</Button>
       </section>
 
       <FootNote>

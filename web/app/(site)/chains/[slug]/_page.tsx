@@ -30,7 +30,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     f.fewestCalories ? `fewest calories: ${f.fewestCalories.name} (${Math.round(f.fewestCalories.nutrients.calories)} kcal)` : null,
   ].filter(Boolean);
   const description = `${chain.name} nutrition: ${bits.join("; ")}. Copied from ${chain.name}'s own published guide.`;
-  const title = `${chain.name} calories and protein`;
+  // a chain that publishes calories only is never promised protein (the overnight audit, 20 November 2026)
+  const title = chain.nutritionLevel === "calories" ? `${chain.name} calories` : `${chain.name} calories and protein`;
   return {
     title,
     description,
@@ -59,7 +60,7 @@ export default async function ChainPage({ params }: Params) {
   return (
     <article className="mx-auto w-full max-w-3xl px-5 py-8">
       <Crumbs items={[{ name: site.name, href: "/" }, { name: "Restaurants", href: "/chains" }, { name: chain.name }]} />
-      <h1 className="mt-3 text-4xl font-extrabold leading-tight tracking-tight">{chain.name}: calories and protein for every menu item</h1>
+      <h1 className="mt-3 text-4xl font-extrabold leading-tight tracking-tight">{chain.name}: {full ? "calories and protein" : "calories"} for every menu item</h1>
       <p className="mt-3 text-lg leading-relaxed">
         {chain.items.length} items from {chain.name}&apos;s own published nutrition guide (checked {checkedOn}), with {full ? "calories, protein, carbs, fat and the official traffic-light colours" : "calories"}.
         {" "}

@@ -69,7 +69,9 @@
    "nutrients": {
     "calories": 715
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -338,7 +340,9 @@
    "nutrients": {
     "calories": 707
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -886,7 +890,9 @@
    "nutrients": {
     "calories": 194
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],

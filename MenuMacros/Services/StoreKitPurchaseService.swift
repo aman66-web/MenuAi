@@ -2,7 +2,7 @@ import OSLog
 import StoreKit
 import UIKit
 
-/// The App Store, through StoreKit 2. Needs the In-App Purchase capability and the three products in App Store Connect (AppConfig.iapProductIDs);
+/// The App Store, through StoreKit 2. Needs the In-App Purchase capability and our two subscriptions in App Store Connect (AppConfig.iapProductIDs);
 /// Config/Numbite.storekit has them for testing in Xcode and in the unit tests.
 final class StoreKitPurchaseService: PurchaseService {
     /// Listens for transactions that don't come back from `purchase(id:)`: renewals, Ask to Buy approvals, refunds, purchases made on another device or
@@ -19,7 +19,8 @@ final class StoreKitPurchaseService: PurchaseService {
     }
 
     /// A verified transaction is finished (Apple keeps offering an unfinished one); the page reads what it unlocks from `currentEntitlements`, which it
-    /// asks for at launch and whenever the app comes back to the front. An unverified one is never finished or granted.
+    /// asks for at launch, whenever the app comes back to the front, and at once when this says something arrived (NativeBridge passes the note on to the page).
+    /// An unverified one is never finished or granted.
     nonisolated static func handle(_ update: VerificationResult<Transaction>) async {
         guard case .verified(let transaction) = update else {
             if case .unverified(let transaction, let error) = update {
@@ -30,6 +31,7 @@ final class StoreKitPurchaseService: PurchaseService {
         let state = transaction.revocationDate == nil ? "active" : "refunded or revoked"
         Logger.purchases.info("Purchase update for \(transaction.productID, privacy: .public): \(state, privacy: .public)")
         await transaction.finish()
+        await MainActor.run { NotificationCenter.default.post(name: .numbitePurchasesChanged, object: nil) }
     }
 
     func products(ids: [String]) async -> [IAPProduct]? {
@@ -141,7 +143,7 @@ final class StoreKitPurchaseService: PurchaseService {
         return days * max(1, offer.periodCount)
     }
 
-    /// "year" or "month" for a subscription that renews every 1 year or 1 month; anything else (the 90-day pass) is "none".
+    /// "year" or "month" for a subscription that renews every 1 year or 1 month; anything else is "none" (none is sold: Annual and Monthly are the only products).
     private static func period(of product: Product) -> IAPProduct.Period {
         guard product.type == .autoRenewable, let period = product.subscription?.subscriptionPeriod, period.value == 1 else { return .noRenewal }
         switch period.unit {
@@ -156,4 +158,10 @@ final class StoreKitPurchaseService: PurchaseService {
         let scenes = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
         return scenes.first { $0.activationState == .foregroundActive } ?? scenes.first
     }
+}
+
+extension Notification.Name {
+    /// Posted on the main actor when StoreKit reports a verified purchase update while the app runs (a renewal, an Ask to Buy approval, a refund, a purchase
+    /// made on another device).
+    nonisolated static let numbitePurchasesChanged = Notification.Name("NumbitePurchasesChanged")
 }

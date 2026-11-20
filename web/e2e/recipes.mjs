@@ -1,9 +1,10 @@
-// Recipes from your shop: list (165 recipes: meal chips, search, paging), filters, sort, cuisine and occasion, a recipe with swap, substitutes and "add all to my
+// Recipes from your shop: list (every recipe Sainsbury's can make, RECIPE_COVERAGE: 165 on 17 November, 178 with the new breakfasts on 20 November: meal chips, search, paging), filters, sort, cuisine and occasion, a recipe with swap, substitutes and "add all to my
 // list", the list's price total, My meals (from Recipes' My recipes), Pip's recipe maker switched off (free launch), axe.
 // Uses the real published Sainsbury's list (public/groceries/all/sainsburys.json); the shop's pictures are answered locally.
 // Run against a production build: BASE=http://localhost:3101 node e2e/recipes.mjs
 import { chromium } from "playwright-core";
 import { createRequire } from "node:module";
+import { readFileSync } from "node:fs";
 const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
 const BASE = process.env.BASE ?? "http://localhost:3101";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
@@ -20,10 +21,15 @@ async function newPage(colorScheme = "light", data = settings) {
   return { ctx, page };
 }
 let passed = 0, failed = 0;
-async function step(name, fn) { try { await fn(); passed++; console.log("PASS", name); } catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n")[0]); } }
+// ONLY="<start of a step's name>" runs that step alone; a failure names what it waited for
+async function step(name, fn) { if (process.env.ONLY && !name.startsWith(process.env.ONLY)) return; try { await fn(); passed++; console.log("PASS", name); } catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n")[0], (String(e.message).match(/waiting for (.*)/) ?? [])[1] ?? "", (String(e.stack).match(/recipes\.mjs:\d+/) ?? [""])[0]); } }
 const expect = (c, m) => { if (!c) throw new Error(m); };
 const money = (t) => Number(/£(\d+\.\d\d)/.exec(t)?.[1] ?? NaN);
 const lines = (text) => text.split("\n").map((l) => l.trim());
+// how many recipes Sainsbury's can make (lib/mm/recipeCoverage.ts, generated from the data by tests/recipeCoverage.test.ts): the count Recipes shows for it
+const SAINS = Number(/"sainsburys":\s*(\d+)/.exec(readFileSync(new URL("../lib/mm/recipeCoverage.ts", import.meta.url), "utf8"))?.[1]);
+const ALL_HEAD = new RegExp(`All recipes · ${SAINS}`);
+const ALL_COUNT = new RegExp(`^${SAINS} recipes$`);
 
 await step("the tab bar opens Recipes; Recipes' My recipes opens My meals, one page with two tabs (no tile on Home since 2026-11-19); the old addresses forward to it", async () => {
   const { ctx, page } = await newPage();
@@ -33,12 +39,13 @@ await step("the tab bar opens Recipes; Recipes' My recipes opens My meals, one p
   await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Recipes" }).click();
   await page.getByRole("heading", { level: 1, name: "What's cooking today?" }).waitFor();
   await page.getByRole("link", { name: /^My recipes/ }).click();
-  await page.getByRole("heading", { level: 1, name: "My meals" }).waitFor();
+  // reached from Recipes the page is called My recipes and Back goes to Recipes (the 20 November 2026 audit: one place had four names)
+  await page.getByRole("heading", { level: 1, name: "My recipes" }).waitFor();
   await page.getByRole("tab", { name: /^Recipes/, selected: true }).waitFor();
   await page.getByText("No saved recipes yet").waitFor();
   await page.getByRole("tab", { name: /Restaurant meals/ }).click();
   await page.getByText("No saved orders yet").waitFor();
-  await page.waitForURL("**/app/meals?tab=restaurant");
+  await page.waitForURL("**/app/meals?tab=restaurant&from=recipes");
   await page.goto(BASE + "/app/recipes/saved");
   await page.waitForURL("**/app/meals?tab=recipes");
   await page.getByRole("tab", { name: /^Recipes/, selected: true }).waitFor();
@@ -50,7 +57,7 @@ await step("the tab bar opens Recipes; Recipes' My recipes opens My meals, one p
   await ctx.close();
 });
 
-await step("recipes list: picked for you, 165 recipes priced at Sainsbury's, 24 at a time, meal tiles, search, filters, sort by price under More, save with the heart", async () => {
+await step("recipes list: picked for you, every recipe priced at Sainsbury's, 24 at a time, meal tiles, search, filters, sort by price under More, save with the heart", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/recipes");
   await page.getByText(/Made with real Sainsbury's products and prices|Every ingredient is a real product at Sainsbury's/).waitFor();
@@ -59,29 +66,37 @@ await step("recipes list: picked for you, 165 recipes priced at Sainsbury's, 24 
   expect((await picks.count()) === 8, `8 picked for you, got ${await picks.count()}`);
   const cards = page.getByRole("region", { name: /All recipes/ }).locator("a[href*='/app/recipes/view']");
   await cards.first().waitFor();
-  await page.getByRole("heading", { name: /All recipes · 165/ }).waitFor();
-  await page.getByRole("status").filter({ hasText: /^165 recipes$/ }).waitFor();
+  await page.getByRole("heading", { name: ALL_HEAD }).waitFor();
+  await page.getByRole("status").filter({ hasText: ALL_COUNT }).waitFor();
   expect((await cards.count()) === 24, `24 shown first, got ${await cards.count()}`);
   // every card shows calories, protein, carbs and fat as four chips (founder 2026-10-16: "Add the fats and carbs to each of the recipes also")
   const cardText = await cards.evaluateAll((els) => els.map((el) => el.textContent ?? ""));
   const noFour = cardText.filter((s) => !(/\d\s*kcal/.test(s) && /\d+g\s*protein/.test(s) && /\d+g\s*carbs/.test(s) && /\d+g\s*fat/.test(s)));
   expect(noFour.length === 0, `${noFour.length} of 24 cards lack kcal, protein, carbs or fat: ${noFour[0] ?? ""}`);
-  await page.getByRole("button", { name: "Show more recipes (141 more)" }).click();
+  await page.getByRole("button", { name: `Show more recipes (${SAINS - 24} more)` }).click();
   expect((await cards.count()) === 48, `48 after Show more, got ${await cards.count()}`);
   const tiles = page.getByRole("group", { name: "Filters" });
+  /** The "n recipes match" line once it has changed from `was` (the counts follow the recipe book: new breakfasts came on 20 November). */
+  const matching = async (was) => {
+    const line = page.getByRole("status").filter({ hasText: /recipes? match$/ });
+    await page.waitForFunction((w) => [...document.querySelectorAll("[role=status]")].some((el) => /^\d+ recipes? match$/.test(el.textContent.trim()) && el.textContent.trim() !== w), was ?? "", { timeout: 30000 });
+    return Number(/^(\d+)/.exec((await line.first().innerText()).trim())?.[1]);
+  };
   await tiles.getByRole("button", { name: "Snacks" }).click();
-  await page.getByRole("status").filter({ hasText: /^17 recipes match$/ }).waitFor();
+  const snacks = await matching();
+  expect(snacks >= 5 && snacks < SAINS / 2, `snacks: ${snacks}`);
   expect((await page.getByRole("region", { name: "Picked for you" }).count()) === 0, "picks hide while filtering");
-  // founder 2026-11-18: several meals at once show any of them (17 snacks and 31 breakfasts)
+  // founder 2026-11-18: several meals at once show any of them (the snacks and the breakfasts together)
   await tiles.getByRole("button", { name: "Breakfast" }).click();
-  await page.getByRole("status").filter({ hasText: /^48 recipes match$/ }).waitFor();
+  const both = await matching(`${snacks} recipes match`);
   await tiles.getByRole("button", { name: "Snacks" }).click();
-  await page.getByRole("status").filter({ hasText: /^31 recipes match$/ }).waitFor();
+  const breakfasts = await matching(`${both} recipes match`);
+  expect(breakfasts >= 20 && both === snacks + breakfasts, `breakfast and snacks: ${both}, snacks ${snacks}, breakfasts ${breakfasts}`);
   await tiles.getByRole("button", { name: "Quick" }).click();
   const quick = Number(/^(\d+) recipes? match$/.exec((await page.getByRole("status").filter({ hasText: /match$/ }).innerText()).trim())?.[1]);
-  expect(quick >= 1 && quick < 20, `quick breakfasts, got ${quick}`);
+  expect(quick >= 1 && quick < breakfasts, `quick breakfasts, got ${quick} of ${breakfasts}`);
   await page.getByRole("button", { name: "Clear" }).click();
-  await page.getByRole("status").filter({ hasText: /^165 recipes$/ }).waitFor();
+  await page.getByRole("status").filter({ hasText: ALL_COUNT }).waitFor();
   await tiles.getByRole("button", { name: "Vegan" }).click();
   const vegan = Number(/^(\d+) recipes match$/.exec((await page.getByRole("status").filter({ hasText: /match$/ }).innerText()).trim())?.[1]);
   expect(vegan >= 40 && vegan < 80, `vegan recipes, got ${vegan}`);
@@ -93,24 +108,24 @@ await step("recipes list: picked for you, 165 recipes priced at Sainsbury's, 24 
   await page.getByLabel("Search recipes").fill("zzzz");
   await page.getByText("No recipes match.").last().waitFor();
   await page.getByRole("button", { name: "Show all recipes" }).click();
-  await page.getByRole("status").filter({ hasText: /^165 recipes$/ }).waitFor();
+  await page.getByRole("status").filter({ hasText: ALL_COUNT }).waitFor();
   await tiles.getByRole("button", { name: "No meat or fish" }).click();
   const m = Number(/^(\d+) recipes match$/.exec((await page.getByRole("status").filter({ hasText: /recipes match$/ }).innerText()).trim())?.[1]);
-  expect(m >= 30 && m < 100, `30+ meat-free recipes, got ${m}`);
+  expect(m >= 30 && m < SAINS, `30+ meat-free recipes, and not all, got ${m} of ${SAINS}`);
   await tiles.getByRole("button", { name: "No meat or fish" }).click();
-  await page.getByRole("status").filter({ hasText: /^165 recipes$/ }).waitFor();
+  await page.getByRole("status").filter({ hasText: ALL_COUNT }).waitFor();
   await tiles.getByRole("button", { name: "More" }).click();
   await page.getByRole("radio", { name: "Lowest price" }).click();
-  await page.getByRole("dialog", { name: "Filters" }).getByRole("button", { name: "Show 165 recipes" }).click();
+  await page.getByRole("dialog", { name: "Filters" }).getByRole("button", { name: `Show ${SAINS} recipes` }).click();
   await page.waitForTimeout(200);
   const prices = [];
   for (let i = 0; i < 3; i++) prices.push(money((await cards.nth(i).innerText()).replace(/\n/g, " ")));
   expect(prices.every((p, i) => i === 0 || prices[i - 1] <= p), `cheapest first, got ${prices}`);
   await page.getByText(/Prices from Sainsbury's website, checked/).waitFor();
-  // the heart on a card saves it to My meals, and the heart at the top counts it
+  // the heart on a card saves it to My recipes, and the heart at the top counts it
   const first = cards.first().locator("xpath=..");
-  await first.getByRole("button", { name: "Save to My meals", pressed: false }).click();
-  await first.getByRole("button", { name: "Saved to My meals", pressed: true }).waitFor();
+  await first.getByRole("button", { name: "Save to My recipes", pressed: false }).click();
+  await first.getByRole("button", { name: "Saved to My recipes", pressed: true }).waitFor();
   await page.getByRole("link", { name: "My recipes · 1" }).waitFor();
   await ctx.close();
 });
@@ -147,8 +162,9 @@ await step("a recipe: per-serving numbers, what to buy, swap an ingredient, add 
   const after = await riceRow.innerText();
   expect(after !== before && after.includes(second), `swapped to ${second}`);
   await page.getByRole("button", { name: "Add all to my shopping list" }).click();
-  await page.getByText("Added 6 products to your Sainsbury's list.").waitFor();
-  await page.getByRole("link", { name: "See list" }).click();
+  await page.getByText("Added 6 products to your shopping list.").waitFor();
+  // once added, the button itself says so and opens the list (a second tap never adds twice: usability test 2026-11-19)
+  await page.getByRole("link", { name: "Added: see your list" }).click();
   await page.getByRole("heading", { level: 1, name: "Shopping list" }).waitFor();
   const section = page.getByRole("region", { name: "Sainsbury's" });
   expect((await section.getByRole("checkbox").count()) === 6, "6 items on the list (not the cumin)"); // the card's last row is "Add more from Sainsbury's", not an item
@@ -177,12 +193,12 @@ await step("Shopping list: type an item, tick it off, see the recipes it makes, 
   const first = page.locator("ul > li.glass").first();
   await first.getByText(/You have 1 of \d+ ingredients/).waitFor();
   await first.getByRole("button", { name: /^Add the (other \d+|last one) to my list$/ }).click();
-  await first.getByText(/Added \d+ products? to your Sainsbury's list\./).waitFor();
+  await first.getByText(/Added \d+ products? to .+\./).waitFor(); // names the list it went on (several shopping lists)
   const n = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.shopping")).data.length);
   expect(n > 1, `list has ${n} items`);
   await first.getByRole("link").first().click();
-  await page.getByRole("button", { name: "Save to My meals" }).click();
-  await page.getByRole("button", { name: "Saved to My meals", pressed: true }).waitFor();
+  await page.getByRole("button", { name: "Save to My recipes" }).click();
+  await page.getByRole("button", { name: "Saved to My recipes", pressed: true }).waitFor();
   await page.goto(BASE + "/app/meals");
   await page.getByRole("tab", { name: /^Recipes · 1/, selected: true }).waitFor();
   await page.locator("a[href*='/app/recipes/view']").first().waitFor();
@@ -190,7 +206,7 @@ await step("Shopping list: type an item, tick it off, see the recipes it makes, 
   await ctx.close();
 });
 
-await step("My meals: the heart takes a saved recipe out with an Undo at the top of the screen that puts it back where it was, with its date; the empty state says how to save one", async () => {
+await step("My meals: the heart takes a saved recipe out with an Undo just above the tab bar that puts it back where it was, with its date; the empty state says how to save one", async () => {
   const { ctx, page } = await newPage();
   const seed = (data) => page.evaluate((d) => localStorage.setItem("mm.v1.savedRecipes", JSON.stringify({ v: 1, data: d })), data);
   const stored = () => page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.savedRecipes") ?? "null")?.data);
@@ -203,29 +219,35 @@ await step("My meals: the heart takes a saved recipe out with an Undo at the top
   const card = page.locator("a[href*='/app/recipes/view?id=chicken-curry']");
   await card.waitFor();
   // the numbers sit on one strip of three under the name: protein, carbs, fat
-  const strip = await card.evaluate((a) => [...a.querySelectorAll(".grid-cols-3 > span")].map((s) => s.textContent));
-  expect(strip.length === 3 && /^\d+g protein$/.test(strip[0]) && /^\d+g carbs$/.test(strip[1]) && /^\d+g fat$/.test(strip[2]), "one strip of protein, carbs, fat: " + JSON.stringify(strip));
-  const heart = card.locator("xpath=..").getByRole("button", { name: "Saved to My meals", pressed: true });
+  // (the cells, in order, and all three in the one strip: a container query lays them in a row, or one under another on a narrow card)
+  const strip = await card.evaluate((a) => {
+    const cells = [...a.querySelectorAll("span")].filter((s) => /^\d+g (protein|carbs|fat)$/.test(s.textContent ?? ""));
+    return { words: cells.map((s) => s.textContent), oneStrip: cells.length > 0 && cells.every((c) => c.parentElement === cells[0].parentElement) };
+  });
+  expect(strip.oneStrip && strip.words.length === 3 && /^\d+g protein$/.test(strip.words[0]) && /^\d+g carbs$/.test(strip.words[1]) && /^\d+g fat$/.test(strip.words[2]), "one strip of protein, carbs, fat: " + JSON.stringify(strip));
+  const heart = card.locator("xpath=..").getByRole("button", { name: "Saved to My recipes", pressed: true });
   await heart.click();
   await card.waitFor({ state: "detached" });
-  const bar = page.getByRole("status").filter({ hasText: "Removed “Chicken curry with rice” from My meals." });
+  const bar = page.getByRole("status").filter({ hasText: "Removed “Chicken curry with rice” from My recipes." });
   await bar.waitFor();
   const box = await bar.boundingBox();
-  expect(box && box.y < 120, `the Undo bar sits at the top of the screen, y=${box?.y}`);
+  // just above the tab bar since the 30-person audit (20 November 2026: at the top it covered Back, the Shopping list and the cog)
+  const tabs = await page.getByRole("navigation", { name: "Main" }).boundingBox();
+  expect(box && tabs && box.y > 844 / 2 && box.y + box.height <= tabs.y, `the Undo bar sits just above the tab bar: ${JSON.stringify({ box, tabs })}`);
   await page.getByText("No saved recipes yet").waitFor();
   await page.getByText("Tap the heart on any recipe, or Save at the top of a recipe, and it will be here next time.").waitFor();
-  expect((await page.getByText("Save to My meals”").count()) === 0, "the empty state no longer names a button that doesn't exist");
+  expect((await page.getByText(/Save to My (meals|recipes)”/).count()) === 0, "the empty state no longer names a button that doesn't exist");
   expect(JSON.stringify(await stored()) === "[]", "taken out of the store: " + JSON.stringify(await stored()));
   await bar.getByRole("button", { name: "Undo" }).click();
   await card.waitFor();
-  await card.locator("xpath=..").getByRole("button", { name: "Saved to My meals", pressed: true }).waitFor();
+  await card.locator("xpath=..").getByRole("button", { name: "Saved to My recipes", pressed: true }).waitFor();
   await bar.waitFor({ state: "detached" });
   expect(JSON.stringify(await stored()) === JSON.stringify([curry]), "put back with its date: " + JSON.stringify(await stored()));
   // with two saved, taking out the first and undoing puts it back first, not at the end
   await seed([curry, chilli]);
   await page.reload();
   await page.locator("a[href*='/app/recipes/view?id=beef-chilli']").waitFor();
-  await card.locator("xpath=..").getByRole("button", { name: "Saved to My meals", pressed: true }).click();
+  await card.locator("xpath=..").getByRole("button", { name: "Saved to My recipes", pressed: true }).click();
   await card.waitFor({ state: "detached" });
   await bar.getByRole("button", { name: "Undo" }).click();
   await card.waitFor();
@@ -256,20 +278,19 @@ await step("a substitute: use Quorn or tofu instead of chicken, and back again",
   await ctx.close();
 });
 
-await step("a recipe page: Back and the Settings cog on the picture, Save beside the title, cook for more or fewer people, Ingredients and Method tabs", async () => {
+await step("a recipe page: Back and Save on the picture, cook for more or fewer people, Ingredients and Method tabs", async () => {
   const { ctx, page } = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, recipeMeal: { size: "written", moreProtein: false } } }));
   await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
   await page.getByRole("heading", { level: 1, name: "Chicken curry with rice" }).waitFor();
   await page.getByRole("link", { name: /^Back( to recipes)?$/ }).waitFor(); // "Back to recipes" when opened by address (as here), plain "Back" when reached from another page of the app
-  // the photo's top right is the Settings cog (colour meeting, 19 November 2026); Save moved beside the title, with its word
-  const cog = await page.getByRole("link", { name: "Settings", exact: true }).first().boundingBox();
-  expect(cog && cog.y < 120 && cog.x > page.viewportSize().width / 2, "the Settings cog isn't at the picture's top right: " + JSON.stringify(cog));
-  const saveButton = page.getByRole("button", { name: "Save to My meals", pressed: false });
-  const [saveBox, titleBox] = [await saveButton.boundingBox(), await page.getByRole("heading", { level: 1, name: "Chicken curry with rice" }).boundingBox()];
-  expect(saveBox && titleBox && saveBox.y >= titleBox.y - 60 && saveBox.y <= titleBox.y + titleBox.height + 60, "Save isn't beside the title: " + JSON.stringify({ saveBox, titleBox }));
+  // Save is at the photo's top right, in place of the Settings cog (founder 2026-11-20: "Move the save into the top right instead of settings"), with its word
+  const saveButton = page.getByRole("button", { name: "Save to My recipes", pressed: false });
+  const saveBox = await saveButton.boundingBox();
+  expect(saveBox && saveBox.y < 120 && saveBox.x > page.viewportSize().width / 2, "Save isn't at the picture's top right: " + JSON.stringify(saveBox));
+  expect((await page.getByRole("link", { name: "Settings", exact: true }).count()) === 0, "the Settings cog is still on a recipe that can be saved");
   expect((await saveButton.innerText()).trim() === "Save", "the button doesn't say Save");
   await saveButton.click();
-  await page.getByRole("button", { name: "Saved to My meals", pressed: true }).waitFor();
+  await page.getByRole("button", { name: "Saved to My recipes", pressed: true }).waitFor();
   const chicken = page.getByRole("heading", { name: "What to buy" }).locator("xpath=..").locator("li").first();
   // founder 2026-11-17: each ingredient shows what the amount used costs ("£1.39 used"), in the green of "a serving"; it grows with the people
   const usedOf = async () => Number(((await chicken.innerText()).match(/£(\d+\.\d\d) used/) ?? [])[1] ?? NaN);
@@ -495,7 +516,7 @@ await step("cuisine and occasion: side by side, each opens the Filters sheet at 
   const showButton = () => sheet.getByRole("button", { name: /^Show \d+ recipes?$|^No recipes match\.$/ });
   const noSideways = async (where) => expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), `${where}: no sideways scroll`);
   await page.goto(BASE + "/app/recipes");
-  await page.getByRole("heading", { name: /All recipes · 165/ }).waitFor();
+  await page.getByRole("heading", { name: ALL_HEAD }).waitFor();
   const cuisine = page.getByRole("button", { name: /^Cuisine/ });
   const occasion = page.getByRole("button", { name: /^Occasion/ });
   await cuisine.waitFor();
@@ -571,24 +592,24 @@ await step("cuisine and occasion: side by side, each opens the Filters sheet at 
     }
   }
   await sheet.getByRole("button", { name: "Clear all" }).click();
-  await page.getByRole("status").filter({ hasText: /^165 recipes$/ }).waitFor();
+  await page.getByRole("status").filter({ hasText: ALL_COUNT }).waitFor();
   await page.waitForURL((u) => u.search === "");
   for (const group of ["Meal", "Only show", "Cuisine", "Occasion"]) expect((await sheet.getByRole("group", { name: group, exact: true }).locator("[aria-pressed=true]").count()) === 0, `Clear all takes off every ${group} choice`);
   await sheet.getByRole("button", { name: "Close" }).click();
   // a bad address is read as no choice: an unknown name, a cuisine with too few recipes, an occasion that does not exist, another separator
   for (const q of ["?cuisine=klingon&occasion=nope", "?cuisine=japanese", "?cuisine=thai&occasion=easter", "?cuisine=chinese;indian"]) {
     await page.goto(BASE + "/app/recipes" + q);
-    await page.getByRole("heading", { name: /All recipes · 165/ }).waitFor();
-    await page.getByRole("status").filter({ hasText: /^165 recipes$/ }).waitFor();
+    await page.getByRole("heading", { name: ALL_HEAD }).waitFor();
+    await page.getByRole("status").filter({ hasText: ALL_COUNT }).waitFor();
     expect((await cuisine.innerText()).includes("Any cuisine") && (await occasion.innerText()).includes("Any occasion"), `${q}: no choice`);
   }
   // a link with two cuisines, a reload and Back from a recipe keep the choice
   await page.goto(BASE + "/app/recipes?cuisine=indian,chinese");
-  await page.getByRole("heading", { name: /All recipes · 165/ }).waitFor();
+  await page.getByRole("heading", { name: ALL_HEAD }).waitFor();
   await status().waitFor();
   expect((await matchCount()) === chinese + indianAll && (await cuisine.innerText()).includes("Chinese, Indian"), "?cuisine=indian,chinese: both chosen, in the catalogue's order");
   await page.goto(BASE + "/app/recipes?cuisine=indian");
-  await page.getByRole("heading", { name: /All recipes · 165/ }).waitFor();
+  await page.getByRole("heading", { name: ALL_HEAD }).waitFor();
   await status().waitFor();
   const indian = await matchCount();
   expect(indian === indianAll && (await cuisine.innerText()).includes("Indian"), `?cuisine=indian: ${indian} Indian recipes chosen`);
@@ -598,7 +619,7 @@ await step("cuisine and occasion: side by side, each opens the Filters sheet at 
   const first = page.getByRole("region", { name: /All recipes/ }).locator("a[href*='/app/recipes/view']").first();
   await first.click();
   await page.waitForURL((u) => u.pathname.startsWith("/app/recipes/view"));
-  await page.getByRole("button", { name: /^Save to My meals/ }).waitFor();
+  await page.getByRole("button", { name: /^Save to My recipes/ }).waitFor();
   await page.goBack();
   await status().waitFor();
   expect((await cuisine.innerText()).includes("Indian") && (await matchCount()) === indian, "Back from a recipe finds Indian still chosen");
@@ -624,7 +645,7 @@ await step("cuisine and occasion: side by side, each opens the Filters sheet at 
   const bCount = async (group, word) => Number(/· (\d+)$/.exec((await bChip(group, word).innerText()).trim())?.[1]);
   const bStatus = () => bp.getByRole("status").filter({ hasText: /recipes? match$/ });
   await bp.goto(BASE + "/app/recipes");
-  await bp.getByRole("heading", { name: /All recipes · 165/ }).waitFor();
+  await bp.getByRole("heading", { name: ALL_HEAD }).waitFor();
   await bp.getByRole("button", { name: /^Occasion/ }).click();
   const picnic = await bCount("Occasion", "Picnic");
   expect(picnic >= 8, `Picnic has plenty: ${picnic}`);
@@ -641,7 +662,7 @@ await step("cuisine and occasion: side by side, each opens the Filters sheet at 
   await bSheet.getByRole("button", { name: /^Show \d+ recipes?$/ }).click();
   await bp.getByRole("link", { name: /Houmous with vegetable sticks/ }).waitFor();
   await bp.getByRole("button", { name: "Clear" }).click();
-  await bp.getByRole("status").filter({ hasText: /^165 recipes$/ }).waitFor();
+  await bp.getByRole("status").filter({ hasText: ALL_COUNT }).waitFor();
   expect((await bp.getByRole("button", { name: /^Cuisine/ }).innerText()).includes("Any cuisine") && (await bp.getByRole("button", { name: /^Occasion/ }).innerText()).includes("Any occasion"), "Clear resets both fields");
   // the search finds a recipe by its cuisine or occasion word
   await bp.getByLabel("Search recipes").fill("chinese");

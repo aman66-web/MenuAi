@@ -16,12 +16,16 @@ export interface KindInput {
 
 const ADDON_SECTION = /\b(?:add[- ]?ons?|extras?|toppings?|upgrades?|modifiers?|make it a|build your own extras)\b/;
 const DRINK_SECTION =
-  /\b(?:drinks?|beverages?|coffees?|teas?|lattes?|cappuccinos?|espressos?|americanos?|mochas?|matcha|chai|smoothies?|milk ?shakes?|shakes?|frapp[eé]s?|juices?|sodas?|colas?|lemonades?|refreshers?|fizz|mocktails?|cocktails?|spirits?|liqueurs?|wines?|beers?|lagers?|ciders?|ales?|stouts?|gins?|rums?|whisk(?:e)?ys?|vodkas?|prosecco|champagne|squash|kombucha|cold brew|hot chocolates?|iced|frozen drinks?|freestyle)\b/;
+  /\b(?:drinks?|beverages?|coffees?|teas?|lattes?|cappuccinos?|espressos?|americanos?|mochas?|matcha|chai|smoothies?|milk ?shakes?|shakes?|juices?|sodas?|colas?|lemonades?|refreshers?|fizz|mocktails?|cocktails?|spirits?|liqueurs?|wines?|beers?|lagers?|ciders?|ales?|stouts?|gins?|rums?|whisk(?:e)?ys?|vodkas?|prosecco|champagne|squash|kombucha|cold brew|hot chocolates?|iced|frozen drinks?|freestyle)\b|\bfrapp[eé]s?(?!\p{L})/u; // "Frappé": \b can't follow the é
 const SAUCE_SECTION = /\b(?:sauces?|dips?|dressings?|condiments?|marinades?|spreads?)\b/;
 const KIDS_SECTION = /\b(?:kids?|children'?s?|childrens?|junior|little ones|mini meals?|small people|young ones)\b/;
 const DESSERT_SECTION =
   /\b(?:desserts?|puddings?|cakes?|sweets?|sweet treats?|ice[- ]?creams?|sundaes?|cookies?|brownies?|donuts?|doughnuts?|muffins?|pastries|treats|bakery sweets?|waffles?|crepes?|cheesecakes?|gelato|sorbets?|pies? & crumbles?)\b/;
 const SAVOURY_SECTION = /\bsavou?ry|savouries\b/;
+// A kids' section of sides or starters ("Kids: Sides", "Kids starters"); "Fish & Chips: Kids' meals" is meals.
+const KIDS_SIDE_SECTION = /\b(?:sides?|side orders?|starters?|nibbles|accompaniments?)\b/;
+// A sweet named in a kids' section ("Kids vanilla pod ice cream", "Chocolate sundae", "Sprinkles topping"); a Yorkshire or black pudding isn't one.
+const KIDS_DESSERT_NAME = /\b(?:ice[- ]?creams?|ice[- ]?lolly|ice[- ]?lollies|sorbets?|gelato|(?<!\b(?:yorkshire|black|white)\s)puddings?|toppings?|sundaes?|brownies?|jell(?:y|ies)|sprinkles)\b/;
 const SIDE_SECTION = /\b(?:sides?|side orders?|accompaniments?|nibbles|fries|chips|sharing sides?|extra sides?)\b/;
 
 // ---- names (lower-cased)
@@ -31,11 +35,13 @@ const EXTRA_NAME = /^(?:extra|upgrade to|make it a|swap (?:to|for))\b/;
 // A whole-name drink: the drink word, then only a size, a temperature or a bracketed/dashed note ("Latte (oat milk)", "Cappuccino - large", "Latte with oat milk").
 // "Mocha brownie" and "Coffee cake" are not drinks: anything else after the drink word makes it a dish.
 const DRINK_WORD =
-  "(?:latte|cappuccino|flat white|americano|espresso|macchiato|mocha|hot chocolate|smoothie|milk ?shake|lemonade|coca[- ]cola|coke|diet coke|coke zero|pepsi|fanta|sprite|7 ?up|dr pepper|irn[- ]bru|fruit shoot|still water|sparkling water|mineral water|orange juice|apple juice)";
+  "(?:frapp[eé]|latte|cappuccino|flat white|americano|espresso|macchiato|mocha|hot chocolate|smoothie|milk ?shake|lemonade|coca[- ]cola|coke|diet coke|coke zero|pepsi|fanta|sprite|7 ?up|dr pepper|irn[- ]bru|fruit shoot|still water|sparkling water|mineral water|orange juice|apple juice)";
 const DRINK_TAIL = "(?:\\s*(?:[(,:\\-–].*|\\d.*|(?:regular|large|small|medium|grande|tall|venti|iced|hot|decaf|cold|double|single)(?:\\s+(?:regular|large|small|medium|iced|hot|decaf))*|(?:made )?with .*))?$";
 const DRINK_NAME = new RegExp(`^(?:(?:iced|hot|large|regular|small|medium|decaf|double|single|skinny|mini|cold)\\s+)*${DRINK_WORD}${DRINK_TAIL}`);
 const SAUCE_NAME = /\b(?:sauce|dip|dressing|mayo|mayonnaise|ketchup|chutney|relish|gravy)$/;
-const SIDE_NAME = /^(?:side\b|(?:skinny |large |regular |small |chunky |curly |sweet potato |cajun |loaded )*(?:fries|chips)$|onion rings$|coleslaw$|garlic bread$|corn on the cob$)/;
+const SIDE_NAME = /^(?:side\b|(?:(?:a )?portion of )?(?:skinny |large |regular |small |chunky |curly |sweet potato |cajun |loaded |cheese |cheesy |chilli |garlic |truffle |seasoned |spicy |peri[- ]peri )*(?:fries|chips)(?: \([^)]*\))?$|onion rings$|coleslaw$|garlic bread$|corn on the cob$)/;
+
+const ICE_CREAM_NAME = /\b(?:ice[- ]?creams?|ice[- ]?lolly|ice[- ]?lollies|sorbets?|gelato|sundaes?)\b/;
 
 /** Largest "Extra …" / "… sauce" that is still an add-on or a sauce by size (kcal): a 500 kcal "Extra Crispy Fillet Burger" is a main. */
 const SMALL_KCAL = 350;
@@ -57,13 +63,20 @@ export function itemKind(item: KindInput): ItemKind {
   if (ADDON_SECTION.test(cat) && !SIDE_SECTION.test(cat)) return "addon";
   if (DRINK_SECTION.test(cat) && !SAVOURY_SECTION.test(cat)) return "drink";
   if (SAUCE_SECTION.test(cat)) return "sauce";
-  if (KIDS_SECTION.test(cat) || /^(?:kids?|children'?s?|junior)\b/.test(name)) return "kids";
+  if (KIDS_SECTION.test(cat) || /^(?:kids?|children'?s?|junior)\b/.test(name)) {
+    // a kids' ice cream, pudding or topping is a dessert and kids' chips or garlic bread a side, as for grown-ups ("Kids vanilla pod ice cream", "Toasty
+    // Garlic Bread" in "Kids: sides"): never "the lowest calorie meal"
+    if ((DESSERT_SECTION.test(cat) && !SAVOURY_SECTION.test(cat)) || KIDS_DESSERT_NAME.test(name)) return "dessert";
+    if (KIDS_SIDE_SECTION.test(cat) || SIDE_NAME.test(name.replace(/^(?:kids?|children'?s?|junior)'?s?\s+/, ""))) return "side";
+    return "kids";
+  }
   if (DESSERT_SECTION.test(cat) && !SAVOURY_SECTION.test(cat)) return "dessert";
   if (SIDE_SECTION.test(cat)) return "side";
 
   if (DRINK_NAME.test(name)) return "drink";
   if (SAUCE_NAME.test(name) && kcal !== undefined && kcal <= SAUCE_KCAL) return "sauce";
   if (SIDE_NAME.test(name) && (kcal === undefined || kcal <= 650)) return "side";
+  if (ICE_CREAM_NAME.test(name)) return "dessert"; // "Ice Cream Tubs - Chocolate" in "For Our Younger Players"
   return "main";
 }
 

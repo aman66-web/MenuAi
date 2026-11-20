@@ -8,7 +8,7 @@ import { HaveChips, WeekStrip } from "./FeaturePreviews";
 import { CameraIcon, ChevronRightIcon, FlameIcon, PotIcon } from "./icons";
 import { useGate } from "./Paywall";
 import { PremiumBadge } from "./PremiumBadge";
-import { Button, LinkButton } from "./ui";
+import { Button } from "./ui";
 
 // The cooking tools, on Home under the day's numbers (founder 2026-11-19: "move from image one, those three things ... in that gap"): Scan your food across the
 // width (Premium; its two choices on it: calories and macros, or Make it at home), then the meal plan and Cook with what you already have, each a row of its own
@@ -45,7 +45,7 @@ export function RecipeTools() {
         {(FOOD_SCAN_ENABLED || PHOTO_RECIPES_ENABLED) && (
           // One card for both photo features (founder 2026-11-19: "scan your food, where it tells you the calories, and scan to recipes, almost the same thing ...
           // they have scan to get the macros or scan to recipe"): the two choices as big buttons on the card itself, so nothing is hidden behind another tap.
-          // Both are Premium: Scan your food asks on its own page, Make it at home opens the paywall here.
+          // Both are Premium: each opens the paywall here for someone without it (the 20 November 2026 audit: Scan your food used to skip it).
           <section data-coach="home-photo" aria-labelledby="scan-h" className="glass relative mt-4 overflow-hidden rounded-[1.5rem] p-3.5">
             <div className="flex items-start gap-3">
               <ScanWell />
@@ -62,9 +62,9 @@ export function RecipeTools() {
                 Scan your food, "Photo to recipe" opens Make it at home. One above the other, the whole width, so each says its words on one line at any text size (side by side they broke in two) */}
             <div className="mt-3 grid gap-2">
               {FOOD_SCAN_ENABLED && (
-                <LinkButton href="/app/scan" full size="lg" className="text-center text-[0.9375rem] leading-tight">
+                <Button full size="lg" onClick={() => gate("foodScan", () => router.push("/app/scan"))} className="text-center text-[0.9375rem] leading-tight">
                   <FlameIcon aria-hidden className="h-4 w-4 shrink-0" />{t("Photo to calories")}
-                </LinkButton>
+                </Button>
               )}
               {PHOTO_RECIPES_ENABLED && (
                 <Button variant="secondary" full size="lg" onClick={() => gate("photoRecipe", () => router.push("/app/recipes/photo"))} className="text-center text-[0.9375rem] font-bold leading-tight">
@@ -98,7 +98,7 @@ export function RecipeTools() {
           <span className="flex items-start gap-3">
             <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
               <span className="block text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("Cook with what you already have")}</span>
-              <span className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{t("Tell us what's in your fridge and get recipes for it.")}</span>
+              <span className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{t("Tell me what's in your fridge and I'll find recipes for it.")}</span>
             </span>
             <ChevronRightIcon aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-ink" />
           </span>

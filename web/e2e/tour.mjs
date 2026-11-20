@@ -230,7 +230,7 @@ await step("7. Settings › Clear everything: the cover with 'Done: everything o
   // a note of a step reached, left by a part-way run in this same visit (so the open app also holds it in memory): Settings › Set up your plan again, steps 1
   // and 2, then Back to the cover and Back to Settings, all without a reload
   await p.goto(BASE + "/app/settings");
-  await p.getByRole("link", { name: /^Set up your plan again/ }).click();
+  await p.getByRole("link", { name: /^Go through setup again/ }).click();
   await getStarted(p).waitFor({ timeout: 60000 });
   await getStarted(p).click();
   await p.getByRole("heading", { level: 1, name: /^What's your goal\?/ }).waitFor();

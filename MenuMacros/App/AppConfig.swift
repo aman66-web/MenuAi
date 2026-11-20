@@ -17,15 +17,13 @@ nonisolated enum AppConfig {
     static let supportURL = URL(string: "https://numbite.com/support")!
     static let termsURL = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!
     static let appGroupID = "group.com.amanmarwaha.menumacros"
-    static let yearlyProductID = "com.amanmarwaha.menumacros.pro.yearly"
-    static let monthlyProductID = "com.amanmarwaha.menumacros.pro.monthly"
     /// Apple In-App Purchase (docs/CLAUDE_DESKTOP_IAP_PROMPT.md): the only products the page may ask for (BridgeRequest drops or refuses any other).
-    /// Annual and Monthly renew, in one subscription group; the 90-day pass is a non-renewing subscription, so its 90 days are counted by our server
-    /// from the purchase date (StoreKit doesn't know when a non-renewing subscription ends). Config/Numbite.storekit has the same three for testing.
+    /// Annual (£49.99) and Monthly (£4.99) renew, in one subscription group, each with a free first week; the page shows StoreKit's own names and prices.
+    /// The Founding Member 90-Day Pass is not sold (overnight audit, 20 November 2026), so the app neither asks for it nor lets the page buy it.
+    /// Config/Numbite.storekit has the same two for testing, and web/lib/payments/iap.ts IAP_PRODUCT_IDS the same ids (web/tests/iap.test.ts checks all three agree).
     static let iapAnnualProductID = "com.amanmarwaha.numbite.pro.annual"
     static let iapMonthlyProductID = "com.amanmarwaha.numbite.pro.monthly"
-    static let iapPass90ProductID = "com.amanmarwaha.numbite.pro.pass90"
-    static let iapProductIDs: [String] = [iapAnnualProductID, iapMonthlyProductID, iapPass90ProductID]
+    static let iapProductIDs: [String] = [iapAnnualProductID, iapMonthlyProductID]
     /// Where "Manage subscription" goes when Apple's sheet can't be shown in the app.
     static let manageSubscriptionsURL = URL(string: "https://apps.apple.com/account/subscriptions")!
     static let freeSavedOrderLimit = 3

@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import {
   APP_REDIRECT,
   authenticate,
@@ -19,6 +19,8 @@ import { challengeFor, isChallenge, newVerifier } from "../lib/auth/pkce";
 import { HANDOFF_TTL_MS, openHandoff, sealHandoff } from "../lib/auth/seal";
 import { ACCESS_COOKIE, FLOW_COOKIE, REFRESH_COOKIE, parseCookies, readFlow, safeNext, serializeCookie, withParam } from "../lib/auth/cookies";
 import { AuthError, type AuthPort, type AuthSession, type AuthUser, type OAuthProvider } from "../lib/auth/types";
+
+vi.mock("server-only", () => ({})); // lib/http.ts and lib/auth/http.ts (the JSON body readers below) are server-only
 
 const SECRET = "test-secret-key-test-secret-key";
 const T0 = Date.UTC(2026, 9, 13, 12, 0, 0);
@@ -465,5 +467,83 @@ describe("cookies", () => {
     expect(withParam("/app/settings#account", "signin", "ok")).toBe("/app/settings?signin=ok#account");
     expect(withParam("/app/groceries?x=1", "signin", "ok")).toBe("/app/groceries?x=1&signin=ok");
     expect(withParam("/app", "signin", "ok")).toBe("/app?signin=ok");
+  });
+});
+
+describe("the overnight audit of 20 November 2026", () => {
+  it("/session tells the iPhone app 401 for a token it no longer accepts (so the app renews it), and the website with nothing still 'nobody'", async () => {
+    const t = setup({ method: "GET", fromApp: true, sameOrigin: false });
+    expect(await handleSession(asHeaders({}, { authorization: "Bearer run-out-token" }), t.ctx)).toEqual({ status: 401, body: { error: "unauthorized" } });
+    const s = t.issue(t.userFor("a@example.com"));
+    expect((await handleSession(asHeaders({}, { authorization: `Bearer ${s.accessToken}` }), t.ctx)).body).toEqual({ user: { id: "user-1", email: "a@example.com" } });
+    const web = setup({ method: "GET" });
+    expect(await handleSession(asHeaders({}), web.ctx)).toEqual({ status: 200, body: { user: null } });
+    expect((await handleSession(asHeaders({ [ACCESS_COOKIE]: "old", [REFRESH_COOKIE]: "unknown-refresh-token" }), web.ctx)).status).toBe(200);
+  });
+
+  it("another site can't finish an email sign-in in a visitor's name (login CSRF)", async () => {
+    const cross = setup({ sameOrigin: false, fromApp: false });
+    await handleEmailStart({ email: "attacker@example.com" }, cross.ctx);
+    const r = await handleEmailVerify({ email: "attacker@example.com", code: "123456" }, cross.ctx);
+    expect(r).toEqual({ status: 403, body: { error: "forbidden" } });
+    expect(r.cookies).toBeUndefined();
+    // this site's own pages and the iPhone app's still can
+    const site = setup();
+    await handleEmailStart({ email: "person@example.com" }, site.ctx);
+    expect((await handleEmailVerify({ email: "person@example.com", code: "123456" }, site.ctx)).status).toBe(200);
+    const app = setup({ sameOrigin: false, fromApp: true });
+    await handleEmailStart({ email: "person@example.com" }, app.ctx);
+    expect((await handleEmailVerify({ email: "person@example.com", code: "123456", mode: "token" }, app.ctx)).status).toBe(200);
+  });
+
+  it("a website sign-in that fails goes back to the page of the app it started on, saying why", async () => {
+    const t = setup({ method: "GET" });
+    const started = handleOAuthStart("apple", new URLSearchParams({ next: "/app/groceries/list/shared" }), t.ctx);
+    const r = await handleOAuthCallback(new URLSearchParams({ error: "access_denied" }), `${FLOW_COOKIE}=${cookieValue(started, FLOW_COOKIE)}`, t.ctx);
+    expect(r.redirect).toBe("/app/groceries/list/shared?signin=cancelled");
+    const fromWelcome = handleOAuthStart("google", new URLSearchParams({ next: "/app/welcome?signin=ok" }), t.ctx);
+    const again = await handleOAuthCallback(new URLSearchParams({ error: "server_error" }), `${FLOW_COOKIE}=${cookieValue(fromWelcome, FLOW_COOKIE)}`, t.ctx);
+    expect(again.redirect).toBe("/app/welcome?signin=failed");
+  });
+
+  it("iPhone: a Google sign-in that outlives the flow cookie goes back to the app ('expired'), not to the website inside the sheet", async () => {
+    const t = setup({ method: "GET" });
+    const started = handleOAuthStart("google", new URLSearchParams({ mode: "app", challenge: challengeFor(newVerifier()) }), t.ctx);
+    const redirectTo = new URL(started.redirect!).searchParams.get("redirect_to")!;
+    expect(redirectTo).toBe("https://numbite.com/auth/callback?m=app");
+    // Supabase adds its code to that address; the cookie has run out meanwhile
+    const back = new URL(redirectTo);
+    back.searchParams.set("code", "late-code");
+    const r = await handleOAuthCallback(back.searchParams, null, t.ctx);
+    expect(r.redirect).toBe(`${APP_REDIRECT}?error=expired`);
+    // the website's own sign-in is unchanged
+    const web = handleOAuthStart("google", new URLSearchParams(), t.ctx);
+    expect(new URL(web.redirect!).searchParams.get("redirect_to")).toBe("https://numbite.com/auth/callback");
+    expect((await handleOAuthCallback(new URLSearchParams({ code: "late-code" }), null, t.ctx)).redirect).toBe("/app/settings?signin=expired#account");
+  });
+});
+
+describe("reading a request's body", () => {
+  const post = (contentType: string | null, body = '{"email":"a@example.com","code":"123456"}') =>
+    new Request("https://numbite.com/api/v1/auth/email/verify", { method: "POST", body, headers: contentType ? { "content-type": contentType } : {} });
+
+  it("only a body sent as JSON is read: a form on another site (text/plain, form-encoded, multipart) gets 415", async () => {
+    process.env.SUPABASE_URL ??= "https://example-project.supabase.co";
+    process.env.SUPABASE_SECRET_KEY ??= "test-secret-key-test-secret-key-0123456789";
+    process.env.IP_HASH_SALT ??= "test-salt-test-salt-0123456789";
+    const { readJson } = await import("../lib/auth/http");
+    const { isJsonRequest, withJsonBody } = await import("../lib/http");
+    for (const type of ["text/plain", "application/x-www-form-urlencoded", "multipart/form-data; boundary=x", null, "application/jsonp"]) {
+      expect(isJsonRequest(post(type))).toBe(false);
+      const read = await readJson(post(type));
+      expect("result" in read && read.result.status).toBe(415);
+      const res = await withJsonBody(post(type), async () => ({ status: 200, body: { ran: true } }));
+      expect(res.status).toBe(415);
+    }
+    for (const type of ["application/json", "application/json; charset=utf-8", "Application/JSON"]) {
+      expect(isJsonRequest(post(type))).toBe(true);
+      expect(await readJson(post(type))).toEqual({ body: { email: "a@example.com", code: "123456" } });
+      expect((await withJsonBody(post(type), async () => ({ status: 200, body: { ran: true } }))).status).toBe(200);
+    }
   });
 });

@@ -16,7 +16,7 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
     /// Put the keyboard away: the page's own Done button (web/app/app/_components/SearchDone.tsx) asks, because on an iPhone a web page's `blur()` alone
     /// does not always hide the keyboard (founder 2026-11-17: "When I press done, it doesn't close").
     case hideKeyboard(id: String)
-    /// Apple In-App Purchase (Services/PurchaseService.swift): only our three products (AppConfig.iapProductIDs) ever reach the App Store.
+    /// Apple In-App Purchase (Services/PurchaseService.swift): only our products (AppConfig.iapProductIDs) ever reach the App Store.
     case iapProducts(id: String, productIDs: [String])
     case iapPurchase(id: String, productID: String)
     case iapEntitlements(id: String)
@@ -31,7 +31,7 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
     /// The longest session text the page may hand over (Supabase's tokens are about 2 KB together).
     static let maxSessionLength = 16_384
 
-    /// The most product ids one `iap.products` request may list (there are three products; anything longer is not a real request).
+    /// The most product ids one `iap.products` request may list (there are two products; anything longer is not a real request).
     static let maxProductIDs = 20
 
     var id: String {
@@ -103,6 +103,13 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
         default:
             return nil
         }
+    }
+
+    /// The id of a message that didn't pass as a request, when the id itself is well formed: it still gets an answer ("unavailable"), so the page never waits out
+    /// its timeout (120 s for a share) and then falls back to something worse.
+    static func answerableID(in body: Any) -> String? {
+        guard let message = body as? [String: Any], let id = message["id"] as? String, isValidID(id) else { return nil }
+        return id
     }
 
     private static func isValidID(_ id: String) -> Bool {

@@ -269,7 +269,7 @@ describe("the screen names and buttons the articles quote", () => {
   const KEYS = new Set(JSON.parse(readFileSync(new URL("../lib/mm/locales/keys.json", import.meta.url).pathname, "utf8")) as string[]);
   const UI_LABELS = [
     "Find by numbers or allergies", "Your numbers", "Use my meal numbers", "Best for you", "Report a number", "More detail", "Protein for £1",
-    "Add all to my shopping list", "Save to My meals", "Got a list from a friend? Open it", "Share list", "Add from another shop", "I have this",
+    "Add all to my shopping list", "Save to My recipes", "Got a list from a friend? Open it", "Share list", "Add from another shop", "I have this",
     "Use something else instead", "Swap", "Compare", "Highest", "Lowest", "Add to my list", "Shopping list", "What can I cook with this?",
     "You might also need", "Restaurant dishes", "Allergies to avoid", "Eat out", "Groceries", "Recipes", "Settings",
   ];

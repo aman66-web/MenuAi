@@ -44,17 +44,17 @@ await step("the first open's check screen: Who's eating: Just me first; its Chan
   await tap("Continue");
 });
 
-await step("who's eating: a card for each other person, a grown-up to begin with; Pip says each portion in words; axe", async () => {
+await step("who's eating: a card for each other person, a grown-up to begin with; each portion said in words; axe", async () => {
   await h1("Who's eating with you?").waitFor();
   const cards = page.locator("main li");
   expect((await cards.count()) === 2, "two cards");
   await page.getByText("Person 2 of 3").waitFor();
   expect((await cards.nth(0).getByRole("radio", { name: /^Adult/ }).getAttribute("aria-checked")) === "true", "a grown-up to begin with");
-  await cards.nth(0).getByText("I'll give them a grown-up's portion.").waitFor();
+  await cards.nth(0).getByText("They get a grown-up's portion.").waitFor();
   await cards.nth(1).getByRole("radio", { name: /^Child/ }).click();
-  await cards.nth(1).getByText("I'll give them ¾ of a grown-up's portion.").waitFor();
+  await cards.nth(1).getByText("They get ¾ of a grown-up's portion.").waitFor();
   await cards.nth(1).getByRole("radio", { name: "Bigger" }).click();
-  await cards.nth(1).getByText("I'll give them a grown-up's portion.").waitFor();
+  await cards.nth(1).getByText("They get a grown-up's portion.").waitFor();
   await cards.nth(1).getByRole("radio", { name: "Usual" }).click();
   await cards.nth(1).getByLabel("Their name (you can leave it out)").fill("Sam");
   await axe("who's eating");
@@ -109,8 +109,10 @@ await step("the week: for 3, only the user's numbers, the allergy sentence, each
   await page.getByText("Recipes made with peanuts are left out. Always check the label.").waitFor();
   const card = page.locator("li", { hasText: "Servings each" }).first();
   const line = await card.locator("p", { hasText: "Servings each" }).innerText();
-  expect(/^Servings each: you [\d¼½¾]+, Person 2 [\d¼½¾]+ and Sam [\d¼½¾]+\.$/.test(line), line);
-  expect(/&n=\d+&w=1$/.test(await card.locator("a").first().getAttribute("href")), "the recipe opens for everyone, as written");
+  expect(/^Servings each: you: [\d¼½¾]+, Person 2: [\d¼½¾]+ and Sam: [\d¼½¾]+\.$/.test(line), line); // "name: n" since the 20 November 2026 audit
+  // the plates cooked as written for everyone, the exact number (quarters allowed: a child's ¾), at most the recipe page's 12
+  const href = await card.locator("a").first().getAttribute("href");
+  expect(/&n=\d+(\.\d+)?&w=1$/.test(href) && Number(/&n=([\d.]+)/.exec(href)[1]) <= 12, "the recipe opens for everyone, as written: " + href);
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.mealPlan")).data);
   expect(JSON.stringify(saved.home) === JSON.stringify({ others: [{ group: "adult", portion: "usual" }, { group: "child", portion: "usual" }], allergies: ["peanuts"], diets: ["noOnionGarlic"] }), JSON.stringify(saved.home));
   // no recipe in the week uses onion or garlic (the shopping list names the products)

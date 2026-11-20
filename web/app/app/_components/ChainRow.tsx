@@ -20,7 +20,7 @@ export const chainGroupClass = "glass divide-y divide-line overflow-hidden round
 function CaloriesOnly() {
   const t = useT();
   return (
-    <span className="inline-flex items-center rounded-[0.375rem] border border-line bg-card px-1.5 py-px text-[0.6875rem] font-semibold text-foreground [:is(.glass,.hero-card,.inset-card,.sheet-panel)_&]:border-transparent [:is(.glass,.hero-card,.inset-card,.sheet-panel)_&]:bg-fill">
+    <span className="inline-flex items-center rounded-[0.375rem] border border-line bg-card px-1.5 py-px text-[0.8125rem] font-semibold text-foreground [:is(.glass,.hero-card,.inset-card,.sheet-panel)_&]:border-transparent [:is(.glass,.hero-card,.inset-card,.sheet-panel)_&]:bg-fill">
       {t("calories only")}
     </span>
   );
@@ -31,7 +31,7 @@ function Meta({ chain, className }: { chain: ChainSummary; className: string }) 
   const t = useT();
   return (
     <span className={`app-numbers mt-0.5 flex flex-wrap items-center gap-x-1.5 gap-y-1 leading-snug text-muted [overflow-wrap:anywhere] ${className}`}>
-      <span>{chain.cuisine ? `${t(chain.cuisine)} · ` : ""}{t("{n} items", { n: chain.itemCount })}</span>
+      <span>{chain.cuisine ? `${t(chain.cuisine)} · ` : ""}{t("{n} items", { n: chain.itemCount.toLocaleString("en-GB") })}</span>
       {chain.nutritionLevel === "calories" && <CaloriesOnly />}
       {chain.sample && <SampleBadge />}
     </span>

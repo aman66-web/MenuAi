@@ -166,7 +166,7 @@ await step("the week strip's circles open their day; today's circle opens plain 
   await ctx.close();
 });
 
-await step("Home: the seven week circles line up, a past day with food carries one small dot under it (an empty one none), today says Today, and the Lunch row names what was eaten; no sideways scroll at 360 px", async () => {
+await step("Home: the seven week circles line up, a past day with food carries one small dot under it (an empty one none), today is marked as the current date, and the Lunch row names what was eaten; no sideways scroll at 360 px", async () => {
   // one entry today at 12:30 (always under Lunch: 10:30 to 16:00), plus the seeded days
   const log = [entry("l1", at(0, 12, 30), "Cheese toastie", { calories: 420, protein: 18, carbs: 40, fat: 20 }), ...SEED_LOG];
   for (const width of [390, 360]) {
@@ -189,7 +189,8 @@ await step("Home: the seven week circles line up, a past day with food carries o
       if (daysUpToToday >= 3) expect((await dotsOf(2).count()) === 0, `${width} px: two days ago has no food but ${await dotsOf(2).count()} dots`);
     }
     const todayLink = strip.getByRole("link", { name: /\(today\)$/ });
-    expect((await todayLink.getAttribute("aria-current")) === "date" && (await todayLink.innerText()).includes("Today"), `${width} px: today's circle lacks its word "Today"`);
+    // today is the lime circle with its dot, named "(today)" for a screen reader; no word under it since 20 November 2026 ("Home and Recipes moved up")
+    expect((await todayLink.getAttribute("aria-current")) === "date", `${width} px: today's circle isn't marked as the current date`);
     const lunch = page.getByRole("link", { name: /^Lunch\b/ });
     expect((await lunch.count()) === 1, `${width} px: ${await lunch.count()} Lunch row links`);
     const lunchText = await lunch.innerText();
@@ -211,7 +212,7 @@ await step("Previous day and Next day flip through days; Today comes back; Next 
   await page.getByText("Yesterday curry").waitFor();
   await page.getByRole("link", { name: "Previous day", exact: true }).tap(); // two days ago: nothing logged
   await page.waitForURL(new RegExp("d=" + keyOf(at(2, 12))), { timeout: 30000 });
-  await page.getByText("Nothing was logged on this day.").waitFor();
+  await page.getByText("Nothing logged on this day on this phone.").waitFor();
   await page.getByRole("link", { name: "Previous day", exact: true }).tap(); // three days ago
   await page.getByText("Three days ago eggs").waitFor();
   await page.getByRole("link", { name: "Next day", exact: true }).tap();
@@ -233,7 +234,7 @@ await step("a bad, missing or future date shows today; removing an entry on a pa
   }
   // a very old real day is allowed and is simply empty
   await page.goto(BASE + "/app/today?d=2019-01-01", { timeout: 120000 });
-  await page.getByText("Nothing was logged on this day.").waitFor({ timeout: 90000 });
+  await page.getByText("Nothing logged on this day on this phone.").waitFor({ timeout: 90000 });
   await page.goto(BASE + "/app/today?d=" + keyOf(at(1, 12)), { timeout: 120000 });
   await page.getByText("Yesterday curry").waitFor({ timeout: 90000 });
   await page.getByRole("button", { name: "Remove Yesterday curry", exact: true }).tap();

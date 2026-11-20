@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { COACH_KEEP_CLEAR, COACH_STOPPED, coachRoundFor, coachScreenFor, coachSeen, placeTip, type CoachRound, type CoachScreen, type Span } from "@/lib/mm/coach";
+import { COACH_KEEP_CLEAR, COACH_STOPPED, coachRoundFor, coachScreenFor, coachSeen, placeTip, TIP_CARD_MIN, type CoachRound, type CoachScreen, type Span } from "@/lib/mm/coach";
 import { coachStore } from "@/lib/mm/stores";
 import { useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
@@ -16,8 +16,10 @@ import { coachStepsFor, type CoachStep } from "./coachSteps";
 // counts as Done. It waits until the tab has drawn its controls, no other sheet is open and Home's arrival toast has gone (anything marked data-coach-wait;
 // the iPhone app's trial offer waits for the tips).
 // The onboarding redesign meeting (20 November 2026): after the welcome screens Home's tips come over two visits (a later visit is another time Home opens:
-// a tab and back, or the app opened again), the card never covers Home's numbers or the Start here card (lib/mm/coach.ts placeTip: it scrolls the page once
-// if it must), and in "Moving around" Pip stands on the real tab bar and hops once along it (no hop with Reduce Motion).
+// a tab and back, or the app opened again), the card keeps clear of Home's numbers and the Start here card wherever it fits whole (lib/mm/coach.ts placeTip: it
+// scrolls the page once if it must, never past the lit control's top), and in "Moving around" Pip stands on the real tab bar and hops once along it (no hop
+// with Reduce Motion). The 30-person audit (20 November 2026): the card is never shorter than TIP_CARD_MIN, its tip scrolls inside it while Next and "Stop the
+// tips" stay whole under it, so it can never become a modal with no way out on a small phone.
 
 const PAD = 6; // px of page shown round the lit control
 const GAP = 12; // px between the lit control and the card
@@ -73,11 +75,11 @@ const rtlPage = () => typeof document !== "undefined" && document.documentElemen
 /** Whether the person asked for less motion. */
 const calm = () => typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches === true;
 
-/** The parts of the page this tab's card must never cover, where they are now. */
-function keepClear(screen: CoachScreen): Span[] {
+/** The parts of the page this tab's card should keep clear of, where they are now: never the lit control itself, nor anything inside it or round it. */
+function keepClear(screen: CoachScreen, lit: Element): Span[] {
   return (COACH_KEEP_CLEAR[screen] ?? []).flatMap((sel) => {
     const el = document.querySelector(sel);
-    if (!drawn(el)) return [];
+    if (!drawn(el) || el === lit || el.contains(lit) || lit.contains(el)) return [];
     const r = el.getBoundingClientRect();
     return [{ top: r.top, bottom: r.bottom }];
   });
@@ -88,6 +90,7 @@ function CoachRun({ screen, round, onShown }: { screen: CoachScreen; round: Coac
   const dialog = useRef<HTMLDialogElement>(null);
   const title = useRef<HTMLHeadingElement>(null);
   const card = useRef<HTMLDivElement>(null);
+  const body = useRef<HTMLDivElement>(null);
   const hopper = useRef<HTMLSpanElement>(null);
   const [steps, setSteps] = useState<CoachStep[] | null>(null);
   const [at, setAt] = useState(0);
@@ -140,7 +143,7 @@ function CoachRun({ screen, round, onShown }: { screen: CoachScreen; round: Coac
     const tick = () => {
       const r = el.getBoundingClientRect();
       const next: Box = { top: r.top, left: r.left, width: r.width, height: r.height, vw: window.innerWidth, vh: window.innerHeight, fixed: isFixed(el) ? 1 : 0 };
-      const kept = keepClear(screen);
+      const kept = keepClear(screen, el);
       const key = [...Object.values(next), ...kept.flatMap((s) => [s.top, s.bottom])].map(Math.round).join(",");
       const now = performance.now();
       if (key !== last) {
@@ -158,8 +161,10 @@ function CoachRun({ screen, round, onShown }: { screen: CoachScreen; round: Coac
   }, [steps, at]);
 
   useEffect(() => {
-    // the card's whole height, even while it scrolls inside itself
-    if (card.current) setCardHeight(card.current.scrollHeight);
+    // the card's whole height, even while its tip scrolls inside it: the card as drawn, plus whatever of the tip is scrolled out of sight
+    const c = card.current;
+    const b = body.current;
+    if (c && b) setCardHeight(c.offsetHeight + b.scrollHeight - b.clientHeight);
   }, [box, at]);
 
   const step = steps?.[at];
@@ -254,12 +259,13 @@ function CoachRun({ screen, round, onShown }: { screen: CoachScreen; round: Coac
               <Pip mood="point" size={HOP_PIP} />
             </span>
           )}
+          {/* a column: the tip (it scrolls inside the card if it must), then Next and "Stop the tips", always whole; never shorter than TIP_CARD_MIN */}
           <div
             ref={card}
-            className={`fixed inset-x-0 mx-auto w-[calc(100%-2rem)] max-w-[24rem] overflow-y-auto rounded-[1.5rem] bg-card p-4 shadow-[var(--shadow-lift)] motion-safe:transition-opacity motion-safe:duration-200 ${showing ? "opacity-100" : "opacity-0"}`}
-            style={place}
+            className={`fixed inset-x-0 mx-auto flex w-[calc(100%-2rem)] max-w-[24rem] flex-col overflow-hidden rounded-[1.5rem] bg-card p-4 shadow-[var(--shadow-lift)] motion-safe:transition-opacity motion-safe:duration-200 ${showing ? "opacity-100" : "opacity-0"}`}
+            style={{ ...place, minHeight: TIP_CARD_MIN }}
           >
-            <div className="flex items-start gap-3">
+            <div ref={body} className="flex min-h-0 flex-1 items-start gap-3 overflow-y-auto overscroll-contain">
               {/* in "Moving around" Pip is on the tab bar instead */}
               {!step.hop && <span aria-hidden data-mood={mood} className="shrink-0"><Pip mood={mood} size={56} /></span>}
               <div className="min-w-0 flex-1 [overflow-wrap:anywhere]">
@@ -269,7 +275,7 @@ function CoachRun({ screen, round, onShown }: { screen: CoachScreen; round: Coac
                 <p id="coach-text" className="mt-1 text-[1.0625rem] leading-snug">{t(step.text)}</p>
               </div>
             </div>
-            <div className="mt-4 flex flex-wrap items-center gap-2">
+            <div className="mt-4 flex shrink-0 flex-wrap items-center gap-2">
               <button
                 type="button"
                 onClick={() => (last ? finish() : setAt(at + 1))}

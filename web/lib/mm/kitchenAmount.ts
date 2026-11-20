@@ -101,7 +101,9 @@ export function placeAmounts(text: string, items: ReadonlyArray<{ key: string; p
   const unplaced: string[] = [];
   for (const i of items) {
     const re = USED_AS[i.pantry ?? ""];
-    const m = re ? new RegExp(re.source, re.flags.replace("g", "")).exec(text) : null;
+    let m = re ? new RegExp(re.source, re.flags.replace("g", "")).exec(text) : null;
+    // "Spray a pan with the oil spray": the count goes after the oil spray's own name, never after the verb (audit, 20 November 2026)
+    if (m && i.pantry === "oil-spray") m = /\boil spray\b/i.exec(text) ?? m;
     if (!m) { unplaced.push(i.key); continue; }
     const word = m[0].toLowerCase();
     // "lemon" juice, "curry" paste, "chilli" flakes: the amount goes after the whole name, never inside it

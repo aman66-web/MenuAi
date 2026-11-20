@@ -32,8 +32,9 @@ export interface ShopFile {
   photoTemplate?: string;
   categories: string[];
   schemes: string[];
-  /** The earliest day a product page's nutrition was read (empty when none was). */
+  /** The earliest day a product page's nutrition was read (empty when none was), and the newest. */
   nutritionCheckedOn?: string;
+  nutritionCheckedTo?: string;
   products: ShopRow[];
 }
 
@@ -198,6 +199,17 @@ function decodeOtherPhoto(x: unknown): ShopProduct["otherPhoto"] {
   }
 }
 
+/** The unit a shop printed for its unit price, as the app says it: "per kg", "per litre", "each", or null for one the app can't use (its unit price is then
+ *  left out). M&S's pages print a bare "kg" or "litre" (2026-11-20: "£16.80 kg", and Compare couldn't use M&S's prices); "" is no unit printed. */
+export function unitWord(raw: string | null | undefined): string | null {
+  const u = (raw ?? "").toLowerCase().replace(/\s+/g, " ").trim();
+  if (u === "") return "";
+  if (/^(?:per )?(?:kg|kilo|kilogram)$/.test(u)) return "per kg";
+  if (/^(?:per )?(?:l|ltr|litre|liter)$/.test(u)) return "per litre";
+  if (u === "each" || u === "per each") return "each";
+  return null;
+}
+
 /** Rows to products; a row that doesn't have the right shape is dropped, never guessed at. */
 export function decodeShopProducts(f: ShopFile): ShopProduct[] {
   const out: ShopProduct[] = [];
@@ -206,7 +218,8 @@ export function decodeShopProducts(f: ShopFile): ShopProduct[] {
     const [id, name, price, unitPrice, unit, member, scheme, cat, photoId, gtin, n, page, other] = r;
     if (typeof id !== "string" || !ID.test(id) || typeof name !== "string" || (price !== null && (typeof price !== "number" || !(price > 0)))) continue;
     const m = typeof member === "number" && price !== null && scheme !== null && f.schemes[scheme] ? { amount: member, scheme: f.schemes[scheme] } : null;
-    out.push({ id, name, price, unitPrice: typeof unitPrice === "number" && price !== null ? unitPrice : null, unit: unit || "", member: m, category: f.categories[cat] ?? "Other", photoId: templated(f) ? (safe(photoId, PHOTO_ID) ? photoId : "") : /^\d+$/.test(photoId) ? photoId : "", page: safe(page, PAGE_PATH) ? page : "", gtin: gtin || "", nutrition: decodeNutrition(n), ...(decodeOtherPhoto(other) ? { otherPhoto: decodeOtherPhoto(other) } : {}) });
+    const word = unitWord(unit);
+    out.push({ id, name, price, unitPrice: typeof unitPrice === "number" && price !== null && word !== null ? unitPrice : null, unit: word ?? "", member: m, category: f.categories[cat] ?? "Other", photoId: templated(f) ? (safe(photoId, PHOTO_ID) ? photoId : "") : /^\d+$/.test(photoId) ? photoId : "", page: safe(page, PAGE_PATH) ? page : "", gtin: gtin || "", nutrition: decodeNutrition(n), ...(decodeOtherPhoto(other) ? { otherPhoto: decodeOtherPhoto(other) } : {}) });
   }
   return out;
 }
@@ -270,6 +283,15 @@ const hay = (p: ShopProduct) => {
   return h;
 };
 
+/** Names compared as the shops' lists show them (case and accents aside): one collator for every sort (2026-11-20: building one inside every comparison froze a
+ *  16,000-product list for up to 1.6 s on each letter typed). */
+export const BY_NAME = new Intl.Collator("en-GB", { sensitivity: "base" });
+
+/** "Most protein per 100 kcal" ranks a product only from this many calories and grams of protein per 100 g or ml: below them (sweetener tablets, sugar-free
+ *  jelly, a stock) a tiny figure makes a meaningless ratio, so they come after the rest. */
+export const DENSITY_MIN_KCAL = 20;
+export const DENSITY_MIN_PROTEIN = 5;
+
 /** Every word typed must start a word of the name; then filter and sort (ties by name). */
 export function searchShopProducts(products: readonly ShopProduct[], f: ShopFilters): ShopProduct[] {
   const words = f.query ? normalizeForSearch(f.query).split(" ").filter(Boolean) : [];
@@ -279,22 +301,27 @@ export function searchShopProducts(products: readonly ShopProduct[], f: ShopFilt
     if (f.nutrition && !p.nutrition) return false;
     return words.every((w) => hay(p).includes(` ${w}`));
   });
-  // like a phone's address book: names that start with a letter first, then those starting with a number or a sign ("-196 ...", "1000 Stories ...")
-  const letter = (p: ShopProduct) => (/^\p{L}/u.test(p.name) ? 0 : 1);
-  const name = (a: ShopProduct, b: ShopProduct) => letter(a) - letter(b) || a.name.localeCompare(b.name, "en-GB", { sensitivity: "base" });
   const by = f.sort ?? "name";
-  // products whose price is only in store (Lidl's and M&S's everyday ranges) go last either way
-  if (by === "price") list.sort((a, b) => (a.price ?? Number.POSITIVE_INFINITY) - (b.price ?? Number.POSITIVE_INFINITY) || name(a, b));
-  else if (by === "priceDesc") list.sort((a, b) => (b.price ?? Number.NEGATIVE_INFINITY) - (a.price ?? Number.NEGATIVE_INFINITY) || name(a, b));
-  else if (by === "unit") list.sort((a, b) => (a.unitPrice ?? Number.POSITIVE_INFINITY) - (b.unitPrice ?? Number.POSITIVE_INFINITY) || name(a, b));
-  else if (by === "density" || by === "protein") {
-    // products without numbers, and those whose numbers are for the cooked or prepared food, go last: they can't be compared with food as sold, and nothing is guessed for them
-    const key = (p: ShopProduct) => (p.nutrition && !p.nutrition.state ? (by === "density" ? (p.nutrition.kcal > 0 ? (p.nutrition.protein / p.nutrition.kcal) * 100 : 0) : p.nutrition.protein) : Number.NEGATIVE_INFINITY);
-    // by density, a product with under 1 g of protein per 100 g goes after those with more (a 2 kcal drink with 0.5 g would otherwise top the list)
-    const low = (p: ShopProduct) => Number(by === "density" && !!p.nutrition && !p.nutrition.state && p.nutrition.protein < MIN_DENSITY_PROTEIN);
-    list.sort((a, b) => low(a) - low(b) || key(b) - key(a) || name(a, b));
-  } else list.sort(name);
-  return list;
+  // Each product's sort keys worked out once (decorate, sort, undecorate). Like a phone's address book: names that start with a letter first, then those
+  // starting with a number or a sign ("-196 ...", "1000 Stories ..."); ties by name.
+  const LETTER = /^\p{L}/u;
+  const rows = list.map((p) => {
+    const n = p.nutrition && !p.nutrition.state ? p.nutrition : null; // numbers for the food as sold only: cooked or prepared figures can't be compared
+    let key = 0;
+    let group = 0;
+    if (by === "price") key = p.price ?? Number.POSITIVE_INFINITY; // products whose price is only in store (Lidl's and M&S's everyday ranges) go last either way
+    else if (by === "priceDesc") key = -(p.price ?? Number.NEGATIVE_INFINITY);
+    else if (by === "unit") key = p.unitPrice ?? Number.POSITIVE_INFINITY;
+    else if (by === "protein") key = n ? -n.protein : Number.POSITIVE_INFINITY;
+    else if (by === "density") {
+      // products without numbers last; before them, those too low in calories or protein for the ratio to mean anything (by their protein)
+      if (!n) { group = 2; key = 0; } else if (n.kcal >= DENSITY_MIN_KCAL && n.protein >= Math.max(DENSITY_MIN_PROTEIN, MIN_DENSITY_PROTEIN)) key = -(n.protein / n.kcal) * 100;
+      else { group = 1; key = -n.protein; }
+    }
+    return { p, group, key, letter: LETTER.test(p.name) ? 0 : 1 };
+  });
+  rows.sort((a, b) => a.group - b.group || a.key - b.key || a.letter - b.letter || BY_NAME.compare(a.p.name, b.p.name));
+  return rows.map((r) => r.p);
 }
 
 // ---------------------------------------------------------------- the shopping list's Swap (founder 2026-11-18)
@@ -369,7 +396,7 @@ export function similarProducts(products: readonly ShopProduct[], item: Pick<Sho
     if (score > 0 && normalizeForSearch(p.name) !== plain) scored.push({ p, score });
   }
   const price = (p: ShopProduct) => p.price ?? Number.POSITIVE_INFINITY;
-  scored.sort((a, b) => b.score - a.score || price(a.p) - price(b.p) || a.p.name.localeCompare(b.p.name, "en-GB", { sensitivity: "base" }));
+  scored.sort((a, b) => b.score - a.score || price(a.p) - price(b.p) || BY_NAME.compare(a.p.name, b.p.name));
   return scored.slice(0, limit).map((x) => x.p);
 }
 
@@ -409,6 +436,6 @@ export function typedMatches(products: readonly ShopProduct[], text: string, ret
   const aisle = [...aisles].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0];
   const inAisle = (p: ShopProduct) => (aisle !== undefined && p.category === aisle ? 0 : 1);
   const price = (p: ShopProduct) => p.price ?? Number.POSITIVE_INFINITY;
-  scored.sort((a, b) => a.after - b.after || inAisle(a.p) - inAisle(b.p) || a.extra - b.extra || price(a.p) - price(b.p) || a.p.name.localeCompare(b.p.name, "en-GB", { sensitivity: "base" }));
+  scored.sort((a, b) => a.after - b.after || inAisle(a.p) - inAisle(b.p) || a.extra - b.extra || price(a.p) - price(b.p) || BY_NAME.compare(a.p.name, b.p.name));
   return scored.slice(0, limit).map((x) => x.p);
 }

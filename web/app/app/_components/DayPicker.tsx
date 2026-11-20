@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { addMonths, calendarBounds, dayParam, isFutureDay, loggedDayKeys, monthGrid, sameMonth, type YearMonth } from "@/lib/mm/day";
+import { addMonths, calendarBounds, calendarYears, dayParam, isFutureDay, loggedDayKeys, monthGrid, monthInBounds, sameMonth, type YearMonth } from "@/lib/mm/day";
 import { localeInfo } from "@/lib/mm/i18n";
 import type { LogEntry } from "@/lib/mm/user-data";
 import { ChevronLeftIcon, ChevronRightIcon } from "./icons";
@@ -16,6 +16,8 @@ import { useLanguage, useT } from "../_lib/i18n";
 // screen): today lime with the 2 px dark-green edge, a dark-green figure and its dot; every day gone by white with the 1.5 px control edge, with a small ink dot
 // when food was logged; the days ahead plain in the secondary grey. The month arrows are white with the edge; at the first or last month they can't be pressed
 // and take the line fill (never faded). Weekday letters in sentence case, at least 13 px.
+// The month's name is itself a button (founder 2026-11-20: "There should also be a way to choose the year too"): it opens the year, with arrows, and its
+// twelve months; a month outside the calendar can't be pressed. The calendar reaches back twelve months, or to the oldest food logged when that is older.
 
 const ARROW =
   "group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink transition active:scale-95 disabled:pointer-events-none disabled:text-muted";
@@ -25,7 +27,14 @@ function Month({ log, now, onPick }: { log: readonly LogEntry[]; now: Date; onPi
   const t = useT();
   const htmlLang = localeInfo(useLanguage()).htmlLang;
   const [ym, setYm] = useState<YearMonth>({ year: now.getFullYear(), month: now.getMonth() });
-  const { earliest, latest } = calendarBounds(now);
+  const [choosing, setChoosing] = useState(false);
+  const oldest = log.reduce<Date | null>((o, e) => { const d = new Date(e.loggedAt); return Number.isNaN(d.getTime()) || (o && o <= d) ? o : d; }, null);
+  const bounds = calendarBounds(now, oldest);
+  const { earliest, latest } = bounds;
+  const years = calendarYears(bounds);
+  const monthName = new Intl.DateTimeFormat(htmlLang, { month: "short" });
+  // a year change keeps the month inside the calendar (the oldest month logged, this month)
+  const keepIn = (v: YearMonth): YearMonth => (monthInBounds(v, bounds) ? v : v.year * 12 + v.month < earliest.year * 12 + earliest.month ? earliest : latest);
   const logged = loggedDayKeys(log);
   const title = new Intl.DateTimeFormat(htmlLang, { month: "long", year: "numeric" }).format(new Date(ym.year, ym.month, 1));
   const narrow = new Intl.DateTimeFormat(htmlLang, { weekday: "narrow" });
@@ -40,12 +49,51 @@ function Month({ log, now, onPick }: { log: readonly LogEntry[]; now: Date; onPi
         <button type="button" className={ARROW} disabled={sameMonth(ym, earliest)} aria-label={t("Previous month")} onClick={() => setYm((v) => addMonths(v, -1))}>
           <span className={ARROW_FILL}><ChevronLeftIcon className="h-5 w-5" /></span>
         </button>
-        <p aria-live="polite" className="min-w-0 flex-1 text-center text-lg font-[800] leading-snug tracking-[-0.01em]">{title}</p>
+        <button type="button" aria-expanded={choosing} aria-live="polite" onClick={() => setChoosing((c) => !c)} className="inline-flex min-h-11 min-w-0 flex-1 items-center justify-center gap-1 rounded-full text-center text-lg font-[800] leading-snug tracking-[-0.01em] transition active:scale-[0.98]">
+          <span className="sr-only">{t("Choose the month and year")}: </span><span>{title}</span>
+          <ChevronRightIcon aria-hidden strokeWidth={2.4} className={`h-5 w-5 shrink-0 text-ink transition-transform ${choosing ? "-rotate-90" : "rotate-90"}`} />
+        </button>
         <button type="button" className={ARROW} disabled={sameMonth(ym, latest)} aria-label={t("Next month")} onClick={() => setYm((v) => addMonths(v, 1))}>
           <span className={ARROW_FILL}><ChevronRightIcon className="h-5 w-5" /></span>
         </button>
       </div>
 
+      {choosing && (
+        <div className="mt-3">
+          {/* the year, with arrows, then its twelve months */}
+          <div className="flex items-center justify-between gap-2">
+            <button type="button" className={ARROW} disabled={ym.year <= years[0]!} aria-label={t("Previous year")} onClick={() => setYm((v) => keepIn({ year: v.year - 1, month: v.month }))}>
+              <span className={ARROW_FILL}><ChevronLeftIcon className="h-5 w-5" /></span>
+            </button>
+            <p className="app-numbers text-lg font-[800]">{ym.year}</p>
+            <button type="button" className={ARROW} disabled={ym.year >= latest.year} aria-label={t("Next year")} onClick={() => setYm((v) => keepIn({ year: v.year + 1, month: v.month }))}>
+              <span className={ARROW_FILL}><ChevronRightIcon className="h-5 w-5" /></span>
+            </button>
+          </div>
+          <ul className="mt-2 grid grid-cols-3 gap-2">
+            {Array.from({ length: 12 }, (_, m) => {
+              const here = { year: ym.year, month: m };
+              const on = sameMonth(here, ym);
+              const allowed = monthInBounds(here, bounds);
+              return (
+                <li key={m}>
+                  <button
+                    type="button"
+                    disabled={!allowed}
+                    aria-pressed={on}
+                    onClick={() => { setYm(here); setChoosing(false); }}
+                    className={`min-h-11 w-full rounded-full text-[0.9375rem] font-semibold transition active:scale-95 disabled:pointer-events-none disabled:text-muted ${on ? "border-2 border-on-sun bg-sun font-bold text-on-sun" : allowed ? "border-[1.5px] border-edge bg-card hover:bg-background" : "bg-soft-strong"}`}
+                  >
+                    {monthName.format(new Date(ym.year, m, 1))}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
+
+      {!choosing && <>
       <ul aria-hidden className="mt-3 grid grid-cols-7 text-center text-[0.8125rem] font-semibold text-muted">
         {heads.map((h, i) => <li key={i}>{h}</li>)}
       </ul>
@@ -79,6 +127,7 @@ function Month({ log, now, onPick }: { log: readonly LogEntry[]; now: Date; onPi
           );
         })}
       </ul>
+      </>}
     </div>
   );
 }

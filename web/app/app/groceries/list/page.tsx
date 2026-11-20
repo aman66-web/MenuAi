@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useMemo, useRef, useState } from "react";
-import { addToList, customItem, CUSTOM_RETAILER, formatPrice, groupName, itemCode, itemsOnList, knownLists, listAsText, listOf, listTotals, MAIN_LIST, newShoppingList, sameEntry, setQty, swapItem, toggleDone, type ShoppingItem } from "@/lib/mm/groceries";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { addToList, customItem, CUSTOM_RETAILER, formatPrice, groupName, itemCode, itemsOnList, knownLists, listAsText, listOf, listTotals, MAIN_LIST, MAX_QTY, newShoppingList, sameEntry, setQty, swapItem, toggleDone, type ShoppingItem } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
 import { tk } from "@/lib/mm/i18n";
 import { nextToBuy, withoutWhatTheyHave } from "@/lib/mm/listRecipes";
@@ -20,6 +20,7 @@ import { useHydrated, useSettings, useStore } from "../../_lib/hooks";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { useListPhotos } from "../../_lib/listPhotos";
 import { addedNote, addMissing, useListRecipes } from "../../_lib/listRecipes";
+import { rememberList } from "../../_components/TopActions";
 import { useShopManifest } from "../../_lib/shopProducts";
 import { Rich } from "../../_lib/Rich";
 import { hasNative, nativeCall } from "@/lib/mm/native";
@@ -46,7 +47,10 @@ import { SwapSheet } from "./SwapSheet";
 // "M&S 2"). With any extra list, big chips at the top pick the list shown (kept in the address, ?l=<id>). A list for one shop shows its items, its total and
 // "Add more from {shop}", and can be deleted. Each product row has "Swap" (founder 2026-11-18: swap something you can't find at the supermarket).
 // "Select" (founder 2026-11-18: "a way to select all the products in your shopping basket and remove them all together"): the rows' ticks become select boxes,
-// with "Select all" and "Remove", which takes the chosen items off this list at once (Undo for 8 seconds, like Clear list).
+// with "Select all" and "Remove", which takes the chosen items off this list at once (Undo for 8 seconds, like Clear list). While selecting, everything else
+// that acts on the list steps aside (two different Removes at once confused testers), and switching list leaves Select.
+// In the shop the list itself comes first (the meeting's finding, 20 November 2026: the first tick sat below the fold): no subtitle repeating the title, the
+// lists' chips only when there are lists of one's own (else "New list" sits small beside the count), and "Got a list from a friend?" with Share and Copy.
 
 export default function ShoppingListPage() {
   // the list shown comes from ?l=, so one cached page opens any of them
@@ -81,7 +85,10 @@ function ShoppingListScreen() {
   // Undo after Clear list, Remove ticked and the last − (each still takes effect at once, so no question first): the list as it was, what went, and the message
   const [undo, setUndo] = useState<{ before: ShoppingItem[]; removed: ShoppingItem[]; key: string; values?: Record<string, string>; n: number } | null>(null);
   const typedBox = useRef<HTMLInputElement>(null);
-  const { state, matches } = useListRecipes(list);
+  // "What can I cook with this?" from the list's own shop first, when it is one in recipes (lib _lib/listRecipes.ts)
+  const { state, matches } = useListRecipes(list, current?.shop ?? null);
+  // the Shopping list pill at the top of every page opens the list last looked at while it still has things to get
+  useEffect(() => { if (hydrated) rememberList(listId); }, [hydrated, listId]);
   const photosOf = useListPhotos(list);
   const manifest = useShopManifest();
   /** Where "Add more from {shop}" goes: that shop's own list of products, or (a shop with no list) the page that asks which shop. */
@@ -100,8 +107,11 @@ function ShoppingListScreen() {
     groups.set(key, [...(groups.get(key) ?? []), i]);
   }
   const ticked = list.filter((i) => i.done).length;
-  // Select: which items are chosen (by code, shop), only ever among the ones on the list shown
-  const [selecting, setSelecting] = useState(false);
+  // Select: which items are chosen (by code, shop), only ever among the ones on the list shown; Select belongs to the list it began on, so switching list
+  // with the chips leaves it
+  const [selectingOn, setSelectingOn] = useState<string | null>(null);
+  const selecting = selectingOn === listId;
+  const setSelecting = (on: boolean) => setSelectingOn(on ? listId : null);
   const [picked, setPicked] = useState<ReadonlySet<string>>(new Set());
   const pickKey = (i: ShoppingItem) => `${itemCode(i)}|${i.retailer}`;
   const pickedNow = list.filter((i) => picked.has(pickKey(i)));
@@ -127,7 +137,8 @@ function ShoppingListScreen() {
    * (so it reads in any message), then the link. The link holds the list itself after the "#", so nothing is stored anywhere (lib/mm/shareList.ts).
    */
   const message = (): { text: string; cut: { n: number; total: number } | null } => {
-    const items = listAsText(list, t);
+    // what was typed onto a shop's own list goes under that shop
+    const items = listAsText(list, t, current?.shop);
     const enc = encodeEntries(toEntries(list));
     const link = enc ? shareUrl(site.url, enc.payload) : null;
     const text = [t("My shopping list on {app}", { app: site.name }), "", items, ...(link ? ["", t("Open it in {app} to see the products and prices:", { app: site.name }), link] : [])].join("\n");
@@ -239,29 +250,39 @@ function ShoppingListScreen() {
   };
   /** The − and + : one white control with the 1.5 px edge holding the two 44 px buttons and the quantity between them, ink icons (two grey circles looked
    *  alike and both looked switched off). */
-  const qtyButton = "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink transition active:scale-95 hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+  const qtyButton = "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink transition active:scale-95 hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:text-muted disabled:active:scale-100";
+  // each list's things still to get, said on its chip; and the list with things to get when this one is empty
+  const toGet = (id: string) => all.filter((x) => listOf(x) === id && !x.done).length;
+  const elsewhere = !current && list.length === 0 ? lists.find((l) => toGet(l.id) > 0) ?? null : null;
+  // nothing left to share once everything is ticked off (Share and Copy are switched off, with the reason)
+  const nothingToShare = list.every((i) => i.done);
+  const newListButton = (
+    <button type="button" onClick={() => setCreating(true)} className="inline-flex min-h-11 items-center gap-1.5 rounded-full px-2 text-[0.9375rem] font-bold text-foreground underline-offset-4 transition hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+      <span aria-hidden className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ink text-on-ink"><PlusIcon className="h-3.5 w-3.5" strokeWidth={3} /></span>{t("New list")}
+    </button>
+  );
+  const friendButton = <Button variant="secondary" className="min-h-12" onClick={() => { setPastedProblem(null); setOpening(true); }}>{t("Got a list from a friend? Open it")}</Button>;
 
   return (
     <div>
       <PageHeader back={{ href: "/app", label: t("Back to home") }} />
-      <h1 className={`mt-5 ${TITLE}`}>{t("Shopping list")}</h1>
-      <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Your shopping list. Tick things off as they go in your basket.")}</p>
+      {/* an extra list is titled with its own name; the main list's line only once it has things on it (it repeated the title) */}
+      <h1 className={`mt-5 ${TITLE} [overflow-wrap:anywhere]`}>{current ? current.name : t("Shopping list")}</h1>
+      {hydrated && (current ? <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("One of your shopping lists.")}</p>
+        : list.length > 0 && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("Tick things off as they go in your basket.")}</p>)}
 
-      {/* the lists (only once there is more than the main one): big chips that wrap at large text; "+ New list" is always there */}
-      {hydrated && (
-        <nav aria-label={t("Your shopping lists")} className="mt-5 flex flex-wrap gap-2">
-          {lists.length > 0 && (
-            <>
-              <Link href={listHref()} replace scroll={false} aria-current={!current ? "page" : undefined} className={listChip(!current)}>
-                {!current && <CheckIcon aria-hidden strokeWidth={3} className="h-4 w-4 shrink-0" />}<BasketIcon aria-hidden className="h-5 w-5 shrink-0" /><span className="min-w-0 [overflow-wrap:anywhere]">{t("Shopping list")}</span>
-              </Link>
-              {lists.map((l) => (
-                <Link key={l.id} href={listHref(l.id)} replace scroll={false} aria-current={current?.id === l.id ? "page" : undefined} className={listChip(current?.id === l.id)}>
-                  {current?.id === l.id && <CheckIcon aria-hidden strokeWidth={3} className="h-4 w-4 shrink-0" />}<ShopMark shopId={l.shop} size="xs" /><span className="min-w-0 [overflow-wrap:anywhere]">{l.name}</span>
-                </Link>
-              ))}
-            </>
-          )}
+      {/* the lists (only once there is more than the main one): big chips that wrap at large text, each with how many things it still has to get, and
+          "+ New list"; with no list of one's own, "New list" is a small link beside the count instead */}
+      {hydrated && lists.length > 0 && (
+        <nav aria-label={t("Your shopping lists")} className="mt-4 flex flex-wrap gap-2">
+          <Link href={listHref()} replace scroll={false} aria-current={!current ? "page" : undefined} className={listChip(!current)}>
+            {!current && <CheckIcon aria-hidden strokeWidth={3} className="h-4 w-4 shrink-0" />}<BasketIcon aria-hidden className="h-5 w-5 shrink-0" /><span className="min-w-0 [overflow-wrap:anywhere]">{chipLabel(t("Shopping list"), toGet(""))}</span>
+          </Link>
+          {lists.map((l) => (
+            <Link key={l.id} href={listHref(l.id)} replace scroll={false} aria-current={current?.id === l.id ? "page" : undefined} className={listChip(current?.id === l.id)}>
+              {current?.id === l.id && <CheckIcon aria-hidden strokeWidth={3} className="h-4 w-4 shrink-0" />}<ShopMark shopId={l.shop} size="xs" /><span className="min-w-0 [overflow-wrap:anywhere]">{chipLabel(l.name, toGet(l.id))}</span>
+            </Link>
+          ))}
           <button type="button" onClick={() => setCreating(true)} className="border-[1.5px] border-edge bg-card text-foreground inline-flex min-h-12 max-w-full items-center gap-2 rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-[0.97] hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
             <span aria-hidden className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ink text-on-ink"><PlusIcon className="h-4 w-4" strokeWidth={3} /></span>
             <span className="min-w-0 [overflow-wrap:anywhere]">{t("New list")}</span>
@@ -270,29 +291,42 @@ function ShoppingListScreen() {
       )}
 
       {/* a visible label over the field (testers were stuck at boxes with none); the field takes the row and Add sits beside it; at large text, when both no
-          longer fit, Add moves under the field across its width. Add is always on: with nothing typed, it puts the cursor in the field. */}
-      <form onSubmit={addTyped} className="mt-5">
+          longer fit, Add moves under the field across its width. Add is always on: with nothing typed, it puts the cursor in the field. Hidden while
+          selecting. */}
+      <form onSubmit={addTyped} className={`mt-4 ${selecting ? "hidden" : ""}`}>
         <label htmlFor="list-add" className="mb-2 block ps-1 text-[0.9375rem] font-semibold leading-snug">{t("Add something to your list")}</label>
         <div className="flex flex-wrap gap-2.5">
           <input id="list-add" ref={typedBox} value={typed} onChange={(e) => setTyped(e.target.value)} placeholder={t("Add something, e.g. milk")} maxLength={60} enterKeyHint="done" autoComplete="off" className={`${PILL_INPUT} min-h-[3.25rem] min-w-0 flex-[999_1_13rem]`} />
           <Button type="submit" className="min-h-[3.25rem] flex-[1_0_auto] px-5"><PlusIcon className="h-5 w-5" />{t("Add")}</Button>
         </div>
       </form>
-      <p role="status" aria-live="polite" className="mt-2 min-h-5 ps-1 text-sm font-medium text-foreground">{note}</p>
-      {/* an action people need is a button (Raj called the small link faint) */}
-      <Button variant="secondary" className="mt-1" onClick={() => { setPastedProblem(null); setOpening(true); }}>{t("Got a list from a friend? Open it")}</Button>
+      {/* takes no room until there is something to say (the list itself comes first) */}
+      <p role="status" aria-live="polite" className="mt-2 ps-1 text-sm font-medium text-foreground empty:mt-0">{note}</p>
 
       {!hydrated ? null : list.length === 0 && current ? (
-        <div className="mt-2"><EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Nothing on {list} yet.", { list: current.name })} body={t("Add products from {shop}, or type what you need above.", { shop: groupName(current.shop, t) })} action={current.shop !== CUSTOM_RETAILER ? <LinkButton href={shopHref(current.shop)}>{t("Add products from {shop}", { shop: groupName(current.shop, t) })}</LinkButton> : undefined} /></div>
+        <div className="mt-2">
+          <EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Nothing on {list} yet.", { list: current.name })} body={t("Add products from {shop}, or type what you need above.", { shop: groupName(current.shop, t) })} action={current.shop !== CUSTOM_RETAILER ? <LinkButton href={shopHref(current.shop)}>{t("Add products from {shop}", { shop: groupName(current.shop, t) })}</LinkButton> : undefined} />
+          <div className="mt-4 flex justify-center">{friendButton}</div>
+        </div>
+      ) : list.length === 0 && elsewhere ? (
+        // the main list is empty but another isn't (the pill counted things on every list): say where they are, with the way there
+        <div className={`${CARD} mt-3 p-4`}>
+          <p className="text-base font-semibold leading-snug">{toGet(elsewhere.id) === 1 ? t("Nothing on Shopping list. {list} has 1 thing to get.", { list: elsewhere.name }) : t("Nothing on Shopping list. {list} has {n} things to get.", { list: elsewhere.name, n: toGet(elsewhere.id) })}</p>
+          <LinkButton href={listHref(elsewhere.id)} replace className="mt-3 min-h-12"><ShopMark shopId={elsewhere.shop} size="xs" />{t("Open {list}", { list: elsewhere.name })}</LinkButton>
+          <div className="mt-4 flex flex-wrap items-center gap-2">{friendButton}</div>
+        </div>
       ) : list.length === 0 ? (
-        <div className="mt-2"><EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Your list is empty.")} body={t("Type what you need above, or add products from Groceries and recipes.")} action={<div className="flex flex-wrap justify-center gap-2.5"><LinkButton href="/app/groceries">{t("Browse groceries")}</LinkButton><LinkButton href="/app/recipes" variant="secondary">{t("See recipes")}</LinkButton></div>} /></div>
+        <div className="mt-2">
+          <EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Your list is empty.")} body={t("Type what you need above, or add products from Groceries and recipes.")} action={<div className="flex flex-wrap justify-center gap-2.5"><LinkButton href="/app/groceries">{t("Browse groceries")}</LinkButton><LinkButton href="/app/recipes" variant="secondary">{t("See recipes")}</LinkButton></div>} />
+          <div className="mt-4 flex flex-wrap justify-center gap-2">{friendButton}{lists.length === 0 && newListButton}</div>
+        </div>
       ) : (
         <>
           {/* At the top, as asked: what this list can make (its own products, matched by the recipes' rules), on the cream tint of every "cook with what you
               have" card (a full lime card read as selected), ink words and an ink arrow. */}
           {/* at large text the round pot steps aside (a container query) so the words keep their room */}
           {/* for the list shown (with lists of their own, the main list alone is ?l=main) */}
-          <Link href={lists.length > 0 ? `/app/groceries/list/recipes?l=${encodeURIComponent(current ? current.id : MAIN_LIST)}` : "/app/groceries/list/recipes"} className="lift group @container mt-2 flex min-h-[4.75rem] items-center gap-3.5 rounded-[1.25rem] border border-line bg-tint-cook p-3.5 text-foreground">
+          <Link href={lists.length > 0 ? `/app/groceries/list/recipes?l=${encodeURIComponent(current ? current.id : MAIN_LIST)}` : "/app/groceries/list/recipes"} className={`lift group @container mt-2 min-h-[4.75rem] items-center gap-3.5 rounded-[1.25rem] border border-line bg-tint-cook p-3.5 text-foreground ${selecting ? "hidden" : "flex"}`}>
             {/* the pictures of the first recipes it finds (founder 2026-11-17: "Use images please when possible"); the pot while it looks, or when none matches */}
             {matches && matches.some((m) => hasRecipePicture(m.recipe.id))
               ? <span className="hidden @[19rem]:inline-flex"><RecipeThumbStack recipes={matches.slice(0, 3).map((m) => m.recipe)} ring="ring-tint-cook" moreClass="hidden @[22rem]:block" /></span>
@@ -307,7 +341,7 @@ function ShoppingListScreen() {
           </Link>
 
           {/* Select, then Select all / Done; the count is said as it changes */}
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-2">
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
             {selecting ? (
               <>
                 <button type="button" onClick={() => setPicked(allPicked ? new Set() : new Set(list.map(pickKey)))} className="inline-flex min-h-11 items-center gap-2 rounded-full border-[1.5px] border-edge bg-card px-4 text-[0.9375rem] font-semibold text-foreground transition active:scale-[0.97] hover:bg-background">
@@ -318,7 +352,10 @@ function ShoppingListScreen() {
               </>
             ) : (
               <>
-                <span className="app-numbers ps-1 text-[0.9375rem] font-semibold text-muted">{list.length === 1 ? t("1 item") : t("{n} items", { n: list.length })}{ticked > 0 ? ` · ${t("{n} in the basket", { n: ticked })}` : ""}</span>
+                <span className="flex flex-wrap items-center gap-x-2">
+                  <span className="app-numbers ps-1 text-[0.9375rem] font-semibold text-muted">{list.length === 1 ? t("1 item") : t("{n} items", { n: list.length })}{ticked > 0 ? ` · ${t("{n} in the basket", { n: ticked })}` : ""}</span>
+                  {lists.length === 0 && newListButton}
+                </span>
                 <button type="button" onClick={() => { setSelecting(true); setPicked(new Set()); }} className="inline-flex min-h-11 items-center gap-2 rounded-full border-[1.5px] border-edge bg-card px-4 text-[0.9375rem] font-semibold text-foreground transition active:scale-[0.97] hover:bg-background">
                   <CheckIcon aria-hidden className="h-4 w-4" />{t("Select")}
                 </button>
@@ -331,7 +368,7 @@ function ShoppingListScreen() {
             const sorted = [...items.filter((i) => !i.done), ...items.filter((i) => i.done)];
             const heading = current ? current.name : groupName(retailer, t);
             return (
-              <section key={retailer} aria-label={heading} className="mt-8">
+              <section key={retailer} aria-label={heading} className="mt-4">
                 {/* the shopper's anchor in the aisle: the shop's logo and its name, bold, in the body's ink */}
                 <h2 className="mb-3 flex min-h-7 items-center gap-2.5 ps-1 text-[1.0625rem] font-bold leading-snug [overflow-wrap:anywhere]">{retailer !== CUSTOM_RETAILER && <ShopMark shopId={retailer} size="xs" />}{heading}</h2>
                 <ul className={`${CARD} overflow-hidden`}>
@@ -342,6 +379,8 @@ function ShoppingListScreen() {
                     const href = i.custom ? null : i.shopId ? `/app/groceries/shop/item?r=${i.retailer}&id=${encodeURIComponent(i.shopId)}` : `/app/groceries/product?code=${i.gtin}&r=${i.retailer}`;
                     // no barcode number here (usability test 2026-11-19: "meaningless clutter", and cut off at large text); the price in the body's ink
                     const detail = [i.brand, i.size].filter(Boolean).join(" · ");
+                    // the price is a pack's: "2 × £2.44" when there are two, so it never reads as the row's total
+                    const price = i.price === undefined ? null : i.qty > 1 ? t("{qty} × {price}", { qty: i.qty, price: formatPrice(i.price) }) : formatPrice(i.price);
                     const body = (
                       <>
                         <span className={`block text-base font-semibold leading-snug [overflow-wrap:anywhere] ${i.done ? "text-muted line-through decoration-1" : ""}`}>{i.name}</span>
@@ -349,12 +388,13 @@ function ShoppingListScreen() {
                           <span className="app-numbers mt-0.5 block text-sm [overflow-wrap:anywhere]">
                             {detail && <span className="text-muted">{detail}</span>}
                             {detail && i.price !== undefined && <span className="text-muted"> · </span>}
-                            {i.price !== undefined && <span className="font-semibold text-foreground">{formatPrice(i.price)}</span>}
+                            {price !== null && <span className="font-semibold text-foreground">{price}</span>}
                           </span>
                         )}
                       </>
                     );
-                    const thumb = <ListThumb sources={photosOf(i)} />;
+                    // 48 px here (ListThumb's own 56 px made Swap and the − / + wrap onto two lines on a 375-390 px iPhone)
+                    const thumb = <span className="block [&>span]:h-12 [&>span]:w-12"><ListThumb sources={photosOf(i)} /></span>;
                     return (
                       <li key={`${code}|${i.retailer}`} className="relative flex min-h-[4.5rem] items-start gap-x-1.5 px-2 py-2 pe-2.5 before:pointer-events-none before:absolute before:end-0 before:start-[3.25rem] before:top-0 before:h-px before:bg-line first:before:hidden">
                         {selecting ? (
@@ -381,7 +421,7 @@ function ShoppingListScreen() {
                           </button>
                         )}
                         {/* the picture sits beside the name; what's left of the row under it is the quantity (a long name no longer squeezes against − and +) */}
-                        <div className="flex min-w-0 flex-1 items-start gap-3 py-1">
+                        <div className="flex min-w-0 flex-1 items-start gap-2.5 py-1">
                           {/* the picture opens the product too; the name beside it is the link a screen reader and the keyboard use */}
                           {href ? <Link href={href} tabIndex={-1} aria-hidden className="shrink-0">{thumb}</Link> : thumb}
                           <div className="min-w-0 flex-1">
@@ -389,28 +429,30 @@ function ShoppingListScreen() {
                             {/* "Swap" (a shop's product only: something similar at the same shop takes its place) at the start, − and + at the end; at large text they wrap */}
                             <div className={`mt-1 flex-wrap items-center justify-end gap-x-1 gap-y-1 ${selecting ? "hidden" : "flex"}`}>
                               {i.custom && chooseShops.length > 0 && (
-                                <button type="button" onClick={() => setChoosing(i)} aria-label={t("Choose a product for {name}", { name: i.name })} className="me-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border-[1.5px] border-edge bg-card px-3.5 text-[0.9375rem] font-semibold text-foreground transition active:scale-[0.97] hover:bg-background">
+                                <button type="button" onClick={() => setChoosing(i)} aria-label={t("Choose a product for {name}", { name: i.name })} className="me-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border-[1.5px] border-edge bg-card px-3 text-[0.9375rem] font-semibold text-foreground transition active:scale-[0.97] hover:bg-background">
                                   <SearchIcon className="h-4 w-4 text-ink" />{t("Choose a product")}
                                 </button>
                               )}
                               {canSwap(i) && (
-                                <button type="button" onClick={() => setSwapping(i)} aria-label={t("Swap {name}", { name: i.name })} className="me-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border-[1.5px] border-edge bg-card px-3.5 text-[0.9375rem] font-semibold text-foreground transition active:scale-[0.97] hover:bg-background">
+                                <button type="button" onClick={() => setSwapping(i)} aria-label={t("Swap {name}", { name: i.name })} className="me-auto inline-flex min-h-11 shrink-0 items-center gap-1 rounded-full border-[1.5px] border-edge bg-card px-2.5 text-[0.9375rem] font-semibold text-foreground transition active:scale-[0.97] hover:bg-background">
                                   <SwapIcon className="h-4 w-4 text-ink" />{t("Swap")}
                                 </button>
                               )}
                               <div className="flex items-center rounded-full border-[1.5px] border-edge bg-card">
                                 <button type="button" aria-label={t("One fewer {name}", { name: i.name })} onClick={() => (i.qty <= 1 ? withUndo(tk("Removed “{name}” from your list."), { name: i.name }, () => shoppingStore.update((l) => setQty(l, code, i.retailer, 0, listId))) : shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty - 1, listId)))} className={qtyButton}><MinusIcon aria-hidden className="h-[18px] w-[18px]" /></button>
-                                <span className="app-numbers w-7 text-center font-mono text-base" aria-label={t("Quantity {n}", { n: i.qty })}>{i.qty}</span>
-                                <button type="button" aria-label={t("One more {name}", { name: i.name })} onClick={() => shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty + 1, listId))} className={qtyButton}><PlusIcon aria-hidden className="h-[18px] w-[18px]" /></button>
+                                {/* the figure is drawn; a screen reader hears "Quantity 2" (aria-label on a plain span is not read) */}
+                                <span className="app-numbers w-7 text-center font-mono text-base"><span aria-hidden>{i.qty}</span><span className="sr-only">{t("Quantity {n}", { n: i.qty })}</span></span>
+                                <button type="button" aria-label={t("One more {name}", { name: i.name })} disabled={i.qty >= MAX_QTY} aria-describedby={i.qty >= MAX_QTY ? `most-${code}` : undefined} onClick={() => shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty + 1, listId))} className={qtyButton}><PlusIcon aria-hidden className="h-[18px] w-[18px]" /></button>
                               </div>
                             </div>
+                            {i.qty >= MAX_QTY && !selecting && <p id={`most-${code}`} className="mt-1 text-end text-[0.8125rem] leading-snug text-muted">{t("{n} is the most for one item.", { n: MAX_QTY })}</p>}
                           </div>
                         </div>
                       </li>
                     );
                   })}
                   {/* as the last row of each shop's card, like "New reminder" at the foot of a list: more from the same shop (founder 2026-10-15) */}
-                  {retailer !== CUSTOM_RETAILER && (
+                  {retailer !== CUSTOM_RETAILER && !selecting && (
                     <li className="relative before:pointer-events-none before:absolute before:end-0 before:start-[3.25rem] before:top-0 before:h-px before:bg-line">
                       <Link href={shopHref(retailer)} className="flex min-h-14 items-center gap-1.5 px-2 pe-3 transition hover:bg-background active:bg-background">
                         <span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center"><span className="inline-flex h-[1.625rem] w-[1.625rem] items-center justify-center rounded-full bg-ink text-on-ink"><PlusIcon className="h-[15px] w-[15px]" strokeWidth={3} /></span></span>
@@ -436,28 +478,16 @@ function ShoppingListScreen() {
               </section>
             );
           })}
-          {/* while selecting, Remove stays in view above the tab bar */}
-          {selecting && (
+          {/* while selecting, Remove stays in view above the tab bar once something is picked (nothing else acts on the list meanwhile) */}
+          {selecting && pickedNow.length > 0 && (
             <div className="sticky bottom-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.25rem)] z-10 mt-4">
-              <Button full wrapClassName="rounded-[1.25rem] bg-background p-2" className="min-h-14 text-lg shadow-[var(--shadow-lift)]" disabled={!pickedNow.length} reason={t("Tick the items to remove.")} onClick={removePicked}>
+              <Button full wrapClassName="rounded-[1.25rem] bg-background p-2" className="min-h-14 text-lg shadow-[var(--shadow-lift)]" onClick={removePicked}>
                 <TrashIcon className="h-5 w-5" />{pickedNow.length === 1 ? t("Remove 1 item") : t("Remove {n} items", { n: pickedNow.length })}
               </Button>
             </div>
           )}
-          {/* and a way to another shop: the page that asks "Which shop?" (not on a list for one shop) */}
-          {!current && <LinkButton href="/app/groceries" variant="secondary" full className="mt-8 min-h-12"><BasketIcon className="h-5 w-5" />{[...groups.keys()].some((r) => r !== CUSTOM_RETAILER) ? t("Add from another shop") : t("Add products from a shop")}</LinkButton>}
-          {/* the ticked things off the list, as the main button once something is ticked (usability test 2026-11-19: it was a quiet button at the very bottom) */}
-          {ticked > 0 && <Button full className={`${current ? "mt-8" : "mt-3"} min-h-14 text-lg`} onClick={removeTicked}><TrashIcon className="h-5 w-5" />{t("Remove ticked ({n})", { n: ticked })}</Button>}
-          <div className={`${ticked > 0 ? "mt-3" : current ? "mt-8" : "mt-3"} grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.5rem),1fr))] gap-2.5`}>
-            <Button variant="secondary" className="min-h-12" onClick={share}><ShareIcon className="h-5 w-5" />{t("Share list")}</Button>
-            <Button variant="secondary" className="min-h-12" onClick={copy}><CopyIcon className="h-5 w-5" />{t("Copy")}</Button>
-            {/* to a friend who has the app (Community, founder 2026-10-16): lands in their Shared with you; needs an account, the rest of this page does not */}
-            <SendToFriend list={list} onSent={setNote} />
-          </div>
-          <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("Sharing sends a link that holds your list, so anyone who has it can see it.")}</p>
-          {/* destructive, last and apart (Joan nearly hit Clear list): white with a red edge and red words; Undo in the toast */}
-          <Button variant="danger" full className="mt-6 min-h-12" onClick={() => { withUndo(tk("List cleared."), undefined, () => shoppingStore.update((l) => l.filter((x) => listOf(x) !== listId))); setNote(null); }}><TrashIcon aria-hidden className="h-5 w-5" />{t("Clear list")}</Button>
-          {suggestion && state?.status === "ready" && (
+          {/* "You might also need", before the buttons that send, share or clear the list (it sat after the red Clear list) */}
+          {suggestion && state?.status === "ready" && !selecting && (
             <section aria-labelledby="suggest-heading" className={`${CARD} mt-8 p-5`}>
               <h2 id="suggest-heading" className={LABEL}>{t("You might also need")}</h2>
               {/* the recipe's picture before the sentence; it opens the recipe too (the name in the sentence is the link a screen reader and the keyboard use), and sits above the words where the card is narrow */}
@@ -479,13 +509,33 @@ function ShoppingListScreen() {
                     : <li key={i} className="rounded-[0.375rem] bg-fill px-3 py-1.5 text-[0.9375rem] font-medium">{t(label)}</li>;
                 })}
               </ul>
-              <Button className="mt-4" onClick={() => { const n = addMissing(suggestion, state.file); const { text, values } = addedNote(suggestion, n, state.file); setSuggestNote(t(text, values)); }}>
+              <Button className="mt-4" onClick={() => { const placed = addMissing(suggestion, state.file, settings.shoppingLists, listId); const { text, values } = addedNote(placed, (id) => (id ? lists.find((l) => l.id === id)?.name ?? t("Shopping list") : t("Shopping list"))); setSuggestNote(t(text, values)); }}>
                 <PlusIcon className="h-5 w-5" />{suggestion.missing.length === 1 ? t("Add it to my list") : t("Add them to my list")}
               </Button>
               <p role="status" aria-live="polite" className="mt-2 text-sm font-medium text-foreground empty:mt-0">{suggestNote}</p>
             </section>
           )}
-
+          {!selecting && (
+            <>
+              {/* and a way to another shop: the page that asks "Which shop?" (not on a list for one shop) */}
+              {!current && <LinkButton href="/app/groceries" variant="secondary" full className="mt-8 min-h-12"><BasketIcon className="h-5 w-5" />{[...groups.keys()].some((r) => r !== CUSTOM_RETAILER) ? t("Add from another shop") : t("Add products from a shop")}</LinkButton>}
+              {/* the ticked things off the list, as the main button once something is ticked (usability test 2026-11-19: it was a quiet button at the very bottom) */}
+              {ticked > 0 && <Button full className={`${current ? "mt-8" : "mt-3"} min-h-14 text-lg`} onClick={removeTicked}><TrashIcon className="h-5 w-5" />{t("Remove ticked ({n})", { n: ticked })}</Button>}
+              {/* nothing to send once everything is ticked off: Share and Copy are switched off, with the reason once above them */}
+              {nothingToShare && <p className="mt-4 flex items-start gap-1.5 px-1 text-[0.9375rem] font-semibold leading-snug">{t("Everything is ticked off: nothing left to share.")}</p>}
+              <div className={`${ticked > 0 || nothingToShare ? "mt-3" : current ? "mt-8" : "mt-3"} grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.5rem),1fr))] gap-2.5`}>
+                <Button variant="secondary" className="min-h-12" disabled={nothingToShare} onClick={share}><ShareIcon className="h-5 w-5" />{t("Share list")}</Button>
+                <Button variant="secondary" className="min-h-12" disabled={nothingToShare} onClick={copy}><CopyIcon className="h-5 w-5" />{t("Copy")}</Button>
+                {/* to a friend who has the app (Community, founder 2026-10-16): lands in their Shared with you; needs an account, the rest of this page does not */}
+                <SendToFriend list={list} onSent={setNote} />
+              </div>
+              <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("Sharing sends a link that holds your list, so anyone who has it can see it.")}</p>
+              {/* a list somebody sent: opened here, with the other ways a list travels (it sat above the list and pushed it below the fold) */}
+              <div className="mt-3">{friendButton}</div>
+              {/* destructive, last and apart (Joan nearly hit Clear list): white with a red edge and red words; Undo in the toast */}
+              <Button variant="danger" full className="mt-6 min-h-12" onClick={() => { withUndo(tk("List cleared."), undefined, () => shoppingStore.update((l) => l.filter((x) => listOf(x) !== listId))); setNote(null); }}><TrashIcon aria-hidden className="h-5 w-5" />{t("Clear list")}</Button>
+            </>
+          )}
         </>
       )}
 
@@ -532,6 +582,11 @@ function ShoppingListScreen() {
       </Sheet>
     </div>
   );
+}
+
+/** A chip's words: the list's name, and how many things it still has to get ("Sainsbury's · 2"). */
+function chipLabel(name: string, n: number): string {
+  return n > 0 ? `${name} · ${n}` : name;
 }
 
 /** A list's chip at the top: big (48 px), wrapping its words at large text; the one shown is lime with the 2 px dark green edge and a tick, the others white with the edge. */

@@ -1,6 +1,8 @@
+import { forRetailer, photoSources, type ListedProduct, type PhotoSource } from "./groceries";
 import { tk } from "./i18n";
 import { halfUp } from "./nutrients";
 import { toAsciiDigits } from "./numbers";
+import { packLabel, shopPhotoSources, type ShopFile, type ShopProduct } from "./shopProducts";
 import type { LogMeal, Nutrients } from "./types";
 
 // The "Add food" sheet on Home's meal rows (founder 2026-10-15, on the + beside Breakfast: "a kind of menu vibe sheet should launch where you can
@@ -137,4 +139,135 @@ export function recipeNutrients(
   if (l.salt !== null) n.salt = halfUp(l.salt * servings, 2);
   if (l.kj !== null) n.energyKj = halfUp(l.kj * servings);
   return n;
+}
+
+// ---- one product shape for "How much did you have?" (founder 2026-11-20: scan a barcode, see the product, add it to the food diary)
+
+/** Where a product's numbers come from, said under them as the product pages say it. */
+export type LabelSource =
+  | { kind: "shop"; shop: string }
+  | { kind: "same"; shop: string }
+  | { kind: "community" }
+  | { kind: "government"; food: string };
+
+/** A supermarket product as the "How much did you have?" step uses it, whether from a shop's full list or the older barcode catalogue. */
+export interface LoggableProduct {
+  /** Unique in a list of picks. */
+  key: string;
+  name: string;
+  /** The supermarket it is from (its name goes on Today's row), or null when that isn't known. */
+  shop: string | null;
+  per: "g" | "ml";
+  /** "" when the numbers are for the food as sold; else the word the label's heading adds ("grilled", "prepared"). */
+  state: string;
+  /** The label's figures per 100 g or ml (a figure the label doesn't print is absent). */
+  label: PerHundred;
+  source: LabelSource;
+  /** The pack size as printed ("400g", "4 x 125g"), or "". */
+  size: string;
+  /** One portion as the label prints it ("40g", "1 bar (45g)"), or "". */
+  portion: string;
+  /** Its pictures, best first (the first one fit to keep goes with the entry, as a shopping list item keeps one). */
+  photos: PhotoSource[];
+}
+
+/** A shop list's per-100 figures (null where the page printed none) as a label (absent where not printed). */
+export function perHundredFromShop(n: { kcal: number; protein: number; carbs: number; fat: number; saturates: number | null; sugars: number | null; fibre: number | null; salt: number | null; kj: number | null }): PerHundred {
+  const out: PerHundred = { kcal: n.kcal, protein: n.protein, carbs: n.carbs, fat: n.fat };
+  if (n.saturates !== null) out.saturates = n.saturates;
+  if (n.sugars !== null) out.sugars = n.sugars;
+  if (n.fibre !== null) out.fibre = n.fibre;
+  if (n.salt !== null) out.salt = n.salt;
+  if (n.kj !== null) out.kj = n.kj;
+  return out;
+}
+
+/** The figures to add, as an amount of a product: grams or millilitres between MIN_AMOUNT and MAX_AMOUNT. */
+const asAmount = (n: number, unit: "g" | "ml"): { amount: number; unit: "g" | "ml" } | null => (Number.isFinite(n) && n >= MIN_AMOUNT && n <= MAX_AMOUNT ? { amount: Math.round(n * 10) / 10, unit } : null);
+
+/** A printed size or portion in grams or millilitres ("125g", "1.5 kg", "330 ml", "1 bar (45g)"), as one item; null when it gives no weight or volume. */
+export function printedAmount(text: string): { amount: number; unit: "g" | "ml" } | null {
+  const m = /(\d+(?:[.,]\d+)?)\s*(kg|g|grams?|ml|cl|l|ltr|litres?|liters?)\b/i.exec((text ?? "").replace(/(\d),(\d{3})\b/g, "$1$2"));
+  if (!m) return null;
+  const n = Number(m[1]!.replace(",", "."));
+  const u = m[2]!.toLowerCase();
+  if (u === "kg") return asAmount(n * 1000, "g");
+  if (u === "g" || u.startsWith("gram")) return asAmount(n, "g");
+  if (u === "ml") return asAmount(n, "ml");
+  if (u === "cl") return asAmount(n * 10, "ml");
+  return asAmount(n * 1000, "ml");
+}
+
+/** A pack size: one item ("400g") or a multipack ("4 x 125g", "6x330ml"), each item's amount and how many; null when the size gives no weight or volume. */
+export function packAmounts(size: string): { each: number; count: number; unit: "g" | "ml" } | null {
+  const multi = /(\d+)\s*[x×]\s*(\d+(?:\.\d+)?\s*(?:kg|g|ml|cl|l|ltr|litres?|liters?)\b)/i.exec(size ?? "");
+  if (multi) {
+    const one = printedAmount(multi[2]!);
+    const count = Number(multi[1]);
+    return one && count >= 2 && count <= 48 ? { each: one.amount, count, unit: one.unit } : null;
+  }
+  const one = printedAmount(size ?? "");
+  return one ? { each: one.amount, count: 1, unit: one.unit } : null;
+}
+
+/** The largest single pack offered as "The whole pack": more than this isn't eaten at one sitting (a 2 kg bag of chicken). */
+export const MAX_WHOLE_PACK = 1000;
+
+/** A one-tap amount on "How much did you have?". */
+export type AmountChoice =
+  | { kind: "portion"; amount: number }
+  | { kind: "pack"; amount: number }
+  | { kind: "item"; amount: number; count: number }
+  | { kind: "hundred"; amount: 100 };
+
+/**
+ * The one-tap amounts, all from the label and the pack (nothing guessed): one portion where the label prints one in the label's own unit, one item of a multipack
+ * ("1 of 4 (125 g)") or the whole of a single pack up to MAX_WHOLE_PACK, and 100 g or ml. Each amount once.
+ */
+export function amountChoices(p: Pick<LoggableProduct, "per" | "size" | "portion">): AmountChoice[] {
+  const out: AmountChoice[] = [];
+  const portion = p.portion ? printedAmount(p.portion) : null;
+  if (portion && portion.unit === p.per) out.push({ kind: "portion", amount: portion.amount });
+  const pack = p.size ? packAmounts(p.size) : null;
+  if (pack && pack.unit === p.per) {
+    if (pack.count > 1) out.push({ kind: "item", amount: pack.each, count: pack.count });
+    else if (pack.each <= MAX_WHOLE_PACK) out.push({ kind: "pack", amount: pack.each });
+  }
+  out.push({ kind: "hundred", amount: 100 });
+  return out.filter((c, i) => out.findIndex((x) => x.amount === c.amount) === i);
+}
+
+/** The amount "How much did you have?" starts with: one portion where the label prints one, else 100 g or ml. */
+export const startAmount = (p: Pick<LoggableProduct, "per" | "size" | "portion">): number => amountChoices(p).find((c) => c.kind === "portion")?.amount ?? 100;
+
+/** "125 g", "37.5 ml": an amount as the entry's name and the screen say it. */
+export const amountText = (amount: number, unit: "g" | "ml"): string => `${Math.round(amount * 10) / 10} ${unit}`;
+
+/** What adding `amount` of a product to the food diary adds: its name with the amount, the label's figures times the amount (absent stays absent), the shop. */
+export function productEntry(p: Pick<LoggableProduct, "name" | "label" | "per">, amount: number, shopName: string): { chainId: string; chainName: string; name: string; nutrients: Nutrients; source: "product" } {
+  return { chainId: "", chainName: shopName, name: `${p.name} (${amountText(amount, p.per)})`, nutrients: amountNutrients(p.label, amount), source: "product" };
+}
+
+/** A product from a shop's full list, ready for "How much did you have?"; null when we have no numbers for it (nothing is guessed). */
+export function loggableFromShop(file: Pick<ShopFile, "retailer" | "photoBase" | "photoTemplate">, p: ShopProduct): LoggableProduct | null {
+  const n = p.nutrition;
+  if (!n) return null;
+  const source: LabelSource = n.govFood ? { kind: "government", food: n.govFood } : n.community ? { kind: "community" } : n.sameAs ? { kind: "same", shop: n.sameAs } : { kind: "shop", shop: file.retailer };
+  return { key: `${file.retailer}:${p.id}`, name: p.name, shop: file.retailer, per: n.per, state: n.state, label: perHundredFromShop(n), source, size: packLabel(p.name) ?? "", portion: "", photos: shopPhotoSources(file, p) };
+}
+
+/** A product from the older barcode catalogue, as `prefer`'s record of it where that shop has one: the shop's own page's numbers where it read them, else the
+ *  community record for the barcode (said so). */
+export function loggableFromListed(listed: ListedProduct, prefer: string | null): LoggableProduct {
+  const p = forRetailer(listed, prefer);
+  const shop = prefer && listed.retailers.includes(prefer) ? prefer : listed.retailers.length === 1 ? listed.retailers[0]! : null;
+  const label: PerHundred = { kcal: p.kcal, protein: p.protein, carbs: p.carbs, fat: p.fat };
+  for (const k of ["saturates", "sugars", "fibre", "salt", "kj"] as const) if (typeof p[k] === "number") label[k] = p[k];
+  const own = prefer && listed.byRetailer[prefer] ? prefer : listed.retailers[0] ?? "";
+  return { key: `code:${listed.gtin}`, name: p.name, shop, per: p.per, state: "", label, source: p.source === "retailer" ? { kind: "shop", shop: own } : { kind: "community" }, size: p.size, portion: p.serving?.size ?? "", photos: photoSources(p, prefer) };
+}
+
+/** The same product's numbers from a shop's label, in place of a catalogue record's (2026-11-20: the shop's own label always wins over community numbers). */
+export function withShopLabel(p: LoggableProduct, from: LoggableProduct): LoggableProduct {
+  return from.source.kind === "shop" || from.source.kind === "same" ? { ...p, per: from.per, state: from.state, label: from.label, source: from.source, portion: from.per === p.per ? p.portion : "" } : p;
 }

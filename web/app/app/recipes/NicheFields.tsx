@@ -8,9 +8,10 @@ import { CHIP, CHIP_ON, LABEL } from "../groceries/PageBits";
 // Indian"). Founder 2026-11-18: side by side to save room ("could it be worth putting them side by side"), and any number of choices in each ("they can select
 // more filters multiple as many as they want"), so each field is a button that opens the Filters sheet at its own choices, with what is chosen on its face
 // ("Chinese, Indian": commas, not "and", because a recipe of either cuisine is shown). Two columns while two fit; one under the other with large text (the
-// minimum width is in rem). A field with something chosen gets a dark outline like a pressed tile.
+// minimum width is in rem). A field with something chosen is lime with the dark green edge, like a chosen tile above it (audit, 20 November 2026: it had a black
+// ring, the look of nothing else in the app).
 
-const CHOSEN = "shadow-[inset_0_0_0_2px_var(--foreground)]";
+const CHOSEN = "border border-on-sun bg-sun text-on-sun shadow-[0_0_0_1px_var(--on-sun)]";
 
 function Field({ label, value, chosen, onClick }: { label: string; value: string; chosen: boolean; onClick: () => void }) {
   return (
@@ -18,11 +19,11 @@ function Field({ label, value, chosen, onClick }: { label: string; value: string
       type="button"
       onClick={onClick}
       aria-haspopup="dialog"
-      className={`glass relative block min-h-[3.75rem] w-full min-w-0 rounded-[1.25rem] pb-2 pe-9 ps-4 pt-[1.6rem] text-start transition-colors hover:bg-[color-mix(in_srgb,var(--card)_70%,var(--soft-strong))] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent ${chosen ? CHOSEN : ""}`}
+      className={`relative block min-h-[3.75rem] w-full min-w-0 rounded-[1.25rem] pb-2 pe-9 ps-4 pt-[1.6rem] text-start transition-colors focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent ${chosen ? CHOSEN : "glass hover:bg-[color-mix(in_srgb,var(--card)_70%,var(--soft-strong))]"}`}
     >
-      <span className={`pointer-events-none absolute start-4 top-2.5 max-w-[calc(100%-3rem)] truncate ${LABEL}`}>{label}</span>
+      <span className={`pointer-events-none absolute start-4 top-2.5 max-w-[calc(100%-3rem)] truncate ${LABEL} ${chosen ? "!text-on-sun" : ""}`}>{label}</span>
       <span className="block truncate text-base font-semibold leading-snug">{value}</span>
-      <svg aria-hidden viewBox="0 0 24 24" className="pointer-events-none absolute end-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+      <svg aria-hidden viewBox="0 0 24 24" className={`pointer-events-none absolute end-3.5 top-1/2 h-4 w-4 -translate-y-1/2 ${chosen ? "text-on-sun" : "text-muted"}`} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
     </button>
   );
 }

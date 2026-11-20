@@ -165,6 +165,67 @@ def read_table(rec: dict) -> tuple[dict | None, str]:
     return out, ""
 
 
+NUTRITION = ROOT / "data" / "groceries" / "nutrition"
+
+
+def read_status(shop: str, base: Path | None = None) -> dict[str, str]:
+    """What reading each product's own page found, by the shop's product id: "table" (the page printed a nutrition table), "no table" (it was read and printed
+    none), "blocked" or "unreadable"; a product missing from the result has not been read. Only "no table" lets build_all_products.py give loose fresh produce the
+    government's figures (2026-11-20: a product whose page wasn't read must say so, never take the figures of a raw vegetable). From every store of page reads:
+    raw-<shop>/chrome.jsonl (Chrome readers), raw/results_K.tsv and raw/none_K.txt (Sainsbury's tier-2 readers) and raw-iceland/pages.jsonl (Iceland's own
+    feed). The newest read of a page wins within one store; a page any store found a table on counts as "table"."""
+    base = base or NUTRITION
+    out: dict[str, str] = {}
+
+    def put(pid: str, status: str) -> None:
+        if not pid:
+            return
+        if out.get(pid) == "table":
+            return  # a table found anywhere stands
+        out[pid] = status
+
+    chrome = base / f"raw-{shop}" / "chrome.jsonl"
+    if chrome.exists():
+        reads: dict[str, dict] = {}
+        with open(chrome, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    rec = json.loads(line)
+                except ValueError:
+                    continue
+                rid = str(rec.get("id") or "")
+                reads[rid] = rec
+                m = re.search(r"-0*(\d+)$", rid)  # Aldi's page address ends with the zero-padded product id
+                if m:
+                    reads[m.group(1)] = rec
+        for rid, rec in reads.items():
+            put(rid, "blocked" if rec.get("blocked") else "unreadable" if rec.get("unreadable") else "table" if rec.get("nut") else "no table")
+    if shop == "sainsburys":
+        t2 = base / "raw"
+        for path in sorted(t2.glob("results_*.tsv")) if t2.exists() else []:
+            for line in path.read_text(encoding="utf-8").splitlines():
+                put(line.split("\t", 1)[0].strip(), "table")
+        for path in sorted(t2.glob("none_*.txt")) if t2.exists() else []:
+            for line in path.read_text(encoding="utf-8").splitlines():
+                put(line.split("\t", 1)[0].strip(), "no table")
+    if shop == "iceland":
+        feed = base / "raw-iceland" / "pages.jsonl"
+        if feed.exists():
+            for line in feed.read_text(encoding="utf-8").splitlines():
+                try:
+                    rec = json.loads(line)
+                except ValueError:
+                    continue
+                if rec.get("status") != "ok":
+                    continue
+                info = rec.get("nutritionInformation") or {}
+                put(str(rec.get("product_id") or ""), "table" if info.get("nutrients") else "no table")
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("shop")

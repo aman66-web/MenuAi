@@ -14,6 +14,7 @@ import {
   type SyncState,
   type SyncValue,
 } from "../lib/mm/syncMerge";
+import { sanitizeSavedOrders, type SavedOrder } from "../lib/mm/user-data";
 
 const NOW = Date.UTC(2026, 9, 13, 12, 0, 0);
 const set = (items: Record<string, [number, unknown]>, gone: Record<string, number> = {}): SyncSet => ({
@@ -173,5 +174,33 @@ describe("canonical and fingerprint", () => {
   it("changes when a value changes", () => {
     expect(fingerprint({ qty: 1 })).not.toBe(fingerprint({ qty: 2 }));
     expect(fingerprint([1, 2])).not.toBe(fingerprint([2, 1]));
+  });
+});
+
+describe("a saved meal from a restaurant that publishes calories only (the 30-person audit, 20 November 2026)", () => {
+  // ItemScreen saves {calories} alone for Brightside or Pizza Express on purpose: "Saved to My meals." must stay true after a reload and a sync
+  const calOnly: SavedOrder = {
+    id: "o-cal", createdAt: "2026-10-13T11:00:00.000Z", chainId: "pizza-express", chainName: "Pizza Express", name: "Margherita", lines: [], nutrients: { calories: 720 }, dataVersionAtSave: 1,
+  };
+  const full: SavedOrder = { ...calOnly, id: "o-full", chainId: "kfc", chainName: "KFC", name: "Fillet burger", nutrients: { calories: 500, protein: 30, carbs: 40, fat: 20 } };
+
+  it("survives being read back from storage", () => {
+    expect(sanitizeSavedOrders(JSON.parse(JSON.stringify([calOnly, full])))).toEqual([calOnly, full]);
+  });
+
+  it("survives a sync round trip: sent, merged with the other phone's copy, checked by the server and read back", () => {
+    const phone = set({ [calOnly.id]: [NOW - 2000, calOnly] });
+    const tablet = set({ [full.id]: [NOW - 1000, full] });
+    const merged = validateState("saved", JSON.parse(JSON.stringify(merge(phone, tablet)))) as SyncSet;
+    expect(merged).not.toBeNull();
+    const back = sanitizeSavedOrders(Object.values(merged.items).map((x) => x.v));
+    expect(back.map((o) => o.id).sort()).toEqual(["o-cal", "o-full"]);
+    expect(back.find((o) => o.id === "o-cal")!.nutrients).toEqual({ calories: 720 });
+  });
+
+  it("still drops a saved meal with no calories, or a made-up protein", () => {
+    expect(sanitizeSavedOrders([{ ...calOnly, nutrients: { protein: 30 } }])).toEqual([]);
+    expect(sanitizeSavedOrders([{ ...calOnly, nutrients: { calories: 720, protein: "30" } }])).toEqual([]);
+    expect(sanitizeSavedOrders([{ ...calOnly, nutrients: { calories: Number.NaN } }])).toEqual([]);
   });
 });

@@ -2,6 +2,7 @@
 // Only meals count (a main or a kids' dish at 120 kcal or more), never a drink, a dip, a side or an add-on. A list a chain can't answer (it publishes no protein,
 // or no sugar) is not offered for that chain rather than answered with a guess.
 
+import { hasMacros } from "../nutrients";
 import type { Chain, MenuItem } from "../types";
 import { itemKind, isMealKind } from "./itemKind";
 import { MIN_SCORED_KCAL, proteinShare } from "./proteinScore";
@@ -36,8 +37,10 @@ export const SMALL_APPETITE = { maxKcal: 400, minProtein: 20 } as const;
 export const SUGAR_5_G = 5;
 export const MOST_PROTEIN = { minKcal: 250, minProtein: 20 } as const;
 
+// A dish the restaurant's data marks as never suggested (rankable false: a plain bun, an extra) isn't a meal either. Where a dish publishes no protein, carbs or
+// fat the pipeline sets rankable false for that reason alone (a calories-only restaurant), so there the flag says nothing and the kind decides.
 const meal = (i: MenuItem): boolean =>
-  i.nutrients.calories >= MIN_SCORED_KCAL && isMealKind(itemKind({ name: i.name, category: i.category, calories: i.nutrients.calories }));
+  i.nutrients.calories >= MIN_SCORED_KCAL && (i.rankable !== false || !hasMacros(i.nutrients)) && isMealKind(itemKind({ name: i.name, category: i.category, calories: i.nutrients.calories }));
 
 const protein = (i: MenuItem): number | undefined => i.nutrients.protein;
 const share = (i: MenuItem): number => proteinShare(i.nutrients) ?? 0;

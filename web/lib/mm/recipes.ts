@@ -70,6 +70,8 @@ export interface Recipe {
   tags?: string[];
   /** Set by recipeForDiet for halal: substitutes use halal-named meat too. */
   halal?: boolean;
+  /** Set by recipeForDiet for vegetarian and Jain diets: substitutes use the version made without animal rennet too (Italian hard cheese, pesto). */
+  vegetarian?: boolean;
   /** Set by scaleServings (never saved): this recipe cooked for a different number of people is the recipe in `scaledFrom` with every amount
    *  scaled. A serving of it is the same serving as the original's, so its figures and its price a serving are always worked out from the
    *  original (resolveRecipe, recipeTotals); the amounts here only say what to measure and buy for more or fewer people. */
@@ -132,6 +134,20 @@ function countNote(k: PantryKind, amount: number): string | undefined {
   return `about ${n} ${n === 1 ? k.pieceName[0] : k.pieceName[1]}`;
 }
 
+/** Kinds whose products come in very different sizes of piece (a salad tomato is 85 g, a baby plum or cherry tomato 10 to 15 g): a count note ("about 1 tomato")
+ *  is said only when the product picked is the usual size. */
+const SMALL_PIECES: Readonly<Record<string, RegExp>> = { tomatoes: /\b(?:baby|cherry|plum|mini|midi|snacking|cocktail|piccolo|santini|pomodorini|datterini)\b/i };
+
+/** An ingredient's note for the product it uses: a count note ("about 1 tomato") is dropped when that product's pieces are much smaller than the kind's usual
+ *  one (80 g of baby plum tomatoes is not "about 1 tomato"); every other note is the spec's own. */
+export function noteForPick(spec: Pick<IngredientSpec, "note" | "pantry">, productName: string | undefined): string | undefined {
+  if (!spec.note || !COUNT_NOTE.test(spec.note) || !spec.pantry || !productName) return spec.note;
+  return SMALL_PIECES[spec.pantry]?.test(productName) ? undefined : spec.note;
+}
+
+/** Whether a kind's count words ("about 2 tomatoes", "about ½ an onion") suit the product picked (see noteForPick). */
+export const countsSuit = (pantry: string | undefined, productName: string | undefined): boolean => !(pantry && productName && SMALL_PIECES[pantry]?.test(productName));
+
 const GLOBAL_NONE = ["meal", "sandwich", "kit", "gift", "hamper", "soup", "chowder", "broth"];
 const MEAT_WORDS = ["chicken", "beef", "pork", "lamb", "turkey", "bacon", "ham", "sausage", "salmon", "tuna", "prawn", "fish", "anchov", "chorizo", "pepperoni", "cod"];
 
@@ -175,14 +191,35 @@ export function recipeForDiet(recipe: Recipe, prefs: DietPrefs): Recipe | null {
   }
   // kosher style: never meat with dairy in one dish
   if (prefs.kosherStyle && mixesMeatAndDairy(recipe.ingredients.map((i) => (i.pantry ? PANTRY.get(i.pantry) : undefined)).filter((k): k is NonNullable<typeof k> => !!k))) return null;
-  return { ...recipe, ingredients: out, ...(prefs.halalOnly ? { halal: true } : {}) };
+  return { ...recipe, ingredients: out, ...(prefs.halalOnly ? { halal: true } : {}), ...(prefs.vegetarianOnly || prefs.jain ? { vegetarian: true } : {}) };
 }
 
-/** A substitute for an ingredient, as an ingredient of the same recipe (same key, so product choices and fitting follow it). */
-export function subSpec(spec: IngredientSpec, sub: { key: string; factor?: number }, halal = false): IngredientSpec | null {
+/** Why each of a recipe's ingredients doesn't suit these preferences (kindExcluded's reason), in the recipe's order, plus "meat with dairy" (kosher style)
+ *  for its meat and dairy when it has both: empty exactly when recipeForDiet keeps the recipe. A recipe page opened anyway (a link, a plan) says which ingredient and why. */
+export function dietClashes(recipe: Recipe, prefs: DietPrefs): Array<{ label: string; pantry: string; reason: string }> {
+  const base = recipe.scaledFrom ?? recipe;
+  const out: Array<{ label: string; pantry: string; reason: string }> = [];
+  const kinds: PantryKind[] = [];
+  for (const i of base.ingredients) {
+    const k = i.pantry ? PANTRY.get(i.pantry) : undefined;
+    if (!k) continue;
+    kinds.push(k);
+    const reason = kindExcluded(k, prefs);
+    if (reason !== null) out.push({ label: i.label, pantry: k.key, reason });
+  }
+  if (prefs.kosherStyle && mixesMeatAndDairy(kinds)) {
+    for (const k of kinds) if ((k.meat || k.contains.includes("milk")) && !out.some((o) => o.pantry === k.key)) out.push({ label: base.ingredients.find((i) => i.pantry === k.key)!.label, pantry: k.key, reason: "meat with dairy" });
+  }
+  return out;
+}
+
+/** A substitute for an ingredient, as an ingredient of the same recipe (same key, so product choices and fitting follow it). `diet`: the recipe's own
+ *  (`halal` and `vegetarian` as recipeForDiet set them), or true for halal. */
+export function subSpec(spec: IngredientSpec, sub: { key: string; factor?: number }, diet: boolean | Pick<Recipe, "halal" | "vegetarian"> = false): IngredientSpec | null {
   const kind = PANTRY.get(sub.key);
   if (!kind) return null;
-  const k = halal ? kindForDiet(kind, { halalOnly: true }) : kind;
+  const d = typeof diet === "boolean" ? { halal: diet } : diet;
+  const k = d.halal || d.vegetarian ? kindForDiet(kind, { halalOnly: !!d.halal, vegetarianOnly: !!d.vegetarian }) : kind;
   const amount = Math.max(5, Math.round((spec.amount * (sub.factor ?? 1)) / 5) * 5);
   // it takes the ingredient's place in the dish, so it moves the way the ingredient did when the recipe is fitted
   const place = { role: spec.role, ...(spec.follows ? { follows: spec.follows } : {}), ...(spec.fit ? { fit: spec.fit } : {}) };
@@ -198,7 +235,7 @@ export function withSubstitutes(recipe: Recipe, choices: Readonly<Record<string,
     ...recipe,
     ingredients: recipe.ingredients.map((spec) => {
       const sub = spec.subs?.find((x) => x.key === choices[spec.key]);
-      const s2 = sub ? subSpec(spec, sub, recipe.halal) : null;
+      const s2 = sub ? subSpec(spec, sub, recipe) : null;
       return s2 ? { ...s2, subs: spec.subs, original: spec } : spec;
     }),
   };
@@ -215,8 +252,19 @@ const hay = (p: ShopProduct): string => {
   }
   return h;
 };
-/** A word (or phrase) that starts a word in the name: "ham" is not in "graham", "pea" is in "peas". */
-const has = (h: string, word: string) => h.includes(` ${normalizeForSearch(word)}`);
+/** A word (or phrase) that starts a word in the name: "ham" is not in "graham", "pea" is in "peas". The rules' words are normalised once each (matching runs
+ *  every product against them, and normalising the same words again for each product was most of the Recipes tab's first-open time). */
+const ruleWords = new Map<string, string>();
+const has = (h: string, word: string) => {
+  let w = ruleWords.get(word);
+  if (w === undefined) {
+    w = ` ${normalizeForSearch(word)}`;
+    ruleWords.set(word, w);
+  }
+  return h.includes(w);
+};
+/** Product names in British English order, for the last tie-break (one collator: localeCompare would build one for every comparison). */
+const NAME_ORDER = new Intl.Collator("en-GB");
 
 /** The pack's own weight or volume from its name ("320g", "1kg", "1.13L", "4x125g", "1 Pint"), in g or ml; null when the name doesn't say.
  *  A drained weight in brackets ("400g (240g*)", "4x125g (102g Drained)") is skipped here: see drainedSize. */
@@ -305,12 +353,15 @@ export function pickFor(spec: IngredientSpec, product: PricedProduct): Ingredien
     const used = (product.unitPrice! * spec.amount) / 1000;
     return { spec, product, packs: 1, basketCost: used, usedCost: used };
   }
-  // Sold one at a time (a pepper, a cucumber, a pack of 3 onions): the recipe uses whole items, each at the shop's own price each.
+  // Sold one at a time (a pepper, a cucumber, a pack of 3 onions): the basket buys whole items, each at the shop's own price each. What the amount used costs
+  // is whole items for a kind used whole (eggs, wraps), and the part used for one bought whole and used in parts (`cut`: 40 g of a 300 g cucumber is 40/300 of
+  // its price, not the whole cucumber; audit 20 November 2026), as the shop's price per kg does for loose produce.
   const kind = spec.pantry ? PANTRY.get(spec.pantry) : undefined;
   if (!size && product.unit === "each" && product.unitPrice !== null && kind?.pieceGrams && spec.unit === "g") {
     const pieces = Math.max(1, Math.ceil(spec.amount / kind.pieceGrams - 1e-9));
     const packs = Math.max(1, Math.ceil(pieces / itemsInPack(product)));
-    return { spec, product, packs, pieces, basketCost: packs * product.price, usedCost: pieces * product.unitPrice };
+    const usedCost = kind.cut ? (spec.amount / kind.pieceGrams) * product.unitPrice : pieces * product.unitPrice;
+    return { spec, product, packs, pieces, basketCost: packs * product.price, usedCost };
   }
   // no weight in the name but a price per kg or litre: the shelf price is for (price ÷ price per kg) of it ("Small Whole Cucumber": 70p at £3.89/kg)
   const sized = size ?? (perKgOrLitre && product.unitPrice! > 0 ? Math.round((product.price / product.unitPrice!) * 1000) : null);
@@ -341,10 +392,23 @@ export function plainSeasoning(name: string, m: IngredientMatch, needs?: readonl
   return before.length <= 5 && !before.some((w) => NOT_A_BRAND.has(w)) && words.slice(first).every((w) => own.has(w) || SEASONING_PLAIN.has(w));
 }
 
+/** Sizes of a piece that a pack with no weight in its name may be, by its words: never a mini, a taco or an XL wrap. */
+const ODD_PIECE = /\b(?:mini|small|taco|xl|snack|extra thin|thins?)\b/i;
+
+/** A pack of pieces served one to each person (wraps) with no weight in its name, sold by the piece at the shop's own price each ("Mission Deli Original Tortilla
+ *  Wraps 6 Pack" at 25p each, "Morrisons Plain Tortilla Wraps 8 Pack"): counted at the kind's usual weight a piece, as a naan sold that way is. Only plain sizes
+ *  (ODD_PIECE), and only where the shelf price is several pieces' price, so a pack priced "each" as a whole is never counted as one wrap. */
+function soldByThePiece(p: ShopProduct, spec: IngredientSpec): boolean {
+  const kind = spec.pantry ? PANTRY.get(spec.pantry) : undefined;
+  if (!kind?.perServing || !kind.pieceGrams || p.unit !== "each" || !p.unitPrice || p.price === null) return false;
+  if (packSize(p.name, "g") !== null || ODD_PIECE.test(p.name)) return false;
+  return Math.round(p.price / p.unitPrice) >= 2;
+}
+
 function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFree: boolean): PricedProduct[] {
   let byRule = matchCache.get(products);
   if (!byRule) { byRule = new Map(); matchCache.set(products, byRule); }
-  const rule = JSON.stringify([spec.match, spec.unit, !!spec.drained, meatFree, !!spec.labelOptional, spec.unlabelledNeeds ?? null]);
+  const rule = JSON.stringify([spec.match, spec.unit, !!spec.drained, meatFree, !!spec.labelOptional, spec.unlabelledNeeds ?? null, spec.match.pieceWeight ? spec.pantry ?? null : null]);
   const cached = byRule.get(rule);
   if (cached) return cached;
   const m = spec.match;
@@ -367,7 +431,7 @@ function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFr
     if (n && m.maxFat !== undefined && n.fat > m.maxFat) continue;
     if (m.pieceWeight) {
       const w = pieceWeight(p.name);
-      if (w === null || w < m.pieceWeight[0] || w > m.pieceWeight[1]) continue;
+      if (w === null ? !soldByThePiece(p, spec) : w < m.pieceWeight[0] || w > m.pieceWeight[1]) continue;
     }
     list.push(p);
   }
@@ -403,7 +467,7 @@ export function candidates(products: readonly ShopProduct[], spec: IngredientSpe
   // a product a typical small shop stocks comes before any other usable one, even when a big-store pack is a few pence cheaper (founder 2026-11-17: ingredients
   // a person can buy at a Sainsbury's Local or a Tesco Express; lib/mm/localRange.ts)
   const notLocal = (c: IngredientPick) => Number(!isLocalRange(c.product));
-  return out.sort((a, b) => Number(a.usedCost === null) - Number(b.usedCost === null) || Number(!a.product.nutrition) - Number(!b.product.nutrition) || rank(a) - rank(b) || community(a) - community(b) || notLocal(a) - notLocal(b) || Number(!inBand(a)) - Number(!inBand(b)) || unpreferred(a) - unpreferred(b) || gaps(a) - gaps(b) || a.basketCost - b.basketCost || (a.product.unitPrice ?? Infinity) - (b.product.unitPrice ?? Infinity) || a.product.name.localeCompare(b.product.name, "en-GB"));
+  return out.sort((a, b) => Number(a.usedCost === null) - Number(b.usedCost === null) || Number(!a.product.nutrition) - Number(!b.product.nutrition) || rank(a) - rank(b) || community(a) - community(b) || notLocal(a) - notLocal(b) || Number(!inBand(a)) - Number(!inBand(b)) || unpreferred(a) - unpreferred(b) || gaps(a) - gaps(b) || a.basketCost - b.basketCost || (a.product.unitPrice ?? Infinity) - (b.product.unitPrice ?? Infinity) || NAME_ORDER.compare(a.product.name, b.product.name));
 }
 
 /** Whether this product, from the same shop's list, can stand for the ingredient (the very rules recipes use to pick products). */
@@ -455,7 +519,7 @@ export function resolveRecipe(recipe: Recipe, products: readonly ShopProduct[], 
     let list = candidates(products, spec, meatFree);
     // the shop doesn't sell this kind: use the first substitute it does sell (the pick's spec says which, so the screen can say so)
     for (const sub of list.length ? [] : spec.subs ?? []) {
-      const s2 = subSpec(spec, sub, recipe.halal);
+      const s2 = subSpec(spec, sub, recipe);
       const l2 = s2 ? candidates(products, s2, meatFree) : [];
       if (l2.length) { list = l2; break; }
     }
@@ -482,6 +546,8 @@ export interface RecipeTotals {
   community: string[];
   /** Ingredients counted from the UK government's figures for loose fruit and vegetables that print no label (ShopNutrition.govFood; their labels, in recipe order). */
   govFood: string[];
+  /** Ingredients counted from the same product's label read at another supermarket (ShopNutrition.sameAs; their labels, in recipe order). */
+  sameAs: string[];
 }
 
 /** Plain arithmetic on the labels: per-100 figure × amount / 100, summed, divided by servings. Only for a complete recipe. `have` = pantry kinds the
@@ -502,6 +568,7 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
   const plainSalt: string[] = [];
   const community: string[] = [];
   const govFood: string[] = [];
+  const sameAs: string[] = [];
   const sum = { kcal: 0, protein: 0, carbs: 0, fat: 0 };
   const more: Record<"kj" | "saturates" | "sugars" | "fibre" | "salt", number | null> = { kj: 0, saturates: 0, sugars: 0, fibre: 0, salt: 0 };
   let used = 0;
@@ -524,6 +591,7 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
     }
     if (n.community && !community.includes(p.spec.label)) community.push(p.spec.label);
     if (n.govFood && !govFood.includes(p.spec.label)) govFood.push(p.spec.label);
+    if (n.sameAs && !sameAs.includes(p.spec.label)) sameAs.push(p.spec.label);
     const f = p.spec.amount / 100;
     sum.kcal += n.kcal * f;
     sum.protein += n.protein * f;
@@ -546,6 +614,7 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
     plainSalt,
     community,
     govFood,
+    sameAs,
   };
 }
 
@@ -585,7 +654,8 @@ const COUNT_NOTE = /^about /;
 function newAmount(spec: IngredientSpec, raw: number, small: boolean, servings: number, fromServings: number = servings): { amount: number; note?: string } {
   const k = spec.pantry ? PANTRY.get(spec.pantry) : undefined;
   const writtenEach = k?.pieceGrams ? spec.amount / k.pieceGrams / fromServings : 0;
-  const wholeEach = !!k?.perServing && writtenEach >= 1 - 1e-9 && Math.abs(writtenEach - Math.round(writtenEach)) < 1e-9;
+  // only for a whole number of people: a plan's 5¼ servings for a household can't give each of them whole wraps
+  const wholeEach = !!k?.perServing && Number.isInteger(servings) && writtenEach >= 1 - 1e-9 && Math.abs(writtenEach - Math.round(writtenEach)) < 1e-9;
   const pieces = (g: number) => (wholeEach ? Math.max(1, Math.round(raw / g / servings)) * servings : Math.max(1, Math.round(raw / g)));
   const amount = k?.pieceGrams && !k.cut ? pieces(k.pieceGrams) * k.pieceGrams : small && raw < 20 ? Math.max(1, Math.round(raw)) : round5(raw);
   const count = k ? countNote(k, amount) : undefined;
@@ -679,6 +749,9 @@ export function fitRecipe(recipe: Recipe, products: readonly ShopProduct[], chos
   return { recipe: fitted, resolved, totals, changed: ingredients.some((x, i) => x.amount !== recipe.ingredients[i]!.amount) };
 }
 
+/** The most servings a recipe page cooks for (the + stops there; a link asking for more opens at this). */
+export const MAX_RECIPE_SERVINGS = 12;
+
 /** One ingredient for a different number of people: its amount times servings ÷ the recipe's own, rounded the way fitting rounds them (see newAmount). */
 export function scaleSpec(spec: IngredientSpec, servings: number, fromServings: number): IngredientSpec {
   return withAmount(spec, spec.amount * (servings / fromServings), true, servings, fromServings);
@@ -689,11 +762,12 @@ export function scaleSpec(spec: IngredientSpec, servings: number, fromServings: 
  * fitting rounds them (eggs, wraps and stock cubes to whole ones, wraps to the same number for each person when the recipe gives each person whole wraps, grams and millilitres to 5, so part of a cucumber stays a part; small amounts
  * such as a pinch of spice to the nearest 1, never below 1). The amounts are for measuring and buying; a serving is still the recipe's own serving,
  * so its figures and price don't change (`scaledFrom`: resolveRecipe and recipeTotals work them out from the recipe as written). Scaling a scaled
- * recipe scales the original again, so rounding never builds up. 1 to 12 people.
+ * recipe scales the original again, so rounding never builds up. 1 to 12 servings, in quarters: a household's meal plan can cook 5¼ servings (everyone's
+ * portions added up), and its recipe page shows the amounts for exactly that.
  */
 export function scaleServings(recipe: Recipe, servings: number): Recipe {
   const base = recipe.scaledFrom ?? recipe;
-  const n = Math.max(1, Math.min(12, Math.round(servings)));
+  const n = Math.max(1, Math.min(MAX_RECIPE_SERVINGS, Math.round(servings * 4) / 4));
   if (n === base.servings) return base;
   return { ...base, servings: n, scaledFrom: base, ingredients: base.ingredients.map((spec) => scaleSpec(spec, n, base.servings)) };
 }
@@ -762,6 +836,20 @@ export function recipeView(
   return { recipe: withSubs, resolved, totals: recipeTotals(resolved), fitted: false };
 }
 
+/** How far a fitted serving's calories may be from the meal's and still be called "fitted to about" it (the recipe page says how close it got otherwise). */
+export const FIT_TOLERANCE = 0.1;
+
+/** Whether a serving of `kcal` is within FIT_TOLERANCE of the target's calories, so "fitted to about {kcal} kcal" is true of it. */
+export const nearTarget = (kcal: number, target: Pick<MealTarget, "kcal">): boolean => Math.abs(kcal / target.kcal - 1) <= FIT_TOLERANCE;
+
+/** What a recipe page says about its fit to the meal (RecipeDetail): "fitted" ("This recipe is fitted to about {kcal} kcal"), only within FIT_TOLERANCE; "closest"
+ *  ("Made as close to your {kcal} kcal meal as this recipe goes: {actual} kcal") when the amounts moved but couldn't get there; "fits" when nothing needed to move;
+ *  "cannot" when nothing could move and it is still far off. */
+export function fitOutcome(changed: boolean, kcal: number, target: Pick<MealTarget, "kcal">): "fitted" | "closest" | "fits" | "cannot" {
+  const near = nearTarget(kcal, target);
+  return changed ? (near ? "fitted" : "closest") : near ? "fits" : "cannot";
+}
+
 /** How far a serving is from the target (0 = spot on): used to put the closest recipes first. */
 export function fitDistance(t: RecipeTotals["perServing"], target: MealTarget): number {
   let d = Math.abs(t.kcal / target.kcal - 1);
@@ -783,3 +871,39 @@ export function mealSizes(dailyCalories: number): Record<MealSize, number> {
 
 /** "More protein": a protein aim of 30% of the meal's calories, at 4 kcal per gram (the labelling factor), to the nearest 5 g. A target the person picks, never a figure shown as nutrition. */
 export const moreProteinGrams = (kcal: number): number => Math.max(10, Math.round((kcal * 0.3) / 4 / 5) * 5);
+
+// ---- onboarding's two recipes (welcome step 5, app/app/welcome/RecipeChoice.tsx)
+
+/** A recipe as a list shows it: what pickTwoRecipes needs of a card. */
+export interface PickableCard {
+  recipe: Pick<Recipe, "id" | "name" | "meal">;
+  totals: { perServing: { kcal: number; protein: number } };
+  /** How close one serving is to the target (0 = spot on). */
+  distance: number;
+}
+
+/** The other main meal to offer beside the one for the time of day, so the two are different kinds of dish. */
+const OTHER_MAIN: Record<MealType, MealType> = { breakfast: "lunch", lunch: "dinner", dinner: "lunch", snack: "lunch" };
+
+/**
+ * Two recipes for this person: the one that fits their meal best for the meal of the day (breakfast before 10:30, lunch to 16:00, dinner after: SPEC §6.3), and
+ * the best fit for the other main meal. Without a meal target (the welcome screens) the most protein for the calories comes first (never simply the most protein,
+ * which put an 825 kcal wrap first; audit, 20 November 2026). `maxKcal` (someone losing weight or on a GLP-1 medicine: Pip has just promised them smaller meals)
+ * puts recipes at or under it a serving first. Recipes with an illustration (`illustrated`) come next, before those without. Snacks are never offered. Fewer than
+ * two come back when the diet leaves little.
+ */
+export function pickTwoRecipes<C extends PickableCard>(cards: readonly C[], slot: MealType, hasTarget: boolean, illustrated: (id: string) => boolean = () => true, maxKcal?: number): C[] {
+  const key = (c: C): number => (hasTarget ? c.distance : -(c.totals.perServing.protein / Math.max(c.totals.perServing.kcal, 1)));
+  const over = (c: C): number => Number(maxKcal !== undefined && c.totals.perServing.kcal > maxKcal);
+  const sorted = cards
+    .filter((c) => c.recipe.meal !== "snack")
+    .sort((a, b) => over(a) - over(b) || Number(illustrated(b.recipe.id)) - Number(illustrated(a.recipe.id)) || key(a) - key(b) || NAME_ORDER.compare(a.recipe.name, b.recipe.name));
+  const first = sorted.find((c) => c.recipe.meal === slot) ?? sorted[0];
+  if (!first) return [];
+  const other = OTHER_MAIN[slot];
+  const second = sorted.find((c) => c.recipe.id !== first.recipe.id && c.recipe.meal === other) ?? sorted.find((c) => c.recipe.id !== first.recipe.id);
+  return second ? [first, second] : [first];
+}
+
+/** The calories a serving may have to be offered first to someone losing weight or on a GLP-1 medicine, before their own numbers are set. */
+export const SMALLER_MEAL_KCAL = 600;

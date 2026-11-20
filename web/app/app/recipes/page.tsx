@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { savedToRecipe } from "@/lib/mm/aiRecipe";
 import { mealSlotFor } from "@/lib/mm/budget";
 import { AI_RECIPES_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
+import { needsPaywall } from "@/lib/mm/entitlements";
+import type { AllergenKey } from "@/lib/mm/types";
 import { formatDate } from "@/lib/mm/format";
 import { RETAILERS } from "@/lib/mm/groceries";
 import { tk, type T } from "@/lib/mm/i18n";
@@ -13,7 +15,7 @@ import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { toggleAllergen } from "@/lib/mm/menu-view";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { cuisineOptions, matchesNiche, nicheCounts, nicheSearchWords, occasionOptions, type CuisineOption, type OccasionOption } from "@/lib/mm/recipeNiche";
-import { isMeatFree, isQuick, isVegan, MEAL_TYPES, type MealType, type Recipe } from "@/lib/mm/recipes";
+import { isMeatFree, isQuick, isVegan, MEAL_TYPES, recipeForDiet, type MealType, type Recipe } from "@/lib/mm/recipes";
 import { recipeShops } from "@/lib/mm/shopProducts";
 import { myRecipesStore, savedRecipesStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { ShopMark } from "../_components/ChainMark";
@@ -25,7 +27,7 @@ import { ShopChoice } from "./ShopChoice";
 import { useGate } from "../_components/Paywall";
 import { PremiumBadge } from "../_components/PremiumBadge";
 import { Button, ChoiceMark, EmptyState, ErrorBox, Segmented, Sheet, Spinner } from "../_components/ui";
-import { useNow, useSettings, useStore } from "../_lib/hooks";
+import { useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
 import { recipeShopSetFor, useRecipeCards, useRecipeMakerEnabled, useRecipeShopSet, type RecipeCard } from "../_lib/recipes";
 import { useListRecipes } from "../_lib/listRecipes";
@@ -34,7 +36,7 @@ import { MealPicker, targetSentence } from "./MealPicker";
 import { FilterChip, NicheFields } from "./NicheFields";
 import { MEAL_LOOK, RecipeTile } from "./RecipeTile";
 import { RecipeThumbStack, hasRecipePicture } from "./RecipeThumb";
-import { useNicheFilter } from "./useNicheFilter";
+import { useListAddress, useNicheFilter } from "./useNicheFilter";
 import { SettingsGear, ShoppingListPill } from "../_components/TopActions";
 
 // Recipes from your shop (founder 2026-10-10): every ingredient is a real product at that supermarket, with its shelf price and the
@@ -71,6 +73,47 @@ const TOGGLES: ReadonlyArray<{ value: Toggle; label: string; Icon: (p: React.SVG
   { value: "vegan", label: tk("Vegan"), Icon: SproutIcon },
 ];
 const TOGGLE_TEST: Record<Toggle, (r: Recipe) => boolean> = { quick: isQuick, meatFree: isMeatFree, vegan: isVegan };
+/** The meals, the toggles and the sort as the address writes them (?meal=dinner,lunch&only=vegan,meat-free&sort=price). */
+const TOGGLE_WORD: Record<Toggle, string> = { quick: "quick", meatFree: "meat-free", vegan: "vegan" };
+const MEAL_VALUES = MEAL_TYPES.map((m) => m.value);
+const SORTS: readonly Sort[] = ["fit", "price", "protein"];
+const fromAddress = <V extends string>(raw: string | null, allowed: readonly V[]): V[] => (raw ?? "").split(",").filter((x): x is V => (allowed as readonly string[]).includes(x));
+/** How many cards were showing ("Show more"), from the address: whole pages of PAGE, at most the whole book. */
+const shownFrom = (raw: string | null): number => {
+  const n = Number(raw);
+  return Number.isInteger(n) && n > PAGE && n <= 1000 ? Math.ceil(n / PAGE) * PAGE : PAGE;
+};
+
+/** Words a recipe is also found by (the audit, 20 November 2026: "vegetarian", "veggie", "gluten free" and "high protein" found nothing): the tiles' own words, the
+ *  meal, "{allergen} free" for each allergen none of its ingredients brings (by the same rules the diet uses), and "high protein" when protein gives at least a
+ *  fifth of its calories (the UK's rule for that claim). In English and through t(); searched only, never shown. */
+const ALLERGEN_FREE: Partial<Record<AllergenKey, string>> = {
+  gluten: "gluten free gluten-free", milk: "dairy free dairy-free milk free", eggs: "egg free egg-free", nuts: "nut free nut-free", peanuts: "peanut free peanut-free",
+  soya: "soya free soy free", sesame: "sesame free", fish: "fish free", mustard: "mustard free", celery: "celery free", sulphites: "sulphite free",
+};
+function searchExtras(card: RecipeCard, t: T): string {
+  const r = card.recipe;
+  const words: string[] = [];
+  if (isMeatFree(r)) words.push("vegetarian veggie meat-free meat free no meat", t("No meat or fish"));
+  if (isVegan(r)) words.push("vegan plant-based plant based", t("Vegan"));
+  if (isQuick(r)) words.push("quick fast", t("Quick"));
+  const meal = MEAL_TYPES.find((m) => m.value === r.meal);
+  if (meal) words.push(meal.value, meal.label, t(meal.label));
+  for (const [a, w] of Object.entries(ALLERGEN_FREE)) if (recipeForDiet(r, { avoidAllergens: [a as AllergenKey] })) words.push(w);
+  const { kcal, protein } = card.totals.perServing;
+  if (kcal > 0 && (protein * 4) / kcal >= 0.2) words.push("high protein high-protein");
+  return words.join(" ");
+}
+
+/** Below 390 px the search box's words are shortened ("Search"), so they fit beside the shop. */
+const NARROW = "(max-width: 389px)";
+function useNarrow(): boolean {
+  return useSyncExternalStore(
+    (on) => { const m = window.matchMedia(NARROW); m.addEventListener("change", on); return () => m.removeEventListener("change", on); },
+    () => window.matchMedia(NARROW).matches,
+    () => false,
+  );
+}
 
 const HEADING = "text-xl font-[800] tracking-[-0.01em]";
 /** A small white button with the control edge (Change, Clear all, Adjust). */
@@ -78,14 +121,14 @@ const PILL = "inline-flex min-h-11 shrink-0 items-center rounded-full border-[1.
 /** A small label in the Filters sheet: sentence case, semibold, 13 px, the secondary grey (spaced capitals were hard to read for older testers). */
 const LABEL = "text-[0.8125rem] font-semibold leading-snug text-muted";
 
-/** Search words against a recipe's name, blurb and ingredient names ("chicken", "curry", "oats"), in English and in the reader's language, and the words of its
- *  cuisine and occasions that are on offer ("chinese", "picnic", "bbq"). */
-function matchesSearch(r: Recipe, q: string, t: T, offered: { cuisines: readonly CuisineOption[]; occasions: readonly OccasionOption[] }): boolean {
+/** Search words against a recipe's name, blurb and ingredient names ("chicken", "curry", "oats"), in English and in the reader's language, the words of its
+ *  cuisine and occasions that are on offer ("chinese", "picnic", "bbq"), and its diet and meal words (`extras`: searchExtras). */
+function matchesSearch(r: Recipe, q: string, t: T, offered: { cuisines: readonly CuisineOption[]; occasions: readonly OccasionOption[] }, extras = ""): boolean {
   const words = q.toLowerCase().split(/\s+/).filter(Boolean);
   if (!words.length) return true;
   const labels = r.ingredients.map((i) => i.label);
   const own = r.ai ? labels.map((x) => t(x)) : [r.name, r.blurb, ...labels].map((x) => t(x));
-  const hay = [r.name, r.blurb, ...labels, ...own, ...nicheSearchWords(r.id, t, offered)].join(" ").toLowerCase();
+  const hay = [r.name, r.blurb, ...labels, ...own, ...nicheSearchWords(r.id, t, offered), extras].join(" ").toLowerCase();
   return words.every((w) => hay.includes(w));
 }
 
@@ -116,7 +159,7 @@ function Tile({ label, Icon, pressed, onClick, more }: { label: string; Icon: (p
 }
 
 /** Where the person is shopping, beside the search (founder 2026-11-17: one shop at a time): that shop's own logo and name with a small arrow; a tap opens the choice. */
-function ShopsButton({ shop, onClick }: { shop: string | null; onClick: () => void }) {
+function ShopsButton({ shop, onClick, className = "" }: { shop: string | null; onClick: () => void; className?: string }) {
   const t = useT();
   const name = shop ? (RETAILERS.find((r) => r.id === shop)?.name ?? "") : "";
   return (
@@ -125,10 +168,11 @@ function ShopsButton({ shop, onClick }: { shop: string | null; onClick: () => vo
       onClick={onClick}
       aria-haspopup="dialog"
       aria-label={name ? `${t("Shopping at")}: ${name}` : t("Shopping at")}
-      className="inline-flex min-h-[3.25rem] max-w-[46%] shrink-0 items-center gap-2 rounded-full border-[1.5px] border-edge bg-card ps-2 pe-3 text-foreground transition hover:bg-background active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      className={`inline-flex min-h-[3.25rem] max-w-[46%] shrink-0 items-center gap-2 rounded-full border-[1.5px] border-edge bg-card ps-2 pe-3 text-foreground transition hover:bg-background active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${className}`}
     >
       {shop ? <span aria-hidden><ShopMark shopId={shop} size="sm" /></span> : <span aria-hidden className="grid h-9 w-9 place-items-center rounded-xl bg-fill text-ink"><BasketIcon className="h-5 w-5" /></span>}
-      {name && <span aria-hidden className="min-w-0 truncate text-[0.9375rem] font-bold">{name}</span>}
+      {/* below 390 px the logo alone (the button's name says the shop), so the search keeps its room */}
+      {name && <span aria-hidden className="min-w-0 truncate text-[0.9375rem] font-bold max-[389px]:hidden">{name}</span>}
       <span aria-hidden className="text-ink">▾</span>
     </button>
   );
@@ -148,7 +192,8 @@ function ShopsWorking({ onDone }: { onDone: () => void }) {
   }, [step, onDone]);
   return (
     <div className="pb-2 pt-1">
-      <div className="flex justify-center"><Pip mood={step >= WORKING_LINES.length ? "cheer" : "think"} size={88} /></div>
+      {/* thinking the whole time: the sheet closes as the last line ticks, so a cheer would only flash */}
+      <div className="flex justify-center"><Pip mood="think" size={96} /></div>
       <p role="status" aria-live="polite" className="sr-only">{t(WORKING_LINES[Math.min(step, WORKING_LINES.length - 1)]!)}</p>
       <ul aria-hidden className="mt-4 space-y-3">
         {WORKING_LINES.map((line, i) => (
@@ -184,17 +229,22 @@ function RecipesScreen() {
   const products = state.status === "ready" ? state.products : null;
   const target = mealTargetFor(settings);
   const diet = settings.preferences;
-  const { cards, leftOut, incomplete } = useRecipeCards(null, products, diet, target);
+  // worked out a few recipes at a time the first time (the audit, 20 November 2026: one 3-second freeze), behind the spinner below; kept after that
+  const { cards, leftOut, incomplete, ready: cardsReady } = useRecipeCards(null, products, diet, target, { chunked: true });
   const saved = useStore(myRecipesStore);
   const savedCount = useStore(savedRecipesStore).length + saved.length;
   const shopping = useStore(shoppingStore);
   const dietKey = JSON.stringify(diet);
   const mine = useMemo(() => saved.filter((s) => s.shop === shop).map((s) => savedToRecipe(s, JSON.parse(dietKey))).filter((r): r is Recipe => !!r), [saved, shop, dietKey]);
+  // the ones Pip made for another shop are in My recipes, under that shop (this page's cards are this shop's)
+  const madeElsewhere = saved.filter((s) => s.shop !== shop).length;
   const mineCards = useRecipeCards(mine, products, diet, target).cards;
+  // Every choice below is kept in the address (useListAddress), so Back from a recipe comes back to the same list, at the same place.
+  const { read, write } = useListAddress();
   // Founder 2026-11-18: several at once ("they shouldn't have to select just one"). The meals are alternatives (Breakfast and Lunch shows breakfasts and
   // lunches); Quick, No meat or fish and Vegan all apply, to every meal chosen ("breakfasts that are no meat or fish and vegan, lunches that are ...").
-  const [meals, setMeals] = useState<ReadonlySet<MealType>>(new Set());
-  const [toggles, setToggles] = useState<ReadonlySet<Toggle>>(new Set());
+  const [meals, setMeals] = useState<ReadonlySet<MealType>>(() => new Set(fromAddress(read("meal"), MEAL_VALUES)));
+  const [toggles, setToggles] = useState<ReadonlySet<Toggle>>(() => new Set(fromAddress(read("only"), Object.values(TOGGLE_WORD)).map((w) => (Object.keys(TOGGLE_WORD) as Toggle[]).find((k) => TOGGLE_WORD[k] === w)!)));
   // "More" opens every filter in one sheet (founder 2026-11-18: "it opens all of them including the 7 there"); openAt is the part it opens at
   const [more, setMore] = useState(false);
   const [openAt, setOpenAt] = useState<string | null>(null);
@@ -215,9 +265,16 @@ function RecipesScreen() {
     setOwnShops(true);
     if (id !== shop) setWorking(true); else closeShops();
   };
-  const [query, setQuery] = useState("");
-  const [limit, setLimit] = useState(PAGE);
-  const [sort, setSort] = useState<Sort | null>(null);
+  const [query, setQuery] = useState(() => (read("q") ?? "").slice(0, 80));
+  const [limit, setLimit] = useState(() => shownFrom(read("shown")));
+  const [sort, setSortState] = useState<Sort | null>(() => fromAddress(read("sort"), SORTS)[0] ?? null);
+  const setSort = (v: Sort) => { setSortState(v); write({ sort: v }); };
+  // the search goes into the address a moment after the typing stops
+  useEffect(() => {
+    const id = window.setTimeout(() => write({ q: query.trim() || null }), 400);
+    return () => window.clearTimeout(id);
+  }, [query, write]);
+  const firstPage = () => { setLimit(PAGE); write({ shown: null }); };
   const effectiveSort: Sort = sort ?? (target ? "fit" : "protein");
   const now = useNow();
   // The occasions on offer are decided by the date this visit began, not by the clock as it ticks: a season that ends (or starts) while the page is open
@@ -227,9 +284,10 @@ function RecipesScreen() {
   const niche = useNicheFilter(CUISINE_OPTIONS, occasionOpts);
   const offered = useMemo(() => ({ cuisines: CUISINE_OPTIONS, occasions: occasionOpts }), [occasionOpts]);
   // everything but the niche, then the niche: the counts beside each cuisine and occasion are worked out from the first list
+  const extras = useMemo(() => new Map(cards.map((c) => [c.recipe.id, searchExtras(c, t)])), [cards, t]);
   const base = useMemo(
-    () => cards.filter((c) => [...toggles].every((x) => TOGGLE_TEST[x](c.recipe)) && (meals.size === 0 || (!!c.recipe.meal && meals.has(c.recipe.meal))) && matchesSearch(c.recipe, query, t, offered)),
-    [cards, toggles, meals, query, t, offered],
+    () => cards.filter((c) => [...toggles].every((x) => TOGGLE_TEST[x](c.recipe)) && (meals.size === 0 || (!!c.recipe.meal && meals.has(c.recipe.meal))) && matchesSearch(c.recipe, query, t, offered, extras.get(c.recipe.id))),
+    [cards, toggles, meals, query, t, offered, extras],
   );
   const shown = useMemo(() => sortCards(base.filter((c) => matchesNiche(c.recipe.id, niche.cuisines, niche.occasions)), effectiveSort), [base, niche.cuisines, niche.occasions, effectiveSort]);
   const nicheNumbers = useMemo(() => (cards.length ? nicheCounts(base.map((c) => c.recipe.id), niche.cuisines, niche.occasions) : null), [cards.length, base, niche.cuisines, niche.occasions]);
@@ -257,14 +315,32 @@ function RecipesScreen() {
   const { gate } = useGate();
   const router = useRouter();
   const makeHref = `/app/recipes/make${shop ? `?r=${shop}` : ""}`;
+  // the Premium badge only where Pip's recipe maker is paid for this person (audit, 20 November 2026)
+  const pro = useIsPro();
+  const narrow = useNarrow();
+  // the footer names the other figures only when a recipe shown uses them
+  const otherFigures = cards.some((c) => c.totals.govFood.length + c.totals.community.length + c.totals.sameAs.length > 0);
 
-  const flip = (x: Toggle) => { setToggles((s) => { const n = new Set(s); if (n.has(x)) n.delete(x); else n.add(x); return n; }); setLimit(PAGE); };
-  const flipMeal = (m: MealType) => { setMeals((s) => { const n = new Set(s); if (n.has(m)) n.delete(m); else n.add(m); return n; }); setLimit(PAGE); };
+  const flip = (x: Toggle) => {
+    const n = new Set(toggles);
+    if (n.has(x)) n.delete(x); else n.add(x);
+    setToggles(n);
+    setLimit(PAGE);
+    write({ only: (Object.keys(TOGGLE_WORD) as Toggle[]).filter((k) => n.has(k)).map((k) => TOGGLE_WORD[k]).join(","), shown: null });
+  };
+  const flipMeal = (m: MealType) => {
+    const n = new Set(meals);
+    if (n.has(m)) n.delete(m); else n.add(m);
+    setMeals(n);
+    setLimit(PAGE);
+    write({ meal: MEAL_VALUES.filter((v) => n.has(v)).join(","), shown: null });
+  };
   // What a screen reader is told as the list changes: how many recipes there are, or that none match. One live region stays mounted for every state, so the
   // words are read when an empty list fills and when a list empties (a region that appears together with its text is often not read).
   const countLine = shown.length === 1 ? (filtering ? t("1 recipe match") : t("1 recipe")) : filtering ? t("{n} recipes match", { n: shown.length }) : t("{n} recipes", { n: shown.length });
   const liveLine = shown.length > 0 ? countLine : filtering && cards.length > 0 ? t("No recipes match.") : "";
-  const clearAll = () => { setQuery(""); setMeals(new Set()); setToggles(new Set()); niche.clear(); setLimit(PAGE); };
+  // one write for everything, the cuisine and occasion too (niche.clear() would be a second write)
+  const clearAll = () => { setQuery(""); setMeals(new Set()); setToggles(new Set()); setLimit(PAGE); write({ q: null, meal: null, only: null, shown: null, cuisine: null, occasion: null }); };
   const href = (c: RecipeCard) => `/app/recipes/view?id=${c.recipe.id}&r=${shop}`;
 
   return (
@@ -272,15 +348,15 @@ function RecipesScreen() {
       {/* top left: My recipes with its heart, in place of the word "Recipes" (founder 2026-11-20: "remove the recipes from the top left and put my recipes with a
           love heart in the top left"; the tab bar and the question below already say where you are). It opens My meals at its Recipes tab (recipes saved with a
           card's heart and the ones made for the person), with how many are saved (the bubble is left out below 390 px so the row stays one line with a
-          three-digit list count; the link's name still says it), and is drawn like the Shopping list pill beside it. Then the Shopping list
+          three-digit list count; below 400 px since the audit of 20 November 2026; the link's name still says it), and is drawn like the Shopping list pill beside it. Then the Shopping list
           pill and the Settings cog with its word at the top right, in the order of every tab (founder 2026-11-19: "the settings cog should be on the top right
           of every page") */}
       <div className="flex flex-wrap items-start justify-between gap-x-2 gap-y-1">
-        <Link href="/app/meals?tab=recipes" data-coach="recipes-mine" aria-label={savedCount > 0 ? `${t("My recipes")} · ${savedCount}` : t("My recipes")} className="group -ms-0.5 inline-flex min-h-11 shrink-0 items-center rounded-full transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+        <Link href="/app/meals?tab=recipes&from=recipes" data-coach="recipes-mine" aria-label={savedCount > 0 ? `${t("My recipes")} · ${savedCount}` : t("My recipes")} className="group -ms-0.5 inline-flex min-h-11 shrink-0 items-center rounded-full transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
           <span className="inline-flex h-9 items-center gap-1 whitespace-nowrap rounded-full border-[1.5px] border-edge bg-card ps-[calc(0.625rem_-_1.5px)] pe-[calc(0.625rem_-_1.5px)] text-[0.9375rem] font-semibold text-foreground transition-colors group-hover:bg-background">
             <HeartIcon aria-hidden className="h-[18px] w-[18px] shrink-0 text-ink" />
             <span aria-hidden>{t("My recipes")}</span>
-            {savedCount > 0 && <span aria-hidden className="app-numbers inline-flex h-6 max-[389px]:hidden min-w-6 items-center justify-center rounded-full bg-ink px-1 text-[0.75rem] font-bold text-on-ink">{savedCount}</span>}
+            {savedCount > 0 && <span aria-hidden className="app-numbers inline-flex h-6 max-[399px]:hidden min-w-6 items-center justify-center rounded-full bg-ink px-1 text-[0.75rem] font-bold text-on-ink">{savedCount}</span>}
           </span>
         </Link>
         <div className="-me-1 ms-auto flex max-w-full flex-wrap items-start justify-end gap-x-1 gap-y-1">
@@ -299,7 +375,7 @@ function RecipesScreen() {
       {/* Which supermarkets the ingredients come from: only shops whose full product list, prices and labels we've read can fill a recipe, and all of the
           person's that can are used together (the line above names them); a person whose shops can't yet is told which shop the recipes use instead. */}
       {otherShopNote && (
-        <p role="note" className="mt-3 flex gap-2.5 rounded-[1rem] bg-[var(--fill)] p-3.5 text-[0.9375rem] leading-snug">
+        <p role="note" className="mt-3 flex gap-2.5 rounded-[1rem] border border-line bg-card p-3.5 text-[0.9375rem] leading-snug">
           <InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
           <span>{otherShopNote}</span>
         </p>
@@ -307,14 +383,16 @@ function RecipesScreen() {
 
       {/* the search and the shop sit with what they choose from: the meals and filters below and the recipes under them (founder 2026-11-19: the two tools
           between the search and the meal buttons split them up; the tools now come first, the browsing after) */}
-      <div className="mt-4 flex items-center gap-2.5">
+      {/* while the search is in use it has the whole row (the shop steps aside), so more than two letters show at 320 px (audit, 20 November 2026); the
+          browser's own clear cross is hidden (Done is there) */}
+      <div className="group/row mt-4 flex items-center gap-2.5">
         <div className="group/search relative min-w-0 flex-1">
           <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-ink" />
           {/* 16 px text: smaller text makes iPhone Safari zoom into the field */}
-          <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); setLimit(PAGE); }} placeholder={t("Search recipes")} aria-label={t("Search recipes")} {...DONE_KEY} autoComplete="off" className={`min-h-[3.25rem] w-full rounded-full border-[1.5px] border-edge bg-card ps-12 pe-4 ${DONE_ROOM} text-base text-foreground placeholder:text-placeholder focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent`} />
+          <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); firstPage(); }} placeholder={narrow ? t("Search") : t("Search recipes")} aria-label={t("Search recipes")} {...DONE_KEY} autoComplete="off" className={`min-h-[3.25rem] w-full rounded-full border-[1.5px] border-edge bg-card ps-12 pe-4 ${DONE_ROOM} text-base text-foreground placeholder:text-placeholder focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-search-cancel-button]:appearance-none`} />
           <SearchDone />
         </div>
-        <ShopsButton shop={shop} onClick={() => { setWorking(false); setShopsOpen(true); }} />
+        <ShopsButton shop={shop} onClick={() => { setWorking(false); setShopsOpen(true); }} className="group-has-[input:focus]/row:hidden" />
       </div>
 
       {/* One shop at a time; tapping a shop saves it at once and shows a short "working" moment. */}
@@ -337,8 +415,8 @@ function RecipesScreen() {
         )}
       </Sheet>
 
-      {/* Eight big tiles: four columns on a phone, fewer when the text is large (the minimum width is in rem). */}
-      <div role="group" aria-label={t("Filters")} data-coach="recipes-tiles" className="mt-3.5 grid auto-rows-fr grid-cols-[repeat(auto-fill,minmax(min(100%,4.9rem),1fr))] gap-2.5">
+      {/* Eight big tiles: four columns on a phone down to 375 px (4 + 4, never 3 + 3 + 2), fewer when the text is large (the minimum width is in rem). */}
+      <div role="group" aria-label={t("Filters")} data-coach="recipes-tiles" className="mt-3.5 grid auto-rows-fr grid-cols-[repeat(auto-fill,minmax(min(100%,4.5rem),1fr))] gap-2">
         {MEAL_TYPES.map((m) => (
           <Tile key={m.value} label={t(m.label)} Icon={MEAL_LOOK[m.value].Icon} pressed={meals.has(m.value)} onClick={() => flipMeal(m.value)} />
         ))}
@@ -378,7 +456,7 @@ function RecipesScreen() {
             <section id="filter-cuisine" aria-labelledby="filter-cuisine-h" className="scroll-mt-24">
               <p id="filter-cuisine-h" className={`mb-2.5 ${LABEL}`}>{t("Cuisine")}</p>
               <div role="group" aria-labelledby="filter-cuisine-h" className="flex flex-wrap gap-2">
-                {CUISINE_OPTIONS.map((c) => <FilterChip key={c.id} label={t(c.label)} count={nicheNumbers ? (nicheNumbers.cuisine.get(c.id) ?? 0) : null} pressed={niche.cuisines.includes(c.id)} onClick={() => { niche.toggleCuisine(c.id); setLimit(PAGE); }} />)}
+                {CUISINE_OPTIONS.map((c) => <FilterChip key={c.id} label={t(c.label)} count={nicheNumbers ? (nicheNumbers.cuisine.get(c.id) ?? 0) : null} pressed={niche.cuisines.includes(c.id)} onClick={() => { niche.toggleCuisine(c.id); firstPage(); }} />)}
               </div>
             </section>
           )}
@@ -386,7 +464,7 @@ function RecipesScreen() {
             <section id="filter-occasion" aria-labelledby="filter-occasion-h" className="scroll-mt-24">
               <p id="filter-occasion-h" className={`mb-2.5 ${LABEL}`}>{t("Occasion")}</p>
               <div role="group" aria-labelledby="filter-occasion-h" className="flex flex-wrap gap-2">
-                {occasionOpts.map((o) => <FilterChip key={o.id} label={t(o.label)} count={nicheNumbers ? (nicheNumbers.occasion.get(o.id) ?? 0) : null} pressed={niche.occasions.includes(o.id)} onClick={() => { niche.toggleOccasion(o.id); setLimit(PAGE); }} />)}
+                {occasionOpts.map((o) => <FilterChip key={o.id} label={t(o.label)} count={nicheNumbers ? (nicheNumbers.occasion.get(o.id) ?? 0) : null} pressed={niche.occasions.includes(o.id)} onClick={() => { niche.toggleOccasion(o.id); firstPage(); }} />)}
               </div>
             </section>
           )}
@@ -404,7 +482,7 @@ function RecipesScreen() {
             {/* The same choice as Settings' "Allergies to avoid" (one setting for the whole app), here so it can be changed while looking at recipes. */}
             <div className="glass rounded-[1.25rem] p-4">
               <p className={`mb-3 ${LABEL}`}>{t("Allergies to avoid")}</p>
-              <AllergenTiles chosen={diet.avoidAllergens ?? []} label={t("Allergies to avoid")} onToggle={(k) => { updateSettings({ preferences: toggleAllergen(diet, k) }); setLimit(PAGE); }} />
+              <AllergenTiles chosen={diet.avoidAllergens ?? []} label={t("Allergies to avoid")} onToggle={(k) => { updateSettings({ preferences: toggleAllergen(diet, k) }); firstPage(); }} />
               {(diet.avoidAllergens?.length ?? 0) > 0 && (
                 <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">
                   {diet.halalOnly
@@ -432,7 +510,7 @@ function RecipesScreen() {
         <button type="button" onClick={() => gate("recipeMaker", () => router.push(makeHref))} className="glass lift group mt-4 flex min-h-[5.5rem] w-full items-center gap-3 rounded-[1.25rem] p-3 ps-2 text-start">
           <Pip mood="wave" size={64} />
           <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-            <span className="block text-[1.0625rem] font-bold leading-snug tracking-[-0.01em]">{t("Ask Pip to make a recipe")} <PremiumBadge className="ms-1 align-middle" /></span>
+            <span className="block text-[1.0625rem] font-bold leading-snug tracking-[-0.01em]">{t("Ask Pip to make a recipe")}{needsPaywall("recipeMaker", { pro }) && <> <PremiumBadge className="ms-1 align-middle" /></>}</span>
             <span className="block text-[0.9375rem] leading-snug text-muted">{shopName ? t("Say what you fancy and Pip writes one from {shop} products, fitted to your meal and diet.", { shop: poss(shopName) }) : t("Say what you fancy and Pip writes one from your shop's products, fitted to your meal and diet.")}</span>
           </span>
           <span aria-hidden className="icon-bubble-soft h-10 w-10 shrink-0 transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
@@ -467,12 +545,18 @@ function RecipesScreen() {
         </Link>
       )}
 
+      {/* the recipes Pip made for the person at this shop (one name for the place they're kept: My recipes; this part says what they are) */}
       {mineCards.length > 0 && shop && (
         <section aria-labelledby="mine-heading" className="mt-7">
-          <h2 id="mine-heading" className={HEADING}>{t("Your recipes")}</h2>
+          <h2 id="mine-heading" className={HEADING}>{t("Made for you")}</h2>
           <ul className="mt-3 grid grid-cols-[repeat(auto-fill,minmax(min(100%,10rem),1fr))] gap-3">
             {mineCards.map((c) => (<li key={c.recipe.id} className="min-w-0"><RecipeTile card={c} badge={t("Made by Pip")} href={`/app/recipes/view?mine=${c.recipe.id}&r=${shop}`} /></li>))}
           </ul>
+          {madeElsewhere > 0 && (
+            <p className="mt-2 px-1 text-[0.9375rem] leading-snug text-muted">
+              <Link href="/app/meals?tab=recipes&from=recipes" className="font-semibold text-accent underline underline-offset-2">{madeElsewhere === 1 ? t("1 more made for another shop is in My recipes.") : t("{n} more made for other shops are in My recipes.", { n: madeElsewhere })}</Link>
+            </p>
+          )}
         </section>
       )}
 
@@ -485,7 +569,7 @@ function RecipesScreen() {
 
         <p role="status" className="sr-only">{liveLine}</p>
 
-        {!manifest || (shop && state.status === "loading") ? (
+        {!manifest || (shop && state.status === "loading") || (state.status === "ready" && !cardsReady) ? (
           <Spinner label={t("Loading recipes")} />
         ) : !shop ? (
           <div className="mt-4"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No supermarket list yet.")} body={t("Recipes appear once we've read a supermarket's products and prices.")} /></div>
@@ -509,7 +593,7 @@ function RecipesScreen() {
               {shown.slice(0, limit).map((c) => (<li key={c.recipe.id} className="min-w-0"><RecipeTile card={c} href={href(c)} /></li>))}
             </ul>
             {shown.length > limit && (
-              <div className="mt-4"><Button full variant="secondary" className="min-h-12" onClick={() => setLimit((n) => n + PAGE)}>{t("Show more recipes ({n} more)", { n: shown.length - limit })}</Button></div>
+              <div className="mt-4"><Button full variant="secondary" className="min-h-12" onClick={() => { const next = limit + PAGE; setLimit(next); write({ shown: String(next) }); }}>{t("Show more recipes ({n} more)", { n: shown.length - limit })}</Button></div>
             )}
             {leftOut > 0 && <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{leftOut === 1 ? t("1 recipe is left out for your diet.") : t("{n} recipes are left out for your diet.", { n: leftOut })}</p>}
             {/* founder 2026-11-17: recipes come from the shops the person picks; one they can't fill there isn't shown, and the page says how many */}
@@ -527,10 +611,12 @@ function RecipesScreen() {
       {state.status === "ready" && (
         <p className="mt-8 border-t border-line pt-4 text-[0.8125rem] leading-relaxed text-muted">
           {/* one sentence per shop the recipes use */}
+          {/* what the figures really are (audit, 20 November 2026: Morrisons' recipes mostly use the UK government's figures for loose produce) */}
           {state.files.map((f) => (f.nutritionCheckedOn
-            ? t("Prices from {shop} website, checked {date}; nutrition from each product's own page, checked {nutritionDate}.", { shop: poss(f.name), date: formatDate(f.checkedOn, t), nutritionDate: formatDate(f.nutritionCheckedOn, t) })
-            : t("Prices from {shop} website, checked {date}; nutrition from each product's own page.", { shop: poss(f.name), date: formatDate(f.checkedOn, t) }))).join(" ")}{" "}
-          {t("\"Each\" prices only the amounts a serving uses, including the pinch of salt and the spoon of oil. Recipes are chosen for your diet by their ingredients; check each pack.")}{" "}
+            ? t("Prices from {shop} website, checked {date}; nutrition from each product's label where we've read it, checked {nutritionDate}.", { shop: poss(f.name), date: formatDate(f.checkedOn, t), nutritionDate: formatDate(f.nutritionCheckedOn, t) })
+            : t("Prices from {shop} website, checked {date}; nutrition from each product's label where we've read it.", { shop: poss(f.name), date: formatDate(f.checkedOn, t) }))).join(" ")}{" "}
+          {otherFigures && <>{t("A recipe that uses UK government figures for loose produce, another shop's label or community numbers says so.")}{" "}</>}
+          {t("\"A serving\" prices only the amounts a serving uses, including the pinch of salt and the spoon of oil. Recipes are chosen for your diet by their ingredients; check each pack.")}{" "}
           {state.files.length > 1 ? t("Not affiliated with {shops}.", { shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(state.files.map((f) => f.name)) }) : t("Not affiliated with {shop}.", { shop: state.files[0]!.name })}
         </p>
       )}

@@ -26,12 +26,15 @@ import { HEADLINE, StepperCard } from "./parts";
 const MAIN_PROBLEM = "target-problem-main";
 const MACRO_PROBLEM = "target-problem-macros";
 
-export function TargetsStep({ goal, prefs, answers, skipped, fields, setField, reading, suggestedNotes, applySuggestion, counter }: {
+export function TargetsStep({ goal, prefs, answers, skipped, kept, fields, setField, reading, suggestedNotes, applySuggestion, counter }: {
   goal: Goal;
   prefs: Preferences;
   /** The plan for the answers given (null when the person skipped the questions). */
   answers: AnswersPlan | null;
   skipped: boolean;
+  /** Back after "Carry on" past the questions about the person: the boxes hold the targets worked out from them before (saved, the person's own), so they are
+   *  said to be worked out, with no ring (the 20 November 2026 audit). */
+  kept?: boolean;
   fields: TargetFieldTexts;
   setField: (key: TargetFieldKey, value: string) => void;
   reading: TargetFieldsReading;
@@ -45,7 +48,7 @@ export function TargetsStep({ goal, prefs, answers, skipped, fields, setField, r
   const [showSuggest, setShowSuggest] = useState(false);
   const plan = answers?.plan ?? null;
   // The boxes hold a worked-out plan: from the questions, or from the suggestion form after they were skipped.
-  const filled = plan?.kind === "ok" || suggestedNotes !== null;
+  const filled = plan?.kind === "ok" || suggestedNotes !== null || !!kept;
   const under18 = plan?.kind === "under18";
   const bad = (k: TargetFieldKey) => reading.problems.includes(k);
   const calories = reading.calories;

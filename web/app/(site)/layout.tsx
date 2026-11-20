@@ -25,7 +25,8 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
             {site.name}
           </Link>
           <nav aria-label="Site" className="flex flex-wrap items-center gap-1 text-[0.9375rem] font-semibold text-muted">
-            <Link href="/support" className="inline-flex min-h-11 items-center rounded-full px-3 transition-colors hover:text-foreground">Support</Link>
+            {/* below 640 px only Open app stays in the header, so it keeps one row at 320 px (Support and Privacy are in the footer) */}
+            <Link href="/support" className="hidden min-h-11 items-center rounded-full px-3 transition-colors hover:text-foreground sm:inline-flex">Support</Link>
             <Link href="/privacy" className="hidden min-h-11 items-center rounded-full px-3 transition-colors hover:text-foreground sm:inline-flex">Privacy</Link>
             {!APP_BUILD && (
               <Link href="/app" className="ms-2 inline-flex min-h-11 items-center whitespace-nowrap rounded-full bg-foreground px-5 font-semibold text-background transition hover:bg-[color-mix(in_srgb,var(--foreground)_86%,white)] active:scale-[0.97]">
@@ -41,14 +42,15 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
       <footer className="mx-auto mt-16 w-full max-w-5xl border-t border-line px-[20px] py-10 text-sm text-muted">
         <div className="flex flex-col gap-6 sm:flex-row-reverse sm:items-start sm:justify-between sm:gap-10">
           <div className="flex flex-wrap gap-x-6 gap-y-1">
+            {!APP_BUILD && <Link href="/chains" className="inline-flex min-h-11 items-center transition-colors hover:text-foreground">Restaurants</Link>}
             <Link href="/privacy" className="inline-flex min-h-11 items-center transition-colors hover:text-foreground">Privacy policy</Link>
             <Link href="/terms" className="inline-flex min-h-11 items-center transition-colors hover:text-foreground">Terms</Link>
             <Link href="/support" className="inline-flex min-h-11 items-center transition-colors hover:text-foreground">Support</Link>
             <a href={`mailto:${site.supportEmail}`} className="inline-flex min-h-11 items-center break-all transition-colors hover:text-foreground">{site.supportEmail}</a>
           </div>
           <p className="max-w-md leading-relaxed sm:pt-2.5">
-            © {new Date().getFullYear()} {site.name}. Not affiliated with any restaurant. Nutrition information comes from each
-            chain&apos;s published data. Not medical advice.
+            © {new Date().getFullYear()} {site.name}. Not affiliated with any restaurant or shop. Figures come from each restaurant&apos;s
+            and shop&apos;s published information. Not medical advice.
           </p>
         </div>
       </footer>

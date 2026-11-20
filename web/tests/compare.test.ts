@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { addToCompare, COMPARE_MAX, compareRows, inCompare, mixedBasis, proteinForAPound, removeFromCompare, sanitizeCompare, shownFigure, trafficLightFor, type CompareItem } from "../lib/mm/compare";
+import { addToCompare, COMPARE_MAX, compareRows, inCompare, mixedBasis, notAllLabels, proteinForAPound, removeFromCompare, sanitizeCompare, sanitizeCompareItem, shopNumbersSource, shownFigure, sourceLabel, trafficLightFor, type CompareItem } from "../lib/mm/compare";
+import { compareOverview } from "../lib/mm/compareOverview";
 
 const food = (id: string, kcal: number, protein: number | null, extra: Partial<CompareItem> = {}): CompareItem => ({
   key: `food:sainsburys:${id}`, kind: "food", name: `Beans ${id}`, from: "Sainsbury's", fromId: "sainsburys", href: `/app/groceries/shop/item?r=sainsburys&id=${id}`,
@@ -120,5 +121,39 @@ describe("traffic lights on Compare (FSA colours, foods per 100 g only)", () => 
     expect(trafficLightFor(food({ sugars: 30 }, { basis: "ml" }), "sugars")).toBeNull();
     expect(trafficLightFor(food({ sugars: 30 }, { kind: "dish", basis: "serving" }), "sugars")).toBeNull();
     expect(trafficLightFor(food({ sugars: 30 }, { note: "cooked" }), "sugars")).toBeNull();
+  });
+});
+
+describe("where each column's figures come from (the review of 2026-11-20)", () => {
+  it("names the source of a column: the shop's label, the same product's label at another shop, community numbers, the government's figures", () => {
+    expect(sourceLabel(food("a", 80, 5))).toBe("Shop label");
+    expect(sourceLabel(food("a", 80, 5, { source: "same", sourceShop: "Tesco" }))).toBe("Same product's label at Tesco");
+    expect(sourceLabel(food("a", 80, 5, { source: "community" }))).toBe("Open Food Facts (community)");
+    expect(sourceLabel(food("a", 80, 5, { source: "government" }))).toBe("UK government figures");
+    expect(notAllLabels([food("a", 80, 5), food("b", 80, 5, { source: "same", sourceShop: "Tesco" })])).toBe(false);
+    expect(notAllLabels([food("a", 80, 5), food("b", 80, 5, { source: "community" })])).toBe(true);
+  });
+
+  it("keeps the new sources when stored, and reads an older item's English government note as the government source", () => {
+    expect(sanitizeCompareItem(food("a", 80, 5, { source: "same", sourceShop: "Tesco" }))).toMatchObject({ source: "same", sourceShop: "Tesco" });
+    expect(sanitizeCompareItem(food("a", 80, 5, { source: "government" }))!.source).toBe("government");
+    const old = sanitizeCompareItem(food("a", 30, 1, { note: "UK government food data" }))!;
+    expect(old.source).toBe("government");
+    expect(old.note).toBeUndefined();
+    expect(sanitizeCompareItem(food("a", 80, 5, { sourceShop: "Tesco" }))!.sourceShop).toBeUndefined(); // only a "same" label names another shop
+  });
+
+  it("a product from a shop's list says where its numbers are from", () => {
+    expect(shopNumbersSource({ govFood: "Onions, raw" })).toEqual({ source: "government" });
+    expect(shopNumbersSource({ sameAs: "tesco" })).toEqual({ source: "same", sourceShop: "Tesco" });
+    expect(shopNumbersSource({ community: true })).toEqual({ source: "community" });
+    expect(shopNumbersSource({})).toEqual({ source: "label" });
+  });
+
+  it("an overview lead that rests on community numbers says so", () => {
+    const o = compareOverview([food("a", 80, 5), food("b", 60, 9, { source: "community" })]);
+    expect(o.entries.find((e) => e.id === "protein")).toMatchObject({ winners: [1], notLabel: true });
+    expect(o.entries.find((e) => e.id === "calories")).toMatchObject({ winners: [1], notLabel: true });
+    expect(compareOverview([food("a", 80, 5), food("b", 60, 9)]).entries.every((e) => !e.notLabel)).toBe(true);
   });
 });

@@ -845,6 +845,7 @@
     "calories": 1229
    },
    "tags": [
+    "contains_beef",
     "contains_pork"
    ],
    "limitedTime": false,
@@ -860,7 +861,9 @@
    "nutrients": {
     "calories": 1118
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -937,6 +940,7 @@
     "calories": 1535
    },
    "tags": [
+    "contains_beef",
     "contains_pork"
    ],
    "limitedTime": false,
@@ -952,7 +956,9 @@
    "nutrients": {
     "calories": 1423
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -3333,7 +3339,9 @@
    "nutrients": {
     "calories": 968
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -3348,6 +3356,7 @@
     "calories": 1080
    },
    "tags": [
+    "contains_beef",
     "contains_pork"
    ],
    "limitedTime": false,
@@ -3411,7 +3420,9 @@
    "nutrients": {
     "calories": 1274
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -3426,6 +3437,7 @@
     "calories": 1386
    },
    "tags": [
+    "contains_beef",
     "contains_pork"
    ],
    "limitedTime": false,

@@ -1,5 +1,6 @@
+import { readFileSync } from "node:fs";
 import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
-import { IAP_PRODUCT_IDS, REFRESH_BEFORE_MS, buyPlan, claimTransactions, loadProducts, refreshAppStoreAccess, restorePurchases } from "../lib/payments/iap";
+import { IAP_PLAN_IDS, IAP_PRODUCT_IDS, REFRESH_BEFORE_MS, buyPlan, claimTransactions, loadProducts, refreshAppStoreAccess, restorePurchases } from "../lib/payments/iap";
 import { generateKeyPair, signClaims } from "../lib/payments/token";
 import { cleanNativeResult, type NativeResult } from "../lib/mm/native";
 import { paidStore } from "../lib/mm/stores";
@@ -26,7 +27,7 @@ const server = (status: number, body: unknown) => vi.fn(async () => new Response
 
 describe("bridge answers for purchases", () => {
   it("lets through StoreKit's products and signed transactions, nothing else", () => {
-    const product = { id: IAP_PRODUCT_IDS.annual, name: "Annual", price: "£14.99", period: "year" };
+    const product = { id: IAP_PRODUCT_IDS.annual, name: "Annual", price: "£49.99", period: "year" };
     expect(cleanNativeResult({ products: [product, { id: "<x>", name: "A", price: "1", period: "year" }] })).toEqual({ products: [product] });
     expect(cleanNativeResult({ transactions: [JWS] })).toEqual({ transactions: [JWS] });
     expect(cleanNativeResult({ transactions: [] })).toEqual({ transactions: [] });
@@ -40,17 +41,54 @@ describe("bridge answers for purchases", () => {
 });
 
 describe("loading the plans from the App Store", () => {
-  it("keeps the app's order and StoreKit's names and prices; null when StoreKit has none", async () => {
+  it("asks only for Annual and Monthly, keeps the app's order and StoreKit's names and prices; null when StoreKit has none", async () => {
     const call = phone({ "iap.products": { products: [
-      { id: IAP_PRODUCT_IDS.monthly, name: "Monthly", price: "£2.99", period: "month" },
-      { id: IAP_PRODUCT_IDS.pass90, name: "Founding Member 90-Day Pass", price: "£9.99", period: "none" },
+      { id: IAP_PRODUCT_IDS.monthly, name: "Monthly", price: "£4.99", period: "month", trialDays: 7 },
+      { id: IAP_PRODUCT_IDS.annual, name: "Annual", price: "£49.99", period: "year", trialDays: 7 },
+      // a product the app didn't ask for (the old 90-day pass) is never shown, even if a phone answers with it
+      { id: "com.amanmarwaha.numbite.pro.pass90", name: "Founding Member 90-Day Pass", price: "£9.99", period: "none" },
     ] } });
-    expect((await loadProducts(call))?.map((p) => `${p.plan} ${p.price}`)).toEqual(["pass90 £9.99", "monthly £2.99"]);
-    const withTrial = phone({ "iap.products": { products: [{ id: IAP_PRODUCT_IDS.annual, name: "Annual", price: "£14.99", period: "year", trialDays: 7 }] } });
+    expect((await loadProducts(call))?.map((p) => `${p.plan} ${p.price}`)).toEqual(["annual £49.99", "monthly £4.99"]);
+    expect(call).toHaveBeenCalledWith("iap.products", { ids: [IAP_PRODUCT_IDS.annual, IAP_PRODUCT_IDS.monthly] }, 30_000);
+    const withTrial = phone({ "iap.products": { products: [{ id: IAP_PRODUCT_IDS.annual, name: "Annual", price: "£49.99", period: "year", trialDays: 7 }] } });
     expect((await loadProducts(withTrial))?.[0]).toMatchObject({ plan: "annual", trialDays: 7 });
-    expect(call).toHaveBeenCalledWith("iap.products", { ids: [IAP_PRODUCT_IDS.pass90, IAP_PRODUCT_IDS.annual, IAP_PRODUCT_IDS.monthly] }, 30_000);
     expect(await loadProducts(phone({ "iap.products": { products: [] } }))).toBeNull();
     expect(await loadProducts(phone({}))).toBeNull();
+  });
+});
+
+// The products exist in three places that must agree: App Store Connect (mirrored by Config/Numbite.storekit, which Xcode and the Swift tests use), the iPhone app's
+// own list (MenuMacros/App/AppConfig.swift iapProductIDs: the bridge refuses any other id) and the page's (IAP_PRODUCT_IDS).
+describe("the products agree everywhere", () => {
+  const storekit = JSON.parse(readFileSync(new URL("../../Config/Numbite.storekit", import.meta.url), "utf8")) as {
+    products: unknown[];
+    nonRenewingSubscriptions: unknown[];
+    subscriptionGroups: Array<{ name: string; subscriptions: Array<{ productID: string; displayPrice: string; recurringSubscriptionPeriod: string; introductoryOffer?: { paymentMode: string; subscriptionPeriod: string } }> }>;
+  };
+  const appConfig = readFileSync(new URL("../../MenuMacros/App/AppConfig.swift", import.meta.url), "utf8");
+  const subs = storekit.subscriptionGroups.flatMap((g) => g.subscriptions);
+
+  it("Config/Numbite.storekit sells Annual £49.99 and Monthly £4.99, each with a free first week, in the group Numbite Premium, and nothing else", () => {
+    expect(storekit.subscriptionGroups.map((g) => g.name)).toEqual(["Numbite Premium"]);
+    expect(subs.map((x) => `${x.productID} ${x.displayPrice} ${x.recurringSubscriptionPeriod}`)).toEqual([
+      `${IAP_PRODUCT_IDS.annual} 49.99 P1Y`,
+      `${IAP_PRODUCT_IDS.monthly} 4.99 P1M`,
+    ]);
+    for (const x of subs) expect(x.introductoryOffer).toMatchObject({ paymentMode: "free", subscriptionPeriod: "P1W" });
+    expect(storekit.nonRenewingSubscriptions).toEqual([]);
+    expect(storekit.products).toEqual([]);
+  });
+
+  it("every subscription in the .storekit is one the page asks for and the app lets through, and the app lets through no other", () => {
+    const pageIds = IAP_PLAN_IDS.map((p) => IAP_PRODUCT_IDS[p]);
+    for (const x of subs) {
+      expect(pageIds).toContain(x.productID);
+      expect(appConfig).toContain(`"${x.productID}"`);
+    }
+    const listed = /static let iapProductIDs: \[String\] = \[([^\]]*)\]/.exec(appConfig)?.[1] ?? "";
+    expect(listed.split(",").map((x) => x.trim())).toEqual(["iapAnnualProductID", "iapMonthlyProductID"]);
+    expect(appConfig).not.toMatch(/pass90/);
+    expect(pageIds.sort()).toEqual(subs.map((x) => x.productID).sort());
   });
 });
 
@@ -92,6 +130,9 @@ describe("restoring", () => {
     expect(paidStore.get().token).toBe(t);
     expect(await restorePurchases(phone({ "iap.restore": { transactions: [] } }), server(200, {}) as unknown as typeof fetch, NOW)).toBe("none");
     expect(paidStore.get().token).toBeNull();
+    // Apple holds a purchase but our server refused it: never "nothing to restore"
+    expect(await restorePurchases(phone({ "iap.restore": { transactions: [JWS] } }), server(402, { error: "not_paid" }) as unknown as typeof fetch, NOW)).toBe("refused");
+    expect(await restorePurchases(phone({ "iap.restore": { transactions: [JWS] } }), server(500, {}) as unknown as typeof fetch, NOW)).toBe("failed");
     expect(await restorePurchases(phone({ "iap.restore": { error: "cancelled" } }), server(200, {}) as unknown as typeof fetch, NOW)).toBe("cancelled");
     expect(await restorePurchases(phone({}), server(200, {}) as unknown as typeof fetch, NOW)).toBe("failed");
   });

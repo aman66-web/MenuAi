@@ -5,6 +5,7 @@ import { readFileSync } from "node:fs";
 // (lib/mm/native.ts; faked here). Also: a logo taken down on the live website disappears.
 //   cd web && npm run build:app && (PORT=3103 node e2e/serve-app.mjs .next-app &) && BASE=http://localhost:3103 node e2e/app-build.mjs
 import { chromium } from "playwright-core";
+import { recipeTiles } from "./welcome-steps.mjs";
 const BASE = process.env.BASE ?? "http://localhost:3103";
 const LIVE = process.env.LIVE ?? "https://numbite.com";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
@@ -110,7 +111,7 @@ await step("the welcome steps with no signal: step 3's restaurant dishes, step 5
   expect((await page.getByText("Menus need a connection the first time.", { exact: false }).count()) === 0, "the website's connection line in the app");
   await page.getByRole("button", { name: "Next: where you shop" }).click();
   await page.getByRole("button", { name: "Continue" }).click();
-  await page.getByRole("region", { name: "A look at Recipes" }).locator("button[aria-pressed]").first().waitFor({ timeout: 15000 });
+  await recipeTiles(page).first().waitFor({ timeout: 15000 }); // RecipeTile's choose mode: a radio each (the 20 November 2026 audit)
   await page.getByRole("button", { name: "Next: your daily numbers" }).click();
   await page.getByRole("button", { name: "Skip these questions" }).click();
   await page.getByRole("button", { name: "Next: plan my week" }).click();

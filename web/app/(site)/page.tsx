@@ -1,29 +1,42 @@
 import Link from "next/link";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { catalogueStats } from "@/lib/mm/catalogue";
+import { catalogueStats, nutritionStats, siteFaqs, type ChainForStats } from "@/lib/mm/catalogue";
 import type { Manifest } from "@/lib/mm/types";
-import { APP_PREMIUM, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { APP_PREMIUM, COMMUNITY_FRIENDS_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { PLANS } from "@/lib/payments/plans";
 import { site } from "@/site.config";
 import { BasketIcon, CheckIcon, ForkIcon, PlusIcon, PotIcon } from "@/app/app/_components/icons";
 import { WaitlistForm } from "@/app/components/WaitlistForm";
 
-// Read once at build time from the published data, so the headline numbers are never typed in by hand.
-const stats = catalogueStats((JSON.parse(readFileSync(join(process.cwd(), "public/menus/menus-manifest.json"), "utf8")) as Manifest).chains);
+// Read once at build time from the published data, so the headline numbers are never typed in by hand: the chains from the manifest, and what their items
+// really publish from each chain's own file (about half publish calories only: the overnight audit of 20 November 2026).
+const MENUS = join(process.cwd(), "public/menus");
+const manifest = JSON.parse(readFileSync(join(MENUS, "menus-manifest.json"), "utf8")) as Manifest;
+const stats = catalogueStats(manifest.chains);
+const nutrition = nutritionStats(
+  manifest.chains.filter((c) => !c.sample).map((c): ChainForStats => {
+    try {
+      return { ...c, ...(JSON.parse(readFileSync(join(MENUS, c.file), "utf8")) as ChainForStats) };
+    } catch {
+      return { ...c, items: [] };
+    }
+  }),
+);
 
 const steps = [
   { title: "Pick the restaurant", body: "Search by name and open the whole menu. Works offline once you've opened it." },
-  { title: "See every item's numbers", body: "Calories, protein, carbs, fat and salt for the whole menu, free." },
+  { title: "See every item's numbers", body: "The calories for the whole menu, and protein, carbs and fat wherever the restaurant publishes them. Free." },
   { title: "Get the order that fits", body: PRO_ENABLED ? "Premium ranks the five best orders for your goal and what's left today, and adds up custom orders as you tap." : "See the five best orders for your goal and what's left today, and add up your own order as you tap." },
 ];
 
 // The three things the app does (founder 2026-10-10: "it's also for groceries ... recipes based on where you shop"), each with the
 // glyph its tab wears in the app (our own line icons, never a picture of food).
+// The app's own tab names (the audit, 20 November 2026).
 const pillars = [
-  { title: "Eat out", body: `Every dish at ${stats.chains > 0 ? `${stats.chains} UK restaurants` : "popular UK restaurants"}, with calories, protein, carbs and fat from each chain's own guide.`, Icon: ForkIcon },
-  { title: "Shop", body: "Supermarket products with the calories, protein and price from the shop's own pages. Make a list and see what it comes to.", Icon: BasketIcon },
-  { title: "Cook", body: "Recipes filled with real products from your supermarket, with calories, protein and the cost of each serving. Swap any ingredient.", Icon: PotIcon },
+  { title: "Eat out", body: `Every dish at ${stats.chains > 0 ? `${stats.chains} UK restaurants` : "popular UK restaurants"}, with the calories each chain publishes, and protein, carbs and fat where it publishes them.`, Icon: ForkIcon },
+  { title: "Groceries", body: "Supermarket products with the calories, protein and price from the shop's own pages. Make a list and see what it comes to.", Icon: BasketIcon },
+  { title: "Recipes", body: "Recipes filled with real products from your supermarket, with calories, protein and the cost of each serving. Swap any ingredient.", Icon: PotIcon },
 ];
 
 const goals = [
@@ -33,13 +46,15 @@ const goals = [
   { title: "GLP-1 medication", body: "Smaller, protein-first orders with a meal-size cap you set." },
 ];
 
-const faqs = [
-  { q: "Is it free?", a: WEB_PRO_ENABLED || APP_PREMIUM ? `Every restaurant's full menu with calories and macros is free, and so is the Truth card for three dishes a day. Paid access adds the rest: ${PLANS.monthly.price} a month, ${PLANS.annual.price} a year, or a ${PLANS.pass90.price} 90-day pass with no subscription. Prices are shown before you pay.` : PRO_ENABLED ? "Full menus with calories and macros are free for everyone. Premium adds the ranked best orders, the order builder and logging. Pricing will be shown before you pay for anything." : "Yes. Every feature is free, and nothing needs an account except adding friends in Community. There is nothing to buy." },
-  { q: "Where do the numbers come from?", a: "From each restaurant's own published nutrition information. We show the source and the date we last checked on every chain, never estimate missing values, and fix reported mistakes within 48 hours." },
-  { q: "Which restaurants?", a: `${stats.chains > 0 ? `${stats.chains} popular UK chains so far` : "Popular UK chains first"}, taken from each chain's own nutrition guide, with more added based on what people request. US chains come later.` },
-  { q: "Is it an app?", a: "There is a web version that works in any browser and can be added to your home screen. An iPhone app is planned; Android may follow later." },
-  { q: "Is this medical advice?", a: "No. It shows published nutrition information and helps you choose. Talk to your doctor or a dietitian about your own needs." },
-];
+// The answers follow the switches (lib/mm/catalogue.ts siteFaqs; tests/siteFaq.test.ts): the app's Premium is described without figures (the App Store shows
+// them), and the website's own prices are named only while the website sells something.
+const faqs = siteFaqs(
+  {
+    appPremium: APP_PREMIUM, webPro: WEB_PRO_ENABLED, pro: PRO_ENABLED, signInRequired: SIGN_IN_REQUIRED, communityFriends: COMMUNITY_FRIENDS_ENABLED,
+    appStoreUrl: site.appStoreUrl, webPrices: { monthly: PLANS.monthly.price, annual: PLANS.annual.price, pass90: PLANS.pass90.price }, appName: site.name,
+  },
+  stats.chains,
+);
 
 // The website's look (founder 2026-10-15: "the rest of the app should match that elegance too"): a white page, flat light grey cards
 // with 20 px corners and nothing inside them but white, the app's black pill for the main action (the words only), the
@@ -93,7 +108,7 @@ export default function Home() {
                 </a>
               )}
             </div>
-            <p className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-muted">{SIGN_IN_REQUIRED ? "Free. Your free account keeps your targets, saved meals and shopping list on all your devices." : "Free. No account needed for menus, shops and recipes. Your targets and saved orders stay on your device unless you sign in to sync them."}</p>
+            <p className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-muted">{SIGN_IN_REQUIRED ? `${APP_PREMIUM || WEB_PRO_ENABLED ? "Every menu is free." : "Free."} Your free account keeps your targets, saved meals and shopping list on all your devices.` : "Free. No account needed for menus, shops and recipes. Your targets and saved orders stay on your device unless you sign in to sync them."}</p>
           </div>
 
           {stats.chains > 0 && (
@@ -106,8 +121,9 @@ export default function Home() {
                   <dd className={`${proofFigure} ${proofNumber} text-accent`}>{stats.chains}</dd>
                 </div>
                 <div className={proofCard}>
-                  <dt className={proofLabel}>menu items, each with calories, protein, carbs and fat</dt>
-                  <dd className={`${proofFigure} ${proofNumber}`}>{stats.itemsLabel}</dd>
+                  {/* said as it is: every item has its calories, and about half have protein, carbs and fat too (the rest's chains publish calories only) */}
+                  <dt className={proofLabel}>menu items with calories; {nutrition.withMacrosLabel} with protein, carbs and fat too</dt>
+                  <dd className={`${proofFigure} ${proofNumber}`}>{nutrition.itemsLabel}</dd>
                 </div>
                 <div className={proofCard}>
                   <dt className={proofLabel}>from each restaurant&apos;s own published nutrition information</dt>
@@ -161,7 +177,7 @@ export default function Home() {
           <ul className="mt-5 space-y-3.5 text-pretty text-base font-medium leading-relaxed text-muted">
             <li className="flex gap-[10px]"><Tick /><span>Every number comes from the restaurant&apos;s own published nutrition guide.</span></li>
             <li className="flex gap-[10px]"><Tick /><span>The source and the date we last checked are shown on every chain.</span></li>
-            <li className="flex gap-[10px]"><Tick /><span>If a value isn&apos;t published, we say so. We never estimate.</span></li>
+            <li className="flex gap-[10px]"><Tick /><span>If a value isn&apos;t published, we say so. We never estimate it.</span></li>
             <li className="flex gap-[10px]"><Tick /><span>Spot something wrong? Tap &ldquo;Report a number&rdquo; and we check it within 48 hours.</span></li>
           </ul>
         </div>

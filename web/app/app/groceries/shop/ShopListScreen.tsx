@@ -1,16 +1,16 @@
 "use client";
 
-import Link from "next/link";
 import { useDeferredValue, useEffect, useMemo, useState } from "react";
-import { SHOP_SORTS, searchShopProducts, type ShopNutrition, type ShopProduct, type ShopSort } from "@/lib/mm/shopProducts";
+import { SHOP_SORTS, searchShopProducts, type ShopProduct, type ShopSort } from "@/lib/mm/shopProducts";
+import { ALLERGEN_LABEL } from "@/lib/mm/allergens";
 import { formatDate } from "@/lib/mm/format";
-import { anyFoodDiet, foodDietCaution, foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
+import { anyFoodDiet, foodDietProblem, groceryDietLine, listedFacts } from "@/lib/mm/foodDiet";
 import type { GroceryProduct } from "@/lib/mm/groceries";
 import { PageHeader } from "../../_components/PageHeader";
 import { SearchIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../../_components/SearchDone";
-import { AllergyNote, Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
+import { AllergyNote, Chip, EmptyIcon, EmptyState, ErrorBox, LinkButton, Spinner } from "../../_components/ui";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { useSettings } from "../../_lib/hooks";
 import { useShopProducts } from "../../_lib/shopProducts";
@@ -18,10 +18,23 @@ import { loadManifest, loadRetailer } from "../../_lib/groceries";
 import { FootNote, MoreButton, NOTE, PILL_INPUT, SelectField, TITLE } from "../PageBits";
 import { ShopProductRow } from "./ShopProductRow";
 
+/** A shop or product page opened without saying which (an old or mistyped link): Back, a plain sentence and the way on, never a lone red error (2026-11-20). */
+export function NoChoice({ title, body }: { title: string; body: string }) {
+  const t = useT();
+  return (
+    <div>
+      <PageHeader back={{ href: "/app/groceries", label: t("Back to groceries") }} list />
+      <div className="mt-6">
+        <EmptyState title={title} body={body} action={<LinkButton href="/app/groceries">{t("Choose a shop")}</LinkButton>} />
+      </div>
+    </div>
+  );
+}
+
 // A supermarket's own list (founder 2026-10-09, docs/GROCERIES_PLAN.md; since 2026-10-11 the main Groceries list, opened from "Which shop?"): name, price,
 // price per kg or litre, card price and the shop's own picture, exactly as its category pages print them. The numbers come from the product's own page where
-// we've read it, else from the community record for the same barcode (matched exactly, never guessed: added when the list is built, ShopNutrition.community,
-// and here from the catalogue for any row the build didn't fill); the product's page says which.
+// we've read it, else the same product's label at another shop, the community record for the same barcode or (loose fresh produce) the government's figures,
+// all added when the list is built (tools/groceries/build_all_products.py); each row and the product's page say which.
 // Looks follow Home (founder 2026-10-15): the shop's logo beside a compact title, a white pill search box, outlined chips, the aisle and the sort as
 // white fields with their label in small capitals inside, white rows with 20 px corners.
 const PAGE = 60;
@@ -30,24 +43,21 @@ const NO_CATALOGUE = new Map<string, GroceryProduct>();
 /** A barcode without leading zeros: 05000157062673 and 5000157062673 are the same product. */
 const noZeros = (code: string) => code.replace(/^0+/, "");
 
-/** The shop's catalogue records by barcode (community data), for the products its list ties to a barcode; empty while loading or when it has none. */
-function useCatalogueByBarcode(shop: string): Map<string, GroceryProduct> {
+/** The shop's catalogue records by barcode (community data), for the diet filter's ingredients and allergens; loaded only while `wanted` (2026-11-20: the
+ *  whole catalogue, 4.3 MB for Asda, was fetched for every list though it filled numbers for a handful of rows, which the build now does). */
+function useCatalogueByBarcode(shop: string, wanted: boolean): Map<string, GroceryProduct> {
   const [byCode, setByCode] = useState<{ shop: string; map: Map<string, GroceryProduct> } | null>(null);
   useEffect(() => {
+    if (!wanted) return;
     let cancelled = false;
     loadManifest()
       .then((m) => (m.retailers.some((r) => r.id === shop && r.count > 0) ? loadRetailer(shop) : null))
       .then((f) => { if (!cancelled && f) setByCode({ shop, map: new Map(f.products.map((p) => [noZeros(p.gtin), p])) }); })
       .catch(() => undefined);
     return () => { cancelled = true; };
-  }, [shop]);
-  return byCode?.shop === shop ? byCode.map : NO_CATALOGUE;
+  }, [shop, wanted]);
+  return wanted && byCode?.shop === shop ? byCode.map : NO_CATALOGUE;
 }
-
-const asNutrition = (c: GroceryProduct): ShopNutrition => ({
-  kcal: c.kcal, protein: c.protein, carbs: c.carbs, fat: c.fat, saturates: c.saturates ?? null, sugars: c.sugars ?? null, fibre: c.fibre ?? null,
-  salt: c.salt ?? null, kj: c.kj ?? null, per: c.per, state: "",
-});
 
 export function ShopListScreen({ shop }: { shop: string }) {
   const t = useT();
@@ -63,27 +73,25 @@ export function ShopListScreen({ shop }: { shop: string }) {
   const [dietOn, setDietOn] = useState(true);
   const prefs = useSettings().preferences;
   const deferred = useDeferredValue(query);
-  const listed = state.status === "ready" ? state.products : NONE;
-  const catalogue = useCatalogueByBarcode(shop);
-  // a product without numbers shows the catalogue's numbers for the same barcode (a copy, marked as community numbers)
-  const products = useMemo(() => (catalogue.size === 0 ? listed : listed.map((p) => {
-    const c = !p.nutrition && p.gtin ? catalogue.get(noZeros(p.gtin)) : undefined;
-    return c ? { ...p, nutrition: { ...asNutrition(c), community: true as const } } : p;
-  })), [listed, catalogue]);
+  const products = state.status === "ready" ? state.products : NONE;
+  const filtering = anyFoodDiet(prefs);
+  const catalogue = useCatalogueByBarcode(shop, filtering);
   // Diet settings: the shop's own name and category, plus the catalogue's ingredients and allergens where the barcode matches, can leave a product out.
-  const unsuited = useMemo(() => (anyFoodDiet(prefs) ? new Set(products.filter((p) => {
+  const unsuited = useMemo(() => (filtering ? new Set(products.filter((p) => {
     const c = p.gtin ? catalogue.get(noZeros(p.gtin)) : undefined;
     return foodDietProblem(c ? { ...listedFacts(c), name: `${p.name} ; ${c.name}`, category: `${p.category} ; ${c.category}` } : { name: p.name, category: p.category }, prefs);
-  }).map((p) => p.id)) : null), [products, prefs, catalogue]);
+  }).map((p) => p.id)) : null), [products, prefs, catalogue, filtering]);
   const diet = !!unsuited && dietOn;
-  const results = useMemo(() => {
-    const found = searchShopProducts(products, { query: deferred, category, card, nutrition, sort });
-    return diet && unsuited ? found.filter((p) => !unsuited.has(p.id)) : found;
-  }, [products, deferred, category, card, nutrition, sort, diet, unsuited]);
+  // sorted once for the search and the sort; the diet filter only leaves rows out (2026-11-20: the catalogue arriving re-sorted a 16,000-product list)
+  const sorted = useMemo(() => searchShopProducts(products, { query: deferred, category, card, nutrition, sort }), [products, deferred, category, card, nutrition, sort]);
+  const results = useMemo(() => (diet && unsuited ? sorted.filter((p) => !unsuited.has(p.id)) : sorted), [sorted, diet, unsuited]);
   const hasCard = useMemo(() => products.some((p) => p.member), [products]);
   const nutritionCount = useMemo(() => products.reduce((n, p) => n + (p.nutrition ? 1 : 0), 0), [products]);
-  const hasCommunity = useMemo(() => products.some((p) => p.nutrition?.community), [products]);
+  const borrowed = useMemo(() => products.some((p) => p.nutrition && (p.nutrition.community || p.nutrition.govFood || p.nutrition.sameAs)), [products]);
   const pricedCount = useMemo(() => products.reduce((n, p) => n + (p.price !== null ? 1 : 0), 0), [products]);
+  const avoid = prefs.avoidAllergens ?? [];
+  const avoidNames = new Intl.ListFormat("en-GB", { type: "conjunction" }).format(avoid.map((k) => t(ALLERGEN_LABEL[k])));
+  const dietLine = groceryDietLine(prefs, diet, t);
   const reset = () => setShown(PAGE);
   const back = <PageHeader back={{ href: "/app/groceries", label: t("Back to groceries") }} list />;
 
@@ -129,9 +137,12 @@ export function ShopListScreen({ shop }: { shop: string }) {
         </SelectField>
       </div>
 
-      {(sort === "density" || sort === "protein") && <p className={`mt-3 ${NOTE}`}>{t("Products without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.")}</p>}
-      {diet && foodDietCaution(prefs, t) && <p className={`mt-3 ${NOTE}`}>{foodDietCaution(prefs, t)}</p>}
-      {diet && (prefs.avoidAllergens?.length ?? 0) > 0 && <AllergyNote className="mt-3"><p>{t("We haven't read allergens for these products, so your allergy settings can't hide any here. Always check the pack.")}</p></AllergyNote>}
+      {(sort === "density" || sort === "protein") && <p className={`mt-3 ${NOTE}`}>{sort === "density" ? t("Products with under 20 kcal or 5 g of protein per 100 g, those without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.") : t("Products without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.")}</p>}
+      {dietLine && <p className={`mt-3 ${NOTE}`}>{dietLine}</p>}
+      {/* what the allergy settings really do here (2026-11-20: it said they "can't hide any" while they hid some) */}
+      {avoid.length > 0 && <AllergyNote className="mt-3"><p>{diet
+        ? t("Products whose Open Food Facts record lists {allergens}, or has no allergen information, are hidden. Most products here have no Open Food Facts record, so they stay. Always check the pack.", { allergens: avoidNames })
+        : t("Your allergy settings aren't hiding anything while “Fits my diet” is off. Always check the pack.")}</p></AllergyNote>}
       <p role="status" aria-live="polite" className="app-numbers mt-6 ps-1 text-sm font-semibold text-muted">{results.length === 1 ? t("1 product") : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
       {results.length === 0 ? (
         <div className="mt-3"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No products match.")} body={t("Try fewer words or a different type.")} /></div>
@@ -144,15 +155,9 @@ export function ShopListScreen({ shop }: { shop: string }) {
         <MoreButton onClick={() => setShown((n) => n + PAGE)}>{t("Show {n} more", { n: Math.min(PAGE, results.length - shown) })}</MoreButton>
       )}
 
-      {catalogue.size > 0 && (
-        <Link href={`/app/groceries/search?r=${file.retailer}`} className="border-[1.5px] border-edge bg-card text-foreground mt-3.5 inline-flex min-h-12 w-full items-center justify-center rounded-full px-5 text-center text-[0.9375rem] font-bold transition active:scale-[0.98] hover:bg-background">
-          {t("More {shop} products with their numbers", { shop: file.name })}
-        </Link>
-      )}
-
       <FootNote>
         {t("From {shopPossessive} website, checked {date}.", { shopPossessive: poss(file.name), date: formatDate(file.checkedOn, t) })} {t("Prices and offers vary by store and by loyalty card.")}{" "}
-        {(catalogue.size > 0 || hasCommunity) && t("Where we haven't read a product's own page, its numbers come from Open Food Facts contributors (community data) for the same barcode.")}{" "}
+        {borrowed && t("Where we haven't read a product's own page, its numbers are the same product's label at another shop, Open Food Facts contributors' numbers (community data) for the same barcode, or, for loose fresh fruit and vegetables, the UK government's figures; each product's page says which.")}{" "}
         {t("Not affiliated with {shop}.", { shop: file.name })}
       </FootNote>
     </div>

@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { decodeShopProducts, isShopFile, isShopManifest, nutritionBasis, possessive, recipeShops, searchShopProducts, shopPageUrl, shopPhotoUrl, typedMatches, type ShopFile } from "../lib/mm/shopProducts";
+import { decodeShopProducts, isShopFile, isShopManifest, nutritionBasis, possessive, recipeShops, searchShopProducts, shopPageUrl, shopPhotoUrl, typedMatches, unitWord, type ShopFile, type ShopManifest, type ShopProduct } from "../lib/mm/shopProducts";
 
 const file: ShopFile = {
   v: 1, retailer: "sainsburys", name: "Sainsbury's", checkedOn: "2026-10-08", pageBase: "https://www.sainsburys.co.uk/groceries/product/", photoBase: "https://assets.sainsburys-groceries.co.uk/gol/",
@@ -224,4 +224,42 @@ describe("Choose a product for something typed onto the list (usability test 202
     expect(typedMatches(asda, "500g", "asda")).toEqual([]);
     expect(typedMatches(asda, "milk", "asda", 5)).toHaveLength(5);
   });
+});
+
+describe("the review of 2026-11-20", () => {
+  const row = (id: string, name: string, kcal: number, protein: number, unit = "per kg") => [id, name, 1, 2, unit, null, null, 0, "", "", [kcal, protein, 1, 0.5, null, null, null, null, null, "g", ""]] as ShopFile["products"][number];
+
+  it("ranks protein per 100 kcal only from 20 kcal and 5 g of protein: sweetener tablets, sugar-free jelly and broths come after", () => {
+    const ps = decodeShopProducts({ ...file, products: [
+      row("sweet-1", "Canderel Sweetener Tablets x300", 1, 0.1), row("jelly-1", "Hartley's No Added Sugar Jelly", 6, 1.4), row("broth-1", "Bone Broth 500g", 25, 4.8),
+      row("chicken-1", "Chicken Breast Fillets 300g", 106, 24), row("yog-1", "Fat Free Greek Yogurt 500g", 54, 10), row("bread-1", "White Bread 800g", 240, 8),
+    ] });
+    const order = searchShopProducts(ps, { sort: "density" }).map((p) => p.id);
+    expect(order.slice(0, 3)).toEqual(["chicken-1", "yog-1", "bread-1"]);
+    // the rest after, most protein first
+    expect(order.slice(3)).toEqual(["broth-1", "jelly-1", "sweet-1"]);
+  });
+
+  it("writes every unit price as per kg, per litre or each: M&S's bare 'kg' and 'litre' too, and leaves out a unit the app can't use", () => {
+    expect(unitWord("kg")).toBe("per kg");
+    expect(unitWord("litre")).toBe("per litre");
+    expect(unitWord("l")).toBe("per litre");
+    expect(unitWord("per kg")).toBe("per kg");
+    expect(unitWord("each")).toBe("each");
+    expect(unitWord("")).toBe("");
+    expect(unitWord("mtr")).toBeNull();
+    const ps = decodeShopProducts({ ...file, products: [row("m-1", "Plant Kitchen Bangers 360 g", 230, 15, "kg"), row("m-2", "Juice 1 l", 40, 0.5, "litre"), row("p-1", "Baking Paper", 10, 1, "mtr")] });
+    expect(ps.map((p) => [p.unit, p.unitPrice])).toEqual([["per kg", 2], ["per litre", 2], ["", null]]);
+  });
+
+  it("keeps the same A to Z order as before with one collator for every comparison (16,367 Morrisons products)", () => {
+    const manifest = JSON.parse(readFileSync("public/groceries/all/all-manifest.json", "utf8")) as ShopManifest;
+    const entry = manifest.retailers.find((r) => r.id === "morrisons")!;
+    const ps = decodeShopProducts(JSON.parse(readFileSync(`public/groceries/all/${entry.file}`, "utf8")) as ShopFile);
+    const letter = (p: ShopProduct) => (/^\p{L}/u.test(p.name) ? 0 : 1);
+    const before = [...ps].sort((a, b) => letter(a) - letter(b) || a.name.localeCompare(b.name, "en-GB", { sensitivity: "base" })).map((p) => p.name);
+    expect(searchShopProducts(ps, { sort: "name" }).map((p) => p.name)).toEqual(before);
+    const priced = [...ps].sort((a, b) => (a.price ?? Infinity) - (b.price ?? Infinity) || letter(a) - letter(b) || a.name.localeCompare(b.name, "en-GB", { sensitivity: "base" })).map((p) => p.name);
+    expect(searchShopProducts(ps, { sort: "price" }).map((p) => p.name)).toEqual(priced);
+  }, 120_000);
 });

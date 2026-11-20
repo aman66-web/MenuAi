@@ -1,10 +1,11 @@
-import type { AllergenKey, Nutrients, Goal, LogMeal, Preferences } from "./types";
+import type { AllergenKey, Nutrients, NutrientKey, Goal, LogMeal, Preferences } from "./types";
 import { isLocale, type Locale } from "./i18n";
 import { ALLERGEN_KEYS, NO_PREFERENCES } from "./types";
 import { DEFAULT_DAILY_CALORIES, DEFAULT_GLP1_MEAL_CAP, LOG_MEALS } from "./budget";
 import type { OrderLine } from "./order";
 import { MAX_WATER_GOAL_ML, MIN_WATER_GOAL_ML } from "./water";
 import { sanitizeShoppingLists, validPhoto, type PhotoSource, type ShoppingList } from "./groceries";
+import { roundNutrient } from "./nutrients";
 
 // User data lives only in this browser (localStorage). Nutrient snapshots let history survive menu changes.
 
@@ -44,6 +45,11 @@ export interface LogEntry {
   photo?: PhotoSource;
   /** How many portions of what was logged this is, when the person changed it (usability test 2026-11-19); absent = one. The figures are already scaled. */
   portion?: number;
+  /**
+   * The figures of one portion exactly as they were logged, kept from the first change of portion (the 30-person audit, 20 November 2026): every change
+   * scales from these, so a label's figures never drift (salt 1.14 stayed 1.14, not 1.2) and one portion gives them back exactly. Only with `portion`.
+   */
+  perPortion?: Nutrients;
   /** A Scan your food estimate from a photo (CLAUDE.md rule 1's one exception), so Home's week can say it includes estimates. Kept only when exactly true. */
   estimate?: true;
 }
@@ -51,13 +57,28 @@ export interface LogEntry {
 /** The portions a logged food can be changed to. */
 export const PORTIONS = [0.5, 1, 1.5, 2, 3] as const;
 
-/** A logged food as `portion` portions of what was logged: every figure scaled from the portion it is now, to one decimal place. */
+/** A number of portions or servings as it is written everywhere (the 30-person audit, 20 November 2026): halves as ½ ("½", "1½", "2½"), others as they are. */
+export function halves(n: number): string {
+  const whole = Math.floor(n);
+  if (Math.abs(n - whole - 0.5) < 1e-9) return whole === 0 ? "½" : `${whole}½`;
+  return String(n);
+}
+
+/** Every figure of `n` times `f`, rounded as a label is (calories, sodium, kJ and caffeine whole, half up; salt to 2 places; grams to 1: nutrients.ts roundNutrient). */
+function scaleNutrients(n: Nutrients, f: number): Nutrients {
+  return Object.fromEntries(Object.entries(n).map(([k, v]) => [k, typeof v === "number" ? roundNutrient(k as NutrientKey, v * f) : v])) as Nutrients;
+}
+
+/**
+ * A logged food as `portion` portions of what was logged. Always worked out from the one portion as logged (`perPortion`, kept from the first change; an
+ * entry changed before it was kept works it out once from its figures), never from the figures already scaled, so changing back and forth never drifts;
+ * one portion gives back the figures as logged, exactly, and drops `portion` and `perPortion`.
+ */
 export function withPortion(e: LogEntry, portion: number): LogEntry {
-  const from = e.portion ?? 1;
-  const f = portion / from;
-  const nutrients = Object.fromEntries(Object.entries(e.nutrients).map(([k, v]) => [k, typeof v === "number" ? Math.round(v * f * 10) / 10 : v])) as LogEntry["nutrients"];
-  const { portion: _old, ...rest } = e; // eslint-disable-line @typescript-eslint/no-unused-vars -- the old portion is replaced
-  return portion === 1 ? { ...rest, nutrients } : { ...rest, nutrients, portion };
+  const base = e.perPortion ?? (e.portion && e.portion !== 1 ? scaleNutrients(e.nutrients, 1 / e.portion) : e.nutrients);
+  const { portion: _old, perPortion: _kept, ...rest } = e; // eslint-disable-line @typescript-eslint/no-unused-vars -- replaced below
+  if (portion === 1) return { ...rest, nutrients: { ...base } };
+  return { ...rest, nutrients: scaleNutrients(base, portion), portion, perPortion: { ...base } };
 }
 
 export interface Favorite {
@@ -202,22 +223,24 @@ export function sanitizeSettings(raw: unknown): UserSettings {
   };
 }
 
-const looksLikeNutrients = (n: unknown): n is Nutrients =>
-  isObject(n) && ["calories", "protein", "carbs", "fat"].every((k) => typeof n[k] === "number" && Number.isFinite(n[k] as number));
+/** A logged entry needs calories; protein, carbs and fat are there when the source printed them (typed numbers can leave them out), and are never filled in. */
+const looksLikeLoggedNutrients = (n: unknown): n is Nutrients =>
+  isObject(n) && typeof n.calories === "number" && Number.isFinite(n.calories) &&
+  ["protein", "carbs", "fat"].every((k) => n[k] === undefined || (typeof n[k] === "number" && Number.isFinite(n[k] as number)));
 
+/**
+ * Saved meals follow the log's rule (looksLikeLoggedNutrients): calories needed, protein, carbs and fat absent or real figures. A meal from a restaurant that
+ * publishes calories only (Brightside, Pizza Express) is saved with its calories alone on purpose (ItemScreen, usability test 19 November 2026); the stricter
+ * check this used to make dropped it after a reload or a sync, though "Saved to My meals." had been said (the 30-person audit, 20 November 2026).
+ */
 export function sanitizeSavedOrders(raw: unknown): SavedOrder[] {
   if (!Array.isArray(raw)) return [];
   return raw.filter(
     (o): o is SavedOrder =>
       isObject(o) && typeof o.id === "string" && typeof o.chainId === "string" && typeof o.name === "string" &&
-      Array.isArray(o.lines) && looksLikeNutrients(o.nutrients) && typeof o.createdAt === "string",
+      Array.isArray(o.lines) && looksLikeLoggedNutrients(o.nutrients) && typeof o.createdAt === "string",
   );
 }
-
-/** A logged entry needs calories; protein, carbs and fat are there when the source printed them (typed numbers can leave them out), and are never filled in. */
-const looksLikeLoggedNutrients = (n: unknown): n is Nutrients =>
-  isObject(n) && typeof n.calories === "number" && Number.isFinite(n.calories) &&
-  ["protein", "carbs", "fat"].every((k) => n[k] === undefined || (typeof n[k] === "number" && Number.isFinite(n[k] as number)));
 
 /** A menu photo's "<chain id>/<file>.webp", the shape the menu files write (lib/mm/images.ts checks it again before showing it). */
 const LOG_IMAGE = /^[a-z0-9]+(?:-[a-z0-9]+)*\/[a-z0-9]+(?:-[a-z0-9]+)*\.webp$/;
@@ -235,11 +258,14 @@ export function sanitizeLog(raw: unknown): LogEntry[] {
     .map((e) => {
       // A meal row this app doesn't know: the entry falls back to its time. A picture reference that isn't one we would show is dropped
       // (it comes back from this phone's storage and from the sync server); the entry itself stays.
-      const { meal, image, recipeId, photo, portion, estimate, ...rest } = e;
+      const { meal, image, recipeId, photo, portion, perPortion, estimate, ...rest } = e;
       const kept = validPhoto(photo);
+      const portioned = typeof portion === "number" && Number.isFinite(portion) && portion >= 0.25 && portion <= 10 && portion !== 1;
       return {
         ...rest,
-        ...(typeof portion === "number" && Number.isFinite(portion) && portion >= 0.25 && portion <= 10 && portion !== 1 ? { portion } : {}),
+        ...(portioned ? { portion } : {}),
+        // the one portion as logged, checked as the figures are; only beside a portion
+        ...(portioned && looksLikeLoggedNutrients(perPortion) ? { perPortion } : {}),
         ...(meal !== undefined && LOG_MEALS.includes(meal) ? { meal } : {}),
         ...(typeof image === "string" && image.length <= 200 && LOG_IMAGE.test(image) ? { image } : {}),
         ...(typeof recipeId === "string" && RECIPE_ID.test(recipeId) && !(recipeId in Object.prototype) ? { recipeId } : {}),

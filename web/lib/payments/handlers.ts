@@ -66,9 +66,14 @@ async function recordFor(s: CheckoutSession, deps: PayDeps): Promise<Entitlement
   });
 }
 
+/** Access stands while it is paid for: an active entitlement, or a cancelled subscription whose paid time hasn't run out (cancelling stops the next renewal, not
+ *  what was already paid for; "Restore" on another device must still find it). A refund or an expiry ends it. */
+export const givesAccess = (rec: Pick<EntitlementRecord, "status" | "expiresAt">, nowMs: number): boolean =>
+  (rec.status === "active" || rec.status === "cancelled") && rec.expiresAt > nowMs;
+
 async function tokenFor(rec: EntitlementRecord, deps: PayDeps): Promise<Result> {
   const now = deps.now();
-  if (rec.status !== "active" || rec.expiresAt <= now) return { status: 402, body: { error: "expired", message: "That access has ended." } };
+  if (!givesAccess(rec, now)) return { status: 402, body: { error: "expired", message: "That access has ended." } };
   const claims: EntitlementClaims = { v: 1, plan: rec.plan, src: rec.source, iat: Math.floor(now / 1000), exp: Math.floor(rec.expiresAt / 1000) };
   return { status: 200, body: { token: await deps.sign(claims), plan: rec.plan, expiresAt: rec.expiresAt } };
 }
@@ -148,8 +153,14 @@ export async function handleWebhook(rawBody: string, signature: string | null, d
         break;
       }
       case "charge.refunded": {
+        if (obj.refunded !== true) break; // a part refund changes nothing
         const pi = typeof obj.payment_intent === "string" ? obj.payment_intent : null;
-        const rec = pi && obj.refunded === true ? await deps.store.findByPaymentIntent(pi) : null;
+        // a one-off payment is found by its payment; a subscription's renewal charge has a payment of its own, so it is found through its invoice's subscription
+        let rec = pi ? await deps.store.findByPaymentIntent(pi) : null;
+        if (!rec) {
+          const sub = await refundedSubscription(obj, deps);
+          rec = sub ? await deps.store.findBySubscription(sub) : null;
+        }
         if (rec) await deps.store.update(rec.id, { status: "refunded", expiresAt: Math.min(rec.expiresAt, deps.now()) });
         break;
       }
@@ -161,6 +172,27 @@ export async function handleWebhook(rawBody: string, signature: string | null, d
     return { status: 500, body: { error: "server_error" } }; // Stripe tries again
   }
   return { status: 200, body: { received: true } };
+}
+
+/**
+ * The subscription a refunded charge paid for: the charge names its invoice (an id, or the invoice itself when expanded), and the invoice names the subscription
+ * ("subscription" on older API versions, parent.subscription_details.subscription since 2025). Asked of Stripe only when the charge doesn't carry it.
+ */
+async function refundedSubscription(charge: Record<string, unknown>, deps: PayDeps): Promise<string | null> {
+  const fromInvoice = (inv: Record<string, unknown>): string | null => {
+    if (typeof inv.subscription === "string") return inv.subscription;
+    const parent = isObject(inv.parent) ? inv.parent : null;
+    const details = parent && isObject(parent.subscription_details) ? parent.subscription_details : null;
+    return details && typeof details.subscription === "string" ? details.subscription : null;
+  };
+  if (isObject(charge.invoice)) return fromInvoice(charge.invoice);
+  const id = typeof charge.invoice === "string" && /^in_[A-Za-z0-9]{6,64}$/.test(charge.invoice) ? charge.invoice : null;
+  if (!id || !deps.env) return null;
+  const res = await deps.fetch(`https://api.stripe.com/v1/invoices/${id}`, { method: "GET", headers: { Authorization: `Bearer ${deps.env.secretKey}` } });
+  if (res.status === 404) return null;
+  if (!res.ok) throw new Error(`Stripe GET /invoices answered ${res.status}`); // the webhook answers 500 and Stripe tries again
+  const inv = await res.json().catch(() => null);
+  return isObject(inv) ? fromInvoice(inv) : null;
 }
 
 export type { PlanId };

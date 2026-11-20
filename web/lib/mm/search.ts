@@ -1,4 +1,5 @@
 import { namedPescatarian } from "./foodDiet";
+import { namesAlcohol, namesBeef, namesPork, namesRedMeat, passesMenuDiet, restaurantPrefs, uncheckedDiet, type UncheckedDiet } from "./menu-view";
 import { passesPreferences } from "./ranking";
 import { ALLERGEN_KEYS, type AllergenKey, type Chain, type MenuItem, type Preferences, type Tag } from "./types";
 
@@ -36,6 +37,9 @@ export interface ItemHit {
   /** The chain's own photo of the dish, "<chain id>/<file>.webp" as in the menu files (shown through itemImageUrl, which applies the
    *  photo switch and the taken-down list); absent when the dish has none or the search file predates photos. */
   image?: string;
+  /** Kept although the person's diet or allergies can't be checked against its restaurant's own data (it marks no dish vegetarian, names none vegan, or
+   *  publishes no allergens): only its name was read, as on the restaurant's page (menu-view.ts passesMenuDiet). Shown with a "not checked" tag. */
+  notChecked?: true;
 }
 
 export interface SearchResults {
@@ -56,6 +60,9 @@ export interface DietFacts {
   /** The dish's own name names fish or seafood and no meat (foodDiet.ts namedPescatarian). Worked out on first use, and only when somebody has the
    *  pescatarian filter on: working it out for every dish when the search file is read made building the index several times slower for everyone. */
   namedFish?: boolean;
+  /** The name rules for pork and beef (menu-view.ts namesPork / namesBeef), worked out on first use like namedFish. */
+  namedPork?: boolean;
+  namedBeef?: boolean;
 }
 
 const VEGAN_WORDS = /\bvegan\b|plant[\s-]?based/i; // the same words as isNamedVegan (menu-view.ts) and the pipeline's search_diet
@@ -88,17 +95,63 @@ export function dietFactsOf(item: Pick<MenuItem, "tags" | "name" | "category" | 
   };
 }
 
-/** Same rule as passesDiet (menu-view.ts): tags, named vegan, and no avoided allergen (dishes without allergen information fail an allergy filter). */
-export function fitsDiet(d: DietFacts, prefs: Preferences): boolean {
+/**
+ * Same rule as passesDiet (menu-view.ts): the diet as restaurantPrefs maps it, tags, named vegan, pork, beef, lamb and alcohol named in the dish's own name, and
+ * no avoided allergen (dishes without allergen information fail an allergy filter). `beefMenu`: the dish's restaurant sells beef, so a plain "burger" there
+ * counts as beef (as on its page).
+ */
+export function fitsDiet(d: DietFacts, rawPrefs: Preferences, beefMenu = false): boolean {
+  const prefs = restaurantPrefs(rawPrefs);
   if (!passesPreferences(d.tags, prefs)) return false;
   if (prefs.veganOnly && !d.namedVegan) return false;
   if (prefs.pescatarianOnly) {
     d.namedFish ??= d.name !== undefined && namedPescatarian(d.name);
     if (!(d.tags.includes("vegetarian") || (d.namedFish && !d.tags.includes("contains_pork") && !d.tags.includes("contains_beef")))) return false;
   }
+  if (d.name !== undefined) {
+    if (prefs.noPork && (d.namedPork ??= namesPork(d.name))) return false;
+    if (prefs.noBeef && ((d.namedBeef ??= namesBeef(d.name)) || (beefMenu && namesBeef(d.name, true)))) return false;
+    if (prefs.noRedMeat && namesRedMeat(d.name)) return false;
+    if (prefs.noAlcohol && namesAlcohol(d.name)) return false;
+  }
   const avoid = prefs.avoidAllergens ?? [];
   if (avoid.length === 0) return true;
   return d.allergens !== null && !avoid.some((k) => d.allergens!.includes(k));
+}
+
+/**
+ * Per index and diet, what each restaurant's own data can't check (menu-view.ts uncheckedDiet, from the search file's diet letters), worked out on first use for
+ * the restaurants a search reaches. A restaurant that marks no dish vegetarian, names none vegan or publishes no allergens is searched as its page shows it:
+ * only dishes whose own names say otherwise are left out, and the rest are tagged "not checked".
+ */
+const menuChecks = new WeakMap<SearchIndex, { key: string; byChain: Map<string, UncheckedDiet> }>();
+const asMenuItem = (i: IndexedItem): MenuItem => ({
+  id: i.itemId, name: i.name, category: "", serving: "", nutrients: { calories: i.calories }, tags: i.diet.tags, limitedTime: false, rankable: true, components: [], modifiers: [],
+  ...(i.diet.allergens ? { allergens: { contains: i.diet.allergens, mayContain: [] } } : {}),
+});
+function uncheckedOf(index: SearchIndex, chainId: string, prefs: Preferences): UncheckedDiet {
+  const key = JSON.stringify(prefs);
+  let cache = menuChecks.get(index);
+  if (!cache || cache.key !== key) menuChecks.set(index, (cache = { key, byChain: new Map() }));
+  let u = cache.byChain.get(chainId);
+  if (!u) {
+    u = uncheckedDiet(index.items.filter((i) => i.chainId === chainId).map(asMenuItem), prefs);
+    cache.byChain.set(chainId, u);
+  }
+  return u;
+}
+
+/** Per index, which restaurants sell beef (worked out on first use, only while No beef is on). */
+const beefMenus = new WeakMap<SearchIndex, Map<string, boolean>>();
+function beefMenuOf(index: SearchIndex, chainId: string): boolean {
+  let known = beefMenus.get(index);
+  if (!known) beefMenus.set(index, (known = new Map()));
+  let sells = known.get(chainId);
+  if (sells === undefined) {
+    sells = index.items.some((i) => i.chainId === chainId && (i.diet.tags.includes("contains_beef") || (i.diet.namedBeef ??= namesBeef(i.name))));
+    known.set(chainId, sells);
+  }
+  return sells;
 }
 
 interface IndexedChain extends ChainHit {
@@ -226,7 +279,20 @@ export function search(index: SearchIndex, rawQuery: string, maxItems = 40, diet
     ...fromChain,
     ...index.items.map((i) => ({ i, rank: matchRank(i.norm, q) })).filter((x): x is { i: IndexedItem; rank: 0 | 1 } => x.rank !== null && !seen.has(x.i)),
   ];
-  const fitting = diet ? matched.filter((x) => fitsDiet(x.i.diet, diet)) : matched;
+  const noBeef = diet ? restaurantPrefs(diet).noBeef : false;
+  const unchecked = new Set<IndexedItem>();
+  const fitting = diet
+    ? matched.filter((x) => {
+        const u = uncheckedOf(index, x.i.chainId, diet);
+        if (u.vegetarian || u.vegan || u.allergies) {
+          // as on the restaurant's page: the dish's own name (and the restaurant's own tags) decide; kept dishes are marked "not checked"
+          const keep = passesMenuDiet(asMenuItem(x.i), diet, u);
+          if (keep) unchecked.add(x.i);
+          return keep;
+        }
+        return fitsDiet(x.i.diet, diet, noBeef && beefMenuOf(index, x.i.chainId));
+      })
+    : matched;
   const items = fitting
     .sort((a, b) => a.rank - b.rank || (a.rank === -2 && !named?.rest ? 0 : byName(a.i.chainName, b.i.chainName) || byName(a.i.name, b.i.name)))
     .slice(0, maxItems)
@@ -238,6 +304,7 @@ export function search(index: SearchIndex, rawQuery: string, maxItems = 40, diet
       calories: i.calories,
       sample: i.sample,
       ...(i.image ? { image: i.image } : {}),
+      ...(unchecked.has(i) ? { notChecked: true as const } : {}),
     }));
 
   return { chains, items, hiddenByDiet: matched.length - fitting.length };

@@ -37,7 +37,11 @@ export interface BodyAnswers {
   activity: Activity;
 }
 
-/** Where the screens start: stones and pounds, feet and inches (UK first), nothing typed, "Prefer not to say" and "Lightly active" chosen (as the old form was). */
+/**
+ * Where the screens start: stones and pounds, feet and inches (UK first), nothing typed. "Prefer not to say" and "Lightly active" are what the sums use until a
+ * tile is tapped, but the welcome steps show neither as chosen (the onboarding meeting: nothing is picked for the person; the page keeps sexPicked and
+ * activityPicked).
+ */
 export const EMPTY_BODY: BodyAnswers = {
   sex: "unspecified",
   age: "",

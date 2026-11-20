@@ -78,6 +78,9 @@ const pad = (n) => String(n).padStart(2, "0");
 const keyOf = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 const longName = (d) => new Intl.DateTimeFormat("en-GB", { weekday: "long", day: "numeric", month: "long" }).format(d);
 const noErrors = (errors) => expect(errors.length === 0, "errors: " + errors.join(" | "));
+/** Recipes' "My recipes" (the heart at the top right) opens My meals as "My recipes", with its fixed Back to Recipes (the audit of 20 November 2026). */
+const MY_RECIPES = "/app/meals?tab=recipes&from=recipes";
+const myRecipesLink = (page) => page.locator(`main a[href="${MY_RECIPES}"]`).first();
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 // (a) the founder's bug
@@ -89,22 +92,22 @@ await step("(a) Recipes, then the heart at the top right, then My meals: Back la
   await page.getByRole("heading", { name: "What's cooking today?" }).waitFor({ timeout: 120000 });
   const recipes = path(page);
   expect(recipes.startsWith("/app/recipes"), "Recipes opened at " + recipes);
-  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
-  await waitPath(page, "/app/meals?tab=recipes");
+  await myRecipesLink(page).tap();
+  await waitPath(page, MY_RECIPES);
   expect((await depth(page)) === 2, "My meals sits two steps from the start, depth " + (await depth(page)));
   await back(page, "Back", recipes);
   await page.getByRole("heading", { name: "What's cooking today?" }).waitFor({ timeout: 60000 });
   expect((await depth(page)) === 1, "Recipes is one step from the start again, depth " + (await depth(page)));
   // and the phone's own Forward goes on to My meals: Back was history, not a new link
   await page.goForward();
-  await waitPath(page, "/app/meals?tab=recipes");
+  await waitPath(page, MY_RECIPES);
   // Recipes opened by address: the same
   const fresh = await ctx.newPage();
   await fresh.goto(BASE + "/app/recipes", { timeout: 180000 });
   await fresh.getByRole("heading", { name: "What's cooking today?" }).waitFor({ timeout: 120000 });
   const at = path(fresh);
-  await fresh.locator('main a[href="/app/meals?tab=recipes"]').tap();
-  await waitPath(fresh, "/app/meals?tab=recipes");
+  await myRecipesLink(fresh).tap();
+  await waitPath(fresh, MY_RECIPES);
   await back(fresh, "Back", at);
   noErrors(errors);
   await ctx.close();
@@ -299,13 +302,13 @@ await step("(e) Recipes, a recipe, Back: Recipes (the address it was at)", async
 await step("(e) Recipes, My recipes, a saved recipe, Back: My recipes (My meals is no longer on Home)", async () => {
   const { ctx, page, errors } = await open({ seed: { "mm.v1.savedRecipes": [{ id: RECIPE, savedAt: iso }] } });
   await go(page, "/app/recipes");
-  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
-  await waitPath(page, "/app/meals?tab=recipes");
+  await myRecipesLink(page).tap();
+  await waitPath(page, MY_RECIPES);
   const tile = page.locator('a[href^="/app/recipes/view?id=' + RECIPE + '"]').first();
   await tile.waitFor({ timeout: 180000 });
   await tile.tap();
   await page.waitForFunction(() => location.pathname === "/app/recipes/view", null, { timeout: 60000 });
-  await back(page, "Back", "/app/meals?tab=recipes");
+  await back(page, "Back", MY_RECIPES);
   noErrors(errors);
   await ctx.close();
 });
@@ -359,7 +362,7 @@ const DIRECT = [
   ["/app/groceries/list/recipes", "/app/groceries/list", "Back to shopping list"],
   ["/app/groceries/search", "/app/groceries", "Back to groceries"],
   ["/app/eat-out/favourites", "/app/eat-out", "Back to restaurants"],
-  ["/app/search", "/app/eat-out", "Back"], // Search names itself plain "Back" whichever way it was reached
+  ["/app/search", "/app/eat-out", "Back to restaurants"], // since the 20 November 2026 audit Search says where it goes, as every other page does
 ];
 for (const [url, fallback, name] of DIRECT) {
   await step(`(f)(i) ${url} opened by address: the link goes to ${fallback} and is spoken as "${name}"; the visible word stays "Back"`, async () => {
@@ -379,17 +382,16 @@ for (const [url, fallback, name] of DIRECT) {
   });
 }
 
-await step("(f) Settings > How we get our numbers: opened from Settings its pill goes back through the history; by address it goes to Settings", async () => {
+await step("(f) Settings > How we get our numbers: opened from Settings its Back goes back through the history; by address it goes to Settings", async () => {
   const { ctx, page, errors } = await open();
   await go(page, "/app/settings");
   await page.getByRole("link", { name: "How we get our numbers" }).tap();
   await waitPath(page, "/app/settings/numbers");
-  await page.locator("main").getByRole("link", { name: "Settings", exact: true }).tap();
-  await waitPath(page, "/app/settings");
+  // the page's Back (the header every page has since 19-20 November 2026): plain "Back" after a step, "Back to settings" by address
+  await back(page, "Back", "/app/settings");
   const fresh = await ctx.newPage();
   await fresh.goto(BASE + "/app/settings/numbers", { timeout: 180000 });
-  await fresh.locator("main").getByRole("link", { name: "Settings", exact: true }).tap();
-  await waitPath(fresh, "/app/settings");
+  await back(fresh, "Back to settings", "/app/settings");
   noErrors(errors);
   await ctx.close();
 });
@@ -419,8 +421,8 @@ await step("(g) Recipes, My meals, reload, Back: Recipes", async () => {
   await tab(page, "/app/recipes").tap();
   await page.getByRole("heading", { name: "What's cooking today?" }).waitFor({ timeout: 120000 });
   const recipes = path(page);
-  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
-  await waitPath(page, "/app/meals?tab=recipes");
+  await myRecipesLink(page).tap();
+  await waitPath(page, MY_RECIPES);
   await page.reload({ timeout: 180000 });
   expect((await depth(page)) === 2, "the reloaded entry lost its depth: " + (await depth(page)));
   await back(page, "Back", recipes);
@@ -461,15 +463,15 @@ await step("(h) Recipes, My meals, Restaurant meals tab, Recipes tab: no step ad
   await go(page, "/app/recipes");
   await page.getByRole("heading", { name: "What's cooking today?" }).waitFor({ timeout: 120000 });
   const recipes = path(page);
-  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
-  await waitPath(page, "/app/meals?tab=recipes");
+  await myRecipesLink(page).tap();
+  await waitPath(page, MY_RECIPES);
   const d0 = await depth(page);
   expect(d0 === 1, "My meals is one step from Recipes, depth " + d0);
   await page.getByRole("tab", { name: /^Restaurant meals/ }).tap();
-  await waitPath(page, "/app/meals?tab=restaurant");
+  await waitPath(page, "/app/meals?tab=restaurant&from=recipes");
   expect((await depth(page)) === d0, "the Restaurant meals tab added a step, depth " + (await depth(page)));
   await page.getByRole("tab", { name: /^Recipes/ }).tap();
-  await waitPath(page, "/app/meals?tab=recipes");
+  await waitPath(page, MY_RECIPES);
   expect((await depth(page)) === d0, "the Recipes tab added a step, depth " + (await depth(page)));
   await back(page, "Back", recipes); // one tap, not three
   noErrors(errors);
@@ -483,15 +485,15 @@ await step("(j) a Ctrl or Shift click on Back is left to the browser (a new tab 
   const { ctx, page, errors } = await open();
   await go(page, "/app/recipes");
   await page.getByRole("heading", { name: "What's cooking today?" }).waitFor({ timeout: 120000 });
-  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
-  await waitPath(page, "/app/meals?tab=recipes");
+  await myRecipesLink(page).tap();
+  await waitPath(page, MY_RECIPES);
   const l = await nameIs(page, "Back"); // reached from the app: a plain click would be router.back()
-  expect((await l.getAttribute("href")) === "/app", "the href is " + (await l.getAttribute("href")) + ", expected /app");
+  expect((await l.getAttribute("href")) === "/app/recipes", "the href is " + (await l.getAttribute("href")) + ", expected /app/recipes (My recipes' fixed page)");
   for (const modifier of ["Control", "Shift"]) {
     const [popup] = await Promise.all([ctx.waitForEvent("page", { timeout: 4000 }).catch(() => null), l.click({ modifiers: [modifier] })]);
     await page.waitForTimeout(400);
-    expect(path(page) === "/app/meals?tab=recipes", `a ${modifier} click moved this page to ${path(page)}`);
-    expect((await l.getAttribute("href")) === "/app", `after a ${modifier} click the href is ${await l.getAttribute("href")}`);
+    expect(path(page) === MY_RECIPES, `a ${modifier} click moved this page to ${path(page)}`);
+    expect((await l.getAttribute("href")) === "/app/recipes", `after a ${modifier} click the href is ${await l.getAttribute("href")}`);
     if (popup) await popup.close();
   }
   // and an ordinary click still goes back through the history afterwards
@@ -506,8 +508,8 @@ await step("(j) the link's own click handler leaves a Ctrl, Meta, Shift or Alt c
   const { ctx, page, errors } = await open();
   await go(page, "/app/recipes");
   await page.getByRole("heading", { name: "What's cooking today?" }).waitFor({ timeout: 120000 });
-  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
-  await waitPath(page, "/app/meals?tab=recipes");
+  await myRecipesLink(page).tap();
+  await waitPath(page, MY_RECIPES);
   const l = await nameIs(page, "Back");
   const cancelled = (init) => l.evaluate((el, i) => {
     let seen = null;
@@ -521,7 +523,7 @@ await step("(j) the link's own click handler leaves a Ctrl, Meta, Shift or Alt c
     const c = await cancelled({ [key]: true });
     expect(c === false, `a click with ${key} was cancelled by the app (it would stop the browser opening the link elsewhere)`);
   }
-  expect(path(page) === "/app/meals?tab=recipes", "the page moved during the check: " + path(page));
+  expect(path(page) === MY_RECIPES, "the page moved during the check: " + path(page));
   expect((await cancelled({})) === true, "a plain click was not taken over by the app (no router.back())");
   await waitPath(page, "/app/recipes"); // ... and it went back through the history
   noErrors(errors);
@@ -539,11 +541,11 @@ for (const [label, st, rtl, words] of [
     expect(words.back && words.home, "the translation of Back is missing from the locale file");
     const { ctx, page, errors } = await open({ settings: st });
     await go(page, "/app/recipes");
-    await page.locator('main a[href="/app/meals?tab=recipes"]').waitFor({ timeout: 180000 });
+    await myRecipesLink(page).waitFor({ timeout: 180000 });
     await page.waitForFunction((want) => document.documentElement.dir === want, rtl ? "rtl" : "ltr", { timeout: 30000 });
     const recipes = path(page);
-    await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
-    await waitPath(page, "/app/meals?tab=recipes");
+    await myRecipesLink(page).tap();
+    await waitPath(page, MY_RECIPES);
     const l = await nameIs(page, words.back, { word: words.back });
     const box = await l.boundingBox();
     expect(box.height >= 43.5, `the Back control is ${box.height}px high`); // 44px, give or take the rounding of rem sizes
@@ -574,9 +576,9 @@ for (const [label, st, rtl, words] of [
 await step("(l) axe: My meals reached from Recipes (with a saved recipe, and on the Restaurant meals tab) has 0 violations", async () => {
   const { ctx, page, errors } = await open({ seed: { "mm.v1.savedRecipes": [{ id: RECIPE, savedAt: iso }] } });
   await go(page, "/app/recipes");
-  await page.locator('main a[href="/app/meals?tab=recipes"]').waitFor({ timeout: 180000 });
-  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
-  await waitPath(page, "/app/meals?tab=recipes");
+  await myRecipesLink(page).waitFor({ timeout: 180000 });
+  await myRecipesLink(page).tap();
+  await waitPath(page, MY_RECIPES);
   await nameIs(page, "Back");
   await page.locator('a[href^="/app/recipes/view?id=' + RECIPE + '"]').first().waitFor({ timeout: 180000 });
   const run = async (what) => {
@@ -587,7 +589,7 @@ await step("(l) axe: My meals reached from Recipes (with a saved recipe, and on 
   };
   await run("My meals, Recipes tab");
   await page.getByRole("tab", { name: /^Restaurant meals/ }).tap();
-  await waitPath(page, "/app/meals?tab=restaurant");
+  await waitPath(page, "/app/meals?tab=restaurant&from=recipes");
   await run("My meals, Restaurant meals tab");
   noErrors(errors);
   await ctx.close();
@@ -599,17 +601,17 @@ await step("(l) axe: My meals reached from Recipes (with a saved recipe, and on 
 await step("(m) two quick activations of Back take one step, not two (the second would leave the app)", async () => {
   const { ctx, page, errors } = await open();
   await go(page, "/app/recipes");
-  await page.locator('main a[href="/app/meals?tab=recipes"]').waitFor({ timeout: 180000 });
-  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
-  await waitPath(page, "/app/meals?tab=recipes");
+  await myRecipesLink(page).waitFor({ timeout: 180000 });
+  await myRecipesLink(page).tap();
+  await waitPath(page, MY_RECIPES);
   await nameIs(page, "Back");
   await page.evaluate(() => { const a = [...document.querySelectorAll("a")].find((x) => (x.textContent || "").trim() === "Back"); a.click(); a.click(); });
   await waitPath(page, "/app/recipes");
   await page.waitForTimeout(1500);
   expect(path(page) === "/app/recipes", `after a double activation the page is ${page.url()}, expected /app/recipes`);
   // and the guard lets go: a later Back works again
-  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
-  await waitPath(page, "/app/meals?tab=recipes");
+  await myRecipesLink(page).tap();
+  await waitPath(page, MY_RECIPES);
   await back(page, "Back", "/app/recipes");
   noErrors(errors);
   await ctx.close();
@@ -637,14 +639,16 @@ await step("(m) Search every shop: Back from a product finds the words as they w
   const box = page.getByRole("searchbox", { name: "Search products or type a barcode" });
   await box.waitFor({ timeout: 180000 });
   await box.fill("beans");
-  const row = page.locator('main ul a[href^="/app/groceries/product?code="]').first();
+  // a row opens the product: the every-shop page, or (one shop sells it, or "My shops" is on) that shop's own product page
+  const ROWS = 'main ul a[href^="/app/groceries/product?code="], main ul a[href^="/app/groceries/shop/item?"]';
+  const row = page.locator(ROWS).first();
   await row.waitFor({ timeout: 120000 });
   await row.tap();
-  await page.waitForFunction(() => location.pathname === "/app/groceries/product", null, { timeout: 60000 });
+  await page.waitForFunction(() => location.pathname === "/app/groceries/product" || location.pathname === "/app/groceries/shop/item", null, { timeout: 60000 });
   await back(page, "Back", "/app/groceries/search");
   try { await page.waitForFunction(() => document.querySelector('input[type="search"]')?.value === "beans", null, { timeout: 30000 }); }
   catch { throw new Error(`the box reads "${await box.inputValue()}" after Back, expected "beans"`); }
-  await page.locator('main ul a[href^="/app/groceries/product?code="]').first().waitFor({ timeout: 120000 });
+  await page.locator(ROWS).first().waitFor({ timeout: 120000 });
   noErrors(errors);
   await ctx.close();
 });

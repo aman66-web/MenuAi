@@ -4,9 +4,10 @@ import { realChains } from "./_data";
 
 const count = realChains().length;
 
+// About half the chains publish calories only, so protein is promised only "where published" (the overnight audit, 20 November 2026).
 export const metadata: Metadata = {
-  title: `Calories and protein at ${count || "UK"} restaurants`,
-  description: "Every UK restaurant chain on Numbite, with the calories, protein, carbs and fat of each menu item copied from the restaurant's own published nutrition guide.",
+  title: `Calories (and protein where published) at ${count || "UK"} restaurants`,
+  description: "Every UK restaurant chain on Numbite, with the calories of each menu item, and protein, carbs and fat where the restaurant publishes them, copied from its own published nutrition guide.",
   alternates: { canonical: "/chains" },
 };
 
@@ -14,9 +15,9 @@ export default function ChainsIndex() {
   const chains = [...realChains()].sort((a, b) => a.name.localeCompare(b.name, "en-GB"));
   return (
     <article className="mx-auto w-full max-w-3xl px-5 py-10">
-      <h1 className="text-4xl font-extrabold leading-tight tracking-tight">Calories and protein at UK restaurants</h1>
+      <h1 className="text-4xl font-extrabold leading-tight tracking-tight">Calories (and protein where published) at UK restaurants</h1>
       <p className="mt-3 text-lg leading-relaxed">
-        {chains.length} restaurant chains, with the calories, protein, carbs and fat of each menu item copied from the restaurant&apos;s own published nutrition guide. Pick one to see its figures, or open it in the app.
+        {chains.length} restaurant chains, with the calories of each menu item, and protein, carbs and fat where the restaurant publishes them, copied from its own published nutrition guide. Pick one to see its figures, or open it in the app.
       </p>
       <ul className="mt-8 grid gap-x-6 sm:grid-cols-2">
         {chains.map((c) => (

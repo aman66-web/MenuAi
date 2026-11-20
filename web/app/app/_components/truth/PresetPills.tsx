@@ -23,7 +23,9 @@ export const PRESET_TOP = 5;
  * in the pill ("Under 500 calories", "35 g+ protein"). A pill a restaurant can't answer from what it publishes (protein, sugar) is not shown for it.
  * `items` should already be the diet- and allergy-filtered menu, so the answer never offers a dish the person has said they avoid.
  */
-export function PresetPills({ chain, items, renderList }: { chain: Chain; items: readonly MenuItem[]; renderList: (items: readonly MenuItem[]) => ReactNode }) {
+/** `notChecked`: the person's diet or allergies can't be checked against this restaurant's own data (lib/mm/menu-view.ts anyUnchecked), so, like Best for
+ *  you, the lists aren't offered and this line says why (the 20 November 2026 audit: they listed Five Guys' plain buns to a vegetarian). */
+export function PresetPills({ chain, items, renderList, notChecked }: { chain: Chain; items: readonly MenuItem[]; renderList: (items: readonly MenuItem[]) => ReactNode; notChecked?: string | null }) {
   const t = useT();
   const pro = useIsPro();
   const { showPaywall } = useGate();
@@ -37,6 +39,14 @@ export function PresetPills({ chain, items, renderList }: { chain: Chain; items:
   const answer = useRef<HTMLDivElement>(null);
   useEffect(() => { if (active) answer.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }, [active]);
   if (defs.length === 0) return null;
+  if (notChecked) {
+    return (
+      <section aria-labelledby="quick-heading" className="mt-7">
+        <h2 id="quick-heading" className="text-xl font-extrabold leading-snug tracking-tight">{t("Quick answers")}</h2>
+        <p className="mt-1 text-base leading-snug text-muted">{notChecked}</p>
+      </section>
+    );
+  }
   const def = defs.find((d) => d.id === active);
   return (
     <section aria-labelledby="quick-heading" className="mt-7">

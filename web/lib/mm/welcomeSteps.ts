@@ -25,6 +25,9 @@
 // person's own stores (lib/mm/tour.ts OWN_DATA_KEYS, so it never stops the welcome screens opening), never synced (lib/mm/syncStores.ts), not emptied by a
 // sign-in (lib/mm/sync.ts prepareFor resets only the synced and listed local stores), and removed when the welcome screens finish and by Settings › Clear
 // everything. The answers about the person's body are never part of it.
+// The 20 November 2026 audit: the note also says whether a goal was chosen on step 1 (so Back to step 1 after "Carry on" shows it ticked, not Pip's hello
+// again), and "Carry on" past the questions about the person marks their answers as gone (bodyGone), which is not the same as skipping them: the targets
+// worked out from them before are the person's own, not starting numbers.
 
 import { createStore, type KeyValueStorage, type Store } from "./persist";
 
@@ -70,6 +73,9 @@ export interface WelcomeAnswers {
   under18: boolean;
   /** Step 3's "Skip setup and make my account" was used: straight on to the account (Back from it returns to step 3). */
   skippedSetup: boolean;
+  /** Set only by resumeAt: the run carried on past the questions about the person after a relaunch, so their answers are gone (bodySkipped is set too), but
+   *  they were answered, not skipped. Cleared by answering or skipping them again. */
+  bodyGone?: boolean;
 }
 export const NO_ANSWERS: WelcomeAnswers = Object.freeze({ bodySkipped: false, under18: false, skippedSetup: false });
 
@@ -98,14 +104,22 @@ export interface WelcomeNext {
   answers: WelcomeAnswers;
 }
 
+/** The answers without the relaunch's "gone" mark (the questions about the person were answered or skipped again in this run). */
+function withoutGone(a: WelcomeAnswers): WelcomeAnswers {
+  if (a.bodyGone === undefined) return a;
+  const copy = { ...a };
+  delete copy.bodyGone;
+  return copy;
+}
+
 /**
  * The screen after `from`. Pass the answers as they are when the person taps (`under18` as the age now typed): a Continue on a question about the person means
  * those questions are being answered (bodySkipped goes), and Next on step 3 means the setup goes on (skippedSetup goes). Every move goes forward.
  */
 export function moveOn(run: WelcomeRun, answers: WelcomeAnswers, from: WelcomeStepId, how: WelcomeMove = "next"): WelcomeNext {
-  if (how === "skipBody" && BODY_STEPS.includes(from)) return { to: "targets", answers: { ...answers, bodySkipped: true, under18: false } };
+  if (how === "skipBody" && BODY_STEPS.includes(from)) return { to: "targets", answers: { ...withoutGone(answers), bodySkipped: true, under18: false } };
   if (how === "skipSetup" && from === "eatOut") return { to: run.signedIn ? "home" : "save", answers: { ...answers, skippedSetup: true } };
-  const a: WelcomeAnswers = from === "eatOut" ? { ...answers, skippedSetup: false } : BODY_STEPS.includes(from) ? { ...answers, bodySkipped: false } : answers;
+  const a: WelcomeAnswers = from === "eatOut" ? { ...answers, skippedSetup: false } : BODY_STEPS.includes(from) ? { ...withoutGone(answers), bodySkipped: false } : answers;
   const path = welcomePath(run, a);
   const i = path.indexOf(from);
   if (i >= 0) return { to: path[i + 1] ?? "home", answers: a };
@@ -141,6 +155,8 @@ export interface WelcomeProgress {
   firstDish?: FirstDish;
   /** Step 3's "Skip setup and make my account" led to the account, so Back from it returns to step 3 after a relaunch too. */
   skippedSetup?: true;
+  /** A goal was chosen with step 1's Continue (it is saved in the settings): after "Carry on", step 1 shows it ticked. */
+  goalPicked?: true;
   /** The day it was written ("YYYY-MM-DD", the phone's own calendar). */
   savedOn: string;
 }
@@ -169,11 +185,19 @@ export function sanitizeWelcomeProgress(raw: unknown): WelcomeProgress | null {
   if (!isWelcomeStep(r.step) || typeof r.savedOn !== "string" || !DAY.test(r.savedOn)) return null;
   const firstRecipeId = sanitizeRecipeId(r.firstRecipeId);
   const firstDish = sanitizeFirstDish(r.firstDish);
-  return { step: r.step, ...(firstRecipeId ? { firstRecipeId } : {}), ...(firstDish ? { firstDish } : {}), ...(r.skippedSetup === true ? { skippedSetup: true as const } : {}), savedOn: r.savedOn };
+  return {
+    step: r.step,
+    ...(firstRecipeId ? { firstRecipeId } : {}),
+    ...(firstDish ? { firstDish } : {}),
+    ...(r.skippedSetup === true ? { skippedSetup: true as const } : {}),
+    ...(r.goalPicked === true ? { goalPicked: true as const } : {}),
+    savedOn: r.savedOn,
+  };
 }
 
-/** The note for where the person is now: the step showing, the hints held in the page's memory (null or absent = none) and today's date. */
-export function progressNote(x: { step: WelcomeStepId; answers?: Pick<WelcomeAnswers, "skippedSetup">; firstRecipeId?: string | null; firstDish?: FirstDish | null }, today: string): WelcomeProgress {
+/** The note for where the person is now: the step showing, the hints held in the page's memory (null or absent = none), whether step 1's goal was chosen,
+ *  and today's date. */
+export function progressNote(x: { step: WelcomeStepId; answers?: Pick<WelcomeAnswers, "skippedSetup">; firstRecipeId?: string | null; firstDish?: FirstDish | null; goalPicked?: boolean }, today: string): WelcomeProgress {
   const firstRecipeId = sanitizeRecipeId(x.firstRecipeId);
   const firstDish = sanitizeFirstDish(x.firstDish);
   return {
@@ -181,6 +205,7 @@ export function progressNote(x: { step: WelcomeStepId; answers?: Pick<WelcomeAns
     ...(firstRecipeId ? { firstRecipeId } : {}),
     ...(firstDish ? { firstDish } : {}),
     ...(x.answers?.skippedSetup && x.step === "save" ? { skippedSetup: true as const } : {}),
+    ...(x.goalPicked === true ? { goalPicked: true as const } : {}),
     savedOn: today,
   };
 }
@@ -196,7 +221,7 @@ export function resumeAt(run: WelcomeRun, progress: WelcomeProgress | null): { s
   const wanted: WelcomeStepId = BODY_STEPS.includes(progress.step) ? "about" : progress.step;
   const step = run.steps.includes(wanted) ? wanted : run.steps[run.steps.length - 1]!;
   const past = WELCOME_STEPS.indexOf(step) > WELCOME_STEPS.indexOf("active");
-  return { step, answers: { bodySkipped: past, under18: false, skippedSetup: step === "save" && progress.skippedSetup === true } };
+  return { step, answers: { bodySkipped: past, under18: false, skippedSetup: step === "save" && progress.skippedSetup === true, ...(past ? { bodyGone: true } : {}) } };
 }
 
 /** The note's store (the app's { v, data } envelope). `storage` for tests; the app uses the browser's. */

@@ -1,7 +1,7 @@
 // Shared moves through the welcome steps for the browser tests (the onboarding redesign meeting of 20 November 2026, approved by the founder; app/app/welcome/,
 // lib/mm/welcomeSteps.ts): after the cover, eleven steps in one counter ("Step n of 11"; a run that starts signed in has 10):
 //    1 What's your goal? · 2 Anything you avoid? · 3 Know before you order · 4 Where do you shop? · 5 Recipes from {shop} · 6 About you ·
-//    7 Your height and weight · 8 How active are you? · 9 Your daily targets · 10 Your week, planned · 11 Save your plan: make your free account
+//    7 Your height and weight · 8 How active are you? · 9 Your daily targets · 10 Your week, planned · 11 Save your goal and numbers: make your free account
 // Not a test on its own: imported by showcase.mjs, onboarding-body.mjs, smoke.mjs, largetext.mjs, a11y.mjs and the other suites that walk the steps.
 
 /** Every step's headline, in order (step 5's names the shop, so it is matched by its start). */
@@ -16,7 +16,7 @@ export const HEADLINES = {
   active: "How active are you?",
   targets: "Your daily targets",
   week: "Your week, planned",
-  save: "Save your plan: make your free account",
+  save: "Save your goal and numbers: make your free account",
 };
 /** The step ids in order, as lib/mm/welcomeSteps.ts WELCOME_STEPS. */
 export const STEPS = ["goal", "avoid", "eatOut", "shops", "recipes", "about", "size", "active", "targets", "week", "save"];
@@ -68,18 +68,27 @@ export async function eatOut(page, { wait = true } = {}) {
   await press(page, "Next: where you shop");
   await onStep(page, "shops");
 }
+/** A shop's tile in the ShopPicker (step 4, Settings): its name is all the words on it (the shop, "Opens first", the line under it; the audit of
+ *  20 November 2026), so it is found by the shop's name at the start. */
+export const shopTile = (scope, name) => scope.getByRole("button", { name: new RegExp(`^${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?: |$)`) });
 /** Step 4: the shops ticked (their names), then Continue. */
 export async function shops(page, names = []) {
   await onStep(page, "shops");
-  for (const n of names) await page.getByRole("group", { name: "Your supermarkets" }).getByRole("button", { name: n, exact: true }).click();
+  for (const n of names) await shopTile(page.getByRole("group", { name: "Your supermarkets" }), n).click();
   await press(page, "Continue");
   await onStep(page, "recipes");
 }
+/** Step 5's two recipe tiles: since the audit of 20 November 2026 RecipeTile's own choose mode, a radio each in the group "Your first recipe" (aria-checked). */
+export const recipeTiles = (page) => page.getByRole("radiogroup", { name: "Your first recipe" }).getByRole("radio");
+/** A tile's recipe name (the radio's name is all its words: name, calories, protein, carbs, fat, price, minutes and the hint). */
+export const recipeTileName = async (tile) => (await tile.locator("span.line-clamp-3").first().innerText()).trim();
+/** Step 5's tiles, or its one plain line when there are none. */
+export const RECIPES_OR_LINE = "section[aria-label='A look at Recipes'] [role='radio'], section[aria-label='A look at Recipes'] p[role='status']";
 /** Step 5: optionally chooses the first recipe tile (waits for the tiles), then Next. */
 export async function recipes(page, { choose = false } = {}) {
   await onStep(page, "recipes");
   if (choose) {
-    const tile = page.locator("section[aria-label='A look at Recipes'] button[aria-pressed]").first();
+    const tile = recipeTiles(page).first();
     await vis(tile, 30000);
     await tile.click();
   }
@@ -109,7 +118,7 @@ export async function targetsNext(page) {
 /** Step 10's Next, to step 11 (a run started signed out) or Home (signed in: "Save and go to Home"). */
 export async function weekNext(page) {
   await onStep(page, "week");
-  await page.getByRole("button", { name: /^(Next: save your plan|Save and go to Home)$/ }).click();
+  await page.getByRole("button", { name: /^(Next: save your numbers|Save and go to Home)$/ }).click();
 }
 /** Step 11 where sign-in is optional: "Not now", to Home. */
 export async function notNow(page) {

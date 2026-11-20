@@ -14,7 +14,7 @@ Waitrose, Morrisons, Iceland and M&S too, each the founder's accepted risk again
 says it isn't food or drink (candles, sparklers, flower bouquets, M&S flower gifts) is left out.
 Output per shop (compact, one array per product so 17,000 products stay about 3 MB before compression):
   {"v":1,"retailer","name","checkedOn","pageBase","photoBase","categories":[top-level names],"schemes":[card names],
-   "nutritionCheckedOn","products":[[id, name, price|null, unitPrice|null, unit, memberPrice|null, schemeIndex|null, categoryIndex, photoId|"", gtin|"", nutrition|null]]}
+   "nutritionCheckedOn","nutritionCheckedTo","products":[[id, name, price|null, unitPrice|null, unit, memberPrice|null, schemeIndex|null, categoryIndex, photoId|"", gtin|"", nutrition|null]]}
 `price` is null only for a Lidl product whose own page prints no price (PRICE_IN_STORE: Lidl prices online only its weekly offers) and for M&S's everyday food
 range (tools/groceries/mns_food_listing.py: M&S's aisle pages list no price for it); the app says "Price in store".
 `nutrition` is [kcal, protein, carbs, fat, saturates|null, sugars|null, fibre|null, salt|null, kJ|null, "g"|"ml", state] per 100 g/ml, state "" or the word the page's own heading adds ("grilled", "cooked bacon", "prepared"), copied from the product's own page by
@@ -50,6 +50,7 @@ from build_groceries import implausible, is_alcohol, name_key, norm_code, restri
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "web" / "public" / "groceries" / "all"
+PUBLISHED_OUT = OUT  # the real output folder: reports into data/ are written only when the build writes there (not when a test points OUT elsewhere)
 PUBLISH = ("sainsburys", "tesco", "asda", "aldi", "lidl", "morrisons", "waitrose", "iceland", "marks-and-spencer")  # shops whose lists the app shows
 # Per shop: the name shown, the page address base, the picture host (and the template the app fills), how to read the picture id from the listing's
 # address, whether pages come from data/groceries/listing/<shop>-pages.csv, and how the shop's own category path becomes the type shown.
@@ -68,7 +69,7 @@ TESCO_AISLES = {"fresh-food": "Fresh Food", "bakery": "Bakery", "frozen-food": "
 # A cake named after its decoration ("Candles Celebration Cake", "Balloon & Stars Cake", "Rose Bouquet Madeira Cake") is food: a food word after the match keeps it.
 NON_FOOD = re.compile(r"\b(?:\d+\s?cm (?:\w+ )?roasters?|roasting (?:tins?|trays?)|foil (?:trays?|containers?)|candles?|sparklers?|cake toppers?|balloons?|napkins?|paper plates?|bin bags?|kitchen rolls?|toilet rolls?|batter(?:y|ies)|"
                       r"light bulbs?|firelighters|charcoal briquettes|lumpwood charcoal|gift cards?|carrier bags?|bags? for life|"
-                      r"(?:cupcake|muffin|cake|baking) cases|filter papers|piping bags?|cake boards?|cocktail sticks|cling film|baking parchment|"
+                      r"(?:cupcake|muffin|cake|baking) cases|filter papers|piping bags?|cake boards?|cocktail sticks|cling film|baking parchment|baking paper|"
                       r"foil trays?|kitchen foil|tin foil|freezer bags?|food bags?|dog toys?|dog treats?|dog chews?|cat treats?|pet treats?|for dogs|for cats)\b"
                       r"|\b(?:roses?|lil(?:y|ies)|tulips?|chrysanthemums?|carnations?|flowers?|alstroemeria|stems)\b.*\bbouquet\b|\bbouquet\b.*\b(?:roses?|lil(?:y|ies)|tulips?|flowers?|stems)\b"
                       r"|^tesco \w+ bouquet$"
@@ -335,6 +336,18 @@ def asda_barcode(photo_id: str) -> bool:
 # more products add the rest of them please"). Rows from MORE_ROWS (tools/groceries/lidl_range.py, Lidl's own product pages; tools/groceries/mns_food_listing.py,
 # M&S's own aisle pages) may therefore have no price: the app says "Price in store". Every other shop, and these shops' own category-page rows, keep
 # "no price printed -> not listed".
+# The unit a shop prints its unit price in, as the app shows it: "per kg", "per litre", "each" (or "" when it printed none). M&S's aisle pages print a bare "kg"
+# or "litre" (2026-11-20: "£16.80 kg" read wrong, and Compare and Cheapest protein couldn't use M&S's prices at all). Anything else (Sainsbury's baking paper
+# "mtr") has no unit the app can use: its unit price is left out.
+UNIT_WORDS = {"per kg": "per kg", "kg": "per kg", "per kilo": "per kg", "per litre": "per litre", "litre": "per litre", "per l": "per litre", "l": "per litre",
+              "ltr": "per litre", "per ltr": "per litre", "each": "each", "": ""}
+
+
+def unit_word(raw: str) -> str | None:
+    """The app's word for a printed unit, or None when it isn't one the app can use (the unit price is then left out)."""
+    return UNIT_WORDS.get(" ".join((raw or "").lower().split()))
+
+
 PRICE_IN_STORE = {"lidl", "marks-and-spencer"}
 MORE_ROWS = {"lidl": ROOT / "data" / "groceries" / "listing" / "lidl-range.csv",
              "marks-and-spencer": ROOT / "data" / "groceries" / "listing" / "marks-and-spencer-food.csv"}
@@ -422,7 +435,10 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
             NAME_SKIP.add((shop, pid))    # M&S's everyday range: no barcode, and no photo, from another shop's product that merely has the same name
         elif not gtin:
             gtin = barcode_by_name(name)  # founder 2026-10-11: the same branded name and pack size as a barcoded product at another shop
-        row = [pid, name, price, unit_price if unit_price and unit_price > 0 else None, (r.get("unit") or "").strip(),
+        unit = unit_word(r.get("unit") or "")
+        if unit is None:
+            unit, unit_price = "", None
+        row = [pid, name, price, unit_price if unit_price and unit_price > 0 else None, unit,
                member, schemes.index(scheme) if member is not None else None, cats.index(cat), photo.group(1) if photo else "", gtin,
                n[0] if n else None]
         if pid in pages:
@@ -435,7 +451,8 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
     cfg = SHOPS[shop]
     head = {"v": 1, "retailer": shop, "name": cfg["name"], "checkedOn": min(days) if days else "", "pageBase": cfg["pageBase"], "photoBase": cfg["photoBase"]}
     head.update({k: cfg[k] for k in ("photoTemplate", "pageSearch", "pageRoot", "priceNote") if k in cfg})
-    return {**head, "categories": cats, "schemes": schemes, "nutritionCheckedOn": min(d for d in nut_days if d) if any(nut_days) else "", "products": products}
+    return {**head, "categories": cats, "schemes": schemes, "nutritionCheckedOn": min(d for d in nut_days if d) if any(nut_days) else "",
+            "nutritionCheckedTo": max(d for d in nut_days if d) if any(nut_days) else "", "products": products}
 
 
 def own_photo_url(shop: str, photo_id: str) -> str:
@@ -527,10 +544,51 @@ def community_row(c: dict) -> list:
             opt("kj"), c["per"], "", "off"]
 
 
+# Plain raw meat and fish whose calories per 100 g as sold lie in a known band (the same bands as the recipes' pantry kinds, web/lib/mm/pantry.ts): community
+# numbers outside it are for something else (2026-11-20: "Chicken Breast Fillets 1.2kg" at 11 kcal and 2.2 g protein) and are left out. Only a name with no
+# processing word in it.
+KIND_BANDS = [
+    (re.compile(r"\bchicken (?:breast|breasts|breast fillets?|mini fillets?)\b", re.I), 90, 200, 18),
+    (re.compile(r"\bchicken thighs?\b", re.I), 100, 280, 14),
+    (re.compile(r"\b(?:beef|steak) mince\b", re.I), 100, 330, 14),
+    (re.compile(r"\bturkey (?:breast|mince)\b", re.I), 90, 220, 16),
+    (re.compile(r"\bsalmon fillets?\b", re.I), 110, 280, 16),
+    (re.compile(r"\b(?:cod|haddock|pollock|hake) (?:fillets?|loins?)\b", re.I), 55, 130, 13),
+]
+PROCESSED = re.compile(r"\b(?:breaded|coated|battered|crumb|kievs?|sauce|with|marinated|glazed|stuffed|wrapped|pie|nuggets?|goujons?|dippers|fingers|"
+                       r"bites|tikka|kebabs?|skewers?|sandwich|wrap|slices?|sliced|cooked|roast|smoked|pate|soup|meal|curry|in |fishcakes?|burgers?|meatballs?)\b", re.I)
+
+
+def outside_kind(name: str, row: list) -> bool:
+    """Community numbers that can't be this plain raw meat or fish (KIND_BANDS)."""
+    if PROCESSED.search(name):
+        return False
+    for pattern, low, high, protein in KIND_BANDS:
+        if pattern.search(name):
+            return not (low <= row[0] <= high) or row[1] < protein
+    return False
+
+
 def fill_community_nutrition(docs: dict[str, dict], by_code: dict[str, tuple[list, str | None]]) -> dict[str, int]:
     """A row with no numbers from its own page takes the community numbers of exactly its barcode (catalogue_nutrition); a record looked up by barcode
     only when its name shares a word with the shop's own name (build_groceries.names_agree), as for the catalogue. Returns how many per shop."""
     from build_groceries import names_agree  # noqa: E402
+
+    # the calories a shop's own label prints for the same product (same barcode, or the same branded name and pack size): community numbers more than 30% away
+    # from every one of them are wrong for this product and are left out (2026-11-20: a chicken breast at 11 kcal)
+    labelled: dict[str, list[float]] = {}
+    for shop, doc in docs.items():
+        for r in doc["products"]:
+            if not own_label(r[10]) or not isinstance(r[10][0], (int, float)):
+                continue
+            code = norm_code(r[9]) if r[9] else ""
+            for key in ([f"b:{code}"] if code and not restricted_code(code) else []) + ([f"n:{k}"] if (k := name_key(r[1])) and (shop, r[0]) not in NAME_SKIP else []):
+                labelled.setdefault(key, []).append(float(r[10][0]))
+
+    def far_from_labels(r, row) -> bool:
+        code = norm_code(r[9]) if r[9] else ""
+        kcals = labelled.get(f"b:{code}", []) + (labelled.get(f"n:{k}", []) if (k := name_key(r[1])) else [])
+        return bool(kcals) and all(abs(row[0] - k) > 0.3 * max(k, 1.0) for k in kcals)
 
     counts: dict[str, int] = {}
     for shop, doc in docs.items():
@@ -542,10 +600,34 @@ def fill_community_nutrition(docs: dict[str, dict], by_code: dict[str, tuple[lis
             row, their_name = by_code[code]
             if their_name is not None and names_agree(r[1], their_name) is not True:
                 continue
+            if far_from_labels(r, row) or outside_kind(r[1], row):
+                continue
             r[10] = list(row)
             n += 1
         counts[shop] = n
     return counts
+
+
+def write_recheck(docs: dict[str, dict], path: Path | None = None) -> int:
+    """data/groceries/nutrition/recheck.csv: the shops' own labels whose calories disagree by more than 40% with what their protein, carbohydrate and fat (and
+    fibre, at 2 kcal a gram) add up to, for a person to read the page again (a founder item; nothing is changed or guessed). From 20 kcal per 100 g or ml."""
+    path = path or ROOT / "data" / "groceries" / "nutrition" / "recheck.csv"
+    rows = []
+    for shop, doc in docs.items():
+        for r in doc["products"]:
+            n = r[10]
+            if not own_label(n) or not all(isinstance(v, (int, float)) for v in n[:4]) or n[0] < 20:
+                continue
+            est = 4 * n[1] + 4 * n[2] + 9 * n[3]
+            ests = [est] + ([est + 2 * n[6]] if isinstance(n[6], (int, float)) and n[6] > 0 else [])
+            if all(abs(n[0] - e) > 0.4 * n[0] for e in ests):
+                rows.append([shop, r[0], r[1], n[0], n[1], n[2], n[3], n[6] if isinstance(n[6], (int, float)) else "", round(est)])
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["shop", "product_id", "name", "kcal", "protein_g", "carbs_g", "fat_g", "fibre_g", "kcal_from_macros"])
+        w.writerows(sorted(rows))
+    return len(rows)
 
 
 # A dry staple's label that is really for the cooked or prepared food (founder 2026-11-18, the label review): some pages and community records print figures
@@ -659,11 +741,23 @@ def fill_same_product_nutrition(docs: dict[str, dict]) -> dict[str, int]:
     return counts
 
 
-def fill_produce_nutrition(docs: dict[str, dict]) -> dict[str, int]:
+# Each shop's fresh fruit and vegetable aisle (its own name for it): only a product listed there can be loose fresh produce. A tin, a frozen bag or a jar (chopped
+# tomatoes, frozen sliced mushrooms, chopped garlic) is in another aisle and carries a label of its own (2026-11-20: they had been given raw produce figures).
+FRESH_AISLES = {"sainsburys": {"Fruit & vegetables"}, "tesco": {"Fresh Food"}, "asda": {"Fresh Fruit, Vegetables & Flowers"}, "aldi": {"Fresh Food"},
+                "lidl": {"Fruit & veg"}, "morrisons": {"Fruit & Veg"}, "waitrose": {"Fresh & Chilled"}, "iceland": {"Fresh"}, "marks-and-spencer": {"Fruit & Vegetables"}}
+# Shops whose product pages print no nutrition at all (Lidl publishes none online): their pages need no reading to know that.
+NO_LABELS_ONLINE = {"lidl"}
+
+
+def fill_produce_nutrition(docs: dict[str, dict], status: dict[str, dict[str, str]] | None = None) -> dict[str, int]:
     """Loose fresh fruit and vegetables with no label of any kind take the UK government's figures for that food, raw (McCance and Widdowson's Composition of Foods
     Integrated Dataset 2021, Open Government Licence; tools/groceries/cofid.py; founder 2026-11-17: "you can use the government food data for loose fruits and
-    vegetables. If it doesn't, of course, have it on the website of the supermarket"). Marked "cofid" with the food's own name, so the app says so. Runs last."""
+    vegetables. If it doesn't, of course, have it on the website of the supermarket"). Only a product in the shop's fresh fruit and vegetable aisle (FRESH_AISLES)
+    whose own page was read and printed no nutrition table (labels_chrome_ingest.read_status; every product of a shop in NO_LABELS_ONLINE): a page not read yet
+    may have a label, so that product stays without numbers and the app says it hasn't read them (2026-11-20). Marked "cofid" with the food's own name, so the
+    app says so. Runs last."""
     import cofid  # noqa: E402
+    from labels_chrome_ingest import read_status  # noqa: E402
 
     try:
         table = cofid.cofid_rows()
@@ -671,9 +765,15 @@ def fill_produce_nutrition(docs: dict[str, dict]) -> dict[str, int]:
         return {}
     counts: dict[str, int] = {}
     for shop, doc in docs.items():
+        seen = status[shop] if status is not None and shop in status else ({} if shop in NO_LABELS_ONLINE else read_status(shop))
+        fresh = FRESH_AISLES.get(shop, set())
         n = 0
         for r in doc["products"]:
-            if r[10] is not None:
+            cats = doc.get("categories") or []
+            aisle = cats[r[7]] if isinstance(r[7], int) and 0 <= r[7] < len(cats) else ""
+            if r[10] is not None or aisle not in fresh:
+                continue
+            if shop not in NO_LABELS_ONLINE and seen.get(r[0]) != "no table":
                 continue
             code = cofid.produce_code(r[1])
             if code and code in table:
@@ -744,6 +844,50 @@ def write_wanted_off(docs: dict[str, dict], path: Path | None = None) -> int:
     return len(codes)
 
 
+def label_kind(nut) -> int:
+    """How a row's numbers were come by, for barcodes.json: 0 none, 1 the shop's own label, 2 the same product's label read at another shop, 3 community
+    numbers (Open Food Facts) for its barcode, 4 the government's figures for loose produce."""
+    if not nut:
+        return 0
+    src = nut[11] if len(nut) > 11 and isinstance(nut[11], str) else ""
+    return 3 if src == "off" else 4 if src == "cofid" else 2 if src.startswith("same:") else 1
+
+
+def write_barcodes(docs: dict[str, dict], catalogue: Path | None = None, path: Path | None = None) -> dict:
+    """web/public/groceries/all/barcodes.json (founder 2026-11-20: "when they scan a barcode of a product, it needs to come up with the product"): every barcode in
+    every shop list, leading zeros stripped (norm_code: EAN-13, its GTIN-14 form and a 12-digit UPC-A are one number), to where it is: [[shop index, the shop's
+    product id, label kind], ...] (label_kind), shops in PUBLISH order; and every barcode in the older barcode catalogue (web/public/groceries/<shop>.json) to the
+    indexes of the catalogue files that hold it, so a scan opens the product's page loading only those files. Keys sorted so a rebuild changes only what changed."""
+    catalogue = catalogue or ROOT / "web" / "public" / "groceries"
+    path = path or OUT / "barcodes.json"
+    shops = [s for s in PUBLISH if s in docs]
+    codes: dict[str, list] = {}
+    for i, shop in enumerate(shops):
+        for r in docs[shop]["products"]:
+            code = norm_code(r[9]) if r[9] else ""
+            if code.isdigit() and not any(x[0] == i and x[1] == r[0] for x in codes.get(code, [])):
+                codes.setdefault(code, []).append([i, r[0], label_kind(r[10])])
+    cat_shops: list[str] = []
+    cat_codes: dict[str, list[int]] = {}
+    try:
+        manifest = json.loads((catalogue / "groceries-manifest.json").read_text())
+    except (OSError, ValueError):
+        manifest = {"retailers": []}
+    for entry in manifest.get("retailers", []):
+        f = catalogue / str(entry.get("file") or "")
+        if not entry.get("count") or not f.is_file():
+            continue
+        idx = len(cat_shops)
+        cat_shops.append(entry["id"])
+        for c in json.loads(f.read_text()).get("products", []):
+            code = norm_code(c.get("gtin") or "")
+            if code.isdigit() and idx not in cat_codes.setdefault(code, []):
+                cat_codes[code].append(idx)
+    doc = {"v": 1, "shops": shops, "codes": dict(sorted(codes.items())), "catalogue": {"shops": cat_shops, "codes": dict(sorted(cat_codes.items()))}}
+    path.write_text(json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n")
+    return doc
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--only", choices=PUBLISH, help="write only this shop's file and replace only its entry in all-manifest.json (every shop is still built, so the photos "
@@ -803,6 +947,10 @@ def main(argv: list[str] | None = None) -> int:
         print(f"{shop}: {len(doc['products'])} products ({priced} with a price), {len(text) / 1e6:.1f} MB, {sum(1 for p in doc['products'] if p[8])} with the shop's photo, "
               f"{sum(1 for p in doc['products'] if len(p) > 11 and p[11])} with a page address, {sum(1 for p in doc['products'] if p[9])} with a barcode, {with_nutrition} with nutrition ({same.get(shop, 0)} same product at another shop, {community.get(shop, 0)} community, {produce.get(shop, 0)} government produce data), {len(doc['categories'])} categories")
     manifest_path.write_text(json.dumps(manifest, indent=1) + "\n")
+    recheck = None if OUT == PUBLISHED_OUT else OUT / "recheck.csv"
+    print(f"own labels whose calories don't add up, for a re-read: {write_recheck(docs, recheck)} ({recheck or 'data/groceries/nutrition/recheck.csv'})")
+    bc = write_barcodes(docs)
+    print(f"barcodes.json: {len(bc['codes'])} barcodes in the shop lists, {len(bc['catalogue']['codes'])} in the catalogue")
     for p in problems[:20]:
         print("problem:", p)
     if len(problems) > 20:

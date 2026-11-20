@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { APP_PREMIUM, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { APP_PREMIUM, COMMUNITY_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { PASS_DAYS, PLANS } from "@/lib/payments/plans";
 import { site } from "@/site.config";
 
@@ -31,7 +31,7 @@ export default function Terms() {
           Your use of the {site.name} app is governed by Apple&apos;s{" "}
           <a className={LINK} href={site.appleStandardEula}>Licensed Application End User License Agreement</a>.{" "}
           {APP_PREMIUM
-            ? "Paid features in the iPhone app are bought with Apple In-App Purchase. Subscriptions are billed and managed by Apple; you can cancel any time in your App Store account settings."
+            ? "Premium in the iPhone app is bought with Apple In-App Purchase. Subscriptions are billed and managed by Apple; you can cancel any time in your App Store account settings."
             : PRO_ENABLED
               ? "Subscriptions are billed and managed by Apple; you can cancel any time in your App Store account settings."
               : WEB_PRO_ENABLED
@@ -47,6 +47,22 @@ export default function Terms() {
           data, or the browser removes it, and you aren&apos;t signed in, they are deleted and we can&apos;t restore them.
         </p>
       </Section>
+
+      {APP_PREMIUM && (
+        <Section title="Premium">
+          <p className={para}>
+            Every restaurant&apos;s menu with calories and macros is free. Premium adds the extras the plans screen in the iPhone app lists, such as Scan your food, Make
+            it at home, Cook with what you have and the meal plan. It is sold in the iPhone app as Monthly or Annual, through Apple, which shows the price before you
+            pay and renews it until you cancel.
+          </p>
+          <p className={para}>
+            <strong>The free trial.</strong> A new subscriber may have a free first week, once per Apple ID. Unless you cancel at least 24 hours before the trial
+            ends, Apple charges the plan you chose when it ends. <strong>Cancelling and refunds.</strong> Cancel any time in the app (Settings › Subscription › Manage
+            subscription) or in your iPhone&apos;s Settings › your name › Subscriptions; Premium carries on until the end of the period you paid for. Refunds are
+            handled by Apple at reportaproblem.apple.com. Deleting your {site.name} account doesn&apos;t cancel a subscription.
+          </p>
+        </Section>
+      )}
 
       {WEB_PRO_ENABLED && (
         <Section title="Paid access on the website">
@@ -74,13 +90,17 @@ export default function Terms() {
         <p className={para}>
           {SIGN_IN_REQUIRED
             ? <>You need a free account to use {site.name}: you sign in with Apple, Google or an email code, and your settings and saved items sync across your devices.</>
-            : <>You can use {site.name} without an account; only friends (the Community tab) need one. If you sign in (with Apple, Google or an email code) your settings and saved items sync across your devices.</>}
+            : COMMUNITY_ENABLED
+              ? <>You can use {site.name} without an account; only friends (the Community tab) need one. If you sign in (with Apple, Google or an email code) your settings and saved items sync across your devices.</>
+              : <>You can use {site.name} without an account. If you sign in (with Apple, Google or an email code) your settings and saved items sync across your devices.</>}{" "}
           Keep your sign-in secure and tell us if you think someone else has used it. You can delete your account at any time in Settings › Account; that
           deletes the account and everything synced for it. We may close an account that is used to misuse the service. What we keep, and for how long, is
           in the <a className={LINK} href="/privacy">privacy policy</a>.
         </p>
       </Section>
 
+      {/* only while Community is part of the app (off since 18 November 2026) */}
+      {COMMUNITY_ENABLED && (
       <Section title="Community">
         <p className={para}>
           Adding friends and sending them shopping lists (the Community tab) needs an account. Choose a username you are happy for your friends to see: it is chosen once and shown to
@@ -95,12 +115,15 @@ export default function Terms() {
           receives them, so we cannot promise a list arrives or stays. See the <a className={LINK} href="/privacy">privacy policy</a> for what Community keeps.
         </p>
       </Section>
+      )}
 
       <Section title="Nutrition information">
         <p className={para}>
-          Nutrition values come from each restaurant&apos;s published information and are shown with their source and
+          Restaurant values come from each restaurant&apos;s published information and are shown with their source and
           the date we last checked. Restaurants change recipes and portions, and mistakes can happen, so values may not
-          match what you&apos;re served. If something looks wrong, please report it in the app or the web app.
+          match what you&apos;re served. Supermarket products show the label the shop publishes, or a marked stand-in where it publishes none. Recipe numbers are
+          added up from those labels. Scan your food (Premium) gives an estimate from your photo, not a label, and it can be wrong. If something looks wrong,
+          please report it in the app or the web app.
         </p>
       </Section>
 

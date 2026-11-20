@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { CORE } from "../lib/mm/recipeBook/core";
-import { candidates, drainedSize, fitRecipe, ing, isMeatFree, isQuick, isVegan, mealSizes, scaleServings, moreProteinGrams, packSize, pickFor, recipeForDiet, recipeTotals, resolveRecipe, type IngredientSpec, type Recipe } from "../lib/mm/recipes";
+import { candidates, drainedSize, fitOutcome, fitRecipe, FIT_TOLERANCE, ing, isMeatFree, isQuick, isVegan, mealSizes, nearTarget, noteForPick, pickTwoRecipes, scaleServings, moreProteinGrams, packSize, pickFor, recipeForDiet, recipeTotals, resolveRecipe, SMALLER_MEAL_KCAL, type IngredientSpec, type PickableCard, type Recipe } from "../lib/mm/recipes";
 import { mealTargetFor } from "../lib/mm/mealTarget";
 import { pantryForDiet } from "../lib/mm/pantry";
 import { addToList, itemCode, listAsText, listTotals, sanitizeShoppingList, setQty } from "../lib/mm/groceries";
@@ -151,7 +151,8 @@ describe("shopping list items from a shop's own list", () => {
     list = addToList(list, { gtin: "5012345678900", retailer: "sainsburys", name: "Greek Yogurt", brand: "", size: "500 g" }, now);
     expect(list.map((i) => [itemCode(i), i.qty])).toEqual([["sainsburys-basmati-rice-1kg", 3], ["5012345678900", 1]]);
     expect(listTotals(list)).toEqual({ total: 5.37, priced: 1, count: 2, oldest: "2026-10-08" });
-    expect(listAsText(list)).toBe("Sainsbury's\n- 3 x Basmati Rice 1kg\n- 1 x Greek Yogurt 500 g (5012345678900)");
+    // shared as plain text without barcode numbers (lib/mm/groceries.ts listAsText, 20 November 2026)
+    expect(listAsText(list)).toBe("Sainsbury's\n- 3 x Basmati Rice 1kg\n- 1 x Greek Yogurt 500 g");
     expect(setQty(list, "sainsburys-basmati-rice-1kg", "sainsburys", 0).length).toBe(1);
     const round = sanitizeShoppingList(JSON.parse(JSON.stringify(list)));
     expect(round).toEqual(list);
@@ -341,5 +342,82 @@ describe("recipes for a diet", () => {
       expect(f, r.id).not.toBeNull();
       expect(Math.abs(f!.totals.perServing.kcal - 600), r.id).toBeLessThan(250);
     }
+  });
+});
+
+// The 30-person audit (20 November 2026).
+describe("a serving's price for produce used in parts", () => {
+  it("prices the part of a cucumber, onion or bunch of spring onions a recipe uses, and buys the whole one", () => {
+    const cucumber = product("cu", "Whole Cucumber", 0.49, 0.49, "each", nut(12, 0.7, 1.5, 0.1));
+    const p = pickFor(ing("cucumber", 40), cucumber);
+    expect(p).toMatchObject({ pieces: 1, packs: 1, basketCost: 0.49 });
+    expect(p.usedCost).toBeCloseTo((40 / 300) * 0.49, 6); // 40 g of a 300 g cucumber, not the whole one
+    const spring = pickFor(ing("spring-onions", 15), product("so", "Spring Onions Bunch", 0.5, 0.5, "each", nut(25, 2, 3, 0.5)));
+    expect(spring.usedCost).toBeCloseTo((15 / 100) * 0.5, 6);
+    expect(spring.basketCost).toBe(0.5);
+    // a kind used whole is still priced by the whole piece (two eggs are two eggs)
+    const eggs = pickFor(ing("eggs", 120), product("eg", "Free Range Large Eggs x6", 1.8, 0.3, "each", nut(140, 12.5, 0.5, 9.5)));
+    expect(eggs.usedCost).toBeCloseTo(0.6, 6);
+  });
+});
+
+describe("what a recipe page says about its fit", () => {
+  it("says 'fitted to about' only within the tolerance, and how close it came otherwise", () => {
+    expect(FIT_TOLERANCE).toBe(0.1);
+    expect(nearTarget(380, { kcal: 350 })).toBe(true);
+    expect(nearTarget(500, { kcal: 350 })).toBe(false);
+    expect(fitOutcome(true, 360, { kcal: 350 })).toBe("fitted");
+    expect(fitOutcome(true, 500, { kcal: 350 })).toBe("closest");
+    expect(fitOutcome(false, 340, { kcal: 350 })).toBe("fits");
+    expect(fitOutcome(false, 820, { kcal: 350 })).toBe("cannot");
+    // over the book at Sainsbury's: never "fitted" for a serving more than 10% off
+    const products = decodeShopProducts(JSON.parse(readFileSync("public/groceries/all/sainsburys.json", "utf8")));
+    for (const r of CORE) {
+      const f = fitRecipe(r, products, {}, { kcal: 350 });
+      if (!f) continue;
+      const said = fitOutcome(f.changed, f.totals.perServing.kcal, { kcal: 350 });
+      if (said === "fitted" || said === "fits") expect(Math.abs(f.totals.perServing.kcal / 350 - 1), r.id).toBeLessThanOrEqual(0.1);
+    }
+  }, 30_000);
+});
+
+describe("a count note for the product picked", () => {
+  it("drops 'about 1 tomato' for baby plum or cherry tomatoes, and keeps every other note", () => {
+    const spec = { note: "about 1 tomato", pantry: "tomatoes" };
+    expect(noteForPick(spec, "Sainsbury's Baby Plum Tomatoes 325g")).toBeUndefined();
+    expect(noteForPick(spec, "Cherry Tomatoes 250g")).toBeUndefined();
+    expect(noteForPick(spec, "Salad Tomatoes x6")).toBe("about 1 tomato");
+    expect(noteForPick({ note: "uncooked", pantry: "rice" }, "Baby Basmati")).toBe("uncooked");
+    expect(noteForPick({ note: "about 2 eggs", pantry: "eggs" }, "Mini Eggs")).toBe("about 2 eggs");
+  });
+});
+
+describe("servings in quarters (a household plan's 5¼)", () => {
+  it("scales to the quarter, keeps 1 to 12, and never gives a fraction of people whole wraps each", () => {
+    const curry = RECIPES.find((r) => r.id === "chicken-curry")!;
+    expect(scaleServings(curry, 5.25).servings).toBe(5.25);
+    expect(scaleServings(curry, 5.3).servings).toBe(5.25);
+    expect(scaleServings(curry, 13).servings).toBe(12);
+    const wraps = RECIPES.find((r) => r.ingredients.some((i) => i.pantry === "wraps") && r.id !== "cheese-bean-quesadilla-wedges")!;
+    const n = scaleServings(wraps, 2.5).ingredients.find((i) => i.pantry === "wraps")!.amount / 60;
+    expect(Number.isInteger(n)).toBe(true);
+  });
+});
+
+describe("onboarding's two recipes", () => {
+  const card = (id: string, meal: Recipe["meal"], kcal: number, protein: number): PickableCard => ({ recipe: { id, name: id, meal }, totals: { perServing: { kcal, protein } }, distance: 0 });
+  const cards = [card("big-wrap", "dinner", 825, 50), card("lean-bowl", "dinner", 450, 40), card("roast", "lunch", 717, 45), card("salad", "lunch", 400, 30), card("snack", "snack", 150, 30)];
+  it("ranks by protein for the calories, never simply the most protein, and never offers a snack", () => {
+    expect(pickTwoRecipes(cards, "dinner", false).map((c) => c.recipe.id)).toEqual(["lean-bowl", "salad"]);
+  });
+  it("offers someone losing weight recipes at or under 600 kcal first", () => {
+    const heavy = [card("big-wrap", "dinner", 825, 70), card("lean-bowl", "dinner", 450, 30), card("roast", "lunch", 717, 60), card("salad", "lunch", 400, 20)];
+    expect(pickTwoRecipes(heavy, "dinner", false).map((c) => c.recipe.id)).toEqual(["big-wrap", "roast"]);
+    expect(pickTwoRecipes(heavy, "dinner", false, () => true, SMALLER_MEAL_KCAL).map((c) => c.recipe.id)).toEqual(["lean-bowl", "salad"]);
+  });
+  it("puts recipes with an illustration first, and gives one when the diet leaves one", () => {
+    expect(pickTwoRecipes(cards, "dinner", false, (id) => id === "big-wrap")[0]!.recipe.id).toBe("big-wrap");
+    expect(pickTwoRecipes([cards[0]!], "dinner", false)).toHaveLength(1);
+    expect(pickTwoRecipes([], "dinner", false)).toEqual([]);
   });
 });

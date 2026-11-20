@@ -2,7 +2,7 @@
 // a box to hold the barcode in, reads it from the live picture (the page's own reader: iPhone Safari has no BarcodeDetector) and opens the product; the number
 // can be typed instead; a refused or missing camera lands on the typing sheet with a note. The camera is Chromium's fake one, playing a video of a real-sized
 // EAN-13 drawn here (never a still of the app's own data), so the whole path runs: permission, video, frames, reading, navigation.
-import { mkdtempSync, writeFileSync } from "node:fs";
+import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { chromium } from "playwright-core";
@@ -49,6 +49,14 @@ const CODE = "5000157024671";
 writeFileSync(withCode, y4m(CODE));
 writeFileSync(noCode, y4m(null));
 
+// Where a scan lands (founder 2026-11-20: "when they scan a barcode of a product, it needs to come up with the product"): the product page for the barcode, which
+// opens a shop's own page for it at once when a shop's full list has it (public/groceries/all/barcodes.json, the person's own shop first).
+const BARCODES = JSON.parse(readFileSync(new URL("../public/groceries/all/barcodes.json", import.meta.url), "utf8"));
+const landed = (code) => (u) => {
+  if (u.pathname === "/app/groceries/product") return u.searchParams.get("code") === code;
+  if (u.pathname === "/app/groceries/shop/item") return (BARCODES.codes[code.replace(/^0+/, "")] ?? []).some(([i, id]) => BARCODES.shops[i] === u.searchParams.get("r") && id === u.searchParams.get("id"));
+  return false;
+};
 const launch = (file) => chromium.launch({
   executablePath: process.env.CHROMIUM_PATH || undefined,
   args: ["--no-sandbox", "--use-fake-ui-for-media-stream", "--use-fake-device-for-media-stream", `--use-file-for-fake-video-capture=${file}`],
@@ -77,7 +85,7 @@ await step("Scan a barcode opens a full-screen camera with a box and a hint, rea
   const box = await view.boundingBox();
   expect(box.width >= 389 && box.height >= 843, `the camera fills the screen: ${box.width} x ${box.height}`);
   await view.getByRole("button", { name: "Type the number instead" }).waitFor();
-  await page.waitForURL(`**/app/groceries/product?code=${CODE}`, { timeout: 30000 });
+  await page.waitForURL(landed(CODE), { timeout: 30000 });
   await ctx.close();
 });
 
@@ -85,7 +93,7 @@ await step("the camera is switched off again once the product opens (no light le
   const { ctx, page } = await open(withBrowser);
   await page.goto(BASE + "/app/groceries");
   await page.getByRole("button", { name: "Scan a barcode" }).tap();
-  await page.waitForURL(`**/app/groceries/product?code=${CODE}`, { timeout: 30000 });
+  await page.waitForURL(landed(CODE), { timeout: 30000 });
   await page.waitForTimeout(500);
   const live = await page.evaluate(async () => {
     const devs = await navigator.mediaDevices.enumerateDevices();
@@ -126,7 +134,7 @@ await step("the scan button on Search every shop opens the same camera", async (
   await page.goto(BASE + "/app/groceries/search");
   await page.getByRole("button", { name: "Scan a barcode" }).tap();
   await camera(page).waitFor({ timeout: 15000 });
-  await page.waitForURL(`**/app/groceries/product?code=${CODE}`, { timeout: 30000 });
+  await page.waitForURL(landed(CODE), { timeout: 30000 });
   await ctx.close();
 });
 
@@ -171,7 +179,7 @@ await step("Type the number instead opens the typing sheet; a number finds the p
   await p2.getByLabel("Barcode number").waitFor({ timeout: 15000 });
   await p2.getByLabel("Barcode number").fill("5010477348630");
   await p2.getByRole("button", { name: "Find" }).tap();
-  await p2.waitForURL("**/app/groceries/product?code=5010477348630");
+  await p2.waitForURL(landed("5010477348630"), { timeout: 30000 });
   await c2.close();
 });
 

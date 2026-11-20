@@ -37,7 +37,8 @@ export function windowTags(kind: ShowcaseKind, gating: boolean = GATING_ENABLED)
  */
 export function alsoInPremium(gating: boolean = GATING_ENABLED, photo: boolean = PHOTO_RECIPES_ENABLED): string | null {
   if (!gating) return null;
-  return photo ? tk("Also in Premium: Scan your food, Make it at home, and Cook with what you already have.") : tk("Also in Premium: Cook with what you already have.");
+  // only Pip's new recipes from what you have are Premium: matching our own recipes to it is free (the 20 November 2026 audit)
+  return photo ? tk("Also in Premium: Scan your food, Make it at home and Pip's new recipes from what you have.") : tk("Also in Premium: Pip's new recipes from what you have.");
 }
 
 /** The ink Premium badge's look (6 px corners, the word in lime, a small star; as _components/PremiumBadge.tsx draws it), always with its word. */
@@ -51,10 +52,10 @@ function PremiumTag() {
   );
 }
 
-/** The white "Free" tag: its word, 6 px corners and the 1.5 px control edge (never colour alone). */
+/** The "Free" tag, in the app's tag look inside a card (ui.tsx Badge): its word on the page fill, 6 px corners and no edge (an edge made it look like a control). */
 function FreeTag() {
   const t = useT();
-  return <span className="inline-flex shrink-0 items-center whitespace-nowrap rounded-[0.375rem] border-[1.5px] border-edge bg-card px-1.5 py-0.5 text-[0.8125rem] font-bold leading-snug text-foreground">{t("Free")}</span>;
+  return <span className="inline-flex shrink-0 items-center whitespace-nowrap rounded-[0.375rem] bg-background px-2 py-1 text-[0.8125rem] font-bold leading-none text-foreground">{t("Free")}</span>;
 }
 
 /** Page-fill bars where the contents will be: no digits, no shimmer. `rows` of a name bar and a shorter figures bar. */

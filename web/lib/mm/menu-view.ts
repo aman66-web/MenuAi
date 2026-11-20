@@ -1,5 +1,5 @@
 import { NEW_ITEM_DAYS } from "./config";
-import { dietNameList, foodDietProblem, foodSignals, moreDietsOn, namedPescatarian, type MoreDietKey } from "./foodDiet";
+import { foodDietProblem, foodSignals, MORE_DIET_LABEL, moreDietsOn, namedPescatarian, type MoreDietKey } from "./foodDiet";
 import { englishT, tk, type T } from "./i18n";
 import { proteinPer100Cal } from "./nutrients";
 import { passesPreferences } from "./ranking";
@@ -58,12 +58,97 @@ export function freeOfAllergens(item: Pick<MenuItem, "allergens">, avoid: readon
   return !avoid.some((k) => (a.contains as readonly string[]).includes(k) || (a.mayContain as readonly string[]).includes(k));
 }
 
-/** Every diet and allergy filter the user has on (vegetarian, no pork/beef, vegan, allergens). Halal is chain-level (lib/mm/halal.ts). */
+/**
+ * Every diet and allergy filter the user has on (vegetarian, no pork/beef, vegan, allergens, and the newer diets as far as a menu can tell: restaurantPrefs).
+ * Pork, beef, lamb and alcohol are also left out where the dish's own name says so (namesPork, namesBeef...): a restaurant's tags miss many ("Big Mac",
+ * "Sausage Butty"), and these rules only ever leave dishes out. Halal is chain-level (lib/mm/halal.ts).
+ */
 export function passesDiet(item: MenuItem, prefs: Preferences): boolean {
-  if (!passesPreferences(item.tags, prefs)) return false;
-  if (prefs.veganOnly && !isNamedVegan(item)) return false;
-  if (prefs.pescatarianOnly && !isPescatarianDish(item)) return false;
-  return freeOfAllergens(item, prefs.avoidAllergens);
+  const p = restaurantPrefs(prefs);
+  if (!passesPreferences(item.tags, p)) return false;
+  if (p.veganOnly && !isNamedVegan(item)) return false;
+  if (p.pescatarianOnly && !isPescatarianDish(item)) return false;
+  if (!passesNamedMeat(item.name, p)) return false;
+  if (p.noAlcohol && namesAlcohol(item.name, item.category)) return false;
+  return freeOfAllergens(item, p.avoidAllergens);
+}
+
+/**
+ * The person's diet as a restaurant's own data can check it, the one mapping every restaurant screen uses (the menu, search, Best for you, the order
+ * builder, Home's Start here and the welcome showcase): Jain is checked as vegetarian (onion, garlic and root vegetables can't be), No red meat as no pork and
+ * no beef (and no lamb by name, namesRedMeat), Kosher style as no pork. No alcohol leaves out drinks named as alcohol (passesDiet). No onion or garlic and No
+ * halal or kosher meat can't be checked at all (uncheckableDiets): nothing is hidden for them and Best for you doesn't pick.
+ */
+export function restaurantPrefs(prefs: Preferences): Preferences {
+  const vegetarianOnly = prefs.vegetarianOnly || prefs.jain === true;
+  const noPork = prefs.noPork || prefs.noRedMeat === true || prefs.kosherStyle === true;
+  const noBeef = prefs.noBeef || prefs.noRedMeat === true;
+  if (vegetarianOnly === prefs.vegetarianOnly && noPork === prefs.noPork && noBeef === prefs.noBeef) return prefs;
+  return { ...prefs, vegetarianOnly, noPork, noBeef };
+}
+
+/** The newer diets a restaurant's menu can't be checked for at all (menus list no ingredients): Best for you doesn't pick for them. Jain's onion, garlic and
+ *  root vegetables can't be checked either, so it counts here too, though its vegetarian part still narrows the menu. */
+const UNCHECKABLE: readonly MoreDietKey[] = ["jain", "noOnionGarlic", "noHalalKosherMeat"];
+export const uncheckableDiets = (prefs: Preferences): MoreDietKey[] => moreDietsOn(prefs).filter((k) => UNCHECKABLE.includes(k));
+
+// ------------------------------------------------------------------------------------------------ pork, beef, lamb and alcohol named in a dish's own words
+// Only ever used to leave a dish out (never to say one fits). foodDiet.ts foodSignals reads pork ("bacon", "sausage", "pepperoni"...) and beef ("steak",
+// "sirloin"...) words; a menu also names them as dishes: a hot dog is pork, and a hamburger, cheeseburger, Whopper, Big Mac, Quarter Pounder, bolognese,
+// lasagne, cottage pie or meatballs are beef, unless the name says another meat or a meat-free version ("Chicken Cheeseburger", "Veggie Lasagne",
+// "Spicy Bean Burger"). A plain "burger" is beef only at a restaurant that sells beef (MenuFacts.beefMenu): KFC's "Zinger Burger" and Nando's burgers are chicken.
+const NOT_RED_MEAT = /\b(?:chicken\w*|chick'?n|chkn|clucker|pollo|turkey|fish|fillet|zinger|katsu|veggie|vegan|vegetarian|veg|vegetable|bean ?burgers?|bean ?patty|beanie|plant|plant[\s-]?based|quorn|tofu|halloumi|paneer|falafel|mushroom|lentils?|cauliflower|jackfruit|meat[\s-]?free|mcplant|mcchicken|beyond|lamb|venison|pheasant|duck|salmon|tuna|swordfish|cod|prawns?|crab|surimi|lobster|scampi|seafood|spinach|ricotta|squash|aubergine|soup)\b/i;
+// a hot dog the name says is beef, chicken or halal isn't pork; a pulled pork or gammon burger isn't beef
+const NOT_PORK = /\b(?:beef|halal)\b/i;
+const NOT_BEEF = /\b(?:pork|gammon)\b/i;
+const PORK_DISH = /\b(?:hot ?dogs?|frankfurters?|bratwursts?|chipolatas?)\b/i;
+const BEEF_DISH = /\b(?:hamburgers?|cheeseburgers?|whoppers?|big mac|quarter pounders?|big king|bolognese|bolognaise|spag bol|lasagnes?|lasagna|cottage pies?|meatballs?)\b/i;
+const ANY_BURGER = /\b\w*burgers?\b/i;
+// a fry-up or a breakfast roll by name, which in Britain means bacon and sausage unless the name says otherwise ("Egg & cheese breakfast muffin" is kept)
+const BREAKFAST_DISH = /\b(?:full english|english breakfast|big breakfast|all[\s-]day breakfast|breakfast king|breakfast (?:sandwich|muffin|wrap|roll|bap|butty|bagel|baguette|platter|stack|burrito|box)|ultimate breakfast)\b/i;
+const NOT_A_FRY_UP = /\b(?:egg (?:&|and) cheese|cheese (?:&|and) egg|egg only|porridge|granola|yogh?urt|pancakes?|fruit)\b/i;
+// an extra for a dish, not the dish: "Hot Dog Bun", "Burger Sauce", "Steak Topper - Fried Egg", "Steak sauce", "steak-cut chips"
+const EXTRA_WORDS = /\b(?:burger|hot ?dog|steak)[\s-]+(?:add[\s-]?ons?|toppings?|toppers?|relish|sauces?|seasoning|buns?|rolls?|cut|fries|chips)\b|\btoppings?\s+for\s+(?:a\s+)?(?:burgers?|hot ?dogs?)\b/gi;
+const RED_MEAT_OTHER = /\b(?:lamb|lambs|mutton|hogget|venison|goat)\b(?!'?s\s+lettuce)/i;
+const mainName = (name: string): string => name.replace(EXTRA_WORDS, " ");
+
+/** The dish's own name says pork; a British breakfast sandwich, muffin or platter counts (bacon and sausage: Burger King's "Breakfast King" carries no tag). */
+export function namesPork(name: string): boolean {
+  const main = mainName(name);
+  const sig = foodSignals({ name: main });
+  if (sig.pork) return true;
+  if (sig.vegNamed || NOT_RED_MEAT.test(main) || NOT_PORK.test(main)) return false;
+  return PORK_DISH.test(main) || (BREAKFAST_DISH.test(main) && !NOT_A_FRY_UP.test(main));
+}
+
+/** The dish's own name says beef; `beefMenu`: the restaurant sells beef, so a plain "burger" counts too. */
+export function namesBeef(name: string, beefMenu = false): boolean {
+  const main = mainName(name);
+  const sig = foodSignals({ name: main });
+  if (sig.beef) return true;
+  if (NOT_RED_MEAT.test(main) || NOT_BEEF.test(main) || sig.vegNamed) return false;
+  return BEEF_DISH.test(main) || (beefMenu && ANY_BURGER.test(main));
+}
+
+/** Lamb, mutton, goat or venison named (No red meat). */
+export const namesRedMeat = (name: string): boolean => RED_MEAT_OTHER.test(name) && !foodSignals({ name }).vegNamed;
+
+const ALCOHOL_WORDS = /\b(?:beers?|lagers?|ales?|ipas?|stouts?|ciders?|perry|wines?|prosecco|champagne|cava|vodka|gin|rum|whisk(?:e)?y|bourbon|brandy|cognac|tequila|mezcal|liqueurs?|sherry|vermouth|cocktails?|spritz|martinis?|margaritas?|mojitos?|negroni|daiquiris?|bellinis?|mimosas?|sangria|aperol|pimm'?s|baileys|spirits?|amaretto|sambuca|guinness|peroni|madri|cobra|moretti|alcohol|alcoholic)\b/i;
+const ALCOHOL_FREE_WORDS = /\b(?:alcohol[\s-]?free|non[\s-]?alcoholic|low[\s-]?(?:and|&)[\s-]?no|no[\s-]?(?:and|&)[\s-]?low|de-?alcoholi[sz]ed|mocktails?|virgin|zero|soft|ginger beer|root beer|ginger ale|(?:prawn|seafood|shrimp|crab|lobster|crayfish|fruit) cocktails?)\b|(?:^|\s)0(?:\.0)?\s?%/i;
+
+/** A drink (or dish) named as alcohol, by its own name or its menu section ("Cocktails", "Drinks: Spirits & liqueurs"), unless it says alcohol-free. */
+export function namesAlcohol(name: string, category = ""): boolean {
+  if (ALCOHOL_FREE_WORDS.test(name)) return false;
+  if (ALCOHOL_WORDS.test(name)) return true;
+  return ALCOHOL_WORDS.test(category) && !ALCOHOL_FREE_WORDS.test(category);
+}
+
+/** The pork, beef and red-meat name rules for these (already mapped) preferences. */
+function passesNamedMeat(name: string, p: Preferences, beefMenu = false): boolean {
+  if (p.noPork && namesPork(name)) return false;
+  if (p.noBeef && namesBeef(name, beefMenu)) return false;
+  if (p.noRedMeat && namesRedMeat(name)) return false;
+  return true;
 }
 
 /**
@@ -91,20 +176,48 @@ export interface UncheckedDiet {
   allergies: boolean;
   /** The restaurant's vegetarian marks count (at least 1 dish in 20 is marked), so by its own marks an unmarked dish isn't vegetarian, and so isn't vegan. */
   vegetarianMarks: boolean;
+  /** No pork is on (or a diet that includes it) and the restaurant doesn't mark pork itself: fewer than 1 of its meat dishes in 20 is tagged pork where the
+   *  dish's own name doesn't already say so ("Breakfast King" at Burger King, with bacon and sausage, carries no tag). The name rules still apply. */
+  pork: boolean;
+  /** The same for No beef ("Big King", "Texan BBQ King"). */
+  beef: boolean;
+  /** The newer diets that are on and that a menu can't be checked for at all (uncheckableDiets). */
+  others: MoreDietKey[];
+  /** The restaurant sells beef (a dish tagged or named beef), so a plain "burger" there is read as beef for No beef. */
+  beefMenu: boolean;
 }
 
-export function uncheckedDiet(items: readonly Pick<MenuItem, "tags" | "name" | "category" | "allergens">[], prefs: Preferences): UncheckedDiet {
+type DietItem = Pick<MenuItem, "tags" | "name" | "category" | "allergens">;
+
+/** The restaurant sells beef: a dish it tags beef, or one whose own name says beef. */
+export const sellsBeef = (items: readonly Pick<MenuItem, "tags" | "name">[]): boolean => items.some((i) => i.tags.includes("contains_beef") || namesBeef(i.name));
+
+/** Fewer than 1 of the restaurant's meat dishes in 20 carries the tag: the restaurant doesn't mark it (KFC, Nando's: no dish tagged pork or beef). */
+function marksMissing(items: readonly DietItem[], tag: "contains_pork" | "contains_beef", named: (name: string) => boolean): boolean {
+  const meat = items.filter((i) => !i.tags.includes("vegetarian") && (RESTAURANT_MEAT.test(nameForMeat(i.name)) || foodSignals({ name: i.name }).meat || named(i.name))).length;
+  const tagged = items.filter((i) => i.tags.includes(tag)).length;
+  return meat > 0 && tagged < meat / 20;
+}
+
+export function uncheckedDiet(items: readonly DietItem[], prefs: Preferences): UncheckedDiet {
+  const p = restaurantPrefs(prefs);
   // fewer than 1 dish in 20 marked vegetarian means the guide doesn't really mark them (Greggs marks 1 of 263): those marks are kept, the rest go by name
   const vegetarianMarks = items.filter((i) => i.tags.includes("vegetarian")).length >= items.length / 20;
+  const beefMenu = p.noBeef ? sellsBeef(items) : false;
   return {
-    vegetarian: (prefs.vegetarianOnly || Boolean(prefs.pescatarianOnly)) && !vegetarianMarks,
-    vegan: Boolean(prefs.veganOnly) && !items.some(isNamedVegan),
-    allergies: Boolean(prefs.avoidAllergens?.length) && !items.some((i) => i.allergens),
+    vegetarian: (p.vegetarianOnly || Boolean(p.pescatarianOnly)) && !vegetarianMarks,
+    vegan: Boolean(p.veganOnly) && !items.some(isNamedVegan),
+    allergies: Boolean(p.avoidAllergens?.length) && !items.some((i) => i.allergens),
     vegetarianMarks,
+    pork: p.noPork && marksMissing(items, "contains_pork", namesPork),
+    beef: p.noBeef && marksMissing(items, "contains_beef", (name) => namesBeef(name, beefMenu)),
+    others: uncheckableDiets(p),
+    beefMenu,
   };
 }
 
-export const anyUnchecked = (u: UncheckedDiet): boolean => u.vegetarian || u.vegan || u.allergies;
+/** Some choice can't be checked against this restaurant's own data: Best for you (which recommends) doesn't pick there. */
+export const anyUnchecked = (u: UncheckedDiet): boolean => u.vegetarian || u.vegan || u.allergies || u.pork || u.beef || u.others.length > 0;
 
 // Fish and roe named as a sushi menu names them ("Maguro Nigiri", "Hiramasa Ceviche", "Inari Ikura Nigiri"); "shake" and "sake" are salmon only before a
 // sushi word ("Shake Nigiri", "Shake Yaki Nigiri"), never a drink ("Vanilla Shake", "Tims® Shake Brownie"). Seafood words are in crustaceans and molluscs below.
@@ -160,7 +273,10 @@ export function namesAllergen(item: { name: string; category?: string | null }, 
  * own name or menu section, or its own pork and beef tags, plainly say otherwise. Best for you never ranks such a restaurant's dishes for that choice
  * (app/app/chain/ChainScreen.tsx shows "can't pick" instead): it recommends, so it never suggests a dish it can't check.
  */
-export function passesMenuDiet(item: MenuItem, prefs: Preferences, unchecked: UncheckedDiet): boolean {
+export function passesMenuDiet(item: MenuItem, rawPrefs: Preferences, unchecked: UncheckedDiet): boolean {
+  const prefs = restaurantPrefs(rawPrefs);
+  // a plain "burger" at a restaurant that sells beef
+  if (prefs.noBeef && unchecked.beefMenu && namesBeef(item.name, true)) return false;
   // the menu section ("Chicken", "Beef burgers") is read like a product type: its words count, "Vegetarian" or "Vegan" sections mark a meat-free dish
   // ("Chicken & plant-based" still says chicken: a meat-free word in a section clears its dishes only when the whole section is meat-free, and the
   // section's meat words don't count against a dish whose own name says it is meat-free, the "Spicy Bean Burger" in that section)
@@ -168,6 +284,7 @@ export function passesMenuDiet(item: MenuItem, prefs: Preferences, unchecked: Un
   const named = { name: nameForMeat(item.name), ...(section ? { type: section } : {}) };
   const strict: Preferences = {
     ...prefs,
+    jain: false, // already mapped to vegetarianOnly above; passesDiet must not map it back on where the restaurant's marks can't check it
     vegetarianOnly: prefs.vegetarianOnly && !unchecked.vegetarian,
     pescatarianOnly: Boolean(prefs.pescatarianOnly) && !unchecked.vegetarian,
     veganOnly: Boolean(prefs.veganOnly) && !unchecked.vegan,
@@ -214,7 +331,7 @@ const NO_DIET: Preferences = { vegetarianOnly: false, noPork: false, noBeef: fal
 // "Tonkatsu BBQ" sauce or dressing isn't).
 // "Chick'n", "Chick n Rice", "Thic Chick", "Chickadee" are chicken; a chickpea, "No Chick'n", "Chickisn't" and an "Easter Chick" biscuit aren't.
 const CHICK_SPELLING = String.raw`(?<!\b(?:no|easter)[\s-])\bchick(?!en|pea|isn|less)(?![\s-]+peas?\b)\w*`;
-const RESTAURANT_MEAT_WORDS = String.raw`\b(?:\w*burgers?\w*|nuggets?|mcnuggets|hot ?dogs?|(?<!\brock\s)dogs?|\w*kebabs?\w*|(?:bbq|spicy|southern[\s-]fried)\s+bites|karaage|kara-age|yakitori|chashu|char siu|gyudon|tonkatsu(?!\s+(?:bbq|sauce|dressing))|meatballs?|wings?|pepperoni|tenders?(?!\s+stems?\b)|boneless|gyros?|scotch pies?|sirloin|rump|rib[\s-]?eye|(?<!\bcorn\s)ribs?|wagyu|t[\s-]?bone|tomahawk|chateaubriand|porterhouse|picanha|savoury mince|pigs?|pig's|cheesesteaks?|mixed grill|\w+chicken\w*|chi?kn|(?:traditional|cornish|christmas|dinner)\s+past(?:y|ies)|(?<!\b(?:onion|potato|veg|vegetable|sage|stuffing)\s)patt(?:y|ies)|(?<!\b(?:pepper|peppers|cucumber|carrot|potato|courgette|tomato|tortilla|pitta|onion|celery|apple|mango|fruit|liquorice|pastry)\s)strips?)\b|\bmince\b(?!\s+pies?\b)|\bmeat(?![\s-]?free|less)\w*|\bchicken(?!less)\w+`;
+const RESTAURANT_MEAT_WORDS = String.raw`\b(?:\w*burgers?\w*|nuggets?|mcnuggets|hot ?dogs?|(?<!\brock\s)dogs?|\w*kebabs?\w*|(?:bbq|spicy|southern[\s-]fried)\s+bites|karaage|kara-age|yakitori|chashu|char siu|gyudon|tonkatsu(?!\s+(?:bbq|sauce|dressing))|meatballs?|wings?|pepperoni|tenders?(?!\s+stems?\b)|boneless|gyros?|scotch pies?|sirloin|rump|rib[\s-]?eye|(?<!\bcorn\s)ribs?|wagyu|t[\s-]?bone|tomahawk|chateaubriand|porterhouse|picanha|savoury mince|pigs?|pig's|lorne|cheesesteaks?|mixed grill|\w+chicken\w*|chi?kn|(?:traditional|cornish|christmas|dinner)\s+past(?:y|ies)|(?<!\b(?:onion|potato|veg|vegetable|sage|stuffing)\s)patt(?:y|ies)|(?<!\b(?:pepper|peppers|cucumber|carrot|potato|courgette|tomato|tortilla|pitta|onion|celery|apple|mango|fruit|liquorice|pastry)\s)strips?)\b|\bmince\b(?!\s+pies?\b)|\bmeat(?![\s-]?free|less)\w*|\bchicken(?!less)\w+`;
 const RESTAURANT_MEAT = new RegExp(`${RESTAURANT_MEAT_WORDS}|${CHICK_SPELLING}`, "i");
 const RESTAURANT_MEAT_BUT_CHICK = new RegExp(RESTAURANT_MEAT_WORDS, "i");
 const CHICK_RE = new RegExp(CHICK_SPELLING, "i");
@@ -230,8 +347,10 @@ const VEGAN_SECTION_WORD = /\b(?:vegan|plant[\s-]?based|meat[\s-]?free|cluckless
 const SECTION_MEAT = /\b(?:\w*burgers?\w*|hot ?dogs?|\w*kebabs?\w*|wings?|tenders?|strips)\b/i;
 const SECTION_EXTRAS = /\b(?:add[\s-]?ons?|extras?|toppings?|sides?|sauces?|dips?|drinks?|parts)\b/i;
 const sectionParts = (category: string): string[] => category.split(/\s*(?:,|&|\band\b|\/)\s*/i).filter(Boolean);
-const meatSection = (category: string): boolean =>
-  !SECTION_EXTRAS.test(category) && sectionParts(category).every((part) => SECTION_MEAT.test(part));
+const meatSection = (category: string): boolean => {
+  const parts = sectionParts(category);
+  return parts.length > 0 && !SECTION_EXTRAS.test(category) && parts.every((part) => SECTION_MEAT.test(part));
+};
 // Meat-free versions a menu names by their own words or brand ("Cluckless Tenders", "McPlant", "BBQ Beyond", "Spicy Bean", "Halloumi Burger", a "Vegetarian burgers" section).
 const MEAT_FREE_DISH = /\b(?:veggie|vegetarian|vegan|plant[\s-]?based|meat[\s-]?free|cluckless|mcplant|beyond|quorn|tofu|bean|vegetable|halloumi|paneer|falafel)\b/i;
 // For the burger, wings and chick'n name rule only (the section's own words still count): a "Plant Burger", Nando's "Beanie Patty", cauliflower wings,
@@ -254,17 +373,23 @@ const sectionForDiet = (category: string): string => {
   return (SECTION_EXTRAS.test(category) ? words.replace(/\b(?:\w*burgers?|hot ?dogs?)\b/gi, " ") : words).replace(/\s+/g, " ").trim();
 };
 
-export const anyDietFilter = (p: Preferences): boolean =>
-  p.vegetarianOnly || p.noPork || p.noBeef || Boolean(p.veganOnly) || Boolean(p.pescatarianOnly) || Boolean(p.avoidAllergens?.length);
+/** Any filter that leaves restaurant dishes out (the newer diets count as far as restaurantPrefs maps them, and No alcohol). */
+export const anyDietFilter = (prefs: Preferences): boolean => {
+  const p = restaurantPrefs(prefs);
+  return p.vegetarianOnly || p.noPork || p.noBeef || Boolean(p.veganOnly) || Boolean(p.pescatarianOnly) || Boolean(p.noAlcohol) || Boolean(p.avoidAllergens?.length);
+};
 
 /**
- * The chain as Best for you should see it with the extra filters (vegan, allergens) applied: dishes that fail are removed,
- * and so are ready-made combinations built on them (or with no single base dish to check). The ranking itself is unchanged.
+ * The chain as Best for you should see it with the diet applied (restaurantPrefs, passesDiet with the name rules, a plain burger read as beef where the
+ * restaurant sells beef): dishes that fail are removed, and so are ready-made combinations built on them (or with no single base dish to check). The ranking
+ * itself is unchanged.
  */
 export function chainForDiet(chain: Chain, prefs: Preferences): Chain {
-  const extra = Boolean(prefs.veganOnly) || Boolean(prefs.pescatarianOnly) || Boolean(prefs.avoidAllergens?.length);
-  if (!extra) return chain;
-  const items = chain.items.filter((i) => passesDiet(i, prefs));
+  const p = restaurantPrefs(prefs);
+  if (!anyDietFilter(p)) return chain;
+  const beefMenu = p.noBeef && sellsBeef(chain.items);
+  const items = chain.items.filter((i) => passesDiet(i, p) && !(beefMenu && namesBeef(i.name, true)));
+  if (items.length === chain.items.length) return chain;
   const kept = new Set(items.map((i) => i.id));
   return { ...chain, items, combinations: chain.combinations.filter((c) => c.baseItemId !== null && kept.has(c.baseItemId)) };
 }
@@ -310,14 +435,25 @@ export function searchItems(items: readonly MenuItem[], query: string): MenuItem
 export const LARGE_MENU_ITEMS = 120;
 export const SECTION_PREVIEW_ITEMS = 6;
 
+/** What a restaurant's menu can and can't check for each newer diet (restaurantPrefs). */
+const NOT_CHECKED: Record<MoreDietKey, string> = {
+  jain: tk("{diet} is checked as vegetarian; onion, garlic and root vegetables can't be checked."),
+  noOnionGarlic: tk("{diet} can't be checked."),
+  kosherStyle: tk("{diet} leaves out pork; shellfish, meat with dairy and certification can't be checked."),
+  noRedMeat: tk("{diet} leaves out pork, beef and lamb where the restaurant or the dish's name says so."),
+  noAlcohol: tk("{diet} leaves out drinks named as alcohol; alcohol used in cooking can't be checked."),
+  noHalalKosherMeat: tk("{diet} can't be checked."),
+};
+
 /**
  * The six diets added on 20 November 2026 (Jain, No onion or garlic, Kosher style, No red meat, No alcohol, No halal or kosher meat; lib/mm/foodDiet.ts
- * MORE_DIET_KEYS) can't be checked on a restaurant's menu: menus print no ingredients. No dish is hidden or picked for them (passesDiet ignores them, and
- * anyDietFilter doesn't count them), and the restaurant pages and menu filters say so plainly with this line. Null when none of them is on.
+ * MORE_DIET_KEYS) can be checked on a restaurant's menu only as far as restaurantPrefs maps them: menus print no ingredients. This line says, for each one
+ * that is on, what is and isn't checked. Null when none of them is on.
  */
 export function restaurantDietNote(prefs: Preferences, t: T = englishT): string | null {
   const on = moreDietsOn(prefs);
-  return on.length ? t("Restaurant menus don't list ingredients, so dishes aren't checked for {diets}.", { diets: dietNameList(on, t) }) : null;
+  if (!on.length) return null;
+  return [t("Restaurant menus don't list ingredients."), ...on.map((k) => t(NOT_CHECKED[k], { diet: t("“{name}”", { name: t(MORE_DIET_LABEL[k]) }) }))].join(" ");
 }
 
 /**
@@ -326,9 +462,10 @@ export function restaurantDietNote(prefs: Preferences, t: T = englishT): string 
  * Null when no filter is on.
  */
 export function filterCaution(prefs: Preferences, t: T = englishT): string | null {
-  const promises = [prefs.vegetarianOnly && t("vegetarian"), prefs.veganOnly && t("vegan"), prefs.pescatarianOnly && t("pescatarian"), prefs.noPork && t("pork-free"), prefs.noBeef && t("beef-free")].filter((p): p is string => Boolean(p));
-  const allergy = prefs.avoidAllergens?.length
-    ? t("Allergy filters use each restaurant's own allergen guide and hide dishes it doesn't cover. If you have an allergy, always check with the restaurant.")
+  const p = restaurantPrefs(prefs);
+  const promises = [p.vegetarianOnly && t("vegetarian"), p.veganOnly && t("vegan"), p.pescatarianOnly && t("pescatarian"), p.noPork && t("pork-free"), p.noBeef && t("beef-free")].filter((x): x is string => Boolean(x));
+  const allergy = p.avoidAllergens?.length
+    ? t("Where a restaurant publishes allergens, dishes that list them, or that its guide doesn't cover, are hidden. Where it publishes none, we say so on its page. Always check with the restaurant.")
     : null;
   const unchecked = restaurantDietNote(prefs, t);
   const diet = promises.length ? t("We only know what each restaurant publishes, so this can't promise a dish is {what}.", { what: promises.reduce((a, b) => t("{a} or {b}", { a, b })) }) : null;
@@ -358,5 +495,11 @@ export function toggleDiet(prefs: Preferences, key: DietKey): Preferences {
     next.veganOnly = false;
   }
   if (next[key] && (key === "vegetarianOnly" || key === "veganOnly")) next.pescatarianOnly = false;
+  // "No halal or kosher meat" contradicts Halal and Kosher style: turning one on turns the other off
+  if (next[key] && key === "noHalalKosherMeat") {
+    next.halalOnly = false;
+    next.kosherStyle = false;
+  }
+  if (next[key] && (key === "halalOnly" || key === "kosherStyle")) next.noHalalKosherMeat = false;
   return next;
 }

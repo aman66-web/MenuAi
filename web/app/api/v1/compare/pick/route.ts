@@ -7,7 +7,7 @@ import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
 // Pip's pick on the Compare screen: two products' or dishes' names and figures, the goal and the diet words in; which one fits the goal, one sentence and reason
 // keys out (lib/comparePickHandler.ts). Off unless NEXT_PUBLIC_COMPARE_PICK=1. The answer for a pair is kept (compare_picks) so the AI is asked once per pair.
 
-export const maxDuration = 30;
+export const maxDuration = 60; // Opus (20 Nov)
 
 const refuse = (request: Request, status: number, error: string) =>
   withCors(request, Response.json({ error }, { status, headers: { "Cache-Control": "no-store" } }));

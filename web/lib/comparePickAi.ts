@@ -6,7 +6,7 @@ import { MAX_REASONS, REASON_KEYS } from "./mm/comparePick";
 import { RECIPE_MODEL } from "./recipeAi";
 import type { AskPick } from "./comparePickHandler";
 
-// Pip's pick: the one AI call (lib/comparePickHandler.ts decides when). The same model as the recipe maker (Claude Haiku 5.5, the founder's choice for this kind of
+// Pip's pick: the one AI call (lib/comparePickHandler.ts decides when). The same model as the recipe maker (Claude Opus 5.5 since 2026-11-20; earlier Claude Haiku 5.5, the founder's choice for this kind of
 // work: fast and cheap), structured output, so the answer is a pick, one sentence and reason keys and nothing else. The call sends the two products' names and figures,
 // the goal and the diet words, nothing about the person; nothing is kept by Anthropic's side beyond its own handling, and the answer is kept by us so it is made once.
 // Needs ANTHROPIC_API_KEY in the server environment.
@@ -25,7 +25,7 @@ export function anthropicPick(apiKey: string | undefined): AskPick | null {
     try {
       const res = await c.messages.parse({
         model: PICK_MODEL,
-        max_tokens: 1000,
+        max_tokens: 4000, // room for Opus's thinking before the answer
         output_config: { effort: "low", format: zodOutputFormat(schema) },
         system,
         messages: [{ role: "user", content: user }],

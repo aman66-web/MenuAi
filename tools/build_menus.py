@@ -301,8 +301,31 @@ _BEEF = re.compile(r"(?<!\blamb )(?<!\bpork )(?<!\bvenison )(?<!\bgammon )\b(?:b
                    r"flat iron steak|corned beef)\b", re.I)
 
 
+# Dishes a menu names that are pork or beef by what they are (founder's overnight audit, 20 November 2026: "Big Mac", "Whopper", "Sausage Butty" carried no
+# tag, so No pork / No beef showed them): a sausage, hot dog, frankfurter, bratwurst, chipolata or pepperoni is pork, and a hamburger, cheeseburger, Whopper,
+# Big Mac, Quarter Pounder, Big King, bolognese, lasagne, cottage pie or steak is beef, unless the name says another meat or a meat-free version ("Chicken
+# Sausage", "Beef Hot Dog", "Veggie Lasagne", "Tuna Steak"), or the restaurant itself tags the dish the other way (a hot dog it tags beef stays beef only).
+# A plain "burger" or "meatballs" is not tagged here (KFC's burgers are chicken; meatballs can be pork, beef or chicken): the app leaves those out by name
+# where it can tell (web/lib/mm/menu-view.ts namesBeef). Extras for a dish are not the dish ("Hot Dog Bun", "Burger Sauce", "Steak Topper", "Steak sauce").
+_NOT_RED = re.compile(r"\b(?:chicken\w*|chick'?n|chkn|clucker|pollo|turkey|fish|fillet|zinger|katsu|veggie|vegan|vegetarian|veg|vegetable|bean ?burgers?|bean ?patty|beanie|"
+                      r"plant|quorn|tofu|halloumi|paneer|falafel|mushroom|lentils?|cauliflower|jackfruit|meat[\s-]?free|mcplant|mcchicken|beyond|lamb|"
+                      r"venison|pheasant|duck|game|salmon|tuna|swordfish|cod|prawns?|crab|surimi|lobster|scampi|seafood|spinach|ricotta|squash|aubergine|"
+                      r"merguez|halal|lorne|soup)\b", re.I)
+_PORK_DISH = re.compile(r"\b(?:sausages?|hot ?dogs?|frankfurters?|bratwursts?|chipolatas?|pepperoni)\b", re.I)
+_BEEF_DISH = re.compile(r"\b(?:hamburgers?|cheeseburgers?|whoppers?|big mac|quarter pounders?|big king|bolognese|bolognaise|spag bol|lasagnes?|lasagna|"
+                        r"cottage pies?|steaks?)\b", re.I)
+_EXTRA_FOR = re.compile(r"\b(?:burger|hot ?dog|steak)[\s-]+(?:add[\s-]?ons?|toppings?|toppers?|relish|sauces?|seasoning|buns?|rolls?|cut|fries|chips)\b"
+                        r"|\btoppings?\s+for\s+(?:a\s+)?(?:burgers?|hot ?dogs?)\b", re.I)
+
+
+# Sections that are not meals (the rankable warning) and the words that make one a meal after all ("Chick 'N' Dip", "Smashed, fries & drink").
+_NOT_A_MEAL_SECTION = re.compile(r"\b(?:drinks?|beverages?|sauces?|dips?|desserts?|mccaf[eé]|milkshakes?|shakes?|smoothies?|frapp[eé]s?|coffees?|teas?)(?![\w])", re.I)
+_MEAL_SECTION = re.compile(r"\b(?:chick|chicken|fries|meals?|deals?|pick|combos?|bundles?|breakfast)\b", re.I)
+_RANKABLE_DRINKS_OK = re.compile(r"\b(?:coffee|cafe|café|tea rooms?|desserts?|ice cream|bar|cocktail)\b", re.I)
+
+
 def name_tags(name: str, tags: list[str]) -> list[str]:
-    """tags plus contains_pork / contains_beef where the dish's own name plainly says so (see the note above)."""
+    """tags plus contains_pork / contains_beef where the dish's own name plainly says so (see the notes above)."""
     if "vegetarian" in tags:
         return tags
     main = re.sub(r"\([^)]*\)|\[[^\]]*\]", " ", name or "")
@@ -313,6 +336,13 @@ def name_tags(name: str, tags: list[str]) -> list[str]:
         out.add("contains_pork")
     if _BEEF.search(main):
         out.add("contains_beef")
+    dish = _EXTRA_FOR.sub(" ", main)
+    # the dish words read the whole name, brackets too: "extra sausage (Vegan Breakfast Platter)" is the vegan one
+    if not _NOT_RED.search(dish) and not _NAME_VEG.search(name or "") and not _NOT_RED.search(name or ""):
+        if _PORK_DISH.search(dish) and "contains_beef" not in tags and not re.search(r"\bbeef\b", dish, re.I):
+            out.add("contains_pork")
+        if _BEEF_DISH.search(dish) and not re.search(r"\b(?:pork|gammon)\b", dish, re.I):
+            out.add("contains_beef")
     return sorted(out)
 
 
@@ -513,6 +543,17 @@ def load_chain(folder: Path) -> ChainBuild:
         if r["added_on"]:
             item["addedOn"] = r["added_on"]
         b.items[item_id] = item
+
+    # Best for you suggests meals: at a restaurant that publishes full nutrition, a drink, sauce, dip or dessert it could suggest is almost always a missing
+    # rankable=false (docs/DATA.md; McDonald's suggested lattes and milk for breakfast). Coffee shops, cafés and dessert places sell those as their meals.
+    if not b.calories_only and not _RANKABLE_DRINKS_OK.search(b.chain.get("cuisine") or ""):
+        odd = {}
+        for it in b.items.values():
+            if it["rankable"] and _NOT_A_MEAL_SECTION.search(it["category"] or "") and not _MEAL_SECTION.search(it["category"] or ""):
+                odd[it["category"]] = odd.get(it["category"], 0) + 1
+        if odd:
+            W.append(f"{cid}: {sum(odd.values())} drinks, sauces, dips or desserts could be suggested by Best for you "
+                     f"({', '.join(f'{c}: {n}' for c, n in sorted(odd.items()))}); set rankable to false in items.csv unless they are meals.")
 
     # images.csv (optional): the chain's own photo for an item. The file lives under IMAGES_DIR/<chain-id>/ (written by
     # tools/uk_extract/images_common.py); a row only counts while its item is published. Many items may share one file.

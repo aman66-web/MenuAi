@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <!--
-  Only what the build settings can't say: the numbite:// address (docs/APP_BUILD.md "Shared shopping lists"). Xcode merges this with the Info.plist it generates
-  from the INFOPLIST_KEY_* settings. The app only opens numbite://l... and numbite://f... links and ignores every other address (Sign in with Google's
-  numbite://auth is handled by the sign-in sheet itself). Kept outside the MenuMacros folder (which Xcode syncs into the target) so it isn't copied in as a resource.
+  Only what the build settings can't say: the numbite:// address (docs/APP_BUILD.md "Shared shopping lists") and the launch screen's colour. Xcode merges this
+  with the Info.plist it generates from the INFOPLIST_KEY_* settings. The app only opens numbite://l... and numbite://f... links and ignores every other address
+  (Sign in with Google's numbite://auth is handled by the sign-in sheet itself). Kept outside the MenuMacros folder (which Xcode syncs into the target) so it
+  isn't copied in as a resource.
+  UILaunchScreen: the app's page grey (#F4F5F6, Assets.xcassets/LaunchBackground, the same as WebAppView's background and the web app's page), so a cold start
+  no longer flashes white before the first page draws. Check the built Info.plist carries UIColorName after a build.
 -->
 <plist version="1.0">
 <dict>
@@ -20,5 +23,10 @@
 			</array>
 		</dict>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>LaunchBackground</string>
+	</dict>
 </dict>
 </plist>

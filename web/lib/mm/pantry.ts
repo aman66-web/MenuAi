@@ -56,12 +56,18 @@ export interface PantryKind {
   fungi?: true;
   /** Sprouted seeds (beansprouts): left out for Jain diets. */
   sprouts?: true;
-  /** Contains alcohol on the shops' own ingredient lists (Dijon mustard's white wine, an apple sauce's cider): left out for "No alcohol" and halal. */
+  /** Contains alcohol on the shops' own ingredient lists (Dijon mustard's white wine, an apple sauce's cider): left out for "No alcohol", halal and Jain. */
   alcohol?: true;
   /** Contains honey (clear honey; granolas that print it): never vegan, never Jain. */
   honey?: true;
   /** For halal diets: the same kind, matched only to products the shop names "Halal". A meat kind without one is left out for halal. */
   halal?: { label: string; match: IngredientMatch };
+  /** Usually made with animal rennet (Parmigiano Reggiano, Grana Padano and the pestos made with them: 17 of 24 green pestos the shops sell): never for
+   *  vegetarian or Jain diets as it is. With `vegetarian`, those diets get that version instead; without it the kind is left out for them. */
+  rennet?: true;
+  /** For vegetarian and Jain diets, a kind with `rennet`: the same food matched only to products whose name says they're made without it (an "Italian hard
+   *  cheese", a vegan or free-from pesto). */
+  vegetarian?: { label: string; match: IngredientMatch };
   /** Other kinds that can stand in, in order (for a shop that doesn't sell this one, or the person's choice); factor scales the amount (dried noodles weigh less than ready ones). */
   subs?: Array<{ key: string; factor?: number }>;
   /** One piece in grams, to say "about 4 eggs" (a cooking guide only: the numbers always use grams). Fitting and serving changes round such a kind
@@ -92,7 +98,7 @@ const BREAD_NONE = ["roll", "baps", "bap", "wraps", "pitta", "bagel", "thin", "c
   "oat", "ciabatt", "organic", "nimble", "brioche", "fruit", "raisin", "cinnamon", "garlic", "sandwiches", "toasted", "crisps", "croutons", "protein", "high fibre",
   "hi fibre", "kids", "mini", "doorstop", "mega", "xx", "extra thick"];
 
-const PROCESSED = ["sliced", "cooked", "roast", "bites", "goujon", "cured", "hunters", "just cook", "sizzlers", "kyiv", "kiev", "italian", "cajun", "steaks", "battered", "tempura", "buttermilk", "firecracker", "chunks", "escalope", "burger", "sauce", "with", "marinated", "coated", "breaded", "smoked", "chargrill", "tikka", "piri", "fajita", "slices", "pieces", "strips", "skewer", "wrapped", "stuffed", "southern", "katsu", "bbq", "spiced", "lemon", "garlic", "herb", "glaze", "seasoned", "meatballs"];
+const PROCESSED = ["sliced", "cooked", "roast", "bites", "goujon", "cured", "hunters", "just cook", "sizzlers", "kyiv", "kiev", "italian", "cajun", "steaks", "battered", "tempura", "buttermilk", "firecracker", "chunks", "escalope", "burger", "sauce", "with", "marinated", "coated", "breaded", "smoked", "chargrill", "tikka", "piri", "fajita", "slices", "pieces", "strips", "skewer", "wrapped", "stuffed", "southern", "katsu", "bbq", "spiced", "lemon", "garlic", "herb", "glaze", "seasoned", "meatballs", "creamy", "mushroom"];
 
 // The `contains` flags were checked on 19 November 2026 against the allergens the shops' own labels declare ("contains", never "may contain") for the products each kind matches: an allergen in a real share of them, or in the product a recipe uses by default at a shop, is flagged.
 const KINDS: PantryKind[] = [
@@ -121,7 +127,7 @@ const KINDS: PantryKind[] = [
   },
   {
     key: "salmon", label: "Salmon fillets", unit: "g", role: "protein", fish: true, animal: true, contains: ["fish"],
-    match: { all: ["salmon", "fillets"], none: ["smoked", "sauce", "with", "coated", "breaded", "fishcake", "thai", "chilli", "teriyaki", "honey", "lemon", "garlic", "herb", "marinated", "hot", "flakes", "parcels", "en croute"], kcal: [110, 250], minProtein: 18 },
+    match: { all: ["salmon", "fillets"], none: ["smoked", "sauce", "with", "coated", "breaded", "fishcake", "thai", "chilli", "teriyaki", "honey", "lemon", "garlic", "herb", "marinated", "hot", "flakes", "parcels", "en croute", "poached"], kcal: [110, 250], minProtein: 18 },
   },
   {
     key: "cod", label: "Cod fillets", unit: "g", role: "protein", fish: true, animal: true, contains: ["fish"],
@@ -173,7 +179,7 @@ const KINDS: PantryKind[] = [
   },
   {
     key: "beef-steak", label: "Beef steak (rump or sirloin)", unit: "g", role: "protein", meat: "beef", animal: true, contains: [],
-    match: { all: ["beef"], any: ["rump", "sirloin", "frying steak", "minute steak"], none: ["burger", "sauce", "with", "pie", "strips", "butter", "peppercorn", "halal", "marinated", "seasoned"], kcal: [100, 230], minProtein: 18 },
+    match: { all: ["beef"], any: ["rump", "sirloin", "frying steak", "minute steak"], none: ["burger", "sauce", "with", "pie", "strips", "butter", "peppercorn", "halal", "marinated", "seasoned", "slow cooked", "gravy"], kcal: [100, 230], minProtein: 18 },
   },
   {
     key: "bacon", label: "Bacon medallions", unit: "g", role: "protein", meat: "pork", animal: true, contains: [],
@@ -206,12 +212,14 @@ const KINDS: PantryKind[] = [
   },
   {
     key: "mozzarella", label: "Mozzarella", unit: "g", role: "other", animal: true, contains: ["milk"],
-    match: { all: ["mozzarella"], none: ["pizza", "sticks", "pearls with", "tomato", "basil", "bites", "breaded", "arancini", "with", "garlic", "cheddar", "grated", "gnocchi", "filled", "pasta", "girasoli", "salami", "sourdough", "ciabatta", "rocket"], kcal: [180, 320] },
+    match: { all: ["mozzarella"], none: ["pizza", "sticks", "pearls with", "tomato", "basil", "bites", "breaded", "arancini", "with", "garlic", "cheddar", "grated", "gnocchi", "filled", "pasta", "girasoli", "salami", "sourdough", "ciabatta", "rocket", "flatbread", "flatbreads", "onion"], kcal: [180, 320] },
   },
   {
-    // eggs: Grana Padano is made with egg lysozyme (every Grana Padano label read declares egg)
-    key: "parmesan", label: "Italian hard cheese (Parmigiano Reggiano or Grana Padano)", unit: "g", role: "other", animal: true, contains: ["milk", "eggs"],
+    // eggs: Grana Padano is made with egg lysozyme (every Grana Padano label read declares egg). Parmigiano Reggiano and Grana Padano are made with animal
+    // rennet, so a vegetarian gets an "Italian hard cheese" made without it (Sainsbury's, Waitrose and M&S sell one; audit 20 November 2026)
+    key: "parmesan", label: "Italian hard cheese (Parmigiano Reggiano or Grana Padano)", unit: "g", role: "other", animal: true, rennet: true, contains: ["milk", "eggs"],
     match: { all: [], any: ["parmigiano", "grana padano", "parmesan"], none: ["crisps", "sauce", "pesto", "crackers", "breadsticks", "with", "rind", "shavings with", "dip", "garlic"], kcal: [350, 450] },
+    vegetarian: { label: "Vegetarian Italian hard cheese", match: { all: [], any: ["italian hard cheese", "vegetarian hard cheese"], none: ["grana", "parmigiano", "parmesan", "pecorino", "crisps", "sauce", "pesto", "crackers", "with", "garlic"], kcal: [350, 450] } },
   },
   {
     key: "soft-cheese", label: "Light soft cheese", unit: "g", role: "other", animal: true, contains: ["milk"],
@@ -223,7 +231,7 @@ const KINDS: PantryKind[] = [
   },
   {
     key: "skyr", label: "Skyr or high-protein yogurt", unit: "g", role: "protein", animal: true, contains: ["milk"],
-    match: { all: [], any: ["skyr", "high protein yogurt", "protein yogurt"], none: ["strawberry", "raspberry", "vanilla", "honey", "blueberry", "cherry", "mango", "peach", "lemon", "drink", "pouch", "x4", "4x", "pot", "kids", "chocolate", "salted caramel", "coconut", "banana", "blackcurrant", "rhubarb"], kcal: [45, 90], minProtein: 8 },
+    match: { all: [], any: ["skyr", "high protein yogurt", "protein yogurt"], none: ["strawberry", "raspberry", "vanilla", "honey", "blueberry", "cherry", "mango", "peach", "lemon", "drink", "pouch", "x4", "4x", "pot", "kids", "chocolate", "salted caramel", "coconut", "banana", "blackcurrant", "rhubarb", "mint"], kcal: [45, 90], minProtein: 8 },
   },
   {
     key: "edamame", label: "Frozen edamame (soya) beans", unit: "g", role: "protein", contains: ["soya"],
@@ -275,7 +283,7 @@ const KINDS: PantryKind[] = [
   },
   {
     key: "noodles", label: "Ready-to-wok noodles", unit: "g", role: "carb", contains: ["gluten", "eggs"], animal: true,
-    match: { all: ["noodles"], any: ["udon", "medium", "thick", "thin", "straight to wok", "ready to wok"], none: ["pot", "chicken", "beef", "prawn", "soup", "instant", "cup", "sauce", "flavour", "rice noodles", "egg", "glass", "soba", "ramen", "curry", "spicy"], kcal: [90, 200] },
+    match: { all: ["noodles"], any: ["udon", "medium", "thick", "thin", "straight to wok", "ready to wok"], none: ["pot", "chicken", "beef", "prawn", "soup", "instant", "cup", "sauce", "flavour", "rice noodles", "egg", "glass", "soba", "ramen", "curry", "spicy", "chilli"], kcal: [90, 200] },
   },
   {
     key: "wraps", label: "Tortilla wraps", unit: "g", role: "carb", contains: ["gluten"], pieceGrams: 60, pieceName: ["wrap", "wraps"], perServing: true, fit: [1, 2],
@@ -338,7 +346,7 @@ const KINDS: PantryKind[] = [
   // ---- everything else stays as written when a recipe is fitted
   { key: "chopped-tomatoes", label: "Chopped tomatoes", unit: "g", role: "other", contains: [], match: { all: ["chopped", "tomatoes"], none: ["garlic", "herb", "chilli", "basil", "onion", "olive", "pepper", "oregano"], kcal: [10, 45] } },
   { key: "passata", label: "Passata", unit: "g", role: "other", contains: [], match: { all: ["passata"], none: ["garlic", "basil", "herb", "onion", "chilli", "pepper"], kcal: [15, 45] } },
-  { key: "mixed-veg", label: "Mixed vegetables in water (tin)", unit: "g", role: "other", drained: true, contains: [], match: { all: ["mixed", "vegetables"], any: ["in water"], none: ["casserole", "pickled", "chargrilled", "gravy"], kcal: [25, 90] } },
+  { key: "mixed-veg", root: true, label: "Mixed vegetables in water (tin)", unit: "g", role: "other", drained: true, contains: [], match: { all: ["mixed", "vegetables"], any: ["in water"], none: ["casserole", "pickled", "chargrilled", "gravy"], kcal: [25, 90] } },
   { key: "coconut-light", label: "Light coconut milk", unit: "ml", role: "other", contains: [], match: { all: ["coconut", "milk"], any: ["light", "reduced"], none: ["drink", "yogurt", "powder"], kcal: [30, 110] } },
   // Regular tinned coconut milk: small shops sell it where they don't sell the light one. The kcal range keeps out the light tins and the drinks.
   { key: "coconut-milk", label: "Coconut milk", unit: "ml", role: "other", contains: [], match: { all: ["coconut", "milk"], none: ["light", "lighter", "reduced", "drink", "yogurt", "powder", "chocolate", "smoothie", "sauce", "baby"], kcal: [120, 230] } },
@@ -353,12 +361,15 @@ const KINDS: PantryKind[] = [
   { key: "chopped-tomato-puree", label: "Tomato purée", unit: "g", role: "other", contains: [], match: { all: ["tomato", "puree"], none: ["garlic", "sun dried", "herb", "chilli", "basil"], kcal: [50, 130] } },
   // ---- sauces, oils and store-cupboard
   { key: "olive-oil", label: "Olive oil", unit: "ml", role: "other", contains: [], match: { all: ["olive", "oil"], none: ["spray", "spread", "mackerel", "sardines", "tuna", "anchov", "sun dried", "olives", "dressing", "garlic", "chilli", "infused", "lemon", "truffle", "basil"], kcal: [800, 900] } },
-  { key: "pesto", allium: true, label: "Green pesto", unit: "g", role: "other", animal: true, contains: ["milk", "nuts", "eggs"], match: { all: ["pesto"], any: ["green", "basil", "genovese"], none: ["red", "sun dried", "vegan", "free from", "pasta", "chicken", "rosso", "chilli", "tomato", "breadsticks"], kcal: [300, 600] } },
+  // most green pestos are made with Grana Padano or Parmigiano Reggiano (animal rennet): a vegetarian gets a vegan or free-from one (the flags stay the usual pesto's)
+  { key: "pesto", allium: true, label: "Green pesto", unit: "g", role: "other", animal: true, rennet: true, contains: ["milk", "nuts", "eggs"], match: { all: ["pesto"], any: ["green", "basil", "genovese"], none: ["red", "sun dried", "vegan", "free from", "pasta", "chicken", "rosso", "chilli", "tomato", "breadsticks"], kcal: [300, 600] },
+    vegetarian: { label: "Vegetarian green pesto", match: { all: ["pesto"], any: ["vegan", "vegetarian", "free from", "plant"], none: ["red", "sun dried", "tomato", "rosso", "chilli", "pasta", "chicken", "breadsticks", "escalope", "escalopes", "melts", "quorn", "mozzarella", "grana", "parmigiano", "pecorino"], kcal: [300, 600] } } },
   { key: "light-mayo", label: "Light mayonnaise", unit: "g", role: "other", animal: true, contains: ["eggs", "mustard", "milk"], match: { all: ["mayonnaise"], any: ["light", "lighter", "reduced fat"], none: ["garlic", "chilli", "vegan", "sriracha", "lemon", "chipotle", "truffle", "egg free"], kcal: [200, 400] } },
   { key: "sweet-chilli", allium: true, label: "Sweet chilli sauce", unit: "g", role: "other", contains: [], match: { all: ["sweet", "chilli", "sauce"], none: ["crisps", "chicken", "noodle", "prawn", "houmous", "dip pot", "mayo", "rice", "stir fry", "garlic"], kcal: [150, 280] } },
-  { key: "bbq-sauce", allium: true, label: "Barbecue sauce", unit: "g", role: "other", contains: ["gluten", "mustard"], match: { all: [], any: ["bbq sauce", "barbecue sauce"], none: ["crisps", "chicken", "pork", "ribs", "pulled", "beans", "marinade", "wings", "pizza", "dip pot", "with", "mac", "sausage", "duck"], kcal: [100, 220] } },
+  { key: "bbq-sauce", allium: true, label: "Barbecue sauce", unit: "g", role: "other", contains: ["gluten", "mustard"], match: { all: [], any: ["bbq sauce", "barbecue sauce"], none: ["crisps", "chicken", "pork", "ribs", "pulled", "beans", "marinade", "wings", "pizza", "dip pot", "with", "mac", "sausage", "duck", "jack daniel", "jack daniels", "whiskey", "whisky", "bourbon"], kcal: [100, 220] } },
   { key: "salsa", allium: true, label: "Tomato salsa", unit: "g", role: "other", contains: [], match: { all: ["salsa"], none: ["verde", "crisps", "chips", "nachos", "dip pot", "mango", "pineapple", "chipotle", "cheese"], kcal: [20, 80] } },
-  { key: "teriyaki", label: "Teriyaki sauce", unit: "ml", role: "other", contains: ["soya", "gluten", "sulphites", "sesame"], match: { all: ["teriyaki"], any: ["sauce"], none: ["chicken", "salmon", "noodles", "marinade with", "crisps", "pot", "rice"], kcal: [80, 250] } },
+  // alcohol, allium, root: 7 of the 13 teriyaki sauces the shops sell print wine, mirin or spirit, and 8 print garlic, onion or ginger (checked 20 November 2026)
+  { key: "teriyaki", alcohol: true, allium: true, root: true, label: "Teriyaki sauce", unit: "ml", role: "other", contains: ["soya", "gluten", "sulphites", "sesame"], match: { all: ["teriyaki"], any: ["sauce"], none: ["chicken", "salmon", "noodles", "marinade with", "crisps", "pot", "rice"], kcal: [80, 250] } },
   { key: "honey", honey: true, label: "Clear honey", unit: "g", role: "other", animal: true, contains: [], match: { all: ["honey"], any: ["clear", "squeezy", "pure", "runny"], none: ["mustard", "roast", "ham", "nut", "cereal", "granola", "yogurt", "lemon", "set", "manuka", "comb", "chicken", "glaze"], kcal: [280, 340] } },
   // A stock cube, counted by the cube: a cube's own label is for the dry cube, and cubes of about 6 g (12 in a 71 g pack) are the ones whose label is
   // printed that way (10 g cubes print the made-up stock). Pots are left out: a method crumbles or dissolves "the stock cube".
@@ -367,7 +378,7 @@ const KINDS: PantryKind[] = [
   { key: "oat-drink", label: "Oat drink", unit: "ml", role: "other", contains: ["gluten"], match: { all: ["oat"], any: ["drink", "milk"], none: ["chocolate", "barista", "coffee", "protein", "vanilla", "chilled latte", "mini", "kids", "bar", "biscuit", "cookie", "porridge"], kcal: [30, 70] } },
   { key: "almonds", label: "Whole almonds", unit: "g", role: "other", contains: ["nuts"], match: { all: ["almonds"], none: ["chocolate", "yogurt", "coated", "flaked", "ground", "salted", "smoked", "roasted salted", "milk", "drink", "butter", "mix", "honey", "biscuits", "cake", "croissant", "marzipan", "fruit", "cocoa", "dusted", "flaxseed", "milled"], kcal: [550, 680] } },
   { key: "mixed-seeds", label: "Mixed seeds", unit: "g", role: "other", contains: ["sesame"], match: { all: ["seeds"], any: ["mixed seeds", "seed mix", "omega seed"], none: ["bread", "loaf", "bagel", "crackers", "bar", "granola", "cereal", "oil", "bird"], kcal: [450, 650] } },
-  { key: "soy", label: "Soy sauce", unit: "ml", role: "other", contains: ["soya", "gluten"], match: { all: ["soy", "sauce"], none: ["sweet", "noodle", "chicken", "dark", "mushroom", "teriyaki", "garlic", "chilli", "vinegar", "pack"], kcal: [20, 120] } },
+  { key: "soy", label: "Soy sauce", unit: "ml", role: "other", contains: ["soya", "gluten"], match: { all: ["soy", "sauce"], none: ["sweet", "noodle", "chicken", "dark", "mushroom", "teriyaki", "garlic", "chilli", "vinegar", "pack", "less salt"], kcal: [20, 120] } },
   { key: "peanut-butter", label: "Peanut butter", unit: "g", role: "other", contains: ["peanuts"], match: { all: ["peanut", "butter"], none: ["cups", "chocolate", "cookies", "bar", "biscuit", "bites", "powder", "jelly", "protein", "honey", "spread with"], kcal: [550, 700] } },
   { key: "houmous", allium: true, label: "Houmous", unit: "g", role: "other", contains: ["sesame"], match: { all: ["houmous"], none: ["pepper", "chilli", "caramelised", "lemon", "garlic", "pine", "beetroot", "snack", "dippers", "pot", "x4", "4x", "olive", "harissa", "smoked", "jalapeno", "basil", "coriander", "edamame", "moroccan", "aromatic", "style", "topped", "spiced", "sweet", "falafel"], kcal: [150, 340] } },
   // ---- seasonings, dried herbs and oils (founder 2026-10-11: every recipe lists, prices and counts everything it uses, down to the pinch of salt)
@@ -375,8 +386,8 @@ const KINDS: PantryKind[] = [
   { key: "black-pepper", label: "Ground black pepper", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["ground", "black", "pepper"], none: ["tuna", "croutons", "butter", "crackers"], kcal: [200, 350] } },
   { key: "white-pepper", label: "Ground white pepper", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["ground", "white", "pepper"], kcal: [200, 350] } },
   { key: "cumin", label: "Ground cumin", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["ground", "cumin"], kcal: [300, 500] } },
-  { key: "paprika", label: "Paprika", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["paprika"], none: ["smoked", "hot", "crisps", "chips", "cassava", "lentil", "seasoning", "rice", "crunchers", "chickpeas", "bites", "almonds"], kcal: [250, 400] } },
-  { key: "smoked-paprika", label: "Smoked paprika", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["smoked", "paprika"], none: ["chickpeas", "bites", "crisps", "almonds", "houmous"], kcal: [250, 400] } },
+  { key: "paprika", label: "Paprika", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["paprika"], none: ["smoked", "hot", "crisps", "chips", "cassava", "lentil", "seasoning", "rice", "crunchers", "chickpeas", "bites", "almonds", "flatbread", "flatbreads", "onion"], kcal: [250, 400] } },
+  { key: "smoked-paprika", label: "Smoked paprika", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["smoked", "paprika"], none: ["chickpeas", "bites", "crisps", "almonds", "houmous", "melts", "cheese", "onion"], kcal: [250, 400] } },
   { key: "chilli-powder", allium: true, label: "Chilli powder", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["chilli", "powder"], none: ["con carne", "mix", "noodles"], kcal: [250, 500] } },
   { key: "chilli-flakes", label: "Crushed chilli flakes", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: [], any: ["crushed chillies", "chilli flakes"], none: ["ancho", "chipotle", "oil"], kcal: [300, 450] } },
   // Every ingredient needs a product with numbers (founder 2026-11-17: "products that have no nutritional information shouldn't be used for recipes in general"),
@@ -384,15 +395,15 @@ const KINDS: PantryKind[] = [
   // require a nutrition label on herbs, spices or salt, and many shops print none. Such a product is listed and priced but not counted (the page says so), and only
   // when its name is just that seasoning (recipes.ts plainSeasoning); a product of the kind with numbers always comes first.
   { key: "cinnamon", label: "Ground cinnamon", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["ground", "cinnamon"], none: ["sweet", "dusting"] } },
-  { key: "turmeric", label: "Ground turmeric", unit: "g", role: "other", labelOptional: true, unlabelledNeeds: ["ground", "haldi", "powder"], cupboard: true, contains: [], match: { all: ["turmeric"], none: ["granola", "paneer", "juice", "kombucha", "latte", "tea", "shot", "vinegar", "zinger", "raw"], kcal: [250, 450] } },
+  { key: "turmeric", label: "Ground turmeric", unit: "g", role: "other", labelOptional: true, unlabelledNeeds: ["ground", "haldi", "powder"], cupboard: true, contains: [], match: { all: ["turmeric"], none: ["granola", "paneer", "juice", "kombucha", "latte", "tea", "shot", "vinegar", "zinger", "raw", "honey"], kcal: [250, 450] } },
   { key: "curry-powder", allium: true, label: "Curry powder", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: ["mustard"], match: { all: ["curry", "powder"], none: ["madras", "tikka", "caribbean"], kcal: [250, 450] } },
-  { key: "mixed-herbs", label: "Dried mixed herbs", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["mixed", "herbs"], kcal: [150, 350] } },
+  { key: "mixed-herbs", label: "Dried mixed herbs", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["mixed", "herbs"], none: ["olives", "cheese", "bread", "stuffing"], kcal: [150, 350] } },
   { key: "oregano", label: "Dried oregano", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["oregano"], none: ["fresh", "tomatoes", "crostini", "tofu", "focaccia", "pizza"], kcal: [200, 400] } },
   { key: "thyme", label: "Dried thyme", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["thyme"], none: ["fresh", "bunched", "living", "tofu", "carrots", "stuffing", "lemon", "crisps", "chicken"], kcal: [200, 500] } },
   { key: "rosemary", label: "Dried rosemary", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["rosemary"], none: ["fresh", "living", "stock", "bites", "sausages", "pie", "crisps", "focaccia", "bread", "pinsa", "biltong", "bloomer", "sourdough"], kcal: [250, 400] } },
   { key: "dill", label: "Dried dill", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["dill"], none: ["sauerkraut", "pickle", "gherkin", "sauce", "salmon"], kcal: [250, 400] } },
   { key: "chives", allium: true, label: "Dried chives", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["chives"], none: ["living", "crackers", "cheddar", "pizzelle", "cheese"], kcal: [250, 400] } },
-  { key: "mint", label: "Dried mint", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["mint"], none: ["chewy", "dragees", "truffle", "assortment", "toffee", "rolls", "reindeer", "living", "sauce", "chocolate", "tea", "lamb", "minted"], kcal: [250, 330] } },
+  { key: "mint", label: "Dried mint", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["mint"], none: ["chewy", "dragees", "truffle", "assortment", "toffee", "rolls", "reindeer", "living", "sauce", "chocolate", "tea", "lamb", "minted", "ice cream", "magnum", "cheese", "halloumi", "hellim", "yogurt"], kcal: [250, 330] } },
   { key: "sesame-seeds", label: "Sesame seeds", unit: "g", role: "other", cupboard: true, contains: ["sesame"], match: { all: ["sesame", "seeds"], none: ["black", "roasted", "bagel", "bread", "bun", "crackers", "bar", "snaps", "oil"], kcal: [500, 700] } },
   { key: "mustard", alcohol: true, label: "Mustard (English, Dijon or wholegrain)", unit: "g", role: "other", cupboard: true, contains: ["mustard", "sulphites", "gluten"], match: { all: ["mustard"], any: ["english", "dijon", "wholegrain"], none: ["seed", "powder", "mayo", "honey", "sauce", "cress", "pork", "sausage", "chicken", "ham"], kcal: [100, 250] } },
   { key: "horseradish", root: true, label: "Horseradish sauce", unit: "ml", role: "other", cupboard: true, contains: ["mustard", "milk", "eggs"], animal: true, match: { all: ["horseradish", "sauce"], none: ["creamy", "mackerel", "beef", "crisps"], kcal: [100, 300] } },
@@ -451,7 +462,8 @@ const KINDS: PantryKind[] = [
   // sold one at a time ("Red Cabbage Each"): a whole one is about 900 g, used in parts
   { key: "red-cabbage", label: "Red cabbage", unit: "g", role: "other", contains: [], cut: true, pieceGrams: 900, pieceName: ["red cabbage", "red cabbages"], match: { all: ["red cabbage"], none: ["pickled", "kimchi", "polish", "specialities", "baxters", "sarson", "taste the difference"], kcal: [20, 45] } },
   { key: "cooked-chestnuts", label: "Cooked chestnuts", unit: "g", role: "other", contains: [], match: { all: ["chestnuts"], none: ["mushroom", "stuffing", "puree", "pizza", "chocolate"], kcal: [150, 200] } },
-  { key: "cranberry-sauce", label: "Cranberry sauce", unit: "g", role: "other", contains: [], match: { all: ["cranberry", "sauce"], none: ["mulled", "jelly", "chicken", "turkey", "stuffing", "brie", "orange"], kcal: [140, 260] } },
+  // not one made with port (M&S "Cranberry and Port Sauce"; Morrisons' "The Best" prints Port on its ingredients), so a "No alcohol" or halal Christmas is right
+  { key: "cranberry-sauce", label: "Cranberry sauce", unit: "g", role: "other", contains: [], match: { all: ["cranberry", "sauce"], none: ["mulled", "jelly", "chicken", "turkey", "stuffing", "brie", "orange", "port", "the best"], kcal: [140, 260] } },
   { key: "apple-sauce", allium: true, alcohol: true, label: "Apple sauce", unit: "g", role: "other", contains: ["sulphites", "milk", "mustard"], match: { all: ["apple", "sauce"], none: ["pineapple", "sweet", "bens", "pork", "chicken"], kcal: [90, 190] } },
   { key: "mincemeat", label: "Mincemeat", unit: "g", role: "other", contains: [], match: { all: ["mincemeat"], none: ["pie", "tart", "cake", "brandy", "amaretto", "cherry"], kcal: [250, 340] } },
   { key: "dried-cranberries", label: "Dried cranberries", unit: "g", role: "other", contains: [], match: { all: ["cranberries"], any: ["dried", "whole cranberries"], none: ["cheese", "cheddar", "wensleydale", "flakes", "sauce", "juice", "clusters"], kcal: [300, 380] } },
@@ -615,7 +627,8 @@ export interface DietPrefs {
   noRedMeat?: boolean;
   /** No onion, garlic or their kin (many Hindu households, and some days for others). */
   noOnionGarlic?: boolean;
-  /** Jain: no meat, fish or eggs, no honey, nothing grown underground (onion, garlic, potatoes, carrots, ginger), no mushrooms or sprouts; dairy is fine. */
+  /** Jain: no meat, fish or eggs, no honey, no alcohol, nothing grown underground (onion, garlic, potatoes, carrots, ginger), no mushrooms or sprouts; dairy
+   *  is fine, but not cheese made with animal rennet. */
   jain?: boolean;
   /** Kosher style: no pork and no shellfish, and never meat with dairy in one dish. Certification can't be checked: the app says so. */
   kosherStyle?: boolean;
@@ -629,8 +642,10 @@ export interface DietPrefs {
 /** Why a kind is left out for these preferences, or null when it may be used. Shellfish and anything without a halal-named product are left out for halal. */
 export function kindExcluded(kind: PantryKind, prefs: DietPrefs): string | null {
   if (prefs.veganOnly && (kind.animal || kind.honey)) return "vegan";
-  if (prefs.jain && (kind.meat || kind.fish || kind.contains.includes("eggs") || kind.honey || kind.root || kind.allium || kind.fungi || kind.sprouts)) return "jain";
+  if (prefs.jain && (kind.meat || kind.fish || kind.contains.includes("eggs") || kind.honey || kind.root || kind.allium || kind.fungi || kind.sprouts || kind.alcohol)) return "jain";
   if ((prefs.vegetarianOnly || prefs.veganOnly) && (kind.meat || kind.fish)) return "vegetarian";
+  // animal rennet (Parmigiano Reggiano, Grana Padano): a kind with a vegetarian version is matched to that instead (kindForDiet)
+  if ((prefs.vegetarianOnly || prefs.jain) && kind.rennet && !kind.vegetarian) return prefs.jain ? "jain" : "vegetarian";
   if (prefs.pescatarianOnly && kind.meat) return "pescatarian";
   if (prefs.noPork && kind.meat === "pork") return "no pork";
   if (prefs.noBeef && kind.meat === "beef") return "no beef";
@@ -639,13 +654,18 @@ export function kindExcluded(kind: PantryKind, prefs: DietPrefs): string | null 
   if (prefs.kosherStyle && (kind.meat === "pork" || kind.contains.includes("crustaceans") || kind.contains.includes("molluscs"))) return "kosher style";
   if ((prefs.noAlcohol || prefs.halalOnly) && kind.alcohol) return prefs.halalOnly ? "halal" : "no alcohol";
   if (prefs.halalOnly && ((kind.meat && !kind.halal) || kind.contains.includes("crustaceans") || kind.contains.includes("molluscs"))) return "halal";
+  // halal and "no meat sold as halal or kosher" both on: no meat suits both, so only meat-free dishes are left
+  if (prefs.halalOnly && prefs.noHalalKosherMeat && kind.meat) return "halal";
   const hit = (prefs.avoidAllergens ?? []).find((a) => kind.contains.includes(a));
   return hit ? hit : null;
 }
 
-/** The kind as these preferences need it: for halal, a meat kind is matched only to products named "Halal". */
+/** The kind as these preferences need it: for halal, a meat kind is matched only to products named "Halal"; for vegetarians, a kind usually made with animal
+ *  rennet only to products made without it. */
 export function kindForDiet(kind: PantryKind, prefs: DietPrefs): PantryKind {
   if (prefs.halalOnly && kind.meat && kind.halal) return { ...kind, label: kind.halal.label, match: kind.halal.match };
+  // vegetarian and Jain: Italian hard cheese and pesto made without animal rennet
+  if ((prefs.vegetarianOnly || prefs.jain) && kind.rennet && kind.vegetarian) return { ...kind, label: kind.vegetarian.label, match: kind.vegetarian.match };
   // no meat sold as halal or kosher: those products are never matched
   if (prefs.noHalalKosherMeat && kind.meat) return { ...kind, match: { ...kind.match, none: [...(kind.match.none ?? []), "halal", "kosher"] } };
   return kind;

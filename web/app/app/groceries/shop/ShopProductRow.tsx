@@ -28,6 +28,9 @@ export function ShopProductRow({ file, product, showShop }: { file: ShopFile; pr
         </span>
         {product.member && <span className="app-numbers block text-sm font-semibold leading-snug text-foreground">{t("{price} with {scheme}", { price: formatPrice(product.member.amount), scheme: product.member.scheme.replace(/ price$/i, "") })}</span>}
         {product.nutrition && <NutritionChips kcal={product.nutrition.kcal} protein={product.nutrition.protein} basis={nutritionBasis(product.nutrition, t)} />}
+        {/* numbers that aren't the shop's own label say whose they are, quietly (2026-11-20) */}
+        {product.nutrition?.community && <span className="mt-1 block text-[0.8125rem] leading-snug text-muted">{t("community numbers")}</span>}
+        {product.nutrition?.govFood && <span className="mt-1 block text-[0.8125rem] leading-snug text-muted">{t("UK government figures")}</span>}
       </span>
       {showShop && <span aria-hidden className="shrink-0 self-start"><ShopMark shopId={file.retailer} size="sm" /></span>}
       <ChevronRightIcon className="h-[18px] w-[18px] shrink-0 text-ink" />

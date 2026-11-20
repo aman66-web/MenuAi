@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <!--
-  Numbite privacy manifest (free launch, docs/APP_BUILD.md and docs/STORE.md "App Privacy"). No tracking, no analytics. An account is
-  optional (docs/ACCOUNTS_SYNC.md): only if the person signs in do their email address, a user ID and what they choose to sync (settings,
-  diet and allergy choices, saved meals and recipes, shopping list, favourites, today's log) go to our server, linked to them, for App
-  Functionality. Otherwise the only data that leaves the phone is what the person chooses to send through the app: a number report (with
-  an optional photo), a restaurant request, or a support message (with an optional email address so we can reply), plus a salted hash of
-  the sender's IP address kept 30 days to stop spam (docs/BACKEND.md). Location and the camera are used on the phone only and are not
-  collected.
-  The app calls no required-reason APIs itself (the packed web app's storage is WebKit's own).
+  Numbite privacy manifest (version 1.1, docs/APP_BUILD.md and docs/STORE.md "App Privacy"). No tracking, no analytics (anonymous setup counts only if
+  NEXT_PUBLIC_TELEMETRY_APP_ID is set at build time, and then the App Privacy answers change first). Everyone signs in (web/lib/mm/config.ts SIGN_IN_REQUIRED;
+  docs/ACCOUNTS_SYNC.md): the account's email address, a user ID and what is synced (settings, diet and allergy choices, saved meals and recipes, shopping lists,
+  favourites, today's log) go to our server, linked to the person, for App Functionality. Premium is bought through Apple: our server checks the purchase record
+  Apple signed and keeps nothing from it. Scan your food and Make it at home send the photo the person takes (and any words they add) through our server to
+  Anthropic's AI to work out its numbers or a recipe; neither keeps it. Otherwise the only data that leaves the phone is what the person chooses to send: a number
+  report (with an optional photo), a restaurant request, or a support message (with an optional email address so we can reply), plus a salted hash of the
+  sender's IP address kept 30 days to stop spam (docs/BACKEND.md). Location and the barcode scanner's camera are used on the phone only and are not collected;
+  saving a picture to Photos only adds it there.
+  The declared data types below are unchanged by this comment. The app calls no required-reason APIs itself (the packed web app's storage is WebKit's own).
 -->
 <plist version="1.0">
 <dict>

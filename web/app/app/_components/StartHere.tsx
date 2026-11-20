@@ -3,10 +3,11 @@
 import Link from "next/link";
 import { mealSlotFor } from "@/lib/mm/budget";
 import { startHereDishFits, startHereRows, startHereShows, type HomeArrivalNote, type StartHereRows } from "@/lib/mm/homePages";
+import { analytics } from "@/lib/mm/analytics";
 import { tk } from "@/lib/mm/i18n";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { recipeForDiet, type Recipe } from "@/lib/mm/recipes";
-import { addLogEntry, deleteLogEntry, logStore } from "@/lib/mm/stores";
+import { addLogEntry, countProAction, deleteLogEntry, logStore } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
 import type { Meal, MenuItem } from "@/lib/mm/types";
 import { useChainIndexes, useSettings, useStore } from "../_lib/hooks";
@@ -24,7 +25,8 @@ import { Button } from "./ui";
 // - "Your first recipe: {recipe}" with Open, if one was chosen on step 5 and still suits;
 // - a 44 pt "Done with this", which closes it for good; it also goes once every row has been used.
 // Adding a meal is shown only where it is free for this person (in 1.1 it is free for everyone): with adding paid and no recipe chosen there is no card.
-// The note behind it (lib/mm/homePages.ts) is kept on this device only and forgotten as soon as Home has shown it; Home holds it for this visit.
+// The note behind it (lib/mm/homePages.ts) is kept on this device only, with the rows used so far, so the card is still on Home on the next visit and after a
+// reload (step 5 says "It'll be waiting on Home"), until "Done with this", every row used, or START_HERE_DAYS days.
 
 const ADDED_TO_MEAL: Record<Meal, string> = { breakfast: tk("Added to Breakfast"), lunch: tk("Added to Lunch"), dinner: tk("Added to Dinner") };
 
@@ -58,7 +60,7 @@ export function useStartHere(note: HomeArrivalNote | null, logFree: boolean): St
 export function StartHere({ state, now, used, onAddWhatYouAte, onDishAdded, onDishUndone, onRecipeOpened, onDone }: {
   state: StartHereState;
   now: Date;
-  /** The rows used so far this visit (Home keeps them, so the card can go once every row is used). */
+  /** The rows used so far (kept with the note on the phone, so the card can go once every row is used); `dishEntry` only for a dish added on this visit. */
   used: { add: boolean; dishEntry: string | null; recipe: boolean };
   /** "Add what you ate": Home opens its + sheet at this meal. */
   onAddWhatYouAte: (meal: Meal) => void;
@@ -82,6 +84,9 @@ export function StartHere({ state, now, used, onAddWhatYouAte, onDishAdded, onDi
     if (!dish) return;
     const meal = mealSlotFor(new Date());
     const entry = addLogEntry({ chainId: dish.chainId, chainName: dish.chainName, name: dish.item.name, nutrients: dish.item.nutrients, source: "item", meal, ...(dish.item.image ? { image: dish.item.image } : {}) });
+    // counted like any meal added through the + sheet (AddFoodSheet.tsx)
+    analytics.track({ name: "mealLogged" });
+    countProAction();
     onDishAdded(entry, meal);
   };
   const undoDish = () => {

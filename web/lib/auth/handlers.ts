@@ -94,6 +94,9 @@ export async function handleEmailStart(raw: unknown, ctx: AuthCtx): Promise<Http
 }
 
 export async function handleEmailVerify(raw: unknown, ctx: AuthCtx): Promise<HttpResult> {
+  // Only this site's own pages or the iPhone app's may finish a sign-in: otherwise another site could post a code for its own account and sign the visitor
+  // into it (login CSRF), so what they then log would sync to someone else's account.
+  if (!ctx.sameOrigin && !ctx.fromApp) return json(403, { error: "forbidden" });
   const parsed = emailVerifySchema.safeParse(raw);
   if (!parsed.success) return invalid(parsed.error);
   const { email, code, mode } = parsed.data;
@@ -114,12 +117,13 @@ export async function handleEmailVerify(raw: unknown, ctx: AuthCtx): Promise<Htt
 
 const isProvider = (p: string): p is OAuthProvider => (OAUTH_PROVIDERS as readonly string[]).includes(p);
 
-/** Where a failed sign-in sends the person: to the app; on the website, back to the welcome screens when it started there (their sign-in step reads
- *  ?signin=<what happened> and shows the buttons again), otherwise to Settings › Account (which says what happened). */
+/** Where a failed sign-in sends the person: to the app; on the website, back to the page of the app it started on (the welcome screens' sign-in step, the
+ *  sign-in screen in front of a page, Settings › Account), which reads ?signin=<what happened>, says so and shows the buttons again. With no page to go back
+ *  to (the sign-in cookie had run out), Settings › Account. */
 const failure = (mode: "web" | "app", reason: string, cookies?: string[], from?: string): HttpResult => {
   const back = from ? new URL(safeNext(from), "https://numbite.invalid") : null;
   back?.searchParams.delete("signin"); // a page that already came back once (?signin=ok) gets only this answer
-  const web = back && /^\/app\/welcome\/?$/.test(back.pathname)
+  const web = back && /^\/app(?:\/|$)/.test(back.pathname)
     ? withParam(back.pathname + back.search + back.hash, "signin", reason)
     : `/app/settings?signin=${encodeURIComponent(reason)}#account`;
   return { status: 302, redirect: mode === "app" ? `${APP_REDIRECT}?error=${encodeURIComponent(reason)}` : web, ...(cookies ? { cookies } : {}) };
@@ -133,7 +137,9 @@ export function handleOAuthStart(provider: string, query: URLSearchParams, ctx: 
   if (!ctx.limit("oauth-start", ctx.who, 30, TEN_MIN)) return failure(mode, "busy");
   const verifier = newVerifier();
   const flow = mode === "app" ? { v: verifier, m: "app" as const, c: challenge as string } : { v: verifier, m: "web" as const, n: safeNext(query.get("next")) };
-  const url = ctx.port.oauthUrl(provider, `${ctx.origin}/auth/callback`, challengeFor(verifier));
+  // The iPhone app's sign-in says so in the address Supabase sends the browser back to (?m=app; Supabase's Site URL is this site, so any address on it is
+  // allowed), so a sign-in that outlives the 10-minute flow cookie still goes back to the app with "expired", not to the website inside the sign-in sheet.
+  const url = ctx.port.oauthUrl(provider, `${ctx.origin}/auth/callback${mode === "app" ? "?m=app" : ""}`, challengeFor(verifier));
   return { status: 302, redirect: url, cookies: [flowCookie(flow, ctx.secure)] };
 }
 
@@ -141,7 +147,7 @@ export function handleOAuthStart(provider: string, query: URLSearchParams, ctx: 
 export async function handleOAuthCallback(query: URLSearchParams, cookieHeader: string | null, ctx: AuthCtx): Promise<HttpResult> {
   const flow = readFlow(parseCookies(cookieHeader)[FLOW_COOKIE]);
   const clear = clearFlowCookie(ctx.secure);
-  if (!flow) return failure("web", "expired", [clear]); // no sign-in in progress here (cookie missing or too old)
+  if (!flow) return failure(query.get("m") === "app" ? "app" : "web", "expired", [clear]); // no sign-in in progress here (cookie missing or too old)
   const code = query.get("code");
   const from = flow.m === "web" ? flow.n : undefined; // the page the website's sign-in started on
   if (query.get("error") || !code) return failure(flow.m, query.get("error") === "access_denied" ? "cancelled" : "failed", [clear], from);
@@ -226,9 +232,16 @@ export async function authenticate(headers: Headers, ctx: AuthCtx): Promise<Auth
   return null;
 }
 
+const sentBearer = (headers: Headers) => headers.get("authorization")?.toLowerCase().startsWith("bearer ") === true;
+
+/**
+ * Who is signed in. The website with no session (or cookies that can't be renewed) is told "nobody" (200 { user: null }). The iPhone app sends its token:
+ * one that is refused (run out after an hour, or ended) is a 401, so the app renews it with its refresh token and asks again, instead of taking "nobody"
+ * as the person having signed out.
+ */
 export async function handleSession(headers: Headers, ctx: AuthCtx): Promise<HttpResult> {
   const who = await authenticate(headers, ctx);
-  if (!who) return json(200, { user: null });
+  if (!who) return sentBearer(headers) ? unauthorized : json(200, { user: null });
   return json(200, { user: who.user }, who.cookies);
 }
 

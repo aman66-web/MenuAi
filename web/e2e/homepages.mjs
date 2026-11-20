@@ -216,7 +216,7 @@ await step("a narrow phone: the two pages one under another with their titles, n
   }
 });
 
-await step("first visit after the welcome screens: the ink toast says what is now true; the Start here card sits right under the numbers and their dots, above the cooking tools, and the targets card waits; the note is forgotten at once, so a reload shows neither", async () => {
+await step("first visit after the welcome screens: the ink toast says what is now true; the Start here card sits right under the numbers and their dots, above the cooking tools, and the targets card waits; the toast is said once, and the card is still there after a reload", async () => {
   const { ctx, page } = await open({ homePages: arrival({ toast: "signedIn", firstRecipeId: RECIPE, firstDish: DISH }), settings: { hasSetTargets: false } });
   const toast = page.getByRole("status").filter({ hasText: "You're signed in. Your goal and daily numbers are saved." });
   await toast.waitFor({ timeout: 10000 });
@@ -232,12 +232,15 @@ await step("first visit after the welcome screens: the ink toast says what is no
   for (const b of await card.getByRole("button").all()) expect((await b.boundingBox()).height >= 44, `44 pt: ${await b.textContent()}`);
   expect((await card.getByRole("link", { name: /^Open/ }).boundingBox()).height >= 44, "Open is 44 pt");
   expect(await page.getByRole("link", { name: "Set your targets to see what's left today" }).count() === 0, "the targets card waits while Start here shows");
-  expect(await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.homePages")).data.arrival === undefined), "the note is forgotten as soon as Home has shown it");
+  // the toast is said once and forgotten; the card stays, visit after visit, until it is done with (the 30-person audit, 20 November 2026: lib/mm/homePages.ts)
+  const note = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.homePages")).data.arrival);
+  expect(note && note.toast === undefined && note.card === true, "the toast is forgotten as soon as Home has said it, and the card is kept: " + JSON.stringify(note));
   await page.reload();
   await page.getByRole("group", { name: "Today, 1 of 2" }).waitFor();
   await page.waitForTimeout(1200);
-  expect(await page.getByRole("region", { name: "Start here" }).count() === 0 && await toast.count() === 0, "one time only");
-  expect(await page.getByRole("link", { name: "Set your targets to see what's left today" }).count() === 1, "the targets card is back");
+  expect(await toast.count() === 0, "the toast is said one time only");
+  expect(await page.getByRole("region", { name: "Start here" }).count() === 1, "the Start here card is still there after a reload");
+  expect(await page.getByRole("link", { name: "Set your targets to see what's left today" }).count() === 0, "the targets card still waits while Start here shows");
   await ctx.close();
 });
 

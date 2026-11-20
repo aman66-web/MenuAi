@@ -6470,7 +6470,9 @@
     "salt": 1.25,
     "energyKj": 993
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -6492,7 +6494,9 @@
     "salt": 1.11,
     "energyKj": 915
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -6514,7 +6518,9 @@
     "salt": 0.86,
     "energyKj": 712
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -6536,7 +6542,9 @@
     "salt": 0.85,
     "energyKj": 734
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -6558,7 +6566,9 @@
     "salt": 1.23,
     "energyKj": 915
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -6580,7 +6590,9 @@
     "salt": 1.12,
     "energyKj": 834
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -6602,7 +6614,9 @@
     "salt": 0.93,
     "energyKj": 689
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -6624,7 +6638,9 @@
     "salt": 0.87,
     "energyKj": 681
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -12750,7 +12766,9 @@
     "salt": 1.12,
     "energyKj": 840
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -12772,7 +12790,9 @@
     "salt": 0.97,
     "energyKj": 724
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -12794,7 +12814,9 @@
     "salt": 0.85,
     "energyKj": 661
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -12816,7 +12838,9 @@
     "salt": 1.09,
     "energyKj": 766
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -12838,7 +12862,9 @@
     "salt": 1.14,
     "energyKj": 660
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -12860,7 +12886,9 @@
     "salt": 0.93,
     "energyKj": 599
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -17210,7 +17238,9 @@
     "salt": 1.61,
     "energyKj": 1159
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -17232,7 +17262,9 @@
     "salt": 1.57,
     "energyKj": 1078
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -17254,7 +17286,9 @@
     "salt": 1.52,
     "energyKj": 1149
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -17276,7 +17310,9 @@
     "salt": 1.36,
     "energyKj": 1039
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -21042,7 +21078,9 @@
     "salt": 1.43,
     "energyKj": 1065
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -21064,7 +21102,9 @@
     "salt": 1.29,
     "energyKj": 1015
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -21086,7 +21126,9 @@
     "salt": 1.49,
     "energyKj": 1027
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -21108,7 +21150,9 @@
     "salt": 1.39,
     "energyKj": 960
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -26074,7 +26118,9 @@
     "salt": 0.88,
     "energyKj": 753
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -26096,7 +26142,9 @@
     "salt": 1.05,
     "energyKj": 726
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -26118,7 +26166,9 @@
     "salt": 0.85,
     "energyKj": 744
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -26140,7 +26190,9 @@
     "salt": 0.97,
     "energyKj": 673
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -26162,7 +26214,9 @@
     "salt": 0.96,
     "energyKj": 650
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -26184,7 +26238,9 @@
     "salt": 0.88,
     "energyKj": 695
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -28468,7 +28524,9 @@
     "salt": 2.5,
     "energyKj": 2771
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],

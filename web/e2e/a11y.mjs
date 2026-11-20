@@ -1,6 +1,7 @@
 import { chromium } from "playwright-core";
 const BASE = process.env.BASE ?? "http://localhost:3101";
 import { createRequire } from "node:module";
+import { recipeTiles, shopTile } from "./welcome-steps.mjs";
 const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 
@@ -111,9 +112,9 @@ const pages = [
   }],
   // the three feature screens (Eat out with a chip swapped, the recipes with one chosen, the week) and the account step
   ["welcome: know before you order", "/app/welcome", false, async (p) => { await toEatOut(p); const chips = p.getByRole("radiogroup", { name: "Restaurants" }).getByRole("radio"); await chips.first().waitFor({ timeout: 45000 }); if ((await chips.count()) > 1) await chips.nth(1).click(); await p.waitForTimeout(800); }],
-  ["welcome: recipes from your shop", "/app/welcome", false, async (p) => { await toRecipes(p); const tile = p.getByRole("region", { name: "A look at Recipes" }).locator("button[aria-pressed]").first(); await tile.waitFor({ timeout: 45000 }); await tile.click(); await p.waitForTimeout(800); }],
+  ["welcome: recipes from your shop", "/app/welcome", false, async (p) => { await toRecipes(p); const tile = recipeTiles(p).first(); await tile.waitFor({ timeout: 45000 }); await tile.click(); await p.waitForTimeout(800); }],
   ["welcome: your week, planned", "/app/welcome", false, async (p) => { await toWeek(p); await p.getByRole("region", { name: "A look at Meal plan, on Home" }).locator("h2, p[role='status']").first().waitFor({ timeout: 45000 }); await p.waitForTimeout(800); }],
-  ["welcome: save your plan", "/app/welcome", false, async (p) => { await toWeek(p); await p.getByRole("button", { name: /^(Next: save your plan|Save and go to Home)$/ }).click(); await p.getByRole("heading", { name: "Save your plan: make your free account" }).waitFor(); await p.waitForTimeout(800); }],
+  ["welcome: save your plan", "/app/welcome", false, async (p) => { await toWeek(p); await p.getByRole("button", { name: /^(Next: save your numbers|Save and go to Home)$/ }).click(); await p.getByRole("heading", { name: "Save your goal and numbers: make your free account" }).waitFor(); await p.waitForTimeout(800); }],
   // Settings › Help › "Show me what Numbite can do" (it replaced the tour's replay)
   ["welcome: replay 1 of 3 (Settings › Help)", "/app/welcome?showcase=1", false, async (p) => { await toReplay(p, 1); }],
   ["welcome: replay 2 of 3", "/app/welcome?showcase=1", false, async (p) => { await toReplay(p, 2); }],
@@ -142,8 +143,8 @@ const pages = [
   ["food blogs", "/app/community/blog", true, async (p) => { await p.getByRole("group", { name: "Topics" }).getByRole("button").nth(1).click(); await p.waitForTimeout(300); }],
   ["article", "/app/community/blog/view?id=where-our-numbers-come-from", true, async (p) => { await p.locator("article h1").waitFor(); }],
   ["offline", "/app/offline", true, async () => {}],
-  ["welcome shops", "/app/welcome", false, async (p) => { await toShops(p); await p.getByRole("button", { name: "Sainsbury's", exact: true }).click(); await p.getByText("Got it. I'll show those shops first.").waitFor(); await p.getByText("Recipes, products and prices").first().waitFor(); }],
-  ["welcome: foods to avoid", "/app/welcome", false, async (p) => { await toAvoid(p); await p.getByRole("button", { name: "Peanuts", exact: true }).click(); await p.getByText("Got it. I'll hide dishes that list them", { exact: false }).waitFor(); await p.waitForTimeout(500); }],
+  ["welcome shops", "/app/welcome", false, async (p) => { await toShops(p); await shopTile(p, "Sainsbury's").click(); await p.getByText("Got it. I'll show those shops first.").filter({ visible: true }).waitFor(); await p.getByText("Recipes, products and prices").first().waitFor(); }],
+  ["welcome: foods to avoid", "/app/welcome", false, async (p) => { await toAvoid(p); await p.getByRole("button", { name: "Peanuts", exact: true }).click(); await p.getByText("Where a restaurant publishes allergens, dishes that list them are hidden", { exact: false }).filter({ visible: true }).waitFor(); await p.waitForTimeout(500); }],
   ["recipe swap", "/app/recipes/view?id=tuna-pasta&r=sainsburys", false, async (p) => { await p.getByRole("button", { name: /^Swap Tuna/ }).click(); await p.waitForTimeout(500); }],
   ["shopping list", "/app/groceries/list", false, async (p) => { await p.goto(p.url().replace("/list", "/shop/item?r=sainsburys&id=sainsburys-red-kidney-beans-in-water-400g-240g")); await p.getByRole("button", { name: "Add to my list" }).click(); await p.goto(p.url().split("/app/")[0] + "/app/groceries/list"); await p.waitForTimeout(500); }],
   ["list recipes", "/app/groceries/list/recipes", false, async (p) => { await p.evaluate(() => localStorage.setItem("mm.v1.shopping", JSON.stringify({ v: 1, data: [{ gtin: "", retailer: "own", name: "Chicken", brand: "", size: "", qty: 1, addedAt: "2026-10-10T10:00:00.000Z", custom: true }] }))); await p.reload(); await p.getByText(/recipes? uses? something on your list/).first().waitFor(); }],
@@ -171,7 +172,7 @@ const pages = [
     must((await p.locator("#target-calories").evaluate((el) => el.closest(".group\\/step")?.querySelector("[aria-live='polite']")?.textContent)) === "", "targets: typing a number still has the live region speaking");
     await p.getByLabel("Protein (g)").focus(); await p.waitForTimeout(700);
   }],
-  ["welcome: targets, suggest form", "/app/welcome", false, async (p) => { await toAbout(p); await p.getByRole("button", { name: "Skip these questions" }).click(); await p.getByRole("heading", { name: "Your daily targets" }).waitFor(); await p.getByRole("button", { name: "Not sure? Suggest targets for me" }).click(); await p.locator("form").getByRole("button", { name: "Suggest targets", exact: true }).click(); await p.locator("[role='alert']").filter({ hasText: /\S/ }).first().waitFor(); await p.waitForTimeout(500); }],
+  ["welcome: targets, suggest form", "/app/welcome", false, async (p) => { await toAbout(p); await p.getByRole("button", { name: "Skip these questions" }).click(); await p.getByRole("heading", { name: "Your daily targets" }).waitFor(); await p.getByRole("button", { name: "Not sure? Suggest targets for me" }).click(); await p.locator("form").getByRole("button", { name: "Work out my numbers", exact: true }).click(); await p.locator("[role='alert']").filter({ hasText: /\S/ }).first().waitFor(); await p.waitForTimeout(500); }],
   ["site", "/", false, async () => {}],
   ["friend invite page", "/f#K7M2QXWA", false, async (p) => { await p.getByRole("heading", { level: 1, name: /A friend invited you/ }).waitFor(); }],
 ];

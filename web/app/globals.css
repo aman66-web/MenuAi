@@ -339,7 +339,8 @@ p { text-wrap: pretty; }
   .pip .pip-bob { animation: pip-bob 3.2s ease-in-out 1; }
   .pip .pip-shadow { animation: pip-shadow 3.2s ease-in-out 1; }
   .pip .pip-wave { animation: pip-wave 1.6s ease-in-out 2; }
-  .pip .pip-eyes { animation: pip-blink 4.5s infinite; }
+  /* one blink (WCAG 2.2.2: nothing beside text moves for more than 5 s; the 20 November 2026 audit); a new reaction remounts Pip and blinks again */
+  .pip .pip-eyes { animation: pip-blink 4.5s 1; }
   .pip .pip-cheer { animation: pip-cheer 0.7s ease-in-out 3; }
   .pop-in { animation: pop-in 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; }
   .confetti > i { position: absolute; top: 0; width: 9px; height: 14px; border-radius: 3px; animation: confetti-fall 1.4s ease-in forwards; }
@@ -454,29 +455,15 @@ html[data-i18n-pending] body {
 .scan-dots i { display: inline-block; font-style: normal; animation: dot-pulse 1.2s ease-in-out infinite; }
 .scan-dots i:nth-child(2) { animation-delay: 0.15s; }
 .scan-dots i:nth-child(3) { animation-delay: 0.3s; }
-.work-glow { animation: work-glow 2.2s ease-in-out infinite; }
-@keyframes work-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(214, 239, 160, 0), 0 18px 40px -18px rgba(0, 0, 0, 0.45); }
-  50% { box-shadow: 0 0 0 10px rgba(214, 239, 160, 0.3), 0 18px 40px -18px rgba(0, 0, 0, 0.45); }
-}
-.work-shimmer {
-  position: absolute; inset-block: 0; inset-inline-start: 0; width: 35%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-  animation: work-shimmer 2.2s ease-in-out infinite;
-}
-@keyframes work-shimmer { from { transform: translateX(-130%) skewX(-18deg); } to { transform: translateX(330%) skewX(-18deg); } }
 /* Make it at home's Scan food button: the lime ring fills while it is held (the photo is taken when it is full); full at once for reduced motion. */
 .hold-ring { animation: hold-fill var(--hold) linear forwards; }
 @keyframes hold-fill { from { stroke-dashoffset: var(--ring); } to { stroke-dashoffset: 0; } }
-.work-bar { animation: work-bar 50s cubic-bezier(0.2, 0.55, 0.3, 1) forwards; }
 /* Make it at home's working bar (founder 2026-11-20: no fake progress): a short piece that only says "working", never how far. Still under Reduce Motion. */
 .work-track { animation: work-track 1.6s ease-in-out infinite; }
 @keyframes work-track { from { transform: translateX(-110%); } to { transform: translateX(320%); } }
-@keyframes work-bar { from { width: 3%; } to { width: 94%; } }
 @media (prefers-reduced-motion: reduce) {
   .scan-line { animation: none; top: 50%; }
-  .scan-dots i, .work-glow, .work-shimmer, .hold-ring { animation: none; }
-  .work-bar { animation: none; width: 60%; }
+  .scan-dots i, .hold-ring { animation: none; }
   .work-track { animation: none; transform: none; }
 }
 
@@ -548,7 +535,8 @@ html[data-creator] main { padding-bottom: 2rem; }
 /* ---- Water bottle (WaterBottle.tsx: Home's Water card and the "Add water" sheet; founder 2026-11-17: "make it better") ----
    Transforms and opacity only, on the bottle's own SVG; no script loop. Two waves drift sideways at different speeds (by one 24-unit wavelength, so the
    loop has no seam), bubbles rise now and then, the surface tilts and settles once when the level changes (two identical animations, swapped to
-   restart it) and rises higher while a finger drags it. Home's small bottle drifts slowly. Nothing drifts, rises or sloshes for reduced motion: the
+   restart it) and rises higher while a finger drags it. The drift and the bubbles play once (about 4.5 s) and again at each change of level, endlessly
+   only while dragging (WCAG 2.2.2, the 20 November 2026 audit). Nothing drifts, rises or sloshes for reduced motion: the
    level still changes, at once. The slider shows no box when focused: for keyboard users its handle gets a dark ring and the amount label shows. */
 @keyframes water-drift { from { transform: translateX(0); } to { transform: translateX(-24px); } }
 @keyframes water-drift-back { from { transform: translateX(-24px); } to { transform: translateX(0); } }
@@ -564,11 +552,12 @@ html[data-creator] main { padding-bottom: 2rem; }
 .water-amp { transition: transform 320ms cubic-bezier(0.3, 1.4, 0.5, 1); }
 .water-bubble { opacity: 0; }
 @media (prefers-reduced-motion: no-preference) {
-  .water-wave { animation: water-drift 3.4s linear infinite; }
-  .water-wave-back { animation: water-drift-back 5.6s linear infinite; }
-  .water-wave.water-calm { animation-duration: 8s; }
-  .water-wave-back.water-calm { animation-duration: 13s; }
-  .water-bubble { animation: water-bubble var(--bubble-s, 5s) ease-in var(--bubble-d, 0s) infinite; }
+  /* once each (about 4.5 s: WCAG 2.2.2), replayed by WaterBottle at each change of level; endless only while a finger drags the water (.water-live) */
+  .water-wave { animation: water-drift 3.4s linear 1; }
+  .water-wave-back { animation: water-drift-back 4.5s linear 1; }
+  .water-wave.water-calm, .water-wave-back.water-calm { animation-duration: 4.5s; }
+  .water-live .water-wave, .water-live .water-wave-back { animation-iteration-count: infinite; }
+  .water-bubble { animation: water-bubble var(--bubble-s, 5s) ease-in var(--bubble-d, 0s) 1; }
   .water-slosh-a { animation: water-slosh-a 1.15s cubic-bezier(0.36, 0.07, 0.19, 0.97); }
   .water-slosh-b { animation: water-slosh-b 1.15s cubic-bezier(0.36, 0.07, 0.19, 0.97); }
 }

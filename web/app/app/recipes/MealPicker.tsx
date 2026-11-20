@@ -13,7 +13,7 @@ import { useT } from "../_lib/i18n";
 
 // "Your meal": the few choices Recipes and Pip's recipe maker fit every recipe to. Big buttons, one question per row, plain words
 // (founder 2026-10-10: older people use it too). Kept in Settings so it is remembered. Styled like Home's cards (2026-10-15): a white
-// card, each question as a small spaced-capitals label, grey option tiles with the chosen one dark and a lime tick.
+// card, each question as a small label in sentence case, grey option tiles with the chosen one lime and a tick.
 
 const SIZES: ReadonlyArray<{ value: MealSize; label: string }> = [
   { value: "small", label: tk("Small") },
@@ -21,7 +21,8 @@ const SIZES: ReadonlyArray<{ value: MealSize; label: string }> = [
   { value: "big", label: tk("Big") },
 ];
 
-const QUESTION = "text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted";
+/** A question's small label: sentence case, 13 px, the secondary grey (spaced capitals were hard to read for older testers; audit, 20 November 2026). */
+const QUESTION = "text-[0.8125rem] font-semibold leading-snug text-muted";
 /** The two secondary choices under the sizes: full-width light grey pills of equal width on the white card, like "Done" under it. */
 const PILL_BASE = "inline-flex min-h-11 w-full items-center justify-center rounded-full px-4 py-2.5 text-center text-[0.9375rem] font-bold leading-tight transition active:scale-[0.98]";
 const LINK_PILL = `${PILL_BASE} border-[1.5px] border-[color:var(--edge)] bg-soft hover:bg-[var(--fill)]`;
@@ -48,14 +49,16 @@ function Choice({ on, onClick, onKeyDown, title, sub, label, focusable, numbers 
   );
 }
 
-/** One line saying what recipes are fitted to (or that they are shown as written): "Each recipe is…" in the list, "This recipe is…" on a recipe. */
+/** One line saying what recipes are fitted to (or that they are shown as written): "Meals are fitted to…" in the list (true of every card: a recipe goes only as
+ *  far as its amounts allow, and snacks aren't fitted; audit, 20 November 2026), "This recipe is fitted to…" on a recipe that came within FIT_TOLERANCE (the page
+ *  says how close it got otherwise). */
 export function targetSentence(t: T, target: MealTarget | null, subject: "each" | "this" = "each"): string {
   if (!target) return t("Recipes are shown as written.");
   const extra = [target.protein ? t("{n} g protein", { n: target.protein }) : "", target.carbsMax ? t("no more than {n} g carbs", { n: target.carbsMax }) : "", target.fatMax ? t("no more than {n} g fat", { n: target.fatMax }) : ""].filter(Boolean);
   const kcal = formatInt(target.kcal);
-  if (!extra.length) return subject === "this" ? t("This recipe is fitted to about {kcal} kcal a serving.", { kcal }) : t("Each recipe is fitted to about {kcal} kcal a serving.", { kcal });
+  if (!extra.length) return subject === "this" ? t("This recipe is fitted to about {kcal} kcal a serving.", { kcal }) : t("Meals are fitted to about {kcal} kcal a serving, as far as each recipe allows; snacks are shown as written.", { kcal });
   const more = extra.join(", ");
-  return subject === "this" ? t("This recipe is fitted to about {kcal} kcal and {more} a serving.", { kcal, more }) : t("Each recipe is fitted to about {kcal} kcal and {more} a serving.", { kcal, more });
+  return subject === "this" ? t("This recipe is fitted to about {kcal} kcal and {more} a serving.", { kcal, more }) : t("Meals are fitted to about {kcal} kcal and {more} a serving, as far as each recipe allows; snacks are shown as written.", { kcal, more });
 }
 
 /** `summary={false}` where the page already shows the sentence ("Each recipe is fitted to …") next to the button that opens this. */

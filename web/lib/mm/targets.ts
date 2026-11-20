@@ -34,7 +34,7 @@ export const SUGGESTION_NOTE = tk("Suggested starting points, not medical advice
 /** Shown (not blocking) under a typed calorie target below what suggestions ever start from (App Review 1.4.1: no encouraging of unsafe dieting). */
 export const LOW_CALORIES_NOTE = tk("That's lower than most adults need. If you plan to eat this little, please talk to a doctor or dietitian first.");
 /** Under the GLP-1 goal: the app follows the person's medicine plan, it doesn't give medical advice (App Review 1.4.1). */
-export const GLP1_NOTE = tk("If you take a GLP-1 medicine, follow the advice of your doctor or pharmacist. {app} doesn't give medical advice.");
+export const GLP1_NOTE = tk("If you take a GLP-1 medication, follow the advice of your doctor or pharmacist. {app} doesn't give medical advice.");
 /** True for a typed target that is a number but below MIN_SUGGESTED_CALORIES. */
 export const isLowCalories = (value: string | number): boolean => {
   const n = Number(value);
@@ -180,7 +180,7 @@ export type Plan =
  * The "glp1" line holds an `{app}` placeholder (it is GLP1_NOTE): show a note with `planNoteText`, or pass `{ app: site.name }` to `t`, never plain `t(PLAN_NOTE_COPY[note])`.
  */
 export const PLAN_NOTE_COPY: Record<PlanNote, string> = {
-  "check-measurements": tk("Please check your height and weight, because your plan is worked out from them. If they are right, you can carry on."),
+  "check-measurements": tk("Please check your height and weight, because your numbers are worked out from them. If they are right, you can carry on."),
   "low-calories-floor": tk("Your suggested calories are never below 1,200 a day. If you plan to eat less than that, please talk to a doctor or dietitian first."),
   "low-bmi": tk("At your height and weight, a lower-calorie plan may not suit you. Please talk to a doctor or dietitian before you start."),
   glp1: GLP1_NOTE,

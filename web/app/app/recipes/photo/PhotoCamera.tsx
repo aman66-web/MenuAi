@@ -12,7 +12,8 @@ import { useT } from "../../_lib/i18n";
 // flow goes on to the supermarket. Nothing is read or sent from the live picture: only the one photo that is taken, made smaller on the phone (_lib/photo.ts).
 // Where the page can't show the camera (no camera API, or the person refused it) the same screen offers the phone's own camera and photo picker instead.
 // Founder 2026-11-17: the Scan food button is pressed and HELD ("that way it ensures you get good photos"): a lime ring fills round it while the light sweeps fast,
-// and the photo is taken when the ring is full (let go early and nothing is taken). From a keyboard, Enter or Space takes it at once.
+// and the photo is taken when the ring is full (let go early and nothing is taken). From a keyboard, Enter or Space takes it at once, and so does one activation
+// by VoiceOver or Switch Control (the 20 November 2026 audit: they can't hold): a click that no finger's hold came just before takes the photo.
 
 /** The longest side of the picture taken from the live view (only the part inside the scanning frame); shrinkPhoto then makes it smaller still for sending. */
 const CAPTURE_SIDE = 1600;
@@ -21,6 +22,8 @@ const SCAN_MS = 2600;
 const SCAN_MS_CALM = 1200;
 /** How long Scan food has to be held before the photo is taken. */
 export const HOLD_MS = 1500;
+/** A click this soon after a finger or the mouse let go belongs to that hold (taken or let go early), never a photo of its own. */
+const HOLD_CLICK_MS = 300;
 /** The ring round the button: its circumference for a radius of 36 (the SVG's own units). */
 const RING = 2 * Math.PI * 36;
 
@@ -49,6 +52,8 @@ export function PhotoCamera({ onCapture, onClose, onPickPhoto, onPhonesCamera, n
   const [holding, setHolding] = useState(false);
   const [letGo, setLetGo] = useState(false);
   const holdTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // when a finger or the mouse last let go of the button (the click after it is part of that hold)
+  const lastRelease = useRef(-Infinity);
   useEffect(() => () => { if (holdTimer.current) clearTimeout(holdTimer.current); }, []);
 
   // A modal dialog: the page behind it is out of reach while the camera is up (taken away with the view, like the barcode scanner's).
@@ -83,7 +88,7 @@ export function PhotoCamera({ onCapture, onClose, onPickPhoto, onPhonesCamera, n
 
   const shoot = () => {
     const v = video.current;
-    if (!v || !v.videoWidth) return;
+    if (!v || !v.videoWidth || flash) return;
     // only what was inside the scanning frame (founder 2026-11-18: "it should only be the frame that the person scanned"): the live view fills the screen, so the
     // camera's whole picture holds more round the edges than the person saw (lib/mm/photoCrop.ts)
     const view = v.getBoundingClientRect();
@@ -169,10 +174,11 @@ export function PhotoCamera({ onCapture, onClose, onPickPhoto, onPhonesCamera, n
                 disabled={!ready}
                 aria-label={t("Hold to scan your food")}
                 onPointerDown={startHold}
-                onPointerUp={endHold}
-                onPointerCancel={endHold}
+                onPointerUp={() => { lastRelease.current = performance.now(); endHold(); }}
+                onPointerCancel={() => { lastRelease.current = performance.now(); endHold(); }}
                 onContextMenu={(e) => e.preventDefault()}
-                onClick={(e) => { if (e.detail === 0) shoot(); /* Enter or Space: take it at once */ }}
+                // Enter or Space, VoiceOver or Switch Control: one activation takes it at once; a finger's tap is its hold's (above)
+                onClick={() => { if (!holdTimer.current && performance.now() - lastRelease.current > HOLD_CLICK_MS) shoot(); }}
                 className="relative grid h-[5.25rem] w-[5.25rem] touch-none select-none place-items-center rounded-full transition [-webkit-touch-callout:none] disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sun"
               >
                 {/* the ring fills (lime) while the button is held; the photo is taken when it is full */}

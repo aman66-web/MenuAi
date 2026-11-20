@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { useT } from "../_lib/i18n";
 import { CheckIcon } from "./icons";
 
@@ -13,9 +14,13 @@ export const TOAST_MIN_MS = 8000;
  * the dark tab bar, and Undo as white, bold, underlined words in a 44 px target (never lime: lime is never an action). It is a polite live region, so a screen
  * reader reads it out.
  *
- * It sits at the top of the screen by default, clear of the + buttons a second tap might hit (Home, the shopping list); `place="bottom"` puts it just above the
- * tab bar with a gap. It closes itself after `duration` ms (at least 8 seconds; `null` keeps it until `onClose` is called by the screen), and never while a
- * finger or the keyboard is on it: the time starts again when they leave. For a new message, give it a new `key` so its time starts afresh.
+ * It sits just above the tab bar with the colour meeting's 16 px gap by default (the 30-person audit, 20 November 2026: at the top it covered Back, the
+ * Shopping list and the Settings cog for 8 seconds or more); `place="top"` keeps it at the top, for the one toast after Home's and Today's + sheet, so a second
+ * tap on the same + can never land on Undo. It closes itself after `duration` ms (at least 8 seconds; `null` keeps it until `onClose` is called by the screen),
+ * and never while a finger or the keyboard is on it: the time starts again when they leave. A tap on its words closes it at once. For a new message, give it a
+ * new `key` so its time starts afresh. `focusUndo` moves the focus to Undo as it appears (Today's Remove: the keyboard and VoiceOver focus never drops to the
+ * page). It is drawn first in the page's <main> (a portal), so a screen reader comes to the message and its Undo straight after the top of the page, not
+ * after everything else on it.
  *
  * A swipe sends it away at once (founder 2026-11-20: "the person should be able to swipe that off the screen if they want. Like if they swipe up on that, it'll
  * go"): up for the top one, down for the bottom one, or sideways either way. It follows the finger, goes when pulled far enough and springs back when not; a
@@ -24,7 +29,7 @@ export const TOAST_MIN_MS = 8000;
 const SWIPE_AWAY = 32; // px towards the edge it sits at
 const SWIPE_SIDE = 64; // px sideways
 const SLIDE_MS = 180;
-export function Toast({ children, onClose, onUndo, undoLabel, duration = TOAST_MIN_MS, place = "top", tick = true, className }: {
+export function Toast({ children, onClose, onUndo, undoLabel, duration = TOAST_MIN_MS, place = "bottom", tick = true, focusUndo = false, className }: {
   children: ReactNode;
   onClose: () => void;
   onUndo?: () => void;
@@ -33,9 +38,29 @@ export function Toast({ children, onClose, onUndo, undoLabel, duration = TOAST_M
   duration?: number | null;
   place?: "top" | "bottom";
   tick?: boolean;
+  /** Move the focus to Undo when the toast appears. */
+  focusUndo?: boolean;
   className?: string;
 }) {
   const t = useT();
+  // drawn first in <main> (see above); where there is no <main>, where it is
+  const [host, setHost] = useState<HTMLElement | "here" | null>(null);
+  useLayoutEffect(() => {
+    const main = document.querySelector("main");
+    if (!main) {
+      setHost("here"); // eslint-disable-line react-hooks/set-state-in-effect -- once, on the client
+      return;
+    }
+    const el = document.createElement("div");
+    el.setAttribute("data-toast-host", "");
+    main.prepend(el);
+    setHost(el);
+    return () => el.remove();
+  }, []);
+  const undoButton = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (focusUndo && host) undoButton.current?.focus({ preventScroll: true });
+  }, [focusUndo, host]);
   const close = useRef(onClose);
   useEffect(() => { close.current = onClose; });
   const [held, setHeld] = useState(false);
@@ -68,7 +93,8 @@ export function Toast({ children, onClose, onUndo, undoLabel, duration = TOAST_M
     return () => window.clearTimeout(id);
   }, [ms, held]);
 
-  return (
+  if (!host) return null;
+  const toast = (
     <div
       ref={box}
       role="status"
@@ -104,13 +130,15 @@ export function Toast({ children, onClose, onUndo, undoLabel, duration = TOAST_M
     >
       <span className="flex min-h-11 min-w-0 items-center gap-2.5 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">
         {tick && <CheckIcon aria-hidden strokeWidth={2.6} className="h-5 w-5 shrink-0 text-sun" />}
-        <span className="min-w-0">{children}</span>
+        {/* a tap on the words sends it away (a swipe does too); its Undo is a separate button */}
+        <span className="min-w-0" onClick={() => close.current()}>{children}</span>
       </span>
       {onUndo && (
-        <button type="button" onClick={onUndo} aria-label={undoLabel} className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-on-ink underline underline-offset-2 transition hover:bg-ink-pressed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun">
+        <button ref={undoButton} type="button" onClick={onUndo} aria-label={undoLabel} className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-on-ink underline underline-offset-2 transition hover:bg-ink-pressed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun">
           {t("Undo")}
         </button>
       )}
     </div>
   );
+  return host === "here" ? toast : createPortal(toast, host);
 }

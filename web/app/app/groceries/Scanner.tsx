@@ -167,6 +167,10 @@ export function Scanner({ open, onClose, onCode }: { open: boolean; onClose: () 
   const [mode, setMode] = useState<"camera" | "typed">("camera");
   const [scanRound, setScanRound] = useState(0);
   const native = open && hasNative();
+  // the parent passes a new onCode every time it renders: the iPhone's scanner must not start again for that (2026-11-20: a second scanner opened over the
+  // first, and its Cancel did nothing), so it is read from here when a code comes back
+  const onCodeRef = useRef(onCode);
+  useEffect(() => { onCodeRef.current = onCode; });
 
   // Closed, it forgets what it showed, so that the next opening starts with the camera (or, in the iPhone app, its own scanner) and a clean sheet.
   useEffect(() => {
@@ -183,13 +187,13 @@ export function Scanner({ open, onClose, onCode }: { open: boolean; onClose: () 
     setNote(null); // eslint-disable-line react-hooks/set-state-in-effect -- a new scan starts with a clean sheet
     void nativeCall("scan").then((r) => {
       if (!live) return;
-      if (r.code && barcodeQuery(r.code)) onCode(r.code);
+      if (r.code && barcodeQuery(r.code)) onCodeRef.current(r.code);
       else if (r.error === "denied") setNote(tk("{app} isn't allowed to use the camera. Turn it on in the iPhone's Settings, under {app}, or type the number printed under the barcode."));
       else if (r.error === "unavailable") setNote(tk("This iPhone can't scan barcodes with the camera. Type the number printed under the barcode instead."));
       else setNote(tk("Type the number printed under the barcode, or scan again."));
     });
     return () => { live = false; };
-  }, [open, native, onCode, scanRound]);
+  }, [open, native, scanRound]);
 
   const camera = open && !native && mode === "camera";
   const sheet = open && (native || mode === "typed");

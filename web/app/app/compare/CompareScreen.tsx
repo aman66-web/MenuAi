@@ -3,21 +3,24 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useDeferredValue, useEffect, useId, useMemo, useRef, useState } from "react";
-import { addToCompare, COMPARE_MAX, compareRows, inCompare, mixedBasis, removeFromCompare, shownFigure, trafficLightFor, type CompareItem, type CompareKind, type CompareRow } from "@/lib/mm/compare";
-import { formatPrice, photoSources, searchProducts, type ListedProduct, type PhotoSource } from "@/lib/mm/groceries";
+import { addToCompare, COMPARE_MAX, compareRows, inCompare, mixedBasis, notAllLabels, removeFromCompare, shownFigure, sourceLabel, trafficLightFor, type CompareItem, type CompareKind, type CompareRow } from "@/lib/mm/compare";
+import { formatPrice, retailerName, type PhotoSource } from "@/lib/mm/groceries";
+import { searchShopProducts, shopPhotoSources } from "@/lib/mm/shopProducts";
+import { normalizeForSearch } from "@/lib/mm/search";
 import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
 import { itemImageUrl } from "@/lib/mm/images";
 import { isTakenDown } from "@/lib/mm/logos";
 import { search } from "@/lib/mm/search";
 import { compareStore } from "@/lib/mm/stores";
-import { BasketIcon, CompareIcon, ForkIcon, PlusIcon, SearchIcon } from "../_components/icons";
+import { BasketIcon, CheckIcon, CompareIcon, ForkIcon, InfoIcon, PlusIcon, SearchIcon } from "../_components/icons";
 import { ItemThumb } from "../_components/ItemPhoto";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
-import { ChoiceMark, EmptyState, Spinner } from "../_components/ui";
-import { compareDish, compareFoodFromListed } from "../_lib/compare";
+import { Button, Chip, ChoiceMark, EmptyState, ErrorBox, inputClass, Spinner } from "../_components/ui";
+import { compareDish, compareFoodFromShop } from "../_lib/compare";
+import { labelShops } from "../_components/addfood/ProductPick";
+import { useShopLists, useShopManifest } from "../_lib/shopProducts";
 import { PageHeader } from "../_components/PageHeader";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
-import { useGroceryCatalogue } from "../_lib/groceries";
 import { useHydrated, useSearchIndex, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { menuClient } from "../_lib/menu";
@@ -167,8 +170,8 @@ function Chosen({ items }: { items: readonly CompareItem[] }) {
         })}
       </ol>
       {items.length > 1 && (
-        <div className="mt-1.5 flex justify-end">
-          <button type="button" onClick={() => compareStore.update((l) => l.filter((x) => x.kind !== items[0]!.kind))} className="inline-flex min-h-11 items-center rounded-full px-4 text-[0.9375rem] font-semibold text-accent transition hover:bg-soft-strong active:scale-95">{t("Clear all")}</button>
+        <div className="mt-2.5 flex justify-end">
+          <Button variant="secondary" onClick={() => compareStore.update((l) => l.filter((x) => x.kind !== items[0]!.kind))}>{t("Clear all")}</Button>
         </div>
       )}
     </>
@@ -254,7 +257,11 @@ function SideBySide({ items, kind }: { items: readonly CompareItem[]; kind: Comp
     el.addEventListener("scroll", check, { passive: true });
     return () => { ro.disconnect(); el.removeEventListener("scroll", check); };
   }, [items]);
-  const basis = kind === "dish" ? t("Per serving, as each restaurant publishes it.") : items.every((i) => i.basis === "ml") ? t("Per 100 ml, as each label prints it.") : t("Per 100 g, as each label prints it.");
+  // not every food's figures are a shop's label: the basis line and the footnote say so, and each column names its source (2026-11-20)
+  const others = kind === "food" && notAllLabels(items);
+  const basis = kind === "dish" ? t("Per serving, as each restaurant publishes it.")
+    : others ? (items.every((i) => i.basis === "ml") ? t("Per 100 ml. Each column says where its figures come from: not all of them are a shop's label.") : t("Per 100 g. Each column says where its figures come from: not all of them are a shop's label."))
+    : items.every((i) => i.basis === "ml") ? t("Per 100 ml, as each label prints it.") : t("Per 100 g, as each label prints it.");
   return (
     <section aria-labelledby="side-heading" className="mt-8">
       <h2 id="side-heading" className="text-xl font-[800] tracking-[-0.01em]">{t("Side by side")}</h2>
@@ -278,7 +285,8 @@ function SideBySide({ items, kind }: { items: readonly CompareItem[]; kind: Comp
                       </span>
                     ) : <Num n={i + 1} small />}
                     <span className="mt-2 block text-[0.8125rem] font-bold leading-snug [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:4] overflow-hidden [overflow-wrap:anywhere]">{item.name}</span>
-                    <span className="mt-0.5 block text-[0.75rem] leading-snug text-muted [overflow-wrap:anywhere]">{item.from}</span>
+                    <span className="mt-0.5 block text-[0.8125rem] leading-snug text-muted [overflow-wrap:anywhere]">{item.from}</span>
+                    {item.kind === "food" && <span className="mt-0.5 block text-[0.8125rem] font-semibold leading-snug [overflow-wrap:anywhere]">{sourceLabel(item, t)}</span>}
                   </th>
                 ))}
               </tr>
@@ -295,11 +303,11 @@ function SideBySide({ items, kind }: { items: readonly CompareItem[]; kind: Comp
                         {f ? (
                           <span className="app-numbers font-mono text-base leading-none">{f.n}{f.unit && <span className="font-sans text-[0.75rem] text-muted"> {f.unit}</span>}</span>
                         ) : (
-                          <span className="block text-[0.75rem] leading-snug text-muted">{items[i]!.kind === "dish" ? t("not published") : t("not on the label")}</span>
+                          <span className="block text-[0.8125rem] leading-snug text-muted">{items[i]!.kind === "dish" ? t("not published") : row.id === "perKg" || row.id === "proteinPound" ? (items[i]!.basis === "ml" ? t("no price per litre") : t("no price per kg")) : t("not on the label")}</span>
                         )}
                         {/* founder 2026-11-17: the UK traffic-light colour of fat, saturates, sugars and salt (foods per 100 g only; the word as well as the colour) */}
                         {(() => { const light = f ? trafficLightFor(items[i]!, row.id) : null; return light ? <span className="mt-1.5 block"><span className="inline-flex rounded-full px-2 py-0.5 text-[0.6875rem] font-bold leading-tight text-[var(--tl-ink)]" style={{ background: `var(--tl-${light})` }}>{t(LIGHT_WORD[light])}</span></span> : null; })()}
-                        {tag && <span className="mt-1.5 block text-[0.6875rem] font-semibold uppercase leading-tight tracking-[0.1em] text-muted">{tag}</span>}
+                        {tag && <span className="mt-1.5 block text-[0.8125rem] font-semibold leading-tight text-muted">{tag}</span>}
                       </td>
                     );
                   })}
@@ -312,7 +320,9 @@ function SideBySide({ items, kind }: { items: readonly CompareItem[]; kind: Comp
       {COMPARE_PICK_ENABLED && <PipsPick items={items} picture={(i) => <HeaderPicture item={i} />} />}
       <p className="mt-5 text-[0.9375rem] leading-snug text-muted">
         {kind === "food"
-          ? t("Numbers as each product's label or page showed them when you added it. Price per kg is the shop's own; “Protein for £1” is that price worked out for the protein. Always check the pack.") + (lights ? " " + t("The colours are the UK Food Standards Agency's traffic-light bands for fat, saturates, sugars and salt per 100 g. Calories and protein have no colour, and products measured per 100 ml aren't coloured.") : "")
+          ? t("Numbers as each product's label or page showed them when you added it. Price per kg is the shop's own; “Protein for £1” is that price worked out for the protein. Always check the pack.")
+            + (others ? " " + t("Some figures aren't a shop's label: they're Open Food Facts contributors' numbers (community data) or the UK government's figures for loose fruit and vegetables, as each column says.") : "")
+            + (lights ? " " + t("The colours are the UK Food Standards Agency's traffic-light bands for fat, saturates, sugars and salt per 100 g. Calories and protein have no colour, and products measured per 100 ml aren't coloured.") : "")
           : t("Numbers as each restaurant publishes them, per serving. Servings differ in size, so a bigger dish can have more of everything.")}
       </p>
     </section>
@@ -361,7 +371,7 @@ function Overview({ items }: { items: readonly CompareItem[] }) {
                       <span className="min-w-0 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{items[i]!.name}</span>
                     </span>
                   ))}
-                  <span className="app-numbers mt-0.5 block text-[0.8125rem] leading-snug text-muted">{figure(e)}{e.winners.length > 1 ? ` · ${t("tied")}` : ""}</span>
+                  <span className="app-numbers mt-0.5 block text-[0.8125rem] leading-snug text-muted">{figure(e)}{e.winners.length > 1 ? ` · ${t("tied")}` : ""}{e.notLabel ? ` · ${t("not from a shop label")}` : ""}</span>
                 </span>
               </li>
             ))}
@@ -385,7 +395,7 @@ function SearchBox({ value, onChange, label, placeholder }: { value: string; onC
       <label htmlFor={id} className="mb-3 block text-xl font-[800] tracking-[-0.01em]">{label}</label>
       <div className="group/search relative">
         <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
-        <input id={id} type="search" value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} {...DONE_KEY} autoComplete="off" className={`glass min-h-13 w-full rounded-full ps-11 pe-4 ${DONE_ROOM} text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-search-cancel-button]:appearance-none`} />
+        <input id={id} type="search" value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} {...DONE_KEY} autoComplete="off" className={`${inputClass} min-h-13 ps-11 pe-4 ${DONE_ROOM} [&::-webkit-search-cancel-button]:appearance-none`} />
         <SearchDone />
       </div>
     </div>
@@ -395,8 +405,9 @@ function SearchBox({ value, onChange, label, placeholder }: { value: string; onC
 function AddButton({ added, onAdd, name, disabled }: { added: boolean; onAdd: () => void; name: string; disabled: boolean }) {
   const t = useT();
   return (
-    <button type="button" onClick={onAdd} disabled={added || disabled} className={`inline-flex min-h-11 shrink-0 items-center gap-1 rounded-full px-3.5 text-[0.8125rem] font-bold transition active:scale-95 disabled:cursor-default ${added ? "border-[1.5px] border-[color:var(--on-accent)] bg-sun text-on-accent" : "border-[1.5px] border-[color:var(--edge)] bg-soft text-foreground hover:not-disabled:bg-[var(--fill)] disabled:opacity-100 disabled:border-transparent disabled:bg-soft-strong disabled:text-muted"}`}>
-      {added ? t("Added") : (<><PlusIcon className="h-4 w-4" />{t("Add")}</>)}
+    // "+ Add" is the ink add pill (every add is ink); once added it is the chosen lime with the dark green edge and a tick (colour meeting, 19 November 2026)
+    <button type="button" onClick={onAdd} disabled={added || disabled} className={`inline-flex min-h-11 shrink-0 items-center gap-1 rounded-full border-[1.5px] px-3.5 text-[0.875rem] font-bold transition active:scale-95 disabled:cursor-default focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${added ? "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-ink bg-ink text-on-ink hover:not-disabled:bg-ink-pressed disabled:border-transparent disabled:bg-soft-strong disabled:text-muted"}`}>
+      {added ? (<><CheckIcon aria-hidden className="h-4 w-4" strokeWidth={2.6} />{t("Added")}</>) : (<><PlusIcon aria-hidden className="h-4 w-4" />{t("Add")}</>)}
       <span className="sr-only"> {name}</span>
     </button>
   );
@@ -414,36 +425,84 @@ function FoodAdder({ items }: { items: readonly CompareItem[] }) {
   );
 }
 
+/** A full list says what to do once, under the results (as a button's reason does), never a row of greyed buttons on their own. */
+function FullNote() {
+  const t = useT();
+  return (
+    <p className="mt-3 flex items-start gap-1.5 text-[0.9375rem] font-semibold leading-snug">
+      <InfoIcon aria-hidden className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0" />
+      <span className="min-w-0">{t("You can compare up to {n} at a time. Remove one to add another.", { n: COMPARE_MAX })}</span>
+    </p>
+  );
+}
+
+/** Products to add, from the supermarkets' own lists (2026-11-20: as Add food searches them; it searched only the older catalogue's community numbers): the
+ *  person's own shops, or one shop they pick; only products we have numbers for, each saying where its numbers come from once added. */
 function FoodResults({ query, items }: { query: string; items: readonly CompareItem[] }) {
   const t = useT();
-  const catalogue = useGroceryCatalogue(null);
-  const prefer = useSettings().shops?.[0] ?? null;
-  const results = useMemo(() => searchProducts(catalogue.products, { query, sort: "name" }).slice(0, 8), [catalogue.products, query]);
+  const mine = useSettings().shops ?? [];
+  const mineKey = mine.join(",");
+  const manifest = useShopManifest();
+  const shops = useMemo(() => labelShops(manifest, mineKey ? mineKey.split(",") : []), [manifest, mineKey]);
+  const own = shops.filter((s) => mine.includes(s));
+  const [scope, setScope] = useState<string | null>(null);
+  const ids = scope ? [scope] : own.length > 0 ? own.slice(0, 3) : shops.slice(0, 1);
+  const [retry, setRetry] = useState(0);
+  const idsKey = ids.join(",");
+  const lists = useShopLists(manifest ? ids : [], retry);
+  const results = useMemo(() => {
+    if (lists.status !== "ready") return [];
+    const out: CompareItem[] = [];
+    for (const id of idsKey.split(",")) {
+      const l = lists.loaded.find((x) => x.file.retailer === id);
+      if (!l) continue;
+      const found = searchShopProducts(l.products, { query, nutrition: true }).map((p) => ({ p, len: normalizeForSearch(p.name).length }));
+      found.sort((a, b) => a.len - b.len);
+      for (const { p } of found.slice(0, 8)) {
+        const entry = compareFoodFromShop(l.file, p);
+        if (entry) out.push(entry);
+      }
+    }
+    return out.slice(0, 8);
+  }, [lists, query, idsKey]);
+  const files = new Map((lists.status === "ready" ? lists.loaded : []).map((l) => [l.file.retailer, l]));
   const full = items.filter((i) => i.kind === "food").length >= COMPARE_MAX;
-  if (catalogue.status === "loading") return <Spinner label={t("Loading products")} />;
-  if (catalogue.status === "error") return <p className="mt-3 text-[0.9375rem] text-muted">{t("Couldn't load the products. Check your connection.")}</p>;
-  if (!results.length) return <p className="mt-3 text-[0.9375rem] text-muted">{t("No products match.")}</p>;
   return (
     <>
-      <ul className={`mt-3 ${listClass}`}>
-        {results.map((p: ListedProduct) => {
-          const entry = compareFoodFromListed(p, prefer);
-          const added = inCompare(items, entry.key);
-          const sources = photoSources(p, prefer);
-          return (
-            <li key={p.gtin} className={rowClass}>
-              {sources.length > 0 && <span className={thumbClass}><PhotoTile sources={sources} /></span>}
-              <span className="min-w-0 flex-1">
-                <span className="block text-base font-bold leading-snug">{entry.name}</span>
-                <span className="app-numbers mt-1 block text-[0.875rem] leading-snug text-muted [text-wrap:balance]">{t("{kcal} kcal · {protein}g protein per 100 {unit}", { kcal: Math.round(entry.numbers.kcal), protein: entry.numbers.protein ?? 0, unit: entry.basis })}</span>
-                <span className="app-numbers block text-[0.875rem] leading-snug text-muted">{entry.from}{entry.price !== undefined ? ` · ${formatPrice(entry.price)}` : ""}</span>
-              </span>
-              <AddButton added={added} disabled={full} name={entry.name} onAdd={() => compareStore.update((l) => addToCompare(l, entry).list)} />
-            </li>
-          );
-        })}
-      </ul>
-      {full && <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("You can compare up to {n} at a time. Take one off first.", { n: COMPARE_MAX })}</p>}
+      {shops.length > 1 && (
+        <div role="group" aria-label={t("Supermarket")} className="no-scrollbar -mx-5 mt-3 flex gap-2 overflow-x-auto px-5">
+          {own.length > 0 && <Chip selected={scope === null} onClick={() => setScope(null)}>{t("My shops")}</Chip>}
+          {shops.map((id) => (<Chip key={id} selected={scope === id || (scope === null && own.length === 0 && ids[0] === id)} onClick={() => setScope(id)}>{retailerName(id)}</Chip>))}
+        </div>
+      )}
+      {!manifest || lists.status === "loading" ? (
+        <Spinner label={t("Loading products")} />
+      ) : lists.loaded.length === 0 && lists.failed.length > 0 ? (
+        <div className="mt-3"><ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>
+      ) : results.length === 0 ? (
+        <p className="mt-3 text-[0.9375rem] text-muted">{t("No products with their numbers match.")}</p>
+      ) : (
+        <ul className={`mt-3 ${listClass}`}>
+          {results.map((entry) => {
+            const added = inCompare(items, entry.key);
+            const l = files.get(entry.fromId);
+            const p = l?.products.find((x) => entry.key === `food:${entry.fromId}:${x.id}`);
+            const sources = l && p ? shopPhotoSources(l.file, p) : [];
+            return (
+              <li key={entry.key} className={rowClass}>
+                {sources.length > 0 && <span className={thumbClass}><PhotoTile sources={sources} /></span>}
+                <span className="min-w-0 flex-1">
+                  <span className="block text-base font-bold leading-snug">{entry.name}</span>
+                  <span className="app-numbers mt-1 block text-[0.875rem] leading-snug text-muted [text-wrap:balance]">{t("{kcal} kcal · {protein} protein per 100 {unit}", { kcal: Math.round(entry.numbers.kcal), protein: `${Math.round((entry.numbers.protein ?? 0) * 10) / 10}\u00a0g`, unit: entry.basis })}</span>
+                  <span className="app-numbers block text-[0.875rem] leading-snug text-muted">{entry.from}{entry.price !== undefined ? ` · ${formatPrice(entry.price)}` : ""}{entry.source !== "label" ? ` · ${sourceLabel(entry, t)}` : ""}</span>
+                </span>
+                <AddButton added={added} disabled={full} name={entry.name} onAdd={() => compareStore.update((l) => addToCompare(l, entry).list)} />
+              </li>
+            );
+          })}
+        </ul>
+      )}
+      {full && <FullNote />}
     </>
   );
 }
@@ -495,7 +554,7 @@ function DishResults({ query, items }: { query: string; items: readonly CompareI
         })}
       </ul>
       {failed && <p role="alert" className="mt-3 text-[0.9375rem] font-semibold">{failed}</p>}
-      {full && <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("You can compare up to {n} at a time. Take one off first.", { n: COMPARE_MAX })}</p>}
+      {full && <FullNote />}
     </>
   );
 }

@@ -1,13 +1,13 @@
 "use client";
 
 import { useMemo } from "react";
-import { addToList, withPhoto, type ShoppingItem } from "@/lib/mm/groceries";
+import { addAtLeast, listForShop, MAX_SHOPPING_ITEMS, withPhoto, type AddOutcome, type ShoppingItem, type ShoppingList } from "@/lib/mm/groceries";
 import { itemCovers, type ListRecipe } from "@/lib/mm/listRecipes";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { recipeForDiet, resolveRecipe, type IngredientPick, type Recipe } from "@/lib/mm/recipes";
 import type { DietPrefs } from "@/lib/mm/pantry";
 import { tk } from "@/lib/mm/i18n";
-import { shopPhotoSources, shopPhotoUrl, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
+import { recipeShops, shopPhotoSources, shopPhotoUrl, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import { shoppingStore } from "@/lib/mm/stores";
 import { useSettings } from "./hooks";
 import { recipeShopSetFor, useRecipeShopSet } from "./recipes";
@@ -107,19 +107,61 @@ export function withOwnPhotos<M extends ListRecipe>(m: M, files: readonly ShopFi
   return changed ? { ...m, resolved: { ...m.resolved, picks } } : m;
 }
 
-/** The note after "Add the rest": the one shop the products went under by name, or "your shopping list" when they went under several. Text for t(). */
-export function addedNote(m: ListRecipe | ListMatch, n: number, fallback: ShopFile): { text: string; values: Record<string, string | number> } {
-  const files = "files" in m && m.files.length ? m.files : [fallback];
-  const into = missingShops(m, files);
-  if (into.length > 1) return { text: tk("Added {n} products to your shopping list."), values: { n } };
-  const shop = (into[0] ?? files[0] ?? fallback).name;
-  return n === 1 ? { text: tk("Added 1 product to your {shop} list."), values: { shop } } : { text: tk("Added {n} products to your {shop} list."), values: { n, shop } };
+/**
+ * The one rule for which list a product goes on (the meeting's shopping-list finding, 20 November 2026: "your Sainsbury's list" was said while everything went
+ * on the main list): the list the person is looking at, when it is the main list or that shop's own list (`viewing`: "" for the main list, an extra list's
+ * id, undefined when no list is shown); else the person's newest list for the product's shop (listForShop); else the main list. Returns "" for the main list.
+ */
+export function targetList(viewing: string | undefined, lists: readonly ShoppingList[] | undefined, retailer: string): string {
+  if (viewing === "") return "";
+  if (viewing && (lists ?? []).some((l) => l.id === viewing && l.shop === retailer)) return viewing;
+  return listForShop({ shoppingLists: lists }, retailer) ?? "";
 }
 
-export function useListRecipes(list: readonly ShoppingItem[]): { shop: string | null; state: ListShopsState | null; matches: ListMatch[] | null } {
+/** Where products went: each list ("" = the main list) and how many went on it, in the order first used; and how many couldn't (the lists were full). */
+export interface Placed { lists: Array<{ list: string; n: number }>; full: number; tried: number }
+
+/**
+ * Puts items on their lists by targetList, each with at least its packs (addAtLeast: never doubled when added again), and counts what really went on. Pure:
+ * the screens run it inside shoppingStore.update.
+ */
+export function placeItems(items: ReadonlyArray<{ item: Omit<ShoppingItem, "qty" | "addedAt" | "list">; packs: number }>, list: readonly ShoppingItem[], lists: readonly ShoppingList[] | undefined, viewing: string | undefined, now = new Date()): { list: ShoppingItem[]; placed: Placed } {
+  const counts = new Map<string, number>();
+  let full = 0;
+  let out = [...list];
+  for (const { item, packs } of items) {
+    const into = targetList(viewing, lists, item.retailer);
+    const r: { list: ShoppingItem[]; outcome: AddOutcome } = addAtLeast(out, { ...item, ...(into ? { list: into } : {}) }, packs, now);
+    out = r.list;
+    if (r.outcome === "full") full++;
+    else if (r.outcome !== "had") counts.set(into, (counts.get(into) ?? 0) + 1);
+  }
+  return { list: out, placed: { lists: [...counts].map(([l, n]) => ({ list: l, n })), full, tried: items.length } };
+}
+
+/**
+ * The note after an add, naming the real lists ("Added 4 products to Sainsbury's.", "Added 6 products to Sainsbury's and Shopping list."), or that the lists are
+ * full, or that everything was on already. `nameOf` gives a list's name as the person sees it ("" = "Shopping list"). Text for t(), and the list to link to.
+ */
+export function addedNote(placed: Placed, nameOf: (list: string) => string): { text: string; values: Record<string, string | number>; list: string | null } {
+  const n = placed.lists.reduce((s, l) => s + l.n, 0);
+  const first = placed.lists[0]?.list ?? null;
+  if (placed.full > 0) return { text: tk("Added {n} of {total}: your lists are full ({max} items). Remove ticked things to make room."), values: { n, total: placed.tried, max: MAX_SHOPPING_ITEMS }, list: first };
+  if (!n) return { text: tk("Everything is on your shopping list already."), values: {}, list: null };
+  const names = new Intl.ListFormat("en-GB", { type: "conjunction" }).format(placed.lists.map((l) => nameOf(l.list)));
+  return n === 1 ? { text: tk("Added 1 product to {list}."), values: { list: names }, list: first } : { text: tk("Added {n} products to {list}."), values: { n, list: names }, list: first };
+}
+
+/**
+ * The recipes for the list. `listShop`: the shop of the list being looked at (an extra list's own shop): its recipes come first when it is in recipes;
+ * when it isn't, `usesOther` names it, so the screen can say which shop the recipes use.
+ */
+export function useListRecipes(list: readonly ShoppingItem[], listShop?: string | null): { shop: string | null; state: ListShopsState | null; matches: ListMatch[] | null; usesOther: string | null } {
   const settings = useSettings();
   const manifest = useShopManifest();
-  const shops = recipeShopSetFor(manifest, null, settings.shops);
+  const inRecipes = !!listShop && recipeShops(manifest).some((r) => r.id === listShop);
+  const mine = inRecipes ? [listShop!, ...(settings.shops ?? []).filter((s) => s !== listShop)] : settings.shops;
+  const shops = recipeShopSetFor(manifest, null, mine);
   const shop = shops[0] ?? null;
   const set = useRecipeShopSet(shops);
   const products = set.status === "ready" ? set.products : null;
@@ -133,13 +175,22 @@ export function useListRecipes(list: readonly ShoppingItem[]): { shop: string | 
   }, [list, products, files, dietKey]);
   const state: ListShopsState | null = !manifest ? { status: "loading" } : !shop ? null
     : set.status === "ready" ? { status: "ready", file: set.files[0]!, files: set.files, products: set.products } : set;
-  return { shop, state, matches };
+  const usesOther = listShop && manifest && !inRecipes && shop ? listShop : null;
+  return { shop, state, matches, usesOther };
 }
 
-/** Put the products a recipe still needs on the list, each under its own shop. `file` is used only for a match without its shops' files (one shop). Returns how many. */
-export function addMissing(m: ListRecipe | ListMatch, file: ShopFile): number {
+/**
+ * Put the products a recipe still needs on the lists (placeItems: the list looked at, else the shop's own list, else the main list), each under its own shop.
+ * `file` is used only for a match without its shops' files (one shop). Returns where they went.
+ */
+export function addMissing(m: ListRecipe | ListMatch, file: ShopFile, lists: readonly ShoppingList[] | undefined, viewing: string | undefined): Placed {
   const files = "files" in m && m.files.length ? m.files : [file];
   const items = missingItems(m, files);
-  shoppingStore.update((list) => items.reduce((l, x) => addToList(l, x.item, new Date(), x.packs), list));
-  return items.length;
+  let placed: Placed = { lists: [], full: 0, tried: items.length };
+  shoppingStore.update((list) => {
+    const r = placeItems(items, list, lists, viewing);
+    placed = r.placed;
+    return r.list;
+  });
+  return placed;
 }

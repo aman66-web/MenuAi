@@ -8,7 +8,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { ChevronRightIcon } from "./icons";
 
-const ROW = "group flex min-h-[4.75rem] items-center gap-3.5 px-4 py-3 transition-colors hover:bg-[var(--fill)] active:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!";
+// hovered or pressed: the page fill (never the line grey, which means "can't be pressed yet")
+const ROW = "group flex min-h-[4.75rem] items-center gap-3.5 px-4 py-3 transition-colors hover:bg-background active:bg-background focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!";
 
 type Props = { icon: ReactNode; title: string; line: string; coach?: string /* names it for Pip's tips (coachSteps.ts) */ } & ({ href: string; onClick?: never } | { onClick: () => void; href?: never });
 

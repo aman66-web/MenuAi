@@ -17,7 +17,8 @@ import { useReminderStatus } from "../_lib/reminderSync";
 // name, choose when, and the iPhone app rings at those times. A row shows the name, how often and when, and, for a reminder that is for today, a round
 // tick for "done today" (it resets itself at midnight). Nothing here says a reminder was missed or late, and nothing keeps a score (CLAUDE.md rule 3).
 // Colours (colour meeting, 19 November 2026, approved by the founder that day): "Done today" has the chosen look (lime, the 2 px dark-green edge and a tick),
-// the tick not yet ticked is an empty ring in the control edge grey; the small notes (Paused, Today at 8:00, Next: ...) are tags you can't tap, with 6 px corners
+// the tick not yet ticked is an empty ring in the control edge grey with the word "Done?" under it, so it reads as something to tap (the 30-person audit,
+// 20 November 2026: a bare circle said nothing); the small notes (Paused, Today at 8:00, Next: ...) are tags you can't tap, with 6 px corners
 // and the page fill inside the card, and "Won't ring" is the small ink badge; the bell sits in a page-fill well in the accent green. Never a "missed" or "late" colour.
 
 /** A tag inside the card: 6 px corners and no edge, so it never looks like a button. */
@@ -41,9 +42,12 @@ function HomeRow({ r, now, htmlLang, wontRing, onEdit }: { r: Reminder; now: Dat
           aria-pressed={done}
           aria-label={t("Mark {name} done", { name: r.title })}
           onClick={() => toggleReminderDone(r.id, now)}
-          className={`relative z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${done ? "border-on-sun bg-sun text-on-sun" : "border-edge bg-card hover:bg-background"}`}
+          className="group/tick relative z-10 inline-flex min-w-11 shrink-0 flex-col items-center gap-1 rounded-2xl transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
-          {done && <CheckIcon aria-hidden className="h-5 w-5" strokeWidth={3} />}
+          <span aria-hidden className={`inline-flex h-11 w-11 items-center justify-center rounded-full border-2 ${done ? "border-on-sun bg-sun text-on-sun" : "border-edge bg-card group-hover/tick:bg-background"}`}>
+            {done && <CheckIcon className="h-5 w-5" strokeWidth={3} />}
+          </span>
+          {!done && <span aria-hidden className="text-[0.8125rem] font-semibold leading-none text-foreground">{t("Done?")}</span>}
         </button>
       ) : (
         <span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-fill text-accent"><BellIcon className="h-5 w-5" /></span>

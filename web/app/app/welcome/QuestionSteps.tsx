@@ -8,7 +8,7 @@ import type { Goal, Preferences } from "@/lib/mm/types";
 import { site } from "@/site.config";
 import { DietPicker } from "../_components/DietPicker";
 import { BoltIcon, DotsIcon, PillIcon, ScaleIcon, TrendDownIcon } from "../_components/icons";
-import { Pip, PipSays } from "../_components/Mascot";
+import { BubbleWords, Pip, PipSays } from "../_components/Mascot";
 import { ShopPicker } from "../_components/ShopPicker";
 import { radioKeyNav } from "../_components/ui";
 import { useT } from "../_lib/i18n";
@@ -19,6 +19,8 @@ import { CARD, GOAL_REACTION, HEADLINE } from "./parts";
 // you avoid? and 4 Where do you shop?. Each has the top-right white "Skip" (page.tsx), which always means "skip this question"; nothing is pre-picked; Pip, 64 px
 // and bare, listens and says one calm line that points at the next screen, changed only when its meaning changes. Step 1 is his one entrance: last night's
 // jump-and-land once (800 ms), then still; still under Reduce Motion. He gives no medication guidance: for GLP-1 the note is a plain line under the tiles.
+// The 20 November 2026 audit: each bubble keeps the room of the longest line it can say on that screen (PipSays `reserve`), so a reaction never moves the
+// choices under the person's finger; on step 1 Pip waves until a goal is tapped, then listens.
 
 export const GOALS: ReadonlyArray<{ value: Goal; label: string; hint: string; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode }> = [
   { value: "lose", label: tk("Lose weight"), hint: tk("Meals and orders that fit a lower calorie target"), Icon: TrendDownIcon },
@@ -39,16 +41,17 @@ export function CounterText({ text }: { text?: string }) {
  */
 export function GoalStep({ goal, shown, reacted, pick, onContinue, counter, total, jump }: { goal: Goal; shown: boolean; reacted: boolean; pick: (g: Goal) => void; onContinue: () => void; counter: string; total: number; jump: boolean }) {
   const t = useT();
+  const hello = t("Hi, I'm Pip. {n} short steps, and I'll show you what {app} can do for you on the way.", { n: total, app: site.name });
   return (
     <section className="mt-5 flex flex-1 flex-col">
       <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{t("What's your goal?")}<CounterText text={counter} /></h1>
-      {/* Pip's one entrance: described once, here */}
+      {/* Pip's one entrance: described once, here; a hello wave until a goal is tapped, then he listens */}
       <div className="mt-4 flex items-end gap-3">
         <span className={`inline-flex shrink-0 ${jump ? "pip-jump" : ""}`} style={jump ? { animationDuration: "800ms", animationDelay: "0ms" } : undefined}>
-          <Pip mood="listen" size={64} label={t("Pip, a small round green character with a sprout on top.")} />
+          <Pip mood={reacted ? "listen" : "wave"} size={64} label={t("Pip, a small round green character with a sprout on top.")} />
         </span>
         <p aria-live="polite" className="speech glass relative mb-3 min-w-0 flex-1 rounded-3xl rounded-es-md px-4 py-3 text-[15px] font-medium leading-snug text-foreground">
-          {reacted ? t(GOAL_REACTION[goal]) : t("Hi, I'm Pip. {n} short steps, and I'll show you what {app} can do for you on the way.", { n: total, app: site.name })}
+          <BubbleWords reserve={[hello, ...GOALS.map((g) => t(GOAL_REACTION[g.value]))]}>{reacted ? t(GOAL_REACTION[goal]) : hello}</BubbleWords>
         </p>
       </div>
       <div role="radiogroup" aria-label={t("Your goal")} className="mt-4 space-y-2.5">
@@ -98,18 +101,20 @@ export function AvoidStep({ prefs, setPrefs, onContinue, counter }: { prefs: Pre
   const allergens = prefs.avoidAllergens?.length ?? 0;
   const count = avoidCount(prefs);
   const pulse = allergens > 0 ? "allergen" : count > 0 ? "diet" : "none";
+  // the allergy line says what the filter really does: where a restaurant publishes allergens, dishes that list them are hidden; where it publishes none, its
+  // page says so (lib/mm/menu-view.ts uncheckedDiet). Never a promise.
+  const lines = {
+    allergen: t("Where a restaurant publishes allergens, dishes that list them are hidden; where it publishes none we say so on its page. Always check with the restaurant."),
+    diet: t("Got it. I'll leave those out where the menu or label says so."),
+    none: t("Pick anything you don't eat. I'll leave it out of everything I show you next."),
+  };
   return (
     <section className="mt-5 flex flex-1 flex-col">
       <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{t("Anything you avoid?")}<CounterText text={counter} /></h1>
-      {/* Pip pops up (and a screen reader reads him) only when his words change: re-reading on every tap was the low-vision tester's first complaint. The allergy
-          line says what the filter does (dishes that list them, and dishes with no allergy information, are hidden), not a promise. */}
+      {/* Pip pops up (and a screen reader reads him) only when his words change: re-reading on every tap was the low-vision tester's first complaint. */}
       <div aria-live="polite" className="mt-4">
-        <PipSays lively pulse={pulse} size={64} mood="listen">
-          {pulse === "allergen"
-            ? t("Got it. I'll hide dishes that list them, and dishes with no allergy information. Always check with staff, and check each pack.")
-            : pulse === "diet"
-              ? t("Got it. I'll leave those out where the menu or label says so.")
-              : t("Pick anything you don't eat. I'll leave it out of everything I show you next.")}
+        <PipSays lively pulse={pulse} size={64} mood="listen" reserve={[lines.allergen, lines.diet, lines.none]}>
+          {lines[pulse]}
         </PipSays>
       </div>
       <p className="mb-4 mt-4 text-[15px] text-muted">{t("Tap everything that applies. Change it any time.")}</p>
@@ -129,7 +134,7 @@ export function ShopsStep({ shops, setShops, onContinue, counter, defaultShop }:
     <section className="mt-5 flex flex-1 flex-col">
       <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{t("Where do you shop?")}<CounterText text={counter} /></h1>
       <div aria-live="polite" className="mt-4">
-        <PipSays lively pulse={shops.length > 0 ? "picked" : "ask"} size={64} mood="listen">
+        <PipSays lively pulse={shops.length > 0 ? "picked" : "ask"} size={64} mood="listen" reserve={[t("Got it. I'll show those shops first."), t("Tick the shops you use. Next, I'll show you recipes made from their products.")]}>
           {shops.length > 0 ? t("Got it. I'll show those shops first.") : t("Tick the shops you use. Next, I'll show you recipes made from their products.")}
         </PipSays>
       </div>

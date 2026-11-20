@@ -17,12 +17,13 @@ protocol BarcodeScanning {
     func scan() async -> ScanOutcome
 }
 
-/// The iPhone's own live scanner (VisionKit), shown full screen with a Cancel button.
+/// The iPhone's own live scanner (VisionKit), shown full screen with "Point at the barcode" and a Cancel button. One at a time.
 final class VisionKitBarcodeScanner: BarcodeScanning {
     private var session: ScanSession?
 
     func scan() async -> ScanOutcome {
-        guard DataScannerViewController.isSupported else { return .unavailable }
+        // one scanner at a time: a second request while one is open would stack a second scanner whose Cancel does nothing
+        guard session == nil, DataScannerViewController.isSupported else { return .unavailable }
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
             break
@@ -31,7 +32,8 @@ final class VisionKitBarcodeScanner: BarcodeScanning {
         default:
             return .denied
         }
-        guard DataScannerViewController.isAvailable, let presenter = UIApplication.shared.topViewController else { return .unavailable }
+        // checked again after the camera question (no suspension from here to `self.session = session`, so two requests can't both get through)
+        guard session == nil, DataScannerViewController.isAvailable, let presenter = UIApplication.shared.topViewController else { return .unavailable }
         return await withCheckedContinuation { continuation in
             let session = ScanSession { [weak self] outcome in
                 self?.session = nil
@@ -62,6 +64,8 @@ private final class ScanSession: NSObject, DataScannerViewControllerDelegate {
             isHighlightingEnabled: true
         )
         scanner.delegate = self
+        // the app is English only (web/lib/mm/config.ts LANGUAGES_ENABLED); a plain instruction instead of a bare camera
+        scanner.navigationItem.title = "Point at the barcode"
         scanner.navigationItem.leftBarButtonItem = UIBarButtonItem(systemItem: .cancel, primaryAction: UIAction { [weak self] _ in
             self?.end(.cancelled)
         })

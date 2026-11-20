@@ -30,8 +30,9 @@ export function focusTargetBox(selector: string) {
   });
 }
 
-/** `onApply` gets the four numbers as text for the boxes and the plan's notes (a caution about the measurements, the 1,200 floor...) to show under them. */
-export function TargetSuggestForm({ goal, preferences, onApply }: { goal: Goal; preferences: Preferences; onApply: (targets: SuggestedTargets, notes: readonly PlanNote[]) => void }) {
+/** `onApply` gets the four numbers as text for the boxes, the plan's notes (a caution about the measurements, the 1,200 floor...) to show under them, and
+ *  the plan's GLP-1 meal size when the goal is GLP-1 (Settings saves it with the targets). */
+export function TargetSuggestForm({ goal, preferences, onApply }: { goal: Goal; preferences: Preferences; onApply: (targets: SuggestedTargets, notes: readonly PlanNote[], extra: { glp1MealCap?: number }) => void }) {
   const t = useT();
   const [body, setBody] = useState<BodyAnswers>(EMPTY_BODY);
   const [result, setResult] = useState<AnswersPlan | null>(null);
@@ -59,7 +60,8 @@ export function TargetSuggestForm({ goal, preferences, onApply }: { goal: Goal; 
       <HeightField value={body.height} onChange={(height) => change({ height })} />
       <ActivityTiles compact value={body.activity} onChange={(activity) => change({ activity })} />
       <BodyPrivacyNote />
-      <Button type="submit" variant="secondary" full>{t("Suggest targets")}</Button>
+      {/* not "Suggest targets": that is the name of the link that opens this form (the overnight audit, 20 November 2026: two buttons with one name) */}
+      <Button type="submit" variant="secondary" full>{t("Work out my numbers")}</Button>
 
       {plan?.kind === "under18" && <p role="status" className="text-[0.9375rem] font-medium leading-snug">{t(UNDER_18_COPY)}</p>}
       {plan?.kind === "invalid" && <p role="alert" className="text-[0.9375rem] leading-snug text-muted">{t("Enter an age from 18 to 100, your weight and your height.")}</p>}
@@ -73,7 +75,7 @@ export function TargetSuggestForm({ goal, preferences, onApply }: { goal: Goal; 
             <Figure value={`${plan.fat}g`} unit={t("fat")} />
           </div>
           <PlanNotes notes={plan.notes} className="mt-4" />
-          <Button full className="mt-5" onClick={() => onApply(targetTexts(plan), plan.notes)}>{t("Use these")}</Button>
+          <Button full className="mt-5" onClick={() => onApply(targetTexts(plan), plan.notes, plan.glp1MealCap !== undefined ? { glp1MealCap: plan.glp1MealCap } : {})}>{t("Use these")}</Button>
         </div>
       )}
     </form>

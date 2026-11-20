@@ -14,6 +14,7 @@ import { AlertCircleIcon, InfoIcon, WarningIcon } from "./icons";
 // - "error": an app failure (no connection, sign-in failed, purchase failed): the pale red fill, a 4 px red bar, the circle-! and a red bold title over
 //   ink words. Its shape and icon differ from the allergy note's, because the two are nearly the same colour to colour-blind eyes.
 // None of them ever sits on a food figure or a price, and none adds words of its own except the allergy note's heading.
+// The 4 px bars are straight strips inside the box (a 4 px start border curled into a crescent round the 20 px corner: the 20 November 2026 audit).
 
 export type NoteKind = "allergy" | "info" | "banner" | "error";
 
@@ -28,14 +29,17 @@ export interface NoteProps {
 
 const cx = (...c: Array<string | false | null | undefined>) => c.filter(Boolean).join(" ");
 
+/** The straight bar at the start of a banner (the control edge's grey) or an error (red). */
+const BAR: Partial<Record<NoteKind, string>> = { banner: "bg-edge", error: "bg-danger" };
+
 /** Inside a white card or a sheet the info line lies flat in the page fill with no edge; on the page it is white with the card line. */
 const FLAT_IN_CARD = "[:is(.glass,.hero-card,.inset-card,.sheet-panel)_&]:border-transparent [:is(.glass,.hero-card,.inset-card,.sheet-panel)_&]:bg-fill";
 
 const BOX: Record<NoteKind, string> = {
   allergy: "gap-3 rounded-[1.25rem] border-2 border-note-edge bg-note-bg p-4",
   info: `gap-2 rounded-[0.375rem] border border-line bg-card px-3 py-2 ${FLAT_IN_CARD}`,
-  banner: "gap-3 rounded-[1.25rem] border border-s-4 border-line border-s-edge bg-card p-4",
-  error: "gap-3 rounded-[1.25rem] border-s-4 border-danger bg-danger-bg p-4",
+  banner: "relative gap-3 overflow-hidden rounded-[1.25rem] border border-line bg-card p-4 ps-5",
+  error: "relative gap-3 overflow-hidden rounded-[1.25rem] bg-danger-bg p-4 ps-5",
 };
 
 export function Note({ kind = "allergy", heading, children, className, id }: NoteProps) {
@@ -48,6 +52,7 @@ export function Note({ kind = "allergy", heading, children, className, id }: Not
     : <InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-ink" />;
   return (
     <div id={id} role={kind === "error" ? "alert" : kind === "banner" ? "status" : "note"} className={cx("flex text-[0.9375rem] leading-snug text-foreground", BOX[kind], className)}>
+      {BAR[kind] && <span aria-hidden className={cx("absolute inset-y-0 start-0 w-1", BAR[kind])} />}
       {icon}
       <div className="min-w-0 flex-1 [overflow-wrap:anywhere]">
         {title != null && title !== false && <p className={cx("font-bold", kind === "error" && "text-danger")}>{title}</p>}

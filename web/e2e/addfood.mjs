@@ -9,7 +9,8 @@ const BASE = process.env.BASE ?? "http://localhost:3101";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 const baseSettings = { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true, shops: ["sainsburys"], devProOverride: true };
 let passed = 0, failed = 0;
-async function step(name, fn) { try { await fn(); passed++; console.log("PASS", name); } catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n")[0]); } }
+// ONLY="<start of a step's name>" runs that step alone; a failure names what it waited for
+async function step(name, fn) { if (process.env.ONLY && !name.startsWith(process.env.ONLY)) return; try { await fn(); passed++; console.log("PASS", name); } catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n")[0], (String(e.message).match(/waiting for (.*)/) ?? [])[1] ?? ""); } }
 const expect = (c, m) => { if (!c) throw new Error(m); };
 async function open(extra = {}, settings = {}, seed = {}) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, serviceWorkers: "block", locale: "en-GB", ...extra });
@@ -109,13 +110,13 @@ await step("an entry stays in the meal whose + was tapped, whatever the time, on
     await dlg(page).getByRole("button", { name: `Add to ${meal}`, exact: true }).tap();
     await page.getByText(`Added “${name}” to ${meal}.`).waitFor();
   }
-  await page.getByText("Some meals you added today have no protein, carbs or fat entered, so today's figures only count the rest.").waitFor(); // never "0g" as if it were known (Home's wording says "today": it sits under all three of Home's pages)
+  await page.getByText("Some foods today don't have every figure (typed in without them, or from a restaurant that publishes calories only), so protein, carbs and fat count only the foods that have them.").waitFor(); // never "0g" as if it were known (Home's wording says "today": it sits under all three of Home's pages)
   for (const [meal, cals] of [["Breakfast", "111"], ["Lunch", "222"], ["Dinner", "333"]]) {
     const text = await mealRow(page, meal).innerText();
     expect(new RegExp(`^${meal}\\s+${cals}\\s*/`).test(text.trim()), `${meal} row: ${text}`);
   }
   await page.goto(BASE + "/app/today");
-  await page.getByText("Some meals you added have no protein, carbs or fat entered, so those figures only count the rest.").waitFor({ timeout: 30000 });
+  await page.getByText("Some foods today don't have every figure (typed in without them, or from a restaurant that publishes calories only), so protein, carbs and fat count only the foods that have them.").waitFor({ timeout: 30000 });
   for (const [meal, name] of [["Breakfast", "Bfast thing"], ["Lunch", "Lunch thing"], ["Dinner", "Dinner thing"]]) {
     const section = page.locator("section", { has: page.getByRole("heading", { name: meal, exact: true }) });
     await section.waitFor({ timeout: 30000 });
@@ -165,10 +166,13 @@ await step("Today's meals: every meal on today has one Add to …, which adds to
   expect(e && e.meal === "dinner" && e.name === "Soup" && e.nutrients.calories === 300, "entry: " + JSON.stringify(e));
   expect((await section("Dinner").innerText()).includes("Soup"), "Soup isn't in the Dinner section: " + (await section("Dinner").innerText()));
   for (const other of ["Breakfast", "Lunch"]) expect(!(await section(other).innerText()).includes("Soup"), `Soup is also under ${other}`);
-  // Dinner now has the round + beside its heading (no words in it), and still exactly one "Add to Dinner"
+  // Dinner still has exactly one "Add to Dinner": since the 30-person audit (20 November 2026) the same wide button with its words under the meal's foods,
+  // not a round + beside the heading
   const dinnerAdd = section("Dinner").getByRole("button", { name: "Add to Dinner", exact: true });
   expect((await dinnerAdd.count()) === 1, `Dinner has ${await dinnerAdd.count()} "Add to Dinner" controls`);
-  expect((await dinnerAdd.innerText()).trim() === "", "the header + has words in it: " + (await dinnerAdd.innerText()));
+  expect((await dinnerAdd.innerText()).trim() === "Add to Dinner", "the button lost its words: " + (await dinnerAdd.innerText()));
+  const [soupRow, addBox] = [await section("Dinner").getByText("Soup", { exact: true }).boundingBox(), await dinnerAdd.boundingBox()];
+  expect(addBox.y > soupRow.y, "Add to Dinner is under the meal's foods");
   // the "Added" line sits at the top, clear of the + buttons
   const bar = await status.boundingBox();
   expect(bar && bar.y < 120, "the Added line isn't at the top: " + JSON.stringify(bar));
@@ -254,12 +258,12 @@ await step("a recipe: the figures on its row are what is logged, more servings m
   await page.waitForTimeout(200);
   const oneAndHalf = kcal(await row.innerText());
   expect(Math.abs(oneAndHalf - one * 1.5) <= 1.5, `1.5 servings: ${oneAndHalf} vs ${one}`);
-  expect((await page.locator("output").innerText()).trim() === "1.5", "the stepper doesn't read 1.5");
+  expect((await page.locator("output").innerText()).trim() === "1½", "the stepper doesn't read 1½: " + (await page.locator("output").innerText())); // halves as a cook says them (lib/mm/user-data.ts halves)
   await firstAdd.tap();
   await page.getByText(/^Added “.*” to Lunch\.$/).waitFor();
   const [e] = await log(page);
   expect(e.source === "recipe" && e.meal === "lunch", "entry: " + JSON.stringify(e));
-  expect(e.name === `${title} (1.5 servings)`, `name: ${e.name} vs ${title}`);
+  expect(e.name === `${title} (1½ servings)`, `name: ${e.name} vs ${title}`);
   expect(e.nutrients.calories === oneAndHalf && e.nutrients.protein > 0 && e.nutrients.carbs > 0 && e.nutrients.fat >= 0, "numbers: " + JSON.stringify(e.nutrients));
   expect(errors.length === 0, errors.join(" | "));
   await ctx.close();
@@ -419,7 +423,7 @@ await step("a supermarket product: found by name, how much, the label's figures 
   await ctx.close();
 });
 
-await step("a supermarket product: Back goes list > amount > list > the four choices; Scan a barcode opens the camera or its typed fallback, and a typed barcode finds the product", async () => {
+await step("a supermarket product: Back goes list > amount > list > the four choices; Scan a barcode opens the camera or its typed fallback, and a typed barcode opens the product's amount", async () => {
   const asda = await (await fetch(BASE + "/groceries/asda.json")).json();
   const p = asda.products.find((x) => x.price && x.kcal > 0 && x.protein > 0);
   const { ctx, page } = await open();
@@ -431,8 +435,13 @@ await step("a supermarket product: Back goes list > amount > list > the four cho
   await typed.waitFor({ timeout: 20000 }); // this browser has no camera: the typed fallback comes up
   await typed.fill(p.gtin);
   await page.getByRole("button", { name: "Find" }).tap();
+  // a barcode with one product goes straight to "How much did you have?" for it (founder 2026-11-20: "when they scan a barcode of a product, it needs to come
+  // up with the product and they can input in"); Back shows the search with the number in it and the product's row
+  await page.getByLabel(/How much did you have/).waitFor({ timeout: 60000 });
+  expect((await dlg(page).innerText()).includes(p.name), "the scanned product isn't the one shown: " + (await dlg(page).innerText()).slice(0, 200));
+  await page.getByRole("button", { name: "Back", exact: true }).tap();
   await dlg(page).getByRole("button", { name: /^Choose / }).first().waitFor({ timeout: 60000 });
-  expect(await page.getByLabel("Search products or type a barcode").inputValue() === p.gtin.replace(/^0+/, "") || (await page.getByLabel("Search products or type a barcode").inputValue()).includes(p.gtin.replace(/^0+/, "")), "the scanned number didn't go into the search");
+  expect((await page.getByLabel("Search products or type a barcode").inputValue()).includes(p.gtin.replace(/^0+/, "")), "the scanned number didn't go into the search");
   await dlg(page).getByRole("button", { name: /^Choose / }).first().tap();
   await page.getByLabel(/How much did you have/).waitFor();
   await page.getByRole("button", { name: "Back", exact: true }).tap();

@@ -25,6 +25,10 @@ export interface PlanInfo {
  *  constant, so the minifier drops the figures; nothing in that build reads them (ProPlans, the Pro pages and the paid text of the legal pages are off there). */
 const FREE_APP = process.env.NEXT_PUBLIC_APP_BUILD === "1" && process.env.NEXT_PUBLIC_IAP !== "1";
 
+// STRIPE-ONLY DRAFTS (the website's paid access, switched off: NEXT_PUBLIC_WEB_PRO). The iPhone app never reads these figures: it shows only StoreKit's own
+// names and prices (founder decision; AppStorePlans.tsx, lib/payments/iap.ts IAP_PLAN_IDS, Annual £49.99 and Monthly £4.99 in App Store Connect). What the website
+// would charge is the founder's decision and still open; nothing here is live. The landing page and the terms quote this table only while WEB_PRO_ENABLED (and the
+// landing page's FAQ also on APP_PREMIUM: app/(site)/page.tsx, to be rewritten so it never quotes these drafts).
 const PLAN_TABLE: Record<PlanId, PlanInfo> = {
   pass90: { id: "pass90", label: "Founding Member 90-Day Pass", amountPence: 999, price: "£9.99", per: "one payment", tagline: "No recurring subscription. 90 days of access.", mode: "payment", badge: "Most popular" },
   annual: { id: "annual", label: "Annual", amountPence: 1499, price: "£14.99", per: "a year", tagline: "About 29p a week. Renews each year until you cancel.", mode: "subscription", badge: "Best value" },

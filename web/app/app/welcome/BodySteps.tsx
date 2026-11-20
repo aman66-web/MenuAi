@@ -12,12 +12,18 @@ import { HEADLINE } from "./parts";
 // About you (sex and age), Your height and weight (each in the unit the person uses) and how active they are. The page owns the answers and the buttons; these
 // draw one screen's questions each. What is typed is kept in the page's React state only and used once, to work out the suggested targets (CLAUDE.md rule 4:
 // never stored, never sent), and every screen says so on its own line at 16 px, before anything is typed.
+// The 20 November 2026 audit: About you says it once ("Only to work out your daily calories. Nothing here is saved or sent anywhere."), so the Age box is
+// on screen at 375x667, first (it is the one answer needed to go on); "Already have a daily calorie number?" sits under the boxes; nothing is ticked for sex
+// until a tile is tapped; the Age box's card has the id the page's grey Continue scrolls to.
 // Pip is off About you and Your height and weight (the onboarding redesign meeting of 20 November 2026: a typed body measurement counts as a number screen, so
 // his sentence stays as plain text in the app's voice). On How active are you? he listens and says it is the last question: that screen has no figure and no
 // typed measurement. He never reacts to what is typed about the person's body.
 
 /** `counter`: "Step n of N", read by a screen reader with the headline (the bar's own words are hidden from it). */
 interface StepProps { body: BodyAnswers; change: (patch: Partial<BodyAnswers>) => void; counter?: string }
+
+/** The Age box's card, which the grey Continue on About you brings into view. */
+export const AGE_BOX = "welcome-age";
 
 /** The privacy promise, on its own line at 16 px in the page's ink, clear of the grey button's reason line. */
 function PrivacyLine() {
@@ -34,19 +40,23 @@ function Counter({ text }: { text?: string }) {
   return text ? <span className="sr-only">{`, ${text}`}</span> : null;
 }
 
-export function AboutYouStep({ body, change, counter }: StepProps) {
+/** `sex`: the tile tapped, or null while none is (the sums use "Prefer not to say" until then). */
+export function AboutYouStep({ body, sex, change, counter }: StepProps & { sex: BodyAnswers["sex"] | null }) {
   const t = useT();
   return (
     <>
       <h1 className={HEADLINE}>{t("About you")}<Counter text={counter} /></h1>
-      <p className="mt-3 text-base leading-snug text-foreground">{t("Only to work out your daily calories.")}</p>
-      {/* the calorie-number route, with no new screen: skip the questions and type the number on the targets screen */}
-      <p className="mt-2 text-base leading-snug text-foreground">{t("Already have a daily calorie number? Skip these questions and type it in on the next screen.")}</p>
-      <PrivacyLine />
+      <p className="mt-3 flex items-start gap-2.5 text-base leading-snug text-foreground">
+        <ShieldIcon aria-hidden className="mt-[0.2rem] h-[1.125rem] w-[1.125rem] shrink-0 text-accent" />
+        <span>{t("Only to work out your daily calories. Nothing here is saved or sent anywhere.")}</span>
+      </p>
+      {/* the Age box first: it is the one answer needed to go on, so it is in view above the bottom bar at 375x667 */}
       <div className="mt-5 space-y-3.5">
-        <div className={BODY_CARD}><SexTiles value={body.sex} onChange={(sex) => change({ sex })} /></div>
-        <div className={BODY_CARD}><AgeField value={body.age} onChange={(age) => change({ age })} /></div>
+        <div id={AGE_BOX} className={`${BODY_CARD} scroll-mt-6 scroll-mb-52`}><AgeField value={body.age} onChange={(age) => change({ age })} /></div>
+        <div className={BODY_CARD}><SexTiles value={sex} onChange={(s) => change({ sex: s })} /></div>
       </div>
+      {/* the calorie-number route, with no new screen: skip the questions and type the number on the targets screen */}
+      <p className="mt-4 text-base leading-snug text-foreground">{t("Already have a daily calorie number? Skip these questions and type it in on the next screen.")}</p>
     </>
   );
 }

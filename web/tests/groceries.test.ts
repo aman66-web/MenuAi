@@ -28,6 +28,16 @@ describe("groceries", () => {
     ])]);
     expect(searchProducts(drinks, { sort: "density" }).map((x) => x.name)).toEqual(["Chicken Breast", "Skyr", "Kombucha"]);
   });
+  it("ranks by protein per 100 kcal only products with at least 20 kcal and 5 g of protein (a sweetener or a low-protein drink comes after)", () => {
+    const shelf = mergeProducts([file("tesco", [
+      p({ gtin: "5000000000201", name: "Granulated Sweetener", kcal: 4, protein: 0.6 }),
+      p({ gtin: "5000000000202", name: "Protein Water", kcal: 15, protein: 3.5 }),
+      p({ gtin: "5000000000203", name: "Low Fat Cottage Cheese", kcal: 72, protein: 12 }),
+      p({ gtin: "5000000000204", name: "Skimmed Milk", kcal: 35, protein: 3.5 }),
+      p({ gtin: "5000000000205", name: "Cod Fillets", kcal: 80, protein: 18 }),
+    ])]);
+    expect(searchProducts(shelf, { sort: "density" }).map((x) => x.name)).toEqual(["Cod Fillets", "Low Fat Cottage Cheese", "Protein Water", "Granulated Sweetener", "Skimmed Milk"]);
+  });
   it("finds a product by barcode, with or without a leading zero", () => {
     expect(barcodeQuery("5 012345-678900")).toBe("5012345678900");
     expect(barcodeQuery("012345678905")).toBe("12345678905");
@@ -79,7 +89,8 @@ describe("groceries", () => {
     list = addToList(list, { gtin: "5012345678900", retailer: "aldi", name: "Greek Style Yogurt", brand: "Mamia", size: "500 g" });
     list = addToList(list, { gtin: "5012345678900", retailer: "tesco", name: "Greek Style Yogurt", brand: "Mamia", size: "500 g" });
     expect(list.map((i) => [i.retailer, i.qty])).toEqual([["aldi", 2], ["tesco", 1]]);
-    expect(listAsText(list)).toBe("Aldi\n- 2 x Greek Style Yogurt 500 g (5012345678900)\n\nTesco\n- 1 x Greek Style Yogurt 500 g (5012345678900)");
+    // no barcode numbers in the message (the link carries the products)
+    expect(listAsText(list)).toBe("Aldi\n- 2 x Greek Style Yogurt 500 g\n\nTesco\n- 1 x Greek Style Yogurt 500 g");
     expect(setQty(list, "5012345678900", "tesco", 0).map((i) => i.retailer)).toEqual(["aldi"]);
     expect(setQty(list, "5012345678900", "aldi", 99)[0]!.qty).toBe(20);
   });
@@ -106,6 +117,15 @@ describe("the cost of the amount a recipe uses", () => {
 describe("search results for one person (usability test 2026-11-19: George's Sainsbury's porridge came after Asda's)", () => {
   const p = (name: string, retailers: string[]) => ({ name, retailers });
   const list = [p("ASDA Porridge Oats 1kg", ["asda"]), p("Sainsbury's Golden Syrup Porridge Oat Sachets 10 x 36g", ["sainsburys"]), p("Sainsbury's Porridge Oats 1kg", ["sainsburys"]), p("Quaker Oat So Simple Original Porridge", ["asda", "tesco"])];
+  it("keeps the same order however the names are written (case, accents), and sorts thousands quickly", () => {
+    const named = [p("BRAN FLAKES", ["asda"]), p("bran flakes", ["asda"]), p("Brän Flakes", ["asda"]), p("Apple", ["asda"])];
+    expect(forTheirShops(named, ["asda"]).map((x) => x.name)).toEqual(["Apple", "BRAN FLAKES", "bran flakes", "Brän Flakes"]);
+    const many = Array.from({ length: 5000 }, (_, i) => p(`Product ${5000 - i} ${"x".repeat(i % 7)}`, [i % 2 ? "asda" : "tesco"]));
+    const started = performance.now();
+    const sorted = forTheirShops(many, ["tesco"]);
+    expect(performance.now() - started).toBeLessThan(1000);
+    expect(sorted.slice(0, 2500).every((x) => x.retailers.includes("tesco"))).toBe(true);
+  });
   it("puts their own shops first, in the order they chose them, then the plainer names", () => {
     expect(forTheirShops(list, ["sainsburys"]).map((x) => x.name)).toEqual(["Sainsbury's Porridge Oats 1kg", "Sainsbury's Golden Syrup Porridge Oat Sachets 10 x 36g", "ASDA Porridge Oats 1kg", "Quaker Oat So Simple Original Porridge"]);
     expect(forTheirShops(list, ["tesco", "sainsburys"])[0]!.name).toBe("Quaker Oat So Simple Original Porridge");

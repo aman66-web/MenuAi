@@ -191,7 +191,8 @@ export interface SyncEngineDeps {
   meta: Store<SyncMeta>;
   api: SyncApi;
   now: () => number;
-  /** Stores that stay on the device (water): they belong to whoever was using it, so a different person signing in starts with them empty too. */
+  /** Stores that stay on the device (water, the meal plan, recently viewed and the like): they belong to whoever was using it, so a different person signing
+   *  in starts with them empty too. */
   localStores?: ReadonlyArray<{ reset: () => void }>;
 }
 
@@ -203,6 +204,9 @@ export class SyncEngine {
   /** Set while the engine itself is writing a store, so that write isn't mistaken for the person's own change. */
   applying = false;
   private listeners = new Set<() => void>();
+  /** Bumped by stop() and forget(): a sync that started before (still waiting on the server) then writes nothing, so it can't put the account's data back
+   *  into a device that has just signed out or been cleared. */
+  private generation = 0;
 
   constructor(private deps: SyncEngineDeps) {}
 
@@ -233,8 +237,18 @@ export class SyncEngine {
     }
   }
 
-  /** After signing out of the account for good (deleting it): forget the account link; the data stays here as plain device data. */
+  /** Stop syncing on this device (signing out): a sync already running writes nothing more. The account link is kept, so the same person signing in again
+   *  carries on from here. */
+  stop(): void {
+    this.generation++;
+    this.again = false;
+    this.setStatus("idle");
+  }
+
+  /** After signing out of the account for good (deleting it, or Clear data): stop, and forget the account link; the data stays here as plain device data. */
   forget(): void {
+    this.generation++;
+    this.again = false;
     this.deps.meta.set(EMPTY_META);
     this.setStatus("idle");
   }
@@ -300,13 +314,17 @@ export class SyncEngine {
   }
 
   private async once(): Promise<void> {
+    const generation = this.generation;
+    const stopped = () => generation !== this.generation; // signed out or cleared while this sync waited on the server
     this.setStatus("syncing");
     try {
       const remote = await this.deps.api.syncGetAll();
+      if (stopped()) return;
       for (const adapter of this.deps.adapters) {
         const first = this.cycle(adapter, remote[adapter.name]);
         if (!first.merged || !first.push) continue;
         const echoed = await this.deps.api.syncPut(adapter.name, first.merged);
+        if (stopped()) return;
         // The server answered with its merged copy. The person may have changed something while we waited: fold that in before applying.
         const second = this.cycle(adapter, echoed);
         if (second.push) this.again = true;
@@ -314,6 +332,7 @@ export class SyncEngine {
       this.patchMeta((m) => ({ ...m, lastSyncAt: this.deps.now() }));
       this.setStatus("idle");
     } catch (e) {
+      if (stopped()) return;
       const status = (e as { status?: number } | null)?.status;
       this.setStatus(status === 0 ? "offline" : status === 401 ? "signedOut" : "error");
     }

@@ -74,6 +74,28 @@ const coversNothing = (page) => page.evaluate(() => {
     return card.bottom <= r.top || card.top >= r.bottom;
   });
 });
+/**
+ * The 30-person audit (20 November 2026, lib/mm/coach.ts placeTip, TIP_CARD_MIN): the card keeps clear of Home's numbers and the Start here card wherever the
+ * screen has room for them and the card whole; where it hasn't (the tab bar lit, with both cards taller than the room above it), it may cover them, but is
+ * never shorter than TIP_CARD_MIN (168 px), never covers the lit control, and its Next/Done and "Stop the tips" are whole on the screen. "" when that holds.
+ */
+const keptClear = (page) => page.evaluate(() => {
+  const card = document.querySelector("dialog[open] .max-w-\\[24rem\\]").getBoundingClientRect();
+  const parts = ['[data-coach="home-numbers"]', '[data-coach="home-start"]'].map((sel) => document.querySelector(sel)?.getBoundingClientRect()).filter((r) => r && r.height > 0);
+  const covered = parts.some((r) => !(card.bottom <= r.top || card.top >= r.bottom));
+  if (!covered) return "";
+  const ring = [...document.querySelectorAll("dialog[open] div[aria-hidden]")].find((d) => d.style.boxShadow.includes("200vmax"))?.getBoundingClientRect();
+  const stack = Math.max(...parts.map((r) => r.bottom)) - Math.min(...parts.map((r) => r.top));
+  const tabs = document.querySelector('[data-coach="tabs"]').getBoundingClientRect();
+  const room = tabs.top - 16; // the most the page above the tab bar can hold
+  const buttons = [...document.querySelectorAll("dialog[open] button")].filter((b) => /^(Next|Done|Stop the tips)$/.test(b.textContent.trim())).map((b) => b.getBoundingClientRect());
+  const why = [];
+  if (stack + card.height + 24 <= room) why.push(`there was room to keep clear (cards ${Math.round(stack)} + card ${Math.round(card.height)} <= ${Math.round(room)})`);
+  if (card.height < 168) why.push(`the card is ${Math.round(card.height)} px, under 168`);
+  if (ring && !(card.bottom <= ring.top + 1 || card.top >= ring.bottom - 1)) why.push("the card covers the lit control");
+  if (buttons.length < 2 || buttons.some((b) => b.top < 0 || b.bottom > innerHeight || b.top < card.top - 1 || b.bottom > card.bottom + 1)) why.push("its buttons aren't whole on the screen");
+  return why.join("; ");
+});
 /** What the welcome screens leave for Home: the arrival toast and the Start here card (lib/mm/homePages.ts withArrival). */
 const ARRIVAL = { seen: false, slid: true, hintDays: 0, lastHintDay: "", arrival: { at: new Date().toISOString(), toast: "signedIn", card: true, firstRecipeId: "scrambled-eggs-on-toast" } };
 
@@ -110,7 +132,7 @@ await step("after the welcome screens: the tips wait for the arrival toast; Home
   await tip(page).getByRole("button", { name: "Next" }).click();
   await page.getByRole("heading", { level: 2, name: "Moving around" }).waitFor();
   expect(await litAround(page, '[data-coach="tabs"]'), "the tab bar is lit");
-  expect(await coversNothing(page), "Moving around: the card covers neither card");
+  { const why = await keptClear(page); expect(why === "", `Moving around: ${why}`); }
   // Pip stands on the real tab bar (above its top edge, not on the ink) and hops once to the far end; the card has no Pip of its own on this tip
   await page.waitForTimeout(1600);
   const hop = await page.evaluate(() => {
@@ -135,20 +157,21 @@ await step("after the welcome screens: the tips wait for the arrival toast; Home
   await tip(page).getByRole("button", { name: "Done" }).click();
   await tip(page).waitFor({ state: "hidden" });
 
-  // back on Home: the second visit's tips (no Start here card now: it was one time)
+  // back on Home: the second visit's tips. The Start here card stays, visit after visit, until it is done with (the 30-person audit, 20 November 2026:
+  // lib/mm/homePages.ts; it used to vanish the moment she left Home)
   await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Home" }).click();
   await tip(page).waitFor({ timeout: 60000 });
-  expect(await page.getByRole("region", { name: "Start here" }).count() === 0, "the Start here card was one time");
+  expect(await page.getByRole("region", { name: "Start here" }).count() === 1, "the Start here card stays until it is done with");
   expect((await tip(page).textContent()).includes(`Tip 1 of ${LATER_TIPS}`), `the second visit: ${(await tip(page).textContent()).slice(0, 80)}`);
   if (SCAN) {
     await page.getByRole("heading", { level: 2, name: "Scan your food" }).waitFor();
     expect(await litAround(page, '[data-coach="home-photo"]'), "Scan your food is lit");
-    expect(await coversNothing(page), "the card doesn't cover the numbers");
+    { const why = await keptClear(page); expect(why === "", `Scan your food: ${why}`); }
     await tip(page).getByRole("button", { name: "Next" }).click();
   }
   await page.getByRole("heading", { level: 2, name: "Shopping list, Settings" }).waitFor();
   expect(await litAround(page, '[data-coach="home-top"]'), "the shopping list and the gear are lit");
-  expect(await coversNothing(page), "the card doesn't cover the numbers");
+  { const why = await keptClear(page); expect(why === "", `Shopping list, Settings: ${why}`); }
   await tip(page).getByRole("button", { name: "Done" }).click();
   await tip(page).waitFor({ state: "hidden" });
   const after = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.coach")).data);
@@ -249,7 +272,7 @@ await step("Eat out's three tips from Settings in page order (Search, Near me, R
   await ctx.close();
 });
 
-await step("a small phone (375 x 667): Home's first-visit tips still never cover the numbers or the Start here card", async () => {
+await step("a small phone (375 x 667): Home's first-visit tips keep clear of the numbers and the Start here card where there is room, and otherwise stay whole with their buttons on the screen", async () => {
   const ctx = await context(AFTER_WELCOME, { devProOverride: true }, { homePages: ARRIVAL, viewport: { width: 375, height: 667 } });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app");
@@ -257,7 +280,8 @@ await step("a small phone (375 x 667): Home's first-visit tips still never cover
   await d.waitFor({ timeout: 120000 });
   for (let i = 0; i < 3; i++) {
     await page.waitForTimeout(1500);
-    expect(await coversNothing(page), `tip ${i + 1}: ${await page.locator("#coach-title").textContent()}`);
+    const why = await keptClear(page);
+    expect(why === "", `tip ${i + 1}: ${await page.locator("#coach-title").textContent()}: ${why}`);
     const done = tip(page).getByRole("button", { name: "Done" });
     if (await done.count()) { await done.click(); break; }
     await tip(page).getByRole("button", { name: "Next" }).click();

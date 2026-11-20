@@ -53,6 +53,45 @@ describe("what is left off", () => {
   });
 });
 
+describe("what is left off (the review of 2026-11-20)", () => {
+  const n = { protein: 30, kcal: 300, carbs: 40, fat: 5, sugars: 1, fibre: 35 };
+  it("keeps protein powders and instant or bone broths off the protein boards", () => {
+    expect(boardValue("protein", product("p", "Pulsin Complete Vegan Vanilla Protein 270g", {}, { protein: 73.8, kcal: 380, carbs: 6, fat: 8 }))).toBeNull();
+    expect(boardValue("protein", product("b", "Freja Instant Beef Bone Broth 48g", {}, { protein: 73, kcal: 340, carbs: 2, fat: 4 }))).toBeNull();
+    expect(boardValue("protein", product("c", "Borough Broth Chicken Bone Broth 400g", {}, { protein: 5, kcal: 25, carbs: 0, fat: 0.5 }))).toBeNull();
+    expect(boardValue("fewestKcal", product("m", "Crusha Strawberry Flavour Milkshake Mix 1 Litre", {}, { kcal: 6, protein: 0, carbs: 1.4, fat: 0 }))).toBeNull();
+    expect(boardValue("proteinPerKcal", product("j", "TRUEfoods Chilled Veal Jus 200g", {}, { protein: 10, kcal: 41, carbs: 0.5, fat: 0.3 }))).toBeNull();
+  });
+  it("keeps sardines and other fish off the meat-free board", async () => {
+    const { isMeatFreeProteinName } = await import("../lib/mm/leaderboards");
+    for (const name of ["Cawoods Sardines In Spiced Soya Oil 125g", "Pilchards in Tomato Sauce", "Squid Rings with Soya Beans", "Mackerel & Bean Salad", "Scampi & Beans", "Cod Roe with Beans", "Smoked Trout & Lentils"]) {
+      expect(isMeatFreeProteinName(name), name).toBe(false);
+    }
+  });
+  it("keeps sweeteners and cake decorations off Most carbs, and spices, seeds and nori off Most fibre", () => {
+    for (const name of ["Canderel Sugarly Pouch 370g", "Pure Via Erythritol 370g", "Canderel Sucralose Jar 75g", "Truvia Stevia 270g", "Cake Decor Halloween Spooky Cobwebs 4g", "Cake Décor Christmas Snowflakes 4g", "Splenda Granulated 125g", "Xylitol 500g"]) {
+      expect(boardValue("carbs", product("s", name, {}, { carbs: 99, sugars: 0, protein: 0, fat: 0 })), name).toBeNull();
+    }
+    for (const name of ["Cooks' Ingredients Ground Coriander 42g", "Cooks' Ingredients Kashmiri Chilli Blend 50g", "Clearspring 7 Sheets Sushi Nori 17g", "Cooks' Ingredients Fennel Seeds 33g", "Cooks' Ingredients Caraway Seeds 40g", "Cooks' Ingredients Turkish Pepper Flakes 40g", "Cooks' Ingredients Ras el Hanout 50g", "Bouquet Garni 5 g", "Garam Masala 100g", "Chinese Five Spice 50g", "Za'atar 40g", "Ground Ginger 30g"]) {
+      expect(boardValue("fibre", product("f", name, {}, n)), name).toBeNull();
+    }
+    // a food that is mostly fibre stays
+    expect(boardValue("fibre", product("c", "The Chia Co Black Chia Seed 453g", {}, n))).toBe(35);
+  });
+  it("keeps stock, broth and gravy off Fewest calories, and leaves vegetables on", () => {
+    for (const name of ["Shellfish Stock 500 ml", "Chicken Stock 500 ml", "Beef Broth 500g", "Gravy 300g"]) {
+      expect(boardValue("fewestKcal", product("k", name, {}, { kcal: 8, protein: 1, carbs: 0.5, fat: 0.1 })), name).toBeNull();
+    }
+    expect(boardValue("fewestKcal", product("w", "ASDA White Mushrooms 400g", {}, { kcal: 8, protein: 1.8, carbs: 0.4, fat: 0.5 }))).toBe(8);
+  });
+  it("names when the labels were read and when the prices were", () => {
+    const file = (retailer: string, checkedOn: string, to: string): ShopFile => ({ v: 1, retailer, name: retailer, checkedOn, pageBase: "https://example.com/", photoBase: "https://example.com/", categories: ["Food"], schemes: [], nutritionCheckedOn: "2026-11-01", nutritionCheckedTo: to, products: [] });
+    const built = buildLeaderboards([{ file: file("a", "2026-10-08", "2026-11-17"), products: [] }, { file: file("b", "2026-10-09", "2026-11-18"), products: [] }]);
+    expect(built.pricesOn).toBe("2026-10-09");
+    expect(built.labelsOn).toBe("2026-11-18");
+  });
+});
+
 describe("the meat-free board", () => {
   it("takes protein foods by name and never a name with meat or fish, unless it says it is meat-free", async () => {
     const { isMeatFreeProteinName } = await import("../lib/mm/leaderboards");

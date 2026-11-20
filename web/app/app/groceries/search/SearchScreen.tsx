@@ -1,75 +1,110 @@
 "use client";
 
-import { useDeferredValue, useMemo, useState } from "react";
-import { anyFoodDiet, foodDietCaution, foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
-import { barcodeQuery, GROCERY_SORTS, RETAILERS, searchProducts, type GrocerySort } from "@/lib/mm/groceries";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useDeferredValue, useMemo, useState } from "react";
+import { normaliseBarcode, shopItemHref } from "@/lib/mm/barcodes";
+import { anyFoodDiet, foodDietProblem, groceryDietLine } from "@/lib/mm/foodDiet";
+import { RETAILERS, retailerName } from "@/lib/mm/groceries";
+import { groupProducts, sameProductGroups, type ProductGroup } from "@/lib/mm/leaderboards";
+import { nutritionBasis, SHOP_SORTS, searchShopProducts, shopPhotoSources, tagShopProducts, type ShopFile, type ShopProduct, type ShopSort } from "@/lib/mm/shopProducts";
 import { PageHeader } from "../../_components/PageHeader";
-import { ScanIcon, SearchIcon } from "../../_components/icons";
+import { ChevronRightIcon, ScanIcon, SearchIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../../_components/SearchDone";
 import { Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
 import { useEntryQuery } from "../../_lib/backNav";
-import { useGroceryCatalogue, useGroceryManifest } from "../../_lib/groceries";
-import { useShopManifest } from "../../_lib/shopProducts";
+import { useShopLists, useShopManifest } from "../../_lib/shopProducts";
 import { useSettings } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
-import { FootNote, MoreButton, NOTE, PILL_INPUT, SelectField, TITLE } from "../PageBits";
-import { ProductRow } from "../ProductRow";
+import { NutritionChips } from "../NutritionChips";
+import { FootNote, MoreButton, NOTE, PILL_INPUT, ROW, SelectField, TITLE } from "../PageBits";
+import { PhotoTile } from "../ProductPhoto";
 import { Scanner } from "../Scanner";
+import { ShopPrices } from "../ShopPrices";
 
-// Search every shop at once (founder's request 2026-10-07; moved here 2026-10-11 when Groceries began with "Which shop?"): search by name or barcode,
-// per-100 g macros, allergens, prices where known, the same product at every shop that sells it. Product data is community data from Open Food Facts,
-// credited below; docs/GROCERIES_PLAN.md. Looks follow Home (founder 2026-10-15): grey pills top left and right, a compact title, a white pill
-// search box with a round white scan button, outlined chips, the sort as a white field with its label in small capitals inside.
+// Search every shop at once (founder's request 2026-10-07; moved here 2026-10-11 when Groceries began with "Which shop?"): the supermarkets' own full lists
+// (2026-11-20: it searched only the older barcode catalogue, so Aldi showed 1 product, Lidl 1 and M&S none), every shop that sells a product on one row with
+// its logo and price there, the numbers from the shop's own label where we have read it. The person's own shops by default, one shop, or all of them.
+// Looks follow Home (founder 2026-10-15): a white pill search box with a round white scan button, outlined chips, the sort as a white field.
 const PAGE = 60;
+
+type Scope = "mine" | "all" | string;
+
+/** One product at every shop in the search that sells it: the first shop's photo and name (the person's own shop first), every shop's logo and price, and the
+ *  numbers from the first shop with a label of its own (else another source, said quietly). */
+function GroupRow({ group, files, mine }: { group: ProductGroup; files: Map<string, ShopFile>; mine: readonly string[] }) {
+  const t = useT();
+  const rank = (shop: string) => { const i = mine.indexOf(shop); return i < 0 ? mine.length : i; };
+  const items = [...group.items].sort((a, b) => rank(a.shop) - rank(b.shop));
+  const first = items[0]!;
+  const file = files.get(first.shop);
+  const own = (p: ShopProduct) => !!p.nutrition && !p.nutrition.community && !p.nutrition.govFood;
+  const numbers = items.find((x) => own(x.product)) ?? items.find((x) => !!x.product.nutrition);
+  const n = numbers?.product.nutrition ?? null;
+  return (
+    <Link href={shopItemHref({ shop: first.shop, id: first.product.id })} prefetch={false} className={ROW}>
+      <PhotoTile sources={file ? shopPhotoSources(file, first.product) : []} />
+      <span className="min-w-[9rem] flex-1 py-0.5">
+        <span className="block text-base font-bold leading-snug [overflow-wrap:anywhere]">{first.product.name}</span>
+        {/* every shop that sells it, by its logo with its price there (founder 2026-11-18) */}
+        <span className="mt-1.5 block">
+          <ShopPrices items={items.map((x) => ({ shop: x.shop, name: files.get(x.shop)?.name ?? retailerName(x.shop), price: x.product.price, member: x.product.member }))} />
+        </span>
+        {n && <NutritionChips kcal={n.kcal} protein={n.protein} basis={nutritionBasis(n, t)} />}
+        {n?.community && <span className="mt-1 block text-[0.8125rem] leading-snug text-muted">{t("community numbers")}</span>}
+        {n?.govFood && <span className="mt-1 block text-[0.8125rem] leading-snug text-muted">{t("UK government figures")}</span>}
+      </span>
+      <ChevronRightIcon className="h-[18px] w-[18px] shrink-0 text-ink" />
+    </Link>
+  );
+}
 
 export function GroceriesSearchScreen({ initialShop }: { initialShop: string | null }) {
   const t = useT();
   const router = useRouter();
-  // undefined until the person picks: then the first of their supermarkets (Settings) that has products here, else All
-  const [picked, setPicked] = useState<string | null | undefined>(initialShop ?? undefined);
-  const [category, setCategory] = useState<string | null>(null);
+  const settings = useSettings();
+  const prefs = settings.preferences;
+  const manifest = useShopManifest();
+  const available = useMemo<string[]>(() => (manifest ? RETAILERS.map((r): string => r.id).filter((id) => manifest.retailers.some((m) => m.id === id)) : []), [manifest]);
+  const mine = useMemo(() => (settings.shops ?? []).filter((id) => available.includes(id)), [settings.shops, available]);
+  const [picked, setPicked] = useState<Scope | null>(initialShop);
+  const scope: Scope = picked && (picked === "mine" || picked === "all" || available.includes(picked)) ? picked : mine.length > 0 ? "mine" : "all";
+  const ids = scope === "all" ? available : scope === "mine" ? mine : [scope];
   const [query, setQuery] = useEntryQuery(); // kept in the history entry, so Back from a product finds the search as it was left
-  const [sort, setSort] = useState<GrocerySort>("density");
+  const [sort, setSort] = useState<ShopSort>("name");
+  const [nutrition, setNutrition] = useState(false);
   const [shown, setShown] = useState(PAGE);
   const [retry, setRetry] = useState(0);
   const [scanning, setScanning] = useState(false);
   const [dietOn, setDietOn] = useState(true);
   const deferred = useDeferredValue(query);
-  const settings = useSettings();
-  const catManifest = useGroceryManifest();
-  const retailer = picked !== undefined ? picked : (settings.shops?.find((id) => catManifest?.retailers.some((r) => r.id === id && r.count > 0)) ?? null);
-  const setRetailer = (r: string | null) => setPicked(r);
-  const catalogue = useGroceryCatalogue(retailer, retry);
-
-  // The person's diet settings (Settings › Diet) leave out products that plainly don't suit (lib/mm/foodDiet.ts); one tap shows everything.
-  const prefs = settings.preferences;
-  const diet = anyFoodDiet(prefs) && dietOn;
-  const suits = useMemo(() => {
-    if (!anyFoodDiet(prefs)) return null;
-    return new Set(catalogue.products.filter((p) => !foodDietProblem(listedFacts(p), prefs)).map((p) => p.gtin));
-  }, [catalogue.products, prefs]);
+  const code = normaliseBarcode(deferred);
+  const lists = useShopLists(manifest ? ids : [], retry);
+  const loaded = lists.status === "ready" ? lists.loaded : null;
+  const files = useMemo(() => new Map((loaded ?? []).map((l) => [l.file.retailer, l.file])), [loaded]);
+  // every loaded product tagged with its shop, once for the set of shops (the lists themselves are shared and never changed)
+  const pool = useMemo(() => tagShopProducts((loaded ?? []).map((l) => ({ shop: l.file.retailer, products: l.products }))), [loaded]);
+  // which products at different shops are the same one, once for the set of shops
+  const groupsOf = useMemo(() => sameProductGroups((loaded ?? []).map((l) => ({ shop: l.file.retailer, products: l.products }))), [loaded]);
+  const filtering = anyFoodDiet(prefs);
+  const diet = filtering && dietOn;
+  // the diet settings, by each product's own name and aisle (allergens aren't read for these lists), worked out once for the shops and the settings
+  const unsuited = useMemo(() => (filtering ? new Set(pool.filter((p) => foodDietProblem({ name: p.name, category: p.category }, prefs))) : null), [pool, prefs, filtering]);
   const results = useMemo(() => {
-    const found = searchProducts(catalogue.products, { query: deferred, retailer: retailer, category, sort });
-    return diet && suits ? found.filter((p) => suits.has(p.gtin)) : found;
-  }, [catalogue.products, deferred, retailer, category, sort, diet, suits]);
-  const caution = diet ? foodDietCaution(prefs, t) : null;
-  const categories = useMemo(() => {
-    const counts = new Map<string, number>();
-    for (const p of catalogue.products) counts.set(p.category, (counts.get(p.category) ?? 0) + 1);
-    return (catalogue.manifest?.categories ?? []).filter((c) => counts.has(c.id));
-  }, [catalogue.products, catalogue.manifest]);
-  const counts = new Map((catalogue.manifest?.retailers ?? []).map((r) => [r.id, r.count]));
-  const fullLists = useShopManifest();
-  const isBarcode = !!barcodeQuery(deferred);
-
+    if (code) return [];
+    const found = searchShopProducts(pool, { query: deferred, nutrition, sort });
+    const kept = diet && unsuited ? found.filter((p) => !unsuited.has(p)) : found;
+    return groupProducts(kept.map((p) => ({ shop: p.shop ?? "", product: p })), groupsOf);
+  }, [pool, deferred, nutrition, sort, diet, unsuited, code, groupsOf]);
+  const dietLine = groceryDietLine(prefs, diet, t);
   const reset = () => setShown(PAGE);
+
   return (
     <div>
       <PageHeader back={{ href: "/app/groceries", label: t("Back to groceries") }} list />
       <h1 className={`mt-5 ${TITLE}`}>{t("Search every shop")}</h1>
-      <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Find a product at every supermarket that sells it, with its calories, protein and allergens.")}</p>
+      <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Find a product at every supermarket that sells it, with its price and, where we've read its label, its calories and protein.")}</p>
 
       <div className="mt-5 flex gap-2.5">
         <div className="group/search relative min-w-0 flex-1">
@@ -83,34 +118,44 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
       </div>
 
       <div role="group" aria-label={t("Supermarket")} className="no-scrollbar -mx-5 mt-4 flex gap-2 overflow-x-auto px-5">
-        <Chip selected={retailer === null} onClick={() => { setRetailer(null); reset(); }}>{t("All")}</Chip>
-        {/* only shops that are in the app (the review of 2026-11-18: Co-op and Ocado were offered here while Groceries says they aren't here yet) with something to find */}
-        {RETAILERS.filter((r) => (!catalogue.manifest || (counts.get(r.id) ?? 0) > 0) && (!fullLists || fullLists.retailers.some((x) => x.id === r.id))).map((r) => (
-          <Chip key={r.id} selected={retailer === r.id} onClick={() => { setRetailer(r.id); reset(); }} className="gap-2 ps-1.5"><ShopMark shopId={r.id} size="xs" />{r.name}</Chip>
+        {mine.length > 0 && <Chip selected={scope === "mine"} onClick={() => { setPicked("mine"); reset(); }}>{t("My shops")}</Chip>}
+        <Chip selected={scope === "all"} onClick={() => { setPicked("all"); reset(); }}>{t("All shops")}</Chip>
+        {available.map((id) => (
+          <Chip key={id} selected={scope === id} onClick={() => { setPicked(id); reset(); }} className="gap-2 ps-1.5"><ShopMark shopId={id} size="xs" />{retailerName(id)}</Chip>
         ))}
       </div>
-      <div role="group" aria-label={t("Filters")} className="no-scrollbar -mx-5 mt-2.5 flex gap-2 overflow-x-auto px-5">
-        {anyFoodDiet(prefs) && <Chip selected={dietOn} onClick={() => { setDietOn((v) => !v); reset(); }}>{t("Fits my diet")}</Chip>}
-        <Chip selected={category === null} onClick={() => { setCategory(null); reset(); }}>{t("All types")}</Chip>
-        {categories.map((c) => (<Chip key={c.id} selected={category === c.id} onClick={() => { setCategory(c.id); reset(); }}>{t(c.label)}</Chip>))}
+      <div role="group" aria-label={t("Filters")} className="no-scrollbar -mx-5 mt-2.5 flex gap-2 overflow-x-auto px-5 empty:hidden">
+        {filtering && <Chip selected={dietOn} onClick={() => { setDietOn((v) => !v); reset(); }}>{t("Fits my diet")}</Chip>}
+        <Chip selected={nutrition} onClick={() => { setNutrition((v) => !v); reset(); }}>{t("Has nutrition")}</Chip>
       </div>
-      <SelectField label={t("Sort")} className="mt-3.5" value={sort} onChange={(e) => { setSort(e.target.value as GrocerySort); reset(); }}>
-        {GROCERY_SORTS.map((o) => (<option key={o.value} value={o.value}>{t(o.label)}</option>))}
+      <SelectField label={t("Sort")} className="mt-3.5" value={sort} onChange={(e) => { setSort(e.target.value as ShopSort); reset(); }}>
+        {SHOP_SORTS.map((o) => (<option key={o.value} value={o.value}>{t(o.label)}</option>))}
       </SelectField>
 
-      {catalogue.status === "loading" ? (
+      {code ? (
+        // a barcode typed in: the product's own page (a shop's list where one has it, the person's own shop first)
+        <Link href={`/app/groceries/product?code=${code}&scan=1`} className={`${ROW} mt-6`}>
+          <ScanIcon aria-hidden className="h-6 w-6 shrink-0 text-ink" />
+          <span className="min-w-0 flex-1 text-base font-bold leading-snug">{t("Open the product with barcode {code}", { code })}</span>
+          <ChevronRightIcon className="h-[18px] w-[18px] shrink-0 text-ink" />
+        </Link>
+      ) : !manifest || lists.status === "loading" ? (
         <Spinner label={t("Loading products")} />
-      ) : catalogue.status === "error" ? (
+      ) : loaded && loaded.length === 0 ? (
         <div className="mt-4"><ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>
       ) : (
         <>
-          {caution && <p className={`mt-3.5 ${NOTE}`}>{caution}</p>}
-          <p role="status" aria-live="polite" className="app-numbers mt-6 ps-1 text-sm font-semibold text-muted">{results.length === 1 ? (isBarcode ? t("1 product with that barcode") : t("1 product")) : isBarcode ? t("{n} products with that barcode", { n: results.length.toLocaleString("en-GB") }) : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
+          {lists.status === "ready" && lists.failed.length > 0 && (
+            <div className="mt-4"><ErrorBox message={t("Couldn't load {shops}. Check your connection.", { shops: lists.failed.map(retailerName).join(", ") })} onRetry={() => setRetry((n) => n + 1)} /></div>
+          )}
+          {(sort === "density" || sort === "protein") && <p className={`mt-3.5 ${NOTE}`}>{sort === "density" ? t("Products with under 20 kcal or 5 g of protein per 100 g, those without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.") : t("Products without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.")}</p>}
+          {dietLine && <p className={`mt-3.5 ${NOTE}`}>{dietLine}</p>}
+          <p role="status" aria-live="polite" className="app-numbers mt-6 ps-1 text-sm font-semibold text-muted">{results.length === 1 ? t("1 product") : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
           {results.length === 0 ? (
-            <div className="mt-3"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No products match.")} body={isBarcode ? t("That barcode isn't in our list yet.") : t("Try fewer words, another supermarket, or a different type.")} /></div>
+            <div className="mt-3"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No products match.")} body={t("Try fewer words, another supermarket, or a different type.")} /></div>
           ) : (
             <ul className="mt-2.5 space-y-3">
-              {results.slice(0, shown).map((p) => (<li key={p.gtin}><ProductRow product={p} retailer={retailer} /></li>))}
+              {results.slice(0, shown).map((g) => (<li key={g.key}><GroupRow group={g} files={files} mine={mine} /></li>))}
             </ul>
           )}
           {results.length > shown && (
@@ -120,11 +165,12 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
       )}
 
       <FootNote>
-        {t("Product details come from Open Food Facts contributors (open data: openfoodfacts.org). They can be out of date or wrong, so always check the pack, especially for allergens.")}{" "}
+        {t("Numbers come from each shop's own product page where we've read it; otherwise from the same product's label at another shop, Open Food Facts contributors (community data) for the same barcode, or, for loose fresh fruit and vegetables, the UK government's figures. Each product's page says which.")}{" "}
         {t("Prices appear only where we've read them from the supermarket's own website. Not affiliated with any supermarket.")}
       </FootNote>
 
-      <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(code) => { setScanning(false); const c = barcodeQuery(code); if (c) { setQuery(c); setRetailer(null); router.push(`/app/groceries/product?code=${c}`); } }} />
+      {/* a scan opens the product: in a shop's full list where one has it (the person's own shop first), else its catalogue page, else "We don't have it yet" */}
+      <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(raw) => { setScanning(false); const c = normaliseBarcode(raw); if (c) router.push(`/app/groceries/product?code=${c}&scan=1`); }} />
     </div>
   );
 }

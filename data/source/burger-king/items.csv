@@ -51,5 +51,5 @@ sausage-butty,Sausage Butty,Breakfast,,328.8,16.3,37.6,12.1,4.3,,1.0,9.7,,1375.8
 bacon-and-egg-sandwich,Bacon and Egg Sandwich,Breakfast,,246.2,11.9,37.0,5.2,2.0,,1.6,9.6,,1030.0,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/item-item_42520
 sausage-and-egg-sandwich,Sausage and Egg sandwich,Breakfast,,199.9,6.0,37.0,2.7,1.0,,1.4,9.5,,836.5,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/item-item_42521
 bacon-butty,Bacon Butty,Breakfast,,280.2,15.0,37.3,7.5,2.8,,1.6,9.9,,1172.4,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/item-item_42932
-gooey-salted-caramel-cheesecake-bar,Gooey Salted Caramel Cheesecake Bar,Desserts,,285.0,4.8,34.2,8.7,7.1,,0.4,0.7,,1192.4,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/item-item_88841
-chocolate-brownie-cheesecake-bar,Chocolate Brownie Cheesecake Bar,Desserts,,294.0,4.5,35.2,15.0,7.5,,0.1,0.7,,1230.1,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/item-item_88842
+gooey-salted-caramel-cheesecake-bar,Gooey Salted Caramel Cheesecake Bar,Desserts,,285.0,4.8,34.2,8.7,7.1,,0.4,0.7,,1192.4,,,,,,,false,false,,,Read from https://www.burgerking.co.uk/menu/item-item_88841
+chocolate-brownie-cheesecake-bar,Chocolate Brownie Cheesecake Bar,Desserts,,294.0,4.5,35.2,15.0,7.5,,0.1,0.7,,1230.1,,,,,,,false,false,,,Read from https://www.burgerking.co.uk/menu/item-item_88842

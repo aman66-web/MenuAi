@@ -47,6 +47,20 @@ export function shortDate(d: Date, htmlLang: string): string {
   }
 }
 
+/**
+ * A day as the day page's title writes it: "Thu, Nov 19" in English (weekday, then month first, the same English as Home's "Nov 20"; the 30-person audit,
+ * 20 November 2026: it said "Thu 19 Nov" under Home's "Nov 20"), and each other language's own short form through the browser's date formatting.
+ */
+export function dayTitle(d: Date, htmlLang: string): string {
+  const lang = /^en(-|$)/i.test(htmlLang) ? "en-US" : htmlLang;
+  const opts: Intl.DateTimeFormatOptions = { weekday: "short", month: "short", day: "numeric" };
+  try {
+    return new Intl.DateTimeFormat(lang, opts).format(d);
+  } catch {
+    return new Intl.DateTimeFormat("en-US", opts).format(d);
+  }
+}
+
 /** Monday to Sunday of the week that holds `now`, each at local midnight (built from the calendar date, never by stepping 24 hours, so a clock change can't move a day). */
 export function weekOf(now: Date): Date[] {
   const start = new Date(now.getFullYear(), now.getMonth(), now.getDate() - ((now.getDay() + 6) % 7));
@@ -80,10 +94,27 @@ export function addMonths(ym: YearMonth, delta: number): YearMonth {
 /** How far the calendar goes: back this many months from the current one (the days ahead have nothing in them). */
 export const CALENDAR_MONTHS_BACK = 12;
 
-export function calendarBounds(now: Date): { earliest: YearMonth; latest: YearMonth } {
+export function calendarBounds(now: Date, oldest?: Date | null): { earliest: YearMonth; latest: YearMonth } {
   const latest = { year: now.getFullYear(), month: now.getMonth() };
-  return { earliest: addMonths(latest, -CALENDAR_MONTHS_BACK), latest };
+  const twelve = addMonths(latest, -CALENDAR_MONTHS_BACK);
+  // further back when food was logged earlier (founder 2026-11-20: "a way to choose the year too"): the calendar reaches the month of the oldest entry
+  if (oldest && !Number.isNaN(oldest.getTime())) {
+    const first = { year: oldest.getFullYear(), month: oldest.getMonth() };
+    if (first.year * 12 + first.month < twelve.year * 12 + twelve.month) return { earliest: first, latest };
+  }
+  return { earliest: twelve, latest };
 }
+
+/** The years the calendar can show, oldest first (for its year choice). */
+export function calendarYears(bounds: { earliest: YearMonth; latest: YearMonth }): number[] {
+  const out: number[] = [];
+  for (let y = bounds.earliest.year; y <= bounds.latest.year; y++) out.push(y);
+  return out;
+}
+
+/** Whether a month lies inside the calendar's bounds. */
+export const monthInBounds = (ym: YearMonth, b: { earliest: YearMonth; latest: YearMonth }): boolean =>
+  ym.year * 12 + ym.month >= b.earliest.year * 12 + b.earliest.month && ym.year * 12 + ym.month <= b.latest.year * 12 + b.latest.month;
 
 export const sameMonth = (a: YearMonth, b: YearMonth): boolean => a.year === b.year && a.month === b.month;
 

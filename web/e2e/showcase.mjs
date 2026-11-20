@@ -1,7 +1,7 @@
 // The welcome steps as built from the onboarding redesign meeting of 20 November 2026 (approved by the founder: "Whatever the meeting ... conclude, go with
 // that"; docs/meetings/2026-11-20-onboarding-redesign.json, build list 17): after the cover, one counter of 11 steps (10 for a run that starts signed in) that
 // only ever jumps forward; three feature screens made from the person's own answers (3 Know before you order, 5 Recipes from {shop}, 10 Your week, planned) with
-// no Pip, no top-right pill and an always-enabled Next; the account as step 11 ("Save your plan: make your free account"), then straight to Home with its one
+// no Pip, no top-right pill and an always-enabled Next; the account as step 11 ("Save your goal and numbers: make your free account"), then straight to Home with its one
 // toast and the one-time Start here card. Checked here:
 // - a plain run: the counter, the bar, Skip only on the questions (1, 2, 4), Pip only off the number and feature screens, the windows and their tags, the chips,
 //   the dishes and their figures, the recipe chosen, the week, the three sign-in ways, Home after "Not now", and what is (and isn't) stored;
@@ -117,8 +117,10 @@ const chips = (page) => page.getByRole("radiogroup", { name: "Restaurants" }).ge
 const waitChips = (page) => chips(page).first().waitFor({ timeout: 45000 });
 /** Step 3's window heading (the list used, with the chain's name). */
 const eatOutHeading = (page) => windowOf(page, "A look at Eat out").getByRole("heading", { level: 2 });
-/** Step 5's two choose buttons. */
-const recipeTiles = (page) => windowOf(page, "A look at Recipes").locator("button[aria-pressed]");
+/** Step 5's two tiles: since the audit of 20 November 2026 RecipeTile's own choose mode, a radio each in the group "Your first recipe" (aria-checked). */
+const recipeTiles = (page) => W.recipeTiles(windowOf(page, "A look at Recipes"));
+/** Pip's words: the bubble also holds every line it can say, invisible and aria-hidden, to keep its room (BubbleWords, the 20 November 2026 audit). */
+const said = (page, words) => page.getByText(words).filter({ visible: true });
 const home = (page) => page.waitForURL((u) => u.pathname === "/app" || u.pathname === "/app/", { timeout: 30000 });
 
 // ------------------------------------------------------------------------------------------------ the steps
@@ -140,21 +142,22 @@ await step("(a) a plain run: 'Step n of 11' with 11 segments on every step; Skip
   };
   // 1: Pip's one entrance, with the run's N
   await check("goal", 1, { skip: true, pip: true });
-  await page.getByText("Hi, I'm Pip. 11 short steps, and I'll show you what Numbite can do for you on the way.").waitFor();
+  await said(page, "Hi, I'm Pip. 11 short steps, and I'll show you what Numbite can do for you on the way.").waitFor();
   expect((await page.getByRole("img", { name: "Pip, a small round green character with a sprout on top." }).count()) === 1, "Pip is described once on step 1");
   expect((await page.locator("[role='radio'][aria-checked='true']").count()) === 0, "a goal is ticked on a first run");
   await page.getByText("Pick one to go on, or tap Skip at the top.").waitFor();
   await page.getByRole("radio", { name: /^Build muscle/ }).click();
-  await page.getByText("Got it. I'll look for higher-protein meals and orders that fit your calories.").waitFor();
+  await said(page, "Got it. I'll look for higher-protein meals and orders that fit your calories.").waitFor();
   await W.press(page, "Continue");
   // 2
   await check("avoid", 2, { skip: true, pip: true });
-  await page.getByText("Pick anything you don't eat. I'll leave it out of everything I show you next.").waitFor();
+  await said(page, "Pick anything you don't eat. I'll leave it out of everything I show you next.").waitFor();
   await W.press(page, "Nothing to avoid");
   // 3: Eat out, free, the goal's list (Build muscle: 35 g+ protein)
   await check("eatOut", 3, { skip: false, pip: false });
-  await page.getByText("The restaurant's own published figures. Tap a place you go.").waitFor();
   await waitChips(page);
+  // no sub-line under the headline since the 375x667 fit check (20 November 2026): the window's own source line says the figures are the restaurant's
+  expect((await page.getByText("The restaurant's own published figures. Tap a place you go.").count()) === 0, "step 3's old sub-line is back");
   const n = await chips(page).count();
   expect(n >= 2 && n <= 4, `${n} chips`);
   expect((await chips(page).first().getAttribute("aria-checked")) === "true", "the first chip is not chosen");
@@ -181,9 +184,11 @@ await step("(a) a plain run: 'Step n of 11' with 11 segments on every step; Skip
   await check("shops", 4, { skip: true, pip: true });
   await page.getByText("Recipes, products and prices").first().waitFor({ timeout: 30000 });
   await page.getByText(/^Not sure yet\? That's fine\. Until you choose, recipes use .+\.$/).waitFor();
-  await page.getByRole("group", { name: "Your supermarkets" }).getByRole("button", { name: "Tesco", exact: true }).click();
-  await page.getByRole("group", { name: "Your supermarkets" }).getByRole("button", { name: "Sainsbury's", exact: true }).click();
-  await page.getByText("Got it. I'll show those shops first.").waitFor();
+  await W.shopTile(page.getByRole("group", { name: "Your supermarkets" }), "Tesco").click();
+  await W.shopTile(page.getByRole("group", { name: "Your supermarkets" }), "Sainsbury's").click();
+  // with two ticked, the first is marked "Opens first" (the one Groceries and Recipes open on: the 20 November 2026 audit)
+  await W.shopTile(page.getByRole("group", { name: "Your supermarkets" }), "Tesco").getByText("Opens first", { exact: true }).waitFor();
+  await said(page, "Got it. I'll show those shops first.").waitFor();
   await W.press(page, "Continue");
   // 5: two recipes from Sainsbury's (Tesco isn't in recipes yet), one chosen
   await check("recipes", 5, { skip: false, pip: false });
@@ -193,16 +198,17 @@ await step("(a) a plain run: 'Step n of 11' with 11 segments on every step; Skip
   expect((await windowOf(page, "A look at Recipes").getByText("Free", { exact: true }).count()) === (GATED ? 1 : 0), `the Free tag ${GATED ? "missing" : "shown"} on Recipes`);
   await page.getByText("Tesco isn't in recipes yet, so these use Sainsbury's: every ingredient is a real product there, with its price.").waitFor();
   await page.getByText("Prices are Sainsbury's shelf prices and vary by store.").waitFor();
-  const tileName = await recipeTiles(page).first().getAttribute("aria-label");
-  expect(/, [\d,]+ calories, \d+ grams of protein, £\d+\.\d\d (a serving|to buy), \d+ minutes\.$/.test(tileName), `the tile's spoken name: ${tileName}`);
-  const recipeName = tileName.split(", ")[0];
+  // the tile's name is all its words: the recipe, its calories, protein, carbs, fat, price and minutes, then the hint
+  const tileText = (await recipeTiles(page).first().innerText()).replace(/\s+/g, " ");
+  expect(/[\d,]+ ?kcal/.test(tileText) && /\d+g protein/.test(tileText) && /\d+g carbs/.test(tileText) && /\d+g fat/.test(tileText) && /£\d+\.\d\d (a serving|to buy)/.test(tileText) && /\d+ min/.test(tileText) && tileText.includes("Double-tap to choose it as your first recipe."), `the tile's words: ${tileText}`);
+  const recipeName = await W.recipeTileName(recipeTiles(page).first());
   await recipeTiles(page).first().click();
-  expect((await recipeTiles(page).first().getAttribute("aria-pressed")) === "true", "the tapped recipe is not chosen");
+  expect((await recipeTiles(page).first().getAttribute("aria-checked")) === "true", "the tapped recipe is not chosen");
   await windowOf(page, "A look at Recipes").getByText("Your first recipe", { exact: true }).waitFor();
   await recipeTiles(page).nth(1).click();
-  expect((await recipeTiles(page).first().getAttribute("aria-pressed")) === "false" && (await recipeTiles(page).nth(1).getAttribute("aria-pressed")) === "true", "choosing the other doesn't move the choice");
+  expect((await recipeTiles(page).first().getAttribute("aria-checked")) === "false" && (await recipeTiles(page).nth(1).getAttribute("aria-checked")) === "true", "choosing the other doesn't move the choice");
   await recipeTiles(page).nth(1).click();
-  expect((await windowOf(page, "A look at Recipes").locator("button[aria-pressed='true']").count()) === 0, "a second tap doesn't un-choose");
+  expect((await windowOf(page, "A look at Recipes").locator("[role='radio'][aria-checked='true']").count()) === 0, "a second tap on the chosen one doesn't un-choose it");
   await recipeTiles(page).first().click();
   expect((await stored(page, "mm.v1.savedRecipes")) === null, "choosing a recipe saved it");
   await W.press(page, "Next: your daily numbers");
@@ -243,17 +249,17 @@ await step("(a) a plain run: 'Step n of 11' with 11 segments on every step; Skip
   await week.getByText("This week isn't kept. Open Meal plan on Home to make it yours, for you or everyone you cook for.").waitFor();
   expect((await week.getByText("Premium", { exact: true }).count()) === (GATED ? 1 : 0), `the Premium badge ${GATED ? "missing" : "shown"}`);
   expect((await week.getByText("Nothing is charged during setup.").count()) === (GATED ? 1 : 0), "'Nothing is charged during setup.'");
-  const also = GATED ? (PHOTO ? "Also in Premium: Scan your food, Make it at home, and Cook with what you already have." : "Also in Premium: Cook with what you already have.") : null;
+  const also = GATED ? (PHOTO ? "Also in Premium: Scan your food, Make it at home and Pip's new recipes from what you have." : "Also in Premium: Pip's new recipes from what you have.") : null;
   expect((await page.getByText(/^Also in Premium:/).count()) === (also ? 1 : 0), "the Also in Premium line");
   if (also) await page.getByText(also).waitFor();
-  await page.getByText("Prices are Sainsbury's shelf prices and vary by store.").waitFor();
+  await page.getByText(/^Prices are Sainsbury's shelf prices, checked .+, and vary by store\.$/).waitFor();
   // nothing on step 10 sells: no price, trial words or a way to the paywall
   const words = await page.locator("main").innerText();
   expect(!/free trial|Try Premium|Subscribe|a month|a year|\/month|Get Premium/i.test(words), `a price or a sale on step 10: ${words.match(/free trial|Try Premium|Subscribe|a month|a year|\/month|Get Premium/i)?.[0]}`);
-  await page.getByRole("button", { name: "Next: save your plan", exact: true }).click();
+  await page.getByRole("button", { name: "Next: save your numbers", exact: true }).click();
   // 11: the account
   await check("save", 11, { skip: false, pip: true });
-  await page.getByText("Your goal and daily numbers are ready. Your free account keeps them, and your meals and lists, safe if you change phone.").waitFor();
+  await page.getByText("Your goal and daily numbers are ready. Your free account keeps them safe.").waitFor();
   await page.getByText(`Waiting for you on Home: ${recipeName}.`).waitFor();
   await page.getByText(/^We keep your email address, .*Never your sex, age, height, weight or activity\./).waitFor();
   for (const way of ["Continue with Apple", "Continue with Google", "Continue with email"]) {
@@ -306,7 +312,7 @@ await step("(b) the body questions skipped (6 to 9): the starting-numbers line, 
   await page.getByRole("button", { name: "Next", exact: true }).click();
   await W.onStep(page, "week");
   await W.expectCounter(page, 10);
-  await page.getByText("Meal plan plans a week of meals from your shop, sized to your numbers, with one shopping list. You'll find it on Home.").waitFor({ timeout: 20000 });
+  await page.getByText("Meal plan makes a week of meals from your shop, sized to your numbers, with one shopping list. You'll find it on Home.").waitFor({ timeout: 20000 });
   expect((await digitsIn(page, "A look at Meal plan, on Home")) === 0, "digits in the words-only week");
   await page.getByRole("button", { name: "Back to the previous step" }).click();
   await W.onStep(page, "targets");
@@ -364,9 +370,9 @@ await step("(d) an allergen and vegan: step 3 says what is left out and shows on
   await W.shops(page);
   // the recipes: vegan by name, or the plain line
   const tiles = recipeTiles(page);
-  await page.locator("section[aria-label='A look at Recipes'] button[aria-pressed], section[aria-label='A look at Recipes'] p[role='status']").first().waitFor({ timeout: 45000 });
-  for (const label of await tiles.evaluateAll((els) => els.map((e) => e.getAttribute("aria-label")))) {
-    expect(!/\b(chicken|beef|pork|bacon|fish|salmon|tuna|prawn|ham|cheese|egg|eggs|turkey|lamb|yoghurt|honey)\b/i.test(label.split(", ")[0]), "a recipe for a vegan: " + label);
+  await page.locator(W.RECIPES_OR_LINE).first().waitFor({ timeout: 45000 });
+  for (const name of await tiles.evaluateAll((els) => els.map((e) => e.querySelector("span.line-clamp-3")?.textContent ?? ""))) {
+    expect(!/\b(chicken|beef|pork|bacon|fish|salmon|tuna|prawn|ham|cheese|egg|eggs|turkey|lamb|yoghurt|honey)\b/i.test(name), "a recipe for a vegan: " + name);
   }
   await ctx.close();
 });
@@ -374,9 +380,9 @@ await step("(d) an allergen and vegan: step 3 says what is left out and shows on
 await step("(e) GLP-1: the medicine line under the goals on step 1 (not in Pip's bubble) and on step 3, whose list is 'Smaller, protein-first orders at {chain}'; the targets start with 'Comfortable meal size'", async () => {
   const { ctx, page } = await phone();
   await W.startSteps(page, BASE);
-  const NOTE = "If you take a GLP-1 medicine, follow the advice of your doctor or pharmacist. Numbite doesn't give medical advice.";
+  const NOTE = "If you take a GLP-1 medication, follow the advice of your doctor or pharmacist. Numbite doesn't give medical advice.";
   await page.getByRole("radio", { name: /^I'm on a GLP-1 medication/ }).click();
-  await page.getByText("Got it: smaller, protein-first orders.").waitFor();
+  await said(page, "Got it: smaller, protein-first orders.").waitFor();
   await page.getByText(NOTE).waitFor();
   expect((await page.locator(".speech").filter({ hasText: NOTE }).count()) === 0, "the medicine line is in Pip's bubble");
   await W.press(page, "Continue");
@@ -470,7 +476,7 @@ await step("(g) a run that starts signed in: 'Step 1 of 10', Pip says 10 steps, 
   await W.onStep(page, "goal");
   await W.expectCounter(page, 1, 10);
   expect((await W.segments(page)) === 10, `${await W.segments(page)} segments`);
-  await page.getByText("Hi, I'm Pip. 10 short steps, and I'll show you what Numbite can do for you on the way.").waitFor();
+  await said(page, "Hi, I'm Pip. 10 short steps, and I'll show you what Numbite can do for you on the way.").waitFor();
   await W.goal(page, "Maintain");
   await W.avoid(page);
   await waitChips(page);
@@ -541,7 +547,7 @@ await step("(i) the website with no connection for the menus or the shops' files
   await W.recipes(page);
   await W.skipBody(page);
   await W.targetsNext(page);
-  await page.getByText("Meal plan plans a week of meals from your shop, sized to your numbers, with one shopping list. You'll find it on Home.").waitFor({ timeout: 25000 });
+  await page.getByText("Meal plan makes a week of meals from your shop, sized to your numbers, with one shopping list. You'll find it on Home.").waitFor({ timeout: 25000 });
   await W.weekNext(page);
   await W.onStep(page, "save");
   await ctx.setOffline(true);

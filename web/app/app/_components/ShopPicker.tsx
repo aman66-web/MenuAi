@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useState } from "react";
 import { RETAILERS } from "@/lib/mm/groceries";
 import { useT } from "../_lib/i18n";
 import { loadManifest } from "../_lib/groceries";
@@ -9,6 +9,7 @@ import { loadShopFile, useShopManifest } from "../_lib/shopProducts";
 import { SHOP_OFFER_LINE, shopOffer, type NamesManifest } from "../welcome/shopLines";
 import { ShopMark } from "./ChainMark";
 import { PickMark } from "./DietPicker";
+import { Badge } from "./ui";
 
 /** The product-names list (public/groceries/groceries-manifest.json), for the shops missing from the every-product list; null until it has loaded (or offline). */
 function useNamesManifest(): NamesManifest | null {
@@ -33,7 +34,6 @@ function useNamesManifest(): NamesManifest | null {
  */
 export function ShopPicker({ value, onChange, warm = false }: { value: readonly string[]; onChange: (shops: string[]) => void; warm?: boolean }) {
   const t = useT();
-  const id = useId();
   const manifest = useShopManifest();
   const names = useNamesManifest();
   const change = (next: string[]) => {
@@ -51,22 +51,26 @@ export function ShopPicker({ value, onChange, warm = false }: { value: readonly 
         const on = value.includes(r.id);
         const offer = shopOffer(r.id, manifest, names);
         const line = offer && offer !== "none" ? SHOP_OFFER_LINE[offer] : null;
+        // with two or more ticked, the first one is marked: it is the one Groceries and Recipes open on
+        const first = on && value.length > 1 && value[0] === r.id;
         return (
           <button
             key={r.id}
             type="button"
             aria-pressed={on}
-            // the shop's name stays the button's name; the line under it is read after it as its description
-            aria-labelledby={`${id}-${r.id}`}
-            aria-describedby={line ? `${id}-${r.id}-note` : undefined}
+            // the button's name is all the words on it (its shop, "Opens first" and the line under it), as on the diet tiles: a name that left the visible
+            // line out failed axe's label-content-name-mismatch (the audit, 20 November 2026)
             onClick={() => change(on ? value.filter((x) => x !== r.id) : [...value, r.id])}
-            className="flex min-h-[3.75rem] w-full items-center gap-3.5 px-4 py-2.5 text-start transition hover:bg-soft-strong focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent active:bg-soft-strong"
+            className="flex min-h-[3.75rem] w-full items-center gap-3.5 px-4 py-2.5 text-start transition hover:bg-background focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent active:bg-background"
           >
             {/* the shop's own logo on its tile (decorative), then its name in plain text */}
             <ShopMark shopId={r.id} size="sm" />
             <span className="min-w-0 flex-1 [overflow-wrap:break-word]">
-              <span id={`${id}-${r.id}`} className={`block text-[1.0625rem] leading-snug ${on ? "font-bold" : "font-medium"}`}>{r.name}</span>
-              {line && <span id={`${id}-${r.id}-note`} className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{t(line)}</span>}
+              <span className={`block text-[1.0625rem] leading-snug ${on ? "font-bold" : "font-medium"}`}>
+                {r.name}
+                {first && <> <span className="ms-1 inline-block align-[0.1em]"><Badge>{t("Opens first")}</Badge></span></>}
+              </span>
+              {line && <span className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{t(line)}</span>}
             </span>
             <PickMark on={on} />
           </button>

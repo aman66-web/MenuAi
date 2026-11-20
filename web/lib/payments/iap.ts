@@ -10,14 +10,21 @@ import { API_BASE } from "../mm/config";
 import { nativeCall, type NativeAction, type NativeProduct, type NativeResult } from "../mm/native";
 import { forgetPaidToken, paidStore } from "../mm/stores";
 import { acceptToken, publicKey } from "./client";
-import { PLAN_IDS, type PlanId } from "./plans";
 import { verifyToken } from "./token";
 
+/**
+ * The plans the iPhone app sells: Annual and Monthly, two auto-renewable subscriptions in the group "Numbite Premium", each with a free first week
+ * (Config/Numbite.storekit, App Store Connect; MenuMacros/App/AppConfig.swift iapProductIDs holds the same two). The Founding Member 90-Day Pass is not sold
+ * (the overnight audit of 20 November 2026): the app never asks StoreKit for it. Our server (lib/payments/apple.ts) still knows its id, so a test purchase
+ * made with build 7 keeps working, and the website's Stripe drafts (plans.ts) keep their own list.
+ */
+export const IAP_PLAN_IDS = ["annual", "monthly"] as const;
+export type IapPlanId = (typeof IAP_PLAN_IDS)[number];
+
 /** The App Store product of each plan (App Store Connect and Config/Numbite.storekit use the same ids). */
-export const IAP_PRODUCT_IDS: Readonly<Record<PlanId, string>> = {
+export const IAP_PRODUCT_IDS: Readonly<Record<IapPlanId, string>> = {
   annual: "com.amanmarwaha.numbite.pro.annual",
   monthly: "com.amanmarwaha.numbite.pro.monthly",
-  pass90: "com.amanmarwaha.numbite.pro.pass90",
 };
 
 /** A token with less than this left is swapped for a fresh one when the app starts or comes back to the front. */
@@ -27,13 +34,13 @@ type Call = (action: NativeAction, payload?: Record<string, unknown>, timeoutMs?
 type Fetch = typeof fetch;
 
 export interface StoreProduct extends NativeProduct {
-  plan: PlanId;
+  plan: IapPlanId;
 }
 
-/** The three plans as the App Store sells them on this phone (names and prices from StoreKit), in the app's order; null when StoreKit didn't answer. */
+/** The plans as the App Store sells them on this phone (names and prices from StoreKit), in the app's order; null when StoreKit didn't answer. */
 export async function loadProducts(call: Call = nativeCall): Promise<StoreProduct[] | null> {
-  const r = await call("iap.products", { ids: PLAN_IDS.map((p) => IAP_PRODUCT_IDS[p]) }, 30_000);
-  const found = PLAN_IDS.flatMap((plan) => {
+  const r = await call("iap.products", { ids: IAP_PLAN_IDS.map((p) => IAP_PRODUCT_IDS[p]) }, 30_000);
+  const found = IAP_PLAN_IDS.flatMap((plan) => {
     const p = r.products?.find((x) => x.id === IAP_PRODUCT_IDS[plan]);
     return p ? [{ ...p, plan }] : [];
   });
@@ -62,7 +69,7 @@ export async function claimTransactions(transactions: string[], fetchImpl: Fetch
 /** "not_confirmed": Apple took the payment but our server couldn't be reached or didn't agree; Restore purchases tries again (nothing is charged twice). */
 export type BuyResult = "ok" | "cancelled" | "pending" | "unavailable" | "not_confirmed";
 
-export async function buyPlan(plan: PlanId, call: Call = nativeCall, fetchImpl: Fetch = fetch): Promise<BuyResult> {
+export async function buyPlan(plan: IapPlanId, call: Call = nativeCall, fetchImpl: Fetch = fetch): Promise<BuyResult> {
   // Apple's sheet stays open while the person reads it, signs in or checks with their bank: a long wait is normal.
   const r = await call("iap.purchase", { id: IAP_PRODUCT_IDS[plan] }, 15 * 60_000);
   if (r.pending) return "pending";
@@ -80,7 +87,11 @@ async function forgetAppleToken(nowMs: number): Promise<void> {
   if (!claims || claims.src === "apple") forgetPaidToken();
 }
 
-export type RestoreResult = "restored" | "none" | "cancelled" | "failed";
+/**
+ * "refused": Apple holds a current purchase for this Apple ID but our server didn't switch Premium on for it (it used to say "nothing to restore", which was
+ * untrue and sent people away); "none" only when Apple's own list is empty.
+ */
+export type RestoreResult = "restored" | "none" | "refused" | "cancelled" | "failed";
 
 /** "Restore purchases": StoreKit syncs with the App Store (it may ask for the Apple ID password), then the current purchases are swapped for a token. */
 export async function restorePurchases(call: Call = nativeCall, fetchImpl: Fetch = fetch, nowMs: number = Date.now()): Promise<RestoreResult> {
@@ -92,7 +103,7 @@ export async function restorePurchases(call: Call = nativeCall, fetchImpl: Fetch
     return "none";
   }
   const c = await claimTransactions(r.transactions, fetchImpl);
-  return c === "ok" ? "restored" : c === "not_paid" ? "none" : "failed";
+  return c === "ok" ? "restored" : c === "not_paid" ? "refused" : "failed";
 }
 
 let running: Promise<void> | null = null;

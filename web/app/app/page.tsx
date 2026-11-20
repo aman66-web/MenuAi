@@ -6,14 +6,15 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
 import { entryMeal, isSameLocalDay, LOG_MEAL_LABEL, LOG_MEALS, loggedGaps, loggedToday, mealBudget } from "@/lib/mm/budget";
-import { PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
+import { SAMPLES_ENABLED } from "@/lib/mm/config";
 import { dayHref, dayParam, loggedDayKeys, shortDate, weekOf } from "@/lib/mm/day";
 import { needsPaywall } from "@/lib/mm/entitlements";
-import { formatInt } from "@/lib/mm/format";
-import { ARRIVAL_TOAST, arrivalDue, startHereDone, withoutArrival } from "@/lib/mm/homePages";
+import { formatCalories, formatInt } from "@/lib/mm/format";
+import { ARRIVAL_TOAST, arrivalDue, dropCard, dropToast, startHereDone, withStartUsed } from "@/lib/mm/homePages";
+import { coachDue } from "@/lib/mm/coach";
 import { macroTargets } from "@/lib/mm/targets";
 import { localeInfo } from "@/lib/mm/i18n";
-import { deleteLogEntry, homePagesStore, logStore, savedStore, updateSettings } from "@/lib/mm/stores";
+import { coachStore, deleteLogEntry, homePagesStore, logStore, savedStore, updateSettings } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
 import type { LogMeal } from "@/lib/mm/types";
 import { AddFoodSheet } from "./_components/addfood/AddFoodSheet";
@@ -55,6 +56,8 @@ import { useLanguage, useT } from "./_lib/i18n";
 // The onboarding redesign meeting (20 November 2026, approved by the founder): Home is where the welcome screens end, with no "You're all set!" screen. The
 // first visit says what is now true in one ink toast (lib/mm/homePages.ts ARRIVAL_TOAST, 8 s at least), and shows the one-time Start here card under the
 // numbers (StartHere.tsx); while it shows, the "Set your targets" card waits. Pip's tips start once the toast has gone (CoachMarks.tsx: data-coach-wait).
+// The 30-person audit (20 November 2026): the toast is said once, but the Start here card waits on Home, visit after visit, until "Done with this", every row
+// used (kept in the note, lib/mm/homePages.ts withStartUsed) or START_HERE_DAYS pass, as step 5 promised ("It'll be waiting on Home").
 
 export default function HomePage() {
   const t = useT();
@@ -72,18 +75,22 @@ export default function HomePage() {
   const [picking, setPicking] = useState(false);
   const [addTo, setAddTo] = useState<LogMeal | null>(null);
   const [added, setAdded] = useState<{ entry: LogEntry; meal: LogMeal } | null>(null);
-  // What the welcome screens left for this visit (lib/mm/homePages.ts): read once, kept for this visit, and forgotten on the phone at once ("one time").
-  const [arrival] = useState(() => arrivalDue(homePagesStore.get(), new Date()));
-  const [arrivalToast, setArrivalToast] = useState(arrival?.toast ?? null);
+  // What the welcome screens left (lib/mm/homePages.ts): the toast is read once, kept for this visit and forgotten on the phone at once ("one time"); the
+  // Start here card is read from the phone each time, with the rows used so far, so it is still there on the next visit and after a reload.
+  const pagesState = useStore(homePagesStore);
+  const [arrivalToastWas] = useState(() => arrivalDue(homePagesStore.get(), new Date())?.toast ?? null);
+  const [arrivalToast, setArrivalToast] = useState(arrivalToastWas);
   useEffect(() => {
-    if (arrival) homePagesStore.set(withoutArrival(homePagesStore.get()));
-  }, [arrival]);
-  // the Start here card: what it would show, which of its rows have been used this visit, and whether "Done with this" closed it
+    if (arrivalToastWas) homePagesStore.set(dropToast(homePagesStore.get()));
+  }, [arrivalToastWas]);
+  const arrival = arrivalDue(pagesState, now);
+  // the Start here card: what it would show, and which of its rows have been used (kept with the note)
   const logPaid = needsPaywall("log", { pro }); // whether logging is paid for this person on this build (the same check the + makes through gate("log"))
   const start = useStartHere(arrival, !logPaid);
-  const [startUsed, setStartUsed] = useState<{ add: boolean; dishEntry: string | null; recipe: boolean }>({ add: false, dishEntry: null, recipe: false });
-  const [startClosed, setStartClosed] = useState(false);
+  // the dish added from the card on this visit keeps its "Added to …" row with Undo; on a later visit an added dish has simply done its job
+  const [dishThisVisit, setDishThisVisit] = useState<string | null>(null);
   const [addFromStart, setAddFromStart] = useState(false);
+  const noteStart = (patch: Parameters<typeof withStartUsed>[1]) => homePagesStore.set(withStartUsed(homePagesStore.get(), patch));
   /** The one toast at the top says what was just added (it takes the arrival toast's place). */
   const showAdded = (next: { entry: LogEntry; meal: LogMeal }) => {
     setArrivalToast(null);
@@ -103,8 +110,12 @@ export default function HomePage() {
   const narrow = new Intl.DateTimeFormat(htmlLang, { weekday: "narrow" });
   const longDay = new Intl.DateTimeFormat(htmlLang, { weekday: "long", day: "numeric", month: "long" });
   const loggedDays = loggedDayKeys(log);
-  const dishUsed = !!startUsed.dishEntry && log.some((e) => e.id === startUsed.dishEntry);
-  const startOpen = start.shows && !startClosed && !startHereDone(start.rows, { add: startUsed.add, dish: dishUsed, recipe: startUsed.recipe });
+  const used = arrival?.used ?? {};
+  const dishUsed = !!used.dishEntry && log.some((e) => e.id === used.dishEntry);
+  const dishUndo = dishUsed && dishThisVisit === used.dishEntry;
+  const startOpen = start.shows && !startHereDone(start.rows, { add: !!used.add, dish: dishUsed, recipe: !!used.recipe, undo: dishUndo });
+  // Scan your food estimates (CLAUDE.md rule 1's one exception) are in today's figures: the Today card says so, as the Today page does
+  const estimates = todays.filter((e) => e.estimate === true).length;
 
   const pictureOf = (e: LogEntry): EntryPicture | undefined => entryPicture(e, legacyImage(e, indexes.get(e.chainId), savedOrders));
   const byMeal = (meal: LogMeal) => todays.filter((e) => entryMeal(e) === meal).sort((a, b) => Date.parse(a.loggedAt) - Date.parse(b.loggedAt));
@@ -189,33 +200,37 @@ export default function HomePage() {
           delegation; HomeLabels.tsx is kept for when it comes back) */}
       <HomePages
         now={now}
+        // no swipe hint while Pip's tips are due (his first tip is about these cards) or the Start here card shows (the hint would push its button under the tab bar)
+        quiet={startOpen || coachDue(coachStore.get(), "home")}
         pages={[
-          { name: t(HOME_PAGE_NAMES.today), node: <><h2 className="sr-only">{t(HOME_PAGE_NAMES.today)}</h2><HomeToday calories={eaten.calories} target={settings.dailyCalories} targets={targets} eaten={eaten} /></> },
+          { name: t(HOME_PAGE_NAMES.today), node: <><h2 className="sr-only">{t(HOME_PAGE_NAMES.today)}</h2><HomeToday calories={eaten.calories} target={settings.dailyCalories} targets={targets} eaten={eaten} estimates={estimates} /></> },
           { name: t(HOME_PAGE_NAMES.week), node: <HomeWeek log={log} now={now} target={settings.dailyCalories} logPaid={logPaid} htmlLang={htmlLang} /> },
         ]}
       />
       {/* the one-time Start here card, directly under the numbers and their dots, above the cooking tools */}
       {startOpen && (
         <StartHere
-          state={start}
+          // a dish added on an earlier visit has done its job: its row isn't shown again (no Undo for another day's food)
+          state={dishUsed && !dishUndo ? { ...start, rows: { ...start.rows, dish: false } } : start}
           now={now}
-          used={startUsed}
+          used={{ add: !!used.add, dishEntry: dishUndo ? used.dishEntry ?? null : null, recipe: !!used.recipe }}
           onAddWhatYouAte={(meal) => { setAddFromStart(true); setAddTo(meal); }}
-          onDishAdded={(entry, meal) => { setStartUsed((u) => ({ ...u, dishEntry: entry.id })); showAdded({ entry, meal }); }}
-          onDishUndone={(id) => { if (added?.entry.id === id) setAdded(null); }}
-          onRecipeOpened={() => setStartUsed((u) => ({ ...u, recipe: true }))}
-          onDone={() => setStartClosed(true)}
+          onDishAdded={(entry, meal) => { noteStart({ dishEntry: entry.id }); setDishThisVisit(entry.id); showAdded({ entry, meal }); }}
+          onDishUndone={(id) => { noteStart({ dishEntry: null }); if (added?.entry.id === id) setAdded(null); }}
+          onRecipeOpened={() => noteStart({ recipe: true })}
+          onDone={() => homePagesStore.set(dropCard(homePagesStore.get()))}
         />
       )}
-      {/* the word "today" keeps it true under any of the pages */}
-      {gaps.any && <p className="mt-3 px-1 text-sm leading-snug text-muted">{t("Some meals you added today have no protein, carbs or fat entered, so today's figures only count the rest.")}</p>}
+      {/* the word "today" keeps it true under any of the pages; a restaurant that publishes calories only is named, not called "not entered" */}
+      {gaps.any && <p className="mt-3 px-1 text-sm leading-snug text-muted">{t("Some foods today don't have every figure (typed in without them, or from a restaurant that publishes calories only), so protein, carbs and fat count only the foods that have them.")}</p>}
 
       {logPaid && (
         <Card className="mt-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 p-4">
           <p className="min-w-[10rem] flex-1 text-base leading-snug">{t("Log your meals to see what's left today.")}</p>
-          {/* "Premium", the one name on screen (the onboarding meeting, 19 November 2026; approved by the founder) */}
+          {/* "Premium", the one name on screen (the onboarding meeting, 19 November 2026; approved by the founder), and one wording for the button, as on the
+              Today page (the 30-person audit, 20 November 2026) */}
           <Button variant="secondary" onClick={() => showPaywall("log")}>
-            {PAYMENTS_ENABLED ? t("Try Premium free") : t("See Premium")}
+            {t("See Premium")}
           </Button>
         </Card>
       )}
@@ -255,7 +270,11 @@ export default function HomePage() {
                   {/* a page-fill well with an ink flame (colour meeting, 19 November 2026: lime is only for chosen and today, and green beside a food figure
                       would read as "good") */}
                   <span aria-hidden className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-fill text-ink"><FlameIcon className="h-[18px] w-[18px]" /></span>
-                  <span className="app-numbers text-lg font-bold"><span className="whitespace-nowrap">{budget === null ? formatInt(kcal) : `${formatInt(kcal)} / ${formatInt(budget)}`}</span> <span className="text-sm font-semibold text-muted">kcal</span></span>
+                  {/* drawn "220 / 500 kcal"; heard "220 of 500 kcal" (never "slash"), as the water card does */}
+                  <span className="app-numbers text-lg font-bold">
+                    <span aria-hidden><span className="whitespace-nowrap">{budget === null ? formatInt(kcal) : `${formatInt(kcal)} / ${formatInt(budget)}`}</span> <span className="text-sm font-semibold text-muted">kcal</span></span>
+                    <span className="sr-only">{budget === null ? formatCalories(kcal) : t("{eaten} of {target} kcal", { eaten: formatInt(kcal), target: formatInt(budget) })}</span>
+                  </span>
                 </span>
                 {/* Snacks has no share of the day of its own, so its "0 kcal" could read as "no snacks allowed" (the onboarding meeting's dietitian): one plain line
                     says where they come from (no constant changes: CLAUDE.md rule 8) */}
@@ -286,23 +305,24 @@ export default function HomePage() {
         onClose={() => { setAddTo(null); setAddFromStart(false); }}
         onAdded={(entry, meal) => {
           setAddTo(null);
-          if (addFromStart) setStartUsed((u) => ({ ...u, add: true }));
+          if (addFromStart) noteStart({ add: true });
           setAddFromStart(false);
           showAdded({ entry, meal });
         }}
       />
 
       {arrivalToast && !added && (
-        // the arrival toast, once (the meeting's words for how the person arrived); Pip's tips wait until it has gone (data-coach-wait)
+        // the arrival toast, once (the meeting's words for how the person arrived), at the foot of the screen so it never covers the date, the Shopping list
+        // or the cog (the 30-person audit); Pip's tips wait until it has gone (data-coach-wait)
         <span data-coach-wait="">
           <Toast onClose={() => setArrivalToast(null)}>{t(ARRIVAL_TOAST[arrivalToast])}</Toast>
         </span>
       )}
 
       {added && (
-        // The one toast (Toast.tsx), at the top, clear of the meal rows and their + buttons: a second tap on the same + must never land on Undo. A new key for
-        // each thing added, so its time starts afresh.
-        <Toast key={added.entry.id} onClose={() => setAdded(null)} onUndo={() => { deleteLogEntry(added.entry.id); setAdded(null); }}>
+        // The one toast (Toast.tsx), kept at the top, clear of the meal rows and their + buttons: a second tap on the same + must never land on Undo. A new key
+        // for each thing added, so its time starts afresh.
+        <Toast key={added.entry.id} place="top" onClose={() => setAdded(null)} onUndo={() => { deleteLogEntry(added.entry.id); setAdded(null); }}>
           {t(ADDED_TO[added.meal], { name: added.entry.name })}
         </Toast>
       )}

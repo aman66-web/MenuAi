@@ -1294,10 +1294,12 @@ describe("reminders never leave the device", () => {
 
   it("Settings' Clear data empties them, and so does a different person signing in (the real wiring)", () => {
     const settings = read("app/app/settings/page.tsx");
-    expect(settings).toContain("clearReminders()");
-    // every Clear data sentence (phone and browser, with and without the text size choice) names the reminders
-    expect(settings.match(/reminders you set/g)?.length).toBe(settings.match(/This removes your goal/g)?.length);
-    expect(settings.match(/reminders you set/g)?.length).toBeGreaterThanOrEqual(2);
+    // Clear data is one function since 20 November 2026 (app/app/_lib/clearData.ts), called by Settings
+    expect(settings).toContain("await clearDeviceData();");
+    expect(read("app/app/_lib/clearData.ts")).toContain('"mm.v1.reminders": () => clearReminders()');
+    // the sheet names what goes as one list, phone and browser alike (the audit, 20 November 2026), and the reminders are on it
+    expect(settings).toMatch(/const CLEAR_LIST = \[[^\]]*tk\("Your reminders"\)/);
+    expect(settings).toContain("CLEAR_LIST.map(");
     expect(read("app/app/_lib/account.ts")).toMatch(/localStores: \[[^\]]*remindersStore[^\]]*\]/);
   });
 });

@@ -1,7 +1,8 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { RECIPES } from "../lib/mm/recipeBook";
-import { candidates, fitRecipe, ing, isQuick, pickFor, pieceWeight, resolveRecipe, scaleServings, subSpec, type Recipe } from "../lib/mm/recipes";
+import { candidates, dietClashes, fitRecipe, ing, isQuick, pickFor, pieceWeight, recipeForDiet, resolveRecipe, scaleServings, subSpec, type Recipe } from "../lib/mm/recipes";
+import { kindExcluded, kindForDiet, PANTRY, pantryForDiet } from "../lib/mm/pantry";
 import { decodeShopProducts, type PricedProduct, type ShopNutrition } from "../lib/mm/shopProducts";
 
 // The rules that keep a recipe the same dish when the app changes its amounts (fitting it to someone's meal, or cooking for more or fewer
@@ -207,5 +208,82 @@ describe("quick recipes", () => {
     expect(isQuick({ minutes: 15, method: ["Spread on a tray.", "Freeze for at least 3 hours."] })).toBe(false);
     for (const id of ["overnight-oats", "bircher-muesli", "peanut-butter-oat-bites", "frozen-yogurt-berry-bark"]) expect(isQuick(byId(id)), id).toBe(false);
     expect(isQuick(byId("greek-yogurt-granola"))).toBe(true);
+  });
+});
+
+// The 30-person audit (20 November 2026): diets that a kind's own flags missed.
+describe("diets the shops' own ingredient lists decide", () => {
+  const kind = (key: string) => PANTRY.get(key)!;
+  const RENNET = /\b(grana|parmigiano|parmesan|pecorino)\b/i;
+  const VEGETARIAN_NAME = /\b(italian hard cheese|vegetarian|vegan|free from|plant)\b/i;
+
+  it("never gives a vegetarian pesto or hard cheese made with animal rennet (Grana Padano, Parmigiano Reggiano)", () => {
+    let checked = 0;
+    for (const r of RECIPES) {
+      const veg = recipeForDiet(r, { vegetarianOnly: true });
+      if (!veg) continue;
+      const res = resolveRecipe(veg, sainsburys);
+      res.picks.forEach((p, i) => {
+        const pantry = veg.ingredients[i]!.pantry;
+        if (!p || (pantry !== "pesto" && pantry !== "parmesan" && p.spec.pantry !== "parmesan")) return;
+        checked++;
+        expect(p.product.name, `${r.id}: ${p.product.name}`).not.toMatch(RENNET);
+        expect(p.product.name, `${r.id}: ${p.product.name}`).toMatch(VEGETARIAN_NAME);
+      });
+    }
+    expect(checked).toBeGreaterThan(0);
+    // what Pip is offered for a vegetarian: the versions made without it, and the rennet versions for everyone else
+    const vegPantry = pantryForDiet({ vegetarianOnly: true });
+    expect(vegPantry.find((k) => k.key === "parmesan")?.match.any).toEqual(["italian hard cheese", "vegetarian hard cheese"]);
+    expect(vegPantry.find((k) => k.key === "pesto")?.match.none).toContain("grana");
+    expect(pantryForDiet({}).find((k) => k.key === "parmesan")?.match.any).toContain("grana padano");
+    // and a substitute for cheddar (hard cheese) is the vegetarian one too
+    const cheddar = ing("cheddar", 40);
+    const sub = subSpec(cheddar, { key: "parmesan", factor: 0.75 }, { vegetarian: true })!;
+    expect(sub.match.none).toContain("parmigiano");
+    expect(candidates(sainsburys, sub).every((c) => !RENNET.test(c.product.name))).toBe(true);
+  }, 30_000);
+
+  it("flags teriyaki for alcohol, onion and garlic, and ginger; keeps port out of cranberry sauce; counts tinned mixed veg as root veg", () => {
+    expect(kind("teriyaki")).toMatchObject({ alcohol: true, allium: true, root: true });
+    for (const d of [{ noAlcohol: true }, { halalOnly: true }, { noOnionGarlic: true }, { jain: true }]) expect(kindExcluded(kind("teriyaki"), d), JSON.stringify(d)).not.toBeNull();
+    expect(kind("cranberry-sauce").match.none).toContain("port");
+    expect(kind("mixed-veg").root).toBe(true);
+    expect(kindExcluded(kind("mixed-veg"), { jain: true })).toBe("jain");
+  });
+
+  it("leaves alcohol out for Jain diets (white-wine mustard), and every meat when halal and no halal meat are both on", () => {
+    expect(kindExcluded(kind("mustard"), { jain: true })).toBe("jain");
+    expect(kindExcluded(kind("chicken"), { halalOnly: true, noHalalKosherMeat: true })).toBe("halal");
+    expect(kindExcluded(kind("chicken"), { halalOnly: true })).toBeNull(); // halal-named chicken alone is fine
+    expect(kindForDiet(kind("chicken"), { halalOnly: true }).match.all).toContain("halal");
+    const curry = byId("chicken-curry");
+    expect(recipeForDiet(curry, { halalOnly: true, noHalalKosherMeat: true })).toBeNull();
+  });
+
+  it("names what doesn't suit a diet, exactly when recipeForDiet leaves the recipe out", () => {
+    for (const prefs of [{ veganOnly: true }, { avoidAllergens: ["peanuts" as const] }, { avoidAllergens: ["milk" as const] }, { kosherStyle: true }, { jain: true }]) {
+      for (const r of RECIPES) {
+        const clash = dietClashes(r, prefs);
+        expect(clash.length > 0, `${r.id} ${JSON.stringify(prefs)}`).toBe(recipeForDiet(r, prefs) === null);
+      }
+    }
+    const satay = RECIPES.find((r) => r.ingredients.some((i) => i.pantry === "peanut-butter"))!;
+    expect(dietClashes(satay, { avoidAllergens: ["peanuts"] })).toContainEqual(expect.objectContaining({ pantry: "peanut-butter", reason: "peanuts" }));
+  });
+});
+
+describe("wraps sold by the wrap with no weight in the name", () => {
+  it("count at the usual 60 g a wrap, but never a mini, a taco or a pack priced as one", () => {
+    const spec = ing("wraps", 120);
+    const wraps = [
+      product("deli", "Mission Deli Original Tortilla Wraps 6 Pack", 1.5, 0.25, "each", nut(308, 8.4, 51, 7)),
+      product("mini", "Mission Original Mini Tortilla Wraps 6 Pack", 0.93, 0.15, "each", nut(313, 8.6, 52, 7)),
+      product("whole", "Plain Tortilla Wraps", 1.4, 1.4, "each", nut(296, 8.5, 50, 6.5)),
+    ];
+    expect(candidates(wraps, spec).map((c) => c.product.id)).toEqual(["deli"]);
+    const pick = pickFor(spec, wraps[0]!);
+    expect(pick).toMatchObject({ pieces: 2, packs: 1, basketCost: 1.5 });
+    expect(pick.usedCost).toBeCloseTo(0.5, 6);
   });
 });

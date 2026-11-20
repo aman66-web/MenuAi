@@ -113,7 +113,8 @@ afterEach(() => setHiddenLogos([]));
 // Real data: every picture the app's own lists would hand to a list item must pass the check, or items from that shop would silently lose their picture.
 describe("the published lists' pictures are all fit to keep", () => {
   const dir = new URL("../public/groceries/", import.meta.url);
-  const shops = readdirSync(new URL("all/", dir)).filter((f) => f.endsWith(".json") && !f.includes("manifest") && f !== "leaderboards.json"); // leaderboards.json is the Nutrition leaderboards, not a shop list
+  // leaderboards.json is the Nutrition leaderboards and barcodes.json the barcode index (lib/mm/barcodes.ts, 20 November 2026): neither is a shop list
+  const shops = readdirSync(new URL("all/", dir)).filter((f) => f.endsWith(".json") && !f.includes("manifest") && f !== "leaderboards.json" && f !== "barcodes.json");
 
   it("every shop's full list: its own picture, and any picture borrowed from another shop or Open Food Facts", () => {
     expect(shops.length).toBeGreaterThanOrEqual(9);

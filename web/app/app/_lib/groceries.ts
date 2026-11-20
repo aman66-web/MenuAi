@@ -30,25 +30,33 @@ export function loadManifest(): Promise<GroceryManifest> {
   return manifestPromise;
 }
 
+/** At most this many catalogue files are kept decoded (2026-11-20: memory only grew as shops were opened; iOS can close a web view that grows); the one used
+ *  longest ago is let go first and fetched again (from the browser's cache) when wanted. */
+export const KEEP_CATALOGUE_FILES = 3;
+
 export function loadRetailer(id: string): Promise<GroceryFile> {
   let p = filePromises.get(id);
-  if (!p) {
-    p = loadManifest()
-      .then((m) => {
-        const entry = m.retailers.find((r) => r.id === id);
-        if (!entry) throw new Error(`no products for ${id}`);
-        return getJson(`/groceries/${entry.file}`);
-      })
-      .then((f) => {
-        if (!isGroceryFile(f)) throw new Error("groceries file is not valid");
-        return f;
-      })
-      .catch((e: unknown) => {
-        filePromises.delete(id);
-        throw e;
-      });
+  if (p) {
+    filePromises.delete(id); // used again: it becomes the newest
     filePromises.set(id, p);
+    return p;
   }
+  p = loadManifest()
+    .then((m) => {
+      const entry = m.retailers.find((r) => r.id === id);
+      if (!entry) throw new Error(`no products for ${id}`);
+      return getJson(`/groceries/${entry.file}`);
+    })
+    .then((f) => {
+      if (!isGroceryFile(f)) throw new Error("groceries file is not valid");
+      return f;
+    })
+    .catch((e: unknown) => {
+      if (filePromises.get(id) === p) filePromises.delete(id);
+      throw e;
+    });
+  filePromises.set(id, p);
+  while (filePromises.size > KEEP_CATALOGUE_FILES) filePromises.delete(filePromises.keys().next().value!);
   return p;
 }
 
@@ -92,4 +100,11 @@ export function useGroceryManifest(): GroceryManifest | null {
     return () => { cancelled = true; };
   }, []);
   return m;
+}
+
+/** A product page's title size by the length of its name (2026-11-20: 124-character names ran to 6-12 lines at 2rem): up to about 45 characters the big
+ *  title, up to about 70 a step down, longer a step further; tight leading. The recipe and restaurant pages use the same steps. */
+export function productTitleClass(name: string): string {
+  const n = name.length;
+  return `${n <= 45 ? "text-[2rem]" : n <= 70 ? "text-[1.625rem]" : "text-[1.375rem]"} font-[800] leading-[1.1] tracking-[-0.02em] [overflow-wrap:break-word]`;
 }

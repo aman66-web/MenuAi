@@ -84,7 +84,8 @@ describe("Best for you sees the same filters", () => {
 describe("caution wording and settings", () => {
   it("names every diet filter and adds the allergy sentence", () => {
     expect(filterCaution({ ...NO_PREFERENCES, veganOnly: true })).toBe("We only know what each restaurant publishes, so this can't promise a dish is vegan.");
-    expect(filterCaution({ ...NO_PREFERENCES, avoidAllergens: ["milk"] })).toMatch(/^Allergy filters use each restaurant's own allergen guide/);
+    // what the allergy filter really does, never a promise (the 20 November 2026 audit)
+    expect(filterCaution({ ...NO_PREFERENCES, avoidAllergens: ["milk"] })).toBe("Where a restaurant publishes allergens, dishes that list them, or that its guide doesn't cover, are hidden. Where it publishes none, we say so on its page. Always check with the restaurant.");
     expect(anyDietFilter(NO_PREFERENCES)).toBe(false);
     expect(anyDietFilter({ ...NO_PREFERENCES, avoidAllergens: ["eggs"] })).toBe(true);
   });

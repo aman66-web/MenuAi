@@ -547,6 +547,7 @@
     "energyKj": 5163
    },
    "tags": [
+    "contains_beef",
     "contains_pork"
    ],
    "limitedTime": false,
@@ -889,6 +890,7 @@
     "energyKj": 3645
    },
    "tags": [
+    "contains_beef",
     "contains_pork"
    ],
    "limitedTime": false,
@@ -2475,7 +2477,9 @@
     "salt": 4.8,
     "energyKj": 2081
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4420,7 +4424,9 @@
     "salt": 3.8,
     "energyKj": 3253
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],

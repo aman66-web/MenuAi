@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addMonths, calendarBounds, dayHref, dayParam, isFutureDay, loggedDayKeys, monthGrid, parseDayParam, sameMonth, shortDate, startOfDay, stepDay, weekOf } from "../lib/mm/day";
+import { addMonths, calendarBounds, calendarYears, monthInBounds, dayHref, dayParam, isFutureDay, loggedDayKeys, monthGrid, parseDayParam, sameMonth, shortDate, startOfDay, stepDay, weekOf } from "../lib/mm/day";
 
 // Home's date, the calendar and the day page: pure helpers.
 
@@ -96,6 +96,17 @@ describe("addMonths and the calendar's reach", () => {
     expect(earliest).toEqual({ year: 2025, month: 9 });
     expect(sameMonth(latest, { year: 2026, month: 9 })).toBe(true);
     expect(sameMonth(latest, earliest)).toBe(false);
+  });
+  it("reaches back to the month of the oldest food logged, so its year can be chosen (founder 2026-11-20)", () => {
+    const b = calendarBounds(FRI_16_OCT, new Date(2023, 4, 9));
+    expect(b.earliest).toEqual({ year: 2023, month: 4 });
+    expect(calendarYears(b)).toEqual([2023, 2024, 2025, 2026]);
+    expect(monthInBounds({ year: 2023, month: 3 }, b)).toBe(false);
+    expect(monthInBounds({ year: 2023, month: 4 }, b)).toBe(true);
+    expect(monthInBounds({ year: 2026, month: 10 }, b)).toBe(false);
+    // a newer oldest entry never shortens the twelve months
+    expect(calendarBounds(FRI_16_OCT, new Date(2026, 8, 1)).earliest).toEqual({ year: 2025, month: 9 });
+    expect(calendarYears(calendarBounds(FRI_16_OCT))).toEqual([2025, 2026]);
   });
 });
 

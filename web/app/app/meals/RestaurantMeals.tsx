@@ -3,7 +3,7 @@
 import { hasMacros } from "@/lib/mm/nutrients";
 import Link from "next/link";
 import { builderHref, chainHref } from "@/lib/mm/routes";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import type { ChainIndex } from "@/lib/mm/chain-index";
 import { FREE_SAVED_ORDER_LIMIT } from "@/lib/mm/config";
 import { formatCalories, formatGrams, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
@@ -17,6 +17,7 @@ import { ChainCard } from "../_components/ChainRow";
 import { TrashIcon } from "../_components/icons";
 import { ItemThumb } from "../_components/ItemPhoto";
 import { Pip } from "../_components/Mascot";
+import { Toast } from "../_components/Toast";
 import { MacroSummary } from "../_components/Nutrition";
 import { Badge, Button, EmptyState, LinkButton } from "../_components/ui";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
@@ -62,14 +63,12 @@ export function RestaurantMeals() {
   const photos = saved.some((o) => orderImage(indexes.get(o.chainId), o.lines) !== undefined);
   const [open, setOpen] = useState<string | null>(null);
   const [undo, setUndo] = useState<SavedOrder | null>(null);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
 
+  // taken out at once, with Undo for 10 seconds in the app's one toast, at the top like My recipes' (audit, 20 November 2026: a bar of its own covered the tab
+  // bar and split "Undo" over two lines)
   function remove(order: SavedOrder) {
     deleteSavedOrder(order.id);
     setUndo(order);
-    if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => setUndo(null), 10000);
   }
 
   return (
@@ -79,7 +78,7 @@ export function RestaurantMeals() {
       )}
 
       {saved.length === 0 ? (
-        <EmptyState icon={<Pip mood="wave" size={64} />} title={t("No saved orders yet")} body={t("Save an order from any menu item, or from the order builder.")} action={<LinkButton href="/app/eat-out" variant="secondary">{t("Find a restaurant")}</LinkButton>} />
+        <EmptyState icon={<Pip mood="point" size={64} />} title={t("No saved orders yet")} body={t("Save an order from any menu item, or from the order builder.")} action={<LinkButton href="/app/eat-out" variant="secondary">{t("Find a restaurant")}</LinkButton>} />
       ) : (
         <ul className="space-y-3">
           {saved.map((o) => {
@@ -136,10 +135,9 @@ export function RestaurantMeals() {
       )}
 
       {undo && (
-        <div role="status" className="fixed inset-x-4 bottom-20 z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-full bg-ink px-5 py-2 text-on-ink shadow-lg">
-          <span className="text-[0.9375rem]">{t("Deleted “{name}”.", { name: undo.name })}</span>
-          <button type="button" className="min-h-11 px-2 text-[0.9375rem] font-bold text-on-ink underline underline-offset-2" onClick={() => { restoreSavedOrder(undo); setUndo(null); }}>{t("Undo")}</button>
-        </div>
+        <Toast key={undo.id} duration={10000} onClose={() => setUndo(null)} onUndo={() => { restoreSavedOrder(undo); setUndo(null); }}>
+          {t("Deleted “{name}”.", { name: undo.name })}
+        </Toast>
       )}
     </div>
   );

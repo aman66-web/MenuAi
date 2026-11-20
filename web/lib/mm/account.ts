@@ -50,7 +50,12 @@ export interface AccountDeps {
   /** True inside the iPhone app: Authorization header instead of cookies. */
   useTokens: boolean;
   tokens: Store<StoredSession | null>;
+  /** The clock, in milliseconds (tests pass their own). */
+  now?: () => number;
 }
+
+/** The iPhone app renews an access token this close to running out before it uses it (Supabase's last an hour). */
+export const RENEW_BEFORE_MS = 60_000;
 
 const isUser = (u: unknown): u is AccountUser =>
   typeof u === "object" && u !== null && typeof (u as AccountUser).id === "string" && (typeof (u as AccountUser).email === "string" || (u as AccountUser).email === null);
@@ -62,6 +67,9 @@ export const sanitizeStoredSession = (raw: unknown): StoredSession | null => (is
 
 export function createAccountApi(deps: AccountDeps) {
   let renewing: Promise<boolean> | null = null;
+  const now = deps.now ?? (() => Date.now());
+  /** The app's stored session has run out, or is about to. */
+  const expiring = (s: StoredSession | null) => s !== null && s.expiresAt * 1000 < now() + RENEW_BEFORE_MS;
 
   async function raw(path: string, init: { method?: string; body?: unknown; auth?: boolean } = {}): Promise<Response> {
     const headers: Record<string, string> = {};
@@ -139,10 +147,31 @@ export function createAccountApi(deps: AccountDeps) {
       return authed(path, init);
     },
 
-    /** Who is signed in, or null. A network failure throws (so the caller keeps what it knew). */
+    /**
+     * Who is signed in, or null. A network failure throws (so the caller keeps what it knew). In the iPhone app an access token that has run out (they last an
+     * hour, so every cold launch after a while) is renewed first with the refresh token; only a refresh token the server refuses means the person is signed
+     * out (the stored session is cleared). When it can't be renewed just now (the server is busy) this throws too, so nobody is signed out by a bad minute.
+     */
     async session(): Promise<AccountUser | null> {
-      if (deps.useTokens && !deps.tokens.get()) return null;
-      const res = await authed("auth/session");
+      let res: Response;
+      if (deps.useTokens) {
+        if (!deps.tokens.get()) return null;
+        if (expiring(deps.tokens.get())) await renew();
+        if (!deps.tokens.get()) return null; // the refresh token was refused: signed out
+        res = await raw("auth/session");
+        if (res.status === 401) {
+          const renewed = await renew();
+          if (!deps.tokens.get()) return null;
+          if (!renewed) throw new AccountError(503, "unavailable");
+          res = await raw("auth/session");
+          if (res.status === 401) {
+            deps.tokens.set(null);
+            return null;
+          }
+        }
+      } else {
+        res = await authed("auth/session");
+      }
       if (!res.ok) throw await failure(res);
       const body = (await res.json().catch(() => null)) as { user?: unknown } | null;
       return isUser(body?.user) ? cleanUser(body.user) : null;
@@ -173,10 +202,12 @@ export function createAccountApi(deps: AccountDeps) {
       return userFromSessionBody(res);
     },
 
-    /** Sign out. Always clears this device's session, even if the server can't be reached. */
+    /** Sign out. Always clears this device's session, even if the server can't be reached. An access token that has run out is renewed first, so the
+     *  server really ends the session (it can't end one from a token it no longer accepts). */
     async signOut(): Promise<void> {
       try {
-        await raw("auth/signout", { method: "POST" });
+        if (deps.useTokens && expiring(deps.tokens.get())) await renew();
+        await authed("auth/signout", { method: "POST" });
       } catch {
         // offline: the local session is cleared below regardless
       }

@@ -109,3 +109,40 @@ describe("M&S: the everyday food range, whose aisle lists show no price (founder
     expect(f.categories.some((c) => /wine|beer|spirit|alcohol|household|pet/i.test(c))).toBe(false);
   });
 });
+
+describe("the barcode index and the numbers' sources (2026-11-20)", () => {
+  const barcodes = JSON.parse(text("barcodes.json")) as { v: 1; shops: string[]; codes: Record<string, Array<[number, string, number]>>; catalogue: { shops: string[]; codes: Record<string, number[]> } };
+
+  it("barcodes.json holds every barcode in every shop list, pointing at its own row", () => {
+    let n = 0;
+    for (const r of manifest.retailers) {
+      const f = load(r.id);
+      const at = barcodes.shops.indexOf(r.id);
+      expect(at, r.id).toBeGreaterThanOrEqual(0);
+      for (const p of f.products) {
+        if (!p[9]) continue;
+        const code = p[9].replace(/^0+/, "");
+        expect(barcodes.codes[code]?.some(([i, id]) => i === at && id === p[0]), `${r.id} ${p[0]} ${code}`).toBe(true);
+        n++;
+      }
+    }
+    expect(n).toBeGreaterThan(10_000);
+  });
+
+  it("every unit price is per kg, per litre or each (M&S printed a bare 'kg')", () => {
+    for (const r of manifest.retailers) for (const p of load(r.id).products) expect(["per kg", "per litre", "each", ""], `${r.id} ${p[0]} ${p[4]}`).toContain(p[4]);
+  });
+
+  it("government produce figures are only on fresh produce: never in a frozen or cupboard aisle, never a tin, jar or frozen bag", () => {
+    for (const r of manifest.retailers) {
+      const f = load(r.id);
+      for (const p of f.products) {
+        const n = p[10];
+        if (!n || n[11] !== "cofid") continue;
+        const aisle = f.categories[p[7]] ?? "";
+        expect(aisle, `${r.id} ${p[1]}`).not.toMatch(/frozen|cupboard|drinks|bakery/i);
+        expect(p[1], `${r.id} ${p[1]}`).not.toMatch(/\b(?:tin|tins|tinned|canned|chopped tomato(?:es)?|frozen|in oil|puree|paste|jar)\b/i);
+      }
+    }
+  });
+});

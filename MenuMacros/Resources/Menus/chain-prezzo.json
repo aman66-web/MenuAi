@@ -5630,7 +5630,9 @@
     "fiber": 7.9,
     "salt": 4.6
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -5663,7 +5665,9 @@
     "fiber": 4.6,
     "salt": 5.6
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -5954,6 +5958,7 @@
     "fiber": 4.9
    },
    "tags": [
+    "contains_beef",
     "contains_pork"
    ],
    "limitedTime": false,
@@ -5986,6 +5991,7 @@
     "fiber": 4.8
    },
    "tags": [
+    "contains_beef",
     "contains_pork"
    ],
    "limitedTime": false,
@@ -6019,7 +6025,9 @@
     "sugar": 3,
     "fiber": 2.6
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -6683,7 +6691,9 @@
     "fiber": 4.4,
     "salt": 3
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -9629,7 +9639,9 @@
     "fiber": 3,
     "salt": 1.2
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -9826,7 +9838,9 @@
     "fiber": 2.8,
     "salt": 1.2
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -10694,7 +10708,9 @@
     "fiber": 2.8,
     "salt": 1.2
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -10758,7 +10774,9 @@
     "fiber": 3.2,
     "salt": 1.2
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -10885,7 +10903,9 @@
     "fiber": 2,
     "salt": 0.36
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -11080,7 +11100,9 @@
     "fiber": 1.7,
     "salt": 0.35
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],

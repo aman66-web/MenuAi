@@ -3,11 +3,13 @@ import { ALLERGEN_KEYS } from "./mm/types";
 import { PANTRY, kindExcluded } from "./mm/pantry";
 import { FRIDGE_MESSAGES, FRIDGE_MOOD_IDS, FRIDGE_SYSTEM_PROMPT, MAX_HAVE, MIN_HAVE_ITEMS, fridgeRecipeFromAi, fridgeUserPrompt, haveItems, type FridgeRecipeRequest } from "./mm/fridgeRecipe";
 import { PHOTO_MESSAGES, photoPantryPrompt } from "./mm/photoRecipe";
+import { SECOND_RECIPE_MS, busy, callLimit } from "./photoRecipeHandler";
 import type { Result } from "./handlers";
 
 // Cook with what you have, the server half (app/api/v1/recipe/fridge/route.ts wires it up; lib/mm/fridgeRecipe.ts has the shared rules). Pure apart from the
 // injected AI call and the Premium check, so it is tested without a key or a payment (tests/fridgeRecipe.test.ts). Like Make it at home: the body is checked
-// strictly, the pantry is cut to what the person's diet allows, and Pip's answer must pass the same checks the app applies.
+// strictly, the pantry is cut to what the person's diet allows, and Pip's answer must pass the same checks the app applies. When Anthropic can't be reached
+// the answer is 503 "busy", never "try a few more things".
 
 const num = (min: number, max: number) => z.number().finite().min(min).max(max);
 
@@ -27,9 +29,9 @@ export const fridgeRequestSchema = z.object({
   }).strict()).min(2).max(200),
 }).strict();
 
-type Answer = { status: "ok"; value: unknown } | { status: "refused" } | { status: "error" };
+type Answer = { status: "ok"; value: unknown } | { status: "refused" } | { status: "error" } | { status: "unavailable" };
 /** The AI call that writes the recipe: the system prompt, the text, the pantry keys it may use and the cached pantry list. */
-export type AskFridgeRecipe = (system: string, user: string, allowedKeys: string[], pantry: string) => Promise<Answer>;
+export type AskFridgeRecipe = (system: string, user: string, allowedKeys: string[], pantry: string, limitMs?: number) => Promise<Answer>;
 
 export interface FridgeCtx {
   ask: AskFridgeRecipe | null;
@@ -62,10 +64,11 @@ export async function handleFridgeRecipe(body: unknown, ctx: FridgeCtx): Promise
   const pantry = photoPantryPrompt(req.pantry);
   let user = fridgeUserPrompt(req);
   for (let attempt = 0; attempt < 2; attempt++) {
-    const answer = await ctx.ask(FRIDGE_SYSTEM_PROMPT, user, keys, pantry);
+    const answer = await ctx.ask(FRIDGE_SYSTEM_PROMPT, user, keys, pantry, callLimit(ctx.timeLeft));
+    if (answer.status === "unavailable") return busy;
     if (answer.status !== "ok") return say(502, "no_recipe", FRIDGE_MESSAGES.noRecipe);
     if (fridgeRecipeFromAi(answer.value, req, "ai-check")) return { status: 200, body: { recipe: answer.value } };
-    if (ctx.timeLeft && ctx.timeLeft() < 75_000) break; // not enough time left for another full answer
+    if (ctx.timeLeft && ctx.timeLeft() < SECOND_RECIPE_MS) break; // not enough time left for another full answer
     user = `${fridgeUserPrompt(req)}\n\nYour last answer couldn't be used. Use only the pantry keys in the pantry list with amounts between 5 and 3000; write 4 to 11 steps, each "Short title: instruction." with at most 45 words after the title; say how to tell meat, fish or eggs are cooked; no nutrition figures, prices, health words or brand names.`;
   }
   return say(502, "no_recipe", FRIDGE_MESSAGES.noRecipe);

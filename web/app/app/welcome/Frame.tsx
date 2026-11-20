@@ -84,13 +84,15 @@ export function Bottom({ children, className = "" }: { children: React.ReactNode
 }
 
 /**
- * A quiet underlined line of text in the page's ink with a 44 pt tap area, under the bottom button: "Skip these questions" on the questions about the person,
- * step 3's "Skip setup and make my account", the cover's "Start again". Not a second pill (a white pill under a grey Continue would be the most tappable thing
- * on the screen).
+ * A quiet underlined link with a 44 pt tap area, under the bottom button: "Skip these questions" on the questions about the person, step 3's "Skip setup and
+ * make my account", the cover's "Start again". Not a second pill (a white pill under a grey Continue would be the most tappable thing on the screen). The one
+ * link look of the welcome screens (the 20 November 2026 audit: the cover's sign-in link was green and these were ink): the link green, always underlined.
  */
+export const LINK = "text-accent underline decoration-solid underline-offset-[3px]";
+
 export function QuietLink({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
   return (
-    <button type="button" onClick={onClick} className="mx-auto mt-1 flex min-h-11 items-center justify-center px-3 text-center text-[1rem] font-semibold text-foreground underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+    <button type="button" onClick={onClick} className={`mx-auto mt-1 flex min-h-11 items-center justify-center px-3 text-center text-[1rem] font-semibold ${LINK} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent`}>
       {children}
     </button>
   );
@@ -106,8 +108,10 @@ const SETTLE_MS = 600;
  * Every screen's button sits in the same place, so a quick second tap of a double tap would land on the next screen's button and skip that screen unseen
  * (the activity, the targets, the foods to avoid...). A tap or pen press on a button in its first 0.6 s on screen is therefore ignored. A mouse click, the
  * keyboard and a screen reader's activation are never held back (nobody double-clicks past a screen with those, and a screen reader takes longer anyway).
+ * `onBlocked`: what a tap on the grey button does instead (About you: bring the Age box into view); it then stays tappable and is marked aria-disabled.
  */
-export function BottomButton({ children, onClick, disabled, light, describedBy, className = "" }: { children: React.ReactNode; onClick: () => void; disabled?: boolean; light?: boolean; describedBy?: string; className?: string }) {
+export function BottomButton({ children, onClick, onBlocked, disabled, light, describedBy, className = "" }: { children: React.ReactNode; onClick: () => void; onBlocked?: () => void; disabled?: boolean; light?: boolean; describedBy?: string; className?: string }) {
+  const blocked = !!disabled && !!onBlocked;
   const shownAt = useRef(0);
   const pointer = useRef("");
   useEffect(() => { shownAt.current = performance.now(); }, []);
@@ -119,11 +123,13 @@ export function BottomButton({ children, onClick, disabled, light, describedBy, 
         const finger = pointer.current === "touch" || pointer.current === "pen";
         pointer.current = "";
         if (finger && performance.now() - shownAt.current < SETTLE_MS) return;
+        if (blocked) return onBlocked?.();
         onClick();
       }}
-      disabled={disabled}
+      disabled={disabled && !blocked}
+      aria-disabled={blocked || undefined}
       aria-describedby={describedBy}
-      className={`${className} flex min-h-14 w-full items-center justify-center rounded-full px-6 py-3 text-center text-[1.0625rem] font-bold leading-snug transition active:scale-[0.97] disabled:cursor-not-allowed disabled:active:scale-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${light ? "border-[1.5px] border-edge bg-card text-foreground hover:bg-background active:bg-background disabled:border-transparent disabled:bg-line disabled:text-muted" : "bg-ink text-on-ink hover:not-disabled:bg-ink-pressed active:bg-ink-pressed disabled:bg-line disabled:text-muted"}`}
+      className={`${className} flex min-h-14 w-full items-center justify-center rounded-full px-6 py-3 text-center text-[1.0625rem] font-bold leading-snug transition active:scale-[0.97] disabled:cursor-not-allowed disabled:active:scale-100 aria-disabled:cursor-not-allowed aria-disabled:active:scale-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${blocked ? "bg-line text-muted" : light ? "border-[1.5px] border-edge bg-card text-foreground hover:bg-background active:bg-background disabled:border-transparent disabled:bg-line disabled:text-muted" : "bg-ink text-on-ink hover:not-disabled:bg-ink-pressed active:bg-ink-pressed disabled:bg-line disabled:text-muted"}`}
     >
       <span className="min-w-0 text-balance">{children}</span>
     </button>

@@ -12,7 +12,7 @@ import type { FirstDish } from "@/lib/mm/welcomeSteps";
 import { site } from "@/site.config";
 import { ChainMark } from "../_components/ChainMark";
 import { ALLERGEN_SHORT } from "../_components/DietPicker";
-import { radioKeyNav } from "../_components/ui";
+import { ChoiceMark, radioKeyNav } from "../_components/ui";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useMenu } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
@@ -31,6 +31,9 @@ import { ShowcaseWindow } from "./ShowcaseWindow";
 // - While the menus load: the window's page-fill bars with no digits. On the website, after about 3 s with nothing, a plain line instead (the menus need a
 //   connection the first time); in the iPhone app the menus are inside the app. If nothing at these places fits what the person avoids, a plain line too, and the
 //   screen keeps its place either way.
+// - The 20 November 2026 audit: "Somewhere else? All {n} restaurants are in Eat out." sits under the window (the first dish's figures stay above the sticky
+//   Next at 375x667); the chips are one column below about 340 px, never break a name mid-word, and show the chosen one's tick (not colour alone); the
+//   restaurant's serving is said as "per {serving}".
 
 /** How long the website waits for the four menus before saying they need a connection (the meeting: about 3 s). */
 const MENU_WAIT_MS = 3000;
@@ -96,7 +99,7 @@ export function EatOutShowcase({ goal, prefs, onDish }: { goal: Goal | null; pre
   const noneFit = settled && chips.length === 0;
   const figures = (d: ShowcaseChip["dishes"][number]) =>
     d.serving
-      ? t("{kcal} kcal · {protein} g protein · {serving}", { kcal: formatInt(d.kcal), protein: formatInt(d.protein), serving: d.serving })
+      ? t("{kcal} kcal · {protein} g protein · per {serving}", { kcal: formatInt(d.kcal), protein: formatInt(d.protein), serving: d.serving })
       : t("{kcal} kcal · {protein} g protein", { kcal: formatInt(d.kcal), protein: formatInt(d.protein) });
   const spoken = chip
     ? `${t("Example from the Eat out tab: {dish} at {chain}: {kcal} calories, {protein} grams of protein, from {chain}'s own figures.", { dish: chip.dishes[0]!.name, chain: chip.chainName, kcal: formatInt(chip.dishes[0]!.kcal), protein: formatInt(chip.dishes[0]!.protein) })} ${t("Also {dish}: {kcal} calories, {protein} grams of protein.", { dish: chip.dishes[1]!.name, kcal: formatInt(chip.dishes[1]!.kcal), protein: formatInt(chip.dishes[1]!.protein) })}`
@@ -105,7 +108,7 @@ export function EatOutShowcase({ goal, prefs, onDish }: { goal: Goal | null; pre
   return (
     <>
       {showChips && chips.length > 0 && (
-        <div role="radiogroup" aria-label={t("Restaurants")} className="mt-4 grid grid-cols-2 gap-2">
+        <div role="radiogroup" aria-label={t("Restaurants")} className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(9.5rem,1fr))] gap-2">
           {chips.map((c, i) => {
             const on = c.chainId === chip?.chainId;
             return (
@@ -119,15 +122,14 @@ export function EatOutShowcase({ goal, prefs, onDish }: { goal: Goal | null; pre
                 onKeyDown={(e) => radioKeyNav(e, i, chips.length, (n) => setChosen(chips[n]!.group))}
                 className={`flex min-h-11 min-w-0 items-center gap-2 rounded-[0.875rem] text-start text-[0.9375rem] leading-tight transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "border-2 border-on-sun bg-sun px-2.5 py-1.5 font-bold text-on-sun" : "border-[1.5px] border-edge bg-card px-[10.5px] py-[6.5px] font-semibold text-foreground hover:bg-background"}`}
               >
+                <ChoiceMark on={on} />
                 {logoFor(c.chainId) && <ChainMark chainId={c.chainId} size="xs" />}
-                <span className="min-w-0 [overflow-wrap:anywhere]">{c.chainName}</span>
+                <span className="min-w-0 [overflow-wrap:break-word]">{c.chainName}</span>
               </button>
             );
           })}
         </div>
       )}
-      {real.length > 0 && <p className="mt-3 text-[0.9375rem] leading-snug text-foreground">{t("Somewhere else? All {n} restaurants are in Eat out.", { n: formatInt(real.length) })}</p>}
-
       <ShowcaseWindow kind="eatOut" loading={!chip && !offline && !noneFit} status={t("Loading the menus…")} quiet>
         {chip ? (
           <>
@@ -154,6 +156,7 @@ export function EatOutShowcase({ goal, prefs, onDish }: { goal: Goal | null; pre
           </p>
         )}
       </ShowcaseWindow>
+      {real.length > 0 && <p className="mt-3 text-[0.9375rem] leading-snug text-foreground">{t("Somewhere else? All {n} restaurants are in Eat out.", { n: formatInt(real.length) })}</p>}
 
       {allergens.length > 0 && <p className="mt-3 text-[0.9375rem] leading-snug text-foreground">{t("Dishes that list {allergens}, or have no allergy information, are left out. Always check with staff.", { allergens: list(allergens) })}</p>}
       {dietNote && <p className="mt-2 text-[0.9375rem] leading-snug text-foreground">{dietNote}</p>}

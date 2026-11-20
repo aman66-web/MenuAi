@@ -1,17 +1,18 @@
 "use client";
 
-import { useDeferredValue, useEffect, useMemo, useState } from "react";
+import { useDeferredValue, useMemo, useState } from "react";
+import { ALLERGEN_LABEL } from "@/lib/mm/allergens";
 import { RETAILERS } from "@/lib/mm/groceries";
-import { anyFoodDiet, foodDietCaution, foodDietProblem } from "@/lib/mm/foodDiet";
+import { anyFoodDiet, foodDietProblem, groceryDietLine } from "@/lib/mm/foodDiet";
 import { SHOP_SORTS, searchShopProducts, type ShopFile, type ShopProduct, type ShopSort } from "@/lib/mm/shopProducts";
 import { PageHeader } from "../../_components/PageHeader";
 import { SearchIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../../_components/SearchDone";
-import { AllergyNote, Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
+import { AllergyNote, Chip, EmptyIcon, EmptyState, ErrorBox, LinkButton, Spinner } from "../../_components/ui";
 import { useT } from "../../_lib/i18n";
 import { useSettings } from "../../_lib/hooks";
-import { loadShopFile } from "../../_lib/shopProducts";
+import { useShopLists, useShopManifestState } from "../../_lib/shopProducts";
 import { FootNote, MoreButton, NOTE, PILL_INPUT, SelectField, TITLE } from "../PageBits";
 import { ShopProductRow } from "../shop/ShopProductRow";
 
@@ -21,32 +22,15 @@ import { ShopProductRow } from "../shop/ShopProductRow";
 const PAGE = 60;
 const nameOf = (id: string) => RETAILERS.find((r) => r.id === id)?.name ?? id;
 
-type Loaded = { file: ShopFile; products: ShopProduct[] };
-type State = { key: string; loaded: Loaded[]; failed: string[] } | null;
-
-function useShops(ids: readonly string[], retry: number): { status: "loading" } | { status: "ready"; loaded: Loaded[]; failed: string[] } {
-  const list = ids.join(",");
-  const key = `${list}|${retry}`;
-  const [state, setState] = useState<State>(null);
-  useEffect(() => {
-    let cancelled = false;
-    const wanted = list.split(",");
-    Promise.allSettled(wanted.map((id) => loadShopFile(id))).then((results) => {
-      if (cancelled) return;
-      const loaded: Loaded[] = [];
-      const failed: string[] = [];
-      results.forEach((r, i) => (r.status === "fulfilled" ? loaded.push(r.value) : failed.push(wanted[i]!)));
-      setState({ key: `${list}|${retry}`, loaded, failed });
-    });
-    return () => { cancelled = true; };
-  }, [list, retry]);
-  return state && state.key === key ? { status: "ready", loaded: state.loaded, failed: state.failed } : { status: "loading" };
-}
-
 export function MultiShopScreen({ shops }: { shops: string[] }) {
   const t = useT();
   const [retry, setRetry] = useState(0);
-  const state = useShops(shops, retry);
+  // only shops that have a full list (an old or mistyped address can name others); known once the manifest is
+  const manifestState = useShopManifestState(retry);
+  const manifest = manifestState.status === "ready" ? manifestState.manifest : null;
+  const known = manifest ? shops.filter((id) => manifest.retailers.some((r) => r.id === id)) : [];
+  const lists = useShopLists(known, retry);
+  const state = manifestState.status === "error" ? { status: "ready" as const, loaded: [], failed: shops } : !manifest ? { status: "loading" as const } : lists;
   const [query, setQuery] = useState("");
   const [only, setOnly] = useState<string | null>(null);
   const [nutrition, setNutrition] = useState(false);
@@ -71,19 +55,29 @@ export function MultiShopScreen({ shops }: { shops: string[] }) {
   const reset = () => setShown(PAGE);
   const back = <PageHeader back={{ href: "/app/groceries", label: t("Back to groceries") }} list />;
   const names = new Intl.ListFormat("en-GB", { type: "conjunction" }).format((loaded ?? []).map((l) => l.file.name));
+  const avoid = prefs.avoidAllergens ?? [];
+  const avoidNames = new Intl.ListFormat("en-GB", { type: "conjunction" }).format(avoid.map((k) => t(ALLERGEN_LABEL[k])));
+  const dietLine = groceryDietLine(prefs, diet, t);
+  // the title shows at once, with the shops' logos, while their lists load (2026-11-20: the page had no heading until every list was in)
+  const title = (
+    <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">
+      <span className="flex shrink-0 gap-1.5" aria-hidden>{(loaded ? loaded.map((l) => l.file.retailer) : shops).map((id) => (<ShopMark key={id} shopId={id} size="sm" />))}</span>
+      <h1 className={`${TITLE} max-w-full [overflow-wrap:break-word]`}>{t("Your selected shops")}</h1>
+    </div>
+  );
 
-  if (state.status === "loading") return (<div>{back}<Spinner label={t("Loading the full list")} /></div>);
+  if (state.status === "loading") return (<div>{back}{title}<Spinner label={t("Loading the full list")} /></div>);
+  if (manifest && known.length === 0) {
+    return (<div>{back}<div className="mt-6"><EmptyState title={t("Choose a supermarket first.")} body={t("Tap Select on the shops you want on Groceries, then see their products together.")} action={<LinkButton href="/app/groceries">{t("Choose a shop")}</LinkButton>} /></div></div>);
+  }
   if (!loaded || loaded.length === 0) {
-    return (<div>{back}<div className="mt-4"><ErrorBox message={t("Couldn't load this list. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div></div>);
+    return (<div>{back}{title}<div className="mt-4"><ErrorBox message={t("Couldn't load this list. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div></div>);
   }
 
   return (
     <div>
       {back}
-      <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">
-        <span className="flex shrink-0 gap-1.5" aria-hidden>{loaded.map((l) => (<ShopMark key={l.file.retailer} shopId={l.file.retailer} size="sm" />))}</span>
-        <h1 className={`${TITLE} max-w-full [overflow-wrap:break-word]`}>{t("Your selected shops")}</h1>
-      </div>
+      {title}
       <p className="mt-3.5 text-[0.9375rem] leading-relaxed text-muted">{t("Products from {shops}, each with its own shop's price and photo.", { shops: names })}</p>
       {state.failed.length > 0 && (
         <div className="mt-3.5"><ErrorBox message={t("Couldn't load {shops}. Check your connection.", { shops: state.failed.map(nameOf).join(", ") })} onRetry={() => setRetry((n) => n + 1)} /></div>
@@ -112,9 +106,10 @@ export function MultiShopScreen({ shops }: { shops: string[] }) {
         </SelectField>
       </div>
 
-      {(sort === "density" || sort === "protein") && <p className={`mt-3 ${NOTE}`}>{t("Products without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.")}</p>}
-      {diet && foodDietCaution(prefs, t) && <p className={`mt-3 ${NOTE}`}>{foodDietCaution(prefs, t)}</p>}
-      {diet && (prefs.avoidAllergens?.length ?? 0) > 0 && <AllergyNote className="mt-3"><p>{t("We haven't read allergens for these products, so your allergy settings can't hide any here. Always check the pack.")}</p></AllergyNote>}
+      {(sort === "density" || sort === "protein") && <p className={`mt-3 ${NOTE}`}>{sort === "density" ? t("Products with under 20 kcal or 5 g of protein per 100 g, those without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.") : t("Products without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.")}</p>}
+      {dietLine && <p className={`mt-3 ${NOTE}`}>{dietLine}</p>}
+      {/* allergens aren't read for these lists, so the allergy settings hide nothing here: said whether or not the filter is on */}
+      {avoid.length > 0 && <AllergyNote className="mt-3"><p>{t("We haven't read allergens for these products, so nothing is hidden for {allergens}. Always check the pack.", { allergens: avoidNames })}</p></AllergyNote>}
       <p role="status" aria-live="polite" className="app-numbers mt-6 ps-1 text-sm font-semibold text-muted">{results.length === 1 ? t("1 product") : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
       {results.length === 0 ? (
         <div className="mt-3"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No products match.")} body={t("Try fewer words or a different type.")} /></div>

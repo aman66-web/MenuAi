@@ -10,14 +10,16 @@ import {
 import { site } from "@/site.config";
 import { PickTile } from "./DietPicker";
 import { NumberDone, SearchDone } from "./SearchDone";
-import { Button, Sheet, inputClass, radioKeyNav } from "./ui";
+import { Button, Chip, Sheet, inputClass, radioKeyNav } from "./ui";
 import { useLanguage, useT } from "../_lib/i18n";
 import { useReminderStatus } from "../_lib/reminderSync";
 
 // "Add a reminder" and "Edit reminder" (founder 2026-10-16, on Home: "a section here for reminders, some people are GLP-1 and some people need to know
 // when to have their medication"). The reminder is the person's own: they type its name, choose how often (every day, certain days, every few days) and
 // the time, and may add a short note. Nothing here suggests a medicine, a dose, a day or a time (CLAUDE.md rule 3). Big plain choices for older users:
-// three repeat buttons, seven day buttons, the phone's own time and date pickers.
+// three repeat buttons, seven day buttons, the phone's own time and date pickers. The 30-person audit (20 November 2026): the days are the app's own chips
+// (a chosen one lime with its dot, never a plain ink block); "rings at the times you choose" is said only in the iPhone app, where it is true (the website
+// says reminders ring in the iPhone app); the Time box may shrink to the sheet, as the First day box does.
 
 type Kind = RepeatRule["kind"];
 
@@ -180,22 +182,23 @@ function ReminderForm({ reminder, onSave, onDelete }: { reminder: Reminder | nul
       {form.kind === "weekdays" && (
         <div role="group" aria-labelledby={`${field.days}-label`} aria-describedby={problem === "days" ? field.problem : undefined} className="@container">
           <p id={`${field.days}-label`} className={labelClass}>{t("Which days?")}</p>
-          <div className={`grid gap-1.5 ${wideNames ? "grid-cols-4" : "grid-cols-4 @[21.5rem]:grid-cols-7"}`}>
+          {/* the app's chips: white with the control edge, a chosen day lime with the 2 px dark-green edge and its dot (the colour meeting's chosen look) */}
+          <div className={`grid gap-1.5 ${wideNames ? "grid-cols-4" : "grid-cols-4 @[26rem]:grid-cols-7"}`}>
             {days.map((d, i) => {
               const on = form.days.includes(d.iso);
               return (
-                <button
+                <Chip
                   key={d.iso}
                   id={i === 0 ? field.days : undefined}
-                  type="button"
-                  aria-pressed={on}
+                  selected={on}
+                  mark="dot"
                   aria-describedby={i === 0 && problem === "days" ? field.problem : undefined}
                   onClick={() => change({ days: on ? form.days.filter((x) => x !== d.iso) : [...form.days, d.iso] })}
-                  className={`inline-flex min-h-11 items-center justify-center rounded-2xl px-1 text-[0.9375rem] font-semibold transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent border-[1.5px] ${on ? "border-transparent bg-ink text-on-ink" : "border-edge bg-card hover:bg-background"}`}
+                  className="w-full justify-center px-1! text-[0.9375rem]"
                 >
                   <span aria-hidden>{d.short}</span>
                   <span className="sr-only">{d.long}</span>
-                </button>
+                </Chip>
               );
             })}
           </div>
@@ -241,7 +244,8 @@ function ReminderForm({ reminder, onSave, onDelete }: { reminder: Reminder | nul
 
       <div>
         <label htmlFor={field.time} className={labelClass}>{t("Time")}</label>
-        {/* founder 2026-11-17 (iPhone: "you can scroll from side to side"): iOS draws a time box wider than its sheet unless it may shrink (min-w-0, max-w-full, no native appearance) */}
+        {/* founder 2026-11-17 (iPhone: "you can scroll from side to side"): iOS draws a time box wider than its sheet unless it may shrink (min-w-0, max-w-full, no
+            native appearance); the sheet hides sideways overflow, so without this its right edge and clock were cut off (the 30-person audit, 20 November 2026) */}
         <input
           id={field.time}
           type="time"
@@ -249,7 +253,7 @@ function ReminderForm({ reminder, onSave, onDelete }: { reminder: Reminder | nul
           onChange={(e) => change({ time: e.target.value })}
           aria-invalid={problem === "time" || undefined}
           aria-describedby={problem === "time" ? field.problem : undefined}
-          className={`${inputClass} ${invalidRing} app-numbers text-start [&::-webkit-date-and-time-value]:text-start`}
+          className={`${inputClass} ${invalidRing} app-numbers min-w-0 max-w-full text-start [-webkit-appearance:none] appearance-none [&::-webkit-date-and-time-value]:min-w-0 [&::-webkit-date-and-time-value]:text-start`}
         />
         {problem === "time" && <p id={field.problem} role="alert" className={problemClass}>{say.time}</p>}
       </div>
@@ -272,8 +276,13 @@ function ReminderForm({ reminder, onSave, onDelete }: { reminder: Reminder | nul
         {onPhone && <p id={`${field.note}-hint`} className={hintClass}>{lockLine}</p>}
       </div>
 
-      <p className="text-[0.9375rem] leading-snug text-muted">{t("{app} rings at the times you choose, but a reminder may not appear if notifications are off or silenced, so don't rely on it alone. Follow the advice of your doctor or pharmacist about any medication.", { app: site.name })}</p>
-      {!onPhone && <p className="text-[0.9375rem] font-semibold leading-snug">{t("Reminders ring in the {app} iPhone app. On the website you'll see what's due today here.", { app: site.name })}</p>}
+      {/* only the iPhone app rings: the website says where reminders ring instead; the medication line is said on both */}
+      {onPhone ? (
+        <p className="text-[0.9375rem] leading-snug text-muted">{t("{app} rings at the times you choose, but a reminder may not appear if notifications are off or silenced, so don't rely on it alone.", { app: site.name })}</p>
+      ) : (
+        <p className="text-[0.9375rem] font-semibold leading-snug">{t("Reminders ring in the {app} iPhone app. On the website you'll see what's due today here.", { app: site.name })}</p>
+      )}
+      <p className="text-[0.9375rem] leading-snug text-muted">{t("Follow the advice of your doctor or pharmacist about any medication.")}</p>
 
       {problem === "limit" && <p role="alert" className="text-[0.9375rem] font-semibold leading-snug">{say.limit}</p>}
 

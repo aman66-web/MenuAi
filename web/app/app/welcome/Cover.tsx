@@ -13,7 +13,7 @@ import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useHydrated, useMenu } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { useShopManifest } from "../_lib/shopProducts";
-import { Bottom, BottomButton, H1, QuietLink, SCREEN, TopBar } from "./Frame";
+import { Bottom, BottomButton, H1, LINK, QuietLink, SCREEN, TopBar } from "./Frame";
 
 // The welcome cover (no counter), kept as built: the moving wall of the official logo files of the chains and shops in the app (CLAUDE.md rule 2: unmodified, on
 // white tiles; names and cuisine icons with logos off; LogoWall's 44 pt Pause), two floating counts from the data, Pip waving once beside the greeting, the
@@ -21,12 +21,13 @@ import { Bottom, BottomButton, H1, QuietLink, SCREEN, TopBar } from "./Frame";
 // The onboarding redesign meeting (20 November 2026, approved by the founder) adds only single lines: a status line after Settings › Clear data (?cleared=1) or
 // after "Delete my account" (?deleted=1); for someone who left part-way, "Carry on from step {n}" on the pill with a quiet "Start again" under it; and, for
 // someone already set up who opened this from Settings, Back at the top left.
+// The 20 November 2026 audit: a line after signing out (?signedout=1), and the sign-in link in the one link look of the welcome screens (Frame.tsx LINK).
 
 // Logo files over about 60 KB: kept off the welcome wall so the first screen loads quickly (they still show everywhere else; a chain with its own small square icon
 // is shown by that instead).
 const HEAVY_LOGOS = new Set(["british-garden-centres", "daves-hot-chicken", "pubsmiths", "popeyes", "park-holidays-uk", "toby-carvery", "the-breakfast-club", "butcombe-inns", "parsons-bakery", "buzz-bingo", "greene-king", "giggling-squid", "joseph-holt", "castle-carvery"]);
 
-export type CoverNotice = "cleared" | "deleted" | null;
+export type CoverNotice = "cleared" | "deleted" | "signedOut" | null;
 
 export function Cover({ notice, carryOn, onStart, onStartAgain, onSignIn, onBack, signInRequired }: {
   notice: CoverNotice;
@@ -76,7 +77,11 @@ export function Cover({ notice, carryOn, onStart, onStartAgain, onSignIn, onBack
   ];
   // the wall's one sentence for a screen reader, true with logos on or off: the first five names on it
   const wallLabel = t("Restaurants and shops in the app, including {names}", { names: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(wallItems.slice(0, 5).map((i) => i.name)) });
-  const status = notice === "cleared" ? t("Done: everything on this device was cleared.") : notice === "deleted" ? t("Your account has been deleted. What was on this phone is still here.") : null;
+  const status =
+    notice === "cleared" ? t("Done: everything on this device was cleared.")
+    : notice === "deleted" ? t("Your account has been deleted. What was on this phone is still here.")
+    : notice === "signedOut" ? t("You're signed out. What was on this phone is still here.")
+    : null;
 
   return (
     <div className={SCREEN}>
@@ -120,7 +125,7 @@ export function Cover({ notice, carryOn, onStart, onStartAgain, onSignIn, onBack
         {/* A way in for someone coming back on a new phone. With sign-in required it opens the sign-in screen headed "Welcome back. Sign in": an account already
             set up then goes straight to Home, and one that isn't carries on into the steps. A link: accent, always underlined. */}
         {onSignIn && (
-          <button type="button" onClick={onSignIn} className="mt-1 min-h-11 w-full text-center text-[15px] font-semibold text-accent underline decoration-from-font underline-offset-[3px] [text-decoration-skip-ink:auto]">{t("Already have an account? Sign in")}</button>
+          <button type="button" onClick={onSignIn} className={`mt-1 min-h-11 w-full text-center text-[15px] font-semibold ${LINK} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent`}>{t("Already have an account? Sign in")}</button>
         )}
         {/* the two links keep a 44 px tap area (padding pulled back with negative margins, so the line stays the same height); the words are CLAUDE.md rule 2's */}
         <p className="mt-4 text-center text-sm text-muted">

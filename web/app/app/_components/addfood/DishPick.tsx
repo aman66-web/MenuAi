@@ -20,6 +20,8 @@ import { AddPill, PICK_LIST, PickRow, SheetSearch, type NewEntry } from "./parts
 // Each row leads with the chain's own photo of the dish (founder 2026-11-17, "use images please when possible"): a search hit's from the search
 // file, a saved meal's first dish with one from its chain's menu (loaded for the few saved meals shown); the grey fork tile where there is none
 // or it doesn't load, so every name starts at the same place. The photo is kept on the entry, for Home and Today.
+// A dish from a restaurant that publishes calories only says so before it is added ("· calories only", from the menu manifest's nutritionLevel; the 30-person
+// audit, 20 November 2026), so nobody is surprised that its protein, carbs and fat don't count.
 
 const SAVED_SHOWN = 5;
 /** The lists here sit on the sheet's grey: a dish without a photo gets ItemThumb's fork tile in white (like the photos' own white), so it still reads as a tile. */
@@ -44,6 +46,8 @@ export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
   }, []);
 
   const hits = useMemo(() => (searchIndex && deferred.length >= 2 ? search(searchIndex, deferred, 10).items : []), [searchIndex, deferred]);
+  // the restaurants that publish calories only (the menu manifest says which)
+  const caloriesOnly = useMemo(() => new Set(menu.chains.filter((c) => c.nutritionLevel === "calories").map((c) => c.id)), [menu.chains]);
 
   const addHit = async (h: ItemHit) => {
     setBusy(`${h.chainId}:${h.itemId}`);
@@ -108,7 +112,7 @@ export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
                 key={`${h.chainId}:${h.itemId}`}
                 lead={dishLead(h.image)}
                 title={h.name}
-                line={`${h.chainName} · ${formatCalories(h.calories)}`}
+                line={caloriesOnly.has(h.chainId) ? `${h.chainName} · ${formatCalories(h.calories)} · ${t("calories only")}` : `${h.chainName} · ${formatCalories(h.calories)}`}
                 action={<AddPill name={t("{name} from {chain}", { name: h.name, chain: h.chainName })} disabled={busy !== null} busy={busy === `${h.chainId}:${h.itemId}`} onClick={() => void addHit(h)} />}
               />
             ))}

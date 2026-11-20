@@ -10,10 +10,10 @@ import { ShopMark } from "../_components/ChainMark";
 import { chainGroupClass } from "../_components/ChainRow";
 import { Shortcut } from "../_components/Shortcut";
 import { PageHeader } from "../_components/PageHeader";
-import { ChoiceMark, Spinner } from "../_components/ui";
+import { ChoiceMark, ErrorBox, Spinner } from "../_components/ui";
 import { useSettings } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
-import { useShopManifest } from "../_lib/shopProducts";
+import { useShopManifestState } from "../_lib/shopProducts";
 import { CARD, FootNote, HEADING } from "./PageBits";
 import { Scanner } from "./Scanner";
 
@@ -37,7 +37,9 @@ export default function GroceriesPage() {
   const poss = usePossessive();
   const router = useRouter();
   const settings = useSettings();
-  const lists = useShopManifest();
+  const [retry, setRetry] = useState(0);
+  const manifest = useShopManifestState(retry);
+  const lists = manifest.status === "ready" ? manifest.manifest : null;
   const [scanning, setScanning] = useState(false);
   // the shops ticked with "Select" (founder 2026-11-17), kept for this browser tab so coming Back from the shops' page finds them still ticked
   const [picked, setPicked] = useState<string[]>([]);
@@ -58,7 +60,7 @@ export default function GroceriesPage() {
           the cog move under the title instead of breaking the word "Groceries" */}
       <PageHeader title={t("Groceries")} list />
       {/* what this tab is for, in one line (founder 2026-11-18: "everyone needs to understand the point for each screen") */}
-      <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Supermarket food, with its price and the calories and protein on its label.")}</p>
+      <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Supermarket food, with its price and, where the shop publishes it, the calories and protein from its label.")}</p>
 
       <Link href="/app/groceries/search" className="mt-5 flex min-h-[3.25rem] items-center gap-3 rounded-[1.625rem] border-[1.5px] border-edge bg-card px-5 text-muted transition hover:bg-background active:scale-[0.99]">
         <SearchIcon className="h-5 w-5 shrink-0 text-ink" />
@@ -75,7 +77,10 @@ export default function GroceriesPage() {
       <h2 className={`mt-8 ${HEADING}`}>{t("Which shop?")}</h2>
       <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Tap a shop to see its products, prices and photos.")}</p>
 
-      {!shops ? (
+      {manifest.status === "error" ? (
+        // a failed load is said as one, with the way to try again (2026-11-20: it read as "no shops exist"); it also tries again when the connection comes back
+        <div className="mt-4"><ErrorBox message={t("Couldn't load the shops. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>
+      ) : !shops ? (
         <Spinner label={t("Loading products")} />
       ) : (
         <ul data-coach="groceries-shops" className={`mt-4 ${PAIR}`}>
@@ -117,7 +122,8 @@ export default function GroceriesPage() {
         </div>
       )}
 
-      <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(code) => { setScanning(false); const c = barcodeQuery(code); if (c) router.push(`/app/groceries/product?code=${c}`); }} />
+      {/* a scan opens the product: in a shop's full list where one has it (the person's own shop first), else its catalogue page, else "We don't have it yet" */}
+      <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(code) => { setScanning(false); const c = barcodeQuery(code); if (c) router.push(`/app/groceries/product?code=${c}&scan=1`); }} />
     </div>
   );
 }

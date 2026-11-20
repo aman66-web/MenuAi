@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SIGN_IN_REQUIRED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 import { chainHref, itemHref } from "@/lib/mm/routes";
 import { FSA_SOURCE, type Light } from "@/lib/mm/truth/fsaLights";
@@ -75,7 +76,7 @@ export function ItemCard({ chain, item, level = "h3" }: { chain: Pick<Chain, "id
                 <span className="block text-base font-semibold">Not published</span>
               ) : (
                 <>
-                  <span className="block text-xl font-extrabold leading-tight">{Number.isInteger(l.grams) ? l.grams : l.grams.toFixed(l.key === "salt" ? 2 : 1)} g</span>
+                  <span className="block text-xl font-extrabold leading-tight">{Number.isInteger(l.grams) ? l.grams : l.key === "salt" ? String(+l.grams.toFixed(2)) : l.grams.toFixed(1)} g</span>
                   <span className="block text-base font-bold">{l.light ? LIGHT_WORD[l.light] : "No colour"}</span>
                 </>
               )}
@@ -118,7 +119,8 @@ export function SourceNote({ chain, checkedOn }: { chain: Pick<Chain, "name" | "
         Colours follow the official UK traffic-light scheme and are shown only where the published figures allow it.{" "}
         <a href={FSA_SOURCE.url} className="font-semibold text-accent underline underline-offset-4" rel="noopener noreferrer">See the guidance</a>.
       </p>
-      <p>Not affiliated with {chain.name}. You don&apos;t need an account to look at a menu on {site.name}.</p>
+      {/* this page needs no account, but the app it opens does where everyone signs in */}
+      <p>Not affiliated with {chain.name}. {SIGN_IN_REQUIRED ? `Opening it in ${site.name} needs a free account.` : `You don't need an account to look at a menu on ${site.name}.`}</p>
     </footer>
   );
 }

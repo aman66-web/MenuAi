@@ -158,6 +158,7 @@
     "energyKj": 3017
    },
    "tags": [
+    "contains_beef",
     "contains_pork"
    ],
    "limitedTime": false,
@@ -181,7 +182,9 @@
     "salt": 2.3,
     "energyKj": 2490
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -203,7 +206,9 @@
     "salt": 2.3,
     "energyKj": 3515
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -226,6 +231,7 @@
     "energyKj": 4017
    },
    "tags": [
+    "contains_beef",
     "contains_pork"
    ],
    "limitedTime": false,
@@ -274,6 +280,7 @@
     "energyKj": 1841
    },
    "tags": [
+    "contains_beef",
     "contains_pork"
    ],
    "limitedTime": false,
@@ -297,7 +304,9 @@
     "salt": 1.1,
     "energyKj": 1033
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -319,7 +328,9 @@
     "salt": 1.6,
     "energyKj": 1192
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -389,7 +400,9 @@
     "salt": 2.2,
     "energyKj": 1749
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -411,7 +424,9 @@
     "salt": 7.1,
     "energyKj": 4849
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -432,7 +447,9 @@
     "salt": 4.8,
     "energyKj": 2699
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -453,7 +470,9 @@
     "salt": 3.6,
     "energyKj": 3937
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -964,7 +983,9 @@
     "salt": 0.8,
     "energyKj": 1021
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -1008,7 +1029,9 @@
     "salt": 1.3,
     "energyKj": 1176
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -1096,7 +1119,9 @@
     "salt": 1,
     "energyKj": 1376
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -1142,7 +1167,9 @@
     "salt": 1.4,
     "energyKj": 837
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -1190,7 +1217,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "burger-king/6dc59264c464.webp"

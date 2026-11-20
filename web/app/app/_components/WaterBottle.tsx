@@ -8,7 +8,9 @@ import { BOTTLE_FULL_ML, DRAG_STEP_ML, levelToMl, stepMl } from "@/lib/mm/water"
 // shadow under it, holding blue water up to `level` (0 to 1). The water's surface moves: two waves drift sideways at different speeds and a few
 // bubbles rise now and then; when the level changes it glides there with a soft spring and the surface sloshes for a moment (founder 2026-11-17,
 // on the "Add water" sheet: "It could look so much more better. So make it better"). Everything moves with CSS transforms on the SVG (no script
-// loop), and nothing drifts, rises or sloshes for reduced motion (globals.css, "Water bottle").
+// loop), and nothing drifts, rises or sloshes for reduced motion (globals.css, "Water bottle"). The 20 November 2026 audit (WCAG 2.2.2: nothing beside text may
+// move for more than 5 s without a way to pause it): the waves drift and the bubbles rise once, for about 4.5 s, when the bottle appears and again each time the
+// level changes, and keep moving only while a finger drags the water; then the surface is still.
 //
 // On Home it is small and calm: today's level only. In the "Add water" sheet it is a slider (founder 2026-10-16: "a water bottle which you can move
 // up"): drag the water up or down with a finger or the mouse, or use the arrow keys (50 ml a step, Page Up and Page Down 250 ml, Home and End for
@@ -48,11 +50,12 @@ const MINOR = [125, 375, 625, 875];
 const markY = (ml: number) => WATER_BOTTOM - (ml / BOTTLE_FULL_ML) * TRAVEL;
 
 /** A few bubbles: where they start (below the surface, which is y = 0 here) and how they rise; each stops a little under the surface. */
+// each rises once (its rise is the first 42% of `s`), all of them done within about 4.5 s
 const BUBBLES = [
-  { x: 20, from: 84, r: 1.3, s: "5.6s", d: "0.4s" },
-  { x: 36, from: 66, r: 0.9, s: "4.4s", d: "1.9s" },
-  { x: 27, from: 88, r: 1.5, s: "6.8s", d: "3.2s" },
-  { x: 42, from: 58, r: 1, s: "5.2s", d: "4.5s" },
+  { x: 20, from: 84, r: 1.3, s: "4.8s", d: "0.2s" },
+  { x: 36, from: 66, r: 0.9, s: "4.2s", d: "0.9s" },
+  { x: 27, from: 88, r: 1.5, s: "5s", d: "1.6s" },
+  { x: 42, from: 58, r: 1, s: "4.6s", d: "2.4s" },
 ];
 
 const SPRING = "transform 720ms cubic-bezier(0.28, 1.3, 0.5, 1)";
@@ -161,12 +164,13 @@ export function WaterBottle({
           {/* No water at all is drawn as none: the waves' crests would otherwise show a sliver at the bottom of an empty bottle. */}
           <g transform={`translate(30 ${WATER_TOP})`} style={{ opacity: shown > 0 ? 1 : 0 }} className="transition-opacity duration-300">
             <g className={slosh}>
-              <g className="water-amp" style={{ transform: dragging ? "scaleY(1.9)" : undefined }}>
+              <g className={dragging ? "water-amp water-live" : "water-amp"} style={{ transform: dragging ? "scaleY(1.9)" : undefined }}>
                 <g transform="translate(-30 0)">
-                  <g className={interactive ? "water-wave-back" : "water-wave-back water-calm"}>
+                  {/* a new key at each change of level, so the drift plays once more and then stops */}
+                  <g key={`back-${sloshes}`} className={interactive ? "water-wave-back" : "water-wave-back water-calm"}>
                     <path d={BACK.fill} transform="translate(0 -2)" fill="#a6e6fa" fillOpacity={0.85} />
                   </g>
-                  <g className={interactive ? "water-wave" : "water-wave water-calm"}>
+                  <g key={`front-${sloshes}`} className={interactive ? "water-wave" : "water-wave water-calm"}>
                     <path d={FRONT.fill} fill={`url(#${id}-water)`} />
                     <path d={FRONT.crest} fill="none" stroke="var(--edge)" strokeWidth={1.5} vectorEffect="non-scaling-stroke" />
                   </g>
@@ -177,7 +181,7 @@ export function WaterBottle({
               <g transform="translate(-30 0)">
                 {BUBBLES.map((b) => (
                   <circle
-                    key={b.x}
+                    key={`${b.x}-${sloshes}`}
                     className="water-bubble"
                     cx={b.x}
                     cy={b.from}

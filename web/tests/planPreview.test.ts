@@ -5,6 +5,8 @@ import type { DietPrefs } from "../lib/mm/pantry";
 import {
   forgetPlanWork,
   mealTargets,
+  NARROW_PREVIEW,
+  pickShownDay,
   PREVIEW_CHUNK,
   previewShop,
   recipesFor,
@@ -42,17 +44,14 @@ const MAINTAIN: PlanPerson = { goal: "maintain", dailyCalories: 2000 };
 
 afterEach(() => forgetPlanWork());
 
-/** Meal plan's own steps for Just me with no saved plan, as app/app/plan/page.tsx runs them: the recipes for the one shop, the slider's range and its starting
- *  point, then "Make my plan" (planForBudget with the one-person better-product step). Built here from the plan library directly, sharing nothing with the preview. */
+/** Meal plan's own steps for Just me with no saved plan, as app/app/plan/page.tsx runs them: the recipes for the one shop, then the first open's "Make my plan",
+ *  which starts at "No budget: the best week for your goal" (planForBudget with none). Built here from the plan library directly, sharing nothing with the preview. */
 function mealPlanFirstWeek(loaded: Loaded, diet: DietPrefs, targets: Targets) {
   const slots = planSlots(DEFAULT_SHAPE);
   const cands = mergeCandidates([planCandidates(recipesFor([], diet, []), loaded.products, diet, targets, [], loaded.id, false)]);
   const better = (c: PlanCandidate) => betterCandidate(c, loaded.products, targets[c.meal] ?? null);
-  const range = budgetRange(cands, better, slots, PER_MEAL_RECIPES);
-  if (!range) return null;
-  const pick = Math.min(Math.ceil(range.max), Math.max(Math.floor(range.min), Math.round(range.best)));
-  const plan = planForBudget(cands, pick, better, slots, PER_MEAL_RECIPES);
-  return plan && { pick, plan };
+  const plan = planForBudget(cands, null, better, slots, PER_MEAL_RECIPES);
+  return plan && { plan, range: budgetRange(cands, better, slots, PER_MEAL_RECIPES) };
 }
 
 describe("Meal plan's helpers", () => {
@@ -85,22 +84,23 @@ describe("the shop the week comes from", () => {
     ],
   };
   it("is the first ticked shop that is in recipes", () => {
-    expect(previewShop(m, ["lidl", "morrisons"])).toEqual({ shop: "morrisons", left: null, picked: true });
+    expect(previewShop(m, ["lidl", "morrisons"])).toEqual({ shop: "morrisons", left: null, leftAll: [], picked: true });
   });
-  it("is the default recipe shop, named, when none ticked is in recipes yet (Tesco's coverage is under the line)", () => {
-    expect(previewShop(m, ["tesco", "lidl"])).toEqual({ shop: "sainsburys", left: "tesco", picked: true });
+  it("is the default recipe shop, naming every ticked shop, when none ticked is in recipes yet (Tesco's coverage is under the line)", () => {
+    expect(previewShop(m, ["tesco", "lidl"])).toEqual({ shop: "sainsburys", left: "tesco", leftAll: ["tesco", "lidl"], picked: true });
+    expect(previewShop(m, ["lidl"])).toEqual({ shop: "sainsburys", left: "lidl", leftAll: ["lidl"], picked: true });
   });
   it("is the default recipe shop when nothing was ticked", () => {
-    expect(previewShop(m, [])).toEqual({ shop: "sainsburys", left: null, picked: false });
-    expect(previewShop(m, undefined)).toEqual({ shop: "sainsburys", left: null, picked: false });
+    expect(previewShop(m, [])).toEqual({ shop: "sainsburys", left: null, leftAll: [], picked: false });
+    expect(previewShop(m, undefined)).toEqual({ shop: "sainsburys", left: null, leftAll: [], picked: false });
   });
   it("is unknown while the shops' manifest hasn't loaded", () => {
-    expect(previewShop(null, ["sainsburys"])).toEqual({ shop: null, left: null, picked: true });
+    expect(previewShop(null, ["sainsburys"])).toEqual({ shop: null, left: null, leftAll: [], picked: true });
   });
 });
 
 describe("step 10's week", () => {
-  it("is Meal plan's first week for the same answers: the same recipes, budget, better products and shopping", async () => {
+  it("is Meal plan's first week for the same answers: the same recipes, no budget, the same shopping", async () => {
     const cases: Array<[string, DietPrefs, PlanPerson]> = [
       ["sainsburys", {}, MAINTAIN],
       ["morrisons", { vegetarianOnly: true, avoidAllergens: ["milk"] }, { goal: "lose", dailyCalories: 1600 }],
@@ -111,21 +111,42 @@ describe("step 10's week", () => {
       const want = mealPlanFirstWeek({ id: shop, ...(await load(shop)) }, diet, mealTargets(person));
       expect(preview.ok, shop).toBe(true);
       if (!preview.ok || !want) throw new Error(`${shop}: no week`);
-      expect(preview.budget, shop).toBe(want.pick);
+      expect(preview.budget, shop).toBeNull();
       expect(preview.ids, shop).toEqual(want.plan.ids);
       expect(preview.better, shop).toEqual(want.plan.better);
       expect(preview.total, shop).toBe(want.plan.week.shoppingCost);
       expect(preview.week.days.map((d) => [d.kcal, d.protein, d.cost]), shop).toEqual(want.plan.week.days.map((d) => [d.kcal, d.protein, d.cost]));
-      expect(preview.firstDay.map((m) => m.recipeId), shop).toEqual(want.plan.ids[0]);
+      expect(preview.firstDay.map((m) => m.recipeId), shop).toEqual(want.plan.ids[preview.day]);
       expect(preview.firstDay.map((m) => m.meal), shop).toEqual(["breakfast", "lunch", "dinner"]);
     }
   }, 120000);
 
-  it("gives Monday's three meals, the daily average from the recipes' own labels, and the week's shopping", async () => {
+  it("is the same week even when the best week's bill has under 50p in it (rounding the bill down once made a cheaper, different week: 'not bait')", async () => {
+    // Sainsbury's at 900 kcal and at 4,000 kcal were the meeting's cases; the shelf prices change as the shop's list is read again, so the calories are
+    // stepped until a week's bill has under 50p in it, checking that the preview and the plan agree at every step on the way
+    let checked = 0;
+    const loaded = { id: "sainsburys", ...(await load("sainsburys")) };
+    for (let dailyCalories = 900; dailyCalories <= 4000 && checked < 2; dailyCalories += 150) {
+      const person: PlanPerson = { goal: "lose", dailyCalories };
+      const want = mealPlanFirstWeek(loaded, {}, mealTargets(person));
+      if (!want) continue;
+      const pence = Math.round((want.plan.week.shoppingCost % 1) * 100);
+      const preview = await weekPreview({ shop: "sainsburys", diet: {}, person }, { load, yieldToScreen: now });
+      if (!preview.ok) { expect(preview.reason).toBe("narrow"); continue; }
+      expect(preview.ids, `${dailyCalories} kcal`).toEqual(want.plan.ids);
+      expect(preview.total, `${dailyCalories} kcal`).toBe(want.plan.week.shoppingCost);
+      if (pence < 50) checked++;
+    }
+    expect(checked, "at least one case with a bill whose pence are under 50").toBeGreaterThan(0);
+  }, 240000);
+
+  it("gives one day's three meals, the daily average from the recipes' own labels, the week's shopping and the day its prices were read", async () => {
     const p = await weekPreview({ shop: "sainsburys", diet: {}, person: MAINTAIN }, { load, yieldToScreen: now });
     if (!p.ok) throw new Error(p.reason);
     expect(p.week.days).toHaveLength(PLAN_DAYS);
-    expect(p.firstDay).toEqual(p.week.days[0]!.meals.map((m) => ({ meal: m.meal, recipeId: m.candidate.recipe.id, name: m.candidate.recipe.name })));
+    expect(p.day).toBe(pickShownDay(p.week.days));
+    expect(p.firstDay).toEqual(p.week.days[p.day]!.meals.map((m) => ({ meal: m.meal, recipeId: m.candidate.recipe.id, name: m.candidate.recipe.name })));
+    expect(p.checkedOn).toBe((await load("sainsburys")).file.checkedOn);
     expect(p.average.kcal).toBe(Math.round(p.week.days.reduce((s, d) => s + d.kcal, 0) / PLAN_DAYS));
     expect(p.average.protein).toBe(Math.round(p.week.days.reduce((s, d) => s + d.protein, 0) / PLAN_DAYS));
     expect(p.total).toBe(p.week.shoppingCost);
@@ -176,13 +197,35 @@ describe("step 10's week", () => {
     expect(await weekPreview({ shop: "nowhere", diet: {}, person: MAINTAIN }, { load: empty, yieldToScreen: now })).toEqual({ ok: false, reason: "noRecipes" });
   });
 
-  it("saves, when made the person's own, exactly what Meal plan saves (and reads back unchanged)", async () => {
-    const p = await weekPreview({ shop: "sainsburys", diet: {}, person: MAINTAIN }, { load, yieldToScreen: now });
+  it("saves, when made the person's own, exactly what Meal plan saves (no budget, the diet it was made for), and reads back unchanged", async () => {
+    const p = await weekPreview({ shop: "sainsburys", diet: { vegetarianOnly: true, noPork: false, avoidAllergens: ["milk"] }, person: MAINTAIN }, { load, yieldToScreen: now });
     if (!p.ok) throw new Error(p.reason);
     const saved = savedPlanFrom(p, "2026-11-20");
-    expect(saved).toMatchObject({ shops: ["sainsburys"], ids: p.ids, slots: ["breakfast", "lunch", "dinner"], leaveOut: [], budget: p.budget, start: "2026-11-20", variety: PER_MEAL_RECIPES });
+    expect(saved).toMatchObject({ shops: ["sainsburys"], ids: p.ids, slots: ["breakfast", "lunch", "dinner"], leaveOut: [], budget: null, start: "2026-11-20", variety: PER_MEAL_RECIPES, diet: { vegetarianOnly: true, avoidAllergens: ["milk"] } });
     expect(sanitizePlan(JSON.parse(JSON.stringify(saved)))).toEqual(saved);
   }, 120000);
+
+  it("isn't shown as sized to your numbers when its days come out far from them (the words-only form)", async () => {
+    // a goal far above what our recipes reach: the days come in well under, so the preview says so rather than showing a week that isn't sized to it
+    const p = await weekPreview({ shop: "sainsburys", diet: {}, person: { goal: "buildMuscle", dailyCalories: 6000 } }, { load, yieldToScreen: now });
+    expect(p).toEqual({ ok: false, reason: "narrow" });
+    // asked again, it answers at once from what it found
+    const again = await weekPreview({ shop: "sainsburys", diet: {}, person: { goal: "buildMuscle", dailyCalories: 6000 } }, { load: async () => { throw new Error("not loaded again"); }, yieldToScreen: now });
+    expect(again).toEqual({ ok: false, reason: "narrow" });
+    expect(NARROW_PREVIEW).toBeGreaterThan(0);
+  }, 120000);
+});
+
+describe("the day the preview shows", () => {
+  const day = (lunch: string, dinner: string) => ({ meals: [{ meal: "breakfast" as const, candidate: { recipe: { name: "Porridge" } } }, { meal: "lunch" as const, candidate: { recipe: { name: lunch } } }, { meal: "dinner" as const, candidate: { recipe: { name: dinner } } }] });
+  it("is the first whose lunch and dinner aren't the same dish (by the first two words of their names)", () => {
+    expect(pickShownDay([day("Tuna and sweetcorn pasta", "Tuna and sweetcorn pasta bake"), day("Chicken wrap", "Beef chilli")])).toBe(1);
+    expect(pickShownDay([day("Chicken wrap", "Chicken curry")])).toBe(0);
+    expect(pickShownDay([day("Chicken wrap", "Chicken, wrap style")])).toBe(0);
+  });
+  it("is the first day when every day has the same dish twice", () => {
+    expect(pickShownDay([day("Tuna pasta", "Tuna pasta bake"), day("Tuna pasta", "Tuna pasta")])).toBe(0);
+  });
 });
 
 // The data test: every goal × diet × common allergen × recipe shop gives a full seven-day week of recipes that suit the diet, or the words-only form.
@@ -211,7 +254,7 @@ describe("every goal, diet, allergen and recipe shop", () => {
             const label = `${shop}/${goal}/${dietName}/${allergen ?? "none"}`;
             const p = await weekPreview({ shop, diet, person }, { load, yieldToScreen: now });
             if (!p.ok) {
-              expect(p.reason, label).toBe("noRecipes");
+              expect(["noRecipes", "narrow"], label).toContain(p.reason);
               expect(dietName === "none" && allergen === null, `${label}: no week with no diet at all`).toBe(false);
               continue;
             }

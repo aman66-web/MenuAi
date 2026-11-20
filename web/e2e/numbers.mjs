@@ -85,7 +85,7 @@ await step("allergies: picking Milk narrows the list, the link carries it, and t
   const after = await count(page);
   expect(after < before, `milk: ${before} -> ${after}`);
   await page.getByText(/don't publish an allergen guide/).waitFor();
-  await page.getByText(/each restaurant's own allergen guide/).first().waitFor();
+  await page.getByText(/^Where a restaurant publishes allergens, dishes that list them/).first().waitFor(); // lib/mm/menu-view.ts filterCaution
   const row = page.locator('a[href^="/app/chain?id="]').filter({ hasText: /dish(es)? fits?/ }).first();
   expect(/avoid=milk/.test((await row.getAttribute("href")) ?? ""), "link carries milk");
   await row.click();
@@ -161,7 +161,7 @@ await step("the allergy caution sits with the count, not at the bottom of the li
   await page.getByRole("button", { name: "Peanuts", exact: true }).click();
   await heading(page).waitFor({ timeout: 60000 });
   const h = await heading(page).boundingBox();
-  const caution = page.getByText(/always check with the restaurant/).first();
+  const caution = page.getByText(/Always check with the restaurant\./).first();
   await caution.waitFor();
   const c = await caution.boundingBox();
   expect(c.y > h.y && c.y - h.y < 120, `the caution is right under the count: ${c.y - h.y}`);

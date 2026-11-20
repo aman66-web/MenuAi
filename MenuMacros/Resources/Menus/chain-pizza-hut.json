@@ -2511,7 +2511,9 @@
     "salt": 2.9,
     "weight": 416
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],

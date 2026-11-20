@@ -25,7 +25,7 @@ export const cookingFromYourShop: Article = {
       p: "Salt, oil and spices usually live in the cupboard. Those rows say You may have this already, with an I have this button. Press it and that item is left off your shopping list and off the price to buy it all. The price of a serving and the figures still include it, because it is part of the dish.",
     },
     {
-      p: "When you are ready to shop, Add all to my shopping list sends every product to your list, and Save to My meals keeps the recipe for next time. Recipes are filtered for your diet by ingredient, so read each pack you buy.",
+      p: "When you are ready to shop, Add all to my shopping list sends every product to your list, and Save to My recipes keeps the recipe for next time. Recipes are filtered for your diet by ingredient, so read each pack you buy.",
     },
     {
       ul: [

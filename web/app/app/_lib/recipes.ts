@@ -84,29 +84,95 @@ export interface RecipeCard {
   distance: number;
 }
 
-/** Every recipe that suits the diet, fitted to the target when there is one (else as written; snacks always as written). Recipes not complete at this shop are left out. */
-export function useRecipeCards(recipes: readonly Recipe[] | null, products: readonly ShopProduct[] | null, diet: DietPrefs, target: MealTarget | null): { cards: RecipeCard[]; leftOut: number; incomplete: number } {
+export interface RecipeCards {
+  cards: RecipeCard[];
+  leftOut: number;
+  incomplete: number;
+  /** The cards are worked out for these products (false while products load, or while a `chunked` list is still being worked out: show the spinner). */
+  ready: boolean;
+}
+
+type Worked = Omit<RecipeCards, "ready">;
+const NONE: Worked = { cards: [], leftOut: 0, incomplete: 0 };
+
+/** One recipe's card for this diet and target, or why there is none. */
+function cardFor(base: Recipe, products: readonly ShopProduct[], d: DietPrefs, t: MealTarget | null): RecipeCard | "leftOut" | "incomplete" {
+  const recipe = recipeForDiet(base, d);
+  if (!recipe) return "leftOut";
+  // snacks are shown as written: a meal-sized target would double them
+  const fitTo = recipe.meal === "snack" ? null : t;
+  const totals = fitTo ? fitRecipe(recipe, products, {}, fitTo)?.totals : recipeTotals(resolveRecipe(recipe, products));
+  if (!totals) return "incomplete";
+  return { recipe, totals, distance: t ? fitDistance(totals.perServing, t) : 0 };
+}
+
+function addCard(out: Worked, c: ReturnType<typeof cardFor>): void {
+  if (c === "leftOut") out.leftOut++;
+  else if (c === "incomplete") out.incomplete++; // recipes the shops can't fill (an ingredient they don't sell with a read label)
+  else out.cards.push(c);
+}
+
+// The whole book's cards, kept per products array (the shop set's tagged list is kept while it is in use: `merged` above) and per diet and target, so the Recipes
+// tab, My recipes and Add food's "Choose a recipe" work the book out once, and coming Back to the Recipes tab shows the same list at once (its scroll comes back to
+// the same cards). The 30-person audit (20 November 2026) measured one 3-second block the first time.
+const bookCards = new WeakMap<readonly ShopProduct[], Map<string, Worked>>();
+const BOOK_KEYS_KEPT = 4;
+function keepBook(products: readonly ShopProduct[], key: string, worked: Worked): void {
+  let byKey = bookCards.get(products);
+  if (!byKey) { byKey = new Map(); bookCards.set(products, byKey); }
+  byKey.delete(key);
+  byKey.set(key, worked);
+  while (byKey.size > BOOK_KEYS_KEPT) byKey.delete(byKey.keys().next().value!);
+}
+
+/** How many recipes are worked out between pauses when the book is worked out in chunks (each pause lets the screen draw and take a tap). */
+const CHUNK = 8;
+const pause = () => new Promise<void>((resolve) => setTimeout(resolve, 0));
+
+/**
+ * Every recipe that suits the diet, fitted to the target when there is one (else as written; snacks always as written). Recipes not complete at this shop are
+ * left out. With `chunked` (the whole book only: `recipes` null), the first time a book is worked out for these products, diet and target it is done a few
+ * recipes at a time with pauses between, so the screen never freezes; `ready` says when the list is complete (show the spinner until then).
+ */
+export function useRecipeCards(recipes: readonly Recipe[] | null, products: readonly ShopProduct[] | null, diet: DietPrefs, target: MealTarget | null, opts: { chunked?: boolean } = {}): RecipeCards {
   const dietKey = JSON.stringify(diet);
   const targetKey = JSON.stringify(target);
-  return useMemo(() => {
-    if (!products) return { cards: [], leftOut: 0, incomplete: 0 };
-    const all = recipes ?? RECIPES;
+  const key = `${dietKey}|${targetKey}`;
+  const book = recipes === null;
+  const chunked = !!opts.chunked && book;
+  const kept = book && products ? bookCards.get(products)?.get(key) : undefined;
+  const now = useMemo((): Worked | null => {
+    if (!products) return NONE;
+    if (kept) return kept;
+    if (chunked) return null; // worked out in the effect below
     const d = JSON.parse(dietKey) as DietPrefs;
     const t = JSON.parse(targetKey) as MealTarget | null;
-    let leftOut = 0;
-    let incomplete = 0; // recipes the shops can't fill (an ingredient they don't sell with a read label)
-    const cards: RecipeCard[] = [];
-    for (const base of all) {
-      const recipe = recipeForDiet(base, d);
-      if (!recipe) { leftOut++; continue; }
-      // snacks are shown as written: a meal-sized target would double them
-      const fitTo = recipe.meal === "snack" ? null : t;
-      const totals = fitTo ? fitRecipe(recipe, products, {}, fitTo)?.totals : recipeTotals(resolveRecipe(recipe, products));
-      if (!totals) { incomplete++; continue; }
-      cards.push({ recipe, totals, distance: t ? fitDistance(totals.perServing, t) : 0 });
-    }
-    return { cards, leftOut, incomplete };
-  }, [recipes, products, dietKey, targetKey]);
+    const out: Worked = { cards: [], leftOut: 0, incomplete: 0 };
+    for (const base of recipes ?? RECIPES) addCard(out, cardFor(base, products, d, t));
+    if (book) keepBook(products, key, out);
+    return out;
+  }, [recipes, products, dietKey, targetKey, key, kept, chunked, book]);
+  const [later, setLater] = useState<{ products: readonly ShopProduct[]; key: string; worked: Worked } | null>(null);
+  useEffect(() => {
+    if (now || !products) return;
+    let live = true;
+    void (async () => {
+      const d = JSON.parse(dietKey) as DietPrefs;
+      const t = JSON.parse(targetKey) as MealTarget | null;
+      const out: Worked = { cards: [], leftOut: 0, incomplete: 0 };
+      for (let i = 0; i < RECIPES.length; i += CHUNK) {
+        if (i > 0) await pause();
+        if (!live) return;
+        for (const base of RECIPES.slice(i, i + CHUNK)) addCard(out, cardFor(base, products, d, t));
+      }
+      keepBook(products, key, out);
+      if (live) setLater({ products, key, worked: out });
+    })();
+    return () => { live = false; };
+  }, [now, products, dietKey, targetKey, key]);
+  if (now) return { ...now, ready: !!products };
+  if (later && later.products === products && later.key === key) return { ...later.worked, ready: true };
+  return { ...NONE, ready: false };
 }
 
 /** Whether Pip's recipe maker is switched on (the server has its key). Null until known; false when the check fails. */

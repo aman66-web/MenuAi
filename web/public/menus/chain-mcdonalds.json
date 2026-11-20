@@ -120,7 +120,9 @@
     "salt": 2,
     "energyKj": 2127
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -143,7 +145,9 @@
     "salt": 2.8,
     "energyKj": 3126
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -166,7 +170,9 @@
     "salt": 2.3,
     "energyKj": 2148
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -189,7 +195,9 @@
     "salt": 2.1,
     "energyKj": 1886
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -212,7 +220,9 @@
     "salt": 1.4,
     "energyKj": 1269
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -235,7 +245,9 @@
     "salt": 1.1,
     "energyKj": 1072
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -979,7 +991,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/db45d0687254.webp"
@@ -1002,7 +1014,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/8f221e41f94c.webp"
@@ -1025,7 +1037,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/d4975044954c.webp"
@@ -1048,7 +1060,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/4f00c05d46e4.webp"
@@ -1071,7 +1083,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/c32de08f3d0e.webp"
@@ -1094,7 +1106,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/ffac9a1d5295.webp"
@@ -1117,7 +1129,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/ab56c513b8e2.webp"
@@ -1140,7 +1152,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/078cc6fb84ca.webp"
@@ -1163,7 +1175,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/cd8a8c9ce51d.webp"
@@ -1186,7 +1198,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/799064c516d6.webp"
@@ -1209,7 +1221,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/77b1c0b620d9.webp"
@@ -1232,7 +1244,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/cd66530dd35b.webp"
@@ -1255,7 +1267,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/a2f996067166.webp"
@@ -1279,7 +1291,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/27f86011e4fd.webp"
@@ -1302,7 +1314,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/d88eb3ba5c28.webp"
@@ -1325,7 +1337,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/d1345169b15c.webp"
@@ -1349,7 +1361,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/e423dc9efed7.webp"
@@ -1372,7 +1384,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/6b7e68b25cb6.webp"
@@ -1395,7 +1407,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/cce8c530f347.webp"
@@ -1418,7 +1430,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/edad6631affd.webp"
@@ -1441,7 +1453,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/cea05d2bc4e7.webp"
@@ -1464,7 +1476,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -1486,7 +1498,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -1508,7 +1520,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/56c15b38ef85.webp"
@@ -1532,7 +1544,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/69d3b51d67f3.webp"
@@ -1555,7 +1567,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/fb66e30c672a.webp"
@@ -1578,7 +1590,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/c599b6b82e1a.webp"
@@ -1602,7 +1614,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/bca35f8a0234.webp"
@@ -1625,7 +1637,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/c92cf9c16905.webp"
@@ -1648,7 +1660,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/73314213f099.webp"
@@ -1671,7 +1683,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/4ed72d85c3ee.webp"
@@ -1694,7 +1706,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/055db68d9cbf.webp"
@@ -1717,7 +1729,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/9a4a0f24e921.webp"
@@ -1740,7 +1752,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/4334a325a765.webp"
@@ -1763,7 +1775,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/de53bd412096.webp"
@@ -1786,7 +1798,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/7914d4cc78ca.webp"
@@ -1809,7 +1821,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/9a8a205c89af.webp"
@@ -1832,7 +1844,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -1854,7 +1866,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -1876,7 +1888,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -1898,7 +1910,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -1920,7 +1932,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -1942,7 +1954,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -1964,7 +1976,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -1986,7 +1998,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2008,7 +2020,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2030,7 +2042,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2052,7 +2064,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2074,7 +2086,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2096,7 +2108,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2118,7 +2130,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2140,7 +2152,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2162,7 +2174,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2184,7 +2196,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2206,7 +2218,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2228,7 +2240,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2250,7 +2262,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2272,7 +2284,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2294,7 +2306,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2316,7 +2328,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2338,7 +2350,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2360,7 +2372,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2382,7 +2394,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2404,7 +2416,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2426,7 +2438,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2448,7 +2460,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2470,7 +2482,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": []
   },
@@ -2492,7 +2504,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/efb231a77f08.webp"
@@ -2515,7 +2527,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/ef5f51ed19d5.webp"
@@ -2538,7 +2550,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/f5c9191d04f9.webp"
@@ -2561,7 +2573,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/36393f821b6f.webp"
@@ -2584,7 +2596,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/abf02297ff98.webp"
@@ -2607,7 +2619,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/fc5ae8b4fc78.webp"
@@ -2630,7 +2642,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/63b63a082eed.webp"
@@ -2699,7 +2711,9 @@
     "salt": 2.4,
     "energyKj": 1848
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -2722,7 +2736,9 @@
     "salt": 2.3,
     "energyKj": 1914
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -2816,7 +2832,9 @@
     "salt": 2.3,
     "energyKj": 2303
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -2839,7 +2857,9 @@
     "salt": 1.6,
     "energyKj": 1770
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -2933,7 +2953,9 @@
     "salt": 1.7,
     "energyKj": 1370
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -2956,7 +2978,9 @@
     "salt": 1.6,
     "energyKj": 1381
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -3213,7 +3237,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/647f7666c7cc.webp"
@@ -3236,7 +3260,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/c28ea07dd35f.webp"
@@ -3259,7 +3283,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/d52cd39581ea.webp"
@@ -3282,7 +3306,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/2b0aaa6ebcd3.webp"
@@ -3305,7 +3329,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/b89a125e5d12.webp"
@@ -3328,7 +3352,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/fc6c4fb71c34.webp"
@@ -3351,7 +3375,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/27fb2f8e94fb.webp"
@@ -3374,7 +3398,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/fc1ce109d7cb.webp"
@@ -3397,7 +3421,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/5c386a4a00dd.webp"
@@ -3420,7 +3444,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/2753a1a32633.webp"
@@ -3443,7 +3467,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/be41eaf304cd.webp"
@@ -3466,7 +3490,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/00a06054f549.webp"
@@ -3489,7 +3513,7 @@
    },
    "tags": [],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "image": "mcdonalds/bd77ba7c0896.webp"

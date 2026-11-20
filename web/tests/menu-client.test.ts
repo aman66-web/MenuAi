@@ -216,4 +216,82 @@ describe("MenuClient", () => {
       expect(search(c.getSnapshot().searchIndex, "chicken").items).toEqual([]);
     });
   });
+
+  // The iPhone app asks the website first and keeps a packed copy (lib/mm/config.ts MENU_SOURCES): the 20 November 2026 audit found it downloading every menu
+  // the app already holds, waiting with no limit, and never recovering offline.
+  describe("the website first, the packed copy when it's the same or can't be reached", () => {
+    const LIVE = "https://live.example/menus/";
+    const both: MenuSource[] = [{ id: "live", baseUrl: LIVE }, { id: "release", baseUrl: "/menus-sample/" }];
+    const sampleManifest = () => JSON.parse(manifestText) as Manifest;
+    const make = (f: typeof fetch, limits = { manifest: 200, file: 200 }) => new MenuClient({ sources: both, includeSamples: true, fetch: f, sha256: webCryptoSha256, liveTimeouts: limits });
+    const enc = (text: string) => new TextEncoder().encode(text).buffer as ArrayBuffer;
+    const changedCluck = readFileSync(samples + "chain-cluck-house.json", "utf8").replace('"Classic chicken sandwich"', '"Classic chicken sandwich (new)"');
+    async function liveWithChangedCluck() {
+      const live = sampleManifest();
+      live.chains = live.chains.map((c) => (c.id === "cluck-house" ? { ...c, sha256: "" } : c));
+      live.chains.find((c) => c.id === "cluck-house")!.sha256 = await webCryptoSha256(enc(changedCluck));
+      return live;
+    }
+
+    it("opens a chain the website hasn't changed (same SHA-256) from the packed copy, without downloading it", async () => {
+      const { fetchFn, hits } = cdn({ [`${LIVE}menus-manifest.json`]: manifestText });
+      const c = make(fetchFn);
+      await c.loadChain("bowl-and-co");
+      expect(c.getSnapshot().chains.every((x) => x.baseUrl === "/menus-sample/")).toBe(true);
+      expect(hits.filter((h) => h.startsWith(LIVE) && /chain-/.test(h))).toEqual([]);
+    });
+    it("opens a chain the website has changed from the website", async () => {
+      const live = await liveWithChangedCluck();
+      const { fetchFn, hits } = cdn({ [`${LIVE}menus-manifest.json`]: JSON.stringify(live), [`${LIVE}chain-cluck-house.json`]: changedCluck });
+      const c = make(fetchFn);
+      const ix = await c.loadChain("cluck-house");
+      expect(c.getSnapshot().chains.find((x) => x.id === "cluck-house")!.baseUrl).toBe(LIVE);
+      expect(c.getSnapshot().chains.find((x) => x.id === "bowl-and-co")!.baseUrl).toBe("/menus-sample/");
+      expect(ix.chain.items.some((i) => i.name === "Classic chicken sandwich (new)")).toBe(true);
+      expect(hits).toContain(`${LIVE}chain-cluck-house.json`);
+    });
+    it("reads the search file once when the website's is the same as the packed one", async () => {
+      const { fetchFn, hits } = cdn({ [`${LIVE}menus-manifest.json`]: manifestText });
+      const c = make(fetchFn);
+      await c.ensureSearch();
+      expect(c.getSnapshot().searchReady).toBe(true);
+      expect(hits.filter((h) => h.endsWith("menus-search.json"))).toEqual(["/menus-sample/menus-search.json"]);
+      await c.ensureNumbers();
+      expect(c.getSnapshot().numbersStatus).toBe("ready");
+      expect(hits.filter((h) => h.endsWith("menus-numbers.json"))).toEqual(["/menus-sample/menus-numbers.json"]);
+    });
+    it("a website that never answers falls back to the packed copy within the time limit", async () => {
+      const { fetchFn } = cdn();
+      const hanging = (async (input: string, init?: RequestInit) => (String(input).startsWith(LIVE) ? new Promise<Response>(() => {}) : fetchFn(input, init))) as unknown as typeof fetch;
+      const c = make(hanging, { manifest: 50, file: 50 });
+      const started = Date.now();
+      const ix = await c.loadChain("cluck-house");
+      expect(ix.chain.id).toBe("cluck-house");
+      expect(Date.now() - started).toBeLessThan(1500);
+      expect(c.getSnapshot().status).toBe("ready");
+    });
+    it("the website's manifest loads but its chain file can't be reached: the packed copy opens", async () => {
+      const live = await liveWithChangedCluck();
+      const { fetchFn } = cdn({ [`${LIVE}menus-manifest.json`]: JSON.stringify(live) });
+      const flaky = (async (input: string, init?: RequestInit) => {
+        if (String(input) === `${LIVE}chain-cluck-house.json`) throw new TypeError("offline");
+        return fetchFn(input, init);
+      }) as unknown as typeof fetch;
+      const c = make(flaky);
+      const ix = await c.loadChain("cluck-house");
+      expect(ix.chain.items.some((i) => i.name === "Classic chicken sandwich")).toBe(true); // the packed copy's own words
+    });
+    it("the website's search file can't be reached: the packed search file is used for its chains", async () => {
+      const live = await liveWithChangedCluck();
+      live.search = { file: "menus-search.json", sha256: "f".repeat(64) };
+      const { fetchFn, hits } = cdn({ [`${LIVE}menus-manifest.json`]: JSON.stringify(live), [`${LIVE}menus-search.json`]: null });
+      const down = (async (input: string, init?: RequestInit) => (String(input) === `${LIVE}menus-search.json` ? new Response("down", { status: 503 }) : fetchFn(input, init))) as unknown as typeof fetch;
+      const c = make(down);
+      await c.ensureSearch();
+      expect(c.getSnapshot().searchReady).toBe(true);
+      expect(search(c.getSnapshot().searchIndex, "cluck").chains.map((x) => x.chainId)).toEqual(["cluck-house"]);
+      expect(search(c.getSnapshot().searchIndex, "chicken bowl").items.map((i) => i.itemId)).toContain("chicken-bowl");
+      expect(hits.filter((h) => /chain-.*\.json$/.test(h))).toEqual([]); // no menu downloaded to search
+    });
+  });
 });

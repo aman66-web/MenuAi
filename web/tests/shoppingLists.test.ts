@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
-  addToList, customItem, itemsOnList, knownLists, listForShop, listOf, listsForShop, MAIN_LIST, MAX_SHOPPING_LISTS, newListId, newShoppingList, nextListName,
+  addAtLeast, addToList, customItem, listToOpen, itemsOnList, knownLists, listForShop, listOf, listsForShop, MAIN_LIST, MAX_SHOPPING_ITEMS, MAX_SHOPPING_LISTS, newListId, newShoppingList, nextListName,
   sameEntry, sanitizeShoppingList, sanitizeShoppingLists, setQty, swapItem, toggleDone, isListId, type ShoppingItem, type ShoppingList,
 } from "../lib/mm/groceries";
 import { nameWords, packLabel, shopListItem, similarProducts, type ShopProduct } from "../lib/mm/shopProducts";
@@ -226,5 +226,75 @@ describe("syncing items on lists", () => {
     const adapter = createSyncAdapters({} as never).find((a) => a.name === "shopping")!;
     expect(adapter.kind).toBe("set");
     if (adapter.kind === "set") expect(adapter.id({ ...main, list: aldi.id })).toBe(`${aldi.id}|aldi|5012345678900`);
+  });
+});
+
+describe("adding without doubling (a meal plan's week, a recipe's missing products)", () => {
+  const oil = { gtin: "", shopId: "olive-oil-500ml", retailer: "sainsburys", name: "Olive Oil 500ml", brand: "", size: "" };
+  const salt = { gtin: "", shopId: "table-salt-750g", retailer: "sainsburys", name: "Table Salt 750g", brand: "", size: "" };
+  const rice = { gtin: "", shopId: "basmati-rice-1kg", retailer: "sainsburys", name: "Basmati Rice 1kg", brand: "", size: "" };
+
+  it("a line is put on with what is needed, raised when it has less, and left alone when it has enough", () => {
+    let r = addAtLeast([], rice, 2, NOW);
+    expect(r.outcome).toBe("added");
+    expect(r.list[0]!.qty).toBe(2);
+    r = addAtLeast(r.list, rice, 2, NOW);
+    expect(r.outcome).toBe("had");
+    expect(r.list[0]!.qty).toBe(2);
+    r = addAtLeast(r.list, rice, 3, NOW);
+    expect(r.outcome).toBe("raised");
+    expect(r.list[0]!.qty).toBe(3);
+    r = addAtLeast(r.list, rice, 1, NOW);
+    expect(r.list[0]!.qty).toBe(3);
+  });
+
+  it("a recipe, then the plan: no second oil, salt or pepper, and the plan's own amounts where they are more", () => {
+    // the recipe's missing products went on first
+    let list = [oil, salt].reduce((l, x) => addToList(l, x, NOW, 1), [] as ShoppingItem[]);
+    // then the week's shopping, the same oil and salt among it
+    for (const [item, packs] of [[oil, 1], [salt, 1], [rice, 2]] as const) list = addAtLeast(list, item, packs, NOW).list;
+    expect(list.map((i) => [i.name, i.qty])).toEqual([["Olive Oil 500ml", 1], ["Table Salt 750g", 1], ["Basmati Rice 1kg", 2]]);
+    // the whole week added a second time changes nothing
+    const again = [[oil, 1], [salt, 1], [rice, 2]].map(([item, packs]) => addAtLeast(list, item as typeof oil, packs as number, NOW));
+    expect(again.every((r) => r.outcome === "had")).toBe(true);
+  });
+
+  it("a ticked line (in the basket already) comes back on with what is needed now", () => {
+    const ticked = toggleDone(addToList([], rice, NOW, 3), rice.shopId, "sainsburys");
+    const r = addAtLeast(ticked, rice, 2, NOW);
+    expect(r.outcome).toBe("added");
+    expect(r.list[0]).toMatchObject({ qty: 2 });
+    expect(r.list[0]!.done).toBeUndefined();
+  });
+
+  it("says when the lists are full, and puts nothing on", () => {
+    const full = Array.from({ length: MAX_SHOPPING_ITEMS }, (_, i) => ({ ...rice, shopId: `p-${i}`, qty: 1, addedAt: NOW.toISOString() }));
+    const r = addAtLeast(full, oil, 1, NOW);
+    expect(r.outcome).toBe("full");
+    expect(r.list).toHaveLength(MAX_SHOPPING_ITEMS);
+  });
+
+  it("keeps to the list given, as addToList does", () => {
+    const r = addAtLeast(addToList([], rice, NOW, 2), { ...rice, list: aldi.id }, 1, NOW);
+    expect(r.outcome).toBe("added");
+    expect(r.list.map((i) => [listOf(i), i.qty])).toEqual([["", 2], [aldi.id, 1]]);
+  });
+});
+
+describe("the list the Shopping list pill opens", () => {
+  const milk = { ...customItem("Milk")!, qty: 1, addedAt: NOW.toISOString() };
+  const onAldi = (done = false) => ({ ...yogurt, list: aldi.id, qty: 1, addedAt: NOW.toISOString(), ...(done ? { done: true as const } : {}) });
+  it("is the list last looked at while it still has things to get", () => {
+    expect(listToOpen([milk, onAldi()], [aldi.id], aldi.id)).toBe(aldi.id);
+    expect(listToOpen([milk, onAldi()], [aldi.id], "")).toBe("");
+  });
+  it("else the first list with things to get, the main list first: never an empty list while another has things", () => {
+    expect(listToOpen([onAldi()], [aldi.id], "")).toBe(aldi.id);
+    expect(listToOpen([milk, onAldi(true)], [aldi.id], aldi.id)).toBe("");
+    expect(listToOpen([onAldi()], [mns.id, aldi.id], null)).toBe(aldi.id);
+  });
+  it("else the main list (nothing anywhere, or a list that has gone)", () => {
+    expect(listToOpen([], [aldi.id], aldi.id)).toBe("");
+    expect(listToOpen([onAldi(true)], [aldi.id], "gone1234")).toBe("");
   });
 });

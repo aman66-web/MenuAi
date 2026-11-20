@@ -4,7 +4,7 @@ import { RECIPES } from "../lib/mm/recipeBook";
 import { recipeForDiet } from "../lib/mm/recipes";
 import { sanitizeSettings } from "../lib/mm/user-data";
 import { dietNameList, foodDietCaution, foodDietNotChecked, foodDietProblem, MORE_DIET_KEYS, moreDietsOn } from "../lib/mm/foodDiet";
-import { anyDietFilter, filterCaution, passesDiet, restaurantDietNote, toggleDiet } from "../lib/mm/menu-view";
+import { anyDietFilter, filterCaution, passesDiet, restaurantDietNote, restaurantPrefs, toggleDiet, uncheckableDiets } from "../lib/mm/menu-view";
 import { NO_PREFERENCES, type MenuItem } from "../lib/mm/types";
 import { cluck } from "./fixtures";
 
@@ -68,9 +68,10 @@ describe("the new diets are kept with the settings", () => {
   });
 });
 
-// The restaurants and the grocery lists can't be checked for the six (menus print no ingredients; products aren't read for them yet), so they are never said to
-// fit: nothing is hidden or picked for them, and a plain line names them (the lead's call overnight, 20 November 2026, under the founder's delegation).
-describe("restaurant menus and products say they aren't checked for the new diets", () => {
+// Restaurant menus print no ingredients, so the six are checked only as far as a restaurant's own data and a dish's own name can tell (the 20 November 2026
+// audit: onboarding treated Jain as vegetarian and No red meat as no pork and no beef, but the restaurant pages, search and Best for you ignored them). One
+// mapping (menu-view.ts restaurantPrefs) is used everywhere; a plain line says what is and isn't checked. Products aren't read for them yet.
+describe("restaurant menus check the new diets as far as they can, and say what they can't", () => {
   const dish = (over: Partial<MenuItem>): MenuItem => ({ ...cluck().chain.items[0]!, ...over });
   it("names them in quotes, joined plainly, in the picker's order", () => {
     expect(MORE_DIET_KEYS).toEqual(["jain", "noOnionGarlic", "kosherStyle", "noRedMeat", "noAlcohol", "noHalalKosherMeat"]);
@@ -79,16 +80,39 @@ describe("restaurant menus and products say they aren't checked for the new diet
     expect(dietNameList(["jain", "noOnionGarlic"])).toBe("“Jain” and “No onion or garlic”");
     expect(dietNameList(["jain", "kosherStyle", "noAlcohol"])).toBe("“Jain”, “Kosher style” and “No alcohol”");
   });
-  it("a restaurant's menu: nothing hidden or picked for them, and the line says so", () => {
-    const jain = { ...NO_PREFERENCES, jain: true, noRedMeat: true };
-    expect(anyDietFilter(jain)).toBe(false);
-    expect(passesDiet(dish({ name: "Beef burger", tags: ["contains_beef"] }), jain)).toBe(true);
+  it("one mapping: Jain as vegetarian, No red meat as no pork and no beef, Kosher style as no pork", () => {
+    expect(restaurantPrefs({ ...NO_PREFERENCES, jain: true })).toMatchObject({ vegetarianOnly: true, noPork: false, noBeef: false });
+    expect(restaurantPrefs({ ...NO_PREFERENCES, noRedMeat: true })).toMatchObject({ vegetarianOnly: false, noPork: true, noBeef: true });
+    expect(restaurantPrefs({ ...NO_PREFERENCES, kosherStyle: true })).toMatchObject({ noPork: true, noBeef: false });
+    expect(restaurantPrefs(NO_PREFERENCES)).toBe(NO_PREFERENCES);
+  });
+  it("a restaurant's menu: tags and names leave dishes out, and the line says what can't be checked", () => {
+    const redMeat = { ...NO_PREFERENCES, noRedMeat: true };
+    expect(anyDietFilter(redMeat)).toBe(true);
+    expect(passesDiet(dish({ name: "Beef burger", tags: ["contains_beef"] }), redMeat)).toBe(false);
+    expect(passesDiet(dish({ name: "Bacon roll", tags: [] }), redMeat)).toBe(false);
+    expect(passesDiet(dish({ name: "Lamb kofta", tags: [] }), redMeat)).toBe(false);
+    expect(passesDiet(dish({ name: "Chicken wrap", tags: [] }), redMeat)).toBe(true);
+    expect(passesDiet(dish({ name: "Sausage roll", tags: [] }), { ...NO_PREFERENCES, kosherStyle: true })).toBe(false);
+    expect(passesDiet(dish({ name: "Cheese toastie", tags: [] }), { ...NO_PREFERENCES, jain: true })).toBe(false); // not marked vegetarian
+    expect(passesDiet(dish({ name: "Cheese toastie", tags: ["vegetarian"] }), { ...NO_PREFERENCES, jain: true })).toBe(true);
+    expect(passesDiet(dish({ name: "Peroni", category: "Drinks", tags: [] }), { ...NO_PREFERENCES, noAlcohol: true })).toBe(false);
+    expect(passesDiet(dish({ name: "Peroni 0.0%", category: "Beers", tags: [] }), { ...NO_PREFERENCES, noAlcohol: true })).toBe(true);
+    expect(passesDiet(dish({ name: "Prawn cocktail", category: "Starters", tags: [] }), { ...NO_PREFERENCES, noAlcohol: true })).toBe(true); // a starter, not a drink
+    expect(passesDiet(dish({ name: "Virgin Mojito", category: "Cocktails", tags: [] }), { ...NO_PREFERENCES, noAlcohol: true })).toBe(true);
     expect(restaurantDietNote(NO_PREFERENCES)).toBeNull();
-    expect(restaurantDietNote(jain)).toBe("Restaurant menus don't list ingredients, so dishes aren't checked for “Jain” and “No red meat”.");
-    expect(filterCaution(jain)).toBe(restaurantDietNote(jain));
-    expect(filterCaution({ ...jain, vegetarianOnly: true, avoidAllergens: ["milk"] })).toBe(
-      "We only know what each restaurant publishes, so this can't promise a dish is vegetarian. Restaurant menus don't list ingredients, so dishes aren't checked for “Jain” and “No red meat”. Allergy filters use each restaurant's own allergen guide and hide dishes it doesn't cover. If you have an allergy, always check with the restaurant.",
+    const jain = { ...NO_PREFERENCES, jain: true, noRedMeat: true };
+    expect(restaurantDietNote(jain)).toBe(
+      "Restaurant menus don't list ingredients. “Jain” is checked as vegetarian; onion, garlic and root vegetables can't be checked. “No red meat” leaves out pork, beef and lamb where the restaurant or the dish's name says so.",
     );
+    expect(filterCaution({ ...NO_PREFERENCES, noOnionGarlic: true })).toBe("Restaurant menus don't list ingredients. “No onion or garlic” can't be checked.");
+    expect(filterCaution({ ...jain, avoidAllergens: ["milk"] })).toBe(
+      `We only know what each restaurant publishes, so this can't promise a dish is vegetarian or pork-free or beef-free. ${restaurantDietNote(jain)} Where a restaurant publishes allergens, dishes that list them, or that its guide doesn't cover, are hidden. Where it publishes none, we say so on its page. Always check with the restaurant.`,
+    );
+  });
+  it("Best for you doesn't pick for a diet a menu can't check at all", () => {
+    expect(uncheckableDiets({ ...NO_PREFERENCES, noOnionGarlic: true, noRedMeat: true })).toEqual(["noOnionGarlic"]);
+    expect(uncheckableDiets({ ...NO_PREFERENCES, jain: true, noHalalKosherMeat: true })).toEqual(["jain", "noHalalKosherMeat"]);
   });
   it("products: never left out or kept for them, and the line says they aren't checked", () => {
     const kosher = { ...NO_PREFERENCES, kosherStyle: true, noAlcohol: true };
@@ -105,5 +129,11 @@ describe("restaurant menus and products say they aren't checked for the new diet
     expect(on).toMatchObject({ vegetarianOnly: true, jain: true });
     expect(toggleDiet(on, "jain").jain).toBe(false);
     expect(sanitizeSettings({ preferences: toggleDiet(on, "jain") }).preferences.jain).toBeUndefined();
+  });
+  it("No halal or kosher meat can't be on with Halal or Kosher style", () => {
+    const both = toggleDiet({ ...NO_PREFERENCES, halalOnly: true, kosherStyle: true }, "noHalalKosherMeat");
+    expect(both).toMatchObject({ noHalalKosherMeat: true, halalOnly: false, kosherStyle: false });
+    expect(toggleDiet(both, "halalOnly")).toMatchObject({ halalOnly: true, noHalalKosherMeat: false });
+    expect(toggleDiet(both, "kosherStyle")).toMatchObject({ kosherStyle: true, noHalalKosherMeat: false });
   });
 });

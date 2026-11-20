@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { PAID_ACCESS_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { hasMacros } from "@/lib/mm/nutrients";
 import { noteShareUnlock, tryOpenTruth } from "@/lib/mm/stores";
 import { smartSwap } from "@/lib/mm/truth/swap";
 import type { Chain, MenuItem } from "@/lib/mm/types";
@@ -47,7 +48,8 @@ export function TruthButton({ chain, item }: { chain: Chain; item: MenuItem }) {
         <span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-fill text-accent"><FlameIcon className="h-5 w-5" /></span>
         <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
           <span className="block text-base font-bold leading-snug">{t("See the truth")}</span>
-          <span className="mt-0.5 block text-sm leading-snug text-muted">{t("Calories, protein score and traffic lights")}</span>
+          {/* what the card can really show: a dish with no protein, carbs or fat published has no protein score or traffic lights */}
+          <span className="mt-0.5 block text-sm leading-snug text-muted">{hasMacros(item.nutrients) ? t("Calories, protein score and traffic lights") : t("Calories and the share of a day")}</span>
         </span>
         <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-ink" />
       </button>

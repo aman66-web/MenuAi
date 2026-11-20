@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { ShoppingItem } from "../lib/mm/groceries";
+import { listAsText, type ShoppingItem } from "../lib/mm/groceries";
 import { cleanTyped, decodePayload, encodeEntries, MAX_PAYLOAD_LENGTH, MAX_SHARED_ITEMS, payloadFrom, shareUrl, shopsOf, SHARED_APP_PATH, toEntries, type SharedEntry } from "../lib/mm/shareList";
 
 // A shopping list inside a link (founder 2026-10-15): references only, checked on the way in, and a link that was cut short is told apart from one that is wrong.
@@ -36,6 +36,20 @@ describe("a list to a link and back", () => {
   it("leaves ticked items out (they are in the basket), and merges a product listed twice", () => {
     const entries = toEntries([pancakes, item({ ...pancakes, done: true, shopId: "999999999" }), item({ ...pancakes, qty: 3 })]);
     expect(entries).toEqual([{ retailer: "tesco", kind: "shop", code: "272407558", qty: 5 }]);
+  });
+
+  it("has nothing to share when everything is ticked off (Share and Copy are then switched off, with the reason)", () => {
+    const allTicked = [item({ ...pancakes, done: true }), item({ ...milk, done: true })];
+    expect(toEntries(allTicked)).toEqual([]);
+    expect(encodeEntries(toEntries(allTicked))).toBeNull();
+    expect(listAsText(allTicked)).toBe("");
+  });
+
+  it("the message's words carry no barcode numbers, and what was typed onto a shop's own list goes under that shop", () => {
+    const text = listAsText([keema, milk]);
+    expect(text).toBe("Asda\n- 1 x Aaila Chicken Tikka Keema\n\nAny shop\n- 1 x Milk");
+    expect(text).not.toMatch(/\d{8,}/);
+    expect(listAsText([item({ ...keema, list: "asda1234" }), item({ ...milk, list: "asda1234" })], undefined, "asda")).toBe("Asda\n- 1 x Aaila Chicken Tikka Keema\n- 1 x Milk");
   });
 
   it("skips an item it can't point to (no id, no barcode, a shop it doesn't know)", () => {

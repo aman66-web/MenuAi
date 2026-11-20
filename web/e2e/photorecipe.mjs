@@ -366,15 +366,15 @@ await step("Pip's recipe is saved as it's made: the button beside the title says
   expect((await page.locator("dialog[open]").count()) === 0, "Back asked a question");
   const saved = await mine();
   expect(saved.length === 1 && saved[0].name === RECIPE.name, `saved: ${saved.length}`);
-  // My meals > Recipes: its heart is filled; tapping it takes the recipe out, and Undo puts it back
+  // My recipes: a recipe Pip made is kept as it's made, so its card has a remove button in the heart's place (never a heart that deletes); it takes the
+  // recipe out, and Undo puts it back ("My recipes" is the one name for the place since the 20 November 2026 audit)
   await page.goto(BASE + "/app/meals?tab=recipes");
   const card = page.locator(`a[href*="mine=${saved[0].id}"]`);
   await card.waitFor({ timeout: 30000 });
-  const heart = card.locator("xpath=..").getByRole("button", { name: "Saved to My meals" });
-  expect((await heart.getAttribute("aria-pressed")) === "true", "the heart isn't filled");
-  await heart.tap();
-  await page.getByText(`Removed “${RECIPE.name}” from My meals.`).waitFor();
-  expect((await mine()).length === 0, "the heart didn't take it out");
+  const remove = card.locator("xpath=..").getByRole("button", { name: "Remove from My recipes" });
+  await remove.tap();
+  await page.getByText(`Removed “${RECIPE.name}” from My recipes.`).waitFor();
+  expect((await mine()).length === 0, "the remove button didn't take it out");
   await page.getByRole("button", { name: "Undo" }).tap();
   await card.waitFor({ timeout: 10000 });
   expect((await mine()).length === 1, "Undo didn't put it back");

@@ -1331,6 +1331,7 @@
     "calories": 1431
    },
    "tags": [
+    "contains_beef",
     "contains_pork"
    ],
    "limitedTime": false,

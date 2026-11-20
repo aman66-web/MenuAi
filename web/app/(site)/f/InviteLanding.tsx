@@ -8,7 +8,8 @@ import { site } from "@/site.config";
 // The page behind a friend invite: https://numbite.com/f#<friend code>. It says what the link is and how to open it: get the app (once the App Store page exists:
 // NEXT_PUBLIC_APP_STORE_URL), or open it in the app that is already there, or add the friend in the browser. English only, like the other website pages. Nothing here
 // is sent anywhere: the code is read from the address in the browser. It is only a code that lets someone ask to be a friend; it shows no name, and nobody is added
-// until the person who opens the invite chooses to add them.
+// until the person who opens the invite chooses to add them. While friends are switched off (since 18 November 2026) an old invite says so plainly, with no promise
+// of when, and offers the app itself.
 
 const PILL = "inline-flex min-h-12 w-full items-center justify-center rounded-full px-6 text-base font-bold transition active:scale-[0.97]";
 const PRIMARY = `${PILL} bg-foreground text-background hover:bg-[color-mix(in_srgb,var(--foreground)_86%,white)]`;
@@ -25,11 +26,12 @@ export function InviteLanding() {
   }, []);
 
   if (!COMMUNITY_FRIENDS_ENABLED) {
-    // switched off for this build (NEXT_PUBLIC_COMMUNITY_FRIENDS=0, lib/mm/config.ts): the app has no Friends screen to open yet
+    // switched off (lib/mm/config.ts COMMUNITY_FRIENDS_ENABLED; the Community API answers 404 meanwhile): the app has no Friends screen to open
     return (
       <Shell>
-        <h1 className="text-[2rem] font-[800] leading-[1.08] tracking-[-0.02em] sm:text-[2.5rem]">Friends aren’t switched on yet</h1>
-        <p className="mt-4 text-base leading-[1.65] text-muted">{site.name} will let you add friends and send them shopping lists soon. Keep this link and try it again later.</p>
+        <h1 className="text-[2rem] font-[800] leading-[1.08] tracking-[-0.02em] sm:text-[2.5rem]">Friend invites are off</h1>
+        <p className="mt-4 text-base leading-[1.65] text-muted">Adding friends isn’t part of {site.name} at the moment.</p>
+        <div className="mt-8 grid gap-3"><a href={site.appStoreUrl || "/app"} className={PRIMARY}>Get {site.name}</a></div>
       </Shell>
     );
   }

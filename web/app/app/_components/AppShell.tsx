@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { APP_BUILD } from "@/lib/mm/config";
 import { chooseWarmChains } from "@/lib/mm/popular";
 import { favoritesStore, outbox, savedStore } from "@/lib/mm/stores";
@@ -22,15 +22,19 @@ import { TABS } from "../_lib/tabs";
 import { TabLabel } from "./TabLabel";
 import { CreatorKeys } from "../_lib/creator";
 import { RefCapture } from "../../components/RefCapture";
+import { site } from "@/site.config";
 import { recheckStoredToken } from "@/lib/payments/client";
 import { GATING_ENABLED, IAP_ENABLED } from "@/lib/mm/config";
 import { signInGate } from "@/lib/mm/signInGate";
 import { hasNative } from "@/lib/mm/native";
 import { refreshAppStoreAccess } from "@/lib/payments/iap";
+import { afterSignInGate } from "@/lib/mm/premiumFeatures";
+import { welcomeProgressStore } from "@/lib/mm/welcomeSteps";
 import { CoachMarks } from "./CoachMarks";
 import { CommunityBadge } from "./CommunityBadge";
+import { InfoBanner } from "./Note";
 import { PaywallProvider } from "./Paywall";
-import { TrialOffer } from "./TrialOffer";
+import { holdTrialOfferThisVisit, TrialOffer } from "./TrialOffer";
 import { RatingPrompt } from "./RatingPrompt";
 import { SignInScreen } from "./SignInScreen";
 import { Spinner } from "./ui";
@@ -52,7 +56,18 @@ export function AppShell({ children }: { children: ReactNode }) {
   const signInRequired = useSignInRequired();
   const gate = signInGate({ required: signInRequired, hydrated, signedIn: !!user, checking, pathname });
   const fullScreen = pathname.startsWith("/app/welcome") || gate !== "open";
+  // A visit that came through the sign-in screen gets no free-trial sheet (every 1.0 user updating to 1.1 signs in once; the sheet used to pop up straight after)
+  const sawSignIn = useRef(false);
+  useEffect(() => {
+    const next = afterSignInGate(sawSignIn.current, gate);
+    sawSignIn.current = next.sawSignIn;
+    if (next.holdTrialOffer) holdTrialOfferThisVisit();
+  }, [gate]);
   const online = useOnline();
+  const welcomeProgress = useStore(welcomeProgressStore);
+  // the sign-in screen has its own offline line (the gate's, and the welcome screens' account step): no second one above it
+  const signInShowing = gate !== "open" || (pathname.startsWith("/app/welcome") && welcomeProgress?.step === "save");
+  usePageTitle(pathname, gate);
   const animate = useNavigatedOnce(pathname);
   const menu = useMenu();
   const favorites = useStore(favoritesStore);
@@ -90,8 +105,15 @@ export function AppShell({ children }: { children: ReactNode }) {
     if (!IAP_ENABLED || !hasNative()) return;
     void checked.then(() => refreshAppStoreAccess());
     const back = () => { if (document.visibilityState === "visible") void refreshAppStoreAccess(); };
+    // a purchase that arrives while the app is open (an Ask to Buy approval, a renewal, a purchase on another device): the iPhone says so at once
+    // (StoreKitPurchaseService's updates listener → WebAppView), and Apple's list decides as on a return to the front
+    const arrived = () => void refreshAppStoreAccess();
     document.addEventListener("visibilitychange", back);
-    return () => document.removeEventListener("visibilitychange", back);
+    window.addEventListener(PURCHASES_EVENT, arrived);
+    return () => {
+      document.removeEventListener("visibilitychange", back);
+      window.removeEventListener(PURCHASES_EVENT, arrived);
+    };
   }, [hydrated]);
 
   // Signed in? (Optional: with no account nothing is sent anywhere.) Asks the server who this device is signed in as and starts syncing.
@@ -139,10 +161,12 @@ export function AppShell({ children }: { children: ReactNode }) {
       <CreatorKeys />
       <RefCapture />
       <div className="app-surface relative mx-auto flex min-h-dvh w-full max-w-md flex-col">
-        {!online && (
-          <p role="status" className="glass mx-4 mt-[max(0.5rem,env(safe-area-inset-top))] rounded-full px-4 py-2 text-center text-sm text-foreground">
-            {t("You're offline. Menus you've opened still work.")}
-          </p>
+        {!online && !signInShowing && (
+          // the approved "please note" banner (colour meeting, 19 November 2026): in the iPhone app everything packed works offline and only Pip's photo and
+          // recipe features need the internet; the website keeps its own words (it works offline only for what was opened before)
+          <InfoBanner heading={null} className="mx-4 mt-[max(0.5rem,env(safe-area-inset-top))]">
+            {APP_BUILD ? t("You're offline. Menus, shops and recipes still work. Pip's photo and recipe features need a connection.") : t("You're offline. Menus you've opened still work.")}
+          </InfoBanner>
         )}
         <main className={`flex-1 px-5 ${fullScreen ? "pb-8" : "pb-32"} pt-[max(1.25rem,env(safe-area-inset-top))]`}>
           {gate === "open" ? <div key={pathname} className={animate ? "rise" : undefined}>{children}</div> : gate === "wait" ? <Spinner /> : <SignInScreen />}
@@ -188,6 +212,52 @@ export function AppShell({ children }: { children: ReactNode }) {
       {gate === "open" && <RatingPrompt />}
     </PaywallProvider>
   );
+}
+
+/** The event the iPhone app fires into the page when StoreKit reports a purchase while the app is open (MenuMacros/Features/WebApp/WebAppView.swift). */
+const PURCHASES_EVENT = "menumath:purchases";
+
+/**
+ * Every page used to be titled "App · Numbite", so VoiceOver's page-change announcement only worked by a timing accident. After each move inside the app the
+ * title becomes the page's own heading, e.g. "Meal plan · Numbite" (the first page keeps the layout's title; the sign-in screen's heading counts too). Next.js
+ * puts the layout's title back as it finishes a move, so the page's title is kept until the next move.
+ */
+function usePageTitle(pathname: string, gate: string): void {
+  const first = useRef(true);
+  useEffect(() => {
+    if (first.current) {
+      first.current = false;
+      return;
+    }
+    let wanted: string | null = null;
+    const keep = () => { if (wanted && document.title !== wanted) document.title = wanted; };
+    const watch = new MutationObserver(keep);
+    watch.observe(document.head, { childList: true, subtree: true, characterData: true });
+    // the heading can arrive a moment after the page (its data loading): look again for up to a second, then fall back to the app's name alone
+    let tries = 0;
+    let timer = 0;
+    const frame = window.requestAnimationFrame(function look() {
+      const heading = headingText(document.querySelector("main h1"));
+      if (heading) wanted = `${heading} · ${site.name}`;
+      else if (++tries < 10) timer = window.setTimeout(look, 100);
+      else wanted = site.name;
+      keep();
+    });
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearTimeout(timer);
+      watch.disconnect();
+    };
+  }, [pathname, gate]);
+}
+
+/** A heading's own words: without a button or link inside it (Home's "Nov 20, Choose a day") or anything hidden, and without a trailing comma. */
+function headingText(h1: Element | null): string | null {
+  if (!h1) return null;
+  const copy = h1.cloneNode(true) as Element;
+  copy.querySelectorAll("button, a, [aria-hidden='true']").forEach((n) => n.remove());
+  const own = (copy.textContent ?? "").replace(/\s+/g, " ").replace(/[\s,;:·-]+$/, "").trim();
+  return own || (h1.textContent ?? "").replace(/\s+/g, " ").trim() || null;
 }
 
 function useOnline(): boolean {

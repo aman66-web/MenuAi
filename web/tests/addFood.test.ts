@@ -1,7 +1,10 @@
 import { describe, expect, it } from "vitest";
 import {
-  amountNutrients, MAX_AMOUNT, MAX_NAME_LENGTH, MAX_SERVINGS, MAX_TYPED_GRAMS, MAX_TYPED_KCAL, MIN_SERVINGS, parseAmount, parseNumber, recipeNutrients, stepServings, typedEntry,
+  amountChoices, amountNutrients, loggableFromListed, loggableFromShop, MAX_AMOUNT, MAX_NAME_LENGTH, MAX_SERVINGS, MAX_TYPED_GRAMS, MAX_TYPED_KCAL, MIN_SERVINGS, packAmounts, parseAmount, parseNumber,
+  printedAmount, productEntry, recipeNutrients, startAmount, stepServings, typedEntry, withShopLabel,
 } from "../lib/mm/addFood";
+import { mergeProducts, type GroceryFile } from "../lib/mm/groceries";
+import { decodeShopProducts, type ShopFile } from "../lib/mm/shopProducts";
 import { entryMeal, LOG_MEAL_LABEL, LOG_MEALS, loggedGaps, loggedToday, MEAL_SHARE, MEALS } from "../lib/mm/budget";
 import { sanitizeLog } from "../lib/mm/user-data";
 
@@ -177,5 +180,65 @@ describe("a logged entry without protein, carbs or fat", () => {
     expect(kept?.meal).toBe("lunch");
     expect(dropped).toBeDefined();
     expect(dropped && "meal" in dropped).toBe(false);
+  });
+});
+
+describe("a supermarket product from a shop's list, a scan or a product page (founder 2026-11-20: scan it, then add it to the food diary)", () => {
+  const shopFile: ShopFile = {
+    v: 1, retailer: "asda", name: "Asda", checkedOn: "2026-10-08", pageBase: "https://www.asda.com/groceries/search/", pageSearch: true, photoBase: "", photoTemplate: "https://asdagroceries.scene7.com/is/image/asdagroceries/{photo}",
+    categories: ["Chilled Food"], schemes: [],
+    products: [
+      ["1000", "ASDA British Milk Semi Skimmed 2 Litres", 2.08, 1.04, "per litre", null, null, 0, "5063089019924", "5063089019924", [50, 3.6, 4.8, 1.8, 1.1, 4.8, 0, 0.1, 209, "ml", ""]],
+      ["1001", "ASDA White Mushrooms 400g", 1.1, 2.75, "per kg", null, null, 0, "5050000000001", "5050000000001", [8, 1.8, 0.4, 0.5, null, null, 1.1, null, null, "g", ""]],
+      ["1002", "Unread Thing 200g", 1, 5, "per kg", null, null, 0, "", "", null],
+      ["1003", "Community Beans 415g", 0.5, 1.2, "per kg", null, null, 0, "", "5050000000002", [80, 5, 12, 0.5, null, null, null, null, null, "g", "", "off"]],
+    ],
+  };
+  const [milk, mushrooms, unread, beans] = decodeShopProducts(shopFile);
+
+  it("is the shop's label per 100, its shop and its photo; a product with no numbers can't be logged", () => {
+    const m = loggableFromShop(shopFile, milk!)!;
+    expect(m).toMatchObject({ name: "ASDA British Milk Semi Skimmed 2 Litres", shop: "asda", per: "ml", source: { kind: "shop", shop: "asda" }, size: "2 Litres" });
+    expect(m.label).toEqual({ kcal: 50, protein: 3.6, carbs: 4.8, fat: 1.8, saturates: 1.1, sugars: 4.8, fibre: 0, salt: 0.1, kj: 209 });
+    expect(m.photos[0]!.src).toBe("https://asdagroceries.scene7.com/is/image/asdagroceries/5063089019924");
+    expect(loggableFromShop(shopFile, unread!)).toBeNull();
+    expect(loggableFromShop(shopFile, beans!)!.source).toEqual({ kind: "community" });
+  });
+
+  it("adds the label x the amount, with source 'product', and only the figures the label prints", () => {
+    const m = loggableFromShop(shopFile, mushrooms!)!;
+    const e = productEntry(m, 200, "Asda");
+    expect(e).toEqual({ chainId: "", chainName: "Asda", name: "ASDA White Mushrooms 400g (200 g)", source: "product", nutrients: { calories: 16, protein: 3.6, carbs: 0.8, fat: 1, fiber: 2.2 } });
+  });
+
+  it("logs the shop's label, not the community record, for a product that has both (2026-11-20: mushrooms logged as 108 kcal)", () => {
+    const catalogue: GroceryFile = { v: 1, retailer: "asda", name: "Asda", generatedOn: "2026-10-17", source: "off", products: [
+      { gtin: "5050000000001", name: "White Mushrooms", brand: "Asda", size: "400 g", per: "g", kcal: 108, protein: 2, carbs: 1, fat: 11, allergens: null, category: "vegetables" },
+    ] };
+    const listed = mergeProducts([catalogue])[0]!;
+    const fromCatalogue = loggableFromListed(listed, "asda");
+    expect(fromCatalogue.source).toEqual({ kind: "community" });
+    const logged = withShopLabel(fromCatalogue, loggableFromShop(shopFile, mushrooms!)!);
+    expect(logged.source).toEqual({ kind: "shop", shop: "asda" });
+    expect(productEntry(logged, 100, "Asda").nutrients).toEqual({ calories: 8, protein: 1.8, carbs: 0.4, fat: 0.5, fiber: 1.1 });
+    // community numbers never replace anything
+    expect(withShopLabel(fromCatalogue, loggableFromShop(shopFile, beans!)!)).toBe(fromCatalogue);
+  });
+
+  it("offers one-tap amounts from the label and the pack, and starts on one portion where the label prints one", () => {
+    expect(printedAmount("1 bar (45g)")).toEqual({ amount: 45, unit: "g" });
+    expect(printedAmount("1.5 kg")).toEqual({ amount: 1500, unit: "g" });
+    expect(printedAmount("33cl")).toEqual({ amount: 330, unit: "ml" });
+    expect(printedAmount("6 pack")).toBeNull();
+    expect(packAmounts("4 x 125g")).toEqual({ each: 125, count: 4, unit: "g" });
+    expect(packAmounts("400g")).toEqual({ each: 400, count: 1, unit: "g" });
+    expect(amountChoices({ per: "g", size: "4 x 125g", portion: "125g" })).toEqual([{ kind: "portion", amount: 125 }, { kind: "hundred", amount: 100 }]);
+    expect(amountChoices({ per: "g", size: "4 x 125g", portion: "" })).toEqual([{ kind: "item", amount: 125, count: 4 }, { kind: "hundred", amount: 100 }]);
+    expect(amountChoices({ per: "g", size: "400g", portion: "40g" })).toEqual([{ kind: "portion", amount: 40 }, { kind: "pack", amount: 400 }, { kind: "hundred", amount: 100 }]);
+    // a pack bigger than anyone eats at once, or in the wrong unit, isn't offered
+    expect(amountChoices({ per: "g", size: "2kg", portion: "" })).toEqual([{ kind: "hundred", amount: 100 }]);
+    expect(amountChoices({ per: "ml", size: "400g", portion: "30g" })).toEqual([{ kind: "hundred", amount: 100 }]);
+    expect(startAmount({ per: "g", size: "400g", portion: "40g" })).toBe(40);
+    expect(startAmount({ per: "g", size: "400g", portion: "" })).toBe(100);
   });
 });

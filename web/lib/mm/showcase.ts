@@ -17,13 +17,14 @@
 // - FREE_PRESET_RESULTS (2) dishes, each with its kcal, protein and the restaurant's own serving when it publishes one. The free top two every visitor sees on
 //   that restaurant's page, so nothing shown here is locked later, and no free daily view is spent.
 // - Restaurant menus print no ingredients, so the six diets added on 20 November can't be checked (lib/mm/foodDiet.ts moreDietsOn): the result names them for
-//   the screen's plain line (lib/mm/menu-view.ts restaurantDietNote). Where a restaurant's own tags can tell, they still leave dishes out: no red meat leaves
-//   out what the restaurant tags pork or beef, kosher style what it tags pork, and Jain keeps only what it marks vegetarian.
+//   the screen's plain line (lib/mm/menu-view.ts restaurantDietNote). Where a restaurant's own tags or a dish's own name can tell, they still leave dishes out,
+//   as on every restaurant screen (menu-view.ts restaurantPrefs, passesDiet): no red meat leaves out pork, beef and lamb, kosher style pork, no alcohol drinks
+//   named as alcohol, and Jain keeps only what the restaurant marks vegetarian.
 
 import { moreDietsOn, type MoreDietKey } from "./foodDiet";
 import { isAllHalal } from "./halal";
 import { tk } from "./i18n";
-import { passesDiet } from "./menu-view";
+import { passesDiet, restaurantPrefs } from "./menu-view";
 import { FREE_PRESET_RESULTS } from "./paid";
 import { normalizeForSearch } from "./search";
 import { itemKind } from "./truth/itemKind";
@@ -113,15 +114,8 @@ export function nearIdentical(a: MenuItem, b: MenuItem): boolean {
   return kcalClose && proteinClose && wa.length > 0 && wa[wa.length - 1] === wb[wb.length - 1];
 }
 
-/** The diet as a restaurant's own tags can check it: the six newer diets add only what the tags can tell (see the top of this file). */
-export function showcasePrefs(prefs: Preferences): Preferences {
-  return {
-    ...prefs,
-    vegetarianOnly: prefs.vegetarianOnly || prefs.jain === true,
-    noPork: prefs.noPork || prefs.noRedMeat === true || prefs.kosherStyle === true,
-    noBeef: prefs.noBeef || prefs.noRedMeat === true,
-  };
-}
+/** The diet as a restaurant's own data can check it: the one mapping every restaurant screen uses (lib/mm/menu-view.ts restaurantPrefs). */
+export const showcasePrefs = (prefs: Preferences): Preferences => restaurantPrefs(prefs);
 
 /** Whether the restaurant can be in the showcase at all for this diet (halal is chain-level: only a restaurant that says all its food is halal). */
 const chainFits = (chain: Pick<Chain, "id">, prefs: Preferences): boolean => !prefs.halalOnly || isAllHalal(chain.id);

@@ -69,7 +69,8 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
    */
   busy?: boolean;
   busyLabel?: string;
-  /** Why it can't be pressed yet ("Pick at least one shop."): written above it with an info icon while `disabled`, and read out with the button. */
+  /** Why it can't be pressed yet ("Pick at least one shop."): written above it with an info icon while `disabled`, and read out with the button. On an ink
+   *  card (the onInk variant) it is drawn in the light grey for ink (on-ink-2), so it reads there too. */
   reason?: ReactNode;
   /** Classes for the box that holds the reason and the button (drawn only while the reason shows); `className` always stays on the button itself. */
   wrapClassName?: string;
@@ -109,7 +110,7 @@ export function Button({ variant = "primary", size = "md", full, className, busy
   if (!showReason) return button;
   return (
     <div className={cx("flex flex-col gap-2", full ? "w-full" : "items-start", wrapClassName)}>
-      <p id={reasonId} className="flex items-start gap-1.5 text-[0.9375rem] font-semibold leading-snug text-foreground">
+      <p id={reasonId} className={cx("flex items-start gap-1.5 text-[0.9375rem] font-semibold leading-snug", variant === "onInk" ? "text-on-ink-2" : "text-foreground")}>
         <InfoIcon className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0" />
         <span className="min-w-0">{reason}</span>
       </p>
@@ -216,11 +217,13 @@ export function Spinner({ label }: { label?: string }) {
 /**
  * Something failed to load (no connection, a server error): the app's error banner (colour meeting, 19 November 2026), the pale red fill with a 4 px red
  * bar at its start and the circle-!, the words in the body's ink, and "Try again" as a secondary button. Red only for failures, never on food or a figure.
+ * The bar is a straight strip inside the box (a 4 px start border curled into a crescent round the 20 px corner).
  */
 export function ErrorBox({ message, onRetry }: { message: string; onRetry?: () => void }) {
   const t = useT();
   return (
-    <div role="alert" className="flex gap-3 rounded-[1.25rem] border-s-4 border-danger bg-danger-bg p-4">
+    <div role="alert" className="relative flex gap-3 overflow-hidden rounded-[1.25rem] bg-danger-bg p-4 ps-5">
+      <span aria-hidden className="absolute inset-y-0 start-0 w-1 bg-danger" />
       <AlertCircleIcon className="mt-0.5 h-5 w-5 shrink-0 text-danger" />
       <div className="min-w-0 flex-1">
         <p className="text-base leading-snug text-foreground [overflow-wrap:anywhere]">{message}</p>

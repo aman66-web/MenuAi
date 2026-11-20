@@ -33,7 +33,8 @@ export function MacroRow({ label, eaten, target, onDark = false }: { label: stri
   return (
     <div>
       <p className={`text-[0.8125rem] font-semibold leading-snug ${onDark ? "text-on-ink-2" : "text-muted"}`}>{label}</p>
-      <p className="app-numbers mt-0.5 font-mono text-[0.9375rem] leading-snug">
+      {/* the app's own sans with even-width figures, like the dial (never the mono face: its slashed zero read as "Øg / 1ØØg") */}
+      <p className="app-numbers mt-0.5 text-[0.9375rem] leading-snug">
         <span className={onDark ? "text-sun" : "text-foreground"}>{formatGrams(eaten)}</span>
         {target ? <span className={onDark ? "text-on-ink" : "text-muted"}> / {formatGrams(target)}</span> : null}
       </p>
@@ -48,9 +49,11 @@ export function MacroRow({ label, eaten, target, onDark = false }: { label: stri
   );
 }
 
-export function HomeToday({ calories, target, targets, eaten }: {
+export function HomeToday({ calories, target, targets, eaten, estimates = 0 }: {
   /** Today's calories as eaten. */
   calories: number;
+  /** How many of today's foods are Scan your food estimates (CLAUDE.md rule 1's one exception): counted, and said so under the figures. */
+  estimates?: number;
   /** The day's calorie target. */
   target: number;
   targets: { protein?: number; carbs?: number; fat?: number };
@@ -78,6 +81,8 @@ export function HomeToday({ calories, target, targets, eaten }: {
         <div>
           <p className="text-[1.0625rem] font-semibold leading-tight text-sun [overflow-wrap:anywhere]">{t("{n} eaten", { n: formatInt(shown) })}</p>
           <p className="mt-1 text-[0.9375rem] leading-tight [overflow-wrap:anywhere]">{t("of {n} kcal", { n: formatInt(target) })}</p>
+          {/* the same words as the Today page: an estimate from a photo is never counted without saying so */}
+          {estimates > 0 && <p className="mt-1.5 text-[0.8125rem] leading-snug text-on-ink-2">{estimates === 1 ? t("Includes 1 estimate") : t("Includes {n} estimates", { n: estimates })}</p>}
         </div>
       </div>
       <div className={`${DARK_CARD} flex min-w-0 flex-col justify-center gap-5 px-4 py-5`}>

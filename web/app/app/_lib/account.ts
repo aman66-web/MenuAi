@@ -10,7 +10,7 @@ import { createSyncAdapters } from "@/lib/mm/syncStores";
 import { communityCacheStore } from "./communityCache";
 import { forgetInviteCode } from "./inviteCode";
 import { withoutArrival } from "@/lib/mm/homePages";
-import { compareStore, cupboardStore, favoritesStore, homePagesStore, logStore, myRecipesStore, remindersStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, waterStore, householdStore } from "@/lib/mm/stores";
+import { compareStore, cupboardStore, earlierPlansStore, favoritesStore, homePagesStore, logStore, mealPlanStore, myRecipesStore, recentStore, remindersStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, waterStore, householdStore } from "@/lib/mm/stores";
 
 // Sign-in and sync for the running app (docs/ACCOUNTS_SYNC.md). Since 2026-11-17 everyone signs in (lib/mm/config.ts SIGN_IN_REQUIRED: the app shows the
 // sign-in screen until someone is); with that switch off signing in is optional, and with no account none of this does anything and everything stays on the device. The cached "who" (mm.v1.account) is only for showing the name; the real session is the server's
@@ -60,7 +60,8 @@ export const syncEngine = (): SyncEngine =>
       savedRecipes: savedRecipesStore, myRecipes: myRecipesStore, cupboard: cupboardStore, compare: compareStore,
     }),
     meta: syncMetaStore,
-    localStores: [waterStore, remindersStore],
+    // what stays on this device but belongs to whoever uses it: a different person signing in here starts with these empty (privacy page)
+    localStores: [waterStore, remindersStore, mealPlanStore, earlierPlansStore, householdStore, recentStore],
     api: accountApi(),
     now: () => Date.now(),
   }));
@@ -140,13 +141,22 @@ export function signInOutcome(): { cleared: boolean; settingsSynced: boolean } {
   return { cleared: signInCleared, settingsSynced: (syncMetaStore.get().values.settings?.t ?? 0) > 0 };
 }
 
+/** What belongs to the account just left, not to the phone: removed when signing out or deleting the account (the privacy page says so). */
+function forgetAccountsOwn(): void {
+  householdStore.reset(); // the people the meal plan cooks for: another person may sign in next on this phone
+  mealPlanStore.reset(); // the week's plan and the earlier ones are made for those people
+  earlierPlansStore.reset();
+  homePagesStore.set(withoutArrival(homePagesStore.get())); // Home's Start here card and toast from the welcome screens belong to the account just left
+}
+
 /** Leave the account on this device. `tellServer`: also end the session there (not needed when the server already ended it). */
 async function leave(tellServer: boolean): Promise<void> {
   stopLoop?.();
+  syncEngine().stop(); // a sync still waiting on the server writes nothing more
   if (tellServer) await accountApi().signOut();
+  tokensStore.set(null); // the iPhone app's session (and its Keychain copy) goes too, so the next launch doesn't ask with it again
   communityCacheStore.reset(); // friends and shared lists belong to the account, not to the device (docs/BACKEND.md "Community")
-  householdStore.reset(); // the people the meal plan cooks for: another person may sign in next on this phone
-  homePagesStore.set(withoutArrival(homePagesStore.get())); // Home's Start here card and toast from the welcome screens belong to the account just left
+  forgetAccountsOwn();
   userStore.set(null);
 }
 
@@ -162,9 +172,8 @@ export async function deleteAccount(appleAuthorizationCode?: string): Promise<vo
   stopLoop?.();
   syncEngine().forget();
   communityCacheStore.reset(); // the username, friends and lists were deleted with the account
-  householdStore.reset();
+  forgetAccountsOwn(); // and the meal plan and the people in it go too
   forgetInviteCode();
-  homePagesStore.set(withoutArrival(homePagesStore.get())); // Home's Start here card and toast from the welcome screens
   userStore.set(null);
 }
 
@@ -173,15 +182,46 @@ export async function deleteAccount(appleAuthorizationCode?: string): Promise<vo
 export async function leaveForClearing(): Promise<void> {
   communityCacheStore.reset(); // the copy of friends and shared lists goes whether or not someone is signed in
   forgetInviteCode(); // and a friend's code kept from an invite link, that nobody has used yet
-  if (!userStore.get()) return;
   stopLoop?.();
+  // Always, even signed out: a sync still running writes nothing into the stores about to be emptied, and the link to an account signed out of earlier is
+  // forgotten too (kept, the same person signing in again would have the emptied stores taken as everything deleted, and deleted from the account).
   syncEngine().forget();
+  if (!userStore.get()) return;
   await accountApi().signOut();
+  tokensStore.set(null);
   userStore.set(null);
 }
 
 /** Read when this file loads, before the settings page tidies "?signin=ok" out of the address. */
 const RETURNING = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("signin") === "ok";
+
+// The website's Apple and Google sign-in leaves the page and comes back to its path and query, but a browser never sends the part after "#" (where a shared
+// shopping list is), so SignIn.tsx keeps it in this tab's session storage before leaving; it is put back here, as this file loads, before the page reads it.
+export const SIGN_IN_HASH_KEY = "mm.signInHash";
+
+/** Note this page's "#..." before leaving for Apple or Google (website only). */
+export function keepHashForSignIn(): void {
+  try {
+    if (window.location.hash) sessionStorage.setItem(SIGN_IN_HASH_KEY, JSON.stringify({ path: window.location.pathname, hash: window.location.hash }));
+    else sessionStorage.removeItem(SIGN_IN_HASH_KEY);
+  } catch {
+    // storage blocked: the page opens without its "#..."
+  }
+}
+
+function restoreHashAfterSignIn(): void {
+  if (typeof window === "undefined" || !new URLSearchParams(window.location.search).has("signin")) return;
+  try {
+    const raw = sessionStorage.getItem(SIGN_IN_HASH_KEY);
+    sessionStorage.removeItem(SIGN_IN_HASH_KEY);
+    const kept = raw ? (JSON.parse(raw) as { path?: unknown; hash?: unknown }) : null;
+    if (!kept || kept.path !== window.location.pathname || typeof kept.hash !== "string" || !/^#[\s\S]{1,8000}$/.test(kept.hash) || window.location.hash) return;
+    window.history.replaceState(window.history.state, "", `${window.location.pathname}${window.location.search}${kept.hash}`);
+  } catch {
+    // storage blocked or a note that doesn't read: leave the address as it is
+  }
+}
+restoreHashAfterSignIn();
 
 // While the app finds out who is signed in and nobody is known yet (just back from Google or Apple, or the iPhone app holds a session the device has no name
 // for), the sign-in screen waits instead of flashing up (lib/mm/signInGate.ts).

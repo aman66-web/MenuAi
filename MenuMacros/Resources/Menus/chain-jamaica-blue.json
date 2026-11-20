@@ -4208,7 +4208,9 @@
     "energyKj": 1928,
     "weight": 234
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -5698,7 +5700,9 @@
     "energyKj": 5799,
     "weight": 592
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": true,
    "rankable": true,
    "components": [],

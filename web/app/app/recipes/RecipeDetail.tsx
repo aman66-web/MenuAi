@@ -4,25 +4,34 @@ import Link from "next/link";
 import { AllergenTable } from "../_components/Allergens";
 import { recipeAllergens } from "@/lib/mm/recipeAllergens";
 import { useRouter } from "next/navigation";
-import type { Preferences } from "@/lib/mm/types";
+import type { AllergenKey, LogMeal, Preferences } from "@/lib/mm/types";
 import { useEffect, useMemo, useState } from "react";
-import { addToList, formatPrice, formatUsedPrice, withPhoto } from "@/lib/mm/groceries";
-import { formatDate, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
+import { addAtLeast, formatPrice, formatUsedPrice, listForShop, MAX_SHOPPING_ITEMS, withPhoto, type ShoppingItem } from "@/lib/mm/groceries";
+import { ADD_TO, ADDED_TO, MAX_SERVINGS as MAX_LOG_SERVINGS, MIN_SERVINGS as MIN_LOG_SERVINGS, recipeNutrients, stepServings } from "@/lib/mm/addFood";
+import { mealSlotFor } from "@/lib/mm/budget";
+import { MORE_DIET_LABEL } from "@/lib/mm/foodDiet";
+import { BETTER } from "@/lib/mm/mealPlan";
+import type { DietPrefs } from "@/lib/mm/pantry";
+import { formatCalories, formatDate, formatGrams, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
 import { tk, type T } from "@/lib/mm/i18n";
 import { firstMentions } from "@/lib/mm/stepIngredients";
 import { recipeTicks } from "@/lib/mm/listRecipes";
 import { methodAmount, placeAmounts, scaleMethodStep } from "@/lib/mm/kitchenAmount";
 import { LOCAL_RANGE_SHOP, LOCAL_SHOP_PRODUCTS } from "@/lib/mm/localRange";
 import { localTipFor } from "@/lib/mm/localTips";
-import { MEAL_TYPES, candidates, haveKey, isMeatFree, pickFor, recipeTotals, recipeView, roundedAmountsMatter, scaleServings, scaleSpec, subSpec, type IngredientPick, type IngredientSpec, type Recipe } from "@/lib/mm/recipes";
+import { MAX_RECIPE_SERVINGS, MEAL_TYPES, candidates, countsSuit, fitOutcome, haveKey, isMeatFree, noteForPick, pickFor, recipeTotals, recipeView, resolveRecipe, roundedAmountsMatter, scaleServings, scaleSpec, subSpec, type IngredientPick, type IngredientSpec, type MealTarget, type Recipe } from "@/lib/mm/recipes";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { splitStep, stepTime } from "@/lib/mm/recipeSteps";
 import { productKey, shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import { PANTRY } from "@/lib/mm/pantry";
-import { cupboardStore, savedRecipesStore, shoppingStore, toggleCupboard, toggleSavedRecipe } from "@/lib/mm/stores";
+import { addLogEntry, cupboardStore, deleteLogEntry, savedRecipesStore, shoppingStore, toggleCupboard, toggleSavedRecipe } from "@/lib/mm/stores";
 import { site } from "@/site.config";
 import { CheckIcon, ChevronRightIcon, HeartIcon, InfoIcon, LeafIcon, MinusIcon, PlusIcon, SwapIcon, TodayIcon } from "../_components/icons";
 import { Button, Chip, ChoiceMark, LinkButton, Sheet, radioKeyNav } from "../_components/ui";
+import { Note } from "../_components/Note";
+import { Toast } from "../_components/Toast";
+import { useGate } from "../_components/Paywall";
+import { ALLERGEN_SHORT, dietWords } from "../_components/DietPicker";
 import { travelBack, useBack } from "../_lib/backNav";
 import { useRecipePhoto } from "../_lib/recipePhotos";
 import { PageHeader } from "../_components/PageHeader";
@@ -51,13 +60,44 @@ import { ShopMark } from "../_components/ChainMark";
 
 const amountText = (s: IngredientSpec) => `${formatInt(s.amount)} ${s.unit}`;
 const listNames = (names: readonly string[]) => new Intl.ListFormat("en-GB", { type: "conjunction" }).format(names);
+/** A name inside a sentence: only its first letter lower case ("fat-free Greek-style yogurt", never "greek-style"), and none when the first word is a short
+ *  capital ("BBQ sauce", "M&S"). */
+export const lowerFirst = (s: string): string => (/^(?:\p{Lu}[\p{Lu}&\d]|(?:Italian|Greek|English|Dijon|Brussels|Quorn|Thai|Indian|Chinese|Mexican|Jersey|British|Scottish)\b)/u.test(s) ? s : s.charAt(0).toLocaleLowerCase("en-GB") + s.slice(1));
+/** A number of servings as a cook says it: whole, or with a quarter, a half or three quarters ("5¼" for a household plan's 5.25). */
+const servingsWords = (n: number): string => {
+  const whole = Math.floor(n);
+  const part = ({ 0.25: "¼", 0.5: "½", 0.75: "¾" } as Record<number, string>)[Math.round((n - whole) * 4) / 4] ?? "";
+  return `${whole || (part ? "" : "0")}${part}`;
+};
+/** The recipe's title size by its length, so a long name never fills the screen (≤45 characters 2rem, ≤70 1.625rem, longer 1.375rem). */
+const titleSize = (name: string): string => (name.length <= 45 ? "text-[2rem]" : name.length <= 70 ? "text-[1.625rem]" : "text-[1.375rem]");
+/** Words for why a diet leaves an ingredient out (kindExcluded's reasons), as Settings names those diets. */
+const DIET_REASON: Readonly<Record<string, string>> = {
+  vegan: tk("Vegan"), vegetarian: tk("Vegetarian"), pescatarian: tk("Pescatarian"), halal: tk("Halal"), "no pork": tk("No pork"), "no beef": tk("No beef"),
+  jain: MORE_DIET_LABEL.jain, "no onion or garlic": MORE_DIET_LABEL.noOnionGarlic, "kosher style": MORE_DIET_LABEL.kosherStyle, "no red meat": MORE_DIET_LABEL.noRedMeat,
+  "no alcohol": MORE_DIET_LABEL.noAlcohol,
+};
+const isAllergen = (reason: string): reason is AllergenKey => reason in ALLERGEN_SHORT;
+
+/** The shop's better products in place of the usual ones, as a meal plan made with better produce chose them (lib/mm/mealPlan.ts betterCandidate: the first
+ *  better product the Swap sheet would offer for each ingredient, cupboard things left as they are), so a plan card and its recipe page agree. */
+function betterChoices(recipe: Recipe, products: readonly ShopProduct[]): Record<string, string> {
+  const meatFree = isMeatFree(recipe);
+  const out: Record<string, string> = {};
+  for (const pick of resolveRecipe(recipe, products).picks) {
+    if (!pick || pick.spec.cupboard || BETTER.test(pick.product.name)) continue;
+    const alt = candidates(products, pick.spec, meatFree).find((a) => BETTER.test(a.product.name));
+    if (alt) out[pick.spec.key] = productKey(alt.product);
+  }
+  return out;
+}
 
 function PickPhoto({ file, product }: { file: ShopFile; product: ShopProduct }) {
   return <PhotoTile sources={shopPhotoSources(file, product)} />;
 }
 
 const NOT_ON_LABEL = tk("not on every label");
-const MAX_SERVINGS = 12; // scaleServings keeps a recipe between 1 and 12 people
+const MAX_SERVINGS = MAX_RECIPE_SERVINGS; // scaleServings keeps a recipe between 1 and 12 servings
 
 type RecipeTab = "ingredients" | "method";
 const TABS: ReadonlyArray<{ value: RecipeTab; label: string }> = [
@@ -131,7 +171,7 @@ function MacroRow({ label, grams, dot }: { label: string; grams: number; dot: st
   return (
     <p className="flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5">
       <span className="inline-flex min-w-0 items-center gap-2"><span aria-hidden className={`dot ${dot}`} /><span className={LABEL}>{label}</span></span>
-      <span className="app-numbers whitespace-nowrap font-mono text-[0.8125rem] font-normal text-foreground">{Math.round(grams)}g</span>
+      <span className="app-numbers whitespace-nowrap text-[0.8125rem] font-normal text-foreground"><span className="font-mono">{Math.round(grams)}</span> g</span>
     </p>
   );
 }
@@ -141,7 +181,7 @@ function MacroRow({ label, grams, dot }: { label: string; grams: number; dot: st
  *  `products` are theirs, tagged with their shop. Every ingredient comes from the first shop unless the person swaps it to another shop's product.
  *  `onChangeShops`: when given, the shop in the header is a button that opens the screen's choice of shop. `onNeedOtherShops`: called when the Swap sheet opens,
  *  so the screen loads the other shops (they're not loaded for a plain look at a recipe); `othersLoading` says they are on their way. */
-export function RecipeDetail({ recipe, files, products, backHref, actions, photo, onChangeShops, onNeedOtherShops, othersLoading, diet, save, haveKeys, startServings, startAsWritten }: { /** Opened from a household meal plan: everyone's servings, as written. */ startServings?: number; startAsWritten?: boolean; /** Ingredients the person said they have (Cook with what you have): they start ticked "I have this". */ haveKeys?: readonly string[]; recipe: Recipe; files: readonly ShopFile[]; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode; photo?: string; onChangeShops?: () => void; onNeedOtherShops?: () => void; othersLoading?: boolean; /** The diet this recipe was made for (Make it at home's "What to exclude"), when it isn't the one in Settings. */ diet?: Preferences; /** A recipe Pip has just written (Make it at home): a Save button at the top, and Back asks to save it first while it isn't saved. */ save?: { saved: boolean; onSave: () => void } }) {
+export function RecipeDetail({ recipe, files, products, backHref, actions, photo, onChangeShops, onNeedOtherShops, othersLoading, diet, save, haveKeys, startServings, startAsWritten, dietClash = [], planTarget, better }: { /** Opened from a household meal plan: everyone's servings (quarters allowed), as written. */ startServings?: number; startAsWritten?: boolean; /** What in this recipe doesn't suit the diet (lib/mm/recipes.ts dietClashes): an amber note says so, and the page never says it was chosen for the diet. */ dietClash?: ReadonlyArray<{ label: string; pantry: string; reason: string }>; /** From a meal plan: the slot's meal size, which the recipe is fitted to as its plan card was (instead of the Recipes tab's meal size). */ planTarget?: MealTarget | null; /** From a meal plan made with better produce: the shop's better products, as the plan chose them. */ better?: boolean; /** Ingredients the person said they have (Cook with what you have): they start ticked "I have this". */ haveKeys?: readonly string[]; recipe: Recipe; files: readonly ShopFile[]; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode; photo?: string; onChangeShops?: () => void; onNeedOtherShops?: () => void; othersLoading?: boolean; /** The diet this recipe was made for (Make it at home's "What to exclude") or is checked against (a household's plan), when it isn't the one in Settings. */ diet?: DietPrefs; /** A recipe Pip has just written (Make it at home): a Save button at the top, and Back asks to save it first while it isn't saved. */ save?: { saved: boolean; onSave: () => void } }) {
   const t = useT();
   const poss = usePossessive();
   const first = files[0]!;
@@ -162,18 +202,19 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   // our recipe book's words are translated; what Pip wrote with AI is shown as it wrote it. Ingredient labels and notes come from our pantry either way.
   const rt = (s: string) => (recipe.ai ? s : t(s));
   const settings = useSettings();
-  // snacks are shown as written: a meal-sized target would double them
-  const targetKey = JSON.stringify(recipe.meal === "snack" ? null : mealTargetFor(settings));
+  // snacks are shown as written: a meal-sized target would double them. From a meal plan, the plan slot's own size (the plan fitted it, snacks too)
+  const targetKey = JSON.stringify(planTarget ?? (recipe.meal === "snack" ? null : mealTargetFor(settings)));
   const target = useMemo(() => JSON.parse(targetKey) as ReturnType<typeof mealTargetFor>, [targetKey]);
   // founder 2026-11-16: a recipe opens for one person ("Serves 1 should be the norm"); + cooks for more, and the amounts, the numbers shown and the steps follow
-  const [servings, setServings] = useState(startServings ?? 1);
-  const [chosen, setChosen] = useState<Record<string, string>>({});
+  const [servings, setServings] = useState(() => Math.min(MAX_SERVINGS, Math.max(1, startServings ?? 1)));
+  // a plan made with better produce: the same better products here (the recipe's own shop's, worked out once when the page opens)
+  const [chosen, setChosen] = useState<Record<string, string>>(() => (better ? betterChoices(recipe, files.length <= 1 ? products : products.filter((p) => p.shop === files[0]!.retailer)) : {}));
   const [subs, setSubs] = useState<Record<string, string>>({});
   const [asWritten, setAsWritten] = useState(startAsWritten ?? false);
   const [swapping, setSwapping] = useState<string | null>(null);
   // which shop's products the Swap sheet lists (the shop of the product now in the recipe until another is chosen), for the ingredient being swapped
   const [swapShopFor, setSwapShopFor] = useState<{ key: string; shop: string } | null>(null);
-  const [added, setAdded] = useState<string | null>(null);
+  const [added, setAdded] = useState<{ text: string; href: string } | null>(null);
   const [tab, setTab] = useState<RecipeTab>("ingredients");
   const [detail, setDetail] = useState(false);
   const haveList = useStore(cupboardStore);
@@ -234,7 +275,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
     for (const sub of written.subs ?? []) {
       if (sub.key === swapSpec.pantry) continue;
       // chosen for the recipe as written, then scaled: the amount shown is the one the recipe will have if it is picked
-      const s2 = subSpec(original, sub, scaled.halal);
+      const s2 = subSpec(original, sub, scaled);
       if (s2) out.push({ subKey: sub.key, spec: scaled.scaledFrom ? scaleSpec(s2, scaled.servings, scaled.scaledFrom.servings) : s2 });
     }
     // each with the product it would use (candidates are in pick order), whose photo the row shows
@@ -249,27 +290,69 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
     setSwapping(null);
     setAdded(null);
   };
+  // "Add a serving to today" (audit, 20 November 2026: a serving couldn't be logged from its own page, and logging it from Home could store other numbers): this
+  // page's own serving (as written or fitted, with its swaps and its shop), for the meal and servings chosen. Free in 1.1 (gate("log") decides).
+  const { gate } = useGate();
+  const [logOpen, setLogOpen] = useState(false);
+  const [logMeal, setLogMeal] = useState<LogMeal>(() => recipe.meal ?? mealSlotFor(new Date()));
+  const [logServings, setLogServings] = useState(1);
+  const [logged, setLogged] = useState<{ id: string; text: string } | null>(null);
+
+  // from a plan's 5¼ servings, − goes to 5 and + to 6
   const changeServings = (by: number) => {
-    setServings((n) => Math.max(1, Math.min(MAX_SERVINGS, n + by)));
+    setServings((n) => Math.max(1, Math.min(MAX_SERVINGS, by > 0 ? Math.floor(n) + 1 : Math.ceil(n) - 1)));
     setAdded(null);
   };
 
-  const prefs = diet ?? settings.preferences;
-  const dietNote = (prefs.avoidAllergens?.length ?? 0) > 0 || prefs.halalOnly || prefs.veganOnly || prefs.vegetarianOnly || prefs.pescatarianOnly;
+  const prefs: DietPrefs = diet ?? settings.preferences;
+  // "chosen for your diet" only when it is true (audit, 20 November 2026): the recipe suits the diet, none of its allergens is one the person avoids, and they
+  // follow some diet at all (any of Settings' diets, the newer ones too)
+  const words = dietWords(t, prefs as Preferences);
+  const shownAllergens = recipeAllergens(view.recipe.ingredients.map((written, i) => { const spec = picks[i]?.spec ?? written; return { label: spec.label, pantry: spec.pantry }; })).allergens.contains;
+  const avoidHit = (prefs.avoidAllergens ?? []).some((a) => shownAllergens.includes(a));
+  const dietNote = dietClash.length === 0 && !avoidHit && words.length > 0;
+  // what doesn't suit the diet, one sentence each (meat with dairy once, for kosher style)
+  const clashLines = [...new Set(dietClash.map((c) => (c.reason === "meat with dairy"
+    ? t("This recipe has meat and dairy together, which kosher style keeps apart.")
+    : isAllergen(c.reason)
+      ? t("This recipe has {name}, which contains {allergen}. You told us to avoid {allergen}.", { name: lowerFirst(t(c.label)), allergen: t(ALLERGEN_SHORT[c.reason]).toLowerCase() })
+      : t("This recipe has {name}, which doesn't suit your diet: {diet}.", { name: lowerFirst(t(c.label)), diet: t(DIET_REASON[c.reason] ?? c.reason) }))))];
   // the shops the picks come from, in the order they're used (the first shop when nothing is found): the sentences name them
   const usedShops = new Set(picks.flatMap((p) => (p ? [fileOf(p.product).retailer] : [])));
   const usedFiles = files.filter((f) => usedShops.has(f.retailer));
   const shown = usedFiles.length ? usedFiles : [first];
   const many = shown.length > 1;
+  // "Add all": what isn't ticked "I have this", each raised only to the packs this recipe needs on the list it goes on (the person's newest list for that product's
+  // shop, else the main Shopping list: the rule the meal plan uses), so a second visit, a change of servings or the oil already on the list never adds another pack
+  // (lib/mm/groceries.ts addAtLeast). The message says what really went on, and on which list.
+  const ready = picks.filter((p): p is IngredientPick => !!p && !hasIt(p.spec));
   const addAll = () => {
-    const ready = picks.filter((p): p is IngredientPick => !!p && !hasIt(p.spec));
-    shoppingStore.update((list) => ready.reduce((l, p) => {
+    let list: ShoppingItem[] = [...shoppingStore.get()];
+    let went = 0;
+    let full = 0;
+    const into = new Set<string>();
+    for (const p of ready) {
       const f = fileOf(p.product);
-      return addToList(l, { gtin: p.product.gtin, shopId: p.product.id, retailer: f.retailer, name: p.product.name, brand: "", size: "", price: p.product.price, checkedOn: f.checkedOn, ...withPhoto(shopPhotoSources(f, p.product)) }, new Date(), p.packs);
-    }, list));
-    const into = new Set(ready.map((p) => fileOf(p.product).retailer));
-    const shopName = (files.find((f) => into.has(f.retailer)) ?? first).name;
-    setAdded(into.size > 1 ? t("Added {n} products to your shopping list.", { n: ready.length }) : ready.length === 1 ? t("Added 1 product to your {shop} list.", { shop: shopName }) : t("Added {n} products to your {shop} list.", { n: ready.length, shop: shopName }));
+      const listId = listForShop(settings, f.retailer) ?? "";
+      const r = addAtLeast(list, { gtin: p.product.gtin, shopId: p.product.id, retailer: f.retailer, name: p.product.name, brand: "", size: "", price: p.product.price, checkedOn: f.checkedOn, ...withPhoto(shopPhotoSources(f, p.product)), ...(listId ? { list: listId } : {}) }, p.packs);
+      list = r.list;
+      if (r.outcome === "full") { full++; continue; }
+      into.add(listId);
+      if (r.outcome !== "had") went++;
+    }
+    shoppingStore.set(list);
+    const only = into.size === 1 ? [...into][0]! : null;
+    const listName = only ? (settings.shoppingLists?.find((l) => l.id === only)?.name ?? null) : null;
+    const text = full > 0
+      ? t("Added {added} of {total}: your lists are full ({max} items).", { added: went, total: ready.length, max: MAX_SHOPPING_ITEMS })
+      : went === 0
+        ? t("Everything for this recipe is already on your list.")
+        : into.size > 1
+          ? t("Added {n} products to your shopping lists.", { n: went })
+          : listName
+            ? (went === 1 ? t("Added 1 product to {list}.", { list: listName }) : t("Added {n} products to {list}.", { n: went, list: listName }))
+            : (went === 1 ? t("Added 1 product to your shopping list.") : t("Added {n} products to your shopping list.", { n: went }));
+    setAdded({ text, href: only ? `/app/groceries/list?l=${encodeURIComponent(only)}` : "/app/groceries/list" });
   };
   const notOnLabel = t(NOT_ON_LABEL);
   // The numbers are for everyone the recipe now serves: a serving's figures (always the recipe-as-written's serving, lib/mm/recipes.ts) times the servings
@@ -289,6 +372,8 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
       ]
     : [];
   const forPeople = people === 1 ? t("For 1 serving") : t("For {n} servings", { n: people });
+  // the substitutes standing in for an ingredient the recipe names (the method's words are the recipe's own)
+  const subsIn = [...new Map(picks.flatMap((p) => (p?.spec.subFor ? [[p.spec.label, { sub: p.spec.label, name: p.spec.subFor }] as const] : []))).values()];
   // which step first uses each ingredient, so its amount (for this many people) is shown under that step
   const stepUses = firstMentions(recipe.method, view.recipe.ingredients);
   const specByKey = new Map(view.recipe.ingredients.map((spec, i) => [spec.key, picks[i]?.spec ?? spec]));
@@ -296,12 +381,39 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   const mealLabel = recipe.meal ? MEAL_TYPES.find((m) => m.value === recipe.meal)?.label : undefined;
   const MealIcon = MEAL_LOOK[recipe.meal ?? "dinner"]?.Icon ?? MEAL_LOOK.dinner.Icon;
 
+  const logIt = () => {
+    if (!totals) return;
+    gate("log", () => {
+      const name = rt(recipe.name);
+      const entry = addLogEntry({ chainId: "", chainName: t("Recipe"), name: logServings === 1 ? name : t("{name} ({n} servings)", { name, n: logServings }), source: "recipe", recipeId: recipe.id, meal: logMeal, nutrients: recipeNutrients(totals, logServings) });
+      setLogged({ id: entry.id, text: t(ADDED_TO[logMeal], { name }) });
+      setLogOpen(false);
+    });
+  };
+  const logButton = totals ? (
+    <button type="button" aria-haspopup="dialog" onClick={() => { setLogServings(1); setLogOpen(true); }} className={`${SOFT_PILL} w-full`}>
+      <PlusIcon aria-hidden className="h-[18px] w-[18px] shrink-0" />{t("Add a serving to today")}
+    </button>
+  ) : null;
+  // how close the fit came (audit, 20 November 2026: "fitted to about 350 kcal" was said of a 500 kcal serving; lib/mm/recipes.ts fitOutcome)
+  const outcome = totals && target ? fitOutcome(view.fitted, totals.perServing.kcal, target) : null;
+  const fitNumbers = totals && target ? { kcal: formatInt(target.kcal), actual: formatInt(totals.perServing.kcal) } : { kcal: "", actual: "" };
+  const fitLine = !outcome || !target ? "" : asWritten
+    ? t("Showing the recipe as written.")
+    : outcome === "fitted"
+      ? `${targetSentence(t, target, "this")} ${t("The amounts below are changed to fit.")}`
+      : outcome === "closest"
+        ? `${t("Made as close to your {kcal} kcal meal as this recipe goes: {actual} kcal a serving.", fitNumbers)} ${t("The amounts below are changed to fit.")}`
+        : outcome === "fits"
+          ? t("This recipe already fits your meal, so nothing is changed.")
+          : t("This recipe can't be changed to fit your {kcal} kcal meal, so it's shown as written: {actual} kcal a serving.", fitNumbers);
+
   const stepper = (
     <div className="glass inline-flex max-w-full items-center rounded-full p-1">
       <button type="button" aria-label={t("Fewer servings")} disabled={servings <= 1} onClick={() => changeServings(-1)} className={ROUND_BUTTON}>
         <span className={ROUND_FACE}><MinusIcon className="h-[18px] w-[18px]" /></span>
       </button>
-      <span aria-live="polite" className="app-numbers min-w-0 px-2.5 text-center text-[0.9375rem] font-bold [overflow-wrap:anywhere]">{t("Serves {n}", { n: view.recipe.servings })}</span>
+      <span aria-live="polite" className="app-numbers min-w-0 px-2.5 text-center text-[0.9375rem] font-bold [overflow-wrap:anywhere]">{t("Serves {n}", { n: servingsWords(view.recipe.servings) })}</span>
       <button type="button" aria-label={t("More servings")} disabled={servings >= MAX_SERVINGS} onClick={() => changeServings(1)} className={ROUND_BUTTON}>
         <span className={ROUND_FACE}><PlusIcon className="h-[18px] w-[18px]" /></span>
       </button>
@@ -312,10 +424,17 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   const meatChip = meatFree ? <span className={INFO_CHIP}><LeafIcon aria-hidden className="h-[18px] w-[18px] text-ink" />{t("No meat or fish")}</span> : null;
 
   // Save, at the photo's top right: our own recipes always; one Pip wrote, when it can be kept
+  // a recipe Pip has just written: Save, then (it can't be unsaved here: My recipes takes it out) a plain "Saved" that says so, not a toggle that does nothing
   const saveControl = !recipe.ai ? <SaveRecipeButton id={recipe.id} /> : save ? (
-    <button type="button" aria-pressed={save.saved} aria-label={save.saved ? t("Saved to My recipes") : t("Save this recipe")} onClick={() => { if (!save.saved) save.onSave(); }} className={SAVE_BUTTON}>
-      <HeartIcon aria-hidden filled={save.saved} className="h-5 w-5 text-ink" />{save.saved ? t("Saved") : t("Save")}
-    </button>
+    save.saved ? (
+      <span role="status" className={SAVE_BUTTON}>
+        <HeartIcon aria-hidden filled className="h-5 w-5 text-ink" /><span aria-hidden>{t("Saved")}</span><span className="sr-only">{t("Saved to My recipes")}</span>
+      </span>
+    ) : (
+      <button type="button" aria-label={t("Save this recipe")} onClick={save.onSave} className={SAVE_BUTTON}>
+        <HeartIcon aria-hidden className="h-5 w-5 text-ink" />{t("Save")}
+      </button>
+    )
   ) : null;
 
   return (
@@ -324,6 +443,11 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
           the founder that day): Back top left, Save top right (founder 2026-11-20: "Move the save into the top right instead of settings"; the cog stays only
           where a recipe can't be saved), the expand chip bottom right, and the light status band over its top 60 px (RecipeHeroArt draws it over a picture only). */}
       <div className="relative -mx-5" style={{ marginTop: "calc(-1 * max(1.25rem, env(safe-area-inset-top)))" }}>
+        {/* first in the page, drawn over the picture: Back and Save come before "See the whole picture" for a keyboard or a screen reader (audit, 20 November) */}
+        <div className="absolute inset-x-0 top-0 z-10 px-4 pt-[max(0.75rem,env(safe-area-inset-top))]">
+          {/* Back on a recipe Pip has just written that isn't saved yet asks first (it stays on the page and opens the question) */}
+          <PageHeader photo settings={!saveControl} action={saveControl} back={{ href: backHref, label: t("Back to recipes"), onClick: (e) => { if (save && !save.saved) { e.preventDefault(); setLeaving(true); } } }} />
+        </div>
         {photo ? (
           <div className="relative h-[clamp(15rem,36dvh,22rem)] overflow-hidden bg-fill">
             {/* eslint-disable-next-line @next/next/no-img-element -- the person's own photo, a local address on this phone */}
@@ -334,10 +458,6 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
         ) : (
           <RecipeHeroArt id={recipe.id} name={recipe.name} label={rt(recipe.name)} meal={recipe.meal} />
         )}
-        <div className="absolute inset-x-0 top-0 px-4 pt-[max(0.75rem,env(safe-area-inset-top))]">
-          {/* Back on a recipe Pip has just written that isn't saved yet asks first (it stays on the page and opens the question) */}
-          <PageHeader photo settings={!saveControl} action={saveControl} back={{ href: backHref, label: t("Back to recipes"), onClick: (e) => { if (save && !save.saved) { e.preventDefault(); setLeaving(true); } } }} />
-        </div>
       </div>
 
       <div className="relative -mx-5 -mt-9 rounded-t-[2rem] bg-background px-5 pt-3 shadow-[var(--shadow-lift)]">
@@ -363,7 +483,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
               </span>
             )}
           </div>
-          <h1 className="mt-1.5 text-[2rem] font-[800] leading-[1.08] tracking-[-0.02em] [overflow-wrap:anywhere]">{rt(recipe.name)}</h1>
+          <h1 className={`mt-1.5 ${titleSize(rt(recipe.name))} font-[800] leading-[1.08] tracking-[-0.02em] [overflow-wrap:anywhere]`}>{rt(recipe.name)}</h1>
           {recipe.blurb && <p className="mx-auto mt-2 max-w-[30rem] text-[0.9375rem] leading-snug text-muted">{rt(recipe.blurb)}</p>}
           {/* a serving's calories and protein on the first screen (usability test 2026-11-19: they were only further down, under the picture and the chips) */}
           {totals && <p className="app-numbers mt-2.5 text-[1.0625rem] font-bold leading-snug">{t("{kcal} kcal and {protein} g protein a serving", { kcal: formatInt(totals.perServing.kcal), protein: formatInt(totals.perServing.protein) })}</p>}
@@ -400,22 +520,26 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
               </div>
             </div>
             {people > 1 && (
-              <p className="app-numbers mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("Each serving: {kcal} kcal, {protein}g protein, {carbs}g carbs, {fat}g fat.", { kcal: formatInt(totals.perServing.kcal), protein: Math.round(totals.perServing.protein), carbs: Math.round(totals.perServing.carbs), fat: Math.round(totals.perServing.fat) })}</p>
+              <p className="app-numbers mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("Each serving: {kcal} kcal, {protein} g protein, {carbs} g carbs, {fat} g fat.", { kcal: formatInt(totals.perServing.kcal), protein: Math.round(totals.perServing.protein), carbs: Math.round(totals.perServing.carbs), fat: Math.round(totals.perServing.fat) })}</p>
             )}
+            <div className="mt-3">{logButton}</div>
             {totals.notCounted.length > 0 && (
-              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{totals.notCounted.length === 1 ? t("Herbs, spices and salt don't have to carry a nutrition label, and we have none for {name}, so it isn't counted in these numbers.", { name: t(totals.notCounted[0]!).toLowerCase() }) : t("Herbs, spices and salt don't have to carry a nutrition label, and we have none for {names}, so they aren't counted in these numbers.", { names: totals.notCounted.map((n) => t(n).toLowerCase()).join(", ") })}</p>
+              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{totals.notCounted.length === 1 ? t("Herbs, spices and salt don't have to carry a nutrition label, and we have none for {name}, so it isn't counted in these numbers.", { name: lowerFirst(t(totals.notCounted[0]!)) }) : t("Herbs, spices and salt don't have to carry a nutrition label, and we have none for {names}, so they aren't counted in these numbers.", { names: listNames(totals.notCounted.map((n) => lowerFirst(t(n)))) })}</p>
             )}
             {totals.plainSalt.length > 0 && (
               <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("Salt doesn't have to carry a nutrition label. Where the shop gives none, we count it as UK table salt labels print it: no calories, protein, carbs or fat, and 99.9 g of salt in every 100 g.")}</p>
             )}
             {totals.govFood.length > 0 && (
-              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("Loose fruit and vegetables have no nutrition label, so the numbers for {names} are the UK government's figures for those foods (McCance and Widdowson's Composition of Foods).", { names: totals.govFood.map((n) => t(n).toLowerCase()).join(", ") })}</p>
+              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("Loose fruit and vegetables have no nutrition label, so the numbers for {names} are the UK government's figures for those foods (McCance and Widdowson's Composition of Foods).", { names: listNames(totals.govFood.map((n) => lowerFirst(t(n)))) })}</p>
             )}
             {totals.community.length > 0 && (
-              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{totals.community.length === 1 ? t("The numbers for {name} come from Open Food Facts contributors (community data) for that product's barcode, not from the supermarket's own label. Check the pack.", { name: t(totals.community[0]!).toLowerCase() }) : t("The numbers for {names} come from Open Food Facts contributors (community data) for those products' barcodes, not from the supermarket's own labels. Check the packs.", { names: totals.community.map((n) => t(n).toLowerCase()).join(", ") })}</p>
+              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{totals.community.length === 1 ? t("The numbers for {name} come from Open Food Facts contributors (community data) for that product's barcode, not from the supermarket's own label. Check the pack.", { name: lowerFirst(t(totals.community[0]!)) }) : t("The numbers for {names} come from Open Food Facts contributors (community data) for those products' barcodes, not from the supermarket's own labels. Check the packs.", { names: listNames(totals.community.map((n) => lowerFirst(t(n)))) })}</p>
+            )}
+            {totals.sameAs.length > 0 && (
+              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("The numbers for {names} are the same product's label, read at another supermarket.", { names: listNames(totals.sameAs.map((n) => lowerFirst(t(n)))) })}</p>
             )}
             {roundedAmountsMatter(view.resolved, totals) && (
-              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("Eggs, wraps and stock cubes are counted whole and other amounts are rounded, so a serving made from these amounts can differ from the numbers shown.")}</p>
+              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("Eggs, wraps, bread slices and stock cubes are counted whole and other amounts are rounded, so a serving made from these amounts can differ from the numbers shown.")}</p>
             )}
             <div className="mt-3">
               <button type="button" aria-expanded={detail} aria-controls="recipe-label" onClick={() => setDetail((d) => !d)} className={`${CARD} flex min-h-14 w-full items-center gap-3 px-4 py-3 text-start transition active:scale-[0.99] hover:bg-soft-strong`}>
@@ -425,8 +549,8 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                 </span>
                 <span aria-hidden className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[var(--fill)]"><ChevronRightIcon className={`h-[18px] w-[18px] transition-transform ${detail ? "-rotate-90" : "rotate-90"}`} /></span>
               </button>
-              {detail && (
-                <section id="recipe-label" aria-labelledby="label-heading" className={`${CARD} mt-2 p-4`}>
+              {/* always in the page (hidden while closed), so the button's aria-controls names something real */}
+              <section id="recipe-label" aria-labelledby="label-heading" hidden={!detail} className={`${CARD} mt-2 p-4`}>
                   <h2 id="label-heading" className="text-[1.0625rem] font-bold tracking-[-0.01em]">{people === 1 ? t("Full nutrition per serving") : t("Full nutrition for {n} servings", { n: people })}</h2>
                   <dl className="app-numbers mt-2 divide-y divide-line">
                     {rows.map(([label, value, sub]) => (
@@ -436,16 +560,25 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                       </div>
                     ))}
                   </dl>
-                  <p className="mt-2.5 text-[0.8125rem] leading-snug text-muted">{totals.community.length > 0
-                    ? t("Added up from each product's numbers for the amounts below, before cooking: its own label, or the community numbers named above. \"Not on every label\" means one of the products doesn't give that figure, so we don't give a total for it.")
+                  <p className="mt-2.5 text-[0.8125rem] leading-snug text-muted">{totals.community.length + totals.govFood.length + totals.sameAs.length + totals.plainSalt.length > 0
+                    ? t("Added up from each product's numbers (its label, or the figures named above) for the amounts below, before cooking. \"Not on every label\" means one of the products doesn't give that figure, so we don't give a total for it.")
                     : t("Added up from each product's own label for the amounts below, before cooking. \"Not on every label\" means one of the products doesn't print that figure, so we don't give a total for it.")}</p>
-                  <RecipeAllergenPart ingredients={view.recipe.ingredients.map((written, i) => { const spec = picks[i]?.spec ?? written; return { label: t(spec.label), pantry: spec.pantry }; })} />
-                </section>
-              )}
+                  {detail && <RecipeAllergenPart ingredients={view.recipe.ingredients.map((written, i) => { const spec = picks[i]?.spec ?? written; return { label: t(spec.label), pantry: spec.pantry }; })} />}
+              </section>
             </div>
           </div>
         ) : (
-          <p className={`${CARD} mt-5 p-4 text-center text-[0.9375rem] leading-snug`}>{t("We couldn't find every ingredient at {shop} yet, so there are no totals for this recipe.", { shop: first.name })}</p>
+          // never a dead end (audit, 20 November 2026): another shop may sell it all, and what was found can still go on the list
+          <div className={`${CARD} mt-5 p-4 text-center`}>
+            <p className="text-[0.9375rem] leading-snug">{t("We couldn't find every ingredient at {shop} yet, so there are no totals for this recipe.", { shop: first.name })}</p>
+            <div className="mt-3 grid gap-2">
+              {onChangeShops && <button type="button" aria-haspopup="dialog" onClick={onChangeShops} className={`${SOFT_PILL} w-full`}>{t("Choose another shop")}</button>}
+              {ready.length > 0 && (added
+                ? <LinkButton full href={added.href}><CheckIcon aria-hidden className="h-5 w-5 shrink-0" />{t("Added: see your list")}</LinkButton>
+                : <Button full onClick={addAll}><PlusIcon aria-hidden className="h-5 w-5 shrink-0" />{ready.length === 1 ? t("Add the 1 we found") : t("Add the {n} we found", { n: ready.length })}</Button>)}
+            </div>
+            {added && <p role="status" className="mt-2 text-[0.875rem] font-semibold leading-snug">{added.text}</p>}
+          </div>
         )}
 
         {totals && !target && recipe.meal === "snack" && mealTargetFor(settings) && (
@@ -454,7 +587,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
 
         {totals && target && (
           <div className={`${CARD} mt-3 p-4`}>
-            <p className="app-numbers text-[0.9375rem] leading-snug">{asWritten ? t("Showing the recipe as written.") : view.fitted ? `${targetSentence(t, target, "this")} ${t("The amounts below are changed to fit.")}` : t("This recipe already fits your meal, so nothing is changed.")}</p>
+            <p className="app-numbers text-[0.9375rem] leading-snug">{fitLine}</p>
             <button type="button" onClick={() => setAsWritten((v) => !v)} className={`mt-3 ${SOFT_PILL}`}>{asWritten ? t("Fit it to my meal") : t("Show it as written")}</button>
           </div>
         )}
@@ -484,6 +617,12 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
         </div>
 
         <section id="recipe-panel-ingredients" role="tabpanel" aria-labelledby="recipe-tab-ingredients" hidden={tab !== "ingredients"} className="mt-5">
+          {/* the one amber note: what in this recipe doesn't suit the diet (a link or a plan can open such a recipe; it is never said to be chosen for the diet) */}
+          {clashLines.length > 0 && (
+            <Note heading={dietClash.some((c) => isAllergen(c.reason)) ? undefined : t("Not for your diet")} className="mb-5">
+              {clashLines.map((line) => <p key={line} className="mt-1">{line}</p>)}
+            </Note>
+          )}
           {totals && (
             <div className="app-numbers">
               <div className={PAIR}>
@@ -535,16 +674,21 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                         <span className="min-w-0 flex-1 text-base font-bold leading-snug [overflow-wrap:anywhere]">{t(spec.label)}</span>
                         <span className="app-numbers shrink-0 whitespace-nowrap text-[0.9375rem] font-semibold leading-snug">{amountText(spec)}</span>
                       </p>
-                      {spec.note && <p className="text-[0.8125rem] text-muted">{noteText(t, spec.note)}</p>}
+                      {(() => {
+                        // "about 1 tomato" is dropped for 80 g of baby plum tomatoes (lib/mm/recipes.ts noteForPick)
+                        const note = noteForPick(spec, p?.product.name);
+                        return note ? <p className="text-[0.8125rem] text-muted">{noteText(t, note)}</p> : null;
+                      })()}
                       {spec.subFor && (
-                        <p className="mt-0.5 text-[0.8125rem] leading-snug text-muted">{written.original || written.subFor ? t("Instead of {name}.", { name: t(spec.subFor).toLowerCase() }) : t("{shop} doesn't sell {name} that fits, so this uses {sub} instead.", { shop: first.name, name: t(spec.subFor).toLowerCase(), sub: t(spec.label).toLowerCase() })}</p>
+                        <p className="mt-0.5 text-[0.8125rem] leading-snug text-muted">{written.original || written.subFor ? t("Instead of {name}.", { name: lowerFirst(t(spec.subFor)) }) : t("We couldn't match {name} at {shop}, so this uses {sub} instead.", { shop: first.name, name: lowerFirst(t(spec.subFor)), sub: lowerFirst(t(spec.label)) })}</p>
                       )}
                       {p ? (
                         <>
                           {/* founder 2026-11-17: the logo of the supermarket each product is bought from, beside its name (the name is the link; the logo is silent) */}
-                          <Link href={productHref} prefetch={false} className="mt-1.5 flex items-start gap-2 rounded-lg text-[0.875rem] leading-snug text-muted [overflow-wrap:anywhere] hover:underline">
+                          {/* a link that looks like one, 44 px tall (audit, 20 November 2026: it read as plain grey text) */}
+                          <Link href={productHref} prefetch={false} className="mt-0.5 flex min-h-11 items-center gap-2 rounded-lg text-[0.875rem] font-semibold leading-snug text-accent underline underline-offset-2 [overflow-wrap:anywhere]">
                             <ShopMark shopId={pf.retailer} size="xs" />
-                            <span className="min-w-0 self-center">{several && <span className="sr-only">{pf.name}, </span>}{p.product.name}</span>
+                            <span className="min-w-0">{several && <span className="sr-only">{pf.name}, </span>}{p.product.name}</span>
                           </Link>
                           {(() => {
                             // founder 2026-11-17: everything can be bought at a small local shop; where this product isn't one a small shop usually stocks, say what to look for there
@@ -552,18 +696,21 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                             const tip = pf.retailer === LOCAL_RANGE_SHOP ? localTipFor(spec.pantry, p.product.id) : null;
                             return tip ? <p className="mt-1 text-[0.8125rem] leading-snug text-muted">{t("In a small local shop, look for {tip}.", { tip: t(tip) })}</p> : null;
                           })()}
-                          <div className="mt-1.5 flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+                          <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1">
                             <span className="app-numbers text-[0.9375rem] font-semibold">{formatPrice(p.product.price)}{p.packs > 1 ? ` · ${t("buy {n}", { n: p.packs })}` : ""}</span>
                             {/* founder 2026-11-17 ("the cost of each ingredient as relative to how much is used"): what the amount listed above costs at the shop's own price per kg or litre,
                                 in the green of "a serving"; it follows Serves, and is left out where the shop prints no such price (then the price of a serving isn't shown either: the
                                 whole shop's price stands alone above, with the reason) */}
                             {p.usedCost !== null && <span className="app-numbers text-[0.9375rem] font-semibold text-foreground">{t("{price} used", { price: formatUsedPrice(p.usedCost) })}</span>}
+                          </div>
+                          {/* the two pills together under the price line, at the end, so they never stagger at large text */}
+                          <div className="mt-2 flex flex-wrap justify-end gap-2">
                             {!(spec.cupboard && spec.pantry) && (
-                              <button type="button" aria-pressed={hasIt(spec)} aria-label={t("I have this: {name}", { name: t(spec.label).toLowerCase() })} onClick={() => { flipHave(spec.key); setAdded(null); }} className={`ms-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border-[1.5px] px-4 text-[0.9375rem] font-bold transition active:scale-95 ${hasIt(spec) ? HAVE_ON : "border-[color:var(--edge)] bg-soft hover:bg-[var(--fill)]"}`}>
+                              <button type="button" aria-pressed={hasIt(spec)} aria-label={t("I have this: {name}", { name: lowerFirst(t(spec.label)) })} onClick={() => { flipHave(spec.key); setAdded(null); }} className={`inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border-[1.5px] px-4 text-[0.9375rem] font-bold transition active:scale-95 ${hasIt(spec) ? HAVE_ON : "border-[color:var(--edge)] bg-soft hover:bg-[var(--fill)]"}`}>
                                 <ChoiceMark on={hasIt(spec)} />{t("I have this")}
                               </button>
                             )}
-                            <button type="button" onClick={() => setSwapping(spec.key)} aria-label={t("Swap {name}", { name: t(spec.label) })} className={`${spec.cupboard && spec.pantry ? "ms-auto " : ""}inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-[var(--fill)]`}>
+                            <button type="button" onClick={() => setSwapping(spec.key)} aria-label={t("Swap {name}", { name: t(spec.label) })} className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-[var(--fill)]">
                               <SwapIcon className="h-4 w-4" />{t("Swap")}
                             </button>
                           </div>
@@ -578,7 +725,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                   {p && spec.cupboard && spec.pantry && (
                     <div className="mt-3 flex flex-wrap items-center justify-end gap-x-3 gap-y-2 rounded-[1rem] bg-[var(--fill)] py-1.5 pe-1.5 ps-3.5">
                       <span className="min-w-0 flex-1 basis-32 text-[0.875rem] leading-snug text-muted">{hasIt(spec) ? t("Left off your list and the price to buy it all.") : t("You may have this already.")}</span>
-                      <button type="button" aria-pressed={hasIt(spec)} aria-label={t("I have this: {name}", { name: t(spec.label).toLowerCase() })} onClick={() => { toggleCupboard(spec.pantry!); setAdded(null); }} className={`inline-flex min-h-11 max-w-full items-center gap-1.5 rounded-full border-[1.5px] px-4 text-[0.9375rem] font-bold transition active:scale-95 ${hasIt(spec) ? HAVE_ON : "border-[color:var(--edge)] bg-card hover:bg-[var(--fill)]"}`}>
+                      <button type="button" aria-pressed={hasIt(spec)} aria-label={t("I have this: {name}", { name: lowerFirst(t(spec.label)) })} onClick={() => { toggleCupboard(spec.pantry!); setAdded(null); }} className={`inline-flex min-h-11 max-w-full items-center gap-1.5 rounded-full border-[1.5px] px-4 text-[0.9375rem] font-bold transition active:scale-95 ${hasIt(spec) ? HAVE_ON : "border-[color:var(--edge)] bg-card hover:bg-[var(--fill)]"}`}>
                         <ChoiceMark on={hasIt(spec)} />{t("I have this")}
                       </button>
                     </div>
@@ -591,12 +738,20 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
             <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted"><span className="font-semibold text-foreground">{t("Also handy (not counted):")}</span> {recipe.extras!.map(rt).join(", ")}.</p>
           )}
           {dietNote && (
-            <p className={`${CARD} mt-4 flex gap-3 p-4 text-[0.9375rem] leading-snug`}><InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" /><span>{prefs.halalOnly ? t("Recipes are chosen for your diet by their ingredients. The allergens under More detail are what each ingredient usually contains, and we haven't read these products' halal labels, so check each pack before you buy.") : t("Recipes are chosen for your diet by their ingredients. The allergens under More detail are what each ingredient usually contains, so check each pack before you buy.")}</span></p>
+            <p className={`${CARD} mt-4 flex gap-3 p-4 text-[0.9375rem] leading-snug`}><InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" /><span>{prefs.halalOnly
+              ? t("Recipes are chosen for your diet by their ingredients. We haven't read these products' halal labels, and we don't check each product's allergen label here, so check each pack before you buy.")
+              : t("Recipes are chosen for your diet by their ingredients. We don't check each product's allergen label here, so check each pack before you buy.")}{prefs.kosherStyle ? ` ${t("We can't check kosher certification.")}` : ""}</span></p>
           )}
         </section>
 
         <section id="recipe-panel-method" role="tabpanel" aria-labelledby="recipe-tab-method" hidden={tab !== "method"} className="mt-5">
           <h2 id="method-heading" className={HEADING}>{t("How to make it")}</h2>
+          {/* the steps are written for the recipe's own ingredients: where something else stands in, the method says so first (audit, 20 November 2026) */}
+          {subsIn.length > 0 && (
+            <div className="mt-3 space-y-1">
+              {subsIn.map((x) => <Note key={x.sub} kind="info" heading={null}>{t("This version uses {sub} instead of {name}.", { sub: lowerFirst(t(x.sub)), name: lowerFirst(t(x.name)) })}</Note>)}
+            </div>
+          )}
           <ol className={`${CARD} mt-3 divide-y divide-line px-4`}>
             {recipe.method.map((step, i) => {
               // founder 2026-11-16: clear steps, each with a short bold title and its cooking time beside it (lib/mm/recipeSteps.ts)
@@ -605,7 +760,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
               const time = stepTime(text);
               return (
                 <li key={i} className="flex gap-3.5 py-4">
-                  <span aria-hidden className="app-numbers grid h-8 w-8 shrink-0 place-items-center rounded-full bg-soft-strong text-[0.875rem] font-bold">{i + 1}</span>
+                  <span aria-hidden className="app-numbers grid h-8 w-8 shrink-0 place-items-center rounded-full bg-fill text-[0.875rem] font-bold">{i + 1}</span>
                   <div className="min-w-0 flex-1 pt-1">
                     {(title || time) && (
                       <div className="mb-1 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
@@ -618,8 +773,12 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                       // after the words that first name it, from the same amounts as the list (so it follows Serves and the fit); spoons for small amounts
                       const items = (stepUses.get(i) ?? []).map((key) => {
                         const spec = specByKey.get(key)!;
-                        const count = spec.note && /^about \d/.test(spec.note) ? noteText(t, spec.note) : null;
-                        return { key, pantry: spec.original?.pantry ?? spec.pantry, label: t(spec.label), amount: methodAmount(spec, count, amountText(spec)) };
+                        const productName = pickByKey.get(key)?.product.name;
+                        const note = noteForPick(spec, productName);
+                        const count = note && /^about \d/.test(note) ? noteText(t, note) : null;
+                        // no "about 1 tomato" for a punnet of baby plums either
+                        const measured = countsSuit(spec.pantry, productName) ? spec : { ...spec, pantry: undefined };
+                        return { key, pantry: spec.original?.pantry ?? spec.pantry, label: t(spec.label), amount: methodAmount(measured, count, amountText(spec)) };
                       });
                       const { pieces, unplaced } = placeAmounts(text, items);
                       const rest = items.filter((x) => unplaced.includes(x.key));
@@ -657,6 +816,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
           {view.recipe.servings !== (recipe.scaledFrom?.servings ?? recipe.servings) && (
             <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("The cooking times are for {n} servings, as the recipe is written. For fewer, use a smaller pan and check it a little sooner; for more, use a bigger pan or cook in batches, and allow a little longer.", { n: recipe.scaledFrom?.servings ?? recipe.servings })}</p>
           )}
+          {logButton && <div className="mt-4">{logButton}</div>}
         </section>
 
         {recipe.ai && (
@@ -677,20 +837,21 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
           // (like the reference's "Add to list" bar; no fade). Last in the page and pulled down over main's own bottom padding (pb-32), so at the
           // very end it sits under the footer.
           <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-4 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-3">
-            {/* once added, the button says so and opens the list, so a second tap doesn't add everything twice (usability test 2026-11-19) */}
+            {/* once added, the button says so and opens the list it went on, so a second tap doesn't add anything twice (usability test 2026-11-19); with
+                everything ticked "I have this" there is nothing to add, and it says so instead (audit, 20 November 2026) */}
             {added ? (
-              <LinkButton full href="/app/groceries/list" className="min-h-[3.25rem]">
+              <LinkButton full href={added.href} className="min-h-[3.25rem]">
                 <CheckIcon aria-hidden className="h-5 w-5 shrink-0" />
                 {t("Added: see your list")}
               </LinkButton>
             ) : (
-              <Button full className="min-h-[3.25rem]" onClick={addAll}>
+              <Button full className="min-h-[3.25rem]" onClick={addAll} disabled={ready.length === 0} reason={ready.length === 0 ? t("You have everything for this recipe.") : undefined}>
                 <PlusIcon aria-hidden className="h-5 w-5 shrink-0" />
                 {t("Add all to my shopping list")}
               </Button>
             )}
             <p role="status" aria-live="polite" className="px-2 text-center text-[0.875rem] font-semibold text-foreground">
-              {added && <span className="mt-2 block">{added} <Link href="/app/groceries/list" className="text-accent underline underline-offset-2">{t("See list")}</Link></span>}
+              {added && <span className="mt-2 block">{added.text}</span>}
             </p>
           </div>
         )}
@@ -704,6 +865,31 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
             <Button size="lg" full variant="secondary" onClick={() => { setLeaving(false); goBack(); }}>{t("Go back without saving")}</Button>
           </div>
         </Sheet>
+      )}
+      <Sheet open={logOpen && !!totals} onClose={() => setLogOpen(false)} title={t("Add a serving to today")}>
+        {totals && (() => {
+          const n = recipeNutrients(totals, logServings);
+          return (
+            <div className="space-y-5">
+              <div role="group" aria-label={t("Meal")} className="flex flex-wrap gap-2">
+                {MEAL_TYPES.map((m) => <Chip key={m.value} selected={logMeal === m.value} onClick={() => setLogMeal(m.value)}>{t(m.label)}</Chip>)}
+              </div>
+              <div role="group" aria-label={t("Servings")} className="flex items-center justify-between gap-3">
+                <span className="min-w-0 text-base font-semibold">{t("Servings")}</span>
+                <span className="glass inline-flex items-center rounded-full p-1">
+                  <button type="button" aria-label={t("Fewer servings")} disabled={logServings <= MIN_LOG_SERVINGS} onClick={() => setLogServings((v) => stepServings(v, -1))} className={ROUND_BUTTON}><span className={ROUND_FACE}><MinusIcon className="h-[18px] w-[18px]" /></span></button>
+                  <output aria-live="polite" className="app-numbers min-w-10 px-1 text-center text-lg font-bold">{servingsWords(logServings)}</output>
+                  <button type="button" aria-label={t("More servings")} disabled={logServings >= MAX_LOG_SERVINGS} onClick={() => setLogServings((v) => stepServings(v, 1))} className={ROUND_BUTTON}><span className={ROUND_FACE}><PlusIcon className="h-[18px] w-[18px]" /></span></button>
+                </span>
+              </div>
+              <p className="app-numbers text-[0.9375rem] font-semibold leading-snug">{t("{kcal} · {protein} protein", { kcal: formatCalories(n.calories), protein: formatGrams(n.protein ?? 0) })}</p>
+              <Button size="lg" full onClick={logIt}>{t(ADD_TO[logMeal])}</Button>
+            </div>
+          );
+        })()}
+      </Sheet>
+      {logged && (
+        <Toast key={logged.id} onClose={() => setLogged(null)} onUndo={() => { deleteLogEntry(logged.id); setLogged(null); }}>{logged.text}</Toast>
       )}
       <Sheet open={!!swapSpec} onClose={() => setSwapping(null)} title={swapSpec ? t("Swap {name}", { name: t(swapSpec.label).toLowerCase() }) : t("Swap")}>
         {swapSpec && (
@@ -739,6 +925,10 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
             <p className="mb-3 mt-2.5 text-[0.8125rem] leading-snug text-muted">{localFirst
               ? t("Products at {shop} that fit this recipe: those a small local shop usually sells first, then the cheapest to buy. It uses {amount}.", { shop: (files.find((f) => f.retailer === swapShop) ?? first).name, amount: amountText(swapSpec) })
               : t("Products at {shop} that fit this recipe, cheapest to buy first. It uses {amount}.", { shop: (files.find((f) => f.retailer === swapShop) ?? first).name, amount: amountText(swapSpec) })}</p>
+            {/* never an empty sheet with no words (audit, 20 November 2026) */}
+            {options.length === 0 && !othersLoading && (
+              <p className="mb-3 text-[0.9375rem] leading-snug">{t("We couldn't find {name} at {shop} with its label and pack size. Try another shop.", { name: lowerFirst(t(swapSpec.label)), shop: (files.find((f) => f.retailer === swapShop) ?? first).name })}</p>
+            )}
             <ul className="space-y-2">
               {options.map((o) => {
                 const key = productKey(o.product);
@@ -791,12 +981,13 @@ function RecipeAllergenPart({ ingredients }: { ingredients: Array<{ label: strin
   );
 }
 
-/** Save a recipe from our book to "My meals" (on this device), or take it off: a heart on the picture, with its word so it's plain. */
+/** Save a recipe from our book to My recipes (on this device), or take it off: a heart on the picture, with its word so it's plain. One name for the place
+ *  everywhere: "My recipes" (audit, 20 November 2026: it was "My meals" here and "My recipes" on the button that opens it). */
 function SaveRecipeButton({ id }: { id: string }) {
   const t = useT();
   const saved = useStore(savedRecipesStore).some((r) => r.id === id);
   return (
-    <button type="button" aria-pressed={saved} aria-label={saved ? t("Saved to My meals") : t("Save to My meals")} onClick={() => toggleSavedRecipe(id)} className={SAVE_BUTTON}>
+    <button type="button" aria-pressed={saved} aria-label={saved ? t("Saved to My recipes") : t("Save to My recipes")} onClick={() => toggleSavedRecipe(id)} className={SAVE_BUTTON}>
       <HeartIcon aria-hidden filled={saved} className="h-5 w-5 text-ink" />{saved ? t("Saved") : t("Save")}
     </button>
   );

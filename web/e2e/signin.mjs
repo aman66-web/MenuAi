@@ -1,5 +1,5 @@
 // Everyone signs in (founder 2026-11-17: "Sign up screen shouldn't be skippable, required for everyone"; lib/mm/config.ts SIGN_IN_REQUIRED, lib/mm/signInGate.ts).
-// Since the onboarding redesign meeting of 20 November 2026 (approved by the founder) the account is the welcome steps' last one, step 11 of 11 ("Save your plan:
+// Since the onboarding redesign meeting of 20 November 2026 (approved by the founder) the account is the welcome steps' last one, step 11 of 11 ("Save your goal and numbers:
 // make your free account"), after the three feature screens (step 3's "Skip setup and make my account" jumps to it), and then straight to Home; the cover's
 // link opens it at once ("Welcome back. Sign in"); a page of the app reached signed out keeps "Sign in or sign up". "Look around first" is gone. A new account
 // keeps what was typed; an account's own settings win.
@@ -82,7 +82,7 @@ async function until(what, check, ms = 10000) {
 
 // founder 2026-11-18: one screen that says it is for signing in and signing up; its heading follows how it was reached (the onboarding meeting, 19 November)
 const gate = (page) => page.getByRole("heading", { name: "Sign in or sign up" });
-const setupGate = (page) => page.getByRole("heading", { name: "Save your plan: make your free account" });
+const setupGate = (page) => page.getByRole("heading", { name: "Save your goal and numbers: make your free account" });
 const backGate = (page) => page.getByRole("heading", { name: "Welcome back. Sign in" });
 /** Get started on the cover: the first question (step 1 of 11; no hello screen, no tour, no fork since 20 November). */
 async function toQuestions(page) {
@@ -103,7 +103,7 @@ async function toTargetsFromAvoid(page) {
 async function toAccount(page) {
   await page.getByRole("button", { name: "Next: plan my week" }).click();
   await page.getByRole("heading", { name: "Your week, planned" }).waitFor();
-  await page.getByRole("button", { name: "Next: save your plan" }).click();
+  await page.getByRole("button", { name: "Next: save your numbers" }).click();
   await setupGate(page).waitFor();
 }
 const settingsOn = (page) => page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings") || "null")?.data ?? null);
@@ -130,7 +130,7 @@ async function emailSignIn(page, email) {
   }
 }
 
-await step("a first visit: the cover says which numbers and 'No ads, no tracking'; Get started goes on to the steps without an account; the account is step 11 of 11, 'Save your plan: make your free account', and can't be skipped; Back returns to the week, and step 3's link jumps to it too", async () => {
+await step("a first visit: the cover says which numbers and 'No ads, no tracking'; Get started goes on to the steps without an account; the account is step 11 of 11, 'Save your goal and numbers: make your free account', and can't be skipped; Back returns to the week, and step 3's link jumps to it too", async () => {
   const { ctx, page, device } = await newPhone();
   await page.goto(BASE + "/app");
   await page.getByRole("button", { name: "Get started" }).waitFor();

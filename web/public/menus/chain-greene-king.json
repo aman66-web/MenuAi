@@ -601,7 +601,9 @@
     "salt": 4.32,
     "energyKj": 3239
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -622,7 +624,9 @@
     "salt": 3.81,
     "energyKj": 2542
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],

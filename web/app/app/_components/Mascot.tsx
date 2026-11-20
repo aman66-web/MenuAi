@@ -4,12 +4,13 @@ import { useId, type SVGProps } from "react";
 
 // Pip, the app's own mascot: a round green buddy with a sprout, drawn for this app (not a food, not any restaurant's character,
 // CLAUDE.md rule 2). Decorative: whatever Pip "says" is real text next to it, so the drawing is hidden from screen readers, except
-// where a `label` is given (the large Pip on the welcome arrival, so a VoiceOver user learns what Pip is).
+// where a `label` is given (Pip's entrance on the welcome steps' step 1, so a VoiceOver user learns what Pip is).
 // Pip never praises a goal, a lower number or a body measurement, and never comments on the age, height or weight someone types.
 //
 // Moods (onboarding review, 19 November 2026): 'wave' for hellos; 'listen' for questions and reactions; 'point' (down, at what is
 // under him) or 'pointUp' at what he is talking about; 'think' only while he is working and for a caution; 'cheer' only for a finish.
-// Sizes: 64 in question bubbles and on sign-in, 56 in tips, 96 on the tour, 190 on the arrival.
+// Sizes (the 20 November 2026 audit): 64 beside every speech bubble (PipSays: the welcome questions, sign-in, Make it at home, Cook with what you have),
+// 96 alone on a full-screen state (the camera that can't open), 40 to 44 inline beside a line of text (the welcome cover's greeting), 56 in Pip's tips.
 // Each mood's arms and eyebrows live in two tables (pipArms, pipBrows) that the drawing reads, so tests/mascot.test.ts can check the
 // poses without rendering: hands clear of the body, eyebrows clear of the eyes, none on cheer.
 
@@ -177,24 +178,39 @@ function Arms({ mood }: { mood: PipMood }) {
 }
 
 /**
+ * A bubble's words, with room kept for every line the screen can say (`reserve`), so the bubble never changes height when Pip reacts and the choices under it
+ * never move under the person's finger (the 20 November 2026 audit). All the lines sit in one grid cell; the ones not being said are invisible and hidden from
+ * screen readers, so only the line being said is read.
+ */
+export function BubbleWords({ reserve, children }: { reserve?: readonly React.ReactNode[]; children: React.ReactNode }) {
+  if (!reserve?.length) return <>{children}</>;
+  return (
+    <span className="grid">
+      {reserve.map((line, i) => <span key={i} aria-hidden className="invisible [grid-area:1/1]">{line}</span>)}
+      <span className="[grid-area:1/1]">{children}</span>
+    </span>
+  );
+}
+
+/**
  * Pip with a speech bubble: the words are ordinary text, read by screen readers.
  * `lively` (onboarding, founder 2026-10-15): Pip hops in and the bubble pops up, and again whenever `pulse` changes (a reaction to
- * an answer). Nothing moves for reduced motion.
+ * an answer). Nothing moves for reduced motion. `reserve`: every line this bubble can say on the screen (see BubbleWords).
  */
-export function PipSays({ mood, children, size = 92, lively = false, pulse }: { mood?: PipMood; children: React.ReactNode; size?: number; lively?: boolean; pulse?: string | number }) {
+export function PipSays({ mood, children, size = 64, lively = false, pulse, reserve }: { mood?: PipMood; children: React.ReactNode; size?: number; lively?: boolean; pulse?: string | number; reserve?: readonly React.ReactNode[] }) {
   const bubble = "speech glass relative mb-3 min-w-0 flex-1 rounded-3xl rounded-es-md px-4 py-3 text-[15px] font-medium leading-snug";
   if (!lively) {
     return (
       <div className="flex items-end gap-3">
         <Pip mood={mood} size={size} />
-        <p className={bubble}>{children}</p>
+        <p className={bubble}><BubbleWords reserve={reserve}>{children}</BubbleWords></p>
       </div>
     );
   }
   return (
     <div className="flex items-end gap-3">
       <span key={`pip-${pulse ?? ""}`} className="pip-hop-sm inline-flex shrink-0"><Pip mood={mood} size={size} /></span>
-      <p key={`says-${pulse ?? ""}`} className={`${bubble} bubble-pop`}>{children}</p>
+      <p key={`says-${pulse ?? ""}`} className={`${bubble} bubble-pop`}><BubbleWords reserve={reserve}>{children}</BubbleWords></p>
     </div>
   );
 }

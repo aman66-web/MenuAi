@@ -2239,7 +2239,9 @@
     "sugar": 14.6,
     "salt": 1.2
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -2274,7 +2276,9 @@
     "sugar": 7.3,
     "salt": 0.6
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -2389,7 +2393,9 @@
     "sugar": 19.4,
     "salt": 2.8
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -2426,7 +2432,9 @@
     "sugar": 14.2,
     "salt": 2
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -8335,7 +8343,9 @@
     "sugar": 14.2,
     "salt": 2
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],

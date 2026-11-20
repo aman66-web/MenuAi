@@ -57,7 +57,8 @@ const LIGHT_SURFACES = ["--background", "--card", "--tint-plan", "--tint-cook"];
 
 describe("the app's colours (light)", () => {
   it("declares every token of the colour meeting", () => {
-    for (const t of ["--ink", "--ink-pressed", "--on-ink", "--on-ink-2", "--edge", "--line", "--card", "--muted", "--placeholder", "--bar", "--ring-track", "--sun", "--on-sun", "--accent", "--tint-plan", "--tint-cook", "--note-bg", "--note-edge", "--danger", "--danger-bg", "--on-danger"]) {
+    // the macro colours (protein, carbs, fat: labels only, never good or bad) are shown again since 20 November 2026
+    for (const t of ["--ink", "--ink-pressed", "--on-ink", "--on-ink-2", "--edge", "--line", "--card", "--muted", "--placeholder", "--bar", "--ring-track", "--sun", "--on-sun", "--accent", "--tint-plan", "--tint-cook", "--note-bg", "--note-edge", "--danger", "--danger-bg", "--on-danger", "--protein", "--carbs", "--fat"]) {
       expect(() => colour(APP, t), t).not.toThrow();
     }
     expect(colour(APP, "--line")).toBe("#d9dedb");
@@ -89,6 +90,8 @@ describe("the app's colours (light)", () => {
       ["--ring-track", "--ink"], ["--sun", "--ring-track"],
       ["--note-edge", "--note-bg"], ["--note-edge", "--card"],
       ["--danger", "--card"],
+      // the macro colours' bars and dots on a white card
+      ["--protein", "--card"], ["--carbs", "--card"], ["--fat", "--card"],
     ], 3);
   });
 
@@ -124,6 +127,10 @@ describe("the shared pieces use the tokens only", () => {
     "app/app/welcome/Frame.tsx", "app/app/welcome/Cover.tsx", "app/app/welcome/QuestionSteps.tsx", "app/app/welcome/FeatureSteps.tsx",
     "app/app/welcome/ShowcaseWindow.tsx", "app/app/welcome/EatOutShowcase.tsx", "app/app/welcome/RecipeChoice.tsx", "app/app/welcome/WeekShowcase.tsx",
     "app/app/welcome/BodySteps.tsx", "app/app/welcome/TargetsStep.tsx", "app/app/_components/StartHere.tsx",
+    "app/app/welcome/parts.tsx", "app/app/welcome/page.tsx",
+    // Pip's AI permission sheet and the screens the 20 November 2026 audit reworked
+    "app/app/_components/AiConsentSheet.tsx", "app/app/_components/FeaturePreviews.tsx", "app/app/_components/Shortcut.tsx", "app/app/_components/BodyFields.tsx",
+    "app/app/scan/page.tsx", "app/app/recipes/fridge/page.tsx",
   ];
   for (const f of FILES) {
     it(`${f} has no raw colour, Tailwind palette colour or opacity fade`, () => {

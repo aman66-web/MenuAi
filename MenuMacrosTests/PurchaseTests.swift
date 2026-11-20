@@ -5,11 +5,12 @@ import Testing
 @testable import MenuMacros
 
 /// Apple In-App Purchase through the bridge (the page side is web/lib/payments; actions `iap.products`, `iap.purchase`, `iap.entitlements`,
-/// `iap.restore`, `iap.manage`). The page's messages are never trusted: only our three products ever reach the App Store.
+/// `iap.restore`, `iap.manage`). The page's messages are never trusted: only our two products ever reach the App Store.
 struct PurchaseBridgeParsingTests {
     private let annual = AppConfig.iapAnnualProductID
     private let monthly = AppConfig.iapMonthlyProductID
-    private let pass90 = AppConfig.iapPass90ProductID
+    /// The Founding Member 90-Day Pass, no longer sold: the app must refuse it like any other id that isn't ours.
+    private let retiredPass = "com.amanmarwaha.numbite.pro.pass90"
 
     private func request(_ action: String, _ payload: Any? = [String: Any](), id: String = "iap-1") -> BridgeRequest? {
         var body: [String: Any] = ["id": id, "action": action]
@@ -17,15 +18,15 @@ struct PurchaseBridgeParsingTests {
         return BridgeRequest(body: body)
     }
 
-    @Test func theThreeProductIDs() {
-        #expect(AppConfig.iapProductIDs == ["com.amanmarwaha.numbite.pro.annual", "com.amanmarwaha.numbite.pro.monthly", "com.amanmarwaha.numbite.pro.pass90"])
+    @Test func theTwoProductIDs() {
+        #expect(AppConfig.iapProductIDs == ["com.amanmarwaha.numbite.pro.annual", "com.amanmarwaha.numbite.pro.monthly"])
     }
 
     @Test func productsAreAskedForInOrderWithOthersDropped() {
-        #expect(request("iap.products", ["ids": [annual, monthly, pass90]]) == .iapProducts(id: "iap-1", productIDs: [annual, monthly, pass90]))
-        // not ours (even a longer id that starts like ours) and repeats are dropped; the order asked is kept
-        let mixed: [String: Any] = ["ids": [pass90, "com.evil.free", annual + ".free", annual, pass90]]
-        #expect(request("iap.products", mixed) == .iapProducts(id: "iap-1", productIDs: [pass90, annual]))
+        #expect(request("iap.products", ["ids": [annual, monthly]]) == .iapProducts(id: "iap-1", productIDs: [annual, monthly]))
+        // not ours (even a longer id that starts like ours, or the retired pass) and repeats are dropped; the order asked is kept
+        let mixed: [String: Any] = ["ids": [monthly, "com.evil.free", retiredPass, annual + ".free", annual, monthly]]
+        #expect(request("iap.products", mixed) == .iapProducts(id: "iap-1", productIDs: [monthly, annual]))
         // an empty list is a real question (the answer is an empty list)
         #expect(request("iap.products", ["ids": [String]()]) == .iapProducts(id: "iap-1", productIDs: []))
         #expect(request("iap.products", ["ids": ["com.evil.free"]]) == .iapProducts(id: "iap-1", productIDs: []))
@@ -47,7 +48,7 @@ struct PurchaseBridgeParsingTests {
     @Test func onlyOurProductsCanBeBought() {
         #expect(request("iap.purchase", ["id": annual]) == .iapPurchase(id: "iap-1", productID: annual))
         #expect(request("iap.purchase", ["id": monthly]) == .iapPurchase(id: "iap-1", productID: monthly))
-        #expect(request("iap.purchase", ["id": pass90]) == .iapPurchase(id: "iap-1", productID: pass90))
+        #expect(request("iap.purchase", ["id": retiredPass]) == nil)
         #expect(request("iap.purchase", ["id": "com.evil.free"]) == nil)
         #expect(request("iap.purchase", ["id": annual + ".free"]) == nil)
         #expect(request("iap.purchase", ["id": " " + annual]) == nil)
@@ -82,7 +83,7 @@ struct PurchaseBridgeParsingTests {
     }
 
     @Test func theRequestKeepsItsID() {
-        #expect(request("iap.purchase", ["id": pass90], id: "p-9")?.id == "p-9")
+        #expect(request("iap.purchase", ["id": monthly], id: "p-9")?.id == "p-9")
         #expect(request("iap.products", ["ids": [annual]], id: "p-8")?.id == "p-8")
         #expect(request("iap.manage", id: "p-7")?.id == "p-7")
     }
@@ -101,14 +102,14 @@ struct PurchaseReplyTests {
         let json = try object(reply)
         #expect(Set(json.keys) == ["products"])
         let products = try #require(json["products"] as? [[String: Any]])
-        #expect(products.count == 3)
-        // the two renewing plans carry the free week (trialDays, only when this Apple ID can still have it); the 90-day pass has none
-        #expect(products.map { Set($0.keys) } == [["id", "name", "price", "period", "trialDays"], ["id", "name", "price", "period", "trialDays"], ["id", "name", "price", "period"]])
-        #expect(products.map { $0["trialDays"] as? Int } == [7, 7, nil])
+        #expect(products.count == 2)
+        // both plans carry the free week (trialDays, only when this Apple ID can still have it)
+        #expect(products.map { Set($0.keys) } == [["id", "name", "price", "period", "trialDays"], ["id", "name", "price", "period", "trialDays"]])
+        #expect(products.map { $0["trialDays"] as? Int } == [7, 7])
         #expect(products.map { $0["id"] as? String } == AppConfig.iapProductIDs)
-        #expect(products.map { $0["name"] as? String } == ["Annual", "Monthly", "Founding Member 90-Day Pass"])
-        #expect(products.map { $0["price"] as? String } == ["£14.99", "£2.99", "£9.99"])
-        #expect(products.map { $0["period"] as? String } == ["year", "month", "none"])
+        #expect(products.map { $0["name"] as? String } == ["Annual", "Monthly"])
+        #expect(products.map { $0["price"] as? String } == ["£49.99", "£4.99"])
+        #expect(products.map { $0["period"] as? String } == ["year", "month"])
         #expect(try object(BridgeReply(products: [])).keys.sorted() == ["products"])
     }
 
@@ -125,7 +126,8 @@ struct PurchaseReplyTests {
     }
 
     @Test func aPeriodOfNoneReadsBack() throws {
-        let product = IAPProduct(id: AppConfig.iapPass90ProductID, name: "Founding Member 90-Day Pass", price: "£9.99", period: .noRenewal)
+        // none is sold now, but the page still understands "none" (web/lib/mm/native.ts), so the encoding stays checked
+        let product = IAPProduct(id: "com.example.once", name: "One payment", price: "£1.00", period: .noRenewal)
         let data = try JSONEncoder().encode(product)
         #expect(String(decoding: data, as: UTF8.self).contains(#""period":"none""#))
         #expect(try JSONDecoder().decode(IAPProduct.self, from: data) == product)
@@ -134,7 +136,7 @@ struct PurchaseReplyTests {
     }
 
     @Test func aFreeTrialIsSentInDays() throws {
-        let product = IAPProduct(id: AppConfig.iapAnnualProductID, name: "Annual", price: "£14.99", period: .year, trialDays: 7)
+        let product = IAPProduct(id: AppConfig.iapAnnualProductID, name: "Annual", price: "£49.99", period: .year, trialDays: 7)
         let data = try JSONEncoder().encode(product)
         #expect(String(decoding: data, as: UTF8.self).contains(#""trialDays":7"#))
         #expect(try JSONDecoder().decode(IAPProduct.self, from: data) == product)
@@ -152,15 +154,15 @@ struct PurchaseBridgeTests {
     }
 
     private let annual = AppConfig.iapAnnualProductID
-    private let pass90 = AppConfig.iapPass90ProductID
+    private let monthly = AppConfig.iapMonthlyProductID
 
     @Test func productsInTheOrderAsked() async {
         let store = FakePurchaseService()
-        let reply = await bridge(store).handle(.iapProducts(id: "p", productIDs: [pass90, annual]))
-        #expect(reply == BridgeReply(products: [FakePurchaseService.sampleCatalogue[2], FakePurchaseService.sampleCatalogue[0]]))
+        let reply = await bridge(store).handle(.iapProducts(id: "p", productIDs: [monthly, annual]))
+        #expect(reply == BridgeReply(products: [FakePurchaseService.sampleCatalogue[1], FakePurchaseService.sampleCatalogue[0]]))
         // a product the App Store doesn't know is left out
         let partial = FakePurchaseService(catalogue: [FakePurchaseService.sampleCatalogue[0]])
-        #expect(await bridge(partial).handle(.iapProducts(id: "p", productIDs: [pass90, annual])) == BridgeReply(products: [FakePurchaseService.sampleCatalogue[0]]))
+        #expect(await bridge(partial).handle(.iapProducts(id: "p", productIDs: [monthly, annual])) == BridgeReply(products: [FakePurchaseService.sampleCatalogue[0]]))
         #expect(await bridge(store).handle(.iapProducts(id: "p", productIDs: [])) == BridgeReply(products: []))
         #expect(await bridge(FakePurchaseService(reachable: false)).handle(.iapProducts(id: "p", productIDs: [annual])) == .failure("unavailable"))
     }
@@ -171,7 +173,7 @@ struct PurchaseBridgeTests {
         #expect(bought.purchasesAsked == [annual])
         #expect(await bridge(FakePurchaseService(purchaseOutcome: .cancelled)).handle(.iapPurchase(id: "b", productID: annual)) == .failure("cancelled"))
         #expect(await bridge(FakePurchaseService(purchaseOutcome: .pending)).handle(.iapPurchase(id: "b", productID: annual)) == BridgeReply(pending: true))
-        #expect(await bridge(FakePurchaseService(purchaseOutcome: .failed)).handle(.iapPurchase(id: "b", productID: pass90)) == .failure("unavailable"))
+        #expect(await bridge(FakePurchaseService(purchaseOutcome: .failed)).handle(.iapPurchase(id: "b", productID: monthly)) == .failure("unavailable"))
     }
 
     @Test func entitlementsAreWhatIsOwned() async {
@@ -201,38 +203,40 @@ struct PurchaseBridgeTests {
 
     @Test func fromThePagesMessageToTheAnswer() async throws {
         let store = FakePurchaseService(purchaseOutcome: .succeeded(jws: "h.p.s"))
-        let request = try #require(BridgeRequest(body: ["id": "x-1", "action": "iap.purchase", "payload": ["id": pass90]] as [String: Any]))
+        let request = try #require(BridgeRequest(body: ["id": "x-1", "action": "iap.purchase", "payload": ["id": monthly]] as [String: Any]))
         let reply = await bridge(store).handle(request)
         #expect(reply.script(for: request.id) == #"window.__menumathReply && window.__menumathReply("x-1", {"transactions":["h.p.s"]});"#)
-        #expect(store.purchasesAsked == [pass90])
+        #expect(store.purchasesAsked == [monthly])
     }
 }
 
-/// Config/Numbite.storekit: the three products, as the App Store will have them.
+/// Config/Numbite.storekit: the two subscriptions, as App Store Connect has them (web/tests/iap.test.ts checks the page's ids against the same file).
 struct StoreKitConfigurationFileTests {
     static var fileURL: URL {
         // MenuMacrosTests/PurchaseTests.swift -> the repository -> Config/Numbite.storekit (Config/ isn't part of the app)
         URL(filePath: #filePath).deletingLastPathComponent().deletingLastPathComponent().appending(path: "Config/Numbite.storekit")
     }
 
-    @Test func itHoldsExactlyOurThreeProducts() throws {
+    @Test func itHoldsExactlyOurTwoSubscriptions() throws {
         let data = try Data(contentsOf: Self.fileURL)
         let root = try #require(try JSONSerialization.jsonObject(with: data) as? [String: Any])
         let groups = try #require(root["subscriptionGroups"] as? [[String: Any]])
         #expect(groups.count == 1)
-        #expect(groups.first?["name"] as? String == "Numbite Pro")
+        #expect(groups.first?["name"] as? String == "Numbite Premium")
         let renewing = try #require(groups.first?["subscriptions"] as? [[String: Any]])
-        #expect(renewing.map { $0["productID"] as? String } == [AppConfig.iapAnnualProductID, AppConfig.iapMonthlyProductID])
-        #expect(renewing.map { $0["displayPrice"] as? String } == ["14.99", "2.99"])
+        #expect(renewing.map { $0["productID"] as? String } == AppConfig.iapProductIDs)
+        #expect(renewing.map { $0["displayPrice"] as? String } == ["49.99", "4.99"])
         #expect(renewing.map { $0["recurringSubscriptionPeriod"] as? String } == ["P1Y", "P1M"])
-        // both subscriptions start with a free week (the 90-day pass can't have a trial: it isn't a subscription that renews)
+        // both subscriptions start with a free week
         for sub in renewing {
             let offer = try #require(sub["introductoryOffer"] as? [String: Any])
             #expect(offer["paymentMode"] as? String == "free" && offer["subscriptionPeriod"] as? String == "P1W")
         }
+        // nothing else is sold: no non-renewing pass, no one-off products
         let nonRenewing = try #require(root["nonRenewingSubscriptions"] as? [[String: Any]])
-        #expect(nonRenewing.map { $0["productID"] as? String } == [AppConfig.iapPass90ProductID])
-        #expect(nonRenewing.first?["displayPrice"] as? String == "9.99")
+        #expect(nonRenewing.isEmpty)
+        let products = try #require(root["products"] as? [[String: Any]])
+        #expect(products.isEmpty)
         let settings = try #require(root["settings"] as? [String: Any])
         #expect(settings["_storefront"] as? String == "GBR")
         #expect(settings["_locale"] as? String == "en_GB")
@@ -247,7 +251,7 @@ struct StoreKitConfigurationFileTests {
 @Suite(.serialized, .enabled(if: ProcessInfo.processInfo.environment["NUMBITE_STOREKIT_TESTS"] == "1", "StoreKit's test service is only reliable from Xcode on iOS 26.5"))
 struct StoreKitPurchaseServiceTests {
     private let annual = AppConfig.iapAnnualProductID
-    private let pass90 = AppConfig.iapPass90ProductID
+    private let monthly = AppConfig.iapMonthlyProductID
 
     /// StoreKit's test App Store takes a few seconds to start (RevenueCat's own StoreKit tests wait for it too), so this waits until it answers with our products.
     private func makeSession() async throws -> SKTestSession {
@@ -266,7 +270,7 @@ struct StoreKitPurchaseServiceTests {
             if let found = try? await Product.products(for: AppConfig.iapProductIDs), found.count == AppConfig.iapProductIDs.count { return session }
             try await Task.sleep(for: .milliseconds(250))
         }
-        Issue.record("StoreKit's test App Store never answered with the three products")
+        Issue.record("StoreKit's test App Store never answered with our two products")
         return session
     }
 
@@ -288,12 +292,12 @@ struct StoreKitPurchaseServiceTests {
         let session = try await makeSession()
         defer { session.clearTransactions() }
         let service = StoreKitPurchaseService()
-        let products = try #require(await service.products(ids: [pass90, "com.evil.free", annual, AppConfig.iapMonthlyProductID]))
-        try #require(products.map(\.id) == [pass90, annual, AppConfig.iapMonthlyProductID])
-        #expect(products.map(\.name) == ["Founding Member 90-Day Pass", "Annual", "Monthly"])
-        #expect(products.map(\.period) == [.noRenewal, .year, .month])
+        let products = try #require(await service.products(ids: [monthly, "com.evil.free", "com.amanmarwaha.numbite.pro.pass90", annual]))
+        try #require(products.map(\.id) == [monthly, annual])
+        #expect(products.map(\.name) == ["Monthly", "Annual"])
+        #expect(products.map(\.period) == [.month, .year])
         let prices = products.map(\.price)
-        #expect(prices[0].contains("9.99") && prices[1].contains("14.99") && prices[2].contains("2.99"))
+        #expect(prices[0].contains("4.99") && prices[1].contains("49.99"))
         #expect(prices.allSatisfy { $0.contains("£") })
         #expect(await service.products(ids: []) == [])
     }
@@ -334,28 +338,29 @@ struct StoreKitPurchaseServiceTests {
         #expect(afterRefund.isEmpty)
     }
 
-    @Test func the90DayPassIsAnEntitlement() async throws {
+    @Test func theMonthlyIsAnEntitlementAndRestores() async throws {
         let session = try await makeSession()
         defer { session.clearTransactions() }
         let service = StoreKitPurchaseService()
-        guard case .succeeded(let jws) = await service.purchase(id: pass90) else {
-            Issue.record("The 90-day pass could not be bought")
+        guard case .succeeded(let jws) = await service.purchase(id: monthly) else {
+            Issue.record("The Monthly plan could not be bought")
             return
         }
-        #expect(try payload(of: jws)["productId"] as? String == pass90)
-        #expect(try productIDs(in: await service.entitlements()) == [pass90])
+        #expect(try payload(of: jws)["productId"] as? String == monthly)
+        #expect(try productIDs(in: await service.entitlements()) == [monthly])
         // restore answers like entitlements (StoreKit's test App Store needs no sign-in)
         let restored = await service.restore()
         guard case .transactions(let signed) = restored else {
             Issue.record("Restore ended with \(restored)")
             return
         }
-        #expect(try productIDs(in: signed) == [pass90])
+        #expect(try productIDs(in: signed) == [monthly])
     }
 
     @Test func aProductThatIsNotOursIsNeverBought() async throws {
         let session = try await makeSession()
         defer { session.clearTransactions() }
         #expect(await StoreKitPurchaseService().purchase(id: "com.evil.free") == .failed)
+        #expect(await StoreKitPurchaseService().purchase(id: "com.amanmarwaha.numbite.pro.pass90") == .failed)
     }
 }

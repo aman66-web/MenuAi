@@ -111,11 +111,12 @@ export const GATING_ENABLED = PRO_ENABLED || PAID_ACCESS_ENABLED;
 export const PHOTO_RECIPES_ENABLED = process.env.NEXT_PUBLIC_PHOTO_RECIPES === "1" && GATING_ENABLED;
 
 /**
- * The iPhone app sells Premium through Apple (version 1.1). True in an In-App Purchase app build; on the website it is set with NEXT_PUBLIC_APP_PREMIUM=1 once that
- * app version is out, so the website's Privacy, Terms and Support pages (the ones the App Store links to) describe Apple purchases, and its API serves the app's
- * paid features. It sells nothing on the website itself.
+ * The iPhone app sells Premium through Apple (version 1.1). True in an In-App Purchase app build. On the website it is on unless NEXT_PUBLIC_APP_PREMIUM=0
+ * (the overnight audit of 20 November 2026: 1.1 with its purchases is in App Review, so the website's Privacy, Terms and Support pages, the ones the App Store
+ * links to, must describe Apple purchases without anyone remembering to set a variable). It sells nothing on the website itself. A free app build (no In-App
+ * Purchase) keeps it off.
  */
-export const APP_PREMIUM = IAP_ENABLED || (!APP_BUILD && process.env.NEXT_PUBLIC_APP_PREMIUM === "1");
+export const APP_PREMIUM = IAP_ENABLED || (!APP_BUILD && process.env.NEXT_PUBLIC_APP_PREMIUM !== "0");
 
 /** Make it at home's two API routes answer with NEXT_PUBLIC_PHOTO_RECIPES=1 (each still needs a paid token and ANTHROPIC_API_KEY, lib/photoRecipeRoute.ts), so the
  *  website can serve the iPhone app's Premium feature while the website itself shows no Make it at home card (that needs GATING_ENABLED too). The privacy page
@@ -148,7 +149,11 @@ export const MENU_PHOTOS_ENABLED = process.env.NEXT_PUBLIC_MENU_PHOTOS !== "0";
  *  cuisine icons and shops their plain-text names. Off is the safest answer to App Review 5.2.1 (third-party trademarks); on is the founder's accepted-risk decision (CLAUDE.md rule 2). */
 export const LOGOS_ENABLED = process.env.NEXT_PUBLIC_APP_LOGOS !== "0";
 
-export const APP_VERSION = "web 1.0";
+/**
+ * The version line under Settings and the one sent with reports. In the iPhone app it is the app's own version and build, which scripts/build_app_web.sh reads from
+ * the Xcode project (MARKETING_VERSION, CURRENT_PROJECT_VERSION) and passes in as NEXT_PUBLIC_APP_VERSION, e.g. "iPhone 1.1 (9)"; the website stays "web 1.0".
+ */
+export const APP_VERSION = APP_BUILD ? `iPhone ${(process.env.NEXT_PUBLIC_APP_VERSION ?? "").trim()}`.trim() : "web 1.0";
 /** Our API (reports, chain requests, messages). The iPhone app reaches it on the live website (lib/cors.ts lets the app's pages call it). */
 export const API_BASE = `${REMOTE_BASE}/api/v1/`;
 export const FREE_SAVED_ORDER_LIMIT = 3;

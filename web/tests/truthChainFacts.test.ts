@@ -37,6 +37,10 @@ describe("chainFacts and chainFaq", () => {
     expect(chainFaq({ name: "A", items: [it_("Huge", "Mains", 800, 40)] }, "d")[2].answer).toMatch(/^None of the 1 meals/);
     expect(chainFaq({ name: "A", items: [it_("Small", "Mains", 400, 20)] }, "d")[2].answer).toMatch(/^1 of the 1 meals we list for A is 500/);
   });
+  it("never calls a kids' dessert, side or starter the lowest calorie meal (the 20 November 2026 audit)", () => {
+    const kids = [it_("Kids vanilla pod ice cream", "Kids", 130, 2), it_("Toasty Garlic Bread", "Kids Set Menu - Starters", 180, 5), it_("Kids chicken & rice", "Kids", 350, 20), it_("Ramen", "Mains", 600, 35)];
+    expect(chainFacts({ items: kids }).fewestCalories?.name).toBe("Kids chicken & rice");
+  });
   it("makes no claim in the words (rule 3)", () => {
     for (const q of chainFaq({ name: "Test", items }, "d")) expect(`${q.question} ${q.answer}`).not.toMatch(/\b(healthy|unhealthy|good|bad|best|worst|clean|junk|guilt)\b/i);
   });
@@ -59,5 +63,9 @@ describe("chainFacts: real menus", () => {
       if (c.nutritionLevel === "calories") expect(f.mostProtein).toBeUndefined();
     }
     expect(withMeals).toBeGreaterThan(200);
+  });
+  it("no restaurant's lowest calorie meal is an ice cream, a sorbet, chips or garlic bread", () => {
+    const odd = chains.map((c) => [c.id, chainFacts(c).fewestCalories?.name ?? ""] as const).filter(([, n]) => !/\bwith\b/i.test(n) && /\b(?:ice[- ]?cream|sorbet|gelato|garlic bread|chips|fries)\b/i.test(n));
+    expect(odd).toEqual([]);
   });
 });

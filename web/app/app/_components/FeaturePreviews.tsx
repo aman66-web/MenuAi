@@ -26,8 +26,9 @@ export function ScanFrameIcon({ size = "md", onDark = false }: { size?: "sm" | "
 /** The foods you'd type in, as chips: "Cook with what you have". `large` (a card across the width): bigger chips and a third food where it fits. */
 export function HaveChips({ large = false }: { large?: boolean }) {
   const t = useT();
-  // white tags with the card line and ink words (on the cream Cook card, large: bigger)
-  const chip = `inline-flex items-center rounded-full border border-line bg-card font-bold leading-none text-foreground ${large ? "min-h-8 px-3 text-[0.875rem]" : "min-h-6 px-2 text-[0.75rem]"}`;
+  // white tags with the 1.5 px control edge and ink words, at least 13 px (on the cream Cook card, large: bigger); the + a solid ink disc (the 20 November 2026
+  // audit: a dashed grey + read as a disabled control)
+  const chip = `inline-flex items-center rounded-full border-[1.5px] border-edge bg-card font-bold leading-none text-foreground ${large ? "min-h-8 px-3 text-[0.875rem]" : "min-h-6 px-2 text-[0.8125rem]"}`;
   const plus = large ? "h-8 w-8" : "h-6 w-6";
   return (
     // the "+" only where it fits on the same line (a narrow card at large text shows the two foods alone)
@@ -35,7 +36,7 @@ export function HaveChips({ large = false }: { large?: boolean }) {
       <span className={chip}>{t("Eggs")}</span>
       <span className={chip}>{t("Onion")}</span>
       {large && <span className={`${chip} hidden @[14rem]:inline-flex`}>{t("Rice")}</span>}
-      <span className={`hidden ${plus} items-center justify-center rounded-full border-2 border-dashed border-edge text-ink @[8.75rem]:inline-flex`}><PlusIcon className="h-3.5 w-3.5" /></span>
+      <span className={`hidden ${plus} items-center justify-center rounded-full bg-ink text-on-ink @[8.75rem]:inline-flex`}><PlusIcon className="h-3.5 w-3.5" /></span>
     </span></span>
   );
 }

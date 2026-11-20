@@ -16,6 +16,8 @@ export interface OverviewEntry {
   winners: number[];
   /** The leading figure as the table prints it (kcal whole; grams and prices to at most 2 decimals; protein per 100 kcal to 1). */
   value: number;
+  /** A leader's figures are community numbers or the government's figures, not a label: the screen says so beside it (2026-11-20). */
+  notLabel?: true;
 }
 
 export interface Overview {
@@ -46,7 +48,7 @@ export function compareOverview(items: readonly CompareItem[]): Overview {
     if (!row) return;
     const winners = pick === "highest" ? row.highest : row.lowest;
     if (winners.length === 0) return;
-    entries.push({ id, label, winners, value: shownFigure(row, row.values[winners[0]!]!) });
+    entries.push({ id, label, winners, value: shownFigure(row, row.values[winners[0]!]!), ...(winners.some((w) => items[w]!.source === "community" || items[w]!.source === "government") ? { notLabel: true as const } : {}) });
   };
   fromRow("price", tk("Best for price"), "perKg", "lowest");
   fromRow("protein", tk("Best for protein"), "protein", "highest");

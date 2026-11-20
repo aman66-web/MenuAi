@@ -1229,7 +1229,9 @@
     "sugar": 0.5,
     "salt": 1.13
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -2314,7 +2316,9 @@
     "sugar": 11.6,
     "salt": 4.58
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],

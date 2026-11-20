@@ -6,10 +6,12 @@ import {
   cleanSuggestion, photoPantryPrompt, photoRecipeFromAi, photoUserPrompt, wordCount, type PhotoRecipeRequest,
 } from "./mm/photoRecipe";
 import type { Result } from "./handlers";
+import { AI_MESSAGES } from "./mm/aiConsent";
 
 // Make it at home, the server half (app/api/v1/recipe/photo/route.ts and .../describe/route.ts wire it up; lib/mm/photoRecipe.ts has the shared rules). Pure apart
 // from the injected AI calls and the Premium check, so it is tested without a key or a payment (tests/photoRecipe.test.ts). The body is checked strictly, the photo
 // must be a JPEG of a sensible size, the pantry is cut to what the person's diet allows, and Pip's answer must pass the same checks the app applies.
+// When Anthropic can't be reached (the AI call says "unavailable": the spending cap, an outage, a timeout) the answer is 503 "busy", never "try another photo".
 
 const num = (min: number, max: number) => z.number().finite().min(min).max(max);
 const image = z.string().min(200).max(MAX_PHOTO_BASE64).regex(/^[A-Za-z0-9+/]+={0,2}$/);
@@ -43,12 +45,13 @@ export function isJpeg(base64: string): boolean {
   }
 }
 
-type Answer = { status: "ok"; value: unknown } | { status: "refused" } | { status: "error" };
+type Answer = { status: "ok"; value: unknown } | { status: "refused" } | { status: "error" } | { status: "unavailable" };
 /** The AI call that writes the recipe: the system prompt, the text, the photo (base64 JPEG) and the pantry keys it may use. */
 /** `pantry` is the shop's ingredient list (photoPantryPrompt): sent after the system prompt and cached; `user` is what this person asked for. */
-export type AskPhotoRecipe = (system: string, user: string, image: string, allowedKeys: string[], pantry: string) => Promise<Answer>;
+/** `limitMs` (every AI call): the most it may take, the route's time left less a margin (callLimit); unlimited when absent. */
+export type AskPhotoRecipe = (system: string, user: string, image: string, allowedKeys: string[], pantry: string, limitMs?: number) => Promise<Answer>;
 /** The AI call that suggests what the dish is. */
-export type DescribePhoto = (system: string, image: string) => Promise<Answer>;
+export type DescribePhoto = (system: string, image: string, limitMs?: number) => Promise<Answer>;
 
 export interface PhotoCtx {
   ask: AskPhotoRecipe | null;
@@ -66,6 +69,12 @@ const notEnabled = say(503, "not_enabled", PHOTO_MESSAGES.notEnabled);
 const notPremium = say(402, "premium", PHOTO_MESSAGES.premium);
 const tooMany = say(429, "rate_limited", PHOTO_MESSAGES.rateLimited);
 const invalid = say(400, "invalid", PHOTO_MESSAGES.invalid);
+/** Anthropic couldn't be reached: say so, and that it isn't the person's photo or words. */
+export const busy = say(503, "busy", AI_MESSAGES.busy);
+/** A second go at a recipe starts only with this much time left (a full answer and a margin); every call is also held to the time left (callLimit). */
+export const SECOND_RECIPE_MS = 80_000;
+/** What each AI call may take: the route's time left less 5 s, so the route answers "busy" itself before the platform stops it (at least 1 s). */
+export const callLimit = (timeLeft?: () => number): number | undefined => (timeLeft ? Math.max(1_000, timeLeft() - 5_000) : undefined);
 
 export async function handlePhotoRecipe(body: unknown, ctx: PhotoCtx): Promise<Result> {
   if (!ctx.ask) return notEnabled;
@@ -87,10 +96,11 @@ export async function handlePhotoRecipe(body: unknown, ctx: PhotoCtx): Promise<R
   let user = photoUserPrompt(req);
   const pantry = photoPantryPrompt(req.pantry);
   for (let attempt = 0; attempt < 2; attempt++) {
-    const answer = await ctx.ask(PHOTO_SYSTEM_PROMPT, user, req.image, keys, pantry);
+    const answer = await ctx.ask(PHOTO_SYSTEM_PROMPT, user, req.image, keys, pantry, callLimit(ctx.timeLeft));
+    if (answer.status === "unavailable") return busy;
     if (answer.status !== "ok") return say(502, "no_recipe", PHOTO_MESSAGES.noRecipe);
     if (photoRecipeFromAi(answer.value, req, "ai-check")) return { status: 200, body: { recipe: answer.value } };
-    if (ctx.timeLeft && ctx.timeLeft() < 75_000) break; // not enough time left for another full answer
+    if (ctx.timeLeft && ctx.timeLeft() < SECOND_RECIPE_MS) break; // not enough time left for another full answer
     // one more go, with a reminder of the rules it broke
     user = `${photoUserPrompt(req)}\n\nYour last answer couldn't be used. Use only the pantry keys in the pantry list with amounts between 5 and 3000; write 4 to 11 steps, each "Short title: instruction." with at most 45 words after the title; say how to tell meat, fish and eggs are cooked; no nutrition figures, prices, health claims, or restaurant or brand names.`;
   }
@@ -103,7 +113,8 @@ export async function handleDescribePhoto(body: unknown, ctx: PhotoCtx): Promise
   if (!parsed.success || !isJpeg(parsed.data.image)) return invalid;
   if (!(await ctx.premium())) return notPremium;
   if (!ctx.allow()) return tooMany;
-  const answer = await ctx.describe(DESCRIBE_SYSTEM_PROMPT, parsed.data.image);
+  const answer = await ctx.describe(DESCRIBE_SYSTEM_PROMPT, parsed.data.image, callLimit(ctx.timeLeft));
+  if (answer.status === "unavailable") return busy;
   const clean = answer.status === "ok" ? cleanSuggestion(answer.value) : null;
   if (!clean) return say(502, "no_suggestion", PHOTO_MESSAGES.noSuggestion);
   if (!clean.isFood) return say(422, "not_food", PHOTO_MESSAGES.notFood);

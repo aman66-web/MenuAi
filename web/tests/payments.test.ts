@@ -239,6 +239,34 @@ describe("handleWebhook", () => {
     await handleWebhook(full, sign(full), deps);
     expect(store.rows[1]).toMatchObject({ status: "refunded", expiresAt: NOW });
   });
+  it("a full refund of a subscription's renewal is found through its invoice's subscription (older and newer Stripe invoices), and ends the access", async () => {
+    for (const invoice of [{ id: "in_renew1234", subscription: "sub_1" }, { id: "in_renew1234", parent: { subscription_details: { subscription: "sub_1" } } }]) {
+      const { deps, store } = await setup();
+      const sub = event("checkout.session.completed", paidSession("cs_test_sub12345", { mode: "subscription", subscription: "sub_1", payment_intent: null, metadata: { plan: "monthly" } }));
+      await handleWebhook(sub, sign(sub), deps);
+      expect(store.rows[0].status).toBe("active");
+      const asked: string[] = [];
+      deps.fetch = fakeFetch((url) => { asked.push(url); return url.endsWith("/invoices/in_renew1234") ? jsonRes(200, invoice) : jsonRes(404, {}); });
+      const refund = event("charge.refunded", { payment_intent: "pi_renewal", refunded: true, invoice: "in_renew1234" }, "evt_8");
+      expect((await handleWebhook(refund, sign(refund), deps)).status).toBe(200);
+      expect(asked).toEqual(["https://api.stripe.com/v1/invoices/in_renew1234"]);
+      expect(store.rows[0]).toMatchObject({ status: "refunded", expiresAt: NOW });
+    }
+    // an expanded invoice needs no call; an unknown invoice changes nothing; a Stripe failure asks Stripe to try again
+    const { deps, store } = await setup();
+    const sub = event("checkout.session.completed", paidSession("cs_test_sub12345", { mode: "subscription", subscription: "sub_2", payment_intent: null, metadata: { plan: "annual" } }));
+    await handleWebhook(sub, sign(sub), deps);
+    deps.fetch = fakeFetch(() => jsonRes(404, {}));
+    const unknown = event("charge.refunded", { payment_intent: "pi_x", refunded: true, invoice: "in_missing123" }, "evt_9");
+    expect((await handleWebhook(unknown, sign(unknown), deps)).status).toBe(200);
+    expect(store.rows[0].status).toBe("active");
+    deps.fetch = fakeFetch(() => jsonRes(500, {}));
+    expect((await handleWebhook(unknown, sign(unknown), deps)).status).toBe(500);
+    deps.fetch = fakeFetch(() => { throw new Error("no call expected"); });
+    const expanded = event("charge.refunded", { payment_intent: "pi_y", refunded: true, invoice: { id: "in_exp12345", subscription: "sub_2" } }, "evt_10");
+    expect((await handleWebhook(expanded, sign(expanded), deps)).status).toBe(200);
+    expect(store.rows[0].status).toBe("refunded");
+  });
   it("acknowledges events it doesn't use, and asks Stripe to retry when the database fails", async () => {
     const { deps, store } = await setup();
     const other = event("customer.created", { id: "cus_1" });
@@ -275,6 +303,21 @@ describe("handleClaim and handleMine", () => {
     await handleClaim({ sessionId: "cs_test_abc12345" }, paid.deps);
     paid.advance(91 * DAY);
     expect((await handleClaim({ sessionId: "cs_test_abc12345" }, paid.deps)).status).toBe(402);
+  });
+  it("a cancelled subscription still gives its token until the paid time runs out; a refunded one never does", async () => {
+    const s = await setup({}, { cs_test_abc12345: paidSession("cs_test_abc12345", { mode: "subscription", subscription: "sub_1", payment_intent: null, metadata: { plan: "annual" } }) });
+    expect((await handleClaim({ sessionId: "cs_test_abc12345" }, s.deps)).status).toBe(200);
+    const del = event("customer.subscription.deleted", { id: "sub_1" }, "evt_c1");
+    await handleWebhook(del, sign(del), s.deps);
+    expect(s.store.rows[0].status).toBe("cancelled");
+    expect((await handleClaim({ sessionId: "cs_test_abc12345" }, s.deps)).status).toBe(200);
+    s.advance(370 * DAY);
+    expect((await handleClaim({ sessionId: "cs_test_abc12345" }, s.deps)).status).toBe(402);
+    const r = await setup({}, { cs_test_abc12345: paidSession("cs_test_abc12345") });
+    await handleClaim({ sessionId: "cs_test_abc12345" }, r.deps);
+    const refund = event("charge.refunded", { payment_intent: "pi_1", refunded: true }, "evt_c2");
+    await handleWebhook(refund, sign(refund), r.deps);
+    expect((await handleClaim({ sessionId: "cs_test_abc12345" }, r.deps)).status).toBe(402);
   });
   it("a signed-in person gets their token by their verified email; nobody else's, and nothing after it ends", async () => {
     const s = await setup({}, { cs_test_abc12345: paidSession("cs_test_abc12345") });

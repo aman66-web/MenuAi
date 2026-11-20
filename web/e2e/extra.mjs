@@ -12,7 +12,7 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
   };
 }
 let pass = 0, fail = 0;
-async function step(n, fn) { try { await fn(); pass++; console.log("PASS", n); } catch (e) { fail++; console.log("FAIL", n, "-", String(e.message).split("\n")[0]); } }
+async function step(n, fn) { try { await fn(); pass++; console.log("PASS", n); } catch (e) { fail++; console.log("FAIL", n, "-", String(e.message).split("\n")[0], (String(e.message).match(/waiting for (.*)/) ?? [])[1] ?? ""); } }
 const vis = (l) => l.waitFor({ state: "visible", timeout: 8000 });
 // The welcome cover's Get started, straight to the first question (step 1 of 11: no Pip's hello screen, no tour, no "Let's make it yours" since 20 November).
 async function pastIntro(page) {
@@ -52,7 +52,7 @@ await step("GLP-1 onboarding keeps the default comfortable meal size (450) when 
   await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("button", { name: "Skip", exact: true }).click(); // foods to avoid
   await page.getByRole("button", { name: "Skip setup and make my account" }).click(); // step 3's link, to the account (step 11)
-  await vis(page.getByRole("heading", { name: "Save your plan: make your free account" }));
+  await vis(page.getByRole("heading", { name: "Save your goal and numbers: make your free account" }));
   await page.getByRole("button", { name: "Not now" }).click();
   await page.waitForURL(/\/app\/?$/);
   // the meal size (GLP-1's default, 450) is in Settings › Daily targets, said as on the targets step
@@ -68,7 +68,7 @@ await step("onboarding offers Other as a goal, Pip answers, and it's kept in Set
   await page.goto(BASE + "/app/welcome");
   await pastIntro(page);
   await page.getByRole("radio", { name: /^Other/ }).click();
-  await vis(page.getByText("Got it. I'll show you the numbers and keep your meals and orders around your target."));
+  await vis(page.getByText("Got it. I'll show you the numbers and keep your meals and orders around your target.").filter({ visible: true }));
   await vis(page.getByRole("button", { name: "Continue" }));
   await page.getByRole("button", { name: "Continue" }).click();
   // foods to avoid, then step 3's "Skip setup and make my account" and "Not now" on the account step (sign-in optional on this build)
@@ -187,9 +187,10 @@ await step("Eat out › My favourite restaurants: star one from the list and it'
   await page.getByRole("link", { name: /My favourite restaurants/ }).click();
   await vis(page.getByRole("heading", { level: 1, name: "My favourite restaurants" }));
   await vis(page.getByText("No favourite restaurants yet"));
-  await page.getByLabel("Search restaurants").fill("bowl");
-  await page.getByRole("button", { name: /Save Bowl & Co\./ }).click();
-  await vis(page.getByRole("button", { name: /Saved Bowl & Co\./, pressed: true }));
+  // the box's name is its visible words, and the star says "Favourite" ("Save" and the heart mean My meals: the 20 November 2026 audit)
+  await page.getByLabel("Type a restaurant's name").fill("bowl");
+  await page.getByRole("button", { name: /^Favourite Bowl & Co\./ }).click();
+  await vis(page.getByRole("button", { name: /^Favourited Bowl & Co\./, pressed: true }));
   await vis(page.getByRole("link", { name: /Bowl & Co\./ }));
   await page.goto(BASE + "/app/eat-out");
   await vis(page.getByRole("link", { name: /My favourite restaurants.*1 restaurant/ }));
@@ -265,11 +266,11 @@ await step("App Review 1.4.1: the sources of the suggested targets are one tap a
   await page.waitForURL(/\/app\/settings\/sources/);
   await vis(page.getByRole("heading", { level: 1, name: "Where your daily targets come from" }));
   await vis(page.getByRole("link", { name: "How we get our numbers" }));
-  await page.getByRole("link", { name: "Settings", exact: true }).click();
+  await page.getByRole("link", { name: /^Back( to settings)?$/ }).click(); // plain "Back" after a step; "Back to settings" when opened by address
   await vis(page.getByRole("heading", { level: 1, name: "Settings", exact: true }));
   await ctx.close();
 });
-await step("Settings › Daily targets: an empty protein box says 'Worked out'; a typed change is 'Not saved yet' until 'Save targets'; 'Use these' says so too", async () => {
+await step("Settings › Daily targets: an empty protein box says 'Worked out'; a typed change is 'Not saved yet' until 'Save targets'; 'Use these' saves at once", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   await ctx.addInitScript(() => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "maintain", dailyCalories: 2000 } })); });
   const page = await ctx.newPage();
@@ -277,9 +278,11 @@ await step("Settings › Daily targets: an empty protein box says 'Worked out'; 
   const targets = page.locator("#targets");
   const notSaved = page.getByText("Not saved yet. Tap \u201cSave targets\u201d to keep them.", { exact: true });
   // the worked-out boxes (protein, carbs, fat) say so under the grey number; calories (a saved figure) and water (a default) don't
-  await vis(targets.locator("label", { hasText: "Protein (g)" }).getByText("Worked out", { exact: true }));
-  for (const name of ["Carbs (g)", "Fat (g)"]) await vis(targets.locator("label", { hasText: name }).getByText("Worked out", { exact: true }));
-  for (const name of ["Calories", "Water (ml)"]) if (await targets.locator("label", { hasText: name }).getByText("Worked out", { exact: true }).count()) throw new Error(`${name} is tagged`);
+  // (each box's tag is its input's description: the label is now only the box's name, 20 November 2026)
+  const tag = (name) => targets.getByLabel(name, { exact: true }).evaluate((i) => (i.getAttribute("aria-describedby") ?? "").split(" ").map((id) => document.getElementById(id)?.textContent?.trim() ?? "").join(" "));
+  await targets.getByLabel("Protein (g)", { exact: true }).waitFor();
+  for (const name of ["Protein (g)", "Carbs (g)", "Fat (g)"]) if (!(await tag(name)).includes("Worked out")) throw new Error(`${name} isn't tagged 'Worked out': ${await tag(name)}`);
+  for (const name of ["Calories", "Water (ml)"]) if ((await tag(name)).includes("Worked out")) throw new Error(`${name} is tagged`);
   if (await notSaved.count()) throw new Error("'Not saved yet' before anything was typed");
   // a typed change: not saved yet, said as a status line; Save targets keeps it and the line goes
   await targets.locator("input").first().fill("2100"); // Calories, the first box
@@ -296,18 +299,24 @@ await step("Settings › Daily targets: an empty protein box says 'Worked out'; 
   await form.getByRole("radio", { name: "Female", exact: true }).click();
   await page.getByLabel("Age", { exact: true }).fill("34");
   for (const [name, value] of [["Stone", "11"], ["Pounds", "0"], ["Feet", "5"], ["Inches", "10"]]) await page.getByRole("textbox", { name, exact: true }).fill(value);
-  await form.getByRole("button", { name: "Suggest targets", exact: true }).click();
+  // the one form asks how active she is too, and works the numbers out (the 20 November 2026 audit: the same questions as the welcome steps)
+  await form.getByRole("radio", { name: "Lightly active", exact: true }).click();
+  await form.getByRole("button", { name: "Work out my numbers", exact: true }).click();
   await vis(form.getByRole("status"));
+  // "Use these" saves at once (it used to fill the boxes and wait for "Save targets", and was lost on leaving: the 20 November 2026 audit)
   await form.getByRole("button", { name: "Use these", exact: true }).click();
-  await vis(notSaved);
+  await vis(page.getByText("Saved. These are your new targets.", { exact: true }));
+  if (await notSaved.count()) throw new Error("'Not saved yet' after Use these, which saves");
+  const used = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data);
+  if (used.dailyCalories === 2100 || !(used.dailyCalories > 1200)) throw new Error("Use these didn't save the suggestion: " + used.dailyCalories);
   await ctx.close();
 });
-await step("Settings › Set up your plan again opens the welcome screen with a way back to Settings; a first visit to the welcome screen has no such button and no Skip", async () => {
+await step("Settings › Go through setup again opens the welcome screen with a way back to Settings; a first visit to the welcome screen has no such button and no Skip", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   await ctx.addInitScript(() => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "maintain", dailyCalories: 2000 } })); });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/settings");
-  const pip = page.getByRole("link", { name: /Set up your plan again/ });
+  const pip = page.getByRole("link", { name: /Go through setup again/ });
   await vis(pip);
   if ((await pip.getAttribute("href")) !== "/app/welcome") throw new Error("the card goes to " + (await pip.getAttribute("href")));
   const box = await pip.boundingBox();

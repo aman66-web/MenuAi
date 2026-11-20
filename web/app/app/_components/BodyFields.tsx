@@ -28,9 +28,10 @@ export const BODY_CARD = "glass rounded-[1.25rem] p-4";
 /** A calm line under a field that needs another look: plain, never red, and not a grey box that would read as one more field. */
 const MESSAGE = "mt-3 text-[0.9375rem] font-medium leading-snug";
 
+// Female first, then Male (the onboarding meeting's order), "Prefer not to say" on its own row
 const SEX_OPTIONS: ReadonlyArray<{ value: Sex; label: string }> = [
-  { value: "male", label: tk("Male") },
   { value: "female", label: tk("Female") },
+  { value: "male", label: tk("Male") },
   { value: "unspecified", label: tk("Prefer not to say") },
 ];
 
@@ -59,13 +60,14 @@ function useLeftBlock() {
   };
 }
 
-export function SexTiles({ value, onChange }: { value: Sex; onChange: (s: Sex) => void }) {
+/** `value` null: none ticked yet (the welcome steps pick nothing for the person; "Prefer not to say" is still what the sums use until a tile is tapped). */
+export function SexTiles({ value, onChange }: { value: Sex | null; onChange: (s: Sex) => void }) {
   const t = useT();
   const id = useId();
   return (
     <div>
-      <BlockLabel id={id}>{t("Sex, to work out your numbers")}</BlockLabel>
-      {/* Male and Female side by side, "Prefer not to say" on its own full-width tile under them; with large text the columns
+      <BlockLabel id={id}>{t("Sex")}</BlockLabel>
+      {/* Female and Male side by side, "Prefer not to say" on its own full-width tile under them; with large text the columns
           become one (the minimum column width is in rem, so it grows with the text) and no word is ever broken in two. */}
       <div role="radiogroup" aria-labelledby={id} className="grid grid-cols-[repeat(auto-fit,minmax(8.5rem,1fr))] gap-2.5">
         {SEX_OPTIONS.map((o, i) => (
@@ -74,7 +76,8 @@ export function SexTiles({ value, onChange }: { value: Sex; onChange: (s: Sex) =
             on={o.value === value}
             role="radio"
             aria-checked={o.value === value}
-            tabIndex={o.value === value ? 0 : -1}
+            // with none ticked yet, the first takes the Tab key, so the group can be reached
+            tabIndex={o.value === value || (value === null && i === 0) ? 0 : -1}
             onClick={() => onChange(o.value)}
             onKeyDown={(e) => radioKeyNav(e, i, SEX_OPTIONS.length, (n) => onChange(SEX_OPTIONS[n]!.value))}
             className={`text-[0.9375rem] font-semibold leading-snug ${i === SEX_OPTIONS.length - 1 ? "col-span-full" : ""}`}

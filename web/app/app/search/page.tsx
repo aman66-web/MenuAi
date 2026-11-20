@@ -6,7 +6,8 @@ import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { formatCalories } from "@/lib/mm/format";
 import { itemImageUrl } from "@/lib/mm/images";
-import { anyDietFilter, filterCaution } from "@/lib/mm/menu-view";
+import { moreDietsOn } from "@/lib/mm/foodDiet";
+import { anyDietFilter, filterCaution, restaurantDietNote } from "@/lib/mm/menu-view";
 import { addRecentSearch, highlightRange, MIN_QUERY_LENGTH, normalizeForSearch, search } from "@/lib/mm/search";
 import { ChainMark } from "../_components/ChainMark";
 import { chainGroupClass } from "../_components/ChainRow";
@@ -15,16 +16,17 @@ import { blurOnEnter, DONE_ROOM, DONE_ROOM_WITH_CLEAR, SearchDone } from "../_co
 import { ChevronRightIcon, CloseIcon, SearchIcon } from "../_components/icons";
 import { PageHeader } from "../_components/PageHeader";
 import { RequestChainSheet } from "../_components/Submit";
-import { Button, Chip, EmptyIcon, EmptyState, SampleBadge } from "../_components/ui";
+import { Badge, Button, Chip, EmptyIcon, EmptyState, ErrorBox, inputClass, SampleBadge } from "../_components/ui";
 import { useEntryQuery } from "../_lib/backNav";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
-import { useSearchIndex, useSettings } from "../_lib/hooks";
+import { useMenu, useSearchIndex, useSettings } from "../_lib/hooks";
+import { menuClient } from "../_lib/menu";
 import { useT } from "../_lib/i18n";
 
 // SPEC §7.3: type-ahead over chain and item names, minimum 2 characters. Chains first, then items.
 // Look (founder 2026-10-15, "the rest of the app should match that elegance"): the search pill has the whole width under a grey Back
 // pill (36 px in a 44 px tap area, like Home's round buttons; the pill gets the whole width so its placeholder is never cut short),
-// results sit in grouped white cards under compact headings, calories in DM Mono like Home's figures, and the matched letters are
+// results sit in grouped white cards under compact headings, calories in DM Mono like Home's figures, and the matched letters are bold (no lime: the 20 November 2026 audit kept lime for chosen and done); formerly
 // marked with the brand lime like a highlighter. Words, roles and names are unchanged; an item row still reads
 // "Chicken wrap · Cluck House · 440 kcal" in that order (SPEC §7.3).
 // Photos (founder 2026-11-17, "Use images please when possible"): a dish with the chain's own photo (the search file's photo entry) shows it
@@ -33,6 +35,8 @@ import { useT } from "../_lib/i18n";
 // row (its content under 18.5rem: a 360 px phone, Large text on most phones, Extra large on all) the photos step aside, as Compare's rows do, so names keep their room.
 
 const heading = "mt-7 text-xl font-[800] tracking-[-0.01em]";
+/** The search field: the app's input with room for the icon and the clear and Done buttons (the 20 November 2026 audit: a faint pill, its words clipped). */
+const SEARCH_FIELD = inputClass.replace("px-4", "ps-12 pe-14");
 
 export default function SearchPage() {
   const t = useT();
@@ -40,6 +44,7 @@ export default function SearchPage() {
   const [query, setQuery] = useEntryQuery(inputRef); // kept in the history entry, so Back from a result finds the search as it was left
   const deferred = useDeferredValue(query);
   const { searchIndex, loadedCount, totalCount } = useSearchIndex();
+  const menu = useMenu();
   const [requesting, setRequesting] = useState(false);
   const [recent, setRecent] = useRecentSearches();
   // The diet settings (Settings › Diet) apply here as on a restaurant's page; one tap shows every dish.
@@ -74,11 +79,11 @@ export default function SearchPage() {
             if (e.key === "Enter") remember(); // the keyboard's own key says "search" here: it keeps the search in Recent searches, then puts the keyboard away
             blurOnEnter(e);
           }}
-          placeholder={t("Search restaurants and items")}
+          placeholder={t("Search")}
           aria-label={t("Search restaurants and items")}
           enterKeyHint="search"
           autoComplete="off"
-          className={`glass min-h-[3.25rem] w-full rounded-full ps-12 pe-14 ${query ? DONE_ROOM_WITH_CLEAR : DONE_ROOM} text-base placeholder:text-muted [&::-webkit-search-cancel-button]:hidden`}
+          className={`${SEARCH_FIELD} min-h-[3.25rem] ${query ? DONE_ROOM_WITH_CLEAR : DONE_ROOM} [&::-webkit-search-cancel-button]:hidden`}
         />
         <SearchDone>
           {query && (
@@ -108,7 +113,10 @@ export default function SearchPage() {
 
       {active && empty && (
         <div className="mt-6">
-          {stillLoading ? (
+          {/* the menus couldn't be reached: say so with Try again, never "We don't cover this yet" (the 20 November 2026 audit) */}
+          {menu.status === "error" && !menu.searchReady ? (
+            <ErrorBox message={menu.error ? t(menu.error) : t("Couldn't reach the menus. Check your connection and try again.")} onRetry={() => void menuClient.ensureManifest(true).then(() => menuClient.ensureSearch())} />
+          ) : stillLoading ? (
             <SearchSkeleton />
           ) : (
             <EmptyState
@@ -123,7 +131,7 @@ export default function SearchPage() {
 
       {results.chains.length > 0 && (
         <>
-          <h2 className={heading}>{t("Chains")}</h2>
+          <h2 className={heading}>{t("Restaurants")}</h2>
           <ul className={`mt-3.5 ${chainGroupClass}`}>
             {results.chains.map((c) => (
               <li key={c.chainId}>
@@ -150,18 +158,31 @@ export default function SearchPage() {
 
       {active && anyDietFilter(prefs) && (results.items.length > 0 || results.hiddenByDiet > 0) && (
         <div className="mt-5">
-          <Chip selected={dietOn} onClick={() => setDietOn((v) => !v)}>{t("Fits my diet")}</Chip>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+            <Chip selected={dietOn} onClick={() => setDietOn((v) => !v)}>{t("Fits my diet")}</Chip>
+            {/* how many the diet hides and why, beside the chip that shows them (the 20 November 2026 audit: the empty message never said) */}
+            {diet && results.hiddenByDiet > 0 && (
+              <p className="app-numbers min-w-0 flex-1 basis-48 text-[0.9375rem] leading-snug">
+                {results.hiddenByDiet === 1 ? t("1 dish hidden: it doesn't fit your diet settings, or its restaurant doesn't say.") : t("{n} dishes hidden: they don't fit your diet settings, or their restaurant doesn't say.", { n: results.hiddenByDiet.toLocaleString("en-GB") })}
+              </p>
+            )}
+          </div>
           {diet && <p className="mt-2.5 text-[0.8125rem] leading-snug text-muted">{filterCaution(prefs, t)}</p>}
+          {diet && results.items.some((i) => i.notChecked) && <p className="mt-1.5 text-[0.8125rem] leading-snug text-muted">{t("“Not checked”: its restaurant doesn't mark which dishes fit your diet or publish allergens, so only the dish's name was read.")}</p>}
         </div>
+      )}
+      {/* the newer diets a menu can't fully check are named whenever they are on, even with the chip off */}
+      {active && moreDietsOn(prefs).length > 0 && !diet && (results.items.length > 0 || results.hiddenByDiet > 0) && (
+        <p className="mt-2.5 text-[0.8125rem] leading-snug text-muted">{restaurantDietNote(prefs, t)}</p>
       )}
 
       {results.items.length === 0 && results.hiddenByDiet > 0 && (
-        <div className="mt-3.5"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("Nothing here matches your filters.")} /></div>
+        <div className="mt-3.5"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("Nothing here matches your filters.")} action={<Button variant="secondary" onClick={() => setDietOn(false)}>{t("Show every dish")}</Button>} /></div>
       )}
 
       {results.items.length > 0 && (
         <>
-          <h2 className={heading}>{t("Items")}</h2>
+          <h2 className={heading}>{t("Dishes")}</h2>
           <ul className={`mt-3.5 ${chainGroupClass}`}>
             {results.items.map((i) => (
               <li key={`${i.chainId}/${i.itemId}`}>
@@ -179,6 +200,7 @@ export default function SearchPage() {
                     <span className="block text-base font-bold leading-snug [overflow-wrap:anywhere]"><Highlight text={i.name} query={deferred} /></span>
                     <span className="sr-only"> · </span>
                     <span className="mt-0.5 block text-sm leading-snug text-muted [overflow-wrap:anywhere]">{i.chainName}</span>
+                    {i.notChecked && <span className="mt-1 block"><Badge>{t("Not checked")}</Badge></span>}
                     <span className="sr-only"> · </span>
                   </span>
                   <span className="app-numbers shrink-0 whitespace-nowrap font-mono text-[0.8125rem] font-normal text-muted">
@@ -206,7 +228,7 @@ function Highlight({ text, query }: { text: string; query: string }) {
   return (
     <>
       {chars.slice(0, range[0]).join("")}
-      <mark className="rounded-[0.25rem] bg-sun text-foreground">{chars.slice(range[0], range[1]).join("")}</mark>
+      <mark className="bg-transparent font-bold text-foreground">{chars.slice(range[0], range[1]).join("")}</mark>
       {chars.slice(range[1]).join("")}
     </>
   );
@@ -219,7 +241,7 @@ function SearchSkeleton() {
     <div role="status" aria-label={t("Loading search")} className={chainGroupClass}>
       {[0, 1, 2, 3].map((n) => (
         <div key={n} aria-hidden className="flex min-h-14 items-center gap-3 px-4">
-          <span className="h-4 animate-pulse rounded-full bg-soft-strong" style={{ width: `${70 - n * 12}%` }} />
+          <span className="h-4 animate-pulse rounded-full bg-fill" style={{ width: `${70 - n * 12}%` }} />
         </div>
       ))}
     </div>

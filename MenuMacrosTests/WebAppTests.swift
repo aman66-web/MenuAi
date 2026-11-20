@@ -80,6 +80,23 @@ struct BridgeMessageTests {
         #expect(BridgeRequest(body: msg(["id": "x", "action": "share", "payload": ["text": "a", "imageDataUrl": "data:text/html;base64,AAAA"]])) == nil)
     }
 
+    @Test func aRequestThatFailsItsChecksIsStillAnsweredWhenItsIDIsSound() {
+        // the page waits for every answer (120 s for a share), so a message the iPhone refuses is answered "unavailable" when its id can carry the answer
+        #expect(BridgeRequest(body: msg(["id": "s-1", "action": "share", "payload": ["text": ""]])) == nil)
+        #expect(BridgeRequest.answerableID(in: msg(["id": "s-1", "action": "share", "payload": ["text": ""]])) == "s-1")
+        #expect(BridgeRequest.answerableID(in: msg(["id": "p-2", "action": "iap.purchase", "payload": ["id": "com.amanmarwaha.numbite.pro.pass90"]])) == "p-2")
+        #expect(BridgeRequest.answerableID(in: msg(["id": "x-3", "action": "somethingNewer"])) == "x-3")
+        // an id that could break the reply's script, or none at all: nothing is sent back
+        #expect(BridgeRequest.answerableID(in: msg(["id": "<script>", "action": "scan"])) == nil)
+        #expect(BridgeRequest.answerableID(in: msg(["id": "", "action": "scan"])) == nil)
+        #expect(BridgeRequest.answerableID(in: msg(["action": "scan"])) == nil)
+        #expect(BridgeRequest.answerableID(in: "scan") == nil)
+    }
+
+    @Test @MainActor func linksAndPicturesHaveNoLongPressMenuInTheApp() {
+        #expect(WebAppView.noCalloutScript.contains("a, img { -webkit-touch-callout: none; }"))
+    }
+
     @Test func aShareCardPictureIsDecoded() {
         let png = Data([0x89, 0x50, 0x4E, 0x47])
         let request = BridgeRequest(body: msg(["id": "s", "action": "share", "payload": ["text": "My order", "imageDataUrl": "data:image/png;base64," + png.base64EncodedString()]]))

@@ -1,6 +1,8 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { namesAllergen, passesMenuDiet, uncheckedDiet } from "../lib/mm/menu-view";
+import { anyUnchecked, chainForDiet, namesAllergen, passesDiet, passesMenuDiet, uncheckedDiet } from "../lib/mm/menu-view";
+import { buildSearchIndex, search } from "../lib/mm/search";
+import { showcaseCandidates, showcasePrefs } from "../lib/mm/showcase";
 import { NO_PREFERENCES, type Chain, type MenuItem, type Preferences } from "../lib/mm/types";
 
 // Founder 2026-11-17: restaurants must show their dishes. Diet choices a restaurant's own data can't check leave out only the dishes whose names say otherwise.
@@ -281,5 +283,92 @@ describe("meat and fish a menu names in other words (fourth review 2026-11-17)",
     const menu = [item("Gherkins (hot dog topping)", { category: "Add-ons" }), item("Crispy Onions (hot dog topping)", { category: "Add-ons" }), item("Curry Topping for Hot Dog", { category: "Add-ons" }), item("Hot Dog", { category: "Hot Snacks" }),
       item("Burger Bun", { category: "Burger & hot dog parts" }), item("Hot Dog Bun", { category: "Burger & hot dog parts" }), item("Beef Burger Patty", { category: "Burger & hot dog parts" }), item("Bacon", { category: "Burger & hot dog parts" }), item("Hot Dog (sausage only)", { category: "Burger & hot dog parts" })];
     expect(shown(menu, veg)).toEqual(["Gherkins (hot dog topping)", "Crispy Onions (hot dog topping)", "Curry Topping for Hot Dog", "Burger Bun", "Hot Dog Bun"]);
+  });
+});
+
+// The 20 November 2026 audit: No pork / No beef missed dishes plainly named ("Big Mac", "Sausage Butty"), the six newer diets applied on onboarding only, and Best
+// for you ranked "Breakfast King" (bacon and sausage, untagged) first for No pork at Burger King.
+describe("pork, beef and the newer diets on every restaurant screen", () => {
+  const dir = new URL("../public/menus/", import.meta.url);
+  const load = (id: string) => JSON.parse(readFileSync(new URL(`chain-${id}.json`, dir), "utf8")) as Chain;
+  const noPork = P({ noPork: true });
+  const noBeef = P({ noBeef: true });
+  it("leaves out dishes whose own names say pork or beef, untagged or not", () => {
+    const menu = [item("Big Mac"), item("Quarter Pounder with Cheese"), item("Sausage & Egg McMuffin"), item("Hot Dog"), item("Spaghetti Bolognese"), item("Chicken Cheeseburger"), item("Veggie Lasagne"), item("Fries"), item("Hot Dog Bun")];
+    expect(shown(menu, noPork)).toEqual(["Big Mac", "Quarter Pounder with Cheese", "Spaghetti Bolognese", "Chicken Cheeseburger", "Veggie Lasagne", "Fries", "Hot Dog Bun"]);
+    expect(shown(menu, noBeef)).toEqual(["Sausage & Egg McMuffin", "Hot Dog", "Chicken Cheeseburger", "Veggie Lasagne", "Fries", "Hot Dog Bun"]);
+  });
+  it("reads a plain burger as beef only where the restaurant sells beef", () => {
+    const beefy = [item("Bacon Burger", { tags: ["contains_pork"] }), item("Hamburger", { tags: ["contains_beef"] }), item("Fries")];
+    expect(shown(beefy, noBeef)).toEqual(["Fries"]);
+    const kfc = load("kfc");
+    const kept = shown(kfc.items, noBeef);
+    expect(kept).toContain("Zinger Burger");
+    expect(kept).toContain("Fillet Burger");
+  });
+  it("Big Mac and Sausage & Egg McMuffin at McDonald's", () => {
+    const mcd = load("mcdonalds");
+    expect(shown(mcd.items, noBeef)).not.toContain("Big Mac");
+    expect(shown(mcd.items, noPork)).not.toContain("Sausage & Egg McMuffin");
+  });
+  it("Burger King's Breakfast King (bacon and sausage, no tag) is never offered for No pork, nor its Sausage Butty", () => {
+    const bk = load("burger-king");
+    for (const name of ["Breakfast King", "Ultimate Breakfast sandwich", "Sausage Butty", "Sausage and Egg sandwich"]) {
+      expect(shown(bk.items, noPork)).not.toContain(name);
+      expect(chainForDiet(bk, noPork).items.map((i) => i.name)).not.toContain(name);
+    }
+    expect(anyUnchecked(uncheckedDiet(bk.items, P({})))).toBe(false);
+  });
+  it("a restaurant that tags fewer than 1 meat dish in 20 with pork (or beef) doesn't mark it: Best for you doesn't pick for that choice there", () => {
+    const kfc = load("kfc");
+    expect(uncheckedDiet(kfc.items, noPork).pork).toBe(true);
+    expect(anyUnchecked(uncheckedDiet(kfc.items, noBeef))).toBe(true);
+    const wetherspoon = load("wetherspoon");
+    expect(uncheckedDiet(wetherspoon.items, noPork).pork).toBe(false);
+    expect(uncheckedDiet(wetherspoon.items, noBeef).beef).toBe(false);
+    const menu = [item("Chicken Wrap"), item("Chicken Burger"), item("Wings"), item("Fries")];
+    expect(uncheckedDiet(menu, noPork).pork).toBe(true);
+    expect(uncheckedDiet(menu, P({})).pork).toBe(false);
+  });
+  it("No red meat leaves out what a restaurant tags pork or beef, and Kosher style what it tags pork", () => {
+    const menu = [item("The Boss", { tags: ["contains_beef"] }), item("Breakfast Muffin", { tags: ["contains_pork"] }), item("Grilled Chicken")];
+    expect(shown(menu, P({ noRedMeat: true }))).toEqual(["Grilled Chicken"]);
+    expect(shown(menu, P({ kosherStyle: true }))).toEqual(["The Boss", "Grilled Chicken"]);
+    const fiveGuys = load("five-guys");
+    const left = shown(fiveGuys.items, P({ noRedMeat: true }));
+    for (const name of ["Bacon Cheeseburger", "Bacon Burger", "Cheeseburger", "Hamburger"]) expect(left).not.toContain(name);
+    expect(shown(load("burger-king").items, P({ noRedMeat: true }))).not.toContain("Classic Double Beef Melt");
+    const fiveBest = chainForDiet(fiveGuys, P({ noRedMeat: true })).items.map((i) => i.name);
+    for (const name of ["Bacon Cheeseburger", "Bacon Burger", "Cheeseburger", "Hamburger"]) expect(fiveBest).not.toContain(name);
+  });
+  it("a diet no menu can check (No onion or garlic) stops Best for you picking; Jain is checked as vegetarian", () => {
+    const menu = [item("Cheese Pizza", { tags: ["vegetarian"] }), item("Pepperoni Pizza"), item("Garlic Bread", { tags: ["vegetarian"] })];
+    expect(anyUnchecked(uncheckedDiet(menu, P({ noOnionGarlic: true })))).toBe(true);
+    expect(shown(menu, P({ noOnionGarlic: true }))).toEqual(["Cheese Pizza", "Pepperoni Pizza", "Garlic Bread"]);
+    expect(shown(menu, P({ jain: true }))).toEqual(["Cheese Pizza", "Garlic Bread"]);
+  });
+  it("search shows what the restaurant's page shows: Greggs marks hardly any dish vegetarian, so its dishes are searched by name and tagged 'not checked'", () => {
+    const greggs = load("greggs");
+    const index = buildSearchIndex([greggs]);
+    const veg = P({ vegetarianOnly: true });
+    const found = search(index, "greggs", 400, veg);
+    const page = shown(greggs.items, veg);
+    expect(found.items.length).toBeGreaterThan(20);
+    expect(found.items.every((i) => i.notChecked)).toBe(true);
+    expect(found.items.map((i) => i.name).every((n) => page.includes(n))).toBe(true);
+    expect(found.items.map((i) => i.name)).not.toContain("Sausage Roll");
+  });
+  it("parity: Best for you never offers a dish the welcome showcase hides for the same diet", () => {
+    const diets: Preferences[] = [P({ noRedMeat: true }), P({ kosherStyle: true }), P({ jain: true }), P({ noPork: true }), P({ noBeef: true }), P({ noAlcohol: true }), P({ vegetarianOnly: true, avoidAllergens: ["milk"] })];
+    const ids = showcaseCandidates(readdirSync(dir).filter((f) => f.startsWith("chain-")).map((f) => JSON.parse(readFileSync(new URL(f, dir), "utf8")) as Chain).map((c) => ({ id: c.id, sample: c.sample, nutritionLevel: c.nutritionLevel })))
+      .flatMap((g) => g.chainIds);
+    for (const id of ids) {
+      const chain = load(id);
+      for (const prefs of diets) {
+        const offered = chainForDiet(chain, prefs).items.filter((i) => i.rankable);
+        const hidden = offered.filter((i) => !passesDiet(i, showcasePrefs(prefs))).map((i) => `${id}: ${i.name}`);
+        expect(hidden, JSON.stringify(prefs)).toEqual([]);
+      }
+    }
   });
 });

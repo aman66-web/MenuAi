@@ -1060,7 +1060,9 @@
     "sugar": 10.9,
     "salt": 3.1
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -1095,7 +1097,9 @@
     "sugar": 8.2,
     "salt": 2.5
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -5419,7 +5423,9 @@
     "sugar": 2.5,
     "salt": 0.3
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5454,7 +5460,9 @@
     "sugar": 1,
     "salt": 0.3
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5874,7 +5882,9 @@
     "sugar": 6,
     "salt": 0.9
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5909,7 +5919,9 @@
     "sugar": 2.3,
     "salt": 0.7
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],

@@ -173,7 +173,7 @@ export function NumbersPanel({ state, found }: { state: NumbersFinderState; foun
     <div className="glass mt-3.5 rounded-[1.25rem] p-4">
       {/* The number pad has no Return key, so while a box is in use a Done shows at the top corner of the card, where it takes no room and moves nothing. */}
       <div className="group/nums relative">
-        <p className="pe-20 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{t("Your numbers")}</p>
+        <p className="kicker pe-20">{t("Your numbers")}</p>
         <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("Type any of these to see the restaurants with dishes that fit. Leave the rest empty.")}</p>
         <NumberDone onDone={showResults} />
         <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,8.5rem),1fr))] gap-2.5">
@@ -195,7 +195,7 @@ export function NumbersPanel({ state, found }: { state: NumbersFinderState; foun
         </button>
       )}
       <div aria-hidden className="mx-1 mb-4 mt-5 h-px bg-line" />
-      <p className="mb-3 px-1 text-[0.6875rem] font-semibold uppercase leading-snug tracking-[0.12em] text-muted">{t("Allergies to avoid")}</p>
+      <p className="kicker mb-3 px-1">{t("Allergies to avoid")}</p>
       <AllergenTiles chosen={state.picked} label={t("Allergies to avoid")} onToggle={state.toggleAllergen} />
       {words.length > 0 && (
         <p className="mt-4 flex flex-wrap items-baseline gap-x-2 gap-y-1 px-1 text-[0.9375rem] leading-snug">

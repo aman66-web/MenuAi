@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
-import { AI_RECIPES_ENABLED, APP_PREMIUM, FOOD_SCAN_API_ENABLED, PHOTO_RECIPES_API_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, TELEMETRY_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { AI_RECIPES_ENABLED, APP_PREMIUM, COMMUNITY_ENABLED, FOOD_SCAN_API_ENABLED, PHOTO_RECIPES_API_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, TELEMETRY_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 
 export const metadata: Metadata = { title: "Privacy policy" };
@@ -30,6 +30,16 @@ function Rows({ children }: { children: ReactNode }) {
 const row = "py-4 text-base leading-[1.65]";
 const para = "text-base leading-[1.7]";
 
+/** Pip's features that send something to Anthropic in this build (the "Who processes this data" row names them). */
+const AI_FEATURES = [
+  FOOD_SCAN_API_ENABLED && "Scan your food",
+  PHOTO_RECIPES_API_ENABLED && "Make it at home",
+  PHOTO_RECIPES_API_ENABLED && "Cook with what you have",
+  AI_RECIPES_ENABLED && "Pip's recipe maker",
+  COMPARE_PICK_ENABLED && "Pip's pick on Compare",
+].filter((f): f is string => typeof f === "string");
+const listed = (words: string[]) => (words.length <= 1 ? words.join("") : `${words.slice(0, -1).join(", ")} and ${words[words.length - 1]}`);
+
 // Plain-English privacy policy matching docs/BACKEND.md and what the apps actually do. Since the free launch (founder 2026-10-12) the
 // iPhone app is the web app packed into an app: no purchases, no AI recipe maker, no Apple Health, no usage statistics. Sections for Pro
 // and Pip's recipe maker show only while those are switched on (lib/mm/config.ts). Review it (ideally with a professional) before
@@ -48,15 +58,22 @@ export default function Privacy() {
         {SIGN_IN_REQUIRED ? (
           <>
             {site.name} is built to know as little about you as possible. You need a free account to use it, so we keep your email address and a user ID, and
-            the things listed under &ldquo;Your account and syncing&rdquo; so they are on all your devices. Nothing else you set up leaves your device. If you
-            use friends (Community), &ldquo;Community (needs an account)&rdquo; below says what that adds.
+            the things listed under &ldquo;Your account and syncing&rdquo; so they are on all your devices. Nothing else you set up leaves your device.
+            {COMMUNITY_ENABLED ? <> If you use friends (Community), &ldquo;Community (needs an account)&rdquo; below says what that adds.</> : null}
           </>
         ) : (
           <>
             {site.name} is built to know as little about you as possible. You don&apos;t need an account: everything works without one, and then
-            nothing you set up leaves your device. The one exception is adding friends and sending them shopping lists (Community), which needs an account so
-            there is someone to send to. If you choose to sign in, to keep your data on all your devices or to use Community, the sections &ldquo;Signing in and
-            syncing (optional)&rdquo; and &ldquo;Community (needs an account)&rdquo; below say exactly what we then keep.
+            nothing you set up leaves your device.{" "}
+            {COMMUNITY_ENABLED ? (
+              <>
+                The one exception is adding friends and sending them shopping lists (Community), which needs an account so there is someone to send to. If you
+                choose to sign in, to keep your data on all your devices or to use Community, the sections &ldquo;Signing in and syncing (optional)&rdquo; and
+                &ldquo;Community (needs an account)&rdquo; below say exactly what we then keep.
+              </>
+            ) : (
+              <>If you choose to sign in, to keep your data on all your devices, the section &ldquo;Signing in and syncing (optional)&rdquo; below says exactly what we then keep.</>
+            )}
           </>
         )} This policy covers the {site.name} iPhone app, the {site.name} web app (at /app on this website) and this website. The iPhone app
         is the web app packed into an app, so it works the same way, except that it keeps everything inside the app on your phone. To keep the app small, it loads
@@ -86,7 +103,7 @@ export default function Privacy() {
             <>You need a free account to use {site.name}. You sign in with Apple, with Google, or with a 6-digit code we email you (no password); a new email
             address, Apple ID or Google account creates the account. Your account turns on sync, so your data follows you to your other devices.</>
           ) : (
-            <>Signing in is your choice, and nothing in {site.name} needs it except adding friends and sending them shopping lists (see &ldquo;Community (needs an account)&rdquo; below). You can sign in with Apple, with Google, or with a 6-digit code we email you
+            <>Signing in is your choice, and nothing in {site.name} needs it{COMMUNITY_ENABLED ? <> except adding friends and sending them shopping lists (see &ldquo;Community (needs an account)&rdquo; below)</> : null}. You can sign in with Apple, with Google, or with a 6-digit code we email you
             (no password). Signing in turns on sync, so your data follows you to your other devices.</>
           )}
         </p>
@@ -98,8 +115,8 @@ export default function Privacy() {
           </li>
           <li className={row}>
             <strong>What syncs when you are signed in:</strong> your goal, targets and settings (not your text size or language), your diet and
-            allergy choices, favourite restaurants, saved restaurant meals, the recipes you saved, your shopping list, the store-cupboard items you
-            mark as already having, what you picked to compare, and today&apos;s log (entries from today and yesterday only).
+            allergy choices, favourite restaurants, saved restaurant meals, the recipes you saved and the recipes Pip made for you, your shopping lists, the
+            store-cupboard items you mark as already having, what you picked to compare, and today&apos;s log (about the last two days).
           </li>
           <li className={row}>
             <strong>What never syncs:</strong> your location, the water you add on Home (only your daily water goal syncs, with your other targets), your reminders, your meal plan and the people you cook for, the dishes you viewed in the last day, the offline menu files, messages waiting to be
@@ -129,6 +146,8 @@ export default function Privacy() {
         </Rows>
       </Section>
 
+      {/* Community's sections only while it is part of the app; off (since 18 November 2026), one short paragraph says what is still kept from before */}
+      {COMMUNITY_ENABLED ? (
       <Section title="Community (needs an account)">
         <p className={para}>
           Community is the Community tab.{SIGN_IN_REQUIRED ? " " : " The food articles in it need no account. "}<strong>Friends</strong> and <strong>Shared with you</strong> do: you add a friend with their friend
@@ -171,11 +190,22 @@ export default function Privacy() {
           </li>
         </Rows>
       </Section>
+      ) : (
+      <Section title="Community (switched off)">
+        <p className={para}>
+          Community (adding friends and sending them shopping lists) isn&apos;t part of {site.name} at the moment, and nothing new is kept for it. If you used it
+          before, we still keep what it kept then: your username, friend code, friends and blocks until you delete your account, the shopping lists sent between
+          friends until 30 days after they were sent, and any report (a closed one is deleted a year after it was made). Deleting your account (Settings › Account)
+          removes all of it straight away, except reports, which are kept as before with the account&apos;s ID taken out of them. To have any of it deleted sooner,
+          email us.
+        </p>
+      </Section>
+      )}
 
       <Section title="Location">
         <p className={para}>
-          The Near me map (in Eat out) can use your location, but only when you tap &ldquo;Use my location&rdquo; and allow it (in the
-          iPhone app through the iPhone&apos;s own location permission; in the web app through your browser). Your position is used on your
+          The Near me map (in Eat out) can use your location: the first time, only when you tap &ldquo;Use my location&rdquo; and allow it (in the
+          iPhone app through the iPhone&apos;s own location permission; in the web app through your browser); while you allow it, the map uses it when you open it. Your position is used on your
           device to work out which restaurant branches are closest, using a list of branch positions that comes with the app or that your
           browser downloads from us. We never store or receive your location, and it is not remembered on your device.
         </p>
@@ -193,13 +223,14 @@ export default function Privacy() {
 
       <Section title="Groceries and barcodes">
         <p className={para}>
-          The Groceries screen lists supermarket products using the open Open Food Facts database, which is community data and can be
-          wrong or out of date. Product photos are shown from the first of these places that has one: a small copy we keep on our own site (your browser then
+          The Groceries screen lists products from each supermarket&apos;s own website. Where a shop publishes no label we may show the same product&apos;s label
+          from another shop, Open Food Facts (community data, which can be wrong or out of date) or UK government figures, and say so on screen. Product photos are shown from the first of these places that has one: a small copy we keep on our own site (your browser then
           talks only to us); or a supermarket&apos;s own website, which loads the picture straight from that shop&apos;s servers, so the shop can see your IP address and
           which pictures your device asks for (we ask it not to say which page you are on); or, only for a product no supermarket&apos;s website has a photo
           of, the Open Food Facts photo of that exact barcode, loaded from Open Food Facts&apos; servers, which can see the same. If a picture fails to load we try the
-          next place, and show no picture if none loads.
-          {SIGN_IN_REQUIRED ? "Your shopping list syncs to your account, and goes to a friend only if you send it" : "Your shopping list stays on your device, unless you sign in to sync it or send it to a friend"} (see &ldquo;Community (needs an account)&rdquo; above). If you scan a barcode, the camera picture is read on your device and is never sent anywhere.
+          next place, and show no picture if none loads.{" "}
+          {SIGN_IN_REQUIRED ? "Your shopping lists sync to your account." : "Your shopping lists stay on your device, unless you sign in to sync them."}{" "}
+          If you scan a barcode, the camera picture is read on your device and is never sent anywhere.
         </p>
         <p className={para}>
           If you share your shopping list as a link, the app makes a link and hands it to whatever you choose to send it with (Messages, WhatsApp, email). The list is inside the link,
@@ -212,41 +243,43 @@ export default function Privacy() {
 
       <Section title={AI_RECIPES_ENABLED ? <>Recipes and Pip&apos;s recipe maker</> : "Recipes"}>
         <p className={para}>
-          Recipes are worked out on your device from the supermarket&apos;s product list; your meal size, diet choices, saved recipes, the store-cupboard items you mark as already having stay on your device.
+          Recipes are worked out on your device from the supermarket&apos;s product list. Your meal size, diet choices, saved recipes and the store-cupboard items you
+          mark as already having are kept on your device and {SIGN_IN_REQUIRED ? "in your account" : "in your account if you sign in"} (see &ldquo;{SIGN_IN_REQUIRED ? "Your account and syncing" : "Signing in and syncing (optional)"}&rdquo;).
         </p>
         {AI_RECIPES_ENABLED && (
         <p className={para}>
           If you ask Pip to make a recipe, we send what you chose on that page (the meal, how many people, the meal size and protein, your diet and allergy
           choices, and anything you typed in the &ldquo;Anything you&apos;d like?&rdquo; box) and the list of that shop&apos;s products it may use to our server, which passes
           them to Anthropic, the company that makes the Claude AI, to write the recipe. No name, account, location or anything else is sent, and we don&apos;t keep a
-          copy: the recipe comes straight back to your browser. Our server uses a one-way scramble of your IP address, held only in memory for a day, to stop one
-          person asking too often.
+          copy: the recipe comes straight back to your browser. Our server uses a one-way scramble of your IP address, held only in this server&apos;s memory, for a
+          day at most, to stop one person asking too often.
         </p>
         )}
         {PHOTO_RECIPES_API_ENABLED && (
         <p className={para}>
           If you use Make it at home (part of Premium), the photo you choose is made smaller on your device first, and then that photo, what you typed about the dish (its name and
-          a short description), your diet and allergy choices and the list of the shop&apos;s products it may use are sent to our server, which passes them to Anthropic,
-          the company that makes the Claude AI, to check the photo shows food and to write the recipe. The camera view you see while taking the photo stays on your device: only the one photo you take is sent. No name, account, location or anything else
-          is sent, and we don&apos;t keep the photo or the recipe: the recipe comes straight back to your device. If you save the recipe, a small copy of your photo is kept on
-          your device as its picture; it is not synced to your account or sent anywhere, and it is deleted with the recipe or by Clear data. To check you have Premium, your device sends its access
-          token, which holds no personal details. The same one-way scramble of your IP address stops one person asking too often.
+          a short description), how many people and the meal size, your diet and allergy choices and the list of the shop&apos;s products it may use are sent to our server,
+          which passes them to Anthropic, the company that makes the Claude AI, to check the photo shows food and to write the recipe. The camera view you see while taking the
+          photo stays on your device: only the one photo you take is sent. No name, account, location or anything else is sent. We don&apos;t keep the photo. The recipe Pip
+          writes is saved in My recipes, on your device and in your account so it is on your other devices; deleting it there, or deleting your account, removes it. The small
+          copy of your photo that is its picture stays on your device only, and is deleted with the recipe or by Clear data. To check you have Premium, your device sends
+          its access token, which holds no personal details. The same one-way scramble of your IP address stops one person asking too often.
         </p>
         )}
         {PHOTO_RECIPES_API_ENABLED && (
         <p className={para}>
           If you ask Pip for a new recipe in Cook with what you already have (part of Premium), the list of food you typed or tapped, the kind of food you fancy, your diet
           and allergy choices, the size of your meal and the list of the shop&apos;s products it may use are sent to our server, which passes them to Anthropic to write
-          the recipe. No name, account, location or anything else is sent, and we don&apos;t keep the list or the recipe: the recipe comes straight back to your device and
-          is saved in your recipes there. Finding our own recipes for what you have happens on your device only and sends nothing. To check you have Premium, your
+          the recipe. No name, account, location or anything else is sent. We don&apos;t keep the list. The recipe Pip writes is saved in My recipes, on your device and in
+          your account so it is on your other devices; deleting it there, or deleting your account, removes it. Finding our own recipes for what you have happens on your device only and sends nothing. To check you have Premium, your
           device sends its access token, which holds no personal details, and the same one-way scramble of your IP address stops one person asking too often.
         </p>
         )}
         {FOOD_SCAN_API_ENABLED && (
         <p className={para}>
-          If you use Scan your food (part of Premium), the photo of your plate is made smaller on your device first and sent to our server, which passes it to
-          Anthropic, the company that makes the Claude AI, to see what food is on the plate and estimate its calories, protein, carbs and fat. Only the one photo you
-          take or choose is sent: no name, account, location or anything else. We don&apos;t keep the photo or the estimate: the estimate comes straight back to your
+          If you use Scan your food (part of Premium), the photo of your plate is made smaller on your device first and sent, with the words you typed about it, to our
+          server, which passes them to Anthropic, the company that makes the Claude AI, to see what food is on the plate and estimate its calories, protein, carbs and
+          fat. Only the one photo you take or choose and those words are sent: no name, account, location or anything else. We don&apos;t keep the photo or the estimate: the estimate comes straight back to your
           device. If you add it to your day&apos;s log, it is kept like any meal you log (its name and its four numbers, not the photo). To check you have Premium,
           your device sends its access token, which holds no personal details. The same one-way scramble of your IP address stops one person asking too often.
         </p>
@@ -265,7 +298,7 @@ export default function Privacy() {
           We keep Pip&apos;s answer for that pair of items (the sentence and the reasons, filed under a one-way scramble of the two items, their figures, the goal and the diet choices,
           with nothing about you in it) so that the next time anyone compares the same two items for the same goal the answer is reused and the AI isn&apos;t asked again. Your device
           keeps a copy of the answers it has seen; they aren&apos;t synced to your account and are deleted by Clear data. Our server uses a one-way scramble of your IP address,
-          held only in memory for a day, to stop one person asking too often.
+          held only in this server&apos;s memory, for a day at most, to stop one person asking too often.
         </p>
       </Section>
       )}
@@ -302,7 +335,7 @@ export default function Privacy() {
         <p className={para}>
           {PRO_ENABLED || APP_PREMIUM || WEB_PRO_ENABLED
             ? <>
-                {APP_PREMIUM || (PRO_ENABLED && !WEB_PRO_ENABLED) ? <>Purchases in the iPhone app are handled by Apple. We don&apos;t receive your name, email or payment details from Apple. To switch paid features on, the app sends our server the purchase record Apple signed (which plan, its dates and Apple&apos;s reference number for the purchase) so we can check it is genuine; we don&apos;t keep it. </> : null}
+                {APP_PREMIUM || (PRO_ENABLED && !WEB_PRO_ENABLED) ? <>Purchases in the iPhone app are handled by Apple. We don&apos;t receive your name, email or payment details from Apple. To switch paid features on, the app sends our server the purchase record Apple signed (which plan, its dates, the price, the currency and the country of the App Store, and Apple&apos;s reference number for the purchase) so we can check it is genuine; we don&apos;t keep it. </> : null}
                 {WEB_PRO_ENABLED ? <>When you pay on the website, Stripe takes your payment on its own page and tells us your email address, what you bought, the amount, the dates and a payment reference. We never see your card number. We keep these records for as long as your access lasts and for six years after, because we must keep our accounts. If you arrived through a creator&apos;s link, we also record the creator&apos;s code against your payment so the creator can be credited, and we never tell the creator who you are. </> : null}
                 {!WEB_PRO_ENABLED ? <>Paid features aren&apos;t available in the web app yet.</> : null}
               </>
@@ -367,7 +400,12 @@ export default function Privacy() {
           {WEB_PRO_ENABLED && <li className={row}>Stripe takes payments on the website (card, Apple Pay and Google Pay) and sends us the email address and payment details above.</li>}
           <li className={row}>On the Groceries screen, product photos not stored on our own site are served by the supermarket&apos;s own website (Tesco, Sainsbury&apos;s and the others listed there), or by Open Food Facts for a product no supermarket has a photo of.</li>
           <li className={row}>postcodes.io looks up the postcode or town you type on the Near me map, and OpenFreeMap serves the map tiles there.</li>
-          {AI_RECIPES_ENABLED && <li className={row}>Anthropic (the Claude AI) writes a recipe when you ask Pip to make one, from the choices on that page.</li>}
+          {AI_FEATURES.length > 0 && (
+            <li className={row}>
+              Anthropic (the company that makes the Claude AI) reads what you send to {listed(AI_FEATURES)}, and writes Pip&apos;s answers. It handles what we send under
+              its own commercial terms: it may keep requests for a limited time, and doesn&apos;t use them to train its models.
+            </li>
+          )}
         </Rows>
         <p className={para}>We don&apos;t sell or share your data, show ads, or track you across other apps and websites.</p>
       </Section>

@@ -327,7 +327,9 @@
     "salt": 2,
     "energyKj": 2067
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],

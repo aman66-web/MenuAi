@@ -1,9 +1,9 @@
 import Foundation
 import OSLog
 
-/// One In-App Purchase product as the page shows it: Apple's own name and price (localised by StoreKit, e.g. "£14.99"), never ours.
+/// One In-App Purchase product as the page shows it: Apple's own name and price (localised by StoreKit, e.g. "£49.99"), never ours.
 nonisolated struct IAPProduct: Codable, Equatable, Sendable {
-    /// How often it renews: "month", "year", or "none" for the 90-day pass (a non-renewing subscription).
+    /// How often it renews: "month", "year", or "none" for anything that doesn't renew every month or year (none is sold now; the page still reads it).
     nonisolated enum Period: String, Codable, Equatable, Sendable {
         case month
         case year
@@ -17,7 +17,7 @@ nonisolated struct IAPProduct: Codable, Equatable, Sendable {
     /// The free trial's length in days, only when the product has one and this Apple ID can still have it (Apple gives one per subscription group per Apple ID).
     var trialDays: Int? = nil
 
-    /// Only our three products (AppConfig.iapProductIDs), each once, in the order given.
+    /// Only our products (AppConfig.iapProductIDs), each once, in the order given.
     static func onlyOurs(_ ids: [String]) -> [String] {
         var seen = Set<String>()
         return ids.filter { AppConfig.iapProductIDs.contains($0) && seen.insert($0).inserted }

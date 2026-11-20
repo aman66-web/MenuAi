@@ -5,11 +5,12 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { MAX_SAVED_RECIPES, MAX_WISH, keepMadeRecipe, pantryLines, recipeFromAi, type Meal, type RecipeRequest } from "@/lib/mm/aiRecipe";
 import { mealSlotFor } from "@/lib/mm/budget";
-import { AI_RECIPES_ENABLED } from "@/lib/mm/config";
+import { AI_MESSAGES, aiFailureMessage } from "@/lib/mm/aiConsent";
+import { AI_RECIPES_ENABLED, API_BASE } from "@/lib/mm/config";
 import { tk } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { mealSizes, type Recipe } from "@/lib/mm/recipes";
-import { myRecipesStore } from "@/lib/mm/stores";
+import { myRecipesStore, paidStore } from "@/lib/mm/stores";
 import { site } from "@/site.config";
 import { ALLERGEN_SHORT } from "../../_components/DietPicker";
 import { PageHeader } from "../../_components/PageHeader";
@@ -17,7 +18,7 @@ import { PipSays } from "../../_components/Mascot";
 import { useGate } from "../../_components/Paywall";
 import { Button, ChoiceMark, ErrorBox, inputClass, radioKeyNav, Spinner } from "../../_components/ui";
 import { useBack } from "../../_lib/backNav";
-import { useHydrated, useIsPro, useSettings } from "../../_lib/hooks";
+import { useHydrated, useIsPro, useSettings, useStore } from "../../_lib/hooks";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { Rich } from "../../_lib/Rich";
 import { recipeShop, useRecipeMakerEnabled } from "../../_lib/recipes";
@@ -26,7 +27,8 @@ import { MealPicker } from "../MealPicker";
 import { RecipeDetail } from "../RecipeDetail";
 
 // Pip's recipe maker: the person picks a few big buttons (and may type a wish), Pip writes a recipe with AI from their shop's real products,
-// and the app works out every number from the labels (lib/mm/aiRecipe.ts). What is sent is said right above the button.
+// and the app works out every number from the labels (lib/mm/aiRecipe.ts). What is sent is said right under the button. It calls the API by API_BASE, so it
+// works inside the iPhone app too, with the person's paid token (the route checks Premium, like the photo routes).
 
 const MEAL_OPTIONS: ReadonlyArray<{ value: Meal; label: string }> = [
   { value: "breakfast", label: tk("Breakfast") },
@@ -83,6 +85,7 @@ function MakeScreen() {
   const pro = useIsPro();
   const hydrated = useHydrated();
   const { showPaywall } = useGate();
+  const paid = useStore(paidStore);
   const words = [diet.vegetarianOnly && t("vegetarian"), diet.veganOnly && t("vegan"), diet.pescatarianOnly && t("pescatarian"), diet.halalOnly && t("halal"), diet.noPork && t("no pork"), diet.noBeef && t("no beef"), ...(diet.avoidAllergens ?? []).map((a) => t("no {allergen}", { allergen: t(ALLERGEN_SHORT[a]).toLowerCase() }))].filter(Boolean);
 
   const make = async () => {
@@ -93,9 +96,11 @@ function MakeScreen() {
     window.scrollTo({ top: 0 });
     abort.current = new AbortController();
     try {
-      const res = await fetch("/api/v1/recipe", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), signal: abort.current.signal });
-      const json = (await res.json().catch(() => ({}))) as { recipe?: unknown; message?: string };
-      if (!res.ok) { setPhase({ kind: "error", message: json.message ?? tk("Pip couldn't make a recipe this time. Please try again.") }); return; }
+      const res = await fetch(`${API_BASE}recipe`, { method: "POST", headers: { "Content-Type": "application/json", ...(paid.token ? { Authorization: `Bearer ${paid.token}` } : {}) }, body: JSON.stringify(body), signal: abort.current.signal });
+      const json = (await res.json().catch(() => ({}))) as { recipe?: unknown; message?: string; error?: string };
+      // the server's Premium check said no: the plans, never an error
+      if (res.status === 402 || json.error === "premium") { setPhase({ kind: "form" }); showPaywall("recipeMaker"); return; }
+      if (!res.ok) { setPhase({ kind: "error", message: aiFailureMessage({ status: res.status, message: json.message }, tk("Pip couldn't make a recipe this time. Please try again.")) }); return; }
       const recipe = recipeFromAi(json.recipe, { servings: people, diet }, `ai-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`);
       if (recipe) {
         // saved the moment it's made (founder 2026-11-18: "it automatically becomes a saved recipe. They can remove it from the recipes in my meals later")
@@ -107,7 +112,7 @@ function MakeScreen() {
       setPhase(recipe ? { kind: "done", recipe } : { kind: "error", message: tk("Pip's recipe didn't pass our checks. Please try again.") });
     } catch (e) {
       if ((e as Error).name === "AbortError") { setPhase({ kind: "form" }); return; }
-      setPhase({ kind: "error", message: tk("Couldn't reach Pip. Check your connection and try again.") });
+      setPhase({ kind: "error", message: aiFailureMessage({ status: 0 }, AI_MESSAGES.connection, navigator.onLine !== false) });
     }
   };
 
@@ -124,7 +129,7 @@ function MakeScreen() {
         {back}
         <h1 className="mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]"><Rich text={t("Ask {pip}")} values={{ pip: <span className="serif-em sun-text pe-0.5">Pip</span> }} /></h1>
         <div className="mt-4">
-          <PipSays mood="wave" size={84}>{t("Making a new recipe just for you is part of {app} Premium. All our ready-made recipes stay free.", { app: site.name })}</PipSays>
+          <PipSays mood="wave" size={64}>{t("Making a new recipe just for you is part of {app} Premium. All our ready-made recipes stay free.", { app: site.name })}</PipSays>
         </div>
         <div className="mt-5 grid gap-3">
           <Button full className="min-h-14 text-lg" onClick={() => showPaywall("recipeMaker")}>{t("See Premium")}</Button>
@@ -139,7 +144,7 @@ function MakeScreen() {
       <div>
         {back}
         <div role="status" aria-live="polite" className="mt-10 flex flex-col items-center text-center">
-          <div className="w-full max-w-sm text-start"><PipSays mood="think" size={130}>{t("I'm writing your recipe now…")}</PipSays></div>
+          <div className="w-full max-w-sm text-start"><PipSays mood="think" size={64}>{t("I'm writing your recipe now…")}</PipSays></div>
           <p className="mt-4 text-lg font-semibold">{t("Picking products from {shop} and fitting them to your meal.", { shop: shopName })}</p>
           <p className="mt-1 text-muted">{t("This usually takes 10 to 30 seconds.")}</p>
           <span aria-hidden className="mt-5 flex gap-2"><i className="dot-pulse" /><i className="dot-pulse [animation-delay:150ms]" /><i className="dot-pulse [animation-delay:300ms]" /></span>
@@ -181,7 +186,7 @@ function MakeScreen() {
       {back}
       <h1 className="mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]"><Rich text={t("Ask {pip}")} values={{ pip: <span className="serif-em sun-text pe-0.5">Pip</span> }} /></h1>
       <div className="mt-4">
-        <PipSays mood="wave" size={84}>{ownShopName ? t("What shall I make? Tap a few buttons and I'll write a recipe from {shop} products.", { shop: poss(ownShopName) }) : t("What shall I make? Tap a few buttons and I'll write a recipe from your shop's products.")}</PipSays>
+        <PipSays mood="wave" size={64}>{ownShopName ? t("What shall I make? Tap a few buttons and I'll write a recipe from {shop} products.", { shop: poss(ownShopName) }) : t("What shall I make? Tap a few buttons and I'll write a recipe from your shop's products.")}</PipSays>
       </div>
 
       {phase.kind === "error" && <div className="mt-4"><ErrorBox message={t(phase.message)} onRetry={make} /></div>}
@@ -226,7 +231,7 @@ function MakeScreen() {
           {/* while it can't be pressed, the reason sits above it (colour meeting: never a silent grey button) */}
           <Button full className="min-h-14 text-lg" disabled={pantry.length < 2 || makerOn === false} reason={makerOn === false ? t("Pip's recipe maker isn't switched on yet. Our own recipes are ready to use.") : !shop ? t("Recipes appear once we've read a supermarket's products and prices.") : t("Too few {shop} products fit your diet. You can change your diet in Settings.", { shop: shopName })} onClick={make}>{t("Make my recipe")}</Button>
           <p className="mt-3 text-[0.8125rem] leading-snug text-muted">
-            {t("Pip uses AI from Anthropic (the company that makes Claude). To write your recipe we send your choices on this page (meal, people, meal size, diet and anything you typed) and the list of {shop} products it may use. Nothing about you, and nothing is kept. The numbers you see are worked out from the products' own labels.", { shop: shopName })}
+            {t("Pip uses AI from Anthropic (the company that makes Claude). To write your recipe we send your choices on this page (meal, people, meal size, diet and anything you typed) and the list of {shop} products it may use. No name, email or account is sent with it, and we don't keep it. The numbers you see are worked out from the products' own labels.", { shop: shopName })}
           </p>
         </div>
       )}

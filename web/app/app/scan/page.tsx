@@ -1,20 +1,24 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { ADDED_TO } from "@/lib/mm/addFood";
+import { AI_MESSAGES, aiFailureMessage, aiRetrySame } from "@/lib/mm/aiConsent";
 import { analytics } from "@/lib/mm/analytics";
 import { LOG_MEAL_LABEL, LOG_MEALS, mealSlotFor } from "@/lib/mm/budget";
 import { API_BASE, FOOD_SCAN_ENABLED, PAID_ACCESS_ENABLED } from "@/lib/mm/config";
-import { ESTIMATE_LOG_NAME, MAX_DESCRIPTION, SCAN_WORKING_LINES, type FoodScan } from "@/lib/mm/foodScan";
+import { ESTIMATE_LOG_NAME, MAX_DESCRIPTION, SCAN_MESSAGES, SCAN_WORKING_LINES, type FoodScan } from "@/lib/mm/foodScan";
 import { formatInt } from "@/lib/mm/format";
 import { tk } from "@/lib/mm/i18n";
-import { addLogEntry, countProAction, paidStore } from "@/lib/mm/stores";
+import { addLogEntry, countProAction, deleteLogEntry, moveLogEntry, paidStore } from "@/lib/mm/stores";
 import type { LogMeal } from "@/lib/mm/types";
+import { OfflineBanner, useAiConsent, useOnline } from "../_components/AiConsentSheet";
 import { CameraIcon, CheckIcon, InfoIcon, PhotoIcon } from "../_components/icons";
 import { PageHeader } from "../_components/PageHeader";
 import { useGate } from "../_components/Paywall";
-import { Button, ErrorBox, Spinner } from "../_components/ui";
+import { PremiumBadge } from "../_components/PremiumBadge";
+import { Toast } from "../_components/Toast";
+import { Button, ErrorBox, inputClass, Spinner } from "../_components/ui";
 import { useHydrated, useIsPro, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { shrinkPhoto, type ShrunkPhoto } from "../_lib/photo";
@@ -27,8 +31,13 @@ import { PhotoCamera, ScanningPhoto } from "../recipes/photo/PhotoCamera";
 // No Pip on the first page (Pip audit, founder 2026-11-20: "keep him as the guide, not the decoration"). The estimate is a white card with the dashed edge and
 // the "Estimate from your photo" info tag at its top (colour meeting, 19 November 2026: an AI estimate must never look like a published label), and nothing on
 // this screen is lime: the loading list's finished steps are plain ink ticks.
+// The 20 November 2026 audit: Pip's permission sheet before the first photo (AiConsentSheet.tsx), an offline line and no camera while offline, Stop that stops
+// quietly, a failure of the connection or of Pip keeps the photo and Try again sends it again, "Pip can't do this right now" when Anthropic can't answer,
+// the plate logged once (another meal moves it, with the app's toast and Undo), "Scan another" back to the first page with nothing left from the last plate,
+// and for someone without Premium the Premium badge and "See Premium" in place of the form. ?meal= (from the Add food sheet) chooses the meal on the result.
 
 type Step = "start" | "camera" | "scanning" | "working" | "done" | "error";
+type Reply = { scan?: FoodScan; error?: string; message?: string; status: number; aborted?: true };
 const WORKING_STEP_MS = 6000;
 const H1 = "mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]";
 
@@ -91,25 +100,39 @@ function ScanScreen() {
   const hydrated = useHydrated();
   const pro = useIsPro();
   const paid = useStore(paidStore);
+  const online = useOnline();
   // Premium here means a checked paid token (the server checks it again); a test build that previews Pro has no payments, so Pro is enough there.
   const access = PAID_ACCESS_ENABLED ? pro && !!paid.token : pro;
   const { showPaywall } = useGate();
+  const consent = useAiConsent("scan");
+  // the meal asked for by the page that opened this one (the Add food sheet: ?meal=lunch), else the one for the time of day
+  const askedMeal = useSearchParams().get("meal");
   const [step, setStep] = useState<Step>("start");
+  // which step is showing, read when an answer comes back (the person may have pressed Stop meanwhile)
+  const stepNow = useRef<Step>("start");
+  const go = (next: Step) => {
+    stepNow.current = next;
+    setStep(next);
+  };
   const [photo, setPhoto] = useState<ShrunkPhoto | null>(null);
   const [photoError, setPhotoError] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
   const [scan, setScan] = useState<FoodScan | null>(null);
   const [finished, setFinished] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [meal, setMeal] = useState<LogMeal>(() => mealSlotFor(new Date()));
-  const [logged, setLogged] = useState<LogMeal | null>(null);
+  // the failure was the connection or Pip, not the photo: Try again sends the same photo again
+  const [retrySame, setRetrySame] = useState(false);
+  const [meal, setMeal] = useState<LogMeal>(() => (LOG_MEALS as readonly string[]).includes(askedMeal ?? "") ? (askedMeal as LogMeal) : mealSlotFor(new Date()));
+  // the plate as logged (once): another meal then moves it instead of adding it again
+  const [loggedId, setLoggedId] = useState<string | null>(null);
+  const [toast, setToast] = useState<{ text: string; undo: boolean; n: number } | null>(null);
   // what the food is, typed before the photo (founder 2026-11-18: "before they take a photo, they have to type in what the food is ... that brief description will
   // also help the AI"); sent with the photo, never kept
   const [what, setWhat] = useState("");
   const [whatMissing, setWhatMissing] = useState(false);
   const whatBox = useRef<HTMLInputElement>(null);
   const described = what.trim().length >= 2;
-  const answer = useRef<Promise<{ scan?: FoodScan; error?: string; message?: string; status: number }> | null>(null);
+  const answer = useRef<Promise<Reply> | null>(null);
   const abort = useRef<AbortController | null>(null);
   const heading = useRef<HTMLHeadingElement>(null);
   const phoneCamera = useRef<HTMLInputElement>(null);
@@ -119,7 +142,7 @@ function ScanScreen() {
   useEffect(() => () => { if (photo) URL.revokeObjectURL(photo.url); }, [photo]);
   useEffect(() => () => abort.current?.abort(), []);
 
-  const ask = async (image: string) => {
+  const ask = async (image: string): Promise<Reply> => {
     abort.current = new AbortController();
     try {
       const res = await fetch(`${API_BASE}scan`, {
@@ -130,8 +153,10 @@ function ScanScreen() {
       });
       const json = (await res.json().catch(() => ({}))) as { scan?: FoodScan; error?: string; message?: string };
       return { ...json, status: res.status };
-    } catch {
-      return { status: 0, message: tk("Couldn't reach Pip. Check your connection and try again.") };
+    } catch (e) {
+      // Stop (or leaving the page): not a failure, nothing to say
+      if ((e as Error).name === "AbortError") return { status: -1, aborted: true };
+      return { status: 0 };
     }
   };
 
@@ -141,48 +166,85 @@ function ScanScreen() {
     setPhotoError(false);
     setNotice(null);
     const shrunk = await shrinkPhoto(file);
-    if (!shrunk) { setPhotoError(true); setStep("start"); return; }
+    if (!shrunk) { setPhotoError(true); go("start"); return; }
     setPhoto(shrunk);
     setFinished(false);
     answer.current = ask(shrunk.base64);
-    setStep("scanning");
+    go("scanning");
   };
 
   const afterScan = async () => {
-    setStep("working");
-    const res = await (answer.current ?? Promise.resolve({ status: 0 } as { status: number; scan?: FoodScan; error?: string; message?: string }));
+    go("working");
+    const res = await (answer.current ?? Promise.resolve<Reply>({ status: 0 }));
+    // stopped, or the person has moved on: the answer is dropped
+    if (res.aborted || stepNow.current !== "working") return;
     if (res.status === 200 && res.scan) {
       setFinished(true);
       setScan(res.scan);
-      setLogged(null);
-      setTimeout(() => setStep("done"), 400);
+      setLoggedId(null);
+      setTimeout(() => { if (stepNow.current === "working") go("done"); }, 400);
       return;
     }
     if (res.error === "not_food") {
       setPhoto(null);
       setNotice(tk("That doesn't look like food. Please try again with a photo of your plate."));
-      setStep("camera");
+      go("camera");
       return;
     }
-    if (res.error === "premium") { showPaywall("foodScan"); setStep("start"); return; }
-    setError(res.message ?? tk("Pip couldn't work out this food. Please try again with a clearer photo."));
-    setStep("error");
+    if (res.error === "premium" || res.status === 402) { showPaywall("foodScan"); go("start"); return; }
+    setError(aiFailureMessage(res, SCAN_MESSAGES.noEstimate, navigator.onLine !== false));
+    setRetrySame(aiRetrySame(res));
+    go("error");
+  };
+
+  /** Try again after the connection or Pip failed: the same photo, sent again. */
+  const resend = () => {
+    if (!photo) { go("camera"); return; }
+    setFinished(false);
+    answer.current = ask(photo.base64);
+    void afterScan();
   };
 
   const start = (how: "camera" | "library") => {
     if (!access) { showPaywall("foodScan"); return; }
+    if (!online) return; // the offline line at the top says why
     if (!described) { setWhatMissing(true); whatBox.current?.focus(); return; }
-    if (how === "camera") setStep("camera");
-    else library.current?.click();
+    consent.ask(() => {
+      if (how === "camera") go("camera");
+      else library.current?.click();
+    });
   };
 
+  const name = scan ? t(ESTIMATE_LOG_NAME, { name: scan.name }) : "";
   const log = () => {
-    if (!scan) return;
-    const name = t(ESTIMATE_LOG_NAME, { name: scan.name });
-    addLogEntry({ chainId: "", chainName: "", name, nutrients: { calories: scan.total.kcal, protein: scan.total.protein, carbs: scan.total.carbs, fat: scan.total.fat }, source: "custom", meal, estimate: true });
+    if (!scan || loggedId) return;
+    const entry = addLogEntry({ chainId: "", chainName: "", name, nutrients: { calories: scan.total.kcal, protein: scan.total.protein, carbs: scan.total.carbs, fat: scan.total.fat }, source: "custom", meal, estimate: true });
     analytics.track({ name: "mealLogged" });
     countProAction();
-    setLogged(meal);
+    setLoggedId(entry.id);
+    setToast((was) => ({ text: t(ADDED_TO[meal], { name }), undo: true, n: (was?.n ?? 0) + 1 }));
+  };
+  /** A meal tapped on the result: before adding, the meal it will go to; after, the plate moves there (never a second copy). */
+  const chooseMeal = (m: LogMeal) => {
+    setMeal(m);
+    if (!loggedId || m === meal) return;
+    moveLogEntry(loggedId, m);
+    setToast((was) => ({ text: t("Moved “{name}” to {meal}.", { name, meal: t(LOG_MEAL_LABEL[m]) }), undo: false, n: (was?.n ?? 0) + 1 }));
+  };
+  const undo = () => {
+    if (loggedId) deleteLogEntry(loggedId);
+    setLoggedId(null);
+    setToast(null);
+  };
+  /** A different plate: back to the first page, with nothing of the last one kept (its words would be sent with the new photo). */
+  const scanAnother = () => {
+    setWhat("");
+    setWhatMissing(false);
+    setScan(null);
+    setPhoto(null);
+    setLoggedId(null);
+    setToast(null);
+    go("start");
   };
 
   if (!hydrated) return <Spinner />;
@@ -192,9 +254,20 @@ function ScanScreen() {
       {/* the header every page has (colour meeting, 19 November 2026), except on the full-screen camera: Back (the page before, else Home) and the cog */}
       {step !== "camera" && <PageHeader back={{ href: "/app", label: t("Back to Home") }} />}
 
-      {step === "start" && (
+      {step === "start" && !access && (
+        // someone without Premium: what it does, the badge, and the plans (never a form that ends in a paywall)
+        <section aria-labelledby="scan-h">
+          <h1 id="scan-h" ref={heading} tabIndex={-1} className={`${H1} flex flex-wrap items-center gap-x-2.5 gap-y-1`}>{t("Scan your food")}<PremiumBadge always /></h1>
+          <p className="mt-2 text-[1.0625rem] leading-snug text-muted">{t("Take a photo of your plate and Pip estimates its calories, protein, carbs and fat.")}</p>
+          <p className="mt-5 flex gap-2 text-[0.9375rem] leading-snug text-foreground"><InfoIcon aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-foreground" /><span>{t("The numbers are an estimate from your photo, not from a label: oil, sauces and portion sizes can't always be seen.")}</span></p>
+          <Button full className="mt-5 min-h-14 text-lg" onClick={() => showPaywall("foodScan")}>{t("See Premium")}</Button>
+        </section>
+      )}
+
+      {step === "start" && access && (
         <section aria-labelledby="scan-h">
           <h1 id="scan-h" ref={heading} tabIndex={-1} className={H1}>{t("Scan your food")}</h1>
+          {!online && <OfflineBanner className="mt-4" />}
           <p className="mt-2 text-[1.0625rem] leading-snug text-muted">{t("Take a photo of your plate and Pip estimates its calories, protein, carbs and fat.")}</p>
           {/* first, in a few words, what the food is: Pip reads it with the photo */}
           <label htmlFor="scan-what" className="mt-5 block text-lg font-[800] leading-snug">{t("What are you eating?")}</label>
@@ -209,27 +282,27 @@ function ScanScreen() {
             autoComplete="off"
             aria-describedby={whatMissing && !described ? "scan-what-help scan-what-missing" : "scan-what-help"}
             aria-invalid={whatMissing && !described ? true : undefined}
-            placeholder={t("For example: chicken pasta in a creamy sauce")}
+            placeholder={t("For example: creamy chicken pasta")}
             onChange={(e) => { setWhat(e.target.value); if (e.target.value.trim().length >= 2) setWhatMissing(false); }}
             onKeyDown={(e) => { if (e.key === "Enter") e.currentTarget.blur(); }}
-            className="glass mt-2 block min-h-14 w-full rounded-[1.25rem] px-4 text-[1.0625rem] outline-none placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent"
+            className={`${inputClass} mt-2 min-h-14 text-[1.0625rem]`}
           />
           {whatMissing && !described && <p id="scan-what-missing" role="alert" className="mt-2 text-[0.9375rem] font-semibold text-danger">{t("Type what the food is first, then take the photo.")}</p>}
           <div className="mt-4 space-y-3">
-            <Button full className="min-h-14 gap-2.5 text-lg" onClick={() => start("camera")}><CameraIcon className="h-6 w-6" />{t("Take a photo")}</Button>
-            <Button full variant="secondary" className="min-h-14 gap-2.5 text-lg" onClick={() => start("library")}><PhotoIcon className="h-6 w-6" />{t("Choose a photo")}</Button>
+            <Button full className="min-h-14 gap-2.5 text-lg" disabled={!online} onClick={() => start("camera")}><CameraIcon className="h-6 w-6" />{t("Take a photo")}</Button>
+            <Button full variant="secondary" className="min-h-14 gap-2.5 text-lg" disabled={!online} onClick={() => start("library")}><PhotoIcon className="h-6 w-6" />{t("Choose a photo")}</Button>
           </div>
           {photoError && <p role="alert" className="glass mt-3 rounded-[1.25rem] p-4 font-semibold">{t("That photo couldn't be opened. Please try another one.")}</p>}
           {/* the estimate line in the text colour with an info icon (colour meeting: "the estimate must be seen", CLAUDE.md rule 1) */}
-          <p className="mt-5 flex gap-2 text-[0.9375rem] leading-snug text-foreground"><InfoIcon aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-accent" /><span>{t("The numbers are an estimate from your photo, not from a label: oil, sauces and portion sizes can't always be seen.")}</span></p>
-          <p className="mt-3 text-[0.8125rem] leading-snug text-muted">{t("Pip uses AI from Anthropic (the company that makes Claude). To work out the numbers we send your photo (made smaller on your phone first). Nothing about you is sent with it, and we don't keep the photo.")}</p>
+          <p className="mt-5 flex gap-2 text-[0.9375rem] leading-snug text-foreground"><InfoIcon aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-foreground" /><span>{t("The numbers are an estimate from your photo, not from a label: oil, sauces and portion sizes can't always be seen.")}</span></p>
+          <p className="mt-3 text-[0.8125rem] leading-snug text-muted">{t("Pip uses AI from Anthropic (the company that makes Claude). To work out the numbers we send your photo (made smaller on your phone first) and the words you typed about it. No name, email or account is sent with it, and we don't keep it.")}</p>
         </section>
       )}
 
       {step === "camera" && (
         <PhotoCamera
           onCapture={(blob) => void pick(blob)}
-          onClose={() => { setNotice(null); setStep("start"); }}
+          onClose={() => { setNotice(null); go("start"); }}
           notice={notice ? t(notice) : null}
           onPickPhoto={() => library.current?.click()}
           onPhonesCamera={() => phoneCamera.current?.click()}
@@ -242,14 +315,24 @@ function ScanScreen() {
         <section aria-labelledby="scan-working-h">
           <h1 id="scan-working-h" ref={heading} tabIndex={-1} className={H1}>{t("Working it out")}</h1>
           <Working photoUrl={photo?.url ?? null} finished={finished} />
-          <div className="mt-6 flex justify-center"><Button variant="ghost" onClick={() => { abort.current?.abort(); setStep("start"); }}>{t("Stop")}</Button></div>
+          <div className="mt-6 flex justify-center"><Button variant="ghost" onClick={() => { go("start"); abort.current?.abort(); }}>{t("Stop")}</Button></div>
         </section>
       )}
 
       {step === "error" && (
         <section aria-labelledby="scan-error-h">
           <h1 id="scan-error-h" ref={heading} tabIndex={-1} className={H1}>{t("Scan your food")}</h1>
-          <div className="mt-4"><ErrorBox message={t(error ?? "")} onRetry={() => setStep("camera")} /></div>
+          {retrySame && photo ? (
+            <>
+              {/* the connection or Pip failed, not the photo: it is kept, and Try again sends it again */}
+              {/* eslint-disable-next-line @next/next/no-img-element -- the person's own photo, a local blob address */}
+              <img src={photo.url} alt={t("Your photo")} className="mt-4 aspect-[4/3] w-full rounded-[1.5rem] object-cover" />
+              <div className="mt-4"><ErrorBox message={t(error ?? AI_MESSAGES.busy)} onRetry={resend} /></div>
+              <Button full variant="secondary" className="mt-3 min-h-12" onClick={() => { setPhoto(null); go("camera"); }}>{t("Take another photo")}</Button>
+            </>
+          ) : (
+            <div className="mt-4"><ErrorBox message={t(error ?? "")} onRetry={() => go("camera")} /></div>
+          )}
         </section>
       )}
 
@@ -287,26 +370,32 @@ function ScanScreen() {
           </ul>
 
           <div className="glass mt-6 rounded-[1.25rem] p-4">
-            <h2 className="text-lg font-[800]">{t("Add it to today")}</h2>
+            <h2 className="text-lg font-[800]">{loggedId ? t("Added to today") : t("Add it to today")}</h2>
             <div role="radiogroup" aria-label={t("Which meal?")} className="mt-3 grid grid-cols-2 gap-2">
-              {/* the three meals and Snacks (founder 2026-11-19), two by two so each word stays whole */}
+              {/* the three meals and Snacks (founder 2026-11-19), two by two so each word stays whole; once added, a tap moves it */}
               {LOG_MEALS.map((m) => (
-                <button key={m} type="button" role="radio" aria-checked={meal === m} onClick={() => { setMeal(m); setLogged(null); }} className={`min-h-12 rounded-full px-2 text-[0.9375rem] font-bold transition active:scale-95 ${meal === m ? "border-[1.5px] border-transparent bg-ink text-on-ink" : "border-[1.5px] border-[color:var(--edge)] bg-soft"}`}>{t(LOG_MEAL_LABEL[m])}</button>
+                <button key={m} type="button" role="radio" aria-checked={meal === m} onClick={() => chooseMeal(m)} className={`min-h-12 rounded-full px-2 text-[0.9375rem] font-bold transition active:scale-95 ${meal === m ? "border-[1.5px] border-transparent bg-ink text-on-ink" : "border-[1.5px] border-[color:var(--edge)] bg-soft"}`}>{t(LOG_MEAL_LABEL[m])}</button>
               ))}
             </div>
-            {logged === meal ? (
-              <p role="status" className="mt-3 flex items-center gap-2 font-semibold"><CheckIcon className="h-5 w-5 text-accent" />{t(ADDED_TO[meal], { name: t(ESTIMATE_LOG_NAME, { name: scan.name }) })}</p>
+            {loggedId ? (
+              <p className="mt-3 flex items-center gap-2 font-semibold"><CheckIcon aria-hidden className="h-5 w-5 shrink-0 text-foreground" />{t(ADDED_TO[meal], { name })}</p>
             ) : (
               <Button full className="mt-3 min-h-14 text-lg" onClick={log}>{t("Add to {meal}", { meal: t(LOG_MEAL_LABEL[meal]) })}</Button>
             )}
           </div>
           <div className="mt-3 grid gap-2.5">
-            {logged && <Button full variant="secondary" className="min-h-12" onClick={() => router.push("/app")}>{t("Back to Home")}</Button>}
-            <Button full variant="secondary" className="min-h-12" onClick={() => { setScan(null); setPhoto(null); setStep("camera"); }}>{t("Scan another")}</Button>
+            {loggedId && <Button full variant="secondary" className="min-h-12" onClick={() => router.push("/app")}>{t("Back to Home")}</Button>}
+            <Button full variant="secondary" className="min-h-12" onClick={scanAnother}>{t("Scan another")}</Button>
           </div>
           <p className="mt-4 text-[0.8125rem] leading-snug text-muted">{t("The numbers are an estimate from your photo, not from a label: oil, sauces and portion sizes can't always be seen.")}</p>
         </section>
       )}
+
+      {toast && (
+        // the app's one toast (Home and Today use it too), with Undo after adding; a new key for each message so its time starts afresh
+        <Toast key={toast.n} onClose={() => setToast(null)} onUndo={toast.undo ? undo : undefined}>{toast.text}</Toast>
+      )}
+      {consent.sheet}
 
       {/* the phone's own camera and photo picker, for the buttons above and the camera screen's */}
       <input ref={phoneCamera} type="file" accept="image/*" capture="environment" className="sr-only" tabIndex={-1} aria-hidden onChange={(e) => { void pick(e.target.files?.[0]); e.target.value = ""; }} />

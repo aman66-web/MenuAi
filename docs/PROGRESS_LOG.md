@@ -3611,3 +3611,28 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   longer limits (recipe 120 s, food check 60 s, scan 220 s, pick 60 s). Cost: Opus is $4 / $20 per million tokens in / out, against Sonnet 5.5's $2 / $10 and
   Haiku 5.5's $0.10 / $0.50, so each Make it at home or scan costs about twice what it did, and the quick checks far more than on Haiku; the Anthropic spend
   limit ($20 a month) will be reached sooner.
+
+### 20 November 2026 (09:45-15:40): the 30-person whole-app audit, its fixes, and the founder's requests during it (on `iap`, not live)
+- **The audit** (52 agents: 30 areas checked with screenshots and tests, every finding re-checked by a sceptic, 8 fix teams on separate files, a tests stage, a
+  release and a design review; findings in docs/audit-findings-2026-11-20-partial.json for the first 8 areas, the full run in the session's workflow journal).
+  247 fixes. Scores before the fixes ran from 5 (Groceries: two data sets that disagreed) to 7 (Home, day pages).
+- **Founder's request: scan a barcode, see the product, add it to the food diary** (team 3): every barcode we hold is found (`web/lib/mm/barcodes.ts`,
+  `public/groceries/all/barcodes.json`: 14,240 shop-list and 14,693 catalogue codes; Kellogg's Rice Krispies 430g, for one, which the scanner had missed);
+  a scan opens the product; product pages have "Add to my food diary" (How much did you have?, the meal, the label's figures times the amount, toast with
+  Undo); in Add food a scanned barcode with one match goes straight to How much. Free in 1.1 (the Premium badge only where logging is paid). Not yet: barcodes
+  we don't hold (Open Food Facts lookup, queued), the scan as its own choice in the Add food sheet with a macros chart (queued, founder 12:46).
+- **Other fixes, by area:** Premium and payments (the plans screen's words, Restore says "refused" not "nothing to restore", the fake catalogue at the real
+  prices, the StoreKit file; 89 of 89 Swift tests); sign-in, privacy and Settings; Home, Today and the food log (portions no longer re-round label figures,
+  toasts now just above the tab bar except after the + sheet, so they never cover Back or Settings; a tap on a toast closes it); Eat out (Best for you no longer
+  suggests lattes for breakfast, "No red meat" now leaves out red meat, menus data); recipes (allergy clash warning, "doesn't sell" wording, Back keeps
+  filters, the search box's room); meal plan, household and shopping lists (Add all can't double up, the right list named); onboarding and the AI features
+  (asking permission before a photo goes to the AI, "Pip can't do this right now" when the AI is unavailable instead of blaming the photo).
+- **Founder's requests built today** (each with its own entry above): My recipes top left, Save top right, product photo opens the product, macro colour dots,
+  allergens in More detail, swipe-away banners, Home and Recipes moved up (no intro line, no Today or Settings words), no Scanning screen, an honest working
+  screen, Photo to calories / Photo to recipe, no Pause button, portion from the photo's scale, every AI feature on Claude Opus 5.5, menus republished and
+  Wagamama's festive menu, and (15:30) **choosing the month and year in the calendar** (the month's name opens the year with arrows and its twelve months; back
+  to the oldest food logged, at least twelve months).
+- **Checked:** tsc clean; all unit tests (3,140); every e2e script in the tests stage green, plus days 10/10, photorecipe 16/16, foodscan 4/4, scandiary 9/9.
+- **Queued (founder 12:21-12:54):** the 7-screen onboarding with photo previews and far fewer words; email sign-in as two simple screens; a words pass on every
+  screen; the stats screen behind Home's cards; the scan choice in Add food with a macros chart and Open Food Facts; the meal plan's eating styles with recipe
+  pictures; moving your own photo on Pip's recipes; "Sized to your meal" and a usual-portion switch; the 3 recipe products without photos; Costa's "ml" portions.

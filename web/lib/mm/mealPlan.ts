@@ -1,6 +1,6 @@
 import { tk } from "./i18n";
-import { platesFor, sanitizeHousehold, yourPortionDistance, type HomeDiet, type HomePerson } from "./household";
-import type { AllergenKey } from "./types";
+import { ADULT_REFERENCE_KCAL, ALL_HOME_DIETS, platesFor, sanitizeHousehold, yourPortionDistance, type HomeDiet, type HomePerson } from "./household";
+import { ALLERGEN_KEYS, type AllergenKey } from "./types";
 import type { DietPrefs } from "./pantry";
 import { PANTRY } from "./pantry";
 import { candidates as productCandidates, fitDistance, fitRecipe, isMeatFree, pickFor, recipeForDiet, recipeTotals, resolveRecipe, type IngredientPick, type IngredientSpec, type MealTarget, type MealType, type Recipe, type RecipeTotals } from "./recipes";
@@ -96,7 +96,8 @@ export const LEAVE_OUT: ReadonlyArray<{ id: string; label: string; words: readon
     "devilled", "harissa", "peri peri", "piri piri", "gochujang", "chipotle", "cajun", "jerk", "vindaloo", "madras", "tabasco", "wasabi"] },
   { id: "tomatoes", label: tk("Tomatoes"), words: ["tomato", "passata"] },
   { id: "beans", label: tk("Beans and lentils"), words: ["bean", "lentil", "chickpea"] },
-  { id: "cheese", label: tk("Cheese"), words: ["cheese", "cheddar", "mozzarella", "feta", "halloumi", "parmesan"] },
+  // pesto is made with cheese (hard cheese in every jar we list), and paneer, ricotta and mascarpone are cheeses whose names don't say so
+  { id: "cheese", label: tk("Cheese"), words: ["cheese", "cheddar", "mozzarella", "feta", "halloumi", "parmesan", "pesto", "paneer", "ricotta", "mascarpone"] },
   { id: "coconut", label: tk("Coconut"), words: ["coconut"] },
   { id: "rice", label: tk("Rice"), words: ["rice"] },
   { id: "pasta", label: tk("Pasta"), words: ["pasta", "spaghetti", "penne", "fusilli", "noodle"] },
@@ -321,6 +322,19 @@ export interface HouseholdSizing {
   targets: Partial<Record<MealType, MealTarget>>;
   yourDailyKcal: number;
   others: readonly Pick<HomePerson, "group" | "portion">[];
+  /**
+   * Each meal for a grown-up's 2,000 kcal reference day (householdReference): the others' portions are sized from these, never from the user's own meal, so a
+   * GLP-1 meal size (which keeps only the user's meals small) doesn't shrink everyone else's. Absent: from the user's meal scaled to 2,000 kcal, as before.
+   */
+  referenceTargets?: Partial<Record<MealType, MealTarget>>;
+}
+
+/**
+ * The meals of a grown-up's reference day (ADULT_REFERENCE_KCAL, the 2,000 kcal on UK labels) for this day's meals, with no snacks (snacks are just for the
+ * user) and no meal cap: what the others in a household are sized from (HouseholdSizing.referenceTargets).
+ */
+export function householdReference(shape: DayShape): Partial<Record<MealType, MealTarget>> {
+  return slotTargets({ meals: shape.meals, snacks: 0 }, { kcal: ADULT_REFERENCE_KCAL, protein: 0 }, null);
 }
 
 /** A serving's label figures times `k` (null stays null: a figure no label printed is never made up). */
@@ -333,7 +347,7 @@ export function householdCandidate(c: PlanCandidate, s: HouseholdSizing): PlanCa
   const target = s.targets[c.meal];
   if (!target) return c;
   const plain = c.plain ?? c;
-  const plates = platesFor(c.meal, plain.perServing.kcal, target, s.yourDailyKcal, s.others as HomePerson[]);
+  const plates = platesFor(c.meal, plain.perServing.kcal, target, s.yourDailyKcal, s.others as HomePerson[], s.referenceTargets?.[c.meal]?.kcal);
   const you = plates.servings[0]!;
   const ps = plain.perServing;
   return {
@@ -352,7 +366,7 @@ const householdMemo = new WeakMap<Map<MealType, PlanCandidate[]>, Map<string, Ma
 
 /** The as-written candidates (planCandidates with asWritten) sized for the household; the same map comes back for the same sizing, so makePlan's memo holds. */
 export function forHousehold(cands: Map<MealType, PlanCandidate[]>, s: HouseholdSizing): Map<MealType, PlanCandidate[]> {
-  const key = JSON.stringify([s.targets, s.yourDailyKcal, s.others.map((p) => [p.group, p.portion])]);
+  const key = JSON.stringify([s.targets, s.yourDailyKcal, s.others.map((p) => [p.group, p.portion]), s.referenceTargets ?? null]);
   let byKey = householdMemo.get(cands);
   if (!byKey) householdMemo.set(cands, (byKey = new Map()));
   let out = byKey.get(key);
@@ -725,6 +739,59 @@ export interface SavedPlan {
    *  as they were when the plan was made, so the week is rebuilt the same way. Absent = the user alone (or `people` copies of them, before 19 November).
    *  A plan from before 20 November kept a meat answer instead of the diets: it is read as the diet it meant (household.ts sanitizeHomeDiets). */
   home?: { others: Array<Pick<HomePerson, "group" | "portion">>; allergies: AllergenKey[]; diets: HomeDiet[] };
+  /**
+   * The person's own diet and allergies when the plan was made (cleanDiet), so the week is rebuilt from the same recipes after they change their diet in
+   * Settings (the plan then says the diet has changed, and hides any meal that no longer fits). Absent (plans from before 20 November): today's diet.
+   */
+  diet?: DietPrefs;
+  /** The plan's shopping went on the shopping list (planListKey of the plan then): "Add all" isn't offered twice for the same week. */
+  addedToList?: string;
+}
+
+/** A diet as kept with a plan: only what is on, in a fixed order, the allergies once each (known keys only). */
+export function cleanDiet(raw: unknown): DietPrefs {
+  if (!raw || typeof raw !== "object") return {};
+  const r = raw as Record<string, unknown>;
+  const out: DietPrefs = {};
+  for (const k of ALL_HOME_DIETS) if (r[k] === true) out[k] = true;
+  const allergies = Array.isArray(r.avoidAllergens) ? ALLERGEN_KEYS.filter((a) => (r.avoidAllergens as unknown[]).includes(a)) : [];
+  if (allergies.length) out.avoidAllergens = allergies;
+  return out;
+}
+
+/** Whether two diets mean the same to the recipes (false and absent alike, allergies in any order). */
+export const sameDiet = (a: DietPrefs, b: DietPrefs): boolean => JSON.stringify(cleanDiet(a)) === JSON.stringify(cleanDiet(b));
+
+/**
+ * What the plan's shopping depends on (the recipes, each day's meals, the better products, the shops and who it is for), as a short key: "Add all to my
+ * shopping list" is done once for a plan with this key, and offered again only once a meal is swapped or the plan changes.
+ */
+export function planListKey(p: Pick<SavedPlan, "ids" | "better" | "shops" | "slots" | "people" | "home">): string {
+  const text = JSON.stringify([p.ids, p.better ?? [], p.shops, p.slots ?? null, p.people ?? 1, p.home?.others ?? []]);
+  let h = 5381;
+  for (let i = 0; i < text.length; i++) h = ((h * 33) ^ text.charCodeAt(i)) >>> 0;
+  return `${h.toString(36)}${text.length.toString(36)}`;
+}
+
+/** Which of the plan's days `today` is (both yyyy-mm-dd, local dates): 0 on the day it starts, 6 on its last; below 0 before it starts, above 6 once it's over. */
+export function planDayIndex(start: string, today: string): number {
+  const day = (s: string) => Date.UTC(Number(s.slice(0, 4)), Number(s.slice(5, 7)) - 1, Number(s.slice(8, 10)));
+  return Math.round((day(today) - day(start)) / 86_400_000);
+}
+
+/** A week comes in this far under the daily calories (a share of them) before the plan says why (planShortfall). */
+export const SHORTFALL_NOTE = 0.05;
+
+/**
+ * Why a week comes in under the person's calories when no meal cap explains it (a 3,400 kcal day, with our recipes going up to about 900 kcal a meal): the
+ * average day and the largest meal the week's recipes reach, or null when the days come within SHORTFALL_NOTE of the target.
+ */
+export function planShortfall(week: Pick<WeekPlan, "days">, dailyKcal: number): { avg: number; max: number } | null {
+  if (!week.days.length || !(dailyKcal > 0)) return null;
+  const avg = Math.round(week.days.reduce((s, d) => s + d.kcal, 0) / week.days.length);
+  if (avg >= dailyKcal * (1 - SHORTFALL_NOTE)) return null;
+  const meals = week.days.flatMap((d) => d.meals.filter((m) => m.meal !== "snack").map((m) => m.candidate.perServing.kcal));
+  return { avg, max: Math.round(Math.max(0, ...meals) / 10) * 10 };
 }
 
 export function sanitizePlan(raw: unknown): SavedPlan | null {
@@ -748,7 +815,13 @@ export function sanitizePlan(raw: unknown): SavedPlan | null {
     ? sanitizeHousehold({ ...homeRaw, others: (homeRaw.others as unknown[]).map((o, i) => (o && typeof o === "object" ? { ...(o as object), id: `p${i}`, name: undefined } : o)) })
     : null;
   const home = homeOk && homeOk.others.length ? { others: homeOk.others.map((o) => ({ group: o.group, portion: o.portion })), allergies: homeOk.allergies, diets: homeOk.diets } : null;
-  return { shops, ids, leaveOut, budget, start: r.start, ...(slotsOk ? { slots } : {}), ...(better.length ? { better } : {}), ...(variety ? { variety } : {}), ...(cuisines.length ? { cuisines } : {}), ...(r.swapped === true ? { swapped: true } : {}), ...(home ? { home } : typeof r.people === "number" && (PLAN_PEOPLE as readonly number[]).includes(r.people) && r.people > 1 ? { people: r.people } : {}) };
+  const diet = r.diet && typeof r.diet === "object" ? cleanDiet(r.diet) : null;
+  const addedToList = typeof r.addedToList === "string" && /^[a-z0-9]{1,24}$/.test(r.addedToList) ? r.addedToList : null;
+  return {
+    shops, ids, leaveOut, budget, start: r.start, ...(slotsOk ? { slots } : {}), ...(better.length ? { better } : {}), ...(variety ? { variety } : {}), ...(cuisines.length ? { cuisines } : {}), ...(r.swapped === true ? { swapped: true } : {}),
+    ...(home ? { home } : typeof r.people === "number" && (PLAN_PEOPLE as readonly number[]).includes(r.people) && r.people > 1 ? { people: r.people } : {}),
+    ...(diet ? { diet } : {}), ...(addedToList ? { addedToList } : {}),
+  };
 }
 
 /**

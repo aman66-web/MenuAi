@@ -17,9 +17,12 @@ import { PAIR_STACK_REM } from "./HomeToday";
 // - Only the browser's own scrolling: CSS scroll snap, one page per swipe (snap-stop), no touch handlers, no library. WebKit keeps a vertical drag for the page.
 // - The dots are real buttons (44 pt tall, touching), so nobody has to swipe; the one shown is a dark pill. Home always opens on Today; nothing is remembered.
 // - A first-time hint under the dots ("Slide the cards sideways, or tap here, to see your week") until page 2 is seen, on at most five days, and one slow
-//   demonstration slide once per device (never while Pip's tips are due, never with reduced motion). On this device only (homePagesStore).
+//   demonstration slide once per device (never with reduced motion). On this device only (homePagesStore). Decided once a visit and then kept for it (only a
+//   tap on the hint itself takes it away), so nothing jumps mid-swipe; a `quiet` visit (Pip's tips due, or the Start here card showing: the 30-person audit,
+//   20 November 2026) shows no hint and doesn't count a hint day, so the hint never repeats Pip's tip or pushes the Start here card under the tab bar.
 // - When the cards stack (a narrow phone or large text: the content is under PAIR's 20.375rem), the pages show one under another with no dots, hint or slide:
-//   nothing sits behind a swipe for the people who most need big text.
+//   nothing sits behind a swipe for the people who most need big text. Pip's "Your day" tip then lights only the first page (Today), so the lit part is never
+//   taller than the screen.
 // - VoiceOver reads the pages in order ("Today, 1 of 2"...); none is ever hidden.
 
 export interface HomePage {
@@ -34,7 +37,12 @@ const SLIDE_PX = 80;
 /** Whether the person asked for less motion. */
 const reducedMotion = () => typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches === true;
 
-export function HomePages({ pages, now }: { pages: HomePage[]; now: Date }) {
+export function HomePages({ pages, now, quiet = false }: {
+  pages: HomePage[];
+  now: Date;
+  /** This visit has Pip's tips due or the Start here card showing: no hint and no hint day counted (read once, at the start of the visit). */
+  quiet?: boolean;
+}) {
   const t = useT();
   const wrap = useRef<HTMLDivElement>(null);
   const scroller = useRef<HTMLDivElement>(null);
@@ -42,8 +50,9 @@ export function HomePages({ pages, now }: { pages: HomePage[]; now: Date }) {
   const [column, setColumn] = useState(false);
   const [current, setCurrent] = useState(0);
   const state = useStore(homePagesStore);
-  // decided once for this visit, so the hint doesn't vanish mid-visit when page 2 is seen (it goes on the next visit), unless the hint itself is tapped
-  const [hint, setHint] = useState(() => hintShows(homePagesStore.get(), now));
+  // decided once for this visit, so the hint doesn't vanish mid-visit (or mid-swipe) when page 2 is seen (it goes on the next visit), unless the hint itself
+  // is tapped; none on a quiet visit
+  const [hint, setHint] = useState(() => !quiet && hintShows(homePagesStore.get(), now));
 
   // column mode: the content is narrower than the two cards side by side need (the same threshold as PAIR's stacking)
   useLayoutEffect(() => {
@@ -106,7 +115,7 @@ export function HomePages({ pages, now }: { pages: HomePage[]; now: Date }) {
   }, [step, markSeen]);
 
   // the one demonstration slide: about a second after Home shows, the cards move a little towards page 2 and back. Once per device, only with the hint on
-  // screen, never while Pip's tips for Home are due (they would cover it), never with reduced motion or when the pages are stacked.
+  // screen (so never on a quiet visit), never while Pip's tips for Home are due (they would cover it), never with reduced motion or when the pages are stacked.
   useEffect(() => {
     if (column || !hint || state.slid || reducedMotion() || coachDue(coachStore.get(), "home")) return;
     const el = track.current;
@@ -122,9 +131,10 @@ export function HomePages({ pages, now }: { pages: HomePage[]; now: Date }) {
 
   if (column) {
     return (
-      <div ref={wrap} data-coach="home-numbers" className="@container mt-6 space-y-3.5">
+      <div ref={wrap} className="@container mt-6 space-y-3.5">
         {pages.map((p, i) => (
-          <section key={i} role="group" aria-label={t("{name}, {n} of {total}", { name: p.name, n: i + 1, total: pages.length })}>{p.node}</section>
+          // Pip's "Your day" tip lights the first page only (the pages together are taller than a small phone's screen)
+          <section key={i} data-coach={i === 0 ? "home-numbers" : undefined} role="group" aria-label={t("{name}, {n} of {total}", { name: p.name, n: i + 1, total: pages.length })}>{p.node}</section>
         ))}
       </div>
     );
@@ -174,7 +184,7 @@ export function HomePages({ pages, now }: { pages: HomePage[]; now: Date }) {
           </button>
         ))}
       </div>
-      {hint && !state.seen && (
+      {hint && (
         // green words are always underlined, like a link (colour meeting, 19 November 2026)
         <button type="button" onClick={() => { go(1); setHint(false); }} className="mx-auto -mt-1 block min-h-11 rounded-full px-3 py-1 text-center text-[0.875rem] font-semibold leading-snug text-accent underline underline-offset-2">
           {t("Slide the cards sideways, or tap here, to see your week")}

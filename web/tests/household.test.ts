@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { ALL_HOME_DIETS, GROUP_SHARE, HOME_DIETS, MORE_HOME_DIETS, NO_HOUSEHOLD, homeDiet, newPerson, personShare, platesFor, sanitizeHousehold, shareWords, toggleHomeDiet, withCount } from "../lib/mm/household";
+import { ALL_HOME_DIETS, GROUP_SHARE, HOME_DIETS, MORE_HOME_DIETS, NO_HOUSEHOLD, homeDiet, newPerson, noMeatLeft, ownDiets, personShare, platesFor, sanitizeHousehold, shareWords, toggleHomeDiet, withCount } from "../lib/mm/household";
 import { kindExcluded, PANTRY } from "../lib/mm/pantry";
 import { recipeForDiet } from "../lib/mm/recipes";
 import { RECIPES } from "../lib/mm/recipeBook";
-import { forHousehold, householdCandidate, sanitizePlan, type PlanCandidate } from "../lib/mm/mealPlan";
+import { DEFAULT_SHAPE, forHousehold, householdCandidate, householdReference, sanitizePlan, slotTargets, type PlanCandidate } from "../lib/mm/mealPlan";
 
 // The people a meal plan cooks for (founder 2026-11-19; the 20-agent meeting): kept on the phone, ages and portions only, allergies for the whole home,
 // recipes cooked as written and each person's portion measured out of the pot.
@@ -112,6 +112,42 @@ describe("a plan for a household", () => {
   it("comes back the same for the same household, so the plan's memo holds", () => {
     const map = new Map([["dinner" as const, [cand]]]);
     expect(forHousehold(map, sizing)).toBe(forHousehold(map, sizing));
+  });
+
+  it("a GLP-1 meal size keeps only the user's own portions small: another grown-up's dinner is still a 2,000 kcal day's", () => {
+    // the user eats 1,600 a day with a 450 kcal meal size: their dinner is 450, never the 530 of an even split
+    const yours = slotTargets(DEFAULT_SHAPE, { kcal: 1600, protein: 110 }, 450);
+    expect(yours.dinner?.kcal).toBe(450);
+    const reference = householdReference(DEFAULT_SHAPE);
+    const capped = householdCandidate(cand, { targets: yours, yourDailyKcal: 1600, others: [{ group: "adult", portion: "usual" }], referenceTargets: reference });
+    // the other grown-up eats a third of 2,000 kcal (rounded to 670, as every meal size is), not 450 x 2,000 / 1,600 = 562.5
+    expect(reference.dinner?.kcal).toBe(670);
+    expect(capped.plates![1]! * cand.perServing.kcal).toBeCloseTo(670);
+    expect(capped.plates![1]! * cand.perServing.kcal).toBeGreaterThan(660);
+    // and the user's own portion is still their capped meal
+    expect(capped.perServing.kcal).toBeCloseTo(450);
+    // without the reference (plans made before): the old sum
+    const old = householdCandidate(cand, { targets: yours, yourDailyKcal: 1600, others: [{ group: "adult", portion: "usual" }] });
+    expect(old.plates![1]! * cand.perServing.kcal).toBeCloseTo(562.5);
+  });
+
+  it("the reference day has no snacks and no meal cap (snacks are just for the user)", () => {
+    expect(householdReference({ meals: ["breakfast", "lunch", "dinner"], snacks: 2 })).toEqual(householdReference(DEFAULT_SHAPE));
+    expect(householdReference({ meals: ["lunch", "dinner"], snacks: 0 }).dinner?.kcal).toBe(1000);
+  });
+});
+
+describe("diets that leave no meat", () => {
+  it("says so when Halal and No halal or kosher meat are both ticked, from the home or the person's own diet", () => {
+    expect(noMeatLeft(["halalOnly", "noHalalKosherMeat"])).toBe(true);
+    expect(noMeatLeft(["halalOnly"], { noHalalKosherMeat: true })).toBe(true);
+    expect(noMeatLeft(["halalOnly"])).toBe(false);
+    expect(noMeatLeft([], { halalOnly: true })).toBe(false);
+    expect(noMeatLeft(["noHalalKosherMeat"], { halalOnly: false })).toBe(false);
+  });
+  it("names the person's own diets as home diets, in the screen's order", () => {
+    expect(ownDiets({ noPork: true, vegetarianOnly: true, halalOnly: false, avoidAllergens: ["milk"] })).toEqual(["vegetarianOnly", "noPork"]);
+    expect(ownDiets({})).toEqual([]);
   });
 });
 

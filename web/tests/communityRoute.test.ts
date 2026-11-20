@@ -36,6 +36,9 @@ let handlers: typeof import("../lib/community/handlers");
 let mem: Awaited<ReturnType<typeof import("./helpers/communityMemory").memoryCommunityStore>>;
 
 beforeAll(async () => {
+  // Community's friends are switched off (lib/mm/config.ts COMMUNITY_FRIENDS_ENABLED, since 18 November 2026): the routes then answer 404 to everyone (the last
+  // test below). The rest of this file is the routes as they work when the founder switches them back on.
+  process.env.NEXT_PUBLIC_COMMUNITY = "1";
   process.env.SUPABASE_URL = "https://example-project.supabase.co";
   process.env.SUPABASE_SECRET_KEY = "test-secret-key-test-secret-key-0123456789";
   process.env.IP_HASH_SALT = "test-salt-test-salt-0123456789";
@@ -187,5 +190,26 @@ describe("the route files", () => {
 describe("the data behind it", () => {
   it("is the one store the routes are given (the real adapter is swapped for the in-memory one here)", () => {
     expect(mem.profiles.map((p) => p.username)).toContain("alice.test");
+  });
+});
+
+describe("switched off (lib/mm/config.ts COMMUNITY_FRIENDS_ENABLED)", () => {
+  it("every route answers a plain 404 before anyone is even signed in, and runs nothing", async () => {
+    const was = process.env.NEXT_PUBLIC_COMMUNITY;
+    process.env.NEXT_PUBLIC_COMMUNITY = "0";
+    vi.resetModules();
+    try {
+      const { communityRoute: off } = await import("../lib/community/route");
+      let ran = false;
+      for (const headers of [{}, alice] as Array<Record<string, string>>) {
+        const res = await off(req("POST", "/me", headers, "{}"), async () => ((ran = true), { status: 200, body: {} }), { json: true });
+        expect(res.status).toBe(404);
+        expect(await res.json()).toEqual({ error: "not_found" });
+      }
+      expect(ran).toBe(false);
+    } finally {
+      process.env.NEXT_PUBLIC_COMMUNITY = was;
+      vi.resetModules();
+    }
   });
 });

@@ -181,7 +181,8 @@ export function DietPicker({ value, onChange, halal = true, allergies = true, al
           <>
             <div aria-hidden className="mx-1 mb-4 mt-5 h-px bg-line" />
             <p className="mb-3 px-1 text-[0.8125rem] font-semibold leading-snug text-muted">{t("Allergies to avoid")}</p>
-            {cautionUp && <p className="-mt-1 mb-3 px-1 text-[0.9375rem] leading-snug text-foreground">{t("Allergy filters use each restaurant's own allergen guide and hide dishes it doesn't cover. If you have an allergy, always check with the restaurant.")}</p>}
+            {/* true for every restaurant (where one publishes no allergen guide, the dishes aren't all hidden: its page says they aren't checked; lib/mm/menu-view.ts) */}
+            {cautionUp && <p className="-mt-1 mb-3 px-1 text-[0.9375rem] leading-snug text-foreground">{t("Allergy filters use each restaurant's own allergen guide. If you have an allergy, always check with the restaurant.")}</p>}
             <AllergenTiles chosen={avoid} label={t("Allergies to avoid")} hints onToggle={(k) => onChange(toggleAllergen(value, k))} />
           </>
         )}

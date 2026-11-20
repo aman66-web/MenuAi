@@ -6,8 +6,7 @@ import { Fragment, useEffect, useMemo } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { loggedToday, MEAL_LABEL } from "@/lib/mm/budget";
 import type { ChainIndex } from "@/lib/mm/chain-index";
-import { PAYMENTS_ENABLED } from "@/lib/mm/config";
-import { FREE_BEST_RESULTS, PAID_TIER_ONLY } from "@/lib/mm/entitlements";
+import { FREE_BEST_RESULTS, needsPaywall, PAID_TIER_ONLY } from "@/lib/mm/entitlements";
 import { formatCalories, nutrientsSpoken } from "@/lib/mm/format";
 import { chainForDiet } from "@/lib/mm/menu-view";
 import { NO_MATCHES_COPY, OUT_OF_BUDGET_BANNER, OUT_OF_BUDGET_EMPTY, rank, type Pick } from "@/lib/mm/ranking";
@@ -15,7 +14,8 @@ import { logStore } from "@/lib/mm/stores";
 import type { Meal, Preferences } from "@/lib/mm/types";
 import { ItemThumb } from "./ItemPhoto";
 import { useGate } from "./Paywall";
-import { ChevronRightIcon, LockIcon } from "./icons";
+import { PremiumBadge } from "./PremiumBadge";
+import { ChevronRightIcon } from "./icons";
 import { Button, SectionTitle } from "./ui";
 import { useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
@@ -48,8 +48,9 @@ export function BestForYou({ index, meal, preferences, onClearFilters, bare = fa
   const log = useStore(logStore);
   const now = useNow();
 
-  // Free users log nothing, so what's left is always the daily target (SPEC §6.3).
-  const loggedCalories = pro ? loggedToday(log, now).calories : 0;
+  // What's left of today is the daily target less what has been added today. Logging is free in 1.1 (founder 19-20 November 2026), so a free person's log
+  // counts too, as on Home and in the builder; only where adding food needs Premium does a free person's day start full (SPEC §6.3 before 1.1).
+  const loggedCalories = needsPaywall("log", { pro }) ? 0 : loggedToday(log, now).calories;
   const result = useMemo(
     () =>
       rank({
@@ -133,9 +134,10 @@ export function BestForYou({ index, meal, preferences, onClearFilters, bare = fa
             <div className="relative mt-1">
               <div aria-hidden inert className="pointer-events-none select-none blur-sm">{lockedRest}</div>
               <div className="absolute inset-0 flex items-start justify-center rounded-2xl bg-card/75 px-3 pt-4">
-                <Button onClick={() => showPaywall("bestForYou")} className="shadow-[var(--shadow-lift)]">
-                  <LockIcon className="h-5 w-5" />
-                  {t("Unlock the other {n}", { n: result.picks.length - freeCount })}
+                {/* the one call to action and the Premium badge, no lock (the paywall says what the trial is) */}
+                <Button onClick={() => showPaywall("bestForYou")} className="flex-wrap shadow-[var(--shadow-lift)]">
+                  {t("See Premium")}
+                  <PremiumBadge onInk />
                 </Button>
               </div>
             </div>
@@ -150,10 +152,10 @@ export function BestForYou({ index, meal, preferences, onClearFilters, bare = fa
             <>
               <div aria-hidden inert className="pointer-events-none select-none blur-sm">{cards}</div>
               <div className="absolute inset-0 flex items-start justify-center rounded-2xl bg-card/75 px-3 pt-10">
-                <Button onClick={() => showPaywall("bestForYou")} className="shadow-[var(--shadow-lift)]">
-                  <LockIcon className="h-5 w-5" />
-                  {/* "Premium" is the one name on screen (onboarding meeting, 19 November 2026) */}
-                  {PAYMENTS_ENABLED ? t("See your 5 best orders · Try Premium free") : t("See your 5 best orders · Premium")}
+                {/* "Premium" is the one name on screen (onboarding meeting, 19 November 2026): the one call to action and its badge, no lock */}
+                <Button onClick={() => showPaywall("bestForYou")} className="flex-wrap shadow-[var(--shadow-lift)]">
+                  {t("See Premium")}
+                  <PremiumBadge onInk />
                 </Button>
               </div>
             </>

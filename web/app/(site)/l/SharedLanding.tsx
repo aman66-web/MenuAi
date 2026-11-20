@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { retailerName } from "@/lib/mm/groceries";
 import { decodePayload, shopsOf, SHARE_PROBLEM, SHARED_APP_PATH, type Decoded } from "@/lib/mm/shareList";
 import { englishT } from "@/lib/mm/i18n";
+import { SIGN_IN_REQUIRED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 
 // The page behind a shopping list link: https://numbite.com/l#<list>. It says what the link is, how many things are in it and from which shops, and how to open
@@ -13,6 +14,9 @@ import { site } from "@/site.config";
 const PILL = "inline-flex min-h-12 w-full items-center justify-center rounded-full px-6 text-base font-bold transition active:scale-[0.97]";
 const PRIMARY = `${PILL} bg-foreground text-background hover:bg-[color-mix(in_srgb,var(--foreground)_86%,white)]`;
 const SECONDARY = `${PILL} bg-[#f4f5f6] text-foreground hover:bg-[#e9ebec]`;
+
+/** Where everyone signs in, reading the list in the browser opens the web app, which asks for an account first: said on the link (the audit, 20 November 2026). */
+const ACCOUNT = SIGN_IN_REQUIRED ? ` (with a free ${site.name} account)` : "";
 
 const list = (words: string[]) => (words.length <= 1 ? words.join("") : `${words.slice(0, -1).join(", ")} and ${words[words.length - 1]}`);
 
@@ -65,8 +69,8 @@ export function SharedLanding() {
       <p className="app-numbers mt-4 text-[1.125rem] leading-snug">{what}.</p>
       <p className="mt-3 text-base leading-[1.65] text-muted">
         {live
-          ? `Open it in ${site.name} to see every product with its picture and price, and add it to your own list. ${site.name} is free.`
-          : `Open it to see every product with its picture and price, and add it to your own list. ${site.name} is free, and the iPhone app is coming soon to the App Store.`}
+          ? `Open it in ${site.name} to see every product with its picture and price, and add it to your own list. ${site.name} is free${SIGN_IN_REQUIRED ? ", with a free account" : ""}.`
+          : `Open it to see every product with its picture and price, and add it to your own list. ${site.name} is free${SIGN_IN_REQUIRED ? ", with a free account" : ""}, and the iPhone app is coming soon to the App Store.`}
       </p>
 
       <div className="mt-8 grid gap-3">
@@ -74,10 +78,10 @@ export function SharedLanding() {
           <>
             <a href={site.appStoreUrl} className={PRIMARY}>Get {site.name} on the App Store</a>
             <a href={inApp} className={SECONDARY}>I have {site.name}: open the list</a>
-            <a href={inBrowser} className="inline-flex min-h-11 items-center justify-center text-[0.9375rem] font-semibold text-accent underline underline-offset-[3px]">Or read the list in your browser</a>
+            <a href={inBrowser} className="inline-flex min-h-11 items-center justify-center text-center text-[0.9375rem] font-semibold text-accent underline underline-offset-[3px]">Or read the list in your browser{ACCOUNT}</a>
           </>
         ) : (
-          <a href={inBrowser} className={PRIMARY}>View the list</a>
+          <a href={inBrowser} className={`${PRIMARY} text-center`}>View the list{ACCOUNT}</a>
         )}
       </div>
 

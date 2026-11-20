@@ -1,6 +1,6 @@
 "use client";
 
-import type { CompareItem } from "@/lib/mm/compare";
+import { shopNumbersSource, type CompareItem } from "@/lib/mm/compare";
 import { photoSources, retailerName, type GroceryProduct, type ListedProduct } from "@/lib/mm/groceries";
 import { itemImageUrl } from "@/lib/mm/images";
 import { shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
@@ -35,7 +35,8 @@ export function compareFoodFromListed(p: ListedProduct, prefer?: string | null):
   };
 }
 
-/** A product from a shop's full list with numbers: its own page's label, or community numbers for its barcode (said so). Null when there are none. */
+/** A product from a shop's full list with numbers: its own page's label, the same product's label at another shop, community numbers for its barcode or the
+ *  government's figures for loose produce (each said so). Null when there are none. */
 export function compareFoodFromShop(f: ShopFile, p: ShopProduct): CompareItem | null {
   const n = p.nutrition;
   if (!n) return null;
@@ -49,9 +50,9 @@ export function compareFoodFromShop(f: ShopFile, p: ShopProduct): CompareItem | 
     href: `/app/groceries/shop/item?r=${f.retailer}&id=${encodeURIComponent(p.id)}`,
     basis: n.per,
     numbers: { kcal: n.kcal, protein: n.protein, carbs: n.carbs, sugars: n.sugars, fat: n.fat, saturates: n.saturates, fibre: n.fibre, salt: n.salt },
-    source: n.community ? "community" : "label",
+    ...shopNumbersSource(n),
     addedAt: now(),
-    ...(n.govFood ? { note: "UK government food data" } : n.state ? { note: n.state } : {}),
+    ...(n.state ? { note: n.state } : {}),
     ...(photo ? { photo } : {}),
     ...(p.price !== null ? { price: p.price } : {}),
     ...(p.price !== null && p.unitPrice !== null && p.unit ? { unitPrice: p.unitPrice, unit: p.unit } : {}),

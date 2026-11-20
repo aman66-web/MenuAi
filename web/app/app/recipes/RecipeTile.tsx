@@ -8,7 +8,7 @@ import { formatPrice } from "@/lib/mm/groceries";
 import { formatInt } from "@/lib/mm/format";
 import type { MealType } from "@/lib/mm/recipes";
 import { savedRecipesStore, toggleSavedRecipe } from "@/lib/mm/stores";
-import { AppleIcon, EggGlyph, FishGlyph, HeartIcon, MoonIcon, NoodleGlyph, OatsGlyph, PastaGlyph, PotIcon, RiceBowlGlyph, SaladGlyph, SandwichIcon, SunriseIcon, TacoGlyph, TrayGlyph } from "../_components/icons";
+import { AppleIcon, CheckIcon, EggGlyph, FishGlyph, HeartIcon, MoonIcon, NoodleGlyph, OatsGlyph, PastaGlyph, PotIcon, RiceBowlGlyph, SaladGlyph, SandwichIcon, SunriseIcon, TacoGlyph, TrashIcon, TrayGlyph } from "../_components/icons";
 import { useStore } from "../_lib/hooks";
 import { useRecipePhoto } from "../_lib/recipePhotos";
 import { useT } from "../_lib/i18n";
@@ -124,64 +124,111 @@ export function RecipeHeroArt({ id, name, label, meal }: { id: string; name: str
   );
 }
 
-/** `onUnsave` is told when the heart takes the recipe out of My meals (My meals offers an Undo for it). `onRemoveMine`, for a recipe Pip made (always saved):
- *  its heart is filled, and tapping it takes the recipe out of My recipes (founder 2026-11-18: "They can remove it from the recipes in my meals later"). */
-export function RecipeTile({ card, href, badge, wide = false, saveable = true, onOpen, onUnsave, onRemoveMine }: { card: RecipeCard; href: string; badge?: string; wide?: boolean; saveable?: boolean; onOpen?: React.MouseEventHandler<HTMLAnchorElement>; onUnsave?: (id: string) => void; onRemoveMine?: (id: string) => void }) {
+/** A tile in choose mode (onboarding's "Recipes from {shop}"): a radio in a group, the whole card the one control, no link and no heart. Chosen: lime with the dark
+ *  green edge and a tick, and `tag` at the foot of its picture; not chosen: the empty tick ring in the same place, so nothing moves. */
+export interface TileChoice {
+  on: boolean;
+  onChoose: () => void;
+  onKeyDown?: React.KeyboardEventHandler<HTMLButtonElement>;
+  tabIndex?: number;
+  /** Shown on the picture when chosen ("Your first recipe"). */
+  tag?: string;
+  /** Read after the card's own words ("Double-tap to choose it as your first recipe."). */
+  hint?: string;
+}
+
+/** `onUnsave` is told when the heart takes the recipe out of My recipes (My recipes offers an Undo for it). `onRemoveMine`, for a recipe Pip made (always kept):
+ *  a remove button in the heart's place takes it out of My recipes (founder 2026-11-18: "They can remove it from the recipes in my meals later"). `choose`: see
+ *  TileChoice. */
+export function RecipeTile({ card, href, badge, wide = false, saveable = true, onOpen, onUnsave, onRemoveMine, choose }: { card: RecipeCard; href: string; badge?: string; wide?: boolean; saveable?: boolean; onOpen?: React.MouseEventHandler<HTMLAnchorElement>; onUnsave?: (id: string) => void; onRemoveMine?: (id: string) => void; choose?: TileChoice }) {
   const t = useT();
   const savedList = useStore(savedRecipesStore);
   const { recipe, totals } = card;
   // our recipe book is translated; what Pip wrote with AI is shown as it wrote it
   const rt = (s: string) => (recipe.ai ? s : t(s));
   const saved = recipe.ai ? true : savedList.some((s) => s.id === recipe.id);
-  const canSave = saveable && (!recipe.ai || !!onRemoveMine); // Pip's recipes are kept as they're made: only My recipes offers taking one out
+  const canSave = !choose && saveable && (!recipe.ai || !!onRemoveMine); // Pip's recipes are kept as they're made: only My recipes offers taking one out
   const price = totals.costPerServing !== null ? formatPrice(totals.costPerServing) : null;
-  const bold = (text: string) => <span className="font-semibold text-foreground">{text}</span>;
+  const on = !!choose?.on;
+  const bold = (text: string) => <span className={`font-semibold ${on ? "" : "text-foreground"}`}>{text}</span>;
   // protein, carbs and fat under the name (founder 2026-10-16: "Add the fats and carbs to each of the recipes also", then "calories where the red is ...
   // below the title the protein, fats and carbs"); the calories are the pill in the picture's corner. One grey strip of three cells, each a figure over
-  // its grey word, so every card in a two-column grid on a phone keeps one row of three (chips used to wrap and leave fat alone on a second line).
+  // its word (at least 13 px since the audit of 20 November 2026), so every card in a two-column grid keeps one row of three; on a card narrower than about
+  // 156 px (a 320 px phone) the three go one under the other, "52 g protein", rather than squeeze the words.
   const figure = wide ? "text-[0.9375rem] font-semibold leading-tight" : "text-[0.875rem] font-semibold leading-tight";
-  const word = wide ? "text-[0.75rem] leading-tight text-muted" : "text-[0.6875rem] leading-tight text-muted";
+  const word = `text-[0.8125rem] leading-tight ${on ? "" : "text-muted"}`;
+  const cell = "flex min-w-0 items-baseline justify-center gap-1 px-0.5 @[9.75rem]:flex-col @[9.75rem]:items-center @[9.75rem]:gap-0";
+  const content = (
+    <>
+      <RecipeArt id={recipe.id} name={recipe.name} meal={recipe.meal} wide={wide} />
+      <span className={`flex flex-1 flex-col ${wide ? "px-4 pb-4 pt-3.5" : "px-3 pb-3.5 pt-3"}`}>
+        {badge && <span className="mb-1.5 inline-block self-start rounded-[0.375rem] bg-fill px-2 py-1 text-[0.8125rem] font-semibold leading-none text-muted">{badge}</span>}
+        <span className={`line-clamp-3 leading-snug tracking-[-0.01em] [overflow-wrap:anywhere] ${wide ? "text-lg font-extrabold" : "text-[0.9375rem] font-extrabold"}`}>{rt(recipe.name)}</span>
+        {/* after the name in the markup, so a screen reader hears "name, calories, protein ...", but drawn over the picture's top-left corner (the card is the positioned parent) */}
+        <span className={`app-numbers ${KCAL_PILL}`}>{formatInt(totals.perServing.kcal)}<span className="text-[0.75rem] font-semibold">kcal</span></span>
+        {/* the literal space keeps each cell's text "52g protein" for screen readers and the browser tests; a flex column doesn't draw it */}
+        <span className="app-numbers mt-2.5 grid grid-cols-1 divide-y divide-line rounded-xl bg-[var(--fill)] py-1.5 text-center text-foreground @[9.75rem]:grid-cols-3 @[9.75rem]:divide-x @[9.75rem]:divide-y-0">
+          <span className={cell}><span className={figure}>{Math.round(totals.perServing.protein)}g</span>{" "}<span className={word}>{t("protein")}</span></span>
+          <span className={cell}><span className={figure}>{Math.round(totals.perServing.carbs)}g</span>{" "}<span className={word}>{t("carbs")}</span></span>
+          <span className={cell}><span className={figure}>{Math.round(totals.perServing.fat)}g</span>{" "}<span className={word}>{t("fat")}</span></span>
+        </span>
+        <span className={`app-numbers mt-auto flex flex-wrap items-baseline gap-x-1.5 pt-2.5 text-[0.8125rem] ${on ? "" : "text-muted"}`}>
+          <span>{price ? <>{bold(price)} {t("a serving")}</> : <Rich text={t("{price} to buy")} values={{ price: bold(formatPrice(totals.basket)) }} />}</span>
+          <span aria-hidden>·</span>
+          <span>{t("{n} min", { n: recipe.minutes })}</span>
+        </span>
+      </span>
+    </>
+  );
   return (
     // a container, so a card shown one to a row (large text) gets a lower picture instead of a tall block of colour
-    <div className="glass lift @container relative flex h-full min-w-0 flex-col overflow-hidden rounded-[1.25rem]">
-      <Link href={href} prefetch={false} onClick={onOpen} className="flex flex-1 flex-col rounded-[1.25rem] focus-visible:outline-offset-[-3px]">
-        <RecipeArt id={recipe.id} name={recipe.name} meal={recipe.meal} wide={wide} />
-        <span className={`flex flex-1 flex-col ${wide ? "px-4 pb-4 pt-3.5" : "px-3 pb-3.5 pt-3"}`}>
-          {badge && <span className="mb-1.5 inline-block self-start rounded-[0.375rem] bg-fill px-2 py-1 text-[0.8125rem] font-semibold leading-none text-muted">{badge}</span>}
-          <span className={`line-clamp-3 leading-snug tracking-[-0.01em] [overflow-wrap:anywhere] ${wide ? "text-lg font-extrabold" : "text-[0.9375rem] font-extrabold"}`}>{rt(recipe.name)}</span>
-          {/* after the name in the markup, so a screen reader hears "name, calories, protein ...", but drawn over the picture's top-left corner (the card is the positioned parent) */}
-          <span className={`app-numbers ${KCAL_PILL}`}>{formatInt(totals.perServing.kcal)}<span className="text-[0.75rem] font-semibold">kcal</span></span>
-          {/* the literal space keeps each cell's text "52g protein" for screen readers and the browser tests; a flex column doesn't draw it */}
-          <span className="app-numbers mt-2.5 grid grid-cols-3 divide-x divide-line rounded-xl bg-[var(--fill)] py-1.5 text-center">
-            <span className="flex min-w-0 flex-col items-center px-1"><span className={figure}>{Math.round(totals.perServing.protein)}g</span>{" "}<span className={word}>{t("protein")}</span></span>
-            <span className="flex min-w-0 flex-col items-center px-1"><span className={figure}>{Math.round(totals.perServing.carbs)}g</span>{" "}<span className={word}>{t("carbs")}</span></span>
-            <span className="flex min-w-0 flex-col items-center px-1"><span className={figure}>{Math.round(totals.perServing.fat)}g</span>{" "}<span className={word}>{t("fat")}</span></span>
-          </span>
-          <span className="app-numbers mt-auto flex flex-wrap items-baseline gap-x-1.5 pt-2.5 text-[0.8125rem] text-muted">
-            <span>{price ? <>{bold(price)} {t("a serving")}</> : <Rich text={t("{price} to buy")} values={{ price: bold(formatPrice(totals.basket)) }} />}</span>
-            <span aria-hidden>·</span>
-            <span>{t("{n} min", { n: recipe.minutes })}</span>
+    <div className={`lift @container relative flex h-full min-w-0 flex-col overflow-hidden rounded-[1.25rem] ${on ? "border border-on-sun bg-sun text-on-sun shadow-[0_0_0_1px_var(--on-sun)]" : "glass"}`}>
+      {choose ? (
+        <button type="button" role="radio" aria-checked={on} tabIndex={choose.tabIndex} onClick={choose.onChoose} onKeyDown={choose.onKeyDown} className="flex flex-1 flex-col rounded-[1.25rem] text-start focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-accent">
+          {content}
+          {choose.hint && <span className="sr-only">{choose.hint}</span>}
+        </button>
+      ) : (
+        <Link href={href} prefetch={false} onClick={onOpen} className="flex flex-1 flex-col rounded-[1.25rem] focus-visible:outline-offset-[-3px]">
+          {content}
+        </Link>
+      )}
+      {choose && (
+        // the tick in the heart's corner: an empty ring until chosen
+        <span aria-hidden className="pointer-events-none absolute end-1 top-1 grid h-11 w-11 place-items-center">
+          <span className={`grid h-7 w-7 place-items-center rounded-full ${on ? "border-2 border-on-sun bg-sun text-on-sun" : "photo-chip"}`}>{on && <CheckIcon className="h-4 w-4" strokeWidth={3} />}</span>
+        </span>
+      )}
+      {choose && on && choose.tag && (
+        <span aria-hidden className={`pointer-events-none absolute inset-x-0 top-0 flex items-end p-2 ${wide ? "aspect-[16/10]" : "aspect-[4/3] @[14rem]:aspect-[2/1]"}`}>
+          <span className="inline-flex max-w-full items-center gap-1 rounded-full border-2 border-on-sun bg-sun px-2.5 py-1 text-[0.8125rem] font-bold leading-tight text-on-sun">
+            <CheckIcon aria-hidden className="h-3.5 w-3.5 shrink-0" strokeWidth={3} />
+            <span className="min-w-0">{choose.tag}</span>
           </span>
         </span>
-      </Link>
-      {canSave && (
+      )}
+      {canSave && (recipe.ai ? (
+        // a recipe Pip made is kept as it's made: here it can only be taken out (My recipes offers Undo), so it's a remove button, never a heart that deletes
+        <button type="button" aria-label={t("Remove from My recipes")} onClick={() => onRemoveMine?.(recipe.id)} className="group absolute end-1 top-1 grid h-11 w-11 place-items-center rounded-full text-ink transition active:scale-90">
+          <span className="photo-chip grid h-9 w-9 place-items-center rounded-full transition-colors"><TrashIcon aria-hidden className="h-[18px] w-[18px]" /></span>
+        </button>
+      ) : (
         // a 36 px white circle in the picture's corner, inside a full 44 px tap area, clear of the plate in the middle
         <button
           type="button"
           aria-pressed={saved}
-          aria-label={saved ? t("Saved to My meals") : t("Save to My meals")}
+          aria-label={saved ? t("Saved to My recipes") : t("Save to My recipes")}
           onClick={() => {
-            if (recipe.ai) { onRemoveMine?.(recipe.id); return; }
             const was = saved;
             toggleSavedRecipe(recipe.id);
             if (was) onUnsave?.(recipe.id);
           }}
           className="group absolute end-1 top-1 grid h-11 w-11 place-items-center rounded-full text-ink transition active:scale-90"
         >
-          {/* a photo chip with the edge; an ink heart, outline or filled. Its state is in the spoken name only ("Saved to My meals"): no word on the picture */}
+          {/* a photo chip with the edge; an ink heart, outline or filled. Its state is in the spoken name only ("Saved to My recipes"): no word on the picture */}
           <span className="photo-chip grid h-9 w-9 place-items-center rounded-full transition-colors"><HeartIcon aria-hidden filled={saved} className="h-[18px] w-[18px]" /></span>
         </button>
-      )}
+      ))}
     </div>
   );
 }

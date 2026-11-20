@@ -3,10 +3,12 @@
 // publishes them. The two are never mixed in one table. Each item is a copy of the figures shown when it was added (on this device only, mm.v1.compare):
 // nothing is worked out except the plain arithmetic shown (price per kg as the shop prints it, grams of protein for £1). Words are neutral: "Highest" and
 // "Lowest", never good or bad (CLAUDE.md rule 3).
-import { tk } from "./i18n";
+import { retailerName } from "./groceries";
+import { englishT, tk, type T } from "./i18n";
 import { bandPer100g, type FsaKey, type Light } from "./truth/fsaLights";
 
 export type CompareKind = "food" | "dish";
+export type CompareSource = "label" | "same" | "community" | "government" | "restaurant";
 export const COMPARE_MAX = 6;
 
 export interface CompareNumbers {
@@ -41,8 +43,11 @@ export interface CompareItem {
   price?: number;
   unitPrice?: number;
   unit?: string;
-  /** Where the figures came from: the shop's own label, the community database, or the restaurant. */
-  source: "label" | "community" | "restaurant";
+  /** Where the figures came from: the shop's own label, the same product's label read at another shop (`sourceShop`), the community database, the UK
+   *  government's figures for loose produce, or the restaurant. */
+  source: CompareSource;
+  /** For "same": whose page the label was read on (its shop name, as shown when it was added). */
+  sourceShop?: string;
   addedAt: string;
 }
 
@@ -76,10 +81,14 @@ export function sanitizeCompareItem(raw: unknown): CompareItem | null {
   const basis = r.kind === "dish" ? (r.basis === "serving" ? "serving" : null) : r.basis === "g" || r.basis === "ml" ? r.basis : null;
   const n = (r.numbers ?? {}) as Partial<CompareNumbers>;
   const kcal = num(n.kcal);
-  const source = r.kind === "dish" ? (r.source === "restaurant" ? "restaurant" : null) : r.source === "label" || r.source === "community" ? r.source : null;
+  // an item stored before 20 November 2026 carried the government figures as an English note on a "label" item: it reads as what it is
+  const oldGov = r.kind === "food" && r.source === "label" && r.note === "UK government food data";
+  const source: CompareSource | null = r.kind === "dish" ? (r.source === "restaurant" ? "restaurant" : null)
+    : oldGov ? "government" : r.source === "label" || r.source === "community" || r.source === "same" || r.source === "government" ? r.source : null;
   if (!key || !name || !from || !fromId || !href || !basis || kcal === null || !source || typeof r.addedAt !== "string" || !Number.isFinite(Date.parse(r.addedAt))) return null;
   const photo = safePhoto(r.photo);
-  const note = text(r.note, 60);
+  const note = oldGov ? null : text(r.note, 60);
+  const sourceShop = source === "same" ? text(r.sourceShop, 40) : null;
   const price = num(r.price);
   const unitPrice = num(r.unitPrice);
   const unit = r.unit === "per kg" || r.unit === "per litre" || r.unit === "each" ? r.unit : null;
@@ -88,6 +97,7 @@ export function sanitizeCompareItem(raw: unknown): CompareItem | null {
     numbers: { kcal, protein: num(n.protein), carbs: num(n.carbs), sugars: num(n.sugars), fat: num(n.fat), saturates: num(n.saturates), fibre: num(n.fibre), salt: num(n.salt) },
     ...(photo ? { photo } : {}),
     ...(note ? { note } : {}),
+    ...(sourceShop ? { sourceShop } : {}),
     ...(r.kind === "food" && price !== null && price > 0 ? { price } : {}),
     ...(r.kind === "food" && unitPrice !== null && unitPrice > 0 && unit ? { unitPrice, unit } : {}),
   };
@@ -213,4 +223,26 @@ export function trafficLightFor(item: Pick<CompareItem, "kind" | "basis" | "note
   if (!key || item.kind !== "food" || item.basis !== "g" || item.note) return null;
   const v = item.numbers[rowId as keyof CompareNumbers];
   return v === null || v === undefined ? null : bandPer100g(key, v);
+}
+
+/** Where a column's figures come from, as its header says it (2026-11-20: Compare showed community numbers "as each label prints it" and never said so). */
+export function sourceLabel(item: Pick<CompareItem, "source" | "sourceShop" | "from">, t: T = englishT): string {
+  switch (item.source) {
+    case "label": return t("Shop label");
+    case "same": return t("Same product's label at {shop}", { shop: item.sourceShop ?? item.from });
+    case "community": return t("Open Food Facts (community)");
+    case "government": return t("UK government figures");
+    default: return t("Restaurant's figures");
+  }
+}
+
+/** Some of the foods' figures aren't a shop's label: community numbers or the government's figures for loose produce (the screen says so). */
+export const notAllLabels = (items: readonly Pick<CompareItem, "source">[]): boolean => items.some((i) => i.source === "community" || i.source === "government");
+
+/** Where a shop list product's numbers come from, as a compare item records it (lib/mm/shopProducts.ts ShopNutrition). */
+export function shopNumbersSource(n: { community?: true; govFood?: string; sameAs?: string }): Pick<CompareItem, "source" | "sourceShop"> {
+  if (n.govFood) return { source: "government" };
+  if (n.community) return { source: "community" };
+  if (n.sameAs) return { source: "same", sourceShop: retailerName(n.sameAs) };
+  return { source: "label" };
 }

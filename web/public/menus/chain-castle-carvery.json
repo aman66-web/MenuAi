@@ -1839,7 +1839,9 @@
     "sugar": 6.4,
     "salt": 1.6
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -1865,7 +1867,9 @@
     "sugar": 11.7,
     "salt": 2.1
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],

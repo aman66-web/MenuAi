@@ -39,8 +39,8 @@ type Icon = (p: React.SVGProps<SVGSVGElement>) => React.ReactNode;
  * The box looks like a box you can type in (Margaret couldn't see how to type her GP's 1,500: the soft fill alone is about 1.1:1 on the white card), with a
  * 1.5 px edge in the --edge token (#7a817d, 3.99:1 on white, WCAG 1.4.11). After a tap on − or + a hidden polite line says the new number ("Calories, 1,550";
  * the low-vision tester heard nothing); typing announces nothing. The − and + are white with the same edge (colour meeting, 19 November 2026: never grey
- * pills you tap), and Done is the ink pill. `large`: the figure a size bigger (calories and protein, which come first); `highlight`: a ring in the link green round the
- * card (the targets screen's Calories box when the questions were skipped: tap it to type your own number).
+ * pills you tap), and Done is the ink pill. `large`: the figure a size bigger (calories and protein, which come first); `highlight`: a 2 px ink edge round the
+ * card (the targets screen's Calories box when the questions were skipped: tap it to type your own number); never the green ring, which is the focus ring.
  */
 export function StepperCard({ id, label, Icon, value, onChange, step, min, max, placeholder, from, invalid, describedBy, large, highlight, className = "" }: { id: string; label: string; Icon: Icon; value: string; onChange: (v: string) => void; step: number; min: number; max: number; placeholder?: string; from?: number; invalid?: boolean; describedBy?: string; large?: boolean; highlight?: boolean; className?: string }) {
   const t = useT();
@@ -64,7 +64,7 @@ export function StepperCard({ id, label, Icon, value, onChange, step, min, max, 
   // (side by side with the figure they left no room for "Optional" on a 390 px phone).
   const round = "grid h-11 w-11 shrink-0 place-items-center rounded-full border-[1.5px] border-edge bg-card transition active:scale-90 active:bg-background hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
   return (
-    <div className={`group/step glass ${CARD} min-w-0 p-4 ${highlight ? "ring-2 ring-accent ring-offset-2 ring-offset-background" : ""} ${className}`}>
+    <div className={`group/step glass ${CARD} min-w-0 ${highlight ? "border-2 border-ink p-[15px]" : "p-4"} ${className}`}>
       <div className="flex min-h-8 items-center justify-between gap-2">
         <label htmlFor={id} id={`${id}-label`} className={CAPS}>{label}</label>
         <span aria-hidden className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-background text-accent group-focus-within/step:hidden"><Icon className="h-4 w-4" /></span>

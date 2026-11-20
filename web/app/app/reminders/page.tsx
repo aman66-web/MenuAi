@@ -8,7 +8,7 @@ import { BellIcon } from "../_components/icons";
 import { PageHeader } from "../_components/PageHeader";
 import { useReminderEditor } from "../_components/ReminderEditor";
 import { ReminderNotice } from "../_components/ReminderNotice";
-import { Button, EmptyState } from "../_components/ui";
+import { Badge, Button, EmptyState } from "../_components/ui";
 import { useHydrated, useNow, useStore } from "../_lib/hooks";
 import { useLanguage, useT } from "../_lib/i18n";
 import { askForNotifications, useReminderStatus } from "../_lib/reminderSync";
@@ -17,9 +17,9 @@ import { askForNotifications, useReminderStatus } from "../_lib/reminderSync";
 // reminded of). Reached from "Manage" on Home's Reminders section and from Settings. The reminders are the person's own; Numbite suggests nothing
 // (CLAUDE.md rule 3) and they stay on this phone (rule 4).
 
-const pillBase = "mt-2 inline-flex items-center rounded-full px-3 py-1.5 text-[0.875rem] font-semibold leading-none";
-const pill = `${pillBase} bg-soft-strong text-muted`;
-const pillDark = `${pillBase} bg-ink text-on-ink`;
+// "Paused" and "Next: …" are the app's info tags (Badge: 6 px corners, the page fill inside the card, no edge), never the disabled grey or a pill that looks like
+// a button (the 30-person audit, 20 November 2026); "Won't ring" is the small ink badge, as on Home.
+const inkTag = "inline-flex items-center rounded-[0.375rem] bg-ink px-2 py-1 text-[0.8125rem] font-semibold leading-none text-on-ink";
 
 function ManageRow({ r, list, now, htmlLang, wontRing, onEdit, onDelete }: { r: Reminder; list: readonly Reminder[]; now: Date; htmlLang: string; wontRing: boolean; onEdit: () => void; onDelete: () => void }) {
   const t = useT();
@@ -35,10 +35,12 @@ function ManageRow({ r, list, now, htmlLang, wontRing, onEdit, onDelete }: { r: 
             {t(words.key, words.values)}<span aria-hidden>{"\u00A0·"}</span>{" "}<span className="app-numbers whitespace-nowrap">{formatTime(r.time, htmlLang)}</span>
           </p>
           {r.note && <p className="mt-1.5 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{r.note}</p>}
-          <div className="flex flex-wrap gap-x-2">
-            {!r.enabled ? <span className={pill}>{t("Paused")}</span> : next ? <span className={pill}>{t("Next: {date}", { date: formatNextDay(next, htmlLang) })}</span> : null}
-            {wontRing && <span className={pillDark}>{t("Won't ring")}</span>}
-          </div>
+          {(!r.enabled || next || wontRing) && (
+            <div className="mt-2 flex flex-wrap gap-2">
+              {!r.enabled ? <Badge>{t("Paused")}</Badge> : next ? <Badge>{t("Next: {date}", { date: formatNextDay(next, htmlLang) })}</Badge> : null}
+              {wontRing && <span className={inkTag}>{t("Won't ring")}</span>}
+            </div>
+          )}
         </div>
       </div>
       <div className="mt-3 flex flex-wrap gap-2">
@@ -69,6 +71,8 @@ export default function RemindersPage() {
   const editor = useReminderEditor("reminders-title");
   const now = useNow();
   const { permission, droppedIds } = useReminderStatus();
+  // only the iPhone app rings (on the website ReminderNotice says so instead)
+  const onPhone = permission !== "unavailable";
   if (!hydrated) return null;
 
   const rows = [...list].sort((a, b) => (a.time < b.time ? -1 : a.time > b.time ? 1 : a.title < b.title ? -1 : a.title > b.title ? 1 : 0));
@@ -80,7 +84,8 @@ export default function RemindersPage() {
           heading, as the editor's sheets give it focus back when they close */}
       <PageHeader back={{ href: "/app", label: t("Back to home") }} />
       <h1 id="reminders-title" tabIndex={-1} className="mt-3 text-[1.75rem] font-[800] leading-none tracking-[-0.02em] outline-none">{t("Reminders")}</h1>
-      <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("{app} rings at the times you choose, but a reminder may not appear if notifications are off or silenced, so don't rely on it alone. Follow the advice of your doctor or pharmacist about any medication.", { app: site.name })}</p>
+      {onPhone && <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("{app} rings at the times you choose, but a reminder may not appear if notifications are off or silenced, so don't rely on it alone.", { app: site.name })}</p>}
+      <p className={`${onPhone ? "mt-2" : "mt-3"} text-[0.9375rem] leading-snug text-muted`}>{t("Follow the advice of your doctor or pharmacist about any medication.")}</p>
       <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("Ticking “Done” is only your own mark. It doesn't stop a reminder from ringing later today.")}</p>
       <ReminderNotice />
 

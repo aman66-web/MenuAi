@@ -215,3 +215,19 @@ export function listedFacts(p: Pick<FoodFacts, "name" | "brand" | "category" | "
   const ingredients = [...new Set([p.ingredients, ...own.map((r) => r.ingredients)].filter((x): x is string => !!x))].join(" ; ");
   return { name: names, brand: p.brand, category: p.category, type: p.type, ingredients: ingredients || undefined, allergens: p.allergens };
 }
+
+/**
+ * The calm line a grocery list shows about the person's diet settings (2026-11-20: with only one of the six newer diets on, the lists said nothing): while the
+ * "Fits my diet" filter is on and a setting it acts on is set, what it can't promise (foodDietCaution); otherwise, whenever any of the six is on, that products
+ * aren't checked for them (they are never filtered, so the line shows whether the chip is on or off). null when there is nothing to say.
+ */
+export function groceryDietLine(prefs: Preferences, filterOn: boolean, t: T = englishT): string | null {
+  return filterOn && anyFoodDiet(prefs) ? foodDietCaution(prefs, t) : foodDietNotChecked(prefs, t);
+}
+
+/** Which of the person's avoided allergens a product's record lists: as an ingredient, and as "may contain" (never both). null when it has no allergen record. */
+export function avoidedAllergens(allergens: FoodFacts["allergens"], avoid: readonly AllergenKey[]): { contains: AllergenKey[]; mayContain: AllergenKey[] } | null {
+  if (!allergens) return null;
+  const contains = avoid.filter((k) => allergens.contains.includes(k));
+  return { contains, mayContain: avoid.filter((k) => !contains.includes(k) && allergens.mayContain.includes(k)) };
+}

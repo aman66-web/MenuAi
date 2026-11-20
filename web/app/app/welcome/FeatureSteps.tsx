@@ -42,8 +42,8 @@ export function EatOutStep({ top, counter, goal, prefs, onDish, bottom }: { top:
     <>
       {top}
       <section className="mt-5 flex flex-1 flex-col">
+        {/* no sub-line (the onboarding meeting's fit check at 375x667): the window's own source line says the figures are the restaurant's */}
         <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{t("Know before you order")}<CounterText text={counter} /></h1>
-        <p className="mt-2 text-base leading-snug text-foreground">{t("The restaurant's own published figures. Tap a place you go.")}</p>
         <EatOutShowcase goal={goal} prefs={prefs} onDish={onDish} />
         <div aria-hidden className="h-4 shrink-0" />
         <FeatureFoot {...bottom} />

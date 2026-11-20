@@ -1,11 +1,11 @@
 import Foundation
 
-/// For previews and tests: a pretend App Store with the three products and their launch prices. Remembers what it was asked.
+/// For previews and tests: a pretend App Store with our two subscriptions at their prices in Config/Numbite.storekit (Annual £49.99, Monthly £4.99, each with
+/// a free first week). Remembers what it was asked.
 final class FakePurchaseService: PurchaseService {
     nonisolated static let sampleCatalogue = [
-        IAPProduct(id: AppConfig.iapAnnualProductID, name: "Annual", price: "£14.99", period: .year, trialDays: 7),
-        IAPProduct(id: AppConfig.iapMonthlyProductID, name: "Monthly", price: "£2.99", period: .month, trialDays: 7),
-        IAPProduct(id: AppConfig.iapPass90ProductID, name: "Founding Member 90-Day Pass", price: "£9.99", period: .noRenewal),
+        IAPProduct(id: AppConfig.iapAnnualProductID, name: "Annual", price: "£49.99", period: .year, trialDays: 7),
+        IAPProduct(id: AppConfig.iapMonthlyProductID, name: "Monthly", price: "£4.99", period: .month, trialDays: 7),
     ]
     /// A made-up compact JWS (three dot-separated parts), never a real Apple signature.
     nonisolated static let sampleJWS = "eyJhbGciOiJFUzI1NiJ9.eyJwcm9kdWN0SWQiOiJmYWtlIn0.ZmFrZS1zaWduYXR1cmU"

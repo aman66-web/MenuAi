@@ -13,6 +13,10 @@ import { DARK_CARD } from "./HomeToday";
 // logged before today. Only what was logged (CLAUDE.md rule 1): a day with nothing logged has a short dash, never a bar of 0; no red, no "over", no score (rule 3).
 // The chart can't be tapped: the circles above open each day. Colours (colour meeting, 19 November 2026): ink, lime for the figures and bars, white for what must be
 // read and the light grey (on-ink-2) for captions; the empty marks and lines are the mid grey of the dial's track; day letters in sentence case, at least 13 px.
+// The 30-person audit (20 November 2026): the bars have at least 72 px to grow in (they barely differed at 34 px), with 16 px above them so the highest figure
+// never reaches the "Your target" caption; the chart sits 4 px in from the card's edges (Monday's letter touched it at 320); a day's figure is left off when it
+// would sit on the target line (the screen-reader list still says it); the figures are in rem, so they follow the text size, and in the app's sans like the
+// dial (the mono face's slashed zero read as Ø).
 
 export function HomeWeek({ log, now, target, logPaid, htmlLang }: { log: readonly WeekEntry[]; now: Date; target: number; logPaid: boolean; htmlLang: string }) {
   const t = useT();
@@ -65,28 +69,34 @@ export function HomeWeek({ log, now, target, logPaid, htmlLang }: { log: readonl
       )}
 
       {!empty && (
-        <p className="app-numbers mt-2 flex items-center justify-end gap-1.5 font-mono text-[0.8125rem] text-on-ink-2">
+        <p className="app-numbers mt-2 flex items-center justify-end gap-1.5 text-[0.8125rem] text-on-ink-2">
           <span aria-hidden className="inline-block w-4 border-t border-dashed border-on-ink-2" />
           {t("Your target: {n} kcal", { n: formatInt(target) })}
         </p>
       )}
 
-      {/* the chart: drawn only (a screen reader gets the list below); the full card width, on the day circles' grid */}
-      <div aria-hidden className="-mx-4 mt-1.5 flex min-h-16 flex-1 flex-col">
-        <div className="relative grid flex-1 grid-cols-7 gap-2">
-          {!empty && <div className="pointer-events-none absolute inset-x-0 border-t border-dashed border-on-ink-2" style={{ bottom: pct(target) }} />}
-          {week.days.map((d) => (
-            <div key={d.key} className="relative">
-              {d.entries > 0 ? (
-                <>
-                  <div className="absolute bottom-0 left-1/2 w-[55%] -translate-x-1/2 rounded-t-[5px] bg-sun" style={{ height: `max(3px, ${pct(d.calories)})` }} />
-                  <span className="app-numbers absolute left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[11px] leading-none text-on-ink-2 @max-[22rem]:text-[10px]" style={{ bottom: `calc(max(3px, ${pct(d.calories)}) + 3px)` }}>{formatInt(d.calories)}</span>
-                </>
-              ) : d.state !== "future" ? (
-                <div className="absolute bottom-0 left-1/2 h-[2px] w-3 -translate-x-1/2 rounded-full bg-ring-track" />
-              ) : null}
-            </div>
-          ))}
+      {/* the chart: drawn only (a screen reader gets the list below); nearly the card's full width, on the day circles' grid, 4 px in from its edges */}
+      <div aria-hidden className="-mx-3 mt-1.5 flex flex-1 flex-col">
+        {/* at least 72 px for the bars, and 16 px over them for the highest figure */}
+        <div className="flex min-h-[5.5rem] flex-1 flex-col pt-4">
+          <div className="relative grid flex-1 grid-cols-7 gap-2">
+            {!empty && <div className="pointer-events-none absolute inset-x-0 border-t border-dashed border-on-ink-2" style={{ bottom: pct(target) }} />}
+            {week.days.map((d) => (
+              <div key={d.key} className="relative">
+                {d.entries > 0 ? (
+                  <>
+                    <div className="absolute bottom-0 left-1/2 w-[55%] -translate-x-1/2 rounded-t-[5px] bg-sun" style={{ height: `max(3px, ${pct(d.calories)})` }} />
+                    {/* the figure over its bar, unless it would sit on the target line */}
+                    {Math.abs(d.calories - target) >= week.scaleTop * 0.08 && (
+                      <span className="app-numbers absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-[0.6875rem] font-semibold leading-none text-on-ink-2 @max-[22rem]:text-[0.625rem]" style={{ bottom: `calc(max(3px, ${pct(d.calories)}) + 3px)` }}>{formatInt(d.calories)}</span>
+                    )}
+                  </>
+                ) : d.state !== "future" ? (
+                  <div className="absolute bottom-0 left-1/2 h-[2px] w-3 -translate-x-1/2 rounded-full bg-ring-track" />
+                ) : null}
+              </div>
+            ))}
+          </div>
         </div>
         <div className="mt-1.5 grid grid-cols-7 gap-2 border-t border-ring-track pt-1.5 text-center text-[0.8125rem] font-semibold leading-none">
           {week.days.map((d) => (

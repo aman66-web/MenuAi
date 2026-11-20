@@ -3,9 +3,10 @@
 import { useState } from "react";
 import { API_BASE, APP_BUILD, TELEMETRY_ENABLED } from "@/lib/mm/config";
 import { AccountError } from "@/lib/mm/account";
+import { tk } from "@/lib/mm/i18n";
 import { nativeCall, hasNative } from "@/lib/mm/native";
 import { site } from "@/site.config";
-import { accountApi, signedIn } from "../_lib/account";
+import { accountApi, keepHashForSignIn, signedIn } from "../_lib/account";
 import { useT } from "../_lib/i18n";
 import { ShieldIcon } from "./icons";
 import { Pip } from "./Mascot";
@@ -20,6 +21,14 @@ import { Button, Field, Sheet, inputClass } from "./ui";
 //   * Email: the same code form in both; the app keeps the session it is given, the website gets http-only cookies.
 
 type Step = "choose" | "email" | "code";
+
+/** What the website's Apple and Google sign-in says when it comes back without finishing (?signin=<reason>, lib/auth/handlers.ts failure). "ok" has none. */
+export const SIGN_IN_MESSAGES: Readonly<Record<string, string>> = {
+  cancelled: tk("Sign-in was cancelled."),
+  failed: tk("Sign-in didn't finish. Please try again."),
+  expired: tk("That sign-in took too long. Please try again."),
+  busy: tk("Too many tries. Please wait a few minutes and try again."),
+};
 
 /** Who the code email comes from: Supabase sends it through Resend as "Numbite" <noreply@numbite.com> (docs/ACCOUNTS_SYNC.md, SMTP settings). */
 const CODE_SENDER = "noreply@numbite.com";
@@ -50,8 +59,9 @@ function GoogleLogo() {
  */
 function ProviderButton({ href, disabled, onClick, className, children }: { href?: string; disabled?: boolean; onClick: () => void; className: string; children: React.ReactNode }) {
   const cls = `inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-full px-5 text-base font-semibold transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${disabled ? "pointer-events-none" : ""} ${className}`;
+  // the website leaves for Apple or Google: this page's "#..." (a shared list) is noted first, as the browser won't bring it back (app/_lib/account.ts)
   return href ? (
-    <a href={href} className={cls}>{children}</a>
+    <a href={href} onClick={keepHashForSignIn} className={cls}>{children}</a>
   ) : (
     <button type="button" disabled={disabled} onClick={onClick} className={cls}>{children}</button>
   );
@@ -81,7 +91,7 @@ export function SigningIn() {
   return (
     <div role="status" aria-live="polite" className="fixed inset-0 z-50 grid place-items-center bg-background px-6">
       <div className="flex flex-col items-center gap-5 text-center">
-        <Pip mood="wave" size={104} />
+        <Pip mood="wave" size={96} />
         <span className="h-9 w-9 animate-spin rounded-full border-[3px] border-line border-t-ink motion-reduce:animate-none" />
         <p className="text-lg font-bold">{t("Signing you in…")}</p>
       </div>
@@ -89,15 +99,19 @@ export function SigningIn() {
   );
 }
 
-/** The three ways in. `required`: on the sign-in screen everyone sees first (it says an account is needed rather than that it isn't). */
-export function SignInPanel({ onDone, community, required = false }: { onDone: () => void; community: boolean; required?: boolean }) {
+/**
+ * The three ways in. `required`: on the sign-in screen everyone sees first (it says an account is needed rather than that it isn't). `intro`: the line above the
+ * buttons (off on the welcome steps' last step, where the heading and Pip already say it and all three buttons must fit a small iPhone's screen). `notice`: what
+ * happened to a website sign-in that came back without finishing (SIGN_IN_MESSAGES), shown under the buttons until the next tap.
+ */
+export function SignInPanel({ onDone, community, required = false, intro = true, notice = null }: { onDone: () => void; community: boolean; required?: boolean; intro?: boolean; notice?: string | null }) {
   const t = useT();
   const [step, setStep] = useState<Step>("choose");
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
   const [busy, setBusy] = useState(false);
   const [finishing, setFinishing] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(notice ? t(notice) : null);
   const native = hasNative();
   const canUseProviders = !APP_BUILD || native; // the packed app outside the iPhone app (a testing browser) has no way to open them
 
@@ -192,19 +206,18 @@ export function SignInPanel({ onDone, community, required = false }: { onDone: (
       {finishing && required && <SigningIn />}
       {step === "choose" && (
         <>
-          <p className="text-base leading-snug">{required
+          {intro && <p className="mb-5 text-base leading-snug">{required
             ? t("New here? Any of these makes your free account. Been here before? Use the same one as last time.")
-            : t("Sign in to keep your saved meals, shopping list and settings on all your devices. You don't need an account to use {app}.", { app: site.name })}</p>
-          <div className="mt-5 space-y-2.5">
+            : t("Sign in to keep your saved meals, shopping list and settings on all your devices. You don't need an account to use {app}.", { app: site.name })}</p>}
+          <div className="space-y-2.5">
             {canUseProviders && (
               <>
                 <ProviderButton href={native ? undefined : providerHref("apple")} disabled={busy} onClick={() => void withProvider("apple")} className="bg-black text-white">
                   <AppleLogo />
                   {t("Continue with Apple")}
                 </ProviderButton>
-                {/* the iPhone app only: what Apple's own sheet will ask for */}
-                {native && <p className="px-1 text-[0.9375rem] leading-snug text-foreground">{t("With Apple, your iPhone asks for Face ID or your passcode. There's no new password to remember.")}</p>}
-                <ProviderButton href={native ? undefined : providerHref("google")} disabled={busy} onClick={() => void withProvider("google")} className="border border-line bg-white text-[#1f1f1f]">
+                {/* Google's own look: white, its dark words, and a visible edge (#7a817d, close to Google's #747775; the hairline was 1.36:1) */}
+                <ProviderButton href={native ? undefined : providerHref("google")} disabled={busy} onClick={() => void withProvider("google")} className="border-[1.5px] border-edge bg-white text-[#1f1f1f]">
                   <GoogleLogo />
                   {t("Continue with Google")}
                 </ProviderButton>
@@ -213,6 +226,8 @@ export function SignInPanel({ onDone, community, required = false }: { onDone: (
             <Button full variant="secondary" disabled={busy} data-signin-last className="min-h-12 text-base" onClick={() => { setError(null); setStep("email"); }}>
               {t("Continue with email")}
             </Button>
+            {/* the iPhone app only: what Apple's own sheet will ask for, under all three buttons so they fit a small screen together (guideline 4.8) */}
+            {native && canUseProviders && <p className="px-1 text-[0.9375rem] leading-snug text-foreground">{t("With Apple, your iPhone asks for Face ID or your passcode. There's no new password to remember.")}</p>}
           </div>
           {error && <SignInError>{error}</SignInError>}
         </>
@@ -229,7 +244,8 @@ export function SignInPanel({ onDone, community, required = false }: { onDone: (
           {error && <SignInError>{error}</SignInError>}
           {/* busy: the ink stays ink with a spinner and "Working…" (never the grey can't-press fill, which read as broken) */}
           <Button full className="mt-5 min-h-12 text-base" busy={busy} type="submit">{t("Send me a code")}</Button>
-          <Button full variant="ghost" className="mt-1.5" onClick={() => { setError(null); setStep("choose"); }}>{t("Back")}</Button>
+          {/* not "Back": on the welcome steps the screen's own Back is just above (two Backs that go to different places) */}
+          <Button full variant="ghost" className="mt-1.5" onClick={() => { setError(null); setStep("choose"); }}>{t("Other ways to sign in")}</Button>
         </form>
       )}
 
@@ -259,20 +275,20 @@ export function SignInPanel({ onDone, community, required = false }: { onDone: (
       )}
 
       {required ? (
-        // What the account keeps, named (lib/mm/syncStores.ts: the synced settings and stores; the log only today's and yesterday's entries), at 16 px in the
+        // What the account keeps, named (lib/mm/syncStores.ts YOUR_DATA_SYNCED: the synced settings and stores; the log only its last two days), at 16 px in the
         // page's ink, not small grey. Sex, age, height, weight and activity are never kept (lib/mm/onboardingPlan.ts PRIVACY). Change this with the privacy page
         // and SYNC_STORES.
         <p className="mt-5 flex items-start gap-2.5 text-base leading-snug text-foreground">
           <ShieldIcon aria-hidden className="mt-[0.2rem] h-[1.125rem] w-[1.125rem] shrink-0 text-accent" />
           {/* "No ads, no tracking" stays only while the setup screen counts are off (lib/mm/config.ts TELEMETRY_ENABLED); on, the line says what is counted */}
           <span>{TELEMETRY_ENABLED
-            ? t("We keep your email address, your goal and daily numbers, the foods you avoid, your shops, today's food log, your favourites, and the meals, recipes, lists, comparisons and cupboard items you save. Never your sex, age, height, weight or activity. No ads. We also count how many people reach each setup screen, without knowing who they are.")
-            : t("We keep your email address, your goal and daily numbers, the foods you avoid, your shops, today's food log, your favourites, and the meals, recipes, lists, comparisons and cupboard items you save. Never your sex, age, height, weight or activity. No ads, no tracking.")}</span>
+            ? t("We keep your email address, your goal and daily numbers, the foods you avoid, your shops, the last two days of your food log, your favourites, the meals, recipes, lists and comparisons you save, and the foods you said you have. Never your sex, age, height, weight or activity. No ads. We also count how many people reach each setup screen, without knowing who they are.")
+            : t("We keep your email address, your goal and daily numbers, the foods you avoid, your shops, the last two days of your food log, your favourites, the meals, recipes, lists and comparisons you save, and the foods you said you have. Never your sex, age, height, weight or activity. No ads, no tracking.")}</span>
         </p>
       ) : (
         <p className="mt-5 text-[0.8125rem] leading-snug text-muted">{TELEMETRY_ENABLED
-          ? t("We only keep your email address and what you choose to sync. No ads. We also count how many people reach each setup screen, without knowing who they are.")
-          : t("We only keep your email address and what you choose to sync. No ads, no tracking.")}</p>
+          ? t("We only keep your email address and the things listed in Settings › Your data. No ads. We also count how many people reach each setup screen, without knowing who they are.")
+          : t("We only keep your email address and the things listed in Settings › Your data. No ads, no tracking.")}</p>
       )}
       {community && <p className="mt-2 text-[0.8125rem] leading-snug text-muted">{t("To use friends, we also keep the username you choose, your friends and the shopping lists you send and get.")}</p>}
     </div>

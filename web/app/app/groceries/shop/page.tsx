@@ -2,15 +2,15 @@
 
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
-import { ErrorBox, Spinner } from "../../_components/ui";
+import { Spinner } from "../../_components/ui";
 import { useT } from "../../_lib/i18n";
-import { ShopListScreen } from "./ShopListScreen";
+import { NoChoice, ShopListScreen } from "./ShopListScreen";
 
 // A static shell: the shop comes from ?r=, so one cached page opens any shop's full list.
 function ShopRoute() {
   const t = useT();
   const shop = useSearchParams().get("r");
-  return shop && /^[a-z0-9-]{2,40}$/.test(shop) ? <ShopListScreen shop={shop} /> : <ErrorBox message={t("Choose a supermarket first.")} />;
+  return shop && /^[a-z0-9-]{2,40}$/.test(shop) ? <ShopListScreen shop={shop} /> : <NoChoice title={t("Choose a supermarket first.")} body={t("Tap a shop on Groceries to see its products, prices and photos.")} />;
 }
 
 export default function ShopListPage() {

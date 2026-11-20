@@ -178,7 +178,9 @@
    "nutrients": {
     "calories": 328
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -224,7 +226,9 @@
    "nutrients": {
     "calories": 328
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],

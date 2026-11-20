@@ -1,8 +1,8 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import {
-  ARRIVAL_TOAST, NO_HOME_PAGES, START_HERE_DAYS, arrivalDue, sanitizeHomePages, startHereDishFits, startHereDone, startHereRows, startHereShows, withArrival, withoutArrival,
-  type HomeArrivalNote,
+  ARRIVAL_TOAST, NO_HOME_PAGES, START_HERE_DAYS, arrivalDue, dropCard, dropToast, sanitizeHomePages, startHereDishFits, startHereDone, startHereRows, startHereShows, withArrival,
+  withoutArrival, withStartUsed, type HomeArrivalNote, type HomePagesState,
 } from "../lib/mm/homePages";
 import { OWN_DATA_KEYS } from "../lib/mm/tour";
 import type { MenuItem, Preferences } from "../lib/mm/types";
@@ -41,15 +41,55 @@ describe("the note the welcome screens leave for Home", () => {
     });
   });
 
-  it("is shown once: gone after Home has shown it, and on sign out, Delete my account and Clear everything", () => {
+  it("says its toast once, and keeps the card; sign out, Delete my account and Clear everything take both", () => {
     const s = withArrival({ ...NO_HOME_PAGES, seen: true, hintDays: 2, lastHintDay: "2026-11-19" }, { toast: "signedIn", card: true }, END);
     expect(arrivalDue(s, END)).not.toBeNull();
+    const said = dropToast(s);
+    expect(arrivalDue(said, END)).toEqual({ at: END.toISOString(), card: true });
+    expect(dropToast(said)).toBe(said);
+    // a Settings rerun has only a toast: once said, nothing is left
+    expect(arrivalDue(dropToast(withArrival(NO_HOME_PAGES, { toast: "saved", card: false }, END)), END)).toBeNull();
     const after = withoutArrival(s);
     expect(arrivalDue(after, END)).toBeNull();
     expect(after).toEqual({ seen: true, slid: false, hintDays: 2, lastHintDay: "2026-11-19" }); // the hint's own state is kept
     expect(withoutArrival(NO_HOME_PAGES)).toBe(NO_HOME_PAGES);
     // Clear everything resets the whole store
     expect(sanitizeHomePages(undefined)).toEqual(NO_HOME_PAGES);
+  });
+
+  it("the Start here card waits on Home ('It'll be waiting on Home'): it survives leaving Home and coming back, and a reload, with the rows used so far", () => {
+    // what Home does on each visit: read the note, say the toast once
+    const visit = (s: HomePagesState, at: Date) => ({ note: arrivalDue(s, at), after: dropToast(s) });
+    let s = withArrival(NO_HOME_PAGES, { toast: "signedIn", card: true, firstRecipeId: "overnight-oats", firstDish: { chainId: "pret", itemId: "chicken-wrap" } }, END);
+    const first = visit(s, END);
+    expect(first.note?.toast).toBe("signedIn");
+    s = withStartUsed(first.after, { recipe: true });
+    s = withStartUsed(s, { dishEntry: "3f1c2d4e-0000-4000-8000-000000000001" });
+    // she goes to Recipes and back (Home unmounts and mounts again)
+    const second = visit(s, later(60_000));
+    expect(second.note).toMatchObject({ card: true, firstRecipeId: "overnight-oats", used: { recipe: true, dishEntry: "3f1c2d4e-0000-4000-8000-000000000001" } });
+    expect(second.note?.toast).toBeUndefined();
+    // the phone reloads the app: the stored note reads back the same
+    const reloaded = sanitizeHomePages(JSON.parse(JSON.stringify(second.after)));
+    expect(reloaded).toEqual(second.after);
+    expect(arrivalDue(reloaded, later(DAY))).toMatchObject({ card: true, used: { recipe: true } });
+    // an Undo forgets the dish (its row offers it again); "Add what you ate" used
+    const undone = withStartUsed(withStartUsed(reloaded, { dishEntry: null }), { add: true });
+    expect(arrivalDue(undone, later(DAY))!.used).toEqual({ add: true, recipe: true });
+    // "Done with this": the card goes for good
+    expect(arrivalDue(dropCard(undone), later(DAY))).toBeNull();
+    // and it still goes START_HERE_DAYS days after the welcome screens ended
+    expect(arrivalDue(undone, later(START_HERE_DAYS * DAY))).toBeNull();
+  });
+
+  it("keeps only what it should of the rows used", () => {
+    const base = withArrival(NO_HOME_PAGES, { toast: "signedIn", card: true }, END);
+    const odd = sanitizeHomePages({ ...base, arrival: { ...base.arrival, used: { add: "yes", recipe: true, dishEntry: "../../x", note: "hi" } } });
+    expect(odd.arrival!.used).toEqual({ recipe: true });
+    expect("used" in sanitizeHomePages({ ...base, arrival: { ...base.arrival, used: { add: false } } }).arrival!).toBe(false);
+    // a toast-only note (a Settings rerun) keeps no rows
+    expect(withStartUsed(withArrival(NO_HOME_PAGES, { toast: "saved", card: false }, END), { add: true }).arrival).toEqual({ at: END.toISOString(), toast: "saved", card: false });
+    expect(withStartUsed(NO_HOME_PAGES, { add: true })).toBe(NO_HOME_PAGES);
   });
 
   it(`is dropped ${START_HERE_DAYS} days after the welcome screens ended if Home never showed it`, () => {
@@ -117,6 +157,9 @@ describe("the Start here card", () => {
     expect(startHereDone({ add: true, dish: false, recipe: true }, { add: true, dish: false, recipe: true })).toBe(true);
     expect(startHereDone({ add: true, dish: false, recipe: false }, { add: true, dish: false, recipe: false })).toBe(true);
     expect(startHereDone({ add: false, dish: false, recipe: true }, { add: false, dish: false, recipe: true })).toBe(true);
+    // on a later visit a dish added earlier has done its job: no Undo is kept for it
+    expect(startHereDone(all, { add: true, dish: true, recipe: true, undo: false })).toBe(true);
+    expect(startHereDone(all, { add: false, dish: true, recipe: true, undo: false })).toBe(false);
   });
 
   it("rechecks the dish against the account's own diet and allergens: limited-time dishes, unchecked diets and halal at a restaurant that doesn't say so are left out", () => {

@@ -3,6 +3,7 @@
 import { chainHref } from "@/lib/mm/routes";
 import { useRouter } from "next/navigation";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
+import { ADDED_TO } from "@/lib/mm/addFood";
 import { analytics } from "@/lib/mm/analytics";
 import { needsPaywall } from "@/lib/mm/entitlements";
 import { orderAllergens } from "@/lib/mm/allergens";
@@ -16,11 +17,10 @@ import {
   linesFromCombination, lineName, orderName, orderNutrients, removeComponent, setComponentQty, setItemQty, sortedComponents, swapComponent,
   swapOptions, toggleModifier, validateOrder, type ComponentLine, type ItemLine, type OrderLine, type Result,
 } from "@/lib/mm/order";
-import { addLogEntry, addSavedOrder, countProAction, logStore, savedStore, updateSavedOrder } from "@/lib/mm/stores";
-import type { LogSource, SavedOrder } from "@/lib/mm/user-data";
-import { anyDietFilter, passesDiet, restaurantDietNote } from "@/lib/mm/menu-view";
-import { passesPreferences } from "@/lib/mm/ranking";
-import type { MenuComponent } from "@/lib/mm/types";
+import { addLogEntry, addSavedOrder, countProAction, deleteLogEntry, logStore, savedStore, updateSavedOrder } from "@/lib/mm/stores";
+import type { LogEntry, LogSource, SavedOrder } from "@/lib/mm/user-data";
+import { anyDietFilter, anyUnchecked, passesMenuDiet, restaurantDietNote, uncheckedDiet } from "@/lib/mm/menu-view";
+import type { LogMeal, MenuComponent, MenuItem } from "@/lib/mm/types";
 import { AllergenSection } from "../_components/Allergens";
 import { useGate } from "../_components/Paywall";
 import { PremiumBadge } from "../_components/PremiumBadge";
@@ -30,7 +30,9 @@ import { CheckIcon, LockIcon, MinusIcon, PlusIcon, SwapIcon, TrashIcon } from ".
 import { MacroSummary, SMALL_LABEL } from "../_components/Nutrition";
 import { PageHeader } from "../_components/PageHeader";
 import { ShareButton } from "../_components/ShareButton";
-import { Button, Card, Chip, ErrorBox, Field, inputClass, Sheet, Spinner } from "../_components/ui";
+import { Toast } from "../_components/Toast";
+import { Button, Card, Chip, EmptyState, ErrorBox, Field, inputClass, LinkButton, Sheet, Spinner } from "../_components/ui";
+import { AddToTodaySheet } from "../item/ItemScreen";
 import { travelBack } from "../_lib/backNav";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useChain, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "../_lib/hooks";
@@ -122,7 +124,8 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
     );
   }
   const start = resolveStart(index, props, saved, t);
-  if (start.kind === "error") return (<div>{back}<ErrorBox message={start.message} /></div>);
+  // a saved order or dish that has gone (an old link) is a missing page, not a failure: said calmly, with the way back to the menu
+  if (start.kind === "error") return (<div>{back}<div className="mt-4"><EmptyState title={start.message} action={<LinkButton href={chainHref(index.chain.id)} variant="secondary">{t("See the menu")}</LinkButton>} /></div></div>);
   if (start.kind === "unavailable") {
     return (
       <div>
@@ -150,6 +153,10 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
   const [lines, setLines] = useState<OrderLine[]>(start.lines);
   const [customName, setCustomName] = useState<string | null>(start.savedName ?? null);
   const [notice, setNotice] = useState<string | null>(null);
+  // "Add to today" asks which meal, then stays here with a toast and Undo (it used to jump to Today with no word); a double tap never logs twice
+  const [mealSheet, setMealSheet] = useState(0);
+  const [added, setAdded] = useState<{ entry: LogEntry; meal: LogMeal; key: number } | null>(null);
+  const adding = useRef(false);
   const [picker, setPicker] = useState<null | { type: "add"; lineIndex: number } | { type: "swap"; lineIndex: number; componentId: string } | { type: "item" }>(null);
 
   useEffect(() => {
@@ -261,15 +268,27 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
       {/* `glass`: a white card that floats above the tab bar like the bar itself, and the secondary buttons on it take the grey fill
           (globals.css) so they keep their edges. While it floats, a hairline and a soft shadow above and below give it an edge, so the
           white cards scrolling under it read as passing beneath a card, not as cut off. */}
+      {/* When the full summary is too tall to pin (large text, a small phone), one compact line of the totals stays pinned instead, and the buttons stay in
+          the page (the 20 November 2026 audit: on small phones the totals scrolled away) */}
+      {!pinned && total && valid.ok && (
+        <div aria-hidden className="app-numbers sticky bottom-[calc(5.5rem+env(safe-area-inset-bottom))] z-10 mt-5 rounded-full bg-card px-4 py-2.5 text-center text-[0.9375rem] font-bold ring-1 ring-[var(--line)] shadow-[var(--shadow-lift)]">
+          {formatCalories(total.calories)} · {t("{grams} g protein", { grams: Math.round(total.protein ?? 0) })}
+        </div>
+      )}
       <div ref={summaryRef} className={`glass @container z-10 mt-5 rounded-[1.25rem] p-4 ${pinned ? "sticky bottom-[calc(5.5rem+env(safe-area-inset-bottom))] ring-1 ring-[var(--line)] shadow-[var(--shadow-lift)]" : ""}`}>
         {total && valid.ok ? (
           <>
             <div aria-live="polite"><MacroSummary compact nutrients={total} label={t("Order total: {kcal}, {protein} grams protein", { kcal: formatCalories(total.calories), protein: Math.round(total.protein ?? 0) })} /></div>
             <p className="app-numbers mt-2.5 text-[0.9375rem] leading-snug text-muted">{after}</p>
-            {/* Three pills across (a little less padding than usual so "Share" keeps its icon and word on one line); at large text Save and
-                Log side by side and Share under them, full width. (ShareButton's button sits in a `display: contents` wrapper.) */}
+            {/* Three pills across (a little less padding than usual so "Share" keeps its icon and word on one line); at large text Add to today and
+                Save side by side and Share under them, full width. (ShareButton's button sits in a `display: contents` wrapper.) "Add to today" is the ink
+                button, as on the dish page, and Save the white one (the 20 November 2026 audit: the two pages had them the other way round). */}
             <div className="mt-3.5 grid grid-cols-2 gap-2 [&_button]:px-3 [&>div:last-child>button]:col-span-2 @min-[21rem]:grid-cols-3 @min-[21rem]:[&>div:last-child>button]:col-span-1">
+              <Button full aria-haspopup="dialog" onClick={() => gate("log", () => setMealSheet((n) => n + 1))}>
+                {t("Add to today")}
+              </Button>
               <Button
+                variant="secondary"
                 full
                 onClick={() => {
                   const entry = { chainId: chain.id, chainName: chain.name, name: name.trim() || defaultName, lines, nutrients: total, dataVersionAtSave: menu.dataVersion ?? 0 };
@@ -292,21 +311,6 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
               >
                 {start.savedId ? t("Save changes") : t("Save")}
               </Button>
-              <Button
-                variant="secondary"
-                full
-                onClick={() =>
-                  gate("log", () => {
-                    const image = linesImage(ix, lines); // the first dish in the order with a photo, shown beside it on Home and Today
-                    addLogEntry({ chainId: chain.id, chainName: chain.name, name: name.trim() || defaultName, nutrients: total, source: currentSource(), ...(image ? { image } : {}) });
-                    analytics.track({ name: "mealLogged" });
-                    countProAction();
-                    router.replace("/app/today"); // replace: Back from Today must not return to the finished builder, where one more Log would log the meal twice
-                  })
-                }
-              >
-                {t("Add to today")}
-              </Button>
               <ShareButton full chainName={chain.name} orderName={name} description={describeOrder(ix, lines)} nutrients={total} />
             </div>
           </>
@@ -314,6 +318,30 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
           <p className="text-[0.9375rem] leading-snug text-muted">{valid.ok ? t("Something in this order is no longer on the menu.") : valid.error}</p>
         )}
       </div>
+
+      {added && (
+        <Toast key={`added-${added.key}`} onClose={() => setAdded(null)} onUndo={() => { deleteLogEntry(added.entry.id); setAdded(null); }}>
+          {t(ADDED_TO[added.meal], { name: added.entry.name })}
+        </Toast>
+      )}
+      {mealSheet > 0 && total && (
+        <AddToTodaySheet
+          key={mealSheet}
+          open
+          onClose={() => setMealSheet(0)}
+          onAdd={(meal) => {
+            if (adding.current) return;
+            adding.current = true;
+            setMealSheet(0);
+            const image = linesImage(ix, lines); // the first dish in the order with a photo, shown beside it on Home and Today
+            const entry = addLogEntry({ chainId: chain.id, chainName: chain.name, name: name.trim() || defaultName, nutrients: total, source: currentSource(), meal, ...(image ? { image } : {}) });
+            analytics.track({ name: "mealLogged" });
+            countProAction();
+            setAdded((a) => ({ entry, meal, key: (a?.key ?? 0) + 1 }));
+            setTimeout(() => { adding.current = false; }, 600);
+          }}
+        />
+      )}
 
       <PickerSheets ix={ix} picker={picker} lines={lines} onClose={() => setPicker(null)} onPickComponent={(id) => {
         if (picker?.type === "add") change("add", addComponent(ix, lines[picker.lineIndex] as ComponentLine, id, t), picker.lineIndex);
@@ -382,7 +410,7 @@ function ItemLineEditor({ ix, line, onQty, onToggle }: { ix: ChainIndex; line: I
   const total = lineNutrients(ix, line);
   return (
     <div className="mt-3.5">
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <span className="app-numbers font-mono text-[0.8125rem] text-muted">{total ? formatCalories(total.calories) : ""}</span>
         <div className="flex items-center gap-1" role="group" aria-label={t("Quantity")}>
           <button type="button" aria-label={t("Decrease quantity")} disabled={line.qty <= 1} onClick={() => onQty(line.qty - 1)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 disabled:cursor-not-allowed disabled:active:scale-100 disabled:opacity-100 disabled:border-transparent disabled:bg-soft-strong disabled:text-muted"><MinusIcon className="h-5 w-5" /></button>
@@ -417,21 +445,31 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
   lines: OrderLine[]; onClose: () => void; onPickComponent: (id: string) => void; onPickItem: (id: string) => void;
 }) {
   const t = useT();
-  // The diet settings (Settings › Diet) apply to what can be added, as on the restaurant's page; one tap shows everything.
+  // The diet settings (Settings › Diet) apply to what can be added, as on the restaurant's page (passesMenuDiet: where the restaurant doesn't mark vegetarian
+  // dishes or publish allergens, only names that say otherwise leave a dish out; the 20 November 2026 audit found the sheets empty at Five Guys); one tap
+  // shows everything.
   const prefs = useSettings().preferences;
   const [dietOn, setDietOn] = useState(true);
   const diet = anyDietFilter(prefs) && dietOn;
+  const unchecked = useMemo(() => uncheckedDiet(ix.chain.items, prefs), [ix.chain.items, prefs]);
   // the diets a menu can't be checked for (Jain, Kosher style...) are said plainly beside the chip, so "Fits my diet" never claims them
   const notChecked = restaurantDietNote(prefs, t);
   const dietChip = anyDietFilter(prefs) || notChecked ? (
     <div className="mb-3">
       {anyDietFilter(prefs) && <Chip selected={dietOn} onClick={() => setDietOn((v) => !v)}>{t("Fits my diet")}</Chip>}
+      {diet && anyUnchecked(unchecked) && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("{chain} doesn't mark which dishes fit your diet or allergies, so only dishes whose names say otherwise are left out.", { chain: ix.chain.name })}</p>}
       {notChecked && <p className={`${anyDietFilter(prefs) ? "mt-2" : ""} text-[0.9375rem] leading-snug text-muted`}>{notChecked}</p>}
     </div>
   ) : null;
+  /** An empty sheet says why, with one tap to see everything. */
+  const nothingFits = (
+    <EmptyState title={t("Nothing here fits your diet")} action={<Button variant="secondary" onClick={() => setDietOn(false)}>{t("Show every dish")}</Button>} />
+  );
   const line = picker && picker.type !== "item" ? (lines[picker.lineIndex] as ComponentLine | undefined) : undefined;
   const optionGroups: Array<{ title: string; items: MenuComponent[] }> = [];
-  const fitComponent = (c: MenuComponent) => !diet || passesPreferences(c.tags, prefs);
+  // an ingredient is read like a dish of its own name and tags
+  const asDish = (c: MenuComponent): MenuItem => ({ id: c.id, name: c.name, category: "", serving: "", nutrients: c.nutrients, tags: c.tags, limitedTime: false, rankable: false, components: [], modifiers: [], ...(c.allergens ? { allergens: c.allergens } : {}) });
+  const fitComponent = (c: MenuComponent) => !diet || passesMenuDiet(asDish(c), prefs, unchecked);
   if (picker?.type === "add" && line?.kind === "components") {
     for (const [group, list] of addableComponents(ix, line)) optionGroups.push({ title: t(GROUP_LABEL[group] ?? group), items: list.filter(fitComponent) });
   }
@@ -440,16 +478,18 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
     optionGroups.push({ title: t("Swap {name} for", { name: ix.components.get(picker.componentId)?.name ?? "" }), items: list });
   }
   // The choices are white rows on the sheet, each a full-width button with the portion under the name and the calories at the end.
-  const choice = "app-numbers flex min-h-14 w-full items-center justify-between gap-3 px-4 py-3 text-start transition hover:bg-soft-strong active:bg-soft-strong";
+  const choice = "app-numbers flex min-h-14 w-full items-center justify-between gap-3 px-4 py-3 text-start transition hover:bg-background active:bg-background";
   // The dishes in "Add item" lead with their photo, as on the restaurant's menu (ChainScreen's menuPhotos): with any photo on the menu, a dish
   // without one gets the grey fork tile, so every name starts at the same place.
   const hiddenLogos = useHiddenLogos();
   const menuPhotos = useMemo(() => ix.chain.items.some((i) => itemImageUrl(i.image) !== undefined), [ix.chain.items, hiddenLogos]); // eslint-disable-line react-hooks/exhaustive-deps -- itemImageUrl reads the taken-down list, which hiddenLogos tracks
-  const dishChoice = "app-numbers flex min-h-[4.75rem] w-full items-center gap-3.5 px-4 py-2.5 text-start transition hover:bg-soft-strong active:bg-soft-strong";
+  const dishChoice = "app-numbers flex min-h-[4.75rem] w-full items-center gap-3.5 px-4 py-2.5 text-start transition hover:bg-background active:bg-background";
+  const dishes = ix.chain.categories.map((cat) => ({ cat, items: ix.chain.items.filter((i) => i.category === cat && (!diet || passesMenuDiet(i, prefs, unchecked))) })).filter((g) => g.items.length > 0);
   return (
     <>
       <Sheet open={picker?.type === "add" || picker?.type === "swap"} onClose={onClose} title={picker?.type === "swap" ? t("Swap ingredient") : t("Add ingredient")}>
         {dietChip}
+        {diet && optionGroups.length > 0 && optionGroups.every((g) => g.items.length === 0) && nothingFits}
         {optionGroups.filter((g) => g.items.length > 0).map((g) => (
           <section key={g.title} className="mb-5">
             <h3 className={`mb-2 ${SMALL_LABEL}`}>{g.title}</h3>
@@ -468,9 +508,9 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
       </Sheet>
       <Sheet open={picker?.type === "item"} onClose={onClose} title={t("Add item")}>
         {dietChip}
-        {ix.chain.categories.map((cat) => {
-          const items = ix.chain.items.filter((i) => i.category === cat && (!diet || passesDiet(i, prefs)));
-          return items.length === 0 ? null : (
+        {diet && dishes.length === 0 && nothingFits}
+        {dishes.map(({ cat, items }) => {
+          return (
             <section key={cat} className="mb-5">
               <h3 className={`mb-2 ${SMALL_LABEL}`}>{cat}</h3>
               <ul className={SHEET_LIST}>

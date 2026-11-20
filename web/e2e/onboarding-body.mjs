@@ -32,7 +32,7 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
   };
 }
 let pass = 0, fail = 0;
-async function step(n, fn) { if (process.env.ONLY && !n.startsWith(process.env.ONLY)) return; try { await fn(); pass++; console.log("PASS", n); } catch (e) { fail++; console.log("FAIL", n, "-", String(e.message).split("\n")[0], (String(e.stack).match(/(onboarding-body|welcome-steps)\.mjs:\d+/) ?? [""])[0]); } }
+async function step(n, fn) { if (process.env.ONLY && !n.startsWith(process.env.ONLY)) return; try { await fn(); pass++; console.log("PASS", n); } catch (e) { fail++; console.log("FAIL", n, "-", String(e.message).split("\n")[0], (String(e.stack).match(/(onboarding-body|welcome-steps)\.mjs:\d+/) ?? [""])[0], (String(e.message).match(/waiting for (.*)/) ?? [])[1] ?? ""); } }
 const expect = (cond, msg) => { if (!cond) throw new Error(msg); };
 const vis = (l) => l.waitFor({ state: "visible", timeout: 10000 });
 
@@ -195,7 +195,7 @@ await step("(a) the screens come in the new order with the right headings and 'S
   await planWeek(page);
   await status(page, 10);
   await W.weekNext(page);
-  await head(page, "Save your plan: make your free account"); await status(page, 11);
+  await head(page, "Save your goal and numbers: make your free account"); await status(page, 11);
   expect((await page.getByRole("heading", { name: "You're all set!" }).count()) === 0, "'You're all set!' is back");
   expect((await page.getByRole("heading", { name: "Easy to read" }).count()) === 0, "the text size is no longer a question");
   expect(errors.length === 0, errors[0]);
@@ -255,7 +255,7 @@ await step("(b) person B (a man in kg and cm on a GLP-1 medicine): the plan fill
   await head(page, "Your daily targets");
   expect(JSON.stringify(await targets(page)) === JSON.stringify(B.plan), "plan for B: " + JSON.stringify(await targets(page)));
   expect((await page.locator("#target-mealcap").inputValue()) === "450", "the meal size is not worked out from the plan");
-  expect((await page.getByText("If you take a GLP-1 medicine, follow the advice of your doctor or pharmacist.").count()) === 1, "the medicine line shows once");
+  expect((await page.getByText("If you take a GLP-1 medication, follow the advice of your doctor or pharmacist.").count()) === 1, "the medicine line shows once");
   await planWeek(page);
   const s = await settingsOf(page);
   expect(s.dailyCalories === 2220 && s.dailyProtein === 115 && s.dailyCarbs === 270 && s.dailyFat === 75 && s.glp1MealCap === 450, "saved: " + JSON.stringify(s));
@@ -371,7 +371,7 @@ await step("(d) 'Skip these questions' on a body screen skips all three: the tar
   await form.getByRole("radio", { name: A.sex, exact: true }).click();
   await age(page).fill(A.years);
   await box(page, "Stone").fill("11"); await box(page, "Pounds").fill("0"); await box(page, "Feet").fill("5"); await box(page, "Inches").fill("10");
-  await form.getByRole("button", { name: "Suggest targets", exact: true }).click();
+  await form.getByRole("button", { name: "Work out my numbers", exact: true }).click();
   const card = form.getByRole("status");
   await vis(card);
   const text = (await card.innerText()).replace(/\s+/g, " ");
@@ -441,7 +441,7 @@ await step("(f) the notes: check your measurements, the 1,200 floor and doctor f
   let r = await fresh();
   await toGoal(r.page);
   await toTargets(r.page, { goal: "Maintain", sex: "Male", years: "47", weight: { kg: "160" }, height: { cm: "170" }, activity: "Active" });
-  await vis(r.page.getByText("Please check your height and weight, because your plan is worked out from them. If they are right, you can carry on."));
+  await vis(r.page.getByText("Please check your height and weight, because your numbers are worked out from them. If they are right, you can carry on."));
   expect(JSON.stringify(await targets(r.page)) === JSON.stringify({ calories: "3770", protein: "190", carbs: "470", fat: "125" }), "the plan is still shown: " + JSON.stringify(await targets(r.page)));
   expect(!(await r.page.getByRole("button", { name: "Next: plan my week", exact: true }).isDisabled()), "it doesn't block");
   await r.ctx.close();
@@ -457,7 +457,7 @@ await step("(f) the notes: check your measurements, the 1,200 floor and doctor f
   r = await fresh();
   await toGoal(r.page);
   await toTargets(r.page, { ...B, goal: B.goal });
-  await vis(r.page.getByText("If you take a GLP-1 medicine, follow the advice of your doctor or pharmacist. Numbite doesn't give medical advice."));
+  await vis(r.page.getByText("If you take a GLP-1 medication, follow the advice of your doctor or pharmacist. Numbite doesn't give medical advice."));
   await r.ctx.close();
   r = await fresh();
   await toGoal(r.page);
@@ -608,7 +608,7 @@ await step("(i) Settings' single-screen form works out the same numbers as the o
   await form.getByRole("radio", { name: "Female", exact: true }).click();
   await age(page).fill("34");
   await box(page, "Stone").fill("11"); await box(page, "Pounds").fill("0"); await box(page, "Feet").fill("5"); await box(page, "Inches").fill("10");
-  await form.getByRole("button", { name: "Suggest targets", exact: true }).click();
+  await form.getByRole("button", { name: "Work out my numbers", exact: true }).click();
   const card = form.getByRole("status");
   await vis(card);
   const text = (await card.innerText()).replace(/\s+/g, " ");
@@ -621,7 +621,7 @@ await step("(i) Settings' single-screen form works out the same numbers as the o
   await box(page, "Pounds").fill("0");
   await page.getByRole("radio", { name: "Kilograms", exact: true }).click();
   expect((await box(page, "Kilograms").inputValue()) === "69.9", "converted: " + (await box(page, "Kilograms").inputValue()));
-  await form.getByRole("button", { name: "Suggest targets", exact: true }).click();
+  await form.getByRole("button", { name: "Work out my numbers", exact: true }).click();
   await vis(form.getByRole("status"));
   expect(/1,530 kcal/.test((await form.getByRole("status").innerText()).replace(/\s+/g, " ")), "kg gives the same plan");
   await form.getByRole("button", { name: "Use these", exact: true }).click();
@@ -635,10 +635,10 @@ await step("(i) Settings' single-screen form works out the same numbers as the o
   await page.getByRole("button", { name: "Suggest targets", exact: true }).first().click().catch(() => {});
   if (!(await form.isVisible().catch(() => false))) await page.getByRole("button", { name: "Suggest targets", exact: true }).first().click();
   await age(page).fill("16");
-  await form.getByRole("button", { name: "Suggest targets", exact: true }).click();
+  await form.getByRole("button", { name: "Work out my numbers", exact: true }).click();
   await vis(form.getByText("Ask a doctor or dietitian for targets."));
   await age(page).fill("");
-  await form.getByRole("button", { name: "Suggest targets", exact: true }).click();
+  await form.getByRole("button", { name: "Work out my numbers", exact: true }).click();
   await vis(form.getByText("Enter an age from 18 to 100, your weight and your height."));
   // nothing typed was kept or sent: the only thing that changed in storage is the settings' four targets, and no typed value is anywhere
   const e = await everything(page);
@@ -777,7 +777,7 @@ await step("(o) after the questions were skipped, 'Use these' keeps the suggesti
   await form.getByRole("radio", { name: "Centimetres", exact: true }).click();
   await box(page, "Centimetres").fill("150");
   await form.getByRole("radio", { name: "Mostly sitting", exact: true }).click();
-  await form.getByRole("button", { name: "Suggest targets", exact: true }).click();
+  await form.getByRole("button", { name: "Work out my numbers", exact: true }).click();
   await vis(form.getByRole("status"));
   await form.getByRole("button", { name: "Use these", exact: true }).click();
   const notes = [
@@ -935,7 +935,7 @@ await step("(v) Settings: 'Use these' puts the focus on the Calories box", async
   await form.getByRole("radio", { name: "Female", exact: true }).click();
   await age(page).fill("34");
   await box(page, "Stone").fill("11"); await box(page, "Pounds").fill("0"); await box(page, "Feet").fill("5"); await box(page, "Inches").fill("10");
-  await form.getByRole("button", { name: "Suggest targets", exact: true }).click();
+  await form.getByRole("button", { name: "Work out my numbers", exact: true }).click();
   await vis(form.getByRole("status"));
   await form.getByRole("button", { name: "Use these", exact: true }).click();
   await page.waitForTimeout(300);
@@ -1122,23 +1122,26 @@ await step("(z) foods to avoid and shops: the hard names have a second line (the
   const [label, cautionTop, firstTile] = [await page.getByText("Allergies to avoid", { exact: true }).first().boundingBox(), (await caution.boundingBox()).y, await page.getByRole("button", { name: "Gluten", exact: true }).boundingBox()];
   expect(cautionTop > label.y && cautionTop < firstTile.y, `the allergy caution is not between 'Allergies to avoid' and the tiles: label ${label.y}, caution ${cautionTop}, first tile ${firstTile.y}`);
   // Pip's words change once for two allergens (a screen reader hears him once, not on every tap)
+  // (what is shown and read: the bubble also holds every line it can say, invisible and aria-hidden, to keep its room: BubbleWords, the 20 November 2026 audit)
   await page.evaluate(() => {
     const live = document.querySelector("main div[aria-live='polite']");
-    window.__said = [live.textContent];
-    new MutationObserver(() => { if (window.__said.at(-1) !== live.textContent) window.__said.push(live.textContent); }).observe(live, { subtree: true, childList: true, characterData: true });
+    const shown = () => { const c = live.cloneNode(true); c.querySelectorAll("[aria-hidden]").forEach((n) => n.remove()); return c.textContent; };
+    window.__said = [shown()];
+    new MutationObserver(() => { if (window.__said.at(-1) !== shown()) window.__said.push(shown()); }).observe(live, { subtree: true, childList: true, characterData: true });
   });
   await page.getByRole("button", { name: "Peanuts", exact: true }).click();
   await page.waitForTimeout(400);
   await page.getByRole("button", { name: "Milk", exact: true }).click();
   await page.waitForTimeout(400);
   const said = await page.evaluate(() => window.__said);
-  expect(said.length === 2 && said[1].includes("Got it. I'll hide dishes that list them, and dishes with no allergy information. Always check with staff, and check each pack."), "Pip's words for two allergens: " + JSON.stringify(said));
+  expect(said.length === 2 && said[1].includes("Where a restaurant publishes allergens, dishes that list them are hidden; where it publishes none we say so on its page. Always check with the restaurant."), "Pip's words for two allergens: " + JSON.stringify(said));
   await vis(page.getByRole("button", { name: "Continue", exact: true }));
   await go(page, "Skip");
   await W.eatOut(page);
-  // the shop list loaded: each shop's line, worked out from the data, is read after its name as its description (step 4)
+  // the shop list loaded: each shop's line, worked out from the data, is on its tile and part of the tile's name (step 4; label in name since the 20 November
+  // 2026 audit)
   await page.waitForFunction(() => document.body.innerText.includes("Not in recipes yet"), undefined, { timeout: 15000 });
-  const line = (name) => page.getByRole("group", { name: "Your supermarkets" }).getByRole("button", { name, exact: true }).evaluate((b) => document.getElementById(b.getAttribute("aria-describedby") ?? "")?.textContent?.trim() ?? "");
+  const line = (name) => W.shopTile(page.getByRole("group", { name: "Your supermarkets" }), name).evaluate((b) => [...b.querySelectorAll("span.block")].at(-1)?.textContent?.trim() ?? "");
   expect((await line("Tesco")) === "Products and prices. Not in recipes yet", "Tesco's line: " + (await line("Tesco")));
   expect((await line("Sainsbury's")) === "Recipes, products and prices", "Sainsbury's line: " + (await line("Sainsbury's")));
   await vis(page.getByText("Not sure yet? That's fine. Until you choose, recipes use Sainsbury's."));
@@ -1174,7 +1177,7 @@ await step("(aa) 'Your week, planned' at 390x844 (answered and skipped) with the
     const bar = await barTop(r.page);
     expect(t.y + t.height <= bar + 0.5, `${path}: Monday's first meal (${Math.round(t.y)}-${Math.round(t.y + t.height)}) is not above the sticky Next (from ${Math.round(bar)})`);
     await W.weekNext(r.page);
-    await head(r.page, "Save your plan: make your free account");
+    await head(r.page, "Save your goal and numbers: make your free account");
     await r.ctx.close();
   }
 });
@@ -1243,7 +1246,7 @@ for (const [label, ctxOptions, opts] of [
       await firstTwo(r.page); await skipQuestions(r.page);
       await head(r.page, "Your daily targets");
       await r.page.getByRole("button", { name: "Not sure? Suggest targets for me" }).click();
-      await r.page.locator("form").getByRole("button", { name: "Suggest targets", exact: true }).click();
+      await r.page.locator("form").getByRole("button", { name: "Work out my numbers", exact: true }).click();
       await vis(alerts(r.page).first());
       await looks(r.page, SCREENS[4], label);
       await r.ctx.close();

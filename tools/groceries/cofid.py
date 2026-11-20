@@ -74,8 +74,8 @@ PRODUCE: list[tuple[str, str]] = [
     (r"\bgarlic\b", "13-244"), (r"\bginger\b", "13-890"), (r"\bcoriander\b", "13-888"), (r"\bparsley\b", "13-844"), (r"\bbasil\b", "13-804"),
     (r"\b(?:new|baby|salad|charlotte|jersey royal) potato(?:es)?\b", "13-618"),
 ]
-# a name with any of these is not plain fresh produce (frozen, tinned, dried, cooked, a mix, a dish, a flavour...)
-NOT_PLAIN = re.compile(r"\b(?:frozen|tinned|canned|in water|in juice|in syrup|juices?|juiced|dried|crisps?|chips|smoothies?|cakes?|bread|loaf|pies?|sauce|soups?|pur[eé]es?|kits?|"
+# a name with any of these is not plain fresh produce (frozen, tinned, dried, cooked, a mix, a dish, a flavour...); chopped tomatoes are a tin, garlic "in oil" a jar
+NOT_PLAIN = re.compile(r"\b(?:frozen|tinned|canned|chopped tomato(?:es)?|in oil|in brine|puree|paste|in water|in juice|in syrup|juices?|juiced|dried|crisps?|chips|smoothies?|cakes?|bread|loaf|pies?|sauce|soups?|pur[eé]es?|kits?|"
                        r"coleslaw|dips?|houmous|hummus|pickles?|pickled|roast(?:ed)?|fried|mash(?:ed)?|medley|mix(?:ed)?|stir[ -]?fry|with|chutney|jam|bars?|yogh?urts?|milk|drinks?|"
                        r"flavour(?:ed)?|seasoning|powder|paste|oil|sweets|crispy|glazed|honey|butter|gratin|bake|cheese|dressing|salsa|beer|biscuits?|nuts|tea|sauce|ready|"
                        r"cooked|steamed|grilled|chargrilled|marinated|stuffed|salad kit|soup|rice|noodles?|wraps?|sandwich|tart|crumble|muffins?|loaves|cereal|granola|purée|"

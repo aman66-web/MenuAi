@@ -1,11 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { createStore, type KeyValueStorage, type Store } from "../lib/mm/persist";
 import { EMPTY_META, SyncEngine, sanitizeMeta, type SyncApi, type SyncMeta } from "../lib/mm/sync";
-import { createSyncAdapters, type SyncStores } from "../lib/mm/syncStores";
+import { createSyncAdapters, SYNCED_STORE_WORDS, YOUR_DATA_SYNCED, type SyncStores } from "../lib/mm/syncStores";
 import { handleSyncGet, handleSyncPut, type UserDataRow, type UserDataStore } from "../lib/sync/handlers";
 import { makeLimit } from "../lib/auth/limiter";
 import { AccountError } from "../lib/mm/account";
-import { validateState, type SyncState, type SyncStoreName } from "../lib/mm/syncMerge";
+import { SYNC_STORES, validateState, type SyncState, type SyncStoreName } from "../lib/mm/syncMerge";
 import { DEFAULT_SETTINGS, sanitizeFavorites, sanitizeLog, sanitizeRecipeSaves, sanitizeSavedOrders, sanitizeSettings, type Favorite, type LogEntry, type SavedOrder, type UserSettings } from "../lib/mm/user-data";
 import { CUSTOM_RETAILER, sanitizeShoppingList, type ShoppingItem } from "../lib/mm/groceries";
 import { sanitizeSavedRecipes } from "../lib/mm/aiRecipe";
@@ -72,9 +72,10 @@ function device(server: UserDataStore, clk: Clock, userId = "user-1") {
   const water = createStore<WaterEntry[]>("water", [], { sanitize: sanitizeWater, storage });
   const ctx = { data: server, limit: makeLimit(() => clk.now), now: () => clk.now };
   const calls: string[] = [];
-  const hooks: { beforePut?: (name: SyncStoreName) => void; offline?: boolean } = {};
+  const hooks: { beforePut?: (name: SyncStoreName) => void; offline?: boolean; slow?: Promise<void> } = {};
   const api: SyncApi = {
     async syncGetAll() {
+      if (hooks.slow) await hooks.slow; // the server takes its time (the test lets it answer)
       if (hooks.offline) throw new AccountError(0, "offline");
       calls.push("get");
       const r = await handleSyncGet(userId, ctx);
@@ -578,5 +579,78 @@ describe("signing in after typing the goal, targets and diet (the welcome screen
     clk.tick();
     await first.engine.syncNow();
     expect(first.stores.settings.get()).toMatchObject({ goal: "lose", dailyCalories: 1800, shops: ["tesco"] });
+  });
+});
+
+describe("signing out or clearing this device while a sync is still waiting on the server (the overnight audit, 20 November 2026)", () => {
+  async function accountWithAnOrder() {
+    const server = serverStore();
+    const clk = clock();
+    const first = device(server.store, clk);
+    first.stores.saved.set([order("o1", "2026-10-12T10:00:00.000Z")]);
+    first.engine.prepareFor("user-1");
+    await first.engine.syncNow();
+    clk.tick();
+    return { server, clk };
+  }
+
+  it("Clear data: the sync that was running writes nothing back into the emptied stores, and the account keeps its copy", async () => {
+    const { server, clk } = await accountWithAnOrder();
+    const phone = device(server.store, clk);
+    phone.engine.prepareFor("user-1");
+    let answer!: () => void;
+    phone.hooks.slow = new Promise<void>((resolve) => (answer = resolve));
+    const running = phone.engine.syncNow();
+    phone.engine.forget(); // leaveForClearing
+    phone.stores.saved.reset();
+    answer();
+    await running;
+    expect(phone.stores.saved.get()).toEqual([]);
+    expect(phone.meta.get()).toEqual(EMPTY_META);
+    expect(phone.engine.status).toBe("idle");
+    expect(phone.calls.filter((c) => c.startsWith("put"))).toEqual([]);
+    expect(JSON.stringify(server.rows.get("user-1|saved")?.value)).toContain("o1");
+  });
+
+  it("signing out: the same, and the same person signing in again later carries on with the account's data", async () => {
+    const { server, clk } = await accountWithAnOrder();
+    const phone = device(server.store, clk);
+    phone.engine.prepareFor("user-1");
+    let answer!: () => void;
+    phone.hooks.slow = new Promise<void>((resolve) => (answer = resolve));
+    const running = phone.engine.syncNow();
+    phone.engine.stop();
+    answer();
+    await running;
+    expect(phone.stores.saved.get()).toEqual([]);
+    expect(phone.engine.status).toBe("idle");
+    phone.hooks.slow = undefined;
+    phone.engine.prepareFor("user-1");
+    await phone.engine.syncNow();
+    expect(phone.stores.saved.get().map((o) => o.id)).toEqual(["o1"]);
+  });
+
+  it("a sign-in straight after a sign-out runs its own sync once the stopped one gives up", async () => {
+    const { server, clk } = await accountWithAnOrder();
+    const phone = device(server.store, clk);
+    phone.engine.prepareFor("user-1");
+    let answer!: () => void;
+    phone.hooks.slow = new Promise<void>((resolve) => (answer = resolve));
+    const running = phone.engine.syncNow();
+    phone.engine.stop();
+    const again = phone.engine.syncNow(); // signed in again before the first answer came
+    answer();
+    await running;
+    await again;
+    expect(phone.stores.saved.get().map((o) => o.id)).toEqual(["o1"]);
+    expect(phone.engine.status).toBe("idle");
+  });
+});
+
+describe("what Settings › Your data says syncs", () => {
+  it("names every synced store, in the one sentence that is shown", () => {
+    expect(Object.keys(SYNCED_STORE_WORDS).sort()).toEqual([...SYNC_STORES].sort());
+    for (const [store, words] of Object.entries(SYNCED_STORE_WORDS)) expect(YOUR_DATA_SYNCED, store).toContain(words);
+    expect(YOUR_DATA_SYNCED).toContain("Everything else stays on this device.");
   });
 });

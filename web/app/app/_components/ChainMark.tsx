@@ -6,7 +6,7 @@ import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { BakeryGlyph, BasketIcon, BurgerGlyph, ChickenGlyph, CoffeeGlyph, ForkIcon, PizzaGlyph, SandwichGlyph, TacoGlyph } from "./icons";
 
 // A small square tile that tells restaurants (and supermarkets) apart at a glance. If the chain's own official files are installed (see
-// lib/mm/logos.ts) its square icon is shown (edge to edge when it fills its square), else its logo file contained on a plain tile:
+// lib/mm/logos.ts) its square icon is shown (padded like any logo, so its corners are never cut), else its logo file contained on a plain tile:
 // always UNMODIFIED, only to identify the restaurant. Otherwise it is one of our own cuisine glyphs. The name is always plain text next
 // to it, so the tile is decorative (aria-hidden).
 //
@@ -32,7 +32,8 @@ function glyphFor(cuisine: string | undefined, className: string): ReactNode {
 type Size = "xs" | "sm" | "md" | "lg" | "xl";
 const BOX: Record<Size, string> = { xs: "h-7 w-7 rounded-lg", sm: "h-9 w-9 rounded-xl", md: "h-12 w-12 rounded-[0.875rem]", lg: "h-16 w-16 rounded-[1.25rem]", xl: "h-20 w-20 rounded-[1.25rem]" };
 const GLYPH: Record<Size, string> = { xs: "h-4 w-4", sm: "h-5 w-5", md: "h-6 w-6", lg: "h-8 w-8", xl: "h-10 w-10" };
-const PAD: Record<Size, string> = { xs: "p-0.5", sm: "p-1", md: "p-1.5", lg: "p-2", xl: "p-2.5" };
+// about 12% of the tile on every side, at least 3 px, so a logo's own corners are never cut by the tile's rounded ones (CLAUDE.md rule 2: never crop a logo)
+const PAD: Record<Size, string> = { xs: "p-[3px]", sm: "p-1", md: "p-1.5", lg: "p-2", xl: "p-2.5" };
 
 /** The official file on its square tile (shared by restaurants and supermarkets); `fallback` when there is no file or it fails to load. */
 function LogoTile({ logo, size, fallback }: { logo: ChainLogo | undefined; size: Size; fallback: ReactNode }) {
@@ -40,11 +41,12 @@ function LogoTile({ logo, size, fallback }: { logo: ChainLogo | undefined; size:
   const [failed, setFailed] = useState(0);
   const art = logo ? tileArt(logo) : undefined;
   const src = art ? (failed === 0 ? art.src : failed === 1 ? art.fallback : undefined) : undefined;
-  const full = !!art && failed === 0 && art.full;
   const dark = failed === 0 ? art?.tile === "dark" : logo?.tile === "dark";
   if (!src) return <>{fallback}</>;
+  // a square icon is padded like any logo file (the 20 November 2026 audit: 79 square icons filled the tile edge to edge and lost their corners to its rounding):
+  // the rounding is the tile's own, nothing is clipped
   return (
-    <span aria-hidden className={`inline-flex shrink-0 items-center justify-center overflow-hidden border border-line ${full ? "" : `${PAD[size]} ${dark ? "bg-ink" : "bg-card"}`} ${BOX[size]}`}>
+    <span aria-hidden className={`inline-flex shrink-0 items-center justify-center border border-line ${PAD[size]} ${dark ? "bg-ink" : "bg-card"} ${BOX[size]}`}>
       {/* eslint-disable-next-line @next/next/no-img-element -- the official file, used as published: no resizing pipeline, no recolouring */}
       <img src={src} alt="" loading="lazy" decoding="async" className="h-full w-full object-contain" onError={() => setFailed((f) => (f === 0 && art?.fallback ? 1 : 2))} />
     </span>
@@ -53,7 +55,8 @@ function LogoTile({ logo, size, fallback }: { logo: ChainLogo | undefined; size:
 
 function GlyphTile({ size, children }: { size: Size; children: ReactNode }) {
   return (
-    <span aria-hidden className={`inline-flex shrink-0 items-center justify-center bg-soft-strong text-foreground ${BOX[size]}`}>
+    // the page fill with the cuisine icon in ink (the grey "can't press yet" fill read as disabled)
+    <span aria-hidden className={`inline-flex shrink-0 items-center justify-center bg-fill text-foreground ${BOX[size]}`}>
       {children}
     </span>
   );

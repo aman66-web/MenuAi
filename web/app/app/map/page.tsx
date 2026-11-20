@@ -14,7 +14,8 @@ import { settingsStore } from "@/lib/mm/stores";
 import { ChainMark } from "../_components/ChainMark";
 import { DirectionsIcon, ForkIcon, LocateIcon, PinIcon } from "../_components/icons";
 import { PageHeader } from "../_components/PageHeader";
-import { Button, Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../_components/ui";
+import { ErrorBanner } from "../_components/Note";
+import { Button, Chip, EmptyIcon, EmptyState, ErrorBox, inputClass, Spinner } from "../_components/ui";
 import { useMenu } from "../_lib/hooks";
 import { loadBranches } from "../_lib/branches";
 import { useT } from "../_lib/i18n";
@@ -198,7 +199,8 @@ export default function NearbyPage() {
 
       {origin && !editing ? (
         <div className="glass mt-5 flex items-center gap-3 rounded-[1.75rem] p-1.5">
-          <span aria-hidden className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sun text-[var(--on-accent)]"><PinIcon className="h-5 w-5" /></span>
+          {/* the page fill with an ink pin (lime is never decoration: the 20 November 2026 audit) */}
+          <span aria-hidden className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-fill text-ink"><PinIcon className="h-5 w-5" /></span>
           <p className="min-w-0 flex-1 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]"><Rich text={t("Near {place}")} values={{ place: <span className="font-bold">{origin.source === "gps" ? t(origin.label) : origin.label}</span> }} /></p>
           <button type="button" onClick={() => setEditing(true)} className={pill}>{t("Change")}</button>
         </div>
@@ -207,18 +209,18 @@ export default function NearbyPage() {
         <Button type="button" full onClick={() => locateMe()} disabled={locating.state === "locating"}>
           <LocateIcon className="h-5 w-5" /> {locating.state === "locating" ? t("Finding you…") : t("Use my location")}
         </Button>
-        {/* One grey field with its white Search button inside; when the words need the room (large text, a long translation) the
-            button drops under the field and fills the width. The focus ring goes round the whole field. */}
-        <div className="flex flex-wrap items-center gap-1 rounded-[1.625rem] bg-soft-strong p-1 has-[input:focus-visible]:outline-2 has-[input:focus-visible]:outline-offset-2 has-[input:focus-visible]:outline-accent">
+        {/* The app's white field with its edge, and Search as a white button with the edge beside it; when the words need the room (large text, a long
+            translation) the button drops under the field and fills the width (the 20 November 2026 audit: a grey pill with an edgeless Search). */}
+        <div className="flex flex-wrap items-center gap-2">
           <label className="min-w-[min(100%,13.5rem)] grow-[999] basis-0">
             <span className="sr-only">{t("Postcode or town")}</span>
-            <input value={typed} onChange={(e) => setTyped(e.target.value)} placeholder={t("Or type a postcode or town")} enterKeyHint="search" autoComplete="off" className="min-h-11 w-full rounded-full bg-transparent ps-4 pe-1 text-base placeholder:text-muted focus-visible:outline-none!" />
+            <input value={typed} onChange={(e) => setTyped(e.target.value)} placeholder={t("Or type a postcode or town")} enterKeyHint="search" autoComplete="off" className={inputClass} />
           </label>
-          <button type="submit" className="inline-flex min-h-11 grow items-center justify-center rounded-full bg-card px-4 text-[0.9375rem] font-bold shadow-[var(--card-shadow)] transition hover:bg-[var(--fill)] active:scale-[0.97]">{t("Search")}</button>
+          <Button type="submit" variant="secondary" className="grow">{t("Search")}</Button>
         </div>
         <p className="text-[0.8125rem] leading-snug text-muted">{t("Your location stays on your phone: we use it only to find the closest branches. A typed postcode or town is looked up by postcodes.io.")}</p>
-        {locating.state === "error" && <p role="alert" className="text-sm font-medium text-foreground">{t(locating.message, { app: site.name })}</p>}
-        {lookupMessage && <p role="alert" className="text-sm font-medium text-foreground">{t(lookupMessage)}</p>}
+        {locating.state === "error" && <ErrorBanner heading={null}>{t(locating.message, { app: site.name })}</ErrorBanner>}
+        {lookupMessage && <ErrorBanner heading={null}>{t(lookupMessage)}</ErrorBanner>}
         {origin && <Button type="button" variant="ghost" full onClick={() => setEditing(false)}>{t("Cancel")}</Button>}
         {choices.length > 0 && (
           <ul aria-label={t("Did you mean")} className="space-y-1.5">

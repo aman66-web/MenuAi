@@ -1,9 +1,10 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { parseNumber } from "@/lib/mm/addFood";
 import { analytics, reportSetupScreen } from "@/lib/mm/analytics";
+import { tk } from "@/lib/mm/i18n";
 import { dayParam } from "@/lib/mm/day";
 import { EMPTY_BODY, bodyProblems, planFromAnswers, readTargetFields, type BodyAnswers } from "@/lib/mm/onboardingPlan";
 import { RECIPES } from "@/lib/mm/recipeBook";
@@ -16,6 +17,7 @@ import {
   backFrom, moveOn, NO_ANSWERS, progressNote, QUESTION_STEPS, resumeAt, startRun, stepCounter, welcomeProgressStore,
   type FirstDish, type WelcomeAnswers, type WelcomeMove, type WelcomeRun, type WelcomeStepId,
 } from "@/lib/mm/welcomeSteps";
+import { InfoBanner } from "../_components/Note";
 import { SignInSheet, SigningIn } from "../_components/SignIn";
 import { SignInScreen } from "../_components/SignInScreen";
 import { holdTrialOfferThisVisit } from "../_components/TrialOffer";
@@ -26,12 +28,12 @@ import { travelBack } from "../_lib/backNav";
 import { useHydrated, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { loadShopFile, useShopManifest } from "../_lib/shopProducts";
-import { ActivityStep, AboutYouStep, YourSizeStep } from "./BodySteps";
+import { ActivityStep, AboutYouStep, AGE_BOX, YourSizeStep } from "./BodySteps";
 import { Cover, type CoverNotice } from "./Cover";
 import { EatOutStep, RecipesStep, WeekStep } from "./FeatureSteps";
 import { finishWelcome, type WelcomeEnding } from "./finish";
 import { preloadShowcaseMenus } from "./EatOutShowcase";
-import { Bottom, BottomButton, QuietLink, SCREEN, TopBar, TopButton, WHY_GREY, WHY_GREY_LINE } from "./Frame";
+import { Bottom, BottomButton, QuietLink, reducedMotion, SCREEN, TopBar, TopButton, WHY_GREY, WHY_GREY_LINE } from "./Frame";
 import { AvoidStep, GoalStep, ShopsStep } from "./QuestionSteps";
 import { TargetsStep } from "./TargetsStep";
 import { useTargetFields } from "./useTargetFields";
@@ -60,7 +62,12 @@ import { prepareWeek } from "./WeekShowcase";
 // - ?showcase=1 (Settings › Help › "Show me what Numbite can do", Home's StartPrompt): steps 3, 5 and 10 again with the person's current settings, "{n} of 3",
 //   Close, Next and Done; nothing is saved. An old ?tour=1 link opens the same.
 // - The website's Apple and Google sign-in leaves the page and comes back with ?signin=ok: why the sign-in screen was showing, what was typed and the two hints
-//   wait in this tab's session storage meanwhile (lib/mm/signInGate.ts SignInResume; never the answers about the body).
+//   wait in this tab's session storage meanwhile (lib/mm/signInGate.ts SignInResume; never the answers about the body). One that didn't finish comes back with
+//   ?signin=cancelled, failed, expired or busy: the same screen opens again with a line saying what happened, and the address is tidied (the 20 November 2026
+//   audit). After signing out, ?signedout=1 puts a line on the cover; where everyone signs in, the cover has no Back for someone signed out.
+// - The 20 November 2026 audit also: the note records whether step 1's goal was chosen (so it shows ticked after "Carry on"); "Carry on" past the questions
+//   about the person keeps the targets worked out from them as the person's own; nothing is ticked for sex until a tile is tapped; a tap on About you's grey
+//   Continue brings the Age box into view; on a short screen (under 620 px) step 11 leaves out the recipe line so the sign-in buttons come first.
 
 type View =
   | { kind: "cover" }
@@ -98,6 +105,21 @@ function forgetResume(): void {
   }
 }
 
+/** What the website's Apple or Google sign-in said when it didn't finish (?signin=…; the same words as Settings › Account). */
+const SIGN_IN_NOTES: Readonly<Record<string, string>> = {
+  cancelled: tk("Sign-in was cancelled."),
+  failed: tk("Sign-in didn't finish. Please try again."),
+  expired: tk("That sign-in took too long. Please try again."),
+  busy: tk("Too many tries. Please wait a few minutes and try again."),
+};
+
+/** A screen too short for step 11's extra lines above the sign-in buttons (an iPhone SE at large text, a 320 x 568 phone). */
+const SHORT_SCREEN = 620;
+const onResize = (change: () => void) => {
+  window.addEventListener("resize", change);
+  return () => window.removeEventListener("resize", change);
+};
+
 /** A saved Meal plan whose seven days include today ("You already have a plan for this week."). */
 function planThisWeek(start: string | undefined, today: string): boolean {
   if (!start) return false;
@@ -130,10 +152,13 @@ function Welcome() {
   const [initial] = useState<UserSettings>(() => settingsStore.get());
   const [wasOnboarded] = useState(initial.hasCompletedOnboarding);
   const [replay] = useState(() => params.get("showcase") === "1" || params.get("tour") === "1");
-  const [notice] = useState<CoverNotice>(() => (params.get("cleared") === "1" ? "cleared" : params.get("deleted") === "1" ? "deleted" : null));
+  const [notice] = useState<CoverNotice>(() => (params.get("cleared") === "1" ? "cleared" : params.get("deleted") === "1" ? "deleted" : params.get("signedout") === "1" ? "signedOut" : null));
   const [progress, setProgress] = useState(() => (replay ? null : welcomeProgressStore.get()));
-  // back from Apple or Google sign-in on the website: the sign-in step it was on, if this tab noted one
-  const [resume] = useState(() => (!replay && params.get("signin") === "ok" ? readResume() : null));
+  // back from Apple or Google sign-in on the website (finished or not): the sign-in step it was on, if this tab noted one, and what happened when it didn't finish
+  const [signinBack] = useState(() => params.get("signin"));
+  const [resume] = useState(() => (!replay && signinBack && (signinBack === "ok" || signinBack in SIGN_IN_NOTES) ? readResume() : null));
+  const signInNote = resume && signinBack && signinBack in SIGN_IN_NOTES ? SIGN_IN_NOTES[signinBack]! : null;
+  const shortScreen = useSyncExternalStore(onResize, () => window.innerHeight < SHORT_SCREEN, () => false);
   // the run, fixed when the steps begin (a run started signed out has the account as step 11)
   const [run, setRun] = useState<WelcomeRun>(() => startRun(false));
   // back from Apple or Google at the account step: Back from it goes where it would have (to step 3 after its link), and the body answers are gone
@@ -157,6 +182,8 @@ function Welcome() {
   // Nothing is picked for the person on a first run: no goal is ticked until one is tapped; someone already set up who runs this again sees their saved goal
   const [goalTouched, setGoalTouched] = useState(false);
   const goalShown = wasOnboarded || goalTouched;
+  // a goal was chosen with step 1's Continue (it is in the settings): noted, so "Carry on" shows it ticked if the person goes Back to step 1
+  const [goalSaved, setGoalSaved] = useState(false);
   // Skip on step 1 leaves the goal unset for step 3's list ("Most protein for the calories")
   const [goalSkipped, setGoalSkipped] = useState(false);
   const target = useTargetFields(initial);
@@ -166,6 +193,8 @@ function Welcome() {
   const [body, setBody] = useState<BodyAnswers>(EMPTY_BODY);
   // Nothing is picked on "How active are you?" until a tile is tapped, on every run (the answers are never stored, so a re-run has nothing real to show).
   const [activityPicked, setActivityPicked] = useState(false);
+  // Nor for sex on About you: "Prefer not to say" is what the sums use until a tile is tapped, but no tile shows as chosen (the onboarding meeting).
+  const [sexPicked, setSexPicked] = useState(false);
   const plan = useMemo(() => planFromAnswers({ goal, prefs, body }), [goal, prefs, body]);
   const changeBody = (patch: Partial<BodyAnswers>) => setBody((b) => ({ ...b, ...patch }));
   // Pip's entrance on step 1 plays once per visit to these screens
@@ -241,6 +270,12 @@ function Welcome() {
       setFirstRecipeId(progress.firstRecipeId ?? null);
       setFirstDish(progress.firstDish ?? null);
       setResumed(carryOn.step === "save");
+      // the goal chosen before: ticked (with Pip's reaction, not his hello) if the person goes Back to step 1
+      if (progress.goalPicked) {
+        setGoalTouched(true);
+        setGoalSaved(true);
+        setPipHasJumped(true);
+      }
       return beginRun(!!accountUser, carryOn);
     }
     beginRun(!!accountUser, null);
@@ -253,9 +288,11 @@ function Welcome() {
     setFirstRecipeId(null);
     setFirstDish(null);
     setGoalTouched(false);
+    setGoalSaved(false);
     setGoalSkipped(false);
     setBody(EMPTY_BODY);
     setActivityPicked(false);
+    setSexPicked(false);
     if (!wasOnboarded) {
       const fresh: Record<string, unknown> = {};
       for (const k of TYPED_SETUP_KEYS) fresh[k] = DEFAULT_SETTINGS[k];
@@ -309,8 +346,17 @@ function Welcome() {
   // The step reached, kept on this phone so a plain launch can carry on from it (never in the replay).
   useEffect(() => {
     if (replay || view.kind !== "step" || finishing.current) return;
-    welcomeProgressStore.set(progressNote({ step: view.step, answers, firstRecipeId, firstDish }, dayParam(new Date())));
-  }, [replay, view, answers, firstRecipeId, firstDish]);
+    welcomeProgressStore.set(progressNote({ step: view.step, answers, firstRecipeId, firstDish, goalPicked: goalSaved }, dayParam(new Date())));
+  }, [replay, view, answers, firstRecipeId, firstDish, goalSaved]);
+
+  // A sign-in on the website that didn't finish: its line is shown on the sign-in screen (below), so the address is tidied. "?signin=ok" stays for the account
+  // code, which reads it to ask who is signed in.
+  useEffect(() => {
+    if (!signinBack || signinBack === "ok") return;
+    const url = new URL(window.location.href);
+    url.searchParams.delete("signin");
+    window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
+  }, [signinBack]);
 
   // The anonymous setup screen counts (lib/mm/analytics.ts; nothing at all unless TelemetryDeck was switched on when the app was built): the screen's name only.
   useEffect(() => {
@@ -361,9 +407,17 @@ function Welcome() {
   // Signed in at the sign-in step: "Signing you in…" while the account's settings arrive (the effect above then carries on).
   if (signingFor && accountUser) return <SigningIn />;
 
+  // what the website's sign-in said when it didn't finish, above the sign-in screen it came back to
+  const signInLine = signInNote ? <InfoBanner className="mt-3">{t(signInNote)}</InfoBanner> : null;
+
   if (view.kind === "returning") {
     if (accountChecking && !accountUser) return <Spinner />;
-    return <SignInScreen reason="returning" onBack={() => { forgetResume(); setView({ kind: "cover" }); }} />;
+    return (
+      <>
+        {signInLine}
+        <SignInScreen reason="returning" onBack={() => { forgetResume(); setView({ kind: "cover" }); }} />
+      </>
+    );
   }
 
   if (view.kind === "cover") {
@@ -375,7 +429,8 @@ function Welcome() {
           onStart={start}
           onStartAgain={startAgain}
           onSignIn={accountUser ? undefined : signInRequired ? openReturning : () => setSheetOpen(true)}
-          onBack={wasOnboarded ? leave : undefined}
+          // where everyone signs in, someone signed out has nowhere to go back to (Back led to a second sign-in screen)
+          onBack={wasOnboarded && !(signInRequired && !accountUser) ? leave : undefined}
           signInRequired={signInRequired}
         />
         {!signInRequired && !accountUser && <SignInSheet open={sheetOpen} onClose={() => setSheetOpen(false)} />}
@@ -433,9 +488,10 @@ function Welcome() {
     return (
       <SignInScreen
         reason="setup"
-        top={top}
+        top={signInLine ? <>{top}{signInLine}</> : top}
         counter={counter}
-        waiting={recipe ? t(recipe.name) : null}
+        // on a short screen the recipe line is left out, so Apple, Google and email come first
+        waiting={recipe && !shortScreen ? t(recipe.name) : null}
         resumed={resumed}
         onNotNow={signInRequired ? undefined : () => finish("notNow")}
       />
@@ -447,6 +503,7 @@ function Welcome() {
     analytics.track({ name: "onboardingSkipped", step });
     setBody(EMPTY_BODY);
     setActivityPicked(false);
+    setSexPicked(false);
     target.applyPlan(null);
     forward(step, "skipBody");
   };
@@ -470,6 +527,14 @@ function Welcome() {
     forward("targets");
   };
   const defaultShop = recipeShopSet(manifest, null, [])[0];
+  /** A tap on About you's grey Continue: the Age box into view, ready to type in. */
+  const showAgeBox = () => {
+    const box = document.getElementById(AGE_BOX);
+    box?.scrollIntoView({ block: "center", behavior: reducedMotion() ? "auto" : "smooth" });
+    box?.querySelector<HTMLInputElement>("input")?.focus({ preventScroll: true });
+  };
+  // back after "Carry on" past the questions about the person: the targets on the boxes were worked out from them before (they are the person's own)
+  const keptTargets = !!answers.bodyGone && settingsStore.get().hasSetTargets === true;
 
   return (
     <div key={step} className={SCREEN}>
@@ -481,7 +546,7 @@ function Welcome() {
             shown={goalShown}
             reacted={goalTouched}
             pick={(g) => { setGoal(g); setGoalTouched(true); }}
-            onContinue={() => { updateSettings({ goal }); setGoalSkipped(false); forward("goal"); }}
+            onContinue={() => { updateSettings({ goal }); setGoalSkipped(false); setGoalSaved(true); forward("goal"); }}
             counter={counter}
             total={run.total}
             jump={!pipHasJumped}
@@ -542,11 +607,12 @@ function Welcome() {
         <>
           {top}
           <section className="mt-5 flex flex-1 flex-col">
-            <AboutYouStep body={body} change={changeBody} counter={counter} />
+            <AboutYouStep body={body} sex={sexPicked ? body.sex : null} change={(patch) => { if (patch.sex) setSexPicked(true); changeBody(patch); }} counter={counter} />
             <Bottom>
-              {problems.includes("age") && <p id={WHY_GREY} className={WHY_GREY_LINE}>{body.age.trim() === "" ? t("Type your age above to go on, or skip these questions below.") : t("Check your age above: a whole number from 18 to 100.")}</p>}
+              {problems.includes("age") && <p id={WHY_GREY} className={WHY_GREY_LINE}>{body.age.trim() === "" ? t("Type your age in the Age box to go on, or skip these questions.") : t("Check your age in the Age box: a whole number from 18 to 100.")}</p>}
               <BottomButton
                 disabled={problems.includes("age")}
+                onBlocked={showAgeBox}
                 describedBy={problems.includes("age") ? WHY_GREY : undefined}
                 onClick={() => {
                   const under18 = plan.plan.kind === "under18";
@@ -597,7 +663,8 @@ function Welcome() {
             goal={goal}
             prefs={prefs}
             answers={answers.bodySkipped ? null : plan}
-            skipped={answers.bodySkipped || plan.plan.kind === "invalid"}
+            skipped={(answers.bodySkipped && !keptTargets) || (!answers.bodySkipped && plan.plan.kind === "invalid")}
+            kept={keptTargets}
             fields={target.fields}
             setField={target.setField}
             reading={targetReading}
@@ -616,7 +683,8 @@ function Welcome() {
           top={top}
           counter={counter}
           under18={answers.under18}
-          bottom={{ next: run.signedIn ? t("Save and go to Home") : t("Next: save your plan"), onNext: () => forward("week") }}
+          // "your numbers", not "your plan": the week shown here isn't kept (step 11 makes the account that keeps the goal and the numbers)
+          bottom={{ next: run.signedIn ? t("Save and go to Home") : t("Next: save your numbers"), onNext: () => forward("week") }}
         />
       )}
     </div>

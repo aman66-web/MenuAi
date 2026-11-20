@@ -32,11 +32,12 @@ export interface CoachStep {
 // ("Your day", the + when it shows, "Moving around"), and the second the `later` ones ("Scan your food", "Shopping list, Settings").
 export const COACH_STEPS: Readonly<Record<CoachRound, readonly CoachStep[]>> = {
   home: [
-    { at: '[data-coach="home-numbers"]', title: tk("Your day"), text: tk("What you've eaten today and what's left. Slide the cards or tap the dots to see your week.") },
+    // true whether the pages slide (with dots) or stack (a phone under 366 px, or large text: no dots), so it names what is there, not how to get to it
+    { at: '[data-coach="home-numbers"]', title: tk("Your day"), text: tk("What you've eaten today and what's left, and your week.") },
     { at: '[data-coach="home-add"]', title: tk("Add what you ate"), text: tk("Tap + next to a meal to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers. It's part of Premium."), when: LOG_IS_PAID, unless: '[data-coach="home-start"]' },
     { at: '[data-coach="home-add"]', title: tk("Add what you ate"), text: tk("Tap + next to a meal to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers."), when: !LOG_IS_PAID, unless: '[data-coach="home-start"]' },
     // the cooking tools sit on Home under the numbers (founder 2026-11-19); Meal plan and Cook with what you already have are cards that name themselves, so only Scan your food has a tip
-    { at: '[data-coach="home-photo"]', title: tk("Scan your food"), text: tk("Take a photo of a meal: see its calories and protein, or get the recipe to make it at home. It's part of Premium."), when: PHOTO_RECIPES_ENABLED || FOOD_SCAN_ENABLED, later: true },
+    { at: '[data-coach="home-photo"]', title: tk("Scan your food"), text: tk("Take a photo of a meal: see its calories and macros, or get the recipe to make it at home. It's part of Premium."), when: PHOTO_RECIPES_ENABLED || FOOD_SCAN_ENABLED, later: true },
     // the shopping list and the gear share the top right corner (founder 2026-11-19), so one tip lights both
     { at: '[data-coach="home-top"]', title: tk("Shopping list, Settings"), text: tk("At the top right: your shopping list, and Settings, where you can change your goal, your diet and these tips."), later: true },
     { at: '[data-coach="tabs"]', title: tk("Moving around"), text: tk("These buttons take you to each part of the app: Home, Recipes, Groceries and Eat out."), hop: true },

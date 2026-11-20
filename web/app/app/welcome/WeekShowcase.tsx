@@ -2,28 +2,31 @@
 
 import { useEffect, useState } from "react";
 import { GATING_ENABLED } from "@/lib/mm/config";
-import { formatInt } from "@/lib/mm/format";
+import { formatDate, formatInt } from "@/lib/mm/format";
 import { retailerName } from "@/lib/mm/groceries";
 import { tk } from "@/lib/mm/i18n";
 import type { DietPrefs } from "@/lib/mm/pantry";
 import { previewShop, weekPreview, type PlanPerson, type ShopLoader, type WeekPreview, type WeekPreviewInputs } from "@/lib/mm/planPreview";
 import type { MealType } from "@/lib/mm/recipes";
 import { useIsPro, useSettings } from "../_lib/hooks";
-import { useT } from "../_lib/i18n";
+import { useLanguage, useT } from "../_lib/i18n";
+import { localeInfo } from "@/lib/mm/i18n";
 import { loadShopFile, loadShopManifest, useShopManifest } from "../_lib/shopProducts";
 import { FREE_PREMIUM_LINE } from "./parts";
 import { alsoInPremium, ShowcaseWindow } from "./ShowcaseWindow";
 
 // Step 10 of the welcome steps, "Your week, planned" (the onboarding redesign meeting of 20 November 2026, build list 4; approved by the founder): one person's
 // real week of our recipes from their shop, sized to their daily numbers, on one shopping list, made by Meal plan's own planning with exactly its Just-me
-// defaults (lib/mm/planPreview.ts weekPreview: no AI, the shop's real products and prices). Shown as Monday's three meals, the day's average against their
+// defaults (lib/mm/planPreview.ts weekPreview: no AI, the shop's real products and prices; no budget, so it is the week Meal plan's first open makes). Shown as
+// one day's three meals (the first whose lunch and dinner aren't the same dish, headed with its name: Monday is the week's first), the day's average against their
 // target and the week's shopping as a labelled line at normal size (never a large £ figure, so it can't be read as a charge). It is never saved: Meal plan's
 // first open starts on this same week. The one place Premium is named during setup, honestly and with no price: where Premium is sold, the window's ink
 // badge with "Nothing is charged during setup.", then "Also in Premium: ..." and the free and Premium line under it; on the website, where nothing is sold,
 // none of that. Scan your food is named, never demonstrated (CLAUDE.md rule 1). Pip is off: the screen carries figures and money.
 // Timings: the week is usually ready already (worked out while "Your daily targets" was showing, prepareWeek). Otherwise a status line and page-fill bars, up to
-// 8 s for the shop's file and 2.5 s more for the sums, then the words-only form; an under-18, a narrow diet or too few recipes get that form too. The screen and
-// its counter keep their place whatever happens.
+// 8 s for the shop's file and 2.5 s more for the sums, then the words-only form; an under-18, a narrow diet (a week more than 15% from their numbers: it isn't
+// "sized to your numbers") or too few recipes get that form too. The screen and its counter keep their place whatever happens. Every ticked shop not in recipes
+// is named (step 5's words), and the prices carry the date they were read.
 
 /** The meeting's caps: the shop's file (the website; in the iPhone app it is inside the app), then the sums once the file is there. */
 const FILE_WAIT_MS = 8000;
@@ -74,7 +77,9 @@ export function WeekShowcase({ under18 = false, planLine = false }: { under18?: 
   const settings = useSettings();
   const isPro = useIsPro();
   const manifest = useShopManifest();
-  const { shop, left } = previewShop(manifest, settings.shops);
+  const language = useLanguage();
+  const { shop, leftAll } = previewShop(manifest, settings.shops);
+  const leftNames = new Intl.ListFormat("en-GB", { type: "conjunction" }).format(leftAll.map((id) => manifest?.retailers.find((r) => r.id === id)?.name ?? retailerName(id)));
   const shopName = shop ? manifest?.retailers.find((r) => r.id === shop)?.name ?? retailerName(shop) : "";
   const person: WeekPerson = { goal: settings.goal, dailyCalories: settings.dailyCalories, dailyProtein: settings.dailyProtein, glp1MealCap: settings.glp1MealCap };
   const key = JSON.stringify([shop, under18, person, settings.preferences]);
@@ -104,25 +109,28 @@ export function WeekShowcase({ under18 = false, planLine = false }: { under18?: 
   const value: Shown = shown.key === key ? shown.value : { kind: "working" };
   const preview = value.kind === "week" ? value.preview : null;
   const meals = preview?.firstDay ?? [];
+  // the day shown, by name: the example week starts on a Monday (16 November 2026 was one), so day 2 is Wednesday
+  const dayName = new Intl.DateTimeFormat(localeInfo(language).htmlLang, { weekday: "long" }).format(new Date(2026, 10, 16 + (preview?.day ?? 0), 12));
   const average = preview ? t("About {kcal} kcal and {protein} g protein a day (your target is {target} kcal).", { kcal: formatInt(preview.average.kcal), protein: formatInt(preview.average.protein), target: formatInt(settings.dailyCalories) }) : "";
   const total = preview ? formatInt(Math.round(preview.total)) : "";
   const names = meals.map((m) => t(m.name));
   const spoken = preview
     ? GATING_ENABLED
-      ? t("Example from Meal plan, part of Premium: Monday: {breakfast}, {lunch}, {dinner}. About {kcal} calories and {protein} grams of protein a day. A week's shopping at {shop}, about £{total}.", { breakfast: names[0] ?? "", lunch: names[1] ?? "", dinner: names[2] ?? "", kcal: formatInt(preview.average.kcal), protein: formatInt(preview.average.protein), shop: shopName, total })
-      : t("Example from Meal plan: Monday: {breakfast}, {lunch}, {dinner}. About {kcal} calories and {protein} grams of protein a day. A week's shopping at {shop}, about £{total}.", { breakfast: names[0] ?? "", lunch: names[1] ?? "", dinner: names[2] ?? "", kcal: formatInt(preview.average.kcal), protein: formatInt(preview.average.protein), shop: shopName, total })
+      ? t("Example from Meal plan, part of Premium: {day}: {breakfast}, {lunch}, {dinner}. About {kcal} calories and {protein} grams of protein a day. A week's shopping at {shop}, about £{total}.", { day: dayName, breakfast: names[0] ?? "", lunch: names[1] ?? "", dinner: names[2] ?? "", kcal: formatInt(preview.average.kcal), protein: formatInt(preview.average.protein), shop: shopName, total })
+      : t("Example from Meal plan: {day}: {breakfast}, {lunch}, {dinner}. About {kcal} calories and {protein} grams of protein a day. A week's shopping at {shop}, about £{total}.", { day: dayName, breakfast: names[0] ?? "", lunch: names[1] ?? "", dinner: names[2] ?? "", kcal: formatInt(preview.average.kcal), protein: formatInt(preview.average.protein), shop: shopName, total })
     : undefined;
   const also = alsoInPremium();
 
   return (
     <>
-      {left && preview && <p className="mt-2 text-[0.9375rem] leading-snug text-foreground">{t("{left} isn't in recipes yet, so this week uses {shop}.", { left: retailerName(left), shop: shopName })}</p>}
+      {/* every ticked shop not in recipes, named (one or several, as step 5 says it) */}
+      {leftAll.length > 0 && preview && <p className="mt-2 text-[0.9375rem] leading-snug text-foreground">{leftAll.length === 1 ? t("{left} isn't in recipes yet, so this week uses {shop}.", { left: leftNames, shop: shopName }) : t("{left} aren't in recipes yet, so this week uses {shop}.", { left: leftNames, shop: shopName })}</p>}
       <ShowcaseWindow kind="week" loading={value.kind === "working"} status={shopName ? t("Planning your week from {shop}'s recipes…", { shop: shopName }) : undefined} rows={3}>
         {preview ? (
           <>
             <p className="sr-only">{spoken}</p>
             <div aria-hidden>
-              <h2 className="text-[1.0625rem] font-[800] leading-snug tracking-[-0.01em]">{t("Monday")}</h2>
+              <h2 className="text-[1.0625rem] font-[800] leading-snug tracking-[-0.01em]">{dayName}</h2>
               <ul className="mt-1.5 divide-y divide-line">
                 {meals.map((m, i) => (
                   <li key={`${m.meal}-${m.recipeId}`} className="py-2 text-base font-semibold leading-snug [overflow-wrap:anywhere]">{t(MEAL_ROW[m.meal], { recipe: names[i] ?? m.name })}</li>
@@ -135,14 +143,14 @@ export function WeekShowcase({ under18 = false, planLine = false }: { under18?: 
             <p className="mt-3 border-t border-line pt-3 text-[0.9375rem] leading-snug text-muted">{t("This week isn't kept. Open Meal plan on Home to make it yours, for you or everyone you cook for.")}</p>
           </>
         ) : (
-          <p role="status" className="text-[0.9375rem] leading-snug text-foreground">{t("Meal plan plans a week of meals from your shop, sized to your numbers, with one shopping list. You'll find it on Home.")}</p>
+          <p role="status" className="text-[0.9375rem] leading-snug text-foreground">{t("Meal plan makes a week of meals from your shop, sized to your numbers, with one shopping list. You'll find it on Home.")}</p>
         )}
       </ShowcaseWindow>
       <div className="mt-3 space-y-2 text-[0.9375rem] leading-snug text-foreground">
         {planLine && <p className="font-semibold">{t("You already have a plan for this week. Open Meal plan on Home.")}</p>}
         {also && <p>{t(also)}</p>}
         {GATING_ENABLED && !isPro && <p>{t(FREE_PREMIUM_LINE)}</p>}
-        {preview && <p>{t("Prices are {shop}'s shelf prices and vary by store.", { shop: shopName })}</p>}
+        {preview && <p>{t("Prices are {shop}'s shelf prices, checked {date}, and vary by store.", { shop: shopName, date: formatDate(preview.checkedOn, t) })}</p>}
       </div>
     </>
   );

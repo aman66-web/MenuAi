@@ -42,6 +42,8 @@ export interface MenuClientOptions {
   fetch: typeof fetch;
   /** Hex SHA-256 of the bytes, or null when the platform can't (non-secure context): verification is skipped then. */
   sha256?: ((bytes: ArrayBuffer) => Promise<string>) | null;
+  /** How long to wait for the website ("live" source) before using the copy packed with the app, in ms. The packed copy is never timed. */
+  liveTimeouts?: { manifest: number; file: number };
 }
 
 export class MenuLoadError extends Error {}
@@ -55,6 +57,13 @@ const EMPTY_SEARCH = buildSearchIndex([]);
 // Lists sort case-insensitively ("sweetgreen" sits with the S's). Ranking tie-breaks stay code-unit, as the spec requires.
 const byName = (a: { name: string }, b: { name: string }) => a.name.localeCompare(b.name, "en-US");
 
+/** The website's manifest gets 3.5 s and each file 8 s before the app opens its own packed copy (the 20 November 2026 audit: no limit at all before). */
+export const LIVE_TIMEOUTS = { manifest: 3500, file: 8000 } as const;
+
+type CompactEntry = { baseUrl: string; file: string; sha256: string };
+/** What a request gave: the bytes (for a 2xx), or why not. "unreachable" = no network, a timeout or a 5xx; "missing" = any other answer. */
+type Fetched = { kind: "ok"; bytes: ArrayBuffer } | { kind: "unreachable" } | { kind: "missing" };
+
 export class MenuClient {
   private state: MenuState = { status: "idle", chains: [], dataVersion: null, indexes: new Map(), searchIndex: EMPTY_SEARCH, searchReady: false, numbers: null, numbersStatus: "idle" };
   private listeners = new Set<() => void>();
@@ -62,9 +71,15 @@ export class MenuClient {
   private chainPromises = new Map<string, Promise<ChainIndex>>();
   private allPromise: Promise<void> | null = null;
   private searchPromise: Promise<void> | null = null;
-  private searchEntries: Array<{ baseUrl: string; file: string; sha256: string }> = [];
-  private numbersEntries: Array<{ baseUrl: string; file: string; sha256: string }> = [];
+  private searchEntries: CompactEntry[] = [];
+  private numbersEntries: CompactEntry[] = [];
   private numbersPromise: Promise<void> | null = null;
+  /** For each chain, the same chain in the later sources (the copy packed with the app, then the samples): opened when the first can't be reached. */
+  private alternates = new Map<string, CatalogChain[]>();
+  /** For each chain in the compact search index, the source whose search file it came from (its numbers must come from the same source). */
+  private compactFrom = new Map<string, string>();
+  private searchFellBack = false;
+  private onlineHooked = false;
 
   constructor(private opts: MenuClientOptions) {}
 
@@ -79,6 +94,68 @@ export class MenuClient {
     for (const l of [...this.listeners]) l();
   }
 
+  // ---- requests
+  private isLive(baseUrl: string): boolean {
+    return this.opts.sources.some((s) => s.id === "live" && s.baseUrl === baseUrl);
+  }
+  private isRelease(baseUrl: string): boolean {
+    return this.opts.sources.some((s) => s.id === "release" && s.baseUrl === baseUrl);
+  }
+
+  /** One request, its body read too; the website's within its time limit (a request that never answers counts as unreachable). */
+  private async request(url: string, live: boolean, limit: number, init?: RequestInit): Promise<Fetched> {
+    const go = async (signal?: AbortSignal): Promise<Fetched> => {
+      const res = await this.opts.fetch(url, signal ? { ...init, signal } : init);
+      if (!res.ok) return res.status >= 500 ? { kind: "unreachable" } : { kind: "missing" };
+      return { kind: "ok", bytes: await res.arrayBuffer() };
+    };
+    try {
+      if (!live) return await go();
+      const ctl = new AbortController();
+      let timer: ReturnType<typeof setTimeout> | undefined;
+      const late = new Promise<Fetched>((resolve) => {
+        timer = setTimeout(() => {
+          ctl.abort();
+          resolve({ kind: "unreachable" });
+        }, limit);
+      });
+      try {
+        return await Promise.race([go(ctl.signal), late]);
+      } finally {
+        clearTimeout(timer);
+      }
+    } catch {
+      return { kind: "unreachable" };
+    }
+  }
+
+  private async digest(bytes: ArrayBuffer): Promise<string | null> {
+    return this.opts.sha256 === undefined ? await safeDigest(bytes) : this.opts.sha256 ? await this.opts.sha256(bytes) : null;
+  }
+
+  private limits() {
+    return this.opts.liveTimeouts ?? LIVE_TIMEOUTS;
+  }
+
+  /**
+   * After a file was taken from the packed copy because the website couldn't be reached: look at the website again when the phone comes back online, and read
+   * its search file again if that fell back too.
+   */
+  private refreshWhenOnline() {
+    const target = globalThis as { addEventListener?: (type: string, listener: () => void, options?: { once?: boolean }) => void };
+    if (this.onlineHooked || typeof target.addEventListener !== "function") return;
+    this.onlineHooked = true;
+    target.addEventListener("online", () => {
+      this.onlineHooked = false;
+      void this.ensureManifest(true).then(() => {
+        if (!this.searchFellBack) return;
+        this.searchFellBack = false;
+        this.searchPromise = null;
+        void this.ensureSearch();
+      });
+    }, { once: true });
+  }
+
   // ---- manifests
   ensureManifest(force = false): Promise<void> {
     if (force) this.manifestPromise = null;
@@ -86,17 +163,13 @@ export class MenuClient {
     return this.manifestPromise;
   }
 
-  /** A manifest, "absent" (not published, or a version we can't read: not an error), or "unreachable" (no network). */
+  /** A manifest, "absent" (not published, or a version we can't read: not an error), or "unreachable" (no network, or the website too slow). */
   private async fetchManifest(source: MenuSource): Promise<Manifest | "absent" | "unreachable"> {
-    let res: Response;
+    const got = await this.request(`${source.baseUrl}menus-manifest.json`, source.id === "live", this.limits().manifest, { cache: "no-cache" });
+    if (got.kind === "unreachable") return "unreachable";
+    if (got.kind === "missing") return "absent"; // 404 before the first publish is normal
     try {
-      res = await this.opts.fetch(`${source.baseUrl}menus-manifest.json`, { cache: "no-cache" });
-    } catch {
-      return "unreachable";
-    }
-    if (!res.ok) return res.status >= 500 ? "unreachable" : "absent"; // 404 before the first publish is normal
-    try {
-      const manifest = (await res.json()) as Manifest;
+      const manifest = JSON.parse(new TextDecoder().decode(got.bytes)) as Manifest;
       if (manifest.schemaVersion !== SUPPORTED_SCHEMA_VERSION || !Array.isArray(manifest.chains)) return "absent";
       return manifest;
     } catch {
@@ -108,8 +181,9 @@ export class MenuClient {
     this.set({ status: "loading", error: undefined });
     const results = await Promise.all(this.opts.sources.map(async (s) => [s, await this.fetchManifest(s)] as const));
     const merged = new Map<string, CatalogChain>();
-    const searchEntries: Array<{ baseUrl: string; file: string; sha256: string }> = [];
-    const numbersEntries: Array<{ baseUrl: string; file: string; sha256: string }> = [];
+    const alternates = new Map<string, CatalogChain[]>();
+    const searchEntries: CompactEntry[] = [];
+    const numbersEntries: CompactEntry[] = [];
     let dataVersion: number | null = null;
     let unreachable = false;
     for (const [source, manifest] of results) {
@@ -120,7 +194,14 @@ export class MenuClient {
       let contributed = false;
       for (const c of manifest.chains) {
         if (c.sample && !this.opts.includeSamples) continue; // samples never show unless explicitly enabled
-        if (!merged.has(c.id)) merged.set(c.id, { ...c, baseUrl: source.baseUrl }); // earlier sources win
+        const entry: CatalogChain = { ...c, baseUrl: source.baseUrl };
+        const earlier = merged.get(c.id);
+        if (!earlier) merged.set(c.id, entry); // earlier sources win...
+        else if (source.id === "release" && this.isLive(earlier.baseUrl) && earlier.sha256 === c.sha256) {
+          // ...except that a chain the website hasn't changed (the same SHA-256, so the same bytes) opens from the copy packed with the app: no download
+          merged.set(c.id, entry);
+          alternates.set(c.id, [earlier, ...(alternates.get(c.id) ?? [])]);
+        } else alternates.set(c.id, [...(alternates.get(c.id) ?? []), entry]);
         contributed = true;
       }
       // An empty placeholder manifest is not a publish: "Menus updated" only reflects manifests that list chains.
@@ -137,6 +218,8 @@ export class MenuClient {
       this.set({ status: "ready", error: undefined }); // keep what we already had
       return;
     }
+    if (unreachable && results.some(([s, m]) => s.id === "live" && m === "unreachable")) this.refreshWhenOnline();
+    this.alternates = alternates;
     // A new manifest may mean new search files: forget a search index built from the old ones.
     if (JSON.stringify(searchEntries) !== JSON.stringify(this.searchEntries)) {
       if (this.searchEntries.length > 0) {
@@ -175,31 +258,38 @@ export class MenuClient {
     for (let attempt = 0; attempt < 2; attempt++) {
       const entry = this.state.chains.find((c) => c.id === id);
       if (!entry) throw new MenuLoadError(tk("That restaurant isn't available."));
-      let res: Response;
-      try {
-        res = await this.opts.fetch(entry.baseUrl + entry.file);
-      } catch {
-        throw new MenuLoadError(tk("Couldn't load this menu. Check your connection and try again."));
-      }
-      if (!res.ok) throw new MenuLoadError(tk("Couldn't load this menu. Please try again."));
-      const bytes = await res.arrayBuffer();
-      const digest = this.opts.sha256 === undefined ? await safeDigest(bytes) : this.opts.sha256 ? await this.opts.sha256(bytes) : null;
-      if (digest !== null && digest !== entry.sha256) {
-        // The manifest and the file come from different publishes (or a cache is stale): refresh once.
-        if (attempt === 0) {
-          await this.ensureManifest(true);
+      // the chain's own source first, then the same chain in a later source: the website unreachable (offline, too slow, down) opens the packed copy
+      const candidates = [entry, ...(this.alternates.get(id) ?? [])];
+      let offline = false;
+      let stale = false;
+      for (const [n, c] of candidates.entries()) {
+        const got = await this.request(c.baseUrl + c.file, this.isLive(c.baseUrl), this.limits().file);
+        if (got.kind !== "ok") {
+          offline ||= got.kind === "unreachable";
           continue;
         }
-        throw new MenuLoadError(tk("Menus are updating. Please try again in a moment."));
+        const digest = await this.digest(got.bytes);
+        if (digest !== null && digest !== c.sha256) {
+          // The manifest and the file come from different publishes (or a cache is stale)
+          if (n === 0) stale = true;
+          continue;
+        }
+        const chain = JSON.parse(new TextDecoder().decode(got.bytes)) as Chain;
+        if (chain.schemaVersion !== SUPPORTED_SCHEMA_VERSION) throw new MenuLoadError(tk("This menu needs a newer version of the app."));
+        if (n > 0 && this.isLive(entry.baseUrl)) this.refreshWhenOnline();
+        const index = indexChain(chain);
+        const indexes = new Map(this.state.indexes);
+        indexes.set(id, index);
+        // With the compact search index loaded it already covers every chain; otherwise search what has been loaded.
+        this.set({ indexes, ...(this.compactIndex ? {} : { searchIndex: buildSearchIndex([...indexes.values()].map((i) => i.chain)) }) });
+        return index;
       }
-      const chain = JSON.parse(new TextDecoder().decode(bytes)) as Chain;
-      if (chain.schemaVersion !== SUPPORTED_SCHEMA_VERSION) throw new MenuLoadError(tk("This menu needs a newer version of the app."));
-      const index = indexChain(chain);
-      const indexes = new Map(this.state.indexes);
-      indexes.set(id, index);
-      // With the compact search index loaded it already covers every chain; otherwise search what has been loaded.
-      this.set({ indexes, ...(this.compactIndex ? {} : { searchIndex: buildSearchIndex([...indexes.values()].map((i) => i.chain)) }) });
-      return index;
+      if (stale && attempt === 0) {
+        await this.ensureManifest(true); // refresh once
+        continue;
+      }
+      if (stale) throw new MenuLoadError(tk("Menus are updating. Please try again in a moment."));
+      throw new MenuLoadError(offline ? tk("Couldn't load this menu. Check your connection and try again.") : tk("Couldn't load this menu. Please try again."));
     }
     throw new MenuLoadError(tk("Menus are updating. Please try again in a moment."));
   }
@@ -216,37 +306,79 @@ export class MenuClient {
 
   private compactIndex: SearchIndex | null = null;
 
-  private async loadSearch(): Promise<void> {
-    await this.ensureManifest();
-    const catalog = new Map(this.state.chains.map((c) => [c.id, c]));
-    const sourcesWithChains = new Set(this.state.chains.map((c) => c.baseUrl));
-    const taken = new Set<string>();
-    const chains: CompactSearchChain[] = [];
-    let complete = this.searchEntries.length > 0 && [...sourcesWithChains].every((b) => this.searchEntries.some((e) => e.baseUrl === b));
-    for (const entry of this.searchEntries) {
-      try {
-        const res = await this.opts.fetch(entry.baseUrl + entry.file);
-        if (!res.ok) throw new MenuLoadError("search unavailable");
-        const bytes = await res.arrayBuffer();
-        const digest = this.opts.sha256 === undefined ? await safeDigest(bytes) : this.opts.sha256 ? await this.opts.sha256(bytes) : null;
-        if (digest !== null && digest !== entry.sha256) throw new MenuLoadError("search file does not match the manifest");
-        const doc = JSON.parse(new TextDecoder().decode(bytes)) as { schemaVersion: number; chains: CompactSearchChain[] };
-        if (doc.schemaVersion !== SUPPORTED_SCHEMA_VERSION) throw new MenuLoadError("search file needs a newer version of the app");
-        for (const c of doc.chains) {
-          const listed = catalog.get(c.id);
-          if (!listed || listed.baseUrl !== entry.baseUrl || taken.has(c.id)) continue; // only what the catalogue lists; earlier sources win
-          taken.add(c.id);
-          chains.push(c);
-        }
-      } catch {
-        complete = false;
+  /** One compact file (search or numbers), verified against its manifest entry, as its chains by id in the file's order; null when it can't be used. */
+  private async readCompactFile<C extends { id: string }>(entry: CompactEntry): Promise<Map<string, C> | null> {
+    const got = await this.request(entry.baseUrl + entry.file, this.isLive(entry.baseUrl), this.limits().file);
+    if (got.kind !== "ok") return null;
+    const digest = await this.digest(got.bytes);
+    if (digest !== null && digest !== entry.sha256) return null;
+    try {
+      const doc = JSON.parse(new TextDecoder().decode(got.bytes)) as { schemaVersion: number; chains: C[] };
+      if (doc.schemaVersion !== SUPPORTED_SCHEMA_VERSION || !Array.isArray(doc.chains)) return null;
+      return new Map(doc.chains.map((c) => [c.id, c]));
+    } catch {
+      return null;
+    }
+  }
+
+  /**
+   * The compact entries (search or numbers) for every chain in the catalogue, each from the file of the source `baseOf` names for it. Only the files a listed
+   * chain needs are read; two sources whose files are identical (the same SHA-256) are read once, from the copy packed with the app; and when the website's
+   * file can't be read, its chains come from the packed copy's file instead. Null when a needed file can't be read at all.
+   */
+  private async readCompact<C extends { id: string }>(entries: readonly CompactEntry[], baseOf: (c: CatalogChain) => string): Promise<{ chains: C[]; from: Map<string, string>; fellBack: boolean } | null> {
+    const pick = new Map<string, CompactEntry>(); // sha256 -> the copy to read
+    for (const e of entries) {
+      const cur = pick.get(e.sha256);
+      if (!cur || (this.isLive(cur.baseUrl) && !this.isLive(e.baseUrl))) pick.set(e.sha256, e);
+    }
+    const files = new Map<string, Promise<Map<string, C> | null>>();
+    const load = (e: CompactEntry) => {
+      const use = pick.get(e.sha256) ?? e;
+      let f = files.get(use.sha256);
+      if (!f) files.set(use.sha256, (f = this.readCompactFile<C>(use)));
+      return f.then((doc) => (doc ? { doc, base: use.baseUrl } : null));
+    };
+    const groups = new Map<string, Set<string>>(); // source -> the chain ids it serves
+    for (const c of this.state.chains) {
+      const b = baseOf(c);
+      if (!groups.has(b)) groups.set(b, new Set());
+      groups.get(b)!.add(c.id);
+    }
+    const chains: C[] = [];
+    const from = new Map<string, string>();
+    let fellBack = false;
+    for (const [base, ids] of groups) {
+      const own = entries.find((e) => e.baseUrl === base);
+      let got = own ? await load(own) : null;
+      if (!got && this.isLive(base)) {
+        const packed = entries.find((e) => this.isRelease(e.baseUrl));
+        got = packed ? await load(packed) : null;
+        fellBack ||= got !== null;
+      }
+      if (!got) return null;
+      for (const [id, c] of got.doc) {
+        if (!ids.has(id) || from.has(id)) continue; // only what the catalogue lists from this source
+        chains.push(c);
+        from.set(id, got.base);
       }
     }
-    if (!complete || chains.length === 0 || catalog.size === 0) {
+    return { chains, from, fellBack };
+  }
+
+  private async loadSearch(): Promise<void> {
+    await this.ensureManifest();
+    const got = this.state.chains.length > 0 ? await this.readCompact<CompactSearchChain>(this.searchEntries, (c) => c.baseUrl) : null;
+    if (!got || got.chains.length === 0) {
       this.searchPromise = null; // a later visit may succeed
       return this.loadAll();
     }
-    this.compactIndex = buildSearchIndexFromCompact(chains);
+    if (got.fellBack) {
+      this.searchFellBack = true;
+      this.refreshWhenOnline();
+    }
+    this.compactFrom = got.from;
+    this.compactIndex = buildSearchIndexFromCompact(got.chains);
     this.set({ searchIndex: this.compactIndex, searchReady: true });
   }
 
@@ -269,38 +401,15 @@ export class MenuClient {
       this.set({ numbersStatus: "unavailable" });
       return;
     }
-    const catalog = new Map(this.state.chains.map((c) => [c.id, c]));
-    const taken = new Set<string>();
-    const chains: CompactNumbersChain[] = [];
-    const loaded = new Set<string>();
-    for (const entry of this.numbersEntries) {
-      try {
-        const res = await this.opts.fetch(entry.baseUrl + entry.file);
-        if (!res.ok) throw new MenuLoadError("numbers unavailable");
-        const bytes = await res.arrayBuffer();
-        const digest = this.opts.sha256 === undefined ? await safeDigest(bytes) : this.opts.sha256 ? await this.opts.sha256(bytes) : null;
-        if (digest !== null && digest !== entry.sha256) throw new MenuLoadError("numbers file does not match the manifest");
-        const doc = JSON.parse(new TextDecoder().decode(bytes)) as { schemaVersion: number; chains: CompactNumbersChain[] };
-        if (doc.schemaVersion !== SUPPORTED_SCHEMA_VERSION) throw new MenuLoadError("numbers file needs a newer version of the app");
-        for (const c of doc.chains) {
-          const listed = catalog.get(c.id);
-          if (!listed || listed.baseUrl !== entry.baseUrl || taken.has(c.id)) continue;
-          taken.add(c.id);
-          chains.push(c);
-        }
-        loaded.add(entry.baseUrl);
-      } catch {
-        // this source's numbers are missing: checked below
-      }
-    }
-    // every source that lists chains must have given its numbers: a list built from some of them would quietly leave restaurants out
-    const complete = [...new Set(this.state.chains.map((c) => c.baseUrl))].every((b) => loaded.has(b));
-    if (!complete || chains.length === 0) {
+    // each chain's numbers from the source its search entry came from (they are paired item by item); every source that lists chains must give its
+    // numbers: a list built from some of them would quietly leave restaurants out
+    const got = await this.readCompact<CompactNumbersChain>(this.numbersEntries, (c) => this.compactFrom.get(c.id) ?? c.baseUrl);
+    if (!got || got.chains.length === 0) {
       this.numbersPromise = null;
       this.set({ numbersStatus: "unavailable" });
       return;
     }
-    this.set({ numbers: buildNumbersIndex(chains, compact), numbersStatus: "ready" });
+    this.set({ numbers: buildNumbersIndex(got.chains, compact), numbersStatus: "ready" });
   }
 
   /** Background-load every chain so item search covers the whole menu set. Failures are ignored (works offline). */
@@ -325,6 +434,7 @@ export class MenuClient {
     this.searchPromise = null;
     this.numbersPromise = null;
     this.compactIndex = null;
+    this.compactFrom = new Map();
     this.chainPromises.clear();
     this.set({ indexes: new Map(), searchIndex: EMPTY_SEARCH, searchReady: false, numbers: null, numbersStatus: "idle" });
   }

@@ -6,7 +6,7 @@ import { fromUs, notFound, PHOTO_CORS, photoCtx } from "@/lib/photoRecipeRoute";
 
 // Make it at home's "Suggest from my photo": Pip says what the dish in the photo is, for the person to check and add to (lib/photoRecipeHandler.ts). Premium only.
 
-export const maxDuration = 30;
+export const maxDuration = 60; // Opus (20 Nov)
 
 export function OPTIONS(request: Request) {
   return preflight(request, PHOTO_CORS);

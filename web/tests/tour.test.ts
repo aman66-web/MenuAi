@@ -2,6 +2,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { isPlainLaunch, OWN_DATA_KEYS, SIGNED_IN_KEYS, storedData, TOUR_GATE_SCRIPT, TOUR_VERSION, tourDue, tourGateScript, trialOfferDue } from "../lib/mm/tour";
 import { progressNote, resumeAt, startRun, stepCounter, WELCOME_PROGRESS_KEY, WELCOME_STEPS, type WelcomeStepId } from "../lib/mm/welcomeSteps";
+import { afterSignInGate } from "../lib/mm/premiumFeatures";
 
 // The welcome screens' gate (lib/mm/tour.ts): where a first plain launch goes, the iPhone app's trial offer after it, and (the onboarding redesign meeting of
 // 20 November 2026, build list 7) TOUR_VERSION 2, the tab tour gone, the welcome screens writing nothing of the person's own, and someone who quits at any step
@@ -144,6 +145,9 @@ describe("the iPhone app's free-trial offer", () => {
     ["on Home, on a later day than the first", base, true],
     ["on the first day the app was used (straight after setup)", { ...base, today: "2026-11-19" }, false],
     ["in the visit where setup just finished, even on a later day", { ...base, setUpThisVisit: true }, false],
+    // every 1.0 user updating to 1.1 meets the sign-in screen once: that visit is held too (AppShell, lib/mm/premiumFeatures.ts afterSignInGate)
+    ["in a visit that came through the sign-in screen, even on a later day", { ...base, setUpThisVisit: afterSignInGate(afterSignInGate(false, "signIn").sawSignIn, "open").holdTrialOffer }, false],
+    ["a signed-in launch (a moment of wait, then the app) is not held", { ...base, setUpThisVisit: afterSignInGate(afterSignInGate(false, "wait").sawSignIn, "open").holdTrialOffer }, true],
     ["before any day was counted", { ...base, firstDay: null }, false],
     ["after a Premium feature's paywall (it already offered the trial)", { ...base, paywallSeen: true }, false],
     ["after the welcome screens were finished on this phone (tourSeen), a later day", { ...base, onboarded: false, tourSeen: true }, true],

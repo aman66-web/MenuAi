@@ -82,7 +82,7 @@ export default function EatOutPage() {
       {/* the shopping list and the Settings cog at the top right, as on every tab (founder 2026-11-19: "the settings cog should be on the top right of every
           page. Also shopping list should be on the last page too"); at a narrow width or a larger text the pill and the cog move under the title */}
       <PageHeader title={<Rich text={t("Eat {out}")} values={{ out: <span className="serif-em">{t("out")}</span> }} />} list />
-      <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Restaurants, cafés, pubs and takeaways, with the calories and protein of every dish.")}</p>
+      <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Restaurants, cafés, pubs and takeaways, with the calories of every dish, and protein where the restaurant publishes it.")}</p>
 
       <StartPrompt className="mt-5" />
 
@@ -92,7 +92,7 @@ export default function EatOutPage() {
       </Link>
 
       <div className={`mt-3.5 ${chainGroupClass}`}>
-        <Shortcut href="/app/map" icon={<PinIcon />} title={t("Near me")} line={t("See the places to eat around you on a map.")} />
+        <Shortcut href="/app/map" icon={<PinIcon />} title={t("Near me")} line={t("See the places to eat around you on a map")} />
         <Shortcut
           href="/app/eat-out/favourites"
           icon={<StarIcon filled={favoriteChains.length > 0} />}

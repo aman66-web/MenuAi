@@ -22,6 +22,9 @@ struct WebAppView: UIViewRepresentable {
         configuration.userContentController.add(context.coordinator.bridge, name: NativeBridge.handlerName)
         configuration.allowsInlineMediaPlayback = true
         configuration.dataDetectorTypes = []
+        // No long-press menu on links and pictures (it showed app://menumath addresses, Share and "Save to Photos", which also let anyone save a chain's photo
+        // that CLAUDE.md rule 2 only lets us display). Added here, in the app only, so the website keeps the browser's own behaviour.
+        configuration.userContentController.addUserScript(WKUserScript(source: Self.noCalloutScript, injectionTime: .atDocumentEnd, forMainFrameOnly: true))
 
         let webView = WKWebView(frame: .zero, configuration: configuration)
         webView.navigationDelegate = context.coordinator
@@ -54,6 +57,8 @@ struct WebAppView: UIViewRepresentable {
         }
     }
 
+    static let noCalloutScript = "(function(){var s=document.createElement('style');s.textContent='a, img { -webkit-touch-callout: none; }';(document.head||document.documentElement).appendChild(s);})();"
+
     static func dismantleUIView(_ webView: WKWebView, coordinator: Coordinator) {
         webView.configuration.userContentController.removeScriptMessageHandler(forName: NativeBridge.handlerName)
     }
@@ -70,7 +75,13 @@ struct WebAppView: UIViewRepresentable {
         /// Our own pages stay in the app; other websites open in Safari; mail, phone and maps links go to their apps.
         func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction) async -> WKNavigationActionPolicy {
             guard let target = navigationAction.request.url else { return .cancel }
-            if target.scheme == WebAppFiles.scheme || target.scheme == "about" || target.scheme == "blob" || target.scheme == "data" {
+            if target.scheme == "blob" || target.scheme == "data" {
+                // A download link (the share card's last fallback, web/app/app/_lib/share-card.ts) would replace the whole app with the file and leave no way
+                // back: refused. A file the page shows inside itself is fine.
+                if navigationAction.shouldPerformDownload && navigationAction.targetFrame?.isMainFrame != false { return .cancel }
+                return .allow
+            }
+            if target.scheme == WebAppFiles.scheme || target.scheme == "about" {
                 return .allow
             }
             // A frame inside a page (not the page itself) may load its own content; whole-page moves away from the app open outside it.
@@ -95,9 +106,21 @@ struct WebAppView: UIViewRepresentable {
             return nil
         }
 
-        /// If iOS ends the page's process (memory pressure), start it again where it was.
+        /// The camera for the page's own photo screens (Scan your food, Make it at home, a report's photo): granted to the app's own pages only, so WebKit doesn't
+        /// add its own "Allow Numbite to use your camera?" on every launch. iOS's own camera prompt (with the purpose text) still appears once, and a refusal
+        /// there still reaches the page, which falls back to choosing a photo. Everything else (the microphone, any other page or frame) is refused.
+        func webView(_ webView: WKWebView, decideMediaCapturePermissionsFor origin: WKSecurityOrigin, initiatedBy frame: WKFrameInfo, type: WKMediaCaptureType) async -> WKPermissionDecision {
+            let ours = frame.isMainFrame && origin.`protocol` == WebAppFiles.scheme && origin.host == WebAppFiles.host
+            return ours && type == .camera ? .grant : .deny
+        }
+
+        /// If iOS ends the page's process (memory pressure), start it again where it was, or at the start page when there is nowhere to go back to.
         func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
-            webView.reload()
+            if webView.url == nil {
+                webView.load(URLRequest(url: WebAppFiles.startURL))
+            } else {
+                webView.reload()
+            }
         }
     }
 }

@@ -1162,7 +1162,9 @@
     "energyKj": 3135,
     "weight": 298
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -1197,7 +1199,9 @@
     "energyKj": 2206,
     "weight": 237
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -1235,6 +1239,7 @@
     "weight": 247
    },
    "tags": [
+    "contains_beef",
     "contains_pork"
    ],
    "limitedTime": false,
@@ -1273,7 +1278,9 @@
     "energyKj": 2887,
     "weight": 300
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -1603,7 +1610,9 @@
     "energyKj": 1316,
     "weight": 138
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -1640,7 +1649,9 @@
     "energyKj": 1494,
     "weight": 150
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -2179,7 +2190,9 @@
     "salt": 1.9,
     "energyKj": 1536
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],

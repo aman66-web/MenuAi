@@ -39,7 +39,7 @@ describe("the welcome screens' sign-in step", () => {
 
   it("heads the screen by the way it was reached, and keeps 'Sign in or sign up' on a page of the app", () => {
     expect(SIGN_IN_HEADING).toEqual({
-      setup: "Save your plan: make your free account",
+      setup: "Save your goal and numbers: make your free account", // the overnight audit's words (20 November 2026)
       returning: "Welcome back. Sign in",
       page: "Sign in or sign up",
     });

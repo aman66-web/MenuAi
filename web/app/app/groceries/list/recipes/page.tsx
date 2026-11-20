@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useMemo, useState } from "react";
-import { isListId, itemsOnList, MAIN_LIST } from "@/lib/mm/groceries";
+import { isListId, itemsOnList, knownLists, MAIN_LIST, retailerName, type ShoppingList } from "@/lib/mm/groceries";
 import { shopPhotoSources } from "@/lib/mm/shopProducts";
 import { shoppingStore } from "@/lib/mm/stores";
 import { InfoLine } from "../../../_components/Note";
@@ -11,7 +11,7 @@ import { PageHeader } from "../../../_components/PageHeader";
 import { CheckIcon, ChevronRightIcon, PlusIcon, PotIcon } from "../../../_components/icons";
 import { Button, EmptyState, ErrorBox, LinkButton, Spinner } from "../../../_components/ui";
 import { useBack } from "../../../_lib/backNav";
-import { useHydrated, useStore } from "../../../_lib/hooks";
+import { useHydrated, useSettings, useStore } from "../../../_lib/hooks";
 import { useT } from "../../../_lib/i18n";
 import { addedNote, addMissing, fileForProduct, useListRecipes, type ListMatch } from "../../../_lib/listRecipes";
 import { Rich } from "../../../_lib/Rich";
@@ -25,19 +25,22 @@ import { RecipeThumb } from "../../../recipes/RecipeThumb";
 // from every one of the person's recipe shops, like the Recipes page).
 // Looks follow Home (founder 2026-10-15): white cards with 20 px corners, a thin lime bar for how much of the recipe the list covers, the
 // ingredients already on the list as lime chips with a tick (like a ticked item on the list) and the rest as outlined chips.
+// Opened from one of the person's own lists (?l=), the recipes come from that list's shop first, and "Add the other n" puts the products on that list
+// (_lib/listRecipes.ts targetList: the list looked at, else the shop's own list, else the main list), the note naming the real list with "See list".
 
 const PAGE = 12;
 
-function MatchCard({ m }: { m: ListMatch }) {
+function MatchCard({ m, lists, viewing }: { m: ListMatch; lists: readonly ShoppingList[]; viewing: string | undefined }) {
   const t = useT();
-  const [added, setAdded] = useState<string | null>(null);
+  const settings = useSettings();
+  const [added, setAdded] = useState<{ text: string; list: string | null } | null>(null);
   const total = m.recipe.ingredients.length;
   const label = (i: number) => t(m.resolved.picks[i]?.spec.label ?? m.recipe.ingredients[i]!.label);
   const file = m.files[0]!;
   const add = () => {
-    const n = addMissing(m, file);
-    const { text, values } = addedNote(m, n, file); // from the match alone: the shops its products go under
-    setAdded(t(text, values));
+    const placed = addMissing(m, file, settings.shoppingLists, viewing);
+    const { text, values, list } = addedNote(placed, (id) => (id ? lists.find((l) => l.id === id)?.name ?? t("Shopping list") : t("Shopping list")));
+    setAdded({ text: t(text, values), list });
   };
   return (
     <li className={`${CARD} p-5`}>
@@ -80,7 +83,9 @@ function MatchCard({ m }: { m: ListMatch }) {
       ) : (
         <p className="mt-5 text-[0.9375rem] font-semibold leading-snug">{t("Your list has everything this recipe uses.")}</p>
       )}
-      <p role="status" aria-live="polite" className="mt-2 text-[0.9375rem] font-semibold text-foreground empty:mt-0">{added}</p>
+      <p role="status" aria-live="polite" className="mt-2 text-[0.9375rem] font-semibold text-foreground empty:mt-0">
+        {added && <>{added.text}{added.list !== null && <> <Link href={listHref(added.list)} className="font-bold text-accent underline underline-offset-4">{t("See list")}</Link></>}</>}
+      </p>
     </li>
   );
 }
@@ -102,7 +107,11 @@ function ListRecipesScreen() {
   const asked = useSearchParams().get("l");
   const from = asked === MAIN_LIST ? "" : asked && isListId(asked) ? asked : null;
   const list = useMemo(() => (from === null ? all : itemsOnList(all, from)), [all, from]);
-  const { state, matches } = useListRecipes(list);
+  const settings = useSettings();
+  const lists = useMemo(() => knownLists(settings.shoppingLists, all), [settings.shoppingLists, all]);
+  // the list it was opened from, when it is one of the person's own (its shop's recipes first, and its name in the title)
+  const own = from ? lists.find((l) => l.id === from) ?? null : null;
+  const { state, matches, usesOther, shop } = useListRecipes(list, own?.shop ?? null);
   const [limit, setLimit] = useState(PAGE);
   const back = listHref(from);
   const listNav = useBack(back); // for the empty-state button: the page before when there is one in the app, else the list in this page's place
@@ -110,9 +119,11 @@ function ListRecipesScreen() {
   return (
     <div>
       <PageHeader back={{ href: back, label: t("Back to shopping list") }} />
-      <h1 className="mt-5 text-[1.75rem] font-[800] leading-[1.08] tracking-[-0.02em]"><Rich text={t("Cook with your {list}")} values={{ list: <span>{t("shopping list")}</span> }} /></h1>
+      <h1 className="mt-5 text-[1.75rem] font-[800] leading-[1.08] tracking-[-0.02em] [overflow-wrap:anywhere]">{own ? t("Cook with your {list} list", { list: own.name }) : <Rich text={t("Cook with your {list}")} values={{ list: <span>{t("shopping list")}</span> }} />}</h1>
       {/* a plain intro, no Pip (Pip audit, founder 2026-11-20: "keep him as the guide, not the decoration") */}
       <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("These recipes use something on your list. Each one shows what you still need to buy.")}</p>
+      {/* a list for a shop that isn't in recipes yet: which shop the recipes use instead */}
+      {usesOther && shop && <p className="mt-2 text-[0.9375rem] leading-snug text-foreground">{t("{left} isn't in recipes yet, so these use {shop}: every ingredient is a real product there, with its price.", { left: retailerName(usesOther), shop: retailerName(shop) })}</p>}
 
       {!hydrated ? null : list.length === 0 ? (
         <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("Your list is empty.")} body={t("Add a few things you have or plan to buy, and I'll find recipes that use them.")} action={<LinkButton href={listNav.href} onClick={listNav.onClick} replace variant="secondary">{t("Back to my groceries")}</LinkButton>} /></div>
@@ -128,7 +139,7 @@ function ListRecipesScreen() {
         <>
           <p role="status" className="app-numbers mt-7 ps-1 text-[0.9375rem] font-semibold text-muted">{matches.length === 1 ? t("1 recipe uses something on your list") : t("{n} recipes use something on your list", { n: matches.length })}</p>
           <ul className="mt-3 space-y-3.5">
-            {matches.slice(0, limit).map((m) => (<MatchCard key={m.recipe.id} m={m} />))}
+            {matches.slice(0, limit).map((m) => (<MatchCard key={m.recipe.id} m={m} lists={lists} viewing={from ?? undefined} />))}
           </ul>
           {matches.length > limit && <div className="mt-4"><Button full variant="secondary" className="min-h-12 text-[0.9375rem]" onClick={() => setLimit((n) => n + PAGE)}>{t("Show more recipes ({n} more)", { n: matches.length - limit })}</Button></div>}
           <InfoLine heading={null} className="mt-6">{t("Recipes are matched to your list by the products' names and chosen for your diet by their ingredients; check each pack.")}</InfoLine>

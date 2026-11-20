@@ -33,12 +33,12 @@ export function ShopPrices({ items }: { items: readonly ShopPrice[] }) {
           return (
             <span key={s.shop} className="inline-flex max-w-[6rem] flex-col items-center gap-0.5 text-center">
               <ShopMark shopId={s.shop} size="xs" />
-              <span className="max-w-full truncate text-[0.75rem] font-semibold leading-tight text-foreground">{s.name}</span>
+              <span className="max-w-full truncate text-[0.8125rem] font-semibold leading-tight text-foreground">{s.name}</span>
               <span className={`app-numbers whitespace-nowrap text-[0.8125rem] leading-tight text-foreground ${lowest ? "font-extrabold" : "font-semibold"}`}>
                 {s.price !== null ? formatPrice(s.price) : t("In store")}
               </span>
-              {lowest && <span className="text-[0.75rem] font-bold leading-tight text-foreground">{t("Lowest")}</span>}
-              {s.member && <span className="app-numbers whitespace-nowrap text-[0.75rem] font-semibold leading-tight text-foreground">{card(s.member)}</span>}
+              {lowest && <span className="text-[0.8125rem] font-bold leading-tight text-foreground">{t("Lowest")}</span>}
+              {s.member && <span className="app-numbers whitespace-nowrap text-[0.8125rem] font-semibold leading-tight text-foreground">{card(s.member)}</span>}
             </span>
           );
         })}

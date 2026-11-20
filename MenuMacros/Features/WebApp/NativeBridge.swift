@@ -28,20 +28,34 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
         self.notifications = notifications
         self.purchases = purchases
         self.session = session
+        super.init()
+        // A purchase that arrives while the app is open (StoreKitPurchaseService's updates listener posts this on the main actor): the page checks Apple's list
+        // at once (web/app/app/_components/AppShell.tsx listens for "menumath:purchases") instead of at the next return to the front.
+        NotificationCenter.default.addObserver(self, selector: #selector(purchasesChanged), name: .numbitePurchasesChanged, object: nil)
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         guard message.frameInfo.isMainFrame,
               message.frameInfo.securityOrigin.`protocol` == WebAppFiles.scheme,
-              message.frameInfo.securityOrigin.host == WebAppFiles.host,
-              let request = BridgeRequest(body: message.body) else { return }
+              message.frameInfo.securityOrigin.host == WebAppFiles.host else { return }
+        guard let request = BridgeRequest(body: message.body) else {
+            // it failed its checks, but its id is sound: answer it, so the page doesn't wait out its timeout
+            if let id = BridgeRequest.answerableID(in: message.body), let script = BridgeReply.failure("unavailable").script(for: id) { run(script) }
+            return
+        }
         Task {
             let reply = await handle(request)
-            // the completion-handler form: the script returns undefined, which the async form treats as an error
-            if let script = reply.script(for: request.id) {
-                webView?.evaluateJavaScript(script, completionHandler: nil)
-            }
+            if let script = reply.script(for: request.id) { run(script) }
         }
+    }
+
+    /// Runs a reply in the page. The script ends with `true`, so the async form has a value to hand back (a bare undefined counts as an error there).
+    private func run(_ script: String) {
+        Task { _ = try? await webView?.evaluateJavaScript(script + " true;") }
+    }
+
+    @objc private func purchasesChanged() {
+        run("window.dispatchEvent(new Event('menumath:purchases'));")
     }
 
     func handle(_ request: BridgeRequest) async -> BridgeReply {

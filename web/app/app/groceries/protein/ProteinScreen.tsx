@@ -105,17 +105,19 @@ function PairCard({ file, title, branded, everyday }: { file: ShopFile; title: s
 function BoardRow({ file, v, rank }: { file: ShopFile; v: ProteinValue; rank: number }) {
   const t = useT();
   return (
-    <li>
-      <Link href={productHref(file.retailer, v.product.id)} className="flex min-h-[5.5rem] items-center gap-3 px-3.5 py-3 transition hover:bg-background active:bg-background">
+    <li className="@container">
+      {/* in a narrow row (a small phone, large text, zoom) the price pill drops under the words and the photo steps aside, so the name keeps its room
+          (2026-11-20: at 320 px the name had 64 px, at 150% zoom 4 px) */}
+      <Link href={productHref(file.retailer, v.product.id)} className="flex min-h-[5.5rem] flex-wrap items-center gap-3 px-3.5 py-3 transition hover:bg-background active:bg-background @[22rem]:flex-nowrap">
         <span aria-hidden className="app-numbers grid h-8 w-8 shrink-0 place-items-center rounded-full bg-fill text-[0.9375rem] font-extrabold text-foreground">{rank}</span>
-        <ListThumb sources={shopPhotoSources(file, v.product)} />
-        <span className="min-w-0 flex-1">
-          <span className="line-clamp-2 text-[0.9375rem] font-bold leading-snug [overflow-wrap:anywhere]"><span className="sr-only">{rank}. </span>{v.product.name}</span>
+        <span className="hidden shrink-0 @[18rem]:contents"><ListThumb sources={shopPhotoSources(file, v.product)} /></span>
+        <span className="min-w-[8rem] flex-1">
+          <span className="line-clamp-3 text-[0.9375rem] font-bold leading-snug [overflow-wrap:break-word]"><span className="sr-only">{rank}. </span>{v.product.name}</span>
           <span className="mt-0.5 block"><ValueLine v={v} /></span>
         </span>
-        <span className="app-numbers shrink-0 rounded-[0.875rem] bg-fill px-2.5 py-2 text-center">
+        <span className="app-numbers ms-auto shrink-0 rounded-[0.875rem] bg-fill px-2.5 py-2 text-center">
           <span className="block text-[1.125rem] font-extrabold leading-none tracking-tight">{pence(v.pence10g)}</span>
-          <span className="mt-1 block text-[0.75rem] font-semibold text-muted">{t("per 10 g")}</span>
+          <span className="mt-1 block text-[0.8125rem] font-semibold text-muted">{t("per 10 g")}</span>
         </span>
       </Link>
     </li>

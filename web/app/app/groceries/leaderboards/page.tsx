@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { PAID_ACCESS_ENABLED } from "@/lib/mm/config";
 import { formatDate } from "@/lib/mm/format";
 import { BOARDS, LEFT_OUT_NOTE, isLeaderboardsFile, type BoardEntry, type BoardId, type LeaderboardsFile } from "@/lib/mm/leaderboards";
 import { FREE_LEADERBOARD_ROWS } from "@/lib/mm/paid";
 import { shopPhotoSources } from "@/lib/mm/shopProducts";
+import { shopItemHref } from "@/lib/mm/barcodes";
 import { ShopPrices } from "../ShopPrices";
 import { PageHeader } from "../../_components/PageHeader";
 import { useGate } from "../../_components/Paywall";
@@ -42,8 +43,9 @@ function loadBoards(): Promise<LeaderboardsFile | null> {
 const BOARD_IDS = BOARDS.map((b) => b.id);
 const parseBoard = (v: string | null): BoardId => (BOARD_IDS.includes(v as BoardId) ? (v as BoardId) : BOARDS[0]!.id);
 
-const productHref = (e: BoardEntry) =>
-  e.gtin && e.shops.length > 1 ? `/app/groceries/product?code=${encodeURIComponent(e.gtin)}` : `/app/groceries/shop/item?r=${encodeURIComponent(e.shops[0]!.shop)}&id=${encodeURIComponent(e.shops[0]!.id)}`;
+// a row opens the product in the shop list its figure comes from (2026-11-20: rows sold at several shops opened the catalogue page, with community numbers that
+// weren't the label the board ranked)
+const productHref = (e: BoardEntry) => shopItemHref(e.shops[0]!);
 
 function figure(board: BoardId, value: number): { big: string; small: string } {
   if (board === "cheapestProtein") return { big: `${value.toFixed(1)}p`, small: "" };
@@ -71,7 +73,7 @@ function Row({ file, board, entry, rank, unit }: { file: LeaderboardsFile; board
         </span>
         <span className="app-numbers ms-auto shrink-0 rounded-[0.875rem] bg-fill px-2.5 py-2 text-center">
           <span className="block text-[1.125rem] font-extrabold leading-none tracking-tight">{f.big}{f.small && <span className="ms-0.5 text-[0.8125rem] font-bold">{f.small}</span>}</span>
-          <span className="mt-1 block max-w-[5.5rem] text-[0.75rem] font-semibold leading-tight text-muted">{unit}</span>
+          <span className="mt-1 block max-w-[6rem] text-[0.8125rem] font-semibold leading-tight text-muted">{unit}</span>
         </span>
       </Link>
     </li>
@@ -89,7 +91,16 @@ function Boards() {
   const [file, setFile] = useState<LeaderboardsFile | null | undefined>(undefined);
   const [retry, setRetry] = useState(0);
   useEffect(() => { let live = true; void loadBoards().then((f) => { if (live) setFile(f); }); return () => { live = false; }; }, [retry]);
-  const choose = (id: BoardId) => router.replace(`/app/groceries/leaderboards?board=${id}`, { scroll: false });
+  // choosing a board brings it into view (2026-11-20: it started behind the tab bar, so a tap seemed to change nothing)
+  const boardRef = useRef<HTMLHeadingElement>(null);
+  const chosen = useRef(false);
+  const choose = (id: BoardId) => { chosen.current = true; router.replace(`/app/groceries/leaderboards?board=${id}`, { scroll: false }); };
+  useEffect(() => {
+    if (!chosen.current) return;
+    chosen.current = false;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    boardRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  }, [board]);
   const info = BOARDS.find((b) => b.id === board)!;
   const rows = file?.boards[board] ?? [];
 
@@ -114,7 +125,7 @@ function Boards() {
       </div>
 
       <section aria-labelledby="board-h" className="mt-7">
-        <h2 id="board-h" className={HEADING}>{t(info.title)}</h2>
+        <h2 id="board-h" ref={boardRef} className={`${HEADING} scroll-mt-24`}>{t(info.title)}</h2>
         <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t(info.line)}</p>
         {board === "meatFreeProtein" && <InfoLine heading={null} className="mt-2">{t("Chosen by the product's name, with no meat or fish in it: if you're vegetarian or vegan, check the pack.")}</InfoLine>}
         {file === undefined ? (
@@ -142,7 +153,7 @@ function Boards() {
       {file && (
         <FootNote>
           {t(LEFT_OUT_NOTE)}{" "}
-          {t("Figures are per 100 g as sold, from each shop's own website (read up to {date}); a product sold at several shops shows every shop's logo with its shelf price there, the cheapest in bold. Prices vary by store. Not affiliated with any supermarket.", { date: formatDate(file.checkedOn, t) })}
+          {t("Figures are as sold, from each shop's own website (labels read up to {labels}, prices from {prices}); a product sold at several shops shows every shop's logo with its shelf price there, the cheapest in bold. Prices vary by store. Not affiliated with any supermarket.", { labels: formatDate(file.labelsOn ?? file.checkedOn, t), prices: formatDate(file.pricesOn ?? file.checkedOn, t) })}
         </FootNote>
       )}
     </div>

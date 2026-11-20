@@ -6,14 +6,16 @@ import type { AskPip } from "./recipeHandler";
 
 // The one place the app talks to an AI model: Pip writing a recipe (lib/recipeHandler.ts decides when). Needs ANTHROPIC_API_KEY in the
 // server environment (Vercel › Settings › Environment Variables); without it the recipe maker says it isn't switched on yet.
-// Claude Haiku (founder's choice 2026-10-10: fast and low cost; the app fits the amounts afterwards, so the model only has to choose
+// Claude Opus 5.5 since 2026-11-20 (earlier Claude Haiku, the founder's choice 2026-10-10: fast and low cost; the app fits the amounts afterwards, so the model only has to choose
 // sensible ingredients and words), with structured output limited to the pantry keys this person may use.
 
-export const RECIPE_MODEL = "claude-haiku-5-5";
+// Every AI feature uses Claude Opus 5.5 (founder 2026-11-20: "just use Opus for all the AI stuff which is in my app"); it always thinks a little first, so the
+// quick calls have room for that and the slower ones longer time limits.
+export const RECIPE_MODEL = "claude-opus-5-5";
 
 export function anthropicAsk(apiKey: string | undefined): AskPip | null {
   if (!apiKey) return null;
-  const client = new Anthropic({ apiKey, timeout: 40_000, maxRetries: 0 });
+  const client = new Anthropic({ apiKey, timeout: 100_000, maxRetries: 0 });
   return async (system, user, allowedKeys) => {
     const schema = z.object({
       name: z.string(),

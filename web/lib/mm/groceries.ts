@@ -150,8 +150,16 @@ export function forRetailer(p: ListedProduct, retailer: string | null | undefine
 }
 
 /** Protein grams per 100 kcal (0 when there are no calories): same measure as the restaurant lists. */
-/** Below this much protein per 100 g or ml, "most protein per 100 kcal" lists a product after the others. */
+/** Below this much protein per 100 g or ml, "most protein per 100 kcal" lists a product after the others (shopProducts.ts's shop lists). */
 export const MIN_DENSITY_PROTEIN = 1;
+/**
+ * "Most protein per 100 kcal" in Groceries' search ranks a product by its protein per 100 kcal only when it has at least DENSITY_MIN_KCAL kcal and
+ * DENSITY_MIN_PROTEIN g of protein per 100 g or ml; the rest come after (a sweetener with 2 kcal and a trace of protein would otherwise top the list).
+ */
+export const DENSITY_MIN_KCAL = 20;
+export const DENSITY_MIN_PROTEIN = 5;
+/** Names compared the way people read them (A and a alike), made once. */
+const byName = new Intl.Collator("en-GB", { sensitivity: "base" });
 
 export function proteinPer100Kcal(p: Pick<GroceryProduct, "kcal" | "protein">): number {
   return p.kcal > 0 ? (p.protein / p.kcal) * 100 : 0;
@@ -202,11 +210,12 @@ export function searchProducts(products: readonly ListedProduct[], f: GroceryFil
     return words.every((w) => hay(p).includes(` ${w}`));
   });
   const by = f.sort ?? "density";
-  const name = (a: GroceryProduct, b: GroceryProduct) => a.name.localeCompare(b.name, "en-GB", { sensitivity: "base" });
+  const name = (a: GroceryProduct, b: GroceryProduct) => byName.compare(a.name, b.name);
   list = [...list];
-  // "Most protein per 100 kcal": a product with under 1 g of protein per 100 g goes after the rest (a sugar-free drink with 0.5 g and 2 kcal would
-  // otherwise top the list); its numbers are unchanged
-  if (by === "density") list.sort((a, b) => Number(a.protein < MIN_DENSITY_PROTEIN) - Number(b.protein < MIN_DENSITY_PROTEIN) || proteinPer100Kcal(b) - proteinPer100Kcal(a) || name(a, b));
+  // "Most protein per 100 kcal": a product with under DENSITY_MIN_KCAL kcal or DENSITY_MIN_PROTEIN g of protein per 100 g goes after the rest (a sweetener or a
+  // sugar-free drink would otherwise top the list); its numbers are unchanged
+  const low = (p: GroceryProduct) => Number(p.kcal < DENSITY_MIN_KCAL || p.protein < DENSITY_MIN_PROTEIN);
+  if (by === "density") list.sort((a, b) => low(a) - low(b) || proteinPer100Kcal(b) - proteinPer100Kcal(a) || name(a, b));
   else if (by === "protein") list.sort((a, b) => b.protein - a.protein || name(a, b));
   else if (by === "kcal") list.sort((a, b) => a.kcal - b.kcal || name(a, b));
   else list.sort(name);
@@ -219,8 +228,10 @@ export function searchProducts(products: readonly ListedProduct[], f: GroceryFil
  */
 export function forTheirShops<T extends Pick<ListedProduct, "retailers" | "name">>(list: readonly T[], shops: readonly string[] | undefined): T[] {
   const mine = shops ?? [];
-  const rank = (p: T) => { const i = mine.findIndex((s) => p.retailers.includes(s)); return i < 0 ? mine.length : i; };
-  return [...list].sort((a, b) => rank(a) - rank(b) || normalizeForSearch(a.name).length - normalizeForSearch(b.name).length || a.name.localeCompare(b.name, "en-GB", { sensitivity: "base" }));
+  // each product's shop rank and plain-name length worked out once, not inside the comparison (a search can return thousands)
+  const keyed = list.map((p) => { const i = mine.findIndex((s) => p.retailers.includes(s)); return { p, rank: i < 0 ? mine.length : i, len: normalizeForSearch(p.name).length }; });
+  keyed.sort((a, b) => a.rank - b.rank || a.len - b.len || byName.compare(a.p.name, b.p.name));
+  return keyed.map((k) => k.p);
 }
 
 /** "£1.25". */
@@ -441,6 +452,27 @@ export function addToList(list: readonly ShoppingItem[], item: Omit<ShoppingItem
   return [...list, placed({ ...item, qty: Math.min(MAX_QTY, add), addedAt: now.toISOString() })];
 }
 
+/** What addAtLeast did: put a new line on, raised one already there, found one with enough already, or couldn't (the lists are full: MAX_SHOPPING_ITEMS). */
+export type AddOutcome = "added" | "raised" | "had" | "full";
+
+/**
+ * Puts a product on its list with at least `qty` (a meal plan's packs, a recipe's missing products): a line already there is raised to `qty` when it has less
+ * and left as it is when it has as many or more, so adding the same week or recipe again never doubles anything (a pack of oil from a recipe isn't bought
+ * twice when the plan needs one too). Says what it did, so a screen can count what really went on. The list it goes on is `item.list`, as addToList.
+ */
+export function addAtLeast(list: readonly ShoppingItem[], item: Omit<ShoppingItem, "qty" | "addedAt">, qty = 1, now = new Date()): { list: ShoppingItem[]; outcome: AddOutcome } {
+  const want = Math.min(MAX_QTY, Math.max(1, Math.floor(qty)));
+  const i = list.findIndex((x) => sameEntry(x, item));
+  if (i >= 0) {
+    const had = list[i]!;
+    if (had.qty >= want && !had.done) return { list: [...list], outcome: "had" };
+    // a ticked line (already in the basket) is put back on, with what is needed now
+    return { list: list.map((x, j) => (j === i ? { ...untick(x), qty: Math.max(want, x.done ? 0 : x.qty), ...(!x.photo && item.photo ? { photo: item.photo } : {}) } : x)), outcome: had.done ? "added" : "raised" };
+  }
+  if (list.length >= MAX_SHOPPING_ITEMS) return { list: [...list], outcome: "full" };
+  return { list: [...list, placed({ ...item, qty: want, addedAt: now.toISOString() })], outcome: "added" };
+}
+
 /** `code` is the item's barcode, or its shop product id when it has no barcode (itemCode). `listId`: the list it is on ("" = the main list). */
 export function setQty(list: readonly ShoppingItem[], code: string, retailer: string, qty: number, listId = ""): ShoppingItem[] {
   const same = (x: ShoppingItem) => itemCode(x) === code && x.retailer === retailer && listOf(x) === listId;
@@ -523,6 +555,17 @@ export function listForShop(settings: { shoppingLists?: readonly ShoppingList[] 
   return listsForShop(settings.shoppingLists, shop).at(-1)?.id;
 }
 
+/**
+ * The list the Shopping list pill opens (the meeting's finding, 20 November 2026: it counted every list but opened the main one, which could say "Your list is
+ * empty"): `last`, the list last looked at ("" = the main list), while it still has things to get; else the first list that has any (the main list first);
+ * else the main list. Returns "" for the main list.
+ */
+export function listToOpen(items: readonly ShoppingItem[], listIds: readonly string[], last: string | null): string {
+  const toGet = (id: string) => items.some((i) => listOf(i) === id && !i.done);
+  if (last !== null && (last === "" || listIds.includes(last)) && toGet(last)) return last;
+  return ["", ...listIds].find(toGet) ?? "";
+}
+
 /** A new list's name: the shop's name, then "{shop} 2", "{shop} 3" (the lowest number not in use). */
 export function nextListName(lists: readonly ShoppingList[], shopName: string): string {
   const names = new Set(lists.map((l) => l.name.toLowerCase()));
@@ -589,11 +632,17 @@ export function listTotals(items: readonly ShoppingItem[]): { total: number; pri
 /** A group's heading: the supermarket's name, or "Any shop" for items typed in. */
 export const groupName = (retailer: string, t: T = englishT): string => (retailer === CUSTOM_RETAILER ? t("Any shop") : retailerName(retailer));
 
-/** Plain text for sharing or pasting into notes, grouped by retailer: "Aldi\n- 2 x Greek yogurt 500 g (5012345678900)". Ticked items are left out. */
-export function listAsText(list: readonly ShoppingItem[], t: T = englishT): string {
+/**
+ * Plain text for sharing or pasting into notes, grouped by retailer: "Aldi\n- 2 x Greek yogurt 500 g". Ticked items are left out; no barcode numbers (the link
+ * carries the products; the numbers were clutter in a message). `shop`: the list is one shop's own list, so what was typed onto it goes under that shop too.
+ */
+export function listAsText(list: readonly ShoppingItem[], t: T = englishT, shop?: string): string {
   const groups = new Map<string, ShoppingItem[]>();
-  for (const i of withoutDone(list)) groups.set(i.retailer, [...(groups.get(i.retailer) ?? []), i]);
-  return [...groups.entries()].map(([r, items]) => `${groupName(r, t)}\n${items.map((i) => `- ${i.qty} x ${i.name}${i.size ? ` ${i.size}` : ""}${i.gtin ? ` (${i.gtin})` : ""}`).join("\n")}`).join("\n\n");
+  for (const i of withoutDone(list)) {
+    const key = shop && shop !== CUSTOM_RETAILER && i.retailer === CUSTOM_RETAILER ? shop : i.retailer;
+    groups.set(key, [...(groups.get(key) ?? []), i]);
+  }
+  return [...groups.entries()].map(([r, items]) => `${groupName(r, t)}\n${items.map((i) => `- ${i.qty} x ${i.name}${i.size ? ` ${i.size}` : ""}`).join("\n")}`).join("\n\n");
 }
 
 /**

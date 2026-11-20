@@ -16,7 +16,7 @@ import { SMALL_LABEL } from "./Nutrition";
 // pointed at the allergy he had set. Now "May contain" has a strong outline and its own line saying what it means, and an allergen the person avoids
 // is marked "You avoid" in its row and named at the top.
 
-const CHECK_WITH_STAFF = tk("Recipes change and kitchens handle many allergens, so always check with staff before you order.");
+const CHECK_WITH_STAFF = tk("Dishes change and kitchens handle many allergens, so always check with staff before you order.");
 
 function GuideLink({ chain, href }: { chain: Chain; href: string }) {
   const t = useT();
@@ -66,9 +66,10 @@ export function AllergenTable({ allergens, caption, columnLabel, pad = "px-5", f
               <tr key={key} className={s.kind !== "none" || avoid.includes(key) ? "bg-[var(--fill)]" : undefined}>
                 <th scope="row" className={`${pad} py-3 text-start align-middle leading-snug ${s.kind !== "none" || avoid.includes(key) ? "font-bold" : "font-medium"}`}>
                   {t(ALLERGEN_LABEL[key])}
-                  {/* the person's own allergen: the amber allergy note's look (Note.tsx), never lime, which means only chosen or done (second wave's review) */}
+                  {/* the person's own allergen: the amber allergy note's look (Note.tsx), never lime, which means only chosen or done (second wave's review); 6 px
+                      corners so it reads as a label, not a button (the 20 November 2026 audit) */}
                   {avoid.includes(key) && (
-                    <span className="ms-2 inline-flex items-center gap-1 rounded-full border-2 border-note-edge bg-note-bg px-2 py-0.5 align-middle text-[0.75rem] font-bold text-foreground">
+                    <span className="ms-2 inline-flex items-center gap-1 rounded-[0.375rem] border-2 border-note-edge bg-note-bg px-2 py-0.5 align-middle text-[0.8125rem] font-bold text-foreground">
                       <WarningIcon className="h-3.5 w-3.5 shrink-0 text-note-edge" />
                       {t("You avoid")}
                     </span>
@@ -76,10 +77,11 @@ export function AllergenTable({ allergens, caption, columnLabel, pad = "px-5", f
                   {detail && <span className="mt-0.5 block text-sm font-medium text-muted">{detail}</span>}
                 </th>
                 <td className={`${pad} py-3 text-end align-middle`}>
+                  {/* labels, not buttons: 6 px corners, never a pill (the 20 November 2026 audit); "Contains" leads with the warning sign */}
                   {s.kind === "contains" ? (
-                    <span className="inline-flex items-center whitespace-nowrap rounded-full bg-ink px-2.5 py-1 text-[0.8125rem] font-semibold leading-none text-on-ink">{t("Contains")}</span>
+                    <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-[0.375rem] bg-ink px-2 py-1 text-[0.8125rem] font-semibold leading-none text-on-ink"><WarningIcon aria-hidden className="h-3.5 w-3.5 shrink-0" />{t("Contains")}</span>
                   ) : s.kind === "may" ? (
-                    <span className="inline-flex items-center whitespace-nowrap rounded-full border-2 border-foreground px-2.5 py-1 text-[0.8125rem] font-bold leading-none">{t("May contain")}</span>
+                    <span className="inline-flex items-center whitespace-nowrap rounded-[0.375rem] border-[3px] border-ink px-2 py-0.5 text-[0.8125rem] font-bold leading-none">{t("May contain")}</span>
                   ) : (
                     <span className="text-sm text-muted">{t("Not listed")}</span>
                   )}
@@ -149,8 +151,8 @@ export function AllergenSection({ chain, allergens, changesNotCovered, title: ti
         {changesNotCovered && <p className="text-sm text-muted">{t("Your changes aren't reflected: the guide lists allergens for the standard item only.")}</p>}
         {guide.mayContainPublished && <p className="text-[0.9375rem] leading-snug"><span className="font-bold">{t("“May contain”")}</span> {t("means the restaurant says small amounts could get in, for example from a shared kitchen or fryer.")}</p>}
         <p className="flex gap-2 text-[0.8125rem] leading-snug text-muted">
-          <InfoIcon className="mt-px h-4 w-4 shrink-0 text-accent" />
-          <span>{t("From {guide}, checked {date}. “Not listed” means the guide doesn't list it, not that the item is free from it.", { guide: guide.title, date: formatDate(guide.checkedOn, t) })} {t(CHECK_WITH_STAFF)}</span>
+          <InfoIcon className="mt-px h-4 w-4 shrink-0 text-foreground" />
+          <span>{t("From {chain}'s allergen guide, checked {date}.", { chain: chain.name, date: formatDate(guide.checkedOn, t) })} {t("“Not listed” means the guide doesn't list it, not that the item is free from it.")} {t(CHECK_WITH_STAFF)}</span>
         </p>
         <GuideLink chain={chain} href={guide.url} />
       </div>

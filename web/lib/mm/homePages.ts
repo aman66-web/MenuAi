@@ -13,8 +13,10 @@ import type { MenuItem, Preferences } from "./types";
 //    founder's delegation; lib/mm/labelTotals.ts and HomeLabels.tsx are kept).
 // 2. What the end of the welcome screens leaves for Home (the onboarding redesign meeting, 20 November 2026, approved by the founder: "Home, first visit"):
 //    the one toast that says what is now true, and the one-time "Start here" card under the numbers (app/app/_components/StartHere.tsx). The welcome
-//    flow's finishWelcome() writes it with withArrival(); Home shows it once and forgets it (withoutArrival), and it is dropped START_HERE_DAYS days after it
-//    was written if Home never showed it. Sign out, Delete my account and Clear everything clear it too (never synced: nothing here is in SYNC_STORES).
+//    flow's finishWelcome() writes it with withArrival(). Home says the toast once and forgets it (dropToast); the card stays on Home, visit after visit, as
+//    step 5 promised ("It'll be waiting on Home"), until "Done with this" (dropCard), until every row it showed has been used (the rows used are kept in the
+//    note: withStartUsed), or until START_HERE_DAYS days after the welcome screens ended (the 30-person audit, 20 November 2026: it used to vanish for good
+//    the moment she left Home). Sign out, Delete my account and Clear everything clear it too (withoutArrival; never synced: nothing here is in SYNC_STORES).
 
 export interface HomePagesState {
   /** Page 2 has been shown (by a swipe, a dot or the hint). */
@@ -61,15 +63,38 @@ export interface HomeArrivalNote {
   firstRecipeId?: string;
   /** The dish from step 3 ("Had the {dish} today? Add it"). */
   firstDish?: StartHereDish;
+  /** The Start here card's rows used so far (kept with the card, so it goes once every row has been used, on any visit). */
+  used?: StartHereUsedNote;
 }
 
-/** A note Home never showed is dropped this many days after the welcome screens ended. */
+/** What the note keeps of the rows used: only what has happened ("Add what you ate" used, the dish's log entry, the recipe opened). */
+export interface StartHereUsedNote {
+  add?: true;
+  /** The id of the log entry the dish row added (an Undo or a delete takes it out of the log, and the row offers the dish again). */
+  dishEntry?: string;
+  recipe?: true;
+}
+
+/** The note is dropped this many days after the welcome screens ended: the toast if Home never said it, the card if it was never done with. */
 export const START_HERE_DAYS = 7;
 
 const ARRIVALS: readonly HomeArrival[] = ["signedIn", "signedInBack", "notNow", "saved"];
 const RECIPE_ID = /^[a-z0-9-]{2,60}$/;
 const CHAIN_ID = /^[a-z0-9][a-z0-9-]{0,59}$/;
 const ITEM_ID = /^[a-z0-9][a-z0-9-]{0,199}$/;
+/** A log entry's id (a UUID, or the time-and-random fallback of stores.ts newId). */
+const ENTRY_ID = /^[A-Za-z0-9-]{1,80}$/;
+
+function sanitizeUsed(raw: unknown): StartHereUsedNote | undefined {
+  if (!raw || typeof raw !== "object") return undefined;
+  const r = raw as Record<string, unknown>;
+  const used: StartHereUsedNote = {
+    ...(r.add === true ? { add: true as const } : {}),
+    ...(typeof r.dishEntry === "string" && ENTRY_ID.test(r.dishEntry) ? { dishEntry: r.dishEntry } : {}),
+    ...(r.recipe === true ? { recipe: true as const } : {}),
+  };
+  return Object.keys(used).length > 0 ? used : undefined;
+}
 
 function sanitizeArrival(raw: unknown): HomeArrivalNote | undefined {
   if (!raw || typeof raw !== "object") return undefined;
@@ -82,8 +107,12 @@ function sanitizeArrival(raw: unknown): HomeArrivalNote | undefined {
   const dish = d && typeof d === "object" && typeof d.chainId === "string" && CHAIN_ID.test(d.chainId) && typeof d.itemId === "string" && ITEM_ID.test(d.itemId)
     ? { chainId: d.chainId, itemId: d.itemId }
     : undefined;
+  const used = card ? sanitizeUsed(r.used) : undefined;
   if (!toast && !card) return undefined;
-  return { at: new Date(r.at).toISOString(), ...(toast ? { toast } : {}), card, ...(card && recipe ? { firstRecipeId: recipe } : {}), ...(card && dish ? { firstDish: dish } : {}) };
+  return {
+    at: new Date(r.at).toISOString(), ...(toast ? { toast } : {}), card, ...(card && recipe ? { firstRecipeId: recipe } : {}), ...(card && dish ? { firstDish: dish } : {}),
+    ...(used ? { used } : {}),
+  };
 }
 
 export function sanitizeHomePages(raw: unknown): HomePagesState {
@@ -118,14 +147,43 @@ export function withArrival(s: HomePagesState, note: Omit<HomeArrivalNote, "at">
   return clean ? { ...rest, arrival: clean } : rest;
 }
 
-/** Without the note: once Home has shown it, and on Sign out, Delete my account and Clear everything. */
+/** Without the note: on Sign out, Delete my account and Clear everything (the toast and the card both belong to the account just left). */
 export function withoutArrival(s: HomePagesState): HomePagesState {
   if (!s.arrival) return s;
   const { arrival: _gone, ...rest } = s; // eslint-disable-line @typescript-eslint/no-unused-vars -- dropped
   return rest;
 }
 
-/** The note Home should show now, or null: none was left, or it is START_HERE_DAYS days old and Home never showed it. */
+/** The state with this note; the whole note goes once neither the toast nor the card is left in it. */
+function withNote(s: HomePagesState, note: HomeArrivalNote): HomePagesState {
+  return note.toast || note.card ? { ...s, arrival: note } : withoutArrival(s);
+}
+
+/** Once Home has said the arrival toast: it is forgotten (never said twice), and the Start here card stays. */
+export function dropToast(s: HomePagesState): HomePagesState {
+  if (!s.arrival?.toast) return s;
+  const { toast: _said, ...note } = s.arrival; // eslint-disable-line @typescript-eslint/no-unused-vars -- said once
+  return withNote(s, note);
+}
+
+/** "Done with this" on the Start here card: the card goes for good (an unsaid toast stays). */
+export function dropCard(s: HomePagesState): HomePagesState {
+  if (!s.arrival?.card) return s;
+  return withNote(s, { at: s.arrival.at, ...(s.arrival.toast ? { toast: s.arrival.toast } : {}), card: false });
+}
+
+/** A row of the Start here card used: kept in the note, so the card remembers it on the next visit and after a reload. `dishEntry: null` forgets the dish. */
+export function withStartUsed(s: HomePagesState, patch: { add?: true; recipe?: true; dishEntry?: string | null }): HomePagesState {
+  const a = s.arrival;
+  if (!a?.card) return s;
+  const { dishEntry: _old, ...kept } = a.used ?? {}; // eslint-disable-line @typescript-eslint/no-unused-vars -- replaced below when the patch says
+  const dishEntry = patch.dishEntry === undefined ? a.used?.dishEntry : patch.dishEntry ?? undefined;
+  const used = sanitizeUsed({ ...kept, ...(patch.add ? { add: true } : {}), ...(patch.recipe ? { recipe: true } : {}), ...(dishEntry ? { dishEntry } : {}) });
+  const { used: _was, ...rest } = a; // eslint-disable-line @typescript-eslint/no-unused-vars -- replaced
+  return { ...s, arrival: used ? { ...rest, used } : rest };
+}
+
+/** The note Home should show now, or null: none was left, or it is START_HERE_DAYS days old. */
 export function arrivalDue(s: HomePagesState, now: Date): HomeArrivalNote | null {
   const a = s.arrival;
   if (!a) return null;
@@ -166,10 +224,11 @@ export function startHereRows(note: HomeArrivalNote | null, opts: { logFree: boo
 export const startHereShows = (rows: StartHereRows): boolean => rows.add || rows.dish || rows.recipe;
 
 /**
- * The card goes for good once every row it showed has been used (`used`: added through "Add what you ate", the dish added, the recipe opened), except that
- * a dish just added keeps the card so its Undo stays; "Done with this" closes it at once.
+ * The card goes once every row it showed has been used (`used`: added through "Add what you ate", the dish added and still in the log, the recipe opened),
+ * except that a dish added on this visit keeps the card so its Undo stays (`undo`, true unless said otherwise; on a later visit Home passes false); "Done with
+ * this" closes it at once.
  */
-export function startHereDone(rows: StartHereRows, used: { add: boolean; dish: boolean; recipe: boolean }): boolean {
+export function startHereDone(rows: StartHereRows, used: { add: boolean; dish: boolean; recipe: boolean; undo?: boolean }): boolean {
   const pending = (rows.add && !used.add) || (rows.recipe && !used.recipe) || (rows.dish && !used.dish);
-  return !pending && !(rows.dish && used.dish);
+  return !pending && !(rows.dish && used.dish && used.undo !== false);
 }

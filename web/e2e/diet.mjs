@@ -1,6 +1,8 @@
 // Diet settings everywhere (founder 2026-10-11: "I put in vegetarian and it's suggesting meat items"): with Vegetarian on, Groceries, a shop's full list
 // and search leave out what plainly doesn't fit, say so, and show everything again with one tap; a product page that doesn't fit says so.
-// Grocery files are stubbed; search uses the build's own menus (sample chains on: NEXT_PUBLIC_SHOW_SAMPLE_DATA=1).
+// Grocery files are stubbed; search uses the build's own menus (sample chains on: NEXT_PUBLIC_SHOW_SAMPLE_DATA=1). Since 20 November 2026 Search every shop reads the
+// shops' full lists (public/groceries/all/), so the chicken, tuna and yogurt are an Aldi full list beside Sainsbury's; a product page finds a barcode through
+// all/barcodes.json (stubbed: the three are in Aldi's older barcode catalogue, aldi.json).
 import { chromium } from "playwright-core";
 import { createRequire } from "node:module";
 const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
@@ -20,7 +22,16 @@ const rows = [
   ["sainsburys-multiseed-loaf-800g", "Sainsbury's Multiseed Loaf 800g", 1.6, 2, "per kg", null, null, 1, "", ""],
 ];
 const shopFile = { v: 1, retailer: "sainsburys", name: "Sainsbury's", checkedOn: "2026-10-08", pageBase: "https://www.sainsburys.co.uk/groceries/product/", photoBase: "https://assets.sainsburys-groceries.co.uk/gol/", categories: ["Meat & fish", "Bakery"], schemes: [], products: rows };
-const allManifest = { v: 1, retailers: [{ id: "sainsburys", name: "Sainsbury's", file: "sainsburys.json", count: rows.length, checkedOn: "2026-10-08", sha256: "" }] };
+// the same three products as an Aldi full list (row: id, name, price, unit price, unit, member price, scheme, aisle, photo, barcode)
+const aldiRows = [
+  ["chicken-breast-fillets-650g", chicken.name, 3.49, 5.37, "per kg", null, null, 0, "", chicken.gtin],
+  ["tuna-chunks-in-spring-water-160g", tuna.name, 0.89, 5.56, "per kg", null, null, 1, "", tuna.gtin],
+  ["greek-style-yogurt-500g", yogurt.name, 1.25, 2.5, "per kg", null, null, 2, "", yogurt.gtin],
+];
+const aldiList = { v: 1, retailer: "aldi", name: "Aldi", checkedOn: "2026-10-09", pageBase: "https://www.aldi.co.uk/product/", photoBase: "https://example.invalid/", categories: ["Meat & fish", "Food cupboard", "Dairy, eggs & chilled"], schemes: [], products: aldiRows };
+const allManifest = { v: 1, retailers: [{ id: "aldi", name: "Aldi", file: "aldi.json", count: aldiRows.length, checkedOn: "2026-10-09", sha256: "" }, { id: "sainsburys", name: "Sainsbury's", file: "sainsburys.json", count: rows.length, checkedOn: "2026-10-08", sha256: "" }] };
+// where each barcode is: here only in Aldi's older barcode catalogue (lib/mm/barcodes.ts BarcodeFile)
+const barcodes = { v: 1, shops: ["aldi"], codes: {}, catalogue: { shops: ["aldi"], codes: Object.fromEntries([chicken, tuna, yogurt].map((p) => [p.gtin, [0]])) } };
 
 async function newPage(prefs = { vegetarianOnly: true }) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
@@ -30,6 +41,8 @@ async function newPage(prefs = { vegetarianOnly: true }) {
   await page.route("**/groceries/aldi.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify(aldi) }));
   await page.route("**/groceries/all/all-manifest.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify(allManifest) }));
   await page.route("**/groceries/all/sainsburys.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify(shopFile) }));
+  await page.route("**/groceries/all/aldi.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify(aldiList) }));
+  await page.route("**/groceries/all/barcodes.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify(barcodes) }));
   await page.route(/\/groceries\/(?!all\/|aldi\.json|groceries-manifest\.json)[a-z-]+\.json$/, (r) => r.fulfill({ status: 404, body: "" }));
   await page.route("**/assets.sainsburys-groceries.co.uk/**", (r) => r.abort());
   return { ctx, page };
@@ -41,7 +54,7 @@ const expect = (c, m) => { if (!c) throw new Error(m); };
 await step("Groceries: vegetarian leaves out the chicken and the tuna, says so, and one tap shows them", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/groceries/search");
-  await page.getByText("1 product", { exact: true }).waitFor();
+  await page.getByText("3 products", { exact: true }).waitFor(); // the yogurt, the loaf and the meat-free bacon
   expect(await page.getByText("Greek Style Yogurt").isVisible(), "yogurt shown");
   expect((await page.getByText("Chicken Breast Fillets").count()) === 0, "no chicken");
   expect((await page.getByText("Tuna Chunks", { exact: false }).count()) === 0, "no tuna");
@@ -49,14 +62,14 @@ await step("Groceries: vegetarian leaves out the chicken and the tuna, says so, 
   const chip = page.getByRole("button", { name: "Fits my diet" });
   expect((await chip.getAttribute("aria-pressed")) === "true", "chip on");
   await chip.click();
-  await page.getByText("3 products", { exact: true }).waitFor();
+  await page.getByText("6 products", { exact: true }).waitFor();
   await ctx.close();
 });
 
 await step("Groceries: pescatarian leaves out the chicken, keeps the tuna and the yogurt, and says so", async () => {
   const { ctx, page } = await newPage({ pescatarianOnly: true });
   await page.goto(BASE + "/app/groceries/search");
-  await page.getByText("2 products", { exact: true }).waitFor();
+  await page.getByText("4 products", { exact: true }).waitFor(); // the tuna, the yogurt, the loaf and the meat-free bacon
   expect(await page.getByText("Greek Style Yogurt").isVisible(), "yogurt shown");
   expect(await page.getByText("Tuna Chunks", { exact: false }).first().isVisible(), "tuna shown");
   expect((await page.getByText("Chicken Breast Fillets").count()) === 0, "no chicken");
@@ -80,7 +93,7 @@ await step("Settings: the diet picker has Pescatarian, and it stays on", async (
 await step("Groceries: no diet set, no chip and everything listed", async () => {
   const { ctx, page } = await newPage({});
   await page.goto(BASE + "/app/groceries/search");
-  await page.getByText("3 products", { exact: true }).waitFor();
+  await page.getByText("6 products", { exact: true }).waitFor();
   expect((await page.getByRole("button", { name: "Fits my diet" }).count()) === 0, "no chip");
   await ctx.close();
 });
@@ -102,7 +115,7 @@ await step("a shop's full list: vegetarian keeps the bread and the meat-free bac
   await page.getByText("2 products", { exact: true }).waitFor();
   expect((await page.getByText("Sainsbury's British Chicken Thighs 1kg").count()) === 0, "no chicken");
   expect(await page.getByText("This Isn't Bacon Rashers 120g").isVisible(), "meat-free bacon kept");
-  await page.getByText("We haven't read allergens for these products, so your allergy settings can't hide any here. Always check the pack.").waitFor();
+  await page.getByText("Products whose Open Food Facts record lists Milk, or has no allergen information, are hidden. Most products here have no Open Food Facts record, so they stay. Always check the pack.").waitFor();
   await page.getByRole("button", { name: "Fits my diet" }).click();
   await page.getByText("3 products", { exact: true }).waitFor();
   await page.waitForTimeout(800); // rows fade in: judge colours once they've settled (as e2e/a11y.mjs does)

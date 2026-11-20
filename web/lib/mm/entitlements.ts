@@ -1,4 +1,4 @@
-import { DEV_TOOLS_ENABLED, FREE_SAVED_ORDER_LIMIT, GATING_ENABLED, PAID_ACCESS_ENABLED, PHOTO_RECIPES_ENABLED, PRO_ENABLED, PRO_PREVIEW_FROM_ENV } from "./config";
+import { DEV_TOOLS_ENABLED, FREE_SAVED_ORDER_LIMIT, GATING_ENABLED, PAID_ACCESS_ENABLED, PRO_ENABLED, PRO_PREVIEW_FROM_ENV } from "./config";
 import { hasAccess, NO_PAID, type PaidState } from "./paid";
 import { englishT, tk, type T } from "./i18n";
 import type { UserSettings } from "./user-data";
@@ -6,7 +6,8 @@ import type { UserSettings } from "./user-data";
 // SPEC §4: free vs Pro. With GATING_ENABLED off (the free launch) every feature is open. With it on, "Pro" is a preview switch (test builds), a checked payment token
 // or the 48 hours given for a WhatsApp share (lib/mm/paid.ts); a payment is verified on the server (lib/payments).
 
-export type PaywallTrigger = "saveLimit" | "bestForYou" | "orderBuilder" | "log" | "recipeMaker" | "truthLimit" | "moreResults" | "leaderboard" | "smallAppetite" | "photoRecipe" | "foodScan" | "mealPlan" | "fridgeRecipe";
+export const PAYWALL_TRIGGERS = ["saveLimit", "bestForYou", "orderBuilder", "log", "recipeMaker", "truthLimit", "moreResults", "leaderboard", "smallAppetite", "photoRecipe", "foodScan", "mealPlan", "fridgeRecipe"] as const;
+export type PaywallTrigger = (typeof PAYWALL_TRIGGERS)[number];
 
 export function isPro(settings: Pick<UserSettings, "devProOverride">, paid: PaidState = NO_PAID, nowMs: number = Date.now()): boolean {
   if (!GATING_ENABLED) return true;
@@ -21,12 +22,15 @@ export function isPro(settings: Pick<UserSettings, "devProOverride">, paid: Paid
  * the full Cheapest protein list, the small-appetite optimiser and unlimited saved orders.
  */
 export const PAID_TIER_ONLY = PAID_ACCESS_ENABLED && !PRO_ENABLED;
+/** What stays free in that tier: logging (founder 19-20 Nov, free in 1.1), the order builder, and Pip's dormant recipe maker. Every other trigger is on the
+ *  Premium list (lib/mm/premiumFeatures.ts; tests/premiumFeatures.test.ts checks it). */
+export const FREE_IN_PAID_TIER: readonly PaywallTrigger[] = ["orderBuilder", "log", "recipeMaker"];
 /** Results of Best for you a free person sees in that tier. */
 export const FREE_BEST_RESULTS = 2;
 
 export function needsPaywall(trigger: PaywallTrigger, ctx: { pro: boolean; savedCount?: number }, limit = FREE_SAVED_ORDER_LIMIT): boolean {
   if (ctx.pro) return false;
-  if (PAID_TIER_ONLY && (trigger === "orderBuilder" || trigger === "log" || trigger === "recipeMaker")) return false;
+  if (PAID_TIER_ONLY && FREE_IN_PAID_TIER.includes(trigger)) return false;
   if (trigger === "saveLimit") return (ctx.savedCount ?? 0) >= limit;
   return true;
 }
@@ -70,24 +74,11 @@ export function paywallCopy(p: PaywallProduct, t: T = englishT): PaywallCopy {
 }
 
 export const PAYWALL_TITLE = tk("Build the perfect order, every time");
-/** What paid access adds once it exists (shown instead of the older list when payments are on). */
-export const PAID_BULLETS = [
-  tk("Truth cards for every dish, not just three a day"),
-  tk("Every Smart Swap and every Quick answer"),
-  tk("The full Cheapest protein list"),
-  tk("Top 5 picks for your goal at every chain"),
-  tk("Unlimited saved orders"),
-  // Make it at home (lib/mm/photoRecipe.ts): listed only on a build where it exists
-  ...(PHOTO_RECIPES_ENABLED ? [tk("Make any dish at home from a photo")] : []),
-  // Scan food (lib/mm/foodScan.ts): on the same switch
-  ...(PHOTO_RECIPES_ENABLED ? [tk("Photograph your food for an estimate of its calories, protein, carbs and fat")] : []),
-  // the meal plan (founder 2026-11-18: "a third icon, which has meal plan, and that has pro on it"; app/app/plan)
-  tk("A week's meal plan for your goal, with its shopping list"),
-] as const;
+// What paid access adds is one list, lib/mm/premiumFeatures.ts (read by PremiumOffer on the paywall, the trial offer and /app/pro). This older list is only the
+// test builds' (NEXT_PUBLIC_PRO=1, no paid access), where logging and the order builder are still behind the paywall; Pip's recipe maker is dormant, so it isn't on it.
 export const PAYWALL_BULLETS = [
-  tk("Top 5 picks for your goal at every chain"),
+  tk("Top 5 picks for your goal at every restaurant"),
   tk("Build your order with live totals"),
   tk("Keep a log of what you eat today"),
   tk("Unlimited saved orders"),
-  tk("Pip makes new recipes just for you"),
 ] as const;

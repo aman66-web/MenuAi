@@ -1,7 +1,7 @@
 import "server-only";
 import { ACCOUNT_CORS, APP_ORIGIN, preflight, withCors } from "../cors";
 import { serverEnv } from "../env";
-import { ipHash } from "../http";
+import { NOT_JSON, ipHash, isJsonRequest } from "../http";
 import { site } from "../../site.config";
 import { supabaseUserData } from "../store-supabase";
 import { supabaseCommunity } from "../store-supabase-community";
@@ -88,8 +88,9 @@ export const authPreflight = (request: Request): Response => preflight(request, 
 
 const MAX_BODY_BYTES = 16 * 1024;
 
-/** Read a small JSON body; a bad one becomes a clean 400/413 result instead of a crash. */
+/** Read a small JSON body; a bad one becomes a clean 400/413 result instead of a crash, and one not sent as JSON a 415 (lib/http.ts isJsonRequest says why). */
 export async function readJson(request: Request, maxBytes = MAX_BODY_BYTES): Promise<{ body: unknown } | { result: HttpResult }> {
+  if (!isJsonRequest(request)) return { result: { status: NOT_JSON.status, body: { ...NOT_JSON.body } } };
   const text = await request.text();
   if (Buffer.byteLength(text, "utf8") > maxBytes) return { result: { status: 413, body: { error: "too_large" } } };
   try {

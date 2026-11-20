@@ -1,4 +1,6 @@
 import { itemCode } from "./groceries";
+import { tk } from "./i18n";
+import type { SyncStoreName } from "./syncMerge";
 import { sanitizeSavedRecipes } from "./aiRecipe";
 import { sanitizeCompare } from "./compare";
 import type { Store } from "./persist";
@@ -19,6 +21,24 @@ const ascending = <T>(entries: ReadonlyArray<{ item: T; t: number }>, when: (x: 
   [...entries].sort(byTime(when as (x: never) => string, 1)).map((e) => e.item);
 const descending = <T>(entries: ReadonlyArray<{ item: T; t: number }>, when: (x: T) => string): T[] =>
   [...entries].sort(byTime(when as (x: never) => string, -1)).map((e) => e.item);
+
+/**
+ * What Settings › Your data says is kept in the account, in plain words. One sentence (it is translated whole), with the words that name each synced store
+ * beside it: tests/syncEngine.test.ts checks the sentence contains every one, and a new store in SYNC_STORES doesn't compile until it has its words, so the
+ * sentence can't drift from what really syncs. The sign-in screen's privacy line (app/app/_components/SignIn.tsx) and the privacy page say the same.
+ */
+export const YOUR_DATA_SYNCED = tk("Because you're signed in, your goal and daily numbers, the foods you avoid, your shops, the last two days of your log, your favourites, the meals, recipes (your own too), lists and comparisons you save, and the foods you said you have are also kept in your account, so they follow you to your other devices. Everything else stays on this device.");
+export const SYNCED_STORE_WORDS: Readonly<Record<SyncStoreName, string>> = {
+  settings: "your goal and daily numbers, the foods you avoid, your shops",
+  log: "the last two days of your log",
+  favorites: "your favourites",
+  saved: "the meals",
+  savedRecipes: "recipes",
+  myRecipes: "(your own too)",
+  shopping: "lists",
+  compare: "comparisons",
+  cupboard: "the foods you said you have",
+};
 
 /** The settings that follow the person from device to device. */
 export const SYNCED_SETTING_KEYS = ["goal", "dailyCalories", "dailyProtein", "dailyCarbs", "dailyFat", "dailyWater", "hasSetTargets", "glp1MealCap", "preferences", "hasCompletedOnboarding", "shops", "recipeMeal", "shoppingLists"] as const;

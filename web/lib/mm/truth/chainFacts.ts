@@ -2,6 +2,7 @@
 // A sentence is produced only when the numbers exist (a restaurant that publishes calories only gets no protein answer), and every number is one printed in the
 // restaurant's own nutrition guide. The same sentences are shown on the page and put in its FAQ data, so the two always agree.
 
+import { hasMacros } from "../nutrients";
 import type { Chain, MenuItem } from "../types";
 import { itemKind, isMealKind } from "./itemKind";
 import { MIN_SCORED_KCAL, proteinShare } from "./proteinScore";
@@ -20,7 +21,9 @@ export interface ChainFacts {
   meals: number;
 }
 
-const isMeal = (i: MenuItem): boolean => i.nutrients.calories >= MIN_SCORED_KCAL && isMealKind(itemKind({ name: i.name, category: i.category, calories: i.nutrients.calories }));
+// as Quick answers count a meal (presets.ts): a dish the restaurant's data marks as never suggested (rankable false, where it publishes the macros) isn't one
+const isMeal = (i: MenuItem): boolean =>
+  i.nutrients.calories >= MIN_SCORED_KCAL && (i.rankable !== false || !hasMacros(i.nutrients)) && isMealKind(itemKind({ name: i.name, category: i.category, calories: i.nutrients.calories }));
 const byName = (a: MenuItem, b: MenuItem) => (a.name < b.name ? -1 : a.name > b.name ? 1 : a.id < b.id ? -1 : 1);
 
 export function chainFacts(chain: Pick<Chain, "items" | "nutritionLevel">): ChainFacts {

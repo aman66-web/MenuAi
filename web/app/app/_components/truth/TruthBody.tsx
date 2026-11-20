@@ -80,6 +80,15 @@ function Lights({ truth, chain }: { truth: ItemTruth; chain: Chain }) {
   const pct = (key: string) => truth.reference.find((r: ReferenceRow) => r.key === key)?.percent;
   const published = truth.lights.filter((l) => l.grams !== undefined);
   if (truth.kind === "drink" && published.length === 0) return null;
+  // none of the four published (a calories-only restaurant): one plain line, not four "Not published" tiles (the 20 November 2026 audit)
+  if (published.length === 0) {
+    return (
+      <section aria-labelledby="truth-lights" className="mt-6">
+        <h3 id="truth-lights" className="text-xl font-extrabold leading-snug tracking-tight">{t("Traffic lights")}</h3>
+        <p className="mt-2 text-base leading-snug text-muted">{t("{chain} doesn't publish fat, saturates, sugars or salt for this dish.", { chain: chain.name })}</p>
+      </section>
+    );
+  }
   const anyUncoloured = truth.lights.some((l) => l.basis === "no-weight");
   return (
     <section aria-labelledby="truth-lights" className="mt-6">

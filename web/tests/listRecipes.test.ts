@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { addToList, customItem, CUSTOM_RETAILER, itemCode, listAsText, sanitizeShoppingList, setQty, toggleDone, withoutDone, type ShoppingItem } from "../lib/mm/groceries";
+import { addToList, customItem, CUSTOM_RETAILER, itemCode, listAsText, sanitizeShoppingList, setQty, toggleDone, withoutDone, type ShoppingItem, type ShoppingList } from "../lib/mm/groceries";
 import { nextToBuy, recipesFromList, withoutWhatTheyHave } from "../lib/mm/listRecipes";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { nameFits, recipeForDiet, resolveRecipe, type Recipe } from "../lib/mm/recipes";
@@ -19,7 +19,7 @@ vi.mock("@/lib/mm/stores", () => ({ shoppingStore: { get: () => [], update: () =
 vi.mock("../app/app/_lib/hooks", () => ({ useSettings: () => ({}) }));
 vi.mock("../app/app/_lib/recipes", () => ({ recipeShopSetFor: () => [], useRecipeShopSet: () => ({ status: "loading" }) }));
 vi.mock("../app/app/_lib/shopProducts", () => ({ useShopManifest: () => null }));
-const { recipesFromShopSet, missingItems, fileForProduct, withOwnPhotos, addedNote } = await import("../app/app/_lib/listRecipes");
+const { recipesFromShopSet, missingItems, fileForProduct, withOwnPhotos, addedNote, placeItems, targetList } = await import("../app/app/_lib/listRecipes");
 
 const sainsburysFile = JSON.parse(readFileSync("public/groceries/all/sainsburys.json", "utf8")) as ShopFile;
 const morrisonsFile = JSON.parse(readFileSync("public/groceries/all/morrisons.json", "utf8")) as ShopFile;
@@ -48,7 +48,7 @@ describe("shopping list: typed-in items and ticking off", () => {
     expect(list[0]!.done).toBe(true);
     const reloaded = sanitizeShoppingList(JSON.parse(JSON.stringify(list)));
     expect(reloaded).toEqual(list);
-    expect(listAsText(list)).toBe("Aldi\n- 1 x Greek Style Yogurt 500 g (5012345678900)");
+    expect(listAsText(list)).toBe("Aldi\n- 1 x Greek Style Yogurt 500 g");
     expect(withoutDone(list).map((i) => i.name)).toEqual(["Greek Style Yogurt"]);
     expect(addToList(list, customItem("bread")!)[0]!.done).toBeUndefined();
     expect(toggleDone(list, "own:bread", CUSTOM_RETAILER)[0]!.done).toBeUndefined();
@@ -221,13 +221,49 @@ describe("a list recipe's photos and note, whichever shop's file a screen passes
     });
   });
 
-  it("the note names the one shop the products go under, or says your shopping list for several", () => {
-    expect(addedNote(mixed, 3, morrisonsFile)).toEqual({ text: "Added {n} products to your shopping list.", values: { n: 3 } });
+  it("the note names the real lists the products went on, and the first one to open", () => {
+    const nameOf = (id: string) => (id === "" ? "Shopping list" : id === "sains123" ? "Sainsbury's" : id);
+    expect(addedNote({ lists: [{ list: "", n: 3 }], full: 0, tried: 3 }, nameOf)).toEqual({ text: "Added {n} products to {list}.", values: { n: 3, list: "Shopping list" }, list: "" });
+    expect(addedNote({ lists: [{ list: "sains123", n: 1 }], full: 0, tried: 1 }, nameOf)).toEqual({ text: "Added 1 product to {list}.", values: { list: "Sainsbury's" }, list: "sains123" });
+    expect(addedNote({ lists: [{ list: "sains123", n: 4 }, { list: "", n: 2 }], full: 0, tried: 6 }, nameOf)).toEqual({ text: "Added {n} products to {list}.", values: { n: 6, list: "Sainsbury's and Shopping list" }, list: "sains123" });
+    expect(addedNote({ lists: [], full: 0, tried: 2 }, nameOf)).toEqual({ text: "Everything is on your shopping list already.", values: {}, list: null });
+    expect(addedNote({ lists: [{ list: "", n: 12 }], full: 28, tried: 40 }, nameOf)).toMatchObject({ text: "Added {n} of {total}: your lists are full ({max} items). Remove ticked things to make room.", values: { n: 12, total: 40, max: 200 } });
     expect(oneShop).toBeDefined();
-    expect(addedNote(oneShop!, 2, morrisonsFile)).toEqual({ text: "Added {n} products to your {shop} list.", values: { n: 2, shop: sainsburysFile.name } });
-    expect(addedNote(oneShop!, 1, morrisonsFile)).toEqual({ text: "Added 1 product to your {shop} list.", values: { shop: sainsburysFile.name } });
   });
 });
+
+describe("which list a product goes on (one rule for every add)", () => {
+  const sains: ShoppingList = { id: "sains123", shop: "sainsburys", name: "Sainsbury's" };
+  const sains2: ShoppingList = { id: "sains456", shop: "sainsburys", name: "Sainsbury's 2" };
+  const mns: ShoppingList = { id: "mands123", shop: "marks-and-spencer", name: "M&S" };
+  it("is the list looked at when it is the main list or that shop's own list, else the shop's newest list, else the main list", () => {
+    expect(targetList("", [sains], "sainsburys")).toBe("");
+    expect(targetList("sains123", [sains, sains2], "sainsburys")).toBe("sains123");
+    expect(targetList(undefined, [sains, sains2], "sainsburys")).toBe("sains456");
+    // looking at M&S's list, a Sainsbury's product goes on Sainsbury's own list, never under M&S
+    expect(targetList("mands123", [sains, mns], "sainsburys")).toBe("sains123");
+    expect(targetList("mands123", [mns], "sainsburys")).toBe("");
+    expect(targetList(undefined, undefined, "sainsburys")).toBe("");
+  });
+
+  it("a recipe's products go on the list looked at, counted, and adding them again doesn't double them", () => {
+    const items = missingItems(oneShopMatch(), [sainsburysFile]);
+    expect(items.length).toBeGreaterThan(1);
+    const first = placeItems(items, [], [sains], "sains123");
+    expect(first.placed).toEqual({ lists: [{ list: "sains123", n: items.length }], full: 0, tried: items.length });
+    expect(first.list.every((i) => i.list === "sains123")).toBe(true);
+    const again = placeItems(items, first.list, [sains], "sains123");
+    expect(again.placed.lists).toEqual([]);
+    expect(again.list.map((i) => i.qty)).toEqual(first.list.map((i) => i.qty));
+    // from the main list they go on the main list
+    expect(placeItems(items, [], [sains], "").list.every((i) => !("list" in i))).toBe(true);
+  });
+});
+
+function oneShopMatch() {
+  const list = addToList([], customItem("chicken")!);
+  return recipesFromShopSet(list, RECIPES, tagShopProducts([{ shop: "sainsburys", products }])).find((x) => x.missing.length > 1)!;
+}
 
 describe("saved recipes", () => {
   it("keeps valid ids once each", () => {

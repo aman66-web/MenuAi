@@ -88,6 +88,20 @@ export function homeDiet(own: DietPrefs, h: Pick<Household, "others" | "allergie
   return out;
 }
 
+/** The person's own diets (their diet in Settings), as home diets in ALL_HOME_DIETS order: a household plan applies them to everyone (homeDiet). */
+export function ownDiets(own: DietPrefs): HomeDiet[] {
+  return ALL_HOME_DIETS.filter((d) => own[d] === true);
+}
+
+/**
+ * Halal and "No halal or kosher meat" together leave no meat a meal could use (halal meat only, and no meat sold as halal), so every meal has none: the diet
+ * step says so when both are on, from the home's diets or the person's own.
+ */
+export function noMeatLeft(diets: readonly HomeDiet[], own: DietPrefs = {}): boolean {
+  const on = new Set([...diets, ...ownDiets(own)]);
+  return on.has("halalOnly") && on.has("noHalalKosherMeat");
+}
+
 /** The home's diets with one turned on or off, kept in ALL_HOME_DIETS order. */
 export function toggleHomeDiet(diets: readonly HomeDiet[], key: HomeDiet): HomeDiet[] {
   const next = diets.includes(key) ? diets.filter((d) => d !== key) : [...diets, key];
@@ -120,12 +134,14 @@ export interface Plates {
 
 /**
  * How much of a recipe as written each person eats at one meal. The app user's own portion matches their own meal size (their meal target's calories);
- * each other grown-up's matches the same meal for a 2,000 kcal day (the user's meal split, scaled), times their share. Snacks are just for the user.
+ * each other grown-up's matches the same meal for a 2,000 kcal day, times their share. Snacks are just for the user. `refMealKcal`: that meal of the
+ * 2,000 kcal day as the plan splits it (mealPlan.ts householdReference), so the user's own meal size (a GLP-1 meal cap) never shrinks anyone else's;
+ * without it, the user's meal scaled to 2,000 kcal.
  */
-export function platesFor(meal: MealType, servingKcal: number, yourMeal: MealTarget, yourDailyKcal: number, others: readonly HomePerson[]): Plates {
+export function platesFor(meal: MealType, servingKcal: number, yourMeal: MealTarget, yourDailyKcal: number, others: readonly HomePerson[], refMealKcal?: number): Plates {
   const k = servingKcal > 0 ? servingKcal : 1;
   const you = yourMeal.kcal / k;
-  const refMeal = (yourMeal.kcal * ADULT_REFERENCE_KCAL) / (yourDailyKcal > 0 ? yourDailyKcal : ADULT_REFERENCE_KCAL);
+  const refMeal = refMealKcal && refMealKcal > 0 ? refMealKcal : (yourMeal.kcal * ADULT_REFERENCE_KCAL) / (yourDailyKcal > 0 ? yourDailyKcal : ADULT_REFERENCE_KCAL);
   const rest = meal === "snack" ? others.map(() => 0) : others.map((p) => (refMeal * personShare(p)) / k);
   const servings = [you, ...rest];
   return { servings, total: servings.reduce((a, b) => a + b, 0) };

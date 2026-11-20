@@ -2,16 +2,18 @@
 
 import { Suspense, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { PAID_ACCESS_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
-import { PAID_BULLETS } from "@/lib/mm/entitlements";
+import { IAP_ENABLED, PAID_ACCESS_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
+import { AppStorePlans } from "../_components/AppStorePlans";
 import { PageHeader } from "../_components/PageHeader";
+import { PremiumOffer } from "../_components/PremiumOffer";
 import { ProPlans } from "../_components/ProPlans";
-import { CheckIcon } from "../_components/icons";
 import { useT } from "../_lib/i18n";
 import { captureRefFromLocation } from "@/lib/payments/ref";
 
 // The pricing screen (the website with paid access on, or the In-App Purchase app; with paid access off it forwards to the app, shows no words and the iPhone app's copy never mentions it).
+// What Premium adds is the one list (PremiumOffer, lib/mm/premiumFeatures.ts), as on the paywall. In the iPhone app the plans, the billed amount and Continue come
+// first and the list under them, and the legal links are the plans' own (Terms of Use, Terms, Privacy Policy), not a second row.
 function Pricing() {
   const t = useT();
   const router = useRouter();
@@ -27,19 +29,17 @@ function Pricing() {
           Premium (onboarding meeting, 19 November 2026) */}
       <PageHeader back={{ href: "/app", label: t("Back to home") }} title={`${site.name} Premium`} />
       {cancelled && <p role="status" className="mt-3 rounded-[1.25rem] bg-soft p-4 text-base font-semibold">{t("No payment was taken.")}</p>}
-      <ul className="glass mt-4 divide-y divide-line rounded-[1.25rem]">
-        {PAID_BULLETS.map((b) => (
-          <li key={b} className="flex items-center gap-3.5 px-4 py-3.5">
-            <span aria-hidden className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ink text-on-ink"><CheckIcon className="h-4 w-4" strokeWidth={2.5} /></span>
-            <span className="text-base font-semibold leading-snug">{t(b)}</span>
-          </li>
-        ))}
-      </ul>
-      <p className="mt-3 text-base leading-snug text-muted">{t("Every restaurant's full menu with calories and macros stays free.")}</p>
-      <div className="mt-5"><ProPlans level="h2" /></div>
-      <p className="mt-5 text-base leading-snug text-muted">
-        <a className="inline-flex min-h-11 items-center underline underline-offset-4" href="/terms">{t("Terms")}</a> · <a className="inline-flex min-h-11 items-center underline underline-offset-4" href="/privacy">{t("Privacy")}</a>
-      </p>
+      {IAP_ENABLED ? (
+        <div className="mt-4"><AppStorePlans afterContinue={<div className="mt-6"><PremiumOffer level="h2" /></div>} /></div>
+      ) : (
+        <>
+          <div className="mt-4"><PremiumOffer level="h2" /></div>
+          <div className="mt-5"><ProPlans level="h2" /></div>
+          <p className="mt-5 text-base leading-snug text-muted">
+            <a className="inline-flex min-h-11 items-center underline underline-offset-4" href="/terms">{t("Terms")}</a> · <a className="inline-flex min-h-11 items-center underline underline-offset-4" href="/privacy">{t("Privacy")}</a>
+          </p>
+        </>
+      )}
     </div>
   );
 }

@@ -241,7 +241,9 @@
     "salt": 1.9,
     "weight": 151
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -278,6 +280,7 @@
     "weight": 143
    },
    "tags": [
+    "contains_beef",
     "contains_pork"
    ],
    "limitedTime": false,
@@ -2357,7 +2360,9 @@
     "salt": 1.8,
     "weight": 106
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -2393,7 +2398,9 @@
     "salt": 1.3,
     "weight": 93
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],

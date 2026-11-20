@@ -6360,7 +6360,9 @@
    "nutrients": {
     "calories": 1221
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -6382,7 +6384,9 @@
    "nutrients": {
     "calories": 683
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -6449,7 +6453,9 @@
    "nutrients": {
     "calories": 371
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -6480,7 +6486,9 @@
    "nutrients": {
     "calories": 505
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -6510,7 +6518,9 @@
    "nutrients": {
     "calories": 345
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -10415,7 +10425,9 @@
    "nutrients": {
     "calories": 947
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": true,
    "rankable": false,
    "components": [],
@@ -10445,7 +10457,9 @@
    "nutrients": {
     "calories": 1286
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": true,
    "rankable": false,
    "components": [],

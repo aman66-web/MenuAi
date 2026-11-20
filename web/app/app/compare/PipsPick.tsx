@@ -4,7 +4,6 @@ import type { ReactNode } from "react";
 import type { CompareItem } from "@/lib/mm/compare";
 import { reasonLine } from "@/lib/mm/comparePick";
 import type { Goal } from "@/lib/mm/types";
-import { Pip, type PipMood } from "../_components/Mascot";
 import { Button } from "../_components/ui";
 import { useComparePick } from "../_lib/comparePick";
 import { useSettings } from "../_lib/hooks";
@@ -32,16 +31,12 @@ export function PipsPick({ items, picture }: { items: readonly CompareItem[]; pi
   const { state, retry } = useComparePick(items);
   if (items.length < 2 || (items.length === 2 && state.status === "idle")) return null;
 
-  const mood: PipMood = state.status === "ready" ? (state.pick.chosen ? "point" : "wave") : "think";
   const dishes = items[0]?.kind === "dish";
   const chosen = state.status === "ready" && state.pick.chosen ? items.find((i) => i.key === state.pick.chosen!.key) : undefined;
 
   return (
     <section aria-labelledby="pick-heading" className="glass mt-5 rounded-[1.25rem] px-4 py-4">
-      <div className="flex items-center gap-3">
-        <Pip mood={mood} size={52} />
-        <h2 id="pick-heading" className="text-xl font-[800] tracking-[-0.01em]">{t("Pip's pick")}</h2>
-      </div>
+      <h2 id="pick-heading" className="text-xl font-[800] tracking-[-0.01em]">{t("Pip's pick")}</h2>
 
       {/* one live region: what Pip says is read once it arrives */}
       <div role="status" className="mt-3">
@@ -65,7 +60,7 @@ export function PipsPick({ items, picture }: { items: readonly CompareItem[]; pi
                 </span>
               </div>
             ) : (
-              <p className="text-[0.6875rem] font-semibold uppercase leading-tight tracking-[0.1em] text-muted">{t("A tie for your goal")}</p>
+              <p className="text-[0.9375rem] font-semibold leading-snug text-muted">{t("A tie for your goal")}</p>
             )}
             <p className={`${chosen ? "mt-3" : "mt-2"} text-base font-semibold leading-snug`}>{state.pick.sentence}</p>
             {state.pick.reasons.length > 0 && (

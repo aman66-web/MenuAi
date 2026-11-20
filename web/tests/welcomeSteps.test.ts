@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import type { KeyValueStorage } from "../lib/mm/persist";
 import { OWN_DATA_KEYS } from "../lib/mm/tour";
@@ -217,6 +217,32 @@ describe("carrying on after quitting (mm.v1.welcomeProgress)", () => {
     expect(moveOn(signedIn, at.answers, at.step).to).toBe("home");
   });
 
+  it("after Carry on past the questions about the person, their answers are gone, not skipped; answering or skipping them again clears that", () => {
+    const at = resumeAt(signedOut, progressNote({ step: "week" }, today))!;
+    expect(at.step).toBe("week");
+    expect(at.answers.bodySkipped).toBe(true);
+    expect(at.answers.bodyGone).toBe(true);
+    expect(backFrom(signedOut, at.answers, "targets")).toBe("about");
+    // Back to About you and answered: a normal run again
+    const answered = moveOn(signedOut, at.answers, "about");
+    expect(answered.answers.bodyGone).toBeUndefined();
+    expect(answered.answers.bodySkipped).toBe(false);
+    // Back to About you and skipped: a real skip now
+    const skipped = moveOn(signedOut, at.answers, "about", "skipBody");
+    expect(skipped.answers).toEqual({ bodySkipped: true, under18: false, skippedSetup: false });
+    // before the questions about the person nothing is gone
+    expect(resumeAt(signedOut, progressNote({ step: "shops" }, today))!.answers.bodyGone).toBeUndefined();
+    expect(resumeAt(signedOut, progressNote({ step: "active" }, today))!.answers.bodyGone).toBeUndefined();
+  });
+
+  it("notes whether step 1's goal was chosen, so Back to step 1 after Carry on shows it ticked", () => {
+    const storage = new MemoryStorage();
+    createWelcomeProgressStore(storage).set(progressNote({ step: "avoid", goalPicked: true }, today));
+    expect(createWelcomeProgressStore(storage).get()).toEqual({ step: "avoid", goalPicked: true, savedOn: today });
+    expect(progressNote({ step: "avoid", goalPicked: false }, today)).toEqual({ step: "avoid", savedOn: today });
+    expect(sanitizeWelcomeProgress({ step: "avoid", goalPicked: "yes", savedOn: today })).toEqual({ step: "avoid", savedOn: today });
+  });
+
   it("checks the note like anything stored", () => {
     for (const bad of [null, "save", 3, {}, { step: "tour" }, { step: "save" }, { step: "save", savedOn: "yesterday" }, { step: ["save"], savedOn: today }]) {
       expect(sanitizeWelcomeProgress(bad), JSON.stringify(bad)).toBeNull();
@@ -252,7 +278,10 @@ describe("the note stays on this phone and never counts as the person's own data
     expect(readFileSync(new URL("../app/app/_lib/account.ts", import.meta.url), "utf8")).not.toMatch(/welcomeProgress/i);
   });
   it("Settings › Clear everything removes it", () => {
-    expect(readFileSync(new URL("../app/app/settings/page.tsx", import.meta.url), "utf8")).toMatch(/welcomeProgress/);
+    // Clear data's list moved to app/_lib/clearData.ts (20 November 2026); either place counts
+    const settings = readFileSync(new URL("../app/app/settings/page.tsx", import.meta.url), "utf8");
+    const clearData = existsSync(new URL("../app/app/_lib/clearData.ts", import.meta.url)) ? readFileSync(new URL("../app/app/_lib/clearData.ts", import.meta.url), "utf8") : "";
+    expect(settings + clearData).toMatch(/welcomeProgress/);
   });
   it("holds no answer about the person's body, only the step and the two hints", () => {
     const note = progressNote({ step: "targets", ...({ age: 40, weightKg: 80 } as object) } as Parameters<typeof progressNote>[0], "2026-11-20");

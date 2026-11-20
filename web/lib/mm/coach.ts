@@ -8,7 +8,8 @@
 // - a tip a showcase already gave is left out (coachSteps.ts showcaseCovers: Eat out's "Restaurants");
 // - Home's tips come over two visits: the first teaches "Your day" and "Moving around" (and the + only when the Start here card isn't there), the second
 //   ("homeLater") the Scan your food card and the top right;
-// - the card never covers Home's numbers or the Start here card (COACH_KEEP_CLEAR, placeTip).
+// - the card keeps clear of Home's numbers and the Start here card wherever the screen has room for it whole (COACH_KEEP_CLEAR, placeTip); on a small
+//   phone it may cover them, but never shrinks below its own Next and "Stop the tips" (TIP_CARD_MIN; the 30-person audit, 20 November 2026).
 // Settings › "Show me the buttons on each screen" (COACH_ARMED) shows every tip, Home's all on one visit. A stored `afterTour` (the old walk) is dropped.
 
 export type CoachScreen = "home" | "eatOut" | "groceries" | "recipes";
@@ -91,10 +92,17 @@ export function sanitizeCoach(raw: unknown): CoachState {
   return r.afterShowcase === true ? { armed: r.armed === true, seen, afterShowcase: true } : { armed: r.armed === true, seen };
 }
 
-/** What a tip's card must never cover on each tab (the meeting: "the bubble never covers the Start here card or the numbers card"). */
+/** What a tip's card must never cover on each tab (the meeting: "the bubble never covers the Start here card or the numbers card"). The lit control itself, and
+ *  anything inside it or round it, is never among them (CoachMarks.tsx keepClear): the card goes next to the lit control, not away from it. */
 export const COACH_KEEP_CLEAR: Readonly<Partial<Record<CoachScreen, readonly string[]>>> = {
   home: ['[data-coach="home-numbers"]', '[data-coach="home-start"]'],
 };
+
+/**
+ * The tip's card is never drawn shorter than this (px): its title, a line of its tip (which scrolls inside the card) and the Next and Stop row, whole. Below
+ * it the buttons were cut off on small phones (a modal with no way out: the 30-person audit, 20 November 2026).
+ */
+export const TIP_CARD_MIN = 168;
 
 /** A stretch of the screen, top to bottom, in px from the top of the viewport. */
 export interface Span {
@@ -104,14 +112,16 @@ export interface Span {
 
 /**
  * Where the tip's card goes (px from the top of the screen), or how far to scroll the page first. `hole`: the lit control as drawn (with its padding);
- * `clear`: what the card must never cover; `card`: the card's full height; `fixed`: the control stays put when the page scrolls (the tab bar).
+ * `clear`: what the card should not cover; `card`: the card's full height; `fixed`: the control stays put when the page scrolls (the tab bar); `min`: the
+ * shortest the card may be (TIP_CARD_MIN).
  * - Free stretches are the screen minus the hole and the keep-clear parts (each with `gap` round it). The card goes in the one right under the hole, else
- *   the one right over it, else (not for a fixed control, which first tries the scroll below) the nearest other that holds it.
+ *   the one right over it, else (not for a fixed control, which first tries the scroll below) the nearest other that holds it whole.
  * - None holds it and something is to be kept clear: scroll (once; `scrolled` says it was done) so there is room: under the hole and what it keeps clear
- *   below it, or, for a fixed control, over it.
- * - Still none: the biggest stretch, the card scrolling inside itself. With nothing to keep clear this is the old rule (at least 160 px, under or over).
+ *   below it, or, for a fixed control, over it. The lit control always stays wholly on the screen: the page never scrolls it past the top edge.
+ * - Still none: the keep-clear parts give way (the card may cover them; never the lit control while there is room beside it), and the card goes on the
+ *   side of the hole with more room at its full height, kept on the screen. Its height is never less than `min`, so Next and "Stop the tips" always show.
  */
-export function placeTip({ hole, clear, card, vh, fixed = false, scrolled = false, edge = 16, gap = 12 }: {
+export function placeTip({ hole, clear, card, vh, fixed = false, scrolled = false, edge = 16, gap = 12, min = TIP_CARD_MIN }: {
   hole: Span;
   clear: readonly Span[];
   card: number;
@@ -120,9 +130,11 @@ export function placeTip({ hole, clear, card, vh, fixed = false, scrolled = fals
   scrolled?: boolean;
   edge?: number;
   gap?: number;
+  min?: number;
 }): { top: number; maxHeight: number; below: boolean } | { scroll: number } {
   const lo = edge;
   const hi = vh - edge;
+  const want = Math.max(card, min); // the card's whole height, never less than its minimum
   const taken = [hole, ...clear].map((s) => ({ top: s.top - gap, bottom: s.bottom + gap })).sort((a, b) => a.top - b.top);
   const free: Span[] = [];
   let at = lo;
@@ -136,34 +148,38 @@ export function placeTip({ hole, clear, card, vh, fixed = false, scrolled = fals
   const under = free.find((s) => Math.abs(s.top - (hole.bottom + gap)) < 0.5);
   const over = free.find((s) => Math.abs(s.bottom - (hole.top - gap)) < 0.5);
   const below = (s: Span) => s.top >= hole.bottom;
-  const put = (s: Span) => (below(s) ? { top: s.top, maxHeight: room(s), below: true } : { top: Math.max(s.top, s.bottom - card), maxHeight: room(s), below: false });
-  if (under && room(under) >= card) return put(under);
-  if (over && room(over) >= card) return put(over);
-  const fits = free.filter((s) => room(s) >= card).sort((a, b) => Math.min(Math.abs(a.top - hole.bottom), Math.abs(a.bottom - hole.top)) - Math.min(Math.abs(b.top - hole.bottom), Math.abs(b.bottom - hole.top)));
+  const put = (s: Span) => (below(s) ? { top: s.top, maxHeight: room(s), below: true } : { top: Math.max(s.top, s.bottom - want), maxHeight: room(s), below: false });
+  if (under && room(under) >= want) return put(under);
+  if (over && room(over) >= want) return put(over);
+  const fits = free.filter((s) => room(s) >= want).sort((a, b) => Math.min(Math.abs(a.top - hole.bottom), Math.abs(a.bottom - hole.top)) - Math.min(Math.abs(b.top - hole.bottom), Math.abs(b.bottom - hole.top)));
   // a fixed control (the tab bar) keeps its card next to it: the page scrolls first rather than the card sitting far off at the top
-  if (fits.length > 0 && !(fixed && clear.length > 0 && !scrolled)) return put(fits[0]!);
+  const scrollFirst = fixed && clear.length > 0 && !scrolled;
+  if (fits.length > 0 && !scrollFirst) return put(fits[0]!);
   if (clear.length > 0 && !scrolled) {
     if (fixed) {
       // room over the fixed control: scroll down until whatever is kept clear sits above the card
-      const need = hole.top - gap - card - gap;
+      const need = hole.top - gap - want - gap;
       const blocking = clear.filter((c) => c.bottom > need && c.top < hole.top);
       const scroll = Math.max(0, ...blocking.map((c) => c.bottom - need));
       if (scroll > 0) return { scroll: Math.ceil(scroll) };
     } else {
-      // room under the control and what it keeps clear right below it; the control keeps at least 40 px on the screen
-      const block = Math.max(hole.bottom, ...clear.filter((c) => c.top < hole.bottom + gap + card + gap && c.bottom > hole.top).map((c) => c.bottom));
-      const scroll = Math.min(block + gap + card + edge - vh, hole.bottom - edge - 40);
-      if (scroll > 0) return { scroll: Math.ceil(scroll) };
+      // room under the control and what it keeps clear right below it; never so far that the control's top goes off the screen
+      const block = Math.max(hole.bottom, ...clear.filter((c) => c.top < hole.bottom + gap + want + gap && c.bottom > hole.top).map((c) => c.bottom));
+      const scroll = Math.min(Math.ceil(block + gap + want + edge - vh), Math.floor(hole.top - edge));
+      if (scroll > 0) return { scroll };
     }
   }
-  if (clear.length === 0) {
-    // the old rule: the side with more room, at least 160 px, the card scrolling inside itself
-    const down = hi - (hole.bottom + gap);
-    const up = hole.top - gap - lo;
-    if (down >= up) return { top: hole.bottom + gap, maxHeight: Math.max(down, 160), below: true };
-    return { top: Math.max(lo, hole.top - gap - card), maxHeight: Math.max(up, 160), below: false };
+  if (fits.length > 0) return put(fits[0]!);
+  // Nothing holds the card whole: what is kept clear gives way. The side of the lit control with more room, the card at its full height (or the whole screen
+  // if it is taller), kept on the screen; it covers the lit control only when the control leaves no room for it at all.
+  const tall = Math.min(want, hi - lo);
+  const down = hi - (hole.bottom + gap);
+  const up = hole.top - gap - lo;
+  if (down >= up) {
+    const top = Math.max(lo, Math.min(hole.bottom + gap, hi - tall));
+    return { top, maxHeight: Math.max(hi - top, min), below: true };
   }
-  const biggest = [...free].sort((a, b) => room(b) - room(a))[0];
-  if (!biggest) return { top: lo, maxHeight: Math.max(0, hi - lo), below: true };
-  return put(biggest);
+  const end = Math.min(hi, Math.max(lo + tall, hole.top - gap)); // the card's bottom edge
+  const top = Math.max(lo, end - want);
+  return { top, maxHeight: Math.max(end - top, min), below: false };
 }

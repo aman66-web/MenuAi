@@ -8,6 +8,6 @@ export const RECIPE_COVERAGE: Readonly<Record<string, number>> = {
   "lidl": 0,
   "morrisons": 174,
   "waitrose": 136,
-  "iceland": 136,
+  "iceland": 134,
   "marks-and-spencer": 27,
 };

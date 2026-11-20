@@ -57,8 +57,9 @@ describe("the feature screens' window (welcome/ShowcaseWindow.tsx)", () => {
     const { alsoInPremium } = await import("../app/app/welcome/ShowcaseWindow");
     expect(alsoInPremium(false, false)).toBeNull();
     expect(alsoInPremium(false, true)).toBeNull();
-    expect(alsoInPremium(true, false)).toBe("Also in Premium: Cook with what you already have.");
-    expect(alsoInPremium(true, true)).toBe("Also in Premium: Scan your food, Make it at home, and Cook with what you already have.");
+    // matching our own recipes to what you have is free: only Pip's new recipes from it are named as Premium (the 20 November 2026 audit)
+    expect(alsoInPremium(true, false)).toBe("Also in Premium: Pip's new recipes from what you have.");
+    expect(alsoInPremium(true, true)).toBe("Also in Premium: Scan your food, Make it at home and Pip's new recipes from what you have.");
   });
 
   it("follows this build's GATING_ENABLED and PHOTO_RECIPES_ENABLED, never another switch", async () => {
@@ -88,7 +89,7 @@ describe("the feature screens' words when their data is missing", () => {
     ["EatOutShowcase.tsx", "Menus need a connection the first time. Every restaurant is in Eat out."],
     ["RecipeChoice.tsx", "Recipes can't load just now. You'll find them under Recipes."],
     ["RecipeChoice.tsx", "Finding two recipes for you…"],
-    ["WeekShowcase.tsx", "Meal plan plans a week of meals from your shop, sized to your numbers, with one shopping list. You'll find it on Home."],
+    ["WeekShowcase.tsx", "Meal plan makes a week of meals from your shop, sized to your numbers, with one shopping list. You'll find it on Home."],
     ["EatOutShowcase.tsx", "Loading the menus…"],
   ];
   it.each(fallbacks)("%s: %s", (file, words) => {
@@ -97,7 +98,9 @@ describe("the feature screens' words when their data is missing", () => {
   });
 
   it("shows prices only with the shelf-price line, on both screens that show them", () => {
-    for (const file of ["RecipeChoice.tsx", "WeekShowcase.tsx"]) expect(source(file)).toContain("Prices are {shop}'s shelf prices and vary by store.");
+    // step 5 says the shelf prices vary; step 10, whose week is priced from the shop's list, also says when they were checked
+    expect(source("RecipeChoice.tsx")).toContain("Prices are {shop}'s shelf prices and vary by store.");
+    expect(source("WeekShowcase.tsx")).toContain("Prices are {shop}'s shelf prices, checked {date}, and vary by store.");
   });
 });
 

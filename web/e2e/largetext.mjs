@@ -1,4 +1,5 @@
 import { chromium } from "playwright-core";
+import { recipeTiles } from "./welcome-steps.mjs";
 const BASE = process.env.BASE ?? "http://localhost:3101";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 
@@ -55,7 +56,7 @@ for (const scale of [1, 1.5, 2]) {
   await press("Next: where you shop");
   await check("4 shops");
   await press("Continue");
-  const tile = page.getByRole("region", { name: "A look at Recipes" }).locator("button[aria-pressed]").first();
+  const tile = recipeTiles(page).first();
   await tile.waitFor({ timeout: 45000 }).then(() => tile.click()).catch(() => undefined);
   await check("5 recipes, one chosen");
   await press("Next: your daily numbers");
@@ -72,8 +73,8 @@ for (const scale of [1, 1.5, 2]) {
   await press("Next: plan my week");
   await page.getByRole("region", { name: "A look at Meal plan, on Home" }).locator("h2, p[role='status']").first().waitFor({ timeout: 45000 }).catch(() => undefined);
   await check("10 your week, planned");
-  await press("Next: save your plan");
-  await check("11 save your plan");
+  await press("Next: save your numbers");
+  await check("11 save your goal and numbers");
   await c.close();
 }
 console.log(bad === 0 ? "No horizontal overflow at 100%, 150% or 200% text size (360px wide)." : `${bad} overflow problem(s)`);

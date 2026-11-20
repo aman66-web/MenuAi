@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { APP_PREMIUM, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { APP_PREMIUM, COMMUNITY_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 import { SupportForm } from "./SupportForm";
 
@@ -38,11 +38,11 @@ export default function Support() {
               <>
                 <div className="py-4">
                   <h2 className="text-base font-bold tracking-[-0.01em]">Cancel or manage your subscription</h2>
-                  <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">On your iPhone: Settings › your name › Subscriptions, or in the app: Settings › Manage subscription.</p>
+                  <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">In the app: Settings › Subscription › Manage subscription. Or on your iPhone: Settings › your name › Subscriptions. Refunds are handled by Apple, at reportaproblem.apple.com.</p>
                 </div>
                 <div className="py-4">
                   <h2 className="text-base font-bold tracking-[-0.01em]">Restore a purchase</h2>
-                  <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">In the app: Settings › Restore purchases.</p>
+                  <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">In the app: Settings › Subscription › Restore purchases (or on the plans screen).</p>
                 </div>
               </>
             ) : !WEB_PRO_ENABLED ? (
@@ -51,13 +51,16 @@ export default function Support() {
                 <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">No. Every feature is free and there is nothing to buy.</p>
               </div>
             ) : null}
-            <div className="py-4">
-              <h2 className="text-base font-bold tracking-[-0.01em]">Someone is bothering me, or a username or list is offensive</h2>
-              <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">In the app, open Community › Friends, tap the three dots next to their name, then choose Report or Block. For a shopping list a friend sent you, open it in Community › Shared with you and choose Report or block. A blocked person is not told. You can also email us.</p>
-            </div>
+            {/* only while Community is part of the app (off since 18 November 2026) */}
+            {COMMUNITY_ENABLED && (
+              <div className="py-4">
+                <h2 className="text-base font-bold tracking-[-0.01em]">Someone is bothering me, or a username or list is offensive</h2>
+                <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">In the app, open Community › Friends, tap the three dots next to their name, then choose Report or Block. For a shopping list a friend sent you, open it in Community › Shared with you and choose Report or block. A blocked person is not told. You can also email us.</p>
+              </div>
+            )}
             <div className="py-4">
               <h2 className="text-base font-bold tracking-[-0.01em]">Your data</h2>
-              <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">{SIGN_IN_REQUIRED ? "You sign in with a free account (Apple, Google or an email code), and what you set up syncs across your devices." : "You don't need an account (only friends, in the Community tab, need one). Everything you set up stays on your phone unless you sign in to sync it across your devices (Settings › Account)."} Settings › Account › Delete my account removes the account and what was synced; Settings › Clear data on this device removes what is on the phone.</p>
+              <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">{SIGN_IN_REQUIRED ? "You sign in with a free account (Apple, Google or an email code), and what you set up syncs across your devices." : COMMUNITY_ENABLED ? "You don't need an account (only friends, in the Community tab, need one). Everything you set up stays on your phone unless you sign in to sync it across your devices (Settings › Account)." : "You don't need an account. Everything you set up stays on your phone unless you sign in to sync it across your devices (Settings › Account)."} Settings › Account › Delete my account removes the account and what was synced; Settings › Clear data on this device removes what is on the phone.</p>
             </div>
           </div>
         </div>

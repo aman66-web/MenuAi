@@ -1,7 +1,8 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS, KEEPS_WELL, capShortfall, keepsWell, VARIETIES, MAX_EARLIER_PLANS, keepEarlier, openEarlier, sanitizePlans, forPeople, betterForPeople, PLAN_PEOPLE } from "../lib/mm/mealPlan";
+import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS, KEEPS_WELL, capShortfall, keepsWell, VARIETIES, MAX_EARLIER_PLANS, keepEarlier, openEarlier, sanitizePlans, forPeople, betterForPeople, PLAN_PEOPLE, cleanDiet, sameDiet, planListKey, planDayIndex, planShortfall, SHORTFALL_NOTE, LEAVE_OUT, type SavedPlan } from "../lib/mm/mealPlan";
 import { RECIPES } from "../lib/mm/recipeBook";
+import { ALLERGEN_KEYS } from "../lib/mm/types";
 import { isVegan } from "../lib/mm/recipes";
 import { decodeShopProducts } from "../lib/mm/shopProducts";
 
@@ -454,5 +455,70 @@ describe("a plan for several people (usability test 2026-11-19: Raj, 'a plan for
     expect(sanitizePlan({ ...base, people: 1 })?.people).toBeUndefined();
     expect(sanitizePlan({ ...base, people: 9 })?.people).toBeUndefined();
     expect(sanitizePlan({ ...base, people: "2" })?.people).toBeUndefined();
+  });
+});
+
+describe("Cheese left out", () => {
+  it("leaves out pesto, paneer, ricotta and mascarpone dishes too (cheese whose names don't say so)", () => {
+    const words = LEAVE_OUT.find((c) => c.id === "cheese")!.words;
+    for (const w of ["pesto", "paneer", "ricotta", "mascarpone"]) expect(words).toContain(w);
+    const pesto = RECIPES.filter((r) => /pesto/i.test(r.name));
+    expect(pesto.length).toBeGreaterThan(0);
+    for (const r of pesto) expect(leavesOut(r, ["cheese"]), r.name).toBe(true);
+  });
+});
+
+describe("what a plan keeps about itself", () => {
+  const plan: SavedPlan = { shops: ["sainsburys"], ids: Array.from({ length: PLAN_DAYS }, () => ["overnight-oats", "chicken-wrap", "chicken-curry"]), slots: ["breakfast", "lunch", "dinner"], leaveOut: [], budget: null, start: "2026-11-20" };
+
+  it("keeps the diet it was made with (only what is on), and that the week went on the shopping list", () => {
+    const saved = { ...plan, diet: cleanDiet({ vegetarianOnly: true, noPork: false, avoidAllergens: ["milk", "peanuts", "milk"] }), addedToList: planListKey(plan) };
+    expect(saved.diet).toEqual({ vegetarianOnly: true, avoidAllergens: ALLERGEN_KEYS.filter((a) => a === "milk" || a === "peanuts") });
+    expect(sanitizePlan(JSON.parse(JSON.stringify(saved)))).toEqual(saved);
+    // anything else in those places is dropped
+    expect(sanitizePlan({ ...plan, diet: "vegan", addedToList: "<script>" })).toEqual(plan);
+    expect(sanitizePlan({ ...plan, diet: { vegetarianOnly: "yes", avoidAllergens: ["milk", "glitter"] } })?.diet).toEqual({ avoidAllergens: ["milk"] });
+  });
+
+  it("tells diets apart only by what they leave out (false and absent alike, allergies in any order)", () => {
+    expect(sameDiet({ veganOnly: true, noPork: false, avoidAllergens: ["milk", "eggs"] }, { avoidAllergens: ["eggs", "milk"], veganOnly: true })).toBe(true);
+    expect(sameDiet({ veganOnly: true }, {})).toBe(false);
+    expect(sameDiet({ avoidAllergens: ["peanuts"] }, {})).toBe(false);
+  });
+
+  it("knows when the week changed since it went on the shopping list: a swapped meal, more people", () => {
+    const key = planListKey(plan);
+    expect(planListKey({ ...plan })).toBe(key);
+    expect(key).toMatch(/^[a-z0-9]{1,24}$/);
+    expect(planListKey({ ...plan, ids: setMeal(plan.ids, 2, 1, "tuna-pasta") })).not.toBe(key);
+    expect(planListKey({ ...plan, people: 2 })).not.toBe(key);
+    expect(planListKey({ ...plan, better: ["dinner:chicken-curry"] })).not.toBe(key);
+  });
+
+  it("says which of its days today is, by the local date: 0 on its first day, 6 on its last, past 6 once it's over", () => {
+    expect(planDayIndex("2026-11-16", "2026-11-16")).toBe(0);
+    expect(planDayIndex("2026-11-16", "2026-11-20")).toBe(4);
+    expect(planDayIndex("2026-11-16", "2026-11-22")).toBe(6);
+    expect(planDayIndex("2026-11-16", "2026-11-23")).toBe(7);
+    expect(planDayIndex("2026-11-20", "2026-11-19")).toBe(-1);
+    // across the clocks going back (25 October 2026) and a month end
+    expect(planDayIndex("2026-10-24", "2026-10-26")).toBe(2);
+    expect(planDayIndex("2026-11-28", "2026-12-02")).toBe(4);
+  });
+});
+
+describe("a week that comes in under the person's calories", () => {
+  const meal = (meal: "breakfast" | "lunch" | "dinner" | "snack", kcal: number) => ({ meal, candidate: { perServing: { kcal, protein: 0, carbs: 0, fat: 0 } } as never });
+  const days = (kcals: number[][]) => ({ days: kcals.map((d) => ({ meals: [meal("breakfast", d[0]!), meal("lunch", d[1]!), meal("dinner", d[2]!), ...(d[3] ? [meal("snack", d[3])] : [])], kcal: d.reduce((a, b) => a + b, 0), protein: 0, cost: 0 })) });
+  it("says the average day and the largest meal the recipes reach, when more than 5% under", () => {
+    expect(SHORTFALL_NOTE).toBe(0.05);
+    expect(planShortfall(days([[800, 950, 1176], [850, 900, 1100]]), 3400)).toEqual({ avg: 2888, max: 1180 });
+    // a snack is never the largest meal
+    expect(planShortfall(days([[800, 900, 900, 1300]]), 4600)?.max).toBe(900);
+  });
+  it("says nothing when the days come within 5%", () => {
+    expect(planShortfall(days([[650, 650, 650]]), 2000)).toBeNull();
+    expect(planShortfall(days([[700, 700, 700]]), 2000)).toBeNull();
+    expect(planShortfall({ days: [] }, 2000)).toBeNull();
   });
 });

@@ -58,8 +58,9 @@ export const supabaseEntitlements: EntitlementStore = {
   findBySession: (id) => one("stripe_session_id", id),
   findBySubscription: (id) => one("stripe_subscription_id", id),
   findByPaymentIntent: (id) => one("stripe_payment_intent_id", id),
+  // active, or cancelled with paid time left (handlers.ts givesAccess): cancelling a subscription stops its renewal, not what was already paid for
   async findActiveByEmail(email, nowMs) {
-    const { data, error } = await db().from("pro_entitlements").select(COLS).eq("email", email).eq("status", "active").gt("expires_at", new Date(nowMs).toISOString()).order("expires_at", { ascending: false }).limit(1).maybeSingle();
+    const { data, error } = await db().from("pro_entitlements").select(COLS).eq("email", email).in("status", ["active", "cancelled"]).gt("expires_at", new Date(nowMs).toISOString()).order("expires_at", { ascending: false }).limit(1).maybeSingle();
     if (error) fail("read by email", error);
     return data ? toRecord(data as Row) : null;
   },

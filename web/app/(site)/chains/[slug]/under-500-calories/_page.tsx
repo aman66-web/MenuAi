@@ -37,7 +37,7 @@ export default async function Under500Page({ params }: Params) {
       <Crumbs items={[{ name: site.name, href: "/" }, { name: "Restaurants", href: "/chains" }, { name: chain.name, href: `/chains/${slug}` }, { name: "Under 500 calories" }]} />
       <h1 className="mt-3 text-4xl font-extrabold leading-tight tracking-tight">{chain.name} meals under 500 calories</h1>
       <p className="mt-3 text-lg leading-relaxed">
-        {items.length} of the {f.meals} meals on {chain.name}&apos;s menu are 500 kcal or less, from its own published nutrition guide (checked {checkedOn}){full ? ", with the most protein first" : ", fewest calories last"}.
+        {items.length} of the {f.meals} meals on {chain.name}&apos;s menu are 500 kcal or less, from its own published nutrition guide (checked {checkedOn}){full ? ", with the most protein first" : ", the highest calories first"}.
         Drinks, sides, desserts, sauces and add-ons are not counted.
       </p>
       <div className="mt-5"><OpenInApp chain={chain} /></div>

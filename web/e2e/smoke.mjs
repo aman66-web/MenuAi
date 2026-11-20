@@ -3,6 +3,7 @@ import { chromium } from "playwright-core";
 const BASE = process.env.BASE ?? "http://localhost:3100";
 const SHOTS = new URL("./shots/", import.meta.url).pathname;
 import { mkdirSync } from "node:fs";
+import { recipeTileName, recipeTiles, shopTile } from "./welcome-steps.mjs";
 mkdirSync(SHOTS, { recursive: true });
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 
@@ -35,7 +36,8 @@ async function step(name, fn) {
   try { await fn(); passed++; console.log("PASS", name); }
   catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n")[0]); await page.screenshot({ path: `${SHOTS}FAIL-${name.replace(/\W+/g, "-")}.png` }); }
 }
-const text = (t) => page.getByText(t, { exact: false }).first();
+// visible only: Pip's bubbles keep the room of every line they can say as invisible copies (BubbleWords, the audit of 20 November 2026)
+const text = (t) => page.getByText(t, { exact: false }).filter({ visible: true }).first();
 const shot = (n) => page.screenshot({ path: `${SHOTS}${n}.png`, fullPage: false });
 const visible = async (loc, timeout = 8000) => { await loc.waitFor({ state: "visible", timeout }); };
 
@@ -72,15 +74,15 @@ await step("onboarding: goal → avoid → Eat out → shops → a first recipe 
   await page.getByRole("button", { name: "Next: where you shop" }).click();
   // 4: the shops
   await visible(page.getByRole("heading", { name: "Where do you shop?" }));
-  await page.getByRole("button", { name: "Sainsbury's", exact: true }).click();
+  await shopTile(page, "Sainsbury's").click();
   await visible(text("Got it. I'll show those shops first."));
   await page.getByRole("button", { name: "Continue" }).click();
   // 5: two recipes from Sainsbury's: one chosen as the first recipe
   await visible(page.getByRole("heading", { name: /^Recipes from Sainsbury's/ }));
-  const tiles = page.getByRole("region", { name: "A look at Recipes" }).locator("button[aria-pressed]");
+  const tiles = recipeTiles(page);
   await tiles.first().waitFor({ state: "visible", timeout: 45000 });
   if ((await tiles.count()) !== 2) throw new Error(`expected two recipes to choose from, got ${await tiles.count()}`);
-  const recipe = (await tiles.first().getAttribute("aria-label")).split(", ")[0];
+  const recipe = await recipeTileName(tiles.first());
   await tiles.first().click();
   await visible(page.getByText("Your first recipe", { exact: true }));
   await shot("03-onboarding-recipes");
@@ -111,9 +113,9 @@ await step("onboarding: goal → avoid → Eat out → shops → a first recipe 
   await visible(page.getByRole("heading", { name: "Your week, planned" }));
   await visible(page.getByText(/\(your target is 2,400 kcal\)\.$/), 45000);
   await shot("05-onboarding-week");
-  await page.getByRole("button", { name: "Next: save your plan" }).click();
+  await page.getByRole("button", { name: "Next: save your numbers" }).click();
   // 11: the account (optional on this build: "Not now")
-  await visible(page.getByRole("heading", { name: "Save your plan: make your free account" }));
+  await visible(page.getByRole("heading", { name: "Save your goal and numbers: make your free account" }));
   await visible(text(`Waiting for you on Home: ${recipe}.`));
   await shot("06-onboarding-account");
   await page.getByRole("button", { name: "Not now" }).click();
@@ -180,7 +182,7 @@ await step("request a chain goes through the outbox to /api/v1/chain-requests", 
 await step("chain page: free user sees blurred Best for you, menu rows with macros, source footer", async () => {
   await page.goto(`${BASE}/app/chain?id=bowl-and-co`);
   await visible(page.getByRole("heading", { name: "Bowl & Co." }));
-  await visible(page.getByRole("button", { name: /See your 5 best orders/ }));
+  await visible(page.getByRole("button", { name: /^See Premium/ })); // the one call to action over the blurred picks (19-20 November 2026: "Premium" is the one name)
   await visible(text("655 kcal"));
   await visible(text("50g protein"));
   await visible(text("67g carbs · 21g fat"));
@@ -216,7 +218,7 @@ await step("tapping Customise as a free user shows the honest paywall", async ()
   await page.getByRole("button", { name: "Change the order" }).click();
   await visible(page.getByRole("heading", { name: "Build the perfect order, every time" }));
   await visible(text("Premium isn't on the web yet."));
-  await visible(text("Top 5 picks for your goal at every chain"));
+  await visible(text("Top 5 picks for your goal at every restaurant"));
   await shot("08-paywall");
 });
 await step("unlock Premium preview (testing)", async () => {
@@ -280,8 +282,12 @@ await step("Save → My meals › Restaurant meals lists it; Log → today's mea
   await page.getByRole("link", { name: "Open in builder" }).click();
   await page.waitForURL("**/app/builder?**");
   await visible(page.getByRole("group", { name: /Order total: 760 kcal/ }));
+  // "Add to today" asks which meal, then stays on the builder with a toast and Undo (the 20 November 2026 audit; it used to jump to Today)
   await page.getByRole("button", { name: "Add to today", exact: true }).click();
-  await page.waitForURL("**/app/today");
+  await page.getByRole("dialog", { name: "Add to today" }).getByRole("button", { name: /^Add to (Breakfast|Lunch|Dinner|Snacks)$/ }).click();
+  await visible(text(/^Added “.+” to (Breakfast|Lunch|Dinner|Snacks)\.$/));
+  if (!page.url().includes("/app/builder")) throw new Error("left the builder after adding: " + page.url());
+  await page.goto(`${BASE}/app/today`);
   await visible(text("760"));
   await visible(text("of 2,400 kcal"));
   await shot("13-today");
@@ -297,7 +303,7 @@ await step("home shows today's calories after logging", async () => {
 await step("remove a log entry and undo it", async () => {
   await page.goto(`${BASE}/app/today`);
   await page.getByRole("button", { name: /^Remove / }).first().click();
-  await visible(text("Deleted"));
+  await visible(text(/^Removed “.+”\./)); // the toast names what went (the 20 November 2026 audit; it said "Deleted")
   await page.getByRole("button", { name: "Undo" }).click();
   await visible(page.getByRole("button", { name: /^Remove / }).first());
 });

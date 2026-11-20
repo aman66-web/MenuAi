@@ -562,7 +562,9 @@
     "calories": 660,
     "energyKj": 2761
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],

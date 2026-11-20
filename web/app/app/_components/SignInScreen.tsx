@@ -7,13 +7,13 @@ import { site } from "@/site.config";
 import { useT } from "../_lib/i18n";
 import { ChevronLeftIcon } from "./icons";
 import { PipSays } from "./Mascot";
-import { SignInPanel } from "./SignIn";
+import { SIGN_IN_MESSAGES, SignInPanel } from "./SignIn";
 import { Card } from "./ui";
 
 // The sign-in screen (founder 2026-11-17: "Sign up screen shouldn't be skippable, required for everyone"; lib/mm/config.ts SIGN_IN_REQUIRED, lib/mm/signInGate.ts).
 // The same three ways in as Settings › Account (Apple first, Google at the same size, then a 6-digit email code); a new email, Apple ID or Google account creates
 // the account, so one screen serves both. Where sign-in is required there is no way past it except signing in: the terms, privacy and support pages stay open below.
-// The onboarding redesign meeting of 20 November 2026 (approved by the founder) makes it the welcome steps' last step, "Save your plan: make your free account"
+// The onboarding redesign meeting of 20 November 2026 (approved by the founder) makes it the welcome steps' last step, "Save your goal and numbers: make your free account" (the overnight audit's words)
 // (Step 11 of 11, after the three feature screens and straight before Home), with Back to the screen it came from; the cover's "Already have an account? Sign in"
 // opens it headed "Welcome back. Sign in"; a page of the app reached signed out keeps "Sign in or sign up" (founder 2026-11-18). Pip, waving, gives one reason,
 // once (no figure is on this screen, so he may stand here). On the last step:
@@ -24,7 +24,7 @@ import { Card } from "./ui";
 
 /** Pip's one line for each way in. */
 const PIP_LINE: Readonly<Record<SignInReason | "page", string>> = {
-  setup: tk("Your goal and daily numbers are ready. Your free account keeps them, and your meals and lists, safe if you change phone."),
+  setup: tk("Your goal and daily numbers are ready. Your free account keeps them safe."),
   returning: tk("Use the same Apple ID, Google account or email as last time."),
   page: tk("First, your free account. It keeps your goal, meals and shopping list safe if you change phone."),
 };
@@ -76,6 +76,18 @@ export function SignInScreen({ onDone, onBack, reason, top, counter, waiting, re
     if (el && last && last.getBoundingClientRect().bottom + window.scrollY > window.innerHeight) el.hidden = true;
   }, [waiting]);
   const line = way === "setup" && resumed ? tk("Welcome back. Your goal and daily numbers are still here.") : PIP_LINE[way];
+  // A website sign-in with Apple or Google that came back without finishing (?signin=cancelled, failed, expired or busy: lib/auth/handlers.ts failure) says so
+  // under the buttons; the address is tidied either way (an "ok" has nothing to say). Read once it is in the browser.
+  const [notice, setNotice] = useState<string | null>(null);
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const reason = url.searchParams.get("signin");
+    if (!reason) return;
+    url.searchParams.delete("signin");
+    window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
+    const known = SIGN_IN_MESSAGES[reason];
+    if (known) setNotice(known); // eslint-disable-line react-hooks/set-state-in-effect -- read from the address once it is in the browser
+  }, []);
   return (
     <div className="flex min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_2rem)] flex-col">
       {top}
@@ -92,19 +104,21 @@ export function SignInScreen({ onDone, onBack, reason, top, counter, waiting, re
           <span className="min-w-0 text-lg font-[800] tracking-[-0.02em]">{site.name}</span>
         </p>
       )}
-      <h1 ref={heading} tabIndex={-1} className={`${top ? "mt-5" : "mt-4"} text-[2rem] font-[700] leading-[1.08] tracking-[-0.03em] outline-none`}>
+      <h1 ref={heading} tabIndex={-1} className={`${top ? "mt-5" : "mt-4"} text-[2rem] font-[700] leading-[1.08] tracking-[-0.03em] outline-none [@media(max-height:640px)]:mt-3`}>
         {t(SIGN_IN_HEADING[way])}
         {counter && <span className="sr-only">{`, ${counter}`}</span>}
       </h1>
-      <div className="mt-3">
+      {/* on a short screen (an iPhone SE: 568 or 667 pt) Pip and his bubble are smaller, so Apple, Google and email all fit without scrolling (guideline 4.8) */}
+      <div className="mt-3 [@media(max-height:640px)]:[&_p]:text-[14px] [@media(max-height:640px)]:[&_svg.pip]:h-[3.2rem] [@media(max-height:640px)]:[&_svg.pip]:w-12">
         <PipSays mood="wave" size={64}>{t(line)}</PipSays>
       </div>
       {waiting && <p ref={waitingLine} className="mt-1 text-base font-semibold leading-snug text-foreground">{t("Waiting for you on Home: {recipe}.", { recipe: waiting })}</p>}
       {way === "setup" && !online && (
         <p role="status" className="mt-3 text-base font-semibold leading-snug text-foreground">{t("You're offline. Connect to the internet to make your account. Your answers are kept on this phone.")}</p>
       )}
-      <Card className="mt-3 p-5">
-        <SignInPanel required community={false} onDone={onDone ?? (() => undefined)} />
+      <Card className="mt-3 p-5 [@media(max-height:640px)]:mt-2 [@media(max-height:640px)]:p-4">
+        {/* the welcome steps' last step has no line above the buttons: the heading and Pip say it, and all three buttons must fit a small screen */}
+        <SignInPanel key={notice ?? ""} required intro={way !== "setup"} notice={notice} community={false} onDone={onDone ?? (() => undefined)} />
       </Card>
       {onNotNow && (
         <button type="button" onClick={onNotNow} className="mx-auto mt-3 flex min-h-11 items-center justify-center px-3 text-center text-[1rem] font-semibold text-foreground underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
@@ -114,7 +128,7 @@ export function SignInScreen({ onDone, onBack, reason, top, counter, waiting, re
       <p className="mt-auto pt-6 text-center text-[0.8125rem] text-muted">
         <a href="/terms" className="-mx-1.5 -my-3.5 inline-block px-1.5 py-3.5 underline underline-offset-2">{t("Terms")}</a> ·{" "}
         <a href="/privacy" className="-mx-1.5 -my-3.5 inline-block px-1.5 py-3.5 underline underline-offset-2">{t("Privacy")}</a> ·{" "}
-        <a href="/support" className="-mx-1.5 -my-3.5 inline-block px-1.5 py-3.5 underline underline-offset-2">{t("Help")}</a>
+        <a href="/support" className="-mx-2.5 -my-3.5 inline-block px-2.5 py-3.5 underline underline-offset-2">{t("Help")}</a>
       </p>
     </div>
   );
