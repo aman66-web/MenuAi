@@ -108,7 +108,7 @@ async function until(fn, ok, ms = 8000) { const end = Date.now() + ms; for (;;) 
 await step("Home's Scan your food card has Make it at home; a free person gets the paywall, a Premium person the page with the name and description first", async () => {
   const free = await open({ devProOverride: false });
   await free.page.goto(BASE + "/app");
-  const card = free.page.getByRole("button", { name: /Make it at home/ });
+  const card = free.page.getByRole("button", { name: /Photo to recipe/ });
   await card.waitFor({ timeout: 90000 });
   const box = free.page.locator('[data-coach="home-photo"]');
   expect(/Premium/.test(await box.innerText()), "no Premium badge on the card for a free person");
@@ -118,7 +118,7 @@ await step("Home's Scan your food card has Make it at home; a free person gets t
   await free.ctx.close();
   const pro = await open();
   await pro.page.goto(BASE + "/app");
-  await pro.page.getByRole("button", { name: /Make it at home/ }).tap();
+  await pro.page.getByRole("button", { name: /Photo to recipe/ }).tap();
   await pro.page.waitForURL(/\/app\/recipes\/photo/);
   await heading(pro.page, "Make it at home").waitFor();
   await pro.page.getByLabel("Name of the dish").waitFor();

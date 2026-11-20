@@ -57,16 +57,18 @@ export function RecipeTools() {
                 <p className="mt-0.5 text-[0.875rem] leading-snug text-muted">{t("Take a photo of a meal: see its calories and macros, or get the recipe to make it at home.")}</p>
               </div>
             </div>
-            {/* one above the other, the whole width, so each says its words on one line at any text size (side by side they broke in two) */}
+            {/* the two choices named for what goes in and what comes out (founder 2026-11-20: "call the top one like photo to macros, and the bottom one like
+                photo to recipe ... people might understand it better"; "calories" rather than "macros", a word not everyone knows): "Photo to calories" opens
+                Scan your food, "Photo to recipe" opens Make it at home. One above the other, the whole width, so each says its words on one line at any text size (side by side they broke in two) */}
             <div className="mt-3 grid gap-2">
               {FOOD_SCAN_ENABLED && (
                 <LinkButton href="/app/scan" full size="lg" className="text-center text-[0.9375rem] leading-tight">
-                  <FlameIcon aria-hidden className="h-4 w-4 shrink-0" />{t("Calories and macros")}
+                  <FlameIcon aria-hidden className="h-4 w-4 shrink-0" />{t("Photo to calories")}
                 </LinkButton>
               )}
               {PHOTO_RECIPES_ENABLED && (
                 <Button variant="secondary" full size="lg" onClick={() => gate("photoRecipe", () => router.push("/app/recipes/photo"))} className="text-center text-[0.9375rem] font-bold leading-tight">
-                  <PotIcon aria-hidden className="h-4 w-4 shrink-0" />{t("Make it at home")}
+                  <PotIcon aria-hidden className="h-4 w-4 shrink-0" />{t("Photo to recipe")}
                 </Button>
               )}
             </div>

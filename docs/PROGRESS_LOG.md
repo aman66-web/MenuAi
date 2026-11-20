@@ -3595,3 +3595,7 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   worked out from those products' own labels."); a bar that only says "working". When the recipe is back: "Your recipe is ready" with what it actually holds
   ("6 ingredients chosen from Sainsbury's", "4 steps written", the labels line) for about 2 seconds, then the recipe. e2e/photorecipe.mjs updated to the new
   flow (no Scanning screen, the food check on Next, Save at the top right): 16 of 16 pass.
+- (about 12:50) Home's Scan your food card: the two buttons are now **"Photo to calories"** (Scan your food) and **"Photo to recipe"** (Make it at home)
+  (founder: "call the top one like photo to macros, and the bottom one like photo to recipe ... people might understand it better. Or if you have a different
+  one to choose"; "calories" chosen over "macros", a word not everyone knows; the card's line still says "see its calories and macros"). e2e foodscan 4/4,
+  photorecipe 16/16.

@@ -34,17 +34,17 @@ async function axe(page, where) {
   expect(r.length === 0, `${where}: ${r.join(", ")}`);
 }
 
-await step("Home: one Scan your food card with its two choices, Calories and macros or Make it at home (founder 2026-11-19), and no My meals on Home", async () => {
+await step("Home: one Scan your food card with its two choices, Photo to calories or Photo to recipe (founder 2026-11-19, renamed 2026-11-20), and no My meals on Home", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app");
   const card = page.getByRole("region", { name: "Scan your food" });
   await card.waitFor({ timeout: 120000 });
   expect((await card.innerText()).includes("Take a photo of a meal: see its calories and macros, or get the recipe to make it at home."), "the card says what it does");
   expect(!(await card.innerText()).includes("Premium"), "no Premium tag for a Premium person");
-  await card.getByRole("button", { name: /Make it at home/ }).waitFor();
+  await card.getByRole("button", { name: /Photo to recipe/ }).waitFor();
   expect((await page.locator("main").getByRole("link", { name: /^My meals/ }).count()) === 0, "no My meals on Home");
-  const scan = card.getByRole("link", { name: "Calories and macros" });
-  for (const b of [await scan.boundingBox(), await card.getByRole("button", { name: /Make it at home/ }).boundingBox()]) expect(b && b.height >= 44, "a big button");
+  const scan = card.getByRole("link", { name: "Photo to calories" });
+  for (const b of [await scan.boundingBox(), await card.getByRole("button", { name: /Photo to recipe/ }).boundingBox()]) expect(b && b.height >= 44, "a big button");
   await scan.click();
   await page.getByRole("heading", { level: 1, name: "Scan your food" }).waitFor({ timeout: 60000 });
   await ctx.close();
