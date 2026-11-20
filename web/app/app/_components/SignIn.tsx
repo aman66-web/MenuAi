@@ -97,8 +97,7 @@ export function SignInSheet({ open, onClose, community }: { open: boolean; onClo
   );
 }
 
-// "Signing you in…" with the real steps under it lives in SigningIn.tsx (founder 2026-11-20: "what it's doing, like loading recipes").
-export { SigningIn } from "./SigningIn";
+// "Signing you in…" with the real steps under it lives in SigningIn.tsx (founder 2026-11-20: "what it's doing, like loading recipes"); import it from there.
 
 /**
  * The three ways in. `required`: on the sign-in screen everyone sees first: one small line under the buttons says what the account keeps, with the Privacy link

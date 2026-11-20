@@ -14,7 +14,8 @@ import { CHIP, CHIP_ON, LABEL } from "../groceries/PageBits";
 
 const CHOSEN = "border border-on-sun bg-sun text-on-sun shadow-[0_0_0_1px_var(--on-sun)]";
 
-function Field({ label, value, chosen, onClick }: { label: string; value: string; chosen: boolean; onClick: () => void }) {
+/** One field: a small label over what is chosen, with a chevron; a tap opens its choices (also Meal plan's Swap sheet). */
+export function NicheField({ label, value, chosen, onClick }: { label: string; value: string; chosen: boolean; onClick: () => void }) {
   return (
     <button
       type="button"
@@ -46,9 +47,9 @@ export function NicheFields({
   const names = (options: ReadonlyArray<{ id: string; label: string }>, chosen: readonly string[]) => options.filter((o) => chosen.includes(o.id)).map((o) => t(o.label)).join(", ");
   return (
     <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,10rem),1fr))] gap-2.5">
-      {cuisines.length > 0 && <Field label={t("Cuisine")} value={names(cuisines, chosenCuisines) || t("Any cuisine")} chosen={chosenCuisines.length > 0} onClick={() => onOpen("cuisine")} />}
-      {price ? <Field label={t("Serving price")} value={price.value} chosen={price.chosen} onClick={price.onOpen} />
-        : occasions.length > 0 && <Field label={t("Occasion")} value={names(occasions, chosenOccasions) || t("Any occasion")} chosen={chosenOccasions.length > 0} onClick={() => onOpen("occasion")} />}
+      {cuisines.length > 0 && <NicheField label={t("Cuisine")} value={names(cuisines, chosenCuisines) || t("Any cuisine")} chosen={chosenCuisines.length > 0} onClick={() => onOpen("cuisine")} />}
+      {price ? <NicheField label={t("Serving price")} value={price.value} chosen={price.chosen} onClick={price.onOpen} />
+        : occasions.length > 0 && <NicheField label={t("Occasion")} value={names(occasions, chosenOccasions) || t("Any occasion")} chosen={chosenOccasions.length > 0} onClick={() => onOpen("occasion")} />}
     </div>
   );
 }

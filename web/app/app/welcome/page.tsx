@@ -19,7 +19,8 @@ import {
   type FirstDish, type WelcomeAnswers, type WelcomeMove, type WelcomeRun, type WelcomeStepId,
 } from "@/lib/mm/welcomeSteps";
 import { InfoBanner } from "../_components/Note";
-import { SignInSheet, SigningIn } from "../_components/SignIn";
+import { SignInSheet } from "../_components/SignIn";
+import { SigningIn } from "../_components/SigningIn";
 import { SignInScreen } from "../_components/SignInScreen";
 import { holdTrialOfferThisVisit } from "../_components/TrialOffer";
 import { Spinner } from "../_components/ui";

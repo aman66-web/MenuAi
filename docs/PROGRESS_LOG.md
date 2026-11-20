@@ -3770,3 +3770,11 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   the one sandbox tester › Clear Purchase History (Apple: only sandbox purchases are deleted; real customers' purchases are not affected). Its "Last purchase"
   read 28 September 2025, so the founder's phone may have been Premium for another reason; to check on the phone (Settings › Subscription). **Budget**
   (founder: "do the rest for me"): stays on the first shop, the money actually paid that week.
+- (about 23:45) **Meal plan's Swap: search, filters and every recipe for that meal** (founder, screenshot of Swap breakfast: "they also should be able to search
+  ... you know how the recipe screen has those nice features. There's like a version of that which is also in the meal plan part"). `app/app/plan/SwapPicker.tsx`
+  with `lib/mm/swapPicker.ts`: the Recipes search (name, ingredients, cuisine, diet words; now shared as `lib/mm/recipeSearch.ts`), the quick tiles (Quick, No
+  meat or fish, Vegan; shared `recipes/FilterTile.tsx`), Cuisine and Serving price fields, Sort by (Closest fit, Lowest price, Most protein), and every recipe the
+  plan priced for that meal, 20 at a time ("Show {n} more recipes"); ones already in the week marked "In your plan" and still choosable. Only recipes of the
+  plan's eating style (the week is built from them). New copy: "In your plan", "No recipes match.", "Show all recipes"; the swap sheet's Serving price shows
+  the range without "(default)". Also: "Signing you in…" is imported from its own file (a re-export tripped the dev server's bundler); the test server's 10 GB
+  dev cache was cleared. Checked: e2e mealplan 13/13, showcase 14/14, Recipes search and a filter by hand (recipes.mjs's fixed count waits for the new recipes).

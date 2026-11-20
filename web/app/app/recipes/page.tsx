@@ -7,33 +7,34 @@ import { savedToRecipe } from "@/lib/mm/aiRecipe";
 import { mealSlotFor } from "@/lib/mm/budget";
 import { AI_RECIPES_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { needsPaywall } from "@/lib/mm/entitlements";
-import type { AllergenKey } from "@/lib/mm/types";
 import { formatDate } from "@/lib/mm/format";
 import { RETAILERS } from "@/lib/mm/groceries";
-import { tk, type T } from "@/lib/mm/i18n";
+import { tk } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { toggleAllergen } from "@/lib/mm/menu-view";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { inPriceRange, pounds, rangeFromAddress, rangeToAddress, servingPriceBounds, settleRange, type PriceRange } from "@/lib/mm/servingPrice";
-import { cuisineOptions, matchesNiche, nicheCounts, nicheSearchWords, occasionOptions, type CuisineOption, type OccasionOption } from "@/lib/mm/recipeNiche";
-import { isMeatFree, isQuick, isVegan, MEAL_TYPES, recipeForDiet, type MealType, type Recipe } from "@/lib/mm/recipes";
+import { cuisineOptions, matchesNiche, nicheCounts, occasionOptions } from "@/lib/mm/recipeNiche";
+import { matchesRecipeSearch, recipeSearchExtras, QUICK_TESTS as TOGGLE_TEST, type QuickFilter as Toggle } from "@/lib/mm/recipeSearch";
+import { MEAL_TYPES, type MealType, type Recipe } from "@/lib/mm/recipes";
 import { recipeShops } from "@/lib/mm/shopProducts";
 import { myRecipesStore, savedRecipesStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { ShopMark } from "../_components/ChainMark";
 import { AllergenTiles, dietWords } from "../_components/DietPicker";
-import { ArrowRightIcon, BasketIcon, CheckIcon, GridIcon, HeartIcon, InfoIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
+import { ArrowRightIcon, BasketIcon, CheckIcon, GridIcon, HeartIcon, InfoIcon, ListIcon, PotIcon, SearchIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
 import { ShopChoice } from "./ShopChoice";
 import { useGate } from "../_components/Paywall";
 import { PremiumBadge } from "../_components/PremiumBadge";
-import { Button, ChoiceMark, EmptyState, ErrorBox, Segmented, Sheet, Spinner } from "../_components/ui";
+import { Button, EmptyState, ErrorBox, Segmented, Sheet, Spinner } from "../_components/ui";
 import { useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
 import { recipeShopSetFor, useRecipeCards, useRecipeMakerEnabled, useRecipeShopSet, type RecipeCard } from "../_lib/recipes";
 import { useListRecipes } from "../_lib/listRecipes";
 import { useShopManifest } from "../_lib/shopProducts";
 import { MealPicker, targetSentence } from "./MealPicker";
+import { FilterTile as Tile, QUICK_FILTERS as TOGGLES } from "./FilterTile";
 import { FilterChip, NicheFields } from "./NicheFields";
 import { ServingPriceSheet } from "./ServingPrice";
 import { MEAL_LOOK, RecipeTile } from "./RecipeTile";
@@ -62,19 +63,12 @@ import { SettingsGear, ShoppingListPill } from "../_components/TopActions";
 // sheet are sentence case; "Cook with what's on your list" takes the cream of every "cook with what you have" card, with an ink arrow button.
 
 type Sort = "fit" | "price" | "protein";
-type Toggle = "quick" | "meatFree" | "vegan";
 const PAGE = 24;
 const PICKS = 8;
 // The cuisines on offer are decided by the whole book (not by a person's diet or shop), so a choice never comes and goes; the occasions by the book and today's date.
 const RECIPE_IDS = RECIPES.map((r) => r.id);
 const CUISINE_OPTIONS = cuisineOptions(RECIPE_IDS);
 
-const TOGGLES: ReadonlyArray<{ value: Toggle; label: string; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode }> = [
-  { value: "quick", label: tk("Quick"), Icon: TodayIcon },
-  { value: "meatFree", label: tk("No meat or fish"), Icon: LeafIcon },
-  { value: "vegan", label: tk("Vegan"), Icon: SproutIcon },
-];
-const TOGGLE_TEST: Record<Toggle, (r: Recipe) => boolean> = { quick: isQuick, meatFree: isMeatFree, vegan: isVegan };
 /** The meals, the toggles and the sort as the address writes them (?meal=dinner,lunch&only=vegan,meat-free&sort=price). */
 const TOGGLE_WORD: Record<Toggle, string> = { quick: "quick", meatFree: "meat-free", vegan: "vegan" };
 const MEAL_VALUES = MEAL_TYPES.map((m) => m.value);
@@ -85,27 +79,6 @@ const shownFrom = (raw: string | null): number => {
   const n = Number(raw);
   return Number.isInteger(n) && n > PAGE && n <= 1000 ? Math.ceil(n / PAGE) * PAGE : PAGE;
 };
-
-/** Words a recipe is also found by (the audit, 20 November 2026: "vegetarian", "veggie", "gluten free" and "high protein" found nothing): the tiles' own words, the
- *  meal, "{allergen} free" for each allergen none of its ingredients brings (by the same rules the diet uses), and "high protein" when protein gives at least a
- *  fifth of its calories (the UK's rule for that claim). In English and through t(); searched only, never shown. */
-const ALLERGEN_FREE: Partial<Record<AllergenKey, string>> = {
-  gluten: "gluten free gluten-free", milk: "dairy free dairy-free milk free", eggs: "egg free egg-free", nuts: "nut free nut-free", peanuts: "peanut free peanut-free",
-  soya: "soya free soy free", sesame: "sesame free", fish: "fish free", mustard: "mustard free", celery: "celery free", sulphites: "sulphite free",
-};
-function searchExtras(card: RecipeCard, t: T): string {
-  const r = card.recipe;
-  const words: string[] = [];
-  if (isMeatFree(r)) words.push("vegetarian veggie meat-free meat free no meat", t("No meat or fish"));
-  if (isVegan(r)) words.push("vegan plant-based plant based", t("Vegan"));
-  if (isQuick(r)) words.push("quick fast", t("Quick"));
-  const meal = MEAL_TYPES.find((m) => m.value === r.meal);
-  if (meal) words.push(meal.value, meal.label, t(meal.label));
-  for (const [a, w] of Object.entries(ALLERGEN_FREE)) if (recipeForDiet(r, { avoidAllergens: [a as AllergenKey] })) words.push(w);
-  const { kcal, protein } = card.totals.perServing;
-  if (kcal > 0 && (protein * 4) / kcal >= 0.2) words.push("high protein high-protein");
-  return words.join(" ");
-}
 
 /** Below 390 px the search box's words are shortened ("Search"), so they fit beside the shop. */
 const NARROW = "(max-width: 389px)";
@@ -123,41 +96,9 @@ const PILL = "inline-flex min-h-11 shrink-0 items-center rounded-full border-[1.
 /** A small label in the Filters sheet: sentence case, semibold, 13 px, the secondary grey (spaced capitals were hard to read for older testers). */
 const LABEL = "text-[0.8125rem] font-semibold leading-snug text-muted";
 
-/** Search words against a recipe's name, blurb and ingredient names ("chicken", "curry", "oats"), in English and in the reader's language, the words of its
- *  cuisine and occasions that are on offer ("chinese", "picnic", "bbq"), and its diet and meal words (`extras`: searchExtras). */
-function matchesSearch(r: Recipe, q: string, t: T, offered: { cuisines: readonly CuisineOption[]; occasions: readonly OccasionOption[] }, extras = ""): boolean {
-  const words = q.toLowerCase().split(/\s+/).filter(Boolean);
-  if (!words.length) return true;
-  const labels = r.ingredients.map((i) => i.label);
-  const own = r.ai ? labels.map((x) => t(x)) : [r.name, r.blurb, ...labels].map((x) => t(x));
-  const hay = [r.name, r.blurb, ...labels, ...own, ...nicheSearchWords(r.id, t, offered), extras].join(" ").toLowerCase();
-  return words.every((w) => hay.includes(w));
-}
-
 function sortCards(cards: RecipeCard[], sort: Sort): RecipeCard[] {
   const key = (c: RecipeCard): number => (sort === "fit" ? c.distance : sort === "protein" ? -c.totals.perServing.protein : (c.totals.costPerServing ?? Infinity));
   return [...cards].sort((a, b) => key(a) - key(b) || a.recipe.name.localeCompare(b.recipe.name, "en-GB"));
-}
-
-/**
- * One of the eight big tiles: an icon over a word. A meal or a filter is a choice (any number at once): white with the 1px line and an empty tick ring at its
- * corner, chosen lime with the 2 px dark-green edge (1px border plus a 1px ring, so nothing moves), a tick and dark-green words. "More" is not a choice: it opens
- * the Filters sheet, and is white like the rest (a lime More tile looked already chosen).
- */
-function Tile({ label, Icon, pressed, onClick, more }: { label: string; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode; pressed?: boolean; onClick: () => void; more?: boolean }) {
-  const look = pressed ? "border-on-sun bg-sun text-on-sun shadow-[0_0_0_1px_var(--on-sun)]" : "border-line bg-card text-foreground shadow-[var(--card-shadow)] hover:bg-background";
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      {...(more ? { "aria-haspopup": "dialog" as const } : { "aria-pressed": !!pressed })}
-      className={`relative flex min-h-[5.25rem] min-w-0 flex-col items-center justify-center gap-1.5 rounded-[1.25rem] border px-1.5 py-2.5 text-center transition active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${look}`}
-    >
-      {!more && <ChoiceMark on={!!pressed} className="absolute end-2 top-2" />}
-      <Icon className={`h-6 w-6 ${pressed ? "" : "text-accent"}`} />
-      <span className={`w-full text-sm leading-tight [hyphens:auto] [overflow-wrap:break-word] ${pressed ? "font-bold" : "font-semibold"}`}>{label}</span>
-    </button>
-  );
 }
 
 /** Where the person is shopping, beside the search (founder 2026-11-17: one shop at a time): that shop's own logo and name with a small arrow; a tap opens the choice. */
@@ -289,9 +230,9 @@ function RecipesScreen() {
   const niche = useNicheFilter(CUISINE_OPTIONS, occasionOpts);
   const offered = useMemo(() => ({ cuisines: CUISINE_OPTIONS, occasions: occasionOpts }), [occasionOpts]);
   // everything but the niche, then the niche: the counts beside each cuisine and occasion are worked out from the first list
-  const extras = useMemo(() => new Map(cards.map((c) => [c.recipe.id, searchExtras(c, t)])), [cards, t]);
+  const extras = useMemo(() => new Map(cards.map((c) => [c.recipe.id, recipeSearchExtras(c.recipe, c.totals.perServing, t)])), [cards, t]);
   const base = useMemo(
-    () => cards.filter((c) => [...toggles].every((x) => TOGGLE_TEST[x](c.recipe)) && (meals.size === 0 || (!!c.recipe.meal && meals.has(c.recipe.meal))) && matchesSearch(c.recipe, query, t, offered, extras.get(c.recipe.id))),
+    () => cards.filter((c) => [...toggles].every((x) => TOGGLE_TEST[x](c.recipe)) && (meals.size === 0 || (!!c.recipe.meal && meals.has(c.recipe.meal))) && matchesRecipeSearch(c.recipe, query, t, offered, extras.get(c.recipe.id))),
     [cards, toggles, meals, query, t, offered, extras],
   );
   // the default range: this shop's cheapest and dearest serving; a chosen range is kept inside it (null: every price)

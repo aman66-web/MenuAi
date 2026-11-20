@@ -14,6 +14,13 @@ const settings = (patch = {}) => JSON.stringify({ v: 1, data: { goal: "maintain"
 let passed = 0, failed = 0;
 async function step(name, fn) { try { await fn(); passed++; console.log("PASS", name); } catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n").slice(0, 3).join(" | ")); } }
 const expect = (c, m) => { if (!c) throw new Error(m); };
+/** The week's two figures (founder 2026-11-20): "Your first shop: about £N" and "Each week after: about £M", as numbers, from within `scope`. */
+async function twoWeeks(scope, timeout = 60000) {
+  const first = scope.getByText(/^Your first shop: about £[\d,]+$/);
+  await first.first().waitFor({ timeout });
+  const pounds = async (l) => Number((await l.first().innerText()).replace(/[^\d]/g, ""));
+  return { first: await pounds(first), after: await pounds(scope.getByText(/^Each week after: about £[\d,]+$/)), why: await scope.getByText(/^It includes .+(, which last for weeks| that last for weeks)\.$/).first().innerText() };
+}
 async function context(patch) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   await ctx.addInitScript((s) => {
@@ -51,6 +58,11 @@ await step("the first open starts on the check screen, filled in from the person
   expect(/^Who's eating\s+Just me\s+Change$/.test(first.trim()), "Who's eating first: " + first);
   await page.locator("main ul li", { hasText: "Where you shop" }).getByText("Sainsbury's", { exact: true }).waitFor({ timeout: 60000 });
   await page.getByText("No budget: the best week for your goal", { exact: true }).waitFor();
+  // the week Make my plan would make, its first shop and each week after, under the budget row (founder 2026-11-20)
+  const budgetRow = page.locator("main ul li", { hasText: "Your budget" });
+  const w = await twoWeeks(budgetRow, 180000);
+  expect(w.first > w.after && w.after > 0, "the check screen's two figures: " + JSON.stringify(w));
+  expect((await budgetRow.getByText(/budget\.$/).count()) === 0, "a budget line with no budget");
   await page.getByText(/^I've filled this in from your settings\./).waitFor();
   expect((await page.getByRole("link", { name: /^Back/ }).getAttribute("href")) === "/app", "Back goes Home, not to a step");
   await page.getByRole("button", { name: "Make my plan" }).and(page.locator(":enabled")).waitFor({ timeout: 180000 });
@@ -182,6 +194,11 @@ await step("the budget slider: from the cheapest week for the goal to pricier pr
   await page.getByRole("heading", { level: 1, name: "Ready to make your plan?" }).waitFor();
   expect((await page.locator("main ul li").first().innerText()).includes("Just me"), "Who's eating: Just me, first");
   expect((await page.getByRole("button", { name: /^Change: / }).count()) >= 6, "a Change on every line");
+  // with a budget: the two figures and where they sit against it, in a few words
+  const budgetRow = page.locator("main ul li", { hasText: "Your budget" });
+  const w = await twoWeeks(budgetRow, 180000);
+  expect(w.first > w.after, "the check screen's two figures: " + JSON.stringify(w));
+  await budgetRow.getByText(/^(Both are within your £\d+ budget\.|Only your first shop is over your £\d+ budget\.|£[\d.]+ over your £\d+ budget: the cheapest week our recipes allow\.)$/).waitFor();
   await page.getByRole("button", { name: "Make my plan" }).click();
 });
 
@@ -199,9 +216,13 @@ await step("making the plan: Pip shows each step with its real figure for about 
 
 await step("the week: 21 meals from the two shops, a shop on each meal, the shopping per shop with totals", async () => {
   await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 120000 });
-  await page.getByText(/for the week's shopping/).waitFor();
+  // the money card's headline: the first shop and each week after (founder 2026-11-20), where they sit against the budget, and what lasts
+  const w = await twoWeeks(page);
+  expect(w.first > w.after && w.after > 0, "the two figures: " + JSON.stringify(w));
+  expect((await page.getByText(/for the week's shopping/).count()) === 0, "the one figure as well as the two");
   // no Pip on the money card (founder 2026-11-20: "keep him as the guide, not the decoration")
-  const money = page.locator("p", { hasText: /^for the week's shopping/ }).locator("xpath=..");
+  const money = page.locator("div").filter({ has: page.getByText(/^Your first shop: about £/) }).filter({ hasText: /budget/ }).last();
+  await money.getByText(/^(Both are within your £\d+ budget\.|Only your first shop is over your £\d+ budget\.|£[\d.]+ over your £\d+ budget(: the cheapest week our recipes allow| with your swaps)\.)$/).waitFor();
   expect((await money.locator("svg, img").count()) === 0, "no Pip on the money card");
   const days = page.getByRole("radiogroup", { name: "Day" }).getByRole("radio");
   expect((await days.count()) === 7, "seven days");
@@ -243,6 +264,50 @@ await step("swap a meal: a list of other recipes for that meal, the one tapped t
   await sheet.waitFor({ state: "hidden" });
   const after = await page.locator("section[aria-labelledby='day-h'] li").first().locator("a span.font-bold").first().innerText();
   expect(after === pick && after !== before, `swapped from ${before} to ${pick}: now ${after}`);
+});
+
+// The Swap sheet as a small Recipes screen (founder 2026-11-20: "they also should be able to search ... choose an item that they want to put in instead"): every
+// recipe the plan priced for that meal, the week's own marked In your plan and still there, the Recipes screen's tiles, fields and search.
+await step("swap by search and filter: every dinner the plan priced; a tile narrows them and Clear brings them back; a word finds one further down, and the one tapped is the day's", async () => {
+  const dinnerRow = () => page.locator("section[aria-labelledby='day-h'] > ul > li").nth(2);
+  await dinnerRow().getByRole("button", { name: /^Swap this meal: / }).click();
+  const sheet = page.getByRole("dialog", { name: /^Swap dinner/ });
+  await sheet.waitFor();
+  const options = sheet.getByRole("button").filter({ hasText: /kcal/ });
+  const status = sheet.getByRole("status");
+  const count = async (re) => Number((await status.innerText()).match(re)?.[1] ?? NaN);
+  const all = await count(/^(\d+) recipes$/);
+  expect(all > 10, `every dinner priced, more than the ten the sheet listed before: ${all}`);
+  expect((await options.count()) === Math.min(all, 20), `the first 20 rows: ${await options.count()}`);
+  expect((await sheet.getByText("In your plan", { exact: true }).count()) >= 1, "the week's other dinners are marked");
+  for (const name of ["Cuisine", "Serving price", "Sort by"]) await sheet.getByText(name, { exact: true }).first().waitFor();
+  // a quick-filter tile narrows the list; Clear brings every dinner back
+  const tile = sheet.getByRole("group", { name: "Filters" }).getByRole("button").first();
+  const tileName = (await tile.innerText()).trim();
+  await tile.click();
+  expect((await tile.getAttribute("aria-pressed")) === "true", "the tile is on");
+  await status.filter({ hasText: /match/ }).waitFor();
+  const narrowed = await count(/^(\d+) recipes? match/);
+  expect(narrowed >= 1 && narrowed < all, `${tileName}: ${narrowed} of ${all}`);
+  await sheet.getByRole("button", { name: "Clear", exact: true }).click();
+  await status.filter({ hasText: new RegExp(`^${all} recipes$`) }).waitFor();
+  // the sort: Lowest price puts the cheapest first
+  await sheet.getByLabel("Sort by").selectOption("price");
+  const prices = await options.evaluateAll((bs) => bs.map((b) => Number((b.innerText.match(/£(\d+\.\d\d)/) ?? [])[1])));
+  expect(prices.every((p, i) => i === 0 || prices[i - 1] <= p), `cheapest first: ${prices.slice(0, 6).join(", ")}`);
+  await sheet.getByLabel("Sort by").selectOption("fit");
+  // a word from a recipe further down the list finds it; tapping it puts it in the day
+  const want = (await options.last().innerText()).split("\n")[0];
+  const word = want.split(/[\s,]+/).sort((a, b) => b.length - a.length)[0];
+  await sheet.getByRole("searchbox", { name: "Search recipes" }).fill(word);
+  await status.filter({ hasText: /match/ }).waitFor();
+  const found = await count(/^(\d+) recipes? match/);
+  expect(found >= 1 && found < all, `"${word}": ${found} of ${all}`);
+  expect(await sheet.evaluate((d) => d.querySelector(".sheet-panel").scrollWidth <= d.querySelector(".sheet-panel").clientWidth), "no sideways scroll in the sheet");
+  await options.filter({ hasText: want }).first().click();
+  await sheet.waitFor({ state: "hidden" });
+  const now = await dinnerRow().locator("a span.font-bold").first().innerText();
+  expect(now === want, `searched "${word}", chose ${want}: the day shows ${now}`);
 });
 
 await step("add all to the shopping list, then the list holds them", async () => {
@@ -305,7 +370,7 @@ await ctx.close();
 // PremiumIntro, and the step says so.
 const sold = await context({ devProOverride: false });
 const p2 = await sold.newPage();
-await step("before Premium: the same week the first open's Make my plan makes, from the person's shop, the shopping as a plain line", async () => {
+await step("before Premium: the same week the first open's Make my plan makes, from the person's shop, the first shop and each week after as plain lines", async () => {
   await p2.goto(BASE + "/app/plan");
   const intro = p2.getByRole("button", { name: "See Premium", exact: true }); // "Premium" is the one name; "See Premium" the one button (19-20 November 2026)
   const check = p2.getByRole("heading", { level: 1, name: "Ready to make your plan?" });
@@ -315,7 +380,10 @@ await step("before Premium: the same week the first open's Make my plan makes, f
   await preview.getByText(/^Breakfast · /).waitFor({ timeout: 180000 });
   const shown = (await preview.locator("li").allInnerTexts()).map((x) => x.replace(/^(Breakfast|Lunch|Dinner) · /, ""));
   expect(shown.length === 3, "three meals: " + shown.join(", "));
-  await preview.getByText(/^Shopping for the week at Sainsbury's: about £\d+$/).waitFor();
+  // the first shop and each week after (founder 2026-11-20), then the shop's shelf-price line
+  const seen = await twoWeeks(preview);
+  expect(seen.first > seen.after, "the preview's two figures: " + JSON.stringify(seen));
+  await preview.getByText(/^Prices are Sainsbury's shelf prices, checked .+, and vary by store\.$/).waitFor();
   await preview.getByText(/^About [\d,]+ kcal and \d+ g protein a day \(your target is 2,000 kcal\)\.$/).waitFor();
   // now with Premium: the first open's Make my plan, untouched
   await p2.evaluate(() => { const s = JSON.parse(localStorage.getItem("mm.v1.settings")); s.data.devProOverride = true; localStorage.setItem("mm.v1.settings", JSON.stringify(s)); });
@@ -326,6 +394,8 @@ await step("before Premium: the same week the first open's Make my plan makes, f
   await p2.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 45000 });
   const made = await p2.locator("section[aria-labelledby='day-h'] li a span.font-bold").allInnerTexts();
   expect(JSON.stringify(made.slice(0, 3)) === JSON.stringify(shown), `the same first day: ${made.join(", ")} vs ${shown.join(", ")}`);
+  const plan = await twoWeeks(p2);
+  expect(plan.first === seen.first && plan.after === seen.after, `the same two figures: ${JSON.stringify(plan)} vs ${JSON.stringify(seen)}`);
   const stored = await p2.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.mealPlan")).data);
   expect(stored.budget === null && stored.shops.join() === "sainsburys", JSON.stringify(stored).slice(0, 160));
   await p2.getByText("No budget set.", { exact: true }).waitFor();
@@ -335,18 +405,18 @@ await sold.close();
 // A GLP-1 meal cap (founder 2026-11-20): the meals can't add up to the day, so the plan says why, with the way to change it, and Pip never says it adds up.
 const glp = await context({ goal: "glp1", glp1MealCap: 450, dailyCalories: 2000 });
 const p3 = await glp.newPage();
-await step("GLP-1: the check screen and the meals step say the comfortable meal size is 450 kcal, 1,350 of 2,000, with Change it in Settings; no 'adds up'", async () => {
+await step("GLP-1: the check screen and the meals step say the comfortable meal size is 450 kcal, 1,350 of 2,000, with Change it (the Daily targets page); no 'adds up'", async () => {
   await p3.goto(BASE + "/app/plan");
   await p3.getByRole("heading", { level: 1, name: "Ready to make your plan?" }).waitFor({ timeout: 60000 });
   // in the app's voice, no goal name and no medication (the 30-person audit, 20 November 2026)
   const line = "Your meal size is 450 kcal, so your meals come to 1,350 of your 2,000 kcal.";
   await p3.getByText(line, { exact: true }).waitFor();
-  expect((await p3.getByRole("link", { name: "Change it in Settings" }).getAttribute("href")) === "/app/settings#targets", "the link goes to the meal size");
+  expect((await p3.getByRole("link", { name: "Change it", exact: true }).getAttribute("href")) === "/app/targets", "the link goes to the meal size");
   await p3.getByRole("button", { name: "Change: Meals and snacks" }).click();
   await p3.getByRole("heading", { level: 1, name: "Your meals and snacks" }).waitFor();
   await p3.getByText(line, { exact: true }).waitFor();
   expect((await p3.getByText(/your day adds up/).count()) === 0, "Pip doesn't say the day adds up");
-  const box = await p3.getByRole("link", { name: "Change it in Settings" }).boundingBox();
+  const box = await p3.getByRole("link", { name: "Change it", exact: true }).boundingBox();
   expect(box && box.height >= 44, "a big target: " + JSON.stringify(box));
 });
 await glp.close();
