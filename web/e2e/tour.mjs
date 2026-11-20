@@ -3,7 +3,7 @@
 // open as they are; someone set up, someone who said Not now, or anyone with something of their own stored never meets it again by itself; TOUR_VERSION 2
 // shows the new screens once to a phone that only saw the old tour and has still neither set up nor stored anything. Settings › Help › "Show me what Numbite
 // can do" (and the old ?tour=1 address, and Home's setup card) replays the three feature screens (Eat out, recipes, your week) with "{n} of 3", Close, Next
-// and Done, and writes nothing. Clear everything brings the cover back with its status line. The cover's wall has its 44 pt Pause; it and Pip settle; nothing
+// and Done, and writes nothing. Clear everything brings the cover back with its status line. The cover's wall moves (no Pause button; still with Reduce Motion); Pip settles; nothing
 // moves for reduced motion. The eleven steps themselves are e2e/showcase.mjs.
 // Run with the same NEXT_PUBLIC_ switches the server had:
 //   BASE=http://localhost:3005 NEXT_PUBLIC_PRO=1 NEXT_PUBLIC_PHOTO_RECIPES=1 node e2e/tour.mjs
@@ -355,30 +355,19 @@ await step("12. Pip and the cover settle: 6 s in, only the logo wall's marquee a
   }
 });
 
-// The onboarding meeting of 19 November (question 13, approved that day; WCAG 2.2.2): the wall keeps moving until someone taps its 44 pt "Pause"; "Play" starts it
-// again; with reduced motion nothing moves and there is no button.
-await step("13. the cover's logo wall has a 44 pt Pause at its corner: it stops the wall, and Play starts it again; with reduced motion there is no button", async () => {
-  const wallState = (p) => p.evaluate(() => [...document.querySelectorAll(".marquee")].map((m) => getComputedStyle(m).animationPlayState));
+// No Pause button on the cover's logo wall (founder 2026-11-20: "There's literally no point of a pause button"): the wall moves, and stands still with Reduce Motion.
+await step("13. the cover's logo wall moves with no Pause button; with reduced motion it stands still", async () => {
+  const wallState = (p) => p.evaluate(() => [...document.querySelectorAll(".marquee")].map((m) => getComputedStyle(m).animationName));
   const ctx = await fresh(); const p = await ctx.newPage();
   await p.goto(BASE + "/app/welcome");
   await getStarted(p).waitFor({ timeout: 60000 });
-  const pause = p.getByRole("button", { name: "Pause the moving logos" });
-  const box = await pause.boundingBox();
-  expect(box && box.height >= 44 && box.width >= 44, `Pause is ${box?.width} x ${box?.height}`);
-  expect((await pause.innerText()).trim() === "Pause", "its word is Pause: " + (await pause.innerText()));
-  expect((await wallState(p)).every((s) => s === "running"), "the wall moves until someone taps Pause");
-  await pause.click();
-  const play = p.getByRole("button", { name: "Play the moving logos" });
-  await play.waitFor();
-  expect((await wallState(p)).every((s) => s === "paused"), "Pause stops every row: " + (await wallState(p)).join(", "));
-  await play.click();
-  await pause.waitFor();
-  expect((await wallState(p)).every((s) => s === "running"), "Play starts it again");
+  expect((await p.getByRole("button", { name: /moving logos/ }).count()) === 0, "a Pause button is still on the wall");
+  expect((await wallState(p)).every((s) => s !== "none"), "the wall doesn't move");
   await ctx.close();
   const still = await fresh({ reducedMotion: "reduce" }); const q = await still.newPage();
   await q.goto(BASE + "/app/welcome");
   await getStarted(q).waitFor({ timeout: 60000 });
-  expect(!(await q.getByRole("button", { name: "Pause the moving logos" }).isVisible()), "a Pause button with nothing moving");
+  expect((await wallState(q)).every((s) => s === "none"), "the wall moves with Reduce Motion on");
   await still.close();
 });
 

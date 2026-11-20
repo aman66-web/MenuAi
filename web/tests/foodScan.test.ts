@@ -139,6 +139,9 @@ describe("checking Pip's answers", () => {
     // founder 2026-11-20: compare with our recipes and the restaurants' dishes, then use its own judgement for the most informed answer
     expect(ESTIMATE_SYSTEM_PROMPT).toMatch(/Scale from the references/);
     expect(ESTIMATE_SYSTEM_PROMPT).toMatch(/use your own judgement/);
+    // founder 2026-11-20: the portion's size comes from the photo's scale (plates, cutlery, hands), in both looks
+    expect(FIRST_LOOK_SYSTEM_PROMPT).toMatch(/dinner plate about 26 to 28 cm/);
+    expect(ESTIMATE_SYSTEM_PROMPT).toMatch(/Size each portion from the photo/);
   });
 });
 

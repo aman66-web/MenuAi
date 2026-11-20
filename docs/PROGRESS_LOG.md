@@ -3599,3 +3599,15 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   (founder: "call the top one like photo to macros, and the bottom one like photo to recipe ... people might understand it better. Or if you have a different
   one to choose"; "calories" chosen over "macros", a word not everyone knows; the card's line still says "see its calories and macros"). e2e foodscan 4/4,
   photorecipe 16/16.
+- (about 13:10) **No Pause button on the welcome screen's logo wall** (founder: "There's literally no point of a pause button"; it was the onboarding meeting's
+  WCAG 2.2.2 answer). The wall keeps moving and stands still when the phone's Reduce Motion is on. e2e/tour.mjs step 13 updated.
+- (about 13:10) **Scan your food sizes each portion from the photo** (founder: "if the photo's been taken with the camera, you can kind of tell how big the portion
+  of the food must be"): both looks are told to judge the amount from things of known size beside the food (a UK dinner plate about 26 to 28 cm, a fork about
+  19 cm, a can, a glass, a hand), how much of the plate it covers and how deep it is, allowing for a phone's arm's-length angle; low confidence when nothing
+  gives a scale. Takes effect with the next numbite.com deploy.
+- (about 13:10, in the working copy, committed with the audit's fixes) **Every AI feature on Claude Opus 5.5** (founder: "use Opus for the meal scanner ... just
+  use Opus for all the AI stuff which is in my app"): Scan your food (both looks), Make it at home (food check and recipe), Cook with what you have, Ask Pip and
+  Pip's pick (off). Opus always thinks a little first, so the quick calls get more room (food check 6,000 tokens, first look 8,000, pick 4,000) and the routes
+  longer limits (recipe 120 s, food check 60 s, scan 220 s, pick 60 s). Cost: Opus is $4 / $20 per million tokens in / out, against Sonnet 5.5's $2 / $10 and
+  Haiku 5.5's $0.10 / $0.50, so each Make it at home or scan costs about twice what it did, and the quick checks far more than on Haiku; the Anthropic spend
+  limit ($20 a month) will be reached sooner.
