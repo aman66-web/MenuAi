@@ -3751,3 +3751,7 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   of Premium. Matching our recipes to it stays free."; "Pip's fridge recipes aren't switched on yet." -> "Pip's recipes from what you have at home aren't
   switched on yet."; "Pip's fridge recipes are part of Premium." -> "Pip's recipes from what you have at home are part of Premium." (The screen itself:
   with the plain-recipes change.) Photo to calories stays as it is (asked, and advised: "nutrients" would promise sugar, salt and fibre the scan doesn't give).
+- (about 22:55) **Cook with what you already have: no "Shopping at" list** (founder, twice, circling it: "remove this"). The screen uses the person's usual recipe
+  shop quietly (recipeShop, as before when nothing was picked); Pip and the recipe links use that shop. The plain-recipe idea ("onions 150 g, no image nor brand
+  names") was dropped at the founder's word ("you can keep the recipes how they are now ... I changed my mind"), so recipe pages are unchanged. e2e/fridge.mjs
+  checks no "Shopping at", no "fridge" on screen and the shop on the tiles' links (5/5).

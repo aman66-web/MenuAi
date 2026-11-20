@@ -29,6 +29,11 @@ await step("Home has the card under the day's numbers, and it opens Cook with wh
   await card.tap();
   await page.getByRole("heading", { level: 1, name: "Cook with what you already have" }).waitFor();
   expect(await page.getByRole("button", { name: "Show me recipes" }).isDisabled(), "nothing typed: can't look yet");
+  // founder 2026-11-20: no choice of supermarket here; the person's usual recipe shop is used quietly
+  expect((await page.getByText("Shopping at").count()) === 0, "the screen still offers \"Shopping at\"");
+  expect((await page.getByRole("radio", { name: /Sainsbury|Waitrose|Morrisons|Asda|Iceland/ }).count()) === 0, "the screen still offers a choice of shop");
+  // the screen never says "fridge" (founder 2026-11-20: "Say at home not in your fridge")
+  expect(!/fridge/i.test(await page.locator("main").innerText()), "the screen says fridge");
 });
 
 await step("typing and tapping what you have, then what you fancy, finds our recipes that use it", async () => {
@@ -76,6 +81,7 @@ await step("a recipe opened from here starts with what you have ticked \"I have 
   await card.waitFor({ timeout: 60000 });
   const href = await card.locator("a[href*='/app/recipes/view']").first().getAttribute("href");
   expect(/[?&]have=[a-z0-9,-]+/.test(href ?? ""), "the link carries what you have: " + href);
+  expect(/[?&]r=sainsburys(&|$)/.test(href ?? ""), "the recipe is for the person's usual recipe shop: " + href);
   await page.goto(BASE + href);
   const ticked = page.getByRole("button", { name: /^I have this: .*egg/i, pressed: true });
   await ticked.first().waitFor({ timeout: 90000 });

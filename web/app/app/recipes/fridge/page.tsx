@@ -25,7 +25,6 @@ import { useShopManifest, useShopProducts } from "../../_lib/shopProducts";
 import { CHIP, CHIP_ON, TITLE } from "../../groceries/PageBits";
 import { RecipeDetail } from "../RecipeDetail";
 import { RecipeTile } from "../RecipeTile";
-import { ShopChoice } from "../ShopChoice";
 
 // Cook with what you have (founder 2026-11-19: "people can write down what they have in their fridge, and then it can make some cool recipe which tastes nice
 // based on all the stuff that they have"; "And based on what vibe of food they wanna eat"). The person types what they have (or taps the common things) and
@@ -58,7 +57,6 @@ function Fridge() {
   const [text, setText] = useState("");
   const [mood, setMood] = useState<FridgeMood>("any");
   const [shown, setShown] = useState(false);
-  const [pickedShop, setPickedShop] = useState<string | null>(null);
   const [step, setStep] = useState<"form" | "working" | "error" | "done">("form");
   const [error, setError] = useState<string | null>(null);
   const [made, setMade] = useState<{ recipe: Recipe; fromHome: string[] } | null>(null);
@@ -66,9 +64,9 @@ function Fridge() {
   const [line, setLine] = useState(0);
   const results = useRef<HTMLElement>(null);
   const abort = useRef<AbortController | null>(null);
-  const shop = pickedShop ?? recipeShop(manifest, null, settings.shops);
-  const readyShops = recipeShops(manifest).map((r) => ({ id: r.id, name: r.name }));
-  const shopName = readyShops.find((s) => s.id === shop)?.name ?? t("your shop");
+  // the person's usual recipe shop, used quietly for the sums (founder 2026-11-20: no "Shopping at" choice on this screen)
+  const shop = recipeShop(manifest, null, settings.shops);
+  const shopName = recipeShops(manifest).find((s) => s.id === shop)?.name ?? t("your shop");
   const consent = useAiConsent("fridgeRecipe", shopName);
   const products = useShopProducts(shop, 0);
   const ready = products.status === "ready" ? products : null;
@@ -243,13 +241,6 @@ function Fridge() {
           <button key={m.id} type="button" role="radio" aria-checked={mood === m.id} onClick={() => { setMood(m.id); setShown(false); }} className={`${mood === m.id ? CHIP_ON : CHIP} px-4`}>{t(m.label)}</button>
         ))}
       </div>
-
-      {readyShops.length > 1 && (
-        <>
-          <h2 className="mt-6 text-lg font-[800]">{t("Shopping at")}</h2>
-          <div className="mt-2"><ShopChoice shops={readyShops} value={shop} onChange={(id) => { setPickedShop(id); setShown(false); }} /></div>
-        </>
-      )}
 
       {/* while it can't be pressed, the reason sits above it (colour meeting: never a silent grey button) */}
       <Button full wrapClassName="mt-6" className={items.length ? "mt-6 min-h-14 text-lg" : "min-h-14 text-lg"} disabled={!items.length} reason={t("Type or tap at least one thing you have.")} onClick={() => setShown(true)}>{t("Show me recipes")}</Button>
