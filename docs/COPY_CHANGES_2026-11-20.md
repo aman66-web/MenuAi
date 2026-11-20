@@ -449,3 +449,31 @@ Founder's standing instruction for this pass (20 Nov): "If the person understand
 - Your meal plan, What to buy: "Every meal's amounts added up, as whole packs." -> "In whole packs."
 - Your meal plan, swap sheet: "Other recipes sized for this meal. Tap one to have it on {day}." -> "Tap one to have it on {day}."
 - Earlier plans: "Your last plans are kept on this phone. Open one to follow it again." -> "Kept on this phone."
+
+## Review fixes (evening, commit d2e64ef5)
+
+- (barcode) Groceries product page, a barcode we don't hold: "We don't have {code} yet." -> "We don't have this one yet." with a line under it "Barcode {code}" (leading zeros kept). Both strings already exist in Add food.
+- (barcode) Same page, main button: the ink "Scan again" -> the ink "Type the numbers from the pack" (existing string). "Scan again" is now a white button; "Search the supermarkets" stays.
+- (barcode) Same page, new sheet from that button: title "Type in your numbers", with "Which meal?" (Breakfast / Lunch / Dinner / Snacks) and Add food's existing typed-numbers form. All strings already exist.
+- (barcode) Same page, new view while the product is looked up at Open Food Facts: "Looking it up" (existing string).
+- (barcode) Same page, new view for a product Open Food Facts has: its brand, name and pack size, "Add to my food diary", "per 100 g" / "per 100 ml", Saturates / Sugars / Fibre / Salt, "Figures from Open Food Facts (community data)" and the link "Open Food Facts, ODbL". All strings already exist.
+- (barcode) Same page, lookup failed: "Couldn't look it up. Check your connection." with Try again (existing string).
+- (barcode) How much?: the "100 g" / "100 ml" chip now always shows, marked when it is the amount (no new words).
+- (barcode) The key "We don't have {code} yet." is no longer used; keys.json needs WRITE_I18N=1 npx vitest run tests/i18n.test.ts (left to the check stage).
+- (onboarding-signin) Email code screen, after a wrong code (SignIn.tsx): "That code isn't right, or it has run out. Ask for a new one." -> "That code isn't right."
+- (onboarding-signin) Welcome step 2, the allergy label (DietPicker welcome layout): "Allergies to avoid" (an h2 below the diet pictures) -> "Allergies" (an h2 straight under "Anything you avoid?", a new key). The chips' group is still read to screen readers as "Allergies to avoid".
+- (onboarding-signin) Welcome step 2, new label above the diet picture tiles: (none) -> "Diet" (a new key)
+- (onboarding-signin) Welcome step 2, new chip after the first seven allergies: (none) -> "More" (existing key)
+- (onboarding-signin) Welcome step 2, order: the allergy chips and the caution "Filters use each restaurant's own allergen guide. Always check with staff." (wording unchanged) moved from below the diet pictures to above them
+- (onboarding-signin) Save your plan (account step): the large Pip picture is removed (it had no words; it was aria-hidden)
+- (stats) Macros ring caption (MacrosPanel): "Share by weight." -> "Share of calories."
+- (stats) Macros split rows: "Protein 220g 25%" (grams bold, share grey) -> "Protein 20% 220g" (calorie share bold, grams grey). Same for Carbs and Fat. The ring's middle still reads "{n}% protein", but n is now the share of calories.
+- (stats) New key under charts (DayBars NothingKey), shown only when a dash is on screen: (none) -> "Nothing logged" (a small dash mark before it)
+- (stats) Calories tab: two cards with headings "This week" and "Last 4 weeks" -> one card with a switch "This week" | "Last 4 weeks" (radiogroup named "Calories"). Both labels are existing strings; the card heading is now for screen readers only.
+- (stats) Calories, Last 4 weeks view: no target key -> "Your target: {n} kcal" (existing string, now in both views)
+- (stats) New screen-reader-only line for a current week with only today's food (CaloriesPanel): "Week of {date}: nothing logged" -> "Week of {date}: nothing logged before today"
+- (recipe-plan) No user-facing sentence changed. The chip uses words already in the app: "Saved" / "Save" on screen, and "Saved to My recipes" / "Save to My recipes" for screen readers. No new i18n keys.
+- (recipe-plan) Layout change only: on a saved Pip recipe opened from My recipes, the photo's top right was the Settings cog -> now the heart chip "Saved" ("Save" once taken out).
+- (recipe-plan) Layout change only: the Settings cog no longer shows on any recipe photo. This includes Pip's recipe maker page (app/app/recipes/make, switched off by AI_RECIPES_ENABLED=false), where the top right is now empty.
+- (words-restore) web/app/app/_components/Allergens.tsx (item page Allergens card, chains whose allergens we haven't read): "We don't show allergens for {chain} yet." -> "We don't show allergens for {chain} yet. Check {chain}'s own guide."
+- (lead) Plans screen trial line: "One free trial per Apple ID." -> back to "With the free trial you pay nothing for the first {days} days. If you don't cancel at least 24 hours before it ends, the subscription starts and you're charged. There is one free trial per Apple ID." (Apple 3.1.2: the trial's terms must stay on the purchase screen)

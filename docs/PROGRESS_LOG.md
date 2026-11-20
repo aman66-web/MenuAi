@@ -3679,3 +3679,10 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   sainsburys.co.uk answered 403 to the server, so they were read from the shop's own product pages in the founder's Chrome (one page each, the gallery
   photo on assets.sainsburys-groceries.co.uk), written to `data/groceries/images/sainsburys-listing.csv`, hotlinked (Option D step 2). Every product a recipe
   uses now has a photo. **Morrisons:** the last 3 pages read; every Morrisons page is read (10,555 labels of its own).
+- (evening, commit d2e64ef5) **The review's fixes:** the Groceries tab looks a scanned barcode up as printed (01318180 found the loaf only in Add food
+  before) and asks Open Food Facts for one we don't hold, with "Add to my food diary"; How much? always offers 100 g / 100 ml; onboarding's "Anything you
+  avoid?" puts the allergy chips first, in view without scrolling (safety: someone could tap "Nothing to avoid" without seeing them); Save your plan has no
+  big Pip; Stats' macro ring gives **shares of calories** (protein and carbs 4 kcal/g, fat 9; the three add to 100), the same measure the meal plan's styles
+  use, with the grams beside; a saved Pip recipe shows "Saved" at the photo's top right, never the cog. **Restored after the words pass:** "Check {chain}'s
+  own guide." and the plans screen's free-trial terms (Apple 3.1.2). Checked live: our route found Rice Krispies (5059319042626) at Open Food Facts.
+  Tests: every e2e listed green, vitest all green, tsc and eslint clean. Not checked: e2e/signin.mjs (needs a sign-in-required build).
