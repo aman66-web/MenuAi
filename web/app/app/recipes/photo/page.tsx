@@ -28,14 +28,14 @@ import { recipeShops } from "@/lib/mm/shopProducts";
 import { useShopManifest, useShopProducts } from "../../_lib/shopProducts";
 import { RecipeDetail } from "../RecipeDetail";
 import { ShopChoice } from "../ShopChoice";
-import { PhotoCamera, ScanningPhoto } from "./PhotoCamera";
+import { PhotoCamera } from "./PhotoCamera";
 
 // Make it at home (founder 2026-11-16, new order 2026-11-17): the name of the dish and a short description (they help Pip choose the right ingredients), then the
-// camera with a scanning look (PhotoCamera.tsx), a couple of seconds of "Scanning", the supermarket, Next, a loading screen while Pip writes it, and the recipe
+// camera with a scanning look (PhotoCamera.tsx), then straight to the supermarket (no "Scanning" screen: founder 2026-11-20), Next, a loading screen while Pip writes it, and the recipe
 // with the person's photo on top from real products at the shop, every number worked out from their labels (lib/mm/photoRecipe.ts).
 // Premium only, and the whole page exists only while PHOTO_RECIPES_ENABLED (lib/mm/config.ts). The photo is made smaller on the phone first (_lib/photo.ts).
 
-type Step = "describe" | "camera" | "scanning" | "shops" | "working" | "done" | "error";
+type Step = "describe" | "camera" | "shops" | "working" | "done" | "error";
 type FoodCheck = "food" | "notFood" | "unknown";
 const SERVINGS = 2;
 /** The name and the description are joined into the one sentence the API takes (MAX_DESCRIPTION), so these two add up to less than that. */
@@ -141,7 +141,8 @@ function PhotoScreen() {
   const [step, setStep] = useState<Step>("describe");
   const [photo, setPhoto] = useState<ShrunkPhoto | null>(null);
   const [photoError, setPhotoError] = useState(false);
-  // While "Scanning", Pip checks the photo shows food (the describe route); a photo of anything else goes back to the camera with this note (founder 2026-11-17)
+  // While the person picks the shop, Pip checks the photo shows food (the describe route); a photo of anything else goes back to the camera with this note when
+  // they go on (founder 2026-11-17; no "Scanning" screen since 2026-11-20)
   const [retryNote, setRetryNote] = useState<string | null>(null);
   const foodCheck = useRef<Promise<FoodCheck> | null>(null);
   const stepNow = useRef<Step>("describe");
@@ -222,19 +223,8 @@ function PhotoScreen() {
     foodBox.current = null;
     setDishPhoto(null);
     foodCheck.current = checkFood(shrunk.base64);
-    setStep("scanning");
-  };
-
-  /** "Scanning" has run its course: on to the supermarket, or back to the camera if the photo isn't of food. */
-  const afterScan = async () => {
-    const result = await (foodCheck.current ?? Promise.resolve<FoodCheck>("unknown"));
-    if (stepNow.current !== "scanning") return; // the person went Back meanwhile
-    if (result === "notFood") {
-      setPhoto(null);
-      setRetryNote(tk("That doesn't look like food. Please try again with a photo of the dish."));
-      setStep("camera");
-      return;
-    }
+    // straight on to the supermarket (founder 2026-11-20: "I don't need this part where it says scanning ... once they've scanned the food, it just goes onto
+    // the next screen"); the food check carries on meanwhile and is read when they ask for the recipe
     setStep("shops");
   };
 
@@ -251,6 +241,15 @@ function PhotoScreen() {
     setStep("working");
     setFinished(false);
     setSavedId(null);
+    // the food check started when the photo was taken: only a clear "not food" from Pip sends them back to the camera (if it couldn't be made, carry on)
+    if ((await (foodCheck.current ?? Promise.resolve<FoodCheck>("unknown"))) === "notFood") {
+      if (stepNow.current !== "working") return; // the person went Back meanwhile
+      setPhoto(null);
+      setRetryNote(tk("That doesn't look like food. Please try again with a photo of the dish."));
+      setStep("camera");
+      return;
+    }
+    if (stepNow.current !== "working") return;
     abort.current = new AbortController();
     try {
       const res = await fetch(`${API_BASE}recipe/photo`, { method: "POST", headers: headers(), body: JSON.stringify(body), signal: abort.current.signal });
@@ -281,10 +280,10 @@ function PhotoScreen() {
   };
 
   const goBack = () => {
-    if (step === "scanning" || step === "shops") setStep("camera");
+    if (step === "shops") setStep("camera");
     else if (step === "error") setStep("shops");
   };
-  const inFlow = step === "scanning" || step === "shops" || step === "error";
+  const inFlow = step === "shops" || step === "error";
   // the header every page has (colour meeting, 19 November 2026): Back with its word (inside the flow a step back, else the page before or Recipes), the
   // Shopping list pill outside the flow, the Settings cog far right (the full-screen camera covers it: no cog there)
   const back = inFlow
@@ -452,7 +451,6 @@ function PhotoScreen() {
         />
       )}
 
-      {step === "scanning" && photo && (<><Steps current={2} /><ScanningPhoto url={photo.url} onDone={() => void afterScan()} /></>)}
 
       {(step === "shops" || step === "error") && (
         <section aria-labelledby="shops-q">

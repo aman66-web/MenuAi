@@ -3579,3 +3579,6 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   it; VoiceOver still says "(today)"); the week and the numbers cards sit higher; the gap under the two dots is closed. **The Settings cog has no word under it
   on every page** (VoiceOver still hears "Settings"), reversing the colour meeting's "cog with its word". Recipes: "What's cooking today?" sits right under the
   top row. Measured at 402 x 874 (the founder's phone): the Meal plan card's title and line show above the tab bar; no sideways scroll at 375 and 390.
+- (about 12:10) Make it at home: **no "Scanning" screen** (founder, screenshot: "I don't need this part where it says scanning ... once they've scanned the
+  food, it just goes onto the next screen"). The photo goes straight to the supermarket step (about 0.3 s); the "is this food?" check runs meanwhile and is read
+  when they tap Next, so a photo of something else still goes back to the camera with "That doesn't look like food." Checked in the browser both ways.
