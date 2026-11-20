@@ -31,7 +31,7 @@ export const PREMIUM_FEATURES: readonly PremiumFeature[] = [
   { id: "foodScan", title: tk("Scan your food"), line: tk("A photo of a meal, an estimate of its calories and macros"), icon: "camera", triggers: ["foodScan"], on: FOOD_SCAN_ENABLED, headline: true },
   { id: "photoRecipe", title: tk("Make it at home"), line: tk("Cook any dish from a photo"), icon: "pot", triggers: ["photoRecipe"], on: PHOTO_RECIPES_ENABLED, headline: true },
   // matching our own recipes to the fridge is free; Pip writing a new one is Premium (recipes/fridge/page.tsx)
-  { id: "fridgeRecipe", title: tk("Cook with what you already have"), line: tk("Pip makes a new recipe from your fridge"), icon: "fridge", triggers: ["fridgeRecipe"], on: PHOTO_RECIPES_ENABLED, headline: true },
+  { id: "fridgeRecipe", title: tk("Cook with what you already have"), line: tk("Pip makes a new recipe from what you have at home"), icon: "fridge", triggers: ["fridgeRecipe"], on: PHOTO_RECIPES_ENABLED, headline: true },
   { id: "truth", title: tk("Every Truth card"), line: tk("Not just {n} a day"), values: { n: FREE_TRUTH_PER_DAY }, icon: "bolt", triggers: ["truthLimit"], on: true, headline: true },
   { id: "quickAnswers", title: tk("Every Smart Swap"), line: tk("And every Quick answer"), icon: "swap", triggers: ["moreResults"], on: true, headline: false },
   { id: "smallAppetite", title: tk("Small appetite"), line: tk("Smaller meals with plenty of protein, on every menu"), icon: "shrink", triggers: ["smallAppetite"], on: true, headline: false },
@@ -66,7 +66,7 @@ export const PAYWALL_REASON: Readonly<Record<PaywallTrigger, { text: string; val
   mealPlan: { text: tk("Meal plan is part of Premium.") },
   foodScan: { text: tk("Scan your food is part of Premium.") },
   photoRecipe: { text: tk("Make it at home is part of Premium.") },
-  fridgeRecipe: { text: tk("Pip's new recipe from your fridge is part of Premium. Matching our recipes to it stays free.") },
+  fridgeRecipe: { text: tk("Pip's new recipe from what you have at home is part of Premium. Matching our recipes to it stays free.") },
   smallAppetite: { text: tk("Small appetite is part of Premium.") },
   bestForYou: { text: tk("Your first {n} picks are free. Premium shows every pick for your goal."), values: { n: FREE_BEST_RESULTS } },
   moreResults: { text: tk("The first {n} answers are free. Premium shows the whole list."), values: { n: FREE_PRESET_RESULTS } },

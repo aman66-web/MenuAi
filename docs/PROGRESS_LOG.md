@@ -3745,3 +3745,9 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   targets" with Back (to the page it came from), the same boxes, Save targets, Suggest targets and the ask before leaving unsaved numbers. Linked from Meal
   plan's "Change my numbers", its GLP-1 meal-size line ("Change it in Settings" -> "Change it") and Home's "Set your targets to see what's left today".
   Precached for the website (sw.js mm-v10); not remembered as a tab page.
+- (about 22:45) **"At home", not "fridge"** (founder, screenshot of Home's Cook with what you already have card: "Say at home not in your fridge"): "Recipes from
+  what's in your fridge." -> "Recipes from what you have at home."; "Pip makes a new recipe from your fridge" -> "Pip makes a new recipe from what you have at
+  home"; "Pip's new recipe from your fridge is part of Premium. Matching our recipes to it stays free." -> "Pip's new recipe from what you have at home is part
+  of Premium. Matching our recipes to it stays free."; "Pip's fridge recipes aren't switched on yet." -> "Pip's recipes from what you have at home aren't
+  switched on yet."; "Pip's fridge recipes are part of Premium." -> "Pip's recipes from what you have at home are part of Premium." (The screen itself:
+  with the plain-recipes change.) Photo to calories stays as it is (asked, and advised: "nutrients" would promise sugar, salt and fibre the scan doesn't give).

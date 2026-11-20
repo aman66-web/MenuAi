@@ -98,7 +98,7 @@ export function RecipeTools() {
           <span className="flex items-start gap-3">
             <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
               <span className="block text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("Cook with what you already have")}</span>
-              <span className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{t("Recipes from what's in your fridge.")}</span>
+              <span className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{t("Recipes from what you have at home.")}</span>
             </span>
             <ChevronRightIcon aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-ink" />
           </span>

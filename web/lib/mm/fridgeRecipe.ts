@@ -159,8 +159,8 @@ export interface FridgeRecipeRequest {
 }
 
 export const FRIDGE_MESSAGES = {
-  notEnabled: tk("Pip's fridge recipes aren't switched on yet."),
-  premium: tk("Pip's fridge recipes are part of Premium."),
+  notEnabled: tk("Pip's recipes from what you have at home aren't switched on yet."),
+  premium: tk("Pip's recipes from what you have at home are part of Premium."),
   noRecipe: tk("Pip couldn't make a recipe from these this time. Please try again, maybe with a few more things."),
   tooFew: tk("Tell Pip at least two things you have."),
 } as const;
