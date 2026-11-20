@@ -3789,3 +3789,11 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   part of the homepage. Same with the snap recipe to timetable, all of that"): a recipe (/app/recipes/view) opened from Home (the meal plan, the cooking tools'
   results) keeps Home lit, from Groceries' list keeps Groceries lit, opened first or from Recipes lights Recipes (SHARED_PAGES and litTab in
   app/app/_lib/tabs.ts, used by AppShell's tab bar). Checked in a browser; tests/tabMemory.test.ts.
+- (about 23:45) **Decision: a free week for every new account, no details; gifts by email** (founder: "Whenever someone signs into the app for the first time,
+  they automatically get a 7-day free trial ... They don't need to type any details ... once the trial is up ... the pop-up will come up saying you need to
+  subscribe"; repeats stopped "if someone deletes their account or uninstalls the app"; "we'll use the Apple device check"; and "if I give their email to you,
+  you can give them a premium account ... I won't have to do a new build for that"). Replaces the "free until a date" switch (paused, not built) and the
+  trial offer before Home (dropped). Design agreed: 7 days from the first sign-in, on our server (signed Premium token); repeats stopped by a keyed one-way
+  hash of the email and of the Apple id (kept after deletion only for this) and Apple's DeviceCheck bit; a server-side gift list (account, optional end);
+  Apple's own 7-day introductory trial to be removed in App Store Connect so nobody sees two free weeks. Being built (not yet: migration not applied,
+  DeviceCheck key to be made by the founder).
