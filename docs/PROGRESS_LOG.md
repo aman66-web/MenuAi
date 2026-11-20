@@ -3541,3 +3541,9 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
 - Left for later (noted by the builders): `RecipeTile` has no native choose mode (step 5 lays a button over it); Costa frappés count as mains in `itemKind.ts`
   (the `\b` after "é"); mini and full naans share one piece weight; the iPhone's own offline signal is not used on step 11; the 2.5 s week cap not yet timed in the
   iPhone web view.
+
+### 20 November 2026 (about 10:30): My recipes at the top left of Recipes (on `iap`, not live)
+- Founder (screenshot of Recipes): "remove the recipes from the top left and put my recipes with a love heart in the top left". The word "Recipes" is gone
+  from the top left; the My recipes button (heart, the words, the saved count) sits there instead, drawn like the Shopping list pill beside it, and its old
+  row under the intro is removed. One row from 320 to 430 px with a 3-digit list count (measured); below 390 px the saved-count bubble is left out (still read
+  by VoiceOver in the button's name).

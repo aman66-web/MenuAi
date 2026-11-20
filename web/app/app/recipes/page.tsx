@@ -269,13 +269,20 @@ function RecipesScreen() {
 
   return (
     <div>
-      {/* the word "Recipes" (the page's heading is the question under it; Pip left it in the Pip audit, founder 2026-11-20: "keep him as the guide, not the
-          decoration"); then the Shopping list pill and the Settings cog with its word at the top right, in the order of every tab (founder 2026-11-19: "the
-          settings cog should be on the top right of every page") */}
+      {/* top left: My recipes with its heart, in place of the word "Recipes" (founder 2026-11-20: "remove the recipes from the top left and put my recipes with a
+          love heart in the top left"; the tab bar and the question below already say where you are). It opens My meals at its Recipes tab (recipes saved with a
+          card's heart and the ones made for the person), with how many are saved (the bubble is left out below 390 px so the row stays one line with a
+          three-digit list count; the link's name still says it), and is drawn like the Shopping list pill beside it. Then the Shopping list
+          pill and the Settings cog with its word at the top right, in the order of every tab (founder 2026-11-19: "the settings cog should be on the top right
+          of every page") */}
       <div className="flex flex-wrap items-start justify-between gap-x-2 gap-y-1">
-        <div className="flex min-h-11 min-w-0 items-center">
-          <span className="truncate text-base font-semibold">{t("Recipes")}</span>
-        </div>
+        <Link href="/app/meals?tab=recipes" data-coach="recipes-mine" aria-label={savedCount > 0 ? `${t("My recipes")} · ${savedCount}` : t("My recipes")} className="group -ms-0.5 inline-flex min-h-11 shrink-0 items-center rounded-full transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+          <span className="inline-flex h-9 items-center gap-1 whitespace-nowrap rounded-full border-[1.5px] border-edge bg-card ps-[calc(0.625rem_-_1.5px)] pe-[calc(0.625rem_-_1.5px)] text-[0.9375rem] font-semibold text-foreground transition-colors group-hover:bg-background">
+            <HeartIcon aria-hidden className="h-[18px] w-[18px] shrink-0 text-ink" />
+            <span aria-hidden>{t("My recipes")}</span>
+            {savedCount > 0 && <span aria-hidden className="app-numbers inline-flex h-6 max-[389px]:hidden min-w-6 items-center justify-center rounded-full bg-ink px-1 text-[0.75rem] font-bold text-on-ink">{savedCount}</span>}
+          </span>
+        </Link>
         <div className="-me-1 ms-auto flex max-w-full flex-wrap items-start justify-end gap-x-1 gap-y-1">
           <ShoppingListPill />
           <SettingsGear />
@@ -288,15 +295,6 @@ function RecipesScreen() {
       <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">
         {shopNames.length ? t("Made with real {shop} products and prices.", { shop: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(shopNames) }) : t("Made with real supermarket products and prices.")}
       </p>
-
-      {/* My recipes (founder 2026-11-18: "instead of the love heart ... maybe its better having 'my recipes'"), with how many are saved, opening My meals at its
-          Recipes tab (the recipes saved with a card's heart and the ones made for the person): a white button with the control edge and an ink heart, here in
-          the page since the top right became the Shopping list and the cog on every tab (colour meeting, 19 November 2026) */}
-      <Link href="/app/meals?tab=recipes" data-coach="recipes-mine" aria-label={savedCount > 0 ? `${t("My recipes")} · ${savedCount}` : t("My recipes")} className="mt-3 inline-flex min-h-11 items-center gap-1.5 rounded-full border-[1.5px] border-edge bg-card ps-3 pe-3.5 text-[0.9375rem] font-semibold text-foreground transition hover:bg-background active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-        <HeartIcon aria-hidden className="h-[18px] w-[18px] shrink-0 text-ink" />
-        <span aria-hidden>{t("My recipes")}</span>
-        {savedCount > 0 && <span aria-hidden className="app-numbers ms-0.5 inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-ink px-1.5 text-[0.75rem] font-bold text-on-ink">{savedCount}</span>}
-      </Link>
 
       {/* Which supermarkets the ingredients come from: only shops whose full product list, prices and labels we've read can fill a recipe, and all of the
           person's that can are used together (the line above names them); a person whose shops can't yet is told which shop the recipes use instead. */}
