@@ -1,0 +1,1183 @@
+{
+ "schemaVersion": 1,
+ "id": "park-holidays-uk",
+ "name": "Park Holidays UK",
+ "cuisine": "Holiday park restaurant",
+ "builderType": "standard",
+ "aliases": [
+  "park holidays",
+  "park holidays uk",
+  "park holidays uk restaurant",
+  "park holidays restaurant",
+  "park holidays bar",
+  "park holidays clubhouse",
+  "park holidays bar and restaurant"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Park Holidays UK example park menu with calories, \"Small Spring 25 menu\" (Spring 2025; PDF created 7 February 2025; the park menu linked from parkholidays.com/holidays/planning/food-drink)",
+  "url": "https://eu-assets.contentstack.com/v3/assets/bltdb98d8f2fea905ea/blte8404555326094de/685ab20efad56c215f14c586/Small_Spring_25_menu.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, per dish as printed. This is the example menu for a small park (Spring 2025) that Park Holidays links; dishes and prices differ by park and season. Wines, other drinks and the Sunday Roast ('from' calories only) are not listed. All dishes are cooked in kitchens where all known allergens are present.",
+ "allergenGuide": {
+  "title": "Park Holidays UK allergen information page (phukallergens.work, reached by the \"Allergy information\" QR code on the chain's own menu; a single image dated 22 September 2026, not matched to this menu)",
+  "url": "https://www.phukallergens.work/blank-44-1-1",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": false,
+  "complete": false
+ },
+ "categories": [
+  "Lite Bites",
+  "Starters",
+  "Favourites",
+  "2 Meals for £25",
+  "Sides",
+  "From the Grill",
+  "Pizzas",
+  "Desserts",
+  "Coffee",
+  "Tea"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "chicken-wrap",
+   "name": "Chicken Wrap",
+   "category": "Lite Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 690
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "three-cheese-and-onion-toastie",
+   "name": "Three Cheese & Onion Toastie",
+   "category": "Lite Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 496
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-toastie",
+   "name": "BBQ Chicken Toastie",
+   "category": "Lite Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 516
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-melt-toastie",
+   "name": "Tuna Melt Toastie",
+   "category": "Lite Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 451
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jacket-potato",
+   "name": "Jacket Potato",
+   "category": "Lite Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 247
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jacket-potato-filling-cheese",
+   "name": "Jacket Potato Filling: Cheese",
+   "category": "Lite Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jacket-potato-filling-beans",
+   "name": "Jacket Potato Filling: Beans",
+   "category": "Lite Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jacket-potato-filling-vegan-cheese",
+   "name": "Jacket Potato Filling: Vegan Cheese",
+   "category": "Lite Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 267
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-and-basil-soup",
+   "name": "Tomato & Basil Soup",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 283
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-ciabatta-bites-bucket",
+   "name": "Garlic Ciabatta Bites Bucket",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 260
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "onion-bhajis-bucket",
+   "name": "Onion Bhajis Bucket",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 420
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-goujon-bucket",
+   "name": "Chicken Goujon Bucket",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 534
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "onion-ring-tower",
+   "name": "Onion Ring Tower",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 1284
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tear-and-share-garlic-bread",
+   "name": "Tear & Share Garlic Bread",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 1031
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tear-and-share-garlic-bread-with-added-cheese",
+   "name": "Tear & Share Garlic Bread with added cheese",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 1221
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "piri-piri-roast-chicken",
+   "name": "Piri-Piri Roast Chicken",
+   "category": "Favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 1100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scampi",
+   "name": "Scampi",
+   "category": "Favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 580
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-ham-hock-and-leek-pie",
+   "name": "Chicken Ham Hock & Leek Pie",
+   "category": "Favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 1125
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fish-n-chips",
+   "name": "Fish 'n' Chips",
+   "category": "Favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 590
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chip-shop-platter",
+   "name": "Chip Shop Platter",
+   "category": "Favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 752
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-n-cheese",
+   "name": "Mac 'n' Cheese",
+   "category": "2 Meals for £25",
+   "serving": "",
+   "nutrients": {
+    "calories": 761
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-a-chicken-breast-to-mac-n-cheese",
+   "name": "Add a Chicken Breast (to Mac 'n' Cheese)",
+   "category": "2 Meals for £25",
+   "serving": "",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "traditional-ham-egg-and-chips",
+   "name": "Traditional Ham, Egg & Chips",
+   "category": "2 Meals for £25",
+   "serving": "",
+   "nutrients": {
+    "calories": 600
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-con-carne",
+   "name": "Chilli Con Carne",
+   "category": "2 Meals for £25",
+   "serving": "",
+   "nutrients": {
+    "calories": 588
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-and-mash",
+   "name": "Sausage & Mash",
+   "category": "2 Meals for £25",
+   "serving": "",
+   "nutrients": {
+    "calories": 842
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5-battered-onion-rings",
+   "name": "5 Battered Onion Rings",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 290
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dirty-house-chips",
+   "name": "Dirty House Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 840
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "portion-of-chips",
+   "name": "Portion of Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 280
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-chips",
+   "name": "Cheesy Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread",
+   "name": "Garlic Bread",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-garlic-bread",
+   "name": "Cheesy Garlic Bread",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 585
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-green-vegetables",
+   "name": "Mixed Green Vegetables",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-cabbage-with-apple",
+   "name": "Red Cabbage with Apple",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coleslaw",
+   "name": "Coleslaw",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 259
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-cheeseburger",
+   "name": "House Cheeseburger",
+   "category": "From the Grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 1360
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-bbq-burger",
+   "name": "Bacon BBQ Burger",
+   "category": "From the Grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 1500
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chargrilled-chicken-bbq-burger",
+   "name": "Chargrilled Chicken BBQ Burger",
+   "category": "From the Grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 1150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plant-based-burger",
+   "name": "Plant Based Burger",
+   "category": "From the Grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 1086
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-extra-cheese-3-slices",
+   "name": "Add Extra Cheese (3 slices)",
+   "category": "From the Grill",
+   "serving": "3 slices",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-4oz-beef-pattie",
+   "name": "Add 4oz Beef Pattie",
+   "category": "From the Grill",
+   "serving": "4oz",
+   "nutrients": {
+    "calories": 245
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-bacon-2-slices",
+   "name": "Add Bacon (2 slices)",
+   "category": "From the Grill",
+   "serving": "2 slices",
+   "nutrients": {
+    "calories": 188
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8oz-sirloin-steak",
+   "name": "8oz Sirloin Steak",
+   "category": "From the Grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 791
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "surf-and-turf",
+   "name": "Surf & Turf",
+   "category": "From the Grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 848
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-diane-sauce-or-peppercorn-sauce",
+   "name": "Add Diane Sauce or Peppercorn Sauce",
+   "category": "From the Grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza",
+   "name": "Margherita Pizza",
+   "category": "Pizzas",
+   "serving": "11 inch",
+   "nutrients": {
+    "calories": 1238
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "perfect-pepperoni-pizza",
+   "name": "Perfect Pepperoni Pizza",
+   "category": "Pizzas",
+   "serving": "11 inch",
+   "nutrients": {
+    "calories": 1447
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mighty-meat-feast-pizza",
+   "name": "Mighty Meat Feast Pizza",
+   "category": "Pizzas",
+   "serving": "11 inch",
+   "nutrients": {
+    "calories": 1415
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-topping-red-onions",
+   "name": "Pizza Topping: Red Onions",
+   "category": "Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-topping-tomatoes",
+   "name": "Pizza Topping: Tomatoes",
+   "category": "Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-topping-jalape-os",
+   "name": "Pizza Topping: Jalapeños",
+   "category": "Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-topping-cheese",
+   "name": "Pizza Topping: Cheese",
+   "category": "Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 230
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-topping-pepperoni",
+   "name": "Pizza Topping: Pepperoni",
+   "category": "Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 276
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-topping-chicken",
+   "name": "Pizza Topping: Chicken",
+   "category": "Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-topping-bbq-chicken",
+   "name": "Pizza Topping: BBQ Chicken",
+   "category": "Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 82
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-topping-meat-balls",
+   "name": "Pizza Topping: Meat Balls",
+   "category": "Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-toffee-pudding",
+   "name": "Sticky Toffee Pudding",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 690
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-crumble",
+   "name": "Apple Crumble",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 663
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancake-delight",
+   "name": "Pancake Delight",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 516
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "doughnut-tower",
+   "name": "Doughnut Tower",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 972
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-ice-cream-2-scoops",
+   "name": "Vanilla Ice Cream (2 scoops)",
+   "category": "Desserts",
+   "serving": "2 scoops",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-ice-cream-4-scoops",
+   "name": "Vanilla Ice Cream (4 scoops)",
+   "category": "Desserts",
+   "serving": "4 scoops",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-espresso",
+   "name": "Double Espresso",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano",
+   "name": "Americano",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caffe-latte",
+   "name": "Caffe Latte",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caffe-mocha",
+   "name": "Caffe Mocha",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate",
+   "name": "Hot Chocolate",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "earl-grey-tea",
+   "name": "Earl Grey Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "decaf-tea",
+   "name": "Decaf Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-tea",
+   "name": "Breakfast Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-tea",
+   "name": "Lemon Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peppermint-tea",
+   "name": "Peppermint Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-tea",
+   "name": "Green Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

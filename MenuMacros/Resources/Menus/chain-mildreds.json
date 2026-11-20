@@ -1,0 +1,813 @@
+{
+ "schemaVersion": 1,
+ "id": "mildreds",
+ "name": "Mildreds",
+ "cuisine": "World food",
+ "builderType": "standard",
+ "aliases": [
+  "mildreds",
+  "mildred's",
+  "mildreds soho",
+  "mildreds camden",
+  "mildreds covent garden",
+  "mildreds kings cross",
+  "mildreds victoria"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Mildreds menus with calories: the Soho, Camden, Covent Garden, King's Cross and Victoria pages on mildreds.com, menus labelled autumn-winter 2025/26 (accessed 2026-10-08, no date shown)",
+  "url": "https://www.mildreds.com/soho/",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, as printed beside each dish on the five London restaurants' pages (no serving sizes, no protein, carbs or fat). Menus differ by restaurant: a dish is listed only if every restaurant that prints its calories prints the same number. Mildreds say traces of allergens may be present.",
+ "allergenGuide": {
+  "title": "Mildreds allergen menu for Soho on Ingredifind (the 'Allergens' button on mildreds.com/soho; each Mildreds restaurant has its own, linked from its page)",
+  "url": "https://igfd.menu/london/mildreds-gy2w",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": false,
+  "complete": false
+ },
+ "categories": [
+  "Snacks & dips",
+  "Starters",
+  "Burgers",
+  "Mains",
+  "Sides",
+  "Desserts",
+  "Breakfast & brunch",
+  "Kids menu"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "sourdough-flatbread",
+   "name": "Sourdough Flatbread",
+   "category": "Snacks & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 444
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "padron-peppers",
+   "name": "Padrón Peppers",
+   "category": "Snacks & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 213
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pimento-butterbean-dip",
+   "name": "Pimento Butterbean Dip",
+   "category": "Snacks & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 439
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "turmeric-carrot-hummus",
+   "name": "Turmeric Carrot Hummus",
+   "category": "Snacks & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 288
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "guacamole-verde",
+   "name": "Guacamole Verde",
+   "category": "Snacks & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 276
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "harissa-patatas-bravas",
+   "name": "Harissa Patatas Bravas",
+   "category": "Snacks & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 688
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kimchi-gyoza-dumplings",
+   "name": "Kimchi Gyoza Dumplings",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chorizo-arancini",
+   "name": "Chorizo Arancini",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 212
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-corn-ribs",
+   "name": "Coconut Corn Ribs",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 821
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tamarind-teriyaki-cauliflower-cups",
+   "name": "Tamarind Teriyaki Cauliflower Cups",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 604
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chipotle-chick-n-tinga-tacos",
+   "name": "Chipotle Chick+n Tinga Tacos",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 599
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chick-n-caesar-burger",
+   "name": "Chick+n Caesar Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1262
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beetroot-carrot-vada",
+   "name": "Beetroot Carrot Vada",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1070
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-fried-chick-n",
+   "name": "Korean Fried Chick+n",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1303
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoky-mushroom-prime-patty",
+   "name": "Smoky Mushroom Prime Patty",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1517
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kiri-hodi-pilau",
+   "name": "Kiri Hodi Pilau",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 976
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shawarma-kebab",
+   "name": "Shawarma Kebab",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 966
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shiitake-peanut-laksa",
+   "name": "Shiitake Peanut Laksa",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1064
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "artichoke-caesar-salad",
+   "name": "Artichoke Caesar Salad",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 428
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kimchi-bokkeumbap",
+   "name": "Kimchi Bokkeumbap",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 875
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-pepper-fries",
+   "name": "Lemon Pepper Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 455
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "guacamole-pea-avo-smash",
+   "name": "Guacamole-Pea Avo Smash",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 79
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-mango-pickle-slaw",
+   "name": "Coconut Mango Pickle Slaw",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 274
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kimchi",
+   "name": "Kimchi",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 179
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rocket-pomegranate-side-salad",
+   "name": "Rocket Pomegranate Side Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 188
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spice-riot-loaded-fries",
+   "name": "Spice Riot Loaded Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 954
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage",
+   "name": "Sausage",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-cheesecake",
+   "name": "Pistachio Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 786
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-toffee-pudding",
+   "name": "Sticky Toffee Pudding",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 578
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "warm-cookie-dough-blondie",
+   "name": "Warm Cookie Dough Blondie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1008
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-tiramisu",
+   "name": "White Chocolate Tiramisu",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 663
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-pea-smash",
+   "name": "Avocado Pea Smash",
+   "category": "Breakfast & brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 316
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kimchi-grilled-cheese",
+   "name": "Kimchi Grilled Cheese",
+   "category": "Breakfast & brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 783
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-full-english",
+   "name": "The Full English",
+   "category": "Breakfast & brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 786
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-meze-brunch",
+   "name": "The Meze Brunch",
+   "category": "Breakfast & brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1068
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "berries-and-cream-pancakes",
+   "name": "Berries & Cream Pancakes",
+   "category": "Breakfast & brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 852
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-biscoff-caramel-pancakes",
+   "name": "Banana Biscoff Caramel Pancakes",
+   "category": "Breakfast & brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "porridge",
+   "name": "Porridge",
+   "category": "Breakfast & brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 792
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "granola-bowls",
+   "name": "Granola Bowls",
+   "category": "Breakfast & brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 599
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "croissant-with-plant-butter-and-jam",
+   "name": "Croissant with plant butter & jam",
+   "category": "Breakfast & brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 288
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sourdough-with-plant-butter-and-jam",
+   "name": "Sourdough with plant butter & jam",
+   "category": "Breakfast & brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 279
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "croissant-toastie",
+   "name": "Croissant Toastie",
+   "category": "Breakfast & brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 421
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hummus-dip-daps",
+   "name": "Hummus Dip Daps",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 416
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nuggies-peas-and-fries",
+   "name": "Nuggies, Peas & Fries",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 615
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banger-fries-and-beans",
+   "name": "Banger, Fries & Beans",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 471
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scrambled-tofu-rainbow-rice",
+   "name": "Scrambled Tofu Rainbow Rice",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 559
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dumplings-and-veggies",
+   "name": "Dumplings & Veggies",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 225
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscoff-ice-cream",
+   "name": "Biscoff Ice Cream",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 242
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

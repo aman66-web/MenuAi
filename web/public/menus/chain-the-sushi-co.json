@@ -13,14 +13,14 @@
  "source": {
   "title": "The Sushi Co counter menu (PDF created 6 January 2026, uploaded February 2026)",
   "url": "https://thesushico.com/wp-content/uploads/2026/02/21945_TSC_CounterMenu_No-Pricing_530x297mm.pdf",
-  "checkedOn": "2026-10-12"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories per item as printed on The Sushi Co's counter menu (January 2026). The two chicken dishes offered 'with rice/noodles' print one figure for both and are left out.",
  "allergenGuide": {
-  "title": "The Sushi Co allergen matrix (TSC_Allergen_29JAN26V01, 29 January 2026)",
-  "url": "https://thesushico.com/wp-content/uploads/2026/02/TSC_Allergen_29JAN26V01.pdf",
-  "checkedOn": "2026-10-12",
+  "title": "The Sushi Co allergen matrix (Allergen Updated 09/26, uploaded 28 October 2026)",
+  "url": "https://thesushico.com/wp-content/uploads/2026/10/Allergen-Updated-09_26.xlsx-Table-1-2.pdf",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": false,
   "complete": false
  },

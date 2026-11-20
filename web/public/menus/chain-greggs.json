@@ -10,14 +10,14 @@
  ],
  "sample": false,
  "source": {
-  "title": "Greggs Nutritional Information guide (information correct at time of print, September 2026)",
+  "title": "Greggs Nutritional Information guide (information correct at time of print, October 2026)",
   "url": "https://a.storyblok.com/f/94904/x/7dd8489dab/nutritional-information.pdf",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-11-17"
  },
  "allergenGuide": {
-  "title": "Greggs Customer Allergen Information Guide (Version 13, 01.10.26)",
+  "title": "Greggs Customer Allergen Information Guide (Version 15, 27.10.26)",
   "url": "https://a.storyblok.com/f/94904/x/c38f77c7c1/allergen-guide.pdf",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": false
  },
@@ -582,8 +582,8 @@
    "modifiers": []
   },
   {
-   "id": "6-mini-sausage-rolls",
-   "name": "6 Mini Sausage Rolls",
+   "id": "6-hot-mini-sausage-rolls",
+   "name": "6 Hot Mini Sausage Rolls",
    "category": "Savouries & bakes",
    "serving": "146.1 g",
    "nutrients": {
@@ -688,15 +688,15 @@
    "category": "Savouries & bakes",
    "serving": "152 g",
    "nutrients": {
-    "calories": 465,
+    "calories": 471,
     "protein": 17,
-    "carbs": 30,
+    "carbs": 32,
     "fat": 30,
     "saturatedFat": 15,
     "sugar": 0.7,
     "fiber": 1.7,
-    "salt": 1.7,
-    "energyKj": 1940,
+    "salt": 1.8,
+    "energyKj": 1965,
     "weight": 152
    },
    "tags": [
@@ -807,20 +807,43 @@
    "image": "greggs/f0d90b89ddc2.webp"
   },
   {
-   "id": "chicken-rolls",
-   "name": "Chicken Rolls",
+   "id": "festive-bake",
+   "name": "Festive Bake",
+   "category": "Savouries & bakes",
+   "serving": "152 g",
+   "nutrients": {
+    "calories": 450,
+    "protein": 15,
+    "carbs": 35,
+    "fat": 27,
+    "saturatedFat": 14,
+    "sugar": 3.8,
+    "fiber": 2.3,
+    "salt": 1.8,
+    "energyKj": 1879,
+    "weight": 152
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salt-chilli-chicken-roll",
+   "name": "Salt & Chilli Chicken Roll",
    "category": "Savouries & bakes",
    "serving": "99 g",
    "nutrients": {
-    "calories": 305,
-    "protein": 8.5,
-    "carbs": 25,
+    "calories": 309,
+    "protein": 8.4,
+    "carbs": 26,
     "fat": 19,
     "saturatedFat": 9,
-    "sugar": 0,
-    "fiber": 1.3,
+    "sugar": 0.8,
+    "fiber": 1.5,
     "salt": 1.5,
-    "energyKj": 1272,
+    "energyKj": 1289,
     "weight": 99
    },
    "tags": [],
@@ -845,6 +868,29 @@
     "salt": 1.7,
     "energyKj": 1407,
     "weight": 139
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "haggis-pie",
+   "name": "Haggis Pie",
+   "category": "Savouries & bakes",
+   "serving": "156.6 g",
+   "nutrients": {
+    "calories": 351,
+    "protein": 9.4,
+    "carbs": 38,
+    "fat": 17,
+    "saturatedFat": 7.5,
+    "sugar": 2.5,
+    "fiber": 4.1,
+    "salt": 1.5,
+    "energyKj": 1469,
+    "weight": 156.6
    },
    "tags": [],
    "limitedTime": false,
@@ -976,55 +1022,6 @@
    "modifiers": []
   },
   {
-   "id": "bbq-chicken-bacon-pizza",
-   "name": "BBQ Chicken & Bacon Pizza",
-   "category": "Pizzas",
-   "serving": "206.76 g",
-   "nutrients": {
-    "calories": 666,
-    "protein": 27,
-    "carbs": 72,
-    "fat": 29,
-    "saturatedFat": 11,
-    "sugar": 12,
-    "fiber": 4.1,
-    "salt": 1.4,
-    "energyKj": 2793,
-    "weight": 206.8
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "buffalo-chicken-pizza",
-   "name": "Buffalo Chicken Pizza",
-   "category": "Pizzas",
-   "serving": "211 g",
-   "nutrients": {
-    "calories": 673,
-    "protein": 27,
-    "carbs": 68,
-    "fat": 32,
-    "saturatedFat": 11,
-    "sugar": 6.5,
-    "fiber": 4.2,
-    "salt": 1.4,
-    "energyKj": 2823,
-    "weight": 211
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "greggs/2205d90b2982.webp"
-  },
-  {
    "id": "margherita-pizza",
    "name": "Margherita Pizza",
    "category": "Pizzas",
@@ -1074,6 +1071,31 @@
    "modifiers": []
   },
   {
+   "id": "pepperoni-pizza-with-hot-honey",
+   "name": "Pepperoni Pizza with Hot Honey",
+   "category": "Pizzas",
+   "serving": "201.39 g",
+   "nutrients": {
+    "calories": 669,
+    "protein": 20,
+    "carbs": 73,
+    "fat": 32,
+    "saturatedFat": 13,
+    "sugar": 13,
+    "fiber": 4,
+    "salt": 1.9,
+    "energyKj": 2801,
+    "weight": 201.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "spicy-chicken-pizza",
    "name": "Spicy Chicken Pizza",
    "category": "Pizzas",
@@ -1096,173 +1118,6 @@
    "components": [],
    "modifiers": [],
    "image": "greggs/cfb2bfe5d56c.webp"
-  },
-  {
-   "id": "veggie-feast-pizza",
-   "name": "Veggie Feast Pizza",
-   "category": "Pizzas",
-   "serving": "230 g",
-   "nutrients": {
-    "calories": 614,
-    "protein": 20,
-    "carbs": 69,
-    "fat": 28,
-    "saturatedFat": 10,
-    "sugar": 7.8,
-    "fiber": 4.8,
-    "salt": 0.87,
-    "energyKj": 2569,
-    "weight": 230
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "bbq-chicken-bacon-pizza-box-2-pack",
-   "name": "BBQ Chicken & Bacon Pizza Box 2 Pack",
-   "category": "Pizza boxes",
-   "serving": "413.5 g",
-   "nutrients": {
-    "calories": 1331,
-    "protein": 54,
-    "carbs": 145,
-    "fat": 58,
-    "saturatedFat": 22,
-    "sugar": 24,
-    "fiber": 8.3,
-    "salt": 2.9,
-    "energyKj": 5586,
-    "weight": 413.5
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "bbq-chicken-bacon-pizza-box-4-pack",
-   "name": "BBQ Chicken & Bacon Pizza Box 4 Pack",
-   "category": "Pizza boxes",
-   "serving": "827 g",
-   "nutrients": {
-    "calories": 2663,
-    "protein": 108,
-    "carbs": 289,
-    "fat": 116,
-    "saturatedFat": 44,
-    "sugar": 47,
-    "fiber": 17,
-    "salt": 5.8,
-    "energyKj": 11173,
-    "weight": 827
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "bbq-chicken-bacon-pizza-box-6-pack",
-   "name": "BBQ Chicken & Bacon Pizza Box 6 Pack",
-   "category": "Pizza boxes",
-   "serving": "1240.6 g",
-   "nutrients": {
-    "calories": 3995,
-    "protein": 161,
-    "carbs": 434,
-    "fat": 174,
-    "saturatedFat": 66,
-    "sugar": 71,
-    "fiber": 25,
-    "salt": 8.7,
-    "energyKj": 16761,
-    "weight": 1240.6
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "buffalo-chicken-pizza-box-2-pack",
-   "name": "Buffalo Chicken Pizza Box 2 Pack",
-   "category": "Pizza boxes",
-   "serving": "422 g",
-   "nutrients": {
-    "calories": 1346,
-    "protein": 55,
-    "carbs": 135,
-    "fat": 63,
-    "saturatedFat": 22,
-    "sugar": 13,
-    "fiber": 8.4,
-    "salt": 2.7,
-    "energyKj": 5646,
-    "weight": 422
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "buffalo-chicken-pizza-box-4-pack",
-   "name": "Buffalo Chicken Pizza Box 4 Pack",
-   "category": "Pizza boxes",
-   "serving": "844 g",
-   "nutrients": {
-    "calories": 2692,
-    "protein": 110,
-    "carbs": 270,
-    "fat": 127,
-    "saturatedFat": 43,
-    "sugar": 26,
-    "fiber": 17,
-    "salt": 5.5,
-    "energyKj": 11293,
-    "weight": 844
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "buffalo-chicken-pizza-box-6-pack",
-   "name": "Buffalo Chicken Pizza Box 6 Pack",
-   "category": "Pizza boxes",
-   "serving": "1266 g",
-   "nutrients": {
-    "calories": 4039,
-    "protein": 165,
-    "carbs": 405,
-    "fat": 190,
-    "saturatedFat": 65,
-    "sugar": 39,
-    "fiber": 25,
-    "salt": 8.2,
-    "energyKj": 16939,
-    "weight": 1266
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
   },
   {
    "id": "margherita-pizza-box-2-pack",
@@ -1409,6 +1264,81 @@
    "modifiers": []
   },
   {
+   "id": "pepperoni-pizza-with-hot-honey-box-2-pack",
+   "name": "Pepperoni Pizza with Hot Honey Box 2 Pack",
+   "category": "Pizza boxes",
+   "serving": "402.78 g",
+   "nutrients": {
+    "calories": 1337,
+    "protein": 40,
+    "carbs": 145,
+    "fat": 64,
+    "saturatedFat": 25,
+    "sugar": 26,
+    "fiber": 8.1,
+    "salt": 3.7,
+    "energyKj": 5603,
+    "weight": 402.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-pizza-with-hot-honey-box-4-pack",
+   "name": "Pepperoni Pizza with Hot Honey Box 4 Pack",
+   "category": "Pizza boxes",
+   "serving": "805.56 g",
+   "nutrients": {
+    "calories": 2674,
+    "protein": 81,
+    "carbs": 290,
+    "fat": 129,
+    "saturatedFat": 51,
+    "sugar": 52,
+    "fiber": 16,
+    "salt": 7.5,
+    "energyKj": 11205,
+    "weight": 805.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-pizza-with-hot-honey-box-6-pack",
+   "name": "Pepperoni Pizza with Hot Honey Box 6 Pack",
+   "category": "Pizza boxes",
+   "serving": "1208.34 g",
+   "nutrients": {
+    "calories": 4012,
+    "protein": 121,
+    "carbs": 435,
+    "fat": 193,
+    "saturatedFat": 76,
+    "sugar": 79,
+    "fiber": 24,
+    "salt": 11.2,
+    "energyKj": 16808,
+    "weight": 1208.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "spicy-chicken-pizza-box-2-pack",
    "name": "Spicy Chicken Pizza Box 2 Pack",
    "category": "Pizza boxes",
@@ -1470,75 +1400,6 @@
     "salt": 7,
     "energyKj": 15245,
     "weight": 1170
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "veggie-feast-pizza-box-2-pack",
-   "name": "Veggie Feast Pizza Box 2 Pack",
-   "category": "Pizza boxes",
-   "serving": "460 g",
-   "nutrients": {
-    "calories": 1228,
-    "protein": 39,
-    "carbs": 138,
-    "fat": 55,
-    "saturatedFat": 21,
-    "sugar": 16,
-    "fiber": 9.7,
-    "salt": 1.7,
-    "energyKj": 5138,
-    "weight": 460
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "veggie-feast-pizza-box-4-pack",
-   "name": "Veggie Feast Pizza Box 4 Pack",
-   "category": "Pizza boxes",
-   "serving": "920 g",
-   "nutrients": {
-    "calories": 2456,
-    "protein": 78,
-    "carbs": 276,
-    "fat": 110,
-    "saturatedFat": 41,
-    "sugar": 31,
-    "fiber": 19,
-    "salt": 3.5,
-    "energyKj": 10276,
-    "weight": 920
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "veggie-feast-pizza-box-6-pack",
-   "name": "Veggie Feast Pizza Box 6 Pack",
-   "category": "Pizza boxes",
-   "serving": "1380 g",
-   "nutrients": {
-    "calories": 3685,
-    "protein": 117,
-    "carbs": 414,
-    "fat": 166,
-    "saturatedFat": 62,
-    "sugar": 47,
-    "fiber": 29,
-    "salt": 5.2,
-    "energyKj": 15415,
-    "weight": 1380
    },
    "tags": [],
    "limitedTime": false,
@@ -1641,47 +1502,48 @@
    "image": "greggs/b7a48428ea08.webp"
   },
   {
-   "id": "mozzarella-cheddar-bites",
-   "name": "Mozzarella & Cheddar Bites",
+   "id": "mozzarella-and-cheddar-bites",
+   "name": "Mozzarella and Cheddar Bites",
    "category": "Hot food",
-   "serving": "96.834 g",
+   "serving": "96.7 g",
    "nutrients": {
-    "calories": 322,
-    "protein": 13,
-    "carbs": 22,
-    "fat": 20,
-    "saturatedFat": 9.5,
-    "sugar": 0,
-    "fiber": 0,
-    "salt": 1.3,
-    "energyKj": 1345,
-    "weight": 96.8
+    "calories": 328,
+    "protein": 15,
+    "carbs": 23,
+    "fat": 19,
+    "saturatedFat": 8.3,
+    "sugar": 2.5,
+    "fiber": 1.6,
+    "salt": 1.2,
+    "energyKj": 1370,
+    "weight": 96.7
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": [],
-   "image": "greggs/839fc8556cfb.webp"
+   "modifiers": []
   },
   {
-   "id": "bbq-bites-meal-box",
-   "name": "BBQ Bites Meal Box",
+   "id": "pigs-in-blankets",
+   "name": "Pigs in Blankets",
    "category": "Hot food",
-   "serving": "254 g",
+   "serving": "96 g",
    "nutrients": {
-    "calories": 526,
-    "protein": 21,
-    "carbs": 61,
-    "fat": 21,
-    "saturatedFat": 6.4,
-    "sugar": 2.8,
-    "fiber": 4.6,
-    "salt": 1.8,
-    "energyKj": 2202,
-    "weight": 254
+    "calories": 233,
+    "protein": 17,
+    "carbs": 8.4,
+    "fat": 14,
+    "saturatedFat": 5.5,
+    "sugar": 0.7,
+    "fiber": 0.7,
+    "salt": 2.9,
+    "energyKj": 974,
+    "weight": 96
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -1712,32 +1574,6 @@
    "image": "greggs/17c88be253f9.webp"
   },
   {
-   "id": "chicken-pepperoni-pizza-toastie",
-   "name": "Chicken & Pepperoni Pizza Toastie",
-   "category": "Hot food",
-   "serving": "208 g",
-   "nutrients": {
-    "calories": 572,
-    "protein": 27,
-    "carbs": 62,
-    "fat": 23,
-    "saturatedFat": 9.6,
-    "sugar": 9.6,
-    "fiber": 4,
-    "salt": 2.5,
-    "energyKj": 2398,
-    "weight": 208
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "greggs/0e0269d14fec.webp"
-  },
-  {
    "id": "ham-and-cheese-toastie",
    "name": "Ham and Cheese Toastie",
    "category": "Hot food",
@@ -1764,21 +1600,21 @@
    "image": "greggs/a62437017b20.webp"
   },
   {
-   "id": "bbq-chicken-and-bacon-melt-baguette",
-   "name": "BBQ Chicken and Bacon Melt Baguette",
-   "category": "Sandwiches, rolls & baguettes",
-   "serving": "267.3 g",
+   "id": "pigs-under-blankets-toastie",
+   "name": "Pigs Under Blankets Toastie",
+   "category": "Hot food",
+   "serving": "226 g",
    "nutrients": {
-    "calories": 658,
-    "protein": 35,
-    "carbs": 91,
-    "fat": 16,
-    "saturatedFat": 8,
-    "sugar": 13,
+    "calories": 628,
+    "protein": 29,
+    "carbs": 75,
+    "fat": 23,
+    "saturatedFat": 11,
+    "sugar": 19,
     "fiber": 4.3,
     "salt": 2.9,
-    "energyKj": 2775,
-    "weight": 267.3
+    "energyKj": 2637,
+    "weight": 226
    },
    "tags": [
     "contains_pork"
@@ -1944,6 +1780,52 @@
     "salt": 1.2,
     "energyKj": 1329,
     "weight": 149.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "festive-feast-baguette",
+   "name": "Festive Feast Baguette",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "238 g",
+   "nutrients": {
+    "calories": 633,
+    "protein": 31,
+    "carbs": 74,
+    "fat": 23,
+    "saturatedFat": 6.9,
+    "sugar": 12,
+    "fiber": 4.3,
+    "salt": 2.6,
+    "energyKj": 2661,
+    "weight": 238
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "festive-flatbread",
+   "name": "Festive Flatbread",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "140.3 g",
+   "nutrients": {
+    "calories": 387,
+    "protein": 18,
+    "carbs": 43,
+    "fat": 14,
+    "saturatedFat": 1.7,
+    "sugar": 8.3,
+    "fiber": 7.4,
+    "salt": 1.3,
+    "energyKj": 1623,
+    "weight": 140.3
    },
    "tags": [],
    "limitedTime": false,
@@ -2121,29 +2003,6 @@
    "components": [],
    "modifiers": [],
    "image": "greggs/9a6311ae0d6a.webp"
-  },
-  {
-   "id": "hot-buffalo-chicken-baguette",
-   "name": "Hot Buffalo Chicken Baguette",
-   "category": "Sandwiches, rolls & baguettes",
-   "serving": "220 g",
-   "nutrients": {
-    "calories": 506,
-    "protein": 29,
-    "carbs": 64,
-    "fat": 14,
-    "saturatedFat": 3.7,
-    "sugar": 6.8,
-    "fiber": 3.7,
-    "salt": 2.2,
-    "energyKj": 2130,
-    "weight": 220
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
   },
   {
    "id": "hot-ham-cheese-baguette",
@@ -2507,29 +2366,6 @@
    "modifiers": []
   },
   {
-   "id": "tandoori-chicken",
-   "name": "Tandoori Chicken",
-   "category": "Sandwiches, rolls & baguettes",
-   "serving": "167.5 g",
-   "nutrients": {
-    "calories": 350,
-    "protein": 18,
-    "carbs": 47,
-    "fat": 8.9,
-    "saturatedFat": 1,
-    "sugar": 8,
-    "fiber": 4.2,
-    "salt": 1.2,
-    "energyKj": 1472,
-    "weight": 167.5
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "tandoori-chicken-baguette",
    "name": "Tandoori Chicken Baguette",
    "category": "Sandwiches, rolls & baguettes",
@@ -2653,15 +2489,15 @@
    "category": "Sandwiches, rolls & baguettes",
    "serving": "189.2 g",
    "nutrients": {
-    "calories": 329,
+    "calories": 333,
     "protein": 21,
     "carbs": 44,
-    "fat": 7.2,
-    "saturatedFat": 0.8,
-    "sugar": 6.2,
-    "fiber": 3.8,
-    "salt": 1.1,
-    "energyKj": 1391,
+    "fat": 7.6,
+    "saturatedFat": 0.9,
+    "sugar": 4.2,
+    "fiber": 3.4,
+    "salt": 1.2,
+    "energyKj": 1400,
     "weight": 189.2
    },
    "tags": [],
@@ -2717,28 +2553,50 @@
    "modifiers": []
   },
   {
-   "id": "prawn-layered-pasta-salad",
-   "name": "Prawn Layered Pasta Salad",
+   "id": "chicken-and-egg-salad",
+   "name": "Chicken and Egg Salad",
    "category": "Salads & pasta",
-   "serving": "290 g",
+   "serving": "209 g",
    "nutrients": {
-    "calories": 339,
-    "protein": 12,
-    "carbs": 44,
-    "fat": 12,
-    "saturatedFat": 1.5,
-    "sugar": 7.8,
-    "fiber": 3.2,
-    "salt": 1,
-    "energyKj": 1424,
-    "weight": 290
+    "calories": 278,
+    "protein": 29,
+    "carbs": 5.2,
+    "fat": 15,
+    "saturatedFat": 3.8,
+    "sugar": 4.4,
+    "fiber": 1.9,
+    "salt": 1.1,
+    "energyKj": 1158,
+    "weight": 209
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": [],
-   "image": "greggs/73190a2b51d8.webp"
+   "modifiers": []
+  },
+  {
+   "id": "tuna-crunch-salad",
+   "name": "Tuna Crunch Salad",
+   "category": "Salads & pasta",
+   "serving": "234 g",
+   "nutrients": {
+    "calories": 208,
+    "protein": 26,
+    "carbs": 9.1,
+    "fat": 7.3,
+    "saturatedFat": 0.7,
+    "sugar": 2.1,
+    "fiber": 1.9,
+    "salt": 1.1,
+    "energyKj": 875,
+    "weight": 234
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
   },
   {
    "id": "bbq-chicken-and-bacon-pasta",
@@ -2797,14 +2655,14 @@
    "serving": "76.4 g",
    "nutrients": {
     "calories": 154,
-    "protein": 1.1,
-    "carbs": 22,
-    "fat": 6.3,
-    "saturatedFat": 0.7,
+    "protein": 1.6,
+    "carbs": 21,
+    "fat": 6.6,
+    "saturatedFat": 0.5,
     "sugar": 0,
-    "fiber": 1.6,
+    "fiber": 1.7,
     "salt": 0.53,
-    "energyKj": 643,
+    "energyKj": 648,
     "weight": 76.4
    },
    "tags": [],
@@ -2865,15 +2723,15 @@
    "category": "Snacks & sides",
    "serving": "90 g",
    "nutrients": {
-    "calories": 127,
-    "protein": 12,
-    "carbs": 1.3,
-    "fat": 8.2,
-    "saturatedFat": 2.6,
+    "calories": 116,
+    "protein": 13,
+    "carbs": 2.3,
+    "fat": 6.2,
+    "saturatedFat": 2.4,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.18,
-    "energyKj": 527,
+    "salt": 0.14,
+    "energyKj": 486,
     "weight": 90
    },
    "tags": [],
@@ -3051,15 +2909,15 @@
    "category": "Sweet treats & pastries",
    "serving": "116.7 g",
    "nutrients": {
-    "calories": 324,
+    "calories": 323,
     "protein": 4.7,
     "carbs": 55,
-    "fat": 9.2,
-    "saturatedFat": 4,
+    "fat": 9.1,
+    "saturatedFat": 3.9,
     "sugar": 28,
     "fiber": 1.9,
     "salt": 0.18,
-    "energyKj": 1368,
+    "energyKj": 1363,
     "weight": 116.7
    },
    "tags": [],
@@ -3092,6 +2950,29 @@
    "modifiers": []
   },
   {
+   "id": "bbc-children-in-need-novelty-bun",
+   "name": "BBC Children in Need Novelty Bun",
+   "category": "Sweet treats & pastries",
+   "serving": "50.7 g",
+   "nutrients": {
+    "calories": 200,
+    "protein": 1.7,
+    "carbs": 27,
+    "fat": 9.1,
+    "saturatedFat": 2.1,
+    "sugar": 19,
+    "fiber": 2,
+    "salt": 0.38,
+    "energyKj": 839,
+    "weight": 50.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "belgian-buns",
    "name": "Belgian Buns",
    "category": "Sweet treats & pastries",
@@ -3102,10 +2983,10 @@
     "carbs": 78,
     "fat": 3.2,
     "saturatedFat": 1.1,
-    "sugar": 47,
-    "fiber": 2.2,
-    "salt": 0.53,
-    "energyKj": 1574,
+    "sugar": 45,
+    "fiber": 2.1,
+    "salt": 0.49,
+    "energyKj": 1573,
     "weight": 122.5
    },
    "tags": [],
@@ -3165,18 +3046,18 @@
    "id": "caramel-custard-doughnut",
    "name": "Caramel Custard Doughnut",
    "category": "Sweet treats & pastries",
-   "serving": "97 g",
+   "serving": "99 g",
    "nutrients": {
-    "calories": 274,
+    "calories": 283,
     "protein": 4.1,
-    "carbs": 40,
+    "carbs": 42,
     "fat": 11,
-    "saturatedFat": 4.8,
-    "sugar": 16,
+    "saturatedFat": 5.2,
+    "sugar": 18,
     "fiber": 1.1,
-    "salt": 0.68,
-    "energyKj": 1148,
-    "weight": 97
+    "salt": 0.67,
+    "energyKj": 1188,
+    "weight": 99
    },
    "tags": [],
    "limitedTime": false,
@@ -3233,6 +3114,98 @@
    "modifiers": []
   },
   {
+   "id": "christmas-bun",
+   "name": "Christmas Bun",
+   "category": "Sweet treats & pastries",
+   "serving": "50.1 g",
+   "nutrients": {
+    "calories": 200,
+    "protein": 1.7,
+    "carbs": 27,
+    "fat": 9,
+    "saturatedFat": 2.1,
+    "sugar": 19,
+    "fiber": 2.1,
+    "salt": 0.38,
+    "energyKj": 839,
+    "weight": 50.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "christmas-cake-slice",
+   "name": "Christmas Cake Slice",
+   "category": "Sweet treats & pastries",
+   "serving": "110.5 g",
+   "nutrients": {
+    "calories": 417,
+    "protein": 4.3,
+    "carbs": 74,
+    "fat": 11,
+    "saturatedFat": 4.1,
+    "sugar": 63,
+    "fiber": 1.7,
+    "salt": 0.25,
+    "energyKj": 1755,
+    "weight": 110.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "christmas-mini-caramel-shortbread",
+   "name": "Christmas Mini Caramel Shortbread",
+   "category": "Sweet treats & pastries",
+   "serving": "20.4 g",
+   "nutrients": {
+    "calories": 97,
+    "protein": 1.1,
+    "carbs": 12,
+    "fat": 4.9,
+    "saturatedFat": 2.4,
+    "sugar": 9,
+    "fiber": 0,
+    "salt": 0.11,
+    "energyKj": 406,
+    "weight": 20.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "christmas-mini-caramel-shortbread-offcuts",
+   "name": "Christmas Mini Caramel Shortbread Offcuts",
+   "category": "Sweet treats & pastries",
+   "serving": "265 g",
+   "nutrients": {
+    "calories": 1261,
+    "protein": 14,
+    "carbs": 156,
+    "fat": 64,
+    "saturatedFat": 32,
+    "sugar": 117,
+    "fiber": 2.1,
+    "salt": 1.4,
+    "energyKj": 5276,
+    "weight": 265
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "cream-eclair",
    "name": "Cream Éclair",
    "category": "Sweet treats & pastries",
@@ -3272,6 +3245,29 @@
     "salt": 0.44,
     "energyKj": 1556,
     "weight": 111
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-chocolate-doughnut",
+   "name": "Double Chocolate Doughnut",
+   "category": "Sweet treats & pastries",
+   "serving": "90 g",
+   "nutrients": {
+    "calories": 305,
+    "protein": 4.9,
+    "carbs": 42,
+    "fat": 13,
+    "saturatedFat": 6.1,
+    "sugar": 20,
+    "fiber": 1.4,
+    "salt": 0.59,
+    "energyKj": 1282,
+    "weight": 90
    },
    "tags": [],
    "limitedTime": false,
@@ -3606,44 +3602,21 @@
    "modifiers": []
   },
   {
-   "id": "novelty-bun-pink",
-   "name": "Novelty Bun (pink)",
+   "id": "millionaires-doughnut",
+   "name": "Millionaire's Doughnut",
    "category": "Sweet treats & pastries",
-   "serving": "49.4 g",
+   "serving": "93 g",
    "nutrients": {
-    "calories": 196,
-    "protein": 1.6,
-    "carbs": 26,
-    "fat": 8.9,
-    "saturatedFat": 2,
-    "sugar": 18,
-    "fiber": 2.1,
-    "salt": 0.37,
-    "energyKj": 819,
-    "weight": 49.4
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "novelty-bun-white",
-   "name": "Novelty Bun (white)",
-   "category": "Sweet treats & pastries",
-   "serving": "49.5 g",
-   "nutrients": {
-    "calories": 196,
-    "protein": 1.6,
-    "carbs": 26,
-    "fat": 8.9,
-    "saturatedFat": 2,
-    "sugar": 19,
-    "fiber": 2.1,
-    "salt": 0.37,
-    "energyKj": 820,
-    "weight": 49.5
+    "calories": 332,
+    "protein": 4.6,
+    "carbs": 47,
+    "fat": 14,
+    "saturatedFat": 7.2,
+    "sugar": 20,
+    "fiber": 1.3,
+    "salt": 0.79,
+    "energyKj": 1395,
+    "weight": 93
    },
    "tags": [],
    "limitedTime": false,
@@ -3746,6 +3719,75 @@
    "image": "greggs/ecbaf61fd96b.webp"
   },
   {
+   "id": "pudsey-biscuit",
+   "name": "Pudsey Biscuit",
+   "category": "Sweet treats & pastries",
+   "serving": "48.5 g",
+   "nutrients": {
+    "calories": 210,
+    "protein": 2.5,
+    "carbs": 29,
+    "fat": 8.2,
+    "saturatedFat": 2.9,
+    "sugar": 10,
+    "fiber": 4.5,
+    "salt": 0.22,
+    "energyKj": 879,
+    "weight": 48.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pudsey-jammy-biscuit",
+   "name": "Pudsey Jammy Biscuit",
+   "category": "Sweet treats & pastries",
+   "serving": "64.2 g",
+   "nutrients": {
+    "calories": 270,
+    "protein": 2.3,
+    "carbs": 41,
+    "fat": 9.6,
+    "saturatedFat": 3.3,
+    "sugar": 23,
+    "fiber": 4.9,
+    "salt": 0.31,
+    "energyKj": 1134,
+    "weight": 64.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-biscuit",
+   "name": "Pumpkin Biscuit",
+   "category": "Sweet treats & pastries",
+   "serving": "48 g",
+   "nutrients": {
+    "calories": 220,
+    "protein": 3,
+    "carbs": 32,
+    "fat": 8.2,
+    "saturatedFat": 3.9,
+    "sugar": 17,
+    "fiber": 2.8,
+    "salt": 0.18,
+    "energyKj": 923,
+    "weight": 48
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "pumpkin-spice-doughnut",
    "name": "Pumpkin Spice Doughnut",
    "category": "Sweet treats & pastries",
@@ -3768,6 +3810,52 @@
    "components": [],
    "modifiers": [],
    "image": "greggs/fb16ed16af1c.webp"
+  },
+  {
+   "id": "spooky-bun-orange-case-green-fondant",
+   "name": "Spooky Bun (orange case, green fondant)",
+   "category": "Sweet treats & pastries",
+   "serving": "49.5 g",
+   "nutrients": {
+    "calories": 198,
+    "protein": 1.7,
+    "carbs": 27,
+    "fat": 8.9,
+    "saturatedFat": 2,
+    "sugar": 19,
+    "fiber": 2.1,
+    "salt": 0.37,
+    "energyKj": 829,
+    "weight": 49.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spooky-bun-purple-case-orange-fondant",
+   "name": "Spooky Bun (purple case, orange fondant)",
+   "category": "Sweet treats & pastries",
+   "serving": "49.5 g",
+   "nutrients": {
+    "calories": 196,
+    "protein": 1.7,
+    "carbs": 26,
+    "fat": 8.9,
+    "saturatedFat": 2,
+    "sugar": 18,
+    "fiber": 2.1,
+    "salt": 0.37,
+    "energyKj": 821,
+    "weight": 49.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
   },
   {
    "id": "star-biscuit",
@@ -3817,20 +3905,66 @@
    "image": "greggs/474d77bb544f.webp"
   },
   {
+   "id": "sweet-mince-pie-roll",
+   "name": "Sweet Mince Pie Roll",
+   "category": "Sweet treats & pastries",
+   "serving": "93.5 g",
+   "nutrients": {
+    "calories": 354,
+    "protein": 3.4,
+    "carbs": 49,
+    "fat": 16,
+    "saturatedFat": 7.9,
+    "sugar": 27,
+    "fiber": 1.5,
+    "salt": 0.45,
+    "energyKj": 1484,
+    "weight": 93.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-mince-pies",
+   "name": "Sweet Mince Pies",
+   "category": "Sweet treats & pastries",
+   "serving": "70 g",
+   "nutrients": {
+    "calories": 281,
+    "protein": 2.6,
+    "carbs": 42,
+    "fat": 11,
+    "saturatedFat": 3.8,
+    "sugar": 22,
+    "fiber": 1.3,
+    "salt": 0.13,
+    "energyKj": 1182,
+    "weight": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "tottenham-cake",
    "name": "Tottenham Cake",
    "category": "Sweet treats & pastries",
    "serving": "88 g",
    "nutrients": {
-    "calories": 363,
-    "protein": 4.1,
+    "calories": 366,
+    "protein": 4,
     "carbs": 55,
     "fat": 14,
-    "saturatedFat": 3,
+    "saturatedFat": 2.9,
     "sugar": 38,
     "fiber": 0.7,
     "salt": 0.29,
-    "energyKj": 1526,
+    "energyKj": 1540,
     "weight": 88
    },
    "tags": [],
@@ -3861,30 +3995,6 @@
    "rankable": false,
    "components": [],
    "modifiers": []
-  },
-  {
-   "id": "triple-chocolate-doughnut",
-   "name": "Triple Chocolate Doughnut",
-   "category": "Sweet treats & pastries",
-   "serving": "85 g",
-   "nutrients": {
-    "calories": 325,
-    "protein": 4.3,
-    "carbs": 40,
-    "fat": 16,
-    "saturatedFat": 6.9,
-    "sugar": 20,
-    "fiber": 1.3,
-    "salt": 0.55,
-    "energyKj": 1359,
-    "weight": 85
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "greggs/d99221b438d2.webp"
   },
   {
    "id": "triple-chocolate-muffin",
@@ -3940,15 +4050,15 @@
    "category": "Sweet treats & pastries",
    "serving": "129 g",
    "nutrients": {
-    "calories": 328,
-    "protein": 4.1,
-    "carbs": 50,
+    "calories": 317,
+    "protein": 3.9,
+    "carbs": 49,
     "fat": 12,
-    "saturatedFat": 7.1,
+    "saturatedFat": 7,
     "sugar": 31,
     "fiber": 0.6,
     "salt": 0.52,
-    "energyKj": 1375,
+    "energyKj": 1334,
     "weight": 129
    },
    "tags": [],
@@ -3981,6 +4091,29 @@
    "modifiers": []
   },
   {
+   "id": "white-chocolate-gingerbread-cookie",
+   "name": "White Chocolate Gingerbread Cookie",
+   "category": "Sweet treats & pastries",
+   "serving": "91 g",
+   "nutrients": {
+    "calories": 422,
+    "protein": 5.5,
+    "carbs": 56,
+    "fat": 19,
+    "saturatedFat": 11,
+    "sugar": 35,
+    "fiber": 1.2,
+    "salt": 0.64,
+    "energyKj": 1768,
+    "weight": 91
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "yum-yum",
    "name": "Yum Yum",
    "category": "Sweet treats & pastries",
@@ -4005,7 +4138,7 @@
   },
   {
    "id": "yum-yums-2-pack",
-   "name": "Yum Yums (2 pack)",
+   "name": "Yum Yums (2 Pack)",
    "category": "Sweet treats & pastries",
    "serving": "156.4 g",
    "nutrients": {
@@ -4297,6 +4430,50 @@
    "modifiers": []
   },
   {
+   "id": "candy-cane-mint-hot-chocolate-large",
+   "name": "Candy Cane Mint Hot Chocolate (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 344,
+    "protein": 9.1,
+    "carbs": 53,
+    "fat": 11,
+    "saturatedFat": 8.1,
+    "sugar": 44,
+    "fiber": 0,
+    "salt": 0.62,
+    "energyKj": 1452
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "candy-cane-mint-hot-chocolate-regular",
+   "name": "Candy Cane Mint Hot Chocolate (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 279,
+    "protein": 7,
+    "carbs": 41,
+    "fat": 9.4,
+    "saturatedFat": 7,
+    "sugar": 32,
+    "fiber": 0,
+    "salt": 0.53,
+    "energyKj": 1166
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "flat-white-decaf",
    "name": "Flat White Decaf",
    "category": "Hot drinks",
@@ -4362,6 +4539,94 @@
    "components": [],
    "modifiers": [],
    "image": "greggs/d83fd54064ca.webp"
+  },
+  {
+   "id": "hazelnut-crunch-latte-decaf-large",
+   "name": "Hazelnut Crunch Latte Decaf (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 198,
+    "protein": 10,
+    "carbs": 21,
+    "fat": 8.2,
+    "saturatedFat": 5.4,
+    "sugar": 15,
+    "fiber": 0,
+    "salt": 0.41,
+    "energyKj": 837
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hazelnut-crunch-latte-decaf-regular",
+   "name": "Hazelnut Crunch Latte Decaf (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 179,
+    "protein": 8.2,
+    "carbs": 20,
+    "fat": 7.2,
+    "saturatedFat": 4.7,
+    "sugar": 15,
+    "fiber": 0,
+    "salt": 0.04,
+    "energyKj": 745
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hazelnut-crunch-latte-large",
+   "name": "Hazelnut Crunch Latte (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 198,
+    "protein": 10,
+    "carbs": 21,
+    "fat": 8.2,
+    "saturatedFat": 5.4,
+    "sugar": 15,
+    "fiber": 0,
+    "salt": 0.41,
+    "energyKj": 837
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hazelnut-crunch-latte-regular",
+   "name": "Hazelnut Crunch Latte (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 179,
+    "protein": 8.3,
+    "carbs": 20,
+    "fat": 7.2,
+    "saturatedFat": 4.7,
+    "sugar": 15,
+    "fiber": 0,
+    "salt": 0.04,
+    "energyKj": 746
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
   },
   {
    "id": "hot-chocolate-large",
@@ -4613,8 +4878,8 @@
    "image": "greggs/5327167b7783.webp"
   },
   {
-   "id": "pumpkin-spice-latte-with-salted-caramel-drizzle-decaf-large",
-   "name": "Pumpkin Spice Latte with Salted Caramel Drizzle Decaf (large)",
+   "id": "salted-caramel-latte-large",
+   "name": "Salted Caramel Latte (large)",
    "category": "Hot drinks",
    "serving": "Large",
    "nutrients": {
@@ -4625,7 +4890,7 @@
     "saturatedFat": 5.1,
     "sugar": 27,
     "fiber": 0,
-    "salt": 0.55,
+    "salt": 0.97,
     "energyKj": 980
    },
    "tags": [],
@@ -4635,30 +4900,8 @@
    "modifiers": []
   },
   {
-   "id": "pumpkin-spice-latte-with-salted-caramel-drizzle-decaf-regular",
-   "name": "Pumpkin Spice Latte with Salted Caramel Drizzle Decaf (regular)",
-   "category": "Hot drinks",
-   "serving": "Regular",
-   "nutrients": {
-    "calories": 214,
-    "protein": 8.1,
-    "carbs": 29,
-    "fat": 7.4,
-    "saturatedFat": 4.8,
-    "sugar": 27,
-    "fiber": 0,
-    "salt": 0.11,
-    "energyKj": 907
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "pumpkin-spice-latte-with-salted-caramel-drizzle-large",
-   "name": "Pumpkin Spice Latte with Salted Caramel Drizzle (large)",
+   "id": "salted-caramel-latte-decaf-large",
+   "name": "Salted Caramel Latte Decaf (large)",
    "category": "Hot drinks",
    "serving": "Large",
    "nutrients": {
@@ -4669,19 +4912,18 @@
     "saturatedFat": 5.1,
     "sugar": 27,
     "fiber": 0,
-    "salt": 0.55,
+    "salt": 0.97,
     "energyKj": 980
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "greggs/dbdf0bc3cbca.webp"
+   "modifiers": []
   },
   {
-   "id": "pumpkin-spice-latte-with-salted-caramel-drizzle-regular",
-   "name": "Pumpkin Spice Latte with Salted Caramel Drizzle (regular)",
+   "id": "salted-caramel-latte-regular",
+   "name": "Salted Caramel Latte (regular)",
    "category": "Hot drinks",
    "serving": "Regular",
    "nutrients": {
@@ -4692,15 +4934,36 @@
     "saturatedFat": 4.8,
     "sugar": 27,
     "fiber": 0,
-    "salt": 0.11,
-    "energyKj": 907
+    "salt": 0.55,
+    "energyKj": 899
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "greggs/487ed7c813b1.webp"
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-latte-decaf-regular",
+   "name": "Salted Caramel Latte Decaf (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 214,
+    "protein": 8.1,
+    "carbs": 29,
+    "fat": 7.4,
+    "saturatedFat": 4.8,
+    "sugar": 27,
+    "fiber": 0,
+    "salt": 0.55,
+    "energyKj": 899
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
   },
   {
    "id": "vanilla-latte-large",
@@ -5015,20 +5278,20 @@
    "modifiers": []
   },
   {
-   "id": "iced-caramel-chocolate",
-   "name": "Iced Caramel Chocolate",
+   "id": "iced-candy-cane-mint-chocolate",
+   "name": "Iced Candy Cane Mint Chocolate",
    "category": "Cold drinks",
    "serving": "",
    "nutrients": {
-    "calories": 220,
+    "calories": 190,
     "protein": 4.7,
-    "carbs": 41,
-    "fat": 3.8,
+    "carbs": 33,
+    "fat": 3.9,
     "saturatedFat": 3,
-    "sugar": 39,
+    "sugar": 26,
     "fiber": 1.4,
-    "salt": 0.42,
-    "energyKj": 931
+    "salt": 0.34,
+    "energyKj": 802
    },
    "tags": [],
    "limitedTime": false,
@@ -5095,6 +5358,50 @@
     "fiber": 1.4,
     "salt": 0.39,
     "energyKj": 680
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-hazelnut-crunch-latte",
+   "name": "Iced Hazelnut Crunch Latte",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 131,
+    "protein": 7.3,
+    "carbs": 18,
+    "fat": 3.4,
+    "saturatedFat": 1.9,
+    "sugar": 12,
+    "fiber": 0,
+    "salt": 0.24,
+    "energyKj": 553
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-hazelnut-crunch-latte-decaf",
+   "name": "Iced Hazelnut Crunch Latte Decaf",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 131,
+    "protein": 7.3,
+    "carbs": 18,
+    "fat": 3.4,
+    "saturatedFat": 1.9,
+    "sugar": 12,
+    "fiber": 0,
+    "salt": 0.24,
+    "energyKj": 552
    },
    "tags": [],
    "limitedTime": false,
@@ -5213,20 +5520,20 @@
    "modifiers": []
   },
   {
-   "id": "iced-pumpkin-spice-latte-with-salted-caramel-drizzle",
-   "name": "Iced Pumpkin Spice Latte with Salted Caramel Drizzle",
+   "id": "iced-salted-caramel-latte-regular",
+   "name": "Iced Salted Caramel Latte (regular)",
    "category": "Cold drinks",
-   "serving": "",
+   "serving": "Regular",
    "nutrients": {
-    "calories": 185,
+    "calories": 180,
     "protein": 7,
-    "carbs": 31,
+    "carbs": 30,
     "fat": 3.5,
     "saturatedFat": 2,
     "sugar": 29,
     "fiber": 0,
-    "salt": 0.4,
-    "energyKj": 773
+    "salt": 1,
+    "energyKj": 763
    },
    "tags": [],
    "limitedTime": false,
@@ -5235,20 +5542,20 @@
    "modifiers": []
   },
   {
-   "id": "iced-pumpkin-spice-latte-with-salted-caramel-drizzle-decaf",
-   "name": "Iced Pumpkin Spice Latte with Salted Caramel Drizzle Decaf",
+   "id": "iced-salted-caramel-latte-decaf",
+   "name": "Iced Salted Caramel Latte Decaf",
    "category": "Cold drinks",
    "serving": "",
    "nutrients": {
-    "calories": 184,
+    "calories": 179,
     "protein": 7,
-    "carbs": 31,
+    "carbs": 30,
     "fat": 3.5,
     "saturatedFat": 2,
     "sugar": 29,
     "fiber": 0,
-    "salt": 0.4,
-    "energyKj": 772
+    "salt": 1,
+    "energyKj": 762
    },
    "tags": [],
    "limitedTime": false,
@@ -5262,15 +5569,15 @@
    "category": "Cold drinks",
    "serving": "Regular",
    "nutrients": {
-    "calories": 170,
-    "protein": 8.7,
-    "carbs": 24,
-    "fat": 4.4,
-    "saturatedFat": 2.4,
-    "sugar": 23,
+    "calories": 168,
+    "protein": 6.9,
+    "carbs": 28,
+    "fat": 3.5,
+    "saturatedFat": 2,
+    "sugar": 26,
     "fiber": 0,
-    "salt": 0.24,
-    "energyKj": 723
+    "salt": 0.25,
+    "energyKj": 715
    },
    "tags": [],
    "limitedTime": false,
@@ -5284,15 +5591,15 @@
    "category": "Cold drinks",
    "serving": "Regular",
    "nutrients": {
-    "calories": 170,
-    "protein": 8.7,
-    "carbs": 24,
-    "fat": 4.4,
-    "saturatedFat": 2.4,
-    "sugar": 23,
+    "calories": 167,
+    "protein": 6.9,
+    "carbs": 28,
+    "fat": 3.4,
+    "saturatedFat": 2,
+    "sugar": 26,
     "fiber": 0,
-    "salt": 0.24,
-    "energyKj": 723
+    "salt": 0.25,
+    "energyKj": 713
    },
    "tags": [],
    "limitedTime": false,
@@ -5301,20 +5608,20 @@
    "modifiers": []
   },
   {
-   "id": "blueberry-iced-matcha-latte",
-   "name": "Blueberry Iced Matcha Latte",
+   "id": "candy-cane-mint-iced-matcha-latte",
+   "name": "Candy Cane Mint Iced Matcha Latte",
    "category": "Cold drinks",
    "serving": "",
    "nutrients": {
-    "calories": 134,
-    "protein": 6.7,
-    "carbs": 20,
-    "fat": 3.3,
+    "calories": 116,
+    "protein": 6.8,
+    "carbs": 15,
+    "fat": 3.4,
     "saturatedFat": 1.9,
-    "sugar": 18,
+    "sugar": 9.7,
     "fiber": 0,
     "salt": 0.24,
-    "energyKj": 569
+    "energyKj": 489
    },
    "tags": [],
    "limitedTime": false,
@@ -5367,72 +5674,6 @@
    "modifiers": []
   },
   {
-   "id": "pumpkin-spice-iced-matcha-latte-with-salted-caramel-drizzle",
-   "name": "Pumpkin Spice Iced Matcha Latte with Salted Caramel Drizzle",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 156,
-    "protein": 6.8,
-    "carbs": 24,
-    "fat": 3.4,
-    "saturatedFat": 2,
-    "sugar": 23,
-    "fiber": 0,
-    "salt": 0.39,
-    "energyKj": 649
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "cherry-mango-cooler",
-   "name": "Cherry & Mango Cooler",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 80,
-    "protein": 0,
-    "carbs": 20,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 18,
-    "fiber": 0,
-    "salt": 0.13,
-    "energyKj": 340
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "mango-and-strawberry-cooler",
-   "name": "Mango and Strawberry Cooler",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 104,
-    "protein": 0,
-    "carbs": 26,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 18,
-    "fiber": 0,
-    "salt": 0.13,
-    "energyKj": 449
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "cherry-lemonade",
    "name": "Cherry Lemonade",
    "category": "Cold drinks",
@@ -5469,28 +5710,6 @@
     "fiber": 0,
     "salt": 0.05,
     "energyKj": 235
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "mango-lemonade",
-   "name": "Mango Lemonade",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 76,
-    "protein": 0,
-    "carbs": 19,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 16,
-    "fiber": 0,
-    "salt": 0.13,
-    "energyKj": 320
    },
    "tags": [],
    "limitedTime": false,
@@ -5725,6 +5944,28 @@
    "modifiers": []
   },
   {
+   "id": "extra-mint-syrup",
+   "name": "Extra Mint Syrup",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 14,
+    "protein": 0,
+    "carbs": 3.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 61
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "extra-omelette-with-cheese",
    "name": "Extra Omelette with Cheese",
    "category": "Add-ons & extras",
@@ -5747,20 +5988,20 @@
    "modifiers": []
   },
   {
-   "id": "extra-pumpkin-spice-syrup",
-   "name": "Extra Pumpkin Spice Syrup",
+   "id": "extra-salted-caramel-syrup",
+   "name": "Extra Salted Caramel Syrup",
    "category": "Add-ons & extras",
    "serving": "",
    "nutrients": {
-    "calories": 45,
+    "calories": 44,
     "protein": 0,
     "carbs": 11,
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 11,
     "fiber": 0,
-    "salt": 0,
-    "energyKj": 192
+    "salt": 0.48,
+    "energyKj": 188
    },
    "tags": [],
    "limitedTime": false,
@@ -5901,42 +6142,20 @@
    "modifiers": []
   },
   {
-   "id": "hot-honey",
-   "name": "Hot Honey",
+   "id": "hot-sauce",
+   "name": "Hot Sauce",
    "category": "Sauces & dips",
    "serving": "",
    "nutrients": {
-    "calories": 62,
+    "calories": 36,
     "protein": 0,
-    "carbs": 15,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 13,
+    "carbs": 2.3,
+    "fat": 2.9,
+    "saturatedFat": 0.2,
+    "sugar": 0,
     "fiber": 0,
-    "salt": 0.34,
-    "energyKj": 262
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "smoky-bbq-dip",
-   "name": "Smoky BBQ Dip",
-   "category": "Sauces & dips",
-   "serving": "",
-   "nutrients": {
-    "calories": 75,
-    "protein": 0.6,
-    "carbs": 18,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 16,
-    "fiber": 0,
-    "salt": 0.29,
-    "energyKj": 317
+    "salt": 0.84,
+    "energyKj": 151
    },
    "tags": [],
    "limitedTime": false,

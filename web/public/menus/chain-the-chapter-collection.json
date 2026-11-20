@@ -16,15 +16,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "The Chapter Collection allergen & nutritional data (tkmenus.com/thechaptercollection: Main, Bar Snacks, Steak, Lunch, Sunday, Brunch, Dessert, Non Gluten Containing Ingredient, Kids, Kids Sunday and Drinks menus, all dated September 2026; read 11 October 2026)",
+  "title": "The Chapter Collection allergen & nutritional data (tkmenus.com/thechaptercollection: Main, Bar Snacks, Steak, Lunch, Sunday, Brunch, Dessert, Non Gluten Containing Ingredient, Kids, Kids Sunday and Drinks menus, all dated September 2026; read 17 November 2026)",
   "url": "https://tkmenus.com/thechaptercollection",
-  "checkedOn": "2026-10-11"
+  "checkedOn": "2026-11-17"
  },
  "note": "One menu set for the six Chapter Collection pubs (London); not every pub serves every menu. A dish with different figures on two menus appears once per menu, named after it. Values are per dish as served; dishes marked 'Excluding ...' leave out the part named (see Options & add-ons). Alcoholic drinks and hot drinks are not listed.",
  "allergenGuide": {
-  "title": "The Chapter Collection allergen & nutritional data (tkmenus.com/thechaptercollection, September 2026 menus, read 11 October 2026)",
+  "title": "The Chapter Collection allergen & nutritional data (tkmenus.com/thechaptercollection, September 2026 menus, read 17 November 2026)",
   "url": "https://tkmenus.com/thechaptercollection",
-  "checkedOn": "2026-10-11",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -55,7 +55,7 @@
     "calories": 323,
     "protein": 7.3,
     "carbs": 51.7,
-    "fat": 10.8,
+    "fat": 10.7,
     "saturatedFat": 4.9,
     "sugar": 5.1,
     "salt": 2.3,
@@ -227,14 +227,14 @@
    "category": "Starters",
    "serving": "",
    "nutrients": {
-    "calories": 478,
-    "protein": 21.2,
+    "calories": 466,
+    "protein": 21.1,
     "carbs": 19.8,
-    "fat": 34.7,
-    "saturatedFat": 13.4,
+    "fat": 33.4,
+    "saturatedFat": 12.4,
     "sugar": 3.4,
     "salt": 2.6,
-    "energyKj": 1989
+    "energyKj": 1938
    },
    "tags": [
     "contains_pork"
@@ -335,14 +335,14 @@
    "category": "Starters",
    "serving": "",
    "nutrients": {
-    "calories": 416,
-    "protein": 15,
-    "carbs": 38.1,
-    "fat": 23.1,
-    "saturatedFat": 10.4,
-    "sugar": 6,
-    "salt": 1.8,
-    "energyKj": 1731
+    "calories": 413,
+    "protein": 15.6,
+    "carbs": 38.5,
+    "fat": 22.1,
+    "saturatedFat": 9.8,
+    "sugar": 5.8,
+    "salt": 2,
+    "energyKj": 1719
    },
    "tags": [
     "vegetarian"
@@ -372,14 +372,14 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 935,
+    "calories": 934,
     "protein": 44.5,
     "carbs": 74.8,
-    "fat": 50.1,
-    "saturatedFat": 22,
-    "sugar": 14.7,
+    "fat": 49.9,
+    "saturatedFat": 21.6,
+    "sugar": 14.8,
     "salt": 5.3,
-    "energyKj": 3912
+    "energyKj": 3915
    },
    "tags": [
     "contains_beef"
@@ -505,14 +505,14 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1287,
+    "calories": 1286,
     "protein": 32.8,
     "carbs": 112.4,
-    "fat": 76.7,
-    "saturatedFat": 34.8,
+    "fat": 76.6,
+    "saturatedFat": 34.4,
     "sugar": 30.2,
-    "salt": 3.5,
-    "energyKj": 5373
+    "salt": 3.4,
+    "energyKj": 5377
    },
    "tags": [
     "contains_beef"
@@ -679,14 +679,14 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1161,
+    "calories": 1160,
     "protein": 51.4,
-    "carbs": 93.4,
-    "fat": 63.9,
-    "saturatedFat": 26.1,
-    "sugar": 3.8,
+    "carbs": 93.5,
+    "fat": 63.6,
+    "saturatedFat": 25.3,
+    "sugar": 3.9,
     "salt": 3.2,
-    "energyKj": 4862
+    "energyKj": 4868
    },
    "tags": [],
    "limitedTime": false,
@@ -741,14 +741,14 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1106,
-    "protein": 51.5,
-    "carbs": 80,
-    "fat": 63.1,
-    "saturatedFat": 16,
+    "calories": 1060,
+    "protein": 48.3,
+    "carbs": 77.7,
+    "fat": 60.4,
+    "saturatedFat": 15.2,
     "sugar": 5.9,
     "salt": 6,
-    "energyKj": 4626
+    "energyKj": 4434
    },
    "tags": [],
    "limitedTime": false,
@@ -779,10 +779,10 @@
     "calories": 808,
     "protein": 44.4,
     "carbs": 35.3,
-    "fat": 54.8,
+    "fat": 54.2,
     "saturatedFat": 20.6,
     "sugar": 5.2,
-    "salt": 4,
+    "salt": 4.1,
     "energyKj": 3381
    },
    "tags": [],
@@ -1149,14 +1149,14 @@
    "category": "Options & add-ons",
    "serving": "",
    "nutrients": {
-    "calories": 257,
-    "protein": 3.8,
+    "calories": 256,
+    "protein": 3.9,
     "carbs": 34.6,
-    "fat": 12.3,
-    "saturatedFat": 5.1,
-    "sugar": 1.4,
+    "fat": 12.2,
+    "saturatedFat": 4.8,
+    "sugar": 1.5,
     "salt": 1.1,
-    "energyKj": 1076
+    "energyKj": 1078
    },
    "tags": [
     "vegetarian"
@@ -1207,14 +1207,14 @@
    "category": "Options & add-ons",
    "serving": "",
    "nutrients": {
-    "calories": 130,
+    "calories": 129,
     "protein": 0.3,
-    "carbs": 0.4,
-    "fat": 14.2,
-    "saturatedFat": 9.3,
-    "sugar": 0.1,
+    "carbs": 0.5,
+    "fat": 14,
+    "saturatedFat": 8.9,
+    "sugar": 0.2,
     "salt": 0.1,
-    "energyKj": 535
+    "energyKj": 539
    },
    "tags": [
     "vegetarian"
@@ -2183,14 +2183,14 @@
    "category": "Sides",
    "serving": "",
    "nutrients": {
-    "calories": 586,
+    "calories": 585,
     "protein": 16.5,
-    "carbs": 39.8,
-    "fat": 40.9,
-    "saturatedFat": 24.1,
-    "sugar": 3.2,
+    "carbs": 39.9,
+    "fat": 40.7,
+    "saturatedFat": 23.7,
+    "sugar": 3.3,
     "salt": 2.2,
-    "energyKj": 2450
+    "energyKj": 2453
    },
    "tags": [],
    "limitedTime": false,
@@ -2789,14 +2789,14 @@
    "category": "Lunch",
    "serving": "",
    "nutrients": {
-    "calories": 983,
+    "calories": 981,
     "protein": 32.5,
-    "carbs": 122.9,
-    "fat": 40.7,
-    "saturatedFat": 17.1,
-    "sugar": 13.1,
+    "carbs": 123,
+    "fat": 40.5,
+    "saturatedFat": 16.5,
+    "sugar": 13.2,
     "salt": 6.6,
-    "energyKj": 4113
+    "energyKj": 4118
    },
    "tags": [
     "contains_beef"
@@ -2826,14 +2826,14 @@
    "category": "Lunch",
    "serving": "",
    "nutrients": {
-    "calories": 1076,
-    "protein": 34.1,
-    "carbs": 110.2,
-    "fat": 55,
-    "saturatedFat": 16.9,
+    "calories": 1052,
+    "protein": 32.5,
+    "carbs": 109,
+    "fat": 53.6,
+    "saturatedFat": 16.5,
     "sugar": 9.4,
     "salt": 3.1,
-    "energyKj": 4503
+    "energyKj": 4407
    },
    "tags": [],
    "limitedTime": false,
@@ -3394,14 +3394,14 @@
    "category": "Brunch",
    "serving": "",
    "nutrients": {
-    "calories": 1021,
+    "calories": 1020,
     "protein": 52.5,
-    "carbs": 65.8,
-    "fat": 61.9,
-    "saturatedFat": 25.7,
-    "sugar": 5.5,
+    "carbs": 65.9,
+    "fat": 61.7,
+    "saturatedFat": 25.2,
+    "sugar": 5.6,
     "salt": 5.7,
-    "energyKj": 4240
+    "energyKj": 4245
    },
    "tags": [
     "contains_pork"
@@ -3610,11 +3610,11 @@
     "calories": 769,
     "protein": 8.4,
     "carbs": 99.8,
-    "fat": 36.9,
-    "saturatedFat": 22.2,
+    "fat": 36.8,
+    "saturatedFat": 21.9,
     "sugar": 73,
     "salt": 1.9,
-    "energyKj": 3223
+    "energyKj": 3226
    },
    "tags": [
     "vegetarian"
@@ -3646,10 +3646,10 @@
     "protein": 7.2,
     "carbs": 61.2,
     "fat": 22.2,
-    "saturatedFat": 13.6,
+    "saturatedFat": 13.4,
     "sugar": 48.5,
     "salt": 0.6,
-    "energyKj": 2055
+    "energyKj": 2056
    },
    "tags": [],
    "limitedTime": false,
@@ -4344,80 +4344,19 @@
    }
   },
   {
-   "id": "harry-specters-dark-chocolate-truffle",
-   "name": "Harry Specters Dark Chocolate Truffle",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 107,
-    "protein": 1.2,
-    "carbs": 15.1,
-    "fat": 5.1,
-    "saturatedFat": 2.7,
-    "sugar": 14.4,
-    "salt": 0.1,
-    "energyKj": 451
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "soya"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts"
-    ]
-   }
-  },
-  {
-   "id": "harry-specters-seasalt-caramel-chocolate",
-   "name": "Harry Specters Seasalt Caramel Chocolate",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 107,
-    "protein": 1.2,
-    "carbs": 15.1,
-    "fat": 5.1,
-    "saturatedFat": 2.7,
-    "sugar": 14.4,
-    "salt": 0.1,
-    "energyKj": 451
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts"
-    ]
-   }
-  },
-  {
    "id": "sausage-and-mash",
    "name": "Sausage & Mash",
    "category": "Kids: mains",
    "serving": "",
    "nutrients": {
-    "calories": 361,
-    "protein": 17.7,
+    "calories": 360,
+    "protein": 17.8,
     "carbs": 30.4,
-    "fat": 19.3,
-    "saturatedFat": 10,
-    "sugar": 5.2,
+    "fat": 19.2,
+    "saturatedFat": 9.8,
+    "sugar": 5.3,
     "salt": 1.7,
-    "energyKj": 1512
+    "energyKj": 1513
    },
    "tags": [
     "contains_pork"
@@ -4541,12 +4480,12 @@
    "nutrients": {
     "calories": 430,
     "protein": 5,
-    "carbs": 53.1,
-    "fat": 21.9,
-    "saturatedFat": 13.7,
-    "sugar": 40.7,
+    "carbs": 53.2,
+    "fat": 21.8,
+    "saturatedFat": 13.6,
+    "sugar": 40.8,
     "salt": 1,
-    "energyKj": 1803
+    "energyKj": 1804
    },
    "tags": [
     "vegetarian"

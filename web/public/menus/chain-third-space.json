@@ -13,9 +13,9 @@
  ],
  "sample": false,
  "source": {
-  "title": "Third Space Natural Fitness Food menu: shakes (live page labelled #NFF26, accessed 2026-10-08, no date shown)",
+  "title": "Third Space Natural Fitness Food menu: shakes (live page labelled #NFF26, accessed 2026-11-17, no date shown)",
   "url": "https://www.thirdspace.london/natural-fitness-foods-menu/",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Third Space's own Natural Fitness Food menu publishes calories, protein, carbs and fat for its 11 shakes, per 22 oz shake. Protein powders, milks and add-ons are not listed: the page gives no portion for them. No food menu or allergen guide is published.",
  "categories": [
@@ -24,22 +24,21 @@
  "components": [],
  "items": [
   {
-   "id": "apple-crumble",
-   "name": "Apple Crumble",
+   "id": "gingerbread",
+   "name": "Gingerbread",
    "category": "Shakes",
    "serving": "22 oz",
    "nutrients": {
-    "calories": 347,
-    "protein": 27,
-    "carbs": 34,
-    "fat": 10
+    "calories": 379,
+    "protein": 23,
+    "carbs": 42,
+    "fat": 13
    },
    "tags": [],
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "third-space/addf81e4ef0f.webp"
+   "modifiers": []
   },
   {
    "id": "banana-bread",

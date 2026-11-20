@@ -1,0 +1,8095 @@
+{
+ "schemaVersion": 1,
+ "id": "tim-hortons",
+ "name": "Tim Hortons",
+ "cuisine": "Coffee",
+ "builderType": "standard",
+ "aliases": [
+  "tim hortons",
+  "tims",
+  "timmies"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Tim Hortons UK website: product nutritional information, Great Britain menu (timhortons.co.uk/information pages, retrieved 2026-11-17; the pages carry no version date)",
+  "url": "https://timhortons.co.uk/information/56",
+  "checkedOn": "2026-11-17"
+ },
+ "note": "Values are per serving as the chain prints them and do not include dips. Items sold only in Northern Ireland or selected stores, and boxes of donuts and Timbits (no values printed), are left out.",
+ "allergenGuide": {
+  "title": "Tim Hortons UK website: allergens printed on each product and size page (timhortons.co.uk/information pages, retrieved 2026-11-17), cross-checked against the Nutrition PDF's allergen table, Nutrition-20261110-173215-613c.pdf (no version stamp printed); 'may contain' = the PDF's 'Maybe' cells",
+  "url": "https://timhortons.co.uk/information/56",
+  "checkedOn": "2026-11-17",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Breakfast",
+  "Burgers & sandwiches",
+  "Wraps",
+  "Tenders & sides",
+  "Timmies Minis",
+  "Bakery & treats",
+  "Hot drinks",
+  "Cold drinks",
+  "Soft drinks",
+  "Sauces",
+  "Add-ons"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "bacon-roll-loin",
+   "name": "Bacon Roll (Loin)",
+   "category": "Breakfast",
+   "serving": "190 g",
+   "nutrients": {
+    "calories": 544,
+    "protein": 36,
+    "carbs": 45,
+    "fat": 25,
+    "saturatedFat": 8.6,
+    "sugar": 3.8,
+    "fiber": 3.2,
+    "salt": 4.6,
+    "energyKj": 2277,
+    "weight": 190
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/2d61e2a6191b.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "original-breakfast-wrap",
+   "name": "Original Breakfast Wrap",
+   "category": "Breakfast",
+   "serving": "203 g",
+   "nutrients": {
+    "calories": 493,
+    "protein": 22,
+    "carbs": 42,
+    "fat": 25,
+    "saturatedFat": 6.9,
+    "sugar": 4,
+    "fiber": 3.8,
+    "salt": 2.6,
+    "energyKj": 2061,
+    "weight": 203
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/518693e59004.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "big-breakfast-wrap",
+   "name": "Big Breakfast Wrap",
+   "category": "Breakfast",
+   "serving": "217 g",
+   "nutrients": {
+    "calories": 535,
+    "protein": 26,
+    "carbs": 43,
+    "fat": 28,
+    "saturatedFat": 7.9,
+    "sugar": 4.3,
+    "fiber": 3.9,
+    "salt": 2.9,
+    "energyKj": 2240,
+    "weight": 217
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/9c25733590f4.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "loaded-veggie-wrap",
+   "name": "Loaded Veggie Wrap",
+   "category": "Breakfast",
+   "serving": "209 g",
+   "nutrients": {
+    "calories": 512,
+    "protein": 21,
+    "carbs": 44,
+    "fat": 26,
+    "saturatedFat": 8.8,
+    "sugar": 3.5,
+    "fiber": 6.9,
+    "salt": 2.5,
+    "energyKj": 2142,
+    "weight": 209
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/898444f38892.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "egg-and-cheese-muffin",
+   "name": "Egg and Cheese Muffin",
+   "category": "Breakfast",
+   "serving": "117 g",
+   "nutrients": {
+    "calories": 290,
+    "protein": 12,
+    "carbs": 27,
+    "fat": 15,
+    "saturatedFat": 3.6,
+    "sugar": 3.2,
+    "fiber": 0.9,
+    "salt": 1.1,
+    "energyKj": 1215,
+    "weight": 117
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d37ab528a70a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "bacon-egg-and-cheese-muffin-streaky-bacon",
+   "name": "Bacon, Egg and Cheese Muffin (Streaky Bacon)",
+   "category": "Breakfast",
+   "serving": "131 g",
+   "nutrients": {
+    "calories": 333,
+    "protein": 16,
+    "carbs": 27,
+    "fat": 18,
+    "saturatedFat": 4.6,
+    "sugar": 3.5,
+    "fiber": 1,
+    "salt": 1.4,
+    "energyKj": 1394,
+    "weight": 131
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/0b3a6a46c6cc.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "bacon-egg-and-cheese-muffin-stack-streaky-bacon",
+   "name": "Bacon, Egg and Cheese Muffin Stack (Streaky Bacon)",
+   "category": "Breakfast",
+   "serving": "179 g",
+   "nutrients": {
+    "calories": 423,
+    "protein": 17,
+    "carbs": 36,
+    "fat": 23,
+    "saturatedFat": 4.8,
+    "sugar": 3.6,
+    "fiber": 2.2,
+    "salt": 1.6,
+    "energyKj": 1771,
+    "weight": 179
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/3c4b1c57591f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "double-bacon-egg-and-cheese-muffin-streaky-bacon",
+   "name": "Double Bacon, Egg and Cheese Muffin (Streaky Bacon)",
+   "category": "Breakfast",
+   "serving": "145 g",
+   "nutrients": {
+    "calories": 376,
+    "protein": 20,
+    "carbs": 28,
+    "fat": 20,
+    "saturatedFat": 5.7,
+    "sugar": 3.9,
+    "fiber": 1,
+    "salt": 1.7,
+    "energyKj": 1573,
+    "weight": 145
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/6d603bd74a7c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "sausage-and-egg-with-cheese-muffin",
+   "name": "Sausage & Egg with Cheese Muffin",
+   "category": "Breakfast",
+   "serving": "163 g",
+   "nutrients": {
+    "calories": 420,
+    "protein": 22,
+    "carbs": 28,
+    "fat": 24,
+    "saturatedFat": 7.1,
+    "sugar": 4.1,
+    "fiber": 1.1,
+    "salt": 1.9,
+    "energyKj": 1759,
+    "weight": 163
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/64685cbcc9ec.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "sausage-and-egg-with-cheese-muffin-stack",
+   "name": "Sausage & Egg with Cheese Muffin Stack",
+   "category": "Breakfast",
+   "serving": "211 g",
+   "nutrients": {
+    "calories": 511,
+    "protein": 23,
+    "carbs": 37,
+    "fat": 30,
+    "saturatedFat": 7.3,
+    "sugar": 4.2,
+    "fiber": 2.4,
+    "salt": 2.1,
+    "energyKj": 2137,
+    "weight": 211
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/7b3d924fe835.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "double-sausage-and-egg-with-cheese-muffin",
+   "name": "Double Sausage & Egg with Cheese Muffin",
+   "category": "Breakfast",
+   "serving": "210 g",
+   "nutrients": {
+    "calories": 551,
+    "protein": 32,
+    "carbs": 29,
+    "fat": 34,
+    "saturatedFat": 11,
+    "sugar": 5,
+    "fiber": 1.3,
+    "salt": 2.7,
+    "energyKj": 2304,
+    "weight": 210
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/65f39d77ebda.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "veggie-egg-with-cheese-muffin",
+   "name": "Veggie Egg with Cheese Muffin",
+   "category": "Breakfast",
+   "serving": "170 g",
+   "nutrients": {
+    "calories": 440,
+    "protein": 21,
+    "carbs": 29,
+    "fat": 25,
+    "saturatedFat": 9,
+    "sugar": 3.6,
+    "fiber": 4.2,
+    "salt": 1.9,
+    "energyKj": 1840,
+    "weight": 170
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/323dbb3d37db.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "veggie-egg-with-cheese-muffin-stack",
+   "name": "Veggie Egg with Cheese Muffin Stack",
+   "category": "Breakfast",
+   "serving": "217 g",
+   "nutrients": {
+    "calories": 512,
+    "protein": 19,
+    "carbs": 38,
+    "fat": 30,
+    "saturatedFat": 9.5,
+    "sugar": 3.7,
+    "fiber": 4.5,
+    "salt": 2.1,
+    "energyKj": 2141,
+    "weight": 217
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/71e4e6f8d0db.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "grilled-breakfast-bagel-with-sausage",
+   "name": "Grilled Breakfast Bagel with Sausage",
+   "category": "Breakfast",
+   "serving": "211 g",
+   "nutrients": {
+    "calories": 521,
+    "protein": 27,
+    "carbs": 59,
+    "fat": 19,
+    "saturatedFat": 6.5,
+    "sugar": 7.8,
+    "fiber": 3.7,
+    "salt": 2.2,
+    "energyKj": 2180,
+    "weight": 211
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/8845edb43fd7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "grilled-breakfast-bagel-with-bacon-streaky-bacon",
+   "name": "Grilled Breakfast Bagel with Bacon (Streaky Bacon)",
+   "category": "Breakfast",
+   "serving": "179 g",
+   "nutrients": {
+    "calories": 434,
+    "protein": 21,
+    "carbs": 59,
+    "fat": 12,
+    "saturatedFat": 4.1,
+    "sugar": 7.3,
+    "fiber": 3.6,
+    "salt": 1.7,
+    "energyKj": 1815,
+    "weight": 179
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/1214735bbfe5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "grilled-breakfast-bagel-with-veggie-sausage",
+   "name": "Grilled Breakfast Bagel with Veggie Sausage",
+   "category": "Breakfast",
+   "serving": "217 g",
+   "nutrients": {
+    "calories": 540,
+    "protein": 26,
+    "carbs": 61,
+    "fat": 20,
+    "saturatedFat": 8.4,
+    "sugar": 7.3,
+    "fiber": 6.9,
+    "salt": 2.2,
+    "energyKj": 2261,
+    "weight": 217
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/f5a80841cb02.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "plain-bagel",
+   "name": "Plain Bagel",
+   "category": "Breakfast",
+   "serving": "114 g",
+   "nutrients": {
+    "calories": 292,
+    "protein": 10,
+    "carbs": 57,
+    "fat": 1.8,
+    "saturatedFat": 0.2,
+    "sugar": 5.7,
+    "fiber": 3.5,
+    "salt": 0.74,
+    "energyKj": 1220,
+    "weight": 114
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/17282a7c0437.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "bagel-with-butter",
+   "name": "Bagel with Butter",
+   "category": "Breakfast",
+   "serving": "121 g",
+   "nutrients": {
+    "calories": 355,
+    "protein": 10,
+    "carbs": 57,
+    "fat": 8.7,
+    "saturatedFat": 0.9,
+    "sugar": 5.7,
+    "fiber": 3.5,
+    "salt": 0.83,
+    "energyKj": 1483,
+    "weight": 121
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/70d32bbd7e5e.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "bagel-with-cream-cheese",
+   "name": "Bagel with Cream Cheese",
+   "category": "Breakfast",
+   "serving": "130 g",
+   "nutrients": {
+    "calories": 329,
+    "protein": 11,
+    "carbs": 57,
+    "fat": 5.3,
+    "saturatedFat": 2.6,
+    "sugar": 6.4,
+    "fiber": 3.6,
+    "salt": 0.86,
+    "energyKj": 1376,
+    "weight": 130
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/ea5185257054.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "bacon-and-maple-pancakes",
+   "name": "Bacon & Maple Pancakes",
+   "category": "Breakfast",
+   "serving": "161 g",
+   "nutrients": {
+    "calories": 410,
+    "protein": 11,
+    "carbs": 68,
+    "fat": 10,
+    "saturatedFat": 2.2,
+    "sugar": 30,
+    "fiber": 1.7,
+    "salt": 1.7,
+    "energyKj": 1714,
+    "weight": 161
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/7c8e7c154696.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "maple-syrup-pancakes",
+   "name": "Maple Syrup Pancakes",
+   "category": "Breakfast",
+   "serving": "150 g",
+   "nutrients": {
+    "calories": 358,
+    "protein": 8,
+    "carbs": 66,
+    "fat": 6.4,
+    "saturatedFat": 0.9,
+    "sugar": 30,
+    "fiber": 1.7,
+    "salt": 1.4,
+    "energyKj": 1497,
+    "weight": 150
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/08ddc4f9b8b9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-hazelnut-and-cookie-pancakes",
+   "name": "Chocolate Hazelnut & Cookie Pancakes",
+   "category": "Breakfast",
+   "serving": "145 g",
+   "nutrients": {
+    "calories": 384,
+    "protein": 9,
+    "carbs": 61,
+    "fat": 11,
+    "saturatedFat": 2.4,
+    "sugar": 26,
+    "fiber": 2,
+    "salt": 1.4,
+    "energyKj": 1606,
+    "weight": 145
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/31937f08c253.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hash-brown",
+   "name": "Hash Brown",
+   "category": "Breakfast",
+   "serving": "48 g",
+   "nutrients": {
+    "calories": 90,
+    "protein": 1,
+    "carbs": 9.1,
+    "fat": 5.3,
+    "saturatedFat": 0.2,
+    "sugar": 0.1,
+    "fiber": 1.2,
+    "salt": 0.17,
+    "energyKj": 378,
+    "weight": 48
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/1adf16383a26.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten"
+    ]
+   }
+  },
+  {
+   "id": "bacon-and-cheese-breakfast-snack-wrap",
+   "name": "Bacon & Cheese Breakfast Snack Wrap",
+   "category": "Breakfast",
+   "serving": "87 g",
+   "nutrients": {
+    "calories": 257,
+    "protein": 14,
+    "carbs": 22,
+    "fat": 12,
+    "saturatedFat": 5.2,
+    "sugar": 4.9,
+    "fiber": 0.8,
+    "salt": 2.2,
+    "energyKj": 1076
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/efcce3c5b20d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sausage-and-cheese-breakfast-snack-wrap",
+   "name": "Sausage & Cheese Breakfast Snack Wrap",
+   "category": "Breakfast",
+   "serving": "97 g",
+   "nutrients": {
+    "calories": 283,
+    "protein": 13,
+    "carbs": 23,
+    "fat": 15,
+    "saturatedFat": 6.3,
+    "sugar": 5.8,
+    "fiber": 1.5,
+    "salt": 1.7,
+    "energyKj": 1185
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/8d3fa99e96a6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "veggie-breakfast-snack-wrap",
+   "name": "Veggie Breakfast Snack Wrap",
+   "category": "Breakfast",
+   "serving": "107 g",
+   "nutrients": {
+    "calories": 298,
+    "protein": 14,
+    "carbs": 24,
+    "fat": 15,
+    "saturatedFat": 7.7,
+    "sugar": 5.3,
+    "fiber": 4,
+    "salt": 1.7,
+    "energyKj": 1248
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/5a6f9c628d4f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "egg-and-cheese-breakfast-snack-wrap",
+   "name": "Egg & Cheese Breakfast Snack Wrap",
+   "category": "Breakfast",
+   "serving": "93 g",
+   "nutrients": {
+    "calories": 205,
+    "protein": 9.4,
+    "carbs": 22,
+    "fat": 8.7,
+    "saturatedFat": 3.5,
+    "sugar": 5.5,
+    "fiber": 0.7,
+    "salt": 1.1,
+    "energyKj": 859
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/de250bb1f6e4.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bacon-and-cheese-muffin-streaky-bacon",
+   "name": "Bacon & Cheese Muffin (Streaky Bacon)",
+   "category": "Breakfast",
+   "serving": "93 g",
+   "nutrients": {
+    "calories": 276,
+    "protein": 11,
+    "carbs": 27,
+    "fat": 14,
+    "saturatedFat": 3.6,
+    "sugar": 2.9,
+    "fiber": 1,
+    "salt": 1.3,
+    "energyKj": 1157
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/b2f1227650a2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "big-breakfast-wrap-streaky-bacon",
+   "name": "Big Breakfast Wrap (Streaky Bacon)",
+   "category": "Breakfast",
+   "serving": "235 g",
+   "nutrients": {
+    "calories": 573,
+    "protein": 27,
+    "carbs": 44,
+    "fat": 31,
+    "saturatedFat": 9.1,
+    "sugar": 4.7,
+    "fiber": 4.5,
+    "salt": 2.9,
+    "energyKj": 2398
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/8ab51d3794ec.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "the-festive-double-cheeseburger-stack",
+   "name": "The Festive Double Cheeseburger Stack",
+   "category": "Burgers & sandwiches",
+   "serving": "298 g",
+   "nutrients": {
+    "calories": 748,
+    "protein": 35,
+    "carbs": 68,
+    "fat": 36,
+    "saturatedFat": 14,
+    "sugar": 18,
+    "fiber": 4.4,
+    "salt": 3.5,
+    "energyKj": 3135,
+    "weight": 298
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "tims-double-cheeseburger",
+   "name": "Tims® Double Cheeseburger",
+   "category": "Burgers & sandwiches",
+   "serving": "237 g",
+   "nutrients": {
+    "calories": 527,
+    "protein": 30,
+    "carbs": 46,
+    "fat": 24,
+    "saturatedFat": 9.9,
+    "sugar": 11,
+    "fiber": 4.5,
+    "salt": 2.6,
+    "energyKj": 2206,
+    "weight": 237
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/938ca3ec9782.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "tims-bacon-double-cheeseburger",
+   "name": "Tims® Bacon Double Cheeseburger",
+   "category": "Burgers & sandwiches",
+   "serving": "247 g",
+   "nutrients": {
+    "calories": 579,
+    "protein": 33,
+    "carbs": 48,
+    "fat": 28,
+    "saturatedFat": 11,
+    "sugar": 11,
+    "fiber": 4.5,
+    "salt": 3,
+    "energyKj": 2423,
+    "weight": 247
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/4dc75c17aace.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "tims-triple-cheeseburger",
+   "name": "Tims® Triple Cheeseburger",
+   "category": "Burgers & sandwiches",
+   "serving": "300 g",
+   "nutrients": {
+    "calories": 690,
+    "protein": 41,
+    "carbs": 49,
+    "fat": 36,
+    "saturatedFat": 15,
+    "sugar": 12,
+    "fiber": 4.7,
+    "salt": 3.6,
+    "energyKj": 2887,
+    "weight": 300
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/caa48ff3f73e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "the-ultimate-festive-chicken-burger",
+   "name": "The Ultimate Festive Chicken Burger",
+   "category": "Burgers & sandwiches",
+   "serving": "301 g",
+   "nutrients": {
+    "calories": 727,
+    "protein": 32,
+    "carbs": 82,
+    "fat": 29,
+    "saturatedFat": 9.4,
+    "sugar": 18,
+    "fiber": 5.2,
+    "salt": 4.3,
+    "energyKj": 3050,
+    "weight": 301
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "tims-crispy-chicken-sandwich",
+   "name": "Tims® Crispy Chicken Sandwich",
+   "category": "Burgers & sandwiches",
+   "serving": "221 g",
+   "nutrients": {
+    "calories": 539,
+    "protein": 22,
+    "carbs": 57,
+    "fat": 24,
+    "saturatedFat": 3,
+    "sugar": 6.7,
+    "fiber": 3.7,
+    "salt": 2.6,
+    "energyKj": 2256,
+    "weight": 221
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/91b20a10103a.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "tims-crispy-chicken-stack",
+   "name": "Tims® Crispy Chicken Stack",
+   "category": "Burgers & sandwiches",
+   "serving": "281 g",
+   "nutrients": {
+    "calories": 672,
+    "protein": 25,
+    "carbs": 67,
+    "fat": 33,
+    "saturatedFat": 4.9,
+    "sugar": 7.5,
+    "fiber": 4.9,
+    "salt": 3.3,
+    "energyKj": 2812,
+    "weight": 281
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/a29bb921956e.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "crispy-meatless-sandwich",
+   "name": "Crispy Meatless Sandwich",
+   "category": "Burgers & sandwiches",
+   "serving": "217 g",
+   "nutrients": {
+    "calories": 482,
+    "protein": 16,
+    "carbs": 50,
+    "fat": 22,
+    "saturatedFat": 2,
+    "sugar": 7.6,
+    "fiber": 8.9,
+    "salt": 1.9,
+    "energyKj": 2016,
+    "weight": 217
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d48a89fdb864.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "festive-cheese-and-bacon-melt",
+   "name": "Festive Cheese & Bacon Melt",
+   "category": "Burgers & sandwiches",
+   "serving": "207 g",
+   "nutrients": {
+    "calories": 609,
+    "protein": 33,
+    "carbs": 55,
+    "fat": 28,
+    "saturatedFat": 16,
+    "sugar": 8.4,
+    "fiber": 2.4,
+    "salt": 2.6,
+    "energyKj": 2547,
+    "weight": 207
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheese-and-herb-melt",
+   "name": "Cheese & Herb Melt",
+   "category": "Burgers & sandwiches",
+   "serving": "171 g",
+   "nutrients": {
+    "calories": 489,
+    "protein": 26,
+    "carbs": 48,
+    "fat": 21,
+    "saturatedFat": 12,
+    "sugar": 2.7,
+    "fiber": 2.4,
+    "salt": 2.9,
+    "energyKj": 2048,
+    "weight": 171
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/67581cbfdb06.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ham-hock-and-cheese-melt",
+   "name": "Ham Hock and Cheese Melt",
+   "category": "Burgers & sandwiches",
+   "serving": "206 g",
+   "nutrients": {
+    "calories": 492,
+    "protein": 34,
+    "carbs": 47,
+    "fat": 19,
+    "saturatedFat": 11,
+    "sugar": 2,
+    "fiber": 2.4,
+    "salt": 3,
+    "energyKj": 2060,
+    "weight": 206
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/18ca48e957c6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "maple-bbq-chicken-melt",
+   "name": "Maple BBQ Chicken Melt",
+   "category": "Burgers & sandwiches",
+   "serving": "211 g",
+   "nutrients": {
+    "calories": 524,
+    "protein": 36,
+    "carbs": 54,
+    "fat": 18,
+    "saturatedFat": 11,
+    "sugar": 7.1,
+    "fiber": 2.2,
+    "salt": 2.2,
+    "energyKj": 2194,
+    "weight": 211
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/97bbdeb91d6b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tims-savers-hamburger",
+   "name": "Tims® Savers - Hamburger",
+   "category": "Burgers & sandwiches",
+   "serving": "138 g",
+   "nutrients": {
+    "calories": 314,
+    "protein": 16,
+    "carbs": 36,
+    "fat": 12,
+    "saturatedFat": 4.5,
+    "sugar": 8,
+    "fiber": 3.2,
+    "salt": 1.3,
+    "energyKj": 1316,
+    "weight": 138
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d4d135595d92.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "tims-savers-cheeseburger",
+   "name": "Tims® Savers - Cheeseburger",
+   "category": "Burgers & sandwiches",
+   "serving": "150 g",
+   "nutrients": {
+    "calories": 357,
+    "protein": 18,
+    "carbs": 36,
+    "fat": 15,
+    "saturatedFat": 6.3,
+    "sugar": 8.7,
+    "fiber": 3.2,
+    "salt": 1.9,
+    "energyKj": 1494,
+    "weight": 150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/fe8278753a7e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "blt-chicken-wrap",
+   "name": "BLT Chicken Wrap",
+   "category": "Wraps",
+   "serving": "201 g",
+   "nutrients": {
+    "calories": 446,
+    "protein": 23,
+    "carbs": 44,
+    "fat": 19,
+    "saturatedFat": 3.7,
+    "sugar": 4,
+    "fiber": 3.7,
+    "salt": 2.3,
+    "energyKj": 1867,
+    "weight": 201
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/73b9730cb99b.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "maple-bbq-chicken-wrap",
+   "name": "Maple BBQ Chicken Wrap",
+   "category": "Wraps",
+   "serving": "164 g",
+   "nutrients": {
+    "calories": 383,
+    "protein": 18,
+    "carbs": 48,
+    "fat": 12,
+    "saturatedFat": 4,
+    "sugar": 6.9,
+    "fiber": 3.3,
+    "salt": 2.3,
+    "energyKj": 1603,
+    "weight": 164
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/6882e770d7b7.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sweet-chilli-mayo-chicken-wrap",
+   "name": "Sweet Chilli Mayo Chicken Wrap",
+   "category": "Wraps",
+   "serving": "179 g",
+   "nutrients": {
+    "calories": 447,
+    "protein": 15,
+    "carbs": 49,
+    "fat": 20,
+    "saturatedFat": 2.1,
+    "sugar": 3.4,
+    "fiber": 3.5,
+    "salt": 2,
+    "energyKj": 1868,
+    "weight": 179
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/5284f59207f2.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "smoky-chipotle-chicken-wrap",
+   "name": "Smoky Chipotle Chicken Wrap",
+   "category": "Wraps",
+   "serving": "172 g",
+   "nutrients": {
+    "calories": 449,
+    "protein": 17,
+    "carbs": 45,
+    "fat": 22,
+    "saturatedFat": 4.7,
+    "sugar": 4.1,
+    "fiber": 3.4,
+    "salt": 2.3,
+    "energyKj": 1879,
+    "weight": 172
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/b84cc0b9ad91.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vlt-vegan-wrap",
+   "name": "VLT Vegan Wrap",
+   "category": "Wraps",
+   "serving": "210 g",
+   "nutrients": {
+    "calories": 436,
+    "protein": 14,
+    "carbs": 44,
+    "fat": 21,
+    "saturatedFat": 2,
+    "sugar": 4.3,
+    "fiber": 9.1,
+    "salt": 2.1,
+    "energyKj": 1823,
+    "weight": 210
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/669802b56b18.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "tims-savers-crispy-chicken-snack-wrap",
+   "name": "Tims® Savers - Crispy Chicken Snack Wrap",
+   "category": "Wraps",
+   "serving": "58 g",
+   "nutrients": {
+    "calories": 145,
+    "protein": 3.5,
+    "carbs": 19,
+    "fat": 6.1,
+    "saturatedFat": 1,
+    "sugar": 1.4,
+    "fiber": 0.7,
+    "salt": 0.32,
+    "energyKj": 606,
+    "weight": 58
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/4e8c4aff9c16.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "5-piece-tims-chicken-tenders",
+   "name": "5 Piece Tims® Chicken Tenders",
+   "category": "Tenders & sides",
+   "serving": "148 g",
+   "nutrients": {
+    "calories": 292,
+    "protein": 26,
+    "carbs": 24,
+    "fat": 9.8,
+    "saturatedFat": 1.8,
+    "sugar": 0,
+    "fiber": 1.9,
+    "salt": 1.7,
+    "energyKj": 1222,
+    "weight": 148
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/c6b521b0612b.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "3-piece-tims-chicken-tenders",
+   "name": "3 Piece Tims® Chicken Tenders",
+   "category": "Tenders & sides",
+   "serving": "89 g",
+   "nutrients": {
+    "calories": 175,
+    "protein": 15,
+    "carbs": 15,
+    "fat": 5.9,
+    "saturatedFat": 1.1,
+    "sugar": 0,
+    "fiber": 1.2,
+    "salt": 1,
+    "energyKj": 733,
+    "weight": 89
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/bbc155db2cc4.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tims-savers-2-chicken-tenders-and-dip",
+   "name": "Tims® Savers - 2 Chicken Tenders & Dip",
+   "category": "Tenders & sides",
+   "serving": "84 g",
+   "nutrients": {
+    "calories": 226,
+    "protein": 10,
+    "carbs": 12,
+    "fat": 15,
+    "saturatedFat": 1.5,
+    "sugar": 1,
+    "fiber": 0.9,
+    "salt": 0.91,
+    "energyKj": 944,
+    "weight": 84
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/49734493321b.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "maple-bbq-loaded-lattice-fries",
+   "name": "Maple BBQ Loaded Lattice Fries",
+   "category": "Tenders & sides",
+   "serving": "150 g",
+   "nutrients": {
+    "calories": 398,
+    "protein": 11,
+    "carbs": 43,
+    "fat": 19,
+    "saturatedFat": 6,
+    "sugar": 6.9,
+    "fiber": 4.8,
+    "salt": 2.1,
+    "energyKj": 1663,
+    "weight": 150
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/277db31cdb16.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "festive-cheese-and-gravy-bites-4-pieces",
+   "name": "Festive Cheese & Gravy Bites - 4 Pieces",
+   "category": "Tenders & sides",
+   "serving": "72 g",
+   "nutrients": {
+    "calories": 236,
+    "protein": 10,
+    "carbs": 17,
+    "fat": 14,
+    "saturatedFat": 6.6,
+    "sugar": 2,
+    "fiber": 1.4,
+    "salt": 0.98,
+    "energyKj": 986,
+    "weight": 72
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "festive-cheese-and-gravy-bites-8-pieces",
+   "name": "Festive Cheese & Gravy Bites - 8 Pieces",
+   "category": "Tenders & sides",
+   "serving": "143 g",
+   "nutrients": {
+    "calories": 471,
+    "protein": 21,
+    "carbs": 34,
+    "fat": 27,
+    "saturatedFat": 13,
+    "sugar": 4,
+    "fiber": 2.7,
+    "salt": 2,
+    "energyKj": 1972,
+    "weight": 143
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lattice-fries",
+   "name": "Lattice Fries",
+   "category": "Tenders & sides",
+   "serving": "129 g",
+   "nutrients": {
+    "calories": 323,
+    "protein": 4.8,
+    "carbs": 40,
+    "fat": 14,
+    "saturatedFat": 1.2,
+    "sugar": 0.4,
+    "fiber": 6,
+    "salt": 1.8,
+    "energyKj": 1349,
+    "weight": 129
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/10d0842ab454.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "timmies-minis-chicken-mayo-sandwich",
+   "name": "Timmies Minis Chicken Mayo Sandwich",
+   "category": "Timmies Minis",
+   "serving": "139 g",
+   "nutrients": {
+    "calories": 342,
+    "protein": 16,
+    "carbs": 47,
+    "fat": 9.6,
+    "saturatedFat": 1.2,
+    "sugar": 5,
+    "fiber": 2.9,
+    "salt": 1.4,
+    "energyKj": 1432
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/f5ac08bb3331.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "timmies-minis-cheeseburger",
+   "name": "Timmies Minis Cheeseburger",
+   "category": "Timmies Minis",
+   "serving": "148 g",
+   "nutrients": {
+    "calories": 367,
+    "protein": 17,
+    "carbs": 44,
+    "fat": 13,
+    "saturatedFat": 5.2,
+    "sugar": 10,
+    "fiber": 2.6,
+    "salt": 1.9,
+    "energyKj": 1536
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/4bae5cbb3305.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "timmies-minis-2-chicken-tenders",
+   "name": "Timmies Minis 2 Chicken Tenders",
+   "category": "Timmies Minis",
+   "serving": "59 g",
+   "nutrients": {
+    "calories": 117,
+    "protein": 10,
+    "carbs": 9.8,
+    "fat": 3.9,
+    "saturatedFat": 0.7,
+    "sugar": 0,
+    "fiber": 0.8,
+    "salt": 0.66,
+    "energyKj": 489
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/1ee4ffe03315.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "timmies-minis-cheese-melt",
+   "name": "Timmies Minis Cheese Melt",
+   "category": "Timmies Minis",
+   "serving": "78 g",
+   "nutrients": {
+    "calories": 221,
+    "protein": 12,
+    "carbs": 23,
+    "fat": 8.8,
+    "saturatedFat": 5.2,
+    "sugar": 0.9,
+    "fiber": 1.1,
+    "salt": 0.9,
+    "energyKj": 924
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/64edaf3ce32e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "timmies-minis-lattice-fries",
+   "name": "Timmies Minis Lattice Fries",
+   "category": "Timmies Minis",
+   "serving": "64 g",
+   "nutrients": {
+    "calories": 161,
+    "protein": 2.4,
+    "carbs": 20,
+    "fat": 7.2,
+    "saturatedFat": 0.6,
+    "sugar": 0.2,
+    "fiber": 3,
+    "salt": 0.9,
+    "energyKj": 675
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/8e677c8b8649.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "maple-syrup-caramel-and-fudge-pancakes",
+   "name": "Maple Syrup, Caramel and Fudge Pancakes",
+   "category": "Bakery & treats",
+   "serving": "200 g",
+   "nutrients": {
+    "calories": 521,
+    "protein": 8.9,
+    "carbs": 85,
+    "fat": 16,
+    "saturatedFat": 7.5,
+    "sugar": 45,
+    "fiber": 1.8,
+    "salt": 1.6,
+    "energyKj": 2181,
+    "weight": 200
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/16169c79056e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-hazelnut-pancakes-made-with-oreo",
+   "name": "Chocolate Hazelnut Pancakes made with Oreo®",
+   "category": "Bakery & treats",
+   "serving": "213 g",
+   "nutrients": {
+    "calories": 631,
+    "protein": 12,
+    "carbs": 93,
+    "fat": 23,
+    "saturatedFat": 8.8,
+    "sugar": 45,
+    "fiber": 3.7,
+    "salt": 1.8,
+    "energyKj": 2639,
+    "weight": 213
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/32983f7017bf.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "stanley-spider-deluxe-donut",
+   "name": "Stanley Spider Deluxe Donut",
+   "category": "Bakery & treats",
+   "serving": "94 g",
+   "nutrients": {
+    "calories": 342,
+    "protein": 5.1,
+    "carbs": 56,
+    "fat": 11,
+    "saturatedFat": 4.9,
+    "sugar": 30,
+    "fiber": 1.2,
+    "salt": 0.66,
+    "energyKj": 1429,
+    "weight": 94
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/2dd5b41bc5c3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mince-pie-deluxe-donut",
+   "name": "Mince Pie Deluxe Donut",
+   "category": "Bakery & treats",
+   "serving": "89 g",
+   "nutrients": {
+    "calories": 360,
+    "protein": 5.3,
+    "carbs": 47,
+    "fat": 16,
+    "saturatedFat": 7.3,
+    "sugar": 25,
+    "fiber": 1.6,
+    "salt": 0.6,
+    "energyKj": 1506,
+    "weight": 89
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "ho-ho-horton-deluxe-donut",
+   "name": "Ho-Ho-Horton Deluxe Donut",
+   "category": "Bakery & treats",
+   "serving": "98 g",
+   "nutrients": {
+    "calories": 385,
+    "protein": 5.6,
+    "carbs": 50,
+    "fat": 18,
+    "saturatedFat": 8,
+    "sugar": 29,
+    "fiber": 1.9,
+    "salt": 0.73,
+    "energyKj": 1613,
+    "weight": 98
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-brownie-donut",
+   "name": "Chocolate Brownie Donut",
+   "category": "Bakery & treats",
+   "serving": "111 g",
+   "nutrients": {
+    "calories": 421,
+    "protein": 7.1,
+    "carbs": 55,
+    "fat": 19,
+    "saturatedFat": 9.3,
+    "sugar": 34,
+    "fiber": 2.9,
+    "salt": 0.76,
+    "energyKj": 1762,
+    "weight": 111
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/9b6a5894390f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gingerbread-deluxe-donut",
+   "name": "Gingerbread Deluxe Donut",
+   "category": "Bakery & treats",
+   "serving": "97 g",
+   "nutrients": {
+    "calories": 336,
+    "protein": 5.2,
+    "carbs": 42,
+    "fat": 16,
+    "saturatedFat": 7.6,
+    "sugar": 25,
+    "fiber": 1.3,
+    "salt": 0.74,
+    "energyKj": 1407,
+    "weight": 97
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "maple-and-caramel-donut",
+   "name": "Maple & Caramel Donut",
+   "category": "Bakery & treats",
+   "serving": "121 g",
+   "nutrients": {
+    "calories": 433,
+    "protein": 5.6,
+    "carbs": 61,
+    "fat": 18,
+    "saturatedFat": 9.7,
+    "sugar": 39,
+    "fiber": 1.5,
+    "salt": 0.92,
+    "energyKj": 1814,
+    "weight": 121
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/6fd4a01bae85.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "caramel-apple-fritter",
+   "name": "Caramel Apple Fritter",
+   "category": "Bakery & treats",
+   "serving": "155 g",
+   "nutrients": {
+    "calories": 490,
+    "protein": 6.1,
+    "carbs": 86,
+    "fat": 13,
+    "saturatedFat": 6,
+    "sugar": 48,
+    "fiber": 1.8,
+    "salt": 0.94,
+    "energyKj": 2051,
+    "weight": 155
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/c79958d20cc7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "boston-cream-donut",
+   "name": "Boston Cream Donut",
+   "category": "Bakery & treats",
+   "serving": "89 g",
+   "nutrients": {
+    "calories": 306,
+    "protein": 5.3,
+    "carbs": 34,
+    "fat": 16,
+    "saturatedFat": 7.4,
+    "sugar": 18,
+    "fiber": 1.6,
+    "salt": 0.71,
+    "energyKj": 1279,
+    "weight": 89
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/b3c5662978ce.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "canadian-maple-donut",
+   "name": "Canadian Maple Donut",
+   "category": "Bakery & treats",
+   "serving": "89 g",
+   "nutrients": {
+    "calories": 303,
+    "protein": 5.1,
+    "carbs": 36,
+    "fat": 15,
+    "saturatedFat": 7.1,
+    "sugar": 19,
+    "fiber": 1.3,
+    "salt": 0.73,
+    "energyKj": 1266,
+    "weight": 89
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/0d9e3930644b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "maple-dip-donut",
+   "name": "Maple Dip Donut",
+   "category": "Bakery & treats",
+   "serving": "62 g",
+   "nutrients": {
+    "calories": 251,
+    "protein": 4.2,
+    "carbs": 29,
+    "fat": 13,
+    "saturatedFat": 5.9,
+    "sugar": 14,
+    "fiber": 1.1,
+    "salt": 0.57,
+    "energyKj": 1050,
+    "weight": 62
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/b001befc1088.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vanilla-dip-donut",
+   "name": "Vanilla Dip Donut",
+   "category": "Bakery & treats",
+   "serving": "72 g",
+   "nutrients": {
+    "calories": 290,
+    "protein": 4.3,
+    "carbs": 39,
+    "fat": 13,
+    "saturatedFat": 5.8,
+    "sugar": 22,
+    "fiber": 1.1,
+    "salt": 0.55,
+    "energyKj": 1212,
+    "weight": 72
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/4a3fe5981218.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-dip-donut",
+   "name": "Chocolate Dip Donut",
+   "category": "Bakery & treats",
+   "serving": "62 g",
+   "nutrients": {
+    "calories": 254,
+    "protein": 4.5,
+    "carbs": 28,
+    "fat": 14,
+    "saturatedFat": 6.1,
+    "sugar": 13,
+    "fiber": 1.4,
+    "salt": 0.56,
+    "energyKj": 1063,
+    "weight": 62
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/a0d3ed897dc0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "old-fashioned-glazed-donut",
+   "name": "Old Fashioned Glazed Donut",
+   "category": "Bakery & treats",
+   "serving": "75 g",
+   "nutrients": {
+    "calories": 306,
+    "protein": 3.7,
+    "carbs": 44,
+    "fat": 13,
+    "saturatedFat": 5.9,
+    "sugar": 26,
+    "fiber": 1.1,
+    "salt": 0.61,
+    "energyKj": 1279,
+    "weight": 75
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/6f76ab1bb97e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "apple-fritter-donut",
+   "name": "Apple Fritter Donut",
+   "category": "Bakery & treats",
+   "serving": "104 g",
+   "nutrients": {
+    "calories": 328,
+    "protein": 5.8,
+    "carbs": 54,
+    "fat": 9.6,
+    "saturatedFat": 4.2,
+    "sugar": 23,
+    "fiber": 1.6,
+    "salt": 0.7,
+    "energyKj": 1371,
+    "weight": 104
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/6e6eb78e47f3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "honey-cruller",
+   "name": "Honey Cruller",
+   "category": "Bakery & treats",
+   "serving": "67 g",
+   "nutrients": {
+    "calories": 328,
+    "protein": 1.6,
+    "carbs": 30,
+    "fat": 23,
+    "saturatedFat": 11,
+    "sugar": 17,
+    "fiber": 0.2,
+    "salt": 0.32,
+    "energyKj": 1373,
+    "weight": 67
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/83a29c28662b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "marshmallow-timbits",
+   "name": "Marshmallow Timbits®",
+   "category": "Bakery & treats",
+   "serving": "23 g",
+   "nutrients": {
+    "calories": 78,
+    "protein": 0.8,
+    "carbs": 15,
+    "fat": 1.4,
+    "saturatedFat": 0.6,
+    "sugar": 9.9,
+    "fiber": 0.2,
+    "salt": 0.09,
+    "weight": 23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "old-fashioned-glazed-timbits",
+   "name": "Old Fashioned Glazed Timbits®",
+   "category": "Bakery & treats",
+   "serving": "22 g",
+   "nutrients": {
+    "calories": 81,
+    "protein": 0.9,
+    "carbs": 13,
+    "fat": 3,
+    "saturatedFat": 1.4,
+    "sugar": 8.2,
+    "fiber": 0.3,
+    "salt": 0.15,
+    "energyKj": 341,
+    "weight": 22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/95bd0cab5527.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-glazed-timbits",
+   "name": "Chocolate Glazed Timbits®",
+   "category": "Bakery & treats",
+   "serving": "22 g",
+   "nutrients": {
+    "calories": 80,
+    "protein": 1,
+    "carbs": 12,
+    "fat": 3.1,
+    "saturatedFat": 1.4,
+    "sugar": 8.1,
+    "fiber": 0.4,
+    "salt": 0.17,
+    "energyKj": 337,
+    "weight": 22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/219e9ee2a9df.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "honey-dip-timbits",
+   "name": "Honey Dip Timbits®",
+   "category": "Bakery & treats",
+   "serving": "16 g",
+   "nutrients": {
+    "calories": 57,
+    "protein": 0.7,
+    "carbs": 10,
+    "fat": 1.4,
+    "saturatedFat": 0.6,
+    "sugar": 6.3,
+    "fiber": 0.2,
+    "salt": 0.06,
+    "energyKj": 237,
+    "weight": 16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/de95c1fcf6fb.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "apple-pie-timbits",
+   "name": "Apple Pie Timbits®",
+   "category": "Bakery & treats",
+   "serving": "26 g",
+   "nutrients": {
+    "calories": 77,
+    "protein": 0.9,
+    "carbs": 13,
+    "fat": 2.2,
+    "saturatedFat": 1,
+    "sugar": 8.1,
+    "fiber": 0.2,
+    "salt": 0.11,
+    "energyKj": 323,
+    "weight": 26
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/1ff3c4c8ebbb.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "gingerbread-timbits",
+   "name": "Gingerbread Timbits®",
+   "category": "Bakery & treats",
+   "serving": "25 g",
+   "nutrients": {
+    "calories": 93,
+    "protein": 1,
+    "carbs": 15,
+    "fat": 3.2,
+    "saturatedFat": 1.5,
+    "sugar": 11,
+    "fiber": 0.4,
+    "salt": 0.17,
+    "energyKj": 388,
+    "weight": 25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "honey-cruller-timbits",
+   "name": "Honey Cruller Timbits®",
+   "category": "Bakery & treats",
+   "serving": "15 g",
+   "nutrients": {
+    "calories": 68,
+    "protein": 0.3,
+    "carbs": 8.7,
+    "fat": 3.5,
+    "saturatedFat": 1.7,
+    "sugar": 6,
+    "fiber": 0.1,
+    "salt": 0.07,
+    "energyKj": 284,
+    "weight": 15
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/932e004dc1b1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "white-birthday-cake-timbits",
+   "name": "White Birthday Cake Timbits®",
+   "category": "Bakery & treats",
+   "serving": "24 g",
+   "nutrients": {
+    "calories": 89,
+    "protein": 0.9,
+    "carbs": 15,
+    "fat": 3,
+    "saturatedFat": 1.4,
+    "sugar": 9.8,
+    "fiber": 0.3,
+    "salt": 0.15,
+    "energyKj": 373,
+    "weight": 24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/c441ce0e56f0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "apple-fritter-timbits",
+   "name": "Apple Fritter Timbits®",
+   "category": "Bakery & treats",
+   "serving": "19 g",
+   "nutrients": {
+    "calories": 66,
+    "protein": 0.9,
+    "carbs": 11,
+    "fat": 1.9,
+    "saturatedFat": 0.8,
+    "sugar": 6.5,
+    "fiber": 0.2,
+    "salt": 0.09,
+    "energyKj": 276,
+    "weight": 19
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/19c4cf8a14d6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-donut",
+   "name": "Raspberry Donut",
+   "category": "Bakery & treats",
+   "serving": "75 g",
+   "nutrients": {
+    "calories": 268,
+    "protein": 5.2,
+    "carbs": 34,
+    "fat": 12,
+    "saturatedFat": 5.8,
+    "sugar": 16,
+    "fiber": 1.3,
+    "salt": 0.62,
+    "energyKj": 1122
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/088341ea6129.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-vanilla-donut",
+   "name": "Raspberry Vanilla Donut",
+   "category": "Bakery & treats",
+   "serving": "96 g",
+   "nutrients": {
+    "calories": 322,
+    "protein": 4.2,
+    "carbs": 54,
+    "fat": 9.7,
+    "saturatedFat": 4.4,
+    "sugar": 28,
+    "fiber": 0.8,
+    "salt": 0.53,
+    "energyKj": 1349
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/7c897d2b9049.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-timbits",
+   "name": "Raspberry Timbits®",
+   "category": "Bakery & treats",
+   "serving": "19 g",
+   "nutrients": {
+    "calories": 60,
+    "protein": 0.8,
+    "carbs": 10,
+    "fat": 1.6,
+    "saturatedFat": 0.8,
+    "sugar": 5.2,
+    "fiber": 0.1,
+    "salt": 0.07,
+    "energyKj": 250
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "americano-small",
+   "name": "Americano (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/f3fcb4109644.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-medium",
+   "name": "Americano (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/f3fcb4109644.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-large",
+   "name": "Americano (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/f3fcb4109644.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "original-blend-coffee-small",
+   "name": "Original Blend Coffee (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 12
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/f3fcb4109644.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "original-blend-coffee-medium",
+   "name": "Original Blend Coffee (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 12
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/f3fcb4109644.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "original-blend-coffee-large",
+   "name": "Original Blend Coffee (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/f3fcb4109644.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dark-roast-coffee-small",
+   "name": "Dark Roast Coffee (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 12
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/f3fcb4109644.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dark-roast-coffee-medium",
+   "name": "Dark Roast Coffee (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/f3fcb4109644.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dark-roast-coffee-large",
+   "name": "Dark Roast Coffee (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramel-macchiato-small",
+   "name": "Caramel Macchiato (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 147,
+    "protein": 9,
+    "carbs": 18,
+    "fat": 4.3,
+    "saturatedFat": 2.6,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.37,
+    "energyKj": 614
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/557020d7c528.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramel-macchiato-medium",
+   "name": "Caramel Macchiato (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 172,
+    "protein": 11,
+    "carbs": 21,
+    "fat": 5.1,
+    "saturatedFat": 3.1,
+    "sugar": 19,
+    "fiber": 0,
+    "salt": 0.43,
+    "energyKj": 720
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/557020d7c528.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramel-macchiato-large",
+   "name": "Caramel Macchiato (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 216,
+    "protein": 14,
+    "carbs": 25,
+    "fat": 6.5,
+    "saturatedFat": 3.9,
+    "sugar": 23,
+    "fiber": 0,
+    "salt": 0.54,
+    "energyKj": 902
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/557020d7c528.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-small",
+   "name": "Cappuccino (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 92,
+    "protein": 6.9,
+    "carbs": 9.3,
+    "fat": 3,
+    "saturatedFat": 1.8,
+    "sugar": 9.1,
+    "fiber": 0,
+    "salt": 0.22,
+    "energyKj": 386
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/6b5930a11394.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-medium",
+   "name": "Cappuccino (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 115,
+    "protein": 8.7,
+    "carbs": 12,
+    "fat": 3.7,
+    "saturatedFat": 2.2,
+    "sugar": 11,
+    "fiber": 0,
+    "salt": 0.28,
+    "energyKj": 481
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/6b5930a11394.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-large",
+   "name": "Cappuccino (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 145,
+    "protein": 11,
+    "carbs": 15,
+    "fat": 4.7,
+    "saturatedFat": 2.8,
+    "sugar": 14,
+    "fiber": 0,
+    "salt": 0.35,
+    "energyKj": 607
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/6b5930a11394.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Hot drinks",
+   "serving": "12 oz",
+   "nutrients": {
+    "calories": 120,
+    "protein": 9,
+    "carbs": 12,
+    "fat": 3.9,
+    "saturatedFat": 2.3,
+    "sugar": 12,
+    "fiber": 0,
+    "salt": 0.29,
+    "energyKj": 500
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/e830ecdae905.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hazelnut-and-white-chocolate-latte-small",
+   "name": "Hazelnut & White Chocolate Latte (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 357,
+    "protein": 8.4,
+    "carbs": 53,
+    "fat": 12,
+    "saturatedFat": 7.8,
+    "sugar": 47,
+    "fiber": 0.2,
+    "salt": 0.35,
+    "energyKj": 1495
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hazelnut-and-white-chocolate-latte-medium",
+   "name": "Hazelnut & White Chocolate Latte (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 451,
+    "protein": 10,
+    "carbs": 73,
+    "fat": 13,
+    "saturatedFat": 8.4,
+    "sugar": 65,
+    "fiber": 0.2,
+    "salt": 0.42,
+    "energyKj": 1885
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hazelnut-and-white-chocolate-latte-large",
+   "name": "Hazelnut & White Chocolate Latte (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 557,
+    "protein": 13,
+    "carbs": 94,
+    "fat": 14,
+    "saturatedFat": 9.1,
+    "sugar": 84,
+    "fiber": 0.3,
+    "salt": 0.52,
+    "energyKj": 2329
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gingerbread-latte-small",
+   "name": "Gingerbread Latte (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 231,
+    "protein": 7.8,
+    "carbs": 25,
+    "fat": 11,
+    "saturatedFat": 7.2,
+    "sugar": 25,
+    "fiber": 0.1,
+    "salt": 0.26,
+    "energyKj": 967
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gingerbread-latte-medium",
+   "name": "Gingerbread Latte (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 275,
+    "protein": 9.4,
+    "carbs": 33,
+    "fat": 12,
+    "saturatedFat": 7.6,
+    "sugar": 32,
+    "fiber": 0.1,
+    "salt": 0.31,
+    "energyKj": 1149
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gingerbread-latte-large",
+   "name": "Gingerbread Latte (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 331,
+    "protein": 12,
+    "carbs": 42,
+    "fat": 13,
+    "saturatedFat": 8.3,
+    "sugar": 41,
+    "fiber": 0.1,
+    "salt": 0.4,
+    "energyKj": 1383
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-small",
+   "name": "Latte (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 119,
+    "protein": 9,
+    "carbs": 12,
+    "fat": 3.9,
+    "saturatedFat": 2.3,
+    "sugar": 12,
+    "fiber": 0,
+    "salt": 0.29,
+    "energyKj": 499
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/82ab50d093a2.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-medium",
+   "name": "Latte (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 145,
+    "protein": 11,
+    "carbs": 15,
+    "fat": 4.7,
+    "saturatedFat": 2.8,
+    "sugar": 14,
+    "fiber": 0,
+    "salt": 0.35,
+    "energyKj": 606
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/82ab50d093a2.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-large",
+   "name": "Latte (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 188,
+    "protein": 14,
+    "carbs": 19,
+    "fat": 6.1,
+    "saturatedFat": 3.7,
+    "sugar": 19,
+    "fiber": 0,
+    "salt": 0.45,
+    "energyKj": 788
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/82ab50d093a2.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gingerbread-french-vanilla-small",
+   "name": "Gingerbread French Vanilla (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 415,
+    "protein": 5,
+    "carbs": 56,
+    "fat": 19,
+    "saturatedFat": 15,
+    "sugar": 46,
+    "fiber": 0.8,
+    "salt": 0.89,
+    "energyKj": 1738
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gingerbread-french-vanilla-medium",
+   "name": "Gingerbread French Vanilla (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 499,
+    "protein": 6,
+    "carbs": 71,
+    "fat": 21,
+    "saturatedFat": 18,
+    "sugar": 58,
+    "fiber": 0.9,
+    "salt": 1.1,
+    "energyKj": 2086
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gingerbread-french-vanilla-large",
+   "name": "Gingerbread French Vanilla (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 619,
+    "protein": 7.6,
+    "carbs": 90,
+    "fat": 25,
+    "saturatedFat": 21,
+    "sugar": 74,
+    "fiber": 1.1,
+    "salt": 1.4,
+    "energyKj": 2591
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "french-vanilla-latte-small",
+   "name": "French Vanilla Latte (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 301,
+    "protein": 4.8,
+    "carbs": 44,
+    "fat": 12,
+    "saturatedFat": 11,
+    "sugar": 33,
+    "fiber": 0.7,
+    "salt": 0.93,
+    "energyKj": 1260
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d6aa76a24d52.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "french-vanilla-latte-medium",
+   "name": "French Vanilla Latte (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 377,
+    "protein": 6,
+    "carbs": 55,
+    "fat": 15,
+    "saturatedFat": 13,
+    "sugar": 41,
+    "fiber": 0.9,
+    "salt": 1.2,
+    "energyKj": 1575
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d6aa76a24d52.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "french-vanilla-latte-large",
+   "name": "French Vanilla Latte (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 513,
+    "protein": 8.2,
+    "carbs": 74,
+    "fat": 20,
+    "saturatedFat": 18,
+    "sugar": 56,
+    "fiber": 1.2,
+    "salt": 1.6,
+    "energyKj": 2145
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d6aa76a24d52.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "french-vanilla-small",
+   "name": "French Vanilla (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 300,
+    "protein": 4.8,
+    "carbs": 43,
+    "fat": 12,
+    "saturatedFat": 11,
+    "sugar": 33,
+    "fiber": 0.7,
+    "salt": 0.92,
+    "energyKj": 1256
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/c0213188a187.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "french-vanilla-medium",
+   "name": "French Vanilla (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 375,
+    "protein": 6,
+    "carbs": 54,
+    "fat": 15,
+    "saturatedFat": 13,
+    "sugar": 41,
+    "fiber": 0.9,
+    "salt": 1.2,
+    "energyKj": 1570
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/c0213188a187.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "french-vanilla-large",
+   "name": "French Vanilla (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 511,
+    "protein": 8.2,
+    "carbs": 74,
+    "fat": 20,
+    "saturatedFat": 18,
+    "sugar": 56,
+    "fiber": 1.2,
+    "salt": 1.6,
+    "energyKj": 2139
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/c0213188a187.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-small",
+   "name": "Mocha (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 271,
+    "protein": 3.8,
+    "carbs": 48,
+    "fat": 6.5,
+    "saturatedFat": 5.8,
+    "sugar": 43,
+    "fiber": 2.9,
+    "salt": 0.56,
+    "energyKj": 1133
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/0f774d412b3c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
+  },
+  {
+   "id": "mocha-medium",
+   "name": "Mocha (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 333,
+    "protein": 4.7,
+    "carbs": 59,
+    "fat": 8,
+    "saturatedFat": 7.1,
+    "sugar": 53,
+    "fiber": 3.6,
+    "salt": 0.69,
+    "energyKj": 1393
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/0f774d412b3c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
+  },
+  {
+   "id": "mocha-large",
+   "name": "Mocha (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 416,
+    "protein": 5.9,
+    "carbs": 73,
+    "fat": 10,
+    "saturatedFat": 8.9,
+    "sugar": 66,
+    "fiber": 4.5,
+    "salt": 0.87,
+    "energyKj": 1742
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/0f774d412b3c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-small",
+   "name": "Hot Chocolate (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 270,
+    "protein": 3.8,
+    "carbs": 47,
+    "fat": 6.5,
+    "saturatedFat": 5.8,
+    "sugar": 43,
+    "fiber": 2.9,
+    "salt": 0.56,
+    "energyKj": 1128
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/33c8f3808821.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-medium",
+   "name": "Hot Chocolate (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 332,
+    "protein": 4.7,
+    "carbs": 58,
+    "fat": 8,
+    "saturatedFat": 7.1,
+    "sugar": 53,
+    "fiber": 3.6,
+    "salt": 0.69,
+    "energyKj": 1389
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/33c8f3808821.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-large",
+   "name": "Hot Chocolate (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 415,
+    "protein": 5.9,
+    "carbs": 73,
+    "fat": 10,
+    "saturatedFat": 8.9,
+    "sugar": 66,
+    "fiber": 4.5,
+    "salt": 0.86,
+    "energyKj": 1736
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/33c8f3808821.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Hot drinks",
+   "serving": "4 oz",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/91d7e7a21ba5.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-tea-small",
+   "name": "Breakfast Tea (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 25,
+    "protein": 1.8,
+    "carbs": 2.7,
+    "fat": 0.8,
+    "saturatedFat": 0.5,
+    "sugar": 2.4,
+    "fiber": 0,
+    "salt": 0.06,
+    "energyKj": 104
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-tea-medium",
+   "name": "Breakfast Tea (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 31,
+    "protein": 2.3,
+    "carbs": 3.3,
+    "fat": 1,
+    "saturatedFat": 0.6,
+    "sugar": 3,
+    "fiber": 0,
+    "salt": 0.07,
+    "energyKj": 129
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-tea-large",
+   "name": "Breakfast Tea (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 38,
+    "protein": 2.8,
+    "carbs": 4,
+    "fat": 1.2,
+    "saturatedFat": 0.7,
+    "sugar": 3.7,
+    "fiber": 0,
+    "salt": 0.09,
+    "energyKj": 158
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "green-tea-small",
+   "name": "Green Tea (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/f8d48f83cad3.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "green-tea-medium",
+   "name": "Green Tea (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/f8d48f83cad3.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "green-tea-large",
+   "name": "Green Tea (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/f8d48f83cad3.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hazelnut-and-white-hot-chocolate-small",
+   "name": "Hazelnut & White Hot Chocolate (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 378,
+    "protein": 10,
+    "carbs": 55,
+    "fat": 13,
+    "saturatedFat": 8.3,
+    "sugar": 49,
+    "fiber": 0.2,
+    "salt": 0.39,
+    "energyKj": 1583
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hazelnut-and-white-hot-chocolate-medium",
+   "name": "Hazelnut & White Hot Chocolate (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 476,
+    "protein": 12,
+    "carbs": 75,
+    "fat": 14,
+    "saturatedFat": 8.9,
+    "sugar": 67,
+    "fiber": 0.2,
+    "salt": 0.47,
+    "energyKj": 1991
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hazelnut-and-white-hot-chocolate-large",
+   "name": "Hazelnut & White Hot Chocolate (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 591,
+    "protein": 16,
+    "carbs": 97,
+    "fat": 15,
+    "saturatedFat": 9.8,
+    "sugar": 87,
+    "fiber": 0.3,
+    "salt": 0.6,
+    "energyKj": 2474
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gingerbread-hot-chocolate-small",
+   "name": "Gingerbread Hot Chocolate (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 437,
+    "protein": 4.8,
+    "carbs": 69,
+    "fat": 15,
+    "saturatedFat": 12,
+    "sugar": 63,
+    "fiber": 3.4,
+    "salt": 0.65,
+    "energyKj": 1828
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gingerbread-hot-chocolate-medium",
+   "name": "Gingerbread Hot Chocolate (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 538,
+    "protein": 5.9,
+    "carbs": 88,
+    "fat": 17,
+    "saturatedFat": 14,
+    "sugar": 81,
+    "fiber": 4.2,
+    "salt": 0.82,
+    "energyKj": 2251
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gingerbread-hot-chocolate-large",
+   "name": "Gingerbread Hot Chocolate (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 660,
+    "protein": 7.3,
+    "carbs": 111,
+    "fat": 19,
+    "saturatedFat": 16,
+    "sugar": 103,
+    "fiber": 5.3,
+    "salt": 1,
+    "energyKj": 2761
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "peppermint-tea-small",
+   "name": "Peppermint Tea (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/f326a180c202.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "peppermint-tea-medium",
+   "name": "Peppermint Tea (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/f326a180c202.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "peppermint-tea-large",
+   "name": "Peppermint Tea (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/f326a180c202.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-medium",
+   "name": "Iced Latte (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 99,
+    "protein": 7.5,
+    "carbs": 16,
+    "fat": 3.3,
+    "saturatedFat": 2.2,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.2,
+    "energyKj": 415
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/5e8ec5e73def.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-large",
+   "name": "Iced Latte (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 134,
+    "protein": 10,
+    "carbs": 17,
+    "fat": 4.5,
+    "saturatedFat": 3,
+    "sugar": 17,
+    "fiber": 0,
+    "salt": 0.3,
+    "energyKj": 559
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/5e8ec5e73def.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-caramel-latte-small",
+   "name": "Iced Caramel Latte (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 105,
+    "protein": 5,
+    "carbs": 24,
+    "fat": 2.1,
+    "saturatedFat": 1.5,
+    "sugar": 23,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 447
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/5e8ec5e73def.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-caramel-latte-medium",
+   "name": "Iced Caramel Latte (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 159,
+    "protein": 7.5,
+    "carbs": 31,
+    "fat": 3.3,
+    "saturatedFat": 2.2,
+    "sugar": 31,
+    "fiber": 0,
+    "salt": 0.3,
+    "energyKj": 671
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/5e8ec5e73def.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-caramel-latte-large",
+   "name": "Iced Caramel Latte (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 214,
+    "protein": 10,
+    "carbs": 37,
+    "fat": 4.5,
+    "saturatedFat": 3,
+    "sugar": 37,
+    "fiber": 0,
+    "salt": 0.4,
+    "energyKj": 901
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/5e8ec5e73def.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-vanilla-latte-medium",
+   "name": "Iced Vanilla Latte (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 99,
+    "protein": 7.5,
+    "carbs": 16,
+    "fat": 3.3,
+    "saturatedFat": 2.2,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.2,
+    "energyKj": 415
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/5e8ec5e73def.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-vanilla-latte-large",
+   "name": "Iced Vanilla Latte (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 134,
+    "protein": 10,
+    "carbs": 17,
+    "fat": 4.5,
+    "saturatedFat": 3,
+    "sugar": 17,
+    "fiber": 0,
+    "salt": 0.3,
+    "energyKj": 559
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/5e8ec5e73def.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-french-vanilla-small",
+   "name": "Iced French Vanilla (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 267,
+    "protein": 2.8,
+    "carbs": 31,
+    "fat": 8.2,
+    "saturatedFat": 8,
+    "sugar": 25,
+    "fiber": 0,
+    "salt": 0.6,
+    "energyKj": 1117
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d98de901b251.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-french-vanilla-medium",
+   "name": "Iced French Vanilla (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 360,
+    "protein": 3.4,
+    "carbs": 38,
+    "fat": 10,
+    "saturatedFat": 10,
+    "sugar": 31,
+    "fiber": 0,
+    "salt": 0.8,
+    "energyKj": 1506
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d98de901b251.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-french-vanilla-large",
+   "name": "Iced French Vanilla (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 404,
+    "protein": 5.6,
+    "carbs": 62,
+    "fat": 16,
+    "saturatedFat": 16,
+    "sugar": 50,
+    "fiber": 0.4,
+    "salt": 1.3,
+    "energyKj": 1690
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d98de901b251.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-french-vanilla-latte-small",
+   "name": "Iced French Vanilla Latte (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 274,
+    "protein": 5.4,
+    "carbs": 56,
+    "fat": 5.6,
+    "saturatedFat": 4.9,
+    "sugar": 41,
+    "fiber": 2.3,
+    "salt": 0.7,
+    "energyKj": 1146
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/7b46c58a074a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-french-vanilla-latte-medium",
+   "name": "Iced French Vanilla Latte (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 329,
+    "protein": 6.4,
+    "carbs": 67,
+    "fat": 6.7,
+    "saturatedFat": 5.9,
+    "sugar": 50,
+    "fiber": 2.9,
+    "salt": 0.9,
+    "energyKj": 1375
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/7b46c58a074a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-french-vanilla-latte-large",
+   "name": "Iced French Vanilla Latte (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 384,
+    "protein": 7.9,
+    "carbs": 78,
+    "fat": 7.9,
+    "saturatedFat": 6.9,
+    "sugar": 58,
+    "fiber": 3.3,
+    "salt": 1,
+    "energyKj": 1607
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/7b46c58a074a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-caramel-macchiato-small",
+   "name": "Iced Caramel Macchiato (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 128,
+    "protein": 7.5,
+    "carbs": 17,
+    "fat": 3.3,
+    "saturatedFat": 2.2,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.2,
+    "energyKj": 538
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/4d0376c1e6ef.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-caramel-macchiato-medium",
+   "name": "Iced Caramel Macchiato (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 163,
+    "protein": 10.1,
+    "carbs": 20,
+    "fat": 4.5,
+    "saturatedFat": 3.9,
+    "sugar": 19,
+    "fiber": 0,
+    "salt": 0.3,
+    "energyKj": 682
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/4d0376c1e6ef.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-caramel-macchiato-large",
+   "name": "Iced Caramel Macchiato (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 193,
+    "protein": 12.4,
+    "carbs": 23,
+    "fat": 5.4,
+    "saturatedFat": 3.6,
+    "sugar": 22,
+    "fiber": 0,
+    "salt": 0.4,
+    "energyKj": 809
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/4d0376c1e6ef.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramel-cream-frapp-small",
+   "name": "Caramel Cream Frappé (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 250,
+    "protein": 2.9,
+    "carbs": 40,
+    "fat": 8.7,
+    "saturatedFat": 6,
+    "sugar": 34,
+    "fiber": 0.2,
+    "salt": 0.2,
+    "energyKj": 1050
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/210dfdada58a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "caramel-cream-frapp-medium",
+   "name": "Caramel Cream Frappé (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 343,
+    "protein": 4.2,
+    "carbs": 59,
+    "fat": 9.9,
+    "saturatedFat": 6.6,
+    "sugar": 50,
+    "fiber": 0.3,
+    "salt": 0.3,
+    "energyKj": 1441
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/210dfdada58a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "caramel-cream-frapp-large",
+   "name": "Caramel Cream Frappé (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 438,
+    "protein": 5.6,
+    "carbs": 78,
+    "fat": 11,
+    "saturatedFat": 7.3,
+    "sugar": 66,
+    "fiber": 0.5,
+    "salt": 0.6,
+    "energyKj": 1838
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/210dfdada58a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-cream-frapp-small",
+   "name": "Chocolate Cream Frappé (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 310,
+    "protein": 3.9,
+    "carbs": 45,
+    "fat": 12,
+    "saturatedFat": 9.5,
+    "sugar": 36,
+    "fiber": 1.1,
+    "salt": 0.1,
+    "energyKj": 1299
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/e6ecbace7829.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-cream-frapp-medium",
+   "name": "Chocolate Cream Frappé (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 412,
+    "protein": 5.6,
+    "carbs": 63,
+    "fat": 15,
+    "saturatedFat": 12,
+    "sugar": 50,
+    "fiber": 1.6,
+    "salt": 0.1,
+    "energyKj": 1725
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/e6ecbace7829.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-cream-frapp-large",
+   "name": "Chocolate Cream Frappé (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 515,
+    "protein": 7.2,
+    "carbs": 81,
+    "fat": 17,
+    "saturatedFat": 14,
+    "sugar": 64,
+    "fiber": 2.1,
+    "salt": 0.2,
+    "energyKj": 2156
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/e6ecbace7829.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "strawberries-and-cream-frapp-small",
+   "name": "Strawberries & Cream Frappé (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 238,
+    "protein": 2.8,
+    "carbs": 38,
+    "fat": 8.1,
+    "saturatedFat": 5.6,
+    "sugar": 30,
+    "fiber": 0.3,
+    "salt": 0.1,
+    "energyKj": 1000
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/906ed34958d6.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "strawberries-and-cream-frapp-medium",
+   "name": "Strawberries & Cream Frappé (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 323,
+    "protein": 4,
+    "carbs": 57,
+    "fat": 8.8,
+    "saturatedFat": 6,
+    "sugar": 43,
+    "fiber": 0.5,
+    "salt": 0.1,
+    "energyKj": 1354
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/906ed34958d6.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "strawberries-and-cream-frapp-large",
+   "name": "Strawberries & Cream Frappé (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 409,
+    "protein": 5.2,
+    "carbs": 75,
+    "fat": 9.4,
+    "saturatedFat": 6.5,
+    "sugar": 56,
+    "fiber": 0.8,
+    "salt": 0.2,
+    "energyKj": 1715
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/906ed34958d6.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "cookies-and-cream-frapp-small",
+   "name": "Cookies & Cream Frappé (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 268,
+    "protein": 3.4,
+    "carbs": 39,
+    "fat": 11,
+    "saturatedFat": 6.4,
+    "sugar": 31,
+    "fiber": 0.6,
+    "salt": 0.2,
+    "energyKj": 1125
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/fe3138b376f7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "cookies-and-cream-frapp-medium",
+   "name": "Cookies & Cream Frappé (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 370,
+    "protein": 5,
+    "carbs": 56,
+    "fat": 14,
+    "saturatedFat": 7.2,
+    "sugar": 45,
+    "fiber": 1,
+    "salt": 0.2,
+    "energyKj": 1584
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/fe3138b376f7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "cookies-and-cream-frapp-large",
+   "name": "Cookies & Cream Frappé (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 472,
+    "protein": 6.6,
+    "carbs": 74,
+    "fat": 16,
+    "saturatedFat": 8.1,
+    "sugar": 59,
+    "fiber": 1.5,
+    "salt": 0.4,
+    "energyKj": 1977
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/fe3138b376f7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "hazelnut-and-white-chocolate-iced-capp-small",
+   "name": "Hazelnut & White Chocolate Iced Capp® (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 378,
+    "protein": 2.8,
+    "carbs": 53,
+    "fat": 17,
+    "saturatedFat": 11,
+    "sugar": 48,
+    "fiber": 0.4,
+    "salt": 0.12,
+    "energyKj": 1580
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "hazelnut-and-white-chocolate-iced-capp-medium",
+   "name": "Hazelnut & White Chocolate Iced Capp® (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 477,
+    "protein": 3.3,
+    "carbs": 73,
+    "fat": 19,
+    "saturatedFat": 13,
+    "sugar": 66,
+    "fiber": 0.5,
+    "salt": 0.15,
+    "energyKj": 1997
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "hazelnut-and-white-chocolate-iced-capp-large",
+   "name": "Hazelnut & White Chocolate Iced Capp® (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 661,
+    "protein": 4.8,
+    "carbs": 102,
+    "fat": 27,
+    "saturatedFat": 17,
+    "sugar": 91,
+    "fiber": 0.6,
+    "salt": 0.19,
+    "energyKj": 2766
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "caramel-iced-capp-small",
+   "name": "Caramel Iced Capp® (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 344,
+    "protein": 3.2,
+    "carbs": 38,
+    "fat": 23,
+    "saturatedFat": 14,
+    "sugar": 34,
+    "fiber": 0.1,
+    "salt": 0.1,
+    "energyKj": 1438
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/173d8acbb30e.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "caramel-iced-capp-medium",
+   "name": "Caramel Iced Capp® (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 479,
+    "protein": 4.3,
+    "carbs": 58,
+    "fat": 29,
+    "saturatedFat": 17,
+    "sugar": 52,
+    "fiber": 0.1,
+    "salt": 0.1,
+    "energyKj": 2006
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/173d8acbb30e.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "caramel-iced-capp-large",
+   "name": "Caramel Iced Capp® (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 616,
+    "protein": 5.5,
+    "carbs": 78,
+    "fat": 34,
+    "saturatedFat": 21,
+    "sugar": 70,
+    "fiber": 0.1,
+    "salt": 0.2,
+    "energyKj": 2577
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/173d8acbb30e.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "cookies-and-cream-iced-capp-small",
+   "name": "Cookies & Cream Iced Capp® (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 322,
+    "protein": 3.4,
+    "carbs": 30,
+    "fat": 21,
+    "saturatedFat": 14,
+    "sugar": 27,
+    "fiber": 0.2,
+    "salt": 0.1,
+    "energyKj": 1347
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/ee0fd5de921f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "cookies-and-cream-iced-capp-medium",
+   "name": "Cookies & Cream Iced Capp® (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 444,
+    "protein": 4.7,
+    "carbs": 44,
+    "fat": 28,
+    "saturatedFat": 18,
+    "sugar": 39,
+    "fiber": 0.4,
+    "salt": 0.2,
+    "energyKj": 1856
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/ee0fd5de921f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "cookies-and-cream-iced-capp-large",
+   "name": "Cookies & Cream Iced Capp® (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 566,
+    "protein": 6.1,
+    "carbs": 58,
+    "fat": 35,
+    "saturatedFat": 22,
+    "sugar": 52,
+    "fiber": 0.6,
+    "salt": 0.3,
+    "energyKj": 2370
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/ee0fd5de921f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "mocha-iced-capp-small",
+   "name": "Mocha Iced Capp® (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 345,
+    "protein": 3.1,
+    "carbs": 47,
+    "fat": 18,
+    "saturatedFat": 12,
+    "sugar": 45,
+    "fiber": 0.9,
+    "salt": 0.21,
+    "energyKj": 1460
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "mocha-iced-capp-medium",
+   "name": "Mocha Iced Capp® (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 444,
+    "protein": 4.1,
+    "carbs": 66,
+    "fat": 20,
+    "saturatedFat": 14,
+    "sugar": 63,
+    "fiber": 1.5,
+    "salt": 0.34,
+    "energyKj": 1872
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "mocha-iced-capp-large",
+   "name": "Mocha Iced Capp® (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 608,
+    "protein": 6,
+    "carbs": 88,
+    "fat": 29,
+    "saturatedFat": 19,
+    "sugar": 84,
+    "fiber": 2.1,
+    "salt": 0.49,
+    "energyKj": 2559
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "original-iced-capp-small",
+   "name": "Original Iced Capp® (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 211,
+    "protein": 2.3,
+    "carbs": 23,
+    "fat": 12,
+    "saturatedFat": 8,
+    "sugar": 22,
+    "fiber": 0,
+    "salt": 0.5,
+    "energyKj": 884
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "original-iced-capp-medium",
+   "name": "Original Iced Capp® (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 305,
+    "protein": 3.4,
+    "carbs": 34,
+    "fat": 18,
+    "saturatedFat": 11,
+    "sugar": 32,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 1275
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "original-iced-capp-large",
+   "name": "Original Iced Capp® (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 399,
+    "protein": 4.4,
+    "carbs": 44,
+    "fat": 23,
+    "saturatedFat": 15,
+    "sugar": 42,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 1671
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "light-iced-capp-small",
+   "name": "Light Iced Capp® (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 101,
+    "protein": 1.6,
+    "carbs": 21,
+    "fat": 0.7,
+    "saturatedFat": 0.7,
+    "sugar": 21,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 423
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "light-iced-capp-medium",
+   "name": "Light Iced Capp® (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 152,
+    "protein": 2.3,
+    "carbs": 32,
+    "fat": 1,
+    "saturatedFat": 1,
+    "sugar": 32,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 635
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "light-iced-capp-large",
+   "name": "Light Iced Capp® (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 202,
+    "protein": 3.2,
+    "carbs": 43,
+    "fat": 1.4,
+    "saturatedFat": 1.4,
+    "sugar": 43,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 846
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "coconut-iced-capp-small",
+   "name": "Coconut Iced Capp® (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 121,
+    "protein": 1.2,
+    "carbs": 28,
+    "fat": 0.8,
+    "saturatedFat": 0.4,
+    "sugar": 26,
+    "fiber": 0.1,
+    "salt": 0,
+    "energyKj": 512
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "coconut-iced-capp-medium",
+   "name": "Coconut Iced Capp® (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 171,
+    "protein": 1.8,
+    "carbs": 39,
+    "fat": 1.2,
+    "saturatedFat": 0.6,
+    "sugar": 37,
+    "fiber": 0.1,
+    "salt": 0,
+    "energyKj": 694
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "coconut-iced-capp-large",
+   "name": "Coconut Iced Capp® (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 208,
+    "protein": 2.4,
+    "carbs": 46,
+    "fat": 1.6,
+    "saturatedFat": 0.8,
+    "sugar": 44,
+    "fiber": 0.2,
+    "salt": 0.1,
+    "energyKj": 873
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-lemonade-refresher-small",
+   "name": "Strawberry Lemonade Refresher (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 66,
+    "protein": 0,
+    "carbs": 16,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 12,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 284
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/3bddf6349824.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-lemonade-refresher-medium",
+   "name": "Strawberry Lemonade Refresher (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 124,
+    "protein": 0.1,
+    "carbs": 31,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 22,
+    "fiber": 0.2,
+    "salt": 0,
+    "energyKj": 519
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/3bddf6349824.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-lemonade-refresher-large",
+   "name": "Strawberry Lemonade Refresher (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 169,
+    "protein": 0.1,
+    "carbs": 42,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 29,
+    "fiber": 0.2,
+    "salt": 0,
+    "energyKj": 709
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cherry-crush-cooler-small",
+   "name": "Cherry Crush Cooler (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 136,
+    "protein": 0.3,
+    "carbs": 30,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 29,
+    "fiber": 1.3,
+    "salt": 0,
+    "energyKj": 567
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/c30b46c0e553.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "cherry-crush-cooler-medium",
+   "name": "Cherry Crush Cooler (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 198,
+    "protein": 0.4,
+    "carbs": 43,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 41,
+    "fiber": 1.7,
+    "salt": 0.1,
+    "energyKj": 784
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/c30b46c0e553.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "cherry-crush-cooler-large",
+   "name": "Cherry Crush Cooler (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 263,
+    "protein": 0.5,
+    "carbs": 56,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 54,
+    "fiber": 2.1,
+    "salt": 0.1,
+    "energyKj": 1096
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/c30b46c0e553.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tropical-cooler-small",
+   "name": "Tropical Cooler (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 136,
+    "protein": 0.3,
+    "carbs": 30,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 29,
+    "fiber": 1.3,
+    "salt": 0,
+    "energyKj": 567
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/eef4a1ee856c.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tropical-cooler-medium",
+   "name": "Tropical Cooler (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 198,
+    "protein": 0.3,
+    "carbs": 43,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 41,
+    "fiber": 1.7,
+    "salt": 0.1,
+    "energyKj": 784
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/eef4a1ee856c.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tropical-cooler-large",
+   "name": "Tropical Cooler (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 263,
+    "protein": 0.5,
+    "carbs": 56,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 54,
+    "fiber": 2.1,
+    "salt": 0.1,
+    "energyKj": 1096
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/eef4a1ee856c.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tims-shake-brownie-small",
+   "name": "Tims® Shake Brownie (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 304,
+    "protein": 1.6,
+    "carbs": 37,
+    "fat": 16,
+    "saturatedFat": 11,
+    "sugar": 36,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 1272
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/3363bb89ef75.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "tims-shake-brownie-medium",
+   "name": "Tims® Shake Brownie (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 441,
+    "protein": 2.5,
+    "carbs": 54,
+    "fat": 24,
+    "saturatedFat": 17,
+    "sugar": 53,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 1845
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/3363bb89ef75.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "tims-shake-brownie-large",
+   "name": "Tims® Shake Brownie (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 589,
+    "protein": 4.1,
+    "carbs": 76,
+    "fat": 30,
+    "saturatedFat": 21,
+    "sugar": 71,
+    "fiber": 0,
+    "salt": 0.2,
+    "energyKj": 2464
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/3363bb89ef75.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "tims-shake-chocolate-small",
+   "name": "Tims® Shake Chocolate (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 248,
+    "protein": 1.6,
+    "carbs": 30,
+    "fat": 14,
+    "saturatedFat": 10,
+    "sugar": 29,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 1040
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/de513c74c6f0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tims-shake-chocolate-medium",
+   "name": "Tims® Shake Chocolate (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 379,
+    "protein": 2.5,
+    "carbs": 47,
+    "fat": 22,
+    "saturatedFat": 16,
+    "sugar": 44,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 1586
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/de513c74c6f0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tims-shake-chocolate-large",
+   "name": "Tims® Shake Chocolate (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 520,
+    "protein": 4.1,
+    "carbs": 69,
+    "fat": 28,
+    "saturatedFat": 20,
+    "sugar": 64,
+    "fiber": 0,
+    "salt": 0.2,
+    "energyKj": 2009
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/de513c74c6f0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tims-shake-strawberry-small",
+   "name": "Tims® Shake Strawberry (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 210,
+    "protein": 1.2,
+    "carbs": 30,
+    "fat": 10,
+    "saturatedFat": 8,
+    "sugar": 29,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 879
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/6e726c43dff0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tims-shake-strawberry-medium",
+   "name": "Tims® Shake Strawberry (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 347,
+    "protein": 2.1,
+    "carbs": 47,
+    "fat": 18,
+    "saturatedFat": 11,
+    "sugar": 44,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 1452
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/6e726c43dff0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tims-shake-strawberry-large",
+   "name": "Tims® Shake Strawberry (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 489,
+    "protein": 3.8,
+    "carbs": 69,
+    "fat": 24,
+    "saturatedFat": 15,
+    "sugar": 64,
+    "fiber": 0,
+    "salt": 0.2,
+    "energyKj": 2046
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/6e726c43dff0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "coca-cola-medium",
+   "name": "Coca-Cola (medium)",
+   "category": "Soft drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 168,
+    "protein": 0,
+    "carbs": 42,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 42,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 720
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/8bf2ffc0d0c2.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coca-cola-large",
+   "name": "Coca-Cola (large)",
+   "category": "Soft drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 210,
+    "protein": 0,
+    "carbs": 53,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 53,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 900
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/8bf2ffc0d0c2.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coca-cola-zero-sugar-medium",
+   "name": "Coca-Cola Zero Sugar (medium)",
+   "category": "Soft drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.08,
+    "energyKj": 6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/3198c5466e54.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coca-cola-zero-sugar-large",
+   "name": "Coca-Cola Zero Sugar (large)",
+   "category": "Soft drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/3198c5466e54.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "diet-coke-medium",
+   "name": "Diet Coke (medium)",
+   "category": "Soft drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/3382e5645017.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "diet-coke-large",
+   "name": "Diet Coke (large)",
+   "category": "Soft drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/3382e5645017.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fanta-orange-zero-medium",
+   "name": "Fanta Orange Zero (medium)",
+   "category": "Soft drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0,
+    "carbs": 2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 52
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/4aa595ef276a.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fanta-orange-zero-large",
+   "name": "Fanta Orange Zero (large)",
+   "category": "Soft drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 16,
+    "protein": 0,
+    "carbs": 3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 65
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/4aa595ef276a.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sprite-zero-medium",
+   "name": "Sprite Zero (medium)",
+   "category": "Soft drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.28,
+    "energyKj": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/1933b4dd94f5.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sprite-zero-large",
+   "name": "Sprite Zero (large)",
+   "category": "Soft drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.35,
+    "energyKj": 25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/1933b4dd94f5.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dr-pepper-zero-medium",
+   "name": "Dr Pepper Zero (medium)",
+   "category": "Soft drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/6b87bd98c675.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dr-pepper-zero-large",
+   "name": "Dr Pepper Zero (large)",
+   "category": "Soft drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 10
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/6b87bd98c675.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vegan-mayo",
+   "name": "Vegan Mayo",
+   "category": "Sauces",
+   "serving": "25 g",
+   "nutrients": {
+    "calories": 109,
+    "protein": 0.2,
+    "carbs": 2.1,
+    "fat": 11,
+    "saturatedFat": 0.8,
+    "sugar": 1,
+    "fiber": 0.1,
+    "salt": 0.25,
+    "energyKj": 455,
+    "weight": 25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chipotle-mayonnaise",
+   "name": "Chipotle Mayonnaise",
+   "category": "Sauces",
+   "serving": "25 g",
+   "nutrients": {
+    "calories": 139,
+    "protein": 0.3,
+    "carbs": 1.9,
+    "fat": 15,
+    "saturatedFat": 1.1,
+    "sugar": 0.9,
+    "fiber": 0.1,
+    "salt": 0.25,
+    "energyKj": 582,
+    "weight": 25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sweet-chilli-sauce",
+   "name": "Sweet Chilli Sauce",
+   "category": "Sauces",
+   "serving": "25 g",
+   "nutrients": {
+    "calories": 59,
+    "protein": 0.1,
+    "carbs": 15,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0.1,
+    "salt": 0.4,
+    "energyKj": 246,
+    "weight": 25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "maple-bbq-sauce",
+   "name": "Maple BBQ Sauce",
+   "category": "Sauces",
+   "serving": "25 g",
+   "nutrients": {
+    "calories": 53,
+    "protein": 0.2,
+    "carbs": 13,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 11,
+    "fiber": 0.2,
+    "salt": 0.33,
+    "energyKj": 223,
+    "weight": 25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tomato-ketchup",
+   "name": "Tomato Ketchup",
+   "category": "Sauces",
+   "serving": "25 g",
+   "nutrients": {
+    "calories": 37,
+    "protein": 0.6,
+    "carbs": 8.8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 7.9,
+    "fiber": 0.4,
+    "salt": 0.54,
+    "energyKj": 155,
+    "weight": 25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "oat-milk",
+   "name": "Oat Milk",
+   "category": "Add-ons",
+   "serving": "3.5 oz",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0.2,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "coconut-milk",
+   "name": "Coconut Milk",
+   "category": "Add-ons",
+   "serving": "3.5 oz",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0.1,
+    "carbs": 0.1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "fiber": 0,
+    "salt": 0.01,
+    "energyKj": 5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "semi-skimmed-milk-small",
+   "name": "Semi-Skimmed Milk (small)",
+   "category": "Add-ons",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0.4,
+    "carbs": 0.6,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 0.6,
+    "fiber": 0,
+    "salt": 0.01,
+    "energyKj": 23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/fd7378fede4a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "semi-skimmed-milk-medium",
+   "name": "Semi-Skimmed Milk (medium)",
+   "category": "Add-ons",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 7,
+    "protein": 0.6,
+    "carbs": 0.7,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 0.7,
+    "fiber": 0,
+    "salt": 0.02,
+    "energyKj": 31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/fd7378fede4a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "semi-skimmed-milk-large",
+   "name": "Semi-Skimmed Milk (large)",
+   "category": "Add-ons",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 9,
+    "protein": 0.7,
+    "carbs": 0.9,
+    "fat": 0.3,
+    "saturatedFat": 0.2,
+    "sugar": 0.9,
+    "fiber": 0,
+    "salt": 0.02,
+    "energyKj": 39
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "tim-hortons/fd7378fede4a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

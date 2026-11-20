@@ -1,0 +1,1162 @@
+{
+ "schemaVersion": 1,
+ "id": "afrikana",
+ "name": "Afrikana Kitchen",
+ "cuisine": "Chicken",
+ "builderType": "standard",
+ "aliases": [
+  "afrikana",
+  "afrikana kitchen",
+  "afrikana peri kitchen & grill",
+  "afrikana peri kitchen and grill"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Afrikana Kitchen website menu with calories (accessed 2026-10-08, no date shown)",
+  "url": "https://www.afrikanakitchen.com/menu",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Afrikana prints calories only, beside each dish on its website menu, so protein, carbs and fat are not published. The page doesn't say which sauce or flavour a figure includes. It publishes no allergen information.",
+ "categories": [
+  "Fried Chicken Club",
+  "Small Plates",
+  "Proper Peri Chicken",
+  "Buns & Bread",
+  "Afrikana Specials",
+  "Sharing Platters",
+  "Rice Bowls & Salad",
+  "Regular Sides",
+  "Signature Sides",
+  "Green Bites (V)",
+  "Kids",
+  "Desserts"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "five-wings-fried-chicken-club",
+   "name": "Five Wings (Fried Chicken Club)",
+   "category": "Fried Chicken Club",
+   "serving": "",
+   "nutrients": {
+    "calories": 740
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/35e6b0ae0e5e.webp"
+  },
+  {
+   "id": "ten-wings-fried-chicken-club",
+   "name": "Ten Wings (Fried Chicken Club)",
+   "category": "Fried Chicken Club",
+   "serving": "",
+   "nutrients": {
+    "calories": 1391
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/c097d960a7e8.webp"
+  },
+  {
+   "id": "five-tenders",
+   "name": "Five Tenders",
+   "category": "Fried Chicken Club",
+   "serving": "",
+   "nutrients": {
+    "calories": 674
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/99e8d72a58e3.webp"
+  },
+  {
+   "id": "eight-wings",
+   "name": "Eight Wings",
+   "category": "Fried Chicken Club",
+   "serving": "",
+   "nutrients": {
+    "calories": 1131
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/d42afe1c5a24.webp"
+  },
+  {
+   "id": "three-tenders",
+   "name": "Three Tenders",
+   "category": "Fried Chicken Club",
+   "serving": "",
+   "nutrients": {
+    "calories": 440
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/b9245e6df361.webp"
+  },
+  {
+   "id": "eight-tenders",
+   "name": "Eight Tenders",
+   "category": "Fried Chicken Club",
+   "serving": "",
+   "nutrients": {
+    "calories": 1024
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/2447ade027e6.webp"
+  },
+  {
+   "id": "nachos",
+   "name": "Nachos",
+   "category": "Small Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1081
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/abaad3269feb.webp"
+  },
+  {
+   "id": "cheeky-chops",
+   "name": "Cheeky Chops",
+   "category": "Small Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 929
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/c6a82dc9e4c4.webp"
+  },
+  {
+   "id": "garlic-and-olives",
+   "name": "Garlic & Olives",
+   "category": "Small Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 246
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/de330d501e91.webp"
+  },
+  {
+   "id": "hummus-and-bread",
+   "name": "Hummus & Bread",
+   "category": "Small Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 616
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/408f79782d24.webp"
+  },
+  {
+   "id": "prawn-to-be-wild",
+   "name": "Prawn To Be Wild",
+   "category": "Small Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 504
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lady-fingers",
+   "name": "Lady Fingers",
+   "category": "Small Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 453
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/2e7d124fbf1f.webp"
+  },
+  {
+   "id": "quarter-chicken",
+   "name": "Quarter Chicken",
+   "category": "Proper Peri Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 1007
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/518d31e69265.webp"
+  },
+  {
+   "id": "half-chicken",
+   "name": "Half Chicken",
+   "category": "Proper Peri Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 1656
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/0c23bb0f8e41.webp"
+  },
+  {
+   "id": "whole-chicken",
+   "name": "Whole Chicken",
+   "category": "Proper Peri Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 3001
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/0e092344c91c.webp"
+  },
+  {
+   "id": "butterfly-chicken",
+   "name": "Butterfly Chicken",
+   "category": "Proper Peri Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 863
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/5c7f4ca1346b.webp"
+  },
+  {
+   "id": "three-wings",
+   "name": "Three Wings",
+   "category": "Proper Peri Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 986
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/f1d9cd1c94e8.webp"
+  },
+  {
+   "id": "five-wings-proper-peri-chicken",
+   "name": "Five Wings (Proper Peri Chicken)",
+   "category": "Proper Peri Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 1454
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/c8c99d9ec8e1.webp"
+  },
+  {
+   "id": "ten-wings-proper-peri-chicken",
+   "name": "Ten Wings (Proper Peri Chicken)",
+   "category": "Proper Peri Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 2478
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/ec43bd9c1416.webp"
+  },
+  {
+   "id": "chicken-thighs",
+   "name": "Chicken Thighs",
+   "category": "Proper Peri Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 799
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/03364e371f3b.webp"
+  },
+  {
+   "id": "bun-true-love",
+   "name": "Bun True Love",
+   "category": "Buns & Bread",
+   "serving": "",
+   "nutrients": {
+    "calories": 516
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/76af4361c43c.webp"
+  },
+  {
+   "id": "big-poppa",
+   "name": "Big Poppa",
+   "category": "Buns & Bread",
+   "serving": "",
+   "nutrients": {
+    "calories": 1026
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/35387906607f.webp"
+  },
+  {
+   "id": "butterfly-bun",
+   "name": "Butterfly Bun",
+   "category": "Buns & Bread",
+   "serving": "",
+   "nutrients": {
+    "calories": 953
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/a6ba538842d0.webp"
+  },
+  {
+   "id": "thats-a-wrap",
+   "name": "That's A Wrap",
+   "category": "Buns & Bread",
+   "serving": "",
+   "nutrients": {
+    "calories": 941
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/81c964f40a44.webp"
+  },
+  {
+   "id": "thic-chick",
+   "name": "Thic Chick",
+   "category": "Buns & Bread",
+   "serving": "",
+   "nutrients": {
+    "calories": 1057
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/52291e050864.webp"
+  },
+  {
+   "id": "dont-flap-wrap",
+   "name": "Don't Flap Wrap",
+   "category": "Buns & Bread",
+   "serving": "",
+   "nutrients": {
+    "calories": 941
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/02a7f6446722.webp"
+  },
+  {
+   "id": "chicken-date",
+   "name": "Chicken Date",
+   "category": "Afrikana Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1271
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/ee60f71d8c07.webp"
+  },
+  {
+   "id": "steak-it-on-me",
+   "name": "Steak It On Me",
+   "category": "Afrikana Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1153
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "island-fish-and-chips",
+   "name": "Island Fish & Chips",
+   "category": "Afrikana Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1044
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/ddcd65382c10.webp"
+  },
+  {
+   "id": "all-at-steak",
+   "name": "All At Steak",
+   "category": "Afrikana Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 833
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jammin-jambalaya",
+   "name": "Jammin' Jambalaya",
+   "category": "Afrikana Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 782
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/320cd7de0282.webp"
+  },
+  {
+   "id": "the-salmon-cure",
+   "name": "The Salmon Cure",
+   "category": "Afrikana Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 748
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/c7c1802cf54b.webp"
+  },
+  {
+   "id": "just-kebabin",
+   "name": "Just Kebabin'",
+   "category": "Afrikana Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1311
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/1b8290bceb6b.webp"
+  },
+  {
+   "id": "we-goat-your-back",
+   "name": "We 'Goat' Your Back",
+   "category": "Afrikana Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1185
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/ae96c0e0f1a1.webp"
+  },
+  {
+   "id": "fried-chicken-is-life",
+   "name": "Fried Chicken Is Life",
+   "category": "Afrikana Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1237
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/d33a608f5d46.webp"
+  },
+  {
+   "id": "bunny-chow",
+   "name": "Bunny Chow",
+   "category": "Afrikana Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1279
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/7c5f630af307.webp"
+  },
+  {
+   "id": "what-cheese-said",
+   "name": "What Cheese Said",
+   "category": "Afrikana Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 905
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/b18b9236d327.webp"
+  },
+  {
+   "id": "flamin-ribs",
+   "name": "Flamin' Ribs",
+   "category": "Afrikana Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1088
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/66fbab7fa7cc.webp"
+  },
+  {
+   "id": "meat-club-feast",
+   "name": "Meat Club Feast",
+   "category": "Sharing Platters",
+   "serving": "",
+   "nutrients": {
+    "calories": 6804
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/9b99bb73a2db.webp"
+  },
+  {
+   "id": "meat-me-for-two",
+   "name": "Meat Me For Two",
+   "category": "Sharing Platters",
+   "serving": "",
+   "nutrients": {
+    "calories": 4955
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/7e06a9829b0e.webp"
+  },
+  {
+   "id": "kickin-in-kenya",
+   "name": "Kickin' In Kenya",
+   "category": "Sharing Platters",
+   "serving": "",
+   "nutrients": {
+    "calories": 4486
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/b843f2c05da8.webp"
+  },
+  {
+   "id": "chit-chats-and-chicken",
+   "name": "Chit-Chats & Chicken",
+   "category": "Sharing Platters",
+   "serving": "",
+   "nutrients": {
+    "calories": 4089
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/474d8eb1781e.webp"
+  },
+  {
+   "id": "chicken-n-rice",
+   "name": "Chicken 'N Rice",
+   "category": "Rice Bowls & Salad",
+   "serving": "",
+   "nutrients": {
+    "calories": 747
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/f8f764d9dac0.webp"
+  },
+  {
+   "id": "afrikana-salad",
+   "name": "Afrikana Salad",
+   "category": "Rice Bowls & Salad",
+   "serving": "",
+   "nutrients": {
+    "calories": 275
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries",
+   "name": "Fries",
+   "category": "Regular Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 312
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/46b49b82c731.webp"
+  },
+  {
+   "id": "afrikana-fries",
+   "name": "Afrikana Fries",
+   "category": "Regular Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 312
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/10970d7f92bf.webp"
+  },
+  {
+   "id": "afrikana-rice",
+   "name": "Afrikana Rice",
+   "category": "Regular Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 154
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/743b0513f02f.webp"
+  },
+  {
+   "id": "plantain",
+   "name": "Plantain",
+   "category": "Regular Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 306
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/68493fe2d3ab.webp"
+  },
+  {
+   "id": "rice-n-peas",
+   "name": "Rice 'N Peas",
+   "category": "Regular Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 359
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/e1674babb568.webp"
+  },
+  {
+   "id": "fresh-coleslaw",
+   "name": "Fresh Coleslaw",
+   "category": "Regular Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/989fe2d463c8.webp"
+  },
+  {
+   "id": "sweet-potato-fries",
+   "name": "Sweet Potato Fries",
+   "category": "Regular Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 266
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/0c004989f730.webp"
+  },
+  {
+   "id": "flatbread",
+   "name": "Flatbread",
+   "category": "Regular Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/b563720ae7b2.webp"
+  },
+  {
+   "id": "side-salad",
+   "name": "Side Salad",
+   "category": "Regular Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 179
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/11e0558240ab.webp"
+  },
+  {
+   "id": "loaded-fries-topped-with-chicken",
+   "name": "Loaded Fries topped with chicken",
+   "category": "Signature Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 667
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-fries-topped-with-pulled-beef",
+   "name": "Loaded Fries topped with pulled beef",
+   "category": "Signature Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 885
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-mac-n-cheese-topped-with-chicken",
+   "name": "Loaded Mac 'N Cheese topped with chicken",
+   "category": "Signature Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 972
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-mac-n-cheese-topped-with-pulled-beef",
+   "name": "Loaded Mac 'N Cheese topped with pulled beef",
+   "category": "Signature Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 1043
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-n-cheese",
+   "name": "Mac 'N Cheese",
+   "category": "Signature Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 922
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/beec0e8cc110.webp"
+  },
+  {
+   "id": "halloumi-fries",
+   "name": "Halloumi Fries",
+   "category": "Signature Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 312
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-broccoli",
+   "name": "Garlic Broccoli",
+   "category": "Signature Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 230
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/9e7647b8699b.webp"
+  },
+  {
+   "id": "corn-ribs",
+   "name": "Corn Ribs",
+   "category": "Signature Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 567
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/aa713d6d2024.webp"
+  },
+  {
+   "id": "meant-to-bean",
+   "name": "Meant To Bean",
+   "category": "Green Bites (V)",
+   "serving": "",
+   "nutrients": {
+    "calories": 625
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/75d78112e456.webp"
+  },
+  {
+   "id": "potato-pea-curry",
+   "name": "Potato Pea Curry",
+   "category": "Green Bites (V)",
+   "serving": "",
+   "nutrients": {
+    "calories": 931
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/ce6aca717ee6.webp"
+  },
+  {
+   "id": "edgy-veggie-wrap",
+   "name": "Edgy-Veggie Wrap",
+   "category": "Green Bites (V)",
+   "serving": "",
+   "nutrients": {
+    "calories": 790
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/3b494c0a2b5d.webp"
+  },
+  {
+   "id": "halloumi-n-rice",
+   "name": "Halloumi 'N Rice",
+   "category": "Green Bites (V)",
+   "serving": "",
+   "nutrients": {
+    "calories": 936
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/a9663dce226e.webp"
+  },
+  {
+   "id": "lil-fish-fry",
+   "name": "Lil' Fish Fry",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 475
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/bbb93b6071eb.webp"
+  },
+  {
+   "id": "tiny-tenders",
+   "name": "Tiny Tenders",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 591
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/8dd98a84b899.webp"
+  },
+  {
+   "id": "hulk-smash",
+   "name": "Hulk Smash",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 671
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/2268113736c9.webp"
+  },
+  {
+   "id": "chickadee",
+   "name": "Chickadee",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 641
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/66e1bd05ac60.webp"
+  },
+  {
+   "id": "youre-so-lavly",
+   "name": "You're So Lavly",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 738
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/9050c3a2b8ab.webp"
+  },
+  {
+   "id": "stack-it-up",
+   "name": "Stack It Up",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 862
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/5c4b3dce3e88.webp"
+  },
+  {
+   "id": "the-og-cheesecake",
+   "name": "The OG Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 600
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/2a8a701bb0c2.webp"
+  },
+  {
+   "id": "red-velvet-affair",
+   "name": "Red Velvet Affair",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 580
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/d0f7777370a6.webp"
+  },
+  {
+   "id": "cookies-and-dreams",
+   "name": "Cookies & Dreams",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 580
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "afrikana/6bf019f33639.webp"
+  }
+ ],
+ "combinations": []
+}

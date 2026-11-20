@@ -1,0 +1,873 @@
+{
+ "schemaVersion": 1,
+ "id": "cornish-bakehouse",
+ "name": "Cornish Bakehouse",
+ "cuisine": "Bakery",
+ "builderType": "standard",
+ "aliases": [
+  "cornish bakehouse",
+  "the cornish bakehouse"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Cornish Bakehouse Product Allergen Specifications, Pasty & Savouries (footer: Updated 27 January 2025; PDF file uploaded 21 April 2026)",
+  "url": "https://www.cornish-bakehouse.com/s/Pasty-Savouries-Allergens.pdf",
+  "checkedOn": "2026-10-09"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, one value per product (the sheet prints no weights or units; the column 'Calories' is read as kcal), from the chain's Pasty & Savouries sheet marked 'Updated 27 January 2025'. Cakes, recipe items and drinks are not listed: their sheets give per 100 g only or no calories.",
+ "allergenGuide": {
+  "title": "Cornish Bakehouse Product Allergen Specifications, Pasty & Savouries (updated 27 January 2025)",
+  "url": "https://www.cornish-bakehouse.com/s/Pasty-Savouries-Allergens.pdf",
+  "checkedOn": "2026-10-09",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Pasties",
+  "Slices",
+  "Bites",
+  "Sausage rolls"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "small-steak-pasty",
+   "name": "Small Steak Pasty",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 544
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "medium-steak-pasty",
+   "name": "Medium Steak Pasty",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 688
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "large-steak-pasty",
+   "name": "Large Steak Pasty",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 827
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "giant-steak-pasty",
+   "name": "Giant Steak Pasty",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 1073
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "beef-and-stilton-pasty-large",
+   "name": "Beef and Stilton Pasty (Large)",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 973
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheese-and-bacon-pasty",
+   "name": "Cheese and Bacon Pasty",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 701
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "steak-and-ale-pasty-large",
+   "name": "Steak and Ale Pasty (Large)",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 1000
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lamb-and-mint-pasty",
+   "name": "Lamb and Mint Pasty",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 782
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "chicken-and-leek-pasty",
+   "name": "Chicken and Leek Pasty",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 690
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "cheese-and-onion-pasty",
+   "name": "Cheese and Onion Pasty",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 737
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "spicy-mediterranean-vegetable",
+   "name": "Spicy Mediterranean Vegetable",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 658
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vegetable-pasty",
+   "name": "Vegetable Pasty",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 678
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "broccoli-cheese-and-sweetcorn-pasty",
+   "name": "Broccoli Cheese and Sweetcorn Pasty",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 722
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-and-mushroom-pasty",
+   "name": "Chicken and Mushroom Pasty",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 666
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "spinach-and-ricotta-pasty",
+   "name": "Spinach and Ricotta Pasty",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 760
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-chorizo-bacon-pasty",
+   "name": "Chicken Chorizo Bacon Pasty",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 717
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "chicken-and-bacon-pasty",
+   "name": "Chicken and Bacon Pasty",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 760
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-thai-chicken-pasty",
+   "name": "Red Thai Chicken Pasty",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 745
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "turkey-and-cranberry-pasty",
+   "name": "Turkey and Cranberry Pasty",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 757
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "vegan-thai-pasty",
+   "name": "Vegan Thai Pasty",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 700
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "corned-beef-pasty-bako",
+   "name": "Corned Beef Pasty (Bako)",
+   "category": "Pasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 583
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-and-mushroom-slice",
+   "name": "Chicken and Mushroom Slice",
+   "category": "Slices",
+   "serving": "",
+   "nutrients": {
+    "calories": 428
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-jalfrezi-slice",
+   "name": "Chicken Jalfrezi Slice",
+   "category": "Slices",
+   "serving": "",
+   "nutrients": {
+    "calories": 433
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "steak-slice",
+   "name": "Steak Slice",
+   "category": "Slices",
+   "serving": "",
+   "nutrients": {
+    "calories": 430
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheese-and-onion-slice",
+   "name": "Cheese and Onion Slice",
+   "category": "Slices",
+   "serving": "",
+   "nutrients": {
+    "calories": 487
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bacon-and-cheese-bite",
+   "name": "Bacon and Cheese Bite",
+   "category": "Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 585
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sausage-and-cheese-bite",
+   "name": "Sausage and Cheese Bite",
+   "category": "Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 675
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bacon-brie-and-cranberry-bite",
+   "name": "Bacon, Brie and Cranberry Bite",
+   "category": "Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 562
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "medium-sausage-roll",
+   "name": "Medium Sausage Roll",
+   "category": "Sausage rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 409
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "large-sausage-roll",
+   "name": "Large Sausage Roll",
+   "category": "Sausage rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 513
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vegan-sausage-roll",
+   "name": "Vegan Sausage Roll",
+   "category": "Sausage rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 515
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "christmas-sausage-roll",
+   "name": "Christmas Sausage Roll",
+   "category": "Sausage rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 512
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sweet-chilli-pork-gourmet-sausage-roll",
+   "name": "Sweet Chilli Pork Gourmet Sausage Roll",
+   "category": "Sausage rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 670
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pork-apple-cider-gourmet-sausage-roll",
+   "name": "Pork Apple Cider Gourmet Sausage Roll",
+   "category": "Sausage rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 639
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheese-and-chutney-gourmet-sausage-roll",
+   "name": "Cheese & Chutney Gourmet Sausage Roll",
+   "category": "Sausage rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 675
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

@@ -1,0 +1,2169 @@
+{
+ "schemaVersion": 1,
+ "id": "bettys",
+ "name": "Bettys",
+ "cuisine": "Tea rooms",
+ "builderType": "standard",
+ "aliases": [
+  "bettys",
+  "betty's",
+  "bettys cafe tea rooms",
+  "betty's cafe tea rooms",
+  "bettys tea rooms",
+  "betty's tea rooms"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Bettys Café Tea Rooms Winter Core Menu 2026 (bettys-winter-core-menu-2026.pdf; PDF created 18 December 2025, no date printed on the menu)",
+  "url": "https://www.bettys.co.uk/media/pdf/bettys-winter-core-menu-2026.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Bettys prints calories only, beside each dish, so protein, carbs and fat are not published. This is the Winter core menu; seasonal and branch menus may differ. Set menus (Grande Breakfast, afternoon teas), soup and wine print no usable calories and are not listed. The menu does not say which bread sandwiches use or whether milk is counted in hot drinks.",
+ "allergenGuide": {
+  "title": "Bettys allergen and dietary information (the page the QR code on the Winter Core Menu opens; the page itself was not opened)",
+  "url": "https://www.bettys.co.uk/allergens",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": false,
+  "complete": false
+ },
+ "categories": [
+  "Breakfast specialities",
+  "Breakfast additions",
+  "Eggs on a toasted muffin",
+  "Main dishes",
+  "Sandwiches",
+  "Side dishes",
+  "Afternoon tea",
+  "Cakes & pâtisserie",
+  "Ice cream sundaes",
+  "Bettys bakery favourites",
+  "Teas",
+  "Coffees & hot chocolate",
+  "Low alcohol drinks",
+  "Soft drinks",
+  "Little Rascal menu"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "swiss-breakfast-rosti",
+   "name": "Swiss Breakfast Rösti",
+   "category": "Breakfast specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 745
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "florentine-rosti",
+   "name": "Florentine Rösti",
+   "category": "Breakfast specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 565
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "english-breakfast",
+   "name": "English Breakfast",
+   "category": "Breakfast specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 1130
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-english-breakfast",
+   "name": "Vegan English Breakfast",
+   "category": "Breakfast specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 670
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-and-poached-eggs",
+   "name": "Avocado & Poached Eggs",
+   "category": "Breakfast specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 825
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-and-aubergine",
+   "name": "Avocado & Aubergine",
+   "category": "Breakfast specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 715
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kedgeree",
+   "name": "Kedgeree",
+   "category": "Breakfast specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 920
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bircher-muesli",
+   "name": "Bircher Muesli",
+   "category": "Breakfast specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 390
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pastry-and-pikelet-selection",
+   "name": "Pastry & Pikelet Selection",
+   "category": "Breakfast specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 1115
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruit-loaf-and-berries",
+   "name": "Fruit Loaf & Berries",
+   "category": "Breakfast specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 550
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-toast",
+   "name": "Cinnamon Toast",
+   "category": "Breakfast specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 295
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dry-cured-bacon-breakfast-addition",
+   "name": "Dry-cured bacon (breakfast addition)",
+   "category": "Breakfast additions",
+   "serving": "",
+   "nutrients": {
+    "calories": 190
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spinach-breakfast-addition",
+   "name": "Spinach (breakfast addition)",
+   "category": "Breakfast additions",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-breakfast-addition",
+   "name": "Tomato (breakfast addition)",
+   "category": "Breakfast additions",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yorkshire-sausage-breakfast-addition",
+   "name": "Yorkshire sausage (breakfast addition)",
+   "category": "Breakfast additions",
+   "serving": "",
+   "nutrients": {
+    "calories": 225
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-or-smoked-beans-breakfast-addition",
+   "name": "Baked or smoked beans (breakfast addition)",
+   "category": "Breakfast additions",
+   "serving": "",
+   "nutrients": {
+    "calories": 45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crushed-avocado-breakfast-addition",
+   "name": "Crushed avocado (breakfast addition)",
+   "category": "Breakfast additions",
+   "serving": "",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rosti-bites-breakfast-addition",
+   "name": "Rösti Bites (breakfast addition)",
+   "category": "Breakfast additions",
+   "serving": "",
+   "nutrients": {
+    "calories": 390
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushroom-breakfast-addition",
+   "name": "Mushroom (breakfast addition)",
+   "category": "Breakfast additions",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yorkshire-smoked-salmon-breakfast-addition",
+   "name": "Yorkshire smoked salmon (breakfast addition)",
+   "category": "Breakfast additions",
+   "serving": "",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-florentine-with-spinach",
+   "name": "Eggs Florentine with spinach",
+   "category": "Eggs on a toasted muffin",
+   "serving": "",
+   "nutrients": {
+    "calories": 570
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-benedict-with-traditional-wiltshire-cured-ham",
+   "name": "Eggs Benedict with traditional Wiltshire cured ham",
+   "category": "Eggs on a toasted muffin",
+   "serving": "",
+   "nutrients": {
+    "calories": 590
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-royale-with-yorkshire-smoked-salmon",
+   "name": "Eggs Royale with Yorkshire smoked salmon",
+   "category": "Eggs on a toasted muffin",
+   "serving": "",
+   "nutrients": {
+    "calories": 645
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scrambled-eggs-on-a-toasted-muffin-with-yorkshire-smoked-salmon",
+   "name": "Scrambled eggs on a toasted muffin with Yorkshire smoked salmon",
+   "category": "Eggs on a toasted muffin",
+   "serving": "",
+   "nutrients": {
+    "calories": 625
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scrambled-eggs-on-a-toasted-muffin-with-dry-cured-bacon",
+   "name": "Scrambled eggs on a toasted muffin with dry-cured bacon",
+   "category": "Eggs on a toasted muffin",
+   "serving": "",
+   "nutrients": {
+    "calories": 730
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dry-cured-bacon-in-a-toasted-muffin",
+   "name": "Dry-cured bacon in a toasted muffin",
+   "category": "Eggs on a toasted muffin",
+   "serving": "",
+   "nutrients": {
+    "calories": 460
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-and-raclette-rosti",
+   "name": "Bacon & Raclette Rösti",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 690
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bettys-burger",
+   "name": "Bettys Burger",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1410
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-streaky-bacon-added-to-bettys-burger",
+   "name": "Smoked streaky bacon (added to Bettys Burger)",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-schnitzel",
+   "name": "Chicken Schnitzel",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1020
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "alpine-macaroni",
+   "name": "Alpine Macaroni",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1530
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "haddock-salmon-and-prawn-gratin",
+   "name": "Haddock, Salmon & Prawn Gratin",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 750
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-salad",
+   "name": "Salmon Salad",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 625
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-fillet-of-haddock",
+   "name": "Fried Fillet of Haddock",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1255
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yorkshire-rarebit",
+   "name": "Yorkshire Rarebit",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 735
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dry-cured-bacon-added-to-yorkshire-rarebit",
+   "name": "Dry-cured bacon (added to Yorkshire Rarebit)",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 190
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushroom-quiche",
+   "name": "Mushroom Quiche",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 850
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "club-sandwich",
+   "name": "Club Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 815
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "croque-monsieur",
+   "name": "Croque Monsieur",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 790
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "croque-madame",
+   "name": "Croque Madame",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 955
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yorkshire-chicken",
+   "name": "Yorkshire Chicken",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 465
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flaked-salmon-and-prawn",
+   "name": "Flaked Salmon & Prawn",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 530
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mediterranean-roasted-pepper",
+   "name": "Mediterranean Roasted Pepper",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 335
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayonnaise-and-cress",
+   "name": "Egg Mayonnaise & Cress",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 480
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-cheese",
+   "name": "Ham & Cheese",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 560
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-side-salad",
+   "name": "Mixed Side Salad",
+   "category": "Side dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 300
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pear-and-pomegranate-salad",
+   "name": "Pear & Pomegranate Salad",
+   "category": "Side dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rosti-bites",
+   "name": "Rösti Bites",
+   "category": "Side dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 650
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chips",
+   "name": "Chips",
+   "category": "Side dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 535
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pommes-frites",
+   "name": "Pommes Frites",
+   "category": "Side dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 375
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yorkshire-cream-tea",
+   "name": "Yorkshire Cream Tea",
+   "category": "Afternoon tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 1030
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "swiss-chocolate-torte-and-ice-cream",
+   "name": "Swiss Chocolate Torte & Ice Cream",
+   "category": "Cakes & pâtisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 715
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "engadine-torte-and-ice-cream",
+   "name": "Engadine Torte & Ice Cream",
+   "category": "Cakes & pâtisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 870
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruit-tart-and-ice-cream",
+   "name": "Fruit Tart & Ice Cream",
+   "category": "Cakes & pâtisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 410
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seasonal-cheesecake-and-berries",
+   "name": "Seasonal Cheesecake & Berries",
+   "category": "Cakes & pâtisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 400
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grande-raspberry-macaroon",
+   "name": "Grande Raspberry Macaroon",
+   "category": "Cakes & pâtisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 185
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carrot-gugelhupf",
+   "name": "Carrot Gugelhupf",
+   "category": "Cakes & pâtisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yorkshire-curd-tart",
+   "name": "Yorkshire Curd Tart",
+   "category": "Cakes & pâtisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 580
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-slice",
+   "name": "Vanilla Slice",
+   "category": "Cakes & pâtisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 470
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-eclair",
+   "name": "Chocolate Éclair",
+   "category": "Cakes & pâtisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 290
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bettys-gooey-rascal-sundae",
+   "name": "Bettys Gooey Rascal Sundae",
+   "category": "Ice cream sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 855
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bettys-fruit-sundae",
+   "name": "Bettys Fruit Sundae",
+   "category": "Ice cream sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 370
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bettys-brown-bread-sundae",
+   "name": "Bettys Brown Bread Sundae",
+   "category": "Ice cream sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 825
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yorkshire-fat-rascal-scone",
+   "name": "Yorkshire Fat Rascal Scone",
+   "category": "Bettys bakery favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 860
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gooey-rascal",
+   "name": "Gooey Rascal",
+   "category": "Bettys bakery favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 565
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sultana-scone-with-clotted-cream-and-yorkshire-strawberry-preserve",
+   "name": "Sultana Scone with clotted cream and Yorkshire strawberry preserve",
+   "category": "Bettys bakery favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 515
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sultana-scone-toasted-with-butter",
+   "name": "Sultana Scone, toasted with butter",
+   "category": "Bettys bakery favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 390
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rarebit-scone",
+   "name": "Rarebit Scone",
+   "category": "Bettys bakery favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 310
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "currant-and-sultana-teacake",
+   "name": "Currant & Sultana Teacake",
+   "category": "Bettys bakery favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 350
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bettys-tea-room-blend",
+   "name": "Bettys Tea Room Blend",
+   "category": "Teas",
+   "serving": "Teapot for one",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "earl-grey",
+   "name": "Earl Grey",
+   "category": "Teas",
+   "serving": "Teapot for one",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bettys-breakfast-tea",
+   "name": "Bettys Breakfast Tea",
+   "category": "Teas",
+   "serving": "Teapot for one",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golden-valley-darjeeling",
+   "name": "Golden Valley Darjeeling",
+   "category": "Teas",
+   "serving": "Teapot for one",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "china-rose-petal",
+   "name": "China Rose Petal",
+   "category": "Teas",
+   "serving": "Teapot for one",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jasmine-blossom",
+   "name": "Jasmine Blossom",
+   "category": "Teas",
+   "serving": "Teapot for one",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ceylon-blue-sapphire",
+   "name": "Ceylon Blue Sapphire",
+   "category": "Teas",
+   "serving": "Teapot for one",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pi-lo-chun-green-tea",
+   "name": "Pi Lo Chun Green Tea",
+   "category": "Teas",
+   "serving": "Teapot for one",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yu-luo-white-tea",
+   "name": "Yu Luo White Tea",
+   "category": "Teas",
+   "serving": "Teapot for one",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemongrass-and-ginger-tisane",
+   "name": "Lemongrass & Ginger Tisane",
+   "category": "Teas",
+   "serving": "Teapot for one",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peppermint-tisane",
+   "name": "Peppermint Tisane",
+   "category": "Teas",
+   "serving": "Teapot for one",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-and-cherry-tisane",
+   "name": "Raspberry & Cherry Tisane",
+   "category": "Teas",
+   "serving": "Teapot for one",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano",
+   "name": "Americano",
+   "category": "Coffees & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Coffees & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Coffees & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Coffees & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bettys-espresso",
+   "name": "Bettys Espresso",
+   "category": "Coffees & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-latino",
+   "name": "Latte Latino",
+   "category": "Coffees & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha",
+   "name": "Mocha",
+   "category": "Coffees & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 295
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate",
+   "name": "Hot Chocolate",
+   "category": "Coffees & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 525
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cafe-classic-blend-cafetiere",
+   "name": "Café Classic Blend (cafetière)",
+   "category": "Coffees & hot chocolate",
+   "serving": "Cafetière for one",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kenya-single-origin-coffee-cafetiere",
+   "name": "Kenya single origin coffee (cafetière)",
+   "category": "Coffees & hot chocolate",
+   "serving": "Cafetière for one",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "colombia-single-origin-coffee-cafetiere",
+   "name": "Colombia single origin coffee (cafetière)",
+   "category": "Coffees & hot chocolate",
+   "serving": "Cafetière for one",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "guatemala-single-origin-coffee-cafetiere",
+   "name": "Guatemala single origin coffee (cafetière)",
+   "category": "Coffees & hot chocolate",
+   "serving": "Cafetière for one",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nozeco-rose-125ml-glass",
+   "name": "Nozeco Rosé (125ml glass)",
+   "category": "Low alcohol drinks",
+   "serving": "125ml glass",
+   "nutrients": {
+    "calories": 25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nozeco-rose-75cl-bottle",
+   "name": "Nozeco Rosé (75cl bottle)",
+   "category": "Low alcohol drinks",
+   "serving": "75cl bottle",
+   "nutrients": {
+    "calories": 150
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cold-bath-1571",
+   "name": "Cold Bath 1571",
+   "category": "Low alcohol drinks",
+   "serving": "330ml bottle",
+   "nutrients": {
+    "calories": 124
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "swiss-chocolate-milkshake",
+   "name": "Swiss Chocolate Milkshake",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 465
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-milkshake",
+   "name": "Banana Milkshake",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 395
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-milkshake",
+   "name": "Raspberry Milkshake",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 365
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-milkshake",
+   "name": "Strawberry Milkshake",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 315
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-orange-juice",
+   "name": "Fresh Orange Juice",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yorkshire-wolds-pressed-apple-juice",
+   "name": "Yorkshire Wolds Pressed Apple Juice",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bettys-lemonade",
+   "name": "Bettys Lemonade",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "elderflower-bubbly",
+   "name": "Elderflower Bubbly",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sparkling-apple",
+   "name": "Sparkling Apple",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "still-or-sparkling-water-330ml",
+   "name": "Still or Sparkling Water (330ml)",
+   "category": "Soft drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "still-or-sparkling-water-750ml",
+   "name": "Still or Sparkling Water (750ml)",
+   "category": "Soft drinks",
+   "serving": "750ml",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fever-tree-tonic",
+   "name": "Fever-Tree Tonic",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fever-tree-tonic-light",
+   "name": "Fever-Tree Tonic Light",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ginger-beer",
+   "name": "Ginger Beer",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola",
+   "name": "Coca-Cola",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke",
+   "name": "Diet Coke",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-english-breakfast",
+   "name": "Little Rascal English Breakfast",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 590
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-chicken-schnitzel",
+   "name": "Little Rascal Chicken Schnitzel",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 415
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-alpine-macaroni",
+   "name": "Little Rascal Alpine Macaroni",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 520
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-fried-fillet-of-haddock",
+   "name": "Little Rascal Fried Fillet of Haddock",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 600
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-yorkshire-sausages",
+   "name": "Little Rascal Yorkshire Sausages",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 665
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-cheddar-cheese-and-cucumber-sandwich",
+   "name": "Little Rascal Cheddar Cheese & Cucumber sandwich",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 435
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-egg-mayonnaise-sandwich",
+   "name": "Little Rascal Egg Mayonnaise sandwich",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 335
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-traditional-wiltshire-cured-ham-sandwich",
+   "name": "Little Rascal Traditional Wiltshire Cured Ham sandwich",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 295
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-yorkshire-chicken-sandwich",
+   "name": "Little Rascal Yorkshire Chicken sandwich",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 305
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-chips",
+   "name": "Little Rascal Chips",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 265
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-baked-beans",
+   "name": "Little Rascal Baked Beans",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-fondant-fancy",
+   "name": "Little Rascal Fondant Fancy",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 321
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-caramel-slice",
+   "name": "Little Rascal Caramel Slice",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-small-hot-chocolate-with-cream",
+   "name": "Little Rascal Small Hot Chocolate with Cream",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-small-swiss-chocolate-milkshake",
+   "name": "Little Rascal Small Swiss chocolate milkshake",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-small-banana-milkshake",
+   "name": "Little Rascal Small Banana milkshake",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 195
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-small-raspberry-milkshake",
+   "name": "Little Rascal Small Raspberry milkshake",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 185
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-small-strawberry-milkshake",
+   "name": "Little Rascal Small Strawberry milkshake",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-small-fresh-orange-juice",
+   "name": "Little Rascal Small Fresh Orange Juice",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-small-lemonade",
+   "name": "Little Rascal Small Lemonade",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-small-yorkshire-wolds-pressed-apple-juice",
+   "name": "Little Rascal Small Yorkshire Wolds Pressed Apple Juice",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-rascal-chilled-milk",
+   "name": "Little Rascal Chilled Milk",
+   "category": "Little Rascal menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

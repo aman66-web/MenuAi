@@ -1,0 +1,2067 @@
+{
+ "schemaVersion": 1,
+ "id": "benugo",
+ "name": "Benugo",
+ "cuisine": "Sandwiches",
+ "builderType": "standard",
+ "aliases": [
+  "benugo"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Benugo online ordering menus: Lunch, Breakfast, Cakes & Snacks (api.getspoonfed.com, accessed 2026-11-17, no date shown)",
+  "url": "https://api.getspoonfed.com/262/benugo",
+  "checkedOn": "2026-11-17"
+ },
+ "nutritionLevel": "calories",
+ "note": "Benugo prints calories only (no protein, carbs or fat), on its online ordering menus for delivery and catering, not for its cafes. Sharing boxes and whole cakes show calories for the whole box or cake, not per person. Items without a printed calorie value are not listed.",
+ "allergenGuide": {
+  "title": "Benugo online ordering menus with an allergens line per item (api.getspoonfed.com, accessed 2026-11-17, no date shown)",
+  "url": "https://api.getspoonfed.com/262/benugo",
+  "checkedOn": "2026-11-17",
+  "mayContainPublished": false,
+  "complete": true
+ },
+ "categories": [
+  "Lunch sharing platters",
+  "Salad sharing boxes (serves 4-6)",
+  "Individual salads",
+  "Lunch bag items",
+  "Individual bloomer sandwiches",
+  "Individual wraps",
+  "Golden millet rolls",
+  "Individual focaccia",
+  "Individual bagels",
+  "Fruit, yoghurt & porridge pots",
+  "Breakfast boxes",
+  "Cake boxes & whole cakes",
+  "Individual cakes",
+  "Snacks & treats"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "festive-box",
+   "name": "Festive Box",
+   "category": "Lunch sharing platters",
+   "serving": "1 box",
+   "nutrients": {
+    "calories": 3432
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/2b894f774e7c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "best-of-benugo-box",
+   "name": "Best of Benugo Box",
+   "category": "Lunch sharing platters",
+   "serving": "1 box (suitable for 6 people)",
+   "nutrients": {
+    "calories": 4173
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/81dfa7733e20.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "focaccia-lunch-box",
+   "name": "Focaccia Lunch Box",
+   "category": "Lunch sharing platters",
+   "serving": "1 box (suitable for 6 people)",
+   "nutrients": {
+    "calories": 2889
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/7a60e1eb5ab8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bloomer-box",
+   "name": "Bloomer Box",
+   "category": "Lunch sharing platters",
+   "serving": "1 box (suitable for 8 people)",
+   "nutrients": {
+    "calories": 4995
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/6eea482394cc.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "bagel-box",
+   "name": "Bagel Box",
+   "category": "Lunch sharing platters",
+   "serving": "1 box (suitable for 6 people)",
+   "nutrients": {
+    "calories": 3003
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/455c466ed871.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "harissa-chicken-and-falafel-box",
+   "name": "Harissa Chicken & Falafel Box",
+   "category": "Lunch sharing platters",
+   "serving": "1 box",
+   "nutrients": {
+    "calories": 3417
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/1431006dcaea.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "wrap-box",
+   "name": "Wrap Box",
+   "category": "Lunch sharing platters",
+   "serving": "1 box (suitable for 6 people)",
+   "nutrients": {
+    "calories": 3452
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/d20a3fce7da4.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "veggie-box",
+   "name": "Veggie Box",
+   "category": "Lunch sharing platters",
+   "serving": "1 box (suitable for 5-6 people)",
+   "nutrients": {
+    "calories": 3026
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "vegan-box",
+   "name": "Vegan Box",
+   "category": "Lunch sharing platters",
+   "serving": "1 box (suitable for 5-6 people)",
+   "nutrients": {
+    "calories": 2934
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "golden-millet-and-rice-rolls-box",
+   "name": "Golden Millet & Rice Rolls Box",
+   "category": "Lunch sharing platters",
+   "serving": "1 box (suitable for 6 people)",
+   "nutrients": {
+    "calories": 2157
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/61de172245af.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sausage-rolls-box",
+   "name": "Sausage Rolls Box",
+   "category": "Lunch sharing platters",
+   "serving": "1 box (suitable for 8 people)",
+   "nutrients": {
+    "calories": 3637
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/43a62ea578ca.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegan-sausage-rolls-box",
+   "name": "Vegan Sausage Rolls Box",
+   "category": "Lunch sharing platters",
+   "serving": "1 box (suitable for 8 people)",
+   "nutrients": {
+    "calories": 4735
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/d4c2a02dca53.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "roasted-butternut-cranberry-and-thyme-frittata",
+   "name": "Roasted Butternut, Cranberry & Thyme Frittata",
+   "category": "Lunch sharing platters",
+   "serving": "1 box",
+   "nutrients": {
+    "calories": 1956
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/f25eedb5d2de.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "west-country-cheddar-and-smoked-bacon-quiche-box",
+   "name": "West Country Cheddar and Smoked Bacon Quiche Box",
+   "category": "Lunch sharing platters",
+   "serving": "1 box (suitable for 6 people)",
+   "nutrients": {
+    "calories": 2496
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "smoked-salmon-and-creme-fraiche-quiche-box",
+   "name": "Smoked Salmon and Creme Fraiche Quiche Box",
+   "category": "Lunch sharing platters",
+   "serving": "1 box (suitable for 6 people)",
+   "nutrients": {
+    "calories": 2248
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spiced-chicken-grain-salad-box",
+   "name": "Spiced Chicken Grain Salad Box",
+   "category": "Salad sharing boxes (serves 4-6)",
+   "serving": "1 box (serves 4-6)",
+   "nutrients": {
+    "calories": 1595
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/d4c0f69472a7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-caesar",
+   "name": "Chicken Caesar",
+   "category": "Salad sharing boxes (serves 4-6)",
+   "serving": "1 box (suitable for 4-5 people)",
+   "nutrients": {
+    "calories": 1251
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/6e119113fe78.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bang-bang-spiced-cauliflower-salad-box",
+   "name": "Bang Bang Spiced Cauliflower Salad Box",
+   "category": "Salad sharing boxes (serves 4-6)",
+   "serving": "1 box (suitable for 4-5 people)",
+   "nutrients": {
+    "calories": 1047
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/ac672642b0cb.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bang-bang-spiced-cauliflower-salad-box-with-british-sliced-chicken",
+   "name": "Bang Bang Spiced Cauliflower Salad Box with British Sliced Chicken",
+   "category": "Salad sharing boxes (serves 4-6)",
+   "serving": "1 box (suitable for 4-5 people)",
+   "nutrients": {
+    "calories": 1354
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/ac672642b0cb.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cellentani-pesto-pasta-box",
+   "name": "Cellentani Pesto Pasta Box",
+   "category": "Salad sharing boxes (serves 4-6)",
+   "serving": "1 box (suitable for 4-5 people)",
+   "nutrients": {
+    "calories": 1597
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/0580251b09db.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cellentani-pesto-pasta-box-with-british-sliced-chicken-breast",
+   "name": "Cellentani Pesto Pasta Box with British Sliced Chicken Breast",
+   "category": "Salad sharing boxes (serves 4-6)",
+   "serving": "1 box (suitable for 4-5 people)",
+   "nutrients": {
+    "calories": 1904
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/0580251b09db.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "feel-good-salad-box",
+   "name": "Feel Good Salad Box",
+   "category": "Salad sharing boxes (serves 4-6)",
+   "serving": "1 box (suitable for 4-5 people)",
+   "nutrients": {
+    "calories": 1016
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/b178864f3f3d.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "feel-good-salad-box-with-british-sliced-chicken-breast",
+   "name": "Feel Good Salad Box with British Sliced Chicken Breast",
+   "category": "Salad sharing boxes (serves 4-6)",
+   "serving": "1 box (suitable for 4-5 people)",
+   "nutrients": {
+    "calories": 1323
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/b178864f3f3d.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "plant-power-with-avocado-salad-box",
+   "name": "Plant Power with Avocado Salad Box",
+   "category": "Salad sharing boxes (serves 4-6)",
+   "serving": "1 box (suitable for 4-5 people)",
+   "nutrients": {
+    "calories": 1526
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/675ba4eaf16e.webp",
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "plant-power-and-avocado-with-british-sliced-chicken-breast",
+   "name": "Plant Power & Avocado with British Sliced Chicken Breast",
+   "category": "Salad sharing boxes (serves 4-6)",
+   "serving": "1 box (suitable for 4-5 people)",
+   "nutrients": {
+    "calories": 1832
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/675ba4eaf16e.webp",
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "crudites-box",
+   "name": "Crudites Box",
+   "category": "Salad sharing boxes (serves 4-6)",
+   "serving": "1 box (suitable for 5-6 people)",
+   "nutrients": {
+    "calories": 1152
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/abbea15b896f.webp",
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "spiced-chicken-grain-bowl",
+   "name": "Spiced Chicken Grain Bowl",
+   "category": "Individual salads",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 388
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/065c41bf9cb3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bang-bang-cauliflower-salad-bowl",
+   "name": "Bang Bang Cauliflower Salad Bowl",
+   "category": "Individual salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 377
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/0cd4b704e436.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hot-smoked-salmon-salad-bowl",
+   "name": "Hot Smoked Salmon Salad Bowl",
+   "category": "Individual salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 415
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "plant-power-salad-bowl",
+   "name": "Plant Power Salad Bowl",
+   "category": "Individual salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 770
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cellentani-pesto-pasta-bowl",
+   "name": "Cellentani Pesto Pasta Bowl",
+   "category": "Individual salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 507
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "harissa-roasted-vegetables-and-tahini-bloomer",
+   "name": "Harissa Roasted Vegetables and Tahini Bloomer",
+   "category": "Lunch bag items",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 606
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/2af106222a7e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "falafel-and-hummus-wrap-lunch-bag",
+   "name": "Falafel & Hummus Wrap (lunch bag)",
+   "category": "Lunch bag items",
+   "serving": "",
+   "nutrients": {
+    "calories": 789
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/244bf45a9d4c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pulled-turkey-bacon-cheddar-and-cranberry-bloomer",
+   "name": "Pulled Turkey, Bacon, Cheddar & Cranberry Bloomer",
+   "category": "Individual bloomer sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 657
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "vegan-cream-cheese-and-grilled-veggies-bloomer",
+   "name": "Vegan Cream Cheese & Grilled Veggies Bloomer",
+   "category": "Individual bloomer sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 560
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "free-range-egg-mayonnaise-and-sunblush-tomato-bloomer",
+   "name": "Free-Range Egg Mayonnaise & Sunblush Tomato Bloomer",
+   "category": "Individual bloomer sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 672
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "tuna-mayonnaise-capers-and-rocket-bloomer",
+   "name": "Tuna Mayonnaise, Capers & Rocket Bloomer",
+   "category": "Individual bloomer sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 528
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "cheddar-cheese-salad-bloomer",
+   "name": "Cheddar Cheese Salad Bloomer",
+   "category": "Individual bloomer sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 580
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "honey-ham-hock-cheese-and-salad-bloomer",
+   "name": "Honey Ham Hock, Cheese & Salad Bloomer",
+   "category": "Individual bloomer sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 727
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "spiced-chicken-and-chickpea-wrap",
+   "name": "Spiced Chicken & Chickpea Wrap",
+   "category": "Individual wraps",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 516
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "moroccan-falafel-and-hummus-wrap",
+   "name": "Moroccan Falafel & Hummus Wrap",
+   "category": "Individual wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 682
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "katsu-roast-cauliflower-wrap",
+   "name": "Katsu Roast Cauliflower Wrap",
+   "category": "Individual wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 532
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/d4e11654822e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "golden-millet-free-range-egg-and-sunblushed-tomato-roll",
+   "name": "Golden Millet Free-Range Egg & Sunblushed Tomato Roll",
+   "category": "Golden millet rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 401
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "golden-millet-honey-glazed-ham-hock-and-emmental-cheese-dijon-mayo-roll",
+   "name": "Golden Millet Honey-Glazed Ham Hock & Emmental Cheese Dijon Mayo Roll",
+   "category": "Golden millet rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 343
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pulled-turkey-bacon-cheddar-and-cranberry-focaccia",
+   "name": "Pulled Turkey, Bacon, Cheddar and Cranberry Focaccia",
+   "category": "Individual focaccia",
+   "serving": "",
+   "nutrients": {
+    "calories": 666
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/ebab52d345c6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegan-cream-cheese-veduja-and-aubergine-focaccia",
+   "name": "Vegan Cream Cheese, Ve'Duja & Aubergine Focaccia",
+   "category": "Individual focaccia",
+   "serving": "",
+   "nutrients": {
+    "calories": 536
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-arrabbiata-focaccia",
+   "name": "Chicken Arrabbiata Focaccia",
+   "category": "Individual focaccia",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 507
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/c925e90ccadb.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "smoked-salmon-and-mustard-dill-cream-cheese-bagel",
+   "name": "Smoked Salmon & Mustard Dill Cream Cheese Bagel",
+   "category": "Individual bagels",
+   "serving": "",
+   "nutrients": {
+    "calories": 426
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "cherry-matcha-yoghurt-pot",
+   "name": "Cherry Matcha Yoghurt Pot",
+   "category": "Fruit, yoghurt & porridge pots",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 146
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "blueberry-and-pistachio-yoghurt-pot",
+   "name": "Blueberry & Pistachio Yoghurt Pot",
+   "category": "Fruit, yoghurt & porridge pots",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 311
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "vegan-raspberry-and-almond-bircher-pot",
+   "name": "Vegan Raspberry & Almond Bircher Pot",
+   "category": "Fruit, yoghurt & porridge pots",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 348
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "bio-and-me-apple-and-cinnamon-porridge-pot",
+   "name": "Bio & Me Apple & Cinnamon Porridge Pot",
+   "category": "Fruit, yoghurt & porridge pots",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 254
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "bio-and-me-nice-and-nutty-porridge",
+   "name": "Bio & Me Nice & Nutty Porridge",
+   "category": "Fruit, yoghurt & porridge pots",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 235
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "bio-and-me-spiced-apple-porridge-pot",
+   "name": "Bio & Me Spiced Apple Porridge Pot",
+   "category": "Fruit, yoghurt & porridge pots",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 213
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-focaccia-box",
+   "name": "Breakfast Focaccia Box",
+   "category": "Breakfast boxes",
+   "serving": "1 box (suitable for 6 people)",
+   "nutrients": {
+    "calories": 2306
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/0e1d6469bdd6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mini-pastry-box",
+   "name": "Mini Pastry Box",
+   "category": "Breakfast boxes",
+   "serving": "1 box (suitable for 8 people)",
+   "nutrients": {
+    "calories": 1544
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/9157580df0f6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cinnamon-roll-box",
+   "name": "Cinnamon Roll Box",
+   "category": "Breakfast boxes",
+   "serving": "1 box (suitable for 6 people)",
+   "nutrients": {
+    "calories": 4013
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/2bbf7a6ceb71.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "mixed-pastries-box",
+   "name": "Mixed Pastries Box",
+   "category": "Breakfast boxes",
+   "serving": "1 box (suitable for 8 people)",
+   "nutrients": {
+    "calories": 2577
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/1a180c4a86d2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "vegan-pastry-box",
+   "name": "Vegan Pastry Box",
+   "category": "Breakfast boxes",
+   "serving": "1 box (suitable for 6 people)",
+   "nutrients": {
+    "calories": 1947
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/4cd6ad035781.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "handmade-cookies-box",
+   "name": "Handmade Cookies Box",
+   "category": "Breakfast boxes",
+   "serving": "1 box (suitable for 9 people)",
+   "nutrients": {
+    "calories": 4825
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/67b9da986ba4.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ],
+    "nuts": [
+     "pecan"
+    ]
+   }
+  },
+  {
+   "id": "blueberry-muffin-box",
+   "name": "Blueberry Muffin Box",
+   "category": "Breakfast boxes",
+   "serving": "1 box (suitable for 6 people)",
+   "nutrients": {
+    "calories": 1949
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/2a9bc4b9c39c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "festive-treats-box",
+   "name": "Festive Treats Box",
+   "category": "Cake boxes & whole cakes",
+   "serving": "1 box",
+   "nutrients": {
+    "calories": 3837
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ],
+    "nuts": [
+     "almond",
+     "pecan"
+    ]
+   }
+  },
+  {
+   "id": "seasonal-cake-box",
+   "name": "Seasonal Cake Box",
+   "category": "Cake boxes & whole cakes",
+   "serving": "1 box (suitable for 10 people)",
+   "nutrients": {
+    "calories": 3406
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/90d1ab97c5eb.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "pecan",
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-brownie-and-walnut-ramblejack-bites-box",
+   "name": "Chocolate Brownie & Walnut Ramblejack Bites Box",
+   "category": "Cake boxes & whole cakes",
+   "serving": "1 box (suitable for 10 people)",
+   "nutrients": {
+    "calories": 2928
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/570466991500.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ],
+    "nuts": [
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "whole-lemon-drizzle-whole-loaf-cake",
+   "name": "Whole Lemon Drizzle Whole Loaf Cake",
+   "category": "Cake boxes & whole cakes",
+   "serving": "1 cake (suitable for 10 people)",
+   "nutrients": {
+    "calories": 5221
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "whole-malted-chocolate-loaf-cake",
+   "name": "Whole Malted Chocolate Loaf Cake",
+   "category": "Cake boxes & whole cakes",
+   "serving": "1 cake",
+   "nutrients": {
+    "calories": 4742
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "benugo/f2903434b699.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "lemon-drizzle-cake-slice",
+   "name": "Lemon Drizzle Cake Slice",
+   "category": "Individual cakes",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 410
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "slice-of-malted-chocolate-loaf-cake",
+   "name": "Slice of Malted Chocolate Loaf Cake",
+   "category": "Individual cakes",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 395
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "slice-of-pumpkin-almond-and-pecan-struesel-loaf-cake",
+   "name": "Slice of Pumpkin, Almond & Pecan Struesel Loaf Cake",
+   "category": "Individual cakes",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 384
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond",
+     "pecan"
+    ]
+   }
+  },
+  {
+   "id": "benugo-dried-mango-chunks",
+   "name": "Benugo Dried Mango Chunks",
+   "category": "Snacks & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 97
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "benugo-fruit-and-nut-mix",
+   "name": "Benugo Fruit & Nut Mix",
+   "category": "Snacks & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 177
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "peanuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond",
+     "walnut",
+     "brazil nut"
+    ]
+   }
+  },
+  {
+   "id": "benugo-honey-roast-peanuts-and-cashews",
+   "name": "Benugo Honey Roast Peanuts & Cashews",
+   "category": "Snacks & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 167
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "peanuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "cashew"
+    ]
+   }
+  },
+  {
+   "id": "benugo-bbq-corn-and-smoky-almonds",
+   "name": "Benugo BBQ Corn & Smoky Almonds",
+   "category": "Snacks & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 146
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

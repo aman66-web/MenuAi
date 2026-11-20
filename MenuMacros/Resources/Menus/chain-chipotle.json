@@ -1,0 +1,1603 @@
+{
+ "schemaVersion": 1,
+ "id": "chipotle",
+ "name": "Chipotle",
+ "cuisine": "Mexican",
+ "builderType": "standard",
+ "aliases": [
+  "chipotle",
+  "chipotle mexican grill"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Chipotle UK Restaurants Nutrition Guide and Allergen Guide, per serving (Version 1.0, information correct at 3 November 2026)",
+  "url": "https://www.chipotle.co.uk/content/dam/chipotle/menu/nutrition/2026/eu/UK_Allergen_Guide_Nov2026%202-94.pdf",
+  "checkedOn": "2026-11-17"
+ },
+ "note": "Chipotle UK publishes values for single ingredients only, not finished burritos or bowls, and we don't add them together. Its guide says allergens are handled in its kitchens, some equipment is shared and some ingredients are made where gluten cereals and soya are handled, so it cannot guarantee any item is free from any allergen.",
+ "allergenGuide": {
+  "title": "Chipotle UK Restaurants Allergen Guide (Version 1.0, information correct at 3 November 2026)",
+  "url": "https://www.chipotle.co.uk/content/dam/chipotle/menu/nutrition/2026/eu/UK_Allergen_Guide_Nov2026%202-94.pdf",
+  "checkedOn": "2026-11-17",
+  "mayContainPublished": false,
+  "complete": true
+ },
+ "categories": [
+  "Tortillas & chips",
+  "Rice & beans",
+  "Proteins & veggies",
+  "Salsas",
+  "Toppings & dressing",
+  "Limited time",
+  "Fountain drinks",
+  "Tractor drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "flour-tortilla-burrito",
+   "name": "Flour Tortilla (burrito)",
+   "category": "Tortillas & chips",
+   "serving": "1 tortilla",
+   "nutrients": {
+    "calories": 294,
+    "protein": 8.1,
+    "carbs": 48,
+    "fat": 7,
+    "saturatedFat": 0.6,
+    "sugar": 2.3,
+    "fiber": 3.8,
+    "salt": 1.5,
+    "energyKj": 1241,
+    "weight": 98
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "flour-tortillas-taco-3",
+   "name": "Flour Tortillas (taco, 3)",
+   "category": "Tortillas & chips",
+   "serving": "3 tortillas",
+   "nutrients": {
+    "calories": 243,
+    "protein": 6.7,
+    "carbs": 40,
+    "fat": 5.8,
+    "saturatedFat": 0.5,
+    "sugar": 1.9,
+    "fiber": 3.2,
+    "salt": 1.2,
+    "energyKj": 1026,
+    "weight": 81
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "crispy-corn-taco-shells-3",
+   "name": "Crispy Corn Taco Shells (3)",
+   "category": "Tortillas & chips",
+   "serving": "3 shells",
+   "nutrients": {
+    "calories": 195,
+    "protein": 1.9,
+    "carbs": 25,
+    "fat": 9,
+    "saturatedFat": 0.8,
+    "sugar": 0,
+    "fiber": 2.4,
+    "salt": 0.24,
+    "energyKj": 815,
+    "weight": 41
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chips-regular",
+   "name": "Chips (regular)",
+   "category": "Tortillas & chips",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 494,
+    "protein": 5,
+    "carbs": 64,
+    "fat": 23,
+    "saturatedFat": 2,
+    "sugar": 0.8,
+    "fiber": 6,
+    "salt": 3,
+    "energyKj": 2069,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chips-large",
+   "name": "Chips (large)",
+   "category": "Tortillas & chips",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 739,
+    "protein": 7.4,
+    "carbs": 96,
+    "fat": 34,
+    "saturatedFat": 3.1,
+    "sugar": 1.3,
+    "fiber": 8.9,
+    "salt": 4.5,
+    "energyKj": 3094,
+    "weight": 169
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chips-kids",
+   "name": "Chips (kids)",
+   "category": "Tortillas & chips",
+   "serving": "Kids",
+   "nutrients": {
+    "calories": 122,
+    "protein": 1.2,
+    "carbs": 16,
+    "fat": 5.7,
+    "saturatedFat": 0.5,
+    "sugar": 0,
+    "fiber": 1.5,
+    "salt": 0.74,
+    "energyKj": 513,
+    "weight": 28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coriander-lime-white-rice",
+   "name": "Coriander-Lime White Rice",
+   "category": "Rice & beans",
+   "serving": "",
+   "nutrients": {
+    "calories": 229,
+    "protein": 3.4,
+    "carbs": 37,
+    "fat": 7.2,
+    "saturatedFat": 0.6,
+    "sugar": 0,
+    "fiber": 0.6,
+    "salt": 0.93,
+    "energyKj": 964,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coriander-lime-brown-rice",
+   "name": "Coriander-Lime Brown Rice",
+   "category": "Rice & beans",
+   "serving": "",
+   "nutrients": {
+    "calories": 198,
+    "protein": 3.6,
+    "carbs": 33,
+    "fat": 5.5,
+    "saturatedFat": 0.5,
+    "sugar": 0,
+    "fiber": 1.1,
+    "salt": 0.46,
+    "energyKj": 836,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "black-beans",
+   "name": "Black Beans",
+   "category": "Rice & beans",
+   "serving": "",
+   "nutrients": {
+    "calories": 145,
+    "protein": 7.2,
+    "carbs": 21,
+    "fat": 1.4,
+    "saturatedFat": 0.2,
+    "sugar": 1,
+    "fiber": 9.5,
+    "salt": 0.64,
+    "energyKj": 610,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chipotle/ec0ea64d79b9.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pinto-beans",
+   "name": "Pinto Beans",
+   "category": "Rice & beans",
+   "serving": "",
+   "nutrients": {
+    "calories": 132,
+    "protein": 7.1,
+    "carbs": 19,
+    "fat": 1.6,
+    "saturatedFat": 0.2,
+    "sugar": 1,
+    "fiber": 5.2,
+    "salt": 0.64,
+    "energyKj": 554,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chipotle/dd624b39d669.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken",
+   "name": "Chicken",
+   "category": "Proteins & veggies",
+   "serving": "",
+   "nutrients": {
+    "calories": 211,
+    "protein": 27,
+    "carbs": 0,
+    "fat": 11,
+    "saturatedFat": 2.7,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.8,
+    "energyKj": 882,
+    "weight": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chipotle/b97b8f54c90b.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "steak",
+   "name": "Steak",
+   "category": "Proteins & veggies",
+   "serving": "",
+   "nutrients": {
+    "calories": 221,
+    "protein": 23,
+    "carbs": 2.9,
+    "fat": 13,
+    "saturatedFat": 4.9,
+    "sugar": 0.7,
+    "fiber": 0,
+    "salt": 0.53,
+    "energyKj": 924,
+    "weight": 113
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chipotle/c9e533c5cac4.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "barbacoa",
+   "name": "Barbacoa",
+   "category": "Proteins & veggies",
+   "serving": "",
+   "nutrients": {
+    "calories": 136,
+    "protein": 21,
+    "carbs": 0.6,
+    "fat": 5.2,
+    "saturatedFat": 2,
+    "sugar": 0,
+    "fiber": 0.6,
+    "salt": 0.9,
+    "energyKj": 571,
+    "weight": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chipotle/5c33f140ad6a.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "carnitas",
+   "name": "Carnitas",
+   "category": "Proteins & veggies",
+   "serving": "",
+   "nutrients": {
+    "calories": 244,
+    "protein": 27,
+    "carbs": 0.6,
+    "fat": 15,
+    "saturatedFat": 5.4,
+    "sugar": 0,
+    "fiber": 0.6,
+    "salt": 1.1,
+    "energyKj": 1019,
+    "weight": 113
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chipotle/47b423a1af5d.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sofritas-braised-tofu",
+   "name": "Sofritas (braised tofu)",
+   "category": "Proteins & veggies",
+   "serving": "",
+   "nutrients": {
+    "calories": 137,
+    "protein": 11,
+    "carbs": 3.8,
+    "fat": 8.5,
+    "saturatedFat": 1,
+    "sugar": 2.8,
+    "fiber": 1,
+    "salt": 1.2,
+    "energyKj": 571,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chipotle/19546ab79eb6.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fajita-vegetables",
+   "name": "Fajita Vegetables",
+   "category": "Proteins & veggies",
+   "serving": "",
+   "nutrients": {
+    "calories": 17,
+    "protein": 0.6,
+    "carbs": 2.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.3,
+    "fiber": 1,
+    "salt": 0.13,
+    "energyKj": 73,
+    "weight": 57
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chipotle/01011acda918.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fresh-tomato-salsa",
+   "name": "Fresh Tomato Salsa",
+   "category": "Salsas",
+   "serving": "",
+   "nutrients": {
+    "calories": 24,
+    "protein": 0.8,
+    "carbs": 4.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.8,
+    "fiber": 1.3,
+    "salt": 2,
+    "energyKj": 103,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chilli-corn-salsa",
+   "name": "Chilli-Corn Salsa",
+   "category": "Salsas",
+   "serving": "",
+   "nutrients": {
+    "calories": 74,
+    "protein": 2.4,
+    "carbs": 11,
+    "fat": 1.5,
+    "saturatedFat": 0.3,
+    "sugar": 1.8,
+    "fiber": 2.8,
+    "salt": 1.2,
+    "energyKj": 311,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roasted-tomato-green-chilli-salsa",
+   "name": "Roasted Tomato Green-Chilli Salsa",
+   "category": "Salsas",
+   "serving": "",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0.5,
+    "carbs": 1.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.5,
+    "fiber": 0.6,
+    "salt": 0.58,
+    "energyKj": 44,
+    "weight": 59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roasted-tomato-red-chilli-salsa",
+   "name": "Roasted Tomato Red-Chilli Salsa",
+   "category": "Salsas",
+   "serving": "",
+   "nutrients": {
+    "calories": 26,
+    "protein": 0.8,
+    "carbs": 3.6,
+    "fat": 0.8,
+    "saturatedFat": 0.1,
+    "sugar": 1.2,
+    "fiber": 0,
+    "salt": 1.1,
+    "energyKj": 109,
+    "weight": 59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sour-cream",
+   "name": "Sour Cream",
+   "category": "Toppings & dressing",
+   "serving": "",
+   "nutrients": {
+    "calories": 114,
+    "protein": 2.5,
+    "carbs": 3,
+    "fat": 10,
+    "saturatedFat": 6.3,
+    "sugar": 3,
+    "fiber": 0,
+    "salt": 0.26,
+    "energyKj": 470,
+    "weight": 57
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chipotle/b7e4227a9cb0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "monterey-jack-cheese",
+   "name": "Monterey Jack Cheese",
+   "category": "Toppings & dressing",
+   "serving": "",
+   "nutrients": {
+    "calories": 116,
+    "protein": 7.1,
+    "carbs": 0,
+    "fat": 9.8,
+    "saturatedFat": 6.1,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.53,
+    "energyKj": 483,
+    "weight": 28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chipotle/1f21ebaf4810.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "queso-entree",
+   "name": "Queso (entree)",
+   "category": "Toppings & dressing",
+   "serving": "Entree",
+   "nutrients": {
+    "calories": 99,
+    "protein": 3.6,
+    "carbs": 2.6,
+    "fat": 8.2,
+    "saturatedFat": 5.5,
+    "sugar": 0.9,
+    "fiber": 0,
+    "salt": 0.63,
+    "energyKj": 410,
+    "weight": 55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "queso-side",
+   "name": "Queso (side)",
+   "category": "Toppings & dressing",
+   "serving": "Side",
+   "nutrients": {
+    "calories": 203,
+    "protein": 7.3,
+    "carbs": 5.3,
+    "fat": 17,
+    "saturatedFat": 11,
+    "sugar": 1.8,
+    "fiber": 0.6,
+    "salt": 1.3,
+    "energyKj": 842,
+    "weight": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "queso-large",
+   "name": "Queso (large)",
+   "category": "Toppings & dressing",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 406,
+    "protein": 15,
+    "carbs": 11,
+    "fat": 34,
+    "saturatedFat": 23,
+    "sugar": 3.6,
+    "fiber": 1.1,
+    "salt": 2.6,
+    "energyKj": 1685,
+    "weight": 226
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "guacamole-topping-side",
+   "name": "Guacamole (topping/side)",
+   "category": "Toppings & dressing",
+   "serving": "",
+   "nutrients": {
+    "calories": 185,
+    "protein": 2,
+    "carbs": 2.4,
+    "fat": 18,
+    "saturatedFat": 4.2,
+    "sugar": 0.8,
+    "fiber": 3.3,
+    "salt": 0.63,
+    "energyKj": 761,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "guacamole-large",
+   "name": "Guacamole (large)",
+   "category": "Toppings & dressing",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 369,
+    "protein": 4,
+    "carbs": 4.8,
+    "fat": 36,
+    "saturatedFat": 8.5,
+    "sugar": 1.6,
+    "fiber": 6.7,
+    "salt": 1.3,
+    "energyKj": 1522,
+    "weight": 226
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "romaine-lettuce-85-g",
+   "name": "Romaine Lettuce (salad)",
+   "category": "Toppings & dressing",
+   "serving": "Salad",
+   "nutrients": {
+    "calories": 14,
+    "protein": 1,
+    "carbs": 1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1,
+    "fiber": 1.8,
+    "salt": 0.02,
+    "energyKj": 59,
+    "weight": 85
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "romaine-lettuce-28-g",
+   "name": "Romaine Lettuce (topping)",
+   "category": "Toppings & dressing",
+   "serving": "Topping",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0.6,
+    "salt": 0,
+    "energyKj": 19,
+    "weight": 28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "supergreens-salad-mix",
+   "name": "Supergreens Salad Mix",
+   "category": "Toppings & dressing",
+   "serving": "",
+   "nutrients": {
+    "calories": 16,
+    "protein": 1.2,
+    "carbs": 1.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1,
+    "fiber": 1.7,
+    "salt": 0.09,
+    "energyKj": 65,
+    "weight": 85
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chipotle-honey-vinaigrette",
+   "name": "Chipotle Honey Vinaigrette",
+   "category": "Toppings & dressing",
+   "serving": "",
+   "nutrients": {
+    "calories": 313,
+    "protein": 0,
+    "carbs": 12,
+    "fat": 29,
+    "saturatedFat": 2.4,
+    "sugar": 11,
+    "fiber": 0,
+    "salt": 1.3,
+    "energyKj": 1294,
+    "weight": 59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-al-pastor",
+   "name": "Chicken al Pastor",
+   "category": "Limited time",
+   "serving": "",
+   "nutrients": {
+    "calories": 210,
+    "protein": 23,
+    "carbs": 4.9,
+    "fat": 11,
+    "saturatedFat": 2.4,
+    "sugar": 4.2,
+    "fiber": 0.6,
+    "salt": 0.84,
+    "energyKj": 877,
+    "weight": 113
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chipotle-honey-chicken",
+   "name": "Chipotle Honey Chicken",
+   "category": "Limited time",
+   "serving": "",
+   "nutrients": {
+    "calories": 222,
+    "protein": 24,
+    "carbs": 7.5,
+    "fat": 10,
+    "saturatedFat": 2.5,
+    "sugar": 5.8,
+    "fiber": 0.8,
+    "salt": 0.99,
+    "energyKj": 928,
+    "weight": 113
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pollo-asado",
+   "name": "Pollo Asado",
+   "category": "Limited time",
+   "serving": "",
+   "nutrients": {
+    "calories": 207,
+    "protein": 25,
+    "carbs": 3.2,
+    "fat": 10,
+    "saturatedFat": 2.5,
+    "sugar": 2,
+    "fiber": 0.7,
+    "salt": 0.91,
+    "energyKj": 866,
+    "weight": 113
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coca-cola-16-oz",
+   "name": "Coca Cola (16 oz)",
+   "category": "Fountain drinks",
+   "serving": "16 oz (450 ml)",
+   "nutrients": {
+    "calories": 191,
+    "protein": 0,
+    "carbs": 48,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 48,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 811
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coca-cola-20-oz",
+   "name": "Coca Cola (20 oz)",
+   "category": "Fountain drinks",
+   "serving": "20 oz (565 ml)",
+   "nutrients": {
+    "calories": 240,
+    "protein": 0,
+    "carbs": 60,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 60,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 1018
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "diet-coke-16-oz",
+   "name": "Diet Coke (16 oz)",
+   "category": "Fountain drinks",
+   "serving": "16 oz (450 ml)",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "diet-coke-20-oz",
+   "name": "Diet Coke (20 oz)",
+   "category": "Fountain drinks",
+   "serving": "20 oz (565 ml)",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 11
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coke-zero-16-oz",
+   "name": "Coke Zero (16 oz)",
+   "category": "Fountain drinks",
+   "serving": "16 oz (450 ml)",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.09,
+    "energyKj": 5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coke-zero-20-oz",
+   "name": "Coke Zero (20 oz)",
+   "category": "Fountain drinks",
+   "serving": "20 oz (565 ml)",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.11,
+    "energyKj": 6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sprite-zero-16-oz",
+   "name": "Sprite Zero (16 oz)",
+   "category": "Fountain drinks",
+   "serving": "16 oz (450 ml)",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.32,
+    "energyKj": 23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sprite-zero-20-oz",
+   "name": "Sprite Zero (20 oz)",
+   "category": "Fountain drinks",
+   "serving": "20 oz (565 ml)",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.4,
+    "energyKj": 28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dr-pepper-zero-16-oz",
+   "name": "Dr Pepper Zero (16 oz)",
+   "category": "Fountain drinks",
+   "serving": "16 oz (450 ml)",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dr-pepper-zero-20-oz",
+   "name": "Dr Pepper Zero (20 oz)",
+   "category": "Fountain drinks",
+   "serving": "20 oz (565 ml)",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fanta-orange-16-oz",
+   "name": "Fanta Orange (16 oz)",
+   "category": "Fountain drinks",
+   "serving": "16 oz (450 ml)",
+   "nutrients": {
+    "calories": 86,
+    "protein": 0,
+    "carbs": 20,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 20,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 365
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fanta-orange-20-oz",
+   "name": "Fanta Orange (20 oz)",
+   "category": "Fountain drinks",
+   "serving": "20 oz (565 ml)",
+   "nutrients": {
+    "calories": 107,
+    "protein": 0,
+    "carbs": 25,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 25,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 458
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "watermelon-mint-16-oz",
+   "name": "Watermelon Mint (16 oz)",
+   "category": "Tractor drinks",
+   "serving": "16 oz (450 ml)",
+   "nutrients": {
+    "calories": 63,
+    "protein": 0,
+    "carbs": 15,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 15,
+    "fiber": 0,
+    "salt": 0.01,
+    "energyKj": 261
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "watermelon-mint-20-oz",
+   "name": "Watermelon Mint (20 oz)",
+   "category": "Tractor drinks",
+   "serving": "20 oz (565 ml)",
+   "nutrients": {
+    "calories": 79,
+    "protein": 0,
+    "carbs": 19,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 19,
+    "fiber": 0,
+    "salt": 0.02,
+    "energyKj": 328
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mandarin-cardamom-16-oz",
+   "name": "Mandarin & Cardamom (16 oz)",
+   "category": "Tractor drinks",
+   "serving": "16 oz (450 ml)",
+   "nutrients": {
+    "calories": 162,
+    "protein": 0,
+    "carbs": 37,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 37,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 680
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mandarin-cardamom-20-oz",
+   "name": "Mandarin & Cardamom (20 oz)",
+   "category": "Tractor drinks",
+   "serving": "20 oz (565 ml)",
+   "nutrients": {
+    "calories": 203,
+    "protein": 0,
+    "carbs": 47,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 47,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 853
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "berry-patch-16-oz",
+   "name": "Berry Patch (16 oz)",
+   "category": "Tractor drinks",
+   "serving": "16 oz (450 ml)",
+   "nutrients": {
+    "calories": 162,
+    "protein": 0,
+    "carbs": 39,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 39,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 680
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "berry-patch-20-oz",
+   "name": "Berry Patch (20 oz)",
+   "category": "Tractor drinks",
+   "serving": "20 oz (565 ml)",
+   "nutrients": {
+    "calories": 203,
+    "protein": 0,
+    "carbs": 49,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 49,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 853
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lemonade-16-oz",
+   "name": "Lemonade (16 oz)",
+   "category": "Tractor drinks",
+   "serving": "16 oz (450 ml)",
+   "nutrients": {
+    "calories": 149,
+    "protein": 0,
+    "carbs": 35,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 35,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 626
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lemonade-20-oz",
+   "name": "Lemonade (20 oz)",
+   "category": "Tractor drinks",
+   "serving": "20 oz (565 ml)",
+   "nutrients": {
+    "calories": 186,
+    "protein": 0,
+    "carbs": 44,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 44,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 785
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

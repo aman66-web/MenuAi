@@ -12,15 +12,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Social Pub & Kitchen allergen & nutritional data (tkmenus.com/socialpubkitchen: Main Menu April 2026 and the April 2026 lunch, vegan, no-gluten containing, kids mini, breakfast, bottomless brunch and drinks menus; data correct as of 8 October 2026)",
+  "title": "Social Pub & Kitchen allergen & nutritional data (tkmenus.com/socialpubkitchen: Main Menu April 2026 and the April 2026 lunch, vegan, no-gluten containing, kids mini, breakfast, bottomless brunch and drinks menus; data correct as of 17 November 2026)",
   "url": "https://tkmenus.com/socialpubkitchen",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Not every pub serves every menu or dish; Scottish pubs have their own breakfast and brunch dishes (not included). A dish with different figures on two menus appears once per menu, named after it. Values are per dish as served; dishes marked 'Excluding ...' leave out the part named (see Options & add-ons). Alcoholic drinks print no figures, so none is listed (the 0% versions are).",
  "allergenGuide": {
-  "title": "Social Pub & Kitchen allergen & nutritional data (tkmenus.com/socialpubkitchen, April 2026 menus, data correct as of 8 October 2026)",
+  "title": "Social Pub & Kitchen allergen & nutritional data (tkmenus.com/socialpubkitchen, April 2026 menus, data correct as of 17 November 2026)",
   "url": "https://tkmenus.com/socialpubkitchen",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -126,7 +126,13 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
     "cereals": [
      "wheat"
     ]
@@ -156,7 +162,13 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
     "cereals": [
      "wheat"
     ]
@@ -649,14 +661,14 @@
    "category": "Nibbles",
    "serving": "",
    "nutrients": {
-    "calories": 602,
-    "protein": 21,
+    "calories": 601,
+    "protein": 20.8,
     "carbs": 66.8,
     "fat": 27.8,
-    "saturatedFat": 10.5,
-    "sugar": 15.7,
+    "saturatedFat": 10.4,
+    "sugar": 15.5,
     "salt": 3.4,
-    "energyKj": 2535
+    "energyKj": 2530
    },
    "tags": [
     "vegetarian"
@@ -781,14 +793,14 @@
    "category": "Sharers",
    "serving": "",
    "nutrients": {
-    "calories": 1129,
-    "protein": 26.3,
+    "calories": 1128,
+    "protein": 26.1,
     "carbs": 106,
     "fat": 65.5,
-    "saturatedFat": 19.2,
-    "sugar": 8.7,
+    "saturatedFat": 19.1,
+    "sugar": 8.5,
     "salt": 4,
-    "energyKj": 4715
+    "energyKj": 4710
    },
    "tags": [
     "vegetarian"
@@ -922,7 +934,13 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
     "cereals": [
      "wheat"
     ]
@@ -1428,14 +1446,14 @@
    "category": "Pizza",
    "serving": "",
    "nutrients": {
-    "calories": 1180,
-    "protein": 82.1,
-    "carbs": 110.4,
-    "fat": 43.1,
-    "saturatedFat": 20.2,
-    "sugar": 9.7,
-    "salt": 6.5,
-    "energyKj": 4963
+    "calories": 1147,
+    "protein": 75.5,
+    "carbs": 112,
+    "fat": 41.7,
+    "saturatedFat": 19.2,
+    "sugar": 10.3,
+    "salt": 6.2,
+    "energyKj": 4814
    },
    "tags": [
     "contains_beef",
@@ -1468,14 +1486,14 @@
    "category": "Pizza",
    "serving": "",
    "nutrients": {
-    "calories": 2248,
-    "protein": 135.4,
-    "carbs": 242.3,
-    "fat": 87.2,
-    "saturatedFat": 41,
-    "sugar": 17.2,
-    "salt": 10.4,
-    "energyKj": 9465
+    "calories": 2215,
+    "protein": 128.9,
+    "carbs": 243.9,
+    "fat": 85.7,
+    "saturatedFat": 40,
+    "sugar": 17.8,
+    "salt": 10.1,
+    "energyKj": 9316
    },
    "tags": [
     "contains_beef",
@@ -1636,14 +1654,14 @@
    "category": "Pizza extras",
    "serving": "",
    "nutrients": {
-    "calories": 147,
-    "protein": 14.7,
-    "carbs": 4.3,
-    "fat": 7.5,
-    "saturatedFat": 3.5,
-    "sugar": 3.4,
-    "salt": 0.7,
-    "energyKj": 613
+    "calories": 113,
+    "protein": 8.1,
+    "carbs": 5.9,
+    "fat": 6.1,
+    "saturatedFat": 2.5,
+    "sugar": 4,
+    "salt": 0.4,
+    "energyKj": 465
    },
    "tags": [
     "contains_beef"
@@ -2408,14 +2426,14 @@
    "category": "Topped fries",
    "serving": "",
    "nutrients": {
-    "calories": 1433,
-    "protein": 39.7,
+    "calories": 1432,
+    "protein": 39.6,
     "carbs": 156.2,
     "fat": 69.7,
     "saturatedFat": 22.9,
-    "sugar": 17.1,
+    "sugar": 17,
     "salt": 5.7,
-    "energyKj": 6007
+    "energyKj": 6005
    },
    "tags": [],
    "limitedTime": false,
@@ -2506,14 +2524,14 @@
    "category": "Classics",
    "serving": "",
    "nutrients": {
-    "calories": 1407,
-    "protein": 47,
-    "carbs": 106.9,
-    "fat": 86.2,
-    "saturatedFat": 22.2,
-    "sugar": 6.2,
-    "salt": 5.3,
-    "energyKj": 5881
+    "calories": 1298,
+    "protein": 41.5,
+    "carbs": 101.4,
+    "fat": 79.1,
+    "saturatedFat": 20.1,
+    "sugar": 6.1,
+    "salt": 4.8,
+    "energyKj": 5427
    },
    "tags": [],
    "limitedTime": false,
@@ -2577,14 +2595,14 @@
    "category": "Classics",
    "serving": "",
    "nutrients": {
-    "calories": 1371,
-    "protein": 64.3,
-    "carbs": 98.7,
-    "fat": 80.6,
-    "saturatedFat": 27.5,
-    "sugar": 24.4,
-    "salt": 5.7,
-    "energyKj": 5747
+    "calories": 1304,
+    "protein": 51.2,
+    "carbs": 101.9,
+    "fat": 77.7,
+    "saturatedFat": 25.5,
+    "sugar": 25.6,
+    "salt": 5.1,
+    "energyKj": 5450
    },
    "tags": [
     "contains_beef"
@@ -2691,14 +2709,14 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1538,
-    "protein": 66.8,
-    "carbs": 103.8,
-    "fat": 94,
-    "saturatedFat": 26.5,
-    "sugar": 13.7,
-    "salt": 3.7,
-    "energyKj": 6429
+    "calories": 1504,
+    "protein": 60.2,
+    "carbs": 105.4,
+    "fat": 92.5,
+    "saturatedFat": 25.5,
+    "sugar": 14.3,
+    "salt": 3.4,
+    "energyKj": 6280
    },
    "tags": [
     "contains_beef"
@@ -2960,14 +2978,14 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1521,
-    "protein": 62.2,
-    "carbs": 98.1,
-    "fat": 96.2,
-    "saturatedFat": 25.7,
-    "sugar": 10.4,
-    "salt": 3.7,
-    "energyKj": 6362
+    "calories": 1488,
+    "protein": 55.6,
+    "carbs": 99.7,
+    "fat": 94.7,
+    "saturatedFat": 24.7,
+    "sugar": 11,
+    "salt": 3.4,
+    "energyKj": 6213
    },
    "tags": [
     "contains_beef"

@@ -14,16 +14,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Greenhalgh's Craft Bakery online shop, product pages listed in product-sitemap.xml (calories per unit, pie or portion as printed on each page; accessed 2026-10-08, no date shown)",
+  "title": "Greenhalgh's Craft Bakery online shop, product pages listed in product-sitemap.xml (calories per unit, pie or portion as printed on each page; accessed 2026-11-17, no date shown)",
   "url": "https://www.greenhalghs.com/bakery-shop/",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, as each Greenhalgh's product page prints them per unit, pie, pasty or portion (the serving says which). Protein, carbs, fat and salt are printed per 100 g only, so they are not published. Cakes, platters, hampers and most other products print no calories.",
  "allergenGuide": {
-  "title": "Greenhalgh's allergen information page (links the shop allergen matrix, Version 9, 16/06/2026)",
+  "title": "Greenhalgh's allergen information page (links the shop allergen matrix, Version 14, 22/10/2026, and the Christmas range list, Version 1, 06/11/2026)",
   "url": "https://www.greenhalghs.com/allergen-information/",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": false
  },
@@ -35,24 +35,6 @@
  ],
  "components": [],
  "items": [
-  {
-   "id": "500ml-tomato-soup",
-   "name": "500ml Tomato Soup",
-   "category": "Savouries",
-   "serving": "per 250g",
-   "nutrients": {
-    "calories": 120,
-    "weight": 250
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "greenhalghs/f2318765416b.webp"
-  },
   {
    "id": "plate-meat-pie",
    "name": "Plate Meat Pie",
@@ -72,76 +54,6 @@
    "image": "greenhalghs/32f07f37b272.webp"
   },
   {
-   "id": "500ml-pea-and-ham-soup",
-   "name": "500ml Pea and Ham Soup",
-   "category": "Savouries",
-   "serving": "per 250g serving",
-   "nutrients": {
-    "calories": 190,
-    "weight": 250
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "greenhalghs/a3ea28ad67d0.webp"
-  },
-  {
-   "id": "butter-pie",
-   "name": "Butter Pie",
-   "category": "Savouries",
-   "serving": "per pie",
-   "nutrients": {
-    "calories": 605
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "greenhalghs/8c9f8be73a85.webp"
-  },
-  {
-   "id": "deep-filled-multi-portion-beefsteak-pie",
-   "name": "Deep Filled Multi Portion Beefsteak Pie",
-   "category": "Savouries",
-   "serving": "per 1/8 pie",
-   "nutrients": {
-    "calories": 505
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "greenhalghs/c943384e50b7.webp"
-  },
-  {
-   "id": "beefsteak-pie",
-   "name": "Beefsteak Pie",
-   "category": "Savouries",
-   "serving": "per pie",
-   "nutrients": {
-    "calories": 528
-   },
-   "tags": [
-    "contains_beef",
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "greenhalghs/ce09b5d6de0c.webp"
-  },
-  {
    "id": "deep-filled-multi-portion-lancashire-pie",
    "name": "Deep Filled Multi Portion Lancashire Pie",
    "category": "Savouries",
@@ -157,24 +69,6 @@
    "components": [],
    "modifiers": [],
    "image": "greenhalghs/744247b23709.webp"
-  },
-  {
-   "id": "steak-pudding",
-   "name": "Steak Pudding",
-   "category": "Savouries",
-   "serving": "per pudding",
-   "nutrients": {
-    "calories": 434
-   },
-   "tags": [
-    "contains_beef",
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "greenhalghs/d0b8ded52899.webp"
   },
   {
    "id": "deep-filled-multi-portion-potato-and-meat-pie",
@@ -195,13 +89,12 @@
    "image": "greenhalghs/ec9c4e5cb8f6.webp"
   },
   {
-   "id": "steak-and-ale-pie",
-   "name": "Steak and Ale Pie",
+   "id": "steak-pudding",
+   "name": "Steak Pudding",
    "category": "Savouries",
-   "serving": "per pie (250g)",
+   "serving": "per pudding",
    "nutrients": {
-    "calories": 693,
-    "weight": 250
+    "calories": 434
    },
    "tags": [
     "contains_beef",
@@ -211,7 +104,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "greenhalghs/e6c6878af475.webp"
+   "image": "greenhalghs/d0b8ded52899.webp"
   },
   {
    "id": "cheese-and-onion-pie",
@@ -229,6 +122,23 @@
    "components": [],
    "modifiers": [],
    "image": "greenhalghs/e42f7b63bfa8.webp"
+  },
+  {
+   "id": "butter-pie",
+   "name": "Butter Pie",
+   "category": "Savouries",
+   "serving": "per pie",
+   "nutrients": {
+    "calories": 605
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "greenhalghs/8c9f8be73a85.webp"
   },
   {
    "id": "potato-and-meat-pie",
@@ -249,6 +159,77 @@
    "image": "greenhalghs/3d653d496e65.webp"
   },
   {
+   "id": "beefsteak-pie",
+   "name": "Beefsteak Pie",
+   "category": "Savouries",
+   "serving": "per pie",
+   "nutrients": {
+    "calories": 528
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "greenhalghs/ce09b5d6de0c.webp"
+  },
+  {
+   "id": "500ml-tomato-soup",
+   "name": "500ml Tomato Soup",
+   "category": "Savouries",
+   "serving": "per 250g",
+   "nutrients": {
+    "calories": 120,
+    "weight": 250
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "greenhalghs/f2318765416b.webp"
+  },
+  {
+   "id": "500ml-pea-and-ham-soup",
+   "name": "500ml Pea and Ham Soup",
+   "category": "Savouries",
+   "serving": "per 250g serving",
+   "nutrients": {
+    "calories": 190,
+    "weight": 250
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "greenhalghs/a3ea28ad67d0.webp"
+  },
+  {
+   "id": "deep-filled-multi-portion-beefsteak-pie",
+   "name": "Deep Filled Multi Portion Beefsteak Pie",
+   "category": "Savouries",
+   "serving": "per 1/8 pie",
+   "nutrients": {
+    "calories": 505
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "greenhalghs/c943384e50b7.webp"
+  },
+  {
    "id": "individual-vanilla-slice",
    "name": "Individual Vanilla Slice",
    "category": "Sweet Treats",
@@ -262,6 +243,70 @@
    "components": [],
    "modifiers": [],
    "image": "greenhalghs/07f3876e6d70.webp"
+  },
+  {
+   "id": "individual-chocolate-eclair",
+   "name": "Individual Chocolate Éclair",
+   "category": "Sweet Treats",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "greenhalghs/e778f64a4f44.webp"
+  },
+  {
+   "id": "individual-bavarian-slice",
+   "name": "Individual Bavarian Slice",
+   "category": "Sweet Treats",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 433
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "greenhalghs/5172011cae76.webp"
+  },
+  {
+   "id": "individual-cream-doughnut",
+   "name": "Individual Cream Doughnut",
+   "category": "Sweet Treats",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 333
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "greenhalghs/078d8ddb1963.webp"
+  },
+  {
+   "id": "cream-doughnut-2-pack",
+   "name": "Cream Doughnut 2 Pack",
+   "category": "Sweet Treats",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 333
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "greenhalghs/078d8ddb1963.webp"
   },
   {
    "id": "bavarian-slice-2-pack",
@@ -294,38 +339,6 @@
    "image": "greenhalghs/e778f64a4f44.webp"
   },
   {
-   "id": "cream-doughnut-2-pack",
-   "name": "Cream Doughnut 2 Pack",
-   "category": "Sweet Treats",
-   "serving": "per unit",
-   "nutrients": {
-    "calories": 333
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "greenhalghs/078d8ddb1963.webp"
-  },
-  {
-   "id": "vanilla-slice-2-pack",
-   "name": "Vanilla Slice 2 Pack",
-   "category": "Sweet Treats",
-   "serving": "per unit",
-   "nutrients": {
-    "calories": 330
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "greenhalghs/07f3876e6d70.webp"
-  },
-  {
    "id": "cream-scone",
    "name": "Cream Scone",
    "category": "Sweet Treats",
@@ -343,59 +356,27 @@
    "image": "greenhalghs/e41af285bcee.webp"
   },
   {
-   "id": "individual-cream-doughnut",
-   "name": "Individual Cream Doughnut",
+   "id": "vanilla-slice-2-pack",
+   "name": "Vanilla Slice 2 Pack",
    "category": "Sweet Treats",
    "serving": "per unit",
    "nutrients": {
-    "calories": 333
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "greenhalghs/078d8ddb1963.webp"
-  },
-  {
-   "id": "individual-bavarian-slice",
-   "name": "Individual Bavarian Slice",
-   "category": "Sweet Treats",
-   "serving": "per unit",
-   "nutrients": {
-    "calories": 433
+    "calories": 330
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "greenhalghs/5172011cae76.webp"
+   "image": "greenhalghs/07f3876e6d70.webp"
   },
   {
-   "id": "individual-chocolate-eclair",
-   "name": "Individual Chocolate Éclair",
-   "category": "Sweet Treats",
-   "serving": "per unit",
-   "nutrients": {
-    "calories": 240
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "greenhalghs/e778f64a4f44.webp"
-  },
-  {
-   "id": "brown-soft-rolls-4-pack",
-   "name": "Brown Soft Rolls 4 Pack",
+   "id": "white-soft-rolls-4-pack",
+   "name": "White Soft Rolls 4 Pack",
    "category": "Bread",
    "serving": "per unit",
    "nutrients": {
-    "calories": 179
+    "calories": 209
    },
    "tags": [
     "vegetarian"
@@ -404,7 +385,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "greenhalghs/ef69644e2b44.webp"
+   "image": "greenhalghs/a61c25f269fb.webp"
   },
   {
    "id": "white-scotch-baps-4s",
@@ -424,6 +405,23 @@
    "image": "greenhalghs/263b2150ae94.webp"
   },
   {
+   "id": "brown-soft-rolls-4-pack",
+   "name": "Brown Soft Rolls 4 Pack",
+   "category": "Bread",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 179
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "greenhalghs/ef69644e2b44.webp"
+  },
+  {
    "id": "white-maxi-rolls-6-pack",
    "name": "White Maxi Rolls 6 Pack",
    "category": "Bread",
@@ -439,21 +437,6 @@
    "components": [],
    "modifiers": [],
    "image": "greenhalghs/111d070e72fa.webp"
-  },
-  {
-   "id": "white-soft-rolls-4-pack",
-   "name": "White Soft Rolls 4 Pack",
-   "category": "Bread",
-   "serving": "per unit",
-   "nutrients": {
-    "calories": 209
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "greenhalghs/a61c25f269fb.webp"
   },
   {
    "id": "potato-and-meat-puff-pasty",

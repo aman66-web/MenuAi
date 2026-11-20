@@ -16,9 +16,9 @@
  ],
  "sample": false,
  "source": {
-  "title": "Rick Stein restaurant menus with calories (13 PDFs on rickstein.com, created 21 April to 4 October 2026; read 2026-10-08)",
+  "title": "Rick Stein restaurant menus with calories (12 PDFs on rickstein.com, created 21 April to 27 October 2026; read 2026-11-17)",
   "url": "https://rickstein.com/restaurants/",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, copied from each restaurant's own menu PDF: The Seafood Restaurant, St Petroc's Bistro and Rick Stein's Café (Padstow) and The Cornish Arms. Menus are samples and change often. Sandbanks, Barnes, Winchester, Fistral and Stein's Fish & Chips print no calories. The same dish can differ between restaurants.",
@@ -32,11 +32,10 @@
   "Cornish Arms: Desserts",
   "Cornish Arms: Children's menu",
   "St Petroc's Bistro: Appetisers",
-  "St Petroc's Bistro: Lunch classics",
-  "St Petroc's Bistro: Sides",
-  "St Petroc's Bistro: Set menu",
   "St Petroc's Bistro: Starters",
   "St Petroc's Bistro: Mains",
+  "St Petroc's Bistro: Sides",
+  "St Petroc's Bistro: Set menu",
   "St Petroc's Bistro: Desserts",
   "Rick Stein's Café: Small bites",
   "Rick Stein's Café: Starters",
@@ -86,12 +85,12 @@
    "modifiers": []
   },
   {
-   "id": "darren-brays-pork-belly-bites",
-   "name": "Darren Bray’s pork belly bites",
+   "id": "chorizo-croquettes",
+   "name": "Chorizo croquettes",
    "category": "Cornish Arms: Appetisers",
    "serving": "",
    "nutrients": {
-    "calories": 758
+    "calories": 484
    },
    "tags": [
     "contains_pork"
@@ -192,20 +191,6 @@
    "serving": "",
    "nutrients": {
     "calories": 576
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "tomato-bruschetta-with-pickled-anchovies-and-parmesan",
-   "name": "Tomato bruschetta with pickled anchovies and Parmesan",
-   "category": "Cornish Arms: Starters",
-   "serving": "",
-   "nutrients": {
-    "calories": 734
    },
    "tags": [],
    "limitedTime": false,
@@ -328,20 +313,6 @@
    "modifiers": []
   },
   {
-   "id": "fennel-ravioli",
-   "name": "Fennel ravioli",
-   "category": "Cornish Arms: Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 873
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "bacon-chop",
    "name": "Bacon chop",
    "category": "Cornish Arms: Mains",
@@ -400,8 +371,8 @@
    "modifiers": []
   },
   {
-   "id": "10oz-rump-steak",
-   "name": "10oz rump steak",
+   "id": "12oz-full-face-rump-steak",
+   "name": "12oz full face rump steak",
    "category": "Cornish Arms: Mains",
    "serving": "",
    "nutrients": {
@@ -432,12 +403,26 @@
    "modifiers": []
   },
   {
-   "id": "peppercorn-sauce-to-the-sirloin-steak",
-   "name": "Peppercorn sauce (to the sirloin steak)",
+   "id": "peppercorn-sauce-to-the-steaks",
+   "name": "Peppercorn sauce (to the steaks)",
    "category": "Cornish Arms: Mains",
    "serving": "",
    "nutrients": {
     "calories": 176
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cornish-arms-hamburger",
+   "name": "Cornish Arms hamburger",
+   "category": "Cornish Arms: Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 890
    },
    "tags": [],
    "limitedTime": false,
@@ -532,12 +517,12 @@
    "modifiers": []
   },
   {
-   "id": "thin-cut-chips-cornish-arms",
-   "name": "Thin cut chips (Cornish Arms)",
+   "id": "crushed-new-potatoes-with-watercress",
+   "name": "Crushed new potatoes with watercress",
    "category": "Cornish Arms: Sides",
    "serving": "",
    "nutrients": {
-    "calories": 365
+    "calories": 297
    },
    "tags": [],
    "limitedTime": false,
@@ -546,8 +531,8 @@
    "modifiers": []
   },
   {
-   "id": "bitter-leaf-salad-with-honey-and-mustard-dressing-and-radish",
-   "name": "Bitter leaf salad with honey and mustard dressing and radish",
+   "id": "bitter-leaf-salad-with-honey-and-mustard-dressing-and-pumpkin-seeds",
+   "name": "Bitter leaf salad with honey and mustard dressing and pumpkin seeds",
    "category": "Cornish Arms: Sides",
    "serving": "",
    "nutrients": {
@@ -588,12 +573,12 @@
    "modifiers": []
   },
   {
-   "id": "crushed-new-potatoes-with-watercress",
-   "name": "Crushed new potatoes with watercress",
+   "id": "thin-cut-chips-cornish-arms",
+   "name": "Thin cut chips (Cornish Arms)",
    "category": "Cornish Arms: Sides",
    "serving": "",
    "nutrients": {
-    "calories": 297
+    "calories": 365
    },
    "tags": [],
    "limitedTime": false,
@@ -704,20 +689,6 @@
    "modifiers": []
   },
   {
-   "id": "hummus-carrot-cucumber-and-grilled-flat-bread",
-   "name": "Hummus, carrot, cucumber and grilled flat bread",
-   "category": "Cornish Arms: Children's menu",
-   "serving": "",
-   "nutrients": {
-    "calories": 77
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "pasta-in-a-tomato-sauce-with-parmesan",
    "name": "Pasta in a tomato sauce with parmesan",
    "category": "Cornish Arms: Children's menu",
@@ -760,16 +731,56 @@
    "modifiers": []
   },
   {
-   "id": "4oz-rump-steak-with-chips-and-a-cheesemaker-salad",
-   "name": "4oz rump steak with chips and a cheesemaker salad",
+   "id": "scampi-with-chips-and-tartare-sauce",
+   "name": "Scampi with chips and tartare sauce",
    "category": "Cornish Arms: Children's menu",
    "serving": "",
    "nutrients": {
-    "calories": 442
+    "calories": 465
    },
-   "tags": [
-    "contains_beef"
-   ],
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coombshead-sourdough-salted-butter-and-kalamata-olives",
+   "name": "Coombshead sourdough, salted butter and kalamata olives",
+   "category": "St Petroc's Bistro: Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1058
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "whipped-smoked-cod-roe-with-sourdough",
+   "name": "Whipped smoked cod roe with sourdough",
+   "category": "St Petroc's Bistro: Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 575
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "patatas-bravas-with-a-spiced-tomato-sauce",
+   "name": "Patatas bravas with a spiced tomato sauce",
+   "category": "St Petroc's Bistro: Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 246
+   },
+   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -796,296 +807,6 @@
    "serving": "",
    "nutrients": {
     "calories": 620
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "patatas-bravas-with-a-spiced-tomato-sauce",
-   "name": "Patatas bravas with a spiced tomato sauce",
-   "category": "St Petroc's Bistro: Appetisers",
-   "serving": "",
-   "nutrients": {
-    "calories": 246
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "salad-of-mackerel-fillet",
-   "name": "Salad of mackerel fillet",
-   "category": "St Petroc's Bistro: Lunch classics",
-   "serving": "",
-   "nutrients": {
-    "calories": 310
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "bistro-brioche-bap",
-   "name": "Bistro brioche bap",
-   "category": "St Petroc's Bistro: Lunch classics",
-   "serving": "",
-   "nutrients": {
-    "calories": 597
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "4oz-rump-steak-fried-eggs-and-chips",
-   "name": "4oz rump steak, fried eggs & chips",
-   "category": "St Petroc's Bistro: Lunch classics",
-   "serving": "",
-   "nutrients": {
-    "calories": 750
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "scallops-with-coriander-and-hazelnut-butter",
-   "name": "Scallops with coriander and hazelnut butter",
-   "category": "St Petroc's Bistro: Lunch classics",
-   "serving": "",
-   "nutrients": {
-    "calories": 377
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "bistro-beef-burger",
-   "name": "Bistro beef burger",
-   "category": "St Petroc's Bistro: Lunch classics",
-   "serving": "",
-   "nutrients": {
-    "calories": 1171
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "king-prawn-with-basil-and-lime-butter",
-   "name": "King prawn with basil and lime butter",
-   "category": "St Petroc's Bistro: Lunch classics",
-   "serving": "",
-   "nutrients": {
-    "calories": 389
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "chicken-paillard-with-soy-butter-sauce-and-spring-onion-mash",
-   "name": "Chicken paillard with soy butter sauce and spring onion mash",
-   "category": "St Petroc's Bistro: Lunch classics",
-   "serving": "",
-   "nutrients": {
-    "calories": 1208
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "cod-with-sauce-verte-and-butter-beans-with-new-potatoes",
-   "name": "Cod with sauce verte and butter beans, with new potatoes",
-   "category": "St Petroc's Bistro: Lunch classics",
-   "serving": "",
-   "nutrients": {
-    "calories": 1172
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "grilled-bream-fillet-with-spinach-beurre-blanc-and-new-potatoes",
-   "name": "Grilled bream fillet with spinach, beurre blanc and new potatoes",
-   "category": "St Petroc's Bistro: Lunch classics",
-   "serving": "",
-   "nutrients": {
-    "calories": 907
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "8oz-bavette-steak-with-cheesemaker-salad-and-thin-cut-chips",
-   "name": "8oz bavette steak with cheesemaker salad and thin cut chips",
-   "category": "St Petroc's Bistro: Lunch classics",
-   "serving": "",
-   "nutrients": {
-    "calories": 1450
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "mixed-leaf-salad",
-   "name": "Mixed leaf salad",
-   "category": "St Petroc's Bistro: Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 212
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "kale-with-confit-shallot-st-petrocs-bistro",
-   "name": "Kale with confit shallot (St Petroc's Bistro)",
-   "category": "St Petroc's Bistro: Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 284
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "chips",
-   "name": "Chips",
-   "category": "St Petroc's Bistro: Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 479
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "buttered-potatoes",
-   "name": "Buttered potatoes",
-   "category": "St Petroc's Bistro: Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 380
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "tenderstem-broccoli-with-salsa-verde",
-   "name": "Tenderstem broccoli with salsa verde",
-   "category": "St Petroc's Bistro: Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 204
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "buttered-new-potatoes-with-parsley-and-mint",
-   "name": "Buttered new potatoes with parsley and mint",
-   "category": "St Petroc's Bistro: Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 380
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "bearnaise-or-peppercorn-sauce",
-   "name": "Bearnaise or peppercorn sauce",
-   "category": "St Petroc's Bistro: Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 291
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "mountain-sausage-parpadelle",
-   "name": "Mountain sausage parpadelle",
-   "category": "St Petroc's Bistro: Set menu",
-   "serving": "",
-   "nutrients": {
-    "calories": 878
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "chocolate-pave-with-crystallised-peanuts-and-salted-caramel-ice-cream",
-   "name": "Chocolate pavé with crystallised peanuts and salted caramel ice cream",
-   "category": "St Petroc's Bistro: Set menu",
-   "serving": "",
-   "nutrients": {
-    "calories": 972
    },
    "tags": [],
    "limitedTime": false,
@@ -1164,6 +885,20 @@
    "modifiers": []
   },
   {
+   "id": "scallops-with-coriander-and-hazelnut-butter",
+   "name": "Scallops with coriander and hazelnut butter",
+   "category": "St Petroc's Bistro: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 377
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "chargrilled-butterflied-king-prawn-with-basil-and-lime-butter",
    "name": "Chargrilled, butterflied king prawn with basil and lime butter",
    "category": "St Petroc's Bistro: Starters",
@@ -1198,6 +933,20 @@
    "serving": "",
    "nutrients": {
     "calories": 874
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-paillard-with-soy-butter-sauce-and-spring-onion-mash",
+   "name": "Chicken paillard with soy butter sauce and spring onion mash",
+   "category": "St Petroc's Bistro: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1208
    },
    "tags": [],
    "limitedTime": false,
@@ -1242,6 +991,136 @@
    "serving": "",
    "nutrients": {
     "calories": 907
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8oz-bavette-steak-with-cheesemaker-salad-and-thin-cut-chips",
+   "name": "8oz bavette steak with cheesemaker salad and thin cut chips",
+   "category": "St Petroc's Bistro: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1450
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-leaf-salad",
+   "name": "Mixed leaf salad",
+   "category": "St Petroc's Bistro: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 212
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kale-with-confit-shallot-st-petrocs-bistro",
+   "name": "Kale with confit shallot (St Petroc's Bistro)",
+   "category": "St Petroc's Bistro: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 284
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chips",
+   "name": "Chips",
+   "category": "St Petroc's Bistro: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 479
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buttered-new-potatoes-with-parsley-and-mint",
+   "name": "Buttered new potatoes with parsley and mint",
+   "category": "St Petroc's Bistro: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bearnaise-or-peppercorn-sauce",
+   "name": "Bearnaise or peppercorn sauce",
+   "category": "St Petroc's Bistro: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 291
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salad-of-mackerel-fillet",
+   "name": "Salad of mackerel fillet",
+   "category": "St Petroc's Bistro: Set menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 310
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mountain-sausage-parpadelle",
+   "name": "Mountain sausage parpadelle",
+   "category": "St Petroc's Bistro: Set menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 878
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-pave-with-crystallised-peanuts-and-salted-caramel-ice-cream",
+   "name": "Chocolate pavé with crystallised peanuts and salted caramel ice cream",
+   "category": "St Petroc's Bistro: Set menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 972
    },
    "tags": [],
    "limitedTime": false,
@@ -1390,20 +1269,6 @@
    "modifiers": []
   },
   {
-   "id": "sourdough-bread-with-indian-spiced-butter",
-   "name": "Sourdough bread with Indian spiced butter",
-   "category": "Rick Stein's Café: Small bites",
-   "serving": "",
-   "nutrients": {
-    "calories": 295
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "fried-paneer-with-honey-and-chat-masala",
    "name": "Fried paneer with honey and chat masala",
    "category": "Rick Stein's Café: Small bites",
@@ -1418,14 +1283,16 @@
    "modifiers": []
   },
   {
-   "id": "tandoori-prawns-with-chat-masala",
-   "name": "Tandoori prawns with chat masala",
+   "id": "beef-satay-with-sweet-soy-and-lime-dressing",
+   "name": "Beef satay with sweet soy and lime dressing",
    "category": "Rick Stein's Café: Small bites",
    "serving": "",
    "nutrients": {
-    "calories": 215
+    "calories": 101
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -1466,20 +1333,6 @@
    "serving": "",
    "nutrients": {
     "calories": 310
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "amritsari-fish",
-   "name": "Amritsari fish",
-   "category": "Rick Stein's Café: Starters",
-   "serving": "",
-   "nutrients": {
-    "calories": 388
    },
    "tags": [],
    "limitedTime": false,
@@ -1530,8 +1383,8 @@
    "modifiers": []
   },
   {
-   "id": "scampi-poboy",
-   "name": "Scampi po’boy",
+   "id": "scampi-poboy-baguette",
+   "name": "Scampi po’boy baguette",
    "category": "Rick Stein's Café: Lunch specials",
    "serving": "",
    "nutrients": {
@@ -1544,26 +1397,12 @@
    "modifiers": []
   },
   {
-   "id": "beetroot-curry",
-   "name": "Beetroot curry",
+   "id": "aubergine-curry",
+   "name": "Aubergine curry",
    "category": "Rick Stein's Café: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 436
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "hanoi-chicken-broth",
-   "name": "Hanoi chicken broth",
-   "category": "Rick Stein's Café: Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 402
+    "calories": 505
    },
    "tags": [],
    "limitedTime": false,
@@ -1600,12 +1439,40 @@
    "modifiers": []
   },
   {
+   "id": "fish-laksa",
+   "name": "Fish laksa",
+   "category": "Rick Stein's Café: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 723
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "pondicherry-fish-curry-rick-steins-cafe",
    "name": "Pondicherry fish curry (Rick Stein's Café)",
    "category": "Rick Stein's Café: Mains",
    "serving": "",
    "nutrients": {
     "calories": 950
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sea-bream-with-hot-and-sour-sauce-pak-choi-crispy-basil-cashew-nuts-and-chilli",
+   "name": "Sea bream with hot and sour sauce, pak choi, crispy basil, cashew nuts and chilli",
+   "category": "Rick Stein's Café: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 563
    },
    "tags": [],
    "limitedTime": false,
@@ -1670,12 +1537,12 @@
    "modifiers": []
   },
   {
-   "id": "chilli-spiced-cabbage",
-   "name": "Chilli spiced cabbage",
+   "id": "butternut-squash-masala",
+   "name": "Butternut squash masala",
    "category": "Rick Stein's Café: Sides",
    "serving": "",
    "nutrients": {
-    "calories": 132
+    "calories": 362
    },
    "tags": [],
    "limitedTime": false,
@@ -2248,8 +2115,8 @@
    "modifiers": []
   },
   {
-   "id": "amritsari-fish-with-green-chutney-and-kachumber-salad",
-   "name": "Amritsari fish with green chutney and kachumber salad",
+   "id": "amritsari-fish-with-green-chilli-chutney-and-kachumber-salad",
+   "name": "Amritsari fish with green chilli chutney and kachumber salad",
    "category": "Seafood Restaurant: Set lunch",
    "serving": "",
    "nutrients": {
@@ -2262,12 +2129,12 @@
    "modifiers": []
   },
   {
-   "id": "chalk-stream-trout-with-warm-tartare-sauce",
-   "name": "Chalk stream trout with warm tartare sauce",
+   "id": "cornish-hake-with-cauliflower-puree-and-savoy-cabbage",
+   "name": "Cornish hake with cauliflower purée and savoy cabbage",
    "category": "Seafood Restaurant: Set lunch",
    "serving": "",
    "nutrients": {
-    "calories": 989
+    "calories": 1276
    },
    "tags": [],
    "limitedTime": false,
@@ -2276,14 +2143,16 @@
    "modifiers": []
   },
   {
-   "id": "chicken-paillard-with-watercress",
-   "name": "Chicken paillard with watercress",
+   "id": "duroc-axe-handle-pork-chop-with-walnuts-and-fig-sauce",
+   "name": "Duroc axe-handle pork chop with walnuts and fig sauce",
    "category": "Seafood Restaurant: Set lunch",
    "serving": "",
    "nutrients": {
-    "calories": 828
+    "calories": 532
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -2360,12 +2229,12 @@
    "modifiers": []
   },
   {
-   "id": "octopus-carpaccio",
-   "name": "Octopus carpaccio",
+   "id": "beetroot-cured-salmon-with-horseradish-cream",
+   "name": "Beetroot cured salmon with horseradish cream",
    "category": "Seafood Restaurant: Signature menu",
    "serving": "",
    "nutrients": {
-    "calories": 86
+    "calories": 191
    },
    "tags": [],
    "limitedTime": false,
@@ -2388,8 +2257,8 @@
    "modifiers": []
   },
   {
-   "id": "dorset-oyster-charentaise",
-   "name": "Dorset oyster, charentaise",
+   "id": "dorset-oyster-kilpatrick",
+   "name": "Dorset oyster, kilpatrick",
    "category": "Seafood Restaurant: Signature menu",
    "serving": "",
    "nutrients": {
@@ -2416,8 +2285,8 @@
    "modifiers": []
   },
   {
-   "id": "cornish-cod-with-an-apple-veloute",
-   "name": "Cornish cod with an apple velouté",
+   "id": "cornish-cod-with-cuttlefish-bolognaise",
+   "name": "Cornish cod with cuttlefish bolognaise",
    "category": "Seafood Restaurant: Signature menu",
    "serving": "",
    "nutrients": {
@@ -2449,7 +2318,7 @@
    "category": "Seafood Restaurant: Signature menu",
    "serving": "",
    "nutrients": {
-    "calories": 611
+    "calories": 264
    },
    "tags": [],
    "limitedTime": false,
@@ -2458,12 +2327,12 @@
    "modifiers": []
   },
   {
-   "id": "indonesian-seafood-curry",
-   "name": "Indonesian seafood curry",
+   "id": "bouillabaisse",
+   "name": "Bouillabaisse",
    "category": "Seafood Restaurant: Signature menu",
    "serving": "",
    "nutrients": {
-    "calories": 348
+    "calories": 666
    },
    "tags": [],
    "limitedTime": false,
@@ -2472,8 +2341,8 @@
    "modifiers": []
   },
   {
-   "id": "lamb-rump-tomato-shallot-salad-and-aioli",
-   "name": "Lamb rump, tomato, shallot salad and aioli",
+   "id": "roasted-chicken-breast-braised-chicory-and-madeira-sauce",
+   "name": "Roasted chicken breast, braised chicory and Madeira sauce",
    "category": "Seafood Restaurant: Signature menu",
    "serving": "",
    "nutrients": {
@@ -2486,28 +2355,26 @@
    "modifiers": []
   },
   {
-   "id": "pork-belly-pickled-carrot-and-cider-sauce",
-   "name": "Pork belly, pickled carrot and cider sauce",
+   "id": "venison-braised-red-cabbage-and-morello-cherries",
+   "name": "Venison, braised red cabbage and morello cherries",
    "category": "Seafood Restaurant: Signature menu",
    "serving": "",
    "nutrients": {
     "calories": 737
    },
-   "tags": [
-    "contains_pork"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": []
   },
   {
-   "id": "pea-risotto-pea-puree-grilled-artichoke-and-parmesan",
-   "name": "Pea risotto, pea purée, grilled artichoke and Parmesan",
+   "id": "roasted-cauliflower-caper-and-raisin-puree-pomegranate-mint-and-coriander",
+   "name": "Roasted cauliflower, caper and raisin purée, pomegranate, mint and coriander",
    "category": "Seafood Restaurant: Signature menu",
    "serving": "",
    "nutrients": {
-    "calories": 649
+    "calories": 427
    },
    "tags": [],
    "limitedTime": false,

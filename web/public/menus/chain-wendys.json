@@ -12,15 +12,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Wendy's UK National Nutrition Information (September 2026)",
-  "url": "https://www.wendys.com/sites/default/files/2026-09/United-Kingdom-National-Nutrition-Information---9.10.2026.pdf",
-  "checkedOn": "2026-10-06"
+  "title": "Wendy's UK National Nutrition Information (November 2026)",
+  "url": "https://www.wendys.com/sites/default/files/2026-10/United-Kingdom-National-Nutrition-Information---11.3.2026.pdf",
+  "checkedOn": "2026-11-17"
  },
- "note": "The guide prints no ingredients, so the pork and beef filters only know what an item's name says (bacon, sausage, beef); its burgers and chili don't state their meat. The five dip pots are not listed because the guide prints them only as 100 g each.",
+ "note": "The guide prints no ingredients, so the pork and beef filters only know what an item's name says (bacon, sausage, beef); its burgers and chili don't state their meat.",
  "allergenGuide": {
-  "title": "Wendy's UK National Nutrition Information, allergen columns (September 2026)",
-  "url": "https://www.wendys.com/sites/default/files/2026-09/United-Kingdom-National-Nutrition-Information---9.10.2026.pdf",
-  "checkedOn": "2026-10-06",
+  "title": "Wendy's UK National Nutrition Information, allergen columns (November 2026)",
+  "url": "https://www.wendys.com/sites/default/files/2026-10/United-Kingdom-National-Nutrition-Information---11.3.2026.pdf",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -33,7 +33,8 @@
   "Kids",
   "Breakfast",
   "Frosty & desserts",
-  "Drinks"
+  "Drinks",
+  "Dips"
  ],
  "components": [],
  "items": [
@@ -188,6 +189,43 @@
    }
   },
   {
+   "id": "cranberry-heat-baconator",
+   "name": "Cranberry Heat Baconator",
+   "category": "Burgers",
+   "serving": "316 g",
+   "nutrients": {
+    "calories": 1039,
+    "protein": 64,
+    "carbs": 46,
+    "fat": 66,
+    "saturatedFat": 26,
+    "sugar": 14,
+    "fiber": 2.3,
+    "salt": 5.9,
+    "weight": 316
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "jr-cheeseburger-deluxe",
    "name": "Jr. Cheeseburger Deluxe",
    "category": "Burgers",
@@ -250,120 +288,6 @@
    "allergens": {
     "contains": [
      "celery",
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard",
-     "sesame"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "bbq-bacon-melt-single-cheeseburger",
-   "name": "BBQ Bacon Melt Single Cheeseburger",
-   "category": "Burgers",
-   "serving": "266 g",
-   "nutrients": {
-    "calories": 827,
-    "protein": 46,
-    "carbs": 56,
-    "fat": 46,
-    "saturatedFat": 19,
-    "sugar": 15,
-    "fiber": 2.3,
-    "salt": 3.9,
-    "weight": 266
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "wendys/6d8b0b07d4d7.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard",
-     "sesame"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "bbq-bacon-melt-double-cheeseburger",
-   "name": "BBQ Bacon Melt Double Cheeseburger",
-   "category": "Burgers",
-   "serving": "393 g",
-   "nutrients": {
-    "calories": 1243,
-    "protein": 76,
-    "carbs": 58,
-    "fat": 78,
-    "saturatedFat": 32,
-    "sugar": 15,
-    "fiber": 2.3,
-    "salt": 5.7,
-    "weight": 393
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "wendys/655b100d9368.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard",
-     "sesame"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "bbq-bacon-melt-triple-cheeseburger",
-   "name": "BBQ Bacon Melt Triple Cheeseburger",
-   "category": "Burgers",
-   "serving": "520 g",
-   "nutrients": {
-    "calories": 1646,
-    "protein": 106,
-    "carbs": 59,
-    "fat": 109,
-    "saturatedFat": 46,
-    "sugar": 16,
-    "fiber": 2.3,
-    "salt": 7.4,
-    "weight": 520
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "wendys/978c532772af.webp",
-   "allergens": {
-    "contains": [
      "gluten",
      "eggs",
      "milk",
@@ -513,83 +437,6 @@
    "image": "wendys/7d507c3c5c3c.webp",
    "allergens": {
     "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard",
-     "sesame"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "bbq-bacon-melt-classic-chicken",
-   "name": "BBQ Bacon Melt Classic Chicken",
-   "category": "Chicken",
-   "serving": "227 g",
-   "nutrients": {
-    "calories": 627,
-    "protein": 31,
-    "carbs": 68,
-    "fat": 25,
-    "saturatedFat": 7.9,
-    "sugar": 15,
-    "fiber": 3,
-    "salt": 4.1,
-    "weight": 227
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard",
-     "sesame"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "bbq-bacon-melt-spicy-chicken",
-   "name": "BBQ Bacon Melt Spicy Chicken",
-   "category": "Chicken",
-   "serving": "227 g",
-   "nutrients": {
-    "calories": 619,
-    "protein": 30,
-    "carbs": 67,
-    "fat": 25,
-    "saturatedFat": 7.9,
-    "sugar": 15,
-    "fiber": 3,
-    "salt": 4.1,
-    "weight": 227
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
      "gluten",
      "eggs",
      "milk",
@@ -3465,123 +3312,263 @@
    }
   },
   {
-   "id": "regular-vanilla-strawberries-and-cream-frosty",
-   "name": "Regular Vanilla Strawberries & Cream Frosty",
+   "id": "regular-vanilla-cranberry-frosty",
+   "name": "Regular Vanilla Cranberry Frosty",
    "category": "Frosty & desserts",
-   "serving": "182 g",
+   "serving": "175 g",
    "nutrients": {
-    "calories": 301,
+    "calories": 266,
     "protein": 4.5,
-    "carbs": 46,
-    "fat": 11,
-    "saturatedFat": 8.6,
-    "sugar": 35,
+    "carbs": 42,
+    "fat": 9,
+    "saturatedFat": 7,
+    "sugar": 29,
     "fiber": 0,
-    "salt": 0.42,
-    "weight": 182
+    "salt": 0.5,
+    "weight": 175
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "wendys/d3f6340cd8bf.webp",
    "allergens": {
     "contains": [
-     "milk",
-     "soya"
+     "gluten",
+     "milk"
     ],
-    "mayContain": []
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
    }
   },
   {
-   "id": "large-vanilla-strawberries-and-cream-frosty",
-   "name": "Large Vanilla Strawberries & Cream Frosty",
+   "id": "large-vanilla-cranberry-frosty",
+   "name": "Large Vanilla Cranberry Frosty",
    "category": "Frosty & desserts",
-   "serving": "243 g",
+   "serving": "237 g",
    "nutrients": {
-    "calories": 386,
-    "protein": 6,
-    "carbs": 59,
-    "fat": 14,
-    "saturatedFat": 11,
-    "sugar": 44,
+    "calories": 348,
+    "protein": 5.9,
+    "carbs": 55,
+    "fat": 12,
+    "saturatedFat": 9.3,
+    "sugar": 39,
     "fiber": 0,
+    "salt": 0.66,
+    "weight": 237
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "regular-chocolate-cranberry-frosty",
+   "name": "Regular Chocolate Cranberry Frosty",
+   "category": "Frosty & desserts",
+   "serving": "175 g",
+   "nutrients": {
+    "calories": 248,
+    "protein": 5.9,
+    "carbs": 42,
+    "fat": 6.3,
+    "saturatedFat": 4.7,
+    "sugar": 32,
+    "fiber": 0.8,
+    "salt": 0.43,
+    "weight": 175
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "large-chocolate-cranberry-frosty",
+   "name": "Large Chocolate Cranberry Frosty",
+   "category": "Frosty & desserts",
+   "serving": "237 g",
+   "nutrients": {
+    "calories": 324,
+    "protein": 8,
+    "carbs": 55,
+    "fat": 7.9,
+    "saturatedFat": 6.2,
+    "sugar": 43,
+    "fiber": 1,
     "salt": 0.56,
-    "weight": 243
+    "weight": 237
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "wendys/d3f6340cd8bf.webp",
    "allergens": {
     "contains": [
-     "milk",
-     "soya"
+     "gluten",
+     "milk"
     ],
-    "mayContain": []
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
    }
   },
   {
-   "id": "regular-chocolate-strawberries-and-cream-frosty",
-   "name": "Regular Chocolate Strawberries & Cream Frosty",
+   "id": "regular-vanilla-biscoff-frosty",
+   "name": "Regular Vanilla Biscoff Frosty",
    "category": "Frosty & desserts",
-   "serving": "182 g",
+   "serving": "180 g",
    "nutrients": {
-    "calories": 284,
-    "protein": 6,
-    "carbs": 46,
-    "fat": 8.3,
-    "saturatedFat": 6.3,
-    "sugar": 38,
-    "fiber": 0.5,
-    "salt": 0.36,
-    "weight": 182
+    "calories": 338,
+    "protein": 4.8,
+    "carbs": 44,
+    "fat": 16,
+    "saturatedFat": 8.1,
+    "sugar": 29,
+    "fiber": 0,
+    "salt": 0.55,
+    "weight": 180
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "wendys/1e8825f84f05.webp",
    "allergens": {
     "contains": [
+     "gluten",
      "milk",
      "soya"
     ],
-    "mayContain": []
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
    }
   },
   {
-   "id": "large-chocolate-strawberries-and-cream-frosty",
-   "name": "Large Chocolate Strawberries & Cream Frosty",
+   "id": "large-vanilla-biscoff-frosty",
+   "name": "Large Vanilla Biscoff Frosty",
    "category": "Frosty & desserts",
-   "serving": "243 g",
+   "serving": "255 g",
    "nutrients": {
-    "calories": 359,
-    "protein": 8.1,
-    "carbs": 59,
-    "fat": 9.9,
-    "saturatedFat": 7.8,
-    "sugar": 48,
-    "fiber": 0.7,
-    "salt": 0.47,
-    "weight": 243
+    "calories": 543,
+    "protein": 6.8,
+    "carbs": 63,
+    "fat": 29,
+    "saturatedFat": 12,
+    "sugar": 41,
+    "fiber": 0,
+    "salt": 0.78,
+    "weight": 255
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "wendys/1e8825f84f05.webp",
    "allergens": {
     "contains": [
+     "gluten",
      "milk",
      "soya"
     ],
-    "mayContain": []
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "regular-chocolate-biscoff-frosty",
+   "name": "Regular Chocolate Biscoff Frosty",
+   "category": "Frosty & desserts",
+   "serving": "180 g",
+   "nutrients": {
+    "calories": 320,
+    "protein": 6.3,
+    "carbs": 44,
+    "fat": 13,
+    "saturatedFat": 5.9,
+    "sugar": 32,
+    "fiber": 0.8,
+    "salt": 0.48,
+    "weight": 180
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "large-chocolate-biscoff-frosty",
+   "name": "Large Chocolate Biscoff Frosty",
+   "category": "Frosty & desserts",
+   "serving": "258 g",
+   "nutrients": {
+    "calories": 519,
+    "protein": 8.8,
+    "carbs": 63,
+    "fat": 26,
+    "saturatedFat": 8.9,
+    "sugar": 45,
+    "fiber": 1.1,
+    "salt": 0.69,
+    "weight": 258
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
    }
   },
   {
@@ -4457,6 +4444,176 @@
     "contains": [
      "milk"
     ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "buttermilk-ranch-dip-pot",
+   "name": "Buttermilk Ranch Dip Pot",
+   "category": "Dips",
+   "serving": "35 g",
+   "nutrients": {
+    "calories": 169,
+    "protein": 0.5,
+    "carbs": 3.1,
+    "fat": 17,
+    "saturatedFat": 1.3,
+    "sugar": 2.1,
+    "fiber": 0,
+    "salt": 0.7,
+    "weight": 35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cranberry-kick-dip-pot",
+   "name": "Cranberry Kick Dip Pot",
+   "category": "Dips",
+   "serving": "35 g",
+   "nutrients": {
+    "calories": 55,
+    "protein": 0,
+    "carbs": 13,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 11,
+    "fiber": 0.9,
+    "salt": 0.54,
+    "weight": 35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "honey-bbq-dip-pot",
+   "name": "Honey BBQ Dip Pot",
+   "category": "Dips",
+   "serving": "35 g",
+   "nutrients": {
+    "calories": 64,
+    "protein": 0,
+    "carbs": 15,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 13,
+    "fiber": 0,
+    "salt": 0.6,
+    "weight": 35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "signature-dip-pot",
+   "name": "Signature Dip Pot",
+   "category": "Dips",
+   "serving": "35 g",
+   "nutrients": {
+    "calories": 153,
+    "protein": 0,
+    "carbs": 3.9,
+    "fat": 15,
+    "saturatedFat": 1.2,
+    "sugar": 2.9,
+    "fiber": 0,
+    "salt": 0.56,
+    "weight": 35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "smokin-hot-dip-pot",
+   "name": "Smokin' Hot Dip Pot",
+   "category": "Dips",
+   "serving": "35 g",
+   "nutrients": {
+    "calories": 151,
+    "protein": 0,
+    "carbs": 2.9,
+    "fat": 15,
+    "saturatedFat": 1.2,
+    "sugar": 1.7,
+    "fiber": 0,
+    "salt": 0.53,
+    "weight": 35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sweet-chili-dip-pot",
+   "name": "Sweet Chili Dip Pot",
+   "category": "Dips",
+   "serving": "35 g",
+   "nutrients": {
+    "calories": 62,
+    "protein": 0,
+    "carbs": 15,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 14,
+    "fiber": 0,
+    "salt": 0.53,
+    "weight": 35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
     "mayContain": []
    }
   }

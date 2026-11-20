@@ -10,15 +10,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Parsons Bakery allergens page: one nutrition and allergen report per product (report dates 19/12/2024 to 06/10/2026; page accessed 2026-10-08, no date shown)",
+  "title": "Parsons Bakery allergens page: one nutrition and allergen report per product (report dates 19/12/2024 to 16/11/2026; page accessed 2026-11-17, no date shown)",
   "url": "https://www.parsonsbakery.co.uk/allergens",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
- "note": "Figures are per item as sold, from Parsons Bakery's own one-page report for each product (report dates Dec 2024 to Oct 2026). Bread values are for the whole loaf or roll the report names. Not included: three 2025 reports that are scanned images, and two sauce sachet files that give per 100 g only.",
+ "note": "Figures are per item as sold, from Parsons Bakery's own one-page report for each product (report dates Dec 2024 to Nov 2026). Bread values are for the whole loaf or roll the report names. Not included: three 2025 reports that are scanned images, and two sauce sachet files that give per 100 g only.",
  "allergenGuide": {
-  "title": "Parsons Bakery allergens page: one allergen report per product (PDF), accessed 2026-10-08",
+  "title": "Parsons Bakery allergens page: one allergen report per product (PDF), accessed 2026-11-17",
   "url": "https://www.parsonsbakery.co.uk/allergens",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": false,
   "complete": true
  },
@@ -38,15 +38,15 @@
    "category": "Bread",
    "serving": "",
    "nutrients": {
-    "calories": 2180,
-    "protein": 70,
-    "carbs": 448,
-    "fat": 8.2,
-    "saturatedFat": 2.5,
-    "sugar": 10,
-    "salt": 10.8,
-    "energyKj": 9254,
-    "weight": 938
+    "calories": 2091,
+    "protein": 67,
+    "carbs": 432,
+    "fat": 6.8,
+    "saturatedFat": 1.7,
+    "sugar": 3.2,
+    "salt": 9.9,
+    "energyKj": 8879,
+    "weight": 930
    },
    "tags": [
     "vegetarian"
@@ -96,6 +96,39 @@
     "mayContain": [],
     "cereals": [
      "wheat"
+    ]
+   }
+  },
+  {
+   "id": "crusty-roll",
+   "name": "Crusty Roll",
+   "category": "Bread",
+   "serving": "1 roll",
+   "nutrients": {
+    "calories": 266,
+    "protein": 8.7,
+    "carbs": 55,
+    "fat": 0.9,
+    "saturatedFat": 0.2,
+    "sugar": 0,
+    "salt": 1.1,
+    "energyKj": 1130
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
     ]
    }
   },
@@ -165,51 +198,19 @@
    }
   },
   {
-   "id": "split-tin-loaf",
-   "name": "Split Tin Loaf",
-   "category": "Bread",
-   "serving": "1 loaf",
-   "nutrients": {
-    "calories": 2191,
-    "protein": 70,
-    "carbs": 452,
-    "fat": 7.2,
-    "saturatedFat": 1.8,
-    "sugar": 3.3,
-    "salt": 11,
-    "energyKj": 9306
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "white-soft-bap",
    "name": "White Soft Bap",
    "category": "Bread",
    "serving": "1 roll",
    "nutrients": {
-    "calories": 232,
+    "calories": 238,
     "protein": 7.5,
-    "carbs": 46,
+    "carbs": 48,
     "fat": 1.3,
     "saturatedFat": 0.5,
     "sugar": 0,
     "salt": 0.92,
-    "energyKj": 985
+    "energyKj": 1010
    },
    "tags": [
     "vegetarian"
@@ -221,107 +222,6 @@
    "allergens": {
     "contains": [
      "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "crusty-roll",
-   "name": "Crusty Roll",
-   "category": "Bread",
-   "serving": "1 roll",
-   "nutrients": {
-    "calories": 266,
-    "protein": 8.7,
-    "carbs": 55,
-    "fat": 0.9,
-    "saturatedFat": 0.2,
-    "sugar": 0,
-    "salt": 1.1,
-    "energyKj": 1130
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "cinnamon-twist",
-   "name": "Cinnamon Twist",
-   "category": "Cakes and sweet bakes",
-   "serving": "",
-   "nutrients": {
-    "calories": 624,
-    "protein": 14,
-    "carbs": 34,
-    "fat": 47,
-    "saturatedFat": 24,
-    "sugar": 16,
-    "salt": 2.8,
-    "energyKj": 2593
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "sultana-scone",
-   "name": "Sultana Scone",
-   "category": "Cakes and sweet bakes",
-   "serving": "",
-   "nutrients": {
-    "calories": 278,
-    "protein": 4.6,
-    "carbs": 47,
-    "fat": 7.7,
-    "saturatedFat": 3,
-    "sugar": 13,
-    "salt": 0.87,
-    "energyKj": 1172,
-    "weight": 80
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
     ],
     "mayContain": [],
     "cereals": [
@@ -459,39 +359,6 @@
     "contains": [
      "gluten",
      "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "novelty-cone-biscuits",
-   "name": "Novelty Cone Biscuits",
-   "category": "Cakes and sweet bakes",
-   "serving": "",
-   "nutrients": {
-    "calories": 454,
-    "protein": 5.4,
-    "carbs": 69,
-    "fat": 17,
-    "saturatedFat": 10,
-    "sugar": 55,
-    "salt": 0.95,
-    "energyKj": 1906,
-    "weight": 125
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "soya"
     ],
     "mayContain": [],
     "cereals": [
@@ -817,40 +684,6 @@
    }
   },
   {
-   "id": "lemon-doughnut",
-   "name": "Lemon Doughnut",
-   "category": "Cakes and sweet bakes",
-   "serving": "",
-   "nutrients": {
-    "calories": 268,
-    "protein": 4.2,
-    "carbs": 43,
-    "fat": 8.4,
-    "saturatedFat": 3.8,
-    "sugar": 16,
-    "salt": 0.63,
-    "energyKj": 1127,
-    "weight": 80
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "gingerbread-2-pack",
    "name": "Gingerbread (2 pack)",
    "category": "Cakes and sweet bakes",
@@ -954,6 +787,254 @@
     "mayContain": [],
     "cereals": [
      "wheat"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-ring-doughnut",
+   "name": "Strawberry Ring Doughnut",
+   "category": "Cakes and sweet bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 297,
+    "protein": 3.5,
+    "carbs": 35,
+    "fat": 15,
+    "saturatedFat": 9,
+    "sugar": 13,
+    "fiber": 0.9,
+    "salt": 0.55,
+    "energyKj": 1242,
+    "weight": 69
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "milk-ring-doughnut",
+   "name": "Milk Ring Doughnut",
+   "category": "Cakes and sweet bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 271,
+    "protein": 3.2,
+    "carbs": 32,
+    "fat": 14,
+    "saturatedFat": 8.3,
+    "sugar": 12,
+    "fiber": 0.8,
+    "salt": 0.5,
+    "energyKj": 1134,
+    "weight": 63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "caramel-ring-doughnut",
+   "name": "Caramel Ring Doughnut",
+   "category": "Cakes and sweet bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 284,
+    "protein": 3.1,
+    "carbs": 39,
+    "fat": 12,
+    "saturatedFat": 5.1,
+    "sugar": 16,
+    "fiber": 1,
+    "salt": 0.53,
+    "energyKj": 1190,
+    "weight": 71
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "iced-bun",
+   "name": "Iced Bun",
+   "category": "Cakes and sweet bakes",
+   "serving": "1 bun",
+   "nutrients": {
+    "calories": 383,
+    "protein": 5.2,
+    "carbs": 75,
+    "fat": 6.4,
+    "saturatedFat": 3,
+    "sugar": 33,
+    "fiber": 1.5,
+    "salt": 0.84,
+    "energyKj": 1620
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "caramel-iced-bun",
+   "name": "Caramel Iced Bun",
+   "category": "Cakes and sweet bakes",
+   "serving": "1 bun",
+   "nutrients": {
+    "calories": 348,
+    "protein": 4.3,
+    "carbs": 66,
+    "fat": 7.1,
+    "saturatedFat": 3.1,
+    "sugar": 30,
+    "fiber": 1.3,
+    "salt": 0.71,
+    "energyKj": 1469
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sprinkles-ring-doughnut",
+   "name": "Sprinkles Ring Doughnut",
+   "category": "Cakes and sweet bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 304,
+    "protein": 3,
+    "carbs": 48,
+    "fat": 11,
+    "saturatedFat": 5.5,
+    "sugar": 23,
+    "fiber": 0.9,
+    "salt": 0.49,
+    "energyKj": 1278,
+    "weight": 76
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "peppermint-crunch",
+   "name": "Peppermint Crunch",
+   "category": "Cakes and sweet bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 479,
+    "protein": 4.2,
+    "carbs": 70,
+    "fat": 19,
+    "saturatedFat": 17,
+    "sugar": 47,
+    "fiber": 4.4,
+    "salt": 0.31,
+    "energyKj": 2011,
+    "weight": 107
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats",
+     "spelt"
     ]
    }
   },
@@ -1263,6 +1344,39 @@
     "cereals": [
      "wheat",
      "barley"
+    ]
+   }
+  },
+  {
+   "id": "chicken-and-stuffing-baguette",
+   "name": "Chicken & Stuffing Baguette",
+   "category": "Sandwiches and filled baguettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 572,
+    "protein": 22,
+    "carbs": 85,
+    "fat": 15,
+    "saturatedFat": 1.3,
+    "sugar": 9.7,
+    "fiber": 4.5,
+    "salt": 0.89,
+    "energyKj": 2410,
+    "weight": 255
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -1701,88 +1815,19 @@
    }
   },
   {
-   "id": "cheese-and-pesto-puff",
-   "name": "Cheese & Pesto Puff",
-   "category": "Hot savouries",
-   "serving": "1 puff",
-   "nutrients": {
-    "calories": 210,
-    "protein": 6.8,
-    "carbs": 2.7,
-    "fat": 19,
-    "saturatedFat": 9.1,
-    "sugar": 0,
-    "salt": 1.1,
-    "energyKj": 869
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "pork-and-apple-pasty",
-   "name": "Pork & Apple Pasty",
-   "category": "Hot savouries",
-   "serving": "1 pasty",
-   "nutrients": {
-    "calories": 696,
-    "protein": 15,
-    "carbs": 79,
-    "fat": 35,
-    "saturatedFat": 17,
-    "sugar": 5.4,
-    "fiber": 3.8,
-    "salt": 3,
-    "energyKj": 2912
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "christmas-dinner-pasty",
    "name": "Christmas Dinner Pasty",
    "category": "Hot savouries",
    "serving": "1 pasty",
    "nutrients": {
-    "calories": 667,
-    "protein": 15,
+    "calories": 676,
+    "protein": 16,
     "carbs": 73,
-    "fat": 34,
-    "saturatedFat": 16,
+    "fat": 35,
+    "saturatedFat": 17,
     "sugar": 2.4,
-    "fiber": 4.1,
-    "salt": 2.6,
-    "energyKj": 2794
+    "salt": 2.7,
+    "energyKj": 2826
    },
    "tags": [],
    "limitedTime": false,
@@ -1791,42 +1836,8 @@
    "modifiers": [],
    "allergens": {
     "contains": [
+     "celery",
      "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "bbq-beef-roll",
-   "name": "BBQ Beef Roll",
-   "category": "Hot savouries",
-   "serving": "",
-   "nutrients": {
-    "calories": 333,
-    "protein": 6.4,
-    "carbs": 39,
-    "fat": 17,
-    "saturatedFat": 8,
-    "sugar": 3.1,
-    "fiber": 1.6,
-    "salt": 1.3,
-    "energyKj": 1395
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sulphites"
     ],
     "mayContain": [],
     "cereals": [
@@ -1846,7 +1857,6 @@
     "fat": 35,
     "saturatedFat": 17,
     "sugar": 0,
-    "fiber": 1.6,
     "salt": 3.4,
     "energyKj": 2275,
     "weight": 170
@@ -1881,7 +1891,6 @@
     "fat": 38,
     "saturatedFat": 19,
     "sugar": 2.2,
-    "fiber": 4.7,
     "salt": 2.5,
     "energyKj": 2965
    },
@@ -1915,7 +1924,6 @@
     "fat": 16,
     "saturatedFat": 7.7,
     "sugar": 0.6,
-    "fiber": 1.6,
     "salt": 1,
     "energyKj": 1334
    },
@@ -1949,7 +1957,6 @@
     "fat": 37,
     "saturatedFat": 18,
     "sugar": 1.9,
-    "fiber": 3.9,
     "salt": 2.9,
     "energyKj": 2862
    },
@@ -1982,7 +1989,6 @@
     "fat": 16,
     "saturatedFat": 7.6,
     "sugar": 1.2,
-    "fiber": 1.9,
     "salt": 1.9,
     "energyKj": 1397
    },
@@ -2055,7 +2061,6 @@
     "fat": 17,
     "saturatedFat": 9.1,
     "sugar": 0,
-    "fiber": 1,
     "salt": 1.3,
     "energyKj": 1206
    },
@@ -2147,14 +2152,15 @@
    "category": "Tea and coffee",
    "serving": "",
    "nutrients": {
-    "calories": 144,
-    "protein": 7.5,
-    "carbs": 10,
-    "fat": 8,
-    "saturatedFat": 5.1,
-    "sugar": 10,
+    "calories": 219,
+    "protein": 9.2,
+    "carbs": 25,
+    "fat": 9,
+    "saturatedFat": 5.9,
+    "sugar": 24,
+    "fiber": 0,
     "salt": 0.25,
-    "energyKj": 602,
+    "energyKj": 918,
     "weight": 287
    },
    "tags": [
@@ -2166,13 +2172,9 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten",
      "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "barley"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -2299,15 +2301,16 @@
    "category": "Tea and coffee",
    "serving": "",
    "nutrients": {
-    "calories": 142,
-    "protein": 7.4,
-    "carbs": 10,
-    "fat": 7.9,
-    "saturatedFat": 5,
-    "sugar": 10,
-    "salt": 0.24,
-    "energyKj": 593,
-    "weight": 267
+    "calories": 219,
+    "protein": 9.2,
+    "carbs": 25,
+    "fat": 9,
+    "saturatedFat": 5.9,
+    "sugar": 24,
+    "fiber": 0,
+    "salt": 0.25,
+    "energyKj": 918,
+    "weight": 287
    },
    "tags": [
     "vegetarian"
@@ -2318,13 +2321,9 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten",
      "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "barley"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -2399,14 +2398,15 @@
    "category": "Tea and coffee",
    "serving": "",
    "nutrients": {
-    "calories": 138,
-    "protein": 6.4,
-    "carbs": 13,
-    "fat": 6.4,
-    "saturatedFat": 0.4,
-    "sugar": 6.4,
+    "calories": 212,
+    "protein": 8.1,
+    "carbs": 28,
+    "fat": 7.4,
+    "saturatedFat": 1.2,
+    "sugar": 20,
+    "fiber": 1.8,
     "salt": 0.27,
-    "energyKj": 582,
+    "energyKj": 898,
     "weight": 287
    },
    "tags": [
@@ -2418,11 +2418,11 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten"
+     "gluten",
+     "milk"
     ],
     "mayContain": [],
     "cereals": [
-     "barley",
      "oats"
     ]
    }
@@ -2647,15 +2647,47 @@
    "category": "Tea and coffee",
    "serving": "",
    "nutrients": {
-    "calories": 145,
-    "protein": 7.6,
-    "carbs": 10,
-    "fat": 8,
-    "saturatedFat": 5.1,
-    "sugar": 10,
+    "calories": 247,
+    "protein": 9.8,
+    "carbs": 31,
+    "fat": 9.4,
+    "saturatedFat": 6.2,
+    "sugar": 29,
+    "fiber": 0,
     "salt": 0.25,
-    "energyKj": 604,
+    "energyKj": 1037,
     "weight": 279
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "oat-milk-hot-chocolate",
+   "name": "Oat Milk Hot Chocolate",
+   "category": "Tea and coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 288,
+    "protein": 9.7,
+    "carbs": 43,
+    "fat": 8.4,
+    "saturatedFat": 2,
+    "sugar": 33,
+    "fiber": 1.8,
+    "salt": 0.27,
+    "energyKj": 1216,
+    "weight": 291
    },
    "tags": [
     "vegetarian"
@@ -2671,40 +2703,6 @@
     ],
     "mayContain": [],
     "cereals": [
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "oat-milk-hot-chocolate",
-   "name": "Oat Milk Hot Chocolate",
-   "category": "Tea and coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 138,
-    "protein": 6.5,
-    "carbs": 13,
-    "fat": 6.5,
-    "saturatedFat": 0.4,
-    "sugar": 6.5,
-    "salt": 0.27,
-    "energyKj": 584,
-    "weight": 291
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "barley",
      "oats"
     ]
    }

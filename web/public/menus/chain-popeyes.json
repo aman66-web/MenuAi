@@ -13,12 +13,12 @@
  "source": {
   "title": "Popeyes UK Nutritional Information, per serving (live table; no issue date or version shown)",
   "url": "https://allergensandnutritions.popeyesuk.com/nutritional-information",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-11-17"
  },
  "allergenGuide": {
   "title": "Popeyes UK Allergen Information (live table; no issue date or version shown)",
   "url": "https://allergensandnutritions.popeyesuk.com/allergen-information",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -90,82 +90,6 @@
     "fiber": 3.4,
     "salt": 3.26,
     "energyKj": 2548
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard"
-    ],
-    "mayContain": [
-     "celery",
-     "sesame",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "ghost-pepper-sandwich",
-   "name": "Ghost Pepper Sandwich",
-   "category": "Sandwiches",
-   "serving": "",
-   "nutrients": {
-    "calories": 525,
-    "protein": 36.7,
-    "carbs": 38.4,
-    "fat": 24.2,
-    "saturatedFat": 4.8,
-    "sugar": 11.3,
-    "fiber": 3,
-    "salt": 3.67,
-    "energyKj": 2199
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard"
-    ],
-    "mayContain": [
-     "celery",
-     "sesame",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "ghost-pepper-superstack-sandwich",
-   "name": "Ghost Pepper Superstack Sandwich",
-   "category": "Sandwiches",
-   "serving": "",
-   "nutrients": {
-    "calories": 734,
-    "protein": 41.9,
-    "carbs": 52,
-    "fat": 38.6,
-    "saturatedFat": 10.5,
-    "sugar": 12.2,
-    "fiber": 5.2,
-    "salt": 4.41,
-    "energyKj": 3069
    },
    "tags": [],
    "limitedTime": false,
@@ -724,6 +648,82 @@
    }
   },
   {
+   "id": "the-big-cheesy-sandwich",
+   "name": "The Big Cheesy Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 492,
+    "protein": 38.9,
+    "carbs": 42.3,
+    "fat": 17.9,
+    "saturatedFat": 7,
+    "sugar": 12.3,
+    "fiber": 3.5,
+    "salt": 3.34,
+    "energyKj": 2060
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "the-big-cheesy-superstack",
+   "name": "The Big Cheesy Superstack",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 683,
+    "protein": 40.5,
+    "carbs": 55.8,
+    "fat": 31.9,
+    "saturatedFat": 9.7,
+    "sugar": 13.2,
+    "fiber": 5.8,
+    "salt": 4.15,
+    "energyKj": 2853
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "the-chicken-cruncher",
    "name": "The Chicken Cruncher",
    "category": "Sandwiches",
@@ -912,8 +912,8 @@
    }
   },
   {
-   "id": "classic-chicken-wrap",
-   "name": "Classic Chicken Wrap",
+   "id": "classic-shatter-crunch-wrap",
+   "name": "Classic Shatter Crunch Wrap",
    "category": "Wraps",
    "serving": "",
    "nutrients": {
@@ -946,8 +946,42 @@
    }
   },
   {
-   "id": "spicy-chicken-wrap",
-   "name": "Spicy Chicken Wrap",
+   "id": "classic-superstack-wrap",
+   "name": "Classic Superstack Wrap",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 699,
+    "protein": 34,
+    "carbs": 49.3,
+    "fat": 40,
+    "saturatedFat": 9.1,
+    "sugar": 3.3,
+    "fiber": 5.1,
+    "salt": 3.6,
+    "energyKj": 2924
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spicy-shatter-crunch-wrap",
+   "name": "Spicy Shatter Crunch Wrap",
    "category": "Wraps",
    "serving": "",
    "nutrients": {
@@ -960,6 +994,40 @@
     "fiber": 2.8,
     "salt": 2.92,
     "energyKj": 1834
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spicy-superstack-wrap",
+   "name": "Spicy Superstack Wrap",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 701,
+    "protein": 34,
+    "carbs": 49.5,
+    "fat": 39.9,
+    "saturatedFat": 9.1,
+    "sugar": 3.7,
+    "fiber": 5.2,
+    "salt": 3.98,
+    "energyKj": 2929
    },
    "tags": [],
    "limitedTime": false,
@@ -1148,39 +1216,6 @@
    }
   },
   {
-   "id": "1-spicy-tender",
-   "name": "1 Spicy Tender",
-   "category": "Tenders",
-   "serving": "1 tender",
-   "nutrients": {
-    "calories": 76,
-    "protein": 11.7,
-    "carbs": 1.3,
-    "fat": 2.7,
-    "saturatedFat": 0.5,
-    "sugar": 0.1,
-    "fiber": 0.3,
-    "salt": 0.86,
-    "energyKj": 318
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "mustard"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "2-classic-tenders-kids-tenders",
    "name": "2 Classic Tenders / Kids Tenders",
    "category": "Tenders",
@@ -1195,39 +1230,6 @@
     "fiber": 1,
     "salt": 1.7,
     "energyKj": 631
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "mustard"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "2-spicy-tenders",
-   "name": "2 Spicy Tenders",
-   "category": "Tenders",
-   "serving": "2 tenders",
-   "nutrients": {
-    "calories": 151,
-    "protein": 23.3,
-    "carbs": 2.5,
-    "fat": 5.4,
-    "saturatedFat": 1,
-    "sugar": 0.1,
-    "fiber": 0.5,
-    "salt": 1.73,
-    "energyKj": 635
    },
    "tags": [],
    "limitedTime": false,
@@ -1280,39 +1282,6 @@
    }
   },
   {
-   "id": "3-spicy-tenders",
-   "name": "3 Spicy Tenders",
-   "category": "Tenders",
-   "serving": "3 tenders",
-   "nutrients": {
-    "calories": 227,
-    "protein": 35,
-    "carbs": 3.8,
-    "fat": 8.1,
-    "saturatedFat": 1.5,
-    "sugar": 0.2,
-    "fiber": 0.8,
-    "salt": 2.59,
-    "energyKj": 953
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "mustard"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "5-classic-tenders",
    "name": "5 Classic Tenders",
    "category": "Tenders",
@@ -1327,39 +1296,6 @@
     "fiber": 2.5,
     "salt": 4.25,
     "energyKj": 1578
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "mustard"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "5-spicy-tenders",
-   "name": "5 Spicy Tenders",
-   "category": "Tenders",
-   "serving": "5 tenders",
-   "nutrients": {
-    "calories": 378,
-    "protein": 58.3,
-    "carbs": 6.3,
-    "fat": 13.5,
-    "saturatedFat": 2.5,
-    "sugar": 0.3,
-    "fiber": 1.3,
-    "salt": 4.33,
-    "energyKj": 1588
    },
    "tags": [],
    "limitedTime": false,
@@ -2951,213 +2887,20 @@
    }
   },
   {
-   "id": "bacon-egg-and-cheese-muffin",
-   "name": "Bacon Egg and Cheese Muffin",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 399,
-    "protein": 20.6,
-    "carbs": 26.6,
-    "fat": 22.9,
-    "saturatedFat": 6.8,
-    "sugar": 3.1,
-    "fiber": 2.1,
-    "salt": 1.86,
-    "energyKj": 1667
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
-    ]
-   }
-  },
-  {
-   "id": "bacon-roll-plain",
-   "name": "Bacon Roll - Plain",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 346,
-    "protein": 18.7,
-    "carbs": 29.4,
-    "fat": 16.5,
-    "saturatedFat": 6.4,
-    "sugar": 7.8,
-    "fiber": 2.3,
-    "salt": 1.66,
-    "energyKj": 1444
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "sesame",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "bacon-roll-with-cajun-ketchup",
-   "name": "Bacon Roll with Cajun Ketchup",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 365,
-    "protein": 18.8,
-    "carbs": 33.3,
-    "fat": 16.8,
-    "saturatedFat": 6.5,
-    "sugar": 11.2,
-    "fiber": 2.5,
-    "salt": 1.83,
-    "energyKj": 1523
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "sesame",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "bacon-roll-with-heinz-ketchup",
-   "name": "Bacon Roll with Heinz Ketchup",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 356,
-    "protein": 18.8,
-    "carbs": 31.8,
-    "fat": 16.5,
-    "saturatedFat": 6.4,
-    "sugar": 10.1,
-    "fiber": 2.4,
-    "salt": 1.84,
-    "energyKj": 1487
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "sesame",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "bacon-roll-with-hp-sauce",
-   "name": "Bacon Roll with HP Sauce",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 358,
-    "protein": 18.8,
-    "carbs": 32.2,
-    "fat": 16.5,
-    "saturatedFat": 6.5,
-    "sugar": 9.9,
-    "fiber": 2.4,
-    "salt": 1.79,
-    "energyKj": 1494
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "sesame",
-     "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
-    ]
-   }
-  },
-  {
    "id": "big-breakfast-roll-with-chicken-breakfast-patty-heinz-ketchup",
    "name": "Big Breakfast Roll with Chicken Breakfast Patty & Heinz Ketchup",
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 404,
-    "protein": 23.3,
-    "carbs": 36,
+    "calories": 394,
+    "protein": 23.2,
+    "carbs": 33.6,
     "fat": 18.1,
-    "saturatedFat": 7.7,
-    "sugar": 10.9,
+    "saturatedFat": 7.6,
+    "sugar": 8.6,
     "fiber": 2.9,
-    "salt": 2.15,
-    "energyKj": 1689
+    "salt": 1.97,
+    "energyKj": 1646
    },
    "tags": [],
    "limitedTime": false,
@@ -3166,7 +2909,6 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "celery",
      "gluten",
      "eggs",
      "milk"
@@ -3197,85 +2939,6 @@
     "energyKj": 1696
    },
    "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "sesame",
-     "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "big-breakfast-roll-with-chicken-breakfast-patty-streaky-bacon-heinz-ketchup",
-   "name": "Big Breakfast Roll with Chicken Breakfast Patty, Streaky Bacon & Heinz Ketchup",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 460,
-    "protein": 26.9,
-    "carbs": 36,
-    "fat": 22.7,
-    "saturatedFat": 9.4,
-    "sugar": 11.1,
-    "fiber": 2.9,
-    "salt": 2.63,
-    "energyKj": 1923
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "sesame",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "big-breakfast-roll-with-chicken-breakfast-patty-streaky-bacon-hp-sauce",
-   "name": "Big Breakfast Roll with Chicken Breakfast Patty, Streaky Bacon & HP Sauce",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 462,
-    "protein": 26.8,
-    "carbs": 36.4,
-    "fat": 22.7,
-    "saturatedFat": 9.4,
-    "sugar": 10.9,
-    "fiber": 2.9,
-    "salt": 2.57,
-    "energyKj": 1930
-   },
-   "tags": [
-    "contains_pork"
-   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -3334,60 +2997,22 @@
    }
   },
   {
-   "id": "big-breakfast-wrap-with-chicken-breakfast-patty-streaky-bacon-heinz-ketchup",
-   "name": "Big Breakfast Wrap with Chicken Breakfast Patty, Streaky Bacon & Heinz Ketchup",
+   "id": "big-breakfast-wrap-with-chicken-breakfast-patty-hp-sauce",
+   "name": "Big Breakfast Wrap with Chicken Breakfast Patty & HP Sauce",
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 764,
-    "protein": 35.1,
-    "carbs": 51.5,
-    "fat": 45.7,
-    "saturatedFat": 12.5,
-    "sugar": 6.5,
-    "fiber": 4.4,
-    "salt": 3.85,
-    "energyKj": 3190
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "big-breakfast-wrap-with-chicken-breakfast-patty-streaky-bacon-hp-sauce",
-   "name": "Big Breakfast Wrap with Chicken Breakfast Patty, Streaky Bacon & HP Sauce",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 767,
-    "protein": 35.1,
-    "carbs": 52.2,
-    "fat": 45.8,
-    "saturatedFat": 12.6,
-    "sugar": 6.2,
+    "calories": 705,
+    "protein": 31.5,
+    "carbs": 50.8,
+    "fat": 41.2,
+    "saturatedFat": 10.8,
+    "sugar": 5,
     "fiber": 4.3,
-    "salt": 3.77,
-    "energyKj": 3201
+    "salt": 3.24,
+    "energyKj": 2942
    },
-   "tags": [
-    "contains_pork"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -3398,7 +3023,9 @@
      "eggs",
      "milk"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "mustard"
+    ],
     "cereals": [
      "wheat",
      "rye",
@@ -3444,45 +3071,6 @@
    }
   },
   {
-   "id": "big-cajun-roll-with-chicken-breakfast-patty-streaky-bacon",
-   "name": "Big Cajun Roll with Chicken Breakfast Patty & Streaky Bacon",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 715,
-    "protein": 29.5,
-    "carbs": 56.1,
-    "fat": 40.2,
-    "saturatedFat": 12.6,
-    "sugar": 17,
-    "fiber": 5.7,
-    "salt": 4.27,
-    "energyKj": 2982
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "mustard",
-     "sesame",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "big-cajun-wrap-with-chicken-breakfast-patty",
    "name": "Big Cajun Wrap with Chicken Breakfast Patty",
    "category": "Breakfast",
@@ -3511,43 +3099,6 @@
      "milk"
     ],
     "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "big-cajun-wrap-with-chicken-breakfast-patty-streaky-bacon",
-   "name": "Big Cajun Wrap with Chicken Breakfast Patty & Streaky Bacon",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 786,
-    "protein": 35.5,
-    "carbs": 55.1,
-    "fat": 46.3,
-    "saturatedFat": 12.6,
-    "sugar": 8.6,
-    "fiber": 4.8,
-    "salt": 4.42,
-    "energyKj": 3282
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "mustard"
-    ],
     "cereals": [
      "wheat"
     ]
@@ -3665,123 +3216,6 @@
    }
   },
   {
-   "id": "breakfast-roll-with-chicken-breakfast-patty-streaky-bacon-cajun-ketchup",
-   "name": "Breakfast Roll with Chicken Breakfast Patty, Streaky Bacon & Cajun Ketchup",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 388,
-    "protein": 18.2,
-    "carbs": 36.7,
-    "fat": 18,
-    "saturatedFat": 6.5,
-    "sugar": 11.6,
-    "fiber": 2.9,
-    "salt": 2.05,
-    "energyKj": 1620
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "sesame",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "breakfast-roll-with-chicken-breakfast-patty-streaky-bacon-heinz-ketchup",
-   "name": "Breakfast Roll with Chicken Breakfast Patty, Streaky Bacon & Heinz Ketchup",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 379,
-    "protein": 18.2,
-    "carbs": 35.1,
-    "fat": 17.8,
-    "saturatedFat": 6.4,
-    "sugar": 10.5,
-    "fiber": 2.9,
-    "salt": 2.06,
-    "energyKj": 1584
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "sesame",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "breakfast-roll-with-chicken-breakfast-patty-streaky-bacon-hp-sauce",
-   "name": "Breakfast Roll with Chicken Breakfast Patty, Streaky Bacon & HP Sauce",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 381,
-    "protein": 18.2,
-    "carbs": 35.6,
-    "fat": 17.8,
-    "saturatedFat": 6.5,
-    "sugar": 10.3,
-    "fiber": 2.8,
-    "salt": 2.01,
-    "energyKj": 1592
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "sesame",
-     "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
-    ]
-   }
-  },
-  {
    "id": "cajun-hash-brown",
    "name": "Cajun Hash Brown",
    "category": "Breakfast",
@@ -3829,44 +3263,6 @@
     "energyKj": 1841
    },
    "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
-    ]
-   }
-  },
-  {
-   "id": "double-bacon-egg-and-cheese-muffin",
-   "name": "Double Bacon, Egg and Cheese Muffin",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 464,
-    "protein": 24.8,
-    "carbs": 26.6,
-    "fat": 28.2,
-    "saturatedFat": 8.8,
-    "sugar": 3.3,
-    "fiber": 2.1,
-    "salt": 2.41,
-    "energyKj": 1939
-   },
-   "tags": [
-    "contains_pork"
-   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -4505,6 +3901,40 @@
    }
   },
   {
+   "id": "mega-cheese-melt",
+   "name": "Mega Cheese Melt",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 223,
+    "protein": 10.9,
+    "carbs": 15.5,
+    "fat": 12.7,
+    "saturatedFat": 5.7,
+    "sugar": 0.6,
+    "fiber": 1.2,
+    "salt": 0.59,
+    "energyKj": 930
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "smoky-beans",
    "name": "Smoky Beans",
    "category": "Sides",
@@ -4567,15 +3997,15 @@
    "category": "Dips",
    "serving": "",
    "nutrients": {
-    "calories": 8,
-    "protein": 0.1,
-    "carbs": 0.5,
-    "fat": 0.6,
-    "saturatedFat": 0.1,
-    "sugar": 0.5,
+    "calories": 38,
+    "protein": 0.2,
+    "carbs": 2.1,
+    "fat": 3,
+    "saturatedFat": 1.8,
+    "sugar": 1.4,
     "fiber": 0.2,
-    "salt": 2.15,
-    "energyKj": 34
+    "salt": 1.68,
+    "energyKj": 156
    },
    "tags": [
     "vegetarian"
@@ -4655,20 +4085,20 @@
    }
   },
   {
-   "id": "ghost-pepper-big-dip",
-   "name": "Ghost Pepper Big Dip",
+   "id": "honey-bbq-dip-pot",
+   "name": "Honey BBQ Dip Pot",
    "category": "Dips",
    "serving": "",
    "nutrients": {
-    "calories": 274,
-    "protein": 0.8,
-    "carbs": 64.5,
-    "fat": 0.5,
+    "calories": 68,
+    "protein": 0.4,
+    "carbs": 15,
+    "fat": 0.7,
     "saturatedFat": 0,
-    "sugar": 31.4,
-    "fiber": 0.8,
-    "salt": 5.28,
-    "energyKj": 1150
+    "sugar": 13.2,
+    "fiber": 0.2,
+    "salt": 0.49,
+    "energyKj": 282
    },
    "tags": [
     "vegetarian"
@@ -4953,6 +4383,36 @@
     "contains": [
      "eggs",
      "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "the-mega-cheese-dip",
+   "name": "The Mega Cheese Dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 527,
+    "protein": 25.2,
+    "carbs": 36.5,
+    "fat": 30.6,
+    "saturatedFat": 18.9,
+    "sugar": 11.7,
+    "fiber": 0.5,
+    "salt": 6.3,
+    "energyKj": 2214
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
     ],
     "mayContain": []
    }
@@ -5460,20 +4920,20 @@
    }
   },
   {
-   "id": "double-chocolate-cookie",
-   "name": "Double Chocolate Cookie",
+   "id": "cherry-chocolate-cookie",
+   "name": "Cherry Chocolate Cookie",
    "category": "Desserts & treats",
    "serving": "",
    "nutrients": {
-    "calories": 411,
-    "protein": 4.9,
-    "carbs": 50.2,
-    "fat": 20.7,
-    "saturatedFat": 10.8,
-    "sugar": 31.4,
-    "fiber": 1.9,
-    "salt": 0.85,
-    "energyKj": 1717
+    "calories": 369,
+    "protein": 4.1,
+    "carbs": 53.1,
+    "fat": 15.1,
+    "saturatedFat": 8.1,
+    "sugar": 37.2,
+    "fiber": 2,
+    "salt": 0.69,
+    "energyKj": 1542
    },
    "tags": [
     "vegetarian"
@@ -6235,6 +5695,206 @@
    "modifiers": [],
    "allergens": {
     "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-bull-lime-berry-burst",
+   "name": "Red Bull Lime Berry Burst",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 172,
+    "protein": 0,
+    "carbs": 41.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 41.1,
+    "fiber": 0,
+    "salt": 0.26,
+    "energyKj": 725
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-bull-lime-berry-burst-with-cold-foam",
+   "name": "Red Bull Lime Berry Burst with Cold Foam",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 182,
+    "protein": 0.9,
+    "carbs": 42.5,
+    "fat": 0.4,
+    "saturatedFat": 0.3,
+    "sugar": 41.1,
+    "fiber": 0,
+    "salt": 0.3,
+    "energyKj": 769
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-bull-pistachio-berry",
+   "name": "Red Bull Pistachio & Berry",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 119,
+    "protein": 0,
+    "carbs": 28.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 28.4,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 501
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-bull-zero-hot-peach",
+   "name": "Red Bull Zero Hot Peach",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 42,
+    "protein": 0,
+    "carbs": 14.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.2,
+    "fiber": 0.1,
+    "salt": 0.39,
+    "energyKj": 182
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-bull-zero-hot-peach-with-cold-foam",
+   "name": "Red Bull Zero Hot Peach with Cold Foam",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 53,
+    "protein": 0.9,
+    "carbs": 15.1,
+    "fat": 0.4,
+    "saturatedFat": 0.3,
+    "sugar": 8.2,
+    "fiber": 0.1,
+    "salt": 0.43,
+    "energyKj": 226
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-bull-zero-strawberry-blast",
+   "name": "Red Bull Zero Strawberry Blast",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0,
+    "carbs": 18.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 12.7,
+    "fiber": 0,
+    "salt": 0.05,
+    "energyKj": 248
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-bull-zero-strawberry-blast-with-cold-foam",
+   "name": "Red Bull Zero Strawberry Blast with Cold Foam",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 69,
+    "protein": 0.9,
+    "carbs": 19.3,
+    "fat": 0.4,
+    "saturatedFat": 0.3,
+    "sugar": 12.7,
+    "fiber": 0,
+    "salt": 0.09,
+    "energyKj": 292
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
     "mayContain": []
    }
   },

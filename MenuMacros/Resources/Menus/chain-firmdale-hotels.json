@@ -1,0 +1,487 @@
+{
+ "schemaVersion": 1,
+ "id": "firmdale-hotels",
+ "name": "Firmdale Hotels",
+ "cuisine": "Hotel restaurant",
+ "builderType": "standard",
+ "aliases": [
+  "firmdale hotels",
+  "firmdale",
+  "ham yard restaurant",
+  "brumus",
+  "brasserie max"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Firmdale Hotels restaurant menus: Ham Yard, Brumus, Refuel, Brasserie Max, Oscar and The Potting Shed (breakfast, brunch, a la carte, bar food and dessert pages; no date shown)",
+  "url": "https://www.firmdalehotels.com/restaurants-bars",
+  "checkedOn": "2026-10-12"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories as printed on the menus of Firmdale's six London hotel restaurants (Ham Yard, Brumus, Refuel, Brasserie Max, Oscar, The Potting Shed). Menus differ by restaurant: a dish is listed only where two or more of them print the same figure.",
+ "categories": [
+  "Appetisers",
+  "Sides",
+  "Breakfast",
+  "Porridge",
+  "Classics",
+  "Grill",
+  "Salads"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "flourish-bakery-ancient-grain-loaf-netherend-farm-butter",
+   "name": "Flourish bakery ancient grain loaf, Netherend Farm butter",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 568
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "french-fries",
+   "name": "French fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 256
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado",
+   "name": "Avocado",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-cumberland-sausage",
+   "name": "Chicken Cumberland sausage",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 316
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stornoway-black-pudding",
+   "name": "Stornoway black pudding",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 356
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-browns",
+   "name": "Hash browns",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 239
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "saut-ed-spinach",
+   "name": "Sautéed spinach",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 39
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plum-tomatoes",
+   "name": "Plum tomatoes",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-field-mushrooms",
+   "name": "Grilled field mushrooms",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 62
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "old-english-sausage",
+   "name": "Old English sausage",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 328
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi",
+   "name": "Halloumi",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 398
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "field-mushrooms",
+   "name": "Field mushrooms",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 62
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "old-english-sausages",
+   "name": "Old English sausages",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 328
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toast-preserves",
+   "name": "Toast, preserves",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 392
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "granola-yoghurt-and-berries",
+   "name": "Granola, yoghurt and berries",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 754
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-florentine-double",
+   "name": "Eggs Florentine (double)",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 867
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-royale-double",
+   "name": "Eggs Royale (double)",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 879
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-as-you-like-on-toast",
+   "name": "Eggs as you like, on toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 393
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "omelette",
+   "name": "Omelette",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 333
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "english-breakfast",
+   "name": "English Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 722
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-florentine",
+   "name": "Eggs Florentine",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 867
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-royale",
+   "name": "Eggs Royale",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 879
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "porridge-with-milk",
+   "name": "Porridge with milk",
+   "category": "Porridge",
+   "serving": "",
+   "nutrients": {
+    "calories": 354
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "porridge-with-water",
+   "name": "Porridge with water",
+   "category": "Porridge",
+   "serving": "",
+   "nutrients": {
+    "calories": 227
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "porridge-with-cream",
+   "name": "Porridge with cream",
+   "category": "Porridge",
+   "serving": "",
+   "nutrients": {
+    "calories": 1133
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caesar-salad-with-chicken",
+   "name": "Caesar salad with chicken",
+   "category": "Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 977
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caesar-salad-with-prawns",
+   "name": "Caesar salad with prawns",
+   "category": "Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 899
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-fish-cake-tartare-sauce-and-watercress-salad",
+   "name": "Salmon fish cake, tartare sauce and watercress salad",
+   "category": "Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 585
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hollandaise",
+   "name": "Hollandaise",
+   "category": "Grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 314
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-caesar-salad-with-chicken",
+   "name": "Classic Caesar salad with chicken",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 977
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

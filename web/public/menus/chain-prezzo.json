@@ -11,20 +11,19 @@
  ],
  "sample": false,
  "source": {
-  "title": "Prezzo Allergen Guide: allergens and nutrition page on prezzo.co.uk (retrieved 2026-10-08; the page carries no version date)",
+  "title": "Prezzo Allergen Guide: allergens and nutrition page on prezzo.co.uk (retrieved 2026-11-17; the page carries no version date)",
   "url": "https://www.prezzo.co.uk/allergens/",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Prezzo's allergen page does not say what its figures are per; they look like one whole dish as served. Dishes the page gives no full nutrition for, and a few whose figures cannot be right, are not shown.",
  "allergenGuide": {
-  "title": "Prezzo Allergen Guide: allergens page on prezzo.co.uk (retrieved 2026-10-08; the page carries no version date)",
+  "title": "Prezzo Allergen Guide: allergens page on prezzo.co.uk (retrieved 2026-11-17; the page carries no version date)",
   "url": "https://www.prezzo.co.uk/allergens/",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
  "categories": [
-  "Nibbles",
   "Starters",
   "Pasta",
   "Pizza",
@@ -33,10 +32,10 @@
   "Sides",
   "Desserts",
   "Specials",
+  "Christmas specials",
   "Lunch",
   "Breakfast",
   "Afternoon tea",
-  "Family sharers",
   "Build your own",
   "Extras and toppings",
   "Dips",
@@ -53,40 +52,6 @@
  ],
  "components": [],
  "items": [
-  {
-   "id": "warm-focaccia-bread",
-   "name": "Warm Focaccia Bread",
-   "category": "Nibbles",
-   "serving": "",
-   "nutrients": {
-    "calories": 495,
-    "protein": 5.7,
-    "carbs": 37,
-    "fat": 35,
-    "saturatedFat": 5,
-    "sugar": 4.4,
-    "fiber": 1.4,
-    "salt": 1.8
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "prezzo/181aecff7d98.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sulphites"
-    ],
-    "mayContain": [
-     "eggs",
-     "milk"
-    ]
-   }
-  },
   {
    "id": "calamari",
    "name": "Calamari",
@@ -434,7 +399,10 @@
      "milk",
      "sulphites"
     ],
-    "mayContain": []
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
    }
   },
   {
@@ -467,7 +435,8 @@
      "milk"
     ],
     "mayContain": [
-     "mustard"
+     "mustard",
+     "soya"
     ]
    }
   },
@@ -510,14 +479,14 @@
    "category": "Starters",
    "serving": "",
    "nutrients": {
-    "calories": 485,
-    "protein": 11,
-    "carbs": 63,
-    "fat": 20,
-    "saturatedFat": 4.8,
-    "sugar": 6.2,
-    "fiber": 4.4,
-    "salt": 2.9
+    "calories": 270,
+    "protein": 5.1,
+    "carbs": 29,
+    "fat": 13,
+    "saturatedFat": 1.7,
+    "sugar": 10,
+    "fiber": 2.8,
+    "salt": 1.8
    },
    "tags": [
     "vegetarian"
@@ -601,7 +570,9 @@
      "sulphites"
     ],
     "mayContain": [
-     "eggs"
+     "eggs",
+     "mustard",
+     "soya"
     ]
    }
   },
@@ -896,13 +867,13 @@
    "category": "Starters",
    "serving": "",
    "nutrients": {
-    "calories": 289,
-    "protein": 9.9,
-    "carbs": 28,
-    "fat": 14,
-    "saturatedFat": 2.1,
-    "sugar": 9.3,
-    "fiber": 2.7,
+    "calories": 305,
+    "protein": 10,
+    "carbs": 29,
+    "fat": 16,
+    "saturatedFat": 2.2,
+    "sugar": 10,
+    "fiber": 2.8,
     "salt": 2.7
    },
    "tags": [
@@ -4498,7 +4469,9 @@
      "milk",
      "sulphites"
     ],
-    "mayContain": []
+    "mayContain": [
+     "nuts"
+    ]
    }
   },
   {
@@ -6293,6 +6266,7 @@
     ],
     "mayContain": [
      "mustard",
+     "nuts",
      "soya"
     ]
    }
@@ -6426,6 +6400,272 @@
      "milk"
     ],
     "mayContain": []
+   }
+  },
+  {
+   "id": "sharing-brie-mozzarella-and-cranberry-dough-bites",
+   "name": "Sharing Brie, Mozzarella & Cranberry Dough Bites",
+   "category": "Christmas specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 975,
+    "protein": 36,
+    "carbs": 131,
+    "fat": 33,
+    "saturatedFat": 19,
+    "sugar": 37,
+    "fiber": 7.7,
+    "salt": 4.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "garlic-bread-with-tuscan-sausage-brie-and-sage",
+   "name": "Garlic Bread With Tuscan Sausage, Brie & Sage",
+   "category": "Christmas specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 550,
+    "protein": 20,
+    "carbs": 65,
+    "fat": 23,
+    "saturatedFat": 11,
+    "sugar": 7,
+    "fiber": 4.2,
+    "salt": 2.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "christmas-carbonara",
+   "name": "Christmas Carbonara",
+   "category": "Christmas specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 955,
+    "protein": 46,
+    "carbs": 109,
+    "fat": 36,
+    "saturatedFat": 7.4,
+    "sugar": 12,
+    "fiber": 4.8,
+    "salt": 1.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "christmas-calzone",
+   "name": "Christmas Calzone",
+   "category": "Christmas specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1210,
+    "protein": 67,
+    "carbs": 128,
+    "fat": 46,
+    "saturatedFat": 26,
+    "sugar": 15,
+    "fiber": 10,
+    "salt": 6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "christmas-pizza",
+   "name": "Christmas Pizza",
+   "category": "Christmas specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1135,
+    "protein": 63,
+    "carbs": 131,
+    "fat": 38,
+    "saturatedFat": 22,
+    "sugar": 18,
+    "fiber": 9,
+    "salt": 5.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "honey-glazed-pigs-in-blankets",
+   "name": "Honey Glazed Pigs In Blankets",
+   "category": "Christmas specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 410,
+    "protein": 21,
+    "carbs": 21,
+    "fat": 27,
+    "saturatedFat": 9.8,
+    "sugar": 9.1,
+    "fiber": 1.6,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cinnamon-swirl-cheesecake",
+   "name": "Cinnamon Swirl Cheesecake",
+   "category": "Christmas specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 605,
+    "protein": 7.2,
+    "carbs": 87,
+    "fat": 25,
+    "saturatedFat": 11,
+    "sugar": 60,
+    "fiber": 1.8,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "christmas-pizza-large",
+   "name": "Christmas Pizza Large",
+   "category": "Christmas specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1425,
+    "protein": 81,
+    "carbs": 147,
+    "fat": 55,
+    "saturatedFat": 32,
+    "sugar": 24,
+    "fiber": 10,
+    "salt": 6.4
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ]
    }
   },
   {
@@ -7496,365 +7736,6 @@
     "mayContain": [
      "nuts",
      "sesame"
-    ]
-   }
-  },
-  {
-   "id": "vegan-fusilli-bolognese-sharer-gluten-free",
-   "name": "Vegan Fusilli Bolognese Sharer Gluten Free",
-   "category": "Family sharers",
-   "serving": "Serves 3-4 people",
-   "nutrients": {
-    "calories": 2065,
-    "protein": 53,
-    "carbs": 392,
-    "fat": 26,
-    "saturatedFat": 4.5,
-    "sugar": 25,
-    "fiber": 24,
-    "salt": 4.9
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "eggs"
-    ]
-   }
-  },
-  {
-   "id": "fusilli-pomodoro-sharer-gluten-free",
-   "name": "Fusilli Pomodoro Sharer Gluten Free",
-   "category": "Family sharers",
-   "serving": "Serves 3-4 people",
-   "nutrients": {
-    "calories": 1705,
-    "protein": 33,
-    "carbs": 356,
-    "fat": 13,
-    "saturatedFat": 2.9,
-    "sugar": 19,
-    "fiber": 16,
-    "salt": 3.4
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery"
-    ],
-    "mayContain": [
-     "eggs",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "fusilli-pesto-sharer-gluten-free",
-   "name": "Fusilli Pesto Sharer Gluten Free",
-   "category": "Family sharers",
-   "serving": "Serves 3-4 people",
-   "nutrients": {
-    "calories": 2435,
-    "protein": 41,
-    "carbs": 340,
-    "fat": 99,
-    "saturatedFat": 14,
-    "sugar": 5,
-    "fiber": 11,
-    "salt": 5.5
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "fusilli-carbonara-sharer-gluten-free",
-   "name": "Fusilli Carbonara Sharer Gluten Free",
-   "category": "Family sharers",
-   "serving": "Serves 3-4 people",
-   "nutrients": {
-    "calories": 3535,
-    "protein": 110,
-    "carbs": 362,
-    "fat": 181,
-    "saturatedFat": 97,
-    "sugar": 23,
-    "fiber": 10,
-    "salt": 11.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "fusilli-bolognese-sharer-gluten-free",
-   "name": "Fusilli Bolognese Sharer Gluten Free",
-   "category": "Family sharers",
-   "serving": "Serves 3-4 people",
-   "nutrients": {
-    "calories": 2290,
-    "protein": 66,
-    "carbs": 388,
-    "fat": 49,
-    "saturatedFat": 18,
-    "sugar": 17,
-    "fiber": 16,
-    "salt": 6.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk"
-    ],
-    "mayContain": [
-     "eggs",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "vegan-rigatoni-bolognese-sharer",
-   "name": "Vegan Rigatoni Bolognese Sharer",
-   "category": "Family sharers",
-   "serving": "Serves 3-4 people",
-   "nutrients": {
-    "calories": 1635,
-    "protein": 67,
-    "carbs": 277,
-    "fat": 24,
-    "saturatedFat": 3.2,
-    "sugar": 30,
-    "fiber": 22,
-    "salt": 4.6
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "mustard"
-    ]
-   }
-  },
-  {
-   "id": "rigatoni-pomodoro-sharer",
-   "name": "Rigatoni Pomodoro Sharer",
-   "category": "Family sharers",
-   "serving": "Serves 3-4 people",
-   "nutrients": {
-    "calories": 1420,
-    "protein": 51,
-    "carbs": 268,
-    "fat": 13,
-    "saturatedFat": 1.9,
-    "sugar": 26,
-    "fiber": 16,
-    "salt": 3.4
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten"
-    ],
-    "mayContain": [
-     "mustard",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "rigatoni-pesto-sharer",
-   "name": "Rigatoni Pesto Sharer",
-   "category": "Family sharers",
-   "serving": "Serves 3-4 people",
-   "nutrients": {
-    "calories": 2205,
-    "protein": 59,
-    "carbs": 255,
-    "fat": 103,
-    "saturatedFat": 14,
-    "sugar": 11,
-    "fiber": 11,
-    "salt": 5.7
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "mustard",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "rigatoni-bolognese-sharer",
-   "name": "Rigatoni Bolognese Sharer",
-   "category": "Family sharers",
-   "serving": "Serves 3-4 people",
-   "nutrients": {
-    "calories": 1855,
-    "protein": 80,
-    "carbs": 273,
-    "fat": 46,
-    "saturatedFat": 16,
-    "sugar": 22,
-    "fiber": 15,
-    "salt": 6
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [
-     "mustard",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "rigatoni-carbonara-sharer",
-   "name": "Rigatoni Carbonara Sharer",
-   "category": "Family sharers",
-   "serving": "Serves 3-4 people",
-   "nutrients": {
-    "calories": 3290,
-    "protein": 130,
-    "carbs": 271,
-    "fat": 185,
-    "saturatedFat": 99,
-    "sugar": 30,
-    "fiber": 9.7,
-    "salt": 11.5
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "mustard",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "sharing-sundae",
-   "name": "Sharing Sundae",
-   "category": "Family sharers",
-   "serving": "",
-   "nutrients": {
-    "calories": 840,
-    "protein": 16,
-    "carbs": 120,
-    "fat": 33,
-    "saturatedFat": 22,
-    "sugar": 89,
-    "fiber": 0.5,
-    "salt": 0.49
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "nuts",
-     "peanuts",
-     "sesame",
-     "sulphites"
     ]
    }
   },
@@ -9460,6 +9341,172 @@
      "milk"
     ],
     "mayContain": []
+   }
+  },
+  {
+   "id": "christmas-pizza-kids",
+   "name": "Christmas Pizza Kids",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 525,
+    "protein": 30,
+    "carbs": 65,
+    "fat": 15,
+    "saturatedFat": 8,
+    "sugar": 5.1,
+    "fiber": 4.7,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "pigs-in-blankets-with-mash-and-peas",
+   "name": "Pigs in Blankets with Mash and Peas",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 355,
+    "protein": 14,
+    "carbs": 36,
+    "fat": 16,
+    "saturatedFat": 6.1,
+    "sugar": 3.3,
+    "fiber": 5.2,
+    "salt": 2.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "pigs-in-blankets-with-mash-and-peas-big-kids",
+   "name": "Pigs in Blankets with Mash and Peas Big Kids",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 480,
+    "protein": 20,
+    "carbs": 47,
+    "fat": 23,
+    "saturatedFat": 8.9,
+    "sugar": 4,
+    "fiber": 6.3,
+    "salt": 2.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "christmas-pizza-with-salad-big-kids",
+   "name": "Christmas Pizza with Salad Big Kids",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 555,
+    "protein": 32,
+    "carbs": 67,
+    "fat": 17,
+    "saturatedFat": 8.2,
+    "sugar": 7,
+    "fiber": 6.2,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "christmas-pizza-with-fries-big-kids",
+   "name": "Christmas Pizza with Fries Big Kids",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 750,
+    "protein": 33,
+    "carbs": 93,
+    "fat": 26,
+    "saturatedFat": 8.9,
+    "sugar": 5.6,
+    "fiber": 7.3,
+    "salt": 3.4
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ]
    }
   },
   {

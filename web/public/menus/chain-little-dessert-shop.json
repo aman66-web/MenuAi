@@ -11,16 +11,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Little Dessert Shop store menu pages with calories and allergens page (accessed 2026-10-08, no date shown)",
+  "title": "Little Dessert Shop store menu pages with calories and allergens page (accessed 2026-11-17, no date shown)",
   "url": "https://www.littledessertshop.co.uk/menu/1/city-centre-wolverhampton",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "Calories for the dish before any choices: flavours, sauces and extras add calories and can add allergens. Listed only if all 18 stores read print the same figure: Wolverhampton, Birmingham Bullring, Altrincham, Chorlton, Balham, Battersea, Southall, Croydon, Glasgow East, Cardiff, Sandown, Exeter, Nottingham, Leicester, Stockport, Wrexham, Doncaster, Huddersfield.",
+ "note": "Calories for the dish before any choices: flavours, sauces and extras add calories and can add allergens. Listed only if all 17 stores read print the same figure: Wolverhampton, Birmingham Bullring, Altrincham, Chorlton, Balham, Battersea, Southall, Croydon, Glasgow East, Cardiff, Sandown, Exeter, Nottingham, Leicester, Stockport, Wrexham, Huddersfield.",
  "allergenGuide": {
-  "title": "Little Dessert Shop allergens page (accessed 2026-10-08, no date shown)",
+  "title": "Little Dessert Shop allergens page (accessed 2026-11-17, no date shown)",
   "url": "https://www.littledessertshop.co.uk/allergens",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },

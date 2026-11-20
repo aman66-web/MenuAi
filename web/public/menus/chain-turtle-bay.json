@@ -7,16 +7,16 @@
  "aliases": [],
  "sample": false,
  "source": {
-  "title": "Turtle Bay Bath menu, dish pop-ups (read 2026-10-10, no date shown)",
+  "title": "Turtle Bay Bath menu, the menu data its page loads (read 2026-11-17, no date shown)",
   "url": "https://turtlebay.co.uk/menu/bath",
-  "checkedOn": "2026-10-10"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "Calories only. The chain's menu feed shows the same dishes, calories and allergens in all 43 restaurants. Dishes with no calories shown, drinks and alcohol are left out. Read from the chain's own pages on 2026-10-10 (43 UK sites: turtlebay.co.uk/menu lists 43 restaurants (Bath to Winchester)).",
+ "note": "Calories only. The chain's menu feed shows the same dishes, calories and allergens at the 4 restaurants read (Bath, Blackpool, Camden, Winchester). Dishes with no calories shown, drinks and alcohol are left out. Read from the chain's own pages on 2026-11-17 (41 UK sites: turtlebay.co.uk/menu/bath lists 41 restaurants (Bath to Winchester)).",
  "allergenGuide": {
   "title": "Turtle Bay allergen guide (PDF)",
   "url": "https://turtlebay.co.uk/assets/site/allergen-info.pdf",
-  "checkedOn": "2026-10-10",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": false,
   "complete": false
  },
@@ -361,21 +361,6 @@
    "image": "turtle-bay/afa9715cc4b7.webp"
   },
   {
-   "id": "rum-bbq-ribs",
-   "name": "Rum BBQ Ribs",
-   "category": "Main Plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 891
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "turtle-bay/45c7a1376aa9.webp"
-  },
-  {
    "id": "curry-goat",
    "name": "Curry Goat",
    "category": "Main Plates",
@@ -548,6 +533,20 @@
    "components": [],
    "modifiers": [],
    "image": "turtle-bay/6225f97946bf.webp"
+  },
+  {
+   "id": "buddha-bowl-plain",
+   "name": "Buddha Bowl - Plain",
+   "category": "Easy Eating",
+   "serving": "",
+   "nutrients": {
+    "calories": 924
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
   },
   {
    "id": "rice-and-peas",

@@ -11,15 +11,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Nando's UK menu and nutrition information (nandos.co.uk/food/menu, published 7 October 2026)",
+  "title": "Nando's UK menu and nutrition information (nandos.co.uk/food/menu, published 17 November 2026)",
   "url": "https://www.nandos.co.uk/food/menu",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Sharing platters aren't included: Nando's publishes their values for the chicken only. Add items to build a total. Allergens are Nando's list for each dish on its own (no spices, sides or extras); it lists none for spice levels, which are left out.",
  "allergenGuide": {
-  "title": "Nando's UK menu: product information, Allergens tab (nandos.co.uk/food/menu, published 7 October 2026)",
+  "title": "Nando's UK menu: product information, Allergens tab (nandos.co.uk/food/menu, published 17 November 2026)",
   "url": "https://www.nandos.co.uk/food/menu",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -106,36 +106,6 @@
      "barley",
      "spelt"
     ]
-   }
-  },
-  {
-   "id": "hallooooooomi-sticks",
-   "name": "HalloOoOoOomi Sticks",
-   "category": "Starters",
-   "serving": "Serves 2",
-   "nutrients": {
-    "calories": 466,
-    "protein": 26.8,
-    "carbs": 8.3,
-    "fat": 36.8,
-    "saturatedFat": 17.1,
-    "sugar": 6.1,
-    "fiber": 1.3,
-    "salt": 3.3
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "nandos/0661abee17eb.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
    }
   },
   {
@@ -508,84 +478,6 @@
    "components": [],
    "modifiers": [],
    "image": "nandos/c58af623ea3b.webp",
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "5-phantom-wings",
-   "name": "5 Phantom Wings",
-   "category": "PERi-PERi Chicken",
-   "serving": "",
-   "nutrients": {
-    "calories": 497,
-    "protein": 55.1,
-    "carbs": 9.7,
-    "fat": 26.3,
-    "saturatedFat": 5.3,
-    "sugar": 6.4,
-    "fiber": 2.9,
-    "salt": 5.9
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "nandos/59e392c1c9e2.webp",
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "10-phantom-wings",
-   "name": "10 Phantom Wings",
-   "category": "PERi-PERi Chicken",
-   "serving": "Serves 2-3",
-   "nutrients": {
-    "calories": 959,
-    "protein": 109.1,
-    "carbs": 13.1,
-    "fat": 52,
-    "saturatedFat": 10.6,
-    "sugar": 8,
-    "fiber": 5.2,
-    "salt": 10.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "nandos/7163d052c0f3.webp",
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "3-phantom-wings",
-   "name": "3 Phantom Wings",
-   "category": "PERi-PERi Chicken",
-   "serving": "",
-   "nutrients": {
-    "calories": 295,
-    "protein": 33,
-    "carbs": 5.1,
-    "fat": 15.7,
-    "saturatedFat": 3.2,
-    "sugar": 3.3,
-    "fiber": 1.7,
-    "salt": 3.6
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "nandos/b2dd5f573533.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -1817,34 +1709,6 @@
    "components": [],
    "modifiers": [],
    "image": "nandos/d4517e6bd700.webp",
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "tombstone-chips",
-   "name": "Tombstone Chips",
-   "category": "Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 498,
-    "protein": 4.8,
-    "carbs": 71.6,
-    "fat": 23.1,
-    "saturatedFat": 2.2,
-    "sugar": 0.3,
-    "fiber": 7.9,
-    "salt": 3
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "nandos/acf3f229ec71.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -3607,6 +3471,44 @@
    }
   },
   {
+   "id": "ultimate-chocolate-brownie",
+   "name": "Ultimate Chocolate Brownie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 635,
+    "protein": 8.3,
+    "carbs": 78,
+    "fat": 32.1,
+    "saturatedFat": 20,
+    "sugar": 63,
+    "fiber": 1.8,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "nandos/539eec82fcd5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "toffee-apple-pastel-de-nata",
    "name": "Toffee Apple Pastel de Nata",
    "category": "Desserts",
@@ -3676,44 +3578,6 @@
     "mayContain": [
      "nuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "ultimate-chocolate-brownie",
-   "name": "Ultimate Chocolate Brownie",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 635,
-    "protein": 8.3,
-    "carbs": 78,
-    "fat": 32.1,
-    "saturatedFat": 20,
-    "sugar": 63,
-    "fiber": 1.8,
-    "salt": 0.3
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "nandos/539eec82fcd5.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "nuts"
     ],
     "cereals": [
      "wheat"

@@ -10,15 +10,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Muffin Break UK (England, Scotland & Wales) Allergens and Nutrition Information, data file allergens_MBUK.csv (file dated 2 October 2026)",
+  "title": "Muffin Break UK (England, Scotland & Wales) Allergens and Nutrition Information, data file allergens_MBUK.csv (file dated 13 November 2026)",
   "url": "https://allergens-muffinbreak.co.uk/allergens/mbuk",
-  "checkedOn": "2026-10-09"
+  "checkedOn": "2026-11-17"
  },
  "note": "Figures are per serving from Muffin Break's own England, Scotland & Wales data file. Drinks, tea, espresso and syrups where the file leaves protein, carbs or fat blank are not published, nor are its ingredient-only rows. Salt is left out: the chain's website and its file disagree on it.",
  "allergenGuide": {
-  "title": "Muffin Break Allergens and Nutrition Information (England, Scotland & Wales), data file allergens_MBUK.csv (2 October 2026)",
+  "title": "Muffin Break Allergens and Nutrition Information (England, Scotland & Wales), data file allergens_MBUK.csv (13 November 2026)",
   "url": "https://allergens-muffinbreak.co.uk/allergens/mbuk",
-  "checkedOn": "2026-10-09",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -33,7 +33,7 @@
   "Cake",
   "Sweet Products",
   "Desserts",
-  "Seasonal",
+  "Muffins Seasonal",
   "Coffee",
   "Hot Drinks",
   "Cold Drinks Made",
@@ -48,14 +48,14 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 640,
+    "calories": 642,
     "protein": 31,
     "carbs": 58,
     "fat": 31,
     "saturatedFat": 11,
     "sugar": 5.3,
     "fiber": 2.9,
-    "energyKj": 2681,
+    "energyKj": 2686,
     "weight": 219
    },
    "tags": [
@@ -88,14 +88,14 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 812,
+    "calories": 813,
     "protein": 46,
     "carbs": 65,
     "fat": 40,
     "saturatedFat": 17,
     "sugar": 6.8,
     "fiber": 3.8,
-    "energyKj": 3398,
+    "energyKj": 3403,
     "weight": 299
    },
    "tags": [
@@ -170,14 +170,14 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 561,
+    "calories": 562,
     "protein": 25,
     "carbs": 71,
     "fat": 19,
     "saturatedFat": 6.9,
     "sugar": 16,
     "fiber": 3.7,
-    "energyKj": 2358,
+    "energyKj": 2363,
     "weight": 252
    },
    "tags": [],
@@ -209,14 +209,14 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 499,
+    "calories": 501,
     "protein": 27,
     "carbs": 59,
-    "fat": 16,
+    "fat": 17,
     "saturatedFat": 3.9,
     "sugar": 5.8,
     "fiber": 4.1,
-    "energyKj": 2100,
+    "energyKj": 2105,
     "weight": 242
    },
    "tags": [
@@ -286,14 +286,14 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 732,
+    "calories": 733,
     "protein": 38,
     "carbs": 59,
     "fat": 38,
     "saturatedFat": 16,
     "sugar": 5.6,
     "fiber": 2.9,
-    "energyKj": 3061,
+    "energyKj": 3066,
     "weight": 249
    },
    "tags": [
@@ -321,8 +321,8 @@
    }
   },
   {
-   "id": "bagel-smoked-salmon",
-   "name": "Bagel Smoked Salmon",
+   "id": "bagel-smoked-salmon-and-cream-cheese",
+   "name": "Bagel Smoked Salmon & Cream Cheese",
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
@@ -402,14 +402,14 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 599,
+    "calories": 600,
     "protein": 28,
     "carbs": 59,
     "fat": 28,
     "saturatedFat": 9.8,
     "sugar": 5.3,
     "fiber": 3,
-    "energyKj": 2508,
+    "energyKj": 2513,
     "weight": 219
    },
    "tags": [],
@@ -442,14 +442,14 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 507,
+    "calories": 508,
     "protein": 28,
     "carbs": 41,
     "fat": 25,
     "saturatedFat": 7.4,
     "sugar": 3.5,
     "fiber": 2.8,
-    "energyKj": 2122,
+    "energyKj": 2127,
     "weight": 182
    },
    "tags": [
@@ -563,14 +563,14 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 616,
+    "calories": 617,
     "protein": 22,
     "carbs": 43,
     "fat": 39,
     "saturatedFat": 11,
     "sugar": 3.7,
     "fiber": 3,
-    "energyKj": 2568,
+    "energyKj": 2573,
     "weight": 182
    },
    "tags": [
@@ -622,14 +622,11 @@
    "allergens": {
     "contains": [
      "gluten",
-     "eggs",
      "milk"
     ],
     "mayContain": [
+     "eggs",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -639,14 +636,14 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 512,
+    "calories": 511,
     "protein": 31,
-    "carbs": 8.5,
+    "carbs": 8.2,
     "fat": 39,
     "saturatedFat": 16,
-    "sugar": 1.6,
+    "sugar": 1.3,
     "fiber": 1.2,
-    "energyKj": 2128,
+    "energyKj": 2123,
     "weight": 254
    },
    "tags": [
@@ -674,12 +671,12 @@
    "nutrients": {
     "calories": 419,
     "protein": 26,
-    "carbs": 3,
+    "carbs": 3.1,
     "fat": 33,
     "saturatedFat": 16,
     "sugar": 1.2,
     "fiber": 0.6,
-    "energyKj": 1738,
+    "energyKj": 1739,
     "weight": 185
    },
    "tags": [
@@ -801,14 +798,14 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 473,
+    "calories": 472,
     "protein": 32,
-    "carbs": 8.8,
+    "carbs": 8.5,
     "fat": 34,
     "saturatedFat": 14,
-    "sugar": 1.6,
+    "sugar": 1.3,
     "fiber": 1.3,
-    "energyKj": 1966,
+    "energyKj": 1961,
     "weight": 254
    },
    "tags": [],
@@ -842,7 +839,7 @@
     "saturatedFat": 15,
     "sugar": 1.3,
     "fiber": 0.7,
-    "energyKj": 1627,
+    "energyKj": 1628,
     "weight": 190
    },
    "tags": [],
@@ -905,14 +902,14 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 338,
-    "protein": 6.7,
+    "calories": 337,
+    "protein": 6.8,
     "carbs": 45,
     "fat": 14,
     "saturatedFat": 4.4,
     "sugar": 23,
-    "fiber": 1.4,
-    "energyKj": 1418,
+    "fiber": 1.7,
+    "energyKj": 1413,
     "weight": 100
    },
    "tags": [],
@@ -928,7 +925,6 @@
      "nuts"
     ],
     "mayContain": [
-     "peanuts",
      "soya"
     ],
     "cereals": [
@@ -942,14 +938,14 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 465,
-    "protein": 7.8,
+    "calories": 466,
+    "protein": 8.1,
     "carbs": 92,
-    "fat": 6.6,
+    "fat": 6.5,
     "saturatedFat": 0.7,
     "sugar": 54,
-    "fiber": 3.9,
-    "energyKj": 1966,
+    "fiber": 4.1,
+    "energyKj": 1969,
     "weight": 150
    },
    "tags": [
@@ -965,7 +961,6 @@
      "nuts"
     ],
     "mayContain": [
-     "peanuts",
      "soya"
     ],
     "cereals": [
@@ -979,14 +974,14 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 369,
+    "calories": 368,
     "protein": 5.5,
     "carbs": 74,
-    "fat": 5.2,
+    "fat": 4.9,
     "saturatedFat": 0.6,
     "sugar": 49,
-    "fiber": 2.6,
-    "energyKj": 1562,
+    "fiber": 2.8,
+    "energyKj": 1558,
     "weight": 120
    },
    "tags": [
@@ -1003,7 +998,6 @@
      "sulphites"
     ],
     "mayContain": [
-     "peanuts",
      "soya"
     ],
     "cereals": [
@@ -1048,14 +1042,14 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 171,
+    "calories": 167,
     "protein": 4.5,
-    "carbs": 22,
-    "fat": 6.8,
-    "saturatedFat": 3.8,
-    "sugar": 1.9,
-    "fiber": 1.6,
-    "energyKj": 717,
+    "carbs": 23,
+    "fat": 6.3,
+    "saturatedFat": 3.6,
+    "sugar": 1.1,
+    "fiber": 0.9,
+    "energyKj": 700,
     "weight": 57
    },
    "tags": [],
@@ -1158,14 +1152,14 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 462,
+    "calories": 463,
     "protein": 25,
     "carbs": 36,
     "fat": 24,
     "saturatedFat": 6.3,
     "sugar": 2.2,
     "fiber": 2.1,
-    "energyKj": 1933,
+    "energyKj": 1938,
     "weight": 140
    },
    "tags": [
@@ -1198,14 +1192,14 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 504,
+    "calories": 505,
     "protein": 21,
     "carbs": 45,
     "fat": 26,
     "saturatedFat": 7.8,
     "sugar": 2.7,
     "fiber": 2.1,
-    "energyKj": 2106,
+    "energyKj": 2111,
     "weight": 169
    },
    "tags": [
@@ -1239,14 +1233,14 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 398,
+    "calories": 399,
     "protein": 20,
     "carbs": 36,
     "fat": 19,
     "saturatedFat": 4.4,
     "sugar": 2.2,
     "fiber": 2.3,
-    "energyKj": 1668,
+    "energyKj": 1673,
     "weight": 140
    },
    "tags": [],
@@ -1363,7 +1357,7 @@
     "saturatedFat": 8.7,
     "sugar": 8.4,
     "fiber": 2.1,
-    "energyKj": 1824,
+    "energyKj": 1825,
     "weight": 125
    },
    "tags": [],
@@ -1572,14 +1566,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 696,
+    "calories": 698,
     "protein": 41,
     "carbs": 53,
     "fat": 35,
     "saturatedFat": 8.7,
     "sugar": 2,
     "fiber": 2.9,
-    "energyKj": 2912,
+    "energyKj": 2922,
     "weight": 267
    },
    "tags": [
@@ -1602,6 +1596,74 @@
      "wheat",
      "rye",
      "barley"
+    ]
+   }
+  },
+  {
+   "id": "ciabatta-brie-rocket-and-cranberry-xmas",
+   "name": "Ciabatta - Brie Rocket & Cranberry (Xmas)",
+   "category": "Breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 697,
+    "protein": 27,
+    "carbs": 74,
+    "fat": 32,
+    "saturatedFat": 21,
+    "sugar": 20,
+    "fiber": 3.3,
+    "energyKj": 2919,
+    "weight": 251
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "ciabatta-brie-sweetcure-bacon-and-cranberry-xmas",
+   "name": "Ciabatta - Brie Sweetcure Bacon & Cranberry (Xmas)",
+   "category": "Breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 775,
+    "protein": 32,
+    "carbs": 74,
+    "fat": 38,
+    "saturatedFat": 24,
+    "sugar": 21,
+    "fiber": 3.2,
+    "energyKj": 3245,
+    "weight": 261
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "soya"
     ]
    }
   },
@@ -1727,6 +1789,78 @@
    }
   },
   {
+   "id": "ciabatta-christmas-club-xmas",
+   "name": "Ciabatta - Christmas Club (Xmas)",
+   "category": "Breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 694,
+    "protein": 29,
+    "carbs": 81,
+    "fat": 28,
+    "saturatedFat": 7.3,
+    "sugar": 16,
+    "fiber": 4.7,
+    "energyKj": 2915,
+    "weight": 296
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "ciabatta-festive-club-xmas-halal-ingredients",
+   "name": "Ciabatta - Festive Club (Xmas) (Halal ingredients)",
+   "category": "Breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 691,
+    "protein": 26,
+    "carbs": 80,
+    "fat": 28,
+    "saturatedFat": 7.5,
+    "sugar": 15,
+    "fiber": 4.7,
+    "energyKj": 2897,
+    "weight": 301
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
+  },
+  {
    "id": "ciabatta-goats-cheese-and-roasted-pepper",
    "name": "Ciabatta - Goats Cheese & Roasted Pepper",
    "category": "Breads",
@@ -1754,6 +1888,45 @@
     ],
     "mayContain": [
      "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "ciabatta-italian-christmas-xmas",
+   "name": "Ciabatta - Italian Christmas (Xmas)",
+   "category": "Breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 754,
+    "protein": 29,
+    "carbs": 64,
+    "fat": 42,
+    "saturatedFat": 15,
+    "sugar": 9.8,
+    "fiber": 4.2,
+    "energyKj": 3152,
+    "weight": 241
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
      "soya"
     ],
     "cereals": [
@@ -1883,14 +2056,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 457,
+    "calories": 447,
     "protein": 25,
     "carbs": 57,
-    "fat": 13,
+    "fat": 12,
     "saturatedFat": 4.1,
-    "sugar": 3.6,
-    "fiber": 3.7,
-    "energyKj": 1924,
+    "sugar": 3.8,
+    "fiber": 3.3,
+    "energyKj": 1885,
     "weight": 191
    },
    "tags": [],
@@ -1958,19 +2131,54 @@
    }
   },
   {
+   "id": "ciabatta-turkey-bacon-and-cranberry-halal-ingredients",
+   "name": "Ciabatta - Turkey Bacon & Cranberry (Halal ingredients)",
+   "category": "Breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 737,
+    "protein": 31,
+    "carbs": 74,
+    "fat": 35,
+    "saturatedFat": 22,
+    "sugar": 20,
+    "fiber": 3.2,
+    "energyKj": 3089,
+    "weight": 264
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
    "id": "ciabatta-turkey-bacon-and-egg-halal-ingredients",
    "name": "Ciabatta - Turkey Bacon & Egg (Halal ingredients)",
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 610,
+    "calories": 612,
     "protein": 34,
     "carbs": 54,
     "fat": 28,
     "saturatedFat": 6.1,
     "sugar": 2,
     "fiber": 3.1,
-    "energyKj": 2554,
+    "energyKj": 2564,
     "weight": 266
    },
    "tags": [],
@@ -1993,6 +2201,42 @@
      "wheat",
      "rye",
      "barley"
+    ]
+   }
+  },
+  {
+   "id": "flatbread-spanish-pigs-under-blankets-xmas",
+   "name": "Flatbread - Spanish Pigs Under Blankets (Xmas)",
+   "category": "Breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 834,
+    "protein": 33,
+    "carbs": 66,
+    "fat": 48,
+    "saturatedFat": 18,
+    "sugar": 12,
+    "fiber": 3.6,
+    "energyKj": 3482,
+    "weight": 257
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
     ]
    }
   },
@@ -2042,14 +2286,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 799,
+    "calories": 800,
     "protein": 33,
     "carbs": 83,
     "fat": 36,
     "saturatedFat": 20,
     "sugar": 28,
     "fiber": 4,
-    "energyKj": 3348,
+    "energyKj": 3351,
     "weight": 271
    },
    "tags": [],
@@ -2117,13 +2361,13 @@
    "serving": "",
    "nutrients": {
     "calories": 509,
-    "protein": 24,
+    "protein": 25,
     "carbs": 55,
     "fat": 20,
     "saturatedFat": 1.9,
     "sugar": 2.4,
-    "fiber": 4.2,
-    "energyKj": 2136,
+    "fiber": 4.3,
+    "energyKj": 2137,
     "weight": 211
    },
    "tags": [],
@@ -2140,7 +2384,6 @@
      "sulphites"
     ],
     "mayContain": [
-     "peanuts",
      "soya"
     ],
     "cereals": [
@@ -2155,14 +2398,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 527,
+    "calories": 513,
     "protein": 27,
-    "carbs": 57,
-    "fat": 20,
-    "saturatedFat": 4.6,
-    "sugar": 2.3,
-    "fiber": 6.1,
-    "energyKj": 2211,
+    "carbs": 55,
+    "fat": 19,
+    "saturatedFat": 4.9,
+    "sugar": 2.9,
+    "fiber": 5.9,
+    "energyKj": 2153,
     "weight": 241
    },
    "tags": [
@@ -2306,14 +2549,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 471,
+    "calories": 457,
     "protein": 22,
-    "carbs": 58,
+    "carbs": 56,
     "fat": 15,
-    "saturatedFat": 2.9,
-    "sugar": 2.9,
-    "fiber": 6.4,
-    "energyKj": 1979,
+    "saturatedFat": 3.2,
+    "sugar": 3.5,
+    "fiber": 6.3,
+    "energyKj": 1921,
     "weight": 241
    },
    "tags": [],
@@ -2530,7 +2773,7 @@
     "saturatedFat": 7.7,
     "sugar": 2.6,
     "fiber": 3.3,
-    "energyKj": 2420,
+    "energyKj": 2421,
     "weight": 239
    },
    "tags": [],
@@ -2585,19 +2828,19 @@
    }
   },
   {
-   "id": "sandwich-tuna-mayo-cucumber-br-mix",
-   "name": "Sandwich - Tuna Mayo Cucumber (BR Mix)",
+   "id": "sandwich-tuna-mayo-cucumber",
+   "name": "Sandwich - Tuna Mayo Cucumber",
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 391,
+    "calories": 378,
     "protein": 24,
-    "carbs": 41,
-    "fat": 13,
-    "saturatedFat": 1.7,
-    "sugar": 4.7,
-    "fiber": 4.7,
-    "energyKj": 1641,
+    "carbs": 42,
+    "fat": 12,
+    "saturatedFat": 1.6,
+    "sugar": 4.9,
+    "fiber": 4.2,
+    "energyKj": 1588,
     "weight": 218
    },
    "tags": [],
@@ -2633,7 +2876,7 @@
     "saturatedFat": 8.5,
     "sugar": 1.3,
     "fiber": 0.8,
-    "energyKj": 798,
+    "energyKj": 799,
     "weight": 70
    },
    "tags": [],
@@ -2658,12 +2901,12 @@
    "nutrients": {
     "calories": 162,
     "protein": 9.3,
-    "carbs": 3.8,
+    "carbs": 3.9,
     "fat": 12,
     "saturatedFat": 7.5,
     "sugar": 1.3,
     "fiber": 0,
-    "energyKj": 672,
+    "energyKj": 673,
     "weight": 70
    },
    "tags": [],
@@ -2716,14 +2959,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 464,
+    "calories": 455,
     "protein": 21,
-    "carbs": 46,
-    "fat": 21,
-    "saturatedFat": 5.1,
-    "sugar": 5.7,
-    "fiber": 3.9,
-    "energyKj": 1944,
+    "carbs": 47,
+    "fat": 19,
+    "saturatedFat": 4.8,
+    "sugar": 4.1,
+    "fiber": 2.5,
+    "energyKj": 1909,
     "weight": 213
    },
    "tags": [],
@@ -2778,14 +3021,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 581,
+    "calories": 572,
     "protein": 22,
-    "carbs": 55,
-    "fat": 29,
+    "carbs": 56,
+    "fat": 28,
     "saturatedFat": 18,
-    "sugar": 15,
-    "fiber": 3.4,
-    "energyKj": 2430,
+    "sugar": 13,
+    "fiber": 2,
+    "energyKj": 2395,
     "weight": 202
    },
    "tags": [],
@@ -2809,14 +3052,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 565,
+    "calories": 566,
     "protein": 26,
     "carbs": 50,
     "fat": 28,
     "saturatedFat": 15,
     "sugar": 14,
     "fiber": 3.4,
-    "energyKj": 2365,
+    "energyKj": 2367,
     "weight": 175
    },
    "tags": [],
@@ -2840,14 +3083,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 588,
+    "calories": 580,
     "protein": 27,
-    "carbs": 57,
-    "fat": 27,
-    "saturatedFat": 16,
-    "sugar": 15,
-    "fiber": 3.2,
-    "energyKj": 2462,
+    "carbs": 58,
+    "fat": 26,
+    "saturatedFat": 15,
+    "sugar": 14,
+    "fiber": 1.8,
+    "energyKj": 2430,
     "weight": 191
    },
    "tags": [],
@@ -2905,14 +3148,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 593,
+    "calories": 585,
     "protein": 26,
-    "carbs": 62,
-    "fat": 26,
+    "carbs": 63,
+    "fat": 25,
     "saturatedFat": 11,
-    "sugar": 16,
-    "fiber": 3.6,
-    "energyKj": 2488,
+    "sugar": 15,
+    "fiber": 2.2,
+    "energyKj": 2453,
     "weight": 226
    },
    "tags": [
@@ -2973,14 +3216,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 610,
+    "calories": 602,
     "protein": 36,
-    "carbs": 45,
-    "fat": 31,
-    "saturatedFat": 12,
-    "sugar": 4,
-    "fiber": 3.2,
-    "energyKj": 2554,
+    "carbs": 46,
+    "fat": 30,
+    "saturatedFat": 11,
+    "sugar": 2.4,
+    "fiber": 1.8,
+    "energyKj": 2519,
     "weight": 223
    },
    "tags": [
@@ -3007,14 +3250,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 509,
+    "calories": 502,
     "protein": 27,
-    "carbs": 46,
-    "fat": 23,
-    "saturatedFat": 6.7,
-    "sugar": 4.6,
-    "fiber": 3.6,
-    "energyKj": 2133,
+    "carbs": 47,
+    "fat": 22,
+    "saturatedFat": 7,
+    "sugar": 3,
+    "fiber": 2.2,
+    "energyKj": 2103,
     "weight": 216
    },
    "tags": [],
@@ -3077,14 +3320,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 547,
+    "calories": 538,
     "protein": 30,
-    "carbs": 46,
-    "fat": 26,
-    "saturatedFat": 9.8,
-    "sugar": 4.7,
-    "fiber": 3.6,
-    "energyKj": 2289,
+    "carbs": 47,
+    "fat": 25,
+    "saturatedFat": 9.5,
+    "sugar": 3.1,
+    "fiber": 2.2,
+    "energyKj": 2255,
     "weight": 223
    },
    "tags": [],
@@ -3142,14 +3385,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 521,
+    "calories": 512,
     "protein": 22,
-    "carbs": 66,
-    "fat": 18,
-    "saturatedFat": 10,
-    "sugar": 25,
-    "fiber": 3.7,
-    "energyKj": 2188,
+    "carbs": 67,
+    "fat": 17,
+    "saturatedFat": 9.9,
+    "sugar": 23,
+    "fiber": 2.3,
+    "energyKj": 2154,
     "weight": 202
    },
    "tags": [],
@@ -3205,14 +3448,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 490,
+    "calories": 481,
     "protein": 22,
-    "carbs": 50,
-    "fat": 22,
+    "carbs": 51,
+    "fat": 21,
     "saturatedFat": 12,
-    "sugar": 8.3,
-    "fiber": 3.3,
-    "energyKj": 2053,
+    "sugar": 6.7,
+    "fiber": 1.9,
+    "energyKj": 2018,
     "weight": 169
    },
    "tags": [],
@@ -3270,14 +3513,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 446,
+    "calories": 437,
     "protein": 25,
-    "carbs": 45,
-    "fat": 18,
-    "saturatedFat": 8.6,
-    "sugar": 3.8,
-    "fiber": 3.4,
-    "energyKj": 1871,
+    "carbs": 46,
+    "fat": 17,
+    "saturatedFat": 8.3,
+    "sugar": 2.2,
+    "fiber": 2,
+    "energyKj": 1836,
     "weight": 176
    },
    "tags": [
@@ -3334,14 +3577,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 486,
+    "calories": 477,
     "protein": 22,
-    "carbs": 46,
-    "fat": 23,
-    "saturatedFat": 13,
-    "sugar": 5.4,
-    "fiber": 3.7,
-    "energyKj": 2034,
+    "carbs": 47,
+    "fat": 22,
+    "saturatedFat": 12,
+    "sugar": 3.8,
+    "fiber": 2.3,
+    "energyKj": 1999,
     "weight": 206
    },
    "tags": [],
@@ -3396,14 +3639,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 496,
+    "calories": 487,
     "protein": 22,
-    "carbs": 48,
-    "fat": 23,
-    "saturatedFat": 13,
-    "sugar": 6.6,
-    "fiber": 3.9,
-    "energyKj": 2077,
+    "carbs": 49,
+    "fat": 22,
+    "saturatedFat": 12,
+    "sugar": 5,
+    "fiber": 2.5,
+    "energyKj": 2042,
     "weight": 206
    },
    "tags": [],
@@ -3461,14 +3704,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 442,
+    "calories": 434,
     "protein": 24,
-    "carbs": 44,
-    "fat": 18,
-    "saturatedFat": 9,
-    "sugar": 4,
-    "fiber": 3.2,
-    "energyKj": 1856,
+    "carbs": 45,
+    "fat": 17,
+    "saturatedFat": 8.7,
+    "sugar": 2.4,
+    "fiber": 1.8,
+    "energyKj": 1821,
     "weight": 176
    },
    "tags": [],
@@ -3495,14 +3738,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 516,
-    "protein": 21,
-    "carbs": 44,
-    "fat": 27,
-    "saturatedFat": 11,
-    "sugar": 6.4,
+    "calories": 524,
+    "protein": 20,
+    "carbs": 46,
+    "fat": 28,
+    "saturatedFat": 12,
+    "sugar": 6.7,
     "fiber": 4.1,
-    "energyKj": 2157,
+    "energyKj": 2188,
     "weight": 195
    },
    "tags": [],
@@ -3519,6 +3762,7 @@
     ],
     "mayContain": [
      "celery",
+     "crustaceans",
      "sesame",
      "soya",
      "sulphites"
@@ -3531,14 +3775,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 539,
-    "protein": 22,
-    "carbs": 51,
-    "fat": 27,
-    "saturatedFat": 11,
-    "sugar": 7.6,
-    "fiber": 3.9,
-    "energyKj": 2254,
+    "calories": 537,
+    "protein": 20,
+    "carbs": 54,
+    "fat": 26,
+    "saturatedFat": 12,
+    "sugar": 6.3,
+    "fiber": 2.5,
+    "energyKj": 2250,
     "weight": 211
    },
    "tags": [],
@@ -3555,6 +3799,7 @@
     ],
     "mayContain": [
      "celery",
+     "crustaceans",
      "sesame",
      "soya",
      "sulphites"
@@ -3567,14 +3812,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 427,
+    "calories": 418,
     "protein": 24,
-    "carbs": 40,
-    "fat": 18,
-    "saturatedFat": 5.2,
-    "sugar": 4.2,
-    "fiber": 4.1,
-    "energyKj": 1792,
+    "carbs": 41,
+    "fat": 17,
+    "saturatedFat": 5.1,
+    "sugar": 4.4,
+    "fiber": 3.8,
+    "energyKj": 1753,
     "weight": 180
    },
    "tags": [],
@@ -3603,14 +3848,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 450,
+    "calories": 432,
     "protein": 25,
-    "carbs": 47,
-    "fat": 17,
-    "saturatedFat": 5.6,
-    "sugar": 5.4,
-    "fiber": 4,
-    "energyKj": 1889,
+    "carbs": 49,
+    "fat": 15,
+    "saturatedFat": 5.3,
+    "sugar": 4,
+    "fiber": 2.2,
+    "energyKj": 1815,
     "weight": 196
    },
    "tags": [],
@@ -3673,14 +3918,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 400,
+    "calories": 391,
     "protein": 16,
-    "carbs": 47,
-    "fat": 15,
-    "saturatedFat": 3.2,
-    "sugar": 5.7,
-    "fiber": 4,
-    "energyKj": 1679,
+    "carbs": 48,
+    "fat": 14,
+    "saturatedFat": 2.9,
+    "sugar": 4.1,
+    "fiber": 2.6,
+    "energyKj": 1644,
     "weight": 213
    },
    "tags": [],
@@ -3855,14 +4100,14 @@
    "category": "Breads",
    "serving": "",
    "nutrients": {
-    "calories": 482,
+    "calories": 483,
     "protein": 23,
     "carbs": 53,
     "fat": 19,
     "saturatedFat": 5.7,
     "sugar": 8,
     "fiber": 2.8,
-    "energyKj": 2023,
+    "energyKj": 2029,
     "weight": 206
    },
    "tags": [],
@@ -4136,6 +4381,225 @@
    }
   },
   {
+   "id": "mac-and-cheese-chorizo-and-pancetta-xmas",
+   "name": "Mac & Cheese - Chorizo & Pancetta (Xmas)",
+   "category": "Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 1496,
+    "protein": 77,
+    "carbs": 90,
+    "fat": 91,
+    "saturatedFat": 44,
+    "sugar": 8.1,
+    "fiber": 4.3,
+    "energyKj": 6241,
+    "weight": 602
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mac-and-cheese-christmas-medley-xmas",
+   "name": "Mac & Cheese - Christmas Medley (Xmas)",
+   "category": "Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 1345,
+    "protein": 44,
+    "carbs": 123,
+    "fat": 74,
+    "saturatedFat": 34,
+    "sugar": 38,
+    "fiber": 6.5,
+    "energyKj": 5622,
+    "weight": 594
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mac-and-cheese-festive-medley-xmas-halal-ingredients",
+   "name": "Mac & Cheese - Festive Medley (Xmas) (Halal ingredients)",
+   "category": "Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 1250,
+    "protein": 48,
+    "carbs": 122,
+    "fat": 62,
+    "saturatedFat": 29,
+    "sugar": 38,
+    "fiber": 6.7,
+    "energyKj": 5233,
+    "weight": 600
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "mac-and-cheese-hot-honey-chicken-xmas",
+   "name": "Mac & Cheese - Hot Honey Chicken (Xmas)",
+   "category": "Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 967,
+    "protein": 71,
+    "carbs": 97,
+    "fat": 32,
+    "saturatedFat": 18,
+    "sugar": 24,
+    "fiber": 5.2,
+    "energyKj": 4067,
+    "weight": 552
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "pocket-pie-beef-bourguignon-xmas",
+   "name": "Pocket Pie - Beef Bourguignon (Xmas)",
+   "category": "Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 476,
+    "protein": 19,
+    "carbs": 37,
+    "fat": 28,
+    "saturatedFat": 13,
+    "sugar": 3.8,
+    "fiber": 2.6,
+    "energyKj": 1989,
+    "weight": 177
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pocket-pie-ham-hock-and-turkey-xmas",
+   "name": "Pocket Pie - Ham Hock & Turkey (Xmas)",
+   "category": "Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 298,
+    "protein": 16,
+    "carbs": 25,
+    "fat": 15,
+    "saturatedFat": 7,
+    "sugar": 1.4,
+    "fiber": 1.2,
+    "energyKj": 1249,
+    "weight": 149
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "pocket-pie-brie-and-caramelised-onion",
    "name": "Pocket Pie Brie & Caramelised Onion",
    "category": "Savoury",
@@ -4219,7 +4683,7 @@
     "saturatedFat": 14,
     "sugar": 21,
     "fiber": 5.3,
-    "energyKj": 2451,
+    "energyKj": 2452,
     "weight": 252
    },
    "tags": [],
@@ -4274,6 +4738,42 @@
     ],
     "cereals": [
      "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pocket-pie-chicken-fajita",
+   "name": "Pocket Pie Chicken Fajita",
+   "category": "Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 467,
+    "protein": 19,
+    "carbs": 41,
+    "fat": 24,
+    "saturatedFat": 12,
+    "sugar": 8.1,
+    "fiber": 3.2,
+    "energyKj": 1952,
+    "weight": 182
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "mustard",
+     "soya",
+     "sulphites"
     ]
    }
   },
@@ -4401,7 +4901,7 @@
     "saturatedFat": 18,
     "sugar": 19,
     "fiber": 2.2,
-    "energyKj": 2422,
+    "energyKj": 2423,
     "weight": 236
    },
    "tags": [],
@@ -4503,14 +5003,14 @@
    "category": "Savoury",
    "serving": "",
    "nutrients": {
-    "calories": 508,
+    "calories": 509,
     "protein": 28,
     "carbs": 30,
     "fat": 31,
     "saturatedFat": 15,
     "sugar": 9.5,
     "fiber": 1.7,
-    "energyKj": 2122,
+    "energyKj": 2123,
     "weight": 214
    },
    "tags": [
@@ -4655,15 +5155,15 @@
    "category": "Savoury",
    "serving": "",
    "nutrients": {
-    "calories": 430,
-    "protein": 12,
-    "carbs": 36,
-    "fat": 26,
-    "saturatedFat": 12,
-    "sugar": 6.6,
-    "fiber": 3,
-    "energyKj": 1795,
-    "weight": 176
+    "calories": 627,
+    "protein": 19,
+    "carbs": 40,
+    "fat": 43,
+    "saturatedFat": 18,
+    "sugar": 1.3,
+    "fiber": 2.1,
+    "energyKj": 2611,
+    "weight": 175
    },
    "tags": [
     "contains_pork"
@@ -4680,9 +5180,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [
-     "nuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -4869,14 +5367,14 @@
    "category": "Savoury",
    "serving": "",
    "nutrients": {
-    "calories": 440,
+    "calories": 431,
     "protein": 13,
-    "carbs": 67,
-    "fat": 11,
-    "saturatedFat": 4.7,
-    "sugar": 13,
-    "fiber": 12,
-    "energyKj": 1851,
+    "carbs": 68,
+    "fat": 9.5,
+    "saturatedFat": 4.4,
+    "sugar": 12,
+    "fiber": 10,
+    "energyKj": 1816,
     "weight": 456
    },
    "tags": [],
@@ -4931,14 +5429,14 @@
    "category": "Savoury",
    "serving": "",
    "nutrients": {
-    "calories": 449,
+    "calories": 440,
     "protein": 13,
-    "carbs": 71,
-    "fat": 11,
-    "saturatedFat": 4.3,
-    "sugar": 11,
-    "fiber": 8,
-    "energyKj": 1890,
+    "carbs": 72,
+    "fat": 9.5,
+    "saturatedFat": 4,
+    "sugar": 9,
+    "fiber": 6.6,
+    "energyKj": 1855,
     "weight": 456
    },
    "tags": [],
@@ -4993,14 +5491,14 @@
    "category": "Savoury",
    "serving": "",
    "nutrients": {
-    "calories": 556,
+    "calories": 548,
     "protein": 20,
-    "carbs": 66,
-    "fat": 21,
+    "carbs": 67,
+    "fat": 20,
     "saturatedFat": 10,
-    "sugar": 17,
-    "fiber": 13,
-    "energyKj": 2332,
+    "sugar": 16,
+    "fiber": 11,
+    "energyKj": 2297,
     "weight": 456
    },
    "tags": [],
@@ -5055,14 +5553,14 @@
    "category": "Savoury",
    "serving": "",
    "nutrients": {
-    "calories": 495,
+    "calories": 486,
     "protein": 13,
-    "carbs": 63,
-    "fat": 20,
-    "saturatedFat": 7.9,
-    "sugar": 17,
-    "fiber": 7.2,
-    "energyKj": 2074,
+    "carbs": 64,
+    "fat": 19,
+    "saturatedFat": 7.6,
+    "sugar": 16,
+    "fiber": 5.8,
+    "energyKj": 2039,
     "weight": 456
    },
    "tags": [],
@@ -5117,14 +5615,14 @@
    "category": "Savoury",
    "serving": "",
    "nutrients": {
-    "calories": 504,
+    "calories": 495,
     "protein": 14,
-    "carbs": 61,
-    "fat": 21,
-    "saturatedFat": 5.1,
-    "sugar": 9,
-    "fiber": 8.8,
-    "energyKj": 2110,
+    "carbs": 62,
+    "fat": 20,
+    "saturatedFat": 4.8,
+    "sugar": 7.4,
+    "fiber": 7.4,
+    "energyKj": 2075,
     "weight": 456
    },
    "tags": [],
@@ -5155,7 +5653,7 @@
     "saturatedFat": 20,
     "sugar": 2.1,
     "fiber": 1.2,
-    "energyKj": 2063,
+    "energyKj": 2065,
     "weight": 154
    },
    "tags": [
@@ -5227,7 +5725,7 @@
     "saturatedFat": 20,
     "sugar": 2.1,
     "fiber": 1.4,
-    "energyKj": 2011,
+    "energyKj": 2013,
     "weight": 154
    },
    "tags": [],
@@ -5254,14 +5752,14 @@
    "category": "Savoury",
    "serving": "",
    "nutrients": {
-    "calories": 378,
+    "calories": 379,
     "protein": 24,
     "carbs": 28,
     "fat": 18,
     "saturatedFat": 9.4,
     "sugar": 5.2,
     "fiber": 1.9,
-    "energyKj": 1584,
+    "energyKj": 1585,
     "weight": 193
    },
    "tags": [
@@ -5297,7 +5795,7 @@
     "saturatedFat": 9.8,
     "sugar": 5.3,
     "fiber": 1.9,
-    "energyKj": 1610,
+    "energyKj": 1611,
     "weight": 193
    },
    "tags": [],
@@ -5351,6 +5849,45 @@
      "crustaceans",
      "fish",
      "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "yorkie-wrap-boxing-day-curry-xmas",
+   "name": "Yorkie Wrap - Boxing Day Curry (Xmas)",
+   "category": "Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 666,
+    "protein": 17,
+    "carbs": 96,
+    "fat": 23,
+    "saturatedFat": 3.3,
+    "sugar": 24,
+    "fiber": 4.4,
+    "energyKj": 2801,
+    "weight": 318
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "mustard",
+     "nuts",
+     "peanuts",
      "soya",
      "sulphites"
     ]
@@ -5438,14 +5975,14 @@
    "category": "Savoury",
    "serving": "",
    "nutrients": {
-    "calories": 568,
-    "protein": 14,
+    "calories": 539,
+    "protein": 12,
     "carbs": 80,
-    "fat": 21,
-    "saturatedFat": 6.4,
-    "sugar": 13,
-    "fiber": 2.5,
-    "energyKj": 2388,
+    "fat": 18,
+    "saturatedFat": 5,
+    "sugar": 14,
+    "fiber": 4.2,
+    "energyKj": 2266,
     "weight": 311
    },
    "tags": [],
@@ -5459,6 +5996,76 @@
      "eggs",
      "milk",
      "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yorkie-wrap-cauliflower-blue-cheese-xmas",
+   "name": "Yorkie Wrap - Cauliflower Blue Cheese (Xmas)",
+   "category": "Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 520,
+    "protein": 12,
+    "carbs": 77,
+    "fat": 17,
+    "saturatedFat": 5,
+    "sugar": 14,
+    "fiber": 3.6,
+    "energyKj": 2185,
+    "weight": 256
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yorkie-wrap-cauliflower-cheese-and-cranberry-xmas-halal-ingredients",
+   "name": "Yorkie Wrap - Cauliflower Cheese & Cranberry (Xmas) (Halal ingredients)",
+   "category": "Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 525,
+    "protein": 12,
+    "carbs": 77,
+    "fat": 18,
+    "saturatedFat": 5.4,
+    "sugar": 14,
+    "fiber": 3.6,
+    "energyKj": 2209,
+    "weight": 256
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
     ],
     "mayContain": [
      "soya"
@@ -5508,6 +6115,114 @@
    }
   },
   {
+   "id": "yorkie-wrap-christmas-dinner-xmas",
+   "name": "Yorkie Wrap - Christmas Dinner (Xmas)",
+   "category": "Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 807,
+    "protein": 22,
+    "carbs": 135,
+    "fat": 19,
+    "saturatedFat": 3.7,
+    "sugar": 20,
+    "fiber": 5,
+    "energyKj": 3402,
+    "weight": 351
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "yorkie-wrap-cow-and-blankets-brie-and-cranberry-xmas-halal-ingredients",
+   "name": "Yorkie Wrap - Cow & Blankets, Brie & Cranberry (Xmas) (Halal ingredients)",
+   "category": "Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 895,
+    "protein": 29,
+    "carbs": 100,
+    "fat": 41,
+    "saturatedFat": 20,
+    "sugar": 36,
+    "fiber": 4.1,
+    "energyKj": 3750,
+    "weight": 354
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "yorkie-wrap-festive-xmas-halal-ingredients",
+   "name": "Yorkie Wrap - Festive (Xmas) (Halal ingredients)",
+   "category": "Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 875,
+    "protein": 27,
+    "carbs": 136,
+    "fat": 23,
+    "saturatedFat": 5.7,
+    "sugar": 20,
+    "fiber": 5.3,
+    "energyKj": 3685,
+    "weight": 388
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
+  },
+  {
    "id": "yorkie-wrap-greek-gyros",
    "name": "Yorkie Wrap - Greek Gyros",
    "category": "Savoury",
@@ -5520,7 +6235,7 @@
     "saturatedFat": 5.9,
     "sugar": 3.9,
     "fiber": 4.5,
-    "energyKj": 3294,
+    "energyKj": 3292,
     "weight": 326
    },
    "tags": [],
@@ -5577,6 +6292,44 @@
      "crustaceans",
      "fish",
      "mustard"
+    ]
+   }
+  },
+  {
+   "id": "yorkie-wrap-pigs-in-blankets-brie-and-cranberry-xmas",
+   "name": "Yorkie Wrap - Pigs In Blankets, Brie & Cranberry (Xmas)",
+   "category": "Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 928,
+    "protein": 27,
+    "carbs": 102,
+    "fat": 45,
+    "saturatedFat": 21,
+    "sugar": 36,
+    "fiber": 4,
+    "energyKj": 3888,
+    "weight": 352
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -5976,14 +6729,14 @@
    "category": "Made to Order",
    "serving": "",
    "nutrients": {
-    "calories": 736,
+    "calories": 737,
     "protein": 36,
     "carbs": 48,
     "fat": 44,
     "saturatedFat": 14,
     "sugar": 11,
     "fiber": 2.4,
-    "energyKj": 3071,
+    "energyKj": 3076,
     "weight": 294
    },
    "tags": [],
@@ -6014,14 +6767,14 @@
    "category": "Made to Order",
    "serving": "",
    "nutrients": {
-    "calories": 766,
+    "calories": 768,
     "protein": 40,
     "carbs": 54,
     "fat": 42,
     "saturatedFat": 14,
     "sugar": 13,
     "fiber": 3.3,
-    "energyKj": 3203,
+    "energyKj": 3208,
     "weight": 345
    },
    "tags": [],
@@ -6050,14 +6803,14 @@
    "category": "Made to Order",
    "serving": "",
    "nutrients": {
-    "calories": 747,
+    "calories": 750,
     "protein": 43,
     "carbs": 53,
     "fat": 39,
     "saturatedFat": 9.6,
     "sugar": 7.9,
     "fiber": 7.4,
-    "energyKj": 3124,
+    "energyKj": 3134,
     "weight": 466
    },
    "tags": [],
@@ -6091,14 +6844,14 @@
    "category": "Made to Order",
    "serving": "",
    "nutrients": {
-    "calories": 744,
+    "calories": 742,
     "protein": 43,
     "carbs": 50,
     "fat": 40,
-    "saturatedFat": 10,
-    "sugar": 8.8,
-    "fiber": 7.1,
-    "energyKj": 3108,
+    "saturatedFat": 9.9,
+    "sugar": 8,
+    "fiber": 6.4,
+    "energyKj": 3100,
     "weight": 461
    },
    "tags": [],
@@ -6126,14 +6879,14 @@
    "category": "Made to Order",
    "serving": "",
    "nutrients": {
-    "calories": 911,
+    "calories": 914,
     "protein": 46,
     "carbs": 54,
-    "fat": 55,
+    "fat": 56,
     "saturatedFat": 15,
     "sugar": 8.1,
     "fiber": 7.3,
-    "energyKj": 3800,
+    "energyKj": 3810,
     "weight": 467
    },
    "tags": [],
@@ -6165,14 +6918,14 @@
    "category": "Made to Order",
    "serving": "",
    "nutrients": {
-    "calories": 908,
+    "calories": 906,
     "protein": 46,
-    "carbs": 50,
+    "carbs": 51,
     "fat": 56,
-    "saturatedFat": 16,
-    "sugar": 9,
-    "fiber": 7,
-    "energyKj": 3784,
+    "saturatedFat": 15,
+    "sugar": 8.2,
+    "fiber": 6.2,
+    "energyKj": 3776,
     "weight": 462
    },
    "tags": [],
@@ -6198,14 +6951,14 @@
    "category": "Made to Order",
    "serving": "",
    "nutrients": {
-    "calories": 721,
+    "calories": 723,
     "protein": 33,
     "carbs": 60,
     "fat": 38,
     "saturatedFat": 10,
     "sugar": 5.5,
     "fiber": 3.1,
-    "energyKj": 3014,
+    "energyKj": 3024,
     "weight": 322
    },
    "tags": [],
@@ -6236,14 +6989,14 @@
    "category": "Made to Order",
    "serving": "",
    "nutrients": {
-    "calories": 727,
+    "calories": 729,
     "protein": 33,
     "carbs": 60,
     "fat": 39,
     "saturatedFat": 11,
     "sugar": 5.7,
     "fiber": 2.9,
-    "energyKj": 3039,
+    "energyKj": 3049,
     "weight": 322
    },
    "tags": [],
@@ -6343,7 +7096,7 @@
     "saturatedFat": 8.6,
     "sugar": 29,
     "fiber": 1.9,
-    "energyKj": 1597,
+    "energyKj": 1594,
     "weight": 173
    },
    "tags": [],
@@ -6359,9 +7112,7 @@
      "nuts",
      "soya"
     ],
-    "mayContain": [
-     "peanuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -6373,14 +7124,14 @@
    "category": "Made to Order",
    "serving": "",
    "nutrients": {
-    "calories": 791,
+    "calories": 793,
     "protein": 35,
     "carbs": 77,
-    "fat": 37,
-    "saturatedFat": 6.8,
+    "fat": 38,
+    "saturatedFat": 6.9,
     "sugar": 24,
     "fiber": 4.6,
-    "energyKj": 3311,
+    "energyKj": 3321,
     "weight": 397
    },
    "tags": [],
@@ -6610,7 +7361,7 @@
     "saturatedFat": 6,
     "sugar": 41,
     "fiber": 0.5,
-    "energyKj": 2485,
+    "energyKj": 2483,
     "weight": 139
    },
    "tags": [],
@@ -6626,9 +7377,7 @@
      "nuts",
      "soya"
     ],
-    "mayContain": [
-     "peanuts"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -7047,7 +7796,7 @@
    "serving": "",
    "nutrients": {
     "calories": 600,
-    "protein": 8.8,
+    "protein": 9.1,
     "carbs": 80,
     "fat": 27,
     "saturatedFat": 4.5,
@@ -7069,9 +7818,7 @@
      "nuts",
      "soya"
     ],
-    "mayContain": [
-     "peanuts"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -7342,7 +8089,7 @@
     "saturatedFat": 5,
     "sugar": 42,
     "fiber": 0.5,
-    "energyKj": 2482,
+    "energyKj": 2481,
     "weight": 139
    },
    "tags": [],
@@ -7358,9 +8105,7 @@
      "nuts",
      "soya"
     ],
-    "mayContain": [
-     "peanuts"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -7597,7 +8342,7 @@
     "saturatedFat": 4.5,
     "sugar": 39,
     "fiber": 0.5,
-    "energyKj": 2404,
+    "energyKj": 2403,
     "weight": 134
    },
    "tags": [],
@@ -7613,9 +8358,7 @@
      "nuts",
      "soya"
     ],
-    "mayContain": [
-     "peanuts"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -7659,7 +8402,7 @@
    "serving": "",
    "nutrients": {
     "calories": 604,
-    "protein": 8.7,
+    "protein": 8.9,
     "carbs": 79,
     "fat": 28,
     "saturatedFat": 5.4,
@@ -7681,9 +8424,7 @@
      "nuts",
      "soya"
     ],
-    "mayContain": [
-     "peanuts"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -7792,14 +8533,14 @@
    "category": "Muffins",
    "serving": "",
    "nutrients": {
-    "calories": 569,
-    "protein": 8.1,
+    "calories": 568,
+    "protein": 8.2,
     "carbs": 75,
     "fat": 26,
     "saturatedFat": 4.5,
     "sugar": 39,
     "fiber": 0,
-    "energyKj": 2384,
+    "energyKj": 2382,
     "weight": 132
    },
    "tags": [],
@@ -7815,9 +8556,7 @@
      "nuts",
      "soya"
     ],
-    "mayContain": [
-     "peanuts"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -7863,11 +8602,11 @@
     "calories": 557,
     "protein": 8.6,
     "carbs": 75,
-    "fat": 25,
+    "fat": 24,
     "saturatedFat": 3.1,
     "sugar": 37,
     "fiber": 0,
-    "energyKj": 2337,
+    "energyKj": 2335,
     "weight": 131
    },
    "tags": [],
@@ -7883,9 +8622,7 @@
      "nuts",
      "soya"
     ],
-    "mayContain": [
-     "peanuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -8062,13 +8799,13 @@
    "serving": "",
    "nutrients": {
     "calories": 580,
-    "protein": 8.6,
+    "protein": 8.8,
     "carbs": 76,
     "fat": 27,
     "saturatedFat": 4.5,
     "sugar": 40,
     "fiber": 0.5,
-    "energyKj": 2432,
+    "energyKj": 2433,
     "weight": 141
    },
    "tags": [],
@@ -8084,9 +8821,7 @@
      "nuts",
      "soya"
     ],
-    "mayContain": [
-     "peanuts"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -8577,8 +9312,8 @@
     "fat": 28,
     "saturatedFat": 5.4,
     "sugar": 44,
-    "fiber": 0,
-    "energyKj": 2570,
+    "fiber": 0.5,
+    "energyKj": 2569,
     "weight": 140
    },
    "tags": [],
@@ -8594,9 +9329,7 @@
      "nuts",
      "soya"
     ],
-    "mayContain": [
-     "peanuts"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -8671,12 +9404,12 @@
    "serving": "",
    "nutrients": {
     "calories": 724,
-    "protein": 11,
-    "carbs": 95,
-    "fat": 33,
+    "protein": 12,
+    "carbs": 94,
+    "fat": 32,
     "saturatedFat": 3.4,
     "sugar": 62,
-    "fiber": 2.3,
+    "fiber": 2.4,
     "energyKj": 3034,
     "weight": 170
    },
@@ -8694,9 +9427,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [
-     "peanuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -9064,14 +9795,14 @@
    "category": "Muffins",
    "serving": "",
    "nutrients": {
-    "calories": 786,
-    "protein": 12,
+    "calories": 785,
+    "protein": 13,
     "carbs": 82,
     "fat": 44,
     "saturatedFat": 8.8,
-    "sugar": 51,
-    "fiber": 3.9,
-    "energyKj": 3282,
+    "sugar": 50,
+    "fiber": 4.8,
+    "energyKj": 3278,
     "weight": 171
    },
    "tags": [],
@@ -9087,9 +9818,7 @@
      "nuts",
      "soya"
     ],
-    "mayContain": [
-     "peanuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -9267,14 +9996,14 @@
    "category": "Muffins",
    "serving": "",
    "nutrients": {
-    "calories": 675,
-    "protein": 10,
+    "calories": 668,
+    "protein": 11,
     "carbs": 83,
-    "fat": 33,
-    "saturatedFat": 7.6,
+    "fat": 32,
+    "saturatedFat": 8.1,
     "sugar": 51,
-    "fiber": 1,
-    "energyKj": 2826,
+    "fiber": 1.3,
+    "energyKj": 2798,
     "weight": 156
    },
    "tags": [],
@@ -9552,19 +10281,50 @@
    }
   },
   {
+   "id": "premium-muffin-toffee-waffle",
+   "name": "Premium Muffin Toffee Waffle",
+   "category": "Muffins",
+   "serving": "",
+   "nutrients": {
+    "calories": 792,
+    "protein": 7.8,
+    "carbs": 122,
+    "fat": 30,
+    "saturatedFat": 8.2,
+    "sugar": 77,
+    "fiber": 0.6,
+    "energyKj": 3329,
+    "weight": 194
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
    "id": "protein-muffin-dark-choc-banana",
    "name": "Protein Muffin Dark Choc Banana",
    "category": "Muffins",
    "serving": "",
    "nutrients": {
-    "calories": 799,
-    "protein": 13,
+    "calories": 789,
+    "protein": 14,
     "carbs": 93,
-    "fat": 41,
-    "saturatedFat": 10,
-    "sugar": 56,
-    "fiber": 3.1,
-    "energyKj": 3342,
+    "fat": 40,
+    "saturatedFat": 11,
+    "sugar": 57,
+    "fiber": 3.5,
+    "energyKj": 3303,
     "weight": 180
    },
    "tags": [],
@@ -9623,13 +10383,13 @@
    "serving": "",
    "nutrients": {
     "calories": 637,
-    "protein": 9.9,
+    "protein": 11,
     "carbs": 87,
     "fat": 27,
     "saturatedFat": 3.1,
     "sugar": 50,
     "fiber": 1.7,
-    "energyKj": 2672,
+    "energyKj": 2673,
     "weight": 155
    },
    "tags": [],
@@ -9645,9 +10405,7 @@
      "nuts",
      "soya"
     ],
-    "mayContain": [
-     "peanuts"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -9854,7 +10612,7 @@
    "serving": "",
    "nutrients": {
     "calories": 506,
-    "protein": 4.1,
+    "protein": 4.2,
     "carbs": 67,
     "fat": 24,
     "saturatedFat": 2.5,
@@ -9878,7 +10636,6 @@
      "gluten",
      "eggs",
      "milk",
-     "peanuts",
      "soya"
     ]
    }
@@ -10122,14 +10879,14 @@
    "category": "Muffins (Very Low Gluten)",
    "serving": "",
    "nutrients": {
-    "calories": 504,
+    "calories": 503,
     "protein": 4,
     "carbs": 66,
-    "fat": 25,
+    "fat": 24,
     "saturatedFat": 2.6,
     "sugar": 33,
-    "fiber": 0.6,
-    "energyKj": 2109,
+    "fiber": 0.7,
+    "energyKj": 2108,
     "weight": 116
    },
    "tags": [
@@ -10147,7 +10904,6 @@
      "gluten",
      "eggs",
      "milk",
-     "peanuts",
      "soya"
     ]
    }
@@ -10393,7 +11149,7 @@
    "serving": "",
    "nutrients": {
     "calories": 493,
-    "protein": 4,
+    "protein": 4.1,
     "carbs": 64,
     "fat": 24,
     "saturatedFat": 2.5,
@@ -10417,7 +11173,6 @@
      "gluten",
      "eggs",
      "milk",
-     "peanuts",
      "soya"
     ]
    }
@@ -10532,13 +11287,13 @@
    "serving": "",
    "nutrients": {
     "calories": 490,
-    "protein": 3.8,
-    "carbs": 63,
+    "protein": 3.9,
+    "carbs": 64,
     "fat": 24,
     "saturatedFat": 2.6,
     "sugar": 30,
-    "fiber": 0.5,
-    "energyKj": 2054,
+    "fiber": 0.6,
+    "energyKj": 2052,
     "weight": 112
    },
    "tags": [
@@ -10556,7 +11311,6 @@
      "gluten",
      "eggs",
      "milk",
-     "peanuts",
      "soya"
     ]
    }
@@ -10772,12 +11526,12 @@
    "serving": "",
    "nutrients": {
     "calories": 519,
-    "protein": 4.3,
+    "protein": 4.4,
     "carbs": 68,
     "fat": 25,
     "saturatedFat": 2.6,
     "sugar": 33,
-    "fiber": 0.7,
+    "fiber": 0.8,
     "energyKj": 2175,
     "weight": 121
    },
@@ -10796,7 +11550,6 @@
      "gluten",
      "eggs",
      "milk",
-     "peanuts",
      "soya"
     ]
    }
@@ -11238,8 +11991,7 @@
     "mayContain": [
      "mustard",
      "nuts",
-     "soya",
-     "sulphites"
+     "soya"
     ],
     "cereals": [
      "wheat"
@@ -11288,14 +12040,14 @@
    "category": "Duffins",
    "serving": "",
    "nutrients": {
-    "calories": 716,
+    "calories": 715,
     "protein": 13,
     "carbs": 66,
     "fat": 42,
     "saturatedFat": 25,
     "sugar": 26,
-    "fiber": 8.7,
-    "energyKj": 2985,
+    "fiber": 8.8,
+    "energyKj": 2982,
     "weight": 155
    },
    "tags": [],
@@ -11394,13 +12146,13 @@
    "serving": "",
    "nutrients": {
     "calories": 477,
-    "protein": 7.8,
+    "protein": 7.9,
     "carbs": 52,
     "fat": 26,
     "saturatedFat": 16,
     "sugar": 18,
     "fiber": 2.1,
-    "energyKj": 1995,
+    "energyKj": 1993,
     "weight": 110
    },
    "tags": [],
@@ -11430,13 +12182,13 @@
    "serving": "",
    "nutrients": {
     "calories": 483,
-    "protein": 8.8,
+    "protein": 8.9,
     "carbs": 48,
     "fat": 28,
     "saturatedFat": 17,
     "sugar": 16,
     "fiber": 2.2,
-    "energyKj": 2018,
+    "energyKj": 2015,
     "weight": 108
    },
    "tags": [],
@@ -11452,9 +12204,7 @@
      "nuts",
      "soya"
     ],
-    "mayContain": [
-     "peanuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -11601,14 +12351,14 @@
    "category": "Cake",
    "serving": "",
    "nutrients": {
-    "calories": 638,
-    "protein": 8.4,
-    "carbs": 81,
-    "fat": 31,
-    "saturatedFat": 14,
-    "sugar": 59,
-    "fiber": 3.2,
-    "energyKj": 2673,
+    "calories": 629,
+    "protein": 6.6,
+    "carbs": 73,
+    "fat": 34,
+    "saturatedFat": 15,
+    "sugar": 66,
+    "fiber": 2.8,
+    "energyKj": 2630,
     "weight": 159
    },
    "tags": [],
@@ -11633,14 +12383,14 @@
    "category": "Cake",
    "serving": "",
    "nutrients": {
-    "calories": 523,
-    "protein": 6.3,
-    "carbs": 58,
-    "fat": 29,
-    "saturatedFat": 3.1,
-    "sugar": 33,
-    "fiber": 2.3,
-    "energyKj": 2186,
+    "calories": 519,
+    "protein": 4.2,
+    "carbs": 49,
+    "fat": 34,
+    "saturatedFat": 3.6,
+    "sugar": 39,
+    "fiber": 2.2,
+    "energyKj": 2162,
     "weight": 123
    },
    "tags": [],
@@ -11655,7 +12405,6 @@
      "nuts"
     ],
     "mayContain": [
-     "peanuts",
      "soya"
     ],
     "cereals": [
@@ -11706,10 +12455,10 @@
     "protein": 8.6,
     "carbs": 101,
     "fat": 40,
-    "saturatedFat": 6.1,
+    "saturatedFat": 6.2,
     "sugar": 67,
     "fiber": 1.5,
-    "energyKj": 3350,
+    "energyKj": 3348,
     "weight": 174
    },
    "tags": [],
@@ -11767,14 +12516,14 @@
    "category": "Cake",
    "serving": "",
    "nutrients": {
-    "calories": 654,
-    "protein": 7.6,
+    "calories": 651,
+    "protein": 7.7,
     "carbs": 67,
-    "fat": 39,
+    "fat": 38,
     "saturatedFat": 6.2,
     "sugar": 46,
-    "fiber": 2.5,
-    "energyKj": 2729,
+    "fiber": 3.1,
+    "energyKj": 2718,
     "weight": 133
    },
    "tags": [],
@@ -11790,7 +12539,6 @@
      "nuts"
     ],
     "mayContain": [
-     "peanuts",
      "soya"
     ]
    }
@@ -11802,13 +12550,13 @@
    "serving": "",
    "nutrients": {
     "calories": 582,
-    "protein": 9.2,
+    "protein": 9.3,
     "carbs": 63,
-    "fat": 32,
+    "fat": 31,
     "saturatedFat": 6.8,
     "sugar": 41,
     "fiber": 5.6,
-    "energyKj": 2433,
+    "energyKj": 2430,
     "weight": 142
    },
    "tags": [],
@@ -11835,15 +12583,15 @@
    "category": "Cake",
    "serving": "",
    "nutrients": {
-    "calories": 670,
-    "protein": 7.1,
-    "carbs": 69,
-    "fat": 40,
-    "saturatedFat": 14,
-    "sugar": 51,
+    "calories": 719,
+    "protein": 7.3,
+    "carbs": 75,
+    "fat": 42,
+    "saturatedFat": 15,
+    "sugar": 57,
     "fiber": 4.7,
-    "energyKj": 2797,
-    "weight": 148
+    "energyKj": 2999,
+    "weight": 158
    },
    "tags": [],
    "limitedTime": false,
@@ -11857,10 +12605,7 @@
      "milk",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -11869,14 +12614,14 @@
    "category": "Cake",
    "serving": "",
    "nutrients": {
-    "calories": 612,
+    "calories": 610,
     "protein": 6.9,
     "carbs": 58,
     "fat": 38,
     "saturatedFat": 15,
     "sugar": 51,
-    "fiber": 3.4,
-    "energyKj": 2551,
+    "fiber": 3.8,
+    "energyKj": 2544,
     "weight": 113
    },
    "tags": [],
@@ -11892,8 +12637,7 @@
      "soya"
     ],
     "mayContain": [
-     "milk",
-     "peanuts"
+     "milk"
     ],
     "cereals": [
      "wheat"
@@ -11906,14 +12650,14 @@
    "category": "Cake",
    "serving": "",
    "nutrients": {
-    "calories": 787,
-    "protein": 8,
+    "calories": 785,
+    "protein": 8.1,
     "carbs": 84,
     "fat": 46,
     "saturatedFat": 7.7,
     "sugar": 63,
-    "fiber": 1.2,
-    "energyKj": 3288,
+    "fiber": 1.7,
+    "energyKj": 3279,
     "weight": 155
    },
    "tags": [],
@@ -11929,7 +12673,39 @@
      "nuts"
     ],
     "mayContain": [
-     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "cake-date-with-salted-caramel",
+   "name": "Cake Date with Salted Caramel",
+   "category": "Cake",
+   "serving": "",
+   "nutrients": {
+    "calories": 745,
+    "protein": 9.3,
+    "carbs": 107,
+    "fat": 30,
+    "saturatedFat": 8.9,
+    "sugar": 79,
+    "fiber": 3.6,
+    "energyKj": 3127,
+    "weight": 187
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
      "soya"
     ]
    }
@@ -12009,13 +12785,13 @@
    "serving": "",
    "nutrients": {
     "calories": 428,
-    "protein": 13,
-    "carbs": 39,
-    "fat": 24,
+    "protein": 15,
+    "carbs": 38,
+    "fat": 23,
     "saturatedFat": 2.8,
-    "sugar": 38,
-    "fiber": 3.4,
-    "energyKj": 1790,
+    "sugar": 37,
+    "fiber": 3.6,
+    "energyKj": 1787,
     "weight": 157
    },
    "tags": [],
@@ -12030,7 +12806,6 @@
      "nuts"
     ],
     "mayContain": [
-     "peanuts",
      "soya"
     ],
     "cereals": [
@@ -12115,10 +12890,10 @@
     "protein": 6.4,
     "carbs": 81,
     "fat": 32,
-    "saturatedFat": 5.6,
+    "saturatedFat": 5.7,
     "sugar": 59,
     "fiber": 1.5,
-    "energyKj": 2680,
+    "energyKj": 2678,
     "weight": 163
    },
    "tags": [],
@@ -12246,12 +13021,12 @@
    "serving": "",
    "nutrients": {
     "calories": 407,
-    "protein": 5.6,
+    "protein": 6.1,
     "carbs": 44,
     "fat": 23,
     "saturatedFat": 8.8,
     "sugar": 33,
-    "fiber": 1.6,
+    "fiber": 1.7,
     "energyKj": 1701,
     "weight": 90
    },
@@ -12268,9 +13043,7 @@
      "nuts",
      "soya"
     ],
-    "mayContain": [
-     "peanuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -12282,14 +13055,14 @@
    "category": "Cake",
    "serving": "",
    "nutrients": {
-    "calories": 515,
-    "protein": 4.6,
+    "calories": 514,
+    "protein": 4.7,
     "carbs": 44,
     "fat": 35,
     "saturatedFat": 17,
     "sugar": 38,
-    "fiber": 2.3,
-    "energyKj": 2145,
+    "fiber": 2.6,
+    "energyKj": 2140,
     "weight": 110
    },
    "tags": [],
@@ -12306,9 +13079,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [
-     "peanuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -12351,6 +13122,39 @@
    }
   },
   {
+   "id": "slice-date-pistachio-and-honey",
+   "name": "Slice - Date Pistachio & Honey",
+   "category": "Cake",
+   "serving": "",
+   "nutrients": {
+    "calories": 439,
+    "protein": 5.7,
+    "carbs": 52,
+    "fat": 22,
+    "saturatedFat": 7.2,
+    "sugar": 38,
+    "fiber": 3.6,
+    "energyKj": 1838,
+    "weight": 105
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
    "id": "slice-date-square",
    "name": "Slice - Date Square",
    "category": "Cake",
@@ -12386,14 +13190,14 @@
    "category": "Cake",
    "serving": "",
    "nutrients": {
-    "calories": 288,
-    "protein": 4.1,
-    "carbs": 45,
+    "calories": 286,
+    "protein": 4.2,
+    "carbs": 44,
     "fat": 9.6,
     "saturatedFat": 4.8,
     "sugar": 39,
     "fiber": 3,
-    "energyKj": 1211,
+    "energyKj": 1201,
     "weight": 71
    },
    "tags": [],
@@ -12409,9 +13213,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [
-     "peanuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "barley"
     ]
@@ -12460,14 +13262,14 @@
    "category": "Cake",
    "serving": "",
    "nutrients": {
-    "calories": 503,
-    "protein": 3.9,
-    "carbs": 53,
+    "calories": 500,
+    "protein": 4,
+    "carbs": 52,
     "fat": 30,
     "saturatedFat": 14,
     "sugar": 44,
     "fiber": 2.6,
-    "energyKj": 2097,
+    "energyKj": 2086,
     "weight": 108
    },
    "tags": [],
@@ -12493,14 +13295,14 @@
    "category": "Cake",
    "serving": "",
    "nutrients": {
-    "calories": 383,
-    "protein": 3.9,
+    "calories": 380,
+    "protein": 4,
     "carbs": 35,
     "fat": 25,
     "saturatedFat": 13,
     "sugar": 30,
     "fiber": 0.8,
-    "energyKj": 1595,
+    "energyKj": 1583,
     "weight": 70
    },
    "tags": [],
@@ -12516,9 +13318,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [
-     "peanuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -12531,13 +13331,13 @@
    "serving": "",
    "nutrients": {
     "calories": 428,
-    "protein": 5.9,
-    "carbs": 40,
+    "protein": 6.2,
+    "carbs": 39,
     "fat": 27,
     "saturatedFat": 10,
     "sugar": 22,
     "fiber": 2.4,
-    "energyKj": 1783,
+    "energyKj": 1784,
     "weight": 101
    },
    "tags": [],
@@ -12553,7 +13353,6 @@
      "sulphites"
     ],
     "mayContain": [
-     "peanuts",
      "soya"
     ],
     "cereals": [
@@ -12567,14 +13366,14 @@
    "category": "Cake",
    "serving": "",
    "nutrients": {
-    "calories": 656,
-    "protein": 7.9,
-    "carbs": 57,
+    "calories": 655,
+    "protein": 8,
+    "carbs": 58,
     "fat": 43,
     "saturatedFat": 21,
     "sugar": 43,
-    "fiber": 3.9,
-    "energyKj": 2734,
+    "fiber": 4.1,
+    "energyKj": 2729,
     "weight": 139
    },
    "tags": [],
@@ -12637,12 +13436,12 @@
    "serving": "",
    "nutrients": {
     "calories": 417,
-    "protein": 7.3,
-    "carbs": 53,
+    "protein": 8,
+    "carbs": 52,
     "fat": 19,
     "saturatedFat": 3.1,
-    "sugar": 32,
-    "fiber": 3.7,
+    "sugar": 31,
+    "fiber": 3.8,
     "energyKj": 1747,
     "weight": 91
    },
@@ -12659,7 +13458,6 @@
      "nuts"
     ],
     "mayContain": [
-     "peanuts",
      "soya"
     ]
    }
@@ -12670,14 +13468,14 @@
    "category": "Cake",
    "serving": "",
    "nutrients": {
-    "calories": 336,
-    "protein": 4.6,
-    "carbs": 47,
+    "calories": 331,
+    "protein": 4.5,
+    "carbs": 46,
     "fat": 14,
     "saturatedFat": 6.4,
     "sugar": 35,
-    "fiber": 1.9,
-    "energyKj": 1409,
+    "fiber": 1.8,
+    "energyKj": 1387,
     "weight": 105
    },
    "tags": [],
@@ -12858,7 +13656,7 @@
     "saturatedFat": 10,
     "sugar": 39,
     "fiber": 4.3,
-    "energyKj": 2325,
+    "energyKj": 2326,
     "weight": 107
    },
    "tags": [],
@@ -12894,8 +13692,8 @@
     "fat": 34,
     "saturatedFat": 14,
     "sugar": 59,
-    "fiber": 6.3,
-    "energyKj": 3088,
+    "fiber": 6.4,
+    "energyKj": 3085,
     "weight": 140
    },
    "tags": [],
@@ -13063,6 +13861,77 @@
    }
   },
   {
+   "id": "luxury-mince-tart-xmas",
+   "name": "Luxury Mince Tart (Xmas)",
+   "category": "Sweet Products",
+   "serving": "",
+   "nutrients": {
+    "calories": 444,
+    "protein": 3,
+    "carbs": 82,
+    "fat": 11,
+    "saturatedFat": 5.7,
+    "sugar": 66,
+    "fiber": 2.9,
+    "energyKj": 1870,
+    "weight": 130
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mince-pie-baked-cheesecake-xmas",
+   "name": "Mince Pie Baked Cheesecake (Xmas)",
+   "category": "Sweet Products",
+   "serving": "",
+   "nutrients": {
+    "calories": 542,
+    "protein": 9.5,
+    "carbs": 52,
+    "fat": 33,
+    "saturatedFat": 18,
+    "sugar": 39,
+    "fiber": 0.8,
+    "energyKj": 2262,
+    "weight": 183
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "pastry-cinnamon-swirl",
    "name": "Pastry Cinnamon Swirl",
    "category": "Sweet Products",
@@ -13104,14 +13973,14 @@
    "category": "Sweet Products",
    "serving": "",
    "nutrients": {
-    "calories": 717,
-    "protein": 8.3,
+    "calories": 716,
+    "protein": 8.4,
     "carbs": 88,
     "fat": 36,
     "saturatedFat": 16,
     "sugar": 57,
     "fiber": 3,
-    "energyKj": 3001,
+    "energyKj": 2998,
     "weight": 143
    },
    "tags": [],
@@ -13162,6 +14031,42 @@
     ],
     "mayContain": [
      "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "turnover-christmas-mince-pie-xmas",
+   "name": "Turnover Christmas Mince Pie (Xmas)",
+   "category": "Sweet Products",
+   "serving": "",
+   "nutrients": {
+    "calories": 561,
+    "protein": 6,
+    "carbs": 57,
+    "fat": 34,
+    "saturatedFat": 19,
+    "sugar": 34,
+    "fiber": 2.3,
+    "energyKj": 2340,
+    "weight": 144
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
      "soya"
     ],
     "cereals": [
@@ -13339,8 +14244,7 @@
      "soya"
     ],
     "mayContain": [
-     "nuts",
-     "sulphites"
+     "nuts"
     ],
     "cereals": [
      "wheat"
@@ -13427,14 +14331,14 @@
    "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 902,
-    "protein": 8.4,
+    "calories": 901,
+    "protein": 8.6,
     "carbs": 52,
     "fat": 73,
     "saturatedFat": 37,
     "sugar": 44,
-    "fiber": 2.2,
-    "energyKj": 3740,
+    "fiber": 2.4,
+    "energyKj": 3739,
     "weight": 199
    },
    "tags": [],
@@ -13449,9 +14353,7 @@
      "nuts",
      "soya"
     ],
-    "mayContain": [
-     "peanuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -13463,14 +14365,14 @@
    "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 534,
-    "protein": 4.7,
+    "calories": 533,
+    "protein": 4.8,
     "carbs": 33,
     "fat": 42,
     "saturatedFat": 24,
     "sugar": 27,
     "fiber": 0.9,
-    "energyKj": 2218,
+    "energyKj": 2212,
     "weight": 133
    },
    "tags": [],
@@ -13496,14 +14398,14 @@
    "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 777,
-    "protein": 6.7,
+    "calories": 775,
+    "protein": 6.9,
     "carbs": 48,
-    "fat": 62,
+    "fat": 61,
     "saturatedFat": 30,
     "sugar": 39,
-    "fiber": 1.3,
-    "energyKj": 3225,
+    "fiber": 1.4,
+    "energyKj": 3215,
     "weight": 156
    },
    "tags": [],
@@ -13518,9 +14420,7 @@
      "nuts",
      "soya"
     ],
-    "mayContain": [
-     "peanuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -13597,20 +14497,20 @@
    }
   },
   {
-   "id": "muffin-chocolate-toffee-waffle",
-   "name": "Muffin Chocolate Toffee Waffle",
-   "category": "Seasonal",
+   "id": "muffin-limoncello-xmas",
+   "name": "Muffin Limoncello (Xmas)",
+   "category": "Muffins Seasonal",
    "serving": "",
    "nutrients": {
-    "calories": 794,
-    "protein": 9,
-    "carbs": 99,
-    "fat": 39,
-    "saturatedFat": 12,
+    "calories": 698,
+    "protein": 8.1,
+    "carbs": 102,
+    "fat": 28,
+    "saturatedFat": 6.1,
     "sugar": 62,
-    "fiber": 6.4,
-    "energyKj": 3323,
-    "weight": 171
+    "fiber": 0.8,
+    "energyKj": 2931,
+    "weight": 152
    },
    "tags": [],
    "limitedTime": true,
@@ -13622,7 +14522,41 @@
      "gluten",
      "eggs",
      "milk",
-     "soya"
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "muffin-panettone-xmas",
+   "name": "Muffin Panettone (Xmas)",
+   "category": "Muffins Seasonal",
+   "serving": "",
+   "nutrients": {
+    "calories": 651,
+    "protein": 9.4,
+    "carbs": 98,
+    "fat": 24,
+    "saturatedFat": 2.9,
+    "sugar": 62,
+    "fiber": 1.3,
+    "energyKj": 2734,
+    "weight": 148
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya",
+     "sulphites"
     ],
     "mayContain": [],
     "cereals": [
@@ -13631,52 +14565,20 @@
    }
   },
   {
-   "id": "muffin-lemon-sherbet",
-   "name": "Muffin Lemon Sherbet",
-   "category": "Seasonal",
+   "id": "muffin-salted-caramel-billionaires-xmas",
+   "name": "Muffin Salted Caramel Billionaires (Xmas)",
+   "category": "Muffins Seasonal",
    "serving": "",
    "nutrients": {
-    "calories": 811,
-    "protein": 8.1,
-    "carbs": 114,
-    "fat": 36,
-    "saturatedFat": 8.9,
-    "sugar": 72,
-    "fiber": 0,
-    "energyKj": 3402,
-    "weight": 184
-   },
-   "tags": [],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "muffin-toffee-waffle",
-   "name": "Muffin Toffee Waffle",
-   "category": "Seasonal",
-   "serving": "",
-   "nutrients": {
-    "calories": 792,
-    "protein": 7.8,
-    "carbs": 122,
-    "fat": 30,
-    "saturatedFat": 8.2,
-    "sugar": 77,
-    "fiber": 0.6,
-    "energyKj": 3329,
-    "weight": 194
+    "calories": 741,
+    "protein": 7.5,
+    "carbs": 112,
+    "fat": 29,
+    "saturatedFat": 7.8,
+    "sugar": 69,
+    "fiber": 0.7,
+    "energyKj": 3114,
+    "weight": 154
    },
    "tags": [],
    "limitedTime": true,
@@ -13694,20 +14596,51 @@
    }
   },
   {
-   "id": "muffin-velvet-choc-and-raspberry",
-   "name": "Muffin Velvet Choc & Raspberry",
-   "category": "Seasonal",
+   "id": "muffin-sticky-toffee-xmas",
+   "name": "Muffin Sticky Toffee (Xmas)",
+   "category": "Muffins Seasonal",
    "serving": "",
    "nutrients": {
-    "calories": 724,
-    "protein": 8.9,
-    "carbs": 94,
-    "fat": 33,
-    "saturatedFat": 8.9,
-    "sugar": 61,
-    "fiber": 6.5,
-    "energyKj": 3033,
-    "weight": 172
+    "calories": 722,
+    "protein": 8.7,
+    "carbs": 103,
+    "fat": 31,
+    "saturatedFat": 7.1,
+    "sugar": 64,
+    "fiber": 0.7,
+    "energyKj": 3030,
+    "weight": 148
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "muffin-velvet-chocolate-xmas",
+   "name": "Muffin Velvet Chocolate (Xmas)",
+   "category": "Muffins Seasonal",
+   "serving": "",
+   "nutrients": {
+    "calories": 792,
+    "protein": 8.7,
+    "carbs": 111,
+    "fat": 34,
+    "saturatedFat": 11,
+    "sugar": 76,
+    "fiber": 2.5,
+    "energyKj": 3322,
+    "weight": 158
    },
    "tags": [],
    "limitedTime": true,
@@ -13722,9 +14655,69 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
+    "mayContain": []
+   }
+  },
+  {
+   "id": "muffin-white-chocolate-and-ginger-xmas",
+   "name": "Muffin White Chocolate & Ginger (Xmas)",
+   "category": "Muffins Seasonal",
+   "serving": "",
+   "nutrients": {
+    "calories": 750,
+    "protein": 9.2,
+    "carbs": 99,
+    "fat": 35,
+    "saturatedFat": 10,
+    "sugar": 62,
+    "fiber": 0,
+    "energyKj": 3143,
+    "weight": 146
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "muffin-winter-berry-red-velvet-xmas",
+   "name": "Muffin Winter Berry Red Velvet (Xmas)",
+   "category": "Muffins Seasonal",
+   "serving": "",
+   "nutrients": {
+    "calories": 663,
+    "protein": 9.4,
+    "carbs": 98,
+    "fat": 25,
+    "saturatedFat": 5.8,
+    "sugar": 68,
+    "fiber": 3.7,
+    "energyKj": 2786,
+    "weight": 149
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
     ]
    }
   },
@@ -14613,8 +15606,210 @@
    }
   },
   {
+   "id": "latte-sticky-toffee-large-xmas",
+   "name": "Latte Sticky Toffee Large (Xmas)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 508,
+    "protein": 12,
+    "carbs": 58,
+    "fat": 25,
+    "saturatedFat": 13,
+    "sugar": 54,
+    "fiber": 0,
+    "energyKj": 2129,
+    "weight": 465
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "latte-sticky-toffee-medium-xmas",
+   "name": "Latte Sticky Toffee Medium (Xmas)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 456,
+    "protein": 9,
+    "carbs": 55,
+    "fat": 22,
+    "saturatedFat": 11,
+    "sugar": 51,
+    "fiber": 0,
+    "energyKj": 1911,
+    "weight": 365
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "millionaires-mocha-large-xmas",
+   "name": "Millionaires' Mocha Large (Xmas)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 507,
+    "protein": 14,
+    "carbs": 64,
+    "fat": 21,
+    "saturatedFat": 13,
+    "sugar": 59,
+    "fiber": 1.8,
+    "energyKj": 2129,
+    "weight": 495
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "millionaires-mocha-medium-xmas",
+   "name": "Millionaires' Mocha Medium (Xmas)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 436,
+    "protein": 9.9,
+    "carbs": 59,
+    "fat": 17,
+    "saturatedFat": 11,
+    "sugar": 54,
+    "fiber": 1.8,
+    "energyKj": 1832,
+    "weight": 365
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "speculoos-hot-chocolate-large-xmas",
+   "name": "Speculoos Hot Chocolate Large (Xmas)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 580,
+    "protein": 16,
+    "carbs": 77,
+    "fat": 23,
+    "saturatedFat": 14,
+    "sugar": 72,
+    "fiber": 2.8,
+    "energyKj": 2437,
+    "weight": 473
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "speculoos-hot-chocolate-medium-xmas",
+   "name": "Speculoos Hot Chocolate Medium (Xmas)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 451,
+    "protein": 12,
+    "carbs": 57,
+    "fat": 19,
+    "saturatedFat": 11,
+    "sugar": 52,
+    "fiber": 2.1,
+    "energyKj": 1891,
+    "weight": 355
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "tea-breakfast-birchall-tea-bags-milk",
-   "name": "Tea Breakfast (Birchall - Tea Bags) (+milk)",
+   "name": "Tea Breakfast (Birchall - Tea Bags) (milk)",
    "category": "Hot Drinks",
    "serving": "",
    "nutrients": {
@@ -15166,10 +16361,14 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk",
-     "soya"
+     "milk"
     ],
-    "mayContain": []
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya"
+    ]
    }
   },
   {
@@ -15195,10 +16394,14 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk",
-     "soya"
+     "milk"
     ],
-    "mayContain": []
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya"
+    ]
    }
   },
   {
@@ -15224,10 +16427,14 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk",
-     "soya"
+     "milk"
     ],
-    "mayContain": []
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya"
+    ]
    }
   },
   {
@@ -15253,10 +16460,14 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk",
-     "soya"
+     "milk"
     ],
-    "mayContain": []
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya"
+    ]
    }
   },
   {
@@ -15282,10 +16493,14 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk",
-     "soya"
+     "milk"
     ],
-    "mayContain": []
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya"
+    ]
    }
   },
   {
@@ -15316,9 +16531,9 @@
      "milk",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
+    "mayContain": [
+     "celery",
+     "mustard"
     ]
    }
   },
@@ -15345,10 +16560,14 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk",
-     "soya"
+     "milk"
     ],
-    "mayContain": []
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya"
+    ]
    }
   },
   {
@@ -15378,7 +16597,11 @@
      "nuts",
      "soya"
     ],
-    "mayContain": []
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard"
+    ]
    }
   },
   {
@@ -15404,10 +16627,14 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk",
-     "soya"
+     "milk"
     ],
-    "mayContain": []
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya"
+    ]
    }
   },
   {
@@ -15752,187 +16979,32 @@
    }
   },
   {
-   "id": "marvellous-milkshake-banoffee",
-   "name": "Marvellous Milkshake Banoffee",
+   "id": "iced-latte-cinnamon-bun-cold-foam-xmas",
+   "name": "Iced Latte Cinnamon Bun Cold Foam (Xmas)",
    "category": "Cold Drinks Made",
    "serving": "",
    "nutrients": {
-    "calories": 399,
-    "protein": 9.8,
-    "carbs": 48,
-    "fat": 19,
-    "saturatedFat": 13,
-    "sugar": 43,
-    "fiber": 0.5,
-    "energyKj": 1673,
-    "weight": 315
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "marvellous-milkshake-bueno",
-   "name": "Marvellous Milkshake Bueno",
-   "category": "Cold Drinks Made",
-   "serving": "",
-   "nutrients": {
-    "calories": 457,
-    "protein": 12,
-    "carbs": 57,
-    "fat": 20,
-    "saturatedFat": 13,
-    "sugar": 46,
-    "fiber": 0.5,
-    "energyKj": 1917,
-    "weight": 327
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "nuts",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ],
-    "nuts": [
-     "hazelnut"
-    ]
-   }
-  },
-  {
-   "id": "marvellous-milkshake-crunchie",
-   "name": "Marvellous Milkshake Crunchie",
-   "category": "Cold Drinks Made",
-   "serving": "",
-   "nutrients": {
-    "calories": 480,
-    "protein": 11,
-    "carbs": 60,
-    "fat": 22,
+    "calories": 409,
+    "protein": 1.9,
+    "carbs": 34,
+    "fat": 29,
     "saturatedFat": 15,
-    "sugar": 52,
-    "fiber": 0.5,
-    "energyKj": 2012,
-    "weight": 336
+    "sugar": 30,
+    "fiber": 1.2,
+    "energyKj": 1700,
+    "weight": 371
    },
    "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "marvellous-milkshake-flake",
-   "name": "Marvellous Milkshake Flake",
-   "category": "Cold Drinks Made",
-   "serving": "",
-   "nutrients": {
-    "calories": 553,
-    "protein": 12,
-    "carbs": 67,
-    "fat": 26,
-    "saturatedFat": 17,
-    "sugar": 54,
-    "fiber": 0.8,
-    "energyKj": 2316,
-    "weight": 341
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "marvellous-milkshake-hubba-bubba",
-   "name": "Marvellous Milkshake Hubba Bubba",
-   "category": "Cold Drinks Made",
-   "serving": "",
-   "nutrients": {
-    "calories": 417,
-    "protein": 9.9,
-    "carbs": 54,
-    "fat": 18,
-    "saturatedFat": 12,
-    "sugar": 52,
-    "fiber": 0.5,
-    "energyKj": 1749,
-    "weight": 346
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "marvellous-milkshake-malteser",
-   "name": "Marvellous Milkshake Malteser",
-   "category": "Cold Drinks Made",
-   "serving": "",
-   "nutrients": {
-    "calories": 507,
-    "protein": 12,
-    "carbs": 63,
-    "fat": 23,
-    "saturatedFat": 16,
-    "sugar": 49,
-    "fiber": 0,
-    "energyKj": 2124,
-    "weight": 333
-   },
-   "tags": [],
-   "limitedTime": false,
+   "limitedTime": true,
    "rankable": false,
    "components": [],
    "modifiers": [],
    "allergens": {
     "contains": [
      "gluten",
-     "milk",
-     "soya"
+     "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -15941,15 +17013,15 @@
    "category": "Cold Drinks Made",
    "serving": "",
    "nutrients": {
-    "calories": 583,
-    "protein": 11,
-    "carbs": 49,
-    "fat": 38,
-    "saturatedFat": 17,
-    "sugar": 36,
+    "calories": 809,
+    "protein": 15,
+    "carbs": 74,
+    "fat": 50,
+    "saturatedFat": 23,
+    "sugar": 53,
     "fiber": 0.5,
-    "energyKj": 2431,
-    "weight": 321
+    "energyKj": 3374,
+    "weight": 411
    },
    "tags": [],
    "limitedTime": false,
@@ -15999,20 +17071,82 @@
    }
   },
   {
+   "id": "premium-milkshake-flake",
+   "name": "Premium Milkshake Flake",
+   "category": "Cold Drinks Made",
+   "serving": "",
+   "nutrients": {
+    "calories": 798,
+    "protein": 16,
+    "carbs": 103,
+    "fat": 35,
+    "saturatedFat": 25,
+    "sugar": 83,
+    "fiber": 1.1,
+    "energyKj": 3348,
+    "weight": 431
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "premium-milkshake-malteser",
+   "name": "Premium Milkshake Malteser",
+   "category": "Cold Drinks Made",
+   "serving": "",
+   "nutrients": {
+    "calories": 941,
+    "protein": 20,
+    "carbs": 133,
+    "fat": 36,
+    "saturatedFat": 26,
+    "sugar": 97,
+    "fiber": 0.6,
+    "energyKj": 3953,
+    "weight": 469
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
    "id": "premium-milkshake-oreo",
    "name": "Premium Milkshake Oreo",
    "category": "Cold Drinks Made",
    "serving": "",
    "nutrients": {
-    "calories": 511,
-    "protein": 11,
-    "carbs": 66,
-    "fat": 22,
-    "saturatedFat": 15,
-    "sugar": 51,
-    "fiber": 0.5,
-    "energyKj": 2145,
-    "weight": 326
+    "calories": 643,
+    "protein": 14,
+    "carbs": 84,
+    "fat": 28,
+    "saturatedFat": 20,
+    "sugar": 63,
+    "fiber": 0.6,
+    "energyKj": 2696,
+    "weight": 401
    },
    "tags": [],
    "limitedTime": false,

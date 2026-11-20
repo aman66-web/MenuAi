@@ -12,16 +12,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Rockfish Allergens, Gluten Free and Calories Menu: restaurants (2026.07) and takeaway (2026.06), both PDFs created 30 June 2026",
+  "title": "Rockfish Allergens, Gluten Free and Calories Menu: restaurants (2026.11, PDF created 3 November 2026)",
   "url": "https://therockfish.co.uk/pages/allergens-menus",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "Calories only: protein, carbs and fat are not published. Mitch's Seasonal Selection (market fish, crab, lobster) and drinks print no calories, so they are not listed. Takeaway dishes use takeaway portions; where the two menus disagree a dish is left out. Allergen marks are for dishes as normally prepared (most can be made gluten free on request).",
+ "note": "Calories only: protein, carbs and fat are not published. Restaurant dishes only: Rockfish's takeaway allergen link currently opens the restaurant menu, so takeaway portions are not listed. Mitch's Seasonal Selection (market fish, crab, lobster) and drinks print no calories, so they are not listed. Allergen marks are for dishes as normally prepared (most can be made gluten free on request).",
  "allergenGuide": {
-  "title": "Rockfish Allergens, Gluten Free and Calories Menus (restaurant 2026.07, takeaway 2026.06)",
+  "title": "Rockfish Allergens, Gluten Free and Calories Menu (restaurants, 2026.11)",
   "url": "https://therockfish.co.uk/pages/allergens-menus",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -31,9 +31,7 @@
   "Main Courses",
   "Children’s Meals",
   "Desserts",
-  "Sides and Sauces",
-  "Takeaway: Fish and Chips",
-  "Takeaway: Children’s Menu"
+  "Sides and Sauces"
  ],
  "components": [],
  "items": [
@@ -176,7 +174,9 @@
      "sulphites"
     ],
     "mayContain": [
+     "crustaceans",
      "eggs",
+     "fish",
      "mustard",
      "sesame",
      "soya"
@@ -220,12 +220,12 @@
    }
   },
   {
-   "id": "spider-crab-croquettes",
-   "name": "Spider crab croquettes",
+   "id": "wild-red-prawn-pil-pil",
+   "name": "Wild red prawn pil pil",
    "category": "Starters",
    "serving": "",
    "nutrients": {
-    "calories": 490
+    "calories": 475
    },
    "tags": [],
    "limitedTime": false,
@@ -234,41 +234,22 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "celery",
+     "gluten",
      "crustaceans",
-     "fish",
-     "milk",
-     "soya",
      "sulphites"
     ],
     "mayContain": [
-     "gluten",
+     "celery",
      "eggs",
+     "fish",
+     "milk",
      "molluscs",
-     "mustard"
-    ]
-   }
-  },
-  {
-   "id": "chargrilled-mounts-bay-sardines",
-   "name": "Chargrilled Mount’s Bay sardines",
-   "category": "Starters",
-   "serving": "",
-   "nutrients": {
-    "calories": 435
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "fish"
+     "mustard",
+     "sesame",
+     "soya"
     ],
-    "mayContain": [
-     "crustaceans",
-     "molluscs"
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -296,12 +277,12 @@
    }
   },
   {
-   "id": "crip-fried-salt-and-pepper-wild-prawns-and-brixham-calamari",
-   "name": "Crip-fried salt and pepper wild prawns and Brixham ‘calamari’",
+   "id": "crisp-fried-salt-and-pepper-brixham-calamari",
+   "name": "Crisp-fried salt and pepper Brixham ‘calamari’",
    "category": "Starters",
    "serving": "",
    "nutrients": {
-    "calories": 420
+    "calories": 345
    },
    "tags": [],
    "limitedTime": false,
@@ -310,19 +291,75 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "crustaceans",
      "fish",
      "molluscs",
-     "soya",
-     "sulphites"
+     "soya"
     ],
     "mayContain": [
      "celery",
      "gluten",
+     "crustaceans",
      "eggs",
      "milk",
-     "mustard"
+     "mustard",
+     "sulphites"
     ]
+   }
+  },
+  {
+   "id": "basque-style-baked-crab",
+   "name": "Basque style baked crab",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 300
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "scandinavian-pickled-herring-and-potato-salad",
+   "name": "Scandinavian pickled herring and potato salad",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 245
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
    }
   },
   {
@@ -352,12 +389,12 @@
    }
   },
   {
-   "id": "crisp-fried-plymouth-anchovies",
-   "name": "Crisp-fried Plymouth anchovies",
+   "id": "crisp-fried-korean-style-squash",
+   "name": "Crisp-fried Korean style squash",
    "category": "Starters",
    "serving": "",
    "nutrients": {
-    "calories": 480
+    "calories": 255
    },
    "tags": [],
    "limitedTime": false,
@@ -366,63 +403,7 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "eggs",
-     "fish",
      "mustard",
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "gluten",
-     "crustaceans",
-     "milk",
-     "molluscs",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "smoked-shetland-isles-mackerel-fillet",
-   "name": "Smoked Shetland Isles mackerel fillet",
-   "category": "Starters",
-   "serving": "",
-   "nutrients": {
-    "calories": 390
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "fish",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [
-     "crustaceans",
-     "molluscs"
-    ]
-   }
-  },
-  {
-   "id": "crisp-fried-tempura-vegetables",
-   "name": "Crisp-fried tempura vegetables",
-   "category": "Starters",
-   "serving": "",
-   "nutrients": {
-    "calories": 335
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
      "soya"
     ],
     "mayContain": [
@@ -433,8 +414,41 @@
      "fish",
      "milk",
      "molluscs",
-     "mustard",
      "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "new-england-smoked-haddock-and-bacon-chowder",
+   "name": "New England smoked haddock and bacon chowder",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 585
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "molluscs",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -478,6 +492,35 @@
      "sulphites"
     ],
     "mayContain": []
+   }
+  },
+  {
+   "id": "oak-smoked-chalk-stream-trout",
+   "name": "Oak smoked chalk stream trout",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 250
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
    }
   },
   {
@@ -561,8 +604,10 @@
      "sulphites"
     ],
     "mayContain": [
+     "gluten",
      "crustaceans",
-     "molluscs"
+     "molluscs",
+     "soya"
     ]
    }
   },
@@ -572,7 +617,7 @@
    "category": "Main Courses",
    "serving": "",
    "nutrients": {
-    "calories": 680
+    "calories": 570
    },
    "tags": [],
    "limitedTime": false,
@@ -631,20 +676,24 @@
    }
   },
   {
-   "id": "chargrilled-cumbrian-chicken-leg-with-sweetcorn-lime-and-coriander",
-   "name": "Chargrilled Cumbrian chicken leg with sweetcorn, lime and coriander",
+   "id": "portuguese-prego-steak-roll",
+   "name": "Portuguese Prego steak roll",
    "category": "Main Courses",
    "serving": "",
    "nutrients": {
-    "calories": 795
+    "calories": 1205
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
    "allergens": {
     "contains": [
+     "gluten",
+     "mustard",
      "sulphites"
     ],
     "mayContain": [
@@ -654,10 +703,11 @@
      "fish",
      "milk",
      "molluscs",
-     "mustard",
-     "nuts",
      "sesame",
      "soya"
+    ],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -748,6 +798,115 @@
      "celery",
      "crustaceans",
      "eggs",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "greek-style-baked-aubergine-with-oregano-and-feta",
+   "name": "Greek style baked aubergine with oregano and feta",
+   "category": "Main Courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 415
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "ling-cooked-la-plancha-with-peperonata",
+   "name": "Ling cooked à la plancha with peperonata",
+   "category": "Main Courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 180
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "molluscs"
+    ]
+   }
+  },
+  {
+   "id": "traditional-fried-whiting",
+   "name": "Traditional fried whiting",
+   "category": "Main Courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 870
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "milk",
+     "molluscs",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "mixed-chargrilled-seafood-with-garlic-butter",
+   "name": "Mixed chargrilled seafood with garlic butter",
+   "category": "Main Courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 885
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
      "soya"
     ]
    }
@@ -1121,12 +1280,12 @@
    }
   },
   {
-   "id": "summer-berry-sundae-with-clotted-cream",
-   "name": "Summer berry sundae with clotted cream",
+   "id": "apple-and-caramel-tart",
+   "name": "Apple and caramel tart",
    "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 560
+    "calories": 620
    },
    "tags": [],
    "limitedTime": false,
@@ -1135,21 +1294,21 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk"
+     "gluten",
+     "milk",
+     "sulphites"
     ],
     "mayContain": [
-     "gluten",
      "eggs",
      "nuts",
      "peanuts",
-     "soya",
-     "sulphites"
+     "soya"
     ]
    }
   },
   {
-   "id": "affogatto",
-   "name": "Affogatto",
+   "id": "affogato",
+   "name": "Affogato",
    "category": "Desserts",
    "serving": "",
    "nutrients": {
@@ -1210,14 +1369,43 @@
    "allergens": {
     "contains": [
      "milk",
+     "nuts",
      "soya"
     ],
     "mayContain": [
      "gluten",
      "eggs",
-     "nuts",
      "peanuts",
      "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "chips",
+   "name": "Chips",
+   "category": "Sides and Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 420
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "soya"
     ]
    }
   },
@@ -1242,12 +1430,12 @@
    }
   },
   {
-   "id": "cornish-new-potatoes",
-   "name": "Cornish new potatoes",
+   "id": "creamed-potatoes-with-garlic",
+   "name": "Creamed potatoes with garlic",
    "category": "Sides and Sauces",
    "serving": "",
    "nutrients": {
-    "calories": 315
+    "calories": 500
    },
    "tags": [],
    "limitedTime": false,
@@ -1262,12 +1450,12 @@
    }
   },
   {
-   "id": "house-salad-with-dressing",
-   "name": "House salad with dressing",
+   "id": "little-gem-and-cucumber-salad-with-dressing",
+   "name": "Little gem and cucumber salad with dressing",
    "category": "Sides and Sauces",
    "serving": "",
    "nutrients": {
-    "calories": 160
+    "calories": 195
    },
    "tags": [],
    "limitedTime": false,
@@ -1283,12 +1471,12 @@
    }
   },
   {
-   "id": "coleslaw",
-   "name": "Coleslaw",
+   "id": "caesar-salad",
+   "name": "Caesar salad",
    "category": "Sides and Sauces",
    "serving": "",
    "nutrients": {
-    "calories": 120
+    "calories": 380
    },
    "tags": [],
    "limitedTime": false,
@@ -1297,10 +1485,19 @@
    "modifiers": [],
    "allergens": {
     "contains": [
+     "gluten",
      "eggs",
+     "fish",
+     "milk",
      "mustard"
     ],
-    "mayContain": []
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
    }
   },
   {
@@ -1489,8 +1686,8 @@
    }
   },
   {
-   "id": "kedgeree-butter",
-   "name": "Kedgeree butter",
+   "id": "curry-butter",
+   "name": "Curry butter",
    "category": "Sides and Sauces",
    "serving": "35 g",
    "nutrients": {
@@ -1502,7 +1699,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "rockfish/a480f384437f.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -1668,28 +1864,6 @@
    }
   },
   {
-   "id": "hollandaise",
-   "name": "Hollandaise",
-   "category": "Sides and Sauces",
-   "serving": "45 g",
-   "nutrients": {
-    "calories": 250,
-    "weight": 45
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "greek-salad",
    "name": "Greek salad",
    "category": "Sides and Sauces",
@@ -1755,31 +1929,6 @@
    }
   },
   {
-   "id": "green-olives-from-seville",
-   "name": "Green olives from Seville",
-   "category": "Sides and Sauces",
-   "serving": "",
-   "nutrients": {
-    "calories": 60
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": [
-     "crustaceans",
-     "fish",
-     "milk",
-     "molluscs",
-     "nuts",
-     "sulphites"
-    ]
-   }
-  },
-  {
    "id": "sweet-chilli-peppers",
    "name": "Sweet chilli peppers",
    "category": "Sides and Sauces",
@@ -1797,264 +1946,6 @@
      "sulphites"
     ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "line-caught-haddock-and-chips",
-   "name": "Line-caught haddock and chips",
-   "category": "Takeaway: Fish and Chips",
-   "serving": "",
-   "nutrients": {
-    "calories": 1035
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "fish",
-     "sulphites"
-    ],
-    "mayContain": [
-     "crustaceans",
-     "eggs",
-     "milk",
-     "molluscs",
-     "mustard",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "rockfish-fillets-and-chips",
-   "name": "Rockfish fillets and chips",
-   "category": "Takeaway: Fish and Chips",
-   "serving": "",
-   "nutrients": {
-    "calories": 1105
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "fish",
-     "sulphites"
-    ],
-    "mayContain": [
-     "crustaceans",
-     "eggs",
-     "milk",
-     "molluscs",
-     "mustard",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "brixham-hake-and-chips",
-   "name": "Brixham hake and chips",
-   "category": "Takeaway: Fish and Chips",
-   "serving": "",
-   "nutrients": {
-    "calories": 920
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "fish",
-     "sulphites"
-    ],
-    "mayContain": [
-     "crustaceans",
-     "eggs",
-     "milk",
-     "molluscs",
-     "mustard",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "the-rock-dog-and-chips",
-   "name": "The Rock dog and chips",
-   "category": "Takeaway: Fish and Chips",
-   "serving": "",
-   "nutrients": {
-    "calories": 1105
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "fish",
-     "milk",
-     "mustard",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "crustaceans",
-     "molluscs",
-     "nuts",
-     "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "oats"
-    ]
-   }
-  },
-  {
-   "id": "local-pork-sausages-and-chips",
-   "name": "Local pork sausages and chips",
-   "category": "Takeaway: Fish and Chips",
-   "serving": "",
-   "nutrients": {
-    "calories": 1060
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sulphites"
-    ],
-    "mayContain": [
-     "crustaceans",
-     "eggs",
-     "fish",
-     "milk",
-     "molluscs",
-     "mustard",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "brixham-fish-bites-and-chips",
-   "name": "Brixham fish bites and chips",
-   "category": "Takeaway: Children’s Menu",
-   "serving": "",
-   "nutrients": {
-    "calories": 670
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "fish",
-     "sulphites"
-    ],
-    "mayContain": [
-     "crustaceans",
-     "eggs",
-     "milk",
-     "molluscs",
-     "mustard",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "sausage-and-chips",
-   "name": "Sausage and chips",
-   "category": "Takeaway: Children’s Menu",
-   "serving": "",
-   "nutrients": {
-    "calories": 600
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sulphites"
-    ],
-    "mayContain": [
-     "crustaceans",
-     "eggs",
-     "fish",
-     "milk",
-     "molluscs",
-     "mustard",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "halloumi-and-chips",
-   "name": "Halloumi and chips",
-   "category": "Takeaway: Children’s Menu",
-   "serving": "",
-   "nutrients": {
-    "calories": 630
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [
-     "crustaceans",
-     "fish",
-     "molluscs"
-    ]
    }
   }
  ],

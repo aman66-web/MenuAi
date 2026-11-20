@@ -1,0 +1,3562 @@
+{
+ "schemaVersion": 1,
+ "id": "kfc",
+ "name": "KFC",
+ "cuisine": "Chicken",
+ "builderType": "standard",
+ "aliases": [
+  "kfc",
+  "kentucky fried chicken"
+ ],
+ "sample": false,
+ "source": {
+  "title": "KFC UK & Ireland Allergen & Nutrition Information (November 2026)",
+  "url": "https://brand-uk.assets.kfc.co.uk/nutrition-allergens.pdf",
+  "checkedOn": "2026-11-17"
+ },
+ "allergenGuide": {
+  "title": "KFC UK & Ireland Allergen & Nutrition Information (November 2026)",
+  "url": "https://brand-uk.assets.kfc.co.uk/nutrition-allergens.pdf",
+  "checkedOn": "2026-11-17",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Burgers",
+  "Twisters & Wraps",
+  "Rice bowls",
+  "Chicken",
+  "Sides",
+  "Add-ons",
+  "Desserts & treats",
+  "Drinks",
+  "Sauces"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "fillet-burger",
+   "name": "Fillet Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 463,
+    "protein": 28.8,
+    "carbs": 43,
+    "fat": 18.7,
+    "saturatedFat": 2.2,
+    "sugar": 6.5,
+    "salt": 2.2,
+    "energyKj": 1942
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/3de7dc31eeb9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "zinger-burger",
+   "name": "Zinger Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 468,
+    "protein": 23,
+    "carbs": 43,
+    "fat": 22,
+    "saturatedFat": 2.2,
+    "sugar": 6.5,
+    "salt": 2,
+    "energyKj": 1962
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/1d1bbdd33935.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fillet-tower-burger",
+   "name": "Fillet Tower Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 604,
+    "protein": 32.1,
+    "carbs": 55.5,
+    "fat": 27,
+    "saturatedFat": 4.3,
+    "sugar": 11,
+    "salt": 3.3,
+    "energyKj": 2531
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/6918b2fd0fce.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bbq-fillet-tower-burger",
+   "name": "BBQ Fillet Tower Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 612,
+    "protein": 32.1,
+    "carbs": 57,
+    "fat": 27.2,
+    "saturatedFat": 4.3,
+    "sugar": 11,
+    "salt": 3.3,
+    "energyKj": 2564
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/4c1dc667ea6c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "zinger-supercharger-tower-burger",
+   "name": "Zinger Supercharger Tower Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 652,
+    "protein": 26.2,
+    "carbs": 53.5,
+    "fat": 35.9,
+    "saturatedFat": 5,
+    "sugar": 8.7,
+    "salt": 3,
+    "energyKj": 2723
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/0d4a8872f20c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "zinger-stacker-burger",
+   "name": "Zinger Stacker Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 813,
+    "protein": 45.1,
+    "carbs": 60.9,
+    "fat": 42.3,
+    "saturatedFat": 7.7,
+    "sugar": 13,
+    "salt": 3.7,
+    "energyKj": 3399
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/f4d9b886f875.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mini-burger",
+   "name": "Mini Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 277,
+    "protein": 18,
+    "carbs": 28,
+    "fat": 10,
+    "saturatedFat": 1.1,
+    "sugar": 2.6,
+    "salt": 1.4,
+    "energyKj": 1164
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/18d383fc1205.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "kids-burger",
+   "name": "Kids Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 258,
+    "protein": 18,
+    "carbs": 30,
+    "fat": 7,
+    "saturatedFat": 0.9,
+    "sugar": 4.8,
+    "salt": 1.4,
+    "energyKj": 1087
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegan-burger",
+   "name": "Vegan Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 396,
+    "protein": 15,
+    "carbs": 41,
+    "fat": 17,
+    "saturatedFat": 1.4,
+    "sugar": 7.7,
+    "salt": 2.5,
+    "energyKj": 1659
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/0ccbd149eaa8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bbq-fillet-stacker-burger",
+   "name": "BBQ Fillet Stacker Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 814,
+    "protein": 56.6,
+    "carbs": 59.2,
+    "fat": 37.9,
+    "saturatedFat": 7.8,
+    "sugar": 10,
+    "salt": 4.6,
+    "energyKj": 3408
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "doom-burger",
+   "name": "Doom Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 514,
+    "protein": 34,
+    "carbs": 46.1,
+    "fat": 20.6,
+    "saturatedFat": 4.5,
+    "sugar": 12,
+    "salt": 2.6,
+    "energyKj": 2158
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "graymas-burger",
+   "name": "Graymas Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 685,
+    "protein": 33.7,
+    "carbs": 60.5,
+    "fat": 33,
+    "saturatedFat": 5.2,
+    "sugar": 7.2,
+    "salt": 4.1,
+    "energyKj": 2869
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "kentucky-mayo-twister",
+   "name": "Kentucky Mayo Twister",
+   "category": "Twisters & Wraps",
+   "serving": "1 twister",
+   "nutrients": {
+    "calories": 520,
+    "protein": 28.4,
+    "carbs": 46.1,
+    "fat": 24,
+    "saturatedFat": 4,
+    "sugar": 5.1,
+    "salt": 2.6,
+    "energyKj": 2179
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/6a0df72d2f3e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sweet-chilli-twister",
+   "name": "Sweet Chilli Twister",
+   "category": "Twisters & Wraps",
+   "serving": "1 twister",
+   "nutrients": {
+    "calories": 492,
+    "protein": 28.7,
+    "carbs": 53.1,
+    "fat": 17.6,
+    "saturatedFat": 3.3,
+    "sugar": 11,
+    "salt": 2.6,
+    "energyKj": 2068
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/c0045b477145.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "smokey-bbq-twister",
+   "name": "Smokey BBQ Twister",
+   "category": "Twisters & Wraps",
+   "serving": "1 twister",
+   "nutrients": {
+    "calories": 482,
+    "protein": 28.7,
+    "carbs": 51.2,
+    "fat": 17.4,
+    "saturatedFat": 3.3,
+    "sugar": 9,
+    "salt": 2.6,
+    "energyKj": 2027
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/0fb00c6894a3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "supercharger-twister",
+   "name": "Supercharger Twister",
+   "category": "Twisters & Wraps",
+   "serving": "1 twister",
+   "nutrients": {
+    "calories": 548,
+    "protein": 29.1,
+    "carbs": 47.8,
+    "fat": 26,
+    "saturatedFat": 4.2,
+    "sugar": 6.2,
+    "salt": 2.6,
+    "energyKj": 2296
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "flamin-mini-wrap",
+   "name": "Flamin' Mini Wrap",
+   "category": "Twisters & Wraps",
+   "serving": "1 wrap",
+   "nutrients": {
+    "calories": 325,
+    "protein": 17.6,
+    "carbs": 28.5,
+    "fat": 15.3,
+    "saturatedFat": 2.5,
+    "sugar": 2.9,
+    "salt": 1.1,
+    "energyKj": 1360
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/546c206f2e2c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bbq-mini-wrap",
+   "name": "BBQ Mini Wrap",
+   "category": "Twisters & Wraps",
+   "serving": "1 wrap",
+   "nutrients": {
+    "calories": 294,
+    "protein": 17.6,
+    "carbs": 30.9,
+    "fat": 10.8,
+    "saturatedFat": 2.2,
+    "sugar": 4.5,
+    "salt": 1.1,
+    "energyKj": 1235
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/fa7bb1cbbe59.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "original-ranch-rice-bowl",
+   "name": "Original Ranch Rice Bowl",
+   "category": "Rice bowls",
+   "serving": "1 bowl",
+   "nutrients": {
+    "calories": 558,
+    "protein": 28.8,
+    "carbs": 62.8,
+    "fat": 19.7,
+    "saturatedFat": 2.5,
+    "sugar": 7.4,
+    "salt": 2.9,
+    "energyKj": 2342
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/8d068893c0ec.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "zinger-ranch-rice-bowl",
+   "name": "Zinger Ranch Rice Bowl",
+   "category": "Rice bowls",
+   "serving": "1 bowl",
+   "nutrients": {
+    "calories": 543,
+    "protein": 23,
+    "carbs": 61.6,
+    "fat": 21.3,
+    "saturatedFat": 2.4,
+    "sugar": 6.5,
+    "salt": 2.6,
+    "energyKj": 2278
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/9d637e7ccd1b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "veggie-ranch-rice-bowl",
+   "name": "Veggie Ranch Rice Bowl",
+   "category": "Rice bowls",
+   "serving": "1 bowl",
+   "nutrients": {
+    "calories": 371,
+    "protein": 7.5,
+    "carbs": 59.7,
+    "fat": 9.5,
+    "saturatedFat": 1.3,
+    "sugar": 8.8,
+    "salt": 1.2,
+    "energyKj": 1560
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "original-recipe-chicken-per-piece",
+   "name": "Original Recipe Chicken (per piece)",
+   "category": "Chicken",
+   "serving": "1 piece (average)",
+   "nutrients": {
+    "calories": 241,
+    "protein": 22,
+    "carbs": 8.6,
+    "fat": 13,
+    "saturatedFat": 2.3,
+    "sugar": 0.5,
+    "salt": 0.94,
+    "energyKj": 1009
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/b0b86367852e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "popcorn-chicken-small",
+   "name": "Popcorn Chicken (small)",
+   "category": "Chicken",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 142,
+    "protein": 8.3,
+    "carbs": 8.3,
+    "fat": 8.3,
+    "saturatedFat": 0.8,
+    "sugar": 0,
+    "salt": 0.64,
+    "energyKj": 592
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/be3979bb19e7.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "popcorn-chicken-regular",
+   "name": "Popcorn Chicken (regular)",
+   "category": "Chicken",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 307,
+    "protein": 18,
+    "carbs": 18,
+    "fat": 18,
+    "saturatedFat": 1.8,
+    "sugar": 0.5,
+    "salt": 1.3,
+    "energyKj": 1283
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/ace2c6fe668d.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "popcorn-chicken-large",
+   "name": "Popcorn Chicken (large)",
+   "category": "Chicken",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 478,
+    "protein": 28,
+    "carbs": 28,
+    "fat": 28,
+    "saturatedFat": 2.8,
+    "sugar": 0.6,
+    "salt": 2.2,
+    "energyKj": 1996
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/ed274513aef7.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hot-wing-per-piece",
+   "name": "Hot Wing (per piece)",
+   "category": "Chicken",
+   "serving": "1 piece (average)",
+   "nutrients": {
+    "calories": 91,
+    "protein": 4.9,
+    "carbs": 3.8,
+    "fat": 6.2,
+    "saturatedFat": 0.9,
+    "sugar": 0,
+    "salt": 0.35,
+    "energyKj": 380
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tender-per-piece",
+   "name": "Tender (per piece)",
+   "category": "Chicken",
+   "serving": "1 piece (average)",
+   "nutrients": {
+    "calories": 125,
+    "protein": 13.1,
+    "carbs": 5.8,
+    "fat": 5.4,
+    "saturatedFat": 0.6,
+    "sugar": 0.5,
+    "salt": 0.87,
+    "energyKj": 524
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/8208fbd5865a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sweet-chilli-dripd-bites",
+   "name": "Sweet Chilli Drip'd Bites",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "protein": 19.1,
+    "carbs": 36.8,
+    "fat": 13.5,
+    "saturatedFat": 1.5,
+    "sugar": 21,
+    "salt": 1.5,
+    "energyKj": 1462
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/b516594cc7b7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "kansas-bbq-dripd-bites",
+   "name": "Kansas BBQ Drip'd Bites",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 301,
+    "protein": 15.8,
+    "carbs": 34.7,
+    "fat": 10.8,
+    "saturatedFat": 1.2,
+    "sugar": 18,
+    "salt": 1.5,
+    "energyKj": 1267
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/36e4410069fc.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "doom-dripd-wings",
+   "name": "Doom Drip'd Wings",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 367,
+    "protein": 15.2,
+    "carbs": 33,
+    "fat": 19,
+    "saturatedFat": 2.7,
+    "sugar": 18,
+    "salt": 1.6,
+    "energyKj": 1536
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "signature-fries-regular",
+   "name": "Signature Fries (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 261,
+    "protein": 3.1,
+    "carbs": 38,
+    "fat": 9.8,
+    "saturatedFat": 0.8,
+    "sugar": 0.5,
+    "salt": 0.74,
+    "energyKj": 1096
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/522be6bdd8dc.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "signature-fries-large",
+   "name": "Signature Fries (large)",
+   "category": "Sides",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 372,
+    "protein": 4.4,
+    "carbs": 54,
+    "fat": 14,
+    "saturatedFat": 1.1,
+    "sugar": 0.5,
+    "salt": 1,
+    "energyKj": 1559
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "bbq-beans-regular",
+   "name": "BBQ Beans (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 93,
+    "protein": 4.7,
+    "carbs": 15.1,
+    "fat": 0.6,
+    "saturatedFat": 0.1,
+    "sugar": 5.9,
+    "salt": 0.63,
+    "energyKj": 393
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "bbq-beans-large",
+   "name": "BBQ Beans (large)",
+   "category": "Sides",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 199,
+    "protein": 10,
+    "carbs": 32,
+    "fat": 1.4,
+    "saturatedFat": 0.2,
+    "sugar": 13,
+    "salt": 1.4,
+    "energyKj": 841
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "coleslaw-regular",
+   "name": "Coleslaw (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 150,
+    "protein": 1.1,
+    "carbs": 6.1,
+    "fat": 13,
+    "saturatedFat": 1,
+    "sugar": 5.3,
+    "salt": 0.57,
+    "energyKj": 619
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/56cdcb46360f.webp",
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coleslaw-large",
+   "name": "Coleslaw (large)",
+   "category": "Sides",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 299,
+    "protein": 2.2,
+    "carbs": 12,
+    "fat": 26,
+    "saturatedFat": 2,
+    "sugar": 11,
+    "salt": 1.1,
+    "energyKj": 1235
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/51a170f20f9c.webp",
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "corn-cobette",
+   "name": "Corn Cobette",
+   "category": "Sides",
+   "serving": "1 cobette",
+   "nutrients": {
+    "calories": 57,
+    "protein": 2.2,
+    "carbs": 8.1,
+    "fat": 1.3,
+    "saturatedFat": 0.2,
+    "sugar": 1.9,
+    "salt": 0.01,
+    "energyKj": 240
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "2-corn-cobettes-large",
+   "name": "2 Corn Cobettes (large)",
+   "category": "Sides",
+   "serving": "2 cobettes",
+   "nutrients": {
+    "calories": 115,
+    "protein": 4.4,
+    "carbs": 16,
+    "fat": 2.7,
+    "saturatedFat": 0.4,
+    "sugar": 3.8,
+    "salt": 0.01,
+    "energyKj": 481
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gravy-regular",
+   "name": "Gravy (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 73,
+    "protein": 1.7,
+    "carbs": 8.4,
+    "fat": 3.5,
+    "saturatedFat": 0.3,
+    "sugar": 0.5,
+    "salt": 1.2,
+    "energyKj": 306
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/b61b0f9567c9.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "gravy-large",
+   "name": "Gravy (large)",
+   "category": "Sides",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 166,
+    "protein": 3.9,
+    "carbs": 19,
+    "fat": 8,
+    "saturatedFat": 0.8,
+    "sugar": 0.8,
+    "salt": 2.8,
+    "energyKj": 696
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/b22372869e37.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "creamy-mash-regular",
+   "name": "Creamy Mash (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 124,
+    "protein": 2.4,
+    "carbs": 20,
+    "fat": 3.4,
+    "saturatedFat": 2.1,
+    "sugar": 1,
+    "salt": 0.88,
+    "energyKj": 523
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/0e19d0eaa6f2.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "creamy-mash-large",
+   "name": "Creamy Mash (large)",
+   "category": "Sides",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 248,
+    "protein": 4.8,
+    "carbs": 40,
+    "fat": 6.8,
+    "saturatedFat": 4.3,
+    "sugar": 2,
+    "salt": 1.8,
+    "energyKj": 1045
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/5ba634094a91.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cajun-dirty-rice",
+   "name": "Cajun Dirty Rice",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 217,
+    "protein": 3.8,
+    "carbs": 43,
+    "fat": 2.6,
+    "saturatedFat": 0.5,
+    "sugar": 2.4,
+    "salt": 0.66,
+    "energyKj": 917
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "side-salad",
+   "name": "Side Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 56,
+    "protein": 0.8,
+    "carbs": 4.7,
+    "fat": 3.6,
+    "saturatedFat": 0.3,
+    "sugar": 2.1,
+    "salt": 0.2,
+    "energyKj": 232
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/acb5daa6df23.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "dirty-loaded-fries",
+   "name": "Dirty Loaded Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 473,
+    "protein": 11.8,
+    "carbs": 53.1,
+    "fat": 22.7,
+    "saturatedFat": 2,
+    "sugar": 5.5,
+    "salt": 1.7,
+    "energyKj": 1981
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/2bd754afcc2a.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "3-mega-mozza-sticks",
+   "name": "3 Mega Mozza Sticks",
+   "category": "Sides",
+   "serving": "3 sticks",
+   "nutrients": {
+    "calories": 333,
+    "protein": 14.9,
+    "carbs": 27.6,
+    "fat": 17.7,
+    "saturatedFat": 5.6,
+    "sugar": 2.1,
+    "salt": 0.7,
+    "energyKj": 1391
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "festive-loaded-fries",
+   "name": "Festive Loaded Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 499,
+    "protein": 11.8,
+    "carbs": 49.6,
+    "fat": 27.1,
+    "saturatedFat": 2.4,
+    "sugar": 1.7,
+    "salt": 2.1,
+    "energyKj": 2086
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheese-slice-per-slice",
+   "name": "Cheese Slice (per slice)",
+   "category": "Add-ons",
+   "serving": "1 slice (average)",
+   "nutrients": {
+    "calories": 38,
+    "protein": 2.2,
+    "carbs": 0,
+    "fat": 3.1,
+    "saturatedFat": 2,
+    "sugar": 0,
+    "salt": 0.16,
+    "energyKj": 159
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "hash-brown-per-piece",
+   "name": "Hash Brown (per piece)",
+   "category": "Add-ons",
+   "serving": "1 piece (average)",
+   "nutrients": {
+    "calories": 92,
+    "protein": 0.9,
+    "carbs": 8.8,
+    "fat": 5.5,
+    "saturatedFat": 0.2,
+    "sugar": 0.7,
+    "salt": 0.55,
+    "energyKj": 381
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "oreo-krushems-shake",
+   "name": "Oreo Krushems Shake",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 272,
+    "protein": 4.1,
+    "carbs": 41,
+    "fat": 10,
+    "saturatedFat": 5.4,
+    "sugar": 31,
+    "salt": 0.44,
+    "energyKj": 1145
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "milkybar-krushems-shake",
+   "name": "MilkyBar Krushems Shake",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 315,
+    "protein": 6.4,
+    "carbs": 43,
+    "fat": 13,
+    "saturatedFat": 8.3,
+    "sugar": 40,
+    "salt": 0.32,
+    "energyKj": 1322
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/e080a27c7ba2.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "aero-peppermint-krushem-shake",
+   "name": "Aero Peppermint Krushem Shake",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 280,
+    "protein": 3.9,
+    "carbs": 41,
+    "fat": 11,
+    "saturatedFat": 6.7,
+    "sugar": 34,
+    "salt": 0.23,
+    "energyKj": 1174
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-ripple-krushem-shake",
+   "name": "Raspberry Ripple Krushem Shake",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 262,
+    "protein": 4.6,
+    "carbs": 36,
+    "fat": 11,
+    "saturatedFat": 7.2,
+    "sugar": 31,
+    "salt": 0.26,
+    "energyKj": 1099
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "mini-chocolate-sundae",
+   "name": "Mini Chocolate Sundae",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 138,
+    "protein": 2.5,
+    "carbs": 20,
+    "fat": 5.3,
+    "saturatedFat": 3.4,
+    "sugar": 16,
+    "salt": 0.2,
+    "energyKj": 580
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/8a3be3ec8c62.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "oreo-sundae",
+   "name": "Oreo Sundae",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 256,
+    "protein": 4.1,
+    "carbs": 38,
+    "fat": 9.6,
+    "saturatedFat": 5.6,
+    "sugar": 29,
+    "salt": 0.38,
+    "energyKj": 1077
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "milkybar-sundae",
+   "name": "Milkybar Sundae",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 296,
+    "protein": 5.7,
+    "carbs": 39,
+    "fat": 13,
+    "saturatedFat": 8.4,
+    "sugar": 34,
+    "salt": 0.31,
+    "energyKj": 1242
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/a9606b12f460.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-ripple-sundae",
+   "name": "Raspberry Ripple Sundae",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 276,
+    "protein": 5,
+    "carbs": 37,
+    "fat": 12,
+    "saturatedFat": 7.8,
+    "sugar": 33,
+    "salt": 0.29,
+    "energyKj": 1160
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "milk-chocolate-cookie",
+   "name": "Milk Chocolate Cookie",
+   "category": "Desserts & treats",
+   "serving": "1 cookie",
+   "nutrients": {
+    "calories": 284,
+    "protein": 2.9,
+    "carbs": 36.3,
+    "fat": 13.8,
+    "saturatedFat": 7.8,
+    "sugar": 22,
+    "salt": 0.37,
+    "energyKj": 1188
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "white-chocolate-cookie",
+   "name": "White Chocolate Cookie",
+   "category": "Desserts & treats",
+   "serving": "1 cookie",
+   "nutrients": {
+    "calories": 283,
+    "protein": 2.7,
+    "carbs": 36,
+    "fat": 14,
+    "saturatedFat": 5.9,
+    "sugar": 21,
+    "salt": 0.36,
+    "energyKj": 1186
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/0bac3258880b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yoyo-bear-strawberry",
+   "name": "Yoyo Bear Strawberry",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0.5,
+    "carbs": 13,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.4,
+    "salt": 0,
+    "energyKj": 243
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "doom-mint-shake",
+   "name": "Doom Mint Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 496,
+    "protein": 6.9,
+    "carbs": 86,
+    "fat": 13.6,
+    "saturatedFat": 8.7,
+    "sugar": 69,
+    "salt": 0.84,
+    "energyKj": 2092
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cherry-boba-refresher",
+   "name": "Cherry Boba Refresher",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 114,
+    "protein": 0.5,
+    "carbs": 27.3,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 27,
+    "salt": 0.3,
+    "energyKj": 486
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/a4e865e3c5fb.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-boba-refresher",
+   "name": "Strawberry Boba Refresher",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 148,
+    "protein": 0.5,
+    "carbs": 35.3,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 34,
+    "salt": 0.3,
+    "energyKj": 628
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/104eeb0aa747.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sparkling-raspberry-lemonade",
+   "name": "Sparkling Raspberry Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 99,
+    "protein": 0.5,
+    "carbs": 21.9,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 22,
+    "salt": 0.24,
+    "energyKj": 421
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/234ca778f983.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sparkling-cloudy-lemonade",
+   "name": "Sparkling Cloudy Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 24,
+    "protein": 0.5,
+    "carbs": 4.3,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 3.8,
+    "salt": 0.24,
+    "energyKj": 103
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/58848cf9e3b1.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte",
+   "name": "Iced Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 102,
+    "protein": 6.6,
+    "carbs": 11.8,
+    "fat": 3.1,
+    "saturatedFat": 1.7,
+    "sugar": 11,
+    "salt": 0.22,
+    "energyKj": 428
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-tiramisu-latte",
+   "name": "Iced Tiramisu Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 215,
+    "protein": 7.1,
+    "carbs": 39.2,
+    "fat": 3.3,
+    "saturatedFat": 1.9,
+    "sugar": 38,
+    "salt": 0.24,
+    "energyKj": 909
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-caramel-latte",
+   "name": "Iced Caramel Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 166,
+    "protein": 6.4,
+    "carbs": 27.9,
+    "fat": 3.2,
+    "saturatedFat": 1.8,
+    "sugar": 27,
+    "salt": 0.23,
+    "energyKj": 702
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-vanilla-latte",
+   "name": "Iced Vanilla Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 111,
+    "protein": 6.4,
+    "carbs": 14.2,
+    "fat": 3.2,
+    "saturatedFat": 1.8,
+    "sugar": 11,
+    "salt": 0.27,
+    "energyKj": 469
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vanilla-iced-matcha",
+   "name": "Vanilla Iced Matcha",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 87,
+    "protein": 6.3,
+    "carbs": 9.4,
+    "fat": 2.7,
+    "saturatedFat": 1.8,
+    "sugar": 7.6,
+    "salt": 0.18,
+    "energyKj": 367
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-shortcake-iced-matcha",
+   "name": "Strawberry Shortcake Iced Matcha",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 264,
+    "protein": 0.5,
+    "carbs": 44,
+    "fat": 6.4,
+    "saturatedFat": 3.5,
+    "sugar": 35,
+    "salt": 0.3,
+    "energyKj": 1114
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "oatly-iced-latte",
+   "name": "Oatly Iced Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 122,
+    "protein": 2.8,
+    "carbs": 15.3,
+    "fat": 5.5,
+    "saturatedFat": 0.5,
+    "sugar": 5.1,
+    "salt": 0.2,
+    "energyKj": 510
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "oatly-iced-caramel-latte",
+   "name": "Oatly Iced Caramel Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 244,
+    "protein": 2.4,
+    "carbs": 43.8,
+    "fat": 6.3,
+    "saturatedFat": 1,
+    "sugar": 35,
+    "salt": 0.24,
+    "energyKj": 1030
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "oatly-iced-tiramisu-latte",
+   "name": "Oatly Iced Tiramisu Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 175,
+    "protein": 2.8,
+    "carbs": 27.4,
+    "fat": 5.7,
+    "saturatedFat": 0.9,
+    "sugar": 19,
+    "salt": 0.24,
+    "energyKj": 736
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "oatly-iced-vanilla-latte",
+   "name": "Oatly Iced Vanilla Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 134,
+    "protein": 2.1,
+    "carbs": 18.3,
+    "fat": 5.5,
+    "saturatedFat": 0.5,
+    "sugar": 8.2,
+    "salt": 0.23,
+    "energyKj": 562
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "oatly-vanilla-iced-matcha",
+   "name": "Oatly Vanilla Iced Matcha",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 112,
+    "protein": 2.7,
+    "carbs": 13.5,
+    "fat": 4.9,
+    "saturatedFat": 0.4,
+    "sugar": 5.4,
+    "salt": 0.18,
+    "energyKj": 467
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "oatly-strawberry-shortcake-iced-matcha",
+   "name": "Oatly Strawberry Shortcake Iced Matcha",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 283,
+    "protein": 3.5,
+    "carbs": 47.5,
+    "fat": 8.4,
+    "saturatedFat": 2.5,
+    "sugar": 33,
+    "salt": 0.3,
+    "energyKj": 1191
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "caramel-krunch-shake",
+   "name": "Caramel Krunch Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 490,
+    "protein": 6.9,
+    "carbs": 82.9,
+    "fat": 14.3,
+    "saturatedFat": 9.1,
+    "sugar": 69,
+    "salt": 0.86,
+    "energyKj": 2065
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/32d48ea8e69a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-krunch-shake",
+   "name": "Chocolate Krunch Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 484,
+    "protein": 6.9,
+    "carbs": 82.4,
+    "fat": 13.8,
+    "saturatedFat": 8.9,
+    "sugar": 71,
+    "salt": 0.84,
+    "energyKj": 2038
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/d1126154d2ca.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-shortcake-krunch-shake",
+   "name": "Strawberry Shortcake Krunch Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 481,
+    "protein": 6.6,
+    "carbs": 83.1,
+    "fat": 13.3,
+    "saturatedFat": 8.9,
+    "sugar": 69,
+    "salt": 0.79,
+    "energyKj": 2026
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "kfc/d99c9d204aec.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "dirty-millionaire-shake",
+   "name": "Dirty Millionaire Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 611,
+    "protein": 8.3,
+    "carbs": 103.2,
+    "fat": 17.9,
+    "saturatedFat": 11,
+    "sugar": 83,
+    "salt": 0.99,
+    "energyKj": 2571
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bottle-of-still-water",
+   "name": "Bottle of Still Water",
+   "category": "Drinks",
+   "serving": "1 bottle",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fruit-shoot-robinsons-blackcurrant-apple",
+   "name": "Fruit Shoot Robinsons Blackcurrant & Apple",
+   "category": "Drinks",
+   "serving": "1 bottle",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0,
+    "carbs": 1.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.4,
+    "salt": 0.06,
+    "energyKj": 35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fruit-shoot-robinsons-orange",
+   "name": "Fruit Shoot Robinsons Orange",
+   "category": "Drinks",
+   "serving": "1 bottle",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0,
+    "carbs": 2.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.4,
+    "salt": 0.06,
+    "energyKj": 41
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pepsi-max-regular",
+   "name": "Pepsi Max (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.18,
+    "energyKj": 8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pepsi-max-large",
+   "name": "Pepsi Max (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.21,
+    "energyKj": 10
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pepsi-max-cherry-regular",
+   "name": "Pepsi Max Cherry (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0.5,
+    "carbs": 0.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.09,
+    "energyKj": 10
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pepsi-max-cherry-large",
+   "name": "Pepsi Max Cherry (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0.5,
+    "carbs": 0.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.13,
+    "energyKj": 14
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "7up-free-regular",
+   "name": "7Up Free (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.27,
+    "energyKj": 27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "7up-free-large",
+   "name": "7Up Free (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 9,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.38,
+    "energyKj": 38
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "robinsons-apple-blackcurrant-regular",
+   "name": "Robinsons Apple & Blackcurrant (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "robinsons-apple-blackcurrant-large",
+   "name": "Robinsons Apple & Blackcurrant (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tango-orange-sugar-free-regular",
+   "name": "Tango Orange Sugar Free (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.03,
+    "energyKj": 16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tango-orange-sugar-free-large",
+   "name": "Tango Orange Sugar Free (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.46,
+    "energyKj": 22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "diet-pepsi-regular",
+   "name": "Diet Pepsi (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.18,
+    "energyKj": 8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "diet-pepsi-large",
+   "name": "Diet Pepsi (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.25,
+    "energyKj": 10
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "doom-dust-sachet",
+   "name": "Doom Dust Sachet",
+   "category": "Sauces",
+   "serving": "1 sachet",
+   "nutrients": {
+    "calories": 17,
+    "protein": 0.5,
+    "carbs": 3.8,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 2.3,
+    "salt": 1.3,
+    "energyKj": 73
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garlic-parm-dip-pot",
+   "name": "Garlic Parm Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 193,
+    "protein": 0.5,
+    "carbs": 3.2,
+    "fat": 19.7,
+    "saturatedFat": 1.6,
+    "sugar": 2,
+    "salt": 0.36,
+    "energyKj": 793
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "honey-mustard-dip-pot",
+   "name": "Honey Mustard Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 194,
+    "protein": 0.7,
+    "carbs": 9.3,
+    "fat": 17.1,
+    "saturatedFat": 1.2,
+    "sugar": 8.4,
+    "salt": 0.38,
+    "energyKj": 804
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-honey-habanero-dip-pot",
+   "name": "Hot Honey Habanero Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 92,
+    "protein": 0.5,
+    "carbs": 22.4,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 19,
+    "salt": 0.31,
+    "energyKj": 391
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jalapeno-ranch-dip-pot",
+   "name": "Jalapeno Ranch Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 155,
+    "protein": 0.6,
+    "carbs": 3.4,
+    "fat": 15.4,
+    "saturatedFat": 1.1,
+    "sugar": 1.8,
+    "salt": 0.48,
+    "energyKj": 639
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-masala-dip-pot",
+   "name": "Mango Masala Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 63,
+    "protein": 0.5,
+    "carbs": 15,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 14,
+    "salt": 0.48,
+    "energyKj": 266
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "original-sauce-dip-pot",
+   "name": "Original Sauce Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 158,
+    "protein": 0.7,
+    "carbs": 3.3,
+    "fat": 15.6,
+    "saturatedFat": 1.1,
+    "sugar": 3,
+    "salt": 0.6,
+    "energyKj": 652
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "supercharger-dip-pot",
+   "name": "Supercharger Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 189,
+    "protein": 0.6,
+    "carbs": 3.9,
+    "fat": 19,
+    "saturatedFat": 1.4,
+    "sugar": 2.9,
+    "salt": 0.72,
+    "energyKj": 781
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sweet-teriyaki-dip-pot",
+   "name": "Sweet Teriyaki Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 52,
+    "protein": 0.6,
+    "carbs": 11.4,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 9.2,
+    "salt": 0.52,
+    "energyKj": 222
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "texas-bbq-dip-pot",
+   "name": "Texas BBQ Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 70,
+    "protein": 0.5,
+    "carbs": 16.6,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 15,
+    "salt": 0.52,
+    "energyKj": 297
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "heinz-tomato-ketchup-sachet",
+   "name": "Heinz Tomato Ketchup sachet",
+   "category": "Sauces",
+   "serving": "1 sachet",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0.5,
+    "carbs": 2.3,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 2.3,
+    "salt": 0.18,
+    "energyKj": 42
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "heinz-light-mayonnaise-sachet",
+   "name": "Heinz Light Mayonnaise sachet",
+   "category": "Sauces",
+   "serving": "1 sachet",
+   "nutrients": {
+    "calories": 28,
+    "protein": 0.5,
+    "carbs": 0.8,
+    "fat": 2.7,
+    "saturatedFat": 0.2,
+    "sugar": 0.5,
+    "salt": 0.18,
+    "energyKj": 115
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

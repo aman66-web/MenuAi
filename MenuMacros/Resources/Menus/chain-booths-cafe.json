@@ -1,0 +1,1185 @@
+{
+ "schemaVersion": 1,
+ "id": "booths-cafe",
+ "name": "Booths Café",
+ "cuisine": "Cafe",
+ "builderType": "standard",
+ "aliases": [
+  "booths cafe",
+  "booths café",
+  "booths",
+  "booths supermarket cafe",
+  "booths supermarket café"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Booths Café Menu 1 (autumn 2026, FAut26; PDF created 2 September 2026), with Menus 2 and 3 for the smaller cafés",
+  "url": "https://online.flippingbook.com/view/875606587/",
+  "checkedOn": "2026-10-11"
+ },
+ "nutritionLevel": "calories",
+ "note": "Booths prints calories only. These are the full Menu 1 dishes, served at 8 of its 15 cafés: the smaller cafés offer a shorter menu with the same calories (check your café). The seasonal specials insert is not listed.",
+ "categories": [
+  "Breakfast sandwiches",
+  "Speciality breakfasts",
+  "On toast",
+  "From our bakery",
+  "Fruit bowls",
+  "Sandwiches & wraps",
+  "Hot sandwiches",
+  "Sides",
+  "Pizzas",
+  "Jacket potatoes",
+  "Main meals",
+  "Salads",
+  "Soups",
+  "Little breakfasts",
+  "Little meals",
+  "Little snacks",
+  "Little sandwiches",
+  "Little drinks",
+  "Tea",
+  "Coffee",
+  "Hot chocolate",
+  "Matcha",
+  "Soft drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "bacon-breakfast-sandwich",
+   "name": "Bacon Breakfast Sandwich",
+   "category": "Breakfast sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 503
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-breakfast-sandwich",
+   "name": "Sausage Breakfast Sandwich",
+   "category": "Breakfast sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 655
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sauteed-mushrooms-smashed-avocado-and-tomato-breakfast-sandwich",
+   "name": "Sautéed Mushrooms, Smashed Avocado & Tomato Breakfast Sandwich",
+   "category": "Breakfast sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 369
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "booths-signature-breakfast",
+   "name": "Booths Signature Breakfast",
+   "category": "Speciality breakfasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1073
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "booths-vegetarian-breakfast",
+   "name": "Booths Vegetarian Breakfast",
+   "category": "Speciality breakfasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1366
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi-avocado-and-poached-eggs-on-toast",
+   "name": "Halloumi, Avocado & Poached Eggs on Toast",
+   "category": "On toast",
+   "serving": "",
+   "nutrients": {
+    "calories": 931
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scrambled-egg-on-toast",
+   "name": "Scrambled Egg on Toast",
+   "category": "On toast",
+   "serving": "",
+   "nutrients": {
+    "calories": 912
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-avocado-and-vine-tomatoes-on-toast",
+   "name": "Smashed Avocado & Vine Tomatoes on Toast",
+   "category": "On toast",
+   "serving": "",
+   "nutrients": {
+    "calories": 431
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruit-teacake",
+   "name": "Fruit Teacake",
+   "category": "From our bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 375
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-crumpets",
+   "name": "2 Crumpets",
+   "category": "From our bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 298
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-slices-of-toast-thick-cut-white-bread",
+   "name": "2 Slices of Toast (thick cut white bread)",
+   "category": "From our bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 390
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-slices-of-toast-thick-cut-wholemeal-bread",
+   "name": "2 Slices of Toast (thick cut wholemeal bread)",
+   "category": "From our bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 336
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-slices-of-toast-thick-cut-sourdough-bread",
+   "name": "2 Slices of Toast (thick cut sourdough bread)",
+   "category": "From our bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 341
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thursday-cottage-strawberry-jam",
+   "name": "Thursday Cottage Strawberry Jam",
+   "category": "From our bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 99
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thursday-cottage-blood-orange-marmalade",
+   "name": "Thursday Cottage Blood Orange Marmalade",
+   "category": "From our bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "granola-with-seasonal-fruits",
+   "name": "Granola with Seasonal Fruits",
+   "category": "Fruit bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 376
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruit-salad",
+   "name": "Fruit Salad",
+   "category": "Fruit bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-caesar-wrap",
+   "name": "Chicken Caesar Wrap",
+   "category": "Sandwiches & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 653
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-smoked-salmon-sandwich",
+   "name": "Hot Smoked Salmon Sandwich",
+   "category": "Sandwiches & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 549
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-and-marie-rose-sauce-sandwich",
+   "name": "Prawn & Marie Rose Sauce Sandwich",
+   "category": "Sandwiches & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 721
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayonnaise-sandwich",
+   "name": "Egg Mayonnaise Sandwich",
+   "category": "Sandwiches & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 793
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fish-finger-sandwich",
+   "name": "Fish Finger Sandwich",
+   "category": "Hot sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 877
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-lancashire-cheese",
+   "name": "Ham & Lancashire Cheese",
+   "category": "Hot sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 846
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-and-lancashire-cheese-toastie",
+   "name": "Sausage & Lancashire Cheese Toastie",
+   "category": "Hot sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 907
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "three-cheese-on-toast",
+   "name": "Three Cheese on Toast",
+   "category": "Hot sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 752
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "booths-french-fries",
+   "name": "Booths French Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 346
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "booths-chunky-chips",
+   "name": "Booths Chunky Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 262
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza",
+   "name": "Margherita Pizza",
+   "category": "Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 626
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chorizo-nduja-and-hot-honey-pizza",
+   "name": "Chorizo, ‘Nduja & Hot Honey Pizza",
+   "category": "Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 737
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "booths-butchers-chilli-con-carne-jacket-potato",
+   "name": "Booths Butchers Chilli Con Carne Jacket Potato",
+   "category": "Jacket potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 831
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-and-marie-rose-sauce-jacket-potato",
+   "name": "Prawn & Marie Rose Sauce Jacket Potato",
+   "category": "Jacket potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 759
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "booths-special-reserve-tasty-lancashire-cheese-jacket-potato",
+   "name": "Booths Special Reserve Tasty Lancashire Cheese Jacket Potato",
+   "category": "Jacket potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 753
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-beans-jacket-potato",
+   "name": "Baked Beans Jacket Potato",
+   "category": "Jacket potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 708
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-egg-and-chips",
+   "name": "Ham, Egg & Chips",
+   "category": "Main meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 725
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cottage-pie",
+   "name": "Cottage Pie",
+   "category": "Main meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 444
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-and-marie-rose-sauce-salad",
+   "name": "Prawn & Marie Rose Sauce Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 293
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "goats-cheese-salad",
+   "name": "Goat's Cheese Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 363
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "woodland-mushroom-soup",
+   "name": "Woodland Mushroom Soup",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 375
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fragrant-spiced-lentil-soup",
+   "name": "Fragrant Spiced Lentil Soup",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 573
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-breakfast",
+   "name": "Little Breakfast",
+   "category": "Little breakfasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 683
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-vegetarian-breakfast",
+   "name": "Little Vegetarian Breakfast",
+   "category": "Little breakfasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 805
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-scrambled-egg-on-toast",
+   "name": "Little Scrambled Egg on Toast",
+   "category": "Little breakfasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 455
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-cheesy-beans-on-toast",
+   "name": "Little Cheesy Beans on Toast",
+   "category": "Little breakfasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 345
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-smashed-avocado-on-toast",
+   "name": "Little Smashed Avocado on Toast",
+   "category": "Little breakfasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 238
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-sausage-and-chips",
+   "name": "Little Sausage & Chips",
+   "category": "Little meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 418
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-fish-fingers-and-chips",
+   "name": "Little Fish Fingers & Chips",
+   "category": "Little meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 325
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-houmous-carrot-and-cucumber-sticks",
+   "name": "Little Houmous, Carrot & Cucumber Sticks",
+   "category": "Little snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 193
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-fruit-salad",
+   "name": "Little Fruit Salad",
+   "category": "Little snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-french-fries",
+   "name": "Little French Fries",
+   "category": "Little snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-three-cheese-on-toast",
+   "name": "Little Three Cheese on Toast",
+   "category": "Little sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 352
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-ham-and-lancashire-cheese-toastie",
+   "name": "Little Ham & Lancashire Cheese Toastie",
+   "category": "Little sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 315
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-lancashire-cheese-sandwich",
+   "name": "Little Lancashire Cheese Sandwich",
+   "category": "Little sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 328
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-roast-ham-sandwich",
+   "name": "Little Roast Ham Sandwich",
+   "category": "Little sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 257
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-egg-mayonnaise-sandwich",
+   "name": "Little Egg Mayonnaise Sandwich",
+   "category": "Little sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 367
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-hot-chocolate",
+   "name": "Little Hot Chocolate",
+   "category": "Little drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 267
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-glass-of-milk",
+   "name": "Little Glass of Milk",
+   "category": "Little drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 101
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-babyccino",
+   "name": "Little Babyccino",
+   "category": "Little drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pot-of-tea",
+   "name": "Pot of Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 39
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flavoured-tea",
+   "name": "Flavoured Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "booths-assam-tea",
+   "name": "Booths Assam Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 39
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "booths-earl-grey-tea",
+   "name": "Booths Earl Grey Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 39
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "booths-gunpowder-green-tea",
+   "name": "Booths Gunpowder Green Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "booths-moroccan-mint-tea",
+   "name": "Booths Moroccan Mint Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte",
+   "name": "Iced Latte",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-americano",
+   "name": "White Americano",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 39
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-americano",
+   "name": "Black Americano",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha",
+   "name": "Mocha",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 205
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-flavoured-syrup-vanilla-caramel-or-cinnamon",
+   "name": "Add flavoured syrup (vanilla, caramel or cinnamon)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "booths-colombian-coffee",
+   "name": "Booths Colombian Coffee",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 38
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "booths-monsoon-malabar-coffee",
+   "name": "Booths Monsoon Malabar Coffee",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 38
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "booths-swiss-decaff-coffee",
+   "name": "Booths Swiss Decaff Coffee",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 38
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-with-cream-and-marshmallows",
+   "name": "Hot Chocolate with Cream & Marshmallows",
+   "category": "Hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 441
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate",
+   "name": "Hot Chocolate",
+   "category": "Hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 361
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-vanilla-oat-matcha",
+   "name": "Iced Vanilla Oat Matcha",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 172
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "freshly-squeezed-orange-juice",
+   "name": "Freshly Squeezed Orange Juice",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 102
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

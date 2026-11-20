@@ -9,16 +9,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Wahaca table menu with calories, Summer 2026 (WAH-Summer-050326; PDF created 23 March 2026)",
-  "url": "https://www.wahaca.co.uk/wp-content/uploads/2026/03/0304_WAH_Main_Estate_Table_Menu_KCAL_Summer_050326.pdf",
-  "checkedOn": "2026-10-07"
+  "title": "Wahaca table menu with calories, Winter 2026-27 (WAH-Winter-191026; PDF created 28 October 2026)",
+  "url": "https://www.wahaca.co.uk/wp-content/uploads/2026/10/0377_Main_Estate_Table_Menu_KCAL_Winter_26-27_191026_WEB.pdf",
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "Wahaca prints calories only, beside each dish, so protein, carbs and fat are not published. Cocktails, drinks, the Frozen Flight and the set menus print no calories and are not listed.",
+ "note": "Wahaca prints calories only, beside each dish, so protein, carbs and fat are not published. Cocktails, drinks and the set menus print no calories and are not listed.",
  "allergenGuide": {
-  "title": "Wahaca back of house allergen & dietary requirements guide, Summer menu 2026 (WAH.SUM2026.V3, 7 pages)",
-  "url": "https://www.wahaca.co.uk/wp-content/uploads/2026/07/BOH-allergy-guides-Summer-Menu-2026-V3-Summer-specials-1.pdf",
-  "checkedOn": "2026-10-07",
+  "title": "Wahaca's allergen & dietary requirements guide, Winter menu 2026-27 (printed 'WAH.WIN 20 2627.V1', 5 pages; PDF created 4 November 2026)",
+  "url": "https://www.wahaca.co.uk/wp-content/uploads/2026/11/FOH-allergy-guides-Winter-menu-202627-V1.pdf",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": false
  },
@@ -41,7 +41,7 @@
    "category": "Entradas",
    "serving": "",
    "nutrients": {
-    "calories": 574
+    "calories": 530
    },
    "tags": [
     "vegetarian"
@@ -58,7 +58,7 @@
    "category": "Entradas",
    "serving": "",
    "nutrients": {
-    "calories": 634
+    "calories": 590
    },
    "tags": [
     "contains_pork"
@@ -74,7 +74,7 @@
    "category": "Entradas",
    "serving": "",
    "nutrients": {
-    "calories": 542
+    "calories": 570
    },
    "tags": [
     "vegetarian"
@@ -106,7 +106,7 @@
    "category": "Entradas",
    "serving": "",
    "nutrients": {
-    "calories": 799
+    "calories": 834
    },
    "tags": [
     "contains_pork"
@@ -122,7 +122,7 @@
    "category": "Entradas",
    "serving": "",
    "nutrients": {
-    "calories": 620
+    "calories": 654
    },
    "tags": [
     "vegetarian"
@@ -156,7 +156,7 @@
    "category": "Tacos",
    "serving": "",
    "nutrients": {
-    "calories": 310
+    "calories": 325
    },
    "tags": [
     "vegetarian"
@@ -268,7 +268,7 @@
    "category": "Tacos",
    "serving": "",
    "nutrients": {
-    "calories": 793
+    "calories": 792
    },
    "tags": [],
    "limitedTime": false,
@@ -282,7 +282,7 @@
    "category": "Quesadillas",
    "serving": "",
    "nutrients": {
-    "calories": 524
+    "calories": 522
    },
    "tags": [],
    "limitedTime": false,
@@ -297,7 +297,7 @@
    "category": "Quesadillas",
    "serving": "",
    "nutrients": {
-    "calories": 400
+    "calories": 407
    },
    "tags": [
     "vegetarian"
@@ -381,7 +381,7 @@
    "category": "Platitos",
    "serving": "",
    "nutrients": {
-    "calories": 373
+    "calories": 383
    },
    "tags": [],
    "limitedTime": false,
@@ -390,12 +390,12 @@
    "modifiers": []
   },
   {
-   "id": "chipotle-glazed-aubergine",
-   "name": "Chipotle Glazed Aubergine",
+   "id": "riverford-organic-squash",
+   "name": "Riverford Organic Squash",
    "category": "Platitos",
    "serving": "",
    "nutrients": {
-    "calories": 296
+    "calories": 304
    },
    "tags": [
     "vegetarian"
@@ -427,7 +427,7 @@
    "category": "Sunshine Bowls",
    "serving": "",
    "nutrients": {
-    "calories": 547
+    "calories": 605
    },
    "tags": [
     "vegetarian"
@@ -444,7 +444,7 @@
    "category": "Sunshine Bowls",
    "serving": "",
    "nutrients": {
-    "calories": 770
+    "calories": 828
    },
    "tags": [
     "vegetarian"
@@ -455,12 +455,12 @@
    "modifiers": []
   },
   {
-   "id": "sunshine-bowl-with-garlic-sweet-potato",
-   "name": "Sunshine Bowl with Garlic Sweet Potato",
+   "id": "sunshine-bowl-with-mojo-sweet-potato",
+   "name": "Sunshine Bowl with Mojo Sweet Potato",
    "category": "Sunshine Bowls",
    "serving": "",
    "nutrients": {
-    "calories": 735
+    "calories": 793
    },
    "tags": [
     "vegetarian"
@@ -476,7 +476,7 @@
    "category": "Sunshine Bowls",
    "serving": "",
    "nutrients": {
-    "calories": 691
+    "calories": 749
    },
    "tags": [],
    "limitedTime": false,
@@ -491,7 +491,7 @@
    "category": "Burritos",
    "serving": "",
    "nutrients": {
-    "calories": 962
+    "calories": 974
    },
    "tags": [
     "vegetarian"
@@ -508,7 +508,7 @@
    "category": "Burritos",
    "serving": "",
    "nutrients": {
-    "calories": 1065
+    "calories": 1076
    },
    "tags": [],
    "limitedTime": false,
@@ -522,7 +522,7 @@
    "category": "Burritos",
    "serving": "",
    "nutrients": {
-    "calories": 1100
+    "calories": 1111
    },
    "tags": [
     "contains_pork"
@@ -538,7 +538,7 @@
    "category": "Burritos",
    "serving": "",
    "nutrients": {
-    "calories": 1048
+    "calories": 1059
    },
    "tags": [
     "contains_beef"
@@ -640,7 +640,7 @@
    "category": "Sides",
    "serving": "",
    "nutrients": {
-    "calories": 251
+    "calories": 279
    },
    "tags": [
     "vegetarian"
@@ -673,7 +673,7 @@
    "category": "Salsas",
    "serving": "",
    "nutrients": {
-    "calories": 11
+    "calories": 10
    },
    "tags": [
     "vegetarian"
@@ -689,7 +689,7 @@
    "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 642
+    "calories": 641
    },
    "tags": [
     "vegetarian"
@@ -716,12 +716,12 @@
    "modifiers": []
   },
   {
-   "id": "ice-cream-sundae",
-   "name": "Ice Cream Sundae",
+   "id": "warm-chocolate-and-pecan-cake",
+   "name": "Warm Chocolate & Pecan Cake",
    "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 386
+    "calories": 793
    },
    "tags": [
     "vegetarian"
@@ -732,12 +732,92 @@
    "modifiers": []
   },
   {
-   "id": "warm-chocolate-and-pecan-cake",
-   "name": "Warm Chocolate & Pecan Cake",
+   "id": "ice-cream-taco",
+   "name": "Ice Cream Taco",
    "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 793
+    "calories": 360
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-sorbet-dusted-with-tajin-1-scoop",
+   "name": "Mango Sorbet dusted with Tajín (1 scoop)",
+   "category": "Desserts",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "agave-lime-sorbet-1-scoop",
+   "name": "Agave-Lime Sorbet (1 scoop)",
+   "category": "Desserts",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 65
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-ice-cream-1-scoop",
+   "name": "Vanilla Ice Cream (1 scoop)",
+   "category": "Desserts",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-ice-cream-1-scoop",
+   "name": "Salted Caramel Ice Cream (1 scoop)",
+   "category": "Desserts",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 88
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-ice-cream-1-scoop",
+   "name": "Chocolate Ice Cream (1 scoop)",
+   "category": "Desserts",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 80
    },
    "tags": [
     "vegetarian"

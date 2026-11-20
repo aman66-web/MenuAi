@@ -12,17 +12,19 @@
  ],
  "sample": false,
  "source": {
-  "title": "Powerleague Food and Drink Menu, Q2 May 2026 (calories per dish; same figures in the Tier 3, Tier 4 and Scotland files)",
-  "url": "https://www.powerleague.com/wp-content/uploads/2026/05/469U-PL-Q2-MAY_DIGITAL-MENU_A4_TIER-3_SINGLE-PAGES_FINAL-compressed.pdf",
-  "checkedOn": "2026-10-10"
+  "title": "Powerleague Food & Drink Menu, November 2026 (no date printed; files in /uploads/2026/11/, created 5 November 2026; calories per dish, the same figures in the Tier 3, Tier 1 and Scotland files)",
+  "url": "https://www.powerleague.com/wp-content/uploads/2026/11/MENU_TIER-3_DIGITAL.pdf",
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "Calories only, as printed on Powerleague's May 2026 food and drink menu; the same figures are in every price tier. Not every club has a bar or stocks every item. Two hot dogs sold at selected locations only are not listed.",
+ "note": "Calories only, as printed on Powerleague's November 2026 food and drink menu; the same figures are in every price tier. Not every club has a bar, and the menu says items are subject to availability.",
  "categories": [
   "Breakfast rolls",
+  "Breakfast roll extras",
   "Chicago Town pizzas",
   "Hot food",
-  "Kids' food"
+  "Kids' food",
+  "Ice cream"
  ],
  "components": [],
  "items": [
@@ -80,11 +82,101 @@
    "category": "Breakfast rolls",
    "serving": "",
    "nutrients": {
-    "calories": 429
+    "calories": 520
    },
    "tags": [
     "vegetarian"
    ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-power-roll",
+   "name": "The Power Roll",
+   "category": "Breakfast rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 1085
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-sausage-patty",
+   "name": "Extra Sausage Patty",
+   "category": "Breakfast roll extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 152
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-bacon",
+   "name": "Extra Bacon",
+   "category": "Breakfast roll extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 172
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg",
+   "name": "Egg",
+   "category": "Breakfast roll extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 77
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-brown",
+   "name": "Hash Brown",
+   "category": "Breakfast roll extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 224
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-slice",
+   "name": "Cheese Slice",
+   "category": "Breakfast roll extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 42
+   },
+   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -96,7 +188,7 @@
    "category": "Chicago Town pizzas",
    "serving": "12\" pizza",
    "nutrients": {
-    "calories": 1712
+    "calories": 1638
    },
    "tags": [],
    "limitedTime": false,
@@ -110,7 +202,7 @@
    "category": "Chicago Town pizzas",
    "serving": "12\" pizza",
    "nutrients": {
-    "calories": 1744
+    "calories": 1697
    },
    "tags": [
     "contains_pork"
@@ -121,12 +213,12 @@
    "modifiers": []
   },
   {
-   "id": "magnificent-meat-feast",
-   "name": "Magnificent Meat Feast",
+   "id": "bbq-magnificent-meat-feast",
+   "name": "BBQ Magnificent Meat Feast",
    "category": "Chicago Town pizzas",
    "serving": "12\" pizza",
    "nutrients": {
-    "calories": 1613
+    "calories": 1639
    },
    "tags": [
     "contains_beef",
@@ -138,12 +230,12 @@
    "modifiers": []
   },
   {
-   "id": "salt-and-pepper-chicken",
-   "name": "Salt & Pepper Chicken",
+   "id": "bbq-chicken",
+   "name": "BBQ Chicken",
    "category": "Chicago Town pizzas",
    "serving": "12\" pizza",
    "nutrients": {
-    "calories": 1836
+    "calories": 1570
    },
    "tags": [],
    "limitedTime": false,
@@ -157,7 +249,7 @@
    "category": "Chicago Town pizzas",
    "serving": "10\" pizza",
    "nutrients": {
-    "calories": 1186
+    "calories": 1098
    },
    "tags": [
     "vegetarian"
@@ -173,7 +265,49 @@
    "category": "Chicago Town pizzas",
    "serving": "",
    "nutrients": {
-    "calories": 1279
+    "calories": 1214
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-dog",
+   "name": "Hot Dog",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 425
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-burger",
+   "name": "Chicken Burger",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 512
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-chicken-tenders-and-dips",
+   "name": "3 Chicken Tenders & Dips",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 332
    },
    "tags": [],
    "limitedTime": false,
@@ -196,8 +330,22 @@
    "modifiers": []
   },
   {
-   "id": "portion-of-chips",
-   "name": "Portion of Chips",
+   "id": "portion-of-chips-large",
+   "name": "Portion of Chips (large)",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 522
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "portion-of-chips-small",
+   "name": "Portion of Chips (small)",
    "category": "Hot food",
    "serving": "",
    "nutrients": {
@@ -224,8 +372,22 @@
    "modifiers": []
   },
   {
-   "id": "6-chicken-nuggets-and-dips",
-   "name": "6 Chicken Nuggets & Dips",
+   "id": "fish-finger-roll",
+   "name": "Fish Finger Roll",
+   "category": "Kids' food",
+   "serving": "",
+   "nutrients": {
+    "calories": 431
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-chicken-nuggets-and-dip",
+   "name": "6 Chicken Nuggets & Dip",
    "category": "Kids' food",
    "serving": "",
    "nutrients": {
@@ -288,6 +450,176 @@
     "calories": 100
    },
    "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "walls-calippo-orange",
+   "name": "Walls Calippo Orange",
+   "category": "Ice cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 104
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "walls-calippo-cola",
+   "name": "Walls Calippo Cola",
+   "category": "Ice cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "walls-calippo-strawberry",
+   "name": "Walls Calippo Strawberry",
+   "category": "Ice cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "walls-twister",
+   "name": "Walls Twister",
+   "category": "Ice cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 79
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "walls-solero-exotic",
+   "name": "Walls Solero Exotic",
+   "category": "Ice cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 98
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "walls-cornetto-go",
+   "name": "Walls Cornetto Go",
+   "category": "Ice cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 347
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "walls-cornetto-strawberry",
+   "name": "Walls Cornetto Strawberry",
+   "category": "Ice cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 296
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "walls-cornetto-soft-cookies-and-chocolate",
+   "name": "Walls Cornetto Soft Cookies & Chocolate",
+   "category": "Ice cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 381
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "walls-magnum-classic",
+   "name": "Walls Magnum Classic",
+   "category": "Ice cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 332
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "walls-magnum-white",
+   "name": "Walls Magnum White",
+   "category": "Ice cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 335
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "walls-minecraft-ice-cream",
+   "name": "Walls Minecraft Ice Cream",
+   "category": "Ice cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 119
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "walls-magnum-vegan-almond",
+   "name": "Walls Magnum Vegan Almond",
+   "category": "Ice cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 276
+   },
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],

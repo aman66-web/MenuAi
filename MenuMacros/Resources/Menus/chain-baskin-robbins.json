@@ -1,0 +1,818 @@
+{
+ "schemaVersion": 1,
+ "id": "baskin-robbins",
+ "name": "Baskin-Robbins",
+ "cuisine": "Ice cream",
+ "builderType": "standard",
+ "aliases": [
+  "baskin robbins",
+  "baskin-robbins",
+  "baskin robbins ice cream"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Baskin-Robbins UK allergen and nutrition index, per 113 g (4 oz) scoop (PDF dated 2025: file name 11-2025, created 20 June 2025)",
+  "url": "https://baskinrobbins.co.uk/wp-content/uploads/2025/06/IND-PIS-NUTRITION-INDEX-11-2025.pdf",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Ice cream scoops only (113 g / 4 oz, per scoop): no shakes, sundaes, cakes or toppings. The source is a 2025 PDF that has no entry for some newer flavours, so a flavour in the shop may be missing here.",
+ "allergenGuide": {
+  "title": "Baskin-Robbins UK allergen and nutrition index (\"Baskin Robbins Allergen Sheet 11/06/2025\", file IND-PIS-NUTRITION-INDEX-11-2025, created 20 June 2025)",
+  "url": "https://baskinrobbins.co.uk/wp-content/uploads/2025/06/IND-PIS-NUTRITION-INDEX-11-2025.pdf",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Ice cream scoops"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "americas-birthday-cake",
+   "name": "America's Birthday Cake",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 253,
+    "protein": 3.4,
+    "carbs": 32,
+    "fat": 12.4,
+    "saturatedFat": 6.7,
+    "sugar": 27.3,
+    "fiber": 0.2,
+    "salt": 0.2,
+    "energyKj": 1062,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/706259dfc71b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "banana-caramel",
+   "name": "Banana Caramel",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 244,
+    "protein": 3.7,
+    "carbs": 27.8,
+    "fat": 13.2,
+    "saturatedFat": 8.4,
+    "sugar": 23.9,
+    "fiber": 0.7,
+    "salt": 0.2,
+    "energyKj": 1021,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/40c25aadf30a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "bubblegum-candyland",
+   "name": "Bubblegum Candyland",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 253,
+    "protein": 4,
+    "carbs": 30.2,
+    "fat": 12.9,
+    "saturatedFat": 8.1,
+    "sugar": 29.6,
+    "fiber": 0.2,
+    "salt": 0.2,
+    "energyKj": 1057,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/fad99030fcee.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "caramel-honeycomb-candy",
+   "name": "Caramel Honeycomb Candy",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 264,
+    "protein": 3.1,
+    "carbs": 32.1,
+    "fat": 13.8,
+    "saturatedFat": 11,
+    "sugar": 30.4,
+    "fiber": 0.1,
+    "salt": 0.2,
+    "energyKj": 1108,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/e5bf6ff4aedc.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "chocolate",
+   "name": "Chocolate",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 249,
+    "protein": 3.7,
+    "carbs": 30.6,
+    "fat": 13.1,
+    "saturatedFat": 10.6,
+    "sugar": 28.4,
+    "fiber": 1.5,
+    "salt": 0.2,
+    "energyKj": 1043,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/4538230845d2.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-chip-cookie-dough",
+   "name": "Chocolate Chip Cookie Dough",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 297,
+    "protein": 4.3,
+    "carbs": 33.3,
+    "fat": 15.1,
+    "saturatedFat": 9.4,
+    "sugar": 25.4,
+    "fiber": 0.5,
+    "salt": 0.3,
+    "energyKj": 1198,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/1cde35c31a8b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cookies-n-cream",
+   "name": "Cookies 'N Cream",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 273,
+    "protein": 3.6,
+    "carbs": 31.5,
+    "fat": 14.9,
+    "saturatedFat": 12.3,
+    "sugar": 27.6,
+    "fiber": 0.6,
+    "salt": 0.3,
+    "energyKj": 1141,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/b219e0a742e9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cotton-candy",
+   "name": "Cotton Candy",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 237,
+    "protein": 3.4,
+    "carbs": 25.2,
+    "fat": 13.8,
+    "saturatedFat": 11.5,
+    "sugar": 25.1,
+    "fiber": 0.2,
+    "salt": 0.1,
+    "energyKj": 991,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/b15e0b6198a8.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "gold-medal-ribbon",
+   "name": "Gold Medal Ribbon",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 261,
+    "protein": 3.5,
+    "carbs": 29.9,
+    "fat": 14.3,
+    "saturatedFat": 11.3,
+    "sugar": 28.6,
+    "fiber": 0.5,
+    "salt": 0.1,
+    "energyKj": 1092,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/1da58c03d2bc.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "jamoca-almond-fudge",
+   "name": "Jamoca Almond Fudge",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 265,
+    "protein": 3.5,
+    "carbs": 29.8,
+    "fat": 15.5,
+    "saturatedFat": 9.5,
+    "sugar": 27.2,
+    "fiber": 1.8,
+    "salt": 0.1,
+    "energyKj": 1108,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/4b38cde111a9.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "mango-tango",
+   "name": "Mango Tango",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 175,
+    "protein": 2.7,
+    "carbs": 18.8,
+    "fat": 9.9,
+    "saturatedFat": 5.8,
+    "sugar": 15,
+    "fiber": 0.2,
+    "salt": 0.1,
+    "energyKj": 732,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/55125e6bcb37.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "mint-chocolate-chip",
+   "name": "Mint Chocolate Chip",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 262,
+    "protein": 4.1,
+    "carbs": 25.5,
+    "fat": 15.9,
+    "saturatedFat": 10,
+    "sugar": 21,
+    "fiber": 0.6,
+    "salt": 0.2,
+    "energyKj": 1093,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/eedcff2372f7.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "mississippi-mud",
+   "name": "Mississippi Mud",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 269,
+    "protein": 3.8,
+    "carbs": 33.9,
+    "fat": 13.1,
+    "saturatedFat": 8.3,
+    "sugar": 27.9,
+    "fiber": 2.1,
+    "salt": 0.2,
+    "energyKj": 1127,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/296afe03fee6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "nutty-salted-caramel",
+   "name": "Nutty Salted Caramel",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 284,
+    "protein": 4.1,
+    "carbs": 34.7,
+    "fat": 14.4,
+    "saturatedFat": 8.8,
+    "sugar": 32.7,
+    "fiber": 0.4,
+    "salt": 0.4,
+    "energyKj": 1193,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/b8ff94ecf47d.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "pralines-n-cream",
+   "name": "Pralines 'N Cream",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 282,
+    "protein": 3.5,
+    "carbs": 31.7,
+    "fat": 15.9,
+    "saturatedFat": 11,
+    "sugar": 30.9,
+    "fiber": 0.5,
+    "salt": 0.2,
+    "energyKj": 1180,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/8de9023c76e2.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "pecan"
+    ]
+   }
+  },
+  {
+   "id": "rum-raisin",
+   "name": "Rum Raisin",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 239,
+    "protein": 3.6,
+    "carbs": 29.3,
+    "fat": 11.9,
+    "saturatedFat": 7.5,
+    "sugar": 25.6,
+    "fiber": 0.4,
+    "salt": 0.2,
+    "energyKj": 1001,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/de3b5aa16f19.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "sea-salt-caramel-espresso",
+   "name": "Sea Salt Caramel Espresso",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 282,
+    "protein": 4.1,
+    "carbs": 29.7,
+    "fat": 16.4,
+    "saturatedFat": 9.6,
+    "sugar": 28.7,
+    "fiber": 0.3,
+    "salt": 0.3,
+    "energyKj": 1182,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/5a779ca0591f.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "toasted-coconut-crunch",
+   "name": "Toasted Coconut Crunch",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 280,
+    "protein": 5,
+    "carbs": 28.8,
+    "fat": 16.1,
+    "saturatedFat": 8.2,
+    "sugar": 24.8,
+    "fiber": 1.6,
+    "salt": 0.2,
+    "energyKj": 1169,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/4d16840ac32b.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "vanilla",
+   "name": "Vanilla",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 236,
+    "protein": 4,
+    "carbs": 24.2,
+    "fat": 13.8,
+    "saturatedFat": 8.7,
+    "sugar": 19.9,
+    "fiber": 0.2,
+    "salt": 0.2,
+    "energyKj": 988,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/d4280794a95e.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "very-berry-strawberry",
+   "name": "Very Berry Strawberry",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 234,
+    "protein": 3.6,
+    "carbs": 29.5,
+    "fat": 11.3,
+    "saturatedFat": 7.2,
+    "sugar": 25,
+    "fiber": 0.2,
+    "salt": 0.2,
+    "energyKj": 980,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/571d49f83a5d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "world-class-chocolate",
+   "name": "World Class Chocolate",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 254,
+    "protein": 3.9,
+    "carbs": 28.6,
+    "fat": 13.8,
+    "saturatedFat": 8.6,
+    "sugar": 22.8,
+    "fiber": 1,
+    "salt": 0.2,
+    "energyKj": 1063,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/1669ed9d9f80.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "rainbow-sherbet",
+   "name": "Rainbow Sherbet",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 147,
+    "protein": 1.2,
+    "carbs": 30.8,
+    "fat": 2,
+    "saturatedFat": 1.1,
+    "sugar": 30.2,
+    "fiber": 0.5,
+    "salt": 0.04,
+    "energyKj": 619,
+    "weight": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "baskin-robbins/f14b4f4c2180.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

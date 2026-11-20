@@ -1,0 +1,897 @@
+{
+ "schemaVersion": 1,
+ "id": "deep-blue",
+ "name": "Deep Blue",
+ "cuisine": "Seafood",
+ "builderType": "standard",
+ "aliases": [
+  "deep blue",
+  "deep blue fish and chips",
+  "deep blue restaurants",
+  "deep blue fish & chips"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Deep Blue online ordering menus with calories (order.deepbluerestaurants.com, 6 shops, read 17 November 2026)",
+  "url": "https://order.deepbluerestaurants.com/",
+  "checkedOn": "2026-11-17"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, as Deep Blue's ordering site prints them once a shop is picked; 6 shops were read and only figures printed the same at 2 or more are shown, so most cod, haddock and chip portions (which differ between its Yorkshire and southern shops) are missing. Sauces and extras are not counted; fried food at the Yorkshire shops is cooked in beef dripping.",
+ "allergenGuide": {
+  "title": "Deep Blue allergen information",
+  "url": "https://www.deepbluerestaurants.com/allergens",
+  "checkedOn": "2026-11-17",
+  "mayContainPublished": false,
+  "complete": false
+ },
+ "categories": [
+  "Fish",
+  "Chips",
+  "Savouries",
+  "Andrew Jones Pies",
+  "Sides & Condiments",
+  "Kids Meals",
+  "Specials",
+  "Northern Bloc Ice Cream",
+  "Gluten Free",
+  "Chip Shop Classics",
+  "Seniors'",
+  "Fish & Chips",
+  "Burgers"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "breaded-wholetail-scampi-x10",
+   "name": "Breaded Wholetail Scampi x10",
+   "category": "Fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 405
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/56c880d694bd.webp"
+  },
+  {
+   "id": "lite-bite-meal",
+   "name": "Lite Bite Meal",
+   "category": "Fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 486
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/f0d06d29e31f.webp"
+  },
+  {
+   "id": "fish-strips",
+   "name": "Fish Strips",
+   "category": "Fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 475
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/e065c74c47e9.webp"
+  },
+  {
+   "id": "homemade-fishcake",
+   "name": "Homemade Fishcake",
+   "category": "Fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 418
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chips-small",
+   "name": "Chips (Small)",
+   "category": "Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 486
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/26dea1d06382.webp"
+  },
+  {
+   "id": "chips-large",
+   "name": "Chips (Large)",
+   "category": "Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 696
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/f9408a6681aa.webp"
+  },
+  {
+   "id": "cheesy-chips",
+   "name": "Cheesy Chips",
+   "category": "Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 814
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/8fb4a7379624.webp"
+  },
+  {
+   "id": "chicken-bites-12",
+   "name": "Chicken Bites (12)",
+   "category": "Savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 828
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/3b22bdbdc3d7.webp"
+  },
+  {
+   "id": "chicken-bites-6",
+   "name": "Chicken Bites (6)",
+   "category": "Savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 403
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/f9a9d9dce94a.webp"
+  },
+  {
+   "id": "spam-fritter",
+   "name": "Spam Fritter",
+   "category": "Savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 666
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/b55c9d00ab27.webp"
+  },
+  {
+   "id": "chicken-pie",
+   "name": "Chicken Pie",
+   "category": "Andrew Jones Pies",
+   "serving": "",
+   "nutrients": {
+    "calories": 606
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/db6be94bfb65.webp"
+  },
+  {
+   "id": "deep-blue-curry-sauce",
+   "name": "Deep Blue Curry Sauce",
+   "category": "Sides & Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 220
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/96058c9d1ddd.webp"
+  },
+  {
+   "id": "deep-blue-gravy",
+   "name": "Deep Blue Gravy",
+   "category": "Sides & Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 228
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/d1958e176327.webp"
+  },
+  {
+   "id": "pickled-onion",
+   "name": "Pickled Onion",
+   "category": "Sides & Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 29
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/1fb5bd9c6530.webp"
+  },
+  {
+   "id": "pickled-egg",
+   "name": "Pickled Egg",
+   "category": "Sides & Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 169
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/ee9edc4c4a9d.webp"
+  },
+  {
+   "id": "bread-roll",
+   "name": "Bread Roll",
+   "category": "Sides & Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 251
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "homemade-mushy-peas",
+   "name": "Homemade Mushy Peas",
+   "category": "Sides & Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/d545b1637ff6.webp"
+  },
+  {
+   "id": "gherkin",
+   "name": "Gherkin",
+   "category": "Sides & Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/b6b356c2919f.webp"
+  },
+  {
+   "id": "homemade-onion-rings",
+   "name": "Homemade Onion Rings",
+   "category": "Sides & Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 273
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/4aaa6eaa1f25.webp"
+  },
+  {
+   "id": "homemade-tartare-sauce",
+   "name": "Homemade Tartare Sauce",
+   "category": "Sides & Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 144
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/c93ea709b713.webp"
+  },
+  {
+   "id": "hand-battered-onion-rings",
+   "name": "Hand Battered Onion Rings",
+   "category": "Sides & Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 295
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushy-peas",
+   "name": "Mushy Peas",
+   "category": "Sides & Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/d545b1637ff6.webp"
+  },
+  {
+   "id": "battered-frickles",
+   "name": "Battered Frickles",
+   "category": "Sides & Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 413
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chicken-bites-4-chips-and-drink",
+   "name": "Kids Chicken Bites (4), Chips and Drink",
+   "category": "Kids Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 674
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-jumbo-battered-sausage-chips-and-drink",
+   "name": "Kids Jumbo Battered Sausage, Chips and Drink",
+   "category": "Kids Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 930
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-jumbo-sausage-chips-and-drink",
+   "name": "Kids Jumbo Sausage, Chips and Drink",
+   "category": "Kids Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 829
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-fish-bites-4-chips-and-drink",
+   "name": "Kids Fish Bites (4), Chips and Drink",
+   "category": "Kids Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 579
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-fish-bites-4-meal",
+   "name": "Kids Fish Bites (4) Meal",
+   "category": "Kids Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 587
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chicken-bites-4-meal",
+   "name": "Kids Chicken Bites (4) Meal",
+   "category": "Kids Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 567
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-jumbo-battered-sausage-meal",
+   "name": "Kids Jumbo Battered Sausage Meal",
+   "category": "Kids Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 826
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-jumbo-sausage-meal",
+   "name": "Kids Jumbo Sausage Meal",
+   "category": "Kids Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 723
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mince-pies",
+   "name": "Mince Pies",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1107
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "northern-bloc-madagascan-vanilla-100ml",
+   "name": "Northern Bloc Madagascan Vanilla 100ml",
+   "category": "Northern Bloc Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 211
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "northern-bloc-vegan-salted-caramel-100ml",
+   "name": "Northern Bloc Vegan Salted Caramel 100ml",
+   "category": "Northern Bloc Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 204
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "northern-bloc-double-chocolate-100ml",
+   "name": "Northern Bloc Double Chocolate 100ml",
+   "category": "Northern Bloc Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 211
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "northern-bloc-lemon-100ml",
+   "name": "Northern Bloc Lemon 100ml",
+   "category": "Northern Bloc Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 82
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-homemade-onion-rings",
+   "name": "GLUTEN FREE Homemade Onion Rings",
+   "category": "Gluten Free",
+   "serving": "",
+   "nutrients": {
+    "calories": 450
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/4aaa6eaa1f25.webp"
+  },
+  {
+   "id": "gluten-free-chips-small",
+   "name": "GLUTEN FREE Chips (Small)",
+   "category": "Gluten Free",
+   "serving": "",
+   "nutrients": {
+    "calories": 486
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/26dea1d06382.webp"
+  },
+  {
+   "id": "gluten-free-homemade-tartare-sauce",
+   "name": "GLUTEN FREE Homemade Tartare Sauce",
+   "category": "Gluten Free",
+   "serving": "",
+   "nutrients": {
+    "calories": 144
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/c93ea709b713.webp"
+  },
+  {
+   "id": "jumbo-saveloy",
+   "name": "Jumbo Saveloy",
+   "category": "Chip Shop Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 278
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/c3e88b9b5729.webp"
+  },
+  {
+   "id": "chicken-bites-6-pieces",
+   "name": "Chicken Bites (6 Pieces)",
+   "category": "Chip Shop Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 425
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/44637acc6619.webp"
+  },
+  {
+   "id": "spicy-butterbean-pie-vg",
+   "name": "Spicy Butterbean Pie (VG)",
+   "category": "Chip Shop Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 590
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/3f8365f80ba1.webp"
+  },
+  {
+   "id": "jumbo-pork-sausage-battered",
+   "name": "Jumbo Pork Sausage (Battered)",
+   "category": "Chip Shop Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 519
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/1a6cf7ec694b.webp"
+  },
+  {
+   "id": "battered-halloumi-bites",
+   "name": "Battered Halloumi Bites",
+   "category": "Chip Shop Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 550
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/a9373d6ce724.webp"
+  },
+  {
+   "id": "southern-fried-chicken-goujons",
+   "name": "Southern Fried Chicken Goujons",
+   "category": "Chip Shop Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 695
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/89dcd6283af6.webp"
+  },
+  {
+   "id": "senior-plaice-and-chips",
+   "name": "Senior Plaice & Chips",
+   "category": "Seniors'",
+   "serving": "",
+   "nutrients": {
+    "calories": 943
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/0d5de91f6e50.webp"
+  },
+  {
+   "id": "fish-bites-6-pieces",
+   "name": "Fish Bites (6 Pieces)",
+   "category": "Fish & Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 503
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/12daca96b342.webp"
+  },
+  {
+   "id": "plaice",
+   "name": "Plaice",
+   "category": "Fish & Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 634
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/e188f225fb9b.webp"
+  },
+  {
+   "id": "breaded-wholetail-scampi",
+   "name": "Breaded Wholetail Scampi",
+   "category": "Fish & Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 575
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/f1c65542ee0b.webp"
+  },
+  {
+   "id": "fishcake-2",
+   "name": "Fishcake (2)",
+   "category": "Fish & Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 675
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/30687bd96abb.webp"
+  },
+  {
+   "id": "salt-and-pepper-squid",
+   "name": "Salt & Pepper Squid",
+   "category": "Fish & Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 508
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/cb5ef9a0d548.webp"
+  },
+  {
+   "id": "cod-small",
+   "name": "Cod (Small)",
+   "category": "Fish & Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 464
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/c4f907081d0e.webp"
+  },
+  {
+   "id": "fishcake-1",
+   "name": "Fishcake (1)",
+   "category": "Fish & Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 338
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/af6281186e37.webp"
+  },
+  {
+   "id": "haddock-small",
+   "name": "Haddock (Small)",
+   "category": "Fish & Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 464
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/c4f907081d0e.webp"
+  },
+  {
+   "id": "battered-fish-burger",
+   "name": "Battered Fish Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 719
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/92a941e820e3.webp"
+  },
+  {
+   "id": "beef-burger",
+   "name": "Beef Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 826
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/c556cd3e7fbb.webp"
+  },
+  {
+   "id": "southern-fried-chicken-burger",
+   "name": "Southern Fried Chicken Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 616
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "deep-blue/2dc5b5d90760.webp"
+  }
+ ],
+ "combinations": []
+}

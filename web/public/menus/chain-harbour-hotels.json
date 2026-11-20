@@ -15,16 +15,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Harbour Hotels restaurant menus with calories (breakfast, light bites, a la carte, desserts, children's, Sunday and set menus; PDFs linked from each hotel's restaurant page, file names dated 2024 to October 2026)",
+  "title": "Harbour Hotels restaurant menus with calories (breakfast, light bites, a la carte, desserts, children's, Sunday and set menus; PDFs linked from each hotel's restaurant page, file names dated 2024 to November 2026)",
   "url": "https://www.harbourhotels.co.uk/our-hotels",
-  "checkedOn": "2026-10-09"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, per dish as printed on the hotels' menus; protein, carbs, fat and allergens are not published. Each hotel has its own menus, so only dishes printed with the same name and calories at 2 or more hotels are listed. Children's menu files are dated 2024.",
  "categories": [
   "Children's menu",
   "Light bites",
-  "Desserts",
   "Breakfast",
   "Drinks",
   "Sides",
@@ -143,22 +142,6 @@
    },
    "tags": [
     "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "classic-cr-me-br-l-e",
-   "name": "Classic Crème Brûlée",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 512
-   },
-   "tags": [
-    "vegetarian"
    ],
    "limitedTime": false,
    "rankable": false,

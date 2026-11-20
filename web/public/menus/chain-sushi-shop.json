@@ -7,17 +7,16 @@
  "aliases": [],
  "sample": false,
  "source": {
-  "title": "Sushi Shop UK online menu, product pages (read 2026-10-10, no date shown)",
+  "title": "Sushi Shop UK online menu: the menu data its product pages show (last modified 12 November 2026), read 2026-11-17",
   "url": "https://www.mysushishop.co.uk/en/all-categories",
-  "checkedOn": "2026-10-10"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "Calories only, one figure per product. About 40 products show no calories and are left out; drinks are not included. Allergens are only a link on each page, so none are recorded. Read from the chain's own pages on 2026-10-10 (4 UK sites: mysushishop.co.uk/en/stores lists four London shops).",
+ "note": "Calories only, one figure per product. About 20 products (gyozas, yakitori, most poke bowls, some mochi) show no calories and are left out, and drinks show none. Allergens are only a link on each page, so none are recorded. Read from the chain's own pages on 2026-11-17 (4 UK sites: mysushishop.co.uk/en/stores listed four London shops on 2026-10-10; not re-read).",
  "categories": [
-  "Handrolls",
   "Sushi",
-  "California Rolls",
   "Maki Rolls",
+  "California Rolls",
   "Spring Rolls",
   "Signature Rolls",
   "Sashimi & Tataki",
@@ -31,66 +30,6 @@
  ],
  "components": [],
  "items": [
-  {
-   "id": "handroll-prawn-tempura",
-   "name": "Handroll Prawn Tempura",
-   "category": "Handrolls",
-   "serving": "",
-   "nutrients": {
-    "calories": 201
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/5d0b811ffb71.webp"
-  },
-  {
-   "id": "fried-chicken-handroll",
-   "name": "Fried Chicken Handroll",
-   "category": "Handrolls",
-   "serving": "",
-   "nutrients": {
-    "calories": 213
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/9581773fb534.webp"
-  },
-  {
-   "id": "spicy-tuna-handroll",
-   "name": "Spicy Tuna Handroll",
-   "category": "Handrolls",
-   "serving": "",
-   "nutrients": {
-    "calories": 180
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/600c2f2c6ffc.webp"
-  },
-  {
-   "id": "salmon-handroll",
-   "name": "Salmon Handroll",
-   "category": "Handrolls",
-   "serving": "",
-   "nutrients": {
-    "calories": 191
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/357d871038e4.webp"
-  },
   {
    "id": "tulip-kuro-edamame",
    "name": "Tulip Kuro Edamame",
@@ -120,20 +59,6 @@
    "components": [],
    "modifiers": [],
    "image": "sushi-shop/3d31d0bea2ae.webp"
-  },
-  {
-   "id": "star-sushi",
-   "name": "Star Sushi",
-   "category": "Sushi",
-   "serving": "2 pieces",
-   "nutrients": {
-    "calories": 57
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
   },
   {
    "id": "tuna-sushi",
@@ -181,21 +106,6 @@
    "image": "sushi-shop/236a2c3259c4.webp"
   },
   {
-   "id": "prawn-sushi",
-   "name": "Prawn Sushi",
-   "category": "Sushi",
-   "serving": "2 pieces",
-   "nutrients": {
-    "calories": 74
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/8d1e596874c1.webp"
-  },
-  {
    "id": "salmon-cheese-sushi",
    "name": "Salmon Cheese Sushi",
    "category": "Sushi",
@@ -226,260 +136,6 @@
    "image": "sushi-shop/31872a755530.webp"
   },
   {
-   "id": "rose-california",
-   "name": "Rose California",
-   "category": "California Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 294
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "california-saba-mustard",
-   "name": "California Saba Mustard",
-   "category": "California Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 276
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/3d950f393c45.webp"
-  },
-  {
-   "id": "california-kimchicken",
-   "name": "California Kimchicken",
-   "category": "California Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 342
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/14e3d2314cdf.webp"
-  },
-  {
-   "id": "kenko-cajun-chicken-roll",
-   "name": "Kenko Cajun Chicken Roll",
-   "category": "California Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 312
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/5a201f06e789.webp"
-  },
-  {
-   "id": "kenko-cooked-tuna-avocado",
-   "name": "Kenko Cooked Tuna Avocado",
-   "category": "California Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 264
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/56a78a72dfda.webp"
-  },
-  {
-   "id": "veggie-roll",
-   "name": "Veggie Roll",
-   "category": "California Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 336
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/413ef685a78e.webp"
-  },
-  {
-   "id": "salmon-and-crispy-onion-roll",
-   "name": "Salmon & Crispy Onion Roll",
-   "category": "California Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 276
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/2bd152a6f402.webp"
-  },
-  {
-   "id": "kenko-salmon-avocado-roll",
-   "name": "Kenko Salmon Avocado Roll",
-   "category": "California Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 234
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/bc55085d0d77.webp"
-  },
-  {
-   "id": "chicken-curry-roll",
-   "name": "Chicken Curry Roll",
-   "category": "California Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 348
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/b5ee56f7c42c.webp"
-  },
-  {
-   "id": "salmon-avocado-roll",
-   "name": "Salmon Avocado Roll",
-   "category": "California Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 240
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/5c8282e6ff6e.webp"
-  },
-  {
-   "id": "salmon-aburi-roll",
-   "name": "Salmon Aburi Roll",
-   "category": "California Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 276
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/3d263dbb7b75.webp"
-  },
-  {
-   "id": "tuna-avocado-roll",
-   "name": "Tuna Avocado Roll",
-   "category": "California Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 222
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/de1e579fbfc7.webp"
-  },
-  {
-   "id": "tuna-and-truffle",
-   "name": "Tuna & Truffle",
-   "category": "California Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 216
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/f8ef638e3083.webp"
-  },
-  {
-   "id": "cooked-tuna-avocado-roll",
-   "name": "Cooked Tuna Avocado Roll",
-   "category": "California Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 282
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/3e3897c91b1f.webp"
-  },
-  {
-   "id": "prawn-tempura-roll",
-   "name": "Prawn Tempura Roll",
-   "category": "California Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 342
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/3e4f018a6034.webp"
-  },
-  {
-   "id": "french-touch",
-   "name": "French touch",
-   "category": "California Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 294
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/e2b659e815d8.webp"
-  },
-  {
-   "id": "chicken-katsu-roll",
-   "name": "Chicken Katsu Roll",
-   "category": "California Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 264
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/32bf31b7e90c.webp"
-  },
-  {
    "id": "maguro-peanut-wasabi",
    "name": "Maguro Peanut Wasabi",
    "category": "Maki Rolls",
@@ -508,20 +164,6 @@
    "components": [],
    "modifiers": [],
    "image": "sushi-shop/53d53f03b558.webp"
-  },
-  {
-   "id": "prince-maki",
-   "name": "Prince Maki",
-   "category": "Maki Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 210
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
   },
   {
    "id": "kenko-cheese-salmon-maki",
@@ -644,6 +286,231 @@
    "image": "sushi-shop/04733601316d.webp"
   },
   {
+   "id": "california-saba-mustard",
+   "name": "California Saba Mustard",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 306
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "sushi-shop/3d950f393c45.webp"
+  },
+  {
+   "id": "california-kimchicken",
+   "name": "California Kimchicken",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 384
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "sushi-shop/14e3d2314cdf.webp"
+  },
+  {
+   "id": "kenko-cajun-chicken-roll",
+   "name": "Kenko Cajun Chicken Roll",
+   "category": "California Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 392
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "sushi-shop/5a201f06e789.webp"
+  },
+  {
+   "id": "kenko-cooked-tuna-avocado",
+   "name": "Kenko Cooked Tuna Avocado",
+   "category": "California Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 336
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "sushi-shop/56a78a72dfda.webp"
+  },
+  {
+   "id": "veggie-roll",
+   "name": "Veggie Roll",
+   "category": "California Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 344
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "sushi-shop/413ef685a78e.webp"
+  },
+  {
+   "id": "salmon-and-crispy-onion-roll",
+   "name": "Salmon & Crispy Onion Roll",
+   "category": "California Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 304
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "sushi-shop/2bd152a6f402.webp"
+  },
+  {
+   "id": "kenko-salmon-avocado-roll",
+   "name": "Kenko Salmon Avocado Roll",
+   "category": "California Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 280
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "sushi-shop/bc55085d0d77.webp"
+  },
+  {
+   "id": "chicken-curry-roll",
+   "name": "Chicken Curry Roll",
+   "category": "California Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 416
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "sushi-shop/b5ee56f7c42c.webp"
+  },
+  {
+   "id": "salmon-avocado-roll",
+   "name": "Salmon Avocado Roll",
+   "category": "California Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 296
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "sushi-shop/5c8282e6ff6e.webp"
+  },
+  {
+   "id": "salmon-aburi-roll",
+   "name": "Salmon Aburi Roll",
+   "category": "California Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 360
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "sushi-shop/3d263dbb7b75.webp"
+  },
+  {
+   "id": "tuna-avocado-roll",
+   "name": "Tuna Avocado Roll",
+   "category": "California Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 272
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "sushi-shop/de1e579fbfc7.webp"
+  },
+  {
+   "id": "tuna-and-truffle",
+   "name": "Tuna & Truffle",
+   "category": "California Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 256
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "sushi-shop/f8ef638e3083.webp"
+  },
+  {
+   "id": "cooked-tuna-avocado-roll",
+   "name": "Cooked Tuna Avocado Roll",
+   "category": "California Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 336
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "sushi-shop/3e3897c91b1f.webp"
+  },
+  {
+   "id": "prawn-tempura-roll",
+   "name": "Prawn Tempura Roll",
+   "category": "California Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 392
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "sushi-shop/3e4f018a6034.webp"
+  },
+  {
+   "id": "french-touch",
+   "name": "French touch",
+   "category": "California Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 336
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "sushi-shop/e2b659e815d8.webp"
+  },
+  {
    "id": "spring-prawn-nanban",
    "name": "Spring Prawn Nanban",
    "category": "Spring Rolls",
@@ -659,38 +526,10 @@
    "image": "sushi-shop/d7e31edcc595.webp"
   },
   {
-   "id": "spring-salmon-guacamole",
-   "name": "Spring Salmon Guacamole",
-   "category": "Spring Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 270
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "fox-spring",
-   "name": "Fox Spring",
-   "category": "Spring Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 324
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "caesar-style-chicken-spring-roll",
    "name": "Caesar Style Chicken Spring Roll",
    "category": "Spring Rolls",
-   "serving": "6 pieces",
+   "serving": "8 pieces",
    "nutrients": {
     "calories": 390
    },
@@ -705,9 +544,9 @@
    "id": "prawn-guacamole-spring",
    "name": "Prawn Guacamole Spring",
    "category": "Spring Rolls",
-   "serving": "6 pieces",
+   "serving": "8 pieces",
    "nutrients": {
-    "calories": 240
+    "calories": 272
    },
    "tags": [],
    "limitedTime": false,
@@ -720,9 +559,9 @@
    "id": "yellowtail-basil-spring",
    "name": "Yellowtail Basil Spring",
    "category": "Spring Rolls",
-   "serving": "6 pieces",
+   "serving": "8 pieces",
    "nutrients": {
-    "calories": 312
+    "calories": 464
    },
    "tags": [],
    "limitedTime": false,
@@ -735,9 +574,9 @@
    "id": "cucumber-cheese-spring-roll",
    "name": "Cucumber Cheese Spring Roll",
    "category": "Spring Rolls",
-   "serving": "6 pieces",
+   "serving": "8 pieces",
    "nutrients": {
-    "calories": 210
+    "calories": 256
    },
    "tags": [],
    "limitedTime": false,
@@ -750,9 +589,9 @@
    "id": "avocado-cheese-spring-roll",
    "name": "Avocado Cheese Spring Roll",
    "category": "Spring Rolls",
-   "serving": "6 pieces",
+   "serving": "8 pieces",
    "nutrients": {
-    "calories": 246
+    "calories": 312
    },
    "tags": [],
    "limitedTime": false,
@@ -765,9 +604,9 @@
    "id": "tuna-tataki-spring",
    "name": "Tuna Tataki Spring",
    "category": "Spring Rolls",
-   "serving": "6 pieces",
+   "serving": "8 pieces",
    "nutrients": {
-    "calories": 300
+    "calories": 376
    },
    "tags": [],
    "limitedTime": false,
@@ -780,9 +619,9 @@
    "id": "salmon-avocado-spring-roll",
    "name": "Salmon Avocado Spring Roll",
    "category": "Spring Rolls",
-   "serving": "6 pieces",
+   "serving": "8 pieces",
    "nutrients": {
-    "calories": 246
+    "calories": 304
    },
    "tags": [],
    "limitedTime": false,
@@ -795,9 +634,9 @@
    "id": "salmon-tataki-spring-roll",
    "name": "Salmon Tataki Spring Roll",
    "category": "Spring Rolls",
-   "serving": "6 pieces",
+   "serving": "8 pieces",
    "nutrients": {
-    "calories": 294
+    "calories": 384
    },
    "tags": [],
    "limitedTime": false,
@@ -810,9 +649,9 @@
    "id": "tuna-avocado-spring-roll",
    "name": "Tuna Avocado Spring Roll",
    "category": "Spring Rolls",
-   "serving": "6 pieces",
+   "serving": "8 pieces",
    "nutrients": {
-    "calories": 222
+    "calories": 280
    },
    "tags": [],
    "limitedTime": false,
@@ -825,9 +664,9 @@
    "id": "cooked-tuna-avocado-spring-roll",
    "name": "Cooked Tuna Avocado Spring Roll",
    "category": "Spring Rolls",
-   "serving": "6 pieces",
+   "serving": "8 pieces",
    "nutrients": {
-    "calories": 282
+    "calories": 360
    },
    "tags": [],
    "limitedTime": false,
@@ -840,9 +679,9 @@
    "id": "fried-chicken-avocado-spring-roll",
    "name": "Fried Chicken Avocado Spring Roll",
    "category": "Spring Rolls",
-   "serving": "6 pieces",
+   "serving": "8 pieces",
    "nutrients": {
-    "calories": 324
+    "calories": 408
    },
    "tags": [],
    "limitedTime": false,
@@ -850,21 +689,6 @@
    "components": [],
    "modifiers": [],
    "image": "sushi-shop/6b67e6519321.webp"
-  },
-  {
-   "id": "prawn-tempura-spring-roll",
-   "name": "Prawn Tempura Spring roll",
-   "category": "Spring Rolls",
-   "serving": "6 pieces",
-   "nutrients": {
-    "calories": 348
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/1238a0653183.webp"
   },
   {
    "id": "signature-maguro-spicy",
@@ -880,21 +704,6 @@
    "components": [],
    "modifiers": [],
    "image": "sushi-shop/fa040a0ad08d.webp"
-  },
-  {
-   "id": "extreme-fire-signature",
-   "name": "Extreme Fire Signature",
-   "category": "Signature Rolls",
-   "serving": "8 pieces",
-   "nutrients": {
-    "calories": 536
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/ad3f9d0fe316.webp"
   },
   {
    "id": "signature-nordic-flame-roll",
@@ -1361,6 +1170,20 @@
    "image": "sushi-shop/8b26efdc9b07.webp"
   },
   {
+   "id": "crousty-spicy-korean",
+   "name": "Crousty Spicy Korean",
+   "category": "Hot dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1284
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "ceviche-yellowtail",
    "name": "Ceviche Yellowtail",
    "category": "Bowls",
@@ -1451,36 +1274,6 @@
    "image": "sushi-shop/b8bee2368934.webp"
   },
   {
-   "id": "teriyaki-salmon-poke-bowl",
-   "name": "Teriyaki Salmon Poke Bowl",
-   "category": "Bowls",
-   "serving": "1 pieces",
-   "nutrients": {
-    "calories": 539
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/0647aa95edfc.webp"
-  },
-  {
-   "id": "poke-bowl-veggie",
-   "name": "Poke Bowl Veggie",
-   "category": "Bowls",
-   "serving": "1 pieces",
-   "nutrients": {
-    "calories": 458
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/18baf1394624.webp"
-  },
-  {
    "id": "box-adrien-cachot",
    "name": "Box Adrien Cachot",
    "category": "Sushi Boxes",
@@ -1499,9 +1292,9 @@
    "id": "fresh-mix",
    "name": "Fresh Mix",
    "category": "Sushi Boxes",
-   "serving": "22 pieces",
+   "serving": "26 pieces",
    "nutrients": {
-    "calories": 1015
+    "calories": 1175
    },
    "tags": [],
    "limitedTime": false,
@@ -1514,9 +1307,9 @@
    "id": "little-salmon-mix",
    "name": "Little Salmon Mix",
    "category": "Sushi Boxes",
-   "serving": "9 pieces",
+   "serving": "12 pieces",
    "nutrients": {
-    "calories": 366
+    "calories": 468
    },
    "tags": [],
    "limitedTime": false,
@@ -1529,9 +1322,9 @@
    "id": "kenko-mix",
    "name": "Kenko Mix",
    "category": "Sushi Boxes",
-   "serving": "18 pieces",
+   "serving": "22 pieces",
    "nutrients": {
-    "calories": 710
+    "calories": 843
    },
    "tags": [],
    "limitedTime": false,
@@ -1544,9 +1337,9 @@
    "id": "salmon-lovers",
    "name": "Salmon Lovers",
    "category": "Sushi Boxes",
-   "serving": "18 pieces",
+   "serving": "23 pieces",
    "nutrients": {
-    "calories": 833
+    "calories": 893
    },
    "tags": [],
    "limitedTime": false,
@@ -1559,9 +1352,9 @@
    "id": "super-salmon",
    "name": "Super Salmon",
    "category": "Sushi Boxes",
-   "serving": "24 pieces",
+   "serving": "28 pieces",
    "nutrients": {
-    "calories": 1060
+    "calories": 1141
    },
    "tags": [],
    "limitedTime": false,
@@ -1571,27 +1364,12 @@
    "image": "sushi-shop/58629c56786b.webp"
   },
   {
-   "id": "sunrise",
-   "name": "Sunrise",
-   "category": "Sushi Boxes",
-   "serving": "18 pieces",
-   "nutrients": {
-    "calories": 926
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/feeee2a4bc90.webp"
-  },
-  {
    "id": "salmon-classic",
    "name": "Salmon Classic",
    "category": "Sushi Boxes",
    "serving": "10 pieces",
    "nutrients": {
-    "calories": 520
+    "calories": 472
    },
    "tags": [],
    "limitedTime": false,
@@ -1604,9 +1382,9 @@
    "id": "amateur-mix",
    "name": "Amateur Mix",
    "category": "Sushi Boxes",
-   "serving": "15 pieces",
+   "serving": "17 pieces",
    "nutrients": {
-    "calories": 720
+    "calories": 709
    },
    "tags": [],
    "limitedTime": false,
@@ -1619,9 +1397,9 @@
    "id": "salmon-original",
    "name": "Salmon Original",
    "category": "Sushi Boxes",
-   "serving": "11 pieces",
+   "serving": "13 pieces",
    "nutrients": {
-    "calories": 511
+    "calories": 505
    },
    "tags": [],
    "limitedTime": false,
@@ -1634,9 +1412,9 @@
    "id": "veggie-box",
    "name": "Veggie Box",
    "category": "Sushi Boxes",
-   "serving": "18 pieces",
+   "serving": "22 pieces",
    "nutrients": {
-    "calories": 865
+    "calories": 843
    },
    "tags": [],
    "limitedTime": false,
@@ -1679,7 +1457,7 @@
    "category": "Sushi Boxes",
    "serving": "",
    "nutrients": {
-    "calories": 778
+    "calories": 1005
    },
    "tags": [],
    "limitedTime": false,
@@ -1692,9 +1470,9 @@
    "id": "california-dream",
    "name": "California Dream",
    "category": "Sushi Boxes",
-   "serving": "24 pieces",
+   "serving": "28 pieces",
    "nutrients": {
-    "calories": 1142
+    "calories": 1260
    },
    "tags": [],
    "limitedTime": false,
@@ -1704,12 +1482,12 @@
    "image": "sushi-shop/d0831e4964b7.webp"
   },
   {
-   "id": "box-le-petit-prince",
-   "name": "Box Le Petit Prince®",
-   "category": "Boxes to Share",
-   "serving": "42 pieces",
+   "id": "signature-box",
+   "name": "Signature Box",
+   "category": "Sushi Boxes",
+   "serving": "20 pieces",
    "nutrients": {
-    "calories": 2044
+    "calories": 1101
    },
    "tags": [],
    "limitedTime": false,
@@ -1723,7 +1501,7 @@
    "category": "Boxes to Share",
    "serving": "",
    "nutrients": {
-    "calories": 2674
+    "calories": 2611
    },
    "tags": [],
    "limitedTime": false,
@@ -1738,7 +1516,7 @@
    "category": "Boxes to Share",
    "serving": "",
    "nutrients": {
-    "calories": 2954
+    "calories": 3669
    },
    "tags": [],
    "limitedTime": false,
@@ -1753,7 +1531,7 @@
    "category": "Boxes to Share",
    "serving": "",
    "nutrients": {
-    "calories": 2106
+    "calories": 2254
    },
    "tags": [],
    "limitedTime": false,
@@ -1768,7 +1546,7 @@
    "category": "Boxes to Share",
    "serving": "",
    "nutrients": {
-    "calories": 1906
+    "calories": 2208
    },
    "tags": [],
    "limitedTime": false,
@@ -1778,12 +1556,12 @@
    "image": "sushi-shop/0dc598edca4c.webp"
   },
   {
-   "id": "sunday-club-offer",
-   "name": "Sunday Club Offer",
+   "id": "happy-sushi-box",
+   "name": "Happy Sushi Box",
    "category": "Boxes to Share",
    "serving": "",
    "nutrients": {
-    "calories": 1730
+    "calories": 2028
    },
    "tags": [],
    "limitedTime": false,
@@ -1792,27 +1570,12 @@
    "modifiers": []
   },
   {
-   "id": "black-box-gourmet",
-   "name": "Black Box gourmet",
+   "id": "salmon-addict",
+   "name": "Salmon Addict",
    "category": "Boxes to Share",
-   "serving": "",
+   "serving": "50 pieces",
    "nutrients": {
-    "calories": 2558
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "sushi-shop/aa4ae88cb220.webp"
-  },
-  {
-   "id": "happy-sushi-box",
-   "name": "Happy Sushi Box",
-   "category": "Boxes to Share",
-   "serving": "",
-   "nutrients": {
-    "calories": 1610
+    "calories": 2083
    },
    "tags": [],
    "limitedTime": false,
@@ -2016,6 +1779,62 @@
    "image": "sushi-shop/bf702f207e9e.webp"
   },
   {
+   "id": "spicy-sauce",
+   "name": "Spicy Sauce",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 146
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ponzu-sauce",
+   "name": "Ponzu Sauce",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-sauce",
+   "name": "Sweet Chilli Sauce",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 26
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gyoza-sauce",
+   "name": "Gyoza Sauce",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "crispy-nori-sea-salt",
    "name": "Crispy Nori - Sea Salt",
    "category": "Snacking",
@@ -2036,20 +1855,6 @@
    "serving": "",
    "nutrients": {
     "calories": 18
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "crispy-nori-korean-bbq",
-   "name": "Crispy Nori - Korean BBQ",
-   "category": "Snacking",
-   "serving": "",
-   "nutrients": {
-    "calories": 19
    },
    "tags": [],
    "limitedTime": false,

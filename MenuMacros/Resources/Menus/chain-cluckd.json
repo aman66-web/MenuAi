@@ -1,0 +1,1113 @@
+{
+ "schemaVersion": 1,
+ "id": "cluckd",
+ "name": "Cluck'd",
+ "cuisine": "Chicken",
+ "builderType": "standard",
+ "aliases": [
+  "cluckd",
+  "cluck'd",
+  "cluck d",
+  "cluckd uk",
+  "cluck'd grilled chicken"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Cluck'd menu with calories (picture 'Asset-2-1-scaled.png' on cluckd.co.uk/menu, uploaded September 2026, file dated 9 Sep 2026)",
+  "url": "https://cluckd.co.uk/wp-content/uploads/2026/09/Asset-2-1-scaled.png",
+  "checkedOn": "2026-10-09"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, read from the picture of Cluck'd's September 2026 menu (there is no text version). Baste flavours are listed separately: the menu does not say whether a dish's value includes one. Ice cream (three values, no flavour order) and drinks print no usable calories. 3 UK restaurants (Norwich, Milton Keynes, Leicester) on cluckd.co.uk, 9 Oct 2026.",
+ "allergenGuide": {
+  "title": "Cluck'd allergen matrix (PDF created 7 April 2026; 'Maybe' = may contain)",
+  "url": "https://cluckd.co.uk/wp-content/uploads/2026/04/allergens-feb-2026x-1.pdf",
+  "checkedOn": "2026-10-09",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Grilled chicken",
+  "Platters",
+  "Baste flavours",
+  "Load it up",
+  "Shake it up",
+  "Cluck'd Exclusives",
+  "Pitta Club",
+  "Wraps",
+  "Dip it",
+  "Dessert",
+  "Top Buns",
+  "Sides",
+  "Snacks",
+  "Cluck'd Juniors"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "1-4-chicken",
+   "name": "1/4 Chicken",
+   "category": "Grilled chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 327
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "1-2-chicken",
+   "name": "1/2 Chicken",
+   "category": "Grilled chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 654
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-wings",
+   "name": "3 Wings",
+   "category": "Grilled chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 251
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5-wings",
+   "name": "5 Wings",
+   "category": "Grilled chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 418
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10-wings",
+   "name": "10 Wings",
+   "category": "Grilled chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 835
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "boneless-strips",
+   "name": "Boneless Strips",
+   "category": "Grilled chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "boneless-thighs",
+   "name": "Boneless Thighs",
+   "category": "Grilled chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 411
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "15-wing-platter",
+   "name": "15 Wing Platter",
+   "category": "Platters",
+   "serving": "",
+   "nutrients": {
+    "calories": 2129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "whole-bird-platter",
+   "name": "Whole Bird Platter",
+   "category": "Platters",
+   "serving": "",
+   "nutrients": {
+    "calories": 1306
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "straight-up-baste-flavour",
+   "name": "Straight Up (baste flavour)",
+   "category": "Baste flavours",
+   "serving": "",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-squeeze-baste-flavour",
+   "name": "Lemon Squeeze (baste flavour)",
+   "category": "Baste flavours",
+   "serving": "",
+   "nutrients": {
+    "calories": 79
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "herby-garlic-baste-flavour",
+   "name": "Herby Garlic (baste flavour)",
+   "category": "Baste flavours",
+   "serving": "",
+   "nutrients": {
+    "calories": 53
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "medium-kick-baste-flavour",
+   "name": "Medium Kick (baste flavour)",
+   "category": "Baste flavours",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tingly-baste-flavour",
+   "name": "Tingly (baste flavour)",
+   "category": "Baste flavours",
+   "serving": "",
+   "nutrients": {
+    "calories": 77
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "screaming-baste-flavour",
+   "name": "Screaming (baste flavour)",
+   "category": "Baste flavours",
+   "serving": "",
+   "nutrients": {
+    "calories": 73
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nashville-loaded-fries",
+   "name": "Nashville Loaded Fries",
+   "category": "Load it up",
+   "serving": "",
+   "nutrients": {
+    "calories": 624
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-fries",
+   "name": "Loaded Fries",
+   "category": "Load it up",
+   "serving": "",
+   "nutrients": {
+    "calories": 727
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-loaded-fries",
+   "name": "Crispy Loaded Fries",
+   "category": "Load it up",
+   "serving": "",
+   "nutrients": {
+    "calories": 824
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-shake",
+   "name": "Vanilla Shake",
+   "category": "Shake it up",
+   "serving": "",
+   "nutrients": {
+    "calories": 234
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-shake",
+   "name": "Chocolate Shake",
+   "category": "Shake it up",
+   "serving": "",
+   "nutrients": {
+    "calories": 557
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-shake",
+   "name": "Strawberry Shake",
+   "category": "Shake it up",
+   "serving": "",
+   "nutrients": {
+    "calories": 526
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kinder-bueno-shake",
+   "name": "Kinder Bueno Shake",
+   "category": "Shake it up",
+   "serving": "",
+   "nutrients": {
+    "calories": 870
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oreo-shake",
+   "name": "Oreo Shake",
+   "category": "Shake it up",
+   "serving": "",
+   "nutrients": {
+    "calories": 535
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscoff-shake",
+   "name": "Biscoff Shake",
+   "category": "Shake it up",
+   "serving": "",
+   "nutrients": {
+    "calories": 641
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookie-dough-shake",
+   "name": "Cookie Dough Shake",
+   "category": "Shake it up",
+   "serving": "",
+   "nutrients": {
+    "calories": 609
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salt-n-pepper-box",
+   "name": "Salt 'N' Pepper Box",
+   "category": "Cluck'd Exclusives",
+   "serving": "",
+   "nutrients": {
+    "calories": 403
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-caesar-salad",
+   "name": "Chicken Caesar Salad",
+   "category": "Cluck'd Exclusives",
+   "serving": "",
+   "nutrients": {
+    "calories": 610
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rice-n-shine-box",
+   "name": "Rice 'N' Shine Box",
+   "category": "Cluck'd Exclusives",
+   "serving": "",
+   "nutrients": {
+    "calories": 405
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cluckd-classic",
+   "name": "Cluck'd Classic",
+   "category": "Pitta Club",
+   "serving": "",
+   "nutrients": {
+    "calories": 579
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "heatwave",
+   "name": "Heatwave",
+   "category": "Pitta Club",
+   "serving": "",
+   "nutrients": {
+    "calories": 678
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-boss",
+   "name": "BBQ Boss",
+   "category": "Pitta Club",
+   "serving": "",
+   "nutrients": {
+    "calories": 678
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buttermilk-crunch",
+   "name": "Buttermilk Crunch",
+   "category": "Pitta Club",
+   "serving": "",
+   "nutrients": {
+    "calories": 768
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi-heaven",
+   "name": "Halloumi Heaven",
+   "category": "Pitta Club",
+   "serving": "",
+   "nutrients": {
+    "calories": 673
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-gc",
+   "name": "Classic GC",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 328
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-bliss",
+   "name": "BBQ Bliss",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 630
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-cluckd",
+   "name": "Crispy Cluck'd",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 500
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "inferno",
+   "name": "Inferno",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 539
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi-wrap",
+   "name": "Halloumi Wrap",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 505
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq",
+   "name": "Korean BBQ",
+   "category": "Dip it",
+   "serving": "",
+   "nutrients": {
+    "calories": 47
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "comeback-sauce",
+   "name": "Comeback Sauce",
+   "category": "Dip it",
+   "serving": "",
+   "nutrients": {
+    "calories": 23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-ranch",
+   "name": "Garlic Ranch",
+   "category": "Dip it",
+   "serving": "",
+   "nutrients": {
+    "calories": 152
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli",
+   "name": "Sweet Chilli",
+   "category": "Dip it",
+   "serving": "",
+   "nutrients": {
+    "calories": 82
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "clucknaise",
+   "name": "Cluck'naise",
+   "category": "Dip it",
+   "serving": "",
+   "nutrients": {
+    "calories": 138
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-sauce",
+   "name": "Cheese Sauce",
+   "category": "Dip it",
+   "serving": "",
+   "nutrients": {
+    "calories": 35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-brownie",
+   "name": "Chocolate Brownie",
+   "category": "Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 401
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nashville-burger",
+   "name": "Nashville Burger",
+   "category": "Top Buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 647
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "your-favourite",
+   "name": "Your Favourite",
+   "category": "Top Buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 447
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "juicy-stack",
+   "name": "Juicy Stack",
+   "category": "Top Buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 710
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-cluckd",
+   "name": "Hot Cluck'd",
+   "category": "Top Buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 563
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-hero",
+   "name": "BBQ Hero",
+   "category": "Top Buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 616
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buttermilk-bun",
+   "name": "Buttermilk Bun",
+   "category": "Top Buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 620
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie",
+   "name": "Veggie",
+   "category": "Top Buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 491
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ciabatta-garlic-bread",
+   "name": "Ciabatta Garlic Bread",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 197
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "skin-on-fries",
+   "name": "Skin on Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 293
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-rice",
+   "name": "Chilli Rice",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 237
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "phat-onion-rings",
+   "name": "Phat Onion Rings",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 314
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-brown-bites",
+   "name": "Hash Brown Bites",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 276
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dreamy-slaw",
+   "name": "Dreamy Slaw",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salad",
+   "name": "Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nashville-tenders",
+   "name": "Nashville Tenders",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 517
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi-wedges",
+   "name": "Halloumi Wedges",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 375
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cluckd-tenders",
+   "name": "Cluck'd Tenders",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 375
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cluckd-corn",
+   "name": "Cluck'd Corn",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 267
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-cheese-bites",
+   "name": "Chilli Cheese Bites",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 310
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-and-cheese",
+   "name": "Mac & Cheese",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-tender-burger-juniors",
+   "name": "Fried Tender Burger (Juniors)",
+   "category": "Cluck'd Juniors",
+   "serving": "",
+   "nutrients": {
+    "calories": 485
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-nuggets-juniors",
+   "name": "Chicken Nuggets (Juniors)",
+   "category": "Cluck'd Juniors",
+   "serving": "",
+   "nutrients": {
+    "calories": 197
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-boneless-strips-juniors",
+   "name": "3 Boneless Strips (Juniors)",
+   "category": "Cluck'd Juniors",
+   "serving": "",
+   "nutrients": {
+    "calories": 153
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "skin-on-fries-juniors",
+   "name": "Skin on Fries (Juniors)",
+   "category": "Cluck'd Juniors",
+   "serving": "",
+   "nutrients": {
+    "calories": 147
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ciabatta-garlic-bread-juniors",
+   "name": "Ciabatta Garlic Bread (Juniors)",
+   "category": "Cluck'd Juniors",
+   "serving": "",
+   "nutrients": {
+    "calories": 197
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corn-on-the-cob-juniors",
+   "name": "Corn on the Cob (Juniors)",
+   "category": "Cluck'd Juniors",
+   "serving": "",
+   "nutrients": {
+    "calories": 134
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-brown-bites-juniors",
+   "name": "Hash Brown Bites (Juniors)",
+   "category": "Cluck'd Juniors",
+   "serving": "",
+   "nutrients": {
+    "calories": 276
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

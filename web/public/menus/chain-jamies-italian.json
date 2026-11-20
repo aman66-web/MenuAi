@@ -10,15 +10,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Jamie's Italian Nutritional Information (June V1, PDF dated 17 June 2026); vegetarian marks and allergens from the Allergen Menu (Sept V1, PDF dated 8 September 2026)",
+  "title": "Jamie's Italian Nutritional Information (June V1, PDF dated 17 June 2026); vegetarian marks and allergens from the Allergen Menu (Nov V3, PDF dated 8 November 2026)",
   "url": "https://www.jamiesitalian.co.uk/media/qmqjxvyt/jamies-italian-nutrition-menu-1506.pdf",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
- "note": "Values are per serving as printed in the chain's June 2026 guide; serving weights are not published. Allergens come from the chain's September 2026 allergen menu, which lists a different set of dishes: a dish it does not list under the same name is left out.",
+ "note": "Values are per serving as printed in the chain's June 2026 guide; serving weights are not published. Allergens come from the chain's November 2026 allergen menu, which lists a different set of dishes: a dish it does not list under the same name is left out.",
  "allergenGuide": {
-  "title": "Jamie's Italian Allergen Menu (Sept V1, PDF dated 8 September 2026)",
-  "url": "https://www.jamiesitalian.co.uk/media/nu0n1orc/allergen-menu-080926.pdf",
-  "checkedOn": "2026-10-08",
+  "title": "Jamie's Italian Allergen Menu (Nov V3, PDF dated 8 November 2026)",
+  "url": "https://www.jamiesitalian.co.uk/media/eo4pymwj/allergen-menu-081126-v2.pdf",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -210,44 +210,6 @@
      "nuts",
      "sesame",
      "soya"
-    ]
-   }
-  },
-  {
-   "id": "burrata",
-   "name": "Burrata",
-   "category": "Starters (spuntino and antipasto)",
-   "serving": "",
-   "nutrients": {
-    "calories": 546,
-    "protein": 15,
-    "carbs": 12,
-    "fat": 48,
-    "saturatedFat": 22,
-    "sugar": 2.9,
-    "fiber": 1.2,
-    "salt": 2.3,
-    "energyKj": 2259
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "nuts"
-    ],
-    "mayContain": [
-     "mustard",
-     "peanuts",
-     "soya",
-     "sulphites"
     ]
    }
   },
@@ -1048,76 +1010,7 @@
     "mayContain": [
      "molluscs",
      "mustard",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "mezze-maniche-pesto",
-   "name": "Mezze Maniche Pesto",
-   "category": "Pasta",
-   "serving": "",
-   "nutrients": {
-    "calories": 650,
-    "protein": 22,
-    "carbs": 70,
-    "fat": 30,
-    "saturatedFat": 6.5,
-    "sugar": 4.9,
-    "fiber": 5.1,
-    "salt": 0.5,
-    "energyKj": 2723
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "molluscs",
-     "mustard",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "mezze-maniche-pesto-non-gluten",
-   "name": "Mezze Maniche Pesto Non Gluten",
-   "category": "Pasta",
-   "serving": "",
-   "nutrients": {
-    "calories": 527,
-    "protein": 15,
-    "carbs": 55,
-    "fat": 26,
-    "saturatedFat": 5.5,
-    "sugar": 3.8,
-    "fiber": 4.2,
-    "salt": 0.46,
-    "energyKj": 2203
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "mustard",
+     "nuts",
      "soya"
     ]
    }
@@ -1152,6 +1045,7 @@
     ],
     "mayContain": [
      "mustard",
+     "nuts",
      "soya"
     ]
    }

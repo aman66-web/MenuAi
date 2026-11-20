@@ -15,15 +15,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "IKEA UK food pages: Swedish Restaurant, Bistro, Swedish Cafe, Swedish Bite and Swedish Deli, nutrition per portion (live pages, accessed 2026-10-08)",
+  "title": "IKEA UK food pages: Swedish Restaurant, Bistro, Swedish Cafe, Swedish Bite and Swedish Deli, nutrition per portion (live pages, accessed 2026-11-17)",
   "url": "https://www.ikea.com/gb/en/food/salesareas/restaurant/",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Menus differ by store: IKEA lists the stores that do not sell each item, so check what your store has. Items sold only in Northern Ireland or in just a few stores are left out. Values are per portion, as stated on IKEA's pages.",
  "allergenGuide": {
-  "title": "IKEA UK food pages: allergens and traces on each item page (live pages, accessed 2026-10-08)",
+  "title": "IKEA UK food pages: allergens and traces on each item page (live pages, accessed 2026-11-17)",
   "url": "https://www.ikea.com/gb/en/food/salesareas/restaurant/",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -254,188 +254,66 @@
    }
   },
   {
-   "id": "8-chicken-meatballs-with-mashed-potatoes",
-   "name": "8 Chicken Meatballs with Mashed Potatoes",
+   "id": "8-meatball-festive-feast",
+   "name": "8 Meatball Festive Feast",
    "category": "Main Courses",
-   "serving": "408.0 g",
+   "serving": "350.0 g",
    "nutrients": {
-    "calories": 490,
-    "protein": 21.6,
-    "carbs": 47.7,
-    "fat": 22.4,
-    "saturatedFat": 6.1,
-    "sugar": 13.9,
-    "salt": 3.23,
-    "energyKj": 2052,
-    "weight": 408
+    "calories": 693,
+    "protein": 24.3,
+    "carbs": 72.1,
+    "fat": 32.4,
+    "saturatedFat": 12.3,
+    "sugar": 13.1,
+    "salt": 6.72,
+    "energyKj": 2909,
+    "weight": 350
    },
-   "tags": [],
-   "limitedTime": false,
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": true,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "ikea/97bdc61292a4.webp",
    "allergens": {
     "contains": [
-     "milk"
+     "gluten",
+     "eggs"
     ],
-    "mayContain": [
-     "eggs",
-     "mustard",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "8-chicken-meatballs-with-chips",
-   "name": "8 Chicken Meatballs with Chips",
-   "category": "Main Courses",
-   "serving": "408.0 g",
-   "nutrients": {
-    "calories": 559,
-    "protein": 22.8,
-    "carbs": 59.1,
-    "fat": 23.6,
-    "saturatedFat": 6.3,
-    "sugar": 14,
-    "salt": 2.44,
-    "energyKj": 2326,
-    "weight": 408
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "ikea/892e72bd0aac.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": [
-     "eggs",
-     "mustard",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "8-chicken-meatballs-with-rice-and-peshwari-sauce",
-   "name": "8 Chicken Meatballs with Rice & Peshwari Sauce",
-   "category": "Main Courses",
-   "serving": "278.0 g",
-   "nutrients": {
-    "calories": 445,
-    "protein": 20.1,
-    "carbs": 40.8,
-    "fat": 22.3,
-    "saturatedFat": 7.2,
-    "sugar": 6.6,
-    "salt": 2.42,
-    "energyKj": 1863,
-    "weight": 278
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "ikea/9e4d6885ef65.webp",
-   "allergens": {
-    "contains": [],
     "mayContain": []
    }
   },
   {
-   "id": "12-chicken-meatballs-with-mashed-potatoes",
-   "name": "12 Chicken Meatballs with Mashed Potatoes",
+   "id": "12-meatball-festive-feast",
+   "name": "12 Meatball Festive Feast",
    "category": "Main Courses",
-   "serving": "472.0 g",
+   "serving": "420.0 g",
    "nutrients": {
-    "calories": 609,
-    "protein": 29.9,
-    "carbs": 50.9,
-    "fat": 30.6,
-    "saturatedFat": 8.2,
-    "sugar": 14.3,
-    "salt": 4.19,
-    "energyKj": 2549,
-    "weight": 472
+    "calories": 861,
+    "protein": 33.2,
+    "carbs": 76.9,
+    "fat": 45,
+    "saturatedFat": 17.1,
+    "sugar": 13.7,
+    "salt": 7.65,
+    "energyKj": 3612,
+    "weight": 420
    },
-   "tags": [],
-   "limitedTime": false,
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": true,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "ikea/6ff1f4ef19a1.webp",
    "allergens": {
     "contains": [
-     "milk"
+     "gluten",
+     "eggs"
     ],
-    "mayContain": [
-     "eggs",
-     "mustard",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "12-chicken-meatballs-with-chips",
-   "name": "12 Chicken Meatballs with Chips",
-   "category": "Main Courses",
-   "serving": "472.0 g",
-   "nutrients": {
-    "calories": 680,
-    "protein": 31.1,
-    "carbs": 62.3,
-    "fat": 31.8,
-    "saturatedFat": 8.4,
-    "sugar": 14.4,
-    "salt": 3.4,
-    "energyKj": 2823,
-    "weight": 472
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "ikea/cb72bd875e47.webp",
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": [
-     "eggs",
-     "mustard",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "12-chicken-meatballs-with-rice-and-peshwari-sauce",
-   "name": "12 Chicken Meatballs with Rice & Peshwari Sauce",
-   "category": "Main Courses",
-   "serving": "342.0 g",
-   "nutrients": {
-    "calories": 564,
-    "protein": 28.5,
-    "carbs": 44,
-    "fat": 30.5,
-    "saturatedFat": 9.2,
-    "sugar": 6.9,
-    "salt": 3.38,
-    "energyKj": 2360,
-    "weight": 342
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "ikea/7c367bc15cfc.webp",
-   "allergens": {
-    "contains": [],
     "mayContain": []
    }
   },
@@ -508,6 +386,62 @@
    }
   },
   {
+   "id": "8-plant-ball-festive-feast",
+   "name": "8 Plant Ball Festive Feast",
+   "category": "Main Courses",
+   "serving": "350.0 g",
+   "nutrients": {
+    "calories": 676,
+    "protein": 17.4,
+    "carbs": 77.9,
+    "fat": 29.6,
+    "saturatedFat": 6.4,
+    "sugar": 14.3,
+    "salt": 7.13,
+    "energyKj": 2811,
+    "weight": 350
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "12-plant-ball-festive-feast",
+   "name": "12 Plant Ball Festive Feast",
+   "category": "Main Courses",
+   "serving": "420.0 g",
+   "nutrients": {
+    "calories": 832,
+    "protein": 22.8,
+    "carbs": 85.7,
+    "fat": 40.8,
+    "saturatedFat": 8.1,
+    "sugar": 15.5,
+    "salt": 8.27,
+    "energyKj": 3465,
+    "weight": 420
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
    "id": "falafel-with-couscous",
    "name": "Falafel with Couscous",
    "category": "Main Courses",
@@ -567,6 +501,37 @@
      "fish",
      "milk",
      "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salmon-fillet-with-hasselback-potatoes",
+   "name": "Salmon Fillet with Hasselback Potatoes",
+   "category": "Main Courses",
+   "serving": "330.0 g",
+   "nutrients": {
+    "calories": 604,
+    "protein": 29.2,
+    "carbs": 23.8,
+    "fat": 42.9,
+    "saturatedFat": 12.4,
+    "sugar": 3.1,
+    "salt": 1.9,
+    "energyKj": 2521,
+    "weight": 330
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk"
     ],
     "mayContain": []
    }
@@ -635,37 +600,6 @@
     "mayContain": [
      "soya"
     ]
-   }
-  },
-  {
-   "id": "rice-mix-with-vegetables",
-   "name": "Rice Mix with Vegetables",
-   "category": "Main Courses",
-   "serving": "250.0 g",
-   "nutrients": {
-    "calories": 253,
-    "protein": 6,
-    "carbs": 35,
-    "fat": 9,
-    "saturatedFat": 6.3,
-    "sugar": 5,
-    "salt": 1.7,
-    "energyKj": 1065,
-    "weight": 250
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "ikea/d5febb2eb4ca.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "soya"
-    ],
-    "mayContain": []
    }
   },
   {
@@ -814,14 +748,14 @@
    "category": "Breakfast",
    "serving": "180.0 g",
    "nutrients": {
-    "calories": 212,
-    "protein": 15.2,
-    "carbs": 12.8,
-    "fat": 9.9,
-    "saturatedFat": 2,
-    "sugar": 3.6,
-    "salt": 1.59,
-    "energyKj": 891,
+    "calories": 211,
+    "protein": 14.1,
+    "carbs": 14.7,
+    "fat": 9.4,
+    "saturatedFat": 1.6,
+    "sugar": 4,
+    "salt": 1.5,
+    "energyKj": 882,
     "weight": 180
    },
    "tags": [],
@@ -838,6 +772,40 @@
     "mayContain": [
      "gluten"
     ]
+   }
+  },
+  {
+   "id": "childrens-breakfast-with-meat-sausage",
+   "name": "Children's Breakfast with Meat Sausage",
+   "category": "Breakfast",
+   "serving": "190.0 g",
+   "nutrients": {
+    "calories": 236,
+    "protein": 15.1,
+    "carbs": 18.5,
+    "fat": 10.9,
+    "saturatedFat": 4.1,
+    "sugar": 5.5,
+    "salt": 1.7,
+    "energyKj": 986,
+    "weight": 190
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
    }
   },
   {
@@ -1119,6 +1087,7 @@
     ],
     "mayContain": [
      "milk",
+     "mustard",
      "sesame",
      "soya"
     ]
@@ -1155,6 +1124,7 @@
     ],
     "mayContain": [
      "milk",
+     "mustard",
      "sesame",
      "soya"
     ]
@@ -1191,6 +1161,7 @@
     ],
     "mayContain": [
      "milk",
+     "mustard",
      "sesame",
      "soya"
     ]
@@ -1225,7 +1196,9 @@
     ],
     "mayContain": [
      "milk",
-     "sesame"
+     "mustard",
+     "sesame",
+     "soya"
     ]
    }
   },
@@ -1260,7 +1233,8 @@
     ],
     "mayContain": [
      "milk",
-     "sesame"
+     "sesame",
+     "soya"
     ]
    }
   },
@@ -1395,36 +1369,63 @@
    }
   },
   {
-   "id": "childrens-chicken-meatballs",
-   "name": "Children's Chicken Meatballs",
+   "id": "childrens-meatball-festive-feast",
+   "name": "Children's Meatball Festive Feast",
    "category": "Children's Menu",
-   "serving": "211.0 g",
+   "serving": "190.0 g",
    "nutrients": {
-    "calories": 255,
-    "protein": 9.8,
-    "carbs": 29.8,
-    "fat": 10.2,
-    "saturatedFat": 2.8,
-    "sugar": 12.8,
-    "salt": 1.5,
-    "energyKj": 1072,
-    "weight": 211
+    "calories": 371,
+    "protein": 12.9,
+    "carbs": 40.5,
+    "fat": 16.2,
+    "saturatedFat": 6.2,
+    "sugar": 5.8,
+    "salt": 3.36,
+    "energyKj": 1550,
+    "weight": 190
    },
-   "tags": [],
-   "limitedTime": false,
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": true,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "ikea/81d95629f1e2.webp",
    "allergens": {
     "contains": [
-     "milk"
+     "gluten",
+     "eggs"
     ],
-    "mayContain": [
-     "eggs",
-     "mustard",
-     "soya"
-    ]
+    "mayContain": []
+   }
+  },
+  {
+   "id": "childrens-plant-ball-festive-feast",
+   "name": "Children's Plant Ball Festive Feast",
+   "category": "Children's Menu",
+   "serving": "190.0 g",
+   "nutrients": {
+    "calories": 359,
+    "protein": 9.5,
+    "carbs": 43.5,
+    "fat": 14.8,
+    "saturatedFat": 3.2,
+    "sugar": 6.4,
+    "salt": 3.57,
+    "energyKj": 1501,
+    "weight": 190
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
    }
   },
   {
@@ -1704,38 +1705,6 @@
    }
   },
   {
-   "id": "shrimp-and-egg-sandwich",
-   "name": "Shrimp & Egg Sandwich",
-   "category": "Sandwiches and Wraps",
-   "serving": "285.1 g",
-   "nutrients": {
-    "calories": 493,
-    "protein": 29.7,
-    "carbs": 24.4,
-    "fat": 30.3,
-    "saturatedFat": 4.9,
-    "sugar": 6.6,
-    "salt": 1.74,
-    "energyKj": 2061,
-    "weight": 285.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "ikea/a99a59de0ec2.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "crustaceans",
-     "eggs",
-     "mustard"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "chips",
    "name": "Chips",
    "category": "Side Dishes",
@@ -1845,6 +1814,42 @@
      "milk"
     ],
     "mayContain": []
+   }
+  },
+  {
+   "id": "cauliflower-cheese",
+   "name": "Cauliflower Cheese",
+   "category": "Side Dishes",
+   "serving": "100.0 g",
+   "nutrients": {
+    "calories": 106,
+    "protein": 6.6,
+    "carbs": 5.9,
+    "fat": 6,
+    "saturatedFat": 3.7,
+    "sugar": 3.5,
+    "salt": 0.53,
+    "energyKj": 444,
+    "weight": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "sesame",
+     "soya"
+    ]
    }
   },
   {
@@ -2460,40 +2465,6 @@
    }
   },
   {
-   "id": "cheesecake-with-berries-and-meringue-pieces",
-   "name": "Cheesecake with Berries & Meringue Pieces",
-   "category": "Pastries, Desserts and Cookies",
-   "serving": "107.0 g",
-   "nutrients": {
-    "calories": 296,
-    "protein": 5.6,
-    "carbs": 40.7,
-    "fat": 12.2,
-    "saturatedFat": 5.8,
-    "sugar": 25,
-    "salt": 0.12,
-    "energyKj": 1244,
-    "weight": 107
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "ikea/d1e49314e3db.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "nuts"
-    ]
-   }
-  },
-  {
    "id": "cheesecake-with-blueberries-and-raspberries",
    "name": "Cheesecake with Blueberries & Raspberries",
    "category": "Pastries, Desserts and Cookies",
@@ -2595,34 +2566,33 @@
    }
   },
   {
-   "id": "soft-ice-cream-with-kexchoklad",
-   "name": "Soft Ice Cream with KEXCHOKLAD",
+   "id": "soft-ice-cream-with-a-chocolate-snowman",
+   "name": "Soft Ice Cream with a Chocolate Snowman",
    "category": "Pastries, Desserts and Cookies",
-   "serving": "82.0 g",
+   "serving": "80.0 g",
    "nutrients": {
-    "calories": 148,
-    "protein": 3.6,
-    "carbs": 18.6,
+    "calories": 132,
+    "protein": 3.1,
+    "carbs": 15.1,
     "fat": 6.6,
-    "saturatedFat": 4.1,
-    "sugar": 16.1,
-    "salt": 0.09,
-    "energyKj": 621,
-    "weight": 82
+    "saturatedFat": 4.2,
+    "sugar": 15,
+    "salt": 0.05,
+    "energyKj": 554,
+    "weight": 80
    },
    "tags": [],
-   "limitedTime": false,
+   "limitedTime": true,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "ikea/b9947ae27c96.webp",
    "allergens": {
     "contains": [
-     "gluten",
-     "milk",
-     "soya"
+     "milk"
     ],
-    "mayContain": []
+    "mayContain": [
+     "nuts"
+    ]
    }
   },
   {
@@ -2680,6 +2650,39 @@
    }
   },
   {
+   "id": "festive-hot-dog-topping",
+   "name": "Festive Hot Dog Topping",
+   "category": "Add-ons",
+   "serving": "170.0 g",
+   "nutrients": {
+    "calories": 216,
+    "protein": 6.1,
+    "carbs": 30.5,
+    "fat": 7.3,
+    "saturatedFat": 0.8,
+    "sugar": 4.2,
+    "salt": 1.76,
+    "energyKj": 908,
+    "weight": 170
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans"
+    ]
+   }
+  },
+  {
    "id": "4-extra-meatballs",
    "name": "4 Extra Meatballs",
    "category": "Add-ons",
@@ -2709,33 +2712,6 @@
      "gluten",
      "eggs"
     ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "4-extra-chicken-meatballs",
-   "name": "4 Extra Chicken Meatballs",
-   "category": "Add-ons",
-   "serving": "56.0 g",
-   "nutrients": {
-    "calories": 105,
-    "protein": 7.3,
-    "carbs": 2.8,
-    "fat": 7.2,
-    "saturatedFat": 1.8,
-    "sugar": 0.3,
-    "salt": 0.84,
-    "energyKj": 436,
-    "weight": 56
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "ikea/c670a78961ef.webp",
-   "allergens": {
-    "contains": [],
     "mayContain": []
    }
   },
@@ -2795,37 +2771,6 @@
      "gluten"
     ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "garlic-and-coriander-naan-bread",
-   "name": "Garlic & Coriander Naan Bread",
-   "category": "Add-ons",
-   "serving": "100.0 g",
-   "nutrients": {
-    "calories": 251,
-    "protein": 8.1,
-    "carbs": 45.3,
-    "fat": 4.5,
-    "saturatedFat": 0.6,
-    "sugar": 2.8,
-    "salt": 1.08,
-    "energyKj": 1059,
-    "weight": 100
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "ikea/0dcd44d8aed2.webp",
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [
-     "soya"
-    ]
    }
   },
   {
@@ -2955,6 +2900,67 @@
    "allergens": {
     "contains": [
      "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "yorkshire-pudding",
+   "name": "Yorkshire Pudding",
+   "category": "Add-ons",
+   "serving": "20.0 g",
+   "nutrients": {
+    "calories": 41,
+    "protein": 1.8,
+    "carbs": 6,
+    "fat": 0.9,
+    "saturatedFat": 0.2,
+    "sugar": 0.5,
+    "salt": 0.1,
+    "energyKj": 170,
+    "weight": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pigs-in-blankets-3",
+   "name": "Pigs in Blankets (3)",
+   "category": "Add-ons",
+   "serving": "45.0 g",
+   "nutrients": {
+    "calories": 117,
+    "protein": 7.1,
+    "carbs": 4.1,
+    "fat": 8,
+    "saturatedFat": 2.3,
+    "sugar": 0.4,
+    "salt": 2.52,
+    "energyKj": 491,
+    "weight": 45
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
     ],
     "mayContain": []
    }
@@ -3102,35 +3108,6 @@
    }
   },
   {
-   "id": "mango-chutney",
-   "name": "Mango Chutney",
-   "category": "Add-ons",
-   "serving": "30.0 g",
-   "nutrients": {
-    "calories": 76,
-    "protein": 0.2,
-    "carbs": 18,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 18,
-    "salt": 0.14,
-    "energyKj": 320,
-    "weight": 30
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "ikea/4fd8a5f6d010.webp",
-   "allergens": {
-    "contains": [
-     "mustard"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "cream-sauce-portion-and-condiments",
    "name": "Cream Sauce Portion & Condiments",
    "category": "Add-ons",
@@ -3159,43 +3136,6 @@
      "mustard"
     ],
     "mayContain": [
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "curry-topping-for-hot-dog",
-   "name": "Curry Topping for Hot Dog",
-   "category": "Add-ons",
-   "serving": "40.0 g",
-   "nutrients": {
-    "calories": 71,
-    "protein": 1.5,
-    "carbs": 6.3,
-    "fat": 4.3,
-    "saturatedFat": 1.8,
-    "sugar": 4,
-    "salt": 0.52,
-    "energyKj": 298,
-    "weight": 40
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "ikea/c17ce6c47b26.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "eggs",
-     "mustard",
-     "sesame",
      "soya"
     ]
    }

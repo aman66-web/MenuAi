@@ -1,0 +1,8738 @@
+{
+ "schemaVersion": 1,
+ "id": "pret",
+ "name": "Pret A Manger",
+ "cuisine": "Sandwiches",
+ "builderType": "standard",
+ "aliases": [
+  "pret",
+  "pret a manger",
+  "pret uk",
+  "pret a manger uk"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Pret A Manger UK website: product nutritional information, GB shops (pret.co.uk product pages, retrieved 2026-11-17; the pages carry no version date)",
+  "url": "https://www.pret.co.uk/en-GB/products",
+  "checkedOn": "2026-11-17"
+ },
+ "note": "Numbers and allergens are Pret's own (product pages and Allergen Guide). Left out because Pret gives no allergen row for them: decaf drinks, some milk choices of tea, filter coffee and iced Americano, branded bottles and cans, items with pine nuts.",
+ "allergenGuide": {
+  "title": "Pret's Allergen Guide, GB Pret shops (Allergen Guide 3rd November 2026 V1)",
+  "url": "https://assets.ctfassets.net/4zu8gvmtwqss/11hMIULPpeCprPZIUG76L2/c8a1a62f4b7c3762a27d17d31a9f651e/Allergen_Guide_3rd_November_2026_V1.pdf",
+  "checkedOn": "2026-11-17",
+  "mayContainPublished": false,
+  "complete": true
+ },
+ "categories": [
+  "Sandwiches, baguettes & wraps",
+  "Breakfast",
+  "Hot food",
+  "Salads, plates & protein pots",
+  "Snacks & sweet treats",
+  "Fruit",
+  "Little Pret Stars",
+  "Hot drinks",
+  "Cold drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "soup-white-baguette-with-butter",
+   "name": "Soup White Baguette with Butter",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 241,
+    "protein": 6.5,
+    "carbs": 36.6,
+    "fat": 7.3,
+    "saturatedFat": 4.7,
+    "sugar": 1.5,
+    "fiber": 1.6,
+    "salt": 1.01,
+    "energyKj": 1015
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/012cd782bee0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "beef-birria-jalapeno-hot-ciabatta",
+   "name": "Beef Birria & Jalapeño Hot Ciabatta",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 496,
+    "protein": 27.9,
+    "carbs": 59.1,
+    "fat": 15.4,
+    "saturatedFat": 6.8,
+    "sugar": 5.8,
+    "fiber": 5,
+    "salt": 2.48,
+    "energyKj": 2088
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "boxing-day-toastie",
+   "name": "Boxing Day Toastie",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 656,
+    "protein": 35,
+    "carbs": 61.3,
+    "fat": 28.8,
+    "saturatedFat": 11,
+    "sugar": 8.4,
+    "fiber": 6.1,
+    "salt": 3.74,
+    "energyKj": 2751
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "chicken-caesar-bacon-hot-ciabatta",
+   "name": "Chicken Caesar Bacon Hot Ciabatta",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 791,
+    "protein": 39.9,
+    "carbs": 54.4,
+    "fat": 45.2,
+    "saturatedFat": 10.2,
+    "sugar": 3,
+    "fiber": 3.5,
+    "salt": 3.71,
+    "energyKj": 3304
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "christmas-hot-baguette",
+   "name": "Christmas Hot Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 632,
+    "protein": 37,
+    "carbs": 65.8,
+    "fat": 23.3,
+    "saturatedFat": 6.6,
+    "sugar": 11.4,
+    "fiber": 5.6,
+    "salt": 2.88,
+    "energyKj": 2654
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "classic-cheese-bloomer-toastie",
+   "name": "Classic Cheese Bloomer Toastie",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 647,
+    "protein": 26.9,
+    "carbs": 54,
+    "fat": 34.8,
+    "saturatedFat": 14.3,
+    "sugar": 2.9,
+    "fiber": 4.9,
+    "salt": 2.17,
+    "energyKj": 2702
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/8c0457350531.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "falafel-halloumi-hot-wrap",
+   "name": "Falafel & Halloumi Hot Wrap",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 623,
+    "protein": 22.3,
+    "carbs": 63.1,
+    "fat": 29.5,
+    "saturatedFat": 10.9,
+    "sugar": 15,
+    "fiber": 8.2,
+    "salt": 3.59,
+    "energyKj": 2609
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/45d45433d76f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "ham-cheese-bloomer-toastie",
+   "name": "Ham & Cheese Bloomer Toastie",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 601,
+    "protein": 31.9,
+    "carbs": 53.4,
+    "fat": 27.7,
+    "saturatedFat": 10.8,
+    "sugar": 2.6,
+    "fiber": 5.2,
+    "salt": 3.79,
+    "energyKj": 2515
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/f11936638625.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "swedish-meatball-hot-wrap",
+   "name": "Swedish Meatball Hot Wrap",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 611,
+    "protein": 28.3,
+    "carbs": 52.4,
+    "fat": 30.7,
+    "saturatedFat": 12.2,
+    "sugar": 8.7,
+    "fiber": 5.7,
+    "salt": 2.99,
+    "energyKj": 2554
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/19901d980122.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "three-cheese-tomato-hot-ciabatta",
+   "name": "Three Cheese & Tomato Hot Ciabatta",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 570,
+    "protein": 24.5,
+    "carbs": 59.2,
+    "fat": 25,
+    "saturatedFat": 10.9,
+    "sugar": 8,
+    "fiber": 5.1,
+    "salt": 2.83,
+    "energyKj": 2387
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tuna-melt-bloomer-toastie",
+   "name": "Tuna Melt Bloomer Toastie",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 560,
+    "protein": 33.5,
+    "carbs": 52.8,
+    "fat": 22.7,
+    "saturatedFat": 7.3,
+    "sugar": 2.5,
+    "fiber": 5.2,
+    "salt": 2.53,
+    "energyKj": 2349
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/14596bf8186d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "chicken-salad",
+   "name": "Chicken Salad",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 517,
+    "protein": 22.9,
+    "carbs": 35.1,
+    "fat": 30.6,
+    "saturatedFat": 8.3,
+    "sugar": 2.9,
+    "fiber": 5,
+    "salt": 2.16,
+    "energyKj": 2157
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/17cd972c74b0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "chicken-avocado-basil",
+   "name": "Chicken, Avocado & Basil",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 476,
+    "protein": 24.3,
+    "carbs": 35.9,
+    "fat": 24.5,
+    "saturatedFat": 5.1,
+    "sugar": 3.2,
+    "fiber": 7.3,
+    "salt": 2.01,
+    "energyKj": 1988
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/10823a091e7f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "chicken-avocado-basil-half-sandwich",
+   "name": "Chicken, Avocado & Basil Half Sandwich.",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 238,
+    "protein": 12.1,
+    "carbs": 17.9,
+    "fat": 12.2,
+    "saturatedFat": 2.6,
+    "sugar": 1.6,
+    "fiber": 3.6,
+    "salt": 1,
+    "energyKj": 994
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/11184fd830fb.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "classic-super-club",
+   "name": "Classic Super Club",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 516,
+    "protein": 27.9,
+    "carbs": 35.9,
+    "fat": 27.8,
+    "saturatedFat": 4.7,
+    "sugar": 3.7,
+    "fiber": 5.4,
+    "salt": 2.69,
+    "energyKj": 2154
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/1c5bd92fab17.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "classic-super-club-half-sandwich",
+   "name": "Classic Super Club Half Sandwich",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 258,
+    "protein": 13.9,
+    "carbs": 17.9,
+    "fat": 13.9,
+    "saturatedFat": 2.4,
+    "sugar": 1.8,
+    "fiber": 2.7,
+    "salt": 1.35,
+    "energyKj": 1077
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/c1d7f0416a18.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "coronation-chicken",
+   "name": "Coronation Chicken",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 474,
+    "protein": 23.4,
+    "carbs": 40.1,
+    "fat": 23.2,
+    "saturatedFat": 6,
+    "sugar": 5.1,
+    "fiber": 5.8,
+    "salt": 2.41,
+    "energyKj": 1983
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/08d9f4ef45f7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "egg-florentine",
+   "name": "Egg Florentine",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 447,
+    "protein": 24.8,
+    "carbs": 37.9,
+    "fat": 20.5,
+    "saturatedFat": 6.3,
+    "sugar": 3.4,
+    "fiber": 6,
+    "salt": 1.77,
+    "energyKj": 1872
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/5cd6fd7b3538.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "free-range-egg-mayo",
+   "name": "Free-Range Egg Mayo",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 367,
+    "protein": 18.4,
+    "carbs": 35.7,
+    "fat": 15.6,
+    "saturatedFat": 3.2,
+    "sugar": 1.9,
+    "fiber": 5.1,
+    "salt": 1.46,
+    "energyKj": 1537
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/c00cd5608959.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "ham-cheese",
+   "name": "Ham & Cheese",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 519,
+    "protein": 31.1,
+    "carbs": 35.1,
+    "fat": 27.1,
+    "saturatedFat": 16.2,
+    "sugar": 2.3,
+    "fiber": 5.2,
+    "salt": 3.55,
+    "energyKj": 2169
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/7000f7847a2e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "mature-cheddar-pret-pickle",
+   "name": "Mature Cheddar & Pret Pickle",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 496,
+    "protein": 19.3,
+    "carbs": 47.1,
+    "fat": 24.2,
+    "saturatedFat": 9.8,
+    "sugar": 12.7,
+    "fiber": 6,
+    "salt": 2.09,
+    "energyKj": 2074
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/7a0d458dd98a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "prets-christmas-half-sandwich",
+   "name": "Pret's Christmas Half Sandwich",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 275,
+    "protein": 16.5,
+    "carbs": 26.1,
+    "fat": 10.8,
+    "saturatedFat": 2.6,
+    "sugar": 7,
+    "fiber": 3.5,
+    "salt": 1.23,
+    "energyKj": 1152
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "prets-christmas-sandwich",
+   "name": "Pret's Christmas Sandwich",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 549,
+    "protein": 33,
+    "carbs": 52.2,
+    "fat": 21.7,
+    "saturatedFat": 5.3,
+    "sugar": 14,
+    "fiber": 6.9,
+    "salt": 2.46,
+    "energyKj": 2305
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "scottish-smoked-salmon",
+   "name": "Scottish Smoked Salmon",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 404,
+    "protein": 23.3,
+    "carbs": 33.2,
+    "fat": 18.7,
+    "saturatedFat": 5.7,
+    "sugar": 2.1,
+    "fiber": 4.6,
+    "salt": 3.12,
+    "energyKj": 1690
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/c579beb9a003.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "tuna-cucumber",
+   "name": "Tuna & Cucumber",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 367,
+    "protein": 19.6,
+    "carbs": 35.7,
+    "fat": 15.1,
+    "saturatedFat": 2,
+    "sugar": 3.2,
+    "fiber": 4.7,
+    "salt": 1.36,
+    "energyKj": 1538
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/b52b8b96a80b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "prets-christmas-baguette",
+   "name": "Pret's Christmas Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 704,
+    "protein": 32.4,
+    "carbs": 75,
+    "fat": 29.5,
+    "saturatedFat": 5.5,
+    "sugar": 14.6,
+    "fiber": 4.6,
+    "salt": 3.33,
+    "energyKj": 2955
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "brie-pistachio-cranberry-baguette",
+   "name": "Brie, Pistachio & Cranberry Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 591,
+    "protein": 19.7,
+    "carbs": 60,
+    "fat": 29,
+    "saturatedFat": 11.4,
+    "sugar": 8.3,
+    "fiber": 5.8,
+    "salt": 2.13,
+    "energyKj": 2474
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "brie-pistachio-cranberry-half-baguette",
+   "name": "Brie, Pistachio & Cranberry Half Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 296,
+    "protein": 9.9,
+    "carbs": 30,
+    "fat": 14.5,
+    "saturatedFat": 5.7,
+    "sugar": 4.2,
+    "fiber": 2.9,
+    "salt": 1.06,
+    "energyKj": 1237
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "brie-tomato-basil-baguette",
+   "name": "Brie, Tomato & Basil Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 439,
+    "protein": 17.6,
+    "carbs": 56.2,
+    "fat": 15.2,
+    "saturatedFat": 10.1,
+    "sugar": 3.6,
+    "fiber": 3.3,
+    "salt": 2.14,
+    "energyKj": 1844
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/74b03998ca62.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-caesar-bacon-half-baguette",
+   "name": "Chicken Caesar & Bacon Half Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 298,
+    "protein": 15.1,
+    "carbs": 27.2,
+    "fat": 13.8,
+    "saturatedFat": 2.5,
+    "sugar": 1.6,
+    "fiber": 2.2,
+    "salt": 1.31,
+    "energyKj": 1247
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/395e954d58be.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-caesar-bacon-baguette",
+   "name": "Chicken Caesar Bacon Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 596,
+    "protein": 30.3,
+    "carbs": 54.3,
+    "fat": 27.6,
+    "saturatedFat": 4.9,
+    "sugar": 3.2,
+    "fiber": 4.4,
+    "salt": 2.62,
+    "energyKj": 2494
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/4cfc917e25ec.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-salad-baguette",
+   "name": "Chicken Salad Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 595,
+    "protein": 24,
+    "carbs": 57,
+    "fat": 29.5,
+    "saturatedFat": 7.9,
+    "sugar": 3.2,
+    "fiber": 2.8,
+    "salt": 2.98,
+    "energyKj": 2491
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/39ca0cf46489.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "coronation-chicken-baguette",
+   "name": "Coronation Chicken Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 542,
+    "protein": 25,
+    "carbs": 59.1,
+    "fat": 21.7,
+    "saturatedFat": 3.1,
+    "sugar": 5.3,
+    "fiber": 5,
+    "salt": 2.74,
+    "energyKj": 2272
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/3ebde9aac038.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "coronation-chicken-half-baguette",
+   "name": "Coronation Chicken Half Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 271,
+    "protein": 12.5,
+    "carbs": 29.6,
+    "fat": 10.8,
+    "saturatedFat": 1.5,
+    "sugar": 2.7,
+    "fiber": 2.5,
+    "salt": 1.37,
+    "energyKj": 1136
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/f8c64f7aaa3c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "italian-prosciutto-baguette",
+   "name": "Italian Prosciutto Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 546,
+    "protein": 24.1,
+    "carbs": 54.3,
+    "fat": 24.7,
+    "saturatedFat": 5.9,
+    "sugar": 3.8,
+    "fiber": 4.8,
+    "salt": 3.59,
+    "energyKj": 2287
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/5ed9d16f2385.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "italian-prosciutto-half-baguette",
+   "name": "Italian Prosciutto Half Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 274,
+    "protein": 12.1,
+    "carbs": 27.2,
+    "fat": 12.4,
+    "saturatedFat": 3,
+    "sugar": 1.9,
+    "fiber": 2.4,
+    "salt": 1.8,
+    "energyKj": 1146
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/d83b142c6730.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pole-line-caught-tuna-baguette",
+   "name": "Pole & Line Caught Tuna Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 515,
+    "protein": 25.2,
+    "carbs": 58.8,
+    "fat": 19.3,
+    "saturatedFat": 2.2,
+    "sugar": 4.1,
+    "fiber": 2.6,
+    "salt": 2.46,
+    "energyKj": 2161
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/5b7a9dc83ad8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pole-line-caught-tuna-half-baguette",
+   "name": "Pole & Line Caught Tuna Half Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 257,
+    "protein": 12.6,
+    "carbs": 29.4,
+    "fat": 9.6,
+    "saturatedFat": 1.1,
+    "sugar": 2,
+    "fiber": 1.3,
+    "salt": 1.23,
+    "energyKj": 1081
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/c01fea37e558.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "posh-cheddar-pickle-baguette",
+   "name": "Posh Cheddar & Pickle Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 643,
+    "protein": 21.4,
+    "carbs": 71.9,
+    "fat": 28.5,
+    "saturatedFat": 9.8,
+    "sugar": 18.6,
+    "fiber": 6.6,
+    "salt": 2.82,
+    "energyKj": 2695
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/726cc1527cda.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "posh-cheddar-pickle-half-baguette",
+   "name": "Posh Cheddar & Pickle Half Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 322,
+    "protein": 10.7,
+    "carbs": 36,
+    "fat": 14.3,
+    "saturatedFat": 4.9,
+    "sugar": 9.3,
+    "fiber": 3.3,
+    "salt": 1.41,
+    "energyKj": 1348
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/fda9d268a051.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "prets-christmas-half-baguette",
+   "name": "Pret's Christmas Half Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 352,
+    "protein": 16.2,
+    "carbs": 37.5,
+    "fat": 14.8,
+    "saturatedFat": 2.8,
+    "sugar": 7.3,
+    "fiber": 2.3,
+    "salt": 1.67,
+    "energyKj": 1477
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "smoked-salmon-egg-mayo-avo-baguette",
+   "name": "Smoked Salmon, Egg Mayo & Avo Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 552,
+    "protein": 24.6,
+    "carbs": 54.6,
+    "fat": 24.9,
+    "saturatedFat": 4.9,
+    "sugar": 2.4,
+    "fiber": 5.7,
+    "salt": 2.86,
+    "energyKj": 2314
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/0850f54ca703.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "smoked-salmon-soft-cheese-dill-baguette",
+   "name": "Smoked Salmon, Soft Cheese & Dill Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 501,
+    "protein": 27,
+    "carbs": 53.4,
+    "fat": 19,
+    "saturatedFat": 4.9,
+    "sugar": 3.4,
+    "fiber": 4.2,
+    "salt": 3.61,
+    "energyKj": 2104
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/fe171f3924b5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "the-pret-lobster-roll",
+   "name": "The Pret Lobster Roll",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 340,
+    "protein": 18.4,
+    "carbs": 39.6,
+    "fat": 11.5,
+    "saturatedFat": 1.4,
+    "sugar": 3,
+    "fiber": 2.2,
+    "salt": 2.1,
+    "energyKj": 1429
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "wiltshire-cured-ham-greve-baguette",
+   "name": "Wiltshire Cured Ham & Grevé Baguette",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 596,
+    "protein": 31.5,
+    "carbs": 57.4,
+    "fat": 25.9,
+    "saturatedFat": 8.3,
+    "sugar": 3.2,
+    "fiber": 3.4,
+    "salt": 3.85,
+    "energyKj": 2498
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/f8bed5ca6ca7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "falafel-avo-chipotle-flatbread",
+   "name": "Falafel, Avo & Chipotle Flatbread",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 499,
+    "protein": 11.9,
+    "carbs": 65.5,
+    "fat": 19.2,
+    "saturatedFat": 4.1,
+    "sugar": 16.2,
+    "fiber": 8.3,
+    "salt": 0.79,
+    "energyKj": 2094
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/d6f38da8c2d8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "falafel-avo-chipotle-half-flatbread",
+   "name": "Falafel, Avo & Chipotle Half Flatbread",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 250,
+    "protein": 5.9,
+    "carbs": 32.8,
+    "fat": 9.6,
+    "saturatedFat": 2,
+    "sugar": 8.1,
+    "fiber": 4.1,
+    "salt": 0.39,
+    "energyKj": 1047
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/ca24d2084091.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hoisin-duck-wrap",
+   "name": "Hoisin Duck Wrap",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 442,
+    "protein": 21,
+    "carbs": 48.2,
+    "fat": 17.5,
+    "saturatedFat": 2.7,
+    "sugar": 12.5,
+    "fiber": 3.8,
+    "salt": 2.61,
+    "energyKj": 1856
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/37f800c613bd.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "humous-chipotle-wrap",
+   "name": "Humous & Chipotle Wrap",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 414,
+    "protein": 12.7,
+    "carbs": 49.2,
+    "fat": 16,
+    "saturatedFat": 2,
+    "sugar": 11.5,
+    "fiber": 11.3,
+    "salt": 1.61,
+    "energyKj": 1736
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/7a93d3cbde7a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "mediterranean-style-tuna-flatbread",
+   "name": "Mediterranean Style Tuna Flatbread",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 502,
+    "protein": 24.3,
+    "carbs": 49.7,
+    "fat": 22.2,
+    "saturatedFat": 2.5,
+    "sugar": 8.7,
+    "fiber": 3.2,
+    "salt": 1.52,
+    "energyKj": 2105
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/0d3625c01f7c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mediterranean-style-tuna-half-flatbread",
+   "name": "Mediterranean Style Tuna Half Flatbread",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 251,
+    "protein": 12.1,
+    "carbs": 24.9,
+    "fat": 11.1,
+    "saturatedFat": 1.3,
+    "sugar": 4.3,
+    "fiber": 1.6,
+    "salt": 0.76,
+    "energyKj": 1052
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/9a9385bcb8d1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "shawarma-spiced-chicken-flatbread",
+   "name": "Shawarma Spiced Chicken Flatbread",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 453,
+    "protein": 28.5,
+    "carbs": 56.7,
+    "fat": 10.7,
+    "saturatedFat": 1.6,
+    "sugar": 15,
+    "fiber": 7.8,
+    "salt": 2.14,
+    "energyKj": 1906
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/6135f5b157a4.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "shawarma-spiced-chicken-half-flatbread",
+   "name": "Shawarma Spiced Chicken Half Flatbread",
+   "category": "Sandwiches, baguettes & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 226,
+    "protein": 14.2,
+    "carbs": 28.4,
+    "fat": 5.3,
+    "saturatedFat": 0.8,
+    "sugar": 7.5,
+    "fiber": 3.9,
+    "salt": 1.07,
+    "energyKj": 953
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/6511256351f2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "banana-cinnamon-porridge",
+   "name": "Banana Cinnamon Porridge",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 283,
+    "protein": 9,
+    "carbs": 39.3,
+    "fat": 8.8,
+    "saturatedFat": 4.8,
+    "sugar": 20.4,
+    "fiber": 5.1,
+    "salt": 0.19,
+    "energyKj": 1188
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/606508ecf6e3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "coconut-quinoa-porridge",
+   "name": "Coconut & Quinoa Porridge",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 275,
+    "protein": 6.1,
+    "carbs": 34.4,
+    "fat": 12.2,
+    "saturatedFat": 8.8,
+    "sugar": 3.2,
+    "fiber": 1.5,
+    "salt": 0.34,
+    "energyKj": 1152
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/805e9b7755a7.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "prets-proper-porridge",
+   "name": "Pret's Proper Porridge",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 216,
+    "protein": 8.7,
+    "carbs": 23.7,
+    "fat": 8.7,
+    "saturatedFat": 4.8,
+    "sugar": 6.9,
+    "fiber": 4.2,
+    "salt": 0.18,
+    "energyKj": 906
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/d20c523d7adb.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "side-porridge",
+   "name": "Side Porridge",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 144,
+    "protein": 5.8,
+    "carbs": 15.8,
+    "fat": 5.8,
+    "saturatedFat": 3.2,
+    "sugar": 4.6,
+    "fiber": 2.8,
+    "salt": 0.12,
+    "energyKj": 604
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/bad4cd07591c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "ham-cheese-croissant",
+   "name": "Ham & Cheese Croissant",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 312,
+    "protein": 13.5,
+    "carbs": 19.9,
+    "fat": 19.4,
+    "saturatedFat": 9.8,
+    "sugar": 3.2,
+    "fiber": 1.9,
+    "salt": 1.19,
+    "energyKj": 1300
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/e3cf3441dc12.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mozzarella-tomato-croissant",
+   "name": "Mozzarella & Tomato Croissant",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 316,
+    "protein": 11.8,
+    "carbs": 19.9,
+    "fat": 20.6,
+    "saturatedFat": 10.8,
+    "sugar": 2.9,
+    "fiber": 1.7,
+    "salt": 0.95,
+    "energyKj": 1316
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/4caf6bbc4270.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pigs-in-blanket-roll",
+   "name": "Pigs in Blanket Roll",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 514,
+    "protein": 21.1,
+    "carbs": 41.7,
+    "fat": 28.4,
+    "saturatedFat": 7.2,
+    "sugar": 7.3,
+    "fiber": 3.7,
+    "salt": 2.37,
+    "energyKj": 2148
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "prets-veggie-breakfast-ciabatta",
+   "name": "Pret's Veggie Breakfast Ciabatta",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 372,
+    "protein": 17.1,
+    "carbs": 40.4,
+    "fat": 14.9,
+    "saturatedFat": 4.5,
+    "sugar": 6.4,
+    "fiber": 4.2,
+    "salt": 2.12,
+    "energyKj": 1561
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/709b25ca242e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "sausage-bacon-ciabatta",
+   "name": "Sausage & Bacon Ciabatta",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 467,
+    "protein": 23.2,
+    "carbs": 37.1,
+    "fat": 24.5,
+    "saturatedFat": 10,
+    "sugar": 3.3,
+    "fiber": 2.8,
+    "salt": 1.97,
+    "energyKj": 1952
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/7b4ca4abacfd.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "triple-bacon-ciabatta",
+   "name": "Triple Bacon Ciabatta",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 322,
+    "protein": 18.1,
+    "carbs": 35.7,
+    "fat": 11.3,
+    "saturatedFat": 4.7,
+    "sugar": 2.5,
+    "fiber": 2.2,
+    "salt": 1.36,
+    "energyKj": 1353
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/41d9c8d14092.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "triple-sausage-ciabatta",
+   "name": "Triple Sausage Ciabatta",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 469,
+    "protein": 19.8,
+    "carbs": 37.8,
+    "fat": 25.9,
+    "saturatedFat": 10.1,
+    "sugar": 3.7,
+    "fiber": 3,
+    "salt": 1.94,
+    "energyKj": 1960
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/0115b29e9d42.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "ultimate-breakfast-ciabatta",
+   "name": "Ultimate Breakfast Ciabatta",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 503,
+    "protein": 25.7,
+    "carbs": 40.9,
+    "fat": 25.4,
+    "saturatedFat": 7.8,
+    "sugar": 7.1,
+    "fiber": 3.8,
+    "salt": 2.56,
+    "energyKj": 2103
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/c61b93169b5c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "british-sausages-prets-baked-beans-egg-pot",
+   "name": "British Sausages, Pret's Baked Beans & Egg Pot",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 342,
+    "protein": 22.1,
+    "carbs": 12,
+    "fat": 19.5,
+    "saturatedFat": 6.6,
+    "sugar": 6.4,
+    "fiber": 14.9,
+    "salt": 1.7,
+    "energyKj": 1421
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/6af2a7323fb0.webp",
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roasted-mushroom-prets-baked-beans-egg-pot",
+   "name": "Roasted Mushroom, Pret's Baked Beans & Egg Pot",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 191,
+    "protein": 14.1,
+    "carbs": 11.2,
+    "fat": 6.6,
+    "saturatedFat": 1.5,
+    "sugar": 5.7,
+    "fiber": 15.1,
+    "salt": 1.06,
+    "energyKj": 797
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/0b42ac0f08ee.webp",
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "all-butter-croissant",
+   "name": "All Butter Croissant",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 291,
+    "protein": 6.5,
+    "carbs": 27.5,
+    "fat": 16.8,
+    "saturatedFat": 11.5,
+    "sugar": 4.5,
+    "fiber": 1.6,
+    "salt": 0.68,
+    "energyKj": 1213
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/1fa3cae5e56f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "almond-croissant",
+   "name": "Almond Croissant",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 382,
+    "protein": 7.8,
+    "carbs": 38.9,
+    "fat": 21.1,
+    "saturatedFat": 10.7,
+    "sugar": 14.3,
+    "fiber": 2.6,
+    "salt": 0.53,
+    "energyKj": 1596
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/e5becc99aec1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-croissant",
+   "name": "Chocolate Croissant",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 350,
+    "protein": 5.9,
+    "carbs": 33.4,
+    "fat": 20.6,
+    "saturatedFat": 12.3,
+    "sugar": 15.6,
+    "fiber": 3.7,
+    "salt": 0.41,
+    "energyKj": 1461
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/35300825e730.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-pistachio-croissant-roll",
+   "name": "Chocolate Pistachio Croissant Roll",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 462,
+    "protein": 6.9,
+    "carbs": 41.3,
+    "fat": 29.6,
+    "saturatedFat": 16.6,
+    "sugar": 19.9,
+    "fiber": 1.7,
+    "salt": 0.59,
+    "energyKj": 1926
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "cinnamon-danish",
+   "name": "Cinnamon Danish",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 413,
+    "protein": 6.7,
+    "carbs": 48.3,
+    "fat": 20.9,
+    "saturatedFat": 13.2,
+    "sugar": 24.1,
+    "fiber": 2.5,
+    "salt": 1.01,
+    "energyKj": 1728
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/2fc74a34cd9b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pain-aux-raisins",
+   "name": "Pain aux Raisins",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 358,
+    "protein": 7,
+    "carbs": 49,
+    "fat": 14.4,
+    "saturatedFat": 9.1,
+    "sugar": 21.4,
+    "fiber": 2.5,
+    "salt": 0.85,
+    "energyKj": 1504
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/75f66dd159e3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "very-berry-croissant",
+   "name": "Very Berry Croissant",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 299,
+    "protein": 4.4,
+    "carbs": 41.7,
+    "fat": 12.2,
+    "saturatedFat": 7.4,
+    "sugar": 21.9,
+    "fiber": 2.3,
+    "salt": 0.56,
+    "energyKj": 1255
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/e71aa8390f94.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bacon-egg-mayo-breakfast-baguette",
+   "name": "Bacon & Egg Mayo Breakfast Baguette",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "protein": 16.6,
+    "carbs": 38.7,
+    "fat": 13.7,
+    "saturatedFat": 3.4,
+    "sugar": 1.5,
+    "fiber": 2,
+    "salt": 1.89,
+    "energyKj": 1463
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/70a5c4020401.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "free-range-egg-avo-breakfast-baguette",
+   "name": "Free-Range Egg & Avo Breakfast Baguette",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 347,
+    "protein": 12.3,
+    "carbs": 39,
+    "fat": 15,
+    "saturatedFat": 3.2,
+    "sugar": 1.7,
+    "fiber": 3.2,
+    "salt": 2.09,
+    "energyKj": 1454
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/a5236350d026.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "roasted-tomato-egg-mayo-breakfast-baguette",
+   "name": "Roasted Tomato & Egg Mayo Breakfast Baguette",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 361,
+    "protein": 14.1,
+    "carbs": 42.3,
+    "fat": 14.3,
+    "saturatedFat": 2.3,
+    "sugar": 5.2,
+    "fiber": 3.2,
+    "salt": 1.88,
+    "energyKj": 1515
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/2f34a46cd344.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "smoked-salmon-egg-mayo-breakfast-baguette",
+   "name": "Smoked Salmon & Egg Mayo Breakfast Baguette",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 352,
+    "protein": 17.5,
+    "carbs": 38.7,
+    "fat": 13.7,
+    "saturatedFat": 2.6,
+    "sugar": 1.5,
+    "fiber": 1.9,
+    "salt": 2.14,
+    "energyKj": 1476
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/712e10eeb4f2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "acai-almond-butter-bowl",
+   "name": "Acai & Almond Butter Bowl",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 338,
+    "protein": 8.1,
+    "carbs": 43.7,
+    "fat": 12.9,
+    "saturatedFat": 1.6,
+    "sugar": 25.6,
+    "fiber": 7.4,
+    "salt": 0.2,
+    "energyKj": 1416
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/d850384a18a8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "bircher-muesli",
+   "name": "Bircher Muesli",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 336,
+    "protein": 14,
+    "carbs": 43.5,
+    "fat": 11,
+    "saturatedFat": 4.1,
+    "sugar": 32.7,
+    "fiber": 3.8,
+    "salt": 0.27,
+    "energyKj": 1413
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/ebff87573088.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "blueberry-balance-bowl",
+   "name": "Blueberry Balance Bowl",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 318,
+    "protein": 12.9,
+    "carbs": 33.8,
+    "fat": 13.6,
+    "saturatedFat": 9.3,
+    "sugar": 20,
+    "fiber": 4.2,
+    "salt": 0.2,
+    "energyKj": 1331
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/8b2a170ab3d3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "five-berry-bowl",
+   "name": "Five Berry Bowl",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 334,
+    "protein": 12.9,
+    "carbs": 45.7,
+    "fat": 9.8,
+    "saturatedFat": 3.6,
+    "sugar": 26.1,
+    "fiber": 5.7,
+    "salt": 0.32,
+    "energyKj": 1403
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/5e5a018bc361.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "mango-banana-sunshine-bowl",
+   "name": "Mango & Banana Sunshine Bowl",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 342,
+    "protein": 6.4,
+    "carbs": 45.9,
+    "fat": 13.4,
+    "saturatedFat": 8.1,
+    "sugar": 24.2,
+    "fiber": 5.7,
+    "salt": 0.06,
+    "energyKj": 1432
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/eaaf4ba75625.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "the-big-apple-bowl",
+   "name": "The Big Apple Bowl",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 304,
+    "protein": 11.7,
+    "carbs": 43.2,
+    "fat": 8.4,
+    "saturatedFat": 3.4,
+    "sugar": 29.3,
+    "fiber": 4.2,
+    "salt": 0.24,
+    "energyKj": 1278
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/f33177a71c23.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "crispy-potato-bites",
+   "name": "Crispy Potato Bites",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 185,
+    "protein": 3.6,
+    "carbs": 30,
+    "fat": 4.8,
+    "saturatedFat": 0.3,
+    "sugar": 1.5,
+    "fiber": 3.9,
+    "salt": 1.19,
+    "energyKj": 780
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/25ac03b9ef22.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kale-cauli-macaroni-cheese",
+   "name": "Kale & Cauli Macaroni Cheese",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 535,
+    "protein": 25.5,
+    "carbs": 45.5,
+    "fat": 26.7,
+    "saturatedFat": 16.9,
+    "sugar": 6.2,
+    "fiber": 5.1,
+    "salt": 1.72,
+    "energyKj": 2237
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/d641358904d0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "butter-chicken-side-soup",
+   "name": "Butter Chicken Side Soup",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 179,
+    "protein": 8.1,
+    "carbs": 12.4,
+    "fat": 9.9,
+    "saturatedFat": 6.1,
+    "sugar": 6.3,
+    "fiber": 4,
+    "salt": 0.93,
+    "energyKj": 748
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/e8dcaccc2710.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "butter-chicken-soup",
+   "name": "Butter Chicken Soup",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 359,
+    "protein": 16.2,
+    "carbs": 24.9,
+    "fat": 19.8,
+    "saturatedFat": 12.2,
+    "sugar": 12.5,
+    "fiber": 7.9,
+    "salt": 1.86,
+    "energyKj": 1496
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/e8dcaccc2710.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-laksa-side-soup",
+   "name": "Chicken Laksa Side Soup",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 148,
+    "protein": 4.3,
+    "carbs": 11.3,
+    "fat": 9.1,
+    "saturatedFat": 7.6,
+    "sugar": 3.5,
+    "fiber": 2,
+    "salt": 1.1,
+    "energyKj": 616
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/0ba79aace8b4.webp",
+   "allergens": {
+    "contains": [
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-laksa-soup",
+   "name": "Chicken Laksa Soup",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 296,
+    "protein": 8.7,
+    "carbs": 22.5,
+    "fat": 18.1,
+    "saturatedFat": 15.2,
+    "sugar": 6.9,
+    "fiber": 3.9,
+    "salt": 2.2,
+    "energyKj": 1232
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/0ba79aace8b4.webp",
+   "allergens": {
+    "contains": [
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "christmas-ham-hock-side-soup",
+   "name": "Christmas Ham Hock Side Soup",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 121,
+    "protein": 7.9,
+    "carbs": 11.7,
+    "fat": 3.6,
+    "saturatedFat": 0.4,
+    "sugar": 1.8,
+    "fiber": 4.6,
+    "salt": 0.99,
+    "energyKj": 506
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "christmas-ham-hock-soup",
+   "name": "Christmas Ham Hock Soup",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 241,
+    "protein": 15.9,
+    "carbs": 23.4,
+    "fat": 7.3,
+    "saturatedFat": 0.9,
+    "sugar": 3.6,
+    "fiber": 9.2,
+    "salt": 1.99,
+    "energyKj": 1011
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "creamy-roast-chicken-side-soup",
+   "name": "Creamy Roast Chicken Side Soup",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 114,
+    "protein": 5.1,
+    "carbs": 8.9,
+    "fat": 6.2,
+    "saturatedFat": 3.5,
+    "sugar": 1.9,
+    "fiber": 1.1,
+    "salt": 1.06,
+    "energyKj": 478
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/fd95fc22f176.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "creamy-roast-chicken-soup",
+   "name": "Creamy Roast Chicken Soup",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 229,
+    "protein": 10.2,
+    "carbs": 17.8,
+    "fat": 12.5,
+    "saturatedFat": 7,
+    "sugar": 3.8,
+    "fiber": 2.1,
+    "salt": 2.12,
+    "energyKj": 955
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/fd95fc22f176.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "prets-lasagne-soup",
+   "name": "Pret's Lasagne Soup",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 302,
+    "protein": 13.7,
+    "carbs": 24.1,
+    "fat": 15.8,
+    "saturatedFat": 4.3,
+    "sugar": 9.7,
+    "fiber": 4,
+    "salt": 2.43,
+    "energyKj": 1260
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/9109d47717c7.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "prets-mushroom-risotto",
+   "name": "Pret's Mushroom Risotto",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 222,
+    "protein": 7.1,
+    "carbs": 29.5,
+    "fat": 7.8,
+    "saturatedFat": 4.6,
+    "sugar": 2.7,
+    "fiber": 3,
+    "salt": 2.16,
+    "energyKj": 934
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/060fc16b966b.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "prets-mushroom-risotto-side-soup",
+   "name": "Pret's Mushroom Risotto Side Soup",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 111,
+    "protein": 3.6,
+    "carbs": 14.7,
+    "fat": 3.9,
+    "saturatedFat": 2.3,
+    "sugar": 1.4,
+    "fiber": 1.5,
+    "salt": 1.08,
+    "energyKj": 467
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/060fc16b966b.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "souper-tomato",
+   "name": "Souper Tomato",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 141,
+    "protein": 6,
+    "carbs": 15.1,
+    "fat": 5.2,
+    "saturatedFat": 0.4,
+    "sugar": 14.7,
+    "fiber": 5,
+    "salt": 1.62,
+    "energyKj": 590
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/434894ae25e8.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "souper-tomato-side-soup",
+   "name": "Souper Tomato Side Soup",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 71,
+    "protein": 3,
+    "carbs": 7.5,
+    "fat": 2.6,
+    "saturatedFat": 0.2,
+    "sugar": 7.4,
+    "fiber": 2.5,
+    "salt": 0.81,
+    "energyKj": 295
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/434894ae25e8.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bacon-cheese-jalapeno-pastry",
+   "name": "Bacon, Cheese & Jalapeño Pastry",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 591,
+    "protein": 16.1,
+    "carbs": 48.6,
+    "fat": 36.4,
+    "saturatedFat": 21.9,
+    "sugar": 5.8,
+    "fiber": 2.3,
+    "salt": 2.23,
+    "energyKj": 2466
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/89e3ceadac18.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "prets-sausage-roll",
+   "name": "Pret's Sausage Roll",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 384,
+    "protein": 13.7,
+    "carbs": 22.4,
+    "fat": 26,
+    "saturatedFat": 13.4,
+    "sugar": 2.7,
+    "fiber": 3,
+    "salt": 1.24,
+    "energyKj": 1600
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/61b99cecae64.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spinach-feta-pastry",
+   "name": "Spinach & Feta Pastry",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 551,
+    "protein": 12.6,
+    "carbs": 45,
+    "fat": 34.5,
+    "saturatedFat": 20.8,
+    "sugar": 4.7,
+    "fiber": 5.2,
+    "salt": 1.92,
+    "energyKj": 2296
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/0ed47b5f8b86.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chipotle-chicken",
+   "name": "Chipotle Chicken",
+   "category": "Salads, plates & protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 709,
+    "protein": 50.1,
+    "carbs": 48.4,
+    "fat": 32,
+    "saturatedFat": 8.9,
+    "sugar": 13.6,
+    "fiber": 13.9,
+    "salt": 2.53,
+    "energyKj": 2968
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/57deb8256a90.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "korean-bbq-tofu",
+   "name": "Korean BBQ Tofu",
+   "category": "Salads, plates & protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 449,
+    "protein": 21.5,
+    "carbs": 51,
+    "fat": 15.4,
+    "saturatedFat": 10,
+    "sugar": 21,
+    "fiber": 10.4,
+    "salt": 3.27,
+    "energyKj": 1886
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/d51a60c836cc.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "miso-salmon",
+   "name": "Miso Salmon",
+   "category": "Salads, plates & protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 761,
+    "protein": 36,
+    "carbs": 43.4,
+    "fat": 47.1,
+    "saturatedFat": 7.1,
+    "sugar": 16.5,
+    "fiber": 12.8,
+    "salt": 3.16,
+    "energyKj": 3167
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/71c713854441.webp",
+   "allergens": {
+    "contains": [
+     "fish",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "shawarma-chicken",
+   "name": "Shawarma Chicken",
+   "category": "Salads, plates & protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 628,
+    "protein": 50.3,
+    "carbs": 31.1,
+    "fat": 30.3,
+    "saturatedFat": 4,
+    "sugar": 14.3,
+    "fiber": 14.9,
+    "salt": 2.82,
+    "energyKj": 2624
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/cc7eccf3831e.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "sesame"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "butternut-humous-mezze-bowl",
+   "name": "Butternut & Humous Mezze Bowl",
+   "category": "Salads, plates & protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 395,
+    "protein": 13.2,
+    "carbs": 40.4,
+    "fat": 17,
+    "saturatedFat": 2.2,
+    "sugar": 12.1,
+    "fiber": 13.5,
+    "salt": 1.62,
+    "energyKj": 1650
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/7b16b85f086e.webp",
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "butternut-humous-side-salad",
+   "name": "Butternut & Humous Side Salad",
+   "category": "Salads, plates & protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 149,
+    "protein": 5.5,
+    "carbs": 12.7,
+    "fat": 7.2,
+    "saturatedFat": 0.8,
+    "sugar": 6.5,
+    "fiber": 6,
+    "salt": 0.76,
+    "energyKj": 623
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/de63bf068c94.webp",
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chefs-italian-chicken-salad",
+   "name": "Chef's Italian Chicken Salad",
+   "category": "Salads, plates & protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 526,
+    "protein": 25.3,
+    "carbs": 12,
+    "fat": 41.2,
+    "saturatedFat": 5.9,
+    "sugar": 10.3,
+    "fiber": 3.2,
+    "salt": 2.3,
+    "energyKj": 2184
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/447b22f1d805.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "chicken-greens-protein-plate",
+   "name": "Chicken & Greens Protein Plate",
+   "category": "Salads, plates & protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 285,
+    "protein": 34.2,
+    "carbs": 14.6,
+    "fat": 9,
+    "saturatedFat": 2.1,
+    "sugar": 9.2,
+    "fiber": 4.3,
+    "salt": 2.85,
+    "energyKj": 1198
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/e4d381e531e7.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "classic-green-side-salad",
+   "name": "Classic Green Side Salad",
+   "category": "Salads, plates & protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 180,
+    "protein": 6.8,
+    "carbs": 6.2,
+    "fat": 13.9,
+    "saturatedFat": 3.3,
+    "sugar": 5.1,
+    "fiber": 1.5,
+    "salt": 0.44,
+    "energyKj": 748
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/1548ebd53f57.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "miso-chicken-rice-bowl",
+   "name": "Miso Chicken Rice Bowl",
+   "category": "Salads, plates & protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 385,
+    "protein": 26.6,
+    "carbs": 34.3,
+    "fat": 14.5,
+    "saturatedFat": 1.8,
+    "sugar": 17.5,
+    "fiber": 7.1,
+    "salt": 2.98,
+    "energyKj": 1613
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/7ade225bc2bb.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smoked-salmon-egg-protein-plate",
+   "name": "Smoked Salmon & Egg Protein Plate",
+   "category": "Salads, plates & protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 413,
+    "protein": 32,
+    "carbs": 7.7,
+    "fat": 27.3,
+    "saturatedFat": 5.6,
+    "sugar": 1.9,
+    "fiber": 3.9,
+    "salt": 3.09,
+    "energyKj": 1718
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/3f1cde8f5873.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tuna-nicoise-salad",
+   "name": "Tuna Nicoise Salad",
+   "category": "Salads, plates & protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 357,
+    "protein": 29.6,
+    "carbs": 8.5,
+    "fat": 22.4,
+    "saturatedFat": 3.4,
+    "sugar": 7,
+    "fiber": 1.5,
+    "salt": 1.97,
+    "energyKj": 1490
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/85f58d3f8c79.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-edamame-protein-pot",
+   "name": "Chicken & Edamame Protein Pot",
+   "category": "Salads, plates & protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 195,
+    "protein": 26.6,
+    "carbs": 7,
+    "fat": 6.1,
+    "saturatedFat": 1.2,
+    "sugar": 0.8,
+    "fiber": 3,
+    "salt": 1.22,
+    "energyKj": 820
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/babb4f63d647.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "egg-spinach-protein-pot",
+   "name": "Egg & Spinach Protein Pot",
+   "category": "Salads, plates & protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 103,
+    "protein": 11.4,
+    "carbs": 2.3,
+    "fat": 5.3,
+    "saturatedFat": 1.5,
+    "sugar": 0.2,
+    "fiber": 0.3,
+    "salt": 0.57,
+    "energyKj": 432
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/946941e2c6f9.webp",
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smoked-salmon-egg-protein-pot",
+   "name": "Smoked Salmon & Egg Protein Pot",
+   "category": "Salads, plates & protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 136,
+    "protein": 12.9,
+    "carbs": 1.9,
+    "fat": 8.4,
+    "saturatedFat": 1.7,
+    "sugar": 0.7,
+    "fiber": 0.5,
+    "salt": 1.61,
+    "energyKj": 565
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/f7125044e92e.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salt-cider-vinegar-crisps",
+   "name": "Salt & Cider Vinegar Crisps",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 206,
+    "protein": 1.9,
+    "carbs": 21.3,
+    "fat": 12.2,
+    "saturatedFat": 0.9,
+    "sugar": 0.4,
+    "fiber": 1.7,
+    "salt": 0.65,
+    "energyKj": 859
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/ba1a994ea35f.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mature-cheddar-red-onion-crisps",
+   "name": "Mature Cheddar & Red Onion Crisps",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 210,
+    "protein": 2.6,
+    "carbs": 20.5,
+    "fat": 12.7,
+    "saturatedFat": 1,
+    "sugar": 1,
+    "fiber": 1.8,
+    "salt": 0.53,
+    "energyKj": 874
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/38e694813087.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salted-popcorn",
+   "name": "Salted Popcorn",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 136,
+    "protein": 2.5,
+    "carbs": 14.2,
+    "fat": 6.9,
+    "saturatedFat": 0.5,
+    "sugar": 0.1,
+    "fiber": 3.5,
+    "salt": 0.44,
+    "energyKj": 567
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/f9527a1422f0.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sea-salt-crisps",
+   "name": "Sea Salt Crisps",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 213,
+    "protein": 2.4,
+    "carbs": 22,
+    "fat": 12.4,
+    "saturatedFat": 1.4,
+    "sugar": 0.2,
+    "fiber": 1.7,
+    "salt": 0.36,
+    "energyKj": 888
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/a7e985dae37b.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smoky-chipotle-crisps",
+   "name": "Smoky Chipotle Crisps",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 208,
+    "protein": 2.2,
+    "carbs": 21,
+    "fat": 12.4,
+    "saturatedFat": 0.9,
+    "sugar": 0.9,
+    "fiber": 1.9,
+    "salt": 0.39,
+    "energyKj": 867
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/ff764a5fc482.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sweet-salt-popcorn",
+   "name": "Sweet & Salt Popcorn",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 157,
+    "protein": 1.7,
+    "carbs": 15.2,
+    "fat": 9.3,
+    "saturatedFat": 0.7,
+    "sugar": 5.4,
+    "fiber": 2.4,
+    "salt": 0.24,
+    "energyKj": 653
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/5c3f5b5718f0.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pastel-de-nata",
+   "name": "Pastel De Nata",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 157,
+    "protein": 2.9,
+    "carbs": 21.2,
+    "fat": 6.2,
+    "saturatedFat": 4,
+    "sugar": 11.8,
+    "fiber": 2.2,
+    "salt": 0.33,
+    "energyKj": 659
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/d8152d41a0fe.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "choc-bar",
+   "name": "Choc Bar",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 380,
+    "protein": 3.1,
+    "carbs": 37.3,
+    "fat": 23.5,
+    "saturatedFat": 14.1,
+    "sugar": 22.7,
+    "fiber": 3.1,
+    "salt": 0.32,
+    "energyKj": 1583
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/0800e4d4fb2e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-brownie-bar",
+   "name": "Chocolate Brownie Bar",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 321,
+    "protein": 4,
+    "carbs": 30,
+    "fat": 19.9,
+    "saturatedFat": 12.4,
+    "sugar": 25.3,
+    "fiber": 2.8,
+    "salt": 0.1,
+    "energyKj": 1336
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/3d82edfae76d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "dark-chocolate-corn-cakes",
+   "name": "Dark Chocolate Corn Cakes",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 82,
+    "protein": 1.2,
+    "carbs": 10.4,
+    "fat": 3.7,
+    "saturatedFat": 2.2,
+    "sugar": 4.4,
+    "fiber": 0.8,
+    "salt": 0.01,
+    "energyKj": 341
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/f9d6bafb9ac3.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dark-chocolate-with-sea-salt",
+   "name": "Dark Chocolate with Sea Salt",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 172,
+    "protein": 2.7,
+    "carbs": 9.5,
+    "fat": 12.9,
+    "saturatedFat": 7.8,
+    "sugar": 8.3,
+    "fiber": 3.9,
+    "salt": 0,
+    "energyKj": 715
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jolly-good-tiffin",
+   "name": "Jolly Good Tiffin",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 411,
+    "protein": 3.6,
+    "carbs": 39.7,
+    "fat": 26.2,
+    "saturatedFat": 15,
+    "sugar": 26.2,
+    "fiber": 0.6,
+    "salt": 0.23,
+    "energyKj": 1713
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "love-bar",
+   "name": "Love Bar",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "protein": 3.8,
+    "carbs": 41.2,
+    "fat": 18,
+    "saturatedFat": 9,
+    "sugar": 20.8,
+    "fiber": 3,
+    "salt": 0.4,
+    "energyKj": 1454
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/38561d63ae3b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ],
+    "nuts": [
+     "almond",
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "milk-chocolate-bar",
+   "name": "Milk Chocolate Bar",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 172,
+    "protein": 2.3,
+    "carbs": 13.3,
+    "fat": 11.8,
+    "saturatedFat": 7.2,
+    "sugar": 13,
+    "fiber": 1.6,
+    "salt": 0,
+    "energyKj": 717
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "popcorn-bar",
+   "name": "Popcorn Bar",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 176,
+    "protein": 1.7,
+    "carbs": 21.8,
+    "fat": 8.9,
+    "saturatedFat": 5.1,
+    "sugar": 12.5,
+    "fiber": 0.8,
+    "salt": 0.13,
+    "energyKj": 737
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/f5b237008c82.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pret-bar",
+   "name": "Pret Bar",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 279,
+    "protein": 4,
+    "carbs": 34.6,
+    "fat": 13.4,
+    "saturatedFat": 7,
+    "sugar": 22.4,
+    "fiber": 2.6,
+    "salt": 0.11,
+    "energyKj": 1169
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/2c19a95f6d82.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "cranberries-in-coats",
+   "name": "Cranberries in Coats",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 235,
+    "protein": 0.5,
+    "carbs": 36.5,
+    "fat": 9.5,
+    "saturatedFat": 5.5,
+    "sugar": 31,
+    "fiber": 0.8,
+    "salt": 0.1,
+    "energyKj": 988
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/bbc825a89837.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dark-chocolate-salted-almonds",
+   "name": "Dark Chocolate Salted Almonds",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 215,
+    "protein": 5.5,
+    "carbs": 12.4,
+    "fat": 15.1,
+    "saturatedFat": 5.3,
+    "sugar": 7.9,
+    "fiber": 3.5,
+    "salt": 0.2,
+    "energyKj": 892
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/d166526ac78d.webp",
+   "allergens": {
+    "contains": [
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "nuts-fruit-chocolate",
+   "name": "Nuts, Fruit, Chocolate",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 196,
+    "protein": 5.7,
+    "carbs": 13.4,
+    "fat": 12.8,
+    "saturatedFat": 2,
+    "sugar": 10.1,
+    "fiber": 2.2,
+    "salt": 0.01,
+    "energyKj": 815
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/158b59b9ecbe.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "pret-a-mango",
+   "name": "Pret A Mango",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 118,
+    "protein": 0.7,
+    "carbs": 26.9,
+    "fat": 0.4,
+    "saturatedFat": 0.1,
+    "sugar": 17.5,
+    "fiber": 1.8,
+    "salt": 0,
+    "energyKj": 500
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/03e703e265c4.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chocolate-chunk-cookie",
+   "name": "Chocolate Chunk Cookie",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 424,
+    "protein": 4.9,
+    "carbs": 53.2,
+    "fat": 20.7,
+    "saturatedFat": 12.7,
+    "sugar": 30.7,
+    "fiber": 2.2,
+    "salt": 0.25,
+    "energyKj": 1773
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/766a406f1bb7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-hazelnut-praline-cookie",
+   "name": "Chocolate Hazelnut Praline Cookie",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 424,
+    "protein": 5.5,
+    "carbs": 50.4,
+    "fat": 21.8,
+    "saturatedFat": 11.4,
+    "sugar": 31,
+    "fiber": 2.2,
+    "salt": 0.39,
+    "energyKj": 1775
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/9a80de19b913.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "double-berry-muffin",
+   "name": "Double Berry Muffin",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 441,
+    "protein": 6.6,
+    "carbs": 53.4,
+    "fat": 21.6,
+    "saturatedFat": 2.5,
+    "sugar": 30.5,
+    "fiber": 3.5,
+    "salt": 0.72,
+    "energyKj": 1846
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/ce92480df9d8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "jaffa-cake",
+   "name": "Jaffa Cake",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 567,
+    "protein": 5.7,
+    "carbs": 59.4,
+    "fat": 33.7,
+    "saturatedFat": 14.2,
+    "sugar": 42.2,
+    "fiber": 1.9,
+    "salt": 0.83,
+    "energyKj": 2369
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "loaded-chocolate-chunk-banana-bread",
+   "name": "Loaded Chocolate Chunk Banana Bread",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 560,
+    "protein": 7.5,
+    "carbs": 59.3,
+    "fat": 31.7,
+    "saturatedFat": 7.8,
+    "sugar": 37.4,
+    "fiber": 3.5,
+    "salt": 0.86,
+    "energyKj": 2338
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/38db0d459afe.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "prets-gingerbread-biscuit-godfrey",
+   "name": "Pret's Gingerbread Biscuit Godfrey",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 200,
+    "protein": 2.1,
+    "carbs": 33.2,
+    "fat": 6.3,
+    "saturatedFat": 2.8,
+    "sugar": 17.5,
+    "fiber": 0.7,
+    "salt": 0.34,
+    "energyKj": 840
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/9051fab0ef9e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-white-chocolate-cookie",
+   "name": "Raspberry & White Chocolate Cookie",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 412,
+    "protein": 4.5,
+    "carbs": 55.8,
+    "fat": 18.6,
+    "saturatedFat": 11.9,
+    "sugar": 35.6,
+    "fiber": 1.6,
+    "salt": 0.54,
+    "energyKj": 1728
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/63fe562907da.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "triple-chocolate-cookie",
+   "name": "Triple Chocolate Cookie",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 414,
+    "protein": 5.5,
+    "carbs": 51.8,
+    "fat": 20,
+    "saturatedFat": 12.7,
+    "sugar": 34.4,
+    "fiber": 2.2,
+    "salt": 0.21,
+    "energyKj": 1733
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/85260630d8e6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "triple-chocolate-crunch-loaf-cake",
+   "name": "Triple Chocolate Crunch Loaf Cake",
+   "category": "Snacks & sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 441,
+    "protein": 6.3,
+    "carbs": 40.6,
+    "fat": 27.6,
+    "saturatedFat": 10,
+    "sugar": 32.9,
+    "fiber": 2.4,
+    "salt": 0.82,
+    "energyKj": 1838
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "apple",
+   "name": "Apple",
+   "category": "Fruit",
+   "serving": "",
+   "nutrients": {
+    "calories": 85,
+    "protein": 0.6,
+    "carbs": 18.9,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 18.9,
+    "fiber": 2.9,
+    "salt": 0.02,
+    "energyKj": 360
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/ce97a1c19fc5.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "banana",
+   "name": "Banana",
+   "category": "Fruit",
+   "serving": "",
+   "nutrients": {
+    "calories": 76,
+    "protein": 0.9,
+    "carbs": 17.2,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 13.4,
+    "fiber": 1,
+    "salt": 0,
+    "energyKj": 323
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/640c5cb7947e.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fruit-salad",
+   "name": "Fruit Salad",
+   "category": "Fruit",
+   "serving": "",
+   "nutrients": {
+    "calories": 107,
+    "protein": 1.3,
+    "carbs": 22.7,
+    "fat": 0.4,
+    "saturatedFat": 0,
+    "sugar": 22.7,
+    "fiber": 3.1,
+    "salt": 0.02,
+    "energyKj": 451
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/4066ffbd4e9d.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-lime",
+   "name": "Mango & Lime",
+   "category": "Fruit",
+   "serving": "",
+   "nutrients": {
+    "calories": 72,
+    "protein": 1,
+    "carbs": 14.1,
+    "fat": 0.9,
+    "saturatedFat": 0.1,
+    "sugar": 13.8,
+    "fiber": 1.5,
+    "salt": 0.01,
+    "energyKj": 303
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/b8a85aac003b.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "super-fruit",
+   "name": "Super Fruit",
+   "category": "Fruit",
+   "serving": "",
+   "nutrients": {
+    "calories": 88,
+    "protein": 1.4,
+    "carbs": 17,
+    "fat": 1,
+    "saturatedFat": 0.2,
+    "sugar": 16.7,
+    "fiber": 2.5,
+    "salt": 0.01,
+    "energyKj": 370
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/9cfdf487945f.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-cheese-tomato-triangles",
+   "name": "Kids' Cheese & Tomato Triangles",
+   "category": "Little Pret Stars",
+   "serving": "",
+   "nutrients": {
+    "calories": 357,
+    "protein": 19,
+    "carbs": 35.6,
+    "fat": 14.2,
+    "saturatedFat": 7.9,
+    "sugar": 3.7,
+    "fiber": 5.3,
+    "salt": 1.18,
+    "energyKj": 1496
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/1890574f8ad8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "kids-chicken-cucumber-triangles",
+   "name": "Kids' Chicken & Cucumber Triangles",
+   "category": "Little Pret Stars",
+   "serving": "",
+   "nutrients": {
+    "calories": 369,
+    "protein": 19.8,
+    "carbs": 34.2,
+    "fat": 15.9,
+    "saturatedFat": 1.9,
+    "sugar": 2.5,
+    "fiber": 4.8,
+    "salt": 1.54,
+    "energyKj": 1545
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/f4748e1f3bd1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "kids-ham-triangles",
+   "name": "Kids' Ham Triangles",
+   "category": "Little Pret Stars",
+   "serving": "",
+   "nutrients": {
+    "calories": 276,
+    "protein": 15,
+    "carbs": 33.2,
+    "fat": 8.2,
+    "saturatedFat": 4.2,
+    "sugar": 2,
+    "fiber": 4.8,
+    "salt": 1.66,
+    "energyKj": 1161
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/83afc0b229a2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "kids-humous-cucumber-bowl",
+   "name": "Kids' Humous & Cucumber Bowl",
+   "category": "Little Pret Stars",
+   "serving": "",
+   "nutrients": {
+    "calories": 84,
+    "protein": 3,
+    "carbs": 3,
+    "fat": 5.9,
+    "saturatedFat": 0.7,
+    "sugar": 1.2,
+    "fiber": 3.2,
+    "salt": 0.33,
+    "energyKj": 347
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/8f4c8c9f0f9e.webp",
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-mango-banana-yogurt-pot",
+   "name": "Kids' Mango & Banana Yogurt Pot",
+   "category": "Little Pret Stars",
+   "serving": "",
+   "nutrients": {
+    "calories": 101,
+    "protein": 6.1,
+    "carbs": 9.3,
+    "fat": 4.3,
+    "saturatedFat": 2.9,
+    "sugar": 8.8,
+    "fiber": 0.2,
+    "salt": 0.15,
+    "energyKj": 422
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/0f6be05385cd.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-pizza-toastie",
+   "name": "Kids' Pizza Toastie",
+   "category": "Little Pret Stars",
+   "serving": "",
+   "nutrients": {
+    "calories": 366,
+    "protein": 18,
+    "carbs": 36.7,
+    "fat": 15.1,
+    "saturatedFat": 6.9,
+    "sugar": 4.1,
+    "fiber": 5.7,
+    "salt": 1.36,
+    "energyKj": 1536
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/9432f50fd110.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "americano",
+   "name": "Americano",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.15,
+    "energyKj": 7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/abec18f0ac88.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-oat-milk",
+   "name": "Americano (oat milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 45,
+    "protein": 0.2,
+    "carbs": 9.4,
+    "fat": 0.7,
+    "saturatedFat": 0.5,
+    "sodium": 50,
+    "sugar": 4.9,
+    "fiber": 0.2,
+    "salt": 0.1,
+    "energyKj": 189
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/abec18f0ac88.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "americano-semi-skimmed-milk",
+   "name": "Americano (semi-skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 36,
+    "protein": 2.6,
+    "carbs": 3.8,
+    "fat": 1.2,
+    "saturatedFat": 0.8,
+    "sodium": 40,
+    "sugar": 3.8,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 152
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/abec18f0ac88.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-skimmed-milk",
+   "name": "Americano (skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 27,
+    "protein": 2.6,
+    "carbs": 3.8,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sodium": 40,
+    "sugar": 3.8,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 115
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/abec18f0ac88.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-soya-milk",
+   "name": "Americano (soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 30,
+    "protein": 2.3,
+    "carbs": 2.1,
+    "fat": 1.4,
+    "saturatedFat": 0.2,
+    "sodium": 15,
+    "sugar": 2,
+    "fiber": 0.4,
+    "salt": 0,
+    "energyKj": 125
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/abec18f0ac88.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-semi-skimmed-milk",
+   "name": "Cappuccino (semi-skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 116,
+    "protein": 8.2,
+    "carbs": 11.6,
+    "fat": 4.1,
+    "saturatedFat": 2.6,
+    "sugar": 11.5,
+    "fiber": 0.2,
+    "salt": 0.15,
+    "energyKj": 488
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/dc09b0e3ec46.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-skimmed-milk",
+   "name": "Cappuccino (skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 92,
+    "protein": 6.6,
+    "carbs": 8.8,
+    "fat": 3.3,
+    "saturatedFat": 2.1,
+    "sodium": 80,
+    "sugar": 8.8,
+    "fiber": 0,
+    "salt": 0.2,
+    "energyKj": 384
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/dc09b0e3ec46.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-soya-milk",
+   "name": "Cappuccino (soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 92,
+    "protein": 7.3,
+    "carbs": 5.5,
+    "fat": 4.2,
+    "saturatedFat": 0.8,
+    "sodium": 100,
+    "sugar": 5.4,
+    "fiber": 1.2,
+    "salt": 0.3,
+    "energyKj": 385,
+    "monounsaturatedFat": 0.8,
+    "polyunsaturatedFat": 2.5,
+    "transFat": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/dc09b0e3ec46.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-oat-milk",
+   "name": "Cappuccino (oat milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 116,
+    "protein": 0.6,
+    "carbs": 24.4,
+    "fat": 1.8,
+    "saturatedFat": 1.4,
+    "sodium": 80,
+    "sugar": 12.7,
+    "fiber": 0.4,
+    "salt": 0.2,
+    "energyKj": 492,
+    "monounsaturatedFat": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/dc09b0e3ec46.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-orange-latte",
+   "name": "Chocolate Orange Latte",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 352,
+    "protein": 11.5,
+    "carbs": 42.5,
+    "fat": 14.5,
+    "saturatedFat": 4.6,
+    "sugar": 41.7,
+    "fiber": 3.1,
+    "salt": 0.19,
+    "energyKj": 1478
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.15,
+    "energyKj": 7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/c3a4c85401bf.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "filter-coffee",
+   "name": "Filter Coffee",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.16,
+    "energyKj": 8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/16d3df32a421.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-semi-skimmed-milk",
+   "name": "Flat White (semi-skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 98,
+    "protein": 6.8,
+    "carbs": 10,
+    "fat": 3.4,
+    "saturatedFat": 2,
+    "sugar": 10,
+    "fiber": 0,
+    "salt": 0.15,
+    "energyKj": 411
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/91ac9b34d737.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-skimmed-milk",
+   "name": "Flat White (skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 80,
+    "protein": 5.8,
+    "carbs": 7.7,
+    "fat": 2.9,
+    "saturatedFat": 1.8,
+    "sodium": 80,
+    "sugar": 7.7,
+    "salt": 0.2,
+    "energyKj": 335
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/91ac9b34d737.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-oat-milk",
+   "name": "Flat White (oat milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 104,
+    "protein": 0.5,
+    "carbs": 22,
+    "fat": 1.6,
+    "saturatedFat": 1.2,
+    "sodium": 70,
+    "sugar": 11.4,
+    "fiber": 0.4,
+    "salt": 0.2,
+    "energyKj": 441
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/91ac9b34d737.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "flat-white-soya-milk",
+   "name": "Flat White (soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 77,
+    "protein": 6.3,
+    "carbs": 4.1,
+    "fat": 3.6,
+    "saturatedFat": 0.7,
+    "sodium": 90,
+    "sugar": 4.1,
+    "fiber": 1,
+    "salt": 0.2,
+    "energyKj": 323,
+    "monounsaturatedFat": 0.7,
+    "polyunsaturatedFat": 2.2,
+    "transFat": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/91ac9b34d737.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gingerbread-latte-semi-skimmed-milk",
+   "name": "Gingerbread Latte (semi-skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 184,
+    "protein": 9.3,
+    "carbs": 25.9,
+    "fat": 4.7,
+    "saturatedFat": 2.9,
+    "sugar": 25,
+    "fiber": 0.5,
+    "salt": 0.17,
+    "energyKj": 777
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gingerbread-latte-skimmed-milk",
+   "name": "Gingerbread Latte (skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 150,
+    "protein": 8.8,
+    "carbs": 26.1,
+    "fat": 1,
+    "saturatedFat": 0.3,
+    "sugar": 24.2,
+    "fiber": 0.5,
+    "salt": 0.17,
+    "energyKj": 635
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gingerbread-latte-oat-milk",
+   "name": "Gingerbread Latte (oat milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 181,
+    "protein": 0.9,
+    "carbs": 34.9,
+    "fat": 3.6,
+    "saturatedFat": 1.3,
+    "sugar": 22.9,
+    "fiber": 2.7,
+    "salt": 0.44,
+    "energyKj": 763
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "gingerbread-latte-soya-milk",
+   "name": "Gingerbread Latte (soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 175,
+    "protein": 9.9,
+    "carbs": 19.8,
+    "fat": 5.8,
+    "saturatedFat": 1.1,
+    "sugar": 19,
+    "fiber": 2.1,
+    "salt": 0.57,
+    "energyKj": 734
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-semi-skimmed-milk",
+   "name": "Latte (semi-skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 136,
+    "protein": 9.5,
+    "carbs": 14,
+    "fat": 4.6,
+    "saturatedFat": 2.8,
+    "sugar": 14,
+    "fiber": 0,
+    "salt": 0.15,
+    "energyKj": 573
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/17e56f660a1c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-skimmed-milk",
+   "name": "Latte (skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 118,
+    "protein": 8.5,
+    "carbs": 11.3,
+    "fat": 4.3,
+    "saturatedFat": 2.7,
+    "sodium": 120,
+    "sugar": 11.3,
+    "fiber": 0,
+    "salt": 0.3,
+    "energyKj": 494
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/17e56f660a1c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-soya-milk",
+   "name": "Latte (soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 113,
+    "protein": 9.3,
+    "carbs": 6.1,
+    "fat": 5.3,
+    "saturatedFat": 1,
+    "sodium": 130,
+    "sugar": 6,
+    "fiber": 1.5,
+    "salt": 0.3,
+    "energyKj": 473,
+    "monounsaturatedFat": 1,
+    "polyunsaturatedFat": 3.3,
+    "transFat": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/17e56f660a1c.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-oat-milk",
+   "name": "Latte (oat milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 167,
+    "protein": 0.8,
+    "carbs": 35,
+    "fat": 2.5,
+    "saturatedFat": 2,
+    "sodium": 100,
+    "sugar": 18.2,
+    "fiber": 0.6,
+    "salt": 0.3,
+    "energyKj": 707
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/17e56f660a1c.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "macchiato-semi-skimmed-milk",
+   "name": "Macchiato (semi-skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 7,
+    "protein": 0.4,
+    "carbs": 0.6,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 0.6,
+    "fiber": 0,
+    "salt": 0.15,
+    "energyKj": 29
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/17f8b624dc5f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "macchiato-oat-milk",
+   "name": "Macchiato (oat milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0,
+    "carbs": 1.3,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sodium": 0,
+    "sugar": 0.7,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/17f8b624dc5f.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "macchiato-skimmed-milk",
+   "name": "Macchiato (skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0.4,
+    "carbs": 0.5,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sodium": 0,
+    "sugar": 0.5,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/17f8b624dc5f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "macchiato-soya-milk",
+   "name": "Macchiato (soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.3,
+    "carbs": 0.3,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sodium": 0,
+    "sugar": 0.3,
+    "fiber": 0.1,
+    "salt": 0,
+    "energyKj": 17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/17f8b624dc5f.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-semi-skimmed-milk",
+   "name": "Mocha (semi-skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 196,
+    "protein": 10.7,
+    "carbs": 25,
+    "fat": 5.3,
+    "saturatedFat": 3.3,
+    "sugar": 24.2,
+    "fiber": 2.8,
+    "salt": 0.17,
+    "energyKj": 825
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/cf5ac4151b2c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-skimmed-milk",
+   "name": "Mocha (skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 185,
+    "protein": 9.3,
+    "carbs": 24.4,
+    "fat": 5.2,
+    "saturatedFat": 3.3,
+    "sodium": 105,
+    "sugar": 23.4,
+    "fiber": 1.5,
+    "salt": 0.3,
+    "energyKj": 778
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/cf5ac4151b2c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-oat-milk",
+   "name": "Mocha (oat milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 216,
+    "protein": 1.9,
+    "carbs": 44,
+    "fat": 3.3,
+    "saturatedFat": 2.4,
+    "sodium": 100,
+    "sugar": 28.2,
+    "fiber": 1.9,
+    "salt": 0.3,
+    "energyKj": 915
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/cf5ac4151b2c.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "mocha-soya-milk",
+   "name": "Mocha (soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 181,
+    "protein": 10.1,
+    "carbs": 19.5,
+    "fat": 6.2,
+    "saturatedFat": 1.6,
+    "sodium": 123,
+    "sugar": 18.4,
+    "fiber": 2.9,
+    "salt": 0.3,
+    "energyKj": 760,
+    "monounsaturatedFat": 1,
+    "polyunsaturatedFat": 3.1,
+    "transFat": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/cf5ac4151b2c.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "babyccino-semi-skimmed-milk",
+   "name": "Babyccino (semi-skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 18,
+    "protein": 1.1,
+    "carbs": 2.1,
+    "fat": 0.5,
+    "saturatedFat": 0.4,
+    "sugar": 2.1,
+    "fiber": 0.2,
+    "salt": 0,
+    "energyKj": 77
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/7cba899fbe26.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-tea-semi-skimmed-milk",
+   "name": "Breakfast Tea (semi-skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 15,
+    "protein": 1,
+    "carbs": 1.5,
+    "fat": 0.5,
+    "saturatedFat": 0.3,
+    "sugar": 1.6,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 61
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/7aed9a0bfb69.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-semi-skimmed-milk",
+   "name": "Chai Latte (semi-skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 207,
+    "protein": 11.2,
+    "carbs": 28.1,
+    "fat": 5.5,
+    "saturatedFat": 3.5,
+    "sugar": 27.2,
+    "fiber": 0.5,
+    "salt": 0.01,
+    "energyKj": 874
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/66e834bfc1a7.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-skimmed-milk",
+   "name": "Chai Latte (skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 164,
+    "protein": 10.4,
+    "carbs": 28.2,
+    "fat": 1,
+    "saturatedFat": 0.3,
+    "sugar": 26,
+    "fiber": 0.5,
+    "salt": 0.01,
+    "energyKj": 696
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/66e834bfc1a7.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-soya-milk",
+   "name": "Chai Latte (soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 194,
+    "protein": 11.7,
+    "carbs": 20.6,
+    "fat": 6.6,
+    "saturatedFat": 1.3,
+    "sugar": 19.7,
+    "fiber": 2.4,
+    "salt": 0.48,
+    "energyKj": 813
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/66e834bfc1a7.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-oat-milk",
+   "name": "Chai Latte (oat milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 201,
+    "protein": 1,
+    "carbs": 38.5,
+    "fat": 4.1,
+    "saturatedFat": 1.6,
+    "sugar": 24.5,
+    "fiber": 3.1,
+    "salt": 0.32,
+    "energyKj": 848
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/66e834bfc1a7.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "earl-grey-tea-semi-skimmed-milk",
+   "name": "Earl Grey Tea (semi-skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 15,
+    "protein": 1,
+    "carbs": 1.5,
+    "fat": 0.5,
+    "saturatedFat": 0.3,
+    "sugar": 1.5,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 61
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/3f7048f42b21.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-semi-skimmed-milk",
+   "name": "Hot Chocolate (semi-skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 247,
+    "protein": 11.5,
+    "carbs": 35.3,
+    "fat": 5.4,
+    "saturatedFat": 3.4,
+    "sugar": 34,
+    "fiber": 5.3,
+    "salt": 0.04,
+    "energyKj": 1039
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/6764e5b29f4a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-skimmed-milk",
+   "name": "Hot Chocolate (skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 256,
+    "protein": 10.6,
+    "carbs": 37.5,
+    "fat": 6.4,
+    "saturatedFat": 4,
+    "sodium": 105,
+    "sugar": 35.5,
+    "fiber": 2.8,
+    "salt": 0.3,
+    "energyKj": 1077
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/6764e5b29f4a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-oat-milk",
+   "name": "Hot Chocolate (oat milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 287,
+    "protein": 3,
+    "carbs": 57.1,
+    "fat": 4.4,
+    "saturatedFat": 3,
+    "sodium": 100,
+    "sugar": 40.4,
+    "fiber": 3.3,
+    "salt": 0.3,
+    "energyKj": 1212
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/6764e5b29f4a.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-soya-milk",
+   "name": "Hot Chocolate (soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 251,
+    "protein": 11.4,
+    "carbs": 32.4,
+    "fat": 7.4,
+    "saturatedFat": 2.3,
+    "sodium": 124,
+    "sugar": 30.4,
+    "fiber": 4.3,
+    "salt": 0.3,
+    "energyKj": 1055
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/6764e5b29f4a.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "matcha-latte",
+   "name": "Matcha Latte",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 86,
+    "protein": 1.2,
+    "carbs": 15.3,
+    "fat": 2.1,
+    "saturatedFat": 2,
+    "sugar": 11.8,
+    "fiber": 0.6,
+    "salt": 0.28,
+    "energyKj": 361
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/ff3f2c54f753.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "matcha-latte-skimmed-milk",
+   "name": "Matcha Latte (skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 105,
+    "protein": 9.8,
+    "carbs": 14.2,
+    "fat": 0.9,
+    "saturatedFat": 0.3,
+    "sugar": 12.3,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 444
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/ff3f2c54f753.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "matcha-latte-soya-milk",
+   "name": "Matcha Latte (soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 131,
+    "protein": 11,
+    "carbs": 7.5,
+    "fat": 6,
+    "saturatedFat": 1.1,
+    "sugar": 6.7,
+    "fiber": 1.7,
+    "salt": 0.42,
+    "energyKj": 548
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/ff3f2c54f753.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "matcha-latte-semi-skimmed-milk",
+   "name": "Matcha Latte (semi-skimmed milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 141,
+    "protein": 10.4,
+    "carbs": 13.9,
+    "fat": 4.9,
+    "saturatedFat": 3.1,
+    "sugar": 13.2,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 594
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/ff3f2c54f753.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "matcha-latte-oat-milk",
+   "name": "Matcha Latte (oat milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 138,
+    "protein": 1.4,
+    "carbs": 23.4,
+    "fat": 3.7,
+    "saturatedFat": 1.4,
+    "sugar": 10.9,
+    "fiber": 2.2,
+    "salt": 0.28,
+    "energyKj": 580
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/ff3f2c54f753.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "orange-hot-chocolate",
+   "name": "Orange Hot Chocolate",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 354,
+    "protein": 11.5,
+    "carbs": 43.1,
+    "fat": 14.4,
+    "saturatedFat": 4.6,
+    "sugar": 42.3,
+    "fiber": 3.2,
+    "salt": 0.03,
+    "energyKj": 1486
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "peppermint-tea",
+   "name": "Peppermint Tea",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/6ca78e546dda.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tropical-green-tea",
+   "name": "Tropical Green Tea",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/e3dc6fe52aa8.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-chai-latte-semi-skimmed-milk",
+   "name": "Iced Chai Latte (semi-skimmed milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 162,
+    "protein": 8.2,
+    "carbs": 23.3,
+    "fat": 4,
+    "saturatedFat": 2.6,
+    "sugar": 23.2,
+    "fiber": 0,
+    "salt": 0.01,
+    "energyKj": 683
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/19113e9223e7.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-chai-latte-skimmed-milk",
+   "name": "Iced Chai Latte (skimmed milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 131,
+    "protein": 7.8,
+    "carbs": 23.5,
+    "fat": 0.7,
+    "saturatedFat": 0.2,
+    "sugar": 22.4,
+    "fiber": 0,
+    "salt": 0.01,
+    "energyKj": 558
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/19113e9223e7.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-chai-latte-soya-milk",
+   "name": "Iced Chai Latte (soya milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 153,
+    "protein": 8.7,
+    "carbs": 17.9,
+    "fat": 4.9,
+    "saturatedFat": 0.9,
+    "sugar": 17.8,
+    "fiber": 1.4,
+    "salt": 0.36,
+    "energyKj": 645
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/19113e9223e7.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-chai-latte-oat-milk",
+   "name": "Iced Chai Latte (oat milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 159,
+    "protein": 0.7,
+    "carbs": 31.3,
+    "fat": 3.1,
+    "saturatedFat": 1.2,
+    "sugar": 21.3,
+    "fiber": 1.9,
+    "salt": 0.24,
+    "energyKj": 671
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/19113e9223e7.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "iced-hot-chocolate",
+   "name": "Iced Hot Chocolate",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 197,
+    "protein": 7.9,
+    "carbs": 30.5,
+    "fat": 3.7,
+    "saturatedFat": 2.3,
+    "sugar": 29.1,
+    "fiber": 5.3,
+    "salt": 0.03,
+    "energyKj": 831
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/b2c6c5d89370.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-matcha-latte",
+   "name": "Iced Matcha Latte",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 63,
+    "protein": 1,
+    "carbs": 11.2,
+    "fat": 1.5,
+    "saturatedFat": 1.4,
+    "sugar": 8.4,
+    "fiber": 0.4,
+    "salt": 0.2,
+    "energyKj": 266
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/df6cd1026a6d.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-matcha-latte-soya-milk",
+   "name": "Iced Matcha Latte (soya milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 95,
+    "protein": 8,
+    "carbs": 5.6,
+    "fat": 4.3,
+    "saturatedFat": 0.8,
+    "sugar": 4.8,
+    "fiber": 1.2,
+    "salt": 0.3,
+    "energyKj": 399
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/df6cd1026a6d.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-matcha-latte-skimmed-milk",
+   "name": "Iced Matcha Latte (skimmed milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 77,
+    "protein": 7.2,
+    "carbs": 10.4,
+    "fat": 0.7,
+    "saturatedFat": 0.2,
+    "sugar": 8.8,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 325
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/df6cd1026a6d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-matcha-latte-semi-skimmed-milk",
+   "name": "Iced Matcha Latte (semi-skimmed milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 103,
+    "protein": 7.6,
+    "carbs": 10.2,
+    "fat": 3.5,
+    "saturatedFat": 2.2,
+    "sugar": 9.4,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 432
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/df6cd1026a6d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-matcha-latte-oat-milk",
+   "name": "Iced Matcha Latte (oat milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 100,
+    "protein": 1.2,
+    "carbs": 17,
+    "fat": 2.7,
+    "saturatedFat": 1,
+    "sugar": 7.8,
+    "fiber": 1.6,
+    "salt": 0.2,
+    "energyKj": 422
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/df6cd1026a6d.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "caramel-frappe",
+   "name": "Caramel Frappé",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 423,
+    "protein": 13.9,
+    "carbs": 43,
+    "fat": 21.7,
+    "saturatedFat": 7.9,
+    "sugar": 33.6,
+    "fiber": 0.4,
+    "salt": 0.17,
+    "energyKj": 1772
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "classic-frappe-semi-skimmed-milk",
+   "name": "Classic Frappe (semi-skimmed milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 365,
+    "protein": 10.6,
+    "carbs": 26.7,
+    "fat": 23.9,
+    "saturatedFat": 7.4,
+    "sugar": 17.3,
+    "fiber": 0.4,
+    "salt": 0.15,
+    "energyKj": 1522
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/57ff9628c6eb.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "classic-frappe-skimmed-milk",
+   "name": "Classic Frappe (skimmed milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 350,
+    "protein": 13.5,
+    "carbs": 31.3,
+    "fat": 18.9,
+    "saturatedFat": 5.9,
+    "sugar": 21.1,
+    "fiber": 0.4,
+    "salt": 0.17,
+    "energyKj": 1463
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/57ff9628c6eb.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "frozen-hot-chocolate-semi-skimmed-milk",
+   "name": "Frozen Hot Chocolate (semi-skimmed milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 503,
+    "protein": 16.8,
+    "carbs": 54.8,
+    "fat": 22.8,
+    "saturatedFat": 8.7,
+    "sugar": 44.1,
+    "fiber": 5.7,
+    "salt": 0.04,
+    "energyKj": 2105
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "frozen-hot-chocolate-skimmed-milk",
+   "name": "Frozen Hot Chocolate (skimmed milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 477,
+    "protein": 16.4,
+    "carbs": 55,
+    "fat": 20,
+    "saturatedFat": 6.7,
+    "sugar": 43.4,
+    "fiber": 5.7,
+    "salt": 0.04,
+    "energyKj": 1998
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hazelnut-frappe",
+   "name": "Hazelnut Frappé",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 423,
+    "protein": 13.9,
+    "carbs": 42.8,
+    "fat": 21.7,
+    "saturatedFat": 7.9,
+    "sugar": 33.4,
+    "fiber": 0.4,
+    "salt": 0.17,
+    "energyKj": 1769
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/63a9dfa05c0f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-black-americano",
+   "name": "Iced Black Americano",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.15,
+    "energyKj": 7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/ab97de006a0b.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-semi-skimmed-milk",
+   "name": "Iced Latte (semi-skimmed milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 98,
+    "protein": 6.8,
+    "carbs": 10,
+    "fat": 3.4,
+    "saturatedFat": 2,
+    "sugar": 10,
+    "fiber": 0,
+    "salt": 0.15,
+    "energyKj": 411
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/a964dd350b8d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-skimmed-milk",
+   "name": "Iced Latte (skimmed milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 120,
+    "protein": 8.6,
+    "carbs": 11.5,
+    "fat": 4.4,
+    "saturatedFat": 2.7,
+    "sodium": 120,
+    "sugar": 11.4,
+    "salt": 0.3,
+    "energyKj": 504
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/a964dd350b8d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-soya-milk",
+   "name": "Iced Latte (soya milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 113,
+    "protein": 9.3,
+    "carbs": 6.1,
+    "fat": 5.3,
+    "saturatedFat": 1,
+    "sodium": 128,
+    "sugar": 6,
+    "fiber": 1.5,
+    "salt": 0.3,
+    "energyKj": 473,
+    "monounsaturatedFat": 1,
+    "polyunsaturatedFat": 3.3,
+    "transFat": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/a964dd350b8d.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-oat-milk",
+   "name": "Iced Latte (oat milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 149,
+    "protein": 0.8,
+    "carbs": 31.3,
+    "fat": 2.3,
+    "saturatedFat": 1.8,
+    "sodium": 80,
+    "sugar": 16.3,
+    "fiber": 0.5,
+    "salt": 0.2,
+    "energyKj": 631
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/a964dd350b8d.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "iced-mocha-semi-skimmed-milk",
+   "name": "Iced Mocha (semi-skimmed milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 159,
+    "protein": 8,
+    "carbs": 21.4,
+    "fat": 4,
+    "saturatedFat": 2.4,
+    "sugar": 20.6,
+    "fiber": 2.8,
+    "salt": 0.17,
+    "energyKj": 669
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/bf2dafa3bbd6.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-mocha-soya-milk",
+   "name": "Iced Mocha (soya milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 160,
+    "protein": 8.6,
+    "carbs": 18,
+    "fat": 5.3,
+    "saturatedFat": 1.5,
+    "sodium": 125,
+    "sugar": 17.1,
+    "fiber": 2.6,
+    "salt": 0.3,
+    "energyKj": 669
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/bf2dafa3bbd6.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-mocha-skimmed-milk",
+   "name": "Iced Mocha (skimmed milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 143,
+    "protein": 8,
+    "carbs": 23.2,
+    "fat": 1.7,
+    "saturatedFat": 0.9,
+    "sodium": 125,
+    "sugar": 22.3,
+    "fiber": 1.4,
+    "salt": 0.3,
+    "energyKj": 604
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/bf2dafa3bbd6.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-mocha-oat-milk",
+   "name": "Iced Mocha (oat milk)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 161,
+    "protein": 1.8,
+    "carbs": 28.7,
+    "fat": 3.7,
+    "saturatedFat": 1.6,
+    "sugar": 20.1,
+    "fiber": 2.9,
+    "salt": 0.34,
+    "energyKj": 679
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/bf2dafa3bbd6.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "mocha-frappe",
+   "name": "Mocha Frappé",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 440,
+    "protein": 15.3,
+    "carbs": 43,
+    "fat": 22.3,
+    "saturatedFat": 8.3,
+    "sugar": 32.9,
+    "fiber": 3.1,
+    "salt": 0.19,
+    "energyKj": 1842
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/4b20d1a8d365.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vanilla-frappe",
+   "name": "Vanilla Frappé",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 426,
+    "protein": 13.9,
+    "carbs": 43.7,
+    "fat": 21.7,
+    "saturatedFat": 7.9,
+    "sugar": 34.3,
+    "fiber": 0.4,
+    "salt": 0.17,
+    "energyKj": 1784
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/676ec8d05902.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vanilla-matcha-frappe",
+   "name": "Vanilla Matcha Frappe",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 431,
+    "protein": 14.5,
+    "carbs": 44.4,
+    "fat": 21.6,
+    "saturatedFat": 7.9,
+    "sugar": 34.2,
+    "fiber": 0.4,
+    "salt": 0,
+    "energyKj": 1803
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/2d66f8e86345.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "apple-juice",
+   "name": "Apple Juice",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 126,
+    "protein": 0.3,
+    "carbs": 30.7,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 28.2,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 536
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/bc6cd0040c63.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "berries-banana-smoothie",
+   "name": "Berries & Banana Smoothie",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 200,
+    "protein": 1.7,
+    "carbs": 45.1,
+    "fat": 0.6,
+    "saturatedFat": 0.1,
+    "sugar": 43.8,
+    "fiber": 3.9,
+    "salt": 0,
+    "energyKj": 849
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/d6a5559195a4.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "easy-greens",
+   "name": "Easy Greens",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 35,
+    "protein": 0,
+    "carbs": 8.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 7,
+    "fiber": 0,
+    "salt": 0.11,
+    "energyKj": 150
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ginger-shot",
+   "name": "Ginger Shot",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 55,
+    "protein": 0.8,
+    "carbs": 11.4,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 9.7,
+    "fiber": 1.8,
+    "salt": 0.11,
+    "energyKj": 234
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/211b1c3b7ee5.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-shot",
+   "name": "Hot Shot",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 27,
+    "protein": 0.4,
+    "carbs": 5.2,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 3.7,
+    "fiber": 1.4,
+    "salt": 0.02,
+    "energyKj": 115
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/bcafbfed3e08.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-peach-smoothie",
+   "name": "Mango & Peach Smoothie",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 190,
+    "protein": 1.8,
+    "carbs": 43.6,
+    "fat": 0.4,
+    "saturatedFat": 0.1,
+    "sugar": 42.4,
+    "fiber": 2.2,
+    "salt": 0.01,
+    "energyKj": 807
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/a17d9023751b.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-smoothie",
+   "name": "Mango Smoothie",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 142,
+    "protein": 1.2,
+    "carbs": 31.7,
+    "fat": 0.7,
+    "saturatedFat": 0.2,
+    "sugar": 29.7,
+    "fiber": 1.6,
+    "salt": 0,
+    "energyKj": 602
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/7017cf2ae3b2.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "orange-juice",
+   "name": "Orange Juice",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 63,
+    "protein": 1.2,
+    "carbs": 13.5,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 12.6,
+    "fiber": 0.7,
+    "salt": 0.01,
+    "energyKj": 267
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/c96c6dba58d8.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vitamin-volcano",
+   "name": "Vitamin Volcano",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 115,
+    "protein": 1.2,
+    "carbs": 27.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 24.5,
+    "fiber": 1.2,
+    "salt": 0.18,
+    "energyKj": 487
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cranberry-raspberry-pomegranate-pret-still",
+   "name": "Cranberry, Raspberry & Pomegranate Pret Still",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 115,
+    "protein": 0.5,
+    "carbs": 24.5,
+    "fat": 1.1,
+    "saturatedFat": 0.3,
+    "sugar": 24.5,
+    "fiber": 2.6,
+    "salt": 0,
+    "energyKj": 486
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/274005302c37.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cucumber-mint-seltzer",
+   "name": "Cucumber & Mint Seltzer",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/c4fb885b145f.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ginger-kombucha",
+   "name": "Ginger Kombucha",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 45,
+    "protein": 0,
+    "carbs": 11.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 11.2,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 191
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/7e9ec53e7122.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "green-tea-peach-pret-still",
+   "name": "Green Tea & Peach Pret Still",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 104,
+    "protein": 0.5,
+    "carbs": 21.5,
+    "fat": 1.2,
+    "saturatedFat": 0.5,
+    "sugar": 21.5,
+    "fiber": 2.5,
+    "salt": 0,
+    "energyKj": 438
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/d35e25781b04.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lemon-ginger-pret-still",
+   "name": "Lemon & Ginger Pret Still",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 94,
+    "protein": 0.5,
+    "carbs": 19.5,
+    "fat": 1,
+    "saturatedFat": 0.2,
+    "sugar": 19.5,
+    "fiber": 2.5,
+    "salt": 0,
+    "energyKj": 397
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/54e9a4b3d3bd.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lime-raspberry-seltzer",
+   "name": "Lime & Raspberry Seltzer",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/e4be0c7d0f96.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-passion-fruit-pret-still",
+   "name": "Mango & Passion Fruit Pret Still",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 112,
+    "protein": 0.5,
+    "carbs": 23.5,
+    "fat": 1.2,
+    "saturatedFat": 0.3,
+    "sugar": 23.5,
+    "fiber": 2.5,
+    "salt": 0,
+    "energyKj": 474
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/288c081f7e2a.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pret-sparkling-water-500ml",
+   "name": "Pret Sparkling Water 500ml",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/f7b58aa2252c.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pret-still-water-500ml",
+   "name": "Pret Still Water 500ml",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.07,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/a5eb1b037246.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pret-still-water-750ml",
+   "name": "Pret Still Water 750ml",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/1e7778ad4296.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "prets-rhubarb-lemonade",
+   "name": "Pret's Rhubarb Lemonade",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 107,
+    "protein": 0,
+    "carbs": 26.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 26.7,
+    "fiber": 0,
+    "salt": 0.03,
+    "energyKj": 454
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/5163a5a801c3.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "prets-sparkling-apple-fizz",
+   "name": "Pret's Sparkling Apple Fizz",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 104,
+    "protein": 0,
+    "carbs": 26.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 25.1,
+    "fiber": 0,
+    "salt": 0.13,
+    "energyKj": 443
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/7320bdb895b7.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "prets-sparkling-ginger-beer",
+   "name": "Pret's Sparkling Ginger Beer",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 119,
+    "protein": 0,
+    "carbs": 29.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 29.4,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 505
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/bc2b52c239a3.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "prets-sparkling-grape-elderflower",
+   "name": "Pret's Sparkling Grape & Elderflower",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 98,
+    "protein": 0,
+    "carbs": 24.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 24.4,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 415
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pret/1630ef5d2a12.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "poppi-cranberry-fizz",
+   "name": "poppi Cranberry Fizz",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 33,
+    "protein": 0,
+    "carbs": 6.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.3,
+    "fiber": 3.3,
+    "salt": 0,
+    "energyKj": 139
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "poppi-lemon-lime",
+   "name": "poppi Lemon Lime",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 26,
+    "protein": 0,
+    "carbs": 4.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 4.6,
+    "fiber": 3,
+    "salt": 0,
+    "energyKj": 108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "poppi-orange",
+   "name": "poppi Orange",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 26,
+    "protein": 0,
+    "carbs": 4.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 4.3,
+    "fiber": 3,
+    "salt": 0,
+    "energyKj": 108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "poppi-raspberry-rose",
+   "name": "poppi Raspberry Rose",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 27,
+    "protein": 0,
+    "carbs": 4.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.6,
+    "fiber": 3.6,
+    "salt": 0,
+    "energyKj": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "poppi-strawberry-lemon",
+   "name": "poppi Strawberry & Lemon",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 27,
+    "protein": 0,
+    "carbs": 5.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 4.3,
+    "fiber": 3,
+    "salt": 0,
+    "energyKj": 114
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "poppi-wild-berry",
+   "name": "poppi Wild Berry",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 24,
+    "protein": 0,
+    "carbs": 4.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 4.3,
+    "fiber": 3,
+    "salt": 0,
+    "energyKj": 102
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

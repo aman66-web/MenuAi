@@ -13,16 +13,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "JW Lees Pubs Menus Autumn 2026, allergen and calorie guides (PDFs: Main and Pub Lunch 7 Oct 2026, Cosy 11 Sep 2026, Children's 15 Sep 2026)",
+  "title": "JW Lees Pubs Menus Autumn 2026, allergen and calorie guides (PDFs: Main and Pub Lunch 2 Nov 2026, Cosy 28 Oct 2026, Children's 15 Sep 2026)",
   "url": "https://www.jwlees.co.uk/pubs-main-spring-26",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "Calories only: one figure per dish, from JW Lees' Autumn 2026 pub menu guides; protein, carbs and fat are not published. Items shown as options (with ..., bread) carry their own figure. A dish with no allergen line there has none marked. The Main menu's soup of the day has no figure and is not listed.",
+ "note": "Calories only: one figure per dish, from JW Lees' Autumn 2026 pub menu guides; protein, carbs and fat are not published. Items shown as options (with ..., bread) carry their own figure. A dish with no allergen line there has none marked. The Main menu's soup of the day and chef's roast of the day have no figure and are not listed.",
  "allergenGuide": {
   "title": "JW Lees Pubs Menus Autumn 2026: allergen and calorie guides (Main, Pub Lunch, Cosy and Children's menus)",
   "url": "https://www.jwlees.co.uk/pubs-main-spring-26",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -30,11 +30,13 @@
   "Main menu: Starters",
   "Main menu: Pub classics",
   "Main menu: Comfort food",
-  "Main menu: Burgers",
+  "Main menu: Nourish bowls",
   "Main menu: Grills",
+  "Main menu: Burgers",
   "Main menu: Sides",
   "Main menu: Puddings",
   "Main menu: Room for a little one",
+  "Main menu: Sunday roast",
   "Pub lunch: Mains",
   "Pub lunch: Hot sandwiches",
   "Pub lunch: Sandwiches",
@@ -103,7 +105,7 @@
    "category": "Main menu: Starters",
    "serving": "",
    "nutrients": {
-    "calories": 698
+    "calories": 706
    },
    "tags": [
     "contains_pork"
@@ -123,6 +125,10 @@
      "milk",
      "soya",
      "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
     ]
    }
   },
@@ -160,7 +166,7 @@
    "category": "Main menu: Starters",
    "serving": "",
    "nutrients": {
-    "calories": 509
+    "calories": 451
    },
    "tags": [
     "vegetarian"
@@ -408,7 +414,7 @@
    "category": "Main menu: Pub classics",
    "serving": "",
    "nutrients": {
-    "calories": 1601
+    "calories": 1602
    },
    "tags": [
     "contains_beef"
@@ -422,7 +428,8 @@
      "celery",
      "gluten",
      "eggs",
-     "milk"
+     "milk",
+     "sulphites"
     ],
     "mayContain": [
      "soya"
@@ -462,7 +469,7 @@
    "category": "Main menu: Pub classics",
    "serving": "",
    "nutrients": {
-    "calories": 492
+    "calories": 162
    },
    "tags": [],
    "limitedTime": false,
@@ -516,7 +523,7 @@
    "category": "Main menu: Pub classics",
    "serving": "",
    "nutrients": {
-    "calories": 820
+    "calories": 786
    },
    "tags": [],
    "limitedTime": false,
@@ -584,39 +591,12 @@
    }
   },
   {
-   "id": "nourish-bowl",
-   "name": "Nourish bowl",
-   "category": "Main menu: Pub classics",
-   "serving": "",
-   "nutrients": {
-    "calories": 676
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts"
-    ]
-   }
-  },
-  {
    "id": "farmhouse-sausage-rings",
    "name": "Farmhouse sausage rings",
    "category": "Main menu: Comfort food",
    "serving": "",
    "nutrients": {
-    "calories": 1287
+    "calories": 1081
    },
    "tags": [
     "contains_pork"
@@ -640,34 +620,12 @@
    }
   },
   {
-   "id": "vegan-sausage-and-mash",
-   "name": "Vegan sausage & mash",
+   "id": "minted-lamb-henry",
+   "name": "Minted lamb Henry",
    "category": "Main menu: Comfort food",
    "serving": "",
    "nutrients": {
-    "calories": 894
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "slow-braised-minted-lamb-henry",
-   "name": "Slow braised minted lamb Henry",
-   "category": "Main menu: Comfort food",
-   "serving": "",
-   "nutrients": {
-    "calories": 1468
+    "calories": 1530
    },
    "tags": [],
    "limitedTime": false,
@@ -710,7 +668,7 @@
    "category": "Main menu: Comfort food",
    "serving": "",
    "nutrients": {
-    "calories": 1561
+    "calories": 1614
    },
    "tags": [
     "contains_pork"
@@ -730,6 +688,268 @@
      "eggs",
      "mustard",
      "soya"
+    ]
+   }
+  },
+  {
+   "id": "nourish-bowl",
+   "name": "Nourish bowl",
+   "category": "Main menu: Nourish bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 619
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "nourish-bowl-with-griddled-halloumi",
+   "name": "Nourish bowl with griddled halloumi",
+   "category": "Main menu: Nourish bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 1351
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "nourish-bowl-with-grilled-chicken-breast",
+   "name": "Nourish bowl with grilled chicken breast",
+   "category": "Main menu: Nourish bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 906
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "brewers-mixed-grill",
+   "name": "Brewers mixed grill",
+   "category": "Main menu: Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 1815
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "grilled-10oz-half-moon-gammon-steak",
+   "name": "Grilled 10oz half moon gammon steak",
+   "category": "Main menu: Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 1270
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "fried-eggs-with-gammon-steak",
+   "name": "Fried eggs (with gammon steak)",
+   "category": "Main menu: Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 124
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grilled-pineapple-with-gammon-steak",
+   "name": "Grilled pineapple (with gammon steak)",
+   "category": "Main menu: Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 101
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grilled-8oz-black-angus-sirloin-steak",
+   "name": "Grilled 8oz Black Angus Sirloin steak",
+   "category": "Main menu: Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 1474
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "peppercorn-sauce",
+   "name": "Peppercorn sauce",
+   "category": "Main menu: Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "surf-your-turf-add-garlic-prawns",
+   "name": "Surf your turf add garlic prawns",
+   "category": "Main menu: Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 175
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mushroom-and-stilton-cream-sauce",
+   "name": "Mushroom & Stilton cream sauce",
+   "category": "Main menu: Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin"
     ]
    }
   },
@@ -824,188 +1044,6 @@
    }
   },
   {
-   "id": "brewers-mixed-grill",
-   "name": "Brewers mixed grill",
-   "category": "Main menu: Grills",
-   "serving": "",
-   "nutrients": {
-    "calories": 1815
-   },
-   "tags": [
-    "contains_beef",
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "mustard",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "grilled-10oz-half-moon-gammon-steak",
-   "name": "Grilled 10oz half moon gammon steak",
-   "category": "Main menu: Grills",
-   "serving": "",
-   "nutrients": {
-    "calories": 1269
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [
-     "mustard",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "fried-eggs-with-gammon-steak",
-   "name": "Fried eggs (with gammon steak)",
-   "category": "Main menu: Grills",
-   "serving": "",
-   "nutrients": {
-    "calories": 4
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "grilled-pineapple-with-gammon-steak",
-   "name": "Grilled pineapple (with gammon steak)",
-   "category": "Main menu: Grills",
-   "serving": "",
-   "nutrients": {
-    "calories": 101
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "grilled-8oz-black-angus-sirloin-steak",
-   "name": "Grilled 8oz Black Angus Sirloin steak",
-   "category": "Main menu: Grills",
-   "serving": "",
-   "nutrients": {
-    "calories": 1473
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [
-     "mustard",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "peppercorn-sauce",
-   "name": "Peppercorn sauce",
-   "category": "Main menu: Grills",
-   "serving": "",
-   "nutrients": {
-    "calories": 140
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "surf-your-turf-add-garlic-prawns",
-   "name": "Surf your turf add garlic prawns",
-   "category": "Main menu: Grills",
-   "serving": "",
-   "nutrients": {
-    "calories": 175
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "crustaceans"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "mushroom-and-stilton-cream-sauce",
-   "name": "Mushroom & Stilton cream sauce",
-   "category": "Main menu: Grills",
-   "serving": "",
-   "nutrients": {
-    "calories": 222
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [
-     "lupin"
-    ]
-   }
-  },
-  {
    "id": "ale-battered-onion-rings-with-bbq-dipping-sauce",
    "name": "Ale battered onion rings with BBQ dipping sauce",
    "category": "Main menu: Sides",
@@ -1051,16 +1089,14 @@
    }
   },
   {
-   "id": "honey-roasted-root-vegetables",
-   "name": "Honey roasted root vegetables",
+   "id": "honey-roast-root-vegetables",
+   "name": "Honey roast root vegetables",
    "category": "Main menu: Sides",
    "serving": "",
    "nutrients": {
-    "calories": 202
+    "calories": 137
    },
-   "tags": [
-    "vegetarian"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -1191,7 +1227,7 @@
    "category": "Main menu: Sides",
    "serving": "",
    "nutrients": {
-    "calories": 726
+    "calories": 727
    },
    "tags": [
     "vegetarian"
@@ -1277,6 +1313,46 @@
    }
   },
   {
+   "id": "custard-with-baked-apple-crumble",
+   "name": "Custard (with baked apple crumble)",
+   "category": "Main menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pouring-cream-with-baked-apple-crumble",
+   "name": "Pouring cream (with baked apple crumble)",
+   "category": "Main menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 279
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
    "id": "salted-caramel-and-dark-chocolate-tart-with-clotted-cream-ice-cream",
    "name": "Salted caramel & dark chocolate tart with clotted cream ice cream",
    "category": "Main menu: Puddings",
@@ -1333,7 +1409,7 @@
    "category": "Main menu: Puddings",
    "serving": "",
    "nutrients": {
-    "calories": 407
+    "calories": 404
    },
    "tags": [
     "vegetarian"
@@ -1522,7 +1598,7 @@
    "category": "Main menu: Room for a little one",
    "serving": "",
    "nutrients": {
-    "calories": 101
+    "calories": 99
    },
    "tags": [
     "vegetarian"
@@ -1534,6 +1610,7 @@
    "allergens": {
     "contains": [
      "eggs",
+     "milk",
      "soya"
     ],
     "mayContain": [
@@ -1563,6 +1640,63 @@
     "mayContain": [
      "eggs",
      "nuts"
+    ]
+   }
+  },
+  {
+   "id": "roast-topside-of-beef",
+   "name": "Roast topside of beef",
+   "category": "Main menu: Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1012
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "go-large-beef-with-extra-meat-and-pigs-in-blankets",
+   "name": "Go Large Beef with extra meat and pigs in blankets",
+   "category": "Main menu: Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1475
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
     ]
    }
   },
@@ -1634,31 +1768,6 @@
    }
   },
   {
-   "id": "chicken-caesar-salad",
-   "name": "Chicken Caesar salad",
-   "category": "Pub lunch: Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 662
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "simple-cheeseburger",
    "name": "Simple cheeseburger",
    "category": "Pub lunch: Mains",
@@ -1696,7 +1805,9 @@
    "nutrients": {
     "calories": 649
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -1772,7 +1883,7 @@
    "category": "Pub lunch: Hot sandwiches",
    "serving": "",
    "nutrients": {
-    "calories": 565
+    "calories": 563
    },
    "tags": [],
    "limitedTime": false,
@@ -1844,7 +1955,7 @@
    "category": "Pub lunch: Sandwiches",
    "serving": "",
    "nutrients": {
-    "calories": 275
+    "calories": 180
    },
    "tags": [],
    "limitedTime": false,
@@ -1865,7 +1976,7 @@
    "category": "Pub lunch: Sandwiches",
    "serving": "",
    "nutrients": {
-    "calories": 266
+    "calories": 160
    },
    "tags": [],
    "limitedTime": false,
@@ -1901,6 +2012,7 @@
     ],
     "mayContain": [
      "eggs",
+     "nuts",
      "sesame"
     ]
    }
@@ -1998,6 +2110,7 @@
      "milk"
     ],
     "mayContain": [
+     "nuts",
      "sesame"
     ]
    }
@@ -2073,28 +2186,6 @@
     "mayContain": [
      "lupin"
     ]
-   }
-  },
-  {
-   "id": "plant-based-sausage-and-mash",
-   "name": "Plant based sausage & mash",
-   "category": "Cosy menu: Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 894
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "soya"
-    ],
-    "mayContain": []
    }
   },
   {

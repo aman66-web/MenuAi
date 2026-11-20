@@ -12,14 +12,14 @@
  "source": {
   "title": "Pasta Evangelists Restaurants Allergen Chart (Quality Management System 5.3.1b, a Google Sheets PDF export linked from the chain's Allergens page; the chart prints no date)",
   "url": "https://docs.google.com/spreadsheets/d/1I2wXH_PQNO21w4CvaETgOLM7OBJDQCY5b4vq0cK0rEo/export?format=pdf&gid=1206536742&portrait=false&attachment=false",
-  "checkedOn": "2026-10-10"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, per portion as the chart prints them (no weights); protein, carbs and fat are not published. Allergens and \"may contain\" are the chart's own columns, and the chart also says all dishes may contain traces of the 14 major allergens. Restaurants only: Harrods, delivery and events have separate charts.",
  "allergenGuide": {
   "title": "Pasta Evangelists Restaurants Allergen Chart (from the chain's Allergens page, no date printed)",
   "url": "https://pastaevangelists.com/pages/allergens",
-  "checkedOn": "2026-10-10",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -32,6 +32,7 @@
   "Filled pasta",
   "Baked pasta",
   "Pasta shapes only",
+  "Kids",
   "Add-ons & garnishes",
   "Desserts",
   "Soft drinks",
@@ -224,7 +225,7 @@
    "category": "Antipasti",
    "serving": "",
    "nutrients": {
-    "calories": 97
+    "calories": 102
    },
    "tags": [],
    "limitedTime": false,
@@ -499,12 +500,65 @@
    }
   },
   {
+   "id": "paccheri-with-devon-crab-and-king-prawns",
+   "name": "Paccheri with Devon Crab & King Prawns",
+   "category": "Fresh pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 618
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rigatoni-cacio-e-pepe",
+   "name": "Rigatoni Cacio e Pepe",
+   "category": "Fresh pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 736
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "spaghetti-al-pomodoro",
    "name": "Spaghetti Al Pomodoro",
    "category": "Fresh pasta",
    "serving": "",
    "nutrients": {
-    "calories": 590
+    "calories": 477
    },
    "tags": [
     "vegetarian"
@@ -533,7 +587,7 @@
    "category": "Fresh pasta",
    "serving": "",
    "nutrients": {
-    "calories": 666
+    "calories": 553
    },
    "tags": [
     "vegetarian"
@@ -563,7 +617,7 @@
    "category": "Fresh pasta",
    "serving": "",
    "nutrients": {
-    "calories": 689
+    "calories": 576
    },
    "tags": [
     "contains_beef"
@@ -593,7 +647,7 @@
    "category": "Fresh pasta",
    "serving": "",
    "nutrients": {
-    "calories": 727
+    "calories": 614
    },
    "tags": [
     "contains_beef",
@@ -626,7 +680,7 @@
    "category": "Fresh pasta",
    "serving": "",
    "nutrients": {
-    "calories": 608
+    "calories": 495
    },
    "tags": [
     "vegetarian"
@@ -655,7 +709,7 @@
    "category": "Fresh pasta",
    "serving": "",
    "nutrients": {
-    "calories": 651
+    "calories": 538
    },
    "tags": [],
    "limitedTime": false,
@@ -684,7 +738,7 @@
    "category": "Fresh pasta",
    "serving": "",
    "nutrients": {
-    "calories": 871
+    "calories": 758
    },
    "tags": [
     "contains_pork"
@@ -714,7 +768,7 @@
    "category": "Fresh pasta",
    "serving": "",
    "nutrients": {
-    "calories": 983
+    "calories": 870
    },
    "tags": [
     "contains_pork"
@@ -744,7 +798,7 @@
    "category": "Fresh pasta",
    "serving": "",
    "nutrients": {
-    "calories": 677
+    "calories": 564
    },
    "tags": [
     "contains_beef"
@@ -776,7 +830,7 @@
    "category": "Fresh pasta",
    "serving": "",
    "nutrients": {
-    "calories": 810
+    "calories": 715
    },
    "tags": [
     "vegetarian"
@@ -806,7 +860,7 @@
    "category": "Seasonal specials",
    "serving": "",
    "nutrients": {
-    "calories": 867
+    "calories": 772
    },
    "tags": [],
    "limitedTime": false,
@@ -835,7 +889,7 @@
    "category": "Seasonal specials",
    "serving": "",
    "nutrients": {
-    "calories": 903
+    "calories": 808
    },
    "tags": [],
    "limitedTime": false,
@@ -855,6 +909,54 @@
     ],
     "cereals": [
      "wheat"
+    ]
+   }
+  },
+  {
+   "id": "creamy-mushroom-risotto",
+   "name": "Creamy Mushroom Risotto",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 670
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "creamy-mushroom-risotto-with-chicken-add-on",
+   "name": "Creamy Mushroom Risotto (With Chicken Add-on)",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 774
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "sulphites"
     ]
    }
   },
@@ -922,7 +1024,7 @@
    "category": "Seasonal specials",
    "serving": "",
    "nutrients": {
-    "calories": 647
+    "calories": 534
    },
    "tags": [],
    "limitedTime": false,
@@ -951,7 +1053,7 @@
    "category": "Seasonal specials",
    "serving": "",
    "nutrients": {
-    "calories": 725
+    "calories": 612
    },
    "tags": [],
    "limitedTime": false,
@@ -980,7 +1082,7 @@
    "category": "Seasonal specials",
    "serving": "",
    "nutrients": {
-    "calories": 681
+    "calories": 568
    },
    "tags": [],
    "limitedTime": false,
@@ -1033,12 +1135,41 @@
    }
   },
   {
-   "id": "king-prawn-lobster-and-crab-ravioli",
-   "name": "King Prawn, Lobster & Crab Ravioli",
+   "id": "pigs-in-blankets-ravioli-with-butter-and-sage",
+   "name": "Pigs in Blankets Ravioli with Butter & Sage",
    "category": "Filled pasta",
    "serving": "",
    "nutrients": {
-    "calories": 728
+    "calories": 638
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "king-prawn-lobster-and-crab-agnolotti",
+   "name": "King Prawn, Lobster & Crab Agnolotti",
+   "category": "Filled pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 660
    },
    "tags": [],
    "limitedTime": false,
@@ -1049,11 +1180,11 @@
     "contains": [
      "gluten",
      "crustaceans",
+     "eggs",
      "milk",
      "sulphites"
     ],
     "mayContain": [
-     "eggs",
      "mustard",
      "sesame",
      "soya"
@@ -1069,11 +1200,9 @@
    "category": "Filled pasta",
    "serving": "",
    "nutrients": {
-    "calories": 818
+    "calories": 847
    },
-   "tags": [
-    "vegetarian"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -1095,42 +1224,12 @@
    }
   },
   {
-   "id": "lemon-and-burrata-limoncini",
-   "name": "Lemon & Burrata 'Limoncini'",
-   "category": "Filled pasta",
-   "serving": "",
-   "nutrients": {
-    "calories": 787
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "mustard",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "spinach-and-ricotta-agnolotti",
    "name": "Spinach & Ricotta Agnolotti",
    "category": "Filled pasta",
    "serving": "",
    "nutrients": {
-    "calories": 692
+    "calories": 618
    },
    "tags": [],
    "limitedTime": false,
@@ -1191,7 +1290,7 @@
    "category": "Baked pasta",
    "serving": "",
    "nutrients": {
-    "calories": 659
+    "calories": 656
    },
    "tags": [
     "vegetarian"
@@ -1217,8 +1316,8 @@
    }
   },
   {
-   "id": "plain-pasta-canestri-gigli-rigatoni-paccheri",
-   "name": "Plain Pasta (Canestri, Gigli, Rigatoni, Paccheri)",
+   "id": "plain-pasta-rigatoni-paccheri",
+   "name": "Plain Pasta (Rigatoni, Paccheri)",
    "category": "Pasta shapes only",
    "serving": "",
    "nutrients": {
@@ -1324,12 +1423,70 @@
    }
   },
   {
-   "id": "supergreen-gnocchi",
-   "name": "Supergreen Gnocchi",
+   "id": "vegan-pasta-made-in-restaurants",
+   "name": "Vegan Pasta Made In Restaurants",
    "category": "Pasta shapes only",
    "serving": "",
    "nutrients": {
-    "calories": 378
+    "calories": 457
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "basil-pesto-rigatoni",
+   "name": "Basil Pesto, Rigatoni",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 473
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spaghetti-with-cherry-tomato-and-basil-sauce",
+   "name": "Spaghetti with Cherry Tomato & Basil Sauce",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 330
    },
    "tags": [
     "vegetarian"
@@ -1341,14 +1498,11 @@
    "allergens": {
     "contains": [
      "gluten",
-     "eggs",
-     "milk",
-     "soya",
-     "sulphites"
+     "eggs"
     ],
     "mayContain": [
      "mustard",
-     "sesame"
+     "soya"
     ],
     "cereals": [
      "wheat"
@@ -1356,12 +1510,74 @@
    }
   },
   {
-   "id": "rainbow-gnocchi",
-   "name": "Rainbow Gnocchi",
-   "category": "Pasta shapes only",
+   "id": "rag-alla-bolognese-egg-spaghetti",
+   "name": "Ragù Alla Bolognese, Egg Spaghetti",
+   "category": "Kids",
    "serving": "",
    "nutrients": {
-    "calories": 360
+    "calories": 396
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spaghetti-alla-carbonara",
+   "name": "Spaghetti Alla Carbonara",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 613
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mini-folded-pizza",
+   "name": "Mini Folded Pizza",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 287
    },
    "tags": [
     "vegetarian"
@@ -1373,14 +1589,13 @@
    "allergens": {
     "contains": [
      "gluten",
-     "eggs",
-     "milk",
-     "soya",
-     "sulphites"
+     "milk"
     ],
     "mayContain": [
+     "eggs",
      "mustard",
-     "sesame"
+     "nuts",
+     "soya"
     ],
     "cereals": [
      "wheat"
@@ -1388,8 +1603,8 @@
    }
   },
   {
-   "id": "beef-meatballs",
-   "name": "Beef Meatballs",
+   "id": "cooked-beef-meatballs",
+   "name": "Cooked Beef Meatballs",
    "category": "Add-ons & garnishes",
    "serving": "",
    "nutrients": {
@@ -1515,26 +1730,6 @@
    }
   },
   {
-   "id": "mozzarella-di-bufala-pdo",
-   "name": "Mozzarella Di Bufala PDO",
-   "category": "Add-ons & garnishes",
-   "serving": "",
-   "nutrients": {
-    "calories": 337
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "nduja-paste",
    "name": "Nduja Paste",
    "category": "Add-ons & garnishes",
@@ -1575,8 +1770,8 @@
    }
   },
   {
-   "id": "parmigiano-reggiano-cheese",
-   "name": "Parmigiano-Reggiano Cheese",
+   "id": "parmigiano-reggiano-dop-cheese-block",
+   "name": "Parmigiano-Reggiano DOP Cheese Block",
    "category": "Add-ons & garnishes",
    "serving": "",
    "nutrients": {
@@ -1589,27 +1784,6 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "grana-padano-cheese-shavings",
-   "name": "Grana Padano Cheese Shavings",
-   "category": "Add-ons & garnishes",
-   "serving": "",
-   "nutrients": {
-    "calories": 20
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
      "milk"
     ],
     "mayContain": []
@@ -1776,6 +1950,46 @@
    }
   },
   {
+   "id": "fresh-sage",
+   "name": "Fresh Sage",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fresh-oranges",
+   "name": "Fresh Oranges",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
    "id": "extra-virgin-olive-oil",
    "name": "Extra Virgin Olive Oil",
    "category": "Add-ons & garnishes",
@@ -1833,6 +2047,31 @@
    "allergens": {
     "contains": [],
     "mayContain": []
+   }
+  },
+  {
+   "id": "crispy-onion",
+   "name": "Crispy Onion",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
    }
   },
   {
@@ -1906,6 +2145,48 @@
    "serving": "",
    "nutrients": {
     "calories": 133
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "icing-sugar",
+   "name": "Icing Sugar",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "brandy-sauce",
+   "name": "Brandy Sauce",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
    },
    "tags": [
     "vegetarian"
@@ -2057,12 +2338,12 @@
    }
   },
   {
-   "id": "sicilian-style-pistachio-cake",
-   "name": "Sicilian-Style Pistachio Cake",
+   "id": "sicilian-style-pistachio-cake-with-mascarpone-cream",
+   "name": "Sicilian-Style Pistachio Cake with Mascarpone Cream",
    "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 259
+    "calories": 300
    },
    "tags": [
     "vegetarian"
@@ -2471,6 +2752,63 @@
    }
   },
   {
+   "id": "pandoro-with-mascarpone-cream",
+   "name": "Pandoro with Mascarpone Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 597
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mince-pie-soli-with-brandy-sauce",
+   "name": "Mince Pie Soli with Brandy Sauce",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 373
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "san-pellegrino-limonata",
    "name": "San Pellegrino Limonata",
    "category": "Soft drinks",
@@ -2497,26 +2835,6 @@
    "serving": "",
    "nutrients": {
     "calories": 69
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "san-pellegrino-aranciata-rossa",
-   "name": "San Pellegrino Aranciata Rossa",
-   "category": "Soft drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 73
    },
    "tags": [
     "vegetarian"
@@ -4717,6 +5035,28 @@
    }
   },
   {
+   "id": "flat-white-with-semi-skimmed-milk",
+   "name": "Flat White with Semi-Skimmed Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
    "id": "cappuccino-with-semi-skimmed-milk",
    "name": "Cappuccino with Semi-Skimmed Milk",
    "category": "Hot drinks",
@@ -5009,6 +5349,28 @@
     "cereals": [
      "oats"
     ]
+   }
+  },
+  {
+   "id": "mocha-with-semi-skimmed-milk",
+   "name": "Mocha with Semi-Skimmed Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 305
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
    }
   },
   {

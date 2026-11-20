@@ -12,15 +12,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Slug & Lettuce allergen & nutritional data (tkmenus.com/theslugandlettuce: Main Food Menu July 2026 and the July 2026 lunch, brunch, bottomless brunch, midweek eats, kids', no-gluten, afternoon tea and drinks menus; data correct as of 6 October 2026)",
+  "title": "Slug & Lettuce allergen & nutritional data (tkmenus.com/theslugandlettuce: Main Food Menu July 2026 and the July 2026 lunch, brunch, bottomless brunch, midweek eats, kids', no-gluten, afternoon tea and drinks menus; data correct as of 17 November 2026)",
   "url": "https://tkmenus.com/theslugandlettuce",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Values are per dish as served, with the standard garnishes and accompaniments on the menu. Dishes printed 'Excluding ...' leave out the topper or side named, which is listed under Options & add-ons.",
  "allergenGuide": {
-  "title": "Slug & Lettuce allergen & nutritional data (tkmenus.com/theslugandlettuce, July 2026 menus, data correct as of 6 October 2026)",
+  "title": "Slug & Lettuce allergen & nutritional data (tkmenus.com/theslugandlettuce, July 2026 menus, data correct as of 17 November 2026)",
   "url": "https://tkmenus.com/theslugandlettuce",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -599,14 +599,14 @@
    "category": "Sharers",
    "serving": "",
    "nutrients": {
-    "calories": 1381,
-    "protein": 31.6,
+    "calories": 1380,
+    "protein": 31.4,
     "carbs": 129.5,
     "fat": 79.4,
-    "saturatedFat": 23.7,
-    "sugar": 10.8,
+    "saturatedFat": 23.6,
+    "sugar": 10.6,
     "salt": 5.7,
-    "energyKj": 5767
+    "energyKj": 5762
    },
    "tags": [
     "vegetarian"
@@ -664,14 +664,14 @@
    "category": "Sharers",
    "serving": "",
    "nutrients": {
-    "calories": 1319,
-    "protein": 33.6,
+    "calories": 1318,
+    "protein": 33.4,
     "carbs": 129.9,
     "fat": 71.9,
-    "saturatedFat": 26.3,
-    "sugar": 6.1,
+    "saturatedFat": 26.2,
+    "sugar": 5.9,
     "salt": 6.1,
-    "energyKj": 5518
+    "energyKj": 5513
    },
    "tags": [
     "contains_pork"
@@ -1766,14 +1766,14 @@
    "category": "Options & add-ons",
    "serving": "",
    "nutrients": {
-    "calories": 83,
+    "calories": 78,
     "protein": 5.1,
     "carbs": 0,
-    "fat": 7,
-    "saturatedFat": 4.3,
+    "fat": 6.4,
+    "saturatedFat": 4.2,
     "sugar": 0,
     "salt": 0.4,
-    "energyKj": 345
+    "energyKj": 326
    },
    "tags": [
     "vegetarian"
@@ -1885,14 +1885,14 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1331,
-    "protein": 46.6,
-    "carbs": 83.6,
-    "fat": 89.1,
+    "calories": 1319,
+    "protein": 46.8,
+    "carbs": 80.3,
+    "fat": 89,
     "saturatedFat": 49.2,
-    "sugar": 14.5,
+    "sugar": 12,
     "salt": 5,
-    "energyKj": 5541
+    "energyKj": 5493
    },
    "tags": [],
    "limitedTime": false,
@@ -1920,14 +1920,14 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 863,
-    "protein": 21.1,
-    "carbs": 118.1,
+    "calories": 851,
+    "protein": 21.2,
+    "carbs": 114.8,
     "fat": 31.3,
     "saturatedFat": 24.1,
-    "sugar": 13.3,
+    "sugar": 10.9,
     "salt": 5.8,
-    "energyKj": 3630
+    "energyKj": 3582
    },
    "tags": [
     "vegetarian"
@@ -2062,14 +2062,14 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 726,
-    "protein": 20.6,
+    "calories": 721,
+    "protein": 20.7,
     "carbs": 69.4,
-    "fat": 39.5,
-    "saturatedFat": 13.9,
+    "fat": 39,
+    "saturatedFat": 13.7,
     "sugar": 9.2,
     "salt": 3.6,
-    "energyKj": 3035
+    "energyKj": 3017
    },
    "tags": [
     "contains_pork"
@@ -2160,14 +2160,14 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 839,
+    "calories": 828,
     "protein": 36.4,
     "carbs": 64.4,
-    "fat": 50,
-    "saturatedFat": 23.8,
+    "fat": 48.8,
+    "saturatedFat": 23.4,
     "sugar": 9.2,
     "salt": 3.5,
-    "energyKj": 3518
+    "energyKj": 3481
    },
    "tags": [
     "vegetarian"
@@ -2502,14 +2502,14 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 910,
-    "protein": 59.6,
+    "calories": 905,
+    "protein": 59.7,
     "carbs": 71.3,
-    "fat": 41.9,
-    "saturatedFat": 14.4,
+    "fat": 41.3,
+    "saturatedFat": 14.3,
     "sugar": 9.8,
     "salt": 5.4,
-    "energyKj": 3817
+    "energyKj": 3798
    },
    "tags": [
     "contains_pork"
@@ -2591,14 +2591,14 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1046,
-    "protein": 60.3,
-    "carbs": 58.1,
-    "fat": 62.8,
-    "saturatedFat": 24.3,
-    "sugar": 21.6,
+    "calories": 1040,
+    "protein": 60.2,
+    "carbs": 57.7,
+    "fat": 62.2,
+    "saturatedFat": 24.1,
+    "sugar": 21.3,
     "salt": 6,
-    "energyKj": 4358
+    "energyKj": 4333
    },
    "tags": [
     "contains_beef",
@@ -2627,14 +2627,14 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1060,
-    "protein": 50.5,
-    "carbs": 96.3,
-    "fat": 51.1,
-    "saturatedFat": 18.6,
-    "sugar": 37.2,
+    "calories": 1054,
+    "protein": 50.4,
+    "carbs": 96,
+    "fat": 50.5,
+    "saturatedFat": 18.4,
+    "sugar": 36.9,
     "salt": 6.2,
-    "energyKj": 4427
+    "energyKj": 4403
    },
    "tags": [
     "contains_pork"
@@ -2662,14 +2662,14 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 898,
-    "protein": 48.3,
-    "carbs": 76.8,
+    "calories": 897,
+    "protein": 48.2,
+    "carbs": 76.4,
     "fat": 43,
     "saturatedFat": 12.6,
-    "sugar": 10.7,
+    "sugar": 10.3,
     "salt": 4.9,
-    "energyKj": 3755
+    "energyKj": 3748
    },
    "tags": [],
    "limitedTime": false,
@@ -2693,14 +2693,14 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 798,
+    "calories": 797,
     "protein": 24.7,
-    "carbs": 86,
+    "carbs": 85.6,
     "fat": 36.9,
     "saturatedFat": 14.4,
-    "sugar": 37.9,
+    "sugar": 37.6,
     "salt": 4.1,
-    "energyKj": 3337
+    "energyKj": 3333
    },
    "tags": [
     "vegetarian"
@@ -2724,14 +2724,14 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 786,
-    "protein": 30.8,
-    "carbs": 77.5,
-    "fat": 37,
-    "saturatedFat": 12.6,
-    "sugar": 38.5,
+    "calories": 779,
+    "protein": 30.7,
+    "carbs": 77.2,
+    "fat": 36.4,
+    "saturatedFat": 12.3,
+    "sugar": 38.2,
     "salt": 4.1,
-    "energyKj": 3282
+    "energyKj": 3258
    },
    "tags": [
     "vegetarian"
@@ -2756,14 +2756,14 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1406,
-    "protein": 73.7,
-    "carbs": 96,
-    "fat": 80.3,
-    "saturatedFat": 33.2,
-    "sugar": 30.7,
+    "calories": 1400,
+    "protein": 73.8,
+    "carbs": 95.7,
+    "fat": 79.7,
+    "saturatedFat": 33,
+    "sugar": 30.4,
     "salt": 5.8,
-    "energyKj": 5870
+    "energyKj": 5847
    },
    "tags": [
     "contains_beef"
@@ -2789,14 +2789,14 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 866,
+    "calories": 865,
     "protein": 34.6,
-    "carbs": 66.7,
+    "carbs": 66.4,
     "fat": 48.7,
     "saturatedFat": 10.5,
-    "sugar": 10.1,
+    "sugar": 9.9,
     "salt": 3.8,
-    "energyKj": 3622
+    "energyKj": 3617
    },
    "tags": [],
    "limitedTime": false,
@@ -2825,14 +2825,14 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1030,
+    "calories": 1023,
     "protein": 55.7,
-    "carbs": 52.4,
-    "fat": 65,
-    "saturatedFat": 23.5,
-    "sugar": 18.3,
+    "carbs": 52.1,
+    "fat": 64.4,
+    "saturatedFat": 23.3,
+    "sugar": 18,
     "salt": 6,
-    "energyKj": 4291
+    "energyKj": 4266
    },
    "tags": [
     "contains_beef",
@@ -2858,14 +2858,14 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 644,
-    "protein": 56.2,
-    "carbs": 39.6,
+    "calories": 642,
+    "protein": 56.1,
+    "carbs": 39.2,
     "fat": 28.1,
-    "saturatedFat": 5.1,
-    "sugar": 7.2,
+    "saturatedFat": 5,
+    "sugar": 6.9,
     "salt": 5,
-    "energyKj": 2705
+    "energyKj": 2698
    },
    "tags": [],
    "limitedTime": false,
@@ -2889,14 +2889,14 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 856,
+    "calories": 849,
     "protein": 59,
-    "carbs": 65.3,
-    "fat": 38.5,
-    "saturatedFat": 11.3,
-    "sugar": 33.8,
+    "carbs": 65,
+    "fat": 38,
+    "saturatedFat": 11.1,
+    "sugar": 33.5,
     "salt": 6.4,
-    "energyKj": 3584
+    "energyKj": 3559
    },
    "tags": [
     "contains_pork"
@@ -2921,14 +2921,14 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 661,
+    "calories": 660,
     "protein": 43.1,
-    "carbs": 35.7,
+    "carbs": 35.4,
     "fat": 36.1,
     "saturatedFat": 3.2,
-    "sugar": 6.8,
+    "sugar": 6.6,
     "salt": 4,
-    "energyKj": 2778
+    "energyKj": 2774
    },
    "tags": [],
    "limitedTime": false,
@@ -3062,14 +3062,14 @@
    "category": "Extra toppings",
    "serving": "",
    "nutrients": {
-    "calories": 83,
+    "calories": 78,
     "protein": 5.1,
     "carbs": 0,
-    "fat": 7,
-    "saturatedFat": 4.3,
+    "fat": 6.4,
+    "saturatedFat": 4.2,
     "sugar": 0,
     "salt": 0.4,
-    "energyKj": 345
+    "energyKj": 326
    },
    "tags": [
     "vegetarian"
@@ -3214,14 +3214,14 @@
    "category": "Sides",
    "serving": "",
    "nutrients": {
-    "calories": 733,
-    "protein": 17.8,
+    "calories": 723,
+    "protein": 17.9,
     "carbs": 50.8,
-    "fat": 55.6,
-    "saturatedFat": 16,
+    "fat": 54.5,
+    "saturatedFat": 15.6,
     "sugar": 4.7,
     "salt": 2.5,
-    "energyKj": 3030
+    "energyKj": 2993
    },
    "tags": [
     "vegetarian"
@@ -3322,14 +3322,14 @@
    "category": "Sides",
    "serving": "",
    "nutrients": {
-    "calories": 593,
-    "protein": 12,
+    "calories": 592,
+    "protein": 11.9,
     "carbs": 65.1,
     "fat": 30.6,
-    "saturatedFat": 11.2,
-    "sugar": 3.1,
+    "saturatedFat": 11.1,
+    "sugar": 3,
     "salt": 2.5,
-    "energyKj": 2482
+    "energyKj": 2479
    },
    "tags": [
     "contains_pork"
@@ -3552,9 +3552,9 @@
     "carbs": 42.3,
     "fat": 11.5,
     "saturatedFat": 4.3,
-    "sugar": 34.3,
+    "sugar": 34.6,
     "salt": 0.4,
-    "energyKj": 1236
+    "energyKj": 1237
    },
    "tags": [
     "vegetarian"
@@ -3646,9 +3646,9 @@
     "carbs": 47.8,
     "fat": 11.2,
     "saturatedFat": 6,
-    "sugar": 40.6,
+    "sugar": 41.2,
     "salt": 0.4,
-    "energyKj": 1356
+    "energyKj": 1357
    },
    "tags": [],
    "limitedTime": false,
@@ -5390,7 +5390,7 @@
     "calories": 1222,
     "protein": 57.1,
     "carbs": 73.3,
-    "fat": 76,
+    "fat": 75.8,
     "saturatedFat": 25.9,
     "sugar": 10.1,
     "salt": 5.7,
@@ -5560,14 +5560,14 @@
    "category": "Brunch",
    "serving": "",
    "nutrients": {
-    "calories": 697,
-    "protein": 11.2,
-    "carbs": 111.6,
-    "fat": 21.4,
-    "saturatedFat": 3.3,
-    "sugar": 44.9,
-    "salt": 1.9,
-    "energyKj": 2917
+    "calories": 700,
+    "protein": 11.6,
+    "carbs": 111.8,
+    "fat": 21.6,
+    "saturatedFat": 3.5,
+    "sugar": 46.7,
+    "salt": 2,
+    "energyKj": 2930
    },
    "tags": [
     "vegetarian"
@@ -5700,7 +5700,7 @@
     "calories": 1889,
     "protein": 85.4,
     "carbs": 114.8,
-    "fat": 118.5,
+    "fat": 118.1,
     "saturatedFat": 41.6,
     "sugar": 13.1,
     "salt": 8.5,
@@ -5730,14 +5730,14 @@
    "category": "Brunch",
    "serving": "",
    "nutrients": {
-    "calories": 895,
-    "protein": 26.6,
+    "calories": 894,
+    "protein": 26.5,
     "carbs": 64.7,
     "fat": 57.4,
-    "saturatedFat": 18.9,
-    "sugar": 4.6,
+    "saturatedFat": 18.8,
+    "sugar": 4.5,
     "salt": 4.5,
-    "energyKj": 3725
+    "energyKj": 3722
    },
    "tags": [
     "contains_pork"
@@ -6161,10 +6161,10 @@
     "calories": 383,
     "protein": 8.5,
     "carbs": 44.2,
-    "fat": 18.6,
+    "fat": 18.2,
     "saturatedFat": 10.7,
     "sugar": 1,
-    "salt": 1.1,
+    "salt": 1.2,
     "energyKj": 1612
    },
    "tags": [
@@ -6360,7 +6360,7 @@
     "carbs": 48.6,
     "fat": 20.8,
     "saturatedFat": 2.6,
-    "sugar": 11.6,
+    "sugar": 13.5,
     "salt": 1.1,
     "energyKj": 1698
    },
@@ -6624,14 +6624,14 @@
    "category": "Afternoon tea",
    "serving": "",
    "nutrients": {
-    "calories": 178,
+    "calories": 172,
     "protein": 8.1,
     "carbs": 15.8,
-    "fat": 8.9,
-    "saturatedFat": 4.6,
+    "fat": 8.4,
+    "saturatedFat": 4.5,
     "sugar": 2,
     "salt": 1.1,
-    "energyKj": 744
+    "energyKj": 725
    },
    "tags": [
     "vegetarian"
@@ -6693,8 +6693,8 @@
     "calories": 611,
     "protein": 5.4,
     "carbs": 70.2,
-    "fat": 34.9,
-    "saturatedFat": 19,
+    "fat": 35.1,
+    "saturatedFat": 19.1,
     "sugar": 35,
     "salt": 0.6,
     "energyKj": 2549
@@ -6851,14 +6851,14 @@
    "category": "Afternoon tea",
    "serving": "",
    "nutrients": {
-    "calories": 269,
+    "calories": 263,
     "protein": 7.4,
     "carbs": 27.7,
-    "fat": 13.3,
-    "saturatedFat": 4.9,
+    "fat": 12.8,
+    "saturatedFat": 4.7,
     "sugar": 2.3,
     "salt": 1,
-    "energyKj": 1121
+    "energyKj": 1102
    },
    "tags": [
     "vegetarian"
@@ -6884,8 +6884,8 @@
     "calories": 618,
     "protein": 5,
     "carbs": 68.6,
-    "fat": 35.3,
-    "saturatedFat": 21.2,
+    "fat": 35.5,
+    "saturatedFat": 21.3,
     "sugar": 32.6,
     "salt": 1,
     "energyKj": 2574

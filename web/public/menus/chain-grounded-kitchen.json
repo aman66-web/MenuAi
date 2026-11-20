@@ -10,15 +10,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Grounded Kitchen online ordering, Nutrition facts per serving (groundedkitchen.vmos.io, 3 restaurants, read 12 October 2026)",
+  "title": "Grounded Kitchen online ordering, Nutrition facts per serving (groundedkitchen.vmos.io, 3 restaurants, read 17 November 2026)",
   "url": "https://groundedkitchen.vmos.io/",
-  "checkedOn": "2026-10-12"
+  "checkedOn": "2026-11-17"
  },
  "note": "Per serving, as Grounded Kitchen's ordering site prints each dish's nutrition once a restaurant is picked; 3 restaurants were read and only figures printed the same at 2 or more are shown. Figures are for the dish as listed (rice bowls and baos at the size named): the flavour, sauce or add-ons you choose are not counted.",
  "allergenGuide": {
   "title": "Grounded Kitchen allergen chart",
   "url": "https://www.groundedkitchen.com/allergen-chart",
-  "checkedOn": "2026-10-12",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": false,
   "complete": false
  },
@@ -1072,6 +1072,28 @@
    "image": "grounded-kitchen/de42d3a367a3.webp"
   },
   {
+   "id": "chicken-bao-single",
+   "name": "Chicken Bao (Single)",
+   "category": "Bao's & Wraps",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 249,
+    "protein": 12,
+    "carbs": 31.6,
+    "fat": 8.1,
+    "saturatedFat": 1.3,
+    "sugar": 5.9,
+    "fiber": 1.1,
+    "salt": 0.52,
+    "energyKj": 1042
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "beef-bao-single",
    "name": "Beef Bao (Single)",
    "category": "Bao's & Wraps",
@@ -1110,28 +1132,6 @@
     "fiber": 1.1,
     "salt": 0.61,
     "energyKj": 1222
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "tofu-bao-single",
-   "name": "Tofu Bao (Single)",
-   "category": "Bao's & Wraps",
-   "serving": "1 serving",
-   "nutrients": {
-    "calories": 260,
-    "protein": 8.1,
-    "carbs": 33,
-    "fat": 10,
-    "saturatedFat": 1.6,
-    "sugar": 6.9,
-    "fiber": 1.8,
-    "salt": 0.7,
-    "energyKj": 1088
    },
    "tags": [],
    "limitedTime": false,
@@ -1277,6 +1277,51 @@
    "components": [],
    "modifiers": [],
    "image": "grounded-kitchen/830b638748bf.webp"
+  },
+  {
+   "id": "tofu-bao-single",
+   "name": "Tofu Bao (Single)",
+   "category": "Bao's & Wraps",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 260,
+    "protein": 8.1,
+    "carbs": 33,
+    "fat": 10,
+    "saturatedFat": 1.6,
+    "sugar": 6.9,
+    "fiber": 1.8,
+    "salt": 0.7,
+    "energyKj": 1088
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tteokbokki-side",
+   "name": "Tteokbokki Side",
+   "category": "Sides & Treats",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 389,
+    "protein": 12.1,
+    "carbs": 64,
+    "fat": 9.7,
+    "saturatedFat": 5.7,
+    "sugar": 3.1,
+    "fiber": 0.9,
+    "salt": 1.23,
+    "energyKj": 1628
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "grounded-kitchen/4a1bded9c0e1.webp"
   },
   {
    "id": "bang-bang-korean-wings-4-pcs",
@@ -1597,29 +1642,6 @@
    "image": "grounded-kitchen/6245166627b0.webp"
   },
   {
-   "id": "tteokbokki-side",
-   "name": "Tteokbokki Side",
-   "category": "Sides & Treats",
-   "serving": "1 serving",
-   "nutrients": {
-    "calories": 389,
-    "protein": 12.1,
-    "carbs": 64,
-    "fat": 9.7,
-    "saturatedFat": 5.7,
-    "sugar": 3.1,
-    "fiber": 0.9,
-    "salt": 1.23,
-    "energyKj": 1628
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "grounded-kitchen/4a1bded9c0e1.webp"
-  },
-  {
    "id": "jeju-sauce",
    "name": "Jeju Sauce",
    "category": "More Sauce",
@@ -1709,6 +1731,29 @@
    "components": [],
    "modifiers": [],
    "image": "grounded-kitchen/5d98361aa72e.webp"
+  },
+  {
+   "id": "chocolate-peanut-bowl",
+   "name": "Chocolate peanut bowl",
+   "category": "Smoothie Bowls, Quenchers",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 1131,
+    "protein": 29.7,
+    "carbs": 140,
+    "fat": 45.9,
+    "saturatedFat": 14,
+    "sugar": 89.6,
+    "fiber": 16.8,
+    "salt": 0.39,
+    "energyKj": 4732
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "grounded-kitchen/381494e6d8d7.webp"
   },
   {
    "id": "a-a-quencher",
@@ -1844,29 +1889,6 @@
    "components": [],
    "modifiers": [],
    "image": "grounded-kitchen/42b884747669.webp"
-  },
-  {
-   "id": "chocolate-peanut-bowl",
-   "name": "Chocolate peanut bowl",
-   "category": "Smoothie Bowls, Quenchers",
-   "serving": "1 serving",
-   "nutrients": {
-    "calories": 1131,
-    "protein": 29.7,
-    "carbs": 140,
-    "fat": 45.9,
-    "saturatedFat": 14,
-    "sugar": 89.6,
-    "fiber": 16.8,
-    "salt": 0.39,
-    "energyKj": 4732
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "grounded-kitchen/381494e6d8d7.webp"
   },
   {
    "id": "chocolate-peanut-shake",

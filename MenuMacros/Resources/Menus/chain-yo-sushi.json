@@ -1,0 +1,2951 @@
+{
+ "schemaVersion": 1,
+ "id": "yo-sushi",
+ "name": "Yo! Sushi",
+ "cuisine": "Japanese",
+ "builderType": "standard",
+ "aliases": [
+  "yo sushi",
+  "yo! sushi",
+  "yosushi"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Yo! Sushi Allergen & Nutrition Information, Dine-in menu (no date printed on the page; read 2026-11-17)",
+  "url": "https://menus.tenkites.com/yosushi/allergenpageyosushi",
+  "checkedOn": "2026-11-17"
+ },
+ "note": "Figures are per serving from Yo! Sushi's own nutrition page for its Dine-in menu (hosted by Ten Kites), which prints no date. Dishes sold only at Selfridges and Heathrow are left out.",
+ "allergenGuide": {
+  "title": "Yo! Sushi Allergen & Nutrition Information, Dine-in menu (Ten Kites page; no date printed, read 2026-11-17)",
+  "url": "https://menus.tenkites.com/yosushi/allergenpageyosushi",
+  "checkedOn": "2026-11-17",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Curry",
+  "Rice",
+  "Ramen",
+  "Street food",
+  "Sushi & fish",
+  "Yasai (vegetable)",
+  "Meat",
+  "To share",
+  "Desserts",
+  "Condiments",
+  "Sides",
+  "Christmas menu"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "chicken-katsu-curry-large",
+   "name": "Chicken Katsu Curry (large)",
+   "category": "Curry",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 871,
+    "protein": 30.3,
+    "carbs": 103.7,
+    "fat": 36.9,
+    "saturatedFat": 13.4,
+    "sugar": 9,
+    "fiber": 6.8,
+    "salt": 4,
+    "energyKj": 3642
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pumpkin-katsu-curry-large",
+   "name": "Pumpkin Katsu Curry (large)",
+   "category": "Curry",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 685,
+    "protein": 10.6,
+    "carbs": 121.3,
+    "fat": 18,
+    "saturatedFat": 4.8,
+    "sugar": 20.6,
+    "fiber": 5.6,
+    "salt": 3.1,
+    "energyKj": 2859
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "chicken-katsu-curry-regular",
+   "name": "Chicken Katsu Curry (regular)",
+   "category": "Curry",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 508,
+    "protein": 16.1,
+    "carbs": 65.4,
+    "fat": 20,
+    "saturatedFat": 7.8,
+    "sugar": 3,
+    "fiber": 2.7,
+    "salt": 2,
+    "energyKj": 2123
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pumpkin-katsu-curry-regular",
+   "name": "Pumpkin Katsu Curry (regular)",
+   "category": "Curry",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 372,
+    "protein": 6.1,
+    "carbs": 72.9,
+    "fat": 6.5,
+    "saturatedFat": 3.2,
+    "sugar": 8.6,
+    "fiber": 2.1,
+    "salt": 1.5,
+    "energyKj": 1557
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "teriyaki-beef-curry",
+   "name": "Teriyaki Beef Curry",
+   "category": "Curry",
+   "serving": "",
+   "nutrients": {
+    "calories": 1012,
+    "protein": 31.8,
+    "carbs": 111.5,
+    "fat": 49,
+    "saturatedFat": 11.9,
+    "sugar": 16.9,
+    "fiber": 3.1,
+    "salt": 3.1,
+    "energyKj": 4221
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/ea7349c2730b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "beef-teriyaki-donburi",
+   "name": "Beef Teriyaki Donburi",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 930,
+    "protein": 31.4,
+    "carbs": 104.2,
+    "fat": 43.3,
+    "saturatedFat": 8.1,
+    "sugar": 14.3,
+    "fiber": 2.9,
+    "salt": 1.5,
+    "energyKj": 3904
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/a2dac5e3d5a5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-teriyaki-donburi",
+   "name": "Chicken Teriyaki Donburi",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 664,
+    "protein": 43.9,
+    "carbs": 91.2,
+    "fat": 14.3,
+    "saturatedFat": 3.7,
+    "sugar": 15.7,
+    "fiber": 1.2,
+    "salt": 3.8,
+    "energyKj": 2808
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/a2689d5c2dff.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pulled-shiitake-teriyaki-donburi",
+   "name": "Pulled Shiitake Teriyaki Donburi",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 819,
+    "protein": 24.7,
+    "carbs": 115.2,
+    "fat": 29,
+    "saturatedFat": 15.6,
+    "sugar": 13.8,
+    "fiber": 24.9,
+    "salt": 3.6,
+    "energyKj": 3466
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/1ca1fab5c654.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "korean-fried-chicken-donburi",
+   "name": "Korean Fried Chicken Donburi",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 1009,
+    "protein": 44.3,
+    "carbs": 154.7,
+    "fat": 22.2,
+    "saturatedFat": 10.3,
+    "sugar": 42.2,
+    "fiber": 5.3,
+    "salt": 3.7,
+    "energyKj": 4266
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/0e6bdc128029.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegetable-gyoza-and-shiitake-ramen",
+   "name": "Vegetable Gyoza & Shiitake Ramen",
+   "category": "Ramen",
+   "serving": "",
+   "nutrients": {
+    "calories": 642,
+    "protein": 23.8,
+    "carbs": 86.3,
+    "fat": 20.7,
+    "saturatedFat": 6.2,
+    "sugar": 11.7,
+    "fiber": 11.8,
+    "salt": 8,
+    "energyKj": 2676
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/3986fccf05b4.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "spicy-seafood-tan-tan",
+   "name": "Spicy Seafood Tan Tan",
+   "category": "Ramen",
+   "serving": "",
+   "nutrients": {
+    "calories": 555,
+    "protein": 32.9,
+    "carbs": 66,
+    "fat": 15.9,
+    "saturatedFat": 3.6,
+    "sugar": 5.2,
+    "fiber": 5.5,
+    "salt": 8.7,
+    "energyKj": 2310
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/cebfb8bf6153.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-dashi-ramen",
+   "name": "Chicken Dashi Ramen",
+   "category": "Ramen",
+   "serving": "",
+   "nutrients": {
+    "calories": 644,
+    "protein": 43.3,
+    "carbs": 77.4,
+    "fat": 16.2,
+    "saturatedFat": 4.2,
+    "sugar": 15.3,
+    "fiber": 5,
+    "salt": 9.7,
+    "energyKj": 2685
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/299cde1dcb99.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chashu-chicken-ramen",
+   "name": "Chashu Chicken Ramen",
+   "category": "Ramen",
+   "serving": "",
+   "nutrients": {
+    "calories": 876,
+    "protein": 50.1,
+    "carbs": 74.5,
+    "fat": 40.2,
+    "saturatedFat": 11.4,
+    "sugar": 13.4,
+    "fiber": 4.6,
+    "salt": 13.9,
+    "energyKj": 3641
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/54ce0c2c927d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-katsu",
+   "name": "Chicken Katsu",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 247,
+    "protein": 12.4,
+    "carbs": 14.9,
+    "fat": 15,
+    "saturatedFat": 4.7,
+    "sugar": 3.4,
+    "fiber": 1.8,
+    "salt": 1.4,
+    "energyKj": 1029
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/cd75a9a7918c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pumpkin-katsu",
+   "name": "Pumpkin Katsu",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 154,
+    "protein": 2.5,
+    "carbs": 23.6,
+    "fat": 5.6,
+    "saturatedFat": 0.5,
+    "sugar": 9.2,
+    "fiber": 1.2,
+    "salt": 1,
+    "energyKj": 638
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/51a4cf0078e2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "prawn-katsu",
+   "name": "Prawn Katsu",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 151,
+    "protein": 6,
+    "carbs": 18.7,
+    "fat": 5.9,
+    "saturatedFat": 0.8,
+    "sugar": 3,
+    "fiber": 1.5,
+    "salt": 1.8,
+    "energyKj": 625
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/e98eb9db23ca.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "beef-teriyaki",
+   "name": "Beef Teriyaki",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 326,
+    "protein": 13.5,
+    "carbs": 19,
+    "fat": 21.7,
+    "saturatedFat": 4.1,
+    "sugar": 7.7,
+    "fiber": 1.4,
+    "salt": 1,
+    "energyKj": 1435
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/6225b3e8e6b7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "loaded-chicken-teriyaki-gyoza",
+   "name": "Loaded Chicken Teriyaki Gyoza",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 280,
+    "protein": 7.9,
+    "carbs": 24.8,
+    "fat": 16.2,
+    "saturatedFat": 1.8,
+    "sugar": 4.9,
+    "fiber": 2.4,
+    "salt": 1.7,
+    "energyKj": 1167
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/4908f7be797b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "loaded-vegetable-korean-gyoza",
+   "name": "Loaded Vegetable Korean Gyoza",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 220,
+    "protein": 6.6,
+    "carbs": 27,
+    "fat": 8.9,
+    "saturatedFat": 0.9,
+    "sugar": 6.9,
+    "fiber": 2.5,
+    "salt": 1.2,
+    "energyKj": 921
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/b07bf333fd84.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "molluscs"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "korean-fried-chicken",
+   "name": "Korean Fried Chicken",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 380,
+    "protein": 19.6,
+    "carbs": 43.6,
+    "fat": 13.2,
+    "saturatedFat": 5.2,
+    "sugar": 21.4,
+    "fiber": 2.5,
+    "salt": 2,
+    "energyKj": 1662
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/14a55e4a99b9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "japanese-fried-chicken",
+   "name": "Japanese Fried Chicken",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 344,
+    "protein": 19.8,
+    "carbs": 17.2,
+    "fat": 21.2,
+    "saturatedFat": 5.9,
+    "sugar": 0.9,
+    "fiber": 2.5,
+    "salt": 1.8,
+    "energyKj": 1499
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/6dec4ce35098.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-yakitori",
+   "name": "Chicken Yakitori",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 227,
+    "protein": 18.8,
+    "carbs": 11,
+    "fat": 12.3,
+    "saturatedFat": 1.9,
+    "sugar": 9.1,
+    "fiber": 0.7,
+    "salt": 1.9,
+    "energyKj": 944
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/3482ce5bac5a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "popcorn-shrimp",
+   "name": "Popcorn Shrimp",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 427,
+    "protein": 14,
+    "carbs": 27.1,
+    "fat": 27.8,
+    "saturatedFat": 2.3,
+    "sugar": 15.4,
+    "fiber": 1,
+    "salt": 2.4,
+    "energyKj": 1777
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/7b00b27ed936.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spicy-pepper-squid",
+   "name": "Spicy Pepper Squid",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 193,
+    "protein": 16.9,
+    "carbs": 15,
+    "fat": 6.4,
+    "saturatedFat": 0.8,
+    "sugar": 6.8,
+    "fiber": 0.7,
+    "salt": 1.9,
+    "energyKj": 820
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/2d6a11d1decc.webp",
+   "allergens": {
+    "contains": [
+     "fish",
+     "molluscs",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "yo-fries",
+   "name": "Yo Fries",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 320,
+    "protein": 3.2,
+    "carbs": 32.8,
+    "fat": 19.2,
+    "saturatedFat": 1.7,
+    "sugar": 2.1,
+    "fiber": 0,
+    "salt": 1.8,
+    "energyKj": 1335
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/f1e85408e42a.webp",
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "mighty-duck-fries",
+   "name": "Mighty Duck Fries",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 391,
+    "protein": 11.2,
+    "carbs": 39.5,
+    "fat": 20.7,
+    "saturatedFat": 1.9,
+    "sugar": 7.5,
+    "fiber": 0.2,
+    "salt": 2.3,
+    "energyKj": 1636
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/5c7ce3487085.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs"
+    ]
+   }
+  },
+  {
+   "id": "pulled-shiitake-bao",
+   "name": "Pulled Shiitake Bao",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 377,
+    "protein": 7.1,
+    "carbs": 38.1,
+    "fat": 22,
+    "saturatedFat": 5.6,
+    "sugar": 9.4,
+    "fiber": 4.8,
+    "salt": 1.2,
+    "energyKj": 1583
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/e98f6b0fd1b6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "korean-chicken-bao",
+   "name": "Korean Chicken Bao",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 321,
+    "protein": 10.8,
+    "carbs": 38.8,
+    "fat": 13.6,
+    "saturatedFat": 2.6,
+    "sugar": 14.9,
+    "fiber": 0.8,
+    "salt": 1,
+    "energyKj": 1406
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/a9ae31de0d6e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "furi-furi-salt-and-pepper-chicken",
+   "name": "Furi Furi Salt & Pepper Chicken",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 412,
+    "protein": 21.4,
+    "carbs": 19.8,
+    "fat": 27.1,
+    "saturatedFat": 6.7,
+    "sugar": 1.8,
+    "fiber": 2.5,
+    "salt": 3.3,
+    "energyKj": 1714
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/e9f738817f77.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pickled-kimchi-cucumber",
+   "name": "Pickled Kimchi Cucumber",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 24,
+    "protein": 0.5,
+    "carbs": 5.1,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 5,
+    "fiber": 2.1,
+    "salt": 1,
+    "energyKj": 101
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/9e14dccdd9c5.webp",
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "katsu-egg",
+   "name": "Katsu Egg",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 122,
+    "protein": 7.9,
+    "carbs": 10.1,
+    "fat": 4.7,
+    "saturatedFat": 1.3,
+    "sugar": 0.8,
+    "fiber": 0.8,
+    "salt": 0.7,
+    "energyKj": 510
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "miso-corn-ribs",
+   "name": "Miso Corn Ribs",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 210,
+    "protein": 6.5,
+    "carbs": 30.1,
+    "fat": 6.9,
+    "saturatedFat": 0.9,
+    "sugar": 6.5,
+    "fiber": 0.1,
+    "salt": 0.4,
+    "energyKj": 873
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/de0fd7f04699.webp",
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "pak-choi-with-chilli-ginger",
+   "name": "Pak Choi with Chilli + Ginger",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 48,
+    "protein": 2.6,
+    "carbs": 9.6,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 7.9,
+    "fiber": 1.5,
+    "salt": 0.8,
+    "energyKj": 200
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/95bb8f3e5672.webp",
+   "allergens": {
+    "contains": [
+     "fish",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "sesame-tender-stem-broccoli",
+   "name": "Sesame Tender Stem Broccoli",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 132,
+    "protein": 4.9,
+    "carbs": 8,
+    "fat": 8.5,
+    "saturatedFat": 1.1,
+    "sugar": 6.9,
+    "fiber": 2.9,
+    "salt": 1.3,
+    "energyKj": 549
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/f8ac8a29ce79.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegetable-kakiage",
+   "name": "Vegetable Kakiage",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 143,
+    "protein": 2.5,
+    "carbs": 17,
+    "fat": 5.8,
+    "saturatedFat": 0.5,
+    "sugar": 7.6,
+    "fiber": 1.1,
+    "salt": 0.3,
+    "energyKj": 599
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/0ad87cbd988c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "salmon-nigiri",
+   "name": "Salmon Nigiri",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 149,
+    "protein": 5.9,
+    "carbs": 18.8,
+    "fat": 5.6,
+    "saturatedFat": 0.7,
+    "sugar": 2.4,
+    "fiber": 0.2,
+    "salt": 0.6,
+    "energyKj": 623
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/08d736b7af4a.webp",
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tuna-nigiri",
+   "name": "Tuna Nigiri",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 114,
+    "protein": 8.9,
+    "carbs": 18.8,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 2.5,
+    "fiber": 0.4,
+    "salt": 0.6,
+    "energyKj": 478
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/b40477c6d407.webp",
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salmon-sashimi",
+   "name": "Salmon Sashimi",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 176,
+    "protein": 12.2,
+    "carbs": 1.2,
+    "fat": 13.8,
+    "saturatedFat": 1.7,
+    "sugar": 0.4,
+    "fiber": 0.4,
+    "salt": 0.2,
+    "energyKj": 731
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/f182509cef1b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tuna-sashimi",
+   "name": "Tuna Sashimi",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 88,
+    "protein": 19.7,
+    "carbs": 1.3,
+    "fat": 1.1,
+    "saturatedFat": 0.3,
+    "sugar": 0.5,
+    "fiber": 0.7,
+    "salt": 0.2,
+    "energyKj": 370
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/9daa4080ebb7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "nigiri-n-maki-mix",
+   "name": "Nigiri 'n' Maki Mix",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 274,
+    "protein": 9.9,
+    "carbs": 40.4,
+    "fat": 6.8,
+    "saturatedFat": 0.9,
+    "sugar": 5.3,
+    "fiber": 1.2,
+    "salt": 1.2,
+    "energyKj": 1082
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/ad3bda1d33e3.webp",
+   "allergens": {
+    "contains": [
+     "fish",
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salmon-top-hits",
+   "name": "Salmon Top Hits",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 320,
+    "protein": 13.9,
+    "carbs": 32.2,
+    "fat": 14.2,
+    "saturatedFat": 1.8,
+    "sugar": 5,
+    "fiber": 1.2,
+    "salt": 1.4,
+    "energyKj": 1289
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/c2710e23f4aa.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "crunchy-california-roll",
+   "name": "Crunchy California Roll",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 296,
+    "protein": 4.1,
+    "carbs": 29,
+    "fat": 17.6,
+    "saturatedFat": 2.5,
+    "sugar": 6.8,
+    "fiber": 1.3,
+    "salt": 1.5,
+    "energyKj": 1191
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/4cc3b567be76.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-roll",
+   "name": "Yo Roll",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 192,
+    "protein": 6.4,
+    "carbs": 22.6,
+    "fat": 7.5,
+    "saturatedFat": 1,
+    "sugar": 3.9,
+    "fiber": 0.9,
+    "salt": 1,
+    "energyKj": 759
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/02dc343f543c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "popcorn-prawn-roll",
+   "name": "Popcorn Prawn Roll",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 308,
+    "protein": 7.1,
+    "carbs": 33.8,
+    "fat": 14.6,
+    "saturatedFat": 2.3,
+    "sugar": 6.3,
+    "fiber": 2.5,
+    "salt": 2.5,
+    "energyKj": 1239
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/84b54e9ba507.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "molluscs",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "dynamite-roll",
+   "name": "Dynamite Roll",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 245,
+    "protein": 4.7,
+    "carbs": 26.9,
+    "fat": 12.7,
+    "saturatedFat": 2.1,
+    "sugar": 6.6,
+    "fiber": 1.1,
+    "salt": 1.2,
+    "energyKj": 1032
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/edd5338586d6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "salmon-dragon-roll",
+   "name": "Salmon Dragon Roll",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 230,
+    "protein": 7,
+    "carbs": 23,
+    "fat": 11.4,
+    "saturatedFat": 1.3,
+    "sugar": 3.3,
+    "fiber": 0.9,
+    "salt": 0.9,
+    "energyKj": 919
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/cfb532dff415.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "konbini-tuna-onigiri",
+   "name": "Konbini Tuna Onigiri",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 204,
+    "protein": 8.4,
+    "carbs": 27.3,
+    "fat": 6.7,
+    "saturatedFat": 0.7,
+    "sugar": 4.9,
+    "fiber": 0.6,
+    "salt": 2.6,
+    "energyKj": 840
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/a11becc4ef33.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "sesame"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "molluscs"
+    ]
+   }
+  },
+  {
+   "id": "classic-edamame",
+   "name": "Classic Edamame",
+   "category": "Yasai (vegetable)",
+   "serving": "",
+   "nutrients": {
+    "calories": 129,
+    "protein": 12.3,
+    "carbs": 5.9,
+    "fat": 4.7,
+    "saturatedFat": 0.7,
+    "sugar": 2.8,
+    "fiber": 7.5,
+    "salt": 1,
+    "energyKj": 544
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/11fdbe7f93fc.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "veggie-inari-taco",
+   "name": "Veggie Inari Taco",
+   "category": "Yasai (vegetable)",
+   "serving": "",
+   "nutrients": {
+    "calories": 135,
+    "protein": 4.1,
+    "carbs": 19,
+    "fat": 4.7,
+    "saturatedFat": 0.7,
+    "sugar": 7.8,
+    "fiber": 0.5,
+    "salt": 0.7,
+    "energyKj": 564
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/b4ce1bec80ea.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yasai-roll",
+   "name": "Yasai Roll",
+   "category": "Yasai (vegetable)",
+   "serving": "",
+   "nutrients": {
+    "calories": 178,
+    "protein": 2.9,
+    "carbs": 27.8,
+    "fat": 5.3,
+    "saturatedFat": 0.4,
+    "sugar": 8.2,
+    "fiber": 0.7,
+    "salt": 1.3,
+    "energyKj": 702
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/df37bb5e6e71.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "veggie-volcano-roll",
+   "name": "Veggie Volcano Roll",
+   "category": "Yasai (vegetable)",
+   "serving": "",
+   "nutrients": {
+    "calories": 224,
+    "protein": 3,
+    "carbs": 27.3,
+    "fat": 10.2,
+    "saturatedFat": 2.7,
+    "sugar": 6,
+    "fiber": 2.4,
+    "salt": 0.9,
+    "energyKj": 890
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/850b4c20471f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-katsu-sushi-sando",
+   "name": "Chicken Katsu Sushi Sando",
+   "category": "Meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 543,
+    "protein": 15.9,
+    "carbs": 55.2,
+    "fat": 26.8,
+    "saturatedFat": 6,
+    "sugar": 6.4,
+    "fiber": 3.1,
+    "salt": 2.4,
+    "energyKj": 2181
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/c8738ee14cda.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spicy-chicken-katsu-roll",
+   "name": "Spicy Chicken Katsu Roll",
+   "category": "Meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 166,
+    "protein": 4.8,
+    "carbs": 27.4,
+    "fat": 3.2,
+    "saturatedFat": 1.2,
+    "sugar": 5.7,
+    "fiber": 1,
+    "salt": 1.3,
+    "energyKj": 656
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/bf09684c993d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hoisin-duck-roll",
+   "name": "Hoisin Duck Roll",
+   "category": "Meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 159,
+    "protein": 5.9,
+    "carbs": 28.9,
+    "fat": 1.4,
+    "saturatedFat": 0.6,
+    "sugar": 8.7,
+    "fiber": 0.8,
+    "salt": 1,
+    "energyKj": 627
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/f468c8f213bf.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "korean-bbq-chicken-roll",
+   "name": "Korean Bbq Chicken Roll",
+   "category": "Meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 163,
+    "protein": 6.2,
+    "carbs": 24.8,
+    "fat": 3.6,
+    "saturatedFat": 0.3,
+    "sugar": 5.7,
+    "fiber": 1,
+    "salt": 1,
+    "energyKj": 675
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/25681553fce3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "beef-nigiri",
+   "name": "Beef Nigiri",
+   "category": "Meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 127,
+    "protein": 8,
+    "carbs": 19.5,
+    "fat": 1.8,
+    "saturatedFat": 0.5,
+    "sugar": 2.8,
+    "fiber": 0.4,
+    "salt": 1,
+    "energyKj": 525
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "fish",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "beef-tataki",
+   "name": "Beef Tataki",
+   "category": "Meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 79,
+    "protein": 10.1,
+    "carbs": 4.9,
+    "fat": 2.1,
+    "saturatedFat": 0.7,
+    "sugar": 3.8,
+    "fiber": 0.6,
+    "salt": 1,
+    "energyKj": 327
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/72897ca895f8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sushi-for-two",
+   "name": "Sushi for Two",
+   "category": "To share",
+   "serving": "",
+   "nutrients": {
+    "calories": 683,
+    "protein": 29.6,
+    "carbs": 70.7,
+    "fat": 29.5,
+    "saturatedFat": 3.6,
+    "sugar": 9.8,
+    "fiber": 1.8,
+    "salt": 2.6,
+    "energyKj": 2764
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/e4cc44b67f88.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-little-moons-mochi",
+   "name": "Chocolate Little Moons Mochi",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 267,
+    "protein": 2.9,
+    "carbs": 37.2,
+    "fat": 11.1,
+    "saturatedFat": 7.1,
+    "sugar": 23.2,
+    "fiber": 0.1,
+    "salt": 0.5,
+    "energyKj": 1119
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/2ce66bd0df76.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "dorayaki-pancakes",
+   "name": "Dorayaki Pancakes",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 174,
+    "protein": 2.3,
+    "carbs": 36.7,
+    "fat": 1.8,
+    "saturatedFat": 0.8,
+    "sugar": 19.2,
+    "fiber": 0.4,
+    "salt": 0.3,
+    "energyKj": 734
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/e63a0f9a830d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "apple-pie-gyoza",
+   "name": "Apple Pie Gyoza",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 162,
+    "protein": 2.8,
+    "carbs": 33.1,
+    "fat": 1.8,
+    "saturatedFat": 0.4,
+    "sugar": 14.9,
+    "fiber": 1.5,
+    "salt": 0.1,
+    "energyKj": 687
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/577860e71a0e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "yuzu-cheesecake-mochi",
+   "name": "Yuzu Cheesecake Mochi",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 203,
+    "protein": 1.8,
+    "carbs": 34.2,
+    "fat": 6.4,
+    "saturatedFat": 4.2,
+    "sugar": 18.6,
+    "fiber": 0,
+    "salt": 0.2,
+    "energyKj": 854
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "matcha-latte-strawberry-mochi",
+   "name": "Matcha Latte Strawberry Mochi",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 202,
+    "protein": 1.7,
+    "carbs": 34.5,
+    "fat": 6.3,
+    "saturatedFat": 4,
+    "sugar": 17.3,
+    "fiber": 0.2,
+    "salt": 0.1,
+    "energyKj": 850
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "blueberry-matcha-cream-puff",
+   "name": "Blueberry Matcha Cream Puff",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 430,
+    "protein": 7.8,
+    "carbs": 24.5,
+    "fat": 32.9,
+    "saturatedFat": 20.8,
+    "sugar": 18.6,
+    "fiber": 3.2,
+    "salt": 0.4,
+    "energyKj": 1787
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/745d762077a4.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mississippi-mud-cake",
+   "name": "Mississippi Mud Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 211,
+    "protein": 1.9,
+    "carbs": 33.7,
+    "fat": 7.5,
+    "saturatedFat": 4,
+    "sugar": 23.1,
+    "fiber": 0.1,
+    "salt": 0.3,
+    "energyKj": 885
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/6ae60a71146e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "miso-caramel-chocolate-brownie",
+   "name": "Miso-caramel Chocolate Brownie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 505,
+    "protein": 5.9,
+    "carbs": 65,
+    "fat": 24.8,
+    "saturatedFat": 12.5,
+    "sugar": 46.2,
+    "fiber": 2.4,
+    "salt": 0.4,
+    "energyKj": 2113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/9251424ccce9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "soy-sauce",
+   "name": "Soy Sauce",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 11,
+    "protein": 1.4,
+    "carbs": 1.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 2.8,
+    "energyKj": 47
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pickled-ginger",
+   "name": "Pickled Ginger",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0.6,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.3,
+    "energyKj": 8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "wasabi",
+   "name": "Wasabi",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 44,
+    "protein": 1.4,
+    "carbs": 6.5,
+    "fat": 1.3,
+    "saturatedFat": 0,
+    "sugar": 3.1,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 182
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/a41dd016f8ff.webp",
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "miso-soup",
+   "name": "Miso Soup",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 53,
+    "protein": 2.7,
+    "carbs": 6.7,
+    "fat": 1.2,
+    "saturatedFat": 0.2,
+    "sugar": 3,
+    "fiber": 0,
+    "salt": 2.7,
+    "energyKj": 220
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/b91fd416850e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "steamed-rice",
+   "name": "Steamed Rice",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 264,
+    "protein": 4.3,
+    "carbs": 61.2,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 0.2,
+    "fiber": 0.7,
+    "salt": 0,
+    "energyKj": 1105
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/3e5eac801c62.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "curry-sauce",
+   "name": "Curry Sauce",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 88,
+    "protein": 0.9,
+    "carbs": 7.8,
+    "fat": 6,
+    "saturatedFat": 3.8,
+    "sugar": 3,
+    "fiber": 0.6,
+    "salt": 1.5,
+    "energyKj": 369
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "yo-sushi/115e616e260b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "blackout-beef-teriyaki-rice-bowl",
+   "name": "Blackout Beef Teriyaki Rice Bowl",
+   "category": "Christmas menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 921,
+    "protein": 31.4,
+    "carbs": 108,
+    "fat": 40.1,
+    "saturatedFat": 7.9,
+    "sugar": 18.6,
+    "fiber": 3.8,
+    "salt": 2.5,
+    "energyKj": 3952
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "blackout-chicken-katsu-curry",
+   "name": "Blackout Chicken Katsu Curry",
+   "category": "Christmas menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 815,
+    "protein": 29.9,
+    "carbs": 101.5,
+    "fat": 31.6,
+    "saturatedFat": 13,
+    "sugar": 6.5,
+    "fiber": 5.1,
+    "salt": 3.7,
+    "energyKj": 3409
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "blackout-jfc",
+   "name": "Blackout JFC",
+   "category": "Christmas menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 1301,
+    "protein": 53.8,
+    "carbs": 147,
+    "fat": 52.8,
+    "saturatedFat": 17.9,
+    "sugar": 22.7,
+    "fiber": 7.4,
+    "salt": 7.4,
+    "energyKj": 5637
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-and-mandarin-cream-puff",
+   "name": "Chocolate & Mandarin Cream Puff",
+   "category": "Christmas menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 436,
+    "protein": 7.3,
+    "carbs": 30.3,
+    "fat": 31.3,
+    "saturatedFat": 19.8,
+    "sugar": 23,
+    "fiber": 2.5,
+    "salt": 0.3,
+    "energyKj": 1814
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "jfc",
+   "name": "JFC",
+   "category": "Christmas menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 1306,
+    "protein": 53.7,
+    "carbs": 149.5,
+    "fat": 52.5,
+    "saturatedFat": 17.8,
+    "sugar": 24.4,
+    "fiber": 6.6,
+    "salt": 6.6,
+    "energyKj": 5661
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

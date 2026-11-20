@@ -11,15 +11,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Toby Carvery online main menu and puddings with nutrition (live menu feed): menu '063. Toby Carvery LN26 Main Menu *LIVE*', last modified 2026-10-07",
+  "title": "Toby Carvery online main menu and puddings with nutrition (live menu feed): menu '063. Toby Carvery LN26 Main Menu *LIVE*', last modified 2026-11-16",
   "url": "https://api-production.mbplc.io/webappbff/api/v1/menus/dynamic?id=199623e5-6688-5fb7-986b-961c2902d162&websitePageUrlPath=main-menu1&idType=Brand&salesChannel=DynamicWebMenus",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Main menu and puddings only. Carvery meats and sandwich fillings are listed without the bread, roast potatoes, vegetables, Yorkshire pudding and gravy that come with them (Toby publishes those at the carvery deck), so a plate is higher and their allergens aren't included. A sauce, custard or topping you choose isn't added in either.",
  "allergenGuide": {
-  "title": "Toby Carvery allergens in its online menu (M&B menu feed): menu '063. Toby Carvery LN26 Main Menu *LIVE*', ingredients last modified 2026-10-07",
+  "title": "Toby Carvery allergens in its online menu (M&B menu feed): menu '063. Toby Carvery LN26 Main Menu *LIVE*', ingredients last modified 2026-11-13",
   "url": "https://api-production.mbplc.io/webappbff/api/v1/menus/dynamic?id=199623e5-6688-5fb7-986b-961c2902d162&websitePageUrlPath=main-menu1&idType=Brand&salesChannel=DynamicWebMenus",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -160,8 +160,8 @@
     "carbs": 28.2,
     "fat": 14.4,
     "saturatedFat": 2.4,
-    "sugar": 8.6,
-    "salt": 1.28
+    "sugar": 9.1,
+    "salt": 1.42
    },
    "tags": [],
    "limitedTime": false,
@@ -257,12 +257,12 @@
    "serving": "",
    "nutrients": {
     "calories": 288,
-    "protein": 23.2,
-    "carbs": 0.3,
-    "fat": 20.5,
-    "saturatedFat": 7.6,
-    "sugar": 0.3,
-    "salt": 2.14
+    "protein": 23.5,
+    "carbs": 0,
+    "fat": 20.2,
+    "saturatedFat": 7.8,
+    "sugar": 0,
+    "salt": 2.24
    },
    "tags": [
     "contains_pork"
@@ -293,8 +293,8 @@
     "carbs": 36.2,
     "fat": 15,
     "saturatedFat": 4.7,
-    "sugar": 2.4,
-    "salt": 1.52
+    "sugar": 2.7,
+    "salt": 1.6
    },
    "tags": [],
    "limitedTime": false,
@@ -319,12 +319,12 @@
    "serving": "",
    "nutrients": {
     "calories": 438,
-    "protein": 13.2,
+    "protein": 13.3,
     "carbs": 76.9,
     "fat": 7.4,
-    "saturatedFat": 3,
+    "saturatedFat": 3.1,
     "sugar": 4.2,
-    "salt": 2.14
+    "salt": 2.1
    },
    "tags": [
     "contains_pork"
@@ -354,12 +354,12 @@
    "serving": "",
    "nutrients": {
     "calories": 445,
-    "protein": 10.1,
+    "protein": 10.2,
     "carbs": 91.4,
     "fat": 3,
     "saturatedFat": 0.3,
     "sugar": 5.2,
-    "salt": 2.34
+    "salt": 2.31
    },
    "tags": [
     "vegetarian"
@@ -577,12 +577,12 @@
    "serving": "",
    "nutrients": {
     "calories": 220,
-    "protein": 5.3,
+    "protein": 5.4,
     "carbs": 24.3,
     "fat": 11.1,
     "saturatedFat": 1.1,
-    "sugar": 1.7,
-    "salt": 2.79
+    "sugar": 1.8,
+    "salt": 2.73
    },
    "tags": [
     "vegetarian"
@@ -920,12 +920,12 @@
    "serving": "",
    "nutrients": {
     "calories": 757,
-    "protein": 7.3,
-    "carbs": 85.8,
-    "fat": 42.4,
-    "saturatedFat": 26.7,
+    "protein": 7.8,
+    "carbs": 85.1,
+    "fat": 41.9,
+    "saturatedFat": 27.3,
     "sugar": 62.6,
-    "salt": 0.55
+    "salt": 0.03
    },
    "tags": [
     "vegetarian"
@@ -1012,12 +1012,12 @@
    "serving": "",
    "nutrients": {
     "calories": 541,
-    "protein": 9.2,
-    "carbs": 87.3,
-    "fat": 16.9,
-    "saturatedFat": 7.8,
-    "sugar": 67.6,
-    "salt": 0.47
+    "protein": 9.4,
+    "carbs": 84.3,
+    "fat": 18.2,
+    "saturatedFat": 8.2,
+    "sugar": 66.8,
+    "salt": 0.27
    },
    "tags": [
     "vegetarian"
@@ -1045,13 +1045,13 @@
    "category": "Puddings",
    "serving": "",
    "nutrients": {
-    "calories": 354,
-    "protein": 6.3,
-    "carbs": 60.2,
-    "fat": 9.8,
-    "saturatedFat": 6.3,
-    "sugar": 51.8,
-    "salt": 0.69
+    "calories": 355,
+    "protein": 6.4,
+    "carbs": 58.7,
+    "fat": 10.4,
+    "saturatedFat": 6.5,
+    "sugar": 51.4,
+    "salt": 0.59
    },
    "tags": [
     "vegetarian"
@@ -1107,13 +1107,13 @@
    "category": "Puddings",
    "serving": "",
    "nutrients": {
-    "calories": 708,
+    "calories": 718,
     "protein": 6.2,
-    "carbs": 91.4,
-    "fat": 34.9,
-    "saturatedFat": 3.2,
-    "sugar": 57.6,
-    "salt": 1.23
+    "carbs": 88.2,
+    "fat": 37.3,
+    "saturatedFat": 4,
+    "sugar": 56.4,
+    "salt": 0.83
    },
    "tags": [
     "vegetarian"
@@ -1142,13 +1142,13 @@
    "category": "Puddings",
    "serving": "",
    "nutrients": {
-    "calories": 526,
+    "calories": 520,
     "protein": 5.5,
-    "carbs": 74.4,
-    "fat": 22.5,
+    "carbs": 72.7,
+    "fat": 22.6,
     "saturatedFat": 9.1,
-    "sugar": 53.8,
-    "salt": 0.33
+    "sugar": 53.2,
+    "salt": 0.23
    },
    "tags": [
     "vegetarian"
@@ -1176,13 +1176,13 @@
    "category": "Puddings",
    "serving": "",
    "nutrients": {
-    "calories": 265,
+    "calories": 262,
     "protein": 2.8,
-    "carbs": 37.5,
+    "carbs": 36.7,
     "fat": 11.3,
     "saturatedFat": 4.5,
-    "sugar": 27.2,
-    "salt": 0.17
+    "sugar": 26.9,
+    "salt": 0.12
    },
    "tags": [
     "vegetarian"

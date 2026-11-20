@@ -1,0 +1,832 @@
+{
+ "schemaVersion": 1,
+ "id": "wahaca",
+ "name": "Wahaca",
+ "cuisine": "Mexican",
+ "builderType": "standard",
+ "aliases": [
+  "wahaca"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Wahaca table menu with calories, Winter 2026-27 (WAH-Winter-191026; PDF created 28 October 2026)",
+  "url": "https://www.wahaca.co.uk/wp-content/uploads/2026/10/0377_Main_Estate_Table_Menu_KCAL_Winter_26-27_191026_WEB.pdf",
+  "checkedOn": "2026-11-17"
+ },
+ "nutritionLevel": "calories",
+ "note": "Wahaca prints calories only, beside each dish, so protein, carbs and fat are not published. Cocktails, drinks and the set menus print no calories and are not listed.",
+ "allergenGuide": {
+  "title": "Wahaca's allergen & dietary requirements guide, Winter menu 2026-27 (printed 'WAH.WIN 20 2627.V1', 5 pages; PDF created 4 November 2026)",
+  "url": "https://www.wahaca.co.uk/wp-content/uploads/2026/11/FOH-allergy-guides-Winter-menu-202627-V1.pdf",
+  "checkedOn": "2026-11-17",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Entradas",
+  "Tacos",
+  "Quesadillas",
+  "Platitos",
+  "Sunshine Bowls",
+  "Burritos",
+  "Sides",
+  "Salsas",
+  "Desserts"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "butter-bean-and-confit-garlic-dip-with-jalapeno-oil",
+   "name": "Butter Bean & Confit Garlic Dip with Jalapeño oil",
+   "category": "Entradas",
+   "serving": "",
+   "nutrients": {
+    "calories": 530
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/aef3e9eb989b.webp"
+  },
+  {
+   "id": "butter-bean-and-confit-garlic-dip-with-trealy-farm-sobrasada-chorizo",
+   "name": "Butter Bean & Confit Garlic Dip with Trealy Farm sobrasada chorizo",
+   "category": "Entradas",
+   "serving": "",
+   "nutrients": {
+    "calories": 590
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "guacamole",
+   "name": "Guacamole",
+   "category": "Entradas",
+   "serving": "",
+   "nutrients": {
+    "calories": 570
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chilli-oil-to-guacamole",
+   "name": "Add chilli oil (to Guacamole)",
+   "category": "Entradas",
+   "serving": "",
+   "nutrients": {
+    "calories": 49
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chorizo-nachos",
+   "name": "Chorizo Nachos",
+   "category": "Entradas",
+   "serving": "",
+   "nutrients": {
+    "calories": 834
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-nachos",
+   "name": "House Nachos",
+   "category": "Entradas",
+   "serving": "",
+   "nutrients": {
+    "calories": 654
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/5357af96c04b.webp"
+  },
+  {
+   "id": "pork-pibil-tacos",
+   "name": "Pork Pibil Tacos",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 279
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/1d8b8917fdfc.webp"
+  },
+  {
+   "id": "roast-ancho-mushroom-tacos",
+   "name": "Roast Ancho Mushroom Tacos",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 325
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/b077c35079bc.webp"
+  },
+  {
+   "id": "beef-gringa-tacos",
+   "name": "Beef Gringa Tacos",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 343
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/452187e20579.webp"
+  },
+  {
+   "id": "plantain-tacos",
+   "name": "Plantain Tacos",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 496
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/d9abdb671794.webp"
+  },
+  {
+   "id": "halloumi-al-pastor-tacos",
+   "name": "‘Halloumi’ Al Pastor Tacos",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 418
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-chicken-and-avocado-tacos",
+   "name": "Grilled Chicken & Avocado Tacos",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 326
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/cdd94564bb2e.webp"
+  },
+  {
+   "id": "buttermilk-chicken-tacos",
+   "name": "Buttermilk Chicken Tacos",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 444
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/da4b0515ecb8.webp"
+  },
+  {
+   "id": "baja-fish-tacos",
+   "name": "Baja Fish Tacos",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 463
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/f1938a18b77a.webp"
+  },
+  {
+   "id": "grilled-seabass-taco-board",
+   "name": "Grilled Seabass Taco Board",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 792
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-ajillo-chicken-club-quesadilla",
+   "name": "Grilled Ajillo Chicken Club Quesadilla",
+   "category": "Quesadillas",
+   "serving": "",
+   "nutrients": {
+    "calories": 522
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/f4be19694fb4.webp"
+  },
+  {
+   "id": "black-bean-and-three-cheese-quesadilla",
+   "name": "Black Bean & Three Cheese Quesadilla",
+   "category": "Quesadillas",
+   "serving": "",
+   "nutrients": {
+    "calories": 407
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/4bebf8b57692.webp"
+  },
+  {
+   "id": "grilled-brindisa-chorizo-quesadilla",
+   "name": "Grilled Brindisa Chorizo Quesadilla",
+   "category": "Quesadillas",
+   "serving": "",
+   "nutrients": {
+    "calories": 570
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/adf75158045b.webp"
+  },
+  {
+   "id": "sweet-potato-and-feta-taquito",
+   "name": "Sweet Potato & Feta Taquito",
+   "category": "Platitos",
+   "serving": "",
+   "nutrients": {
+    "calories": 385
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/6316d808bd1c.webp"
+  },
+  {
+   "id": "crispy-cauliflower-bites",
+   "name": "Crispy Cauliflower Bites",
+   "category": "Platitos",
+   "serving": "",
+   "nutrients": {
+    "calories": 642
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/1d2d5674e254.webp"
+  },
+  {
+   "id": "smoky-pork-belly-skewer",
+   "name": "Smoky Pork Belly Skewer",
+   "category": "Platitos",
+   "serving": "",
+   "nutrients": {
+    "calories": 493
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yellowfin-tuna-tostadas",
+   "name": "Yellowfin Tuna Tostadas",
+   "category": "Platitos",
+   "serving": "",
+   "nutrients": {
+    "calories": 383
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "riverford-organic-squash",
+   "name": "Riverford Organic Squash",
+   "category": "Platitos",
+   "serving": "",
+   "nutrients": {
+    "calories": 304
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corn-bean-and-feta-tostadas",
+   "name": "Corn, Bean & Feta Tostadas",
+   "category": "Platitos",
+   "serving": "",
+   "nutrients": {
+    "calories": 336
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sunshine-bowl",
+   "name": "Sunshine Bowl",
+   "category": "Sunshine Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 605
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/2668c49b26a8.webp"
+  },
+  {
+   "id": "sunshine-bowl-with-halloumi-al-pastor",
+   "name": "Sunshine Bowl with ‘Halloumi’ Al Pastor",
+   "category": "Sunshine Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 828
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sunshine-bowl-with-mojo-sweet-potato",
+   "name": "Sunshine Bowl with Mojo Sweet Potato",
+   "category": "Sunshine Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 793
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sunshine-bowl-with-grilled-chicken",
+   "name": "Sunshine Bowl with Grilled Chicken",
+   "category": "Sunshine Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 749
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/2c7acf92f3f1.webp"
+  },
+  {
+   "id": "roast-ancho-mushroom-burrito",
+   "name": "Roast Ancho Mushroom Burrito",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 974
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/56ce57194d0c.webp"
+  },
+  {
+   "id": "grilled-chicken-burrito",
+   "name": "Grilled Chicken Burrito",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1076
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pork-pibil-burrito",
+   "name": "Pork Pibil Burrito",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1111
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "slow-cooked-beef-burrito",
+   "name": "Slow-Cooked Beef Burrito",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1059
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/67afd8e2dde6.webp"
+  },
+  {
+   "id": "sweet-potato",
+   "name": "Sweet Potato",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 310
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/508d5da765ed.webp"
+  },
+  {
+   "id": "sweet-potato-bravas",
+   "name": "Sweet Potato ‘Bravas’",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 642
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/18502e2de8e5.webp"
+  },
+  {
+   "id": "frijoles-crema",
+   "name": "Frijoles Crema",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/a5311e7584ca.webp"
+  },
+  {
+   "id": "frijoles-chorizo",
+   "name": "Frijoles Chorizo",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/03a2bbfd0747.webp"
+  },
+  {
+   "id": "grilled-tenderstem-broccoli",
+   "name": "Grilled Tenderstem Broccoli",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 254
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/5780d30e72f7.webp"
+  },
+  {
+   "id": "avocado-cos-and-rocket-salad",
+   "name": "Avocado, Cos & Rocket Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 279
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "wahaca/3bd5a325596e.webp"
+  },
+  {
+   "id": "trio-of-fresh-salsas",
+   "name": "Trio of Fresh Salsas",
+   "category": "Salsas",
+   "serving": "",
+   "nutrients": {
+    "calories": 430
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-hot-sauce",
+   "name": "House Hot Sauce",
+   "category": "Salsas",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "churros-with-chocolate-sauce",
+   "name": "Churros with chocolate sauce",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 641
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "churros-with-dulce-de-leche-caramel",
+   "name": "Churros with dulce de leche caramel",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 584
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "warm-chocolate-and-pecan-cake",
+   "name": "Warm Chocolate & Pecan Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 793
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-taco",
+   "name": "Ice Cream Taco",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 360
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-sorbet-dusted-with-tajin-1-scoop",
+   "name": "Mango Sorbet dusted with Tajín (1 scoop)",
+   "category": "Desserts",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "agave-lime-sorbet-1-scoop",
+   "name": "Agave-Lime Sorbet (1 scoop)",
+   "category": "Desserts",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 65
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-ice-cream-1-scoop",
+   "name": "Vanilla Ice Cream (1 scoop)",
+   "category": "Desserts",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-ice-cream-1-scoop",
+   "name": "Salted Caramel Ice Cream (1 scoop)",
+   "category": "Desserts",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 88
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-ice-cream-1-scoop",
+   "name": "Chocolate Ice Cream (1 scoop)",
+   "category": "Desserts",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

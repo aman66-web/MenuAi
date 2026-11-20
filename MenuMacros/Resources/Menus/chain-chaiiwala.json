@@ -1,0 +1,3486 @@
+{
+ "schemaVersion": 1,
+ "id": "chaiiwala",
+ "name": "Chaiiwala",
+ "cuisine": "Indian",
+ "builderType": "standard",
+ "aliases": [
+  "chaiiwala"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Chaiiwala website menu pages with calories (accessed 2026-11-17, no date shown); allergens from Allergen Information V15, November 2026",
+  "url": "https://www.chaiiwala.co.uk/menu",
+  "checkedOn": "2026-11-17"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only: kcal on the menu pages (drinks Regular and Large), no protein, carbs or fat. Dishes with no kcal printed are not listed; some are sold in select stores only. Kebab Caesar Salad is not shown: its Caesar dressing is classically made with anchovy, but the allergen matrix marks no fish for it.",
+ "allergenGuide": {
+  "title": "Chaiiwala allergen matrix, Allergen Information V15 (November 2026)",
+  "url": "https://www.chaiiwala.co.uk/allergens",
+  "checkedOn": "2026-11-17",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Hot drinks",
+  "Wala bundles",
+  "Cold drinks",
+  "All day breakfast",
+  "Wala wraps",
+  "Lunch & dinner bowls",
+  "Bombay toasties",
+  "Street food",
+  "Wala kids",
+  "Desserts"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "our-famous-karak-chaii-regular",
+   "name": "Our Famous Karak Chaii (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 144
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/46836cedd361.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "our-famous-karak-chaii-large",
+   "name": "Our Famous Karak Chaii (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 216
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/46836cedd361.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "karak-chaii-no-added-sugar-regular",
+   "name": "Karak Chaii (no added sugar) (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 101
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/46836cedd361.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "karak-chaii-no-added-sugar-large",
+   "name": "Karak Chaii (no added sugar) (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 152
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/46836cedd361.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "vegan-chaii-regular",
+   "name": "Vegan Chaii (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 138
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/46836cedd361.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "vegan-chaii-large",
+   "name": "Vegan Chaii (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 207
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/46836cedd361.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "pink-chaii-regular",
+   "name": "Pink Chaii (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 212
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/aea2639ce156.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "pink-chaii-large",
+   "name": "Pink Chaii (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 319
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/aea2639ce156.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "karak-coffee-regular",
+   "name": "Karak Coffee (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/7c9e591597f8.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "karak-coffee-large",
+   "name": "Karak Coffee (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 205
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/7c9e591597f8.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chaii-flask",
+   "name": "Chaii Flask",
+   "category": "Hot drinks",
+   "serving": "Flask, 6 cups",
+   "nutrients": {
+    "calories": 864
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/f9755ab59a39.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chaii-latte-regular",
+   "name": "Chaii Latte (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 261
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/c3916ef51695.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chaii-latte-large",
+   "name": "Chaii Latte (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 327
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/c3916ef51695.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garam-chocolate-regular",
+   "name": "Garam Chocolate (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 246
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/adfa28c1015b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garam-chocolate-large",
+   "name": "Garam Chocolate (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 369
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/adfa28c1015b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-regular",
+   "name": "Latte (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/64bea63e6ade.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-large",
+   "name": "Latte (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/64bea63e6ade.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramel-chaii-regular",
+   "name": "Caramel Chaii (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 193
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/6ba1aabec05b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "caramel-chaii-large",
+   "name": "Caramel Chaii (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 292
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/6ba1aabec05b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "flat-white-regular",
+   "name": "Flat White (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 133
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/fd746a49963e.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-large",
+   "name": "Flat White (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 199
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/fd746a49963e.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-regular",
+   "name": "Espresso (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/10d26d47e77b.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "espresso-large",
+   "name": "Espresso (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/10d26d47e77b.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "americano-regular",
+   "name": "Americano (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/fac577334874.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-large",
+   "name": "Americano (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/fac577334874.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-regular",
+   "name": "Cappuccino (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/768977e069ba.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-large",
+   "name": "Cappuccino (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/768977e069ba.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cinnamon-tea-regular",
+   "name": "Cinnamon Tea (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/54c5c36c098e.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cinnamon-tea-large",
+   "name": "Cinnamon Tea (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/54c5c36c098e.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "english-tea-regular",
+   "name": "English Tea (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/4bc38b119a4e.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "english-tea-large",
+   "name": "English Tea (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/4bc38b119a4e.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "arabic-tea-regular",
+   "name": "Arabic tea (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "arabic-tea-large",
+   "name": "Arabic tea (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "the-wala-box",
+   "name": "The Wala Box",
+   "category": "Wala bundles",
+   "serving": "Perfect for 1",
+   "nutrients": {
+    "calories": 1502
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/f960c2e75815.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "the-family-platter",
+   "name": "The Family platter",
+   "category": "Wala bundles",
+   "serving": "Feast for 4",
+   "nutrients": {
+    "calories": 4324
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/3ce4c1f5f27a.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "the-wala-box-veg",
+   "name": "The Wala Box - veg",
+   "category": "Wala bundles",
+   "serving": "Perfect for 1",
+   "nutrients": {
+    "calories": 1464
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/564169f238ce.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "the-family-platter-veg",
+   "name": "The Family platter - veg",
+   "category": "Wala bundles",
+   "serving": "Feast for 4",
+   "nutrients": {
+    "calories": 4204
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/d9096cc14928.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "badam-milk-shake",
+   "name": "Badam Milk-Shake",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 560
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/27c34eb59fd9.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "desi-cold-coffee",
+   "name": "Desi Cold Coffee",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 458
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/5d04bd22dd31.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "iced-karak-coffee-regular",
+   "name": "Iced Karak Coffee (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 77
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/aa29a61d4b65.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "iced-karak-coffee-large",
+   "name": "Iced Karak Coffee (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 148
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/aa29a61d4b65.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "mango-lassi-regular",
+   "name": "Mango Lassi (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 381
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/ed9c09626df4.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-lassi-large",
+   "name": "Mango Lassi (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 495
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/ed9c09626df4.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "falooda-mango-milkshake-regular",
+   "name": "Falooda Mango Milkshake (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 474
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/7063c18f0027.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "falooda-mango-milkshake-large",
+   "name": "Falooda Mango Milkshake (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 578
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/7063c18f0027.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "falooda-rose-milkshake-regular",
+   "name": "Falooda Rose Milkshake (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 481
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/3c42e6a57a72.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "falooda-rose-milkshake-large",
+   "name": "Falooda Rose Milkshake (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 585
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/3c42e6a57a72.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "toasted-cinnamon-and-vanilla-matcha-regular",
+   "name": "Toasted Cinnamon & Vanilla Matcha (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 179
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/202b64785b49.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "toasted-cinnamon-and-vanilla-matcha-large",
+   "name": "Toasted Cinnamon & Vanilla Matcha (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 233
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/202b64785b49.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "blueberry-and-white-chocolate-matcha-regular",
+   "name": "Blueberry & White Chocolate Matcha (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 284
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/974a07d8c14a.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "blueberry-and-white-chocolate-matcha-large",
+   "name": "Blueberry & White Chocolate Matcha (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 364
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/974a07d8c14a.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-mojito-regular",
+   "name": "Mango Mojito (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 81
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/d0a693a98154.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-mojito-large",
+   "name": "Mango Mojito (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/d0a693a98154.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "watermelon-spritz-regular",
+   "name": "Watermelon Spritz (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 83
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/cce42f101a1a.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "watermelon-spritz-large",
+   "name": "Watermelon Spritz (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 123
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/cce42f101a1a.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "blueberry-mocktail-regular",
+   "name": "Blueberry Mocktail (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/9d8df4658b91.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "blueberry-mocktail-large",
+   "name": "Blueberry Mocktail (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 229
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/9d8df4658b91.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tahitian-lime-mocktail-regular",
+   "name": "Tahitian Lime Mocktail (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 88
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/a802dfcc75e4.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tahitian-lime-mocktail-large",
+   "name": "Tahitian Lime Mocktail (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/a802dfcc75e4.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chilli-guava-lemonade-regular",
+   "name": "Chilli Guava Lemonade (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 109
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/f42e852ce2e5.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chilli-guava-lemonade-large",
+   "name": "Chilli Guava Lemonade (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 186
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/f42e852ce2e5.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "limbu-pani-lemonade-regular",
+   "name": "Limbu Pani Lemonade (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/9944f5646dc8.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "limbu-pani-lemonade-large",
+   "name": "Limbu Pani Lemonade (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/9944f5646dc8.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "blue-limbu-pani-lemonade-regular",
+   "name": "Blue Limbu Pani Lemonade (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/5ade2d9dc103.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "blue-limbu-pani-lemonade-large",
+   "name": "Blue Limbu Pani Lemonade (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 68
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/5ade2d9dc103.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-bull-energy-drink",
+   "name": "Red Bull Energy Drink",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-bull-sugarfree",
+   "name": "Red Bull Sugarfree",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-bull-summer-edition-citrus-zest",
+   "name": "Red Bull Summer Edition (Citrus Zest)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-bull-apple-edition",
+   "name": "Red Bull Apple Edition",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-bull-coconut-edition",
+   "name": "Red Bull Coconut Edition",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "desi-breakfast",
+   "name": "Desi Breakfast",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 696
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/65f24bb3d0f1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "english-ish-breakfast",
+   "name": "English-ish breakfast",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 934
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/639851104e31.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "omelette-wrap",
+   "name": "Omelette Wrap",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 267
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/f3113b4c81b0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spiced-chicken-sausage-and-egg-wrap",
+   "name": "Spiced Chicken Sausage & Egg Wrap",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 329
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/a94dc8f8183e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rasher-and-egg-breakfast-wrap",
+   "name": "Rasher & Egg Breakfast Wrap",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 394
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/271d159c7463.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "aloo-paratha",
+   "name": "Aloo Paratha",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 245
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/8c2f193b5678.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "halwa-puri",
+   "name": "Halwa Puri",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 539
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/6cfd49befae7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "classic-roti",
+   "name": "Classic Roti",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 143
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/e5bc02062e36.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "classic-paratha",
+   "name": "Classic Paratha",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 268
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/754066908dfb.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "butter-chicken-avo-toast",
+   "name": "Butter Chicken Avo Toast",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 391
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/5fa1198ce0eb.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "egg-burji-avo-toast",
+   "name": "Egg Burji Avo Toast",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 377
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/a8dbe8150d17.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "chicken-tikka-wala-wrap",
+   "name": "Chicken Tikka Wala Wrap",
+   "category": "Wala wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 533
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/4f21dad59c93.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "mixed-kebab-wala-wrap",
+   "name": "Mixed Kebab Wala Wrap",
+   "category": "Wala wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 544
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/39a9d0160981.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "chicken-kebab-wala-wrap",
+   "name": "Chicken Kebab Wala Wrap",
+   "category": "Wala wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 512
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/d0df499a6135.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "bombay-twister",
+   "name": "Bombay Twister",
+   "category": "Wala wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 645
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/bcdd83dfc7c8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "veg-kebab-wala-wrap",
+   "name": "Veg Kebab Wala Wrap",
+   "category": "Wala wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 512
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/30970dcdd1ec.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chilli-paneer-wala-wrap",
+   "name": "Chilli Paneer Wala Wrap",
+   "category": "Wala wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 492
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/d58382c8fd54.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "aloo-tikki-wala-wrap",
+   "name": "Aloo Tikki Wala Wrap",
+   "category": "Wala wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 512
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/fa746c9240c8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "veg-bombay-twister",
+   "name": "Veg Bombay Twister",
+   "category": "Wala wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 645
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/073fdffd9975.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chicken-tikka-salad",
+   "name": "Chicken Tikka Salad",
+   "category": "Lunch & dinner bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "tikka-biryani",
+   "name": "Tikka Biryani",
+   "category": "Lunch & dinner bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 621
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/c48f0761436b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "chana-biryani",
+   "name": "Chana Biryani",
+   "category": "Lunch & dinner bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 696
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/b842722363c7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "butter-chicken-rice-bowl",
+   "name": "Butter chicken rice bowl",
+   "category": "Lunch & dinner bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 497
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/3feb8cc4ba66.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "butter-chicken-bombay-chips-bowl",
+   "name": "Butter Chicken Bombay Chips Bowl",
+   "category": "Lunch & dinner bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 686
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/7f608cc7f11a.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "daal-masala-bombay-rice-bowl",
+   "name": "Daal Masala Bombay Rice Bowl",
+   "category": "Lunch & dinner bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 562
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/d521b2168ced.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "daal-masala-bombay-chips-bowl",
+   "name": "Daal Masala Bombay Chips Bowl",
+   "category": "Lunch & dinner bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 746
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/cbb05c98804e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "chicken-tikka-melt",
+   "name": "Chicken Tikka Melt",
+   "category": "Bombay toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 502
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/449dc47e3aaa.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "classic-bombay-toastie",
+   "name": "Classic Bombay Toastie",
+   "category": "Bombay toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 389
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/16d6c10eb1a9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "cheese-and-masala-beans-toastie",
+   "name": "Cheese & Masala Beans Toastie",
+   "category": "Bombay toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 412
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/9ff8686f231f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pav-bhaji-toastie",
+   "name": "Pav Bhaji Toastie",
+   "category": "Bombay toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 449
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/8a4c6b4ed1c0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "cheese-and-chutney-toastie",
+   "name": "Cheese & Chutney Toastie",
+   "category": "Bombay toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 369
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/1aae8955ba5d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "butter-chicken-toastie",
+   "name": "Butter Chicken Toastie",
+   "category": "Bombay toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 384
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/fd09096164d6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "bombay-fish-and-chips",
+   "name": "Bombay Fish and Chips",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 676
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/853f96365168.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "butter-chicken-roll",
+   "name": "Butter Chicken Roll",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/48a07be69411.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "masala-chips",
+   "name": "Masala Chips",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 729
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/3ef67bac0725.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "samosa-chaat",
+   "name": "Samosa Chaat",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 426
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/41b0b993ddce.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "loaded-chips-chicken",
+   "name": "Loaded Chips - Chicken",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 1032
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/323031000d92.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "pani-puri-poppers",
+   "name": "Pani puri poppers",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 215
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/0870a7222645.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "vada-pav",
+   "name": "Vada Pav",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 315
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/d4fcc96ef91f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "veg-kebab-roll",
+   "name": "Veg Kebab Roll",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 427
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/75533fae06d1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-kebab-roll",
+   "name": "Chicken Kebab Roll",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 387
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/75533fae06d1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "aloo-tikki-chaat",
+   "name": "Aloo Tikki Chaat",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 431
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/f0f9ac68a273.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "aloo-tikki-burger",
+   "name": "Aloo tikki burger",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 376
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/2305b0f88700.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "loaded-chips-veg",
+   "name": "Loaded Chips - Veg",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 1106
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/63ad1d085933.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chicken-nuggets-and-chips",
+   "name": "Chicken Nuggets & Chips",
+   "category": "Wala kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 379
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheese-and-masala-beans-toastie-and-chips",
+   "name": "Cheese & Masala Beans Toastie & Chips",
+   "category": "Wala kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 439
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "mini-chicken-wala-wrap-and-chips",
+   "name": "Mini Chicken Wala Wrap & Chips",
+   "category": "Wala kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 552
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "veg-nuggets-and-chips",
+   "name": "Veg Nuggets & Chips",
+   "category": "Wala kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 379
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "mini-veggie-wala-wrap-and-chips",
+   "name": "Mini Veggie Wala Wrap & Chips",
+   "category": "Wala kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 379
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "loaded-donuts",
+   "name": "Loaded Donuts",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 759
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/70e0bf647310.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "nutella-wrap",
+   "name": "Nutella Wrap",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 439
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/aaf3d766fa05.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-fix-ice-cream",
+   "name": "Pistachio Fix Ice cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 601
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/a5329af577aa.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "rocky-road-cheesecake",
+   "name": "Rocky Road Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 720
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/7df15d20d0c8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "loaded-cheesecake",
+   "name": "Loaded Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 564
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/9ab5044e81df.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "mango-ice-cream",
+   "name": "Mango Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 158
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/85f94c1b856b.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "rose-ice-cream",
+   "name": "Rose Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/0054f5afccfa.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "vanilla-ice-cream",
+   "name": "Vanilla Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/71a79d1f5d30.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-dream-cake",
+   "name": "Chocolate dream cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 710
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/fe98fcc01895.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-milk-cake",
+   "name": "Pistachio Milk Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 426
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/2ee66361d09c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "biscoff-milk-cake",
+   "name": "Biscoff Milk cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 417
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/7d533c380e01.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "gajar-halwa",
+   "name": "Gajar Halwa",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 345
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/bd8739530d7a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "gulab-jamun",
+   "name": "Gulab Jamun",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 308
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "chaiiwala/a9c7de06e923.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

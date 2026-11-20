@@ -14,15 +14,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Rudy's Pizza allergen and nutrition menu \"Food\" (viewthe.menu, Ten Kites; page generated 2026-10-08, no other date shown; linked from rudyspizza.co.uk/allergen-info)",
+  "title": "Rudy's Pizza allergen and nutrition menu \"Food\" (viewthe.menu, Ten Kites; page generated 2026-11-17, no other date shown; linked from rudyspizza.co.uk/allergen-info)",
   "url": "https://viewthe.menu/5zav",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Per serving as printed on Rudy's own allergen and nutrition page, which gives no weights. Extra toppings are per topping portion. The bake-at-home Rudy's Shop menu is not listed, and a few rows that contradict themselves are held back.",
  "allergenGuide": {
   "title": "Rudy's Pizza allergen and dietary grid with Contains / May contain lines, \"Food\" menu (viewthe.menu, Ten Kites)",
   "url": "https://viewthe.menu/5zav",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -742,6 +742,42 @@
    }
   },
   {
+   "id": "pumpkin-halloween-special",
+   "name": "Pumpkin Halloween Special",
+   "category": "Monthly pizza specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1025,
+    "protein": 52.9,
+    "carbs": 139.1,
+    "fat": 36.3,
+    "saturatedFat": 20.3,
+    "sugar": 6.6,
+    "salt": 8.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "nocellara-olives",
    "name": "Nocellara Olives",
    "category": "Starters + sharers",
@@ -958,7 +994,6 @@
      "sulphites"
     ],
     "mayContain": [
-     "celery",
      "eggs",
      "milk",
      "mustard",
@@ -993,7 +1028,6 @@
      "gluten"
     ],
     "mayContain": [
-     "celery",
      "mustard",
      "soya"
     ],
@@ -1024,10 +1058,57 @@
    "image": "rudys-pizza-napoletana/510a2b775b93.webp",
    "allergens": {
     "contains": [],
-    "mayContain": [
-     "celery",
-     "mustard"
-    ]
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chilli-fries",
+   "name": "Chilli Fries",
+   "category": "Side salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 478,
+    "protein": 6.5,
+    "carbs": 73,
+    "fat": 16.1,
+    "saturatedFat": 2.3,
+    "sugar": 0,
+    "salt": 3.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "truffle-and-parmesan-fries",
+   "name": "Truffle & Parmesan Fries",
+   "category": "Side salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 439,
+    "protein": 6.5,
+    "carbs": 72.9,
+    "fat": 16.5,
+    "saturatedFat": 2.3,
+    "sugar": 0,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
    }
   },
   {
@@ -1799,6 +1880,7 @@
      "fish",
      "milk",
      "molluscs",
+     "mustard",
      "nuts",
      "sulphites"
     ]

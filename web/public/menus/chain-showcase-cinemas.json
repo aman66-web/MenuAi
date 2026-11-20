@@ -13,16 +13,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Showcase Cinemas - KCAL INFORMATION, September 2026 (the \"Nutritional Information\" PDF linked from the footer of showcasecinemas.co.uk; 9 pages, created 15 September 2026)",
-  "url": "https://cms-assets.webediamovies.pro/production/4756/82a53ad3c68b1813f7f348e6cac71b71.pdf",
-  "checkedOn": "2026-10-08"
+  "title": "Showcase Cinemas - KCAL INFORMATION, September 2026 (the \"Nutritional Information\" PDF linked from the footer of showcasecinemas.co.uk; 9 pages, reissued 14 October 2026)",
+  "url": "https://cms-assets.webediamovies.pro/production/4756/1029929f699c10fe81fa951aae6255da.pdf",
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, per serving or size as printed (the per-100 g columns are not used). One chain-wide sheet, September 2026: not every cinema sells every item, and sizes (Small, Medium, Large) have no volume. Pick & Mix (per 100 g only) and rows for Derby, Peterborough or Nottingham only are not listed.",
  "allergenGuide": {
-  "title": "Showcase Cinemas allergen information matrix (National Amusements, reviewed 15 September 2026, 7 pages)",
-  "url": "https://cms-assets.webediamovies.pro/production/4756/b9d3bd163c467e64d5d300febbf9f405.pdf",
-  "checkedOn": "2026-10-08",
+  "title": "Showcase Cinemas allergen information matrix (National Amusements, Allergen Charts V44, reviewed 15 September 2026, 7 pages, file dated 14 October 2026)",
+  "url": "https://cms-assets.webediamovies.pro/production/4756/a148da3a082d3403aae21acc7cd8b313.pdf",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": false
  },
@@ -282,6 +282,34 @@
    "serving": "",
    "nutrients": {
     "calories": 266
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-sausageman-hotdog-includes-bun",
+   "name": "The SausageMan Hotdog (Includes Bun)",
+   "category": "Hot Dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 616
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tsm-currywurst-hotdog-includes-bun",
+   "name": "TSM CurryWurst Hotdog (Includes Bun)",
+   "category": "Hot Dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 691
    },
    "tags": [],
    "limitedTime": false,

@@ -1,0 +1,1712 @@
+{
+ "schemaVersion": 1,
+ "id": "yo-to-go",
+ "name": "YO! To Go",
+ "cuisine": "Japanese",
+ "builderType": "standard",
+ "aliases": [
+  "yo to go",
+  "yo! to go",
+  "yo! to go!",
+  "yo sushi tesco"
+ ],
+ "sample": false,
+ "source": {
+  "title": "YO! Sushi Allergen & Nutrition Information, Tesco kiosk menu (Ten Kites page linked from yosushi.com/allergens; no date printed, read 2026-10-12)",
+  "url": "https://menus.tenkites.com/yosushi/kiosk02",
+  "checkedOn": "2026-10-12"
+ },
+ "note": "Figures are per pack from YO! Sushi's own nutrition page for its kiosks in Tesco stores (hosted by Ten Kites), which prints no date. Products whose printed kJ and kcal disagree are left out.",
+ "allergenGuide": {
+  "title": "YO! Sushi Allergen & Nutrition Information, Tesco kiosk menu (Ten Kites page linked from yosushi.com/allergens; no date printed, read 2026-10-12)",
+  "url": "https://menus.tenkites.com/yosushi/kiosk02",
+  "checkedOn": "2026-10-12",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Sushi rolls",
+  "Bento & sushi sets",
+  "Desserts",
+  "Hot chicken bites",
+  "Hot sides",
+  "Hot meals",
+  "Nigiri",
+  "Sharers",
+  "Sides & snacks",
+  "Game time"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "yo-classic-california-roll",
+   "name": "YO! Classic California Roll",
+   "category": "Sushi rolls",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 406,
+    "protein": 8.9,
+    "carbs": 52.7,
+    "fat": 15.6,
+    "saturatedFat": 2.1,
+    "sugar": 7.3,
+    "fiber": 3.7,
+    "salt": 2.1,
+    "energyKj": 1596
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-classic-salmon-and-avocado-roll",
+   "name": "YO! Classic Salmon & Avocado Roll",
+   "category": "Sushi rolls",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 386,
+    "protein": 11.3,
+    "carbs": 47.1,
+    "fat": 14.9,
+    "saturatedFat": 2.3,
+    "sugar": 6,
+    "fiber": 3.7,
+    "salt": 1.4,
+    "energyKj": 1516
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "yo-classic-chicken-katsu-roll",
+   "name": "YO! Classic Chicken Katsu Roll",
+   "category": "Sushi rolls",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 386,
+    "protein": 11,
+    "carbs": 52,
+    "fat": 12.8,
+    "saturatedFat": 3.5,
+    "sugar": 6.2,
+    "fiber": 4.6,
+    "salt": 1.7,
+    "energyKj": 1519
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-mango-chilli-chicken-roll",
+   "name": "YO! Mango Chilli Chicken Roll",
+   "category": "Sushi rolls",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 359,
+    "protein": 13.5,
+    "carbs": 52.5,
+    "fat": 9.2,
+    "saturatedFat": 1.1,
+    "sugar": 11.4,
+    "fiber": 3.4,
+    "salt": 1.9,
+    "energyKj": 1425
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "yo-crunchy-chicken-katsu-roll",
+   "name": "YO! Crunchy Chicken Katsu Roll",
+   "category": "Sushi rolls",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 503,
+    "protein": 11.9,
+    "carbs": 60.4,
+    "fat": 21.5,
+    "saturatedFat": 5.9,
+    "sugar": 10.4,
+    "fiber": 5.1,
+    "salt": 2.3,
+    "energyKj": 2002
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-crunchy-california-roll",
+   "name": "YO! Crunchy California Roll",
+   "category": "Sushi rolls",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 522,
+    "protein": 9.8,
+    "carbs": 61.1,
+    "fat": 24.3,
+    "saturatedFat": 4.5,
+    "sugar": 11.6,
+    "fiber": 4.2,
+    "salt": 2.8,
+    "energyKj": 2080
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-crunchy-veggie-roll",
+   "name": "YO! Crunchy Veggie Roll",
+   "category": "Sushi rolls",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 360,
+    "protein": 5.2,
+    "carbs": 58.4,
+    "fat": 9.3,
+    "saturatedFat": 2.5,
+    "sugar": 14.9,
+    "fiber": 4.2,
+    "salt": 2.4,
+    "energyKj": 1408
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-crunchy-salmon-and-avocado-roll",
+   "name": "YO! Crunchy Salmon & Avocado Roll",
+   "category": "Sushi rolls",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 503,
+    "protein": 12.2,
+    "carbs": 55.5,
+    "fat": 23.5,
+    "saturatedFat": 4.7,
+    "sugar": 10.3,
+    "fiber": 4.2,
+    "salt": 2,
+    "energyKj": 1999
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-crunchy-chilli-salmon-and-avocado-roll",
+   "name": "YO! Crunchy Chilli Salmon & Avocado Roll",
+   "category": "Sushi rolls",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 467,
+    "protein": 11.6,
+    "carbs": 56.1,
+    "fat": 19,
+    "saturatedFat": 3.9,
+    "sugar": 9.9,
+    "fiber": 3.3,
+    "salt": 1.9,
+    "energyKj": 1850
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-crunchy-chilli-chicken-katsu-roll",
+   "name": "YO! Crunchy Chilli Chicken Katsu Roll",
+   "category": "Sushi rolls",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 468,
+    "protein": 11.3,
+    "carbs": 61,
+    "fat": 17,
+    "saturatedFat": 5,
+    "sugar": 10,
+    "fiber": 4,
+    "salt": 2.1,
+    "energyKj": 1859
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-chicken-variety-bento",
+   "name": "YO! Chicken Variety Bento",
+   "category": "Bento & sushi sets",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 585,
+    "protein": 21.5,
+    "carbs": 86.4,
+    "fat": 13.3,
+    "saturatedFat": 2.8,
+    "sugar": 18.4,
+    "fiber": 5.2,
+    "salt": 3.5,
+    "energyKj": 2290
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-classic-sushi-selection",
+   "name": "YO! Classic Sushi Selection",
+   "category": "Bento & sushi sets",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 578,
+    "protein": 17.4,
+    "carbs": 74.9,
+    "fat": 20.2,
+    "saturatedFat": 2.7,
+    "sugar": 10,
+    "fiber": 4.5,
+    "salt": 2.5,
+    "energyKj": 2285
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-o-mega-salmon-selection",
+   "name": "YO! O-mega Salmon Selection",
+   "category": "Bento & sushi sets",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 657,
+    "protein": 21.7,
+    "carbs": 75.9,
+    "fat": 27.6,
+    "saturatedFat": 4,
+    "sugar": 9.6,
+    "fiber": 5.7,
+    "salt": 2.3,
+    "energyKj": 2636
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "yo-spicy-chicken-selection",
+   "name": "YO! Spicy Chicken Selection",
+   "category": "Bento & sushi sets",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 556,
+    "protein": 26.1,
+    "carbs": 76.8,
+    "fat": 14,
+    "saturatedFat": 5.8,
+    "sugar": 23.7,
+    "fiber": 5,
+    "salt": 2.9,
+    "energyKj": 2264
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-plant-power-selection",
+   "name": "YO! Plant Power Selection",
+   "category": "Bento & sushi sets",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 514,
+    "protein": 11.5,
+    "carbs": 87,
+    "fat": 10.5,
+    "saturatedFat": 2.1,
+    "sugar": 25.4,
+    "fiber": 4.8,
+    "salt": 3.3,
+    "energyKj": 2045
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-chicken-and-spice-signature-set",
+   "name": "YO! Chicken & Spice Signature Set",
+   "category": "Bento & sushi sets",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 821,
+    "protein": 27.6,
+    "carbs": 112.6,
+    "fat": 24.5,
+    "saturatedFat": 6.7,
+    "sugar": 19.5,
+    "fiber": 8.7,
+    "salt": 4.1,
+    "energyKj": 3231
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-salmon-favourites-signature-set",
+   "name": "YO! Salmon Favourites Signature Set",
+   "category": "Bento & sushi sets",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 823,
+    "protein": 26.1,
+    "carbs": 104.8,
+    "fat": 28.2,
+    "saturatedFat": 3.9,
+    "sugar": 14,
+    "fiber": 6.4,
+    "salt": 3.7,
+    "energyKj": 3223
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "sesame"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "molluscs"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-cheesecake-mochi",
+   "name": "Strawberry Cheesecake Mochi",
+   "category": "Desserts",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 186,
+    "protein": 1.5,
+    "carbs": 33.3,
+    "fat": 5.1,
+    "saturatedFat": 3.1,
+    "sugar": 20.9,
+    "fiber": 0,
+    "salt": 0.2,
+    "energyKj": 782
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "custard-dorayaki",
+   "name": "Custard Dorayaki",
+   "category": "Desserts",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 162,
+    "protein": 2.3,
+    "carbs": 34,
+    "fat": 1.8,
+    "saturatedFat": 0.8,
+    "sugar": 16.5,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 683
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-dorayaki",
+   "name": "Chocolate Dorayaki",
+   "category": "Desserts",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 260,
+    "protein": 3.2,
+    "carbs": 32.9,
+    "fat": 12.5,
+    "saturatedFat": 7.7,
+    "sugar": 19.6,
+    "fiber": 0.9,
+    "salt": 0,
+    "energyKj": 1088
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lemon-cheesecake-dorayaki",
+   "name": "Lemon Cheesecake Dorayaki",
+   "category": "Desserts",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 228,
+    "protein": 2.9,
+    "carbs": 34,
+    "fat": 8.9,
+    "saturatedFat": 5.4,
+    "sugar": 21.2,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 960
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-and-cream-dorayaki",
+   "name": "Strawberry and Cream Dorayaki",
+   "category": "Desserts",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 237,
+    "protein": 3.5,
+    "carbs": 33.8,
+    "fat": 9.7,
+    "saturatedFat": 5.9,
+    "sugar": 19.7,
+    "fiber": 0.4,
+    "salt": 0.2,
+    "energyKj": 998
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yuzu-cheesecake-mochi",
+   "name": "Yuzu Cheesecake Mochi",
+   "category": "Desserts",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 192,
+    "protein": 1.7,
+    "carbs": 33.3,
+    "fat": 5.7,
+    "saturatedFat": 3.5,
+    "sugar": 20.3,
+    "fiber": 0,
+    "salt": 0.2,
+    "energyKj": 809
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-mochi",
+   "name": "Chocolate Mochi",
+   "category": "Desserts",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 228,
+    "protein": 2.9,
+    "carbs": 30.7,
+    "fat": 9.6,
+    "saturatedFat": 6,
+    "sugar": 18.6,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 953
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "yo-korean-style-fried-chicken-bites",
+   "name": "YO! Korean Style Fried Chicken Bites",
+   "category": "Hot chicken bites",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 663,
+    "protein": 39,
+    "carbs": 85.9,
+    "fat": 16.5,
+    "saturatedFat": 9.9,
+    "sugar": 41.5,
+    "fiber": 4.2,
+    "salt": 3.7,
+    "energyKj": 2795
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-mini-korean-style-fried-chicken-bites",
+   "name": "YO! Mini Korean Style Fried Chicken Bites",
+   "category": "Hot chicken bites",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 332,
+    "protein": 19.5,
+    "carbs": 43,
+    "fat": 8.3,
+    "saturatedFat": 5,
+    "sugar": 20.8,
+    "fiber": 2.1,
+    "salt": 1.8,
+    "energyKj": 1397
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-mini-teriyaki-fried-chicken-bites",
+   "name": "YO! Mini Teriyaki Fried Chicken Bites",
+   "category": "Hot chicken bites",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 337,
+    "protein": 22,
+    "carbs": 37.6,
+    "fat": 10.9,
+    "saturatedFat": 5.3,
+    "sugar": 16.3,
+    "fiber": 2.7,
+    "salt": 3.5,
+    "energyKj": 1421
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-teriyaki-fried-chicken-bites",
+   "name": "YO! Teriyaki Fried Chicken Bites",
+   "category": "Hot chicken bites",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 675,
+    "protein": 44,
+    "carbs": 75.2,
+    "fat": 21.8,
+    "saturatedFat": 10.7,
+    "sugar": 32.7,
+    "fiber": 5.4,
+    "salt": 7,
+    "energyKj": 2842
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-salt-and-pepper-furi-furi-fried-chicken-bites",
+   "name": "YO! Salt and Pepper Furi Furi Fried Chicken Bites",
+   "category": "Hot chicken bites",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 511,
+    "protein": 38.9,
+    "carbs": 35,
+    "fat": 23,
+    "saturatedFat": 10.4,
+    "sugar": 2.3,
+    "fiber": 4.4,
+    "salt": 4.8,
+    "energyKj": 2141
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-5-piece-duck-gyoza",
+   "name": "YO! 5 Piece Duck Gyoza",
+   "category": "Hot sides",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 241,
+    "protein": 8.4,
+    "carbs": 37.5,
+    "fat": 6.1,
+    "saturatedFat": 1.2,
+    "sugar": 16.9,
+    "fiber": 1.9,
+    "salt": 1.6,
+    "energyKj": 1014
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-5-piece-chicken-gyoza",
+   "name": "YO! 5 Piece Chicken Gyoza",
+   "category": "Hot sides",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 244,
+    "protein": 9.1,
+    "carbs": 44.7,
+    "fat": 2.8,
+    "saturatedFat": 0.7,
+    "sugar": 21.1,
+    "fiber": 2.4,
+    "salt": 3.6,
+    "energyKj": 1033
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-5-piece-vegetable-gyoza",
+   "name": "YO! 5 Piece Vegetable Gyoza",
+   "category": "Hot sides",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 248,
+    "protein": 8,
+    "carbs": 46.7,
+    "fat": 2.8,
+    "saturatedFat": 0.3,
+    "sugar": 22.9,
+    "fiber": 2.4,
+    "salt": 3.3,
+    "energyKj": 1048
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "molluscs"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "korean-sweet-chilli-chicken-baos",
+   "name": "Korean Sweet Chilli Chicken Baos",
+   "category": "Hot sides",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 564,
+    "protein": 18.5,
+    "carbs": 79.5,
+    "fat": 18.9,
+    "saturatedFat": 9.3,
+    "sugar": 20.5,
+    "fiber": 3,
+    "salt": 1.1,
+    "energyKj": 2363
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-chicken-teriyaki-noodles",
+   "name": "YO! Chicken Teriyaki Noodles",
+   "category": "Hot meals",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 347,
+    "protein": 21.9,
+    "carbs": 55.5,
+    "fat": 4.2,
+    "saturatedFat": 0.7,
+    "sugar": 22.2,
+    "fiber": 1.1,
+    "salt": 3.7,
+    "energyKj": 1468
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-korean-beef-bulgogi-rice-bowl",
+   "name": "YO! Korean Beef Bulgogi Rice Bowl",
+   "category": "Hot meals",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 404,
+    "protein": 11.5,
+    "carbs": 64,
+    "fat": 9.8,
+    "saturatedFat": 3.2,
+    "sugar": 8.1,
+    "fiber": 3.5,
+    "salt": 0,
+    "energyKj": 1674
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-korean-style-sweet-chilli-chicken-rice-bowl",
+   "name": "YO! Korean Style Sweet Chilli Chicken Rice Bowl",
+   "category": "Hot meals",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 526,
+    "protein": 20,
+    "carbs": 92.3,
+    "fat": 7,
+    "saturatedFat": 4,
+    "sugar": 22.3,
+    "fiber": 4.5,
+    "salt": 1.6,
+    "energyKj": 2190
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-chilli-crisp-chicken-noodles",
+   "name": "YO! Chilli Crisp Chicken Noodles",
+   "category": "Hot meals",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 301,
+    "protein": 20.7,
+    "carbs": 37.9,
+    "fat": 7,
+    "saturatedFat": 2.2,
+    "sugar": 34.8,
+    "fiber": 4.1,
+    "salt": 2.4,
+    "energyKj": 1269
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-teriyaki-chicken-noodles",
+   "name": "YO! Teriyaki Chicken Noodles",
+   "category": "Hot meals",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 472,
+    "protein": 22.9,
+    "carbs": 68.2,
+    "fat": 11.5,
+    "saturatedFat": 4.7,
+    "sugar": 50.2,
+    "fiber": 5.6,
+    "salt": 4,
+    "energyKj": 1990
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-salmon-nigiri",
+   "name": "YO! Salmon Nigiri",
+   "category": "Nigiri",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 263,
+    "protein": 10.2,
+    "carbs": 33.3,
+    "fat": 9.3,
+    "saturatedFat": 1.1,
+    "sugar": 4.4,
+    "fiber": 1.2,
+    "salt": 1.1,
+    "energyKj": 1086
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "yo-sumptuous-chicken-sharer",
+   "name": "YO! Sumptuous Chicken Sharer",
+   "category": "Sharers",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 1934,
+    "protein": 77.3,
+    "carbs": 239.6,
+    "fat": 66,
+    "saturatedFat": 17.6,
+    "sugar": 70.1,
+    "fiber": 15.5,
+    "salt": 12.7,
+    "energyKj": 7793
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-luxury-seafood-sushi-sharer",
+   "name": "YO! Luxury Seafood Sushi Sharer",
+   "category": "Sharers",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 709,
+    "protein": 26.1,
+    "carbs": 83,
+    "fat": 26.9,
+    "saturatedFat": 2.8,
+    "sugar": 14.7,
+    "fiber": 4.3,
+    "salt": 3.8,
+    "energyKj": 2780
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "molluscs"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-deluxe-classic-sushi-sharer",
+   "name": "YO! Deluxe Classic Sushi Sharer",
+   "category": "Sharers",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 1639,
+    "protein": 39.5,
+    "carbs": 202.9,
+    "fat": 64.9,
+    "saturatedFat": 8.3,
+    "sugar": 40.1,
+    "fiber": 11.2,
+    "salt": 9,
+    "energyKj": 6481
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-inari-nigiri",
+   "name": "YO! Inari Nigiri",
+   "category": "Sides & snacks",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 212,
+    "protein": 6.8,
+    "carbs": 32.8,
+    "fat": 5.6,
+    "saturatedFat": 0.8,
+    "sugar": 12.6,
+    "fiber": 0.8,
+    "salt": 1.2,
+    "energyKj": 879
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-salted-edamame",
+   "name": "YO! Salted Edamame",
+   "category": "Sides & snacks",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 129,
+    "protein": 12.3,
+    "carbs": 5.8,
+    "fat": 4.7,
+    "saturatedFat": 0.7,
+    "sugar": 2.8,
+    "fiber": 7.5,
+    "salt": 2,
+    "energyKj": 542
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "yo-seaweed-salad",
+   "name": "YO! Seaweed Salad",
+   "category": "Sides & snacks",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 73,
+    "protein": 1,
+    "carbs": 7.8,
+    "fat": 3.4,
+    "saturatedFat": 0.5,
+    "sugar": 7.6,
+    "fiber": 0.1,
+    "salt": 1.1,
+    "energyKj": 307
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish"
+    ]
+   }
+  },
+  {
+   "id": "yo-fiery-buffalo-bites",
+   "name": "YO! Fiery Buffalo Bites",
+   "category": "Game time",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 619,
+    "protein": 36.7,
+    "carbs": 33.7,
+    "fat": 36.7,
+    "saturatedFat": 11.8,
+    "sugar": 3.8,
+    "fiber": 4.3,
+    "salt": 5.2,
+    "energyKj": 2582
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-cajun-philly-roll",
+   "name": "YO! Cajun Philly Roll",
+   "category": "Game time",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 448,
+    "protein": 12.3,
+    "carbs": 51.3,
+    "fat": 19.6,
+    "saturatedFat": 6.9,
+    "sugar": 9.3,
+    "fiber": 4.2,
+    "salt": 2,
+    "energyKj": 1774
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "yo-chimichurri-chicken-roll",
+   "name": "YO! Chimichurri Chicken Roll",
+   "category": "Game time",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 349,
+    "protein": 13.8,
+    "carbs": 50.1,
+    "fat": 8.2,
+    "saturatedFat": 0.7,
+    "sugar": 9.3,
+    "fiber": 2.8,
+    "salt": 2.5,
+    "energyKj": 1377
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yo-jalapeno-dragon-roll",
+   "name": "YO! Jalapeno Dragon Roll",
+   "category": "Game time",
+   "serving": "1 pack",
+   "nutrients": {
+    "calories": 414,
+    "protein": 13.9,
+    "carbs": 49.4,
+    "fat": 15.4,
+    "saturatedFat": 2.2,
+    "sugar": 9.3,
+    "fiber": 3.8,
+    "salt": 2.4,
+    "energyKj": 1623
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

@@ -13,15 +13,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Shepherd Neame pub menus with nutrition and allergens (Ten Kites pages for 51 pubs, each linked from the pub's own website; accessed 2026-10-11, no date shown)",
+  "title": "Shepherd Neame pub menus with nutrition and allergens (Ten Kites pages for 51 pubs, each linked from the pub's own website; accessed 2026-11-17, no date shown)",
   "url": "https://pubs.shepherdneame.co.uk/",
-  "checkedOn": "2026-10-11"
+  "checkedOn": "2026-11-17"
  },
  "note": "Menus differ by pub, so a dish is listed only if its name, figures and allergens are identical at every pub that prints it, and at 2 or more of the 51 pubs read. Figures are per portion. Hot drinks, festive and group menus are not listed.",
  "allergenGuide": {
-  "title": "Shepherd Neame pub menus: the 'Contains' line of every dish on each pub's Ten Kites page (51 pubs read; accessed 2026-10-11, no date shown)",
+  "title": "Shepherd Neame pub menus: the 'Contains' line of every dish on each pub's Ten Kites page (51 pubs read; accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/shepherdn/bellhotel",
-  "checkedOn": "2026-10-11",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": false,
   "complete": true
  },
@@ -45,40 +45,6 @@
  ],
  "components": [],
  "items": [
-  {
-   "id": "bbq-pulled-pork-sharing-nachos",
-   "name": "BBQ Pulled pork Sharing Nachos",
-   "category": "Starters and small plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 1223,
-    "protein": 50.6,
-    "carbs": 145.4,
-    "fat": 51.7,
-    "sugar": 18.8,
-    "salt": 7.1
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "mustard",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "barley"
-    ]
-   }
-  },
   {
    "id": "breaded-halloumi-sticks-v",
    "name": "Breaded halloumi sticks (v)",
@@ -109,34 +75,6 @@
     "cereals": [
      "wheat"
     ]
-   }
-  },
-  {
-   "id": "caprese-salad-v",
-   "name": "Caprese salad (v)",
-   "category": "Starters and small plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 542,
-    "protein": 24.3,
-    "carbs": 7.1,
-    "fat": 46.1,
-    "saturatedFat": 18.2,
-    "sugar": 6.8,
-    "salt": 1.3
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
    }
   },
   {
@@ -182,10 +120,10 @@
    "category": "Starters and small plates",
    "serving": "",
    "nutrients": {
-    "calories": 467,
-    "protein": 8.7,
-    "carbs": 8.7,
-    "fat": 43.7,
+    "calories": 496,
+    "protein": 8.5,
+    "carbs": 8.5,
+    "fat": 47.2,
     "salt": 0.5
    },
    "tags": [
@@ -207,16 +145,18 @@
    }
   },
   {
-   "id": "chicken-liver-and-cherry-brandy-pate",
-   "name": "Chicken liver & cherry brandy pate",
+   "id": "chicken-liver-and-brandy-pate",
+   "name": "Chicken liver & brandy pâté",
    "category": "Starters and small plates",
    "serving": "",
    "nutrients": {
-    "calories": 557,
-    "protein": 19.1,
-    "carbs": 54.1,
-    "fat": 29.7,
-    "salt": 2.4
+    "calories": 542,
+    "protein": 18.7,
+    "carbs": 49.7,
+    "fat": 30,
+    "saturatedFat": 12.4,
+    "sugar": 10.9,
+    "salt": 2.5
    },
    "tags": [],
    "limitedTime": false,
@@ -227,14 +167,14 @@
     "contains": [
      "gluten",
      "milk",
+     "mustard",
      "nuts",
      "sulphites"
     ],
     "mayContain": [],
     "cereals": [
      "wheat",
-     "rye",
-     "barley"
+     "rye"
     ],
     "nuts": [
      "almond"
@@ -505,39 +445,6 @@
    }
   },
   {
-   "id": "crispy-fried-herb-crumbed-somerset-brie-v",
-   "name": "Crispy fried herb crumbed Somerset Brie (v)",
-   "category": "Starters and small plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 691,
-    "protein": 26.9,
-    "carbs": 81.9,
-    "fat": 28.7,
-    "sugar": 32.4,
-    "salt": 1.9
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye"
-    ]
-   }
-  },
-  {
    "id": "crispy-pink-peppercorn-and-sesame-squid",
    "name": "Crispy pink peppercorn & sesame squid",
    "category": "Starters and small plates",
@@ -568,6 +475,70 @@
     "mayContain": [],
     "cereals": [
      "wheat"
+    ]
+   }
+  },
+  {
+   "id": "crispy-smoked-haddock-and-leek-fishcakes",
+   "name": "Crispy smoked haddock & leek fishcakes",
+   "category": "Starters and small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 891,
+    "protein": 24,
+    "carbs": 61.4,
+    "fat": 60.9,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "curried-lentil-tomato-and-coconut-soup-vg",
+   "name": "Curried lentil, tomato & coconut soup (vg)",
+   "category": "Starters and small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 500,
+    "protein": 17,
+    "carbs": 54.6,
+    "fat": 23.8,
+    "saturatedFat": 14.1,
+    "sugar": 10,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
     ]
    }
   },
@@ -709,38 +680,6 @@
    }
   },
   {
-   "id": "gourmet-sausage-roll",
-   "name": "Gourmet sausage roll",
-   "category": "Starters and small plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 902,
-    "protein": 33.5,
-    "carbs": 59.9,
-    "fat": 57.7,
-    "salt": 3.1
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
    "id": "grilled-tandoori-chicken-skewer",
    "name": "Grilled Tandoori chicken skewer",
    "category": "Starters and small plates",
@@ -767,71 +706,6 @@
      "sulphites"
     ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "grilled-tandoori-chicken-skewers",
-   "name": "Grilled Tandoori chicken skewers",
-   "category": "Starters and small plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 705,
-    "protein": 37.5,
-    "carbs": 56.8,
-    "fat": 35.2,
-    "saturatedFat": 5.5,
-    "sugar": 8.4,
-    "salt": 5.8
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "crustaceans",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "hot-honey-glazed-smoked-duck-breast-salad",
-   "name": "Hot honey glazed smoked duck breast salad",
-   "category": "Starters and small plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 132,
-    "protein": 5.2,
-    "carbs": 10.6,
-    "fat": 9.1,
-    "saturatedFat": 1.4,
-    "sugar": 3.1,
-    "salt": 0.6
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye"
-    ]
    }
   },
   {
@@ -1137,6 +1011,107 @@
    }
   },
   {
+   "id": "pea-and-mint-arancini-v",
+   "name": "Pea & mint arancini (v)",
+   "category": "Starters and small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 531,
+    "protein": 6.9,
+    "carbs": 34.2,
+    "fat": 40.2,
+    "saturatedFat": 5.1,
+    "sugar": 6.3,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "plant-power-kimchi-fritters-vg",
+   "name": "Plant power kimchi fritters (vg)",
+   "category": "Starters and small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 373,
+    "protein": 2.2,
+    "carbs": 20,
+    "fat": 31.5,
+    "saturatedFat": 3.1,
+    "sugar": 0.8,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "porcini-mushroom-arancini-v",
+   "name": "Porcini mushroom arancini (v)",
+   "category": "Starters and small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 702,
+    "protein": 6.5,
+    "carbs": 21.6,
+    "fat": 51.1,
+    "saturatedFat": 8.9,
+    "sugar": 5.2,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "pork-and-sage-scotch-egg",
    "name": "Pork & sage Scotch egg",
    "category": "Starters and small plates",
@@ -1208,41 +1183,6 @@
    }
   },
   {
-   "id": "prawn-cocktail",
-   "name": "Prawn cocktail",
-   "category": "Starters and small plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 505,
-    "protein": 32.5,
-    "carbs": 32.9,
-    "fat": 26.4,
-    "salt": 6.8
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "crustaceans",
-     "eggs",
-     "fish",
-     "milk",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
    "id": "roasted-plum-tomato-and-red-pepper-soup-vg",
    "name": "Roasted plum tomato & red pepper soup (vg)",
    "category": "Starters and small plates",
@@ -1281,12 +1221,13 @@
    "category": "Starters and small plates",
    "serving": "",
    "nutrients": {
-    "calories": 525,
-    "protein": 27.1,
-    "carbs": 7,
+    "calories": 533,
+    "protein": 31.1,
+    "carbs": 4.8,
     "fat": 43.4,
     "saturatedFat": 10.1,
-    "salt": 2.6
+    "sugar": 2.8,
+    "salt": 4.2
    },
    "tags": [],
    "limitedTime": false,
@@ -1302,6 +1243,37 @@
      "sulphites"
     ],
     "mayContain": []
+   }
+  },
+  {
+   "id": "roasted-tomato-soup-vg",
+   "name": "Roasted tomato soup (vg)",
+   "category": "Starters and small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 633,
+    "protein": 10.2,
+    "carbs": 65.1,
+    "fat": 37.6,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
    }
   },
   {
@@ -1436,6 +1408,40 @@
    }
   },
   {
+   "id": "smoked-trout-pate",
+   "name": "Smoked trout pâté",
+   "category": "Starters and small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 334,
+    "protein": 12.7,
+    "carbs": 39.4,
+    "fat": 14.3,
+    "sugar": 2.1,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
    "id": "southern-fried-crispy-loaded-chicken-strips",
    "name": "Southern fried crispy loaded chicken strips",
    "category": "Starters and small plates",
@@ -1463,6 +1469,40 @@
     "mayContain": [],
     "cereals": [
      "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spiced-butternut-squash-and-coconut-soup-vg",
+   "name": "Spiced butternut squash & coconut soup (vg)",
+   "category": "Starters and small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 350,
+    "protein": 8.6,
+    "carbs": 49,
+    "fat": 13.9,
+    "saturatedFat": 11.6,
+    "sugar": 7.2,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
     ]
    }
   },
@@ -1563,73 +1603,6 @@
    }
   },
   {
-   "id": "tomato-bruschetta-vg",
-   "name": "Tomato bruschetta (vg)",
-   "category": "Starters and small plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 391,
-    "protein": 8.4,
-    "carbs": 50.3,
-    "fat": 17.7,
-    "salt": 1.6
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye"
-    ]
-   }
-  },
-  {
-   "id": "torn-buffalo-mozzarella-v",
-   "name": "Torn Buffalo mozzarella (v)",
-   "category": "Starters and small plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 557,
-    "protein": 19.9,
-    "carbs": 62.1,
-    "fat": 25.9,
-    "salt": 2.3
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "nuts",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye"
-    ],
-    "nuts": [
-     "pistachio"
-    ]
-   }
-  },
-  {
    "id": "twice-baked-canterbury-cobble-cheese-and-thyme-souffle",
    "name": "Twice baked Canterbury cobble cheese & thyme soufflé",
    "category": "Starters and small plates",
@@ -1659,43 +1632,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "whipped-ellies-goats-cheese-v",
-   "name": "Whipped Ellie's goat's cheese (v)",
-   "category": "Starters and small plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 466,
-    "protein": 15.3,
-    "carbs": 24.8,
-    "fat": 38.9,
-    "saturatedFat": 6.9,
-    "sugar": 8.6,
-    "salt": 0.8
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "nuts"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -1756,80 +1692,6 @@
      "sulphites"
     ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "fishermans-board",
-   "name": "Fisherman's board",
-   "category": "Bar snacks and sharing",
-   "serving": "",
-   "nutrients": {
-    "calories": 2050,
-    "protein": 97.5,
-    "carbs": 128.7,
-    "fat": 127.6,
-    "saturatedFat": 40.7,
-    "sugar": 10.1,
-    "salt": 11
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "crustaceans",
-     "eggs",
-     "fish",
-     "milk",
-     "molluscs",
-     "mustard",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "freshly-baked-bread-and-butter-olives-and-gherkins-v",
-   "name": "Freshly baked bread & butter, olives & gherkins (v)",
-   "category": "Bar snacks and sharing",
-   "serving": "",
-   "nutrients": {
-    "calories": 265,
-    "protein": 4,
-    "carbs": 23.9,
-    "fat": 17.4,
-    "saturatedFat": 9.3,
-    "sugar": 0.7,
-    "salt": 1.6
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye"
-    ]
    }
   },
   {
@@ -2052,42 +1914,6 @@
      "gluten",
      "mustard",
      "sesame"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "salt-beef-gherkin-and-parsley-croquettes",
-   "name": "Salt beef, gherkin, & parsley croquettes",
-   "category": "Bar snacks and sharing",
-   "serving": "",
-   "nutrients": {
-    "calories": 814,
-    "protein": 23,
-    "carbs": 57.7,
-    "fat": 54.3,
-    "saturatedFat": 9.3,
-    "sugar": 9.4,
-    "salt": 3.8
-   },
-   "tags": [
-    "contains_beef",
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard",
-     "sulphites"
     ],
     "mayContain": [],
     "cereals": [
@@ -2662,6 +2488,42 @@
    }
   },
   {
+   "id": "ashmore-cheeseburger",
+   "name": "Ashmore cheeseburger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1721,
+    "protein": 69.6,
+    "carbs": 134.2,
+    "fat": 102.8,
+    "saturatedFat": 31.3,
+    "sugar": 21,
+    "salt": 5.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
    "id": "beef-burger",
    "name": "Beef Burger",
    "category": "Burgers",
@@ -2693,43 +2555,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "black-and-blue-beef-burger",
-   "name": "Black & blue Beef burger",
-   "category": "Burgers",
-   "serving": "",
-   "nutrients": {
-    "calories": 1906,
-    "protein": 70.8,
-    "carbs": 133.8,
-    "fat": 124.4,
-    "saturatedFat": 33.4,
-    "sugar": 21.1,
-    "salt": 5.7
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -2871,6 +2696,37 @@
    }
   },
   {
+   "id": "crispy-goats-cheeseburger-v",
+   "name": "Crispy goat's cheeseburger (v)",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1802,
+    "protein": 42.3,
+    "carbs": 164.8,
+    "fat": 102.4,
+    "salt": 4.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "crispy-halloumi-burger-v",
    "name": "Crispy halloumi burger (v)",
    "category": "Burgers",
@@ -2895,78 +2751,6 @@
      "gluten",
      "eggs",
      "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "crispy-korean-chicken-burger",
-   "name": "Crispy Korean chicken burger",
-   "category": "Burgers",
-   "serving": "",
-   "nutrients": {
-    "calories": 2870,
-    "protein": 148.7,
-    "carbs": 205.2,
-    "fat": 163.7,
-    "sugar": 22.6,
-    "salt": 5.7
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "crustaceans",
-     "eggs",
-     "fish",
-     "milk",
-     "mustard",
-     "peanuts",
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "deli-beef-burger",
-   "name": "Deli beef burger",
-   "category": "Burgers",
-   "serving": "",
-   "nutrients": {
-    "calories": 1777,
-    "protein": 80.9,
-    "carbs": 138.7,
-    "fat": 104.1,
-    "saturatedFat": 33.6,
-    "sugar": 24.8,
-    "salt": 5.7
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "mustard",
-     "soya",
-     "sulphites"
     ],
     "mayContain": [],
     "cereals": [
@@ -3075,6 +2859,36 @@
     "cereals": [
      "wheat",
      "barley"
+    ]
+   }
+  },
+  {
+   "id": "classic-margherita-sourdough-pizza",
+   "name": "Classic Margherita sourdough pizza",
+   "category": "Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1420,
+    "protein": 66.7,
+    "carbs": 167,
+    "fat": 51.5,
+    "saturatedFat": 20.2,
+    "sugar": 9.9,
+    "salt": 8.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -3271,7 +3085,7 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1294,
+    "calories": 1354,
     "protein": 35.3,
     "carbs": 168.5,
     "fat": 50.6,
@@ -3302,7 +3116,7 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 886,
+    "calories": 916,
     "protein": 22.3,
     "carbs": 105.9,
     "fat": 39.9,
@@ -3328,21 +3142,21 @@
    }
   },
   {
-   "id": "ashmore-cheeseburger",
-   "name": "Ashmore cheeseburger",
+   "id": "baked-cod-loin",
+   "name": "Baked cod loin",
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1721,
-    "protein": 69.6,
-    "carbs": 134.2,
-    "fat": 102.8,
-    "saturatedFat": 31.3,
-    "sugar": 21,
-    "salt": 5.2
+    "calories": 1250,
+    "protein": 53.4,
+    "carbs": 32.1,
+    "fat": 100.7,
+    "saturatedFat": 38.7,
+    "sugar": 7.7,
+    "salt": 5.9
    },
    "tags": [
-    "contains_beef"
+    "contains_pork"
    ],
    "limitedTime": false,
    "rankable": true,
@@ -3350,17 +3164,11 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "gluten",
-     "eggs",
+     "fish",
      "milk",
-     "soya",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -3434,6 +3242,36 @@
    }
   },
   {
+   "id": "braised-lamb-shank",
+   "name": "Braised Lamb shank",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1892,
+    "protein": 112.6,
+    "carbs": 108.8,
+    "fat": 106.1,
+    "salt": 9.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "british-crab-and-squid-ink-spaghetti",
    "name": "British crab & squid ink Spaghetti",
    "category": "Mains",
@@ -3458,37 +3296,6 @@
      "crustaceans",
      "milk",
      "molluscs",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "british-crab-linguine",
-   "name": "British crab linguine",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 756,
-    "protein": 28.4,
-    "carbs": 80.1,
-    "fat": 35.4,
-    "sugar": 7.2,
-    "salt": 3.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "crustaceans",
-     "milk",
      "sulphites"
     ],
     "mayContain": [],
@@ -3623,22 +3430,20 @@
    }
   },
   {
-   "id": "caramelised-onion-tarte-tatin-vg",
-   "name": "Caramelised onion tarte Tatin (vg)",
+   "id": "chicken-breast-fajitas",
+   "name": "Chicken breast fajitas",
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 888,
-    "protein": 8.9,
-    "carbs": 66.3,
-    "fat": 65,
-    "saturatedFat": 25.3,
-    "sugar": 37.6,
-    "salt": 2.9
+    "calories": 1364,
+    "protein": 104.4,
+    "carbs": 46.9,
+    "fat": 84.9,
+    "saturatedFat": 31.6,
+    "sugar": 16.3,
+    "salt": 3.1
    },
-   "tags": [
-    "vegetarian"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -3646,42 +3451,12 @@
    "allergens": {
     "contains": [
      "gluten",
+     "milk",
      "sulphites"
     ],
     "mayContain": [],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "cauliflower-and-spinach-balti-pie-vg",
-   "name": "Cauliflower and spinach Balti pie (vg)",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 845,
-    "protein": 17.5,
-    "carbs": 102,
-    "fat": 39.4,
-    "salt": 4.1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "oats"
     ]
    }
   },
@@ -3823,60 +3598,6 @@
    }
   },
   {
-   "id": "creamy-mashed-potato-v",
-   "name": "Creamy mashed potato (v)",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 574,
-    "protein": 8.4,
-    "carbs": 65.3,
-    "fat": 32.5,
-    "saturatedFat": 19.5,
-    "sugar": 3,
-    "salt": 2.6
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "creamy-tomato-roasted-red-pepper-and-basil-risotto-vg",
-   "name": "Creamy tomato, roasted red pepper and basil risotto (vg)",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 579,
-    "protein": 9.3,
-    "carbs": 85.7,
-    "fat": 21.5,
-    "salt": 0.8
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "crispy-breaded-chicken-breast-and-rice",
    "name": "Crispy breaded chicken breast & rice",
    "category": "Mains",
@@ -3982,69 +3703,6 @@
    }
   },
   {
-   "id": "grilled-halloumi-v-choice",
-   "name": "Grilled Halloumi (v) - choice",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 576,
-    "protein": 33.1,
-    "carbs": 3.1,
-    "fat": 49,
-    "saturatedFat": 23.2,
-    "sugar": 0,
-    "salt": 6.5
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "grilled-lamb-burger",
-   "name": "Grilled lamb burger",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 1493,
-    "protein": 46.1,
-    "carbs": 131.2,
-    "fat": 89.5,
-    "saturatedFat": 29.8,
-    "sugar": 15,
-    "salt": 5.4
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "nuts",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "almond"
-    ]
-   }
-  },
-  {
    "id": "haddock-and-chips-smaller-appetite",
    "name": "Haddock & chips - smaller appetite",
    "category": "Mains",
@@ -4132,6 +3790,38 @@
      "sulphites"
     ],
     "mayContain": []
+   }
+  },
+  {
+   "id": "herb-crusted-roast-haddock-loin",
+   "name": "Herb-crusted roast haddock loin",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1068,
+    "protein": 37.6,
+    "carbs": 34.7,
+    "fat": 84.1,
+    "saturatedFat": 38.4,
+    "sugar": 7.6,
+    "salt": 4.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
    }
   },
   {
@@ -4293,6 +3983,76 @@
      "crustaceans",
      "milk",
      "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "miso-and-sesame-green-salad-vg",
+   "name": "Miso & sesame green salad (vg)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 384,
+    "protein": 13.3,
+    "carbs": 27.9,
+    "fat": 23.6,
+    "saturatedFat": 4,
+    "sugar": 10,
+    "salt": 2.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "miso-and-sesame-green-salad-vg-smaller-appetite",
+   "name": "Miso & sesame green salad (vg) - smaller appetite",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 193,
+    "protein": 6.7,
+    "carbs": 14.2,
+    "fat": 11.8,
+    "saturatedFat": 2,
+    "sugar": 5,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
     ],
     "mayContain": [],
     "cereals": [
@@ -4631,40 +4391,6 @@
    }
   },
   {
-   "id": "roasted-carrot-and-grain-salad-vg",
-   "name": "Roasted Carrot & Grain Salad (vg)",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 375,
-    "protein": 8.5,
-    "carbs": 52,
-    "fat": 14.3,
-    "sugar": 39.8,
-    "salt": 1.6
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "peanuts",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "roasted-cauliflower-and-paneer-balti-v",
    "name": "Roasted Cauliflower & Paneer Balti (v)",
    "category": "Mains",
@@ -4783,92 +4509,6 @@
    }
   },
   {
-   "id": "smoked-bacon-macaroni-cheese",
-   "name": "Smoked bacon macaroni cheese",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 647,
-    "protein": 24.4,
-    "carbs": 48.4,
-    "fat": 39.1,
-    "saturatedFat": 18.8,
-    "sugar": 6.9,
-    "salt": 3.3
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "mustard",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "spicy-jerk-1-2-chicken",
-   "name": "Spicy Jerk 1/2 chicken",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 1472,
-    "protein": 72.8,
-    "carbs": 78.9,
-    "fat": 97.6,
-    "saturatedFat": 16.1,
-    "sugar": 14.3,
-    "salt": 6.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "spicy-piri-piri-1-2-chicken",
-   "name": "Spicy Piri Piri 1/2 chicken",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 1346,
-    "protein": 72,
-    "carbs": 88,
-    "fat": 79.9,
-    "saturatedFat": 13.8,
-    "sugar": 23.7,
-    "salt": 6.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "spicy-szechuan-noodles-vg",
    "name": "Spicy Szechuan noodles (vg)",
    "category": "Mains",
@@ -4923,38 +4563,6 @@
     "contains": [
      "gluten",
      "milk",
-     "molluscs",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye"
-    ]
-   }
-  },
-  {
-   "id": "steamed-spanish-style-mussels",
-   "name": "Steamed Spanish style mussels",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 1443,
-    "protein": 93.1,
-    "carbs": 118.4,
-    "fat": 66.2,
-    "saturatedFat": 7.3,
-    "sugar": 18.1,
-    "salt": 8
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
      "molluscs",
      "sulphites"
     ],
@@ -5221,39 +4829,6 @@
    }
   },
   {
-   "id": "wholetail-scampi-and-chips",
-   "name": "Wholetail scampi & chips",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 1200,
-    "protein": 25.9,
-    "carbs": 114.6,
-    "fat": 73.9,
-    "saturatedFat": 7.1,
-    "sugar": 8.3,
-    "salt": 5.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "crustaceans",
-     "eggs",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "winter-spice-bag",
    "name": "Winter Spice Bag",
    "category": "Mains",
@@ -5307,72 +4882,7 @@
    "allergens": {
     "contains": [
      "gluten",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "28-day-aged-10oz-rump-steak",
-   "name": "28 day aged 10oz Rump steak",
-   "category": "Steaks",
-   "serving": "",
-   "nutrients": {
-    "calories": 1392,
-    "protein": 89.8,
-    "carbs": 85.6,
-    "fat": 78.7,
-    "saturatedFat": 21.7,
-    "salt": 4.5
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "28-day-aged-8oz-sirloin-steak",
-   "name": "28 day aged 8oz Sirloin steak",
-   "category": "Steaks",
-   "serving": "",
-   "nutrients": {
-    "calories": 1272,
-    "protein": 68.1,
-    "carbs": 85.6,
-    "fat": 74.9,
-    "saturatedFat": 20.5,
-    "salt": 4.3
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
+     "crustaceans",
      "milk",
      "mustard",
      "sulphites"
@@ -5453,6 +4963,43 @@
    }
   },
   {
+   "id": "beetroot-walnut-and-butternut-squash-wellington-vg",
+   "name": "Beetroot, walnut & butternut squash Wellington (vg)",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1058,
+    "protein": 19.1,
+    "carbs": 110.6,
+    "fat": 60.5,
+    "saturatedFat": 12.5,
+    "sugar": 36.9,
+    "salt": 4.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "walnut"
+    ]
+   }
+  },
+  {
    "id": "cumin-butternut-squash-and-lentil-wellington-vg",
    "name": "Cumin butternut squash & lentil Wellington (vg)",
    "category": "Sunday roasts",
@@ -5498,134 +5045,6 @@
     "salt": 5.9
    },
    "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "pigs-in-blankets",
-   "name": "Pigs in blankets",
-   "category": "Sunday roasts",
-   "serving": "",
-   "nutrients": {
-    "calories": 403,
-    "protein": 15.8,
-    "carbs": 12.3,
-    "fat": 34,
-    "saturatedFat": 9.7,
-    "sugar": 1.9,
-    "salt": 2.4
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "pistachio-courgette-sweet-potato-and-cranberry-nut-roast-vg",
-   "name": "Pistachio, courgette, sweet potato & cranberry nut roast (vg)",
-   "category": "Sunday roasts",
-   "serving": "",
-   "nutrients": {
-    "calories": 1452,
-    "protein": 26.2,
-    "carbs": 187.4,
-    "fat": 66.9,
-    "salt": 5.9
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "mustard",
-     "nuts",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "nuts": [
-     "pistachio"
-    ]
-   }
-  },
-  {
-   "id": "roast-leg-of-lamb",
-   "name": "Roast leg of lamb",
-   "category": "Sunday roasts",
-   "serving": "",
-   "nutrients": {
-    "calories": 1943,
-    "protein": 129.8,
-    "carbs": 108.3,
-    "fat": 111.3,
-    "saturatedFat": 31.1,
-    "sugar": 46.1,
-    "salt": 8.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "roasted-rolled-stuffed-pork-loin",
-   "name": "Roasted rolled stuffed pork loin",
-   "category": "Sunday roasts",
-   "serving": "",
-   "nutrients": {
-    "calories": 1577,
-    "protein": 47.4,
-    "carbs": 111.9,
-    "fat": 105.9,
-    "saturatedFat": 18.7,
-    "salt": 6.7
-   },
-   "tags": [
-    "contains_pork"
-   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -5781,13 +5200,13 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 842,
-    "protein": 29.3,
-    "carbs": 59.1,
-    "fat": 55.1,
-    "saturatedFat": 17,
-    "sugar": 8.5,
-    "salt": 4.8
+    "calories": 682,
+    "protein": 30.9,
+    "carbs": 55.1,
+    "fat": 38.5,
+    "saturatedFat": 11.7,
+    "sugar": 10,
+    "salt": 2.7
    },
    "tags": [
     "contains_pork"
@@ -5804,41 +5223,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "eggs-and-toast-v-white-bread",
-   "name": "Eggs and toast (v) white bread",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 696,
-    "protein": 22,
-    "carbs": 37.7,
-    "fat": 51.4,
-    "saturatedFat": 20,
-    "sugar": 0.7,
-    "salt": 1.8
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -5984,6 +5368,40 @@
    }
   },
   {
+   "id": "fried-bread-with-sausage-and-caramelised-onion-gravy",
+   "name": "Fried bread with sausage & caramelised onion gravy",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1245,
+    "protein": 39.1,
+    "carbs": 47.9,
+    "fat": 100,
+    "saturatedFat": 14.8,
+    "salt": 7.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
    "id": "fried-mushrooms-sage-and-chilli",
    "name": "Fried mushrooms, sage & chilli",
    "category": "Breakfast",
@@ -6078,39 +5496,6 @@
    }
   },
   {
-   "id": "loaded-tato-totts",
-   "name": "Loaded Tato Totts",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 1458,
-    "protein": 24.6,
-    "carbs": 70.9,
-    "fat": 119.6,
-    "salt": 8.2
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "porridge-v",
    "name": "Porridge (v)",
    "category": "Breakfast",
@@ -6182,13 +5567,13 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 1424,
-    "protein": 50.1,
-    "carbs": 69.4,
-    "fat": 105,
-    "saturatedFat": 47.7,
-    "sugar": 12.8,
-    "salt": 7.1
+    "calories": 1264,
+    "protein": 51.7,
+    "carbs": 65.4,
+    "fat": 88.4,
+    "saturatedFat": 42.4,
+    "sugar": 14.3,
+    "salt": 5
    },
    "tags": [
     "contains_pork"
@@ -6541,6 +5926,34 @@
    }
   },
   {
+   "id": "aromatic-braised-red-cabbage-vg",
+   "name": "Aromatic Braised Red Cabbage (vg)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 169,
+    "protein": 1.3,
+    "carbs": 21.3,
+    "fat": 7.9,
+    "saturatedFat": 0.5,
+    "sugar": 18.9,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
    "id": "avocado-vg-add-on",
    "name": "Avocado (vg) - add on",
    "category": "Sides",
@@ -6590,6 +6003,39 @@
    "allergens": {
     "contains": [],
     "mayContain": []
+   }
+  },
+  {
+   "id": "beer-battered-onion-rings-vg",
+   "name": "Beer battered onion rings (vg)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 463,
+    "protein": 3,
+    "carbs": 20.9,
+    "fat": 40.4,
+    "saturatedFat": 2.7,
+    "sugar": 3.4,
+    "salt": 2.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
    }
   },
   {
@@ -7007,6 +6453,41 @@
     "cereals": [
      "wheat",
      "barley"
+    ]
+   }
+  },
+  {
+   "id": "eggs-and-toast-v-white-bread",
+   "name": "Eggs and toast (v) white bread",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 696,
+    "protein": 22,
+    "carbs": 37.7,
+    "fat": 51.4,
+    "saturatedFat": 20,
+    "sugar": 0.7,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
     ]
    }
   },
@@ -7479,21 +6960,21 @@
    }
   },
   {
-   "id": "pork-sausage",
-   "name": "Pork Sausage",
+   "id": "roast-potatoes-vg",
+   "name": "Roast potatoes (vg)",
    "category": "Sides",
    "serving": "",
    "nutrients": {
-    "calories": 234,
-    "protein": 10.5,
-    "carbs": 7.5,
-    "fat": 18.1,
-    "saturatedFat": 6.4,
-    "sugar": 1.2,
-    "salt": 2
+    "calories": 715,
+    "protein": 8,
+    "carbs": 65.2,
+    "fat": 48.5,
+    "saturatedFat": 3,
+    "sugar": 1.8,
+    "salt": 1.4
    },
    "tags": [
-    "contains_pork"
+    "vegetarian"
    ],
    "limitedTime": false,
    "rankable": false,
@@ -7701,6 +7182,40 @@
     "mayContain": [],
     "cereals": [
      "barley"
+    ]
+   }
+  },
+  {
+   "id": "smoked-bacon-macaroni-cheese",
+   "name": "Smoked bacon macaroni cheese",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 647,
+    "protein": 24.4,
+    "carbs": 48.4,
+    "fat": 39.1,
+    "saturatedFat": 18.8,
+    "sugar": 6.9,
+    "salt": 3.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -7949,38 +7464,6 @@
    }
   },
   {
-   "id": "baked-alaska",
-   "name": "Baked Alaska",
-   "category": "Puddings",
-   "serving": "",
-   "nutrients": {
-    "calories": 234,
-    "protein": 9,
-    "carbs": 33.9,
-    "fat": 6.5,
-    "saturatedFat": 3,
-    "sugar": 25.5,
-    "salt": 0.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "belgian-waffle-v",
    "name": "Belgian waffle (v)",
    "category": "Puddings",
@@ -8107,42 +7590,6 @@
      "soya"
     ],
     "mayContain": [],
-    "nuts": [
-     "almond"
-    ]
-   }
-  },
-  {
-   "id": "cherry-and-toasted-almond-meringue-tartlet",
-   "name": "Cherry & toasted almond meringue tartlet",
-   "category": "Puddings",
-   "serving": "",
-   "nutrients": {
-    "calories": 765,
-    "protein": 10.2,
-    "carbs": 96.9,
-    "fat": 37.1,
-    "saturatedFat": 23.2,
-    "salt": 0.7
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "nuts"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ],
     "nuts": [
      "almond"
     ]
@@ -8671,74 +8118,6 @@
    }
   },
   {
-   "id": "kentish-cheese-board-v",
-   "name": "Kentish cheese board (v)",
-   "category": "Puddings",
-   "serving": "",
-   "nutrients": {
-    "calories": 831,
-    "protein": 32.8,
-    "carbs": 35.1,
-    "fat": 62,
-    "saturatedFat": 37.5,
-    "sugar": 12.7,
-    "salt": 3.8
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "sesame",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "lemon-posset-v",
-   "name": "Lemon posset (v)",
-   "category": "Puddings",
-   "serving": "",
-   "nutrients": {
-    "calories": 705,
-    "protein": 4.3,
-    "carbs": 66,
-    "fat": 47,
-    "saturatedFat": 29.4,
-    "sugar": 52,
-    "salt": 0.3
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "lotus-caramel-ice-cream-sundae",
    "name": "Lotus Caramel Ice cream Sundae",
    "category": "Puddings",
@@ -8838,6 +8217,44 @@
    }
   },
   {
+   "id": "salted-caramel-chocolate-tart-v",
+   "name": "Salted Caramel Chocolate Tart (v)",
+   "category": "Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 1516,
+    "protein": 12.6,
+    "carbs": 154,
+    "fat": 94,
+    "saturatedFat": 47.4,
+    "sugar": 121.5,
+    "salt": 2.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
    "id": "vanilla-ice-cream-v",
    "name": "Vanilla ice cream (v)",
    "category": "Puddings",
@@ -8895,40 +8312,6 @@
     "contains": [
      "gluten",
      "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "warm-chocolate-fondant-v",
-   "name": "Warm chocolate fondant (v)",
-   "category": "Puddings",
-   "serving": "",
-   "nutrients": {
-    "calories": 645,
-    "protein": 9.3,
-    "carbs": 63.9,
-    "fat": 38.2,
-    "saturatedFat": 22.5,
-    "sugar": 46.4,
-    "salt": 0.7
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "soya"
     ],
     "mayContain": [],
     "cereals": [
@@ -9490,35 +8873,6 @@
     "cereals": [
      "wheat"
     ]
-   }
-  },
-  {
-   "id": "small-english-breakfast-childrens",
-   "name": "Small English breakfast (children's)",
-   "category": "Children's: Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 713,
-    "protein": 28.7,
-    "carbs": 29.1,
-    "fat": 53,
-    "saturatedFat": 12.3,
-    "sugar": 6.7,
-    "salt": 4
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "sulphites"
-    ],
-    "mayContain": []
    }
   }
  ],

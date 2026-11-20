@@ -10,149 +10,142 @@
  ],
  "sample": false,
  "source": {
-  "title": "Mowgli Street Food website, Food menu with calorie information (accessed 2026-10-08, no date shown)",
+  "title": "Mowgli Street Food website, Food menu with calorie information (accessed 2026-11-17, no date shown)",
   "url": "https://mowglistreetfood.com/menus/food/",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, as printed beside each dish on Mowgli's Food menu page (the page shows them when you tick 'Calorie information'). No serving sizes, protein, carbs or fat are published. Drinks are not on that page.",
  "allergenGuide": {
-  "title": "Mowgli allergen matrix, Brighton (Mowgli-Mv35 v3, Rev 35; PDF created 2 October 2026)",
-  "url": "https://mowglistreetfood.com/wp-content/uploads/2026/10/Mowgli-Mv35_Allergen-Matrix_Brighton_v3.pdf",
-  "checkedOn": "2026-10-08",
+  "title": "Mowgli allergen matrix on the Allergens page (Mv36 AW v2 Xmas, Rev 36; picture uploaded November 2026)",
+  "url": "https://mowglistreetfood.com/allergens/",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": false,
   "complete": true
  },
  "categories": [
-  "The Light Kitchen",
-  "Street Plates",
-  "The House Kitchen",
-  "Curry Companions",
+  "From The Grill",
+  "Street Snacks",
+  "Small Street Plates",
+  "The House Kitchen Curries",
+  "Companions",
   "Kids Menu",
   "Sweet"
  ],
  "components": [],
  "items": [
   {
-   "id": "chicken-frankie-wrap",
-   "name": "Chicken Frankie Wrap",
-   "category": "The Light Kitchen",
+   "id": "mowgli-mixed-grill",
+   "name": "Mowgli Mixed Grill",
+   "category": "From The Grill",
    "serving": "",
    "nutrients": {
-    "calories": 575
+    "calories": 1330
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/c1aa0c73fd70.webp",
    "allergens": {
     "contains": [
-     "gluten",
      "milk",
-     "mustard",
-     "soya",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
-   "id": "rainbow-frankie-wrap",
-   "name": "Rainbow Frankie Wrap",
-   "category": "The Light Kitchen",
+   "id": "lamb-kofta-kebabs",
+   "name": "Lamb Kofta Kebabs",
+   "category": "From The Grill",
    "serving": "",
    "nutrients": {
-    "calories": 534
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "mowgli/6e720dc41598.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "mustard",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "mowgli-chicken-salad",
-   "name": "Mowgli Chicken Salad",
-   "category": "The Light Kitchen",
-   "serving": "",
-   "nutrients": {
-    "calories": 406
+    "calories": 380
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/0fcba8f75b97.webp",
    "allergens": {
     "contains": [
-     "gluten",
      "milk",
-     "mustard",
-     "soya",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
-   "id": "mowgli-tenderstem-salad",
-   "name": "Mowgli Tenderstem Salad",
-   "category": "The Light Kitchen",
+   "id": "maas-lamb-chops",
+   "name": "Maa’s Lamb Chops",
+   "category": "From The Grill",
    "serving": "",
    "nutrients": {
-    "calories": 316
+    "calories": 481
    },
-   "tags": [
-    "vegetarian"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/a724ef3206b1.webp",
+   "image": "mowgli/894b9638884a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "angry-bird",
+   "name": "Angry Bird",
+   "category": "From The Grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 627
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "mowgli/0c0138d66a2f.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "monkey-tandoor-roti",
+   "name": "Monkey Tandoor Roti",
+   "category": "From The Grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 682
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "mowgli/722b43b6fa1d.webp",
    "allergens": {
     "contains": [
      "gluten",
-     "milk",
-     "mustard",
-     "soya",
-     "sulphites"
+     "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
    "id": "yoghurt-chat-bombs",
    "name": "Yoghurt Chat Bombs",
-   "category": "Street Plates",
+   "category": "Street Snacks",
    "serving": "",
    "nutrients": {
     "calories": 302
@@ -171,16 +164,36 @@
      "milk",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
+   }
+  },
+  {
+   "id": "poppadoms-and-dips",
+   "name": "Poppadoms & Dips",
+   "category": "Street Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 460
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
    }
   },
   {
    "id": "onion-bhajis",
    "name": "Onion Bhajis",
-   "category": "Street Plates",
+   "category": "Street Snacks",
    "serving": "",
    "nutrients": {
     "calories": 642
@@ -199,12 +212,33 @@
    }
   },
   {
-   "id": "himalayan-cheese-toast",
-   "name": "Himalayan Cheese Toast",
-   "category": "Street Plates",
+   "id": "bombay-butter-prawns",
+   "name": "Bombay Butter Prawns",
+   "category": "Small Street Plates",
    "serving": "",
    "nutrients": {
-    "calories": 564
+    "calories": 302
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mowgli-spice-bag",
+   "name": "Mowgli Spice Bag",
+   "category": "Small Street Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 828
    },
    "tags": [
     "vegetarian"
@@ -213,102 +247,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/3e73b9623c10.webp",
    "allergens": {
     "contains": [
-     "gluten",
      "milk",
-     "mustard"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "fenugreek-kissed-fries",
-   "name": "Fenugreek Kissed Fries",
-   "category": "Street Plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 940
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "mowgli/2075ec663e84.webp",
-   "allergens": {
-    "contains": [
      "sulphites"
     ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "treacle-tamarind-fries",
-   "name": "Treacle Tamarind Fries",
-   "category": "Street Plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 1153
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "mowgli/c859584aa24e.webp",
-   "allergens": {
-    "contains": [
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "mowgli-chip-butty",
-   "name": "Mowgli Chip Butty",
-   "category": "Street Plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 1082
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "mowgli/02e639434033.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
    }
   },
   {
    "id": "diwali-cauliflower",
    "name": "Diwali Cauliflower",
-   "category": "Street Plates",
+   "category": "Small Street Plates",
    "serving": "",
    "nutrients": {
-    "calories": 559
+    "calories": 336
    },
    "tags": [
     "vegetarian"
@@ -329,7 +282,7 @@
   {
    "id": "mowgli-crispy-wings",
    "name": "Mowgli Crispy Wings",
-   "category": "Street Plates",
+   "category": "Small Street Plates",
    "serving": "",
    "nutrients": {
     "calories": 590
@@ -349,57 +302,9 @@
    }
   },
   {
-   "id": "monkey-tandoor-roti",
-   "name": "Monkey Tandoor Roti",
-   "category": "Street Plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 682
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "mowgli/722b43b6fa1d.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "angry-bird",
-   "name": "Angry Bird",
-   "category": "Street Plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 840
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "mowgli/0c0138d66a2f.webp",
-   "allergens": {
-    "contains": [
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "gunpowder-chicken",
    "name": "Gunpowder Chicken",
-   "category": "Street Plates",
+   "category": "Small Street Plates",
    "serving": "",
    "nutrients": {
     "calories": 467
@@ -418,9 +323,59 @@
    }
   },
   {
+   "id": "himalayan-cheese-toast",
+   "name": "Himalayan Cheese Toast",
+   "category": "Small Street Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 564
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "mowgli/3e73b9623c10.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mowgli-chip-butty",
+   "name": "Mowgli Chip Butty",
+   "category": "Small Street Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1082
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "mowgli/02e639434033.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
    "id": "sticky-chicken",
    "name": "Sticky Chicken",
-   "category": "Street Plates",
+   "category": "Small Street Plates",
    "serving": "",
    "nutrients": {
     "calories": 601
@@ -441,34 +396,12 @@
    }
   },
   {
-   "id": "maas-lamb-chops",
-   "name": "Maa’s Lamb Chops",
-   "category": "Street Plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 802
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "mowgli/894b9638884a.webp",
-   "allergens": {
-    "contains": [
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "mother-butter-chicken",
    "name": "Mother Butter Chicken",
-   "category": "The House Kitchen",
+   "category": "The House Kitchen Curries",
    "serving": "",
    "nutrients": {
-    "calories": 388
+    "calories": 444
    },
    "tags": [],
    "limitedTime": false,
@@ -486,7 +419,7 @@
   {
    "id": "house-chicken-curry",
    "name": "House Chicken Curry",
-   "category": "The House Kitchen",
+   "category": "The House Kitchen Curries",
    "serving": "",
    "nutrients": {
     "calories": 481
@@ -503,16 +436,13 @@
      "mustard",
      "nuts"
     ],
-    "mayContain": [],
-    "nuts": [
-     "almond"
-    ]
+    "mayContain": []
    }
   },
   {
    "id": "house-lamb-curry",
    "name": "House Lamb Curry",
-   "category": "The House Kitchen",
+   "category": "The House Kitchen Curries",
    "serving": "",
    "nutrients": {
     "calories": 465
@@ -529,34 +459,9 @@
    }
   },
   {
-   "id": "mowgli-chicken-biryani",
-   "name": "Mowgli Chicken Biryani",
-   "category": "The House Kitchen",
-   "serving": "",
-   "nutrients": {
-    "calories": 933
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "mowgli/372cfa8fbe15.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "goan-fish-curry",
    "name": "Goan Fish Curry",
-   "category": "The House Kitchen",
+   "category": "The House Kitchen Curries",
    "serving": "",
    "nutrients": {
     "calories": 288
@@ -578,10 +483,10 @@
   {
    "id": "aunty-geetas-prawn-curry",
    "name": "Aunty Geeta’s Prawn Curry",
-   "category": "The House Kitchen",
+   "category": "The House Kitchen Curries",
    "serving": "",
    "nutrients": {
-    "calories": 195
+    "calories": 210
    },
    "tags": [],
    "limitedTime": false,
@@ -600,7 +505,7 @@
   {
    "id": "mowgli-paneer",
    "name": "Mowgli Paneer",
-   "category": "The House Kitchen",
+   "category": "The House Kitchen Curries",
    "serving": "",
    "nutrients": {
     "calories": 516
@@ -623,7 +528,7 @@
   {
    "id": "mowgli-black-dahl",
    "name": "Mowgli Black Dahl",
-   "category": "The House Kitchen",
+   "category": "The House Kitchen Curries",
    "serving": "",
    "nutrients": {
     "calories": 608
@@ -646,7 +551,7 @@
   {
    "id": "temple-dahl",
    "name": "Temple Dahl",
-   "category": "The House Kitchen",
+   "category": "The House Kitchen Curries",
    "serving": "",
    "nutrients": {
     "calories": 361
@@ -667,7 +572,7 @@
   {
    "id": "tea-steeped-chickpeas",
    "name": "Tea Steeped Chickpeas",
-   "category": "The House Kitchen",
+   "category": "The House Kitchen Curries",
    "serving": "",
    "nutrients": {
     "calories": 293
@@ -688,7 +593,7 @@
   {
    "id": "picnic-potato-curry",
    "name": "Picnic Potato Curry",
-   "category": "The House Kitchen",
+   "category": "The House Kitchen Curries",
    "serving": "",
    "nutrients": {
     "calories": 262
@@ -710,30 +615,9 @@
    }
   },
   {
-   "id": "homestyle-cumin-rice",
-   "name": "Homestyle Cumin Rice",
-   "category": "Curry Companions",
-   "serving": "",
-   "nutrients": {
-    "calories": 315
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "mowgli/80555e01f0d1.webp",
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "garlic-butter-paratha",
-   "name": "Garlic Butter Paratha",
-   "category": "Curry Companions",
+   "id": "garlic-and-coriander-butter-paratha",
+   "name": "Garlic & Coriander Butter Paratha",
+   "category": "Companions",
    "serving": "",
    "nutrients": {
     "calories": 453
@@ -745,7 +629,6 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/41267cb6f35b.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -758,7 +641,7 @@
   {
    "id": "puffed-puri-bread",
    "name": "Puffed Puri Bread",
-   "category": "Curry Companions",
+   "category": "Companions",
    "serving": "",
    "nutrients": {
     "calories": 168
@@ -775,16 +658,13 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
    "id": "roti-breads",
    "name": "Roti Breads",
-   "category": "Curry Companions",
+   "category": "Companions",
    "serving": "",
    "nutrients": {
     "calories": 439
@@ -802,19 +682,16 @@
      "gluten",
      "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
-   "id": "mini-poppadoms",
-   "name": "Mini Poppadoms",
-   "category": "Curry Companions",
+   "id": "mowgli-cumin-rice",
+   "name": "Mowgli Cumin Rice",
+   "category": "Companions",
    "serving": "",
    "nutrients": {
-    "calories": 110
+    "calories": 315
    },
    "tags": [
     "vegetarian"
@@ -823,18 +700,35 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/5ec414ac72c7.webp",
    "allergens": {
-    "contains": [
-     "milk"
-    ],
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "masala-carrots",
+   "name": "Masala Carrots",
+   "category": "Companions",
+   "serving": "",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
     "mayContain": []
    }
   },
   {
    "id": "mowgli-slaw",
    "name": "Mowgli Slaw",
-   "category": "Curry Companions",
+   "category": "Companions",
    "serving": "",
    "nutrients": {
     "calories": 430
@@ -847,6 +741,53 @@
    "components": [],
    "modifiers": [],
    "image": "mowgli/14b5edc6d13f.webp",
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fenugreek-kissed-fries",
+   "name": "Fenugreek Kissed Fries",
+   "category": "Companions",
+   "serving": "",
+   "nutrients": {
+    "calories": 940
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "mowgli/2075ec663e84.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "treacle-tamarind-fries",
+   "name": "Treacle Tamarind Fries",
+   "category": "Companions",
+   "serving": "",
+   "nutrients": {
+    "calories": 1153
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "mowgli/c859584aa24e.webp",
    "allergens": {
     "contains": [
      "mustard",
@@ -990,12 +931,36 @@
    }
   },
   {
+   "id": "kids-chocolate-chat-bombs",
+   "name": "Kids Chocolate Chat Bombs",
+   "category": "Kids Menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 391
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
    "id": "ice-cream-cone-vanilla",
    "name": "Ice Cream Cone – Vanilla",
    "category": "Sweet",
    "serving": "",
    "nutrients": {
-    "calories": 244
+    "calories": 221
    },
    "tags": [
     "vegetarian"
@@ -1011,10 +976,7 @@
      "milk",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1039,10 +1001,7 @@
      "milk",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1066,10 +1025,7 @@
      "gluten",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1093,10 +1049,51 @@
      "gluten",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chocolate-and-sour-cherry-chat-bombs",
+   "name": "Chocolate & Sour Cherry Chat Bombs",
+   "category": "Sweet",
+   "serving": "",
+   "nutrients": {
+    "calories": 436
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sticky-ginger-toffee-pudding",
+   "name": "Sticky Ginger Toffee Pudding",
+   "category": "Sweet",
+   "serving": "",
+   "nutrients": {
+    "calories": 520
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
    }
   },
   {
@@ -1121,10 +1118,7 @@
      "milk",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1150,10 +1144,7 @@
      "milk",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "oats"
-    ]
+    "mayContain": []
    }
   }
  ],

@@ -1,0 +1,1230 @@
+{
+ "schemaVersion": 1,
+ "id": "mytime-active",
+ "name": "Mytime Active",
+ "cuisine": "Leisure centre & golf cafe",
+ "builderType": "standard",
+ "aliases": [
+  "mytime active",
+  "mytimeactive",
+  "mytime",
+  "eatwell by mytime active",
+  "mytime active golf"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Mytime Active Eatwell menus with calories: Golf Menu, The Pavilion Menu and High Elms | Bromley Menu (PDFs created 25 September 2026)",
+  "url": "https://www.mytimeactive.co.uk/our-menu",
+  "checkedOn": "2026-10-09"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, per dish as printed on Mytime Active's golf, Pavilion (leisure centre) and High Elms menus; protein, carbs and fat are not published. Not every venue serves every menu and one dish can print different calories on different menus. Golfers' breakfast rolls are not listed.",
+ "allergenGuide": {
+  "title": "Mytime Active allergen information: Golf Menu Allergens and Leisure Menu Allergens (PDFs linked from the Our Menu page, September 2026)",
+  "url": "https://www.mytimeactive.co.uk/our-menu",
+  "checkedOn": "2026-10-09",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Golf menu: Breakfast",
+  "Golf menu: Breakfast extras",
+  "Golf menu: Jacket potatoes",
+  "Golf menu: Sides",
+  "Golf menu: Sandwiches & baguettes",
+  "Golf menu: Clubhouse favourites",
+  "Pavilion menu: Breakfast",
+  "Pavilion menu: Lighter breakfast choices",
+  "Pavilion menu: Fresh & healthy salads",
+  "Pavilion menu: Jacket potatoes",
+  "Pavilion menu: Sandwiches, wraps & baguettes",
+  "Pavilion menu: Hot favourites",
+  "Pavilion menu: Sharing platters",
+  "Pavilion menu: Sides",
+  "Pavilion menu: Active kids",
+  "Pavilion menu: Stone baked pizzas",
+  "High Elms menu: Rolls & wraps",
+  "High Elms menu: Toasties & melts",
+  "High Elms menu: Pizzas"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "golf-two-slices-of-toast-with-jam-or-marmalade",
+   "name": "Two slices of toast with jam or marmalade",
+   "category": "Golf menu: Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 585
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-toast-with-baked-beans",
+   "name": "Toast with baked beans",
+   "category": "Golf menu: Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 753
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-toast-with-cheese",
+   "name": "Toast with cheese",
+   "category": "Golf menu: Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1096
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-toast-with-two-eggs-cooked-your-way",
+   "name": "Toast with two eggs cooked your way",
+   "category": "Golf menu: Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 755
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-toast-with-avocado",
+   "name": "Toast with avocado",
+   "category": "Golf menu: Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 775
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-full-english-breakfast-with-a-hot-drink",
+   "name": "Full English Breakfast with a hot drink",
+   "category": "Golf menu: Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1023
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-vegan-breakfast-with-a-hot-drink",
+   "name": "Vegan Breakfast with a hot drink",
+   "category": "Golf menu: Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 551
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-cumberland-sausage-breakfast-extra",
+   "name": "Cumberland sausage (breakfast extra)",
+   "category": "Golf menu: Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-vegan-sausage-breakfast-extra",
+   "name": "Vegan sausage (breakfast extra)",
+   "category": "Golf menu: Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 68
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-bacon-breakfast-extra",
+   "name": "Bacon (breakfast extra)",
+   "category": "Golf menu: Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 65
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-avocado-breakfast-extra",
+   "name": "Avocado (breakfast extra)",
+   "category": "Golf menu: Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 107
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-two-eggs-breakfast-extra",
+   "name": "Two eggs (breakfast extra)",
+   "category": "Golf menu: Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 144
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-baked-beans-breakfast-extra",
+   "name": "Baked beans (breakfast extra)",
+   "category": "Golf menu: Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 87
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-1-toast-breakfast-extra",
+   "name": "1 toast (breakfast extra)",
+   "category": "Golf menu: Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-1-hash-brown-breakfast-extra",
+   "name": "1 hash brown (breakfast extra)",
+   "category": "Golf menu: Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 123
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-half-tomato-breakfast-extra",
+   "name": "Half tomato (breakfast extra)",
+   "category": "Golf menu: Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-jacket-potato-with-cheese",
+   "name": "Jacket potato with cheese",
+   "category": "Golf menu: Jacket potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 884
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-jacket-potato-with-beans",
+   "name": "Jacket potato with beans",
+   "category": "Golf menu: Jacket potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 721
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-jacket-potato-with-tuna-mayonnaise",
+   "name": "Jacket potato with tuna mayonnaise",
+   "category": "Golf menu: Jacket potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 827
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-jacket-potato-with-prawns-and-marie-rose-dressing",
+   "name": "Jacket potato with prawns & Marie Rose dressing",
+   "category": "Golf menu: Jacket potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 709
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-fries",
+   "name": "Fries",
+   "category": "Golf menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 735
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-loaded-fries-with-cheese-and-bacon",
+   "name": "Loaded fries with cheese & bacon",
+   "category": "Golf menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 1002
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-tuna-mayonnaise-sandwich-or-baguette",
+   "name": "Tuna mayonnaise sandwich or baguette",
+   "category": "Golf menu: Sandwiches & baguettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 571
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-prawns-with-marie-rose-dressing-sandwich-or-baguette",
+   "name": "Prawns with Marie Rose dressing sandwich or baguette",
+   "category": "Golf menu: Sandwiches & baguettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 536
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-cheese-and-ham-sandwich-or-baguette",
+   "name": "Cheese & ham sandwich or baguette",
+   "category": "Golf menu: Sandwiches & baguettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 583
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-egg-mayonnaise-sandwich-or-baguette",
+   "name": "Egg mayonnaise sandwich or baguette",
+   "category": "Golf menu: Sandwiches & baguettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 726
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-clubhouse-baguette",
+   "name": "Clubhouse baguette",
+   "category": "Golf menu: Clubhouse favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 1186
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-bacon-and-brie-melt",
+   "name": "Bacon & Brie melt",
+   "category": "Golf menu: Clubhouse favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 791
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-tuna-and-cheese-melt",
+   "name": "Tuna & cheese melt",
+   "category": "Golf menu: Clubhouse favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 820
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-ham-and-cheese-melt",
+   "name": "Ham & cheese melt",
+   "category": "Golf menu: Clubhouse favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 583
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golf-sausage-and-onion-baguette",
+   "name": "Sausage & onion baguette",
+   "category": "Golf menu: Clubhouse favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 808
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-pancake-stack-with-bacon-and-maple-flavoured-syrup",
+   "name": "Pancake stack with bacon & maple flavoured syrup",
+   "category": "Pavilion menu: Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 537
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-pancake-stack-with-mixed-berries-and-maple-flavoured-syrup",
+   "name": "Pancake stack with mixed berries & maple flavoured syrup",
+   "category": "Pavilion menu: Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 449
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-greek-style-yoghurt-mixed-berries-and-granola",
+   "name": "Greek style yoghurt, mixed berries & granola",
+   "category": "Pavilion menu: Lighter breakfast choices",
+   "serving": "",
+   "nutrients": {
+    "calories": 303
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-porridge-pot",
+   "name": "Porridge pot",
+   "category": "Pavilion menu: Lighter breakfast choices",
+   "serving": "",
+   "nutrients": {
+    "calories": 217
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-toast-with-butter-and-jam-or-marmalade",
+   "name": "Toast with butter & jam or marmalade",
+   "category": "Pavilion menu: Lighter breakfast choices",
+   "serving": "",
+   "nutrients": {
+    "calories": 585
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-chicken-pesto-pasta-salad",
+   "name": "Chicken pesto pasta salad",
+   "category": "Pavilion menu: Fresh & healthy salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 411
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-falafel-and-harissa-grain-salad",
+   "name": "Falafel & harissa grain salad",
+   "category": "Pavilion menu: Fresh & healthy salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 616
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-jacket-potato-with-cheese",
+   "name": "Jacket potato with cheese",
+   "category": "Pavilion menu: Jacket potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 884
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-jacket-potato-with-beans",
+   "name": "Jacket potato with beans",
+   "category": "Pavilion menu: Jacket potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 721
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-jacket-potato-with-cheese-and-beans",
+   "name": "Jacket potato with cheese & beans",
+   "category": "Pavilion menu: Jacket potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 891
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-jacket-potato-with-tuna-mayonnaise",
+   "name": "Jacket potato with tuna mayonnaise",
+   "category": "Pavilion menu: Jacket potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 827
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-jacket-potato-with-prawns-and-marie-rose",
+   "name": "Jacket potato with prawns & Marie Rose",
+   "category": "Pavilion menu: Jacket potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 709
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-tuna-mayonnaise-sandwich-wrap-or-baguette",
+   "name": "Tuna mayonnaise sandwich, wrap or baguette",
+   "category": "Pavilion menu: Sandwiches, wraps & baguettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 632
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-egg-mayonnaise-sandwich-wrap-or-baguette",
+   "name": "Egg mayonnaise sandwich, wrap or baguette",
+   "category": "Pavilion menu: Sandwiches, wraps & baguettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 612
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-prawns-and-marie-rose-sandwich-wrap-or-baguette",
+   "name": "Prawns & Marie Rose sandwich, wrap or baguette",
+   "category": "Pavilion menu: Sandwiches, wraps & baguettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 532
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-cheese-and-ham-sandwich-wrap-or-baguette",
+   "name": "Cheese & ham sandwich, wrap or baguette",
+   "category": "Pavilion menu: Sandwiches, wraps & baguettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 521
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-falafel-wrap",
+   "name": "Falafel wrap",
+   "category": "Pavilion menu: Sandwiches, wraps & baguettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 331
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-toasted-club-sandwich",
+   "name": "Toasted club sandwich",
+   "category": "Pavilion menu: Hot favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 1141
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-fish-goujon-baguette",
+   "name": "Fish goujon baguette",
+   "category": "Pavilion menu: Hot favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 662
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-bacon-baguette",
+   "name": "Bacon baguette",
+   "category": "Pavilion menu: Hot favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 605
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-sausage-baguette",
+   "name": "Sausage baguette",
+   "category": "Pavilion menu: Hot favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 885
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-cheese-toastie",
+   "name": "Cheese toastie",
+   "category": "Pavilion menu: Hot favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 619
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-ham-and-cheese-toastie",
+   "name": "Ham & cheese toastie",
+   "category": "Pavilion menu: Hot favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 584
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-chicken-sharer-platter",
+   "name": "Chicken sharer platter",
+   "category": "Pavilion menu: Sharing platters",
+   "serving": "",
+   "nutrients": {
+    "calories": 1432
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-vegetarian-sharer-platter",
+   "name": "Vegetarian sharer platter",
+   "category": "Pavilion menu: Sharing platters",
+   "serving": "",
+   "nutrients": {
+    "calories": 2279
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-fries",
+   "name": "Fries",
+   "category": "Pavilion menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 735
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-loaded-fries-with-cheese-and-bacon",
+   "name": "Loaded fries with cheese & bacon",
+   "category": "Pavilion menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 1002
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-onion-rings",
+   "name": "Onion rings",
+   "category": "Pavilion menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 394
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-garlic-bread",
+   "name": "Garlic bread",
+   "category": "Pavilion menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 386
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-cheesy-garlic-bread",
+   "name": "Cheesy garlic bread",
+   "category": "Pavilion menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 718
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-kids-lunch-deal",
+   "name": "Kids lunch deal",
+   "category": "Pavilion menu: Active kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 452
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-kids-chicken-goujons-and-fries",
+   "name": "Kids chicken goujons & fries",
+   "category": "Pavilion menu: Active kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 735
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-kids-cod-goujons-and-fries",
+   "name": "Kids cod goujons & fries",
+   "category": "Pavilion menu: Active kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 564
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-kids-pasta-bows-in-tomato-sauce-and-garlic-bread",
+   "name": "Kids pasta bows in tomato sauce & garlic bread",
+   "category": "Pavilion menu: Active kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 566
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-kids-sausages-and-fries",
+   "name": "Kids sausages & fries",
+   "category": "Pavilion menu: Active kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 779
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-kids-crudit-s-and-hummus",
+   "name": "Kids crudités & hummus",
+   "category": "Pavilion menu: Active kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 180
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-margherita-pizza",
+   "name": "Margherita pizza",
+   "category": "Pavilion menu: Stone baked pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 905
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-vegetarian-pizza",
+   "name": "Vegetarian pizza",
+   "category": "Pavilion menu: Stone baked pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 994
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-bbq-chicken-pizza",
+   "name": "BBQ chicken pizza",
+   "category": "Pavilion menu: Stone baked pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 935
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pavilion-pepperoni-pizza",
+   "name": "Pepperoni pizza",
+   "category": "Pavilion menu: Stone baked pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1136
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "high-elms-all-day-breakfast-wrap",
+   "name": "All day breakfast wrap",
+   "category": "High Elms menu: Rolls & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 532
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "high-elms-sausage-sourdough-ciabatta",
+   "name": "Sausage sourdough ciabatta",
+   "category": "High Elms menu: Rolls & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 384
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "high-elms-bacon-sourdough-ciabatta",
+   "name": "Bacon sourdough ciabatta",
+   "category": "High Elms menu: Rolls & wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 316
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "high-elms-ham-and-cheese-toastie",
+   "name": "Ham & cheese toastie",
+   "category": "High Elms menu: Toasties & melts",
+   "serving": "",
+   "nutrients": {
+    "calories": 419
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "high-elms-cheese-and-slow-roasted-tomato-toastie",
+   "name": "Cheese & slow roasted tomato toastie",
+   "category": "High Elms menu: Toasties & melts",
+   "serving": "",
+   "nutrients": {
+    "calories": 359
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "high-elms-cheese-and-onion-toastie",
+   "name": "Cheese & onion toastie",
+   "category": "High Elms menu: Toasties & melts",
+   "serving": "",
+   "nutrients": {
+    "calories": 422
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "high-elms-tuna-melt-panini",
+   "name": "Tuna melt panini",
+   "category": "High Elms menu: Toasties & melts",
+   "serving": "",
+   "nutrients": {
+    "calories": 481
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "high-elms-margherita-pizza",
+   "name": "Margherita pizza",
+   "category": "High Elms menu: Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 906
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "high-elms-bbq-chicken-pizza",
+   "name": "BBQ chicken pizza",
+   "category": "High Elms menu: Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 934
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

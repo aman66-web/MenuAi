@@ -12,16 +12,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Hard Rock Cafe London menu with calories (Drinks & Eats, footer 2/26 - London, Feb 2026) and Messi kids meal menu (footer MAY 26), as linked from the cafe's own London page",
+  "title": "Hard Rock Cafe London menu with calories (Drinks & Eats, footer 2/26 - London, Feb 2026) and Messi kids meal menu (footer OCT 26), as linked from the cafe's own London page",
   "url": "https://cafe.hardrock.com/london/",
-  "checkedOn": "2026-10-07"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
- "note": "Hard Rock Cafe prints calories only, beside each dish, on its London menus (food and soft drinks 2/26, kids meal 5/26): no protein, carbs, fat or salt. Cocktails, beer, wine and brunch print none and are not listed. Figures are for the London cafe; other UK cafes may differ. Chicken Dippers exclude their sauces.",
+ "note": "Hard Rock Cafe prints calories only, beside each dish, on its London menus (food and soft drinks 2/26, kids meal 10/26): no protein, carbs, fat or salt. Cocktails, beer, wine and brunch print none and are not listed. Figures are for the London cafe; other UK cafes may differ. Chicken Dippers exclude their sauces.",
  "allergenGuide": {
-  "title": "Hard Rock Cafe London Old Park Lane allergen list, 'Food & Beverage Allergens' PDF linked from cafe.hardrock.com/london (20 pages, file dated 7 October 2026)",
-  "url": "https://cafe.hardrock.com/london/files/5330/Food_menu_allergen_sheet_HardRockCafeLondon.pdf",
-  "checkedOn": "2026-10-07",
+  "title": "Hard Rock Cafe London Old Park Lane allergen list, 'Food & Beverage Allergens' PDF linked from cafe.hardrock.com/london (21 pages, file dated 2 November 2026)",
+  "url": "https://cafe.hardrock.com/london/files/5330/Hard_Rock_Cafe_London__allergen_sheet_November_2026.pdf",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": false
  },

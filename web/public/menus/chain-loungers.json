@@ -13,16 +13,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Loungers (Lounge) nutrition and allergen menus on Ten Kites: Standard, Christmas, Gluten Free, Vegan, Kids, Drinks, Egg Free and Milk Free (accessed 2026-10-08, no date shown)",
+  "title": "Loungers (Lounge) nutrition and allergen menus on Ten Kites: Standard, Christmas, Gluten Free, Vegan, Kids, Drinks, Egg Free and Milk Free (accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/loungers/lounges09",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "The Lounge menu page hides calories by default behind a \"Hide Calories\" switch (set it to No to show them). Calories only: protein, carbs and fat are not published. GF, EF and MF are the chain's gluten, egg and milk free dishes. Cocktails, shots and a few dishes show no calories and are not listed. Not Cosy Club or Brightside.",
  "allergenGuide": {
-  "title": "Loungers (Lounge) allergen information on the Ten Kites menus (accessed 2026-10-08, no date shown)",
+  "title": "Loungers (Lounge) allergen information on the Ten Kites menus (accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/loungers/lounges09",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -2369,7 +2369,7 @@
    "category": "Sides",
    "serving": "",
    "nutrients": {
-    "calories": 386
+    "calories": 465
    },
    "tags": [
     "vegetarian"
@@ -2716,7 +2716,7 @@
    "category": "Cakes + bakes",
    "serving": "",
    "nutrients": {
-    "calories": 344
+    "calories": 517
    },
    "tags": [
     "vegetarian"
@@ -2953,7 +2953,7 @@
    "category": "Christmas menu",
    "serving": "",
    "nutrients": {
-    "calories": 569
+    "calories": 573
    },
    "tags": [
     "vegetarian"
@@ -2982,7 +2982,7 @@
    "category": "Christmas menu",
    "serving": "",
    "nutrients": {
-    "calories": 552
+    "calories": 553
    },
    "tags": [],
    "limitedTime": true,
@@ -3035,7 +3035,7 @@
    "category": "Christmas menu",
    "serving": "",
    "nutrients": {
-    "calories": 344
+    "calories": 343
    },
    "tags": [
     "vegetarian"
@@ -3068,7 +3068,7 @@
    "category": "Christmas menu",
    "serving": "",
    "nutrients": {
-    "calories": 536
+    "calories": 539
    },
    "tags": [
     "vegetarian"
@@ -3192,7 +3192,7 @@
    "category": "Christmas menu",
    "serving": "",
    "nutrients": {
-    "calories": 1429
+    "calories": 1433
    },
    "tags": [
     "contains_pork"
@@ -3223,7 +3223,7 @@
    "category": "Christmas menu",
    "serving": "",
    "nutrients": {
-    "calories": 1757
+    "calories": 1792
    },
    "tags": [
     "vegetarian"
@@ -3317,7 +3317,7 @@
    "category": "Christmas menu",
    "serving": "",
    "nutrients": {
-    "calories": 898
+    "calories": 901
    },
    "tags": [
     "vegetarian"
@@ -3378,7 +3378,7 @@
    "category": "Christmas menu",
    "serving": "",
    "nutrients": {
-    "calories": 1289
+    "calories": 1341
    },
    "tags": [
     "contains_pork"
@@ -3457,12 +3457,39 @@
    }
   },
   {
+   "id": "baileys-cheesecake",
+   "name": "Baileys™ Cheesecake",
+   "category": "Christmas menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 648
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "lounges-chocolate-orange-mousse",
    "name": "Lounge’s Chocolate Orange Mousse",
    "category": "Christmas menu",
    "serving": "",
    "nutrients": {
-    "calories": 441
+    "calories": 421
    },
    "tags": [
     "vegetarian"
@@ -3518,13 +3545,8 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "nuts"
-    ]
+    "contains": [],
+    "mayContain": []
    }
   },
   {
@@ -3533,7 +3555,7 @@
    "category": "Christmas menu",
    "serving": "",
    "nutrients": {
-    "calories": 351
+    "calories": 394
    },
    "tags": [
     "vegetarian"
@@ -4103,7 +4125,7 @@
    "category": "Gluten free menu",
    "serving": "",
    "nutrients": {
-    "calories": 852
+    "calories": 846
    },
    "tags": [
     "contains_beef"
@@ -5178,7 +5200,7 @@
    "category": "Gluten free menu",
    "serving": "",
    "nutrients": {
-    "calories": 386
+    "calories": 465
    },
    "tags": [
     "vegetarian"
@@ -5212,13 +5234,8 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "nuts"
-    ]
+    "contains": [],
+    "mayContain": []
    }
   },
   {
@@ -5436,7 +5453,7 @@
    "category": "Vegan menu",
    "serving": "",
    "nutrients": {
-    "calories": 722
+    "calories": 721
    },
    "tags": [
     "vegetarian"
@@ -5773,7 +5790,7 @@
    "category": "Vegan menu",
    "serving": "",
    "nutrients": {
-    "calories": 224
+    "calories": 223
    },
    "tags": [
     "vegetarian"
@@ -5993,7 +6010,7 @@
    "category": "Vegan menu",
    "serving": "",
    "nutrients": {
-    "calories": 386
+    "calories": 465
    },
    "tags": [
     "vegetarian"
@@ -6041,7 +6058,7 @@
    "category": "Vegan menu",
    "serving": "",
    "nutrients": {
-    "calories": 587
+    "calories": 441
    },
    "tags": [
     "vegetarian"
@@ -6051,13 +6068,8 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "nuts"
-    ]
+    "contains": [],
+    "mayContain": []
    }
   },
   {
@@ -8629,7 +8641,7 @@
    "category": "Egg free menu",
    "serving": "",
    "nutrients": {
-    "calories": 843
+    "calories": 842
    },
    "tags": [
     "contains_beef"
@@ -8652,7 +8664,7 @@
    "category": "Egg free menu",
    "serving": "",
    "nutrients": {
-    "calories": 1043
+    "calories": 1042
    },
    "tags": [
     "contains_pork"
@@ -9208,7 +9220,7 @@
    "category": "Egg free menu",
    "serving": "",
    "nutrients": {
-    "calories": 386
+    "calories": 465
    },
    "tags": [
     "vegetarian"
@@ -9374,13 +9386,8 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "nuts"
-    ]
+    "contains": [],
+    "mayContain": []
    }
   },
   {
@@ -9470,7 +9477,7 @@
    "category": "Milk free menu",
    "serving": "",
    "nutrients": {
-    "calories": 782
+    "calories": 781
    },
    "tags": [
     "vegetarian"
@@ -10298,7 +10305,7 @@
    "category": "Milk free menu",
    "serving": "",
    "nutrients": {
-    "calories": 386
+    "calories": 465
    },
    "tags": [
     "vegetarian"
@@ -10380,13 +10387,8 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "nuts"
-    ]
+    "contains": [],
+    "mayContain": []
    }
   },
   {

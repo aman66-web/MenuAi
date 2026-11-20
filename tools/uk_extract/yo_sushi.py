@@ -42,7 +42,7 @@ NOT_RANKABLE = {"curry sauce", "chocolate & mandarin cream puff"}  # the cream p
 # Alcoholic drinks are not published (founder's rule of 11 Oct 2026): printed name -> reason.
 ALCOHOL = {"yuzu spicy margarita": "an alcoholic cocktail (Christmas Menu section)"}
 # printed numbers that look odd; they are entered exactly as printed
-ODD = {"Pulled Shiitake Teriyaki Donburi": "Fibre is printed as 27.0 g, far above the other dishes (7.6 g for the fried rice)"}
+ODD: dict[str, str] = {}  # 20 Nov 2026: the page now prints 24.9 g fibre for the Pulled Shiitake Teriyaki Donburi (our row), so the old "27.0 g" note is gone
 # The same page prints each dish's 14 allergen columns (a tick = contains, "M" = may contain, as its key says), a
 # "Contains: ... May contain: ..." line naming the cereals, and the label ids of its own allergen filter; all three are
 # cross-checked (tenkites_c.allergens_from_columns). Column names and spellings as the page prints them:

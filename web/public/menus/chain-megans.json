@@ -12,15 +12,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Megan's Allergen Guide: 'All' menu and section pages, nutrition values per serving (menus.tenkites.com/megans/megans; accessed 2026-10-08, no date shown)",
+  "title": "Megan's Allergen Guide: 'All' menu and section pages, nutrition values per serving (menus.tenkites.com/megans/megans; accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/megans/megans",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Figures are per serving from Megan's own allergen guide. Hot drinks in the Signature, Coffees & hotties and Iced sections are printed without the milk choice (milks and syrups are listed separately). Alcoholic drinks and a few extras have no figures.",
  "allergenGuide": {
-  "title": "Megan's Allergen Guide (menus.tenkites.com/megans/megans, linked from megans.co.uk/allergy-information; accessed 2026-10-08, no date shown)",
+  "title": "Megan's Allergen Guide (menus.tenkites.com/megans/megans, linked from megans.co.uk/allergy-information; accessed 2026-11-17, no date shown)",
   "url": "https://menus.tenkites.com/megans/megans",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -1504,9 +1504,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -1600,9 +1597,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -1875,10 +1869,10 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [],
-    "mayContain": [
+    "contains": [
      "sesame"
-    ]
+    ],
+    "mayContain": []
    }
   },
   {
@@ -2036,9 +2030,9 @@
    "category": "To start & share",
    "serving": "",
    "nutrients": {
-    "calories": 1452,
+    "calories": 1451,
     "protein": 45,
-    "carbs": 173,
+    "carbs": 172,
     "fat": 63,
     "saturatedFat": 24,
     "sugar": 42,
@@ -2412,9 +2406,9 @@
    "category": "Arayes, pitas & grills",
    "serving": "",
    "nutrients": {
-    "calories": 1391,
+    "calories": 1389,
     "protein": 51,
-    "carbs": 166,
+    "carbs": 165,
     "fat": 56,
     "saturatedFat": 21,
     "sugar": 29,
@@ -2453,13 +2447,13 @@
    "category": "Arayes, pitas & grills",
    "serving": "",
    "nutrients": {
-    "calories": 1285,
+    "calories": 1283,
     "protein": 30,
-    "carbs": 143,
+    "carbs": 142,
     "fat": 64,
     "saturatedFat": 21,
-    "sugar": 31,
-    "salt": 10.1
+    "sugar": 30,
+    "salt": 10
    },
    "tags": [],
    "limitedTime": false,
@@ -2492,13 +2486,13 @@
    "category": "Arayes, pitas & grills",
    "serving": "",
    "nutrients": {
-    "calories": 1311,
+    "calories": 1309,
     "protein": 55,
     "carbs": 142,
     "fat": 56,
     "saturatedFat": 21,
     "sugar": 29,
-    "salt": 10.4
+    "salt": 10.3
    },
    "tags": [],
    "limitedTime": false,
@@ -2719,13 +2713,13 @@
    "category": "Arayes, pitas & grills",
    "serving": "",
    "nutrients": {
-    "calories": 1242,
+    "calories": 1240,
     "protein": 81,
     "carbs": 76,
     "fat": 65,
     "saturatedFat": 15,
     "sugar": 15,
-    "salt": 9.8
+    "salt": 9.7
    },
    "tags": [],
    "limitedTime": false,
@@ -2751,13 +2745,13 @@
    "category": "Arayes, pitas & grills",
    "serving": "",
    "nutrients": {
-    "calories": 1160,
-    "protein": 82,
+    "calories": 1159,
+    "protein": 81,
     "carbs": 61,
     "fat": 62,
     "saturatedFat": 9.5,
     "sugar": 15,
-    "salt": 7.5
+    "salt": 7.4
    },
    "tags": [],
    "limitedTime": false,
@@ -2786,13 +2780,13 @@
    "category": "Kebabs",
    "serving": "",
    "nutrients": {
-    "calories": 1027,
+    "calories": 1023,
     "protein": 66,
-    "carbs": 74,
+    "carbs": 73,
     "fat": 50,
     "saturatedFat": 7.4,
-    "sugar": 16,
-    "salt": 6.5
+    "sugar": 15,
+    "salt": 6.4
    },
    "tags": [],
    "limitedTime": false,
@@ -2822,12 +2816,12 @@
    "category": "Kebabs",
    "serving": "",
    "nutrients": {
-    "calories": 1020,
+    "calories": 1016,
     "protein": 37,
-    "carbs": 83,
+    "carbs": 82,
     "fat": 58,
     "saturatedFat": 17,
-    "sugar": 25,
+    "sugar": 24,
     "salt": 6
    },
    "tags": [],
@@ -2928,12 +2922,12 @@
    "category": "Kebabs",
    "serving": "",
    "nutrients": {
-    "calories": 1245,
+    "calories": 1241,
     "protein": 70,
     "carbs": 73,
     "fat": 73,
     "saturatedFat": 22,
-    "sugar": 15,
+    "sugar": 14,
     "salt": 7.7
    },
    "tags": [],
@@ -2966,13 +2960,13 @@
    "category": "Kebabs",
    "serving": "",
    "nutrients": {
-    "calories": 1259,
+    "calories": 1255,
     "protein": 84,
-    "carbs": 75,
+    "carbs": 74,
     "fat": 67,
     "saturatedFat": 19,
     "sugar": 17,
-    "salt": 7.2
+    "salt": 7.1
    },
    "tags": [],
    "limitedTime": false,
@@ -3002,13 +2996,13 @@
    "category": "Kebabs",
    "serving": "",
    "nutrients": {
-    "calories": 1302,
+    "calories": 1298,
     "protein": 114,
-    "carbs": 75,
+    "carbs": 74,
     "fat": 58,
     "saturatedFat": 9.2,
     "sugar": 16,
-    "salt": 7.7
+    "salt": 7.6
    },
    "tags": [],
    "limitedTime": false,
@@ -3075,12 +3069,12 @@
    "category": "Bowls",
    "serving": "",
    "nutrients": {
-    "calories": 1041,
+    "calories": 1039,
     "protein": 26,
-    "carbs": 89,
+    "carbs": 88,
     "fat": 61,
     "saturatedFat": 8.5,
-    "sugar": 21,
+    "sugar": 20,
     "salt": 5.6
    },
    "tags": [],
@@ -3177,13 +3171,13 @@
    "category": "Bowls",
    "serving": "",
    "nutrients": {
-    "calories": 957,
+    "calories": 952,
     "protein": 40,
-    "carbs": 68,
+    "carbs": 67,
     "fat": 56,
     "saturatedFat": 10,
-    "sugar": 13,
-    "salt": 6.5
+    "sugar": 12,
+    "salt": 6.4
    },
    "tags": [],
    "limitedTime": false,
@@ -3209,9 +3203,9 @@
    "category": "Bowls",
    "serving": "",
    "nutrients": {
-    "calories": 1274,
+    "calories": 1270,
     "protein": 50,
-    "carbs": 68,
+    "carbs": 67,
     "fat": 87,
     "saturatedFat": 16,
     "sugar": 12,

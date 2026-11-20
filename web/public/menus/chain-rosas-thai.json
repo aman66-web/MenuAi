@@ -12,16 +12,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Rosa's Thai Nutritional Info and allergen guide, London: All Day, Desserts and Drinks menus (viewthe.menu/dy2v, accessed 2026-10-08, no date shown)",
+  "title": "Rosa's Thai Nutritional Info and allergen guide, London: All Day, Desserts and Drinks menus (viewthe.menu/dy2v, accessed 2026-11-17, no date shown)",
   "url": "https://viewthe.menu/dy2v",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Rosa's Thai prints calories only, per dish as listed (no portion basis, protein, carbs or fat), on its London menu page. Drinks with no calories printed, set menus (set lunch, Thai Feast, unlimited curries), the Little Rosa's kids menu and condiments are not listed.",
  "allergenGuide": {
-  "title": "Rosa's Thai allergen guide, London menus (viewthe.menu/dy2v, accessed 2026-10-08, no date shown)",
+  "title": "Rosa's Thai allergen guide, London menus (viewthe.menu/dy2v, accessed 2026-11-17, no date shown)",
   "url": "https://viewthe.menu/dy2v",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -827,8 +827,8 @@
    }
   },
   {
-   "id": "chilli-and-basil-stir-fry-chicken",
-   "name": "Chilli & Basil Stir-Fry - Chicken",
+   "id": "chilli-and-basil-stir-fry-minced-chicken",
+   "name": "Chilli & Basil Stir-Fry - Minced Chicken",
    "category": "One plate 'Jarn Diew'",
    "serving": "",
    "nutrients": {
@@ -1069,6 +1069,7 @@
      "crustaceans",
      "eggs",
      "milk",
+     "molluscs",
      "mustard",
      "nuts",
      "peanuts",
@@ -1216,6 +1217,7 @@
      "crustaceans",
      "eggs",
      "milk",
+     "molluscs",
      "mustard",
      "nuts",
      "peanuts",
@@ -1362,6 +1364,7 @@
      "eggs",
      "fish",
      "milk",
+     "molluscs",
      "mustard",
      "nuts",
      "peanuts",
@@ -1563,6 +1566,7 @@
      "crustaceans",
      "eggs",
      "milk",
+     "molluscs",
      "nuts",
      "peanuts",
      "sesame",
@@ -1667,6 +1671,7 @@
      "crustaceans",
      "eggs",
      "fish",
+     "molluscs",
      "mustard",
      "nuts",
      "peanuts",
@@ -1784,6 +1789,7 @@
      "crustaceans",
      "fish",
      "milk",
+     "molluscs",
      "mustard",
      "nuts",
      "peanuts",
@@ -1883,6 +1889,7 @@
      "eggs",
      "fish",
      "milk",
+     "molluscs",
      "mustard",
      "peanuts",
      "sesame"
@@ -2046,6 +2053,7 @@
      "crustaceans",
      "fish",
      "milk",
+     "molluscs",
      "mustard",
      "nuts",
      "peanuts",
@@ -2606,6 +2614,7 @@
     "mayContain": [
      "celery",
      "eggs",
+     "fish",
      "lupin",
      "mustard",
      "nuts",

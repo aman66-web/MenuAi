@@ -11,15 +11,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Harvester online main menu with nutrition (live menu feed): menu '211. Harvester DN26 Main Menu *LIVE*', last modified 2026-10-06",
+  "title": "Harvester online main menu with nutrition (live menu feed): menu '111. Harvester DN26 Main Menu *LIVE*', last modified 2026-11-16",
   "url": "https://api-production.mbplc.io/webappbff/api/v1/menus/dynamic?id=8d410232-9d61-500c-8e48-40e3e6d449c7&websitePageUrlPath=main-menu1&idType=Brand&salesChannel=DynamicWebMenus",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-11-17"
  },
  "note": "Main menu only (kids, breakfast, salad bar and set menus aren't included). Each dish is listed as the menu publishes it: a side, sauce, swap or topping you choose isn't added in, to the numbers or to the allergens. Weights in names (oz) are approximate uncooked weights.",
  "allergenGuide": {
-  "title": "Harvester allergens in its online menu (M&B menu feed): menu '211. Harvester DN26 Main Menu *LIVE*', ingredients last modified 2026-10-06",
+  "title": "Harvester allergens in its online menu (M&B menu feed): menu '111. Harvester DN26 Main Menu *LIVE*', ingredients last modified 2026-11-16",
   "url": "https://api-production.mbplc.io/webappbff/api/v1/menus/dynamic?id=8d410232-9d61-500c-8e48-40e3e6d449c7&websitePageUrlPath=main-menu1&idType=Brand&salesChannel=DynamicWebMenus",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -80,12 +80,12 @@
    "serving": "",
    "nutrients": {
     "calories": 390,
-    "protein": 21.3,
-    "carbs": 19.9,
-    "fat": 24.7,
-    "saturatedFat": 3.6,
-    "sugar": 3,
-    "salt": 1.52
+    "protein": 20.9,
+    "carbs": 19.4,
+    "fat": 24.5,
+    "saturatedFat": 3.9,
+    "sugar": 3.3,
+    "salt": 1.62
    },
    "tags": [],
    "limitedTime": false,
@@ -188,9 +188,9 @@
     "protein": 34.4,
     "carbs": 3.4,
     "fat": 20.6,
-    "saturatedFat": 5.7,
-    "sugar": 0.9,
-    "salt": 1.31
+    "saturatedFat": 5.2,
+    "sugar": 1.7,
+    "salt": 1.72
    },
    "tags": [],
    "limitedTime": false,
@@ -346,13 +346,13 @@
    "category": "Starters & small plates",
    "serving": "",
    "nutrients": {
-    "calories": 839,
-    "protein": 20.3,
-    "carbs": 88.2,
-    "fat": 42.6,
-    "saturatedFat": 6.9,
+    "calories": 827,
+    "protein": 20.1,
+    "carbs": 88,
+    "fat": 41.4,
+    "saturatedFat": 6.3,
     "sugar": 9.1,
-    "salt": 3.11
+    "salt": 3.25
    },
    "tags": [
     "vegetarian"
@@ -410,12 +410,12 @@
    "serving": "Platter for 2-3 people",
    "nutrients": {
     "calories": 1974,
-    "protein": 69,
-    "carbs": 154.2,
-    "fat": 117.5,
-    "saturatedFat": 39.4,
-    "sugar": 37.9,
-    "salt": 10.07
+    "protein": 68.5,
+    "carbs": 153.7,
+    "fat": 117.4,
+    "saturatedFat": 39.7,
+    "sugar": 38.2,
+    "salt": 10.17
    },
    "tags": [],
    "limitedTime": false,
@@ -444,12 +444,12 @@
    "serving": "Platter for 2-3 people",
    "nutrients": {
     "calories": 1741,
-    "protein": 126.9,
-    "carbs": 75.7,
-    "fat": 102.9,
-    "saturatedFat": 32.4,
-    "sugar": 27.3,
-    "salt": 4.83
+    "protein": 126.4,
+    "carbs": 75.2,
+    "fat": 102.7,
+    "saturatedFat": 32.2,
+    "sugar": 28.5,
+    "salt": 5.35
    },
    "tags": [
     "contains_pork"
@@ -965,24 +965,24 @@
    }
   },
   {
-   "id": "garlic-and-herb-new-potatoes",
-   "name": "Garlic & Herb New Potatoes",
-   "category": "Sides",
+   "id": "hot-honey-and-cranberry",
+   "name": "Hot Honey & Cranberry",
+   "category": "Sauces & dips",
    "serving": "",
    "nutrients": {
-    "calories": 204,
-    "protein": 4.6,
-    "carbs": 40.2,
-    "fat": 1.8,
-    "saturatedFat": 0.4,
-    "sugar": 2.5,
-    "salt": 1.1
+    "calories": 72,
+    "protein": 0.1,
+    "carbs": 14.3,
+    "fat": 1.5,
+    "saturatedFat": 0.1,
+    "sugar": 9.8,
+    "salt": 0.12
    },
    "tags": [
     "vegetarian"
    ],
    "limitedTime": false,
-   "rankable": true,
+   "rankable": false,
    "components": [],
    "modifiers": [],
    "allergens": {
@@ -991,106 +991,18 @@
    }
   },
   {
-   "id": "peri-peri-spiced-grains",
-   "name": "Peri-Peri Spiced Grains",
+   "id": "chips",
+   "name": "Chips",
    "category": "Sides",
    "serving": "",
    "nutrients": {
-    "calories": 284,
-    "protein": 6.9,
-    "carbs": 36.8,
-    "fat": 11.1,
-    "saturatedFat": 1.1,
-    "sugar": 4.7,
-    "salt": 1.45
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "cheesy-garlic-corn",
-   "name": "Cheesy Garlic Corn",
-   "category": "Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 266,
-    "protein": 8.3,
-    "carbs": 23,
-    "fat": 15,
-    "saturatedFat": 5.8,
-    "sugar": 3.5,
-    "salt": 1.13
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "super-green-medley",
-   "name": "Super Green Medley",
-   "category": "Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 78,
-    "protein": 4.6,
-    "carbs": 8.3,
-    "fat": 1.8,
-    "saturatedFat": 0.2,
-    "sugar": 4.8,
-    "salt": 0.83
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "sweet-potato-fries",
-   "name": "Sweet Potato Fries",
-   "category": "Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 470,
-    "protein": 1.8,
-    "carbs": 57.9,
-    "fat": 24.4,
-    "saturatedFat": 1.8,
-    "sugar": 15.5,
-    "salt": 0.88
+    "calories": 440,
+    "protein": 2.9,
+    "carbs": 62,
+    "fat": 14.6,
+    "saturatedFat": 1,
+    "sugar": 0.3,
+    "salt": 1.11
    },
    "tags": [
     "vegetarian"
@@ -1117,32 +1029,6 @@
     "saturatedFat": 0,
     "sugar": 3,
     "salt": 1.5
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "chips",
-   "name": "Chips",
-   "category": "Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 440,
-    "protein": 2.9,
-    "carbs": 62,
-    "fat": 14.6,
-    "saturatedFat": 1,
-    "sugar": 0.3,
-    "salt": 1.11
    },
    "tags": [
     "vegetarian"
@@ -1235,6 +1121,146 @@
     "contains": [
      "sulphites"
     ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sweet-potato-fries",
+   "name": "Sweet Potato Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 470,
+    "protein": 1.8,
+    "carbs": 57.9,
+    "fat": 24.4,
+    "saturatedFat": 1.8,
+    "sugar": 15.5,
+    "salt": 0.88
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garlic-and-herb-new-potatoes",
+   "name": "Garlic & Herb New Potatoes",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 204,
+    "protein": 4.6,
+    "carbs": 40.2,
+    "fat": 1.8,
+    "saturatedFat": 0.4,
+    "sugar": 2.5,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "peri-peri-spiced-grains",
+   "name": "Peri-Peri Spiced Grains",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 284,
+    "protein": 7.7,
+    "carbs": 37.3,
+    "fat": 10.8,
+    "saturatedFat": 1.8,
+    "sugar": 5.3,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheesy-garlic-corn",
+   "name": "Cheesy Garlic Corn",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 228,
+    "protein": 7.7,
+    "carbs": 22.1,
+    "fat": 11,
+    "saturatedFat": 3.8,
+    "sugar": 3.6,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "super-green-medley",
+   "name": "Super Green Medley",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 78,
+    "protein": 4.6,
+    "carbs": 8.3,
+    "fat": 1.8,
+    "saturatedFat": 0.2,
+    "sugar": 4.8,
+    "salt": 0.83
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
     "mayContain": []
    }
   },
@@ -1422,12 +1448,12 @@
    "serving": "",
    "nutrients": {
     "calories": 144,
-    "protein": 10.1,
-    "carbs": 2.5,
-    "fat": 10.4,
-    "saturatedFat": 4.8,
-    "sugar": 1.9,
-    "salt": 0.43
+    "protein": 10,
+    "carbs": 2.7,
+    "fat": 10.7,
+    "saturatedFat": 4.7,
+    "sugar": 2,
+    "salt": 0.67
    },
    "tags": [],
    "limitedTime": false,
@@ -1537,18 +1563,44 @@
    }
   },
   {
+   "id": "smashed-beyond-patty",
+   "name": "Smashed Beyond Patty",
+   "category": "Add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 158,
+    "protein": 13.7,
+    "carbs": 2.8,
+    "fat": 9.9,
+    "saturatedFat": 2.7,
+    "sugar": 0,
+    "salt": 0.58
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
    "id": "10oz-ribeye",
    "name": "10oz Ribeye",
    "category": "Chargrilled steaks",
    "serving": "",
    "nutrients": {
     "calories": 1009,
-    "protein": 68.8,
-    "carbs": 42.5,
-    "fat": 49.8,
-    "saturatedFat": 18.6,
-    "sugar": 9.7,
-    "salt": 1.56
+    "protein": 69.2,
+    "carbs": 42.4,
+    "fat": 50,
+    "saturatedFat": 18.5,
+    "sugar": 9.8,
+    "salt": 1.55
    },
    "tags": [
     "contains_beef"
@@ -1577,12 +1629,12 @@
    "serving": "",
    "nutrients": {
     "calories": 810,
-    "protein": 50.1,
-    "carbs": 42.5,
-    "fat": 47.6,
-    "saturatedFat": 15.6,
-    "sugar": 9.7,
-    "salt": 3.01
+    "protein": 50.4,
+    "carbs": 42.4,
+    "fat": 47.9,
+    "saturatedFat": 15.5,
+    "sugar": 9.8,
+    "salt": 3
    },
    "tags": [
     "contains_beef"
@@ -1610,13 +1662,13 @@
    "category": "Grills & combos",
    "serving": "",
    "nutrients": {
-    "calories": 2049,
-    "protein": 121.6,
-    "carbs": 143,
-    "fat": 103.1,
-    "saturatedFat": 26.4,
+    "calories": 2038,
+    "protein": 121.4,
+    "carbs": 142.8,
+    "fat": 101.9,
+    "saturatedFat": 25.8,
     "sugar": 34.6,
-    "salt": 6.74
+    "salt": 6.88
    },
    "tags": [
     "contains_beef"
@@ -1763,12 +1815,12 @@
    "serving": "",
    "nutrients": {
     "calories": 1523,
-    "protein": 100.8,
-    "carbs": 108.9,
-    "fat": 69.3,
-    "saturatedFat": 17.4,
+    "protein": 101.1,
+    "carbs": 108.8,
+    "fat": 69.4,
+    "saturatedFat": 17.5,
     "sugar": 9.8,
-    "salt": 5.48
+    "salt": 5.31
    },
    "tags": [
     "contains_beef",
@@ -1803,11 +1855,11 @@
    "nutrients": {
     "calories": 1197,
     "protein": 71.6,
-    "carbs": 101.2,
-    "fat": 50,
-    "saturatedFat": 9.4,
-    "sugar": 14.2,
-    "salt": 8.05
+    "carbs": 102.6,
+    "fat": 50.3,
+    "saturatedFat": 9.1,
+    "sugar": 12.8,
+    "salt": 7.76
    },
    "tags": [
     "contains_pork"
@@ -1836,13 +1888,13 @@
    "category": "Grills & combos",
    "serving": "",
    "nutrients": {
-    "calories": 1477,
-    "protein": 80.5,
-    "carbs": 91.6,
-    "fat": 81.9,
-    "saturatedFat": 26.3,
-    "sugar": 20.1,
-    "salt": 5.4
+    "calories": 1466,
+    "protein": 80.4,
+    "carbs": 91.3,
+    "fat": 80.7,
+    "saturatedFat": 25.7,
+    "sugar": 20.2,
+    "salt": 5.54
    },
    "tags": [
     "contains_pork"
@@ -1865,12 +1917,12 @@
    "serving": "",
    "nutrients": {
     "calories": 1031,
-    "protein": 60,
-    "carbs": 98.1,
-    "fat": 35.4,
-    "saturatedFat": 4.8,
-    "sugar": 14.9,
-    "salt": 4.21
+    "protein": 60.4,
+    "carbs": 97.9,
+    "fat": 35.6,
+    "saturatedFat": 4.7,
+    "sugar": 15,
+    "salt": 4.2
    },
    "tags": [
     "contains_pork"
@@ -1900,12 +1952,12 @@
    "serving": "",
    "nutrients": {
     "calories": 1235,
-    "protein": 103.1,
-    "carbs": 98.1,
-    "fat": 36,
-    "saturatedFat": 5,
-    "sugar": 14.9,
-    "salt": 6.45
+    "protein": 103.5,
+    "carbs": 97.9,
+    "fat": 36.2,
+    "saturatedFat": 4.9,
+    "sugar": 15,
+    "salt": 6.44
    },
    "tags": [
     "contains_pork"
@@ -2224,12 +2276,12 @@
    "serving": "",
    "nutrients": {
     "calories": 1311,
-    "protein": 75,
-    "carbs": 117.2,
-    "fat": 53.3,
-    "saturatedFat": 15.9,
-    "sugar": 31.5,
-    "salt": 6.19
+    "protein": 74.7,
+    "carbs": 116.8,
+    "fat": 53.2,
+    "saturatedFat": 16.1,
+    "sugar": 31.8,
+    "salt": 6.27
    },
    "tags": [
     "contains_pork"
@@ -2293,12 +2345,12 @@
    "serving": "",
    "nutrients": {
     "calories": 1455,
-    "protein": 45.5,
+    "protein": 45.8,
     "carbs": 180.2,
     "fat": 53.2,
     "saturatedFat": 16.2,
     "sugar": 58.9,
-    "salt": 6.72
+    "salt": 6.83
    },
    "tags": [
     "contains_pork"
@@ -2397,6 +2449,71 @@
    }
   },
   {
+   "id": "simply-salmon",
+   "name": "Simply Salmon",
+   "category": "The classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 624,
+    "protein": 46.7,
+    "carbs": 13.7,
+    "fat": 41.1,
+    "saturatedFat": 9.6,
+    "sugar": 8.4,
+    "salt": 1.59
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "simply-chicken",
+   "name": "Simply Chicken",
+   "category": "The classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 245,
+    "protein": 37.3,
+    "carbs": 13.3,
+    "fat": 3.6,
+    "saturatedFat": 0.7,
+    "sugar": 5.4,
+    "salt": 2.47
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
    "id": "camembert-and-cherry-tomato-tart",
    "name": "Camembert & Cherry Tomato Tart",
    "category": "The classics",
@@ -2470,71 +2587,6 @@
      "wheat",
      "rye"
     ]
-   }
-  },
-  {
-   "id": "chargrilled-chicken-simply-classics",
-   "name": "Chargrilled Chicken (Simply Classics)",
-   "category": "The classics",
-   "serving": "",
-   "nutrients": {
-    "calories": 245,
-    "protein": 37.3,
-    "carbs": 13.3,
-    "fat": 3.6,
-    "saturatedFat": 0.7,
-    "sugar": 5.4,
-    "salt": 2.47
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [
-     "celery",
-     "milk",
-     "mustard",
-     "soya",
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "grilled-salmon-simply-classics",
-   "name": "Grilled Salmon (Simply Classics)",
-   "category": "The classics",
-   "serving": "",
-   "nutrients": {
-    "calories": 624,
-    "protein": 46.7,
-    "carbs": 13.7,
-    "fat": 41.1,
-    "saturatedFat": 9.6,
-    "sugar": 8.4,
-    "salt": 1.59
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "eggs",
-     "fish",
-     "milk"
-    ],
-    "mayContain": []
    }
   },
   {
@@ -2636,18 +2688,18 @@
    }
   },
   {
-   "id": "grilled-salmon-rice-bowl",
-   "name": "Grilled Salmon (Rice bowl)",
+   "id": "grilled-salmon",
+   "name": "Grilled Salmon",
    "category": "Rice bowls",
    "serving": "",
    "nutrients": {
-    "calories": 919,
-    "protein": 49.1,
-    "carbs": 80.2,
-    "fat": 43.3,
-    "saturatedFat": 6.6,
-    "sugar": 14.7,
-    "salt": 1.9
+    "calories": 908,
+    "protein": 48.9,
+    "carbs": 79.9,
+    "fat": 42.1,
+    "saturatedFat": 6,
+    "sugar": 14.8,
+    "salt": 2.04
    },
    "tags": [],
    "limitedTime": false,
@@ -2676,13 +2728,13 @@
    "category": "Rice bowls",
    "serving": "",
    "nutrients": {
-    "calories": 775,
-    "protein": 10.6,
-    "carbs": 119.5,
-    "fat": 27,
-    "saturatedFat": 3.7,
+    "calories": 764,
+    "protein": 10.4,
+    "carbs": 119.3,
+    "fat": 25.9,
+    "saturatedFat": 3.2,
     "sugar": 15,
-    "salt": 2.28
+    "salt": 2.41
    },
    "tags": [
     "vegetarian"
@@ -2711,13 +2763,13 @@
    "category": "Rice bowls",
    "serving": "",
    "nutrients": {
-    "calories": 720,
-    "protein": 39.7,
-    "carbs": 76.4,
-    "fat": 27.3,
-    "saturatedFat": 3.9,
-    "sugar": 11.1,
-    "salt": 2.38
+    "calories": 708,
+    "protein": 39.5,
+    "carbs": 76.1,
+    "fat": 26.2,
+    "saturatedFat": 3.3,
+    "sugar": 11.2,
+    "salt": 2.52
    },
    "tags": [],
    "limitedTime": false,
@@ -2744,13 +2796,13 @@
    "category": "Rice bowls",
    "serving": "",
    "nutrients": {
-    "calories": 728,
-    "protein": 10.5,
-    "carbs": 116.8,
-    "fat": 23.1,
-    "saturatedFat": 3.4,
+    "calories": 716,
+    "protein": 10.3,
+    "carbs": 116.6,
+    "fat": 22,
+    "saturatedFat": 2.9,
     "sugar": 12.4,
-    "salt": 2.18
+    "salt": 2.31
    },
    "tags": [
     "vegetarian"
@@ -2858,11 +2910,11 @@
    "nutrients": {
     "calories": 599,
     "protein": 5.4,
-    "carbs": 84.8,
-    "fat": 26.3,
-    "saturatedFat": 9.2,
-    "sugar": 64.1,
-    "salt": 0.67
+    "carbs": 84.6,
+    "fat": 27,
+    "saturatedFat": 9,
+    "sugar": 64.8,
+    "salt": 0
    },
    "tags": [
     "vegetarian"
@@ -2958,12 +3010,12 @@
    "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 671,
-    "protein": 9.3,
-    "carbs": 90.3,
-    "fat": 29.9,
+    "calories": 666,
+    "protein": 9.5,
+    "carbs": 88.9,
+    "fat": 30,
     "saturatedFat": 15.6,
-    "sugar": 62.5,
+    "sugar": 62.3,
     "salt": 0.29
    },
    "tags": [
@@ -3065,11 +3117,11 @@
    "nutrients": {
     "calories": 334,
     "protein": 3.6,
-    "carbs": 48.7,
-    "fat": 13.7,
-    "saturatedFat": 4.9,
-    "sugar": 36.6,
-    "salt": 0.38
+    "carbs": 48.6,
+    "fat": 14.1,
+    "saturatedFat": 4.8,
+    "sugar": 37,
+    "salt": 0.04
    },
    "tags": [
     "vegetarian"
@@ -3097,12 +3149,12 @@
    "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 286,
-    "protein": 3.2,
-    "carbs": 39.2,
+    "calories": 284,
+    "protein": 3.3,
+    "carbs": 38.5,
     "fat": 12.8,
     "saturatedFat": 6.4,
-    "sugar": 25.3,
+    "sugar": 25.2,
     "salt": 0.1
    },
    "tags": [
@@ -3377,13 +3429,13 @@
    "category": "Sundaes",
    "serving": "",
    "nutrients": {
-    "calories": 551,
+    "calories": 540,
     "protein": 9.7,
-    "carbs": 68.2,
-    "fat": 26.4,
+    "carbs": 64.8,
+    "fat": 26.6,
     "saturatedFat": 15.8,
-    "sugar": 46.7,
-    "salt": 0.83
+    "sugar": 45.5,
+    "salt": 0.63
    },
    "tags": [
     "vegetarian"
@@ -3409,13 +3461,13 @@
    "category": "Sundaes",
    "serving": "",
    "nutrients": {
-    "calories": 696,
+    "calories": 685,
     "protein": 10.9,
-    "carbs": 82.4,
-    "fat": 35.5,
+    "carbs": 79,
+    "fat": 35.7,
     "saturatedFat": 21.1,
-    "sugar": 62.6,
-    "salt": 1.39
+    "sugar": 61.4,
+    "salt": 1.19
    },
    "tags": [
     "vegetarian"

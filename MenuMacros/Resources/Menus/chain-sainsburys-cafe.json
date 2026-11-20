@@ -1,0 +1,1430 @@
+{
+ "schemaVersion": 1,
+ "id": "sainsburys-cafe",
+ "name": "Sainsbury's Café",
+ "cuisine": "Cafe",
+ "builderType": "standard",
+ "aliases": [
+  "sainsburys cafe",
+  "sainsbury's cafe",
+  "sainsburys café",
+  "sainsbury's café"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Sainsbury's Café menus with calories and kJ (breakfast, breakfast sandwiches and baps, main meals, light bites and kids, drinks): five PDFs on help.sainsburys.co.uk, all created 18 April 2023, no menu date printed (accessed 8 October 2026)",
+  "url": "https://help.sainsburys.co.uk/client/asset/Cafemainmenu1.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Sainsbury's prints calories and kJ only, so protein, carbs and fat are not published. These are its café menus from April 2023 (no menu date is printed), so the café may have changed since. Breakfast figures are for white bread and baked egg; drinks use semi-skimmed milk. It says café food is not suitable for anyone with an allergy to any of the 14 allergens.",
+ "allergenGuide": {
+  "title": "Sainsbury's help: allergens and intolerances in own brand and in-store prepared products (tells shoppers with allergies to avoid its cafés; no per-item guide; no date shown)",
+  "url": "https://help.sainsburys.co.uk/help/products/products-instore-allergen",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": false,
+  "complete": false
+ },
+ "categories": [
+  "Breakfast",
+  "Breakfast sandwiches and baps",
+  "Main meals",
+  "Light bites",
+  "Kids",
+  "Drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "all-day-breakfast",
+   "name": "All day breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 805,
+    "energyKj": 3369
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "all-day-vegetarian-breakfast",
+   "name": "All day vegetarian breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 691,
+    "energyKj": 2898
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bitesize-breakfast",
+   "name": "Bitesize breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 533,
+    "energyKj": 2234
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bitesize-vegetarian-breakfast",
+   "name": "Bitesize vegetarian breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 479,
+    "energyKj": 2011
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-and-bacon",
+   "name": "Eggs & bacon",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 442,
+    "energyKj": 1845
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toast-and-one-topping-beans",
+   "name": "Toast and one topping: Beans",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 415,
+    "energyKj": 1759
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toast-and-one-topping-scrambled-eggs",
+   "name": "Toast and one topping: Scrambled eggs",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 471,
+    "energyKj": 1918
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toast-and-one-topping-cheese",
+   "name": "Toast and one topping: Cheese",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 384,
+    "energyKj": 1618
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toast-and-one-topping-eggs",
+   "name": "Toast and one topping: Eggs",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 421,
+    "energyKj": 1772
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toast",
+   "name": "Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 427,
+    "energyKj": 1799
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "porridge",
+   "name": "Porridge",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 380,
+    "energyKj": 1589
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-honey-to-porridge",
+   "name": "Add honey (to Porridge)",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 45,
+    "energyKj": 192
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-banana-to-porridge",
+   "name": "Add banana (to Porridge)",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 128,
+    "energyKj": 543
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-porridge",
+   "name": "Kids’ porridge",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 190,
+    "energyKj": 794
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-honey-to-kids-porridge",
+   "name": "Add honey (to Kids’ porridge)",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 45,
+    "energyKj": 192
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-banana-to-kids-porridge",
+   "name": "Add banana (to Kids’ porridge)",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 128,
+    "energyKj": 543
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-scrambled-egg-on-toast",
+   "name": "Kids’ scrambled egg on toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 236,
+    "energyKj": 990
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-sandwich-sausage",
+   "name": "Breakfast sandwich: Sausage",
+   "category": "Breakfast sandwiches and baps",
+   "serving": "",
+   "nutrients": {
+    "calories": 527,
+    "energyKj": 2211
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-sandwich-bacon",
+   "name": "Breakfast sandwich: Bacon",
+   "category": "Breakfast sandwiches and baps",
+   "serving": "",
+   "nutrients": {
+    "calories": 384,
+    "energyKj": 1613
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-sandwich-shroomdog",
+   "name": "Breakfast sandwich: Shroomdog",
+   "category": "Breakfast sandwiches and baps",
+   "serving": "",
+   "nutrients": {
+    "calories": 419,
+    "energyKj": 1765
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-bap-sausage",
+   "name": "Breakfast bap: Sausage",
+   "category": "Breakfast sandwiches and baps",
+   "serving": "",
+   "nutrients": {
+    "calories": 491,
+    "energyKj": 2057
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-bap-bacon",
+   "name": "Breakfast bap: Bacon",
+   "category": "Breakfast sandwiches and baps",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "energyKj": 1459
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-bap-shroomdog",
+   "name": "Breakfast bap: Shroomdog",
+   "category": "Breakfast sandwiches and baps",
+   "serving": "",
+   "nutrients": {
+    "calories": 383,
+    "energyKj": 1612
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bap-stack-add-on-sausage",
+   "name": "Bap stack add-on: Sausage",
+   "category": "Breakfast sandwiches and baps",
+   "serving": "",
+   "nutrients": {
+    "calories": 122,
+    "energyKj": 508
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bap-stack-add-on-mushroom",
+   "name": "Bap stack add-on: Mushroom",
+   "category": "Breakfast sandwiches and baps",
+   "serving": "",
+   "nutrients": {
+    "calories": 4,
+    "energyKj": 18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bap-stack-add-on-bacon",
+   "name": "Bap stack add-on: Bacon",
+   "category": "Breakfast sandwiches and baps",
+   "serving": "",
+   "nutrients": {
+    "calories": 50,
+    "energyKj": 209
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bap-stack-add-on-tomato",
+   "name": "Bap stack add-on: Tomato",
+   "category": "Breakfast sandwiches and baps",
+   "serving": "",
+   "nutrients": {
+    "calories": 5,
+    "energyKj": 21
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bap-stack-add-on-shroomdog",
+   "name": "Bap stack add-on: Shroomdog",
+   "category": "Breakfast sandwiches and baps",
+   "serving": "",
+   "nutrients": {
+    "calories": 68,
+    "energyKj": 286
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bap-stack-add-on-hash-brown",
+   "name": "Bap stack add-on: Hash brown",
+   "category": "Breakfast sandwiches and baps",
+   "serving": "",
+   "nutrients": {
+    "calories": 73,
+    "energyKj": 306
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bap-stack-add-on-baked-egg",
+   "name": "Bap stack add-on: Baked egg",
+   "category": "Breakfast sandwiches and baps",
+   "serving": "",
+   "nutrients": {
+    "calories": 91,
+    "energyKj": 379
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beer-battered-cod-and-chips",
+   "name": "Beer battered cod & chips",
+   "category": "Main meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 729,
+    "energyKj": 3059
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scampi-and-chips",
+   "name": "Scampi & chips",
+   "category": "Main meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 705,
+    "energyKj": 2963
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-egg-and-chips",
+   "name": "Ham, egg & chips",
+   "category": "Main meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 536,
+    "energyKj": 2247
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-lasagne",
+   "name": "Beef lasagne",
+   "category": "Main meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 496,
+    "energyKj": 2079
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-lasagne",
+   "name": "Vegetable lasagne",
+   "category": "Main meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 291,
+    "energyKj": 1229
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-burger",
+   "name": "BBQ chicken burger",
+   "category": "Main meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 734,
+    "energyKj": 3090
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "no-chicken-burger",
+   "name": "No chicken burger",
+   "category": "Main meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 745,
+    "energyKj": 3123
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza",
+   "name": "Margherita pizza",
+   "category": "Main meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 908,
+    "energyKj": 3804
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-pizza",
+   "name": "Pepperoni pizza",
+   "category": "Main meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 889,
+    "energyKj": 3732
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-and-ale-pie",
+   "name": "Steak & ale pie",
+   "category": "Main meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 866,
+    "energyKj": 3627
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausages-and-mash",
+   "name": "Sausages & mash",
+   "category": "Main meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 680,
+    "energyKj": 2846
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shroomdogs-and-mash",
+   "name": "Shroomdogs & mash",
+   "category": "Main meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 519,
+    "energyKj": 2177
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jacket-potato-with-beans",
+   "name": "Jacket potato with beans",
+   "category": "Light bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 315,
+    "energyKj": 1330
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jacket-potato-with-cheese",
+   "name": "Jacket potato with cheese",
+   "category": "Light bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 332,
+    "energyKj": 1393
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jacket-potato-with-cheese-and-beans",
+   "name": "Jacket potato with cheese & beans",
+   "category": "Light bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 356,
+    "energyKj": 1497
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jacket-potato-with-tuna-and-sweetcorn",
+   "name": "Jacket potato with tuna & sweetcorn",
+   "category": "Light bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 291,
+    "energyKj": 1219
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fish-finger-sandwich",
+   "name": "Fish finger sandwich",
+   "category": "Light bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 402,
+    "energyKj": 1699
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-and-basil-soup",
+   "name": "Tomato & basil soup",
+   "category": "Light bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 119,
+    "energyKj": 501
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chips",
+   "name": "Chips",
+   "category": "Light bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 383,
+    "energyKj": 1608
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nutella-pancakes",
+   "name": "Nutella pancakes",
+   "category": "Light bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 374,
+    "energyKj": 1568
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-and-sugar-pancakes",
+   "name": "Lemon & sugar pancakes",
+   "category": "Light bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 328,
+    "energyKj": 1380
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-main-shroomdog",
+   "name": "Kids’ main: Shroomdog",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 68,
+    "energyKj": 286
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-main-chicken-nuggets",
+   "name": "Kids’ main: Chicken nuggets",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 160,
+    "energyKj": 667
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-main-omega-3-fish-fingers",
+   "name": "Kids’ main: Omega-3 fish fingers",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 98,
+    "energyKj": 413
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-main-cheese-and-tomato-pizza",
+   "name": "Kids’ main: Cheese and tomato pizza",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 309,
+    "energyKj": 1304
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-main-sausage",
+   "name": "Kids’ main: Sausage",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 122,
+    "energyKj": 508
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-side-carrot-sticks",
+   "name": "Kids’ side: Carrot sticks",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 15,
+    "energyKj": 62
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-side-baked-beans",
+   "name": "Kids’ side: Baked beans",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 86,
+    "energyKj": 366
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-side-broccoli",
+   "name": "Kids’ side: Broccoli",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 18,
+    "energyKj": 73
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-side-half-jacket-potato",
+   "name": "Kids’ side: Half jacket potato",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 94,
+    "energyKj": 395
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-side-peas",
+   "name": "Kids’ side: Peas",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 42,
+    "energyKj": 175
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-side-mashed-potato",
+   "name": "Kids’ side: Mashed potato",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 52,
+    "energyKj": 216
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "filter-coffee-without-milk-regular",
+   "name": "Filter coffee, without milk (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "filter-coffee-without-milk-large",
+   "name": "Filter coffee, without milk (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-without-milk-regular",
+   "name": "Americano, without milk (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-without-milk-large",
+   "name": "Americano, without milk (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-regular",
+   "name": "Latte (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 137,
+    "energyKj": 570
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-large",
+   "name": "Latte (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 165,
+    "energyKj": 687
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-regular",
+   "name": "Cappuccino (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 111,
+    "energyKj": 461
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-large",
+   "name": "Cappuccino (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 156,
+    "energyKj": 648
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat white",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 79,
+    "energyKj": 327
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-espresso",
+   "name": "Double espresso",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-regular",
+   "name": "Mocha (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 131,
+    "energyKj": 544
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-large",
+   "name": "Mocha (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 182,
+    "energyKj": 757
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-regular",
+   "name": "Hot chocolate (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 148,
+    "energyKj": 618
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-large",
+   "name": "Hot chocolate (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 183,
+    "energyKj": 761
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "whipped-cream",
+   "name": "Whipped cream",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 73,
+    "energyKj": 302
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-espresso-shot",
+   "name": "Extra espresso shot",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "glass-of-milk",
+   "name": "Glass of milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 75,
+    "energyKj": 312
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "babyccino",
+   "name": "Babyccino",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 57,
+    "energyKj": 238
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "luxury-caramel-hot-chocolate",
+   "name": "Luxury caramel hot chocolate",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 275,
+    "energyKj": 1143
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-americano",
+   "name": "Iced americano",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte",
+   "name": "Iced latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 95,
+    "energyKj": 396
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-label-tea-without-milk",
+   "name": "Red Label tea (without milk)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "speciality-tea-without-milk",
+   "name": "Speciality tea (without milk)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-syrup",
+   "name": "Caramel syrup",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 32,
+    "energyKj": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hazelnut-syrup",
+   "name": "Hazelnut syrup",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 31,
+    "energyKj": 131
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mint-syrup",
+   "name": "Mint syrup",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 36,
+    "energyKj": 151
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-syrup",
+   "name": "Vanilla syrup",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 34,
+    "energyKj": 142
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sugar-free-caramel-syrup",
+   "name": "Sugar free caramel syrup",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "energyKj": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

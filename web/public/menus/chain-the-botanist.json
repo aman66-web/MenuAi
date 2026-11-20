@@ -10,16 +10,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "The Botanist Allergen Matrix with calories, 18 menus (Ten Kites page; no date printed, read 2026-10-08)",
+  "title": "The Botanist Allergen Matrix with calories, 19 menus (Ten Kites page; no date printed, read 2026-11-17)",
   "url": "https://menus.tenkites.com/nwtc/thebotanist",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only (kcal beside each dish); the page prints no protein, carbs or fat. Choices and add-ons are listed as their own items; the page does not say whether a dish's kcal includes the side offered with it. Drinks are left out: the page prints no calories for them.",
  "allergenGuide": {
-  "title": "The Botanist Allergen Matrix (Ten Kites page; no date printed, read 2026-10-08)",
+  "title": "The Botanist Allergen Matrix (Ten Kites page; no date printed, read 2026-11-17)",
   "url": "https://menus.tenkites.com/nwtc/thebotanist",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -28,7 +28,6 @@
   "Nibbles",
   "Small Plates & Sharing Boards",
   "Main Event",
-  "Main Event options",
   "Our Famous Hanging Kebabs™: Sauce",
   "Our Famous Hanging Kebabs™: Side",
   "Signature Kebabs",
@@ -53,14 +52,13 @@
   "Botanista Brunch: Brunch Dishes",
   "Botanista Brunch: Brunch Dishes options",
   "Botanista Brunch: Pastries",
-  "Group Dining Celebration Menu: The Main Event",
   "Group Dining Celebration Menu: The Main Event options",
   "Group Dining Celebration Menu: Our Famous Hanging Kebabs ™",
   "Group Dining Celebration Menu - From November 18th: The Main Event",
   "Gardener's Table Finger Food: Mix & Match",
   "Gardener's Table Finger Food: Boards",
-  "Gardener's Table Finger Food: Sandwiches",
   "Gardener's Table Finger Food: Condiments",
+  "Midnight Menu",
   "Pizza",
   "Pizza: Christmas Specials",
   "Pizza: Christmas Specials - Dips",
@@ -828,35 +826,6 @@
    }
   },
   {
-   "id": "add-herby-mash",
-   "name": "Add Herby Mash",
-   "category": "Main Event options",
-   "serving": "",
-   "nutrients": {
-    "calories": 365
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [
-     "celery",
-     "eggs",
-     "nuts",
-     "sesame",
-     "soya"
-    ]
-   }
-  },
-  {
    "id": "garlic-oil",
    "name": "Garlic Oil",
    "category": "Our Famous Hanging Kebabs™: Sauce",
@@ -1552,6 +1521,35 @@
    }
   },
   {
+   "id": "add-herby-mash",
+   "name": "Add Herby Mash",
+   "category": "Garden Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 365
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
    "id": "garlic-aioli-dip",
    "name": "Garlic Aioli Dip",
    "category": "Garden Sides",
@@ -1644,6 +1642,7 @@
     "mayContain": [
      "nuts",
      "peanuts",
+     "sesame",
      "sulphites"
     ]
    }
@@ -1706,7 +1705,7 @@
    "category": "Puddings",
    "serving": "",
    "nutrients": {
-    "calories": 1158
+    "calories": 1162
    },
    "tags": [
     "vegetarian"
@@ -3403,71 +3402,6 @@
    }
   },
   {
-   "id": "chicken-schnitzel",
-   "name": "Chicken Schnitzel",
-   "category": "Group Dining Celebration Menu: The Main Event",
-   "serving": "",
-   "nutrients": {
-    "calories": 869
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "eggs",
-     "milk",
-     "mustard",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "gluten",
-     "crustaceans",
-     "fish",
-     "lupin",
-     "molluscs",
-     "nuts",
-     "peanuts",
-     "sesame"
-    ]
-   }
-  },
-  {
-   "id": "house-burger",
-   "name": "House Burger",
-   "category": "Group Dining Celebration Menu: The Main Event",
-   "serving": "",
-   "nutrients": {
-    "calories": 728
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "eggs",
-     "mustard",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "milk",
-     "nuts",
-     "sesame"
-    ]
-   }
-  },
-  {
    "id": "add-harissa-halloumi-group-dining-celebration-menu-the-main-event-options",
    "name": "Add Harissa Halloumi",
    "category": "Group Dining Celebration Menu: The Main Event options",
@@ -3827,7 +3761,7 @@
    "category": "Gardener's Table Finger Food: Boards",
    "serving": "",
    "nutrients": {
-    "calories": 1922
+    "calories": 1931
    },
    "tags": [
     "vegetarian"
@@ -3921,66 +3855,6 @@
    }
   },
   {
-   "id": "sausage-sandwich",
-   "name": "Sausage Sandwich",
-   "category": "Gardener's Table Finger Food: Sandwiches",
-   "serving": "",
-   "nutrients": {
-    "calories": 1232
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [
-     "eggs",
-     "mustard",
-     "nuts",
-     "sesame",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "bacon-sandwich",
-   "name": "Bacon Sandwich",
-   "category": "Gardener's Table Finger Food: Sandwiches",
-   "serving": "",
-   "nutrients": {
-    "calories": 995
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [
-     "eggs",
-     "nuts",
-     "sesame",
-     "soya"
-    ]
-   }
-  },
-  {
    "id": "tomato-ketchup-dip",
    "name": "Tomato Ketchup Dip",
    "category": "Gardener's Table Finger Food: Condiments",
@@ -4022,6 +3896,66 @@
      "gluten"
     ],
     "mayContain": []
+   }
+  },
+  {
+   "id": "sausage-sandwich",
+   "name": "Sausage Sandwich",
+   "category": "Midnight Menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 1232
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "bacon-sandwich",
+   "name": "Bacon Sandwich",
+   "category": "Midnight Menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 995
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
    }
   },
   {
@@ -4161,16 +4095,14 @@
    }
   },
   {
-   "id": "hot-honey-pigs-in-blankets-pizza",
-   "name": "Hot Honey Pigs in Blankets Pizza",
+   "id": "hot-honey-pig",
+   "name": "Hot Honey Pig",
    "category": "Pizza: Christmas Specials",
    "serving": "",
    "nutrients": {
     "calories": 1035
    },
-   "tags": [
-    "contains_pork"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4190,8 +4122,8 @@
    }
   },
   {
-   "id": "roasted-butternut-and-camembert-pizza",
-   "name": "Roasted Butternut & Camembert Pizza",
+   "id": "roasted-butternut-and-camembert",
+   "name": "Roasted Butternut & Camembert",
    "category": "Pizza: Christmas Specials",
    "serving": "",
    "nutrients": {

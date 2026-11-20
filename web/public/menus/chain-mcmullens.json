@@ -15,15 +15,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "McMullen & Sons Mac's Classic menu with Nutrition (per portion), page macsclassicmenu04: Main, Sunday, Kids, Gluten Free, Gluten Free Sunday, Festive and Kid's tabs (Ten Kites page, no date shown; read 2026-10-08)",
+  "title": "McMullen & Sons Mac's Classic menu with Nutrition (per portion), page macsclassicmenu04: Main, Sunday, Kids, Gluten Free, Gluten Free Sunday, Festive and Kid's tabs (Ten Kites page, no date shown; read 2026-11-17)",
   "url": "https://menus.tenkites.com/mcmullenandsons/macsclassicmenu04",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Per portion from McMullen's Mac's Classic menu page (version 04, no date shown), which only some of its pubs use: many pubs publish their own menu pages, and other Classic versions differ in dishes and figures, so they are not included. Cold and alcoholic drinks are not on the page. Dishes whose own figures contradict each other are held back.",
  "allergenGuide": {
-  "title": "McMullen & Sons Dietary Information (allergens) on its online Mac's Classic menu: Main, Sunday, Kids, Gluten Free, Gluten Free Sunday, Festive and Kid's tabs (Ten Kites page, no date shown; read 2026-10-08)",
+  "title": "McMullen & Sons Dietary Information (allergens) on its online Mac's Classic menu: Main, Sunday, Kids, Gluten Free, Gluten Free Sunday, Festive and Kid's tabs (Ten Kites page, no date shown; read 2026-11-17)",
   "url": "https://menus.tenkites.com/mcmullenandsons/macsclassicmenu04",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -295,6 +295,7 @@
    "modifiers": [],
    "allergens": {
     "contains": [
+     "celery",
      "gluten",
      "eggs",
      "milk"
@@ -465,7 +466,7 @@
     "carbs": 9,
     "fat": 14,
     "saturatedFat": 4.6,
-    "sugar": 5.3,
+    "sugar": 5.2,
     "salt": 0.4
    },
    "tags": [
@@ -546,6 +547,192 @@
    }
   },
   {
+   "id": "roast-butternut-squash-and-red-chilli-soup",
+   "name": "Roast Butternut Squash & Red Chilli Soup",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 347,
+    "protein": 4.4,
+    "carbs": 37.5,
+    "fat": 22.2,
+    "saturatedFat": 5.8,
+    "sugar": 6.9,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "gluten-free-roast-butternut-squash-and-red-chilli-soup",
+   "name": "Gluten Free Roast Butternut Squash & Red Chilli Soup",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 353,
+    "protein": 4.5,
+    "carbs": 38.6,
+    "fat": 22.3,
+    "saturatedFat": 5.8,
+    "sugar": 6.9,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "parsnip-and-honey-soup",
+   "name": "Parsnip & Honey Soup",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 435,
+    "protein": 3.5,
+    "carbs": 35.3,
+    "fat": 29.8,
+    "saturatedFat": 12,
+    "sugar": 18.8,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "gluten-free-parsnip-and-honey-soup",
+   "name": "Gluten Free Parsnip & Honey Soup",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 442,
+    "protein": 3.5,
+    "carbs": 36.4,
+    "fat": 30,
+    "saturatedFat": 12,
+    "sugar": 18.8,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "leek-and-potato-soup",
+   "name": "Leek & Potato Soup",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 283,
+    "protein": 5,
+    "carbs": 44.6,
+    "fat": 10.8,
+    "saturatedFat": 4.2,
+    "sugar": 9.6,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "gluten-free-leek-and-potato-soup",
+   "name": "Gluten Free Leek & Potato Soup",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 290,
+    "protein": 5,
+    "carbs": 45.7,
+    "fat": 11,
+    "saturatedFat": 4.2,
+    "sugar": 9.6,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
+  },
+  {
    "id": "seafood-basket",
    "name": "Seafood Basket",
    "category": "Social sharers",
@@ -591,13 +778,13 @@
    "category": "Social sharers",
    "serving": "",
    "nutrients": {
-    "calories": 856,
-    "protein": 20.4,
-    "carbs": 114.1,
-    "fat": 33,
-    "saturatedFat": 6.6,
-    "sugar": 10.2,
-    "salt": 2.9
+    "calories": 881,
+    "protein": 21.4,
+    "carbs": 117.7,
+    "fat": 33.4,
+    "saturatedFat": 6.8,
+    "sugar": 10.6,
+    "salt": 5.9
    },
    "tags": [],
    "limitedTime": false,
@@ -867,13 +1054,13 @@
    "category": "Pub heroes",
    "serving": "",
    "nutrients": {
-    "calories": 724,
-    "protein": 64.7,
-    "carbs": 92.8,
-    "fat": 9.5,
-    "saturatedFat": 1.5,
-    "sugar": 9.4,
-    "salt": 3.1
+    "calories": 930,
+    "protein": 67.9,
+    "carbs": 112.8,
+    "fat": 22.1,
+    "saturatedFat": 2.9,
+    "sugar": 16.6,
+    "salt": 5.5
    },
    "tags": [],
    "limitedTime": false,
@@ -888,7 +1075,9 @@
      "sesame",
      "soya"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "peanuts"
+    ],
     "nuts": [
      "almond",
      "hazelnut",
@@ -907,13 +1096,13 @@
    "category": "Pub heroes",
    "serving": "",
    "nutrients": {
-    "calories": 1282,
-    "protein": 78.5,
-    "carbs": 175.7,
-    "fat": 27.6,
-    "saturatedFat": 8.9,
-    "sugar": 14.4,
-    "salt": 4.8
+    "calories": 1488,
+    "protein": 81.7,
+    "carbs": 195.7,
+    "fat": 40.2,
+    "saturatedFat": 10.3,
+    "sugar": 21.6,
+    "salt": 7.2
    },
    "tags": [],
    "limitedTime": false,
@@ -930,7 +1119,9 @@
      "sesame",
      "soya"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "peanuts"
+    ],
     "cereals": [
      "wheat",
      "rye",
@@ -955,13 +1146,13 @@
    "category": "Pub heroes",
    "serving": "",
    "nutrients": {
-    "calories": 547,
-    "protein": 16.5,
-    "carbs": 101.5,
-    "fat": 7.6,
-    "saturatedFat": 0.9,
-    "sugar": 15.3,
-    "salt": 2.8
+    "calories": 753,
+    "protein": 19.7,
+    "carbs": 121.5,
+    "fat": 20.2,
+    "saturatedFat": 2.3,
+    "sugar": 22.5,
+    "salt": 5.2
    },
    "tags": [
     "vegetarian"
@@ -978,7 +1169,9 @@
      "sesame",
      "soya"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "peanuts"
+    ],
     "nuts": [
      "almond",
      "hazelnut",
@@ -1147,13 +1340,13 @@
    "category": "Pub heroes",
    "serving": "",
    "nutrients": {
-    "calories": 1415,
-    "protein": 38.9,
-    "carbs": 163.9,
-    "fat": 64.5,
-    "saturatedFat": 21.6,
-    "sugar": 8.4,
-    "salt": 4.3
+    "calories": 2338,
+    "protein": 60.9,
+    "carbs": 267.9,
+    "fat": 110.5,
+    "saturatedFat": 49.6,
+    "sugar": 40.4,
+    "salt": 16.9
    },
    "tags": [
     "contains_beef"
@@ -5061,13 +5254,13 @@
    "category": "Kids: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 306,
-    "protein": 7.8,
-    "carbs": 37.7,
-    "fat": 12.2,
-    "saturatedFat": 1.6,
+    "calories": 564,
+    "protein": 29.4,
+    "carbs": 37.9,
+    "fat": 30.6,
+    "saturatedFat": 9,
     "sugar": 2.9,
-    "salt": 1.1
+    "salt": 2.4
    },
    "tags": [
     "contains_beef"
@@ -5098,13 +5291,13 @@
    "category": "Kids: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 318,
-    "protein": 7.9,
-    "carbs": 39.9,
-    "fat": 12.5,
-    "saturatedFat": 1.6,
+    "calories": 576,
+    "protein": 29.5,
+    "carbs": 40.2,
+    "fat": 30.9,
+    "saturatedFat": 9.1,
     "sugar": 3.2,
-    "salt": 1.2
+    "salt": 2.4
    },
    "tags": [
     "contains_beef"
@@ -5494,13 +5687,13 @@
    "category": "Festive: Starters",
    "serving": "",
    "nutrients": {
-    "calories": 320,
-    "protein": 3.9,
-    "carbs": 28.3,
-    "fat": 20.4,
+    "calories": 301,
+    "protein": 3.3,
+    "carbs": 24.5,
+    "fat": 20.2,
     "saturatedFat": 5.4,
-    "sugar": 13.2,
-    "salt": 3.6
+    "sugar": 10.6,
+    "salt": 0.8
    },
    "tags": [
     "vegetarian"
@@ -5533,13 +5726,13 @@
    "category": "Festive: Starters",
    "serving": "",
    "nutrients": {
-    "calories": 323,
-    "protein": 4,
-    "carbs": 28.8,
-    "fat": 20.5,
+    "calories": 304,
+    "protein": 3.4,
+    "carbs": 25,
+    "fat": 20.3,
     "saturatedFat": 5.4,
-    "sugar": 13.3,
-    "salt": 3.6
+    "sugar": 10.6,
+    "salt": 0.8
    },
    "tags": [
     "vegetarian"
@@ -5646,7 +5839,9 @@
      "milk",
      "soya"
     ],
-    "mayContain": [],
+    "mayContain": [
+     "eggs"
+    ],
     "cereals": [
      "wheat",
      "rye",
@@ -5682,7 +5877,8 @@
      "soya"
     ],
     "mayContain": [
-     "eggs"
+     "eggs",
+     "nuts"
     ],
     "cereals": [
      "wheat",
@@ -5716,7 +5912,9 @@
      "milk",
      "mustard"
     ],
-    "mayContain": []
+    "mayContain": [
+     "nuts"
+    ]
    }
   },
   {
@@ -5755,12 +5953,12 @@
    "category": "Festive: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 685,
+    "calories": 683,
     "protein": 73.4,
-    "carbs": 47.4,
+    "carbs": 46.9,
     "fat": 31.1,
     "saturatedFat": 6.4,
-    "sugar": 10.9,
+    "sugar": 10.6,
     "salt": 3.2
    },
    "tags": [],
@@ -5822,12 +6020,12 @@
    "category": "Festive: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1065,
+    "calories": 1062,
     "protein": 28.5,
-    "carbs": 115.8,
-    "fat": 49.6,
+    "carbs": 115.2,
+    "fat": 49.5,
     "saturatedFat": 17.1,
-    "sugar": 17.5,
+    "sugar": 17.2,
     "salt": 5.4
    },
    "tags": [],
@@ -5856,12 +6054,12 @@
    "category": "Festive: Mains",
    "serving": "",
    "nutrients": {
-    "calories": 633,
+    "calories": 631,
     "protein": 14.3,
-    "carbs": 89,
+    "carbs": 88.5,
     "fat": 33.3,
     "saturatedFat": 3.9,
-    "sugar": 29.2,
+    "sugar": 28.9,
     "salt": 4.1
    },
    "tags": [
@@ -5890,7 +6088,7 @@
     "fat": 18,
     "saturatedFat": 8.9,
     "sugar": 68.8,
-    "salt": 0.1
+    "salt": 0.8
    },
    "tags": [
     "vegetarian"
@@ -5903,25 +6101,15 @@
     "contains": [
      "gluten",
      "milk",
-     "nuts",
-     "soya"
+     "nuts"
     ],
     "mayContain": [],
     "cereals": [
      "wheat",
-     "rye",
-     "barley",
-     "oats"
+     "barley"
     ],
     "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
+     "almond"
     ]
    }
   },
@@ -5949,10 +6137,21 @@
    "allergens": {
     "contains": [
      "milk",
+     "nuts",
      "soya"
     ],
     "mayContain": [
      "eggs"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
     ]
    }
   },
@@ -5997,18 +6196,18 @@
    }
   },
   {
-   "id": "deep-filled-viennese-mince-pie-and-coffee-festive-menu",
-   "name": "Deep-Filled Viennese Mince Pie & Coffee (festive menu)",
-   "category": "Festive: Desserts",
+   "id": "tomato-and-red-pepper-soup-festive-kids-menu",
+   "name": "Tomato & Red Pepper Soup (festive kids menu)",
+   "category": "Festive: Kids",
    "serving": "",
    "nutrients": {
-    "calories": 351,
-    "protein": 2.9,
-    "carbs": 50,
-    "fat": 15.4,
-    "saturatedFat": 9.3,
-    "sugar": 30,
-    "salt": 0.3
+    "calories": 281,
+    "protein": 5.5,
+    "carbs": 35.1,
+    "fat": 13.1,
+    "saturatedFat": 5,
+    "sugar": 7.7,
+    "salt": 0.8
    },
    "tags": [
     "vegetarian"
@@ -6019,18 +6218,42 @@
    "modifiers": [],
    "allergens": {
     "contains": [
+     "celery",
      "gluten",
-     "eggs",
-     "milk",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "oats"
+    "mayContain": [
+     "eggs",
+     "milk"
     ]
+   }
+  },
+  {
+   "id": "gluten-free-tomato-and-red-pepper-soup-festive-kids-menu",
+   "name": "Gluten Free Tomato & Red Pepper Soup (festive kids menu)",
+   "category": "Festive: Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 156,
+    "protein": 1.6,
+    "carbs": 10,
+    "fat": 12.1,
+    "saturatedFat": 4.6,
+    "sugar": 7.2,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
    }
   },
   {
@@ -6120,12 +6343,12 @@
    "category": "Festive: Kids",
    "serving": "",
    "nutrients": {
-    "calories": 562,
+    "calories": 561,
     "protein": 12.4,
-    "carbs": 76,
+    "carbs": 75.7,
     "fat": 27.8,
     "saturatedFat": 3.3,
-    "sugar": 21.2,
+    "sugar": 21.1,
     "salt": 3.9
    },
    "tags": [
@@ -6148,12 +6371,12 @@
    "category": "Festive: Kids",
    "serving": "",
    "nutrients": {
-    "calories": 537,
+    "calories": 536,
     "protein": 28,
-    "carbs": 36.9,
+    "carbs": 36.6,
     "fat": 29.3,
     "saturatedFat": 7.7,
-    "sugar": 11.2,
+    "sugar": 11.1,
     "salt": 3.9
    },
    "tags": [
@@ -6259,7 +6482,7 @@
     "fat": 24.3,
     "saturatedFat": 12.9,
     "sugar": 72.4,
-    "salt": 0.2
+    "salt": 0.9
    },
    "tags": [
     "vegetarian"
@@ -6278,19 +6501,10 @@
     "mayContain": [],
     "cereals": [
      "wheat",
-     "rye",
-     "barley",
-     "oats"
+     "barley"
     ],
     "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
+     "almond"
     ]
    }
   },

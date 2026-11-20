@@ -11,20 +11,21 @@
  ],
  "sample": false,
  "source": {
-  "title": "Tortilla Nutrition & Allergen Information (updated 17 September 2026)",
-  "url": "https://a.storyblok.com/f/158888/x/192342b9c3/tortilla-nutrition-guide.pdf",
-  "checkedOn": "2026-10-08"
+  "title": "Tortilla Nutrition & Allergen Information (updated 16 November 2026)",
+  "url": "https://a.storyblok.com/f/158888/x/a01b6b1b2c/tortilla-nutrition-guide-16-11-26.pdf",
+  "checkedOn": "2026-11-17"
  },
- "note": "Tortilla publishes its burritos, bowls, salads, tacos, nachos, quesadillas and fuel bowls only as separate ingredients, never as finished dishes, so those are not listed here. Breakfast items sold at Canary Wharf only are left out.",
+ "note": "Tortilla publishes its burritos, burrito bowls, salads, tacos, nachos and quesadillas only as separate ingredients, never as finished dishes, so those are not listed here. Breakfast items sold at Canary Wharf only are left out.",
  "allergenGuide": {
-  "title": "Tortilla Nutrition & Allergen Information (updated 17 September 2026)",
-  "url": "https://a.storyblok.com/f/158888/x/192342b9c3/tortilla-nutrition-guide.pdf",
-  "checkedOn": "2026-10-08",
+  "title": "Tortilla Nutrition & Allergen Information (updated 16 November 2026)",
+  "url": "https://a.storyblok.com/f/158888/x/a01b6b1b2c/tortilla-nutrition-guide-16-11-26.pdf",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
  "categories": [
   "Breakfast",
+  "Fuel bowls",
   "Sides",
   "Dips & sauces",
   "Salsas",
@@ -377,6 +378,98 @@
    }
   },
   {
+   "id": "protein-bowl-large",
+   "name": "Protein Bowl (Large)",
+   "category": "Fuel bowls",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 944,
+    "protein": 75,
+    "carbs": 96,
+    "fat": 32,
+    "saturatedFat": 11,
+    "sugar": 12,
+    "fiber": 16,
+    "salt": 5,
+    "energyKj": 3973
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "plant-bowl-large",
+   "name": "Plant Bowl (Large)",
+   "category": "Fuel bowls",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 784,
+    "protein": 26,
+    "carbs": 86,
+    "fat": 40,
+    "saturatedFat": 4,
+    "sugar": 12,
+    "fiber": 16,
+    "salt": 2,
+    "energyKj": 3293
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "balance-bowl-large",
+   "name": "Balance Bowl (Large)",
+   "category": "Fuel bowls",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 813,
+    "protein": 54,
+    "carbs": 80,
+    "fat": 33,
+    "saturatedFat": 8,
+    "sugar": 8,
+    "fiber": 14,
+    "salt": 2,
+    "energyKj": 3411
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
    "id": "tortilla-chips-bag",
    "name": "Tortilla Chips (bag)",
    "category": "Sides",
@@ -495,81 +588,31 @@
    }
   },
   {
-   "id": "medium-ghost-chilli-ranch",
-   "name": "Medium Ghost Chilli Ranch",
+   "id": "birria-consume",
+   "name": "Birria Consume",
    "category": "Dips & sauces",
-   "serving": "Medium",
+   "serving": "",
    "nutrients": {
-    "calories": 300,
-    "protein": 1,
-    "carbs": 6,
-    "fat": 30,
-    "saturatedFat": 4,
+    "calories": 73,
+    "protein": 4,
+    "carbs": 4,
+    "fat": 4,
+    "saturatedFat": 0,
     "sugar": 2,
-    "fiber": 0,
-    "salt": 1,
-    "energyKj": 1254
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "gluten",
-     "eggs",
-     "fish",
-     "mustard",
-     "sesame",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "large-ghost-chilli-ranch",
-   "name": "Large Ghost Chilli Ranch",
-   "category": "Dips & sauces",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 600,
-    "protein": 2,
-    "carbs": 11,
-    "fat": 59,
-    "saturatedFat": 8,
-    "sugar": 5,
     "fiber": 1,
     "salt": 2,
-    "energyKj": 2507
+    "energyKj": 301
    },
-   "tags": [
-    "vegetarian"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk",
      "sulphites"
     ],
-    "mayContain": [
-     "celery",
-     "gluten",
-     "eggs",
-     "fish",
-     "mustard",
-     "sesame",
-     "soya"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1174,15 +1217,15 @@
    "category": "Desserts",
    "serving": "3 churros",
    "nutrients": {
-    "calories": 310,
+    "calories": 358,
     "protein": 5,
-    "carbs": 39,
-    "fat": 15,
+    "carbs": 45,
+    "fat": 16,
     "saturatedFat": 2,
-    "sugar": 12,
-    "fiber": 3,
+    "sugar": 18,
+    "fiber": 2,
     "salt": 1,
-    "energyKj": 1296
+    "energyKj": 1501
    },
    "tags": [
     "vegetarian"
@@ -1194,16 +1237,13 @@
    "allergens": {
     "contains": [
      "gluten",
-     "soya"
+     "milk"
     ],
     "mayContain": [
-     "celery",
      "eggs",
-     "milk",
      "mustard",
      "nuts",
-     "sesame",
-     "sulphites"
+     "soya"
     ]
    }
   },
@@ -1213,15 +1253,15 @@
    "category": "Desserts",
    "serving": "5 churros",
    "nutrients": {
-    "calories": 523,
-    "protein": 8,
-    "carbs": 61,
-    "fat": 25,
+    "calories": 588,
+    "protein": 10,
+    "carbs": 72,
+    "fat": 27,
     "saturatedFat": 3,
-    "sugar": 16,
+    "sugar": 25,
     "fiber": 4,
     "salt": 2,
-    "energyKj": 2189
+    "energyKj": 2466
    },
    "tags": [
     "vegetarian"
@@ -1233,16 +1273,13 @@
    "allergens": {
     "contains": [
      "gluten",
-     "soya"
+     "milk"
     ],
     "mayContain": [
-     "celery",
      "eggs",
-     "milk",
      "mustard",
      "nuts",
-     "sesame",
-     "sulphites"
+     "soya"
     ]
    }
   },
@@ -1275,26 +1312,24 @@
      "gluten",
      "milk"
     ],
-    "mayContain": [
-     "mustard"
-    ]
+    "mayContain": []
    }
   },
   {
-   "id": "hibiscus-lemonade",
-   "name": "Hibiscus Lemonade",
+   "id": "horchata",
+   "name": "Horchata",
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 152,
-    "protein": 2,
-    "carbs": 33,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 33,
-    "fiber": 1.7,
+    "calories": 304,
+    "protein": 3,
+    "carbs": 59,
+    "fat": 6,
+    "saturatedFat": 3,
+    "sugar": 46,
+    "fiber": 0,
     "salt": 0,
-    "energyKj": 640
+    "energyKj": 1290
    },
    "tags": [
     "vegetarian"
@@ -1304,10 +1339,40 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [],
-    "mayContain": [
-     "peanuts"
-    ]
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dirty-horchata",
+   "name": "Dirty Horchata",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 287,
+    "protein": 4,
+    "carbs": 55,
+    "fat": 6,
+    "saturatedFat": 3,
+    "sugar": 43,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 1218
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
    }
   }
  ],

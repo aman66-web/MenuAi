@@ -10,28 +10,27 @@
  ],
  "sample": false,
  "source": {
-  "title": "Yalla Yalla Allergen & Calorie Menu, Spring 2026, Version 04 (PDF created 17 August 2026)",
-  "url": "https://yalla-yalla.co.uk/wp-content/uploads/2026/08/YallaYalla_AllergenMenu_Spring2026_v04.pdf",
-  "checkedOn": "2026-10-08"
+  "title": "Yalla Yalla Allergen & Calorie Menu, Autumn 2026, Version 01 (PDF created 7 October 2026)",
+  "url": "https://yalla-yalla.co.uk/wp-content/uploads/2026/10/YallaYalla_AllergenMenu_Autumn2026_v01-2.pdf",
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, as printed in the guide's kcals column (it gives no serving sizes), so protein, carbs and fat are not published. Dishes with no calorie figure in the guide (most alternative-milk coffees, cocktails, wine, beer, Peach lemonade) are not listed, and the guide's drinks pages carry no 'may contain' marks.",
  "allergenGuide": {
-  "title": "Yalla Yalla Allergen & Calorie Menu, Spring 2026, Version 04",
-  "url": "https://yalla-yalla.co.uk/wp-content/uploads/2026/08/YallaYalla_AllergenMenu_Spring2026_v04.pdf",
-  "checkedOn": "2026-10-08",
+  "title": "Yalla Yalla Allergen & Calorie Menu, Autumn 2026, Version 01",
+  "url": "https://yalla-yalla.co.uk/wp-content/uploads/2026/10/YallaYalla_AllergenMenu_Autumn2026_v01-2.pdf",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
  "categories": [
-  "Nibbles",
   "Mezze",
   "Flatbreads",
+  "Salads",
   "Grills",
   "Takeaway grills (with flatbread)",
   "House specialities",
   "Tagines",
-  "Salads",
   "Wrap platters",
   "Single wraps (takeaway)",
   "Side dishes & sauces",
@@ -42,83 +41,6 @@
  ],
  "components": [],
  "items": [
-  {
-   "id": "lebanese-pickles",
-   "name": "Lebanese Pickles",
-   "category": "Nibbles",
-   "serving": "",
-   "nutrients": {
-    "calories": 29
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "yalla-yalla/2355b4564735.webp",
-   "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": [
-     "nuts",
-     "sesame"
-    ]
-   }
-  },
-  {
-   "id": "marinated-olives",
-   "name": "Marinated Olives",
-   "category": "Nibbles",
-   "serving": "",
-   "nutrients": {
-    "calories": 221
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sesame"
-    ],
-    "mayContain": [
-     "nuts"
-    ]
-   }
-  },
-  {
-   "id": "roasted-almonds",
-   "name": "Roasted Almonds",
-   "category": "Nibbles",
-   "serving": "",
-   "nutrients": {
-    "calories": 246
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "nuts"
-    ],
-    "mayContain": [
-     "peanuts"
-    ],
-    "nuts": [
-     "almond"
-    ]
-   }
-  },
   {
    "id": "lentil-soup",
    "name": "Lentil Soup",
@@ -234,18 +156,15 @@
    "image": "yalla-yalla/d0732594e598.webp",
    "allergens": {
     "contains": [
-     "gluten",
-     "eggs",
-     "milk",
      "sesame",
      "sulphites"
     ],
     "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
      "mustard",
      "nuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -273,35 +192,6 @@
      "sesame"
     ],
     "mayContain": [
-     "nuts"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "chicken-samboussek",
-   "name": "Chicken Samboussek",
-   "category": "Mezze",
-   "serving": "",
-   "nutrients": {
-    "calories": 202
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "sesame"
-    ],
-    "mayContain": [
-     "mustard",
      "nuts"
     ],
     "cereals": [
@@ -360,16 +250,13 @@
    "image": "yalla-yalla/4e0b8b7c767c.webp",
    "allergens": {
     "contains": [
-     "gluten",
-     "eggs",
-     "milk",
      "sesame"
     ],
     "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
      "nuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -425,39 +312,6 @@
     "mayContain": [],
     "nuts": [
      "pistachio"
-    ]
-   }
-  },
-  {
-   "id": "lamb-kibbeh",
-   "name": "Lamb Kibbeh",
-   "category": "Mezze",
-   "serving": "",
-   "nutrients": {
-    "calories": 534
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "yalla-yalla/82affa1b2c5c.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "nuts",
-     "sesame"
-    ],
-    "mayContain": [
-     "mustard"
-    ],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "walnut"
     ]
    }
   },
@@ -543,6 +397,7 @@
      "soya"
     ],
     "mayContain": [
+     "milk",
      "nuts"
     ],
     "cereals": [
@@ -574,10 +429,68 @@
      "soya"
     ],
     "mayContain": [
+     "milk",
      "nuts"
     ],
     "cereals": [
      "wheat"
+    ]
+   }
+  },
+  {
+   "id": "grilled-chicken-salad",
+   "name": "Grilled Chicken Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 660
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "grilled-halloumi-salad",
+   "name": "Grilled Halloumi Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 1058
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "yalla-yalla/76cc8077bdd0.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
     ]
    }
   },
@@ -688,69 +601,6 @@
     "mayContain": [
      "mustard",
      "nuts"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "lamb-kofta-burger",
-   "name": "Lamb Kofta Burger",
-   "category": "Grills",
-   "serving": "",
-   "nutrients": {
-    "calories": 895
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "sesame",
-     "sulphites"
-    ],
-    "mayContain": [
-     "mustard",
-     "nuts",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "chicken-kofta-burger",
-   "name": "Chicken Kofta Burger",
-   "category": "Grills",
-   "serving": "",
-   "nutrients": {
-    "calories": 895
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "yalla-yalla/a0f9155636e2.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "sesame",
-     "sulphites"
-    ],
-    "mayContain": [
-     "mustard",
-     "nuts",
-     "soya"
     ],
     "cereals": [
      "wheat"
@@ -883,7 +733,7 @@
    "category": "House specialities",
    "serving": "",
    "nutrients": {
-    "calories": 827
+    "calories": 687
    },
    "tags": [],
    "limitedTime": false,
@@ -896,37 +746,9 @@
      "sesame"
     ],
     "mayContain": [
-     "nuts"
-    ]
-   }
-  },
-  {
-   "id": "spinach-and-feta-borek",
-   "name": "Spinach & Feta Borek",
-   "category": "House specialities",
-   "serving": "",
-   "nutrients": {
-    "calories": 1002
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
      "gluten",
-     "eggs",
      "milk",
-     "sesame"
-    ],
-    "mayContain": [
      "nuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1010,67 +832,6 @@
     "mayContain": [
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "mama-zohra-salad",
-   "name": "Mama Zohra Salad",
-   "category": "Salads",
-   "serving": "",
-   "nutrients": {
-    "calories": 691
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "sesame"
-    ],
-    "mayContain": [
-     "mustard",
-     "nuts",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "grilled-halloumi-salad",
-   "name": "Grilled Halloumi Salad",
-   "category": "Salads",
-   "serving": "",
-   "nutrients": {
-    "calories": 900
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "yalla-yalla/76cc8077bdd0.webp",
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "sesame",
-     "sulphites"
-    ],
-    "mayContain": [
-     "nuts",
-     "soya"
     ],
     "cereals": [
      "wheat"
@@ -1219,12 +980,12 @@
    "allergens": {
     "contains": [
      "gluten",
-     "eggs",
-     "milk",
      "sesame",
      "sulphites"
     ],
     "mayContain": [
+     "eggs",
+     "milk",
      "mustard",
      "nuts",
      "soya"
@@ -1371,12 +1132,12 @@
    "allergens": {
     "contains": [
      "gluten",
-     "eggs",
-     "milk",
      "sesame",
      "sulphites"
     ],
     "mayContain": [
+     "eggs",
+     "milk",
      "mustard",
      "nuts",
      "soya"

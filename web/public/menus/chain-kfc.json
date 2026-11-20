@@ -10,14 +10,14 @@
  ],
  "sample": false,
  "source": {
-  "title": "KFC UK & Ireland Allergen & Nutrition Information (September 2026)",
+  "title": "KFC UK & Ireland Allergen & Nutrition Information (November 2026)",
   "url": "https://brand-uk.assets.kfc.co.uk/nutrition-allergens.pdf",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-11-17"
  },
  "allergenGuide": {
-  "title": "KFC UK & Ireland Allergen & Nutrition Information (September 2026)",
+  "title": "KFC UK & Ireland Allergen & Nutrition Information (November 2026)",
   "url": "https://brand-uk.assets.kfc.co.uk/nutrition-allergens.pdf",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -413,19 +413,19 @@
    }
   },
   {
-   "id": "mozzamelt-fillet-burger",
-   "name": "Mozzamelt Fillet Burger",
+   "id": "doom-burger",
+   "name": "Doom Burger",
    "category": "Burgers",
    "serving": "1 burger",
    "nutrients": {
-    "calories": 742,
-    "protein": 41.8,
-    "carbs": 64.6,
-    "fat": 34,
-    "saturatedFat": 8.1,
-    "sugar": 10,
-    "salt": 3.3,
-    "energyKj": 3107
+    "calories": 514,
+    "protein": 34,
+    "carbs": 46.1,
+    "fat": 20.6,
+    "saturatedFat": 4.5,
+    "sugar": 12,
+    "salt": 2.6,
+    "energyKj": 2158
    },
    "tags": [],
    "limitedTime": true,
@@ -450,19 +450,19 @@
    }
   },
   {
-   "id": "mozzamelt-zinger-burger",
-   "name": "Mozzamelt Zinger Burger",
+   "id": "graymas-burger",
+   "name": "Graymas Burger",
    "category": "Burgers",
    "serving": "1 burger",
    "nutrients": {
-    "calories": 718,
-    "protein": 34.8,
-    "carbs": 63,
-    "fat": 35.3,
-    "saturatedFat": 7.6,
-    "sugar": 9.8,
-    "salt": 2.7,
-    "energyKj": 3006
+    "calories": 685,
+    "protein": 33.7,
+    "carbs": 60.5,
+    "fat": 33,
+    "saturatedFat": 5.2,
+    "sugar": 7.2,
+    "salt": 4.1,
+    "energyKj": 2869
    },
    "tags": [],
    "limitedTime": true,
@@ -471,6 +471,7 @@
    "modifiers": [],
    "allergens": {
     "contains": [
+     "celery",
      "gluten",
      "eggs",
      "milk",
@@ -478,11 +479,11 @@
      "sesame"
     ],
     "mayContain": [
-     "celery",
      "soya"
     ],
     "cereals": [
-     "wheat"
+     "wheat",
+     "barley"
     ]
    }
   },
@@ -705,43 +706,6 @@
     "mayContain": [
      "celery",
      "mustard",
-     "sesame",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "kentucky-original-wrap",
-   "name": "Kentucky Original Wrap",
-   "category": "Twisters & Wraps",
-   "serving": "1 wrap",
-   "nutrients": {
-    "calories": 516,
-    "protein": 31.2,
-    "carbs": 44.3,
-    "fat": 23.3,
-    "saturatedFat": 3.5,
-    "sugar": 3.1,
-    "salt": 2.4,
-    "energyKj": 2162
-   },
-   "tags": [],
-   "limitedTime": true,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard"
-    ],
-    "mayContain": [
-     "celery",
      "sesame",
      "soya"
     ],
@@ -1152,6 +1116,42 @@
    }
   },
   {
+   "id": "doom-dripd-wings",
+   "name": "Doom Drip'd Wings",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 367,
+    "protein": 15.2,
+    "carbs": 33,
+    "fat": 19,
+    "saturatedFat": 2.7,
+    "sugar": 18,
+    "salt": 1.6,
+    "energyKj": 1536
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "signature-fries-regular",
    "name": "Signature Fries (regular)",
    "category": "Sides",
@@ -1242,7 +1242,6 @@
     ],
     "mayContain": [],
     "cereals": [
-     "wheat",
      "barley"
     ]
    }
@@ -1277,7 +1276,6 @@
     ],
     "mayContain": [],
     "cereals": [
-     "wheat",
      "barley"
     ]
    }
@@ -1429,9 +1427,7 @@
     ],
     "cereals": [
      "wheat",
-     "rye",
-     "barley",
-     "oats"
+     "barley"
     ]
    }
   },
@@ -1468,9 +1464,7 @@
     ],
     "cereals": [
      "wheat",
-     "rye",
-     "barley",
-     "oats"
+     "barley"
     ]
    }
   },
@@ -1646,10 +1640,8 @@
     "salt": 0.7,
     "energyKj": 1391
    },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
+   "tags": [],
+   "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
@@ -1661,6 +1653,43 @@
     "mayContain": [
      "celery",
      "eggs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "festive-loaded-fries",
+   "name": "Festive Loaded Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 499,
+    "protein": 11.8,
+    "carbs": 49.6,
+    "fat": 27.1,
+    "saturatedFat": 2.4,
+    "sugar": 1.7,
+    "salt": 2.1,
+    "energyKj": 2086
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
      "sesame",
      "soya"
     ],
@@ -2089,6 +2118,42 @@
    "allergens": {
     "contains": [],
     "mayContain": []
+   }
+  },
+  {
+   "id": "doom-mint-shake",
+   "name": "Doom Mint Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 496,
+    "protein": 6.9,
+    "carbs": 86,
+    "fat": 13.6,
+    "saturatedFat": 8.7,
+    "sugar": 69,
+    "salt": 0.84,
+    "energyKj": 2092
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
    }
   },
   {
@@ -2695,18 +2760,54 @@
    }
   },
   {
+   "id": "dirty-millionaire-shake",
+   "name": "Dirty Millionaire Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 611,
+    "protein": 8.3,
+    "carbs": 103.2,
+    "fat": 17.9,
+    "saturatedFat": 11,
+    "sugar": 83,
+    "salt": 0.99,
+    "energyKj": 2571
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
    "id": "bottle-of-still-water",
    "name": "Bottle of Still Water",
    "category": "Drinks",
    "serving": "1 bottle",
    "nutrients": {
     "calories": 0,
-    "protein": 0.5,
-    "carbs": 0.5,
-    "fat": 0.5,
-    "saturatedFat": 0.1,
-    "sugar": 0.5,
-    "salt": 0.01,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
     "energyKj": 0
    },
    "tags": [
@@ -2728,10 +2829,10 @@
    "serving": "1 bottle",
    "nutrients": {
     "calories": 8,
-    "protein": 0.5,
+    "protein": 0,
     "carbs": 1.6,
-    "fat": 0.5,
-    "saturatedFat": 0.1,
+    "fat": 0,
+    "saturatedFat": 0,
     "sugar": 1.4,
     "salt": 0.06,
     "energyKj": 35
@@ -2755,10 +2856,10 @@
    "serving": "1 bottle",
    "nutrients": {
     "calories": 10,
-    "protein": 0.5,
+    "protein": 0,
     "carbs": 2.4,
-    "fat": 0.5,
-    "saturatedFat": 0.1,
+    "fat": 0,
+    "saturatedFat": 0,
     "sugar": 2.4,
     "salt": 0.06,
     "energyKj": 41
@@ -2944,12 +3045,12 @@
    "serving": "Regular",
    "nutrients": {
     "calories": 5,
-    "protein": 0.5,
-    "carbs": 0.5,
-    "fat": 0.5,
-    "saturatedFat": 0.1,
-    "sugar": 0.5,
-    "salt": 0.02,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
     "energyKj": 20
    },
    "tags": [
@@ -2973,12 +3074,12 @@
    "serving": "Large",
    "nutrients": {
     "calories": 6,
-    "protein": 0.5,
-    "carbs": 0.5,
-    "fat": 0.5,
-    "saturatedFat": 0.1,
-    "sugar": 0.5,
-    "salt": 0.01,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
     "energyKj": 27
    },
    "tags": [
@@ -3095,6 +3196,33 @@
     "vegetarian"
    ],
    "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "doom-dust-sachet",
+   "name": "Doom Dust Sachet",
+   "category": "Sauces",
+   "serving": "1 sachet",
+   "nutrients": {
+    "calories": 17,
+    "protein": 0.5,
+    "carbs": 3.8,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 2.3,
+    "salt": 1.3,
+    "energyKj": 73
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
    "rankable": false,
    "components": [],
    "modifiers": [],

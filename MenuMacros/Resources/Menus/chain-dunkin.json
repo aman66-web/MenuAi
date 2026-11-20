@@ -1,0 +1,1636 @@
+{
+ "schemaVersion": 1,
+ "id": "dunkin",
+ "name": "Dunkin'",
+ "cuisine": "Bakery",
+ "builderType": "standard",
+ "aliases": [
+  "dunkin",
+  "dunkin'",
+  "dunkin’",
+  "dunkin donuts",
+  "dunkin' donuts",
+  "dunkin’ donuts",
+  "dunkin uk"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Dunkin' UK allergens & nutrition pages: donuts, Munchkins, cookies, bakery, LTO donuts, hot drinks and cold drinks (dunkin.co.uk/allergens-*, (c) 2026 DD IP Holder LLC; accessed 2026-11-17, no date shown)",
+  "url": "https://dunkin.co.uk/allergens",
+  "checkedOn": "2026-11-17"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only: no protein, carbs or fat. Drinks printed as a range (it depends on the milk) or without a size are left out; sizes as printed (no ml). Items with no allergen list, or whose calories or allergen lists differ between Dunkin's allergen page and product page, are not shown. Drinks list no traces, so those read Not listed, not free from.",
+ "allergenGuide": {
+  "title": "Dunkin' UK allergens pages: donuts, Munchkins, cookies, bakery, LTO donuts, hot and cold drinks (no date shown)",
+  "url": "https://dunkin.co.uk/allergens",
+  "checkedOn": "2026-11-17",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Donuts",
+  "Cookies",
+  "Bakery",
+  "Limited time donuts",
+  "Hot drinks",
+  "Cold drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "original-glazed-og",
+   "name": "Original Glazed (OG)",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/2a008ee69e44.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "boston-kreme",
+   "name": "Boston Kreme",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 318
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/5e081a9a5a62.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "smiley",
+   "name": "Smiley",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 337
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/3846c44f5d04.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-rainbow",
+   "name": "Strawberry Rainbow",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 264
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/d4bdf015afc2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-monster",
+   "name": "Chocolate Monster",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 299
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/a0aa835d9acf.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "banoffee-pie",
+   "name": "Banoffee Pie",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 386
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "cookie-kreme-blast",
+   "name": "Cookie Kreme Blast",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 490
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "rocky-road",
+   "name": "Rocky Road",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 443
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/8066760110b9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "speculoos-sensation",
+   "name": "Speculoos Sensation",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 467
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-and-white-chocolate",
+   "name": "Raspberry & White Chocolate",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 433
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/092494b98763.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-jelly",
+   "name": "Strawberry Jelly",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 282
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "oatmeal-cookie",
+   "name": "Oatmeal Cookie",
+   "category": "Cookies",
+   "serving": "1 item",
+   "nutrients": {
+    "calories": 366
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/d11a596d77e2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "double-chocolate-cookie",
+   "name": "Double Chocolate Cookie",
+   "category": "Cookies",
+   "serving": "1 item",
+   "nutrients": {
+    "calories": 369
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/c9fbd72ede0e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-and-white-chocolate-cookie",
+   "name": "Raspberry & White Chocolate Cookie",
+   "category": "Cookies",
+   "serving": "1 item",
+   "nutrients": {
+    "calories": 390
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/3c6b5754fa55.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "butter-croissant",
+   "name": "Butter Croissant",
+   "category": "Bakery",
+   "serving": "1 croissant",
+   "nutrients": {
+    "calories": 197
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/8c4f9e3fb068.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-croissant",
+   "name": "Chocolate Croissant",
+   "category": "Bakery",
+   "serving": "1 croissant",
+   "nutrients": {
+    "calories": 346
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/277d80864c1f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "cinnamon-roll",
+   "name": "Cinnamon Roll",
+   "category": "Bakery",
+   "serving": "1 item",
+   "nutrients": {
+    "calories": 324
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "custard-and-almond-bretzel",
+   "name": "Custard & Almond Bretzel",
+   "category": "Bakery",
+   "serving": "1 item",
+   "nutrients": {
+    "calories": 553
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "santa-belly",
+   "name": "Santa Belly",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 401
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "rudolf",
+   "name": "Rudolf",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 357
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "elf-belly",
+   "name": "Elf Belly",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 415
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "tiramisu",
+   "name": "Tiramisu",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 372
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "cr-me-br-l-e",
+   "name": "Crème Brûlée",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 337
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "wreath",
+   "name": "Wreath",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 261
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "flat-white-small",
+   "name": "Flat White (Small)",
+   "category": "Hot drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/cb2f452c4134.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-small",
+   "name": "Cappuccino (Small)",
+   "category": "Hot drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 76
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/e9404730127c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-medium",
+   "name": "Cappuccino (Medium)",
+   "category": "Hot drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/e9404730127c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-large",
+   "name": "Cappuccino (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 151
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/e9404730127c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-small",
+   "name": "Hot Chocolate (Small)",
+   "category": "Hot drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 214
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/ac1a8f276f57.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-medium",
+   "name": "Hot Chocolate (Medium)",
+   "category": "Hot drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 284
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/ac1a8f276f57.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-large",
+   "name": "Hot Chocolate (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 353
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/ac1a8f276f57.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-and-white-chocolate-iced-matcha-small",
+   "name": "Strawberry & White Chocolate Iced Matcha (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/fbef8e30745a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-and-white-chocolate-iced-matcha-medium",
+   "name": "Strawberry & White Chocolate Iced Matcha (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/fbef8e30745a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-and-white-chocolate-iced-matcha-large",
+   "name": "Strawberry & White Chocolate Iced Matcha (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/fbef8e30745a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "iced-chocolate-small",
+   "name": "Iced Chocolate (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 136
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/d3c3c4f4e1b9.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-chocolate-medium",
+   "name": "Iced Chocolate (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 233
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/d3c3c4f4e1b9.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-chocolate-large",
+   "name": "Iced Chocolate (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 329
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/d3c3c4f4e1b9.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-cappuccino-small",
+   "name": "Iced Cappuccino (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/db78674bedeb.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-cappuccino-medium",
+   "name": "Iced Cappuccino (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/db78674bedeb.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-cappuccino-large",
+   "name": "Iced Cappuccino (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/db78674bedeb.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-dragon-fruit-daydream-refresher-small",
+   "name": "Strawberry Dragon fruit Daydream Refresher (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 156
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/1f9e89345576.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-dragon-fruit-daydream-refresher-medium",
+   "name": "Strawberry Dragon fruit Daydream Refresher (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 194
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/1f9e89345576.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-dragon-fruit-daydream-refresher-large",
+   "name": "Strawberry Dragon fruit Daydream Refresher (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 232
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/1f9e89345576.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chocolate-cookie-frappe-small",
+   "name": "Chocolate Cookie Frappe (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 286
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/7ccc5d9e9e06.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chocolate-cookie-frappe-medium",
+   "name": "Chocolate Cookie Frappe (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 382
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/7ccc5d9e9e06.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chocolate-cookie-frappe-large",
+   "name": "Chocolate Cookie Frappe (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 479
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/7ccc5d9e9e06.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-shortcake-frappe-small",
+   "name": "Strawberry Shortcake Frappe (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 341
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/31c58844e9ca.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-shortcake-frappe-medium",
+   "name": "Strawberry Shortcake Frappe (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 448
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/31c58844e9ca.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-shortcake-frappe-large",
+   "name": "Strawberry Shortcake Frappe (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 556
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/31c58844e9ca.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramel-fudge-frappe-small",
+   "name": "Caramel Fudge Frappe (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 319
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/069304f6b4bc.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramel-fudge-frappe-medium",
+   "name": "Caramel Fudge Frappe (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 417
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/069304f6b4bc.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramel-fudge-frappe-large",
+   "name": "Caramel Fudge Frappe (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 514
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/069304f6b4bc.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coffee-frappe-small",
+   "name": "Coffee Frappe (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 289
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/40b28a25ca1d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "coffee-frappe-medium",
+   "name": "Coffee Frappe (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 377
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/40b28a25ca1d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "coffee-frappe-large",
+   "name": "Coffee Frappe (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 466
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/40b28a25ca1d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "mango-pineapple-daydream-refresher-small",
+   "name": "Mango Pineapple Daydream Refresher (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 161
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/543db6ecca38.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-pineapple-daydream-refresher-medium",
+   "name": "Mango Pineapple Daydream Refresher (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 201
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/543db6ecca38.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-pineapple-daydream-refresher-large",
+   "name": "Mango Pineapple Daydream Refresher (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 237
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/543db6ecca38.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mojito-citrus-zest-red-bull-infusion-medium",
+   "name": "Mojito Citrus Zest Red Bull Infusion (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 180
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/9383d1b2bfb2.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-shaken-espresso-small",
+   "name": "Iced Shaken Espresso (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/c7ef41bb62e7.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-shaken-espresso-medium",
+   "name": "Iced Shaken Espresso (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/c7ef41bb62e7.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-shaken-espresso-large",
+   "name": "Iced Shaken Espresso (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/c7ef41bb62e7.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-caramel-macchiato-small",
+   "name": "Iced Caramel Macchiato (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 89
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/8066faaaf6fd.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-caramel-macchiato-medium",
+   "name": "Iced Caramel Macchiato (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 178
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/8066faaaf6fd.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-caramel-macchiato-large",
+   "name": "Iced Caramel Macchiato (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 267
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "dunkin/8066faaaf6fd.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

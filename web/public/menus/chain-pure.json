@@ -12,15 +12,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Pure menu pages: nutrition per portion (pure.co.uk/menus; accessed 2026-10-08, no date shown)",
+  "title": "Pure menu pages: nutrition per portion (pure.co.uk/menus; accessed 2026-11-17, no date shown)",
   "url": "https://www.pure.co.uk/menus/",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Values are per portion as printed on Pure's own menu pages (an average, as food is made by hand in store); no portion weights are printed. Airport and selected-store items are left out.",
  "allergenGuide": {
   "title": "Pure menu pages: allergens per item (the bold \"Contains\" line and the ingredients in bold; pure.co.uk/menus, no date shown)",
   "url": "https://www.pure.co.uk/menus/",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": false,
   "complete": false
  },
@@ -45,8 +45,8 @@
   "Snacks",
   "Coffee",
   "Speciality drinks",
-  "Iced drinks",
   "Smoothies",
+  "Iced drinks",
   "Juices & shots",
   "Branded drinks"
  ],
@@ -805,25 +805,25 @@
    "modifiers": []
   },
   {
-   "id": "korean-barbecue-beef",
-   "name": "Korean Barbecue Beef",
+   "id": "turkey-brie-and-bacon",
+   "name": "Turkey, Brie & Bacon",
    "category": "Wrap toasties",
    "serving": "",
    "nutrients": {
-    "calories": 523,
-    "protein": 25.1,
-    "carbs": 62.6,
-    "fat": 19.8,
-    "saturatedFat": 9.5,
-    "sugar": 17.4,
-    "fiber": 3.3,
-    "salt": 3.77,
-    "energyKj": 2199
+    "calories": 586,
+    "protein": 30.4,
+    "carbs": 57.2,
+    "fat": 25.2,
+    "saturatedFat": 12.1,
+    "sugar": 12.7,
+    "fiber": 5.4,
+    "salt": 2.66,
+    "energyKj": 2456
    },
    "tags": [
-    "contains_beef"
+    "contains_pork"
    ],
-   "limitedTime": false,
+   "limitedTime": true,
    "rankable": true,
    "components": [],
    "modifiers": []
@@ -879,6 +879,30 @@
    "image": "pure/d21b6055677d.webp"
   },
   {
+   "id": "festive-fruit-and-nut-overnight-oats",
+   "name": "Festive Fruit & Nut Overnight Oats",
+   "category": "Birchers & yoghurts",
+   "serving": "",
+   "nutrients": {
+    "calories": 461,
+    "protein": 13.7,
+    "carbs": 58.7,
+    "fat": 17.2,
+    "saturatedFat": 4.9,
+    "sugar": 25,
+    "fiber": 8.6,
+    "salt": 0.08,
+    "energyKj": 1938
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "fibre-starter",
    "name": "Fibre Starter",
    "category": "Birchers & yoghurts",
@@ -902,31 +926,6 @@
    "components": [],
    "modifiers": [],
    "image": "pure/d7d20974e3ed.webp"
-  },
-  {
-   "id": "go-nuts-bircher",
-   "name": "Go Nuts Bircher",
-   "category": "Birchers & yoghurts",
-   "serving": "",
-   "nutrients": {
-    "calories": 413,
-    "protein": 13,
-    "carbs": 51.3,
-    "fat": 17,
-    "saturatedFat": 4.3,
-    "sugar": 16.3,
-    "fiber": 6.5,
-    "salt": 0.1,
-    "energyKj": 1728
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "pure/dc600de1c9e7.webp"
   },
   {
    "id": "raspberry-and-peanut-butter",
@@ -1279,6 +1278,30 @@
    "image": "pure/79e299888e25.webp"
   },
   {
+   "id": "wildfarmed-mince-pie",
+   "name": "Wildfarmed Mince Pie",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 386,
+    "protein": 4.1,
+    "carbs": 49.5,
+    "fat": 19.8,
+    "saturatedFat": 12.6,
+    "sugar": 23.4,
+    "fiber": 0.5,
+    "salt": 0.15,
+    "energyKj": 1616
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "chocolate-croissant",
    "name": "Chocolate Croissant",
    "category": "Bakery",
@@ -1303,25 +1326,47 @@
    "image": "pure/968e5a10dcec.webp"
   },
   {
-   "id": "seoul-good-seoul-good",
-   "name": "Seoul Good, Seoul Good",
+   "id": "all-wrapped-up",
+   "name": "All Wrapped Up",
    "category": "Wraps",
    "serving": "",
    "nutrients": {
-    "calories": 441,
-    "protein": 21.1,
-    "carbs": 53.2,
-    "fat": 15.9,
-    "saturatedFat": 4.7,
-    "sugar": 8.9,
-    "fiber": 3.5,
-    "salt": 3.25,
-    "energyKj": 1853
+    "calories": 438,
+    "protein": 10.1,
+    "carbs": 72.8,
+    "fat": 11.5,
+    "saturatedFat": 2.9,
+    "sugar": 19.4,
+    "fiber": 9.4,
+    "salt": 2.01,
+    "energyKj": 1844
    },
    "tags": [
-    "contains_beef"
+    "vegetarian"
    ],
-   "limitedTime": false,
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "turkey-and-the-trimmings",
+   "name": "Turkey & The Trimmings",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 517,
+    "protein": 20.9,
+    "carbs": 70.2,
+    "fat": 16.1,
+    "saturatedFat": 3.7,
+    "sugar": 20.6,
+    "fiber": 8.9,
+    "salt": 2.11,
+    "energyKj": 2177
+   },
+   "tags": [],
+   "limitedTime": true,
    "rankable": true,
    "components": [],
    "modifiers": []
@@ -1412,30 +1457,6 @@
     "vegetarian"
    ],
    "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "roasted-veg-and-sriracha-mayo",
-   "name": "Roasted Veg & Sriracha Mayo",
-   "category": "Pretzel subs",
-   "serving": "",
-   "nutrients": {
-    "calories": 336,
-    "protein": 7.7,
-    "carbs": 46.9,
-    "fat": 13.9,
-    "saturatedFat": 1.4,
-    "sugar": 6.2,
-    "fiber": 6,
-    "salt": 2.03,
-    "energyKj": 1405
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
    "rankable": true,
    "components": [],
    "modifiers": []
@@ -1558,50 +1579,6 @@
    "image": "pure/654b17755f21.webp"
   },
   {
-   "id": "chicken-laksa-soup-regular",
-   "name": "Chicken Laksa Soup (regular)",
-   "category": "Soups",
-   "serving": "Regular",
-   "nutrients": {
-    "calories": 329,
-    "protein": 20.7,
-    "carbs": 20,
-    "fat": 19.2,
-    "saturatedFat": 7.2,
-    "sugar": 8.6,
-    "fiber": 3.6,
-    "salt": 1.75,
-    "energyKj": 1379
-   },
-   "tags": [],
-   "limitedTime": true,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "chicken-laksa-soup-large",
-   "name": "Chicken Laksa Soup (large)",
-   "category": "Soups",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 444,
-    "protein": 27.9,
-    "carbs": 26.9,
-    "fat": 25.9,
-    "saturatedFat": 9.6,
-    "sugar": 11.5,
-    "fiber": 4.9,
-    "salt": 2.36,
-    "energyKj": 1857
-   },
-   "tags": [],
-   "limitedTime": true,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "thai-green-lentil-regular",
    "name": "Thai Green Lentil (regular)",
    "category": "Soups",
@@ -1652,6 +1629,50 @@
    "image": "pure/ee3a5a8cd0ed.webp"
   },
   {
+   "id": "turkey-and-honey-roasted-veg-regular",
+   "name": "Turkey & Honey Roasted Veg (regular)",
+   "category": "Soups",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 208,
+    "protein": 10,
+    "carbs": 25.1,
+    "fat": 9.7,
+    "saturatedFat": 1.4,
+    "sugar": 7.1,
+    "fiber": 0,
+    "salt": 3.71,
+    "energyKj": 878
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "turkey-and-honey-roasted-veg-large",
+   "name": "Turkey & Honey Roasted Veg (large)",
+   "category": "Soups",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 325,
+    "protein": 15.6,
+    "carbs": 39.2,
+    "fat": 15.1,
+    "saturatedFat": 2.2,
+    "sugar": 11.1,
+    "fiber": 0,
+    "salt": 5.79,
+    "energyKj": 1371
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "chicken-shawarma",
    "name": "Chicken Shawarma",
    "category": "Pure bowls",
@@ -1692,7 +1713,7 @@
    "tags": [
     "contains_beef"
    ],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": []
@@ -1787,7 +1808,7 @@
    "tags": [
     "contains_beef"
    ],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": []
@@ -2458,7 +2479,7 @@
    "tags": [
     "vegetarian"
    ],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": []
@@ -2482,7 +2503,7 @@
    "tags": [
     "vegetarian"
    ],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": []
@@ -2600,7 +2621,7 @@
     "energyKj": 794
    },
    "tags": [],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": []
@@ -2622,7 +2643,7 @@
     "energyKj": 942
    },
    "tags": [],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": []
@@ -2644,7 +2665,7 @@
     "energyKj": 837
    },
    "tags": [],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": []
@@ -2666,7 +2687,7 @@
     "energyKj": 942
    },
    "tags": [],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": []
@@ -2688,7 +2709,7 @@
     "energyKj": 912
    },
    "tags": [],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": []
@@ -2710,7 +2731,7 @@
     "energyKj": 931
    },
    "tags": [],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": []
@@ -2732,7 +2753,7 @@
     "energyKj": 932
    },
    "tags": [],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": []
@@ -2927,6 +2948,30 @@
    "image": "pure/196168915344.webp"
   },
   {
+   "id": "gingerbread-latte",
+   "name": "Gingerbread Latte",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 308,
+    "protein": 9,
+    "carbs": 44,
+    "fat": 9.5,
+    "saturatedFat": 7.1,
+    "sugar": 36.3,
+    "fiber": 0,
+    "salt": 0.38,
+    "energyKj": 1295
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "latte",
    "name": "Latte",
    "category": "Coffee",
@@ -3024,29 +3069,28 @@
    "image": "pure/388070bf419d.webp"
   },
   {
-   "id": "pure-matcha",
-   "name": "Pure Matcha",
-   "category": "Iced drinks",
+   "id": "gingerbread-matcha",
+   "name": "Gingerbread Matcha",
+   "category": "Speciality drinks",
    "serving": "",
    "nutrients": {
-    "calories": 192,
-    "protein": 3.7,
-    "carbs": 20.8,
-    "fat": 9.3,
-    "saturatedFat": 0.9,
-    "sugar": 12.3,
+    "calories": 278,
+    "protein": 3.2,
+    "carbs": 48.7,
+    "fat": 7.1,
+    "saturatedFat": 0.7,
+    "sugar": 31.4,
     "fiber": 2.7,
-    "salt": 0.4,
-    "energyKj": 768
+    "salt": 0.34,
+    "energyKj": 1174
    },
    "tags": [
     "vegetarian"
    ],
-   "limitedTime": false,
+   "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "pure/ea7dbc6e0b3b.webp"
+   "modifiers": []
   },
   {
    "id": "berry-berry-good-large",
@@ -3067,7 +3111,7 @@
    "tags": [
     "vegetarian"
    ],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": []
@@ -3091,7 +3135,7 @@
    "tags": [
     "vegetarian"
    ],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": []
@@ -3213,7 +3257,7 @@
    "tags": [
     "vegetarian"
    ],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": []
@@ -3237,7 +3281,7 @@
    "tags": [
     "vegetarian"
    ],
-   "limitedTime": true,
+   "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": []
@@ -3291,6 +3335,31 @@
    "modifiers": []
   },
   {
+   "id": "pure-matcha",
+   "name": "Pure Matcha",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 192,
+    "protein": 3.7,
+    "carbs": 20.8,
+    "fat": 9.3,
+    "saturatedFat": 0.9,
+    "sugar": 12.3,
+    "fiber": 2.7,
+    "salt": 0.4,
+    "energyKj": 768
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "pure/ea7dbc6e0b3b.webp"
+  },
+  {
    "id": "apple-juice-250ml",
    "name": "Apple Juice 250ml",
    "category": "Juices & shots",
@@ -3337,6 +3406,72 @@
    "modifiers": []
   },
   {
+   "id": "dash-lime",
+   "name": "Dash Lime",
+   "category": "Branded drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dash-peach",
+   "name": "Dash Peach",
+   "category": "Branded drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dash-raspberry",
+   "name": "Dash Raspberry",
+   "category": "Branded drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "tenzing-pineapple-and-passion-fruit",
    "name": "Tenzing Pineapple & Passion Fruit",
    "category": "Branded drinks",
@@ -3375,6 +3510,28 @@
     "fiber": 0,
     "salt": 0,
     "energyKj": 80
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke",
+   "name": "Diet Coke",
+   "category": "Branded drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 5
    },
    "tags": [],
    "limitedTime": false,

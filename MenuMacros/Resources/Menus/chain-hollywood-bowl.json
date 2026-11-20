@@ -1,0 +1,1613 @@
+{
+ "schemaVersion": 1,
+ "id": "hollywood-bowl",
+ "name": "Hollywood Bowl",
+ "cuisine": "Bowling diner",
+ "builderType": "standard",
+ "aliases": [
+  "hollywood bowl",
+  "hollywood bowl group"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Hollywood Bowl Food & Drink menu, Ashford centre copy (menu codes SS2, B2, K2, SO2, SP2 /1026; PDF served 6 October 2026)",
+  "url": "https://media.hollywoodbowlgroup.com/assets/media/1000026/original?v=1791278420144",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Hollywood Bowl prints calories only, beside each item, so protein, carbs and fat are not published. Every figure is printed the same on all 72 Great Britain bowling-centre menus read; Scottish centres also sell Irn-Bru, and the Puttstars sites and Northern Ireland use other menus. Alcohol and items with no calories printed are not listed.",
+ "allergenGuide": {
+  "title": "Hollywood Bowl Allergy Data (Ten Kites page that the allergen QR code on the menu opens; accessed 2026-10-08, no date shown)",
+  "url": "https://viewthe.menu/czav",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Snacks & sharers",
+  "Burgers & dogs",
+  "Wraps",
+  "Sauces & add-ons",
+  "Kids",
+  "Big kids",
+  "Something sweet",
+  "Slushies",
+  "Shakes",
+  "Soft drinks",
+  "Bottled drinks",
+  "Hot drinks",
+  "Low & no alcohol",
+  "Mixers"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "nacho-sharer",
+   "name": "Nacho Sharer",
+   "category": "Snacks & sharers",
+   "serving": "Per serving (dish serves 2)",
+   "nutrients": {
+    "calories": 795
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nachos",
+   "name": "Nachos",
+   "category": "Snacks & sharers",
+   "serving": "Perfect for one",
+   "nutrients": {
+    "calories": 272
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tenders",
+   "name": "Chicken Tenders",
+   "category": "Snacks & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 412
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-cheese-bites",
+   "name": "Chilli Cheese Bites",
+   "category": "Snacks & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 651
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-wings",
+   "name": "Chicken Wings",
+   "category": "Snacks & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 395
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "popcorn-chicken",
+   "name": "Popcorn Chicken",
+   "category": "Snacks & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 575
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza-twist",
+   "name": "Margherita Pizza Twist",
+   "category": "Snacks & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 386
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mozzarella-sticks",
+   "name": "Mozzarella Sticks",
+   "category": "Snacks & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 572
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "onion-rings",
+   "name": "Onion Rings",
+   "category": "Snacks & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 390
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corn-ribs",
+   "name": "Corn Ribs",
+   "category": "Snacks & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 303
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-fries",
+   "name": "Loaded Fries",
+   "category": "Snacks & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1011
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-loaded-fries",
+   "name": "Hot Loaded Fries",
+   "category": "Snacks & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 981
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chicken-tenders-to-loaded-fries",
+   "name": "Add Chicken Tenders to Loaded Fries",
+   "category": "Snacks & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 224
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries-regular",
+   "name": "Fries (regular)",
+   "category": "Snacks & sharers",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-fries",
+   "name": "Large Fries",
+   "category": "Snacks & sharers",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 603
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-cheese-to-fries",
+   "name": "Add Cheese to Fries",
+   "category": "Snacks & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 248
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seasoned-fries",
+   "name": "Seasoned Fries",
+   "category": "Snacks & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 610
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-hollywood-burger-beef",
+   "name": "The Hollywood Burger (beef)",
+   "category": "Burgers & dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 1330
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-hollywood-burger-chicken",
+   "name": "The Hollywood Burger (chicken)",
+   "category": "Burgers & dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 1221
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-burger",
+   "name": "Chicken Burger",
+   "category": "Burgers & dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 1039
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-burger",
+   "name": "Beef Burger",
+   "category": "Burgers & dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 1161
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plant-based-burger",
+   "name": "Plant-Based Burger",
+   "category": "Burgers & dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 909
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-dog",
+   "name": "Hot Dog",
+   "category": "Burgers & dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 1048
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-containing-bun-bun-only",
+   "name": "Non-Gluten-Containing Bun (bun only)",
+   "category": "Burgers & dogs",
+   "serving": "Bun only",
+   "nutrients": {
+    "calories": 175
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-wrap",
+   "name": "Chicken Wrap",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 1198
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plant-based-wrap",
+   "name": "Plant-Based Wrap",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 1048
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "franks-redhot-sauce",
+   "name": "Frank's RedHot Sauce",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-jam",
+   "name": "Chilli Jam",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-dip",
+   "name": "BBQ Dip",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 33
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-slice",
+   "name": "Cheese Slice",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 74
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-onions",
+   "name": "Crispy Onions",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 119
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon",
+   "name": "Bacon",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 93
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-onion-rings",
+   "name": "3 Onion Rings",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 117
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-your-burger-from",
+   "name": "Double Your Burger (from)",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 212
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "upgrade-to-seasoned-fries",
+   "name": "Upgrade to Seasoned Fries",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-burger-kids",
+   "name": "Beef Burger (kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 502
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-bacon-kids",
+   "name": "Add Bacon (kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 49
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-cheese-kids",
+   "name": "Add Cheese (kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 37
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-burger-kids",
+   "name": "Chicken Burger (kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 528
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plant-based-nuggets-kids",
+   "name": "Plant-Based Nuggets (kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 501
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-dog-kids",
+   "name": "Hot Dog (kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 483
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza-twist-kids",
+   "name": "Margherita Pizza Twist (kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 386
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-nuggets-kids",
+   "name": "Chicken Nuggets (kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 373
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-nuggets-and-fries-big-kids",
+   "name": "Chicken Nuggets & Fries (big kids)",
+   "category": "Big kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 662
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-cheese-bites-and-fries-big-kids",
+   "name": "Chilli Cheese Bites & Fries (big kids)",
+   "category": "Big kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 1031
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-wings-and-fries-big-kids",
+   "name": "Chicken Wings & Fries (big kids)",
+   "category": "Big kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 775
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mozzarella-sticks-and-fries-big-kids",
+   "name": "Mozzarella Sticks & Fries (big kids)",
+   "category": "Big kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 952
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tenders-and-fries-big-kids",
+   "name": "Chicken Tenders & Fries (big kids)",
+   "category": "Big kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 792
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-tub-vanilla",
+   "name": "Ice Cream Tub: Vanilla",
+   "category": "Something sweet",
+   "serving": "140ml",
+   "nutrients": {
+    "calories": 294
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-tub-strawberries-and-cream",
+   "name": "Ice Cream Tub: Strawberries & Cream",
+   "category": "Something sweet",
+   "serving": "140ml",
+   "nutrients": {
+    "calories": 280
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-tub-chocolate",
+   "name": "Ice Cream Tub: Chocolate",
+   "category": "Something sweet",
+   "serving": "140ml",
+   "nutrients": {
+    "calories": 339
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-tub-vegan-vanilla",
+   "name": "Ice Cream Tub: Vegan Vanilla",
+   "category": "Something sweet",
+   "serving": "140ml",
+   "nutrients": {
+    "calories": 252
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "slushy-jacks-slushie-small",
+   "name": "Slushy Jack's Slushie (small)",
+   "category": "Slushies",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "slushy-jacks-slushie-regular",
+   "name": "Slushy Jack's Slushie (regular)",
+   "category": "Slushies",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "slushy-jacks-slushie-jug",
+   "name": "Slushy Jack's Slushie Jug",
+   "category": "Slushies",
+   "serving": "Per serving (jug serves four children)",
+   "nutrients": {
+    "calories": 94
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "slushie-second-range-regular",
+   "name": "Slushie, second range (regular)",
+   "category": "Slushies",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 68
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "slushie-second-range-large",
+   "name": "Slushie, second range (large)",
+   "category": "Slushies",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 119
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milkshake-vanilla",
+   "name": "Milkshake: Vanilla",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 313
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milkshake-chocolate",
+   "name": "Milkshake: Chocolate",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 338
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milkshake-strawberry",
+   "name": "Milkshake: Strawberry",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 266
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milkshake-banana",
+   "name": "Milkshake: Banana",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 295
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-regular",
+   "name": "Pepsi (regular)",
+   "category": "Soft drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 191
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-large",
+   "name": "Pepsi (large)",
+   "category": "Soft drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 262
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-pepsi-regular",
+   "name": "Diet Pepsi (regular)",
+   "category": "Soft drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-pepsi-large",
+   "name": "Diet Pepsi (large)",
+   "category": "Soft drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max-regular",
+   "name": "Pepsi Max (regular)",
+   "category": "Soft drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max-large",
+   "name": "Pepsi Max (large)",
+   "category": "Soft drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max-cherry-regular",
+   "name": "Pepsi Max Cherry (regular)",
+   "category": "Soft drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max-cherry-large",
+   "name": "Pepsi Max Cherry (large)",
+   "category": "Soft drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tango-orange-sugar-free-regular",
+   "name": "Tango Orange Sugar Free (regular)",
+   "category": "Soft drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tango-orange-sugar-free-large",
+   "name": "Tango Orange Sugar Free (large)",
+   "category": "Soft drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "7up-sugar-free-regular",
+   "name": "7UP Sugar Free (regular)",
+   "category": "Soft drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "7up-sugar-free-large",
+   "name": "7UP Sugar Free (large)",
+   "category": "Soft drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "r-whites-lemonade-regular",
+   "name": "R. White's Lemonade (regular)",
+   "category": "Soft drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "r-whites-lemonade-large",
+   "name": "R. White's Lemonade (large)",
+   "category": "Soft drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-refresher",
+   "name": "Raspberry Refresher",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "poppi",
+   "name": "Poppi",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-330ml",
+   "name": "Pepsi 330ml",
+   "category": "Bottled drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 61
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max-330ml",
+   "name": "Pepsi Max 330ml",
+   "category": "Bottled drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-pepsi-330ml",
+   "name": "Diet Pepsi 330ml",
+   "category": "Bottled drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "appletiser-275ml",
+   "name": "Appletiser 275ml",
+   "category": "Bottled drinks",
+   "serving": "275ml",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "britvic-ginger-beer-200ml",
+   "name": "Britvic Ginger Beer 200ml",
+   "category": "Bottled drinks",
+   "serving": "200ml",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lipton-peach-iced-tea-500ml",
+   "name": "Lipton Peach Iced Tea 500ml",
+   "category": "Bottled drinks",
+   "serving": "500ml",
+   "nutrients": {
+    "calories": 65
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aqua-libra-still-or-sparkling-water-330ml-can",
+   "name": "Aqua Libra Still or Sparkling Water 330ml can",
+   "category": "Bottled drinks",
+   "serving": "330ml can",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-solo",
+   "name": "Espresso (solo)",
+   "category": "Hot drinks",
+   "serving": "Solo",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-doppio",
+   "name": "Espresso (doppio)",
+   "category": "Hot drinks",
+   "serving": "Doppio",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-primo",
+   "name": "Americano (primo)",
+   "category": "Hot drinks",
+   "serving": "Primo",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-medio",
+   "name": "Americano (medio)",
+   "category": "Hot drinks",
+   "serving": "Medio",
+   "nutrients": {
+    "calories": 18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-primo",
+   "name": "Cappuccino (primo)",
+   "category": "Hot drinks",
+   "serving": "Primo",
+   "nutrients": {
+    "calories": 123
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-medio",
+   "name": "Cappuccino (medio)",
+   "category": "Hot drinks",
+   "serving": "Medio",
+   "nutrients": {
+    "calories": 154
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-primo",
+   "name": "Latte (primo)",
+   "category": "Hot drinks",
+   "serving": "Primo",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-medio",
+   "name": "Latte (medio)",
+   "category": "Hot drinks",
+   "serving": "Medio",
+   "nutrients": {
+    "calories": 151
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-primo",
+   "name": "Mocha (primo)",
+   "category": "Hot drinks",
+   "serving": "Primo",
+   "nutrients": {
+    "calories": 182
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-medio",
+   "name": "Mocha (medio)",
+   "category": "Hot drinks",
+   "serving": "Medio",
+   "nutrients": {
+    "calories": 231
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-primo",
+   "name": "Hot Chocolate (primo)",
+   "category": "Hot drinks",
+   "serving": "Primo",
+   "nutrients": {
+    "calories": 231
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-medio",
+   "name": "Hot Chocolate (medio)",
+   "category": "Hot drinks",
+   "serving": "Medio",
+   "nutrients": {
+    "calories": 324
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "english-breakfast-tea",
+   "name": "English Breakfast Tea",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cranberry-and-raspberry-or-peppermint-tea",
+   "name": "Cranberry & Raspberry or Peppermint Tea",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corona-cero-0-0",
+   "name": "Corona Cero 0.0%",
+   "category": "Low & no alcohol",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "madri-excepcional-zero",
+   "name": "Madrí Excepcional Zero",
+   "category": "Low & no alcohol",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 66
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "becks-blue",
+   "name": "Beck's Blue",
+   "category": "Low & no alcohol",
+   "serving": "275ml",
+   "nutrients": {
+    "calories": 39
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rekorderlig-alcohol-free-strawberry-and-lime",
+   "name": "Rekorderlig Alcohol Free Strawberry & Lime",
+   "category": "Low & no alcohol",
+   "serving": "500ml",
+   "nutrients": {
+    "calories": 196
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fever-tree-indian-tonic-water",
+   "name": "Fever-Tree Indian Tonic Water",
+   "category": "Mixers",
+   "serving": "200ml",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fever-tree-refreshingly-light-tonic-water",
+   "name": "Fever-Tree Refreshingly Light Tonic Water",
+   "category": "Mixers",
+   "serving": "200ml",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-bull",
+   "name": "Red Bull",
+   "category": "Mixers",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-bull-the-peach-edition",
+   "name": "Red Bull The Peach Edition",
+   "category": "Mixers",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

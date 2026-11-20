@@ -1,0 +1,2548 @@
+{
+ "schemaVersion": 1,
+ "id": "squires-garden-centres",
+ "name": "Squire's Garden Centres",
+ "cuisine": "Cafe",
+ "builderType": "standard",
+ "aliases": [
+  "squires",
+  "squire's",
+  "squires garden centre",
+  "squire's cafe bar",
+  "squires cafe"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Squire's Garden Centres café bar menus, Autumn/Winter 2026 (breakfast, lunch, drinks and Little Gardener's PDFs linked from each of the 17 café bar pages on squiresgardencentres.co.uk; read 2026-10-11)",
+  "url": "https://www.squiresgardencentres.co.uk/cafe-bars/menus-2/",
+  "checkedOn": "2026-10-11"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, from each café bar's own Autumn/Winter 2026 menus. Menus vary by centre: a dish is listed only where the same calories are printed on the menus of at least two of the 17 café bars. The menus say calories are based on the ingredients uncooked. No allergen chart is published online: ask the staff. Afternoon tea is not listed.",
+ "categories": [
+  "Breakfast",
+  "Sweet Treats",
+  "Brunch",
+  "Baked Potatoes",
+  "Sourdough Pizzas",
+  "Squire’s Classics",
+  "Gourmet Burgers",
+  "Desserts & Ice Cream",
+  "Sandwiches & Light Bites",
+  "Toasted Ciabattas",
+  "Sides",
+  "Hot Drinks",
+  "Seasonal Drinks",
+  "Cold Drinks",
+  "Mocktails",
+  "Kids' Breakfast",
+  "Kids' Hot Food",
+  "Kids' Sandwiches",
+  "Kids' Toasties",
+  "Kids' Mini Pizza",
+  "Kids' Sundaes & Ice Cream",
+  "Kids' Drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "squires-signature-breakfast",
+   "name": "Squire’s Signature Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1289
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-bacon-rosti-stack",
+   "name": "Maple Bacon Rosti Stack",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 921
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avo-and-egg-on-toast",
+   "name": "Avo & Egg on Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 628
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rosti-florentine",
+   "name": "Rosti Florentine",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 694
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-smoked-salmon",
+   "name": "Add smoked salmon",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-bagel",
+   "name": "Salmon Bagel",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 467
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-bagel",
+   "name": "Breakfast Bagel",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 833
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "traditional-breakfast",
+   "name": "Traditional Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 946
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetarian-breakfast",
+   "name": "Vegetarian Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 793
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shakshuka",
+   "name": "Shakshuka",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 726
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-eggs-on-toast",
+   "name": "Classic Eggs on Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 554
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-sarnies-smoked-bacon",
+   "name": "Breakfast Sarnies (Smoked bacon)",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 685
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-sarnies-surrey-sausage",
+   "name": "Breakfast Sarnies (Surrey sausage)",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 653
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-sarnies-vegan-sausage",
+   "name": "Breakfast Sarnies (Vegan sausage)",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 546
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toast-with-butter-and-jam",
+   "name": "Toast with Butter & Jam",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 512
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-clotted-cream",
+   "name": "Add clotted cream",
+   "category": "Sweet Treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 164
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-jam-or-marmalade",
+   "name": "Add jam or marmalade",
+   "category": "Sweet Treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 76
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scone-and-butter-plain",
+   "name": "Scone & Butter (Plain)",
+   "category": "Sweet Treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 459
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scone-and-butter-fruit",
+   "name": "Scone & Butter (Fruit)",
+   "category": "Sweet Treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 461
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scone-and-butter-cheese",
+   "name": "Scone & Butter (Cheese)",
+   "category": "Sweet Treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 486
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scone-and-butter-gluten-free-fruit",
+   "name": "Scone & Butter (Gluten free fruit)",
+   "category": "Sweet Treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 411
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toasted-teacake-and-butter",
+   "name": "Toasted Teacake & Butter",
+   "category": "Sweet Treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-brunch",
+   "name": "Classic Brunch",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 881
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "welsh-rarebit",
+   "name": "Welsh Rarebit",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 958
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-potato-coronation-chicken-mango-chutney",
+   "name": "Baked Potato (Coronation chicken, mango chutney)",
+   "category": "Baked Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 775
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-potato-brie-and-bacon",
+   "name": "Baked Potato (Brie & bacon)",
+   "category": "Baked Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 915
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-potato-tuna-mayo-spring-onion",
+   "name": "Baked Potato (Tuna mayo, spring onion)",
+   "category": "Baked Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 696
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-potato-two-cheese-melt-beans",
+   "name": "Baked Potato (Two cheese melt, beans)",
+   "category": "Baked Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 781
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-potato-vegetable-tikka",
+   "name": "Baked Potato (Vegetable tikka)",
+   "category": "Baked Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 672
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-potato-beans",
+   "name": "Baked Potato (Beans)",
+   "category": "Baked Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 615
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-potato-two-cheese-melt",
+   "name": "Baked Potato (Two cheese melt)",
+   "category": "Baked Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 695
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni",
+   "name": "Pepperoni",
+   "category": "Sourdough Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 917
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-mushroom",
+   "name": "Ham & Mushroom",
+   "category": "Sourdough Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 839
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "traditional-margherita",
+   "name": "Traditional Margherita",
+   "category": "Sourdough Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 815
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread",
+   "name": "Garlic Bread",
+   "category": "Sourdough Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1050
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hand-battered-fish-and-chips",
+   "name": "Hand Battered Fish & Chips",
+   "category": "Squire’s Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 982
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-lasagne",
+   "name": "Baked Lasagne",
+   "category": "Squire’s Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 779
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-giant-yorkshire-pudding",
+   "name": "Loaded Giant Yorkshire Pudding",
+   "category": "Squire’s Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 1066
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-egg-and-chips",
+   "name": "Ham, Egg & Chips",
+   "category": "Squire’s Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 770
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hand-battered-halloumi",
+   "name": "Hand Battered Halloumi",
+   "category": "Squire’s Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 1373
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-tikka",
+   "name": "Vegetable Tikka",
+   "category": "Squire’s Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 849
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tikka-burger",
+   "name": "Chicken Tikka Burger",
+   "category": "Gourmet Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1116
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-cheeseburger",
+   "name": "Classic Cheeseburger",
+   "category": "Gourmet Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1392
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-a-fried-egg",
+   "name": "Add a fried egg",
+   "category": "Gourmet Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-streaky-bacon",
+   "name": "Add streaky bacon",
+   "category": "Gourmet Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 248
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-crumble",
+   "name": "Apple Crumble",
+   "category": "Desserts & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 703
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jam-sponge-pudding",
+   "name": "Jam Sponge Pudding",
+   "category": "Desserts & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 580
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-sundae",
+   "name": "Chocolate Sundae",
+   "category": "Desserts & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 616
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-sundae",
+   "name": "Strawberry Sundae",
+   "category": "Desserts & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 511
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-chocolate",
+   "name": "Ice Cream (Chocolate)",
+   "category": "Desserts & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 239
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-cookies-and-cream",
+   "name": "Ice Cream (Cookies & Cream)",
+   "category": "Desserts & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 234
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-mint-choc-chip",
+   "name": "Ice Cream (Mint Choc Chip)",
+   "category": "Desserts & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 223
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-rum-and-raisin",
+   "name": "Ice Cream (Rum & Raisin)",
+   "category": "Desserts & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 215
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-caramelised-biscuit",
+   "name": "Ice Cream (Caramelised Biscuit)",
+   "category": "Desserts & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 249
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-vanilla",
+   "name": "Ice Cream (Vanilla)",
+   "category": "Desserts & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 182
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-strawberry",
+   "name": "Ice Cream (Strawberry)",
+   "category": "Desserts & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 193
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-bacon",
+   "name": "Chicken & Bacon",
+   "category": "Sandwiches & Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 851
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coronation-chicken",
+   "name": "Coronation Chicken",
+   "category": "Sandwiches & Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 717
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fish-finger",
+   "name": "Fish Finger",
+   "category": "Sandwiches & Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 823
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-and-roasted-red-pepper",
+   "name": "Avocado & Roasted Red Pepper",
+   "category": "Sandwiches & Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 674
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayo-and-tomato",
+   "name": "Egg Mayo & Tomato",
+   "category": "Sandwiches & Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 677
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise",
+   "name": "Tuna Mayonnaise",
+   "category": "Sandwiches & Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 695
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-roll",
+   "name": "Sausage Roll",
+   "category": "Sandwiches & Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 698
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brie-my-guest",
+   "name": "Brie My Guest",
+   "category": "Toasted Ciabattas",
+   "serving": "",
+   "nutrients": {
+    "calories": 955
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "greenhouse",
+   "name": "Greenhouse",
+   "category": "Toasted Ciabattas",
+   "serving": "",
+   "nutrients": {
+    "calories": 648
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "farmhouse-melt",
+   "name": "Farmhouse Melt",
+   "category": "Toasted Ciabattas",
+   "serving": "",
+   "nutrients": {
+    "calories": 641
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fishermans-favourite",
+   "name": "Fisherman’s Favourite",
+   "category": "Toasted Ciabattas",
+   "serving": "",
+   "nutrients": {
+    "calories": 714
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-chips-plain",
+   "name": "Cheesy chips (Plain)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 519
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-chips-bacon",
+   "name": "Cheesy chips (Bacon)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 624
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-chips-roasted-red-pepper",
+   "name": "Cheesy chips (Roasted red pepper)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 547
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-potato-fries",
+   "name": "Sweet potato fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 468
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "triple-cooked-chunky-chips",
+   "name": "Triple cooked chunky chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 386
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "five-mini-onion-bhajis-mango-chutney",
+   "name": "Five mini onion bhajis, mango chutney",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beer-battered-onion-rings",
+   "name": "Beer battered onion rings",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 633
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bloomer-bread-and-butter",
+   "name": "Bloomer bread & butter",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 436
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-regular",
+   "name": "Espresso (Regular)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-large",
+   "name": "Espresso (Large)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-regular",
+   "name": "Americano (Regular)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-large",
+   "name": "Americano (Large)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-regular",
+   "name": "Latte (Regular)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-large",
+   "name": "Latte (Large)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 208
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-regular",
+   "name": "Cappuccino (Regular)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-large",
+   "name": "Cappuccino (Large)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 208
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat white",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 92
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macchiato",
+   "name": "Macchiato",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-regular",
+   "name": "Mocha (Regular)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 243
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-large",
+   "name": "Mocha (Large)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 295
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "babyccino",
+   "name": "Babyccino",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coffee-syrup",
+   "name": "Coffee syrup",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pot-of-tea-english-breakfast-earl-grey-decaffeinated",
+   "name": "Pot of Tea (English Breakfast, Earl Grey, Decaffeinated)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pot-of-tea-speciality",
+   "name": "Pot of Tea (Speciality)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-latte",
+   "name": "Matcha Latte",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chai-latte",
+   "name": "Chai Latte",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 214
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-plain-regular",
+   "name": "Hot Chocolate (Plain, Regular)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 268
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-plain-large",
+   "name": "Hot Chocolate (Plain, Large)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 357
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-luxury-with-cream-marshmallows-flake",
+   "name": "Hot Chocolate (Luxury, with cream, marshmallows, flake)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 506
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spiced-apple-chai-latte",
+   "name": "Spiced Apple Chai Latte",
+   "category": "Seasonal Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 303
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookies-and-cream-luxury-hot-chocolate",
+   "name": "Cookies & Cream Luxury Hot Chocolate",
+   "category": "Seasonal Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 585
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fentimans-gently-sparkling-elderflower",
+   "name": "Fentimans Gently Sparkling Elderflower",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fentimans-traditional-ginger-beer",
+   "name": "Fentimans Traditional Ginger Beer",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 107
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fentimans-dandelion-and-burdock",
+   "name": "Fentimans Dandelion & Burdock",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 124
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fentimans-raspberry-lemonade",
+   "name": "Fentimans Raspberry Lemonade",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bubble-tea-passionfruit-strawberry-and-green-tea",
+   "name": "Bubble Tea (Passionfruit, Strawberry & Green Tea)",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bubble-tea-peach-mango-and-green-tea",
+   "name": "Bubble Tea (Peach, Mango & Green Tea)",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-coca-cola",
+   "name": "Classic Coca-Cola",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fanta",
+   "name": "Fanta",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 63
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sprite-zero",
+   "name": "Sprite Zero",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke",
+   "name": "Diet Coke",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-zero",
+   "name": "Coke Zero",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "appletiser",
+   "name": "Appletiser",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "frobishers-orange-and-passion-fruit",
+   "name": "Frobisher’s Orange & Passion Fruit",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 99
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "frobishers-apple-and-raspberry",
+   "name": "Frobisher’s Apple & Raspberry",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 83
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "frobishers-orange-juice",
+   "name": "Frobisher’s Orange Juice",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "frobishers-apple-juice",
+   "name": "Frobisher’s Apple Juice",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 105
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "still-sparkling-water",
+   "name": "Still / Sparkling Water",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-matcha-latte",
+   "name": "Iced Matcha Latte",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 187
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte",
+   "name": "Iced Latte",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 158
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-americano",
+   "name": "Iced Americano",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscoff-milkshake",
+   "name": "Biscoff Milkshake",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 690
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-oreo-milkshake",
+   "name": "Chocolate Oreo Milkshake",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 536
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-milkshake",
+   "name": "Strawberry Milkshake",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 384
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avo-go-go-smoothie",
+   "name": "Avo Go-Go Smoothie",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 251
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gardeners-delight-smoothie",
+   "name": "Gardener’s Delight Smoothie",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 218
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "squireberry-smoothie",
+   "name": "Squireberry Smoothie",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 197
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tropical-greenhouse-smoothie",
+   "name": "Tropical Greenhouse Smoothie",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 248
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mojito-mocktail",
+   "name": "Mojito (mocktail)",
+   "category": "Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "passionfruit-mojito-mocktail",
+   "name": "Passionfruit Mojito (mocktail)",
+   "category": "Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-any-four-items-smoked-bacon",
+   "name": "Kids' Any Four Items (Smoked bacon)",
+   "category": "Kids' Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 105
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-any-four-items-fried-egg",
+   "name": "Kids' Any Four Items (Fried egg)",
+   "category": "Kids' Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 107
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-any-four-items-two-hash-browns",
+   "name": "Kids' Any Four Items (Two hash browns)",
+   "category": "Kids' Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 239
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-any-four-items-toast",
+   "name": "Kids' Any Four Items (Toast)",
+   "category": "Kids' Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 212
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-any-four-items-sausage",
+   "name": "Kids' Any Four Items (Sausage)",
+   "category": "Kids' Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 142
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-any-four-items-baked-beans",
+   "name": "Kids' Any Four Items (Baked beans)",
+   "category": "Kids' Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-any-four-items-grilled-tomato",
+   "name": "Kids' Any Four Items (Grilled tomato)",
+   "category": "Kids' Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 17
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-any-four-items-mushrooms",
+   "name": "Kids' Any Four Items (Mushrooms)",
+   "category": "Kids' Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-any-four-items-smashed-avocado",
+   "name": "Kids' Any Four Items (Smashed avocado)",
+   "category": "Kids' Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 73
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-beans-on-toast",
+   "name": "Kids' Beans on Toast",
+   "category": "Kids' Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-egg-on-toast",
+   "name": "Kids' Egg on Toast",
+   "category": "Kids' Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 298
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-maple-bacon-rosti-stack",
+   "name": "Kids' Maple Bacon Rosti Stack",
+   "category": "Kids' Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 526
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-surrey-sausages-and-chips",
+   "name": "Kids' Surrey Sausages & Chips",
+   "category": "Kids' Hot Food",
+   "serving": "",
+   "nutrients": {
+    "calories": 640
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-cod-goujons-and-chips",
+   "name": "Kids' Cod Goujons & Chips",
+   "category": "Kids' Hot Food",
+   "serving": "",
+   "nutrients": {
+    "calories": 491
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-crispy-chicken-bites",
+   "name": "Kids' Crispy Chicken Bites",
+   "category": "Kids' Hot Food",
+   "serving": "",
+   "nutrients": {
+    "calories": 498
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-ham-egg-and-chips",
+   "name": "Kids' Ham, Egg & Chips",
+   "category": "Kids' Hot Food",
+   "serving": "",
+   "nutrients": {
+    "calories": 475
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-veggie-sausages-and-chips",
+   "name": "Kids' Veggie Sausages & Chips",
+   "category": "Kids' Hot Food",
+   "serving": "",
+   "nutrients": {
+    "calories": 533
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-baked-lasagne",
+   "name": "Kids' Baked Lasagne",
+   "category": "Kids' Hot Food",
+   "serving": "",
+   "nutrients": {
+    "calories": 403
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-cheesy-jacket-potato",
+   "name": "Kids' Cheesy ½ Jacket Potato",
+   "category": "Kids' Hot Food",
+   "serving": "",
+   "nutrients": {
+    "calories": 413
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-cheddar-cheese-sandwich",
+   "name": "Kids' Cheddar Cheese Sandwich",
+   "category": "Kids' Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 543
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-ham-sandwich",
+   "name": "Kids' Ham Sandwich",
+   "category": "Kids' Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 432
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-jam-sandwich",
+   "name": "Kids' Jam Sandwich",
+   "category": "Kids' Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 415
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-ham-and-cheese-toastie",
+   "name": "Kids' Ham & Cheese Toastie",
+   "category": "Kids' Toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 554
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-cheese-and-tomato-toastie",
+   "name": "Kids' Cheese & Tomato Toastie",
+   "category": "Kids' Toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 511
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-ham-pizza",
+   "name": "Kids' Ham Pizza",
+   "category": "Kids' Mini Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 429
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-pepperoni-pizza",
+   "name": "Kids' Pepperoni Pizza",
+   "category": "Kids' Mini Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 466
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-margherita-pizza",
+   "name": "Kids' Margherita Pizza",
+   "category": "Kids' Mini Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 414
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chocolate-sundae",
+   "name": "Kids' Chocolate Sundae",
+   "category": "Kids' Sundaes & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 308
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-strawberry-sundae",
+   "name": "Kids' Strawberry Sundae",
+   "category": "Kids' Sundaes & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 256
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-ice-cream-chocolate",
+   "name": "Kids' Ice Cream (Chocolate)",
+   "category": "Kids' Sundaes & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 239
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-ice-cream-cookies-and-cream",
+   "name": "Kids' Ice Cream (Cookies & Cream)",
+   "category": "Kids' Sundaes & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 234
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-ice-cream-mint-choc-chip",
+   "name": "Kids' Ice Cream (Mint Choc Chip)",
+   "category": "Kids' Sundaes & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 223
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-ice-cream-strawberry",
+   "name": "Kids' Ice Cream (Strawberry)",
+   "category": "Kids' Sundaes & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 193
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-ice-cream-caramelised-biscuit",
+   "name": "Kids' Ice Cream (Caramelised Biscuit)",
+   "category": "Kids' Sundaes & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 249
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-ice-cream-vanilla",
+   "name": "Kids' Ice Cream (Vanilla)",
+   "category": "Kids' Sundaes & Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 182
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-apple-juice",
+   "name": "Kids' Apple Juice",
+   "category": "Kids' Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 68
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-orange-juice",
+   "name": "Kids' Orange Juice",
+   "category": "Kids' Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-cawston-press",
+   "name": "Kids' Cawston Press",
+   "category": "Kids' Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-milk",
+   "name": "Kids' Milk",
+   "category": "Kids' Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-babyccino",
+   "name": "Kids' Babyccino",
+   "category": "Kids' Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chococcino",
+   "name": "Kids' Chococcino",
+   "category": "Kids' Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 83
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-luxury-hot-chocolate",
+   "name": "Kids' Luxury Hot Chocolate",
+   "category": "Kids' Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 204
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

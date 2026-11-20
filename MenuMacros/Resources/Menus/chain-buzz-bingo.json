@@ -1,0 +1,1386 @@
+{
+ "schemaVersion": 1,
+ "id": "buzz-bingo",
+ "name": "Buzz Bingo",
+ "cuisine": "Bingo club",
+ "builderType": "standard",
+ "aliases": [
+  "buzz bingo",
+  "buzz bingo club",
+  "buzz bingo clubs"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Buzz Bingo \"Kcal June 2025\" food and drink calorie sheet (PDF created 15 June 2025; calories only)",
+  "url": "https://www.buzzbingo.com/library/Clubs/food-and-drink/kcal-info-june25.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, per item as sold, from Buzz Bingo's kcal sheet dated June 2025: the menu was reissued in March 2026, so dishes may have changed. Main meals list the main ingredient only; sides, sauces and dips are separate. Breakfast and Sunday lunch are 'where available'. No allergen list is published.",
+ "categories": [
+  "Breakfast",
+  "5 Item Breakfast (where available)",
+  "Main Meals (main ingredient only)",
+  "Sunday Lunch (where available)",
+  "Baskets",
+  "Burgers & Chips",
+  "Fiver Faves",
+  "Pizza",
+  "Jacket Potato",
+  "Chips, Toppings & Sides",
+  "Sauces",
+  "Desserts",
+  "Hot Drinks",
+  "Soft Drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "bacon-bap",
+   "name": "Bacon Bap",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 514
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-bap",
+   "name": "Sausage Bap",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 623
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-sausage-bap",
+   "name": "Vegan Sausage Bap",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 427
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lorne-sausage-bap",
+   "name": "Lorne Sausage Bap",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 442
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-5-item-breakfast",
+   "name": "Bacon (5 item breakfast)",
+   "category": "5 Item Breakfast (where available)",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage",
+   "name": "Sausage",
+   "category": "5 Item Breakfast (where available)",
+   "serving": "",
+   "nutrients": {
+    "calories": 183
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-sausage-5-item-breakfast",
+   "name": "Vegan Sausage (5 item breakfast)",
+   "category": "5 Item Breakfast (where available)",
+   "serving": "",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lorne-sausage",
+   "name": "Lorne Sausage",
+   "category": "5 Item Breakfast (where available)",
+   "serving": "",
+   "nutrients": {
+    "calories": 185
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg",
+   "name": "Egg",
+   "category": "5 Item Breakfast (where available)",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-beans-5-item-breakfast",
+   "name": "Baked Beans (5 item breakfast)",
+   "category": "5 Item Breakfast (where available)",
+   "serving": "",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toast",
+   "name": "Toast",
+   "category": "5 Item Breakfast (where available)",
+   "serving": "",
+   "nutrients": {
+    "calories": 97
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tikka-masala",
+   "name": "Chicken Tikka Masala",
+   "category": "Main Meals (main ingredient only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 519
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macaroni-cheese",
+   "name": "Macaroni Cheese",
+   "category": "Main Meals (main ingredient only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 688
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scampi",
+   "name": "Scampi",
+   "category": "Main Meals (main ingredient only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 134
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cauliflower-and-red-pepper-curry",
+   "name": "Cauliflower & Red Pepper Curry",
+   "category": "Main Meals (main ingredient only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 374
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chips-main-meals",
+   "name": "Chips (main meals)",
+   "category": "Main Meals (main ingredient only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 372
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garden-peas-main-meals",
+   "name": "Garden Peas (main meals)",
+   "category": "Main Meals (main ingredient only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-beans-main-meals",
+   "name": "Baked Beans (main meals)",
+   "category": "Main Meals (main ingredient only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread-main-meals",
+   "name": "Garlic Bread (main meals)",
+   "category": "Main Meals (main ingredient only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 199
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-rice",
+   "name": "White Rice",
+   "category": "Main Meals (main ingredient only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 272
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-breast",
+   "name": "Chicken Breast",
+   "category": "Sunday Lunch (where available)",
+   "serving": "",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-potatoes",
+   "name": "Roast Potatoes",
+   "category": "Sunday Lunch (where available)",
+   "serving": "",
+   "nutrients": {
+    "calories": 260
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yorkshire-pudding",
+   "name": "Yorkshire Pudding",
+   "category": "Sunday Lunch (where available)",
+   "serving": "",
+   "nutrients": {
+    "calories": 69
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stuffing-ball",
+   "name": "Stuffing Ball",
+   "category": "Sunday Lunch (where available)",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garden-peas-sunday-lunch",
+   "name": "Garden Peas (Sunday lunch)",
+   "category": "Sunday Lunch (where available)",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carrots",
+   "name": "Carrots",
+   "category": "Sunday Lunch (where available)",
+   "serving": "",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gravy-sunday-lunch",
+   "name": "Gravy (Sunday lunch)",
+   "category": "Sunday Lunch (where available)",
+   "serving": "",
+   "nutrients": {
+    "calories": 181
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-sausage-sunday-lunch",
+   "name": "Vegan Sausage (Sunday lunch)",
+   "category": "Sunday Lunch (where available)",
+   "serving": "",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-basket",
+   "name": "Chicken Basket",
+   "category": "Baskets",
+   "serving": "",
+   "nutrients": {
+    "calories": 1381
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fish-basket",
+   "name": "Fish Basket",
+   "category": "Baskets",
+   "serving": "",
+   "nutrients": {
+    "calories": 769
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-basket",
+   "name": "Veggie Basket",
+   "category": "Baskets",
+   "serving": "",
+   "nutrients": {
+    "calories": 935
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-beef-burger-inc-all-ingredients-and-mayo",
+   "name": "Classic Beef Burger (inc all ingredients & Mayo)",
+   "category": "Burgers & Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 961
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-burger-inc-all-ingredients-and-mayo",
+   "name": "Chicken Burger (inc all ingredients & Mayo)",
+   "category": "Burgers & Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 843
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-burger-inc-all-ingredients-and-mayo",
+   "name": "Vegan Burger (inc all ingredients & Mayo)",
+   "category": "Burgers & Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 881
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-burgers-and-chips",
+   "name": "Cheese (burgers & chips)",
+   "category": "Burgers & Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 66
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-burgers-and-chips",
+   "name": "Bacon (burgers & chips)",
+   "category": "Burgers & Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "onion-rings-burgers-and-chips",
+   "name": "Onion Rings (burgers & chips)",
+   "category": "Burgers & Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 152
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-boiled-onions-burgers-and-chips",
+   "name": "Fried / Boiled Onions (burgers & chips)",
+   "category": "Burgers & Chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 31
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fish-fingers-and-chips",
+   "name": "Fish Fingers & Chips",
+   "category": "Fiver Faves",
+   "serving": "",
+   "nutrients": {
+    "calories": 516
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-goujons-and-chips",
+   "name": "Chicken Goujons & Chips",
+   "category": "Fiver Faves",
+   "serving": "",
+   "nutrients": {
+    "calories": 519
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausages-and-chips",
+   "name": "Sausages & Chips",
+   "category": "Fiver Faves",
+   "serving": "",
+   "nutrients": {
+    "calories": 738
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-sausages-and-chips",
+   "name": "Vegan Sausages & Chips",
+   "category": "Fiver Faves",
+   "serving": "",
+   "nutrients": {
+    "calories": 594
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "uncle-johns-hot-dog-and-chips-inc-all-ingredients-and-tomato-sauce-and-mustard",
+   "name": "Uncle Johns Hot Dog & Chips (inc all ingredients & Tomato Sauce & Mustard)",
+   "category": "Fiver Faves",
+   "serving": "",
+   "nutrients": {
+    "calories": 809
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-hot-dog-and-chips-inc-all-ingredients-and-tomato-sauce-and-mustard",
+   "name": "Vegan Hot Dog & Chips (inc all ingredients & Tomato Sauce & Mustard)",
+   "category": "Fiver Faves",
+   "serving": "",
+   "nutrients": {
+    "calories": 763
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita",
+   "name": "Margherita",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 872
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni",
+   "name": "Pepperoni",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1011
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plain-jacket-potato",
+   "name": "Plain Jacket Potato",
+   "category": "Jacket Potato",
+   "serving": "",
+   "nutrients": {
+    "calories": 293
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter",
+   "name": "Butter",
+   "category": "Jacket Potato",
+   "serving": "",
+   "nutrients": {
+    "calories": 52
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-jacket-potato",
+   "name": "Cheese (jacket potato)",
+   "category": "Jacket Potato",
+   "serving": "",
+   "nutrients": {
+    "calories": 279
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise",
+   "name": "Tuna Mayonnaise",
+   "category": "Jacket Potato",
+   "serving": "",
+   "nutrients": {
+    "calories": 422
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-beans-jacket-potato",
+   "name": "Baked Beans (jacket potato)",
+   "category": "Jacket Potato",
+   "serving": "",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ultimate-southern-fried-hunters-chips",
+   "name": "Ultimate Southern-Fried Hunters Chips",
+   "category": "Chips, Toppings & Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 1048
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chip-butty",
+   "name": "Chip Butty",
+   "category": "Chips, Toppings & Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 576
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chips-sides",
+   "name": "Chips (sides)",
+   "category": "Chips, Toppings & Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 372
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "curry-sauce",
+   "name": "Curry Sauce",
+   "category": "Chips, Toppings & Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 173
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gravy-sides",
+   "name": "Gravy (sides)",
+   "category": "Chips, Toppings & Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 181
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-sides",
+   "name": "Cheese (sides)",
+   "category": "Chips, Toppings & Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 279
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-beans-sides",
+   "name": "Baked Beans (sides)",
+   "category": "Chips, Toppings & Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garden-peas-sides",
+   "name": "Garden Peas (sides)",
+   "category": "Chips, Toppings & Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread-sides",
+   "name": "Garlic Bread (sides)",
+   "category": "Chips, Toppings & Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 199
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread-with-cheese",
+   "name": "Garlic Bread with Cheese",
+   "category": "Chips, Toppings & Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 363
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi-fries",
+   "name": "Halloumi Fries",
+   "category": "Chips, Toppings & Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 195
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "onion-rings-sides",
+   "name": "Onion Rings (sides)",
+   "category": "Chips, Toppings & Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 304
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-boiled-onions-sides",
+   "name": "Fried / Boiled Onions (sides)",
+   "category": "Chips, Toppings & Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 31
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-portion",
+   "name": "Butter Portion",
+   "category": "Chips, Toppings & Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 52
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "burger-bun",
+   "name": "Burger Bun",
+   "category": "Chips, Toppings & Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 205
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-sauce",
+   "name": "BBQ Sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mayonnaise",
+   "name": "Mayonnaise",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-mayonnaise",
+   "name": "Garlic Mayonnaise",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 136
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-sauce",
+   "name": "Tomato Sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-sauce",
+   "name": "Sweet Chilli Sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "american-mustard",
+   "name": "American Mustard",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 22
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tartare-sauce",
+   "name": "Tartare Sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 92
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-torte-and-raspberry-sauce",
+   "name": "Lemon Torte & Raspberry Sauce",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 393
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-and-honeycomb-torte-and-raspberry-sauce",
+   "name": "Caramel & Honeycomb Torte & Raspberry Sauce",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 436
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4-layer-fudge-cake",
+   "name": "4 Layer Fudge Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 747
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-and-raspberry-sauce",
+   "name": "Ice cream & Raspberry Sauce",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 561
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-for-4-layer-cake",
+   "name": "Ice Cream for 4 Layer Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea-with-milk",
+   "name": "Tea with milk",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea-without-milk",
+   "name": "Tea without milk",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coffee-with-milk",
+   "name": "Coffee with milk",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coffee-without-milk",
+   "name": "Coffee without milk",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha",
+   "name": "Mocha",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 124
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate",
+   "name": "Hot Chocolate",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-pepsi-16oz",
+   "name": "Diet Pepsi (16oz)",
+   "category": "Soft Drinks",
+   "serving": "16oz",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-pepsi-20oz",
+   "name": "Diet Pepsi (20oz)",
+   "category": "Soft Drinks",
+   "serving": "20oz",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max-16oz",
+   "name": "Pepsi Max (16oz)",
+   "category": "Soft Drinks",
+   "serving": "16oz",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max-20oz",
+   "name": "Pepsi Max (20oz)",
+   "category": "Soft Drinks",
+   "serving": "20oz",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max-cherry-16oz",
+   "name": "Pepsi Max Cherry (16oz)",
+   "category": "Soft Drinks",
+   "serving": "16oz",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max-cherry-20oz",
+   "name": "Pepsi Max Cherry (20oz)",
+   "category": "Soft Drinks",
+   "serving": "20oz",
+   "nutrients": {
+    "calories": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rw-lemonade-16oz",
+   "name": "RW Lemonade (16oz)",
+   "category": "Soft Drinks",
+   "serving": "16oz",
+   "nutrients": {
+    "calories": 9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rw-lemonade-20oz",
+   "name": "RW Lemonade (20oz)",
+   "category": "Soft Drinks",
+   "serving": "20oz",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

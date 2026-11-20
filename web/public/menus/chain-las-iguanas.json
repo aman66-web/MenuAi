@@ -9,19 +9,20 @@
  ],
  "sample": false,
  "source": {
-  "title": "Las Iguanas Nutrition (per portion) menus, page lasiguanas202507: Main, Lunch, Bottomless Brunch, Kids, Cocktails, Drinks and Bottomless Tapas (page generated 2026-10-06)",
+  "title": "Las Iguanas Nutrition (per portion) menus, page lasiguanas202507: Main, Lunch, Bottomless Brunch, Kids, Cocktails, Drinks and Bottomless Tapas (page generated 2026-11-17)",
   "url": "https://menus.tenkites.com/thebigtg/lasiguanas202507",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "note": "Per portion as printed on the chain's menu pages. Each part of a meal is listed on its own: the side served with a burger or steak, fajita and taco fillings, nacho toppings and extras are separate rows, so add the parts you order. Wines, cocktails and most drinks print no numbers and are not listed.",
  "allergenGuide": {
-  "title": "Las Iguanas Dietary Information (allergens) on its online Main, Lunch, Bottomless Brunch, Kids, Cocktails, Drinks and Bottomless Tapas menus (Ten Kites page generated 2026-10-06)",
+  "title": "Las Iguanas Dietary Information (allergens) on its online Main, Lunch, Bottomless Brunch, Kids, Cocktails, Drinks and Bottomless Tapas menus (Ten Kites page generated 2026-11-17)",
   "url": "https://menus.tenkites.com/thebigtg/lasiguanas202507",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
  "categories": [
+  "Festive specials",
   "Sharing",
   "Tapas & starters",
   "Curries",
@@ -43,6 +44,109 @@
  ],
  "components": [],
  "items": [
+  {
+   "id": "festive-empanada",
+   "name": "Festive Empanada",
+   "category": "Festive specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 504,
+    "protein": 19.6,
+    "carbs": 58.1,
+    "fat": 20.8,
+    "saturatedFat": 9.6,
+    "sugar": 15.4,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "festive-fajita",
+   "name": "Festive Fajita",
+   "category": "Festive specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 782,
+    "protein": 54.9,
+    "carbs": 43.9,
+    "fat": 43.4,
+    "saturatedFat": 10.1,
+    "sugar": 24.5,
+    "salt": 7.9
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "hot-honey-pigs-in-blankets",
+   "name": "Hot Honey Pigs in Blankets",
+   "category": "Festive specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 469,
+    "protein": 19.1,
+    "carbs": 37.8,
+    "fat": 28.8,
+    "saturatedFat": 10.8,
+    "sugar": 25.3,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
   {
    "id": "taco-sharing-board",
    "name": "Taco Sharing Board",
@@ -126,7 +230,7 @@
     "fat": 92.8,
     "saturatedFat": 18.5,
     "sugar": 64.1,
-    "salt": 12.3
+    "salt": 12.4
    },
    "tags": [],
    "limitedTime": false,
@@ -495,8 +599,8 @@
     "carbs": 41.2,
     "fat": 36.4,
     "saturatedFat": 2.6,
-    "sugar": 1.4,
-    "salt": 3.3
+    "sugar": 1.8,
+    "salt": 3.5
    },
    "tags": [],
    "limitedTime": false,
@@ -650,7 +754,7 @@
     "carbs": 45,
     "fat": 33.1,
     "saturatedFat": 6.1,
-    "sugar": 39.8,
+    "sugar": 39.9,
     "salt": 3.2
    },
    "tags": [],
@@ -745,8 +849,8 @@
     "carbs": 46.6,
     "fat": 28.3,
     "saturatedFat": 2.4,
-    "sugar": 5.2,
-    "salt": 2.6
+    "sugar": 5.4,
+    "salt": 2.7
    },
    "tags": [
     "vegetarian"
@@ -782,8 +886,8 @@
     "carbs": 27.5,
     "fat": 29.6,
     "saturatedFat": 2.4,
-    "sugar": 6,
-    "salt": 1.4
+    "sugar": 6.2,
+    "salt": 1.5
    },
    "tags": [],
    "limitedTime": false,
@@ -840,12 +944,7 @@
     ],
     "mayContain": [],
     "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "oats",
-     "spelt",
-     "kamut"
+     "wheat"
     ]
    }
   },
@@ -1044,8 +1143,8 @@
     "carbs": 41.1,
     "fat": 44.7,
     "saturatedFat": 5.5,
-    "sugar": 11.9,
-    "salt": 1.3
+    "sugar": 12.2,
+    "salt": 1.4
    },
    "tags": [],
    "limitedTime": false,
@@ -2242,8 +2341,8 @@
     "carbs": 43.2,
     "fat": 74.8,
     "saturatedFat": 29.9,
-    "sugar": 8.1,
-    "salt": 6.4
+    "sugar": 8.3,
+    "salt": 6.5
    },
    "tags": [
     "contains_pork"
@@ -2259,9 +2358,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "eggs"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -2385,8 +2482,8 @@
     "carbs": 41.6,
     "fat": 51.9,
     "saturatedFat": 17.5,
-    "sugar": 7.5,
-    "salt": 3.4
+    "sugar": 7.7,
+    "salt": 3.5
    },
    "tags": [],
    "limitedTime": false,
@@ -2399,9 +2496,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "eggs"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -2418,8 +2513,8 @@
     "carbs": 61.9,
     "fat": 36.6,
     "saturatedFat": 4.1,
-    "sugar": 9.3,
-    "salt": 2.5
+    "sugar": 9.5,
+    "salt": 2.6
    },
    "tags": [],
    "limitedTime": false,
@@ -2433,9 +2528,7 @@
      "milk",
      "mustard"
     ],
-    "mayContain": [
-     "eggs"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -2452,8 +2545,8 @@
     "carbs": 38.2,
     "fat": 25.5,
     "saturatedFat": 3.8,
-    "sugar": 8.7,
-    "salt": 2.6
+    "sugar": 8.9,
+    "salt": 2.8
    },
    "tags": [],
    "limitedTime": false,
@@ -2467,7 +2560,6 @@
      "mustard"
     ],
     "mayContain": [
-     "eggs",
      "sesame"
     ],
     "cereals": [
@@ -2486,8 +2578,8 @@
     "carbs": 40.9,
     "fat": 60.3,
     "saturatedFat": 12.5,
-    "sugar": 7.5,
-    "salt": 2.1
+    "sugar": 7.7,
+    "salt": 2.3
    },
    "tags": [
     "vegetarian"
@@ -2521,8 +2613,8 @@
     "carbs": 44,
     "fat": 47.2,
     "saturatedFat": 10.4,
-    "sugar": 12.9,
-    "salt": 6
+    "sugar": 13.1,
+    "salt": 6.2
    },
    "tags": [],
    "limitedTime": true,
@@ -2556,8 +2648,8 @@
     "carbs": 47.3,
     "fat": 73.6,
     "saturatedFat": 24.1,
-    "sugar": 11.6,
-    "salt": 4.8
+    "sugar": 11.9,
+    "salt": 4.9
    },
    "tags": [
     "contains_beef"
@@ -2651,6 +2743,50 @@
     "mayContain": [
      "mustard",
      "sesame"
+    ]
+   }
+  },
+  {
+   "id": "festive-chicken-burger",
+   "name": "Festive Chicken Burger",
+   "category": "Bottomless brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 787,
+    "protein": 43.2,
+    "carbs": 72.1,
+    "fat": 35.6,
+    "saturatedFat": 9.3,
+    "sugar": 18.7,
+    "salt": 3.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -2882,14 +3018,13 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "nuts"
-    ],
+    "contains": [],
     "mayContain": [
      "gluten",
      "eggs",
      "milk",
      "mustard",
+     "nuts",
      "soya",
      "sulphites"
     ]
@@ -3016,13 +3151,13 @@
    "allergens": {
     "contains": [
      "celery",
-     "milk",
-     "nuts"
+     "milk"
     ],
     "mayContain": [
      "gluten",
      "eggs",
      "mustard",
+     "nuts",
      "sesame",
      "soya",
      "sulphites"
@@ -3252,8 +3387,8 @@
     "carbs": 5.5,
     "fat": 16.7,
     "saturatedFat": 1.1,
-    "sugar": 3.5,
-    "salt": 0.1
+    "sugar": 3.8,
+    "salt": 0.3
    },
    "tags": [
     "vegetarian"
@@ -3266,9 +3401,7 @@
     "contains": [
      "mustard"
     ],
-    "mayContain": [
-     "eggs"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -3613,6 +3746,49 @@
     "mayContain": [
      "nuts",
      "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "festive-burger-topper-burger-add-on",
+   "name": "Festive Burger Topper (burger add-on)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 201,
+    "protein": 9.6,
+    "carbs": 13.6,
+    "fat": 12.3,
+    "saturatedFat": 6.1,
+    "sugar": 11.4,
+    "salt": 1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -3997,7 +4173,7 @@
     "carbs": 3,
     "fat": 26.9,
     "saturatedFat": 3.7,
-    "sugar": 2.1,
+    "sugar": 2.2,
     "salt": 1.1
    },
    "tags": [],
@@ -4012,9 +4188,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "eggs"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -5046,14 +5220,13 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "nuts"
-    ],
+    "contains": [],
     "mayContain": [
      "gluten",
      "eggs",
      "milk",
      "mustard",
+     "nuts",
      "soya",
      "sulphites"
     ]
@@ -5522,6 +5695,32 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 1.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "spiced-berry-sparkler",
+   "name": "Spiced Berry Sparkler",
+   "category": "Drinks: Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 44,
+    "protein": 0.3,
+    "carbs": 9.4,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 9.1,
     "salt": 0
    },
    "tags": [

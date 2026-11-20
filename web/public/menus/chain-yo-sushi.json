@@ -11,15 +11,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Yo! Sushi Allergen & Nutrition Information, Dine-in menu (no date printed on the page; read 2026-10-06)",
+  "title": "Yo! Sushi Allergen & Nutrition Information, Dine-in menu (no date printed on the page; read 2026-11-17)",
   "url": "https://menus.tenkites.com/yosushi/allergenpageyosushi",
-  "checkedOn": "2026-10-09"
+  "checkedOn": "2026-11-17"
  },
  "note": "Figures are per serving from Yo! Sushi's own nutrition page for its Dine-in menu (hosted by Ten Kites), which prints no date. Dishes sold only at Selfridges and Heathrow are left out.",
  "allergenGuide": {
-  "title": "Yo! Sushi Allergen & Nutrition Information, Dine-in menu (Ten Kites page; no date printed, read 2026-10-06)",
+  "title": "Yo! Sushi Allergen & Nutrition Information, Dine-in menu (Ten Kites page; no date printed, read 2026-11-17)",
   "url": "https://menus.tenkites.com/yosushi/allergenpageyosushi",
-  "checkedOn": "2026-10-09",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -34,7 +34,8 @@
   "To share",
   "Desserts",
   "Condiments",
-  "Sides"
+  "Sides",
+  "Christmas menu"
  ],
  "components": [],
  "items": [
@@ -44,15 +45,15 @@
    "category": "Curry",
    "serving": "Large",
    "nutrients": {
-    "calories": 922,
-    "protein": 31.3,
-    "carbs": 112.2,
-    "fat": 37,
-    "saturatedFat": 13.5,
-    "sugar": 9.1,
-    "fiber": 8.9,
+    "calories": 871,
+    "protein": 30.3,
+    "carbs": 103.7,
+    "fat": 36.9,
+    "saturatedFat": 13.4,
+    "sugar": 9,
+    "fiber": 6.8,
     "salt": 4,
-    "energyKj": 3825
+    "energyKj": 3642
    },
    "tags": [],
    "limitedTime": false,
@@ -85,15 +86,15 @@
    "category": "Curry",
    "serving": "Large",
    "nutrients": {
-    "calories": 735,
-    "protein": 11.6,
-    "carbs": 129.8,
-    "fat": 18.1,
-    "saturatedFat": 4.9,
-    "sugar": 20.7,
-    "fiber": 7.7,
+    "calories": 685,
+    "protein": 10.6,
+    "carbs": 121.3,
+    "fat": 18,
+    "saturatedFat": 4.8,
+    "sugar": 20.6,
+    "fiber": 5.6,
     "salt": 3.1,
-    "energyKj": 3042
+    "energyKj": 2859
    },
    "tags": [
     "vegetarian"
@@ -120,15 +121,15 @@
    "category": "Curry",
    "serving": "Regular",
    "nutrients": {
-    "calories": 543,
-    "protein": 16.8,
-    "carbs": 71.3,
-    "fat": 20.1,
-    "saturatedFat": 7.9,
-    "sugar": 3.1,
-    "fiber": 4.2,
+    "calories": 508,
+    "protein": 16.1,
+    "carbs": 65.4,
+    "fat": 20,
+    "saturatedFat": 7.8,
+    "sugar": 3,
+    "fiber": 2.7,
     "salt": 2,
-    "energyKj": 2251
+    "energyKj": 2123
    },
    "tags": [],
    "limitedTime": false,
@@ -161,15 +162,15 @@
    "category": "Curry",
    "serving": "Regular",
    "nutrients": {
-    "calories": 407,
-    "protein": 6.8,
-    "carbs": 78.7,
+    "calories": 372,
+    "protein": 6.1,
+    "carbs": 72.9,
     "fat": 6.5,
-    "saturatedFat": 3.3,
-    "sugar": 8.7,
-    "fiber": 3.5,
+    "saturatedFat": 3.2,
+    "sugar": 8.6,
+    "fiber": 2.1,
     "salt": 1.5,
-    "energyKj": 1682
+    "energyKj": 1557
    },
    "tags": [
     "vegetarian"
@@ -196,15 +197,15 @@
    "category": "Curry",
    "serving": "",
    "nutrients": {
-    "calories": 1063,
-    "protein": 32.8,
-    "carbs": 120,
+    "calories": 1012,
+    "protein": 31.8,
+    "carbs": 111.5,
     "fat": 49,
-    "saturatedFat": 12,
-    "sugar": 17,
-    "fiber": 5.2,
+    "saturatedFat": 11.9,
+    "sugar": 16.9,
+    "fiber": 3.1,
     "salt": 3.1,
-    "energyKj": 4404
+    "energyKj": 4221
    },
    "tags": [
     "contains_beef"
@@ -240,15 +241,15 @@
    "category": "Rice",
    "serving": "",
    "nutrients": {
-    "calories": 981,
-    "protein": 32.4,
-    "carbs": 112.7,
-    "fat": 43.4,
-    "saturatedFat": 8.2,
-    "sugar": 14.4,
-    "fiber": 5,
+    "calories": 930,
+    "protein": 31.4,
+    "carbs": 104.2,
+    "fat": 43.3,
+    "saturatedFat": 8.1,
+    "sugar": 14.3,
+    "fiber": 2.9,
     "salt": 1.5,
-    "energyKj": 4087
+    "energyKj": 3904
    },
    "tags": [
     "contains_beef"
@@ -284,15 +285,15 @@
    "category": "Rice",
    "serving": "",
    "nutrients": {
-    "calories": 714,
-    "protein": 44.9,
-    "carbs": 99.7,
+    "calories": 664,
+    "protein": 43.9,
+    "carbs": 91.2,
     "fat": 14.3,
-    "saturatedFat": 3.8,
-    "sugar": 15.9,
-    "fiber": 3.3,
+    "saturatedFat": 3.7,
+    "sugar": 15.7,
+    "fiber": 1.2,
     "salt": 3.8,
-    "energyKj": 2991
+    "energyKj": 2808
    },
    "tags": [],
    "limitedTime": false,
@@ -318,15 +319,15 @@
    "category": "Rice",
    "serving": "",
    "nutrients": {
-    "calories": 869,
-    "protein": 25.7,
-    "carbs": 123.7,
+    "calories": 819,
+    "protein": 24.7,
+    "carbs": 115.2,
     "fat": 29,
-    "saturatedFat": 15.7,
-    "sugar": 13.9,
-    "fiber": 27,
+    "saturatedFat": 15.6,
+    "sugar": 13.8,
+    "fiber": 24.9,
     "salt": 3.6,
-    "energyKj": 3649
+    "energyKj": 3466
    },
    "tags": [
     "vegetarian"
@@ -355,15 +356,15 @@
    "category": "Rice",
    "serving": "",
    "nutrients": {
-    "calories": 1059,
-    "protein": 45.3,
-    "carbs": 163.2,
+    "calories": 1009,
+    "protein": 44.3,
+    "carbs": 154.7,
     "fat": 22.2,
-    "saturatedFat": 10.4,
-    "sugar": 42.4,
-    "fiber": 7.4,
+    "saturatedFat": 10.3,
+    "sugar": 42.2,
+    "fiber": 5.3,
     "salt": 3.7,
-    "energyKj": 4449
+    "energyKj": 4266
    },
    "tags": [],
    "limitedTime": false,
@@ -401,7 +402,7 @@
     "protein": 23.8,
     "carbs": 86.3,
     "fat": 20.7,
-    "saturatedFat": 6.4,
+    "saturatedFat": 6.2,
     "sugar": 11.7,
     "fiber": 11.8,
     "salt": 8,
@@ -581,6 +582,7 @@
      "soya"
     ],
     "mayContain": [
+     "celery",
      "crustaceans",
      "eggs",
      "fish",
@@ -625,9 +627,14 @@
      "soya"
     ],
     "mayContain": [
+     "celery",
      "eggs",
+     "fish",
      "milk",
-     "sesame"
+     "molluscs",
+     "mustard",
+     "sesame",
+     "sulphites"
     ]
    }
   },
@@ -660,6 +667,7 @@
      "soya"
     ],
     "mayContain": [
+     "celery",
      "eggs",
      "fish",
      "milk",
@@ -1097,11 +1105,11 @@
    "category": "Street food",
    "serving": "",
    "nutrients": {
-    "calories": 378,
+    "calories": 377,
     "protein": 7.1,
     "carbs": 38.1,
-    "fat": 21.9,
-    "saturatedFat": 6.4,
+    "fat": 22,
+    "saturatedFat": 5.6,
     "sugar": 9.4,
     "fiber": 4.8,
     "salt": 1.2,
@@ -1134,15 +1142,15 @@
    "category": "Street food",
    "serving": "",
    "nutrients": {
-    "calories": 328,
-    "protein": 12.3,
-    "carbs": 38.6,
-    "fat": 13.7,
-    "saturatedFat": 3.4,
-    "sugar": 15,
-    "fiber": 0.9,
-    "salt": 0.9,
-    "energyKj": 1431
+    "calories": 321,
+    "protein": 10.8,
+    "carbs": 38.8,
+    "fat": 13.6,
+    "saturatedFat": 2.6,
+    "sugar": 14.9,
+    "fiber": 0.8,
+    "salt": 1,
+    "energyKj": 1406
    },
    "tags": [],
    "limitedTime": false,
@@ -1425,15 +1433,15 @@
    "category": "Sushi & fish",
    "serving": "",
    "nutrients": {
-    "calories": 161,
-    "protein": 6.2,
-    "carbs": 20.8,
+    "calories": 149,
+    "protein": 5.9,
+    "carbs": 18.8,
     "fat": 5.6,
     "saturatedFat": 0.7,
-    "sugar": 2.8,
-    "fiber": 0.7,
-    "salt": 0.7,
-    "energyKj": 667
+    "sugar": 2.4,
+    "fiber": 0.2,
+    "salt": 0.6,
+    "energyKj": 623
    },
    "tags": [],
    "limitedTime": false,
@@ -1454,15 +1462,15 @@
    "category": "Sushi & fish",
    "serving": "",
    "nutrients": {
-    "calories": 126,
-    "protein": 9.2,
-    "carbs": 20.9,
+    "calories": 114,
+    "protein": 8.9,
+    "carbs": 18.8,
     "fat": 0.5,
     "saturatedFat": 0.1,
-    "sugar": 2.8,
-    "fiber": 0.9,
-    "salt": 0.7,
-    "energyKj": 522
+    "sugar": 2.5,
+    "fiber": 0.4,
+    "salt": 0.6,
+    "energyKj": 478
    },
    "tags": [],
    "limitedTime": false,
@@ -1551,15 +1559,15 @@
    "category": "Sushi & fish",
    "serving": "",
    "nutrients": {
-    "calories": 299,
-    "protein": 10.3,
-    "carbs": 44.7,
-    "fat": 6.9,
-    "saturatedFat": 1,
-    "sugar": 6,
-    "fiber": 2.3,
-    "salt": 1.4,
-    "energyKj": 1175
+    "calories": 274,
+    "protein": 9.9,
+    "carbs": 40.4,
+    "fat": 6.8,
+    "saturatedFat": 0.9,
+    "sugar": 5.3,
+    "fiber": 1.2,
+    "salt": 1.2,
+    "energyKj": 1082
    },
    "tags": [],
    "limitedTime": false,
@@ -1581,15 +1589,15 @@
    "category": "Sushi & fish",
    "serving": "",
    "nutrients": {
-    "calories": 339,
-    "protein": 14.3,
-    "carbs": 35.5,
+    "calories": 320,
+    "protein": 13.9,
+    "carbs": 32.2,
     "fat": 14.2,
     "saturatedFat": 1.8,
-    "sugar": 5.5,
-    "fiber": 2,
-    "salt": 1.5,
-    "energyKj": 1359
+    "sugar": 5,
+    "fiber": 1.2,
+    "salt": 1.4,
+    "energyKj": 1289
    },
    "tags": [],
    "limitedTime": false,
@@ -1616,15 +1624,15 @@
    "category": "Sushi & fish",
    "serving": "",
    "nutrients": {
-    "calories": 309,
-    "protein": 4.3,
-    "carbs": 31.1,
+    "calories": 296,
+    "protein": 4.1,
+    "carbs": 29,
     "fat": 17.6,
     "saturatedFat": 2.5,
-    "sugar": 7.1,
-    "fiber": 1.8,
-    "salt": 1.6,
-    "energyKj": 1238
+    "sugar": 6.8,
+    "fiber": 1.3,
+    "salt": 1.5,
+    "energyKj": 1191
    },
    "tags": [],
    "limitedTime": false,
@@ -1653,15 +1661,15 @@
    "category": "Sushi & fish",
    "serving": "",
    "nutrients": {
-    "calories": 205,
-    "protein": 6.6,
-    "carbs": 24.9,
+    "calories": 192,
+    "protein": 6.4,
+    "carbs": 22.6,
     "fat": 7.5,
-    "saturatedFat": 1.1,
-    "sugar": 4.3,
-    "fiber": 1.4,
-    "salt": 1.1,
-    "energyKj": 808
+    "saturatedFat": 1,
+    "sugar": 3.9,
+    "fiber": 0.9,
+    "salt": 1,
+    "energyKj": 759
    },
    "tags": [],
    "limitedTime": false,
@@ -1688,15 +1696,15 @@
    "category": "Sushi & fish",
    "serving": "",
    "nutrients": {
-    "calories": 321,
-    "protein": 7.4,
-    "carbs": 36,
+    "calories": 308,
+    "protein": 7.1,
+    "carbs": 33.8,
     "fat": 14.6,
     "saturatedFat": 2.3,
-    "sugar": 6.6,
-    "fiber": 3.1,
-    "salt": 2.6,
-    "energyKj": 1288
+    "sugar": 6.3,
+    "fiber": 2.5,
+    "salt": 2.5,
+    "energyKj": 1239
    },
    "tags": [],
    "limitedTime": false,
@@ -1765,15 +1773,15 @@
    "category": "Sushi & fish",
    "serving": "",
    "nutrients": {
-    "calories": 243,
-    "protein": 7.3,
-    "carbs": 25.2,
-    "fat": 11.5,
-    "saturatedFat": 1.4,
-    "sugar": 3.6,
-    "fiber": 1.4,
-    "salt": 1,
-    "energyKj": 966
+    "calories": 230,
+    "protein": 7,
+    "carbs": 23,
+    "fat": 11.4,
+    "saturatedFat": 1.3,
+    "sugar": 3.3,
+    "fiber": 0.9,
+    "salt": 0.9,
+    "energyKj": 919
    },
    "tags": [],
    "limitedTime": false,
@@ -1802,15 +1810,15 @@
    "category": "Sushi & fish",
    "serving": "",
    "nutrients": {
-    "calories": 219,
-    "protein": 8.7,
-    "carbs": 29.9,
-    "fat": 6.8,
+    "calories": 204,
+    "protein": 8.4,
+    "carbs": 27.3,
+    "fat": 6.7,
     "saturatedFat": 0.7,
-    "sugar": 5.3,
-    "fiber": 1.2,
-    "salt": 2.7,
-    "energyKj": 898
+    "sugar": 4.9,
+    "fiber": 0.6,
+    "salt": 2.6,
+    "energyKj": 840
    },
    "tags": [],
    "limitedTime": false,
@@ -1867,15 +1875,15 @@
    "category": "Yasai (vegetable)",
    "serving": "",
    "nutrients": {
-    "calories": 143,
-    "protein": 4.3,
-    "carbs": 20.4,
+    "calories": 135,
+    "protein": 4.1,
+    "carbs": 19,
     "fat": 4.7,
     "saturatedFat": 0.7,
-    "sugar": 8,
-    "fiber": 0.9,
+    "sugar": 7.8,
+    "fiber": 0.5,
     "salt": 0.7,
-    "energyKj": 593
+    "energyKj": 564
    },
    "tags": [
     "vegetarian"
@@ -1902,15 +1910,15 @@
    "category": "Yasai (vegetable)",
    "serving": "",
    "nutrients": {
-    "calories": 191,
-    "protein": 3.2,
-    "carbs": 30.1,
+    "calories": 178,
+    "protein": 2.9,
+    "carbs": 27.8,
     "fat": 5.3,
-    "saturatedFat": 0.5,
-    "sugar": 8.6,
-    "fiber": 1.3,
-    "salt": 1.4,
-    "energyKj": 751
+    "saturatedFat": 0.4,
+    "sugar": 8.2,
+    "fiber": 0.7,
+    "salt": 1.3,
+    "energyKj": 702
    },
    "tags": [
     "vegetarian"
@@ -1941,15 +1949,15 @@
    "category": "Yasai (vegetable)",
    "serving": "",
    "nutrients": {
-    "calories": 238,
-    "protein": 3.3,
-    "carbs": 29.5,
-    "fat": 10.3,
+    "calories": 224,
+    "protein": 3,
+    "carbs": 27.3,
+    "fat": 10.2,
     "saturatedFat": 2.7,
-    "sugar": 6.4,
-    "fiber": 2.9,
-    "salt": 1,
-    "energyKj": 939
+    "sugar": 6,
+    "fiber": 2.4,
+    "salt": 0.9,
+    "energyKj": 890
    },
    "tags": [
     "vegetarian"
@@ -1980,15 +1988,15 @@
    "category": "Meat",
    "serving": "",
    "nutrients": {
-    "calories": 570,
-    "protein": 16.4,
-    "carbs": 59.8,
-    "fat": 26.9,
-    "saturatedFat": 6.1,
-    "sugar": 7.2,
-    "fiber": 4.2,
-    "salt": 2.6,
-    "energyKj": 2279
+    "calories": 543,
+    "protein": 15.9,
+    "carbs": 55.2,
+    "fat": 26.8,
+    "saturatedFat": 6,
+    "sugar": 6.4,
+    "fiber": 3.1,
+    "salt": 2.4,
+    "energyKj": 2181
    },
    "tags": [],
    "limitedTime": false,
@@ -2022,15 +2030,15 @@
    "category": "Meat",
    "serving": "",
    "nutrients": {
-    "calories": 180,
-    "protein": 5,
-    "carbs": 29.7,
+    "calories": 166,
+    "protein": 4.8,
+    "carbs": 27.4,
     "fat": 3.2,
     "saturatedFat": 1.2,
-    "sugar": 6.1,
-    "fiber": 1.6,
-    "salt": 1.4,
-    "energyKj": 705
+    "sugar": 5.7,
+    "fiber": 1,
+    "salt": 1.3,
+    "energyKj": 656
    },
    "tags": [],
    "limitedTime": false,
@@ -2045,6 +2053,7 @@
      "soya"
     ],
     "mayContain": [
+     "celery",
      "crustaceans",
      "eggs",
      "fish",
@@ -2064,15 +2073,15 @@
    "category": "Meat",
    "serving": "",
    "nutrients": {
-    "calories": 172,
-    "protein": 6.1,
-    "carbs": 31.2,
+    "calories": 159,
+    "protein": 5.9,
+    "carbs": 28.9,
     "fat": 1.4,
     "saturatedFat": 0.6,
-    "sugar": 9.1,
-    "fiber": 1.3,
-    "salt": 1.1,
-    "energyKj": 676
+    "sugar": 8.7,
+    "fiber": 0.8,
+    "salt": 1,
+    "energyKj": 627
    },
    "tags": [],
    "limitedTime": false,
@@ -2097,15 +2106,15 @@
    "category": "Meat",
    "serving": "",
    "nutrients": {
-    "calories": 180,
-    "protein": 7.4,
-    "carbs": 27,
+    "calories": 163,
+    "protein": 6.2,
+    "carbs": 24.8,
     "fat": 3.6,
-    "saturatedFat": 0.4,
-    "sugar": 6.1,
-    "fiber": 1.6,
+    "saturatedFat": 0.3,
+    "sugar": 5.7,
+    "fiber": 1,
     "salt": 1,
-    "energyKj": 738
+    "energyKj": 675
    },
    "tags": [],
    "limitedTime": false,
@@ -2135,15 +2144,15 @@
    "category": "Meat",
    "serving": "",
    "nutrients": {
-    "calories": 140,
-    "protein": 8.2,
-    "carbs": 21.5,
+    "calories": 127,
+    "protein": 8,
+    "carbs": 19.5,
     "fat": 1.8,
-    "saturatedFat": 0.6,
-    "sugar": 3.2,
-    "fiber": 0.9,
-    "salt": 1.1,
-    "energyKj": 569
+    "saturatedFat": 0.5,
+    "sugar": 2.8,
+    "fiber": 0.4,
+    "salt": 1,
+    "energyKj": 525
    },
    "tags": [
     "contains_beef"
@@ -2157,7 +2166,14 @@
      "sesame",
      "soya"
     ],
-    "mayContain": []
+    "mayContain": [
+     "celery",
+     "gluten",
+     "fish",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ]
    }
   },
   {
@@ -2203,15 +2219,15 @@
    "category": "To share",
    "serving": "",
    "nutrients": {
-    "calories": 728,
-    "protein": 30.4,
-    "carbs": 78.3,
-    "fat": 29.6,
-    "saturatedFat": 3.7,
-    "sugar": 11.1,
-    "fiber": 3.6,
-    "salt": 2.9,
-    "energyKj": 2926
+    "calories": 683,
+    "protein": 29.6,
+    "carbs": 70.7,
+    "fat": 29.5,
+    "saturatedFat": 3.6,
+    "sugar": 9.8,
+    "fiber": 1.8,
+    "salt": 2.6,
+    "energyKj": 2764
    },
    "tags": [],
    "limitedTime": false,
@@ -2238,15 +2254,15 @@
    "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 256,
-    "protein": 3,
+    "calories": 267,
+    "protein": 2.9,
     "carbs": 37.2,
-    "fat": 9.8,
-    "saturatedFat": 6.1,
+    "fat": 11.1,
+    "saturatedFat": 7.1,
     "sugar": 23.2,
     "fiber": 0.1,
     "salt": 0.5,
-    "energyKj": 1073
+    "energyKj": 1119
    },
    "tags": [
     "vegetarian"
@@ -2281,8 +2297,8 @@
     "fat": 1.8,
     "saturatedFat": 0.8,
     "sugar": 19.2,
-    "fiber": 0,
-    "salt": 0,
+    "fiber": 0.4,
+    "salt": 0.3,
     "energyKj": 734
    },
    "tags": [
@@ -2355,15 +2371,15 @@
    "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 202,
-    "protein": 1.9,
-    "carbs": 34.9,
-    "fat": 6,
-    "saturatedFat": 3.7,
-    "sugar": 20.3,
+    "calories": 203,
+    "protein": 1.8,
+    "carbs": 34.2,
+    "fat": 6.4,
+    "saturatedFat": 4.2,
+    "sugar": 18.6,
     "fiber": 0,
     "salt": 0.2,
-    "energyKj": 851
+    "energyKj": 854
    },
    "tags": [
     "vegetarian"
@@ -2667,15 +2683,15 @@
    "category": "Sides",
    "serving": "",
    "nutrients": {
-    "calories": 309,
-    "protein": 5.1,
-    "carbs": 68.8,
+    "calories": 264,
+    "protein": 4.3,
+    "carbs": 61.2,
     "fat": 0.3,
-    "saturatedFat": 0.1,
-    "sugar": 0.3,
-    "fiber": 2.6,
+    "saturatedFat": 0,
+    "sugar": 0.2,
+    "fiber": 0.7,
     "salt": 0,
-    "energyKj": 1269
+    "energyKj": 1105
    },
    "tags": [
     "vegetarian"
@@ -2720,6 +2736,211 @@
      "soya"
     ],
     "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "blackout-beef-teriyaki-rice-bowl",
+   "name": "Blackout Beef Teriyaki Rice Bowl",
+   "category": "Christmas menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 921,
+    "protein": 31.4,
+    "carbs": 108,
+    "fat": 40.1,
+    "saturatedFat": 7.9,
+    "sugar": 18.6,
+    "fiber": 3.8,
+    "salt": 2.5,
+    "energyKj": 3952
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "blackout-chicken-katsu-curry",
+   "name": "Blackout Chicken Katsu Curry",
+   "category": "Christmas menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 815,
+    "protein": 29.9,
+    "carbs": 101.5,
+    "fat": 31.6,
+    "saturatedFat": 13,
+    "sugar": 6.5,
+    "fiber": 5.1,
+    "salt": 3.7,
+    "energyKj": 3409
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "blackout-jfc",
+   "name": "Blackout JFC",
+   "category": "Christmas menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 1301,
+    "protein": 53.8,
+    "carbs": 147,
+    "fat": 52.8,
+    "saturatedFat": 17.9,
+    "sugar": 22.7,
+    "fiber": 7.4,
+    "salt": 7.4,
+    "energyKj": 5637
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-and-mandarin-cream-puff",
+   "name": "Chocolate & Mandarin Cream Puff",
+   "category": "Christmas menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 436,
+    "protein": 7.3,
+    "carbs": 30.3,
+    "fat": 31.3,
+    "saturatedFat": 19.8,
+    "sugar": 23,
+    "fiber": 2.5,
+    "salt": 0.3,
+    "energyKj": 1814
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "jfc",
+   "name": "JFC",
+   "category": "Christmas menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 1306,
+    "protein": 53.7,
+    "carbs": 149.5,
+    "fat": 52.5,
+    "saturatedFat": 17.8,
+    "sugar": 24.4,
+    "fiber": 6.6,
+    "salt": 6.6,
+    "energyKj": 5661
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ],
     "cereals": [
      "wheat"
     ]

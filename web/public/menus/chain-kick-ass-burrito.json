@@ -10,15 +10,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Kick Ass Burrito Nutrition (per portion) menus: Kick Ass Burrito and Drinks (page generated 2026-10-11)",
+  "title": "Kick Ass Burrito Nutrition (per portion) menus: Kick Ass Burrito and Drinks (page generated 2026-11-17)",
   "url": "https://menus.tenkites.com/thebigtg/kickassburrito",
-  "checkedOn": "2026-10-11"
+  "checkedOn": "2026-11-17"
  },
  "note": "A delivery-only brand cooked in Big Table Group restaurant kitchens and ordered through delivery apps. Per portion as printed on the menu page; sauces, extra fillings and sides are listed on their own, so add the parts you order.",
  "allergenGuide": {
-  "title": "Kick Ass Burrito Dietary Information (allergens) on its online Kick Ass Burrito and Drinks menus (Ten Kites page generated 2026-10-11)",
+  "title": "Kick Ass Burrito Dietary Information (allergens) on its online Kick Ass Burrito and Drinks menus (Ten Kites page generated 2026-11-17)",
   "url": "https://menus.tenkites.com/thebigtg/kickassburrito",
-  "checkedOn": "2026-10-11",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -68,9 +68,6 @@
     ],
     "cereals": [
      "wheat",
-     "rye",
-     "barley",
-     "oats",
      "spelt",
      "kamut"
     ]
@@ -149,9 +146,6 @@
     ],
     "cereals": [
      "wheat",
-     "rye",
-     "barley",
-     "oats",
      "spelt",
      "kamut"
     ]
@@ -304,9 +298,6 @@
     ],
     "cereals": [
      "wheat",
-     "rye",
-     "barley",
-     "oats",
      "spelt",
      "kamut"
     ]
@@ -652,14 +643,13 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "nuts"
-    ],
+    "contains": [],
     "mayContain": [
      "gluten",
      "eggs",
      "milk",
      "mustard",
+     "nuts",
      "soya",
      "sulphites"
     ]
@@ -759,13 +749,13 @@
     "contains": [
      "celery",
      "milk",
-     "nuts",
      "sulphites"
     ],
     "mayContain": [
      "gluten",
      "eggs",
      "mustard",
+     "nuts",
      "sesame",
      "soya"
     ]
@@ -796,13 +786,13 @@
     "contains": [
      "celery",
      "milk",
-     "nuts",
      "sulphites"
     ],
     "mayContain": [
      "gluten",
      "eggs",
      "mustard",
+     "nuts",
      "sesame",
      "soya"
     ]

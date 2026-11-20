@@ -1,0 +1,3302 @@
+{
+ "schemaVersion": 1,
+ "id": "abokado",
+ "name": "Abokado",
+ "cuisine": "Japanese",
+ "builderType": "standard",
+ "aliases": [
+  "abokado"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Abokado Nutritional Values (August 2026, NutritionalsAbokadoAugust26.pdf)",
+  "url": "https://abokado.com/user/pages/nutrition/NutritionalsAbokadoAugust26.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "note": "Dishes exclude any dressing pot, which is listed separately. Abokado says these values are a guide and does not print serving sizes (soft drinks included).",
+ "allergenGuide": {
+  "title": "Abokado Allergens (August 2026, AllergensAbokadoAugust26.pdf)",
+  "url": "https://abokado.com/user/pages/nutrition/AllergensAbokadoAugust26.pdf",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": false,
+  "complete": true
+ },
+ "categories": [
+  "Poke & nourish bowls",
+  "Rice bowls",
+  "Salads",
+  "Yaki udon",
+  "Sushi",
+  "Banh mi",
+  "Bagels",
+  "Breakfast",
+  "Sides & snacks",
+  "Extras & pots",
+  "Hot drinks",
+  "Cold drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "nourish-bowl-miso-salmon",
+   "name": "Nourish Bowl - Miso Salmon",
+   "category": "Poke & nourish bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 426,
+    "protein": 16.3,
+    "carbs": 58.2,
+    "fat": 13.9,
+    "saturatedFat": 1.9,
+    "sugar": 10.9,
+    "fiber": 4.2,
+    "salt": 2.6,
+    "energyKj": 1835
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "nourish-bowl-plant-based",
+   "name": "Nourish Bowl - Plant-Based",
+   "category": "Poke & nourish bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 530,
+    "protein": 14.9,
+    "carbs": 79.2,
+    "fat": 16.8,
+    "saturatedFat": 2.9,
+    "sugar": 13.5,
+    "fiber": 4.3,
+    "salt": 2.9,
+    "energyKj": 2233
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "nourish-bowl-teriyaki-chicken",
+   "name": "Nourish Bowl - Teriyaki Chicken",
+   "category": "Poke & nourish bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 494,
+    "protein": 29.9,
+    "carbs": 67.4,
+    "fat": 11.5,
+    "saturatedFat": 1.5,
+    "sugar": 18.8,
+    "fiber": 4.4,
+    "salt": 3,
+    "energyKj": 2089
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "poke-plant-based",
+   "name": "Poke - Plant Based",
+   "category": "Poke & nourish bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 568,
+    "protein": 23.2,
+    "carbs": 89.2,
+    "fat": 14.6,
+    "saturatedFat": 9.4,
+    "sugar": 12.3,
+    "fiber": 5.8,
+    "salt": 1.9,
+    "energyKj": 2391
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "poke-spicy-citrus-salmon",
+   "name": "Poke - Spicy Citrus Salmon",
+   "category": "Poke & nourish bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 427,
+    "protein": 19.9,
+    "carbs": 66.7,
+    "fat": 10.1,
+    "saturatedFat": 2.1,
+    "sugar": 9.8,
+    "fiber": 4.3,
+    "salt": 1.1,
+    "energyKj": 1879
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "poke-teriyaki-salmon",
+   "name": "Poke - Teriyaki Salmon",
+   "category": "Poke & nourish bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 487,
+    "protein": 19.7,
+    "carbs": 72.9,
+    "fat": 14.4,
+    "saturatedFat": 4.4,
+    "sugar": 13.2,
+    "fiber": 4.7,
+    "salt": 1.5,
+    "energyKj": 2122
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "poke-teriyaki-chicken",
+   "name": "Poke - Teriyaki Chicken",
+   "category": "Poke & nourish bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 471,
+    "protein": 23.7,
+    "carbs": 78.5,
+    "fat": 8.9,
+    "saturatedFat": 3.4,
+    "sugar": 17.7,
+    "fiber": 4.8,
+    "salt": 1.7,
+    "energyKj": 1991
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "poke-tonkatsu-bbq-chicken",
+   "name": "Poke - Tonkatsu BBQ Chicken",
+   "category": "Poke & nourish bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 447,
+    "protein": 18.3,
+    "carbs": 53.8,
+    "fat": 18.7,
+    "saturatedFat": 6.6,
+    "sugar": 10.9,
+    "fiber": 3.1,
+    "salt": 1.6,
+    "energyKj": 1874
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "rice-bowl-chicken-katsu-curry",
+   "name": "Rice Bowl - Chicken Katsu Curry",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 806,
+    "protein": 34.4,
+    "carbs": 106.7,
+    "fat": 25.5,
+    "saturatedFat": 7.1,
+    "sugar": 9.6,
+    "fiber": 4.7,
+    "salt": 4.2,
+    "energyKj": 3366
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rice-bowl-thai-green-chicken-curry",
+   "name": "Rice Bowl - Thai Green Chicken Curry",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 826,
+    "protein": 34.1,
+    "carbs": 117.1,
+    "fat": 23.4,
+    "saturatedFat": 7.5,
+    "sugar": 16.3,
+    "fiber": 1.9,
+    "salt": 3.7,
+    "energyKj": 3454
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rice-bowl-thai-red-chicken-curry",
+   "name": "Rice Bowl - Thai Red Chicken Curry",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 819,
+    "protein": 34.6,
+    "carbs": 116.1,
+    "fat": 22.8,
+    "saturatedFat": 7.3,
+    "sugar": 15.9,
+    "fiber": 3.2,
+    "salt": 4.5,
+    "energyKj": 3423
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rice-bowl-tonkatsu-bbq-chicken",
+   "name": "Rice Bowl - Tonkatsu BBQ Chicken",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 836,
+    "protein": 33.4,
+    "carbs": 135.3,
+    "fat": 16.6,
+    "saturatedFat": 6.9,
+    "sugar": 33.4,
+    "fiber": 1.9,
+    "salt": 5.4,
+    "energyKj": 3489
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "rice-bowl-sweet-chilli-chicken",
+   "name": "Rice Bowl - Sweet Chilli Chicken",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 849,
+    "protein": 33.1,
+    "carbs": 138.6,
+    "fat": 16.5,
+    "saturatedFat": 6.9,
+    "sugar": 37.4,
+    "fiber": 1.9,
+    "salt": 3.5,
+    "energyKj": 3559
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rice-bowl-plant-based-katsu-curry",
+   "name": "Rice Bowl - Plant-Based Katsu Curry",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 722,
+    "protein": 27.5,
+    "carbs": 110.4,
+    "fat": 17.3,
+    "saturatedFat": 6.9,
+    "sugar": 10.6,
+    "fiber": 5.9,
+    "salt": 4.6,
+    "energyKj": 3016
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "on-rice-salad-miso-salmon",
+   "name": "\"On Rice\" Salad - Miso Salmon",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 346,
+    "protein": 13.5,
+    "carbs": 60.9,
+    "fat": 4.7,
+    "saturatedFat": 1.1,
+    "sugar": 5.1,
+    "fiber": 2.3,
+    "salt": 2,
+    "energyKj": 1471
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "on-rice-salad-teriyaki-chicken",
+   "name": "\"On Rice\" Salad - Teriyaki Chicken",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 412,
+    "protein": 25.6,
+    "carbs": 68.4,
+    "fat": 3.4,
+    "saturatedFat": 1,
+    "sugar": 11.5,
+    "fiber": 2.5,
+    "salt": 2.4,
+    "energyKj": 1729
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "on-rice-salad-gyoza",
+   "name": "\"On Rice\" Salad - Gyoza",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 536,
+    "protein": 16.8,
+    "carbs": 90.1,
+    "fat": 11.4,
+    "saturatedFat": 3.1,
+    "sugar": 8.9,
+    "fiber": 2.8,
+    "salt": 2.7,
+    "energyKj": 2244
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "wild-rice-salad-chicken",
+   "name": "Wild Rice Salad - Chicken",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 408,
+    "protein": 18,
+    "carbs": 48.9,
+    "fat": 16.4,
+    "saturatedFat": 4.9,
+    "sugar": 6.1,
+    "fiber": 3.6,
+    "salt": 0.8,
+    "energyKj": 1710
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "wild-rice-salad-salmon-tartare",
+   "name": "Wild Rice Salad - Salmon Tartare",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 310,
+    "protein": 11.5,
+    "carbs": 41.3,
+    "fat": 11.6,
+    "saturatedFat": 1.8,
+    "sugar": 6.1,
+    "fiber": 3.7,
+    "salt": 0.5,
+    "energyKj": 1340
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yaki-udon-noodles-katsu-curry",
+   "name": "Yaki Udon Noodles - Katsu Curry",
+   "category": "Yaki udon",
+   "serving": "",
+   "nutrients": {
+    "calories": 500,
+    "protein": 10.4,
+    "carbs": 90.6,
+    "fat": 10.1,
+    "saturatedFat": 0.9,
+    "sugar": 8.4,
+    "fiber": 7.6,
+    "salt": 2.9,
+    "energyKj": 2084
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yaki-udon-noodles-sweet-chilli",
+   "name": "Yaki Udon Noodles - Sweet Chilli",
+   "category": "Yaki udon",
+   "serving": "",
+   "nutrients": {
+    "calories": 506,
+    "protein": 9.5,
+    "carbs": 106.2,
+    "fat": 4.2,
+    "saturatedFat": 0.8,
+    "sugar": 22.2,
+    "fiber": 6,
+    "salt": 2.4,
+    "energyKj": 2117
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yaki-udon-noodles-teriyaki",
+   "name": "Yaki Udon Noodles - Teriyaki",
+   "category": "Yaki udon",
+   "serving": "",
+   "nutrients": {
+    "calories": 504,
+    "protein": 11.6,
+    "carbs": 105.7,
+    "fat": 4.2,
+    "saturatedFat": 0.8,
+    "sugar": 22.9,
+    "fiber": 6.4,
+    "salt": 4.9,
+    "energyKj": 2110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yaki-udon-noodles-thai-green-curry",
+   "name": "Yaki Udon Noodles - Thai Green Curry",
+   "category": "Yaki udon",
+   "serving": "",
+   "nutrients": {
+    "calories": 531,
+    "protein": 10.5,
+    "carbs": 100.1,
+    "fat": 9.5,
+    "saturatedFat": 1.3,
+    "sugar": 14.8,
+    "fiber": 6.2,
+    "salt": 2.6,
+    "energyKj": 2215
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yaki-udon-noodles-thai-red-curry",
+   "name": "Yaki Udon Noodles - Thai Red Curry",
+   "category": "Yaki udon",
+   "serving": "",
+   "nutrients": {
+    "calories": 525,
+    "protein": 10.8,
+    "carbs": 99.4,
+    "fat": 9,
+    "saturatedFat": 1.1,
+    "sugar": 14.4,
+    "fiber": 7.2,
+    "salt": 3.2,
+    "energyKj": 2192
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yaki-udon-noodles-tonkatsu-bbq",
+   "name": "Yaki Udon Noodles - Tonkatsu BBQ",
+   "category": "Yaki udon",
+   "serving": "",
+   "nutrients": {
+    "calories": 523,
+    "protein": 9.8,
+    "carbs": 110.3,
+    "fat": 4.3,
+    "saturatedFat": 0.8,
+    "sugar": 24.7,
+    "fiber": 6,
+    "salt": 3.7,
+    "energyKj": 2180
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "california-nigiri-sushi",
+   "name": "California Nigiri Sushi",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 580,
+    "protein": 19.1,
+    "carbs": 56.6,
+    "fat": 29.6,
+    "saturatedFat": 4.5,
+    "sugar": 6.4,
+    "fiber": 3.9,
+    "salt": 1.8,
+    "energyKj": 2440
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "deep-blue-sushi",
+   "name": "Deep Blue Sushi",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 523,
+    "protein": 20.5,
+    "carbs": 67.4,
+    "fat": 17.6,
+    "saturatedFat": 4,
+    "sugar": 5.5,
+    "fiber": 3.5,
+    "salt": 2.2,
+    "energyKj": 2219
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "dragon-california-crab",
+   "name": "Dragon - California Crab",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 477,
+    "protein": 9.3,
+    "carbs": 49,
+    "fat": 26.5,
+    "saturatedFat": 5.8,
+    "sugar": 9.4,
+    "fiber": 3.6,
+    "salt": 1.8,
+    "energyKj": 1963
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "dragon-chicken-katsu",
+   "name": "Dragon - Chicken Katsu",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 520,
+    "protein": 13.7,
+    "carbs": 55.5,
+    "fat": 26.5,
+    "saturatedFat": 7.3,
+    "sugar": 12.7,
+    "fiber": 3.6,
+    "salt": 2.1,
+    "energyKj": 2141
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "dragon-salmon-and-avo",
+   "name": "Dragon - Salmon & Avo",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 445,
+    "protein": 13.2,
+    "carbs": 50.5,
+    "fat": 20.4,
+    "saturatedFat": 5.8,
+    "sugar": 9.7,
+    "fiber": 3.7,
+    "salt": 1.9,
+    "energyKj": 1867
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "katsu-nigiri-sushi",
+   "name": "Katsu Nigiri Sushi",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 594,
+    "protein": 26.7,
+    "carbs": 64.6,
+    "fat": 24.2,
+    "saturatedFat": 6.8,
+    "sugar": 7.6,
+    "fiber": 4.3,
+    "salt": 2.1,
+    "energyKj": 2503
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mean-clean-and-green-sushi",
+   "name": "Mean, Clean & Green Sushi",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 544,
+    "protein": 11.5,
+    "carbs": 74.5,
+    "fat": 21.3,
+    "saturatedFat": 4.5,
+    "sugar": 9.9,
+    "fiber": 4.5,
+    "salt": 2.1,
+    "energyKj": 2248
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "oishi-sushi",
+   "name": "Oishi Sushi",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 374,
+    "protein": 14.6,
+    "carbs": 48.9,
+    "fat": 12.3,
+    "saturatedFat": 2.7,
+    "sugar": 4,
+    "fiber": 2.3,
+    "salt": 1.6,
+    "energyKj": 1586
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "omega-3-sushi",
+   "name": "Omega 3 Sushi",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 597,
+    "protein": 28.2,
+    "carbs": 80,
+    "fat": 16.3,
+    "saturatedFat": 3.7,
+    "sugar": 10.3,
+    "fiber": 2.6,
+    "salt": 2.4,
+    "energyKj": 2584
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "omega-lite-sushi",
+   "name": "Omega Lite Sushi",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 303,
+    "protein": 15.2,
+    "carbs": 45.6,
+    "fat": 5.9,
+    "saturatedFat": 1.2,
+    "sugar": 3.1,
+    "fiber": 2.2,
+    "salt": 1.1,
+    "energyKj": 1316
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "river-run-sushi",
+   "name": "River Run Sushi",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 369,
+    "protein": 18.3,
+    "carbs": 48.9,
+    "fat": 10.3,
+    "saturatedFat": 2.2,
+    "sugar": 4.7,
+    "fiber": 2.9,
+    "salt": 1.6,
+    "energyKj": 1593
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sashimi-salmon-sushi",
+   "name": "Sashimi Salmon Sushi",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 264,
+    "protein": 18.5,
+    "carbs": 24.9,
+    "fat": 9.7,
+    "saturatedFat": 1.6,
+    "sugar": 0.6,
+    "fiber": 2.3,
+    "salt": 0.7,
+    "energyKj": 1201
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spicy-chicken-katsu-sushi",
+   "name": "Spicy Chicken Katsu Sushi",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 502,
+    "protein": 15.2,
+    "carbs": 58.3,
+    "fat": 22.3,
+    "saturatedFat": 5.9,
+    "sugar": 12.6,
+    "fiber": 4.2,
+    "salt": 3.1,
+    "energyKj": 2063
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spicy-salmon-sushi",
+   "name": "Spicy Salmon Sushi",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 339,
+    "protein": 14.1,
+    "carbs": 49.9,
+    "fat": 8.3,
+    "saturatedFat": 2.4,
+    "sugar": 10.2,
+    "fiber": 2.9,
+    "salt": 2.9,
+    "energyKj": 1428
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sushi-roll-salmon-avo",
+   "name": "Sushi Roll - Salmon Avo",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 210,
+    "protein": 6.7,
+    "carbs": 27.1,
+    "fat": 7.7,
+    "saturatedFat": 1.5,
+    "sugar": 2.9,
+    "fiber": 1.5,
+    "salt": 0.9,
+    "energyKj": 884
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sushi-roll-sesame-seaweed",
+   "name": "Sushi Roll - Sesame Seaweed",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 138,
+    "protein": 3,
+    "carbs": 28.6,
+    "fat": 0.9,
+    "saturatedFat": 0.1,
+    "sugar": 2.6,
+    "fiber": 1.1,
+    "salt": 1.2,
+    "energyKj": 581
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sushi-roll-spicy-california",
+   "name": "Sushi Roll - Spicy California",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 195,
+    "protein": 4.5,
+    "carbs": 28.4,
+    "fat": 6.5,
+    "saturatedFat": 0.5,
+    "sugar": 3.5,
+    "fiber": 0.9,
+    "salt": 1.2,
+    "energyKj": 779
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sushi-roll-teriyaki-chicken",
+   "name": "Sushi Roll - Teriyaki Chicken",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 156,
+    "protein": 8.1,
+    "carbs": 28.5,
+    "fat": 0.7,
+    "saturatedFat": 0.2,
+    "sugar": 4.4,
+    "fiber": 1.2,
+    "salt": 0.9,
+    "energyKj": 644
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sushi-roll-teriyaki-salmon",
+   "name": "Sushi Roll - Teriyaki Salmon",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 160,
+    "protein": 6.8,
+    "carbs": 26.4,
+    "fat": 2.4,
+    "saturatedFat": 0.5,
+    "sugar": 2.7,
+    "fiber": 0.8,
+    "salt": 0.9,
+    "energyKj": 679
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sushi-roll-tonkatsu-bbq-chicken",
+   "name": "Sushi Roll - Tonkatsu BBQ Chicken",
+   "category": "Sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 217,
+    "protein": 7.3,
+    "carbs": 30.2,
+    "fat": 7,
+    "saturatedFat": 2.2,
+    "sugar": 3.3,
+    "fiber": 1.5,
+    "salt": 1.1,
+    "energyKj": 896
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "banh-mi-crispy-chicken",
+   "name": "Banh Mi - Crispy Chicken",
+   "category": "Banh mi",
+   "serving": "",
+   "nutrients": {
+    "calories": 666,
+    "protein": 23.9,
+    "carbs": 86.1,
+    "fat": 24.6,
+    "saturatedFat": 7,
+    "sugar": 13.3,
+    "fiber": 4.9,
+    "salt": 2.9,
+    "energyKj": 2799
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "banh-mi-sweet-and-sour-chicken",
+   "name": "Banh Mi - Sweet & Sour Chicken",
+   "category": "Banh mi",
+   "serving": "",
+   "nutrients": {
+    "calories": 577,
+    "protein": 23.6,
+    "carbs": 81.1,
+    "fat": 15.5,
+    "saturatedFat": 4.5,
+    "sugar": 12.5,
+    "fiber": 5.6,
+    "salt": 2.7,
+    "energyKj": 2432
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "banh-mi-tonkatsu-bbq-chicken",
+   "name": "Banh Mi - Tonkatsu BBQ \"Chicken\"",
+   "category": "Banh mi",
+   "serving": "",
+   "nutrients": {
+    "calories": 591,
+    "protein": 23.7,
+    "carbs": 92.2,
+    "fat": 13.5,
+    "saturatedFat": 6.3,
+    "sugar": 14.2,
+    "fiber": 4.9,
+    "salt": 3.5,
+    "energyKj": 2490
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "bagel-avo-and-bacon",
+   "name": "Bagel - Avo & Bacon",
+   "category": "Bagels",
+   "serving": "",
+   "nutrients": {
+    "calories": 527,
+    "protein": 20.2,
+    "carbs": 54.7,
+    "fat": 23.4,
+    "saturatedFat": 5.5,
+    "sugar": 6.8,
+    "fiber": 11.4,
+    "salt": 1.7,
+    "energyKj": 2210
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "bagel-avo-and-cream-cheese",
+   "name": "Bagel - Avo & Cream Cheese",
+   "category": "Bagels",
+   "serving": "",
+   "nutrients": {
+    "calories": 450,
+    "protein": 13.4,
+    "carbs": 43.5,
+    "fat": 23.7,
+    "saturatedFat": 8.8,
+    "sugar": 6.5,
+    "fiber": 8.8,
+    "salt": 0.8,
+    "energyKj": 1883
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "bagel-avo-and-vegan-bacon",
+   "name": "Bagel - Avo & Vegan Bacon",
+   "category": "Bagels",
+   "serving": "",
+   "nutrients": {
+    "calories": 446,
+    "protein": 18.8,
+    "carbs": 53.3,
+    "fat": 15.8,
+    "saturatedFat": 2.9,
+    "sugar": 6.6,
+    "fiber": 10.6,
+    "salt": 0.6,
+    "energyKj": 1874
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "bagel-avocado-and-shichimi",
+   "name": "Bagel - Avocado & Shichimi",
+   "category": "Bagels",
+   "serving": "",
+   "nutrients": {
+    "calories": 445,
+    "protein": 14.3,
+    "carbs": 54.8,
+    "fat": 16.7,
+    "saturatedFat": 3.1,
+    "sugar": 6.8,
+    "fiber": 11.5,
+    "salt": 1.1,
+    "energyKj": 1867
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "bagel-bacon-and-egg",
+   "name": "Bagel - Bacon & Egg",
+   "category": "Bagels",
+   "serving": "",
+   "nutrients": {
+    "calories": 561,
+    "protein": 24.6,
+    "carbs": 54.2,
+    "fat": 25.4,
+    "saturatedFat": 4.7,
+    "sugar": 6.8,
+    "fiber": 9.1,
+    "salt": 2,
+    "energyKj": 2350
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "bagel-bacon-butty",
+   "name": "Bagel - Bacon Butty",
+   "category": "Bagels",
+   "serving": "",
+   "nutrients": {
+    "calories": 561,
+    "protein": 25.4,
+    "carbs": 53.7,
+    "fat": 25.2,
+    "saturatedFat": 6.8,
+    "sugar": 6.6,
+    "fiber": 9.1,
+    "salt": 2.9,
+    "energyKj": 2351
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "bagel-cream-cheese",
+   "name": "Bagel - Cream Cheese",
+   "category": "Bagels",
+   "serving": "",
+   "nutrients": {
+    "calories": 487,
+    "protein": 16.5,
+    "carbs": 55.5,
+    "fat": 20.8,
+    "saturatedFat": 9.1,
+    "sugar": 8.2,
+    "fiber": 9.1,
+    "salt": 1,
+    "energyKj": 2045
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "bagel-egg",
+   "name": "Bagel - Egg",
+   "category": "Bagels",
+   "serving": "",
+   "nutrients": {
+    "calories": 476,
+    "protein": 18.7,
+    "carbs": 54.2,
+    "fat": 18.6,
+    "saturatedFat": 2.3,
+    "sugar": 6.8,
+    "fiber": 9.1,
+    "salt": 0.9,
+    "energyKj": 2000
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "bagel-marmite",
+   "name": "Bagel - Marmite",
+   "category": "Bagels",
+   "serving": "",
+   "nutrients": {
+    "calories": 405,
+    "protein": 15.2,
+    "carbs": 55.2,
+    "fat": 11.8,
+    "saturatedFat": 1.9,
+    "sugar": 6.6,
+    "fiber": 9.1,
+    "salt": 1.3,
+    "energyKj": 1706
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "bagel-peanut-butter",
+   "name": "Bagel - Peanut Butter",
+   "category": "Bagels",
+   "serving": "",
+   "nutrients": {
+    "calories": 470,
+    "protein": 18.9,
+    "carbs": 56.3,
+    "fat": 16.6,
+    "saturatedFat": 2.1,
+    "sugar": 7.4,
+    "fiber": 9.1,
+    "salt": 1,
+    "energyKj": 1974
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "peanuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "bagel-smoked-salmon-and-cream-cheese",
+   "name": "Bagel - Smoked Salmon & Cream Cheese",
+   "category": "Bagels",
+   "serving": "",
+   "nutrients": {
+    "calories": 526,
+    "protein": 23.4,
+    "carbs": 55.5,
+    "fat": 22,
+    "saturatedFat": 9.3,
+    "sugar": 8.2,
+    "fiber": 9.1,
+    "salt": 2.3,
+    "energyKj": 2207
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "overnight-oats-berry-and-almond",
+   "name": "Overnight Oats - Berry & Almond",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 332,
+    "protein": 7.6,
+    "carbs": 56.4,
+    "fat": 9.9,
+    "saturatedFat": 1.1,
+    "sugar": 30.3,
+    "fiber": 5.7,
+    "salt": 0.1,
+    "energyKj": 1394
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "overnight-oats-golden-mango",
+   "name": "Overnight Oats - Golden Mango",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 265,
+    "protein": 6.7,
+    "carbs": 43.6,
+    "fat": 7.1,
+    "saturatedFat": 0.9,
+    "sugar": 17.5,
+    "fiber": 5.9,
+    "salt": 0.1,
+    "energyKj": 1113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "overnight-oats-pb-and-banana",
+   "name": "Overnight Oats - PB & Banana",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 378,
+    "protein": 13.3,
+    "carbs": 42.8,
+    "fat": 19.3,
+    "saturatedFat": 2.6,
+    "sugar": 14.6,
+    "fiber": 5.2,
+    "salt": 0.6,
+    "energyKj": 1588
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts",
+     "peanuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "scrambled-eggs-plain",
+   "name": "Scrambled Eggs - Plain",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 249,
+    "protein": 20.7,
+    "carbs": 0,
+    "fat": 18.4,
+    "saturatedFat": 5,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 1.5,
+    "energyKj": 1033
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "scrambled-eggs-smashed-avo",
+   "name": "Scrambled Eggs - Smashed Avo",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "protein": 21.6,
+    "carbs": 1.3,
+    "fat": 28.3,
+    "saturatedFat": 7.4,
+    "sugar": 0.3,
+    "fiber": 2.6,
+    "salt": 1.5,
+    "energyKj": 1442
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "scrambled-eggs-crispy-smoked-bacon",
+   "name": "Scrambled Eggs - Crispy Smoked Bacon",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 333,
+    "protein": 26.7,
+    "carbs": 0,
+    "fat": 25.1,
+    "saturatedFat": 7.5,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 2.6,
+    "energyKj": 1383
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "scrambled-eggs-vegan-bacon",
+   "name": "Scrambled Eggs - Vegan \"Bacon\"",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 287,
+    "protein": 26.8,
+    "carbs": 2.7,
+    "fat": 18.7,
+    "saturatedFat": 0,
+    "sugar": 0.3,
+    "fiber": 0,
+    "salt": 1.5,
+    "energyKj": 1193
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "scrambled-eggs-smoked-salmon",
+   "name": "Scrambled Eggs - Smoked Salmon",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 287,
+    "protein": 27.6,
+    "carbs": 0,
+    "fat": 19.6,
+    "saturatedFat": 5.2,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 2.8,
+    "energyKj": 1195
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "edamame-beans",
+   "name": "Edamame Beans",
+   "category": "Sides & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 134,
+    "protein": 11.5,
+    "carbs": 8.9,
+    "fat": 3.3,
+    "saturatedFat": 0.5,
+    "sugar": 0.9,
+    "fiber": 4.2,
+    "salt": 0.5,
+    "energyKj": 561
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gyoza-spicy",
+   "name": "Gyoza - Spicy",
+   "category": "Sides & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 333,
+    "protein": 10.8,
+    "carbs": 41.9,
+    "fat": 13.8,
+    "saturatedFat": 3.6,
+    "sugar": 5.8,
+    "fiber": 0.1,
+    "salt": 1.4,
+    "energyKj": 1398
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gyoza-sweet-chilli",
+   "name": "Gyoza - Sweet Chilli",
+   "category": "Sides & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 333,
+    "protein": 10.8,
+    "carbs": 41.9,
+    "fat": 13.8,
+    "saturatedFat": 3.6,
+    "sugar": 5.8,
+    "fiber": 0.1,
+    "salt": 1.4,
+    "energyKj": 1398
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gyoza-teriyaki",
+   "name": "Gyoza - Teriyaki",
+   "category": "Sides & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 333,
+    "protein": 10.8,
+    "carbs": 41.9,
+    "fat": 13.8,
+    "saturatedFat": 3.6,
+    "sugar": 5.8,
+    "fiber": 0.1,
+    "salt": 1.4,
+    "energyKj": 1398
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gyoza-tonkatsu-bbq",
+   "name": "Gyoza - Tonkatsu BBQ",
+   "category": "Sides & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 333,
+    "protein": 10.8,
+    "carbs": 41.9,
+    "fat": 13.8,
+    "saturatedFat": 3.6,
+    "sugar": 5.8,
+    "fiber": 0.1,
+    "salt": 1.4,
+    "energyKj": 1398
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "mango-and-lime-pot",
+   "name": "Mango & Lime Pot",
+   "category": "Sides & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 97,
+    "protein": 1.2,
+    "carbs": 23.9,
+    "fat": 0.3,
+    "saturatedFat": 0.2,
+    "sugar": 23.5,
+    "fiber": 4.4,
+    "salt": 0,
+    "energyKj": 417
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "miso-soup",
+   "name": "Miso Soup",
+   "category": "Sides & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 37,
+    "protein": 3.1,
+    "carbs": 7.8,
+    "fat": 1.6,
+    "saturatedFat": 0.3,
+    "sugar": 3.5,
+    "fiber": 0.4,
+    "salt": 2.7,
+    "energyKj": 155
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "dressing-pot-asian-soy-and-ginger",
+   "name": "Dressing Pot - Asian (Soy & Ginger)",
+   "category": "Extras & pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 163,
+    "protein": 0.4,
+    "carbs": 10.1,
+    "fat": 13.4,
+    "saturatedFat": 1,
+    "sugar": 8.3,
+    "fiber": 0,
+    "salt": 0.5,
+    "energyKj": 677
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dressing-pot-sesame",
+   "name": "Dressing Pot - Sesame",
+   "category": "Extras & pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 121,
+    "protein": 1.7,
+    "carbs": 9.5,
+    "fat": 8.5,
+    "saturatedFat": 0.9,
+    "sugar": 8.6,
+    "fiber": 0,
+    "salt": 1.1,
+    "energyKj": 508
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "dressing-pot-sweet-chilli",
+   "name": "Dressing Pot - Sweet Chilli",
+   "category": "Extras & pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 70,
+    "protein": 0.1,
+    "carbs": 17.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 14.2,
+    "fiber": 0,
+    "salt": 0.2,
+    "energyKj": 299
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dressing-pot-teriyaki",
+   "name": "Dressing Pot - Teriyaki",
+   "category": "Extras & pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 23,
+    "protein": 0.6,
+    "carbs": 5.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 4.9,
+    "fiber": 0.1,
+    "salt": 0.8,
+    "energyKj": 96
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "dressing-pot-tonkatsu-bbq",
+   "name": "Dressing Pot - Tonkatsu BBQ",
+   "category": "Extras & pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 63,
+    "protein": 0.3,
+    "carbs": 15.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 12,
+    "fiber": 0,
+    "salt": 1,
+    "energyKj": 259
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "extra-avocado",
+   "name": "Extra - Avocado",
+   "category": "Extras & pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 96,
+    "protein": 0.8,
+    "carbs": 1,
+    "fat": 9.9,
+    "saturatedFat": 2.4,
+    "sugar": 0.3,
+    "fiber": 2.3,
+    "salt": 0,
+    "energyKj": 394
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-bacon",
+   "name": "Extra - Bacon",
+   "category": "Extras & pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 84,
+    "protein": 6,
+    "carbs": 0,
+    "fat": 6.7,
+    "saturatedFat": 2.5,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 1.1,
+    "energyKj": 350
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-cream-cheese",
+   "name": "Extra - Cream Cheese",
+   "category": "Extras & pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 112,
+    "protein": 2.4,
+    "carbs": 1.4,
+    "fat": 11.2,
+    "saturatedFat": 6.7,
+    "sugar": 1.3,
+    "fiber": 0,
+    "salt": 0.3,
+    "energyKj": 463
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-espresso-shot",
+   "name": "Extra - Espresso Shot",
+   "category": "Extras & pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-smoked-salmon",
+   "name": "Extra - Smoked Salmon",
+   "category": "Extras & pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0.3,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-vegan-bacon",
+   "name": "Extra - Vegan Bacon",
+   "category": "Extras & pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 38,
+    "protein": 6.1,
+    "carbs": 2.7,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 0.3,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 160
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ginger",
+   "name": "Ginger",
+   "category": "Extras & pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.3,
+    "energyKj": 13
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pot-crispy-onions",
+   "name": "Pot - Crispy Onions",
+   "category": "Extras & pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0.6,
+    "carbs": 4,
+    "fat": 4.4,
+    "saturatedFat": 2.2,
+    "sugar": 1.5,
+    "fiber": 0.5,
+    "salt": 0.1,
+    "energyKj": 241
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pot-sriracha-hot-sauce",
+   "name": "Pot - Sriracha Hot Sauce",
+   "category": "Extras & pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 54,
+    "protein": 0.8,
+    "carbs": 11.6,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 11.2,
+    "fiber": 1.1,
+    "salt": 2.8,
+    "energyKj": 224
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "topping-pumpkin-seeds",
+   "name": "Topping - Pumpkin Seeds",
+   "category": "Extras & pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 28,
+    "protein": 1.5,
+    "carbs": 0.5,
+    "fat": 2.4,
+    "saturatedFat": 0.4,
+    "sugar": 0.1,
+    "fiber": 0.3,
+    "salt": 0,
+    "energyKj": 117
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "topping-sun-dried-tomatoes",
+   "name": "Topping - Sun-Dried Tomatoes",
+   "category": "Extras & pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 9,
+    "protein": 0.1,
+    "carbs": 1.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.6,
+    "fiber": 0.6,
+    "salt": 0.6,
+    "energyKj": 36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "wasabi",
+   "name": "Wasabi",
+   "category": "Extras & pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 7,
+    "protein": 0.1,
+    "carbs": 1.1,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 0.3,
+    "fiber": 0.3,
+    "salt": 0.1,
+    "energyKj": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "black-americano-large",
+   "name": "Black Americano (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "black-americano-regular",
+   "name": "Black Americano (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-large",
+   "name": "Cappuccino (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 248,
+    "protein": 12.4,
+    "carbs": 17.4,
+    "fat": 14.6,
+    "saturatedFat": 9.3,
+    "sugar": 17.2,
+    "fiber": 0,
+    "salt": 0.4,
+    "energyKj": 1030
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-regular",
+   "name": "Cappuccino (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 176,
+    "protein": 8.8,
+    "carbs": 12.4,
+    "fat": 10.3,
+    "saturatedFat": 6.6,
+    "sugar": 12.2,
+    "fiber": 0,
+    "salt": 0.3,
+    "energyKj": 730
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-espresso",
+   "name": "Double Espresso",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.1,
+    "carbs": 0.8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 122,
+    "protein": 6.1,
+    "carbs": 8.6,
+    "fat": 7.2,
+    "saturatedFat": 4.5,
+    "sugar": 8.4,
+    "fiber": 0,
+    "salt": 0.2,
+    "energyKj": 506
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-large",
+   "name": "Latte (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 283,
+    "protein": 14.1,
+    "carbs": 19.9,
+    "fat": 16.7,
+    "saturatedFat": 10.6,
+    "sugar": 19.7,
+    "fiber": 0,
+    "salt": 0.5,
+    "energyKj": 1177
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-regular",
+   "name": "Latte (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 206,
+    "protein": 10.3,
+    "carbs": 14.5,
+    "fat": 12.1,
+    "saturatedFat": 7.7,
+    "sugar": 14.3,
+    "fiber": 0,
+    "salt": 0.3,
+    "energyKj": 856
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-americano-regular",
+   "name": "White Americano (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 21,
+    "protein": 1,
+    "carbs": 1.6,
+    "fat": 1.2,
+    "saturatedFat": 0.8,
+    "sugar": 1.4,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 89
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coca-cola",
+   "name": "Coca Cola",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 135,
+    "protein": 0,
+    "carbs": 36,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 36,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 574
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coke-zero",
+   "name": "Coke Zero",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "diet-coke",
+   "name": "Diet Coke",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

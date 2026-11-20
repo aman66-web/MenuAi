@@ -1,0 +1,4794 @@
+{
+ "schemaVersion": 1,
+ "id": "soho-coffee-co",
+ "name": "SOHO Coffee",
+ "cuisine": "Coffee",
+ "builderType": "standard",
+ "aliases": [
+  "soho coffee",
+  "soho coffee co",
+  "soho coffee company",
+  "soho"
+ ],
+ "sample": false,
+ "source": {
+  "title": "SOHO Coffee Ingredient & Nutrition Guide (Drinks), Version 4: 26 August 2026 (UK stores, Autumn drinks)",
+  "url": "https://sohocoffee.com/wp-content/uploads/2026/08/2026-Nutritional-Matrix-Drinks-V4-Autumn-Drinks-26.08.26-1.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "note": "Drinks only: SOHO's food guide prints calories without protein, carbs and fat, so food isn't listed. Figures are per drink as SOHO prints them, one row per milk and size; the guide says the milk brand can change. Drinks sold only at Westfield and travel sites aren't listed.",
+ "allergenGuide": {
+  "title": "SOHO Coffee Allergen Guide (matrix), Version 10: 14 September 2026 (UK stores)",
+  "url": "https://sohocoffee.com/wp-content/uploads/2026/09/2026-Allergen-Matrix-V11-Autumn-18.09.26.pdf",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": false,
+  "complete": false
+ },
+ "categories": [
+  "Seasonal drinks",
+  "Hot coffee",
+  "Iced coffee",
+  "Hot chocolate",
+  "Iced chocolate",
+  "Iced matcha",
+  "Hot matcha",
+  "Chai latte",
+  "Drink add-ons",
+  "Syrups",
+  "Smoothies"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "iced-praline-chocolate-cloud-cooler-whole-milk",
+   "name": "Iced Praline Chocolate Cloud Cooler (whole milk)",
+   "category": "Seasonal drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 489,
+    "protein": 9.1,
+    "carbs": 58.9,
+    "fat": 22.9,
+    "saturatedFat": 17.5,
+    "sugar": 53.3,
+    "fiber": 2.2,
+    "salt": 0.4,
+    "energyKj": 2044
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-praline-chocolate-cloud-cooler-skimmed-milk",
+   "name": "Iced Praline Chocolate Cloud Cooler (skimmed milk)",
+   "category": "Seasonal drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 426,
+    "protein": 9.5,
+    "carbs": 58.4,
+    "fat": 16,
+    "saturatedFat": 13.1,
+    "sugar": 52.8,
+    "fiber": 2.2,
+    "salt": 0.4,
+    "energyKj": 1790
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-praline-chocolate-cloud-cooler-oat-milk",
+   "name": "Iced Praline Chocolate Cloud Cooler (oat milk)",
+   "category": "Seasonal drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 473,
+    "protein": 4.8,
+    "carbs": 63,
+    "fat": 20.9,
+    "saturatedFat": 13.8,
+    "sugar": 53.1,
+    "fiber": 3.2,
+    "salt": 0.4,
+    "energyKj": 1975
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-praline-chocolate-cloud-cooler-soya-milk",
+   "name": "Iced Praline Chocolate Cloud Cooler (soya milk)",
+   "category": "Seasonal drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 446,
+    "protein": 9,
+    "carbs": 56.9,
+    "fat": 18.7,
+    "saturatedFat": 13.5,
+    "sugar": 48.6,
+    "fiber": 3.4,
+    "salt": 0.4,
+    "energyKj": 1864
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-praline-chocolate-cloud-cooler-coconut-milk",
+   "name": "Iced Praline Chocolate Cloud Cooler (coconut milk)",
+   "category": "Seasonal drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 466,
+    "protein": 4.6,
+    "carbs": 63.2,
+    "fat": 20,
+    "saturatedFat": 15.1,
+    "sugar": 53.1,
+    "fiber": 3.7,
+    "salt": 0.4,
+    "energyKj": 1946
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-no-milk-small",
+   "name": "Americano (no milk), Small",
+   "category": "Hot coffee",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0.1,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 0.1,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-no-milk-regular",
+   "name": "Americano (no milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0.1,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 0.1,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-no-milk-large",
+   "name": "Americano (no milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0.1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Hot coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cortado-whole-milk",
+   "name": "Cortado (whole milk)",
+   "category": "Hot coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 57,
+    "protein": 3.1,
+    "carbs": 4.2,
+    "fat": 3.3,
+    "saturatedFat": 2.1,
+    "sugar": 4.2,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 239
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cortado-skimmed-milk",
+   "name": "Cortado (skimmed milk)",
+   "category": "Hot coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 31,
+    "protein": 3.2,
+    "carbs": 4.4,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 4.4,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 130
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cortado-oat-milk",
+   "name": "Cortado (oat milk)",
+   "category": "Hot coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 52,
+    "protein": 0.8,
+    "carbs": 6.3,
+    "fat": 2.6,
+    "saturatedFat": 0.5,
+    "sugar": 4.1,
+    "fiber": 0.5,
+    "salt": 0.1,
+    "energyKj": 217
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cortado-soya-milk",
+   "name": "Cortado (soya milk)",
+   "category": "Hot coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 39,
+    "protein": 2.9,
+    "carbs": 3.2,
+    "fat": 1.5,
+    "saturatedFat": 0.3,
+    "sugar": 1.9,
+    "fiber": 0.6,
+    "salt": 0.1,
+    "energyKj": 161
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cortado-coconut-milk",
+   "name": "Cortado (coconut milk)",
+   "category": "Hot coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 49,
+    "protein": 0.7,
+    "carbs": 6.4,
+    "fat": 2.1,
+    "saturatedFat": 1.1,
+    "sugar": 4.1,
+    "fiber": 0.8,
+    "salt": 0.1,
+    "energyKj": 203
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white-whole-milk",
+   "name": "Flat White (whole milk)",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 126,
+    "protein": 6.8,
+    "carbs": 9.2,
+    "fat": 7.2,
+    "saturatedFat": 4.6,
+    "sugar": 9.2,
+    "fiber": 0,
+    "salt": 0.2,
+    "energyKj": 530
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white-oat-milk",
+   "name": "Flat White (oat milk)",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 116,
+    "protein": 1.8,
+    "carbs": 13.9,
+    "fat": 5.7,
+    "saturatedFat": 1,
+    "sugar": 9.1,
+    "fiber": 1.2,
+    "salt": 0.2,
+    "energyKj": 482
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white-soya-milk",
+   "name": "Flat White (soya milk)",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 86,
+    "protein": 6.4,
+    "carbs": 7.1,
+    "fat": 3.3,
+    "saturatedFat": 0.6,
+    "sugar": 4.1,
+    "fiber": 1.4,
+    "salt": 0.2,
+    "energyKj": 358
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white-coconut-milk",
+   "name": "Flat White (coconut milk)",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 108,
+    "protein": 1.6,
+    "carbs": 14.1,
+    "fat": 4.7,
+    "saturatedFat": 2.4,
+    "sugar": 9.1,
+    "fiber": 1.8,
+    "salt": 0.2,
+    "energyKj": 450
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-whole-milk-regular",
+   "name": "Latte (whole milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 180,
+    "protein": 9.7,
+    "carbs": 13.2,
+    "fat": 10.3,
+    "saturatedFat": 6.5,
+    "sugar": 13.2,
+    "fiber": 0,
+    "salt": 0.3,
+    "energyKj": 755
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-whole-milk-large",
+   "name": "Latte (whole milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 227,
+    "protein": 12.2,
+    "carbs": 16.6,
+    "fat": 13,
+    "saturatedFat": 8.3,
+    "sugar": 16.6,
+    "fiber": 0,
+    "salt": 0.4,
+    "energyKj": 954
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-skimmed-milk-small",
+   "name": "Latte (skimmed milk), Small",
+   "category": "Hot coffee",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 69,
+    "protein": 7.1,
+    "carbs": 9.8,
+    "fat": 0.6,
+    "saturatedFat": 0.3,
+    "sugar": 9.8,
+    "fiber": 0,
+    "salt": 0.2,
+    "energyKj": 292
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-skimmed-milk-regular",
+   "name": "Latte (skimmed milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 97,
+    "protein": 10,
+    "carbs": 13.8,
+    "fat": 0.9,
+    "saturatedFat": 0.4,
+    "sugar": 13.8,
+    "fiber": 0,
+    "salt": 0.3,
+    "energyKj": 410
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-skimmed-milk-large",
+   "name": "Latte (skimmed milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 122,
+    "protein": 12.6,
+    "carbs": 17.4,
+    "fat": 1.2,
+    "saturatedFat": 0.5,
+    "sugar": 17.4,
+    "fiber": 0,
+    "salt": 0.4,
+    "energyKj": 518
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-oat-milk-small",
+   "name": "Latte (oat milk), Small",
+   "category": "Hot coffee",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 118,
+    "protein": 1.8,
+    "carbs": 14,
+    "fat": 5.7,
+    "saturatedFat": 1,
+    "sugar": 9.2,
+    "fiber": 1.2,
+    "salt": 0.2,
+    "energyKj": 490
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-oat-milk-regular",
+   "name": "Latte (oat milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 165,
+    "protein": 2.6,
+    "carbs": 19.7,
+    "fat": 8.1,
+    "saturatedFat": 1.4,
+    "sugar": 12.9,
+    "fiber": 1.7,
+    "salt": 0.3,
+    "energyKj": 687
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-oat-milk-large",
+   "name": "Latte (oat milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 209,
+    "protein": 3.2,
+    "carbs": 24.9,
+    "fat": 10.2,
+    "saturatedFat": 1.8,
+    "sugar": 16.3,
+    "fiber": 2.2,
+    "salt": 0.4,
+    "energyKj": 868
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-soya-milk-small",
+   "name": "Latte (soya milk), Small",
+   "category": "Hot coffee",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 87,
+    "protein": 6.5,
+    "carbs": 7.1,
+    "fat": 3.3,
+    "saturatedFat": 0.6,
+    "sugar": 4.1,
+    "fiber": 1.4,
+    "salt": 0.2,
+    "energyKj": 363
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-soya-milk-regular",
+   "name": "Latte (soya milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 123,
+    "protein": 9.1,
+    "carbs": 10.1,
+    "fat": 4.6,
+    "saturatedFat": 0.9,
+    "sugar": 5.8,
+    "fiber": 2,
+    "salt": 0.3,
+    "energyKj": 510
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-soya-milk-large",
+   "name": "Latte (soya milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 155,
+    "protein": 11.5,
+    "carbs": 12.7,
+    "fat": 5.8,
+    "saturatedFat": 1.1,
+    "sugar": 7.3,
+    "fiber": 2.5,
+    "salt": 0.4,
+    "energyKj": 644
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-coconut-milk-small",
+   "name": "Latte (coconut milk), Small",
+   "category": "Hot coffee",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 110,
+    "protein": 1.6,
+    "carbs": 14.3,
+    "fat": 4.7,
+    "saturatedFat": 2.4,
+    "sugar": 9.2,
+    "fiber": 1.8,
+    "salt": 0.2,
+    "energyKj": 457
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-coconut-milk-regular",
+   "name": "Latte (coconut milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 155,
+    "protein": 2.3,
+    "carbs": 20,
+    "fat": 6.6,
+    "saturatedFat": 3.4,
+    "sugar": 12.9,
+    "fiber": 2.6,
+    "salt": 0.3,
+    "energyKj": 641
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-coconut-milk-large",
+   "name": "Latte (coconut milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 194,
+    "protein": 2.9,
+    "carbs": 25.3,
+    "fat": 8.4,
+    "saturatedFat": 4.3,
+    "sugar": 16.3,
+    "fiber": 3.2,
+    "salt": 0.4,
+    "energyKj": 810
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-whole-milk-small",
+   "name": "Cappuccino (whole milk), Small",
+   "category": "Hot coffee",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 136,
+    "protein": 6.9,
+    "carbs": 11.3,
+    "fat": 7.4,
+    "saturatedFat": 4.7,
+    "sugar": 11.2,
+    "fiber": 0,
+    "salt": 0.2,
+    "energyKj": 570
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-whole-milk-regular",
+   "name": "Cappuccino (whole milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 187,
+    "protein": 9.7,
+    "carbs": 15.1,
+    "fat": 10.4,
+    "saturatedFat": 6.6,
+    "sugar": 15,
+    "fiber": 0,
+    "salt": 0.3,
+    "energyKj": 788
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-whole-milk-large",
+   "name": "Cappuccino (whole milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 235,
+    "protein": 12.3,
+    "carbs": 18.5,
+    "fat": 13.1,
+    "saturatedFat": 8.3,
+    "sugar": 18.4,
+    "fiber": 0,
+    "salt": 0.4,
+    "energyKj": 986
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-skimmed-milk-small",
+   "name": "Cappuccino (skimmed milk), Small",
+   "category": "Hot coffee",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 77,
+    "protein": 7.2,
+    "carbs": 11.7,
+    "fat": 0.7,
+    "saturatedFat": 0.3,
+    "sugar": 11.7,
+    "fiber": 0,
+    "salt": 0.2,
+    "energyKj": 324
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-skimmed-milk-regular",
+   "name": "Cappuccino (skimmed milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 105,
+    "protein": 10,
+    "carbs": 15.7,
+    "fat": 0.9,
+    "saturatedFat": 0.4,
+    "sugar": 15.5,
+    "fiber": 0,
+    "salt": 0.3,
+    "energyKj": 443
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-skimmed-milk-large",
+   "name": "Cappuccino (skimmed milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 130,
+    "protein": 12.6,
+    "carbs": 19.3,
+    "fat": 1.2,
+    "saturatedFat": 0.5,
+    "sugar": 19.1,
+    "fiber": 0,
+    "salt": 0.4,
+    "energyKj": 551
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-oat-milk-small",
+   "name": "Cappuccino (oat milk), Small",
+   "category": "Hot coffee",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 125,
+    "protein": 1.9,
+    "carbs": 15.9,
+    "fat": 5.7,
+    "saturatedFat": 1,
+    "sugar": 11,
+    "fiber": 1.2,
+    "salt": 0.2,
+    "energyKj": 522
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-oat-milk-regular",
+   "name": "Cappuccino (oat milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 173,
+    "protein": 2.6,
+    "carbs": 21.6,
+    "fat": 8.1,
+    "saturatedFat": 1.5,
+    "sugar": 15.7,
+    "fiber": 1.7,
+    "salt": 0.3,
+    "energyKj": 719
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-oat-milk-large",
+   "name": "Cappuccino (oat milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 217,
+    "protein": 3.3,
+    "carbs": 26.8,
+    "fat": 10.2,
+    "saturatedFat": 1.8,
+    "sugar": 18.1,
+    "fiber": 2.2,
+    "salt": 0.4,
+    "energyKj": 900
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-soya-milk-small",
+   "name": "Cappuccino (soya milk), Small",
+   "category": "Hot coffee",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 95,
+    "protein": 6.5,
+    "carbs": 9,
+    "fat": 3.3,
+    "saturatedFat": 0.6,
+    "sugar": 5.9,
+    "fiber": 1.4,
+    "salt": 0.2,
+    "energyKj": 396
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-soya-milk-regular",
+   "name": "Cappuccino (soya milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 130,
+    "protein": 9.2,
+    "carbs": 12,
+    "fat": 4.7,
+    "saturatedFat": 0.9,
+    "sugar": 7.6,
+    "fiber": 2,
+    "salt": 0.3,
+    "energyKj": 542
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-soya-milk-large",
+   "name": "Cappuccino (soya milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 163,
+    "protein": 11.6,
+    "carbs": 14.6,
+    "fat": 5.9,
+    "saturatedFat": 1.1,
+    "sugar": 9.1,
+    "fiber": 2.5,
+    "salt": 0.4,
+    "energyKj": 677
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-coconut-milk-small",
+   "name": "Cappuccino (coconut milk), Small",
+   "category": "Hot coffee",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 117,
+    "protein": 1.7,
+    "carbs": 16.2,
+    "fat": 4.7,
+    "saturatedFat": 2.5,
+    "sugar": 11,
+    "fiber": 1.9,
+    "salt": 0.2,
+    "energyKj": 489
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-coconut-milk-regular",
+   "name": "Cappuccino (coconut milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 162,
+    "protein": 2.3,
+    "carbs": 21.9,
+    "fat": 6.7,
+    "saturatedFat": 3.5,
+    "sugar": 14.7,
+    "fiber": 2.6,
+    "salt": 0.3,
+    "energyKj": 674
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-coconut-milk-large",
+   "name": "Cappuccino (coconut milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 202,
+    "protein": 2.9,
+    "carbs": 27.2,
+    "fat": 8.4,
+    "saturatedFat": 4.4,
+    "sugar": 18.1,
+    "fiber": 3.3,
+    "salt": 0.4,
+    "energyKj": 842
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-mocha-whole-milk-regular",
+   "name": "House 32% Mocha (whole milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 242,
+    "protein": 7.7,
+    "carbs": 30.7,
+    "fat": 9,
+    "saturatedFat": 5.7,
+    "sugar": 29.6,
+    "fiber": 0.6,
+    "salt": 0.4,
+    "energyKj": 1009
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-mocha-whole-milk-large",
+   "name": "House 32% Mocha (whole milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 304,
+    "protein": 9.4,
+    "carbs": 41.2,
+    "fat": 10.1,
+    "saturatedFat": 6.3,
+    "sugar": 39.9,
+    "fiber": 0.6,
+    "salt": 0.5,
+    "energyKj": 1270
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-mocha-skimmed-milk-regular",
+   "name": "House 32% Mocha (skimmed milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 192,
+    "protein": 8,
+    "carbs": 31,
+    "fat": 3.6,
+    "saturatedFat": 2.1,
+    "sugar": 29.9,
+    "fiber": 0.6,
+    "salt": 0.4,
+    "energyKj": 806
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-mocha-oat-milk-regular",
+   "name": "House 32% Mocha (oat milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 228,
+    "protein": 4.1,
+    "carbs": 34,
+    "fat": 7.4,
+    "saturatedFat": 2.7,
+    "sugar": 29.4,
+    "fiber": 1.5,
+    "salt": 0.3,
+    "energyKj": 952
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-mocha-oat-milk-large",
+   "name": "House 32% Mocha (oat milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 289,
+    "protein": 5.4,
+    "carbs": 45.2,
+    "fat": 8.3,
+    "saturatedFat": 3,
+    "sugar": 39.7,
+    "fiber": 1.6,
+    "salt": 0.4,
+    "energyKj": 1207
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-mocha-soya-milk-regular",
+   "name": "House 32% Mocha (soya milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 206,
+    "protein": 7.6,
+    "carbs": 29,
+    "fat": 5.6,
+    "saturatedFat": 2.4,
+    "sugar": 25.7,
+    "fiber": 1.6,
+    "salt": 0.3,
+    "energyKj": 859
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-mocha-soya-milk-large",
+   "name": "House 32% Mocha (soya milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 264,
+    "protein": 9.2,
+    "carbs": 39.6,
+    "fat": 6.3,
+    "saturatedFat": 2.7,
+    "sugar": 35.6,
+    "fiber": 1.7,
+    "salt": 0.4,
+    "energyKj": 1105
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-mocha-coconut-milk-regular",
+   "name": "House 32% Mocha (coconut milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 222,
+    "protein": 4,
+    "carbs": 34.3,
+    "fat": 6.6,
+    "saturatedFat": 3.7,
+    "sugar": 29.4,
+    "fiber": 1.9,
+    "salt": 0.3,
+    "energyKj": 928
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-mocha-coconut-milk-large",
+   "name": "House 32% Mocha (coconut milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 282,
+    "protein": 5.3,
+    "carbs": 45.4,
+    "fat": 7.5,
+    "saturatedFat": 4.2,
+    "sugar": 39.7,
+    "fiber": 2.1,
+    "salt": 0.4,
+    "energyKj": 1180
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macchiato-whole-milk-regular",
+   "name": "Macchiato (whole milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 13,
+    "protein": 0.7,
+    "carbs": 1,
+    "fat": 0.8,
+    "saturatedFat": 0.5,
+    "sugar": 1,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macchiato-whole-milk-large",
+   "name": "Macchiato (whole milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 19,
+    "protein": 1,
+    "carbs": 1.5,
+    "fat": 1.2,
+    "saturatedFat": 0.7,
+    "sugar": 1.5,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 80
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macchiato-skimmed-milk-regular",
+   "name": "Macchiato (skimmed milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 7,
+    "protein": 0.7,
+    "carbs": 1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 1,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 29
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macchiato-skimmed-milk-large",
+   "name": "Macchiato (skimmed milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 10,
+    "protein": 1,
+    "carbs": 1.5,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 1.5,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 43
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macchiato-oat-milk-regular",
+   "name": "Macchiato (oat milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0.2,
+    "carbs": 1.4,
+    "fat": 0.6,
+    "saturatedFat": 0.1,
+    "sugar": 0.9,
+    "fiber": 0.1,
+    "salt": 0,
+    "energyKj": 48
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macchiato-oat-milk-large",
+   "name": "Macchiato (oat milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 17,
+    "protein": 0.3,
+    "carbs": 2.1,
+    "fat": 0.9,
+    "saturatedFat": 0.2,
+    "sugar": 1.4,
+    "fiber": 0.2,
+    "salt": 0,
+    "energyKj": 72
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macchiato-soya-milk-regular",
+   "name": "Macchiato (soya milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 9,
+    "protein": 0.6,
+    "carbs": 0.7,
+    "fat": 0.4,
+    "saturatedFat": 0.1,
+    "sugar": 0.4,
+    "fiber": 0.1,
+    "salt": 0,
+    "energyKj": 36
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macchiato-soya-milk-large",
+   "name": "Macchiato (soya milk), Large",
+   "category": "Hot coffee",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 13,
+    "protein": 1,
+    "carbs": 1.1,
+    "fat": 0.6,
+    "saturatedFat": 0.1,
+    "sugar": 0.7,
+    "fiber": 0.2,
+    "salt": 0,
+    "energyKj": 54
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macchiato-coconut-milk-regular",
+   "name": "Macchiato (coconut milk), Regular",
+   "category": "Hot coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 11,
+    "protein": 0.2,
+    "carbs": 1.4,
+    "fat": 0.5,
+    "saturatedFat": 0.3,
+    "sugar": 0.9,
+    "fiber": 0.2,
+    "salt": 0,
+    "energyKj": 45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte-whole-milk",
+   "name": "Iced Latte (whole milk)",
+   "category": "Iced coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 158,
+    "protein": 8.5,
+    "carbs": 11.6,
+    "fat": 9.1,
+    "saturatedFat": 5.7,
+    "sugar": 11.6,
+    "fiber": 0,
+    "salt": 0.3,
+    "energyKj": 663
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte-skimmed-milk",
+   "name": "Iced Latte (skimmed milk)",
+   "category": "Iced coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 85,
+    "protein": 8.8,
+    "carbs": 12.1,
+    "fat": 0.8,
+    "saturatedFat": 0.3,
+    "sugar": 12.1,
+    "fiber": 0,
+    "salt": 0.3,
+    "energyKj": 360
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte-oat-milk",
+   "name": "Iced Latte (oat milk)",
+   "category": "Iced coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 145,
+    "protein": 2.3,
+    "carbs": 17.3,
+    "fat": 7.1,
+    "saturatedFat": 1.3,
+    "sugar": 11.3,
+    "fiber": 1.5,
+    "salt": 0.3,
+    "energyKj": 603
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte-soya-milk",
+   "name": "Iced Latte (soya milk)",
+   "category": "Iced coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 108,
+    "protein": 8,
+    "carbs": 8.8,
+    "fat": 4.1,
+    "saturatedFat": 0.8,
+    "sugar": 5.1,
+    "fiber": 1.8,
+    "salt": 0.3,
+    "energyKj": 448
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte-coconut-milk",
+   "name": "Iced Latte (coconut milk)",
+   "category": "Iced coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 135,
+    "protein": 2,
+    "carbs": 17.6,
+    "fat": 5.8,
+    "saturatedFat": 3,
+    "sugar": 11.3,
+    "fiber": 2.3,
+    "salt": 0.3,
+    "energyKj": 563
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-32-house-mocha-whole-milk",
+   "name": "Iced 32% House Mocha (whole milk)",
+   "category": "Iced coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 271,
+    "protein": 9.2,
+    "carbs": 38,
+    "fat": 8.2,
+    "saturatedFat": 5.2,
+    "sugar": 36.6,
+    "fiber": 0,
+    "salt": 0.5,
+    "energyKj": 1131
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-32-house-mocha-skimmed-milk",
+   "name": "Iced 32% House Mocha (skimmed milk)",
+   "category": "Iced coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 215,
+    "protein": 9.6,
+    "carbs": 38.3,
+    "fat": 2.1,
+    "saturatedFat": 1.2,
+    "sugar": 37,
+    "fiber": 0,
+    "salt": 0.5,
+    "energyKj": 902
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-32-house-mocha-oat-milk",
+   "name": "Iced 32% House Mocha (oat milk)",
+   "category": "Iced coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 255,
+    "protein": 5.1,
+    "carbs": 41.9,
+    "fat": 6.3,
+    "saturatedFat": 1.8,
+    "sugar": 36.5,
+    "fiber": 1,
+    "salt": 0.4,
+    "energyKj": 1067
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-32-house-mocha-soya-milk",
+   "name": "Iced 32% House Mocha (soya milk)",
+   "category": "Iced coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 230,
+    "protein": 9,
+    "carbs": 36.1,
+    "fat": 4.3,
+    "saturatedFat": 1.5,
+    "sugar": 32.3,
+    "fiber": 1.2,
+    "salt": 0.4,
+    "energyKj": 961
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-32-house-mocha-coconut-milk",
+   "name": "Iced 32% House Mocha (coconut milk)",
+   "category": "Iced coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 249,
+    "protein": 5,
+    "carbs": 42.1,
+    "fat": 5.5,
+    "saturatedFat": 3,
+    "sugar": 36.5,
+    "fiber": 1.5,
+    "salt": 0.4,
+    "energyKj": 1040
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-brown-sugar-latte-coconut-milk",
+   "name": "Iced Brown Sugar Latte (coconut milk)",
+   "category": "Iced coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 153,
+    "protein": 2,
+    "carbs": 26.4,
+    "fat": 5.8,
+    "saturatedFat": 3,
+    "sugar": 11.3,
+    "fiber": 2.3,
+    "salt": 0.3,
+    "energyKj": 639
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-americano-no-milk",
+   "name": "Iced Americano (no milk)",
+   "category": "Iced coffee",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0.1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "babyccino-whole-milk",
+   "name": "Babyccino (whole milk)",
+   "category": "Hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 47,
+    "protein": 2.3,
+    "carbs": 3.2,
+    "fat": 2.7,
+    "saturatedFat": 1.8,
+    "sugar": 3.2,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 195
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "babyccino-skimmed-milk",
+   "name": "Babyccino (skimmed milk)",
+   "category": "Hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 24,
+    "protein": 2.5,
+    "carbs": 3.4,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 3.4,
+    "fiber": 0,
+    "salt": 0.1,
+    "energyKj": 101
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "babyccino-oat-milk",
+   "name": "Babyccino (oat milk)",
+   "category": "Hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 41,
+    "protein": 0.6,
+    "carbs": 4.8,
+    "fat": 2,
+    "saturatedFat": 0.4,
+    "sugar": 3.2,
+    "fiber": 0.4,
+    "salt": 0.1,
+    "energyKj": 169
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "babyccino-soya-milk",
+   "name": "Babyccino (soya milk)",
+   "category": "Hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 30,
+    "protein": 2.2,
+    "carbs": 2.5,
+    "fat": 1.1,
+    "saturatedFat": 0.2,
+    "sugar": 1.4,
+    "fiber": 0.5,
+    "salt": 0.1,
+    "energyKj": 125
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "babyccino-coconut-milk",
+   "name": "Babyccino (coconut milk)",
+   "category": "Hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 38,
+    "protein": 0.6,
+    "carbs": 4.9,
+    "fat": 1.6,
+    "saturatedFat": 0.8,
+    "sugar": 3.2,
+    "fiber": 0.6,
+    "salt": 0.1,
+    "energyKj": 158
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-hot-chocolate-whole-milk-small",
+   "name": "House 32% Hot Chocolate (whole milk), Small",
+   "category": "Hot chocolate",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 183,
+    "protein": 6.2,
+    "carbs": 20.1,
+    "fat": 8.1,
+    "saturatedFat": 5.1,
+    "sugar": 19.5,
+    "fiber": 0.6,
+    "salt": 0.2,
+    "energyKj": 762
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-hot-chocolate-whole-milk-regular",
+   "name": "House 32% Hot Chocolate (whole milk), Regular",
+   "category": "Hot chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 282,
+    "protein": 9.7,
+    "carbs": 33.4,
+    "fat": 11.4,
+    "saturatedFat": 7.2,
+    "sugar": 32.3,
+    "fiber": 0.6,
+    "salt": 0.4,
+    "energyKj": 1176
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-hot-chocolate-whole-milk-large",
+   "name": "House 32% Hot Chocolate (whole milk), Large",
+   "category": "Hot chocolate",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 344,
+    "protein": 11.4,
+    "carbs": 44.2,
+    "fat": 12.3,
+    "saturatedFat": 7.8,
+    "sugar": 42.6,
+    "fiber": 0.6,
+    "salt": 0.5,
+    "energyKj": 1437
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-hot-chocolate-skimmed-milk-small",
+   "name": "House 32% Hot Chocolate (skimmed milk), Small",
+   "category": "Hot chocolate",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 136,
+    "protein": 6.5,
+    "carbs": 20.4,
+    "fat": 3.1,
+    "saturatedFat": 1.8,
+    "sugar": 19.8,
+    "fiber": 0.6,
+    "salt": 0.2,
+    "energyKj": 573
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-hot-chocolate-skimmed-milk-regular",
+   "name": "House 32% Hot Chocolate (skimmed milk), Regular",
+   "category": "Hot chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 213,
+    "protein": 10.1,
+    "carbs": 33.8,
+    "fat": 3.9,
+    "saturatedFat": 2.2,
+    "sugar": 32.8,
+    "fiber": 0.6,
+    "salt": 0.4,
+    "energyKj": 893
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-hot-chocolate-skimmed-milk-large",
+   "name": "House 32% Hot Chocolate (skimmed milk), Large",
+   "category": "Hot chocolate",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 270,
+    "protein": 11.8,
+    "carbs": 44.6,
+    "fat": 4.4,
+    "saturatedFat": 2.5,
+    "sugar": 43.1,
+    "fiber": 0.6,
+    "salt": 0.5,
+    "energyKj": 1133
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-hot-chocolate-oat-milk-small",
+   "name": "House 32% Hot Chocolate (oat milk), Small",
+   "category": "Hot chocolate",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 170,
+    "protein": 2.8,
+    "carbs": 23.4,
+    "fat": 6.6,
+    "saturatedFat": 2.3,
+    "sugar": 19.4,
+    "fiber": 1.4,
+    "salt": 0.2,
+    "energyKj": 709
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-hot-chocolate-oat-milk-regular",
+   "name": "House 32% Hot Chocolate (oat milk), Regular",
+   "category": "Hot chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 263,
+    "protein": 4.7,
+    "carbs": 38.2,
+    "fat": 9.1,
+    "saturatedFat": 3,
+    "sugar": 32.1,
+    "fiber": 1.8,
+    "salt": 0.4,
+    "energyKj": 1096
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-hot-chocolate-oat-milk-large",
+   "name": "House 32% Hot Chocolate (oat milk), Large",
+   "category": "Hot chocolate",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 324,
+    "protein": 6,
+    "carbs": 49.3,
+    "fat": 10,
+    "saturatedFat": 3.3,
+    "sugar": 42.4,
+    "fiber": 1.9,
+    "salt": 0.5,
+    "energyKj": 1352
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-hot-chocolate-soya-milk-small",
+   "name": "House 32% Hot Chocolate (soya milk), Small",
+   "category": "Hot chocolate",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 201,
+    "protein": 7.2,
+    "carbs": 28.7,
+    "fat": 5.4,
+    "saturatedFat": 2.3,
+    "sugar": 25.5,
+    "fiber": 1.5,
+    "salt": 0.3,
+    "energyKj": 841
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-hot-chocolate-soya-milk-regular",
+   "name": "House 32% Hot Chocolate (soya milk), Regular",
+   "category": "Hot chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 231,
+    "protein": 9.5,
+    "carbs": 31.1,
+    "fat": 6.5,
+    "saturatedFat": 2.5,
+    "sugar": 26.9,
+    "fiber": 2,
+    "salt": 0.4,
+    "energyKj": 966
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-hot-chocolate-soya-milk-large",
+   "name": "House 32% Hot Chocolate (soya milk), Large",
+   "category": "Hot chocolate",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 290,
+    "protein": 11.2,
+    "carbs": 41.7,
+    "fat": 7.3,
+    "saturatedFat": 2.9,
+    "sugar": 36.8,
+    "fiber": 2.1,
+    "salt": 0.5,
+    "energyKj": 1212
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-hot-chocolate-coconut-milk-small",
+   "name": "House 32% Hot Chocolate (coconut milk), Small",
+   "category": "Hot chocolate",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 164,
+    "protein": 2.7,
+    "carbs": 23.5,
+    "fat": 5.9,
+    "saturatedFat": 3.3,
+    "sugar": 19.4,
+    "fiber": 1.8,
+    "salt": 0.2,
+    "energyKj": 686
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-hot-chocolate-coconut-milk-regular",
+   "name": "House 32% Hot Chocolate (coconut milk), Regular",
+   "category": "Hot chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 255,
+    "protein": 4.4,
+    "carbs": 38.5,
+    "fat": 8,
+    "saturatedFat": 4.4,
+    "sugar": 32.1,
+    "fiber": 2.5,
+    "salt": 0.4,
+    "energyKj": 1063
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-hot-chocolate-coconut-milk-large",
+   "name": "House 32% Hot Chocolate (coconut milk), Large",
+   "category": "Hot chocolate",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 315,
+    "protein": 5.8,
+    "carbs": 49.6,
+    "fat": 8.9,
+    "saturatedFat": 4.9,
+    "sugar": 42.4,
+    "fiber": 2.6,
+    "salt": 0.5,
+    "energyKj": 1316
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ube-white-hot-chocolate-whole-milk",
+   "name": "Ube White Hot Chocolate (whole milk)",
+   "category": "Hot chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 309,
+    "protein": 11.3,
+    "carbs": 40.2,
+    "fat": 11.4,
+    "saturatedFat": 7.2,
+    "sugar": 39.9,
+    "fiber": 0.6,
+    "salt": 0.4,
+    "energyKj": 1293
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ube-white-hot-chocolate-skimmed-milk",
+   "name": "Ube White Hot Chocolate (skimmed milk)",
+   "category": "Hot chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 257,
+    "protein": 11.6,
+    "carbs": 40.5,
+    "fat": 5.7,
+    "saturatedFat": 3.4,
+    "sugar": 40.2,
+    "fiber": 0.6,
+    "salt": 0.4,
+    "energyKj": 1076
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ube-white-hot-chocolate-oat-milk",
+   "name": "Ube White Hot Chocolate (oat milk)",
+   "category": "Hot chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 295,
+    "protein": 7.4,
+    "carbs": 43.9,
+    "fat": 9.7,
+    "saturatedFat": 4,
+    "sugar": 39.7,
+    "fiber": 1.6,
+    "salt": 0.4,
+    "energyKj": 1231
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ube-white-hot-chocolate-soya-milk",
+   "name": "Ube White Hot Chocolate (soya milk)",
+   "category": "Hot chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 271,
+    "protein": 11.1,
+    "carbs": 38.5,
+    "fat": 7.8,
+    "saturatedFat": 3.7,
+    "sugar": 35.7,
+    "fiber": 1.7,
+    "salt": 0.4,
+    "energyKj": 1132
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ube-white-hot-chocolate-coconut-milk",
+   "name": "Ube White Hot Chocolate (coconut milk)",
+   "category": "Hot chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 289,
+    "protein": 7.3,
+    "carbs": 44.1,
+    "fat": 8.9,
+    "saturatedFat": 5.1,
+    "sugar": 39.7,
+    "fiber": 2.1,
+    "salt": 0.4,
+    "energyKj": 1206
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cornish-sea-salt-caramel-hot-chocolate-whole-milk",
+   "name": "Cornish Sea Salt Caramel Hot Chocolate (whole milk)",
+   "category": "Hot chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 291,
+    "protein": 9.9,
+    "carbs": 34.1,
+    "fat": 11.6,
+    "saturatedFat": 7.2,
+    "sugar": 32.3,
+    "fiber": 4.4,
+    "salt": 1.2,
+    "energyKj": 1215
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cornish-sea-salt-caramel-hot-chocolate-skimmed-milk",
+   "name": "Cornish Sea Salt Caramel Hot Chocolate (skimmed milk)",
+   "category": "Hot chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 222,
+    "protein": 10.3,
+    "carbs": 34.5,
+    "fat": 4,
+    "saturatedFat": 2.2,
+    "sugar": 32.8,
+    "fiber": 4.4,
+    "salt": 1.2,
+    "energyKj": 921
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cornish-sea-salt-caramel-hot-chocolate-oat-milk",
+   "name": "Cornish Sea Salt Caramel Hot Chocolate (oat milk)",
+   "category": "Hot chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 272,
+    "protein": 4.8,
+    "carbs": 38.9,
+    "fat": 9.3,
+    "saturatedFat": 3,
+    "sugar": 32.1,
+    "fiber": 5.7,
+    "salt": 1.2,
+    "energyKj": 1135
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cornish-sea-salt-caramel-hot-chocolate-coconut-milk",
+   "name": "Cornish Sea Salt Caramel Hot Chocolate (coconut milk)",
+   "category": "Hot chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 264,
+    "protein": 4.6,
+    "carbs": 39.2,
+    "fat": 8.2,
+    "saturatedFat": 4.4,
+    "sugar": 32.1,
+    "fiber": 6.3,
+    "salt": 1.2,
+    "energyKj": 1101
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-iced-chocolate-skimmed-milk",
+   "name": "House 32% Iced Chocolate (skimmed milk)",
+   "category": "Iced chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 290,
+    "protein": 10.7,
+    "carbs": 39.8,
+    "fat": 9.1,
+    "saturatedFat": 5.8,
+    "sugar": 38.5,
+    "fiber": 0,
+    "salt": 0.5,
+    "energyKj": 1214
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-iced-chocolate-oat-milk",
+   "name": "House 32% Iced Chocolate (oat milk)",
+   "category": "Iced chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 279,
+    "protein": 5.5,
+    "carbs": 44.6,
+    "fat": 7.5,
+    "saturatedFat": 2,
+    "sugar": 38.3,
+    "fiber": 1.3,
+    "salt": 0.5,
+    "energyKj": 1163
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-iced-chocolate-soya-milk",
+   "name": "House 32% Iced Chocolate (soya milk)",
+   "category": "Iced chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 247,
+    "protein": 10.3,
+    "carbs": 37.5,
+    "fat": 4.9,
+    "saturatedFat": 1.6,
+    "sugar": 33,
+    "fiber": 1.5,
+    "salt": 0.5,
+    "energyKj": 1033
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-32-iced-chocolate-coconut-milk",
+   "name": "House 32% Iced Chocolate (coconut milk)",
+   "category": "Iced chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 270,
+    "protein": 5.3,
+    "carbs": 44.9,
+    "fat": 6.4,
+    "saturatedFat": 3.5,
+    "sugar": 38.3,
+    "fiber": 1.9,
+    "salt": 0.5,
+    "energyKj": 1130
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ube-white-iced-chocolate-whole-milk",
+   "name": "Ube White Iced Chocolate (whole milk)",
+   "category": "Iced chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 293,
+    "protein": 10.6,
+    "carbs": 42.7,
+    "fat": 8.9,
+    "saturatedFat": 5.7,
+    "sugar": 42.5,
+    "fiber": 0.1,
+    "salt": 0.4,
+    "energyKj": 1223
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ube-white-iced-chocolate-skimmed-milk",
+   "name": "Ube White Iced Chocolate (skimmed milk)",
+   "category": "Iced chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 243,
+    "protein": 10.9,
+    "carbs": 43,
+    "fat": 3.5,
+    "saturatedFat": 2.1,
+    "sugar": 42.8,
+    "fiber": 0.1,
+    "salt": 0.4,
+    "energyKj": 1021
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ube-white-iced-chocolate-oat-milk",
+   "name": "Ube White Iced Chocolate (oat milk)",
+   "category": "Iced chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 279,
+    "protein": 7,
+    "carbs": 46.1,
+    "fat": 7.3,
+    "saturatedFat": 2.7,
+    "sugar": 42.3,
+    "fiber": 1,
+    "salt": 0.4,
+    "energyKj": 1167
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ube-white-iced-chocolate-soya-milk",
+   "name": "Ube White Iced Chocolate (soya milk)",
+   "category": "Iced chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 257,
+    "protein": 10.4,
+    "carbs": 41,
+    "fat": 5.5,
+    "saturatedFat": 2.4,
+    "sugar": 38.6,
+    "fiber": 1.1,
+    "salt": 0.4,
+    "energyKj": 1074
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ube-white-iced-chocolate-coconut-milk",
+   "name": "Ube White Iced Chocolate (coconut milk)",
+   "category": "Iced chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 273,
+    "protein": 6.8,
+    "carbs": 46.3,
+    "fat": 6.5,
+    "saturatedFat": 3.7,
+    "sugar": 42.3,
+    "fiber": 1.4,
+    "salt": 0.4,
+    "energyKj": 1143
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cornish-sea-salt-caramel-iced-chocolate-whole-milk",
+   "name": "Cornish Sea Salt Caramel Iced Chocolate (whole milk)",
+   "category": "Iced chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 255,
+    "protein": 9.5,
+    "carbs": 30.5,
+    "fat": 9.5,
+    "saturatedFat": 5.9,
+    "sugar": 28.9,
+    "fiber": 3.8,
+    "salt": 1.2,
+    "energyKj": 1063
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cornish-sea-salt-caramel-iced-chocolate-skimmed-milk",
+   "name": "Cornish Sea Salt Caramel Iced Chocolate (skimmed milk)",
+   "category": "Iced chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 185,
+    "protein": 9.9,
+    "carbs": 30.9,
+    "fat": 1.9,
+    "saturatedFat": 0.9,
+    "sugar": 29.3,
+    "fiber": 3.8,
+    "salt": 1.2,
+    "energyKj": 779
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cornish-sea-salt-caramel-iced-chocolate-oat-milk",
+   "name": "Cornish Sea Salt Caramel Iced Chocolate (oat milk)",
+   "category": "Iced chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 236,
+    "protein": 4.5,
+    "carbs": 35.3,
+    "fat": 7.2,
+    "saturatedFat": 1.7,
+    "sugar": 28.7,
+    "fiber": 5.1,
+    "salt": 1.2,
+    "energyKj": 983
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cornish-sea-salt-caramel-iced-chocolate-soya-milk",
+   "name": "Cornish Sea Salt Caramel Iced Chocolate (soya milk)",
+   "category": "Iced chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 204,
+    "protein": 9.3,
+    "carbs": 28.2,
+    "fat": 4.6,
+    "saturatedFat": 1.3,
+    "sugar": 23.4,
+    "fiber": 5.3,
+    "salt": 1.2,
+    "energyKj": 853
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cornish-sea-salt-caramel-iced-chocolate-coconut-milk",
+   "name": "Cornish Sea Salt Caramel Iced Chocolate (coconut milk)",
+   "category": "Iced chocolate",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 227,
+    "protein": 4.2,
+    "carbs": 35.5,
+    "fat": 6.1,
+    "saturatedFat": 3.2,
+    "sugar": 28.7,
+    "fiber": 5.7,
+    "salt": 1.2,
+    "energyKj": 949
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-matcha-oat-milk",
+   "name": "Iced Matcha (oat milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 150,
+    "protein": 3,
+    "carbs": 17.9,
+    "fat": 7,
+    "saturatedFat": 1.2,
+    "sugar": 11,
+    "fiber": 2.4,
+    "salt": 0.4,
+    "energyKj": 625
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-matcha-whole-milk",
+   "name": "Iced Matcha (whole milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 172,
+    "protein": 8.8,
+    "carbs": 12.2,
+    "fat": 9.7,
+    "saturatedFat": 6.1,
+    "sugar": 11.3,
+    "fiber": 1,
+    "salt": 0.4,
+    "energyKj": 718
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-matcha-skimmed-milk",
+   "name": "Iced Matcha (skimmed milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 92,
+    "protein": 9.3,
+    "carbs": 12.7,
+    "fat": 0.9,
+    "saturatedFat": 0.3,
+    "sugar": 11.8,
+    "fiber": 1,
+    "salt": 0.4,
+    "energyKj": 387
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-matcha-soya-milk",
+   "name": "Iced Matcha (soya milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 114,
+    "protein": 8.6,
+    "carbs": 9.6,
+    "fat": 4.1,
+    "saturatedFat": 0.8,
+    "sugar": 4.9,
+    "fiber": 2.7,
+    "salt": 0.4,
+    "energyKj": 473
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-matcha-coconut-milk",
+   "name": "Iced Matcha (coconut milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 141,
+    "protein": 2.7,
+    "carbs": 18.1,
+    "fat": 5.8,
+    "saturatedFat": 3,
+    "sugar": 11,
+    "fiber": 3.2,
+    "salt": 0.4,
+    "energyKj": 585
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-vanilla-matcha-oat-milk",
+   "name": "Iced Vanilla Matcha (oat milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 209,
+    "protein": 2.8,
+    "carbs": 34.2,
+    "fat": 6.4,
+    "saturatedFat": 1.1,
+    "sugar": 27.8,
+    "fiber": 2.3,
+    "salt": 0.4,
+    "energyKj": 876
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-vanilla-matcha-whole-milk",
+   "name": "Iced Vanilla Matcha (whole milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 229,
+    "protein": 8.1,
+    "carbs": 29,
+    "fat": 8.9,
+    "saturatedFat": 5.6,
+    "sugar": 28,
+    "fiber": 1,
+    "salt": 0.4,
+    "energyKj": 961
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-vanilla-matcha-skimmed-milk",
+   "name": "Iced Vanilla Matcha (skimmed milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 156,
+    "protein": 8.6,
+    "carbs": 29.5,
+    "fat": 0.8,
+    "saturatedFat": 0.3,
+    "sugar": 28.5,
+    "fiber": 1,
+    "salt": 0.4,
+    "energyKj": 660
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-vanilla-matcha-soya-milk",
+   "name": "Iced Vanilla Matcha (soya milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 176,
+    "protein": 7.9,
+    "carbs": 26.5,
+    "fat": 3.7,
+    "saturatedFat": 0.7,
+    "sugar": 22.2,
+    "fiber": 2.5,
+    "salt": 0.4,
+    "energyKj": 737
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-vanilla-matcha-coconut-milk",
+   "name": "Iced Vanilla Matcha (coconut milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 200,
+    "protein": 2.5,
+    "carbs": 34.4,
+    "fat": 5.3,
+    "saturatedFat": 2.7,
+    "sugar": 27.8,
+    "fiber": 3,
+    "salt": 0.4,
+    "energyKj": 840
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-blueberry-muffin-matcha-oat-milk",
+   "name": "Iced Blueberry Muffin Matcha (oat milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 236,
+    "protein": 2.6,
+    "carbs": 41.7,
+    "fat": 5.9,
+    "saturatedFat": 1,
+    "sugar": 36,
+    "fiber": 2.2,
+    "salt": 0.4,
+    "energyKj": 983
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-blueberry-muffin-matcha-whole-milk",
+   "name": "Iced Blueberry Muffin Matcha (whole milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 254,
+    "protein": 7.5,
+    "carbs": 37,
+    "fat": 8,
+    "saturatedFat": 5,
+    "sugar": 36,
+    "fiber": 1,
+    "salt": 0.4,
+    "energyKj": 1061
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-blueberry-muffin-matcha-soya-milk",
+   "name": "Iced Blueberry Muffin Matcha (soya milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 203,
+    "protein": 7.5,
+    "carbs": 33,
+    "fat": 4,
+    "saturatedFat": 0.6,
+    "sugar": 31.6,
+    "fiber": 2.2,
+    "salt": 0.4,
+    "energyKj": 849
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-blueberry-muffin-matcha-coconut-milk",
+   "name": "Iced Blueberry Muffin Matcha (coconut milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 227,
+    "protein": 2.4,
+    "carbs": 42,
+    "fat": 4.8,
+    "saturatedFat": 2.5,
+    "sugar": 36,
+    "fiber": 2.8,
+    "salt": 0.4,
+    "energyKj": 950
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-white-chocolate-matcha-oat-milk",
+   "name": "Iced White Chocolate Matcha (oat milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 270,
+    "protein": 2.6,
+    "carbs": 50.2,
+    "fat": 5.9,
+    "saturatedFat": 1,
+    "sugar": 44.3,
+    "fiber": 2.2,
+    "salt": 0.4,
+    "energyKj": 1137
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-white-chocolate-matcha-whole-milk",
+   "name": "Iced White Chocolate Matcha (whole milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 288,
+    "protein": 7.5,
+    "carbs": 45.5,
+    "fat": 8.1,
+    "saturatedFat": 5.1,
+    "sugar": 44.5,
+    "fiber": 1,
+    "salt": 0.4,
+    "energyKj": 1212
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-white-chocolate-matcha-skimmed-milk",
+   "name": "Iced White Chocolate Matcha (skimmed milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 221,
+    "protein": 7.9,
+    "carbs": 45.9,
+    "fat": 0.8,
+    "saturatedFat": 0.3,
+    "sugar": 45,
+    "fiber": 1,
+    "salt": 0.4,
+    "energyKj": 939
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-white-chocolate-matcha-soya-milk",
+   "name": "Iced White Chocolate Matcha (soya milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 240,
+    "protein": 7.3,
+    "carbs": 43.3,
+    "fat": 3.4,
+    "saturatedFat": 0.6,
+    "sugar": 39.2,
+    "fiber": 2.4,
+    "salt": 0.4,
+    "energyKj": 1010
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-white-chocolate-matcha-coconut-milk",
+   "name": "Iced White Chocolate Matcha (coconut milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 262,
+    "protein": 2.4,
+    "carbs": 50.4,
+    "fat": 4.8,
+    "saturatedFat": 2.5,
+    "sugar": 44.3,
+    "fiber": 2.8,
+    "salt": 0.4,
+    "energyKj": 1104
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-banana-bread-muffin-matcha-oat-milk",
+   "name": "Iced Banana Bread Muffin Matcha (oat milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 291,
+    "protein": 2.9,
+    "carbs": 54.5,
+    "fat": 6.3,
+    "saturatedFat": 1.1,
+    "sugar": 46.3,
+    "fiber": 2.6,
+    "salt": 0.4,
+    "energyKj": 1215
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-banana-bread-muffin-matcha-whole-milk",
+   "name": "Iced Banana Bread Muffin Matcha (whole milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 311,
+    "protein": 8,
+    "carbs": 49.4,
+    "fat": 8.7,
+    "saturatedFat": 5.4,
+    "sugar": 46.5,
+    "fiber": 1.3,
+    "salt": 0.4,
+    "energyKj": 1297
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-banana-bread-muffin-matcha-skimmed-milk",
+   "name": "Iced Banana Bread Muffin Matcha (skimmed milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 240,
+    "protein": 8.5,
+    "carbs": 49.9,
+    "fat": 1,
+    "saturatedFat": 0.3,
+    "sugar": 47,
+    "fiber": 1.3,
+    "salt": 0.4,
+    "energyKj": 1007
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-banana-bread-muffin-matcha-soya-milk",
+   "name": "Iced Banana Bread Muffin Matcha (soya milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 259,
+    "protein": 7.8,
+    "carbs": 47.1,
+    "fat": 3.8,
+    "saturatedFat": 0.7,
+    "sugar": 40.1,
+    "fiber": 2.8,
+    "salt": 0.4,
+    "energyKj": 1082
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-banana-bread-muffin-matcha-coconut-milk",
+   "name": "Iced Banana Bread Muffin Matcha (coconut milk)",
+   "category": "Iced matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 283,
+    "protein": 2.7,
+    "carbs": 54.6,
+    "fat": 5.3,
+    "saturatedFat": 2.6,
+    "sugar": 46.3,
+    "fiber": 3.3,
+    "salt": 0.4,
+    "energyKj": 1181
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-whole-milk",
+   "name": "Matcha (whole milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 186,
+    "protein": 9.4,
+    "carbs": 13.1,
+    "fat": 10.6,
+    "saturatedFat": 6.7,
+    "sugar": 12.3,
+    "fiber": 0.7,
+    "salt": 0.4,
+    "energyKj": 773
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-skimmed-milk",
+   "name": "Matcha (skimmed milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 97,
+    "protein": 9.9,
+    "carbs": 13.6,
+    "fat": 0.9,
+    "saturatedFat": 0.4,
+    "sugar": 12.9,
+    "fiber": 0.7,
+    "salt": 0.4,
+    "energyKj": 412
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-soya-milk",
+   "name": "Matcha (soya milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 121,
+    "protein": 9.1,
+    "carbs": 10.1,
+    "fat": 4.4,
+    "saturatedFat": 0.8,
+    "sugar": 5.4,
+    "fiber": 2.6,
+    "salt": 0.4,
+    "energyKj": 505
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-coconut-milk",
+   "name": "Matcha (coconut milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 151,
+    "protein": 2.7,
+    "carbs": 19.5,
+    "fat": 6.3,
+    "saturatedFat": 3.2,
+    "sugar": 12.1,
+    "fiber": 3.1,
+    "salt": 0.4,
+    "energyKj": 629
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-matcha-oat-milk",
+   "name": "Vanilla Matcha (oat milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 221,
+    "protein": 2.8,
+    "carbs": 35.6,
+    "fat": 7,
+    "saturatedFat": 1.3,
+    "sugar": 28.9,
+    "fiber": 2.2,
+    "salt": 0.4,
+    "energyKj": 925
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-matcha-whole-milk",
+   "name": "Vanilla Matcha (whole milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 243,
+    "protein": 8.7,
+    "carbs": 29.9,
+    "fat": 9.8,
+    "saturatedFat": 6.2,
+    "sugar": 29.1,
+    "fiber": 0.7,
+    "salt": 0.4,
+    "energyKj": 1020
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-matcha-skimmed-milk",
+   "name": "Vanilla Matcha (skimmed milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 162,
+    "protein": 9.2,
+    "carbs": 30.4,
+    "fat": 0.8,
+    "saturatedFat": 0.3,
+    "sugar": 29.6,
+    "fiber": 0.7,
+    "salt": 0.4,
+    "energyKj": 685
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-matcha-soya-milk",
+   "name": "Vanilla Matcha (soya milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 184,
+    "protein": 8.5,
+    "carbs": 27.1,
+    "fat": 4.1,
+    "saturatedFat": 0.8,
+    "sugar": 22.7,
+    "fiber": 2.5,
+    "salt": 0.4,
+    "energyKj": 772
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-matcha-coconut-milk",
+   "name": "Vanilla Matcha (coconut milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 211,
+    "protein": 2.5,
+    "carbs": 35.8,
+    "fat": 5.8,
+    "saturatedFat": 3,
+    "sugar": 28.9,
+    "fiber": 3,
+    "salt": 0.4,
+    "energyKj": 886
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-muffin-oat-matcha-oat-milk",
+   "name": "Blueberry Muffin Oat Matcha (oat milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 243,
+    "protein": 3,
+    "carbs": 39,
+    "fat": 7.6,
+    "saturatedFat": 1.3,
+    "sugar": 32,
+    "fiber": 2.3,
+    "salt": 0.4,
+    "energyKj": 1013
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-muffin-matcha-whole-milk",
+   "name": "Blueberry Muffin Matcha (whole milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 267,
+    "protein": 9.4,
+    "carbs": 33,
+    "fat": 10.5,
+    "saturatedFat": 6.7,
+    "sugar": 32.2,
+    "fiber": 0.7,
+    "salt": 0.4,
+    "energyKj": 1114
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-muffin-matcha-skimmed-milk",
+   "name": "Blueberry Muffin Matcha (skimmed milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 179,
+    "protein": 9.9,
+    "carbs": 33.5,
+    "fat": 0.9,
+    "saturatedFat": 0.4,
+    "sugar": 32.7,
+    "fiber": 0.7,
+    "salt": 0.4,
+    "energyKj": 753
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-muffin-matcha-soya-milk",
+   "name": "Blueberry Muffin Matcha (soya milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 203,
+    "protein": 7.5,
+    "carbs": 33,
+    "fat": 4,
+    "saturatedFat": 0.6,
+    "sugar": 31.6,
+    "fiber": 2.2,
+    "salt": 0.4,
+    "energyKj": 846
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-muffin-matcha-coconut-milk",
+   "name": "Blueberry Muffin Matcha (coconut milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 232,
+    "protein": 2.7,
+    "carbs": 39.4,
+    "fat": 6.3,
+    "saturatedFat": 3,
+    "sugar": 32,
+    "fiber": 3,
+    "salt": 0.4,
+    "energyKj": 970
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-oat-matcha-oat-milk",
+   "name": "White Chocolate Oat Matcha (oat milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 251,
+    "protein": 2.7,
+    "carbs": 43.5,
+    "fat": 6.7,
+    "saturatedFat": 1.2,
+    "sugar": 37,
+    "fiber": 2.1,
+    "salt": 0.4,
+    "energyKj": 1056
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-matcha-whole-milk",
+   "name": "White Chocolate Matcha (whole milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 273,
+    "protein": 8.4,
+    "carbs": 38,
+    "fat": 9.4,
+    "saturatedFat": 6,
+    "sugar": 37.3,
+    "fiber": 0.7,
+    "salt": 0.4,
+    "energyKj": 1146
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-matcha-skimmed-milk",
+   "name": "White Chocolate Matcha (skimmed milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 194,
+    "protein": 8.9,
+    "carbs": 38.5,
+    "fat": 0.8,
+    "saturatedFat": 0.3,
+    "sugar": 37.8,
+    "fiber": 0.7,
+    "salt": 0.4,
+    "energyKj": 825
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-matcha-soya-milk",
+   "name": "White Chocolate Matcha (soya milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 216,
+    "protein": 8.2,
+    "carbs": 35.4,
+    "fat": 4,
+    "saturatedFat": 0.7,
+    "sugar": 31.1,
+    "fiber": 2.4,
+    "salt": 0.4,
+    "energyKj": 908
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-matcha-coconut-milk",
+   "name": "White Chocolate Matcha (coconut milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 242,
+    "protein": 2.5,
+    "carbs": 43.7,
+    "fat": 5.6,
+    "saturatedFat": 2.3,
+    "sugar": 37,
+    "fiber": 2.9,
+    "salt": 0.4,
+    "energyKj": 1018
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-bread-muffin-matcha-oat-milk",
+   "name": "Banana Bread Muffin Matcha (oat milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 244,
+    "protein": 2.9,
+    "carbs": 40.7,
+    "fat": 7.2,
+    "saturatedFat": 1.3,
+    "sugar": 32.8,
+    "fiber": 2.5,
+    "salt": 0.4,
+    "energyKj": 1016
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-bread-muffin-matcha-whole-milk",
+   "name": "Banana Bread Muffin Matcha (whole milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 266,
+    "protein": 8.9,
+    "carbs": 35,
+    "fat": 9.9,
+    "saturatedFat": 6.2,
+    "sugar": 33,
+    "fiber": 1,
+    "salt": 0.4,
+    "energyKj": 1110
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-bread-muffin-matcha-skimmed-milk",
+   "name": "Banana Bread Muffin Matcha (skimmed milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 184,
+    "protein": 9.4,
+    "carbs": 35.5,
+    "fat": 1,
+    "saturatedFat": 0.3,
+    "sugar": 33.5,
+    "fiber": 1,
+    "salt": 0.4,
+    "energyKj": 776
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-bread-muffin-matcha-soya-milk",
+   "name": "Banana Bread Muffin Matcha (soya milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 207,
+    "protein": 8.6,
+    "carbs": 32.3,
+    "fat": 4.2,
+    "saturatedFat": 0.8,
+    "sugar": 26.6,
+    "fiber": 2.7,
+    "salt": 0.4,
+    "energyKj": 862
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-bread-muffin-matcha-coconut-milk",
+   "name": "Banana Bread Muffin Matcha (coconut milk)",
+   "category": "Hot matcha",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 234,
+    "protein": 2.7,
+    "carbs": 41,
+    "fat": 5.9,
+    "saturatedFat": 3,
+    "sugar": 32.8,
+    "fiber": 3.2,
+    "salt": 0.4,
+    "energyKj": 977
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "masala-chai-latte-oat-milk",
+   "name": "Masala Chai Latte (oat milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 196,
+    "protein": 2.6,
+    "carbs": 29,
+    "fat": 7.2,
+    "saturatedFat": 1.3,
+    "sugar": 21.2,
+    "fiber": 2.6,
+    "salt": 0.3,
+    "energyKj": 817
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "masala-chai-latte-soya-milk",
+   "name": "Masala Chai Latte (soya milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 159,
+    "protein": 8.3,
+    "carbs": 20.5,
+    "fat": 4.2,
+    "saturatedFat": 0.8,
+    "sugar": 14.9,
+    "fiber": 2.9,
+    "salt": 0.3,
+    "energyKj": 662
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "masala-chai-latte-coconut-milk",
+   "name": "Masala Chai Latte (coconut milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 186,
+    "protein": 2.3,
+    "carbs": 29.3,
+    "fat": 5.9,
+    "saturatedFat": 3.1,
+    "sugar": 21.2,
+    "fiber": 3.4,
+    "salt": 0.3,
+    "energyKj": 777
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-masala-chai-latte-whole-milk",
+   "name": "Iced Masala Chai Latte (whole milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 219,
+    "protein": 8.6,
+    "carbs": 23.3,
+    "fat": 9.9,
+    "saturatedFat": 6.3,
+    "sugar": 21.4,
+    "fiber": 1.1,
+    "salt": 0.3,
+    "energyKj": 912
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-masala-chai-latte-skimmed-milk",
+   "name": "Iced Masala Chai Latte (skimmed milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 136,
+    "protein": 9.1,
+    "carbs": 23.8,
+    "fat": 0.9,
+    "saturatedFat": 0.4,
+    "sugar": 21.9,
+    "fiber": 1.1,
+    "salt": 0.3,
+    "energyKj": 574
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-masala-chai-latte-oat-milk",
+   "name": "Iced Masala Chai Latte (oat milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 196,
+    "protein": 2.6,
+    "carbs": 29,
+    "fat": 7.2,
+    "saturatedFat": 1.3,
+    "sugar": 21.2,
+    "fiber": 2.6,
+    "salt": 0.3,
+    "energyKj": 817
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-masala-chai-latte-soya-milk",
+   "name": "Iced Masala Chai Latte (soya milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 159,
+    "protein": 8.3,
+    "carbs": 20.5,
+    "fat": 4.2,
+    "saturatedFat": 0.8,
+    "sugar": 14.9,
+    "fiber": 2.9,
+    "salt": 0.3,
+    "energyKj": 662
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-masala-chai-latte-coconut-milk",
+   "name": "Iced Masala Chai Latte (coconut milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 186,
+    "protein": 2.3,
+    "carbs": 29.3,
+    "fat": 5.9,
+    "saturatedFat": 3.1,
+    "sugar": 21.2,
+    "fiber": 3.4,
+    "salt": 0.3,
+    "energyKj": 777
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pink-chai-latte-whole-milk",
+   "name": "Pink Chai Latte (whole milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 219,
+    "protein": 8.6,
+    "carbs": 23.3,
+    "fat": 9.9,
+    "saturatedFat": 6.3,
+    "sugar": 21.4,
+    "fiber": 1.1,
+    "salt": 0.3,
+    "energyKj": 912
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pink-chai-latte-skimmed-milk",
+   "name": "Pink Chai Latte (skimmed milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 134,
+    "protein": 9.4,
+    "carbs": 21.2,
+    "fat": 1,
+    "saturatedFat": 0.4,
+    "sugar": 21.1,
+    "fiber": 1.7,
+    "salt": 0.4,
+    "energyKj": 567
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pink-chai-latte-oat-milk",
+   "name": "Pink Chai Latte (oat milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 194,
+    "protein": 2.3,
+    "carbs": 26.5,
+    "fat": 7.2,
+    "saturatedFat": 1.3,
+    "sugar": 20.4,
+    "fiber": 3.2,
+    "salt": 0.3,
+    "energyKj": 809
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pink-chai-latte-soya-milk",
+   "name": "Pink Chai Latte (soya milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 157,
+    "protein": 8.6,
+    "carbs": 18,
+    "fat": 4.2,
+    "saturatedFat": 0.8,
+    "sugar": 14.1,
+    "fiber": 3.4,
+    "salt": 0.3,
+    "energyKj": 654
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pink-chai-latte-coconut-milk",
+   "name": "Pink Chai Latte (coconut milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 184,
+    "protein": 2.6,
+    "carbs": 26.7,
+    "fat": 6,
+    "saturatedFat": 3.1,
+    "sugar": 20.4,
+    "fiber": 3.9,
+    "salt": 0.3,
+    "energyKj": 769
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-pink-chai-latte-whole-milk",
+   "name": "Iced Pink Chai Latte (whole milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 217,
+    "protein": 8.9,
+    "carbs": 20.7,
+    "fat": 10,
+    "saturatedFat": 6.3,
+    "sugar": 20.6,
+    "fiber": 1.7,
+    "salt": 0.3,
+    "energyKj": 904
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-pink-chai-latte-skimmed-milk",
+   "name": "Iced Pink Chai Latte (skimmed milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 134,
+    "protein": 9.4,
+    "carbs": 21.2,
+    "fat": 1,
+    "saturatedFat": 0.4,
+    "sugar": 21.1,
+    "fiber": 1.7,
+    "salt": 0.4,
+    "energyKj": 567
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-pink-chai-latte-oat-milk",
+   "name": "Iced Pink Chai Latte (oat milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 194,
+    "protein": 2.9,
+    "carbs": 26.5,
+    "fat": 7.2,
+    "saturatedFat": 1.3,
+    "sugar": 20.4,
+    "fiber": 3.2,
+    "salt": 0.3,
+    "energyKj": 809
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-pink-chai-latte-soya-milk",
+   "name": "Iced Pink Chai Latte (soya milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 157,
+    "protein": 8.6,
+    "carbs": 18,
+    "fat": 4.2,
+    "saturatedFat": 0.8,
+    "sugar": 14.1,
+    "fiber": 3.4,
+    "salt": 0.3,
+    "energyKj": 654
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-pink-chai-latte-coconut-milk",
+   "name": "Iced Pink Chai Latte (coconut milk)",
+   "category": "Chai latte",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 184,
+    "protein": 2.6,
+    "carbs": 26.7,
+    "fat": 5.6,
+    "saturatedFat": 3.1,
+    "sugar": 20.4,
+    "fiber": 3.9,
+    "salt": 0.3,
+    "energyKj": 769
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-marshmallows",
+   "name": "Mini Marshmallows",
+   "category": "Drink add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 33,
+    "protein": 0.3,
+    "carbs": 8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 7,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 138
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "whipped-cream",
+   "name": "Whipped Cream",
+   "category": "Drink add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 106,
+    "protein": 0.6,
+    "carbs": 1.6,
+    "fat": 11,
+    "saturatedFat": 6.9,
+    "sugar": 1.6,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 439
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-flakes",
+   "name": "Chocolate Flakes",
+   "category": "Drink add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 36,
+    "protein": 0.4,
+    "carbs": 3.7,
+    "fat": 2.1,
+    "saturatedFat": 1.3,
+    "sugar": 3.5,
+    "fiber": 0.6,
+    "salt": 0,
+    "energyKj": 152
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-cloud",
+   "name": "Chocolate Cloud",
+   "category": "Drink add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 156,
+    "protein": 0.4,
+    "carbs": 9.8,
+    "fat": 12.7,
+    "saturatedFat": 11,
+    "sugar": 5.3,
+    "fiber": 1.6,
+    "salt": 0,
+    "energyKj": 654
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-1-pump",
+   "name": "Caramel (1 pump)",
+   "category": "Syrups",
+   "serving": "1 pump",
+   "nutrients": {
+    "calories": 36,
+    "protein": 0,
+    "carbs": 8.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.9,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 151
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hazelnut-1-pump",
+   "name": "Hazelnut (1 pump)",
+   "category": "Syrups",
+   "serving": "1 pump",
+   "nutrients": {
+    "calories": 36,
+    "protein": 0,
+    "carbs": 8.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.9,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 151
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-1-pump",
+   "name": "Vanilla (1 pump)",
+   "category": "Syrups",
+   "serving": "1 pump",
+   "nutrients": {
+    "calories": 36,
+    "protein": 0,
+    "carbs": 8.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.9,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 151
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sugar-free-vanilla-1-pump",
+   "name": "Sugar Free Vanilla (1 pump)",
+   "category": "Syrups",
+   "serving": "1 pump",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-1-pump",
+   "name": "White Chocolate (1 pump)",
+   "category": "Syrups",
+   "serving": "1 pump",
+   "nutrients": {
+    "calories": 36,
+    "protein": 0,
+    "carbs": 8.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.8,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 152
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-and-blueberry",
+   "name": "Strawberry & Blueberry",
+   "category": "Smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 195,
+    "protein": 2.8,
+    "carbs": 36.6,
+    "fat": 2.5,
+    "saturatedFat": 0.2,
+    "sugar": 35.8,
+    "fiber": 28.1,
+    "salt": 0.2,
+    "energyKj": 826
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-and-spinach",
+   "name": "Banana & Spinach",
+   "category": "Smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 228,
+    "protein": 5.4,
+    "carbs": 43.3,
+    "fat": 2.2,
+    "saturatedFat": 0.3,
+    "sugar": 42,
+    "fiber": 32.1,
+    "salt": 0.4,
+    "energyKj": 963
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-and-passionfruit",
+   "name": "Mango & Passionfruit",
+   "category": "Smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 195,
+    "protein": 1.8,
+    "carbs": 41.8,
+    "fat": 0.7,
+    "saturatedFat": 0.2,
+    "sugar": 41.7,
+    "fiber": 32.4,
+    "salt": 0.2,
+    "energyKj": 825
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

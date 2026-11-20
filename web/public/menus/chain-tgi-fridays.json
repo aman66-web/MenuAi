@@ -12,16 +12,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "TGI Fridays allergen and calorie guide: Main Menu and Kids Menu (viewthe.menu/2alz, accessed 2026-10-08, no date shown)",
+  "title": "TGI Fridays allergen and calorie guide: Main Menu and Kids Menu (viewthe.menu/2alz, accessed 2026-11-17, no date shown)",
   "url": "https://viewthe.menu/2alz",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Calories only (per dish, from TGI Fridays' own allergen guide): protein, carbs and fat are not published. Drinks and cocktails are not in the guide, and it doesn't say whether grills include their two sides. Several different dishes print identical calories (all four steaks print 679): ask the restaurant if it matters.",
  "allergenGuide": {
-  "title": "TGI Fridays allergen and intolerance guide with calories, Main Menu and Kids Menu (viewthe.menu/2alz, accessed 2026-10-08, no date shown)",
+  "title": "TGI Fridays allergen and intolerance guide with calories, Main Menu and Kids Menu (viewthe.menu/2alz, accessed 2026-11-17, no date shown)",
   "url": "https://viewthe.menu/2alz",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-11-17",
   "mayContainPublished": true,
   "complete": true
  },
@@ -943,6 +943,30 @@
    }
   },
   {
+   "id": "the-original-non-gluten",
+   "name": "The Original (Non-Gluten)",
+   "category": "Burgers & sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 644
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
    "id": "nashville-hot-chicken-sandwich",
    "name": "Nashville Hot Chicken Sandwich",
    "category": "Burgers & sandwiches",
@@ -1239,7 +1263,7 @@
    "category": "Whiskey-glazed grill",
    "serving": "",
    "nutrients": {
-    "calories": 1484
+    "calories": 1384
    },
    "tags": [],
    "limitedTime": false,
@@ -1270,7 +1294,7 @@
    "category": "Whiskey-glazed grill",
    "serving": "",
    "nutrients": {
-    "calories": 2260
+    "calories": 2059
    },
    "tags": [],
    "limitedTime": false,
@@ -1330,7 +1354,7 @@
    "category": "Grill & steaks",
    "serving": "",
    "nutrients": {
-    "calories": 2222
+    "calories": 2021
    },
    "tags": [
     "contains_pork"
@@ -1342,12 +1366,17 @@
    "allergens": {
     "contains": [
      "celery",
+     "gluten",
      "eggs",
-     "mustard"
+     "mustard",
+     "soya"
     ],
     "mayContain": [
      "milk",
      "sesame"
+    ],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -1357,7 +1386,7 @@
    "category": "Grill & steaks",
    "serving": "",
    "nutrients": {
-    "calories": 1444
+    "calories": 1343
    },
    "tags": [
     "contains_pork"
@@ -1369,12 +1398,17 @@
    "allergens": {
     "contains": [
      "celery",
+     "gluten",
      "eggs",
-     "mustard"
+     "mustard",
+     "soya"
     ],
     "mayContain": [
      "milk",
      "sesame"
+    ],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -1470,10 +1504,15 @@
    "allergens": {
     "contains": [
      "celery",
-     "milk"
+     "gluten",
+     "milk",
+     "soya"
     ],
     "mayContain": [
      "sesame"
+    ],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -2567,35 +2606,6 @@
    }
   },
   {
-   "id": "plant-based-bites-kids",
-   "name": "Plant-based Bites (kids)",
-   "category": "Kids menu: chicken & dips",
-   "serving": "",
-   "nutrients": {
-    "calories": 268
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [
-     "eggs",
-     "milk",
-     "mustard",
-     "sesame",
-     "soya",
-     "sulphites"
-    ]
-   }
-  },
-  {
    "id": "bbq-sauce-kids",
    "name": "BBQ Sauce (kids)",
    "category": "Kids menu: chicken & dips",
@@ -2614,86 +2624,6 @@
     "contains": [],
     "mayContain": [
      "sesame"
-    ]
-   }
-  },
-  {
-   "id": "franks-redhot-sauce-kids",
-   "name": "Frank’s® RedHot Sauce (kids)",
-   "category": "Kids menu: chicken & dips",
-   "serving": "",
-   "nutrients": {
-    "calories": 89
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": [
-     "sesame"
-    ]
-   }
-  },
-  {
-   "id": "maple-sriracha-kids",
-   "name": "Maple Sriracha (kids)",
-   "category": "Kids menu: chicken & dips",
-   "serving": "",
-   "nutrients": {
-    "calories": 69
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts",
-     "sesame"
-    ]
-   }
-  },
-  {
-   "id": "beef-gravy-kids",
-   "name": "Beef Gravy (kids)",
-   "category": "Kids menu: chicken & dips",
-   "serving": "",
-   "nutrients": {
-    "calories": 14
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "gluten",
-     "eggs",
-     "fish",
-     "milk",
-     "mustard",
-     "nuts",
-     "sesame",
-     "soya"
     ]
    }
   },
@@ -2800,6 +2730,68 @@
    "allergens": {
     "contains": [
      "gluten"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "marinara-pasta-kids",
+   "name": "Marinara Pasta (kids)",
+   "category": "Kids menu: burgers, dogs & pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 389
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mac-and-cheese-kids",
+   "name": "Mac & Cheese (kids)",
+   "category": "Kids menu: burgers, dogs & pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 254
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
     ],
     "mayContain": [
      "sesame",
@@ -3370,98 +3362,6 @@
    "allergens": {
     "contains": [],
     "mayContain": []
-   }
-  },
-  {
-   "id": "banana-kids-sundae",
-   "name": "Banana (kids sundae)",
-   "category": "Kids menu: desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 17
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "white-chocolate-buttons-kids-sundae",
-   "name": "White Chocolate Buttons (kids sundae)",
-   "category": "Kids menu: desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 82
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "sweets-kids-sundae",
-   "name": "Sweets (kids sundae)",
-   "category": "Kids menu: desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 51
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": [
-     "sesame"
-    ]
-   }
-  },
-  {
-   "id": "brownie-pieces-kids-sundae",
-   "name": "Brownie Pieces (kids sundae)",
-   "category": "Kids menu: desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 60
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts",
-     "sesame"
-    ],
-    "cereals": [
-     "wheat"
-    ]
    }
   }
  ],

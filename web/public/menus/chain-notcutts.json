@@ -12,9 +12,9 @@
  ],
  "sample": false,
  "source": {
-  "title": "Notcutts restaurant sample menus with calories: SS26 Breakfast, Lunch, Children's and Drinks (PDFs created 7-10 April 2026) and AW26 Festive Feast (PDF created 17 September 2026)",
+  "title": "Notcutts restaurant sample menus with calories: AW26 Breakfast, Lunch, Children's and Drinks and AW26 Festive Feast (PDFs created 7-13 October 2026)",
   "url": "https://www.notcutts.co.uk/restaurants/sample-menu",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-11-17"
  },
  "nutritionLevel": "calories",
  "note": "Notcutts prints calories only, on a menu it calls a sample: calories vary by restaurant. Sandwich sides are printed separately (chips 270 kcal, dressed salad 67 kcal) and the menu doesn't say whether a sandwich's figure includes its side. Dishes printed 'from', 'calories vary' or with no figure (alcohol, soup of the day) are not listed. Festive Feast is limited time.",
@@ -25,7 +25,7 @@
   "Jacket potatoes",
   "Soup",
   "Main courses",
-  "Salads and flatbreads",
+  "Salads",
   "Side dishes",
   "Children’s breakfast",
   "Children’s hot meal deal",
@@ -50,22 +50,6 @@
    },
    "tags": [
     "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "add-2-slices-of-farmhouse-toast-to-a-platter",
-   "name": "Add 2 slices of Farmhouse Toast (to a platter)",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 361
-   },
-   "tags": [
-    "vegetarian"
    ],
    "limitedTime": false,
    "rankable": false,
@@ -105,12 +89,26 @@
    "modifiers": []
   },
   {
+   "id": "go-large-extra-sausage-mushrooms-and-hash-browns-vegan-breakfast-platter",
+   "name": "Go large: extra sausage, mushrooms and hash browns (Vegan Breakfast Platter)",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 536
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "welsh-rarebit-and-poached-egg",
    "name": "Welsh Rarebit and Poached Egg",
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 784
+    "calories": 884
    },
    "tags": [
     "contains_pork"
@@ -141,7 +139,7 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 580
+    "calories": 585
    },
    "tags": [
     "contains_pork"
@@ -173,7 +171,7 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 560
+    "calories": 613
    },
    "tags": [
     "vegetarian"
@@ -200,12 +198,26 @@
    "modifiers": []
   },
   {
-   "id": "add-bacon-to-scrambled-eggs-on-sourdough",
-   "name": "Add bacon (to Scrambled Eggs on Sourdough)",
+   "id": "add-smoked-salmon-to-scrambled-eggs-on-sourdough",
+   "name": "Add smoked salmon (to Scrambled Eggs on Sourdough)",
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 236
+    "calories": 82
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-or-sausage-ciabatta-with-3-rashers-of-back-bacon",
+   "name": "Bacon or Sausage Ciabatta with 3 rashers of back bacon",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 832
    },
    "tags": [
     "contains_pork"
@@ -216,12 +228,12 @@
    "modifiers": []
   },
   {
-   "id": "sausage-or-bacon-ciabatta-with-2-cumberland-sausages",
-   "name": "Sausage or Bacon Ciabatta with 2 Cumberland sausages",
+   "id": "bacon-or-sausage-ciabatta-with-2-cumberland-sausages",
+   "name": "Bacon or Sausage Ciabatta with 2 Cumberland sausages",
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 1061
+    "calories": 1031
    },
    "tags": [
     "contains_pork"
@@ -232,28 +244,12 @@
    "modifiers": []
   },
   {
-   "id": "sausage-or-bacon-ciabatta-with-3-rashers-of-back-bacon",
-   "name": "Sausage or Bacon Ciabatta with 3 rashers of back bacon",
+   "id": "bacon-or-sausage-ciabatta-with-2-vegan-sausages",
+   "name": "Bacon or Sausage Ciabatta with 2 vegan sausages",
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 863
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "sausage-or-bacon-ciabatta-with-2-vegan-sausages",
-   "name": "Sausage or Bacon Ciabatta with 2 vegan sausages",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 610
+    "calories": 579
    },
    "tags": [
     "vegetarian"
@@ -285,7 +281,7 @@
    "category": "Breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 661
+    "calories": 761
    },
    "tags": [
     "contains_pork"
@@ -296,8 +292,8 @@
    "modifiers": []
   },
   {
-   "id": "flat-mushroom-brie-and-chilli-jam-toasted-ciabatta",
-   "name": "Flat Mushroom, Brie and Chilli Jam Toasted Ciabatta",
+   "id": "flat-mushroom-brie-and-stokes-chilli-jam-toasted-ciabatta",
+   "name": "Flat Mushroom, Brie and Stokes Chilli Jam Toasted Ciabatta",
    "category": "Hot sandwiches",
    "serving": "",
    "nutrients": {
@@ -342,12 +338,12 @@
    "modifiers": []
   },
   {
-   "id": "bbq-vegetable-toasted-ciabatta",
-   "name": "BBQ Vegetable Toasted Ciabatta",
+   "id": "vegan-meatball-marinara-toasted-ciabatta",
+   "name": "Vegan Meatball Marinara Toasted Ciabatta",
    "category": "Hot sandwiches",
    "serving": "",
    "nutrients": {
-    "calories": 609
+    "calories": 635
    },
    "tags": [
     "vegetarian"
@@ -358,12 +354,12 @@
    "modifiers": []
   },
   {
-   "id": "hot-flaked-smoked-salmon-cream-cheese-and-cucumber-sandwich",
-   "name": "Hot Flaked Smoked Salmon, Cream Cheese and Cucumber Sandwich",
+   "id": "smoked-salmon-cream-cheese-and-cucumber-sandwich",
+   "name": "Smoked Salmon, Cream Cheese and Cucumber Sandwich",
    "category": "Cold sandwiches",
    "serving": "",
    "nutrients": {
-    "calories": 512
+    "calories": 476
    },
    "tags": [],
    "limitedTime": false,
@@ -393,7 +389,7 @@
    "category": "Cold sandwiches",
    "serving": "",
    "nutrients": {
-    "calories": 560
+    "calories": 558
    },
    "tags": [],
    "limitedTime": false,
@@ -423,7 +419,7 @@
    "category": "Cold sandwiches",
    "serving": "",
    "nutrients": {
-    "calories": 517
+    "calories": 523
    },
    "tags": [
     "contains_pork"
@@ -434,14 +430,16 @@
    "modifiers": []
   },
   {
-   "id": "coronation-chicken-jacket-potato",
-   "name": "Coronation Chicken Jacket Potato",
+   "id": "cheesy-mushroom-and-spring-onion-jacket-potato",
+   "name": "Cheesy Mushroom and Spring Onion Jacket Potato",
    "category": "Jacket potatoes",
    "serving": "",
    "nutrients": {
-    "calories": 678
+    "calories": 621
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -453,7 +451,7 @@
    "category": "Jacket potatoes",
    "serving": "",
    "nutrients": {
-    "calories": 557
+    "calories": 556
    },
    "tags": [],
    "limitedTime": false,
@@ -467,7 +465,7 @@
    "category": "Jacket potatoes",
    "serving": "",
    "nutrients": {
-    "calories": 390
+    "calories": 388
    },
    "tags": [
     "vegetarian"
@@ -483,7 +481,7 @@
    "category": "Jacket potatoes",
    "serving": "",
    "nutrients": {
-    "calories": 734
+    "calories": 732
    },
    "tags": [
     "vegetarian"
@@ -499,7 +497,7 @@
    "category": "Jacket potatoes",
    "serving": "",
    "nutrients": {
-    "calories": 782
+    "calories": 780
    },
    "tags": [
     "vegetarian"
@@ -538,6 +536,22 @@
    "modifiers": []
   },
   {
+   "id": "cumberland-sausages-and-mash",
+   "name": "Cumberland Sausages and Mash",
+   "category": "Main courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 1065
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
    "id": "fish-and-chips",
    "name": "Fish and Chips",
    "category": "Main courses",
@@ -552,73 +566,9 @@
    "modifiers": []
   },
   {
-   "id": "chicken-and-chorizo-rigatoni",
-   "name": "Chicken and Chorizo Rigatoni",
-   "category": "Main courses",
-   "serving": "",
-   "nutrients": {
-    "calories": 1126
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "bacon-and-cheese-burger",
-   "name": "Bacon and Cheese Burger",
-   "category": "Main courses",
-   "serving": "",
-   "nutrients": {
-    "calories": 975
-   },
-   "tags": [
-    "contains_beef",
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "notcutts/e07bb7dcadcd.webp"
-  },
-  {
-   "id": "beyond-meat-burger",
-   "name": "Beyond Meat Burger",
-   "category": "Main courses",
-   "serving": "",
-   "nutrients": {
-    "calories": 846
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "fish-goujon-burger",
-   "name": "Fish Goujon Burger",
-   "category": "Main courses",
-   "serving": "",
-   "nutrients": {
-    "calories": 822
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "oriental-rice-noodle-salad",
    "name": "Oriental Rice Noodle Salad",
-   "category": "Salads and flatbreads",
+   "category": "Salads",
    "serving": "",
    "nutrients": {
     "calories": 553
@@ -635,7 +585,7 @@
   {
    "id": "add-halloumi-to-oriental-rice-noodle-salad",
    "name": "Add halloumi (to Oriental Rice Noodle Salad)",
-   "category": "Salads and flatbreads",
+   "category": "Salads",
    "serving": "",
    "nutrients": {
     "calories": 320
@@ -649,10 +599,10 @@
   {
    "id": "crispy-chicken-and-bacon-salad",
    "name": "Crispy Chicken and Bacon Salad",
-   "category": "Salads and flatbreads",
+   "category": "Salads",
    "serving": "",
    "nutrients": {
-    "calories": 650
+    "calories": 648
    },
    "tags": [
     "contains_pork"
@@ -665,58 +615,12 @@
   {
    "id": "tuna-and-egg-salad",
    "name": "Tuna and Egg Salad",
-   "category": "Salads and flatbreads",
+   "category": "Salads",
    "serving": "",
    "nutrients": {
-    "calories": 441
+    "calories": 439
    },
    "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "chicken-tikka-flatbread",
-   "name": "Chicken Tikka Flatbread",
-   "category": "Salads and flatbreads",
-   "serving": "",
-   "nutrients": {
-    "calories": 600
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "halloumi-and-hot-honey-flatbread",
-   "name": "Halloumi and Hot Honey Flatbread",
-   "category": "Salads and flatbreads",
-   "serving": "",
-   "nutrients": {
-    "calories": 910
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "sweet-potato-falafel-flatbread",
-   "name": "Sweet Potato Falafel Flatbread",
-   "category": "Salads and flatbreads",
-   "serving": "",
-   "nutrients": {
-    "calories": 602
-   },
-   "tags": [
-    "vegetarian"
-   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -802,7 +706,23 @@
    "category": "Side dishes",
    "serving": "",
    "nutrients": {
-    "calories": 361
+    "calories": 412
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bread-and-flora-spread-2-slices",
+   "name": "Bread and Flora Spread, 2 slices",
+   "category": "Side dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 415
    },
    "tags": [
     "vegetarian"
@@ -843,14 +763,30 @@
    "modifiers": []
   },
   {
-   "id": "crispy-breaded-half-chicken-breast",
-   "name": "Crispy Breaded Half Chicken Breast",
+   "id": "breaded-chicken-strips",
+   "name": "Breaded Chicken Strips",
    "category": "Side dishes",
    "serving": "",
    "nutrients": {
-    "calories": 327
+    "calories": 192
    },
    "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pan-fried-halloumi",
+   "name": "Pan Fried Halloumi",
+   "category": "Side dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -926,10 +862,26 @@
    "category": "Children’s breakfast",
    "serving": "",
    "nutrients": {
-    "calories": 331
+    "calories": 301
    },
    "tags": [
     "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausages-and-mash-with-peas",
+   "name": "Sausages and Mash with Peas",
+   "category": "Children’s hot meal deal",
+   "serving": "",
+   "nutrients": {
+    "calories": 705
+   },
+   "tags": [
+    "contains_pork"
    ],
    "limitedTime": false,
    "rankable": false,
@@ -942,7 +894,7 @@
    "category": "Children’s hot meal deal",
    "serving": "",
    "nutrients": {
-    "calories": 468
+    "calories": 439
    },
    "tags": [],
    "limitedTime": false,
@@ -956,21 +908,7 @@
    "category": "Children’s hot meal deal",
    "serving": "",
    "nutrients": {
-    "calories": 431
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "cheese-burger-and-chips",
-   "name": "Cheese Burger and Chips",
-   "category": "Children’s hot meal deal",
-   "serving": "",
-   "nutrients": {
-    "calories": 640
+    "calories": 403
    },
    "tags": [],
    "limitedTime": false,
@@ -984,7 +922,7 @@
    "category": "Children’s hot meal deal",
    "serving": "",
    "nutrients": {
-    "calories": 558
+    "calories": 604
    },
    "tags": [
     "contains_pork"
@@ -1064,7 +1002,9 @@
    "nutrients": {
     "calories": 95
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -1085,28 +1025,16 @@
    "modifiers": []
   },
   {
-   "id": "jelly-pot",
-   "name": "Jelly Pot",
+   "id": "brownie",
+   "name": "Brownie",
    "category": "Children’s snacks",
    "serving": "",
    "nutrients": {
-    "calories": 39
+    "calories": 231
    },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "kids-cake",
-   "name": "Kids Cake",
-   "category": "Children’s snacks",
-   "serving": "",
-   "nutrients": {
-    "calories": 92
-   },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -1120,7 +1048,9 @@
    "nutrients": {
     "calories": 19
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -1163,22 +1093,6 @@
    "serving": "",
    "nutrients": {
     "calories": 278
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "cake-and-custard",
-   "name": "Cake and Custard",
-   "category": "Children’s desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 143
    },
    "tags": [
     "vegetarian"
@@ -1399,20 +1313,6 @@
    "modifiers": []
   },
   {
-   "id": "iced-latte",
-   "name": "Iced Latte",
-   "category": "Seasonal drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 78
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "chai-latte",
    "name": "Chai Latte",
    "category": "Seasonal drinks",
@@ -1427,44 +1327,12 @@
    "modifiers": []
   },
   {
-   "id": "mango-and-lime-cooler",
-   "name": "Mango and Lime Cooler",
+   "id": "gingerbread-latte",
+   "name": "Gingerbread Latte",
    "category": "Seasonal drinks",
    "serving": "",
    "nutrients": {
-    "calories": 98
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "strawberry-and-mint-cooler",
-   "name": "Strawberry and Mint Cooler",
-   "category": "Seasonal drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 118
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "elderflower-and-apple-cooler",
-   "name": "Elderflower and Apple Cooler",
-   "category": "Seasonal drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 113
+    "calories": 216
    },
    "tags": [],
    "limitedTime": false,
@@ -1473,16 +1341,28 @@
    "modifiers": []
   },
   {
-   "id": "peach-iced-tea",
-   "name": "Peach Iced Tea",
+   "id": "hazelnut-hot-chocolate",
+   "name": "Hazelnut Hot Chocolate",
    "category": "Seasonal drinks",
    "serving": "",
    "nutrients": {
-    "calories": 98
+    "calories": 466
    },
-   "tags": [
-    "vegetarian"
-   ],
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte",
+   "name": "Iced Latte",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 78
+   },
+   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -1531,20 +1411,6 @@
    "tags": [
     "vegetarian"
    ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "cherry-bakewell-milkshake",
-   "name": "Cherry Bakewell Milkshake",
-   "category": "Seasonal drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 361
-   },
-   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -1621,12 +1487,12 @@
    "modifiers": []
   },
   {
-   "id": "fentimans-lemon-shandy",
-   "name": "Fentimans Lemon Shandy",
+   "id": "franklin-and-sons-dandelion-and-burdock",
+   "name": "Franklin & Sons Dandelion & Burdock",
    "category": "Cold drinks",
    "serving": "",
    "nutrients": {
-    "calories": 102
+    "calories": 55
    },
    "tags": [],
    "limitedTime": false,
@@ -1635,12 +1501,12 @@
    "modifiers": []
   },
   {
-   "id": "franklin-and-sons-dandelion-and-burdock",
-   "name": "Franklin & Sons Dandelion & Burdock",
+   "id": "franklin-and-sons-rhubarb-lemonade",
+   "name": "Franklin & Sons Rhubarb Lemonade",
    "category": "Cold drinks",
    "serving": "",
    "nutrients": {
-    "calories": 55
+    "calories": 68
    },
    "tags": [],
    "limitedTime": false,
