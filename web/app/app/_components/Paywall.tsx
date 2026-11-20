@@ -21,8 +21,9 @@ import { Button, Sheet, inputClass } from "./ui";
 
 // SPEC §9: the paywall appears only when a free user taps a Premium action. Closing returns to exactly where they were. "Premium" is the one name on screen
 // (O3, 19 November 2026); the code keeps its old "Pro" names.
-// The iPhone app (1.1, In-App Purchase), after the overnight audit of 20 November 2026: one plain line says why it opened (PAYWALL_REASON), then the plans, the
-// billed amount and Continue, then what Premium adds (the one list, lib/mm/premiumFeatures.ts). Buying or restoring there closes the sheet, says "Premium is on.
+// The iPhone app (1.1, In-App Purchase), after the overnight audit of 20 November 2026 and the founder's redesign of that evening: a picture-led top with the
+// free trial and the price after it, one plain line saying why it opened (PAYWALL_REASON), then the plans, the billed amount and Continue, how the free trial
+// works, then what Premium adds as picture cards (the one list, lib/mm/premiumFeatures.ts). Buying or restoring there closes the sheet, says "Premium is on.
 // Thank you." once (a toast) and carries on with what was tapped (the action gate() was given).
 // Payments aren't wired on the web yet (docs/WEB_BUILD_PLAN.md), so instead of a purchase button it says so honestly
 // and offers the waitlist. Testers can unlock a preview when dev tools are enabled.
@@ -119,12 +120,10 @@ function PaywallBody({ trigger, onDone, onUnlocked }: { trigger: PaywallTrigger 
   return (
     <div className="pb-1 font-medium">
       {IAP_ENABLED ? (
-        // the iPhone app (1.1): why it opened, then the plans with the billed amount and Continue, then what Premium adds, then the free week's card when this
-        // Apple ID can still have it (below the prices: the onboarding meeting of 20 November 2026), Restore and Apple's words
-        <>
-          {reason && <p className="mb-4 text-base font-semibold leading-snug">{t(reason.text, reason.values)}</p>}
-          <AppStorePlans onUnlocked={onUnlocked} afterContinue={<div className="mt-6"><PremiumOffer /></div>} />
-        </>
+        // the iPhone app (1.1; founder, 20 November 2026: "This has got to look more interesting also mention is a 7 day free trial"): the picture-led top with
+        // the free trial and the price after it, and why it opened; the plans with the billed amount and Continue; how the free trial works when this Apple ID
+        // can still have it (below the prices); what Premium adds as picture cards; Restore and Apple's words (AppStorePlans, PremiumOffer.tsx)
+        <AppStorePlans onUnlocked={onUnlocked} reason={reason ? t(reason.text, reason.values) : null} features={<PremiumOffer />} />
       ) : (
         <>
           {reason && PAID_ACCESS_ENABLED && <p className="mb-4 text-base font-semibold leading-snug">{t(reason.text, reason.values)}</p>}

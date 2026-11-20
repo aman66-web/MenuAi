@@ -133,6 +133,8 @@ describe("the shared pieces use the tokens only", () => {
     // Pip's AI permission sheet and the screens the 20 November 2026 audit reworked
     "app/app/_components/AiConsentSheet.tsx", "app/app/_components/FeaturePreviews.tsx", "app/app/_components/Shortcut.tsx", "app/app/_components/BodyFields.tsx",
     "app/app/scan/page.tsx", "app/app/recipes/fridge/page.tsx",
+    // the Premium sheet redesigned on 20 November 2026 (founder: "This has got to look more interesting")
+    "app/app/_components/PremiumPictures.tsx", "app/app/_components/PremiumOffer.tsx", "app/app/_components/AppStorePlans.tsx", "app/app/_components/TrialOffer.tsx",
   ];
   for (const f of FILES) {
     it(`${f} has no raw colour, Tailwind palette colour or opacity fade`, () => {

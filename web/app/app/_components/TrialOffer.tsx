@@ -25,9 +25,10 @@ import { Button, Sheet } from "./ui";
 // then never follows it. Otherwise this sheet opens on Home on their second visit day: a later day than the first day the app was used on this phone (the same
 // count of days as the rating question, lib/mm/ratingPrompt.ts), never in the visit where the welcome screens finished (finishWelcome, after sign-in, "Not now" or a
 // signed-in run's last step: the onboarding meeting of 20 November 2026 keeps this timing unchanged), and never over another sheet (the setup card's, Add
-// food...): it waits until that one is closed. Inside (the overnight audit of 20 November 2026): one line saying a free trial is still there, the plans with the
-// billed amount and Continue first, "Not now" straight under Continue, then what Premium adds and the free trial's card (PremiumOffer.tsx). Starting the trial
-// closes the sheet and says "Premium is on. Thank you." once. Never in a visit that came through the sign-in screen either (AppShell holds it then: every 1.0
+// food...): it waits until that one is closed. Inside (the founder's redesign of 20 November 2026, "This has got to look more interesting"): the picture-led
+// top with "Try Premium free for 7 days" and the price after it, the plans with the billed amount and Continue, "Not now" straight under Continue, then how the
+// free trial works, what Premium adds as picture cards, Restore and Apple's words (AppStorePlans, PremiumOffer.tsx). Starting the trial closes the sheet and
+// says "Premium is on. Thank you." once. Never in a visit that came through the sign-in screen either (AppShell holds it then: every 1.0
 // user updating to 1.1 signs in once, and the sheet used to pop up straight after).
 
 /** Set by the welcome screens when they finish (finishWelcome) and by AppShell after the sign-in screen: no offer in the rest of this visit (the app's JavaScript
@@ -88,16 +89,16 @@ function TrialOfferInApp() {
     <>
       <Sheet open={open} onClose={() => setOpen(false)} title={t("{app} Premium", { app: site.name })}>
         <div className="pb-1 font-medium">
-          {trial && <p className="mb-4 text-base font-semibold leading-snug">{t("You can still have a {days}-day free trial.", { days: trial })}</p>}
+          {/* the headline at the sheet's top says the free trial (AppStorePlans' PremiumHero), so no line of its own here */}
           <AppStorePlans
             onUnlocked={() => { setOpen(false); setUnlocked(true); }}
             afterContinue={
               <>
                 <Button size="lg" full variant="secondary" className="mt-2.5" onClick={() => setOpen(false)}>{t("Not now")}</Button>
                 <p className="mt-2 text-center text-[0.9375rem] leading-snug text-muted">{t("You can start it later in Settings › Subscription.")}</p>
-                <div className="mt-6"><PremiumOffer /></div>
               </>
             }
+            features={<PremiumOffer />}
           />
         </div>
       </Sheet>

@@ -22,7 +22,7 @@ export interface PremiumFeature {
   triggers: readonly PaywallTrigger[];
   /** The feature exists on this build (the photo features ride on their own switch). */
   on: boolean;
-  /** One of the four named first, as a short checklist under the plans; the rest are behind "See everything Premium adds". */
+  /** One of the four shown first, as picture cards; the rest follow as a compact list. */
   headline: boolean;
 }
 
@@ -43,13 +43,13 @@ export const PREMIUM_FEATURES: readonly PremiumFeature[] = [
 /** The features this build has, in the list's order. */
 export const premiumFeaturesOn = (): PremiumFeature[] => PREMIUM_FEATURES.filter((f) => f.on);
 
-/** The short checklist under the plans: the first four headline features this build has (topped up from the rest when a photo feature is off). */
+/** The four picture cards: the first four headline features this build has (topped up from the rest when a photo feature is off). */
 export function headlineFeatures(list: readonly PremiumFeature[] = premiumFeaturesOn()): PremiumFeature[] {
   const first = list.filter((f) => f.headline);
   return [...first, ...list.filter((f) => !f.headline)].slice(0, 4);
 }
 
-/** Everything else, behind "See everything Premium adds". */
+/** Everything else, as the compact list under the four cards. */
 export function moreFeatures(list: readonly PremiumFeature[] = premiumFeaturesOn()): PremiumFeature[] {
   const head = new Set(headlineFeatures(list).map((f) => f.id));
   return list.filter((f) => !head.has(f.id));

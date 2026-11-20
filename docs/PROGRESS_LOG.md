@@ -3797,3 +3797,13 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   hash of the email and of the Apple id (kept after deletion only for this) and Apple's DeviceCheck bit; a server-side gift list (account, optional end);
   Apple's own 7-day introductory trial to be removed in App Store Connect so nobody sees two free weeks. Being built (not yet: migration not applied,
   DeviceCheck key to be made by the founder).
+- (about 23:55) **The Premium sheet redesigned** (founder, screenshot of the plain sheet: "This has got to look more interesting also mention is a 7 day free
+  trial"): a pale green picture panel made from our own recipe pictures (a little Mon-Wed week, a scan frame; no Pip beside a price, no logos), the headline
+  "Try Premium free for 7 days" (26 px, smaller than the 32 px billed amount: Apple 3.1.2) with "Then {price} {per}." under it from the store's own price, the
+  plans, "How your free trial works" (Today / Before day 7 / Day 7: no reminder is promised, the app sends none), "What Premium adds" as picture cards for Meal
+  plan, Scan your food, Make it at home and Cook with what you already have, then the rest as a compact list; every Apple term, Restore and the links kept.
+  Copy old -> new: "{price} {per} is charged and your subscription starts, unless you cancel at least 24 hours before in your App Store settings." -> "Your plan
+  starts. You pay {price} {per}." with a new middle step "Before day {days}: Cancel in your App Store settings at least 24 hours before, and you pay nothing.";
+  new "Then {price} {per}.", "Get more with Premium" (no trial left for this Apple ID), "How your free trial works"; removed "See everything Premium adds" and,
+  on the trial offer, "You can still have a {days}-day free trial.". `PremiumPictures.tsx`, tests/premiumSheet.test.ts; e2e iap 11/12 (the one left clicks the
+  old welcome screens). The free-until switch and the trial offer before Home were built then removed at the founder's change of plan.

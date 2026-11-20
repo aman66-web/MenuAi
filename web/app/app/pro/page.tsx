@@ -12,8 +12,8 @@ import { useT } from "../_lib/i18n";
 import { captureRefFromLocation } from "@/lib/payments/ref";
 
 // The pricing screen (the website with paid access on, or the In-App Purchase app; with paid access off it forwards to the app, shows no words and the iPhone app's copy never mentions it).
-// What Premium adds is the one list (PremiumOffer, lib/mm/premiumFeatures.ts), as on the paywall. In the iPhone app the plans, the billed amount and Continue come
-// first and the list under them, and the legal links are the plans' own (Terms of Use, Terms, Privacy Policy), not a second row.
+// What Premium adds is the one list (PremiumOffer, lib/mm/premiumFeatures.ts), as on the paywall. In the iPhone app the paywall's picture-led top, the plans, the
+// billed amount and Continue come first, how the free trial works and the list under them, and the legal links are the plans' own (Terms of Use, Terms, Privacy Policy), not a second row.
 function Pricing() {
   const t = useT();
   const router = useRouter();
@@ -30,7 +30,7 @@ function Pricing() {
       <PageHeader back={{ href: "/app", label: t("Back to home") }} title={`${site.name} Premium`} />
       {cancelled && <p role="status" className="mt-3 rounded-[1.25rem] bg-soft p-4 text-base font-semibold">{t("No payment was taken.")}</p>}
       {IAP_ENABLED ? (
-        <div className="mt-4"><AppStorePlans afterContinue={<div className="mt-6"><PremiumOffer level="h2" /></div>} /></div>
+        <div className="mt-4"><AppStorePlans level="h2" features={<PremiumOffer level="h2" />} /></div>
       ) : (
         <>
           <div className="mt-4"><PremiumOffer level="h2" /></div>

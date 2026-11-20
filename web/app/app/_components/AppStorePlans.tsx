@@ -11,7 +11,7 @@ import { useT } from "../_lib/i18n";
 import { storeProducts, useStoreProducts } from "../_lib/storeProducts";
 import { ErrorBanner } from "./Note";
 import { InkBadge } from "./PremiumBadge";
-import { TrialStory } from "./PremiumOffer";
+import { PremiumHero, TrialStory } from "./PremiumOffer";
 import { Button, ChoiceMark, ErrorBox, radioKeyNav } from "./ui";
 
 // The plans in the iPhone app (version 1.1), sold with Apple In-App Purchase (App Store rule 3.1.1). Names and prices come from StoreKit, never from our own table, so
@@ -26,6 +26,10 @@ import { Button, ChoiceMark, ErrorBox, radioKeyNav } from "./ui";
 // StoreKit returned); `afterContinue` puts what the screen needs straight under Continue ("Not now" on the trial offer, what Premium adds on a paywall); and a
 // purchase or restore that switches Premium on hands over to `onUnlocked` (the paywall closes, says so once and carries on to the feature) or, with no
 // `onUnlocked`, says so in one line with nothing else.
+// The founder, 20 November 2026 (23:05: "This has got to look more interesting also mention is a 7 day free trial"): the plans now open with a picture-led top
+// (PremiumOffer.tsx PremiumHero: "Try Premium free for 7 days", "Then £49.99 a year." from StoreKit's price for the chosen plan, smaller than the billed amount
+// under the plans, and `reason`); under Continue come `afterContinue`, how the free trial works, then `features` (what Premium adds, as picture cards), then
+// Restore and Apple's words, all still on the sheet.
 
 const TAGLINE: Record<IapPlanId, string> = {
   annual: tk("Renews each year until you cancel."),
@@ -70,7 +74,17 @@ function renewalWords(products: readonly StoreProduct[] | null, t: ReturnType<ty
   return words;
 }
 
-export function AppStorePlans({ afterContinue, onUnlocked }: { afterContinue?: ReactNode; onUnlocked?: () => void } = {}) {
+export function AppStorePlans({ reason, afterContinue, features, onUnlocked, level = "h3" }: {
+  /** Why the sheet opened, one plain line under the headline. */
+  reason?: ReactNode;
+  /** Straight under Continue ("Not now" on the trial offer). */
+  afterContinue?: ReactNode;
+  /** What Premium adds, under how the free trial works. */
+  features?: ReactNode;
+  onUnlocked?: () => void;
+  /** The headline's level: h3 in a sheet (under its h2 title), h2 on a page. */
+  level?: "h2" | "h3";
+} = {}) {
   const t = useT();
   const paid = useStore(paidStore);
   const now = useNow();
@@ -113,6 +127,7 @@ export function AppStorePlans({ afterContinue, onUnlocked }: { afterContinue?: R
 
   return (
     <div>
+      {!active && <PremiumHero trial={selected?.trialDays ?? null} price={selected?.price ?? null} per={selected ? perOf(selected) : ""} waiting={products === "loading"} reason={reason} level={level} />}
       {active ? (
         <div className="rounded-[1.25rem] bg-soft p-4">
           <p ref={justOn ? noteRef : undefined} role={justOn ? "status" : undefined} className="scroll-mb-32 text-lg font-extrabold leading-snug">{justOn ? note?.text : t("Premium is on.")}</p>
@@ -142,19 +157,25 @@ export function AppStorePlans({ afterContinue, onUnlocked }: { afterContinue?: R
                   tabIndex={on ? 0 : -1}
                   onClick={() => setChosen(p.plan)}
                   onKeyDown={(e) => radioKeyNav(e, i, products.length, (n) => setChosen(products[n]!.plan))}
-                  className={`flex min-h-[4.75rem] w-full items-center gap-3 rounded-[1.25rem] border-[1.5px] p-3.5 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-edge bg-card text-foreground hover:bg-background"}`}
+                  className={`@container flex min-h-[4.75rem] w-full items-center gap-3 rounded-[1.25rem] border-[1.5px] p-3.5 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-edge bg-card text-foreground hover:bg-background"}`}
                 >
-                  <ChoiceMark on={on} kind="circle" />
-                  <span className="min-w-0 flex-1">
-                    <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                      <span className="text-[1.0625rem] font-extrabold leading-snug">{p.name}</span>
-                      {badge && <InkBadge star={false}>{t(badge)}</InkBadge>}
+                  {/* the price on the right where the words fit beside it; at large text (the card narrower than 17rem of that text) under the plan's words, so
+                      the name, the free days and the price never run into each other */}
+                  <span className="flex w-full items-center gap-3">
+                    <ChoiceMark on={on} kind="circle" />
+                    <span className="flex min-w-0 flex-1 flex-col gap-1.5 @[17rem]:flex-row @[17rem]:items-center @[17rem]:gap-3">
+                      <span className="min-w-0 flex-1">
+                        <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                          <span className="text-[1.0625rem] font-extrabold leading-snug">{p.name}</span>
+                          {badge && <InkBadge star={false}>{t(badge)}</InkBadge>}
+                        </span>
+                        <span className={`mt-0.5 block text-[0.9375rem] leading-snug ${p.trialDays || on ? "font-semibold" : "text-muted"}`}>{line}</span>
+                      </span>
+                      <span className="app-numbers shrink-0 @[17rem]:text-end">
+                        <span className="block text-[1.5rem] font-extrabold leading-none tracking-tight">{p.price}</span>
+                        <span className={`mt-1 block text-[0.8125rem] ${on ? "" : "text-muted"}`}>{per}</span>
+                      </span>
                     </span>
-                    <span className={`mt-0.5 block text-[0.9375rem] leading-snug ${p.trialDays || on ? "font-semibold" : "text-muted"}`}>{line}</span>
-                  </span>
-                  <span className="app-numbers shrink-0 text-end">
-                    <span className="block text-[1.5rem] font-extrabold leading-none tracking-tight">{p.price}</span>
-                    <span className={`mt-1 block text-[0.8125rem] ${on ? "" : "text-muted"}`}>{per}</span>
                   </span>
                 </button>
               );
@@ -189,8 +210,10 @@ export function AppStorePlans({ afterContinue, onUnlocked }: { afterContinue?: R
       {/* how the free week works for the chosen plan, below the prices (never above them) */}
       {!active && selected && <TrialStory trial={selected.trialDays ?? null} price={selected.price} per={perOf(selected)} />}
 
+      {features && <div className="mt-6">{features}</div>}
+
       {/* an underlined link; while it checks it says so (and does nothing on a second tap) */}
-      <button type="button" disabled={busy !== null && busy !== "restore"} aria-busy={busy === "restore" || undefined} onClick={() => { if (busy === null) void restore(); }} className="mx-auto mt-3 flex min-h-11 items-center px-3 text-[0.9375rem] font-semibold text-accent underline underline-offset-[3px] disabled:cursor-not-allowed disabled:text-muted">
+      <button type="button" disabled={busy !== null && busy !== "restore"} aria-busy={busy === "restore" || undefined} onClick={() => { if (busy === null) void restore(); }} className="mx-auto mt-4 flex min-h-11 items-center px-3 text-[0.9375rem] font-semibold text-accent underline underline-offset-[3px] disabled:cursor-not-allowed disabled:text-muted">
         {busy === "restore" ? t("Checking with the App Store…") : t("Restore purchases")}
       </button>
 

@@ -1,7 +1,8 @@
 // The iPhone app 1.1's Premium with Apple In-App Purchase, on the packed app (npm run build:app with NEXT_PUBLIC_IAP=1), with a pretend iPhone (the bridge, faked
 // like StoreKitPurchaseService would answer) and a pretend server for POST /api/v1/entitlement/apple (signing with a THROWAWAY key from e2e/paykey.mjs):
 // the free-trial offer once on a later day than the first (never straight after the welcome steps), on Home only and never over another sheet, the paywall's
-// free-trial banner, buying, restoring, a refund noticed at start-up, Settings, no Stripe or WhatsApp wording.
+// picture-led top with the free trial and the price after it (founder, 20 November 2026: "This has got to look more interesting"), buying, restoring, a refund
+// noticed at start-up, Settings, no Stripe or WhatsApp wording.
 //   cd web && KEY=$(node e2e/paykey.mjs) && NEXT_PUBLIC_IAP=1 NEXT_PUBLIC_PHOTO_RECIPES=1 NEXT_PUBLIC_REMOTE_BASE=https://numbite.com NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK="$KEY" \
 //     NEXT_PUBLIC_SIGN_IN_REQUIRED=0 NEXT_PUBLIC_SUPPORT_EMAIL=test@numbite.com npm run build:app && (PORT=3103 node e2e/serve-app.mjs .next-app &) && BASE=http://localhost:3103 node e2e/iap.mjs
 import { readFileSync } from "node:fs";
@@ -96,36 +97,48 @@ async function axe(page, where) {
   expect(v.length === 0, `${where}: ${v.join(", ")}`);
 }
 
-await step("after setup: the free-trial offer once, with the plans, the price after the trial, Apple's words and a way to skip; not again after Not now", async () => {
+await step("after setup: the free-trial offer once, with the picture-led top, the plans, the price after the trial, how it works, Apple's words and a way to skip; not again after Not now", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app");
   const sheet = page.getByRole("dialog", { name: "Numbite Premium" });
-  await sheet.waitFor();
+  await sheet.waitFor({ timeout: 8000 });
   await sheet.getByRole("heading", { name: "Try Premium free for 7 days" }).waitFor();
-  await sheet.getByText("7-day free trial", { exact: true }).waitFor();
-  await sheet.getByText("Premium unlocks. You pay nothing now.").waitFor();
-  await sheet.getByText("Day 7", { exact: true }).waitFor();
-  // one choice of plan, Annual (with the free week) chosen first, and one button whose words and price line follow the choice
+  await sheet.getByText("Then £14.99 a year.", { exact: true }).waitFor();
+  // one choice of plan, Annual (with the free week) chosen first, and the price lines follow the choice
   const plans = sheet.getByRole("radiogroup", { name: "Choose a plan" });
-  expect((await plans.getByRole("radio").count()) === 3, "three plans");
+  expect((await plans.getByRole("radio").count()) === 2, "two plans");
   await plans.getByRole("radio", { name: /Annual/, checked: true }).waitFor();
   expect((await plans.getByText("First 7 days free").count()) === 2, "the free week on Annual and Monthly");
   await sheet.getByRole("button", { name: "Continue", exact: true }).waitFor();
-  await sheet.getByText("First 7 days free, then £14.99 a year.").waitFor();
+  await sheet.getByText("First 7 days free, then £14.99 a year. Renews until you cancel.").waitFor();
+  // the headline is never bigger than the billed amount (App Review 3.1.2(c))
+  const sizes = await sheet.evaluate((d) => {
+    const px = (el) => parseFloat(getComputedStyle(el).fontSize);
+    const h = [...d.querySelectorAll("h3")].find((x) => x.textContent === "Try Premium free for 7 days");
+    const billed = [...d.querySelectorAll("span")].find((x) => x.textContent === "£14.99" && x.parentElement?.tagName === "P");
+    return { h: h ? px(h) : 0, billed: billed ? px(billed) : 0 };
+  });
+  expect(sizes.h > 0 && sizes.billed > sizes.h, `headline ${sizes.h}px, billed amount ${sizes.billed}px`);
   await plans.getByRole("radio", { name: /Monthly/ }).click();
-  await sheet.getByText("First 7 days free, then £2.99 a month.").waitFor();
-  await plans.getByRole("radio", { name: /Founding Member/ }).click();
-  await sheet.getByRole("button", { name: "Buy for £9.99" }).waitFor();
-  await sheet.getByText("£9.99, one payment. It doesn't renew.").waitFor();
-  await plans.getByRole("radio", { name: /Founding Member/ }).press("ArrowUp");
-  await plans.getByRole("radio", { name: /Monthly/, checked: true }).waitFor();
+  await sheet.getByText("Then £2.99 a month.", { exact: true }).waitFor();
+  await sheet.getByText("First 7 days free, then £2.99 a month. Renews until you cancel.").waitFor();
+  await sheet.getByText("Your plan starts. You pay £2.99 a month.").waitFor();
+  await plans.getByRole("radio", { name: /Monthly/ }).press("ArrowUp");
+  await plans.getByRole("radio", { name: /Annual/, checked: true }).waitFor();
+  await sheet.getByRole("heading", { name: "How your free trial works" }).waitFor();
+  await sheet.getByText("Premium unlocks. You pay nothing now.").waitFor();
+  await sheet.getByText("Cancel in your App Store settings at least 24 hours before, and you pay nothing.").waitFor();
+  await sheet.getByText("Day 7", { exact: true }).waitFor();
+  await sheet.getByText("Your plan starts. You pay £14.99 a year.").waitFor();
+  await sheet.getByRole("heading", { name: "What Premium adds" }).waitFor();
+  await sheet.getByText("Cook any dish from a photo").waitFor();
   await sheet.getByText(/There is one free trial per Apple ID\./).waitFor();
   await sheet.getByText(/renews at the same price and length unless you cancel at least 24 hours/).waitFor();
   await sheet.getByRole("link", { name: "Terms of Use (EULA)" }).waitFor();
   await sheet.getByRole("link", { name: "Privacy Policy" }).waitFor();
   await sheet.getByRole("button", { name: "Restore purchases" }).waitFor();
   const text = await sheet.innerText();
-  expect(!/stripe|whatsapp|website|card,|google pay/i.test(text), `no other way to pay is mentioned: ${text.match(/stripe|whatsapp|website|card,|google pay/i)?.[0]}`);
+  expect(!/stripe|whatsapp|website|card,|google pay|remind/i.test(text), `no other way to pay, no reminder promised: ${text.match(/stripe|whatsapp|website|card,|google pay|remind/i)?.[0]}`);
   await axe(page, "the trial offer");
   await sheet.getByRole("button", { name: "Not now" }).click();
   await sheet.waitFor({ state: "hidden" });
@@ -243,7 +256,8 @@ await step("the replay of the feature screens (Settings › Help › Show me wha
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/settings");
   await page.getByRole("link", { name: "Show me what Numbite can do" }).click();
-  await page.getByText("1 of 3", { exact: true }).waitFor();
+  // the replay's screens count themselves ("1 of 2" since the onboarding of 20 November)
+  await page.getByText(/\b1 of \d+/).first().waitFor();
   await page.waitForTimeout(2500);
   expect((await page.getByRole("dialog").count()) === 0, "an offer during the replay");
   await page.getByRole("button", { name: "Close", exact: true }).click();
@@ -270,32 +284,30 @@ await step("adding a meal is free here: Home has no log card and no 'once you lo
   await ctx.close();
 });
 
-await step("a Premium feature for a free person: the paywall pops up with the 7-day free trial banner", async () => {
+await step("a Premium feature for a free person: the paywall pops up with the free trial, the price after it and why it opened", async () => {
   const { ctx, page } = await newPage({ offerShown: true });
   await page.goto(BASE + "/app");
-  await page.getByRole("button", { name: /Make it at home/ }).click();
-  const sheet = page.getByRole("dialog");
-  await sheet.getByText("7-day free trial", { exact: true }).waitFor();
+  await page.getByRole("button", { name: "Photo to recipe" }).click();
+  const sheet = page.getByRole("dialog", { name: "Numbite Premium" });
   await sheet.getByRole("heading", { name: "Try Premium free for 7 days" }).waitFor();
+  await sheet.getByText("Then £14.99 a year.", { exact: true }).waitFor();
+  await sheet.getByText("Make it at home is part of Premium.").waitFor();
   await sheet.getByText("Cook any dish from a photo").waitFor();
-  await axe(page, "the paywall with the trial banner");
+  await axe(page, "the paywall");
   await ctx.close();
 });
 
 await step("starting the free trial: Apple's signed transaction goes to our server, the token comes back, Premium is on and Make it at home opens", async () => {
   const { ctx, page, claims } = await newPage({ offerShown: true });
   await page.goto(BASE + "/app");
-  await page.getByRole("button", { name: /Make it at home/ }).click();
-  const sheet = page.getByRole("dialog");
+  await page.getByRole("button", { name: "Photo to recipe" }).click();
+  const sheet = page.getByRole("dialog", { name: "Numbite Premium" });
   await sheet.getByRole("button", { name: "Continue", exact: true }).click();
-  await sheet.getByText("Premium is on. Thank you!").waitFor();
+  // the sheet closes, says so once and carries on to what was tapped
+  await page.getByText("Premium is on. Thank you.").waitFor();
+  await page.waitForURL(/\/app\/recipes\/photo/);
   expect(claims.length === 1 && claims[0].transactions?.[0] === JWS, `the transaction was sent: ${JSON.stringify(claims)}`);
   expect((await page.evaluate(() => window.__bridgeCalls)).includes("iap.purchase"), "the purchase went through the iPhone");
-  await sheet.getByText("Premium is on.", { exact: true }).waitFor();
-  await sheet.getByRole("button", { name: "Manage subscription" }).waitFor();
-  await page.keyboard.press("Escape");
-  await page.getByRole("button", { name: /Make it at home/ }).click();
-  await page.waitForURL(/\/app\/recipes\/photo/);
   await ctx.close();
 });
 
@@ -313,13 +325,15 @@ await step("a cancelled purchase says nothing and charges nothing; Ask to Buy sa
   await ctx.close();
 });
 
-await step("Settings › Subscription offers the free trial, and Restore purchases brings Premium back from Apple", async () => {
+await step("Settings › Subscription offers the plans and says the free trial is still there, and Restore purchases brings Premium back from Apple", async () => {
   const { ctx, page, claims } = await newPage({ offerShown: true, iap: { owned: [] } });
   await page.goto(BASE + "/app/settings");
-  await page.getByRole("link", { name: "Start your 7-day free trial" }).waitFor();
+  await page.getByRole("link", { name: "See plans" }).waitFor();
+  await page.getByText("You can still have a 7-day free trial.").waitFor();
   await page.evaluate(() => { window.__iap.owned = ["eyJhbGciOiJFUzI1NiJ9.eyJwIjoxfQ.c2ln"]; });
   await page.getByRole("button", { name: "Restore purchases" }).click();
-  await page.getByText("Your purchases are restored.").waitFor();
+  // the section turns into the plan at once (Restore and its note are only for someone not subscribed)
+  await page.getByText("Premium · Annual").waitFor();
   expect(claims.length === 1, "restore sent Apple's transactions to our server");
   await page.getByRole("button", { name: "Manage subscription" }).waitFor();
   await ctx.close();
@@ -328,10 +342,10 @@ await step("Settings › Subscription offers the free trial, and Restore purchas
 await step("a refund noticed at start-up: Apple lists nothing, so the Apple token goes and the paywall is back", async () => {
   const paid = JSON.stringify({ v: 1, data: { token: await token("annual", Date.now() + 30 * DAY), plan: "annual", until: Date.now() + 30 * DAY, unlockUntil: null } });
   const { ctx, page } = await newPage({ offerShown: true, paid, iap: { owned: [] } });
-  await page.goto(BASE + "/app/recipes");
+  await page.goto(BASE + "/app");
   await page.waitForFunction(() => window.__bridgeCalls.includes("iap.entitlements"));
   await page.waitForFunction(() => !JSON.parse(localStorage.getItem("mm.v1.paid") ?? "{}").data?.token, null, { timeout: 5000 });
-  await page.getByRole("button", { name: /Make it at home/ }).click();
+  await page.getByRole("button", { name: "Photo to recipe" }).click();
   await page.getByRole("dialog").getByRole("button", { name: "Restore purchases" }).waitFor();
   await ctx.close();
 });

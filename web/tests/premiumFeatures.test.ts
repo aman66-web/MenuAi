@@ -35,7 +35,7 @@ describe("the one list of what Premium adds", () => {
     expect(on("mealPlan") && on("truth") && on("leaderboards")).toBe(true);
   });
 
-  it("four first, the rest behind the disclosure, nothing twice and nothing lost", () => {
+  it("four first as picture cards, the rest compact, nothing twice and nothing lost", () => {
     const head = headlineFeatures();
     const more = moreFeatures();
     expect(head).toHaveLength(4);
