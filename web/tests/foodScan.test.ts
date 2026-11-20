@@ -136,6 +136,9 @@ describe("checking Pip's answers", () => {
     expect(FIRST_LOOK_SYSTEM_PROMPT).toMatch(/A dish on a screen, in a menu, in an advert or on a pack counts/);
     expect(FIRST_LOOK_SYSTEM_PROMPT).toMatch(/describe only the one in the middle/);
     expect(ESTIMATE_SYSTEM_PROMPT).toMatch(/estimate one ordinary serving of it/);
+    // founder 2026-11-20: compare with our recipes and the restaurants' dishes, then use its own judgement for the most informed answer
+    expect(ESTIMATE_SYSTEM_PROMPT).toMatch(/Scale from the references/);
+    expect(ESTIMATE_SYSTEM_PROMPT).toMatch(/use your own judgement/);
   });
 });
 

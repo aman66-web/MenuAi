@@ -3582,3 +3582,8 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
 - (about 12:10) Make it at home: **no "Scanning" screen** (founder, screenshot: "I don't need this part where it says scanning ... once they've scanned the
   food, it just goes onto the next screen"). The photo goes straight to the supermarket step (about 0.3 s); the "is this food?" check runs meanwhile and is read
   when they tap Next, so a photo of something else still goes back to the camera with "That doesn't look like food." Checked in the browser both ways.
+- (about 12:20) Scan your food: the estimate's house rules now say outright to **use its own judgement after comparing** (founder: "You compare it to ... all the
+  dishes that ... we've already pre-made, and also ... the dishes in the restaurants ... and then you're getting, using your own, like, opinion ... the most
+  educated answer"). It already compared each food with the restaurant chains' published dishes and our recipes and scaled from the closest (built 18 November);
+  now: weigh the references by closeness, and where they disagree or none is close, use what it knows of typical UK recipes and servings, never just an average.
+  Takes effect on the iPhone app when numbite.com (which runs the AI) is next deployed.
