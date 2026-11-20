@@ -3778,3 +3778,7 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   plan's eating style (the week is built from them). New copy: "In your plan", "No recipes match.", "Show all recipes"; the swap sheet's Serving price shows
   the range without "(default)". Also: "Signing you in…" is imported from its own file (a re-export tripped the dev server's bundler); the test server's 10 GB
   dev cache was cleared. Checked: e2e mealplan 13/13, showcase 14/14, Recipes search and a filter by hand (recipes.mjs's fixed count waits for the new recipes).
+- (about 23:10) **Decision: the free-trial offer comes before Home's first visit** (founder: "when people get on the dashboard for the first time just before it
+  should come up with 7 days free trial"). Reverses the 19 November meeting's rule (never straight after setup; once, on a later day). Being built with the
+  Premium sheet's redesign (founder: "This has got to look more interesting also mention is a 7 day free trial"): iPhone app only, only when the Apple ID can
+  still have the trial, never when Premium, never twice, never on a link start.
