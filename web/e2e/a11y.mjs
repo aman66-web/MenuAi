@@ -72,7 +72,7 @@ async function toPlan(p) {
   await p.getByRole("radio", { name: "Lightly active", exact: true }).click();
   await p.getByRole("button", { name: "See my plan" }).click();
   await p.getByRole("heading", { level: 1, name: /^Your plan/ }).waitFor();
-  await p.getByText(/^About £[\d,]+ for the week$/).or(p.getByText("Meal plan makes your week from your shop, with one shopping list.")).first().waitFor({ timeout: 60000 });
+  await p.getByText("An example week.", { exact: true }).or(p.getByText("Meal plan makes your week from your shop, with one shopping list.")).first().waitFor({ timeout: 60000 });
 }
 /** The replay's screen n (1-2) of Settings › Help › "Show me what Numbite can do": Recipes from {shop}, then Your plan. */
 async function toReplay(p, n) {

@@ -3715,3 +3715,12 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   - Copy, old -> new: "Only used to work out your numbers. Never saved or sent." -> "**All optional.** Only used to work out your numbers. Never saved or
     sent."; grey "Continue" with nothing typed -> "Skip these"; "Feet and stone" / "cm and kg" -> "ft and in" / "cm" and "st and lb" / "kg".
   Tests: e2e onboarding-body 17/17, showcase 14/14, tour 13/13, firstvisit 10/10; a11y.mjs and welcome-steps.mjs updated.
+- (about 21:50) **Your plan shows an example week, not a worked-out one** (founder, screenshot of Your plan's timetable with each day's calories: "We shouldn't
+  calculate the meal plan. This should just be an example of their meal plan, showing the app is like how it works and stuff, because it depends if you want
+  to make it a premium feature"). The last welcome screen made the real week from the person's shop, sized to their numbers and priced: Meal plan (Premium)
+  given away. Now `lib/mm/exampleWeek.ts` picks seven days of our own illustrated recipes that suit the diet and allergies as written (spread through the
+  book; no shop, no sizing, no prices, nothing saved), headed "Meal plan" with the Premium badge where Premium is sold and "An example week."; the cards say
+  "1 shopping list" and "Your shop's prices". Gone from the screen: each day's kcal, "About £{n} for the week", the shelf-price line, "Our recipes can't
+  reach {target} kcal yet...", "Each meal is kept to your {cap} kcal meal size." and the week worked out ahead on How active are you?. Offline it still
+  shows (no shop file needed). Copy, new: "Meal plan", "An example week.", "Your shop's prices", "{day}: {meals}." (screen readers). Tests:
+  tests/exampleWeek.test.ts, welcomeShowcase.test.ts; e2e showcase 14/14, onboarding-body 17/17, tour 13/13, firstvisit 10/10; vitest all green.

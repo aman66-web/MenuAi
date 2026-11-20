@@ -324,7 +324,7 @@ await step("(h) PRIVACY: age, sex, height, weight and activity never reach stora
     const keys = Object.keys(settings?.data ?? {});
     for (const k of ["age", "sex", "height", "weight", "activity", "weightKg", "heightCm", "body", "answers", "birth", "dateOfBirth", "name"]) expect(!keys.includes(k), `${when}: settings has a "${k}" key`);
   };
-  await page.getByText(/^About £[\d,]+ for the week$/).or(page.getByText("Meal plan makes your week from your shop, with one shopping list.")).first().waitFor({ timeout: 60000 });
+  await page.getByText("An example week.", { exact: true }).or(page.getByText("Meal plan makes your week from your shop, with one shopping list.")).first().waitFor({ timeout: 60000 });
   await check("on Your plan, with the week made");
   await W.planNext(page);
   await W.onStep(page, "save");
@@ -467,7 +467,7 @@ for (const [label, viewport, big] of [["402x874", { width: 402, height: 874 }, f
     await W.aboutNext(page);
     await check("How active are you?");
     await W.active(page, A.activity);
-    await page.getByText(/^About £[\d,]+ for the week$/).or(page.getByText("Meal plan makes your week from your shop, with one shopping list.")).first().waitFor({ timeout: 60000 });
+    await page.getByText("An example week.", { exact: true }).or(page.getByText("Meal plan makes your week from your shop, with one shopping list.")).first().waitFor({ timeout: 60000 });
     await page.waitForTimeout(1500);
     await check("Your plan");
     await go(page, "Change");

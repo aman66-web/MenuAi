@@ -66,7 +66,7 @@ for (const scale of [1, 1.5, 2]) {
   await check("6 how active");
   await page.getByRole("radio", { name: "Lightly active", exact: true }).click();
   await press("See my plan");
-  await page.getByText(/^About £[\d,]+ for the week$/).or(page.getByText("Meal plan makes your week from your shop, with one shopping list.")).first().waitFor({ timeout: 60000 }).catch(() => undefined);
+  await page.getByText("An example week.", { exact: true }).or(page.getByText("Meal plan makes your week from your shop, with one shopping list.")).first().waitFor({ timeout: 60000 }).catch(() => undefined);
   await check("7 your plan");
   await press("Change");
   await check("7 your plan, changing the numbers");

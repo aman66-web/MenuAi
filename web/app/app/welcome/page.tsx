@@ -39,7 +39,6 @@ import { PlanStep } from "./PlanStep";
 import { AvoidStep, GoalStep, ShopsStep } from "./QuestionSteps";
 import { preloadRestaurantRow } from "./RestaurantRow";
 import { useTargetFields } from "./useTargetFields";
-import { prepareWeek } from "./WeekShowcase";
 
 // The welcome screens: onboarding in seven screens, then the account (founder, 20 November 2026, 12:21-12:37: one question a screen, a short heading, a big
 // input, Continue pinned at the bottom, Back top left, far fewer words, pictures over text, no labels on what the app shows, no "Step n of N" words, no Pip
@@ -385,23 +384,7 @@ function Welcome() {
     h.focus({ preventScroll: true });
   }, [viewKey]);
 
-  // The week for Your plan is worked out while How active are you? shows, 300 ms after a tile is tapped, in chunks that hand control back to the screen, into
-  // the cache Your plan and Meal plan read. Another tile stops the old sums; going on to Your plan lets them finish.
-  const weekKey = runStep === "active" && activityPicked && plan.plan.kind === "ok" ? JSON.stringify([goal, plan.plan.calories, plan.plan.protein]) : "";
-  const weekWork = useRef<{ key: string; stop: AbortController } | null>(null);
-  useEffect(() => {
-    if (!weekKey || replay || weekWork.current?.key === weekKey) return;
-    const id = window.setTimeout(() => {
-      weekWork.current?.stop.abort();
-      const stop = new AbortController();
-      weekWork.current = { key: weekKey, stop };
-      const now = settingsStore.get();
-      const [g, calories, protein] = JSON.parse(weekKey) as [Goal, number, number];
-      void prepareWeek({ goal: g, dailyCalories: calories, dailyProtein: protein, glp1MealCap: now.glp1MealCap }, now.preferences, now.shops, stop.signal);
-    }, 300);
-    return () => window.clearTimeout(id);
-  }, [weekKey, replay]);
-  useEffect(() => () => weekWork.current?.stop.abort(), []);
+  // Your plan's week is an example (WeekShowcase, founder 2026-11-20), so nothing is worked out ahead while How active are you? shows.
 
   // ------------------------------------------------------------------------------------------------ the daily numbers
 

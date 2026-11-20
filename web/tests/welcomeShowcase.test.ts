@@ -73,17 +73,16 @@ describe("the welcome screens' words when their data is missing", () => {
     expect(words).not.toMatch(/\d/);
   });
 
-  it("shows prices only with the shelf-price line, on both screens that show them", () => {
-    // step 4 says the shelf prices vary; Your plan, whose week is priced from the shop's list, also says when they were checked
+  it("shows prices only with the shelf-price line (step 4); Your plan's example week shows no price at all", () => {
     expect(source("RecipeChoice.tsx")).toContain("Prices are {shop}'s shelf prices and vary by store.");
-    expect(source("WeekShowcase.tsx")).toContain("Prices are {shop}'s shelf prices, checked {date}, and vary by store.");
+    expect(source("WeekShowcase.tsx")).not.toMatch(/£|formatPrice|total\b/);
   });
 
-  it("never hides how far the week is from the person's numbers (founder: \"never hide it\")", () => {
+  it("Your plan's week is an example, never worked out for the person (founder 2026-11-20: \"We shouldn't calculate the meal plan\")", () => {
     const week = source("WeekShowcase.tsx");
-    expect(week).toContain("keepNarrow: true");
-    expect(week).toContain("weekGap(");
-    expect(week).toContain("Our recipes can't reach {target} kcal yet: about {kcal} a day.");
+    expect(week).toContain("exampleWeek(");
+    expect(week).toContain("An example week.");
+    for (const worked of ["weekPreview", "loadShopFile", "dailyCalories", "kcal"]) expect(week, worked).not.toContain(worked);
   });
 
   it("captions every restaurant photo with where it comes from (CLAUDE.md rule 2), and never shows Costa's (it has none)", () => {
