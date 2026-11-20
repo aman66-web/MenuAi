@@ -3691,3 +3691,8 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   recipes' pictures (scrambled eggs on toast answered 404), so a build newer than the site showed plain tiles. `recipe-images/` (about 21 MB) now always
   ships in the app (`assetUrl` in web/lib/mm/config.ts, scripts/pack_app_web.py, a test in tools/tests/test_pack_app_web.py); dish and product photos
   still load from the website. The same gap affects every new server feature until numbite.com is deployed: the app's API calls go to the live site.
+- (19:37) **numbite.com deployed** (founder: "Yes, put it live"): `main` fast-forwarded to `iap` (a4ab96c3) and pushed; `iap` pushed too. Checked first: the
+  website build passes here; the API changes only add (new diet keys, CORS for the app, Opus time limits; a paid App Store token is still accepted, and the
+  free-preview rule never applies on production), so 1.0 and 1.1 (build 7, in review) keep working. Vercel dpl_FYgiuvmUuzg8XuHk5GQy22t8UCzc READY in about a
+  minute. Checked live: `/api/v1/barcode/5059319042626` finds Rice Krispies at Open Food Facts, the newest recipe pictures answer 200, `/app/stats`,
+  `/app-switches.json`, the menus manifest matches the repo, and the privacy page carries the barcode line. Rollback: dpl_E5Hb16p7Rj7PmccWxRJ2inweFne2.
