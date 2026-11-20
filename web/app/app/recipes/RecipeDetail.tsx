@@ -514,10 +514,17 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
               const p = picks[i];
               const spec = p?.spec ?? written;
               const pf = p ? fileOf(p.product) : first;
+              const productHref = p ? `/app/groceries/shop/item?r=${pf.retailer}&id=${encodeURIComponent(p.product.id)}` : "";
               return (
                 <li key={spec.key} className="@container py-4">
                   <div className="flex flex-col gap-3 @[12rem]:flex-row @[12rem]:items-start">
-                    {p ? <PickPhoto file={pf} product={p.product} /> : <PhotoTile sources={[]} />}
+                    {/* the photo opens the product too (founder 2026-11-20: "whenever I click the image, it doesn't go on the product ... when I click the product, in
+                        general, it should go on to show me that product"); the name below is the one link a screen reader or keyboard meets, so this one is silent */}
+                    {p ? (
+                      <Link href={productHref} prefetch={false} aria-hidden tabIndex={-1} className="shrink-0 self-start rounded-[1rem] transition active:scale-95">
+                        <PickPhoto file={pf} product={p.product} />
+                      </Link>
+                    ) : <PhotoTile sources={[]} />}
                     <div className="min-w-0 flex-1">
                       {/* the name wraps beside a fixed amount, so the amount never drops onto a line of its own */}
                       <p className="flex items-start gap-3">
@@ -531,7 +538,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                       {p ? (
                         <>
                           {/* founder 2026-11-17: the logo of the supermarket each product is bought from, beside its name (the name is the link; the logo is silent) */}
-                          <Link href={`/app/groceries/shop/item?r=${pf.retailer}&id=${encodeURIComponent(p.product.id)}`} prefetch={false} className="mt-1.5 flex items-start gap-2 rounded-lg text-[0.875rem] leading-snug text-muted [overflow-wrap:anywhere] hover:underline">
+                          <Link href={productHref} prefetch={false} className="mt-1.5 flex items-start gap-2 rounded-lg text-[0.875rem] leading-snug text-muted [overflow-wrap:anywhere] hover:underline">
                             <ShopMark shopId={pf.retailer} size="xs" />
                             <span className="min-w-0 self-center">{several && <span className="sr-only">{pf.name}, </span>}{p.product.name}</span>
                           </Link>

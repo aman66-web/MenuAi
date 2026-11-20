@@ -3550,3 +3550,10 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
 - (about 10:40) Recipe page: **Save is back at the photo's top right, in place of the Settings cog** (founder, screenshot: "Move the save into the top right
   instead of settings"). A white photo chip like Back ("Save" / "Saved" with the heart); the Save button under the title is gone; the cog stays only on a recipe
   Pip wrote that can't be kept. Checked at 320 and 402 px: Save and Back on one line, a tap saves it, no Settings link on the page.
+- (about 10:45) Recipe page: **the product's photo opens the product too** (founder: "whenever I click the image, it doesn't go on the product ... when I click
+  the product, in general, it should go on to show me that product"). Same page as the name link; the photo's link is silent to VoiceOver and the keyboard (the
+  name is the one they meet). Checked by tapping at 320 and 402 px. Shop lists, search and the meal plan's shopping were already whole-row links.
+- (about 10:30) Menus: republished from data/source (67 chains' newer official figures; every dish photo present again), after a second reader checked the
+  last five chains of 17 November against each chain's own source (Wahaca, Wendy's, Yalla Yalla, Yo! Sushi pass). Wagamama re-read for its 18 November
+  festive menu (8 new dishes, Koko crackers' new figures) and matched by the second reader; Sweet heat sprouts held back (no allergens listed for a gochujang
+  sauce). Committed on `iap`; not live until the founder says.
