@@ -3547,3 +3547,6 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   from the top left; the My recipes button (heart, the words, the saved count) sits there instead, drawn like the Shopping list pill beside it, and its old
   row under the intro is removed. One row from 320 to 430 px with a 3-digit list count (measured); below 390 px the saved-count bubble is left out (still read
   by VoiceOver in the button's name).
+- (about 10:40) Recipe page: **Save is back at the photo's top right, in place of the Settings cog** (founder, screenshot: "Move the save into the top right
+  instead of settings"). A white photo chip like Back ("Save" / "Saved" with the heart); the Save button under the title is gone; the cog stays only on a recipe
+  Pip wrote that can't be kept. Checked at 320 and 402 px: Save and Back on one line, a tap saves it, no Settings link on the page.

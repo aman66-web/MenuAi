@@ -84,9 +84,9 @@ function noteText(t: T, note: string): string {
   return n === 1 ? t(pair[0]) : t(pair[1], { n });
 }
 
-/** Save beside the title (colour meeting, 19 November 2026; approved by the founder that day: Save moved off the photo for the cog): a white button with the
- *  1.5 px edge, an ink heart, outline with "Save" and filled with "Saved". */
-const SAVE_BUTTON = "inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-full border-[1.5px] border-edge bg-card ps-3.5 pe-4 text-[0.9375rem] font-semibold text-foreground transition active:scale-95 hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+/** Save at the photo's top right, in place of the Settings cog (founder 2026-11-20: "Move the save into the top right instead of settings"): a photo chip
+ *  like Back, an ink heart, outline with "Save" and filled with "Saved". */
+const SAVE_BUTTON = "photo-chip inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-full ps-3 pe-3.5 text-[0.9375rem] font-bold transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 /** Two cards side by side, stacked when the text is large (the minimum width is in rem, so it grows with the text size), as on Home. */
 const PAIR = "grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] gap-3";
 const CARD = "glass rounded-[1.25rem]";
@@ -308,11 +308,18 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   const mealChip = mealLabel ? <span className={INFO_CHIP}><MealIcon aria-hidden className="h-[18px] w-[18px] text-ink" />{t(mealLabel)}</span> : null;
   const meatChip = meatFree ? <span className={INFO_CHIP}><LeafIcon aria-hidden className="h-[18px] w-[18px] text-ink" />{t("No meat or fish")}</span> : null;
 
+  // Save, at the photo's top right: our own recipes always; one Pip wrote, when it can be kept
+  const saveControl = !recipe.ai ? <SaveRecipeButton id={recipe.id} /> : save ? (
+    <button type="button" aria-pressed={save.saved} aria-label={save.saved ? t("Saved to My recipes") : t("Save this recipe")} onClick={() => { if (!save.saved) save.onSave(); }} className={SAVE_BUTTON}>
+      <HeartIcon aria-hidden filled={save.saved} className="h-5 w-5 text-ink" />{save.saved ? t("Saved") : t("Save")}
+    </button>
+  ) : null;
+
   return (
     <div>
       {/* the picture runs to the edges and under the status bar, like the reference. Over it only photo chips (colour meeting, 19 November 2026; approved by
-          the founder that day): Back top left, the Settings cog far top right, the expand chip bottom right, and the light status band over its top 60 px
-          (RecipeHeroArt draws it over a picture only). Save moved into the sheet beside the title. */}
+          the founder that day): Back top left, Save top right (founder 2026-11-20: "Move the save into the top right instead of settings"; the cog stays only
+          where a recipe can't be saved), the expand chip bottom right, and the light status band over its top 60 px (RecipeHeroArt draws it over a picture only). */}
       <div className="relative -mx-5" style={{ marginTop: "calc(-1 * max(1.25rem, env(safe-area-inset-top)))" }}>
         {photo ? (
           <div className="relative h-[clamp(15rem,36dvh,22rem)] overflow-hidden bg-fill">
@@ -326,7 +333,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
         )}
         <div className="absolute inset-x-0 top-0 px-4 pt-[max(0.75rem,env(safe-area-inset-top))]">
           {/* Back on a recipe Pip has just written that isn't saved yet asks first (it stays on the page and opens the question) */}
-          <PageHeader photo back={{ href: backHref, label: t("Back to recipes"), onClick: (e) => { if (save && !save.saved) { e.preventDefault(); setLeaving(true); } } }} />
+          <PageHeader photo settings={!saveControl} action={saveControl} back={{ href: backHref, label: t("Back to recipes"), onClick: (e) => { if (save && !save.saved) { e.preventDefault(); setLeaving(true); } } }} />
         </div>
       </div>
 
@@ -353,15 +360,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
               </span>
             )}
           </div>
-          {/* Save beside the title (on a narrow screen or a long name it goes under it, centred) */}
-          <div className="mt-1.5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
-            <h1 className="min-w-0 max-w-full text-[2rem] font-[800] leading-[1.08] tracking-[-0.02em] [overflow-wrap:anywhere]">{rt(recipe.name)}</h1>
-            {!recipe.ai ? <SaveRecipeButton id={recipe.id} /> : save && (
-              <button type="button" aria-pressed={save.saved} aria-label={save.saved ? t("Saved to My recipes") : t("Save this recipe")} onClick={() => { if (!save.saved) save.onSave(); }} className={SAVE_BUTTON}>
-                <HeartIcon aria-hidden filled={save.saved} className="h-5 w-5 text-ink" />{save.saved ? t("Saved") : t("Save")}
-              </button>
-            )}
-          </div>
+          <h1 className="mt-1.5 text-[2rem] font-[800] leading-[1.08] tracking-[-0.02em] [overflow-wrap:anywhere]">{rt(recipe.name)}</h1>
           {recipe.blurb && <p className="mx-auto mt-2 max-w-[30rem] text-[0.9375rem] leading-snug text-muted">{rt(recipe.blurb)}</p>}
           {/* a serving's calories and protein on the first screen (usability test 2026-11-19: they were only further down, under the picture and the chips) */}
           {totals && <p className="app-numbers mt-2.5 text-[1.0625rem] font-bold leading-snug">{t("{kcal} kcal and {protein} g protein a serving", { kcal: formatInt(totals.perServing.kcal), protein: formatInt(totals.perServing.protein) })}</p>}
