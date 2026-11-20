@@ -3568,3 +3568,7 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   ingredient kind's flags in pantry.ts (checked against the shops' labels on 19 November; `lib/mm/recipeAllergens.ts`, `tests/recipeAllergens.test.ts`);
   never "may contain", and the page says a pack can differ. The note at the end of the ingredients now points to it instead of "We haven't read these
   products' allergen labels" (rule 8: new words, founder's request).
+- (about 11:30) **Every message banner can be swiped away** (founder, screenshot of "Removed 51 items from your list. Undo": "the person should be able to swipe
+  that off the screen if they want. Like if they swipe up on that, it'll go"). `Toast.tsx` (all 12 banners): it follows the finger and goes when pulled 32 px
+  towards its edge (up for the top one, down for the bottom one) or 64 px sideways; a smaller pull springs back, a pull the wrong way only stretches; a swipe
+  that starts on Undo never undoes; under Reduce Motion it just goes. Checked with real touch events: small drag, swipe up, swipe sideways, swipe from Undo.
