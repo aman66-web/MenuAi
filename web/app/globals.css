@@ -469,11 +469,15 @@ html[data-i18n-pending] body {
 .hold-ring { animation: hold-fill var(--hold) linear forwards; }
 @keyframes hold-fill { from { stroke-dashoffset: var(--ring); } to { stroke-dashoffset: 0; } }
 .work-bar { animation: work-bar 50s cubic-bezier(0.2, 0.55, 0.3, 1) forwards; }
+/* Make it at home's working bar (founder 2026-11-20: no fake progress): a short piece that only says "working", never how far. Still under Reduce Motion. */
+.work-track { animation: work-track 1.6s ease-in-out infinite; }
+@keyframes work-track { from { transform: translateX(-110%); } to { transform: translateX(320%); } }
 @keyframes work-bar { from { width: 3%; } to { width: 94%; } }
 @media (prefers-reduced-motion: reduce) {
   .scan-line { animation: none; top: 50%; }
   .scan-dots i, .work-glow, .work-shimmer, .hold-ring { animation: none; }
   .work-bar { animation: none; width: 60%; }
+  .work-track { animation: none; transform: none; }
 }
 
 /* Long words (Polish, Romanian, Portuguese, Gujarati…) may break inside the app rather than push a screen sideways at large text

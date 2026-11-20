@@ -2,20 +2,20 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { API_BASE, PAID_ACCESS_ENABLED, PHOTO_RECIPES_ENABLED } from "@/lib/mm/config";
 import { tk } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
-import { MAX_DESCRIPTION, PHOTO_WORKING_LINES, cleanFoodBox, needsMoreDetail, photoRecipeFromAi, type FoodBox, type PhotoRecipeRequest } from "@/lib/mm/photoRecipe";
+import { MAX_DESCRIPTION, cleanFoodBox, needsMoreDetail, photoRecipeFromAi, type FoodBox, type PhotoRecipeRequest } from "@/lib/mm/photoRecipe";
 import { MAX_SAVED_RECIPES, keepMadeRecipe, pantryLines } from "@/lib/mm/aiRecipe";
-import { mealSizes, type Recipe } from "@/lib/mm/recipes";
+import { mealSizes, type MealTarget, type Recipe } from "@/lib/mm/recipes";
 import { myRecipesStore, paidStore, updateSettings } from "@/lib/mm/stores";
 import { CheckIcon, ChevronRightIcon } from "../../_components/icons";
 import { PageHeader } from "../../_components/PageHeader";
-import { AllergenTiles, DIETS, PickTile } from "../../_components/DietPicker";
+import { AllergenTiles, DIETS, PickTile, dietWords } from "../../_components/DietPicker";
 import { toggleAllergen, toggleDiet } from "@/lib/mm/menu-view";
 import type { Preferences } from "@/lib/mm/types";
-import { Pip, PipSays } from "../../_components/Mascot";
+import { PipSays } from "../../_components/Mascot";
 import { useGate } from "../../_components/Paywall";
 import { Button, ErrorBox, inputClass, Spinner } from "../../_components/ui";
 import { useBack } from "../../_lib/backNav";
@@ -42,7 +42,6 @@ const SERVINGS = 2;
 const MAX_NAME = 80;
 const MAX_ABOUT = 215;
 /** The working lines tick off over about half a minute (the recipe is written at high effort, so it can take up to a minute); the last keeps spinning until it is back. */
-const WORKING_STEP_MS = 8000;
 
 const H1 = "mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]";
 const H2 = "text-[1.25rem] font-bold leading-tight tracking-[-0.01em]";
@@ -54,47 +53,73 @@ const DONE_TICK = "grid h-7 w-7 shrink-0 place-items-center rounded-full border-
 const PICK_GRID = "grid grid-cols-[repeat(auto-fit,minmax(min(100%,8.5rem),1fr))] gap-2";
 const PICK_LABEL = "text-[0.9375rem] font-semibold leading-snug";
 
-/** The loading screen while Pip works: the person's photo with a light sliding over it, a bar that fills, and the lines that tick off in turn (the last keeps spinning until the recipe is back). */
-function Working({ shopName, finished, photoUrl }: { shopName: string; finished: boolean; photoUrl: string | null }) {
+/** What the recipe came back with, said on the working screen before the recipe opens. */
+type Made = { ingredients: number; steps: number };
+
+const clock = (secs: number) => `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, "0")}`;
+
+/**
+ * The working screen while Pip writes the recipe (founder 2026-11-20: "it just feels so childish ... so fake ... like it's going to give anything for a result
+ * and it's not actually contemplating"). Nothing on it is on a timer pretending to be progress: the person's photo, what Pip is working from (their dish and
+ * words, how many of the shop's products it can choose from, each serving's size, what is left out), a real clock, and a bar that only says "working". When the
+ * recipe is back, what it actually holds is said (how many ingredients and steps) before it opens. No mascot on the photo.
+ */
+function Working({ dish, about, shopName, productCount, target, avoid, photoUrl, made }: {
+  dish: string; about: string; shopName: string; productCount: number; target: MealTarget; avoid: string[]; photoUrl: string | null; made: Made | null;
+}) {
   const t = useT();
-  const [step, setStep] = useState(0);
-  const last = PHOTO_WORKING_LINES.length - 1;
+  const [started] = useState(() => Date.now());
+  const [now, setNow] = useState(started);
   useEffect(() => {
-    if (step >= last) return;
-    const timer = setTimeout(() => setStep(step + 1), WORKING_STEP_MS);
-    return () => clearTimeout(timer);
-  }, [step, last]);
-  const shown = finished ? PHOTO_WORKING_LINES.length : step;
+    if (made) return;
+    const id = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(id);
+  }, [made]);
+  const secs = Math.max(0, Math.round((now - started) / 1000));
+  const rows: Array<[string, ReactNode]> = [
+    [t("Dish"), <><span className="font-bold">{dish}</span>{about && <span className="mt-0.5 line-clamp-2 block text-muted">{about}</span>}</>],
+    [t("Choosing from"), t("{n} {shop} products, each with its own label and price", { n: productCount.toLocaleString("en-GB"), shop: shopName })],
+    [t("Each serving"), target.protein ? t("About {kcal} kcal and {protein} g protein", { kcal: target.kcal.toLocaleString("en-GB"), protein: Math.round(target.protein) }) : t("About {kcal} kcal", { kcal: target.kcal.toLocaleString("en-GB") })],
+    ...(avoid.length ? [[t("Your diet"), avoid.join(", ")] as [string, ReactNode]] : []),
+  ];
   return (
     <div className="mt-6">
-      <div className="work-glow relative aspect-[4/3] w-full overflow-hidden rounded-[1.75rem] bg-soft-strong">
-        {photoUrl && (
-          // eslint-disable-next-line @next/next/no-img-element -- a local photo on this phone, not a site image
-          <img src={photoUrl} alt="" className="absolute inset-0 h-full w-full object-cover" />
-        )}
-        <div aria-hidden className="absolute inset-0 bg-scrim" />
-        <div aria-hidden className="work-shimmer" />
-        <div aria-hidden className="absolute bottom-2 end-3"><Pip mood={finished ? "cheer" : "think"} size={68} /></div>
+      {photoUrl && (
+        // eslint-disable-next-line @next/next/no-img-element -- a local photo on this phone, not a site image
+        <img src={photoUrl} alt={t("Your photo")} className="h-44 w-full rounded-[1.25rem] object-cover" />
+      )}
+      <div className="mt-5 flex items-baseline justify-between gap-3">
+        <h2 className="text-xl font-[800] tracking-[-0.01em]">{made ? t("Your recipe is ready") : t("Writing your recipe")}</h2>
+        {!made && <span aria-hidden className="app-numbers shrink-0 text-[0.9375rem] font-semibold text-muted">{clock(secs)}</span>}
       </div>
-      <div aria-hidden className="mt-5 h-2.5 overflow-hidden rounded-full bg-[var(--line)]">
-        <div className={`h-full rounded-full bg-[var(--bar)] ${finished ? "w-full" : "work-bar"}`} />
+      <div aria-hidden className="mt-3 h-1.5 overflow-hidden rounded-full bg-[var(--line)]">
+        <div className={`h-full rounded-full bg-[var(--bar)] ${made ? "w-full" : "work-track w-1/3"}`} />
       </div>
-      <p role="status" aria-live="polite" className="sr-only">{t(PHOTO_WORKING_LINES[Math.min(shown, last)]!, { shop: shopName })}</p>
-      <ul aria-hidden className="mx-auto mt-5 max-w-sm space-y-3.5">
-        {PHOTO_WORKING_LINES.map((line, i) => (
-          <li key={line} className={`flex items-center gap-3 text-[1.0625rem] font-semibold transition-colors ${i <= shown ? "text-foreground" : "text-muted"}`}>
-            {i < shown ? (
-              <span className={DONE_TICK}><CheckIcon className="h-4 w-4" strokeWidth={3} /></span>
-            ) : i === shown ? (
-              <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-line border-t-ink motion-reduce:animate-none" />
-            ) : (
-              <span className="h-7 w-7 shrink-0 rounded-full border-[3px] border-line" />
-            )}
-            <span>{t(line, { shop: shopName })}</span>
-          </li>
+      <p role="status" aria-live="polite" className="sr-only">{made ? t("Your recipe is ready") : t("Writing your recipe")}</p>
+      <dl className="glass mt-4 divide-y divide-line rounded-[1.25rem] px-4">
+        {rows.map(([label, value]) => (
+          <div key={label} className="grid grid-cols-[minmax(0,7.5rem)_minmax(0,1fr)] gap-3 py-3 text-[0.9375rem] leading-snug">
+            <dt className="text-muted">{label}</dt>
+            <dd className="min-w-0 [overflow-wrap:anywhere]">{value}</dd>
+          </div>
         ))}
-      </ul>
-      <p className="mt-5 text-center text-muted">{t("This can take up to a minute, so Pip can get every detail right.")}</p>
+      </dl>
+      {made ? (
+        <ul className="mt-4 space-y-2.5">
+          {[
+            made.ingredients === 1 ? t("1 ingredient chosen from {shop}", { shop: shopName }) : t("{n} ingredients chosen from {shop}", { n: made.ingredients, shop: shopName }),
+            made.steps === 1 ? t("1 step written") : t("{n} steps written", { n: made.steps }),
+            t("Every amount, price and figure worked out from the products' own labels"),
+          ].map((line) => (
+            <li key={line} className="flex items-center gap-3 text-[1rem] font-semibold leading-snug">
+              <span className={DONE_TICK}><CheckIcon className="h-4 w-4" strokeWidth={3} /></span>
+              <span>{line}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="mt-4 text-[0.9375rem] leading-snug text-muted">{t("Pip reads your photo and your words, and chooses a real {shop} product for each part of the dish. Then every amount, price and nutrition figure is worked out from those products' own labels. It can take up to a minute.", { shop: shopName })}</p>
+      )}
     </div>
   );
 }
@@ -156,7 +181,7 @@ function PhotoScreen() {
   const [pickedShop, setPickedShop] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [recipe, setRecipe] = useState<Recipe | null>(null);
-  const [finished, setFinished] = useState(false);
+  const [made, setMade] = useState<Made | null>(null);
   const [savedId, setSavedId] = useState<string | null>(null);
   // the saved recipe that made room when the list was full (keepMadeRecipe), said once
   const [dropped, setDropped] = useState<string | null>(null);
@@ -180,6 +205,8 @@ function PhotoScreen() {
   // What to exclude (founder 2026-11-17): starts with the diet in Settings; a change here is for this recipe only and is what the pantry, the request and the checks use
   const [ownDiet, setOwnDiet] = useState<Preferences | null>(null);
   const diet = ownDiet ?? settings.preferences;
+  // the person's diet and allergies in their own words ("No pork", "No peanuts"), said on the working screen
+  const avoidWords = dietWords(t, diet);
   const [allergiesOpen, setAllergiesOpen] = useState<boolean | null>(null);
   const dietKey = JSON.stringify(diet);
   const ready = products.status === "ready" ? products : null;
@@ -239,7 +266,7 @@ function PhotoScreen() {
     if (pickedShop && settings.shops?.[0] !== pickedShop) updateSettings({ shops: [pickedShop, ...(settings.shops ?? []).filter((id) => id !== pickedShop)] });
     const body: PhotoRecipeRequest = { shop, servings: SERVINGS, target, diet, description: text, image: photo.base64, pantry };
     setStep("working");
-    setFinished(false);
+    setMade(null);
     setSavedId(null);
     // the food check started when the photo was taken: only a clear "not food" from Pip sends them back to the camera (if it couldn't be made, carry on)
     if ((await (foodCheck.current ?? Promise.resolve<FoodCheck>("unknown"))) === "notFood") {
@@ -257,7 +284,7 @@ function PhotoScreen() {
       if (!res.ok) { setError(json.message ?? tk("Pip couldn't make a recipe from this photo. Please try again, maybe with more detail about the dish.")); setStep("error"); return; }
       const made = photoRecipeFromAi(json.recipe, { servings: SERVINGS, diet }, `ai-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`);
       if (!made) { setError(tk("Pip's recipe didn't pass our checks. Please try again.")); setStep("error"); return; }
-      setFinished(true);
+      setMade({ ingredients: made.ingredients.length, steps: made.method.length });
       setRecipe(made);
       // saved the moment it's made (founder 2026-11-18: "When the person makes a recipe it automatically becomes a saved recipe. They can remove it from the
       // recipes in my meals later"), with the person's photo as its picture, kept on this phone only (lib/mm/recipePhotos.ts)
@@ -270,8 +297,8 @@ function PhotoScreen() {
         setDishPhoto(dish);
         void recipeThumbnail(dish ?? photo.url).then((thumb) => thumb && keepRecipePhoto(made.id, thumb));
       }
-      // a moment on the ticked list, then the recipe
-      setTimeout(() => setStep("done"), 700);
+      // a moment on what came back (the ingredients and steps counted), then the recipe
+      setTimeout(() => setStep("done"), 1800); // long enough to read what came back
     } catch (e) {
       if ((e as Error).name === "AbortError") { setStep("shops"); return; }
       setError(tk("Couldn't reach Pip. Check your connection and try again."));
@@ -483,8 +510,8 @@ function PhotoScreen() {
       {step === "working" && (
         <>
           <Steps current={3} />
-          <Working shopName={shopName} finished={finished} photoUrl={photo?.url ?? null} />
-          <div className="mt-6 flex justify-center"><Button variant="ghost" onClick={() => abort.current?.abort()}>{t("Stop")}</Button></div>
+          <Working dish={name.trim()} about={about.trim()} shopName={shopName} productCount={pantry.length} target={target} avoid={avoidWords} photoUrl={photo?.url ?? null} made={made} />
+          {!made && <div className="mt-6 flex justify-center"><Button variant="ghost" onClick={() => abort.current?.abort()}>{t("Stop")}</Button></div>}
         </>
       )}
 

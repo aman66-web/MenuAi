@@ -1,5 +1,6 @@
-// Make it at home (founder 2026-11-16, new order 2026-11-17): the dish's name and a short description (a nudge when it's thin), the camera with its scanning look
-// and a few seconds of "Scanning", the supermarket, Next, a loading screen, then the recipe from real products with the person's photo on top. Premium only.
+// Make it at home (founder 2026-11-16, new order 2026-11-17): the dish's name and a short description (a nudge when it's thin), the camera with its scanning look,
+// straight to the supermarket (no "Scanning" screen since 2026-11-20; the food check is read on Next), the working screen, then the recipe from real products
+// with the person's photo on top. Premium only.
 // The AI is pretended here (the API route is answered by the test), so no key is needed; Chromium's fake camera stands in for the lens. Needs the test build:
 //   NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 NEXT_PUBLIC_PRO=1 NEXT_PUBLIC_PHOTO_RECIPES=1 npm run build && npm start -- -p 3101
 import { chromium } from "playwright-core";
@@ -75,14 +76,13 @@ async function fillDish(page, dish = DISH) {
   await page.getByLabel("Name of the dish").fill(dish.name);
   await page.getByLabel("A short description").fill(dish.about);
 }
-/** Fills the dish, taps Next (the camera opens), picks the test photo from the phone's photos, and waits for the "Scanning" screen to hand over to the shops. */
+/** Fills the dish, taps Next (the camera opens), picks the test photo from the phone's photos, and waits for the shops (no "Scanning" screen in between). */
 async function toShops(page, dish = DISH) {
   await toDescribe(page);
   await fillDish(page, dish);
   await page.getByRole("button", { name: "Next", exact: true }).tap();
   await page.locator("dialog[open]").waitFor({ timeout: 5000 });
   await page.locator('input[type="file"]:not([capture])').setInputFiles(photoFile);
-  await page.getByText("Scanning", { exact: true }).first().waitFor({ timeout: 8000 });
   await heading(page, "Where do you shop?").waitFor({ timeout: 8000 });
 }
 async function axe(page) {
@@ -161,7 +161,7 @@ await step("a thin name gets the nudge; a description clears it; Next opens the 
   await ctx.close();
 });
 
-await step("the live camera: the picture shows, the shutter takes a photo, then Scanning for a few seconds, then the supermarket", async () => {
+await step("the live camera: the picture shows, the shutter takes a photo, then straight on to the supermarket (no Scanning screen)", async () => {
   const { ctx, page, errors, sent } = await open();
   await pretend(page, sent);
   await toDescribe(page);
@@ -186,13 +186,11 @@ await step("the live camera: the picture shows, the shutter takes a photo, then 
   expect((await page.locator("dialog .hold-ring").count()) === 1, "the ring isn't filling");
   await page.waitForTimeout(1800);
   await page.mouse.up();
-  const label = page.getByText("Scanning", { exact: true }).first();
-  await label.waitFor({ timeout: 5000 });
   const startedAt = Date.now();
-  expect((await page.locator("section .scan-line-fast").count()) === 1, "no scanning light over the taken photo");
-  await heading(page, "Where do you shop?").waitFor({ timeout: 8000 });
+  await heading(page, "Where do you shop?").waitFor({ timeout: 5000 });
   const took = Date.now() - startedAt;
-  expect(took > 1500 && took < 5000, `Scanning lasted ${took} ms (should be about 2.6 s)`);
+  expect(took < 2000, `the supermarket took ${took} ms to come (it should follow the photo at once)`);
+  expect((await page.getByText("Scanning", { exact: true }).count()) === 0, "a Scanning screen is still shown");
   expect((await page.locator("dialog[open]").count()) === 0, "the camera is still open");
   // the camera was switched off: no track left running
   expect(await page.evaluate(() => !document.querySelector("video")), "a video element is still on the page");
@@ -257,13 +255,12 @@ await step("the camera has two options: Hold to scan (the shutter) and Camera ro
   expect(Math.abs(shutter.x + shutter.width / 2 - vp.width / 2) < 6, "the shutter isn't in the middle");
   const [chooser] = await Promise.all([page.waitForEvent("filechooser"), upload.tap()]);
   await chooser.setFiles(photoFile);
-  await page.getByText("Scanning", { exact: true }).first().waitFor({ timeout: 8000 });
   await heading(page, "Where do you shop?").waitFor({ timeout: 8000 });
   expect(errors.length === 0, errors.join(" | "));
   await ctx.close();
 });
 
-await step("a photo that isn't of food goes back to the camera with 'please try again'; a photo of food goes on to the supermarket", async () => {
+await step("a photo that isn't of food goes back to the camera with 'please try again' when Next is tapped (no recipe asked for); a photo of food goes on", async () => {
   const { ctx, page, errors, sent } = await open();
   await pretend(page, sent, { describe: { status: 422, body: { error: "not_food", message: "Pip couldn't see a dish in this photo. Try a clearer photo of the food." } } });
   await toDescribe(page);
@@ -271,11 +268,14 @@ await step("a photo that isn't of food goes back to the camera with 'please try 
   await page.getByRole("button", { name: "Next", exact: true }).tap();
   await page.locator("dialog[open]").waitFor({ timeout: 5000 });
   await page.locator('input[type="file"]:not([capture])').setInputFiles(photoFile);
-  await page.getByText("Scanning", { exact: true }).first().waitFor({ timeout: 8000 });
+  // straight on to the supermarket; the check's answer is read on Next
+  await heading(page, "Where do you shop?").waitFor({ timeout: 8000 });
+  await page.waitForFunction(() => ![...document.querySelectorAll("button")].find((b) => b.textContent?.trim() === "Next")?.disabled, null, { timeout: 30000 });
+  await page.getByRole("button", { name: "Next", exact: true }).tap();
   const camera = page.locator("dialog[open]");
   await camera.waitFor({ timeout: 10000 });
   await camera.getByRole("alert").filter({ hasText: "That doesn't look like food. Please try again with a photo of the dish." }).waitFor({ timeout: 3000 });
-  expect((await heading(page, "Where do you shop?").count()) === 0, "it went on to the supermarket");
+  expect(sent.recipe.length === 0, "a recipe was asked for from a photo that isn't food");
   expect(sent.describe.length === 1 && /^\/9j\//.test(sent.describe[0].body.image) && Object.keys(sent.describe[0].body).join() === "image", "the check didn't send just the photo");
   // the next photo is of food: on it goes, and the note is gone
   await page.unroute("**/api/v1/recipe/photo/describe");
@@ -318,10 +318,12 @@ await step("a photo picked from the phone is scanned the same way; Next shows th
   const next = page.getByRole("button", { name: "Next", exact: true });
   await page.waitForFunction(() => ![...document.querySelectorAll("button")].find((b) => b.textContent?.trim() === "Next")?.disabled, null, { timeout: 30000 });
   await next.tap();
-  // the loading screen: the photo with a light over it, a bar that fills, the ticking lines
-  await page.getByText("Looking at your photo…").first().waitFor({ timeout: 3000 });
-  expect((await page.locator(".work-shimmer").count()) === 1 && (await page.locator(".work-bar").count()) === 1, "the loading animation isn't there");
-  await page.getByText("Choosing ingredients from Sainsbury's…").first().waitFor();
+  // the working screen (founder 2026-11-20: no fake progress): the photo, "Writing your recipe" with a real clock, what Pip works from, then what came back
+  await page.getByRole("heading", { name: "Writing your recipe" }).waitFor({ timeout: 3000 });
+  expect((await page.locator(".work-track").count()) === 1 && (await page.locator(".work-shimmer, .work-bar").count()) === 0, "the working bar isn't the plain one");
+  await page.getByText("Sainsbury's products, each with its own label and price", { exact: false }).first().waitFor();
+  await page.getByRole("heading", { name: "Your recipe is ready" }).waitFor({ timeout: 15000 });
+  await page.getByText(/^\d+ ingredients chosen from Sainsbury's$/).first().waitFor();
   await page.getByRole("heading", { name: RECIPE.name }).waitFor({ timeout: 15000 });
   const body = sent.recipe[0].body;
   expect(Object.keys(body).sort().join() === "description,diet,image,pantry,servings,shop,target", "unexpected fields sent: " + Object.keys(body).sort());
@@ -349,12 +351,13 @@ await step("Pip's recipe is saved as it's made: the button beside the title says
   };
   const mine = () => page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.myRecipes") ?? "null")?.data ?? []);
   await toRecipe();
-  // Save sits beside the title in the sheet (colour meeting, 19 November 2026: the photo's top right is the Settings cog's)
+  // Save sits at the photo's top right, in place of the Settings cog (founder 2026-11-20: "Move the save into the top right instead of settings")
   const top = page.getByRole("button", { name: "Saved to My recipes" }).first();
   await top.waitFor({ timeout: 3000 });
   const box = await top.boundingBox();
-  const title = await page.getByRole("heading", { level: 1, name: RECIPE.name }).boundingBox();
-  expect(box && title && box.y >= title.y - 60 && box.y <= title.y + title.height + 60, "Saved isn't beside the title: " + JSON.stringify({ box, title }));
+  const vw = page.viewportSize().width;
+  expect(box && box.y < 80 && box.x + box.width > vw - 40, "Saved isn't at the photo's top right: " + JSON.stringify({ box, vw }));
+  expect((await page.getByRole("link", { name: /^Settings/ }).count()) === 0, "the Settings cog is still on the recipe");
   expect((await top.getAttribute("aria-pressed")) === "true", "the Save button isn't pressed");
   expect((await top.innerText()).trim() === "Saved", "the button doesn't say Saved");
   // nothing to ask on the way out: it's already kept
@@ -477,7 +480,6 @@ await step("without a camera the same screen offers the phone's camera and photo
   for (const b of ["Take a photo", "Choose from your photos"]) await camera.getByRole("button", { name: b }).waitFor();
   expect((await camera.locator("video").count()) === 0, "a video is shown with no camera");
   await page.locator('input[type="file"]:not([capture])').setInputFiles(photoFile);
-  await page.getByText("Scanning", { exact: true }).first().waitFor({ timeout: 8000 });
   await heading(page, "Where do you shop?").waitFor({ timeout: 8000 });
   await ctx.close();
 });
@@ -503,10 +505,6 @@ await step("every step fits a 360 px phone at the largest text size (no sideways
   v = await axe(page);
   expect(v.length === 0, "camera axe: " + v.join(", "));
   await page.locator('input[type="file"]:not([capture])').setInputFiles(photoFile);
-  await page.getByText("Scanning", { exact: true }).first().waitFor({ timeout: 8000 });
-  expect((await wide()) <= 1, "scanning step scrolls sideways");
-  v = await axe(page);
-  expect(v.length === 0, "scanning step axe: " + v.join(", "));
   await heading(page, "Where do you shop?").waitFor({ timeout: 8000 });
   expect((await wide()) <= 1, "shops step scrolls sideways");
   v = await axe(page);

@@ -3587,3 +3587,11 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   educated answer"). It already compared each food with the restaurant chains' published dishes and our recipes and scaled from the closest (built 18 November);
   now: weigh the references by closeness, and where they disagree or none is close, use what it knows of typical UK recipes and servings, never just an average.
   Takes effect on the iPhone app when numbite.com (which runs the AI) is next deployed.
+- (about 12:40) Make it at home: **the working screen rebuilt to show what is really happening** (founder: "it just feels so childish ... so fake ... like it's
+  going to give anything for a result and it's not actually contemplating"). Gone: the lines that ticked off on 8-second timers, the bar that filled on a
+  timer, the light sweeping over the photo and Pip on it. Now: the photo; "Writing your recipe" with a real clock; a card of what Pip is working from (the
+  dish and the person's words, "{n} {shop} products, each with its own label and price", each serving's calories and protein, their diet); one line on how
+  it works ("Pip reads your photo and your words, and chooses a real {shop} product for each part of the dish. Then every amount, price and nutrition figure is
+  worked out from those products' own labels."); a bar that only says "working". When the recipe is back: "Your recipe is ready" with what it actually holds
+  ("6 ingredients chosen from Sainsbury's", "4 steps written", the labels line) for about 2 seconds, then the recipe. e2e/photorecipe.mjs updated to the new
+  flow (no Scanning screen, the food check on Next, Save at the top right): 16 of 16 pass.
