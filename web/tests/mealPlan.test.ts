@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS, KEEPS_WELL, capShortfall, keepsWell, VARIETIES, MAX_EARLIER_PLANS, keepEarlier, openEarlier, sanitizePlans, forPeople, betterForPeople, PLAN_PEOPLE, cleanDiet, sameDiet, planListKey, planDayIndex, planShortfall, SHORTFALL_NOTE, LEAVE_OUT, type SavedPlan } from "../lib/mm/mealPlan";
+import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS, KEEPS_WELL, capShortfall, keepsWell, VARIETIES, MAX_EARLIER_PLANS, keepEarlier, openEarlier, sanitizePlans, forPeople, betterForPeople, PLAN_PEOPLE, cleanDiet, sameDiet, planListKey, planDayIndex, planShortfall, SHORTFALL_NOTE, LEAVE_OUT, weekCosts, showsWeekAfter, lastingThings, WEEK_AFTER_SAVING, type SavedPlan, type ShopLine } from "../lib/mm/mealPlan";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { ALLERGEN_KEYS } from "../lib/mm/types";
 import { isVegan } from "../lib/mm/recipes";
@@ -520,5 +520,59 @@ describe("a week that comes in under the person's calories", () => {
     expect(planShortfall(days([[650, 650, 650]]), 2000)).toBeNull();
     expect(planShortfall(days([[700, 700, 700]]), 2000)).toBeNull();
     expect(planShortfall({ days: [] }, 2000)).toBeNull();
+  });
+});
+
+describe("week 1 and each week after (founder 2026-11-20: \"week one cost and then the week afterwards costs\")", () => {
+  const line = (cost: number, used: number, keeps: boolean, label = "x"): ShopLine => ({ shop: "s", product: { id: `${cost}-${used}-${keeps}`, name: "x", price: cost } as never, packs: 1, cost, cupboard: false, used, keeps, label });
+  const week = (lines: ShopLine[]) => ({ shopping: lines, shoppingCost: Math.round(lines.reduce((s, l) => s + l.cost, 0) * 100) / 100 });
+
+  it("week 1 buys every pack; later weeks buy the fresh food again and only the share eaten of what keeps", () => {
+    // fresh chicken £4 (half eaten), olive oil £5.75 (22p used), rice £3.90 (£1.05 used)
+    expect(weekCosts(week([line(4, 2, false), line(5.75, 0.22, true), line(3.9, 1.05, true)]))).toEqual({ first: 13.65, after: 5.27 });
+    // nothing keeps: every week the same
+    expect(weekCosts(week([line(2.5, 1, false), line(1.2, 1.2, false)]))).toEqual({ first: 3.7, after: 3.7 });
+    // all of a keeping pack eaten in the week: bought again
+    expect(weekCosts(week([line(1.5, 1.5, true)]))).toEqual({ first: 1.5, after: 1.5 });
+    expect(weekCosts(week([]))).toEqual({ first: 0, after: 0 });
+  });
+
+  it("rounds to pence and never says later weeks cost more", () => {
+    const c = weekCosts(week([line(0.333, 0.111, true), line(0.335, 0.2, false)]));
+    expect(c.after).toBe(Math.round(c.after * 100) / 100);
+    // a line whose used share was more than its cost (never in a real week) still counts at most its cost
+    expect(weekCosts(week([line(1, 3, true)])).after).toBe(1);
+  });
+
+  it("says the two weeks apart only when later weeks are at least £1 less", () => {
+    expect(WEEK_AFTER_SAVING).toBe(1);
+    expect(showsWeekAfter({ first: 10, after: 9 })).toBe(true);
+    expect(showsWeekAfter({ first: 47.83, after: 46.83 })).toBe(true);
+    expect(showsWeekAfter({ first: 47.83, after: 46.84 })).toBe(false);
+    expect(showsWeekAfter({ first: 12, after: 12 })).toBe(false);
+  });
+
+  it("names what makes the first shop dearer: the packs that keep, the most left over first, each once", () => {
+    const w = week([line(4, 2, false, "Chicken"), line(5.75, 0.22, true, "Olive oil"), line(3.9, 1.05, true, "Rice"), line(0.65, 0.65, true, "Soy sauce"), line(1.2, 0.1, true, "Olive oil"), line(0.9, 0.3, true, "Salt")]);
+    expect(lastingThings(w)).toEqual({ names: ["Olive oil", "Rice", "Salt"], more: false });
+    expect(lastingThings(w, 2)).toEqual({ names: ["Olive oil", "Rice"], more: true });
+    expect(lastingThings(week([line(4, 2, false, "Chicken")]))).toEqual({ names: [], more: false });
+  });
+
+  it("on real weeks at Sainsbury's: later weeks cost less, never more, and the saving is what keeps", () => {
+    const shape = { ...DEFAULT_SHAPE, snacks: 0 };
+    const cands = planCandidates(RECIPES, products, none, slotTargets(shape, { kcal: 2000, protein: 120 }), []);
+    for (const variety of VARIETIES) {
+      const w = makePlan(cands, null, planSlots(shape), variety)!.week;
+      const c = weekCosts(w);
+      expect(c.first).toBe(w.shoppingCost);
+      expect(c.after).toBeLessThanOrEqual(c.first);
+      expect(c.after).toBeGreaterThanOrEqual(w.fresh.bought - 0.01);
+      const kept = w.shopping.filter((l) => l.keeps);
+      expect(c.first - c.after).toBeCloseTo(kept.reduce((s, l) => s + l.cost - l.used, 0), 1);
+      expect(showsWeekAfter(c), `variety ${variety}: ${JSON.stringify(c)}`).toBe(true);
+      expect(lastingThings(w).names.length).toBeGreaterThan(0);
+      for (const l of w.shopping) expect(l.label.length).toBeGreaterThan(0);
+    }
   });
 });

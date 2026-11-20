@@ -3755,3 +3755,14 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   shop quietly (recipeShop, as before when nothing was picked); Pip and the recipe links use that shop. The plain-recipe idea ("onions 150 g, no image nor brand
   names") was dropped at the founder's word ("you can keep the recipes how they are now ... I changed my mind"), so recipe pages are unchanged. e2e/fridge.mjs
   checks no "Shopping at", no "fridge" on screen and the shop on the tiles' links (5/5).
+- (about 23:05) **Your first shop, and each week after** (founder: "week one cost and then the week afterwards costs ... they need to understand that we are
+  helping them save a lot of money", then: "it said £65 a week, but each thing costs about like £2 each recipe ... about £42 a week. But I'm paying £62 because I
+  have to buy the salt and stuff ... I would want to know ... how much it's going to cost the [first] food shop ... then in [coming] weeks"). `weekCosts` in
+  lib/mm/mealPlan.ts: the first shop is the whole packs (shoppingCost); each week after is the fresh food again plus only the share used of what keeps
+  (keeps ? used : cost); shown when later weeks are at least £1 less (WEEK_AFTER_SAVING, a new constant). `app/app/plan/TwoWeeks.tsx`: "Your first shop: about
+  £{n}", "Each week after: about £{n}", "It includes {items} that last for weeks." (the week's real long-lasting items: lastingThings); with a budget, "Both are
+  within your {budget} budget." / "Only your first shop is over your {budget} budget.". On Meal plan's money card, its check screen and the preview, and under
+  Your plan's example week (priced at the person's recipe shop after the screen shows; offline or under 18 no price). Your plan's example now rotates 4 dishes
+  per meal like a real plan (21 different dishes priced at £109 against a real plan's £67): Sainsbury's about £80 then £47, Morrisons £83 then £58. A 2,000
+  kcal Meal plan at Sainsbury's: about £67 then £42. **Open for the founder:** the budget still limits the first shop (the money really paid that week), not
+  each week after. Tests: mealPlan, exampleWeek; e2e showcase 14/14, mealplan 12/12.

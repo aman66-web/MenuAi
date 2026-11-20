@@ -6,7 +6,8 @@
 // Checked here:
 // - (a) a plain run: the bar (8 segments, nothing written), "Step n of 8" heard with each headline, Skip only on 1, 2, 3, 5 and 6, Pip only beside step 1's
 //   heading with no bubble, the goal tiles, the diets as pictures of our own recipes, the shops' logo tiles, the two recipes and the one chosen, About you on one
-//   screen, the activity tiles, Your plan (the big numbers, the picture week with its two chips, the restaurant row in the chains' own photos with their
+//   screen, the activity tiles, Your plan (the big numbers, the picture week with its two chips and its first shop and each week after at Sainsbury's, the
+//   restaurant row in the chains' own photos with their
 //   captions, never Costa), the account's three ways in and "Not now", Home's toast and Start here card, and what is (and isn't) stored or sent;
 // - (b) the questions about the person skipped (Skip on 5 or 6): "Starting numbers.", Back to About you; an age under 18 goes straight to Your plan with no
 //   numbers and no Change; About you's grey Continue says what is missing and focuses that box;
@@ -201,9 +202,20 @@ await step("(a) a plain run: the bar alone with 8 segments, 'Step n of 8' heard 
   await weekSettled(page);
   await page.getByText("1 shopping list", { exact: true }).waitFor();
   const days = await page.getByRole("region", { name: "Your week", exact: true }).locator("ul.sr-only li").allInnerTexts();
-  // an example week (founder 2026-11-20): pictures and dish names only, no calories a day, no prices
+  // an example week (founder 2026-11-20): pictures and dish names only, no calories a day
   expect(days.length === 7 && days.every((d) => /^\w+day: .+\.$/.test(d) && !/calories/.test(d)), "the week: " + JSON.stringify(days.slice(0, 2)));
   await page.getByText("Your shop's prices", { exact: true }).waitFor();
+  // its shopping at Sainsbury's (founder 2026-11-20, "week one cost and then the week afterwards costs"): the first shop more than each week after, why, and
+  // the shop's own shelf prices; still "An example week."
+  const weekBox = page.getByRole("region", { name: "Your week", exact: true });
+  const firstShop = weekBox.getByText(/^Your first shop: about £[\d,]+$/);
+  await firstShop.waitFor({ timeout: 60000 });
+  const pounds = async (l) => Number((await l.innerText()).replace(/[^\d]/g, ""));
+  const [weekOne, weekAfter] = [await pounds(firstShop), await pounds(weekBox.getByText(/^Each week after: about £[\d,]+$/))];
+  expect(weekOne > weekAfter && weekAfter > 0, `the first shop £${weekOne}, each week after £${weekAfter}`);
+  await weekBox.getByText(/^It includes .+(, which last for weeks| that last for weeks)\.$/).waitFor();
+  await weekBox.getByText(/^Prices are Sainsbury's shelf prices, checked .+, and vary by store\.$/).waitFor();
+  await weekBox.getByText("An example week.", { exact: true }).waitFor();
   expect((await page.getByText(/^About £[\d,]+ for the week$/).count()) === 0 && (await page.getByText(/kcal yet/).count()) === 0, "a worked-out week (a price or a calorie gap) on Your plan");
   expect((await page.getByRole("region", { name: "Your week", exact: true }).locator("img").count()) >= 7, "the week's pictures");
   expect((await page.getByRole("region", { name: "Your week", exact: true }).getByText("Premium", { exact: true }).count()) === (GATED ? 1 : 0), "Meal plan's Premium badge");
@@ -470,7 +482,7 @@ await step("(i) no connection for the menus or the shops' files: step 4 says so 
   await W.skipBody(page);
   // the week is an example from the recipe book (founder 2026-11-20), so it needs no shop file and still shows, with no price
   await page.getByText("An example week.", { exact: true }).waitFor({ timeout: 30000 });
-  expect((await page.getByText(/^About £[\d,]+ for the week$/).count()) === 0, "a price on the example week");
+  expect((await page.getByText(/^About £[\d,]+ for the week$/).count()) === 0 && (await page.getByText(/^(Your first shop|Each week after): /).count()) === 0, "a price on the example week");
   expect((await page.getByRole("region", { name: "Restaurants", exact: true }).locator("li").count()) === 0, "restaurant dishes without the menus");
   await W.planNext(page);
   await W.onStep(page, "save");

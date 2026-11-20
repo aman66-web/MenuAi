@@ -554,6 +554,8 @@ export interface ShopLine {
   used: number;
   /** What's left keeps past the week (keepsWell). */
   keeps: boolean;
+  /** The ingredient it is bought for, as the recipe names it ("Olive oil"): what the first shop's line names (lastingThings). */
+  label: string;
 }
 
 export interface PlanMeal { meal: MealType; candidate: PlanCandidate }
@@ -609,7 +611,7 @@ export function buildWeek(ids: PlanIds, candidates: Map<MealType, PlanCandidate[
   const lines: ShopLine[] = [...need.values()].map(({ shop, product, spec, amount }) => {
     const pick = pickFor({ ...spec, amount: Math.ceil(amount) }, product);
     const cost = money(pick.basketCost);
-    return { shop, product, packs: pick.packs, cost, cupboard: !!spec.cupboard, used: Math.min(cost, money(pick.usedCost ?? pick.basketCost)), keeps: keepsWell(spec, product) };
+    return { shop, product, packs: pick.packs, cost, cupboard: !!spec.cupboard, used: Math.min(cost, money(pick.usedCost ?? pick.basketCost)), keeps: keepsWell(spec, product), label: spec.label };
   });
   const perShop = new Map<string, number>();
   for (const l of lines) perShop.set(l.shop, (perShop.get(l.shop) ?? 0) + l.cost);
@@ -621,6 +623,34 @@ export function buildWeek(ids: PlanIds, candidates: Map<MealType, PlanCandidate[
     days, mealsCost: money(days.reduce((s, d) => s + d.cost, 0)), shopping, shoppingCost, shops, budget, overBudget: budget !== null && shoppingCost > budget,
     fresh: { bought: money(fresh.reduce((s, l) => s + l.cost, 0)), eaten: money(fresh.reduce((s, l) => s + l.used, 0)) },
   };
+}
+
+/** What the shopping comes to in the plan's first week, and in each week after it. */
+export interface WeekCosts { first: number; after: number }
+
+/**
+ * The first week's shopping and each later week's (founder 2026-11-20: "week one cost and then the week afterwards costs ... we are helping them save a lot of
+ * money"). Week 1 buys every pack (shoppingCost). Each week after buys the fresh food again in whole packs, but of what keeps (oil, rice, spices, frozen food:
+ * keepsWell) only the share the week's meals eat, as those packs last for weeks. Rounded to pence; `after` is never more than `first`.
+ */
+export function weekCosts(week: Pick<WeekPlan, "shopping" | "shoppingCost">): WeekCosts {
+  const after = money(week.shopping.reduce((s, l) => s + (l.keeps ? Math.min(l.used, l.cost) : l.cost), 0));
+  return { first: week.shoppingCost, after: Math.min(after, week.shoppingCost) };
+}
+
+/** The two weeks are said apart only when later weeks cost at least this much less (pounds); otherwise the one cost, as before. */
+export const WEEK_AFTER_SAVING = 1;
+export const showsWeekAfter = (c: WeekCosts): boolean => Math.round((c.first - c.after) * 100) >= WEEK_AFTER_SAVING * 100;
+
+/**
+ * Why the first shop costs more, in the week's own things (founder 2026-11-20: "it's higher because they're having to buy salts and stuff this week, which they
+ * won't need to buy again"): the ingredients bought in packs that keep past the week, the most left over first, each named once, at most `n`; `more` when other
+ * such packs are bought too.
+ */
+export function lastingThings(week: Pick<WeekPlan, "shopping">, n = 3): { names: string[]; more: boolean } {
+  const left = week.shopping.filter((l) => l.keeps && Math.round((l.cost - l.used) * 100) > 0).sort((a, b) => b.cost - b.used - (a.cost - a.used) || a.label.localeCompare(b.label, "en-GB"));
+  const all = [...new Set(left.map((l) => l.label))];
+  return { names: all.slice(0, n), more: all.length > n };
 }
 
 /** Each meal's recipes for the week: the first `n` of its list in turn (A, B, C, D, A, B, C), so each comes round at most twice. */

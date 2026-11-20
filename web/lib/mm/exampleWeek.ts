@@ -1,12 +1,19 @@
 // Your plan's example week (the last welcome screen). Founder, 20 November 2026: "We shouldn't calculate the meal plan. This should just be an example of their
-// meal plan, showing the app is like how it works ... because it depends if you want to make it a premium feature." So the week is never worked out: no shop,
-// no sizing to the person's numbers, no prices, nothing saved. It is our own illustrated recipes that suit the person's diet and allergies as written (so a
-// vegan never sees bacon), spread through the book so the days differ. Meal plan itself (Premium) makes the real week. Pure, so it is unit-tested.
+// meal plan, showing the app is like how it works ... because it depends if you want to make it a premium feature." So the week is never worked out for the
+// person: no sizing to their numbers, nothing saved. It is our own illustrated recipes that suit the person's diet and allergies as written (so a vegan never
+// sees bacon), spread through the book so the days differ. Meal plan itself (Premium) makes the real week.
+//
+// Its price (founder, 20 November 2026, about 21:55: "week one cost and then the week afterwards costs ... they need to understand that we are helping them save
+// a lot of money"): once the person's recipe shop has priced our recipes (planPreview.ts workOut, each recipe as written, one serving), the example is chosen
+// the same way from only the recipes that shop can make, and its shopping is added up as Meal plan adds it up (buildWeek, whole packs; weekCosts). Until then,
+// offline, or when the shop can't make a meal, it is the book's example with no price. Pure apart from the shop file, which the caller loads; unit-tested.
 
+import { buildWeek, PER_MEAL_RECIPES, PLAN_MEALS, weekCosts, type PlanCandidate, type PlanIds, type WeekCosts, type WeekPlan } from "./mealPlan";
 import type { DietPrefs } from "./pantry";
+import { dietKey, loadShops, workOut, type ShopLoader, type Targets } from "./planPreview";
 import { RECIPES } from "./recipeBook";
 import { RECIPE_IMAGES } from "./recipeImages";
-import { recipeForDiet, type Recipe } from "./recipes";
+import { recipeForDiet, type MealType, type Recipe } from "./recipes";
 
 export const EXAMPLE_DAYS = 7;
 export const EXAMPLE_MEALS = ["breakfast", "lunch", "dinner"] as const;
@@ -16,16 +23,85 @@ export interface ExampleDay {
   meals: Array<{ meal: ExampleMeal; recipeId: string; name: string }>;
 }
 
-/** Seven days of breakfast, lunch and dinner from the book. A meal with no recipe that suits the diet and has a picture stays empty that day. */
-export function exampleWeek(diet: DietPrefs, recipes: readonly Recipe[] = RECIPES, images: Readonly<Record<string, string>> = RECIPE_IMAGES): ExampleDay[] {
-  const pool = (meal: ExampleMeal) => recipes.filter((r) => r.meal === meal && !!images[r.id] && recipeForDiet(r, diet) !== null);
-  const pools = EXAMPLE_MEALS.map((meal) => [meal, pool(meal)] as const);
+/**
+ * Seven days of breakfast, lunch and dinner from the book. A meal with no recipe that suits the diet and has a picture stays empty that day. `canMake`: only
+ * the recipes it keeps (a shop's priced ones), in the book's order, with the same spread.
+ */
+export function exampleWeek(diet: DietPrefs, recipes: readonly Recipe[] = RECIPES, images: Readonly<Record<string, string>> = RECIPE_IMAGES, canMake?: (meal: ExampleMeal, id: string) => boolean): ExampleDay[] {
+  const pool = (meal: ExampleMeal) => recipes.filter((r) => r.meal === meal && !!images[r.id] && (!canMake || canMake(meal, r.id)) && recipeForDiet(r, diet) !== null);
+  // Like a real plan, each meal comes round from PER_MEAL_RECIPES dishes (A, B, C, D, A, B, C), so the packs are shared and the example's price looks like a real
+  // week's (20 November 2026: 21 different dishes priced at £109 for a first shop against a real plan's £67). The dishes are spread through the book so they
+  // differ, and each meal starts at a different point of its turn, so a day doesn't repeat the day before.
+  const pools = EXAMPLE_MEALS.map((meal) => {
+    const list = pool(meal);
+    const n = Math.min(PER_MEAL_RECIPES, list.length);
+    return [meal, Array.from({ length: n }, (_, i) => list[Math.floor((i * list.length) / n)]!)] as const;
+  });
   return Array.from({ length: EXAMPLE_DAYS }, (_, day) => ({
-    meals: pools.flatMap(([meal, list]) => {
-      if (!list.length) return [];
-      // spread through the book: day d takes the recipe d/7 of the way along, so a long list never shows seven near neighbours
-      const r = list[Math.floor((day * list.length) / EXAMPLE_DAYS) % list.length]!;
+    meals: pools.flatMap(([meal, picks], m) => {
+      if (!picks.length) return [];
+      const r = picks[(day + m) % picks.length]!;
       return [{ meal, recipeId: r.id, name: r.name }];
     }),
   }));
+}
+
+/** The example week from one shop: its days, the week as Meal plan builds it, and what its shopping comes to in week 1 and each week after. */
+export interface PricedExample {
+  days: ExampleDay[];
+  ids: PlanIds;
+  week: WeekPlan;
+  costs: WeekCosts;
+}
+
+/**
+ * The example week chosen from only the recipes a shop can make (`candidates`: its priced recipes, planCandidates as written), and built as Meal plan builds a
+ * week, so its shopping is real whole packs at the shop's prices. Null when the shop can't make one of the meals (the screen then shows the book's example with
+ * no price: never a week with a gap).
+ */
+export function pricedExampleWeek(diet: DietPrefs, candidates: Map<MealType, PlanCandidate[]>, recipes: readonly Recipe[] = RECIPES, images: Readonly<Record<string, string>> = RECIPE_IMAGES): PricedExample | null {
+  const priced = new Map(EXAMPLE_MEALS.map((m) => [m, new Set((candidates.get(m) ?? []).map((c) => c.recipe.id))]));
+  const days = exampleWeek(diet, recipes, images, (meal, id) => priced.get(meal)!.has(id));
+  if (days.some((d) => d.meals.length !== EXAMPLE_MEALS.length)) return null;
+  const ids: PlanIds = days.map((d) => EXAMPLE_MEALS.map((m) => d.meals.find((x) => x.meal === m)!.recipeId));
+  const week = buildWeek(ids, candidates, null, PLAN_MEALS);
+  return week ? { days, ids, week, costs: weekCosts(week) } : null;
+}
+
+/** With each recipe as written (planCandidates' asWritten), the sizes only name the meals to price. */
+const AS_WRITTEN: Targets = Object.fromEntries(EXAMPLE_MEALS.map((m) => [m, { kcal: 0 }]));
+
+/** The example priced at one shop, with the date its prices were read. */
+export type ShopExample = PricedExample & { shop: string; checkedOn: string };
+
+const examples = new Map<string, ShopExample | null>();
+const exampleKey = (shop: string, diet: DietPrefs) => JSON.stringify([shop, dietKey(diet)]);
+
+/** The example already priced for this shop and diet while the app is open (undefined: not yet; null: the shop can't make one of the meals). */
+export const knownExample = (shop: string, diet: DietPrefs): ShopExample | null | undefined => examples.get(exampleKey(shop, diet));
+
+/**
+ * The example priced at the person's recipe shop: the shop's list loaded, our recipes priced in chunks that hand control back to the screen (workOut; the
+ * shared cache Meal plan uses too), then pricedExampleWeek. Kept by shop and diet while the app is open. Null when the shop can't make one of the meals or
+ * its list can't be loaded (offline: not kept, so it is tried again next time). Never throws.
+ */
+export async function shopExample(shop: string, diet: DietPrefs, deps: { load: ShopLoader; yieldToScreen?: () => Promise<void> }): Promise<ShopExample | null> {
+  const key = exampleKey(shop, diet);
+  const known = examples.get(key);
+  if (known !== undefined) return known;
+  try {
+    const loaded = await loadShops([shop], deps.load);
+    const candidates = await workOut(loaded, diet, AS_WRITTEN, [], [], undefined, true, deps.yieldToScreen);
+    const priced = pricedExampleWeek(diet, candidates);
+    const result = priced && { ...priced, shop, checkedOn: loaded[0]!.file.checkedOn };
+    examples.set(key, result);
+    return result;
+  } catch {
+    return null;
+  }
+}
+
+/** Tests only: forget the priced examples. */
+export function forgetExamples(): void {
+  examples.clear();
 }
