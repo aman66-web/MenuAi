@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { MAX_SAVED_RECIPES, keepMadeRecipe, pantryLines } from "@/lib/mm/aiRecipe";
 import { API_BASE, PAID_ACCESS_ENABLED, PHOTO_RECIPES_ENABLED } from "@/lib/mm/config";
@@ -11,11 +10,12 @@ import { RECIPES } from "@/lib/mm/recipeBook";
 import { mealSizes, type Recipe } from "@/lib/mm/recipes";
 import { recipeShops } from "@/lib/mm/shopProducts";
 import { myRecipesStore, paidStore } from "@/lib/mm/stores";
-import { CheckIcon, FridgeIcon, ChevronLeftIcon, PlusIcon } from "../../_components/icons";
+import { CheckIcon, FridgeIcon, PlusIcon } from "../../_components/icons";
+import { PageHeader } from "../../_components/PageHeader";
+import { PremiumBadge } from "../../_components/PremiumBadge";
 import { Pip, PipSays } from "../../_components/Mascot";
 import { useGate } from "../../_components/Paywall";
 import { Button, Spinner, inputClass } from "../../_components/ui";
-import { backName, useBack } from "../../_lib/backNav";
 import { useHydrated, useIsPro, useSettings, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { recipeShop, useRecipeCards } from "../../_lib/recipes";
@@ -48,7 +48,6 @@ function Fridge() {
   const paid = useStore(paidStore);
   const access = PAID_ACCESS_ENABLED ? pro && !!paid.token : pro;
   const { gate } = useGate();
-  const nav = useBack("/app/recipes");
   const [text, setText] = useState("");
   const [mood, setMood] = useState<FridgeMood>("any");
   const [shown, setShown] = useState(false);
@@ -122,11 +121,8 @@ function Fridge() {
     }
   };
 
-  const back = (
-    <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to recipes"), nav.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]">
-      <ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span>
-    </Link>
-  );
+  // the header every page has (colour meeting, 19 November 2026): Back with its word (the page before, else Recipes), the Shopping list pill, the Settings cog
+  const back = <PageHeader back={{ href: "/app/recipes", label: t("Back to recipes") }} list />;
   if (!hydrated) return <Spinner />;
 
   if (step === "done" && made && ready && shop) {
@@ -239,22 +235,23 @@ function Fridge() {
 
           {/* Pip makes one up (Premium; on the website, where nothing is sold, this is hidden like Make it at home) */}
           {PHOTO_RECIPES_ENABLED && (
-            <div className="mt-6 rounded-[1.5rem] bg-[#1d2320] p-4 text-white">
+            // an ink card (colour meeting, 19 November 2026): white and light-grey words, the Premium badge in its on-ink look, and the main button white with
+            // ink words (lime is never an action); .on-ink turns its focus rings lime
+            <div className="on-ink mt-6 rounded-[1.5rem] bg-ink p-4 text-on-ink">
               <div className="flex items-center gap-3">
-                <span aria-hidden className="grid h-12 w-12 shrink-0 place-items-center rounded-[0.875rem] bg-white/10"><Pip mood="cheer" size={40} /></span>
+                <span aria-hidden className="grid h-12 w-12 shrink-0 place-items-center rounded-[0.875rem] bg-ink-pressed"><Pip mood="cheer" size={40} /></span>
                 <span className="min-w-0 flex-1">
                   <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
                     <span className="text-[1.1875rem] font-[800] leading-tight">{t("Ask Pip for a new recipe")}</span>
-                    {!pro && <span className="inline-block rounded-full bg-sun px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--on-accent)]">{t("Premium")}</span>}
+                    <PremiumBadge onInk />
                   </span>
-                  <span className="mt-0.5 block text-[0.875rem] leading-snug text-white/80">{t("Pip makes one up from what you have, adding as little as possible from {shop}.", { shop: shopName })}</span>
+                  <span className="mt-0.5 block text-[0.875rem] leading-snug text-on-ink-2">{t("Pip makes one up from what you have, adding as little as possible from {shop}.", { shop: shopName })}</span>
                 </span>
               </div>
-              {error && <p role="alert" className="mt-3 rounded-[1rem] bg-white/10 p-3 text-[0.9375rem] font-semibold">{error}</p>}
-              <button type="button" onClick={() => gate("fridgeRecipe", () => { if (access) void askPip(); })} disabled={!ready}
-                className="mt-3 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-sun px-5 text-base font-bold text-[var(--on-accent)] transition active:scale-95 disabled:cursor-not-allowed disabled:active:scale-100 disabled:opacity-100 disabled:bg-soft-strong disabled:text-muted">
+              {error && <p role="alert" className="mt-3 rounded-[1rem] bg-ink-pressed p-3 text-[0.9375rem] font-semibold">{error}</p>}
+              <Button variant="onInk" full size="lg" className="mt-3" onClick={() => gate("fridgeRecipe", () => { if (access) void askPip(); })} disabled={!ready} reason={!ready ? t("Loading the recipes") : undefined}>
                 <FridgeIcon aria-hidden className="h-5 w-5" />{t("Make me a recipe")}
-              </button>
+              </Button>
             </div>
           )}
         </section>

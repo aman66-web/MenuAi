@@ -36,7 +36,7 @@ function PictureImg({ src, kind, px, onError }: { src: string; kind: EntryPictur
       decoding="async"
       referrerPolicy={product ? "no-referrer" : undefined}
       onError={onError}
-      className={`h-full w-full rounded-full bg-white ${product ? "object-contain p-1.5" : "object-cover"}`}
+      className={`h-full w-full rounded-full bg-card ${product ? "object-contain p-1.5" : "object-cover"}`}
     />
   );
 }
@@ -46,7 +46,7 @@ function Avatar({ picture, gone }: { picture: EntryPicture; gone: () => void }) 
   const chain = useFirstThatLoads(picture.srcs);
   if (!chain) return null;
   return (
-    <span className="block h-9 w-9 shrink-0 overflow-hidden rounded-full border-2 border-background bg-white">
+    <span className="block h-9 w-9 shrink-0 overflow-hidden rounded-full border-2 border-background bg-card">
       <PictureImg key={chain.src} src={chain.src} kind={picture.kind} px={36} onError={() => (picture.srcs.indexOf(chain.src) >= picture.srcs.length - 1 ? gone() : chain.next())} />
     </span>
   );
@@ -72,13 +72,13 @@ export function EatenThumb({ picture, product }: { picture: EntryPicture | undef
   const chain = useFirstThatLoads(picture?.srcs ?? []);
   if (!picture || !chain) {
     return (
-      <span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-soft-strong text-foreground">
+      <span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-fill text-ink">
         {product ? <BasketIcon className="h-5 w-5" /> : <ForkIcon className="h-5 w-5" />}
       </span>
     );
   }
   return (
-    <span aria-hidden className="block h-11 w-11 shrink-0 overflow-hidden rounded-full bg-white">
+    <span aria-hidden className="block h-11 w-11 shrink-0 overflow-hidden rounded-full border border-line bg-card">
       <PictureImg key={chain.src} src={chain.src} kind={picture.kind} px={44} onError={chain.next} />
     </span>
   );

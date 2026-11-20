@@ -4,11 +4,11 @@ import type { Nutrients } from "@/lib/mm/types";
 import { hasNative, nativeCall } from "@/lib/mm/native";
 
 // SPEC §11: a 1080×1350 card. Plain-text chain name, no logos, photos or brand colours. Free for everyone.
-// It is drawn in the language of the app's Home (2026-10-15): the text sits straight on the flat light grey page like Home's title
-// ("MY ORDER AT {CHAIN}" in small spaced capitals, then the order in a heavy weight), protein is the one highlighted tile in the
-// app's lime ("50" large, "g protein" beside it), calories, carbs and fat are three white tiles beside each other, and the app's
-// name and address close it. Figures are a medium weight with a smaller unit, like Home's "1,030 / 2,800 kcal". No boxes inside
-// boxes, no gradients, glows or shadows.
+// It is drawn in the app's own colours, ink, sun and white with the body's #0b1a12 (colour meeting, 19 November 2026, approved by the founder that day: people
+// see this card before they install, so it uses the app's one dark and its lime, nothing else): white words straight on the ink page ("My order at {chain}" in
+// sentence case, then the order in a heavy weight), protein the one highlighted tile in the app's lime ("50" large, "g protein" beside it, in #0b1a12),
+// calories, carbs and fat three white tiles beside each other with #0b1a12 figures and words, and the app's name and address close it. Figures are a medium
+// weight with a smaller unit, like Home's "1,030 / 2,800 kcal". No boxes inside boxes, no gradients, glows or shadows.
 // The words are the card's own from SPEC §11, unchanged in every language: "{n} calories", "{g} carbs", "{g} fat", "{g} protein".
 // Each white tile carries one of them, its number large and its word under it in the order the translation gives (so the "·"
 // between them in a one-line version is the gap between the tiles). The smallest text is 34 px, about 12 pt when the card is seen
@@ -25,13 +25,12 @@ export interface ShareCardInput {
   t: T;
 }
 
-// The app's colours (globals.css, the app surface).
-const PAGE = "#f4f5f6";
-const TILE = "#ffffff";
+// The app's colours (globals.css): a canvas can't read the CSS variables, so their values are written here.
+const PAGE = "#1d2320"; // --ink: the page
+const ON_PAGE = "#ffffff"; // --on-ink: words on the page (16:1)
+const TILE = "#ffffff"; // --card: the three tiles
 const LIME = "#d6efa0"; // --sun: the one highlighted tile
-const OLIVE = "#4d6127"; // the small label on the lime (5.5:1)
-const FG = "#0b1a12";
-const MUTED = "#5f6361";
+const FG = "#0b1a12"; // --foreground: figures and words on the tiles (17.9:1 on white, 15:1 on the lime)
 
 /** The page's own font (Urbanist, loaded by next/font) so the card matches the app; system fonts if it isn't there. */
 export function pageFont(): string {
@@ -122,7 +121,6 @@ export async function renderShareCard(input: ShareCardInput): Promise<Blob> {
     ctx.direction = readsRtl(str) ? "rtl" : "ltr";
     return ctx.measureText(str).width;
   };
-  const caps = (str: string) => str.toLocaleUpperCase();
   /**
    * A figure in a medium weight with a smaller unit after it on the same baseline: "g" for grams (none for calories), then a word
    * if one is given ("g protein"). "67g" stays one piece read left to right, as the app shows grams in every language, so on an
@@ -183,18 +181,16 @@ export async function renderShareCard(input: ShareCardInput): Promise<Blob> {
   ctx.fillStyle = PAGE;
   ctx.fillRect(0, 0, W, H);
 
-  // "MY ORDER AT {CHAIN}": the small label above the title, like the app's kickers
-  const kicker = caps(t("My order at {chain}", { chain: input.chainName }));
+  // "My order at {chain}": the small label above the title, in sentence case like the app's labels (spaced capitals were hard to read)
+  const kicker = t("My order at {chain}", { chain: input.chainName });
   const kickerPx = scaled(SMALL, kicker);
   const kickerStep = Math.round(kickerPx * 1.42);
   let y = M + Math.round(kickerPx * 0.72); // its first baseline: the capitals' top on the margin
-  ctx.fillStyle = MUTED;
+  ctx.fillStyle = ON_PAGE;
   ctx.font = font(kickerPx, 650);
-  spacing(0.12, kicker);
   const kickerLines = wrap(ctx, kicker, CW, 2);
   kickerLines.forEach((line, i) => text(line, start, y + i * kickerStep));
   y += (kickerLines.length - 1) * kickerStep; // the kicker's last baseline
-  spacing(0, "");
 
   // what the order is: heavy, like Home's title. A dish's name is large; a longer order (a list of what's in it) steps down a
   // size rather than shouting over three lines, and never runs past four.
@@ -212,7 +208,7 @@ export async function renderShareCard(input: ShareCardInput): Promise<Blob> {
   }
   const lead = Math.round(titlePx * 1.06);
   let base = y + 34 + Math.round(titlePx * 0.72); // a gap under the kicker, then the title's cap height
-  ctx.fillStyle = FG;
+  ctx.fillStyle = ON_PAGE;
   ctx.font = font(titlePx, 800);
   spacing(-0.02, input.description);
   for (const line of titleLines) {
@@ -224,12 +220,12 @@ export async function renderShareCard(input: ShareCardInput): Promise<Blob> {
 
   // the footer: the app's name at the start, its address at the end, on one baseline
   const footBase = H - M;
-  ctx.fillStyle = FG;
+  ctx.fillStyle = ON_PAGE;
   ctx.font = font(46, 800);
   spacing(-0.02, input.appName);
   text(input.appName, start, footBase);
   spacing(0, "");
-  ctx.fillStyle = MUTED;
+  ctx.fillStyle = ON_PAGE;
   ctx.font = font(scaled(36, input.siteHost), 500);
   text(input.siteHost, rtl ? M : W - M, footBase, "end");
 
@@ -260,12 +256,12 @@ export async function renderShareCard(input: ShareCardInput): Promise<Blob> {
     let line = tilesTop + 48;
     if (hasBefore) {
       line += Math.round(SMALL * 0.72);
-      if (tl.before) words(tl.before, tStart, line, inner, SMALL, MUTED);
+      if (tl.before) words(tl.before, tStart, line, inner, SMALL, FG);
       line += wordStep - Math.round(SMALL * 0.72);
     }
     line += figCap;
-    figure(tl.value, tl.grams, "", tStart, line, figPx, unitRatio, FG, MUTED);
-    if (tl.after) words(tl.after, tStart, line + wordStep, inner, SMALL, MUTED);
+    figure(tl.value, tl.grams, "", tStart, line, figPx, unitRatio, FG, FG);
+    if (tl.after) words(tl.after, tStart, line + wordStep, inner, SMALL, FG);
   });
 
   // protein: the one lime tile, filling the room between the title and the three tiles; "50" as large as the tile allows and
@@ -281,7 +277,7 @@ export async function renderShareCard(input: ShareCardInput): Promise<Blob> {
   const proteinRatio = 0.24;
   const proteinPx = figureSize(protein, true, proteinWord, CW - 2 * IN, Math.min(420, Math.round(limeH * 0.64)), proteinRatio);
   const proteinBase = limeTop + Math.round((limeH + proteinPx * 0.72) / 2);
-  figure(protein, true, proteinWord, pStart, proteinBase, proteinPx, proteinRatio, FG, OLIVE);
+  figure(protein, true, proteinWord, pStart, proteinBase, proteinPx, proteinRatio, FG, FG);
 
   const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/png"));
   if (!blob) throw new Error("Couldn't create the image.");

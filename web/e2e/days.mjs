@@ -1,7 +1,9 @@
 // Home's date, the calendar and the day page (founder 2026-10-16: "Instead of Home have the date for example Nov 15, the month in short form ... Also have this logo on
 // the right of it. When the person clicks on that they can find any day and click on it and see their macros and what they ate on that day"; earlier: "when they click the
-// number at the top it shows what they got on that day"). Home's title is today's short date ("Oct 16") with a calendar button beside it and the Settings gear at the far
-// right; the calendar is a month sheet (a dot under days with food logged, the days ahead greyed); a day, in the calendar or the week strip, opens /app/today?d=YYYY-MM-DD:
+// number at the top it shows what they got on that day"). Home's title is today's short date ("Oct 16"), itself the calendar button (colour meeting, 19 November 2026:
+// its name starts with the date it shows, "Nov 20, Choose a day"), then the Shopping list and the Settings cog at the far right; the week strip shows today in lime with
+// the word "Today" under it and a small dot under each past day with food; the calendar is a month sheet (a dot on days with food logged, the days ahead greyed); a
+// day, in the calendar or the week strip, opens /app/today?d=YYYY-MM-DD:
 // that day's calories dial, protein, carbs and fat and its meals, with Previous day, Next day and a Today shortcut. Touch is on, like an iPhone.
 import { chromium } from "playwright-core";
 import { createRequire } from "node:module";
@@ -42,9 +44,11 @@ async function open(extra = {}, settings = {}, log = SEED_LOG) {
   page.on("console", (m) => { if (m.type() === "error" && !/agent-proxy|Failed to load resource/.test(m.text())) errors.push(m.text().slice(0, 160)); });
   return { ctx, page, errors };
 }
-const home = async (page) => { await page.goto(BASE + "/app", { timeout: 120000 }); await page.getByRole("button", { name: "Choose a day", exact: true }).waitFor({ timeout: 90000 }); };
+/** Home's date, which is the calendar button: its name is the date shown, then "Choose a day". */
+const calendarButton = (page) => page.getByRole("button", { name: /, Choose a day$/ });
+const home = async (page) => { await page.goto(BASE + "/app", { timeout: 120000 }); await calendarButton(page).waitFor({ timeout: 90000 }); };
 const dialog = (page) => page.locator("dialog[open]");
-async function openCalendar(page) { await page.getByRole("button", { name: "Choose a day", exact: true }).tap(); await dialog(page).waitFor(); await page.waitForTimeout(700); /* the sheet slides in */ }
+async function openCalendar(page) { await calendarButton(page).tap(); await dialog(page).waitFor(); await page.waitForTimeout(700); /* the sheet slides in */ }
 /** The long English name a day button carries, e.g. "Wednesday 14 October". */
 const longName = (d) => new Intl.DateTimeFormat("en-GB", { weekday: "long", day: "numeric", month: "long" }).format(d);
 const dayButton = (page, d) => dialog(page).getByRole("button", { name: new RegExp("^" + longName(d)) });
@@ -52,22 +56,26 @@ const shortNow = () => new Intl.DateTimeFormat("en-US", { month: "short", day: "
 const dayPage = (page) => page.getByRole("heading", { level: 1 });
 const figuresText = (page) => page.locator("main, body").first().innerText();
 
-await step("Home's title is today's short date, month first, still named Home for screen readers; the calendar button sits beside it, then the Shopping list and the Settings gear at the far right", async () => {
+await step("Home's title is today's short date, month first, still named Home for screen readers; the date is the calendar button (its name starts with the date shown), then the Shopping list and the Settings cog at the far right", async () => {
   const { ctx, page, errors } = await open();
   await home(page);
   const h1 = page.getByRole("heading", { level: 1 });
-  expect((await h1.innerText()).replace(/\s+/g, " ").trim().endsWith(shortNow()), `the title reads "${await h1.innerText()}", expected it to end with "${shortNow()}"`);
+  expect((await h1.innerText()).replace(/\s+/g, " ").includes(shortNow()), `the title reads "${await h1.innerText()}", expected it to show "${shortNow()}"`);
   expect((await h1.textContent()).includes("Home"), "the heading lost its name 'Home' for screen readers");
   expect((await page.getByRole("heading", { name: "Home", level: 1 }).count()) === 1, "no heading named Home");
-  const cal = page.getByRole("button", { name: "Choose a day", exact: true });
+  const cal = h1.getByRole("button");
+  expect((await cal.count()) === 1, "the date in the title is not a button");
+  const name = (await cal.evaluate((b) => b.textContent ?? "")).replace(/\s+/g, " ").trim();
+  expect(name === `${shortNow()}, Choose a day`, `the calendar button is named "${name}", expected "${shortNow()}, Choose a day" (the visible date first: Label in Name)`);
+  expect((await cal.getAttribute("aria-haspopup")) === "dialog", "the calendar button doesn't say it opens a sheet");
   const list = page.locator('main a[href="/app/groceries/list"]').first();
   const gear = page.locator("main").getByRole("link", { name: "Settings", exact: true }); // founder 2026-11-19: "keep the settings cog on the right of shopping list"
-  const [c, l, g, t] = [await cal.boundingBox(), await list.boundingBox(), await gear.boundingBox(), await h1.boundingBox()];
+  const [c, l, g] = [await cal.boundingBox(), await list.boundingBox(), await gear.boundingBox()];
   expect(c.width >= 44 && c.height >= 44, `the calendar button is ${c.width} x ${c.height}`);
-  expect(c.x > t.x + t.width - 1, "the calendar button isn't to the right of the date");
-  expect(l.x > c.x + c.width, "the Shopping list isn't further right than the calendar button");
+  expect(l.x > c.x + c.width, "the Shopping list isn't further right than the date");
   expect(g.x >= l.x + l.width - 1, "the gear isn't to the right of the Shopping list");
   expect(g.width >= 44 && g.height >= 44 && g.x + g.width > 390 - 20, `the gear isn't a 44 px button at the far right: ${JSON.stringify(g)}`);
+  expect(Math.abs((c.y + c.height / 2) - (l.y + l.height / 2)) < 4, "the date and the Shopping list are not on one line at 390 px");
   expect(errors.length === 0, errors.join(" | "));
   await ctx.close();
 });
@@ -158,7 +166,7 @@ await step("the week strip's circles open their day; today's circle opens plain 
   await ctx.close();
 });
 
-await step("Home: the seven week circles line up, a past day with food carries one small dot (an empty one none), and the Lunch row names what was eaten; no sideways scroll at 360 px", async () => {
+await step("Home: the seven week circles line up, a past day with food carries one small dot under it (an empty one none), today says Today, and the Lunch row names what was eaten; no sideways scroll at 360 px", async () => {
   // one entry today at 12:30 (always under Lunch: 10:30 to 16:00), plus the seeded days
   const log = [entry("l1", at(0, 12, 30), "Cheese toastie", { calories: 420, protein: 18, carbs: 40, fat: 20 }), ...SEED_LOG];
   for (const width of [390, 360]) {
@@ -176,10 +184,12 @@ await step("Home: the seven week circles line up, a past day with food carries o
     const daysUpToToday = Math.round((new Date(now.getFullYear(), now.getMonth(), now.getDate()) - monday) / 86400000) + 1;
     // skipped on a Monday: no day of this week has gone by yet
     if (daysUpToToday >= 2) {
-      const dotsOf = (daysAgo) => strip.getByRole("link", { name: new RegExp("^" + longName(at(daysAgo, 12))) }).locator(".aspect-square span.absolute");
+      const dotsOf = (daysAgo) => strip.getByRole("link", { name: new RegExp("^" + longName(at(daysAgo, 12))) }).locator("[data-logged-dot]");
       expect((await dotsOf(1).count()) === 1, `${width} px: yesterday has food but ${await dotsOf(1).count()} dots`);
       if (daysUpToToday >= 3) expect((await dotsOf(2).count()) === 0, `${width} px: two days ago has no food but ${await dotsOf(2).count()} dots`);
     }
+    const todayLink = strip.getByRole("link", { name: /\(today\)$/ });
+    expect((await todayLink.getAttribute("aria-current")) === "date" && (await todayLink.innerText()).includes("Today"), `${width} px: today's circle lacks its word "Today"`);
     const lunch = page.getByRole("link", { name: /^Lunch\b/ });
     expect((await lunch.count()) === 1, `${width} px: ${await lunch.count()} Lunch row links`);
     const lunchText = await lunch.innerText();
@@ -253,8 +263,8 @@ await step("narrow phone, Extra large text and Arabic: no sideways scroll on Hom
     await page.waitForTimeout(800);
     const wide = async (where) => { const over = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth); expect(over <= 0, `${label}: ${where} scrolls sideways by ${over} px`); };
     await wide("Home");
-    // the calendar button is the only button in the header besides the gear: find it by its position beside the title
-    const cal = page.locator("h1 + button");
+    // the date in the title is the calendar button (its name is translated in Arabic, so it is found by where it is)
+    const cal = page.locator("main h1 button");
     await cal.tap();
     await dialog(page).waitFor();
     await page.waitForTimeout(800);

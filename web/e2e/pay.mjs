@@ -79,7 +79,7 @@ await step("free tier: three different dishes' Truth cards a day, the same one a
 await step("the plans: three cards with the prices and badges, Pay buttons 48 px, no account needed", async () => {
   const { ctx, page } = await open();
   await page.goto(BASE + "/app/pro");
-  await page.getByRole("heading", { level: 1, name: /Numbite Pro/ }).waitFor();
+  await page.getByRole("heading", { level: 1, name: /Numbite Premium/ }).waitFor(); // O3: "Premium" is the one name on screen
   const text = (await page.locator("main").innerText()).replace(/\s+/g, " ");
   for (const s of ["Founding Member 90-Day Pass", "£9.99", "Most popular", "Annual", "£14.99", "Best value", "Monthly", "£2.99", "You don't need an account", "No recurring subscription"]) expect(text.includes(s) || text.toLowerCase().includes(s.toLowerCase()), "missing: " + s);
   expect(!/\bNando|McDonald|KFC\b/i.test(text), "a restaurant's name in the plans");
@@ -106,7 +106,7 @@ await step("Pay sends the plan (and a creator code from ?ref=), goes to Stripe, 
   await page.getByText(/Access until/).waitFor();
   for (const d of DISHES) { await seeTruth(page, d); await page.getByRole("dialog").getByRole("heading", { level: 3, name: "Calories" }).waitFor(); await page.getByRole("button", { name: "Close" }).click(); } // four dishes, no paywall
   await page.goto(BASE + "/app/settings");
-  await page.getByText("Pro", { exact: true }).first().waitFor();
+  await page.getByText("Premium", { exact: true }).first().waitFor();
   await ctx.close();
 });
 

@@ -80,6 +80,23 @@ await step("three 44 pt dots under the cards; each one shows its page and is mar
   await ctx.close();
 });
 
+await step("Today's dial: what's left in its middle, what was eaten and the target under it, no percentage, sentence-case labels; over the target it says so in words, and a macro past its target says how many grams over", async () => {
+  // the colour meeting (19 November 2026): "1,440 left" in the middle, "560 eaten" and "of 2,000 kcal" under it; no percentage (it stopped at 100% and hid going over)
+  const { ctx, page } = await open({ log: WEEK });
+  const text = (await page.getByRole("group", { name: "Today, 1 of 3" }).innerText()).replace(/\s+/g, " ");
+  expect(text.includes("1,440 left") && text.includes("560 eaten") && text.includes("of 2,000 kcal"), `the dial: ${text}`);
+  expect(!/\d+%/.test(text), `a percentage: ${text}`);
+  expect(text.includes("Calories") && text.includes("Protein") && !/CALORIES|PROTEIN/.test(text), `labels in sentence case: ${text}`);
+  const spoken = await page.getByRole("progressbar", { name: "Calories used today" }).getAttribute("aria-valuetext");
+  expect(spoken === "560 of 2,000 kcal, 1,440 left", `the dial's spoken value: ${spoken}`);
+  await ctx.close();
+  const over = await open({ log: [...WEEK, food("t3", 0, 9, "Feast", { calories: 1600, protein: 120, carbs: 10, fat: 10 })] });
+  const t2 = (await over.page.getByRole("group", { name: "Today, 1 of 3" }).innerText()).replace(/\s+/g, " ");
+  expect(t2.includes("160 over") && t2.includes("2,160 eaten") && !/\d+%/.test(t2), `over the target: ${t2}`);
+  expect(/\b\d+ g over\b/.test(t2), `protein past its target, said in grams: ${t2}`);
+  await over.ctx.close();
+});
+
 await step("a seeded week: each day's calories, a dash for a day with nothing, averages over the days logged before today, the protein note; a screen reader gets each day", async () => {
   const { ctx, page } = await open({ log: WEEK });
   await dot(page, "Calories and protein this week").click();

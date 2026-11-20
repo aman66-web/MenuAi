@@ -16,8 +16,8 @@ await page.route("**/api/**", async (route) => { posts.push(route.request().url(
 let pass = 0, fail = 0;
 async function step(n, fn) { try { await fn(); pass++; console.log("PASS", n); } catch (e) { fail++; console.log("FAIL", n, "-", String(e.message).split("\n")[0]); } }
 const vis = (l) => l.waitFor({ state: "visible", timeout: 8000 });
-// Words that must not appear anywhere while Pro and the AI recipe maker are off.
-const FORBIDDEN = /\bPro\b|(?<!un)subscri|free trial|Try Pro|paywall|Anthropic|Ask Pip|Made by Pip|Claude/i;
+// Words that must not appear anywhere while Premium (the code's "Pro") and the AI recipe maker are off.
+const FORBIDDEN = /\bPro\b|(?<!un)subscri|free trial|Try Pro|Try Premium|See Premium|paywall|Anthropic|Ask Pip|Made by Pip|Claude/i;
 async function noForbidden(where) {
   await page.waitForTimeout(400);
   const text = await page.locator("body").innerText();
@@ -34,11 +34,11 @@ await step("Eat out: real chains only (no sample data)", async () => {
   if (await page.getByText(/Cluck House|Bowl & Co/).count()) throw new Error("a fictional chain is listed");
   await noForbidden("Eat out");
 });
-await step("Home shows today's calories for everyone (logging is open), with no Pro wording", async () => {
+await step("Home shows today's calories for everyone (logging is open), with no Premium wording", async () => {
   await page.goto(BASE + "/app");
   await vis(page.getByRole("progressbar", { name: "Calories used today" }));
-  if (await page.getByText("Log your meals to see what's left today.").count()) throw new Error("the Pro nudge shows on Home");
-  if (await page.getByRole("button", { name: /See Pro|Try Pro/ }).count()) throw new Error("a Pro button on Home");
+  if (await page.getByText("Log your meals to see what's left today.").count()) throw new Error("the Premium nudge shows on Home");
+  if (await page.getByRole("button", { name: /See Pro|Try Pro|See Premium|Try Premium/ }).count()) throw new Error("a Premium button on Home");
   await noForbidden("Home");
 });
 await step("a restaurant: Best for you shows the picks (no lock), an item logs and opens the builder without a paywall", async () => {
@@ -59,7 +59,7 @@ await step("a restaurant: Best for you shows the picks (no lock), an item logs a
   await page.waitForURL(/\/app\/builder/);
   await noForbidden("builder");
 });
-await step("Today and My meals: no Pro wording, no free-order limit", async () => {
+await step("Today and My meals: no Premium wording, no free-order limit", async () => {
   await page.goto(BASE + "/app/today");
   await vis(page.getByRole("heading", { level: 1 }));
   await noForbidden("Today");

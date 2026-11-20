@@ -1,37 +1,34 @@
 "use client";
 
 import { useId, type ReactNode } from "react";
-import { ChevronLeftIcon, ChevronRightIcon, PlusIcon, SearchIcon } from "../icons";
+import { ChevronRightIcon, PlusIcon, SearchIcon } from "../icons";
+import { BackButton } from "../PageHeader";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../SearchDone";
 import { useT } from "../../_lib/i18n";
 import type { LogEntry } from "@/lib/mm/user-data";
 
-// The small pieces the "Add food" sheet's views share: a Back pill, a big choice, a list of picks with a black pill each, a search box with Done.
+// The small pieces the "Add food" sheet's views share: a Back pill, a big choice, a list of picks with an ink pill each, a search box with Done (colour
+// meeting, 19 November 2026, approved by the founder that day: every add is ink; Back is the one Back of every page; fields are white with the edge).
 
 /** What a view hands up to be added to the meal: the sheet adds the time, the id and the meal. The picture references are kept where the view has one (EntryPicture.tsx). */
 export type NewEntry = Pick<LogEntry, "chainId" | "chainName" | "name" | "nutrients" | "source"> & Partial<Pick<LogEntry, "image" | "recipeId" | "photo">>;
 
-/** The way back to the four choices (or, inside a view, to its list). Light grey on the sheet's white, like Today's Back pill. */
+/** The way back to the four choices (or, inside a view, to its list): the same Back as every page (white with the edge, an ink chevron, the word). */
 export function BackBar({ onBack }: { onBack: () => void }) {
-  const t = useT();
-  return (
-    <button type="button" onClick={onBack} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-      <ChevronLeftIcon className="h-5 w-5" />
-      <span>{t("Back")}</span>
-    </button>
-  );
+  return <BackButton onPress={onBack} />;
 }
 
 /** One of the sheet's big choices: a round icon, what it is, one line about it, and an arrow. */
 export function Choice({ icon, title, line, onClick }: { icon: ReactNode; title: string; line: string; onClick: () => void }) {
   return (
-    <button type="button" onClick={onClick} className="glass flex min-h-[4.75rem] w-full items-center gap-3.5 rounded-[1.25rem] p-3.5 text-start transition active:scale-[0.98] hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-      <span aria-hidden className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-accent">{icon}</span>
+    <button type="button" onClick={onClick} className="glass flex min-h-[4.75rem] w-full items-center gap-3.5 rounded-[1.25rem] p-3.5 text-start transition active:scale-[0.98] hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+      {/* a well with the icon in the link green: white here, on the sheet's grey rows */}
+      <span aria-hidden className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-card text-accent">{icon}</span>
       <span className="min-w-0 flex-1">
         <span className="block text-lg font-[800] leading-snug tracking-[-0.01em]">{title}</span>
         <span className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{line}</span>
       </span>
-      <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted" />
+      <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-ink" />
     </button>
   );
 }
@@ -39,9 +36,9 @@ export function Choice({ icon, title, line, onClick }: { icon: ReactNode; title:
 /** A list of things to pick from, on one rounded surface. */
 export const PICK_LIST = "glass divide-y divide-line overflow-hidden rounded-[1.25rem]";
 
-const PILL = "relative inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-foreground px-4 text-[0.9375rem] font-bold text-background transition active:scale-95 disabled:bg-soft-strong disabled:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+const PILL = "relative inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-ink px-4 text-[0.9375rem] font-bold text-on-ink transition active:scale-[0.97] hover:not-disabled:bg-ink-pressed disabled:bg-soft-strong disabled:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
-/** The black "Add" pill at the end of a row. Its spoken name carries what it adds ("Add Chicken wrap"). */
+/** The ink "Add" pill at the end of a row. Its spoken name carries what it adds ("Add Chicken wrap"). */
 export function AddPill({ name, onClick, disabled, busy }: { name: string; onClick: () => void; disabled?: boolean; busy?: boolean }) {
   const t = useT();
   return (
@@ -53,7 +50,7 @@ export function AddPill({ name, onClick, disabled, busy }: { name: string; onCli
   );
 }
 
-/** The black "Choose" pill at the end of a row that leads on to a second step (a product, then how much). */
+/** The ink "Choose" pill at the end of a row that leads on to a second step (a product, then how much). */
 export function ChoosePill({ name, onClick }: { name: string; onClick: () => void }) {
   const t = useT();
   return (
@@ -89,7 +86,7 @@ export function SheetSearch({ value, onChange, label, placeholder }: { value: st
       <label htmlFor={id} className="mb-2.5 block text-[0.9375rem] font-semibold leading-snug">{label}</label>
       <div className="group/search relative">
         <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
-        <input id={id} type="search" value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} {...DONE_KEY} autoComplete="off" className={`glass min-h-13 w-full rounded-full ps-11 pe-4 ${DONE_ROOM} text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-search-cancel-button]:appearance-none`} />
+        <input id={id} type="search" value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} {...DONE_KEY} autoComplete="off" className={`min-h-13 w-full rounded-full border-[1.5px] border-edge bg-card ps-11 pe-4 ${DONE_ROOM} text-base text-foreground placeholder:text-placeholder focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-search-cancel-button]:appearance-none`} />
         <SearchDone />
       </div>
     </div>

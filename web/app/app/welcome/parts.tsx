@@ -13,7 +13,7 @@ import { dismissKeyboard } from "../_components/SearchDone";
 import { useT } from "../_lib/i18n";
 
 // Pieces of the onboarding screens that more than one file draws (page.tsx, the targets step and the body steps): the big headline, the small
-// spaced-capitals label, the card corners and the number card with − and +. Moved out of page.tsx unchanged, except that the number card gained a Done
+// label, the card corners and the number card with − and +. Moved out of page.tsx unchanged, except that the number card gained a Done
 // button and a way to start an empty box from a suggestion. Also the words page.tsx needs that the unit tests check (a page file may export nothing else):
 // Pip's reaction to each goal and the last screen's line on what is free.
 
@@ -22,8 +22,9 @@ import { useT } from "../_lib/i18n";
  * headings); a touch heavier than before so it sits with Home's heavy "Home".
  */
 export const HEADLINE = "text-[2.5rem] font-[700] leading-[1.05] tracking-[-0.03em]";
-/** Home's small spaced-capitals label inside a card ("CALORIES"). */
-export const CAPS = "text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted";
+/** The small label inside a card ("Calories"): sentence case, semibold, at least 13 px, in the caption grey (colour meeting, 19 November 2026: spaced capitals
+ *  were hard to read). Kept under its old name. */
+export const CAPS = "text-[0.875rem] font-semibold text-muted";
 /** Cards, tiles and list rows share Home's 20 px corners. */
 export const CARD = "rounded-[1.25rem]";
 
@@ -58,14 +59,14 @@ export function StepperCard({ id, label, Icon, value, onChange, step, min, max, 
     const cur = Math.round(n);
     set(clamp(d > 0 ? Math.floor(cur / step) * step + step : Math.ceil(cur / step) * step - step));
   };
-  // Like Home's calories card: a small spaced-capitals label, the figure big in a regular weight, and the two round buttons under it
+  // Like Home's calories card: a small label, the figure big in a regular weight, and the two round buttons under it
   // (side by side with the figure they left no room for "Optional" on a 390 px phone).
   const round = "grid h-11 w-11 shrink-0 place-items-center rounded-full border-[1.5px] border-edge bg-card transition active:scale-90 active:bg-background hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
   return (
     <div className={`group/step glass ${CARD} min-w-0 p-4`}>
       <div className="flex min-h-8 items-center justify-between gap-2">
         <label htmlFor={id} id={`${id}-label`} className={CAPS}>{label}</label>
-        <span aria-hidden className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-soft-strong group-focus-within/step:hidden"><Icon className="h-4 w-4" /></span>
+        <span aria-hidden className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-background text-accent group-focus-within/step:hidden"><Icon className="h-4 w-4" /></span>
         <button
           type="button"
           // a tap keeps the focus in the box until the click lands (otherwise this button, which shows only while the box is in use, would go before it was tapped)
@@ -76,7 +77,7 @@ export function StepperCard({ id, label, Icon, value, onChange, step, min, max, 
           {t("Done")}
         </button>
       </div>
-      <input id={id} inputMode="numeric" autoComplete="off" value={value} onChange={(e) => { setSaid(""); onChange(e.target.value); }} placeholder={placeholder} aria-invalid={invalid || undefined} aria-describedby={invalid ? describedBy : undefined} className="app-numbers mt-2 min-h-11 w-full min-w-0 rounded-xl border-[1.5px] border-edge bg-soft-strong px-2 py-1 text-center text-[1.75rem] font-medium leading-none tracking-[-0.01em] placeholder:text-base placeholder:font-medium placeholder:tracking-normal placeholder:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent" />
+      <input id={id} inputMode="numeric" autoComplete="off" value={value} onChange={(e) => { setSaid(""); onChange(e.target.value); }} placeholder={placeholder} aria-invalid={invalid || undefined} aria-describedby={invalid ? describedBy : undefined} className="app-numbers mt-2 min-h-11 w-full min-w-0 rounded-xl border-[1.5px] border-edge bg-card px-2 py-1 text-center text-[1.75rem] font-medium leading-none tracking-[-0.01em] placeholder:text-base placeholder:font-medium placeholder:tracking-normal placeholder:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent" />
       <div className="mt-2 flex items-center justify-center gap-3">
         <button type="button" aria-label={t("Decrease")} aria-describedby={`${id}-label`} onClick={() => bump(-step)} className={round}><MinusIcon className="h-5 w-5" /></button>
         <button type="button" aria-label={t("Increase")} aria-describedby={`${id}-label`} onClick={() => bump(step)} className={round}><PlusIcon className="h-5 w-5" /></button>

@@ -5,7 +5,7 @@ import { useT } from "../_lib/i18n";
 import { CloseIcon, ExpandIcon, MinusIcon, PlusIcon } from "./icons";
 
 // The whole picture, full screen (founder 2026-11-18: "There should be a thing in the bottom right of the image of the photo where you can zoom in for full
-// view of what it looks like"): a round button for a picture's bottom corner opens it on black, all of it in view; pinch or double-tap to zoom (up to four
+// view of what it looks like"): a round button for a picture's bottom corner opens it on ink (colour meeting, 19 November 2026), all of it in view; pinch or double-tap to zoom (up to four
 // times), drag to look round, a zoom button for anyone who can't pinch, and Close (or Escape, or the phone's back gesture through the dialog). A native modal
 // <dialog>, like the app's sheets: it sits above everything, keeps the focus inside and leaves the page behind alone.
 
@@ -21,7 +21,7 @@ export function FullPictureButton({ src, alt, className = "" }: { src: string; a
   return (
     <>
       <button type="button" onClick={() => setOpen(true)} aria-label={t("See the whole picture")}
-        className={`absolute inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#0b1a12] shadow-[0_6px_16px_-8px_rgba(0,0,0,0.5)] transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${className}`}>
+        className={`photo-chip absolute inline-flex h-11 w-11 items-center justify-center rounded-full text-ink transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${className}`}>
         <ExpandIcon className="h-5 w-5" strokeWidth={2.2} />
       </button>
       {open && <PhotoViewer src={src} alt={alt} onClose={() => setOpen(false)} />}
@@ -140,7 +140,7 @@ export function PhotoViewer({ src, alt, onClose }: { src: string; alt: string; o
 
   return (
     <dialog ref={dialog} aria-label={t("The whole picture")} onCancel={(e) => { e.preventDefault(); onClose(); }}
-      className="fixed inset-0 m-0 h-[100dvh] max-h-none w-screen max-w-none overflow-hidden bg-black p-0 text-white backdrop:bg-black">
+      className="on-ink fixed inset-0 m-0 h-[100dvh] max-h-none w-screen max-w-none overflow-hidden bg-ink p-0 text-on-ink backdrop:bg-ink">
       <div ref={box} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up} onWheel={wheel}
         className="absolute inset-0 flex touch-none select-none items-center justify-center overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element -- the same picture as on the page, already loaded */}
@@ -148,15 +148,15 @@ export function PhotoViewer({ src, alt, onClose }: { src: string; alt: string; o
           style={{ transform: `translate3d(${view.x}px, ${view.y}px, 0) scale(${view.s})`, transition: moving ? "none" : "transform 0.22s ease-out" }} />
       </div>
       <button type="button" onClick={onClose} autoFocus aria-label={t("Close")}
-        className="absolute end-4 top-[max(0.75rem,env(safe-area-inset-top))] inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#0b1a12] transition active:scale-95">
+        className="photo-chip absolute end-4 top-[max(0.75rem,env(safe-area-inset-top))] inline-flex h-11 w-11 items-center justify-center rounded-full text-ink transition active:scale-95">
         <CloseIcon className="h-5 w-5" strokeWidth={2.4} />
       </button>
       <div className="absolute inset-x-0 bottom-[max(1rem,env(safe-area-inset-bottom))] flex flex-col items-center gap-2 px-4">
         <button type="button" onClick={() => { const r = box.current?.getBoundingClientRect(); setView(zoomed ? { s: 1, x: 0, y: 0 } : zoomAt(TAP_ZOOM, r ? r.left + r.width / 2 : 0, r ? r.top + r.height / 2 : 0)); }}
-          className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white/15 px-4 text-[0.9375rem] font-bold backdrop-blur transition active:scale-95">
+          className="photo-chip inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-[0.9375rem] font-bold text-foreground transition active:scale-95">
           {zoomed ? <MinusIcon className="h-5 w-5" /> : <PlusIcon className="h-5 w-5" />}{zoomed ? t("Zoom out") : t("Zoom in")}
         </button>
-        <p className="text-center text-[0.8125rem] text-white/70">{t("Pinch or double-tap to zoom.")}</p>
+        <p className="text-center text-[0.8125rem] text-on-ink-2">{t("Pinch or double-tap to zoom.")}</p>
       </div>
     </dialog>
   );

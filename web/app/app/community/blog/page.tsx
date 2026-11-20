@@ -9,7 +9,8 @@ import { SearchIcon } from "../../_components/icons";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../../_components/SearchDone";
 import { Chip, EmptyState } from "../../_components/ui";
 import { useLanguage, useT } from "../../_lib/i18n";
-import { BackLink, LABEL, NOTE, TITLE } from "../../groceries/PageBits";
+import { PageHeader } from "../../_components/PageHeader";
+import { LABEL, NOTE, TITLE } from "../../groceries/PageBits";
 
 // Food blogs (Community): every article, newest first. A search box that filters as you type (title, summary and topics) with the app's Done button,
 // topic chips like Recipes' meal choices, and a count. The articles are ours, bundled in the app and English only (like restaurant notes), so only
@@ -25,7 +26,7 @@ export default function BlogListPage() {
 
   return (
     <div>
-      <BackLink href="/app/community" label={t("Back")} />
+      <PageHeader back={{ href: "/app/community", label: t("Back") }} />
       <h1 className={`mt-4 ${TITLE}`}>{t("Food blogs")}</h1>
       <p className={`mt-2 ${NOTE}`}>{t("The articles are in English.")}</p>
 

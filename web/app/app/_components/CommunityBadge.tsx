@@ -12,7 +12,8 @@ export function CommunityBadge() {
   if (n <= 0) return null;
   return (
     <>
-      <span aria-hidden className="app-numbers pointer-events-none absolute start-1/2 top-0.5 ms-1.5 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-white px-1 text-[11px] font-bold leading-none text-[#0b1a12] ring-2 ring-[#1d2320]">{n > 9 ? "9+" : n}</span>
+      {/* white with an ink figure and an ink ring, on the ink tab bar (colour meeting, 19 November 2026: count badges are never red; colours from the tokens) */}
+      <span aria-hidden className="app-numbers pointer-events-none absolute start-1/2 top-0.5 ms-1.5 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-card px-1 text-[0.6875rem] font-bold leading-none text-ink ring-2 ring-ink">{n > 9 ? "9+" : n}</span>
       <span className="sr-only">{t("{n} new", { n })}</span>
     </>
   );

@@ -6,6 +6,7 @@ import type { Failure } from "@/lib/mm/communityClient";
 import { failureText } from "../_lib/communityText";
 import { useT } from "../_lib/i18n";
 import { PeopleIcon } from "./icons";
+import { Note } from "./Note";
 import { SignInSheet } from "./SignIn";
 import { UsernameSheet } from "./UsernameSheet";
 import { Button, EmptyState } from "./ui";
@@ -59,9 +60,12 @@ export function RefreshNote({ failure, onRetry, shown }: { failure: Failure | nu
   const t = useT();
   if (!failure || !shown) return null;
   return (
-    <div role={failure.offline ? "status" : "alert"} className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 rounded-[1.25rem] bg-soft-strong px-4 py-3 text-[0.9375rem] leading-snug">
-      <span className="min-w-0 flex-1 basis-48">{failure.offline ? t("You're offline. Showing what was here last time.") : failureText(failure, t)}</span>
-      <Button variant="secondary" className="min-h-11 shrink-0" onClick={onRetry}>{t("Try again")}</Button>
-    </div>
+    // offline is the calm notice (never red); any other failure the error banner (colour meeting, 19 November 2026)
+    <Note kind={failure.offline ? "banner" : "error"} heading={null} className="mt-4">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        <span className="min-w-0 flex-1 basis-48">{failure.offline ? t("You're offline. Showing what was here last time.") : failureText(failure, t)}</span>
+        <Button variant="secondary" className="min-h-11 shrink-0" onClick={onRetry}>{t("Try again")}</Button>
+      </div>
+    </Note>
   );
 }

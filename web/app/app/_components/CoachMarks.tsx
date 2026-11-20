@@ -184,7 +184,7 @@ function CoachRun({ screen }: { screen: CoachScreen }) {
           )}
           <div
             ref={card}
-            className={`fixed inset-x-0 mx-auto w-[calc(100%-2rem)] max-w-[24rem] overflow-y-auto rounded-[1.5rem] bg-white p-4 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.55)] motion-safe:transition-opacity motion-safe:duration-200 ${showing ? "opacity-100" : "opacity-0"}`}
+            className={`fixed inset-x-0 mx-auto w-[calc(100%-2rem)] max-w-[24rem] overflow-y-auto rounded-[1.5rem] bg-card p-4 shadow-[var(--shadow-lift)] motion-safe:transition-opacity motion-safe:duration-200 ${showing ? "opacity-100" : "opacity-0"}`}
             style={place}
           >
             <div className="flex items-start gap-3">

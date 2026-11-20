@@ -7,13 +7,14 @@ import { SourcesBody } from "../../_components/SourcesBody";
 import { useBack } from "../../_lib/backNav";
 import { useT } from "../../_lib/i18n";
 
-// Opened from Settings > About, so "the page before" is Settings; the pill names its place ("Settings") like "How we get our numbers" does.
+// Opened from Settings > About, so "the page before" is Settings; the pill names its place ("Settings") like "How we get our numbers" does. It has the
+// look of every Back (white with the 1.5 px edge, an ink chevron), and no Settings cog: this page is part of Settings.
 export function SourcesContent() {
   const t = useT();
   const back = useBack("/app/settings");
   return (
     <div>
-      <Link href={back.href} onClick={back.onClick} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Settings")}</span></Link>
+      <Link href={back.href} onClick={back.onClick} className="group inline-flex min-h-11 shrink-0 items-center rounded-full transition active:scale-95"><span className="inline-flex h-9 items-center gap-0.5 whitespace-nowrap rounded-full border-[1.5px] border-edge bg-card ps-2 pe-3.5 text-[0.9375rem] font-semibold text-foreground transition-colors group-hover:bg-background"><ChevronLeftIcon aria-hidden className="h-[18px] w-[18px] shrink-0 text-ink" /><span>{t("Settings")}</span></span></Link>
       <h1 className="mt-5 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">{t("Where your daily targets come from")}</h1>
       <div className="glass mt-5 rounded-[1.25rem] p-5">
         <SourcesBody withNumbersLink level="h2" />

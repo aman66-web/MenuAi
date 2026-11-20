@@ -3,7 +3,7 @@
 import { StartPrompt } from "./_components/StartPrompt";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
 import { entryMeal, isSameLocalDay, LOG_MEAL_LABEL, LOG_MEALS, loggedGaps, loggedToday, mealBudget } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
@@ -25,10 +25,11 @@ import { HomeWeek } from "./_components/HomeWeek";
 import { useGate } from "./_components/Paywall";
 import { RemindersSection } from "./_components/RemindersSection";
 import { WaterCard } from "./_components/WaterCard";
-import { CalendarIcon, ChevronRightIcon, FlameIcon, PlusIcon } from "./_components/icons";
+import { ChevronRightIcon, FlameIcon, PlusIcon } from "./_components/icons";
+import { PageHeader } from "./_components/PageHeader";
 import { RecipeTools } from "./_components/RecipeTools";
-import { SettingsGear, ShoppingListPill } from "./_components/TopActions";
-import { Card, Spinner } from "./_components/ui";
+import { Toast } from "./_components/Toast";
+import { Button, Card, Spinner } from "./_components/ui";
 import { useChainIndexes, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "./_lib/hooks";
 import { useLanguage, useT } from "./_lib/i18n";
 
@@ -46,6 +47,10 @@ import { useLanguage, useT } from "./_lib/i18n";
 // In-App Purchase build: PAID_TIER_ONLY) none of that is shown, so Home never sells what + already does for free (the onboarding meeting, 2026-11-19).
 // Each meal row shows up to two pictures of what was eaten (founder 2026-11-17, "use images please when possible"): the dish's, the recipe's or the
 // product's, kept on the entry when it was logged (EntryPicture.tsx; older entries: the dish found by its name). One that doesn't load is left out.
+// The colour meeting (19 November 2026, approved by the founder that day): the date itself is the calendar button (an ink chevron after it, 44 pt), which makes
+// room at the top right for the Shopping list and the cog with its word (PageHeader); the week strip shows today in lime with its dark-green edge, a dot and the
+// word "Today", the days gone by white with the control edge and a small ink dot when food was logged, the days ahead plain; the meal rows' icon wells are the
+// page fill with an ink icon (never green beside a food figure); the log card's "See Premium" is a secondary button; what was added is said in the one toast.
 
 export default function HomePage() {
   const t = useT();
@@ -63,11 +68,6 @@ export default function HomePage() {
   const [picking, setPicking] = useState(false);
   const [addTo, setAddTo] = useState<LogMeal | null>(null);
   const [added, setAdded] = useState<{ entry: LogEntry; meal: LogMeal } | null>(null);
-  useEffect(() => {
-    if (!added) return;
-    const timer = setTimeout(() => setAdded(null), 8000);
-    return () => clearTimeout(timer);
-  }, [added]);
   const todays = log.filter((e) => isSameLocalDay(new Date(e.loggedAt), now));
   // only for entries logged before entries kept their picture: their dish is looked up in its chain's menu
   const indexes = useChainIndexes(todays.filter((e) => e.chainId && !e.image && !e.recipeId && !e.photo).map((e) => e.chainId));
@@ -90,23 +90,24 @@ export default function HomePage() {
 
   return (
     <div>
-      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-        <div className="flex min-w-0 items-center gap-1.5">
-          {/* Today's date in short form, month first in English ("Oct 16": founder 2026-10-16). The page keeps its name "Home" for screen readers. */}
-          <h1 className="min-w-0 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]"><span className="sr-only">{t("Home")}, </span>{shortDate(now, htmlLang)}</h1>
-          {/* the calendar button at the date's side (founder 2026-10-16): pick any day to see its macros and meals */}
-          <button type="button" onClick={() => setPicking(true)} aria-label={t("Choose a day")} className="group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft transition-colors group-hover:bg-[var(--fill)]"><CalendarIcon className="h-[18px] w-[18px]" /></span>
-          </button>
-        </div>
-        {/* the shopping list at the top right, with how many things are left to pick up (founder 2026-11-19: "instead of it saying settings in the top right on the
-            home screen, I think that should maybe say shopping list instead"), and the Settings gear beside it ("keep the settings cog on the right of shopping list
-            like before"); Settings is also a named button at the top right of Eat out */}
-        <div data-coach="home-top" className="-me-1 flex max-w-full flex-wrap items-center justify-end gap-0.5">
-          <ShoppingListPill />
-          <SettingsGear />
-        </div>
-      </div>
+      {/* Today's date in short form, month first in English ("Oct 16": founder 2026-10-16), and itself the calendar button (colour meeting, 19 November 2026):
+          pick any day to see its macros and meals (founder 2026-10-16). The page keeps its name "Home" for screen readers; the button's name starts with the date
+          it shows ("Nov 20, Choose a day"), so a Voice Control user can say what they see. Then the shopping list, with how many things are left to pick up
+          (founder 2026-11-19), and the Settings cog with its word at the far right (PageHeader: the same top right on every page). */}
+      <PageHeader
+        coach="home-top"
+        list
+        title={
+          <>
+            <span className="sr-only">{t("Home")}, </span>
+            <button type="button" onClick={() => setPicking(true)} aria-haspopup="dialog" className="-ms-1 inline-flex min-h-11 max-w-full items-center gap-1 rounded-xl px-1 text-start transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+              <span className="whitespace-nowrap">{shortDate(now, htmlLang)}</span>
+              <span className="sr-only">, {t("Choose a day")}</span>
+              <ChevronRightIcon aria-hidden strokeWidth={2.4} className="h-5 w-5 shrink-0 rotate-90 text-ink rtl:scale-x-100!" />
+            </button>
+          </>
+        }
+      />
       {/* what Home is for, in one line (founder 2026-11-18: "everyone needs to understand the point for each screen") */}
       <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("Your food today: what you've eaten and what's left.")}</p>
 
@@ -117,15 +118,24 @@ export default function HomePage() {
           const logged = loggedDays.has(dayParam(d));
           const name = longDay.format(d);
           const label = today ? t("{day} (today)", { day: name }) : future ? name : logged ? t("{day}: food logged", { day: name }) : t("{day}: nothing logged", { day: name });
-          // Like the picture: every day gone by is a dark circle, today is the brand colour, the days ahead are grey. A small dot at the foot
-          // of the circle shows a day with food logged (as in the calendar sheet); screen readers hear it in the day's name.
-          const look = today ? "bg-sun text-[var(--on-accent)]" : future ? "bg-soft-strong text-foreground" : "bg-foreground text-background";
+          // Today (the day Home shows) is lime with the 2 px dark-green edge, a dark-green figure and a dot (a lime day always carries its mark), with the word
+          // "Today" under it; every day gone by is white with the 1.5 px edge of a control you can tap, and a small ink dot under it when food was logged; the
+          // days ahead are plain, in the secondary grey (colour meeting, 19 November 2026). Screen readers hear all of it in the day's name.
+          const look = today ? "border-2 border-on-sun bg-sun font-bold text-on-sun" : future ? "font-semibold text-muted" : "border-[1.5px] border-edge bg-card font-semibold text-foreground";
           const inner = (
             <>
-              <span aria-hidden className="text-[0.6875rem] font-semibold uppercase text-muted">{narrow.format(d)}</span>
-              <span aria-hidden className={`app-numbers relative flex aspect-square w-full max-w-12 items-center justify-center rounded-full text-[0.8125rem] font-semibold ${look}`}>
-                {d.getDate()}
-                {logged && !future && <span aria-hidden className={`absolute bottom-1.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full ${today ? "bg-current" : "bg-[var(--sun)]"}`} />}
+              <span aria-hidden className="text-[0.8125rem] font-semibold leading-none text-muted">{narrow.format(d)}</span>
+              {/* today's dot sits under its figure (the two centred together), so they never touch on a narrow phone */}
+              <span aria-hidden className={`app-numbers flex aspect-square w-full max-w-12 flex-col items-center justify-center rounded-full text-[0.875rem] ${look}`}>
+                <span className="leading-none">{d.getDate()}</span>
+                {today && <span className="mt-[3px] h-[5px] w-[5px] rounded-full bg-on-sun" />}
+              </span>
+              <span aria-hidden className="flex h-4 items-center justify-center">
+                {today ? (
+                  <span className="whitespace-nowrap text-[0.8125rem] font-semibold leading-none text-foreground">{t("Today")}</span>
+                ) : logged && !future ? (
+                  <span data-logged-dot="" className="h-1.5 w-1.5 rounded-full bg-ink" />
+                ) : null}
               </span>
             </>
           );
@@ -133,7 +143,7 @@ export default function HomePage() {
             <li key={dayParam(d)} className="min-w-0">
               {future ? (
                 // the same box as the links (their padding included), so all seven circles share one baseline
-                <span className="-mx-1 flex flex-col items-center gap-2.5 px-1 py-0.5">
+                <span className="-mx-1 flex flex-col items-center gap-2 px-1 py-0.5">
                   {inner}
                   <span className="sr-only">{label}</span>
                 </span>
@@ -142,7 +152,7 @@ export default function HomePage() {
                 // the link reaches into the gap on each side so a narrow phone still gets a full-size tap target
                 // (the spoken name is text inside the link, not an aria-label: the letter and number drawn above are the day's visible text, and an
                 // aria-label that doesn't contain them is what axe's label-content-name-mismatch rule flags)
-                <Link href={dayHref(d, now)} aria-current={today ? "date" : undefined} className="-mx-1 flex flex-col items-center gap-2.5 rounded-2xl px-1 py-0.5 transition active:scale-95">
+                <Link href={dayHref(d, now)} aria-current={today ? "date" : undefined} className="-mx-1 flex flex-col items-center gap-2 rounded-2xl px-1 py-0.5 transition active:scale-95">
                   {inner}
                   <span className="sr-only">{label}</span>
                 </Link>
@@ -172,9 +182,10 @@ export default function HomePage() {
       {logPaid && (
         <Card className="mt-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 p-4">
           <p className="min-w-[10rem] flex-1 text-base leading-snug">{t("Log your meals to see what's left today.")}</p>
-          <button type="button" onClick={() => showPaywall("log")} className="inline-flex min-h-11 items-center gap-2 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-sm font-bold text-foreground transition active:scale-[0.97] hover:bg-[var(--fill)]">
-            {PAYMENTS_ENABLED ? t("Try Pro free") : t("See Pro")}
-          </button>
+          {/* "Premium", the one name on screen (the onboarding meeting, 19 November 2026; approved by the founder) */}
+          <Button variant="secondary" onClick={() => showPaywall("log")}>
+            {PAYMENTS_ENABLED ? t("Try Premium free") : t("See Premium")}
+          </Button>
         </Card>
       )}
 
@@ -207,12 +218,16 @@ export default function HomePage() {
           return (
             <li key={meal} className="glass flex min-w-0 items-center gap-3 rounded-[1.75rem] p-4">
               <Link href="/app/today" className="min-w-0 flex-1 break-words">
-                <span className="flex items-center gap-1 text-lg font-extrabold leading-snug tracking-tight">{title}<ChevronRightIcon aria-hidden className="h-4 w-4 shrink-0 text-muted" /></span>
+                <span className="flex items-center gap-1 text-lg font-extrabold leading-snug tracking-tight">{title}<ChevronRightIcon aria-hidden className="h-4 w-4 shrink-0 text-ink" /></span>
                 <span className="mt-1.5 flex items-center gap-2">
-                  {/* the light green of Home's other icons (founder 2026-11-18: "Change these logos to light green too") */}
-                  <span aria-hidden className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-sun text-[var(--on-accent)]"><FlameIcon className="h-[18px] w-[18px]" /></span>
+                  {/* a page-fill well with an ink flame (colour meeting, 19 November 2026: lime is only for chosen and today, and green beside a food figure
+                      would read as "good") */}
+                  <span aria-hidden className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-fill text-ink"><FlameIcon className="h-[18px] w-[18px]" /></span>
                   <span className="app-numbers text-lg font-bold"><span className="whitespace-nowrap">{budget === null ? formatInt(kcal) : `${formatInt(kcal)} / ${formatInt(budget)}`}</span> <span className="text-sm font-semibold text-muted">kcal</span></span>
                 </span>
+                {/* Snacks has no share of the day of its own, so its "0 kcal" could read as "no snacks allowed" (the onboarding meeting's dietitian): one plain line
+                    says where they come from (no constant changes: CLAUDE.md rule 8) */}
+                {meal === "snack" && <span className="mt-1 block text-[0.9375rem] leading-snug text-muted">{t("Snacks come out of what's left")}</span>}
                 {entries.length > 0 && (
                   <span className="mt-2.5 flex items-center gap-2.5">
                     <EntryAvatars pictures={pictures} />
@@ -237,11 +252,11 @@ export default function HomePage() {
       <AddFoodSheet meal={addTo} onClose={() => setAddTo(null)} onAdded={(entry, meal) => { setAddTo(null); setAdded({ entry, meal }); }} />
 
       {added && (
-        // At the top, clear of the meal rows and their + buttons: a second tap on the same + must never land on Undo.
-        <div role="status" className="fixed inset-x-4 top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-[1.75rem] bg-ink py-1.5 ps-5 pe-2 text-on-ink shadow-lg">
-          <span className="min-w-0 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{t(ADDED_TO[added.meal], { name: added.entry.name })}</span>
-          <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-on-ink underline underline-offset-2 transition hover:bg-white/10" onClick={() => { deleteLogEntry(added.entry.id); setAdded(null); }}>{t("Undo")}</button>
-        </div>
+        // The one toast (Toast.tsx), at the top, clear of the meal rows and their + buttons: a second tap on the same + must never land on Undo. A new key for
+        // each thing added, so its time starts afresh.
+        <Toast key={added.entry.id} onClose={() => setAdded(null)} onUndo={() => { deleteLogEntry(added.entry.id); setAdded(null); }}>
+          {t(ADDED_TO[added.meal], { name: added.entry.name })}
+        </Toast>
       )}
     </div>
   );

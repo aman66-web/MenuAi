@@ -18,7 +18,7 @@ function Field({ label, value, chosen, onClick }: { label: string; value: string
       type="button"
       onClick={onClick}
       aria-haspopup="dialog"
-      className={`glass relative block min-h-[3.75rem] w-full min-w-0 rounded-[1.25rem] pb-2 pe-9 ps-4 pt-[1.6rem] text-start transition-colors hover:bg-[color-mix(in_srgb,white_70%,var(--soft-strong))] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent ${chosen ? CHOSEN : ""}`}
+      className={`glass relative block min-h-[3.75rem] w-full min-w-0 rounded-[1.25rem] pb-2 pe-9 ps-4 pt-[1.6rem] text-start transition-colors hover:bg-[color-mix(in_srgb,var(--card)_70%,var(--soft-strong))] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent ${chosen ? CHOSEN : ""}`}
     >
       <span className={`pointer-events-none absolute start-4 top-2.5 max-w-[calc(100%-3rem)] truncate ${LABEL}`}>{label}</span>
       <span className="block truncate text-base font-semibold leading-snug">{value}</span>

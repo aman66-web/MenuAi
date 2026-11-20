@@ -338,7 +338,7 @@ await step("a photo picked from the phone is scanned the same way; Next shows th
   await ctx.close();
 });
 
-await step("Pip's recipe is saved as it's made: the top button says Saved, Back goes straight back, and its heart in My meals takes it out with Undo", async () => {
+await step("Pip's recipe is saved as it's made: the button beside the title says Saved, Back goes straight back, and its heart in My meals takes it out with Undo", async () => {
   const { ctx, page, errors, sent } = await open();
   await pretend(page, sent, { delay: 200 });
   const toRecipe = async () => {
@@ -349,11 +349,14 @@ await step("Pip's recipe is saved as it's made: the top button says Saved, Back 
   };
   const mine = () => page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.myRecipes") ?? "null")?.data ?? []);
   await toRecipe();
+  // Save sits beside the title in the sheet (colour meeting, 19 November 2026: the photo's top right is the Settings cog's)
   const top = page.getByRole("button", { name: "Saved to My recipes" }).first();
   await top.waitFor({ timeout: 3000 });
   const box = await top.boundingBox();
-  expect(box && box.y < 120 && box.x > page.viewportSize().width / 2, "Saved isn't at the top right: " + JSON.stringify(box));
-  expect((await top.getAttribute("aria-pressed")) === "true", "the top button isn't pressed");
+  const title = await page.getByRole("heading", { level: 1, name: RECIPE.name }).boundingBox();
+  expect(box && title && box.y >= title.y - 60 && box.y <= title.y + title.height + 60, "Saved isn't beside the title: " + JSON.stringify({ box, title }));
+  expect((await top.getAttribute("aria-pressed")) === "true", "the Save button isn't pressed");
+  expect((await top.innerText()).trim() === "Saved", "the button doesn't say Saved");
   // nothing to ask on the way out: it's already kept
   await page.getByRole("link", { name: /^Back/ }).first().tap();
   await page.waitForURL((u) => !u.pathname.endsWith("/recipes/photo"), { timeout: 8000 });

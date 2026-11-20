@@ -95,7 +95,8 @@ export function BestForYou({ index, meal, preferences, onClearFilters, bare = fa
               disabled={!enabled}
               className={`app-numbers group -mx-2 flex w-[calc(100%+1rem)] items-center gap-3.5 rounded-2xl px-2 py-3 text-start transition enabled:active:bg-[var(--fill)] enabled:hover:bg-[var(--fill)] focus-visible:outline-2 focus-visible:outline-accent ${photos ? "@container min-h-[4.75rem]" : "min-h-[4.5rem]"}`}
             >
-              <span aria-hidden className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[0.9375rem] font-bold ${i === 0 ? "bg-sun text-on-accent" : "bg-[var(--fill)] text-foreground"}`}>{i + 1}</span>
+              {/* the rank in ink on the page fill, the first one too: the order says it, not a colour (colour meeting, 19 November 2026) */}
+              <span aria-hidden className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-fill text-[0.9375rem] font-bold text-foreground">{i + 1}</span>
               {/* a locked (blurred) pick keeps the plain tile: its photo isn't fetched for a row nobody can read */}
               {photos && <span className="hidden shrink-0 @[17.5rem]:block"><ItemThumb image={enabled ? pickImage(index, pick) : undefined} placeholder /></span>}
               <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
@@ -131,8 +132,8 @@ export function BestForYou({ index, meal, preferences, onClearFilters, bare = fa
           {lockedRest && (
             <div className="relative mt-1">
               <div aria-hidden inert className="pointer-events-none select-none blur-sm">{lockedRest}</div>
-              <div className="absolute inset-0 flex items-start justify-center rounded-2xl bg-white/75 px-3 pt-4">
-                <Button onClick={() => showPaywall("bestForYou")} className="shadow-[0_12px_28px_-12px_rgba(17,24,20,0.5)]">
+              <div className="absolute inset-0 flex items-start justify-center rounded-2xl bg-card/75 px-3 pt-4">
+                <Button onClick={() => showPaywall("bestForYou")} className="shadow-[var(--shadow-lift)]">
                   <LockIcon className="h-5 w-5" />
                   {t("Unlock the other {n}", { n: result.picks.length - freeCount })}
                 </Button>
@@ -148,10 +149,11 @@ export function BestForYou({ index, meal, preferences, onClearFilters, bare = fa
           ) : (
             <>
               <div aria-hidden inert className="pointer-events-none select-none blur-sm">{cards}</div>
-              <div className="absolute inset-0 flex items-start justify-center rounded-2xl bg-white/75 px-3 pt-10">
-                <Button onClick={() => showPaywall("bestForYou")} className="shadow-[0_12px_28px_-12px_rgba(17,24,20,0.5)]">
+              <div className="absolute inset-0 flex items-start justify-center rounded-2xl bg-card/75 px-3 pt-10">
+                <Button onClick={() => showPaywall("bestForYou")} className="shadow-[var(--shadow-lift)]">
                   <LockIcon className="h-5 w-5" />
-                  {PAYMENTS_ENABLED ? t("See your 5 best orders · Try Pro free") : t("See your 5 best orders · Pro")}
+                  {/* "Premium" is the one name on screen (onboarding meeting, 19 November 2026) */}
+                  {PAYMENTS_ENABLED ? t("See your 5 best orders · Try Premium free") : t("See your 5 best orders · Premium")}
                 </Button>
               </div>
             </>

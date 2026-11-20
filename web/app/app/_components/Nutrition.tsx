@@ -4,11 +4,12 @@ import type { Nutrients } from "@/lib/mm/types";
 import { useT } from "../_lib/i18n";
 
 // The figures follow Home's language (founder 2026-10-15, "the rest of the app should match that elegance"): a big number in a medium
-// weight with its unit small beside it, small spaced capitals for labels, DM Mono for the figures in a row, and neutral grey fills
-// instead of tinted ones. One hue per macro stays as a small dot (labels only, never good/bad: CLAUDE.md rule 3).
+// weight with its unit small beside it, DM Mono for the figures in a row, and neutral grey fills instead of tinted ones. Since the colour
+// meeting (19 November 2026; approved by the founder that day) every figure is ink (protein no longer green), the macro dots are gone (a
+// coloured dot hints "good"), and labels are sentence case.
 
-/** A small label inside a card, in spaced capitals, as on Home's macro rows. */
-export const SMALL_LABEL = "text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted";
+/** A small label inside a card: sentence case, semibold, 13 px, in the secondary grey (colour meeting, 19 November 2026: spaced capitals were hard to read). */
+export const SMALL_LABEL = "text-[0.8125rem] font-semibold text-muted";
 
 /** Big calories + protein, then carbs and fat (SPEC §15: same order everywhere). */
 export function MacroSummary({ nutrients: n, label, compact }: { nutrients: Nutrients; label?: string; compact?: boolean }) {
@@ -82,7 +83,7 @@ export function MacroLine({ nutrients }: { nutrients: Nutrients }) {
 
 /**
  * Item detail hero (SPEC §7.5): the item itself (passed as children: chain, name, serving) on the one card, then big calories,
- * then protein, carbs and fat as three quiet grey tiles, each with its small colour dot (one row each when the card is narrow:
+ * then protein, carbs and fat as three quiet tiles in the page fill (one row each when the card is narrow:
  * large text, small phones). The numbers are one group so a screen reader hears them as one line.
  * Look (founder 2026-10-15, Home's language): the dish's photo runs to the card's edges at the top, the calories are one big figure in a
  * medium weight with "kcal" small beside it like Home's "1,030 / 2,800 kcal", and the tiles carry no tints. The earlier three-colour bar
@@ -90,10 +91,11 @@ export function MacroLine({ nutrients }: { nutrients: Nutrients }) {
  */
 export function ItemHero({ nutrients, name, children, media }: { nutrients: Nutrients; name: string; children?: React.ReactNode; media?: React.ReactNode }) {
   const t = useT();
-  const macros: Array<[string, number | undefined, boolean, string]> = [
-    [t("Protein"), nutrients.protein, true, "bg-protein"],
-    [t("Carbs"), nutrients.carbs, false, "bg-carbs"],
-    [t("Fat"), nutrients.fat, false, "bg-fat"],
+  // fixed order, no dots, every figure ink (colour meeting, 19 November 2026)
+  const macros: Array<[string, number | undefined]> = [
+    [t("Protein"), nutrients.protein],
+    [t("Carbs"), nutrients.carbs],
+    [t("Fat"), nutrients.fat],
   ];
   return (
     <div className="hero-card overflow-hidden rounded-[1.25rem]">
@@ -108,10 +110,10 @@ export function ItemHero({ nutrients, name, children, media }: { nutrients: Nutr
             {nutrients.energyKj !== undefined && <span className="font-mono text-[0.8125rem] text-muted">· {formatInt(nutrients.energyKj)} kJ</span>}
           </div>
           <dl className="mt-5 grid grid-cols-3 gap-2 @max-[17.5rem]:grid-cols-1">
-            {macros.map(([label, value, lead, hue]) => (
+            {macros.map(([label, value]) => (
               <div key={label} className="tile flex min-w-0 flex-col gap-2.5 rounded-2xl px-3.5 pb-3.5 pt-3 @max-[17.5rem]:flex-row @max-[17.5rem]:items-center @max-[17.5rem]:justify-between @max-[17.5rem]:px-4 @max-[17.5rem]:py-3">
-                <dt className={`flex items-center gap-1.5 ${SMALL_LABEL} tracking-[0.1em]`}><span aria-hidden className={`dot ${hue}`} />{label}</dt>
-                <dd className={value === undefined ? "text-[0.9375rem] italic leading-snug text-muted" : `text-[1.625rem] font-medium leading-none tracking-[-0.02em] ${lead ? "text-foreground" : ""}`}>{value === undefined ? t("not published") : formatGrams(value)}</dd>
+                <dt className={SMALL_LABEL}>{label}</dt>
+                <dd className={value === undefined ? "text-[0.9375rem] italic leading-snug text-muted" : "text-[1.625rem] font-medium leading-none tracking-[-0.02em] text-foreground"}>{value === undefined ? t("not published") : formatGrams(value)}</dd>
               </div>
             ))}
           </dl>

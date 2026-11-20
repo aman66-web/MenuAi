@@ -16,6 +16,13 @@
   3.65:1 on the app's grey), which is white (--card); --danger (6.57:1 on white) only for app errors and destructive actions, on --danger-bg;
   --note-bg and --note-edge (4.84:1 on --note-bg) only for the one allergy note; --scrim behind every sheet; --tips-wash, the light dimming
   behind Pip's tips; --placeholder the mid grey (connector lines on ink). Accent green is for links, never for a figure, a price or a status line.
+  The whole colour system (colour meeting, 19 November 2026, approved by the founder that day: "Do whatever you think is best"): in the app the page is
+  #f4f5f6 and every card white with a solid 1px --line (#d9dedb, 1.36:1 on white, so groups don't melt into the page outdoors) and a faint shadow; a card
+  inside a card takes the page fill with no edge. Ink means "do this" or "your numbers"; lime (--sun) means only chosen, today, done or progress on ink, and
+  on a light surface every lime thing also has a 2px --on-accent edge and a tick (or a dot). --line as a fill means only "can't press yet". The two feature
+  tints (--tint-plan, the meal plan; --tint-cook, every "cook with what you have" card) carry nothing lime. Nothing here ever judges food, a price or going
+  over a target. Contrast, checked (tests/colourTokens.test.ts): text 4.5:1 or more on every surface it sits on, edges, ticks and progress 3:1 or more.
+  Raw colours belong in this file only (plus the allow-list: Pip, the app icon, water, the FSA lights, Apple and Google buttons, the map's "you" dot).
 */
 :root {
   --background: #ffffff;
@@ -51,35 +58,71 @@
   --placeholder: #6b716e;
   --danger: #b42318;
   --danger-bg: #fef3f2;
+  --on-danger: #ffffff;
   --note-bg: #fffbeb;
   --note-edge: #b45309;
   --scrim: rgba(0, 0, 0, 0.5);
   --tips-wash: rgba(0, 0, 0, 0.2);
+  /* The colour meeting's remaining pieces (19 November 2026). --on-sun is --on-accent by its meeting name: words, ticks and dots on lime (11.86:1) and the
+     2px edge round anything lime on a light surface (14.91:1 on white). The two feature tints carry #0b1a12 words (15.1 and 15.3:1) and a #7a817d edge
+     (3.36 and 3.41:1). A photo chip is a near-white pill floating on a food photo (ink on it is 15:1 or more over any photo), with a soft shadow. */
+  --on-sun: #052e16;
+  --tint-plan: #e4f0d0;
+  --tint-cook: #fbeccb;
+  --photo-chip: rgba(255, 255, 255, 0.92);
+  --photo-chip-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.28);
   color-scheme: light;
 }
 
 /* The app's own surface (founder 2026-10-15, from their reference pictures: "The background of the app should be light grey like the
    colour here", then "make the app look the cleanest you can"): the pictures' cool light grey with white cards on it and a deeper lime
    for bars and the calories dial. Every /app screen renders inside AppShell's .app-surface, so :has() sets these at the root and the
-   page, sticky bars, fades and sheets all follow. --soft-strong is a shade darker so chips and tracks show on the grey; --fill is the
-   light grey of a tile or button that sits on a white card. Weights follow the pictures' Urbanist: headings semi-bold rather than heavy
+   page, sticky bars, fades and sheets all follow. Weights follow the pictures' Urbanist: headings semi-bold rather than heavy
    (the variables Tailwind's font-extrabold, font-bold and font-semibold read), and running text at 500 rather than 400 so it stays easy
    to read on the grey. The colour meeting (19 November 2026): a darker secondary grey (testers called the old one faint) and a deep green for
    progress on light surfaces (4.99:1 on white, 3.67:1 against a line-coloured track); the day's numbers cards (ink) keep lime on their track
-   (HomeToday.tsx ON_DARK). */
+   (HomeToday.tsx ON_DARK). The rest of the meeting's tokens (same day): --line is a solid #d9dedb (an edge you can see on white, the empty part of a bar
+   on a light surface, and the fill of a button that can't be pressed yet: text-2 on it 6.13:1); --soft-strong is the same colour by its old name; --fill
+   (anything sitting flat inside a white card: tags, icon wells, the macro strip) is the page colour itself; --ring-track is the mid grey #6b716e, the empty
+   part of the dial and bars on the ink numbers cards (3.21:1 against ink, lime 3.97:1 on it). Protein, carbs and fat are told apart by their words and
+   their fixed order, never by a hue, so their old colours are all ink here (the website keeps its own until its own pass). */
 :root:has(.app-surface) {
   --background: #f4f5f6;
   --muted: #4a4f4c;
-  --soft-strong: #e9ecea;
-  --fill: #f1f3f2;
-  --line: rgba(17, 24, 20, 0.08);
+  --line: #d9dedb;
+  --soft-strong: var(--line);
+  --fill: var(--background);
   --tile: #ffffff;
+  --bubble: #ffffff;
   --bar: #4d7c0f;
+  --ring-track: #6b716e;
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --protein: var(--ink);
+  --carbs: var(--ink);
+  --fat: var(--ink);
   --font-weight-extrabold: 650;
   --font-weight-bold: 600;
   --font-weight-semibold: 550;
 }
 .app-surface { font-weight: 500; }
+/* Accessibility and platform settings (colour meeting, 19 November 2026). No grey flash on a tap (it looks like a disabled control); the text cursor and native
+   checkboxes, radios and sliders in the link green; selected text in lime with the dark green words on it (11.86:1). */
+.app-surface { -webkit-tap-highlight-color: transparent; caret-color: var(--accent); accent-color: var(--accent); }
+.app-surface ::selection { background: var(--sun); color: var(--on-accent); }
+/* "Increase contrast" (iOS) and other high-contrast settings: edges darken a step, card lines become the control edge, and captions and placeholders turn to
+   the body's ink. The fill of a button that can't be pressed yet keeps its light grey (--soft-strong), so its words read at 13:1. */
+@media (prefers-contrast: more) {
+  :root:has(.app-surface) { --line: #7a817d; --soft-strong: #d9dedb; --edge: #4a4f4c; --muted: #0b1a12; --placeholder: #4a4f4c; }
+}
+/* Classic Invert Colours turns the whole page round, photos and logos too: these are turned back so food and every chain's own logo file keep their true
+   colours (CLAUDE.md rule 2: a logo is never recoloured). A tile marked data-reinvert is turned back with what is in it, so its picture isn't turned twice. */
+@media (inverted-colors: inverted) {
+  .app-surface :is(img, video, svg.pip), .app-surface [data-reinvert] { filter: invert(1) hue-rotate(180deg); }
+  .app-surface [data-reinvert] :is(img, video, svg.pip) { filter: none; }
+}
+/* Inside an ink surface (the numbers cards, a toast, the paywall's top): a focus ring in lime (12.72:1 against ink) instead of the link green. Unlayered, so it
+   wins over a control's own focus-visible:outline-accent. Only for what sits inside: the surface's own ring falls on the light page round it. */
+.on-ink :focus-visible { outline-color: var(--sun); }
 /* The floating tab bar covers the bottom of the screen; tabbing to something under it scrolls it clear (WCAG 2.4.11 Focus Not Obscured). The bar's top
    edge is about 80 px up; 7rem grows with the text size. */
 :root:has(.app-surface) { scroll-padding-bottom: 7rem; }
@@ -102,8 +145,21 @@
   --color-edge: var(--edge);
   --color-danger: var(--danger);
   --color-danger-bg: var(--danger-bg);
+  --color-on-danger: var(--on-danger);
   --color-note-bg: var(--note-bg);
   --color-note-edge: var(--note-edge);
+  /* the colour meeting's other tokens as utilities (bg-sun, border-on-sun, bg-tint-plan, bg-fill, text-placeholder, bg-photo-chip and so on) */
+  --color-sun: var(--sun);
+  --color-on-sun: var(--on-sun);
+  --color-fill: var(--fill);
+  --color-tint-plan: var(--tint-plan);
+  --color-tint-cook: var(--tint-cook);
+  --color-placeholder: var(--placeholder);
+  --color-ring-track: var(--ring-track);
+  --color-bar: var(--bar);
+  --color-photo-chip: var(--photo-chip);
+  --color-scrim: var(--scrim);
+  --color-tips-wash: var(--tips-wash);
   --font-sans: var(--font-sans-loaded), var(--font-sans-ext), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-mono-loaded), ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-serif: var(--font-serif-loaded), Georgia, "Times New Roman", serif;
@@ -138,7 +194,9 @@ p { text-wrap: pretty; }
 .kicker { font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; line-height: 1.3; color: var(--accent); }
 /* In the app the accents follow the reference picture's text: a kicker is a small uppercase label (like its "BODYWEIGHT"), and an
    accent word in a heading is the heading's own sans, set apart by colour only. */
-.app-surface .kicker { font-family: var(--font-sans); font-style: normal; font-size: 0.8125rem; font-weight: 700; line-height: 1.35; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+/* Since the colour meeting (19 November 2026) in sentence case, semibold, at least 13 px, in the secondary grey: spaced capitals were hard to read for older
+   testers. */
+.app-surface .kicker { font-family: var(--font-sans); font-style: normal; font-size: 0.8125rem; font-weight: var(--font-weight-semibold); line-height: 1.35; letter-spacing: 0; text-transform: none; color: var(--muted); }
 .app-surface .serif-em { font-family: inherit; font-style: normal; font-weight: inherit; letter-spacing: inherit; }
 /* Headings in one plain ink, like every one of the founder's reference pictures ("make the app look the cleanest you can", 2026-10-15):
    an accent word in a heading no longer turns green (it is unlayered, so it beats .sun-text in the components layer). Figures, prices and
@@ -174,7 +232,7 @@ p { text-wrap: pretty; }
 /* Surfaces, in the components layer so a utility on the same element (a selected state, a hover colour, bg-white) wins over them. */
 @layer components {
   .sun-text { background: var(--sun-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .bg-sun { background: var(--sun); }
+  /* bg-sun is the Tailwind utility now (--color-sun in @theme). */
   .btn-sun { background: var(--sun); }
   .glass { background: var(--soft); border: 1px solid var(--line); box-shadow: var(--card-shadow); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
   .glow-shadow { box-shadow: 0 10px 26px -10px var(--brand-shadow); }
@@ -192,16 +250,48 @@ p { text-wrap: pretty; }
   /* A quiet tile inside a hero card (macro tiles, target figures). */
   .tile { background: var(--tile); border: 1px solid var(--line); }
 
-  /* The app, cleaned up after the founder's reference pictures (2026-10-15: "make the app look the cleanest you can"): white cards with
-     no outline on the light grey page, flat colours instead of gradients and glows, and anything that sits on a white card (a tile, a
-     button, a chip) gets a light grey fill instead of an outline so it still shows. */
+  /* The app, cleaned up after the founder's reference pictures (2026-10-15: "make the app look the cleanest you can"): white cards on the light grey page,
+     flat colours instead of gradients and glows. Since the colour meeting (19 November 2026) every card keeps its 1px --line edge (white on the page is only
+     1.09:1, and shadows vanish outdoors), with a faint shadow; a card inside a card, or inside a sheet, takes the page fill with no edge and no shadow. */
   .app-surface .glass,
   .app-surface .hero-card,
-  .app-surface .tile { border-color: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
-  .app-surface :is(.glass, .hero-card, .inset-card) :is(.glass, .tile) { background: var(--fill); box-shadow: none; }
+  .app-surface .tile { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .app-surface :is(.glass, .hero-card, .inset-card) :is(.glass, .tile),
+  .sheet-panel :is(.glass, .hero-card, .tile) { background: var(--fill); border-color: transparent; box-shadow: none; }
   .app-surface .inset-card { background: var(--fill); border-color: transparent; }
+  /* Icon wells: the page fill with the icon in the link green (6.44:1 on white, 5.90:1 in the well), never a lime disc (lime means chosen). */
+  .app-surface .icon-bubble { background: var(--fill); color: var(--accent); }
   .app-surface .icon-bubble-soft { background: var(--fill); color: var(--foreground); }
-  .app-surface :is(.glass, .hero-card, .inset-card) .icon-bubble-soft { background: var(--soft-strong); }
+
+  /* A photo chip: a control or pill floating on a food photo (Back, Settings, expand, the heart, the kcal pill): near-white with a soft shadow, ink words.
+     The one you can tap has the 1px control edge; a pill you can't tap has the card line. Nothing else ever sits on a food photo. */
+  .photo-chip { background: var(--photo-chip); color: var(--foreground); border: 1px solid var(--edge); box-shadow: var(--photo-chip-shadow); }
+  .photo-tag { background: var(--photo-chip); color: var(--foreground); border: 1px solid var(--line); box-shadow: var(--photo-chip-shadow); }
+  /* The only overlay a food photo may carry: a light dark band over its top 60 px, so the iPhone's status bar stays readable over a full-width hero photo. */
+  .status-band { position: absolute; inset-inline: 0; top: 0; height: 60px; pointer-events: none; background: linear-gradient(rgba(0, 0, 0, 0.3), transparent); }
+
+  /* The marks of a choice drawn by CSS, for the class-string chips (groceries/PageBits.tsx CHIP and CHIP_ON): an empty 16 px ring in the mark's place when
+     not chosen, a 2px-stroke tick in the words' colour (on-sun on lime, 11.86:1) when chosen. Only on something you can tap, and only where the chip doesn't
+     draw its own mark (an icon as its first child: the fridge's "+", a caller's own tick). */
+  :is(button, a).choice-off:not(:has(> svg:first-child))::before,
+  :is(button, a).choice-on:not(:has(> svg:first-child))::before { content: ""; flex-shrink: 0; width: 1rem; height: 1rem; }
+  :is(button, a).choice-off:not(:has(> svg:first-child))::before { border-radius: 9999px; border: 1.5px solid var(--edge); }
+  :is(button, a).choice-on:not(:has(> svg:first-child))::before {
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  /* A select drawn as a field (ui.tsx inputClass): our own ink chevron 16 px from its end instead of the browser's arrow, unless an icon already follows it. */
+  select.field-select:not(:has(+ svg)) {
+    appearance: none;
+    padding-inline-end: 2.75rem;
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    background-position: right 1rem center;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d2320' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  }
+  [dir="rtl"] select.field-select:not(:has(+ svg)) { background-position: left 1rem center; }
 }
 
 /* Horizontal chip rows scroll by touch; the scrollbar would only add noise. */
@@ -265,7 +355,7 @@ p { text-wrap: pretty; }
 [dir="rtl"] .speech::before { left: auto; right: -7px; border-left: 0; border-bottom: 0; border-right: 1px solid var(--line); border-top: 1px solid var(--line); border-bottom-left-radius: 0; border-top-right-radius: 3px; }
 
 /* Onboarding intro: a large speech bubble above Pip, its tail pointing down at Pip. */
-.speech-down { position: relative; background: var(--bubble); border: 1px solid var(--line); box-shadow: var(--shadow-lift); }
+.speech-down { position: relative; background: var(--bubble); border: 1px solid var(--line); box-shadow: var(--card-shadow); } /* a light shadow: only floating layers carry the strong one */
 .speech-down::after { content: ""; position: absolute; left: 50%; bottom: -10px; width: 20px; height: 20px; background: var(--bubble); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transform: translateX(-50%) rotate(45deg); border-bottom-right-radius: 4px; }
 
 /* A short, quiet burst of colour from behind the bubble ("Let's go!"); nothing for reduced motion. */
@@ -308,7 +398,7 @@ p { text-wrap: pretty; }
 @media (prefers-reduced-motion: no-preference) { .speech-tour::after { transition: inset-inline-start 0.7s cubic-bezier(0.34, 1.25, 0.5, 1); } }
 
 /* Pip's recipe maker: three dots while it writes (still for reduced motion) */
-.dot-pulse { display: inline-block; width: 0.7rem; height: 0.7rem; border-radius: 9999px; background: var(--accent); animation: dot-pulse 1.1s ease-in-out infinite; }
+.dot-pulse { display: inline-block; width: 0.7rem; height: 0.7rem; border-radius: 9999px; background: var(--ink); animation: dot-pulse 1.1s ease-in-out infinite; } /* ink: waiting adds no colour of its own */
 @keyframes dot-pulse { 0%, 80%, 100% { transform: scale(0.6); opacity: 0.45; } 40% { transform: scale(1); opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .dot-pulse { animation: none; opacity: 0.8; } }
 
@@ -354,7 +444,8 @@ html[data-i18n-pending] body {
 
 /* Make it at home (founder 2026-11-17): the camera's scanning look (corner marks and a light that sweeps over the dish), the word "Scanning" with its dots, and the
    loading screen's shimmer, glow and filling bar. All of it holds still for reduced motion. */
-.scan-corner { position: absolute; width: 2.75rem; height: 2.75rem; border-color: var(--sun); filter: drop-shadow(0 0 6px rgba(214, 239, 160, 0.6)); }
+/* The viewfinder's corners are white on the camera's picture (colour meeting, 19 November 2026), with a soft dark shadow so they show over a pale plate too. */
+.scan-corner { position: absolute; width: 2.75rem; height: 2.75rem; border-color: var(--on-ink); filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.45)); }
 .scan-line {
   position: absolute; inset-inline: 1rem; top: 6%; height: 3px; border-radius: 9999px;
   background: linear-gradient(90deg, transparent, var(--sun) 20%, #fff 50%, var(--sun) 80%, transparent);
@@ -368,8 +459,8 @@ html[data-i18n-pending] body {
 .scan-dots i:nth-child(3) { animation-delay: 0.3s; }
 .work-glow { animation: work-glow 2.2s ease-in-out infinite; }
 @keyframes work-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(140, 198, 63, 0), 0 18px 40px -18px rgba(17, 24, 20, 0.45); }
-  50% { box-shadow: 0 0 0 10px rgba(140, 198, 63, 0.22), 0 18px 40px -18px rgba(17, 24, 20, 0.45); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(214, 239, 160, 0), 0 18px 40px -18px rgba(0, 0, 0, 0.45); }
+  50% { box-shadow: 0 0 0 10px rgba(214, 239, 160, 0.3), 0 18px 40px -18px rgba(0, 0, 0, 0.45); }
 }
 .work-shimmer {
   position: absolute; inset-block: 0; inset-inline-start: 0; width: 35%;
@@ -397,40 +488,51 @@ html[data-i18n-pending] body {
 
 /* The Truth & Swap cards (viral upgrade, Nov 2026). Two things only: the official-scheme colours for the FSA pills, and a dark card for filming.
    - Pills: the traffic-light fills are fixed (the same on a light or a dark card) with near-black words (green 11.1:1, amber 11.6:1, red 7.4:1), so a
-     colour never depends on the theme around it. They are only ever used for fat, saturates, sugars and salt, as the FSA guidance says.
-   - .truth-dark: #09090B with white words (19.4:1) and a muted grey of 12.9:1, so a phone camera filming the screen never blows out a white card.
-     The app itself stays light (founder 2026-10-15); the dark card is used in Creator View and in the saved image card only. Every colour inside
-     follows the variables, so any component works on it unchanged. */
+     colour never depends on the theme around it. They are only ever used for fat, saturates, sugars and salt, as the FSA guidance says. Their words are
+     the body's #0b1a12 (10.05, 9.81 and 6.44:1), and Low, Medium or High is always printed in each pill, so the colour is never the only sign.
+   - .truth-dark (colour meeting, 19 November 2026: ink, sun and white, replacing #09090b, the zinc greys and #bef264): the ink page with white words
+     (15.99:1) and the light grey of 10.26:1, cards drawn as ink with a mid-grey edge (#6b716e, 3.21:1), lime as the accent (12.72:1 against ink), so a phone
+     camera filming the screen never blows out a white card. A main button on it is white with ink words (a main button on an ink surface); a chosen chip is
+     lime with its dark words. The app itself stays light (founder 2026-10-15); the dark card is used in Creator View and in the saved image card only. Every
+     colour inside follows the variables, so any component works on it unchanged. */
 :root {
   --tl-green: #3ddc84;
   --tl-amber: #ffb020;
   --tl-red: #ff6b63;
   --tl-grey: #d4d4d8;
-  --tl-ink: #09090b;
+  --tl-ink: #0b1a12;
 }
 .truth-dark {
-  --background: #09090b;
-  --foreground: #fafafa;
-  --muted: #d4d4d8;
-  --line: rgba(255, 255, 255, 0.16);
-  --soft: #18181b;
-  --soft-strong: #27272a;
-  --fill: #18181b;
-  --accent: #bef264;
-  --accent-soft: rgba(190, 242, 100, 0.16);
-  --on-accent: #09090b;
+  --background: #1d2320;
+  --foreground: #ffffff;
+  --muted: #c9d1cc;
+  --line: #6b716e;
+  --edge: #7a817d;
+  --soft: #1d2320;
+  --soft-strong: #3d4642;
+  --fill: #3d4642;
+  --tile: #3d4642;
+  --bubble: #1d2320;
+  --placeholder: #c9d1cc;
+  --accent: #d6efa0;
+  --accent-soft: rgba(214, 239, 160, 0.16);
+  --on-accent: #052e16;
   --card-shadow: none;
-  /* The shared controls (ui.tsx) draw with the colour meeting's tokens; on this dark card they keep the look they had (a white main button
-     and chosen chip with near-black words, dark secondary buttons) until the Truth card has its own colour pass. */
-  --card: #18181b;
-  --ink: #fafafa;
-  --ink-pressed: #d4d4d8;
-  --on-ink: #09090b;
-  background: #09090b;
-  color: #fafafa;
+  --ring-track: #6b716e;
+  --bar: #d6efa0;
+  --protein: #ffffff;
+  --carbs: #ffffff;
+  --fat: #ffffff;
+  --card: #1d2320;
+  --ink: #ffffff;
+  --ink-pressed: #f4f5f6;
+  --on-ink: #1d2320;
+  --on-ink-2: #4a4f4c;
+  background: #1d2320;
+  color: #ffffff;
   color-scheme: dark;
 }
-.truth-dark .glass { background: #18181b; box-shadow: none; }
+.truth-dark .glass { background: #1d2320; box-shadow: none; }
 @keyframes truth-bounce { 0% { transform: scale(0.88); opacity: 0; } 60% { transform: scale(1.06); opacity: 1; } 100% { transform: scale(1); } }
 @keyframes truth-drop { from { transform: translateY(-10px) scale(0.6); opacity: 0; } to { transform: none; opacity: 1; } }
 @media (prefers-reduced-motion: no-preference) {

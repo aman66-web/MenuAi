@@ -1,7 +1,7 @@
 "use client";
 
 import { ShopMark } from "../_components/ChainMark";
-import { CheckIcon } from "../_components/icons";
+import { ChoiceMark } from "../_components/ui";
 import { useT } from "../_lib/i18n";
 
 /**
@@ -24,14 +24,15 @@ export function ShopChoice({ shops, value, onChange, canMake }: { shops: Readonl
             aria-checked={on}
             disabled={!can && !on}
             onClick={() => onChange(s.id)}
-            className={`flex min-h-[3.5rem] w-full items-center gap-3 rounded-[1.25rem] p-2.5 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "bg-sun text-on-accent" : can ? "glass hover:bg-soft-strong" : "glass opacity-100 text-muted"}`}
+            className={`flex min-h-[3.5rem] w-full items-center gap-3 rounded-[1.25rem] p-2.5 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent border-[1.5px] ${on ? "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : can ? "border-edge bg-card hover:bg-background" : "border-transparent bg-soft-strong text-muted"}`}
           >
             <ShopMark shopId={s.id} size="sm" />
             <span className="min-w-0 flex-1">
               <span className="block text-[1.0625rem] font-bold leading-snug [overflow-wrap:anywhere]">{s.name}</span>
               {!can && !on && <span className="block text-[0.8125rem] leading-snug">{t("Can't make this recipe")}</span>}
             </span>
-            {on && <span aria-hidden className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-foreground text-background"><CheckIcon className="h-4 w-4" /></span>}
+            {/* chosen: lime with the 2 px dark green edge and a tick in a circle (colour meeting, 19 November 2026); a shop that can't make it shows its reason */}
+            {(on || can) && <ChoiceMark on={on} kind="circle" />}
           </button>
         );
       })}

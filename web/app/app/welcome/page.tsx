@@ -6,14 +6,15 @@ import { parseNumber } from "@/lib/mm/addFood";
 import { formatInt } from "@/lib/mm/format";
 import { retailerName } from "@/lib/mm/groceries";
 import { POPULAR_ORDER } from "@/lib/mm/popular";
-import { analytics } from "@/lib/mm/analytics";
-import { GATING_ENABLED, LOGOS_ENABLED, SIGN_IN_REQUIRED, TEXT_SIZE_CHOICE_ENABLED } from "@/lib/mm/config";
+import { analytics, reportSetupScreen, type SetupScreen } from "@/lib/mm/analytics";
+import { GATING_ENABLED, LOGOS_ENABLED, TELEMETRY_ENABLED, TEXT_SIZE_CHOICE_ENABLED } from "@/lib/mm/config";
 import { tk } from "@/lib/mm/i18n";
 import { EMPTY_BODY, bodyProblems, planFromAnswers, readTargetFields, type BodyAnswers } from "@/lib/mm/onboardingPlan";
 import { recipeShopSet } from "@/lib/mm/shopProducts";
 import { macroTargets } from "@/lib/mm/targets";
 import { coachAfterWelcome } from "@/lib/mm/coach";
 import { coachStore, settingsStore, tourStore, updateSettings } from "@/lib/mm/stores";
+import { afterSignIn, sanitizeResume, SIGN_IN_RESUME_KEY, typedSetup, type SignInReason, type SignInResume, type TypedSetup } from "@/lib/mm/signInGate";
 import { TOUR_VERSION } from "@/lib/mm/tour";
 import type { Goal, Preferences } from "@/lib/mm/types";
 import { TEXT_SCALE, type TextSize, type UserSettings } from "@/lib/mm/user-data";
@@ -36,9 +37,11 @@ import { RecipeChoice } from "./RecipeChoice";
 import { TargetsStep } from "./TargetsStep";
 import { PipTour, TOUR_STOPS, TourRows } from "./Tour";
 import { useTargetFields } from "./useTargetFields";
-import { SignInSheet } from "../_components/SignIn";
+import { SignInSheet, SigningIn } from "../_components/SignIn";
 import { SignInScreen } from "../_components/SignInScreen";
-import { useAccountChecking, useAccountUser } from "../_lib/account";
+import { holdTrialOfferThisVisit } from "../_components/TrialOffer";
+import { signInOutcome, signInSettled, useAccountChecking, useAccountUser } from "../_lib/account";
+import { useSignInRequired } from "../_lib/appSwitches";
 import { radioKeyNav, Spinner } from "../_components/ui";
 import { travelBack } from "../_lib/backNav";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
@@ -72,6 +75,14 @@ import { Rich } from "../_lib/Rich";
 // One honest counter (the onboarding meeting, 19 November: a 7-segment bar, then "Step 1 of 9", then "Tip 1 of 7" moved the finish line three times): the cover and
 // the first-run walk show no bar and no counter (each stop's headline says "stop n of 4" to a screen reader only); the seven questions show "Step n of 7" and their
 // bar; the last screen shows neither. The replay keeps its own "Step n of 4" and bar.
+// Where everyone signs in (SIGN_IN_REQUIRED, unless numbite.com's switches file made it optional: _lib/appSwitches.ts), the account is asked for after "Your daily
+// targets", as "Save your plan: make your free account", still before Home (the onboarding meeting of 19 November, questions 1 and 4, approved by the founder that
+// day): the cover, the walk and the first six questions open without an account, and nobody reaches a page of the app unsigned. "Look around first" goes through
+// the same screen ("Make your free account"), and the cover's "Already have an account? Sign in" opens it at once ("Welcome back. Sign in"). Once signed in, the
+// page waits for the account's settings (a second or two, _lib/account.ts signInSettled): an account already set up goes straight to the app with its own settings
+// (they win over anything typed here), a new one keeps the goal, the targets, the foods avoided and the shops typed on this phone (lib/mm/signInGate.ts
+// afterSignIn). Someone who leaves during the questions or at the sign-in screen comes back here on the next plain start (lib/mm/tour.ts tourDue), at the choice
+// after the walk, which they have seen. The answers about the person still never leave this page's memory.
 
 const GOALS: ReadonlyArray<{ value: Goal; label: string; hint: string; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode }> = [
   { value: "lose", label: tk("Lose weight"), hint: tk("Meals and orders that fit a lower calorie target"), Icon: TrendDownIcon },
@@ -95,15 +106,21 @@ const COVER = 0, TEXT = TEXT_SIZE_CHOICE_ENABLED ? 2 : -1, STOP0 = TEXT_SIZE_CHO
 const GOAL = 1, AVOID = 2, ABOUT = 3, SIZE = 4, ACTIVE = 5, TARGETS = 6, SHOPS = 7, ALL_SET = 8;
 // The four daily target boxes (not GLP-1's meal size): a change to any of them makes the targets the person's own (saveTargets).
 const TARGET_BOXES = ["calories", "protein", "carbs", "fat"] as const;
+// Each question's name in the anonymous setup screen counts (lib/mm/analytics.ts; off unless NEXT_PUBLIC_TELEMETRY_APP_ID is set).
+const QUESTION_SCREENS: Readonly<Record<number, SetupScreen>> = { [GOAL]: "goal", [AVOID]: "avoid", [ABOUT]: "aboutYou", [SIZE]: "yourSize", [ACTIVE]: "activity", [TARGETS]: "targets", [SHOPS]: "shops", [ALL_SET]: "allSet" };
 // Logo files over about 60 KB: kept off the welcome wall so the first screen loads quickly (they still show everywhere else; a chain with
 // its own small square icon is shown by that instead).
 const HEAVY_LOGOS = new Set(["british-garden-centres", "daves-hot-chicken", "pubsmiths", "popeyes", "park-holidays-uk", "toby-carvery", "the-breakfast-club", "butcombe-inns", "parsons-bakery", "buzz-bingo", "greene-king", "giggling-squid", "joseph-holt", "castle-carvery"]);
 
 const SCREEN = "flex min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_2rem)] flex-col";
-const LIME = "bg-[var(--sun)]"; // the brand's flat lime: no gradients (founder 2026-10-15)
-// A round grey button like Home's calendar button: a 36 px circle inside a 44 px tap area.
-const ROUND = "group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
-const ROUND_IN = "inline-flex h-9 w-9 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft transition-colors group-hover:bg-[var(--fill)]";
+// The colour meeting (19 November 2026, approved by the founder that day): lime means only "chosen" here. A chosen answer is lime with a 2 px dark green edge, a
+// tick and bold dark green words; an unchosen one is white with the 1.5 px control edge and an empty tick ring in the same place, so a choice never looks like a
+// button and the words never jump when it is ticked (the half pixel of edge it lacks is padding, so nothing moves).
+const CHOICE = "flex w-full items-center gap-3.5 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+const CHOSEN = "border-2 border-on-sun bg-sun px-4 py-3 text-on-sun";
+const UNCHOSEN = "border-[1.5px] border-edge bg-card px-[16.5px] py-[12.5px] text-foreground hover:bg-background active:bg-background";
+// A secondary control (Back, Skip, "Skip tour", Close): white with the 1.5 px control edge and ink words, the page fill when pressed.
+const SECONDARY = "border-[1.5px] border-edge bg-card text-foreground transition active:scale-[0.97] active:bg-background hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 // Every headline takes the focus when its screen appears (so a screen reader starts there); the app's no-focus-box rule (17 Nov) keeps it unboxed.
 const H1 = "outline-none";
 // The line beside a grey Continue that says why it is grey (one screen at a time, so one id), linked to the button with aria-describedby.
@@ -118,6 +135,31 @@ function afterOnboarding(): string {
   const target = new URLSearchParams(window.location.search).get("next");
   if (!target || !/^\/app(?![\w-])/.test(target) || target.startsWith("//") || target.startsWith("/app/welcome")) return "/app";
   return target.includes("#") ? target : target + window.location.hash;
+}
+
+/** The website's Apple and Google sign-in leaves this page and comes back with ?signin=ok: why the sign-in screen was showing, and what was typed, wait in this tab's
+ *  session storage meanwhile (lib/mm/signInGate.ts SignInResume; never the answers about the person's body). Storage that is blocked only means the cover's next
+ *  screen follows, as before. */
+function saveResume(r: SignInResume): void {
+  try {
+    sessionStorage.setItem(SIGN_IN_RESUME_KEY, JSON.stringify(r));
+  } catch {
+    /* storage blocked */
+  }
+}
+function readResume(): SignInResume | null {
+  try {
+    return sanitizeResume(JSON.parse(sessionStorage.getItem(SIGN_IN_RESUME_KEY) || "null"));
+  } catch {
+    return null;
+  }
+}
+function forgetResume(): void {
+  try {
+    sessionStorage.removeItem(SIGN_IN_RESUME_KEY);
+  } catch {
+    /* storage blocked */
+  }
 }
 
 /** The welcome screens are a static shell (like the restaurant page): `?tour=1` is read once on the phone, with the loading line until then. */
@@ -142,28 +184,41 @@ function Welcome() {
   const initial = settingsStore.get();
   // The app is English only (founder 2026-10-16), so there is no language screen. Step 0 is the welcome cover, then Pip's arrival, the text size,
   // the walk through the app and the choice (intro 1-8), then the seven questions (steps 1-7) and "You're all set!" with a first recipe (8).
-  const [step, setStep] = useState(0);
-  // Back from Apple or Google sign-in on the website (it adds ?signin=ok to this page): carry on after the cover, where Get started led
-  const [intro, setIntro] = useState(replay ? STOP0 : params.get("signin") === "ok" ? COVER + 1 : COVER);
+  // Back from Apple or Google sign-in on the website (it adds ?signin=ok to this page): the sign-in step it was on, if this tab noted one (saveResume)
+  const [resume] = useState(() => (!replay && params.get("signin") === "ok" ? readResume() : null));
+  const [step, setStep] = useState(resume?.reason === "setup" ? TARGETS : 0);
+  // Back from Apple or Google without a note: carry on after the cover, as before
+  const [intro, setIntro] = useState(replay ? STOP0 : resume?.reason === "look" ? FORK : resume ? COVER : params.get("signin") === "ok" ? COVER + 1 : COVER);
   // set by "Skip tour", so the choice at the end doesn't say "That's the tour!" to someone who skipped it (the review of 2026-11-18)
   const [skippedTour, setSkippedTour] = useState(false);
   const [signInOpen, setSignInOpen] = useState(false);
-  // Everyone signs in (founder 2026-11-17, SIGN_IN_REQUIRED): Get started on the cover opens the sign-in screen first; the tour and the questions follow it.
-  const [signingUp, setSigningUp] = useState(false);
+  // Everyone signs in (SIGN_IN_REQUIRED, unless the switches file on numbite.com made it optional): which sign-in step is showing, if any (see the top of this file)
+  const signInRequired = useSignInRequired();
+  const [signInFor, setSignInFor] = useState<SignInReason | null>(resume?.reason ?? null);
+  // what was typed when the setup's sign-in opened (the goal, targets, diet and shops as saved here), for afterSignIn
+  const typed = useRef<TypedSetup | null>(resume?.typed ?? null);
+  const settling = useRef(false);
   const hydrated = useHydrated();
   // what has been saved so far: "You're all set!" shows this, so it is always what Home will show
   const settings = useSettings();
   const onboarded = settings.hasCompletedOnboarding;
   const [wasOnboarded] = useState(initial.hasCompletedOnboarding);
+  // Seen the walk on this phone, not set up and not signed in, where everyone signs in: someone who left during the questions or at the sign-in screen, sent back
+  // here by the next plain start (lib/mm/tour.ts tourDue). Get started then goes to the choice at the end of the walk, not round the walk again.
+  const [tourSeenAtStart] = useState(() => !replay && !initial.hasCompletedOnboarding && tourStore.get() >= TOUR_VERSION);
+  const resumeAtFork = tourSeenAtStart && signInRequired && !accountUser;
   // the supermarkets that have a full list in the app (Groceries' "Which shop?"), for the welcome wall's label
   const shopLists = useShopManifest();
+  // Once a finish has started (a recipe card, the restaurant row, Go to Home), a second tap does nothing: it would open the page twice.
+  const finishing = useRef(false);
 
-  // Signed in from this screen (an account that has already been set up, on a new phone): the settings arrive with the sync during this
-  // visit, so skip the questions. Someone who was already set up and opened this screen on purpose stays on it.
+  // The account's own settings arrived and say setup is finished (signed in on a new phone, or by another device meanwhile): to the app, with them. Not while the
+  // sign-in step is settling (it decides that itself), and not for someone who was already set up and opened this screen on purpose.
   useEffect(() => {
-    if (!hydrated || wasOnboarded || !onboarded || step > 0) return;
+    if (!hydrated || wasOnboarded || !onboarded || signInFor || finishing.current) return;
+    finishing.current = true;
     router.replace(afterOnboarding());
-  }, [hydrated, wasOnboarded, onboarded, step, router]);
+  }, [hydrated, wasOnboarded, onboarded, signInFor, router]);
   const t = useT();
   const [goal, setGoal] = useState<Goal>(initial.goal);
   const target = useTargetFields(initial);
@@ -186,8 +241,6 @@ function Welcome() {
   const goalShown = wasOnboarded || goalTouched;
   const [sizeTouched, setSizeTouched] = useState(false);
   const isPro = useIsPro();
-  // Once a finish has started (a recipe card, the restaurant row, Go to Home), a second tap does nothing: it would open the page twice.
-  const finishing = useRef(false);
   const pickGoal = (g: Goal) => {
     setGoal(g);
     setGoalTouched(true);
@@ -221,12 +274,43 @@ function Welcome() {
 
   const next = () => {
     if (step === 0) {
-      if (SIGN_IN_REQUIRED && intro === COVER && !accountUser) setSigningUp(true);
+      // set up on this phone and signed out (Settings › Sign out comes here): Get started is their way back in, at the sign-in screen headed "Welcome back"
+      if (intro === COVER && signInRequired && !accountUser && wasOnboarded) openSignIn("returning");
+      else if (intro === COVER) startFromCover();
       else if (intro < FORK) setIntro((i) => i + 1);
       else setStep(GOAL);
-    } else setStep((s) => Math.min(ALL_SET, s + 1));
+    } else if (step === TARGETS && signInRequired && !accountUser) openSignIn("setup");
+    else setStep((s) => Math.min(ALL_SET, s + 1));
     window.scrollTo({ top: 0 });
   };
+  // Get started (and the cover's sign-in for an account not set up yet): Pip's arrival; or, for someone who has seen the walk and left during the questions, the
+  // choice at its end (as after "Skip tour", so it doesn't say "That's the tour").
+  const startFromCover = () => {
+    if (resumeAtFork) {
+      setSkippedTour(true);
+      setIntro(FORK);
+    } else setIntro(COVER + 1);
+    window.scrollTo({ top: 0 });
+  };
+  // The sign-in step: after the targets (setup), from "Look around first" (look) or from the cover's link (returning). What was typed is noted for afterSignIn,
+  // and, for the website's Apple and Google sign-in, which leaves this page, in this tab's session storage.
+  const openSignIn = (reason: SignInReason) => {
+    typed.current = reason === "setup" ? typedSetup(settingsStore.get()) : null;
+    saveResume({ reason, typed: typed.current });
+    setSignInFor(reason);
+    window.scrollTo({ top: 0 });
+  };
+  // Back from the sign-in step, to the screen it was opened from (kept as it was left).
+  const closeSignIn = () => {
+    forgetResume();
+    typed.current = null;
+    setSignInFor(null);
+    window.scrollTo({ top: 0 });
+  };
+  // Sign-in made optional while its screen was waiting (numbite.com's switches file arrived): back to the screen it was opened from, which now carries on without it.
+  useEffect(() => {
+    if (!signInRequired && signInFor && !accountUser && !settling.current) closeSignIn();
+  }, [signInRequired]); // eslint-disable-line react-hooks/exhaustive-deps -- only when the switch changes
   // Back to the screen before; what was chosen is kept. The first question goes back to the choice at the end of the walk. The targets screen reached by a
   // jump (skip, or an age under 18) goes back to the screen the person jumped from. The replay's first stop leaves the tour.
   const back = () => {
@@ -243,14 +327,53 @@ function Welcome() {
   const leave = () => {
     if (!travelBack(router, "/app/settings")) router.replace("/app/settings");
   };
-  // Skip on the welcome screen and "Look around first": straight to the app (the setup card waits on Home and Eat out); the tour counts as seen.
+  // "Look around first" (once signed in, where everyone signs in): straight to the app (the setup card waits on Home and Eat out); the tour counts as seen.
   const lookAround = () => {
     analytics.track({ name: "onboardingSkipped", step: 0 });
+    toApp();
+  };
+  // Into the app from the welcome screens without finishing the questions ("Look around first", or an account already set up): the tour counts as seen, Pip's
+  // tips on each tab's real buttons follow (lib/mm/coach.ts; after a walked tour they leave out what the walk already showed, the tab bar), and the free-trial
+  // offer waits for another day (_components/TrialOffer.tsx).
+  const toApp = () => {
+    if (finishing.current) return;
+    finishing.current = true;
     tourStore.set(TOUR_VERSION);
-    // Pip's tips on each tab's real buttons (lib/mm/coach.ts); after a walked tour they leave out what the walk already showed (the tab bar)
     coachStore.set(coachAfterWelcome(coachStore.get(), { walkedTour: !skippedTour }));
+    holdTrialOfferThisVisit();
     router.replace(afterOnboarding());
   };
+
+  // Signed in at the sign-in step (in the iPhone app at once; on the website back from Apple or Google, once the app knows who): wait for the account's settings,
+  // then carry on (lib/mm/signInGate.ts afterSignIn). Meanwhile the screen shows "Signing you in…".
+  useEffect(() => {
+    if (!signInFor || !accountUser || settling.current) return;
+    settling.current = true;
+    const reason = signInFor;
+    void signInSettled().then(() => {
+      settling.current = false;
+      forgetResume();
+      const current = settingsStore.get();
+      const after = afterSignIn({ reason, setUp: current.hasCompletedOnboarding, ...signInOutcome(), current, typed: typed.current });
+      typed.current = null;
+      if (after.to === "app") {
+        // an account already set up: its own settings, straight to the app (from the cover's link as before: no tour marked, no tips changed)
+        if (reason === "returning") {
+          finishing.current = true;
+          router.replace(afterOnboarding());
+        } else toApp();
+        return;
+      }
+      if (after.to === "home") return lookAround();
+      setSignInFor(null);
+      if (after.to === "tour") return startFromCover();
+      if (Object.keys(after.restore).length > 0) updateSettings(after.restore);
+      // the shops as saved now (a new account's, typed earlier or not at all)
+      setShops(settingsStore.get().shops ?? []);
+      setStep(SHOPS);
+      window.scrollTo({ top: 0 });
+    });
+  }, [signInFor, accountUser]); // eslint-disable-line react-hooks/exhaustive-deps -- runs once per sign-in; the functions it calls read only refs and setters
   // "Skip tour": to the choice at the end of the walk.
   const skipTour = () => {
     analytics.track({ name: "onboardingSkipped", step: 0 });
@@ -292,6 +415,7 @@ function Welcome() {
   const finish = (recipeHref?: string) => {
     if (finishing.current) return;
     finishing.current = true;
+    holdTrialOfferThisVisit(); // never straight after setup (_components/TrialOffer.tsx)
     updateSettings({ hasCompletedOnboarding: true });
     tourStore.set(TOUR_VERSION);
     coachStore.set(coachAfterWelcome(coachStore.get(), { walkedTour: !skippedTour })); // Pip's tips (lib/mm/coach.ts), as in lookAround
@@ -353,29 +477,34 @@ function Welcome() {
     return out;
   }, [real, hiddenLogos]); // eslint-disable-line react-hooks/exhaustive-deps -- logoFor reads the taken-down list, which hiddenLogos tracks
 
+  // The anonymous setup screen counts (the onboarding meeting of 19 November, question 10; lib/mm/analytics.ts): the name of the screen showing, sent once per page
+  // load, and only where NEXT_PUBLIC_TELEMETRY_APP_ID was set at build time (otherwise reportSetupScreen does nothing). Not for the replay (?tour=1), nor while a
+  // loading line shows. The sign-in step follows the same conditions as the screen chosen below.
+  const atSignIn = signInRequired && !accountUser && (!!signInFor || step >= SHOPS);
+  const setupScreen: SetupScreen | null =
+    replay || !hydrated || (signInFor && accountUser) || (atSignIn && accountChecking) ? null
+      : atSignIn ? (`signIn.${signInFor ?? "setup"}` as const)
+        : step !== 0 ? (QUESTION_SCREENS[step] ?? null)
+          : intro === COVER ? "cover"
+            : intro === TEXT ? "textSize"
+              : intro === FORK ? "fork"
+                : intro >= STOP0 && TOUR_STOPS[intro - STOP0] ? (`tour.${TOUR_STOPS[intro - STOP0]!.id}` as const)
+                  : "arrival";
+  useEffect(() => {
+    if (setupScreen) reportSetupScreen(setupScreen);
+  }, [setupScreen]);
+
+  // The sign-in step (see the top of this file). Signed in: "Signing you in…" while the account's settings arrive (the effect above then carries on). Back from Apple
+  // or Google on the website: the loading line while the app finds out who that was. "Where do you shop?" and the last screen come after the sign-in step, so
+  // someone not signed in there (their session ended meanwhile) sees it again.
+  if (signInFor && accountUser) return <SigningIn />;
+  if (signInRequired && !accountUser && accountChecking && (signInFor || step >= SHOPS)) return <Spinner />;
+  if (signInRequired && hydrated && !accountUser && (signInFor || step >= SHOPS)) {
+    return <SignInScreen reason={signInFor ?? "setup"} onBack={signInFor ? closeSignIn : () => setStep(TARGETS)} />;
+  }
+
   // Pip's arrival (intro 1), the text size (2), the walk along the tab bar (3-7) and the choice (8). "Skip tour" goes to the choice; the replay has Close.
   // No bar and no counter on the first run (the questions' "Step n of 7" is the only counter); the replay keeps its "Step n of 4" and bar.
-  // Everyone signs in: Get started on the cover leads here, and nothing after the cover (the tour, the questions, a replay of the tour) shows to someone who isn't
-  // signed in. Signing in carries on where Get started led; someone already set up is taken to the app by the effect above, once their settings arrive.
-  if (SIGN_IN_REQUIRED && !accountUser && accountChecking && !(step === 0 && intro === COVER)) return <Spinner />; // finding out who just signed in
-  if (SIGN_IN_REQUIRED && hydrated && !accountUser && (signingUp || !(step === 0 && intro === COVER))) {
-    return (
-      <SignInScreen
-        onBack={signingUp ? () => setSigningUp(false) : undefined}
-        onDone={() => {
-          if (!signingUp) return;
-          setSigningUp(false);
-          // someone who signed out and signs in again (already set up on this phone) goes straight to the app; a new account carries on to the tour
-          if (settingsStore.get().hasCompletedOnboarding) {
-            router.replace(afterOnboarding());
-            return;
-          }
-          setIntro(COVER + 1);
-          window.scrollTo({ top: 0 });
-        }}
-      />
-    );
-  }
 
   if (step === 0 && intro > COVER) {
     const stopIndex = intro - STOP0; // 0-4 on the walk
@@ -438,13 +567,11 @@ function Welcome() {
                     tabIndex={on ? 0 : -1}
                     onClick={() => chooseSize(s.value)}
                     onKeyDown={(e) => radioKeyNav(e, i, SIZES.length, (n) => chooseSize(SIZES[n]!.value))}
-                    className={`${CARD} flex min-h-[4.5rem] w-full items-center gap-3.5 px-4 py-3 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "bg-foreground text-background" : "glass hover:bg-soft-strong"}`}
+                    className={`${CARD} ${CHOICE} min-h-[4.5rem] ${on ? CHOSEN : UNCHOSEN}`}
                   >
-                    <span aria-hidden className={`inline-flex h-11 w-14 shrink-0 items-center justify-center rounded-full font-[700] leading-none ${on ? "bg-white/10 text-background" : "bg-soft-strong"}`} style={{ fontSize: `${(TEXT_SCALE[s.value] / 100) * 1.15}rem` }}>Aa</span>
+                    <span aria-hidden className="inline-flex h-11 w-14 shrink-0 items-center justify-center rounded-full bg-background font-[700] leading-none text-foreground" style={{ fontSize: `${(TEXT_SCALE[s.value] / 100) * 1.15}rem` }}>Aa</span>
                     <span className="flex-1 text-[1.0625rem] font-[700] tracking-[-0.01em]">{t(s.label)}</span>
-                    <span aria-hidden className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${on ? `${LIME} text-on-accent` : "border border-line"}`}>
-                      {on && <CheckIcon className="h-4 w-4" strokeWidth={3} />}
-                    </span>
+                    <TickSlot on={on} />
                   </button>
                 );
               })}
@@ -475,7 +602,7 @@ function Welcome() {
             <Bottom>
               {/* "plan" read as the Premium Meal plan or a phone plan */}
               <BottomButton onClick={() => setStep(GOAL)}>{t("Set up my daily numbers")}</BottomButton>
-              <BottomButton light className="mt-2" onClick={lookAround}>{t("Look around first")}</BottomButton>
+              <BottomButton light className="mt-2" onClick={() => (signInRequired && !accountUser ? openSignIn("look") : lookAround())}>{t("Look around first")}</BottomButton>
             </Bottom>
           </section>
         </div>
@@ -500,7 +627,8 @@ function Welcome() {
     const promises = [
       { Icon: FlameIcon, text: t("Calories and protein") },
       { Icon: GiftIcon, text: t("Every menu free") },
-      SIGN_IN_REQUIRED ? { Icon: ShieldIcon, text: t("No ads, no tracking") } : { Icon: ShieldIcon, text: t("No account needed") },
+      // "No ads" alone while the setup screen counts are on (lib/mm/config.ts TELEMETRY_ENABLED; the sign-in screen and the privacy page say what is counted)
+      signInRequired ? { Icon: ShieldIcon, text: TELEMETRY_ENABLED ? t("No ads") : t("No ads, no tracking") } : { Icon: ShieldIcon, text: t("No account needed") },
     ];
     // the wall's one sentence for a screen reader, true with logos on or off: the first five names on it
     const wallLabel = t("Restaurants and shops in the app, including {names}", { names: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(wallItems.slice(0, 5).map((i) => i.name)) });
@@ -515,9 +643,15 @@ function Welcome() {
         {/* the greeting, the line that sums the app up and the three promises (shown under the picture) */}
         <div className="order-3">
           {/* after Settings › Clear data (usability test 2026-11-19: there was no word that it had worked) */}
-          {params.get("cleared") === "1" && <p role="status" className="mb-3 rounded-[1.25rem] bg-[var(--fill)] px-4 py-3 text-[0.9375rem] font-bold leading-snug">{t("Done: everything on this device was cleared.")}</p>}
+          {params.get("cleared") === "1" && (
+            <p role="status" className="mb-3 flex items-start gap-2.5 rounded-[1.25rem] border border-line bg-card px-4 py-3 text-[0.9375rem] font-bold leading-snug text-foreground">
+              <CheckIcon aria-hidden className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-ink" strokeWidth={2.6} />
+              {t("Done: everything on this device was cleared.")}
+            </p>
+          )}
           <p className="mt-2 flex items-center gap-3 text-[1.125rem] font-semibold leading-snug">
-            <span aria-hidden className={`grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full ${LIME}`}><Pip mood="wave" size={40} className="translate-y-0.5" /></span>
+            {/* Pip on no disc (colour meeting: never on lime or a disc) */}
+            <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center"><Pip mood="wave" size={40} /></span>
             <span className="min-w-0">{t("Welcome to {app}", { app: site.name })}</span>
           </p>
           <h1 tabIndex={-1} className={`mt-4 text-[2.65rem] font-[700] leading-[1.04] tracking-[-0.035em] ${H1}`}>
@@ -534,25 +668,24 @@ function Welcome() {
             drifting by, with two labels floating over it, fading into the page at its top and bottom edges */}
         <div className="relative order-2 -mx-5 mt-1">
           <LogoWall hero items={wallItems} namesOnly={!LOGOS_ENABLED} label={wallLabel} />
-          {restaurants > 0 && <span className="bob app-numbers absolute start-6 top-[22%] rounded-full bg-white px-3.5 py-2 text-sm font-bold text-foreground shadow-[0_10px_24px_-10px_rgba(0,0,0,0.45)]">{t("{n} UK restaurants", { n: restaurants })}</span>}
+          {restaurants > 0 && <span className="bob app-numbers absolute start-6 top-[22%] rounded-full border border-line bg-card px-3.5 py-2 text-sm font-bold text-foreground shadow-[var(--photo-chip-shadow)]">{t("{n} UK restaurants", { n: restaurants })}</span>}
           {/* the supermarkets whose products are in the app (Groceries' list), once that list has loaded: not every shop named on the wall */}
-          {shopLists && shopLists.retailers.length > 0 && <span className="bob-slow app-numbers absolute end-6 top-[52%] rounded-full bg-white px-3.5 py-2 text-sm font-bold text-foreground shadow-[0_10px_24px_-10px_rgba(0,0,0,0.45)]">{t("{n} supermarkets", { n: shopLists.retailers.length })}</span>}
+          {shopLists && shopLists.retailers.length > 0 && <span className="bob-slow app-numbers absolute end-6 top-[52%] rounded-full border border-line bg-card px-3.5 py-2 text-sm font-bold text-foreground shadow-[var(--photo-chip-shadow)]">{t("{n} supermarkets", { n: shopLists.retailers.length })}</span>}
         </div>
         <Bottom className="order-4">
           <BottomButton onClick={next}>{t("Get started")}</BottomButton>
-          {/* A way in for someone coming back on a new phone, who would otherwise see only Get started. With sign-in required it opens the same one sign-in
-              screen as Get started (it signs in and signs up), and an account already set up then goes straight to the app (onDone above, or the effect at the top
-              once its settings arrive). This brings back the link taken off on 17 November (the onboarding meeting, 19 November). Without the requirement it opens
-              the sign-in sheet, as before. */}
+          {/* A way in for someone coming back on a new phone, who would otherwise see only Get started (the onboarding meeting, 19 November). With sign-in
+              required it opens the sign-in screen at once, headed "Welcome back. Sign in": an account already set up then goes straight to the app, and one that
+              isn't carries on with Get started's screens. Without the requirement it opens the sign-in sheet, as before. A link: accent, always underlined. */}
           {!accountUser && (
             <>
-              <button type="button" onClick={() => (SIGN_IN_REQUIRED ? setSigningUp(true) : setSignInOpen(true))} className="mt-1 min-h-11 w-full text-center text-[15px] font-semibold text-accent underline-offset-2 hover:underline">{t("Already have an account? Sign in")}</button>
-              {!SIGN_IN_REQUIRED && <SignInSheet open={signInOpen} onClose={() => setSignInOpen(false)} />}
+              <button type="button" onClick={() => (signInRequired ? openSignIn("returning") : setSignInOpen(true))} className="mt-1 min-h-11 w-full text-center text-[15px] font-semibold text-accent underline decoration-from-font underline-offset-[3px] [text-decoration-skip-ink:auto]">{t("Already have an account? Sign in")}</button>
+              {!signInRequired && <SignInSheet open={signInOpen} onClose={() => setSignInOpen(false)} />}
             </>
           )}
           {/* the two links keep a 44 px tap area (padding pulled back with negative margins, so the line stays the same height); the words are CLAUDE.md rule 2's,
-              in darker ink than before so they can be read */}
-          <p className="mt-4 text-center text-sm text-foreground/80">
+              in the caption grey (7.65:1 on the page) */}
+          <p className="mt-4 text-center text-sm text-muted">
             <a href="/terms" className="-mx-1.5 -my-3.5 inline-block px-1.5 py-3.5 underline underline-offset-2">{t("Terms")}</a> · <a href="/privacy" className="-mx-1.5 -my-3.5 inline-block px-1.5 py-3.5 underline underline-offset-2">{t("Privacy")}</a> · {t("Not affiliated with any restaurant or shop shown.")}
           </p>
         </Bottom>
@@ -623,16 +756,15 @@ function Welcome() {
                   tabIndex={on || (!goalShown && i === 0) ? 0 : -1}
                   onClick={() => pickGoal(g.value)}
                   onKeyDown={(e) => radioKeyNav(e, i, GOALS.length, (n) => pickGoal(GOALS[n]!.value))}
-                  className={`${CARD} flex min-h-[4.5rem] w-full items-center gap-3.5 px-4 py-3 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "bg-foreground text-background" : "glass hover:bg-soft-strong"}`}
+                  className={`${CARD} ${CHOICE} min-h-[4.5rem] ${on ? CHOSEN : UNCHOSEN}`}
                 >
-                  <span aria-hidden className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${on ? "bg-white/10 text-background" : "bg-soft-strong"}`}><g.Icon className="h-5 w-5" /></span>
+                  {/* the icon in a page-fill well, in the link green (colour meeting: lime discs behind icons became page fill) */}
+                  <span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-background text-accent"><g.Icon className="h-5 w-5" /></span>
                   <span className="min-w-0 flex-1">
                     <span className="block text-[1.0625rem] font-[700] leading-tight tracking-[-0.01em]">{t(g.label)}</span>
-                    <span className={`mt-0.5 block text-sm leading-snug ${on ? "text-background/80" : "text-muted"}`}>{t(g.hint)}</span>
+                    <span className={`mt-0.5 block text-[0.9375rem] leading-snug ${on ? "font-semibold text-on-sun" : "text-muted"}`}>{t(g.hint)}</span>
                   </span>
-                  <span aria-hidden className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${on ? `${LIME} text-on-accent` : "border border-line"}`}>
-                    {on && <CheckIcon className="h-4 w-4" strokeWidth={3} />}
-                  </span>
+                  <TickSlot on={on} />
                 </button>
               );
             })}
@@ -774,24 +906,25 @@ function Welcome() {
                 <button
                   type="button"
                   onClick={() => finish("/app/search")}
-                  className={`glass ${CARD} mt-3 flex min-h-14 w-full items-center gap-3 px-4 py-2.5 text-start transition active:scale-[0.99] hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent`}
+                  className={`glass ${CARD} mt-3 flex min-h-14 w-full items-center gap-3 px-4 py-2.5 text-start transition active:scale-[0.99] active:bg-background hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent`}
                 >
-                  <span aria-hidden className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-soft-strong"><SearchIcon className="h-[1.125rem] w-[1.125rem]" /></span>
+                  <span aria-hidden className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-background text-accent"><SearchIcon className="h-[1.125rem] w-[1.125rem]" /></span>
                   <span className="min-w-0 flex-1 text-[1.0625rem] font-bold leading-snug">{t("Or look up a restaurant")}</span>
-                  <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted rtl:rotate-180" />
+                  <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-ink rtl:rotate-180" />
                 </button>
               </>
             )}
             {/* with sign-in required this never shows: everyone here is signed in, and "It's optional" must never reach someone who was made to sign in */}
-            {!SIGN_IN_REQUIRED && !accountUser && (
-              <div className="mt-4 rounded-[1.25rem] bg-white p-4 shadow-[0_2px_14px_-6px_rgba(17,24,20,0.22)]">
+            {!signInRequired && !accountUser && (
+              <div className={`glass ${CARD} mt-4 p-4`}>
                 <p className="text-base font-bold leading-snug">{t("Keep your plan on every device")}</p>
                 <p className="mt-1 text-[0.9375rem] leading-snug text-muted">
                   {arrival
                     ? t("Sign in with Apple, Google or an email code to save your plan, meals and lists and use them on another phone. It's optional: tap Continue to skip.")
                     : t("Sign in with Apple, Google or an email code to save your plan, meals and lists and use them on another phone. It's optional: tap Go to Home to skip.")}
                 </p>
-                <button type="button" onClick={() => setSignInOpen(true)} className="mt-3 inline-flex min-h-11 items-center rounded-full bg-[var(--sun)] px-5 text-[0.9375rem] font-bold text-[var(--on-accent)] transition active:scale-95">{t("Sign in")}</button>
+                {/* a secondary button: lime is never an action (colour meeting, 19 November 2026), and Go to Home is this screen's one ink button */}
+                <button type="button" onClick={() => setSignInOpen(true)} className={`${SECONDARY} mt-3 inline-flex min-h-11 items-center rounded-full px-5 text-[0.9375rem] font-bold`}>{t("Sign in")}</button>
                 <SignInSheet open={signInOpen} onClose={() => setSignInOpen(false)} />
               </div>
             )}
@@ -813,9 +946,10 @@ function TopBar({ onBack, end, segments, current = 0, status }: { onBack?: () =>
     <div>
       <div className="flex min-h-11 items-center gap-2.5">
         {onBack && (
-          // a small grey circle like Home's calendar button, inside a full 44 px tap area
-          <button type="button" onClick={onBack} aria-label={t("Back to the previous step")} className={`${ROUND} -ms-1`}>
-            <span className={ROUND_IN}><ChevronLeftIcon className="h-5 w-5" /></span>
+          // Back always shows its word (colour meeting, 19 November 2026): a white pill with the control edge, an ink chevron and "Back"; its spoken name starts
+          // with the same word
+          <button type="button" onClick={onBack} aria-label={t("Back to the previous step")} className={`${SECONDARY} -ms-1 inline-flex min-h-11 shrink-0 items-center gap-1 rounded-full pe-3.5 ps-2 text-base font-semibold`}>
+            <ChevronLeftIcon aria-hidden className="h-5 w-5 text-ink rtl:rotate-180" />{t("Back")}
           </button>
         )}
         <span className="inline-flex min-w-0 items-center gap-2">
@@ -831,8 +965,8 @@ function TopBar({ onBack, end, segments, current = 0, status }: { onBack?: () =>
           {Array.from({ length: segments }, (_, i) => (<span key={i} className={`h-1 flex-1 rounded-full transition-colors duration-500 ${i <= current ? "bg-[var(--bar)]" : "bg-[var(--line)]"}`} />))}
         </div>
       ) : null}
-      {/* the size of Pip's "Tip 1 of 3" on Home (11 px capitals were too small for older eyes) */}
-      {status && <p className="app-numbers mt-2.5 text-[0.8125rem] font-bold uppercase tracking-[0.06em] text-muted" aria-live="polite">{status}</p>}
+      {/* sentence case, semibold, 13 px or more, in the caption grey (colour meeting: spaced capitals such as "STEP 1 OF 9" were hard to read) */}
+      {status && <p className="app-numbers mt-2.5 text-[0.875rem] font-semibold text-muted" aria-live="polite">{status}</p>}
     </div>
   );
 }
@@ -840,14 +974,24 @@ function TopBar({ onBack, end, segments, current = 0, status }: { onBack?: () =>
 /** A quiet word at the top right: Skip, "Skip tour" or Close. */
 function TopButton({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
   // a real button, not faint text (usability test 2026-11-19: most testers never saw "Skip tour" or "Skip"); at the largest text its words wrap rather than run off the side
-  return <button type="button" onClick={onClick} className="-me-1 inline-flex min-h-11 min-w-0 items-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 py-1 text-center text-[1rem] font-bold leading-tight text-foreground transition hover:bg-[var(--fill)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{children}</button>;
+  return <button type="button" onClick={onClick} className={`${SECONDARY} -me-1 inline-flex min-h-11 min-w-0 items-center rounded-full px-4 py-1 text-center text-[1rem] font-bold leading-tight`}>{children}</button>;
 }
 
-/** A small round picture inside a headline (decorative). */
+/** A small picture inside a headline (decorative): the icon in the link green on a white tag with the card line (colour meeting: lime is never decoration, and
+ *  what can't be tapped has small corners and no control edge). */
 function HeadPill({ Icon }: { Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode }) {
   return (
-    <span aria-hidden className={`ms-2 inline-flex h-[0.86em] w-[1.5em] translate-y-[-0.06em] items-center justify-center rounded-full align-middle text-on-accent ${LIME}`}>
+    <span aria-hidden className="ms-2 inline-flex h-[0.86em] w-[1.5em] translate-y-[-0.06em] items-center justify-center rounded-[0.375rem] border border-line bg-card align-middle text-accent">
       <Icon className="h-[0.5em] w-[0.5em]" strokeWidth={2.4} />
+    </span>
+  );
+}
+
+/** The tick's place at the end of a choice: an empty ring in the control edge, or, chosen, a dark green disc with a lime tick (at least 16 px, 2 px or more). */
+function TickSlot({ on }: { on: boolean }) {
+  return (
+    <span aria-hidden className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${on ? "bg-on-sun text-sun" : "border-[1.5px] border-edge"}`}>
+      {on && <CheckIcon className="h-4 w-4" strokeWidth={3} />}
     </span>
   );
 }
@@ -878,7 +1022,9 @@ function SkipQuestions({ onClick }: { onClick: () => void }) {
 const SETTLE_MS = 600;
 
 /**
- * The big pill at the bottom of a screen: a plain black pill with the words (white over the logo wall). Nothing else inside it: no circles or icons.
+ * The big pill at the bottom of a screen: the ink pill with white words (colour meeting, 19 November 2026: ink means "do this"), or with `light` the secondary look
+ * (white, the control edge, ink words). Nothing else inside it: no circles or icons. One that can't be pressed yet is the line grey with the reason written above
+ * it (never faded).
  * Every screen's button sits in the same place, so a quick second tap of a double tap would land on the next screen's button and skip that screen unseen
  * (the activity, the targets, the foods to avoid...). A tap or pen press on a button in its first 0.6 s on screen is therefore ignored. A mouse click, the
  * keyboard and a screen reader's activation are never held back (nobody double-clicks past a screen with those, and a screen reader takes longer anyway).
@@ -899,7 +1045,7 @@ function BottomButton({ children, onClick, disabled, light, describedBy, classNa
       }}
       disabled={disabled}
       aria-describedby={describedBy}
-      className={`${className} flex min-h-14 w-full items-center justify-center rounded-full px-6 py-3 text-center text-[1.0625rem] font-bold leading-snug transition active:scale-[0.98] disabled:cursor-not-allowed disabled:active:scale-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${light ? "bg-white text-foreground shadow-[0_14px_30px_-16px_rgba(0,0,0,0.5)] hover:bg-soft-strong disabled:text-muted" : "bg-foreground text-background hover:not-disabled:bg-[var(--ink-pressed)] disabled:bg-soft-strong disabled:text-muted"}`}
+      className={`${className} flex min-h-14 w-full items-center justify-center rounded-full px-6 py-3 text-center text-[1.0625rem] font-bold leading-snug transition active:scale-[0.97] disabled:cursor-not-allowed disabled:active:scale-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${light ? "border-[1.5px] border-edge bg-card text-foreground hover:bg-background active:bg-background disabled:border-transparent disabled:bg-line disabled:text-muted" : "bg-ink text-on-ink hover:not-disabled:bg-ink-pressed active:bg-ink-pressed disabled:bg-line disabled:text-muted"}`}
     >
       <span className="min-w-0 text-balance">{children}</span>
     </button>
@@ -907,11 +1053,12 @@ function BottomButton({ children, onClick, disabled, light, describedBy, classNa
 }
 
 /**
- * Pip's arrival, the first screen after Get started: a lime spotlight opens, Pip jumps up from below the edge and lands with a squash, a
+ * Pip's arrival, the first screen after Get started: Pip jumps up from below the edge and lands with a squash, a
  * burst of colour goes off, sparkles twinkle and the bubble pops up. The bubble says what the app shows and where the numbers come from (the onboarding
  * meeting, 19 November: the old line said nothing useful, and "I read the menus" could suggest numbers made by AI, which CLAUDE.md rule 1 allows only in Scan
- * your food). Pip is a picture with a name here, the only place he has one, so a VoiceOver user learns who Pip is; the spotlight, the sparkles and the burst
- * are decorative. Nothing moves for reduced motion (the burst and the animations are switched off in the stylesheet).
+ * your food). Pip is a picture with a name here, the only place he has one, so a VoiceOver user learns who Pip is; the sparkles and the burst are decorative.
+ * No lime spotlight behind him any more (colour meeting, 19 November 2026: Pip sits on no disc and never on lime). Nothing moves for reduced motion (the burst
+ * and the animations are switched off in the stylesheet).
  */
 function PipArrives() {
   const t = useT();
@@ -923,11 +1070,12 @@ function PipArrives() {
     const off = window.setTimeout(() => setLanded(false), 2800);
     return () => { window.clearTimeout(on); window.clearTimeout(off); };
   }, []);
+  // sun, ink and cream only (colour meeting, 19 November 2026)
   const sparkles = [
-    { pos: "start-1 top-8", size: 18, delay: "0s", colour: "#a3e635" },
-    { pos: "end-0 top-20", size: 22, delay: "0.7s", colour: "#fbbf24" },
-    { pos: "start-4 bottom-28", size: 14, delay: "1.3s", colour: "#34d399" },
-    { pos: "end-6 top-3", size: 12, delay: "0.4s", colour: "#a3e635" },
+    { pos: "start-1 top-8", size: 18, delay: "0s", colour: "var(--sun)" },
+    { pos: "end-0 top-20", size: 22, delay: "0.7s", colour: "var(--ink)" },
+    { pos: "start-4 bottom-28", size: 14, delay: "1.3s", colour: "var(--tint-cook)" },
+    { pos: "end-6 top-3", size: 12, delay: "0.4s", colour: "var(--sun)" },
   ];
   return (
     <div className="flex flex-1 flex-col items-center justify-center py-5">
@@ -936,7 +1084,6 @@ function PipArrives() {
       </p>
       {/* the stage is in px, like Pip (the drawing is a fixed size), so larger text sizes never make it wider than the screen */}
       <div className="relative mt-7 grid h-[240px] w-[240px] place-items-end justify-items-center">
-        <span aria-hidden className={`spot-in absolute inset-2 rounded-full ${LIME}`} />
         {sparkles.map((s) => (
           <svg key={s.pos} aria-hidden viewBox="0 0 24 24" width={s.size} height={s.size} focusable="false" className={`twinkle absolute ${s.pos}`} style={{ animationDelay: s.delay, color: s.colour }}>
             <path fill="currentColor" d="M12 1.5l2.4 8.1 8.1 2.4-8.1 2.4L12 22.5l-2.4-8.1L1.5 12l8.1-2.4z" />
@@ -952,6 +1099,8 @@ function PipArrives() {
 /**
  * What the user chose, in one compact card (the best part of this screen, the first recipe, must start above the fold): the goal, calories and protein on one
  * large line, carbs and fat on one smaller line, then whether these are starting numbers, the diet and the shops. No picture (the clipped plate read as a bug).
+ * A mini ink numbers card like Home's (colour meeting, 19 November 2026: ink means "your numbers"): white figures, labels in the light grey for ink, the four
+ * numbers in their fixed order with none singled out, and the diet as tags with a light edge.
  */
 function Plan({ goal, settings, prefs, shops }: { goal: Goal; settings: UserSettings; prefs: Preferences; shops: readonly string[] }) {
   const t = useT();
@@ -962,36 +1111,40 @@ function Plan({ goal, settings, prefs, shops }: { goal: Goal; settings: UserSett
   const avoid = (prefs.avoidAllergens ?? []).map((k) => t(ALLERGEN_SHORT[k]));
   const goalLabel = GOALS.find((g) => g.value === goal)?.label;
   const big = "text-[1.5rem] font-medium leading-none tracking-[-0.01em]";
-  const small = "text-[1.0625rem] font-semibold text-foreground";
+  const small = "text-[1.0625rem] font-semibold text-on-ink";
+  const tag = "rounded-[0.375rem] border border-on-ink-2 px-2.5 py-1 text-sm font-semibold text-on-ink";
   return (
-    <div className={`glass ${CARD} mt-3 p-3.5`}>
+    <div className={`on-ink ${CARD} mt-3 bg-ink p-3.5 text-on-ink`}>
       <p className="text-lg font-[800] leading-tight tracking-[-0.01em]">{goalLabel ? t(goalLabel) : t("Your plan")}</p>
       {/* the literal spaces keep "1,530 kcal a day 100g protein" two phrases for a screen reader (a flex row doesn't draw them) */}
-      <p className="app-numbers mt-2 flex flex-wrap items-baseline gap-x-4 gap-y-1 text-[15px] text-muted">
-        <span><Rich text={t("{kcal} kcal a day")} values={{ kcal: <span className={`${big} text-foreground`}>{formatInt(calories)}</span> }} /></span>{" "}
-        <span><Rich text={t("{eaten} protein")} values={{ eaten: <span className={`${big} text-foreground`}>{formatInt(macros.protein)}g</span> }} /></span>
+      <p className="app-numbers mt-2 flex flex-wrap items-baseline gap-x-4 gap-y-1 text-[15px] text-on-ink-2">
+        <span><Rich text={t("{kcal} kcal a day")} values={{ kcal: <span className={`${big} text-on-ink`}>{formatInt(calories)}</span> }} /></span>{" "}
+        <span><Rich text={t("{eaten} protein")} values={{ eaten: <span className={`${big} text-on-ink`}>{formatInt(macros.protein)}g</span> }} /></span>
       </p>
-      <p className="app-numbers mt-1.5 flex flex-wrap items-baseline gap-x-4 gap-y-0.5 text-[15px] text-muted">
+      <p className="app-numbers mt-1.5 flex flex-wrap items-baseline gap-x-4 gap-y-0.5 text-[15px] text-on-ink-2">
         <span><Rich text={t("{carbs} carbs")} values={{ carbs: <span className={small}>{formatInt(macros.carbs)}g</span> }} /></span>{" "}
         <span><Rich text={t("{fat} fat")} values={{ fat: <span className={small}>{formatInt(macros.fat)}g</span> }} /></span>
       </p>
       {/* numbers nobody worked out are said to be starting ones (usability test 2026-11-19: Harold skipped his size, and 2,000 kcal and 100 g read "as if worked out") */}
-      {!settings.hasSetTargets && <p className="mt-2 text-[0.9375rem] font-semibold leading-snug">{t("These are starting numbers, not worked out for you. You can set your own any time in Settings.")}</p>}
+      {!settings.hasSetTargets && <p className="mt-2 text-[0.9375rem] font-semibold leading-snug text-on-ink">{t("These are starting numbers, not worked out for you. You can set your own any time in Settings.")}</p>}
       {/* the diet chips and the shops share one row (it wraps when there are many), so the card stays short and the first recipe stays above the fold */}
       {(diets.length > 0 || avoid.length > 0 || shops.length > 0) && (
         <p className="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1.5">
-          {diets.map((d) => (<span key={d} className="rounded-full bg-soft-strong px-2.5 py-1 text-sm font-semibold">{d}</span>))}
-          {avoid.length > 0 && <span className="rounded-full bg-soft-strong px-2.5 py-1 text-sm font-semibold">{t("No {allergens}", { allergens: avoid.join(", ").toLowerCase() })}</span>}{" "}
-          {shops.length > 0 && <span className="text-sm text-muted"><Rich text={t("Shops at {shops}")} values={{ shops: <span className="font-semibold text-foreground">{shops.map(retailerName).join(", ")}</span> }} /></span>}
+          {diets.map((d) => (<span key={d} className={tag}>{d}</span>))}
+          {avoid.length > 0 && <span className={tag}>{t("No {allergens}", { allergens: avoid.join(", ").toLowerCase() })}</span>}{" "}
+          {shops.length > 0 && <span className="text-sm text-on-ink-2"><Rich text={t("Shops at {shops}")} values={{ shops: <span className="font-semibold text-on-ink">{shops.map(retailerName).join(", ")}</span> }} /></span>}
         </p>
       )}
     </div>
   );
 }
 
-/** A burst of colour when Pip lands: brand greens and a touch of gold (decorative; nothing for reduced motion). */
+/** Sun, ink and cream only (colour meeting, 19 November 2026): the pieces of Pip's burst and of the last screen's confetti. */
+const CONFETTI = ["var(--sun)", "var(--ink)", "var(--tint-cook)"];
+
+/** A burst of colour when Pip lands (decorative; nothing for reduced motion). */
 function Burst() {
-  const colours = ["#a3e635", "#34d399", "#10b981", "#059669", "#fbbf24", "#86efac"];
+  const colours = CONFETTI;
   return (
     <div aria-hidden className="burst">
       {Array.from({ length: 22 }, (_, i) => {
@@ -1008,9 +1161,9 @@ function Burst() {
   );
 }
 
-/** A little burst of colour on the last step: the same brand greens and touch of gold as Pip's burst (decorative; hidden for reduced motion). */
+/** A little burst of colour on the last step, in the same three colours as Pip's burst (decorative; hidden for reduced motion). */
 function Confetti() {
-  const colours = ["#a3e635", "#34d399", "#10b981", "#059669", "#fbbf24", "#86efac"];
+  const colours = CONFETTI;
   return (
     <div aria-hidden className="confetti -mx-5">
       {Array.from({ length: 18 }, (_, i) => (

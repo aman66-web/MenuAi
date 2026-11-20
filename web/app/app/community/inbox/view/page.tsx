@@ -13,7 +13,8 @@ import { failureText } from "../../../_lib/communityText";
 import { whenSent } from "../../../_lib/communityTime";
 import { useHydrated } from "../../../_lib/hooks";
 import { useLanguage, useT } from "../../../_lib/i18n";
-import { BackLink, NOTE, TITLE } from "../../../groceries/PageBits";
+import { PageHeader } from "../../../_components/PageHeader";
+import { NOTE, TITLE } from "../../../groceries/PageBits";
 import { SharedListBody } from "../../../groceries/list/shared/SharedListBody";
 
 // One shopping list a friend sent. A static shell like /app/chain: the list comes from ?id=, so one cached page opens every list. It is the same view as a list that
@@ -39,7 +40,7 @@ function ViewRoute() {
     if (item && !item.readAt) void markListRead(item.id);
   }, [item]);
 
-  const back = <BackLink href="/app/community/inbox" label={t("Back to shared lists")} />;
+  const back = <PageHeader back={{ href: "/app/community/inbox", label: t("Back to shared lists") }} list />;
 
   if (!enabled) return null;
   if (!hydrated) return <div>{back}</div>;

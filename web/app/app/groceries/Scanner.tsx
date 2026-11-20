@@ -134,25 +134,25 @@ function CameraView({ onCode, onClose, onType, onFallback }: { onCode: (code: st
       ref={dialog}
       aria-label={t("Scan a barcode")}
       onClose={onClose}
-      className="fixed inset-0 m-0 h-dvh max-h-none w-dvw max-w-none overflow-hidden bg-black p-0 text-white backdrop:bg-black"
+      className="on-ink fixed inset-0 m-0 h-dvh max-h-none w-dvw max-w-none overflow-hidden bg-ink p-0 text-on-ink backdrop:bg-ink"
     >
       <video ref={video} playsInline muted autoPlay aria-label={t("Camera view: point it at the barcode")} className="absolute inset-0 h-full w-full object-cover" />
 
       {/* the box to hold the barcode in; everything outside it is dimmed, and it turns lime the moment a code is read */}
       <div aria-hidden className="pointer-events-none absolute inset-0 grid place-items-center">
-        <div className={`aspect-[7/4] w-[82%] max-w-md rounded-[1.5rem] border-[3px] shadow-[0_0_0_1px_rgba(0,0,0,0.3),0_0_0_100vmax_rgba(0,0,0,0.55)] transition-colors duration-150 ${found ? "border-[var(--sun)]" : "border-white/90"}`} />
+        <div className={`aspect-[7/4] w-[82%] max-w-md rounded-[1.5rem] border-[3px] shadow-[0_0_0_1px_var(--scrim),0_0_0_100vmax_var(--scrim)] transition-colors duration-150 ${found ? "border-sun" : "border-on-ink"}`} />
       </div>
 
       <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-3 px-5 pb-3 pt-[max(1rem,env(safe-area-inset-top))]">
-        <h2 className="min-w-0 flex-1 text-xl font-[800] leading-tight tracking-[-0.01em] [text-shadow:0_1px_8px_rgba(0,0,0,0.6)]">{t("Scan a barcode")}</h2>
-        <button type="button" onClick={onClose} aria-label={t("Close")} className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/20 transition active:scale-95 hover:bg-white/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+        <h2 className="min-w-0 flex-1 text-xl font-[800] leading-tight tracking-[-0.01em] [text-shadow:0_1px_8px_var(--scrim)]">{t("Scan a barcode")}</h2>
+        <button type="button" onClick={onClose} aria-label={t("Close")} className="photo-chip inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun">
           <CloseIcon className="h-5 w-5" />
         </button>
       </div>
 
       <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-4 px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
-        <p role="status" className="max-w-sm text-center text-base font-semibold leading-snug [text-shadow:0_1px_8px_rgba(0,0,0,0.7)]">{t("Point the camera at the barcode")}</p>
-        <button type="button" onClick={onType} className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-base font-bold text-foreground transition active:scale-[0.97] hover:bg-white/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+        <p role="status" className="max-w-sm text-center text-base font-semibold leading-snug [text-shadow:0_1px_8px_var(--scrim)]">{t("Point the camera at the barcode")}</p>
+        <button type="button" onClick={onType} className="inline-flex min-h-12 items-center justify-center rounded-full bg-card px-6 text-base font-bold text-ink transition active:scale-[0.97] hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun">
           {t("Type the number instead")}
         </button>
       </div>

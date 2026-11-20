@@ -7,7 +7,10 @@ import { calorieCalloutParts, type ItemTruth } from "@/lib/mm/truth/itemTruth";
 import { IMAGE_CARD_FOOTER, IMAGE_CARD_SIZE } from "@/lib/mm/truth/shareTruth";
 import { pageFont, roundedRect, wrap } from "./share-card";
 
-// The saved image card (founder's brief, D4): 1080 x 1350, the high-contrast #09090B card for phones and for filming. The chain's name is plain text (no logo,
+// The saved image card (founder's brief, D4): 1080 x 1350, the high-contrast dark card for phones and for filming, in the app's own ink, sun and white (colour
+// meeting, 19 November 2026, approved by the founder that day: the Truth card's dark theme, globals.css .truth-dark, replacing #09090B, the zinc greys and a
+// second lime): the ink page, white words, the light grey of the dark theme for small labels, its lighter ink for the tiles, the score in the app's lime, the
+// Smart Swap on lime with #0b1a12 words, and small labels in sentence case. The chain's name is plain text (no logo,
 // no photo, no brand colours: CLAUDE.md rule 2), the figures are the restaurant's published ones, and the footer says where they come from. The smallest text
 // is 32 px, which is about 11 pt when the card is seen at a phone's width. The traffic-light fills are the official scheme's colours with near-black words,
 // and the grey "No colour" pill is used wherever the scheme can't be applied (see lib/mm/truth/fsaLights.ts).
@@ -21,13 +24,14 @@ export interface TruthCardInput {
   t: T;
 }
 
-const BG = "#09090b";
-const FG = "#fafafa";
-const MUTED = "#d4d4d8";
-const LIME = "#bef264";
-const SUN = "#d6efa0";
-const INK = "#09090b";
-const TILE = "#18181b";
+// The .truth-dark values (globals.css): a canvas can't read the CSS variables, so they are written here.
+const BG = "#1d2320"; // --ink: the page
+const FG = "#ffffff"; // words and figures on the page and the tiles (16:1 on the page, 9.75:1 on a tile)
+const MUTED = "#c9d1cc"; // --on-ink-2: small labels and units (10.26:1 on the page, 6.3:1 on a tile)
+const SUN = "#d6efa0"; // --sun: the protein figure (12.72:1 on the page) and the Smart Swap's block
+const INK = "#0b1a12"; // --foreground (--tl-ink): words on the lime and on the traffic lights
+const TILE = "#3d4642"; // the dark theme's tile
+// the official traffic lights (the allow-list: only on the Truth card, always with Low, Medium or High printed in them)
 const FILL: Record<Light, string> = { green: "#3ddc84", amber: "#ffb020", red: "#ff6b63" };
 const GREY = "#d4d4d8";
 const WORD: Record<Light, string> = { green: "Low", amber: "Medium", red: "High" };
@@ -66,12 +70,10 @@ export async function renderTruthCard(input: TruthCardInput): Promise<Blob> {
   ctx.fillRect(0, 0, W, H);
 
   // kicker
-  const kicker = t("The truth at {chain}", { chain: input.chainName }).toLocaleUpperCase();
+  const kicker = t("The truth at {chain}", { chain: input.chainName });
   ctx.font = font(32, 650);
-  spacing(0.12);
   const kickerLines = wrap(ctx, kicker, CW, 2);
   kickerLines.forEach((line, i) => draw(line, M, M + 24 + i * 44, MUTED, 32, 650));
-  spacing(0);
   let y = M + 24 + (kickerLines.length - 1) * 44;
 
   // the dish
@@ -129,7 +131,7 @@ export async function renderTruthCard(input: TruthCardInput): Promise<Blob> {
     ctx.fill();
   }
   const kcal = formatInt(input.nutrients.calories);
-  draw(t("Calories").toLocaleUpperCase(), M + 36, topBlock + 58, MUTED, 32, 650);
+  draw(t("Calories"), M + 36, topBlock + 58, MUTED, 32, 650);
   ctx.font = font(124, 800);
   spacing(-0.03);
   draw(kcal, M + 36, topBlock + 188, FG, 124, 800);
@@ -140,15 +142,15 @@ export async function renderTruthCard(input: TruthCardInput): Promise<Blob> {
 
   const rightX = M + colW + 24 + 36;
   if (truth.score) {
-    draw(t("Protein score").toLocaleUpperCase(), rightX, topBlock + 58, MUTED, 32, 650);
-    draw(String(truth.score.score), rightX, topBlock + 188, LIME, 150, 800);
+    draw(t("Protein score"), rightX, topBlock + 58, MUTED, 32, 650);
+    draw(String(truth.score.score), rightX, topBlock + 188, SUN, 150, 800);
     ctx.font = font(150, 800);
     const sw = ctx.measureText(String(truth.score.score)).width;
     draw("/ 5", rightX + sw + 14, topBlock + 188, MUTED, 56, 650);
     draw(`${t("Protein")} ${input.nutrients.protein ?? 0} g`, rightX, topBlock + 236, FG, 32, 650);
   } else if (input.nutrients.protein !== undefined) {
-    draw(t("Protein").toLocaleUpperCase(), rightX, topBlock + 58, MUTED, 32, 650);
-    draw(String(Math.round(input.nutrients.protein)), rightX, topBlock + 188, LIME, 124, 800);
+    draw(t("Protein"), rightX, topBlock + 58, MUTED, 32, 650);
+    draw(String(Math.round(input.nutrients.protein)), rightX, topBlock + 188, SUN, 124, 800);
     ctx.font = font(124, 800);
     const pw = ctx.measureText(String(Math.round(input.nutrients.protein))).width;
     draw("g", rightX + pw + 12, topBlock + 188, MUTED, 56, 650);
@@ -180,10 +182,7 @@ export async function renderTruthCard(input: TruthCardInput): Promise<Blob> {
     ctx.fillStyle = SUN;
     roundedRect(ctx, M, top, CW, lastH, 44);
     ctx.fill();
-    ctx.font = font(32, 650);
-    spacing(0.1);
-    draw(t("Smart Swap at {chain}", { chain: input.chainName }).toLocaleUpperCase().slice(0, 44), M + 36, top + 58, INK, 32, 650);
-    spacing(0);
+    draw(t("Smart Swap at {chain}", { chain: input.chainName }).slice(0, 44), M + 36, top + 58, INK, 32, 650);
     swapLines.forEach((line, i) => draw(line, M + 36, top + 130 + i * 70, INK, 60, 800));
     ctx.font = font(36, 650);
     const named = wrap(ctx, `${input.swap.name} \u00b7 ${formatInt(input.swap.kcal)} kcal`, CW - 72, 1)[0] ?? "";
@@ -193,10 +192,7 @@ export async function renderTruthCard(input: TruthCardInput): Promise<Blob> {
     ctx.fillStyle = TILE;
     roundedRect(ctx, M, top, CW, lastH, 44);
     ctx.fill();
-    ctx.font = font(32, 650);
-    spacing(0.1);
-    draw(t("What that looks like").toLocaleUpperCase(), M + 36, top + 58, MUTED, 32, 650);
-    spacing(0);
+    draw(t("What that looks like"), M + 36, top + 58, MUTED, 32, 650);
     looks.forEach((h, i) => draw(`= ${t(h.text)}`.slice(0, 48), M + 36, top + 130 + i * 66, FG, 48, 800));
   }
 

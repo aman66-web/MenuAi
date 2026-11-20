@@ -29,7 +29,7 @@ export function ProductRow({ product: listed, retailer }: { product: ListedProdu
         {sellers.length > 0 && <span className="mt-1.5 block"><ShopPrices items={sellers} /></span>}
         <NutritionChips kcal={product.kcal} protein={product.protein} basis={perLabel(product, t)} />
       </span>
-      <ChevronRightIcon className="h-[18px] w-[18px] shrink-0 text-muted" />
+      <ChevronRightIcon className="h-[18px] w-[18px] shrink-0 text-ink" />
     </Link>
   );
 }

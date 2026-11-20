@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { WEB_PRO_ENABLED } from "@/lib/mm/config";
@@ -8,8 +7,8 @@ import { formatDate } from "@/lib/mm/format";
 import { claimSession } from "@/lib/payments/client";
 import { PLANS } from "@/lib/payments/plans";
 import { paidStore } from "@/lib/mm/stores";
-import { Button, Spinner } from "../../_components/ui";
-import { TITLE } from "../../groceries/PageBits";
+import { PageHeader } from "../../_components/PageHeader";
+import { Button, LinkButton, Spinner } from "../../_components/ui";
 import { useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 
@@ -34,7 +33,8 @@ function Thanks() {
   if (!WEB_PRO_ENABLED) return null;
   return (
     <div>
-      <h1 className={TITLE}>{t("Thank you")}</h1>
+      {/* the header every page has (colour meeting, 19 November 2026): the title, the Settings cog far right */}
+      <PageHeader title={t("Thank you")} />
       {state === "working" && <Spinner label={t("Checking your payment")} />}
       {state === "done" && (
         <div role="status" className="mt-4 space-y-3">
@@ -42,7 +42,7 @@ function Thanks() {
             {paid.plan ? t("You have {plan}.", { plan: t(PLANS[paid.plan].label) }) : t("You're in.")}{" "}
             {paid.until ? t("Access until {date}.", { date: formatDate(new Date(paid.until).toISOString().slice(0, 10), t) }) : ""}
           </p>
-          <Link href="/app" className="inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-base font-bold text-background">{t("Back to the app")}</Link>
+          <LinkButton href="/app" size="lg">{t("Back to the app")}</LinkButton>
         </div>
       )}
       {state === "not_paid" && <p role="alert" className="mt-4 text-lg font-semibold leading-snug">{t("That payment hasn't gone through, so nothing was taken.")}</p>}

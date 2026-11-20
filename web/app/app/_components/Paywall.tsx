@@ -14,9 +14,11 @@ import { CheckIcon } from "./icons";
 import { ProPlans } from "./ProPlans";
 import { PremiumOffer } from "./PremiumOffer";
 import { trialDaysOf, useStoreProducts } from "../_lib/storeProducts";
-import { Button, Sheet } from "./ui";
+import { ErrorBanner } from "./Note";
+import { Button, Sheet, inputClass } from "./ui";
 
-// SPEC §9: the paywall appears only when a free user taps a Pro action. Closing returns to exactly where they were.
+// SPEC §9: the paywall appears only when a free user taps a Premium action. Closing returns to exactly where they were. "Premium" is the one name on screen
+// (O3, 19 November 2026); the code keeps its old "Pro" names.
 // Payments aren't wired on the web yet (docs/WEB_BUILD_PLAN.md), so instead of a purchase button it says so honestly
 // and offers the waitlist. Testers can unlock a preview when dev tools are enabled.
 
@@ -74,7 +76,7 @@ export function PaywallProvider({ children }: { children: ReactNode }) {
   return (
     <PaywallContext.Provider value={value}>
       {children}
-      <Sheet open={trigger !== null} onClose={close} title={IAP_ENABLED ? `${site.name} Premium` : `${site.name} Pro`}>
+      <Sheet open={trigger !== null} onClose={close} title={`${site.name} Premium`}>
         <PaywallBody onDone={() => { triggerRef.current = null; setTrigger(null); }} />
       </Sheet>
     </PaywallContext.Provider>
@@ -111,15 +113,15 @@ function PaywallBody({ onDone }: { onDone: () => void }) {
 
       {PAID_ACCESS_ENABLED ? <div className="mt-5"><ProPlans /></div> : PAYMENTS_ENABLED ? null : (
         <div className={`mt-3.5 p-4 ${card}`}>
-          <p className="text-lg font-[800] leading-snug tracking-[-0.01em]">{t("Pro isn't on the web yet.")}</p>
-          <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("Everything free stays free: every chain's full menu with calories and macros. Leave your email and we'll tell you once, when Pro is ready.")}</p>
+          <p className="text-lg font-[800] leading-snug tracking-[-0.01em]">{t("Premium isn't on the web yet.")}</p>
+          <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("Everything free stays free: every chain's full menu with calories and macros. Leave your email and we'll tell you once, when Premium is ready.")}</p>
           <WaitlistInline />
         </div>
       )}
 
       {DEV_TOOLS_ENABLED && (
         <div className="mt-3.5 rounded-[1.25rem] border border-dashed border-line p-4">
-          <p className="text-sm leading-snug text-muted">{t("Testing build: unlock Pro features on this device without paying.")}</p>
+          <p className="text-[0.9375rem] leading-snug text-muted">{t("Testing build: unlock Premium features on this device without paying.")}</p>
           <Button
             variant="secondary"
             full
@@ -129,12 +131,12 @@ function PaywallBody({ onDone }: { onDone: () => void }) {
               onDone();
             }}
           >
-            {settings.devProOverride ? t("Turn off Pro preview") : t("Unlock Pro preview (testing)")}
+            {settings.devProOverride ? t("Turn off Premium preview") : t("Unlock Premium preview (testing)")}
           </Button>
         </div>
       )}
-      <p className="mt-2 text-center text-sm text-muted">
-        <a className="inline-flex min-h-11 items-center px-1.5 underline" href="/privacy">{t("Privacy")}</a> · <a className="inline-flex min-h-11 items-center px-1.5 underline" href="/terms">{t("Terms")}</a>
+      <p className="mt-2 text-center text-[0.9375rem] text-muted">
+        <a className="inline-flex min-h-11 items-center px-1.5 text-accent underline underline-offset-[3px]" href="/privacy">{t("Privacy")}</a> · <a className="inline-flex min-h-11 items-center px-1.5 text-accent underline underline-offset-[3px]" href="/terms">{t("Terms")}</a>
       </p>
     </div>
   );
@@ -142,10 +144,8 @@ function PaywallBody({ onDone }: { onDone: () => void }) {
 
 /** A card on the sheet: bg-soft, which the Sheet makes the light grey fill (.glass would add a border and blur here, outside .app-surface). */
 const card = "rounded-[1.25rem] bg-soft";
-const labelClass = "mb-2 block text-xs font-semibold uppercase tracking-[0.12em] text-muted";
-/** Inside the grey card the field is white, so it is plainly a place to type. */
-const fieldClass =
-  "min-h-12 w-full rounded-2xl bg-white px-4 text-base text-foreground placeholder:text-muted focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent";
+/** A visible label over the field, in the body's ink (sentence case, never spaced capitals). */
+const labelClass = "mb-2 block text-[0.9375rem] font-semibold leading-snug";
 
 function WaitlistInline() {
   const t = useT();
@@ -167,17 +167,17 @@ function WaitlistInline() {
     >
       {state === "done" ? (
         <p role="status" className="flex items-center gap-3 text-base font-semibold">
-          <span aria-hidden className="bg-sun inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-on-accent"><CheckIcon className="h-4 w-4" strokeWidth={2.5} /></span>
+          <CheckIcon aria-hidden className="h-5 w-5 shrink-0 text-ink" strokeWidth={2.6} />
           {t("Thanks, you're on the list.")}
         </p>
       ) : (
         <>
           <label className="block">
             <span className={labelClass}>{t("Email")}</span>
-            <input type="email" required autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} className={fieldClass} placeholder="you@example.com" />
+            <input type="email" required autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} className={inputClass} placeholder="you@example.com" />
           </label>
-          <Button type="submit" full className="min-h-13" disabled={state === "sending"}>{state === "sending" ? t("Sending…") : t("Tell me when Pro is ready")}</Button>
-          {state === "error" && <p role="alert" className="text-[0.9375rem] leading-snug text-muted">{t("Couldn't send that. Check the address and try again.")}</p>}
+          <Button type="submit" full className="min-h-13" busy={state === "sending"} busyLabel={t("Sending…")}>{t("Tell me when Premium is ready")}</Button>
+          {state === "error" && <ErrorBanner heading={null}>{t("Couldn't send that. Check the address and try again.")}</ErrorBanner>}
         </>
       )}
     </form>

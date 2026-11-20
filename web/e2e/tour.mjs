@@ -108,7 +108,8 @@ async function noCounter(page, where) {
 }
 const stopId = (page) => page.locator("[data-tour-stop]").getAttribute("data-tour-stop");
 const barWords = (page) => page.locator("section[data-tour-stop] ul[aria-hidden='true'] span.line-clamp-2").allInnerTexts();
-const litTab = (page) => page.locator("section[data-tour-stop] ul[aria-hidden='true']").evaluate((ul) => [...ul.children].findIndex((li) => li.firstElementChild?.className.includes("text-[#d6efa0]")));
+// the lit tab is in the lime token (colour meeting, 19 November 2026: text-sun, was text-[#d6efa0])
+const litTab = (page) => page.locator("section[data-tour-stop] ul[aria-hidden='true']").evaluate((ul) => [...ul.children].findIndex((li) => /(^|\s)text-sun(\s|$)/.test(li.firstElementChild?.className ?? "")));
 const rows = (page) => page.locator("section[data-tour-stop] div.glass ul > li").allInnerTexts();
 const says = (page) => page.locator("section[data-tour-stop] p.speech-tour").innerText();
 
@@ -472,6 +473,33 @@ await step("15. Pip and the cover settle (the onboarding meeting, change 14): 6 
     else expect(arrival.every((n) => n === "pip-blink"), "'Hi, I'm Pip!' at 6 s: " + [...new Set(arrival)].join(", "));
     await ctx.close();
   }
+});
+
+// The onboarding meeting of 19 November (question 13, approved that day; WCAG 2.2.2): the wall keeps moving until someone taps its 44 pt "Pause"; "Play" starts it
+// again; with reduced motion nothing moves and there is no button.
+await step("16. the cover's logo wall has a 44 pt Pause at its corner: it stops the wall, and Play starts it again; with reduced motion there is no button", async () => {
+  const wallState = (p) => p.evaluate(() => [...document.querySelectorAll(".marquee")].map((m) => getComputedStyle(m).animationPlayState));
+  const ctx = await fresh(); const p = await ctx.newPage();
+  await p.goto(BASE + "/app/welcome");
+  await p.getByRole("button", { name: "Get started" }).waitFor();
+  const pause = p.getByRole("button", { name: "Pause the moving logos" });
+  const box = await pause.boundingBox();
+  expect(box && box.height >= 44 && box.width >= 44, `Pause is ${box?.width} x ${box?.height}`);
+  expect((await pause.innerText()).trim() === "Pause", "its word is Pause: " + (await pause.innerText()));
+  expect((await wallState(p)).every((s) => s === "running"), "the wall moves until someone taps Pause");
+  await pause.click();
+  const play = p.getByRole("button", { name: "Play the moving logos" });
+  await play.waitFor();
+  expect((await wallState(p)).every((s) => s === "paused"), "Pause stops every row: " + (await wallState(p)).join(", "));
+  await play.click();
+  await pause.waitFor();
+  expect((await wallState(p)).every((s) => s === "running"), "Play starts it again");
+  await ctx.close();
+  const still = await fresh({ reducedMotion: "reduce" }); const q = await still.newPage();
+  await q.goto(BASE + "/app/welcome");
+  await q.getByRole("button", { name: "Get started" }).waitFor();
+  expect(!(await q.getByRole("button", { name: "Pause the moving logos" }).isVisible()), "a Pause button with nothing moving");
+  await still.close();
 });
 
 await main.close();

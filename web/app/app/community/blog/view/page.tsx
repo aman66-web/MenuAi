@@ -8,7 +8,8 @@ import { localeInfo } from "@/lib/mm/i18n";
 import { site } from "@/site.config";
 import { ErrorBox, Spinner } from "../../../_components/ui";
 import { useLanguage, useT } from "../../../_lib/i18n";
-import { BackLink, LABEL, NOTE } from "../../../groceries/PageBits";
+import { PageHeader } from "../../../_components/PageHeader";
+import { LABEL, NOTE } from "../../../groceries/PageBits";
 
 // One article. A static shell like /app/chain: the article comes from ?id=, so one cached page opens every article, offline too. The articles are
 // ours, bundled in the app, English only (like restaurant notes); the screen's own words (Back, "min read") go through t(). Comfortable reading:
@@ -49,7 +50,7 @@ function ArticleRoute() {
   const t = useT();
   const params = useSearchParams();
   const article = articleById(params.get("id"));
-  const back = <BackLink href="/app/community/blog" label={t("Back")} />;
+  const back = <PageHeader back={{ href: "/app/community/blog", label: t("Back") }} />;
   return (
     <div>
       {back}

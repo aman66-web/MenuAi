@@ -61,7 +61,8 @@ export function StartPrompt({ className = "" }: { className?: string }) {
           <Button size="lg" aria-haspopup="dialog" onClick={() => { setGoal(settings.goal); setPrefs(settings.preferences); setOpen(true); }}>{t("Set up")}</Button>
           <Button size="lg" variant="secondary" onClick={() => updateSettings({ dismissedTargetsCard: true })}>{t("Not now")}</Button>
         </div>
-        <Link href="/app/welcome?tour=1" className="inline-flex min-h-11 items-center self-start text-[15px] font-semibold text-accent underline-offset-2 hover:underline">{t("Show me around")}</Link>
+        {/* green words are always underlined, like every link (colour meeting, 19 November 2026) */}
+        <Link href="/app/welcome?tour=1" className="inline-flex min-h-11 items-center self-start text-[15px] font-semibold text-accent underline underline-offset-2">{t("Show me around")}</Link>
       </Card>
       <Sheet open={open} onClose={() => setOpen(false)} title={t("Make {app} fit you", { app: site.name })}>
         <p className="text-base font-bold">{t("Your goal")}</p>

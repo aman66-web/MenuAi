@@ -74,6 +74,8 @@ export const TacoGlyph = (p: P) => (<svg {...base(p)}><path d="M3 19a9 9 0 0118 
 export const InfoIcon = (p: P) => (<svg {...base(p)}><circle cx="12" cy="12" r="9" /><path d="M12 11v5.5M12 7.6v.2" /></svg>);
 /** The allergy note's triangle (colour meeting, 19 November 2026): drawn in currentColor, the note's edge colour. */
 export const WarningIcon = (p: P) => (<svg {...base(p)}><path d="M10.3 4.2a2 2 0 013.4 0l7.6 13.3a2 2 0 01-1.7 3H4.4a2 2 0 01-1.7-3z" /><path d="M12 9.5v4.5M12 17.2v.2" /></svg>);
+/** A circle with "!": an app error (the error banner, a field that can't be accepted), never food or a figure (colour meeting, 19 November 2026). */
+export const AlertCircleIcon = (p: P) => (<svg {...base(p)}><circle cx="12" cy="12" r="9" /><path d="M12 7.5V13M12 16.4v.2" /></svg>);
 export const ArrowUpIcon = (p: P) => (<svg {...base(p)}><path d="M12 19V5M6 11l6-6 6 6" /></svg>);
 export const ExternalIcon = (p: P) => (<svg {...base(p)}><path d="M14 4h6v6M20 4l-9 9" /><path d="M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5" /></svg>);
 export const PinIcon = (p: P) => (<svg {...base(p)}><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z" /><circle cx="12" cy="10" r="2.4" /></svg>);

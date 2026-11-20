@@ -81,7 +81,7 @@ await step("the Smart Swap card: your pick, what the swap saves in numbers, the 
   const sheet = sheetOf(page);
   await sheet.getByRole("heading", { level: 3, name: "Smart Swap" }).waitFor();
   const body = (await sheet.getByRole("region", { name: "Smart Swap" }).innerText()).replace(/\s+/g, " ");
-  expect(/your pick/i.test(body) && /smart swap at subway/i.test(body), "headings: " + body); // (the small labels are set in capitals by CSS)
+  expect(/your pick/i.test(body) && /smart swap at subway/i.test(body), "headings: " + body); // (the small labels are in sentence case)
   expect(/Save 441 kcal and get \d+ g more protein in 1 swap/.test(body), "banner: " + body);
   expect(/Chicken Tikka Sub/.test(body), "swap name: " + body);
   await sheet.getByRole("link", { name: "See the swap's full numbers" }).waitFor();
@@ -115,14 +115,14 @@ await step("Save image card: a 1080 x 1350 PNG", async () => {
   await ctx.close();
 });
 
-await step("Dark card: the #09090B high-contrast theme, on and off", async () => {
+await step("Dark card: the ink (#1d2320) high-contrast theme, on and off", async () => {
   const { ctx, page } = await open();
   await seeTruth(page, SUBWAY);
   const panel = page.locator(".sheet-panel");
   const bg = () => panel.evaluate((el) => getComputedStyle(el).backgroundColor);
   expect((await bg()) === "rgb(255, 255, 255)", "light by default: " + (await bg()));
   await sheetOf(page).getByRole("button", { name: "Dark card" }).click();
-  expect((await bg()) === "rgb(9, 9, 11)", "dark: " + (await bg()));
+  expect((await bg()) === "rgb(29, 35, 32)", "dark: " + (await bg())); // ink, sun and white (colour meeting, 19 November 2026)
   const box = await sheetOf(page).getByRole("button", { name: "Dark card" }).boundingBox();
   expect(box.height >= 47.5, "chip is " + box.height + "px");
   await axeCheck(page);
@@ -142,7 +142,7 @@ await step("Creator View: Shift+F hides the tab bar and makes the card dark with
   const sheet = sheetOf(page);
   await sheet.getByRole("button", { name: "Replay" }).waitFor();
   expect((await sheet.getByRole("button", { name: "Dark card" }).count()) === 0, "the Dark card chip should give way to Replay");
-  expect((await page.locator(".sheet-panel").evaluate((el) => getComputedStyle(el).backgroundColor)) === "rgb(9, 9, 11)", "not dark in Creator View");
+  expect((await page.locator(".sheet-panel").evaluate((el) => getComputedStyle(el).backgroundColor)) === "rgb(29, 35, 32)", "not dark in Creator View");
   await sheet.getByRole("button", { name: "Replay" }).click();
   await sheet.getByRole("button", { name: "Close" }).click();
   await page.keyboard.press("Shift+F");

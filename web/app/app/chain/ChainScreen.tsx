@@ -19,14 +19,14 @@ import { ALLERGEN_SHORT, DietPicker, dietWords } from "../_components/DietPicker
 import { DONE_KEY, DONE_ROOM, DONE_ROOM_WITH_CLEAR, SearchDone } from "../_components/SearchDone";
 import { halalFor, HALAL_CAUTION } from "@/lib/mm/halal";
 import { ChainMark } from "../_components/ChainMark";
-import { ArrowUpIcon, ChevronLeftIcon, ChevronRightIcon, CloseIcon, SearchIcon, StarIcon } from "../_components/icons";
+import { ArrowUpIcon, ChevronRightIcon, CloseIcon, SearchIcon, StarIcon } from "../_components/icons";
+import { PageHeader } from "../_components/PageHeader";
 import { ItemThumb } from "../_components/ItemPhoto";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { MacroLine, SMALL_LABEL } from "../_components/Nutrition";
 import { PresetPills } from "../_components/truth/PresetPills";
 import { ReportSheet } from "../_components/Submit";
 import { AllergyNote, Badge, Button, Chip, EmptyState, ErrorBox, SampleBadge, Sheet, Spinner } from "../_components/ui";
-import { backName, useBack } from "../_lib/backNav";
 import { useChain, useMenu, useNow, useStore } from "../_lib/hooks";
 import { scrollToElement } from "../_lib/scroll";
 import { useT } from "../_lib/i18n";
@@ -38,9 +38,10 @@ import { Rich } from "../_lib/Rich";
 // Real menus run to 650 rows, so the full menu has a sticky search + category bar, long menus open with each section
 // trimmed (tap to show the rest), off-screen rows skip layout (.cv-row), and a small button brings Best for you back.
 // Look (founder 2026-10-15, "the rest of the app should match that elegance"): Home's language. White cards with 20 px corners on the
-// grey page, small spaced capitals for labels, a black pill for the selected meal, the favourite star in a small grey circle like Home's
-// calendar button; each menu section is one white card with its dishes divided by fine lines (not a card per dish), the search bar is
-// flat grey like the page, and "Back to Best for you" is a black pill with a plain arrow (no circle).
+// grey page; each menu section is one white card with its dishes divided by fine lines (not a card per dish), the search bar is flat grey
+// like the page. Since the colour meeting (19 November 2026; approved by the founder that day): the header every page has (Back, the cog far
+// right), the favourite beside the restaurant's name with its word, the chosen meal lime with its edge and tick (ui.tsx Chip), and the pill
+// back to Best for you white with the edge (it moves you on the page, it doesn't act).
 
 /** Where Back goes when there is no earlier page of the app (a restaurant opened by address or from a shared link, a fresh launch). */
 const EAT_OUT = "/app/eat-out";
@@ -59,10 +60,10 @@ export function ChainScreen({ chainId }: { chainId: string }) {
 
 function Shell({ children }: { children: React.ReactNode }) {
   const t = useT();
-  const back = useBack(EAT_OUT); // the page before (Eat out, Search, Home, the map, a dish...) when there is one in the app, else Eat out
+  // Back goes to the page before (Eat out, Search, Home, the map, a dish...) when there is one in the app, else Eat out
   return (
     <div>
-      <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to restaurants"), back.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+      <PageHeader back={{ href: EAT_OUT, label: t("Back to restaurants") }} />
       {children}
     </div>
   );
@@ -70,7 +71,6 @@ function Shell({ children }: { children: React.ReactNode }) {
 
 function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["index"]> }) {
   const t = useT();
-  const back = useBack(EAT_OUT);
   const { chain } = index;
   const menu = useMenu();
   const now = useNow();
@@ -171,25 +171,9 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
 
   return (
     <div>
-      <div className="flex items-center justify-between gap-3">
-        <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to restaurants"), back.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
-        {/* a small grey circle like Home's calendar button, inside a full 44 px tap area, with what the tap did written beside it */}
-        <div className="flex min-w-0 items-center gap-1.5">
-          <p aria-hidden className={`min-w-0 text-end text-[0.8125rem] font-semibold leading-snug text-foreground transition-opacity duration-300 motion-reduce:transition-none ${favNote?.shown ? "opacity-100" : "opacity-0"}`}>{favText}</p>
-          <span role="status" className="sr-only">{favNote?.shown ? favText : ""}</span>
-          <button
-            type="button"
-            onClick={tapStar}
-            aria-pressed={isFavorite}
-            aria-label={isFavorite ? t("Remove {chain} from favourites", { chain: chain.name }) : t("Add {chain} to favourites", { chain: chain.name })}
-            className="group -me-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95"
-          >
-            <span className={`inline-flex h-9 w-9 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft transition-colors group-hover:bg-[var(--fill)] text-foreground`}>
-              <StarIcon filled={isFavorite} />
-            </span>
-          </button>
-        </div>
-      </div>
+      {/* The header every page has (colour meeting, 19 November 2026): Back with its word, the Settings cog far right. The favourite star moved into the
+          restaurant's card beside its name, with its word, to leave the top right to the cog. */}
+      <PageHeader back={{ href: EAT_OUT, label: t("Back to restaurants") }} />
 
       <div className="hero-card mt-4 rounded-[1.25rem] p-4">
         {/* the name goes under the logo when the text is large, rather than breaking mid-word (usability test 2026-11-19: "McDonal / d's") */}
@@ -198,6 +182,24 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           <div className="min-w-[min(100%,11rem)] flex-1">
             <h1 className="hyphens-auto text-[2rem] font-[800] leading-[1.05] tracking-[-0.02em] [overflow-wrap:break-word]">{chain.name}</h1>
             {(chain.cuisine || chain.sample) && <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1">{chain.cuisine ? <span className={SMALL_LABEL}>{t(chain.cuisine)}</span> : null} {chain.sample && <SampleBadge />}</p>}
+            {/* The favourite beside the name (colour meeting, 19 November 2026; approved by the founder that day): a white button with the edge, an ink star,
+                outline when it isn't a favourite and filled when it is, with its word in both states (the button says which by aria-pressed). What the tap
+                did is written beside it for a moment (founder 2026-10-16), and a screen reader hears it through the status line. */}
+            <div className="mt-2.5 flex flex-wrap items-center gap-x-2 gap-y-0.5">
+              <button
+                type="button"
+                onClick={tapStar}
+                aria-pressed={isFavorite}
+                className="group -ms-0.5 inline-flex min-h-11 shrink-0 items-center rounded-full transition active:scale-95"
+              >
+                <span className="inline-flex h-9 items-center gap-1.5 whitespace-nowrap rounded-full border-[1.5px] border-edge bg-card ps-3 pe-4 text-[0.9375rem] font-semibold text-foreground transition-colors group-hover:bg-background">
+                  <StarIcon filled={isFavorite} aria-hidden className="h-[18px] w-[18px] shrink-0 text-ink" />
+                  {t("Favourite")}
+                </span>
+              </button>
+              <p aria-hidden className={`min-w-0 text-[0.8125rem] font-semibold leading-snug text-foreground transition-opacity duration-300 motion-reduce:transition-none ${favNote?.shown ? "opacity-100" : "opacity-0"}`}>{favText}</p>
+              <span role="status" className="sr-only">{favNote?.shown ? favText : ""}</span>
+            </div>
           </div>
         </div>
         {/* The data's limits come first: users must see them before trusting a number (calories only, halal). The longer note on how the figures were read
@@ -208,7 +210,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             <div>
               <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
                 <span className="font-semibold">{halal.scope === "some" ? t("Halal (some):") : t("Halal:")}</span>
-                <button type="button" aria-expanded={halalOpen} aria-controls="halal-quote" onClick={() => setHalalOpen((o) => !o)} className="inline-flex min-h-11 items-center gap-1 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft ps-4 pe-3 font-semibold text-foreground transition hover:bg-[var(--fill)] active:scale-[0.98]">
+                <button type="button" aria-expanded={halalOpen} aria-controls="halal-quote" onClick={() => setHalalOpen((o) => !o)} className="inline-flex min-h-11 items-center gap-1 rounded-full border-[1.5px] border-edge bg-card ps-4 pe-3 font-semibold text-foreground transition hover:bg-background active:scale-[0.98]">
                   {t("What {chain} says", { chain: chain.name })}
                   <ChevronRightIcon className={`h-4 w-4 transition-transform ${halalOpen ? "-rotate-90" : "rotate-90"}`} />
                 </button>
@@ -264,7 +266,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             {/* Three across when they fit; one under another at large text, so no meal ever breaks onto two lines (stacked, the
                 unselected meals are dark text like the shared segmented control's list, so they read as choices). */}
             <div className="@container">
-              <div className="grid grid-cols-1 gap-1 rounded-[1.625rem] bg-[var(--fill)] p-1 @min-[18.5rem]:grid-cols-3" role="group" aria-label={t("Meal")}>
+              <div className="grid grid-cols-1 gap-1 rounded-[1.625rem] border-[1.5px] border-edge bg-fill p-1 @min-[18.5rem]:grid-cols-3" role="group" aria-label={t("Meal")}>
                 {MEALS.map((m) => (
                   <Chip key={m} segment className={`w-full justify-center px-2 text-center [overflow-wrap:normal] ${meal === m ? "" : "@max-[18.5rem]:text-foreground"}`} selected={meal === m} onClick={() => setMeal(m)}>{t(MEAL_LABEL[m])}</Chip>
                 ))}
@@ -306,7 +308,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         <label className="relative flex max-w-full items-center text-base">
           <span className="sr-only">{t("Sort by")}</span>
           <select
-            className="min-h-11 max-w-full appearance-none truncate rounded-full bg-white ps-4 pe-10 text-[0.9375rem] font-semibold shadow-[var(--card-shadow)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="min-h-11 max-w-full appearance-none truncate rounded-full border-[1.5px] border-edge bg-card ps-4 pe-10 text-[0.9375rem] font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             value={sort}
             onChange={(e) => {
               setSort(e.target.value as SortKind);
@@ -316,7 +318,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           >
             {SORT_OPTIONS.filter((o) => !caloriesOnly || o.value === "menu" || o.value === "calories").map((o) => (<option key={o.value} value={o.value}>{t(o.label)}</option>))}
           </select>
-          <ChevronRightIcon aria-hidden className="pointer-events-none absolute end-4 h-4 w-4 rotate-90 text-muted" />
+          <ChevronRightIcon aria-hidden className="pointer-events-none absolute end-4 h-4 w-4 rotate-90 text-ink" />
         </label>
       </div>
 
@@ -449,7 +451,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         <button
           type="button"
           onClick={() => bestRef.current?.scrollIntoView({ behavior: smoothScroll(), block: "start" })}
-          className="sheet-in fixed bottom-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.5rem)] left-1/2 z-20 inline-flex min-h-11 -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-foreground px-5 py-1 text-[0.9375rem] font-bold text-background shadow-[0_12px_28px_-12px_rgba(17,24,20,0.5)] transition active:scale-95"
+          className="sheet-in fixed bottom-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.5rem)] left-1/2 z-20 inline-flex min-h-11 -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full border-[1.5px] border-edge bg-card px-5 py-1 text-[0.9375rem] font-bold text-foreground shadow-[var(--shadow-lift)] transition hover:bg-background active:scale-95"
         >
           <ArrowUpIcon aria-hidden className="h-4 w-4 shrink-0" /> {t("Best for you")}
         </button>
@@ -524,7 +526,7 @@ function CategoryChips({ categories, active, onJump }: { categories: string[]; a
   return (
     <div ref={row} role="group" aria-label={t("Menu sections")} className="no-scrollbar -mx-5 mt-2.5 flex gap-2 overflow-x-auto px-5">
       {categories.map((c) => (
-        <Chip key={c} data-chip={c} selected={active === c} onClick={() => onJump(c)}>{c}</Chip>
+        <Chip key={c} data-chip={c} selected={active === c} mark="dot" onClick={() => onJump(c)}>{c}</Chip>
       ))}
     </div>
   );

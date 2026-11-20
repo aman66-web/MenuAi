@@ -15,7 +15,7 @@ export function ListSection({ id, title, count, children }: { id: string; title:
       {/* focusable by the page (not by Tab): after a row is answered or removed, focus goes to the heading of the list it was in */}
       <h2 id={id} tabIndex={-1} className={`${HEADING} flex items-center gap-2.5 outline-none`}>
         {title}
-        {count !== undefined && <span className="app-numbers grid h-6 min-w-6 place-items-center rounded-full bg-foreground px-2 font-mono text-[0.75rem] font-medium text-background">{count}</span>}
+        {count !== undefined && <span className="app-numbers grid h-6 min-w-6 place-items-center rounded-full bg-ink px-2 font-mono text-[0.75rem] font-medium text-on-ink">{count}</span>}
       </h2>
       <div className={`${CARD} mt-3 overflow-hidden`}>{children}</div>
     </section>

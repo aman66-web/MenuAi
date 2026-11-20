@@ -75,7 +75,7 @@ export function ReportForm({ target, onSent, onCancel }: { target: ReportTarget;
               tabIndex={on || (reason === null && i === 0) ? 0 : -1}
               onClick={() => setReason(r.value)}
               onKeyDown={(e) => radioKeyNav(e, i, reasons.length, (n) => setReason(reasons[n]!.value))}
-              className={`flex min-h-12 w-full items-center rounded-2xl px-4 py-2.5 text-start text-base font-medium leading-snug transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "bg-foreground text-background" : "bg-[var(--fill)] hover:bg-soft-strong"}`}
+              className={`flex min-h-12 w-full items-center rounded-2xl px-4 py-2.5 text-start text-base font-medium leading-snug transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "bg-ink text-on-ink" : "bg-[var(--fill)] hover:bg-soft-strong"}`}
             >
               {t(r.label)}
             </button>

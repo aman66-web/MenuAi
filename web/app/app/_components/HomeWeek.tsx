@@ -11,7 +11,8 @@ import { DARK_CARD } from "./HomeToday";
 // stats"; the 20-person meeting's conclusion). A bar for each day under the same Monday-to-Sunday as Home's day circles (the chart runs across the card's full
 // width on the circles' own grid, so Tuesday's bar sits under Tuesday's circle), the target as a dashed line, and the calories and protein a day over the days
 // logged before today. Only what was logged (CLAUDE.md rule 1): a day with nothing logged has a short dash, never a bar of 0; no red, no "over", no score (rule 3).
-// The chart can't be tapped: the circles above open each day.
+// The chart can't be tapped: the circles above open each day. Colours (colour meeting, 19 November 2026): ink, lime for the figures and bars, white for what must be
+// read and the light grey (on-ink-2) for captions; the empty marks and lines are the mid grey of the dial's track; day letters in sentence case, at least 13 px.
 
 export function HomeWeek({ log, now, target, logPaid, htmlLang }: { log: readonly WeekEntry[]; now: Date; target: number; logPaid: boolean; htmlLang: string }) {
   const t = useT();
@@ -33,39 +34,39 @@ export function HomeWeek({ log, now, target, logPaid, htmlLang }: { log: readonl
       <h2 className="text-[0.875rem] font-bold leading-snug">{t("Calories and protein this week")}</h2>
 
       {empty ? (
-        <p className="mt-2 text-[0.9375rem] leading-snug text-white/80">{t("Each day's calories show here once you log your meals.")}</p>
+        <p className="mt-2 text-[0.9375rem] leading-snug text-on-ink">{t("Each day's calories show here once you log your meals.")}</p>
       ) : week.caloriesAverage !== null ? (
         <>
           <div className="mt-2.5 grid grid-cols-2 gap-3">
             <p className="leading-tight">
-              <span className="app-numbers block text-[1.25rem] text-[var(--sun)]">{formatInt(week.caloriesAverage)}</span>
-              <span className="mt-0.5 block text-[0.8125rem] text-white/80">{t("kcal a day")}</span>
+              <span className="app-numbers block text-[1.25rem] text-sun">{formatInt(week.caloriesAverage)}</span>
+              <span className="mt-0.5 block text-[0.8125rem] text-on-ink-2">{t("kcal a day")}</span>
             </p>
             <p className="leading-tight">
               {week.proteinAverage !== null ? (
-                <span className="app-numbers block text-[1.25rem] text-[var(--sun)]">{formatGrams(week.proteinAverage)}</span>
+                <span className="app-numbers block text-[1.25rem] text-sun">{formatGrams(week.proteinAverage)}</span>
               ) : (
-                <span className="app-numbers block text-[1.25rem] text-[var(--sun)]"><span aria-hidden>–</span><span className="sr-only">{t("none yet")}</span></span>
+                <span className="app-numbers block text-[1.25rem] text-sun"><span aria-hidden>–</span><span className="sr-only">{t("none yet")}</span></span>
               )}
-              <span className="mt-0.5 block text-[0.8125rem] text-white/80">{t("protein a day")}</span>
+              <span className="mt-0.5 block text-[0.8125rem] text-on-ink-2">{t("protein a day")}</span>
             </p>
           </div>
-          <p className="mt-1.5 text-[0.8125rem] leading-snug text-white/70">
+          <p className="mt-1.5 text-[0.8125rem] leading-snug text-on-ink-2">
             {week.countedDays === 1 ? t("From the 1 day you logged, not counting today.") : t("From the {n} days you logged, not counting today.", { n: week.countedDays })}
           </p>
         </>
       ) : monday ? (
         <div className="mt-2 leading-snug">
-          <p className="text-[0.9375rem] text-white/85">{t("A new week starts today.")}</p>
-          {lastWeek !== null && <p className="app-numbers mt-0.5 text-[0.8125rem] text-white/70">{t("Last week's average: {n} kcal a day", { n: formatInt(lastWeek) })}</p>}
+          <p className="text-[0.9375rem] text-on-ink">{t("A new week starts today.")}</p>
+          {lastWeek !== null && <p className="app-numbers mt-0.5 text-[0.8125rem] text-on-ink-2">{t("Last week's average: {n} kcal a day", { n: formatInt(lastWeek) })}</p>}
         </div>
       ) : (
-        <p className="mt-2 text-[0.9375rem] leading-snug text-white/85">{t("No average yet: no meals from earlier this week on this device.")}</p>
+        <p className="mt-2 text-[0.9375rem] leading-snug text-on-ink">{t("No average yet: no meals from earlier this week on this device.")}</p>
       )}
 
       {!empty && (
-        <p className="app-numbers mt-2 flex items-center justify-end gap-1.5 font-mono text-[0.75rem] text-white/75">
-          <span aria-hidden className="inline-block w-4 border-t border-dashed border-white/60" />
+        <p className="app-numbers mt-2 flex items-center justify-end gap-1.5 font-mono text-[0.8125rem] text-on-ink-2">
+          <span aria-hidden className="inline-block w-4 border-t border-dashed border-on-ink-2" />
           {t("Your target: {n} kcal", { n: formatInt(target) })}
         </p>
       )}
@@ -73,24 +74,24 @@ export function HomeWeek({ log, now, target, logPaid, htmlLang }: { log: readonl
       {/* the chart: drawn only (a screen reader gets the list below); the full card width, on the day circles' grid */}
       <div aria-hidden className="-mx-4 mt-1.5 flex min-h-16 flex-1 flex-col">
         <div className="relative grid flex-1 grid-cols-7 gap-2">
-          {!empty && <div className="pointer-events-none absolute inset-x-0 border-t border-dashed border-white/40" style={{ bottom: pct(target) }} />}
+          {!empty && <div className="pointer-events-none absolute inset-x-0 border-t border-dashed border-on-ink-2" style={{ bottom: pct(target) }} />}
           {week.days.map((d) => (
             <div key={d.key} className="relative">
               {d.entries > 0 ? (
                 <>
-                  <div className="absolute bottom-0 left-1/2 w-[55%] -translate-x-1/2 rounded-t-[5px] bg-[var(--sun)]" style={{ height: `max(3px, ${pct(d.calories)})` }} />
-                  <span className="app-numbers absolute left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[11px] leading-none text-white/75 @max-[22rem]:text-[10px]" style={{ bottom: `calc(max(3px, ${pct(d.calories)}) + 3px)` }}>{formatInt(d.calories)}</span>
+                  <div className="absolute bottom-0 left-1/2 w-[55%] -translate-x-1/2 rounded-t-[5px] bg-sun" style={{ height: `max(3px, ${pct(d.calories)})` }} />
+                  <span className="app-numbers absolute left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[11px] leading-none text-on-ink-2 @max-[22rem]:text-[10px]" style={{ bottom: `calc(max(3px, ${pct(d.calories)}) + 3px)` }}>{formatInt(d.calories)}</span>
                 </>
               ) : d.state !== "future" ? (
-                <div className="absolute bottom-0 left-1/2 h-[2px] w-3 -translate-x-1/2 rounded-full bg-white/25" />
+                <div className="absolute bottom-0 left-1/2 h-[2px] w-3 -translate-x-1/2 rounded-full bg-ring-track" />
               ) : null}
             </div>
           ))}
         </div>
-        <div className="mt-1.5 grid grid-cols-7 gap-2 border-t border-white/10 pt-1.5 text-center text-[11px] font-semibold uppercase leading-none">
+        <div className="mt-1.5 grid grid-cols-7 gap-2 border-t border-ring-track pt-1.5 text-center text-[0.8125rem] font-semibold leading-none">
           {week.days.map((d) => (
             <span key={d.key} className="flex justify-center">
-              <span className={d.state === "today" ? "rounded-full bg-[var(--sun)] px-1.5 py-0.5 text-[#052e16]" : d.state === "future" ? "py-0.5 text-white/30" : "py-0.5 text-white/60"}>{narrow.format(d.date)}</span>
+              <span className={d.state === "today" ? "rounded-full bg-sun px-1.5 py-0.5 font-bold text-on-sun" : d.state === "future" ? "py-0.5 text-on-ink-2" : "py-0.5 text-on-ink"}>{narrow.format(d.date)}</span>
             </span>
           ))}
         </div>
@@ -107,7 +108,7 @@ export function HomeWeek({ log, now, target, logPaid, htmlLang }: { log: readonl
       </ol>
 
       {!empty && (week.proteinGap || week.estimates) && (
-        <div className="mt-2 space-y-0.5 text-[0.8125rem] leading-snug text-white/70">
+        <div className="mt-2 space-y-0.5 text-[0.8125rem] leading-snug text-on-ink-2">
           {week.proteinGap && <p>{t("Some meals this week have no protein entered, so protein counts only the rest.")}</p>}
           {week.estimates && <p>{t("Includes estimates from your photos.")}</p>}
         </div>

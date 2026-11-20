@@ -12,11 +12,11 @@ import { mealSizes, type Recipe } from "@/lib/mm/recipes";
 import { myRecipesStore } from "@/lib/mm/stores";
 import { site } from "@/site.config";
 import { ALLERGEN_SHORT } from "../../_components/DietPicker";
-import { CheckIcon, ChevronLeftIcon } from "../../_components/icons";
+import { PageHeader } from "../../_components/PageHeader";
 import { PipSays } from "../../_components/Mascot";
 import { useGate } from "../../_components/Paywall";
-import { Button, ErrorBox, inputClass, radioKeyNav, Spinner } from "../../_components/ui";
-import { backName, useBack } from "../../_lib/backNav";
+import { Button, ChoiceMark, ErrorBox, inputClass, radioKeyNav, Spinner } from "../../_components/ui";
+import { useBack } from "../../_lib/backNav";
 import { useHydrated, useIsPro, useSettings } from "../../_lib/hooks";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { Rich } from "../../_lib/Rich";
@@ -43,8 +43,9 @@ function BigRadio<T extends string | number>({ label, options, value, onChange, 
         const on = o === value;
         return (
           <button key={String(o)} type="button" role="radio" aria-checked={on} tabIndex={on ? 0 : -1} onClick={() => onChange(o)} onKeyDown={(e) => radioKeyNav(e, i, options.length, (n) => onChange(options[n]!))}
-            className={`relative flex min-h-14 items-center justify-center rounded-[1.25rem] px-2 text-base font-bold transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "bg-foreground text-background" : "glass hover:bg-soft-strong"}`}>
-            {on && <span aria-hidden className="bg-sun absolute -end-1.5 -top-1.5 grid h-6 w-6 place-items-center rounded-full text-on-accent"><CheckIcon className="h-3.5 w-3.5" strokeWidth={3} /></span>}
+            className={`flex min-h-14 items-center justify-center gap-1.5 rounded-[1.25rem] border-[1.5px] px-1.5 text-base transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "border-on-sun bg-sun font-bold text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-edge bg-card font-semibold text-foreground hover:bg-background"}`}>
+            {/* chosen is lime with the 2 px dark green edge and a tick, never ink (colour meeting, 19 November 2026); unchosen keeps the tick's room as an empty ring */}
+            <ChoiceMark on={on} />
             {render(o)}
           </button>
         );
@@ -112,7 +113,8 @@ function MakeScreen() {
 
   const recipesHref = `/app/recipes${shop ? `?r=${shop}` : ""}`;
   const nav = useBack(recipesHref); // the page before when this one was reached from another page of the app, else the recipes at this shop
-  const back = (<Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to recipes"), nav.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
+  // the header every page has (colour meeting, 19 November 2026): Back with its word, the Shopping list pill (a recipe is things to buy), the Settings cog
+  const back = <PageHeader back={{ href: recipesHref, label: t("Back to recipes") }} list />;
 
   if (!hydrated) return <Spinner />;
 
@@ -122,11 +124,11 @@ function MakeScreen() {
         {back}
         <h1 className="mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]"><Rich text={t("Ask {pip}")} values={{ pip: <span className="serif-em sun-text pe-0.5">Pip</span> }} /></h1>
         <div className="mt-4">
-          <PipSays mood="wave" size={84}>{t("Making a new recipe just for you is part of {app} Pro. All our ready-made recipes stay free.", { app: site.name })}</PipSays>
+          <PipSays mood="wave" size={84}>{t("Making a new recipe just for you is part of {app} Premium. All our ready-made recipes stay free.", { app: site.name })}</PipSays>
         </div>
         <div className="mt-5 grid gap-3">
-          <Button full className="min-h-14 text-lg" onClick={() => showPaywall("recipeMaker")}>{t("See Pro")}</Button>
-          <Link href={nav.href} onClick={nav.onClick} replace className="glass border-[1.5px] border-[color:var(--edge)] bg-soft flex min-h-14 items-center justify-center rounded-full px-5 text-base font-bold">{t("Back to the recipes")}</Link>
+          <Button full className="min-h-14 text-lg" onClick={() => showPaywall("recipeMaker")}>{t("See Premium")}</Button>
+          <Link href={nav.href} onClick={nav.onClick} replace className="flex min-h-14 items-center justify-center rounded-full border-[1.5px] border-edge bg-card px-5 text-base font-semibold text-foreground transition hover:bg-background active:scale-[0.97]">{t("Back to the recipes")}</Link>
         </div>
       </div>
     );

@@ -285,7 +285,7 @@ function ReminderForm({ reminder, onSave, onDelete }: { reminder: Reminder | nul
       )}
 
       {/* Save stays in view at the foot of the sheet while the form scrolls; the bar reaches over the sheet's own bottom padding so nothing shows through under it. */}
-      <div className="sticky bottom-[calc(-1*max(1.75rem,env(safe-area-inset-bottom)))] -mx-5 -mb-[max(1.75rem,env(safe-area-inset-bottom))] border-t border-line bg-white px-5 pb-[max(1.75rem,env(safe-area-inset-bottom))] pt-3">
+      <div className="sticky bottom-[calc(-1*max(1.75rem,env(safe-area-inset-bottom)))] -mx-5 -mb-[max(1.75rem,env(safe-area-inset-bottom))] border-t border-line bg-card px-5 pb-[max(1.75rem,env(safe-area-inset-bottom))] pt-3">
         <Button full className="min-h-12 text-base" onClick={() => commit(reminder ? reminder.enabled : true)}>{editing ? t("Save changes") : t("Save")}</Button>
       </div>
     </div>

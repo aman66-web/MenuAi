@@ -17,7 +17,7 @@ import { useT } from "../_lib/i18n";
 // which area is on screen, like any map website; it never sees where the user is (that stays in this browser).
 //
 // Logos: where a chain has an official logo file (lib/mm/logos.ts), its pin shows that file unmodified on the plain tile the
-// file names, scaled to fit and never cropped or stretched; chains without one keep the green dot. Logos are drawn to small
+// file names, scaled to fit and never cropped or stretched; chains without one keep the ink dot. Logos are drawn to small
 // canvas images and handed to the map as icons, so they cost no more than the dots did.
 //
 // Full screen (founder 2026-10-16): the page owns the state (MapFrame, useMapFullscreen) and tells this map through `full`. The map is
@@ -95,7 +95,7 @@ function hasArtwork(data: ImageData): boolean {
   return ink >= 12;
 }
 
-/** The chain's logo file on its plain tile, as map icon pixels; null if the file can't be loaded or drew nothing (the green dot stays). */
+/** The chain's logo file on its plain tile, as map icon pixels; null if the file can't be loaded or drew nothing (the ink dot stays). */
 async function drawLogoTile(src: string, darkTile: boolean, full = false): Promise<ImageData | null> {
   const img = await loadImage(src);
   if (!img) return null;
@@ -107,16 +107,16 @@ async function drawLogoTile(src: string, darkTile: boolean, full = false): Promi
   if (!ctx) return null;
   ctx.scale(PIXEL_RATIO, PIXEL_RATIO);
   const x0 = (CANVAS - TILE) / 2;
-  ctx.shadowColor = "rgba(0,0,0,0.3)";
+  ctx.shadowColor = "rgba(0, 0, 0, 0.2)"; // --tips-wash: a canvas reads no CSS variables, so the tokens' values are written here (globals.css)
   ctx.shadowBlur = 4;
   ctx.shadowOffsetY = 1.5;
-  ctx.fillStyle = darkTile ? "#0b0b0b" : "#ffffff";
+  ctx.fillStyle = darkTile ? "#1d2320" : "#ffffff"; // --ink for white artwork, --card for the rest
   ctx.beginPath();
   ctx.roundRect(x0, x0, TILE, TILE, 9);
   ctx.fill();
   ctx.shadowColor = "transparent";
   ctx.lineWidth = 1;
-  ctx.strokeStyle = darkTile ? "rgba(255,255,255,0.28)" : "rgba(0,0,0,0.16)";
+  ctx.strokeStyle = darkTile ? "#6b716e" : "#d9dedb"; // the tile's 1px line: the mid grey on ink, --line on white
   ctx.stroke();
   if (full) {
     // a square icon that fills its square: drawn edge to edge inside the tile's rounded corners (scaled to fit, never cropped)
@@ -232,16 +232,20 @@ export function MapView({ full, center, radiusMiles, pins, selectedId, onSelect,
         });
         map.on("load", () => {
           if (!map) return;
-          const accent = "#046c4f"; // the app's accent (globals.css .app-surface)
-          const ink = "#ffffff";
+          // MapLibre's paint reads no CSS variables: the tokens' values (globals.css). Pins are ink with a white edge; the chosen pin is lime with the 2 px
+          // dark green edge (colour meeting, 19 November 2026: lime means chosen, ink is the one dark fill); the "you" dot keeps the platform's blue.
+          const ink = "#1d2320"; // --ink
+          const white = "#ffffff"; // --on-ink
+          const sun = "#d6efa0"; // --sun
+          const onSun = "#052e16"; // --on-sun
           map.addSource("branches", { type: "geojson", data: collection(latest.current.pins) });
           map.addSource("you", { type: "geojson", data: { type: "FeatureCollection", features: [{ type: "Feature", geometry: { type: "Point", coordinates: [L.center.lng, L.center.lat] }, properties: {} }] } });
-          map.addLayer({ id: "pins", type: "circle", source: "branches", paint: { "circle-color": accent, "circle-stroke-color": ink, "circle-stroke-width": BY_ZOOM(1.5, 2, 2), "circle-radius": BY_ZOOM(5, 7, 8) } });
-          map.addLayer({ id: "selected", type: "circle", source: "branches", filter: ["==", ["get", "id"], latest.current.selectedId ?? ""], paint: { "circle-color": "#0b1a12", "circle-stroke-color": accent, "circle-stroke-width": 4, "circle-radius": BY_ZOOM(8, 10, 11) } });
-          map.addLayer({ id: "selected-logo", type: "circle", source: "branches", filter: ["==", ["get", "id"], ""], paint: { "circle-color": accent, "circle-radius": BY_ZOOM(13, 17, 21) } });
+          map.addLayer({ id: "pins", type: "circle", source: "branches", paint: { "circle-color": ink, "circle-stroke-color": white, "circle-stroke-width": BY_ZOOM(1.5, 2, 2), "circle-radius": BY_ZOOM(5, 7, 8) } });
+          map.addLayer({ id: "selected", type: "circle", source: "branches", filter: ["==", ["get", "id"], latest.current.selectedId ?? ""], paint: { "circle-color": sun, "circle-stroke-color": onSun, "circle-stroke-width": 2, "circle-radius": BY_ZOOM(8, 10, 11) } });
+          map.addLayer({ id: "selected-logo", type: "circle", source: "branches", filter: ["==", ["get", "id"], ""], paint: { "circle-color": sun, "circle-stroke-color": onSun, "circle-stroke-width": 2, "circle-radius": BY_ZOOM(13, 17, 21) } });
           map.addLayer({ id: "pin-logos", type: "symbol", source: "branches", filter: ["==", ["get", "chainId"], ""], layout: { "icon-image": ["concat", "logo-", ["get", "chainId"]], "icon-size": BY_ZOOM(0.6, 0.8, 1), "icon-allow-overlap": true, "icon-ignore-placement": true } });
           map.addLayer({ id: "you-halo", type: "circle", source: "you", paint: { "circle-color": "#3b82f6", "circle-opacity": 0.2, "circle-radius": 18 } });
-          map.addLayer({ id: "you-dot", type: "circle", source: "you", paint: { "circle-color": "#3b82f6", "circle-stroke-color": "#ffffff", "circle-stroke-width": 3, "circle-radius": 7 } });
+          map.addLayer({ id: "you-dot", type: "circle", source: "you", paint: { "circle-color": "#3b82f6", "circle-stroke-color": white, "circle-stroke-width": 3, "circle-radius": 7 } });
           for (const layer of ["pins", "pin-logos"]) {
             map.on("click", layer, (e) => {
               const id = e.features?.[0]?.properties?.id;
@@ -328,11 +332,11 @@ export function MapView({ full, center, radiusMiles, pins, selectedId, onSelect,
           button a full 44 px tap target (they were 29 px). Scoped to this map, so nothing else on the page is touched. */}
       <style>{`
         [data-nearby-map] .maplibregl-ctrl-top-right { top: 12px; right: 12px; }
-        [data-nearby-map] .maplibregl-ctrl-group { border-radius: 1rem; background: #fff; box-shadow: 0 1px 2px rgba(17, 24, 20, 0.06), 0 10px 24px -16px rgba(17, 24, 20, 0.3); overflow: hidden; }
-        [data-nearby-map] .maplibregl-ctrl-group:not(:empty) { box-shadow: 0 1px 2px rgba(17, 24, 20, 0.06), 0 10px 24px -16px rgba(17, 24, 20, 0.3); }
+        [data-nearby-map] .maplibregl-ctrl-group { border-radius: 1rem; background: var(--card); box-shadow: var(--shadow-lift); overflow: hidden; }
+        [data-nearby-map] .maplibregl-ctrl-group:not(:empty) { box-shadow: var(--shadow-lift); }
         [data-nearby-map] .maplibregl-ctrl-group button { width: 44px; height: 44px; }
-        [data-nearby-map] .maplibregl-ctrl-group button + button { border-top: 1px solid rgba(17, 24, 20, 0.08); }
-        [data-nearby-map] .maplibregl-ctrl-group button:focus-visible { outline: 2px solid #046c4f; outline-offset: -3px; border-radius: 0.75rem; }
+        [data-nearby-map] .maplibregl-ctrl-group button + button { border-top: 1px solid var(--line); }
+        [data-nearby-map] .maplibregl-ctrl-group button:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; border-radius: 0.75rem; }
         [data-nearby-map] .maplibregl-ctrl-bottom-left { left: 12px; bottom: 12px; max-width: calc(100% - 86px); } /* the credits wrap when open and keep 8 px clear of the 44 px full screen button at the right */
         /* MapLibre gives the credits' "i" button both right:0 and left:0 at the bottom left. Over-constrained, a right-to-left page (Arabic, Urdu) drops
            left, so the button jumped to the far end and covered the end of the open credits: pin it to the physical left, where the open box keeps its 28 px of room. */

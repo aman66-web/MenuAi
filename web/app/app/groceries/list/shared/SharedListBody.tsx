@@ -59,7 +59,7 @@ export function SharedListBody({ entries, code, intro }: { entries: readonly Sha
         <>
           {[...groups.entries()].map(([retailer, rows]) => (
             <section key={retailer} aria-label={groupName(retailer, t)} className="mt-7">
-              <h2 className="kicker mb-3 flex min-h-7 items-center gap-2.5 ps-1">{retailer !== CUSTOM_RETAILER && <ShopMark shopId={retailer} size="xs" />}{groupName(retailer, t)}</h2>
+              <h2 className="mb-3 flex min-h-7 items-center gap-2.5 ps-1 text-[1.0625rem] font-bold leading-snug">{retailer !== CUSTOM_RETAILER && <ShopMark shopId={retailer} size="xs" />}{groupName(retailer, t)}</h2>
               <ul className={`${CARD} divide-y divide-line overflow-hidden`}>
                 {rows.map((i) => {
                   const detail = [i.brand, i.size, i.price !== undefined ? formatPrice(i.price) : ""].filter(Boolean).join(" · ");
@@ -77,19 +77,19 @@ export function SharedListBody({ entries, code, intro }: { entries: readonly Sha
               </ul>
             </section>
           ))}
-          {missing > 0 && <p className="mt-4 px-1 text-sm leading-snug text-muted">{missing === 1 ? t("1 product from this list couldn't be found in the shops' lists any more.") : t("{n} products from this list couldn't be found in the shops' lists any more.", { n: missing })}</p>}
+          {missing > 0 && <p className="mt-4 px-1 text-[0.9375rem] leading-snug text-muted">{missing === 1 ? t("1 product from this list couldn't be found in the shops' lists any more.") : t("{n} products from this list couldn't be found in the shops' lists any more.", { n: missing })}</p>}
 
           <div className="mt-7">
             {added ? (
               <>
-                <p role="status" className="flex items-center gap-2 px-1 text-base font-semibold text-foreground"><CheckIcon className="h-5 w-5" strokeWidth={3} />{t("Added to your shopping list.")}</p>
+                <p role="status" className="flex items-center gap-2 px-1 text-base font-semibold text-foreground"><CheckIcon aria-hidden className="h-5 w-5 text-ink" strokeWidth={3} />{t("Added to your shopping list.")}</p>
                 <LinkButton href="/app/groceries/list" full className="mt-3 min-h-12 text-base"><BasketIcon className="h-5 w-5" />{t("Open my shopping list")}</LinkButton>
               </>
             ) : (
               <Button full className="min-h-12 text-base" onClick={addAll}>{t("Add all to my shopping list")}</Button>
             )}
           </div>
-          <p className="mt-3 px-1 text-sm leading-snug text-muted">{t("Prices are what each shop showed on its website, and they change: check in store.")}</p>
+          <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("Prices are what each shop showed on its website, and they change: check in store.")}</p>
         </>
       )}
     </>

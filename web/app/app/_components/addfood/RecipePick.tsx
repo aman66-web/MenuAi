@@ -92,18 +92,19 @@ export function RecipePick({ meal, onAdd }: { meal: LogMeal; onAdd: (entry: NewE
       <SheetSearch value={query} onChange={(v) => { setQuery(v); setLimit(PAGE); }} label={t("Search recipes")} placeholder={t("Search recipes, e.g. chicken or curry")} />
 
       {/* How many servings were eaten: the figures below follow it. */}
-      <div role="group" aria-label={t("Servings")} className="glass flex items-center justify-between gap-3 rounded-full py-1.5 ps-5 pe-1.5">
+      {/* the − and + as one white control with the edge and ink icons; at a limit that side is the line fill with a grey icon (it can't go further) */}
+      <div role="group" aria-label={t("Servings")} className="flex items-center justify-between gap-3">
         <span className="min-w-0 text-base font-semibold [overflow-wrap:normal] [word-break:keep-all]">{t("Servings")}</span>
-        <span className="flex items-center gap-1">
-          <button type="button" aria-label={t("Fewer servings")} disabled={servings <= MIN_SERVINGS} onClick={() => setServings((s) => stepServings(s, -1))} className="inline-flex h-11 w-11 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-white transition active:scale-95 disabled:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"><MinusIcon className="h-5 w-5" /></button>
+        <span className="flex items-center rounded-full border-[1.5px] border-edge bg-card">
+          <button type="button" aria-label={t("Fewer servings")} disabled={servings <= MIN_SERVINGS} onClick={() => setServings((s) => stepServings(s, -1))} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-ink transition active:scale-95 hover:not-disabled:bg-background disabled:bg-soft-strong disabled:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"><MinusIcon className="h-5 w-5" /></button>
           <output aria-live="polite" className="app-numbers min-w-10 text-center text-lg font-bold">{servings}</output>
-          <button type="button" aria-label={t("More servings")} disabled={servings >= MAX_SERVINGS} onClick={() => setServings((s) => stepServings(s, 1))} className="inline-flex h-11 w-11 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-white transition active:scale-95 disabled:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"><PlusIcon className="h-5 w-5" /></button>
+          <button type="button" aria-label={t("More servings")} disabled={servings >= MAX_SERVINGS} onClick={() => setServings((s) => stepServings(s, 1))} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-ink transition active:scale-95 hover:not-disabled:bg-background disabled:bg-soft-strong disabled:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"><PlusIcon className="h-5 w-5" /></button>
         </span>
       </div>
 
       {yours.length > 0 && (
         <section aria-labelledby="pick-yours" className="space-y-2">
-          <h3 id="pick-yours" className="text-[0.9375rem] font-[800] uppercase tracking-[0.06em] text-muted">{t("Your recipes")}</h3>
+          <h3 id="pick-yours" className="text-[0.9375rem] font-semibold text-muted">{t("Your recipes")}</h3>
           <ul className={PICK_LIST}>{yours.map((c) => row(c))}</ul>
         </section>
       )}
@@ -117,7 +118,7 @@ export function RecipePick({ meal, onAdd }: { meal: LogMeal; onAdd: (entry: NewE
         <p className="text-[0.9375rem] text-muted">{t("No recipes match.")}</p>
       ) : shown.length > 0 && (
         <section aria-labelledby={yours.length > 0 ? "pick-ours" : undefined} className="space-y-2">
-          {yours.length > 0 && <h3 id="pick-ours" className="text-[0.9375rem] font-[800] uppercase tracking-[0.06em] text-muted">{t("Our recipes")}</h3>}
+          {yours.length > 0 && <h3 id="pick-ours" className="text-[0.9375rem] font-semibold text-muted">{t("Our recipes")}</h3>}
           <ul className={PICK_LIST}>{shown.slice(0, limit).map((c) => row(c))}</ul>
           {shown.length > limit && <Button variant="secondary" full onClick={() => setLimit((l) => l + PAGE)}>{t("Show more recipes ({n} more)", { n: Math.min(PAGE, shown.length - limit) })}</Button>}
         </section>

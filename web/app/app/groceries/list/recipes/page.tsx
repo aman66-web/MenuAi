@@ -6,6 +6,8 @@ import { Suspense, useMemo, useState } from "react";
 import { isListId, itemsOnList, MAIN_LIST } from "@/lib/mm/groceries";
 import { shopPhotoSources } from "@/lib/mm/shopProducts";
 import { shoppingStore } from "@/lib/mm/stores";
+import { InfoLine } from "../../../_components/Note";
+import { PageHeader } from "../../../_components/PageHeader";
 import { CheckIcon, ChevronRightIcon, PlusIcon, PotIcon } from "../../../_components/icons";
 import { PipSays } from "../../../_components/Mascot";
 import { Button, EmptyState, ErrorBox, LinkButton, Spinner } from "../../../_components/ui";
@@ -14,7 +16,7 @@ import { useHydrated, useStore } from "../../../_lib/hooks";
 import { useT } from "../../../_lib/i18n";
 import { addedNote, addMissing, fileForProduct, useListRecipes, type ListMatch } from "../../../_lib/listRecipes";
 import { Rich } from "../../../_lib/Rich";
-import { BackLink, CARD, LABEL, NOTE } from "../../PageBits";
+import { CARD, LABEL } from "../../PageBits";
 import { ProductMini } from "../../ProductMini";
 import { listHref } from "../../ListChoice";
 import { RecipeThumb } from "../../../recipes/RecipeThumb";
@@ -47,16 +49,16 @@ function MatchCard({ m }: { m: ListMatch }) {
           <span className="flex min-w-0 flex-1 items-center gap-3">
             <span className="min-w-0 flex-1">
               <span className="block text-lg font-[800] leading-snug tracking-[-0.01em] [overflow-wrap:anywhere] group-hover:underline group-hover:underline-offset-4">{t(m.recipe.name)}</span>
-              <span className="app-numbers mt-0.5 block text-sm font-semibold text-foreground">{t("You have {have} of {total} ingredients", { have: m.have.length, total })}</span>
+              <span className="app-numbers mt-0.5 block text-[0.9375rem] font-semibold text-foreground">{t("You have {have} of {total} ingredients", { have: m.have.length, total })}</span>
             </span>
-            <ChevronRightIcon className="h-[18px] w-[18px] shrink-0 text-muted" />
+            <ChevronRightIcon className="h-[18px] w-[18px] shrink-0 text-ink" />
           </span>
         </span>
       </Link>
-      <div aria-hidden className="mt-4 h-1 overflow-hidden rounded-full bg-[var(--line)]"><div className="h-full rounded-full bg-[var(--bar)]" style={{ width: `${(m.have.length / total) * 100}%` }} /></div>
+      <div aria-hidden className="mt-4 h-1.5 overflow-hidden rounded-full bg-line"><div className="h-full rounded-full bg-bar" style={{ width: `${(m.have.length / total) * 100}%` }} /></div>
       <p className="sr-only">{t("On your list:")} {m.have.map(label).join(", ")}</p>
       <ul aria-hidden className="mt-4 flex flex-wrap gap-2">
-        {m.have.map((i) => (<li key={i} className="bg-sun inline-flex items-center gap-1.5 rounded-full py-1.5 pe-3.5 ps-2.5 text-sm font-semibold text-on-accent"><CheckIcon className="h-3.5 w-3.5" strokeWidth={3} />{label(i)}</li>))}
+        {m.have.map((i) => (<li key={i} className="inline-flex items-center gap-1.5 rounded-full border-[1.5px] border-on-sun bg-sun py-1.5 pe-3.5 ps-2.5 text-[0.9375rem] font-bold text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]"><CheckIcon className="h-4 w-4" strokeWidth={3} />{label(i)}</li>))}
       </ul>
       {m.missing.length > 0 ? (
         <>
@@ -67,18 +69,19 @@ function MatchCard({ m }: { m: ListMatch }) {
               const pick = m.resolved.picks[i];
               const own = pick ? fileForProduct(m.files, pick.product) : undefined;
               return pick && own
-                ? <li key={i} className="inline-flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] py-1 pe-3.5 ps-1.5 text-sm font-medium"><ProductMini sources={shopPhotoSources(own, pick.product)} />{label(i)}</li>
-                : <li key={i} className="rounded-full border border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] px-3.5 py-1.5 text-sm font-medium">{label(i)}</li>;
+                ? <li key={i} className="inline-flex items-center gap-2 rounded-[0.375rem] bg-fill py-1 pe-3 ps-1 text-[0.9375rem] font-medium"><ProductMini sources={shopPhotoSources(own, pick.product)} />{label(i)}</li>
+                : <li key={i} className="rounded-[0.375rem] bg-fill px-3 py-1.5 text-[0.9375rem] font-medium">{label(i)}</li>;
             })}
           </ul>
-          <Button variant="secondary" className="mt-5" onClick={add}>
+          {/* every add is ink */}
+          <Button className="mt-5" onClick={add}>
             <PlusIcon className="h-5 w-5" />{m.missing.length === 1 ? t("Add the last one to my list") : t("Add the other {n} to my list", { n: m.missing.length })}
           </Button>
         </>
       ) : (
         <p className="mt-5 text-[0.9375rem] font-semibold leading-snug">{t("Your list has everything this recipe uses.")}</p>
       )}
-      <p role="status" aria-live="polite" className="mt-2 text-sm font-medium text-foreground empty:mt-0">{added}</p>
+      <p role="status" aria-live="polite" className="mt-2 text-[0.9375rem] font-semibold text-foreground empty:mt-0">{added}</p>
     </li>
   );
 }
@@ -107,7 +110,7 @@ function ListRecipesScreen() {
 
   return (
     <div>
-      <BackLink href={back} label={t("Back to shopping list")} />
+      <PageHeader back={{ href: back, label: t("Back to shopping list") }} />
       <h1 className="mt-5 text-[1.75rem] font-[800] leading-[1.08] tracking-[-0.02em]"><Rich text={t("Cook with your {list}")} values={{ list: <span>{t("shopping list")}</span> }} /></h1>
       <div className="mt-5"><PipSays mood="point" size={72}>{t("These recipes use something on your list. Each one shows what you still need to buy.")}</PipSays></div>
 
@@ -123,12 +126,12 @@ function ListRecipesScreen() {
         <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No recipe uses these yet.")} body={t("Try adding a main ingredient, like chicken, rice or eggs.")} action={<LinkButton href="/app/recipes" variant="secondary">{t("See all recipes")}</LinkButton>} /></div>
       ) : (
         <>
-          <p role="status" className="app-numbers mt-7 ps-1 text-sm font-semibold text-muted">{matches.length === 1 ? t("1 recipe uses something on your list") : t("{n} recipes use something on your list", { n: matches.length })}</p>
+          <p role="status" className="app-numbers mt-7 ps-1 text-[0.9375rem] font-semibold text-muted">{matches.length === 1 ? t("1 recipe uses something on your list") : t("{n} recipes use something on your list", { n: matches.length })}</p>
           <ul className="mt-3 space-y-3.5">
             {matches.slice(0, limit).map((m) => (<MatchCard key={m.recipe.id} m={m} />))}
           </ul>
           {matches.length > limit && <div className="mt-4"><Button full variant="secondary" className="min-h-12 text-[0.9375rem]" onClick={() => setLimit((n) => n + PAGE)}>{t("Show more recipes ({n} more)", { n: matches.length - limit })}</Button></div>}
-          <p className={`mt-6 ${NOTE}`}>{t("Recipes are matched to your list by the products' names and chosen for your diet by their ingredients; check each pack.")}</p>
+          <InfoLine heading={null} className="mt-6">{t("Recipes are matched to your list by the products' names and chosen for your diet by their ingredients; check each pack.")}</InfoLine>
         </>
       )}
     </div>

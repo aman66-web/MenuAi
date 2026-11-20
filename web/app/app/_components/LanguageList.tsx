@@ -28,7 +28,7 @@ export function LanguageList({ value, onChange, label }: { value: Locale; onChan
             {/* the name keeps its own direction (bdi) but lines up with the English name under it, on the page's reading side */}
             <span className="block text-[1.1875rem] font-bold leading-tight [overflow-wrap:anywhere]"><bdi lang={l.htmlLang} dir={l.dir}>{l.name}</bdi></span>
             {/* the English name under it: muted grey, or a solid light grey on the chosen dark card (never text at reduced opacity) */}
-            {l.code !== "en" && <span lang="en" className={`mt-1 block text-[0.875rem] font-medium leading-snug ${on ? "text-[#b9c0bc]" : "text-muted"}`}>{l.english}</span>}
+            {l.code !== "en" && <span lang="en" className={`mt-1 block text-[0.875rem] font-medium leading-snug ${on ? "text-on-sun" : "text-muted"}`}>{l.english}</span>}
           </PickTile>
         );
       })}

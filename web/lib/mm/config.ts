@@ -58,6 +58,25 @@ export const COMMUNITY_FRIENDS_ENABLED = COMMUNITY_ENABLED && process.env.NEXT_P
 export const SIGN_IN_REQUIRED =
   process.env.NEXT_PUBLIC_SIGN_IN_REQUIRED === "1" || (process.env.NEXT_PUBLIC_SIGN_IN_REQUIRED !== "0" && !SAMPLES_ENABLED);
 
+/**
+ * The remote switch (the onboarding meeting of 19 November 2026, question 8; founder 19 Nov: "Do whatever you think is best"): this file on numbite.com, read by
+ * the app on every launch like the logo take-down list (lib/mm/appSwitches.ts, app/app/_lib/appSwitches.ts). {"signInOptional": true} there, deployed, makes sign-in
+ * optional in an iPhone app already installed, with no new build or second App Review (the 5.1.1(v) fallback above, without an archive). It can only ever make
+ * sign-in optional: where SIGN_IN_REQUIRED is false, the file changes nothing.
+ */
+export const APP_SWITCHES_PATH = "/app-switches.json";
+
+/**
+ * Anonymous counts of how many people reach each setup screen (the onboarding meeting of 19 November 2026, question 10; founder 19 Nov: "Do whatever you think is
+ * best"), sent to TelemetryDeck (CLAUDE.md rule 6, pre-approved) by plain fetch (lib/mm/analytics.ts reportSetupScreen). BUILT SWITCHED OFF: nothing is sent and no
+ * id is made unless NEXT_PUBLIC_TELEMETRY_APP_ID is set when the site or the app is built (the app's ID from the TelemetryDeck dashboard; set it for both builds, so
+ * the website's privacy page matches the app). Each count carries only the screen's name and a hash of a random number made on the device (mm.v1.installId, never
+ * synced, cleared by Settings › Clear data). While it is on, the cover, the sign-in screen and the privacy page say so instead of "No ads, no tracking" and
+ * "Neither sends usage statistics". Turn it on only after Apple's App Privacy answers are updated to match.
+ */
+export const TELEMETRY_APP_ID = (process.env.NEXT_PUBLIC_TELEMETRY_APP_ID ?? "").trim();
+export const TELEMETRY_ENABLED = TELEMETRY_APP_ID !== "";
+
 /** Flip to true once payments exist (docs/WEB_BUILD_PLAN.md). Until then the paywall is honest about it. */
 export const PAYMENTS_ENABLED = false;
 

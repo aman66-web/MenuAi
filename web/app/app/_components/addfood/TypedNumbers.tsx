@@ -4,6 +4,7 @@ import { useId, useState } from "react";
 import { ADD_TO, MAX_NAME_LENGTH, typedEntry, type TypedField } from "@/lib/mm/addFood";
 import { tk } from "@/lib/mm/i18n";
 import type { LogMeal } from "@/lib/mm/types";
+import { AlertCircleIcon } from "../icons";
 import { dismissKeyboard, NumberDone } from "../SearchDone";
 import { Button, inputClass } from "../ui";
 import { useT } from "../../_lib/i18n";
@@ -74,7 +75,7 @@ export function TypedNumbers({ meal, onAdd }: { meal: LogMeal; onAdd: (entry: Ne
       </div>
 
       {wrong ? (
-        <p id={ids.note} role="alert" className="text-[0.9375rem] font-semibold leading-snug">{t(PROBLEM[wrong.field])}</p>
+        <p id={ids.note} role="alert" className="flex items-start gap-1.5 text-[0.9375rem] font-semibold leading-snug text-danger"><AlertCircleIcon aria-hidden className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0" /><span className="min-w-0">{t(PROBLEM[wrong.field])}</span></p>
       ) : (
         <p id={ids.note} className="text-[0.9375rem] leading-snug text-muted">{t("Calories are needed. Protein, carbs and fat can stay empty.")}</p>
       )}

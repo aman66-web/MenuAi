@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { formatPrice, type ShoppingItem } from "@/lib/mm/groceries";
 import { packLabel, shopListItem, shopPhotoSources, typedMatches } from "@/lib/mm/shopProducts";
 import { ShopMark } from "../../_components/ChainMark";
-import { ErrorBox, Sheet, Spinner } from "../../_components/ui";
+import { ChoiceMark, ErrorBox, Sheet, Spinner } from "../../_components/ui";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { useShopProducts } from "../../_lib/shopProducts";
 import { CARD } from "../PageBits";
@@ -32,8 +32,8 @@ export function ChooseSheet({ item, shops, onClose, onChoose }: { item: Shopping
             <div role="radiogroup" aria-label={t("Shop")} className="no-scrollbar -mx-5 mt-3 flex gap-2 overflow-x-auto px-5">
               {shops.map((s) => (
                 <button key={s.id} type="button" role="radio" aria-checked={s.id === shop.id} onClick={() => setAsked(s.id)}
-                  className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full ps-1.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 ${s.id === shop.id ? "bg-foreground text-background" : "bg-[var(--fill)]"}`}>
-                  <ShopMark shopId={s.id} size="xs" />{s.name}
+                  className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border-[1.5px] ps-2 pe-4 text-[0.9375rem] transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${s.id === shop.id ? "border-on-sun bg-sun font-bold text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-edge bg-card font-semibold text-foreground hover:bg-background"}`}>
+                  <ChoiceMark on={s.id === shop.id} /><ShopMark shopId={s.id} size="xs" />{s.name}
                 </button>
               ))}
             </div>
@@ -52,7 +52,7 @@ export function ChooseSheet({ item, shops, onClose, onChoose }: { item: Shopping
                 return (
                   <li key={p.id}>
                     {/* the photo first on screen, the words first for a screen reader (the button's name starts with the product's name) */}
-                    <button type="button" onClick={() => onChoose(shopListItem(state.file, p))} className={`${CARD} flex w-full flex-wrap items-center gap-3 p-3 text-start transition active:scale-[0.99] hover:bg-soft-strong`}>
+                    <button type="button" onClick={() => onChoose(shopListItem(state.file, p))} className={`${CARD} flex w-full flex-wrap items-center gap-3 p-3 text-start transition active:scale-[0.99] hover:bg-background`}>
                       <span className="order-1 min-w-0 flex-1 basis-[9rem]">
                         <span className="block text-[0.9375rem] font-semibold leading-snug [overflow-wrap:anywhere]">{p.name}</span>
                         <span className="app-numbers mt-0.5 block text-[0.8125rem] leading-snug text-muted [overflow-wrap:anywhere]">{detail}</span>

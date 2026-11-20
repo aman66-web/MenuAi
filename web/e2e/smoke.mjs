@@ -133,7 +133,8 @@ await step("home is today: this week, calories against the target, the Shopping 
   await visible(page.getByRole("heading", { level: 1, name: "Home" }));
   await visible(page.getByRole("list", { name: "This week" }));
   await visible(page.getByRole("progressbar", { name: "Calories used today" }));
-  await visible(text("/ 2,400"));
+  // the dial says what's left in its middle, then what was eaten and the target under it (colour meeting, 19 November 2026): no percentage
+  await visible(text("of 2,400 kcal"));
   await visible(text("Log your meals to see what's left today."));
   // the cooking tools under the numbers since 2026-11-19 (Scan your food only where Premium is sold); My meals is reached from Recipes
   for (const name of [/^Shopping list/, /^Cook with what you already have/, /^Meal plan/]) await visible(page.getByRole("link", { name }));
@@ -211,15 +212,15 @@ await step("item detail: big calories, nutrients and 'not published'", async () 
 await step("tapping Customise as a free user shows the honest paywall", async () => {
   await page.getByRole("button", { name: "Change the order" }).click();
   await visible(page.getByRole("heading", { name: "Build the perfect order, every time" }));
-  await visible(text("Pro isn't on the web yet."));
+  await visible(text("Premium isn't on the web yet."));
   await visible(text("Top 5 picks for your goal at every chain"));
   await shot("08-paywall");
 });
-await step("unlock Pro preview (testing)", async () => {
-  await page.getByRole("button", { name: "Unlock Pro preview (testing)" }).click();
+await step("unlock Premium preview (testing)", async () => {
+  await page.getByRole("button", { name: "Unlock Premium preview (testing)" }).click();
   await page.waitForTimeout(300);
 });
-await step("Best for you (Pro): build muscle, lunch → golden #1 with reason line", async () => {
+await step("Best for you (Premium): build muscle, lunch → golden #1 with reason line", async () => {
   await page.goto(`${BASE}/app/chain?id=bowl-and-co`);
   await visible(page.getByRole("heading", { name: "Bowl & Co." }));
   await page.getByRole("button", { name: "Lunch" }).click();
@@ -285,8 +286,9 @@ await step("Save → My meals › Restaurant meals lists it; Log → today's mea
 await step("home shows today's calories after logging", async () => {
   await page.goto(`${BASE}/app`);
   await visible(page.getByRole("progressbar", { name: "Calories used today" }));
-  await visible(text("32%"));
-  await visible(text("760"));
+  await visible(text("760 eaten")); // 2,400 - 760 = 1,640 left, said in the dial's middle
+  await visible(text("1,640"));
+  if (await page.locator('[data-coach="home-numbers"]').getByText(/\d+%/).count()) throw new Error("a percentage is still shown on Home's numbers");
   await shot("14-home-pro");
 });
 await step("delete a log entry and undo it", async () => {

@@ -3,10 +3,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { decodePayload, SHARE_PROBLEM } from "@/lib/mm/shareList";
 import { site } from "@/site.config";
+import { PageHeader } from "../../../_components/PageHeader";
 import { ErrorBox, LinkButton, Spinner } from "../../../_components/ui";
 import { useBack } from "../../../_lib/backNav";
 import { useT } from "../../../_lib/i18n";
-import { BackLink, TITLE } from "../../PageBits";
+import { TITLE } from "../../PageBits";
 import { SharedListBody } from "./SharedListBody";
 
 // A shopping list a friend sent (founder 2026-10-15). It is in the address after the "#" (lib/mm/shareList.ts), which never leaves this phone; the shops' own
@@ -31,7 +32,7 @@ export default function SharedListPage() {
   const decoded = useMemo(() => (hash === undefined ? undefined : decodePayload(hash ?? "")), [hash]);
 
   const listNav = useBack("/app/groceries/list"); // for the "Back to shopping list" button below: the page before when there is one in the app, else the list in this page's place
-  const back = <BackLink href="/app/groceries/list" label={t("Back to shopping list")} />;
+  const back = <PageHeader back={{ href: "/app/groceries/list", label: t("Back to shopping list") }} />;
   const heading = <h1 className={`mt-5 ${TITLE}`}>{t("Shared shopping list")}</h1>;
 
   if (decoded === undefined) return <div>{back}{heading}<Spinner label={t("Opening the list")} /></div>;

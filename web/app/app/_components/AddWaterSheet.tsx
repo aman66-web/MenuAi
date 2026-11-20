@@ -5,7 +5,7 @@ import { formatInt } from "@/lib/mm/format";
 import { BOTTLE_ML, GLASS_ML, MAX_WATER_ENTRY_ML, mlToLevel, parseWaterAmount } from "@/lib/mm/water";
 import { NumberDone } from "./SearchDone";
 import { WaterBottle } from "./WaterBottle";
-import { Button, Sheet, inputClass } from "./ui";
+import { Button, ChoiceMark, Sheet, inputClass } from "./ui";
 import { useT } from "../_lib/i18n";
 
 // "Add water", opened by the + on Home's Water card (founder 2026-10-16: "a water bottle which you can move up and type the amount of water you've
@@ -13,8 +13,10 @@ import { useT } from "../_lib/i18n";
 // scale, and an "Amount (ml)" box you can type in, in big figures: they stay in step. Two quick buttons, a glass (250 ml) and a bottle (500 ml), fill it
 // in for you. What is added is on top of what is already drunk today. Nothing here is advice about how much to drink (CLAUDE.md rule 3).
 
+// The two quick amounts are choices (colour meeting, 19 November 2026): white with the 1.5 px edge and an empty tick ring; the one that matches the amount is
+// lime with the 2 px dark green edge (a 1.5 px border plus a half-pixel ring, so nothing moves), a tick and dark green words.
 const chip = (on: boolean) =>
-  `inline-flex min-h-12 flex-wrap items-center justify-center gap-x-2 gap-y-0.5 rounded-2xl border px-3 py-2 text-[0.9375rem] font-bold transition active:scale-95 ${on ? "border-transparent bg-foreground text-background" : "border-[color-mix(in_srgb,var(--foreground)_18%,transparent)] bg-white text-foreground hover:bg-soft-strong"}`;
+  `inline-flex min-h-12 flex-wrap items-center justify-center gap-x-2 gap-y-0.5 rounded-2xl border-[1.5px] px-3 py-2 text-[0.9375rem] font-bold transition active:scale-95 ${on ? "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-edge bg-card text-foreground hover:bg-background"}`;
 
 /** Our own small drawings for the two quick buttons, with a little blue water in each. */
 const GlassIcon = () => (
@@ -30,10 +32,8 @@ const BottleIcon = () => (
   </svg>
 );
 
-/** The bottle's stage: a soft cool light behind it so the clear bottle and its blue water stand out on the white sheet. */
-const STAGE = {
-  background: "radial-gradient(70% 60% at 50% 42%, rgba(120, 205, 245, 0.2), rgba(120, 205, 245, 0) 70%), linear-gradient(180deg, #f6fafc, #eef4f7)",
-};
+/** The bottle's stage: the page fill, flat, so the bottle (its blues and its grey outline: WaterBottle.tsx) stands out on the white sheet. */
+const STAGE = "bg-fill";
 
 function AddWaterForm({ onAdd }: { onAdd: (ml: number) => void }) {
   const t = useT();
@@ -44,9 +44,10 @@ function AddWaterForm({ onAdd }: { onAdd: (ml: number) => void }) {
 
   const quick = (icon: ReactNode, label: string, value: number) => (
     <button type="button" aria-pressed={ml === value} onClick={() => setText(String(value))} className={chip(ml === value)}>
+      <ChoiceMark on={ml === value} />
       {icon}
       <span>{label}</span>
-      <span className="app-numbers text-sm font-semibold opacity-70">{value} ml</span>
+      <span className={`app-numbers text-sm font-semibold ${ml === value ? "" : "text-muted"}`}>{value} ml</span>
     </button>
   );
 
@@ -58,7 +59,7 @@ function AddWaterForm({ onAdd }: { onAdd: (ml: number) => void }) {
         if (ml !== null) onAdd(ml);
       }}
     >
-      <div className="relative flex justify-center overflow-hidden rounded-[1.5rem] px-4 pb-5 pt-6" style={STAGE}>
+      <div className={`relative flex justify-center overflow-hidden rounded-[1.5rem] px-4 pb-5 pt-6 ${STAGE}`}>
         <WaterBottle
           interactive
           level={mlToLevel(shown)}

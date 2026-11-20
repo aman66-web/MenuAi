@@ -16,8 +16,12 @@ import { useReminderStatus } from "../_lib/reminderSync";
 // need to know when to have their medication, the app will send reminders to them when to have"). The reminders are the person's own: they type the
 // name, choose when, and the iPhone app rings at those times. A row shows the name, how often and when, and, for a reminder that is for today, a round
 // tick for "done today" (it resets itself at midnight). Nothing here says a reminder was missed or late, and nothing keeps a score (CLAUDE.md rule 3).
+// Colours (colour meeting, 19 November 2026, approved by the founder that day): "Done today" has the chosen look (lime, the 2 px dark-green edge and a tick),
+// the tick not yet ticked is an empty ring in the control edge grey; the small notes (Paused, Today at 8:00, Next: ...) are tags you can't tap, with 6 px corners
+// and the page fill inside the card, and "Won't ring" is the small ink badge; the bell sits in a page-fill well in the accent green. Never a "missed" or "late" colour.
 
-const pill = "mt-1.5 inline-flex items-center rounded-full px-3 py-1.5 text-[0.875rem] font-semibold leading-none";
+/** A tag inside the card: 6 px corners and no edge, so it never looks like a button. */
+const pill = "mt-1.5 inline-flex items-center gap-1 rounded-[0.375rem] px-2 py-1 text-[0.875rem] font-semibold leading-none";
 
 function HomeRow({ r, now, htmlLang, wontRing, onEdit }: { r: Reminder; now: Date; htmlLang: string; wontRing: boolean; onEdit: () => void }) {
   const t = useT();
@@ -37,12 +41,12 @@ function HomeRow({ r, now, htmlLang, wontRing, onEdit }: { r: Reminder; now: Dat
           aria-pressed={done}
           aria-label={t("Mark {name} done", { name: r.title })}
           onClick={() => toggleReminderDone(r.id, now)}
-          className={`relative z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${done ? "bg-sun text-on-accent" : "border-2 border-[color-mix(in_srgb,var(--foreground)_28%,transparent)] hover:bg-soft-strong"}`}
+          className={`relative z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${done ? "border-on-sun bg-sun text-on-sun" : "border-edge bg-card hover:bg-background"}`}
         >
           {done && <CheckIcon aria-hidden className="h-5 w-5" strokeWidth={3} />}
         </button>
       ) : (
-        <span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-soft-strong text-muted"><BellIcon className="h-5 w-5" /></span>
+        <span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-fill text-accent"><BellIcon className="h-5 w-5" /></span>
       )}
       <div className="min-w-0 flex-1">
         {/* The name is the button that opens the reminder; its edges are stretched over the whole card so the card is the tap target (the tick sits above). */}
@@ -59,13 +63,13 @@ function HomeRow({ r, now, htmlLang, wontRing, onEdit }: { r: Reminder; now: Dat
         </p>
         <div className="flex flex-wrap gap-x-2">
           {!r.enabled ? (
-            <span className={`${pill} bg-soft-strong text-muted`}>{t("Paused")}</span>
+            <span className={`${pill} bg-fill text-muted`}>{t("Paused")}</span>
           ) : due ? (
-            done ? <span className={`${pill} bg-sun text-on-accent`}>{t("Done today")}</span> : <span className={`${pill} bg-soft-strong text-foreground`}>{t("Today at {time}", { time })}</span>
+            done ? <span className={`${pill} border-[1.5px] border-on-sun bg-sun font-bold text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]`}><CheckIcon aria-hidden className="h-3.5 w-3.5 shrink-0" strokeWidth={3} />{t("Done today")}</span> : <span className={`${pill} bg-fill text-foreground`}>{t("Today at {time}", { time })}</span>
           ) : next ? (
-            <span className={`${pill} bg-soft-strong text-foreground`}>{t("Next: {date}", { date: formatNextDay(next, htmlLang) })}</span>
+            <span className={`${pill} bg-fill text-foreground`}>{t("Next: {date}", { date: formatNextDay(next, htmlLang) })}</span>
           ) : null}
-          {wontRing && <span className={`${pill} bg-foreground text-background`}>{t("Won't ring")}</span>}
+          {wontRing && <span className={`${pill} bg-ink text-on-ink`}>{t("Won't ring")}</span>}
         </div>
       </div>
     </li>
@@ -79,9 +83,9 @@ function AddCard({ onClick }: { onClick: () => void }) {
     <button
       type="button"
       onClick={onClick}
-      className={`glass flex min-h-[4.5rem] w-full items-center gap-3.5 rounded-[1.75rem] p-4 text-start transition hover:bg-soft-strong active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent mt-3`}
+      className="glass mt-3 flex min-h-[4.5rem] w-full items-center gap-3.5 rounded-[1.75rem] p-4 text-start transition hover:bg-background active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
-      <span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-soft-strong text-muted"><BellIcon className="h-5 w-5" /></span>
+      <span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-fill text-accent"><BellIcon className="h-5 w-5" /></span>
       <span className="min-w-0 flex-1 text-lg font-extrabold leading-snug tracking-tight">{t("Add a reminder")}</span>
       <span aria-hidden className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-ink text-on-ink"><PlusIcon className="h-6 w-6" /></span>
     </button>
@@ -103,7 +107,7 @@ export function RemindersSection({ now }: { now: Date }) {
       <div className="mt-7 flex items-center justify-between gap-3">
         <h2 id="home-reminders" tabIndex={-1} className="min-w-0 text-xl font-extrabold tracking-tight outline-none">{t("Reminders")}</h2>
         {list.length > 0 && (
-          <Link href="/app/reminders" aria-label={t("Manage reminders")} className="-me-3.5 inline-flex min-h-11 shrink-0 items-center rounded-full px-3.5 text-[0.9375rem] font-bold text-accent transition hover:bg-accent-soft active:scale-95">
+          <Link href="/app/reminders" aria-label={t("Manage reminders")} className="-me-3.5 inline-flex min-h-11 shrink-0 items-center rounded-full px-3.5 text-[0.9375rem] font-bold text-accent underline underline-offset-2 transition hover:bg-fill active:scale-95">
             {t("Manage")}
           </Link>
         )}

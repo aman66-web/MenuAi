@@ -12,11 +12,12 @@ import { ChainMark } from "../_components/ChainMark";
 import { chainGroupClass } from "../_components/ChainRow";
 import { ItemThumb } from "../_components/ItemPhoto";
 import { blurOnEnter, DONE_ROOM, DONE_ROOM_WITH_CLEAR, SearchDone } from "../_components/SearchDone";
-import { ChevronLeftIcon, ChevronRightIcon, CloseIcon, SearchIcon } from "../_components/icons";
+import { ChevronRightIcon, CloseIcon, SearchIcon } from "../_components/icons";
+import { PageHeader } from "../_components/PageHeader";
 import { RequestChainSheet } from "../_components/Submit";
 import { Button, Chip, EmptyIcon, EmptyState, SampleBadge } from "../_components/ui";
 import { PipSays } from "../_components/Mascot";
-import { useBack, useEntryQuery } from "../_lib/backNav";
+import { useEntryQuery } from "../_lib/backNav";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useSearchIndex, useSettings } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
@@ -36,7 +37,6 @@ const heading = "mt-7 text-xl font-[800] tracking-[-0.01em]";
 
 export default function SearchPage() {
   const t = useT();
-  const back = useBack("/app/eat-out"); // the page before when there is one in the app (Eat out, or wherever Search was opened from), else Eat out
   const inputRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useEntryQuery(inputRef); // kept in the history entry, so Back from a result finds the search as it was left
   const deferred = useDeferredValue(query);
@@ -60,7 +60,9 @@ export default function SearchPage() {
   return (
     <div>
       <h1 className="sr-only">{t("Search")}</h1>
-      <Link href={back.href} onClick={back.onClick} aria-label={t("Back")} className="group -ms-1 inline-flex min-h-11 items-center rounded-full px-1 transition active:scale-95"><span className="inline-flex min-h-9 items-center gap-1 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft py-1 ps-2 pe-3.5 text-[0.9375rem] font-bold leading-tight transition-colors group-hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-[1.125rem] w-[1.125rem]" /><span>{t("Back")}</span></span></Link>
+      {/* the header every page has (colour meeting, 19 November 2026): Back goes to the page before when there is one in the app (Eat out, or wherever
+          Search was opened from), else Eat out; the Settings cog far right */}
+      <PageHeader back={{ href: "/app/eat-out", label: t("Back to restaurants") }} />
       <div className="group/search relative mt-3">
         <SearchIcon className="pointer-events-none absolute start-5 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-foreground" />
         <input

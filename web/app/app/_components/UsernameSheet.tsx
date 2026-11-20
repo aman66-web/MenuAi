@@ -7,7 +7,8 @@ import { chooseUsername, refreshMe } from "../_lib/community";
 import { failureText, usernameProblemText } from "../_lib/communityText";
 import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
-import { Button, Field, Sheet, Spinner, inputClass } from "./ui";
+import { AlertCircleIcon } from "./icons";
+import { Button, Field, Sheet, inputClass } from "./ui";
 
 // "Choose a username" (Community, founder 2026-10-16). The name friends see instead of an email address; chosen once and never changed. The rules are one function
 // (lib/community/username.ts) that the server runs too, so this sheet can say what is wrong before anything is sent, and the server still has the last word
@@ -85,12 +86,12 @@ function UsernamePanel({ onClose, onChosen }: { onClose: () => void; onChosen?: 
         </Field>
       </div>
       {shape.ok && !error && <p id={messageId} className="mt-3 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]" role="status">{t("Your friends will see: {username}", { username: shape.username })}</p>}
-      {error && <p id={messageId} role="alert" className="mt-3 text-[0.9375rem] font-semibold leading-snug">{error}</p>}
+      {error && <p id={messageId} role="alert" className="mt-3 flex items-start gap-1.5 text-[0.9375rem] font-semibold leading-snug text-danger"><AlertCircleIcon className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0" /><span className="min-w-0">{error}</span></p>}
       <p className="mt-4 text-sm leading-snug text-muted">
         <Rich text={t("By choosing a username you agree to the {terms}.")} values={{ terms: <a href="/terms" className="-mx-1.5 -my-3.5 inline-block px-1.5 py-3.5 underline underline-offset-2">{t("Terms")}</a> }} />
       </p>
-      {/* aria-disabled, not disabled, while it is working: a disabled button drops the keyboard focus to the page */}
-      <Button full type="submit" className="mt-3 min-h-12 text-base" disabled={name.trim() === ""} aria-disabled={busy || undefined}>{busy ? <Spinner label={t("Checking…")} /> : t("Choose this username")}</Button>
+      {/* busy, not disabled, while it is working: a disabled button drops the keyboard focus to the page (busy keeps it, says aria-busy and ignores a second tap) */}
+      <Button full type="submit" className="mt-3 min-h-12 text-base" disabled={name.trim() === ""} busy={busy} busyLabel={t("Checking…")}>{t("Choose this username")}</Button>
       <Button full variant="ghost" className="mt-1.5" disabled={busy} onClick={onClose}>{t("Cancel")}</Button>
     </form>
   );

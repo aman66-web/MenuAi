@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
-import { AI_RECIPES_ENABLED, APP_PREMIUM, FOOD_SCAN_API_ENABLED, PHOTO_RECIPES_API_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { AI_RECIPES_ENABLED, APP_PREMIUM, FOOD_SCAN_API_ENABLED, PHOTO_RECIPES_API_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, TELEMETRY_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 
 export const metadata: Metadata = { title: "Privacy policy" };
@@ -320,7 +320,19 @@ export default function Privacy() {
         <p className={para}>
           We don&apos;t use advertising or tracking cookies. The only cookies are the sign-in cookies described above, and only if you sign in on the website. The iPhone app carries the menus inside it and, when you&apos;re online,
           downloads newer menus and product lists from this website. The web app saves menus and its own files in your browser&apos;s
-          cache so it keeps working with a poor connection. Neither sends usage statistics.
+          cache so it keeps working with a poor connection.{" "}
+          {/* the setup screen counts (lib/mm/config.ts TELEMETRY_ENABLED, lib/mm/analytics.ts): this sentence changes only while they are switched on */}
+          {TELEMETRY_ENABLED ? (
+            <>
+              Neither sends usage statistics, except one anonymous count: while you go through the welcome screens, each screen you reach is counted, through
+              the analytics service TelemetryDeck, so we can see where people stop. A count holds only the screen&apos;s name and a scrambled (hashed) copy of a
+              random number made on your device, so one phone&apos;s counts can be told apart from another&apos;s but never linked to you. It never holds your
+              email address, your account, your answers, your location or the page&apos;s address, and it isn&apos;t used for ads. Settings › Clear data on this
+              device deletes the random number.
+            </>
+          ) : (
+            "Neither sends usage statistics."
+          )}
         </p>
       </Section>
 

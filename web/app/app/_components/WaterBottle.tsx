@@ -15,6 +15,9 @@ import { BOTTLE_FULL_ML, DRAG_STEP_ML, levelToMl, stepMl } from "@/lib/mm/water"
 // empty and full); `onChange` gets the amount in millilitres, snapped to DRAG_STEP_ML. There it also has a measuring scale (250, 500, 750 ml and
 // 1 litre), a lime handle on the water line and, while it is dragged or moved with the keyboard, the amount in a small label beside the handle. The box
 // is always 1 : 2 like the drawing, so a finger's height in the box is its height in the drawing; callers set only the width.
+// The colour meeting (19 November 2026, approved by the founder that day): the water keeps its own blues (they are only 1.4 to 2.9:1 on white), so the bottle
+// and the water's level line carry a 1.5 px outline in the control edge grey (--edge, 3.99:1 on white), the same width at any size (non-scaling strokes);
+// the handle, a lime "where you are" mark, has the 2 px dark-green edge, and the amount beside it is the ink tag of the toasts.
 
 const VIEW_W = 60;
 const VIEW_H = 120;
@@ -165,7 +168,7 @@ export function WaterBottle({
                   </g>
                   <g className={interactive ? "water-wave" : "water-wave water-calm"}>
                     <path d={FRONT.fill} fill={`url(#${id}-water)`} />
-                    <path d={FRONT.crest} fill="none" stroke="#fff" strokeOpacity={0.75} strokeWidth={0.9} />
+                    <path d={FRONT.crest} fill="none" stroke="var(--edge)" strokeWidth={1.5} vectorEffect="non-scaling-stroke" />
                   </g>
                 </g>
               </g>
@@ -195,10 +198,10 @@ export function WaterBottle({
         {interactive && (
           <g strokeLinecap="round">
             {MINOR.map((m) => (
-              <path key={m} d={`M${SIDE_R - 5} ${markY(m)}h3.5`} stroke="#0d3a52" strokeOpacity={0.3} strokeWidth={0.8} />
+              <path key={m} d={`M${SIDE_R - 5} ${markY(m)}h3.5`} stroke="var(--muted)" strokeOpacity={0.45} strokeWidth={0.8} />
             ))}
             {MARKS.map((m) => (
-              <path key={m} d={`M${SIDE_R - 8} ${markY(m)}h6.5`} stroke="#0d3a52" strokeOpacity={0.45} strokeWidth={1} />
+              <path key={m} d={`M${SIDE_R - 8} ${markY(m)}h6.5`} stroke="var(--muted)" strokeOpacity={0.7} strokeWidth={1} />
             ))}
           </g>
         )}
@@ -207,7 +210,7 @@ export function WaterBottle({
         <path d="M15.5 22.5C17 20.5 19 19.3 21 18.6" fill="none" stroke="#fff" strokeOpacity={0.8} strokeWidth={1.3} strokeLinecap="round" />
       </g>
 
-      <path d={BODY} fill="none" stroke="#18394a" strokeOpacity={0.3} strokeWidth={1.3} strokeLinejoin="round" />
+      <path d={BODY} fill="none" stroke="var(--edge)" strokeWidth={1.5} vectorEffect="non-scaling-stroke" strokeLinejoin="round" />
       {/* The cap: a ring at the neck, then the cap with a few ridges and a highlight. */}
       <rect x={22} y={8.4} width={16} height={2.4} rx={1} fill="#c3d4dc" />
       <rect x={20.5} y={1} width={19} height={8.6} rx={2.8} fill={`url(#${id}-cap)`} />
@@ -271,14 +274,14 @@ export function WaterBottle({
           </span>
         ))}
         <div className="absolute inset-0 motion-reduce:!transition-none" style={{ transform: `translateY(${((WATER_TOP + lift) / VIEW_H) * 100}%)`, transition }}>
-          <span className={`water-handle absolute left-1/2 top-0 flex h-[0.8rem] w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-[3px] rounded-full border-2 border-white bg-[var(--sun)] shadow-[0_2px_8px_rgba(11,26,18,0.28)] transition-[scale] duration-150 ${dragging ? "scale-115" : ""}`}>
-            <i className="h-[0.35rem] w-px rounded-full bg-[rgba(11,26,18,0.5)]" />
-            <i className="h-[0.35rem] w-px rounded-full bg-[rgba(11,26,18,0.5)]" />
-            <i className="h-[0.35rem] w-px rounded-full bg-[rgba(11,26,18,0.5)]" />
+          <span className={`water-handle absolute left-1/2 top-0 flex h-[0.8rem] w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-[3px] rounded-full border-2 border-on-sun bg-sun shadow-[var(--photo-chip-shadow)] transition-[scale] duration-150 ${dragging ? "scale-115" : ""}`}>
+            <i className="h-[0.35rem] w-px rounded-full bg-on-sun" />
+            <i className="h-[0.35rem] w-px rounded-full bg-on-sun" />
+            <i className="h-[0.35rem] w-px rounded-full bg-on-sun" />
           </span>
           <span
             style={{ right: `calc(${100 - (SIDE_L / VIEW_W) * 100}% + 0.6rem)` }}
-            className={`water-tip app-numbers absolute top-0 -translate-y-1/2 whitespace-nowrap rounded-full bg-foreground px-2.5 py-1 text-[0.8125rem] font-bold leading-tight text-background shadow-[0_4px_12px_-4px_rgba(11,26,18,0.45)] transition-opacity duration-150 after:absolute after:-right-[3px] after:top-1/2 after:h-2 after:w-2 after:-translate-y-1/2 after:rotate-45 after:rounded-[1px] after:bg-foreground after:content-[''] ${dragging ? "opacity-100" : "opacity-0"}`}
+            className={`water-tip app-numbers absolute top-0 -translate-y-1/2 whitespace-nowrap rounded-full bg-ink px-2.5 py-1 text-[0.8125rem] font-bold leading-tight text-on-ink shadow-[var(--shadow-lift)] transition-opacity duration-150 after:absolute after:-right-[3px] after:top-1/2 after:h-2 after:w-2 after:-translate-y-1/2 after:rotate-45 after:rounded-[1px] after:bg-ink after:content-[''] ${dragging ? "opacity-100" : "opacity-0"}`}
           >
             {valueText}
           </span>

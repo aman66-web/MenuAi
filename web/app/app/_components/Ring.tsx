@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
 
 /**
- * A progress ring in one flat colour (--bar, the app's lime). It is one neutral colour for every state (never red or green: we don't
+ * A progress ring in one flat colour (--bar: the deep green of progress on a light surface, on the line-coloured track; lime on the ink numbers cards, which
+ * set --bar). It is one neutral colour for every state (never red or green: we don't
  * judge food or days), and the number it shows is only "how much of the target is used". The ring is the
  * progressbar for assistive tech; the SVG itself is decorative.
  */

@@ -44,7 +44,7 @@ function LogoTile({ logo, size, fallback }: { logo: ChainLogo | undefined; size:
   const dark = failed === 0 ? art?.tile === "dark" : logo?.tile === "dark";
   if (!src) return <>{fallback}</>;
   return (
-    <span aria-hidden className={`inline-flex shrink-0 items-center justify-center overflow-hidden border border-line ${full ? "" : `${PAD[size]} ${dark ? "bg-[#111]" : "bg-white"}`} ${BOX[size]}`}>
+    <span aria-hidden className={`inline-flex shrink-0 items-center justify-center overflow-hidden border border-line ${full ? "" : `${PAD[size]} ${dark ? "bg-ink" : "bg-card"}`} ${BOX[size]}`}>
       {/* eslint-disable-next-line @next/next/no-img-element -- the official file, used as published: no resizing pipeline, no recolouring */}
       <img src={src} alt="" loading="lazy" decoding="async" className="h-full w-full object-contain" onError={() => setFailed((f) => (f === 0 && art?.fallback ? 1 : 2))} />
     </span>

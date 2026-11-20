@@ -10,12 +10,12 @@ import { itemImageUrl } from "@/lib/mm/images";
 import { isTakenDown } from "@/lib/mm/logos";
 import { search } from "@/lib/mm/search";
 import { compareStore } from "@/lib/mm/stores";
-import { BasketIcon, ChevronLeftIcon, CompareIcon, ForkIcon, PlusIcon, SearchIcon } from "../_components/icons";
+import { BasketIcon, CompareIcon, ForkIcon, PlusIcon, SearchIcon } from "../_components/icons";
 import { ItemThumb } from "../_components/ItemPhoto";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
-import { EmptyState, Spinner } from "../_components/ui";
+import { ChoiceMark, EmptyState, Spinner } from "../_components/ui";
 import { compareDish, compareFoodFromListed } from "../_lib/compare";
-import { backName, useBack } from "../_lib/backNav";
+import { PageHeader } from "../_components/PageHeader";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useGroceryCatalogue } from "../_lib/groceries";
 import { useHydrated, useSearchIndex, useSettings, useStore } from "../_lib/hooks";
@@ -66,16 +66,19 @@ export function CompareScreen({ tab: asked }: { tab: CompareKind | null }) {
     setPicked(v);
     router.replace(`/app/compare?tab=${v}`, { scroll: false });
   };
-  // the page before (a product, a dish, Groceries, Eat out...) when there is one in the app, else the list the open tab compares from
-  const back = useBack(tab === "dish" ? "/app/eat-out" : "/app/groceries");
 
   return (
     <div>
-      <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), tab === "dish" ? t("Back to restaurants") : t("Back to groceries"), back.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
-      <h1 className="mt-5 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{t("Compare")}</h1>
+      {/* the header every page has (colour meeting, 19 November 2026): Back goes to the page before (a product, a dish, Groceries, Eat out...) when there is
+          one in the app, else the list the open tab compares from; the Shopping list pill while comparing foods (they are things to buy); the Settings cog */}
+      <PageHeader
+        back={tab === "dish" ? { href: "/app/eat-out", label: t("Back to restaurants") } : { href: "/app/groceries", label: t("Back to groceries") }}
+        list={tab === "food"}
+        title={t("Compare")}
+      />
       <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Pick a few products or dishes and see their numbers side by side.")}</p>
 
-      <div role="tablist" aria-label={t("Compare")} className="glass mt-5 grid grid-cols-2 gap-1 rounded-full p-1">
+      <div role="tablist" aria-label={t("Compare")} className="mt-5 grid grid-cols-2 gap-1 rounded-full border-[1.5px] border-edge bg-background p-1">
         {TABS.map((o, i) => {
           const on = o.value === tab;
           const n = o.value === "food" ? foods.length : dishes.length;
@@ -90,9 +93,11 @@ export function CompareScreen({ tab: asked }: { tab: CompareKind | null }) {
               tabIndex={on ? 0 : -1}
               onClick={() => choose(o.value)}
               onKeyDown={(e) => { if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); choose(TABS[(i + 1) % 2]!.value); } }}
-              className={`min-h-12 rounded-full px-3 text-[0.9375rem] font-bold leading-tight transition-colors focus-visible:outline-2 focus-visible:outline-accent ${on ? "bg-foreground text-background" : "text-muted hover:text-foreground"}`}
+              className={`inline-flex min-h-12 items-center justify-center gap-1.5 rounded-full border-[1.5px] px-3 text-[0.9375rem] leading-tight transition-colors focus-visible:outline-2 focus-visible:outline-accent ${on ? "border-on-sun bg-sun font-bold text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-transparent font-semibold text-foreground hover:bg-card"}`}
             >
-              {t(o.label)}{hydrated && n > 0 && <span className="app-numbers whitespace-nowrap font-semibold"> · {n}</span>}
+              {/* the open tab is lime with the dark green edge and a tick, like every chosen thing (colour meeting, 19 November 2026), never ink */}
+              {on && <ChoiceMark on />}
+              <span>{t(o.label)}{hydrated && n > 0 && <span className="app-numbers whitespace-nowrap font-semibold"> · {n}</span>}</span>
             </button>
           );
         })}
@@ -142,7 +147,7 @@ function Chosen({ items }: { items: readonly CompareItem[] }) {
                 <span className={thumbClass}>
                   <span className={`relative block ${item.kind === "dish" ? "h-14 w-14" : "h-16 w-16"}`}>
                     {item.kind === "dish" ? <ItemThumb image={picture} /> : <PhotoTile sources={foodPhotoSources(item)} />}
-                    <span className="absolute -start-1.5 -top-1.5 rounded-full ring-2 ring-white"><Num n={i + 1} small /></span>
+                    <span className="absolute -start-1.5 -top-1.5 rounded-full ring-2 ring-card"><Num n={i + 1} small /></span>
                   </span>
                 </span>
               )}
@@ -212,7 +217,7 @@ function HeaderPicture({ item }: { item: CompareItem }) {
   const [dishFailed, setDishFailed] = useState(false);
   const src = item.kind === "dish" ? (dishFailed ? undefined : itemImageUrl(picture)) : food.current?.src;
   return (
-    <span aria-hidden className={`grid aspect-square w-full max-w-[7.5rem] place-items-center overflow-hidden rounded-[1rem] ${src ? "bg-white ring-1 ring-line" : "bg-[var(--fill)] text-muted"}`}>
+    <span aria-hidden className={`grid aspect-square w-full max-w-[7.5rem] place-items-center overflow-hidden rounded-[1rem] ${src ? "bg-card ring-1 ring-line" : "bg-[var(--fill)] text-muted"}`}>
       {src ? (
         // eslint-disable-next-line @next/next/no-img-element -- the shop's or restaurant's own photo, already a small file
         <img src={src} alt="" width={120} height={120} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={item.kind === "dish" ? () => setDishFailed(true) : food.fail} className={`h-full w-full ${item.kind === "dish" ? "object-cover" : "object-contain p-1.5"}`} />
@@ -222,7 +227,7 @@ function HeaderPicture({ item }: { item: CompareItem }) {
 }
 
 const Num = ({ n, small }: { n: number; small?: boolean }) => (
-  <span aria-hidden className={`app-numbers grid shrink-0 place-items-center rounded-full bg-foreground font-[800] text-background ${small ? "h-6 w-6 text-[0.75rem]" : "h-7 w-7 text-[0.8125rem]"}`}>{n}</span>
+  <span aria-hidden className={`app-numbers grid shrink-0 place-items-center rounded-full bg-ink font-[800] text-on-ink ${small ? "h-6 w-6 text-[0.75rem]" : "h-7 w-7 text-[0.8125rem]"}`}>{n}</span>
 );
 
 /**
@@ -371,7 +376,7 @@ function Overview({ items }: { items: readonly CompareItem[] }) {
 const LIGHT_WORD = { green: "Low", amber: "Medium", red: "High" } as const;
 
 /** The nutrient names column: stays at the start while the item columns scroll under it. */
-const labelCell = "sticky start-0 z-10 w-[7.25rem] min-w-[7.25rem] max-w-[7.25rem] border-e border-line bg-white px-2.5 py-3 text-start align-top text-[0.8125rem] leading-snug [overflow-wrap:break-word]";
+const labelCell = "sticky start-0 z-10 w-[7.25rem] min-w-[7.25rem] max-w-[7.25rem] border-e border-line bg-card px-2.5 py-3 text-start align-top text-[0.8125rem] leading-snug [overflow-wrap:break-word]";
 
 function SearchBox({ value, onChange, label, placeholder }: { value: string; onChange: (v: string) => void; label: string; placeholder: string }) {
   const id = useId();

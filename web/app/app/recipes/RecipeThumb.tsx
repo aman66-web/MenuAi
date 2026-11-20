@@ -14,7 +14,7 @@ import { useRecipePhoto } from "../_lib/recipePhotos";
 // website, lib/mm/config.ts assetUrl), then the full picture, then, when neither loads (offline before it has been seen once), the plate and dish drawing of
 // the recipe's card. Decorative: the recipe's name is always written beside it.
 //
-// The drawing is the one RecipeTile.tsx draws on a card (the same words pick the same glyph on the same pastel); RecipeTile keeps its own copy of these
+// The drawing is the one RecipeTile.tsx draws on a card (the same words pick the same glyph); RecipeTile keeps its own copy of these
 // lists for now, and can import them from here.
 
 type Glyph = (p: React.SVGProps<SVGSVGElement>) => React.ReactNode;
@@ -36,9 +36,8 @@ export const DISH: ReadonlyArray<[RegExp, Glyph]> = [
   [/salmon|cod|tuna|mackerel|prawn|kedgeree/i, FishGlyph],
   [/rice|bowl/i, RiceBowlGlyph],
 ];
-const ART = ["bg-[#fcecc8]", "bg-[#fadcd8]", "bg-[#e8f1d4]", "bg-[#d9efe3]", "bg-[#dbeaf3]", "bg-[#fbe1c8]"];
-/** One of six flat pastels, chosen by the recipe's id (the same as its card's). */
-export const artOf = (id: string) => ART[[...id].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7) % ART.length]!;
+// The drawing's ground is the page fill for every recipe, the plate white with the card line and an ink glyph (colour meeting, 19 November 2026; approved by
+// the founder that day: the six pastels are retired).
 
 /** Whether a recipe has a picture of its own in the app (the book's; a Make it at home photo lives on the phone only). */
 export const hasRecipePicture = (id: string) => !!RECIPE_IMAGES[id];
@@ -67,12 +66,12 @@ export function RecipeThumb({ id, name, meal, size = "md", className = "" }: { i
   const s = SIZE[size];
   const Dish = DISH.find(([re]) => re.test(name))?.[1] ?? MEAL_GLYPH[meal ?? "dinner"] ?? MoonIcon;
   return (
-    <span aria-hidden className={`grid shrink-0 place-items-center overflow-hidden ${s.box} ${image ? "bg-soft-strong" : artOf(id)} ${className}`}>
+    <span aria-hidden className={`grid shrink-0 place-items-center overflow-hidden ${s.box} bg-fill ${className}`}>
       {image ? (
         // eslint-disable-next-line @next/next/no-img-element -- static file named by its hash (or the person's own photo); decorative, the name is beside it
         <img key={image.src} src={image.src} alt="" width={s.px} height={s.px} loading="lazy" decoding="async" onError={image.fail} className="h-full w-full object-cover" />
       ) : (
-        <span className={`grid place-items-center rounded-full bg-white/85 text-[#0b1a12] ${s.plate}`}>
+        <span className={`grid place-items-center rounded-full border border-line bg-card text-ink ${s.plate}`}>
           <Dish className={s.glyph} strokeWidth={1.6} />
         </span>
       )}
@@ -87,7 +86,7 @@ type StackRecipe = { id: string; name: string; meal?: MealType };
  * picture of their own are shown; null when none has one, so the card keeps its icon. `ring`: the colour that separates them (the card's own background).
  * `moreClass` goes on the second and third (e.g. to hide them where the card is narrow).
  */
-export function RecipeThumbStack({ recipes, ring = "ring-white", moreClass = "" }: { recipes: readonly StackRecipe[]; ring?: string; moreClass?: string }) {
+export function RecipeThumbStack({ recipes, ring = "ring-card", moreClass = "" }: { recipes: readonly StackRecipe[]; ring?: string; moreClass?: string }) {
   const shown = recipes.filter((r) => hasRecipePicture(r.id)).slice(0, 3);
   if (shown.length === 0) return null;
   return (

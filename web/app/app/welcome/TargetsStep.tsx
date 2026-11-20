@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { parseNumber } from "@/lib/mm/addFood";
-import { SIGN_IN_REQUIRED } from "@/lib/mm/config";
 import { suggestCarbFat, suggestProtein, MAX_MACRO_TARGET, CARB_FAT_NOTE, isLowCalories, LOW_CALORIES_NOTE, SUGGESTION_NOTE, UNDER_18_COPY, type PlanNote } from "@/lib/mm/targets";
 import type { AnswersPlan, TargetFieldKey, TargetFieldTexts, TargetFieldsReading } from "@/lib/mm/onboardingPlan";
 import type { Goal, Preferences } from "@/lib/mm/types";
@@ -12,6 +11,7 @@ import { SourcesLink } from "../_components/SourcesLink";
 import { PipSays } from "../_components/Mascot";
 import { focusTargetBox, TargetSuggestForm } from "../_components/TargetSuggestForm";
 import { inputClass } from "../_components/ui";
+import { useSignInRequired } from "../_lib/appSwitches";
 import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 import { CARD, HEADLINE, StepperCard } from "./parts";
@@ -42,6 +42,8 @@ export function TargetsStep({ goal, prefs, answers, skipped, fields, setField, r
   applySuggestion: (targets: { calories: string; protein: string; carbs: string; fat: string }, notes: readonly PlanNote[]) => void;
 }) {
   const t = useT();
+  // where everyone signs in, the account comes on the next screen ("Save your plan: make your free account"), so the line under the cards says what it keeps
+  const signInRequired = useSignInRequired();
   const [showSuggest, setShowSuggest] = useState(false);
   const plan = answers?.plan ?? null;
   // The four boxes hold a worked-out plan: from the questions, or from the suggestion form after they were skipped.
@@ -119,7 +121,7 @@ export function TargetsStep({ goal, prefs, answers, skipped, fields, setField, r
           {/* the words on one line, the figure and its unit on the next (the shared input is full width, so it is capped here) */}
           <label className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.9375rem] font-semibold">
             <span className="basis-full">{t("Comfortable meal size:")}</span>
-            <input className={`${inputClass} app-numbers max-w-[6.5rem] bg-soft-strong text-center text-[1.25rem] font-medium`} inputMode="numeric" autoComplete="off" aria-label={t("Comfortable meal size in calories")} aria-invalid={bad("mealCap") || undefined} aria-describedby={bad("mealCap") ? MAIN_PROBLEM : undefined} value={fields.mealCap} onChange={(e) => setField("mealCap", e.target.value)} />
+            <input className={`${inputClass} app-numbers max-w-[6.5rem] text-center text-[1.25rem] font-medium`} inputMode="numeric" autoComplete="off" aria-label={t("Comfortable meal size in calories")} aria-invalid={bad("mealCap") || undefined} aria-describedby={bad("mealCap") ? MAIN_PROBLEM : undefined} value={fields.mealCap} onChange={(e) => setField("mealCap", e.target.value)} />
             <span className="text-muted">{t("calories")}</span>
           </label>
           <p className="mt-2 text-sm text-muted">{t("Orders are capped at this size. The default is 450.")}</p>
@@ -127,13 +129,13 @@ export function TargetsStep({ goal, prefs, answers, skipped, fields, setField, r
       )}
       {/* what is kept, named in full (the account also keeps the goal, the foods avoided and the shops: SYNCED_SETTING_KEYS), so it is never untrue by leaving things out */}
       <ShieldNote className="mt-4">
-        {SIGN_IN_REQUIRED
+        {signInRequired
           ? t("Your sex, age, height, weight and activity aren't kept. Your daily numbers, goal, the foods you avoid and your shops are saved with your account.")
           : t("Your sex, age, height, weight and activity aren't kept. Your daily numbers, goal, the foods you avoid and your shops are saved on this phone.")}
       </ShieldNote>
       {skipped && (
         <>
-          <button type="button" className="mt-3 min-h-12 text-start text-[0.9375rem] font-semibold text-accent underline-offset-4 hover:underline" onClick={() => setShowSuggest((v) => !v)} aria-expanded={showSuggest}>
+          <button type="button" className="mt-3 min-h-12 text-start text-[0.9375rem] font-semibold text-accent underline underline-offset-[3px]" onClick={() => setShowSuggest((v) => !v)} aria-expanded={showSuggest}>
             {t("Not sure? Suggest targets for me")}
           </button>
           {showSuggest && (

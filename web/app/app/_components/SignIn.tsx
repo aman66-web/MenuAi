@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { API_BASE, APP_BUILD } from "@/lib/mm/config";
+import { API_BASE, APP_BUILD, TELEMETRY_ENABLED } from "@/lib/mm/config";
 import { AccountError } from "@/lib/mm/account";
 import { nativeCall, hasNative } from "@/lib/mm/native";
 import { site } from "@/site.config";
@@ -9,6 +9,7 @@ import { accountApi, signedIn } from "../_lib/account";
 import { useT } from "../_lib/i18n";
 import { ShieldIcon } from "./icons";
 import { Pip } from "./Mascot";
+import { Note } from "./Note";
 import { Button, Field, Sheet, Spinner, inputClass } from "./ui";
 
 // Sign in (docs/ACCOUNTS_SYNC.md). Since 2026-11-17 everyone signs in (SIGN_IN_REQUIRED: the full-screen SignInScreen uses this same panel); with that
@@ -42,9 +43,13 @@ function GoogleLogo() {
   );
 }
 
-/** A big sign-in button: a link on the website (it leaves for the provider), a button in the iPhone app (the phone does it). */
+/**
+ * A big sign-in button: a link on the website (it leaves for the provider), a button in the iPhone app (the phone does it). Apple's and Google's own required looks.
+ * While another way in is busy it can't be pressed, but it is never faded (colour meeting, 19 November 2026: a faded control reads as broken); the full-screen
+ * "Signing you in…" covers the screen meanwhile.
+ */
 function ProviderButton({ href, disabled, onClick, className, children }: { href?: string; disabled?: boolean; onClick: () => void; className: string; children: React.ReactNode }) {
-  const cls = `inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-full px-5 text-base font-semibold transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${disabled ? "pointer-events-none opacity-60" : ""} ${className}`;
+  const cls = `inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-full px-5 text-base font-semibold transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${disabled ? "pointer-events-none" : ""} ${className}`;
   return href ? (
     <a href={href} className={cls}>{children}</a>
   ) : (
@@ -52,8 +57,10 @@ function ProviderButton({ href, disabled, onClick, className, children }: { href
   );
 }
 
-/** What went wrong, under the field or the buttons: plain semi-bold text. A grey box under grey fields would read as one more field. */
-const errorClass = "mt-2.5 text-[0.9375rem] font-semibold leading-snug";
+/** What went wrong, under the field or the buttons: the app's error banner (colour meeting, 19 November 2026: "failures as the error banner"; _components/Note.tsx). */
+function SignInError({ children }: { children: string }) {
+  return <Note kind="error" heading={null} className="mt-3">{children}</Note>;
+}
 
 /** `community`: the sheet was opened to use friends, so it also says what Community keeps (a username, friends and the lists sent), not only the sync data. */
 export function SignInSheet({ open, onClose, community }: { open: boolean; onClose: () => void; community?: boolean }) {
@@ -67,8 +74,9 @@ export function SignInSheet({ open, onClose, community }: { open: boolean; onClo
 
 /** While the account is being made or opened (Apple's or Google's window has closed, or the email code was right) the whole screen shows Pip and a spinner,
  *  so the sign-in buttons don't flash up again for the second it takes (founder 2026-11-18: "instead of that little small 1 second flash, just have like a loading
- *  animation"). It stays until the app opens, or comes off with the error if it fails. */
-function SigningIn() {
+ *  animation"). It stays until the app opens, or comes off with the error if it fails. The welcome screens show it too while they wait for the account's
+ *  settings after their sign-in step (app/app/welcome/page.tsx). */
+export function SigningIn() {
   const t = useT();
   return (
     <div role="status" aria-live="polite" className="fixed inset-0 z-50 grid place-items-center bg-background px-6">
@@ -204,7 +212,7 @@ export function SignInPanel({ onDone, community, required = false }: { onDone: (
               {t("Continue with email")}
             </Button>
           </div>
-          {error && <p role="alert" className={errorClass}>{error}</p>}
+          {error && <SignInError>{error}</SignInError>}
         </>
       )}
 
@@ -216,7 +224,7 @@ export function SignInPanel({ onDone, community, required = false }: { onDone: (
               <input type="email" inputMode="email" autoComplete="email" autoCapitalize="none" autoCorrect="off" spellCheck={false} autoFocus className={inputClass} value={email} onChange={(e) => setEmail(e.target.value)} />
             </Field>
           </div>
-          {error && <p role="alert" className={errorClass}>{error}</p>}
+          {error && <SignInError>{error}</SignInError>}
           <Button full className="mt-5 min-h-12 text-base" disabled={busy} type="submit">{busy ? <Spinner label={t("Sending…")} /> : t("Send me a code")}</Button>
           <Button full variant="ghost" className="mt-1.5" onClick={() => { setError(null); setStep("choose"); }}>{t("Back")}</Button>
         </form>
@@ -236,7 +244,7 @@ export function SignInPanel({ onDone, community, required = false }: { onDone: (
               <input type="text" inputMode="numeric" pattern="[0-9]*" autoComplete="one-time-code" maxLength={6} autoFocus className={`${inputClass} min-h-14 text-center text-[1.75rem] font-semibold tracking-[0.4em] tabular-nums`} value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, "").slice(0, 6))} />
             </Field>
           </div>
-          {error && <p role="alert" className={errorClass}>{error}</p>}
+          {error && <SignInError>{error}</SignInError>}
           <Button full className="mt-5 min-h-12 text-base" disabled={busy} type="submit">{busy ? <Spinner label={t("Checking…")} /> : t("Sign in")}</Button>
           <div className="mt-1.5 flex flex-wrap justify-center gap-x-2">
             <Button variant="ghost" disabled={busy} onClick={() => { setError(null); setStep("email"); }}>{t("Use a different email")}</Button>
@@ -250,10 +258,15 @@ export function SignInPanel({ onDone, community, required = false }: { onDone: (
         // ink, not small grey. Age, height and weight are never kept (lib/mm/onboardingPlan.ts PRIVACY). Change this with the privacy page and SYNC_STORES.
         <p className="mt-5 flex items-start gap-2.5 text-[0.9375rem] leading-snug">
           <ShieldIcon aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-          <span>{t("We keep your email address, your goal and daily numbers, the foods you avoid, your shops, today's food log, your favourites, and the meals, recipes, lists, comparisons and cupboard items you save. Never your age, weight or height. No ads, no tracking.")}</span>
+          {/* "No ads, no tracking" stays only while the setup screen counts are off (lib/mm/config.ts TELEMETRY_ENABLED); on, the line says what is counted */}
+          <span>{TELEMETRY_ENABLED
+            ? t("We keep your email address, your goal and daily numbers, the foods you avoid, your shops, today's food log, your favourites, and the meals, recipes, lists, comparisons and cupboard items you save. Never your age, weight or height. No ads. We also count how many people reach each setup screen, without knowing who they are.")
+            : t("We keep your email address, your goal and daily numbers, the foods you avoid, your shops, today's food log, your favourites, and the meals, recipes, lists, comparisons and cupboard items you save. Never your age, weight or height. No ads, no tracking.")}</span>
         </p>
       ) : (
-        <p className="mt-5 text-[0.8125rem] leading-snug text-muted">{t("We only keep your email address and what you choose to sync. No ads, no tracking.")}</p>
+        <p className="mt-5 text-[0.8125rem] leading-snug text-muted">{TELEMETRY_ENABLED
+          ? t("We only keep your email address and what you choose to sync. No ads. We also count how many people reach each setup screen, without knowing who they are.")
+          : t("We only keep your email address and what you choose to sync. No ads, no tracking.")}</p>
       )}
       {community && <p className="mt-2 text-[0.8125rem] leading-snug text-muted">{t("To use friends, we also keep the username you choose, your friends and the shopping lists you send and get.")}</p>}
     </div>

@@ -1,15 +1,14 @@
 "use client";
 
-import Link from "next/link";
 import { localeInfo } from "@/lib/mm/i18n";
 import { formatNextDay, formatTime, isDueToday, MAX_REMINDERS, nextOccurrence, repeatWords, type Reminder } from "@/lib/mm/reminders";
 import { remindersStore, setReminderEnabled } from "@/lib/mm/stores";
 import { site } from "@/site.config";
-import { BellIcon, ChevronLeftIcon } from "../_components/icons";
+import { BellIcon } from "../_components/icons";
+import { PageHeader } from "../_components/PageHeader";
 import { useReminderEditor } from "../_components/ReminderEditor";
 import { ReminderNotice } from "../_components/ReminderNotice";
 import { Button, EmptyState } from "../_components/ui";
-import { backName, useBack } from "../_lib/backNav";
 import { useHydrated, useNow, useStore } from "../_lib/hooks";
 import { useLanguage, useT } from "../_lib/i18n";
 import { askForNotifications, useReminderStatus } from "../_lib/reminderSync";
@@ -18,20 +17,9 @@ import { askForNotifications, useReminderStatus } from "../_lib/reminderSync";
 // reminded of). Reached from "Manage" on Home's Reminders section and from Settings. The reminders are the person's own; Numbite suggests nothing
 // (CLAUDE.md rule 3) and they stay on this phone (rule 4).
 
-function BackHome() {
-  const t = useT();
-  const back = useBack("/app");
-  return (
-    <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to home"), back.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)]">
-      <ChevronLeftIcon className="h-5 w-5" />
-      <span>{t("Back")}</span>
-    </Link>
-  );
-}
-
 const pillBase = "mt-2 inline-flex items-center rounded-full px-3 py-1.5 text-[0.875rem] font-semibold leading-none";
 const pill = `${pillBase} bg-soft-strong text-muted`;
-const pillDark = `${pillBase} bg-foreground text-background`;
+const pillDark = `${pillBase} bg-ink text-on-ink`;
 
 function ManageRow({ r, list, now, htmlLang, wontRing, onEdit, onDelete }: { r: Reminder; list: readonly Reminder[]; now: Date; htmlLang: string; wontRing: boolean; onEdit: () => void; onDelete: () => void }) {
   const t = useT();
@@ -88,8 +76,10 @@ export default function RemindersPage() {
 
   return (
     <div>
-      <BackHome />
-      <h1 id="reminders-title" tabIndex={-1} className="mt-5 text-[1.75rem] font-[800] leading-none tracking-[-0.02em] outline-none">{t("Reminders")}</h1>
+      {/* the header every page has (colour meeting, 19 November 2026): Back (the page before, else Home) and the Settings cog; the title stays its own
+          heading, as the editor's sheets give it focus back when they close */}
+      <PageHeader back={{ href: "/app", label: t("Back to home") }} />
+      <h1 id="reminders-title" tabIndex={-1} className="mt-3 text-[1.75rem] font-[800] leading-none tracking-[-0.02em] outline-none">{t("Reminders")}</h1>
       <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("{app} rings at the times you choose, but a reminder may not appear if notifications are off or silenced, so don't rely on it alone. Follow the advice of your doctor or pharmacist about any medication.", { app: site.name })}</p>
       <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("Ticking “Done” is only your own mark. It doesn't stop a reminder from ringing later today.")}</p>
       <ReminderNotice />

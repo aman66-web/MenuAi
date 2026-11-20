@@ -3489,3 +3489,18 @@ draft, a vote, a conclusion; average score 7.1 of 10) is summed up in the sessio
 - **Meal plan sizes** (founder: "I put in 3,400 calories ... clearly they all have to be ... 3,400 divided by 3"): the meals share the day equally, with no
   1,200 kcal ceiling (a 3,400 kcal day: three meals of 1,130 kcal). A GLP-1 meal cap still applies when the goal is GLP-1 (the founder's phone: cap 450), and
   `capShortfall` says how far the day falls short so the plan can say so.
+- (night) **Second wave: everything the meetings recommended, now approved** (founder: "Whatever the meeting ... conclude, go with that"). On `iap`.
+  - **Sign-in after "Your daily targets"** ("Save your plan: make your free account"); "Look around first" also goes through it; the cover's "Already have an
+    account? Sign in" opens it at once ("Welcome back. Sign in"); an existing account's settings win over what was typed (tests in `syncEngine.test.ts`); someone who
+    quits mid-setup comes back to it. **Trial offer** only on a later day than the first, never straight after setup or after a closed paywall. **Remote switch**
+    `web/public/app-switches.json` (only ever makes sign-in optional; read like the logo take-down list). **Logo wall** has a 44 pt Pause/Play.
+  - **"Premium"** is the one name on screen everywhere in the app (the website's home and privacy pages are fixed next).
+  - **The full colour plan** (docs/meetings/2026-11-19-colours.json): tokens for ink, edge, line, danger, note; PageHeader with Back, the page action, the Shopping
+    list and the cog with the word "Settings" on every page except Settings, sheets and the camera; chosen things lime with an edge and a tick; secondary buttons white
+    with an edge; Switch with On/Off; one amber allergy note with its heading; the dial's centre says what's left; Home's past days white with a dot; icon wells page
+    fill; ink prices; info tags; disabled buttons with their reason; the FSA lights with Low/Medium/High; the Truth card, share card and og image in ink and sun; a
+    colour test (`tests/colours.test.ts`) that stops stray hex; the iPhone web view background #f4f5f6 and AccentColor #046c4f.
+  - **Anonymous setup counts** built switched off (TelemetryDeck, only with NEXT_PUBLIC_TELEMETRY_APP_ID; nothing is sent today). Turning them on is the founder's
+    step: update Apple's App Privacy answers first.
+  - Checked: tsc clean, all unit tests (2,757). The reviewers' leftovers (remote switch needs a CORS header for the app, a few lime leftovers, the favourites page's
+    header, the 360 px Shopping list) are handed to the third wave.

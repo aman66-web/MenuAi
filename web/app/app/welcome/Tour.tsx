@@ -123,11 +123,11 @@ export function PipTour({ stop }: { stop: number }) {
             <span key={stop} className="pip-hop block"><Pip mood={here.mood} size={96} /></span>
           </span>
         </div>
-        <ul aria-hidden className="flex rounded-[2rem] bg-[#1d2320] p-[6px] shadow-[0_18px_40px_-16px_rgba(0,0,0,0.55)]">
+        <ul aria-hidden className="flex rounded-[2rem] bg-ink p-[6px] shadow-[var(--shadow-lift)]">
           {TABS.map(({ href, label, Icon }, i) => (
             <li key={href} className="min-w-0 flex-1">
-              <span className={`flex min-h-14 flex-col items-center justify-center gap-1 rounded-[1.5rem] text-center text-[0.8125rem] font-semibold leading-[1.1] transition-colors duration-500 ${i === stop ? "text-[#d6efa0]" : "text-[#c2c9c4]"}`}>
-                <span className={`inline-flex h-8 w-12 items-center justify-center rounded-full transition-colors duration-500 ${i === stop ? "bg-[#d6efa0] text-[#0b1a12]" : ""}`}><Icon className="h-5 w-5" /></span>
+              <span className={`flex min-h-14 flex-col items-center justify-center gap-1 rounded-[1.5rem] text-center text-[0.8125rem] font-semibold leading-[1.1] transition-colors duration-500 ${i === stop ? "text-sun" : "text-on-ink-2"}`}>
+                <span className={`inline-flex h-8 w-12 items-center justify-center rounded-full transition-colors duration-500 ${i === stop ? "bg-sun text-on-sun" : ""}`}><Icon className="h-5 w-5" /></span>
                 <TabLabel text={t(label)} />
               </span>
             </li>
@@ -139,7 +139,7 @@ export function PipTour({ stop }: { stop: number }) {
   );
 }
 
-/** "What you can do" on a tab, in the replay only: each row is the real control's own icon in a grey circle and one plain sentence. */
+/** "What you can do" on a tab, in the replay only: each row is the real control's own icon in a page-fill well, in the link green, and one plain sentence. */
 export function TourRows({ rows }: { rows: readonly TourRow[] }) {
   const t = useT();
   return (
@@ -148,7 +148,7 @@ export function TourRows({ rows }: { rows: readonly TourRow[] }) {
       <ul className="mt-3 space-y-3">
         {visibleRows(rows).map(({ Icon, text }) => (
           <li key={text} className="flex items-start gap-3">
-            <span aria-hidden className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-soft-strong"><Icon className="h-[18px] w-[18px]" /></span>
+            <span aria-hidden className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-background text-accent"><Icon className="h-[18px] w-[18px]" /></span>
             <span className="min-w-0 pt-2 text-base leading-snug [overflow-wrap:anywhere]">{t(text)}</span>
           </li>
         ))}

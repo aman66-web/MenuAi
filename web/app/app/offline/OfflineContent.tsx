@@ -1,5 +1,6 @@
 "use client";
 
+import { PageHeader } from "../_components/PageHeader";
 import { LinkButton } from "../_components/ui";
 import { useT } from "../_lib/i18n";
 
@@ -17,7 +18,7 @@ function OfflineMark() {
 }
 
 // The offline page's words, in the chosen language (the page itself stays a server component for its metadata).
-// Look (founder 2026-10-15, "the rest of the app should match [Home's] elegance"): one white card in the middle of the screen, a round grey
+// Look (founder 2026-10-15, "the rest of the app should match [Home's] elegance"): the Settings cog at the top right, one white card in the middle of the room under it, a round page-fill
 // mark, the heading in Home's compact heavy style, the sentence in muted running text, and the black pill as the one action.
 // The card is centred in the shell's real content box: 100dvh less <main>'s own padding (top max(1.25rem, safe area), bottom 8rem = pb-32)
 // so it stays centred at every text size and on notched phones. When the shell's "You're offline" strip sits above <main> (the page's usual
@@ -26,9 +27,12 @@ function OfflineMark() {
 export function OfflineContent() {
   const t = useT();
   return (
-    <div className="flex min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_8rem)] flex-col justify-center [p[role=status]~main_&]:min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_max(0.5rem,env(safe-area-inset-top))_-_11.625rem)]">
+    <div className="flex min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_8rem)] flex-col [p[role=status]~main_&]:min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_max(0.5rem,env(safe-area-inset-top))_-_11.625rem)]">
+      {/* the Settings cog at the top right, as on every page (colour meeting, 19 November 2026); the card is centred in the room under it */}
+      <PageHeader />
+      <div className="flex flex-1 flex-col justify-center">
       <section className="glass rounded-[1.25rem] px-5 pb-6 pt-8 text-center [overflow-wrap:anywhere]">
-        <span aria-hidden className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-soft-strong text-foreground">
+        <span aria-hidden className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-fill text-ink">
           <OfflineMark />
         </span>
         <h1 className="mt-5 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">{t("You're offline")}</h1>
@@ -37,6 +41,7 @@ export function OfflineContent() {
           <LinkButton href="/app" full>{t("Back to home")}</LinkButton>
         </div>
       </section>
+      </div>
     </div>
   );
 }

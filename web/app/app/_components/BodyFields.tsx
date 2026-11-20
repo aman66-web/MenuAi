@@ -21,8 +21,8 @@ import { Field, inputClass, radioKeyNav, Segmented } from "./ui";
 // PRIVACY (CLAUDE.md rule 4): what is typed here lives in the host's React state and nowhere else: no storage, no address, no analytics, no request. The
 // boxes switch the browser's own form memory off (`autoComplete="off"`).
 
-/** The small spaced-capitals label of a block (Home's "CALORIES"). */
-const CAPS = "text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted";
+/** The small label of a block, in sentence case (colour meeting, 19 November 2026: spaced capitals were hard to read for older testers). */
+const CAPS = "text-[0.8125rem] font-semibold text-muted";
 /** A white card for one block of fields on the grey page. */
 export const BODY_CARD = "glass rounded-[1.25rem] p-4";
 /** A calm line under a field that needs another look: plain, never red, and not a grey box that would read as one more field. */
@@ -226,7 +226,7 @@ export function ActivityTiles({ value, onChange, compact }: { value: Activity | 
               {compact ? t(ACTIVITY_LABEL[a]) : (
                 <>
                   <span id={`${id}-${a}`} className="block">{t(ACTIVITY_LABEL[a])}</span>
-                  <span id={`${id}-${a}-hint`} className={`mt-0.5 block text-sm font-normal leading-snug tracking-normal ${on ? "text-background/80" : "text-muted"}`}>{t(ACTIVITY_HINT[a])}</span>
+                  <span id={`${id}-${a}-hint`} className={`mt-0.5 block text-sm font-normal leading-snug tracking-normal ${on ? "text-on-sun" : "text-muted"}`}>{t(ACTIVITY_HINT[a])}</span>
                 </>
               )}
             </PickTile>

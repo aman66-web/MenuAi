@@ -9,15 +9,17 @@ import { formatPrice } from "@/lib/mm/groceries";
 import { recipeShops, shopPhotoSources, type ShopFile } from "@/lib/mm/shopProducts";
 import type { PhotoSource } from "@/lib/mm/groceries";
 import { cheapestProtein, comparePair, costOf100gProtein, CURATED_PAIRS, proteinValue, type ProteinValue } from "@/lib/mm/truth/proteinValue";
+import { PageHeader } from "../../_components/PageHeader";
 import { MenuSourcesLink } from "../../_components/MenuSourcesLink";
 import { useGate } from "../../_components/Paywall";
+import { PremiumBadge } from "../../_components/PremiumBadge";
 import { Button, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
 import { useIsPro } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { useShopManifest, useShopProducts } from "../../_lib/shopProducts";
 import { BasketIcon } from "../../_components/icons";
 import { ListThumb, usePhotoSource } from "../ProductPhoto";
-import { BackLink, CARD, FootNote, HEADING, TITLE } from "../PageBits";
+import { CARD, FootNote, HEADING, TITLE } from "../PageBits";
 
 /** True in the free iPhone app's copy (build-time constant): no paid tier there, so the locked-list button and its words are left out of the app's files (App Store 3.1.1, App Review 2.3.1). */
 const FREE_APP = process.env.NEXT_PUBLIC_APP_BUILD === "1" && process.env.NEXT_PUBLIC_IAP !== "1";
@@ -45,16 +47,17 @@ function ValueLine({ v }: { v: ProteinValue }) {
 function PairSide({ file, v, label, cheaper }: { file: ShopFile; v: ProteinValue; label: string; cheaper: boolean }) {
   const t = useT();
   return (
-    <div className="flex min-w-0 flex-col rounded-[1.25rem] bg-[var(--fill)] p-3">
+    <div className="flex min-w-0 flex-col rounded-[1.25rem] bg-fill p-3">
       {/* the same height on both sides, so the two photos and prices line up */}
-      <span className="block min-h-[2.25rem] text-[0.75rem] font-bold uppercase leading-snug tracking-wide text-muted">{label}</span>
-      <span className="relative mt-1 block">
+      <span className="block min-h-[2.25rem] text-[0.8125rem] font-semibold leading-snug text-muted">{label}</span>
+      {/* nothing sits on the pack shot; "Cheaper" is a tag you can't tap under the price */}
+      <span className="mt-1 block">
         <PairPhoto sources={shopPhotoSources(file, v.product)} />
-        {cheaper && <span className="absolute start-2 top-2 rounded-full bg-[var(--sun)] px-2.5 py-1 text-[0.75rem] font-extrabold text-[var(--on-accent)] shadow-sm">{t("Cheaper")}</span>}
       </span>
       <Link href={productHref(file.retailer, v.product.id)} className="mt-2 line-clamp-3 min-h-11 text-[0.9375rem] font-bold leading-snug [overflow-wrap:anywhere] hover:underline">{v.product.name}</Link>
       <p className="app-numbers mt-auto pt-2 text-[1.75rem] font-extrabold leading-none tracking-tight">{pence(v.pence10g)}</p>
       <p className="mt-1 text-[0.8125rem] font-semibold leading-snug text-muted">{t("for 10 g of protein")}</p>
+      {cheaper && <span className="mt-1.5 inline-flex w-fit items-center rounded-[0.375rem] border border-line bg-card px-2 py-1 text-[0.8125rem] font-bold leading-none text-foreground">{t("Cheaper")}</span>}
       <span className="mt-1.5"><ValueLine v={v} /></span>
     </div>
   );
@@ -64,12 +67,12 @@ function PairSide({ file, v, label, cheaper }: { file: ShopFile; v: ProteinValue
 function PairPhoto({ sources }: { sources: readonly PhotoSource[] }) {
   const { current, fail } = usePhotoSource(sources);
   return (
-    <span aria-hidden className="grid aspect-square w-full place-items-center overflow-hidden rounded-[1rem] bg-white">
+    <span aria-hidden className="grid aspect-square w-full place-items-center overflow-hidden rounded-[1rem] border border-line bg-card">
       {current ? (
         // eslint-disable-next-line @next/next/no-img-element -- the supermarket's own product picture (or our stored copy of it), decorative
         <img key={current.src} src={current.src} alt="" width={160} height={160} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={fail} className="h-full w-full object-contain p-2" />
       ) : (
-        <BasketIcon className="h-7 w-7 text-muted" />
+        <BasketIcon className="h-7 w-7 text-ink" />
       )}
     </span>
   );
@@ -86,12 +89,13 @@ function PairCard({ file, title, branded, everyday }: { file: ShopFile; title: s
         <PairSide file={file} v={everyday} label={t("Everyday")} cheaper={r.saving > 0 && r.cheaper === everyday} />
       </div>
       {r.saving > 0 ? (
-        <div className="truth-bounce mt-3 rounded-[1.25rem] bg-[var(--sun)] px-4 py-3.5 text-center text-[var(--tl-ink)]">
+        /* the saving in plain dark words, flat in the page fill (never a lime banner: lime means chosen) */
+        <div className="mt-3 rounded-[1.25rem] bg-fill px-4 py-3.5 text-center text-foreground">
           <p className="text-[1.375rem] font-extrabold leading-tight tracking-tight">{t("Save {amount} on every 100 g of protein", { amount: formatPrice(r.saving) })}</p>
           <p className="app-numbers mt-1 text-[0.875rem] font-semibold">{t("100 g of protein costs {a} in one and {b} in the other.", { a: formatPrice(costOf100gProtein(r.cheaper)), b: formatPrice(costOf100gProtein(r.dearer)) })}</p>
         </div>
       ) : (
-        <p className="mt-3 rounded-[1.25rem] bg-[var(--fill)] px-4 py-3 text-center text-lg font-bold">{t("They cost the same for the protein.")}</p>
+        <p className="mt-3 rounded-[1.25rem] bg-fill px-4 py-3 text-center text-lg font-bold">{t("They cost the same for the protein.")}</p>
       )}
     </li>
   );
@@ -102,14 +106,14 @@ function BoardRow({ file, v, rank }: { file: ShopFile; v: ProteinValue; rank: nu
   const t = useT();
   return (
     <li>
-      <Link href={productHref(file.retailer, v.product.id)} className="flex min-h-[5.5rem] items-center gap-3 px-3.5 py-3 transition hover:bg-[var(--fill)] active:bg-[var(--fill)]">
-        <span aria-hidden className={`app-numbers grid h-8 w-8 shrink-0 place-items-center rounded-full text-[0.9375rem] font-extrabold ${rank <= 3 ? "bg-[var(--sun)] text-[var(--on-accent)]" : "bg-[var(--fill)] text-muted"}`}>{rank}</span>
+      <Link href={productHref(file.retailer, v.product.id)} className="flex min-h-[5.5rem] items-center gap-3 px-3.5 py-3 transition hover:bg-background active:bg-background">
+        <span aria-hidden className="app-numbers grid h-8 w-8 shrink-0 place-items-center rounded-full bg-fill text-[0.9375rem] font-extrabold text-foreground">{rank}</span>
         <ListThumb sources={shopPhotoSources(file, v.product)} />
         <span className="min-w-0 flex-1">
           <span className="line-clamp-2 text-[0.9375rem] font-bold leading-snug [overflow-wrap:anywhere]"><span className="sr-only">{rank}. </span>{v.product.name}</span>
           <span className="mt-0.5 block"><ValueLine v={v} /></span>
         </span>
-        <span className="app-numbers shrink-0 rounded-[0.875rem] bg-[var(--fill)] px-2.5 py-2 text-center">
+        <span className="app-numbers shrink-0 rounded-[0.875rem] bg-fill px-2.5 py-2 text-center">
           <span className="block text-[1.125rem] font-extrabold leading-none tracking-tight">{pence(v.pence10g)}</span>
           <span className="mt-1 block text-[0.75rem] font-semibold text-muted">{t("per 10 g")}</span>
         </span>
@@ -144,7 +148,7 @@ export function ProteinScreen() {
 
   const head = (
     <>
-      <BackLink href="/app/groceries" label={t("Back to groceries")} />
+      <PageHeader back={{ href: "/app/groceries", label: t("Back to groceries") }} list />
       <h1 className={`mt-4 ${TITLE}`}>{t("Cheapest protein")}</h1>
     </>
   );
@@ -185,7 +189,7 @@ export function ProteinScreen() {
           {top.slice(0, gated ? FREE_LEADERBOARD_ROWS : top.length).map((v, i) => <BoardRow key={v.product.id} file={state.file} v={v} rank={i + 1} />)}
         </ol>
         {gated && top.length > FREE_LEADERBOARD_ROWS && (
-          <Button size="lg" full variant="secondary" className="mt-3" onClick={() => showPaywall("leaderboard")}>{t("Unlock the other {n}", { n: top.length - FREE_LEADERBOARD_ROWS })}</Button>
+          <Button size="lg" full variant="secondary" className="mt-3" onClick={() => showPaywall("leaderboard")}>{t("Unlock the other {n}", { n: top.length - FREE_LEADERBOARD_ROWS })}<PremiumBadge /></Button>
         )}
       </section>
 

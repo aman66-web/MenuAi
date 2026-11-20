@@ -1,0 +1,5 @@
+{
+  "v": 1,
+  "note": "Switches the iPhone app reads from numbite.com on every launch (web/lib/mm/appSwitches.ts). signInOptional: true makes signing in optional in the app already installed (the fallback if App Review objects under guideline 5.1.1(v)); deploy the website and it applies on the app's next open while online. It can only ever make sign-in optional, never required. Set it back to false to require sign-in again.",
+  "signInOptional": false
+}

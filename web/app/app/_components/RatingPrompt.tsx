@@ -72,7 +72,7 @@ function RatingPromptInApp() {
           <div role="group" aria-label={t("Your rating, 1 to 5")} className="mt-5 grid grid-cols-5 gap-2">
             {[1, 2, 3, 4, 5].map((n) => (
               <button key={n} type="button" onClick={() => rate(n)} aria-label={t("{n} out of 5", { n })}
-                className="grid aspect-square min-h-12 place-items-center rounded-2xl border-[1.5px] border-[color:var(--edge)] bg-soft text-[1.375rem] font-bold tabular-nums transition hover:bg-[var(--fill)] active:scale-95">
+                className="grid aspect-square min-h-12 place-items-center rounded-2xl border-[1.5px] border-edge bg-card text-[1.375rem] font-bold tabular-nums text-foreground transition hover:bg-background active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
                 {n}
               </button>
             ))}

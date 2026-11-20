@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { isPlainLaunch, OWN_DATA_KEYS, storedData, TOUR_GATE_SCRIPT, TOUR_VERSION, tourDue, trialOfferDue } from "../lib/mm/tour";
+import { isPlainLaunch, OWN_DATA_KEYS, SIGNED_IN_KEYS, storedData, TOUR_GATE_SCRIPT, TOUR_VERSION, tourDue, tourGateScript, trialOfferDue } from "../lib/mm/tour";
 
 // The welcome tour (lib/mm/tour.ts, app/app/welcome/Tour.tsx): the gate a first plain launch goes through, the iPhone app's trial offer after it, and the words
 // Pip says on each stop (and the rows the replay shows). The two app modules the tour's stops read through "@/" paths are replaced here (the words come back as they are).
@@ -21,20 +21,20 @@ function storage(items: Stored = {}, opts: { raw?: Record<string, string>; throw
   };
 }
 
-/** Runs the layout's inline script against a pretend page; returns where it sent the page (none = stayed). */
-function runGate(address: string, store: FakeStorage): string[] {
+/** Runs the layout's inline script against a pretend page; returns where it sent the page (none = stayed). `script`: this build's, or one built for a build where everyone signs in. */
+function runGate(address: string, store: FakeStorage, script = TOUR_GATE_SCRIPT): string[] {
   const url = new URL(address, "https://numbite.com");
   const replaced: string[] = [];
   const location = { pathname: url.pathname, search: url.search, hash: url.hash, replace: (to: string) => replaced.push(to) };
-  new Function("location", "localStorage", TOUR_GATE_SCRIPT)(location, store);
+  new Function("location", "localStorage", script)(location, store);
   return replaced;
 }
 
 /** What isPlainLaunch and tourDue say for the same page (anything that throws, like text that isn't JSON, means no tour). */
-function expected(address: string, store: FakeStorage): boolean {
+function expected(address: string, store: FakeStorage, signInRequired = false): boolean {
   const url = new URL(address, "https://numbite.com");
   try {
-    return isPlainLaunch(url.pathname, url.search, url.hash) && tourDue(storedData((key) => store.getItem(key)));
+    return isPlainLaunch(url.pathname, url.search, url.hash) && tourDue(storedData((key) => store.getItem(key)), signInRequired);
   } catch {
     return false;
   }
@@ -89,18 +89,64 @@ describe("the gate on a first plain launch", () => {
   });
 
   it("is built from the same constants, never from a function's source", () => {
-    expect(TOUR_GATE_SCRIPT).toContain(JSON.stringify(OWN_DATA_KEYS));
-    expect(TOUR_GATE_SCRIPT).toContain(`>=${TOUR_VERSION}`);
-    expect(TOUR_GATE_SCRIPT.startsWith("try{")).toBe(true);
-    expect(TOUR_GATE_SCRIPT.endsWith("catch(e){}")).toBe(true);
+    for (const script of [TOUR_GATE_SCRIPT, tourGateScript(true), tourGateScript(false)]) {
+      expect(script).toContain(JSON.stringify(OWN_DATA_KEYS));
+      expect(script).toContain(`>=${TOUR_VERSION}`);
+      expect(script.startsWith("try{")).toBe(true);
+      expect(script.endsWith("catch(e){}")).toBe(true);
+    }
+    expect(tourGateScript(true)).toContain(JSON.stringify(SIGNED_IN_KEYS));
   });
 });
 
+// The onboarding meeting of 19 November (question 1, approved that day): where everyone signs in, sign-in comes after "Your daily targets", so the tour can be seen
+// by someone who then leaves during the questions or at the sign-in screen. Their next plain start goes back to the welcome screens, not to a bare sign-in screen.
+describe("the gate where everyone signs in", () => {
+  const REQUIRED = tourGateScript(true);
+  const seen = { "mm.v1.tour": TOUR_VERSION };
+  const back: Array<[string, FakeStorage]> = [
+    ["the tour seen, setup not finished, nobody signed in", storage(seen)],
+    ["the goal and targets typed, then left at the sign-in screen", storage({ ...seen, "mm.v1.settings": settings({ hasSetTargets: true, hasCompletedOnboarding: false }) })],
+    ["signed out (the account's record emptied)", storage({ ...seen, "mm.v1.account": null, "mm.v1.session": null })],
+    ["the switches file read, sign-in still required", storage({ ...seen, "mm.v1.appSwitches": { signInOptional: false } })],
+    ["nothing stored at all (a first launch, as before)", storage()],
+  ];
+  const stay: Array<[string, FakeStorage]> = [
+    ["signed in here (the account's record)", storage({ ...seen, "mm.v1.account": { id: "u1", email: "a@example.com" } })],
+    ["the iPhone app holds a session", storage({ ...seen, "mm.v1.session": { access: "x", refresh: "y" } })],
+    ["sign-in made optional by the switches file", storage({ ...seen, "mm.v1.appSwitches": { signInOptional: true } })],
+    ["set up", storage({ ...seen, "mm.v1.settings": settings({ hasCompletedOnboarding: true }) })],
+    ["said Not now", storage({ ...seen, "mm.v1.settings": settings({ dismissedTargetsCard: true }) })],
+    ["something of their own stored", storage({ ...seen, "mm.v1.saved": [{ id: "o1" }] })],
+    ["a link (a shared list)", storage(seen)],
+  ];
+  const address = (label: string) => (label.startsWith("a link") ? "/app/groceries/list/shared#1abcdef" : "/app");
+
+  it.each(back)("sends %s to the welcome screens", (label, store) => {
+    expect(runGate(address(label), store, REQUIRED)).toEqual(["/app/welcome"]);
+    expect(expected(address(label), store, true)).toBe(true);
+  });
+  it.each(stay)("leaves %s where it is", (label, store) => {
+    expect(runGate(address(label), store, REQUIRED)).toEqual([]);
+    expect(expected(address(label), store, true)).toBe(false);
+  });
+  it("changes nothing where sign-in is optional: the tour seen stays seen", () => {
+    expect(runGate("/app", storage(seen), tourGateScript(false))).toEqual([]);
+    expect(expected("/app", storage(seen), false)).toBe(false);
+  });
+});
+
+// The onboarding meeting of 19 November (question 5, approved that day): never straight after setup; the first Premium feature tapped shows the paywall's own
+// free-trial banner, so the sheet follows no paywall; otherwise once, on a later day than the first.
 describe("the iPhone app's free-trial offer", () => {
-  const base = { native: true, onboarded: true, tourSeen: false, shown: false, paid: false, pathname: "/app" };
+  const base = { native: true, onboarded: true, tourSeen: false, shown: false, paid: false, pathname: "/app", firstDay: "2026-11-19", today: "2026-11-20", paywallSeen: false, setUpThisVisit: false };
   it.each([
-    ["after setup, on Home", base, true],
-    ["after the tour was seen (Look around first, Skip)", { ...base, onboarded: false, tourSeen: true }, true],
+    ["on Home, on a later day than the first", base, true],
+    ["on the first day the app was used (straight after setup)", { ...base, today: "2026-11-19" }, false],
+    ["in the visit where setup just finished, even on a later day", { ...base, setUpThisVisit: true }, false],
+    ["before any day was counted", { ...base, firstDay: null }, false],
+    ["after a Premium feature's paywall (it already offered the trial)", { ...base, paywallSeen: true }, false],
+    ["after the tour was seen (Look around first), a later day", { ...base, onboarded: false, tourSeen: true }, true],
     ["neither set up nor toured", { ...base, onboarded: false, tourSeen: false }, false],
     ["shown already", { ...base, shown: true }, false],
     ["paid access on", { ...base, paid: true }, false],

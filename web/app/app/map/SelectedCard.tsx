@@ -43,7 +43,7 @@ export function SelectedCard({ branch, chain, variant, replaceHistory = false }:
       role="status"
       aria-live="polite"
       className={variant === "full"
-        ? "glass sheet-in absolute bottom-[max(12px,env(safe-area-inset-bottom))] left-[max(12px,env(safe-area-inset-left))] right-[max(12px,env(safe-area-inset-right))] z-10 mx-auto max-h-[50dvh] max-w-md touch-pan-y overflow-y-auto overscroll-contain rounded-[1.25rem] p-4 shadow-[0_12px_32px_-12px_rgba(17,24,20,0.35)]"
+        ? "glass sheet-in absolute bottom-[max(12px,env(safe-area-inset-bottom))] left-[max(12px,env(safe-area-inset-left))] right-[max(12px,env(safe-area-inset-right))] z-10 mx-auto max-h-[50dvh] max-w-md touch-pan-y overflow-y-auto overscroll-contain rounded-[1.25rem] p-4 shadow-[var(--shadow-lift)]"
         : "glass sheet-in mt-3.5 rounded-[1.25rem] p-4"}
     >
       <div className="flex items-center gap-3.5">

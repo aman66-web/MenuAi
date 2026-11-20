@@ -10,7 +10,8 @@ import { useAccountUser } from "../_lib/account";
 import { useCommunityState } from "../_lib/community";
 import { useHydrated } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
-import { HEADING, NOTE, TITLE } from "../groceries/PageBits";
+import { PageHeader } from "../_components/PageHeader";
+import { HEADING, NOTE } from "../groceries/PageBits";
 
 // Community (founder 2026-10-16: "The settings at the bottom right is now a community. Where you can find food blogs, and more and also add a
 // friend and more"). The fifth tab. Three things: Friends (add friends with a code; needs an account), Shared with you (shopping lists friends
@@ -71,7 +72,8 @@ export default function CommunityPage() {
   const latest = ARTICLES.slice(0, LATEST);
   return (
     <div>
-      <h1 className={TITLE}>{t("Community")}</h1>
+      {/* the header every page has (colour meeting, 19 November 2026): the title, the Settings cog far right */}
+      <PageHeader title={t("Community")} />
       <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("Short articles on eating out, shopping and cooking.")}</p>
 
       {COMMUNITY_FRIENDS_ENABLED && <FriendCards />}

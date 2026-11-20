@@ -10,14 +10,15 @@ import { MAX_DESCRIPTION, PHOTO_WORKING_LINES, cleanFoodBox, needsMoreDetail, ph
 import { MAX_SAVED_RECIPES, keepMadeRecipe, pantryLines } from "@/lib/mm/aiRecipe";
 import { mealSizes, type Recipe } from "@/lib/mm/recipes";
 import { myRecipesStore, paidStore, updateSettings } from "@/lib/mm/stores";
-import { CheckIcon, ChevronLeftIcon, ChevronRightIcon } from "../../_components/icons";
+import { CheckIcon, ChevronRightIcon } from "../../_components/icons";
+import { PageHeader } from "../../_components/PageHeader";
 import { AllergenTiles, DIETS, PickTile } from "../../_components/DietPicker";
 import { toggleAllergen, toggleDiet } from "@/lib/mm/menu-view";
 import type { Preferences } from "@/lib/mm/types";
 import { Pip, PipSays } from "../../_components/Mascot";
 import { useGate } from "../../_components/Paywall";
 import { Button, ErrorBox, inputClass, Spinner } from "../../_components/ui";
-import { backName, useBack } from "../../_lib/backNav";
+import { useBack } from "../../_lib/backNav";
 import { useHydrated, useIsPro, useSettings, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { photoOfFood, recipeThumbnail, shrinkPhoto, type ShrunkPhoto } from "../../_lib/photo";
@@ -68,7 +69,7 @@ function Working({ shopName, finished, photoUrl }: { shopName: string; finished:
           // eslint-disable-next-line @next/next/no-img-element -- a local photo on this phone, not a site image
           <img src={photoUrl} alt="" className="absolute inset-0 h-full w-full object-cover" />
         )}
-        <div aria-hidden className="absolute inset-0 bg-[rgba(17,24,20,0.32)]" />
+        <div aria-hidden className="absolute inset-0 bg-scrim" />
         <div aria-hidden className="work-shimmer" />
         <div aria-hidden className="absolute bottom-2 end-3"><Pip mood={finished ? "cheer" : "think"} size={68} /></div>
       </div>
@@ -278,11 +279,11 @@ function PhotoScreen() {
     else if (step === "error") setStep("shops");
   };
   const inFlow = step === "scanning" || step === "shops" || step === "error";
-  const back = inFlow ? (
-    <button type="button" onClick={goBack} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></button>
-  ) : (
-    <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to recipes"), nav.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
-  );
+  // the header every page has (colour meeting, 19 November 2026): Back with its word (inside the flow a step back, else the page before or Recipes), the
+  // Shopping list pill outside the flow, the Settings cog far right (the full-screen camera covers it: no cog there)
+  const back = inFlow
+    ? <PageHeader back={{ onPress: () => goBack() }} />
+    : <PageHeader back={{ href: "/app/recipes", label: t("Back to recipes") }} list />;
 
   if (!hydrated) return <Spinner />;
   if (!access) {
@@ -293,7 +294,7 @@ function PhotoScreen() {
         <div className="mt-4"><PipSays mood="wave" size={84}>{t("Make it at home is part of Premium. Snap a dish you've loved, or upload a photo of it, and I'll write a recipe you can cook from your supermarket.")}</PipSays></div>
         <div className="mt-5 grid gap-3">
           <Button full className="min-h-14 text-lg" onClick={() => showPaywall("photoRecipe")}>{t("See Premium")}</Button>
-          <Link href={nav.href} onClick={nav.onClick} replace className="glass border-[1.5px] border-[color:var(--edge)] bg-soft flex min-h-14 items-center justify-center rounded-full px-5 text-base font-bold">{t("Back to the recipes")}</Link>
+          <Link href={nav.href} onClick={nav.onClick} replace className="flex min-h-14 items-center justify-center rounded-full border-[1.5px] border-edge bg-card px-5 text-base font-semibold text-foreground transition hover:bg-background active:scale-[0.97]">{t("Back to the recipes")}</Link>
         </div>
       </div>
     );
@@ -343,7 +344,7 @@ function PhotoScreen() {
           <Steps current={1} />
           <div id="describe-intro" className="mt-5"><PipSays mood="wave" size={76}>{t("Tell me what you'd like to make. Then snap it, or upload a photo of it from your phone. The more detail you give, the better the recipe will match.")}</PipSays></div>
 
-          <div className="glass mt-5 rounded-[1.5rem] p-5 shadow-[0_14px_34px_-22px_rgba(17,24,20,0.4)]">
+          <div className="glass mt-5 rounded-[1.5rem] p-5 shadow-[var(--card-shadow)]">
             <div className="flex items-center gap-3">
               <span aria-hidden className={STEP_NUMBER}>1</span>
               <label htmlFor="dish-name" className="min-w-0 flex-1 text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("Name of the dish")}</label>

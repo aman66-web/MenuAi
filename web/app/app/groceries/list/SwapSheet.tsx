@@ -1,10 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useMemo, useState } from "react";
 import { formatPrice, groupName, type ShoppingItem } from "@/lib/mm/groceries";
 import { packLabel, shopListItem, shopPhotoSources, similarProducts } from "@/lib/mm/shopProducts";
-import { ErrorBox, Sheet, Spinner } from "../../_components/ui";
+import { ErrorBox, LinkButton, Sheet, Spinner } from "../../_components/ui";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { useShopProducts } from "../../_lib/shopProducts";
 import { CARD } from "../PageBits";
@@ -34,7 +33,7 @@ export function SwapSheet({ item, onClose, onSwap, moreHref }: { item: ShoppingI
           ) : state.status !== "ready" || options.length === 0 ? (
             <div className="mt-4">
               <p className="text-base leading-snug">{t("We couldn't find anything similar at {shop}.", { shop })}</p>
-              <Link href={moreHref(item.retailer)} className="mt-3 inline-flex min-h-11 items-center rounded-full bg-foreground px-5 text-[0.9375rem] font-bold text-background transition active:scale-[0.97]">{t("Add more from {shop}", { shop })}</Link>
+              <LinkButton href={moreHref(item.retailer)} className="mt-3">{t("Add more from {shop}", { shop })}</LinkButton>
             </div>
           ) : (
             <ul className="mt-3 space-y-2">
@@ -44,7 +43,7 @@ export function SwapSheet({ item, onClose, onSwap, moreHref }: { item: ShoppingI
                 return (
                   <li key={p.id}>
                     {/* the photo first on screen, the words first for a screen reader (the button's name starts with the product's name) */}
-                    <button type="button" onClick={() => onSwap(shopListItem(state.file, p))} className={`${CARD} flex w-full flex-wrap items-center gap-3 p-3 text-start transition active:scale-[0.99] hover:bg-soft-strong`}>
+                    <button type="button" onClick={() => onSwap(shopListItem(state.file, p))} className={`${CARD} flex w-full flex-wrap items-center gap-3 p-3 text-start transition active:scale-[0.99] hover:bg-background`}>
                       <span className="order-1 min-w-0 flex-1 basis-[9rem]">
                         <span className="block text-[0.9375rem] font-semibold leading-snug [overflow-wrap:anywhere]">{p.name}</span>
                         <span className="app-numbers mt-0.5 block text-[0.8125rem] leading-snug text-muted [overflow-wrap:anywhere]">{detail}</span>

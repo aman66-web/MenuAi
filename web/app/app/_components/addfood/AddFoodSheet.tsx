@@ -73,7 +73,7 @@ export function AddFoodSheet({ meal, onClose, onAdded }: { meal: LogMeal | null;
         <div>
           {view !== "product" && <BackBar onBack={() => setView("menu")} />}
           {/* which meal it goes to, on every step (usability test 2026-11-19: "the add sheet never says which meal it is adding to") */}
-          <p className="mb-3 inline-flex rounded-full bg-[var(--fill)] px-3.5 py-1.5 text-[0.9375rem] font-bold">{t(FOR_MEAL[meal])}</p>
+          <p className="mb-3 inline-flex rounded-[0.375rem] bg-fill px-3 py-1.5 text-[0.9375rem] font-bold">{t(FOR_MEAL[meal])}</p>
           {view === "numbers" && <TypedNumbers meal={meal} onAdd={add} />}
           {view === "recipe" && <RecipePick meal={meal} onAdd={add} />}
           {view === "restaurant" && <DishPick onAdd={add} />}

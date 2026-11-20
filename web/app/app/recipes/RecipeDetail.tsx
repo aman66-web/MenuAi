@@ -19,9 +19,11 @@ import { productKey, shopPhotoSources, type ShopFile, type ShopProduct } from "@
 import { PANTRY } from "@/lib/mm/pantry";
 import { cupboardStore, savedRecipesStore, shoppingStore, toggleCupboard, toggleSavedRecipe } from "@/lib/mm/stores";
 import { site } from "@/site.config";
-import { CheckIcon, ChevronLeftIcon, ChevronRightIcon, HeartIcon, InfoIcon, LeafIcon, MinusIcon, PlusIcon, SwapIcon, TodayIcon } from "../_components/icons";
-import { Button, Chip, LinkButton, Sheet, radioKeyNav } from "../_components/ui";
-import { backName, travelBack, useBack } from "../_lib/backNav";
+import { CheckIcon, ChevronRightIcon, HeartIcon, InfoIcon, LeafIcon, MinusIcon, PlusIcon, SwapIcon, TodayIcon } from "../_components/icons";
+import { Button, Chip, ChoiceMark, LinkButton, Sheet, radioKeyNav } from "../_components/ui";
+import { travelBack, useBack } from "../_lib/backNav";
+import { useRecipePhoto } from "../_lib/recipePhotos";
+import { PageHeader } from "../_components/PageHeader";
 import { useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
 import { PhotoTile } from "../groceries/ProductPhoto";
@@ -80,18 +82,20 @@ function noteText(t: T, note: string): string {
   return n === 1 ? t(pair[0]) : t(pair[1], { n });
 }
 
-// The white pills that sit on the picture (Back, Save), like the reference's.
-const ON_PICTURE = "inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-white text-[0.9375rem] font-bold text-[#0b1a12] shadow-[0_6px_16px_-10px_rgba(0,0,0,0.45)] transition active:scale-95 hover:bg-white";
+/** Save beside the title (colour meeting, 19 November 2026; approved by the founder that day: Save moved off the photo for the cog): a white button with the
+ *  1.5 px edge, an ink heart, outline with "Save" and filled with "Saved". */
+const SAVE_BUTTON = "inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-full border-[1.5px] border-edge bg-card ps-3.5 pe-4 text-[0.9375rem] font-semibold text-foreground transition active:scale-95 hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 /** Two cards side by side, stacked when the text is large (the minimum width is in rem, so it grows with the text size), as on Home. */
 const PAIR = "grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] gap-3";
 const CARD = "glass rounded-[1.25rem]";
-const LABEL = "text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted";
+const LABEL = "text-[0.8125rem] font-semibold text-muted";
 const HEADING = "text-xl font-[800] tracking-[-0.01em]";
 /** A small white circle with the 1.5 px edge inside a 44 px tap area, like Home's calendar button; at a limit the face is the quiet "can't press yet" fill, never faded. */
 const ROUND_BUTTON = "group grid h-11 w-11 shrink-0 place-items-center rounded-full transition active:scale-90 disabled:cursor-not-allowed disabled:active:scale-100";
 const ROUND_FACE = "grid h-9 w-9 place-items-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft transition-colors group-hover:bg-[var(--fill)] group-disabled:border-transparent group-disabled:bg-soft-strong group-disabled:text-muted";
-/** A fact about the recipe beside the servings stepper (minutes, meal, no meat or fish): a white pill as tall as the stepper. */
-const INFO_CHIP = "glass inline-flex min-h-[3.25rem] items-center gap-1.5 rounded-full px-4 text-[0.9375rem] font-bold";
+/** A fact about the recipe beside the servings stepper (minutes, meal, no meat or fish): flat words with an ink icon, no pill (colour meeting, 19 November 2026:
+ *  white pills looked like buttons), as tall as the stepper. */
+const INFO_CHIP = "inline-flex min-h-[3.25rem] items-center gap-1.5 px-2 text-[0.9375rem] font-semibold text-foreground";
 /** A secondary action inside a white card: a light grey pill. */
 const SOFT_PILL = "inline-flex min-h-11 max-w-full items-center justify-center gap-1.5 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]";
 
@@ -113,13 +117,13 @@ function Amount({ text }: { text: string }) {
   );
 }
 
-/** One macro of a serving, like Home's rows: a small dot to tell the three apart (a label, never good or bad), the name in small spaced
- *  capitals and the grams in DM Mono. No bar: on Home a bar means progress toward a day's target, and a serving has none. */
-function MacroRow({ label, grams, dot }: { label: string; grams: number; dot: string }) {
+/** One macro of a serving, like Home's rows: the name in the small label style and the grams in DM Mono, in ink. No dot (colour meeting, 19 November 2026:
+ *  a coloured dot hints "good") and no bar: on Home a bar means progress toward a day's target, and a serving has none. */
+function MacroRow({ label, grams }: { label: string; grams: number }) {
   return (
-    <p className="flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5 text-muted">
-      <span className="inline-flex min-w-0 items-center gap-2"><span aria-hidden className={`dot ${dot}`} /><span className={LABEL}>{label}</span></span>
-      <span className="app-numbers whitespace-nowrap font-mono text-[0.8125rem] font-normal">{Math.round(grams)}g</span>
+    <p className="flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5">
+      <span className={`min-w-0 ${LABEL}`}>{label}</span>
+      <span className="app-numbers whitespace-nowrap font-mono text-[0.8125rem] font-normal text-foreground">{Math.round(grams)}g</span>
     </p>
   );
 }
@@ -142,6 +146,8 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   // Back goes to the page before when this one was reached from another page of the app; `backHref` (the recipes, at the right shop) is the fallback
   const back = useBack(backHref);
   const router = useRouter();
+  // a recipe made from the person's own photo shows that photo at the top (RecipeHeroArt), labelled under it in the sheet
+  const ownPhoto = useRecipePhoto(recipe.id);
   // Back on a recipe Pip has just written that isn't saved yet asks first (founder 2026-11-17: "would you like to save your recipe first? So that they don't lose it")
   const [leaving, setLeaving] = useState(false);
   const goBack = () => { if (!travelBack(router, backHref)) router.push(back.href); };
@@ -291,36 +297,36 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
       </button>
     </div>
   );
-  const timeChip = <span className={`${INFO_CHIP} app-numbers`}><TodayIcon className="h-[18px] w-[18px] text-muted" />{t("{n} min", { n: recipe.minutes })}</span>;
-  const mealChip = mealLabel ? <span className={INFO_CHIP}><MealIcon className="h-[18px] w-[18px] text-muted" />{t(mealLabel)}</span> : null;
-  const meatChip = meatFree ? <span className={INFO_CHIP}><LeafIcon className="h-[18px] w-[18px] text-accent" />{t("No meat or fish")}</span> : null;
+  const timeChip = <span className={`${INFO_CHIP} app-numbers`}><TodayIcon aria-hidden className="h-[18px] w-[18px] text-ink" />{t("{n} min", { n: recipe.minutes })}</span>;
+  const mealChip = mealLabel ? <span className={INFO_CHIP}><MealIcon aria-hidden className="h-[18px] w-[18px] text-ink" />{t(mealLabel)}</span> : null;
+  const meatChip = meatFree ? <span className={INFO_CHIP}><LeafIcon aria-hidden className="h-[18px] w-[18px] text-ink" />{t("No meat or fish")}</span> : null;
 
   return (
     <div>
-      {/* the picture runs to the edges and under the status bar, like the reference */}
+      {/* the picture runs to the edges and under the status bar, like the reference. Over it only photo chips (colour meeting, 19 November 2026; approved by
+          the founder that day): Back top left, the Settings cog far top right, the expand chip bottom right, and the light status band over its top 60 px
+          (RecipeHeroArt draws it over a picture only). Save moved into the sheet beside the title. */}
       <div className="relative -mx-5" style={{ marginTop: "calc(-1 * max(1.25rem, env(safe-area-inset-top)))" }}>
         {photo ? (
-          <div className="relative h-[clamp(15rem,36dvh,22rem)] overflow-hidden bg-soft-strong">
+          <div className="relative h-[clamp(15rem,36dvh,22rem)] overflow-hidden bg-fill">
             {/* eslint-disable-next-line @next/next/no-img-element -- the person's own photo, a local address on this phone */}
             <img src={photo} alt={t("Your photo")} className="h-full w-full object-cover" />
-            <p className="absolute bottom-12 start-4 me-[4.5rem] rounded-[1rem] bg-black/65 px-3 py-1.5 text-[0.8125rem] font-semibold leading-snug text-white">{t("Your photo. The recipe is Pip's home version.")}</p>
+            <div aria-hidden className="status-band" />
             <FullPictureButton src={photo} alt={t("Your photo")} className="bottom-12 end-4" />
           </div>
         ) : (
           <RecipeHeroArt id={recipe.id} name={recipe.name} label={rt(recipe.name)} meal={recipe.meal} />
         )}
-        <div className="absolute inset-x-0 top-0 flex flex-wrap items-start justify-between gap-2 px-4 pt-[max(0.75rem,env(safe-area-inset-top))]">
-          <Link href={back.href} onClick={(e) => { if (save && !save.saved) { e.preventDefault(); setLeaving(true); return; } back.onClick(e); }} aria-label={backName(t("Back"), t("Back to recipes"), back.cameFromApp)} className={`${ON_PICTURE} ps-2.5 pe-4`}><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
-          {!recipe.ai ? <SaveRecipeButton id={recipe.id} /> : save && (
-            <button type="button" aria-pressed={save.saved} aria-label={save.saved ? t("Saved to My recipes") : t("Save this recipe")} onClick={() => { if (!save.saved) save.onSave(); }} className={`${ON_PICTURE} ms-auto ps-3.5 pe-4`}>
-              <HeartIcon filled={save.saved} className={`h-5 w-5 ${save.saved ? "text-[#e11d48]" : ""}`} />{save.saved ? t("Saved") : t("Save")}
-            </button>
-          )}
+        <div className="absolute inset-x-0 top-0 px-4 pt-[max(0.75rem,env(safe-area-inset-top))]">
+          {/* Back on a recipe Pip has just written that isn't saved yet asks first (it stays on the page and opens the question) */}
+          <PageHeader photo back={{ href: backHref, label: t("Back to recipes"), onClick: (e) => { if (save && !save.saved) { e.preventDefault(); setLeaving(true); } } }} />
         </div>
       </div>
 
-      <div className="relative -mx-5 -mt-9 rounded-t-[2rem] bg-background px-5 pt-3 shadow-[0_-12px_28px_-24px_rgba(0,0,0,0.45)]">
-        <span aria-hidden className="mx-auto block h-1.5 w-12 rounded-full bg-[var(--ring-track)]" />
+      <div className="relative -mx-5 -mt-9 rounded-t-[2rem] bg-background px-5 pt-3 shadow-[var(--shadow-lift)]">
+        <span aria-hidden className="mx-auto block h-1.5 w-12 rounded-full bg-edge" />
+        {/* the person's own photo is labelled under it, never on it (colour meeting, 19 November 2026: no words on a food photo) */}
+        {(photo || ownPhoto) && <p className="mt-3 text-center text-[0.8125rem] font-medium leading-snug text-muted">{t("Your photo. The recipe is Pip's home version.")}</p>}
         <div className="mt-4 text-center">
           {/* founder 2026-11-17: the recipe's shop in the header, its own logo with its name beside it (CLAUDE.md rule 2: the name is always plain text); where the
               screen lets the person change shop, it is a button with a small arrow that opens the choice */}
@@ -328,19 +334,27 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
             <span className="kicker">{recipe.ai ? t("Made by Pip") : t("Recipe")}</span>
             <span aria-hidden className="kicker">·</span>
             {onChangeShops ? (
-              <button type="button" onClick={onChangeShops} aria-haspopup="dialog" aria-label={`${t("Shopping at")}: ${first.name}`} className="inline-flex min-h-11 min-w-0 max-w-full items-center gap-2 rounded-full border-[1.5px] border-[color:var(--edge)] bg-white py-1 pe-3.5 ps-1 shadow-[0_1px_3px_rgba(17,24,20,0.12)] transition active:scale-95 hover:bg-[var(--fill)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+              <button type="button" onClick={onChangeShops} aria-haspopup="dialog" aria-label={`${t("Shopping at")}: ${first.name}`} className="inline-flex min-h-11 min-w-0 max-w-full items-center gap-2 rounded-full border-[1.5px] border-edge bg-card py-1 pe-3.5 ps-1 transition active:scale-95 hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
                 <ShopMark shopId={first.retailer} size="sm" />
                 <span className="min-w-0 text-[0.9375rem] font-bold leading-tight [overflow-wrap:anywhere]">{first.name}</span>
-                <span aria-hidden className="text-muted">▾</span>
+                <span aria-hidden className="text-ink">▾</span>
               </button>
             ) : (
-              <span className="inline-flex min-w-0 max-w-full items-center gap-2 rounded-full bg-white py-1 pe-3.5 ps-1 shadow-[0_1px_3px_rgba(17,24,20,0.12)]">
+              <span className="inline-flex min-w-0 max-w-full items-center gap-2 rounded-full border border-line bg-card py-1 pe-3.5 ps-1">
                 <ShopMark shopId={first.retailer} size="sm" />
                 <span className="min-w-0 text-[0.9375rem] font-bold leading-tight [overflow-wrap:anywhere]">{first.name}</span>
               </span>
             )}
           </div>
-          <h1 className="mt-1.5 text-[2rem] font-[800] leading-[1.08] tracking-[-0.02em] [overflow-wrap:anywhere]">{rt(recipe.name)}</h1>
+          {/* Save beside the title (on a narrow screen or a long name it goes under it, centred) */}
+          <div className="mt-1.5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+            <h1 className="min-w-0 max-w-full text-[2rem] font-[800] leading-[1.08] tracking-[-0.02em] [overflow-wrap:anywhere]">{rt(recipe.name)}</h1>
+            {!recipe.ai ? <SaveRecipeButton id={recipe.id} /> : save && (
+              <button type="button" aria-pressed={save.saved} aria-label={save.saved ? t("Saved to My recipes") : t("Save this recipe")} onClick={() => { if (!save.saved) save.onSave(); }} className={SAVE_BUTTON}>
+                <HeartIcon aria-hidden filled={save.saved} className="h-5 w-5 text-ink" />{save.saved ? t("Saved") : t("Save")}
+              </button>
+            )}
+          </div>
           {recipe.blurb && <p className="mx-auto mt-2 max-w-[30rem] text-[0.9375rem] leading-snug text-muted">{rt(recipe.blurb)}</p>}
           {/* a serving's calories and protein on the first screen (usability test 2026-11-19: they were only further down, under the picture and the chips) */}
           {totals && <p className="app-numbers mt-2.5 text-[1.0625rem] font-bold leading-snug">{t("{kcal} kcal and {protein} g protein a serving", { kcal: formatInt(totals.perServing.kcal), protein: formatInt(totals.perServing.protein) })}</p>}
@@ -371,9 +385,9 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                 <p className={`order-first ${LABEL}`}>{forPeople}</p>
               </div>
               <div className={`${CARD} flex min-w-0 flex-col justify-center gap-3.5 px-4 py-4`}>
-                <MacroRow label={t("protein")} grams={all(totals.perServing.protein)} dot="bg-protein" />
-                <MacroRow label={t("carbs")} grams={all(totals.perServing.carbs)} dot="bg-carbs" />
-                <MacroRow label={t("fat")} grams={all(totals.perServing.fat)} dot="bg-fat" />
+                <MacroRow label={t("protein")} grams={all(totals.perServing.protein)} />
+                <MacroRow label={t("carbs")} grams={all(totals.perServing.carbs)} />
+                <MacroRow label={t("fat")} grams={all(totals.perServing.fat)} />
               </div>
             </div>
             {people > 1 && (
@@ -435,7 +449,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
           </div>
         )}
 
-        <div role="tablist" aria-label={t("Recipe")} className="glass mt-6 grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-1 rounded-full p-1">
+        <div role="tablist" aria-label={t("Recipe")} className="mt-6 grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-1 rounded-full border-[1.5px] border-edge bg-background p-1">
           {TABS.map((o, i) => {
             const on = o.value === tab;
             return (
@@ -449,9 +463,11 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                 tabIndex={on ? 0 : -1}
                 onClick={() => setTab(o.value)}
                 onKeyDown={(e) => radioKeyNav(e, i, TABS.length, (n) => setTab(TABS[n]!.value))}
-                className={`min-h-12 min-w-0 rounded-full px-3 text-[0.9375rem] font-bold leading-tight hyphens-auto [overflow-wrap:anywhere] transition-colors focus-visible:outline-2 focus-visible:outline-accent ${on ? "bg-foreground text-background" : "text-muted hover:text-foreground"}`}
+                className={`inline-flex min-h-12 min-w-0 items-center justify-center gap-1.5 rounded-full border-[1.5px] px-3 text-[0.9375rem] leading-tight hyphens-auto [overflow-wrap:anywhere] transition-colors focus-visible:outline-2 focus-visible:outline-accent ${on ? "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)] font-bold" : "border-transparent font-semibold text-foreground hover:bg-card"}`}
               >
-                {t(o.label)}
+                {/* the open tab is lime with the dark green edge and a tick, like every chosen thing (colour meeting, 19 November 2026), never ink */}
+                {on && <ChoiceMark on />}
+                <span className="min-w-0">{t(o.label)}</span>
               </button>
             );
           })}
@@ -533,7 +549,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                   {p && spec.cupboard && spec.pantry && (
                     <div className="mt-3 flex flex-wrap items-center justify-end gap-x-3 gap-y-2 rounded-[1rem] bg-[var(--fill)] py-1.5 pe-1.5 ps-3.5">
                       <span className="min-w-0 flex-1 basis-32 text-[0.875rem] leading-snug text-muted">{hasIt(spec) ? t("Left off your list and the price to buy it all.") : t("You may have this already.")}</span>
-                      <button type="button" aria-pressed={hasIt(spec)} aria-label={t("I have this: {name}", { name: t(spec.label).toLowerCase() })} onClick={() => { toggleCupboard(spec.pantry!); setAdded(null); }} className={`inline-flex min-h-11 max-w-full items-center gap-1.5 rounded-full px-4 text-[0.9375rem] font-bold transition active:scale-95 ${hasIt(spec) ? "border-[1.5px] border-[color:var(--on-accent)] bg-sun text-on-accent" : "border-[1.5px] border-[color:var(--edge)] bg-white hover:bg-[var(--fill)]"}`}>
+                      <button type="button" aria-pressed={hasIt(spec)} aria-label={t("I have this: {name}", { name: t(spec.label).toLowerCase() })} onClick={() => { toggleCupboard(spec.pantry!); setAdded(null); }} className={`inline-flex min-h-11 max-w-full items-center gap-1.5 rounded-full px-4 text-[0.9375rem] font-bold transition active:scale-95 ${hasIt(spec) ? "border-[1.5px] border-[color:var(--on-accent)] bg-sun text-on-accent" : "border-[1.5px] border-[color:var(--edge)] bg-card hover:bg-[var(--fill)]"}`}>
                         {hasIt(spec) && <CheckIcon className="h-4 w-4" />}{t("I have this")}
                       </button>
                     </div>
@@ -701,8 +717,8 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                 const of = fileOf(o.product);
                 return (
                   <li key={key}>
-                    {/* the current pick is the one lime row, with a dark tick; the rest are white */}
-                    <button type="button" aria-pressed={selected} onClick={() => { setChosen((c) => ({ ...c, [swapSpec.key]: key })); setSwapping(null); setAdded(null); }} className={`flex w-full flex-wrap items-center gap-3 rounded-[1.25rem] p-3 text-start transition active:scale-[0.99] ${selected ? "bg-sun text-on-accent" : `${CARD} hover:bg-soft-strong`}`}>
+                    {/* the current pick is the one lime row with the 2 px dark green edge and a tick in a circle; the rest are white with the edge and an empty circle */}
+                    <button type="button" aria-pressed={selected} onClick={() => { setChosen((c) => ({ ...c, [swapSpec.key]: key })); setSwapping(null); setAdded(null); }} className={`flex w-full flex-wrap items-center gap-3 rounded-[1.25rem] border-[1.5px] p-3 text-start transition active:scale-[0.99] ${selected ? "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-edge bg-card hover:bg-background"}`}>
                       <PickPhoto file={of} product={o.product} />
                       {/* at large text on a narrow phone the words go under the photo instead of a letter or two a line beside it */}
                       <span className="min-w-0 flex-1 basis-[9rem]">
@@ -714,7 +730,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                         <span className={`app-numbers block text-[0.8125rem] ${selected ? "" : "text-muted"}`}>{formatPrice(o.basketCost)}{o.packs > 1 ? ` ${t("for {n}", { n: o.packs })}` : ""}{servingCost(o) !== null ? ` · ${t("{price} a serving", { price: formatPrice(servingCost(o)!) })}` : ""}</span>
                         {o.product.nutrition && <span className={`app-numbers block text-[0.8125rem] ${selected ? "" : "text-muted"}`}>{Math.round(o.product.nutrition.kcal)} kcal · {t("{n} g protein per 100 {unit}", { n: o.product.nutrition.protein, unit: o.product.nutrition.per })}</span>}
                       </span>
-                      {selected && <span aria-hidden className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-foreground text-background"><CheckIcon className="h-4 w-4" /></span>}
+                      <ChoiceMark on={selected} kind="circle" />
                     </button>
                   </li>
                 );
@@ -732,8 +748,8 @@ function SaveRecipeButton({ id }: { id: string }) {
   const t = useT();
   const saved = useStore(savedRecipesStore).some((r) => r.id === id);
   return (
-    <button type="button" aria-pressed={saved} aria-label={saved ? t("Saved to My meals") : t("Save to My meals")} onClick={() => toggleSavedRecipe(id)} className={`${ON_PICTURE} ms-auto ps-3.5 pe-4`}>
-      <HeartIcon filled={saved} className={`h-5 w-5 ${saved ? "text-[#e11d48]" : ""}`} />{saved ? t("Saved") : t("Save")}
+    <button type="button" aria-pressed={saved} aria-label={saved ? t("Saved to My meals") : t("Save to My meals")} onClick={() => toggleSavedRecipe(id)} className={SAVE_BUTTON}>
+      <HeartIcon aria-hidden filled={saved} className="h-5 w-5 text-ink" />{saved ? t("Saved") : t("Save")}
     </button>
   );
 }

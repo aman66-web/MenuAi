@@ -54,7 +54,7 @@ export function SearchDone({ children }: { children?: ReactNode }) {
         type="button"
         onMouseDown={keepFocus}
         onClick={dismissKeyboard}
-        className="relative hidden h-9 items-center rounded-full bg-foreground px-4 text-[0.9375rem] font-bold text-background transition before:absolute before:-inset-x-1 before:-inset-y-2 before:content-[''] active:scale-95 group-focus-within/search:inline-flex focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        className="relative hidden h-9 items-center rounded-full bg-ink px-4 text-[0.9375rem] font-bold text-on-ink transition before:absolute before:-inset-x-1 before:-inset-y-2 before:content-[''] active:scale-95 group-focus-within/search:inline-flex focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       >
         {t("Done")}
       </button>
@@ -76,7 +76,7 @@ export function NumberDone({ onDone }: { onDone?: () => void }) {
       type="button"
       onMouseDown={keepFocus}
       onClick={() => { dismissKeyboard(); onDone?.(); }}
-      className="invisible absolute -top-2 end-0 z-10 inline-flex h-8 items-center rounded-full bg-foreground px-3.5 text-[0.875rem] font-bold text-background transition before:absolute before:-inset-x-1 before:-inset-y-2 before:content-[''] active:scale-95 group-focus-within/nums:visible focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      className="invisible absolute -top-2 end-0 z-10 inline-flex h-8 items-center rounded-full bg-ink px-3.5 text-[0.875rem] font-bold text-on-ink transition before:absolute before:-inset-x-1 before:-inset-y-2 before:content-[''] active:scale-95 group-focus-within/nums:visible focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
       {t("Done")}
     </button>

@@ -107,12 +107,36 @@ function startLoop() {
   };
 }
 
+/** The sync that the latest sign-in started (it never throws: a failure only leaves the status at "offline" or "error"). */
+let signInSync: Promise<void> = Promise.resolve();
+/** The latest sign-in emptied this device's stores, because a different person had signed in here before (SyncEngine.prepareFor). */
+let signInCleared = false;
+
 /** Someone is signed in on this device: remember who, start from the right place and sync. */
 export function signedIn(user: AccountUser): void {
+  const before = syncMetaStore.get().userId;
+  signInCleared = before !== undefined && before !== user.id;
   userStore.set(user);
   syncEngine().prepareFor(user.id);
   startLoop();
-  void syncEngine().syncNow();
+  signInSync = syncEngine().syncNow();
+}
+
+/**
+ * Resolves once the sync that signing in started has finished, or after `ms` (offline, a slow connection), whichever is first. The welcome screens wait on it after
+ * their sign-in step (the onboarding meeting of 19 November, question 1): an account already set up has brought its own settings by then (they win over anything
+ * typed on this phone, lib/mm/sync.ts reconcileValue), and a new account has none.
+ */
+export function signInSettled(ms = 6000): Promise<void> {
+  return Promise.race([signInSync, new Promise<void>((resolve) => setTimeout(resolve, ms))]);
+}
+
+/**
+ * After signInSettled, for lib/mm/signInGate.ts afterSignIn: whether that sign-in emptied this device's stores (`cleared`), and whether the settings have been
+ * synced with the account since (`settingsSynced`; after an emptying, only the account's own settings can have been, since an emptied phone has none worth sending).
+ */
+export function signInOutcome(): { cleared: boolean; settingsSynced: boolean } {
+  return { cleared: signInCleared, settingsSynced: (syncMetaStore.get().values.settings?.t ?? 0) > 0 };
 }
 
 /** Leave the account on this device. `tellServer`: also end the session there (not needed when the server already ended it). */

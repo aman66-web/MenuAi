@@ -6,15 +6,16 @@ import { SHOP_SORTS, searchShopProducts, type ShopNutrition, type ShopProduct, t
 import { formatDate } from "@/lib/mm/format";
 import { anyFoodDiet, foodDietCaution, foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
 import type { GroceryProduct } from "@/lib/mm/groceries";
+import { PageHeader } from "../../_components/PageHeader";
 import { SearchIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../../_components/SearchDone";
-import { Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
+import { AllergyNote, Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { useSettings } from "../../_lib/hooks";
 import { useShopProducts } from "../../_lib/shopProducts";
 import { loadManifest, loadRetailer } from "../../_lib/groceries";
-import { BackLink, FootNote, MoreButton, NOTE, PILL_INPUT, SelectField, TITLE } from "../PageBits";
+import { FootNote, MoreButton, NOTE, PILL_INPUT, SelectField, TITLE } from "../PageBits";
 import { ShopProductRow } from "./ShopProductRow";
 
 // A supermarket's own list (founder 2026-10-09, docs/GROCERIES_PLAN.md; since 2026-10-11 the main Groceries list, opened from "Which shop?"): name, price,
@@ -84,7 +85,7 @@ export function ShopListScreen({ shop }: { shop: string }) {
   const hasCommunity = useMemo(() => products.some((p) => p.nutrition?.community), [products]);
   const pricedCount = useMemo(() => products.reduce((n, p) => n + (p.price !== null ? 1 : 0), 0), [products]);
   const reset = () => setShown(PAGE);
-  const back = <BackLink href="/app/groceries" label={t("Back to groceries")} />;
+  const back = <PageHeader back={{ href: "/app/groceries", label: t("Back to groceries") }} list />;
 
   if (state.status === "loading") return (<div>{back}<Spinner label={t("Loading the full list")} /></div>);
   if (state.status === "error") return (<div>{back}<div className="mt-4"><ErrorBox message={t("Couldn't load this list. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div></div>);
@@ -130,7 +131,7 @@ export function ShopListScreen({ shop }: { shop: string }) {
 
       {(sort === "density" || sort === "protein") && <p className={`mt-3 ${NOTE}`}>{t("Products without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.")}</p>}
       {diet && foodDietCaution(prefs, t) && <p className={`mt-3 ${NOTE}`}>{foodDietCaution(prefs, t)}</p>}
-      {diet && (prefs.avoidAllergens?.length ?? 0) > 0 && <p className={`mt-2 ${NOTE}`}>{t("We haven't read allergens for these products, so your allergy settings can't hide any here. Always check the pack.")}</p>}
+      {diet && (prefs.avoidAllergens?.length ?? 0) > 0 && <AllergyNote className="mt-3"><p>{t("We haven't read allergens for these products, so your allergy settings can't hide any here. Always check the pack.")}</p></AllergyNote>}
       <p role="status" aria-live="polite" className="app-numbers mt-6 ps-1 text-sm font-semibold text-muted">{results.length === 1 ? t("1 product") : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
       {results.length === 0 ? (
         <div className="mt-3"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No products match.")} body={t("Try fewer words or a different type.")} /></div>
@@ -144,7 +145,7 @@ export function ShopListScreen({ shop }: { shop: string }) {
       )}
 
       {catalogue.size > 0 && (
-        <Link href={`/app/groceries/search?r=${file.retailer}`} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft mt-3.5 inline-flex min-h-12 w-full items-center justify-center rounded-full px-5 text-center text-[0.9375rem] font-bold transition active:scale-[0.98] hover:bg-[var(--fill)]">
+        <Link href={`/app/groceries/search?r=${file.retailer}`} className="border-[1.5px] border-edge bg-card text-foreground mt-3.5 inline-flex min-h-12 w-full items-center justify-center rounded-full px-5 text-center text-[0.9375rem] font-bold transition active:scale-[0.98] hover:bg-background">
           {t("More {shop} products with their numbers", { shop: file.name })}
         </Link>
       )}

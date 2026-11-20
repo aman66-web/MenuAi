@@ -12,9 +12,9 @@ import { hasNative, nativeCall } from "@/lib/mm/native";
 import { site } from "@/site.config";
 import { settingsStore } from "@/lib/mm/stores";
 import { ChainMark } from "../_components/ChainMark";
-import { ChevronLeftIcon, DirectionsIcon, ForkIcon, LocateIcon, PinIcon } from "../_components/icons";
+import { DirectionsIcon, ForkIcon, LocateIcon, PinIcon } from "../_components/icons";
+import { PageHeader } from "../_components/PageHeader";
 import { Button, Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../_components/ui";
-import { backName, useBack } from "../_lib/backNav";
 import { useMenu } from "../_lib/hooks";
 import { loadBranches } from "../_lib/branches";
 import { useT } from "../_lib/i18n";
@@ -61,9 +61,6 @@ function readSavedArea(): Origin {
   return null;
 }
 
-/** Back: a 36 px grey pill inside a 44 px tap area, like Home's round buttons. */
-const BACK = "group -ms-1 inline-flex min-h-11 items-center rounded-full px-1 transition active:scale-95";
-const BACK_PILL = "inline-flex min-h-9 items-center gap-1 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft py-1 ps-2 pe-3.5 text-[0.9375rem] font-bold leading-tight transition-colors group-hover:bg-[var(--fill)]";
 /** A secondary action inside a white card: the same grey as Home's round buttons (the shared secondary Button fades to the card fill here). */
 const pill = "inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-5 text-[0.9375rem] font-semibold transition hover:not-disabled:bg-[var(--fill)] active:scale-[0.97] disabled:cursor-not-allowed disabled:active:scale-100 disabled:opacity-100 disabled:border-transparent disabled:bg-soft-strong disabled:text-muted";
 // -my/py: a scroller clips vertically too, so the chips get room for their focus ring (2 px wide, 3 px out).
@@ -71,7 +68,6 @@ const chipRow = "no-scrollbar -mx-5 -my-1.5 flex gap-2 overflow-x-auto px-5 py-1
 
 export default function NearbyPage() {
   const t = useT();
-  const back = useBack("/app/eat-out"); // the page before (Eat out, a restaurant...) when there is one in the app, else Eat out
   const menu = useMenu();
   const [origin, setOrigin] = useState<Origin>(null);
   const [locating, setLocating] = useState<Locating>({ state: "idle" });
@@ -196,8 +192,9 @@ export default function NearbyPage() {
 
   return (
     <div ref={pageRef}>
-      <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to restaurants"), back.cameFromApp)} className={BACK}><span className={BACK_PILL}><ChevronLeftIcon className="h-[1.125rem] w-[1.125rem]" /><span>{t("Back")}</span></span></Link>
-      <h1 className="mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]"><Rich text={t("Restaurants {near} you")} values={{ near: <span className="serif-em">{t("near")}</span> }} /></h1>
+      {/* the header every page has (colour meeting, 19 November 2026): Back (the page before, Eat out or a restaurant, else Eat out), the title under it, the
+          Settings cog far right */}
+      <PageHeader back={{ href: "/app/eat-out", label: t("Back to restaurants") }} title={<Rich text={t("Restaurants {near} you")} values={{ near: <span className="serif-em">{t("near")}</span> }} />} />
 
       {origin && !editing ? (
         <div className="glass mt-5 flex items-center gap-3 rounded-[1.75rem] p-1.5">
@@ -217,7 +214,7 @@ export default function NearbyPage() {
             <span className="sr-only">{t("Postcode or town")}</span>
             <input value={typed} onChange={(e) => setTyped(e.target.value)} placeholder={t("Or type a postcode or town")} enterKeyHint="search" autoComplete="off" className="min-h-11 w-full rounded-full bg-transparent ps-4 pe-1 text-base placeholder:text-muted focus-visible:outline-none!" />
           </label>
-          <button type="submit" className="inline-flex min-h-11 grow items-center justify-center rounded-full bg-white px-4 text-[0.9375rem] font-bold shadow-[0_1px_2px_rgba(17,24,20,0.08)] transition hover:bg-[var(--fill)] active:scale-[0.97]">{t("Search")}</button>
+          <button type="submit" className="inline-flex min-h-11 grow items-center justify-center rounded-full bg-card px-4 text-[0.9375rem] font-bold shadow-[var(--card-shadow)] transition hover:bg-[var(--fill)] active:scale-[0.97]">{t("Search")}</button>
         </div>
         <p className="text-[0.8125rem] leading-snug text-muted">{t("Your location stays on your phone: we use it only to find the closest branches. A typed postcode or town is looked up by postcodes.io.")}</p>
         {locating.state === "error" && <p role="alert" className="text-sm font-medium text-foreground">{t(locating.message, { app: site.name })}</p>}

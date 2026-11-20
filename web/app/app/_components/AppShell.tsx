@@ -10,6 +10,7 @@ import { tabTarget } from "@/lib/mm/tabMemory";
 import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
 import { installBackDepth } from "../_lib/backNav";
 import { refreshHiddenLogos } from "../_lib/hiddenLogos";
+import { refreshAppSwitches, useSignInRequired } from "../_lib/appSwitches";
 import { menuClient } from "../_lib/menu";
 import { warmOffline } from "../_lib/warm";
 import { applyTextSize } from "../_lib/textSize";
@@ -22,7 +23,7 @@ import { TabLabel } from "./TabLabel";
 import { CreatorKeys } from "../_lib/creator";
 import { RefCapture } from "../../components/RefCapture";
 import { recheckStoredToken } from "@/lib/payments/client";
-import { GATING_ENABLED, IAP_ENABLED, SIGN_IN_REQUIRED } from "@/lib/mm/config";
+import { GATING_ENABLED, IAP_ENABLED } from "@/lib/mm/config";
 import { signInGate } from "@/lib/mm/signInGate";
 import { hasNative } from "@/lib/mm/native";
 import { refreshAppStoreAccess } from "@/lib/payments/iap";
@@ -43,11 +44,13 @@ export function AppShell({ children }: { children: ReactNode }) {
   const settings = useSettings();
   const textSize = settings.textSize;
   const language = settings.language;
-  // Everyone signs in (founder 2026-11-17; lib/mm/config.ts SIGN_IN_REQUIRED): until someone is, every page but the welcome and offline screens shows the sign-in
-  // screen in its place (the address, a shared list's "#" included, stays as it is, so the page opens once they're in).
+  // Everyone signs in (founder 2026-11-17; lib/mm/config.ts SIGN_IN_REQUIRED, unless numbite.com's switches file has made it optional: _lib/appSwitches.ts): until
+  // someone is, every page but the welcome and offline screens shows the sign-in screen in its place (the address, a shared list's "#" included, stays as it is,
+  // so the page opens once they're in). The welcome screens ask for the account themselves, after "Your daily targets".
   const user = useAccountUser();
   const checking = useAccountChecking();
-  const gate = signInGate({ required: SIGN_IN_REQUIRED, hydrated, signedIn: !!user, checking, pathname });
+  const signInRequired = useSignInRequired();
+  const gate = signInGate({ required: signInRequired, hydrated, signedIn: !!user, checking, pathname });
   const fullScreen = pathname.startsWith("/app/welcome") || gate !== "open";
   const online = useOnline();
   const animate = useNavigatedOnce(pathname);
@@ -96,8 +99,8 @@ export function AppShell({ children }: { children: ReactNode }) {
     if (hydrated) void bootAccount();
   }, [hydrated]);
 
-  // Logos taken down at their owner's request (public/logos/hidden.json), read once per launch.
-  useEffect(() => { refreshHiddenLogos(); }, []);
+  // Logos taken down at their owner's request (public/logos/hidden.json), and the remote switches (public/app-switches.json), each read once per launch.
+  useEffect(() => { refreshHiddenLogos(); refreshAppSwitches(); }, []);
 
   // Reminders (Home's Reminders section): in the iPhone app the plan of what to ring is handed to the phone when the reminders change, when the app starts
   // and when it comes back to the front; on the website this only notes that there is nothing to ring with (_lib/reminderSync.ts).
@@ -137,7 +140,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       <RefCapture />
       <div className="app-surface relative mx-auto flex min-h-dvh w-full max-w-md flex-col">
         {!online && (
-          <p role="status" className="glass mx-4 mt-[max(0.5rem,env(safe-area-inset-top))] rounded-full px-4 py-2 text-center text-sm text-muted">
+          <p role="status" className="glass mx-4 mt-[max(0.5rem,env(safe-area-inset-top))] rounded-full px-4 py-2 text-center text-sm text-foreground">
             {t("You're offline. Menus you've opened still work.")}
           </p>
         )}
@@ -145,12 +148,13 @@ export function AppShell({ children }: { children: ReactNode }) {
           {gate === "open" ? <div key={pathname} className={animate ? "rise" : undefined}>{children}</div> : gate === "wait" ? <Spinner /> : <SignInScreen />}
         </main>
         {!fullScreen && (
-          // A dark floating bar like the founder's reference pictures (2026-10-15), the open tab in the app's lime. Its words stay under the
-          // icons so everyone can read where each tab goes. Colours are fixed: the bar is the same on every screen.
+          // A dark floating bar like the founder's reference pictures (2026-10-15), the open tab in the app's lime ("where you are"). Its words stay under the
+          // icons so everyone can read where each tab goes. The colour meeting's tokens (19 November 2026): the ink fill, lime for the open tab with its words in
+          // the dark green, the other tabs' icons and words in the light grey for ink (10.26:1), and a lime focus ring on the ink.
           <nav
             aria-label={t("Main")}
             data-coach="tabs"
-            className="fixed inset-x-[12px] bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-20 mx-auto max-w-[calc(28rem-1.5rem)] rounded-[2rem] bg-[#1d2320] p-[6px] shadow-[0_18px_40px_-16px_rgba(0,0,0,0.55)]"
+            className="on-ink fixed inset-x-[12px] bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-20 mx-auto max-w-[calc(28rem-1.5rem)] rounded-[2rem] bg-ink p-[6px] shadow-[var(--shadow-lift)]"
           >
             <ul className="flex">
               {TABS.map((tab) => {
@@ -161,11 +165,11 @@ export function AppShell({ children }: { children: ReactNode }) {
                     <Link
                       href={tabTarget(tabMemory, tab, active)}
                       aria-current={active ? "page" : undefined}
-                      className={`group relative flex min-h-14 flex-col items-center justify-center gap-1 rounded-[1.5rem] text-center text-[0.8125rem] font-semibold leading-[1.1] transition-colors focus-visible:outline-[#d6efa0] ${active ? "text-[#d6efa0]" : "text-[#c2c9c4] hover:text-white"}`}
+                      className={`group relative flex min-h-14 flex-col items-center justify-center gap-1 rounded-[1.5rem] text-center text-[0.8125rem] font-semibold leading-[1.1] transition-colors focus-visible:outline-sun ${active ? "text-sun" : "text-on-ink-2 hover:text-on-ink"}`}
                     >
                       <span
                         aria-hidden
-                        className={`inline-flex h-8 w-12 items-center justify-center rounded-full transition-all duration-300 ${active ? "bg-[#d6efa0] text-[#0b1a12]" : "group-hover:bg-white/10"}`}
+                        className={`inline-flex h-8 w-12 items-center justify-center rounded-full transition-all duration-300 ${active ? "bg-sun text-on-sun" : "group-hover:bg-ink-pressed"}`}
                       >
                         <Icon className="h-5 w-5" />
                       </span>

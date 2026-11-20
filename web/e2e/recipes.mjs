@@ -256,12 +256,19 @@ await step("a substitute: use Quorn or tofu instead of chicken, and back again",
   await ctx.close();
 });
 
-await step("a recipe page: Back and Save on the picture, cook for more or fewer people, Ingredients and Method tabs", async () => {
+await step("a recipe page: Back and the Settings cog on the picture, Save beside the title, cook for more or fewer people, Ingredients and Method tabs", async () => {
   const { ctx, page } = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, recipeMeal: { size: "written", moreProtein: false } } }));
   await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
   await page.getByRole("heading", { level: 1, name: "Chicken curry with rice" }).waitFor();
   await page.getByRole("link", { name: /^Back( to recipes)?$/ }).waitFor(); // "Back to recipes" when opened by address (as here), plain "Back" when reached from another page of the app
-  await page.getByRole("button", { name: "Save to My meals", pressed: false }).click();
+  // the photo's top right is the Settings cog (colour meeting, 19 November 2026); Save moved beside the title, with its word
+  const cog = await page.getByRole("link", { name: "Settings", exact: true }).first().boundingBox();
+  expect(cog && cog.y < 120 && cog.x > page.viewportSize().width / 2, "the Settings cog isn't at the picture's top right: " + JSON.stringify(cog));
+  const saveButton = page.getByRole("button", { name: "Save to My meals", pressed: false });
+  const [saveBox, titleBox] = [await saveButton.boundingBox(), await page.getByRole("heading", { level: 1, name: "Chicken curry with rice" }).boundingBox()];
+  expect(saveBox && titleBox && saveBox.y >= titleBox.y - 60 && saveBox.y <= titleBox.y + titleBox.height + 60, "Save isn't beside the title: " + JSON.stringify({ saveBox, titleBox }));
+  expect((await saveButton.innerText()).trim() === "Save", "the button doesn't say Save");
+  await saveButton.click();
   await page.getByRole("button", { name: "Saved to My meals", pressed: true }).waitFor();
   const chicken = page.getByRole("heading", { name: "What to buy" }).locator("xpath=..").locator("li").first();
   // founder 2026-11-17: each ingredient shows what the amount used costs ("£1.39 used"), in the green of "a serving"; it grows with the people

@@ -26,11 +26,11 @@ export function ShopProductRow({ file, product, showShop }: { file: ShopFile; pr
           {product.price !== null ? <span className="font-bold text-foreground">{formatPrice(product.price)}</span> : <span className="font-semibold">{t("Price in store")}</span>}
           {product.unitPrice !== null && product.unit && <span className="text-muted"> · {formatPrice(product.unitPrice)} {product.unit}</span>}
         </span>
-        {product.member && <span className="app-numbers block text-sm leading-snug text-muted">{t("{price} with {scheme}", { price: formatPrice(product.member.amount), scheme: product.member.scheme.replace(/ price$/i, "") })}</span>}
+        {product.member && <span className="app-numbers block text-sm font-semibold leading-snug text-foreground">{t("{price} with {scheme}", { price: formatPrice(product.member.amount), scheme: product.member.scheme.replace(/ price$/i, "") })}</span>}
         {product.nutrition && <NutritionChips kcal={product.nutrition.kcal} protein={product.nutrition.protein} basis={nutritionBasis(product.nutrition, t)} />}
       </span>
       {showShop && <span aria-hidden className="shrink-0 self-start"><ShopMark shopId={file.retailer} size="sm" /></span>}
-      <ChevronRightIcon className="h-[18px] w-[18px] shrink-0 text-muted" />
+      <ChevronRightIcon className="h-[18px] w-[18px] shrink-0 text-ink" />
     </Link>
   );
 }

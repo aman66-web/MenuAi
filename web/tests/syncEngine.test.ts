@@ -522,3 +522,61 @@ describe("meta", () => {
     expect(sanitizeMeta({ sets: { saved: { items: { x: { h: 5, t: "no" } }, gone: { y: "no" } } } })).toEqual({ sets: { saved: { items: {}, gone: {} } }, values: {} });
   });
 });
+
+// The onboarding meeting of 19 November (question 1, approved by the founder that day): the welcome screens ask for the account after "Your daily targets", so the
+// goal, the targets and the diet are already saved on the phone when someone signs in. A brand-new account keeps them; an account's own settings are never
+// overwritten by them.
+describe("signing in after typing the goal, targets and diet (the welcome screens' sign-in step)", () => {
+  const typed = (over: Partial<UserSettings> = {}): UserSettings => ({ ...DEFAULT_SETTINGS, goal: "glp1", dailyCalories: 1500, dailyProtein: 110, hasSetTargets: true, preferences: { ...DEFAULT_SETTINGS.preferences, veganOnly: true }, ...over });
+
+  it("a brand-new account keeps what was typed on this phone, and gets it", async () => {
+    const { store, rows } = serverStore();
+    const clk = clock();
+    const phone = device(store, clk);
+    phone.stores.settings.set(typed());
+    phone.engine.prepareFor("user-1");
+    await phone.engine.syncNow();
+    expect(phone.stores.settings.get()).toMatchObject({ goal: "glp1", dailyCalories: 1500, dailyProtein: 110, hasSetTargets: true, hasCompletedOnboarding: false });
+    expect(rows.has("user-1|settings")).toBe(true);
+    clk.tick();
+    const other = device(store, clk);
+    other.engine.prepareFor("user-1");
+    await other.engine.syncNow();
+    expect(other.stores.settings.get()).toMatchObject({ goal: "glp1", dailyCalories: 1500, preferences: { veganOnly: true } });
+  });
+
+  it("starting numbers nobody worked out stay on the phone until setup is finished, then go up", async () => {
+    const { store, rows } = serverStore();
+    const clk = clock();
+    const phone = device(store, clk);
+    phone.stores.settings.set(typed({ hasSetTargets: false, dailyCalories: DEFAULT_SETTINGS.dailyCalories, dailyProtein: undefined }));
+    phone.engine.prepareFor("user-1");
+    await phone.engine.syncNow();
+    expect(phone.stores.settings.get()).toMatchObject({ goal: "glp1", preferences: { veganOnly: true } }); // kept here
+    expect(rows.has("user-1|settings")).toBe(false);
+    phone.stores.settings.set({ ...phone.stores.settings.get(), shops: ["sainsburys"], hasCompletedOnboarding: true }); // "Where do you shop?", then Go to Home
+    clk.tick();
+    await phone.engine.syncNow();
+    expect(rows.has("user-1|settings")).toBe(true);
+  });
+
+  it("an account already set up keeps its own settings: what was typed on the new phone gives way to them, and the account is unchanged", async () => {
+    const { store } = serverStore();
+    const clk = clock();
+    const first = device(store, clk);
+    first.stores.settings.set(real({ shops: ["tesco"] }));
+    first.engine.prepareFor("user-1");
+    await first.engine.syncNow();
+    clk.tick();
+    const phone = device(store, clk);
+    phone.stores.settings.set(typed());
+    phone.engine.prepareFor("user-1");
+    await phone.engine.syncNow();
+    expect(phone.stores.settings.get()).toMatchObject({ goal: "lose", dailyCalories: 1800, hasCompletedOnboarding: true, shops: ["tesco"] });
+    expect(phone.stores.settings.get().preferences.veganOnly).toBeFalsy();
+    expect(phone.stores.settings.get().dailyProtein).toBeUndefined();
+    clk.tick();
+    await first.engine.syncNow();
+    expect(first.stores.settings.get()).toMatchObject({ goal: "lose", dailyCalories: 1800, shops: ["tesco"] });
+  });
+});

@@ -48,7 +48,7 @@ await step("Pip asks one thing a screen: how many people (Just me), meals and sn
   await page.getByRole("heading", { level: 1, name: "Your meals and snacks" }).waitFor();
   for (const m of ["Breakfast", "Lunch", "Dinner"]) expect((await page.getByRole("button", { name: m, exact: true }).getAttribute("aria-pressed")) === "true", `${m} starts chosen`);
   for (const m of ["Breakfast", "Lunch", "Dinner"]) await page.getByRole("button", { name: m, exact: true }).click();
-  await page.getByText("Pick at least one meal.").waitFor();
+  await page.getByText("Pick at least one meal.").first().waitFor(); // said above the meals and again as the reason over the greyed Continue
   expect(await page.getByRole("button", { name: "Continue" }).isDisabled(), "no meals: can't go on");
   for (const m of ["Breakfast", "Lunch", "Dinner"]) await page.getByRole("button", { name: m, exact: true }).click();
   await page.getByRole("radio", { name: "2", exact: true }).click();

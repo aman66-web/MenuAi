@@ -12,7 +12,8 @@ import { failureText } from "../../_lib/communityText";
 import { whenSent } from "../../_lib/communityTime";
 import { useHydrated } from "../../_lib/hooks";
 import { useLanguage, useT } from "../../_lib/i18n";
-import { BackLink, CARD, TITLE } from "../../groceries/PageBits";
+import { PageHeader } from "../../_components/PageHeader";
+import { CARD, TITLE } from "../../groceries/PageBits";
 import { Initial } from "../friends/FriendRows";
 
 // "Shared with you" (Community, founder 2026-10-16: "send them shopping lists"): the shopping lists friends sent, newest first, each with who sent it, when and how many
@@ -25,7 +26,7 @@ export default function InboxPage() {
   const htmlLang = localeInfo(useLanguage()).htmlLang;
   const hydrated = useHydrated();
   const inbox = useCommunityResource("inbox");
-  const back = <BackLink href="/app/community" label={t("Back to community")} />;
+  const back = <PageHeader back={{ href: "/app/community", label: t("Back to community") }} list />;
   const heading = <h1 className={`mt-5 ${TITLE}`}>{t("Shared with you")}</h1>;
 
   if (!enabled) return null;

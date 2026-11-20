@@ -174,7 +174,8 @@ export function HomePages({ pages, now }: { pages: HomePage[]; now: Date }) {
         ))}
       </div>
       {hint && !state.seen && (
-        <button type="button" onClick={() => { go(1); setHint(false); }} className="mx-auto -mt-1 block min-h-11 rounded-full px-3 py-1 text-center text-[0.875rem] font-semibold leading-snug text-accent">
+        // green words are always underlined, like a link (colour meeting, 19 November 2026)
+        <button type="button" onClick={() => { go(1); setHint(false); }} className="mx-auto -mt-1 block min-h-11 rounded-full px-3 py-1 text-center text-[0.875rem] font-semibold leading-snug text-accent underline underline-offset-2">
           {t("Slide the cards sideways, or tap here, to see your week")}
           <ChevronRightIcon aria-hidden className="ms-0.5 inline-block h-4 w-4 -translate-y-px align-middle" />
         </button>

@@ -28,8 +28,8 @@ const SIGN_IN_MESSAGES: Record<string, string> = {
   busy: tk("Too many tries. Please wait a few minutes and try again."),
 };
 
-/** A quiet note inside the card (what just happened): the grey fill, no outline. */
-const noteClass = "mt-3.5 rounded-[0.875rem] bg-soft-strong px-3.5 py-3 text-[0.9375rem] leading-snug";
+/** A quiet note inside the card (what just happened): flat in the page fill with no outline, as anything inside a card (the line fill means "can't press"). */
+const noteClass = "mt-3.5 rounded-[0.875rem] bg-fill px-3.5 py-3 text-[0.9375rem] leading-snug";
 
 export function AccountSection() {
   const t = useT();
@@ -115,15 +115,16 @@ export function AccountSection() {
   return (
     <Card className="p-4">
       <div className="flex items-center gap-3.5">
-        <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-soft-strong text-[1.0625rem] font-[800]">{initial || "·"}</span>
+        <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-fill text-[1.0625rem] font-[800]">{initial || "·"}</span>
         <div className="min-w-0 flex-1">
-          <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{t("Signed in as")}</p>
+          <p className="text-[0.8125rem] font-semibold text-muted">{t("Signed in as")}</p>
           <p className="mt-0.5 break-all text-[1.0625rem] font-bold leading-snug">{user.email ?? t("your account")}</p>
         </div>
       </div>
       <p className="mt-3.5 text-[0.9375rem] leading-snug text-muted" role="status">{statusLine}</p>
       <div className="mt-3.5 flex flex-wrap gap-2.5">
-        <Button variant="secondary" disabled={busy || status === "syncing"} onClick={() => void syncEngine().syncNow()}>{t("Sync now")}</Button>
+        {/* while it syncs the button keeps its look with a spinner and "Working…" (never a faded grey that looks broken) */}
+        <Button variant="secondary" busy={status === "syncing"} disabled={busy} onClick={() => void syncEngine().syncNow()}>{t("Sync now")}</Button>
         <Button variant="secondary" disabled={busy} onClick={() => void out()}>{t("Sign out")}</Button>
       </div>
       {message && <p role="status" className={noteClass}>{message}</p>}
@@ -142,7 +143,7 @@ export function AccountSection() {
         {/* An App Store subscription is between the person and Apple: deleting the account can't cancel it (founder 2026-11-17 asked; Apple expects the app to say
             so here and show how to cancel). In the iPhone app the button opens Apple's own screen; on the website, Apple's subscriptions page. */}
         {APP_PREMIUM && (
-          <div className="mt-3 rounded-[1rem] bg-[var(--fill)] p-3.5">
+          <div className="mt-3 rounded-[1rem] bg-fill p-3.5">
             <p className="text-base leading-snug">{t("Deleting your account doesn't cancel an App Store subscription. To stop being charged, cancel it in your App Store settings.")}</p>
             {IAP_ENABLED && hasNative()
               ? <Button full variant="secondary" className="mt-3 min-h-11" onClick={() => void manageSubscriptions()}>{t("Manage subscription")}</Button>
@@ -151,9 +152,10 @@ export function AccountSection() {
         )}
         {/* Community's rows are removed with the account (docs/BACKEND.md "Community"): said here only to someone who has a username */}
         {community?.userId === user.id && community.profile && <p className="mt-3 text-base leading-snug">{t("Your username, friends and the shopping lists you sent or received are deleted too.")}</p>}
-        <div className="mt-5 space-y-2 pb-2">
-          <Button full variant="danger" className="min-h-12 text-base" disabled={busy} onClick={() => void remove()}>{t("Delete my account")}</Button>
-          <Button full variant="ghost" onClick={() => setDeleteOpen(false)}>{t("Keep my account")}</Button>
+        {/* Keep my account first (secondary, on the left), then the red Delete on the right; stacked when the text is large */}
+        <div className="mt-5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-2 pb-2">
+          <Button full variant="secondary" className="min-h-12 text-base" onClick={() => setDeleteOpen(false)}>{t("Keep my account")}</Button>
+          <Button full variant="dangerFilled" className="min-h-12 text-base" busy={busy} onClick={() => void remove()}>{t("Delete my account")}</Button>
         </div>
       </Sheet>
     </Card>

@@ -36,13 +36,14 @@ function Choice({ on, onClick, onKeyDown, title, sub, label, focusable, numbers 
       tabIndex={on || focusable ? 0 : -1}
       onClick={onClick}
       onKeyDown={onKeyDown}
-      className={`relative flex min-h-16 min-w-0 flex-col items-center justify-center rounded-[1.25rem] px-2 pb-2.5 pt-3.5 text-center transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "bg-foreground text-background" : "bg-[var(--fill)] hover:bg-soft-strong"}`}
+      className={`relative flex min-h-16 min-w-0 flex-col items-center justify-center rounded-[1.25rem] px-2 pb-2.5 pt-3.5 text-center transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent border-[1.5px] ${on ? "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-edge bg-card hover:bg-background"}`}
     >
       {/* the tick hangs off the corner by 8 px and reaches 12 px down into the tile, inside the 14 px top padding, so it never meets the words
           at any text size (the words start below it however wide they are) */}
-      {on && <span aria-hidden className="bg-sun absolute -end-2 -top-2 grid h-5 w-5 place-items-center rounded-full text-on-accent"><CheckIcon className="h-3 w-3" strokeWidth={3} /></span>}
+      {/* chosen is lime with the 2 px dark green edge and a dark green tick in its corner (colour meeting, 19 November 2026), never ink */}
+      {on && <span aria-hidden className="absolute -end-2 -top-2 grid h-5 w-5 place-items-center rounded-full border-2 border-on-sun bg-sun text-on-sun"><CheckIcon className="h-3 w-3" strokeWidth={3} /></span>}
       <span className="max-w-full text-[0.9375rem] font-bold leading-tight hyphens-auto [overflow-wrap:anywhere]">{title}</span>
-      <span className={`mt-0.5 text-[0.8125rem] leading-tight ${numbers ? "app-numbers" : ""} ${on ? "text-background" : "text-muted"}`}>{sub}</span>
+      <span className={`mt-0.5 text-[0.8125rem] leading-tight ${numbers ? "app-numbers" : ""} ${on ? "text-on-sun" : "text-muted"}`}>{sub}</span>
     </button>
   );
 }
@@ -97,7 +98,7 @@ export function MealPicker({ summary = true }: { summary?: boolean } = {}) {
       {summary && <p role="status" aria-live="polite" className="app-numbers mt-3 rounded-[1rem] bg-[var(--fill)] px-3.5 py-2.5 text-[0.9375rem] font-semibold leading-snug">{targetSentence(t, target)}</p>}
 
       <div className="mt-3.5 grid gap-2">
-        <button type="button" aria-expanded={own} onClick={() => setOwn((v) => !v)} className={own ? `${PILL_BASE} bg-foreground text-background` : LINK_PILL}>{t("Type my own numbers")}</button>
+        <button type="button" aria-expanded={own} onClick={() => setOwn((v) => !v)} className={own ? `${PILL_BASE} bg-ink text-on-ink` : LINK_PILL}>{t("Type my own numbers")}</button>
         {meal.size !== "written" ? (
           <button type="button" onClick={() => { setOwn(false); updateSettings({ recipeMeal: { size: "written", moreProtein: meal.moreProtein } }); }} className={LINK_PILL}>{t("Show recipes as written")}</button>
         ) : (

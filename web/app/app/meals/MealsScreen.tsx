@@ -1,12 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { myRecipesStore, savedRecipesStore, savedStore } from "@/lib/mm/stores";
-import { ChevronLeftIcon } from "../_components/icons";
-import { radioKeyNav } from "../_components/ui";
-import { backName, useBack } from "../_lib/backNav";
+import { PageHeader } from "../_components/PageHeader";
+import { ChoiceMark, radioKeyNav } from "../_components/ui";
 import { useHydrated, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { MyRecipes } from "./MyRecipes";
@@ -14,14 +12,14 @@ import { RestaurantMeals } from "./RestaurantMeals";
 
 // "My meals" (founder 2026-10-11: one tile on Home instead of "My recipes" and "My saved meals"; "two tabs ... your recipes ... and your
 // favourite restaurant meals ... very dead simple page"). The tab is kept in the address (?tab=restaurant), so coming back from a meal
-// opens the same tab. Styled like Home (2026-10-15): the compact heavy title and the two tabs in one white pill, the open one dark.
+// opens the same tab. Styled like Home (2026-10-15): the compact heavy title and the two tabs in one pill; since the colour meeting (19 November 2026)
+// the open one is lime with its edge and tick.
 
 export type MealsTab = "recipes" | "restaurant";
 
 export function MealsScreen({ tab: asked }: { tab: MealsTab | null }) {
   const t = useT();
   const router = useRouter();
-  const back = useBack("/app");
   const hydrated = useHydrated();
   const recipes = useStore(savedRecipesStore).length + useStore(myRecipesStore).length;
   const orders = useStore(savedStore).length;
@@ -39,10 +37,10 @@ export function MealsScreen({ tab: asked }: { tab: MealsTab | null }) {
 
   return (
     <div>
-      <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to home"), back.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
-      <h1 className="mt-4 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{t("My meals")}</h1>
+      {/* the header every page has (colour meeting, 19 November 2026): Back (the page before, else Home), the title under it, the Settings cog far right */}
+      <PageHeader back={{ href: "/app", label: t("Back to home") }} title={t("My meals")} />
 
-      <div role="tablist" aria-label={t("My meals")} className="glass mt-4 grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-1 rounded-full p-1">
+      <div role="tablist" aria-label={t("My meals")} className="mt-4 grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-1 rounded-full border-[1.5px] border-edge bg-background p-1">
         {tabs.map((o, i) => {
           const on = o.value === tab;
           return (
@@ -56,9 +54,11 @@ export function MealsScreen({ tab: asked }: { tab: MealsTab | null }) {
               tabIndex={on ? 0 : -1}
               onClick={() => choose(o.value)}
               onKeyDown={(e) => radioKeyNav(e, i, tabs.length, (n) => choose(tabs[n]!.value))}
-              className={`min-h-12 min-w-0 rounded-full px-2 text-[0.9375rem] font-bold leading-tight hyphens-auto [overflow-wrap:anywhere] transition-colors focus-visible:outline-2 focus-visible:outline-accent ${on ? "bg-foreground text-background" : "text-muted hover:text-foreground"}`}
+              className={`inline-flex min-h-12 min-w-0 items-center justify-center gap-1.5 rounded-full border-[1.5px] px-2 text-[0.9375rem] leading-tight hyphens-auto [overflow-wrap:anywhere] transition-colors focus-visible:outline-2 focus-visible:outline-accent ${on ? "border-on-sun bg-sun font-bold text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-transparent font-semibold text-foreground hover:bg-card"}`}
             >
-              {o.label}{hydrated && o.count > 0 && <span className="app-numbers whitespace-nowrap font-semibold"> · {o.count}</span>}
+              {/* the open tab is lime with the dark green edge and a tick, like every chosen thing (colour meeting, 19 November 2026), never ink */}
+              {on && <ChoiceMark on />}
+              <span className="min-w-0">{o.label}{hydrated && o.count > 0 && <span className="app-numbers whitespace-nowrap font-semibold"> · {o.count}</span>}</span>
             </button>
           );
         })}

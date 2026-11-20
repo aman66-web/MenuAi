@@ -126,40 +126,40 @@ export function PhotoCamera({ onCapture, onClose, onPickPhoto, onPhonesCamera, n
       ref={dialog}
       aria-label={t("Scan your food")}
       onClose={onClose}
-      className="fixed inset-0 m-0 h-dvh max-h-none w-dvw max-w-none overflow-hidden bg-black p-0 text-white backdrop:bg-black"
+      className="on-ink fixed inset-0 m-0 h-dvh max-h-none w-dvw max-w-none overflow-hidden bg-ink p-0 text-on-ink backdrop:bg-ink"
     >
       {!unavailable && <video ref={video} playsInline muted autoPlay aria-label={t("Camera view: point it at your food")} className="absolute inset-0 h-full w-full object-cover" />}
 
       {/* dim the edges so the dish sits in a bright frame */}
-      {!unavailable && <div aria-hidden className="pointer-events-none absolute inset-0 shadow-[inset_0_0_0_100vmax_rgba(0,0,0,0.18)]" />}
+      {!unavailable && <div aria-hidden className="pointer-events-none absolute inset-0 shadow-[inset_0_0_0_100vmax_var(--tips-wash)]" />}
       {!unavailable && <div ref={frame} className="absolute inset-x-5 bottom-44 top-24"><ScanFrame strong={holding} /></div>}
-      {flash && <div aria-hidden className="absolute inset-0 bg-white/80" />}
+      {flash && <div aria-hidden className="absolute inset-0 bg-card/80" />}
 
       <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-3 px-5 pb-3 pt-[max(1rem,env(safe-area-inset-top))]">
-        <h2 className="min-w-0 flex-1 text-xl font-[800] leading-tight tracking-[-0.01em] [text-shadow:0_1px_8px_rgba(0,0,0,0.6)]">{t("Scan your food")}</h2>
-        <button type="button" onClick={onClose} aria-label={t("Close")} className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/20 transition active:scale-95 hover:bg-white/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+        <h2 className="min-w-0 flex-1 text-xl font-[800] leading-tight tracking-[-0.01em] [text-shadow:0_1px_8px_var(--scrim)]">{t("Scan your food")}</h2>
+        <button type="button" onClick={onClose} aria-label={t("Close")} className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full photo-chip text-ink transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun">
           <CloseIcon className="h-5 w-5" />
         </button>
       </div>
 
       {notice && (
-        <p role="alert" className="absolute inset-x-5 top-[calc(max(1rem,env(safe-area-inset-top))+3.75rem)] z-10 rounded-[1.25rem] bg-white px-4 py-3 text-[0.9375rem] font-semibold leading-snug text-foreground shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)]">{notice}</p>
+        <p role="alert" className="absolute inset-x-5 top-[calc(max(1rem,env(safe-area-inset-top))+3.75rem)] z-10 rounded-[1.25rem] bg-card px-4 py-3 text-[0.9375rem] font-semibold leading-snug text-foreground shadow-[var(--shadow-lift)]">{notice}</p>
       )}
 
       {unavailable ? (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center">
           <Pip mood="think" size={96} />
           <p role="status" className="max-w-sm text-lg font-semibold leading-snug">{t("The camera can't be shown here. Take a photo with your phone's camera, or choose one from your photos.")}</p>
-          <button type="button" onClick={onPhonesCamera} className="inline-flex min-h-14 w-full max-w-sm items-center justify-center gap-2 rounded-full bg-white px-6 text-lg font-bold text-foreground transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+          <button type="button" onClick={onPhonesCamera} className="inline-flex min-h-14 w-full max-w-sm items-center justify-center gap-2 rounded-full bg-card px-6 text-lg font-bold text-foreground transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun">
             <CameraIcon className="h-6 w-6" />{t("Take a photo")}
           </button>
-          <button type="button" onClick={onPickPhoto} className="inline-flex min-h-14 w-full max-w-sm items-center justify-center gap-2 rounded-full bg-white/20 px-6 text-lg font-bold transition active:scale-[0.97] hover:bg-white/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+          <button type="button" onClick={onPickPhoto} className="inline-flex min-h-14 w-full max-w-sm items-center justify-center gap-2 rounded-full bg-on-ink/20 px-6 text-lg font-bold transition active:scale-[0.97] hover:bg-on-ink/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun">
             <PhotoIcon className="h-6 w-6" />{t("Choose from your photos")}
           </button>
         </div>
       ) : (
         <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-4 px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
-          <p role="status" className="max-w-sm text-center text-base font-semibold leading-snug [text-shadow:0_1px_8px_rgba(0,0,0,0.7)]">{holding ? t("Hold still…") : letGo ? t("Keep holding the button until the ring fills.") : t("Point the camera at your food, then press and hold the button to scan.")}</p>
+          <p role="status" className="max-w-sm text-center text-base font-semibold leading-snug [text-shadow:0_1px_8px_var(--scrim)]">{holding ? t("Hold still…") : letGo ? t("Keep holding the button until the ring fills.") : t("Point the camera at your food, then press and hold the button to scan.")}</p>
           {/* two ways in: hold the shutter to scan the food with the camera, or upload a photo from the camera roll (bottom right) */}
           <div className="grid w-full max-w-sm grid-cols-3 items-end">
             <span aria-hidden />
@@ -173,22 +173,22 @@ export function PhotoCamera({ onCapture, onClose, onPickPhoto, onPhonesCamera, n
                 onPointerCancel={endHold}
                 onContextMenu={(e) => e.preventDefault()}
                 onClick={(e) => { if (e.detail === 0) shoot(); /* Enter or Space: take it at once */ }}
-                className="relative grid h-[5.25rem] w-[5.25rem] touch-none select-none place-items-center rounded-full transition [-webkit-touch-callout:none] disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                className="relative grid h-[5.25rem] w-[5.25rem] touch-none select-none place-items-center rounded-full transition [-webkit-touch-callout:none] disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sun"
               >
                 {/* the ring fills (lime) while the button is held; the photo is taken when it is full */}
                 <svg aria-hidden viewBox="0 0 80 80" className="absolute inset-0 h-full w-full -rotate-90">
-                  <circle cx="40" cy="40" r="36" fill="none" stroke="white" strokeWidth="4" />
+                  <circle cx="40" cy="40" r="36" fill="none" stroke="var(--on-ink)" strokeWidth="4" />
                   <circle key={holding ? "on" : "off"} cx="40" cy="40" r="36" fill="none" stroke="var(--sun)" strokeWidth="5" strokeLinecap="round" strokeDasharray={RING} strokeDashoffset={holding ? 0 : RING} className={holding ? "hold-ring" : ""} style={{ ["--ring" as string]: `${RING}px`, ["--hold" as string]: `${HOLD_MS}ms` }} />
                 </svg>
-                <span className={`h-[3.75rem] w-[3.75rem] rounded-full bg-white transition-transform duration-200 ${holding ? "scale-90" : ""}`} />
+                <span className={`h-[3.75rem] w-[3.75rem] rounded-full bg-on-ink transition-transform duration-200 ${holding ? "scale-90" : ""}`} />
               </button>
-              <span aria-hidden className="text-[0.8125rem] font-bold leading-none [text-shadow:0_1px_6px_rgba(0,0,0,0.7)]">{t("Hold to scan")}</span>
+              <span aria-hidden className="text-[0.8125rem] font-bold leading-none [text-shadow:0_1px_6px_var(--scrim)]">{t("Hold to scan")}</span>
             </div>
             <div className="flex flex-col items-center gap-2 justify-self-end">
-              <button type="button" onClick={onPickPhoto} aria-label={t("Upload a photo from your camera roll")} className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white/25 transition active:scale-95 hover:bg-white/35 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+              <button type="button" onClick={onPickPhoto} aria-label={t("Upload a photo from your camera roll")} className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-on-ink/25 transition active:scale-95 hover:bg-on-ink/35 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun">
                 <PhotoIcon className="h-6 w-6" />
               </button>
-              <span aria-hidden className="text-[0.8125rem] font-bold leading-none [text-shadow:0_1px_6px_rgba(0,0,0,0.7)]">{t("Camera roll")}</span>
+              <span aria-hidden className="text-[0.8125rem] font-bold leading-none [text-shadow:0_1px_6px_var(--scrim)]">{t("Camera roll")}</span>
             </div>
           </div>
         </div>
@@ -209,12 +209,12 @@ export function ScanningPhoto({ url, onDone }: { url: string; onDone: () => void
   }, []);
   return (
     <section aria-label={t("Scanning")} className="mt-5">
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] bg-black shadow-[0_18px_40px_-18px_rgba(17,24,20,0.5)]">
+      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] bg-ink shadow-[var(--shadow-lift)]">
         {/* eslint-disable-next-line @next/next/no-img-element -- a local photo on this phone, not a site image */}
         <img src={url} alt="" className="absolute inset-0 h-full w-full object-cover" />
-        <div aria-hidden className="absolute inset-0 bg-[rgba(17,24,20,0.28)]" />
-        <div className="absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-black/70 to-transparent px-5 pb-5 pt-12">
-          <p role="status" className="scan-label flex items-center gap-1 text-xl font-[800] tracking-[-0.01em] text-white">
+        <div aria-hidden className="absolute inset-0 bg-scrim" />
+        <div className="absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-scrim to-transparent px-5 pb-5 pt-12">
+          <p role="status" className="scan-label flex items-center gap-1 text-xl font-[800] tracking-[-0.01em] text-on-ink">
             <span>{t("Scanning")}</span>
             <span aria-hidden className="scan-dots"><i>.</i><i>.</i><i>.</i></span>
           </p>

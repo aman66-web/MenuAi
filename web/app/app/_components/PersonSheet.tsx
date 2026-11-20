@@ -5,9 +5,10 @@ import { blockPerson, removeFriend } from "../_lib/community";
 import { failureText } from "../_lib/communityText";
 import { useT } from "../_lib/i18n";
 import { BlockIcon, FlagIcon } from "./communityIcons";
-import { CheckIcon, CloseIcon } from "./icons";
+import { CheckIcon, ChevronRightIcon, CloseIcon } from "./icons";
+import { ErrorBanner } from "./Note";
 import { ReportForm, type ReportTarget } from "./ReportForm";
-import { Button, Sheet, Spinner } from "./ui";
+import { Button, Sheet } from "./ui";
 
 // What you can do about a person in Community, in one sheet: report them, block them, or (a friend) remove them. Used on the friends page (a friend, or a request
 // waiting for you) and on a shopping list someone sent you. Blocking and removing are asked about once more in plain words before anything happens. The person
@@ -55,12 +56,13 @@ export function PersonSheet({ target, onClose, onDone }: { target: ReportTarget 
   );
 }
 
-/** One big row in the menu. */
+/** One big row in the menu: a white row with the card line, its icon in a page-fill well and an ink chevron (colour meeting, 19 November 2026: rows you can tap). */
 function Row({ icon, children, onClick }: { icon: React.ReactNode; children: React.ReactNode; onClick: () => void }) {
   return (
-    <button type="button" onClick={onClick} className="flex min-h-14 w-full items-center gap-3.5 rounded-2xl bg-[var(--fill)] px-4 py-2.5 text-start text-base font-semibold leading-snug transition active:scale-[0.99] hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-      <span aria-hidden className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white [&>svg]:h-5 [&>svg]:w-5">{icon}</span>
+    <button type="button" onClick={onClick} className="flex min-h-14 w-full items-center gap-3.5 rounded-2xl border border-line bg-card px-4 py-2.5 text-start text-base font-semibold leading-snug text-foreground transition active:scale-[0.99] hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+      <span aria-hidden className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-fill [&>svg]:h-5 [&>svg]:w-5">{icon}</span>
       <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">{children}</span>
+      <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-ink" />
     </button>
   );
 }
@@ -100,10 +102,10 @@ function Confirm({ target, kind, onCancel, onDone }: { target: ReportTarget; kin
           ? t("Remove {name} from your friends? You won't be able to send each other lists unless you add each other's codes again. They aren't told.", { name: target.username })
           : t("Block {name}? You'll stop seeing each other, and you won't be able to send each other lists or friend requests. They aren't told.", { name: target.username })}
       </p>
-      {error && <p role="alert" className="mt-3 text-[0.9375rem] font-semibold leading-snug">{error}</p>}
-      {/* aria-disabled, not disabled, while it is working: a disabled button drops the keyboard focus to the page */}
-      <Button full variant="danger" className="mt-5 min-h-12 text-base" aria-disabled={busy || undefined} onClick={() => void run()}>
-        {busy ? <Spinner /> : kind === "remove" ? t("Remove {name}", { name: target.username }) : t("Block {name}", { name: target.username })}
+      {error && <ErrorBanner className="mt-3">{error}</ErrorBanner>}
+      {/* busy, not disabled, while it is working: a disabled button drops the keyboard focus to the page (busy keeps it, says aria-busy and ignores a second tap) */}
+      <Button full variant="danger" className="mt-5 min-h-12 text-base" busy={busy} onClick={() => void run()}>
+        {kind === "remove" ? t("Remove {name}", { name: target.username }) : t("Block {name}", { name: target.username })}
       </Button>
       <Button full variant="ghost" className="mt-1.5" disabled={busy} onClick={onCancel}>{t("Cancel")}</Button>
     </>

@@ -4,14 +4,15 @@ import { useDeferredValue, useEffect, useMemo, useState } from "react";
 import { RETAILERS } from "@/lib/mm/groceries";
 import { anyFoodDiet, foodDietCaution, foodDietProblem } from "@/lib/mm/foodDiet";
 import { SHOP_SORTS, searchShopProducts, type ShopFile, type ShopProduct, type ShopSort } from "@/lib/mm/shopProducts";
+import { PageHeader } from "../../_components/PageHeader";
 import { SearchIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../../_components/SearchDone";
-import { Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
+import { AllergyNote, Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
 import { useT } from "../../_lib/i18n";
 import { useSettings } from "../../_lib/hooks";
 import { loadShopFile } from "../../_lib/shopProducts";
-import { BackLink, FootNote, MoreButton, NOTE, PILL_INPUT, SelectField, TITLE } from "../PageBits";
+import { FootNote, MoreButton, NOTE, PILL_INPUT, SelectField, TITLE } from "../PageBits";
 import { ShopProductRow } from "../shop/ShopProductRow";
 
 // Several supermarkets' own lists together (founder 2026-11-17: tick "Select" on the shops you want on Groceries, press Go, and see them all on the next page).
@@ -68,7 +69,7 @@ export function MultiShopScreen({ shops }: { shops: string[] }) {
   const nutritionCount = useMemo(() => pool.reduce((n, p) => n + (p.nutrition ? 1 : 0), 0), [pool]);
   const hasCard = useMemo(() => pool.some((p) => p.member), [pool]);
   const reset = () => setShown(PAGE);
-  const back = <BackLink href="/app/groceries" label={t("Back to groceries")} />;
+  const back = <PageHeader back={{ href: "/app/groceries", label: t("Back to groceries") }} list />;
   const names = new Intl.ListFormat("en-GB", { type: "conjunction" }).format((loaded ?? []).map((l) => l.file.name));
 
   if (state.status === "loading") return (<div>{back}<Spinner label={t("Loading the full list")} /></div>);
@@ -80,7 +81,7 @@ export function MultiShopScreen({ shops }: { shops: string[] }) {
     <div>
       {back}
       <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">
-        <span className="flex shrink-0 -space-x-2" aria-hidden>{loaded.map((l) => (<ShopMark key={l.file.retailer} shopId={l.file.retailer} size="sm" />))}</span>
+        <span className="flex shrink-0 gap-1.5" aria-hidden>{loaded.map((l) => (<ShopMark key={l.file.retailer} shopId={l.file.retailer} size="sm" />))}</span>
         <h1 className={`${TITLE} max-w-full [overflow-wrap:break-word]`}>{t("Your selected shops")}</h1>
       </div>
       <p className="mt-3.5 text-[0.9375rem] leading-relaxed text-muted">{t("Products from {shops}, each with its own shop's price and photo.", { shops: names })}</p>
@@ -113,7 +114,7 @@ export function MultiShopScreen({ shops }: { shops: string[] }) {
 
       {(sort === "density" || sort === "protein") && <p className={`mt-3 ${NOTE}`}>{t("Products without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.")}</p>}
       {diet && foodDietCaution(prefs, t) && <p className={`mt-3 ${NOTE}`}>{foodDietCaution(prefs, t)}</p>}
-      {diet && (prefs.avoidAllergens?.length ?? 0) > 0 && <p className={`mt-2 ${NOTE}`}>{t("We haven't read allergens for these products, so your allergy settings can't hide any here. Always check the pack.")}</p>}
+      {diet && (prefs.avoidAllergens?.length ?? 0) > 0 && <AllergyNote className="mt-3"><p>{t("We haven't read allergens for these products, so your allergy settings can't hide any here. Always check the pack.")}</p></AllergyNote>}
       <p role="status" aria-live="polite" className="app-numbers mt-6 ps-1 text-sm font-semibold text-muted">{results.length === 1 ? t("1 product") : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
       {results.length === 0 ? (
         <div className="mt-3"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No products match.")} body={t("Try fewer words or a different type.")} /></div>

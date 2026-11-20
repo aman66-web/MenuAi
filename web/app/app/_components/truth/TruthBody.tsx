@@ -28,7 +28,10 @@ import { useCountUp } from "./useCountUp";
 // The "Truth" card for one menu item (founder's brief, 13 Nov 2026): the Protein score, the official traffic lights for fat, saturates, sugars and salt,
 // the calories as a share of the 2,000 kcal reference intake, what the figures look like as everyday things, and the Smart Swap. Everything is worked out from the
 // figures the restaurant publishes (lib/mm/truth/*); a figure it doesn't publish is not shown, never estimated. Big figures (32 to 72 px), 16 px words and
-// 48 px buttons, so it reads for a 75-year-old with reading glasses and from a phone's camera.
+// 48 px buttons, so it reads for a 75-year-old with reading glasses and from a phone's camera. Colours (colour meeting, 19 November 2026, approved by the
+// founder that day): the FSA pills are the only red, amber and green on food, always with Low, Medium or High printed in them; the Protein score is ink dots
+// on a line track; the Smart Swap is a card with the line (never a lime banner); the main button is ink (white with ink words on the dark card); labels in
+// sentence case.
 // Photos (founder 2026-11-17, "use images please when possible"): the chain's own photo of the dish beside the chain's name at the top, and of each dish in the
 // Smart Swap card, on screen only. Never in the saved image card (renderTruthCard draws no photo: CLAUDE.md rule 2, never in the share card) and never on
 // the dark card: Creator View (no photo is rendered) or the "Dark card" chip (the sheet's .truth-dark, also made for filming: hidden by CSS), since a
@@ -141,7 +144,7 @@ function ScoreDots({ score }: { score: number }) {
   return (
     <span aria-hidden className="mt-2 flex gap-1.5">
       {[1, 2, 3, 4, 5].map((n) => (
-        <span key={n} className={`h-3 flex-1 rounded-full ${n <= score ? "bg-ink [.truth-dark_&]:bg-accent" : "border border-edge bg-transparent"}`} />
+        <span key={n} className={`h-3 flex-1 rounded-full ${n <= score ? "bg-ink [.truth-dark_&]:bg-accent" : "border-[1.5px] border-edge bg-line"}`} />
       ))}
     </span>
   );
@@ -152,11 +155,11 @@ function MiniDish({ item, heading, tone, photo }: { item: MenuItem; heading: str
   const t = useT();
   const tr = itemTruth(item);
   return (
-    <div className={`rounded-[1.25rem] p-4 ${tone === "swap" ? "bg-accent-soft ring-2 ring-accent" : "glass"}`}>
+    <div className={`glass rounded-[1.25rem] p-4 ${tone === "swap" ? "border-2 border-edge" : ""}`}>
       <div className={photo ? "@container flex items-start gap-3.5" : undefined}>
         {photo && <span className="hidden shrink-0 @[14rem]:block [.truth-dark_&]:hidden"><ItemThumb image={item.image} placeholder /></span>}
         <div className="min-w-0 flex-1">
-          <p className="text-base font-bold uppercase tracking-wide text-muted">{heading}</p>
+          <p className="text-base font-semibold text-muted">{heading}</p>
           <p className="mt-1 text-xl font-extrabold leading-snug [overflow-wrap:anywhere]">{item.name}</p>
         </div>
       </div>
@@ -181,7 +184,7 @@ function SwapCard({ chain, item, swap, photos }: { chain: Chain; item: MenuItem;
       <h3 id="truth-swap" className="text-xl font-extrabold leading-snug tracking-tight">{t("Smart Swap")}</h3>
       <div className="mt-3 space-y-2.5">
         <MiniDish item={item} heading={t("Your pick")} tone="plain" photo={photo} />
-        <p className="truth-bounce rounded-[1.25rem] bg-[var(--sun)] px-4 py-4 text-center text-3xl font-extrabold leading-tight tracking-tight text-[var(--tl-ink)]">{banner}</p>
+        <p className="truth-bounce glass rounded-[1.25rem] px-4 py-4 text-center text-3xl font-extrabold leading-tight tracking-tight text-foreground">{banner}</p>
         <MiniDish item={swap.item} heading={t("Smart Swap at {chain}", { chain: chain.name })} tone="swap" photo={photo} />
       </div>
       <p className="mt-3 text-base leading-snug text-muted">
@@ -234,14 +237,14 @@ export function TruthBody({ chain, item, swap, creator = false, replay = 0, onWh
       {photos && itemImageUrl(item.image) ? (
         <div className="flex items-center gap-3.5">
           <span className="shrink-0 empty:hidden [.truth-dark_&]:hidden"><ItemThumb image={item.image} /></span>
-          <p className="min-w-0 flex-1 text-base font-bold uppercase tracking-wide text-muted [overflow-wrap:anywhere]">{chain.name}</p>
+          <p className="min-w-0 flex-1 text-base font-semibold text-muted [overflow-wrap:anywhere]">{chain.name}</p>
         </div>
       ) : (
-        <p className="text-base font-bold uppercase tracking-wide text-muted [overflow-wrap:anywhere]">{chain.name}</p>
+        <p className="text-base font-semibold text-muted [overflow-wrap:anywhere]">{chain.name}</p>
       )}
 
-      <section aria-labelledby="truth-calories" className="truth-bounce mt-3 rounded-[1.5rem] bg-[var(--fill)] p-5">
-        <h3 id="truth-calories" className="text-base font-bold uppercase tracking-wide text-muted">{t("Calories")}</h3>
+      <section aria-labelledby="truth-calories" className="truth-bounce mt-3 rounded-[1.5rem] bg-fill p-5">
+        <h3 id="truth-calories" className="text-base font-semibold text-muted">{t("Calories")}</h3>
         <p className="mt-1 flex items-baseline gap-2">
           <span aria-hidden className={`app-numbers font-extrabold leading-none tracking-tight ${creator ? "text-7xl" : "text-6xl"}`}>{formatInt(calories)}</span>
           <span className="sr-only">{formatInt(item.nutrients.calories)}</span>
@@ -264,8 +267,8 @@ export function TruthBody({ chain, item, swap, creator = false, replay = 0, onWh
       <MenuSourcesLink className="mt-1.5" chain={chain} />
 
       {truth.score ? (
-        <section aria-labelledby="truth-score" className="truth-bounce mt-3 rounded-[1.5rem] bg-[var(--fill)] p-5">
-          <h3 id="truth-score" className="text-base font-bold uppercase tracking-wide text-muted">{t("Protein score")}</h3>
+        <section aria-labelledby="truth-score" className="truth-bounce mt-3 rounded-[1.5rem] bg-fill p-5">
+          <h3 id="truth-score" className="text-base font-semibold text-muted">{t("Protein score")}</h3>
           <p className="mt-1 flex items-baseline gap-2">
             <span aria-hidden className={`app-numbers font-extrabold leading-none tracking-tight text-foreground ${creator ? "text-8xl" : "text-7xl"}`}>{scoreShown}</span>
             <span aria-hidden className="text-4xl font-bold text-muted">/ 5</span>
@@ -276,7 +279,7 @@ export function TruthBody({ chain, item, swap, creator = false, replay = 0, onWh
           <p className="mt-1.5 text-base leading-snug text-muted">{t(PROTEIN_SCORE_HOW)}</p>
         </section>
       ) : caloriesOnly && truth.kind !== "drink" ? (
-        <p className="mt-3 rounded-[1.25rem] bg-[var(--fill)] p-4 text-base leading-snug">{t("{chain} publishes calories only for this dish, so there is no protein score.", { chain: chain.name })}</p>
+        <p className="mt-3 rounded-[1.25rem] bg-fill p-4 text-base leading-snug">{t("{chain} publishes calories only for this dish, so there is no protein score.", { chain: chain.name })}</p>
       ) : null}
 
       <Lights truth={truth} chain={chain} />
@@ -289,7 +292,8 @@ export function TruthBody({ chain, item, swap, creator = false, replay = 0, onWh
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => onWhatsApp?.()}
-          className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[var(--tl-green)] px-6 text-base font-bold text-[var(--tl-ink)] transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          // the main button: ink with white words (on the dark card, white with ink words: .truth-dark swaps the two); never a messaging app's brand colour
+          className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-ink px-6 text-base font-bold text-on-ink transition active:scale-[0.97] hover:bg-ink-pressed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
           <WhatsAppShareIcon className="h-6 w-6" />
           <span>{t("Share to WhatsApp")}</span>

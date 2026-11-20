@@ -16,8 +16,8 @@ export function NumbersContent() {
   const back = useBack("/app/settings");
   return (
     <div>
-      <Link href={back.href} onClick={back.onClick} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Settings")}</span></Link>
-      <h1 className="mt-5 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]"><Rich text={t("How we get our {numbers}")} values={{ numbers: <span className="serif-em sun-text pe-0.5">{t("numbers")}</span> }} /></h1>
+      <Link href={back.href} onClick={back.onClick} className="group inline-flex min-h-11 shrink-0 items-center rounded-full transition active:scale-95"><span className="inline-flex h-9 items-center gap-0.5 whitespace-nowrap rounded-full border-[1.5px] border-edge bg-card ps-2 pe-3.5 text-[0.9375rem] font-semibold text-foreground transition-colors group-hover:bg-background"><ChevronLeftIcon aria-hidden className="h-[18px] w-[18px] shrink-0 text-ink" /><span>{t("Settings")}</span></span></Link>
+      <h1 className="mt-5 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]"><Rich text={t("How we get our {numbers}")} values={{ numbers: <span className="serif-em pe-0.5">{t("numbers")}</span> }} /></h1>
       <div className="glass mt-5 space-y-4 rounded-[1.25rem] p-5 text-base leading-relaxed">
         <p>{t("Restaurant numbers in {app} come from each restaurant's own published nutrition information. We copy them in, check them, and show the source and the date we last checked on every restaurant.", { app: site.name })}</p>
         <p>{t("Supermarket numbers come from the shop's own product page where we have read it, and otherwise from Open Food Facts, a community database that can be wrong or out of date. Recipe numbers are added up from the labels of the products they use.")}</p>

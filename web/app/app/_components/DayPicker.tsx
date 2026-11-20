@@ -12,10 +12,14 @@ import { useLanguage, useT } from "../_lib/i18n";
 // macros and what they ate on that day"). A month at a time, Monday first like the week strip on Home; back twelve months, forward only to this month. A small
 // dot marks each day that has something logged, today is the lime circle, the days ahead are greyed and can't be tapped. Picking a day hands it to `onPick`,
 // which opens that day's page. The month shown starts afresh (this month) each time the sheet opens.
+// The days look as they do on Home's week strip (colour meeting, 19 November 2026, approved by the founder that day: the same thing looks the same on every
+// screen): today lime with the 2 px dark-green edge, a dark-green figure and its dot; every day gone by white with the 1.5 px control edge, with a small ink dot
+// when food was logged; the days ahead plain in the secondary grey. The month arrows are white with the edge; at the first or last month they can't be pressed
+// and take the line fill (never faded). Weekday letters in sentence case, at least 13 px.
 
 const ARROW =
-  "group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 disabled:pointer-events-none disabled:text-muted";
-const ARROW_FILL = "inline-flex h-9 w-9 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft transition-colors group-hover:bg-[var(--fill)] group-disabled:border-transparent group-disabled:bg-transparent";
+  "group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink transition active:scale-95 disabled:pointer-events-none disabled:text-muted";
+const ARROW_FILL = "inline-flex h-9 w-9 items-center justify-center rounded-full border-[1.5px] border-edge bg-card transition-colors group-hover:bg-background group-disabled:border-transparent group-disabled:bg-soft-strong";
 
 function Month({ log, now, onPick }: { log: readonly LogEntry[]; now: Date; onPick: (day: Date) => void }) {
   const t = useT();
@@ -42,7 +46,7 @@ function Month({ log, now, onPick }: { log: readonly LogEntry[]; now: Date; onPi
         </button>
       </div>
 
-      <ul aria-hidden className="mt-3 grid grid-cols-7 text-center text-[0.6875rem] font-semibold uppercase text-muted">
+      <ul aria-hidden className="mt-3 grid grid-cols-7 text-center text-[0.8125rem] font-semibold text-muted">
         {heads.map((h, i) => <li key={i}>{h}</li>)}
       </ul>
 
@@ -54,7 +58,7 @@ function Month({ log, now, onPick }: { log: readonly LogEntry[]; now: Date; onPi
           const future = isFutureDay(d, now);
           const has = logged.has(dayParam(d));
           const label = future ? name : today ? t("{day} (today)", { day: name }) : has ? t("{day}: food logged", { day: name }) : t("{day}: nothing logged", { day: name });
-          const look = today ? "bg-sun text-[var(--on-accent)]" : future ? "text-muted" : "text-foreground hover:bg-soft-strong";
+          const look = today ? "border-2 border-on-sun bg-sun font-bold text-on-sun" : future ? "font-semibold text-muted" : "border-[1.5px] border-edge bg-card font-semibold text-foreground group-hover:bg-background";
           return (
             <li key={dayParam(d)} className="flex justify-center">
               <button
@@ -63,10 +67,13 @@ function Month({ log, now, onPick }: { log: readonly LogEntry[]; now: Date; onPi
                 aria-label={label}
                 aria-current={today ? "date" : undefined}
                 onClick={() => onPick(d)}
-                className={`app-numbers relative inline-flex h-11 w-11 items-center justify-center rounded-full text-[0.9375rem] font-semibold transition active:scale-95 disabled:pointer-events-none ${look}`}
+                className="group app-numbers inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 disabled:pointer-events-none"
               >
-                <span aria-hidden>{d.getDate()}</span>
-                {has && !future && <span aria-hidden className={`absolute bottom-1.5 h-1 w-1 rounded-full ${today ? "bg-current" : "bg-[var(--bar)]"}`} />}
+                {/* a 38 px circle inside the 44 px target, so neighbouring days keep a gap between their edges */}
+                <span aria-hidden className={`relative inline-flex h-[2.375rem] w-[2.375rem] items-center justify-center rounded-full text-[0.9375rem] transition-colors ${look}`}>
+                  {d.getDate()}
+                  {(today || (has && !future)) && <span className={`absolute bottom-[3px] left-1/2 h-[5px] w-[5px] -translate-x-1/2 rounded-full ${today ? "bg-on-sun" : "bg-ink"}`} />}
+                </span>
               </button>
             </li>
           );

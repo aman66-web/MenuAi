@@ -12,7 +12,7 @@ import { usePhotoSource } from "./ProductPhoto";
 export function ProductMini({ sources }: { sources: readonly PhotoSource[] }) {
   const { current, fail } = usePhotoSource(sources);
   return (
-    <span aria-hidden className={`inline-grid h-7 w-7 shrink-0 place-items-center overflow-hidden rounded-lg align-middle ring-1 ring-inset ring-[var(--line)] ${current ? "bg-white" : "bg-[var(--fill)] text-muted"}`}>
+    <span aria-hidden className={`inline-grid h-7 w-7 shrink-0 place-items-center overflow-hidden rounded-lg align-middle ring-1 ring-inset ring-line ${current ? "bg-card" : "bg-fill text-ink"}`}>
       {current ? (
         // eslint-disable-next-line @next/next/no-img-element -- the supermarket's own product picture (or our stored copy of it), decorative
         <img key={current.src} src={current.src} alt="" width={28} height={28} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={fail} className="h-full w-full object-contain" />

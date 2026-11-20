@@ -112,7 +112,7 @@ const pages = [
   ["chain (pro)", "/app/chain?id=bowl-and-co", true, async (p) => { await p.waitForTimeout(500); }],
   ["item", "/app/item?chain=cluck-house&item=pumpkin-shake", true, async () => {}],
   ["builder", "/app/builder?chain=bowl-and-co&item=chicken-bowl", true, async () => {}],
-  ["paywall", "/app/today", false, async (p) => { await p.getByRole("button", { name: /See Pro/ }).click(); await p.waitForTimeout(400); }],
+  ["paywall", "/app/today", false, async (p) => { await p.getByRole("button", { name: /See Premium/ }).click(); await p.waitForTimeout(400); }],
   ["report sheet", "/app/item?chain=cluck-house&item=waffle-fries", true, async (p) => { await p.getByRole("button", { name: "Report a number" }).click(); await p.waitForTimeout(400); }],
   ["my meals: restaurant meals", "/app/meals?tab=restaurant", true, async () => {}],
   ["compare: two dishes side by side", "/app/compare?tab=dish", true, async (p) => { await p.evaluate(() => localStorage.setItem("mm.v1.compare", JSON.stringify({ v: 1, data: [1, 2].map((n) => ({ key: `dish:bowl-and-co:d${n}`, kind: "dish", name: `Bowl ${n}`, from: "Bowl & Co", fromId: "bowl-and-co", href: "/app/item?chain=bowl-and-co&item=chicken-bowl", basis: "serving", source: "restaurant", addedAt: "2026-10-11T12:00:00.000Z", numbers: { kcal: 500 + n * 50, protein: 30 + n, carbs: 50, sugars: null, fat: 15, saturates: null, fibre: 6, salt: 2 } })) }))); await p.reload(); await p.getByRole("heading", { name: "Side by side" }).waitFor(); }],
@@ -167,7 +167,7 @@ let total = 0;
 for (const scheme of ["light", "dark"]) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, colorScheme: scheme, serviceWorkers: "block" });
   for (const [name, path, pro, prep] of pages) {
-    // SKIP="paywall,..." leaves pages out (the paywall needs a build with Premium on: a dev server without it has no "See Pro")
+    // SKIP="paywall,..." leaves pages out (the paywall needs a build with Premium on: a dev server without it has no "See Premium")
     if ((process.env.SKIP ?? "").split(",").includes(name)) { console.log(`${scheme.padEnd(5)} ${name.padEnd(14)} skipped`); continue; }
     const page = await ctx.newPage();
     await page.addInitScript(([s, sv, lg]) => { localStorage.setItem("mm.v1.settings", s); localStorage.setItem("mm.v1.saved", sv); localStorage.setItem("mm.v1.log", lg); localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 1 })); }, [settings(pro), saved, log]);

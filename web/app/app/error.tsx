@@ -19,7 +19,7 @@ export default function ScreenError({ error, retry }: { error: Error & { digest?
       <Pip mood="think" size={96} />
       <h1 className="text-[1.5rem] font-[800] leading-tight tracking-[-0.02em]">{t("Something went wrong on this screen")}</h1>
       <p className="max-w-sm text-base leading-snug text-muted">{t("Nothing you've saved is lost. Try again, or go back to Home.")}</p>
-      <button type="button" onClick={() => retry()} className="inline-flex min-h-14 w-full max-w-xs items-center justify-center rounded-full bg-foreground px-6 text-lg font-bold text-background transition active:scale-[0.98]">
+      <button type="button" onClick={() => retry()} className="inline-flex min-h-14 w-full max-w-xs items-center justify-center rounded-full bg-ink px-6 text-lg font-bold text-on-ink transition active:scale-[0.98]">
         {t("Try again")}
       </button>
       <Link href="/app" className="inline-flex min-h-12 w-full max-w-xs items-center justify-center rounded-full px-6 text-base font-semibold transition hover:bg-soft-strong">

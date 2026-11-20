@@ -11,7 +11,7 @@ import { groupByInitial, splitChains } from "@/lib/mm/popular";
 import { ChainCard, ChainRow, chainGroupClass } from "../_components/ChainRow";
 import { ChevronRightIcon, CompareIcon, ForkIcon, GridIcon, PinIcon, ScaleIcon, SearchIcon, StarIcon } from "../_components/icons";
 import { Shortcut } from "../_components/Shortcut";
-import { SettingsGear, ShoppingListPill } from "../_components/TopActions";
+import { PageHeader } from "../_components/PageHeader";
 import { RequestChainSheet } from "../_components/Submit";
 import { Button, Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../_components/ui";
 import { menuClient } from "../_lib/menu";
@@ -30,6 +30,9 @@ import { FinderResults, NumbersPanel, useFinderResults, useNumbersFinder } from 
 // pill, the three shortcuts as rows of one card (every icon in the brand lime), "More ways" as a row of
 // its own with a round grid icon, Popular as 20 px tiles, the A to Z jump as Home's grey day circles, and restaurants in grouped cards
 // under small spaced letter labels that line up with the names. Every word, role and name is as before.
+// The colour meeting (19 November 2026, approved by the founder that day): the header every tab has (PageHeader: the title, the Shopping list pill, the cog with
+// its word, which replaces the old "Settings" pill); the search looks like a field; the two expander rows' icons sit in page-fill wells in the accent green
+// (lime means only chosen, today or progress), with ink chevrons; the A to Z circles are white with the control edge.
 
 export default function EatOutPage() {
   const t = useT();
@@ -76,20 +79,15 @@ export default function EatOutPage() {
 
   return (
     <div>
-      {/* the top right (founder 2026-11-19): the shopping list and the Settings gear, as on Home. The 4 px gap beside the title keeps the title, the
-          pill (with its count) and the gear on one line from 337 px up; at a narrower width or a larger text the pill and gear move under the title. */}
-      <div className="flex flex-wrap items-center justify-between gap-x-1 gap-y-1">
-        <h1 className="text-[1.75rem] font-[800] leading-none tracking-[-0.02em]"><Rich text={t("Eat {out}")} values={{ out: <span className="serif-em">{t("out")}</span> }} /></h1>
-        {/* the shopping list and the Settings gear at the top right, as on every tab (founder 2026-11-19: "the settings cog should be on the top right of
-            every page. Also shopping list should be on the last page too") */}
-        <div className="-me-1 flex max-w-full flex-wrap items-center justify-end gap-0.5"><ShoppingListPill /><SettingsGear /></div>
-      </div>
+      {/* the shopping list and the Settings cog at the top right, as on every tab (founder 2026-11-19: "the settings cog should be on the top right of every
+          page. Also shopping list should be on the last page too"); at a narrow width or a larger text the pill and the cog move under the title */}
+      <PageHeader title={<Rich text={t("Eat {out}")} values={{ out: <span className="serif-em">{t("out")}</span> }} />} list />
       <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Restaurants, cafés, pubs and takeaways, with the calories and protein of every dish.")}</p>
 
       <StartPrompt className="mt-5" />
 
-      <Link href="/app/search" className="glass mt-5 flex min-h-[3.25rem] items-center gap-3 rounded-[1.625rem] px-5 text-muted transition hover:bg-soft-strong active:scale-[0.99]">
-        <SearchIcon className="h-5 w-5 shrink-0 text-foreground" />
+      <Link href="/app/search" className="mt-5 flex min-h-[3.25rem] items-center gap-3 rounded-[1.625rem] border-[1.5px] border-edge bg-card px-5 text-muted transition hover:bg-background active:scale-[0.99]">
+        <SearchIcon className="h-5 w-5 shrink-0 text-ink" />
         <span className="min-w-0 flex-1 py-3 text-base leading-snug [overflow-wrap:anywhere]">{t("Search restaurants and items")}</span>
       </Link>
 
@@ -130,10 +128,10 @@ export default function EatOutPage() {
             {realCount > 0 && <p className="app-numbers text-sm text-muted">{t("{n} UK restaurants", { n: realCount })}</p>}
           </div>
           {types.length > 1 && (
-            <button type="button" aria-expanded={moreOpen} aria-controls="more-ways" onClick={toggleMore} className="glass mt-3.5 flex min-h-[3.75rem] w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-2 text-start text-base font-bold leading-snug transition-colors hover:bg-[var(--fill)] active:bg-soft-strong">
-              <span aria-hidden className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${moreOpen ? "bg-foreground text-background" : "bg-sun text-[var(--on-accent)]"}`}><GridIcon className="h-[18px] w-[18px]" /></span>
+            <button type="button" aria-expanded={moreOpen} aria-controls="more-ways" onClick={toggleMore} className="glass mt-3.5 flex min-h-[3.75rem] w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-2 text-start text-base font-bold leading-snug transition-colors hover:bg-background active:bg-background">
+              <span aria-hidden className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-fill text-accent"><GridIcon className="h-[18px] w-[18px]" /></span>
               <span className="min-w-0 flex-1">{t("More ways to find a restaurant")}</span>
-              <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-muted transition-transform rtl:scale-x-100! ${moreOpen ? "-rotate-90" : "rotate-90"}`} />
+              <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-ink transition-transform rtl:scale-x-100! ${moreOpen ? "-rotate-90" : "rotate-90"}`} />
             </button>
           )}
           {types.length > 1 && moreOpen && (
@@ -150,10 +148,10 @@ export default function EatOutPage() {
           )}
 
           {/* a second way in, of its own: type calories, protein, carbs or fat and pick allergies, and only the restaurants with dishes that fit are listed */}
-          <button type="button" aria-expanded={finder.open} aria-controls="find-by-numbers" onClick={toggleFinder} className="glass mt-3 flex min-h-[3.75rem] w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-2 text-start text-base font-semibold transition hover:bg-soft-strong active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-            <span aria-hidden className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${finder.open ? "bg-foreground text-background" : "bg-sun text-[var(--on-accent)]"}`}><ScaleIcon className="h-5 w-5" /></span>
+          <button type="button" aria-expanded={finder.open} aria-controls="find-by-numbers" onClick={toggleFinder} className="glass mt-3 flex min-h-[3.75rem] w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-2 text-start text-base font-bold leading-snug transition hover:bg-background active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+            <span aria-hidden className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-fill text-accent"><ScaleIcon className="h-5 w-5" /></span>
             <span className="min-w-0 flex-1">{t("Find by numbers or allergies")}</span>
-            <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-muted transition-transform rtl:scale-x-100! ${finder.open ? "-rotate-90" : "rotate-90"}`} />
+            <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-ink transition-transform rtl:scale-x-100! ${finder.open ? "-rotate-90" : "rotate-90"}`} />
           </button>
           {finder.open && <div id="find-by-numbers"><NumbersPanel state={finder} found={found} /></div>}
 
@@ -176,7 +174,7 @@ export default function EatOutPage() {
                 <nav aria-label={t("Jump to letter")} className="no-scrollbar -mx-5 mt-2.5 flex overflow-x-auto px-4">
                   {restGroups.map((g) => (
                     <a key={g.letter} href={`#az-${g.letter}`} onClick={(e) => jumpTo(e, `az-${g.letter}`)} aria-label={t("Restaurants starting with {letter}", { letter: g.letter })} className="group inline-flex h-11 min-w-11 shrink-0 items-center justify-center rounded-full focus-visible:outline-offset-[-2px]!">
-                      <span aria-hidden className="inline-flex h-9 min-w-9 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-1 text-[0.8125rem] font-semibold transition-colors group-hover:bg-foreground group-hover:text-background">{g.letter}</span>
+                      <span aria-hidden className="inline-flex h-9 min-w-9 items-center justify-center rounded-full border-[1.5px] border-edge bg-card px-1 text-[0.8125rem] font-semibold transition-colors group-hover:bg-background">{g.letter}</span>
                     </a>
                   ))}
                 </nav>

@@ -10,23 +10,28 @@ import { withPhoto } from "@/lib/mm/groceries";
 import { CompareButton } from "../../_components/CompareButton";
 import { compareFoodFromListed } from "../../_lib/compare";
 import { AllergenTable } from "../../_components/Allergens";
-import { CopyIcon, InfoIcon, PlusIcon } from "../../_components/icons";
+import { CopyIcon, ExternalIcon, InfoIcon, PlusIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
-import { Button, ErrorBox, LinkButton, Spinner } from "../../_components/ui";
+import { InfoLine } from "../../_components/Note";
+import { PageHeader } from "../../_components/PageHeader";
+import { Toast } from "../../_components/Toast";
+import { AllergyNote, Button, ErrorBox, LinkButton, Spinner } from "../../_components/ui";
 import { loadManifest, loadRetailer } from "../../_lib/groceries";
 import { useSettings } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { Rich } from "../../_lib/Rich";
 import { NutritionPanel } from "../NutritionPanel";
-import { BackLink, CARD, CHIP, CHIP_ON, FootNote, HEADING, LABEL, NOTE } from "../PageBits";
+import { CARD, CHIP, CHIP_ON, FootNote, HEADING, LABEL, NOTE } from "../PageBits";
 import { ProductPhotoFigure } from "../ProductPhoto";
 import { ProductMini } from "../ProductMini";
 import { listHref, useAddToList } from "../ListChoice";
 
 // A product from the supermarket lists (docs/GROCERIES_PLAN.md): photo, per-100 g numbers, price where known, the 14 allergens, the barcode.
 // Looks follow Home (founder 2026-10-15): one white card holding the picture, the name as a big title and the nutrition as Home's macro rows; the
-// further label figures as the same rows in DM Mono; prices as big figures in a regular weight; outlined chips for the shop and size switchers;
-// adding to the list right under the prices, the shop you came from as the black pill and the others as grey pills; 20 px corners throughout.
+// further label figures as the same rows in DM Mono; outlined chips for the shop and size switchers; 20 px corners throughout. The colour meeting (19 November
+// 2026, approved by the founder that day): the shelf price in the body's ink, extra bold (never the link green: the biggest number must not look like a link
+// or praise); "Lowest" as a square tag you can't tap; a price that opens a shop's site underlined with an external-link icon; adding to the list right under
+// the prices, the shop you came from as the one ink pill and the others white with the edge, and what was added said in the one toast.
 const SEARCH_LINKS: Record<string, (code: string) => string> = {
   tesco: (c) => `https://www.tesco.com/groceries/en-GB/search?query=${c}`,
   sainsburys: (c) => `https://www.sainsburys.co.uk/gol-ui/SearchResults/${c}`,
@@ -43,8 +48,8 @@ const SEARCH_LINKS: Record<string, (code: string) => string> = {
 
 type State = { status: "loading" } | { status: "missing" } | { status: "error" } | { status: "ready"; product: ListedProduct; all: ListedProduct[] };
 
-/** A small quiet mark beside a price ("Lowest", "Lowest with card"): the accent green on the light grey fill. */
-const MARK = "inline-flex items-center rounded-full bg-[var(--fill)] px-2.5 py-1 text-xs font-bold text-foreground";
+/** A small tag beside a price ("Lowest", "Lowest with card") that can't be tapped: 6 px corners, bold ink words, flat in the page fill inside the card. */
+const MARK = "inline-flex items-center rounded-[0.375rem] bg-fill px-2 py-1 text-[0.8125rem] font-bold leading-snug text-foreground";
 
 /**
  * Label text the shop's page prints as "Name: value; Name: value" (the further label figures, the per-portion line), shown as calm rows: the
@@ -76,9 +81,9 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
   const prefs = useSettings().preferences;
   const wanted = barcodeQuery(code);
   const [state, setState] = useState<State>({ status: "loading" });
-  const [added, setAdded] = useState<{ text: string; href: string } | null>(null);
-  // to the main list, or (when the person has lists for that shop) the one they choose
-  const { add, sheet } = useAddToList((list, item) => setAdded(list ? { text: t("Added to {list}.", { list: list.name }), href: listHref(list.id) } : { text: t("Added to your list for {shop}.", { shop: retailerName(item.retailer) }), href: listHref() }));
+  const [added, setAdded] = useState<{ text: string; href: string; n: number } | null>(null);
+  // to the main list, or (when the person has lists for that shop) the one they choose; said in the toast, each add a new one
+  const { add, sheet } = useAddToList((list, item) => setAdded((was) => ({ ...(list ? { text: t("Added to {list}.", { list: list.name }), href: listHref(list.id) } : { text: t("Added to your list for {shop}.", { shop: retailerName(item.retailer) }), href: listHref() }), n: (was?.n ?? 0) + 1 })));
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -106,7 +111,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
     return () => { cancelled = true; };
   }, [wanted, retailerHint]);
 
-  const back = <BackLink href="/app/groceries" label={t("Back to groceries")} />;
+  const back = <PageHeader back={{ href: "/app/groceries", label: t("Back to groceries") }} list />;
   if (state.status === "loading") return (<div>{back}<Spinner label={t("Loading product")} /></div>);
   if (state.status === "error") return (<div>{back}<div className="mt-4"><ErrorBox message={t("Couldn't load this product. Check your connection.")} /></div></div>);
   if (state.status === "missing") return (
@@ -147,7 +152,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
     ...(p.salt !== undefined ? [[t("Salt"), `${p.salt}g`] as [string, string]] : []),
   ];
   const containsCount = p.allergens?.contains.length ?? 0;
-  const unsuited = foodDietProblem(listedFacts(listed), prefs) !== null;
+  const dietProblem = foodDietProblem(listedFacts(listed), prefs);
   const outLink = "font-semibold text-accent underline underline-offset-4";
 
   return (
@@ -158,7 +163,9 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
         {p.brand && <p className="kicker">{p.brand}</p>}
         <h1 className={`${p.brand ? "mt-1.5" : ""} text-[2rem] font-[800] leading-[1.08] tracking-[-0.02em] [overflow-wrap:anywhere]`}>{p.name}</h1>
         {p.size && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{p.size}</p>}
-        {unsuited && <p className="mt-4 flex items-start gap-2.5 rounded-2xl bg-[var(--fill)] px-4 py-3 text-[0.9375rem] leading-snug"><InfoIcon className="mt-0.5 h-4 w-4 shrink-0 text-muted" />{t("This product doesn't fit your diet settings, going by its name, type and label.")}</p>}
+        {/* the person's own allergens: the one amber note; any other diet setting (vegetarian, halal...): the calm info line */}
+        {dietProblem === "allergen" ? <AllergyNote className="mt-4"><p>{t("This product doesn't fit your diet settings, going by its name, type and label.")}</p></AllergyNote>
+          : dietProblem && <InfoLine heading={null} className="mt-4">{t("This product doesn't fit your diet settings, going by its name, type and label.")}</InfoLine>}
         <div className="mt-7">
           <NutritionPanel
             kcal={p.kcal} protein={p.protein} carbs={p.carbs} fat={p.fat} basis={per} rows={rows}
@@ -166,7 +173,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
           />
         </div>
         {p.serving && (
-          <p className={`app-numbers mt-5 rounded-2xl bg-[var(--fill)] px-4 py-3 ${NOTE}`}>
+          <p className={`app-numbers mt-5 rounded-2xl bg-fill px-4 py-3 ${NOTE}`}>
             {t("Per serving ({size}): {kcal} kcal · {protein}g protein · {carbs}g carbs · {fat}g fat", { size: p.serving.size, kcal: Math.round(p.serving.kcal), protein: p.serving.protein, carbs: p.serving.carbs, fat: p.serving.fat })}
           </p>
         )}
@@ -207,7 +214,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
               className={`${r === selected ? CHIP_ON : CHIP} gap-2 pe-4 ps-1.5`}>
               <ShopMark shopId={r} size="xs" />{retailerName(r)}
               {/* its price there, beside its logo (founder 2026-11-18) */}
-              {listed.prices[r] && <span className={`app-numbers ${r === selected ? "" : "text-muted"} ${listed.prices[r]!.amount === cheapestPrice && listed.retailers.length > 1 ? "font-extrabold" : "font-semibold"}`}>{formatPrice(listed.prices[r]!.amount)}</span>}
+              {listed.prices[r] && <span className={`app-numbers ${listed.prices[r]!.amount === cheapestPrice && listed.retailers.length > 1 ? "font-extrabold" : "font-semibold"}`}>{formatPrice(listed.prices[r]!.amount)}</span>}
             </Link>
           ))}
         </nav>
@@ -233,7 +240,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
         {here ? (
           <div className="mt-4">
             <p className="app-numbers flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span className="text-[2.5rem] font-medium leading-none tracking-[-0.03em] text-foreground">{formatPrice(here.amount)}</span>
+              <span className="text-[2.5rem] font-[800] leading-none tracking-[-0.03em] text-foreground">{formatPrice(here.amount)}</span>
               {here.perUnit && <span className="text-[0.9375rem] text-muted">{formatPrice(here.perUnit.amount)} {here.perUnit.unit}</span>}
             </p>
             {here.member && (
@@ -271,7 +278,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
                     <span className="app-numbers shrink-0 text-end">
                       {price ? (
                         <>
-                          <a className="text-base font-bold underline underline-offset-4" href={price.url} target="_blank" rel="noopener noreferrer">{formatPrice(price.amount)}<span className="sr-only"> {t("at {shop} (opens in a new tab)", { shop: retailerName(r) })}</span></a>
+                          <a className="inline-flex items-center gap-1 text-base font-bold text-foreground underline underline-offset-4" href={price.url} target="_blank" rel="noopener noreferrer">{formatPrice(price.amount)}<ExternalIcon aria-hidden className="h-3.5 w-3.5 shrink-0" /><span className="sr-only"> {t("at {shop} (opens in a new tab)", { shop: retailerName(r) })}</span></a>
                           {diff !== null && diff !== 0 && <span className="block text-[0.8125rem] text-muted">{diff < 0 ? t("{price} cheaper", { price: formatPrice(Math.abs(diff)) }) : t("{price} more", { price: formatPrice(Math.abs(diff)) })}</span>}
                           {diff === 0 && <span className="block text-[0.8125rem] text-muted">{t("same price")}</span>}
                           {price.member && <span className="block text-[0.8125rem] font-semibold text-foreground">{t("{price} with {scheme}", { price: formatPrice(price.member.amount), scheme: price.member.scheme.replace(/ price$/i, "") })}</span>}
@@ -298,8 +305,11 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
             </Button>
           ))}
         </div>
-        <p role="status" aria-live="polite" className="mt-3 text-sm font-medium text-foreground empty:mt-0">{added?.text}</p>
-        {added && <Link href={added.href} className={`inline-flex min-h-11 items-center text-[0.9375rem] ${outLink}`}>{t("Open your shopping list")}</Link>}
+        {added && (
+          <Toast key={added.n} onClose={() => setAdded(null)}>
+            <span>{added.text}</span> <Link href={added.href} className="font-bold text-on-ink underline underline-offset-2">{t("Open your shopping list")}</Link>
+          </Toast>
+        )}
         {sheet}
       </div>
 
@@ -324,22 +334,19 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
       <section aria-labelledby="allergens-heading" className={`${CARD} mt-3.5 overflow-hidden`}>
         <div className="px-5 pt-5">
           <h2 id="allergens-heading" className={HEADING}>{t("Allergens")}</h2>
-          <p className="mt-2 text-[0.9375rem] leading-snug text-muted">
-            {allergens === null
-              ? t("Allergen information isn't recorded for this product. Check the pack.")
-              : containsCount === 0
-                ? t("None of the 14 main allergens recorded as an ingredient.")
-                : t("Contains {n} of the 14 main allergens.", { n: containsCount })}
-          </p>
+          {/* "check the pack" on its own is the calm info line (amber is kept for the person's own allergens) */}
+          {allergens === null
+            ? <InfoLine heading={null} className="mt-2">{t("Allergen information isn't recorded for this product. Check the pack.")}</InfoLine>
+            : <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{containsCount === 0 ? t("None of the 14 main allergens recorded as an ingredient.") : t("Contains {n} of the 14 main allergens.", { n: containsCount })}</p>}
         </div>
         {p.advice && (
-          <p className="mx-5 mt-4 rounded-2xl bg-[var(--fill)] px-4 py-3 text-[0.9375rem] leading-snug">
+          <p className="mx-5 mt-4 rounded-2xl bg-fill px-4 py-3 text-[0.9375rem] leading-snug">
             <span className="font-bold">{t("{shop}'s allergy advice:", { shop: retailerName(selected) })} </span>{p.advice}
           </p>
         )}
         {allergens && <AllergenTable allergens={allergens} caption={t("Allergens in {name}, from Open Food Facts contributors", { name: p.name })} columnLabel={t("This product")} />}
         <p className={`flex gap-2 border-t border-line px-5 py-4 ${NOTE}`}>
-          <InfoIcon className="mt-px h-4 w-4 shrink-0 text-accent" />
+          <InfoIcon className="mt-px h-4 w-4 shrink-0 text-foreground" />
           <span>{p.updated ? t("Community data from Open Food Facts, last edited {date}: recipes change and entries can be wrong, so always read the pack before you buy.", { date: formatDate(p.updated, t) }) : t("Community data from Open Food Facts: recipes change and entries can be wrong, so always read the pack before you buy.")} {t("“Not listed” means nothing is recorded, not that the product is free from it.")}</span>
         </p>
       </section>

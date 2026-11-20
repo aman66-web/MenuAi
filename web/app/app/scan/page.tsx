@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { ADDED_TO } from "@/lib/mm/addFood";
@@ -12,11 +11,11 @@ import { formatInt } from "@/lib/mm/format";
 import { tk } from "@/lib/mm/i18n";
 import { addLogEntry, countProAction, paidStore } from "@/lib/mm/stores";
 import type { LogMeal } from "@/lib/mm/types";
-import { CameraIcon, CheckIcon, ChevronLeftIcon, PhotoIcon } from "../_components/icons";
+import { CameraIcon, CheckIcon, PhotoIcon } from "../_components/icons";
+import { PageHeader } from "../_components/PageHeader";
 import { Pip } from "../_components/Mascot";
 import { useGate } from "../_components/Paywall";
 import { Button, ErrorBox, Spinner } from "../_components/ui";
-import { backName, useBack } from "../_lib/backNav";
 import { useHydrated, useIsPro, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { shrinkPhoto, type ShrunkPhoto } from "../_lib/photo";
@@ -93,7 +92,6 @@ function ScanScreen() {
   // Premium here means a checked paid token (the server checks it again); a test build that previews Pro has no payments, so Pro is enough there.
   const access = PAID_ACCESS_ENABLED ? pro && !!paid.token : pro;
   const { showPaywall } = useGate();
-  const nav = useBack("/app");
   const [step, setStep] = useState<Step>("start");
   const [photo, setPhoto] = useState<ShrunkPhoto | null>(null);
   const [photoError, setPhotoError] = useState(false);
@@ -189,12 +187,8 @@ function ScanScreen() {
 
   return (
     <div className="pb-6">
-      {step !== "camera" && (
-        <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to Home"), nav.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 items-center gap-1 rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95">
-          <ChevronLeftIcon className="h-5 w-5" />
-          <span>{t("Back")}</span>
-        </Link>
-      )}
+      {/* the header every page has (colour meeting, 19 November 2026), except on the full-screen camera: Back (the page before, else Home) and the cog */}
+      {step !== "camera" && <PageHeader back={{ href: "/app", label: t("Back to Home") }} />}
 
       {step === "start" && (
         <section aria-labelledby="scan-h">
@@ -219,7 +213,7 @@ function ScanScreen() {
             onKeyDown={(e) => { if (e.key === "Enter") e.currentTarget.blur(); }}
             className="glass mt-2 block min-h-14 w-full rounded-[1.25rem] px-4 text-[1.0625rem] outline-none placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent"
           />
-          {whatMissing && !described && <p id="scan-what-missing" role="alert" className="mt-2 text-[0.9375rem] font-semibold text-[var(--danger,#b42318)]">{t("Type what the food is first, then take the photo.")}</p>}
+          {whatMissing && !described && <p id="scan-what-missing" role="alert" className="mt-2 text-[0.9375rem] font-semibold text-danger">{t("Type what the food is first, then take the photo.")}</p>}
           <div className="mt-4 space-y-3">
             <Button full className="min-h-14 gap-2.5 text-lg" onClick={() => start("camera")}><CameraIcon className="h-6 w-6" />{t("Take a photo")}</Button>
             <Button full variant="secondary" className="min-h-14 gap-2.5 text-lg" onClick={() => start("library")}><PhotoIcon className="h-6 w-6" />{t("Choose a photo")}</Button>

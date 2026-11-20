@@ -43,29 +43,29 @@ export const ALLERGEN_HINT: Partial<Record<AllergenKey, string>> = {
 export const ALLERGEN_ORDER: readonly AllergenKey[] = ["gluten", "milk", "eggs", "peanuts", "nuts", "soya", "fish", "crustaceans", "molluscs", "sesame", "mustard", "celery", "lupin", "sulphites"];
 
 /**
- * The round mark at the end of a choice: an outlined circle, or the lime circle with a tick once it is chosen (the same mark as
- * Settings' option lists and the shopping list, so "chosen" looks the same everywhere). `small` is the tiles' size, which leaves the
- * words a little more room.
+ * The round mark at the end of a choice (colour meeting, 19 November 2026, approved by the founder that day): an empty ring in the grey of every control's edge,
+ * or, chosen, a dark green ring with a dark green tick on the lime tile (the same mark as the shopping list and the plan's rows, so "chosen" looks the same
+ * everywhere). `small` is the tiles' size, which leaves the words a little more room.
  */
 export function PickMark({ on, small }: { on: boolean; small?: boolean }) {
   return (
-    <span aria-hidden className={`grid shrink-0 place-items-center rounded-full ${small ? "h-[1.375rem] w-[1.375rem]" : "h-6 w-6"} ${on ? "bg-sun text-on-accent" : "border-[1.5px] border-[color-mix(in_srgb,var(--foreground)_20%,transparent)]"}`}>
+    <span aria-hidden className={`grid shrink-0 place-items-center rounded-full ${small ? "h-[1.375rem] w-[1.375rem]" : "h-6 w-6"} ${on ? "border-2 border-on-sun bg-sun text-on-sun" : "border-[1.5px] border-edge bg-card"}`}>
       {on && <CheckIcon className={small ? "h-3 w-3" : "h-3.5 w-3.5"} strokeWidth={3} />}
     </span>
   );
 }
 
 /**
- * One choice as a soft tile (20 px corners, like Home's cards) with its words at the start and the mark at the end; chosen, it turns
- * dark like a selected chip, with the lime tick. White on the grey page; inside a white card or a sheet it takes the light grey fill
- * with no shadow (globals.css and the Sheet do the fill), so it is always seen against what it sits on. Pass `role`,
+ * One choice as a tile (20 px corners, like Home's cards) with its words at the start and the mark at the end, in the one choice look: white with the 1.5 px
+ * edge of every control you can tap (on the page, in a card or in a sheet alike); chosen, lime with the 2 px dark green edge, bold dark green words and the
+ * tick (never dark: dark means "do this"). Pass `role`,
  * `aria-pressed` / `aria-checked` and the key handling for the group it sits in. Sizes are in rem so the words grow with the text size.
  */
 export function PickTile({ on, tall, className, children, ...rest }: ButtonHTMLAttributes<HTMLButtonElement> & { on: boolean; tall?: boolean; children: ReactNode }) {
   return (
     <button
       type="button"
-      className={`flex min-w-0 items-center justify-between rounded-[1.25rem] text-start transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${tall ? "min-h-[4.5rem] gap-2.5 py-3 pe-3.5 ps-4" : "min-h-[3.25rem] gap-1.5 py-2.5 pe-3 ps-3.5"} ${on ? "bg-foreground text-background" : "glass hover:bg-soft-strong [.sheet-panel_&]:shadow-none"} ${className ?? ""}`}
+      className={`flex min-w-0 items-center justify-between rounded-[1.25rem] text-start transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${tall ? "min-h-[4.5rem] gap-2.5 py-3 pe-3.5 ps-4" : "min-h-[3.25rem] gap-1.5 py-2.5 pe-3 ps-3.5"} border-[1.5px] ${on ? "border-on-sun bg-sun font-bold text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-edge bg-card text-foreground hover:bg-background"} ${className ?? ""}`}
       {...rest}
     >
       <span className="min-w-0 flex-1 hyphens-auto [overflow-wrap:break-word]">{children}</span>
@@ -89,7 +89,7 @@ function TileWords({ id, on, label, hint }: { id: string; on: boolean; label: st
   return (
     <>
       <span id={`${id}-name`} className="block">{label}</span>
-      <span id={`${id}-hint`} className={`mt-0.5 block text-sm font-normal leading-snug ${on ? "text-background/80" : "text-muted"}`}>{hint}</span>
+      <span id={`${id}-hint`} className={`mt-0.5 block text-sm font-normal leading-snug ${on ? "text-on-sun" : "text-muted"}`}>{hint}</span>
     </>
   );
 }
@@ -147,14 +147,14 @@ export function DietPicker({ value, onChange, halal = true, allergies = true, al
         {allergies && (
           <>
             <div aria-hidden className="mx-1 mb-4 mt-5 h-px bg-line" />
-            <p className="mb-3 px-1 text-[0.6875rem] font-semibold uppercase leading-snug tracking-[0.12em] text-muted">{t("Allergies to avoid")}</p>
+            <p className="mb-3 px-1 text-[0.8125rem] font-semibold leading-snug text-muted">{t("Allergies to avoid")}</p>
             {cautionUp && <p className="-mt-1 mb-3 px-1 text-[0.9375rem] leading-snug text-foreground">{t("Allergy filters use each restaurant's own allergen guide and hide dishes it doesn't cover. If you have an allergy, always check with the restaurant.")}</p>}
             <AllergenTiles chosen={avoid} label={t("Allergies to avoid")} hints onToggle={(k) => onChange(toggleAllergen(value, k))} />
           </>
         )}
       </div>
       {(caution || value.halalOnly) && (
-        <p className="mt-3.5 px-1 text-[0.9375rem] leading-snug text-muted">{[caution, value.halalOnly ? t(HALAL_CAUTION) : null].filter(Boolean).join(" ")}</p>
+        <p className="mt-3.5 px-1 text-[0.9375rem] leading-snug text-foreground">{[caution, value.halalOnly ? t(HALAL_CAUTION) : null].filter(Boolean).join(" ")}</p>
       )}
     </div>
   );

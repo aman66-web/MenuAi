@@ -10,7 +10,9 @@ import { describeOrder, lineFromItem, orderName, orderNutrients } from "@/lib/mm
 import { builderHref, chainHref } from "@/lib/mm/routes";
 import { addLogEntry, addSavedOrder, countProAction, noteItemViewed } from "@/lib/mm/stores";
 import { useGate } from "../_components/Paywall";
-import { HeartIcon, ChevronLeftIcon, ChevronRightIcon, InfoIcon, PlusIcon } from "../_components/icons";
+import { HeartIcon, ChevronRightIcon, InfoIcon, PlusIcon } from "../_components/icons";
+import { PageHeader } from "../_components/PageHeader";
+import { Toast } from "../_components/Toast";
 import { ItemPhotoHero } from "../_components/ItemPhoto";
 import { AllergenSection } from "../_components/Allergens";
 import { ItemHero, NutrientTable } from "../_components/Nutrition";
@@ -20,7 +22,6 @@ import { CompareButton } from "../_components/CompareButton";
 import { compareDish } from "../_lib/compare";
 import { ReportSheet } from "../_components/Submit";
 import { Badge, Button, ErrorBox, Spinner } from "../_components/ui";
-import { backName, useBack } from "../_lib/backNav";
 import { useChain, useMenu } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 
@@ -31,6 +32,8 @@ import { useT } from "../_lib/i18n";
 // the numbers, so logging a dish needs no long scroll: Customise as the one black pill, then Log, Save, Share and Compare as white pills,
 // two by two (ShareButton and CompareButton sit in `display: contents` wrappers, so their buttons are the grid's items and their notes
 // take a whole row after it); then the allergens, "More detail" opening inside its own card, and the chain's note.
+// Since the colour meeting (19 November 2026; approved by the founder that day): the header every page has (Back, the Settings cog), the restaurant's
+// name as an underlined link, "Add to today" the one ink button and the rest white, and what a tap did as the app's one toast.
 
 export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: string }) {
   const t = useT();
@@ -38,16 +41,17 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
   const { gate } = useGate();
   const menu = useMenu();
   const { status, index, error, retry } = useChain(chainId);
-  const [message, setMessage] = useState<string | null>(null);
+  const [message, setMessageText] = useState<string | null>(null);
+  const [toastKey, setToastKey] = useState(0);
+  const setMessage = (m: string | null) => { setMessageText(m); if (m) setToastKey((k) => k + 1); };
   const [reporting, setReporting] = useState(false);
   const [detail, setDetail] = useState(false);
   const found = status === "ready" && !!index?.items.get(itemId);
   useEffect(() => { if (found) noteItemViewed(chainId, itemId); }, [found, chainId, itemId]); // "Recently viewed" on the restaurant's page for a day
 
-  const nav = useBack(chainHref(chainId)); // the page before (the menu, Search, Today, a recipe...) when there is one in the app, else the restaurant's menu
-  const back = (
-    <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to menu"), nav.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
-  );
+  // the header every page has (colour meeting, 19 November 2026): Back goes to the page before (the menu, Search, Today, a recipe...) when there is one in
+  // the app, else the restaurant's menu; the Settings cog far right
+  const back = <PageHeader back={{ href: chainHref(chainId), label: t("Back to menu") }} />;
   if (status === "loading") return (<div>{back}<Spinner label={t("Loading item")} /></div>);
   if (status === "error" || !index) return (<div>{back}<ErrorBox message={error ? t(error) : t("Couldn't load this menu.")} onRetry={retry} /></div>);
 
@@ -63,7 +67,8 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
       {back}
       <div className="mt-4">
         <ItemHero nutrients={item.nutrients} name={item.name} media={<ItemPhotoHero image={item.image} chainName={chain.name} />}>
-          <Link href={chainHref(chain.id)} className="kicker -my-2 inline-flex min-h-11 items-center hover:text-foreground">{chain.name}</Link>
+          {/* the restaurant's name, a link back to its menu: sentence case, in the link green and underlined, as every link is */}
+          <Link href={chainHref(chain.id)} className="-my-2 inline-flex min-h-11 items-center text-[0.9375rem] font-semibold text-accent underline decoration-[color-mix(in_srgb,var(--accent)_40%,transparent)] underline-offset-[3px] hover:decoration-current">{chain.name}</Link>
           <h1 className="mt-1.5 text-[2rem] font-[800] leading-[1.05] tracking-[-0.02em] [overflow-wrap:anywhere]">{item.name}</h1>
           {(item.serving || item.category || item.limitedTime || chain.sample) && (
             <div className="mt-3 flex flex-wrap items-center gap-x-2.5 gap-y-2 text-[0.9375rem] text-muted">
@@ -132,8 +137,6 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
             <ShareButton full chainName={chain.name} orderName={item.name} description={description} nutrients={item.nutrients} />
             <CompareButton full item={compareDish(chain, item)} />
           </div>
-          {/* Empty (and no height) until something is logged or saved; it stays in the page so a screen reader hears it. */}
-          <p role="status" aria-live="polite" className="mt-2.5 text-center text-sm font-semibold text-foreground empty:mt-0">{message && t(message)}</p>
         </div>
       ) : (
         // a calories-only dish is added and saved with its calories alone (usability test 2026-11-19: Elsie, who counts calories, could neither log nor keep
@@ -160,7 +163,6 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
             </Button>
             <CompareButton full item={compareDish(chain, item)} />
           </div>
-          <p role="status" aria-live="polite" className="mt-2.5 text-center text-sm font-semibold text-foreground empty:mt-0">{message && t(message)}</p>
           <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("{chain} publishes calories only, so only the calories are counted.", { chain: chain.name })}</p>
         </div>
       )}
@@ -174,9 +176,8 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
             <span className="block text-lg font-[800] leading-snug tracking-[-0.01em]">{t("More detail")}</span>
             <span className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{t("Saturated fat, salt, sugar and fibre")}</span>
           </span>
-          <span aria-hidden className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-soft-strong">
-            <ChevronRightIcon className={`h-[18px] w-[18px] transition-transform ${detail ? "-rotate-90" : "rotate-90"}`} />
-          </span>
+          {/* an ink chevron, no disc (colour meeting, 19 November 2026) */}
+          <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-ink transition-transform ${detail ? "-rotate-90" : "rotate-90"}`} />
         </button>
         {detail && <div id="more-detail" className="border-t border-line px-4"><NutrientTable bare nutrients={item.nutrients} /></div>}
       </div>
@@ -192,6 +193,10 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
         {t("Not affiliated with {chain}.", { chain: chain.name })}{" "}
         <button type="button" className="min-h-11 font-semibold text-accent underline decoration-[color-mix(in_srgb,var(--accent)_40%,transparent)] underline-offset-[3px]" onClick={() => setReporting(true)}>{t("Report a number")}</button>
       </p>
+
+      {/* "Added to today's food." and "Saved to My meals." as the app's one toast (colour meeting, 19 November 2026): it reads itself out (role="status"); a new
+          message gets a new key so its time starts afresh */}
+      {message && <Toast key={`${message}-${toastKey}`} onClose={() => setMessage(null)}>{t(message)}</Toast>}
 
       <ReportSheet
         open={reporting}

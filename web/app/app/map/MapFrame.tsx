@@ -59,7 +59,7 @@ export function MapFrame({ full, frameRef, buttonRef, onToggle, failed, card, ch
             onClick={() => { if (performance.now() - mountedAt.current >= ARM_MS) onToggle(); }}
             aria-label={label}
             title={label}
-            className="map-fs-button inline-flex h-[44px] w-[44px] touch-manipulation items-center justify-center rounded-2xl bg-white text-foreground shadow-[0_1px_2px_rgba(17,24,20,0.06),0_10px_24px_-16px_rgba(17,24,20,0.3)] transition-transform focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent active:scale-95"
+            className="map-fs-button inline-flex h-[44px] w-[44px] touch-manipulation items-center justify-center rounded-2xl bg-card text-foreground shadow-[var(--shadow-lift)] transition-transform focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent active:scale-95"
           >
             {full ? <ShrinkIcon className="h-6 w-6" /> : <ExpandIcon className="h-6 w-6" />}
           </button>

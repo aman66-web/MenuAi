@@ -9,17 +9,19 @@ import { dataVersionDate } from "@/lib/mm/menu-client";
 import { formatDate } from "@/lib/mm/format";
 import { mailtoFor } from "@/lib/mm/outbox";
 import { COACH_ARMED } from "@/lib/mm/coach";
+import { forgetInstallId } from "@/lib/mm/analytics";
 import { coachStore, paidStore, compareStore, comparePicksStore, ratingStore, cupboardStore, favoritesStore, recentStore, logStore, earlierPlansStore, mealPlanStore, myRecipesStore, outbox, outboxStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, tourStore, updateSettings, waterStore, clearReminders, householdStore, homePagesStore } from "@/lib/mm/stores";
 import { DEFAULT_SETTINGS, type TextSize } from "@/lib/mm/user-data";
 import { CARB_FAT_NOTE, GLP1_NOTE, isLowCalories, LOW_CALORIES_NOTE, MAX_MACRO_TARGET, suggestCarbFat, suggestProtein, SUGGESTION_NOTE } from "@/lib/mm/targets";
 import type { Goal } from "@/lib/mm/types";
 import { DEFAULT_WATER_GOAL_ML, MAX_WATER_GOAL_ML, MIN_WATER_GOAL_ML } from "@/lib/mm/water";
 import { site } from "@/site.config";
-import { CheckIcon, ChevronRightIcon } from "../_components/icons";
+import { AlertCircleIcon, ChevronRightIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
 import { AppStoreAccountButtons } from "../_components/AppStorePlans";
+import { PageHeader } from "../_components/PageHeader";
+import { PremiumBadge } from "../_components/PremiumBadge";
 import { trialDaysOf, useStoreProducts } from "../_lib/storeProducts";
-import { BackLink } from "../groceries/PageBits";
 import { tk } from "@/lib/mm/i18n";
 import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
@@ -29,7 +31,7 @@ import { DietPicker } from "../_components/DietPicker";
 import { ShopPicker } from "../_components/ShopPicker";
 import { applyTextSize } from "../_lib/textSize";
 import { focusTargetBox, TargetSuggestForm } from "../_components/TargetSuggestForm";
-import { Button, Card, radioKeyNav, Segmented, Sheet, Toggle } from "../_components/ui";
+import { Badge, Button, Card, ChoiceMark, LinkButton, radioKeyNav, Segmented, Sheet, Toggle } from "../_components/ui";
 import { SourcesLink } from "../_components/SourcesLink";
 import { menuClient } from "../_lib/menu";
 import { useHydrated, useMenu, useNow, useSettings, useStore } from "../_lib/hooks";
@@ -38,8 +40,11 @@ import { leaveForClearing, useAccountUser } from "../_lib/account";
 import { setCreatorMode, useCreatorMode } from "../_lib/creator";
 
 // SPEC §7.9. Not on the web: Apple Health, Location, StoreKit's manage/restore rows (see docs/WEB_BUILD_PLAN.md).
-// Look (founder 2026-10-15, "the rest of the app should match [Home's] elegance"): a compact heavy title, spaced-capital group labels,
-// white cards with 20 px corners on the grey page, a grey fill for anything inside a card, one black pill per card for its main action.
+// Look (founder 2026-10-15, "the rest of the app should match [Home's] elegance"): a compact heavy title, group labels in sentence case (.kicker: 13 px
+// semibold, the secondary grey), white cards with the 1px line on the grey page, one ink pill per card for its main action. The colour meeting (19 November
+// 2026, approved by the founder that day): Back and no Settings cog on this page itself; ink chevrons on rows; goals as radios (an empty grey ring, chosen
+// lime with the dark green edge and dot); switches say On or Off; the destructive buttons are white with a red edge, last and apart, and their confirm
+// sheet has Cancel beside a red Clear everything.
 
 const TEXT_OPTIONS: ReadonlyArray<{ value: TextSize; label: string }> = [
   { value: "standard", label: tk("Standard") },
@@ -64,16 +69,16 @@ const GOAL_OPTIONS: ReadonlyArray<{ value: Goal; label: string }> = [
 function TargetTile({ label, hint, value, placeholder, onChange, wide, auto }: { label: string; hint?: string; value: string; placeholder?: string; onChange: (v: string) => void; wide?: boolean; auto?: boolean }) {
   const t = useT();
   return (
-    <label className={`block min-w-0 cursor-text rounded-[1rem] bg-[var(--fill)] px-4 pb-3 pt-3.5 transition-shadow focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-accent ${wide ? "col-span-full" : ""}`}>
+    <label className={`block min-w-0 cursor-text rounded-[1rem] border-[1.5px] border-edge bg-card px-4 pb-3 pt-3.5 transition-shadow focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-accent ${wide ? "col-span-full" : ""}`}>
       <span className="block text-[0.8125rem] font-semibold leading-snug text-muted [overflow-wrap:anywhere]">{label}</span>
       <input
-        className="app-numbers mt-1 block w-full min-w-0 bg-transparent text-[1.625rem] font-medium leading-tight tracking-[-0.01em] placeholder:text-muted focus-visible:outline-none!"
+        className="app-numbers mt-1 block w-full min-w-0 bg-transparent text-[1.625rem] font-medium leading-tight tracking-[-0.01em] placeholder:text-placeholder focus-visible:outline-none!"
         inputMode="numeric"
         value={value}
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
       />
-      {auto && value.trim() === "" && <span className="mt-1.5 inline-flex rounded-full bg-white px-2 py-0.5 text-[0.75rem] font-semibold text-muted">{t("Worked out")}</span>}
+      {auto && value.trim() === "" && <span className="mt-1.5 block"><Badge>{t("Worked out")}</Badge></span>}
       {hint && <span className="mt-1.5 block text-[0.8125rem] leading-snug text-muted">{hint}</span>}
     </label>
   );
@@ -92,7 +97,7 @@ function Section({ title, children, id }: { title: string; children: React.React
   );
 }
 
-/** One choice per row in a white card, the chosen one marked with a lime tick (the same mark as the supermarket list below). */
+/** One choice per row in a white card, as radios: an empty grey ring, the chosen one lime with the 2 px dark green edge and a dark green dot, its words bold. */
 function OptionList<T extends string>({ label, value, options, onChange }: { label: string; value: T; options: ReadonlyArray<{ value: T; label: string }>; onChange: (v: T) => void }) {
   return (
     <div role="radiogroup" aria-label={label} className="glass divide-y divide-line overflow-hidden rounded-[1.25rem]">
@@ -107,12 +112,10 @@ function OptionList<T extends string>({ label, value, options, onChange }: { lab
             tabIndex={on ? 0 : -1}
             onClick={() => onChange(o.value)}
             onKeyDown={(e) => radioKeyNav(e, i, options.length, (n) => onChange(options[n]!.value))}
-            className={`flex min-h-[3.25rem] w-full items-center justify-between gap-3 px-4 py-2 text-start text-base transition hover:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]! ${on ? "font-bold" : "font-medium"}`}
+            className={`flex min-h-[3.25rem] w-full items-center gap-3 px-4 py-2 text-start text-base transition hover:bg-background focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]! ${on ? "font-bold" : "font-medium"}`}
           >
-            <span className="min-w-0 [overflow-wrap:anywhere]">{o.label}</span>
-            <span aria-hidden className={`grid h-6 w-6 shrink-0 place-items-center rounded-full ${on ? "bg-sun text-on-accent" : "border border-[color-mix(in_srgb,var(--foreground)_22%,transparent)]"}`}>
-              {on && <CheckIcon className="h-3.5 w-3.5" strokeWidth={3} />}
-            </span>
+            <ChoiceMark on={on} kind="radio" />
+            <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">{o.label}</span>
           </button>
         );
       })}
@@ -121,11 +124,11 @@ function OptionList<T extends string>({ label, value, options, onChange }: { lab
 }
 
 function LinkRow({ href, children, external }: { href: string; children: React.ReactNode; external?: boolean }) {
-  const cls = "flex min-h-[3.25rem] items-center justify-between gap-3 px-4 py-2 text-base font-semibold transition hover:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!";
+  const cls = "flex min-h-[3.25rem] items-center justify-between gap-3 px-4 py-2 text-base font-semibold transition hover:bg-background focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!";
   return external ? (
-    <a href={href} className={cls}>{children}<ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" /></a>
+    <a href={href} className={cls}>{children}<ChevronRightIcon className="h-5 w-5 shrink-0 text-ink" /></a>
   ) : (
-    <Link href={href} className={cls}>{children}<ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" /></Link>
+    <Link href={href} className={cls}>{children}<ChevronRightIcon className="h-5 w-5 shrink-0 text-ink" /></Link>
   );
 }
 
@@ -207,18 +210,19 @@ export default function SettingsPage() {
 
   return (
     <div>
-      {/* Settings is the gear on Home (and a button at the top right of Eat out), not a tab: Back returns to the page before (Home by default) */}
-      <BackLink href="/app" label={t("Back to home")} />
+      {/* Settings is the cog at the top right of every page, not a tab: Back returns to the page before (Home by default); no cog on Settings itself */}
+      <PageHeader back={{ href: "/app", label: t("Back to home") }} settings={false} />
       <h1 className="mt-4 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{t("Settings")}</h1>
 
       {/* The guided setup with Pip (the welcome screens: a short tour, then the questions), for anyone who skipped it or wants to go through it again. */}
-      <Link href="/app/welcome" className="glass mt-5 flex min-h-[4.75rem] items-center gap-3.5 rounded-[1.25rem] px-4 py-3 transition-colors hover:bg-[var(--fill)] active:bg-soft-strong">
-        <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-[var(--sun)]"><Pip mood="wave" size={40} className="translate-y-0.5" /></span>
+      <Link href="/app/welcome" className="glass mt-5 flex min-h-[4.75rem] items-center gap-3.5 rounded-[1.25rem] px-4 py-3 transition-colors hover:bg-background active:bg-background">
+        {/* Pip bare, on no disc (he melts into one) */}
+        <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center"><Pip mood="wave" size={44} /></span>
         <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
           <span className="block text-base font-bold leading-snug">{t("Set up your plan again")}</span>
           <span className="mt-0.5 block text-sm leading-snug text-muted">{TEXT_SIZE_CHOICE_ENABLED ? t("A short tour of the app, then your goal, diet, daily numbers, shops and text size.") : t("A short tour of the app, then your goal, diet, daily numbers and shops.")}</span>
         </span>
-        <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted" />
+        <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-ink" />
       </Link>
 
       <Section title={t("Account")} id="account">
@@ -234,15 +238,15 @@ export default function SettingsPage() {
       <Section title={t("Help")}>
         <div className="glass divide-y divide-line overflow-hidden rounded-[1.25rem]">
           {/* near the top, where it's looked for (usability test 2026-11-19: Frank scrolled the whole of Settings to find Contact us under About) */}
-          <button type="button" onClick={() => setContactOpen(true)} className="flex min-h-[3.25rem] w-full items-center justify-between gap-3 px-4 py-2 text-start text-base font-semibold transition hover:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">{t("Contact us")}<ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" /></button>
+          <button type="button" onClick={() => setContactOpen(true)} className="flex min-h-[3.25rem] w-full items-center justify-between gap-3 px-4 py-2 text-start text-base font-semibold transition hover:bg-background focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">{t("Contact us")}<ChevronRightIcon className="h-5 w-5 shrink-0 text-ink" /></button>
           <LinkRow href="/app/welcome?tour=1">{t("Show me around again")}</LinkRow>
           {/* Pip's tips on the real screens again (lib/mm/coach.ts): switched on, then Home, where the first ones show */}
-          <Link href="/app" onClick={() => coachStore.set(COACH_ARMED)} className="flex min-h-[3.25rem] items-center justify-between gap-3 px-4 py-2 text-base font-semibold transition hover:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">
+          <Link href="/app" onClick={() => coachStore.set(COACH_ARMED)} className="flex min-h-[3.25rem] items-center justify-between gap-3 px-4 py-2 text-base font-semibold transition hover:bg-background focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">
             <span className="min-w-0 [overflow-wrap:anywhere]">
               <span className="block">{t("Show me the buttons on each screen")}</span>
               <span className="mt-0.5 block text-sm font-normal leading-snug text-muted">{t("Pip points out what each button does, the next time you open each tab.")}</span>
             </span>
-            <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />
+            <ChevronRightIcon className="h-5 w-5 shrink-0 text-ink" />
           </Link>
         </div>
       </Section>
@@ -273,7 +277,8 @@ export default function SettingsPage() {
           <div className="mt-4 flex flex-wrap items-center gap-2.5">
             <Button onClick={saveTargets}>{t("Save targets")}</Button>
             {/* A quiet disclosure, not a second pill: the form it opens ends with its own "Suggest targets" button, then "Use these" fills the four boxes above. */}
-            <button type="button" aria-expanded={suggest} onClick={() => setSuggest((v) => !v)} className="inline-flex min-h-11 items-center gap-1.5 rounded-full px-3 text-[0.9375rem] font-semibold text-accent transition hover:bg-soft-strong active:scale-95">
+            {/* green words are always underlined (green means a link) */}
+            <button type="button" aria-expanded={suggest} onClick={() => setSuggest((v) => !v)} className="inline-flex min-h-11 items-center gap-1.5 rounded-full px-3 text-[0.9375rem] font-semibold text-accent underline underline-offset-[3px] transition hover:bg-background active:scale-95">
               {t("Suggest targets")}
               <ChevronRightIcon aria-hidden className={`h-4 w-4 transition-transform ${suggest ? "rotate-90 rtl:-rotate-90" : ""}`} />
             </button>
@@ -281,7 +286,7 @@ export default function SettingsPage() {
           {dirty && !(targetsMessage && !targetsMessage.ok) && <p role="status" className={messageClass}>{t("Not saved yet. Tap “Save targets” to keep them.")}</p>}
           {targetsMessage && (targetsMessage.ok
             ? <p role="status" className="mt-3 text-[0.9375rem] font-semibold text-foreground">{t(targetsMessage.text)}</p>
-            : <p role="alert" className={messageClass}>{t(targetsMessage.text)}</p>)}
+            : <p role="alert" className={`${messageClass} flex items-start gap-1.5 text-danger`}><AlertCircleIcon aria-hidden className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0" /><span className="min-w-0">{t(targetsMessage.text)}</span></p>)}
           {suggest && (
             <div className="mt-4">
               <TargetSuggestForm goal={settings.goal} preferences={settings.preferences} onApply={(s) => { setCalories(s.calories); setProtein(s.protein); setCarbs(s.carbs); setFat(s.fat); setSuggest(false); setTargetsMessage(null); focusTargetBox("#targets input"); }} />
@@ -309,11 +314,15 @@ export default function SettingsPage() {
       {GATING_ENABLED && (
         <Section title={t("Subscription")}>
           <Card className="p-4">
-            <p className="text-[1.0625rem] font-bold">{isPro(settings, paid, nowMs) ? (PRO_PREVIEW_FROM_ENV || settings.devProOverride ? t("Pro (preview, for testing)") : t("Pro")) : t("Free")}</p>
+            {/* a calm status in plain words, never a countdown colour (O3: "Premium" is the one name on screen) */}
+            <div className="flex flex-wrap items-center gap-2">
+              <p className="text-[1.0625rem] font-bold">{isPro(settings, paid, nowMs) ? (PRO_PREVIEW_FROM_ENV || settings.devProOverride ? t("Premium (preview, for testing)") : t("Premium")) : t("Free")}</p>
+              <PremiumBadge />
+            </div>
             {paid.until && paid.until > nowMs && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Access until {date}.", { date: formatDate(new Date(paid.until).toISOString().slice(0, 10), t) })}</p>}
             {!paid.until && paid.unlockUntil && paid.unlockUntil > nowMs && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Unlocked for sharing, until {date}.", { date: formatDate(new Date(paid.unlockUntil).toISOString().slice(0, 10), t) })}</p>}
-            {PAID_ACCESS_ENABLED ? <Link href="/app/pro" className="mt-3 inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-base font-bold text-background">{trial ? t("Start your {days}-day free trial", { days: trial }) : t("See plans")}</Link>
-              : !PAYMENTS_ENABLED && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Pro isn't available on the web yet. Every chain's full menu with calories and macros stays free.")}</p>}
+            {PAID_ACCESS_ENABLED ? <LinkButton href="/app/pro" className="mt-3 min-h-12 px-6 text-base">{trial ? t("Start your {days}-day free trial", { days: trial }) : t("See plans")}</LinkButton>
+              : !PAYMENTS_ENABLED && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Premium isn't available on the web yet. Every chain's full menu with calories and macros stays free.")}</p>}
             {IAP_ENABLED && <AppStoreAccountButtons />}
           </Card>
         </Section>
@@ -328,7 +337,7 @@ export default function SettingsPage() {
           {/* When the menus were last published, with a quiet pill to fetch them again. */}
           <p className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 px-4 py-3 text-[0.9375rem] leading-snug text-muted">
             <span className="min-w-0 flex-[1_1_10rem] [text-wrap:balance]">{menu.dataVersion ? <>{t("Menus updated {date}.", { date: formatDate(dataVersionDate(menu.dataVersion), t) })} </> : menu.status === "error" ? <>{t("Couldn't reach the menus.")} </> : <>{t("No menus published yet.")} </>}</span>
-            <button type="button" className="inline-flex min-h-11 shrink-0 items-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.875rem] font-bold text-foreground transition active:scale-95 hover:bg-[var(--fill)]" onClick={() => { menuClient.invalidate(); void menuClient.ensureManifest(true); }}>{t("Refresh menus")}</button>
+            <Button variant="secondary" className="shrink-0 px-4 text-[0.875rem]" onClick={() => { menuClient.invalidate(); void menuClient.ensureManifest(true); }}>{t("Refresh menus")}</Button>
           </p>
         </div>
       </Section>
@@ -341,8 +350,8 @@ export default function SettingsPage() {
                 <p className="text-[0.9375rem] font-semibold leading-snug">{i.kind === "report" ? t("Number report") : i.kind === "chainRequest" ? t("Chain request") : t("Message")} · {i.status === "failed" ? t("couldn't be sent") : t("will send when you're online")}</p>
                 {i.status === "failed" && (
                   <div className="mt-3 flex flex-wrap gap-2">
-                    <a className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 items-center rounded-full px-5 text-[15px] font-semibold hover:bg-[var(--fill)]" href={mailtoFor(i, site.supportEmail)}>{t("Email instead")}</a>
-                    <Button variant="secondary" onClick={() => outbox().remove(i.id)}>{t("Delete")}</Button>
+                    <a className="inline-flex min-h-11 items-center rounded-full border-[1.5px] border-edge bg-card px-5 text-[0.9375rem] font-semibold text-foreground transition active:scale-[0.97] hover:bg-background" href={mailtoFor(i, site.supportEmail)}>{t("Email instead")}</a>
+                    <Button variant="danger" onClick={() => outbox().remove(i.id)}>{t("Delete")}</Button>
                   </div>
                 )}
               </li>
@@ -365,16 +374,17 @@ export default function SettingsPage() {
         <Card className="p-4">
           <p className="text-[0.9375rem] leading-snug text-muted">{account ? t("Because you're signed in, your settings, saved meals, shopping list, favourites and today's log are also saved in your account, so they follow you to your other devices. Everything else stays on this device.") : t("Your settings, saved orders and log stay on this device. We never receive them.")}</p>
           {!APP_BUILD && <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Browsers can clear site data they haven't seen in a while (iPhone Safari can after about a week). Adding {app} to your Home Screen, and opening it now and then, keeps your data safe.", { app: site.name })}</p>}
-          <Button variant="secondary" className="mt-4" onClick={() => setClearOpen(true)}>{t("Clear data on this device")}</Button>
+          {/* destructive: white with a red edge and red words, last in the card and apart from the rest */}
+          <Button variant="danger" className="mt-5" onClick={() => setClearOpen(true)}>{t("Clear data on this device")}</Button>
         </Card>
       </Section>
 
       {DEV_TOOLS_ENABLED && (
         <Section title={t("Testing tools")}>
           <Card className="space-y-2 p-3">
-            {GATING_ENABLED && <Toggle label={t("Pro preview")} description={t("Unlock Pro features without paying (testing builds only)")} checked={settings.devProOverride} onChange={(v) => updateSettings({ devProOverride: v })} />}
+            {GATING_ENABLED && <Toggle label={t("Premium preview")} description={t("Unlock Premium features without paying (testing builds only)")} checked={settings.devProOverride} onChange={(v) => updateSettings({ devProOverride: v })} />}
             <Button variant="secondary" full onClick={() => { updateSettings({ hasCompletedOnboarding: false }); tourStore.reset(); coachStore.reset(); homePagesStore.reset(); }}>{t("Reset onboarding")}</Button>
-            <Button variant="secondary" full onClick={() => logStore.reset()}>{t("Clear logs")}</Button>
+            <Button variant="danger" full onClick={() => logStore.reset()}>{t("Clear logs")}</Button>
           </Card>
         </Section>
       )}
@@ -393,9 +403,10 @@ export default function SettingsPage() {
       <Sheet open={clearOpen} onClose={() => setClearOpen(false)} title={t("Clear data on this device")}>
         <p className="pt-1 text-base leading-snug">{APP_BUILD ? (TEXT_SIZE_CHOICE_ENABLED ? t("This removes your goal, targets, saved orders, log, water you added, reminders you set, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this phone. It can't be undone. Your text size stays as it is, and the app starts again from the beginning.") : t("This removes your goal, targets, saved orders, log, water you added, reminders you set, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this phone. It can't be undone. The app starts again from the beginning.")) : (TEXT_SIZE_CHOICE_ENABLED ? t("This removes your goal, targets, saved orders, log, water you added, reminders you set, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this browser. It can't be undone. Your text size stays as it is, and the app starts again from the beginning.") : t("This removes your goal, targets, saved orders, log, water you added, reminders you set, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this browser. It can't be undone. The app starts again from the beginning."))}</p>
         {account && <p className="mt-2.5 text-base leading-snug">{t("This also signs you out of your account on this device. What is synced stays in your account.")}</p>}
-        <div className="mt-5 space-y-2 pb-2">
-          <Button full className="min-h-12 text-base" onClick={async () => { const keepSize = settings.textSize; await leaveForClearing(); settingsStore.set({ ...DEFAULT_SETTINGS, ...(keepSize ? { textSize: keepSize } : {}) }); tourStore.reset(); coachStore.reset(); homePagesStore.reset(); savedStore.reset(); logStore.reset(); waterStore.reset(); clearReminders(); favoritesStore.reset(); shoppingStore.reset(); mealPlanStore.reset(); earlierPlansStore.reset(); householdStore.reset(); myRecipesStore.reset(); void clearRecipePhotos(); savedRecipesStore.reset(); cupboardStore.reset(); recentStore.reset(); compareStore.reset(); comparePicksStore.reset(); ratingStore.reset(); outbox().clear(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); sessionStorage.removeItem("mm.finder"); sessionStorage.removeItem("mm.sharedAdded"); localStorage.removeItem("mm.v1.mapArea"); } catch { /* storage blocked */ } setClearOpen(false); router.replace("/app/welcome?cleared=1"); }}>{t("Clear everything")}</Button>
-          <Button full variant="ghost" onClick={() => setClearOpen(false)}>{t("Cancel")}</Button>
+        {/* Cancel first (secondary, on the left), then the red Clear everything on the right; stacked when the text is large */}
+        <div className="mt-5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-2 pb-2">
+          <Button full variant="secondary" className="min-h-12 text-base" onClick={() => setClearOpen(false)}>{t("Cancel")}</Button>
+          <Button full variant="dangerFilled" className="min-h-12 text-base" onClick={async () => { const keepSize = settings.textSize; await leaveForClearing(); settingsStore.set({ ...DEFAULT_SETTINGS, ...(keepSize ? { textSize: keepSize } : {}) }); tourStore.reset(); coachStore.reset(); homePagesStore.reset(); savedStore.reset(); logStore.reset(); waterStore.reset(); clearReminders(); favoritesStore.reset(); shoppingStore.reset(); mealPlanStore.reset(); earlierPlansStore.reset(); householdStore.reset(); myRecipesStore.reset(); void clearRecipePhotos(); savedRecipesStore.reset(); cupboardStore.reset(); recentStore.reset(); compareStore.reset(); comparePicksStore.reset(); ratingStore.reset(); outbox().clear(); forgetInstallId(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); sessionStorage.removeItem("mm.finder"); sessionStorage.removeItem("mm.sharedAdded"); localStorage.removeItem("mm.v1.mapArea"); } catch { /* storage blocked */ } setClearOpen(false); router.replace("/app/welcome?cleared=1"); }}>{t("Clear everything")}</Button>
         </div>
       </Sheet>
     </div>

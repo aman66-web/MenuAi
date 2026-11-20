@@ -41,21 +41,23 @@ export function TruthButton({ chain, item }: { chain: Chain; item: MenuItem }) {
         type="button"
         aria-haspopup="dialog"
         onClick={() => request("truth")}
-        className="glass flex min-h-[4.75rem] w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-3 text-start transition-colors hover:bg-[var(--fill)] active:bg-soft-strong"
+        className="glass flex min-h-[4.75rem] w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-3 text-start transition-colors hover:bg-background active:bg-background"
       >
-        <span aria-hidden className="bg-sun inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[var(--on-accent)]"><FlameIcon className="h-5 w-5" /></span>
+        {/* a page-fill well with the icon in the link green (lime is never a disc or decoration) */}
+        <span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-fill text-accent"><FlameIcon className="h-5 w-5" /></span>
         <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
           <span className="block text-base font-bold leading-snug">{t("See the truth")}</span>
           <span className="mt-0.5 block text-sm leading-snug text-muted">{t("Calories, protein score and traffic lights")}</span>
         </span>
-        <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted" />
+        <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-ink" />
       </button>
       {swap && (
         <button
           type="button"
           aria-haspopup="dialog"
           onClick={() => request("swap")}
-          className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[var(--tl-green)] px-6 text-center text-base font-bold leading-snug text-[var(--tl-ink)] transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          // secondary (Elsie found Smart Swap the loudest button on the dish page); the traffic-light green is only for the FSA pills
+          className="inline-flex min-h-12 w-full items-center justify-center rounded-full border-[1.5px] border-edge bg-card px-6 text-center text-base font-semibold leading-snug text-foreground transition active:scale-[0.97] hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
           {t("Show a Smart Swap at {chain}", { chain: chain.name })}
         </button>

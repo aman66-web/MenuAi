@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { chainHref } from "@/lib/mm/routes";
 import { useRouter } from "next/navigation";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
@@ -25,11 +24,12 @@ import { AllergenSection } from "../_components/Allergens";
 import { useGate } from "../_components/Paywall";
 import { linesImage } from "../_components/addfood/EntryPicture";
 import { ItemThumb } from "../_components/ItemPhoto";
-import { ChevronLeftIcon, LockIcon, MinusIcon, PlusIcon, SwapIcon, TrashIcon } from "../_components/icons";
+import { LockIcon, MinusIcon, PlusIcon, SwapIcon, TrashIcon } from "../_components/icons";
 import { MacroSummary, SMALL_LABEL } from "../_components/Nutrition";
+import { PageHeader } from "../_components/PageHeader";
 import { ShareButton } from "../_components/ShareButton";
 import { Button, Card, Chip, ErrorBox, Field, inputClass, Sheet, Spinner } from "../_components/ui";
-import { backName, travelBack, useBack } from "../_lib/backNav";
+import { travelBack } from "../_lib/backNav";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useChain, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
@@ -86,11 +86,9 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
   const { status, index, error, retry } = useChain(props.chainId);
   const saved = useStore(savedStore);
 
-  // the page before (the dish, a saved meal, Today...) when there is one in the app, else the restaurant's menu (Eat out when the link names no restaurant)
-  const nav = useBack(props.chainId ? chainHref(props.chainId) : "/app/eat-out");
-  const back = (
-    <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), props.chainId ? t("Back to menu") : t("Back to restaurants"), nav.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
-  );
+  // the header every page has (colour meeting, 19 November 2026): Back goes to the page before (the dish, a saved meal, Today...) when there is one in the
+  // app, else the restaurant's menu (Eat out when the link names no restaurant); the Settings cog far right
+  const back = <PageHeader back={props.chainId ? { href: chainHref(props.chainId), label: t("Back to menu") } : { href: "/app/eat-out", label: t("Back to restaurants") }} />;
   if (!hydrated || status === "loading") return (<div>{back}<Spinner label={t("Loading")} /></div>);
   if (!pro) {
     return (
@@ -100,8 +98,8 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
         <Card className="mt-5 flex flex-col items-center gap-3 p-6 text-center">
           <span aria-hidden className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--fill)]"><LockIcon className="h-6 w-6 text-muted" /></span>
           <p className="text-base font-semibold">{t("Customise any order with live totals")}</p>
-          <p className="text-[0.9375rem] text-muted">{t("The order builder is part of Pro.")}</p>
-          <Button onClick={() => showPaywall("orderBuilder")}>{t("See Pro")}</Button>
+          <p className="text-[0.9375rem] text-muted">{t("The order builder is part of Premium.")}</p>
+          <Button onClick={() => showPaywall("orderBuilder")}>{t("See Premium")}</Button>
         </Card>
       </div>
     );
@@ -142,9 +140,6 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
   const log = useStore(logStore);
   const now = useNow();
   const { chain } = ix;
-  // Was a button that always took the browser's Back, which leaves the app (or does nothing) when the builder was opened by address; now the same
-  // as the Back above: the page before when there is one in the app, else the restaurant's menu.
-  const back = useBack(chainHref(chain.id));
 
   const [lines, setLines] = useState<OrderLine[]>(start.lines);
   const [customName, setCustomName] = useState<string | null>(start.savedName ?? null);
@@ -202,9 +197,9 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
 
   return (
     <div>
-      <div className="flex items-center justify-between">
-        <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to menu"), back.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
-      </div>
+      {/* Back: the page before when there is one in the app (it was a button that always took the browser's Back, which left the app when the builder
+          was opened by address), else the restaurant's menu; the Settings cog far right */}
+      <PageHeader back={{ href: chainHref(chain.id), label: t("Back to menu") }} />
       <p className="kicker mt-5">{chain.name}</p>
       <h1 className={`mt-1.5 ${TITLE}`}>{t("Build your order")}</h1>
 
@@ -260,7 +255,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
       {/* `glass`: a white card that floats above the tab bar like the bar itself, and the secondary buttons on it take the grey fill
           (globals.css) so they keep their edges. While it floats, a hairline and a soft shadow above and below give it an edge, so the
           white cards scrolling under it read as passing beneath a card, not as cut off. */}
-      <div ref={summaryRef} className={`glass @container z-10 mt-5 rounded-[1.25rem] p-4 ${pinned ? "sticky bottom-[calc(5.5rem+env(safe-area-inset-bottom))] ring-1 ring-[var(--line)] shadow-[0_-12px_28px_-18px_rgba(17,24,20,0.30),0_16px_40px_-16px_rgba(17,24,20,0.35)]" : ""}`}>
+      <div ref={summaryRef} className={`glass @container z-10 mt-5 rounded-[1.25rem] p-4 ${pinned ? "sticky bottom-[calc(5.5rem+env(safe-area-inset-bottom))] ring-1 ring-[var(--line)] shadow-[var(--shadow-lift)]" : ""}`}>
         {total && valid.ok ? (
           <>
             <div aria-live="polite"><MacroSummary compact nutrients={total} label={t("Order total: {kcal}, {protein} grams protein", { kcal: formatCalories(total.calories), protein: Math.round(total.protein ?? 0) })} /></div>
@@ -355,7 +350,7 @@ function ComponentLineEditor({ ix, line, onDouble, onRemove, onSwap, onAdd }: {
                 </div>
                 <div className="ms-auto flex shrink-0 items-center">
                   {comp.allowDouble && (
-                    <button type="button" aria-pressed={ref.qty === 2} aria-label={t("Double {name}", { name: lowerFirst(comp.name) })} onClick={() => onDouble(comp.id, ref.qty !== 2)} className={`me-0.5 min-h-9 rounded-full px-3.5 text-sm font-bold transition ${ref.qty === 2 ? "bg-sun text-on-accent" : "bg-white text-foreground hover:bg-soft-strong"} relative before:absolute before:inset-x-0 before:-inset-y-1 before:content-['']`}>{t("Double")}</button>
+                    <button type="button" aria-pressed={ref.qty === 2} aria-label={t("Double {name}", { name: lowerFirst(comp.name) })} onClick={() => onDouble(comp.id, ref.qty !== 2)} className={`me-0.5 min-h-9 rounded-full px-3.5 text-sm font-bold transition ${ref.qty === 2 ? "bg-sun text-on-accent" : "bg-card text-foreground hover:bg-soft-strong"} relative before:absolute before:inset-x-0 before:-inset-y-1 before:content-['']`}>{t("Double")}</button>
                   )}
                   {swapOptions(ix, line, comp.id).length > 0 && (
                     <button type="button" aria-label={t("Swap {name}", { name: comp.name })} onClick={() => onSwap(comp.id)} className={ICON_BUTTON}><SwapIcon className="h-5 w-5" /></button>
@@ -470,7 +465,7 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
                   <li key={i.id} className={menuPhotos ? "@container" : undefined}>
                     <button type="button" onClick={() => onPickItem(i.id)} className={menuPhotos ? dishChoice : choice}>
                       {/* on the sheet's grey list, the fork tile of a dish without a photo is white, like the photos' own background */}
-                      {menuPhotos && <span className="hidden shrink-0 @[16rem]:block [&>span]:bg-white"><ItemThumb image={i.image} placeholder /></span>}
+                      {menuPhotos && <span className="hidden shrink-0 @[16rem]:block [&>span]:bg-card"><ItemThumb image={i.image} placeholder /></span>}
                       <span className="min-w-0 flex-1 text-base font-semibold leading-snug [overflow-wrap:anywhere]">{i.name}</span>
                       <span className="shrink-0 font-mono text-[0.8125rem] text-muted">{formatCalories(i.nutrients.calories)}</span>
                     </button>

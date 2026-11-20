@@ -6,8 +6,11 @@ import { formatPrice, retailerName } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
 import { foodDietProblem } from "@/lib/mm/foodDiet";
 import { nutritionBasis, shopListItem, shopPageUrl, shopPhotoSources } from "@/lib/mm/shopProducts";
-import { CheckIcon, ExternalIcon, InfoIcon } from "../../../_components/icons";
-import { ErrorBox, Spinner } from "../../../_components/ui";
+import { CheckIcon, ExternalIcon } from "../../../_components/icons";
+import { InfoLine } from "../../../_components/Note";
+import { PageHeader } from "../../../_components/PageHeader";
+import { Toast } from "../../../_components/Toast";
+import { ErrorBox, LinkButton, Spinner } from "../../../_components/ui";
 import { loadRetailer } from "../../../_lib/groceries";
 import { usePossessive, useT } from "../../../_lib/i18n";
 import { useSettings, useStore } from "../../../_lib/hooks";
@@ -17,13 +20,14 @@ import { ProductPhotoFigure } from "../../ProductPhoto";
 import { CompareButton } from "../../../_components/CompareButton";
 import { compareFoodFromShop } from "../../../_lib/compare";
 import { NutritionPanel } from "../../NutritionPanel";
-import { BackLink, CARD, FootNote, HEADING, MainButton, NOTE } from "../../PageBits";
+import { CARD, FootNote, HEADING, MainButton, NOTE } from "../../PageBits";
 import { listHref, useAddToList } from "../../ListChoice";
 
 // One product from a shop's full list: what the shop's own category page printed. We have not read this product's page, so no calories, protein or allergens
 // here unless its barcode is one the Groceries list already has numbers for (then the full page is one tap away).
-// Looks follow Home (founder 2026-10-15): one white card holding the picture, the name as a big title and the price as one big figure in a regular
-// weight; the nutrition as Home's macro rows (NutritionPanel); the one main action as the black pill with a small lime round icon.
+// Looks follow Home (founder 2026-10-15): one white card holding the picture, the name as a big title and the price as one big figure, extra bold in the
+// body's ink (colour meeting, 19 November 2026: never the link green); the nutrition as the label's own rows (NutritionPanel); the one main action as the ink
+// pill; what is already on a list said in words with a tick, and each add confirmed by the one toast.
 export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   const t = useT();
   const poss = usePossessive();
@@ -32,9 +36,9 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   const state = useShopProducts(shop, retry);
   const product = useMemo(() => (state.status === "ready" ? state.products.find((p) => p.id === id) : undefined), [state, id]);
   const [inCatalogue, setInCatalogue] = useState(false);
-  const [added, setAdded] = useState<{ text: string; href: string } | null>(null);
-  // to the main list, or (when the person has lists for this shop) the one they choose
-  const { add, sheet } = useAddToList((list, item) => setAdded(list ? { text: t("Added to {list}.", { list: list.name }), href: listHref(list.id) } : { text: t("Added to your {shop} list.", { shop: state.status === "ready" ? state.file.name : retailerName(item.retailer) }), href: listHref() }));
+  const [added, setAdded] = useState<{ text: string; href: string; n: number } | null>(null);
+  // to the main list, or (when the person has lists for this shop) the one they choose; said in the toast, each add a new one
+  const { add, sheet } = useAddToList((list, item) => setAdded((was) => ({ ...(list ? { text: t("Added to {list}.", { list: list.name }), href: listHref(list.id) } : { text: t("Added to your {shop} list.", { shop: state.status === "ready" ? state.file.name : retailerName(item.retailer) }), href: listHref() }), n: (was?.n ?? 0) + 1 })));
   const gtin = product?.gtin ?? "";
   // how many are on the person's lists already (usability test 2026-11-19: Stan tapped Add twice because the button looked the same after the first tap)
   const listed = useStore(shoppingStore);
@@ -49,7 +53,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
     return () => { cancelled = true; };
   }, [shop, gtin]);
 
-  const back = <BackLink href={`/app/groceries/shop?r=${shop}`} label={t("Back to the full list")} />;
+  const back = <PageHeader back={{ href: `/app/groceries/shop?r=${shop}`, label: t("Back to the full list") }} list />;
   if (state.status === "loading") return (<div>{back}<Spinner label={t("Loading product")} /></div>);
   if (state.status === "error") return (<div>{back}<div className="mt-4"><ErrorBox message={t("Couldn't load this product. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div></div>);
   if (!product) return (<div>{back}<div className="mt-4"><ErrorBox message={t("That product isn't in the list.")} /></div></div>);
@@ -77,10 +81,11 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
         <p className="kicker">{file.name}</p>
         <h1 className="mt-1.5 text-[2rem] font-[800] leading-[1.08] tracking-[-0.02em] [overflow-wrap:anywhere]">{product.name}</h1>
         <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{product.category}</p>
-        {foodDietProblem({ name: product.name, category: product.category }, prefs) && <p className="mt-4 flex items-start gap-2.5 rounded-2xl bg-[var(--fill)] px-4 py-3 text-[0.9375rem] leading-snug"><InfoIcon className="mt-0.5 h-4 w-4 shrink-0 text-muted" />{t("This product doesn't fit your diet settings, going by its name, type and label.")}</p>}
+        {/* by name and category only (no allergens read here), so never the amber allergy note: the calm info line */}
+        {foodDietProblem({ name: product.name, category: product.category }, prefs) && <InfoLine heading={null} className="mt-4">{t("This product doesn't fit your diet settings, going by its name, type and label.")}</InfoLine>}
         {product.price !== null ? (
           <p className="app-numbers mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <span className="text-[2.75rem] font-medium leading-none tracking-[-0.03em] text-foreground">{formatPrice(product.price)}</span>
+            <span className="text-[2.75rem] font-[800] leading-none tracking-[-0.03em] text-foreground">{formatPrice(product.price)}</span>
             {product.unitPrice !== null && product.unit && <span className="text-[0.9375rem] text-muted">{formatPrice(product.unitPrice)} {product.unit}</span>}
           </p>
         ) : (
@@ -94,7 +99,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
           </>
         )}
         {product.member && (
-          <p className="app-numbers mt-4 rounded-2xl bg-[var(--fill)] px-4 py-3 text-base">
+          <p className="app-numbers mt-4 rounded-2xl bg-fill px-4 py-3 text-base">
             <span className="font-bold text-foreground">{formatPrice(product.member.amount)}</span> <span className="font-semibold">{t("with {scheme}", { scheme: product.member.scheme.replace(/ price$/i, "") })}</span>
             <span className={`mt-0.5 block ${NOTE}`}>{t("Needs {shopPossessive} loyalty card.", { shopPossessive: poss(file.name) })} {t("The regular price above is what everyone pays.")}</span>
           </p>
@@ -105,8 +110,9 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
       <div className="mt-4 grid gap-3">
         {onLists > 0 && (
           <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-base font-semibold">
-            <span className="inline-flex items-center gap-1.5"><span aria-hidden className="grid h-6 w-6 place-items-center rounded-full bg-sun text-on-accent"><CheckIcon className="h-3.5 w-3.5" strokeWidth={3} /></span>{onLists === 1 ? t("On your list") : t("{n} on your list", { n: onLists })}</span>
-            <Link href={added?.href ?? listHref()} className="underline underline-offset-4">{t("See list")}</Link>
+            {/* a status in the body's ink with a tick (lime is never a tick bullet) */}
+            <span className="inline-flex items-center gap-1.5"><CheckIcon aria-hidden className="h-5 w-5 shrink-0 text-ink" strokeWidth={2.6} />{onLists === 1 ? t("On your list") : t("{n} on your list", { n: onLists })}</span>
+            <Link href={added?.href ?? listHref()} className="text-accent underline underline-offset-[3px]">{t("See list")}</Link>
           </p>
         )}
         <MainButton onClick={() => add(shopListItem(file, product))}>
@@ -116,7 +122,8 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
         {compareItem && <div><CompareButton full item={compareItem} /></div>}
       </div>
       {/* takes no room until there is something to say, so no empty band sits between the buttons and the next card */}
-      <p role="status" aria-live="polite" className="text-center text-sm font-medium text-foreground [&:not(:empty)]:mt-3">{added && <>{added.text}{onLists === 0 && <> <Link href={added.href} className="text-accent underline underline-offset-2">{t("See list")}</Link></>}</>}</p>
+      {/* the one toast; "See list" is in the line above the button */}
+      {added && <Toast key={added.n} onClose={() => setAdded(null)}>{added.text}</Toast>}
       {sheet}
 
       <section aria-labelledby="nutrition-heading" className={`${CARD} mt-3.5 p-5`}>
@@ -134,7 +141,8 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
         ) : inCatalogue ? (
           <>
             <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("We have calories, protein, carbs, fat and allergens for this product.")}</p>
-            <Link href={`/app/groceries/product?code=${product.gtin}&r=${shop}`} className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-ink px-5 text-[0.9375rem] font-bold text-on-ink transition active:scale-[0.97] hover:bg-[var(--ink-pressed)]">{t("See the nutrition")}</Link>
+            {/* secondary: "Add to my list" above stays the screen's one ink button */}
+            <LinkButton href={`/app/groceries/product?code=${product.gtin}&r=${shop}`} variant="secondary" className="mt-4">{t("See the nutrition")}</LinkButton>
           </>
         ) : (
           <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("We haven't read the nutrition for this product yet. The label on the pack has it, and so does the product's page on {shopPossessive} website.", { shopPossessive: poss(file.name) })}</p>

@@ -123,7 +123,7 @@ export function useReminderEditor(focusId: string): ReminderEditor {
           <span className="min-w-0 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{t("Reminder deleted.")}</span>
           <button
             type="button"
-            className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-on-ink underline underline-offset-2 transition hover:bg-white/10"
+            className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-on-ink underline underline-offset-2 transition hover:bg-on-ink/10"
             onClick={() => {
               restoreReminder(undo);
               setUndo(null);

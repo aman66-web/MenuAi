@@ -9,18 +9,23 @@ import { BOARDS, LEFT_OUT_NOTE, isLeaderboardsFile, type BoardEntry, type BoardI
 import { FREE_LEADERBOARD_ROWS } from "@/lib/mm/paid";
 import { shopPhotoSources } from "@/lib/mm/shopProducts";
 import { ShopPrices } from "../ShopPrices";
+import { PageHeader } from "../../_components/PageHeader";
 import { useGate } from "../../_components/Paywall";
-import { Button, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
+import { InfoLine } from "../../_components/Note";
+import { PremiumBadge } from "../../_components/PremiumBadge";
+import { Button, ChoiceMark, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
 import { useIsPro } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { ListThumb } from "../ProductPhoto";
-import { BackLink, CARD, FootNote, HEADING, TITLE } from "../PageBits";
+import { CARD, FootNote, HEADING, TITLE } from "../PageBits";
 
 // Nutrition leaderboards (founder 2026-11-18, in place of Groceries' "Cheapest protein" shortcut): the top 20 supermarket products for one figure at a time, from
 // every shop in the app (lib/mm/leaderboards.ts; worked out when the shop lists are rebuilt). Big board tiles at the top say what each one ranks; each row shows
 // the product's photo, its figure, and the logo of every supermarket that sells it (founder: "if the same product is sold by multiple shops, include all the
 // logos"). The board lives in the address (?board=protein), so Back and a link keep it. Numbers only: nothing is called good or bad. "Cheapest protein"'s
-// own page (with its everyday-or-branded pairs) is linked from its board.
+// own page (with its everyday-or-branded pairs) is linked from its board. The colour meeting (19 November 2026, approved by the founder that day): the board
+// tiles are choices (white with the edge and an empty ring; the one showing lime with the dark green edge and a tick, never dark); the ranks are plain ink
+// figures in page-fill circles, with no lime or medal colours for the top three (the ranking is the order, not a colour); every price in the body's ink.
 
 /** True in the free iPhone app's copy (build-time constant): no paid tier there, so the locked-rows button is left out of the app's files. */
 const FREE_APP = process.env.NEXT_PUBLIC_APP_BUILD === "1" && process.env.NEXT_PUBLIC_IAP !== "1";
@@ -54,8 +59,8 @@ function Row({ file, board, entry, rank, unit }: { file: LeaderboardsFile; board
   return (
     <li>
       {/* the figure moves under the name when the text is large (usability test 2026-11-19: at Extra large the name was squeezed to one letter) */}
-      <Link href={productHref(entry)} className="flex min-h-[6rem] flex-wrap items-center gap-x-3 gap-y-2 px-3.5 py-3 transition hover:bg-[var(--fill)] active:bg-[var(--fill)]">
-        <span aria-hidden className={`app-numbers grid h-8 w-8 shrink-0 place-items-center rounded-full text-[0.9375rem] font-extrabold ${rank <= 3 ? "bg-[var(--sun)] text-[var(--on-accent)]" : "bg-[var(--fill)] text-muted"}`}>{rank}</span>
+      <Link href={productHref(entry)} className="flex min-h-[6rem] flex-wrap items-center gap-x-3 gap-y-2 px-3.5 py-3 transition hover:bg-background active:bg-background">
+        <span aria-hidden className="app-numbers grid h-8 w-8 shrink-0 place-items-center rounded-full bg-fill text-[0.9375rem] font-extrabold text-foreground">{rank}</span>
         <ListThumb sources={sources} />
         <span className="min-w-[7.5rem] flex-1 basis-[7.5rem]">
           <span className="line-clamp-3 text-[0.9375rem] font-bold leading-snug [overflow-wrap:break-word]"><span className="sr-only">{rank}. </span>{entry.name}</span>
@@ -64,9 +69,9 @@ function Row({ file, board, entry, rank, unit }: { file: LeaderboardsFile; board
             <ShopPrices items={entry.shops.map((s) => ({ shop: s.shop, name: file.shops[s.shop]?.name ?? s.shop, price: s.price }))} />
           </span>
         </span>
-        <span className="app-numbers ms-auto shrink-0 rounded-[0.875rem] bg-[var(--fill)] px-2.5 py-2 text-center">
+        <span className="app-numbers ms-auto shrink-0 rounded-[0.875rem] bg-fill px-2.5 py-2 text-center">
           <span className="block text-[1.125rem] font-extrabold leading-none tracking-tight">{f.big}{f.small && <span className="ms-0.5 text-[0.8125rem] font-bold">{f.small}</span>}</span>
-          <span className="mt-1 block max-w-[5.5rem] text-[0.6875rem] font-semibold leading-tight text-muted">{unit}</span>
+          <span className="mt-1 block max-w-[5.5rem] text-[0.75rem] font-semibold leading-tight text-muted">{unit}</span>
         </span>
       </Link>
     </li>
@@ -90,17 +95,20 @@ function Boards() {
 
   return (
     <div>
-      <BackLink href="/app/groceries" label={t("Back to groceries")} />
+      <PageHeader back={{ href: "/app/groceries", label: t("Back to groceries") }} list />
       <h1 className={`mt-4 ${TITLE}`}>{t("Nutrition leaderboards")}</h1>
       <p className="mt-2.5 text-base leading-snug">{t("The top 20 supermarket products for one thing at a time, from each product's own label. Tap a board to see it.")}</p>
 
-      {/* the boards: big tiles, two across (one a row with large text), the one showing is dark */}
+      {/* the boards: big tiles, two across (one a row with large text), the one showing lime with the dark green edge and a tick */}
       <div role="radiogroup" aria-label={t("Leaderboards")} className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.5rem),1fr))] gap-2.5">
         {BOARDS.map((b) => (
           <button key={b.id} type="button" role="radio" aria-checked={b.id === board} onClick={() => choose(b.id)}
-            className={`min-h-[4.75rem] rounded-[1.25rem] px-3.5 py-3 text-start transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${b.id === board ? "bg-foreground text-background" : "glass hover:bg-soft-strong"}`}>
-            <span className="block text-base font-[800] leading-snug">{t(b.title)}</span>
-            <span className={`mt-0.5 block text-[0.8125rem] leading-snug ${b.id === board ? "text-white/75" : "text-muted"}`}>{t(b.line)}</span>
+            className={`flex min-h-[4.75rem] items-start gap-2 rounded-[1.25rem] border-[1.5px] px-3.5 py-3 text-start transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${b.id === board ? "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-edge bg-card text-foreground hover:bg-background"}`}>
+            <ChoiceMark on={b.id === board} className="mt-1" />
+            <span className="min-w-0">
+              <span className="block text-base font-[800] leading-snug">{t(b.title)}</span>
+              <span className={`mt-0.5 block text-[0.8125rem] leading-snug ${b.id === board ? "" : "text-muted"}`}>{t(b.line)}</span>
+            </span>
           </button>
         ))}
       </div>
@@ -108,7 +116,7 @@ function Boards() {
       <section aria-labelledby="board-h" className="mt-7">
         <h2 id="board-h" className={HEADING}>{t(info.title)}</h2>
         <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t(info.line)}</p>
-        {board === "meatFreeProtein" && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Chosen by the product's name, with no meat or fish in it: if you're vegetarian or vegan, check the pack.")}</p>}
+        {board === "meatFreeProtein" && <InfoLine heading={null} className="mt-2">{t("Chosen by the product's name, with no meat or fish in it: if you're vegetarian or vegan, check the pack.")}</InfoLine>}
         {file === undefined ? (
           <Spinner label={t("Loading products")} />
         ) : file === null ? (
@@ -121,10 +129,11 @@ function Boards() {
               {rows.slice(0, gated ? FREE_LEADERBOARD_ROWS : rows.length).map((e, i) => <Row key={`${e.shops[0]!.shop}-${e.shops[0]!.id}`} file={file} board={board} entry={e} rank={i + 1} unit={t(info.unit)} />)}
             </ol>
             {gated && rows.length > FREE_LEADERBOARD_ROWS && (
-              <Button size="lg" full variant="secondary" className="mt-3" onClick={() => showPaywall("leaderboard")}>{t("Unlock the other {n}", { n: rows.length - FREE_LEADERBOARD_ROWS })}</Button>
+              /* a Premium-locked control keeps its working look, with the badge (never greyed) */
+              <Button size="lg" full variant="secondary" className="mt-3" onClick={() => showPaywall("leaderboard")}>{t("Unlock the other {n}", { n: rows.length - FREE_LEADERBOARD_ROWS })}<PremiumBadge /></Button>
             )}
             {board === "cheapestProtein" && (
-              <Link href="/app/groceries/protein" className="glass border-[1.5px] border-[color:var(--edge)] bg-soft mt-3 flex min-h-12 items-center justify-center rounded-full px-5 text-center text-[0.9375rem] font-bold transition hover:bg-[var(--fill)]">{t("Compare protein products with everyday ones")}</Link>
+              <Link href="/app/groceries/protein" className="border-[1.5px] border-edge bg-card text-foreground mt-3 flex min-h-12 items-center justify-center rounded-full px-5 text-center text-[0.9375rem] font-bold transition hover:bg-background">{t("Compare protein products with everyday ones")}</Link>
             )}
           </>
         )}

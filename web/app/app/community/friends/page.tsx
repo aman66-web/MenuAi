@@ -11,7 +11,8 @@ import { failureText } from "../../_lib/communityText";
 import { useHydrated } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { useInviteCode } from "../../_lib/inviteCode";
-import { BackLink, CARD, NOTE, TITLE } from "../../groceries/PageBits";
+import { PageHeader } from "../../_components/PageHeader";
+import { CARD, NOTE, TITLE } from "../../groceries/PageBits";
 import { AddFriendCard } from "./AddFriendCard";
 import { ListSection, PersonRow, RowMenuButton } from "./FriendRows";
 import { MyCodeCard } from "./MyCodeCard";
@@ -53,7 +54,7 @@ export default function FriendsPage() {
     return () => clearTimeout(timer);
   }, [note]);
 
-  const back = <BackLink href="/app/community" label={t("Back to community")} />;
+  const back = <PageHeader back={{ href: "/app/community", label: t("Back to community") }} />;
   const heading = <h1 tabIndex={-1} className={`mt-5 ${TITLE} outline-none`}>{t("Friends")}</h1>;
 
   if (!enabled) return null;
@@ -116,7 +117,7 @@ export default function FriendsPage() {
       <AddFriendCard invite={invite} onUsed={clearInvite} />
       {/* what just happened: read out through a region that is always there, and shown at the top of the screen (the row it was about may be far down or gone) */}
       <p role="status" aria-live="polite" className="sr-only">{note}</p>
-      {note && <div aria-hidden className="fixed inset-x-4 top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-auto max-w-md rounded-[1.25rem] bg-foreground px-5 py-3 text-[0.9375rem] font-semibold leading-snug text-background shadow-lg [overflow-wrap:anywhere]">{note}</div>}
+      {note && <div aria-hidden className="fixed inset-x-4 top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-auto max-w-md rounded-[1.25rem] bg-ink px-5 py-3 text-[0.9375rem] font-semibold leading-snug text-on-ink shadow-lg [overflow-wrap:anywhere]">{note}</div>}
 
       <RefreshNote failure={friends.failure ?? me.failure} shown={data !== null} onRetry={() => { me.reload(); friends.reload(); }} />
 

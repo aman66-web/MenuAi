@@ -3,8 +3,8 @@
 import { useDeferredValue, useMemo, useState } from "react";
 import { anyFoodDiet, foodDietCaution, foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
 import { barcodeQuery, GROCERY_SORTS, RETAILERS, searchProducts, type GrocerySort } from "@/lib/mm/groceries";
-import { shoppingStore } from "@/lib/mm/stores";
 import { useRouter } from "next/navigation";
+import { PageHeader } from "../../_components/PageHeader";
 import { ScanIcon, SearchIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../../_components/SearchDone";
@@ -12,9 +12,9 @@ import { Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../../_component
 import { useEntryQuery } from "../../_lib/backNav";
 import { useGroceryCatalogue, useGroceryManifest } from "../../_lib/groceries";
 import { useShopManifest } from "../../_lib/shopProducts";
-import { useSettings, useStore } from "../../_lib/hooks";
+import { useSettings } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
-import { BackLink, FootNote, ListLink, MoreButton, NOTE, PILL_INPUT, SelectField, TITLE } from "../PageBits";
+import { FootNote, MoreButton, NOTE, PILL_INPUT, SelectField, TITLE } from "../PageBits";
 import { ProductRow } from "../ProductRow";
 import { Scanner } from "../Scanner";
 
@@ -27,7 +27,6 @@ const PAGE = 60;
 export function GroceriesSearchScreen({ initialShop }: { initialShop: string | null }) {
   const t = useT();
   const router = useRouter();
-  const list = useStore(shoppingStore);
   // undefined until the person picks: then the first of their supermarkets (Settings) that has products here, else All
   const [picked, setPicked] = useState<string | null | undefined>(initialShop ?? undefined);
   const [category, setCategory] = useState<string | null>(null);
@@ -68,10 +67,7 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
   const reset = () => setShown(PAGE);
   return (
     <div>
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <BackLink href="/app/groceries" label={t("Back to groceries")} />
-        <ListLink count={list.length} />
-      </div>
+      <PageHeader back={{ href: "/app/groceries", label: t("Back to groceries") }} list />
       <h1 className={`mt-5 ${TITLE}`}>{t("Search every shop")}</h1>
       <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Find a product at every supermarket that sells it, with its calories, protein and allergens.")}</p>
 
@@ -81,7 +77,7 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
           <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); reset(); }} placeholder={t("Search groceries")} aria-label={t("Search products or type a barcode")} {...DONE_KEY} autoComplete="off" className={`${PILL_INPUT} ps-11 pe-4 ${DONE_ROOM}`} />
           <SearchDone />
         </div>
-        <button type="button" onClick={() => setScanning(true)} aria-label={t("Scan a barcode")} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-[var(--fill)]">
+        <button type="button" onClick={() => setScanning(true)} aria-label={t("Scan a barcode")} className="border-[1.5px] border-edge bg-card text-foreground inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-background">
           <ScanIcon className="h-5 w-5" />
         </button>
       </div>

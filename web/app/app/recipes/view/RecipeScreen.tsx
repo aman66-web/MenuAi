@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
 import { savedToRecipe } from "@/lib/mm/aiRecipe";
@@ -8,9 +7,9 @@ import { recipeForDiet, resolveRecipe } from "@/lib/mm/recipes";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { recipeShops, recipeShopsFrom, tagShopProducts } from "@/lib/mm/shopProducts";
 import { myRecipesStore, updateSettings } from "@/lib/mm/stores";
-import { ChevronLeftIcon, InfoIcon, TrashIcon } from "../../_components/icons";
+import { InfoIcon, TrashIcon } from "../../_components/icons";
+import { PageHeader } from "../../_components/PageHeader";
 import { Button, ErrorBox, Sheet, Spinner } from "../../_components/ui";
-import { backName, useBack } from "../../_lib/backNav";
 import { useHydrated, useSettings, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { recipeShopSetFor, useRecipeShopSet } from "../../_lib/recipes";
@@ -84,8 +83,9 @@ export function RecipeScreen({ id, mine, shop: asked, have, servings, asWritten 
   );
 
   const backHref = `/app/recipes${shop ? `?r=${shop}` : ""}`;
-  const nav = useBack(backHref); // the page before when this one was reached from another page of the app, else the recipes at this shop
-  const back = (<Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to recipes"), nav.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
+  // while it loads, the header every page has (colour meeting, 19 November 2026): Back goes to the page before when this one was reached from another page of
+  // the app, else the recipes at this shop; the Settings cog far right. The recipe itself puts them on its photo (RecipeDetail).
+  const back = <PageHeader back={{ href: backHref, label: t("Back to recipes") }} />;
   let body: React.ReactNode;
   if (mine && !hydrated) body = (<div>{back}<Spinner label={t("Loading recipe")} /></div>);
   else if (!recipe) body = (<div>{back}<div className="mt-4"><ErrorBox message={mine ? t("That recipe isn't saved on this device, or no longer suits your diet.") : t("That recipe isn't in the list.")} /></div></div>);

@@ -9,6 +9,7 @@ import { useIsPro } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { useGate } from "../Paywall";
 import { MenuSourcesLink } from "../MenuSourcesLink";
+import { PremiumBadge } from "../PremiumBadge";
 import { Button, Chip } from "../ui";
 
 /** True in the free iPhone app's copy (build-time constant): no paid tier there, so the locked-list button and its words are left out of the app's files (App Store 3.1.1, App Review 2.3.1). */
@@ -45,12 +46,14 @@ export function PresetPills({ chain, items, renderList }: { chain: Chain; items:
         {defs.map((d) => {
           const n = counts.get(d.id) ?? 0;
           return (
-            <Chip key={d.id} size="lg" selected={active === d.id} disabled={n === 0} className="disabled:opacity-100 disabled:border-transparent disabled:bg-soft-strong disabled:text-muted" onClick={() => { if (gated && d.id === "small-appetite") return showPaywall("smallAppetite"); setActive((a) => (a === d.id ? null : d.id)); }}>
-              {t(d.label)}
+            // none on this menu: the line fill (can't press), its reason written under the pills; a Premium one keeps its look with the badge
+            <Chip key={d.id} size="lg" selected={active === d.id} disabled={n === 0} onClick={() => { if (gated && d.id === "small-appetite") return showPaywall("smallAppetite"); setActive((a) => (a === d.id ? null : d.id)); }}>
+              {t(d.label)}{gated && d.id === "small-appetite" && <PremiumBadge />}
             </Chip>
           );
         })}
       </div>
+      {defs.some((d) => (counts.get(d.id) ?? 0) === 0) && <p className="mt-2 text-[0.9375rem] font-semibold leading-snug text-foreground">{t("The grey ones have no dish on this menu.")}</p>}
       <div ref={answer} className="mt-3 scroll-mt-4" role="status" aria-live="polite">
         {def && (
           <p className="text-base leading-snug text-muted">
@@ -62,7 +65,7 @@ export function PresetPills({ chain, items, renderList }: { chain: Chain; items:
       {def && <MenuSourcesLink className="mt-0.5" chain={chain} />}
       {def && results.length > 0 && <div className="mt-2.5">{renderList(results.slice(0, gated ? FREE_PRESET_RESULTS : PRESET_TOP))}</div>}
       {def && gated && Math.min(results.length, PRESET_TOP) > FREE_PRESET_RESULTS && (
-        <Button size="lg" full variant="secondary" className="mt-2.5" onClick={() => showPaywall("moreResults")}>{t("Unlock the other {n}", { n: Math.min(results.length, PRESET_TOP) - FREE_PRESET_RESULTS })}</Button>
+        <Button size="lg" full variant="secondary" className="mt-2.5" onClick={() => showPaywall("moreResults")}>{t("Unlock the other {n}", { n: Math.min(results.length, PRESET_TOP) - FREE_PRESET_RESULTS })}<PremiumBadge /></Button>
       )}
     </section>
   );

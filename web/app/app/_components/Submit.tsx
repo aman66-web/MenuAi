@@ -10,7 +10,7 @@ import { outbox } from "@/lib/mm/stores";
 import type { MenuItem, Nutrients } from "@/lib/mm/types";
 import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
-import { CheckIcon, ChevronRightIcon } from "./icons";
+import { AlertCircleIcon, CheckIcon, ChevronRightIcon } from "./icons";
 import { Button, inputClass, Sheet } from "./ui";
 
 // SPEC §12: every submission is saved in the outbox first, so the confirmation shows at once and sending is invisible.
@@ -51,10 +51,10 @@ function SelectField({ children, ...rest }: React.SelectHTMLAttributes<HTMLSelec
   );
 }
 
-/** The lime tick above a confirmation. */
+/** The tick above a confirmation: done, so lime, with the 2 px dark green edge and a dark green tick (so it reads without the colour). */
 function Tick() {
   return (
-    <span aria-hidden className="bg-sun mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full text-on-accent">
+    <span aria-hidden className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full border-2 border-on-sun bg-sun text-on-sun">
       <CheckIcon className="h-6 w-6" strokeWidth={2.5} />
     </span>
   );
@@ -106,7 +106,8 @@ function RequestForm({ onClose, initialName }: { onClose: () => void; initialNam
           <input className={fieldClass} value={name} onChange={(e) => setName(e.target.value)} maxLength={80} autoFocus autoComplete="off" />
         </Row>
       </Group>
-      <Button type="submit" full className={submitClass} disabled={!valid || busy}>{t("Send request")}</Button>
+      {/* can't send yet: the line fill, with the reason written above it; while it sends, busy (never a faded grey) */}
+      <Button type="submit" full className={submitClass} disabled={!valid} reason={t("Type the restaurant's name first.")} busy={busy}>{t("Send request")}</Button>
     </form>
   );
 }
@@ -224,12 +225,12 @@ function ReportForm({ target, onClose }: { target: ReportTarget; onClose: () => 
             type="file"
             accept="image/*"
             onChange={(e) => setPhoto(e.target.files?.[0] ?? null)}
-            className="block min-h-11 w-full rounded-full text-[0.9375rem] text-muted file:me-3 file:min-h-11 file:cursor-pointer file:rounded-full file:border-[1.5px] file:border-solid file:border-[color:var(--edge)] file:bg-soft file:px-5 file:py-2.5 file:text-[0.9375rem] file:font-semibold file:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="block min-h-11 w-full rounded-full text-[0.9375rem] text-muted file:me-3 file:min-h-11 file:cursor-pointer file:rounded-full file:border-[1.5px] file:border-solid file:border-edge file:bg-card file:px-5 file:py-2.5 file:text-[0.9375rem] file:font-semibold file:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           />
         </Row>
       </Group>
-      {error && <p role="alert" className="text-[0.9375rem] font-semibold leading-snug text-foreground">{error}</p>}
-      <Button type="submit" full className={submitClass} disabled={busy}>{t("Send report")}</Button>
+      {error && <p role="alert" className="flex items-start gap-1.5 text-[0.9375rem] font-semibold leading-snug text-danger"><AlertCircleIcon aria-hidden className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0" /><span className="min-w-0">{error}</span></p>}
+      <Button type="submit" full className={submitClass} busy={busy}>{t("Send report")}</Button>
     </form>
   );
 }
@@ -271,7 +272,7 @@ export function ContactForm({ onSent }: { onSent?: () => void }) {
           <input className={fieldClass} type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         </Row>
       </Group>
-      <Button type="submit" full className={submitClass} disabled={!valid || busy}>{t("Send message")}</Button>
+      <Button type="submit" full className={submitClass} disabled={!valid} reason={t("Write at least 5 characters first.")} busy={busy}>{t("Send message")}</Button>
     </form>
   );
 }

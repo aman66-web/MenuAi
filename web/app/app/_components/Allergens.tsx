@@ -69,7 +69,7 @@ export function AllergenTable({ allergens, caption, columnLabel, pad = "px-5" }:
                 </th>
                 <td className={`${pad} py-3 text-end align-middle`}>
                   {s.kind === "contains" ? (
-                    <span className="inline-flex items-center whitespace-nowrap rounded-full bg-foreground px-2.5 py-1 text-[0.8125rem] font-semibold leading-none text-background">{t("Contains")}</span>
+                    <span className="inline-flex items-center whitespace-nowrap rounded-full bg-ink px-2.5 py-1 text-[0.8125rem] font-semibold leading-none text-on-ink">{t("Contains")}</span>
                   ) : s.kind === "may" ? (
                     <span className="inline-flex items-center whitespace-nowrap rounded-full border-2 border-foreground px-2.5 py-1 text-[0.8125rem] font-bold leading-none">{t("May contain")}</span>
                   ) : (
@@ -119,7 +119,7 @@ export function AllergenSection({ chain, allergens, changesNotCovered, title: ti
             {/* a warning never looks like an all-clear (usability test 2026-11-19: Harold's "may contain" peanuts sat in the same grey box as "not listed"):
                 contains is the dark box, may contain a box with a heavy border and what it means said in it, not listed the plain grey one */}
             {mine.map(({ k, s }) => (
-              <li key={k} className={`rounded-[0.875rem] px-3.5 py-2.5 text-[0.9375rem] font-bold leading-snug ${s === "contains" ? "bg-foreground text-background" : s === "may" ? "border-[3px] border-foreground bg-white" : "bg-[var(--fill)]"}`}>
+              <li key={k} className={`rounded-[0.875rem] px-3.5 py-2.5 text-[0.9375rem] font-bold leading-snug ${s === "contains" ? "bg-ink text-on-ink" : s === "may" ? "border-[3px] border-foreground bg-card" : "bg-[var(--fill)]"}`}>
                 {s === "contains" ? <><span aria-hidden className="me-1.5">⚠</span>{t("{allergen}: this item contains it.", { allergen: t(ALLERGEN_LABEL[k]) })}</>
                   : s === "may" ? <>
                       <span aria-hidden className="me-1.5">⚠</span>{t("{allergen}: this item may contain it.", { allergen: t(ALLERGEN_LABEL[k]) })}

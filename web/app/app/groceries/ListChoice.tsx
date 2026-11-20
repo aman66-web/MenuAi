@@ -41,7 +41,7 @@ export function useAddToList(onAdded: (list: ShoppingList | null, item: Item) =>
     setPending(null);
     if (item) put(item, list);
   };
-  const row = "flex min-h-14 w-full items-center gap-3 rounded-[1.25rem] p-2.5 text-start transition active:scale-[0.99] hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent glass";
+  const row = "flex min-h-14 w-full items-center gap-3 rounded-[1.25rem] p-2.5 text-start transition active:scale-[0.99] hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent glass";
   const sheet = (
     <Sheet open={!!pending} onClose={() => setPending(null)} title={t("Add to which list?")}>
       {pending && (
@@ -58,7 +58,7 @@ export function useAddToList(onAdded: (list: ShoppingList | null, item: Item) =>
             ))}
             <li>
               <button type="button" onClick={() => choose(null)} className={row}>
-                <span aria-hidden className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--fill)]"><BasketIcon className="h-5 w-5" /></span>
+                <span aria-hidden className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-line bg-card text-ink"><BasketIcon className="h-5 w-5" /></span>
                 <span className="min-w-0 flex-1 text-[1.0625rem] font-bold leading-snug [overflow-wrap:anywhere]">{t("Shopping list")}</span>
               </button>
             </li>

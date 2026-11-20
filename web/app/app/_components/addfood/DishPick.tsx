@@ -6,6 +6,7 @@ import { hasMacros } from "@/lib/mm/nutrients";
 import { search, type ItemHit } from "@/lib/mm/search";
 import { savedStore } from "@/lib/mm/stores";
 import { ItemThumb } from "../ItemPhoto";
+import { ErrorBanner } from "../Note";
 import { ErrorBox, Spinner } from "../ui";
 import { useChainIndexes, useMenu, useSearchIndex, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
@@ -22,7 +23,7 @@ import { AddPill, PICK_LIST, PickRow, SheetSearch, type NewEntry } from "./parts
 
 const SAVED_SHOWN = 5;
 /** The lists here sit on the sheet's grey: a dish without a photo gets ItemThumb's fork tile in white (like the photos' own white), so it still reads as a tile. */
-const dishLead = (image: string | undefined) => <span className="contents [&>span]:bg-white"><ItemThumb image={image} placeholder /></span>;
+const dishLead = (image: string | undefined) => <span className="contents [&>span]:bg-card"><ItemThumb image={image} placeholder /></span>;
 
 export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
   const t = useT();
@@ -71,7 +72,7 @@ export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
   return (
     <div className="space-y-4 pb-2 pt-4">
       <SheetSearch value={query} onChange={(v) => { setQuery(v); setFailed(null); }} label={t("Search restaurants and items")} placeholder={t("Type a dish or restaurant, e.g. chicken burger")} />
-      {failed && <p role="alert" className="text-[0.9375rem] font-semibold leading-snug">{failed}</p>}
+      {failed && <ErrorBanner heading={null}>{failed}</ErrorBanner>}
 
       {shownSaved.length > 0 && (
         <section aria-labelledby="addfood-saved">

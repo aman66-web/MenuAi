@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useMemo, useRef, useState } from "react";
 import { addToList, customItem, CUSTOM_RETAILER, formatPrice, groupName, itemCode, itemsOnList, knownLists, listAsText, listOf, listTotals, MAIN_LIST, newShoppingList, sameEntry, setQty, swapItem, toggleDone, type ShoppingItem } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
 import { tk } from "@/lib/mm/i18n";
@@ -10,9 +10,11 @@ import { nextToBuy, withoutWhatTheyHave } from "@/lib/mm/listRecipes";
 import { decodePayload, encodeEntries, payloadFrom, SHARE_PROBLEM, SHARED_APP_PATH, shareUrl, toEntries } from "@/lib/mm/shareList";
 import { cupboardStore, settingsStore, shoppingStore } from "@/lib/mm/stores";
 import { site } from "@/site.config";
-import { ArrowRightIcon, BasketIcon, CheckIcon, CopyIcon, MinusIcon, PlusIcon, PotIcon, SearchIcon, ShareIcon, SwapIcon, TrashIcon } from "../../_components/icons";
+import { PageHeader } from "../../_components/PageHeader";
+import { AlertCircleIcon, ArrowRightIcon, BasketIcon, CheckIcon, CopyIcon, MinusIcon, PlusIcon, PotIcon, SearchIcon, ShareIcon, SwapIcon, TrashIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
 import { SendToFriend } from "../../_components/SendToFriend";
+import { Toast } from "../../_components/Toast";
 import { Button, EmptyIcon, EmptyState, LinkButton, Sheet, Spinner } from "../../_components/ui";
 import { useHydrated, useSettings, useStore } from "../../_lib/hooks";
 import { usePossessive, useT } from "../../_lib/i18n";
@@ -21,7 +23,7 @@ import { addedNote, addMissing, useListRecipes } from "../../_lib/listRecipes";
 import { useShopManifest } from "../../_lib/shopProducts";
 import { Rich } from "../../_lib/Rich";
 import { hasNative, nativeCall } from "@/lib/mm/native";
-import { BackLink, CARD, LABEL, PILL_INPUT, TITLE } from "../PageBits";
+import { CARD, LABEL, PILL_INPUT, TITLE } from "../PageBits";
 import { ListThumb } from "../ProductPhoto";
 import { ProductMini } from "../ProductMini";
 import { RecipeThumb, RecipeThumbStack, hasRecipePicture } from "../../recipes/RecipeThumb";
@@ -34,9 +36,11 @@ import { SwapSheet } from "./SwapSheet";
 // "Shopping list" (founder 2026-10-10, renamed from "My groceries" 2026-10-11): the shopping list, on this device only. Type anything in ("Milk"), or add products from Groceries and
 // recipes; tick things off as they go in the basket. At the top: the recipes this list can make, and what one of them still needs. Share or
 // copy it as text. Shelf prices are noted when products are added (a guide: never kept up to date).
-// Looks follow Home (founder 2026-10-15): the compact title, a white pill to type in with a black Add pill, "What can I cook with this?" as the
-// one lime tile on the screen, each shop's items under a small capital label in one white card (rows divided by a fine line, like a recipe's
-// ingredients), each with a round tick and grey round − and + buttons.
+// Looks follow Home (founder 2026-10-15) and the colour meeting (19 November 2026, approved by the founder that day): the compact title, a labelled white
+// field with an ink Add pill (always on: with nothing typed it puts the cursor in the field), "What can I cook with this?" on the cream tint of every "cook with
+// what you have" card, each shop's items under its logo and name in one white card (rows divided by a fine line, like a recipe's ingredients), each with a
+// round tick (an empty grey ring; ticked lime with the dark green edge and a tick) and the − and + as one white control with the edge. The list you're on is
+// lime with a tick; adds are ink; Clear list is the red-edged destructive button, last and apart; Undo is in the one toast.
 // More than one list (founder 2026-11-18: "an option to create multiple shopping lists ... for different shops ... and multiple of the same shop itself"): the
 // main "Shopping list" is every item with no list of its own, for any shop, exactly as before; "+ New list" asks which shop and makes a list for it ("M&S",
 // "M&S 2"). With any extra list, big chips at the top pick the list shown (kept in the address, ?l=<id>). A list for one shop shows its items, its total and
@@ -75,9 +79,8 @@ function ShoppingListScreen() {
   const [typed, setTyped] = useState("");
   const [suggestNote, setSuggestNote] = useState<string | null>(null);
   // Undo after Clear list, Remove ticked and the last − (each still takes effect at once, so no question first): the list as it was, what went, and the message
-  const [undo, setUndo] = useState<{ before: ShoppingItem[]; removed: ShoppingItem[]; key: string; values?: Record<string, string> } | null>(null);
-  const undoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  useEffect(() => () => { if (undoTimer.current) clearTimeout(undoTimer.current); }, []);
+  const [undo, setUndo] = useState<{ before: ShoppingItem[]; removed: ShoppingItem[]; key: string; values?: Record<string, string>; n: number } | null>(null);
+  const typedBox = useRef<HTMLInputElement>(null);
   const { state, matches } = useListRecipes(list);
   const photosOf = useListPhotos(list);
   const manifest = useShopManifest();
@@ -163,7 +166,7 @@ function ShoppingListScreen() {
   const addTyped = (e: React.FormEvent) => {
     e.preventDefault();
     const item = customItem(typed);
-    if (!item) return;
+    if (!item) { typedBox.current?.focus(); return; } // Add is always on: with nothing typed, it puts the cursor in the field
     shoppingStore.update((l) => addToList(l, { ...item, list: listId || undefined })); // onto the list shown
     setTyped("");
     setNote(t("Added “{name}”.", { name: item.name }));
@@ -215,9 +218,7 @@ function ShoppingListScreen() {
     const now = shoppingStore.get();
     const removed = before.filter((b) => !now.some((n) => sameItem(n, b)));
     if (removed.length === 0) return;
-    setUndo({ before, removed, key, values });
-    if (undoTimer.current) clearTimeout(undoTimer.current);
-    undoTimer.current = setTimeout(() => { undoTimer.current = null; setUndo(null); }, 8000);
+    setUndo((was) => ({ before, removed, key, values, n: (was?.n ?? 0) + 1 })); // the toast closes itself after 8 seconds (longer while touched)
   };
   /** Puts the removed items back where they were, keeping the current version of every item still on the list and anything added since. */
   const undoRemove = () => {
@@ -226,8 +227,6 @@ function ShoppingListScreen() {
       const back = undo.before.filter((b) => undo.removed.some((r) => sameItem(r, b)) || now.some((n) => sameItem(n, b))).map((b) => now.find((n) => sameItem(n, b)) ?? b);
       return [...back, ...now.filter((n) => !undo.before.some((b) => sameItem(b, n)))];
     });
-    if (undoTimer.current) clearTimeout(undoTimer.current);
-    undoTimer.current = null;
     setUndo(null);
   };
   /** Select › Remove: the chosen items off this list at once, with Undo. */
@@ -238,13 +237,13 @@ function ShoppingListScreen() {
     stopSelecting();
     setNote(null);
   };
-  /** A round − or + : a 44 px tap area holding a 36 px grey circle, like Home's round actions. */
-  const qtyButton = "group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95";
-  const qtyCircle = "inline-flex h-9 w-9 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft transition-colors group-hover:bg-[var(--fill)]";
+  /** The − and + : one white control with the 1.5 px edge holding the two 44 px buttons and the quantity between them, ink icons (two grey circles looked
+   *  alike and both looked switched off). */
+  const qtyButton = "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink transition active:scale-95 hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
   return (
     <div>
-      <BackLink href="/app" label={t("Back to home")} />
+      <PageHeader back={{ href: "/app", label: t("Back to home") }} />
       <h1 className={`mt-5 ${TITLE}`}>{t("Shopping list")}</h1>
       <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Your shopping list. Tick things off as they go in your basket.")}</p>
 
@@ -254,70 +253,73 @@ function ShoppingListScreen() {
           {lists.length > 0 && (
             <>
               <Link href={listHref()} replace scroll={false} aria-current={!current ? "page" : undefined} className={listChip(!current)}>
-                <BasketIcon className="h-5 w-5 shrink-0" /><span className="min-w-0 [overflow-wrap:anywhere]">{t("Shopping list")}</span>
+                {!current && <CheckIcon aria-hidden strokeWidth={3} className="h-4 w-4 shrink-0" />}<BasketIcon aria-hidden className="h-5 w-5 shrink-0" /><span className="min-w-0 [overflow-wrap:anywhere]">{t("Shopping list")}</span>
               </Link>
               {lists.map((l) => (
                 <Link key={l.id} href={listHref(l.id)} replace scroll={false} aria-current={current?.id === l.id ? "page" : undefined} className={listChip(current?.id === l.id)}>
-                  <ShopMark shopId={l.shop} size="xs" /><span className="min-w-0 [overflow-wrap:anywhere]">{l.name}</span>
+                  {current?.id === l.id && <CheckIcon aria-hidden strokeWidth={3} className="h-4 w-4 shrink-0" />}<ShopMark shopId={l.shop} size="xs" /><span className="min-w-0 [overflow-wrap:anywhere]">{l.name}</span>
                 </Link>
               ))}
             </>
           )}
-          <button type="button" onClick={() => setCreating(true)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-12 max-w-full items-center gap-2 rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-[0.97] hover:bg-[var(--fill)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-            <span aria-hidden className="bg-sun inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-on-accent"><PlusIcon className="h-4 w-4" strokeWidth={3} /></span>
+          <button type="button" onClick={() => setCreating(true)} className="border-[1.5px] border-edge bg-card text-foreground inline-flex min-h-12 max-w-full items-center gap-2 rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-[0.97] hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+            <span aria-hidden className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ink text-on-ink"><PlusIcon className="h-4 w-4" strokeWidth={3} /></span>
             <span className="min-w-0 [overflow-wrap:anywhere]">{t("New list")}</span>
           </button>
         </nav>
       )}
 
-      {/* the field takes the row and Add sits beside it; at large text, when both no longer fit, Add moves under the field across its width */}
-      <form onSubmit={addTyped} className="mt-5 flex flex-wrap gap-2.5">
-        <label className="min-w-0 flex-[999_1_13rem]">
-          <span className="sr-only">{t("Add something to your list")}</span>
-          <input value={typed} onChange={(e) => setTyped(e.target.value)} placeholder={t("Add something, e.g. milk")} maxLength={60} enterKeyHint="done" autoComplete="off" className={`${PILL_INPUT} min-h-[3.25rem]`} />
-        </label>
-        <Button type="submit" className="min-h-[3.25rem] flex-[1_0_auto] px-5 disabled:bg-soft-strong disabled:text-muted disabled:opacity-100!" disabled={!typed.trim()}><PlusIcon className="h-5 w-5" />{t("Add")}</Button>
+      {/* a visible label over the field (testers were stuck at boxes with none); the field takes the row and Add sits beside it; at large text, when both no
+          longer fit, Add moves under the field across its width. Add is always on: with nothing typed, it puts the cursor in the field. */}
+      <form onSubmit={addTyped} className="mt-5">
+        <label htmlFor="list-add" className="mb-2 block ps-1 text-[0.9375rem] font-semibold leading-snug">{t("Add something to your list")}</label>
+        <div className="flex flex-wrap gap-2.5">
+          <input id="list-add" ref={typedBox} value={typed} onChange={(e) => setTyped(e.target.value)} placeholder={t("Add something, e.g. milk")} maxLength={60} enterKeyHint="done" autoComplete="off" className={`${PILL_INPUT} min-h-[3.25rem] min-w-0 flex-[999_1_13rem]`} />
+          <Button type="submit" className="min-h-[3.25rem] flex-[1_0_auto] px-5"><PlusIcon className="h-5 w-5" />{t("Add")}</Button>
+        </div>
       </form>
       <p role="status" aria-live="polite" className="mt-2 min-h-5 ps-1 text-sm font-medium text-foreground">{note}</p>
-      <button type="button" onClick={() => { setPastedProblem(null); setOpening(true); }} className="-ms-1 inline-flex min-h-11 items-center rounded-full px-3 text-[0.9375rem] font-semibold text-accent underline decoration-[color-mix(in_srgb,var(--accent)_40%,transparent)] underline-offset-[3px] transition active:scale-[0.97]">{t("Got a list from a friend? Open it")}</button>
+      {/* an action people need is a button (Raj called the small link faint) */}
+      <Button variant="secondary" className="mt-1" onClick={() => { setPastedProblem(null); setOpening(true); }}>{t("Got a list from a friend? Open it")}</Button>
 
       {!hydrated ? null : list.length === 0 && current ? (
-        <div className="mt-2"><EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Nothing on {list} yet.", { list: current.name })} body={t("Add products from {shop}, or type what you need above.", { shop: groupName(current.shop, t) })} action={current.shop !== CUSTOM_RETAILER ? <Link href={shopHref(current.shop)} className="inline-flex min-h-11 items-center rounded-full bg-ink px-5 text-[15px] font-bold text-on-ink transition active:scale-[0.97] hover:bg-ink-pressed">{t("Add products from {shop}", { shop: groupName(current.shop, t) })}</Link> : undefined} /></div>
+        <div className="mt-2"><EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Nothing on {list} yet.", { list: current.name })} body={t("Add products from {shop}, or type what you need above.", { shop: groupName(current.shop, t) })} action={current.shop !== CUSTOM_RETAILER ? <LinkButton href={shopHref(current.shop)}>{t("Add products from {shop}", { shop: groupName(current.shop, t) })}</LinkButton> : undefined} /></div>
       ) : list.length === 0 ? (
-        <div className="mt-2"><EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Your list is empty.")} body={t("Type what you need above, or add products from Groceries and recipes.")} action={<div className="flex flex-wrap justify-center gap-2.5"><Link href="/app/groceries" className="inline-flex min-h-11 items-center rounded-full bg-ink px-5 text-[15px] font-bold text-on-ink transition active:scale-[0.97] hover:bg-ink-pressed">{t("Browse groceries")}</Link><Link href="/app/recipes" className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 items-center rounded-full px-5 text-[15px] font-semibold transition active:scale-[0.97] hover:bg-[var(--fill)]">{t("See recipes")}</Link></div>} /></div>
+        <div className="mt-2"><EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Your list is empty.")} body={t("Type what you need above, or add products from Groceries and recipes.")} action={<div className="flex flex-wrap justify-center gap-2.5"><LinkButton href="/app/groceries">{t("Browse groceries")}</LinkButton><LinkButton href="/app/recipes" variant="secondary">{t("See recipes")}</LinkButton></div>} /></div>
       ) : (
         <>
-          {/* At the top, as asked: what this list can make (its own products, matched by the recipes' rules). The one lime tile on the screen. */}
+          {/* At the top, as asked: what this list can make (its own products, matched by the recipes' rules), on the cream tint of every "cook with what you
+              have" card (a full lime card read as selected), ink words and an ink arrow. */}
           {/* at large text the round pot steps aside (a container query) so the words keep their room */}
           {/* for the list shown (with lists of their own, the main list alone is ?l=main) */}
-          <Link href={lists.length > 0 ? `/app/groceries/list/recipes?l=${encodeURIComponent(current ? current.id : MAIN_LIST)}` : "/app/groceries/list/recipes"} className="bg-sun lift group @container mt-2 flex min-h-[4.75rem] items-center gap-3.5 rounded-[1.25rem] p-3.5 text-on-accent">
+          <Link href={lists.length > 0 ? `/app/groceries/list/recipes?l=${encodeURIComponent(current ? current.id : MAIN_LIST)}` : "/app/groceries/list/recipes"} className="lift group @container mt-2 flex min-h-[4.75rem] items-center gap-3.5 rounded-[1.25rem] border border-line bg-tint-cook p-3.5 text-foreground">
             {/* the pictures of the first recipes it finds (founder 2026-11-17: "Use images please when possible"); the pot while it looks, or when none matches */}
             {matches && matches.some((m) => hasRecipePicture(m.recipe.id))
-              ? <span className="hidden @[19rem]:inline-flex"><RecipeThumbStack recipes={matches.slice(0, 3).map((m) => m.recipe)} ring="ring-[color:var(--sun)]" moreClass="hidden @[22rem]:block" /></span>
-              : <span aria-hidden className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-on-accent @[19rem]:inline-flex"><PotIcon className="h-6 w-6" /></span>}
+              ? <span className="hidden @[19rem]:inline-flex"><RecipeThumbStack recipes={matches.slice(0, 3).map((m) => m.recipe)} ring="ring-tint-cook" moreClass="hidden @[22rem]:block" /></span>
+              : <span aria-hidden className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line bg-card text-ink @[19rem]:inline-flex"><PotIcon className="h-6 w-6" /></span>}
             <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
               <span className="block text-[1.0625rem] font-[800] leading-snug tracking-[-0.01em]">{t("What can I cook with this?")}</span>
               <span className="app-numbers mt-0.5 block text-[0.9375rem] leading-snug">
                 {matches === null ? (state?.status === "error" ? t("See recipes that use what's on your list.") : t("Looking through the recipes…")) : matches.length === 0 ? t("No recipe uses these yet. See all recipes.") : matches.length === 1 ? t("1 recipe uses something on your list") : t("{n} recipes use something on your list", { n: matches.length })}
               </span>
             </span>
-            <span aria-hidden className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-foreground text-background transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
+            <span aria-hidden className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ink text-on-ink transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
           </Link>
 
           {/* Select, then Select all / Done; the count is said as it changes */}
           <div className="mt-6 flex flex-wrap items-center justify-between gap-2">
             {selecting ? (
               <>
-                <button type="button" onClick={() => setPicked(allPicked ? new Set() : new Set(list.map(pickKey)))} className="inline-flex min-h-11 items-center gap-2 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]">
+                <button type="button" onClick={() => setPicked(allPicked ? new Set() : new Set(list.map(pickKey)))} className="inline-flex min-h-11 items-center gap-2 rounded-full border-[1.5px] border-edge bg-card px-4 text-[0.9375rem] font-semibold text-foreground transition active:scale-[0.97] hover:bg-background">
                   <CheckIcon aria-hidden className="h-4 w-4" />{allPicked ? t("Deselect all") : t("Select all")}
                 </button>
                 <span role="status" aria-live="polite" className="app-numbers text-[0.9375rem] font-semibold text-muted">{t("{n} selected", { n: pickedNow.length })}</span>
-                <button type="button" onClick={stopSelecting} className="inline-flex min-h-11 items-center rounded-full px-4 text-[0.9375rem] font-bold text-accent transition active:scale-95">{t("Done")}</button>
+                <Button onClick={stopSelecting} className="px-5">{t("Done")}</Button>
               </>
             ) : (
               <>
                 <span className="app-numbers ps-1 text-[0.9375rem] font-semibold text-muted">{list.length === 1 ? t("1 item") : t("{n} items", { n: list.length })}{ticked > 0 ? ` · ${t("{n} in the basket", { n: ticked })}` : ""}</span>
-                <button type="button" onClick={() => { setSelecting(true); setPicked(new Set()); }} className="inline-flex min-h-11 items-center gap-2 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]">
+                <button type="button" onClick={() => { setSelecting(true); setPicked(new Set()); }} className="inline-flex min-h-11 items-center gap-2 rounded-full border-[1.5px] border-edge bg-card px-4 text-[0.9375rem] font-semibold text-foreground transition active:scale-[0.97] hover:bg-background">
                   <CheckIcon aria-hidden className="h-4 w-4" />{t("Select")}
                 </button>
               </>
@@ -330,24 +332,31 @@ function ShoppingListScreen() {
             const heading = current ? current.name : groupName(retailer, t);
             return (
               <section key={retailer} aria-label={heading} className="mt-8">
-                <h2 className="kicker mb-3 flex min-h-7 items-center gap-2.5 ps-1 [overflow-wrap:anywhere]">{retailer !== CUSTOM_RETAILER && <ShopMark shopId={retailer} size="xs" />}{heading}</h2>
+                {/* the shopper's anchor in the aisle: the shop's logo and its name, bold, in the body's ink */}
+                <h2 className="mb-3 flex min-h-7 items-center gap-2.5 ps-1 text-[1.0625rem] font-bold leading-snug [overflow-wrap:anywhere]">{retailer !== CUSTOM_RETAILER && <ShopMark shopId={retailer} size="xs" />}{heading}</h2>
                 <ul className={`${CARD} overflow-hidden`}>
                   {sorted.map((i) => {
                     const code = itemCode(i);
                     // the shop's own product page when we know its id there (it always exists; the barcode page only when the Groceries list has that barcode:
                     // usability test 2026-11-19, Joan's Birds Eye peas opened "That barcode isn't in our list yet")
                     const href = i.custom ? null : i.shopId ? `/app/groceries/shop/item?r=${i.retailer}&id=${encodeURIComponent(i.shopId)}` : `/app/groceries/product?code=${i.gtin}&r=${i.retailer}`;
-                    // no barcode number here (usability test 2026-11-19: "meaningless clutter", and cut off at large text)
-                    const detail = [i.brand, i.size, i.price !== undefined ? formatPrice(i.price) : ""].filter(Boolean).join(" · ");
+                    // no barcode number here (usability test 2026-11-19: "meaningless clutter", and cut off at large text); the price in the body's ink
+                    const detail = [i.brand, i.size].filter(Boolean).join(" · ");
                     const body = (
                       <>
                         <span className={`block text-base font-semibold leading-snug [overflow-wrap:anywhere] ${i.done ? "text-muted line-through decoration-1" : ""}`}>{i.name}</span>
-                        {detail && <span className="app-numbers mt-0.5 block text-sm text-muted [overflow-wrap:anywhere]">{detail}</span>}
+                        {(detail || i.price !== undefined) && (
+                          <span className="app-numbers mt-0.5 block text-sm [overflow-wrap:anywhere]">
+                            {detail && <span className="text-muted">{detail}</span>}
+                            {detail && i.price !== undefined && <span className="text-muted"> · </span>}
+                            {i.price !== undefined && <span className="font-semibold text-foreground">{formatPrice(i.price)}</span>}
+                          </span>
+                        )}
                       </>
                     );
                     const thumb = <ListThumb sources={photosOf(i)} />;
                     return (
-                      <li key={`${code}|${i.retailer}`} className="relative flex min-h-[4.5rem] items-start gap-x-1.5 px-2 py-2 pe-2.5 before:pointer-events-none before:absolute before:end-0 before:start-[3.25rem] before:top-0 before:h-px before:bg-[var(--line)] first:before:hidden">
+                      <li key={`${code}|${i.retailer}`} className="relative flex min-h-[4.5rem] items-start gap-x-1.5 px-2 py-2 pe-2.5 before:pointer-events-none before:absolute before:end-0 before:start-[3.25rem] before:top-0 before:h-px before:bg-line first:before:hidden">
                         {selecting ? (
                           <button
                             type="button"
@@ -357,7 +366,7 @@ function ShoppingListScreen() {
                             onClick={() => flipPick(i)}
                             className="mt-2.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95"
                           >
-                            <span aria-hidden className={`inline-flex h-[1.625rem] w-[1.625rem] items-center justify-center rounded-[0.5rem] border-2 transition ${picked.has(pickKey(i)) ? "border-transparent bg-foreground text-background" : "border-[color-mix(in_srgb,var(--foreground)_40%,transparent)]"}`}>{picked.has(pickKey(i)) && <CheckIcon className="h-[15px] w-[15px]" strokeWidth={3} />}</span>
+                            <span aria-hidden className={`inline-flex h-[1.625rem] w-[1.625rem] items-center justify-center rounded-[0.5rem] border-2 transition ${picked.has(pickKey(i)) ? "border-on-sun bg-sun text-on-sun" : "border-edge bg-card"}`}>{picked.has(pickKey(i)) && <CheckIcon className="h-[15px] w-[15px]" strokeWidth={3} />}</span>
                           </button>
                         ) : (
                           <button
@@ -368,7 +377,7 @@ function ShoppingListScreen() {
                             onClick={() => shoppingStore.update((l) => toggleDone(l, code, i.retailer, listId))}
                             className="mt-2.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95"
                           >
-                            <span aria-hidden className={`inline-flex h-[1.625rem] w-[1.625rem] items-center justify-center rounded-full border-2 transition ${i.done ? "bg-sun border-[color:var(--on-accent)] text-on-accent" : "border-[color-mix(in_srgb,var(--foreground)_28%,transparent)]"}`}>{i.done && <CheckIcon className="h-[15px] w-[15px]" strokeWidth={3} />}</span>
+                            <span aria-hidden className={`inline-flex h-[1.625rem] w-[1.625rem] items-center justify-center rounded-full border-2 transition ${i.done ? "border-on-sun bg-sun text-on-sun" : "border-edge bg-card"}`}>{i.done && <CheckIcon className="h-[15px] w-[15px]" strokeWidth={3} />}</span>
                           </button>
                         )}
                         {/* the picture sits beside the name; what's left of the row under it is the quantity (a long name no longer squeezes against − and +) */}
@@ -380,19 +389,19 @@ function ShoppingListScreen() {
                             {/* "Swap" (a shop's product only: something similar at the same shop takes its place) at the start, − and + at the end; at large text they wrap */}
                             <div className={`mt-1 flex-wrap items-center justify-end gap-x-1 gap-y-1 ${selecting ? "hidden" : "flex"}`}>
                               {i.custom && chooseShops.length > 0 && (
-                                <button type="button" onClick={() => setChoosing(i)} aria-label={t("Choose a product for {name}", { name: i.name })} className="me-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-3.5 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-[var(--fill)]">
-                                  <SearchIcon className="h-4 w-4" />{t("Choose a product")}
+                                <button type="button" onClick={() => setChoosing(i)} aria-label={t("Choose a product for {name}", { name: i.name })} className="me-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border-[1.5px] border-edge bg-card px-3.5 text-[0.9375rem] font-semibold text-foreground transition active:scale-[0.97] hover:bg-background">
+                                  <SearchIcon className="h-4 w-4 text-ink" />{t("Choose a product")}
                                 </button>
                               )}
                               {canSwap(i) && (
-                                <button type="button" onClick={() => setSwapping(i)} aria-label={t("Swap {name}", { name: i.name })} className="me-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-3.5 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-[var(--fill)]">
-                                  <SwapIcon className="h-4 w-4" />{t("Swap")}
+                                <button type="button" onClick={() => setSwapping(i)} aria-label={t("Swap {name}", { name: i.name })} className="me-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border-[1.5px] border-edge bg-card px-3.5 text-[0.9375rem] font-semibold text-foreground transition active:scale-[0.97] hover:bg-background">
+                                  <SwapIcon className="h-4 w-4 text-ink" />{t("Swap")}
                                 </button>
                               )}
-                              <div className="flex items-center">
-                                <button type="button" aria-label={t("One fewer {name}", { name: i.name })} onClick={() => (i.qty <= 1 ? withUndo(tk("Removed “{name}” from your list."), { name: i.name }, () => shoppingStore.update((l) => setQty(l, code, i.retailer, 0, listId))) : shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty - 1, listId)))} className={qtyButton}><span aria-hidden className={qtyCircle}><MinusIcon className="h-[18px] w-[18px]" /></span></button>
+                              <div className="flex items-center rounded-full border-[1.5px] border-edge bg-card">
+                                <button type="button" aria-label={t("One fewer {name}", { name: i.name })} onClick={() => (i.qty <= 1 ? withUndo(tk("Removed “{name}” from your list."), { name: i.name }, () => shoppingStore.update((l) => setQty(l, code, i.retailer, 0, listId))) : shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty - 1, listId)))} className={qtyButton}><MinusIcon aria-hidden className="h-[18px] w-[18px]" /></button>
                                 <span className="app-numbers w-7 text-center font-mono text-base" aria-label={t("Quantity {n}", { n: i.qty })}>{i.qty}</span>
-                                <button type="button" aria-label={t("One more {name}", { name: i.name })} onClick={() => shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty + 1, listId))} className={qtyButton}><span aria-hidden className={qtyCircle}><PlusIcon className="h-[18px] w-[18px]" /></span></button>
+                                <button type="button" aria-label={t("One more {name}", { name: i.name })} onClick={() => shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty + 1, listId))} className={qtyButton}><PlusIcon aria-hidden className="h-[18px] w-[18px]" /></button>
                               </div>
                             </div>
                           </div>
@@ -402,16 +411,16 @@ function ShoppingListScreen() {
                   })}
                   {/* as the last row of each shop's card, like "New reminder" at the foot of a list: more from the same shop (founder 2026-10-15) */}
                   {retailer !== CUSTOM_RETAILER && (
-                    <li className="relative before:pointer-events-none before:absolute before:end-0 before:start-[3.25rem] before:top-0 before:h-px before:bg-[var(--line)]">
-                      <Link href={shopHref(retailer)} className="flex min-h-14 items-center gap-1.5 px-2 pe-3 transition hover:bg-[var(--fill)] active:bg-soft-strong">
-                        <span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center"><span className="bg-sun inline-flex h-[1.625rem] w-[1.625rem] items-center justify-center rounded-full text-on-accent"><PlusIcon className="h-[15px] w-[15px]" strokeWidth={3} /></span></span>
+                    <li className="relative before:pointer-events-none before:absolute before:end-0 before:start-[3.25rem] before:top-0 before:h-px before:bg-line">
+                      <Link href={shopHref(retailer)} className="flex min-h-14 items-center gap-1.5 px-2 pe-3 transition hover:bg-background active:bg-background">
+                        <span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center"><span className="inline-flex h-[1.625rem] w-[1.625rem] items-center justify-center rounded-full bg-ink text-on-ink"><PlusIcon className="h-[15px] w-[15px]" strokeWidth={3} /></span></span>
                         <span className="min-w-0 flex-1 py-2 text-base font-semibold leading-snug [overflow-wrap:anywhere]">{t("Add more from {shop}", { shop: groupName(retailer, t) })}</span>
                       </Link>
                     </li>
                   )}
                 </ul>
                 {retailer !== CUSTOM_RETAILER && totals.priced > 0 && (
-                  <p className="app-numbers mt-3 px-1 text-sm leading-relaxed text-muted">
+                  <p className="app-numbers mt-3 px-1 text-[0.9375rem] leading-relaxed text-muted">
                     <Rich
                       text={totals.priced === totals.count
                         ? (totals.oldest
@@ -430,7 +439,7 @@ function ShoppingListScreen() {
           {/* while selecting, Remove stays in view above the tab bar */}
           {selecting && (
             <div className="sticky bottom-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.25rem)] z-10 mt-4">
-              <Button full className="min-h-14 text-lg shadow-lg" disabled={!pickedNow.length} onClick={removePicked}>
+              <Button full wrapClassName="rounded-[1.25rem] bg-background p-2" className="min-h-14 text-lg shadow-[var(--shadow-lift)]" disabled={!pickedNow.length} reason={t("Tick the items to remove.")} onClick={removePicked}>
                 <TrashIcon className="h-5 w-5" />{pickedNow.length === 1 ? t("Remove 1 item") : t("Remove {n} items", { n: pickedNow.length })}
               </Button>
             </div>
@@ -440,13 +449,14 @@ function ShoppingListScreen() {
           {/* the ticked things off the list, as the main button once something is ticked (usability test 2026-11-19: it was a quiet button at the very bottom) */}
           {ticked > 0 && <Button full className={`${current ? "mt-8" : "mt-3"} min-h-14 text-lg`} onClick={removeTicked}><TrashIcon className="h-5 w-5" />{t("Remove ticked ({n})", { n: ticked })}</Button>}
           <div className={`${ticked > 0 ? "mt-3" : current ? "mt-8" : "mt-3"} grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.5rem),1fr))] gap-2.5`}>
-            <Button className="min-h-12" onClick={share}><ShareIcon className="h-5 w-5" />{t("Share list")}</Button>
+            <Button variant="secondary" className="min-h-12" onClick={share}><ShareIcon className="h-5 w-5" />{t("Share list")}</Button>
             <Button variant="secondary" className="min-h-12" onClick={copy}><CopyIcon className="h-5 w-5" />{t("Copy")}</Button>
             {/* to a friend who has the app (Community, founder 2026-10-16): lands in their Shared with you; needs an account, the rest of this page does not */}
             <SendToFriend list={list} onSent={setNote} />
-            <Button variant="ghost" className="col-span-full min-h-12" onClick={() => { withUndo(tk("List cleared."), undefined, () => shoppingStore.update((l) => l.filter((x) => listOf(x) !== listId))); setNote(null); }}>{t("Clear list")}</Button>
           </div>
-          <p className="mt-3 px-1 text-sm leading-snug text-muted">{t("Sharing sends a link that holds your list, so anyone who has it can see it.")}</p>
+          <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("Sharing sends a link that holds your list, so anyone who has it can see it.")}</p>
+          {/* destructive, last and apart (Joan nearly hit Clear list): white with a red edge and red words; Undo in the toast */}
+          <Button variant="danger" full className="mt-6 min-h-12" onClick={() => { withUndo(tk("List cleared."), undefined, () => shoppingStore.update((l) => l.filter((x) => listOf(x) !== listId))); setNote(null); }}><TrashIcon aria-hidden className="h-5 w-5" />{t("Clear list")}</Button>
           {suggestion && state?.status === "ready" && (
             <section aria-labelledby="suggest-heading" className={`${CARD} mt-8 p-5`}>
               <h2 id="suggest-heading" className={LABEL}>{t("You might also need")}</h2>
@@ -465,11 +475,11 @@ function ShoppingListScreen() {
                   const label = pick?.spec.label ?? suggestion.recipe.ingredients[i]!.label;
                   // each with the photo of the product "Add them to my list" adds (the recipe's own pick at the shop)
                   return pick
-                    ? <li key={i} className="inline-flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] py-1 pe-3.5 ps-1.5 text-sm font-medium"><ProductMini sources={shopPhotoSources(state.file, pick.product)} />{t(label)}</li>
-                    : <li key={i} className="rounded-full border border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] px-3.5 py-1.5 text-sm font-medium">{t(label)}</li>;
+                    ? <li key={i} className="inline-flex items-center gap-2 rounded-[0.375rem] bg-fill py-1 pe-3 ps-1 text-[0.9375rem] font-medium"><ProductMini sources={shopPhotoSources(state.file, pick.product)} />{t(label)}</li>
+                    : <li key={i} className="rounded-[0.375rem] bg-fill px-3 py-1.5 text-[0.9375rem] font-medium">{t(label)}</li>;
                 })}
               </ul>
-              <Button variant="secondary" className="mt-4" onClick={() => { const n = addMissing(suggestion, state.file); const { text, values } = addedNote(suggestion, n, state.file); setSuggestNote(t(text, values)); }}>
+              <Button className="mt-4" onClick={() => { const n = addMissing(suggestion, state.file); const { text, values } = addedNote(suggestion, n, state.file); setSuggestNote(t(text, values)); }}>
                 <PlusIcon className="h-5 w-5" />{suggestion.missing.length === 1 ? t("Add it to my list") : t("Add them to my list")}
               </Button>
               <p role="status" aria-live="polite" className="mt-2 text-sm font-medium text-foreground empty:mt-0">{suggestNote}</p>
@@ -482,17 +492,12 @@ function ShoppingListScreen() {
       {/* a quiet way to delete a list of the person's own, at the foot (asked first: it says how many items go with it) */}
       {hydrated && current && (
         <div className="mt-8 flex justify-center">
-          <Button variant="ghost" className="min-h-12" onClick={() => setDeleting(true)}><TrashIcon className="h-5 w-5" />{t("Delete this list")}</Button>
+          <Button variant="danger" className="min-h-12" onClick={() => setDeleting(true)}><TrashIcon className="h-5 w-5" />{t("Delete this list")}</Button>
         </div>
       )}
 
-      {undo && (
-        // Outside the empty-list branch (Clear list empties it), and at the top, clear of the rows' − and + and the tab bar, like Home's "Added" bar
-        <div role="status" className="fixed inset-x-4 top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-[1.75rem] bg-ink py-1.5 ps-5 pe-2 text-on-ink shadow-lg">
-          <span className="min-w-0 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{t(undo.key, undo.values)}</span>
-          <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-on-ink underline underline-offset-2 transition hover:bg-white/10" onClick={undoRemove}>{t("Undo")}</button>
-        </div>
-      )}
+      {/* Outside the empty-list branch (Clear list empties it), and at the top, clear of the rows' − and + and the tab bar, like Home's "Added" toast */}
+      {undo && <Toast key={undo.n} onClose={() => setUndo(null)} onUndo={undoRemove}>{t(undo.key, undo.values)}</Toast>}
 
       <Sheet open={opening} onClose={() => setOpening(false)} title={t("Open a shared list")}>
         <form onSubmit={openPasted} className="space-y-4 pb-2 pt-1">
@@ -501,7 +506,7 @@ function ShoppingListScreen() {
             <span className="mb-2 block text-[0.9375rem] font-semibold leading-snug">{t("The link or code")}</span>
             <input value={pasted} onChange={(e) => { setPasted(e.target.value); setPastedProblem(null); }} placeholder={t("Paste it here")} enterKeyHint="go" autoComplete="off" autoCapitalize="none" spellCheck={false} aria-invalid={pastedProblem ? true : undefined} className={PILL_INPUT} />
           </label>
-          {pastedProblem && <p role="alert" className="text-[0.9375rem] font-semibold leading-snug">{pastedProblem}</p>}
+          {pastedProblem && <p role="alert" className="flex items-start gap-1.5 text-[0.9375rem] font-semibold leading-snug text-danger"><AlertCircleIcon aria-hidden className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0" /><span className="min-w-0">{pastedProblem}</span></p>}
           <Button type="submit" full className="min-h-12 text-base" disabled={!pasted.trim()}>{t("Open the list")}</Button>
         </form>
       </Sheet>
@@ -517,9 +522,10 @@ function ShoppingListScreen() {
                 : list.length === 1 ? t("This deletes {list} and the 1 item on it. It can't be undone.", { list: current.name })
                 : t("This deletes {list} and the {n} items on it. It can't be undone.", { list: current.name, n: list.length })}
             </p>
-            <div className="grid gap-2.5">
-              <Button variant="danger" full className="min-h-12 text-base" onClick={deleteList}><TrashIcon className="h-5 w-5" />{t("Delete the list")}</Button>
+            {/* Keep it first (secondary, on the left), then the red Delete on the right; stacked when the text is large */}
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-2.5">
               <Button variant="secondary" full className="min-h-12 text-base" onClick={() => setDeleting(false)}>{t("Keep it")}</Button>
+              <Button variant="dangerFilled" full className="min-h-12 text-base" onClick={deleteList}><TrashIcon className="h-5 w-5" />{t("Delete the list")}</Button>
             </div>
           </div>
         )}
@@ -528,7 +534,7 @@ function ShoppingListScreen() {
   );
 }
 
-/** A list's chip at the top: big (48 px), wrapping its words at large text; the one shown is the dark one. */
+/** A list's chip at the top: big (48 px), wrapping its words at large text; the one shown is lime with the 2 px dark green edge and a tick, the others white with the edge. */
 function listChip(on: boolean): string {
-  return `inline-flex min-h-12 max-w-full items-center gap-2 rounded-full border ps-2.5 pe-4 text-[0.9375rem] font-semibold leading-snug transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "border-transparent bg-foreground text-background" : "border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] bg-transparent hover:bg-soft-strong"}`;
+  return `inline-flex min-h-12 max-w-full items-center gap-2 rounded-full border-[1.5px] ps-2.5 pe-4 text-[0.9375rem] leading-snug transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "border-on-sun bg-sun font-bold text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-edge bg-card font-semibold text-foreground hover:bg-background"}`;
 }
