@@ -5,8 +5,8 @@
 // three features working with the person's own answers instead, and Pip's tips teach the real buttons on Home. mm.v1.tour now records that the welcome
 // screens were finished on this phone (set by the welcome flow's one finish, with setup marked done); TOUR_VERSION 2 shows the new screens once to anyone who
 // only saw the old tour and has still neither set up nor stored anything. Where everyone signs in, the account is the last welcome step, so someone can
-// leave at any step: a plain start then goes back to the welcome screens' cover (with "Carry on from step {n}"), not to a bare sign-in screen, as long as setup
-// isn't finished and nobody is signed in on this phone. Pure, importing only constants: the app's layout runs TOUR_GATE_SCRIPT before the first paint, and
+// leave at any step: a plain start then goes back to the welcome screens' cover (with "Carry on from step {n}"), never to a bare sign-in screen, whenever nobody
+// is signed in on this phone (founder 2026-11-20: even after setting up, signing out or deleting the account). Pure, importing only constants: the app's layout runs TOUR_GATE_SCRIPT before the first paint, and
 // the unit tests run the same script and check it against tourDue.
 
 import { APP_SWITCHES_KEY } from "./appSwitches";
@@ -52,12 +52,22 @@ export function storedData(getItem: (key: string) => string | null): (key: strin
 export const SIGNED_IN_KEYS: readonly string[] = ["mm.v1.account", "mm.v1.session"];
 
 /**
- * Whether the welcome screens are due: not set up, the setup card not put off with "Not now", nothing of the person's own stored, and either the welcome screens
- * not finished on this phone (mm.v1.tour below TOUR_VERSION; someone who left at any step, signed in or not, comes back to the cover and its "Carry on") or,
- * where everyone signs in (`signInRequired`: SIGN_IN_REQUIRED, unless the switches file on numbite.com has made sign-in optional), nobody signed in here yet:
- * they come back to the welcome screens rather than a bare sign-in screen.
+ * Whether the welcome screens are due. Where everyone signs in (`signInRequired`: SIGN_IN_REQUIRED, unless the switches file on numbite.com has made sign-in
+ * optional) and nobody is signed in on this phone, always (founder 2026-11-20: "it should start on screen one, which is always going to be the first screen for
+ * people who haven't logged in already"; until then someone who had set up, or had things stored, and then signed out or deleted the account came back to a bare
+ * sign-in screen). Otherwise: not set up, the setup card not put off with "Not now", nothing of the person's own stored, and the welcome screens not finished
+ * on this phone (mm.v1.tour below TOUR_VERSION; someone who left at any step comes back to the cover and its "Carry on").
  */
 export function tourDue(read: (key: string) => unknown, signInRequired = false): boolean {
+  if (signInRequired) {
+    const switches = read(APP_SWITCHES_KEY);
+    const optional = !!switches && typeof switches === "object" && (switches as { signInOptional?: unknown }).signInOptional === true;
+    const signedIn = SIGNED_IN_KEYS.some((key) => {
+      const v = read(key);
+      return !!v && typeof v === "object";
+    });
+    if (!optional && !signedIn) return true;
+  }
   const s = read("mm.v1.settings");
   if (s && typeof s === "object") {
     const { hasCompletedOnboarding, dismissedTargetsCard } = s as { hasCompletedOnboarding?: unknown; dismissedTargetsCard?: unknown };
@@ -68,14 +78,7 @@ export function tourDue(read: (key: string) => unknown, signInRequired = false):
     return Array.isArray(v) && v.length > 0;
   });
   if (ownData) return false;
-  if ((Number(read("mm.v1.tour")) || 0) < TOUR_VERSION) return true;
-  if (!signInRequired) return false;
-  const switches = read(APP_SWITCHES_KEY);
-  if (switches && typeof switches === "object" && (switches as { signInOptional?: unknown }).signInOptional === true) return false;
-  return !SIGNED_IN_KEYS.some((key) => {
-    const v = read(key);
-    return !!v && typeof v === "object";
-  });
+  return (Number(read("mm.v1.tour")) || 0) < TOUR_VERSION;
 }
 
 /**
@@ -108,10 +111,11 @@ export function trialOfferDue(x: {
  * nothing, so it can never loop.
  */
 export function tourGateScript(signInRequired: boolean): string {
-  const seen = signInRequired
-    ? `{var w=r(${JSON.stringify(APP_SWITCHES_KEY)});if(w&&typeof w==="object"&&w.signInOptional===true)return;var a=${JSON.stringify(SIGNED_IN_KEYS)};for(var j=0;j<a.length;j++){var u=r(a[j]);if(u&&typeof u==="object")return}}`
-    : "return;";
-  return `try{(function(){var l=location;if(!/${PLAIN.source}/.test(l.pathname)||l.search!==""||l.hash!=="")return;var r=function(k){var z=JSON.parse(localStorage.getItem(k)||"null");return z&&typeof z==="object"?z.data:void 0};var s=r("mm.v1.settings");if(s&&typeof s==="object"&&(s.hasCompletedOnboarding||s.dismissedTargetsCard))return;var o=${JSON.stringify(OWN_DATA_KEYS)};for(var i=0;i<o.length;i++){var d=r(o[i]);if(Array.isArray(d)&&d.length>0)return}if((Number(r("mm.v1.tour"))||0)>=${TOUR_VERSION})${seen}l.replace("/app/welcome")})()}catch(e){}`;
+  // signed out where everyone signs in: always the cover (founder 2026-11-20), before any of the other checks
+  const signedOut = signInRequired
+    ? `var w=r(${JSON.stringify(APP_SWITCHES_KEY)});if(!(w&&typeof w==="object"&&w.signInOptional===true)){var a=${JSON.stringify(SIGNED_IN_KEYS)},on=false;for(var j=0;j<a.length;j++){var u=r(a[j]);if(u&&typeof u==="object")on=true}if(!on){l.replace("/app/welcome");return}}`
+    : "";
+  return `try{(function(){var l=location;if(!/${PLAIN.source}/.test(l.pathname)||l.search!==""||l.hash!=="")return;var r=function(k){var z=JSON.parse(localStorage.getItem(k)||"null");return z&&typeof z==="object"?z.data:void 0};${signedOut}var s=r("mm.v1.settings");if(s&&typeof s==="object"&&(s.hasCompletedOnboarding||s.dismissedTargetsCard))return;var o=${JSON.stringify(OWN_DATA_KEYS)};for(var i=0;i<o.length;i++){var d=r(o[i]);if(Array.isArray(d)&&d.length>0)return}if((Number(r("mm.v1.tour"))||0)>=${TOUR_VERSION})return;l.replace("/app/welcome")})()}catch(e){}`;
 }
 
 /** This build's gate (SIGN_IN_REQUIRED; the switches file is read by the script itself). */

@@ -3696,3 +3696,9 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   free-preview rule never applies on production), so 1.0 and 1.1 (build 7, in review) keep working. Vercel dpl_FYgiuvmUuzg8XuHk5GQy22t8UCzc READY in about a
   minute. Checked live: `/api/v1/barcode/5059319042626` finds Rice Krispies at Open Food Facts, the newest recipe pictures answer 200, `/app/stats`,
   `/app-switches.json`, the menus manifest matches the repo, and the privacy page carries the barcode line. Rollback: dpl_E5Hb16p7Rj7PmccWxRJ2inweFne2.
+- (about 21:05) **Signed out, a fresh start always opens the welcome cover** (founder, screenshots of the cover and of "Sign in or sign up": "Let's say I'm on
+  screen one. When I go off the app and swipe up on it, and then I go back onto the app, it goes to screen two, but it should start on screen one, which is
+  always going to be the first screen for people who haven't logged in already"). The founder had deleted the account; the phone kept its settings ("What was
+  on this phone is still here"), and the start-up gate (`lib/mm/tour.ts` tourDue / TOUR_GATE_SCRIPT) sent only people who hadn't set up to the cover, so a
+  relaunch showed the bare sign-in screen. Now, where everyone signs in and nobody is signed in on the phone, a plain start always goes to the cover ("Get
+  started", "Already have an account? Sign in"); links (a shared list, a dish) still open their page with the sign-in screen in place. tests/tour.test.ts.

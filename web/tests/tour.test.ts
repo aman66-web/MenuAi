@@ -111,14 +111,18 @@ describe("the gate where everyone signs in", () => {
     ["signed out (the account's record emptied)", storage({ ...seen, "mm.v1.account": null, "mm.v1.session": null })],
     ["the switches file read, sign-in still required", storage({ ...seen, "mm.v1.appSwitches": { signInOptional: false } })],
     ["nothing stored at all (a first launch, as before)", storage()],
+    // founder 2026-11-20: "it should start on screen one, which is always going to be the first screen for people who haven't logged in already"
+    ["set up on this phone, then signed out or the account deleted", storage({ ...seen, "mm.v1.settings": settings({ hasCompletedOnboarding: true }), "mm.v1.account": null, "mm.v1.session": null })],
+    ["said Not now, signed out", storage({ ...seen, "mm.v1.settings": settings({ dismissedTargetsCard: true }) })],
+    ["something of their own stored, signed out", storage({ ...seen, "mm.v1.saved": [{ id: "o1" }] })],
   ];
   const stay: Array<[string, FakeStorage]> = [
     ["signed in here (the account's record)", storage({ ...seen, "mm.v1.account": { id: "u1", email: "a@example.com" } })],
     ["the iPhone app holds a session", storage({ ...seen, "mm.v1.session": { access: "x", refresh: "y" } })],
     ["sign-in made optional by the switches file", storage({ ...seen, "mm.v1.appSwitches": { signInOptional: true } })],
-    ["set up", storage({ ...seen, "mm.v1.settings": settings({ hasCompletedOnboarding: true }) })],
-    ["said Not now", storage({ ...seen, "mm.v1.settings": settings({ dismissedTargetsCard: true }) })],
-    ["something of their own stored", storage({ ...seen, "mm.v1.saved": [{ id: "o1" }] })],
+    ["set up and signed in", storage({ ...seen, "mm.v1.settings": settings({ hasCompletedOnboarding: true }), "mm.v1.account": { id: "u1", email: "a@example.com" } })],
+    ["something of their own stored, signed in", storage({ ...seen, "mm.v1.saved": [{ id: "o1" }], "mm.v1.session": { access: "x", refresh: "y" } })],
+    ["set up, signed out, but sign-in made optional", storage({ ...seen, "mm.v1.settings": settings({ hasCompletedOnboarding: true }), "mm.v1.appSwitches": { signInOptional: true } })],
     ["a link (a shared list)", storage(seen)],
   ];
   const address = (label: string) => (label.startsWith("a link") ? "/app/groceries/list/shared#1abcdef" : "/app");
@@ -235,8 +239,8 @@ describe("the welcome screens write nothing of the person's own before an accoun
   it("so OWN_DATA_KEYS stay empty on a fresh phone after onboarding: only the settings, the welcome screens' own marks and the progress note are written", () => {
     const written = ["mm.v1.settings", "mm.v1.tour", "mm.v1.coach", "mm.v1.trialOffer", WELCOME_PROGRESS_KEY];
     for (const key of written) expect(OWN_DATA_KEYS, key).not.toContain(key);
-    // and once they are finished, the gate leaves the phone alone
-    const finished = storage({ "mm.v1.settings": settings({ hasCompletedOnboarding: true }), "mm.v1.tour": TOUR_VERSION, "mm.v1.coach": {} });
+    // and once they are finished (where everyone signs in, the last step signed them in), the gate leaves the phone alone
+    const finished = storage({ "mm.v1.settings": settings({ hasCompletedOnboarding: true }), "mm.v1.tour": TOUR_VERSION, "mm.v1.coach": {}, "mm.v1.account": { id: "u1", email: "a@example.com" } });
     expect(runGate("/app", finished, tourGateScript(true))).toEqual([]);
   });
 });
