@@ -50,7 +50,7 @@ High (selected):
 - Next: carry on the audit (it resumes where it stopped), fix its findings in teams, run every test, then build 9.
 
 ## Build results (filled in by the overnight job)
-- Third wave: committed: 0213c18d iPhone shell: the web view's background is the app's page grey; AccentColor is the app's link green
+- Third wave: committed as 916003bb Third wave: onboarding that shows the app working (account last), Start here on Home, two Home pages, a 20-second plan, More diets, every recipe priced, Pip as the guide (after the build 8 commit; the build 8 archive and the iPhone copy were packed from this same code)
 - Release archive: made: build/Numbite-1.1-build8.xcarchive (1.1, build 8; not uploaded)
 - iPhone: installed on your iPhone
 - Finished at 08:46. Memory: 53% free.
