@@ -3732,3 +3732,10 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   live project (menumacros, rbbalkfkpacazzhsqfzz) in the founder's Chrome: Authentication › Emails › Magic link or OTP and Confirm sign up, subject "Your
   Numbite sign-in code" on both; Supabase said "Successfully updated email template" twice. Also in supabase/config.toml for local runs; ACCOUNTS_SYNC.md
   updated. Old body: "Your Numbite sign-in code is {{ .Token }}. It expires in 1 hour. If you didn't ask for it, ignore this email."
+- (about 22:15) **"Signing you in…" shows what is really happening** (founder, screenshot of Pip and a spinner: "When it says sign in, you're in this, what it's
+  doing, like loading recipes, blah blah, all this"). `app/app/_components/SigningIn.tsx` (moved out of SignIn.tsx): under the heading, one line per real
+  step with its own mark (a turning circle while it runs, the lime tick when done): "Checking your code" / "Signing in with Apple" / "Signing in with Google"
+  ("Opening your account" on the welcome screens), done when the account is open; "Your saved meals and settings" (the sync signing in starts); "Restaurant
+  menus" (the menu catalogue); "Recipes from {shop}" (the recipe shop's product file, loaded there and then). Nothing shown that isn't running, and nothing
+  waits on it: the screen goes when sign-in is done. Offline, a dash and "The rest finishes when you're online." The separate spinner went. New copy: the
+  lines above, "Done", "Loading", "When you're online" (screen readers). Tests: vitest all green (mascot.test.ts lists the new file).

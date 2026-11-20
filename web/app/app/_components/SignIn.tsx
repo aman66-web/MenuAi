@@ -10,7 +10,7 @@ import { site } from "@/site.config";
 import { accountApi, keepHashForSignIn, signedIn } from "../_lib/account";
 import { useT } from "../_lib/i18n";
 import { ShieldIcon } from "./icons";
-import { Pip } from "./Mascot";
+import { SigningIn, type SignInHow } from "./SigningIn";
 import { Note } from "./Note";
 import { Button, Sheet } from "./ui";
 
@@ -97,22 +97,8 @@ export function SignInSheet({ open, onClose, community }: { open: boolean; onClo
   );
 }
 
-/** While the account is being made or opened (Apple's or Google's window has closed, or the email code was right) the whole screen shows Pip and a spinner,
- *  so the sign-in buttons don't flash up again for the second it takes (founder 2026-11-18: "instead of that little small 1 second flash, just have like a loading
- *  animation"). It stays until the app opens, or comes off with the error if it fails. The welcome screens show it too while they wait for the account's
- *  settings after their sign-in step (app/app/welcome/page.tsx). Pip waves (the founder's Pip audit, 20 November 2026: calm, he cheers for nothing here). */
-export function SigningIn() {
-  const t = useT();
-  return (
-    <div role="status" aria-live="polite" className="fixed inset-0 z-50 grid place-items-center bg-background px-6">
-      <div className="flex flex-col items-center gap-5 text-center">
-        <Pip mood="wave" size={96} />
-        <span className="h-9 w-9 animate-spin rounded-full border-[3px] border-line border-t-ink motion-reduce:animate-none" />
-        <p className="text-lg font-bold">{t("Signing you in…")}</p>
-      </div>
-    </div>
-  );
-}
+// "Signing you in…" with the real steps under it lives in SigningIn.tsx (founder 2026-11-20: "what it's doing, like loading recipes").
+export { SigningIn } from "./SigningIn";
 
 /**
  * The three ways in. `required`: on the sign-in screen everyone sees first: one small line under the buttons says what the account keeps, with the Privacy link
@@ -126,6 +112,7 @@ export function SignInPanel({ onDone, community, required = false, intro = true,
   const [emailHere, setEmailHere] = useState(false);
   const [busy, setBusy] = useState(false);
   const [finishing, setFinishing] = useState(false);
+  const [how, setHow] = useState<SignInHow>("apple");
   const [error, setError] = useState<string | null>(notice ? t(notice) : null);
   const native = hasNative();
   const canUseProviders = !APP_BUILD || native; // the packed app outside the iPhone app (a testing browser) has no way to open them
@@ -145,12 +132,14 @@ export function SignInPanel({ onDone, community, required = false, intro = true,
         const r = await nativeCall("appleSignIn");
         if (r.error === "cancelled") return;
         if (!r.idToken) throw new Error(r.error ?? "failed");
+        setHow("apple");
         setFinishing(true);
         signedIn(await accountApi().signInWithApple(r.idToken, r.nonce));
       } else {
         const r = await nativeCall("webAuth", { provider: "google" });
         if (r.error === "cancelled") return;
         if (!r.authCode || !r.verifier) throw new Error(r.error ?? "failed");
+        setHow("google");
         setFinishing(true);
         signedIn(await accountApi().exchange(r.authCode, r.verifier));
       }
@@ -201,7 +190,7 @@ export function SignInPanel({ onDone, community, required = false, intro = true,
 
   return (
     <div className="pb-2 pt-1">
-      {finishing && required && <SigningIn />}
+      {finishing && required && <SigningIn how={how} />}
       {intro && !required && <p className="mb-5 text-base leading-snug">{t("Sign in to keep your saved meals, shopping list and settings on all your devices. You don't need an account to use {app}.", { app: site.name })}</p>}
       <div className="space-y-2.5">
         {canUseProviders && (
@@ -453,7 +442,7 @@ export function EmailSignIn({ onDone, onBack, full = false }: { onDone: () => vo
   const next = Math.min(code.length, CODE_LENGTH - 1);
   return (
     <div className={screen} style={screenStyle}>
-      {finishing && full && <SigningIn />}
+      {finishing && full && <SigningIn how="code" />}
       <EmailTop help={full} onBack={() => { setError(null); setCode(""); setStep("email"); }} />
       <Heading id={head} className={headClass}>{t("Enter the code")}</Heading>
       <p id={sub} className={subClass}>

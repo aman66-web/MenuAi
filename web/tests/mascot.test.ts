@@ -68,6 +68,7 @@ const MAY_DRAW_PIP = [
   "app/app/_components/CoachMarks.tsx",
   "app/app/_components/SignIn.tsx",
   "app/app/_components/SignInScreen.tsx",
+  "app/app/_components/SigningIn.tsx",
   "app/app/compare/PipsPick.tsx",
   "app/app/eat-out/favourites/page.tsx",
   "app/app/error.tsx",
