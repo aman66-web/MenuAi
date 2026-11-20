@@ -43,18 +43,19 @@ export function SettingsGear({ photo }: { photo?: boolean } = {}) {
   const t = useT();
   if (photo) {
     return (
-      <Link href="/app/settings" className="photo-chip inline-flex min-h-11 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full ps-3 pe-3.5 text-[0.9375rem] font-bold transition active:scale-95">
-        <GearIcon aria-hidden className="h-[18px] w-[18px] shrink-0 text-ink" />
-        {t("Settings")}
+      <Link href="/app/settings" className="photo-chip inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
+        <GearIcon aria-hidden className="h-5 w-5 shrink-0 text-ink" />
+        <span className="sr-only">{t("Settings")}</span>
       </Link>
     );
   }
   return (
-    <Link href="/app/settings" className="group inline-flex min-w-11 shrink-0 flex-col items-center rounded-2xl px-0.5 pb-0.5 pt-1 transition active:scale-95">
+    // the cog alone, no word under it (founder 2026-11-20: "keep the settings cog, but remove the wording settings"); VoiceOver still hears "Settings"
+    <Link href="/app/settings" className="group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
       <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border-[1.5px] border-edge bg-card text-ink transition-colors group-hover:bg-background">
         <GearIcon aria-hidden className="h-[18px] w-[18px]" />
       </span>
-      <span className="mt-0.5 whitespace-nowrap text-[0.75rem] font-semibold leading-tight text-foreground">{t("Settings")}</span>
+      <span className="sr-only">{t("Settings")}</span>
     </Link>
   );
 }

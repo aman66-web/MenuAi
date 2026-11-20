@@ -132,7 +132,7 @@ export function HomePages({ pages, now }: { pages: HomePage[]; now: Date }) {
 
   return (
     // a container, so each page is exactly the content's width (100cqw), whatever the strip's own width
-    <div ref={wrap} data-coach="home-numbers" className="@container mt-6">
+    <div ref={wrap} data-coach="home-numbers" className="@container mt-4">
       {/* the strip runs edge to edge (like the Recipes row), so a card slides out at the screen's edge; the bottom padding keeps the cards' whole shadow; `relative`
           so the pages' screen-reader text is clipped with them (else it would widen the whole page) */}
       <div
@@ -160,7 +160,7 @@ export function HomePages({ pages, now }: { pages: HomePage[]; now: Date }) {
       {/* close together, an even 14 pt apart (founder 2026-11-20: "make that gap more short and even so it looks nicer"). Each dot's button is its own share of
           the row with no overlap: 7 pt of the gap on each inner side, 30 pt more on the outer ends; all 44 pt tall, so the outer dots get wide targets and the
           middle one 24 pt (WCAG 2.5.8's minimum), and a tap on any dot always opens that dot's page */}
-      <div role="group" aria-label={t("Choose what to show")} className="relative z-10 flex h-11 items-stretch justify-center">
+      <div role="group" aria-label={t("Choose what to show")} className="relative z-10 -mb-2 flex h-11 items-stretch justify-center">
         {pages.map((p, i) => (
           <button
             key={i}

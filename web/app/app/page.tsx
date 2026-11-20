@@ -129,10 +129,9 @@ export default function HomePage() {
           </>
         }
       />
-      {/* what Home is for, in one line (founder 2026-11-18: "everyone needs to understand the point for each screen") */}
-      <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("Your food today: what you've eaten and what's left.")}</p>
-
-      <ol aria-label={t("This week")} className="mt-4 grid grid-cols-7 gap-2 text-center">
+      {/* founder 2026-11-20: the one-line intro under the date ("Your food today: what you've eaten and what's left.") and the word "Today" under today's circle are
+          gone, and the week and the numbers move up, so the first screen reaches the Meal plan */}
+      <ol aria-label={t("This week")} className="mt-2 grid grid-cols-7 gap-2 text-center">
         {weekOf(now).map((d) => {
           const today = isSameLocalDay(d, now);
           const future = !today && d > now;
@@ -151,10 +150,8 @@ export default function HomePage() {
                 <span className="leading-none">{d.getDate()}</span>
                 {today && <span className="mt-[3px] h-[5px] w-[5px] rounded-full bg-on-sun" />}
               </span>
-              <span aria-hidden className="flex h-4 items-center justify-center">
-                {today ? (
-                  <span className="whitespace-nowrap text-[0.8125rem] font-semibold leading-none text-foreground">{t("Today")}</span>
-                ) : logged && !future ? (
+              <span aria-hidden className="flex h-1.5 items-center justify-center">
+                {today ? null : logged && !future ? (
                   <span data-logged-dot="" className="h-1.5 w-1.5 rounded-full bg-ink" />
                 ) : null}
               </span>
@@ -235,7 +232,7 @@ export default function HomePage() {
 
       {/* the cooking tools between the day's numbers and the things below (founder 2026-11-19) */}
       <h2 className="sr-only">{t("Cooking")}</h2>
-      <div className="mt-1"><RecipeTools /></div>
+      <div className="-mt-2"><RecipeTools /></div>
 
       {/* founder 2026-11-18: "I don't want My Meals anymore. I just want the option where they can scan food": no My meals on Home where the scanner is (the
           saved recipes and orders are still in Recipes › My recipes); the website, which has no scanner, keeps the My meals card */}

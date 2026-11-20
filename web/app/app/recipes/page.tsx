@@ -289,7 +289,7 @@ function RecipesScreen() {
         </div>
       </div>
 
-      <h1 className="mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">{t("What's cooking today?")}</h1>
+      <h1 className="mt-2 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">{t("What's cooking today?")}</h1>
       {/* one short line (founder 2026-11-18: "Is there actually any need for that text? ... make it a lot more shorter, maybe even like 1 or 2 lines"): the cards
           below say the rest (our recipes, Make it at home, the meal plan); this says what nothing else on the page does */}
       <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">

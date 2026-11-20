@@ -3572,3 +3572,10 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   that off the screen if they want. Like if they swipe up on that, it'll go"). `Toast.tsx` (all 12 banners): it follows the finger and goes when pulled 32 px
   towards its edge (up for the top one, down for the bottom one) or 64 px sideways; a smaller pull springs back, a pull the wrong way only stretches; a swipe
   that starts on Undo never undoes; under Reduce Motion it just goes. Checked with real touch events: small drag, swipe up, swipe sideways, swipe from Undo.
+- (about 11:45) **Home and Recipes moved up so more fits on the first screen** (founder, two screenshots: "Remove the text saying your food today ... keep the
+  settings cog, but remove the wording settings. Then move everything up ... remove the wording where it says today ... below the two dots, there's extra space.
+  Close that ... you should be able to see meal plan on the screen now"; and on Recipes, "you can make what's cooking today ... slightly more up"). Home: the
+  intro line "Your food today: what you've eaten and what's left." and the word "Today" under today's circle are gone (the lime circle and its dot still mark
+  it; VoiceOver still says "(today)"); the week and the numbers cards sit higher; the gap under the two dots is closed. **The Settings cog has no word under it
+  on every page** (VoiceOver still hears "Settings"), reversing the colour meeting's "cog with its word". Recipes: "What's cooking today?" sits right under the
+  top row. Measured at 402 x 874 (the founder's phone): the Meal plan card's title and line show above the tab bar; no sideways scroll at 375 and 390.
